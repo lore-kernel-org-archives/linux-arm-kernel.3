@@ -4,134 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6FFBC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:48:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85208C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wY2z2naCN/wW7JTS6rmtxDUEVDrtu2VWnySFhQoTtls=; b=eGX/t+8P094D0dFelNQjUOUVlT
-	v7pt5+hxWxOPxJcC3BS3ZbzAXJjztGdKJwpf0uW36eEXdIW0JQf0CQnGJ9RcbtB1yyy84TpjeTgOr
-	xsX5Km9UU+HctfcprxCMdCwZloCTSBnrNE6tN9PQnvldb7i0S5J8KutvI2RN77r1CoeV1UN7QiGaF
-	3njSHK0AxjcseOfddb9ZwRvyT6XDQS6OegS9LEG5jmX6ALAeDp3iMnTcrcOb6p6QoQnu0oBSWuI7g
-	0qP9p4sP36YpnCPlQaZv3vw4nX322jGdmPnT7uEe2hvJmx7wltVORng5gbV6AG8BqnILpYl7GwixD
-	3/JWmSEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N6dH0Gfnug0Itmi1EYYzp7vNlTRp4cIvjpJnn04Vt7s=; b=o0MlV3gnkjirAxjUuHMWzeJzBL
+	KbuKrUziHXdddNrmiJfabnh0N7PYvAcgqtXrAYmjFQdlUSGGoVH+wyklOM8PgInHuGUrj8uLHB6+3
+	8CAQiQQs10tCX+BdJIX/cpP1PzYhSQTYNixrbB2rRNsXukaXwy6m05HIQw5xWG226V1WZiBJmdCpc
+	AWbJvue3miRCS2xCjRi0loik81WCQrgS+kwSg0MSvv9FNyNBIFXRDdqJyCbWUlcy3FoELu//ZoNSj
+	EIS2PE+DakHTApk2tJsxxaPi4IXCopc2tRAWRoVZqV+ghwkYEOF9TZgXAZ6E0+oigGpaFvBetbLre
+	S2tdFbLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3hy-00000007xCg-3Bx7;
-	Wed, 29 Jul 2026 12:48:26 +0000
-Received: from mail-westeuropeazon11010064.outbound.protection.outlook.com ([52.101.69.64] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wp3oh-00000007yhn-3mMj;
+	Wed, 29 Jul 2026 12:55:23 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3hw-00000007xCD-1FCi
+	id 1wp3oe-00000007yf0-01FB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 12:48:25 +0000
+	Wed, 29 Jul 2026 12:55:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LGN+1CRss2RT5g6wDwZnAzGOXqWh59xGpK6xXwDCg8Byrl/iYjvy71zsJXcouaSdPUwTCKHO9IuMeIve2Kq8uKVfdaOW+h5RAu3Zc5hPnvdZShs+sZchRBwR1L8ftDVDKii5IhEicyjCE040HBgCBxv+TXLRrD35i4z+nJlFP3MBbTaAZCV6Pd3D9rySSartB4KwAkHEv+H34QOoBKT/Elx8ewESnPj7b0G0lcyx4p+eNm4N60uQ4msv71sIxrJP4YY5DzvEjCS5XzF8WT1H8re6yZG9TeZgFJy6sb6VYQPoDjCPCYGeQERHQ2MkBnuEsMOSaKICt5PJ24uNNe1cXw==
+ b=E9FLAvcDzK2lJvnYsfMSMQ6rZz21Xk0sj04LIgs6uuMMkPpyY3Mr5eWd6bLvlRmv98+WJKdyio7SyAeNPVqB0rT8NLFFAHvKyJkOxmMxNJcj8RrpelRvWX+MvaM+N0Swpadplf/iarHa+aXY6EQSp2Vo2luRl1H1ZdyJRBLSkHPPr60I9XGmv/3q4kguZgs+OB86YygkeH3GzGlz/uBvFG5LyiKKR+zqHTjadCeHZ2Xhph6OvTbN/T3N1Idxo2mS6DIUM90LuaopgINpoI1ziALBiA6Lk+NIoKb8zgjIOQMWCwJSJj92UJUihDBvRMg7gkJknY5OQPEE2jS6HAy3zA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wY2z2naCN/wW7JTS6rmtxDUEVDrtu2VWnySFhQoTtls=;
- b=uvDvEcObhxEWKNcaLI1u34P9BbofVEZjslim30FU2Rj2w8bub0dCnRbwoLltjVW5B0YZi+zr74d7qYA54baxFxvm4mCddi9Sn3EfgXO7XwkTHs/BfQyOu1oipA9D1+471LlgOo5cNhEhEXuvPZh5zUMY1ZTgsb4/2Jc0DnN0r9WURG44sRC8duDpqVJbc4/EbZhH4YNi3h0Go1As786Y8WS8ZRHLDN/zuQ1lLAsO6KRshOiwIFktBgcB41HUblkZQXJrzNA7Pw+d1ve6u4A+BGDD9wJ8ZEZ5v3TKSNbSMS/0TVrJnWRYZEwyzDFgGRFb5wCV6A68GdsGZzR8m9TKRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=N6dH0Gfnug0Itmi1EYYzp7vNlTRp4cIvjpJnn04Vt7s=;
+ b=FmZbayk1pTxcFoxNlCIir2v4EgUohFXZsp7KcEgbzxkUT1593/OsP8qboPzYrUDh0ZZVaEqmnDx5Oi2oPOnvTzSDdjifCFIBweJbS7+gEq9I8R1BhuVUkuN7oqdNoUV+vJlcPA2Qw6wZC3JjREXZUOV4vRub/U6w1c+W9Js5s7A0M10GKTFbJ2atdqSWbVIdy+lf84d0zkDELSli8f5ZpbJnW5ST8HTf8h7EDVRW5FUoJ6kcL1J2hZWtlw4pMOJ3KKP2TrhVQCE/21rGC8eBUzesCNsVg6YFN9obDbT25whqXzyfH1LMShfwUACLVbaYbtcTvRpSpzh8tNoJAXg8Wg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wY2z2naCN/wW7JTS6rmtxDUEVDrtu2VWnySFhQoTtls=;
- b=rSZBU55x4osTsO2PFmcEijcONhwQjNljRSkBnazGPt6tm+29nbI6eDFDuAbAdlu/+Ph/S6NG/cGQ7441tGWS0Vx07kU7/cXa/WNKHY5KEE5dhEVqqNGMh/COGgxrNbo5RLIWYzEzl0hXuMZM9mIxG81RAaYZ8taCQl/pxg1YUhzBO8fEA35sjBendFuEIepzW9NYPOUQDEmUcOYlusgKbd+g95l5UBwuvI55dpCq4i9rfwxezmNdub2m6k19n5CsvzTxUbUsmJ1mXxhljP8IO2YbjAz4m//QGQ21qolZyFdi9uIo6yd50nVmwWU9437mCNyIxYtG6n4gk23Qe3utPA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by MI9PR04MB170442.eurprd04.prod.outlook.com (2603:10a6:290:c3::9) with
+ bh=N6dH0Gfnug0Itmi1EYYzp7vNlTRp4cIvjpJnn04Vt7s=;
+ b=f5QR9+j5CY5suBtiqleXV9bmziHpCJngmXFTbVJWGqb210YMKUWI45GBuLJMcp4StO08gLpaMwGLun1oy33NbSKANQDcK8tXPq4m7EIfzzMBhpzbqtbh1svMB9natdKWkWbv6ERQNrfYZDCPNY8etnORTeCVK0eyLJEahJK5+fQ=
+Received: from BN0PR04CA0135.namprd04.prod.outlook.com (2603:10b6:408:ed::20)
+ by SA0PR12MB4414.namprd12.prod.outlook.com (2603:10b6:806:9a::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.13; Wed, 29 Jul
- 2026 12:48:20 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0245.010; Wed, 29 Jul 2026
- 12:48:19 +0000
-Date: Wed, 29 Jul 2026 20:52:04 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Ivan T. Ivanov" <iivanov@suse.de>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Frank Li <frank.li@nxp.com>, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH] arm64: errata: Add NXP iMX8QM workaround for A53 cache
- coherency issue
-Message-ID: <amn3dMLIuxYFFtoN@shlinux89>
-References: <20260729-imx8qm-cache-coherency-v1-1-c9864e280437@nxp.com>
- <amnNAJC4yHVsZaN8@J2N7QTR9R3.cambridge.arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amnNAJC4yHVsZaN8@J2N7QTR9R3.cambridge.arm.com>
-X-ClientProxiedBy: SI2P153CA0001.APCP153.PROD.OUTLOOK.COM (2603:1096:4:140::7)
- To AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ 2026 12:55:08 +0000
+Received: from BN2PEPF00004FBC.namprd04.prod.outlook.com
+ (2603:10b6:408:ed:cafe::7d) by BN0PR04CA0135.outlook.office365.com
+ (2603:10b6:408:ed::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Wed,
+ 29 Jul 2026 12:55:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN2PEPF00004FBC.mail.protection.outlook.com (10.167.243.182) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 12:55:08 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 29 Jul
+ 2026 07:55:07 -0500
+Received: from xhdappanad40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Wed, 29 Jul 2026 07:55:04 -0500
+From: Dileep Kumar Nagavarapu <DileepKumar.Nagavarapu@amd.com>
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner
+	<dlechner@baylibre.com>, =?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>,
+	Conall O'Griofa <conall.ogriofa@amd.com>
+CC: <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>, Dileep Kumar Nagavarapu
+	<DileepKumar.Nagavarapu@amd.com>
+Subject: [PATCH v3 0/6] iio: adc: xilinx-xadc: Add I2C interface support for System Management Wizard
+Date: Wed, 29 Jul 2026 18:24:49 +0530
+Message-ID: <20260729125455.95893-1-DileepKumar.Nagavarapu@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|MI9PR04MB170442:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd24c3e2-3ded-4f53-1a04-08deed6faad9
+X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBC:EE_|SA0PR12MB4414:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8139107b-fd91-4dd7-e16a-08deed709e8d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|19092799006|23010399003|6133799003|22082099003|18002099003|3023799007|4143699003|56012099006|11063799006|10067099003;
-X-Microsoft-Antispam-Message-Info: RZp5jO17YugGs1jk6N8GYy/E6s8cDvsI1jGiEoE1rEdx5NxAwihMA6EqLK3aqxsh3UKhqG9Xwc5LpvZUjjHHk0H7McBDWxxx1gA60JT+CwHALSfyftnUZUoGk6fpIk8gowYeklyIuEceT4xCcONQpINkK5a2w6JrYRSvOoR0rPyqHID6IBJrU4m97km/bhFb1xglIVinZVJT9svhMynTfxsDQ0i4TXfYIvwe1upyb8fMrXwI26IWydQ8BeNnoLSlDzRZj3CYw3nqzq4HshCkpx/QZRLYwSdXZjyIcvMmcAZCu3laJ1W87c40zT87Xzn1ys9wRipAvT/chdYQHnzN0FLc+AtKlQoME4oXO4MF1pxUpGJpr5kEOOXgv9WkPtWp3N0xN4rhEzF76YEdY/QhhMcM3i9ynju0Jevr3cHjtBBHB9/qtncsNyu2Ls66Dk3dtTfzqXT6cRgxqVs1m1P2JDbWzpQ+wSTPAEyjCw1xF9IZanizST3EI2tKKYK4lLtX4QYv9ESKcIZaPe6UDx8PFBsDE3dU2vSrBk3o+4lXcJQGLhaw/DZataE2pYp4e60j6DTr5JflhF6BdxijAVkW+SwEnrCxK2fH9gRX5S+a0ZEq59mPm/GZgPFAW1xXRzi2k/Sys/cfYxg8KzIO8Ehx9ZMa5cQEHrorB+mDwbp/1bs=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(19092799006)(23010399003)(6133799003)(22082099003)(18002099003)(3023799007)(4143699003)(56012099006)(11063799006)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|376014|36860700016|20046099003|18002099003|5023799004|11063799006|56012099006|3023799007|6133799003|10067099003;
+X-Microsoft-Antispam-Message-Info: M2F4kVofCIsYKTaxmVx01IMFgoBjtlMhM3Lmo9hOZ2S95bvPTf3R92XXuxRyXVpw8jjujeSj9PxsB6/OZuiME0n7cP3LYnoicjjtn19QroAG1DwjWEVk/X0QS3i7U2pwtRAYJH9mjVbCaF5Jk5QhvB4CKUUJyaMAncXaK22mlUJWZtg0Gao83auOLEwEyg+KmpkKIkIa+PexkBulrv6zvL22NQZKkW9iBE5qxHNGbz2QzP3JG1g3wBaUsoBLnWd0XK75j9EvmgY8hYy1eCLgzvPNPh7l10nJ7TNM2QMhTpsh9bZtKGffiezTR9yHHXPluMgn4cSJH2AgE+IlV4ITY/1WrL1/ibhO9PPb9sut+iR0WH66cK4HiqxS4cvwAJ3qJYfodPLg+qzSdVJhX1tPk1+M4rvRabDefOHlU1zpUDtQuXYoUXjvNzkklIAnHFIok3NAAdqNZ2NbI1tXgYmYLAJkbamDI45aYgkjgny1ecrTdjXXN9/c6hVpCYdcEYxi4yNQ5joMPfDW9vPT1IhIuLpWqvYg8MFO6yXKhAcMglAHsfsoM4fDPYDiv2Ug9O1WspfpSbCt0e/CMvvpj/+sBDbzFiJPlCEjt7bovZQjFJ7mqtLnlq0QS+mYOuvgLs3R8Ubl7l3s8hoxSX0qaXbkhKOi9yPGr9yBxuwBOqU4UICcp4XetqQHov8dUCMY4qNtNdPncpOI+MRgHF3XnJxUpA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(376014)(36860700016)(20046099003)(18002099003)(5023799004)(11063799006)(56012099006)(3023799007)(6133799003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?xQEUPgVt9QrS0Fp1ag9oRvFQkxzw3XItC6JCtlblM+5LwcJzPGBlUdzMyRaq?=
- =?us-ascii?Q?RvbbnNBQMgT1ajz01XhspIOXTzsi//5s7pS1GCyz29gMRH75TMeL5OtCpLy4?=
- =?us-ascii?Q?0JYo47C8c80CQo2y32G4a5htKKSEwzztTI8yJO2NCPQFgmv8Q4MO8Rsvjh7C?=
- =?us-ascii?Q?BRdDMqFN6z5KIhg+06PsTr2u0r97fP4jn0LbQZVS5SFtFLPaoPpaw+dSDQHk?=
- =?us-ascii?Q?csCpedm2vU/JGwywhpS+REeFwYIbF4RLqBKnbusKVmdTTXo9AK/RuMOzLUaK?=
- =?us-ascii?Q?5N0HY7rjAC5iV1Bohat67ABVw+jHCrNwD9rENi9S8ilMVICtzCjHpglFaNX4?=
- =?us-ascii?Q?ersvtQndAgFMSMs9v3tkOeETUYVIvh/R+lGyDhMNhXuYk3Q+hN+kv0p4bnlf?=
- =?us-ascii?Q?AXy7RZGCc9Nwq3alJzlUbxgr4rI0xCOo61JZRfgdlk8DsoEoea7n2gto+uah?=
- =?us-ascii?Q?VnXtu6bicDRV8zB8fvxpILD0LIWBLX+8UXQTzodxNk3xFEbL4CSdqAxzcAB4?=
- =?us-ascii?Q?h75Y5MVgm4HFnBoI7KW8TcOBTs+KCQrmowz1UvXZE05nX3G7XVZw50Qcf762?=
- =?us-ascii?Q?JeVEnV2aEauCQA7AzgA705N6/OvaeOrZletFGGamr9Y9ELkMz82dTEde/YtE?=
- =?us-ascii?Q?TIwkcBi28arR7hhaoabCsgIvJb4gvq9s/dqQaZogwxI6pigxEPJN7/t22O2J?=
- =?us-ascii?Q?c+L6ojj33HNsZkuvJdwZiwr1J3MJCaIvHrAA2sX2dxB8zNkoVhuz3Bsf//G3?=
- =?us-ascii?Q?v7Ptd4N+YQw6dkPQUJwQXALO9iEXLHVGszG2O8IlM+ceTquc88T+QYTYAx8g?=
- =?us-ascii?Q?FaoaPzZD53n4OeVymF4NZqBNNPno8vc1OHoQa6pSZeVHxQApowUkZyfV22uw?=
- =?us-ascii?Q?roxGLOVMPXDSVjBvwNM00JSA53VRcCT1BGL0DPH3Q1laDJeDBZBS+9nECDc9?=
- =?us-ascii?Q?QOZ5gXV/ixybYCwFmkHz8GifMD+GYFjMkx7+g6gE2eyaWTNE7SBkptkSbNZA?=
- =?us-ascii?Q?9XSjVqdH5/qybvjIiIimtWIDqtVgq0kkDzJioLpP0l8GXPwPA7AoSzTZC7cv?=
- =?us-ascii?Q?HEPc71v/8YQWDU3H9an6KK4v9Si6r11rg2FtDVUxfJ6DHOM2FWPm3Q0x+4wQ?=
- =?us-ascii?Q?g2lnF6aNNoXavpelu1QnStU5LcuMMNDGO9Pxn55jHEwN4EZ8zeKomsM+NvFv?=
- =?us-ascii?Q?RLe9GHkFnHtKSWyh2DRYBUB3XImHEMDMbi8yxFKuELOcqyhUGOLgPM5F/YZT?=
- =?us-ascii?Q?KiSyZiizQflGPFsUp3+MlKnIYa4BW87FYTz6bz5Y8LuMgTtnQjIbTwmy9q3W?=
- =?us-ascii?Q?f5c6kzL1735rVUm2Wrw+5qnRDJxkHsDMlOJkByCe2Fw6WF8oAtkbSAQqH73j?=
- =?us-ascii?Q?2RruDA9A5cFfkGH7m5LRxE4G1NHy32KRjqWymPTAEThdpzZJak7/BlHCC/ng?=
- =?us-ascii?Q?VuVBT0w9kLny8MF3+zC7CbQziSk2AAFi2aD4hPWaJRg4rfXwHP1VIUhPDhya?=
- =?us-ascii?Q?WjGwZVzQeZXpXOcKHVRyMMYS0x5cpdCHs9ErYjeKNukZ8+ATglpMwWBM/db0?=
- =?us-ascii?Q?HA2zob3sd1mfPogMcjaePd8w9HiiBXeS2siGLvuzlgrpwSysGqnK01yWG/ar?=
- =?us-ascii?Q?vmMOjKu2kj8Rr0hAtPvVl3JLivcHl+2F3QjqUeqpARp4hRa4h3QKAYwH74V2?=
- =?us-ascii?Q?iu6DN2N6ikXaCuiP3wZ25FJ6p5kIPpq30uHe4eEMpQ24mLipsdpc6VddrKeN?=
- =?us-ascii?Q?LPkYBhVF0VjEYxxvX48wE2ReYF7l4E0GboF3AR59onsjUkjej9N4?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd24c3e2-3ded-4f53-1a04-08deed6faad9
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 12:48:19.8089
+X-MS-Exchange-AntiSpam-MessageData-0: Vog4dMwLtkf+2rsVAifjM/0s8NsjJfUpsTpl+cwa2ORtG7ACJ8waPWL2lil/MenBGbToXfklsaS8V9I52luIaL5qA3lROiCz+fNDBSXKeYCMEfzHk/BJ0GM2KOVmQk5byEr69em/L4PY8fdlXiHqZbz/tftpa/kPAWc1ZFNv2bjWRrTeQGcvwyIRAYC3da5W0d6R2YGpWLzOqEwproWo5vi8Q88DFFL5ZhhwcQg62lm/gAmaRGyQZgpGWXKtn3m3F0jYvYflNO+fw6vCyM0kb6YsnVDE1zXArgrSmSoyuyvZoB3lkbdpY3shg5vepotkS5r+q+2BeEl1SEzwWIo69BMttg04hlLzvyMXNUjfp8UWq2Dci0jvRnd+uLhSKdSgtG9Pl+pD1xETZO/iXaHCxUI0JnbYNFHTKkcTiMEr9Pfcrev/jsQD714hnWvdQ+Nx
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 12:55:08.4975
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: raWWHo0GO5IRqzJui768DZdoXeUz0QWmiYc1H5jllI4EwluaeklpffxQgV1fUMIM8nM+GV9IFlIO958zDNHnUH7efLMa2P3O3kwB0ui52nlorTmnmLKBq3b54qY4p1+y
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MI9PR04MB170442
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8139107b-fd91-4dd7-e16a-08deed709e8d
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBC.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4414
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_054824_340887_7384830D 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20260729_055520_049329_D7B09066 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,130 +122,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+The existing driver only supported AXI memory-mapped access to the System
+Management Wizard IP. This series extends the driver to support I2C-based
+access, which is particularly useful for System Controller usecases.
 
-Thanks for your reviewing.
+Key Changes:
+- Split the xilinx-xadc-core.c file into two files(xilinx-xadc-core.c and
+  xilinx-xadc-platform.c)
+- Add required helper functions and callbacks
+- Add channel configuration via callback mechanism
+- New I2C driver for UltraScale+ System Management Wizard for basic
+  voltage and temperature monitoring
+- Converted text binding to YAML schema format
 
-On Wed, Jul 29, 2026 at 10:50:56AM +0100, Mark Rutland wrote:
->On Wed, Jul 29, 2026 at 11:28:52AM +0800, Peng Fan (OSS) wrote:
->> From: Peng Fan <peng.fan@nxp.com>
->> 
->> According to NXP errata document IMX8_1N94W[1], the i.MX8QuadMax SoC
->> suffers from a serious cache coherency issue (ERR050104). The upper
->> bits, above bit 35, of the ARADDR and ACADDR buses within the Arm A53
->> subsystem have been incorrectly connected. This causes some TLBI and IC
->> maintenance operations exchanged between the A53 and A72 core clusters
->> to be corrupted.
->> 
->> The workaround requires:
->> 
->>   - Downgrading targeted TLBI operations to broadcast-all variants.
->>     Instead of patching the low-level __TLBI_1 macro (which interferes
->>     with the REPEAT_TLBI workaround and causes excessive over-
->>     invalidation), redirect high-level TLB flush functions
->>     (flush_tlb_mm, __do_flush_tlb_range, flush_tlb_kernel_range,
->>     __flush_tlb_kernel_pgtable) to use VMALLE1IS via static key checks.
->> 
->>   - Upgrading IC IVAU to IC IALLUIS for both kernel (via ALTERNATIVE in
->>     invalidate_icache_by_line) and EL0 userspace (via trap-and-upgrade
->>     in user_cache_maint_handler with SCTLR_EL1.UCI=0).
->> 
->>   - Disabling KVM since correct TLB maintenance cannot be guaranteed
->>     for guests without the proper devicetree.
->> 
->>   - No need to touch SMMU Broadcast TLB Maintenance (BTM) since i.MX8QM
->>     does not support broadcast TLB.
->> 
->> SoC detection uses devicetree compatible string "fsl,imx8qm" since the
->> boot CPU MIDR_EL1 (0x410fd034) and AIDR_EL1 (0) are not unique to this
->> SoC.
->> 
->> [1] https://www.nxp.com/docs/en/errata/IMX8_1N94W.pdf
->
->[...]
->
->> +	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_NXP_ERR050104)) {
->> +		__tlbi(vmalle1is);
->> +	} else {
->> +		switch (flags & (TLBF_NOWALKCACHE | TLBF_NOBROADCAST)) {
->> +		case TLBF_NONE:
->> +			__flush_s1_tlb_range_op(vae1is, start, pages, stride,
->> +						asid, tlb_level);
->> +			break;
->> +		case TLBF_NOWALKCACHE:
->> +			__flush_s1_tlb_range_op(vale1is, start, pages, stride,
->> +						asid, tlb_level);
->> +			break;
->> +		case TLBF_NOBROADCAST:
->> +			/* Combination unused */
->> +			BUG();
->> +			break;
->> +		case TLBF_NOWALKCACHE | TLBF_NOBROADCAST:
->> +			__flush_s1_tlb_range_op(vale1, start, pages, stride,
->> +						asid, tlb_level);
->> +			break;
->> +		}
->>  	}
->
->Are you sure the workaround needs to be applied for the TLBF_NOBROADCAST
->cases? The NXP document lists non-broadcast TLBI instructions, but I
->strongly suspect that's in error, as those shouldn't result in
->transactions over the core's external interfaces.
+Note: We are working on x86 platform support where fixed channel
+configuration is used(no DT support). The .setup_channels() function
+pointer introduced in patch 2/4 enables different channel configuration
+approaches for various platforms.
 
-I think you are right, TLBF_NOBROADCAST should not be applied with the
-workaround.
+This series was originally posted by Sai Krishna Potthuri.
 
-I will use below if this looks good to you.
+Link:https://lore.kernel.org/all/20260323074505.3853353-1-sai.krishna.potthuri@amd.com/
 
- if (alternative_has_cap_unlikely(ARM64_WORKAROUND_NXP_ERR050104) &&
-     !(flags & TLBF_NOBROADCAST)) {
-         __tlbi(vmalle1is);
- } else {
- ...
- }
+I will be maintaining the series going forward and posting updated
+revisions.
 
->
->[...]
->
->> @@ -585,6 +585,12 @@ static void user_cache_maint_handler(unsigned long esr, struct pt_regs *regs)
->>  		__user_cache_maint("dc civac", address, ret);
->>  		break;
->>  	case ESR_ELx_SYS64_ISS_CRM_IC_IVAU:	/* IC IVAU */
->> +		if (cpus_have_final_cap(ARM64_WORKAROUND_NXP_ERR050104)) {
->> +			/* ERR050104: upgrade IC IVAU to IC IALLUIS */
->> +			asm volatile("ic ialluis");
->> +			ret = 0;
->> +			break;
->> +		}
->>  		__user_cache_maint("ic ivau", address, ret);
->>  		break;
->
->This doesn't address my feedback on v1:
->
->  https://lore.kernel.org/all/ZIHisLL9FXlbuMLJ@FVFF77S0Q05N/
+Changes in v3:
+-> 1/6 - Modernized the driver code with latest kernel coding styles
+         and guidelines.
+       - Restored one-variable-per-line declarations where no
+         functional change  was intended.
+       - Added unit suffixes to timing and clock-rate constants.
+       - Replaced GENMASK() and FIELD_PREP() in appropriate places.
+       - Added guard(spinlock_irq) helper to manage the spinlock
+         automatically on scope exit.
+       - Added MAINTAINERS entry for XILINX XADC driver.
+-> 2/6 - Refactored the xadc_setup_buffer_and_triggers function
+         with only two arguments.
+       - Added xadc_device_setup() and xadc_device_configure() to handle
+         device initialization and configuration separately.
+-> 3/6 - Added IIO_XADC namespace to all exported symbols and
+         imported the namespace in platform specific modulue.
+       - Spliting the driver with modrern driver changes.
+-> 4/6 - Added .setup_channels() to handle custom channel setup
+         and configuration.
+-> 5/6 - Replaced mutex initialization with devm_mutex_init()
+       - Removed unused i2c_set_clientdata() usage.
+       - Added comments describing the DRP packet layout used
+         for I2C  transactions.
+       - Added comment for hardware initialization check from xadc i2c
+         write and read functions.
+       - Wrapped Kconfig help text to conform to kernel style guidelines.
+       - Switched device setup error handling to dev_err_probe().
+-> 6/6 - Removed write edge default configuration in XADCIF_CFG register.
+-> Dropped the binding to YAML conversion patch as this is already sent by
+   Pramod Maurya and is in discussion.
 
-Sorry for missing this one.
+Changes in v2:
+-> 1/4 - Split the xilinx-xadc-core.c file into two files
+         xilinx-xadc-core.c and xilinx-xadc-platform.c(comments from Andy).
+-> 2/4 - Referred as .setup_channels instead of setup_channels.
+-> 3/4 - Created separate functions for i2c read and write.
+       - Created separate file for i2c interface handling.
+-> 4/4(comments from Krzysztof)
+       - Removed $defs and use it directly under xlnx,channels.
+       - Documented the error information in the commit message due to
+         vendor prefix properties.
+       - Kept only one example as there is not much differences.
 
->
->... which I see Sashiko has also spotted.
->
->Please make this:
->
->	 case ESR_ELx_SYS64_ISS_CRM_IC_IVAU:     /* IC IVAU */
->	 	__user_cache_maint("ic ivau", address, ret)
->		if (cpus_have_final_cap(ARM64_WORKAROUND_NXP_ERR050104) && !ret)
->			asm volatile("ic ialluis");
->		break;
->
->If there's a reason that doesn't work, please explain that reason.
 
-It should be ok.  I will take your suggestion in next version.
+Dileep Kumar Nagavarapu (6):
+  iio: adc: xilinx-xadc: Modernize driver code
+  iio: adc: xilinx-xadc: Add helper functions for the device setup
+  iio: adc: xilinx-xadc: Split driver into core and platform files
+  iio: adc: xilinx-xadc: Add .setup_channels() to struct xadc_ops
+  iio: adc: xilinx-xadc: Add I2C interface support
+  iio: adc: xilinx-xadc: Correct Write edge in CFG
 
-Thanks,
-Peng
+ MAINTAINERS                                   |    7 +
+ drivers/iio/adc/Kconfig                       |   23 +-
+ drivers/iio/adc/Makefile                      |    6 +-
+ drivers/iio/adc/xilinx-xadc-core.c            |  886 ++------------
+ drivers/iio/adc/xilinx-xadc-events.c          |   54 +-
+ drivers/iio/adc/xilinx-xadc-i2c.c             |  228 ++++
+ ...inx-xadc-core.c => xilinx-xadc-platform.c} | 1043 ++---------------
+ drivers/iio/adc/xilinx-xadc.h                 |  108 +-
+ 8 files changed, 609 insertions(+), 1746 deletions(-)
+ create mode 100644 drivers/iio/adc/xilinx-xadc-i2c.c
+ copy drivers/iio/adc/{xilinx-xadc-core.c => xilinx-xadc-platform.c} (34%)
 
->
->Mark.
->
->
+-- 
+2.34.1
+
 
