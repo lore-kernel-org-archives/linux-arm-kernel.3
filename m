@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 755F0C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 00:43:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA703C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 00:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r4Gw4ioSscdZva3p6jvwUu/0HqrTnRkxRU/WO0C15fA=; b=w7wNDIjYle5E0fm9o0XT9Mw6zJ
-	Z2qf+mEzeBYv/9F0FuGJPskMJfG+mBWFC3RblUMi7L90AI1NH3ydlVrU0W1ESyYnlOrEuiPZ2NYwO
-	/a+7NJM40BsVyoXStUfPvJhBjnTkcrUDi50YEzdv04SA6cW4AcU8NUCfhSD1ihEp+b2JmehnsQqU9
-	r67+5gQtUivCvKRjldU9slQn15KuDXdwPQpi45chtAXteVnVU5yDl5ziM+YG6wpZXzmsOx+iqrd0u
-	+b7lZiyGqc788Kv8VSykdMbqctWK+z2dkwG4Ap875/ySfDxNrr6RtlLwHmzfQVkeiPp5f7bxX464t
-	ij67kXQg==;
+	bh=UVZwS8jOvBUyjwgl3DDKvmTYA+QBde5QPL3dY7t7pMs=; b=CNHNE8vEL4ocKyiihdt4X/OJR4
+	7M/8A2NSNRJHCxmhQ/hQMiOl9hxR6L9YWkfzksggso+2A1Pa37rmwgItr2RVlbmZ49P1HjkLczCg+
+	6DV1iCz3QIBROkcp47XAWc/e4jJzRPkgqASAA92KP8cwdxncmJey/tQxaeqe8017LgrrryMEIltPa
+	hZf96plkd/NwSIINpyTXwxX99RU1vxIXdS7ZgZPvovNoAPAyvfP4gpXzkP1bBhuAQHxrt8HcJW7pT
+	ECbmVJ6hyASUvjIdxPcBGydT0SEm+4u0BrUVaDSxKjDpzRrCvhffh0FC7jpGLVw81dccpjmON4M/E
+	JubRbwjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wosOT-00000006Xjn-1taT;
-	Wed, 29 Jul 2026 00:43:33 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wosVX-00000006Y7p-0YPn;
+	Wed, 29 Jul 2026 00:50:51 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wosON-00000006XiT-0KsA
+	id 1wosVU-00000006Y7R-3LUr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 00:43:28 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49554ebb87dso3051425e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 17:43:26 -0700 (PDT)
+	Wed, 29 Jul 2026 00:50:50 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-8485ef63b68so429243b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 17:50:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785285805; x=1785890605; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=r4Gw4ioSscdZva3p6jvwUu/0HqrTnRkxRU/WO0C15fA=;
-        b=T846IJ+k2EwegQMWpWbw/p5P2QE2cMELU0VRj2ELPNAFli5ouIPe2erVhtr0VzeO6z
-         yb+OYiP19cXSS7m+sL/X9ep29bf2WTADNg7CsnwdT0Evtup32ae5CTrJ1uOYhoIBjrIy
-         QWs//luhNtTo/s0iljfqrnP5gE7hE29NXM/u5+T8Yc8z2JnqMjRegjJY1ErQLzn57HaJ
-         1xnj/KXx90Rs88kaJgr3M+0aEe0kWIcL9hZF+Bff2ypINXZA+ACCoTyb4t9HOOOfLreB
-         JMnGCwdmS9I4JVbrCv5dehNJFp//V+XiYUBRXW5KUUXs1ZDxUc/Uht0SulPs2llShz/i
-         6bng==
+        d=gmail.com; s=20251104; t=1785286247; x=1785891047; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UVZwS8jOvBUyjwgl3DDKvmTYA+QBde5QPL3dY7t7pMs=;
+        b=UhRvOoU5vz+ho9B6KKcCiRFPaiw/r62kns4iWvaCL3je0OE9rp9SlQ27uW9QA8RJZy
+         SHmHhMeHgTPuYxsD6Dqefn50M//eeLhye6FS77602FHP2SSqyiHDz2obNpe2FAcBTZJx
+         GkszpNbFg5TVyAAa0l6CjGqQWV6UfagOPgYXJi8nczGls6+77aK2+LTxigbCVwWOmkIQ
+         D8964OW1T+rZfpQrzkt5lG9FkAXbPvI9ZWejB77LhVaG59c0IxU63qdEOGV9qDj/GimI
+         JRki0YKElJXm3pFhL8gqe4UHKRu2OSfjVmF+23CRqVJQBBn78lE8bBuKr+/7yvvtkTzw
+         sfJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785285805; x=1785890605;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=r4Gw4ioSscdZva3p6jvwUu/0HqrTnRkxRU/WO0C15fA=;
-        b=MzSJkyMAXmy/XA3dfnouzflFIYfUsxV1iE8ZOGo+LfhBOVsByKuE0Pr7xDIStV+AaS
-         ihAnqRSqqrenBIFvSfRUhO1RW5OmzEs1y4B6PUsItNSS1nBe+xjt2S4qM0PRsnCfdQTu
-         hQ6t343TpgKLNS50XMBVahWGIZC5uwDojuokwk849nrNtxD3D1RvhXbU4MLgczHHgPga
-         cUhkEegfJwGZv2zKTNWyKkyMIPYUz5yauTgrWv9jz0bt7aot+j9bQ8qTCA0ApbtdO/tl
-         8ZFe1X0OBRlSZeckNdI9SPozu7xFDDxmBLvRvxXt3fnACKS1K4HDtspKtv7eZMZhJarD
-         +frg==
-X-Forwarded-Encrypted: i=1; AHgh+RqdUJO+hog50BL4OWPvEDmN5Xeidw4kl2PSRvFiMpUWDsiq3wPYB4tPedA7kN3gS/ShOGfiIBpjUQSF6Y21yruT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHIobaAWDehWC/EPF7RrbuuLDLs4jveOKm64sXz99CMLbAp5I/
-	2ziDeAKzcZRVxqkBatRzGMkdRVJaCvsbTWkbC9TeowIlA5aG85zgK9XK
-X-Gm-Gg: AR+sD10mGkDdZANEeorp6togEaXqOL1yJpsTO30mryTvZ+FtZAoidvKQQHpAumXbE16
-	7jFgLofOPMVVewdnitg86WAXVUHx21HMeaHwMLvGE+6umGzq6X8c9Xp7/ESjkTT8AFapuiOlzCl
-	Lp7p0PTEUpoX7QqLIxUGquY/GEy4yICrFe6LnqGzkvFLS3TX9GBMgh/S8iK1fKb333fNMAr1ian
-	E9pP5LJHLI1NPot4xDfA9NYK3uF8gWkuYm4xS/TtsRBBnlRDGEPqKN2E5TbS/qn6fVvu8gqwE5c
-	pvI+wJv8KctUpjMqV6jhKDhxNDmBdA1v4zWo4TtXAPjsbxjG+ZSrhXlWD9bzJYJ9XZErrbbdrpd
-	lgsF0uZsbkfyWpNjrohfzVi5Upw8dVentFtwU0ngraLiP0aHVt4V18cByu7HqulutHz+DZHaUzt
-	a5HJOuVwPYFyxdZXC5nC0QcAT+BuOo741bV7VOIw4nSNJ51+850Undrr5fsk/9GbKuqWXYkfwkt
-	MZ+3K1yla4QjAp+HFyN8LgooUS1pI8Oxp0OM3Kej+Mgwtdhb5QhyEXC+TpZdkJWZ5WCpkLG1L+9
-	ZL1sAIqR6ISy9PfwJfZRRWWxMneEdOtmjeOvZCeyFbL2exPEsMsIKADIW2fe/wpT4yuAlopx40r
-	c2gMhyE+qBjbSjKujpQ==
-X-Received: by 2002:a05:600c:3b0c:b0:495:4d2d:82f2 with SMTP id 5b1f17b1804b1-496c659dd2bmr53499995e9.26.1785285805037;
-        Tue, 28 Jul 2026 17:43:25 -0700 (PDT)
-Received: from MacBook-Pro-von-Karl.localdomain (dynamic-2a02-3100-b323-2b01-0d98-9fe8-a4cd-78ab.310.pool.telefonica.de. [2a02:3100:b323:2b01:d98:9fe8:a4cd:78ab])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fb6aa3a88sm2827343f8f.6.2026.07.28.17.43.23
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 28 Jul 2026 17:43:24 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Karl Mehltretter <kmehltretter@gmail.com>
-Subject: [PATCH 2/2] kselftest/arm64: fp-ptrace: Fix checks for inactive SVE and SSVE regsets
-Date: Wed, 29 Jul 2026 02:42:55 +0200
-Message-Id: <20260729004255.15630-2-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20260729004255.15630-1-kmehltretter@gmail.com>
-References: <20260729004255.15630-1-kmehltretter@gmail.com>
+        d=1e100.net; s=20251104; t=1785286247; x=1785891047;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=UVZwS8jOvBUyjwgl3DDKvmTYA+QBde5QPL3dY7t7pMs=;
+        b=mmuzTP9KLmLayWcm9/cbGfUYZDvINkWnnZyN6d7+QL+Pv4RDXBrX0dVeSSfjxhplHy
+         0Z196RgriM559cKv5tQZ1z/AKg+iEdqA+aXTgQ1odvRENqaC197bJ9wdsEAGYUTyoJbX
+         P8piLHQk2cCtZuW8jyGf2pr8Y9F0paurTbOgjxiN8PrBxTI44oDWFXuI7syL7fzhzXyI
+         k7dg/D4LGtqED/cEIlHhsi8wIL7by7qc85edjpfJOXg3chwB6WnMDlw7QlSJx4pUXjkC
+         vjQW9ZWw+u5ztbA2G0Tjmub5qJBSuBX2kgKqp850371KbJkq2Ssr+3FY2P2mY7vK2ylu
+         iRsw==
+X-Forwarded-Encrypted: i=1; AHgh+RrGFByPqxAKRL7xDf78dEr5tzDOL622goOugLhZbBRyzmW2y7BsQCG0QF+RctTB4qOacAXA+Xwj5lu6ndIPfd+L@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGY+YNTEdtdSdODnXMYtcx4iE9RvbtunX95W2dKk1XTxm+TpQ7
+	IgZuSXJbpqW1TkrZNwthWabBs+mW6LAl8h9hOhUI/4GtW/dI9ZzoTrg+
+X-Gm-Gg: AR+sD134C/sy5aDMDLamDjkPwUaR1U43CgP+R6dINtI2D5HhxJFZZ9DC007+qkenfu5
+	EouSLRkP1J72cSot7wKF0KHQi4i3icRtDnVgcoJQtYs7PzIKsGQEuC4xZC5mlSJ+wXbhk2FLt+g
+	AsUBaP/+Enh6mBXJuuU/mJkPB78w9SxvjR8m+wduY8joNKmI0dHi+yFTZyYbqOAunaUZfnkaghG
+	vyx9rsOUB05SRU7AtZjKdWlpZp5VQ4y6LH26rpwE23UQEkM2sfIJLkvrRlb7aqP8dildVPG1rXk
+	5nzlodWn5/vfmwY6QMRwuYW28q+JfXC2Nw7BgnGGmeWWxXKUVtRdZ7mdHH9K015Loc7OcWKxstT
+	gUsMOvcHSqcfPianuy4H1A5pchEFbEKMfh+z1h5PLqeBq35x0NcTO26bkx3K+Ono/UGkEyE+/8w
+	DmzRSWZJQ604tE5QZK6uHlHgyyWf6AGZKodkMgm7zFuqg2+dsDowxcmizs15hzwwgAqIT0d8Zb3
+	+mYnoNhRx0HNt7VXQ6BA6n6diEvCBdDy6q8ucjTyr+WVZY=
+X-Received: by 2002:a05:6a00:32cf:b0:84e:1a34:2470 with SMTP id d2e1a72fcca58-84e9325c5e5mr5065072b3a.30.1785286247345;
+        Tue, 28 Jul 2026 17:50:47 -0700 (PDT)
+Received: from [172.19.1.48] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84e9fe2153csm565718b3a.3.2026.07.28.17.50.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Jul 2026 17:50:46 -0700 (PDT)
+Message-ID: <8c59c12a-3725-4f36-9e30-cbe0e2ef95ae@gmail.com>
+Date: Wed, 29 Jul 2026 08:50:42 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: watchdog: Add MA35D1 Watchdog binding
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jacky Huang <ychuang3@nuvoton.com>,
+ Shan-Chun Hung <schung@nuvoton.com>, linux-watchdog@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260724091427.1689980-1-zychennvt@gmail.com>
+ <20260724091427.1689980-2-zychennvt@gmail.com>
+ <20260728-poetic-outstanding-salmon-6fabb3@quoll>
+Content-Language: en-US
+From: zychen <zychennvt@gmail.com>
+In-Reply-To: <20260728-poetic-outstanding-salmon-6fabb3@quoll>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_174327_171276_5CFA125C 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20260728_175048_841527_A8700F10 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,155 +110,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The checks on the header size reported for the inactive regset of the
-NT_ARM_SVE/NT_ARM_SSVE pair compare it against sizeof(sve), but sve is
-a struct user_sve_header *, so this is 8 rather than the intended 16.
-The kernel carried the identical typo when filling in the header, so
-kernel and test agreed on the wrong value and the test passed.
 
-Compare against sizeof(*sve), stop after the header checks for an
-inactive regset since it has no payload to compare, and prefill the
-buffer with a sentinel to verify that reading an inactive regset
-leaves everything after the header untouched. This also covers the
-getter's return value, which determines how many bytes ptrace copies
-back to userspace.
 
-Fixes: 864f3ddcd715 ("kselftest/arm64: fp-ptrace: Adjust to new inactive mode behaviour")
-Assisted-by: Claude:claude-opus-5
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
-With the size comparison fixed, fp-ptrace fails against kernels that
-do not have the preceding regset fix.
+Krzysztof Kozlowski 於 2026/7/28 下午 07:47 寫道:
+> On Fri, Jul 24, 2026 at 05:14:25PM +0800, Zi-Yu Chen wrote:
+>> Add device tree binding documentation for the watchdog timer (WDT)
+>> controller found on Nuvoton MA35D1 SoC.
+>>
+>> Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
+> 
+> A nit, subject: drop second/last, redundant "binding". The
+> "dt-bindings" prefix is already stating that these are bindings.
+> See also:
+> https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> Best regards,
+> Krzysztof
+> 
 
- tools/testing/selftests/arm64/fp/fp-ptrace.c | 47 +++++++++++++++++---
- 1 file changed, 41 insertions(+), 6 deletions(-)
+Hi Krzysztof, 
 
-diff --git a/tools/testing/selftests/arm64/fp/fp-ptrace.c b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-index 22c584b78be5..b435837c8c0e 100644
---- a/tools/testing/selftests/arm64/fp/fp-ptrace.c
-+++ b/tools/testing/selftests/arm64/fp/fp-ptrace.c
-@@ -65,6 +65,9 @@
- /* VL 128..2048 in powers of 2 */
- #define MAX_NUM_VLS 5
- 
-+/* Sentinel for detecting buffer bytes the kernel did not write */
-+#define REGSET_SENTINEL 0xa5
-+
- /*
-  * FPMR bits we can set without doing feature checks to see if values
-  * are valid.
-@@ -181,6 +184,20 @@ static bool compare_buffer(const char *name, void *out,
- 	return false;
- }
- 
-+static bool buffer_is_filled(const void *buffer, size_t size,
-+			     unsigned char value)
-+{
-+	const unsigned char *bytes = buffer;
-+	size_t i;
-+
-+	for (i = 0; i < size; i++) {
-+		if (bytes[i] != value)
-+			return false;
-+	}
-+
-+	return true;
-+}
-+
- struct test_config {
- 	int sve_vl_in;
- 	int sve_vl_expected;
-@@ -401,6 +418,7 @@ static bool check_ptrace_values_sve(pid_t child, struct test_config *config)
- 	struct user_sve_header *sve;
- 	struct user_fpsimd_state *fpsimd;
- 	struct iovec iov;
-+	size_t buf_size;
- 	int ret, vq;
- 	bool pass = true;
- 
-@@ -409,14 +427,16 @@ static bool check_ptrace_values_sve(pid_t child, struct test_config *config)
- 
- 	vq = __sve_vq_from_vl(config->sve_vl_in);
- 
--	iov.iov_len = SVE_PT_SVE_OFFSET + SVE_PT_SVE_SIZE(vq, SVE_PT_REGS_SVE);
--	iov.iov_base = malloc(iov.iov_len);
-+	buf_size = SVE_PT_SVE_OFFSET + SVE_PT_SVE_SIZE(vq, SVE_PT_REGS_SVE);
-+	iov.iov_len = buf_size;
-+	iov.iov_base = malloc(buf_size);
- 	if (!iov.iov_base) {
- 		ksft_print_msg("OOM allocating %lu byte SVE buffer\n",
- 			       iov.iov_len);
- 		return false;
- 	}
- 
-+	memset(iov.iov_base, REGSET_SENTINEL, buf_size);
- 	ret = ptrace(PTRACE_GETREGSET, child, NT_ARM_SVE, &iov);
- 	if (ret != 0) {
- 		ksft_print_msg("Failed to read initial SVE: %s (%d)\n",
-@@ -440,10 +460,16 @@ static bool check_ptrace_values_sve(pid_t child, struct test_config *config)
- 	}
- 
- 	if (svcr_in & SVCR_SM) {
--		if (sve->size != sizeof(sve)) {
-+		if (sve->size != sizeof(*sve)) {
- 			ksft_print_msg("NT_ARM_SVE reports data with PSTATE.SM\n");
- 			pass = false;
- 		}
-+		if (!buffer_is_filled(iov.iov_base + sizeof(*sve),
-+				      buf_size - sizeof(*sve), REGSET_SENTINEL)) {
-+			ksft_print_msg("NT_ARM_SVE wrote beyond its header with PSTATE.SM\n");
-+			pass = false;
-+		}
-+		goto out;
- 	} else {
- 		if (sve->size != SVE_PT_SIZE(vq, sve->flags)) {
- 			ksft_print_msg("Mismatch in SVE header size: %d != %lu\n",
-@@ -485,6 +511,7 @@ static bool check_ptrace_values_ssve(pid_t child, struct test_config *config)
- 	struct user_sve_header *sve;
- 	struct user_fpsimd_state *fpsimd;
- 	struct iovec iov;
-+	size_t buf_size;
- 	int ret, vq;
- 	bool pass = true;
- 
-@@ -493,14 +520,16 @@ static bool check_ptrace_values_ssve(pid_t child, struct test_config *config)
- 
- 	vq = __sve_vq_from_vl(config->sme_vl_in);
- 
--	iov.iov_len = SVE_PT_SVE_OFFSET + SVE_PT_SVE_SIZE(vq, SVE_PT_REGS_SVE);
--	iov.iov_base = malloc(iov.iov_len);
-+	buf_size = SVE_PT_SVE_OFFSET + SVE_PT_SVE_SIZE(vq, SVE_PT_REGS_SVE);
-+	iov.iov_len = buf_size;
-+	iov.iov_base = malloc(buf_size);
- 	if (!iov.iov_base) {
- 		ksft_print_msg("OOM allocating %lu byte SSVE buffer\n",
- 			       iov.iov_len);
- 		return false;
- 	}
- 
-+	memset(iov.iov_base, REGSET_SENTINEL, buf_size);
- 	ret = ptrace(PTRACE_GETREGSET, child, NT_ARM_SSVE, &iov);
- 	if (ret != 0) {
- 		ksft_print_msg("Failed to read initial SSVE: %s (%d)\n",
-@@ -523,10 +552,16 @@ static bool check_ptrace_values_ssve(pid_t child, struct test_config *config)
- 	}
- 
- 	if (!(svcr_in & SVCR_SM)) {
--		if (sve->size != sizeof(sve)) {
-+		if (sve->size != sizeof(*sve)) {
- 			ksft_print_msg("NT_ARM_SSVE reports data without PSTATE.SM\n");
- 			pass = false;
- 		}
-+		if (!buffer_is_filled(iov.iov_base + sizeof(*sve),
-+				      buf_size - sizeof(*sve), REGSET_SENTINEL)) {
-+			ksft_print_msg("NT_ARM_SSVE wrote beyond its header without PSTATE.SM\n");
-+			pass = false;
-+		}
-+		goto out;
- 	} else {
- 		if (sve->size != SVE_PT_SIZE(vq, sve->flags)) {
- 			ksft_print_msg("Mismatch in SSVE header size: %d != %lu\n",
--- 
-2.51.0
+Thanks for the review and the Reviewed-by tag.
+I'll drop the redundant "binding" from the subject in the next revision.
 
+Thanks,
+Zi-Yu Chen
 
