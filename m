@@ -4,101 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA52C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 07:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A24B2C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 07:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DewgyYDAktvZQQjsN7FV0AudowESd3lzCpxYXEo/03A=; b=RVdIuR6GbLUCBma14g57SuKERr
-	hXzW+16NIEWIXMw3PZqT6q0soKFqNEoH65iyHWfUTOS9XeoKpfMY/RmJTQ4Hm2egxf/ep+9whWTa3
-	Pj2djOocyBDrhL1aKn32e3MbouN3WAbQYUP0BaNFjU+ihAun5LRNzFvTnlFNlCs2Tg39hhPfFV0Qh
-	89xPNs7cBuDftHndsvFacvTUejZzPc4EbhLqzu7Qjz8lY/btQjShjk2LArJCpE1VeeSJz7vnhMv7I
-	5AbATWkOE6O48zRax4p3DY0UdLZ+iJ/I5bHH8XvLgzfj0taL9HdVmxAH+lPxftQ/GpT46uCC2CAzL
-	BpueoGXQ==;
+	bh=ot46wtUCSvLaFPk3Tzd2lHn9BHDi6euTPMRIGmIYQUs=; b=Kspyueqntrw2wBJ/ufDzWXEuHZ
+	S7D99SMg4QcV1uWKbNFqoybq8Sawc/I9JdA0TbA8AA4llAZsbBy136cMAW18qY8xRKz5aQx4N8A9o
+	9zHhFZVQPrkfKsV3Of06KJLqnB5seGuyeiWGkNALtBlNuekvv2cyWD1qsM2BOVnwKYM2Ku8roLcQw
+	ynCnAjzmb2WSaPm2KGx1vWYJqmYXGljYPFhWtwvMHPKnekbk2jHb1sfYjv7iN/6gJ4recVI7I+P8T
+	Yk0z6n4sCq5lqdWjHmbArk6HOjhVsmru9E9B3EY5rIatk9IQdc7/JGvqZfRYA6qzmUSPC+KWLf8tW
+	1KDsg71w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woywW-000000079OH-3JCo;
-	Wed, 29 Jul 2026 07:43:09 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1woyxT-000000079by-1sce;
+	Wed, 29 Jul 2026 07:44:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woywQ-000000079Md-3qKr
+	id 1woyxR-000000079bc-1crW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 07:43:04 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2cf452def93so15618545ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 00:43:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785310982; x=1785915782; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DewgyYDAktvZQQjsN7FV0AudowESd3lzCpxYXEo/03A=;
-        b=DP0U8ZEKtzqBJw6oivE+oNMj/n+DygX+yqFloABUp6+E4IM1WMvuMk8CLZDej2mLI7
-         sytl7Z1BjyONBx7T881raAMnUeUUHtrOe3QPKSwqNL/ekLcY6qI9p2VQ6+SXADgEFJZX
-         Zqqjvw9ev+Eq+dXFAyLuDGIa83U8Yqp6BfwiPrKZAdhcO1LCFSr2Em1LPAv4+8jrIgtd
-         eFR27zMbYNPjFSY2WCulR7V8Esne2AwCRr0MHeZ3vx/u1uJRfEyB6Dl7mKBwZtp8JYth
-         1PM4uGXVkQeDF2e1NjXc5fDn0TaEXJojos8dGzRDxirqRr8QjlWqg6gEffQopAwctAD1
-         BfBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785310982; x=1785915782;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=DewgyYDAktvZQQjsN7FV0AudowESd3lzCpxYXEo/03A=;
-        b=c7J68n1Ba1WOWSSAsisObEMyZshNTr81QhsT2w3l04WmX2cDnno7Ba7b+i2HsE73MK
-         W2MEexS6Bqx/qWb3SVv1y3i8Wztnesr7Z/o/ZRkRipAX8TauYW4F4buOyAo+4wZbQX3a
-         T2tmwNj7locGHrAD0v9zJsmv5/YtJUX2wykbHbosby/skZgwgNEQWRywJtQ7l7GaBeaF
-         k5Kx5Li3TMKK1nu3p4nkDmxF5dWsRIMbVuTi2gvE2v/k9shoM1Z1vtD63q91XWV4a45w
-         FFedkbHEnv7RIGBU4wGdA5owAF6ohMayFamgJ3SA2ppeunPTW2lxfr8nUzh1+At2eY+d
-         dDSQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpIuFzcbueyaS4Tuy4xtZ9iYYmQ5M8UXxmn/tDUn1ftM6572PTF+YO1abydkCXLi3Z3NShm83I4DDuEnZuW1D14@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuwsU5ud7yu4SYwdbJqF5jMDe7qmjSEn4ixsvhgMl4ArYwA9uJ
-	3pRrl1Tk2NfkumN8wXIM9t0xX86XmnyCatPq6YBvJUxQ78d3GVxZSvF+
-X-Gm-Gg: AR+sD134ElF87UwGBY/QjtVC8L984w8bKmk0x5zJNNhe+MVXtoHbFvbHMeftnicbECr
-	GZhDypIpo8qEGaDgAbcy0GDD10zznFcxGur8+EVnjKceV3DWRdJZeSMT2S92xw0UqxyHV+i27FD
-	4N+syuJ4uUaDRWbS05V54Za7ry/AYYPhRe9aV2CgN81K/bY25Ujk/qom1suBOMEvtjL+JHyKK3Y
-	ZgasuoDG+QWp0u7DPv9rOMchZsLO6WzQvH3h0srHgCwE79ADr6NMM/gL11A2MLRzgg1hbSHJ+4R
-	z/jpAxCZYOqhbO5vKB/2q9nZH9JpAuIa69rvDPpocxW+F9TZ1gf0ylOzUGbYAdymo9k1e07tiRs
-	sntTgcMpa5gRCoqDR/CpTY5rVo1NMsUDeJijXmG7yhaXkkFLBFGbXryft2D7pH0Is2+Oa7IwxPv
-	LmwoOolf4fLityyb8xz+Z9kBOGsgTM2o2JassNJr8v73zppNmRatVn7t2w1es=
-X-Received: by 2002:a17:903:2282:b0:2ca:53f7:3c69 with SMTP id d9443c01a7336-2d0266945f4mr13611065ad.9.1785310981897;
-        Wed, 29 Jul 2026 00:43:01 -0700 (PDT)
-Received: from server227.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d022bf888csm7154505ad.64.2026.07.29.00.42.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jul 2026 00:43:01 -0700 (PDT)
-From: Zxyan Zhu <zxyan0222@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Hariprasad Kelam <hkelam@marvell.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Zxyan Zhu <zxyan0222@gmail.com>
-Subject: [PATCH net-next v3 2/2] net: phylink: allow PHYs to be attached in 802.3z inband mode
-Date: Wed, 29 Jul 2026 15:42:37 +0800
-Message-Id: <20260729074237.2624940-3-zxyan0222@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260729074237.2624940-1-zxyan0222@gmail.com>
-References: <20260729074237.2624940-1-zxyan0222@gmail.com>
+	Wed, 29 Jul 2026 07:44:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9CA8260A99
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 07:44:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 524A31F00A3A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 07:44:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785311044;
+	bh=ot46wtUCSvLaFPk3Tzd2lHn9BHDi6euTPMRIGmIYQUs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=POpn12y/mRNEVBNOEb9px8uTYLCjMqqXdWNSvaTtaiYYHsw3H2bYuqkKIRBy8l1N8
+	 BINql2rHJXkdn1PmYHRFxoE0YeGK/BX5zw1WkUZwvBeB3ITz7Bgv8/MhIA6n/Tm/DE
+	 XlQCW5v5z9YnzDaXOsxKOTkQ/8cFX8pZ2CnSqLwVJOfcwkxt8mFMWr77dNi8BYDTf+
+	 OMry0SrRRNWX7TsFmLoTGMgXJFkwAbM6L0mNA5cpCLoPf4LMjvSZR+3HviOJMsNAm6
+	 zo+RYw6SPj/Fwl4vqzA7AavXWp2ipHEZPJZptjszyRpFsFMSbYOUTwXTulWoP8/Cmo
+	 w+21lyYI+3zgw==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-39c908d6cb6so5425781fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 00:44:04 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Ro24++G+QQ2tSYUeAakaxuiu8ma9TEDWmYKCyMrzzkKX+hobLhKaRKcuf8RtDUnCv0YWvyMYWlX/ujkoXIlaVkR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMBEaqd52IqdeDOstt3DrJi6kHdh1HjpTTIkwkFmkTBW6rrr3g
+	2zO/IB+l2WF1pcLncGoVq2+17aBETJyUdiacET/Sb5PzbI0WUPtWsLU/kfUZHnrpqIPD5KL/62y
+	rgF2hSuxZVYIVg+XT5T7wB7vMbpiM46g=
+X-Received: by 2002:a05:6512:3d87:b0:5b0:1b78:4969 with SMTP id
+ 2adb3069b0e04-5b2d0253d4bmr1263858e87.46.1785311043134; Wed, 29 Jul 2026
+ 00:44:03 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_004302_961919_921DB841 
-X-CRM114-Status: GOOD (  15.38  )
+References: <20260724-zinitix-modes-v1-0-f6df7d86a878@disroot.org> <20260724-zinitix-modes-v1-5-f6df7d86a878@disroot.org>
+In-Reply-To: <20260724-zinitix-modes-v1-5-f6df7d86a878@disroot.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 29 Jul 2026 09:43:51 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkRHgLHLenBPsvO+sFpj0Um6-2P5Ap_eBSq5K=dr2+mWA@mail.gmail.com>
+X-Gm-Features: AUfX_mwvn_ui2ZSBDvNroUCnVv97gaxxHNTnHQtdrsBXAAI1m0EXRHGlkojbzCs
+Message-ID: <CAD++jLkRHgLHLenBPsvO+sFpj0Um6-2P5Ap_eBSq5K=dr2+mWA@mail.gmail.com>
+Subject: Re: [PATCH 5/5] arm64: dts: exynos7870-j6lte: set mode 0 as default
+ for zinitix touchscreen
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Michael Srba <Michael.Srba@seznam.cz>, Peter Griffin <peter.griffin@linaro.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, linux-input@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,57 +84,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+On Thu, Jul 23, 2026 at 9:25=E2=80=AFPM Kaustabh Chakraborty
+<kauschluss@disroot.org> wrote:
 
-Now that we have proper decision making for inband mode support which
-makes it a "best efforts" feature based on the capabilities of the PHY
-and PCS, we can relax whether we expect and permit a PHY to be
-attached. This is especially true for the 2500BASE-X case which some
-PHYs use without inband on their host side interface for 2.5G speeds,
-but use inband for slower speeds switching to SGMII on their host side
-interface.
+> The ZT7548 chip in the Galaxy J6 is actually able to support mode 2 (the
+> recommended mode) just fine.
+>
+> However, the downstream kernel driver utilizes mode 0. This creates a
+> problem in the aftermarket world where fake touch digitizers only
+> implement the bare minimum functionality, as used by the downstream
+> driver, to compromise on cost, which leads to such chips implementing
+> mode 0 only. To ensure touch works on those devices, set the default
+> mode to 0.
+>
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 
-We already have such a case for some qcom-ethqos setups, although
-qcom-ethqos overrides phylink's inband settings by accessing the PCS
-directly at the moment. This should allow qcom-ethqos to transition to
-defaulting to inband when 2500BASE-X or SGMII is specified in its DTS.
+I guess it is not possible to detect in software which digitizer is used?
+In that case:
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-Allow PHYs to be attached when inband mode has been specified, which
-will be necessary to allow inband mode to be used on qcom-ethqos.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
----
- drivers/net/phy/phylink.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 59dfe35afa54..fd4e80eeeda7 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -1964,9 +1964,7 @@ EXPORT_SYMBOL_GPL(phylink_destroy);
-  */
- bool phylink_expects_phy(struct phylink *pl)
- {
--	if (pl->cfg_link_an_mode == MLO_AN_FIXED ||
--	    (pl->cfg_link_an_mode == MLO_AN_INBAND &&
--	     phy_interface_mode_is_8023z(pl->link_interface)))
-+	if (pl->cfg_link_an_mode == MLO_AN_FIXED)
- 		return false;
- 	return true;
- }
-@@ -2205,9 +2203,7 @@ static int phylink_attach_phy(struct phylink *pl, struct phy_device *phy,
- {
- 	u32 flags = 0;
- 
--	if (WARN_ON(pl->cfg_link_an_mode == MLO_AN_FIXED ||
--		    (pl->cfg_link_an_mode == MLO_AN_INBAND &&
--		     phy_interface_mode_is_8023z(interface) && !pl->sfp_bus)))
-+	if (WARN_ON(pl->cfg_link_an_mode == MLO_AN_FIXED))
- 		return -EINVAL;
- 
- 	if (pl->phydev)
--- 
-2.34.1
-
+Yours,
+Linus Walleij
 
