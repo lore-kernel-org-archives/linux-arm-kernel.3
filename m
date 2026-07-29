@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9280DC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AAB5C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKCU0a4Gib42r/5CyDu2TNzbIsw8Xf5ifqCr/aVFd/I=; b=vecWyA1mkVbV/JJwa+2T/xEizw
-	ymxl8T06EIxNACOgRRJj30HBai8QKdGlZU6CqOPVrZKGx3mvaQeDUjcsAuZPbnWYS6mbBAST9UDra
-	d89jJ7wE2x6So/n+MuAsGBrQppXVscKcqzrCJ0e1Ful0gIu5XKsYCFutKHCLh42GKnt6D5oLZRIu2
-	1tpy2MoPVst4nWlNFM6Btz+2RP7dPYhMHGMB9N/rX+Y4aGULemRqv76zgUcPI3/ibiv8cM8keVNfp
-	T8rkmfAeTJpjCztpdNha+qSH6Qqef1xXXVKKY1MmN4tUApYckutZxeZp4/FktQXZ1euyRRLGTe9r9
-	hmT1pj7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FWo0ftyBa7lC2aPQ/hBNWMcCRmwtU50P0VZaxqKFsjs=; b=styz5nE2k2RGyY6XB+apvOqh4P
+	zSR5pRFE9TeSWfGz4YgnqJ0F2U2e9HeUYILzD1u7lk2grzXbPffdcIJ4ENjGuWJ7wuADFO225IApz
+	deJHRdaY3yE2wBd1OLNuub8S/bIAeexb6a0qfKwPxO5boYh+hTfamDV5bKTevUmAGOtQZGq11OkjO
+	T0Zj5tZS6TOwnHEZtjab7mkUyMdfKPPLIXOn7yTb7KtDbQ8EA60J14e3TVpiVWQJdjmH8gR6Zl0TQ
+	Qzm5WC72NHy5P3x/+/BKzuq5EBBO4PV+F0pRS1II9yebxRLZyGKn8te241tVCs1hK2QTmVZ+n5FG9
+	JPUTO5qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6jo-00000008U5y-0UJy;
-	Wed, 29 Jul 2026 16:02:32 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1wp6mL-00000008UYg-3LnH;
+	Wed, 29 Jul 2026 16:05:09 +0000
+Received: from out-177.mta1.migadu.com ([95.215.58.177])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp6jc-00000008U3A-22e6
+	id 1wp6mI-00000008UXv-2YAm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 16:02:21 +0000
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 1952284AAE;
-	Wed, 29 Jul 2026 18:02:18 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 9sVqEWKgVOWu; Wed, 29 Jul 2026 18:02:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1785340937; bh=mW4q1NUpWiZCtA2BHmN6n4ewmtio2UFy6U3OYjBYq3k=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=fbemAMEpCEuzSp6l7MlvZxIvXqjI0OpY12HyLxWBxvbxW7sTkP9txcddyPZ3oRWbk
-	 4Dc79ENZpDmLQOqsiuLXfvURzWO/9JJQC2NsI0TcvuyxAPsI/WbInNOrprIJBYanP4
-	 zrh4FpHt3gt9fafCQUkGbc8gGWc4lkhAWNBKecaXIHe/kaYqgdK79b03y5XXbJynmQ
-	 HgE833B9eQ47qYVBlCBCK11la17aSos8P2+ugFZ0SdqEqMc5qPY8h+SQ01jBfq2gmG
-	 RvbnS7UJC/epu638bmrZWPDGxJofRmksfcUXaqwncNbZzfsK27S3UnNDOFLYbPLHXE
-	 COBMfsGCFsscA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 29 Jul 2026 21:32:00 +0530
-Message-Id: <DKB6JC2T38OQ.11ELUOPIMUJ15@disroot.org>
-Subject: Re: [PATCH 2/5] Input: zinitix - do not ignore non-moving fingers
-From: "Kaustabh Chakraborty" <kauschluss@disroot.org>
-To: "Kaustabh Chakraborty" <kauschluss@disroot.org>, "Dmitry Torokhov"
- <dmitry.torokhov@gmail.com>
-Cc: "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Michael Srba"
- <Michael.Srba@seznam.cz>, "Linus Walleij" <linusw@kernel.org>, "Peter
- Griffin" <peter.griffin@linaro.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>, <linux-input@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>
-References: <20260724-zinitix-modes-v1-0-f6df7d86a878@disroot.org>
- <20260724-zinitix-modes-v1-2-f6df7d86a878@disroot.org>
- <amO1AWyjGltjO0lZ@google.com> <DKB6545IAUEM.31XPRNO2FNBPM@disroot.org>
-In-Reply-To: <DKB6545IAUEM.31XPRNO2FNBPM@disroot.org>
+	Wed, 29 Jul 2026 16:05:08 +0000
+X-Forwarded-Encrypted: i=1; AHgh+Rp+VAmRgfjRUG0gbMfDanRWgnRkQ8poix/1+Z/PCwpVhQrotAG73oqo1+7hVgdp2EPIbB5j3E3DpfWNMas9aTB3@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785341101;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=FWo0ftyBa7lC2aPQ/hBNWMcCRmwtU50P0VZaxqKFsjs=;
+	b=SgdgJUqS5QFVs34Z/RY/sHsUKyZW/nfZTbc+INSdaxF2lqNNMUBbXhfg+weGIuzBQf9cS+
+	8hcPEzJhC68Dlj4AYu9LEUquly2VhhegZBKbkN8eu8pmKvOslYOkzGbNd4NHoJwi4Aom+D
+	mHuxoTs4Z51r1o2JespeOR34xQiOzUI=
+X-Gm-Message-State: AOJu0Yz4fD9H5Cm2NkjSaeUjlgnWj8zirjI/z+xnt5KI/pUurdiJgJpH
+	fOsM0U3PXyVaCq48b2Mr1ai3o1V4w7MEUREIP++jjvyjRrX4y3RxxjTfNYC6GMpYGT4t6pbrPgV
+	4hF1dDn1CuyB4EeyPevVh/zada1RNVxow7o7fPsTr
+X-Received: by 2002:a05:622a:a15:b0:517:64f6:3365 with SMTP id
+ d75a77b69052e-52b34e85fb1mr1702101cf.4.1785341097295; Wed, 29 Jul 2026
+ 09:04:57 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp> <20260720-hybrid-v9-7-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260720-hybrid-v9-7-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 29 Jul 2026 17:03:00 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTyTcUBzAcGhG88w7qxUgm5BF709Za9XWYWEHE=JMCL2hA@mail.gmail.com>
+X-Gm-Features: AUfX_myu-7UL3bRAtMkrPeNTWcxaXv9440Zld_Zcb7LGPBk6xfJMpVLySDjt26o
+Message-ID: <CA+EHjTyTcUBzAcGhG88w7qxUgm5BF709Za9XWYWEHE=JMCL2hA@mail.gmail.com>
+Subject: Re: [PATCH v9 07/16] tools headers: Use u* types for bitfield helpers
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Yury Norov <yury.norov@gmail.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steffen Eiden <seiden@linux.ibm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_090220_673155_C9CBCFEC 
-X-CRM114-Status: GOOD (  22.47  )
+X-CRM114-CacheID: sfid-20260729_090507_083460_2AD59C9E 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +84,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-29 21:13 +05:30, Kaustabh Chakraborty wrote:
-> On 2026-07-24 12:24 -07:00, Dmitry Torokhov wrote:
->> Hi Kaustabh,
->>
->> On Fri, Jul 24, 2026 at 12:54:04AM +0530, Kaustabh Chakraborty wrote:
->>> With the ZT7548 touchscreen present in the Galaxy J6, multitouch does n=
-ot
->>> work reliably. This is due to the fact that the driver reports fingers
->>> only when their state is changed, so it's either placed against the
->>> scren, moved, or drawn away from the screen.
->>>=20
->>> The function which is responsible for this is zinitix_report_finger().
->>> This function is called from the IRQ handler, under the following
->>> condition:
->>>=20
->>> 		if (p->sub_status & SUB_BIT_EXIST)
->>> 			zinitix_report_finger(bt541, i, p);
->>>=20
->>> This implies and ensures that every valid finger must have the
->>> SUB_BIT_EXIST flag.
->>>=20
->>> However, at the beginning of the function, it refuses to recognize any
->>> finger if it has none of SUB_BIT_UP | SUB_BIT_DOWN | SUB_BIT_MOVE. This
->>> excludes fingers in reports which do not move from the position since
->>> the previous interrupt. Add SUB_BIT_EXIST to the list of valid bits.
->>
->> This makes the check basically a no-op as SUB_BIT_EXIST would always be
->> set when we reach this function. It may very well be that we want to
->> delete this check altogether, or maybe we need to add SUB_BIT_UPDATE and
->> SUB_BIT_WAIT. I am curious what status bits you see when this condition
->> (original) triggers for you...
+On Mon, 20 Jul 2026 at 06:39, Akihiko Odaki
+<odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
 >
-> I see 0x03 [EXIST | DOWN] when the finger touches the screen, and 0x05
-> [EXIST | MOVE] when it moves. When it stays in the same place (this is
-> triggered in multitouch where one finger moves generating an event but
-> the other is stagnant) it reports 0x01 [EXIST]. When it's lifted up it
-> reports 0x08 [UP].
+> Commit 9486aa387716 ("perf tools: Fix 64 bit integer format strings")
+> defined the tools-local u64 as uint64_t so that PRI*64 format macros
+> match its underlying C type. On architectures where uint64_t and __u64
+> are distinct types, however, ____MAKE_OP() still gives the u64_*
+> helpers an __u64 interface.
 >
-> It looks like report_finger() is meant to be called when the finger is
-> up but it isn't because EXIST is not set during the UP event. So I guess
-> the solution is to remove the guard in the IRQ func and call
-> report_finger() unconditionally.
+> Teach ____MAKE_OP() to accept the helper name and storage type
+> separately. Keep endian helpers on __le* and __be*, and generate the
+> native helpers using the tools-local u* types.
+>
+> Assisted-by: Codex:gpt-5.6-sol
+> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 
-Actually no, interrupts are also called with 0x00 which should not be
-used for reporting instead. So:
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-		if (p->sub_status)
-			zinitix_report_finger(bt541, i, p);
+Cheers,
+/fuad
 
->>>=20
->>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->>> ---
->>>  drivers/input/touchscreen/zinitix.c | 2 +-
->>>  1 file changed, 1 insertion(+), 1 deletion(-)
->>>=20
->>> diff --git a/drivers/input/touchscreen/zinitix.c b/drivers/input/touchs=
-creen/zinitix.c
->>> index 3421b8ffb19b..fdcb80f52c91 100644
->>> --- a/drivers/input/touchscreen/zinitix.c
->>> +++ b/drivers/input/touchscreen/zinitix.c
->>> @@ -406,7 +406,7 @@ static void zinitix_report_finger(struct bt541_ts_d=
-ata *bt541, int slot,
->>>  	u16 x, y;
->>> =20
->>>  	if (unlikely(!(p->sub_status &
->>> -		       (SUB_BIT_UP | SUB_BIT_DOWN | SUB_BIT_MOVE)))) {
->>> +		       (SUB_BIT_EXIST | SUB_BIT_UP | SUB_BIT_DOWN | SUB_BIT_MOVE))))=
- {
->>>  		dev_dbg(&bt541->client->dev, "unknown finger event %#02x\n",
->>>  			p->sub_status);
->>>  		return;
->>>=20
->>
->> Thanks.
 
+
+> ---
+>  tools/include/linux/bitfield.h | 26 +++++++++++++-------------
+>  1 file changed, 13 insertions(+), 13 deletions(-)
+>
+> diff --git a/tools/include/linux/bitfield.h b/tools/include/linux/bitfield.h
+> index ddf81f24956b..1c633343d576 100644
+> --- a/tools/include/linux/bitfield.h
+> +++ b/tools/include/linux/bitfield.h
+> @@ -142,32 +142,32 @@ static __always_inline u64 field_mask(u64 field)
+>         return field / field_multiplier(field);
+>  }
+>  #define field_max(field)       ((typeof(field))field_mask(field))
+> -#define ____MAKE_OP(type,base,to,from)                                 \
+> -static __always_inline __##type type##_encode_bits(base v, base field) \
+> +#define ____MAKE_OP(name,type,base,to,from)                            \
+> +static __always_inline type name##_encode_bits(base v, base field)     \
+>  {                                                                      \
+>         if (__builtin_constant_p(v) && (v & ~field_mask(field)))        \
+>                 __field_overflow();                                     \
+>         return to((v & field_mask(field)) * field_multiplier(field));   \
+>  }                                                                      \
+> -static __always_inline __##type type##_replace_bits(__##type old,      \
+> -                                       base val, base field)           \
+> +static __always_inline type name##_replace_bits(type old,              \
+> +                                               base val, base field)   \
+>  {                                                                      \
+> -       return (old & ~to(field)) | type##_encode_bits(val, field);     \
+> +       return (old & ~to(field)) | name##_encode_bits(val, field);     \
+>  }                                                                      \
+> -static __always_inline void type##p_replace_bits(__##type *p,          \
+> +static __always_inline void name##p_replace_bits(type *p,              \
+>                                         base val, base field)           \
+>  {                                                                      \
+> -       *p = (*p & ~to(field)) | type##_encode_bits(val, field);        \
+> +       *p = (*p & ~to(field)) | name##_encode_bits(val, field);        \
+>  }                                                                      \
+> -static __always_inline base type##_get_bits(__##type v, base field)    \
+> +static __always_inline base name##_get_bits(type v, base field)        \
+>  {                                                                      \
+>         return (from(v) & field)/field_multiplier(field);               \
+>  }
+> -#define __MAKE_OP(size)                                                        \
+> -       ____MAKE_OP(le##size,u##size,cpu_to_le##size,le##size##_to_cpu) \
+> -       ____MAKE_OP(be##size,u##size,cpu_to_be##size,be##size##_to_cpu) \
+> -       ____MAKE_OP(u##size,u##size,,)
+> -____MAKE_OP(u8,u8,,)
+> +#define __MAKE_OP(size)                                                                        \
+> +       ____MAKE_OP(le##size,__le##size,u##size,cpu_to_le##size,le##size##_to_cpu)      \
+> +       ____MAKE_OP(be##size,__be##size,u##size,cpu_to_be##size,be##size##_to_cpu)      \
+> +       ____MAKE_OP(u##size,u##size,u##size,,)
+> +____MAKE_OP(u8,u8,u8,,)
+>  __MAKE_OP(16)
+>  __MAKE_OP(32)
+>  __MAKE_OP(64)
+>
+> --
+> 2.55.0
+>
+>
 
