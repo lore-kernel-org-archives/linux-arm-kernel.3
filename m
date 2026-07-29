@@ -4,114 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B52C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA91C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 15:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JYgZt/35SRTSOby0/Cc9E+OqarqONJhII6K0Q/18dbI=; b=u7Bdkiqr/f2HkHKwDZKm2FTgtY
-	83TSLKywsrrlFhWFSzIeBF/pBlwu0CgZ0aXPOPFELMR62gT1/8oCqVseIm4zx9hRxCsLCU/sWjMvS
-	FxMzcR0Pbj3/TSRcyBFpbqBLNHRk/G4p8RxhGgzBXeW9ACJ1hbYcADhRGDSh9k5OW3RT6Kz464ktW
-	R1szb8H2a70eXL4BjNHam1Krj2IEm5GuTTiMdqPX9NzXQvh7AYa13YtyftC0Wf399vl4On9jND4JA
-	fuP9BWUoxsHodaE6WHUYgWEcDlUU3K5dhqaYX+c99NhSXtcE8t5fLYyOgqwdkNXGEpvGKw82flnru
-	ujI2ymyw==;
+	bh=mABh2OQBhAUA7eN+87r478yGoqxajXeOENCfKZxWJeA=; b=3ggm22j6fJniw3pZ5HVljNWLXT
+	0G/nyqBphCCyTTbttLWIyYfzHn369o0IfFcw/3rw8r33oMfHOTDFR8QbADwM4GVTiMHhYPUBNfl2q
+	2UPk0m4oXsY3vtZO5OfNNampma7VTLhyMoPg7IXKKhLVoWV0yHyMOGU0eEppdfqei46qDuOqbvSu8
+	hriMiPbOv6AEK+egrotR+mqpjvmeGQZH6UfO4JUvsxHyJT5L+BPnycw/zbq94Y92wccteeDKRLx75
+	KcevVmw85J0LeKfawMlgu+7hibJyLMxQd3ThzYyDwn/oJlEMW3vRjmR8dkk8AJZNSq3yAwlkk+d0y
+	aqFi8LTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp64s-00000008NQb-1pnl;
-	Wed, 29 Jul 2026 15:20:14 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1wp65L-00000008NXq-2g8k;
+	Wed, 29 Jul 2026 15:20:43 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp64p-00000008NPk-3xwQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 15:20:13 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-51c15a5b265so355041cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 08:20:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785338410; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QTwzPUfX33LJtf6maUmiqo/LfSrQ9gjYhYqyxLFA8mZodA7an6SCL1+ClgQvGsMljp
-         24urhJrtxpQaDPg89AulvsdtwIQaWM94quZOKMYMPx5CCvR9NWi5PuNDw1itwZawqiJJ
-         N6MlKnS79Gk6KuxpfaJQcGipHVf72peAwGoVt4dmuIepp4xNhTLz5n6kUizlBfQgI3zp
-         UJI2J0EWCWfBqNE3GLiL9MBKY/uE2kuI7m9wpjWpD0virnnT0tCH0QYNJ7mMt/PBx1f+
-         UUfP94jdzZtOp6YxcWnlU1h4zWnkTQIdV0CD4y1qIyRYc7hTMy8nz91UkUvM1yTfNgDS
-         sJ6w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=JYgZt/35SRTSOby0/Cc9E+OqarqONJhII6K0Q/18dbI=;
-        fh=S/cqbzR1pwPCr5GuwjjBd5byHv67Xn662fQhIA/2/YU=;
-        b=RjoFbJ7QLFhHw3HQpQt/vZNmdC75CEDf4gsYeZm2pb55ZROq73I9scXydkE5V/YPBM
-         TgMq46E3TJ3vzjWsuwJIABzeTJtygzysnLvYSItgQe8GJmjCIX4C+yZHd45/93G4Ef+t
-         Sd2PZZPOIhTgRJOj7INCSJTEOmRU+qujFnBJs16Xo3x2m1ADNUyXfPvhRBjoj45PcWYG
-         JkF/r9AfEpFoqocMlpAe4q1GwVH6boBSL8wLxLs7MG50RJzDyeX4i8qAqj6pmJdFeU4N
-         ZXEO5fe8CsDIe5wAd6/eNDxGN4Se93muI4f+kG6xpn2P8QuC+ko06UWVY6BoZO3SNGDt
-         NKuw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785338410; x=1785943210; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JYgZt/35SRTSOby0/Cc9E+OqarqONJhII6K0Q/18dbI=;
-        b=ftTaSDPIZbWPNI/NKB8UAYuheKXmk02T7jkM1fl4wrpBga7NMqsvL6xeVLWTYULOVE
-         9EWDSbaAH+6rsNGhIT9VkOfchypr4T+HVNNSrhAJ3rEnu8ypKe78V7ufl9RspdzQGyY8
-         xBgBOiNqRH6tw2vV4g5Pi/NYunyEe+hddXj5Yg2I002CZ9xJ6wbzJeCV57Y3UBwBTrih
-         CzaB2M5aclgZCbnTJpR7pQg26KhKyAoO8tIbKXAezpicoc6birN+lZkRQP17Lz2P7XNS
-         C8kWVyqcElpmg9PqferBJJS6WJjOd3twq6JUuZe2lNMFPotQikmmeb3x7bwLekJT2yJW
-         ZnXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785338410; x=1785943210;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=JYgZt/35SRTSOby0/Cc9E+OqarqONJhII6K0Q/18dbI=;
-        b=nFR1ZQnk3G9doetqUsyo/K53hoT7auWw+c6QxeL7eqJpXLcSAm6hxkdCgsFZWuB/xp
-         vpq+5whpA+Q6NBlqwCdnk5wuYs6y3FFvF3LQHCJu5qWNEID3xvrs1nlGc+iSATXKSuQV
-         871s5lGuKRf5ALOD20RJicwpNOvjFVAaHVMxU0f3AjBNzXj1XAQuHBAGG7Iw2Bp8KeoD
-         E7OCIsQ6yusnWibzfc2HuZCMiyj7xsOmmbNYXpI+WM4vZBNp/g11OZfr5PTcCxdjKS7h
-         mCygeryUVmjLHy9L9KSeG+/l8u7T9TWEXJumYG7shdlOZvCTqdiYjY0ULwyBQfxVWmVl
-         lOQQ==
-X-Forwarded-Encrypted: i=1; AHgh+Roy3YQa+agC04o5r6zktm8fd2B1O6rW3HbdU+mye1TkMMV515BPasHrlSiVfHqObUerpQm5VTKWqPcPA2Ro3bWp@lists.infradead.org
-X-Gm-Message-State: AOJu0YytXUfPKEWZXoG5w4H3nfAhtNK74TThsW4m5p6k7D80ckCwN3L6
-	/76FruWBik8kt73EBc42l5Zh6GOsgU/9bRofquTRtXD/7DJMkbY2vLVBoBiBpeYx1KM13aODB5t
-	qaKqUk9bq30YLIq1VcxtNzZuO6mUlafMKvRy0lT45
-X-Gm-Gg: AR+sD13IgC9Sq/SaJvj+SnL+pJlfPa/B/gXy2XouOKwS4MOBKH9AOLQsCwhbE9nTzUU
-	r8MJCg/6SVabkYHvb/b4380/kY8kLUtymM+dSOMytQ9ymeQ7oGa7hMVTieV3vEZA6BfM2CUHS3j
-	+3JpxAwzaGEur4WjnyX5W+TjTQrqoO8mJFteD5dSSYQmQ5I7QiaAas56Ei/3QQQoyQ1ulDwIYSS
-	ODBQbO+ctEVHyUG4rWuMtxhZB4FHIvisL4+4ybeNuBpCTUVwQ5CbrylWq7UhIgX1nIMYsQONWZI
-	OX8yUdefTXJoX1oHvgfHTUlrfjyf7SpGPmQ/LmkTkevG4t6i2OR8tOkkCJpo7Cko3PC1xZS9Mla
-	GIfNYtxzkNQ==
-X-Received: by 2002:a05:622a:9014:b0:517:6010:7c71 with SMTP id
- d75a77b69052e-52b34e95118mr803001cf.4.1785338408902; Wed, 29 Jul 2026
- 08:20:08 -0700 (PDT)
+	id 1wp65I-00000008NWj-0lgO;
+	Wed, 29 Jul 2026 15:20:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=mABh2OQBhAUA7eN+87r478yGoqxajXeOENCfKZxWJeA=; b=S/3Q0Bnq4xPJ4O8no5JeqAx3On
+	L9u7qtyvrLbPLK4sNmOsNDmzx9YGxap/s+dXIkE2DVu1ePPrSMnIV79P7QE9N5XcLzNxY09nJ3xCF
+	rEEgJamiwBjfHBhSX9+f8Bz+22fl2aj3ZRymXrTXZIV2N+Thzq55RYVYtQhl50/RwmGEKqAe5Bhi9
+	qZ+EKCMhKWJ0nD4k4/RSkthYkuh2tL43W+0nlOMTkyxN9NjgW8j2PDHfREpLbzMmdW36IwtGhWVVG
+	i/W+ZxBUrMtVlZieZ0H0WZJ/58Ih5M3OwisS3zcDQ/thjEONoREPev7ACzSt4YaVIO6oJmSsSWMJj
+	FRPC5c7g==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: tomeu@tomeuvizoso.net, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ ulfh@kernel.org, p.zabel@pengutronix.de, ogabbay@kernel.org,
+ Jiaxing Hu <gahing@gahingwoo.com>
+Cc: chaoyi.chen@rock-chips.com, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, iommu@lists.linux.dev,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jiaxing Hu <gahing@gahingwoo.com>
+Subject: Re: [RFC PATCH v2 2/8] pmdomain/rockchip: add optional per-domain power-on
+ settle delay
+Date: Wed, 29 Jul 2026 17:20:20 +0200
+Message-ID: <3322194.D8ZAKjAxdT@diego>
+In-Reply-To: <20260718031146.3368811-3-gahing@gahingwoo.com>
+References: <20260718031146.3368811-1-gahing@gahingwoo.com>
+ <20260718031146.3368811-3-gahing@gahingwoo.com>
 MIME-Version: 1.0
-References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp> <20260720-hybrid-v9-3-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260720-hybrid-v9-3-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 29 Jul 2026 16:19:31 +0100
-X-Gm-Features: AUfX_mwnVrQrZWbAViwhlMWDHtZtcw4flUU1g4ENMs-4TGfR7On64kQESsXcw8M
-Message-ID: <CA+EHjTyYk0Dcc-8RbvQZHFBZ7HM7cekfg3O5MR4jo57qX5SohA@mail.gmail.com>
-Subject: Re: [PATCH v9 03/16] KVM: arm64: PMU: Freeze counter count after
- first run
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steffen Eiden <seiden@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_082011_996439_842C603A 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20260729_082040_399159_1139C448 
+X-CRM114-Status: GOOD (  23.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,48 +72,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 at 06:39, Akihiko Odaki
-<odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
->
-> PMU configuration is VM-scoped, but SET_NR_COUNTERS can be issued
-> through any vCPU. Checking only whether that vCPU's PMU has been
-> initialized allows userspace to change the counter count through an idle
-> sibling after another vCPU has run.
->
-> Reject the attribute once any vCPU has run. This keeps the VM-wide
-> implemented counter mask and the PMCR_EL0.N value stable after guest
-> execution begins.
->
-> Fixes: b7628c797376 ("KVM: arm64: Allow userspace to limit the number of PMU counters for EL2 VMs")
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
-
+Am Samstag, 18. Juli 2026, 05:11:40 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Jiaxing Hu:
+> The RK3576 NPU domains need a short settle time after the idle
+> request is released before the QoS registers behind the domain are
+> written: restoring QoS immediately after de-idle can raise an SError
+> on the register access while the NoC is still settling (observed on
+> ROCK 4D as a panic inside rockchip_pd_power() during NPU runtime-PM
+> cycling).
+>=20
+> The vendor kernel handles this with a per-domain delay_us field
+> applied between the de-idle request and the QoS restore, carrying
+> 15us for the RK3576 NPUTOP domain.  Mirror that: add delay_us to
+> rockchip_domain_info, honor it in rockchip_pd_power() right before
+> rockchip_pmu_restore_qos(), and set 15us for NPUTOP, NPU0 and NPU1
+> (the two core domains power-cycle constantly under runtime PM and
+> showed the same symptom during bring-up).  All other domains keep 0,
+> so nothing changes for them.
+>=20
+> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
 > ---
->  arch/arm64/kvm/pmu-emul.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index b5df6843dbcd..b4b877f31097 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -1087,6 +1087,9 @@ static int kvm_arm_pmu_v3_set_nr_counters(struct kvm_vcpu *vcpu, unsigned int n)
->  {
->         struct kvm *kvm = vcpu->kvm;
->
-> +       if (kvm_vm_has_ran_once(kvm))
-> +               return -EBUSY;
+>  drivers/pmdomain/rockchip/pm-domains.c | 51 ++++++++++++++------------
+>  1 file changed, 28 insertions(+), 23 deletions(-)
+>=20
+> diff --git a/drivers/pmdomain/rockchip/pm-domains.c b/drivers/pmdomain/ro=
+ckchip/pm-domains.c
+> index 490bbb1d1..1787f62ba 100644
+> --- a/drivers/pmdomain/rockchip/pm-domains.c
+> +++ b/drivers/pmdomain/rockchip/pm-domains.c
+> @@ -59,6 +59,7 @@ struct rockchip_domain_info {
+>  	u32 pwr_offset;
+>  	u32 mem_offset;
+>  	u32 req_offset;
+> +	u32 delay_us;
+>  };
+> =20
+>  struct rockchip_pmu_info {
+> @@ -185,7 +186,7 @@ struct rockchip_pmu {
+>  	.need_regulator =3D regulator,			\
+>  }
+> =20
+> -#define DOMAIN_M_O_R_G(_name, p_offset, pwr, status, m_offset, m_status,=
+ r_status, r_offset, req, idle, ack, g_mask, wakeup)	\
+> +#define DOMAIN_M_O_R_G(_name, p_offset, pwr, status, m_offset, m_status,=
+ r_status, r_offset, req, idle, ack, g_mask, delay, wakeup)	\
+
+DOMAIN_M_O_R_G describes the fields it sets (mask, offset,  regulator clk-u=
+ngate)
+
+So if you're adding the new wakeup delay that is specific to this one
+implementation-variant, please also add a _W the name DOMAIN_M_O_R_G_W
+
+
+Otherwise looks good.
+
+
+Heiko
+>  {							\
+>  	.name =3D _name,					\
+>  	.pwr_offset =3D p_offset,				\
+> @@ -200,6 +201,7 @@ struct rockchip_pmu {
+>  	.req_mask =3D (req),				\
+>  	.idle_mask =3D (idle),				\
+>  	.clk_ungate_mask =3D (g_mask),			\
+> +	.delay_us =3D (delay),				\
+>  	.ack_mask =3D (ack),				\
+>  	.active_wakeup =3D wakeup,			\
+>  }
+> @@ -244,8 +246,8 @@ struct rockchip_pmu {
+>  #define DOMAIN_RK3568(name, pwr, req, wakeup)		\
+>  	DOMAIN_M(name, pwr, pwr, req, req, req, wakeup)
+> =20
+> -#define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset, r=
+eq, idle, g_mask, wakeup)	\
+> -	DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status, r_of=
+fset, req, idle, idle, g_mask, wakeup)
+> +#define DOMAIN_RK3576(name, p_offset, pwr, status, r_status, r_offset, r=
+eq, idle, g_mask, delay, wakeup)	\
+> +	DOMAIN_M_O_R_G(name, p_offset, pwr, status, 0, r_status, r_status, r_of=
+fset, req, idle, idle, g_mask, delay, wakeup)
+> =20
+>  /*
+>   * Dynamic Memory Controller may need to coordinate with us -- see
+> @@ -612,7 +614,6 @@ static int rockchip_do_pmu_set_power_domain(struct ro=
+ckchip_pm_domain *pd,
+>  			return ret;
+>  	}
+> =20
+> -
+>  	ret =3D readx_poll_timeout_atomic(rockchip_pmu_domain_is_on, pd, is_on,
+>  					is_on =3D=3D on, 0, 10000);
+>  	if (ret) {
+> @@ -667,6 +668,9 @@ static int rockchip_pd_power(struct rockchip_pm_domai=
+n *pd, bool power_on)
+>  		if (ret < 0)
+>  			goto out;
+> =20
+> +		if (pd->info->delay_us)
+> +			udelay(pd->info->delay_us);
 > +
->         if (!kvm->arch.arm_pmu)
->                 return -EINVAL;
->
->
-> --
-> 2.55.0
->
->
+>  		rockchip_pmu_restore_qos(pd);
+>  	}
+> =20
+> @@ -1286,25 +1290,26 @@ static const struct rockchip_domain_info rk3568_p=
+m_domains[] =3D {
+>  };
+> =20
+>  static const struct rockchip_domain_info rk3576_pm_domains[] =3D {
+> -	[RK3576_PD_NPU]		=3D DOMAIN_RK3576("npu",    0x0, BIT(0),  BIT(0), 0,  =
+     0x0, 0,       0,       0,       false),
+> -	[RK3576_PD_NVM]		=3D DOMAIN_RK3576("nvm",    0x0, BIT(6),  0,      BIT(=
+6),  0x4, BIT(2),  BIT(18), BIT(2),  false),
+> -	[RK3576_PD_SDGMAC]	=3D DOMAIN_RK3576("sdgmac", 0x0, BIT(7),  0,      BI=
+T(7),  0x4, BIT(1),  BIT(17), 0x6,     false),
+> -	[RK3576_PD_AUDIO]	=3D DOMAIN_RK3576("audio",  0x0, BIT(8),  0,      BIT=
+(8),  0x4, BIT(0),  BIT(16), BIT(0),  false),
+> -	[RK3576_PD_PHP]		=3D DOMAIN_RK3576("php",    0x0, BIT(9),  0,      BIT(=
+9),  0x0, BIT(15), BIT(15), BIT(15), false),
+> -	[RK3576_PD_SUBPHP]	=3D DOMAIN_RK3576("subphp", 0x0, BIT(10), 0,      BI=
+T(10), 0x0, 0,       0,       0,       false),
+> -	[RK3576_PD_VOP]		=3D DOMAIN_RK3576("vop",    0x0, BIT(11), 0,      BIT(=
+11), 0x0, 0x6000,  0x6000,  0x6000,  false),
+> -	[RK3576_PD_VO1]		=3D DOMAIN_RK3576("vo1",    0x0, BIT(14), 0,      BIT(=
+14), 0x0, BIT(12), BIT(12), 0x7000,  false),
+> -	[RK3576_PD_VO0]		=3D DOMAIN_RK3576("vo0",    0x0, BIT(15), 0,      BIT(=
+15), 0x0, BIT(11), BIT(11), 0x6800,  false),
+> -	[RK3576_PD_USB]		=3D DOMAIN_RK3576("usb",    0x4, BIT(0),  0,      BIT(=
+16), 0x0, BIT(10), BIT(10), 0x6400,  true),
+> -	[RK3576_PD_VI]		=3D DOMAIN_RK3576("vi",     0x4, BIT(1),  0,      BIT(1=
+7), 0x0, BIT(9),  BIT(9),  BIT(9),  false),
+> -	[RK3576_PD_VEPU0]	=3D DOMAIN_RK3576("vepu0",  0x4, BIT(2),  0,      BIT=
+(18), 0x0, BIT(7),  BIT(7),  0x280,   false),
+> -	[RK3576_PD_VEPU1]	=3D DOMAIN_RK3576("vepu1",  0x4, BIT(3),  0,      BIT=
+(19), 0x0, BIT(8),  BIT(8),  BIT(8),  false),
+> -	[RK3576_PD_VDEC]	=3D DOMAIN_RK3576("vdec",   0x4, BIT(4),  0,      BIT(=
+20), 0x0, BIT(6),  BIT(6),  BIT(6),  false),
+> -	[RK3576_PD_VPU]		=3D DOMAIN_RK3576("vpu",    0x4, BIT(5),  0,      BIT(=
+21), 0x0, BIT(5),  BIT(5),  BIT(5),  false),
+> -	[RK3576_PD_NPUTOP]	=3D DOMAIN_RK3576("nputop", 0x4, BIT(6),  0,      BI=
+T(22), 0x0, 0x18,    0x18,    0x18,    false),
+> -	[RK3576_PD_NPU0]	=3D DOMAIN_RK3576("npu0",   0x4, BIT(7),  0,      BIT(=
+23), 0x0, BIT(1),  BIT(1),  0x1a,    false),
+> -	[RK3576_PD_NPU1]	=3D DOMAIN_RK3576("npu1",   0x4, BIT(8),  0,      BIT(=
+24), 0x0, BIT(2),  BIT(2),  0x1c,    false),
+> -	[RK3576_PD_GPU]		=3D DOMAIN_RK3576("gpu",    0x4, BIT(9),  0,      BIT(=
+25), 0x0, BIT(0),  BIT(0),  BIT(0),  false),
+> +	/*                                               name    p_offset pwr  =
+    status  r_status r_offset req      idle     g_mask   delay wakeup */
+> +	[RK3576_PD_NPU]		=3D DOMAIN_RK3576("npu",    0x0, BIT(0),  BIT(0), 0,  =
+     0x0, 0,       0,       0,       0,    false),
+> +	[RK3576_PD_NVM]		=3D DOMAIN_RK3576("nvm",    0x0, BIT(6),  0,      BIT(=
+6),  0x4, BIT(2),  BIT(18), BIT(2),  0,    false),
+> +	[RK3576_PD_SDGMAC]	=3D DOMAIN_RK3576("sdgmac", 0x0, BIT(7),  0,      BI=
+T(7),  0x4, BIT(1),  BIT(17), 0x6,     0,    false),
+> +	[RK3576_PD_AUDIO]	=3D DOMAIN_RK3576("audio",  0x0, BIT(8),  0,      BIT=
+(8),  0x4, BIT(0),  BIT(16), BIT(0),  0,    false),
+> +	[RK3576_PD_PHP]		=3D DOMAIN_RK3576("php",    0x0, BIT(9),  0,      BIT(=
+9),  0x0, BIT(15), BIT(15), BIT(15), 0,    false),
+> +	[RK3576_PD_SUBPHP]	=3D DOMAIN_RK3576("subphp", 0x0, BIT(10), 0,      BI=
+T(10), 0x0, 0,       0,       0,       0,    false),
+> +	[RK3576_PD_VOP]		=3D DOMAIN_RK3576("vop",    0x0, BIT(11), 0,      BIT(=
+11), 0x0, 0x6000,  0x6000,  0x6000,  0,    false),
+> +	[RK3576_PD_VO1]		=3D DOMAIN_RK3576("vo1",    0x0, BIT(14), 0,      BIT(=
+14), 0x0, BIT(12), BIT(12), 0x7000,  0,    false),
+> +	[RK3576_PD_VO0]		=3D DOMAIN_RK3576("vo0",    0x0, BIT(15), 0,      BIT(=
+15), 0x0, BIT(11), BIT(11), 0x6800,  0,    false),
+> +	[RK3576_PD_USB]		=3D DOMAIN_RK3576("usb",    0x4, BIT(0),  0,      BIT(=
+16), 0x0, BIT(10), BIT(10), 0x6400,  0,    true),
+> +	[RK3576_PD_VI]		=3D DOMAIN_RK3576("vi",     0x4, BIT(1),  0,      BIT(1=
+7), 0x0, BIT(9),  BIT(9),  BIT(9),  0,    false),
+> +	[RK3576_PD_VEPU0]	=3D DOMAIN_RK3576("vepu0",  0x4, BIT(2),  0,      BIT=
+(18), 0x0, BIT(7),  BIT(7),  0x280,   0,    false),
+> +	[RK3576_PD_VEPU1]	=3D DOMAIN_RK3576("vepu1",  0x4, BIT(3),  0,      BIT=
+(19), 0x0, BIT(8),  BIT(8),  BIT(8),  0,    false),
+> +	[RK3576_PD_VDEC]	=3D DOMAIN_RK3576("vdec",   0x4, BIT(4),  0,      BIT(=
+20), 0x0, BIT(6),  BIT(6),  BIT(6),  0,    false),
+> +	[RK3576_PD_VPU]		=3D DOMAIN_RK3576("vpu",    0x4, BIT(5),  0,      BIT(=
+21), 0x0, BIT(5),  BIT(5),  BIT(5),  0,    false),
+> +	[RK3576_PD_NPUTOP]	=3D DOMAIN_RK3576("nputop", 0x4, BIT(6),  0,      BI=
+T(22), 0x0, 0x18,    0x18,    0x18,    15,   false),
+> +	[RK3576_PD_NPU0]	=3D DOMAIN_RK3576("npu0",   0x4, BIT(7),  0,      BIT(=
+23), 0x0, BIT(1),  BIT(1),  0x1a,    15,   false),
+> +	[RK3576_PD_NPU1]	=3D DOMAIN_RK3576("npu1",   0x4, BIT(8),  0,      BIT(=
+24), 0x0, BIT(2),  BIT(2),  0x1c,    15,   false),
+> +	[RK3576_PD_GPU]		=3D DOMAIN_RK3576("gpu",    0x4, BIT(9),  0,      BIT(=
+25), 0x0, BIT(0),  BIT(0),  BIT(0),  0,    false),
+>  };
+> =20
+>  static const struct rockchip_domain_info rk3588_pm_domains[] =3D {
+>=20
+
+
+
+
 
