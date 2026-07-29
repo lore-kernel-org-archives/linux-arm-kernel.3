@@ -4,52 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2313DC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0357C54F52
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 10:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:From:Cc:To:Subject:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=m/tVY747qQcUbCWoM+r9JhmavpQYiLXvZynECqzDeco=; b=a70/nFqGUd0SOXnZ6ctb6r3z2o
-	UBYJxk3xcJcX7mGrC0AiD4ddPGDzDFtrYl9UD+wVqv0/AQ+x05wGTOisfly3AWevGbzcpJ8Fzi4VF
-	95G0ygFhQ5JdUACscCsfuGG5xQj9OtYZM9mA6TO24/dXitFsYJLCHhZZfoPbwSNcJE2LdpkVO0Owx
-	MOvr5yXvh2AS3Jsz9Xb2CowwnPdJMMJIk3Sswm1Vo45B4NS8tHNLgFTGx/PFrySbWql/aiPRXRNyp
-	AqqML0eib04cO6ATQu1+6RBCKzhEX07VCfKaExU2bqPqTg/TGiaJKgrhObongOyIhokF2uc6C2qLp
-	c9Jj6z6Q==;
+	bh=Dz+MiuXqCk9nJezbBoG+wbjauzAqZQtRcWi/Ol0DmU4=; b=Er6MeU8cA83n+3fo/hmuKI182d
+	gTWP3illR8ME44mfSiMFV2c05wtws3/hPbW1CyFbdTURIUC4Pdzy9xnYFAoR2XsKUek7By9DXyL9b
+	0HEj03ZcXDkjQNIOrchgM4coVU05Y9VukcjHmwo6EnVQKRYpi/oWrwG13DX4/4pVWeH1tXMu68jZd
+	5untijGC9GUES5i4PrrkaFeIrpPHfCB66Xtnwp0Vfm0BoFxNswNMNTM5X8QaH/NeckNzmGR/2epif
+	i9pB03EU3o7po1qH+dqzA/Anbn4PvA/MROGYAItL+S2OhdSa624UuPGLBG0PzDT2i1m8JEqc8UtQZ
+	wbXUoRag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1jO-00000007Zbm-20vw;
-	Wed, 29 Jul 2026 10:41:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp1jN-00000007ZbZ-0U3e
+	id 1wp1nl-00000007a64-09b6;
+	Wed, 29 Jul 2026 10:46:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp1ni-00000007a5S-05GR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 10:41:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 32E86600B1;
-	Wed, 29 Jul 2026 10:41:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EF991F000E9;
-	Wed, 29 Jul 2026 10:41:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1785321703;
-	bh=m/tVY747qQcUbCWoM+r9JhmavpQYiLXvZynECqzDeco=;
-	h=Subject:To:Cc:From:Date;
-	b=U5FprOVUlnP1TM3/fXxzl5Iu/4Vur+YDLVHuTSa9mUH3nWOER9fwzc/+3D41BQlXi
-	 Kxy+JoVuyKKCeoHLbBBL6tV/Sj+PfkBoxJ4P7wQUB5i5f+xordCPExF1xkzRVoZCWA
-	 5Qf5sT5ONFUh+amp+4W2aw7ii1Rv56FSmUAoj5rc=
-Subject: Patch "drm/exynos: fbdev: Remove offset into screen_buffer" has been added to the 7.1-stable tree
-To: dri-devel@lists.freedesktop.org,gregkh@linuxfoundation.org,inki.dae@samsung.com,linux-arm-kernel@lists.infradead.org,m.szyprowski@samsung.com,tzimmermann@suse.de
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Wed, 29 Jul 2026 12:39:59 +0200
-Message-ID: <2026072959-cosmic-putt-d5cd@gregkh>
+	Wed, 29 Jul 2026 10:46:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D9B7E1688;
+	Wed, 29 Jul 2026 03:46:06 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 210293F66F;
+	Wed, 29 Jul 2026 03:46:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785321970; bh=Md75CJuQbNrNXweyKclKuVtPBisDFWbMVxT23AUx+HY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kMsb8Czr355RusnK2H73RUNtSxOQXFprjaE1M0Y8357cDpeL3p9tKhfQ+ZEh5UFQE
+	 7Md886P0jyikqGDNGtJULxr5aibbFeTOm2eYu6MKd9Uxu2j0/+N752qF6uxgJW8aqe
+	 ENGeepirCHjSv8ntuKqcZhVl0WfxiZ7wRBkbfRK8=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	James Morse <james.morse@arm.com>,
+	Leonardo Bras <leo.bras@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Zeng Heng <zengheng4@huawei.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tian Zheng <zhengtian10@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org
+Subject: [PATCH v3 00/11] KVM Dirty-bit cleaning hw accelerator (HACDBS)
+Date: Wed, 29 Jul 2026 11:45:35 +0100
+Message-ID: <20260729104548.3439958-1-leo.bras@arm.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6173; i=leo.bras@arm.com; h=from:subject; bh=Md75CJuQbNrNXweyKclKuVtPBisDFWbMVxT23AUx+HY=; b=owGbwMvMwCX2pizjszvTwvWMp9WSGLIyb15l3bp9hWEz56P3H5SXVZbtYu9ymTJnm4JcYlU3X 3b+28nfO0pZGMS4GGTFFFlkH81fxfN9SsaRKz8WwMxhZQIZwsDFKQATSVzLyPB407wI5gMPJ7pz xnuubpVwe6OwS/S6ygnJh3JFuj9P/pjM8D/+aMi8qfkfo9s8LrgaFv5gldw/Z7/qzkkt9SsXMkW xJXEBAA==
+X-Developer-Key: i=leo.bras@arm.com; a=openpgp; fpr=36E6C95AE0F111CC5B6F4D2E688C33F8A0C5B0C5
 Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_034614_137500_68145111 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,75 +96,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Disclaimer: While this patchset is buildable and testable on it's own,
+it is not ready to be merged, as it depends on bits from another
+patchset that will superseed the one in [1], and will enable HDBSS.
+See note below on patch 1.
 
-This is a note to let you know that I've just added the patch titled
+My expectation on sharing this earlier is to gather feedback on
+implementation and testing methods, to make sure it's sure it's ready
+when [1] becomes ready. It should work for both lazy-splitting 
+and eager-splitting scenarios.
 
-    drm/exynos: fbdev: Remove offset into screen_buffer
+===
 
-to the 7.1-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+Create an arch-generic dirty-bit cleaning acceleration interface, which
+compiles-out if the arch does not implement it, and creates no new API.
+Using that, implement an arm64 accelerator based on HACDBS.
 
-The filename of the patch is:
-     drm-exynos-fbdev-remove-offset-into-screen_buffer.patch
-and it can be found in the queue-7.1 subdirectory.
+This implementation is able to accelerate the cleaning on both
+dirty-bitmap and dirty-ring tracking mechanisms on KVM.
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+Patch 1 is here just to make this testable, as this patchset
+depends on bits from HDBSS that are not upstream yet. It is composed
+of a bunch of bits that I collected across HDBSS patches so this can
+work, so few free to ignore it on review. Patch 1 enables eager-splitting
+by default, but that's for testing purposes only, this should work with 
+both eager and lazy splitting, as both mark the page to be clean with
+the DBM bit. 
 
+This version relies on polling HACDBS registers to verify if the processing
+is done, an thus HACDBSIRQ is not enabled/used.
 
-From 760bbc58c2c833dec0ee38dd959f4f2f4084fc57 Mon Sep 17 00:00:00 2001
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Date: Mon, 11 May 2026 13:54:31 +0200
-Subject: drm/exynos: fbdev: Remove offset into screen_buffer
+Kernel v7.2-rc5 + this patchset builds properly, passing both kvm selftests
+for dirty-bit tracking[2] and a qemu live migration test, with both
+HW HACDBS enabled or disabled.
 
-From: Thomas Zimmermann <tzimmermann@suse.de>
+On terms of performance improvement, tests were done using
+dirty_log_perf_test[3] to measure the time spent on the following ioctl:
+a - KVM_GET_DIRTY_LOG,     using dirty-bitmap without manual protect
+    command:    ./dirty_log_perf_test -m 3 -m 6 -m 12 -g
+b - KVM_CLEAR_DIRTY_LOG,   using dirty-bitmap with manual protect
+    command:    ./dirty_log_perf_test -m 3 -m 6 -m 12
+c - KVM_RESET_DIRTY_RINGS, using dirty-ring, using 4096 entries/vcpu.
+    command:    ./dirty_log_perf_test -m 3 -m 6 -m 12 -d 4096
 
-commit 760bbc58c2c833dec0ee38dd959f4f2f4084fc57 upstream.
+Tests ran in the model show that runtime was reduced by:
+-(a) 87.36% (0.08% stdev) for 1GB memory, and
+     87.22% (0.01% stdev) for 3GB memory
+-(b) 85.72% (0.08% stdev) for 1GB memory, and
+     86.10% (0.04% stdev) for 3GB memory
+-(b) 70.08% (0.24% stdev) for 1GB memory, and
+     69.99% (0.03% stdev) for 3GB memory
 
-The screen_buffer field in struct fb_info contains the kernel address
-of the first byte of framebuffer memory. Do not add the display offset.
-This offset only describes scrolling during scanout.
+Which means those syscalls are from 3.3x to 8x faster.
+Above numbers already take into account the improvements in S2
+hugepage-splitting that is implemented by [4].
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Fixes: 19c8b8343d9c ("drm/exynos: fixed overlay data updating.")
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Signed-off-by: Inki Dae <inki.dae@samsung.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-samsung-soc@vger.kernel.org
-Cc: <stable@vger.kernel.org> # v3.2+
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- drivers/gpu/drm/exynos/exynos_drm_fbdev.c |    6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+Please let me know of any question :)
 
---- a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
-@@ -61,17 +61,13 @@ static int exynos_drm_fbdev_update(struc
- 	struct fb_info *fbi = helper->info;
- 	struct drm_framebuffer *fb = helper->fb;
- 	unsigned int size = fb->width * fb->height * fb->format->cpp[0];
--	unsigned long offset;
- 
- 	fbi->fbops = &exynos_drm_fb_ops;
- 
- 	drm_fb_helper_fill_info(fbi, helper, sizes);
- 
--	offset = fbi->var.xoffset * fb->format->cpp[0];
--	offset += fbi->var.yoffset * fb->pitches[0];
--
- 	fbi->flags |= FBINFO_VIRTFB;
--	fbi->screen_buffer = exynos_gem->kvaddr + offset;
-+	fbi->screen_buffer = exynos_gem->kvaddr;
- 	fbi->screen_size = size;
- 	fbi->fix.smem_len = size;
- 
+Thanks for reviewing!
+Leo
 
 
-Patches currently in stable-queue which might be from tzimmermann@suse.de are
+Changes since v2:
+- HACDBS completion is detected by polling registers instead of HACDBSIRQ
+  - No need for ACPI enablement any longer
+  - Fixes issue with possibly waiting forever on wfi()
+- Cleaning routine now protected by preempt_notifiers,
+  - Save reg status on preemption, and restore when it's back.
+  - Was preempt_disable(), which was not good in case of long buffers
+- Improved error paths in case of invalid memslot/range on dirty_ring
+- Added dsb() barrier to make sure the cpu finishes writting to array
+  before HACDBS starts.
+- Fixed page-splitting skipping ranges for dirty-bit.
+- Patches 1 & 2 from v2 merged into patch 1 of v3, as it's only about 
+  setting enough bits to test it. 
+v2 Link: https://lore.kernel.org/all/20260629111820.1873540-1-leo.bras@arm.com/
 
-queue-7.1/drm-tests-shmem-set-dma-mask-to-64-bit-in-drm_gem_sh.patch
-queue-7.1/drm-exynos-fbdev-remove-offset-into-screen_buffer.patch
-queue-7.1/drm-tegra-fbdev-remove-offset-into-framebuffer-memory.patch
+Changes since v1:
+- Improvements on splitting with manual protect, skipping when cleaning
+  pages from the same level-2 entry. (new patch)
+- Got the correct concept of chunk_size and thus:
+  - Corrected it to a reasonable chunk to do page splitting before
+    rescheduling, considering new improvements from [4].
+  - TTWL is not based in chunk size, so fix it in LAST_LEVEL
+- Minor fixes, removing debugging traces
+v1 Link: https://lore.kernel.org/all/20260430111424.3479613-2-leo.bras@arm.com/
+
+
+[1]: https://lore.kernel.org/all/20260709104026.2612599-1-zhengtian10@huawei.com/
+[2]: dirty_log_test && dirty_log_perf_test
+[3]: using this patchset to enable dirty-ring on dirty_log_perf_test:
+     https://lore.kernel.org/all/20260629105950.1790259-1-leo.bras@arm.com/
+[4]: https://lore.kernel.org/all/20260618131447.764085-1-leo.bras@arm.com/
+
+Leonardo Bras (11):
+  KVM: arm64: HDBSS bits
+  arm64/cpufeature: Add system-wide FEAT_HACDBS detection
+  arm64/sysreg: Add HACDBS consumer and base registers
+  KVM: arm64: dirty_bit: Add base FEAT_HACDBS cleaning routine
+  kvm: Add arch-generic interface for hw-accelerated dirty-bitmap
+    cleaning
+  KVM: arm64: Add hardware-accelerated dirty-bitmap cleaning routine
+  KVM: arm64: Dirty-bitmap: avoid splitting previously split blocks
+  kvm/dirty_ring: Introduce get_memslot and move helpers to header
+  kvm/dirty_ring: Add arch-generic interface for hw-accelerated
+    dirty-ring cleaning
+  KVM: arm64: Add hardware-accelerated dirty-ring cleaning routine
+  KVM: arm64: Enable KVM_HW_DIRTY_BIT
+
+ arch/arm64/include/asm/cpufeature.h    |  10 +
+ arch/arm64/include/asm/kvm_dirty_bit.h |  49 +++
+ arch/arm64/include/asm/kvm_pgtable.h   |   3 +
+ include/linux/kvm_dirty_bit.h          |  34 ++
+ include/linux/kvm_dirty_ring.h         |  12 +
+ include/linux/kvm_host.h               |   3 +
+ arch/arm64/kernel/cpufeature.c         |  20 ++
+ arch/arm64/kvm/dirty_bit.c             | 438 +++++++++++++++++++++++++
+ arch/arm64/kvm/hyp/pgtable.c           |  15 +-
+ arch/arm64/kvm/mmu.c                   |  12 +-
+ virt/kvm/dirty_ring.c                  |  35 +-
+ virt/kvm/kvm_main.c                    |  13 +-
+ arch/arm64/kvm/Kconfig                 |   1 +
+ arch/arm64/kvm/Makefile                |   2 +-
+ arch/arm64/tools/cpucaps               |   2 +
+ arch/arm64/tools/sysreg                |  30 ++
+ virt/kvm/Kconfig                       |   3 +
+ 17 files changed, 660 insertions(+), 22 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_dirty_bit.h
+ create mode 100644 include/linux/kvm_dirty_bit.h
+ create mode 100644 arch/arm64/kvm/dirty_bit.c
+
+
+base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
+-- 
+2.55.0
+
 
