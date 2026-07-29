@@ -4,77 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68D1C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:02:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55619C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lDhpdhv1V/2Mmx+BQS7lBsREzTSL9OED0Q1oe1sMhkQ=; b=ugF7Ne3cjwH/Ln2Se13dIbYSDu
-	RQcsaMPlrjNZrI/879DM7HJ2tCMTbTx3pB/LRQQ3Q7fsqZzbGtPb64CKw+6t3aHnJa5Ev7a2Rkwpl
-	sCG56CzGAXjwPbzA7KjxCHbG6vMRDoYbwvIBx4LAhhLxcXes4R8aTg49w5DKWxC7M9CmZo21qumUu
-	dpS0J4XWsFLPVeOISnM9vupv8kYwouvNlO0t55jUwaRB4E27Ez84M+yCMMud+eaIVl5YnvktUwa38
-	59gY1KGipxE3RMlxtO37nJN0Clt78LRiHW/elIvlVuKaWcIyXBA5KW4qPIEBvIdakMga65DoKqkuJ
-	+q7Fo45g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LkH0DVfJfa+vAtypPa0g1aD+YwprGr+V/iYqpsomwew=; b=uBs1i1AvfCRAbtBCTUajIkIIb/
+	w3Pz97lAj5BFXzwFjalOprdX10YQHvX4qm7ScQKS80ksr3FccxWkflPr1JqhsJ+P/jfLOgMV5tdFf
+	0iNvSW/sL/ukLHIPmHHtd0q311s/kyuFIl2prnTCW6dNOSgcEr19/9NIxu1m/EQ92SuSAGaglBbeV
+	GphAnq5actGiY77Phg7ygDoEMa53PaAXF+N0W6ryVmJ/u5JfNh6NVKvqbMZmbyh/+AW/XS4xKYQjf
+	0EGXbZSRKvoK/veeQWdZ7NbU859jQRpObFZa6EHSa3nL4lKFNK+K0Fzept0HRqwhxYLzirqKGbwwu
+	8FCPCRug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2zH-00000007oh2-1OBa;
-	Wed, 29 Jul 2026 12:02:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wp2zi-00000007ooI-2Mkn;
+	Wed, 29 Jul 2026 12:02:42 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp2zF-00000007ogP-1MZm
+	id 1wp2zf-00000007on6-3oMU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 12:02:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6934A60A66
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 12:02:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DB1E1F00ACF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 12:02:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785326532;
-	bh=lDhpdhv1V/2Mmx+BQS7lBsREzTSL9OED0Q1oe1sMhkQ=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=TfheBuyNx4ybA2qvyXwHgUsFRk7A/VQMSxA5wEpghnvZXwDmJ2LAOM3NBzQ7+iFHK
-	 qtL4H8pmgrqUeGpUHofgDiEGVkQAILC8pZ02iANY+wB6jT9IQasH74oOJlHvDzigI1
-	 YEQNEzCx3DQetMHY9oV2y//gVUHf8mlS6FsLfRF3SCScRVeYhCBnydxKHugQfitwbE
-	 S7RPeaU5Swd18E05iWxI8ikqXGIBjhfAzJveUWRpNmf6zBPEyXtcfV0CVmUsIwC3Ql
-	 1xsjGpYvbpsTTGmiEZCGOdl6oGFu+tIwAiW/oUw1SRQXw7Iak9xEZbPad+GpganjIi
-	 ElixZJAkZQ0vA==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-39c9107baa7so6490011fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 05:02:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpRADkhcagUSdzP2HpN+wcagWs4V9DL8IVjEn7VxZ/kGnRrPZWTNLPMt2bRINsRQ4vHiXsyS4M2w9OupdBvZZdi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6n4eQr3OGnSlQVz/wjLCk1Xuev+uE2VlhVXGD6f+9qn5rk6H6
-	55bxG9XoQqBalHpyepr4RMo/bU3aAUNGSBLc9AyE1rl1A2IOQmeKw0ol+fVseaoyfqnfpDbmSXR
-	m+hYKFm2i5Kbwfjru+yLSYQD4Tr8mctU/6GSybQUrKg==
-X-Received: by 2002:a2e:bc11:0:b0:39c:7059:10 with SMTP id 38308e7fff4ca-39f51eee674mr11861711fa.39.1785326530728;
- Wed, 29 Jul 2026 05:02:10 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 29 Jul 2026 05:02:08 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 29 Jul 2026 05:02:08 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260728152241.GA4281@quark>
+	Wed, 29 Jul 2026 12:02:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=teFx5ydbtmtdbnJWLn7SJ3JGLKIGGhAtTcVt5G3RJQGyJpU55B1fodjThovbVsqQfHvgyRCcN52wHPK91jrgZ9ji7luNGB+R9Of9LE6Ow90KfJPnyQ+csTc0w5I0muKURJclf8LntFQDOJ/zxJrbKivfGlpEhrBcfle3u36NDsO6eiOYdrQO1v5D7w5zt+E1JDl5IbcAAXwRdwdhhCzEEi/3udFJpSup2/Hb7w946gdjxfba3dH+z95Rx1sZt1dozIDHb0/at5P+6HUDueHvoabWpNUdWNzhd/3feI0uncXXb4ak1Mp65lmDh0QA+jZ17ptvGY9jul3RpooZXMZovg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LkH0DVfJfa+vAtypPa0g1aD+YwprGr+V/iYqpsomwew=;
+ b=UqOvNDGrxGYzlngxCBLYAen+cuf+5petsO7XBq26cDqJPGYryAAxesGORGWaw01IFH9prxHRCUyZRYt9MhNnPrgDDwBxMH6H4sVieCsNCQKVJ6cN1eAG0S7wJi4wGAkHNnYlrUlTD2IKjozo6eggsv3yBfrKjCweRjvKvIIZsXjLy0n1FUXkemf7XBnG48UDzNIdZEsfeiyPg2F2rlz6pVN7NQmoBUPziVnolOOvr29V56Y1neVdxn7q5L8FlrT4JwRI/z9DOPUzeVakbG7ONauht+ozPiARGb4I+d1rq7V6czIFoYP9dlgicLs1hUrxnfKOq8tKVIK7JVBG9emJwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from SGAP274CA0015.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::27) by
+ KL1PR06MB5922.apcprd06.prod.outlook.com (2603:1096:820:d0::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.12; Wed, 29 Jul 2026 12:02:18 +0000
+Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
+ (2603:1096:4:b6:cafe::1b) by SGAP274CA0015.outlook.office365.com
+ (2603:1096:4:b6::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Wed,
+ 29 Jul 2026 12:02:18 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 12:02:17 +0000
+Received: from gary-System-Product-Name (unknown [172.16.64.196])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 42245427CEFE;
+	Wed, 29 Jul 2026 20:02:17 +0800 (CST)
+Date: Wed, 29 Jul 2026 20:02:16 +0800
+From: Gary Yang <gary.yang@cixtech.com>
+To: soc@kernel.org, arm@kernel.org, soc@lists.linux.dev
+Cc: fugang.duan@cixtech.com, cix-kernel-upstream@cixtech.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] CIX dts changes for v7.3-rc1
+Message-ID: <amnryOEOpK4PMmxS@gary-System-Product-Name>
 MIME-Version: 1.0
-References: <2026072410-drained-acts-3502@gregkh> <CAMRc=MdJTFokXLEbJMQW3V4FAMQid50Vx3fDB+CaNGUrzX-Pwg@mail.gmail.com>
- <2026072412-decrease-sandbag-70a1@gregkh> <CAMRc=MeFoG0UXYOAqYhCiKBTs12EjX2-Bz4wDnbeYXmQA3-OaQ@mail.gmail.com>
- <20260724141414.GB1876@sol> <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
- <2026072455-subtly-prayer-0a8a@gregkh> <20260724150932.GA6763@sol>
- <2026072428-ungodly-outsource-b20c@gregkh> <20260724155144.GA2032@sol> <20260728152241.GA4281@quark>
-Date: Wed, 29 Jul 2026 05:02:08 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Mch_3fFqq+khutEMQG3P-ojBE2dnLy_U2_gDV4e1ro6aA@mail.gmail.com>
-X-Gm-Features: AUfX_mynAmI1M4yUWJz7xnT60AuUua6HXQnjCMgvWNABYi_64AGSY4Ma6_uoTVQ
-Message-ID: <CAMRc=Mch_3fFqq+khutEMQG3P-ojBE2dnLy_U2_gDV4e1ro6aA@mail.gmail.com>
-Subject: Re: [PATCH] crypto: qce - Remove driver
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org, 
-	Herbert Xu <herbert@gondor.apana.org.au>, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Demi Marie Obenour <demiobenour@gmail.com>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|KL1PR06MB5922:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2a1128c7-e48c-4462-5e30-08deed693cd4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|82310400026|376014|36860700016|56012099006|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: atNi1uVNjJGAwH6IIhfcamcJijvRh8PokyFcBgmxqJR0FsAvtOQvlKR4gJKA4Eq1BL8KqBMrIaNV9TXJoGxZQZIw7cs4NHZTZ/F/SYh3y341YibJKXfbXRElbwUAWIhblFZ9/qxfQ9cCReHWCueJLZ/qYBXyaGulAKDeN7GJiQ04hxohSdqPaQDFeVt+O3WYP0iCdhCtgCVf9bRQRI2zSHpkPSeTFjuDw0sov35nj5DINzuGCN1k9UcVoUF3AkiGnSfW3kj4r4BgSuyrzXQNupRFnhhh7/aqDElB3b7WsHYiKTpWNe23PPheyfXXdWTkBycQBODTvkB6HDPLAolLQvJuodJSfDas5zuhHJWBd29SulA5ckeqI/ManwLicDZl54rTAJSkpwMU8TtDE0CpAhKKHtPkobMPJqBuocMAFh7ZfzbXoTFzHEbqX/AvR8BV8JecDv6Mmw8GKEg0G7dMMoCFwNodkWYf/c9nm3UOYXA3I4Pkkz1t44tLXdEUolroc6Tyf2eXuFRHQOvQ0rM+tCwIjbQirIUeUdRNsnnQ5hYuDUfuSJX67es1Z8LMXngcH5hWY5l4ESYQMfbQUa4b+dW4porH2+tSAu/PL5H13AkwcvekVJxHjk6kEH2hr7ljFbrblrqvd7VdJReXAS1p7SJ7tuAFPmmCNWrDHfY4RHkqSrvv/2bkSq6bAhJ4yTyjdhk0P3e1KuoSLir2deyu4w==
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(376014)(36860700016)(56012099006)(10067099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: cAjm8aXsheXwOxwzhMUWD7Ut2uR+Js0p4KJFG6CXXHqAdobjtdZqn+9/+8SpDggEB2sl4Qk7ENTGV+dsOSekdZpnTwiO/3MzsAaVMQy3+9H5eqh1+/8Bxwk6+DGp//9sLAI9Yc5ZszH4TpTPEj1b4nhPoOBSMHFTpNaTrwnNQjH+y7TiPiXswg6Cjnt9d9Z1nq4bpZiRjRzYlyXNzFxvRuUDSMIo2Q7q0+PpSfmpsSndZdIa6iOZKtAXeAX0TgPaYpB0sHFgChqrEqpUTnePfI3d6D2MHvJW4LC+uGyjsVvcnXie8dYFgwKrnVkHYa3O0xzDqAhde+kmT9GMfspTGTsdCHJYuYI5mFTcezxm2SKmT/U/NjrQ8FyCbb3EAW/TmOe2pCfy9+0lXogepXU91PfxJ5lg8d+Pq3zOBoQeuNTHeW1VLY/XbEogu750gG6N
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 12:02:17.9247
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a1128c7-e48c-4462-5e30-08deed693cd4
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB5922
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_050239_943481_4C41EDB3 
+X-CRM114-Status: UNSURE (   5.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +109,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Jul 2026 17:22:41 +0200, Eric Biggers <ebiggers@kernel.org> said:
-> On Fri, Jul 24, 2026 at 08:51:44AM -0700, Eric Biggers wrote:
->> It is consuming a lot of the community's time to help maintain,
->> including dealing with LLM-found bugs, with no clear benefit to anyone.
->> Even considering *just today* we can see someone sent a bug fix:
->> https://lore.kernel.org/linux-crypto/20260724081537.191992-2-thorsten.blum@linux.dev/
->
-> Another example:
-> https://lore.kernel.org/linux-crypto/d5de5a55-eb35-4ad5-8d53-12e188e156cb@oss.qualcomm.com/
->
->> It definitely *was* causing problems before it was disabled via the
->> crypto priority system (which made it unused in the kernel) and dropped
->> it from AF_ALG (which removed most of the unprivileged attack surface).
->> When anyone accidentally used it, it caused at least a huge performance
->> problem, and sometimes other problems too like filesystem hangs.  It was
->> an issue for years.
->
-> This actually seems to have been an overly-optimistic characterization!
-> As per
-> https://lore.kernel.org/linux-crypto/d5de5a55-eb35-4ad5-8d53-12e188e156cb@oss.qualcomm.com/
-> this driver drains the battery on every system with the module loaded,
-> even when no crypto requests are actually sent to it.
->
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-Are you seriously complaining about people sending fixes to a driver we want
-to see fixed? We don't remove maintained drivers, this has been the kernel
-policy for years. Unfortunately if we want to fix it, then it'll take some
-work involving sending patches to the mailing list.
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-I think it's time for Herbert to decide before I respin any of the series in
-progress.
+are available in the Git repository at:
 
-Thanks,
-Bartosz
+  https://github.com/cixtech/linux-mainline.git tags/cix-dt-v7.3-rc1
+
+for you to fetch changes up to 23ef479b60e2da14d227ce488583ab31e3ea190c:
+
+  arm64: dts: cix: add sky1 DMA-350 node with channel IRQ entries (2026-07-20 11:19:25 +0800)
+
+----------------------------------------------------------------
+dt: add DMA-350 support for Sky1
+
+----------------------------------------------------------------
+Jun Guo (1):
+      arm64: dts: cix: add sky1 DMA-350 node with channel IRQ entries
+
+ arch/arm64/boot/dts/cix/sky1.dtsi | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
