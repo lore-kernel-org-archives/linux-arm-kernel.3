@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81284C54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBDD7C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oni6Vg/P5vrta2IB3oW5wSxiUtRzniW6mGMAbb3BO4k=; b=q/u+Qkxb2gSpZ+hBJRQybFr0L8
-	Ag/G8sm7pKamTrcMLswirYfkxLEoK6j+k8I2SG6KFCY2fCkx108nOhetojjJHkbf90HrmbY0wh8Pc
-	tYQ0Z961C8QIR+tqAgdQ6S2FOMsbAsJnhqH3zmXKorJFzUcKaSooVuOCg3yOlYv41s0mL+ykJ+iX9
-	HKMyTBbbK0CuZ+ArZHNsHNponntH4tddTfXFi0yp+guqY7b8H34sYIBfrpX/G9DPV1i8EY+EYqVdp
-	6LBeKT3xgs+oVyRuTh8lzg3ZfbjlnDMTlpBe/qsmYJs7lAp4XxmWzul1kw+3QI44kYbcp87k54Y3J
-	h2Wo1Y9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VeiwwUTVEJhKZbSrlTRImNB7jVC969Sz3ID5XycdSNM=; b=Hit5g9Oh44ko5zyqpUcEzuS+KQ
+	L+2u4dNT+YZ4iOuvYoHiiM2SaYKTMjxA5sVuBujzrTlsZdkyx/fAH7Emd0avHx6DmM+hAbsGHQem7
+	fCnGwujn2PHBftihkZSm/FEQKJQteD6ERLx9ZOvsJFLMIf/KpZ2hj926II/B7dm0EAd9dqogQwM6/
+	9Qh0+Qu7czEJAl+xhvLjw7i3YdWIljmE/hdIcIFyjCA1gV+DRYUjOUtAvec6fnQTqEm3/DMJHUy8k
+	yoGnereeK+MuiremfOUIS/UMRkJNlKVFdoFAea//JgVYAbaCg0NztsGUv0SE4Uc6GBTLJ3JgRQeTY
+	p33Ez/Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8GC-00000008j9I-3mAz;
-	Wed, 29 Jul 2026 17:40:04 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wp8Mr-00000008jcq-2tSu;
+	Wed, 29 Jul 2026 17:46:57 +0000
+Received: from out-188.mta1.migadu.com ([95.215.58.188])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8GA-00000008j8L-2MSs;
-	Wed, 29 Jul 2026 17:40:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=oni6Vg/P5vrta2IB3oW5wSxiUtRzniW6mGMAbb3BO4k=; b=p1Tj4hZhhbsTbQ7P0KwTEHfvl/
-	VIz7RJgrRgUlLH05WVNOKnz5xNkHhuuUqlJYtUi/AzSzk9/x92PxZP5kFuHv8VV9DfmMMvTTbY1rZ
-	4eH/7Kcls1PKgsDzKZeOQDyIr3kmjV5IMKjW2BkryFrUdUiG/WJiewcojCSSf2mlaqQm0mDiiITlj
-	YmrEHX6UuNkvdhMSPqSNldp8eNNI5SA/UvSWqju34pfM/p4xWPZxsvnBZPRka3/JbSzgIx+Jq4xQ0
-	tVkbbRN2pKi1i4Xkk/M4qRdJHyIc7za19AjhNJb/GdFMfr4wwXRjFpsISCWDDJ5CEE3xKTv1dxdjm
-	vSv3pggg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Pufan Jin <2254650260@qq.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Andrew Lunn <andrew@lunn.ch>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add EmbedFire LubanCat 4 board
-Date: Wed, 29 Jul 2026 19:39:52 +0200
-Message-ID: <178534678977.563748.16244548635154085260.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <tencent_0DA92AE62C08A802ACC4FE9E47A0192C8E05@qq.com>
-References: <tencent_0DA92AE62C08A802ACC4FE9E47A0192C8E05@qq.com>
+	id 1wp8Mo-00000008jcA-15Ga
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Jul 2026 17:46:56 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RrcI0cw2TPf8dzu0T/FRNhI8xK6DRrJcaAmJMUPICRnniFVW6qdf70FiDW8GVmoJiOrYMqdeGvJwJHvWPDJGALV@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785347211;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VeiwwUTVEJhKZbSrlTRImNB7jVC969Sz3ID5XycdSNM=;
+	b=axa4NubprqeOEnt2YufAhhzXPySeW5jkEL9qeaP6IdZNtB+GALATKIPAYjN+AnBuKCurWX
+	leQ+70m06F0RpdIdOl1VpYrVIN2f4+5u9CoUGfk2axGh2i+ISbzrz4t0NDz9KotRUjxJKc
+	73RBbGIO0N5x+YJuPrJBvfg0UpM2IGk=
+X-Gm-Message-State: AOJu0YxzKb2GMtt7I4TJ7jUTUWIbQn/WYblQJUpaQD1qxYKVjpPd2aDk
+	558Km0fZANk/bg8g0RycuQvBnM2C3tg9JMB7Ih9wkcLIbE3mtXzXipvOaslWI9aDGmAxInWjAaX
+	kBwQEQc4kJ4W7n39CtEftXYphP7jEzSy3UplPp+Lx
+X-Received: by 2002:a05:6512:340b:b0:5ae:b726:5f1f with SMTP id
+ 2adb3069b0e04-5b2d9b5e246mr38229e87.8.1785347192415; Wed, 29 Jul 2026
+ 10:46:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp> <20260720-hybrid-v9-12-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260720-hybrid-v9-12-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Wed, 29 Jul 2026 18:45:52 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTzqXV7wmzevDdiezK+dbXYB-+SHOTu==_EiBrGpcekMSw@mail.gmail.com>
+X-Gm-Features: AUfX_mxRkX-Zqid_e-BAuwcS03ps7VJdHqOkA3Ldb7q_0YRC6ZP02uwIv7QUnxo
+Message-ID: <CA+EHjTzqXV7wmzevDdiezK+dbXYB-+SHOTu==_EiBrGpcekMSw@mail.gmail.com>
+Subject: Re: [PATCH v9 12/16] KVM: arm64: PMU: Pass the pPMU to kvm_map_pmu_event()
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Yury Norov <yury.norov@gmail.com>, 
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steffen Eiden <seiden@linux.ibm.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_104002_633282_D1421AC3 
-X-CRM114-Status: UNSURE (   8.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260729_104654_690091_6EF7564F 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,21 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 20 Jul 2026 at 06:39, Akihiko Odaki
+<odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+>
+> Replace the VM argument with the pPMU used for event creation. The
+> current caller still passes the VM's default pPMU, but this removes the
+> implicit lookup from kvm_map_pmu_event() so later changes can map events
+> against the pPMU selected for an individual vCPU.
+>
+> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 
-On Fri, 17 Jul 2026 00:36:31 +0800, Pufan Jin wrote:
-> Add compatible string for the EmbedFire LubanCat 4 single board
-> computer based on the Rockchip RK3588S SoC.
-> 
-> 
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 
-Applied, thanks!
+Cheers,
+/fuad
 
-[1/2] dt-bindings: arm: rockchip: Add EmbedFire LubanCat 4 board
-      commit: 181a06fe549d0b2a805eb112c0f7494bdbeefecf
-[2/2] arm64: dts: rockchip: Add EmbedFire LubanCat 4 board
-      commit: 6d9430d58714909071853c0949cdc93756aa3ad4
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+> ---
+>  arch/arm64/kvm/pmu-emul.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> index c5c505b6fc61..27db8877f96e 100644
+> --- a/arch/arm64/kvm/pmu-emul.c
+> +++ b/arch/arm64/kvm/pmu-emul.c
+> @@ -670,10 +670,8 @@ static bool kvm_pmc_counts_at_el2(struct kvm_pmc *pmc)
+>         return kvm_pmc_read_evtreg(pmc) & ARMV8_PMU_INCLUDE_EL2;
+>  }
+>
+> -static int kvm_map_pmu_event(struct kvm *kvm, unsigned int eventsel)
+> +static int kvm_map_pmu_event(struct arm_pmu *pmu, unsigned int eventsel)
+>  {
+> -       struct arm_pmu *pmu = kvm->arch.arm_pmu;
+> -
+>         /*
+>          * The CPU PMU likely isn't PMUv3; let the driver provide a mapping
+>          * for the guest's PMUv3 event ID.
+> @@ -725,7 +723,7 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+>          * Don't create an event if we're running on hardware that requires
+>          * PMUv3 event translation and we couldn't find a valid mapping.
+>          */
+> -       eventsel = kvm_map_pmu_event(vcpu->kvm, eventsel);
+> +       eventsel = kvm_map_pmu_event(vcpu->kvm->arch.arm_pmu, eventsel);
+>         if (eventsel < 0)
+>                 return;
+>
+>
+> --
+> 2.55.0
+>
+>
 
