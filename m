@@ -4,70 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7732C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E10A9C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=462j4k19cm15BvLlYDBHArjhCmLoGRr+ciBtur8u6ys=; b=VlI1MpiGyzKAVdPs5uYVYGS27O
-	WnuaBIOSgFWZTH+/INbhIjw58dIqSh4ZyZKXg+DC2VS8jlXXGSh6LA3e4fe51l501UNPFXbmgjQOM
-	cBleV3x6u6Zf32avW77Lk46op9w6ucfxf7MDCQ9PaUF3dg9BgMLuwoieTCiDkoUVZYHwO1cxMv9KY
-	ANK7HZub4Tvsh54YKqgn77ND6WkVilZFktZvhVXn1EYHihdmC0WnJVLX9LuNlAARkWPxkEeGzYVGp
-	OG4/3Z6HDl7GZimN8GutvhP7PGCtL4u9IkaXnef8lamTx8TOA2K1tCEP/HjaAew882vGlobIJd8s3
-	m6H+Xxiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ffY4XuHuUhY6ZWVyWn3L9CPUZFYFuGuYLOP21ZyGAAk=; b=IekhJBNk2O/CtEKQ2bzDlywA1x
+	ijo2MJ85gqD5SS1+OgfQ3BLB3VEvzl/j3DY1bkLlDe+z/NjnUpNER3IKze3Arh6G1vx92Dkgj1Hf4
+	HalUAGusuFfXcvkh+JQuKKj9H/ftQNnNxE6I/Aoq62ZeevosF9cxfui7BZqnO2WW0k6YXIz36kN3U
+	Y9es14NrVlATp7xmdMN6F4+worAJFJfTmwMjZHggg4otMkVdlQxuEriaonaC1WyMwvIdWBljVQD6h
+	3vwTuUncqbRao2fZikkEo/YZC01kesuwfolhmwPKAKOwV7fVDBvgMSd1W/CuicmMzA+9CmTFDRuQ3
+	I7UT6kag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8Tk-00000008kxn-380Z;
-	Wed, 29 Jul 2026 17:54:04 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1wp8X7-00000008lDK-0wDa;
+	Wed, 29 Jul 2026 17:57:33 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8Th-00000008kx8-3pog
+	id 1wp8X1-00000008lBN-2TUB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 17:54:03 +0000
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id CCCA984B54;
-	Wed, 29 Jul 2026 19:53:59 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 9LAyUqDgZ9C9; Wed, 29 Jul 2026 19:53:59 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1785347639; bh=Q0pdWhMBat3jwyJ8KqHtLbg7jtiLNwyC7rPs1rQwt2s=;
-	h=Date:Cc:Subject:From:To:References:In-Reply-To;
-	b=T6ta3zzDE1JmiFBn/Gya87FZ/bfiCNfgO0tA7xlQRX2vxDE8jm+eWaQP86NxPb0aw
-	 jjV0bxYerzE5EvxZkZd6mJJ530oG3D7NLV2iN4S8uKjzYyvTNBRLfSJYGEZ3QHHqxv
-	 Vay/S1/Zpru1dLhLtTK7u37aiI/KULukdV0oGgR+eHtmQkH6DJi8ww4R9Aocc9nrHM
-	 Jevdh0mwt698tkrOpk9mcQKT8/zSlyiwlkcpAbal8N4Sg/HJE6kFYJ+xsciYbd9CRa
-	 ktT5KUmO1BBfCKDoRNSOieONsxmlitOIyWg+QDIMi61AI7EUOrWfgEnmUNVnugyGCh
-	 w8HEP+zvadkhA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 29 Jul 2026 23:23:45 +0530
-Message-Id: <DKB8WW9AK4KQ.2A9KVJWD5ORFT@disroot.org>
-Cc: "Jonathan Cameron" <jic23@kernel.org>, "David Lechner"
- <dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- "Andy Shevchenko" <andy@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Peter Griffin" <peter.griffin@linaro.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, <linux-iio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>
-Subject: Re: [PATCH 2/3] iio: proximity: add driver for Sharp GP2AP070S
- proximity sensor
-From: "Kaustabh Chakraborty" <kauschluss@disroot.org>
-To: "Joshua Crofts" <joshua.crofts1@gmail.com>, "Kaustabh Chakraborty"
- <kauschluss@disroot.org>
-References: <20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org>
- <20260723-gp2ap070s-v1-2-b8ca3a4c10dd@disroot.org>
- <20260723234439.06411731@systembl0wer>
-In-Reply-To: <20260723234439.06411731@systembl0wer>
+	Wed, 29 Jul 2026 17:57:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TuRrCwm3AwK65Z7IUdH2DPYvzSLOCVKKShDNl+KVGFhH4qPVRhn7DjTB1iqZGYaKXFu9NKzShF2AZLjWJnGTxexPStLzNP2wEldpxrmdZZA6tO/3Vm8exir6cvIRK2Mqd59Rc/5mnM8GHMg0BXWRb9Zmy9AA5Blg30boKZ34xmP8FEVyTKCZpgU/EF6UCxH4E/oFoeAiDWCtecImXSGYmjlPcid+nNxMxM2+2osuIiimZ6hRq/g5aahM9tS6Rl8w3qPsBOLWmJoPMY9/CnOojg8+WBpizhEFr1CbgecB76P18Aau0q3trPbeRCBY+pLnGFRMiF3yB7vJgSUWITKNKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ffY4XuHuUhY6ZWVyWn3L9CPUZFYFuGuYLOP21ZyGAAk=;
+ b=MBrkReabsyGW8lqXUneAzkIkIRSGnVY5qBMwxFpUZQJGsx062Pz81TKmT0HKFx4JhAbsMmnUvRnP3b/afBjWo8LE7dMLVVT4BvILtPm3lFbxk1gGbcHZIKov4gHTi+3yEKhwlvTULOyf9fAnftRaT2221w5/OKZOCulploFyL9gjkbGSyco7Uu8v7xomgoFH09w5DgqPkiCKNtVC6ccwo9SWY1sl5fWXSmWdgx1Y5vbFFkiFdVRSs4uoaIq9bY3KoDbkGZiHAnZKsREIQj/J4UV6C0O8GDCgpzELHTMLsQdkXcF2lyX/u/weDhtom2qSPwrtYF4taNMvKpvuZqHvpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ffY4XuHuUhY6ZWVyWn3L9CPUZFYFuGuYLOP21ZyGAAk=;
+ b=mplILG3x76aoeISmiJEJcaHnqSfiyNlvM9LG072ngqI/vG1MC2AWyO5Tg14eYz8eB6OODojgC1t1lrnzQ/b2kVyBZ+ASKPhogAQfwcp8z+++Nj3DufVu4wxmIYotTFSP48nFmLP/VcwckaDF0+QVor/N2M+5jR8mit4C1Yrj48H2E+NSB8c3niIswsZIpMfFMMkAwoXg1mrqs0ob/9GYOSb9WeaqiD8g+0kjbvBczsKxAzDNFkIvFGtdnevaFObGcC9sJW6c75i2GgmS/5lrjmRTpl0QfzX76UfGTkMDdmfQT+C710BopJJKYn0w7RRbQhF9DDgpv4DymkzjVFeXfw==
+Received: from BN9PR03CA0705.namprd03.prod.outlook.com (2603:10b6:408:ef::20)
+ by PH0PR12MB7888.namprd12.prod.outlook.com (2603:10b6:510:28b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
+ 2026 17:57:16 +0000
+Received: from BN3PEPF0000B372.namprd21.prod.outlook.com
+ (2603:10b6:408:ef:cafe::21) by BN9PR03CA0705.outlook.office365.com
+ (2603:10b6:408:ef::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Wed,
+ 29 Jul 2026 17:57:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN3PEPF0000B372.mail.protection.outlook.com (10.167.243.169) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.1 via Frontend Transport; Wed, 29 Jul 2026 17:57:15 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Jul
+ 2026 10:56:51 -0700
+Received: from dgx-1v-42.nvidia.com (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 29 Jul
+ 2026 10:56:50 -0700
+From: Jamie Nguyen <jamien@nvidia.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+	<guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Rafael J
+ . Wysocki" <rafael@kernel.org>
+CC: Len Brown <lenb@kernel.org>, Dat Mach <dmach@nvidia.com>,
+	<linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Jamie Nguyen <jamien@nvidia.com>
+Subject: [RFC PATCH 0/3] ACPI: arm64: FFH Operation Region support for FF-A (offset 2)
+Date: Wed, 29 Jul 2026 10:56:35 -0700
+Message-ID: <20260729175638.3796440-1-jamien@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.126.231.37]
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B372:EE_|PH0PR12MB7888:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cd7bf0c-86e5-4652-1fa8-08deed9ad372
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700016|1800799024|23010399003|13003099007|6133799003|3023799007|56012099006|11063799006|5023799004|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: EzQx/BevV+yGrrHjRVaPaXM/qVJNbN5IrcdDyMe4zi6XrHfYGXyJQSpwFZut8sPsEkpb503HLP6YuLND/BcdMffToUCCB4g6mOG+hS7XX/vHVeKkDlaqo/SH6+VbDOr42LesDlcHkcFIwbGnTtSEBFtd+O0XEFfIJFj66IHwh01cuYf75855W2vzP+68k5wHfoYT/8pNKLwwKTxv2OoAJfNFvr3d0PVh8DrvgssB+Nz+GHICArSGICCHAopClM+two2jTI2YCGjs/ZD/+6Wv971G6L9T3/O2wmkHhgtnSmL56RwLtZdQOxmYdYT1lDmU7TQxCCS8K9ml5LvPQvNGHG87OG6ohIJYgyCkB5TKXDfkkCsrEfwk/cuzZoSw5zPnvHt/XZ0oMvpflVcl0GZYJG3yd7IrgmiAv4fDP5WI0GjDK7nsCX87+UD0kl/6ZF1uqlaMWXFh9bnL8loKnRP7if6LLQdirwkUBnKqdlbKpDqAV6umIfwoqE/ra3j2xgSXDC0x0o7PLO/gEbadV+h9lKIy/4WL21bLennpxbmK4fU7gOQNvFAlZhBNTruFadj0nfHGjFPJPhJwvQI0EzlNqz0MIl0jEjmWSrWIsHIVpo0eoXR2mS01I/wc8rQ6M9w43m1S9J5DibvbArsV/N0oNw3IJACH/Y8YpECPMiijCaNQ1YRVs3Y6MphK3WGnPOh7xW4i6INItZM5VN0aXWDnqg==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700016)(1800799024)(23010399003)(13003099007)(6133799003)(3023799007)(56012099006)(11063799006)(5023799004)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: CmQYeG/ltAA5ZKDtrPQMDqJImzqPpwtkq3HrwogaCUzoxpcL3uj8EritMEHyAhyGMjbnl0EU2Ok8PRugxsViRHz9kEZgC71RahmoILNZFZMxIysSr+XwJxomCC7XrZOXOXBIMTF7G7S300XXA+Qng2ivIp7SRCJZ1Opo/z1eRFRJ+VY+1KeXfASMjiGF6xcceQaIh06JYugWESMjip7YwVzb1KJxcJVIVr9jTWzTuCG5fXJEM2MgN6lH125E9YPRJpbZdRnu/L/sumS4o/KOiZcQ3iCUUsoVVm6pAslgGrsHp7ViFttMIm/h0b82uIHqyRh8HYxCGYvFsbsVPBBHzYjJ8KjfXZOermAjtpEAqFNsy7H/nTv3F+kEUx1rzFwSFpq3bd5zkk4LOX4j918Qncl3tEAteBaI3rFiIfRb7sAj3RF7sgmDvmGwmv6CPou0
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 17:57:15.9476
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cd7bf0c-86e5-4652-1fa8-08deed9ad372
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B372.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7888
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_105402_121635_68EF7385 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20260729_105727_637861_791A64BF 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,70 +127,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-23 23:44 +02:00, Joshua Crofts wrote:
-> On Thu, 23 Jul 2026 22:58:34 +0530
-> Kaustabh Chakraborty <kauschluss@disroot.org> wrote:
->
->> The GP2AP070S is a proximity sensor designed and manufactured by Sharp
->> Corporation. This sensor is used in mobile devices, including, but not
->> limited to - the Samsung Galaxy J6.
->>=20
->> The driver has been adopted from Samsung's downstream kernel
->> implementation [1]. Due to the lack of public documentation about the
->> schematics of this device. The downstream driver acts as the secondary
->> source of information. Driver clarity has also been improved with the
->> help of the GP2AP* drivers in iio/light.
->>=20
->> Link: https://github.com/Exynos7870/android_kernel_samsung_universal7870=
-/blob/lineage-16.0/drivers/sensors/gp2ap070s.c [1]
->> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
->> ---
+Arm DEN0048D (Functional Fixed Hardware Specification v1.3), published in
+March 2026, adds a third FFH Operation Region flavour:
 
-[...]
+  https://developer.arm.com/documentation/den0048/latest/
 
->> =20
->> +config GP2AP070S
->> +	tristate "Sharp GP2AP070S proximity sensor"
->> +	select REGMAP_I2C
->> +	depends on I2C
->
-> A very small nit (and probably a personal opinion), but "depends on" shou=
-ld
-> go before "select"
+An Operation Region declared with an Offset of 0x2 triggers an
+FFA_MSG_SEND_DIRECT_REQ2 call instead of a bare SMC or HVC:
 
-I happen to agree with this one. However most (but not all) entries
-follow select -> depends on though. In any case I'll change it.
+  OperationRegion (AFFH, FFixedHW, 2, 40)
+  Field (AFFH, BufferAcc, NoLock, Preserve) { FFAD, 320 }
 
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * IIO driver for Sharp GP2AP070S proximity sensor.
->> + *
->> + * Copyright (C) 2026 Kaustabh Chakraborty <kauschluss@disroot.org>
->> + */
->> +
->> +#include <linux/i2c.h>
->> +#include <linux/iio/events.h>
->> +#include <linux/iio/iio.h>
->> +#include <linux/iio/types.h>
->
-> Please add iio/* includes after the generic linux/* headers. Ensure
-> that there is a blank line between the two groups.
->
-> Additionally, you're also missing <asm/byteorder.h>, array_size.h, err.h,
-> types.h and delay.h.
+Each 64-bit field is one register, ordered from X0. X0 carries the call
+status on return, X1[15:0] the receiver endpoint ID (or zero, which asks
+OSPM to resolve it from the UUID), X2-X3 the service UUID written with
+ToUUID(), and X4-X17 the payload. The region Length is 32 + 8 * N bytes
+with 1 <= N <= 14, so X0-X4 at minimum and X0-X17 at most.
 
-By the way, is there any tooling to satisfactorily point out the
-shortfalls with includes? Or is it just intuition and experience?
+The spec recommends offset 0x2 for new platforms on the grounds that not
+every OSPM implements offsets 0x0 and 0x1. Linux has had both since v6.2
+but nothing for 0x2, so AML using the recommended encoding currently gets
+AE_ERROR back.
 
->> +	ret =3D devm_request_threaded_irq(dev, client->irq, NULL,
->> +					gp2ap070s_irq_handler, IRQF_ONESHOT,
->> +					"gp2ap070s-irq", indio_dev);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Failed to request IRQ");
->
-> Just return ret instead, dev_err_probe() is called automatically on failu=
-re.
+These patches implement it. I could not find any prior posting of this on
+linux-acpi or linux-arm-kernel, so apologies if I have missed one and
+duplicated someone's work.
 
-Are you sure about that? I happen to call dev_err_probe() on all other
-places and other drivers (as of late) as well (other than -ENOMEM).
+All three patches are co-developed with Dat Mach.
+
+Design
+------
+
+drivers/acpi/arm64/ffh.c holds the DEN0048D side: region length
+validation, the X0-X17 layout, the ToUUID() to FF-A UUID byte order
+conversion, and the table 3 status codes. drivers/firmware/arm_ffa/ holds
+the FF-A side: resolving a service UUID to an endpoint, and the call
+itself, including the FFA_YIELD and FFA_INTERRUPT re-invocation DEN0048D
+asks for.
+
+The two talk through an ops structure the FF-A driver registers rather
+than a direct call, because ffh.c is built in under a bool Kconfig symbol
+while CONFIG_ARM_FFA_TRANSPORT is a tristate. Unregistration takes the
+rwsem for writing, so it cannot race with an access already in flight.
+
+None of what the handler needs was reachable through the existing
+ffa_device interface. ffa_sync_send_receive2() always addresses
+dev->vm_id, so a receiver endpoint ID supplied by AML cannot be honoured.
+UUID to endpoint resolution had no in-kernel user at all. And
+ffa_msg_send_direct_req2() throws away the response registers DEN0048D
+wants copied back to AML. Patch 1 splits those out, leaving what existing
+callers see unchanged.
+
+Testing
+-------
+
+Built on arm64 with CONFIG_ACPI_FFH=y and CONFIG_ARM_FFA_TRANSPORT both =y
+and =m, and with CONFIG_ACPI_FFH=n, W=1 clean. Every patch builds on its
+own.
+
+Runtime tested on an Arm server whose firmware reports FF-A 1.3 and picks
+offset 2 in its TPM Physical Presence Interface method. Reading
+/sys/class/tpm/tpm0/ppi/response drives it; kprobes show the call reaching
+ffa_acpi_ffh_direct_req2() with the endpoint and the fourteen payload
+registers the region implies, succeeding twenty times over. That method
+only returns a response when the status field reads back zero, and it
+does, so the status, the copied back registers and the payload are all
+landing where the firmware expects them.
+
+That firmware always names the receiver endpoint and always sends a well
+formed request, so the rest was driven from test SSDTs loaded at runtime
+through CONFIG_ACPI_CONFIGFS, against the same partition. Top level AML in
+a dynamically loaded table runs at load, so each table is one invocation
+with the register contents under test:
+
+  X1 zero, UUID set      endpoint resolved from the UUID, call succeeds
+  X1 zero, UUID nil      rejected before any FF-A call
+  X1 an unknown endpoint call attempted rather than refused, and the
+                         callee's FFA_ERROR reported as FFH_FFA_CALL_FAILED
+                         with the FF-A error code in X2 per table 3
+  length 0x28, the min   one payload register, call succeeds
+  length 0x24, invalid   rejected before any FF-A call
+
+A second server covers FFH_FFA_NOT_SUPPORTED, since its FF-A 1.1 firmware
+cannot do FFA_MSG_SEND_DIRECT_REQ2 at all. It doubles as a regression
+platform: it declares no FFH Operation Regions, and an offset 2 access
+there returns AE_ERROR on a distro kernel, which is what this series
+removes. It also has one service UUID per endpoint, where the first
+machine has six sharing one, so both partition topologies are covered.
+
+Registration and teardown were exercised with CONFIG_ARM_FFA_TRANSPORT=m.
+Nothing autoloads it, so an access before the module is loaded correctly
+reports FFH_FFA_NOT_SUPPORTED; loading makes the same access reach the
+FF-A driver, unloading returns it to NOT_SUPPORTED, and reloading reaches
+it again.
+
+One path is unexercised: nothing I have provokes a response that is
+neither FFA_ERROR nor FFA_MSG_SEND_DIRECT_RESP2, so the -EPROTO mapping is
+untested. Neither platform has a UUID that resolves to more than one
+endpoint either, so the loop comparing endpoint IDs in
+ffa_acpi_ffh_partition_id() was exercised instead with a throwaway stub
+that makes a UUID filtered probe report two differing IDs. It returns
+-ENOTUNIQ, no FF-A call is attempted, and AML reads back
+FFH_FFA_INVALID_PARAMETERS. That case does look reachable rather than
+theoretical, since ffa_device_match_uuid() already walks the descriptors a
+UUID query returns looking for a matching endpoint ID.
+
+Open question
+-------------
+
+1. ffa_msg_send_wait_for_completion() loops on FFA_YIELD and FFA_INTERRUPT
+   with no bound, sleeping 1 ms per FFA_YIELD round. The loop predates this
+   series and DEN0048D does require the reinvocation, but until now it was
+   only reachable from in-kernel FF-A drivers. This series opens it up to
+   any control method that writes the Operation Region, including at
+   enumeration time, so a partition that keeps yielding would stall an AML
+   thread indefinitely.
+
+   Bounding it would affect the existing FF-A callers too, and table 3 has
+   no status code for a call that was abandoned, so it may be out of scope
+   for this series unless you disagree.
+
+Jamie Nguyen (3):
+  firmware: arm_ffa: Split the response out of
+    ffa_msg_send_direct_req2()
+  ACPI: arm64: Add support for the FF-A FFH Operation Region (offset 2)
+  firmware: arm_ffa: Back the ACPI FF-A FFH Operation Region
+
+ drivers/acpi/arm64/ffh.c          | 185 ++++++++++++++++++++++++++++++
+ drivers/firmware/arm_ffa/driver.c | 169 +++++++++++++++++++++++++--
+ include/linux/acpi.h              |  41 +++++++
+ 3 files changed, 386 insertions(+), 9 deletions(-)
+
+
+base-commit: 3652b49adac266a3d27cb41cdfdb7d8790fc3633
+-- 
+2.43.0
+
 
