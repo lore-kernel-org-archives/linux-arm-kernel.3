@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACECC54F51
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90DC9C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FUu5NqumLRBBsM8cmbA2FL/BiDOsZawATxjJH9KLPTM=; b=HC0BYBysWF2PA8RP3W+C7swo8d
-	rZTKFueVKDPiBxhnLeQUo5xrZ9tFnSosSGRz/wW1bSphPdlb/K+St5U/ZjDA9/tMyzhdsPeUlBKEz
-	9UUUYBcg3bfOo0paGasDp5PTyeMGX5UZVcsh+V0YvVsQMkkivUSw2FpqQ0VpdEJrog/zHzOYIw0AD
-	pZ7o2xrLzujeWHNl2I/5HIFPtiUxx16Gcqzn11IOu6iu6i+EhTcUDatOSVVw/6swPpOyZImJwVtCn
-	BN+Dj30IERhLRhpZS0RLEbOF+xPjEM9JkaaOXTqASGHcOwSm4Kef3ov4FTXxqAmDwh7Jz39IRaBfE
-	nRujp2nQ==;
+	bh=xEogLVz2Pxf/eMF1mT9hKyyJhYalrfWxY3ZeNkdqKtA=; b=u86M6dgl61MVr4+WEZJ/ikk0Hw
+	ucL5Tvgr3MLeIojWc+k+PzsQ/XxrZN6Z5raQGhXezlBnv9Lk2+S+G1wV3+lKDSJeYEL2/BVWWjBXv
+	EGhx1ch2Q1PlAZWE/f+2xembgShnyB121JBPCWl9JUViqDhmzcoM1bz+Fbnqp5ppPexCPHTh06Thy
+	DEeRqWobL3mE97fGkkvQ70WxjiAhG47KxRM80lixr6c7CZ9FCeRS4aVhoBkzGt+6xzKB6Ew+NFzwi
+	5h+ax/97fDPkTwXW4xIhZk+/qV7DztA2rOkC3ziXe3tp3l0a7XR/Dz8ghvf4GP7DmO6apmw5T0pJS
+	8j2nZxWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozoK-00000007Flh-3LK5;
-	Wed, 29 Jul 2026 08:38:44 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wozp7-00000007Frf-02gp;
+	Wed, 29 Jul 2026 08:39:33 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozoC-00000007Fj6-3F0D
+	id 1wozp4-00000007Fqx-0o7M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 08:38:38 +0000
+	Wed, 29 Jul 2026 08:39:31 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 7DE8D4E40FD9;
-	Wed, 29 Jul 2026 08:38:34 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 600E01A12E0;
+	Wed, 29 Jul 2026 08:39:28 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4FC6C6039A;
-	Wed, 29 Jul 2026 08:38:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 09F0711C11F0C;
-	Wed, 29 Jul 2026 10:38:23 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2D2B26039A;
+	Wed, 29 Jul 2026 08:39:28 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 552BE11C11F9A;
+	Wed, 29 Jul 2026 10:39:23 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1785314309; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1785314367; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=FUu5NqumLRBBsM8cmbA2FL/BiDOsZawATxjJH9KLPTM=;
-	b=ORRcB0QWP8F2KSLRl08Cg7G1WcZtx27DTab3iQJvjXstMfo80lsvlXU/f+2gDug23Tru0b
-	v8sgzw+eu1SQCHyv8MWMvGJYN4XRDBuHQ8czgk6eIYUg3Ck1OmjhJH/JoDGoqU9Gay9n/S
-	EcC//06r/PE3zw3sDYRHGXK/2KLO94ISekCx0v7/Et4/l3E2oQtF7YZp6fC/BCXM8MPjMd
-	ChgtQoSpiCcxADq3sqs2ikNpAZWWQZ9Dr1wHLU+nphsnxeE3hFIEat/sDXcgM+3AgeSraw
-	/VrUr6fnkGxtVopcH5nZ+P1MXyrEwa9x0kRJ5AsmYiORwM991E/lhvyQT/WdhA==
-Message-ID: <ef8823cb-29e4-4892-a9c1-854541312e00@bootlin.com>
-Date: Wed, 29 Jul 2026 10:38:22 +0200
+	bh=xEogLVz2Pxf/eMF1mT9hKyyJhYalrfWxY3ZeNkdqKtA=;
+	b=TG73zpzjMGwlBGqQr7eou0y5j+JTAPvYfRWCv0jIqrDhirMl6CevXEP/jZ/jZUbDMA0FMo
+	Xn+W/nhIhOdVDJgnAT9fvMf/m9zPm+S/lwjk1nyXwEJjz2V+0ViCG3qUrKAX532CEBM8CL
+	x5dzsKJ0ySYCJrdRZRGZz+LvGSJCCs0dnf1p82PE77i1GgpssbGp/jy4Zjq0kBS/u0n+eN
+	jGJacI+0zGDaKkxzgj06aQAEc5pi4LXfvfWwUv9U6KXv5ygW9PFaThjK0yReKsr+is+x6V
+	bsJeosa79xsr3vMdtbMmOJ58nUbzr0nUJz73v+4kpTXLXYH0KNpbymEpA9Kglw==
+Message-ID: <ca8bb107-4e64-4078-8747-cd256ecfc792@bootlin.com>
+Date: Wed, 29 Jul 2026 10:39:22 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/2] net: stmmac: Skip PHY attach if custom
- PCS is in use
+Subject: Re: [PATCH net-next v3 2/2] net: phylink: allow PHYs to be attached
+ in 802.3z inband mode
 To: Zxyan Zhu <zxyan0222@gmail.com>, netdev@vger.kernel.org
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
  "David S . Miller" <davem@davemloft.net>, Eric Dumazet
@@ -64,16 +64,16 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260729074237.2624940-1-zxyan0222@gmail.com>
- <20260729074237.2624940-2-zxyan0222@gmail.com>
+ <20260729074237.2624940-3-zxyan0222@gmail.com>
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-In-Reply-To: <20260729074237.2624940-2-zxyan0222@gmail.com>
+In-Reply-To: <20260729074237.2624940-3-zxyan0222@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_013836_963310_755CB4D2 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20260729_013930_387367_33A7C285 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,18 +91,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi
 
 On 7/29/26 09:42, Zxyan Zhu wrote:
-> When a platform provides a custom PCS via the pcs_init callback,
-> the MAC's phylink_pcs is already configured. In this case, no
-> traditional PHY device is needed.
+> From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
 > 
-> Without this, stmmac_init_phy() falls through to the no-phy-node
-> path and errors out with "no phy found" when the DT has no
-> phy-handle for such interfaces.
+> Now that we have proper decision making for inband mode support which
+> makes it a "best efforts" feature based on the capabilities of the PHY
+> and PCS, we can relax whether we expect and permit a PHY to be
+> attached. This is especially true for the 2500BASE-X case which some
+> PHYs use without inband on their host side interface for 2.5G speeds,
+> but use inband for slower speeds switching to SGMII on their host side
+> interface.
 > 
-> Skip the PHY attach when priv->hw->phylink_pcs is set and
-> phy_addr is invalid.
+> We already have such a case for some qcom-ethqos setups, although
+> qcom-ethqos overrides phylink's inband settings by accessing the PCS
+> directly at the moment. This should allow qcom-ethqos to transition to
+> defaulting to inband when 2500BASE-X or SGMII is specified in its DTS.
 > 
-> Fixes: f0ef433fc264 ("net: stmmac: introduce pcs_init/pcs_exit stmmac operations")
+> Allow PHYs to be attached when inband mode has been specified, which
+> will be necessary to allow inband mode to be used on qcom-ethqos.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
 
 Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
@@ -110,23 +117,34 @@ Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Maxime
 
 > ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++++
->  1 file changed, 4 insertions(+)
+>  drivers/net/phy/phylink.c | 8 ++------
+>  1 file changed, 2 insertions(+), 6 deletions(-)
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 562d20830b94..575132b9cdbf 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -1347,6 +1347,10 @@ static int stmmac_init_phy(struct net_device *dev)
->  		struct phy_device *phydev;
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index 59dfe35afa54..fd4e80eeeda7 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
+> @@ -1964,9 +1964,7 @@ EXPORT_SYMBOL_GPL(phylink_destroy);
+>   */
+>  bool phylink_expects_phy(struct phylink *pl)
+>  {
+> -	if (pl->cfg_link_an_mode == MLO_AN_FIXED ||
+> -	    (pl->cfg_link_an_mode == MLO_AN_INBAND &&
+> -	     phy_interface_mode_is_8023z(pl->link_interface)))
+> +	if (pl->cfg_link_an_mode == MLO_AN_FIXED)
+>  		return false;
+>  	return true;
+>  }
+> @@ -2205,9 +2203,7 @@ static int phylink_attach_phy(struct phylink *pl, struct phy_device *phy,
+>  {
+>  	u32 flags = 0;
 >  
->  		if (addr < 0) {
-> +			/* If a custom PCS is in use, no PHY is needed */
-> +			if (priv->hw->phylink_pcs)
-> +				return 0;
-> +
->  			netdev_err(priv->dev, "no phy found\n");
->  			return -ENODEV;
->  		}
+> -	if (WARN_ON(pl->cfg_link_an_mode == MLO_AN_FIXED ||
+> -		    (pl->cfg_link_an_mode == MLO_AN_INBAND &&
+> -		     phy_interface_mode_is_8023z(interface) && !pl->sfp_bus)))
+> +	if (WARN_ON(pl->cfg_link_an_mode == MLO_AN_FIXED))
+>  		return -EINVAL;
+>  
+>  	if (pl->phydev)
 
 
