@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D6EC53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 05:06:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 948A7C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 05:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7/09h4JafWA6BTqjec/Vv8SutmyeV2+BMV1t1G7T10o=; b=tSh6abErvVQ4R/W1Ai3P8dpQjU
-	udrxPg4iofYBoxnuAEWwpIVj5pfMjOpgBBGsBV39S4zNV6k9E+XVMOPCIVKCBpbnBLT7Ts9yF16ul
-	uuYJ1dmjrr8oW4v6LXLIGsAIMI/xsVdm6Zji4w7iiee9faUoGTcchoW6bTEcy0t+9VWwMad4TMWgA
-	TC3baiXfbW3Y13Q8+n/0AQUpWeIT6pDOQpDOnMTAvZYORbweYrD3XXuZH3E+zOsy4Min8cuF210gy
-	UmwIG7/PgdLWAvBfuHmw6hsKUCvKEGf5QaIwScGeaPmGS730pVKCtETdD5Vcwa2frj7vg4WwvVi4b
-	MchUp0+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v+0LXEe7UlZ4qE3eCV8kvgvRPi2NEvsLxrOQzLx6Yvk=; b=ihQ3KOzVO/EmwOOQE1K5uizU9O
+	NC6a5M61MgJwx3LVt5Awvh+qH6kxvEGPSEDchhfOOvpfjrKfHb20fVYGR+lvNycuCjyI+2RRcm6XU
+	2T41QvZHKALM+eyoSfwNAY1fni1sIn8pnBTLeRGgGXKVYG+eoRjS3vPgupUz7cq34kxX3hR1wDkx/
+	ZST2gxTVxRCwKXpsErCzQ+5HzoB9X2hlSRcq2mBcDHs/xeyJkPri7ONLCl/essENTPWt/Y/vuTc1P
+	g1puBz89YLctXpWZwEw5pWlWsWSacnNDW5uEFOI75xb1DKePnmXc4n6lCERqcUYnpvMYwd67H2xKH
+	pnyyF0yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wowUW-00000006uAc-0EaF;
-	Wed, 29 Jul 2026 05:06:04 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1wowbJ-00000006umK-36mL;
+	Wed, 29 Jul 2026 05:13:05 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wowUT-00000006u9u-3zVQ
+	id 1wowbF-00000006uln-2Una
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 05:06:03 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-84a4d8fd6ecso620712b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 28 Jul 2026 22:06:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1785301560; x=1785906360; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=7/09h4JafWA6BTqjec/Vv8SutmyeV2+BMV1t1G7T10o=;
-        b=QT9aYGz4b39f137FduNJJSdrPu3qRNQ2Suo1hwmMMvhPBkIoMMgoPTHhfhQi3wMbjB
-         DCL28pRr2+5UrGTxwoFKlqQ3BKLF9mc/pmFmmA+AzBf1s+1PXlScA4MgM1aJI0dGTQuu
-         LXdEaTM7vY2xO0aaOk/XX2wXM54aEMnkE/OW4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785301560; x=1785906360;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=7/09h4JafWA6BTqjec/Vv8SutmyeV2+BMV1t1G7T10o=;
-        b=U2AjKbnplzcYgCMThQJ9MmSDg0kuJlwKf1/c6ghQNcn1vYVrh/nv8LIBcuhFazGlGP
-         bHJlKSmzeSgSNyFH853Vjuj77xB/3yBH/F7rWdV5i55loHlomM9CkSS2+6iyL/50uNcr
-         yS/Zr9GCgLblVl/dQQs+DqlhW/LNsx54Ik6jDSqlhGFhm6iWippjnqvrJeIrH1tyjrob
-         /wF53PTtQ4coOmOMhHqrLd9wm7ZTqjA5fMFrJTaCbnhT/06g4cMtP8w4lBO13Bzp9ZuK
-         rdygcAzu89OYhHEtHPMchcFl6pgPL6Sx86BbB77Yv97dROmZbdQVFohsIcwrnP3zva3b
-         ujGw==
-X-Forwarded-Encrypted: i=1; AHgh+RrZfqksaMoT4IAz7ZOxpbmppvi2OewdshhW3YvvixIxXcmw5dyaOItErT/QCc5rzcrV37Mllr5Xww3j6tJYdRZ7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzNOlVwDHMHtf8x61fvJv89iGkIQU42x3uYGCM7tWM4lVUI0M0Z
-	ixCP+7h6dOIliAUiv4gWp7F6rgfaEMdf82knwwhjjItJNfD7Fnp/4FlgeFfjx/XVag==
-X-Gm-Gg: AR+sD12W4NSodZxzgxanK8gRpCH+Y+baYcVm8/FM+I0LIZk6b9T1l6Ytj/drTcsWZFd
-	be1Um0S0R95ozs5t/jHmJzuD9WTk0sVvakk9tCC4rK698pTiB2wlbjeXWa/yHDgib9mhR7yyT9C
-	7pg0b+B7pkn2aIMdFri2cC9Ef6E5z48J4z5zgJApI4iBxyi+TuvFulZRNFgBsVbfiesSnUccpk+
-	/bgMlF3a/kpdJxBvWuzIQlhZAe+ScucXjNjJ5PNXZQZnN5q2hDRkk/fINkYS3f0M8Qn9UX/+YU1
-	LH8cRy41I6Gi1UhJ76Z7YGMttdbx/SS7ci288BKFK+C8ucspD5Kc0AdMTh/EyDARi5b3DHU0NNW
-	7VkteTsQ0FMbvOXwMRLyITDSrzWbilspLTm34fDcgKUfU+reh4kiqSvatH3pOEVg+iUzekyEI6v
-	1V8hd2Ktq3bcWLZfJ+Ou1F2G0XZquXWuERWFB+6jp7Hf/jiWqSX5WM5LLvheJW6XO+ar0IJGie0
-	RlTATmAsSwrfFeTjJ127z6jTd9HPR/dZf37jdE=
-X-Received: by 2002:a05:6a00:2daa:b0:842:3a3b:d6e7 with SMTP id d2e1a72fcca58-84e931eeeafmr5750213b3a.23.1785301560519;
-        Tue, 28 Jul 2026 22:06:00 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2031:6:65c1:52a3:f6d3:37dc])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea0055dd5sm741877b3a.20.2026.07.28.22.05.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 28 Jul 2026 22:05:59 -0700 (PDT)
-Date: Wed, 29 Jul 2026 14:05:55 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Marcel Holtmann <marcel@holtmann.org>, 
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>, Sean Wang <sean.wang@mediatek.com>
-Cc: Tomasz Figa <tfiga@chromium.org>, linux-bluetooth@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Sergey Senozhatsky <senozhatsky@chromium.org>
-Subject: Re: [PATCH v4 0/2] Bluetooth: btmtksdio: teardown fixes
-Message-ID: <ammKA77-UC1Ie5V3@google.com>
-References: <20260618031338.1011410-1-senozhatsky@chromium.org>
- <ajtoXTaBEMSyGADX@google.com>
+	Wed, 29 Jul 2026 05:13:04 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260729051255epoutp033d513f9b641b00e91d66a1567c6b4003~Gqq--RZ1J1811818118epoutp03d
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 05:12:55 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260729051255epoutp033d513f9b641b00e91d66a1567c6b4003~Gqq--RZ1J1811818118epoutp03d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1785301975;
+	bh=v+0LXEe7UlZ4qE3eCV8kvgvRPi2NEvsLxrOQzLx6Yvk=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=ImEz2bE2DQwyOlD9ImSCB6sD71ilIpBKhuZMl+YqhySZZjNjJTCMiAfKW1pikGDhc
+	 XL6eqv4+D9ETaHYa08bBGil3RWwzJf3Uz83sXXPaKBgfZTZwwgyxM0oDmFC7QCpOkc
+	 dbcq8TIH/nUzENW8M2/zqBhC5Khqi+yAW+2wsQEY=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20260729051254epcas5p1dbd4553584214715ce68952415a0e4b4~Gqq-iW52o2997629976epcas5p1c;
+	Wed, 29 Jul 2026 05:12:54 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.89]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4h90pF5GGYz3hhT9; Wed, 29 Jul
+	2026 05:12:53 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260729051253epcas5p13c6aaadd8335f3a07aba4f2e53cc10c5~Gqq_A6A3d1861518615epcas5p1C;
+	Wed, 29 Jul 2026 05:12:53 +0000 (GMT)
+Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20260729051250epsmtip2c6d7f586025d0da44e0e2bfeaf1ba87d~Gqq7-YRyG0581705817epsmtip2X;
+	Wed, 29 Jul 2026 05:12:50 +0000 (GMT)
+From: "Alim Akhtar" <alim.akhtar@samsung.com>
+To: "'Alexandru Chimac'" <alex@chimac.ro>, "'Krzysztof Kozlowski'"
+	<krzk@kernel.org>, "'Sylwester Nawrocki'" <s.nawrocki@samsung.com>,
+	"'Chanwoo Choi'" <cw00.choi@samsung.com>, "'Peter	Griffin'"
+	<peter.griffin@linaro.org>, "'Michael Turquette'" <mturquette@baylibre.com>,
+	"'Stephen Boyd'" <sboyd@kernel.org>, "'Brian Masney'" <bmasney@redhat.com>,
+	"'Rob Herring'" <robh@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>,
+	"'Krzysztof Kozlowski'" <krzk+dt@kernel.org>
+Cc: <linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+In-Reply-To: <20260722-exynos9610-clocks-v3-3-c672a2a30889@chimac.ro>
+Subject: RE: [PATCH v3 3/5] clk: samsung: clk-pll: Add support for pll_1061x
+Date: Wed, 29 Jul 2026 10:42:49 +0530
+Message-ID: <07e101dd1f18$e83ab2a0$b8b017e0$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ajtoXTaBEMSyGADX@google.com>
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQHTw+ptVoCYShTtVq94NkBsvgZUugKcCweMAdasPym2cxLvQA==
+Content-Language: en-us
+X-CMS-MailID: 20260729051253epcas5p13c6aaadd8335f3a07aba4f2e53cc10c5
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-543,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20260722204419epcas5p4199c800b0a94ff523f0e9e9c5aaeeaba
+References: <20260722-exynos9610-clocks-v3-0-c672a2a30889@chimac.ro>
+	<CGME20260722204419epcas5p4199c800b0a94ff523f0e9e9c5aaeeaba@epcas5p4.samsung.com>
+	<20260722-exynos9610-clocks-v3-3-c672a2a30889@chimac.ro>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_220602_211593_56F702E7 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20260728_221302_315657_334C73B3 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +100,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On (26/06/24 14:19), Sergey Senozhatsky wrote:
-> On (26/06/18 12:13), Sergey Senozhatsky wrote:
-> > This fixes several teardown issues:
-> > 
-> >      INFO: task kworker/u17:0:189 blocked for more than 122 seconds.
-> >      __cancel_work_timer+0x3f4/0x460
-> >      cancel_work_sync+0x1c/0x2c
-> >      btmtksdio_flush+0x2c/0x40
-> >      hci_dev_open_sync+0x10c4/0x2190
-> >      [..]
-> > 
-> > close/flush can deadlock when run concurrently with btmtksdio_txrx_work().
-> > In addition btmtksdio_txrx_work() re-enables interrupts regardless of
-> > close/flush being executed on another CPU.
-> > 
-> > v3 -> v4:
-> > - fix commit message linter warnings/errors (tabs, subject line over 80
-> >   chars).
-> > 
-> > Sergey Senozhatsky (2):
-> >   Bluetooth: btmtksdio: test for BUS IO errors in btmtksdio_txrx_work()
-> >   Bluetooth: btmtksdio: call cancel_work_sync() out of host lock scope
-> 
-> Do the patches look good enough to pick up?
+Hi Alexandru
 
-Gentle ping.
+> -----Original Message-----
+> From: Alexandru Chimac <alex=40chimac.ro>
+> Sent: Thursday, July 23, 2026 2:14 AM
+> To: Krzysztof Kozlowski <krzk=40kernel.org>; Sylwester Nawrocki
+> <s.nawrocki=40samsung.com>; Chanwoo Choi <cw00.choi=40samsung.com>;
+> Peter Griffin <peter.griffin=40linaro.org>; Alim Akhtar
+> <alim.akhtar=40samsung.com>; Michael Turquette
+> <mturquette=40baylibre.com>; Stephen Boyd <sboyd=40kernel.org>; Brian
+> Masney <bmasney=40redhat.com>; Rob Herring <robh=40kernel.org>; Conor
+> Dooley <conor+dt=40kernel.org>; Alexandru Chimac <alex=40chimac.ro>;
+> Krzysztof Kozlowski <krzk+dt=40kernel.org>
+> Cc: linux-samsung-soc=40vger.kernel.org; linux-clk=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
+ux-
+> kernel=40vger.kernel.org
+> Subject: =5BPATCH v3 3/5=5D clk: samsung: clk-pll: Add support for pll_10=
+61x
+>=20
+> These PLLs are found in the Exynos9610 and Exynos9810 SoCs, and are simil=
+ar
+> to pll_1460x (using CON3 instead of CON1), so the code for that can handl=
+e
+> this PLL with a few small adaptations.
+>=20
+It is good to mention that PLL_1061x is a fractional type PLL and used to s=
+upply BLK_MMC and AUD, atleast on 9610 SoC
+
+> Signed-off-by: Alexandru Chimac <alex=40chimac.ro>
+> ---
+>  drivers/clk/samsung/clk-pll.c =7C 29 ++++++++++++++++++++++-------
+> drivers/clk/samsung/clk-pll.h =7C  1 +
+>  2 files changed, 23 insertions(+), 7 deletions(-)
+>=20
+> diff --git a/drivers/clk/samsung/clk-pll.c b/drivers/clk/samsung/clk-pll.=
+c index
+> e74552846ba3..2cda87235fa2 100644
+> --- a/drivers/clk/samsung/clk-pll.c
+> +++ b/drivers/clk/samsung/clk-pll.c
+> =40=40 -781,15 +781,20 =40=40 static unsigned long
+> samsung_pll46xx_recalc_rate(struct clk_hw *hw,
+>  	u64 fvco =3D parent_rate;
+>=20
+>  	pll_con0 =3D readl_relaxed(pll->con_reg);
+> -	pll_con1 =3D readl_relaxed(pll->con_reg + 4);
+> -	mdiv =3D (pll_con0 >> PLL46XX_MDIV_SHIFT) & ((pll->type =3D=3D
+> pll_1460x) ?
+> +	if (pll->type =3D=3D pll_1061x)
+> +		pll_con1 =3D readl_relaxed(pll->con_reg + 0xc);
+Actually this is PLL_CON3 in UM, not suggesting to use a new variable but a=
+ comment here will help.=20
+Thanks=21
+
 
