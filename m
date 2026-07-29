@@ -4,108 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D405EC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18EA6C54F51
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 12:26:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Z0rGNYfLyn2UM9LMjxnaekW8bXeIQca03QduKS1Svk=; b=TjvW/fo1b5Xrg2MYY3084p4FUw
-	9gOWVNRdZCp3HUmrueJSX8GuzGoknY332M16806ZqNpxdU/aE1T2iPVkHFs/3FsPnVaUKydXtNtpp
-	Pvsww2BxyX0SxP5uKDxpi0KLbrTpFAu1HE8bC/mZ2+BBSenaD6kvu1CF2lX5Ca+/Je/8sXCs6R90o
-	XLRwMsnPCJAZMUrWrIH20g9+lMZLWOXSVS8VIMn6L2iju9Y5PiYpiAwRqRsrbTEUC5BlyWyGM973B
-	wmz24JJH4kLGGSu3IaAA6hC87XB1VYTKVLfVZnqoFFQXU9ugfFeEUpASSCKilUrxtVVeVZLynq9i8
-	dGzGnAUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XAdBoG8Pkwhf4aRaTxRuLg3VdqgldPsFE1gft3Hy/Sw=; b=pi+7LifsYboKsi444X9AHRSpJW
+	TT+JxnVTgjieAcPWMfZtI5M1BG0AkOZhFkTJjBHvEAh0chPQ+/cgGlYIan0pYZ1x+/emBFT4Z/wXz
+	oziJK6+eTTxef8feYhUuOZce3+5ZVoERTGb4lkKPhhf77gHwHmw6lafeG4vinqW4HuJH7X+4lrkOm
+	S/nYPzEsY8EIwRfQEgxEjn3NzpZIpviEpDWSD3+ALJtdifE5JnmNjI9LZfBlSB8a2svoLp514f1cZ
+	TqiMOoInpHvCEQz5iy8PELB5kiynFCnJqoWHkq71ik7h5CsJFyLnOVwsG4I/znQ5DWAUtGL2e6R6Q
+	L8hmVo4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3Mm-00000007u0X-01EM;
-	Wed, 29 Jul 2026 12:26:32 +0000
-Received: from mail-westusazon11010048.outbound.protection.outlook.com ([52.101.85.48] helo=BYAPR05CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp3ML-00000007tgL-3rE4
+	id 1wp3Ml-00000007u0B-3fyV;
+	Wed, 29 Jul 2026 12:26:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wp3MJ-00000007te4-297Y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 12:26:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j66Fe55CSq/0gvSHpYAoflXr926hLnXhCb3j/ac8dvxTDxiccbiH7YOX4FB7Tiab23i0Qy04Ae0zcJ4cSpfWqBNvQsd+/7fEyhfTyHm+uIL0DhY8Vbqfn/BmrXiRpk3P/H2GNsmnpNB13wMZJyOCRfOM4Ff0nigr0VuSxscWD95K+JJHuYhKUnqWRhNoQpWLGSDyXypWols+OUj4Sz78FZhXqOGObYON1T/ny46LOBSB8RzZ6iaugZo6SiYAYqcaedz9akbDHXSRPUO/xTzW/ugZNGGX89JOOtm3TIxuwIPuWFLOrlbn0AYxn3ZqCF8iAnbmk1TQcspbQdXOv5myWg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/Z0rGNYfLyn2UM9LMjxnaekW8bXeIQca03QduKS1Svk=;
- b=HbP4b3Wvkl+O4jf2LNSl8MgcIiZfMs3bPR+HVSTHjubwurV7RdjCnpXthvbsIO6EtkKCvxE4weRV9NuanZYMcG0qc58U+5s4ELXHxHm4cIUG+tGbG9h3GpxCPnuIwcdlu3RfYOcPvfnJinlu4MYAzF4NgTaG4GPFxVJoO9JmMErR3QBW9Emnp54p1JGop7PIe2Gn+3r5NZY2Ns33T3tMMbK7fqB2tgQfVUqv04q/GRYVxk41Jc+28FmG5n9Bzn5/7IeuFdQTDo0PUk+htLYAnzfL2aenVf6ydNNcBjT/+guEmd78pZdxoshHBe5hI3JZxSv349To86AXh1TfN2MifA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/Z0rGNYfLyn2UM9LMjxnaekW8bXeIQca03QduKS1Svk=;
- b=M9fb8vm2TKf4jo7nFgm4xR7iiA6c4EJRD1gLuQ8UMUCUXTnoHB8WjuW6LJRTwRICA9EOSQUpUfknHvOZTUCtDRMRFJo60Ss0qk46df2OgrUVtuaWB+m/z6zU2crFjeyiZUGm0HVXIoOi5aN6SFscZJIl3T6+HEmcf8IxbqCB7IA=
-Received: from BN9PR03CA0740.namprd03.prod.outlook.com (2603:10b6:408:110::25)
- by SA3PR12MB7902.namprd12.prod.outlook.com (2603:10b6:806:305::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
- 2026 12:26:01 +0000
-Received: from BN1PEPF0000468E.namprd05.prod.outlook.com
- (2603:10b6:408:110:cafe::2c) by BN9PR03CA0740.outlook.office365.com
- (2603:10b6:408:110::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Wed,
- 29 Jul 2026 12:26:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN1PEPF0000468E.mail.protection.outlook.com (10.167.243.139) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 12:26:01 +0000
-Received: from xsjarunbala50.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 29 Jul
- 2026 07:25:57 -0500
-From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-To: <michal.simek@amd.com>, <git@amd.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-Subject: [PATCH v4 0/3] firmware: xilinx: Clean up firmware and EL3 state on kexec
-Date: Wed, 29 Jul 2026 05:25:19 -0700
-Message-ID: <20260729122522.3732875-1-jay.buddhabhatti@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260724101948.2895263-1-jay.buddhabhatti@amd.com>
-References: <20260724101948.2895263-1-jay.buddhabhatti@amd.com>
+	Wed, 29 Jul 2026 12:26:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0DB81688;
+	Wed, 29 Jul 2026 05:25:58 -0700 (PDT)
+Received: from a085714.blr.arm.com (a085714.arm.com [10.164.19.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 76AE73F66F;
+	Wed, 29 Jul 2026 05:25:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785327963; bh=biUHq+9m9Bbjnls77vCIUMQVhENoT4EWMuElJIEsyq0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mjfJ6XVkOIUDXoEGnYrxFzadFpU1nG9LJdB6DCM9ujX2orb4cVtXVVtnZNnD4L1C3
+	 mQblXNG8AawEhcTDAG4r8OQgGk7DX0AUvUAI+PU1rFcaJO4Dl1RlpM7gEWrl+vKpIq
+	 nJKuMjiT3GZr5I4f94qa9IbhVimv4cbvogFEkADg=
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Linu Cherian <linu.cherian@arm.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 13/17] arm64/mm: Enable pgtable descriptor for FEAT_D128
+Date: Wed, 29 Jul 2026 17:54:48 +0530
+Message-ID: <20260729122452.3797443-14-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260729122452.3797443-1-anshuman.khandual@arm.com>
+References: <20260729122452.3797443-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF0000468E:EE_|SA3PR12MB7902:EE_
-X-MS-Office365-Filtering-Correlation-Id: b00a4bd9-9f78-4e3d-ed7b-08deed6c8d30
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|82310400026|1800799024|6133799003|10067099003|56012099006|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: wA8fpYXZdR0ujVQ2N37Gt0eQU3u8SckNHzcq7Ym0jk7YyDpuyU22wrrZFku0DiBvehW5vfZCRqGMPdBN8M0BGVqQAaK173j0/nzmn1hNOOuFJrBIMj23Yq+gWwzTHgCT+vopPpA/wvjBiD8pX+r5A0hS+43hNBuR+hHgHNTM+KY61ZBwwIUVNvdvjy3PSx1F/YOim0yhWtGB2wDEOxHSDTX3MV8tuVbOPRuqeMo7uhITU89hrJbNb3B7bQlXcSeLfsMmbvltdk6XjyNCvmDDPg6MArMNRh6d01o26lmCgkX/pPnW8spGyB9ZL+F+6tJJeVD2/RdSDFeE+2AwOARP+eNfwaFne/JStad2o8R5pMidd+O+1N+ll9J+FyYjGDYSIWWQVh9DtYNe3UyFldEOXILZjc2SOn2+OCSCNdWaiY7vJHWvqiUUF1dhsiY9i8W6FOfhq9Dvo5RgeAbrwaux3Bs2rAcXPb7fNmBll1a7JajpQBW/IBAsGtHGQOBwbQXGJ0WrrWj8hGwDcDf6PpTM5UmFmUmL5u/OouCI2Z8j8f82f3dnlV62HnYZ5SNqdgAS0+K+n/VCbD+LiQJlhcjUbpNq+9ED+8E6WIClOkckuNuTwdvdVWTLTdyQc+rLH3y2HsW8c28NdCWjv1Qi2z84RR71Rc0IpSqI3l/0L+jbcpUgwvLVJ3UqDuep31OCpjV289GqS9kKF5BOysOL2TRcVA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(82310400026)(1800799024)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5g3ZZa0iwVahaXUwBl1LSZBMDJwgQ8cYFvJIjrorRjF0Z5EdUajCGXy+kTAxfE8Y1XBgf2nHyHRE76+HG7I5skjVa2EUzP6VJC9lgrTq3KylFjfdIgPhuuhxUFthvLOKmBiM5eFGgvWo2gKond4Z3NcCVxlUjxivF16r1ZGXGjiw2sgtPLPiYhmEkn9HrW/nY9fE/cntW6oTIDBipIUKR80ib2Ezk66ERH3zijlnvJ6j5+b32DuE0ZKC2JymDHzSxTwaokFVATBPFr137dBJWK+SbAuvjrWU5+fscHhSuqGlrDsvmK2bIF4wNrSunjr4ER/6AuQdoH1eoh4AfXUJJPPNgE9XO6YDCnBLpfD3Ztbw3u7hSx342C/h7j278zcnLEFV8fluBSyJ2ylcj8uvoQWUJZrmZPGFuO1C/cMMt9bZjVY9oqo4emBXQvWjC+Ks
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 12:26:01.3818
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b00a4bd9-9f78-4e3d-ed7b-08deed6c8d30
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF0000468E.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7902
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_052606_000621_F078FB58 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20260729_052603_637037_06B286E2 
+X-CRM114-Status: GOOD (  16.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,49 +78,387 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During a kexec restart, only the kernel is reloaded while the state held
-in EL3 and platform firmware persists. This leaves the freshly booted
-kernel out of sync with secure firmware for things like the SGI number,
-shutdown scope, allocated peripheral devices and registered notifier
-callbacks, which can lead to unexpected behaviour after a kexec.
+Enable pgtable descriptor fields and related accessors for FEAT_D128. First
+expand ptval_t as 128 bits, add all D128 specific pgtable descriptor fields
+and update accessors like ptval_get/set() and ptval_xchg_relaxed(). Also do
+ensure that ARM64_PA_BITS_52 specific handlings are not applicable for D128
+which does not follow PA bits folding mechanisms as in FEAT_[LPA|LPA2].
 
-Introduce a mechanism to clear the stale EL3 and platform firmware state
-so the reloaded kernel starts from a clean baseline:
+Although all the above changes gets enabled only with CONFIG_ARM64_D128.
 
-  - Add TF_A_CLEAR_PM_STATE to clear EL3 PM subsystem state.
-  - Add PM_DEV_ALL_PERIPH to release all peripheral devices in one call.
-  - Add PM_ALL_NOTIFIERS to unregister all notifier callbacks in one call.
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+ arch/arm64/include/asm/assembler.h     |   4 +-
+ arch/arm64/include/asm/pgtable-hwdef.h | 133 +++++++++++++++++++++++++
+ arch/arm64/include/asm/pgtable-prot.h  |  18 +++-
+ arch/arm64/include/asm/pgtable-types.h |   4 +
+ arch/arm64/include/asm/pgtable.h       |  52 +++++++++-
+ arch/arm64/mm/proc.S                   |   2 +-
+ 6 files changed, 207 insertions(+), 6 deletions(-)
 
-On a graceful kexec reboot the cleanup is performed from
-zynqmp_firmware_shutdown(); on a crash (kdump) restart it is performed
-from zynqmp_firmware_probe() of the reloaded kernel. Each cleanup step
-is guarded by a feature check so it degrades gracefully on firmware
-versions that do not implement the new APIs.
-
-Changes in v4:
-  - Modified platform check to restrict kexec cleanup to Versal and
-    Versal Net platforms only
-  - Used EL3 firmware instead of TF-A in descriptions and comments
-
-Changes in v3:
-  - Corrected subject prefix
-
-Changes in v2:
-  - Drop patch 4/4 (feature check improvements) from this series per
-    review feedback. Those changes are sent separately as:
-    "[PATCH 1/2] firmware: xilinx: Use TF-A feature check for
-    TF-A-specific APIs" and "[PATCH 2/2] firmware: xilinx: Propagate
-    actual error from feature check"
-
-Jay Buddhabhatti (3):
-  firmware: xilinx: Add support to clear EL3 PM state
-  firmware: xilinx: Release all peripheral devices from firmware
-  firmware: xilinx: Clear firmware notifiers across kexec transitions
-
- drivers/firmware/xilinx/zynqmp.c     | 86 +++++++++++++++++++++++++++-
- include/linux/firmware/xlnx-zynqmp.h | 10 +++-
- 2 files changed, 94 insertions(+), 2 deletions(-)
-
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index effae53e9739..b53b7f18c1bd 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -627,7 +627,7 @@ alternative_else_nop_endif
+  * 	ttbr:	returns the TTBR value
+  */
+ 	.macro	phys_to_ttbr, ttbr, phys
+-#ifdef CONFIG_ARM64_PA_BITS_52
++#if defined(CONFIG_ARM64_PA_BITS_52) && !defined(CONFIG_ARM64_D128)
+ 	orr	\ttbr, \phys, \phys, lsr #46
+ 	and	\ttbr, \ttbr, #TTBR_BADDR_MASK_52
+ #else
+@@ -636,7 +636,7 @@ alternative_else_nop_endif
+ 	.endm
+ 
+ 	.macro	phys_to_pte, pte, phys
+-#ifdef CONFIG_ARM64_PA_BITS_52
++#if defined(CONFIG_ARM64_PA_BITS_52) && !defined(CONFIG_ARM64_D128)
+ 	orr	\pte, \phys, \phys, lsr #PTE_ADDR_HIGH_SHIFT
+ 	and	\pte, \pte, #PHYS_TO_PTE_ADDR_MASK
+ #else
+diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
+index 1ee1a6d9db6d..16fb74c47b74 100644
+--- a/arch/arm64/include/asm/pgtable-hwdef.h
++++ b/arch/arm64/include/asm/pgtable-hwdef.h
+@@ -101,6 +101,137 @@
+ #define CONT_PMD_SIZE		(CONT_PMDS * PMD_SIZE)
+ #define CONT_PMD_MASK		(~(CONT_PMD_SIZE - 1))
+ 
++#ifdef CONFIG_ARM64_D128
++
++/*
++ * Hardware page table definitions.
++ *
++ * Level -1 descriptor (PGD).
++ */
++#define PGD_SKL_SHIFT		109
++#define PGD_SKL_MASK		GENMASK_U128(110, 109)
++#define PGD_SKL_TABLE		(_AT(pgdval_t, 0) << PGD_SKL_SHIFT)
++
++#define PGD_TYPE_TABLE		_AT(pgdval_t, (PTE_VALID | PGD_SKL_TABLE))
++#define PGD_TYPE_MASK		_AT(pgdval_t, (PTE_VALID | PGD_SKL_MASK))
++#define PGD_TABLE_AF		(_AT(pgdval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
++#define PGD_TABLE_PXN		_AT(pgdval_t, 0)		/* Not supported for D128 */
++#define PGD_TABLE_UXN		_AT(pgdval_t, 0)		/* Not supported for D128 */
++
++/*
++ * Level 0 descriptor (P4D).
++ */
++#define P4D_SKL_SHIFT		109
++#define P4D_SKL_MASK		GENMASK_U128(110, 109)
++#define P4D_SKL_TABLE		(_AT(p4dval_t, 0) << P4D_SKL_SHIFT)
++#define P4D_SKL_SECT		(_AT(p4dval_t, 3) << P4D_SKL_SHIFT)
++
++#define P4D_TYPE_TABLE		_AT(p4dval_t, (PTE_VALID | P4D_SKL_TABLE))
++#define P4D_TYPE_MASK		_AT(p4dval_t, (PTE_VALID | P4D_SKL_MASK))
++#define P4D_TYPE_SECT		_AT(p4dval_t, (PTE_VALID | P4D_SKL_SECT))
++#define P4D_SECT_RDONLY		(_AT(p4dval_t, 1) << 7)		/* nDirty */
++#define P4D_TABLE_AF		(_AT(p4dval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
++#define P4D_TABLE_PXN		_AT(p4dval_t, 0)		/* Not supported for D128 */
++#define P4D_TABLE_UXN		_AT(p4dval_t, 0)		/* Not supported for D128 */
++
++/*
++ * Level 1 descriptor (PUD).
++ */
++#define PUD_SKL_SHIFT		109
++#define PUD_SKL_MASK		GENMASK_U128(110, 109)
++#define PUD_SKL_TABLE		(_AT(pudval_t, 0) << PUD_SKL_SHIFT)
++#define PUD_SKL_SECT		(_AT(pudval_t, 2) << PUD_SKL_SHIFT)
++
++#define PUD_TYPE_TABLE		_AT(pudval_t, (PTE_VALID | PUD_SKL_TABLE))
++#define PUD_TYPE_MASK		_AT(pudval_t, (PTE_VALID | PUD_SKL_MASK))
++#define PUD_TYPE_SECT		_AT(pudval_t, (PTE_VALID | PUD_SKL_SECT))
++#define PUD_SECT_RDONLY		(_AT(pudval_t, 1) << 7)		/* nDirty */
++#define PUD_TABLE_AF		(_AT(pudval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
++#define PUD_TABLE_PXN		_AT(pudval_t, 0)		/* Not supported for D128 */
++#define PUD_TABLE_UXN		_AT(pudval_t, 0)		/* Not supported for D128 */
++
++/*
++ * Level 2 descriptor (PMD).
++ */
++#define PMD_SKL_SHIFT		109
++#define PMD_SKL_MASK		GENMASK_U128(110, 109)
++#define PMD_SKL_TABLE		(_AT(pmdval_t, 0) << PMD_SKL_SHIFT)
++#define PMD_SKL_SECT		(_AT(pmdval_t, 1) << PMD_SKL_SHIFT)
++
++#define PMD_TYPE_MASK		_AT(pmdval_t, (PTE_VALID | PMD_SKL_MASK))
++#define PMD_TYPE_TABLE		_AT(pmdval_t, (PTE_VALID | PMD_SKL_TABLE))
++#define PMD_TYPE_SECT		_AT(pmdval_t, (PTE_VALID | PMD_SKL_SECT))
++#define PMD_TABLE_AF		(_AT(pmdval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
++#define PMD_TABLE_PXN		_AT(pmdval_t, 0)		/* Not supported for D128 */
++#define PMD_TABLE_UXN		_AT(pmdval_t, 0)		/* Not supported for D128 */
++
++/*
++ * Section
++ */
++#define PMD_SECT_USER		(_AT(pmdval_t, 1) << 115)	/* PIIndex[0] */
++#define PMD_SECT_RDONLY		(_AT(pmdval_t, 1) << 7)		/* nDirty */
++#define PMD_SECT_S		(_AT(pmdval_t, 3) << 8)
++#define PMD_SECT_AF		(_AT(pmdval_t, 1) << 10)
++#define PMD_SECT_NG		(_AT(pmdval_t, 1) << 11)
++#define PMD_SECT_CONT		(_AT(pmdval_t, 1) << 111)
++#define PMD_SECT_PXN		(_AT(pmdval_t, 1) << 117)	/* PIIndex[2] */
++#define PMD_SECT_UXN		(_AT(pmdval_t, 1) << 118)	/* PIIndex[3] */
++
++/*
++ * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
++ */
++#define PMD_ATTRINDX(t)		(_AT(pmdval_t, (t)) << 2)
++#define PMD_ATTRINDX_MASK	(_AT(pmdval_t, 7) << 2)
++
++/*
++ * Level 3 descriptor (PTE).
++ */
++#define PTE_SKL_SHIFT		109
++#define PTE_SKL_MASK		GENMASK_U128(110, 109)
++#define PTE_SKL_SECT		(_AT(pteval_t, 0) << PTE_SKL_SHIFT)
++
++#define PTE_VALID		(_AT(pteval_t, 1) << 0)
++#define PTE_TYPE_MASK		_AT(pteval_t, (PTE_VALID | PTE_SKL_MASK))
++#define PTE_TYPE_PAGE		_AT(pteval_t, (PTE_VALID | PTE_SKL_SECT))
++#define PTE_USER		(_AT(pteval_t, 1) << 115)	/* PIIndex[0] */
++#define PTE_RDONLY		(_AT(pteval_t, 1) << 7)		/* nDirty */
++#define PTE_SHARED		(_AT(pteval_t, 3) << 8)		/* SH[1:0], inner shareable */
++#define PTE_AF			(_AT(pteval_t, 1) << 10)	/* Access Flag */
++#define PTE_NG			(_AT(pteval_t, 1) << 11)	/* nG */
++#define PTE_GP			(_AT(pteval_t, 1) << 113)	/* BTI guarded */
++#define PTE_DBM			(_AT(pteval_t, 1) << 116)	/* PIIndex[1] */
++#define PTE_CONT		(_AT(pteval_t, 1) << 111)	/* Contiguous range */
++#define PTE_PXN			(_AT(pteval_t, 1) << 117)	/* PIIndex[2] */
++#define PTE_UXN			(_AT(pteval_t, 1) << 118)	/* PIIndex[3] */
++#define PTE_SWBITS_MASK		_AT(pteval_t, GENMASK_U128(100, 91))
++
++#define PTE_ADDR_LOW		(((_AT(pteval_t, 1) << (55 - PAGE_SHIFT)) - 1) << PAGE_SHIFT)
++
++/*
++ * AttrIndx[2:0] encoding (mapping attributes defined in the MAIR* registers).
++ */
++#define PTE_ATTRINDX(t)		(_AT(pteval_t, (t)) << 2)
++#define PTE_ATTRINDX_MASK	(_AT(pteval_t, 7) << 2)
++
++/*
++ * PIIndex[3:0] encoding (Permission Indirection Extension)
++ */
++#define PTE_PI_MASK	GENMASK_U128(118, 115)
++#define PTE_PI_SHIFT	115
++
++/*
++ * POIndex[3:0] encoding (Permission Overlay Extension)
++ */
++#define PTE_PO_IDX_0	(_AT(pteval_t, 1) << 121)
++#define PTE_PO_IDX_1	(_AT(pteval_t, 1) << 122)
++#define PTE_PO_IDX_2	(_AT(pteval_t, 1) << 123)
++#define PTE_PO_IDX_3	(_AT(pteval_t, 1) << 124)
++
++#define PTE_PO_IDX_MASK		GENMASK_U128(124, 121)
++#define PTE_PO_IDX_SHIFT	121
++
++#else /* !CONFIG_ARM64_D128 */
++
+ /*
+  * Hardware page table definitions.
+  *
+@@ -215,7 +346,9 @@
+ #define PTE_PO_IDX_2	(_AT(pteval_t, 1) << 62)
+ 
+ #define PTE_PO_IDX_MASK		GENMASK_ULL(62, 60)
++#define PTE_PO_IDX_SHIFT	60
+ 
++#endif /* CONFIG_ARM64_D128 */
+ 
+ /*
+  * Memory Attribute override for Stage-2 (MemAttr[3:0])
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 212ce1b02e15..aadc577511d6 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -13,10 +13,15 @@
+ /*
+  * Software defined PTE bits definition.
+  */
+-#define PTE_WRITE		(PTE_DBM)		 /* same as DBM (51) */
++#define PTE_WRITE		(PTE_DBM)		 /* same as DBM (51 / 116) */
+ #define PTE_SWP_EXCLUSIVE	(_AT(pteval_t, 1) << 2)	 /* only for swp ptes */
++#ifdef CONFIG_ARM64_D128
++#define PTE_DIRTY		(_AT(pteval_t, 1) << 91)
++#define PTE_SPECIAL		(_AT(pteval_t, 1) << 92)
++#else
+ #define PTE_DIRTY		(_AT(pteval_t, 1) << 55)
+ #define PTE_SPECIAL		(_AT(pteval_t, 1) << 56)
++#endif
+ 
+ /*
+  * PTE_PRESENT_INVALID=1 & PTE_VALID=0 indicates that the pte's fields should be
+@@ -28,7 +33,11 @@
+ #define PTE_PRESENT_VALID_KERNEL (PTE_VALID | PTE_MAYBE_NG)
+ 
+ #ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
++#ifdef CONFIG_ARM64_D128
++#define PTE_UFFD_WP		(_AT(pteval_t, 1) << 94) /* uffd-wp tracking */
++#else
+ #define PTE_UFFD_WP		(_AT(pteval_t, 1) << 58) /* uffd-wp tracking */
++#endif
+ #define PTE_SWP_UFFD_WP		(_AT(pteval_t, 1) << 3)	 /* only for swp ptes */
+ #else
+ #define PTE_UFFD_WP		(_AT(pteval_t, 0))
+@@ -131,11 +140,18 @@ static inline bool __pure lpa2_is_enabled(void)
+ 
+ #endif /* __ASSEMBLER__ */
+ 
++#ifdef CONFIG_ARM64_D128
++#define pte_pi_index(pte)	(((pte) & PTE_PI_MASK) >> PTE_PI_SHIFT)
++#define pte_po_index(pte)	((pte_val(pte) & PTE_PO_IDX_MASK) >> PTE_PO_IDX_SHIFT)
++#else
+ #define pte_pi_index(pte) ( \
+ 	((pte & BIT(PTE_PI_IDX_3)) >> (PTE_PI_IDX_3 - 3)) | \
+ 	((pte & BIT(PTE_PI_IDX_2)) >> (PTE_PI_IDX_2 - 2)) | \
+ 	((pte & BIT(PTE_PI_IDX_1)) >> (PTE_PI_IDX_1 - 1)) | \
+ 	((pte & BIT(PTE_PI_IDX_0)) >> (PTE_PI_IDX_0 - 0)))
++#define pte_po_index(pte)	FIELD_GET(PTE_PO_IDX_MASK, pte_val(pte))
++#endif
++
+ 
+ /*
+  * Page types used via Permission Indirection Extension (PIE). PIE uses
+diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
+index 2f2f5527930f..83160f8a19fd 100644
+--- a/arch/arm64/include/asm/pgtable-types.h
++++ b/arch/arm64/include/asm/pgtable-types.h
+@@ -17,7 +17,11 @@
+  * Generic page table descriptor format from which
+  * all level specific descriptors can be derived.
+  */
++#ifdef CONFIG_ARM64_D128
++typedef u128 ptval_t;
++#else
+ typedef u64 ptval_t;
++#endif
+ 
+ typedef ptval_t pteval_t;
+ typedef ptval_t pmdval_t;
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index ed5ea7d31c0a..9e7d891597cc 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -84,18 +84,62 @@ static inline void arch_leave_lazy_mmu_mode(void)
+ 	arch_flush_lazy_mmu_mode();
+ }
+ 
++#ifdef CONFIG_ARM64_D128
++#define ptval_get(x)							\
++({									\
++	typeof(&(x)) __x = &(x);					\
++	union __u128_halves __v;					\
++									\
++	asm volatile ("ldp %[lo], %[hi], %[v]\n"			\
++		: [lo] "=r"(__v.low),					\
++		  [hi] "=r"(__v.high)					\
++		: [v] "Q"(*__x)						\
++	);								\
++	*(typeof(__x))(&__v.full);					\
++})
++
++#define ptval_set(x, val)						\
++({									\
++	typeof(&(x)) __x = &(x);					\
++	union __u128_halves __v = { .full = *(u128*)(&(val)) };		\
++									\
++	asm volatile ("stp %[lo], %[hi], %[v]\n"			\
++		: [v] "=Q"(*__x)					\
++		: [lo] "r"(__v.low),					\
++		  [hi] "r"(__v.high)					\
++	);								\
++})
++#else
+ #define ptval_get(x)		READ_ONCE(x)
+ #define ptval_set(x, val)	WRITE_ONCE(x, val)
++#endif
+ 
+ static inline ptval_t ptval_cmpxchg_relaxed(ptval_t *ptep, ptval_t old,
+ 					      ptval_t new)
+ {
++#ifdef CONFIG_ARM64_D128
++	return cmpxchg128_relaxed(ptep, old, new);
++#else
+ 	return cmpxchg_relaxed(ptep, old, new);
++#endif
+ }
+ 
+ static inline ptval_t ptval_xchg_relaxed(ptval_t *ptep, ptval_t new)
+ {
++#ifdef CONFIG_ARM64_D128
++	union __u128_halves r = { .full = new };
++
++	asm volatile(
++	".arch_extension lse128\n"
++	"swpp %[lo], %[hi], %[v]\n"
++		: [lo] "+r" (r.low),
++		  [hi] "+r" (r.high),
++		  [v] "+Q" (*ptep)
++		:);
++	return r.full;
++#else
+ 	return xchg_relaxed(ptep, new);
++#endif
+ }
+ 
+ #define pmdp_get pmdp_get
+@@ -157,7 +201,7 @@ static inline void pgprot_write(pgprot_t *prot, pgprot_t val)
+ 	__flush_tlb_range(vma, address, address + PMD_SIZE, PMD_SIZE, 2,	\
+ 			  TLBF_NOBROADCAST | TLBF_NONOTIFY | TLBF_NOWALKCACHE)
+ 
+-#ifdef CONFIG_ARM64_PA_BITS_52
++#if defined(CONFIG_ARM64_PA_BITS_52) && !defined(CONFIG_ARM64_D128)
+ static inline phys_addr_t __pte_to_phys(pte_t pte)
+ {
+ 	pte_val(pte) &= ~PTE_MAYBE_SHARED;
+@@ -268,7 +312,7 @@ static inline bool por_el0_allows_pkey(u8 pkey, bool write, bool execute)
+ 	(((pte_val(pte) & (PTE_VALID | PTE_USER)) == (PTE_VALID | PTE_USER)) && (!(write) || pte_write(pte)))
+ #define pte_access_permitted(pte, write) \
+ 	(pte_access_permitted_no_overlay(pte, write) && \
+-	por_el0_allows_pkey(FIELD_GET(PTE_PO_IDX_MASK, pte_val(pte)), write, false))
++	por_el0_allows_pkey(pte_po_index(pte), write, false))
+ #define pmd_access_permitted(pmd, write) \
+ 	(pte_access_permitted(pmd_pte(pmd), (write)))
+ #define pud_access_permitted(pud, write) \
+@@ -1637,11 +1681,15 @@ static inline void update_mmu_cache_range(struct vm_fault *vmf,
+ 	update_mmu_cache_range(NULL, vma, addr, ptep, 1)
+ #define update_mmu_cache_pmd(vma, address, pmd) do { } while (0)
+ 
++#ifdef CONFIG_ARM64_D128
++#define phys_to_ttbr(addr)	(addr)
++#else
+ #ifdef CONFIG_ARM64_PA_BITS_52
+ #define phys_to_ttbr(addr)	(((addr) | ((addr) >> 46)) & TTBR_BADDR_MASK_52)
+ #else
+ #define phys_to_ttbr(addr)	(addr)
+ #endif
++#endif
+ 
+ /*
+  * On arm64 without hardware Access Flag, copying from user will fail because
+diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+index 22866b49be37..6db62d56e97e 100644
+--- a/arch/arm64/mm/proc.S
++++ b/arch/arm64/mm/proc.S
+@@ -215,7 +215,7 @@ SYM_FUNC_ALIAS(__pi_idmap_cpu_replace_ttbr1, idmap_cpu_replace_ttbr1)
+ 
+ 	.macro	pte_to_phys, phys, pte
+ 	and	\phys, \pte, #PTE_ADDR_LOW
+-#ifdef CONFIG_ARM64_PA_BITS_52
++#if defined(CONFIG_ARM64_PA_BITS_52) && !defined(CONFIG_ARM64_D128)
+ 	and	\pte, \pte, #PTE_ADDR_HIGH
+ 	orr	\phys, \phys, \pte, lsl #PTE_ADDR_HIGH_SHIFT
+ #endif
 -- 
-2.34.1
+2.43.0
+
 
