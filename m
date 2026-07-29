@@ -4,72 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE9BC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 17:59:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22FD6C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 18:08:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sHNGtvXmI1lmcYGaqQf2LJdsupyf9eDfU/t8/RKu5uQ=; b=gRAiK+UarzMLBPCl1JAqxQQ5mc
-	2mr9xCHiYdVYV2eWPhUZkkf5lk70a/mbgZ2REuYNk5F3yhITdTh9QM0d3AcW8+QxWae3LQd7GEknC
-	6L5jEoBrC+ZSDXTSHWi76H5weQhjmhn4UIT5GqQFrLYyYl0VJ1ih/aCShk9zV/quypwCKQpH5VGo7
-	GGlhvgeUkk/TUEyBf8Q+uOiubB2Q9OuTgP1q75/LIKYrDC3rv+IFR9Kn5ApVEDsMeiGRJvOWpxMjc
-	2gBvpIeKEkR0GOaH2ZaYb3Hkagit3tsyHp/Qj5jbnj6zioouta2UR1LnQssUli8x/AN6xE7Y/MlYr
-	Bs7To2Sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NwF6WahzMHm2895PJCZr64azvFZo3rJf0ZJJcnJOyTI=; b=ggSNnJnR6AZKebDoBqGu9K3ghL
+	FvpTMqVFUaurlrW+5KXmL7aqRbQLnIMLbqlU2JiKgvd89T5tkGLOhWOzG3SMoabcIxM1PtCWCL7yp
+	ctOjUBHBxuuw0drnjBwqO3H87UU4559X2i33WYAE2kirV0hzYUmqVoDF4KJbtrQjfkE/E4IIJsseh
+	y4k563ty7Vj4sWMe/E22E9aKc9FI6ZF5BaVyNKGN8AzJEJVviH47/d6jqUc/QMkmde9TIAdYKdB+P
+	X9cUTq6INneR8W6n3fhjW8ElGSZB0HOvT82TpaYnBoNECnwwZRN8/F3hZjC185wYwr4vfVW6hSewH
+	l3GvWbCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8Ym-00000008ljU-3zjZ;
-	Wed, 29 Jul 2026 17:59:16 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1wp8hW-00000008mWY-0FvC;
+	Wed, 29 Jul 2026 18:08:18 +0000
+Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp8Yh-00000008liX-2q2U
+	id 1wp8hT-00000008mVY-0frt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 17:59:16 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RqSylO+rc+m2Jaxh7KISEtjMi9ZphBOF2LKygyffGaKTAhzuwJLMQfWn71/nbts98NXODxYC1tlBBAfjToTWso4@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785347945;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sHNGtvXmI1lmcYGaqQf2LJdsupyf9eDfU/t8/RKu5uQ=;
-	b=u9Nc2NJf6+WPY8IrMB5KDvxUwMVV0AlQGEKIH/Rr6MpVUBNHILZL5JUThwUz/tEqxvFpUo
-	X6sreeEx1o3lBMowe/JpSpm5BZkEiQ62iEH7OY+Nc8mV+UGfdfCKitJokmW6OV3rZR2w8J
-	Wxd7qjjjg3CCEdJNRqPjWd2y0JSa2SY=
-X-Gm-Message-State: AOJu0Yw3NhW4orOdXFN6Hv6RPwZySNwynJaQQuD9lU5THqpAOSfsiIae
-	JmZDJhQRVpXF7mpFCJ5qpuX0u7TsorytbNtv4xyyb5j1EAMb8goAKhYgsC09SVYV1msLlhd9xDn
-	xKF0tHYp/UsMnZgmdr3GCydRONJ/YoAmhZJOm4qkw
-X-Received: by 2002:ac8:7fc7:0:b0:4ff:c0e7:be9c with SMTP id
- d75a77b69052e-52b34cf718bmr4279531cf.0.1785347937591; Wed, 29 Jul 2026
- 10:58:57 -0700 (PDT)
+	Wed, 29 Jul 2026 18:08:16 +0000
+Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id D8C4014002E6;
+	Wed, 29 Jul 2026 14:08:11 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-09.internal (MEProxy); Wed, 29 Jul 2026 14:08:11 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rostedt.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1785348491;
+	 x=1785434891; bh=NwF6WahzMHm2895PJCZr64azvFZo3rJf0ZJJcnJOyTI=; b=
+	JRdh59GvEw2YJjNl4b0sb2XXDN/Wb2PCc/JW2F/OV/a7kRmZ1FITXfoI7p0tHTaa
+	PQfszlVejq3AKOGIYMQOVDwUGQBfYl9XxtIiJpAMGDFPb19lvoltUVFNTztlks+m
+	Om3B8fS/cHK/74JHMylRgDm0kSQ/X/s2bPIacOm35jJTKdriFb5QGfpQJrY9FMp9
+	loU7WNOFAV1hd+pI6vt6xPrgbEzy/j9+0r++VSFSWVmBJrcYasOnQHuDBamNUDP+
+	Pj9vL0+thOKtr2e3HD437RT4jjVTaIqyy65XLoJKhVDrTKwWbImbXZejxFV5TPZj
+	FC4mTzZlGLCfuGEtRglsfA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1785348491; x=
+	1785434891; bh=NwF6WahzMHm2895PJCZr64azvFZo3rJf0ZJJcnJOyTI=; b=b
+	+GMsB8BaZzp9S8uTtN2iW19GRLMCZGSp3VyhrRheqXMvJBLUaMENric23PgprnJD
+	nHSxBtYmlEnhyGrwozhx+cQ/0W5yS1t6L3oP2Dld7mD+CLhv+BShND6GcBiRYBaP
+	8Iy2MSEp9eAT+Q8oT76faaJF7Mh87fdOBkEJ1GnPYlvTL2Bf4GQIzP3uZfrHxaTe
+	dogakftHkBPHR29e/nmeBME5RrgL7UndR6O031XBs9L1Sf6iF+ws0WLch4hGsprZ
+	NEYtQI5v2663sQ4i5x6upgzj0Izl+uevzcFEWIYWJ3qRAimaR4lShiX0FQf/hoRD
+	aSINvusbC8nowItbuWp/w==
+X-ME-Sender: <xms:i0FqahhvI6KHKauYf_IyzQZIy7_zl0CAr-6dWfkCngQGSu2O6gNWxg>
+    <xme:i0FqamaRFOOyx-jGTE4cRmB_MMTOoDuv7vtzGXnUCgoMptFFHi9YOOIbrq7BpeUIk
+    Mb3edO6KE5cq8dGtjqfMOsqO4BNirUMEl8Z_g_DXmPx-39El-yG26o>
+X-ME-Received: <xmr:i0FqaiOaJSdwHME7YRhRV89o6RnwAiqdny4zwCKU1urScVh8w3DltkhOEzMcVLnU3tJxM4eN>
+X-ME-Proxy-Cause: dmFkZTERBjXApnrZrwfYcYubtd8IizaaJqU0kamfvzZdOJhvnPPUf06TI5DFPDTIcatc28
+    2an4NFY/41OsegM7YIizOcF3moFF5tPsTqvOEWMQ49m/J9ujLJLevMme8PQF2WUY5QmBm6
+    nz5aape8gfrzo7xjNg52J0NJs/H4wY2qB2dO5GSMsEmMJIUk/rcHiWJhe20Z6NwiObz3Zq
+    WST4S9B1DwsDaGGoeQe7/o/DEIO98FM6f2Pi93sG4xJiOjE4RmWz9v5f/bX5w5JPRan3cw
+    07qPOtAsZ2FWnKk+GUM3y2FQotAisp7eo1YGmOF5z85KHeLwJts5U1vJy5sA5C2K8HGZOk
+    3Bjp6FkzfsKLiass48861fo/4E0zzIvGq6ByRJTsHEwMciPmcsNZktiMu5OhwEmv57UMXo
+    ZKc/YcbrEZqakZat4X2VOMt1S71EUwUqpjXyCW4MoE7F5GSFUp8vdZEFBwwXM/ghCGugAU
+    BOZyy/vjfXooose5kT6eg2PhaoNf62OTrq2Cy55Rp22J22kjvzvz/vMBQW0s8QS5+IvJ9z
+    m7rnUc8W0NlQn7g+fUcB7JlG/CT+z6MrN7Aqy8BEP5cx0sxrtyVKUChNUFRs3CeFp0UnHO
+    7pl2URwtEkDfDgPeNdo14bH/g924Y+OGcIPl2hCq/P/K4kryJG6+lvlEz+OA
+X-ME-Proxy: <xmx:i0FqaiTEk4Px3IqRWyOkYSyoiqXYfXwwX1WvdWljVc7YUMXKh5-unQ>
+    <xmx:i0Fqat7fgWxLdBgGJXISIihWXY6hiTMv6aNJjTAN7jmgXHhrHMb6yw>
+    <xmx:i0FqalZt0XGFuASztUrqxEPNuEGH_xf577Ar7ulgqgxf4GO_06xlag>
+    <xmx:i0FqahZv1EOEd6ncLcch_4PePD-5cJpSomOqh2vqcgvENPJRFiuY9w>
+    <xmx:i0FqatanVUSGSY54zh1guP6xSXN33irC96kRL2jFnJmgAxSp2N8YF8xV>
+Feedback-ID: id06e481b:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 29 Jul 2026 14:08:10 -0400 (EDT)
+Date: Wed, 29 Jul 2026 14:08:46 -0400
+From: Steven Rostedt <steven@rostedt.org>
+To: Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Hongyan Xia <hongyan.xia@transsion.com>, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Dennis Zhou <dennis@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, Oleg Nesterov
+ <oleg@redhat.com>, Naveen N Rao <naveen@kernel.org>, "David S. Miller"
+ <davem@davemloft.net>, Nathan Chancellor <nathan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+ Justin Stitt <justinstitt@google.com>, Jiazi Li <jiazi.li@transsion.com>,
+ Pu Hu <hupu@transsion.com>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-mm@kvack.org"
+ <linux-mm@kvack.org>, "linux-trace-kernel@vger.kernel.org"
+ <linux-trace-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+ <llvm@lists.linux.dev>
+Subject: Re: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
+ __always_inline
+Message-ID: <20260729140846.3c18f437@gandalf.local.home>
+In-Reply-To: <eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
+References: <cover.1785153469.git.hongyan.xia@transsion.com>
+	<eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp> <20260720-hybrid-v9-13-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260720-hybrid-v9-13-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Wed, 29 Jul 2026 18:58:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyBNtRHMGp9LvGfrEHC+WggA_B5hQq+Yf35+zNBfNxG1A@mail.gmail.com>
-X-Gm-Features: AUfX_mxD75QzlQhuaQNGxQQP31Q-APsfSKiFOjN07yFBd2o-UYKBSVA4waq0SzE
-Message-ID: <CA+EHjTyBNtRHMGp9LvGfrEHC+WggA_B5hQq+Yf35+zNBfNxG1A@mail.gmail.com>
-Subject: Re: [PATCH v9 13/16] KVM: arm64: PMU: Pass the target CPU to kvm_pmu_probe_armpmu()
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steffen Eiden <seiden@linux.ibm.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_105911_996742_75FE830B 
-X-CRM114-Status: GOOD (  27.84  )
+X-CRM114-CacheID: sfid-20260729_110815_510332_12868779 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,133 +121,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 at 06:39, Akihiko Odaki
-<odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
->
-> kvm_pmu_probe_armpmu() currently samples the current CPU internally,
-> which ties the helper to default PMU selection.
->
-> Move that policy to kvm_arm_set_default_pmu() by passing
-> raw_smp_processor_id() from the caller, and make the helper search for
-> the pPMU covering an explicit CPU. Move the helper above
-> kvm_pmu_create_perf_event() so later code can reuse it when creating
-> PMU events for a VCPU's current pCPU.
->
-> This preserves the existing default PMU selection behavior while
-> preparing fixed-counters-only mode to select a pPMU at runtime.
->
-> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
+Masami,
 
 
+On Mon, 27 Jul 2026 12:25:48 +0000
+Hongyan Xia <hongyan.xia@transsion.com> wrote:
+
+> From: Hongyan Xia <hongyan.xia@transsion.com>
+> 
+> Static inline should be enough to actually inline functions for most
+> compilers, but my Clang-19 somehow thinks it's better to outline them.
+> These tiny helpers then live in normal .text sections instead of
+> .noinstr sections, violating noinstr.
+> 
+> Mark them __always_inline so the compiler can never outline them.
+> 
+> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
 > ---
->  arch/arm64/kvm/pmu-emul.c | 72 +++++++++++++++++++++++------------------------
->  1 file changed, 35 insertions(+), 37 deletions(-)
->
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index 27db8877f96e..78611eaecca2 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -682,6 +682,23 @@ static int kvm_map_pmu_event(struct arm_pmu *pmu, unsigned int eventsel)
->         return eventsel;
->  }
->
-> +static struct arm_pmu *kvm_pmu_probe_armpmu(int cpu)
-> +{
-> +       struct arm_pmu_entry *entry;
-> +       struct arm_pmu *pmu;
-> +
-> +       guard(rcu)();
-> +
-> +       list_for_each_entry_rcu(entry, &arm_pmus, entry) {
-> +               pmu = entry->arm_pmu;
-> +
-> +               if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-> +                       return pmu;
-> +       }
-> +
-> +       return NULL;
-> +}
-> +
->  /**
->   * kvm_pmu_create_perf_event - create a perf event for a counter
->   * @pmc: Counter context
-> @@ -811,42 +828,6 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
->         list_add_tail_rcu(&entry->entry, &arm_pmus);
->  }
->
-> -static struct arm_pmu *kvm_pmu_probe_armpmu(void)
-> -{
-> -       struct arm_pmu_entry *entry;
-> -       struct arm_pmu *pmu;
-> -       int cpu;
-> -
-> -       guard(rcu)();
-> -
-> -       /*
-> -        * It is safe to use a stale cpu to iterate the list of PMUs so long as
-> -        * the same value is used for the entirety of the loop. Given this, and
-> -        * the fact that no percpu data is used for the lookup there is no need
-> -        * to disable preemption.
-> -        *
-> -        * It is still necessary to get a valid cpu, though, to probe for the
-> -        * default PMU instance as userspace is not required to specify a PMU
-> -        * type. In order to uphold the preexisting behavior KVM selects the
-> -        * PMU instance for the core during vcpu init. A dependent use
-> -        * case would be a user with disdain of all things big.LITTLE that
-> -        * affines the VMM to a particular cluster of cores.
-> -        *
-> -        * In any case, userspace should just do the sane thing and use the UAPI
-> -        * to select a PMU type directly. But, be wary of the baggage being
-> -        * carried here.
-> -        */
-> -       cpu = raw_smp_processor_id();
-> -       list_for_each_entry_rcu(entry, &arm_pmus, entry) {
-> -               pmu = entry->arm_pmu;
-> -
-> -               if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
-> -                       return pmu;
-> -       }
-> -
-> -       return NULL;
-> -}
-> -
->  static u64 __compute_pmceid(struct arm_pmu *pmu, bool pmceid1)
+>  arch/arm64/include/asm/esr.h       | 2 +-
+>  arch/arm64/include/asm/percpu.h    | 2 +-
+>  arch/arm64/include/asm/preempt.h   | 4 ++--
+>  arch/arm64/include/asm/ptrace.h    | 4 ++--
+>  arch/arm64/kernel/debug-monitors.c | 2 +-
+>  include/linux/kprobes.h            | 8 ++++----
+
+Are you OK with this patch? If so, can you ack it?
+
+-- Steve
+
+>  6 files changed, 11 insertions(+), 11 deletions(-)
+> 
+
+[..]
+
+> diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
+> index 8c4f3bb24429..5880445ed0f0 100644
+> --- a/include/linux/kprobes.h
+> +++ b/include/linux/kprobes.h
+> @@ -384,17 +384,17 @@ static inline void kprobe_ftrace_kill(void) {}
+>  struct kprobe *get_kprobe(void *addr);
+>  
+>  /* kprobe_running() will just return the current_kprobe on this CPU */
+> -static inline struct kprobe *kprobe_running(void)
+> +static __always_inline struct kprobe *kprobe_running(void)
 >  {
->         u32 hi[2], lo[2];
-> @@ -1072,7 +1053,24 @@ static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
->   */
->  int kvm_arm_set_default_pmu(struct kvm *kvm)
+>  	return __this_cpu_read(current_kprobe);
+>  }
+>  
+> -static inline void reset_current_kprobe(void)
+> +static __always_inline void reset_current_kprobe(void)
 >  {
-> -       struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu();
-> +       /*
-> +        * It is safe to use a stale cpu to iterate the list of PMUs so long as
-> +        * the same value is used for the entirety of the loop. Given this, and
-> +        * the fact that no percpu data is used for the lookup there is no need
-> +        * to disable preemption.
-> +        *
-> +        * It is still necessary to get a valid cpu, though, to probe for the
-> +        * default PMU instance as userspace is not required to specify a PMU
-> +        * type. In order to uphold the preexisting behavior KVM selects the
-> +        * PMU instance for the core during vcpu init. A dependent use
-> +        * case would be a user with disdain of all things big.LITTLE that
-> +        * affines the VMM to a particular cluster of cores.
-> +        *
-> +        * In any case, userspace should just do the sane thing and use the UAPI
-> +        * to select a PMU type directly. But, be wary of the baggage being
-> +        * carried here.
-> +        */
-> +       struct arm_pmu *arm_pmu = kvm_pmu_probe_armpmu(raw_smp_processor_id());
->
->         if (!arm_pmu)
->                 return -ENODEV;
->
-> --
-> 2.55.0
->
->
+>  	__this_cpu_write(current_kprobe, NULL);
+>  }
+>  
+> -static inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
+> +static __always_inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
+>  {
+>  	return this_cpu_ptr(&kprobe_ctlblk);
+>  }
+> @@ -449,7 +449,7 @@ static inline struct kprobe *get_kprobe(void *addr)
+>  {
+>  	return NULL;
+>  }
+> -static inline struct kprobe *kprobe_running(void)
+> +static __always_inline struct kprobe *kprobe_running(void)
+>  {
+>  	return NULL;
+>  }
+
 
