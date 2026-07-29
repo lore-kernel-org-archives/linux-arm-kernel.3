@@ -4,61 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E098BC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD180C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 16:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:In-Reply-To:References:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=07zzg4tyQn68vbdlszr3ligpYW8XEoNE156+JLLXuMM=; b=AyPdgvZONRBkN7LkA8vis2K4OD
-	rFSj+los4IxocTqnJSlb9X/mO92s5PigDD9WT5is8+esWPUL8hP+31fE3PnKsLzJ+akKLrdicXdE5
-	pX8uJbStgMBe8dTkKKiaAkKqFwzvkiZ7mzbq6ddp2ycGg104px+1/5EeNvp8FCTgs6k3678sCjsHg
-	tm58d03XHsj5mJ+v3U7LnB/Ii5oQJaaCBuEaMv2t7S+NulGmxGjTVMDm0YBMQRsVKeRr27Sg4eKnk
-	WGrn+PlHNG4gJYyUUiT7njW/ynxTYzDvOTa2OOMPEAiBvKIg/zCG3ni61IYRZNp4qyySu9Tnsruy8
-	EhaVXz3w==;
+	bh=G/CH1RQ51wDKB1nw1PqJ4AnZY65vJPiP0L6rpa3Xr34=; b=ioZA5TC8nIegxjm5u3Xco0lzJc
+	TpRKNZzMu+bL5Bw9132id97oSjzqF+90dyKXhPrZXytS/THINtqQpS896ZSpdbRFVNGwqTgBOLo7v
+	eK3tdMhH/dOI9B3zZfhNJ+z7wfRZ2FAkUopz3uzHAahucmOuGi7MsUUFit1pMc6nlEingdThJnHRe
+	9Lr22BAc1f0yAF7+cHNFeJENziWtKOia1zQ3NOM1vK77xpvlAObAMvnE5zxPCCC++JbN0xcZNcK+P
+	jf8SDZ1nnn9OdH3e5Evlmew3ZycwCKv4dlEbfvd5Rrl4AmE9tUCgk/mFCwfBy1o79zS5sNtd++VgI
+	zg0Pv+IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp79s-00000008YI8-34ju;
-	Wed, 29 Jul 2026 16:29:28 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wp7Bf-00000008YgJ-0R40;
+	Wed, 29 Jul 2026 16:31:19 +0000
+Received: from out-181.mta0.migadu.com ([91.218.175.181])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wp79p-00000008YH8-2Erk
+	id 1wp7Bc-00000008Yeb-0JpB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 16:29:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=07zzg4tyQn68vbdlszr3ligpYW8XEoNE156+JLLXuMM=; b=U2nC0qZh5fjvgMxsARqJR3miYA
-	gmgfYHrXlKqsCJQzQBBUsnlfh2NSbE8L78Z7Kbd6EtY2BxkGkvfdWqG8ITgb6TbR7q5qWV6TcgBqW
-	Y0wKN2EcMGFWlxqgZe8oYDeX4Qjdp5nLJn2UrUrEVL4jQQ7/bLNcbm6VO2xgOml8xjNU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wp79U-00Eqcw-Nc; Wed, 29 Jul 2026 18:29:04 +0200
-Date: Wed, 29 Jul 2026 18:29:04 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com, joabreu@synopsys.com,
-	jun.ann.lai@intel.com, yi.fang.gan@intel.com,
-	boon.khai.ng@altera.com, matthew.gerlach@altera.com,
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net 0/5] net: stmmac: Fix double VLAN 802.1ad tag handling
-Message-ID: <d39c7b4c-04b4-4bfd-8a4b-821a8a32a885@lunn.ch>
-References: <20260729095110.164157-1-ovidiu.panait.rb@renesas.com>
+	Wed, 29 Jul 2026 16:31:18 +0000
+Date: Wed, 29 Jul 2026 16:16:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
+	s=key1; t=1785342668;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=G/CH1RQ51wDKB1nw1PqJ4AnZY65vJPiP0L6rpa3Xr34=;
+	b=RlhoJ0IOQVoLpDQtytQO8MTjIYvJpV3c/0Zq3gYTRqDiCpNDZmC8ob6kOYX3z7VfxM3Ivs
+	1is//wB95LM4LTyrvKkj4de4HjIwlR38130ajWnOSPkmPJhLTvXIv9nytRZgNcPDeshIs+
+	uRMOpQ04SZPdTnp06C+fkrbKpBuMHMC+qIEDCRyC2uiYV0kWN77rCAOGPJsk9gZjRKZvbu
+	r6QGk2IIcYtHhsmY0sUq2zxJ/hDf3wFAZK9IZHQnhq68dJgUXfR87uIoQ3qhTtVv6zXtnf
+	7s7CjvtQ2qwu/S8l3/mfJkp4vTI/bH9ye7bPEL6GlhJ+fl9wqXnzCVN1It6o1Q==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Ferass El Hafidi <funderscore@postmarketos.org>
+To: linux-amlogic@lists.infradead.org, Alberto Robazza <robazza.alberto@proton.me>, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org, khilman@baylibre.com
+Cc: jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, Alberto Robazza <robazzalberto@gmail.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: vendor-prefixes: add Orbbec
+References: <20260729141234.65037-1-robazzalberto@gmail.com> <20260729141234.65037-2-robazzalberto@gmail.com>
+In-Reply-To: <20260729141234.65037-2-robazzalberto@gmail.com>
+Message-ID: <tiy37g.1ypi45yn8qibx@postmarketos.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260729095110.164157-1-ovidiu.panait.rb@renesas.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8; format=flowed
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_092925_582660_B534E3C2 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20260729_093116_518991_7A00B915 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,38 +69,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 09:51:04AM +0000, Ovidiu Panait wrote:
-> Currently, hardware VLAN stripping is broken for 802.1ad tags. vlan_rx_hw()
-> hardcodes ETH_P_8021Q when putting the hardware tag into the skb, rather
-> than using the actual protocol from the packet. Because of this, packets
-> that contain an 802.1ad outer tag are incorrectly passed up the stack as
-> having an 802.1Q tag.
-> 
-> This issue was observed on the Renesas RZ/V2H platform (which has a dwmac4
-> IP), when testing QinQ ping:
-> 
->   # DUT
->   ip link add link end0 name end0.100 type vlan proto 802.1ad id 100
->   ip link add link end0.100 name end0.100.200 type vlan proto 802.1q id 200
->   ip addr add 172.16.3.2/24 dev end0.100.200
->   ip link set end0 up
->   ip link set end0.100 up
->   ip link set end0.100.200 up
-> 
->   # Peer
->   ip link add link eth0 name eth0.100 type vlan proto 802.1ad id 100
->   ip link add link eth0.100 name eth0.100.200 type vlan proto 802.1q id 200
->   ip addr add 172.16.3.1/24 dev eth0.100.200
->   ip link set eth0 up
->   ip link set eth0.100 up
->   ip link set eth0.100.200 up
->   ping 172.16.3.2
->     -- FAIL --
+Hi Alberto,
 
-I stretch goal, if you are interested and have time. Can you turn this
-into a test somewhere in tools/testing/selftests/net ? If one MAC
-driver has it wrong, there are probably other MAC drivers which are
-also wrong.
+On Wed, 29 Jul 2026 14:12, Alberto Robazza <robazzalberto@gmail.com> wrote:
+>Add the "orbbec" vendor prefix for Orbbec Inc., a manufacturer of
+>3D depth cameras and embedded vision boards.
+>
+>Signed-off-by: Alberto Robazza <robazzalberto@gmail.com>
+>---
+> Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+> 1 file changed, 2 insertions(+)
+>
 
-	Andrew
+You seem to have missed Krzysztof's Acked-by tag in this patch:
+https://lore.kernel.org/all/20260729-unbreakable-observant-clam-ca4f6d@quoll/
+
+Reviewers will typically give out Acked-by or Reviewed-by tags to your
+patch to signal that the patch looks good to them (typically the former tag)
+or that they have reviewed it in great detail and approve it (typically the
+latter tag). These tags need to be picked up and added to your patch.
+
+If you use b4 to send the patches, you can run `b4 trailers -u` each
+time before sending a new patchset revision to the mailing list to get
+all Acked-by and Reviewed-by tags reviewers will give to your patch.
+If you don't use b4, you should be able to add them manually still with
+git commands.
+
+If you don't have them added to your patch, it may sound like you
+ignored their review. Reviewing takes effort and is time-consuming,
+so always make sure you have all of them added.
+
+Also see: https://docs.kernel.org/process/submitting-patches.html
+
+Best regards,
+Ferass
+
+>diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>index 396044f36..a42899bd2 100644
+>--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+>@@ -1251,6 +1251,8 @@ patternProperties:
+>     description: Option NV
+>   "^oranth,.*":
+>     description: Shenzhen Oranth Technology Co., Ltd.
+>+  "^orbbec,.*":
+>+    description: Orbbec Inc.
+>   "^ORCL,.*":
+>     description: Oracle Corporation
+>   "^orisetech,.*":
+>-- 
+>2.55.0
+>
+>
+>_______________________________________________
+>linux-amlogic mailing list
+>linux-amlogic@lists.infradead.org
+>http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
