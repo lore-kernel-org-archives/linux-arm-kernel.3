@@ -4,133 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDA8C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 06:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 682D4C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 07:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4uwk1C1ikhvUrPi/9dJVHUhOWvMR9EHPaiFhoWQ8IN4=; b=MeITtxRv3GZ4S120sR8rdLc9OK
-	xeCGZxYU1+EMCAznj8TFt4etajDoj8VXv/NvQQGCaMmaZOlulaDlprXyG4E9PYcBKG+rIPGgkng2t
-	i6cqt9+3GTBU8D6yYtO++anLA/SBdayG5iMtbSW3MKCbCs1HlK3HR/VmhUBUEW8JncLtmcfFq7BYM
-	c1UDAQ3DlcYBymMrkUamMBwV5iRDBfPhR+st4OFOydA7ubJ51BgytakyJbN2t+MnpCLLreUj4Bwsv
-	V+SiuQ8CXOtJ2qoNeHb1wiWM7zgDj6SqmJ//nKsW27ZnzaY9ruMbuNVaweFOD5zVrM/Y6axBPuxTr
-	psyvjdjg==;
+	bh=6tV0VfswlaPBE1p6JkoOTNbNiWCTp/wujejH5tob18g=; b=WdGGpKiUWhXXrQtgqsGUoKLFL7
+	zxWYaMXYp+uQOT6M0w/jzAokLZeBpQOPqHrB2hZSWQLTSGM8hcGPyFRDuey/Id7n5gkrEbl1KhHSb
+	tlQz/+hbyEunQWgSHbc9WfSvlu99vr7+EsW1R9GZxD3PIHCdfpiC33TQ1KWkdsbMNDxwE9Ryh1DUS
+	0Bp5r6Ppv/ZGIcYoJvt0+ysR0AsL5/KEOei8EqUSrOAdHhWfRDJSMTM7MvXlvG+FdOcQMyRUeVsmY
+	U/f7W9XDTSYFwXyhgmgW7YUQCEFygDfp96KBRhyzfoF+AezYXf0WIFbCJSD3D7DSl5N/IYXt+wcVA
+	MQlp9THQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woy6f-000000073xT-1Zz9;
-	Wed, 29 Jul 2026 06:49:33 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1woyJ0-000000074ZL-2owc;
+	Wed, 29 Jul 2026 07:02:18 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1woy6Z-000000073wI-3qTm;
-	Wed, 29 Jul 2026 06:49:30 +0000
+	id 1woyIx-000000074YU-3dGY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 29 Jul 2026 07:02:17 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mItVBia1w3KAt+se6TllTL84ORTuIneb4VJl6hsx8x8yvrWhJQoVgeTEufg5P5S46OSy5RZu1TrC+L10PqjYDId1g4f3FhfEU2x7YYyAZCWbXl6s1uh0p1gtPsUCbNfJf03jWOeCUuzLeOihkgfLPdNU8YEkicQLe7mla2OQgW9G1E36WMsOCa01PqgUdwo9Hgjd7YxLkWEiOaCaS5Sqo8QQ0TgFS+Kus4eL6FKLOhtx3/JllzM1nKUFQuD9Xaa3VLqqjys0wtsmIUTrbhi6aaUkksAw88w8+pajQacFp7k1seJ0sKnUrGzQbTCqkCx5VT1CTw61EIaX5KVkz09lXw==
+ b=eoIA0GUJZ4BqRAd/wVpO7JJ4iTV6wrrWIiZvAHhD4yaODqui6Mv1i7yp64fAKOKQXdYz/SSKuC733vLCay3gTgV6ROPKdNDOcW7fcJMxsUE3pqeUbV42MQOgu74Z3CBrmL/pOt/3ddU+1O7PLdomZdugL2oFelKZ9NeENuXSUsB5e93eaihs7j81CK78zHiahI5QIdwJ104+83yS5lCQQdsgZHIwP/6CAo8DkTsXAqbBvor7optoQWsImG53XO9sBn4tk1OTqy0ET/RVwaldJqzejmchIBWtMhsxiZhF+rFLxHP7piG2UdNVqJTRxX/qNixc7Rasr/hnsv9Gy31/dw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4uwk1C1ikhvUrPi/9dJVHUhOWvMR9EHPaiFhoWQ8IN4=;
- b=AkdWhIVYbfaMk/wEygg0wblD74UpVIIMpIwUU0KkC/uF+SakzQObewUu5G5riW4n+6KI+8Z3T3kAdsIwHJe0hRilZApwpZpQ+bXZQs1TUV/wiYGR/rhlW7BHm3LL+gCO8ff7dhe231WfrmS6Z/tPsToKJZFxDlpahTquFDEa66s6zrjxxOS5l1YaHIQDtlJCuw3/+9rcLmOvNftyabjuuCo9yGQFCSvx4bJSSPle3sX2D1ng3qZbuTu9KMuQLbCTFJQDStRx3VVwmZJrU7NUe46n80LFTGWB/cS8XvwcXsmLGbBtSsrM/krJ6jWqEicbWdXC0MYdNuEvD1eiRkCYWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=infradead.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=6tV0VfswlaPBE1p6JkoOTNbNiWCTp/wujejH5tob18g=;
+ b=WbkrYHASon+DCZJM+t37wkHP/AWRQASzIIJzRxCSKBzh0TjyanjXLCf1BzEBXTK7NO+ReB+P5/+1BmZxQSuSbBr0MKWqDD/So+WjsEEPYNh0yc9PUs2izsCMVGfO9INcZkBdIxFx3WjL6hhsVrQTMdTse+6B0h6zIbWJmC98QGSTt5+6zeENj/0k252hQHdlwuWZE3AgxtA/GF4T6xkdB37Pg7gYrtDkLNC96Tl7sdkED/PKxLZyXYUtTgrCK1CfIIy5ygMilw46icRcAWLjM6IHW4zUhb4S7XNwq2C8Pf25Uh4CNQvt2oJWj1TlKE9cs5VIj87BxRNZhmp23LJBZA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4uwk1C1ikhvUrPi/9dJVHUhOWvMR9EHPaiFhoWQ8IN4=;
- b=YARCBOpjocDFtxNbR5eXuw/0tcYrAG0HkE9MgITBFlEZ0KqEdP19/dm/3h2+tLlxgFwksoroeLAwmlb4OeTRJyBmcrMf3wjZW2SKDV536V1vxC4tzAXGMErKv4z8z9m1r62a/ujKlbNVz7IF84h4IqqyVSqfRxn7rIj0HU9Glgg=
-Received: from SJ0PR03CA0163.namprd03.prod.outlook.com (2603:10b6:a03:338::18)
- by IA1PR12MB7685.namprd12.prod.outlook.com (2603:10b6:208:423::21) with
+ bh=6tV0VfswlaPBE1p6JkoOTNbNiWCTp/wujejH5tob18g=;
+ b=Hs7SyHR+aOTDlR6G1wj+NVevLMYzNdODsm38q9M/dP7PVsCoE/Y+P0iMJg8zzR9uDIHIpChXgXxVpCpOlMQHsEvPcU69gblDr2RUv6vFtl65NCEJbDIpHVii9vWQkNBbSlXecvOLqArvEdyMyzAkXiz7HIGO1CoSIishUf06JGarz2POnk9+J9miNxlynkZo7+ETaachBe03R9JQhTZAhtBYl37EXwYwH19NmAXC/Ol3ZxCYryBA8tWvESJElg68PhTmQbStDnszaiyHwiPX7sWZjG45glSPXQwVkbRvMEn+nzcBjg5okSiYZYS5WO46nYQyWOAgRKldIqLeWDpQ5w==
+Received: from SJ0PR03CA0266.namprd03.prod.outlook.com (2603:10b6:a03:3a0::31)
+ by BL1PPF54491B7F1.namprd18.prod.outlook.com (2603:10b6:20f:fc04::d98) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Wed, 29 Jul
- 2026 06:49:18 +0000
-Received: from CO1PEPF000066ED.namprd05.prod.outlook.com
- (2603:10b6:a03:338:cafe::86) by SJ0PR03CA0163.outlook.office365.com
- (2603:10b6:a03:338::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Wed,
- 29 Jul 2026 06:49:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- CO1PEPF000066ED.mail.protection.outlook.com (10.167.249.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 06:49:17 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 29 Jul
- 2026 01:49:16 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 28 Jul
- 2026 23:49:16 -0700
-Received: from [10.136.36.1] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Wed, 29 Jul 2026 01:49:07 -0500
-Message-ID: <217c3e5f-1027-4086-80b5-a6fb82ff1596@amd.com>
-Date: Wed, 29 Jul 2026 12:19:06 +0530
+ 2026 07:02:08 +0000
+Received: from CO1PEPF000066E8.namprd05.prod.outlook.com
+ (2603:10b6:a03:3a0:cafe::3b) by SJ0PR03CA0266.outlook.office365.com
+ (2603:10b6:a03:3a0::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.12 via Frontend Transport; Wed,
+ 29 Jul 2026 07:02:07 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ CO1PEPF000066E8.mail.protection.outlook.com (10.167.249.6) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.5
+ via Frontend Transport; Wed, 29 Jul 2026 07:02:06 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 9C2094186B53;
+	Wed, 29 Jul 2026 00:02:06 -0700 (PDT)
+From: Petar Stepanovic <pstepanovic@axiado.com>
+Date: Wed, 29 Jul 2026 00:02:03 -0700
+Subject: [PATCH v2 1/2] dt-bindings: gpio: Add Axiado SGPIO controller
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 8/8] futex: Use runtime constants for __futex_hash()
- hot path
-To: Peter Zijlstra <peterz@infradead.org>
-CC: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, Sebastian Andrzej Siewior
-	<bigeasy@linutronix.de>, Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
-	<x86@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
-	<will@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
-	<palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, Alexandre Ghiti
-	<alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
-	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Darren Hart
-	<dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-s390@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
-	Sean Christopherson <seanjc@google.com>, Thomas Huth <thuth@redhat.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Ben Dooks <ben.dooks@codethink.co.uk>,
-	Samuel Holland <samuel.holland@sifive.com>, =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?=
-	<rkrcmar@ventanamicro.com>, Guo Ren <guoren@kernel.org>, "Christian
- Borntraeger" <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>
-References: <20260728052540.4728-1-kprateek.nayak@amd.com>
- <20260728052540.4728-9-kprateek.nayak@amd.com>
- <20260728104653.GH49951@noisy.programming.kicks-ass.net>
- <20260728110806.GJ49951@noisy.programming.kicks-ass.net>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <20260728110806.GJ49951@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260729-axiado-ax3000-sgpio-controller-v2-1-976f4ed11438@axiado.com>
+References: <20260729-axiado-ax3000-sgpio-controller-v2-0-976f4ed11438@axiado.com>
+In-Reply-To: <20260729-axiado-ax3000-sgpio-controller-v2-0-976f4ed11438@axiado.com>
+To: Petar Stepanovic <pstepanovic@axiado.com>, 
+ Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>, 
+ SriNavmani A <srinavmani@axiado.com>, 
+ Karthikeyan Mitran <kmitran@axiado.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785308526; l=4778;
+ i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
+ bh=rsi78svL6PQA40L9gUIvHefMzvaw/Ouu7EDzQD8WeEA=;
+ b=3acNIX/dIA0UGkSyxnj2f06tNbjFYZ5cQYafOJtI2FGOkYVsih97u2vY4hMb2mwxsNKfApGrv
+ gIeulg9m/kMDr4JIIcq6R4e9U4veJHmgE7Iq1wNJ1JWS0FaX9buEvoO
+X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
+ pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000066ED:EE_|IA1PR12MB7685:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0b9db61-3843-48e1-118d-08deed3d82ae
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066E8:EE_|BL1PPF54491B7F1:EE_
+X-MS-Office365-Filtering-Correlation-Id: d6e38246-12d4-43d7-04fc-08deed3f4d6c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|376014|23010399003|36860700016|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: HQXf33QzHjGUZRy6NszkV/I/NifViRH3k+0QIwAJvuiChnReha4FXV9Ea/0aCyUnmlloLgrLpme9BikGWGEkXAVgTB2rA/x4FWZ9lJMIxyoM5as1qCuMKANQJ8px38hkFxoag/LcK7cc2qWxtFtiDpkOH4qyeZmHJoMgELMCmKH5Fb/bCpEBbfswrDB2d8E8hw2X2Yvkg5CHDLyikdMaHGQhlou7BR6qsnOQ9Xjqi7Mi57tar2D8JYm43c1d1pKC72CsEjQGSM+IL+1wu3z5HwKefUPanfQdUKJfbi8zs9cxDHdBzhD6gpMz1FR44E2xVT7gU3MEaY2Qciv0DKKLP9C2BUEg0YDNUObEvGS0dCzAxziQ+9ZjThlnamUi/yJTk6ikRSYV4FxTJ5ltmgKA2jcUTkNOcr01Sp43c4Rp78fyfL2EqnFVASfu73FWqRmm96Zw0rKvnNTwi6P9/V44Wf3nu+l2UTtOvHQR3Jg3Evglm1GNjF0cXpjOvovXbOSQBvvb8Jp4G/Ix31zFqpTP3yW3abHjjDGrt4pFuth8i0dJvU4cCba3b0jBP7S9iu4RNRYS+u3vjnj9a+BXLwFjX/JyQuaBAELJcRMH7DOPBV4+/pYhUTtwjgE49ieFJLi28iYenNlXitE7D8ZPp6CVtHULEhzeZpCLSCyAMLJ8/492OwkNuT9fvm9FHNGml89HfILLKrhcEe0Y/L0izy6ptA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(376014)(23010399003)(36860700016)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|23010399003|82310400026|1800799024|921020|6133799003|56012099006|10067099003|3023799007|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: I3Xz0MiboLt/FbRwzW3lKDfumxb/H4QwCF0+4kL7fOKa9KXdagBNZjR5iRwIfhOpiMD5u369EHhKS6xkRVOnFgEDVTJHI5MYtYoj/3zXA01+sBtbQcW7/NeVYr+BihsEO50JzF4HgO1XoJV2OHbkmWrFpy+EP/YXZy4trnCvF4BaDBppgG2CHzAhju6mfh1wgQ/w+q0CZ87yo+EHKKIAC+lXuBh8scB6PNSTsWS6HbARJ7F0acm7ok0pgJajBeOHLgGdkNxnflhymOK2axSceBzuu6RYC9FzFAhREfsiy1VGAriLGJzjzlpLhFxLFgZ1A4PH19SsmO52EawKj7o2i6dUs8+aoC1Hw1jHdmcUiYrMGUcsfWQWOoUW/xExzxN/J+v47ltrEs1T1dIGlu79EVzgLZnRJRieoF4qwZXDimA2wlZGT7SM7MrcsOW/PoViKOP4g5VVEP4KxRl0BJQjO3UcriDCDfjQWSbmVasDdsjl/yxv6cVvr1uOuM9TTh7KNjullq0HnCkcj5MSI0hyDwpImcFg127M8xHCJf0bm9PX1wyfmsPX3+G2upa4a8RpXUaZ0iDbh8akVnlrWxNJwwo8XkvzNPKp8wpRnZ0LF+oY8acCcgZaUkOdBdBybYhkNTlVh1KcPCC5cGhopiknP0OPJsh7FhAP3gh4/nUMC0mywl7HHzhT6VytkCFzFCF7
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(23010399003)(82310400026)(1800799024)(921020)(6133799003)(56012099006)(10067099003)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6zffBW3/80egRCzymoUF6dEpAwm0QYyJSkmiNx4Ig4ew+5s5CEOENT4ygmgScmJhLCns+F5rEdIH/xrbY9RMyudAJol8cOPCveUwELjrMMNSb+VqAFgyThJsNR3B2XCmy6UpVBbF0qwgyJ8+KN+3IcyICGu7hW3AdBHJbTI2rVXdFRtmAAFyxJzIW2V7uCFvVeDksTfEDDFLozObZivY89D1tEJlqgcsbSc3YPToJ9YV2+ysN32/7vgFhpAb/jGrJsLfmd+2+/L+ozFETw94sfdxMkHVM7N6UeTiNBVEPZG/5lyoaziGht2ZzpcdL9NrISVPpCiafxj4hN3EDBGNOvFzvs5mjADvCHAWJABtU1+abos0PXsWOb/xsKJ9OpVjMKo8KMdDN0I/4U6MYNH+5rc1TJZIU5iFlSLLEXLHBBadDDPT3I66caB5ddHSe8mi
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 06:49:17.3109
+X-MS-Exchange-AntiSpam-MessageData-0: KTQtGdBmY9IUthubgg+46bzOW/VUxHRsDsA69xKIgChSpAz/j6yu7xq/UMIk8jNNZggD7fDVkLI/6L75TWzmhBL7pqUZYbw995p+/tri5oB5Rq5IgvdNZQTs6tG/++ZsRiIK45aYyZBz1xt8AWsMXtUm3DVu4aDKGtet7v/bDTTvj9udtc8iEdQih4uIu+XYrcfSDNr2bG7bh+vYjYkc5QXJbZvyFPnVBd6loiDpZ9hhkLkZL4jHzEEB3XowfW5wCD1TT2qA80FZYi6i9pQ0JZspllTH/ndsS21fL3It3vv+4nXQYmi4L0HkADjiZFfRpr0X/vR8QKzFMPBnUxe7Ur/J2GuH/lknghE2AfCKRSVg0Mir7ey71Z+FDmmvjzXnRwQUYQSCAQbCLNUVRTP3BdQjqfA58jOYQrHp/oh5XHoe7q99XL6o8dBqZs8O5Tku
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 07:02:06.9960
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0b9db61-3843-48e1-118d-08deed3d82ae
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066ED.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d6e38246-12d4-43d7-04fc-08deed3f4d6c
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E8.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7685
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PPF54491B7F1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_234927_986715_2F95D5BD 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20260729_000216_012120_C2467DD6 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,23 +131,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Peter,
+Add a Devicetree binding for the SGPIO controller found on the
+Axiado AX3000 and AX3005 SoCs.
 
-On 7/28/2026 4:38 PM, Peter Zijlstra wrote:
->> Right, so I also munged the Changelog in my tree to include those
->> benchmark results. I failed to actually push out those patches before
->> disappearing on holidays, but I recon I should refresh them patches and
->> re-munge the changelog?
-> 
-> With a bit of luck I didn't wreck things and this new version should now
-> be available in queue/locking/core.
+Each SGPIO position provides one fixed-direction input GPIO and one
+fixed-direction output GPIO. Input GPIOs support edge-triggered
+interrupts.
 
-Thank you for fixing the changelog and refreshing the tree! I gave it a
-spin like everything looks alright - x86 on baremetal, and others in
-QEMU.
+The controller serializes output values and samples input values over
+dedicated data, clock, and latch signals.
+
+Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
+---
+ .../devicetree/bindings/gpio/axiado,sgpio.yaml     | 118 +++++++++++++++++++++
+ MAINTAINERS                                        |   8 ++
+ 2 files changed, 126 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/gpio/axiado,sgpio.yaml b/Documentation/devicetree/bindings/gpio/axiado,sgpio.yaml
+new file mode 100644
+index 000000000000..448f01c367dc
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpio/axiado,sgpio.yaml
+@@ -0,0 +1,118 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpio/axiado,sgpio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Axiado SGPIO Controller
++
++maintainers:
++  - Petar Stepanovic <pstepanovic@axiado.com>
++  - SriNavmani A <srinavmani@axiado.com>
++  - Prasad Bolisetty <pbolisetty@axiado.com>
++
++description: |
++  The Axiado SGPIO controller provides a serial GPIO expansion interface
++  that multiplexes multiple GPIO signals over a small set of physical lines.
++
++  The controller operates as a shift-based interface, where output values
++  are serialized on a data output line and input values are sampled from a
++  data input line in synchronization with a shift clock. A latch signal is
++  used to update output states after each transfer cycle.
++
++  The interface uses data output (DOUT), data input (DIN), shift clock
++  (SCLK), and latch signal (LATCH).
++
++  Each SGPIO position provides one fixed-direction input GPIO and one
++  fixed-direction output GPIO. Input GPIOs support edge-triggered
++  interrupts.
++
++  GPIOs are organized in banks of 32 signals, with registers controlling
++  output values, input sampling, and interrupt status. The number of GPIO
++  lines depends on the hardware variant.
++
++  The controller detects changes on input GPIOs. Interrupt events are
++  aggregated and signaled through a single interrupt line to the parent
++  interrupt controller.
++
++  Register access is performed over the APB bus. The SGPIO shift clock is
++  derived from the APB clock using a programmable divider.
++
++properties:
++  compatible:
++    enum:
++      - axiado,ax3000-sgpio
++      - axiado,ax3005-sgpio
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    description:
++      APB clock used for register access and SGPIO shift clock generation
++    maxItems: 1
++
++  bus-frequency:
++    description: SGPIO shift clock frequency in Hz
++    minimum: 1
++
++  gpio-controller: true
++
++  '#gpio-cells':
++    const: 2
++
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 2
++
++  interrupts:
++    maxItems: 1
++
++  ngpios:
++    description:
++      Number of SGPIO positions. Each position provides one input GPIO and
++      one output GPIO.
++    enum: [128, 512]
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          const: axiado,ax3000-sgpio
++    then:
++      properties:
++        ngpios:
++          const: 128
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - bus-frequency
++  - gpio-controller
++  - '#gpio-cells'
++  - interrupt-controller
++  - '#interrupt-cells'
++  - interrupts
++  - ngpios
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    sgpio@a000 {
++        compatible = "axiado,ax3005-sgpio";
++        reg = <0xa000 0x800>;
++        clocks = <&apb_clk>;
++        bus-frequency = <1000000>;
++        gpio-controller;
++        #gpio-cells = <2>;
++        interrupt-controller;
++        #interrupt-cells = <2>;
++        interrupt-parent = <&gpio6>;
++        interrupts = <17 IRQ_TYPE_LEVEL_HIGH>;
++        ngpios = <128>;
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a674e36529f7..fc613271f435 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4407,6 +4407,14 @@ S:	Orphan
+ F:	Documentation/devicetree/bindings/sound/axentia,*
+ F:	sound/soc/atmel/tse850-pcm5142.c
+ 
++AXIADO SGPIO DRIVER
++M:	Petar Stepanovic <pstepanovic@axiado.com>
++M:	SriNavmani A <srinavmani@axiado.com>
++M:	Prasad Bolisetty <pbolisetty@axiado.com>
++L:	linux-gpio@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/gpio/axiado,sgpio.yaml
++
+ AXIS ARTPEC ARM64 SoC SUPPORT
+ M:	Jesper Nilsson <jesper.nilsson@axis.com>
+ M:	Lars Persson <lars.persson@axis.com>
 
 -- 
-Thanks and Regards,
-Prateek
+2.34.1
 
 
