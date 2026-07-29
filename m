@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA68C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D51C53219
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 08:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rVmfuxGQAbsjKlDU5GQ3A3OdPgAdkHWkiIgYGbY8YHs=; b=xxwX+JouswhJtCMc/WSCn46jJ2
-	fbR7ZE6DjIYUVObo0H4O9iGfWJ3zV1U1qfWVOGZsoo3VyasyfV3zeO4lOVq0IS0pUXgErtzPKXJ58
-	6j2KYFqw9j4TH8dqTzwdvNH5TZK1i2mF4KOF6SozLk+bLsu1hZ+ubR6PLJMyeox4lxY/T+UXe+RGK
-	cYGxGPSG79tkSSP8wiktdIeDWjvVYIvFXHTcWyXI7vasap6PCyb0RR6OlMQQy2RL1sgdRRF1CArMV
-	MXNqEtmilvdNAdFKtdsj3QKMchms2iMKg2SGaPIvRtCmb2GiGTpe9083Ujfpjn78CRoASlUrqcD8z
-	3iUYr5UA==;
+	bh=JU4nTNnLiZUM9Y4cL70aHfB9uMSR3Cje60IIvYTXm7M=; b=XmVYv8NyqRNspjNqufaqPYYMJX
+	8n8754L44ex4/lcsRbRF8hDBNm1uFpPZzi6DBxLX1zkkeNfVolcSDw8FOOfJEABVotDIpgASE77cs
+	/eeuLUNIhle+NC9vjki1CGjFEDYhuTbF/Mi25IooP+L0tBTak1g/dME+XhQYwcSc8cMRsTQ2n3RMH
+	nZ3rVDp2pWGX2YSH3XA3oy8QDZ4aPSwVr/sEhf8vljNgcDOLoG4wnI1voPvQ5H6zsb0iA82DjSIK6
+	UQZojFdoc1wpONEMM2LhiVK9H/diQcLIpFEiZcxS3r29UDEfpsRyRqwPSJGl//AZz8S3fq1NHrH1R
+	pweuac8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozJy-00000007CV6-004k;
-	Wed, 29 Jul 2026 08:07:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wozJt-00000007CUl-42So
+	id 1wozPr-00000007DNh-1TcN;
+	Wed, 29 Jul 2026 08:13:27 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wozPn-00000007DMp-0C18
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 08:07:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEB94169C;
-	Wed, 29 Jul 2026 01:07:12 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB2CB3F66F;
-	Wed, 29 Jul 2026 01:07:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785312436; bh=i7PzkEehVu75EIC0APFs4hTtDTk14MQooNuNPKdMABQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kCiN/vwi8GU+jvEG4eydMgSMVsQ2h8LtD9QF1NjLDD3kUSOB469NTPI6HK3Ec4OCH
-	 lKiR7aQWYwFxR8imPiElpVNCSTX5payzo/ZciWfDJzyAh+RTBnZlepTAzndloWo4my
-	 5+qyE/Szo6JsyB7f6bgldX8zH4nbgtEQ+/bbx5bQ=
-Message-ID: <2eaa5334-5677-4b52-9459-63005cfcc23f@arm.com>
-Date: Wed, 29 Jul 2026 10:07:12 +0200
+	Wed, 29 Jul 2026 08:13:26 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=JU4nTNnLiZUM9Y4cL70aHfB9uMSR3Cje60IIvYTXm7M=;
+	b=b/7PYiGEnOFZRp4z6UdillzQIPhnDeCWtQ08l6XjL96ksceD+0d3USfxauif4Xt9E1NnvMFR8
+	n/KJc7CUzuLHpEu7gM3RqsV7U0e6fONurcxOmWANHGG1lGlbdT+LZ/D+6sFLVcU/zYeKgQ3/fwA
+	tcytb8LJcfWz36pXskS0VUQ=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4h94bg1DznzpSvb;
+	Wed, 29 Jul 2026 16:03:59 +0800 (CST)
+Received: from whupemo200004.china.huawei.com (unknown [7.152.184.18])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6100740561;
+	Wed, 29 Jul 2026 16:13:16 +0800 (CST)
+Received: from [10.67.120.233] (10.67.120.233) by
+ whupemo200004.china.huawei.com (7.152.184.18) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 29 Jul 2026 16:13:13 +0800
+Message-ID: <d216745f-a23f-4f36-a462-22f4814baf48@huawei.com>
+Date: Wed, 29 Jul 2026 16:13:11 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/10] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu
- <fenghuay@nvidia.com>, Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260723155454.1760823-1-andre.przywara@arm.com>
- <20260723155454.1760823-9-andre.przywara@arm.com>
- <20260728002252.77064c3b@jic23-huawei>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260728002252.77064c3b@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 10/10] perf hisi-ptt: Add decoder version compatibility
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <rostedt@goodmis.org>, <mhiramat@kernel.org>,
+	<mathieu.desnoyers@efficios.com>, <corbet@lwn.net>,
+	<skhan@linuxfoundation.org>, <bhelgaas@google.com>, <yangyccccc@gmail.com>,
+	<jic23@kernel.org>, <john.g.garry@oracle.com>, <will@kernel.org>,
+	<james.clark@linaro.org>, <mike.leach@arm.com>, <leo.yan@linux.dev>,
+	<peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
+	<namhyung@kernel.org>, <mark.rutland@arm.com>,
+	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
+	<irogers@google.com>, <adrian.hunter@intel.com>, <wangyushan12@huawei.com>,
+	<shenyang39@huawei.com>, <gaozhihao6@h-partners.com>,
+	<yuzhichengcheng@h-partners.com>, <liyihang9@h-partners.com>,
+	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-perf-users@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-doc@vger.kernel.org>, <linuxarm@huawei.com>,
+	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>, <wuyifan50@huawei.com>
+References: <20260713174951.GA1245033@bhelgaas>
+From: Sizhe Liu <liusizhe5@huawei.com>
+In-Reply-To: <20260713174951.GA1245033@bhelgaas>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.233]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ whupemo200004.china.huawei.com (7.152.184.18)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_010718_329217_B8D8F71F 
-X-CRM114-Status: GOOD (  31.76  )
+X-CRM114-CacheID: sfid-20260729_011324_315963_C5E4B5E4 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,111 +90,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
 
-On 7/28/26 01:22, Jonathan Cameron wrote:
-> On Thu, 23 Jul 2026 17:54:52 +0200
-> Andre Przywara <andre.przywara@arm.com> wrote:
-> 
->> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
->> alternative way of accessing the "Memory System Components" (MSC) in an
->> MPAM enabled system.
+On 2026/7/14 1:49, Bjorn Helgaas wrote:
+> On Thu, Jun 04, 2026 at 03:50:05PM +0800, Sizhe Liu wrote:
+>> The hisi_ptt packet decoder now performs detailed field-level parsing
+>> of TLP header DW2 and DW3 based on the message type classified from
+>> DW0 (added in the previous patches). However, trace data recorded
+>> with older versions of the tool does not contain the information
+>> needed for this detailed parsing, and should continue to use the
+>> generic field-name-only output.
+> Add blank line between paragraphs.  Also applies to 05/10.
+>
+>> Introduce a version field (V1/V2) in the auxtrace info record to
+>> distinguish between the two data formats:
+> IMO a blank line here would also improve readability.  And consider
+> indenting bullet points a couple spaces.  Also applies to other commit
+> logs in this series, including sample formats.
+>
+>> - V1 (legacy): auxtrace priv contains only PMU type. DW2 and DW3
+>>    are printed with generic field names only, no message-type-based
+>>    field decoding.
+>> - V2 (current): auxtrace priv contains PMU type and version. DW2
+>>    and DW3 are decoded according to the TLP message type (MWr, Msg,
+>>    Atomic, IO, CPL, Cfg) with detailed field names.
+> Could use imperative mood, e.g.,
+>
+>    - V1 (legacy): auxtrace priv contains only PMU type. Print DW2 and
+>      DW3 generic field names only, no message-type-based field
+>      decoding.
+>
+>    - V2 (current): auxtrace priv contains PMU type and version. Decode
+>      DW2 and DW3 according to the TLP message type (MWr, Msg, Atomic,
+>      IO, CPL, Cfg) with detailed field names.
+Thanks, all the preceding suggestions will be modified in v2.
+>> At recording time, set the version to HISI_PTT_DECODER_V2 in the
+>> auxtrace info. At decoding time, determine the version from the
+>> priv data size and the version field:
+>> - If priv_size >= V2, read the version from priv[1].
+>> - If priv_size < V2, assume V1 for backward compatibility.
+>> - If version is unknown (future), warn and decode auxtrace as v2.
 >>
->> Normally the MSCs are MMIO mapped, but in some implementations this
->> might not be possible (MSC located outside of the local socket, MSC
->> mapped secure-only) or desirable (direct MMIO access too slow or needs
->> to be mediated through a control processor). MPAM-fb standardises a
->> protocol to abstract MSC accesses, building on the SCMI protocol.
->>
->> Add functions that do an MSC read or write access by redirecting the
->> request through a firmware interface. For now this done via an ACPI
->> PCC shared memory and mailbox combination.
->>
->> Since the protocol used is only a small subset of the full SCMI spec,
->> and the SCMI protocol has no full ACPI support anyway, open-code the
->> (simple) SCMI message generation, for just the fields we need.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Just a couple of suggestions that you can ignore if you like
-> 
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+>> Also add the version to the dump output alongside the PMU type.
+>> Adjust hisi_ptt_pkt_size position to adapt to compilation.
+> AFAICS this series adds new functionality and probably doesn't qualify
+> for "stable" tags, given the documented rules.  But I think the
+> maintainers are pretty aggressive about backporting things anyway.
+Hi Bjorn,
+Thanks for your response and for clarifying the policy regarding the 
+stable tag.
+You're right, patches 03-10 in this series are new functionality and 
+shouldwait
+for the next merge window.
 
-Thanks!
+For patch 01 and patch 02, they do fix the issue of inaccurate packet 
+parsing,
+I think it is better to separate them from the patch series.
+I am sending them individually after fixing the C bitfields issues if 
+that makes things clearer.
 
-> 
->> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
->> new file mode 100644
->> index 000000000000..ec4bf0dd9182
->> --- /dev/null
->> +++ b/drivers/resctrl/mpam_fb.c
->> @@ -0,0 +1,197 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +// Copyright (C) 2024 Arm Ltd.
-> 
-> Arm has either been working on this for rather a long time or that's a cut
-> and paste.  Even if 2024 is a good start given changes during revisions
-> seems reasonable to include 2026 as well.
+If you have any suggestions on this split, please feel free to let me know.
 
-===================
-Date:   Tue May 21 11:26:16 2024 +0100
-
-     firmware: arm_scmi: add MPAM-FB SCMI protocol stub
-========================
-
-So yes, it's been in the making for a while, although in a different 
-shape and form.
-But will surely add the current year to the range.
-
->> +struct mpam_fb_read_payload {
->> +	u32 msc_id;
->> +	u32 flags;
->> +	u32 reg_offset;
->> +} __packed;
->> +
->> +struct mpam_fb_write_payload {
-> 
-> Given these are only used in the specific functions that build the
-> messages you could move the structure definitions to be local to those
-> functions.
-> 
-> Alternatively you could move all these to the header and get the advantage
-> of using a union to get the maximum message size rather than a number
-> currently picked out of the air.
-
-A union sounds nice, but it feels a bit over the top, and I think 
-keeping the structs local to their users trumps this. After all this is 
-what mpam_fb.c does: deal with the protocol internals, without bothering 
-the rest of the code.
-
-> 
->> +	u32 msc_id;
->> +	u32 flags;
->> +	u32 reg_offset;
->> +	u32 value;
->> +} __packed;
-> 
-> 
-> 
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
->> index b3a6ed9ed175..e4686ff0ba2e 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
-> 
-> ...
-> 
->> +#define MPAM_FB_PROT_HEADER_LEN	sizeof(u32)
->> +#define MPAM_FB_MAX_MSG_SIZE	(MPAM_FB_PROT_HEADER_LEN + 4 * sizeof(u32))
-> 
-> Doesn't seem to be used until patch 10.  Might be more sensible to bring it
-> in there. A spec reference might also be good for this.  I think longest
-> is current the MPAM_MSC_WRITE.  A note above that one option would be
-> to make this explicit by having the message structure definitions in this
-> header.
-
-Yes, but I will not boil the ocean, and just add a comment.
-
-Thanks,
-Andre
+Regards,
+Sizhe
 
