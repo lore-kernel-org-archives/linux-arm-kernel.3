@@ -4,125 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92861C53219
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 05:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21E5C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 05:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mtcgp/MWEP/ogAbZzZ1iSHLmhy8pbnK4i1R/lEsUyDA=; b=ZfYQtyupJwZOEnCfBL4yRFmPHJ
-	O5GxJsqdGpn5nlgt9l/4orDqt1jfKv08g5J4xh87h0pMSnpf6vT0K5AYZ8eECnZaFa7izd3F/ebLJ
-	fqW+8ZY9LLbtY5LPvnY99rhQ9yCwp0g/J41W+JB7TYD+7M7PsCToH3LuCw1Z56BeUoCZx39/gS1DT
-	9jUwmwMbN+d3AIjyKzh8NlAZR34WGJi/Nrx9k6Zlc+KodmPfZtvhwvveSz3VEJhar4lNAR/vXkNbC
-	I/qAfEj9J+9toRGgQoetOlHXQgcRzd9w/XG2msHsv8WOwaYkZxiybjQ4+lBihQmBqRE/YY2DnzsJc
-	DY456gYA==;
+	bh=R3qjVfhbktUDNUgJiVP1xYzB255jALOQKCQPpFfPYuM=; b=cEFQiD6p6xlgV9S6r++CMNex9I
+	BKo2PLqEG5lqE2HN2BtvyMmZV+nnYl9eHQMcIVQ7qH+BkwOykhR0WVyK/Q0Q2bhRuHolrstJxlmAz
+	RXHYZF5Y+5S5Kt1MDHfUjB1vvxB/nM7itwRnofQlFVhjP94PEbdrUKojf8YLORkSnqc0D0fL9vylP
+	iwNjh3YsTU6tcwgEc82II6XTWGS6OykwTHRNBmqEcD5DWDK83v30tpEqFJVaXYrct3gU2g/ElqwDB
+	kBeN07Z1nwMIV3K2uco05s/BlaPp5uoc8pLWR8p3M97LhMlay8TJN5nGgNGXhfy2n7SbqEVBfW3NJ
+	9DZah4JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wowoc-00000006wLb-3iPH;
-	Wed, 29 Jul 2026 05:26:50 +0000
-Received: from mail-centralusazon11011039.outbound.protection.outlook.com ([52.101.62.39] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wows4-00000006whz-1z0C;
+	Wed, 29 Jul 2026 05:30:24 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wowoZ-00000006wLH-42Sz
+	id 1wows1-00000006whI-088R
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 05:26:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kK/xPc0HvcIojHuGsZ8k83UqHbdHy5fTiiy8L9DC9RNJ+gzBtDr/mYFTgf58hHP5PcKjBpZ0m/6SUi//3fhmdHNNJ/4a0dHm6Oaf9i1CewSVEm7aYbcZV1OM95kzDgdFEAWLdDcAePXlc7HJWY9QE0sRlnEEkGBKjfrmgppPhtkYDAPS52lRpIwY+PtStPyTda+2Vy2YwreW78tuHC0AKdyZDLkemDkCztqtbLATCS27g8eVcDUZlwvA3iUVeLE0ORNZbeKW4lL7XoY87voe40qsOdqbBlNxfkEWTmgri6PSAmD+eGyQkYLV/fHuJK+dfapUYbcJ9HmfM8c47PsomQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Mtcgp/MWEP/ogAbZzZ1iSHLmhy8pbnK4i1R/lEsUyDA=;
- b=nDG3e+HVL2M74n/x4/5juTVm92hoLT1xUgwI5QFjXW3+U9KSEpask+MlC6UTVnEAaF6qjdAiWV3mGTivt1XbXzCK6f0VT9VSWpIZ0ZXH+OuJJwWfgig08UyyIZf1wxvcRw4ZOctX7JUaIf5uMEomVC0TGj5RWLWqUWwF1I6g4qDbBhVUDTHFP9jydpAXr/D+5i8WB9wJYbH1gdPBHJFfyXTkdwf46WKkdsXrWC0+O6lXMpIiaceacLPcfFTwSdOeZD6oZgqIgYPat8UGoWDFyrc8rL5V7psS2Nwioy5hbrnxL4X0nDo6cg97+vvefFMrm8+qi+rK+yOhPzT7dkKRyQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Mtcgp/MWEP/ogAbZzZ1iSHLmhy8pbnK4i1R/lEsUyDA=;
- b=XiJj+V90xh0HfEEI40yzWmZ+oFMOMVHE0x8ZHWFesdm7jhkSr2Pj00WpJXX7kGncJEIFZg8mjk+vdo7pdZXIOQZyHEs/e0AY7D2mHjznN9FclUdUI+4xMdgR9K4kodoC+gf7s5LUs7b+JnOZH5u7sy7OIUb0/ADwtSfKUWpmoKJ7t49v59pqxJd4D5v8Srxz/mNo4KefAbZj/lEvKHGQ1PqtME2076SxAk0fhWZnHBDSRCALwVFWGfr3bOtpQbDOlk3MCL436fkJNHSRnmOE6sSH9E5+lqpv1SMyuMXd6s0kPRAIW8m5PQu9PuYJgbZZ0JTK7FNsir7Z1UqOIbw9cA==
-Received: from PH7P221CA0012.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:32a::29)
- by MW6PR12MB7070.namprd12.prod.outlook.com (2603:10b6:303:238::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Wed, 29 Jul
- 2026 05:26:38 +0000
-Received: from CY4PEPF0000FCC4.namprd03.prod.outlook.com
- (2603:10b6:510:32a:cafe::29) by PH7P221CA0012.outlook.office365.com
- (2603:10b6:510:32a::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Wed,
- 29 Jul 2026 05:26:38 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CY4PEPF0000FCC4.mail.protection.outlook.com (10.167.242.106) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.5 via Frontend Transport; Wed, 29 Jul 2026 05:26:38 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Jul
- 2026 22:26:24 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 28 Jul
- 2026 22:26:23 -0700
-Received: from nvidia.com (10.127.8.11) by mail.nvidia.com (10.129.68.9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 28 Jul 2026 22:26:19 -0700
-Date: Tue, 28 Jul 2026 22:26:19 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>,
-	<joro@8bytes.org>, <bhelgaas@google.com>, <kevin.tian@intel.com>,
-	<kees@kernel.org>, <smostafa@google.com>, <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<skaestle@nvidia.com>, <mmarrid@nvidia.com>, <skolothumtho@nvidia.com>,
-	<bbiber@nvidia.com>
-Subject: Re: [PATCH v2 03/11] iommu/arm-smmu-v3: Add
- arm_smmu_drain_queue_for_iopf() helper
-Message-ID: <ammO+4W/dGC8kTCr@nvidia.com>
-References: <cover.1779944354.git.nicolinc@nvidia.com>
- <a62db13ab63916e9a62cddeec41a74a98cdf6a8f.1779944354.git.nicolinc@nvidia.com>
- <amkcQRVylEe_t-yP@google.com>
- <amkqZbPJs9qly4pH@nvidia.com>
- <ammMf5z-Gl-Wygk6@google.com>
+	Wed, 29 Jul 2026 05:30:23 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B655F201D85;
+	Wed, 29 Jul 2026 07:30:17 +0200 (CEST)
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <ore@pengutronix.de>)
+	id 1wowrx-001pfo-26;
+	Wed, 29 Jul 2026 07:30:17 +0200
+Received: from ore by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <ore@pengutronix.de>)
+	id 1wowrx-0000000CL28-2Ar1;
+	Wed, 29 Jul 2026 07:30:17 +0200
+Date: Wed, 29 Jul 2026 07:30:17 +0200
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Zxyan Zhu <zxyan0222@gmail.com>, thomas.petazzoni@bootlin.com,
+	Alexis =?utf-8?Q?Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next 1/2] net: stmmac: Don't use PHY loopback for
+ selftests
+Message-ID: <ammP6SaJ44fzc5bW@pengutronix.de>
+References: <20260728155728.1193169-1-maxime.chevallier@bootlin.com>
+ <20260728155728.1193169-2-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <ammMf5z-Gl-Wygk6@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC4:EE_|MW6PR12MB7070:EE_
-X-MS-Office365-Filtering-Correlation-Id: 78670cca-19fb-43b9-a4a9-08deed31f6d1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|1800799024|36860700016|376014|23010399003|56012099006|4143699003|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: n+lOne4/jX3kpNFHaL1F3GAEAGIguzbfGm+pb12rfWJbXzmWiICQuZOobYYrrIpe2KMLAQWjdywOxVNAVUp0jCShE03IHR8joF6BjuEJ3dPLJIQiq76Exq5yJngoUGUP9RCBpKshTvGIrw9c3pNMFXjH1SQgtD1qOgT0hYCuMLyh+phDjBXhWNSDEKcOCSWBe05g8p2+sYNJVq240nVeb7PMH8eJuQc3lViBNmTSVXhpEEAcz9sdmaOsWTyj5VgVvQS2Exk5TIedlrKq+dJ5WsNONJqLr76SZo3Gzw2eIY6Csz4aE1pcw7GG4CU/XDrIjvvFY/plz3lmQCDE5Wx38ovtUdotV6RsmA1Nbl+ORcFFHFLZ1YBaphsY22dmIt7pGNxE1/ZP3mj46rklP3Ao6ZOlPxhcl11PqzCP3viIaXy2aSL8MCdNNgTjpgn+cmxCB6Ure9rQ++prBba7+KWP2Dvi/ywqp0AoHq4F3LcmD/tiGcg1GZIQFddlfBqLQkJpz7LdUO202HuOOMXnatJGTm6IjUhTu71xp5J1gZPGIfJ5ihrm/sELAznTSMLMKQjavPwteqFfQ2vSCU6r9layF5F+mw7btJUKVDtTXspZmlc6E1r3Mll83hshMbHXXBeuzLLeViOpZtRtkI0D1WIa4YDuWnEQ/tnNq/+dfKKKP+RPX1/sXoLpBgJpQ6ZW11U6SOo1aocHKXCEiOkWlPyjkw==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(1800799024)(36860700016)(376014)(23010399003)(56012099006)(4143699003)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ZO6fCeNsgC62aKdR1QePNKIGzURPmv1/9hVv0b+x/sC3AVVUGxW/SBxE1ISi5R4xb0iwaKsuLh5aOdaCqn5tFejOvsVEyPTbAALrOhr6IYo3FlkZmWrPN20Sygi3mvMfZZDHA8I7oxucCaRntypOXu9zeyMKFDOHWQ1BGqcxoHZ2rY1Ck940rmQQ8NUh5XQEkIP+pjFqyi03t5iQj8CKbLVLNZkcMZ0YBybUSvXlDuuRxYa3EC4FO8XKpWRmbVHZVR2/liTogDinn16cujJDSCZjWrTrg4Mai1VSVzpj8dt8vchh+/f9PeQrVy8zKpvQs+ZLnNYk8rdOemaHcds8ovtqhkZPk0LEVNqM3Y8LZRu5d6uP6gjq6yiB6+9lBcOL2EPEo9bq92ln/siZ+U2vxbDZv/MO9116xHHH5Q6JE0ulr5DeD/1a5zmPsVMVwIsE
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jul 2026 05:26:38.2225
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78670cca-19fb-43b9-a4a9-08deed31f6d1
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC4.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB7070
+In-Reply-To: <20260728155728.1193169-2-maxime.chevallier@bootlin.com>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260728_222648_082768_B24ED1C4 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260728_223021_220851_9C7C874D 
+X-CRM114-Status: GOOD (  29.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,23 +85,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 05:15:43AM +0000, Pranjal Shrivastava wrote:
-> For PRIQ/EVTQ, my only worry was the HW producing more events,
-> say Device A is detached (we call drain from attach_release) but Device B
-> (still attached) starts an agressive DMA with multiple PRI requests/evts.
+On Tue, Jul 28, 2026 at 05:57:26PM +0200, Maxime Chevallier wrote:
+> Stmmac selftests validate the internal behaviour of the various IPs,
+> using local loopback. The current logic is relies on PHY-side local
+> loopback if a PHY is attached, with a fallback to MAC loopback
+> otherwise.
 > 
-> Maybe we should go back to snapshot based polling for that?
+> However, PHY loopback is currently fragile especially for stmmac that
+> may require RXC to be provided from the PHY. Some PHYs shutdown RXC
+> while in loopback, while others will report carrier off when in local
+> loopback. This also fails when using SFP setup with a module that embeds
+> a PHY, that may also fail to enter loopback.
+> 
+> MAC loopback is done at the GMII level on dwmac, allowing the internal
+> to be just as meaningful as PHY-loopback testing.
+> 
+> Let's simplify stmmac selftests by only relying on MAC-side local
+> loopback, which makes the selftests runnable on a wider HW variety.
+> 
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> ---
+>  .../stmicro/stmmac/stmmac_selftests.c         | 112 ++----------------
+>  1 file changed, 9 insertions(+), 103 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> index 29e824bd90ca..c0e5dee86451 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_selftests.c
+> @@ -374,25 +374,6 @@ static int stmmac_test_mac_loopback(struct stmmac_priv *priv)
+>  	return __stmmac_test_loopback(priv, &attr);
+>  }
+>  
+> -static int stmmac_test_phy_loopback(struct stmmac_priv *priv)
+> -{
+> -	struct stmmac_packet_attrs attr = { };
+> -	int ret;
+> -
+> -	if (!priv->dev->phydev)
+> -		return -EOPNOTSUPP;
+> -
+> -	ret = phy_loopback(priv->dev->phydev, true, 0);
+> -	if (ret)
+> -		return ret;
+> -
+> -	attr.dst = priv->dev->dev_addr;
+> -	ret = __stmmac_test_loopback(priv, &attr);
+> -
+> -	phy_loopback(priv->dev->phydev, false, 0);
+> -	return ret;
+> -}
+> -
+>  static int stmmac_test_mmc(struct stmmac_priv *priv)
+>  {
+>  	struct stmmac_counters initial, final;
+> @@ -1815,10 +1796,6 @@ static int stmmac_test_tbs(struct stmmac_priv *priv)
+>  	return ret;
+>  }
+>  
+> -#define STMMAC_LOOPBACK_NONE	0
+> -#define STMMAC_LOOPBACK_MAC	1
+> -#define STMMAC_LOOPBACK_PHY	2
+> -
+>  static const struct stmmac_test {
+>  	char name[ETH_GSTRING_LEN];
+>  	int lb;
+> @@ -1826,131 +1803,96 @@ static const struct stmmac_test {
+>  } stmmac_selftests[] = {
+>  	{
+>  		.name = "MAC Loopback               ",
+> -		.lb = STMMAC_LOOPBACK_MAC,
+>  		.fn = stmmac_test_mac_loopback,
+> -	}, {
+> -		.name = "PHY Loopback               ",
+> -		.lb = STMMAC_LOOPBACK_NONE, /* Test will handle it */
+> -		.fn = stmmac_test_phy_loopback,
+>  	}, {
+>  		.name = "MMC Counters               ",
+> -		.lb = STMMAC_LOOPBACK_PHY,
+>  		.fn = stmmac_test_mmc,
+>  	}, {
+>  		.name = "EEE                        ",
+> -		.lb = STMMAC_LOOPBACK_PHY,
+>  		.fn = stmmac_test_eee,
 
-If you look closely, "pending" is the snapshot, regardless of the
-growing prod.
+Hm, not sure this test can be properly executed in all conditions.
+We do not support forced LPI mode from phylink perspective, and it is
+not forced by the tests. If it passes, only by accident if link partner
+local system and link partner advertise the EEE support. 
 
- * With @until_empty == false (for EVTQ/PRIQ), exit once "drained" reaches its
- * target: "pending" (i.e. prod0 - cons0, frozen at the entry time):
- *
- *   cons0                cons                 prod0         (prod)
- *     |<---- drained ---->|                     |             |
- *  ---+###################+=====================+=============+--->
- *     |<--------------- pending --------------->|
+>  	}, {
+>  		.name = "Hash Filter MC             ",
+> -		.lb = STMMAC_LOOPBACK_PHY,
+>  		.fn = stmmac_test_hfilt,
+>  	}, {
+>  		.name = "Perfect Filter UC          ",
+> -		.lb = STMMAC_LOOPBACK_PHY,
+>  		.fn = stmmac_test_pfilt,
+>  	}, {
+>  		.name = "MC Filter                  ",
+> -		.lb = STMMAC_LOOPBACK_PHY,
+>  		.fn = stmmac_test_mcfilt,
+>  	}, {
+>  		.name = "UC Filter                  ",
+> -		.lb = STMMAC_LOOPBACK_PHY,
+>  		.fn = stmmac_test_ucfilt,
+>  	}, {
+>  		.name = "Flow Control               ",
+> -		.lb = STMMAC_LOOPBACK_PHY,
+>  		.fn = stmmac_test_flowctrl,
 
-Nicolin
+Interesting test, it will be cool to have it in generic form. Probably
+most of them, but it will be a lot of work.
+
+So, yes - most of this tests do not relay on the PHY, instead - on some
+kind of running link configuration. But this tests seems to not enforce
+needed link configuration before and after patches - correct?
+
+Best Regards,
+Oleksij
+-- 
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
