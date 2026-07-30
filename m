@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB53C55166
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4964EC55160
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 16:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,64 +12,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yUMfJpXpxaZ+31yr2qH5Wu7mIRrK2wr6B+Y3FcFImbE=; b=f7ADYmr+0NLmeLFdgBl1FfIbRZ
-	Wl0gIXEjRGOZIaEWh6IEiLHGWwyZr73QTJDbYB1tJ+I0Eyx1jCNfqdyHiDM7M7BFLI0vqXZ6BdQTa
-	XCjoplRuNbvj54qZRJeCMcM1BJTSK573kqERoY47g/Nzw1ijQfrUylySgA9hie3dLesSB1KjwVsAB
-	j58gaJQprFtBbO0GsuHOe63Qb4jRA/LEbBqouedtTsGEZk+JS+9DIy0zZs60WU8OBqmyyt7XE8UHd
-	ekVsqPCNff2Ub4W4HlSd7ZRxc4jKew/8hSa4FomJjZ9N4aNJNjLXfWAP27zEQnzaoa2+Nl+1eKqi3
-	ZGJnlHEQ==;
+	bh=KN9fvuyUrAB/AWwJUn50v4AmnDRRKrkHVX/t4wvTSMI=; b=VOpVqBurpF9pEwR2dmwYhGgMQ9
+	RCm25zE9q9w1vsrkbF2VtaXoLCdEV8eSrFKsSdE6ijf92nqcrtQxn8Jo4m+Fmsk2P7CTwLRyMUPrH
+	iC41cyyRE5k2zbUXoTygDya7Bz1b+IDj8FxgkgtZGA/qbmyTyJRrA7H2mXuZvPOwVQfN/BcvRy/VL
+	VltcQQoBh2yqfrRJA1vgDQLAVFr6kWnQoQYi0kJUz493zUUpGF1hw3Sj2c7QHL8walnddxXGvnPYn
+	cTP3lJ1JHTz+OE19XguQR87WG+a1xG4LnPcvAzakBycBhdDCU1G4/7OigTXtGZUM2s++iQt5vHBUR
+	5mkEL/pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTjQ-0000000B0dt-16wk;
+	id 1wpTjQ-0000000B0dg-0bRG;
 	Thu, 30 Jul 2026 16:35:40 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTjE-0000000B0Zv-354y
+	id 1wpTjC-0000000B0Yu-0sDX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 16:35:30 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47f7854678bso1282379f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 09:35:28 -0700 (PDT)
+	Thu, 30 Jul 2026 16:35:27 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-47f7027ca11so1564382f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 09:35:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785429327; x=1786034127; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785429324; x=1786034124; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=yUMfJpXpxaZ+31yr2qH5Wu7mIRrK2wr6B+Y3FcFImbE=;
-        b=QsXwJ8Vaw738QQa4dQfLPJc9XL01XX4aoLet+Y6InDdo2bpODXcRBu1fxguHcEbqTK
-         7xlLQmQlTDkMoBavGbvkrVr+vJj5OoVlCw8Z1hLIiA/8BZdwBylPuvwbYeKDg/lQ6m/+
-         rX7I3UGJZa9h4CJH6CkCFU0iDqNEVyj9YlIKmD1prjtaKD4HFWu4NNYKfEzExMavCju2
-         59bwBcVY6MTBxycnif6OiVF+NAfCRsiLBm32BzRam0edKrEEyggVZqoEgzGzVBXXphI3
-         MHeGolDSUjGNb7pQR5ZuWhY8JP1moW0mGoueXps5wc23BDVrc7yhS+5RnsI5zCN8j91f
-         UlAQ==
+        bh=KN9fvuyUrAB/AWwJUn50v4AmnDRRKrkHVX/t4wvTSMI=;
+        b=ZA+kWUt2DWxNlTPUBViJCnS/0msDgAuaHb9KBwmHnN7ZdjkCRgZ/tmAChDqzVD8aQT
+         haYJgO05ZdoGf/eQZRzBwUPTz6V1JNW5j0igAxnEK+5HDxlaYeatlnLMcoIv8zLWegql
+         Ibw+zlCoJ8OKzFgu3X3jKj0Bc/kE3fH7tdX2GLdp34YSGw7cA79Kv/4YqQEBl5itXB6t
+         gZJuMuXiruqNvZR2+ilg19LHEdeR8krnTOFHVPV8O1t7Ct4jOnGm6r7ET22hxQt33Ji5
+         zHxb49vNrHk80MjXXJlshF241xAgcSEcWDYQf2WDjgnIgGFmEwP/oeupm3vqG5kTIyv2
+         KIUw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785429327; x=1786034127;
+        d=1e100.net; s=20251104; t=1785429324; x=1786034124;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yUMfJpXpxaZ+31yr2qH5Wu7mIRrK2wr6B+Y3FcFImbE=;
-        b=pfY48lfIzrR3gAAmjYAnpkmMcBrE64xy3/9C3D22MnL5eCcA1q8KPLF9W+xLqAhY5L
-         YdiX6Xe9eFe8zqF2wqeuTzR+nc1YJLdKs+xU7Yqs95OLG40lDEdi+5S8Y+t+k4oep38+
-         oe94zTKN0ED8QFtn59MoSEgyIU/AOtpGwlWdFhsnb1nmmx+ZzPl7oSLpof+fI0PnnSOi
-         XR5X3ektY765rR/xszGW5ZSvMRh9kV6oG4Ylw9wyRabjkyaljqLUpPksGIFyIgSp3woX
-         Xw6vgY773GDivDe6K0BuBnu4w/mxRkmZdamjVMdiTbpot2wcFkEA7ZzZWieH8tzN5Awi
-         sWpg==
-X-Forwarded-Encrypted: i=1; AHgh+RpskyNwxvBcAL/pCFbUzIkT+/OG65ZBLyHsc3qb0sWfFB0csoFZRdgWL4n8GoLf60LKxYDLg3OFOjKRJsSIIScd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDBuGb+tfDKWK85Qo3dOrm4/zhPLC6jjnYG7YgSbBpYVb6eGH1
-	+ob0s8eFEw7nyJW/UIc7udVImCr/PRTNHL7PlSxLEZ+Nvt20Yu8gsEpL
-X-Gm-Gg: AR+sD10HkEZ7L76aR4qS/6Ldj6w6EwogAic9Z0KOOopWhkg7okK8tvUYKO46au5mxs+
-	uE1WLZLWQjiLJ/qy+/cwPFSaWgTXpl8sLoDgiFzvIQx4B1+RNU7KDI3qjrH5iimmagPJS51c3bI
-	YSPNK00xQ2u9wvBylX2PrbmoUQwLRivWKQAj9WfXmAVlRJ8pHDim4pxhS4w5WXV5uqcwbqg2RyO
-	wrw/t2jxu0IawzNAmJr56kYjqfmsqSHBppv30cVRFuJhoAcsJDkK20AnoKhLCZmI0I+f66x7xw+
-	LFEbaG2IePreI/ZVEnaCd5F0gU9BhmR6oBvsy1OzrVkMVJ3NA0UVI6imNnVx03GDQagvol4TiFK
-	BPeV0KoBrNaR8643swGfB7otf5vy78I2m8/MMPvFTame8w+O/oFc0jJmRfA0Ga13p61zETrzooJ
-	GYpuJavrrbGhCZDujVrwNSHVA6Sn9TpBzL5KnXWaHZ1ioDA5ubUGLDUM/1YyEOozB+ZFATIfDfj
-	hDEl6ss4YkR3w==
-X-Received: by 2002:a05:6000:250d:b0:472:3090:d878 with SMTP id ffacd0b85a97d-47fc81ed0efmr4793087f8f.4.1785429326919;
-        Thu, 30 Jul 2026 09:35:26 -0700 (PDT)
+        bh=KN9fvuyUrAB/AWwJUn50v4AmnDRRKrkHVX/t4wvTSMI=;
+        b=PFsAejaVt9bJyXQrvrhE8sR2ALJm49UBz3sJAWVNH2XfAbPO5/CGM27/BR8hQK4VqI
+         wft8OWjG/3sc6qD9eAXZbmk/VKoDRSrDGCtSaIzlJ+NIIAPsGNhfws/B9+d2V2XRr7Lr
+         IXS+8KUn2Sa3JFikdCW0THkgLrcapbjIqGhBSJTfGObfdny7F/UusDEoRtoedHIhj3mK
+         Nbkg6Z/T/brOLP0LeQecH3ugXOH2HMeG8qi3ZuaIKN2x91ROxmRmz5KZCKlj2FCftUXq
+         NkKCZtSD3AlVwu7VtngI/ufU5YN5nGioY8KVdVzNitkoFycGxgkQ8Ug5X0awut3OhV7Y
+         Ufnw==
+X-Forwarded-Encrypted: i=1; AHgh+RrRS+cFciscfqAWi9/Ztp5laYrxdiotJKcjN3F2Tj5OuYdFRuDgObaeHNKs1lP/l4f97UfP/2FT2+YBzfBHNe+r@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgNIWAHs0Yo7xW3J4jpt1XWprKV1yHFh83wcneTE/pbbSkwG9B
+	aa9oVm8SjaA7NyHmmZ6IbupWS1sn2MvpsgxSj4Bmyy4B9zLfIpk4npCv
+X-Gm-Gg: AR+sD10U535R3FNBdUcp7targt8xoj+DotAcx1gqsxWczSoGSMojwLMZYEaijfPmK+2
+	XNNaZrblnicn+GujPOVsJ4gA2ActM7YjwHstuBGImzQvJmdCRKLSHN54cPAk3rnoe1z9clNaL1q
+	B+LLl2olzzORuWExQCxvq6LLbAMMjAMp8Hp1UMX9Q005V9eTw8DgtSyz9Jn3YE6fTAz/3NaPLmU
+	WnZNzeyAUXlVpXbNc26sE4oR7eKbzXhYhcBf+HDu09u/bd6vG2+9CQ42sDdKWDfvCMLXCJ4LkIw
+	HOW1GkIovWr10D6FioE2q+W6Cd0HsGQNDtCdubDp7mCsK6eP/gwNPdZqXJPz72R2Ud1kZBdhuMj
+	Awc0OPuFQ5NkAMf8r/W2VNMFaXSa+PfpLFBMyYdvDG3vZDg1jHFBJmxi2pICLMjbaVvHVZ0fNFE
+	gH/HhZZhjlMnJsD9rKh9Y/3g00n6kyRR2PQ6FGReTyWUChDrxY/pqMNdL0ZP419WKFvclQ5J9Mp
+	86ucGzFj9GKgQ==
+X-Received: by 2002:a5d:588a:0:b0:47f:9751:cb3d with SMTP id ffacd0b85a97d-47fc822e715mr4862784f8f.8.1785429324205;
+        Thu, 30 Jul 2026 09:35:24 -0700 (PDT)
 Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fc892cdeasm7758445f8f.22.2026.07.30.09.35.24
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fc892cdeasm7758445f8f.22.2026.07.30.09.35.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 09:35:26 -0700 (PDT)
+        Thu, 30 Jul 2026 09:35:23 -0700 (PDT)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Bjorn Andersson <andersson@kernel.org>,
 	Mathieu Poirier <mathieu.poirier@linaro.org>,
@@ -87,17 +87,17 @@ Cc: linux-remoteproc@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/4] arm64: dts: freescale: imx95-15x15-frdm: remove some rmem regions
-Date: Thu, 30 Jul 2026 09:34:11 -0700
-Message-ID: <20260730163412.1145-4-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v3 2/4] remoteproc: imx_rpoc: fix carveout name parsing
+Date: Thu, 30 Jul 2026 09:34:10 -0700
+Message-ID: <20260730163412.1145-3-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
 References: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_093529_461331_F39B6DC3 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20260730_093526_265733_52F6088E 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,54 +114,97 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Remove some of the remoteproc reserved memory regions, which are currently
-not being used for anything. These will be added in the DT overlay
-enabling remoteproc support for this board.
+The imx remoteproc driver assumes that the names of the reserved memory
+regions reflect their usage (e.g. "vdevbuffer", "vdev0vring0", etc.). This
+conflicts with the devicetree specification's recommendation, which states
+that the names of the devicetree nodes should be generic.
+
+Therefore, instead of relying on the node names, use the names passed via
+the "memory-region-names" property if present. Otherwise, keep the old
+behavior.
+
+The definition of imx_rproc_rmem_to_resource() is added to a common place
+as imx_dsp_rproc.c can also use it given that it suffers from the same
+aforementioned problem.
 
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- .../boot/dts/freescale/imx95-15x15-frdm.dts   | 21 -------------------
- 1 file changed, 21 deletions(-)
+ drivers/remoteproc/imx_rproc.c | 13 +++++++++++--
+ drivers/remoteproc/imx_rproc.h | 21 +++++++++++++++++++++
+ 2 files changed, 32 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
-index 0f43e3be7058..f9b0e266754d 100644
---- a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm.dts
-@@ -188,16 +188,6 @@ linux_cma: linux,cma {
- 			linux,cma-default;
- 		};
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 745ce52cd822..ce9bdfc1fa98 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -643,7 +643,7 @@ static int imx_rproc_prepare(struct rproc *rproc)
+ 		int err;
+ 		struct resource res;
  
--		vdev0vring0: memory@88000000 {
--			reg = <0 0x88000000 0 0x8000>;
--			no-map;
--		};
--
--		vdev0vring1: memory@88008000 {
--			reg = <0 0x88008000 0 0x8000>;
--			no-map;
--		};
--
- 		vdev1vring0: memory@88010000 {
- 			reg = <0 0x88010000 0 0x8000>;
- 			no-map;
-@@ -208,17 +198,6 @@ vdev1vring1: memory@88018000 {
- 			no-map;
- 		};
+-		err = of_reserved_mem_region_to_resource(np, i++, &res);
++		err = imx_rproc_rmem_to_resource(np, i++, &res);
+ 		if (err)
+ 			break;
  
--		vdevbuffer: memory@88020000 {
--			compatible = "shared-dma-pool";
--			reg = <0 0x88020000 0 0x100000>;
--			no-map;
--		};
--
--		rsc_table: memory@88220000 {
--			reg = <0 0x88220000 0 0x1000>;
--			no-map;
--		};
--
- 		vpu_boot: memory@a0000000 {
- 			reg = <0 0xa0000000 0 0x100000>;
- 			no-map;
+@@ -818,11 +818,20 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
+ 	if (nph <= 0)
+ 		return 0;
+ 
++	if (!of_property_present(np, "memory-region-names")) {
++		dev_warn(dev, "using node names for carveouts should be avoided\n");
++	} else {
++		if (nph != of_property_count_strings(np, "memory-region-names")) {
++			dev_err(dev, "invalid reserved memory name count\n");
++			return -EINVAL;
++		}
++	}
++
+ 	/* remap optional addresses */
+ 	for (a = 0; a < nph; a++) {
+ 		struct resource res;
+ 
+-		err = of_reserved_mem_region_to_resource(np, a, &res);
++		err = imx_rproc_rmem_to_resource(np, a, &res);
+ 		if (err) {
+ 			dev_err(dev, "unable to resolve memory region\n");
+ 			return err;
+diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
+index 0d7d48352a10..3632bc375c71 100644
+--- a/drivers/remoteproc/imx_rproc.h
++++ b/drivers/remoteproc/imx_rproc.h
+@@ -7,6 +7,8 @@
+ #ifndef _IMX_RPROC_H
+ #define _IMX_RPROC_H
+ 
++#include <linux/of_reserved_mem.h>
++
+ /* address translation table */
+ struct imx_rproc_att {
+ 	u32 da;	/* device address (From Cortex M4 view)*/
+@@ -45,4 +47,23 @@ struct imx_rproc_dcfg {
+ 	u32				reset_vector_mask;
+ };
+ 
++static inline int imx_rproc_rmem_to_resource(struct device_node *np,
++					     int index,
++					     struct resource *res)
++{
++	int ret;
++
++	ret = of_reserved_mem_region_to_resource(np, index, res);
++	if (ret)
++		return ret;
++
++	/* "memory-region-names" is optional */
++	ret = of_property_read_string_index(np, "memory-region-names",
++					    index, &res->name);
++	if (ret == -EINVAL)
++		return 0;
++
++	return ret;
++}
++
+ #endif /* _IMX_RPROC_H */
 -- 
 2.53.0
 
