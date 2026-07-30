@@ -4,118 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF60C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 06:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1023AC55164
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 06:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fSKpK5beRJSFXxCftlJ/6i2fmlt/3JwNSqzLkzUOYIs=; b=D7OikiV1Fc/phRFAgekI7EU9zG
-	n8DsP1KYvOaZ+yfKRrvA/nrf3oHjeBwwwGQZWA4kfiUDC7QiJxDPAOf3UQK3LKdGOz/Lrl1rA6Hm/
-	NGTZYsOvokSEd/vRHU1akph74Fxl9wCmVwMH+WHJVU/ap/8lz8PczKaxGdPbJYDY3O9QVppVXE0kT
-	UtaCcGVgZRe48NavdP+f5kqeKrToOaKyr/9dL3nIXONGefbt7827Wd76NajJVba+3qvggPQIalmz7
-	uoJ2j2FO0fwGU+ZBACQMfaWvdgRBiv+FUQbn1oZrppcXkf6QxKokKylkc9hfBL+o6DrJ3Z5zlfrCG
-	9nsV8R6Q==;
+	bh=D2dZ+8WBmAZ8INSWYao28PUGk/5wdatznsr8FR9QCUA=; b=WDoon2/90RpVCqBZp0DUbCF0/J
+	wOfGgmJ4ZKTCA2SpWXnv2lTR6yaK61th7ER66qlIiK4pm2+wxax+jkz3fre//LlTCyGhLca0jTxHc
+	fNv4drgygI/tdDZCLy82IlPBgXqUwfrPNSWWxuTLb9C+OLro/vjJu9MmQuNEoiKj+AiOzzv3HdjXo
+	xDRc/CpZhP1easxVSg6Vn4fja1qI0ib7l2STxtDTR7C2WRH7uuxHXqgbWFQpk9RF6v/pV53Cm/nsT
+	Cv/JRyLhqi4ZuerCVeN91xEWf809z9+32Po2Qgczlu1i73vJo6Ag+JAvRTrBgNXZafEWOc/J1pmWJ
+	Ar+Xq53w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpJuP-00000009ZsC-113B;
-	Thu, 30 Jul 2026 06:06:21 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wpJzc-00000009a7t-3cAC;
+	Thu, 30 Jul 2026 06:11:44 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.44])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpJuN-00000009Zrq-1gTK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 06:06:20 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66U3laV01933585;
-	Thu, 30 Jul 2026 06:06:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=fSKpK5
-	beRJSFXxCftlJ/6i2fmlt/3JwNSqzLkzUOYIs=; b=s8Uk9W8uV5FJtCx0SbDAh3
-	YNFN3+TeiruYlev0C/0DU/tf0DzMuHjMq2kOxnLx25pno10CX8HUptcMWsBfSXAo
-	9tGkKt4kAU1tLWoylL4JMu3jq4U56hndhVIvTTmgvsnoYKMCHBynzf5rPGZGstd7
-	PMq4lQ3Ljb6dO6MfSPWdRWifD3OLBdi+Ya9gvTKa12VvpunyiOM34qx4EGZn7hMX
-	yT0yaRhJT0MepDDBWdLJP+yeVUQBmZxRHYcg5upYbwWoJXTxo71Wd4CmMcEmQjXe
-	nyR3Mx5aqdqxMJHDnndbe6jAjKRaLrDO4slY+ECe/WNM+g5ssIaAcse3Q7Dkqibg
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmv0xxa3b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jul 2026 06:06:08 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66U5uHWh012301;
-	Thu, 30 Jul 2026 06:06:07 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fn7fqj6wh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jul 2026 06:06:07 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66U663Rc35127580
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 30 Jul 2026 06:06:03 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 72E832004D;
-	Thu, 30 Jul 2026 06:06:03 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 10DBC20043;
-	Thu, 30 Jul 2026 06:06:03 +0000 (GMT)
-Received: from [9.224.76.67] (unknown [9.224.76.67])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 30 Jul 2026 06:06:02 +0000 (GMT)
-Message-ID: <18ca706f-ef45-4207-a55d-025f90133978@linux.ibm.com>
-Date: Thu, 30 Jul 2026 08:06:02 +0200
+	id 1wpJza-00000009a6K-0y5g;
+	Thu, 30 Jul 2026 06:11:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1785391897; bh=D2dZ+8WBmAZ8INSWYao28PUGk/5wdatznsr8FR9QCUA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=uNyvcxUSMLXm6bf3qXnrVpiDSGGh6je2zHc3UNPfkNfhn6mViohUzU5TgQEx0RSNS
+	 0sjsBd8oC57npyDiQUb/FWYVnUZ9z/dSgVvGi/gv2JQ4XWvkezjO7KT5l1iClmqfT2
+	 vmtpr8uAXfe+wN7/LHXdl5edoZNlQ+Ffv85FEcT0=
+Received: from ubuntu2204.localdomain ([2409:8d20:22b:54c:9e54:40ff:fe02:3f0f])
+	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
+	id 2DF15055; Thu, 30 Jul 2026 14:11:31 +0800
+X-QQ-mid: xmsmtpt1785391894txg4lng26
+Message-ID: <tencent_803FA8A6621A5D198504BC91BE003D442007@qq.com>
+X-QQ-XMAILINFO: MfvJ0+4D3P+7xxzKzQ3k6L2jiKfqNsu/rtn1/30H+OnK0sm6vWNyfEuix9tTXR
+	 vdvX5JQOTiSZsPBn0IL25auocfZKs+yeVyeRWfBGthdHk+aQEogSsCHGnfyX9Zze+14qEfsUYm5U
+	 of5zbvG9Jg3JdYKCDecqLUqq9h/IFi3UbTHwWSBwK9pAIYOhlrxQ+IFOMQqsAwi8Zj+yBzEKbyJg
+	 P1LgpNgdeKraeK60uM+GDM+Bj2utZxTxQCulN8teSZdU+srXK3pIcd5hAkEUe2+HcGrM+mXl6vVX
+	 ReicJnrs7Qw9VC8nafSr3DJAW2V5bxiAZubsvThIjvia/WEOqDquNHz+JkiMuzo9ZBXtjCFlN9Ph
+	 cneUd1eFR7wdjHiu9nB+kLYTkzzNMIUv1vNbqUIeUiTY5vFKn0GvzAAXeucE9VkwC2lqdzZ7rp7F
+	 YdQ9CGb+6bqOKkZGf8QOA04pljHragFK9F0ANFCUc0YB5MLcBjguYrR6Y9qPY/X1SpgLUqq9P9Xy
+	 46L2fF/4/V+aO5wkJfM3z7fMPT3Xv4G1jpAuOnrEb9FQ5KtGqEL25QoGzKHMbAMrxMzyvwXEoFea
+	 h8FwxUX8P0C3mBsv6LMs1C3JBTALowTNQ1eEMGQo1weT1oqQfa2z9jQ2uEMQfWQ23BGyKvhkeGZF
+	 UlPKwj6XcBA5pdgWnBg+08eMV0N2sakdFI/t4EKeIslxtD5417h2TqpbMGjJvLxImURrKxJFT74X
+	 uAeB6NSqnkc4E2IFnMwL7hd7vnraS333NfRv03PUrbmI/UqPwcvBNbrfQQX4sprWweBGTBOY3SSV
+	 crvgw61RrNRt8IIv+kuL/FjSBLc88KqDE/2AVVjzUFWHUKj6TUyxAUqL1btEKa1OqVcWPRVtmSwZ
+	 EkwBRrwI0fqpcSXkKiobIkP/PI2ojpFgq4pDHygcVmvmgEdSEBcsGmEX9Zj6BWv1L6x/OPFub75E
+	 f8ujPMF9CzOEObkaRoqS0sni/fkGtoR1K9q3JwksDgZ33GaEr2/u9PYGZbjZbUq8HRwmy+Ap8KA3
+	 ox/n8047qhiaw1eDZDV2XWK1kgSR+6+xZNQhY4WZ7kwLgy9M3DU2vpGJEElgoQqIZfHA5kWkpXEo
+	 nnpyr9UjA3e3VxCwQEQu4x6+9PQxGsLIlM0xURZBXohJipm7QyTI/Z/lrEWTsEhAlIAtEqjymXPs
+	 USv4E=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+From: Cunhao Lu <1579567540@qq.com>
+Date: Thu, 30 Jul 2026 14:11:23 +0800
+Subject: [PATCH 2/3] can: rockchip_canfd: retry the outstanding TX buffer
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)~
-To: Yang Shi <yang@os.amperecomputing.com>,
-        Ryan Roberts <ryan.roberts@arm.com>, cl@gentwo.org, dennis@kernel.org,
-        tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
-        will@kernel.org, david@kernel.org, akpm@linux-foundation.org,
-        hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-References: <20260715180455.515692-1-yang@os.amperecomputing.com>
- <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
- <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
-Content-Language: en-US
-From: Mete Durlu <meted@linux.ibm.com>
-In-Reply-To: <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: r-zTKHDUsTXOcFmf_-9wS5lhnkg_qTkD
-X-Proofpoint-ORIG-GUID: SOP_yvGrI1a3-1kuGNqQ95swD9gDixMk
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDAzOCBTYWx0ZWRfX3sdFvOaD+SK5
- BwqMslyT06eKdSQz0oVVw1k7nVE1QnWBDNlUtJeG8OzEZn1Qwoo9TgP2LDtITB8K11bp8UHn33n
- Yi+SYqS182tCyPn3xWE9dgJhNNaRla0=
-X-Authority-Analysis: v=2.4 cv=dYuwG3Xe c=1 sm=1 tr=0 ts=6a6ae9d0 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=cpGfkXA4JyvoFA7YCHUA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDAzOCBTYWx0ZWRfX5gMfbafa3aqX
- NNjDEl9HOtJXNn4YfJJOTBdNIIC8zGhagzyCNDyk/MKfMb5upZKxisfIr4F7NvBQg1xaBcPQyNv
- 46vDVGcFHsZvz6oM5aox1Wu2jAQXWZi+7ZoV/5dAmfE8cDa93FDH0Re4fTtIXlnHqkmNTojKxIp
- MSMINRnnbCBPy0EJhnBzP4XQTVgxjMsqIuUhdnJ3diktuFy/wt7Wwp40O9F68IUluEiQXO5/7S9
- eDQ9I+v86YpB6F5FwzVztmvgQV8nENbYPPyZKklzu2b+ZE9cVLNVyQ2aTkkurLiDMtUElHm0yqB
- 55gNYq4GxIJcsYjXQ7QUnEBwxHurFePOj6BlQTekavxxKGzzBdtYKaTJ+4C6Eza0rl68n5cy+fC
- ZLiVYWsF9IKSiD+qYRqfxKebYddG+4YKGZ9v8/KonRkZJYHycXOJAcJShzHh5i86D3exEA42k9e
- 0rkzXrDM4oGWfaDZuaQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-30_01,2026-07-29_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 clxscore=1011 phishscore=0 malwarescore=0
- spamscore=0 lowpriorityscore=0 bulkscore=0 suspectscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300038
+X-OQ-MSGID: <20260730-master-v1-2-6945fdd4f0ff@qq.com>
+References: <20260730-master-v1-0-6945fdd4f0ff@qq.com>
+In-Reply-To: <20260730-master-v1-0-6945fdd4f0ff@qq.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de, 
+ Vincent Mailhol <mailhol@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-can@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_230619_459830_232DD08E 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20260729_231142_595981_9F89B815 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,44 +87,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/07/2026 01:20, Yang Shi wrote:
-> 
-> S390 implemented restart sequence. Heiko didn't share too much benchmark 
-> data, just confirmed there is no regression and I had a lengthy 
-> discussion with him (https://lore.kernel.org/ 
-> lkml/20260520092243.264847-1-hca@linux.ibm.com/).
+rkcanfd_xmit_retry() originally operated with a TX FIFO depth of one. At
+that depth, the masked head and tail indices both select buffer 0, so using
+tx_head happened to select the correct buffer.
 
-Hi,
+After the FIFO depth was increased to two, tx_head instead identifies the
+next free buffer when one frame is outstanding. The erratum 6 workaround
+therefore requests transmission from the wrong buffer, leaving the
+outstanding echo entry incomplete and the netdev TX queue stopped.
 
-regarding performance numbers from s390 and Heiko's implementation.
-It is safe to say we see noticeable improvements on micro benchmarks
-but nothing really pops out on regular workloads.
+Use tx_tail to select the outstanding buffer for retransmission.
 
-on 24 Cores - 48 CPUs
+Fixes: a5605d61c7dd ("can: rockchip_canfd: enable full TX-FIFO depth of 2")
+Cc: stable@vger.kernel.org
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+ drivers/net/can/rockchip/rockchip_canfd-tx.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-1. Kernel Build
----------------------------------------------------------------------
-time make -j $(nproc)
-~0-2% improvement - within noise ratio
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+index d2cbe25c46d6..c4ecdc9411cc 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+@@ -57,8 +57,8 @@ static void rkcanfd_start_xmit_write_cmd(const struct rkcanfd_priv *priv,
+ 
+ void rkcanfd_xmit_retry(struct rkcanfd_priv *priv)
+ {
+-	const unsigned int tx_head = rkcanfd_get_tx_head(priv);
+-	const u32 reg_cmd = RKCANFD_REG_CMD_TX_REQ(tx_head);
++	const unsigned int tx_tail = rkcanfd_get_tx_tail(priv);
++	const u32 reg_cmd = RKCANFD_REG_CMD_TX_REQ(tx_tail);
+ 
+ 	rkcanfd_start_xmit_write_cmd(priv, reg_cmd);
+ }
 
-2. stress-ng vm ops
----------------------------------------------------------------------
-stress-ng --vm $(nproc) --vm-bytes 128M --vm-ops 100000000
-~16% improvement on bogo/ops
+-- 
+2.34.1
 
-3. stress-ng vm ops + fork
----------------------------------------------------------------------
-stress-ng -M --mmapfork $(nproc) --mmapfork-bytes 128M --mmapfork-ops 10000
-~6% improvement on bogo/ops
-
-4. fork test
----------------------------------------------------------------------
-stress-ng -M --fork $(nproc) --fork-ops 10000000
-~13% improvement on bogo/ops
-
-Basecommit: a2b94afeb516 ("s390/zcrypt: Replace get_zeroed_page() with 
-kzalloc()")
-
-Thanks,
--Mete Durlu
 
