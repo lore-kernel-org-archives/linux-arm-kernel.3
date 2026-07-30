@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EC47C54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:54:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4800CC54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FFXE0ow+NHAbVFHf1JYlkpT5w06lX7CE26ijM1Wtcd4=; b=2GKeqMpy78GIgqdBl8PaAnFb8J
-	/4ypgN21oFIFM4gRSErmoBRs3f1AOaLb6q6JxKe+7LLfLgIdtGqkYh58va/dFnFFt9pdBMTRQlm2M
-	ln8zEI//8NQXJQJvYigFMUhJHpdvj4oYv87p73OZ7Oo45uEzjAauyf3HoNT1mnGZ34icEz/OTV6U4
-	qeat5FEAgCJ1uxFXWtLnE5oX5e1D4YHj52gFx1f5vvJPpqRzSvdaC8QhnK+1bDWOdY5ePFiTdEf39
-	GJEYkA3oB2yhY8+13EUssLDlJHF1DbKL3SA9JrOqc63kjnrE4YGzrobjML5gjF2UAOgmZo9piyqN6
-	no4AO8ww==;
+	bh=UyAg+oao2hLSO5MFtf+OUxfyez7940gq4vcJ71Nff6U=; b=KpZZQmKrfewzn4zBWrCZ9qoy9V
+	0+9S1PEMaCsRZI8UvndPmopabNnFmZOp42K4uWiM5xrDdPVu1s/Ao1rtHoFie4jOZP1nIiMtE9Hrx
+	G2CbWqB3gCYs7clfIGGqw+nZW8XufvaJcHs2RT+mKtPq2lce+6jWdMYuP0JYZNFxSpWgHstC6cfcH
+	WkIox2jo4MrCBFRY0+y/wOXOJ94CZv0HqoFYhf2jMr4SWz0cbEtuiFag0zQgB6urLin4FVshldVDW
+	jiZ5N6L+C1vy/hkT4CyAfP3KU1kh6Xrsq13YeaQzYij/3WSSq+xSWIC80mZz+4NJmpqkWxo89WezM
+	Yy33b6wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNSw-0000000A6Rf-23Ch;
-	Thu, 30 Jul 2026 09:54:14 +0000
+	id 1wpNT7-0000000A6Z8-0A4W;
+	Thu, 30 Jul 2026 09:54:25 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNPP-0000000A3nj-1ZiX;
-	Thu, 30 Jul 2026 09:50:36 +0000
+	id 1wpNPQ-0000000A3p1-3lY1;
+	Thu, 30 Jul 2026 09:50:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785405033;
-	bh=u5hHq0Z8k4K50Ohjh9lwnjaZVf04Xn7H8lsSwUTpb60=;
+	s=mail; t=1785405035;
+	bh=Iy+VUNXDXW8cWtqhoAcajkOwEmooMeEJCbxXu8rQQOs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WlqyWKkifk69/EWmDfi+HWpB1XhoD2cAg0nevJvYUvrEmWssrLpq2fGu35NkFOx6q
-	 8DE6Blimb5KSi4qYaHuhGOYvCKqf7ujywye/pWUIoNAOJllA4dJfWi3ffC4UG0eUC4
-	 fJ6WJ1jGIqUPugT6dRgdhjZrge+iBeOeCWPBdeDAmgzdLKFwWEKgQ8eCIMCm+znCym
-	 8PI/whL03m0UZmEW2EQFq1JZWWDaetDVsmXl7CKApiARDjXAGrl2MoxySJ7gZNVy5w
-	 l5CwjbBc9juUjCvj3XC8Sf1LSm5E9sJVZNr+9nzr5isAMMCK3HvlX2iIdKiseuDVfh
-	 6h+NrQw5oVWGw==
+	b=M6A4pMj0Y651VoP4qsk/HDYB/ouyltMMEHBOvKK9lHthj5nv8IXPVDFRk2bgEvAzh
+	 TLtG9k348dUPiIVbZM32DdvpJp9IcAX/l16UunCDOA8WGXCrp18n1N4oyZeZwFBKeY
+	 JI1BQKsk+4xzPS3oD6bkHO9sFlGPUg9cauj7xHUpecWIpCTWHZA8AL1XwYmL67/jQd
+	 mqfTNGP9z35Y0DMxSeKdyR4v/Gtt59r4WtfUcZXgnMCsSdUUz1Q7lWRHIVOaOYJh7v
+	 4ruu9sqUGRvGVdm5H3aAGcnxhbHT9nRNQpai1qBqFu1W/PixDtYetazgXaC/TVKUI8
+	 6USFxtDjvJVMg==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1DA3317E0988;
-	Thu, 30 Jul 2026 11:50:32 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9F4B917E098E;
+	Thu, 30 Jul 2026 11:50:33 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 30 Jul 2026 11:49:21 +0200
-Subject: [PATCH v10 25/26] arm64: dts: mediatek: mt8395-genio-1200-evk-ufs:
+Date: Thu, 30 Jul 2026 11:49:22 +0200
+Subject: [PATCH v10 26/26] arm64: dts: mediatek: mt8395-radxa-nio-12l:
  Complete UFS power supplies
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260730-mt8196-ufs-v10-25-bc5ecef202dc@collabora.com>
+Message-Id: <20260730-mt8196-ufs-v10-26-bc5ecef202dc@collabora.com>
 References: <20260730-mt8196-ufs-v10-0-bc5ecef202dc@collabora.com>
 In-Reply-To: <20260730-mt8196-ufs-v10-0-bc5ecef202dc@collabora.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -75,16 +75,17 @@ Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785404993; l=1127;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785404993; l=1050;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=u5hHq0Z8k4K50Ohjh9lwnjaZVf04Xn7H8lsSwUTpb60=;
- b=gSQyAIf2R+VrX3AV0hyjEXVagbWC+aBQmcf+y1WYwwAnSlcQUjRZJXC3yiINIY4LCNSHzNvkh
- AB4OEJQty1RCk8BdS1BR+nMZLd/vxLhZAVbTfGooN4/qO1UiB8y77bk
+ bh=Iy+VUNXDXW8cWtqhoAcajkOwEmooMeEJCbxXu8rQQOs=;
+ b=nfGWRi3J0wIO/+Y7GAM+mdM1gCNAi3C9pUwoyTTwK7WSjCpqpHJvmMMAKGcHa72Wmt1UJfVur
+ t2UKOFrQ/cyAjk+U/ua73w5EYRl9WXBbbX0XvsHxQdcwIDscy6XTe8V
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_025035_611200_C5A37073 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260730_025037_113412_CEFADCC4 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +104,28 @@ The MT8195 UFS host controller dt binding now describes the power supplies
 feeding the host controller, that were previously missing from supply
 description.
 
-So, add in the Mediatek Genio 1200-EVK board devicetree the regulators
-used to power MT8395 UFS controller when the board is configured to use
-its UFS storage as primary.
+So, add in the Radxa NIO-12L board devicetree the regulators used to
+power MT8395 UFS controller on the board.
 
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk-ufs.dts | 3 +++
+ arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk-ufs.dts b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk-ufs.dts
-index e09a3ecd8773..f3d839f31918 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk-ufs.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk-ufs.dts
-@@ -16,6 +16,9 @@ / {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+index 9cf0315da035..7e9cabdd2825 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
+@@ -1184,6 +1184,9 @@ &uart1 {
+ };
  
  &ufshci {
- 	status = "okay";
 +	avdd12-supply = <&mt6359_vrf12_ldo_reg>;
 +	avdd12-ckbuf-supply = <&mt6359_vbbck_ldo_reg>;
 +	avdd18-supply = <&mt6359_vio18_ldo_reg>;
  	vcc-supply = <&mt6359_vemc_1_ldo_reg>;
  	vccq2-supply = <&mt6359_vufs_ldo_reg>;
- };
+ 	status = "okay";
 
 -- 
 2.55.0
