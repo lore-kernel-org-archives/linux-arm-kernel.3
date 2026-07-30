@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60C19C55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E6FC55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:38:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yrGZUILR/Wznyx7GjKoYB3FNEjyAnbdcouYLB2K4DOM=; b=PE5bn0G14o8/nxlGbvIT2hFSzQ
-	P4UG21/xge/YkEYvvPUnl2Hn2yd5iMLgoQmoRPv+KGw0R1687x1w9/zchIcxUwkrJebTp5sXYg3fY
-	DfxTp673Nve08fvC3aKZtufNsA8qB84sXoHpfhx/6vFL50r3hymAwjmfXcr+F9Ebyzfa+flyDH5Hq
-	6ri0bFeW9fl2JknW4nxbA4RzRKKegjrA7YWkh/hAD/F3nFSeVba6jHVwlc5Vg89dc1S5P5LxYDsIm
-	HoryG5AGjozfD9119XJL+Bh6bTPhGgW7VpiYEJ8WNYVxAJyQ4p0+QhJZ9rjpJ/PVx6GW09lnMVdwc
-	KjZs41Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tIKRYxDOzycznw1bjlolv+a92AaCEXcgQ9UteZvvq6E=; b=tvpbRfpWgoX1sFgY324hwB4q43
+	roYuH3WqTsjzVqtHjUMruKrfDosFPi8lCXAhR2EupOWr424mT9WjMew1oh+wp9M8IH53mE25raDzt
+	3qLu44cnAvSfkGqc2EzuMAhWMD36JFoG2uBbE+pRNQPNEOxIHT3PzNuiXL2XaaHcx2jgVXA60HGcv
+	V/ywxUBw9WfhmdEKDMSGQ/qaT+ah5+r/zecsmJ6eXUHZqqC0+fReCqQDKGMyRVaohJdzhXaQP+6Ez
+	cjyFxPC1IMulKkDGmuC76p1bH1VfJgxIr2z8sGwkCqXtNJfAgT3ifMBdAanq9tEmH2Tf94vDCwq2R
+	RUuus8eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPtP-0000000ATNB-3YGk;
-	Thu, 30 Jul 2026 12:29:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wpQ1K-0000000AU87-30MO;
+	Thu, 30 Jul 2026 12:37:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPtP-0000000ATMz-1mIW
+	id 1wpQ1J-0000000AU81-43mP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:29:43 +0000
+	Thu, 30 Jul 2026 12:37:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC135600B0;
-	Thu, 30 Jul 2026 12:29:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DB331F000E9;
-	Thu, 30 Jul 2026 12:29:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 148AF600B0;
+	Thu, 30 Jul 2026 12:37:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDC2E1F000E9;
+	Thu, 30 Jul 2026 12:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785414582;
-	bh=yrGZUILR/Wznyx7GjKoYB3FNEjyAnbdcouYLB2K4DOM=;
-	h=From:To:Cc:Subject:Date;
-	b=oZ6omnuYaaPVJph/8aNubaZUbqRB9sNViXWI/peGzrmT42iBUgCOgMxZL+XD86Fmk
-	 wzxpMP+cnOXs40uO0p2/WXrnkXBmtfps6UkSHV19rZ/dUS4Lcx61qldgB7zZrgZnfA
-	 /SifWtwBKqLGvv6Cmdcqkz2Pmvoc+3s8eGF3abRIJiBbfUip9BG26KGLzWE5OH7Zgw
-	 IyhLp1ovVGOh/3goBNj4jcEFyr8Yw3oHyCt8vrZH4kJvyDI3e8Pf1oXpvXb+YqRxJa
-	 KXEWBxePvzWYp2TIcLeRerbEwBfcr8ek3B0HzHqW5d1UgYQ3lhGOP8Xc1KKutr7zCX
-	 jO74PgJVlpeEA==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Christophe Leroy <chleroy@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org,
+	s=k20260515; t=1785415072;
+	bh=tIKRYxDOzycznw1bjlolv+a92AaCEXcgQ9UteZvvq6E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=dwp4fcp+9aFcM75nQWBHQTQytB3W+EUnrwq6DO7RapJNdyAkZuRacZkPGao1KYWQz
+	 nxq0+gXzhRutd+9XXOp0biFyYO4sKUle1qaBZkAspRjytAgA4ZPLQKY6qmcJNY2uK9
+	 wLps541DxE4Hotc6HD2hslBM00x9JaIC9uuLM3ArPA/TkOyAHFzFUi+cxnE/1ybgvU
+	 Mbnnk5RAWyiqXaH8uwnu6rzSHzYCV6q/xnLxq4IpguX7CjqT/FbuhrZ57biyxzbZb0
+	 qVVJMgcfEQv5DQ0fdZyM8XeYBeYHhjAe69eRg1pUbutd73jyJFUqf/jzjODGgCDqJr
+	 qPva0JaIHWVnA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wpQ1G-0000000AWgo-1Tqr;
+	Thu, 30 Jul 2026 12:37:50 +0000
+Date: Thu, 30 Jul 2026 13:37:49 +0100
+Message-ID: <86jyqcd55u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: oupton@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	alexandru.elisei@arm.com,
+	vdonnefort@google.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	qperret@google.com,
+	ardb@kernel.org,
 	linux-kernel@vger.kernel.org,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Paul Louvel <paul.louvel@bootlin.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH v2] soc: fsl: qe: properly scan GPIO nodes at startup
-Date: Thu, 30 Jul 2026 14:29:36 +0200
-Message-ID: <a1db12ef75bf881dd5fba893a37db0c8517eca1b.1785414349.git.chleroy@kernel.org>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1513; i=chleroy@kernel.org; h=from:subject:message-id; bh=NMDDFmRLn2ji8YodQkBFhcITCr9QFapEu4TNHWLKe2M=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRlO290uJFhuSzLIzP43g0DtulzRATNLjJ//efy733zP 7d/ldmXOkpZGMS4GGTFFFmO/+feNaPrS2r+1F36MHNYmUCGMHBxCsBEeH4x/Hf6tC403eRHoNN1 7oCdt25YMRbvOmup90WJ+ZLW/wJv0zKGvwISf+4yZG3+oGVhOM8gcv1DKd2DbaeTTBoLTzyfYfY 9nxkA
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+	linux-trace-kernel@vger.kernel.org,
+	tabba@google.com
+Subject: Re: [PATCH v1 09/11] KVM: arm64: Type-check hypercall arguments at the caller
+In-Reply-To: <20260720161343.1367007-10-fuad.tabba@linux.dev>
+References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
+	<20260720161343.1367007-10-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, rostedt@goodmis.org, mhiramat@kernel.org, alexandru.elisei@arm.com, vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,53 +97,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Before commit 156460811def ("soc: fsl: qe: Change GPIO driver to a
-proper platform driver") qe_add_gpiochips() was walking the device
-tree to find all nodes with compatible "fsl,mpc8323-qe-pario-bank".
+On Mon, 20 Jul 2026 17:13:41 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> kvm_call_hyp_nvhe() reduces its target to an SMCCC function number, so
+> the compiler never sees a callable: arguments that are wrong in number,
+> type or order are silently marshalled into registers. The kvm_call_hyp()
+> wrappers only catch this on the VHE branch, and the pKVM-only hypercalls
+> have no such branch.
+> 
+> Declare each hypercall's signature once in kvm_hcall.h and generate a
+> typed stub from it, in the mold of the syscall wrappers. Make
+> kvm_call_hyp_nvhe() resolve to the stub so every caller is checked
+> against the declared signature; a stale or mistyped call now fails to
+> compile. The stubs inline to the same SMCCC call the untyped macro used
+> to make: the compiled callers are unchanged, apart from hypercall
+> returns now being tested at their declared width.
+> 
+> The stage-2 protection arguments are declared u64 rather than
+> enum kvm_pgtable_prot, as kvm_pgtable.h includes linux/kvm_host.h and
+> the enum cannot be completed here.
+> 
+> Assisted-by: Antigravity:gemini-3.1-pro
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/include/asm/kvm_hcall.h | 165 ++++++++++++++++++++++++++++-
+>  arch/arm64/kvm/hyp_trace.c         |   2 +-
+>  2 files changed, 165 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
+> index d925b2c28a3d8..51bfd14748464 100644
+> --- a/arch/arm64/include/asm/kvm_hcall.h
+> +++ b/arch/arm64/include/asm/kvm_hcall.h
+> @@ -16,12 +16,35 @@
+>  
+>  #include <asm/barrier.h>
+>  #include <asm/kvm_asm.h>
+> +#include <asm/spectre.h>
+>  #include <asm/virt.h>
+>  
+>  typedef u16 pkvm_handle_t;
+>  
+> +struct kvm;
+> +struct kvm_s2_mmu;
+> +struct kvm_vcpu;
+> +struct vgic_v3_cpu_if;
+> +struct vgic_v5_cpu_if;
+> +
+> +/*
+> + * Hypercall signatures are declared as (type, name) argument pairs.
+> + * __KVM_HCALL_MAP() applies a macro to each pair, in the mold of __MAP()
+> + * in <linux/syscalls.h>.
+> + */
+> +#define __KVM_HCALL_MAP1(m, t, a, ...) m(t, a)
+> +#define __KVM_HCALL_MAP2(m, t, a, ...) m(t, a), __KVM_HCALL_MAP1(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP3(m, t, a, ...) m(t, a), __KVM_HCALL_MAP2(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP4(m, t, a, ...) m(t, a), __KVM_HCALL_MAP3(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP5(m, t, a, ...) m(t, a), __KVM_HCALL_MAP4(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP6(m, t, a, ...) m(t, a), __KVM_HCALL_MAP5(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP(n, ...) __KVM_HCALL_MAP##n(__VA_ARGS__)
+> +
+> +#define __KVM_HCALL_DECL(t, a)	t a
+> +#define __KVM_HCALL_ARGS(t, a)	a
+> +
+>  #ifndef __KVM_NVHE_HYPERVISOR__
+> -#define kvm_call_hyp_nvhe(f, ...)					\
+> +#define __kvm_call_hyp_nvhe(f, ...)					\
+>  	({								\
+>  		struct arm_smccc_res res;				\
+>  									\
+> @@ -33,6 +56,43 @@ typedef u16 pkvm_handle_t;
+>  		res.a1;							\
+>  	})
+>  
+> +/*
+> + * Generate a typed stub for each declared hypercall. kvm_call_hyp_nvhe()
+> + * resolves to the stub, so a call with the wrong argument count or types
+> + * fails to compile instead of being silently truncated to an SMCCC function
+> + * number and a pile of registers. The stub inlines to the same SMCCC call
+> + * the untyped macro used to make.
+> + */
+> +#define DECLARE_KVM_HOST_HCALL(ret, name, x, ...)			\
+> +	static __always_inline						\
+> +	ret nvhe_hvc_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_DECL, __VA_ARGS__)) \
+> +	{								\
+> +		return (ret)__kvm_call_hyp_nvhe(name,			\
+> +			__KVM_HCALL_MAP(x, __KVM_HCALL_ARGS, __VA_ARGS__)); \
+> +	}
 
-After that commit the discovery is handled by the platform core,
-therefore it is necessary to call of_platform_default_populate() on
-the par_io node.
+One thing I find absolutely horrible is to have to specify the number
+of parameters here. It is already bad to have to comma-separate
+everything, but having to count them is too hard for me ;-).
 
-Fixes: 156460811def ("soc: fsl: qe: Change GPIO driver to a proper platform driver")
-Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
----
-v2: Use of_find_node_by_type() instead of of_find_node_by_name() as the "par_io" type is documented while the "par_io" name is not.
----
- drivers/soc/fsl/qe/qe_io.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+We already have facilities to count the number of parameters to a
+macro (see the COUNT_ARGS macro). You could make use of it all over
+the place.
 
-diff --git a/drivers/soc/fsl/qe/qe_io.c b/drivers/soc/fsl/qe/qe_io.c
-index a5e2d0e5ab51..150913fce981 100644
---- a/drivers/soc/fsl/qe/qe_io.c
-+++ b/drivers/soc/fsl/qe/qe_io.c
-@@ -15,6 +15,7 @@
- #include <linux/errno.h>
- #include <linux/module.h>
- #include <linux/ioport.h>
-+#include <linux/of_platform.h>
- 
- #include <asm/io.h>
- #include <soc/fsl/qe/qe.h>
-@@ -184,3 +185,17 @@ int par_io_of_config(struct device_node *np)
- 	return 0;
- }
- EXPORT_SYMBOL(par_io_of_config);
-+
-+static int __init par_io_populate(void)
-+{
-+	struct device_node *np = of_find_node_by_type(NULL, "par_io");
-+
-+	if (!np)
-+		return 0;
-+
-+	of_platform_default_populate(np, NULL, NULL);
-+	of_node_put(np);
-+
-+	return 0;
-+}
-+arch_initcall(par_io_populate);
+Thanks,
+
+	M.
+
 -- 
-2.54.0
-
+Without deviation from the norm, progress is not possible.
 
