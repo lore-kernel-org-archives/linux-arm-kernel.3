@@ -4,91 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E9C3C54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE91C55164
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IrNx642kewl/zDKJOpDkLzgjGLhqUgb7rTigNrbEyMI=; b=ygRRRl90DxglRbU/OKdGgZ6OUH
-	l/kef2QTntSJusgplNpWJ3C5np4abm34arJzJ6XyLYY1yuIfLYyZobE4yanSNTPBlAK+kOIjVV9sl
-	FI8IKG0HA1yIoy0BdvJ1eRqkAchFq21YcES8LiV8ZeSDlBBBJ17l9RRZJ+Tg+7sIDS34Gv6oNRpb4
-	o1FmYVLhb93cbjHxgZLvzx9Kp8e0f6mucDdvzDXvXpUP2RTZGqhNsJduJwa2FY3j8GB54okm2nbYf
-	nghPFc1oKZWExjyemfOxp8M+4e3f2BFlheM9pMLnq248gtnbLNLqIAJlrQRZ/iUeSrR5BoeLbjjLl
-	eNMFR7Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+bHVUngGeTETwXfXs9HjI7OF1XFZgEbN/iyskzwq8ig=; b=RY/zRuMv/VuXca
+	RZ+uyefWrDzLylPk0Gc0PqGjfjo0IQ/t1DGBjD+GlCl9kgeg/epHcqlQuVfQpYeWF/McoVrDa9U4+
+	MaQ4N1p1Rx6tCJbXvs7kGilMPkgwijbgb0eUdpggWFAI3Fl+mnPczGB+ec7h0Bd1+WLHCTo367mP6
+	oDucz1SuahnQ/Mmgdu6xhWzDKmKk67ZFmFvHMWv4D4e4GJCD5bZfOdQ6WBr9wlImquMFBK3X9yNv9
+	f979aOqcqQyQxPIe5g5o5iWX7k6HZM4HnMsYVeMlBDzrblZhLpug5BbAdcn5v9aA/AALmf8x1QADs
+	IUVbSoOmTNzdC5N3D6cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpL67-00000009jOM-1xoL;
-	Thu, 30 Jul 2026 07:22:31 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wpLA0-00000009jnD-3h8y;
+	Thu, 30 Jul 2026 07:26:32 +0000
+Received: from mail-westus2azon11020132.outbound.protection.outlook.com ([52.101.46.132] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpL64-00000009jNP-1Azm
+	id 1wpL9z-00000009jmV-0FMf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 07:22:29 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84e507b079dso1273729b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 00:22:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nearthlab.com; s=google; t=1785396147; x=1786000947; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IrNx642kewl/zDKJOpDkLzgjGLhqUgb7rTigNrbEyMI=;
-        b=NhmHDLPJYyAlG4ikVxbI0bVQqGyn/MACFcbvyNMpm20CSh27jWzgUPdVjXMYs4nx0V
-         IZeHHvFtYX30BfcDMRqosvpTTgORMNKCSuo9qMZEOVEB365iNpZK7IPXJ5svDUYCsxkX
-         FARxMrot66gSz+h4ywz0dSnOE2UKXDNm9NOJQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785396147; x=1786000947;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IrNx642kewl/zDKJOpDkLzgjGLhqUgb7rTigNrbEyMI=;
-        b=OOt7aKoKdVkhr3MFI5tjqOUrB45AxEYhsHrO9N+hbHIMTld/TCRp1Aoftas67I/XCR
-         qrjHt6UsVuO3E7WhgMQQcEhSDLT24QtqQQ6eotaIDpBZg46XHykzjO1SOB3/rRZzC3hI
-         BJTtOxJAceS2XCDvQT9moTjakRzUCc77JyQY0/xEwTTmso+kcsjzp+9BSQq3tlHRmAi2
-         PFSi1sQ6ma5ouOiThOYlGQ9vV8KOGOqVVfl2Th1YVEFc5ed8NuUT81O3fG5lwlO/OBkD
-         yN6c3MwF3XfNPgcIfx/NWrAth2BfeYbJ0lo9/7j8ow8YT1GyIJf9SQcKVav8wrYNpH7Z
-         AkPA==
-X-Forwarded-Encrypted: i=1; AHgh+RpvH4HFpZPnyRMxLbaIVFzhPTNiq0U7Z386nJkpWc1Ovrfy8zYVFmyHdJD4HHcbUfVOv1PIPIFWp9og/+mtVkth@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQ02ErV7N1bGnB8Sw0vkBWJ6xErOjL6pJW7trIo6BYnRlW3v5P
-	7kBrVIGmUfUco51tFzkOu+vcFy6YEYu3Z5AHXnHajVPBs7bKE7BbmSjN4Wv5fMaBkVI=
-X-Gm-Gg: AR+sD13EumJrmSp9xGjl2hy71IxRxOmx3B2B7BtXSqVXgCYMfslE8Q1IXW9/ZEqC+Qu
-	8v0F3yUaJenFK0hZ2E6ztZuwVWdn9BsnBRZFvz1B38FlXUs4inwNQDrhjp9Jnhb0u4kzJPhjXmK
-	3Suxlx9GysPjViXunxDvqHVRTKAzfQ7uan/vYX74C0ACnOp5wcYm/kl71VqscdXznfPt6BJJ4if
-	k8RvUWSHZO6YaimWXmBGITbBbz3QiotBMRVgfj2yjyZ0e0I/IAcrQIC8uT47UNGJNgxUUVWQMNK
-	WkW8As9CeGTMTZTAU3BglaSmRJ1jVBdcNTy6db8PT5b4MW/mtr6q8P7rXBVHgtMyonaAKRVNuN/
-	7YcOsRMToZoMMwupGTsgcYlDxgolz7tV5z0SYKDL0HKTs/cqGzIFX0IJkt7uPqRsNvm9E4nsohJ
-	ohxNgyYbZv8vlcxMjrlXGZ5iFxhtJw0txn8w0FgUKOr+VQxqxwgCr5ghDodkZESTDN+EMLxKF4s
-	k6Rl6ET
-X-Received: by 2002:a05:6a00:a16:b0:848:4080:afe8 with SMTP id d2e1a72fcca58-84ebc2384fcmr1614396b3a.22.1785396146880;
-        Thu, 30 Jul 2026 00:22:26 -0700 (PDT)
-Received: from sangwoohan-nearthlab ([121.133.119.21])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea02fa4c9sm2573323b3a.32.2026.07.30.00.22.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 00:22:26 -0700 (PDT)
-From: Sangwoo Han <sangwoo.han@nearthlab.com>
-To: jim2101024@gmail.com,
-	florian.fainelli@broadcom.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com
-Cc: bcm-kernel-feedback-list@broadcom.com,
-	robh@kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	sangwoo.han@nearthlab.com
-Subject: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are handed out
-Date: Thu, 30 Jul 2026 16:22:15 +0900
-Message-ID: <20260730072215.2090974-1-sangwoo.han@nearthlab.com>
-X-Mailer: git-send-email 2.53.0
+	Thu, 30 Jul 2026 07:26:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NVbCMwuFRL8uS1kpFQkLdwk//SID8vLDRHXbdA2TwuvRZE3C7r8Om06KaPBqGS9TahO+x8z7t4UHUzLqVUiM3hln/A7l0ZejOxbQN5ArEmcEtidgMnwEGIe290sdj54jWQFi+Y8qE4/F6hJnDZweuFVQRGFVJ8zN1szZKQhEYLx7F9vruJiA2omX8BShtmQRAIhfaRbcgQpDisPCo+0XwjQj2dyLTHpyBldNjtsPM+nX7jZw7OhTLsBhUaD8ZwPddgouAoF8BYAEoORsjs+JsfoUnG9aCqaoqGSaO6cVZKt8L5M/dSrE4565drKt6Wmk/L9w0n1/gz/7W4L3S8szzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+bHVUngGeTETwXfXs9HjI7OF1XFZgEbN/iyskzwq8ig=;
+ b=J8cpH86Yi17i6pJE6Lg2l0JmOQfIdEJa0eoXsRGy6Fnh8rhc1Lu9q0prh4OP7r7oXCbmIEzl7ENyiWfl3xg8J4e0GGuzIRKkigq3puH9bq2bBDZ2+ws5MdwxRXWhhvPYSQHVQtLEovqsL0jcFqoUtigakmSsCSU5Q9dI5avAa8HUGfHwh8hNcECBHRONLHzAIGG8jK1zZFk4+puVdaPvYpwmVJ+scuFdULeWO1+rBXDQVM41m+oKQ8GijaQETcdsf6B47emjMY/DmSoJMtWjfa8tlcNp5XyG+HNWjNq0ScEZDqtUEhVC8LUqrzZfAxbGbgFdYgc62UFd+rEJQFRzqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+bHVUngGeTETwXfXs9HjI7OF1XFZgEbN/iyskzwq8ig=;
+ b=aOX5oC1NEBYjDNRy+vZb8L43qcGWIBJPSE3yVezxQNER6Ma7t00mWNGCsjtlsLZNyEIip9JyrQc0fJHtys+Z7VpZetAULbrspRcs1Jgr+WTcLGsDHeZeajujijnsYgZfdnVgQLIKLKYcspCh9vdxh12P00lNVRRjmDDs29ih8bZAU2eE4dvOLiNKoedZDmLZBWbJRjgUaSZc4PobZBIW1DuEjW2Ryrqnmx4+NZ/IaMCzXT/h2buTg6F4N2Zn2tuO7Wby5Z+nHagXGkQlcA2NwHw8zS6VvB2jUeO8p/i5MncqbSYaP7BGN3AiwsWMRhtlAzuKHz6OjxDDcEi+uN+uxw==
+Received: from CH2PR16CA0009.namprd16.prod.outlook.com (2603:10b6:610:50::19)
+ by BY3PR18MB4738.namprd18.prod.outlook.com (2603:10b6:a03:3c9::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Thu, 30 Jul
+ 2026 07:26:24 +0000
+Received: from DM2PEPF00003FC5.namprd04.prod.outlook.com
+ (2603:10b6:610:50:cafe::17) by CH2PR16CA0009.outlook.office365.com
+ (2603:10b6:610:50::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Thu,
+ 30 Jul 2026 07:26:23 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ DM2PEPF00003FC5.mail.protection.outlook.com (10.167.23.23) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.8
+ via Frontend Transport; Thu, 30 Jul 2026 07:26:23 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTPS id 6AA7B4186B53;
+	Thu, 30 Jul 2026 00:26:22 -0700 (PDT)
+From: Tzu-Hao Wei <twei@axiado.com>
+Subject: [PATCH 0/2] media: axiado: add AX3000/AX3005 V4L2 capture driver
+Date: Thu, 30 Jul 2026 15:26:07 +0800
+Message-Id: <20260730-ax3000-display-driver-v1-0-4fbd4d0c85d3@axiado.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAI/8amoC/x3MQQqEMAxA0atI1hPItKB0rjLMIrZRA+JICqUi3
+ t3i8i3+PyGLqWT4dCeYFM363xrerw7iwtssqKkZHLmeeheQqyciTJr3lQ9MpkUMIwdOIQ5+9BF
+ au5tMWp/v93ddN7B7oxhnAAAA
+X-Change-ID: 20260629-ax3000-display-driver-ca9ad9c73b3c
+To: Shubhangini G <shubhangini@axiado.com>, 
+ Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Karthikeyan Mitran <kmitran@axiado.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ openbmc@lists.ozlabs.org, Tzu-Hao Wei <twei@axiado.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1717; i=twei@axiado.com;
+ h=from:subject:message-id; bh=18jb9AFelmHSEL34wzcAp8GJh9EnJnAxlvDCrDinXy0=;
+ b=owEB7QES/pANAwAKAXgQMF3EWvHXAcsmYgBqavybY6PKaivkNdLOu+51tihUbAlocp/BbO3sw
+ xrCDkaS6++JAbMEAAEKAB0WIQSZyWINOowtFmDvdYF4EDBdxFrx1wUCamr8mwAKCRB4EDBdxFrx
+ 1w5nDACmG3kKyAia9xTgofIYc3gwk9Ze7/BFe2XVIPcDjM36/e2ETBP0Jyv9meZweN3SyGx8Ez1
+ tPGM6uAfsynNjh9hV7CoWsKXKX9DK8nnvwJ+YeLswdLI9YuJfiT5/h2vTVXEP6/srm8wOnpDjew
+ wi2owwNJa/KQBiPerZENOEw1Wp2qd/3ehVf80d6IawACW/klqxoZHVdRc+nGKjZklRfmDU0hiLD
+ 9gQPgXLD00+dKtWgcohTBuoN7Lsv+5iLfIKWUvvtmmNZY/aqOtNiWBSQjJ836zGLQ5N0PqiiY2n
+ v4VMnjN/Uq3n/VVl+FPH7VXjwSPaslkBtyekKJDtvIeNZUvaGxWTFR4t2Ch/lcTkV0iv02V6TNQ
+ WyvIUtsXQJCz8fI1zLnyAxE3LUNQOwqSTN9SqDBm51XUtnKTlwTnHJkVV3URL8x/L6cEvWlY0eQ
+ ccn+Rw7uAdumeDLgNFeXtV4PhADtJagY/rukGaVhAIDSBfuTAxs/9JAKMTgTXYfbQ/Akk=
+X-Developer-Key: i=twei@axiado.com; a=openpgp;
+ fpr=99C9620D3A8C2D1660EF75817810305DC45AF1D7
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC5:EE_|BY3PR18MB4738:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0df52ce9-a67c-4e95-3319-08deee0bdbcf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|23010399003|42112799006|1800799024|18002099003|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: VDoygt0tJm0OCDqrie3BaFEHi3YTIVuad3ASAqbjWYu0bQ4dGAAVGOTgy3UkWD2rF1qTHkrYD5cM8L9AZpnfa58FTGTWiLbQ4aJK4QDPOi1E835nc6rVxIs11BR3mfyl/QWgihLRMx5x5itaO6gx0m5NfGsZTiVRROVNsi8fjNeguYqkn5vghTXBdEDAOkdpb3xkWqHifh7oxFTnssL96NeyLdRPKQ1UrTdB/NjFAWCPFak3wYZCerKhG1xRoPpA4gBvk/AgNMgWO3sfpLt4Tc92SwbgEFugee2u7nb2O807/qCWrWDQhC4ojTyd9c+ODeZwnp6aPS306hgqAnoLZpgJRQpYpDh/JN9Z7pp+LFciMVqulC7OSryNMQdc3SDvZJcZVOWA7eO3i1NNKWBy2rn6wq7TsFtPUw4yT7FxEP1e1+IixxXSk/z6AkCUb+NpGa9JG47zEJfaUN/di0POtqhgTOh3s7JLrfxFDh1EgjaCo/otk6RoLRfSq522tzZ93qKV2QzXvRLLPl7FbgASNySQh109/BGJw+5PZAv/Jpgce9cQTDBfKN8l8hFNxZRFAFlJOJgTULLhL7fpLLhZxE7mQzyvHNffbhh25O+MnKSIPRR0sX09Bp+Wt0hxv/rsSfMREBoncp5EwPd7LHKb/GY3Ob6mgpkdJBJKIqhf3qDEYzaf8yuHvu3SY7wcZTi+rzmSnTyeHEHDlg42zoCtUA==
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(23010399003)(42112799006)(1800799024)(18002099003)(56012099006)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: EOq2LHsXbYQujejxXbIr3FaPgyjPCWig6FtuKtI12mPTha5HVq7Xa2JGiasXDjZirOD3GsIPv3XwXrTq3MSXKG2V2P+EHJyJ2ikh9Z0VIYbQhYjwxoAIS+hGWmhyuiD6VjsthKkZSKJ1D4qF+x0Et1ZERZmvM8CuF1m8OZ8vSMuwxGhvQTJ5DM0IBW/3nx5fs+OxjUCX22j0zSt/AFOSSYPuILGbrDuUAokgqrXrAV84A0aaq7EBgmO6OjEaBSi7ToxMTDa/3E+a4CF442Xo/9Nz31R7GgQs3eIsQCecChoJvQfR9kTkdWaMZZK35Xo/FfIFJ8t/4UVyVlK+tni4p9OeQT0MJa5WIdsUtKlBD77DYvnAxyEKKd9tieLqGydVlHHIMeLozJdSROZMwAtuXEiecSk6Un6bVrL+hpRRuv/suqrVlXWu5Pld1oZnBP+s
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 07:26:23.1337
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0df52ce9-a67c-4e95-3319-08deee0bdbcf
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC5.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR18MB4738
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_002228_341672_2DC0A124 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20260730_002631_111814_22A42785 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,114 +138,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-brcm_msi_alloc() reserves a naturally aligned power-of-two region with
-bitmap_find_free_region(order_base_2(nr_irqs)), but the irqdomain core
-releases the vectors of a block one at a time:
+This series adds a V4L2 capture driver for the Axiado AX3000/AX3005
+display capture path and its Device Tree binding.
 
-  /* irq_domain_free_irqs_hierarchy() */
-  for (i = 0; i < nr_irqs; i++)
-          if (irq_domain_get_irq_data(domain, irq_base + i))
-                  domain->ops->free(domain, irq_base + i, 1);
+  [1/2] dt-bindings: media: add axiado,ax3000-video
+  [2/2] media: axiado: add V4L2 capture driver for AX3000/AX3005 SoC
 
-That loop is the only caller of an irq_domain's ops->free(), so
-brcm_irq_domain_free() always sees nr_irqs == 1 and
-bitmap_release_region() clears exactly one bit per call. A request whose
-vector count is not a power of two therefore reserves
-roundup_pow_of_two(nr_irqs) bits but releases only nr_irqs of them, and
-the difference stays set for the lifetime of the controller.
+There is no local register interface for this driver to program.
+Frame delivery is controlled entirely by the host-side display engine
+and the PCIe endpoint mapping, both external to this driver; on the
+AX3000/AX3005 side this is a passive memory window that gets read on
+a timer. The AX300X operates as a PCIe endpoint BMC. Neither the PCIe
+endpoint driver nor the host-side display driver are upstream yet;
+both are planned as follow-on series.
 
-Multi-MSI regions are order-aligned and the controller has at most 32
-MSIs, so the pool is quickly exhausted. Observed on a BCM2712 with a
-5-vector endpoint behind a 4-port PCIe switch: the switch ports take
-hwirq 0x0-0x3 and the endpoint's block walks 0x8 -> 0x10 -> 0x18 across
-three driver reloads until no aligned order-3 region is left.
-pci_alloc_irq_vectors() then falls back to a single vector for the rest
-of the boot, silently multiplexing the endpoint's four completion
-interrupts onto one hwirq.
+Tested on AX3005 hardware using v4l2-ctl (format enumeration, S_FMT,
+REQBUFS, streaming) and obmc-ikvm for end-to-end capture verification.
+dt_binding_check passes.
 
-Devices that ask for a non-power-of-two vector count are not exotic:
-wil6210 asks for 3, the MHI modems for 5 (Quectel EM1xx, Foxconn SDX55,
-Telit FN990, MediaTek MV3x) or 7 (Qualcomm v1), ath11k WCN6750 for 28
-and ptp_ocp for 17. MSI-X is unaffected because it allocates one
-descriptor per vector with nvec_used == 1, so the order is always zero.
-
-Reserve exactly the vectors that are handed out, at a base found with
-bitmap_find_next_zero_area(), and clear exactly the vectors that are
-freed. The number of reserved bits then matches the number the core
-releases, whatever arity it uses.
-
-The base still has to be aligned: PCI Local Bus Specification 3.0
-(section 6.8.1.6) lets the endpoint encode the vector number in the low
-order_base_2(nr_irqs) bits of the Message Data register, and in this
-controller those bits are the hwirq itself. The alignment mask has to be
-roundup_pow_of_two(nr_irqs) - 1 rather than nr_irqs - 1:
-bitmap_find_next_zero_area() requires a mask of the form 2^k - 1. No
-align_offset is needed because the bitmap index is the value the
-endpoint ORs in, see brcm_msi_compose_msi_msg().
-
-For a power-of-two nr_irqs the alignment and the region length are both
-nr_irqs, so the base returned is the same as before and those
-allocations are unaffected.
-
-Fixes: 198acab1772f ("PCI: brcmstb: Enable Multi-MSI")
-Cc: stable@vger.kernel.org
-Signed-off-by: Sangwoo Han <sangwoo.han@nearthlab.com>
+Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
 ---
+Tzu-Hao Wei (2):
+      dt-bindings: media: add axiado,ax3000-video
+      media: axiado: add V4L2 capture driver for AX3000/AX3005 SoC
 
-Notes:
-    Tested on a BCM2712 (Raspberry Pi 5) with a 5-vector endpoint behind a
-    4-port PCIe switch, running 6.12.25 where brcm_msi_alloc() and
-    brcm_msi_free() are byte-identical to mainline. Without the patch the
-    endpoint's block walks 0x8 -> 0x10 -> 0x18 over three driver reloads and
-    then falls back to a single vector for the rest of the boot; with it the
-    block returns to 0x8 on all of eight reload cycles and the inner
-    domain's mapped count round-trips cleanly.
-    
-    Compile-tested on mainline for arm64 with W=1 and C=1 (sparse); no new
-    warnings.
+ .../bindings/media/axiado,ax3000-video.yaml        |  44 ++
+ MAINTAINERS                                        |   9 +
+ drivers/media/platform/Kconfig                     |   1 +
+ drivers/media/platform/Makefile                    |   1 +
+ drivers/media/platform/axiado/Kconfig              |  17 +
+ drivers/media/platform/axiado/Makefile             |   2 +
+ drivers/media/platform/axiado/axiado-video.c       | 850 +++++++++++++++++++++
+ 7 files changed, 924 insertions(+)
+---
+base-commit: 1590cf0329716306e948a8fc29f1d3ee87d3989f
+change-id: 20260629-ax3000-display-driver-ca9ad9c73b3c
 
- drivers/pci/controller/pcie-brcmstb.c | 17 ++++++++++++++---
- 1 file changed, 14 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index 8a0c353d2a..6c5166666d 100644
---- a/drivers/pci/controller/pcie-brcmstb.c
-+++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -595,11 +595,22 @@ static struct irq_chip brcm_msi_bottom_irq_chip = {
- 
- static int brcm_msi_alloc(struct brcm_msi *msi, unsigned int nr_irqs)
- {
-+	/*
-+	 * brcm_msi_compose_msi_msg() puts hwirq in the low order bits of the
-+	 * message data, which a Multi-MSI endpoint rewrites per vector, so a
-+	 * block's base must be aligned to the Multiple Message Enable count.
-+	 */
-+	unsigned long align_mask = roundup_pow_of_two(nr_irqs) - 1;
- 	int hwirq;
- 
- 	mutex_lock(&msi->lock);
--	hwirq = bitmap_find_free_region(msi->used, msi->nr,
--					order_base_2(nr_irqs));
-+	hwirq = bitmap_find_next_zero_area(msi->used, msi->nr, 0, nr_irqs,
-+					   align_mask);
-+	if (hwirq >= msi->nr) {
-+		mutex_unlock(&msi->lock);
-+		return -ENOSPC;
-+	}
-+	bitmap_set(msi->used, hwirq, nr_irqs);
- 	mutex_unlock(&msi->lock);
- 
- 	return hwirq;
-@@ -609,7 +620,7 @@ static void brcm_msi_free(struct brcm_msi *msi, unsigned long hwirq,
- 			  unsigned int nr_irqs)
- {
- 	mutex_lock(&msi->lock);
--	bitmap_release_region(msi->used, hwirq, order_base_2(nr_irqs));
-+	bitmap_clear(msi->used, hwirq, nr_irqs);
- 	mutex_unlock(&msi->lock);
- }
- 
+Best regards,
 -- 
-2.53.0
+Tzu-Hao Wei <twei@axiado.com>
 
 
