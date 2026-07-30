@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9629C55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:04:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E52C55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OAzNMKmzxCFzEOWAiEeFQaer1iebyg6cnDmy70dSSVc=; b=NnEYKvnHB/+Ou2WAAYPZ8/ikDo
-	bidSA8rr2fQY0p/oepLUelwEoZFt8q2suCk/eW3zaR0F1hmdOQdoeIq2xOgNKKMk89wgcYOk+8IWH
-	LTXbOseLYgzp1sOjPdIA5Opm1+dOwEkYY2CsIFh5AySMYgj2BjyJBrq63tKoYQi0rhiDjlZ52SMeJ
-	ctaRK9g/OvHgOhlQYXxbLkeQjKu8gwJ9COcjdwXAnEnehHaYYsT1qCYuFECzPAoaEaNhqOT+ynnO0
-	sNMVYJyrTSSJSek1FsHvFlbkccxX47bonTkkAteUYZX0MZiwjbUA3u6Lr7dTP9mZvelI2VV8PzmQ5
-	PppsOj/Q==;
+	bh=Q95GYrZJFcrKcY1VkAcZ17z5yWQx4bw3VItykV2gTpI=; b=zuQRaLAsmk1hCk5Q8k0CWL0lLT
+	sBCIwUm/RDfqpwZSLuZh88b4m5NO2o5XP9/xBghRr7lU+FtCKSrvxJBycFGokz0iTKe4MLAvCi4ah
+	1loyPg92vOHh4iIGgvqAFswJX8iFIcjTUbeFuFpY5YpfrEits8ePdHHEzVhetXeH32BiBnyj5g+Da
+	wvgSylLyIec+0yf8xFY1OAbx4KFDuYVmuLOZAz++PfLkramoAMfLc/2uIwVebAJWJKcWI7KI+b6Cr
+	y/DMje0FIB1D6blchd0+qin5JQ5ZAacEO1pCTc3K+LTfCPogO0yG4J6KzU1YFBldBPnhlah6bY8Jn
+	vB7IQs4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpZnG-0000000BSo5-0pEF;
-	Thu, 30 Jul 2026 23:04:02 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1wpZqR-0000000BT0P-2vLe;
+	Thu, 30 Jul 2026 23:07:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpZnB-0000000BSnX-2Mz0
+	id 1wpZqP-0000000BT0F-3zSu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 23:04:01 +0000
-Message-ID: <77edc25d-a521-4f65-84ed-dbb016593902@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785452631;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OAzNMKmzxCFzEOWAiEeFQaer1iebyg6cnDmy70dSSVc=;
-	b=ByXJ6MS1MhKl0IZKznqW2J5nDrksOfD/dwgBIHmiEQXINrWpU3ijNcB6h40pP7yFC5i1vM
-	gUD57GI4yWuIFnk56E1motluBATL65JoyAMundcpQ2zA2vs6bjJIR14Nd3A/OfA2iTBfTn
-	CMAjhXxMsRAxvi87UlEJeKSsQFE83ms=
-Date: Thu, 30 Jul 2026 16:03:33 -0700
+	Thu, 30 Jul 2026 23:07:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE88D600C8;
+	Thu, 30 Jul 2026 23:07:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44C0C1F000E9;
+	Thu, 30 Jul 2026 23:07:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785452836;
+	bh=Q95GYrZJFcrKcY1VkAcZ17z5yWQx4bw3VItykV2gTpI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=K6DcTkaSxNC3Mz//SHt/B6bK+8/dIYFonFz5hUDFt+cbWU8v8+L7HTM5TpBy8zQ6I
+	 IGXYFiogBsfWPAH7rPrSfuCYP+qcGdS33hcIiq34IN/CoftAG9nZYlJ4l9WwsUqYZ4
+	 nEF8z1xa9HoZvRPtqdxXBmtAOMldtBAXBOqtJmJJVRNy74Co3A2D7bn1DzQIKKbflm
+	 yE4kgD1obSZpjqaCy15gmcRKjMtmm6nbSPr2EYmx9XHKPbSXsoVS72afJhtr1qXIWK
+	 HS3XQdRT9ieCpop5Ba1owiPQbprlWMmHcS5vjxx4lAICCSmYl7k+50BIm9Gbpn2Q16
+	 u0SGYs5khxi4A==
+Date: Thu, 30 Jul 2026 16:07:15 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Abid Ali <dev.taqnialabs@gmail.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] net: stmmac: enable MAC rx/tx after DMA start
+Message-ID: <20260730160715.5ba5e272@kernel.org>
+In-Reply-To: <8e9563ce-e103-4fda-80e7-5dffaca2a03a@bootlin.com>
+References: <20260727-stmmac-rx-fifo-block-v2-1-4dc3457d31d0@gmail.com>
+	<8e9563ce-e103-4fda-80e7-5dffaca2a03a@bootlin.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] arm64: ftrace: enable single ftrace_ops for direct
- calls
-To: Leon Hwang <leon.hwang@linux.dev>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, Shuah Khan <shuah@kernel.org>,
- "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
-Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20260727142844.21212-1-leon.hwang@linux.dev>
- <20260727142844.21212-2-leon.hwang@linux.dev>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ihor Solodrai <ihor.solodrai@linux.dev>
-In-Reply-To: <20260727142844.21212-2-leon.hwang@linux.dev>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_160359_324216_1C903BEE 
-X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,97 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/27/26 7:28 AM, Leon Hwang wrote:
-> The BPF tracing multi link updates several direct-call sites through one
-> ftrace_ops. Its implementation is therefore gated by
-> HAVE_SINGLE_FTRACE_DIRECT_OPS in addition to
-> DYNAMIC_FTRACE_WITH_DIRECT_CALLS.
+On Mon, 27 Jul 2026 10:23:13 +0200 Maxime Chevallier wrote:
+> On 7/27/26 08:14, Abid Ali wrote:
+> > When the MAC receiver is enabled before the DMA channels are started,
+> > incoming frames fill the MTL FIFO with no DMA engine to drain it.
+> > If the PHY/Switch is already up at this point, and there is inflow
+> > of packets towards EMAC, the per-queue FIFO overflows within this window.
+> > 
+> > Once the FIFO is full, the MTL read controller goes idle and never
+> > retries delivery even if the DMA comes alive later on.
+> > This behaviour happens due to enabling the MAC RX path before
+> > the DMA setup is ready, and any delay between these events increases
+> > the chances of blocking the rx path permanently.
+> > 
+> > The EMAC should only accept packets after the DMAs are enabled.
+> > Similarly, the teardown should ensure the MAC rx/tx is stopped before
+> > DMA engine is stopped.
+> > 
+> > Signed-off-by: Abid Ali <dev.taqnialabs@gmail.com>  
 > 
-> Select HAVE_SINGLE_FTRACE_DIRECT_OPS whenever arm64 enables dynamic ftrace
-> direct calls. This enables BPF tracing multi links on arm64. Also
-> generalize the unreachable-trampoline comment because the single-ops path
-> does not use ops->direct_call.
+> Ah great ! This matches the programming model for the few ref manuals I
+> have, e.g. cycloneV manual does state that the MAC must be enabled after the
+> DMA has been configured.
 
-Hi Leon,
+Sorry, me+Sashiko again :S
 
-I don't think this change can land as is yet. The series doesn't even
-apply cleanly to bpf-next, but that's minor.
+Sashiko wrote a damn essay, IDK if it makes sense.
 
-More importantly, it depends on Jose's series [1], which is not in the
-mainline yet. And there Mark has raised performance concerns [2] and
-the discussion still seems to be open.
+Looking at the patch - isn't it a bit awkward to handle Rx and Tx
+together? We want to keep Rx blocked to prevent incoming frames,
+but Tx should be allowed so that Tx can egress?
 
-[1] https://lore.kernel.org/all/20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev/
-[2] https://lore.kernel.org/all/amjnf5gz0xP5PTSB@J2N7QTR9R3/
-
-> 
-> Assisted-by: Codex:gpt-5.6-sol
-> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
-> ---
->  arch/arm64/Kconfig         | 2 ++
->  arch/arm64/kernel/ftrace.c | 3 +--
->  2 files changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 0de419ed780f..c98dca76859b 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -188,6 +188,8 @@ config ARM64
->  		    CLANG_SUPPORTS_DYNAMIC_FTRACE_WITH_ARGS)
->  	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS \
->  		if DYNAMIC_FTRACE_WITH_ARGS
-> +	select HAVE_SINGLE_FTRACE_DIRECT_OPS \
-> +		if DYNAMIC_FTRACE_WITH_DIRECT_CALLS\
-
-The select is only conditional on DYNAMIC_FTRACE_WITH_DIRECT_CALLS, so
-it can be set along with HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS. And AFAIU
-this would make the fast path effectively dead: every BPF direct call
-routed through ftrace_caller now goes through the slow path.
-
-As Mark noted in the other thread, on arm64 trampolines come from
-EXECMEM_BPF, so they always land out of BL range (chance of landing in
-range is 256M/terabytes).
-
-I vibe-slop-coded a benchmark and ran it on a Neoverse V2 machine, and
-toggling your config change seems to be causing a 1.3x regression in
-the tracing overhead:
-
-  do-nothing fentry (r0=0; exit) on __arm64_sys_getpid, 20 M calls, min-of-N, several boots. Results:
-
-              untraced (base)   traced        overhead
-  Kernel A    ~128 ns/call      ~145.5 ns     ~17.6 ns   (fast path: br x17)
-  Kernel B    ~127 ns/call      ~150.4 ns     ~23.4 ns   (slow path: save regs + call_direct_funcs + hash)
-
-This confirms Jiri's suspicion.
-
-However my understanding is the regression should mostly disappear in
-case some version of in-range trampoline allocation on arm64 lands.
-
-So, I think the landing sequence should be something like follows:
-  * in-range BPF-trampoline allocation that Jose proposed [3]
-  * then HAVE_SINGLE_FTRACE_DIRECT_OPS selection
-
-After all of that reaches mainline, then a selftest patch can go
-through the bpf-next.
-
-[3] https://lore.kernel.org/all/amn7cBQ-cqs2XlKV@linux.dev/
-
->  	select HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS \
->  		if (DYNAMIC_FTRACE_WITH_ARGS && !CFI && \
->  		    (CC_IS_CLANG || !CC_OPTIMIZE_FOR_SIZE))
-> diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
-> index e1a3c0b3a051..56ba72a87dfa 100644
-> --- a/arch/arm64/kernel/ftrace.c
-> +++ b/arch/arm64/kernel/ftrace.c
-> @@ -301,8 +301,7 @@ static bool ftrace_find_callable_addr(struct dyn_ftrace *rec,
->  
->  	/*
->  	 * If a custom trampoline is unreachable, rely on the ftrace_caller
-> -	 * trampoline which knows how to indirectly reach that trampoline
-> -	 * through ops->direct_call.
-> +	 * trampoline which knows how to indirectly reach that trampoline.
->  	 */
->  	if (*addr != FTRACE_ADDR && !reachable_by_bl(*addr, pc))
->  		*addr = FTRACE_ADDR;
-
+Grepping around I'm not seeing any flushing of Tx. Aren't there
+issues with this driver if we stop the interface while it was
+paused by link partner?
+-- 
+pw-bot: cr
 
