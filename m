@@ -4,112 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C38C55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACBA6C55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/xUoUB1/1TADTp7P1YLdGTC5axqAibkjkTuB6w90Qg=; b=SvRXNRjlNKY4y+5rmp5mdVBHrz
-	W48g2WLVhhu7Yw0MO58j/AZ/3wyb9B8WfzmkD1YmG+S9vDcgt/FuF4KG369UIa1O4yoTzHIV7XnLP
-	1qztV7DJJCdZ3rhskxBGGzXVIKVl5V4vZ5rPXRTZJbzPdL4ifOZduYZTwnT9cNykFsBCAK3XLw84D
-	LoxRj5BfOHk9OUTEJ2Esk1v8Pnpc+ymbZbTlEZgR0lMqEEbx7XBrvSOfQYwBa7vcFRUk7tZMO9zPR
-	fYuf6yaO1gYBDyeDN3VKpLI+xZV0izpagjT/4X+14F5wbRtRFRT+lhcwTb2jbAiVGFBvlVk0o/2QA
-	sxWcDG1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CPvR8CG4q3kTDzhSTbjqUxaipzJqWxYBp99l7t+pfWg=; b=yMc2+E6k01597Jw/VJ3YiTFy4z
+	OZKgbLpXRkfLEXeMx/urIa5r9jxmwGCIELyd68u/aJ7kGUKy8rmS1hvYsjbEGBETazY3WdXa1ra2b
+	TRc8/y0V1rVJRstM1J5/UuPf/tOuuOof5THWQHOIKlimuf0s8kEMgSHO9cciZ1tn1hty5DLW/Amxl
+	+D5J2knL0ASTozYItL4FAdvnESdCm+q7CwjlXtEobeYk7kqLynMVAudH1LR8wilXPQHYCVNCZcnfd
+	aJQ+ucZXdUa/EYPUwIOmzcKa+ivhPMsVh7X2GYgrEmatvC/q5gvSfAg8iVYfI5APbVWyO5tV5eA/p
+	+7LjqrEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNwo-0000000ABXZ-3rV0;
-	Thu, 30 Jul 2026 10:25:06 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wpQD1-0000000AVcA-0MNi;
+	Thu, 30 Jul 2026 12:49:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNwi-0000000ABQS-2Y9P
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 10:25:02 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4921eed3fa2so13085405e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 03:25:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785407099; x=1786011899; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=q/xUoUB1/1TADTp7P1YLdGTC5axqAibkjkTuB6w90Qg=;
-        b=fXflrinFQMQqjYzWKrNskBWaHr2DUgUWeHnNFOzQ6Se3VbQ4Z/i65cWJaRU3jgrfSq
-         lR2IFHFD6+6GAd86YZG0LswkCFkVg9jfYpaCr8HQIgOn256o3YsktoH6sJ6hZsgUvVC2
-         /Dok8pidbEGn498AlUoV4+T2e/LJccN00I9fyP+B1JKfY9sixWWsh9Cdc+LdG2nLrzpL
-         +NeB2j6l2BXUNeldFmEPvYaPh0Q0R2J2n7Hbn3CZKXj2RpA67kNCnJh4wU12sPTmrTJZ
-         O4JZz4JNjKHV8LtDpTeNwIXY43RQUllizIJdjKTzlJQCvolGssvMO9INFhg94f7IK0Ir
-         47JA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785407099; x=1786011899;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=q/xUoUB1/1TADTp7P1YLdGTC5axqAibkjkTuB6w90Qg=;
-        b=UfrPm6+Z5GHGcQCIvvVR80x4/4Solshq0YxU53hpaajXqIGCn6yX6H51qDkxgVuJHy
-         LlppgSQeS4AB/zpCyizE+61TO0qRFnZOYsxJz+r7uJtxcKQH8L5O8U1YeHVRipzDR6zS
-         R8kqBBI+GWucCDNtUOI4Bv6EToq7O0jA6ca7AB1kxCafvh5GdgJ7eZviCPrLVqkyhKOY
-         3mlvWi0GTzZB2d0i51Nw44Zk63GCTnffx80eHApwY7VVVzcYYJElDj+9Hfr7Ava5/Lmy
-         jK2pjWZbKtS+VJUafGUPkDl4Ymv4qE8DETQdsV1NBfhV/S3nGJKYw80TwcxSP0z40sKf
-         YKPQ==
-X-Forwarded-Encrypted: i=1; AHgh+Ro2QBtJG1ehg/xJCAMPR0gmB7vPHN+FRudTTLM49bWdTF5KqvtzpPo5KCYWNsC98Whj//RkO1F5fd1nP97+sCCZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIW/eHoA4YjxUb5uBYGTYVmIvEbY1SUEWTlsRBFP38sVTlsyVX
-	a+gZ7vd0SrSn8mhJiN0LNzXiC0/QB3bGmp32QKkrUfblV1QkkxLURVF/
-X-Gm-Gg: AR+sD11c/Uvv7KsIoAlqqEIaiCtki1HkAEpflyNR1uB2Mh2XirQDwyKuCTMoQVFilf7
-	4rEGlyowHlT8Jv9dM3zMvkY6DnKKQsi6zVElH0IAkHgPyfE6cZkQAA9iAPIra6oLNDC6pGXTu/t
-	qH/+IjvvzUckKRvCpZC+k0nDHe8DaY+duyh9DRf3nlujU2O/ZAOTOL35d8WOKp3W4ZSLjhjw04T
-	C+JLbRFr9xfPCEwSMhATdIRVHUgyBd2OXF0LlC+I0F52aP1SAqu1MrUA14OLKcbVIywiYXOGiJw
-	4Qw5yagmuNzDpfuKdML0um4HB8T834GboWb3YdGkZrBpNvzGdIXbiXJ8+Jh2LcH2IQk4Dg3d9tg
-	XlytL9pxvUPj+LXJ1RptW1ei0pEMi3aY74eei1CTwx5M+mD4BM478b5BamTkvxUmgCUxKfGWs0c
-	03KyZePMLAOpM1TAd+bq3ZBpYz4D9qb0yRmcAo53Z7ZdUoLqkGBZFSGJ/7TyKFVhNwnww0PG8Ro
-	AZ2dsOeFVG/0SJbRfe1u6wrg9KCgQtQVvoiKsrocjjH3bX33ZXoh/iiDbCslJxbmnYv1e3AXcGO
-X-Received: by 2002:a05:600c:6d0d:b0:495:515a:dad9 with SMTP id 5b1f17b1804b1-49800eb9d43mr16965505e9.37.1785407098864;
-        Thu, 30 Jul 2026 03:24:58 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (host-87-11-254-126.retail.telecomitalia.it. [87.11.254.126])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-498011fd5fesm44720295e9.7.2026.07.30.03.24.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 03:24:58 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [PATCH net-next v10 02/11] net: phylink: introduce internal phylink PCS handling
-Date: Thu, 30 Jul 2026 12:24:13 +0200
-Message-ID: <20260730102444.1967900-3-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260730102444.1967900-1-ansuelsmth@gmail.com>
-References: <20260730102444.1967900-1-ansuelsmth@gmail.com>
+	id 1wpQD0-0000000AVba-17x3;
+	Thu, 30 Jul 2026 12:49:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9D59D405AA;
+	Thu, 30 Jul 2026 12:49:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03CAE1F000E9;
+	Thu, 30 Jul 2026 12:49:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785415797;
+	bh=CPvR8CG4q3kTDzhSTbjqUxaipzJqWxYBp99l7t+pfWg=;
+	h=From:Date:Subject:To:Cc;
+	b=kk4aQvoZaf3cFg5aFtpEBS14vakZxPoChfTvs3XO0VJ65g92WTfGxi7bOJMluQnt3
+	 TxcGo3ph32WxtnTnac5TtKB8/jJ1uIxzhH7yL9GWb/alMIadFe8T83mEpzPGl9VE7X
+	 6xks8VimtEy79dZ25T/iILz9cQr6QAX1FdhmvWVSG/SMBK3LIjc6OTqNzfWGsvvyT3
+	 J9gN9RJT+eRO4nws+Gt4RrRy/D5bMtQxRHGX79WQQZvXB02B2R3n/08Vyihg/8kECb
+	 Q/PUzlDm2eT+Lvo6jq+blEWVBMfVAZ/OUhB4nL7w4qrt1S50soh3eg7q8Q2VPq2MRY
+	 1f+ME9evWA3GA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 30 Jul 2026 14:49:22 +0200
+Subject: [PATCH net-next v3] net: airoha: add HW GRO offload support
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_032500_841894_E6699D57 
-X-CRM114-Status: GOOD (  40.63  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260730-airoha-eth-lro-v3-1-631963d048e3@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XOTWrDMBCG4asErasy0sR21FXvUbrQz+dYNEhFN
+ iYl+O5VvHKxy6wG8cyrhxhRIkbxdnqIgjmOMae68MtJ+MGmK2QMdReadEuNJmljyYOVmAZ5K1n
+ aJijPLauLUqKi74I+3teDHyJhkgn3SXzWlyGOUy4/a2lW6/t/R2cl62jjPXPXtjDvXygJt9dcr
+ s/I6uocOoLzcATbe9665x9mve3uva5en6GtQWfZdIddRYeuOTsY44zVodl1edu97DxXHwIZr3p
+ HRPjjl2X5BVa4gZ+nAQAA
+X-Change-ID: 20260520-airoha-eth-lro-a5d1c3631811
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Alexander Lobakin <aleksander.lobakin@intel.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, Madhur Agrawal <madhur.agrawal@airoha.com>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,508 +76,720 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce internal handling of PCS for phylink. This is an alternative
-way to .mac_select_pcs that moves the selection logic of the PCS entirely
-to phylink with the usage of the supported_interface value in the PCS
-struct.
+Add hardware GRO offload support to the airoha_eth driver, leveraging
+the EN7581/AN7583 SoC's 8 dedicated LRO hardware queues mapped to RX
+queues 24-31. HW GRO offloading does not support Scatter-Gather (SG) so
+it is required to increase the page_pool allocation order to 2 for RX
+queues 24-31 (LRO queues).
+Since HW GRO is configured per-QDMA and shared across all devices using
+it, HW GRO is mutually exclusive with multiple active devices on the
+same QDMA block. Call netdev_update_features() on sibling devices in
+ndo_open/ndo_stop so that NETIF_F_GRO_HW availability is re-evaluated
+when the QDMA user count changes.
+Set CHECKSUM_PARTIAL with pseudo-header checksum on aggregated packets
+so that L3-forwarded traffic is correctly handled by the GSO/TSO path
+on the egress device.
 
-MAC should now provide a callback to fill the available PCS in
-phylink_config in .fill_available_pcs and fill the .num_possible_pcs with
-the number of elements in the array. MAC should also define a new bitmap,
-pcs_interfaces, in phylink_config to define for what interface mode a
-dedicated PCS is required.
+Performance comparison between GRO and HW GRO has been carried out using
+a 10Gbps NIC:
+GRO:    ~2.7 Gbps
+HW GRO: ~8.2 Gbps
 
-On phylink_create(), an array of PCS pointer is allocated of size
-.num_possible_pcs from phylink_config and .fill_available_pcs from
-phylink_config is called passing as args the just allocated array and
-the number of possible element in it.
-
-MAC will fill this passed array with all the available PCS.
-
-This array is then parsed and a linked list of PCS is created based on
-the allocated PCS array filled by MAC via .fill_available_pcs().
-
-Every PCS in phylink PCS list gets then linked to the phylink instance
-by setting the phylink value in phylink_pcs struct to the phylink instance.
-Also the supported_interface value in phylink struct is updated with
-the new supported_interface from the provided PCS.
-
-On phylink_destroy(), every PCS in phylink PCS list is unlinked from the
-phylink instance by setting the phylink value in phylink_pcs struct to NULL
-and removed from the PCS list.
-
-phylink_validate_mac_and_pcs(), phylink_major_config() and
-phylink_inband_caps() are updated to support this new implementation
-with the PCS list stored in phylink.
-
-They will make use of phylink_validate_pcs_interface() that will loop
-for every PCS in the phylink PCS available list and find one that supports
-the passed interface.
-
-phylink_validate_pcs_interface() applies the same logic of .mac_select_pcs
-where if a supported_interface value is not set for the PCS struct, then
-it's assumed every interface is supported.
-
-A MAC is required to implement either a .mac_select_pcs or make use of
-the PCS list implementation. Implementing both will result in a fail
-on phylink_create().
-
-A MAC defining .num_possible_pcs in phylink_config MUST also define a
-.fill_available_pcs or phylink_create() will fail with an negative error.
-
-phylink value in phylink_pcs struct with this implementation is used to
-track from PCS side when it's attached to a phylink instance. PCS driver
-will make use of this information to correctly detach from a phylink
-instance if needed.
-
-phylink_pcs_change() is also changed to verify that the PCS that triggered
-a link change is the one that is currently used by the phylink instance.
-
-The .mac_select_pcs implementation is not changed but it's expected that
-every MAC driver migrates to the new implementation to later deprecate
-and remove .mac_select_pcs.
-
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/phy/phylink.c | 226 +++++++++++++++++++++++++++++++-------
- include/linux/phylink.h   |  16 +++
- 2 files changed, 204 insertions(+), 38 deletions(-)
+Changes in v3:
+- Add missing TCP header length check.
+- Fix TCP checkum calculation.
+- Disable LRO running ndo_stop callback.
+- Implement packet header split in order to support HW-GRO
+- Link to v2: https://lore.kernel.org/r/20260610-airoha-eth-lro-v2-1-54be99b9a2d5@kernel.org
 
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index 3464e3ec5699..a5e2d342a92e 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -60,6 +60,9 @@ struct phylink {
- 	/* The link configuration settings */
- 	struct phylink_link_state link_config;
+Changes in v2:
+- Rebase on top of net-next main branch.
+- Link to v1: https://lore.kernel.org/r/20260606-airoha-eth-lro-v1-1-0ebceb0eafc3@kernel.org
+
+Changes in v1:
+- Please note this patch depends on the following patch not applied yet
+  to net-next
+  https://lore.kernel.org/netdev/20260606-airoha_qdma_users-no-atomic-v1-1-86e2d6a1bfaf@kernel.org/T/#u
+- Restrict LRO to single user QDMA.
+- Introduce some more sanity checks.
+- Disable scatter-gather for LRO queues.
+- Run netif_receive_skb() for LRO packets.
+- Link to v3: https://lore.kernel.org/r/20260528-airoha-eth-lro-v3-1-dd09c1fb000e@kernel.org
+
+Changes in RFC v3:
+- Fix double-free of the page_pool of airoha_qdma_lro_rx_process()
+  fails.
+- Set AIROHA_LRO_PAGE_ORDER according to PAGE_SIZE.
+- Add missig gso metadata for the LRO packet.
+- Link to v2: https://lore.kernel.org/r/20260526-airoha-eth-lro-v2-1-24e2a9e7a397@kernel.org
+
+Changes in RFC v2:
+- Improve performances fixing buf_size computation.
+- Fix possible overflow in REG_CDM_LRO_LIMIT() register configuration.
+- Require the device to be not running before configuring LRO.
+- Fix configuration order in airoha_fe_lro_is_enabled().
+- Check skb header length in airoha_qdma_lro_rx_process().
+- Do not check net_device feature in airoha_qdma_rx_process() before
+  executing airoha_qdma_lro_rx_process() but rely on
+  airoha_qdma_lro_rx_process() logic.
+- Fix possible double recycle in airoha_qdma_rx_process() for LRO
+  packets.
+- Always use AIROHA_RXQ_LRO_MAX_AGG_COUNT macro for max LRO aggregated
+  fragments in airoha_fe_lro_init_rx_queue().
+- Link to v1: https://lore.kernel.org/r/20260520-airoha-eth-lro-v1-1-129cc33766e9@kernel.org
+---
+ drivers/net/ethernet/airoha/airoha_eth.c  | 381 ++++++++++++++++++++++++++++--
+ drivers/net/ethernet/airoha/airoha_eth.h  |  26 ++
+ drivers/net/ethernet/airoha/airoha_regs.h |  22 +-
+ 3 files changed, 402 insertions(+), 27 deletions(-)
+
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index dba7c52c0896..2b6ca6c6499b 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -10,8 +10,10 @@
+ #include <linux/tcp.h>
+ #include <linux/u64_stats_sync.h>
+ #include <net/dst_metadata.h>
++#include <net/ip6_checksum.h>
+ #include <net/page_pool/helpers.h>
+ #include <net/pkt_cls.h>
++#include <net/tcp.h>
+ #include <uapi/linux/ppp_defs.h>
  
-+	/* List of available PCS */
-+	struct list_head pcs_list;
-+
- 	/* What interface are supported by the current link.
- 	 * Can change on removal or addition of new PCS.
- 	 */
-@@ -154,6 +157,8 @@ static const phy_interface_t phylink_sfp_interface_preference[] = {
- 
- static DECLARE_PHY_INTERFACE_MASK(phylink_sfp_interfaces);
- 
-+static void phylink_run_resolve(struct phylink *pl);
-+
- /**
-  * phylink_set_port_modes() - set the port type modes in the ethtool mask
-  * @mask: ethtool link mode mask
-@@ -517,12 +522,29 @@ static void phylink_validate_mask_caps(unsigned long *supported,
- 	linkmode_and(state->advertising, state->advertising, mask);
+ #include "airoha_regs.h"
+@@ -491,6 +493,73 @@ static void airoha_fe_crsn_qsel_init(struct airoha_eth *eth)
+ 				 CDM_CRSN_QSEL_Q1));
  }
  
-+static int phylink_validate_pcs_interface(struct phylink_pcs *pcs,
-+					  phy_interface_t interface)
++static void airoha_fe_lro_rxq_enable(struct airoha_eth *eth, int qdma_id,
++				     int lro_queue_index, int qid,
++				     int buf_size)
 +{
-+	/* If PCS define an empty supported_interfaces value, assume
-+	 * all interface are supported.
++	int id = qdma_id + 1;
++
++	airoha_fe_rmw(eth, REG_CDM_LRO_LIMIT(id),
++		      CDM_LRO_AGG_NUM_MASK | CDM_LRO_AGG_SIZE_MASK,
++		      FIELD_PREP(CDM_LRO_AGG_SIZE_MASK, buf_size) |
++		      FIELD_PREP(CDM_LRO_AGG_NUM_MASK,
++				 AIROHA_RXQ_LRO_MAX_AGG_COUNT));
++	airoha_fe_rmw(eth, REG_CDM_LRO_AGE_TIME(id),
++		      CDM_LRO_AGE_TIME_MASK | CDM_LRO_AGG_TIME_MASK,
++		      FIELD_PREP(CDM_LRO_AGE_TIME_MASK,
++				 AIROHA_RXQ_LRO_MAX_AGE_TIME) |
++		      FIELD_PREP(CDM_LRO_AGG_TIME_MASK,
++				 AIROHA_RXQ_LRO_MAX_AGG_TIME));
++	airoha_fe_rmw(eth, REG_CDM_LRO_RXQ(id, lro_queue_index),
++		      LRO_RXQ_MASK(lro_queue_index),
++		      __field_prep(LRO_RXQ_MASK(lro_queue_index), qid));
++	airoha_fe_set(eth, REG_CDM_LRO_EN(id), BIT(lro_queue_index));
++}
++
++static void airoha_fe_lro_disable(struct airoha_eth *eth, int qdma_id)
++{
++	int i, id = qdma_id + 1;
++
++	airoha_fe_clear(eth, REG_CDM_LRO_EN(id), LRO_RXQ_EN_MASK);
++	airoha_fe_clear(eth, REG_CDM_LRO_LIMIT(id),
++			CDM_LRO_AGG_NUM_MASK | CDM_LRO_AGG_SIZE_MASK);
++	airoha_fe_clear(eth, REG_CDM_LRO_AGE_TIME(id),
++			CDM_LRO_AGE_TIME_MASK | CDM_LRO_AGG_TIME_MASK);
++	for (i = 0; i < AIROHA_MAX_NUM_LRO_QUEUES; i++)
++		airoha_fe_clear(eth, REG_CDM_LRO_RXQ(id, i), LRO_RXQ_MASK(i));
++}
++
++static bool airoha_fe_lro_is_enabled(struct airoha_eth *eth, int qdma_id)
++{
++	return airoha_fe_get(eth, REG_CDM_LRO_EN(qdma_id + 1),
++			     LRO_RXQ_EN_MASK);
++}
++
++static void airoha_dev_lro_enable(struct airoha_gdm_dev *dev)
++{
++	struct airoha_qdma *qdma = airoha_qdma_deref(dev);
++	struct airoha_eth *eth = qdma->eth;
++	int qdma_id = qdma - &eth->qdma[0];
++	int i, lro_queue_index = 0;
++
++	for (i = 0; i < ARRAY_SIZE(qdma->q_rx); i++) {
++		struct airoha_queue *q = &qdma->q_rx[i];
++		u32 size;
++
++		if (!q->ndesc)
++			continue;
++
++		if (!airoha_qdma_is_lro_queue(q))
++			continue;
++
++		size = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
++		size = min_t(u32, size, CDM_LRO_AGG_SIZE_MASK);
++		airoha_fe_lro_rxq_enable(eth, qdma_id, lro_queue_index, i,
++					 size);
++		lro_queue_index++;
++	}
++}
++
+ static int airoha_fe_init(struct airoha_eth *eth)
+ {
+ 	airoha_fe_maccr_init(eth);
+@@ -616,6 +685,7 @@ static int airoha_qdma_fill_rx_queue(struct airoha_queue *q)
+ 		e->dma_addr = page_pool_get_dma_addr(page) + offset;
+ 		e->dma_len = SKB_WITH_OVERHEAD(AIROHA_RX_LEN(q->buf_size));
+ 
++		WRITE_ONCE(desc->tcp_ts_reply, 0);
+ 		val = FIELD_PREP(QDMA_DESC_LEN_MASK, e->dma_len);
+ 		WRITE_ONCE(desc->ctrl, cpu_to_le32(val));
+ 		WRITE_ONCE(desc->addr, cpu_to_le32(e->dma_addr));
+@@ -657,12 +727,178 @@ airoha_qdma_get_gdm_dev(struct airoha_eth *eth, struct airoha_qdma_desc *desc)
+ 	return port->devs[d] ? port->devs[d] : ERR_PTR(-ENODEV);
+ }
+ 
++static struct sk_buff *airoha_qdma_lro_rx_skb(struct airoha_queue *q,
++					      struct airoha_qdma_desc *desc,
++					      struct airoha_queue_entry *e)
++{
++	u32 len, th_off, tcp_ack_seq, agg_count, data_off, data_len;
++	u32 desc_ctrl = le32_to_cpu(READ_ONCE(desc->ctrl));
++	u32 msg1 = le32_to_cpu(READ_ONCE(desc->msg1));
++	u32 msg2 = le32_to_cpu(READ_ONCE(desc->msg2));
++	u32 msg3 = le32_to_cpu(READ_ONCE(desc->msg3));
++	struct skb_shared_info *shinfo;
++	u16 tcp_win, l2_len;
++	struct sk_buff *skb;
++	struct tcphdr *th;
++	struct page *page;
++	bool ipv4, ipv6;
++
++	ipv4 = FIELD_GET(QDMA_ETH_RXMSG_IP4_MASK, msg1);
++	ipv6 = FIELD_GET(QDMA_ETH_RXMSG_IP6_MASK, msg1);
++	if (!ipv4 && !ipv6)
++		return NULL;
++
++	l2_len = FIELD_GET(QDMA_ETH_RXMSG_L2_LEN_MASK, msg2);
++	len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
++
++	if (ipv4) {
++		struct iphdr *iph;
++
++		if (len < l2_len + sizeof(*iph))
++			return NULL;
++
++		iph = (struct iphdr *)(e->buf + l2_len);
++		if (iph->protocol != IPPROTO_TCP)
++			return NULL;
++
++		if (iph->ihl < 5)
++			return NULL;
++
++		th_off = l2_len + (iph->ihl << 2);
++		if (len < th_off)
++			return NULL;
++
++		iph->tot_len = cpu_to_be16(len - l2_len);
++		iph->check = 0;
++		iph->check = ip_fast_csum((void *)iph, iph->ihl);
++	} else {
++		struct ipv6hdr *ip6h;
++
++		th_off = l2_len + sizeof(*ip6h);
++		if (len < th_off)
++			return NULL;
++
++		ip6h = (struct ipv6hdr *)(e->buf + l2_len);
++		if (ip6h->nexthdr != NEXTHDR_TCP)
++			return NULL;
++
++		ip6h->payload_len = cpu_to_be16(len - th_off);
++	}
++
++	if (len < th_off + sizeof(*th))
++		return NULL;
++
++	th = (struct tcphdr *)(e->buf + th_off);
++	if (th->doff < 5)
++		return NULL;
++
++	data_off = th_off + (th->doff << 2);
++	if (len <= data_off)
++		return NULL;
++
++	tcp_win = FIELD_GET(QDMA_ETH_RXMSG_TCP_WIN_MASK, msg3);
++	tcp_ack_seq = le32_to_cpu(READ_ONCE(desc->data));
++	th->ack_seq = cpu_to_be32(tcp_ack_seq);
++	th->window = cpu_to_be16(tcp_win);
++
++	/* Check tcp timestamp option */
++	if (th->doff == (sizeof(*th) + TCPOLEN_TSTAMP_ALIGNED) / 4) {
++		u32 topt = get_unaligned_be32(th + 1);
++
++		if (topt == ((TCPOPT_NOP << 24) | (TCPOPT_NOP << 16) |
++			     (TCPOPT_TIMESTAMP << 8) | TCPOLEN_TIMESTAMP)) {
++			u8 *ptr = (u8 *)th + sizeof(*th) + 2 * sizeof(__be32);
++			__le32 tcp_ts_reply = READ_ONCE(desc->tcp_ts_reply);
++
++			put_unaligned_be32(le32_to_cpu(tcp_ts_reply), ptr);
++		}
++	}
++
++	if (ipv4) {
++		struct iphdr *iph = (struct iphdr *)(e->buf + l2_len);
++
++		th->check = ~tcp_v4_check(len - th_off, iph->saddr,
++					  iph->daddr, 0);
++	} else {
++		struct ipv6hdr *ip6h = (struct ipv6hdr *)(e->buf + l2_len);
++
++		th->check = ~tcp_v6_check(len - th_off, &ip6h->saddr,
++					  &ip6h->daddr, 0);
++	}
++
++	/* Split network headers and payload to rely on GRO.
++	 * We need to do it in the driver since the NIC does
++	 * not support it.
 +	 */
-+	if (phy_interface_empty(pcs->supported_interfaces))
++	skb = napi_alloc_skb(&q->napi, data_off);
++	if (!skb)
++		return NULL;
++
++	__skb_put(skb, data_off);
++	memcpy(skb->data, e->buf, data_off);
++
++	page = virt_to_head_page(e->buf);
++	data_len = len - data_off;
++	shinfo = skb_shinfo(skb);
++	skb_add_rx_frag(skb, shinfo->nr_frags, page,
++			e->buf + data_off - page_address(page), data_len,
++			q->buf_size);
++
++	shinfo->gso_type = ipv4 ? SKB_GSO_TCPV4 : SKB_GSO_TCPV6;
++	/* HW does not report per-segment MSS. Approximate it as the
++	 * average segment size; this is exact when all aggregated
++	 * segments are equally sized, and conservative (underestimates)
++	 * when the last segment is smaller.
++	 */
++	agg_count = FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2);
++	shinfo->gso_size = DIV_ROUND_UP(data_len, agg_count);
++	shinfo->gso_segs = agg_count;
++
++	skb->csum_start = skb_headroom(skb) + th_off;
++	skb->csum_offset = offsetof(struct tcphdr, check);
++	skb->ip_summed = CHECKSUM_PARTIAL;
++
++	return skb;
++}
++
++static struct sk_buff *airoha_qdma_build_rx_skb(struct airoha_queue *q,
++						struct airoha_qdma_desc *desc,
++						struct airoha_queue_entry *e,
++						struct net_device *dev)
++{
++	u32 msg2 = le32_to_cpu(READ_ONCE(desc->msg2));
++	int qid = q - &q->qdma->q_rx[0];
++	struct sk_buff *skb;
++
++	if (FIELD_GET(QDMA_ETH_RXMSG_AGG_COUNT_MASK, msg2) > 1) { /* LRO */
++		skb = airoha_qdma_lro_rx_skb(q, desc, e);
++		if (!skb)
++			return NULL;
++	} else {
++		u32 desc_ctrl = le32_to_cpu(READ_ONCE(desc->ctrl));
++		u32 len = FIELD_GET(QDMA_DESC_LEN_MASK, desc_ctrl);
++
++		skb = napi_build_skb(e->buf - AIROHA_RX_HEADROOM, q->buf_size);
++		if (!skb)
++			return NULL;
++
++		skb_reserve(skb, AIROHA_RX_HEADROOM);
++		__skb_put(skb, len);
++		skb->ip_summed = CHECKSUM_UNNECESSARY;
++	}
++
++	skb_mark_for_recycle(skb);
++	skb->dev = dev;
++	skb_record_rx_queue(skb, qid);
++	skb->protocol = eth_type_trans(skb, dev);
++
++	return skb;
++}
++
+ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ {
+ 	enum dma_data_direction dir = page_pool_get_dma_dir(q->page_pool);
+-	struct airoha_qdma *qdma = q->qdma;
+-	struct airoha_eth *eth = qdma->eth;
+-	int qid = q - &qdma->q_rx[0];
++	struct airoha_eth *eth = q->qdma->eth;
+ 	int done = 0;
+ 
+ 	while (done < budget) {
+@@ -698,18 +934,9 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
+ 
+ 		netdev = netdev_from_priv(dev);
+ 		if (!q->skb) { /* first buffer */
+-			q->skb = napi_build_skb(e->buf - AIROHA_RX_HEADROOM,
+-						q->buf_size);
++			q->skb = airoha_qdma_build_rx_skb(q, desc, e, netdev);
+ 			if (!q->skb)
+ 				goto free_frag;
+-
+-			skb_reserve(q->skb, AIROHA_RX_HEADROOM);
+-			__skb_put(q->skb, len);
+-			skb_mark_for_recycle(q->skb);
+-			q->skb->dev = netdev;
+-			q->skb->protocol = eth_type_trans(q->skb, netdev);
+-			q->skb->ip_summed = CHECKSUM_UNNECESSARY;
+-			skb_record_rx_queue(q->skb, qid);
+ 		} else { /* scattered frame */
+ 			struct skb_shared_info *shinfo = skb_shinfo(q->skb);
+ 			int nr_frags = shinfo->nr_frags;
+@@ -800,12 +1027,10 @@ static int airoha_qdma_rx_napi_poll(struct napi_struct *napi, int budget)
+ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+ 				     struct airoha_qdma *qdma, int ndesc)
+ {
+-	const struct page_pool_params pp_params = {
+-		.order = 0,
++	struct page_pool_params pp_params = {
+ 		.pool_size = 256,
+ 		.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV,
+ 		.dma_dir = DMA_FROM_DEVICE,
+-		.max_len = PAGE_SIZE,
+ 		.nid = NUMA_NO_NODE,
+ 		.dev = qdma->eth->dev,
+ 		.napi = &q->napi,
+@@ -813,9 +1038,10 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+ 	struct airoha_eth *eth = qdma->eth;
+ 	int qid = q - &qdma->q_rx[0], thr;
+ 	dma_addr_t dma_addr;
++	bool lro_q;
+ 
+-	q->buf_size = PAGE_SIZE / 2;
+ 	q->qdma = qdma;
++	lro_q = airoha_qdma_is_lro_queue(q);
+ 
+ 	q->entry = devm_kzalloc(eth->dev, ndesc * sizeof(*q->entry),
+ 				GFP_KERNEL);
+@@ -827,6 +1053,9 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+ 	if (!q->desc)
+ 		return -ENOMEM;
+ 
++	pp_params.order = lro_q ? AIROHA_LRO_PAGE_ORDER : 0;
++	pp_params.max_len = PAGE_SIZE << pp_params.order;
++
+ 	q->page_pool = page_pool_create(&pp_params);
+ 	if (IS_ERR(q->page_pool)) {
+ 		int err = PTR_ERR(q->page_pool);
+@@ -835,6 +1064,7 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+ 		return err;
+ 	}
+ 
++	q->buf_size = lro_q ? pp_params.max_len : pp_params.max_len / 2;
+ 	q->ndesc = ndesc;
+ 	netif_napi_add(eth->napi_dev, &q->napi, airoha_qdma_rx_napi_poll);
+ 
+@@ -848,7 +1078,12 @@ static int airoha_qdma_init_rx_queue(struct airoha_queue *q,
+ 			FIELD_PREP(RX_RING_THR_MASK, thr));
+ 	airoha_qdma_rmw(qdma, REG_RX_DMA_IDX(qid), RX_RING_DMA_IDX_MASK,
+ 			FIELD_PREP(RX_RING_DMA_IDX_MASK, q->head));
+-	airoha_qdma_set(qdma, REG_RX_SCATTER_CFG(qid), RX_RING_SG_EN_MASK);
++	if (lro_q)
++		airoha_qdma_clear(qdma, REG_RX_SCATTER_CFG(qid),
++				  RX_RING_SG_EN_MASK);
++	else
++		airoha_qdma_set(qdma, REG_RX_SCATTER_CFG(qid),
++				RX_RING_SG_EN_MASK);
+ 
+ 	airoha_qdma_fill_rx_queue(q);
+ 
+@@ -870,6 +1105,7 @@ static void airoha_qdma_cleanup_rx_queue(struct airoha_queue *q)
+ 					page_pool_get_dma_dir(q->page_pool));
+ 		page_pool_put_full_page(q->page_pool, page, false);
+ 		/* Reset DMA descriptor */
++		WRITE_ONCE(desc->tcp_ts_reply, 0);
+ 		WRITE_ONCE(desc->ctrl, 0);
+ 		WRITE_ONCE(desc->addr, 0);
+ 		WRITE_ONCE(desc->data, 0);
+@@ -1896,6 +2132,38 @@ static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
+ 	spin_unlock(&port->stats_lock);
+ }
+ 
++static void airoha_update_netdev_features(struct airoha_gdm_dev *dev)
++{
++	struct airoha_eth *eth = dev->eth;
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
++		struct airoha_gdm_port *port = eth->ports[i];
++		int j;
++
++		if (!port)
++			continue;
++
++		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
++			struct airoha_gdm_dev *iter_dev = port->devs[j];
++			struct net_device *netdev;
++
++			if (!iter_dev || iter_dev == dev)
++				continue;
++
++			if (rcu_access_pointer(iter_dev->qdma) !=
++			    rcu_access_pointer(dev->qdma))
++				continue;
++
++			netdev = netdev_from_priv(iter_dev);
++			if (netdev->reg_state != NETREG_REGISTERED)
++				continue;
++
++			netdev_update_features(netdev);
++		}
++	}
++}
++
+ static void airoha_dev_set_xmit_frame_size(struct net_device *netdev)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+@@ -1913,14 +2181,28 @@ static int airoha_dev_open(struct net_device *netdev)
+ 	struct airoha_gdm_port *port = dev->port;
+ 	u32 pse_port = FE_PSE_PORT_PPE1;
+ 	struct airoha_qdma *qdma;
+-	int err;
++	int qdma_id, err;
++
++	/* HW GRO is configured on the QDMA and it is shared between
++	 * all the devices using it. Refuse to open a second device on
++	 * the same QDMA if HW GRO is enabled on any device sharing it
++	 * or if this device has HW GRO enabled in its feature set.
++	 */
++	qdma = airoha_qdma_deref(dev);
++	qdma_id = qdma - &qdma->eth->qdma[0];
++
++	if (qdma->users && (airoha_fe_lro_is_enabled(qdma->eth, qdma_id) ||
++			    (netdev->features & NETIF_F_GRO_HW))) {
++		netdev_warn(netdev, "required to disable HW GRO on QDMA%d\n",
++			    qdma_id);
++		return -EBUSY;
++	}
+ 
+ 	netif_tx_start_all_queues(netdev);
+ 	err = airoha_set_vip_for_gdm_port(dev, true);
+ 	if (err)
+ 		return err;
+ 
+-	qdma = airoha_qdma_deref(dev);
+ 	if (netdev_uses_dsa(netdev))
+ 		airoha_fe_set(qdma->eth, REG_GDM_INGRESS_CFG(port->id),
+ 			      GDM_STAG_EN_MASK);
+@@ -1937,6 +2219,11 @@ static int airoha_dev_open(struct net_device *netdev)
+ 	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
+ 				    pse_port);
+ 
++	if (netdev->features & NETIF_F_GRO_HW)
++		airoha_dev_lro_enable(dev);
++
++	airoha_update_netdev_features(dev);
++
+ 	return 0;
+ }
+ 
+@@ -1954,6 +2241,8 @@ static int airoha_dev_stop(struct net_device *netdev)
+ 		airoha_set_gdm_port_fwd_cfg(dev->eth,
+ 					    REG_GDM_FWD_CFG(port->id),
+ 					    FE_PSE_PORT_DROP);
++	airoha_update_netdev_features(dev);
++
+ 	return 0;
+ }
+ 
+@@ -2120,6 +2409,7 @@ static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
+ 
+ 	rcu_assign_pointer(dev->qdma, qdma);
+ 	netdev->irq = qdma->irq_banks[0].irq;
++	qdma->users++;
+ 	synchronize_rcu();
+ 
+ 	ppe_id = !airoha_is_lan_gdm_dev(dev) && airoha_ppe_is_enabled(eth, 1);
+@@ -2136,8 +2426,10 @@ static void airoha_dev_set_qdma(struct airoha_gdm_dev *dev)
+ 			airoha_qdma_rr(qdma, REG_CNTR_VAL((i << 1) + 1));
+ 	}
+ 
+-	if (cur_qdma)
++	if (cur_qdma) {
++		cur_qdma->users--;
+ 		netif_tx_wake_all_queues(netdev);
++	}
+ }
+ 
+ static int airoha_dev_init(struct net_device *netdev)
+@@ -2288,6 +2580,43 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev)
+ 	}
+ }
+ 
++static netdev_features_t airoha_dev_fix_features(struct net_device *netdev,
++						 netdev_features_t features)
++{
++	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++	struct airoha_qdma *qdma;
++
++	qdma = airoha_qdma_deref(dev);
++	if (qdma->users > 1)
++		features &= ~NETIF_F_GRO_HW;
++
++	return features;
++}
++
++static int airoha_dev_set_features(struct net_device *netdev,
++				   netdev_features_t features)
++{
++	netdev_features_t diff = netdev->features ^ features;
++	struct airoha_gdm_dev *dev = netdev_priv(netdev);
++
++	if (!(diff & NETIF_F_GRO_HW))
 +		return 0;
 +
-+	/* Ensure that this PCS supports the interface mode */
-+	if (!test_bit(interface, pcs->supported_interfaces))
-+		return -EINVAL;
++	if (!netif_running(netdev))
++		return 0;
++
++	if (features & NETIF_F_GRO_HW) {
++		airoha_dev_lro_enable(dev);
++	} else {
++		struct airoha_qdma *qdma = airoha_qdma_deref(dev);
++		int qdma_id = qdma - &dev->eth->qdma[0];
++
++		airoha_fe_lro_disable(dev->eth, qdma_id);
++	}
 +
 +	return 0;
 +}
 +
- static int phylink_validate_mac_and_pcs(struct phylink *pl,
- 					unsigned long *supported,
- 					struct phylink_link_state *state)
+ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
+ 				   struct net_device *netdev)
  {
--	struct phylink_pcs *pcs = NULL;
- 	unsigned long capabilities;
-+	struct phylink_pcs *pcs;
-+	bool pcs_found = false;
- 	int ret;
+@@ -3343,6 +3672,8 @@ static const struct net_device_ops airoha_netdev_ops = {
+ 	.ndo_stop		= airoha_dev_stop,
+ 	.ndo_change_mtu		= airoha_dev_change_mtu,
+ 	.ndo_select_queue	= airoha_dev_select_queue,
++	.ndo_fix_features	= airoha_dev_fix_features,
++	.ndo_set_features	= airoha_dev_set_features,
+ 	.ndo_start_xmit		= airoha_dev_xmit,
+ 	.ndo_get_stats64        = airoha_dev_get_stats64,
+ 	.ndo_set_mac_address	= airoha_dev_set_macaddr,
+@@ -3430,11 +3761,9 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
+ 	netdev->ethtool_ops = &airoha_ethtool_ops;
+ 	netdev->max_mtu = AIROHA_MAX_MTU;
+ 	netdev->watchdog_timeo = 5 * HZ;
+-	netdev->hw_features = NETIF_F_IP_CSUM | NETIF_F_RXCSUM | NETIF_F_TSO6 |
+-			      NETIF_F_IPV6_CSUM | NETIF_F_SG | NETIF_F_TSO |
+-			      NETIF_F_HW_TC;
+-	netdev->features |= netdev->hw_features;
+-	netdev->vlan_features = netdev->hw_features;
++	netdev->hw_features = AIROHA_HW_FEATURES | NETIF_F_GRO_HW;
++	netdev->features |= AIROHA_HW_FEATURES;
++	netdev->vlan_features = AIROHA_HW_FEATURES;
+ 	SET_NETDEV_DEV(netdev, eth->dev);
  
- 	/* Get the PCS for this interface mode */
-@@ -530,9 +552,24 @@ static int phylink_validate_mac_and_pcs(struct phylink *pl,
- 		pcs = pl->mac_ops->mac_select_pcs(pl->config, state->interface);
- 		if (IS_ERR(pcs))
- 			return PTR_ERR(pcs);
+ 	/* reserve hw queues for HTB offloading */
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index fa9a8edce22f..f1714384af2e 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -45,6 +45,18 @@
+ 	 (_n) == 15 ? 128 :		\
+ 	 (_n) ==  0 ? 1024 : 16)
+ 
++#define AIROHA_LRO_PAGE_ORDER		order_base_2(SZ_16K / PAGE_SIZE)
++#define AIROHA_MAX_NUM_LRO_QUEUES	8
++#define AIROHA_RXQ_LRO_EN_MASK		GENMASK(31, 24)
++#define AIROHA_RXQ_LRO_MAX_AGG_COUNT	64
++#define AIROHA_RXQ_LRO_MAX_AGG_TIME	100
++#define AIROHA_RXQ_LRO_MAX_AGE_TIME	2000
 +
-+		pcs_found = !!pcs;
-+	/*
-+	 * Find a PCS in available PCS list for the requested interface.
-+	 *
-+	 * Skip searching if the MAC doesn't require a dedicated PCS for
-+	 * the requested interface.
-+	 */
-+	} else if (test_bit(state->interface, pl->config->pcs_interfaces)) {
-+		list_for_each_entry(pcs, &pl->pcs_list, list) {
-+			if (!phylink_validate_pcs_interface(pcs, state->interface)) {
-+				pcs_found = true;
-+				break;
-+			}
-+		}
- 	}
- 
--	if (pcs) {
-+	if (pcs_found) {
- 		/* The PCS, if present, must be setup before phylink_create()
- 		 * has been called. If the ops is not initialised, print an
- 		 * error and backtrace rather than oopsing the kernel.
-@@ -544,13 +581,10 @@ static int phylink_validate_mac_and_pcs(struct phylink *pl,
- 			return -EINVAL;
- 		}
- 
--		/* Ensure that this PCS supports the interface which the MAC
--		 * returned it for. It is an error for the MAC to return a PCS
--		 * that does not support the interface mode.
--		 */
--		if (!phy_interface_empty(pcs->supported_interfaces) &&
--		    !test_bit(state->interface, pcs->supported_interfaces)) {
--			phylink_err(pl, "MAC returned PCS which does not support %s\n",
-+		/* Recheck PCS to handle legacy way for .mac_select_pcs */
-+		ret = phylink_validate_pcs_interface(pcs, state->interface);
-+		if (ret) {
-+			phylink_err(pl, "selected PCS does not support %s\n",
- 				    phy_modes(state->interface));
- 			return -EINVAL;
- 		}
-@@ -964,12 +998,22 @@ static unsigned int phylink_inband_caps(struct phylink *pl,
- 					 phy_interface_t interface)
- {
- 	struct phylink_pcs *pcs;
-+	bool pcs_found = false;
- 
--	if (!pl->mac_ops->mac_select_pcs)
--		return 0;
-+	if (pl->mac_ops->mac_select_pcs) {
-+		pcs = pl->mac_ops->mac_select_pcs(pl->config,
-+						  interface);
-+		pcs_found = !!pcs;
-+	} else if (test_bit(interface, pl->config->pcs_interfaces)) {
-+		list_for_each_entry(pcs, &pl->pcs_list, list) {
-+			if (!phylink_validate_pcs_interface(pcs, interface)) {
-+				pcs_found = true;
-+				break;
-+			}
-+		}
-+	}
- 
--	pcs = pl->mac_ops->mac_select_pcs(pl->config, interface);
--	if (!pcs)
-+	if (!pcs_found)
- 		return 0;
- 
- 	return phylink_pcs_inband_caps(pcs, interface);
-@@ -1264,10 +1308,36 @@ static void phylink_major_config(struct phylink *pl, bool restart,
- 			pl->major_config_failed = true;
- 			return;
- 		}
-+	/* Find a PCS in available PCS list for the requested interface.
-+	 * This doesn't overwrite the previous .mac_select_pcs as either
-+	 * .mac_select_pcs or PCS list implementation are permitted.
-+	 *
-+	 * Skip searching if the MAC doesn't require a dedicated PCS for
-+	 * the requested interface.
-+	 */
-+	} else if (test_bit(state->interface, pl->config->pcs_interfaces)) {
-+		bool pcs_found = false;
++#define AIROHA_HW_FEATURES			\
++	(NETIF_F_IP_CSUM | NETIF_F_RXCSUM |	\
++	 NETIF_F_TSO6 | NETIF_F_IPV6_CSUM |	\
++	 NETIF_F_SG | NETIF_F_TSO | NETIF_F_HW_TC)
 +
-+		list_for_each_entry(pcs, &pl->pcs_list, list) {
-+			if (!phylink_validate_pcs_interface(pcs,
-+							    state->interface)) {
-+				pcs_found = true;
-+				break;
-+			}
-+		}
+ #define PSE_RSV_PAGES			128
+ #define PSE_QUEUE_RSV_PAGES		64
  
--		pcs_changed = pl->pcs != pcs;
-+		if (!pcs_found) {
-+			phylink_err(pl,
-+				    "couldn't find a PCS for %s\n",
-+				    phy_modes(state->interface));
+@@ -560,6 +572,8 @@ struct airoha_qdma {
+ 	struct airoha_eth *eth;
+ 	void __iomem *regs;
+ 
++	int users;
 +
-+			pl->major_config_failed = true;
-+			return;
-+		}
- 	}
+ 	struct airoha_irq_bank irq_banks[AIROHA_MAX_NUM_IRQ_BANKS];
  
-+	pcs_changed = pl->pcs != pcs;
-+
- 	phylink_pcs_neg_mode(pl, pcs, state->interface, state->advertising);
- 
- 	phylink_dbg(pl, "major config, active %s/%s/%s\n",
-@@ -1294,13 +1364,15 @@ static void phylink_major_config(struct phylink *pl, bool restart,
- 	if (pcs_changed) {
- 		phylink_pcs_disable(pl->pcs);
- 
--		if (pl->pcs)
--			pl->pcs->phylink = NULL;
-+		if (pl->mac_ops->mac_select_pcs) {
-+			if (pl->pcs)
-+				pl->pcs->phylink = NULL;
- 
--		if (pcs)
--			pcs->phylink = pl;
-+			if (pcs)
-+				pcs->phylink = pl;
-+		}
- 
--		pl->pcs = pcs;
-+		WRITE_ONCE(pl->pcs, pcs);
- 	}
- 
- 	if (pl->pcs)
-@@ -1833,6 +1905,44 @@ int phylink_set_fixed_link(struct phylink *pl,
+ 	struct airoha_tx_irq_queue q_tx_irq[AIROHA_NUM_TX_IRQ];
+@@ -714,6 +728,18 @@ static inline bool airoha_is_7583(struct airoha_eth *eth)
+ 	return eth->soc->version == 0x7583;
  }
- EXPORT_SYMBOL_GPL(phylink_set_fixed_link);
  
-+static int phylink_fill_available_pcs(struct phylink *pl,
-+				      struct phylink_config *config)
++static inline bool airoha_qdma_is_lro_queue(struct airoha_queue *q)
 +{
-+	struct phylink_pcs **pcss;
-+	int i, ret;
++	struct airoha_qdma *qdma = q->qdma;
++	int qid = q - &qdma->q_rx[0];
 +
-+	if (!config->num_possible_pcs)
-+		return 0;
++	/* EN7581 SoC supports at most 8 LRO rx queues */
++	BUILD_BUG_ON(hweight32(AIROHA_RXQ_LRO_EN_MASK) >
++		     AIROHA_MAX_NUM_LRO_QUEUES);
 +
-+	if (!config->fill_available_pcs) {
-+		dev_err(config->dev,
-+			"phylink: error: num_possible_pcs defined but no fill_available_pcs\n");
-+		return -EINVAL;
-+	}
-+
-+	pcss = kzalloc_objs(*pcss, config->num_possible_pcs);
-+	if (!pcss)
-+		return -ENOMEM;
-+
-+	ret = config->fill_available_pcs(config, pcss, config->num_possible_pcs);
-+	if (ret < 0)
-+		goto out;
-+
-+	for (i = 0; i < config->num_possible_pcs; i++) {
-+		struct phylink_pcs *pcs = pcss[i];
-+
-+		if (!pcs)
-+			continue;
-+
-+		list_add_tail(&pcs->list, &pl->pcs_list);
-+	}
-+
-+out:
-+	kfree(pcss);
-+
-+	return ret;
++	return !!(AIROHA_RXQ_LRO_EN_MASK & BIT(qid));
 +}
 +
- /**
-  * phylink_create() - create a phylink instance
-  * @config: a pointer to the target &struct phylink_config
-@@ -1854,13 +1964,17 @@ struct phylink *phylink_create(struct phylink_config *config,
- 			       phy_interface_t iface,
- 			       const struct phylink_mac_ops *mac_ops)
- {
-+	struct phylink_pcs *tmp, *pcs;
- 	struct phylink *pl;
- 	int ret;
+ int airoha_get_fe_port(struct airoha_gdm_dev *dev);
+ bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+ 			     struct airoha_gdm_dev *dev);
+diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+index 442b48c9b991..0ec41c3b4c06 100644
+--- a/drivers/net/ethernet/airoha/airoha_regs.h
++++ b/drivers/net/ethernet/airoha/airoha_regs.h
+@@ -122,6 +122,20 @@
+ #define CDM_CRSN_QSEL_REASON_MASK(_n)	\
+ 	GENMASK(4 + (((_n) % 4) << 3),	(((_n) % 4) << 3))
  
--	/* Validate the supplied configuration */
--	if (phy_interface_empty(config->supported_interfaces)) {
-+	/*
-+	 * Make sure either PCS internal validation or .mac_select_pcs
-+	 * is used. Return error if both are defined.
-+	 */
-+	if (config->num_possible_pcs && mac_ops->mac_select_pcs) {
- 		dev_err(config->dev,
--			"phylink: error: empty supported_interfaces\n");
-+			"phylink: error: either phylink_config .num_possible_pcs or .mac_select_pcs must be used\n");
- 		return ERR_PTR(-EINVAL);
- 	}
- 
-@@ -1871,10 +1985,26 @@ struct phylink *phylink_create(struct phylink_config *config,
- 	mutex_init(&pl->phydev_mutex);
- 	mutex_init(&pl->state_mutex);
- 	INIT_WORK(&pl->resolve, phylink_resolve);
-+	INIT_LIST_HEAD(&pl->pcs_list);
++#define REG_CDM_LRO_RXQ(_n, _m)		(CDM_BASE(_n) + 0x78 + ((_m) & 0x4))
++#define LRO_RXQ_MASK(_n)		GENMASK(4 + (((_n) & 0x3) << 3), ((_n) & 0x3) << 3)
 +
-+	/* Fill the PCS list with available PCS from phylink config */
-+	ret = phylink_fill_available_pcs(pl, config);
-+	if (ret < 0)
-+		goto free_pl;
++#define REG_CDM_LRO_EN(_n)		(CDM_BASE(_n) + 0x80)
++#define LRO_RXQ_EN_MASK			GENMASK(7, 0)
 +
-+	/* Link available PCS to phylink */
-+	list_for_each_entry(pcs, &pl->pcs_list, list)
-+		pcs->phylink = pl;
- 
- 	phy_interface_copy(pl->supported_interfaces,
- 			   config->supported_interfaces);
- 
-+	/* Update supported interfaces */
-+	list_for_each_entry(pcs, &pl->pcs_list, list)
-+		phy_interface_or(pl->supported_interfaces,
-+				 pl->supported_interfaces,
-+				 pcs->supported_interfaces);
++#define REG_CDM_LRO_LIMIT(_n)		(CDM_BASE(_n) + 0x84)
++#define CDM_LRO_AGG_NUM_MASK		GENMASK(23, 16)
++#define CDM_LRO_AGG_SIZE_MASK		GENMASK(15, 0)
 +
- 	pl->config = config;
- 	if (config->type == PHYLINK_NETDEV) {
- 		pl->netdev = to_net_dev(config->dev);
-@@ -1882,8 +2012,8 @@ struct phylink *phylink_create(struct phylink_config *config,
- 	} else if (config->type == PHYLINK_DEV) {
- 		pl->dev = config->dev;
- 	} else {
--		kfree(pl);
--		return ERR_PTR(-EINVAL);
-+		ret = -EINVAL;
-+		goto unlink_pcs_list;
- 	}
- 
- 	pl->mac_supports_eee_ops = phylink_mac_implements_lpi(mac_ops);
-@@ -1916,28 +2046,31 @@ struct phylink *phylink_create(struct phylink_config *config,
- 	phylink_validate(pl, pl->supported, &pl->link_config);
- 
- 	ret = phylink_parse_mode(pl, fwnode);
--	if (ret < 0) {
--		kfree(pl);
--		return ERR_PTR(ret);
--	}
-+	if (ret < 0)
-+		goto unlink_pcs_list;
- 
- 	if (pl->cfg_link_an_mode == MLO_AN_FIXED) {
- 		ret = phylink_parse_fixedlink(pl, fwnode);
--		if (ret < 0) {
--			kfree(pl);
--			return ERR_PTR(ret);
--		}
-+		if (ret < 0)
-+			goto unlink_pcs_list;
- 	}
- 
- 	pl->req_link_an_mode = pl->cfg_link_an_mode;
- 
- 	ret = phylink_register_sfp(pl, fwnode);
--	if (ret < 0) {
--		kfree(pl);
--		return ERR_PTR(ret);
--	}
-+	if (ret < 0)
-+		goto unlink_pcs_list;
- 
- 	return pl;
++#define REG_CDM_LRO_AGE_TIME(_n)	(CDM_BASE(_n) + 0x88)
++#define CDM_LRO_AGE_TIME_MASK		GENMASK(31, 16)
++#define CDM_LRO_AGG_TIME_MASK		GENMASK(15, 0)
 +
-+unlink_pcs_list:
-+	list_for_each_entry_safe(pcs, tmp, &pl->pcs_list, list) {
-+		list_del(&pcs->list);
-+		pcs->phylink = NULL;
-+	}
-+free_pl:
-+	kfree(pl);
-+	return ERR_PTR(ret);
- }
- EXPORT_SYMBOL_GPL(phylink_create);
+ #define REG_GDM_FWD_CFG(_n)		GDM_BASE(_n)
+ #define GDM_PAD_EN_MASK			BIT(28)
+ #define GDM_DROP_CRC_ERR_MASK		BIT(23)
+@@ -887,9 +901,15 @@
+ #define QDMA_ETH_RXMSG_SPORT_MASK	GENMASK(25, 21)
+ #define QDMA_ETH_RXMSG_CRSN_MASK	GENMASK(20, 16)
+ #define QDMA_ETH_RXMSG_PPE_ENTRY_MASK	GENMASK(15, 0)
++/* RX MSG2 */
++#define QDMA_ETH_RXMSG_AGG_COUNT_MASK	GENMASK(31, 24)
++#define QDMA_ETH_RXMSG_L2_LEN_MASK	GENMASK(6, 0)
++/* RX MSG3 */
++#define QDMA_ETH_RXMSG_AGG_LEN_MASK	GENMASK(31, 16)
++#define QDMA_ETH_RXMSG_TCP_WIN_MASK	GENMASK(15, 0)
  
-@@ -1952,11 +2085,21 @@ EXPORT_SYMBOL_GPL(phylink_create);
-  */
- void phylink_destroy(struct phylink *pl)
- {
-+	struct phylink_pcs *pcs, *tmp;
-+
- 	sfp_bus_del_upstream(pl->sfp_bus);
- 	if (pl->link_gpio)
- 		gpiod_put(pl->link_gpio);
- 
- 	cancel_work_sync(&pl->resolve);
-+
-+	/* Drop link between PCS and phylink */
-+	/* Remove every PCS from phylink PCS list */
-+	list_for_each_entry_safe(pcs, tmp, &pl->pcs_list, list) {
-+		pcs->phylink = NULL;
-+		list_del(&pcs->list);
-+	}
-+
- 	kfree(pl);
- }
- EXPORT_SYMBOL_GPL(phylink_destroy);
-@@ -2412,8 +2555,15 @@ void phylink_pcs_change(struct phylink_pcs *pcs, bool up)
- {
- 	struct phylink *pl = pcs->phylink;
- 
--	if (pl)
--		phylink_link_changed(pl, up, "pcs");
-+	/*
-+	 * Ignore PCS link state change if the PCS is not
-+	 * attached to a phylink instance or the phylink
-+	 * instance is not currently using this PCS.
-+	 */
-+	if (!pl || READ_ONCE(pl->pcs) != pcs)
-+		return;
-+
-+	phylink_link_changed(pl, up, "pcs");
- }
- EXPORT_SYMBOL_GPL(phylink_pcs_change);
- 
-diff --git a/include/linux/phylink.h b/include/linux/phylink.h
-index 2bc0db3d52ac..ca9dfc142388 100644
---- a/include/linux/phylink.h
-+++ b/include/linux/phylink.h
-@@ -12,6 +12,7 @@ struct ethtool_cmd;
- struct fwnode_handle;
- struct net_device;
- struct phylink;
-+struct phylink_pcs;
- 
- enum {
- 	MLO_PAUSE_NONE,
-@@ -151,6 +152,8 @@ enum phylink_op_type {
-  *		     if MAC link is at %MLO_AN_FIXED mode.
-  * @supported_interfaces: bitmap describing which PHY_INTERFACE_MODE_xxx
-  *                        are supported by the MAC/PCS.
-+ * @pcs_interfaces: bitmap describing for which PHY_INTERFACE_MODE_xxx a
-+ *		    dedicated PCS is required.
-  * @lpi_interfaces: bitmap describing which PHY interface modes can support
-  *		    LPI signalling.
-  * @mac_capabilities: MAC pause/speed/duplex capabilities.
-@@ -160,6 +163,10 @@ enum phylink_op_type {
-  * @wol_phy_legacy: Use Wake-on-Lan with PHY even if phy_can_wakeup() is false
-  * @wol_phy_speed_ctrl: Use phy speed control on suspend/resume
-  * @wol_mac_support: Bitmask of MAC supported %WAKE_* options
-+ * @num_possible_pcs: num of possible phylink_pcs PCS
-+ * @fill_available_pcs: callback to fill the available PCS in the passed
-+ *			array struct of phylink_pcs PCS available_pcs up to
-+ *			num_possible_pcs.
-  */
- struct phylink_config {
- 	struct device *dev;
-@@ -172,6 +179,7 @@ struct phylink_config {
- 	void (*get_fixed_state)(struct phylink_config *config,
- 				struct phylink_link_state *state);
- 	DECLARE_PHY_INTERFACE_MASK(supported_interfaces);
-+	DECLARE_PHY_INTERFACE_MASK(pcs_interfaces);
- 	DECLARE_PHY_INTERFACE_MASK(lpi_interfaces);
- 	unsigned long mac_capabilities;
- 	unsigned long lpi_capabilities;
-@@ -182,6 +190,11 @@ struct phylink_config {
- 	bool wol_phy_legacy;
- 	bool wol_phy_speed_ctrl;
- 	u32 wol_mac_support;
-+
-+	unsigned int num_possible_pcs;
-+	int (*fill_available_pcs)(struct phylink_config *config,
-+				  struct phylink_pcs **available_pcs,
-+				  unsigned int num_possible_pcs);
- };
- 
- void phylink_limit_mac_speed(struct phylink_config *config, u32 max_speed);
-@@ -497,6 +510,9 @@ struct phylink_pcs {
- 	struct phylink *phylink;
- 	bool poll;
- 	bool rxc_always_on;
-+
-+	/* private: */
-+	struct list_head list;
- };
- 
- /**
+ struct airoha_qdma_desc {
+-	__le32 rsv;
++	__le32 tcp_ts_reply;
+ 	__le32 ctrl;
+ 	__le32 addr;
+ 	__le32 data;
+
+---
+base-commit: a5c6ae8de11ef0c3aedbe5e123354aad87d0d925
+change-id: 20260520-airoha-eth-lro-a5d1c3631811
+
+Best regards,
 -- 
-2.53.0
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
