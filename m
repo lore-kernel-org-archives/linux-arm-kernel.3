@@ -4,99 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091A1C5516E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 18:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340C0C5516E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 18:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cNanfJS2VAokGlGAjWn3IsZqHmLvq5n2BcQ0vWSl7Jc=; b=pZ6Md3Fs/PaBnLDVjI7+IcqyI9
-	R6fezZ0XV1NfxHfwSwf600eYNth9DW8P9LMy19Ss6sh+tHRLvC7YhxphudT9PH7/zbcFClwCf+/7/
-	+1u1duAE/c17t7qMLoE6cpRMndiUKsATY5mLqJNeMDY5QmkAmPLg7nS++c+ywZGLGEl0/DjEmhQeG
-	DnAd75knINIuwwoVscqkb9kPM2EyWhs4JfCg/v3LPGFRIBZYW5T55+vzg9H2hqkDXs04E3c9tpbZx
-	JOtedgWpMyWNVaMkkWTzjqbm7l+Dp8cbI73KLjSPHdp0W3qgg3te0DMamwy4uvdVON78d+aO61AZd
-	zA1YvBtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nv5Omu9yXhFcyL2TT+yOEeSkp8IS521SRqMG7Zc+BH0=; b=edriP9ZDt5KmPEObYDSdTmf1I8
+	uEKe99zDLt9IxlQVLQ1VX36ZbR2dpQvhmEORcp2Se42/YwrMHYNngSSqLwZDytrYxHn/BzxIbDnyJ
+	c5nQLew4kTIqlEMZaPL1qlP33cC2rrb5W5hg/iTUxzO3nOZXuYf5CyhmykvBXnW+dfCITItJwz1tK
+	6k8Pw8HT9dJM75GQpl4As0PKDF5xiKlItOcc+VVc4BEVp6RcecSwh5ZRt2Hgrqag55tgB1k/f4w4q
+	XCLTDTYM3JnZOY/JbhnrYjyEpp0hy7gQaFRWSQnB04DFrDwYUuAb2eBBRSdpr4FGHT/HuMf89YM1I
+	lnfgY1Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpVFf-0000000B8UN-1kMn;
-	Thu, 30 Jul 2026 18:13:03 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1wpVGw-0000000B8pf-3Czj;
+	Thu, 30 Jul 2026 18:14:22 +0000
+Received: from mail-francesouthazon11011029.outbound.protection.outlook.com ([40.107.130.29] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpVFX-0000000B8Qb-24d5
+	id 1wpVGu-0000000B8od-1JH8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 18:12:56 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c999f162c9aso52833a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 11:12:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785435174; x=1786039974; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=cNanfJS2VAokGlGAjWn3IsZqHmLvq5n2BcQ0vWSl7Jc=;
-        b=gWJtWPdJ0a0EOXKE4+gr9ny9GSuk0+R6jctPSDnRRBm+JCL546L725WVLCaCEhwEYt
-         ttq6P7OeoMhGgCs1d/gozk/ukg6dyxoQgDK+vNQuUQr99VBVuejZ85uvCNDIxImmR+DW
-         ig8ZMAaota1SiJMlPMfgruVFSgHx0kD8kdWigccrbP8VJE5gaxZLFV6iY5W5nkDHwRv0
-         yiQlCDXOK6L2HTf5xiGkyrUMkRQqBSBBbJl3W/rR5B26Bfqo8Qw7RLMtoVn43Hw7I3bd
-         f4BIEvK5XbBZRMmSl8aa45Siafs0RCv1B2KFxPzd7XaI18jZhP0OHQfk/8/LzXI5ypsF
-         GWQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785435174; x=1786039974;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cNanfJS2VAokGlGAjWn3IsZqHmLvq5n2BcQ0vWSl7Jc=;
-        b=srachwYXTlhLzR4xjNUZOGzamqMGKOYQpqqzDPPLBvADDP7ijoTl+qkdzmsa4ThntA
-         JmxfYQPnq8U0+mSQ0eHMawfDXbpG/HJ6PeDjvjvu0v6TWNcvLIHtrKv3K6UMDRUCjFYF
-         wOrrj0aNmguWLNRZclt09PaTUWYMALL2AHRIuAXzBM8iDwvfmomHyW0XOYhjpFx/NHFU
-         grwyM5w7I7QeBuoUw5aOSP9nrDLy0zjxvkKJ7kF1+vrnGx876kmA7C34v8s5SrfaICtX
-         b/6FUghtkHy8QuDqPMGmqWQm4S9qByQ2nzt0IlGpIjk4TCnfP2AwZsqTS0Ij33FmgvYL
-         a7LA==
-X-Forwarded-Encrypted: i=1; AHgh+RoTMriIFAtFBkfKkgCL9KXYgBz4wQ1C5EWztWss/H/l0vKtLCVI5t1ZGo5V9L0ofZGiqCPmQo+Te+haxgBXF7ve@lists.infradead.org
-X-Gm-Message-State: AOJu0YyK2SubKJKljfJPiZBhD40zsJF94QGqJyJiZ0P61EtbxwhFiXGX
-	3AjrvrdytNMNxex8gZh6lQtOpgSpjQfZepeh9mzN8FLuUXWX5Qjpd9yV
-X-Gm-Gg: AR+sD12FyXvpHsMn0b4jwCeq+qU7XzgsTsV3qB814MC4URRKvgNurlAbZjpwCdX4l5X
-	BwnzxbP/MmBEj2vDbOracLmq9+zEhVfZHZ7skJgV3yY/IK0Y2Mm+CMfirK4jCMoVFtBRH63kmYm
-	wO/n398vY1Xj8yzj5mN+rp4U2EELk/SxpAfePg/epu1d58GiVfRHkXbv+vWsQjBVNtw6HayGNsr
-	S1Yzzow+4LA8KiykhW1Yo6mqRU/7qGhHP9+oNY72CndAhA1wlEeYgVTy/VWX4taJ7tiNzYK75QZ
-	kLdxf6JF6Hjf0XRUkQtmQSwgyykaeD7DoPdEA/fB/zX6AwenPpVhcthkFkE+46d8VY4gRHqXmFt
-	3WKNbjssE6KWOC8GhY9tIxGZ9oqcvlqxBc3ioLSqEzMlh+GxEL8gGopYmOz+Zk6MUyP2o1x2aWM
-	a2PL8qYQFQ4cN/up6cDBqrq0Sqryhe2Va1j/ET2MUeAeztvAY2UKwr0JRu9eLUXR9O4RzgLv5oo
-	G5ntaqbyyELISuV+7nTXha1mktZHU7yteM4UTsTDPxK0P2smH4ia3krMR53uC8jYU3i0CPnIX4=
-X-Received: by 2002:a05:6a21:6b8c:b0:3c6:82ab:ed81 with SMTP id adf61e73a8af0-3c90d5d1e91mr1200355637.48.1785435174529;
-        Thu, 30 Jul 2026 11:12:54 -0700 (PDT)
-Received: from visitorckw-work01.c.googlers.com.com (131.197.81.34.bc.googleusercontent.com. [34.81.197.131])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31504b124e4sm21998197eec.6.2026.07.30.11.12.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 11:12:54 -0700 (PDT)
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: will@kernel.org,
-	joro@8bytes.org,
-	akpm@linux-foundation.org
-Cc: robin.murphy@arm.com,
-	nicolinc@nvidia.com,
-	cychu@google.com,
-	hhchung@google.com,
-	amitamishra@google.com,
-	marscheng@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	jserv@ccns.ncku.edu.tw,
-	eleanor15x@gmail.com,
-	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [PATCH 2/2] Revert "lib/sort.c: add _nonatomic() variants with cond_resched()"
-Date: Thu, 30 Jul 2026 18:12:16 +0000
-Message-ID: <20260730181216.2709088-3-visitorckw@gmail.com>
-X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
-In-Reply-To: <20260730181216.2709088-1-visitorckw@gmail.com>
-References: <20260730181216.2709088-1-visitorckw@gmail.com>
+	Thu, 30 Jul 2026 18:14:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PBHZHn6W2PEOrfkojarU4JdcifvybUHgovsukYyTil7V5jDDR+hAX8WZNU7l7AVBGNHKpELlz4Uea4wT5VEKcbWqr4OWb3acFsLJn0bnBr24ZIezEkGWQVoWMiWXOtAJ5v9TzxEtXWiinvBqaRxJj6QbBHFhs6c0GYYHkbLPwBNadWUdatNx6PjUaw/OBjwTlC+q5+PKB9SP2oE4CrIO1NVsysic2b1Sbn9qyx3I1F6N0QdfeGKfH8S0c3PiRavAIA8cYRO4/v5pMkMiZZSxlVIiRQ05gO5sT1GCAqH1YMf/R3cQwYkbShNQFgv/ryyBPsSiKHPssIjrT71yvkVmzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Nv5Omu9yXhFcyL2TT+yOEeSkp8IS521SRqMG7Zc+BH0=;
+ b=enKutgOX4K9b1HAQzzzFRL2Xah+amXxCO3GQVJpJHGgJyCh13cIcaUge8U1RQOi1dH4gqjHOHjS3Xg0/CgE2/RKijUe/vBvvxhydT+FsPwRI6FB9Sfv9TW5JwPewIsRwVuVyYCqvxGpIaD1Mc9EXf3M4zZGrDvA0xbaiUwu6Nh6r8l8rUKsWTp/hnGWD95390+MxsnCRDzGWpyERitFZgxmALAFWT2H4Rp28fA0pGLOp2TsZHOCp8oz6njV7nV3RUFDzPh0Pt6O6RomcFHpFOpU1CVjXsX78YxWFmQ14/k4er9Fw8LNCSXwWZMEVuWK7zbAVNBY5e2WFJA0s4wTqsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Nv5Omu9yXhFcyL2TT+yOEeSkp8IS521SRqMG7Zc+BH0=;
+ b=DE9r35hGORjveNotUdvdJcI9S8/nRVMnaHsysG/SJvSRlFrOxm3Cf4O8hVyJdf33kGXTRjR7vlTJtWi/jQ70CgD2aJ0nYhcyk1jnAc5AVvckPLG8KyXd7ZNZcfhqpIE+SmiWxcp+O+Huo5xckedSETGz1RafcbG5ITWGRE9szqVb0rIRbCXJp7ecs1tYeoqOiAprJExaflRNudnPirozXFx9QPoqDmEJv+GSI6CZQm+KIY5M1BHQI05ekfvVHt+VjnYioIXnZAL+DJcChW+j9Mz9/4iO5+Q17nIdLCW6XbKKHBO2Th1NR1jw/H00Ki/K8GAzTHS7rj85uVa+jzdiMg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
+ by VI0PR04MB10175.eurprd04.prod.outlook.com (2603:10a6:800:242::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.14; Thu, 30 Jul
+ 2026 18:14:14 +0000
+Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
+ ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
+ 18:14:14 +0000
+Date: Thu, 30 Jul 2026 14:14:06 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@oss.nxp.com>,
+	Francesco Dolcini <francesco@dolcini.it>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/4] dt-bindings: remoteproc: imx_rproc: document
+ optional "memory-region-names"
+Message-ID: <amuUbkDM60eFzvJo@lizhi-Precision-Tower-5810>
+References: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
+ <20260730163412.1145-2-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260730163412.1145-2-laurentiumihalcea111@gmail.com>
+X-ClientProxiedBy: PH7P220CA0173.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:33b::6) To DU4PR04MB11791.eurprd04.prod.outlook.com
+ (2603:10a6:10:623::11)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|VI0PR04MB10175:EE_
+X-MS-Office365-Filtering-Correlation-Id: d3d876d6-2ada-4b2a-ea35-08deee665ca2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|19092799006|1800799024|22082099003|18002099003|56012099006|11063799006|4143699003|10067099003;
+X-Microsoft-Antispam-Message-Info: 2hIdKcsBqV+b7zzPdzmgpfVNaEjKjcXR1Zkv4zK43QwB0StVO58Ye5qIc8NQXoh7ZBbJKEY5ebal5+cVAprxvAJMS9Z2GoZwJiT4VWwXunLr+v2ZMUzaKY/osSN9rLoMNuX6AGYYfehGdlb17v13TVbynvd73EueOXSjGpabs6fM0GcxbL6wX59RpsTl5TV/vP06l2fjXfcgDzj9EnWFJbRCQW4oKdKhVISxY6szMcMz0+UJF6C2nbTkNQAoyNr3/yWsarhEeeAJq7bJ6ChoJaggjzJj8oX43XkW4sUEh0Y4qlQ5BN2YNnTc2ABxldwdkk4G8mtzy1XOdmQZY+CrRME+3/mUA4U9judwMqKlRszsCBcKBceavJJAqsaZ9gxQ00eBLNTZwQIiUs2LMCmDCLKCNW2jfwTRg5XBpV2ymCHq1ZBIB4Lue/iFtCqKlqihpOQ7+pyFBhAnEO6cGF8lXvBXAb0pOSD8t2V+nMRVbVUmAv96ZjC2o6/MgbrsqOS5NsSbwW+XX+spTeIBBBtUduIzZDuMGqvsSYoTRpgJ5IN9d01v8GtBCcyJfBZ01Q6Ueyw4F/L/Ani75XOZMz84gYHlEA88AAiXrwo4x160yx8YNgKL/aXwdj9D+ZtiD4lJ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(19092799006)(1800799024)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aE38tqjZfk2Ybf1tdVe8uTv3EHkfJ4FMmM0hFqVknCahKRWCzuDS5a6vKJsP?=
+ =?us-ascii?Q?Biz8hHxNlmukJgDli3khwk4+NXnktYL2A0EG8cvI2A3Xbf0V9BfKKg35NApn?=
+ =?us-ascii?Q?S004A8Ud2/UlLFxzO2RxHRqTTC6a3yZJQ0rq6KHLVUGs4TB0oQPHNaA+qr9W?=
+ =?us-ascii?Q?DO5ZPCg6XLjFH8NlM3Lz6bbC9d4mLAR9cCXh4HwE/K0eF+j/FTGtfNDWuhd4?=
+ =?us-ascii?Q?lK9vb+nZlEgo+q3D57z7ZOWlUTvfdxYhbuXYQtnVwVIo9Cpn6Kd9sOev2+h1?=
+ =?us-ascii?Q?RrjYVcF+FEa9wOHlMjo1m+cHbmyU0pLsWMZ+D/jvLLyVEKQjAho0NwDqurxX?=
+ =?us-ascii?Q?xsBZtkur3FdTBCp20n+stWBUdlo9whicD9nLmgaLFjcFqxsChkmb/0Ix4H4B?=
+ =?us-ascii?Q?fzaBRDKJaW1FyNrQE8Y2Aw2D5UTYOqaPkOmR6bBqXsVVdmyb+LGYYc919hVY?=
+ =?us-ascii?Q?7CtGa5lRIh7TfvsAtEaPSpIzno0X9ZM10SqfgLorkSdBqNja46vQSnSqVDse?=
+ =?us-ascii?Q?3h8zhhC4Oi4zN0TIG1YqbLYXmublGNBMkobLGVeSZVjxgXpC3Q6wqfr+Ha7Q?=
+ =?us-ascii?Q?Ey0XZxho3Os2KKhjzUo2noFd41SnBWFnFk+gNj0Q0itowkc4AshhhT030e3i?=
+ =?us-ascii?Q?CzHgeQbc9fyZMPkTGGt23xLMzn7RUrbXSONVgdhJiBP02nvlUZnCSC1FZNiX?=
+ =?us-ascii?Q?OtSdGL1Qj5AQisURMSZ4EGBa2ziVtgRZrUD7hlvHH+mrC4lkRTao840jYdKa?=
+ =?us-ascii?Q?4/28rVTDmb+8kU1ozHRq1fKye2+C2yhxQZbJbURRnip+0ZRvLhXMMPUE6IuS?=
+ =?us-ascii?Q?z933R4OMsFQSlAuU36W09XvoZ+YMbvom27HoRmQnbtKpc+2V8FFPdtkhu9PR?=
+ =?us-ascii?Q?kUsshNOR4WlpcaX8lMjbzNmGd/U22J9117hLDjdbDEox91cCx4HI3pzUh9gI?=
+ =?us-ascii?Q?tLYX2H+aaDdnqIx9KwKTYeXf7CsT0kBf182457mN+gn2rvo6w94jM6F+jeIi?=
+ =?us-ascii?Q?cpOzwVElZW/yBnjXFt4ENMWnQqDik6Mp/3Zls5/ZZShi0KED/TPlzt4MU/85?=
+ =?us-ascii?Q?ASTVD53k7jAS25m4tqv9JQLdSznLkiB8hsaIUHsUsDKzLuxjfRQpa+kmk4ay?=
+ =?us-ascii?Q?i5IfV9JrMepNs1MsSKqPn8pSR/9XCLrabyZzQOsFT1Twu91fd8QS+kaXQNps?=
+ =?us-ascii?Q?W0v8UQnQb9g+aGDS6inGIWVBZrccvrTraSVc9DAwNrsszv5jlfdw/7fbtQAF?=
+ =?us-ascii?Q?hHLqyswlssU0cU4/32kT66pWI1Zk/AKFVJ5WI0u8LyvzrOkp/dKMBdZOueQf?=
+ =?us-ascii?Q?h3bxLgYOLxtAnOEGKXpguptK+JYkYZzmrBH+74ma/A49o7f32o2hYUqSJj43?=
+ =?us-ascii?Q?zdoJnPkeOUE+AR5PRzcuU44dqyiGzlmGUuPkPkeL1Aemxlm0klFpYG6WYYTh?=
+ =?us-ascii?Q?cxk+Athbt1sWDEULSkrD6S+0AcsdFTPDwYlevaZBjcbRZRy0GTX8RFLgSzIF?=
+ =?us-ascii?Q?2TYr6OCjPx6RgnikaUTIWg+y3cqm2sUBEKBWjE9bHXoRjYVf0wofLomSv1Xl?=
+ =?us-ascii?Q?WN8jFSGzPM/3E/4B5+fjGJatsLhWaSN4JeF/XwGpRk2LRgAWZPz8OOmnAorn?=
+ =?us-ascii?Q?tQtA+jiQFwlhFv9xdYkpv7/1/rA5hiKQdcioiXYf6glsNvNzxmvLFa5tc/u8?=
+ =?us-ascii?Q?xzu2vzWUXvjjiEBoX8xyn3IfUCscAdIeJMHgjYoFpu/vTQo6II8ebwaohDS1?=
+ =?us-ascii?Q?w7O9eRqHHtafKLJAbA2jyJlUcODqmqNvirEiffks2j6Z+8tEpecu?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3d876d6-2ada-4b2a-ea35-08deee665ca2
+X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 18:14:14.3450
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yqZRjEhqLysbkSghrnrG96I+he+d04yE7iojVJ65Be+GV7XmE7eMmDG66uKsFBgEsCbgQF8FXMaEme41iCeXQFdwZixGWCAk+LtsRbc1G2ccS2rBd+JpoC9WrC3yCtkz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10175
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_111255_548610_6E12E91C 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20260730_111420_356070_3E65349B 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,187 +147,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This reverts commit e2a33a2a3258794891cdd6ca4b1318da6594d157.
+On Thu, Jul 30, 2026 at 09:34:09AM -0700, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>
+> The carveout region names are derived based on the DT node names. Because
+> of this, the DT node names are ABI, which is not supposed to happen.
+>
+> Fix this by documenting an additional, optional property:
+> "memory-region-names". This way, the software will have a way to build the
+> carveout region names without relying on the DT node names.
 
-After replacing the only in-tree user of sort_nonatomic() in the
-arm-smmu-v3 driver with the standard sort(), the _nonatomic() variants
-are no longer used anywhere in the kernel.
+"After update all existing DT tree, this will be required.
 
-Remove sort_nonatomic() and sort_r_nonatomic() to clean up dead code.
-This effectively drops the wrapper function __sort_r() and eliminates
-the may_schedule branch and cond_resched() call from the inner loop of
-the core sorting routine, slightly simplifying and optimizing the code.
+>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> ---
 
-Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
----
- include/linux/sort.h |  11 -----
- lib/sort.c           | 110 ++++++++++++-------------------------------
- 2 files changed, 31 insertions(+), 90 deletions(-)
+Additional information to help understand why it is important.
 
-diff --git a/include/linux/sort.h b/include/linux/sort.h
-index c01ef804a0eb..871775978af0 100644
---- a/include/linux/sort.h
-+++ b/include/linux/sort.h
-@@ -23,15 +23,4 @@ void sort(void *base, size_t num, size_t size,
- 	  cmp_func_t cmp_func,
- 	  swap_func_t swap_func);
- 
--/* Versions that periodically call cond_resched(): */
--
--void sort_r_nonatomic(void *base, size_t num, size_t size,
--		      cmp_r_func_t cmp_func,
--		      swap_r_func_t swap_func,
--		      const void *priv);
--
--void sort_nonatomic(void *base, size_t num, size_t size,
--		    cmp_func_t cmp_func,
--		    swap_func_t swap_func);
--
- #endif
-diff --git a/lib/sort.c b/lib/sort.c
-index 52363995ccc5..8e73dc55476b 100644
---- a/lib/sort.c
-+++ b/lib/sort.c
-@@ -186,13 +186,36 @@ static size_t parent(size_t i, unsigned int lsbit, size_t size)
- 	return i / 2;
- }
- 
--#include <linux/sched.h>
--
--static void __sort_r(void *base, size_t num, size_t size,
--		     cmp_r_func_t cmp_func,
--		     swap_r_func_t swap_func,
--		     const void *priv,
--		     bool may_schedule)
-+/**
-+ * sort_r - sort an array of elements
-+ * @base: pointer to data to sort
-+ * @num: number of elements
-+ * @size: size of each element
-+ * @cmp_func: pointer to comparison function
-+ * @swap_func: pointer to swap function or NULL
-+ * @priv: third argument passed to comparison function
-+ *
-+ * This function does a heapsort on the given array.  You may provide
-+ * a swap_func function if you need to do something more than a memory
-+ * copy (e.g. fix up pointers or auxiliary data), but the built-in swap
-+ * avoids a slow retpoline and so is significantly faster.
-+ *
-+ * The comparison function must adhere to specific mathematical
-+ * properties to ensure correct and stable sorting:
-+ * - Antisymmetry: cmp_func(a, b) must return the opposite sign of
-+ * cmp_func(b, a).
-+ * - Transitivity: if cmp_func(a, b) <= 0 and cmp_func(b, c) <= 0, then
-+ * cmp_func(a, c) <= 0.
-+ *
-+ * Sorting time is O(n log n) both on average and worst-case. While
-+ * quicksort is slightly faster on average, it suffers from exploitable
-+ * O(n*n) worst-case behavior and extra memory requirements that make
-+ * it less suitable for kernel use.
-+ */
-+void sort_r(void *base, size_t num, size_t size,
-+	    cmp_r_func_t cmp_func,
-+	    swap_r_func_t swap_func,
-+	    const void *priv)
- {
- 	/* pre-scale counters for performance */
- 	size_t n = num * size, a = (num/2) * size;
-@@ -263,9 +286,6 @@ static void __sort_r(void *base, size_t num, size_t size,
- 			b = parent(b, lsbit, size);
- 			do_swap(base + b, base + c, size, swap_func, priv);
- 		}
--
--		if (may_schedule)
--			cond_resched();
- 	}
- 
- 	n -= size;
-@@ -273,63 +293,8 @@ static void __sort_r(void *base, size_t num, size_t size,
- 	if (n == size * 2 && do_cmp(base, base + size, cmp_func, priv) > 0)
- 		do_swap(base, base + size, size, swap_func, priv);
- }
--
--/**
-- * sort_r - sort an array of elements
-- * @base: pointer to data to sort
-- * @num: number of elements
-- * @size: size of each element
-- * @cmp_func: pointer to comparison function
-- * @swap_func: pointer to swap function or NULL
-- * @priv: third argument passed to comparison function
-- *
-- * This function does a heapsort on the given array.  You may provide
-- * a swap_func function if you need to do something more than a memory
-- * copy (e.g. fix up pointers or auxiliary data), but the built-in swap
-- * avoids a slow retpoline and so is significantly faster.
-- *
-- * The comparison function must adhere to specific mathematical
-- * properties to ensure correct and stable sorting:
-- * - Antisymmetry: cmp_func(a, b) must return the opposite sign of
-- * cmp_func(b, a).
-- * - Transitivity: if cmp_func(a, b) <= 0 and cmp_func(b, c) <= 0, then
-- * cmp_func(a, c) <= 0.
-- *
-- * Sorting time is O(n log n) both on average and worst-case. While
-- * quicksort is slightly faster on average, it suffers from exploitable
-- * O(n*n) worst-case behavior and extra memory requirements that make
-- * it less suitable for kernel use.
-- */
--void sort_r(void *base, size_t num, size_t size,
--	    cmp_r_func_t cmp_func,
--	    swap_r_func_t swap_func,
--	    const void *priv)
--{
--	__sort_r(base, num, size, cmp_func, swap_func, priv, false);
--}
- EXPORT_SYMBOL(sort_r);
- 
--/**
-- * sort_r_nonatomic - sort an array of elements, with cond_resched
-- * @base: pointer to data to sort
-- * @num: number of elements
-- * @size: size of each element
-- * @cmp_func: pointer to comparison function
-- * @swap_func: pointer to swap function or NULL
-- * @priv: third argument passed to comparison function
-- *
-- * Same as sort_r, but preferred for larger arrays as it does a periodic
-- * cond_resched().
-- */
--void sort_r_nonatomic(void *base, size_t num, size_t size,
--		      cmp_r_func_t cmp_func,
--		      swap_r_func_t swap_func,
--		      const void *priv)
--{
--	__sort_r(base, num, size, cmp_func, swap_func, priv, true);
--}
--EXPORT_SYMBOL(sort_r_nonatomic);
--
- void sort(void *base, size_t num, size_t size,
- 	  cmp_func_t cmp_func,
- 	  swap_func_t swap_func)
-@@ -339,19 +304,6 @@ void sort(void *base, size_t num, size_t size,
- 		.swap = swap_func,
- 	};
- 
--	return __sort_r(base, num, size, _CMP_WRAPPER, SWAP_WRAPPER, &w, false);
-+	return sort_r(base, num, size, _CMP_WRAPPER, SWAP_WRAPPER, &w);
- }
- EXPORT_SYMBOL(sort);
--
--void sort_nonatomic(void *base, size_t num, size_t size,
--		    cmp_func_t cmp_func,
--		    swap_func_t swap_func)
--{
--	struct wrapper w = {
--		.cmp  = cmp_func,
--		.swap = swap_func,
--	};
--
--	return __sort_r(base, num, size, _CMP_WRAPPER, SWAP_WRAPPER, &w, true);
--}
--EXPORT_SYMBOL(sort_nonatomic);
--- 
-2.55.0.508.g3f0d502094-goog
+1. at thread wrong use vdevbuffer insteand vdev0buffer as node name
+https://lore.kernel.org/imx/20260705202439.3F5771F000E9@smtp.kernel.org/
+2. similar case happen at
+https://lore.kernel.org/imx/20260715071741.79CA81F000E9@smtp.kernel.org/
 
+Suppose these problem should be detected by dt binding check instead of
+sashkio ai.
+
+
+>  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml         | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> index c18f71b64889..8e3e6676a95e 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> @@ -62,6 +62,10 @@ properties:
+>      minItems: 1
+>      maxItems: 32
+>
+> +  memory-region-names:
+> +    minItems: 1
+> +    maxItems: 32
+> +
+
+Need restrict names
+
+  memory-region-names:
+    description:
+      Names for the memory-region phandles. Each entry must be one of the
+      following recognized names. "vdev0buffer" is the shared buffer for
+      virtio device 0, handled automatically by the rproc virtio framework.
+      "vdev<n>ring<n>" (e.g. "vdev0vring0", "vdev0vring1") are the virtio
+      vring buffers for device N, also managed by the virtio framework.
+      "rsc-table" is the resource table region used to share the resource
+      table between Linux and the remote processor when it is pre-loaded in
+      memory. All other entries are treated as generic carveout regions that
+      are mapped and made available to the remote processor.
+    minItems: 1
+    maxItems: 32
+    items:
+      anyOf:
+        - const: rsc-table
+        - pattern: "^vdev[0-9]+buffer$"
+        - pattern: "^vdev[0-9]+vring[0-9]+$"
+
+Frank
+
+>    power-domains:
+>      minItems: 2
+>      maxItems: 8
+> --
+> 2.53.0
+>
 
