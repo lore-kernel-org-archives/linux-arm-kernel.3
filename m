@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A81D2C55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77F9C55167
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:25:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wy+7pP6/2786p1cEJdzAOhNBv0+Zz/x0WQIVBEqSFIU=; b=kU6HpL2r2Cv8hrvEPn+Ncz0KLz
-	nbTf5xKFxvLHf7fXKJoOeEIvwXoKUZth7N2psqAPZurL3micPTef4sYDXxOdq+EbZq2WujWD1Dztz
-	3yxJBp5hOGcIZfQuQOJHfFwEwfh0m99/2HBEsvyKkDL1OC+WTu5Betw+RpOwy4GZueocSpu1vph92
-	ShWzjdsXHH/bP9ONXxE4JjZAiGY2BrY9/pA6RdxwsN3KEpcjnsemsDaQN/gY/5wfaCwBzCVi4LVDy
-	2i809qbFBvAc8tODPpvsJid16Fl3PZfQf9EdtMCfhWbOyZQS79oyxeZmUMpJhstnCkpJiG3gD6o2T
-	LW/qSQrw==;
+	bh=ug2PFfl1kVCa/AMMLBmAuQNsYDTChSLFPxolpp21vS0=; b=wj0X5r97iLD39TLBWTo+4NM4oP
+	qSrQztdbm8/Tq6AiZKyOIhgfDG9PRmn/mR0b6i6aMZP2uQIyZtc6XpUgv3Ln09uE/7I4HRboLrENc
+	hi0W8Bq0lSdBz6+WDk86fgY7eSnhc9iT+G0OuNUFh/yGAhsjJ+zw8Cem9C3hnlY7CZdOZwHxcSl77
+	WNd9+Nx03bUBQZLR3zMDQt2GsCytyQ2+jxosdEAIz+Za4zp2DQEHSk2NB/GNhEeV91Ee814wb4YvH
+	igcJ4ggur9w8uPGLP4zDygqetRb8Y/S9dGHvbxJhIyRKLqG5LQdTcG04EGr3Xi64k6cuN9aNk1H5B
+	e1m/71fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpZU9-0000000BRNr-3cUW;
-	Thu, 30 Jul 2026 22:44:17 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1wpa80-0000000BUbL-0bIV;
+	Thu, 30 Jul 2026 23:25:28 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpZU3-0000000BRN4-3G4A
+	id 1wpa7x-0000000BUb0-1Emk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 22:44:17 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 818D911B91F;
-	Fri, 31 Jul 2026 00:43:58 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1785451441; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=wy+7pP6/2786p1cEJdzAOhNBv0+Zz/x0WQIVBEqSFIU=;
-	b=Yc+SrsCYWQCVEePKfmFCdqfH+82wm8HVFHjD/EhN2wSpB7xFgggWS1/JrBy+wYsO47jl8n
-	IlFcfXkB2hFKlRGlG7Kj5Sy/60PMQrl0rQP3yoG5XY3Y29yX380LfHN0t9v1yPuGX4ek8k
-	q74F4rRLdNx41LjuOzk0TDpfZpIm7Ap2dqYiLB/ZeEP2j0MfJsBG04y8TZIuvu2dnpn5DY
-	/ljtOj7g7kJ07Xdh2Q1+QouGzAD+4xT5gnVPzRQXglv7WddzCBxBpVwyT4my7aKpukIlz0
-	HArekm27iUUsfUcTer91FbbNlNWmlheyBs2QlaFt0MUwEdMbGxdIRHrmH5halw==
-From: Marek Vasut <marex@nabladev.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marex@nabladev.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 1/7] arm64: dts: imx8mp: Add DT label to SPBA5 bus
-Date: Fri, 31 Jul 2026 00:43:16 +0200
-Message-ID: <20260730224351.95006-1-marex@nabladev.com>
-X-Mailer: git-send-email 2.53.0
+	Thu, 30 Jul 2026 23:25:26 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 9C40DC0003EC;
+	Thu, 30 Jul 2026 16:25:22 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 9C40DC0003EC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1785453922;
+	bh=Uc+eyvzGbvvd3Oto45mr6JOPfvyYJt25U56/YBpbzmY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TQQ03YQFsvFtaxSNFTx2n6vyK2N+vyQYNXXQDzHA7mEzd7GjCNXWCpt07hiyFcDd0
+	 qhmDqPOdSC9xNAaGMm7JIpP7YCwAz+hq9uhyfX7YrhiGOg8kIkgNnDZ4cBQnXb/j9c
+	 qf1Y5beAPqzKwMpbU/a61fB2j0ubW5w0Xp2KKKsg=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 520ADAD9;
+	Thu, 30 Jul 2026 16:25:22 -0700 (PDT)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: soc@kernel.org
+Cc: Rosen Penev <rosenp@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-arm-kernel@lists.infradead.org,
+	arnd@arndb.de,
+	khilman@kernel.org,
+	bcm-kernel-feedback-list@broadcom.com
+Subject: [GIT PULL v2] Broadcom devicetree fixes for 7.2
+Date: Thu, 30 Jul 2026 16:25:19 -0700
+Message-ID: <20260730232519.2706487-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_154411_989392_2ECC34CB 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20260730_162525_460049_3ED9DCAB 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +76,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT label to SPBA5 bus for usage in board DTs.
-No functional change.
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-Signed-off-by: Marek Vasut <marex@nabladev.com>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
-V6: New patch factored out of previous
-    arm64: dts: imx8mm: imx8mp: Add LVDS DTOs for Data Modul i.MX8M Mini and Plus eDM SBC
-V7: No change
-V8: No change
----
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index 9cf9f6f08654d..bec64cbb36347 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -1437,7 +1437,7 @@ aips5: bus@30df0000 {
- 			#access-controller-cells = <3>;
- 			ranges = <0x30c00000 0x30c00000 0x400000>;
- 
--			spba-bus@30c00000 {
-+			spba5: spba-bus@30c00000 {
- 				compatible = "fsl,spba-bus", "simple-bus";
- 				reg = <0x30c00000 0x100000>;
- 				#address-cells = <1>;
--- 
-2.53.0
+are available in the Git repository at:
 
+  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-7.2/devicetree-fixes-v2
+
+for you to fetch changes up to 6de6732c4c784ce64e2457630ca800dfe5efb774:
+
+  ARM: dts: BCM5301X: EA9200: fix NVRAM size (2026-07-29 15:42:57 -0700)
+
+----------------------------------------------------------------
+This pull request contains Broadcom ARM-based SoCs Device Tree fixes for
+7.2, please pull the following:
+
+- Rosen fixes the Linksys EA9200 NVRAM DT size, the 2nd PCIe controller
+  interrupt that was duplicated
+
+----------------------------------------------------------------
+Rosen Penev (2):
+      ARM: dts: BCM5301X: fix PCIe controller 2 second interrupt
+      ARM: dts: BCM5301X: EA9200: fix NVRAM size
+
+ arch/arm/boot/dts/broadcom/bcm-ns.dtsi                | 2 +-
+ arch/arm/boot/dts/broadcom/bcm4709-linksys-ea9200.dts | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
