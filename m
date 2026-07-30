@@ -4,63 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 494F5C55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C82C55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ymHKN/BJa2+0pQ3DOlaBBtFOqaY7h/grwRM8s4BKdwc=; b=zgQBGtuWCbGYi46jwskZXlpGwo
-	qSS5h3zokJDfaurPTMq0Dqzg7CX8m2b/fcFrhGib3iZUGZ4Cn6NIgEv+W5T9vcTr5k9cNXDoI/xoa
-	zJRDxIbGtvxACGDf/x7TnfK+v97B5dQNJXWtWX6fSB4w44U+KFTmBh7+37uI2Pv7SZG+KkXHl0rAk
-	CneviLqXC9VTtxki4NgCY9aRSMyUNQLlKNsq208SmL1M+OJKjNhKlvzpRoUvOe2IjbNK4zWr3yiN6
-	VU6/2xc0KtRUDZ1IOh4eHEZ/V2+SouAuoZEWGzimisXI0eCTUuOBp6lMZqOWYbSHxhU7ZrzKM3WPf
-	bMaflhqA==;
+	bh=7eM/+djUdUKJLWwx0zayHVa8z9iYSo8gtg4+aGAkdTc=; b=0B870NqJeMDRBoesMg1f1UZTPZ
+	5N0pNl20jooA1fMCDbyC9YWPypYVUn8kPIGyRiXkMRw8g44dFjSLcWggE96WawtR5GxbniCgmPkpx
+	bicvF45h9djujL6XYIp46WY8+A7bhl4mFmHE6v1Ky6GpsMedKis5p49soJsB/cZ8NDJO/od+yAjRB
+	r5G2uRyN3uRvjkRLOhWkswX91+tU1SUzY2ed8G0NfRmXlQvFe944SWTjHV9YnK6Q0vBC63O0E5tW8
+	8xN4IVHMEl2Wgy8Fw/+uJSt8a9l5l7tKkLxlJ7z7giI7ORJ9xuUSRsQrjbMpI/msKVtyZOH589Z70
+	hn5gRTLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPeU-0000000ARPL-2nK4;
-	Thu, 30 Jul 2026 12:14:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wpPek-0000000ARUM-3So4;
+	Thu, 30 Jul 2026 12:14:34 +0000
+Received: from mail-wr2-x00.google.com ([2a00:1450:4864:30::])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPeU-0000000ARPD-0coT
+	id 1wpPei-0000000ARSo-2F5D
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:14:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B28AE42B17;
-	Thu, 30 Jul 2026 12:14:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D7FB1F000E9;
-	Thu, 30 Jul 2026 12:14:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785413657;
-	bh=ymHKN/BJa2+0pQ3DOlaBBtFOqaY7h/grwRM8s4BKdwc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=QpWYFZtiv7xvBiD8yhhxjDR2I2Pxtdoj+NdAO8DyGiiTwd4gadDiR6vxblENSgQfX
-	 uFyV8YPD4UFbBzs9ONRhUpq5rNQVbgT/Dism5miL278jpJrPywtD856VCMMhPTn19g
-	 AK41e+OIieKxQsCeMpzobggMAUCCe2HEFu1MyAx5Eq0bSUizDgBYHiiR32/pMNkqCu
-	 6Ev5KnnDPgr8KUS+AGhS767CbP9EHAZxhAB9qlB0gG4QRR3KWK7g8jpIWzNLRTE6/X
-	 B5xvZbremozqKo3xssG6J4qhtATPnModw+eXSJ21hsjYV9K+0NEs5RMWOCPI4phGl1
-	 /3Se2nMv/k9qg==
-Message-ID: <59156118-27b2-453d-81b9-86a3d411a855@kernel.org>
-Date: Thu, 30 Jul 2026 14:14:13 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qe: properly scan GPIO nodes at startup
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
- Herve Codina <herve.codina@bootlin.com>,
- Paul Louvel <paul.louvel@bootlin.com>
-References: <04dc047f8958a78a920f0a88ca3bd8bf70c56187.1785333986.git.chleroy@kernel.org>
- <e1bd8dcf-9b8e-4bc7-8ba8-6c06222e1659@kernel.org>
- <223afb76-9f6f-48a1-a5c5-beb1a641916c@kernel.org>
- <f1b4c866-6cd7-4d6f-812b-d95e94f69e83@kernel.org>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <f1b4c866-6cd7-4d6f-812b-d95e94f69e83@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Thu, 30 Jul 2026 12:14:34 +0000
+Received: by mail-wr2-x00.google.com with SMTP id ffacd0b85a97d-472365266f5so786460f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 05:14:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1785413670; x=1786018470; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=7eM/+djUdUKJLWwx0zayHVa8z9iYSo8gtg4+aGAkdTc=;
+        b=G21tmINIX6KbtsAeSyQZMujtis/u/hrCb3FTeiGCLP85rF+Bo6n7EyJULsrBzGEa3i
+         QmnEWvhTkGTGaSoRKtYQm7x9V9oIghKdQI1rO7y6ajTK6lIuhvtJ4cxDhWC4XJXmZKiF
+         e7I8uu+tZVwb+ovTMnJmuQ3DesNXWnFJPnZS8CTLcefR1eoMs4ML1tgli4GfIZQx/Ea0
+         0XhUr6xxKhtuaW+aIDaHgEwJJ/bEckl3JjvsG6GVG5ZDPFIJ2I+zTx1QRN/mQV0Yooh2
+         /lbqrVzdW65Fy2ItSMAGp7hFqtifuQS963td50de8UHyL2F0lSO1igcrf/UEWaPdHnq6
+         tEmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785413670; x=1786018470;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7eM/+djUdUKJLWwx0zayHVa8z9iYSo8gtg4+aGAkdTc=;
+        b=JKtxHPfgjbiKQN5wlb9P6Zm0lEh0ZFz/IkUtYP27f+veSozTef/tuBcMN/vV8q0qcf
+         2PyJneTJ/0EjpqiaLARbXb2a5PGSCydDmmBpmZWAzGnUNi0mKEBfR0xTEnmxOfEDpkxG
+         uSNQholBKAxqaMIgPIh/IDFsNUp4TZivtPgNQIzK3lzpqRiEurL3zy/qiE/MV3oC9+nH
+         gnV9reeE1s58Tgzt3gsCCEE8Jyd+UeSXXukb+4VX9b/IShRABnOT74YtUcALYByqw1er
+         fJHWGIPcSLG30wpY+nXwLkv/CFynEsReWgenclAZKIYaVef4qu6VRAi6neIprTs/RGIV
+         En8w==
+X-Forwarded-Encrypted: i=1; AHgh+RrUzjyw2ioxcVbnfyL0nOk7u0HMOAEoAemRcR5GziG9ROJ1B+3ONO2ePGCanMG4+UhJ+HbVx9bnSBGmA4Ot8L6M@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpZ3w4lqqSFMihkjAHOqDk1Ya3nM3XvVMAMdH6HQGDhu5sDJnD
+	l+b1f9hiJTkIHmnp2QBOu50aUdRsewPsnJvYJHouQvKSFUxvgQ7ulAJHjwd7xycqcg==
+X-Gm-Gg: AR+sD12HmSyVcnG5Fzn8ziK3qEPYBomKRVLUhIjXWlm7GARbQhmPpSK/aq63J9fKrds
+	eAQa9k5ymQlMMunYZkl81nbnwthYYyYXd2dWr8oEHLjTX6TPYtF4ESEMFPt3YF/DsacJ5dPkyj7
+	3AhNbcB7alKWuyJnFFYm+IUJ2V3/VAd4euTk6yHe62pQuWf/qN/9KvJYvPrRZfi1AEov482pD4V
+	UXj3ztqe9LX7ntC7PCU29/p/Nz2IgUJl8NItpJq/7gqxo3casbBz1DmR42gH2EAr873HVQvihh9
+	+XntmxFjPQDY+DVd+cpKwmBfRlHI/hhmUbG6L095I1GGbvGQeEvbk8nzp9Sp6uGu1IOeeJN+UFT
+	uD7gTmVBWTQK/Jk56jQ1L+p89qCQ13BsiZhI/i+yXAVXf3XDdCAjRi2RQC5cxXqcOjyd91XOIFx
+	IPVHTboUFXbxs/LE8AEKurKlxNeC1L9ABJzfCkpLjOee2E+eARXNUhJLNuZNcH9IigkA==
+X-Received: by 2002:a5d:59c3:0:b0:47f:9283:1fb3 with SMTP id ffacd0b85a97d-47fc806e48amr3531249f8f.0.1785413669775;
+        Thu, 30 Jul 2026 05:14:29 -0700 (PDT)
+Received: from localhost ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fc892cc54sm5743980f8f.21.2026.07.30.05.14.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Jul 2026 05:14:29 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 30 Jul 2026 14:14:27 +0200
+Message-Id: <DKBWBNP7VLCF.3FND2WKPV4NWU@9elements.com>
+Cc: "Lucas Stach" <l.stach@pengutronix.de>, "Lorenzo Pieralisi"
+ <lpieralisi@kernel.org>, =?utf-8?q?Krzysztof_Wilczy=C5=84ski?=
+ <kwilczynski@kernel.org>, "Rob Herring" <robh@kernel.org>, "Bjorn Helgaas"
+ <bhelgaas@google.com>, "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Fabio Estevam"
+ <festevam@gmail.com>, <linux-pci@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] PCI: imx6: enable ASPM L1 only iff CLKREQ# is supported
+From: "Michal Gorlas" <michal.gorlas@9elements.com>
+To: "Manivannan Sadhasivam" <mani@kernel.org>, "Richard Zhu"
+ <hongxing.zhu@nxp.com>, "Frank Li" <Frank.Li@nxp.com>, "Michal Gorlas"
+ <michal.gorlas@9elements.com>
+X-Mailer: aerc 0.21.0
+References: <20260719-l1-conditional-imx-v1-1-a55a57915c68@9elements.com>
+ <t2zu6bv4dqf5znpn5uypkoieltlrzlp4kskt6jwp46xgqajhjp@6g5kiwwn72a4>
+In-Reply-To: <t2zu6bv4dqf5znpn5uypkoieltlrzlp4kskt6jwp46xgqajhjp@6g5kiwwn72a4>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_051432_701569_55C14901 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,88 +109,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed Jul 29, 2026 at 7:01 PM CEST, Manivannan Sadhasivam wrote:
+> On Sun, Jul 19, 2026 at 02:47:54AM +0200, Michal Gorlas wrote:
+>> Since commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM
+>> states for devicetree platforms"), ASPM states are force enabled
+>> on all devicetree platforms. This causes PCI devices on some iMX SoCs
+>> (for e.g. iMX 8M Plus Kontron SMARC eval carrier) to enter L1 even
+>> though CLKREQ# is not supported (and consequently supports-clkreq is
+>> not set in pcie controller node of their DT), which causes the device to
+>> never wake up from L1.
+>>=20
+>> Hence, disable L1 capability in the LINKCAP register if supports-clkreq
+>> is not set in the DT explicitly.
+>>=20
+>> Note, the logic here is very similar to 613f3255a35a, only difference
+>> is that leaving L0s enabled does not cause issues (at least
+>> I never encountered them myself when testing on the device) as its
+>> not dependent on CLKREQ# being physically there.
+>> Since there is already a way of specifying its presence in the DT,
+>> the driver should be aware and disable L1.
+>>=20
+>> Fixes: f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for d=
+evicetree platforms")
+>> Signed-off-by: Michal Gorlas <michal.gorlas@9elements.com>
+>> ---
+>>  drivers/pci/controller/dwc/pci-imx6.c | 19 +++++++++++++++++++
+>>  1 file changed, 19 insertions(+)
+>>=20
+>> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/control=
+ler/dwc/pci-imx6.c
+>> index 98e1db751132..7471501fbf04 100644
+>> --- a/drivers/pci/controller/dwc/pci-imx6.c
+>> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+>> @@ -1318,6 +1318,22 @@ static void imx_pcie_assert_perst(struct imx_pcie=
+ *imx_pcie, bool assert)
+>>  	}
+>>  }
+>> =20
+>> +static void imx_pcie_disable_l1(struct dw_pcie *pci)
+>> +{
+>> +	u32 val;
+>> +	u8 offset;
+>> +
+>> +	offset =3D dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+>> +
+>> +	dw_pcie_dbi_ro_wr_en(pci);
+>> +
+>> +	val =3D dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
+>> +	val &=3D ~PCI_EXP_LNKCAP_ASPM_L1;
+>> +	dw_pcie_writel_dbi(pci, offset + PCI_EXP_LNKCAP, val);
+>> +
+>> +	dw_pcie_dbi_ro_wr_dis(pci);
+>> +}
+>> +
+>>  static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>>  {
+>>  	struct dw_pcie *pci =3D to_dw_pcie_from_pp(pp);
+>> @@ -1442,6 +1458,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *p=
+p)
+>> =20
+>>  	imx_setup_phy_mpll(imx_pcie);
+>> =20
+>> +	if (!imx_pcie->supports_clkreq)
+>> +		imx_pcie_disable_l1(pci);
+>
+> Sashiko raised a valid issue here:
+> https://patchwork.kernel.org/project/linux-pci/patch/20260719-l1-conditio=
+nal-imx-v1-1-a55a57915c68@9elements.com/#27076171
+>
+> IMX_PCIE_FLAG_BROKEN_SUSPEND is only set for i.MX6Q, but none of its DTs =
+have
+> 'supports-clkreq' property. So this patch will impact them also and since=
+ they
+> do not reinitialize the hardware fully in resume(), ASPM settings will re=
+set to
+> hardware default.
 
+Right, for i.MX6Q, imx_pcie_disable_l1() could be called unconditionally
+in imx_pcie_resume_noirq() after the imx_check_flag(imx_pcie, IMX_PCIE_FLAG=
+_BROKEN_SUSPEND)
+block, something like:
 
-Le 30/07/2026 à 14:05, Krzysztof Kozlowski a écrit :
-> On 30/07/2026 14:01, Christophe Leroy (CS GROUP) wrote:
->>
->>
->> Le 30/07/2026 à 13:14, Krzysztof Kozlowski a écrit :
->>> On 29/07/2026 16:10, Christophe Leroy (CS GROUP) wrote:
->>>> Before commit 156460811def ("soc: fsl: qe: Change GPIO driver to a
->>>> proper platform driver") qe_add_gpiochips() was walking the device
->>>> tree to find all nodes with compatible "fsl,mpc8323-qe-pario-bank".
->>>>
->>>> After that commit the discovery is handled by the platform core,
->>>> therefore it is necessary to call of_platform_default_populate() on
->>>> the par_io node.
->>>>
->>>> Fixes: 156460811def ("soc: fsl: qe: Change GPIO driver to a proper platform driver")
->>>> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
->>>> ---
->>>>    drivers/soc/fsl/qe/qe_io.c | 15 +++++++++++++++
->>>>    1 file changed, 15 insertions(+)
->>>>
->>>> diff --git a/drivers/soc/fsl/qe/qe_io.c b/drivers/soc/fsl/qe/qe_io.c
->>>> index a5e2d0e5ab51..02ca556c8db0 100644
->>>> --- a/drivers/soc/fsl/qe/qe_io.c
->>>> +++ b/drivers/soc/fsl/qe/qe_io.c
->>>> @@ -15,6 +15,7 @@
->>>>    #include <linux/errno.h>
->>>>    #include <linux/module.h>
->>>>    #include <linux/ioport.h>
->>>> +#include <linux/of_platform.h>
->>>>    
->>>>    #include <asm/io.h>
->>>>    #include <soc/fsl/qe/qe.h>
->>>> @@ -184,3 +185,17 @@ int par_io_of_config(struct device_node *np)
->>>>    	return 0;
->>>>    }
->>>>    EXPORT_SYMBOL(par_io_of_config);
->>>> +
->>>> +static int __init par_io_populate(void)
->>>> +{
->>>> +	struct device_node *np = of_find_node_by_name(NULL, "par_io");
->>>
->>> No, node name must not be ABI. Especially wrong node name.
->>
->> What's wrong with the node name ?
-> 
-> 1. It causes W=2 warnings (which we might move to W=1 at some point)
-> 2. It is not generic and DT spec asks for generic node names, although
-> maybe this part of code follows more of ePAPR than DT. But ePAPR v1.1
-> also was asking for generic node names.
-> 
->>
->> Regardless, I messed it up, I wanted to use type but copy/pasted
->> of_find_node_by_name(NULL, "par_io") from quirk_mpc8360e_qe_enet10() in
->> arch/powerpc/platforms/83xx/km83xx.c instead.
->>
->> Is it OK to use of_find_node_by_type(NULL, "par_io") instead ?
-> 
-> Well, depends. Is it a documented ABI?
+@@ -1767,6 +1767,7 @@ static int imx_pcie_resume_noirq(struct device *dev)
+                        return ret;
+                imx_pcie_deassert_core_reset(imx_pcie);
+                imx_pcie_assert_perst(imx_pcie, false);
++               imx_pcie_disable_l1(imx_pcie->pci);
 
-In Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/par_io.txt:
+                /*
+                 * Using PCIE_TEST_PD seems to disable MSI and powers down =
+the
 
-Required properties:
-- device_type : should be "par_io".
-- reg : offset to the register set and its length.
-- num-ports : number of Parallel I/O ports
+Though I do not have imx6q hw to test this, so it would be nice if NXP
+folks could give it a test.
 
-Example:
-par_io@1400 {
-	reg = <1400 100>;
-	#address-cells = <1>;
-	#size-cells = <0>;
-	device_type = "par_io";
-	num-ports = <7>;
-	ucc_pin@1 {
-		......
-	};
-
-Is it OK ?
-
-Thanks,
-Christophe
-
+Best,
+Michal
 
