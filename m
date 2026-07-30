@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A149C54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC20EC54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hemAsC+GgWzK8ju2JFRty0vJvvDKGJuoS4mAtdbzBnY=; b=MdfN1pNd2yRBrBMQX6K6U+uHLT
-	A6QFjTkm95VF/7bI2A+D+r1XtHTlhWrIInXv+ucEoNM36akj6SVTyGgypIwIGkAIe2oKeRVHOfLGz
-	fAOnDsls/+HwtHcyhaQQfjT3JDa1bfFlKb7VTl9tDpY/rX97rrK0DxLmUYqgRQk/rIdIsqysbFHIT
-	g9bXDzifIyah9h4ylWtTTtbsNcLKyU/GzKUc6nAB17+cOVEjxlH1gElOtSX9KF21E5mwvFFtQacdb
-	4e59w3CyVD+8r/4VL0Et2A+Gph5Us1xNqfXW///baagl7kuEIFwR54bsK4OXheHZnpiBAit/jgT5W
-	SGeOoGgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mF7Z5wX8EXbWIN2+rivpRL+1Kmo3FWpkiMD2J5REZno=; b=fRokyJLAQyUXZrAgxhLh2OeAUp
+	eXQXUfp4eipLD/CMOWKxeJtwgfDvKI4xtRob0rWo5PvV2iPYTLOCUqq8CIr/xOFIyK47WS5xZyg1i
+	Ii2ct1gnLw+6H5CxYS8BG32J87OyYg2gElXJb5cjR6chHzYej7f3zNY3StUOYyIEEB8i526Ng2I5s
+	wmZS26JyycGwIVBhTQCCmhUixbVEfX/M7O5gnMbEI9lTl5pOtDJMBL/IwPoVz6bUBysMe0gMfthrJ
+	GGxG8Pc9DNCMRGFu5cXkmIEqjcuH0enLWPe2HhbRsdCaH/ZdNtb3jnlIpjr6am6MH7r+AzsyMKvrZ
+	YDzOeAhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNFv-0000000A2OZ-3wzo;
-	Thu, 30 Jul 2026 09:40:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNFv-0000000A2OH-0bz4;
-	Thu, 30 Jul 2026 09:40:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8581740EFE;
-	Thu, 30 Jul 2026 09:40:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66D3D1F000E9;
-	Thu, 30 Jul 2026 09:40:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785404446;
-	bh=hemAsC+GgWzK8ju2JFRty0vJvvDKGJuoS4mAtdbzBnY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=CpAD/fqQp5+fwYTP+rTUobicY48/2ZPwJGIiNVuS9rrbZENPZTVicWvhlu2L05z4i
-	 YxPTOsNLxu/2g60Blj3j2Cy3O50iYAY4wPjpxBlF87F3m+LAS4lEzTV8YqrzvJHmyk
-	 aj9W0/lUTlXR2Xds+Ftkq41EBytivUSbrae1uumIAPgzAmBjbWbIfOAqG1KsCAwkdh
-	 f/9Jd+1TAp04rMGNUJMcSt09z9ZiCYbLErMgBwvy/14nJTMuXKMu9aqsaful6o5nrc
-	 dRrtyOndrr8YcSGRR655D2mU+Dq8IyaKQe4dVLbX7dGDnvlx6qlxuad8MivVb2DD/f
-	 hcxUaFoRz/rXQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 568FE381195C;
-	Thu, 30 Jul 2026 09:40:11 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wpNHX-0000000A2jI-1SG4;
+	Thu, 30 Jul 2026 09:42:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpNHU-0000000A2im-2JW0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jul 2026 09:42:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21F751684;
+	Thu, 30 Jul 2026 02:42:19 -0700 (PDT)
+Received: from e143914.arm.com (e143914.arm.com [10.2.213.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 901423F763;
+	Thu, 30 Jul 2026 02:42:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785404543; bh=lHBav+NnSbaievhmsIcyM4nMmorZWzeCuHUGA/WlAUg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Bvf4P35ZuMEw6g5GS4WbbaROy2H5MVn8hCWTX5hoPi10fjAcJRak4SEwjGFv+PawJ
+	 IId/lbdJHF2TF9n29cyx3OswKHL1dwPGhZ88DwVyaQ9zRqzHO3xx4MU4Q57S4mV9rg
+	 T2mXeYo764JP3APdwbZ5HLfBdtWUQCWYQhH42/rw=
+Date: Thu, 30 Jul 2026 10:42:16 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Vladimir Murzin <vladimir.murzin@arm.com>
+Subject: Re: [PATCH v4 03/29] KVM: arm64: Merge guest's HCRX_EL2 using
+ NV_HCRX_GUEST_EXCLUDE
+Message-ID: <amscW_LCL_5RkJFQ@e143914.arm.com>
+References: <20260730071022.296811-1-maz@kernel.org>
+ <20260730071022.296811-4-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v12 0/3] airoha: add the capability to configure
- GDM3/GDM4 as WAN/LAN on demand
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178540441014.3466425.18007620255226733913.git-patchwork-notify@kernel.org>
-Date: Thu, 30 Jul 2026 09:40:10 +0000
-References: <20260725-airoha-ethtool-priv_flags-v12-0-5136a30b2157@kernel.org>
-In-Reply-To: <20260725-airoha-ethtool-priv_flags-v12-0-5136a30b2157@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- aleksander.lobakin@intel.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- jacob.e.keller@intel.com, madhur.agrawal@airoha.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260730071022.296811-4-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_024224_758589_34042675 
+X-CRM114-Status: GOOD (  26.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +75,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Sat, 25 Jul 2026 22:41:39 +0200 you wrote:
-> Add the capability to configure GDM3/GDM4 as WAN/LAN on demand when QoS
-> offload is created or destroyed.
-> Make dev->qdma an RCU pointer so the TX path can safely dereference it
-> without holding RTNL.
-> Introduce airoha_qdma_start() and airoha_qdma_stop() helpers.
+On Thu, Jul 30, 2026 at 08:09:56AM +0100, Marc Zyngier wrote:
+> The way we merge the guest-provided HCRX_EL2 value with the host's
+> is bonkers. We try to make it look like the FGT registers by using
+> positive and negative polarities for traps, but most of these bits
+> are not strictly about trapping, as they actively change the way
+> some architectural state is managed.
 > 
+> It would be far better to deal with these bits like we do for
+> HCR_EL2, by enumerating the list of bits we don't allow the guest
+> to override. This is simplified by the fact that HCRX_EL2 only
+> affects EL1, and not EL2.
 > 
-> [...]
+> Re-jig the HCRX_EL2 handling with a macro that list the bits excluded
+> from the merge (TMEA, PTTWI, EnIDCP128).
+> 
+> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 22 ++++++++++++++++++++--
+>  1 file changed, 20 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 4bf624a49591d..8e5f492f39086 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -325,6 +325,24 @@ static inline void __deactivate_traps_mpam(void)
+>  		write_sysreg_s(MPAMHCR_HOST_FLAGS, SYS_MPAMHCR_EL2);
+>  }
+>  
+> +/*
+> + * Just like for HCR_EL2, we can't let the guest mess with some of the
+> + * basics we rely on in HCRX_EL2. However, the major difference is that
+> + * HCRX_EL2 only affects EL1, and never EL2 (sudden outburst of sanity, I
+> + * guess). So it is always the guest inflicting it on its own guestx.
 
-Here is the summary with links:
-  - [net-next,v12,1/3] net: airoha: rename airoha_priv_flags to airoha_dev_flags
-    https://git.kernel.org/netdev/net-next/c/0040ff44cd5b
-  - [net-next,v12,2/3] net: airoha: fix ETS QoS stats counter underflow and cross-channel corruption
-    https://git.kernel.org/netdev/net-next/c/8b9a50881988
-  - [net-next,v12,3/3] net: airoha: defer GDM3/GDM4 WAN mode and GDM2 loopback to QoS offload
-    https://git.kernel.org/netdev/net-next/c/78a35725e533
+Unsure if "guestx" is a typo or a funny way of saying guest's HCRX_EL2!
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> + *
+> + * Things we don't want to let the guest control are:
+> + *
+> + * - TMEA: That's for us to decide how an SEA is routed, not the guest.
+> + *
+> + * - PTTWI: Similarly, it is for us to decide whether Reduced Coherency for
+> + *   the PTW is a thing. It really isn't.
+> + *
+> + * - EnIDCP128: We don't allow IMPDEF sysregs -- full stop.
+> + */
+> +#define NV_HCRX_GUEST_EXCLUDE	(HCRX_EL2_TMEA	    | HCRX_EL2_PTTWI | \
+> +				 HCRX_EL2_EnIDCP128)
+> +
+>  static inline void __activate_traps_common(struct kvm_vcpu *vcpu)
+>  {
+>  	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
+> @@ -350,8 +368,8 @@ static inline void __activate_traps_common(struct kvm_vcpu *vcpu)
+>  		u64 hcrx = vcpu->arch.hcrx_el2;
+>  		if (is_nested_ctxt(vcpu)) {
+>  			u64 val = __vcpu_sys_reg(vcpu, HCRX_EL2);
+> -			hcrx |= val & __HCRX_EL2_MASK;
+> -			hcrx &= ~(~val & __HCRX_EL2_nMASK);
+> +			hcrx |= (val & ~NV_HCRX_GUEST_EXCLUDE);
+> +			hcrx &= ~(~val & ~NV_HCRX_GUEST_EXCLUDE);
+>  		}
+>  
+>  		ctxt_sys_reg(hctxt, HCRX_EL2) = read_sysreg_s(SYS_HCRX_EL2);
 
-
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
