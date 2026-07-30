@@ -4,108 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B1CC5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 17:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 483C2C5516E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 18:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l9LIQKYBUdfDAfZJWrxo5rGoFcd84Hh3LANLGG2Bw6o=; b=fd9SBS6Ikw7NRyxbVx2J0azbXD
-	s1fK6CSVns3msDkOsvE078L7hCpfHyi6BP+eX7ba0M3RMwwyj6B0Xpwb6I0WTFPEmX41Gsj9QR+u6
-	lVl+dtmVM1IXn5mAAH8+0OFCKGZZKvX8sNFQayVSJs1bWH2kpaRQs0dzvpasOMOwt41bywQ03UIDW
-	723wdNbdlbLu+KwsJMUiSwdKjWsbaR9DbGqODhkmfRUa1nsCFFqfF5i1GMGAi8h1QwshWjqlxbT5V
-	mgw+8LrcwcI0b4nGSlxlBZkHUj1XQToHeCJYNInKcgysYcN0GcxQuGznfbi3mCPKEcQ9TpZ3y71ll
-	iaNJeC8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iOaF3ZXO4NAKK9OaRMocQnwJ3uO4yIZBEYzzq3ZGTvg=; b=jSO/rJUTA6SOeWrjsc/RGV/PLj
+	kEgIjH00ZI1IFSn54WC19jYEyY013V8zQ8ZvjdF+c5WqDZ0wWzg7ky1L3A7XJNtFBJawE1e8jjwXP
+	1fZ6+V/nD/uIMMYMiDvHZiuLOrALewXTnxejoZEpKOXsFIxqD9ISEOUs7Owp0u380Wg9z7n1Pr4m7
+	gq+a1ZMCjo4ZWsrdMVpmHwnDs4+qQWffl+2+Cxs/8CC3YEsOoUgaObdA4+vJwfr4A/D0loXy7bSvu
+	O1nWSLxj+OrvhsEzB1zoIENlI0Kke6zp9CP2iGqD3VVv2u3jXmiridWAkEMk2TCyzvVInVZf3zxj5
+	VEgeMUzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpUkd-0000000B6ZC-1pTj;
-	Thu, 30 Jul 2026 17:40:59 +0000
-Received: from mail-ua1-x935.google.com ([2607:f8b0:4864:20::935])
+	id 1wpVFO-0000000B8Oi-0WPD;
+	Thu, 30 Jul 2026 18:12:46 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpUkb-0000000B6Yf-0ynp
+	id 1wpVFL-0000000B8O8-42wG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 17:40:58 +0000
-Received: by mail-ua1-x935.google.com with SMTP id a1e0cc1a2514c-9674d727c0aso654219241.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 10:40:56 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785433255; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SdjED+Zy4MInGBSvrJaeHELXhA2TPXVt6JxBnrjXg/MEc2Swe4aoTGPJBfpoyGRJCr
-         PHCkSv4drbtvB2W4a6+ZQr1Edf73jgAr5+FH5/100+JrYC+HnA9tqoZMYQJTOkA9gBkG
-         llaadaT5lVOb+KoKeFyMwg6Cw/vSC9+v+dnywXtBiJfHMuETnOqHq0nfKEY7pC4tuL7j
-         0YbdvJiIU35q70/Dz8GXKWD/TjwwQne0qa4+hkOV2vhVLrTGeqHrl0Kool+IjcZLRs/g
-         XHI0M0myhSVfCdOG2o2+6y8zDOKA0sefX37ldTBv31oT5pdLVBnxYaBtCXnERJ4ltEvk
-         Ximw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=l9LIQKYBUdfDAfZJWrxo5rGoFcd84Hh3LANLGG2Bw6o=;
-        fh=1PWgfqiPtsZhzvwasMR4SzxQlzHDeN9X/ELQmrbBMVA=;
-        b=Kxo7OWkIzoIHlYM1yShml8DpJ8kcjj9o8w4hv57QU52gbKUQCLIAFHpenrDlVNnAnk
-         psD9tUIfoD6SiwZiEpLYlQZXJ6OsyZqssq72K8xciacdf+eCeJttXEopUak0dAJWfPHr
-         oMZ7rekq7G/mYOpC3lpMoXkYBK+QQyvRNkMZzF7MacqQLNYhIkdkwOIHsghozd6zxw0J
-         w0quUpYUjOCcpy/ot4yR9sRnNGTf3blu5PJDxe+UjpwauOrWugE3YI4VDVKuPVwOUZTf
-         AzvBM1+oaJejxhJDxrsy1CmskrtRDDhBGka7hGL8W46R9tmEO+MRW1TX3BlEQEGJuRbF
-         UoFw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 30 Jul 2026 18:12:45 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2cc7e86e7aeso774415ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 11:12:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785433255; x=1786038055; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=l9LIQKYBUdfDAfZJWrxo5rGoFcd84Hh3LANLGG2Bw6o=;
-        b=d36mw/ag3Mk0JZszHkaTJhToBfd3XS3zCWSV12ZE0lsSXb/4EIuxM4ktyG1ih8sZWg
-         HXyGxCY6DLh916HIwwFlhne45rTevuz+yO6BlWVkIy8CS/x5UTnw/fPPuvEq5j4zct3G
-         QhTAjPF4ctpLzaDw5BFcHhz9D+BTDi2+XF8uRUHlMW299XfeX2uqurQpgrAQ2Jsh3gga
-         Gn+U1HWtDlGi8oxvEWTq6te2L5WQqZpB5uK1s7T6leXBcsDYzInhJKvHFF0kPuAGa/xS
-         Wy96OKBssSf/84X3qus9HrmFy5Ep9jm4pPY0ARTxR18DLpaxZBW3VvxTyKfIc7EUD1NT
-         hHlA==
+        d=gmail.com; s=20251104; t=1785435162; x=1786039962; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=iOaF3ZXO4NAKK9OaRMocQnwJ3uO4yIZBEYzzq3ZGTvg=;
+        b=d/1SRVBxVyNXIQH5GZg40L5gSOfU8Xxwt8uGRAi5CIsYOcCkbwXephvHVyAWLRyz1p
+         hK2ylf7OvCEpHFBc4Nng2f0NCLgc+dfXs72wjTIUa52W84BX3feCSDqKr4VQMvkAqoWd
+         qeOku4vW5UkySWjB2/GTUA6lhGpr16ZBJDwfRin+j3Jr+tS5XNYiwM4tQS1LE2CwMd53
+         eOjFmHhptTPUiarCoTz5RdRgZzI3j5FAamDZqD2r1xnljIuEUYzbPiBomPC4JwcW6HOX
+         phdOXMEl0iAZsqV5XvtH968Ti21npJsCzEns5Rqf8Ki87nzHB12qeJXhqkHlTuqAo7WK
+         Yogg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785433255; x=1786038055;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=l9LIQKYBUdfDAfZJWrxo5rGoFcd84Hh3LANLGG2Bw6o=;
-        b=ir6gZj7VkGB0p3iJTx7TNjMA7xzjgMrtEmox7EEFytcfoXd5mmB2YCsaxdY3W+SHlF
-         E0F4e4FTj25waFjEG1DN28igkb5vsN9HWn+szCAo+5nVRyLuSqDu1/aJ7HbABj+0IvRp
-         OUbcqlehRFQZMNn/W6cxlis2yq//3zWLuaem1OkSlEOxSxi1TIPJpRuaAJQOimPyQ0GC
-         Bjis+0CKVR5lap4xUzLTuMu/OmJFt8j5txl+MFM6maXHyJGl9uIj6GDHXJ1KMoJdOkOo
-         SHWpCK3w62JIbNTRL37KeidzA8M5h79IiRpDX19J3ANiWzV3AvqP6KAhT5cHDnK+XpXs
-         XKsw==
-X-Forwarded-Encrypted: i=1; AHgh+RoeZFRgNbK3VAWsFnxcvz18gxjc0bJeTqYiMfTLnf7fTcrtyudObmmBhQAuel1FpMjlMmLUichr5rUoePCM9hn/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYF67P/TblLc7fn1zffU5fTUbUScffaFfdVhvanTGqZJqmIRl3
-	iitgoCDPrN3XUgzzruTsYH6UtA7LD5lSXZyzkr3toHjTKNNgE1Z7HUSBcRrcA+7gf17kxdpJQFk
-	4ZLzX/DsnxA/asbco/tACft97dIvWQJk=
-X-Gm-Gg: AR+sD10sp5ODWDJZEszkW58e5OT5DwEKvhXeI5OYm+kDBOr1vPFDj5iAdotoCsZF7A+
-	vg2Bt0G1uR4YieSsj2/whAsRf8OuXV5+hmYunDq3IwHySp1hDp1174hv4KZpPCfnsWgD+zvAmRp
-	CNd7zVh0iQfd5GQBq8/yCcmpf9hIyNNM6vLdACBkQYfLKspa967oviG1aNAxXbhKG0SeDXHncbA
-	es6u68dQ6WEA4l1lpX96UAkDWyIABn8m7cJL+RtHAC8mWQyPrS4Fnvn7kPbWKSwXC1j/l5ExDtM
-	Jp6E+s+QFMHrnN7I24u0SUSnskBXpeCgtwYLl/ctzqcndB7uatMUp6cpYJ/oy1XVXB4tadxuhHR
-	Nuw==
-X-Received: by 2002:a67:f584:0:b0:738:8b5c:a41a with SMTP id
- ada2fe7eead31-7582b0ed85bmr442473137.18.1785433255276; Thu, 30 Jul 2026
- 10:40:55 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785435162; x=1786039962;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iOaF3ZXO4NAKK9OaRMocQnwJ3uO4yIZBEYzzq3ZGTvg=;
+        b=SweVvv4L/HhPSqEd8T/gUymJvRo6kteVUXHPiGKs2Daapc1vEIHU6phP4WQssCndAP
+         uMSafFMW2Tszfv77ZNpT6P8K8Ui6E1a24fpuIWIrA2amSusleY6vQ/GpFL7+bsAySJdf
+         sNw2CcaYB2VyVSGEUFjDuqDAi7Yy+vJbD4NGdvIc42pvGq04drHRpOjk8qe0K+6ZH+KN
+         CO3x2iqQmG3+5BhOGYK5SEpf1kpXLSMjAj3XciGWCZJMWan2gfp5ohef6H2aiQJjH2hr
+         ahTka3PCsFv0YCowZ2dOENPj2BsF6XXnuw8KvAuFXmkKlLWB5HklsXJdmpRZ7EckzP/i
+         5TOg==
+X-Forwarded-Encrypted: i=1; AHgh+RoBmp+z6VKOK/MrSrXTR0X9xdEAryYeBZ15WUNUam0GKCgAq6WOJ9MCX/m9MibrYcddHXwvLQJ5UL51uWSGSidb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwK0fNTvA72LpbqAWAYcZ9Aga0dqFWc0kgd+vj6K9e54RHA/M5h
+	blQ1j58icwByJfaBYBGjklBmvjjd8zNIRwERU6X5qUDh4/UKg1PqvjejGVmNwQ==
+X-Gm-Gg: AR+sD12m7MYWeKpLu08q1qiAfVgTVjieBqmxfFfSrIY39G0tHDFVycjnIRD0qXHDMHu
+	ESYMYDyeeFanD4LA4LGXFcGtoFC7FntmYQTiQ/JLanZjNTo/pgbwUSBYR4cnxzo24f+a+JOJe3n
+	11uuBH7bRbiRrVh/M7YpurHYgcCLWA0hDgMfA7tvLvukuCq80O6H7fInkP6VjxF2RsdiyK+tdW4
+	ZRC8pvQ9ZXhEtc0s2KDZ469aEiAEBjaxD2nzGKc+PqteFiFLMvm85iEMu/r0JVreE/R5SHUMJMc
+	DBMY3wFPO8GaVF2Bne9SfKYONzM9phEMjZTmAdx0D5TTuFmipcICpJz7Vm5jy22Jtyvaq+VYFyQ
+	Onuww2/5J3xiN7ua4lKvJLfVQ/SPMShbeBfEMUyH9ZFcvjM2XXC2XKhTu4pWdbZZYFO3GX3IrtH
+	kSn5Q0z4E2xQfMWKudBQ848QOUA6uXvv/b+nkxY1JH+FiMTDuYR9XKKZKUoy5tkPo7M6cMKvURM
+	K0TMuavzHh4LACHfMEBClCJG33OeDT+l96uV1tDHur1eTLhMpVXuIYLAcXGFAk=
+X-Received: by 2002:a05:6a20:6a2c:b0:3c3:bee9:8eec with SMTP id adf61e73a8af0-3c9004c829emr3373312637.19.1785435162443;
+        Thu, 30 Jul 2026 11:12:42 -0700 (PDT)
+Received: from visitorckw-work01.c.googlers.com.com (131.197.81.34.bc.googleusercontent.com. [34.81.197.131])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31504b124e4sm21998197eec.6.2026.07.30.11.12.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 11:12:42 -0700 (PDT)
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: will@kernel.org,
+	joro@8bytes.org,
+	akpm@linux-foundation.org
+Cc: robin.murphy@arm.com,
+	nicolinc@nvidia.com,
+	cychu@google.com,
+	hhchung@google.com,
+	amitamishra@google.com,
+	marscheng@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	jserv@ccns.ncku.edu.tw,
+	eleanor15x@gmail.com,
+	Kuan-Wei Chiu <visitorckw@gmail.com>
+Subject: [PATCH 0/2] lib/sort: Clean up sort_nonatomic() and sort_r_nonatomic()
+Date: Thu, 30 Jul 2026 18:12:14 +0000
+Message-ID: <20260730181216.2709088-1-visitorckw@gmail.com>
+X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
 MIME-Version: 1.0
-References: <20260721223956.13665-1-andre.przywara@arm.com>
- <20260722172356.2509190-1-juanmanuellopezcarrillo@gmail.com> <20260723002319.2793cdaf@ryzen.lan>
-In-Reply-To: <20260723002319.2793cdaf@ryzen.lan>
-From: Juan Manuel <juanmanuellopezcarrillo@gmail.com>
-Date: Thu, 30 Jul 2026 19:40:44 +0200
-X-Gm-Features: AUfX_mzRjI-xu9REGBWM4Xyou0Hlcet9mWJBwP9-yY6cbvyclNHGRhHVoQ_g3AU
-Message-ID: <CA+c=wxVB-cEncgBE12S2YgXhL7DVgRyg12_4jJ-CjxzBjK62kw@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_104057_282127_81AF73EB 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20260730_111244_034519_9D2E210A 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,41 +109,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Remove the sort_nonatomic() and sort_r_nonatomic() APIs from the kernel
+library.
 
-> There is more to enabling Ethernet on the box, though, right? The
-> EMAC25M pin needs to be configured correctly - not even sure that
-> works cleanly with mainline? And what are the delay values that work
-> for you?
+Currently, the arm-smmu-v3 driver is the sole in-tree user of 
+sort_nonatomic(). Because the array size being sorted is small in
+practice, there is no real risk of triggering a soft lockup. Therefore,
+the periodic cond_resched() calls provided by the _nonatomic variant
+are unnecessary.
 
-Right, the withstand fix alone isn't enough. Three things were needed to
-get GMAC1 up on the OPi 4A:
+With the only in-tree user updated, the _nonatomic APIs are no longer
+needed anywhere in the kernel. Removing them effectively drops the
+wrapper function and eliminates the may_schedule branch from the
+innermost loop of the core sorting logic, slightly simplifying the code.
 
-1) The PJ pinmux. Mainline's rgmii1 group was missing PJ10, which left
-   one RX signal unmapped, so I got rx_packets=0. The BSP muxes the full
-   PJ0..PJ15 (16 pins) as function "gmac1" (mux 5); with all 16 mapped,
-   RX comes alive. I don't mux any separate/dedicated 25 MHz clock-out
-   pin beyond that gmac1 group, and the link is rock solid, so on this
-   board the PHY's 25 MHz reference isn't provided by an extra SoC pin.
+Kuan-Wei Chiu (2):
+  iommu/arm-smmu-v3: Replace sort_nonatomic() with sort()
+  Revert "lib/sort.c: add _nonatomic() variants with cond_resched()"
 
-2) RGMII clock delays. The board has a Motorcomm YT8531 PHY:
-     - phy-mode          = "rgmii-rxid"
-     - PHY node          : rx-internal-delay-ps = 1900  (YT8531
-RXC_DLY_EN, ~1.9ns)
-     - MAC syscon        : tx-internal-delay-ps = 100
-                           rx-internal-delay-ps = 0
-   That combo gives a stable 1 Gbps / full-duplex link, 0% packet loss.
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c |   6 +-
+ include/linux/sort.h                        |  11 --
+ lib/sort.c                                  | 110 ++++++--------------
+ 3 files changed, 34 insertions(+), 93 deletions(-)
 
-3) Your withstand encoding fix. Before it, the PJ bank was driven at 1.8V
-   while the receiver sat in 3.3V mode, so RX was effectively deaf. With
-   your patch RX reads correctly.
+-- 
+2.55.0.508.g3f0d502094-goog
 
-All of the above is validated on my board (2026-07-08): link up at
-1 Gbps/full, ping 0% loss over a sustained transfer.
-
-Thanks again for the withstand fix - glad the POW_MOD_SEL patch helped
-connect the dots.
-
-Cheers,
-Juan
 
