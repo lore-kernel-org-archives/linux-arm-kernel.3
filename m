@@ -4,69 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61C4C55164
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E9D3C55164
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Subject:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wCfvL8EiUbPUR9soYjWwjuZEDl9DDwTqiLOrLKAPRp4=; b=prg33uqstAwULT
-	dxCKrYJI8mccgGqUPJRr8vWctIP6rC9UDxHotXzuPCfdLstmNw2EHINqSDQ6IT8eh1o30V5NIfcBR
-	Id2YCzz86W9giv3DnpUHFZLWOyYZ6yt2pL8UTJBxS+y8rSNvLXnkxlza6OXgITP5QyaG1faCac0WL
-	46WXDCBODZcwzhE8/ksScCAI52ZLOTfkMvX/rBDAfBuQwo275YRTzqCb0+KBOPNcCYN8M2G/vG3Tr
-	JWlmUfjDTe3QWzPj7RgW+YCQTU8K5vlMwu4fq1Og4p269OnvGATkZkPiZRBaS39q6JSjcqOvcZ0xy
-	KPqI0s/yYmCxcAXeyluw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jKdtNTHcel67hjyPUj/HK64ibrARGCbZr/HnRH2Q4Vk=; b=4CG3X2KhznSes7rzfKETJE9tdk
+	8k5SaoRz2BmMP3NST1zhC3b4OPRnVxvIZ0bmk6l7AAwlGfHxBHxaP8iMKDrAGhb/JbMz/vRtveV/j
+	C4YXG9Cw9rVrIixMfAT16/rV8RTFSE21keRaWonqgstm23QYtkIr4Kqds3PooO5f4+3L487ZPmy9o
+	xKzVFzoJRwuZJUtTUokmKz21kqAD87qYfGyv/9j3ROKywoNZllg2L4bKxW5WTp8fmZTDQMpA7q2X9
+	j7mC+6JcuLg+gkWb39Qoz53G2tbWi1rZ/kfV+cUfCFxmzU543jd/gyBdpunrym92SGPT5up/NBDqm
+	y4M8gw2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRr0-0000000AlNb-42eJ;
-	Thu, 30 Jul 2026 14:35:22 +0000
-Received: from out203-205-221-191.mail.qq.com ([203.205.221.191])
+	id 1wpRr9-0000000AlUv-3woJ;
+	Thu, 30 Jul 2026 14:35:32 +0000
+Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRqx-0000000AlKH-1QaC;
-	Thu, 30 Jul 2026 14:35:21 +0000
+	id 1wpRr1-0000000AlLe-3Avl;
+	Thu, 30 Jul 2026 14:35:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1785422095; bh=wCfvL8EiUbPUR9soYjWwjuZEDl9DDwTqiLOrLKAPRp4=;
-	h=From:Subject:Date:To:Cc;
-	b=HXJJmJ8Gslxg6Zer0c/vO5daApBITwXcExtAQkUPEwA+rlBbycM4EkmlE4pMHcy7w
-	 J2++2631iEnD4NudaV61vXk6TO+cBxtkRHp4pC317y3xMXDSKojp1hl2ZG4Pp8bAjm
-	 YP0BtL4D43s5YNLjcwi0aaaj33uKSP6XY56qvLQQ=
+	t=1785422099; bh=jKdtNTHcel67hjyPUj/HK64ibrARGCbZr/HnRH2Q4Vk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=nEgpDqiGf7HlCajMkNogA8sblln2sHPRrvAdOPI4ItauZeCqCLp23LnHHSxyUqaVZ
+	 Ids2TXb7HLA1dOwkU8UN7ZutGxRvCJAhzaHH/1n83gaw/mJZGu7JB5jO0j34J/uzuQ
+	 Q/yXKQeLysUWnMlesPX6GayRCHGDNyp2ct9F9lNs=
 Received: from ubuntu2204.localdomain ([2409:8d20:22b:54c:9e54:40ff:fe02:3f0f])
 	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
 	id 8B38245A; Thu, 30 Jul 2026 22:34:51 +0800
-X-QQ-mid: xmsmtpt1785422091tq8yny41d
-Message-ID: <tencent_7BAA0052C402BFFD26291A64198084E39107@qq.com>
-X-QQ-XMAILINFO: NQQUvflVuqBOL3+Hgkhuy1UC34W10feVP2QXMNiogXwMs6YFQvY98RKf7wCo3O
-	 o1ZTZ2yRvTfcdBSG2GUn0WfYlmGgsqT/MBgLes3yJ3LiXh7Km9ec4IRrYFy5zEWBwEqEtXcGfvZO
-	 BUmfXQPSRBdIuKMKUMq4Npx8tXLIDzPoBduye2WFoLPyNr5sGlcyDJbFttdIGFFAi/Bo8KZFWz+M
-	 rAFgl1dL5sy7L5IdcwmeWn9PXCLGFymHXB08iv2AJMNHfpew2l2DHR8ziD26ylfX7DK/uoCo24c0
-	 uMnTtknte0dhMNoECaRtC6Rkk40qfH8FjFZmNfp/PGYYwwiJy9FGDClHNgEHhbLE2lhZxjFjW+uM
-	 TDkcdAyrSl9sjVcRJmY4EowCX2JTaUsiwyuh1RuuflFVAMiZOCKLyBVvrOO+hKErxZBGrwfGdGAM
-	 tTMLG7SBrAiFVkToKpEdzxIiLVINCJQxjJ4SSHWmIaCX86TEOfX+bPfIz04YhsKJgZBm6iSiaGkF
-	 qdOod1VHWwqz/Z19kJU8+fTPtxxA2Y8Y+y62mSRmq/LQiqF6YRiiamkJlKZmEeSFTTA+umMdqEj8
-	 HBz1FP8uaT6mzWyCqNwYcO5Zx0Bbgl0BHnrsXGIjMBecGWeCKnsV5LFhcVt1joMpj/X5eDTrHdfb
-	 B4UmSUYE2rtzHXmvkeU8+qKNOPymuX/WC/b6LDs76ep4A+/EaRktCkcT+VbPUuQ5sl+CUzbXYtq4
-	 1J6iz8OIUFDNc3z8KCuz4HozY/PjtdOgRsJDtB87nTP4t2IiuHOnO0rKwTyWsaEApNTTFO3VTDJW
-	 nt+jgqdY2Ntcpx0wvSIsL+UuTWthT9wTBhUzexdrjVQ/yXI2xwoTUgWNe9qOgspwYnr7YxCzAaEw
-	 3KHUv+gdzhKAlQ1VQdgcbd66D56Z29lX65ZF1ROt7HoqnDGhBJGLk4dskoudhPDIbXSPZp/lQD5W
-	 QsvOnFDt8aOLDUjgx1lyqUj4mwOYKaex2r0Z8lVdCoVPMiM3QJgh3yXwezvc/IxypllOlqW78Hpi
-	 18tIN3ovUPs/4GmmQqbpEc6bGk/z7GUAzc4Ik4gXMbfiblkYFt9vX2CV9PtKJLHHPfX0hea0z3RM
-	 qrNn/q1Nthwda9dNQPMuUgl+YXcSggP6W6M54EhtjRpaa7YLzq0jpMbsf2XZQOtwU5ThUiFRhot8
-	 pgQPbHnAnitEOPkTmts8NsxKaUpw3i3vs1aH4=
-X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+X-QQ-mid: xmsmtpt1785422095turwq8naz
+Message-ID: <tencent_207E464D12344B3228096E23A001D6882508@qq.com>
+X-QQ-XMAILINFO: N/WmRbclY25GpZcCfF5E9v1ByTsleGGqMBM14fdy/Lq4q0BpImHBObgh7Ah1TX
+	 NYiUm4Ipky6qdydWHNpjRtdE2LHi3HxN11qAX3Q0mKPeYXyfTDUXhw72+aJ//2wG1IASnBiCirvW
+	 BtLjEq9d6gVt0LTBnhOef3h+Hf37cDv4/CPpoX9pWMQwbqrwSFqluVK+KETmcGlUCjAS8+IYR5Mi
+	 bJ0ntyH5lXJD5vGl1PXh+3We+IW22Cm4AtTAUld2je0lBSv6KmgEk9Yk7Ouxa+hhs9i6RLfqyM6e
+	 t0AMzs0bph/46wKT7vzpZQm0dLSGdHFm5wvlQvcp4Ta3KQYXOCw2OrK6e5W+SFR+2WnFEQjqBAj4
+	 d1ByqgF0Y/gbE2p+cK9LFfI8Ayk35jmOXe5s2pEwxcOfUwEWdGFYNSgCEG/yp7xYvsPk8Rh54J8f
+	 kCyITFRrZZons1/b4lRkVzaW396vWq27jSTsbmuEUjMOGXybVCW8fPnhQmvFewX94uZgPXaKwRst
+	 ch1aHSEvS5VI7a10SqjVVIRdxJbmA6ziKyrM8RBdmat1ir4/u4HCQfl1Xh9LtBnUwqjggUSxzJGl
+	 X5xuE6M07eVdiw2rGFvQdVgyyDQQDb3n2E/jj6af0PrzC99fKExwYgy/v8fRQYJOzARoFNx3iK9L
+	 GIj1OdGLah4jxdqdeRVpTOnTr/NtQg7bwr+zOmzUcueOU97ldv6M1pd81ScuDf2BW6jmPc7ySoaW
+	 jIbaPylfaTTHiUcay2IyhNWg4BS5LodR3klCLihO8laauQEZ+8f+Xo/BEqKKgFoUzqzILUHgJHaw
+	 4rTLU5Iu3vxqnDSrJDB7V7VMGl52Fu06EE8qgIXLGtup1VVJACWxBSmfIXqnXYUHrH+R3eIC4fRr
+	 2o38Mn8KoGyJh/eUKG/28iM/KXNSXDxFtej37CZQin/1RxYCwPO2sGwOoGDlD7Pi4azSCq3FzCUo
+	 RL3M30ekgdW9vsizdhsWJQr43fm6dc+lngAY98CVaIiBevalgkkxuUJqwbRkjN4kKBwl+qoVQvnV
+	 bVv1+WAW57TKLewODZFdKbFuG7ntO+LMdEOfuZiJfBgsEYEESvx6jzfB1yMicQvXWMLvKplboSJD
+	 NJJRn5E9BNcdFSo6bX7MgF7IFszdoIybkYyd5yChRe7o8zbXSIv+FJbf+V3q7tojPkgguMOXSRsx
+	 TBKJs=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
 From: Cunhao Lu <1579567540@qq.com>
-Subject: [PATCH v6 0/4] can: rockchip: add RK3588 CAN support
-Date: Thu, 30 Jul 2026 22:34:01 +0800
-X-OQ-MSGID: <20260730-master-v6-0-dfb63e234775@qq.com>
+Date: Thu, 30 Jul 2026 22:34:03 +0800
+Subject: [PATCH v6 2/4] can: rockchip: add RK3588 CAN support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANlga2oC/22NywrCMBQFf6VkbSTk1daV/yEukubGRqi1SQ1K6
- b+bVOoDXA6cmTOhAN5BQLtiQh6iC66/JJCbAjWtupwAO5MYUUIlKQnFnQojeFw1gmqoaqqYRWl
- 89WDdfQkdji8ON32GZsx2XrQujL1/LE+R5d0aZWs0MkywNEIakNZQy/bDsG36DuVi5P8dnhxeG
- k60tsIa9eOIL4eKtyOSUwqjuKgN1fXnZ57nJ/+PAocTAQAA
-X-Change-ID: 20260702-master-8c52be892a3f
+X-OQ-MSGID: <20260730-master-v6-2-dfb63e234775@qq.com>
+References: <20260730-master-v6-0-dfb63e234775@qq.com>
+In-Reply-To: <20260730-master-v6-0-dfb63e234775@qq.com>
 To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de, 
  Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -74,13 +71,11 @@ To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de,
 Cc: Cunhao Lu <1579567540@qq.com>, linux-can@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
- Heiko Stuebner <heiko.stuebner@cherry.de>, 
- Quentin Schulz <quentin.schulz@cherry.de>
+ Heiko Stuebner <heiko.stuebner@cherry.de>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_073519_723578_17433DE2 
-X-CRM114-Status: GOOD (  15.52  )
+X-CRM114-CacheID: sfid-20260730_073524_127081_55F37A0E 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,29 +90,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the RK3588 CAN controller.
+Add support for the RK3588 CAN controller by introducing a dedicated
+model ID and OF match entry.
 
-RK3588 integrates three CAN-FD controllers that are closely related to
-the existing Rockchip CAN-FD IP already supported in the kernel. The
-RK3588 variant is not fully compatible with RK3568v2 because the RX
-FIFO count register field has a different layout.
+The block is closely related to the existing RK3568 variants, but it
+cannot reuse their match data unchanged. In particular, RK3588
+encodes RX_FIFO_CNT in bits 7:5 instead of 6:4, so the RX path needs
+SoC-specific handling.
 
-This series therefore:
+The RX FIFO count bitfield difference was found by comparing Rockchip's
+vendor kernel 6.1 CAN support for RK3568 and RK3588. Runtime testing on
+RK3588 also confirms that bits 7:5 are needed.
 
-- extends the existing Rockchip CAN-FD binding with the
-  rockchip,rk3588-canfd compatible
-- adds a dedicated RK3588 match entry and devtype in the driver
-- describes the three CAN controller nodes in rk3588-base.dtsi
-- enables CAN on the RK3588 Tiger Haikou board
-
-RK3588 encodes RX_FIFO_CNT in bits 7:5 instead of 6:4. This
-difference was found by comparing Rockchip's vendor kernel 6.1 CAN
-support for RK3568 and RK3588, and was also confirmed by runtime
-testing.
-
-RK3588 uses the existing erratum 5 empty-FIFO workaround. Based on
-Heiko's testing, this series also enables the erratum 6 workaround for
-extended frames being transmitted as standard frames.
+Enable the existing erratum 5 empty-FIFO workaround for RK3588.
+Heiko reproduced erratum 6 on RK3588, so enable that workaround as
+well.
 
 CAN-FD is enabled for RK3588. The BRS bus-off issue seen in earlier
 testing was caused by the transmit delay compensation setting. With
@@ -126,89 +113,154 @@ CAN-FD with BRS works in local testing.
 
 Tested on an embedfire,rk3588-lubancat-5io board with can0/can1
 directly connected, no other device on the bus, 60 Ohm bus
-termination, and a 300 MHz CAN clock. The test used 500 kbit/s
+termination, and a 300 MHz CAN clock. Runtime testing used 500 kbit/s
 arbitration bitrate and 1, 3 and 5 Mbit/s data bitrates. The 5 Mbit/s
-data phase test ran for 15 minutes with:
-
-  ip link set can0 type can bitrate 500000 sample-point 0.8 dbitrate 5000000 dsample-point 0.8 fd on berr-reporting on
-  ip link set can1 type can bitrate 500000 sample-point 0.8 dbitrate 5000000 dsample-point 0.8 fd on berr-reporting on
-  cangen can0 -I 2 -Li -Di -p 10 -f -g 1 -c32 -b
-  cansequence -rv can1 -f
-
-The receiver reported continuous sequence wrap-around messages up to
-sequence wrap around (37219). Both interfaces reported 9528377 packets
+data phase test ran for 15 minutes with cangen using BRS and
+cansequence on the receiver. Both interfaces reported 9528377 packets
 and 150667356 bytes, with 0 bus-errors, 0 error-warn, 0 error-pass and
 0 bus-off events.
 
+Co-developed-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Tested-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 Signed-off-by: Cunhao Lu <1579567540@qq.com>
 ---
-v5 -> v6:
-- Move the CAN0 assigned clock properties from the Haikou carrier board
-  DTS to the Tiger SoM DTSI, as suggested by Quentin.
-- Collect Quentin's Tested-by tag for the RK3588 CAN controller nodes.
-- Link to v5: https://lore.kernel.org/lkml/tencent_AE0DC47B3FBB26371A1699AC849811AD8007@qq.com
-v4 -> v5:
-- collect Quentin's Reviewed-by tag for the RK3588 CAN controller nodes
-- Link to v4: https://lore.kernel.org/lkml/tencent_42B49B0E68A8659A13EC46A402E41133FC09@qq.com
 v3 -> v4:
-- disable TDC on RK3588 by programming
-  RKCANFD_REG_TRANSMIT_DELAY_COMPENSATION to 0
-- drop RKCANFD_QUIRK_CANFD_BROKEN for RK3588 and enable CAN-FD support
-- document successful RK3588 CAN-FD/BRS testing at 500 kbit/s
-  arbitration bitrate and 1, 3 and 5 Mbit/s data bitrates
-- collect Krzysztof's Acked-by tag for the binding patch
-- Link to v3: https://lore.kernel.org/lkml/tencent_AA108D2806AC225EF9553469D218C8C0260A@qq.com
+- Disable TDC on RK3588 by programming
+  RKCANFD_REG_TRANSMIT_DELAY_COMPENSATION to 0.
+- Drop RKCANFD_QUIRK_CANFD_BROKEN for RK3588 and enable CAN-FD support.
+- Document successful RK3588 CAN-FD/BRS testing.
 v2 -> v3:
-- Move the Changelog below ---
-- Collect Heiko's Reviewed-by and the driver patch Tested-by tag
 - Use Co-developed-by for Heiko's RK3588 contributions and add his
   Signed-off-by
-- Link to v2: https://lore.kernel.org/lkml/tencent_87CB2824608F3C06B4229EF99D3609D00C0A@qq.com
-v1 -> v2:
-- use real author name
-- fold the single-compatible entries into an enum, as suggested by Krzysztof
-- enable the erratum 6 workaround for RK3588 based on Heiko's testing
-- add Heiko's RK3588 Tiger Haikou CAN enablement patch
-- keep RKCANFD_QUIRK_CANFD_BROKEN enabled for RK3588 so CAN-FD stays disabled
-- document the RK3588 CAN-FD/BRS bus-off failure mode
-- Link to v1: https://lore.kernel.org/lkml/tencent_1A4614039A100DFD8A9AE2692865FE126009@qq.com
-
-To: Marc Kleine-Budde <mkl@pengutronix.de>
-To: kernel@pengutronix.de
-To: Vincent Mailhol <mailhol@kernel.org>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-can@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-
+- Collect Heiko's Reviewed-by and Tested-by tags
 ---
-Cunhao Lu (3):
-      dt-bindings: can: rockchip: add rk3588 CAN-FD compatible
-      can: rockchip: add RK3588 CAN support
-      arm64: dts: rockchip: add CAN-FD nodes for RK3588
+ drivers/net/can/rockchip/rockchip_canfd-core.c | 17 +++++++++++++++++
+ drivers/net/can/rockchip/rockchip_canfd-rx.c   |  5 ++++-
+ drivers/net/can/rockchip/rockchip_canfd.h      | 14 +++++++++++++-
+ 3 files changed, 34 insertions(+), 2 deletions(-)
 
-Heiko Stuebner (1):
-      arm64: dts: rockchip: Enable CAN controller on RK3588-Tiger-Haikou
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index 29de0c01e4ed..37c1c22c40c9 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -50,6 +50,12 @@ static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v3 = {
+ 		RKCANFD_QUIRK_CANFD_BROKEN,
+ };
+ 
++static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3588 = {
++	.model = RKCANFD_MODEL_RK3588,
++	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_5 |
++		RKCANFD_QUIRK_RK3568_ERRATUM_6,
++};
++
+ static const char *__rkcanfd_get_model_str(enum rkcanfd_model model)
+ {
+ 	switch (model) {
+@@ -57,6 +63,8 @@ static const char *__rkcanfd_get_model_str(enum rkcanfd_model model)
+ 		return "rk3568v2";
+ 	case RKCANFD_MODEL_RK3568V3:
+ 		return "rk3568v3";
++	case RKCANFD_MODEL_RK3588:
++		return "rk3588";
+ 	}
+ 
+ 	return "<unknown>";
+@@ -148,6 +156,12 @@ static int rkcanfd_set_bittiming(struct rkcanfd_priv *priv)
+ 
+ 	rkcanfd_write(priv, RKCANFD_REG_FD_DATA_BITTIMING, reg_dbt);
+ 
++	/* RK3588 CAN-FD BRS works with TDC disabled. */
++	if (priv->devtype_data.model == RKCANFD_MODEL_RK3588) {
++		rkcanfd_write(priv, RKCANFD_REG_TRANSMIT_DELAY_COMPENSATION, 0);
++		return 0;
++	}
++
+ 	tdco = (priv->can.clock.freq / dbt->bitrate) * 2 / 3;
+ 	tdco = min(tdco, FIELD_MAX(RKCANFD_REG_TRANSMIT_DELAY_COMPENSATION_TDC_OFFSET));
+ 
+@@ -846,6 +860,9 @@ static const struct of_device_id rkcanfd_of_match[] = {
+ 	}, {
+ 		.compatible = "rockchip,rk3568v3-canfd",
+ 		.data = &rkcanfd_devtype_data_rk3568v3,
++	}, {
++		.compatible = "rockchip,rk3588-canfd",
++		.data = &rkcanfd_devtype_data_rk3588,
+ 	}, {
+ 		/* sentinel */
+ 	},
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net/can/rockchip/rockchip_canfd-rx.c
+index 475c0409e215..24e87daa1df0 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
+@@ -281,7 +281,10 @@ rkcanfd_rx_fifo_get_len(const struct rkcanfd_priv *priv)
+ {
+ 	const u32 reg = rkcanfd_read(priv, RKCANFD_REG_RX_FIFO_CTRL);
+ 
+-	return FIELD_GET(RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT, reg);
++	if (priv->devtype_data.model == RKCANFD_MODEL_RK3588)
++		return FIELD_GET(RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3588, reg);
++
++	return FIELD_GET(RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3568, reg);
+ }
+ 
+ int rkcanfd_handle_rx_int(struct rkcanfd_priv *priv)
+diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
+index 93131c7d7f54..95bea9bfd8a2 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd.h
++++ b/drivers/net/can/rockchip/rockchip_canfd.h
+@@ -214,7 +214,8 @@
+ #define RKCANFD_REG_TXEVENT_FIFO_CTRL_TXE_FIFO_ENABLE BIT(0)
+ 
+ #define RKCANFD_REG_RX_FIFO_CTRL 0x118
+-#define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT GENMASK(6, 4)
++#define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3568 GENMASK(6, 4)
++#define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3588 GENMASK(7, 5)
+ #define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_FULL_WATERMARK GENMASK(3, 1)
+ #define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_ENABLE BIT(0)
+ 
+@@ -331,6 +332,11 @@
+  * rarely with the standard clock of 300 MHz, but almost immediately
+  * at 80 MHz.
+  *
++ * Tests on the rk3588 show the same empty FIFO condition.
++ * In that setup rx_fifo_empty_errors increments when the bus
++ * transitions from idle to high CAN-FD load and stops growing once
++ * the bus reaches a steady state.
++ *
+  * To workaround this problem, check for empty FIFO with
+  * rkcanfd_fifo_header_empty() in rkcanfd_handle_rx_int_one() and exit
+  * early.
+@@ -344,6 +350,8 @@
+ /* Erratum 6: The CAN controller's transmission of extended frames may
+  * intermittently change into standard frames
+  *
++ * Tests on the rk3588 show the same problem.
++ *
+  * Work around this issue by activating self reception (RXSTX). If we
+  * have pending TX CAN frames, check all RX'ed CAN frames in
+  * rkcanfd_rxstx_filter().
+@@ -424,6 +432,9 @@
+  *     cansequence -rv -i 1
+  *
+  * - TX starvation after repeated Bus-Off
++ *   Tests on the rk3588 show the same problem. In a
++ *   10-cycle Bus-Off recovery test, 9 cycles failed to send after the
++ *   controller restarted.
+  *   To reproduce:
+  *   host:
+  *     sleep 3 && cangen can0 -I2 -Li -Di -p10 -g 0.0
+@@ -434,6 +445,7 @@
+ enum rkcanfd_model {
+ 	RKCANFD_MODEL_RK3568V2 = 0x35682,
+ 	RKCANFD_MODEL_RK3568V3 = 0x35683,
++	RKCANFD_MODEL_RK3588 = 0x3588,
+ };
+ 
+ struct rkcanfd_devtype_data {
 
- .../bindings/net/can/rockchip,rk3568v2-canfd.yaml  |  4 ++-
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 39 ++++++++++++++++++++++
- .../boot/dts/rockchip/rk3588-tiger-haikou.dts      |  4 +++
- arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi     |  5 +++
- drivers/net/can/rockchip/rockchip_canfd-core.c     | 17 ++++++++++
- drivers/net/can/rockchip/rockchip_canfd-rx.c       |  5 ++-
- drivers/net/can/rockchip/rockchip_canfd.h          | 14 +++++++-
- 7 files changed, 85 insertions(+), 3 deletions(-)
----
-base-commit: 0ce37745d4bfbc493f718169c3974898ffec8ee7
-change-id: 20260702-master-8c52be892a3f
-
-Best regards,
---  
-Cunhao Lu <1579567540@qq.com>
+-- 
+2.34.1
 
 
