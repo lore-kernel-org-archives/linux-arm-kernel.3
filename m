@@ -4,112 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE3B9C54FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 00:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4F5C53200
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 01:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gobfjnthWgTQXNW9RE05SfOdwzRlTBDEl0y0GpPD5ZU=; b=jlZLe8eIF1deER7zouzCycTCkU
-	eeOBFRzyW42+c1y90Me8FCMf9rGpWnwKZ+j21uciohod/nAny4n6IjgjZmC9Z0KJdgfbvcb1ON+6d
-	HcHhV8qkmCCLVxoOrqcCSlT0QFXbuQ5cMOJstZUaDQlc5xtLw7+o+qBvzZuGUGt++awl9Gd55UFia
-	XgSJgRNzFpTX6kSwElmYMLBQNq8CbIHpj7GZDPFSy70OfV3JYqfL5rUXYgpBgqoWPtsrec7pnFItX
-	F38hcqNmT2BCBT2G3zkXOAgNQJychHSN0pBmn3UYcOrUHU/csOQS5SXK5VywKk9JhoQlZzcLzvPVA
-	dt2uyk+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oep9GUzmGHr26u2If40/oW9YH4ApgXIqp1l7c/0lb/w=; b=a+29qDRkz0U3c1kXTfpJFDka5W
+	yqTMnky1OskY2zjMeEEzBv/EBh/3vZEOhaiyBwIVQQJ8HzmIffkzbKOBHFAolgpcUPFrfWqrJH3j7
+	XpVhNEAKDnypNwbxTDF9nK3wDE0M+tt9ZzwfKNU5Uhb+htNsE8TeH+VRl5ne9aUh+wwtcPeFjTBxL
+	6IsMVobEdMOrSUBHi8saFFjmvFCyNA5wRUeFmytELZvs4We5lRu+E2kwkJDJwiqiZPqYgX79cvLkr
+	USbTYHmU96jDIaAE3ayGIGpeh29KTgpSeYCD4qzb98Vn4KRV0t8F3YfFzJlgzqiLZFTrxXEy5uDnr
+	iNd2ob6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpF3f-00000009CL8-0d04;
-	Thu, 30 Jul 2026 00:55:35 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wpFNX-00000009Er8-0fuh;
+	Thu, 30 Jul 2026 01:16:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpF3b-00000009CKZ-3OTJ
+	id 1wpFNT-00000009Eqi-3QG4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 00:55:33 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-69fab5a852cso2351863a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 17:55:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785372930; cv=none;
-        d=google.com; s=arc-20260327;
-        b=BZnmwNv5o5xjDOhH2Ytmu2mrXr0aSG8aNstqVa5PPZFDe7PUxVN3cBK/xC6iYqpSRL
-         fzS7kvJsUewPWN/OL8VQSNTBUYWq7Hn/xZUFpNwUj4ajJiZLyedQL1/653ytA0owc3rb
-         7zhwOo50KtTZZXulITwM2c+rPecA3w5gpkTW9cUpGH1HaMsNrE8hYXt3mBhmLAz+/46S
-         T8tFCm8EY6EYGPM/ZeDNcrLhFzVVQ0ceU+KWh0K0D6rWKLYNLn0hiBTHEEvKyyjiiIB2
-         JZWATJ1hyfUvOqVwL7FzPUG96GG8Nbz9rKEvrLcROyYIpMAMNtFKu6F0P+KLbena5lDb
-         dlfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=gobfjnthWgTQXNW9RE05SfOdwzRlTBDEl0y0GpPD5ZU=;
-        fh=cscvIPUujFd8/tXw85lW8WN6JOiahgOP+mxvpDttFKM=;
-        b=r66WyPUTMadDDa1EeJBQWAk97cXEn4RJbEkH8Q2b2qNq+vw4PT5/j0t3efT0c23xg7
-         NSDazJo8iv5cZMeivBqLbWRGQ6DNjzd8cyyzgNEZl1Ei/GeGE7lHkcdNqmtHrKGISz49
-         HPsOIHMSSu2w7T5y9he850g97hGcwBoxtSsyLweDiWIW3a2sWivLABLdGNNkjGcFLgYR
-         fD3VsmQGD8OmvxyJTmK+V+LotoWk46Cc737P2/qXojhO71f7AZgRsROCS9ncq4S7Tw4X
-         xPCt7od97D3QcCPJ1ttfSs3WVQOE1Ed6vMlLVUxbz8rsGwl6Ur6g7WWiIXqbQTCtxHxQ
-         HqvQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785372930; x=1785977730; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=gobfjnthWgTQXNW9RE05SfOdwzRlTBDEl0y0GpPD5ZU=;
-        b=Z3q/eZkzj6QL8dJdnbIFoyH3ricRAuQLdfTwrfWaq5cCnl3S0fvfsYeIFg1nZDzuQz
-         ZKsuAGAYdkvjAr067FQIlJnSkWXZE91kvqmGiImXBm0lofA/tN4Cp0GnY0sGvP/dHgAo
-         eHSBub4UWJTpGhEdWG6gqgi1+aFkFP9I05QGDU4rlYE5OXCOl0g5xnACo00cGhwlaKyD
-         LFzfxM/VHmeDaXSxbUCxHjleTqD7bRLFPZorTmYb67KUc1NZ0klN0rDHXNEHKkSr1QY3
-         OqrytLZweKPcf+r5c1RIkl6PgWjtzaATbz1l4+pToN9ek3uQFnU63sFspqqDeo1LUDix
-         juUg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785372930; x=1785977730;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gobfjnthWgTQXNW9RE05SfOdwzRlTBDEl0y0GpPD5ZU=;
-        b=XVJ8i+Z3Nm2w+vqCfuqPzyIoqYqK8AKt1CyoBydZaLHxzd9clo7Vg/dAYK/9hjh9CM
-         EuDbFL9w4S4bH5moP9sLKwTooFhp63Pxihp18DDHNVUGu8H0+I9CCbKq1oDPz1aPARl+
-         4s5T2aLkLqDwv+yJWdo1FF12vHIefowTz2tF2swbYtxVDSNws63rlsGoe+DFeg184kk4
-         UBASaxDSZVK8n0yfD2VQO71qdQdXXjRJpUbckgh9mxl3aexfedgZeOdg6cl0WnXDEiUP
-         jIglTBl9Dh5KJ0lzdakPEsZ7jQZWb1uH4npmqsk4iekYOga4cwo9lt6ZnkP5r1xmI3e3
-         KvQw==
-X-Forwarded-Encrypted: i=1; AHgh+Rr8sY/kNUs2O7RCS4Tjb7zcatF9s4E4VMae5e/dve+n+xVEL7r5D3kdkCRL5Syr/z07riFhMkftq1ettZN5WwMC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1I1CUnahrYM7n8x+j89Cu7+rgvxMwWOqlALUv+wGo7Xnxx4Xa
-	MuGwEiWOiPWJiyYAYS5Ju+ygeEbJ2mBDGbRoNmnihMzEcHw+sEPR269rh2tD9Hi4qs57Gkp+Vtr
-	kLXochnkewLeBaCgGmzEO9iFR+B1AJ+Y=
-X-Gm-Gg: AR+sD10WO67Wx5xa6+xahVZps6AvcGlAC/+iQLo/Ep64rSzgfYDe9coJQr7vl8C8QSy
-	IvN3ZirgbXiAXL4JtQVB9O4qiA7j8jEZVHf7YSEdYuEJxitGBNyKyRh3BHirBkmN5hWlrTWXcn8
-	D62Qokg7+lk8Rb7KsqvachkfTV4H0N6ya1IhMNyif9K+WhbnQPs9N7LN4GT1TKtzwa5Gf6+P02q
-	O5cJyR61o1DNCnzPVDqaBi6GVVK+rL80Ufo7+g4ircSeY5iu/f1e9UPIa7YOsV/UQqyATzT2Mfj
-	AJFqppGri0PGGd9YbpSFsWa9oTowxetPNaaDQkQoYBXbjN+npwMXpoozCcgnYn9+Z4fdWOon5y5
-	K/08TFz5wIwDU1QI+Atr0BAS70ZspdauDengrMm2IrddCtydIVg3Ut7kNF23i8TLknl8iqSyALm
-	hMb+RHx1FX7WdKkey+iE++yHEX4AJFBrfvX5m9vWLTKWDVbr74xV6RqR0=
-X-Received: by 2002:a05:6402:ea2:b0:69f:4a9e:a872 with SMTP id
- 4fb4d7f45d1cf-6a07b886b7bmr217764a12.37.1785372929473; Wed, 29 Jul 2026
- 17:55:29 -0700 (PDT)
+	Thu, 30 Jul 2026 01:16:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785374161;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oep9GUzmGHr26u2If40/oW9YH4ApgXIqp1l7c/0lb/w=;
+	b=MNTSY341ezvkFDG0SMxKoHzuxcvmQHQ/sHfVO3BSwX1qOQWMRrdrrjp4WLlBieNF3TopOi
+	RZ91ZXrw3Bo5PFg4vxRpuKm1tt+VcV6SuNbbli5qjWHDuh4ebC/exBlNU+RdIXiGJBd/O3
+	5baq2wwfSnj7TlS26vmBgb8RjKVbxtw=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-561-_2QrTJkqNL6GEL1URfKMOw-1; Wed,
+ 29 Jul 2026 21:14:24 -0400
+X-MC-Unique: _2QrTJkqNL6GEL1URfKMOw-1
+X-Mimecast-MFC-AGG-ID: _2QrTJkqNL6GEL1URfKMOw_1785374061
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B967119560A2;
+	Thu, 30 Jul 2026 01:14:19 +0000 (UTC)
+Received: from localhost (unknown [10.22.81.218])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CB8531956094;
+	Thu, 30 Jul 2026 01:14:15 +0000 (UTC)
+Date: Wed, 29 Jul 2026 22:14:14 -0300
+From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: Re: [RFC PATCH] ARM, ARM64, LOONGARCH: Delay HW BP notification to
+ task_work()
+Message-ID: <amqlZiO8rxu_k08L@redhat.com>
+References: <20260713144939.FuCj9yvZ@linutronix.de>
 MIME-Version: 1.0
-References: <20260727234408.296186-1-rosenp@gmail.com> <CAL_JsqLLME5rN_HW4hEPfGcLBZX-r-10XJ_=cvU1nq1x4cJEEg@mail.gmail.com>
-In-Reply-To: <CAL_JsqLLME5rN_HW4hEPfGcLBZX-r-10XJ_=cvU1nq1x4cJEEg@mail.gmail.com>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Wed, 29 Jul 2026 17:55:18 -0700
-X-Gm-Features: AUfX_mzhB7IANok2yPa703dtvh2qN2QOSacOzLqKPShSKaU7fBbZLxBxN9gcXIg
-Message-ID: <CAKxU2N9Q0tWCtVk2jn8bWu4H5YGGiKnxJksxZ-MjuKtoupzVmA@mail.gmail.com>
-Subject: Re: [PATCHv2] PCI: iproc: platform: use device functions instead of OF.
-To: Rob Herring <robh@kernel.org>
-Cc: linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	"moderated list:BROADCOM IPROC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260713144939.FuCj9yvZ@linutronix.de>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Mimecast-MFC-PROC-ID: pfsQcUX4-Wq6NT_KXu0OZrzAZbPSiOIXoSn_oQos9y0_1785374061
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_175531_899857_15D657EA 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20260729_181603_964829_F833D775 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,112 +80,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, Ian Rogers <irogers@google.com>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, Catalin Marinas <catalin.marinas@arm.com>, linux-rt-devel@lists.linux.dev, linux-kernel@vger.kernel.org, WANG Xuerui <kernel@xen0n.name>, Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Russell King <linux@armlinux.org.uk>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Waiman Long <longman@redhat.com>, Clark Williams <clrkwllms@kernel.org>, James Clark <james.clark@linaro.org>, Steven Rostedt <rostedt@goodmis.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, loongarch@lists.linux.dev, Namhyung Kim <namhyung@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, linux-arm-kernel@lists.infradead.org, Oleg Nesterov <oleg@redhat.com>, linux-perf-users@vger.kernel.org, Jiri Olsa <jolsa@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 5:32=E2=80=AFPM Rob Herring <robh@kernel.org> wrote=
-:
->
-> On Mon, Jul 27, 2026 at 6:44=E2=80=AFPM Rosen Penev <rosenp@gmail.com> wr=
-ote:
-> >
-> > Since this is supposed to be the higher layer file, use higher layer
-> > than OF to handle this. Remove OF headers as a result.
-> >
-> > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > ---
-> >  v2: fix platform_get_resource() parameters.
-> >  drivers/pci/controller/pcie-iproc-platform.c | 31 ++++++++------------
-> >  1 file changed, 12 insertions(+), 19 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/pcie-iproc-platform.c b/drivers/pci=
-/controller/pcie-iproc-platform.c
-> > index 4c9a0c4bb923..488ff737ec52 100644
-> > --- a/drivers/pci/controller/pcie-iproc-platform.c
-> > +++ b/drivers/pci/controller/pcie-iproc-platform.c
-> > @@ -10,12 +10,8 @@
-> >  #include <linux/slab.h>
-> >  #include <linux/interrupt.h>
-> >  #include <linux/platform_device.h>
-> > -#include <linux/of_address.h>
-> > -#include <linux/of_pci.h>
-> > -#include <linux/of_platform.h>
-> >  #include <linux/phy/phy.h>
-> >
-> > -#include "../pci.h"
-> >  #include "pcie-iproc.h"
-> >
-> >  static const struct of_device_id iproc_pcie_of_match_table[] =3D {
-> > @@ -40,11 +36,14 @@ static int iproc_pltfm_pcie_probe(struct platform_d=
-evice *pdev)
-> >  {
-> >         struct device *dev =3D &pdev->dev;
-> >         struct iproc_pcie *pcie;
-> > -       struct device_node *np =3D dev->of_node;
-> > -       struct resource reg;
-> > +       struct resource *reg;
-> >         struct pci_host_bridge *bridge;
-> >         int ret;
-> >
-> > +       reg =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> > +       if (!reg)
-> > +               return -ENODEV;
-> > +
-> >         bridge =3D devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
-> >         if (!bridge)
-> >                 return -ENOMEM;
-> > @@ -52,26 +51,20 @@ static int iproc_pltfm_pcie_probe(struct platform_d=
-evice *pdev)
-> >         pcie =3D pci_host_bridge_priv(bridge);
-> >
-> >         pcie->dev =3D dev;
-> > -       pcie->type =3D (uintptr_t)of_device_get_match_data(dev);
-> > -
-> > -       ret =3D of_address_to_resource(np, 0, &reg);
-> > -       if (ret < 0) {
-> > -               dev_err(dev, "unable to obtain controller resources\n")=
-;
-> > -               return ret;
-> > -       }
-> > +       pcie->type =3D (uintptr_t)device_get_match_data(dev);
-> >
-> > -       pcie->base =3D devm_pci_remap_cfgspace(dev, reg.start,
-> > -                                            resource_size(&reg));
-> > +       pcie->base =3D devm_pci_remap_cfgspace(dev, reg->start,
-> > +                                            resource_size(reg));
-> >         if (!pcie->base) {
-> >                 dev_err(dev, "unable to map controller registers\n");
-> >                 return -ENOMEM;
-> >         }
-> > -       pcie->base_addr =3D reg.start;
-> > +       pcie->base_addr =3D reg->start;
-> >
-> > -       if (of_property_read_bool(np, "brcm,pcie-ob")) {
-> > +       if (device_property_present(dev, "brcm,pcie-ob")) {
->
-> If the property is boolean, it should use read_bool and vice-versa.
-I don't see it as a boolean in dtsi.
->
-> >                 u32 val;
-> >
-> > -               ret =3D of_property_read_u32(np, "brcm,pcie-ob-axi-offs=
-et",
-> > +               ret =3D device_property_read_u32(dev, "brcm,pcie-ob-axi=
--offset",
-> >                                            &val);
-> >                 if (ret) {
-> >                         dev_err(dev,
-> > @@ -87,7 +80,7 @@ static int iproc_pltfm_pcie_probe(struct platform_dev=
-ice *pdev)
-> >          * core driver. For platforms that require explicit inbound map=
-ping
-> >          * configuration, "dma-ranges" would have been present in DT
-> >          */
-> > -       pcie->need_ib_cfg =3D of_property_read_bool(np, "dma-ranges");
-> > +       pcie->need_ib_cfg =3D device_property_present(dev, "dma-ranges"=
-);
->
-> This is correct as dma-ranges may not be bool.
->
-> Rob
+On Mon, Jul 13, 2026 at 04:49:39PM +0200, Sebastian Andrzej Siewior wrote:
+> Waiman, Luis, Ada reported that HW breakpoints on ARM64 trigger
+> "sleeping while atomic" warnings on PREEMPT_RT. The hardware event is
+> delivered with disabled interrupts and perf intrastrucure expects
+> disabled interrupts while the overflow callback is invoked.
+> 
+> The callback then sends a SIGTRAP signal for which it acquires
+> sighand_struct::siglock, a spinlock_t which becomes a sleeping lock and
+> must not be acquired in atomic context.
+> 
+> Delay the event callback until the return to userland.
+> Add perf_arch_hwbp_notify(), a generic perf callback which delayes the
+> actual callback invocation to task_work_add() callback. This callback
+> invokes the architecture defines callback arch_hwbp_send_sig().
+> This requires struct callback_head and the functions require
+> ARCH_NEED_PERF_HW_NOTIF to be defined.
+> 
+> This was reported against ARM64. ARM and LongARCH follow the same
+> pattern are also converted.
+> 
+> Reported-by: Luis Claudio R. Goncalves <lgoncalv@redhat.com>
+> Reported-by: Waiman Long <longman@redhat.com>
+> Closes: https://lore.kernel.org/all/aho0eqjMESuHxECr@redhat.com/
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> ---
+> 
+> This is approximately the fifth iteration at which point I think I can
+> share what I have.
+> 
+> Could this be tested, please? I tested it on arm64 for arm64 based on
+> Luis' test. ARM compiles my HW lacks support for this I think (gdb
+> aborts early). I hope the best for LoongARCH.
+
+I tested your patch on baremetal (3 different aarch64 machines) and 3
+different Virtual Machines. Apart from the one VM that didn't provide the
+HW breakpoints the test used, I was able to reproduce the problem with
+v7.2-rc5-rt3 and earlier kernels in all the other setups. Applying your
+patch eliminated the backtraces. I ran several batches of 2000 and 10000
+executions in a row of the gdb test from the original thread without a
+glitch.
+
+Having DEBUG_ATOMIC_SLEEP enabled in the kernel (along with PREEMPT_RT)
+was all I needed to reproduce the problem with the unpatched kernel. After
+I applied the patch I run tests with and without lockdep. No backtrace,
+no complaints.
+
+I started working on trying to reproduce the (possible) problem Sashiko
+highlighted, but so far, no luck in reproducing that specific scenario.
+
+Best regards,
+Luis
+
 
