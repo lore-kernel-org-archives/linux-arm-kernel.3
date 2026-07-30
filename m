@@ -4,69 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF7F2C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 17:10:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3AEC5516E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 17:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NEV1SeAY7e9fur5jsw64YihesSttf5xPw9v8EsYpE7w=; b=WzENm8lfez9vWQZt+sY9vaFjUe
-	sIpuqvr5w36GMFwp2X1TKrQPxXT2WNvkY5W+ctpOM1i2E9AlOdIjJOUlXM4pSEr5wvrLoUQMnl6dy
-	2m9sdPXl4/pU5G7xHp2yzLtlTgG79r8YBmj35tdGz8KYR62aDSrHxXMyXxhfevpfhAf1Pt30s60gC
-	fFI9CJO8/I6crfxaK0+eBPwET51UCyMLYd7fj1Fbu2oNzQwmUTYIsL+cxX6QAJv6+jolbANTTHXCA
-	0b0biK1NItCgWT+lys86X9Q7gEMF9FQ4WzW3h/RFNFmLyC5D6BOO13V49C6DHqn78Ei1cjIVsuEHC
-	2brEwnUw==;
+	bh=PRVLUAMqt9btSYcKLPYN+Dg017FHNaeUxumso8uAL/U=; b=v/Qe29d/mF2Agj5zQUr+wRyxme
+	BYVYlj5LrFUw5QyiatDyoEo1IMUK+fUpsmlIJDLMkuR8D/ZW29DJk7ag4Jx8Tb76r6XTzWExlK1c1
+	w6QdmimSHTisO6CPgEVD6Zw33Fbq2sPUl5IsuiEOINSXak7sUuIqcRYIm4NW6bs9Qw3spvSe+f3u+
+	lNE6FDkCcqyxfN6YqlK0W3P30Pp2i23bmXlB0TfFKRtu0g6c5Vmr+uUQsetvZM7/EeYn1LBT3NMgN
+	ZqiwPz6ejXrNAbjGYs3WCO39Rek70mbaGD2qcolleYdt+u9geXLWFt66yfDGJyF+fcWutuqIqaj0r
+	c2qbh/0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpUHK-0000000B4PY-0h4u;
-	Thu, 30 Jul 2026 17:10:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpUHE-0000000B4On-0DCV
+	id 1wpUi4-0000000B6MD-0K2e;
+	Thu, 30 Jul 2026 17:38:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpUi0-0000000B6LC-1lTk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 17:10:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8165C15A1;
-	Thu, 30 Jul 2026 10:10:30 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ABEEB3F7B4;
-	Thu, 30 Jul 2026 10:10:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785431434; bh=NEV1SeAY7e9fur5jsw64YihesSttf5xPw9v8EsYpE7w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rKfe24nHrRUQFSs7BPeQVC3d7nntvLRKXTHJnKrjfXFM0j9YtvPULxv7b26v23U6Z
-	 vF4B+v10W3rmV33Aqo2JzjWUVF/Bb7Yd5scIjuNwJ2PSfY8ByP9FDeP1Ed2s9qTXm1
-	 QsLIDgQesgSQP1tZSl6JoW5eTQDWNfsxzWcYzaxA=
-Message-ID: <af820923-c423-4f19-99dd-7d8fdd2da864@arm.com>
-Date: Thu, 30 Jul 2026 18:10:30 +0100
+	Thu, 30 Jul 2026 17:38:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785433095;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PRVLUAMqt9btSYcKLPYN+Dg017FHNaeUxumso8uAL/U=;
+	b=dCkxqSXqqJL4mE6nhO57kWbmJh4GPGTgT0Nm/Fq9ho0kJnwcrU1m+QBBDDG01r+kKyxtZc
+	5o1PnHUKvaRTPVK//7j7IK3s2FbJf93p3hLlBXoYyfgRkheCp5vNd+/eKFv2Yb0VBJ/bKH
+	cytgUXkfE+u5odefvuwxUPkma2r84bA=
+Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com
+ [209.85.128.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-251-FfOnnifIPYSoVsX9qOxnTw-1; Thu, 30 Jul 2026 13:38:12 -0400
+X-MC-Unique: FfOnnifIPYSoVsX9qOxnTw-1
+X-Mimecast-MFC-AGG-ID: FfOnnifIPYSoVsX9qOxnTw_1785433092
+Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-81e6bb29581so2527627b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 10:38:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785433092; x=1786037892;
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:content-type:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=PRVLUAMqt9btSYcKLPYN+Dg017FHNaeUxumso8uAL/U=;
+        b=GGKYBSNw28lAifu57KxYEhGPNeBJTbqeP/MaIjuj1GT5hEOziMwQAKf028acCiBZNR
+         ihMIeESpAA36AEUkGqbYs1RfHxRRmm1nHvEU6xoxeJyPIqwoiZFck4FghKdHFb4Q0kvK
+         8Yu4x53AhNxGLxCsfXiVgl2IY4gkKZTgMDAszADQG6vSrl8Ht22ANI0PUxspbDns10Mp
+         yBtfDQzTkXsZljFQw923T1TwqYiqRkJxnq/YxL7Q+LIFgkAK+P1m7O/7dsWHbwI5F7sT
+         KO0avPcOm1yShROADK7zcH92IcPAoJU1DeVm7LjQdazkmU6QL4BuiCFbuNi5Po2tO7nv
+         96fw==
+X-Forwarded-Encrypted: i=1; AHgh+Rp+BdxZUTfhB1ZTq7ffUYitp+c0JoTZTxsxxlgistcNQjJqmG9JsbrUp2G57K+Yk8AMrBOm0/nil5t1sJtgL/kW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2Ji8az8zvGJTjRg90whCYoFiJg4rKOqj+LWKYoTQTECdBez08
+	vos3DOjorY7lxd26rAeRHHsCXQqdcHbZiEhWIei+AXYk5a9LY1l9mi1caOeKkqXyj47iNnZPMTT
+	EaScCeBcUZRdvDMAAoqrnyFc2sWmKKfjSXB8dDQDgNtinHVCl/fLhrqXXi4Pd/LDbbq2Tu3q2f5
+	ri
+X-Gm-Gg: AR+sD12XjsPEeI7qXGCgLGEuvd4OfeuA/pfrqIjpj7OdaoyPyhEXLD/+JwXS/1OBhPR
+	QSW5UbtnzHOiUdSvmy7IZy+p0883RsNVyDiIPvyhHK8ZY6v7ds/lUzAYhfBzrlSzWbjbF6R3Ykx
+	nzpAYgfme6MGcwwszLz9SeKKQ4glvKGMQLThK/bW53wP5cp7E3sQpvdA+dJFXCesoVxR01cGoyT
+	SZcQIGGv9TQS55U+P+HUnhrks9LEl5iHHI2TQm+rkdINB3F02cLehFclbYGCuAXcr6oLKWFTmml
+	fuRTTVZTaJ+2DX6kqDqt1/r6nf9ZggwNjGo4DFskO9PaXqbQ8POp4FjyEcBuHlgFbIguG2BFzLz
+	hLUDigJwv/eaQx57wAXLcduGKaU7pW/6w+FM=
+X-Received: by 2002:a05:690c:698f:b0:81e:fd36:ff73 with SMTP id 00721157ae682-81fb891d54cmr25018537b3.5.1785433091912;
+        Thu, 30 Jul 2026 10:38:11 -0700 (PDT)
+X-Received: by 2002:a05:690c:698f:b0:81e:fd36:ff73 with SMTP id 00721157ae682-81fb891d54cmr25018367b3.5.1785433091480;
+        Thu, 30 Jul 2026 10:38:11 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81fb87315cdsm14274757b3.0.2026.07.30.10.38.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 10:38:10 -0700 (PDT)
+Date: Thu, 30 Jul 2026 13:38:08 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org, mfd@lists.linux.dev
+Subject: Re: [PATCH v8 05/12] clk: zte: Add Clock registration infrastructure
+Message-ID: <amuMADxexEuJJG44@redhat.com>
+References: <20260727-zx29clk-v8-0-7a107b00f1dd@gmail.com>
+ <amiw7mfPfSPjLHLH@redhat.com>
+ <ami0TaY84IslWZyo@redhat.com>
+ <MwDLqBgXR7G6dGkTtCaRrQ@gmail.com>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v6 00/10] arm_mpam: Add MPAM-Fb firmware support
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260730152539.2712312-1-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260730152539.2712312-1-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <MwDLqBgXR7G6dGkTtCaRrQ@gmail.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: YGNBpF-1LPG9VZ8NFPJyd7OEfaP77KTPtXdjGiKzrIk_1785433092
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_101036_245674_28148248 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260730_103816_527064_7BB9012F 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,27 +123,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Hi Stefan,
 
-On 7/30/26 16:25, Andre Przywara wrote:
-[...]
-> The first six patches rework all MSC access wrappers to propagate error
-> information. Pure MMIO based MSC accesses would never fail, but the
-> MPAM-Fb access can go wrong in multiple ways. The patches have been split
-> up purely for reviewing reasons, if the number is a problem, we could as
-> well squash them. Please note that until the very last patch of this series
-> any MSC accesses would always only return 0, it's only the final enablement
-> of MPAM-Fb that could possibly introduce errors. Hence all former patches
-> can add error handling gradually, those code paths wouldn't be triggered
-> before patch 10/10.
+On Wed, Jul 29, 2026 at 12:25:34AM +0300, Stefan Dösinger wrote:
+> Thanks for the review!
+> 
+> Am Dienstag, 28. Juli 2026, 16:53:17 Ostafrikanische Zeit schrieben Sie:
+> > Looking into the other patches. There's more mixing of the clk provider
+> > calling the clk consumer APIs here. It looks like this just takes a
+> > reference and holds them. Would moving to parent_data address this?
+> 
+> I think so. parent_data::fw_name is indeed something I have been looking for 
+> and didn't stumble across myself. And I suspect when you say "use 
+> parent_data", you don't mean "use parent_data.name everywhere".
+> 
+> But it raises the question of how to handle internal clocks, e.g. foo_gate-
+> >foo_div->foo_mux->clock-26m. Only "clock-26m" is passed through the DT and 
+> found via fw_name, and only foo_gate is exported.
+> 
+> For the other clocks I currently rely on the string matching to resolve the 
+> parent named in the static init data to an actual registered clk_hw. The 
+> alternative I see is storing the struct clk_hw * in a table by index and pass 
+> it in parent_data.hw, but that'd require managing the extra indices. Or build 
+> a clock-local name->clk_hw lookup, but then I am just reinventing the old name 
+> matching.
+> 
+> Am I missing something obvious? Is there a canonical implementation somewhere 
+> that implements modern best practices? I learned that looking at existing 
+> drivers isn't always a reliable guide.
 
-I had a go at injecting some errors and noticed that at least some aren't getting to user space.
-When writing the schemata file any MPAM-Fb error is not propagated to the user. The
-resctrl_arch_update_domains() continues to return 0 as there are some missing links in the chain
-down to the writes, e.g. __write_config() always returns 0.
+You'll want to register all of the clocks with the subsystem. Take a
+look at drivers/clk/qcom/gcc-sa8775p.c and here's an example I picked
+at random that shows how you can reference the parents with the
+parent_data:
 
-Thanks,
+static const struct clk_parent_data gcc_parent_data_8[] = {
+        { .index = DT_BI_TCXO },
+        { .hw = &gcc_gpll7.clkr.hw },
+        { .index = DT_RXC1_REF_CLK },
+        { .hw = &gcc_gpll0_out_even.clkr.hw },
+};
 
-Ben
+static struct clk_rcg2 gcc_emac1_rgmii_clk_src = {
+	...
+        .clkr.hw.init = &(const struct clk_init_data){
+                .name = "gcc_emac1_rgmii_clk_src",
+                .parent_data = gcc_parent_data_8,
+                .num_parents = ARRAY_SIZE(gcc_parent_data_8),
+                .ops = &clk_rcg2_shared_ops,
+        },
+};      
+
+Brian
 
 
