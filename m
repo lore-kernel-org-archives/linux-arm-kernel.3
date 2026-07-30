@@ -4,104 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25516C55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 11:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC331C55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 11:15:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gs4cSTiQ7EIw8eFWmNsrf39qAFLi8oIVYH7i5f6LK4I=; b=lug3DAgKMuEsbbxn4JsuckxbJ9
-	tBcl3rXGGNESz9GMPLu/TD7MdNVTyS11H/IbNwa1GY1sBBKPm+mvfNzW/ZttRWgZOIhgr5YJgJtT7
-	dMAFNL55YK4VXZERuklZGK3p4JYTKEBYVAU5toJ+0RZX56vQD45c1V1agkic0m8bbeBRxXhUkMJaU
-	hUiNRFu9qYLRGTEwtwylCjqLEnTmnKRjCS0NicmaggRJ+IEu9mLgVIsq+AdRC5ovEdcDOa/I3FR1A
-	N2haaMJ4dujatvSEFNcFojwGaF8fS2God5AAj1eBQYsNzWhD+dnR4Bpfti4MmanqZCcCkuh0zbR15
-	Kpuufhuw==;
+	bh=yayerd7KpbuNuMSIUfVtN3koai+QfjdPNE9Mq1gz39k=; b=u2Avtpktxt2+hm4L1Eb3tuqZmY
+	nbYRGf3o8wTjarmaUUDZ/ImzdoGg5Q+DyrAm3GWbKx/iLVSyfPJHeI++1lyFFutVfJ48K65paHi+Z
+	HkL6e25muh3TRs5qvbUd5+Tz/LrGXMuPbI7wD188Wnbqa+7H3iY8HubhpiIZZx6hkz1q8W62IMQRO
+	E8GAqsEHdL7+ib5WipTA4Ef79joxCkqJEMYdxOujZ1PbinWN8sVGaGQmFUCzoDsIBiIFDhz4DSJ36
+	s1votjfZAZapcv4O6bH7zON8e7iV4HX0lwGflPLVaCERVag0X7foh6ZV//+EuAPG55RO7giQMJgQL
+	ec4TvjJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOjb-0000000AJs0-3ajx;
-	Thu, 30 Jul 2026 11:15:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wpOjn-0000000AJv9-45wY;
+	Thu, 30 Jul 2026 11:15:43 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOja-0000000AJrn-2ymE
+	id 1wpOjl-0000000AJuI-1rOP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 11:15:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CB5C600B0;
-	Thu, 30 Jul 2026 11:15:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 106ED1F000E9;
-	Thu, 30 Jul 2026 11:15:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785410129;
-	bh=gs4cSTiQ7EIw8eFWmNsrf39qAFLi8oIVYH7i5f6LK4I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FD+cvYLUltNWeckIvabqtFHfF5nBc4tOBroR/EqRSjRxI2nSHgmgvo2GsqycUI53S
-	 3qSrpyuKehHOzt0tiJlB2imwlVeqDlr4TTDQo3ri9vcBD4DLkJ1XzS3efeZroSrzJC
-	 wR6CqoxbtAGb6wgFNflAQhdddhfz5Ze8Q4/fveLd9WUwvar1am7l+2JwweTm0Er2i3
-	 b7BANStlXsOeIBt3gfFHRbUTLUmbWQX7nUTYWGomDsmBr7iew19d3/KTZA8XX/1B1v
-	 EbhdKjuPZcUntMn3O7ynCv+6eIwmoT01JjIll9vTPm8Sdrgb/WxJcb1CFrRzc4JYAA
-	 dkfEo0UQrgCQA==
-Message-ID: <fb520f00-1331-4136-8421-d82bdd46c48a@kernel.org>
-Date: Thu, 30 Jul 2026 13:15:25 +0200
+	Thu, 30 Jul 2026 11:15:42 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UAt61i480845
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 11:15:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	yayerd7KpbuNuMSIUfVtN3koai+QfjdPNE9Mq1gz39k=; b=h5zzTE5I4I2O3mTA
+	cbLmYykTp9Ku6e5Fmm8L7Oreu3ps+EkVp0of7zbay/LtewzAuOJeyOTBuK3J/VaH
+	4PF/8croEJX0C9JSR9E2ABdtJMpxTnDBdFnSZKtVPgJ0qMZ4z4s62g7VT5dH3GYx
+	ydjefX3IspqV7JB5vom+Bii+4Xa0bltRUBWGEMRQLDLrj7BVbx2ZMwbXXgeK2wU+
+	Yf7FEFmp429hm+NKst29fg+kv2ZhC0KOJcVqY64ITSZfiNhCP9034EiBAOAb+QIV
+	IqyFlu2NQuXAWfyhJGt+CF33sXmv/9VfFyWAo1ap3Z1rlCyAyPDJhWRXagNkqS9l
+	6wFUvQ==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fr59h82n1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 11:15:40 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-90520763ceaso3798716d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 04:15:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785410140; x=1786014940; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yayerd7KpbuNuMSIUfVtN3koai+QfjdPNE9Mq1gz39k=;
+        b=QGo1tjVoKvvZySKzek6RVTJaisuvyEdmdt2KNFjntbpWY2iRvynZJR8b4tBZHk3Xhq
+         qLNUrk/mZwsc/pUIvx5AZqPQyPFQBPhPZa/aeP9K1rjmFKZ+S4hJH0GtuyXWzJJGP8Fd
+         ipUviRDUySGRnR9kP0nU2FWh6wxu2HEsS2vxwSiee2zvbIiH13I6KW62Ov9vWLBl1lTX
+         jRGiP8FxdEiSmxZeTGlAZDCKE6OnndDa5CQ3TEFLR2ojuy7GKjPOxk+6wDp9DuCtt3LE
+         v/uT3clmKPk+Sj82c543Q3hmYI7YoNXKxDSx2YVinBTUFtuXQDKs/rJfifXz7VGlL7OE
+         SPBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785410140; x=1786014940;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yayerd7KpbuNuMSIUfVtN3koai+QfjdPNE9Mq1gz39k=;
+        b=VXJY19i1R/pARRPgStYExZF3Lbd8YbQiukfGQwM3fO/X3ytIWP4sqwWcCt6PaNG1W3
+         jVn2044LxVX4kIRFNX3dDTg6po9g8+g5mAYgHgLmmGKhR4xuut5+G8PMsVlTjVpElxVA
+         7/9qgel7qorup1ZS8k6EGnldUcCYaBgme+qEb0oaUCpkSwzTtbesx7gV/NfkjakvAR5i
+         fxzB89fclXAUFUpIODTsmgcR/CUIBlz6dGIGJ3/sJdwXpnKs/HeHsI6rLHP0TV1oxNqy
+         sGCXyB9Xs8D8pnTzaXWmjlvK8jGBchtAVu4foW9qBv4oP10Qnm1/pRlMyFkeZE99Kb6q
+         AnXg==
+X-Forwarded-Encrypted: i=1; AHgh+RoxIRiStqInNfSgZkeVQint3oO4gN56BwOcFatZeS3dISruEKubqIKHBpI8joYV/sI5Di6+Pr4FKsG1XEpFlH7E@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfUBBsIKBwzE6VcS5lTFqE/1ZyCXoE/+v7H8G9IHgxKssseViK
+	myhyUM6fm8oEBU4jsiuS3IwCEK+qPR+bFon+8dLF+roN+LrooAikvEbmJ7Psvu619x7ggoce9Hh
+	h6ULwHBWDp3Hk4PGBm5e/fGtJB0h9EFbitqX8XUhE3BhwfCTSmAT9AFe5Mns5s0UimnZeiRACIG
+	vWrg==
+X-Gm-Gg: AR+sD12pAkC5gKadJogiPiLcsFilMBqF66Rf3Plhqs3+41QFAboTqCViIbM5HrTUpyW
+	gvyBUCX20ktwI30T8QiAmwMS2ICltkTCqaIYi+7p4aGU593ntcR1nn4N+3sM9GxpJVNm2cJYaQ0
+	TrT2RWKV92Vd43sIAiaqYnYjlGGp2jBbaPO/4skYX9Nwf1p5ic9+RrSvKmGhbVaz83EIJ/y6tSa
+	xWX4l3Ayvw9uuugDGBNY8E/qHwYkcRgovQyDBY7IcPgwkKViOlszZZdwJy2JOQdGz2LDi4ZAyjx
+	2pkT4qoJ8mf8Dg/saQCKXnUryEjqO5bcW7QA/zesGZiH6uU8saiclRFofm1FOx3fpfe8BemEQ1Q
+	hZ1p2xBbJQouEyMyVeFCFCCKa
+X-Received: by 2002:a05:6214:248d:b0:8ef:4749:b1c9 with SMTP id 6a1803df08f44-908348e1e80mr33531426d6.5.1785410139535;
+        Thu, 30 Jul 2026 04:15:39 -0700 (PDT)
+X-Received: by 2002:a05:6214:248d:b0:8ef:4749:b1c9 with SMTP id 6a1803df08f44-908348e1e80mr33530766d6.5.1785410138930;
+        Thu, 30 Jul 2026 04:15:38 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1fa85dbe43sm57334066b.27.2026.07.30.04.15.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Jul 2026 04:15:38 -0700 (PDT)
+Message-ID: <a5e953b8-89fb-4f65-a299-37352d9f6fa8@oss.qualcomm.com>
+Date: Thu, 30 Jul 2026 13:15:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qe: properly scan GPIO nodes at startup
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
- Herve Codina <herve.codina@bootlin.com>,
- Paul Louvel <paul.louvel@bootlin.com>
-References: <04dc047f8958a78a920f0a88ca3bd8bf70c56187.1785333986.git.chleroy@kernel.org>
- <178539922190.574381.1359588018451529893.b4-ty@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] crypto: qce - Remove driver
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Konrad Dybcio <konradybcio@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Bartosz Golaszewski <brgl@kernel.org>, linux-crypto@vger.kernel.org,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org,
+        Demi Marie Obenour <demiobenour@gmail.com>,
+        Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+References: <20260724141414.GB1876@sol>
+ <CAMRc=MfU1egvJwmgPEN-GXPbz8_JL2XnP-LV0T2+jG-drfXYwg@mail.gmail.com>
+ <2026072455-subtly-prayer-0a8a@gregkh> <20260724150932.GA6763@sol>
+ <2026072428-ungodly-outsource-b20c@gregkh> <20260724155144.GA2032@sol>
+ <20260728152241.GA4281@quark>
+ <15904301-fd03-45e5-b909-dfce52449726@kernel.org> <20260729145520.GA1702@sol>
+ <50d9d0e4-28c9-42b6-8b71-e75682b4959c@oss.qualcomm.com>
+ <20260729171850.GA4454@quark>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <178539922190.574381.1359588018451529893.b4-ty@kernel.org>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260729171850.GA4454@quark>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: bNv1QPSmrtjJyi3bAtqRWvQopaVwkgzH
+X-Proofpoint-GUID: bNv1QPSmrtjJyi3bAtqRWvQopaVwkgzH
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDA4MyBTYWx0ZWRfXzmS5xoVMiyWq
+ e0DZ7KTfD0eS0dI1g3FybbdesH9RsIRXWUrZFygHAKRnTgxo5gjdpv8lgOZQyHG7YKcGRqfASsJ
+ 6pju7OVBMNp98QFfd0eACLAQ23LA0h0=
+X-Authority-Analysis: v=2.4 cv=GshyPE1C c=1 sm=1 tr=0 ts=6a6b325c cx=c_pps
+ a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=_TOfc9kH6lse8ksE744A:9 a=QEXdDO2ut3YA:10 a=pJ04lnu7RYOZP9TFuWaZ:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDA4MyBTYWx0ZWRfX38nYac0d31ea
+ fnEZLYocbsbuMzpQK+3vOR+b9S3oi3WMjXX7BZALaA4y/et6gasl2ZC3TgWabKLluEcMcqKuoOz
+ sp4Dh7uO1MPfuj/1ixbap+lVSfdvrdT3b+jxqCcTwDUMdMlrcxm+QVeUfqTRT2H21ZSoZHzhysh
+ kFWkV7SHR74LUsCFN3e4nmpmrfSaLLaCsTkgt6rC7fiPP6VAEY8Ndtp8V9jw/QBKJ5FhyNCADcR
+ QkuRx21u6mWykvlQeB8ME/Ol4W4xeHfhLC71OUqx4QUnnUweAgXNgC0zrjq8R37scDPmfEzv7ta
+ ++DlJjMFsclpSE+kctvsb008/95mKsA4c6vwfG6Z61onsKF82WMxH4fnAXky3YBZ5aKVWnTzT91
+ 3k1wmSnto5ZjptV2L37t2ABtguk5Joziz7Y6TprHqCWzOdYcWqBUNQDShxj8PNM9VHzEOuyAlKD
+ UI7JbYXuXK+pDPJsNpA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-30_03,2026-07-29_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 phishscore=0 malwarescore=0 bulkscore=0 adultscore=0
+ suspectscore=0 priorityscore=1501 lowpriorityscore=0 impostorscore=0
+ spamscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607300083
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_041541_613852_9FCDD647 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,28 +163,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/07/2026 10:14, Christophe Leroy (CS GROUP) wrote:
-> 
-> On Wed, 29 Jul 2026 16:10:36 +0200, Christophe Leroy (CS GROUP) wrote:
->> Before commit 156460811def ("soc: fsl: qe: Change GPIO driver to a
->> proper platform driver") qe_add_gpiochips() was walking the device
->> tree to find all nodes with compatible "fsl,mpc8323-qe-pario-bank".
+On 7/29/26 7:18 PM, Eric Biggers wrote:
+> On Wed, Jul 29, 2026 at 06:55:20PM +0200, Konrad Dybcio wrote:
+>>>> Unfortunately removing it drains way more battery, because the buses
+>>>> never hit sync_state and are kept at their maximum frequencies:
+>>>>
+>>>> [   18.021823] qnoc-glymur interconnect-1: sync_state() pending due to 1dfa000.crypto
+>>>> [   18.029605] qnoc-glymur 16e0000.interconnect: sync_state() pending due to 1dfa000.crypto
+>>>>
+>>>> (it transiently also pins DRAM and friends to max-freq which absolutely
+>>>> kills battery life)
+>>>
+>>> Isn't that easily fixable by marking the node as "disabled" in the
+>>> device tree, or even just deleting it entirely?
 >>
->> After that commit the discovery is handled by the platform core,
->> therefore it is necessary to call of_platform_default_populate() on
->> the par_io node.
->>
->> [...]
+>> Avoided? Yes. Fixed? No. The DT is valid but Linux can't deal with it
+>> [since the driver is gone]
 > 
-> Applied, thanks!
+> If needed we can keep a stub driver that just disables power and doesn't
+> register anything with the crypto API.  I can send a patch that does
+> that.
+
+I believe we (are going to) need something like that in the kernel
+for similar cases, however I'd rather see this driver kept/reinstated
+for the reasons Bartosz is arguing
+
+> This is an interesting twist though, because it means the claim that
+> people can just disable this driver in their kconfig to avoid the
+> problems in it (which is being used as justification for keeping it) is
+> actually false as well.  As well as the claim that adding the node to
+> the DT file is "just describing the hardware" and has no impact.
 > 
-> [1/1] soc: fsl: qe: properly scan GPIO nodes at startup
->       commit: cf91e5909e620b77164b53c9b316a5c1f11f9ea7
+> This would also imply that no driver using this sync_state mechanism can
+> ever be completely removed from Linux, ever, which seems odd.
 
-You left very little time to respond to this - one day - and introduced
-undocumented disallowed ABI. Please drop the patch. I will be objecting
-to the entire pull request.
+Linux has always worked around various firmware peculiarities, so
+I guess we're just continuing the tradition! :P
 
-Best regards,
-Krzysztof
+Konrad
 
