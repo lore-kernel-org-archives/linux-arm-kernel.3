@@ -4,162 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76B91C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33346C5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8fla+BUQURBo/7c21A3WNrfVtrC0xwyiRMNM1yGIXLQ=; b=LoH+SseCgX3wz6IkBRAgBnLL/r
-	7T0eaNJZjz1BVSHiFstncg/RrjjirafFIy2dHCrvXpwoNtvcu0MEoUrDKvf0WBkr2K7KIsEYYd0gm
-	2yF+oR8XiX1RmnWrOJ4/vxGiZEWOPk2hLT8SHIQvCGw9P0o6sS5nZNyiwv7FNyEtm3P1bS6NIfOOU
-	PxUuMGjN724CHsrCqbiEiHyGooFDqsymzlI5y5Cjk1soiGDQHCRLBzfv1y+SeQoFuGIOgNnS12LlC
-	PkIb/PSjhggiqboqkoyS/MV6djz1MyKHt6cu+tdlzUigveQ44d3yVsIc94Qen5zv5Sqgv8Qnr+l36
-	o/C/xC9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8xSibPGaP79RuMf+7+dDUpouwIkheHJF/igrm5r11hc=; b=aLLmG5PoKvtaiTHpKQX3ay2BOm
+	XMR/O4wq2z+qotHCb4IRxpVmQHXYrKYiPcpCLwFIGa51NTaM9ehlsdXokhs1lLwwfA68uJVFqsGLT
+	hzycKibocpd6CRX+Iq+1ALSTRlRDO108Ae+DbddI3n1s+58dO96DwzJRXkKpvEDkG1KiUhnz1lvBr
+	ueJ1VSn7ZuLY11+9Sq/Dehl2llbKWk/ZQsqhH3dLdancPKuYxU647HV9Lqr0OO+u9W8UBimqsASp2
+	LFYXZ5qd5x9nbdUqqzkp/eyaWqHQuzFRtXx0z/OY7rWdAYy5uaVbKy2BtUHzdkt9DLS1GNyrm14m2
+	rFvs4oAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpWG1-0000000BDSM-2crw;
-	Thu, 30 Jul 2026 19:17:29 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wpWHi-0000000BDcQ-3xK4;
+	Thu, 30 Jul 2026 19:19:14 +0000
+Received: from mail-pg1-x547.google.com ([2607:f8b0:4864:20::547])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpWFy-0000000BDRq-39Bt
+	id 1wpWHf-0000000BDbP-3WjO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 19:17:28 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UGWjKS1377712
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 19:17:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8fla+BUQURBo/7c21A3WNrfVtrC0xwyiRMNM1yGIXLQ=; b=bTV+cDnXEBaExVDh
-	LrLd5GEvBQhwYn7tO6tLCTVkdxreycTniZ7QeXiWuT4F6Jp9pPCgNdK1HVE7jKaY
-	quhXchMzeEC+gDGM58r2P+esS9ysFT/hAl4dCO6R2z6GbJOhTDLx3NUFWSbi6sgx
-	VSPfpu7frI+RV2CI5L9aJHGiuQT4z6/DSn3C+cyAQWcYZJVFmNbr4bLofemp6o5L
-	B89Bu/+NOgr+u9kTQwTV+wx1KMiV4x4nNLvXdA1TOkEmPaDpsQtBj7cEMIQk/r4l
-	oTwT94NeQ2IaqnhV9rqIDJSyGzK7LqyiquEH4aJ0QUSbRY8gfuSfUBTSvindjgH1
-	P6pCAA==
-Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fr8jmse9s-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 19:17:25 +0000 (GMT)
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cb74d5db64eso151479a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:17:25 -0700 (PDT)
+	Thu, 30 Jul 2026 19:19:13 +0000
+Received: by mail-pg1-x547.google.com with SMTP id 41be03b00d2f7-cb733fc5024so188766a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:19:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785439045; x=1786043845; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=8fla+BUQURBo/7c21A3WNrfVtrC0xwyiRMNM1yGIXLQ=;
-        b=iVhfpSC7HT29GkTAn2SVikfEME+NRYtIyhAlDFEXtit9mAYk5+eVEzaz8qQkVKZfT6
-         To1zdXnumQ2sb+gd/kwZLJV/DqGmDClsF3ABgkpqUdE6CYAhnqnSoKBM1/E5kfmc9Qvg
-         kcV1ufCdxNX0dkUMqmBA/PUle5gn2SPmsb5hKXB8i2F49Ap1qTYrCBuyN2VvNLnlxc+S
-         7PxBPqtuuYS8/37MEabHR6pAP8hvSB4OpVOWEHzT5MvKOYfqp5Db0AftovyWhpue+gP9
-         HwP+Ofnx5NRNnPgZjvOK6RLLUe1pRYiQmI79wcDZVCMUQbbFqHIr+zzMyY6mpG6KxXfq
-         lmSQ==
+        d=google.com; s=20251104; t=1785439150; x=1786043950; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8xSibPGaP79RuMf+7+dDUpouwIkheHJF/igrm5r11hc=;
+        b=PHKspUj4s9C0q2u0V5epBBkKVCaIFFjsPiTfb7+TQnGor8Alb9M3bv5UH5m73BJzSn
+         1xx36+CSdN4g7x4amPXPeJ9XFoXloSstcQEI3wTl9xaxDSCsAkb/FIsDr87L1RXzaX5O
+         KUGtbZiGSNOKAHexTXmKQFe3m3iCAdQoW85RW326x9C7qpWG7BVH7tYPAXRnucz8BSnj
+         ATr9tctqBJ5xsvd3o0ufMXGC4bU5NtenJzzi9NsYksCQmDL7mZgfZdeuDfOKJKICMTZ8
+         mQ8stNBAnuhDS3Aa32l8pa0v8y6wl9KFA/MAQtA/aFUb0CU57kbDbIMIhV42QANgYnX6
+         95ew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785439045; x=1786043845;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8fla+BUQURBo/7c21A3WNrfVtrC0xwyiRMNM1yGIXLQ=;
-        b=cTGfedJ25rtUoY/AY0FfpErlknl+0f45/z6GWdapSFtUjJn1oXyb52QnqaEFsGo0uc
-         Fw83Rbj4jC3RtzA6xVBjsu/Aum1f/dt3aXRIoa8CgoHa8ZT6V4ckApEBjC1jfx59+7LN
-         HJGQhI3cFQ0RIp+txqQqKrc8Ee9KgmzHJUVJ5hlaUWRqsNBpPvdHUv+P9mDk9f9ibm+m
-         CwieXhT5fOwkKUBUhvRNftFM4lUBK7OBjjUkGeWa07XMl+vEOzFmN1W+ALfieVnR15kq
-         amkW9lE0yz3lKw1pMowrusMb4hZiKsAnRE9HRajZbdv820hRmxflUFpFYDwOMA/7v1LN
-         4kJQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rqt4//RLXoRY1k6qelIZv5esHdafIFqh8dp4y9Rgxfkla6vqdetrdx3I6d5fS/xYZtpwkdiVLsYrtBBKr1bGXo9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrCIGfnQr4odxEZVkUoBxY/ohxUgK25bKK/BdUIvK4s4yMQtgF
-	O1B71yAejqmUQTNgZuunDBMOUzDfQge1+RL83PJhl7CfQaJFQ3GmkRz2DDu4Ur/VkP+Q4ZAWGiA
-	Pm7It3UZ8HG2/qe8d08257BCoZTBl65lvgaPh/j+VYn+m4ZLPMLCbgDWwkqe5eVhsa63TH62AbL
-	5sIQ==
-X-Gm-Gg: AR+sD13iZwr6jvtorkpUz2SBp/SAiKzkhxL71CYpKFZ+yBT0SbkjU60t/VeX36MIrwj
-	chVgkuTKZ+qkj0qevmYfcz1Fv1R1QE+cPoiPmcr4cudVp+ZxtX6XsNmKu2tamFaRBAcTIJwHF7B
-	9YDTOhYFCeUp/LtU7AJT2mmC2V/i18o2xw0V5IfMsmyrs0Adfr/31yVkpCuTtHA9gZD3MLilO+U
-	I2DGnfhRDHTYjQZ143PCHXsKZRUPdA0IO2Ht8XuDPq96h2pGlLmAnk2QZvEM50Dl6ZHvl6FMxcA
-	dHBvPB18ZHqkF8se4hpPbDImsSEIt8nkHRd3xKcD+le1NLPEKuXnol1QtJqGrOghV4VZIddbisN
-	Rj7H2uy70/2wdlePHYp2tAe94GA==
-X-Received: by 2002:a05:6a21:3a87:b0:3b4:6cae:4a50 with SMTP id adf61e73a8af0-3c90075907fmr3944510637.20.1785439044551;
-        Thu, 30 Jul 2026 12:17:24 -0700 (PDT)
-X-Received: by 2002:a05:6a21:3a87:b0:3b4:6cae:4a50 with SMTP id adf61e73a8af0-3c90075907fmr3944484637.20.1785439044150;
-        Thu, 30 Jul 2026 12:17:24 -0700 (PDT)
-Received: from localhost ([50.35.46.84])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13e72745b1bsm22343420c88.14.2026.07.30.12.17.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 12:17:23 -0700 (PDT)
-Date: Thu, 30 Jul 2026 12:17:20 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Hanjun Guo
- <guohanjun@huawei.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        "Rafael J
- . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-        James Morse
- <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-        Reinette Chatre
- <reinette.chatre@intel.com>,
-        Fenghua Yu <fenghuay@nvidia.com>, Jonathan
- Cameron <jic23@kernel.org>,
-        Srivathsa L Rao
- <srivathsa.rao@oss.qualcomm.com>,
-        Ganapatrao Kulkarni
- <ganapatrao.kulkarni@oss.qualcomm.com>,
-        Trilok Soni <tsoni@quicinc.com>,
-        Srinivas Ramana <sramana@qti.qualcomm.com>,
-        Niyas Sait
- <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
-        Ritwick Sharma
- <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 10/10] arm_mpam: detect and enable MPAM-Fb PCC
- support
-Message-ID: <20260730121720.00002b55@oss.qualcomm.com>
-In-Reply-To: <20260730152539.2712312-11-andre.przywara@arm.com>
-References: <20260730152539.2712312-1-andre.przywara@arm.com>
-	<20260730152539.2712312-11-andre.przywara@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=V4tNF+ni c=1 sm=1 tr=0 ts=6a6ba345 cx=c_pps
- a=Qgeoaf8Lrialg5Z894R3/Q==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=RV8cvHK6CGr8J9zzExgA:9 a=CjuIK1q_8ugA:10
- a=x9snwWr2DeNwDh03kgHS:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: wv0raU4iNgbTMfvC0nYIe70u03wPDcOf
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDE0MSBTYWx0ZWRfXxShh4c7TgqGP
- KSHXIek0Hz0qBvPk6MgbTvDoNw1C+/7eZSgd2z0GYMlV9MBQEPxJkaoGl841MBqt2WzdvuYqeOM
- +0RE9tIJ/hMFlKuLSPjsFvBdmcAdnPce7CJXSF9tvYnvsXKcFci2DJWNxitnqCWCoZ4xcnVeCok
- Q+GVWIJn6W22g5GFlP/14fZqu0WdsU34dXTS5nVq5NTCGMUWetxm5tgbl5X9x4V1qBSzuffPGDR
- u/lCK8AJcLnf6NhrteP9J9MGWXXrNW/CtFtAF1mED3C49xP9czphciUmNhI7xQS4tIu97aDFzbC
- LJeLWh6W5bIFXuqXP1sVsfWl6EmfTwF9oxA/0n+hjvdHsEXUIsrONdnlRlk7X+qjnrNpmFG/vA2
- LSxw5aMf2LJJ3o7bGnaMP9rafkQ9sxmM75dbnjUFaDxnjFywqO/83rfwGjFtNS1mnZuFKg1uM7Z
- RYXWKyHnP1gpcn14LBQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDE0MSBTYWx0ZWRfX5429xHW85QhX
- Vp+LPS2wy5harBzc9VTUF9m77SAQyM8l1qO9PpnLXvvaXoIR9MSlw+lYQzIaSLEDcp4+JtGetT1
- 3mfKFBoP2indnAdsdc4paJJzmvHkwGQ=
-X-Proofpoint-ORIG-GUID: wv0raU4iNgbTMfvC0nYIe70u03wPDcOf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-30_05,2026-07-30_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 impostorscore=0 suspectscore=0 phishscore=0
- adultscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300141
+        d=1e100.net; s=20251104; t=1785439150; x=1786043950;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=8xSibPGaP79RuMf+7+dDUpouwIkheHJF/igrm5r11hc=;
+        b=juo1CQC3I29A3YdR0OAMqatyajs75a6E8RsOkTkHqcYYPehRiIZqOX8c1QvVOX5ypw
+         1a/MGj8C7yGoxxEboYDcI4XQcnx987l+/dVVKybvaL+JZA2sJyY9lThpXgazYPKm9YcT
+         LSAomM6qGgcB4q1FqNzHEJpdFqUoBP7AWNcY+LasHiT+cWJBrrwDC4HyBSux7qYp5F0R
+         4anCwH4giVSpOIMxHW+CtMIPHVSG6oJQBkCKPs3cjulRVPDBZtNBOdZF/CFuE3GFEbOv
+         6tjdm9ZVJBmC02d8GqpVpXiJ1hZzqVRwxkRgQczSR49WPvZi94HPjSKTSNBIByqEBn7z
+         Xtng==
+X-Forwarded-Encrypted: i=1; AHgh+RrKDpkjmUf0sCGIGaWMw9Ikl+yqhAGG5dL1GYjXcOTaakmBeV/v7Ms846D5J48P8XANo1P6W0JWcFLKvPECAipO@lists.infradead.org
+X-Gm-Message-State: AOJu0YySYzFuH/HpZ6ZTDjsajava7dnig+LS9Ldv0tOi72rh9NUEAkYn
+	ON4yr3OrVgbkB//XzG25UhnLxSLAmeqdhWh4l2E3lMEUpzeT5napfXaBnqgYx1w1CcvPBnghGsg
+	hwdDjgw==
+X-Received: from pggi13.prod.google.com ([2002:a63:cd0d:0:b0:c85:db34:d7a])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:117:b0:3c0:9c1a:8939
+ with SMTP id adf61e73a8af0-3c90d6ce7e8mr1439109637.65.1785439149929; Thu, 30
+ Jul 2026 12:19:09 -0700 (PDT)
+Date: Thu, 30 Jul 2026 12:18:59 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
+Message-ID: <20260730191908.2084803-1-seanjc@google.com>
+Subject: [PATCH 0/9] KVM: selftests: Add more syscall wrappers, fix hardware_disable_test
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Sean Christopherson <seanjc@google.com>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	David Hildenbrand <david@kernel.org>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_121726_916087_865764D7 
-X-CRM114-Status: GOOD (  29.78  )
+X-CRM114-CacheID: sfid-20260730_121911_883873_CE97F312 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,95 +90,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jul 2026 17:25:39 +0200
-Andre Przywara <andre.przywara@arm.com> wrote:
+Buried in the middle of this is a fix for the hardware_disable_test where
+it can end up with a runtime of multiple minutes on preemptible kernels due
+to blindly pinning 68 spinning tasks to pCPUs 0-4, which is "mildly"
+problematic if the parent is also affined to those CPUs (or the scheduler
+keeps trying to run the parent on those CPUs for whatever reason).
 
-> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
-> registers through a firmware interface. This requires a shared memory
-> region to hold the message, and a mailbox to trigger the access.
-> For ACPI this is wrapped as a PCC channel, described using existing
-> ACPI abstractions.
-> 
-> Add code to parse those PCC table descriptions associated with an MSC,
-> and store the parsed information in the MSC struct.
-> There can be multiple PCC channels, and each channel can serve multiple
-> MSCs, so we need to keep track of the channel usage, using a list and
-> a refcount.
-> 
-> This will be used by the MPAM-Fb access wrapper code.
-> 
-> [1] https://developer.arm.com/documentation/den0144/latest
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com>
+After wasting almost half a day bisecting the kernel to the auto-enablement
+of PREEMPT_LAZY, I got fed up with the test and went scorched earth on it,
+to try and clean up its many warts.
 
-One trivial thing inline.  With that resolved
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+The vast, vast majority of the changes are adding kvm_xxx() syscall wrappers
+so that tests don't need to manually assert that a syscall succeeds (the
+hardware disable test had some ugly equivalents).
 
-> ---
->  drivers/resctrl/mpam_devices.c  | 111 +++++++++++++++++++++++++++++++-
->  drivers/resctrl/mpam_fb.c       |  41 ++++++++++++
->  drivers/resctrl/mpam_internal.h |   2 +
->  3 files changed, 152 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 606ae4af2be9..8490034c7db9 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-..
-> @@ -2232,7 +2317,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->  static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  {
->  	int err;
-> -	u32 tmp;
-> +	u32 pcc_subspace_id;
->  	struct mpam_msc *msc;
->  	struct resource *msc_res;
->  	struct device *dev = &pdev->dev;
-> @@ -2280,7 +2365,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  	if (err)
->  		return ERR_PTR(err);
->  
-> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
-> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
->  		msc->iface = MPAM_IFACE_MMIO;
->  	else
->  		msc->iface = MPAM_IFACE_PCC;
-> @@ -2296,6 +2381,28 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  		}
->  		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->  		msc->mapped_hwpage = io;
-> +	} else if (msc->iface == MPAM_IFACE_PCC) {
-> +		int ret;
+Note, this somewhat unfortunately applies on top of the bad-in-hindsight
+"irq_test" branch in kvm-x86, as I didn't want to re-invent the "pick a
+random CPU from a cpuset" functionality.  Luckily, AFAICT none of the nearly
+tree-wide changes conflict with anything else that's in-flight in other
+KVM arch trees, so I'm planning on smashing the "I'm Feeling Lucky" button
+on this and throwing it on top of the irq_test (though I'll rename the branch
+so it's not completely ridiculous).
 
-Trivial but why not use already defined err?  
+Tested on x86 and arm64, compile tested on other architectures.
+
+Sean Christopherson (9):
+  KVM: selftests: Return the target CPU from pin_task_to_random_cpu()
+  KVM: selftests: Extract picking of random CPU from cpu_set_t to
+    separate API
+  KVM: selftests: Affine child tasks to other pCPUs in hardware disable
+    test
+  KVM: selftests: Drop unreachable, dead code from hardware disable test
+  KVM: selftests: Add KVM syscall wrapper for pthread_create()
+  KVM: selftests: Add KVM syscall wrappers for pthread_{cancel,join}()
+  KVM: selftests: Add helper APIs to cancel+join pthreads
+  KVM: selftests: Add KVM syscall wrappers for
+    pthread_{g,s}etaffinity_np()
+  KVM: selftests: Clean up global constants in hardware disable test
+
+ tools/testing/selftests/kvm/arch_timer.c      |  18 ++--
+ tools/testing/selftests/kvm/arm64/vgic_irq.c  |  14 +--
+ .../selftests/kvm/arm64/vgic_lpi_stress.c     |   8 +-
+ tools/testing/selftests/kvm/dirty_log_test.c  |   4 +-
+ .../selftests/kvm/hardware_disable_test.c     | 101 ++++++++----------
+ .../selftests/kvm/include/kvm_syscalls.h      |  47 ++++++++
+ .../testing/selftests/kvm/include/kvm_util.h  |  11 +-
+ tools/testing/selftests/kvm/irq_test.c        |   4 +-
+ tools/testing/selftests/kvm/irqfd_test.c      |   4 +-
+ .../selftests/kvm/kvm_page_table_test.c       |   6 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    |  10 +-
+ tools/testing/selftests/kvm/lib/memstress.c   |   4 +-
+ .../selftests/kvm/lib/userfaultfd_util.c      |   7 +-
+ .../testing/selftests/kvm/memslot_perf_test.c |   4 +-
+ tools/testing/selftests/kvm/mmu_stress_test.c |   4 +-
+ .../selftests/kvm/pre_fault_memory_test.c     |   4 +-
+ tools/testing/selftests/kvm/rseq_test.c       |   6 +-
+ tools/testing/selftests/kvm/s390/memop.c      |   4 +-
+ .../selftests/kvm/set_memory_region_test.c    |   6 +-
+ tools/testing/selftests/kvm/steal_time.c      |   6 +-
+ tools/testing/selftests/kvm/x86/hyperv_ipi.c  |  32 ++----
+ .../selftests/kvm/x86/hyperv_tlb_flush.c      |  30 +-----
+ .../kvm/x86/private_mem_conversions_test.c    |   4 +-
+ .../kvm/x86/private_mem_kvm_exits_test.c      |   7 +-
+ .../selftests/kvm/x86/recalc_apic_map_test.c  |   5 +-
+ .../selftests/kvm/x86/sev_migrate_tests.c     |   4 +-
+ .../selftests/kvm/x86/sync_regs_test.c        |   5 +-
+ .../selftests/kvm/x86/tsc_scaling_sync.c      |   4 +-
+ .../selftests/kvm/x86/xapic_ipi_test.c        |  31 +-----
+ .../selftests/kvm/x86/xen_shinfo_test.c       |  10 +-
+ 30 files changed, 179 insertions(+), 225 deletions(-)
 
 
-> +
-> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
-> +		if (IS_ERR(msc->pcc_chan)) {
-> +			pr_err("Failed to request MSC PCC channel\n");
-> +			return ERR_CAST(msc->pcc_chan);
-> +		}
-> +
-> +		ret = mpam_fb_check_shared_buffer_size(msc);
-> +		if (ret) {
-> +			mpam_pcc_chan_put(msc->pcc_chan);
-> +
-> +			return ERR_PTR(ret);
-> +		}
-> +
-> +		ret = mpam_fb_check_protocol_version(msc);
-> +		if (ret) {
-> +			mpam_pcc_chan_put(msc->pcc_chan);
-> +
-> +			return ERR_PTR(ret);
-> +		}
->  	} else {
->  		return ERR_PTR(-EINVAL);
->  	}
+base-commit: 3c7d7f908d574277a845423ec32250a8d8df44c8
+-- 
+2.55.0.508.g3f0d502094-goog
 
 
