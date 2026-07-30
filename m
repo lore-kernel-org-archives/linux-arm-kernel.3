@@ -4,107 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43FCC54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 05:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17C5C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 06:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Elrrmn657Rbg3UfKcwkLutUo3t2jwMQx9G6/NT4Wnow=; b=i2xunUWb7NbCQlKPxzgwIt7+Iv
-	LvBnJU7CkZGbl4FNQw+Ct5NFaVPEF1Ta+FuNHszTtqKa2PmwOmcJpywbdN4EVn16Dgl7zeDP6fySC
-	lyaaAzqQKy7yS/NUxBL0wjDdM97QJtVmned4JaeRgkXDpaAAVy42OdOp+4XTpDxev4obzzTz2QzSG
-	qFqIq416sEW852DIi5TqWiRsulfHcXxczpxgbQWRqDs4Ozn2GOK3hUBt9b2yGt3zuA91GpFlbx0cw
-	lmKuszWxZlsvAROSZytdmy4dHjG9U1ZhTAxZAguMuRoV8CtYnDq++vNzDs/9wXLVLmewptkrqyYVd
-	bOJqWfog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JnBP3MozLqB78h8Vck0oTx7eKSL7wBDDqu2AWcK27iA=; b=nH7D0BmbushCmbGqJv7h7U0xRi
+	F2b828hFaMS0zOt0aNX922wSuLiSPDC08MSDB78/3jAj5pxZ3W7uWLhEFLxPdfUHZtxNuL3oH5EXf
+	66uV/iaKLVheK9PuGosh2Sa99+33EjAb0eDaOowksWWz234XA9WzvpVM4STLJ8lgLMheNWnxHAAD+
+	2QInJaG358EtR7m9x/XnhZ5DFcggeULE4+vUqyC6xl2AxFXJNSWsKjxB+oamm2997x9jbRQjwAoj5
+	OwXJVWdOmDts1IPaE75CAMgMyPyWpHJTED281APaTTAL716YcCDavHxwPOCbLHkcGUooGlBkTglSb
+	K71jmArA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpJnx-00000009ZSG-1oyl;
-	Thu, 30 Jul 2026 05:59:41 +0000
+	id 1wpJpw-00000009Zbv-32jc;
+	Thu, 30 Jul 2026 06:01:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpJnv-00000009ZS9-39Ml
+	id 1wpJpu-00000009Zbl-2r4I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 05:59:39 +0000
+	Thu, 30 Jul 2026 06:01:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32C934059C;
-	Thu, 30 Jul 2026 05:59:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75A031F000E9;
-	Thu, 30 Jul 2026 05:59:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785391178;
-	bh=Elrrmn657Rbg3UfKcwkLutUo3t2jwMQx9G6/NT4Wnow=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Q62su0QsxlhhEaAZd0h4YZHWaeUAkzjx4ToR4PHTrvnBsj+iX6Wx3KzTWbbsbo4Xq
-	 iPd0wIseoXw3mtww01Jsc+CnZ5bR8gQepeMDOyXY/kgWEmyd05L0oEWba9xw71YUJ9
-	 zQubMxrBgzFnLhTezvNqYFm75/jBALLebtgq7MUH7AXpxJH6tLLtVFD6FE+b0rhp12
-	 AVXDyCFpCPwxIhBa7ZjUvCZGZkMVH9DHnjokS3vjSb9uNRAAlj3Ct8IMHqRehYXpkA
-	 e+y+SLkXCAw0+ooJpkMDsrZ6pnwTNyjUvK5tMAAuzcNOvJOX4nuZCLL72TE0pIJwkZ
-	 zwHhBxbdnl5/g==
-Message-ID: <c8faf721-b3fe-43a7-943a-99b82a36e116@kernel.org>
-Date: Thu, 30 Jul 2026 07:59:31 +0200
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B9C243F47;
+	Thu, 30 Jul 2026 06:01:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90A4B1F000E9;
+	Thu, 30 Jul 2026 06:01:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1785391302;
+	bh=JnBP3MozLqB78h8Vck0oTx7eKSL7wBDDqu2AWcK27iA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=T32GjTBodZ9btouiLBlZdPBy/C4hYgkSgYPQxjc97tzXgEjrIaKsNW8kjg9sd08w+
+	 hM0rJL6pxpOwpHo8tl4DzCKAIRtLnp+WqivpY26rARytw3DyC90kFzF4e7EcnXEhue
+	 9m+/vYUB92uhPFepVsDTxM5trc5+FDz1uwarKa6U=
+Date: Thu, 30 Jul 2026 08:01:28 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Neal Gompa <neal@gompa.dev>
+Cc: Danilo Krummrich <dakr@kernel.org>, Russ Weight <russ.weight@linux.dev>,
+	Luis Chamberlain <mcgrof@kernel.org>, asahi@lists.linux.dev,
+	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>
+Subject: Re: [PATCH] firmware_loader: Add /lib/firmware/vendor paths for
+ Apple ARM platforms
+Message-ID: <2026073019-emoticon-decidable-200e@gregkh>
+References: <20260730004759.3089449-1-neal@gompa.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: mailbox: add Axiado AX3005 mailbox
-To: Swark Yang <syang@axiado.com>, Krishnakumar Kesavan
- <kkesavan@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Tzu-Hao Wei <twei@axiado.com>,
- Karthikeyan Mitran <kmitran@axiado.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260729-upstream-axiado-ax3005-mailbox-upstream-v1-0-8961b7350338@axiado.com>
- <20260729-upstream-axiado-ax3005-mailbox-upstream-v1-1-8961b7350338@axiado.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260729-upstream-axiado-ax3005-mailbox-upstream-v1-1-8961b7350338@axiado.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260730004759.3089449-1-neal@gompa.dev>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,66 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/07/2026 06:36, Swark Yang wrote:
+On Wed, Jul 29, 2026 at 08:42:58PM -0400, Neal Gompa wrote:
+> On Apple ARM machines (branded Apple Silicon Macs), there is
+> non-redistributable firmware provided in macOS that is required
+> for Linux to leverage the hardware to run properly.
+> 
+> The firmware covers Wi-Fi+BT support, USB, hardware ISP, the touchbar
+> touchscreen, and the trackpad.
+> 
+> In order to ensure this firmware can be installed without messing
+> with firmware provided by linux-firmware and other packages that
+> put things in the tree, the empty "vendor" subdirectory was created
+> to serve this purpose. This directory is used by the asahi dracut
+> module as part of the Asahi Linux installation process to transfer
+> firmware from macOS to the newly installed Linux system.
 
-> +  - Krishnakumar Kesavan <kkesavan@axiado.com>
-> +  - Prasad Bolisetty <pbolisetty@axiado.com>
-> +  - Swark Yang <syang@axiado.com>
-> +
-> +description: |
+Why is this needed when there is the ability for userspace to add their
+own firmware search path to the list today?
 
-Do not need '|' unless you need to preserve formatting.
+We aren't going to keep adding random paths here, please use the option
+that is designed specifically for this:
 
-> +  The Axiado mailbox controller provides inter-processor communication
-> +  channels between subsystems within the Axiado SoC. The hardware has
-> +  separate TX and RX register regions. Only the RX channels (channels 8-15)
-> +  generate interrupts; TX channels are purely poll/write-based.
-> +
-> +properties:
-> +  compatible:
-> +    const: axiado,ax3005-mailbox
-> +
-> +  reg:
-> +    items:
-> +      - description: TX mailbox register region
-> +      - description: RX mailbox register region
-> +
-> +  reg-names:
-> +    items:
-> +      - const: tx
-> +      - const: rx
-> +
-> +  interrupts:
-> +    description: |
+>  * fw_path_para - module parameter - default is empty so this is ignored
 
-Do not need '|' unless you need to preserve formatting.
+Right there.
 
-> +      One interrupt per RX channel. The hardware exposes eight RX interrupt
-> +      lines corresponding to channels 8 through 15.
-> +    minItems: 8
+thanks,
 
-Drop
-
-
-> +            reg-names = "tx", "rx";
-> +            /* Only RX channels (8-15) have IRQs */
-> +            interrupts = <GIC_SPI 242 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 243 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 244 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 245 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 246 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 247 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 248 IRQ_TYPE_LEVEL_HIGH>,
-> +                         <GIC_SPI 249 IRQ_TYPE_LEVEL_HIGH>;
-> +            interrupt-names = "ch8", "ch9", "ch10", "ch11",
-> +                              "ch12", "ch13", "ch14", "ch15";
-> +            interrupt-parent = <&gic500>;
-> +            #mbox-cells = <1>;
-> +            status = "okay";
-
-Drop
-
-
-Best regards,
-Krzysztof
+greg k-h
 
