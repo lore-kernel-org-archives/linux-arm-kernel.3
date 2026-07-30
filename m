@@ -4,97 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88A61C55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 16:35:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FCF9C55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 16:35:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+U3DZ1HplugeFRpi+HpxktJDAxC1H6qsK7+9CLEzYsM=; b=cmE97xvXo8OiVOoT9zE9Cnf6Ze
-	ZoRIQ9ogGeDMx8MiGNHVI4lOidx2ZP+7eQWowHfFDScaeT/uLAWn/XNvwMjpIRsOpwev/l3Aqy+N+
-	gYKr44XUhgJJxlwa8e0tVNrtyfNx+0/IYLuk2U5JnIoUK/YRRKAat+0BxHT3z2hB7NOjLgcS8Pl5G
-	E+P4ItoDuZk615ynJzgxxAn9GNfmimmdjGp0Hf3VaK5owQOC5F4lQbslSpmNm3Le+wPaq3u4hV3IG
-	s0zwzoeoCq9r1btHxvQJxB5v4TXLGg/9oCH94mQhoCA79Fmx8LZOm7z9AaM9RMCjEgXcQQIDDzf2R
-	K4PpOI6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ae0rKiO6QS0+h8Q8O8N/F/upuiynCiCImWPcUdOek2E=; b=jf9KT4z5MmQlG+aG4iwIha1GjI
+	UtKo1uzy2doWNyD8jv7U8D8nLYY1Vefm9pjPiR0GOAKoZfZnuM7XjpwnCO/bipwjG+rsZHWiZODiL
+	vCh1Q4W/Kj9kG0ulQOWWvzHUKj8w7kz/Tl1uhkVAUvl0TIMqkqHSx5m3+uUVe0sV3yKfhS8kUMNwc
+	085sft+aBNeDzDh1HZeuZEFWX+BfNvZ1DAU3v6VQEqMGPuJzlwWWvH86B0ENx80uRCSDrRExSH3I3
+	cpQF6i3KRxm4mO1KiE/BlDrMLNYPJbuPYzXPoiP5b6U6XR0Ucry0x9S1OmISpYCCWoRXb5rz2UXxn
+	LL+ZvaMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTj8-0000000B0XV-3p6x;
+	id 1wpTj8-0000000B0X4-2w5a;
 	Thu, 30 Jul 2026 16:35:22 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTj6-0000000B0Vw-1sIG
+	id 1wpTj2-0000000B0V7-3taD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 16:35:21 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-47de008b020so661882f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 09:35:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785429318; x=1786034118; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+U3DZ1HplugeFRpi+HpxktJDAxC1H6qsK7+9CLEzYsM=;
-        b=c+SAv1KSX7bTsvEcLJrGwS+Yhb8zlhnJEFxFq7tgNWa4frSdKvlk5dFeOOFfAotG/C
-         KqYLXT48vSePKEk/SM8i4CP0XJy7xSnmgX0hXb40bax/f8uh27I7DGVUgCsuAumHJatY
-         uw8NOP1p+9qL0FLqAmgZ1h8/pmeqarQpTC9X7wT9bvZcNsVtlQ3naBtjnLTWdlQdiQaZ
-         LhBvjPu8CVol5mNw5YGClT6U9m68HqAhxIvunS3kSEQjmGDTndaC2gaWX5YsI7Q2cO0n
-         DHF0EaPlXlaoR5yLU/G97cTv7SKXTDe4CbQ4kMSZQG+Yi5yl5z7DLVPD+9PBuVb7Ve16
-         312Q==
+	Thu, 30 Jul 2026 16:35:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785429316;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ae0rKiO6QS0+h8Q8O8N/F/upuiynCiCImWPcUdOek2E=;
+	b=Ku+djM+1VhpqvtY3FbrKtMRKOtO0ZPfEFSruzRRzEgQtPgAmA81jC8UwPea+kjX9IXvOwG
+	VGALwdk2fk0rAG/vOU1FvHPlz9FEwLJcjUgUucawWTdxKip+ROr9towZminONhSsCPhsQn
+	m3YhDoil8WFd7KoPoW+OMBFlZ7rweCg=
+Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com
+ [74.125.224.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-582-6K-0oD3oMd2N3mbq5Xvtmg-1; Thu, 30 Jul 2026 12:35:13 -0400
+X-MC-Unique: 6K-0oD3oMd2N3mbq5Xvtmg-1
+X-Mimecast-MFC-AGG-ID: 6K-0oD3oMd2N3mbq5Xvtmg_1785429313
+Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-6689c0ac195so6436445d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 09:35:13 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785429318; x=1786034118;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+U3DZ1HplugeFRpi+HpxktJDAxC1H6qsK7+9CLEzYsM=;
-        b=DPQ5ARKFAY9R7EKRuh2Eibijiwtf5Uu3HAbpAfkbZVsAtP16M1AdYXmF3uAbOIX1bA
-         fuUJfD1CLefhV7mrSQfJyGC50m8hSohmTrFnf8RCnCWTEOyRlMoltzhhfntpHeiqeGYn
-         D2guOBG4639zIE3ka5643P03eBaWtWacnqte6DlkIgWVJTZ3Qw7qLYsEUB3jJV6OV65z
-         rCDMmls0R7VP/rG/Ndt4/CvrV+R5tqMSmCd35VRRJ14Yvc6090LcMZhp52Bb7vAdo7WT
-         QxG6zer9triGhqpp1fNbQbs46H4CpG/RUMIyRZuDE8TmmzdYdXnAC4bqmYsnMGT8EUHI
-         N7dg==
-X-Forwarded-Encrypted: i=1; AHgh+RrVdEUhJwltrV6YVtNxpJ22J4e5cMvmIQqgSSxenoR84z6UnVIM8pttx9jdsFbYlKpE4xDrd/qNFS/7RW3Y8YAU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxpq+z0X5/FVKC0F8g/CDuTCK9EG4dR7ffeDsMgR7oLBmIgRTug
-	Q9Ig3PsuimFraBGTNGSCFukfQ5f483is+NKh+9dIIcczvAsYhUCEG3Kx
-X-Gm-Gg: AR+sD12yGWJQiHilgFP6gsB7Ljz8Uj+gxwN9JYFZB073teIs+A7B/AMdWoHvyObAbey
-	+LWRg8PhViKzxdksg9WBWQ5sRGBeV8P04MMNBuHmcP0KKaGeQvnLuMnfziloVJtlHq3y8S8LMGb
-	RwNRYrtU6Wwtd+Ujc0t0kEikPkqKqRHzfmet5RVxSZ6hGp4SjPNvufsQIgaAHSc0J81eKcqOu1R
-	1DMviPWaaqkLr95ZoboIE3UGIzziBOc2qBJ4Y/BUdKNQ7eEwypDmBBl/JbJsrCeir8MwUQdzCGv
-	sCb0Y25Sowy/fVhkOC8BiICZK9r1pHrCl29Sbyj/RCqMsITQKtQ1maRRlngl/LBaP1R/4XkQOqf
-	0ROy3mOkovddnHEIh8ESMJdZFyuGL887P+CkL8U4sc752YgCZEzPDBit8OqgJJvyrXGHzQrFYy5
-	J082aKqcGpcsArLP5XzsN9rz00sNplqeBiG1+b7eBGYACw0g8ba/51AOGEq77kJqBw1MaykbPld
-	S2epX3e/5UdQQ==
-X-Received: by 2002:a5d:5f48:0:b0:47f:9208:9e4 with SMTP id ffacd0b85a97d-47fcbdcbf32mr1850867f8f.31.1785429317752;
-        Thu, 30 Jul 2026 09:35:17 -0700 (PDT)
-Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fc892cdeasm7758445f8f.22.2026.07.30.09.35.15
+        d=1e100.net; s=20251104; t=1785429313; x=1786034113;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Ae0rKiO6QS0+h8Q8O8N/F/upuiynCiCImWPcUdOek2E=;
+        b=ln/45vi+M+2O+MTbuPEcUr7mrBC+wntfMmFxGvjZ3rOZKEBow03F2sa9Rip8SYvglH
+         Rdfniio+2b0xjWpgw+PLf9zuie9P19bnNouuYij94R9IVkOQNyGAjMORkEu6v+66E04d
+         dkyxXuMm0lDC8vfcU3MoGs+jr9GeN7FceBwjcFjh3ou1O9JgKpXmHWki27jwD85Zqv9Z
+         FIMHebovR3UeiMHydGM8nrcyTA9dIbKx8JSxIFpQqF1THdnvcR/s7BLFIT8UwovL6t/n
+         Eblcdm/bzXzrvy9j5qzM++P/22DgR0NZh+CSCJZaC+Y/bLsY5LAda44ahg07PYtNjdVV
+         rGsA==
+X-Forwarded-Encrypted: i=1; AHgh+RpQZGnALQ4saHHYw4mx3yFrcfUjCIp+QJAFtWngW9ibKaabaSVP9ii81Sh0FiTqruLVFJgjqllo0n1h13YLXBNN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTBMrQNWHT73UKUt03LxqhmGP3hoLuVtq3UzrQNmYfEhttKXpl
+	UvYRyizo7oXX9Nou7gQ4Fm0VGej6fo/376WJTJOY5ILxLsWxP/TP1+Fba2cxx0iKxH0+WZllOjq
+	yo8/hJi46VMliFDfTnnBtUFnBx+/kyfula4ugZsrzl0WUQej5ys2Grg0lJMjL6OH4Lf0nHHVP/T
+	+/
+X-Gm-Gg: AR+sD13IQrLWdT67HF/eChR9T0v2wIqXfUK+UFIwIsWPqj7aCzNiSoIdsimvI8zHyu7
+	rnKVoXv4ryHRWGIWcjI9c4zz/JogAo7PHWPtgo3Ro+hyArFGrWFrNyN+rfj/zkDGi9GOkh4zl98
+	TaIJI6uFJHqF31/rEDqlF99rAeLUQVTDx0tRMa78Oqpj5siYY9sOn6E0UDhTHCn5j6dMmj2T7K7
+	PnyvLDR5oAIq3NMNssIxTRZ1fUh1M/XE4rM8Ld0srMOtKkYiGAr4NaEAlV3GkQAJYgPw+WI5Suy
+	OQm02mtgichK0+v0U03xglcYbU/R8S/CtpTjGB466l6C4Elnnk6fgmRxmodwAlytqtuNGf3aEom
+	McJE0dXoPgdixcwVU863rmPtOZh07dVAQdeM=
+X-Received: by 2002:a05:690e:484b:b0:668:2e27:22a7 with SMTP id 956f58d0204a3-6692f4d43c2mr1753676d50.33.1785429313005;
+        Thu, 30 Jul 2026 09:35:13 -0700 (PDT)
+X-Received: by 2002:a05:690e:484b:b0:668:2e27:22a7 with SMTP id 956f58d0204a3-6692f4d43c2mr1753652d50.33.1785429312567;
+        Thu, 30 Jul 2026 09:35:12 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6692c734cfasm1633877d50.6.2026.07.30.09.35.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 09:35:17 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@oss.nxp.com>,
-	Francesco Dolcini <francesco@dolcini.it>
-Cc: linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/4] Add RPROC support for the MX95-15x15-FRDM board
-Date: Thu, 30 Jul 2026 09:34:08 -0700
-Message-ID: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Thu, 30 Jul 2026 09:35:11 -0700 (PDT)
+Date: Thu, 30 Jul 2026 12:35:09 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
+	cylee12@realtek.com, jyanchou@realtek.com, afaerber@suse.com,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com,
+	cy.huang@realtek.com, stanley_chang@realtek.com
+Subject: Re: [PATCH v11 06/11] clk: realtek: Add support for gate clock
+Message-ID: <amt9Pby8K7w9Mxkw@redhat.com>
+References: <20260728142806.1954638-1-eleanor.lin@realtek.com>
+ <20260728142806.1954638-7-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260728142806.1954638-7-eleanor.lin@realtek.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: NFZwNwNY4hIBjWwOuGvoitzjG24x4oB_mZBsK0yXETE_1785429313
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_093520_693795_D9B840A4 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20260730_093517_205796_7F4B1A07 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,64 +115,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Hi Yu-Chun,
 
-Hi folks,
+On Tue, Jul 28, 2026 at 10:28:01PM +0800, Yu-Chun Lin wrote:
+> From: Cheng-Yu Lee <cylee12@realtek.com>
+> 
+> Introduce clk_regmap_gate_ops supporting enable, disable, is_enabled, and
+> for standard regmap gate clocks.
+> 
+> Add clk_regmap_gate_ro_ops as a read-only variant exposing only is_enabled.
+> 
+> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> ---
+> Changes in v11:
+> - Add 'rtk_' prefix into struct names and function names.
+> ---
+>  drivers/clk/realtek/Makefile          |  1 +
+>  drivers/clk/realtek/clk-regmap-gate.c | 70 +++++++++++++++++++++++++++
+>  drivers/clk/realtek/clk-regmap-gate.h | 65 +++++++++++++++++++++++++
+>  3 files changed, 136 insertions(+)
+>  create mode 100644 drivers/clk/realtek/clk-regmap-gate.c
+>  create mode 100644 drivers/clk/realtek/clk-regmap-gate.h
+> 
+> diff --git a/drivers/clk/realtek/Makefile b/drivers/clk/realtek/Makefile
+> index 71edc18121c6..90c0658a83bf 100644
+> --- a/drivers/clk/realtek/Makefile
+> +++ b/drivers/clk/realtek/Makefile
+> @@ -4,3 +4,4 @@ obj-$(CONFIG_RTK_CLK_COMMON) += clk-rtk.o
+>  clk-rtk-y += clk-rtk-common.o
+>  clk-rtk-y += clk-pll.o
+>  clk-rtk-y += freq_table.o
+> +clk-rtk-y += clk-regmap-gate.o
 
-As you can see from the title, this series attempts to introduce/enable
-RPROC support for the MX95-15x15-FRDM board.
+Sort the list.
 
-For a while now, the imx_rproc driver has been using the reserved memory
-DT nodes as the carveout names, which would force DT writers to go against
-the DT specification's recommendation and use non-generic names (e.g.
-"vdev0vring0", "vdev0vring1", etc...). This series also tries to fix this
-issue by introducing the "memory-region-names" property and using it in
-the imx_rproc driver to figure out the carveout names. The driver will
-still allow the old way of doing things (i.e. no "memory-region-names"
-property) but a warning will now be printed since this should be
-discouraged.
+With that fixed:
 
----
-
-Changes in v3:
-
-* kept the DT binding patch because it fixes the ABI problem pointed out
-by Frank. Modified the commit message to reflect this.
-* link to v2: https://lore.kernel.org/lkml/20260605113621.1479-1-laurentiumihalcea111@gmail.com/
-
-Changes in v2:
-
-* change commit message of binding patch to describe why it's needed
-* drop restrictions on the string names passed via "memory-region-names"
-* drop patch moving the CM7 node to the SoC DTSI. CM7 node is now added
-in the RPMSG DT overlay
-* rewrite commit message of patch removing some of the RMEM regions from
-the bord DTS - previous version was a stale version from first iterations
-of this series
-* change "micfil" node status from "disabled" to "reserved"
-* add check against rmem phandle count and string count mismatch
-* include "of_reserved_mem.h" in "imx_rproc.h" to avoid having to rely on
-the consumers including it
-
----
-
-Laurentiu Mihalcea (4):
-  dt-bindings: remoteproc: imx_rproc: document optional
-    "memory-region-names"
-  remoteproc: imx_rpoc: fix carveout name parsing
-  arm64: dts: freescale: imx95-15x15-frdm: remove some rmem regions
-  arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
-
- .../bindings/remoteproc/fsl,imx-rproc.yaml    |  4 ++
- arch/arm64/boot/dts/freescale/Makefile        |  3 +
- .../dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 67 +++++++++++++++++++
- .../boot/dts/freescale/imx95-15x15-frdm.dts   | 21 ------
- drivers/remoteproc/imx_rproc.c                | 13 +++-
- drivers/remoteproc/imx_rproc.h                | 21 ++++++
- 6 files changed, 106 insertions(+), 23 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
-
--- 
-2.53.0
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
 
