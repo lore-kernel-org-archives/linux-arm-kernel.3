@@ -4,64 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F06A1C54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 229BAC54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:25:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpFqMZCjWkR/Kv/Bt+x9+L7z+qRlcnkkcM/HgKfv9kA=; b=gZc5FJfe+WNX1zKbufgPLE4a7g
-	0k9PPeo68qavDZWyVJLEm4TABEz5L+iIAYkiM2sjWh47mCJsDMzJCYCbNbQpJF+d7F0jdOqD0wdwS
-	Ee8DvhRN0UQJS8WC8wTBnLuRywg4uO6mrIlDIt7Dl6kBRIeDqE+LkmzR8JUV3mQVFH4GC15vIB05I
-	MbWn6f9M7wmUMr4gSYWNzcFuYmv9Y7GMbnYr48XJ7Y0kZMcaSZ8brFJSAVOZvhEwywzuwziATtvi3
-	oEWBh5tiJqSfmn3kt7+HF4oKeUhkDSsPGmZ/PgW0QXxM/RJ4NOhibsmtMZiJrUDxyeY+MXrBQGPMq
-	uzIyVKWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gzxG+LmD3OJBziXxFrZNUzc+hlymbEKWiIuouLUjQy0=; b=ahxmG9bWXpqUCVKhM0hxu8nO0K
+	l0tNlBywwGR9jCpViFH5nrsyymBJ5C2dzghkdmBEfrkRok1mo1x3pyO2EPnyYzMf1ito4tVglntP1
+	xmCHFUGGkBn9aeEq5B1IL9TSfTEqD6SsTs6oeRq6yG0Daj8lKETAhnKLwsLgkv6tC3K+Pk1yoUf1d
+	0ba+WuubB7ugXZi2+5BURA+jK6KT6zBfTp15L00Xpi4mRAwDui96xPL+G2Y2TrdXVtj4NmF0Zqum/
+	19ZxM96BELqa5pMXUV/dZLRaqB1aZ/URf61ElJHuFvglrNq0ke/wqvzZaYiRU555rM3ELaBiXxXvu
+	KxTon+vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNvb-0000000ABCY-1B0e;
-	Thu, 30 Jul 2026 10:23:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNvY-0000000ABBp-2b6J
+	id 1wpNwo-0000000ABXD-3Ag3;
+	Thu, 30 Jul 2026 10:25:06 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpNwg-0000000ABOv-3E24
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 10:23:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC3D01688;
-	Thu, 30 Jul 2026 03:23:41 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5281C3F86F;
-	Thu, 30 Jul 2026 03:23:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785407025; bh=uH4MR0Zg/NqoAeMyBzzpHF9m5BvkJlfRvuhGQocyqtI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mCO9sUzhXc9haZg1Qh0zm54Xivj09WSrUfF6UjjIxzLY50xh5kVrMAMUYaj/bFryo
-	 XNvD7U3kyHyxD1YE4NriBO0KT1NdXv3fJRU+o0YklQLBII5K7Y15AQXiwr6ksXhne7
-	 QjQ1OlmuHkisD+t2uSD9v8Y2uGny5nuAJ/2hTX7c=
-Date: Thu, 30 Jul 2026 11:23:34 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>
-Subject: Re: [PATCH v4 01/29] arm64: sysreg: Emit RESx/UNKN values for
- Mapping/Fields definitions
-Message-ID: <amsmJo0gsaj5DAJd@J2N7QTR9R3.cambridge.arm.com>
-References: <20260730071022.296811-1-maz@kernel.org>
- <20260730071022.296811-2-maz@kernel.org>
+	Thu, 30 Jul 2026 10:25:00 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-49556f97a9dso13640775e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 03:24:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785407097; x=1786011897; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=gzxG+LmD3OJBziXxFrZNUzc+hlymbEKWiIuouLUjQy0=;
+        b=YDCV5fwlYf0txGKRQDC8ZhS+bQdX8AZzaVv2HeZsQDFxiJfx9RDSRhMHV3lx7PhfjO
+         6/+FFIzpxxqgqwbHqz3csECWNtVZpdKlJuJM717dxbzzaw6E9Lk2nMGC0ZpxUAqPlfmA
+         ltUW1pNH984nqVvSY1bUospcamDoCj+OKBAs8dHm6PlQBk5BiaZb/FkEGWnMnAuLPLMi
+         qoZWgI/bG87BHxouBo4HsvtfOuKgax7DL9tJ9vG7TI+sHT+wIFxDj1W1y7yWObFy+CkN
+         ibms3f1gqx6gGsMJSpVGngY5e3PqWvi+JmSbSc5AhVRUPkwspquAjYsVGrDtYJ6iD2qe
+         WYWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785407097; x=1786011897;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=gzxG+LmD3OJBziXxFrZNUzc+hlymbEKWiIuouLUjQy0=;
+        b=W9gk4MeeGvwH+GO2Xciwsq0InR7nSrihIrCIMsndtNILBAQoJtB8M6NCA3yhubpfj9
+         uPK9GWANJY0LZ9SfI18z+CzCJM9I3Lswe2Ef3/8J0pAB5leV/gT0kAaaP501n1d8sGQc
+         iC6gYa/BbCALG63xVDsvVm5I1jGE4IZqecjOLjNJKzzv66uCLi75ZGH4MrRwT/tG2R+p
+         /iUf99rLAJgq0y8fTVYHVnb/PjM1T4DkfGE6pj2EFX4OFYSgkjokZm2drCwgAW9ln6G5
+         NSGNeOsQW8Oqdl61hCpBPaq3zMdDJzBr9dM8YYwZsejqiJ64/NGl43OtYlLdgA1Rpd5a
+         19rQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp80GnHmCpXXpmi8CoLuc0iClJFV4MKVmEYb/TQ+T38pSXrBYbalbdqwVNaQd1NXedUAIyRWYVPD6o+WzOAGXGu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhtEYwUnjX7n6gWf/WZFZkNcj6GdHN43cyKEEVfMQM3+cMZhKv
+	O5wQQiq0Cewtzdv3R8teYITrXRheEAb1rKz8PDebhiKGn2Hehw5Os4Up
+X-Gm-Gg: AR+sD11oVPNxDUbC2j8Qo1Y+OueLmpeGKUCC9+O/+QKuTmaBbZrUifx012GJ8H0w0/0
+	DNbKmaL2LRBO7rbcu3gaqKj71IAa909DO2W2BZR/QlXGmg+GBIUBaoPKE/FtgPf0eA497hiDRJY
+	Ng3jsUYxKuxZqacGDs+yXeN+VA/nSW7yEW7dLeYIpgg1AKGA4p4tKMfceKD0+Cbqlz32LC7E6lx
+	CzZ0crcMeCM0ty9Yv3v/YPkN3plNqqkkhIavigt6YielWZJYviho14l0GcA5BaWX89oTM+Weuru
+	yyptIZ2zNJ0DQnth/QeglUy7BMPeCGo4yAD+zpm0fG3OwuVWGDzLEVjxH6baNlST1kT/2vo3DFM
+	7jfQT52FqA3fP07if+BvAf71o3mSEX4rcj0Z3KePrU34K30A/ewChXIob+HyUQHSitrHk05VbAZ
+	Pt0qgs90/LOvjgVqVJV3ei4ZI6equWW3gufBnpp50fLtFzvLXzoggUKlT0tYGpUukUtFwkJS4r+
+	XNlMw19x5i8K5LiOChBip9MwloOHzAzeoOKWwSB86cUpQrQ5jMl4TQ=
+X-Received: by 2002:a05:600c:6298:b0:495:64c7:804f with SMTP id 5b1f17b1804b1-49800ea1ea9mr27095295e9.23.1785407096531;
+        Thu, 30 Jul 2026 03:24:56 -0700 (PDT)
+Received: from Ansuel-XPS24.localdomain (host-87-11-254-126.retail.telecomitalia.it. [87.11.254.126])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-498011fd5fesm44720295e9.7.2026.07.30.03.24.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 03:24:56 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	llvm@lists.linux.dev
+Subject: [PATCH net-next v10 01/11] net: phylink: keep and use MAC supported_interfaces in phylink struct
+Date: Thu, 30 Jul 2026 12:24:12 +0200
+Message-ID: <20260730102444.1967900-2-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260730102444.1967900-1-ansuelsmth@gmail.com>
+References: <20260730102444.1967900-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260730071022.296811-2-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_032348_703864_F4123961 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20260730_032458_841560_CF1706B5 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,77 +124,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 08:09:54AM +0100, Marc Zyngier wrote:
-> The sysreg file is using the Mapping or Fields qualifiers to indicate
-> that a given encoding is only a mapping to a particular register (or
-> an instance of a more generic register definition).
-> 
-> As a result, we don't output any definition, and instead expect
-> the canonical definitions to be used.
-> 
-> This works rather well for individual fields, but creates problems
-> for macros that refer to more generic classes of bits such as RESx.
-> 
-> Relax the above rule by emitting the RESx and UNKN values for Mapping
-> and Fields qualifiers as well.
+Add in phylink struct a copy of supported_interfaces from phylink_config
+and make use of that instead of relying on phylink_config value.
 
-It might be worth stating a bit more explicitly, something like:
+This in preparation for support of PCS handling internally to phylink
+where a PCS can be removed or added after the phylink is created and we
+need both a reference of the supported_interfaces value from
+phylink_config and an internal value that can be updated with the new
+PCS info.
 
-  Emit RESx and UNKN values for Mapping and Fields qualifiers as well,
-  defining these in terms of the RESx and UNKN values for the canonical
-  Sysreg or SysregFields definition.
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/phy/phylink.c | 22 +++++++++++++++-------
+ 1 file changed, 15 insertions(+), 7 deletions(-)
 
-  For example, the following defintion:
+diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+index 59dfe35afa54..3464e3ec5699 100644
+--- a/drivers/net/phy/phylink.c
++++ b/drivers/net/phy/phylink.c
+@@ -60,6 +60,11 @@ struct phylink {
+ 	/* The link configuration settings */
+ 	struct phylink_link_state link_config;
+ 
++	/* What interface are supported by the current link.
++	 * Can change on removal or addition of new PCS.
++	 */
++	DECLARE_PHY_INTERFACE_MASK(supported_interfaces);
++
+ 	/* The current settings */
+ 	phy_interface_t cur_interface;
+ 
+@@ -628,7 +633,7 @@ static int phylink_validate_mask(struct phylink *pl, struct phy_device *phy,
+ static int phylink_validate(struct phylink *pl, unsigned long *supported,
+ 			    struct phylink_link_state *state)
+ {
+-	const unsigned long *interfaces = pl->config->supported_interfaces;
++	const unsigned long *interfaces = pl->supported_interfaces;
+ 
+ 	if (state->interface == PHY_INTERFACE_MODE_NA)
+ 		return phylink_validate_mask(pl, NULL, supported, state,
+@@ -1867,6 +1872,9 @@ struct phylink *phylink_create(struct phylink_config *config,
+ 	mutex_init(&pl->state_mutex);
+ 	INIT_WORK(&pl->resolve, phylink_resolve);
+ 
++	phy_interface_copy(pl->supported_interfaces,
++			   config->supported_interfaces);
++
+ 	pl->config = config;
+ 	if (config->type == PHYLINK_NETDEV) {
+ 		pl->netdev = to_net_dev(config->dev);
+@@ -2025,7 +2033,7 @@ static int phylink_validate_phy(struct phylink *pl, struct phy_device *phy,
+ 		 * those which the host supports.
+ 		 */
+ 		phy_interface_and(interfaces, phy->possible_interfaces,
+-				  pl->config->supported_interfaces);
++				  pl->supported_interfaces);
+ 
+ 		if (phy_interface_empty(interfaces)) {
+ 			phylink_err(pl, "PHY has no common interfaces\n");
+@@ -2827,12 +2835,12 @@ static phy_interface_t phylink_sfp_select_interface(struct phylink *pl,
+ 		return interface;
+ 	}
+ 
+-	if (!test_bit(interface, pl->config->supported_interfaces)) {
++	if (!test_bit(interface, pl->supported_interfaces)) {
+ 		phylink_err(pl,
+ 			    "selection of interface failed, SFP selected %s (%u) but MAC supports %*pbl\n",
+ 			    phy_modes(interface), interface,
+ 			    (int)PHY_INTERFACE_MODE_MAX,
+-			    pl->config->supported_interfaces);
++			    pl->supported_interfaces);
+ 		return PHY_INTERFACE_MODE_NA;
+ 	}
+ 
+@@ -3760,14 +3768,14 @@ static int phylink_sfp_config_optical(struct phylink *pl)
+ 
+ 	phylink_dbg(pl, "optical SFP: interfaces=[mac=%*pbl, sfp=%*pbl]\n",
+ 		    (int)PHY_INTERFACE_MODE_MAX,
+-		    pl->config->supported_interfaces,
++		    pl->supported_interfaces,
+ 		    (int)PHY_INTERFACE_MODE_MAX,
+ 		    pl->sfp_interfaces);
+ 
+ 	/* Find the union of the supported interfaces by the PCS/MAC and
+ 	 * the SFP module.
+ 	 */
+-	phy_interface_and(pl->sfp_interfaces, pl->config->supported_interfaces,
++	phy_interface_and(pl->sfp_interfaces, pl->supported_interfaces,
+ 			  pl->sfp_interfaces);
+ 	if (phy_interface_empty(pl->sfp_interfaces)) {
+ 		phylink_err(pl, "unsupported SFP module: no common interface modes\n");
+@@ -3938,7 +3946,7 @@ static int phylink_sfp_connect_phy(void *upstream, struct phy_device *phy)
+ 
+ 	/* Set the PHY's host supported interfaces */
+ 	phy_interface_and(phy->host_interfaces, phylink_sfp_interfaces,
+-			  pl->config->supported_interfaces);
++			  pl->supported_interfaces);
+ 
+ 	/* Do the initial configuration */
+ 	return phylink_sfp_config_phy(pl, phy);
+-- 
+2.53.0
 
-  | Sysreg FOO ...
-  | Fields BAR
-  | EndSysreg
-  
-  ... will generate:
-  
-  | #define FOO_RES0	(BAR_RES0)
-  | #define FOO_RES1	(BAR_RES1)
-  | #define FOO_RES0	(BAR_UNKN)
-
-Regardless of the above, the patch looks reasonable to me, so:
-
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-
-Mark.
-
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/tools/gen-sysreg.awk | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
-> index 86860ab672dc7..53844f5c5e525 100755
-> --- a/arch/arm64/tools/gen-sysreg.awk
-> +++ b/arch/arm64/tools/gen-sysreg.awk
-> @@ -228,7 +228,7 @@ $1 == "EndSysreg" && block_current() == "Sysreg" {
->  }
->  
->  # Currently this is effectivey a comment, in future we may want to emit
-> -# defines for the fields.
-> +# defines for the fields. We do emit RESx and UNKN values in any case.
->  ($1 == "Fields" || $1 == "Mapping") && block_current() == "Sysreg" {
->  	expect_fields(2)
->  
-> @@ -239,9 +239,9 @@ $1 == "EndSysreg" && block_current() == "Sysreg" {
->  	print ""
->  
->  	next_bit = -1
-> -	res0 = null
-> -	res1 = null
-> -	unkn = null
-> +	res0 = $2 "_RES0"
-> +	res1 = $2 "_RES1"
-> +	unkn = $2 "_UNKN"
->  
->  	next
->  }
-> -- 
-> 2.47.3
-> 
-> 
 
