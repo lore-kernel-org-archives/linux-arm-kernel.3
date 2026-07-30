@@ -4,129 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F73C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 16:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE41C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 16:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QIluidOmjNVN9OA04D6hr7VJJ/PlNYoAevOhYYcOPm0=; b=wfulyDmqbgowkE+CKjaOfc7LpX
-	Pm9BZyINNOcmLV2v8EONyTgmBOTfNloDT4o3V/bEBvnBu+GujrSmA7imhpiW9tI7I48wI/dgGHE9M
-	is3JVRiZER7xH2l6WdUTfDnWTumctZMGA9ldLYXj0XO/fbWDLJE8D3xWS5Kx9zBYBGL4U0r2tJZj1
-	JSvqm8O5NkU2p6jpx2dN6G7oyURgWQRzpCAd0S/XwRoKkcsvZUkYWwIzxKlPlZKEseMs+KynWwWuo
-	YAKXm7AYOu6GbkGCaCY4d8V0rmI8ByM2Uphvd+V3J8kHaTTo6NBc7gFeWxwzvJwS5cRulRkG91Eco
-	MuMpwF8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P99q5g4wyD2KldzYnXtXrIbQfUIhqAH5fUtD1PWms6k=; b=byTD6qgJYb6pKQsrSI80CpOqmo
+	SA0PPf2V2xLYaDXpU+L57U8wj1i6JsANhcysXHqg5CVfPJQStRcWMOiZiOGTJcPM+vJSCVfDG8qF2
+	9VgVU6i8U57a/GFU2PB/PzBEF3lxvRjnZAUU4w4wXnGXMI+OqWZlKUiW/BbIQOQQd6B8hmaCEb0fX
+	w8jJHfH8CzxAg+5VjTkNocvvRP0OYUVqhAzy5svXmqJUsDUxsfKng8A9oT1l0iROLKKBFUdL38WFK
+	4IMzUQk0GG0GqrGUxGJWUdT/Q22hOmX76nkkvi5XCCc3lZAQsXb1St8KqetsgNsxknozSH1PdCqXX
+	ndsJeSYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTuJ-0000000B2HN-08Rp;
-	Thu, 30 Jul 2026 16:46:55 +0000
-Received: from mail-westeuropeazon11013056.outbound.protection.outlook.com ([52.101.72.56] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wpTxA-0000000B2YP-20pz;
+	Thu, 30 Jul 2026 16:49:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTuF-0000000B2GW-2uFQ
+	id 1wpTx9-0000000B2YJ-17mN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 16:46:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RfqSF7kpQVKUVAhoaSj2a/rxrg9eGPVdPHvQnOENHBwqO8ywf0U6bLKblIpvWPo+kbT4hIDcJ8kX1Pgt93Z0PIyGDwKMeXeFyysXsSGyCp1suZRpMYvRS3zOA26RxV6ynLbvMKZNSHiZbNOZWF5ud+B+vPu9MmbX1O7RByiYMV1HJWAxD8SiIoWWJRJ2eRfC75MoOvN4Ssv1JQrEfrdRXL83YiQKl9PUGbWLkhv35xkea1dFPmpTAT4U+nM9VFAWMBo2OgTxg6jKVwQeaaPxCBZvrKQFlrAOKBAZH069IVE1sTVZKCwlNv3XdyAqrgzz7R0U+vGZ6lzTaf5mhVzV6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QIluidOmjNVN9OA04D6hr7VJJ/PlNYoAevOhYYcOPm0=;
- b=CUC9veFwx60DiaXvuZNhDl3yUyFe1yJd0stOYmqpIYjLVDUoksiZQzE6jMqHgHBo9ryMqj8X1vV9xw4k2jKLid3VWlP5TVecw7SmeplzNzxn+jfwg/fU5N0v3nd6Yv/iZAZE1WTJwqsuSNjILsZ0qN5LNeb6noby4+QLonPk/MIncpHjojAmR+y3tnDH8yYqvIe6fnumRB+XrFH2g0plcFLnIpo0PF7lmF+KcbSYGJhGDoY86Zj4C0bqpQw+Duk4cycPckWLq4FWj79hXjEm30yYfGySjXXxg2X1JGlOC3ijVV1+dlPZeKFqsE0qGivdd7/hBq/d0tQwGrWYpgNpzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QIluidOmjNVN9OA04D6hr7VJJ/PlNYoAevOhYYcOPm0=;
- b=KPBb2KjcInAt0uu16S421eLWHrkQQoaEPpUcHtKB7WelglSDqUylMpg+HamjSLYHAdppkFzvjuxskdmLo1cEviG/TJ6ZFwousgpnnoZx2i3/NIcZiZ98NOg3+kxQbahjh4UyOYsjdu5qeI1lvOlIVPdzyK8iXpIaUiUcXY9qLcWW+qvOOLUWngZe3ao+X4ZBVGX4ogc4SRIERRFuF+6yXjgWE4B6og5bnZhOzRYAht174CNTE5Pu71VjCcmXnAJXxd3et9Q03UYe8Tk9TOXtOJVhjwq9cDJiLBx+5M8n39pk0qlVBuq1XDxx7Qrkl5DNiVl73gF1yufEiP0Rek8wyg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB8PR04MB7164.eurprd04.prod.outlook.com (2603:10a6:10:129::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Thu, 30 Jul
- 2026 16:46:48 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
- 16:46:48 +0000
-Date: Thu, 30 Jul 2026 12:46:38 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Dawei Feng <dawei.feng@seu.edu.cn>
-Cc: mchehab@kernel.org, laurent.pinchart@ideasonboard.com, Frank.Li@nxp.com,
-	martink@posteo.de, rmfrfs@gmail.com, kernel@puri.sm,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	jianhao.xu@seu.edu.cn, stable@vger.kernel.org,
-	Zilin Guan <zilin@seu.edu.cn>
-Subject: Re: [PATCH] media: imx8mq-mipi-csi2: fix memory leak in
- imx8mq_mipi_csi_probe()
-Message-ID: <amt_7qnk5X-vQ30q@lizhi-Precision-Tower-5810>
-References: <20260527080624.1717938-1-dawei.feng@seu.edu.cn>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260527080624.1717938-1-dawei.feng@seu.edu.cn>
-X-ClientProxiedBy: PH0P220CA0009.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:d3::13) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 30 Jul 2026 16:49:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D9B3841837;
+	Thu, 30 Jul 2026 16:49:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3488D1F000E9;
+	Thu, 30 Jul 2026 16:49:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785430190;
+	bh=P99q5g4wyD2KldzYnXtXrIbQfUIhqAH5fUtD1PWms6k=;
+	h=From:To:Cc:Subject:Date;
+	b=hdTS+wrwQcvIhkyt38zuP3uyCBSYF71Av8w26LZegudizTaG4RdQV/lafKquMofgy
+	 4PYjM4mSRKQxbOuibv+vHK54rKtfpVYgh3H9mOotB8aSJZzGxMOPvIYqDYCZMj8880
+	 UHYtRTZ2HqeiNrXIxUftHn4XRKpTCdwgL98eT+VIpWYxYt3G5/BBC/BXmwEmBbnS+h
+	 zA3GwJj8Yf/599XvIHwUHO2O/Sk58Srj3LCVK5kJpy6iWcGn4dOfWS8A6SBjw/J9QR
+	 LWnvMT3vCcAjmwa2Nc8aIy6w4jDjtay22w09/0kaRgaeH4OVt4VQiN8ZqPGZBxgb2z
+	 cImVh5oCiJDiA==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Anvesh Jain P <anvesh.p@oss.qualcomm.com>,
+	Ravi Hothi <ravi.hothi@oss.qualcomm.com>,
+	Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>
+Subject: [GIT PULL] Qualcomm Arm64 defconfig updates for v7.3
+Date: Thu, 30 Jul 2026 11:49:47 -0500
+Message-ID: <20260730164947.177468-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB8PR04MB7164:EE_
-X-MS-Office365-Filtering-Correlation-Id: 05c6f3e6-c307-42aa-2e98-08deee5a257f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|19092799006|6133799003|11063799006|56012099006|22082099003|18002099003|10067099003;
-X-Microsoft-Antispam-Message-Info: b9e8k2qrrMq6898HU+YlrU99UlkNePQ3AqkA0+qIFGqWnyOwjyHoM+BaRX9/62ZdvcnYHCzf5ajlNvrws07I8m5AniLxRN04xRjxjOqRmNhpGuIU7gJpOEaxnemJOAo+5Nh9sCyaDhqTJExlEPFnM/X7fY6yxfnRNOdQDfrGH15U7PNrdMaSet8KJhjXBspRKB2e6e71iT3NRhx7XfBv6KVtCdza+yuJJlzJcanMm5mCrheU7zD1lRwFzCkUGtpcV85q3ipCIzGRzv3RvTit0UOnO66cu/qEeiWi5ln6A0qQV/49rVkEHrKlF2Lj8oho83V6D7JkkuG9CPynehlac0P5jGuioXIrUI7baIT1bmLHPLdnWCSFZcLtRg8+rmxiR+4CNfyGr5M8kuolS0dHUzxg7KvYRsAqHMoUBDEHHd/QeJFFPpTuH+VHASaqPiaC7D25njoQC0246DaWRozYIJ+zQJr7qNrcMcW6RTk3gYB8DXnykA58fpouDlPexh3vsDLy1lPunph+jHUQHCuxmbcdd47caeeErUVGo7VPu0z1WUn09K79mP/CrY9LWsHivru2YjKWSrcuy90FB1+LILUr8X7fD/YihVe6rO6TeaJqcdS/8WKTNReP5xyrmUqxUTM3AGix0CoKC1YsnbCcFP7QbKKtv7m0cc6jVmLr6pM=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(19092799006)(6133799003)(11063799006)(56012099006)(22082099003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wm52mBMPiCV9i1C7ImaDIWiIXRDZuNzjz/7Z7wAGdI7bEmyPSjep425iFos4?=
- =?us-ascii?Q?rdx5QgZ/WWb9FDP6U5Wc+Z4nw/sTbElfUuYCop15plvz+sOmZak72+IEmSFs?=
- =?us-ascii?Q?t1dVsd2I8Nk3vJP7jFA1D5XkYCoiwF+1mFFwc4PAUKguJphvsbecWB20k8dl?=
- =?us-ascii?Q?sExz0nH2I5cBPdIxuep4UT2y3BaLQpFZ6/Z3f4mI3OYypk+fi4piAMepTRtV?=
- =?us-ascii?Q?rJI3RtZpRBdjghNsTLnpAXiNTF9W1SEqrCUZVDavQ/S4fbZjGGe/phNAMz1c?=
- =?us-ascii?Q?AmwF6PwrG/kVbrP8nz3j7guCSq+NyiZthtlpf/Yb4hzZTgLwHUT+u2cX8UMK?=
- =?us-ascii?Q?piGog9uEcuN6SuMm16/ZrHNstiRCIRblY11vh+wyfK79aIIuAIk/Tov/kVsy?=
- =?us-ascii?Q?ldXFctSU0bCpCwYZeo/yRdkvzyqvATCzJThujHDmTCnki+rc7XO9V7VY+MOY?=
- =?us-ascii?Q?8TfRYTGEuzwWS/BRpZcji/vpX3nHUlwF/oVGX6Rxva3Cjm/QlGek+GfIHwUa?=
- =?us-ascii?Q?eD130TwOhBej0NkpLqAxlSMQ7NWokGWKhqi3fwH5cCCwdioY7RxsdZlONzPy?=
- =?us-ascii?Q?ZULXvCScmcAfaDyaLuv4zHspxVW788vzN/6bIcf/4C5B2ODAIrpukzGBqlfP?=
- =?us-ascii?Q?cuYx+VHoOmyEFmj8of4coGcvfy2TPXX5AGm7pQ/MsYLjj/zZJCDISeNe+Vg1?=
- =?us-ascii?Q?ftYVa05d47WJnLPsKEMtsBD9wKyefKPiXzWAUeVaeeC4nxs+usqqlSmNGxvI?=
- =?us-ascii?Q?/ceCap8z3+80VtY93E1LFBY4EcKKm7K1RM4RBUd0cr7oRuCp1C8QZbg3mI3R?=
- =?us-ascii?Q?vzniYEbQELmaOqQtHPvnXUwRXzexk8x5xve2gNF/Sy2a7p2g26vZiruk52/6?=
- =?us-ascii?Q?b+CB5ko8wmNfPZRtro8xbGqbrxa+1C8K7XZ8roXIA7ItmwUEBY/GChp1RmU7?=
- =?us-ascii?Q?fadVV3m2hUtqgxYySdqe7pon8eDo8ln0tOU94dTE1H+zk4Jgd0fII/byBb2Y?=
- =?us-ascii?Q?oJMOP2TCsRqUbsSbgm9pTAX/XK/aqQmthyH4NbSMiVzR2ab1gI2SqmEga/yh?=
- =?us-ascii?Q?We1wWa1etYuTioQWaDKoEiS4h9UktYFkH9z4b/oGE6zQcf4qInehidVSLi3c?=
- =?us-ascii?Q?leSOpvXTwkn/BRzhRR1rd1wu8ppFhvh+cwmbCe44rhzXcBS8yZ9GRNFqMrI8?=
- =?us-ascii?Q?VQWJSCTf6zdU9LqtpD9zkQIC9YjsrdpX8NUSIq0OCM2OAbTV6DCpT4hwSSx4?=
- =?us-ascii?Q?GvodbQMz5T6WyCAzgrFNGxTkv4VVo4e9fQvSR2h2nsgfQP+8Nx+/gDkkBU6A?=
- =?us-ascii?Q?OGXfpOCGEL4+2xrMoTTwPRaOxZ352xON4+KuGd1+d6GlChsGg5XUyXpwV710?=
- =?us-ascii?Q?lABOu6q9hGx3HwzE2MyOiR7I8dPhDzdCkNqaCnUxm0Ynwn6lT2qEvPsXUUa9?=
- =?us-ascii?Q?tdETby/Mr92Ty+lRlxmRtwIDxOmqioJBVONrPM2dFukrK/vwLhHlQpA2rT/e?=
- =?us-ascii?Q?ypoRD2qsMdcyiSeF7TDBdT/9jjw9j5zITpGZAZ9Ez4xVzHrkusCIMhTZcJoG?=
- =?us-ascii?Q?+j7Cqbfe25En4k68PrnEh+jZUGEzydou6QUEWEx8ObowbiUYjbtenNJRs7rg?=
- =?us-ascii?Q?xMI2T7agJ9fPYjSWv9RHwXFal/ceC5HSEoEIgEhXYdLvbbM5blyK4g3uODs1?=
- =?us-ascii?Q?XeVEkB24/rC9A6sn6cIx0RwwmwyXp5tsdQPDXGVhpiyE3+JQoiE0pefT5LhB?=
- =?us-ascii?Q?g/eeCLQi/2fZPSe3UASlSPz9zhTeClB7vYhUTrf+Kf3RmnA+WfDc?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 05c6f3e6-c307-42aa-2e98-08deee5a257f
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 16:46:47.9959
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1neQEkoojGA3k0g20wcHQkLNipQfnQVRt89gFHflmzm74MDBtEZGfCuuNTCNLXQd+CMZ0ljBrJDyg81rSb0dsli6GG3IWN+M5kIX/vWJYbGQaWfG2KBnwhpfZwT7Nfep
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7164
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_094651_733518_BB38B1DD 
-X-CRM114-Status: GOOD (  23.50  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,74 +71,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 27, 2026 at 04:06:24PM +0800, Dawei Feng wrote:
-> If imx8mq_mipi_csi_init_icc() or imx8mq_mipi_csi_runtime_resume() fails
-> after subdev initialization, the function fails to release the
-> corresponding resources, leaking the subdev state and media entity.
->
-> Fix this by introducing a dedicated subdev cleanup label and routing the
-> affected error paths to it. This reordering is safe as the consolidated
-> label chain preserves the correct sequence without affecting other
-> execution paths.
->
-> The bug was first flagged by an experimental analysis tool we are
-> developing for kernel memory-management bugs while analyzing
-> v6.13-rc1. The tool is still under development and is not yet publicly
-> available. Manual inspection confirms that the bug is still
-> present in v7.1-rc5.
->
-> An x86_64 allyesconfig build showed no new warnings. As we do not
-> have suitable i.MX8MQ MIPI-CSI2 hardware to test with, no runtime
-> testing was able to be performed.
 
-Sorry, I missed this email at first place. Thank your for the fixes.
-but last two paragraph have not bring valuable information to reader.
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-Can you remove or remove these when apply patch? Or simple said the found
-by static analysis tool.
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-Frank
+are available in the Git repository at:
 
->
-> Fixes: cd063027c304 ("media: imx: Unstage the imx8mq-mipi-csi2 driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Zilin Guan <zilin@seu.edu.cn>
-> Signed-off-by: Dawei Feng <dawei.feng@seu.edu.cn>
-> ---
->  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> index 04ebed8a0493..e5a062cc0788 100644
-> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> @@ -1016,7 +1016,7 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
->
->  	ret = imx8mq_mipi_csi_init_icc(pdev);
->  	if (ret)
-> -		goto mutex;
-> +		goto subdev;
->
->  	/* Enable runtime PM. */
->  	pm_runtime_enable(dev);
-> @@ -1036,13 +1036,14 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
->  	pm_runtime_disable(&pdev->dev);
->  	imx8mq_mipi_csi_runtime_suspend(&pdev->dev);
->
-> -	media_entity_cleanup(&state->sd.entity);
-> -	v4l2_subdev_cleanup(&state->sd);
->  	v4l2_async_nf_unregister(&state->notifier);
->  	v4l2_async_nf_cleanup(&state->notifier);
->  	v4l2_async_unregister_subdev(&state->sd);
->  icc:
->  	imx8mq_mipi_csi_release_icc(pdev);
-> +subdev:
-> +	media_entity_cleanup(&state->sd.entity);
-> +	v4l2_subdev_cleanup(&state->sd);
->  mutex:
->  	mutex_destroy(&state->lock);
->
-> --
-> 2.34.1
->
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-defconfig-for-7.3
+
+for you to fetch changes up to 9c1bb154d40b36434e919865cbb2b23da58a963b:
+
+  arm64: defconfig: Enable Qualcomm BAM-DMUX WWAN driver (2026-07-07 22:04:24 -0500)
+
+----------------------------------------------------------------
+Qualcomm Arm64 defconfig updates for v7.3
+
+Enable the Qualcomm reference device embedded-controller driver for
+Hamoa and Glymur, the DMIC sound driver for Monaco and Lemans platforms,
+and the BAM-DMUX WWAN driver for Shikra and other platforms using A2 BAM
+hardware.
+
+----------------------------------------------------------------
+Anvesh Jain P (1):
+      arm64: defconfig: Enable Qualcomm reference device EC driver
+
+Ravi Hothi (1):
+      arm64: defconfig: Enable Sound DMIC driver
+
+Vishnu Santhosh (1):
+      arm64: defconfig: Enable Qualcomm BAM-DMUX WWAN driver
+
+ arch/arm64/configs/defconfig | 3 +++
+ 1 file changed, 3 insertions(+)
 
