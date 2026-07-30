@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307FFC55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 02:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFDA3C54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 02:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/1cvKnnZkgFYH35Q67JI/Ha7V5Y4bBcrM2IHeDfZPS8=; b=SLGOr/k3Wuuwl2deEWzSQfhAbP
-	fALRuc1fhiqNSu/R/7i+ciIomWdWaDd9lxeBlf6mySL20+DPZxcsdeivGJbspQpXnUwGvLVkhrZmK
-	Pm3ahwu6sG3hYCuTJNUuTMiQhnslY/ZbBjaBWEjiWcQL32tySZ4FxXnL3gruPcEdwYGhUZTSvpQ0H
-	ACG0cBRXppYyQze8Vo4K2Fc4cBLao3h2R7G5t2eLH/8lsBUbbGluPtq7cKCrKPC6Hby2Y/BeoDchL
-	khb3Q3q6gaGp0HoRQm621gDHDnnftUiOiV4toqQDotDwj9RGZxasRG3CS0UcHFPG5vBO8FAFD++Ds
-	8/X3TKhw==;
+	bh=LTuEprvwrjk7mBn3yzDyr9Ex54iO4keA813TAWto3bc=; b=KhbdnpVmX/8W4N4MQRM8Lg6v4H
+	w7Zb2eqUt40AZc5vMSXw5NoM6z7YoT7cdWaTnZNXR51y440Ysu0Yhc9hkFQGpKJqLjB1NCFYaC/SP
+	R03rPKKTl3zUHD/G9LXn0WvQLx4cRDGoZvw02/bCKc+yDY+TgV9lqB/TKXRmruUpDShFzyVma/jO4
+	oCcwcsQDuaAlSalhEIIfb2yPBxkA55xHa3O5C/20EgKPV35b3eXXNW0xKoS3veNiFz7ESoWo6wh9B
+	s/bsCP2SJghZzlupOwu9b8hnOGfJ65JNgjhyPejsSIi6G9en6+Jq+T72mCVjjDu1HtJb2zmuc0ODW
+	yo2+wHcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpGJy-00000009KiR-0dCo;
-	Thu, 30 Jul 2026 02:16:30 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wpGKD-00000009KsM-3Wzo;
+	Thu, 30 Jul 2026 02:16:45 +0000
+Received: from mail-swedencentralazon11013035.outbound.protection.outlook.com ([52.101.83.35] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpGJs-00000009KdD-0CAb
+	id 1wpGK5-00000009KjS-2b8i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 02:16:25 +0000
+	Thu, 30 Jul 2026 02:16:39 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qewiHsGhimMmU05ZPF8wXkgFxkQKI3V6ArYsyJ53aRmPOF28ybOZgiDkO6uZRhvM3H66z4tHUujAtnNNAeGDDhALFkeSzeQsahjbPWBqw2G1ovaGn6rs8QHUdXxlloJp6bMocSxsvamjrnhya7WJWjvIa8El7gQmWcPE2dNOjl9Sjhmj3HPw+PHdj4ks8becaYebhsm3gNCID+oHVngWw3TkNV6uDi8TPmlHImS5zX5R24VhSmztH8oYjXzPynTVuQTYUySIJq6Pw01mH0bzCnCngz413iIdHy8kYR/oAovEBxLkmcLBmieT1h/XbWYqSel7+/XkrztC9+ab1fOomA==
+ b=FOPo/1lN6lUsQWL+6c6zPXLEu+FlI4l7itk/Y3wPVMMSn/KZ8HqwHnJ4hiXDWApEhqJphPpbAoy5DYKEMm2pp8UVM/mqwObrwD2B6UFZY9Hy32vnx7qefcqYCZA2cXrk4uSMBFGGPi+NzOXDH5v/r/uH6P9zOP4VlXosnaFCKMO/AZUo1AmemZkcz5m2Mhq2fFyC84vb+o64fuQVqHkb23ay5hxz3b3ZThPzvl0ZOEJ2JT3qvdFNuFHusUlaoObChlHaSVLZzSe0ywzTe1ap2JetB8RU9VopLhuNINqZj/sSm1HAQnY/8VmgynEMKVsH4Sql7m4NYbAjrBG58CnEIQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/1cvKnnZkgFYH35Q67JI/Ha7V5Y4bBcrM2IHeDfZPS8=;
- b=J3IAEZS1N9NYQo/id4fv9lSYTSWp3kzU7Xwp5b6yOLgzpArlZH9qYfcvZ880aQNzNEmiBQpYcLuTVnHbcofyOKE4ZOGFrzoQrzKNR7+lUmHRZtVoW6615LZ7vpzkA1kkioGPFe39qq/0jcHvb1oI0MXFMj1qcEnHhJo7UjFMeaz6iah8tHhhMPphXppeLdP5cXGk6TV9hJ0leHaFUyJLXF2ViEUrvCZO/YuMtvyzASF0kVi+BGY8EmlDaoaM0LaL5y8y90K6uI1LuJRrOQXHyh1g8Jpf9Bo8XoLhwXf+ksbftVHP2suW7tUaIJjZasF5Edkf7bIZgRcJkmv2Gtn1RQ==
+ bh=LTuEprvwrjk7mBn3yzDyr9Ex54iO4keA813TAWto3bc=;
+ b=eB5zJMq3DBdrIHPnVoNuXc0QUrYHrIsVT9J1TcaTZl4GEiDorpA8sbMj1+CGYPQ93cb/sp9InrUlHF08yBnuVBVDPssMR6tCQkLhi1xCCfiPQ09VGERjWKMr0M4QWy9jwg+GjZslLaIMFdewwKA1mnv6Jo4I1rVDFevunXWBYPUvM44LSuI2E/VliU8w34sCt8q9eeGT4aagC8BhveWDVU8+4YLUg4wNR+1uICFe+94FstHhu257K+SKxja768AWYsahlJ4befPiaEkPKBAk0iqQb5w0fVrqoibBmLJL3uACd0lMnKld6vHyT/ToAHZLWYMMk7i5bFE814W2H8/XnA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/1cvKnnZkgFYH35Q67JI/Ha7V5Y4bBcrM2IHeDfZPS8=;
- b=e5Bb+OSTc3yjMRmank4caURcGWFysry1XRhffCI4YbwUZiNTkxFoEZKYPAB40h4O7VlBzWZJuAcMUzpcoH8Mn1A3OxZHx74BgmNPdU8HrQGbA9m6+vmvbyyMsECi4NmWqf+FpxN7Hu0b9admC/PP5MACaxeHdqyg31oV6eIa9/WtP73cf3v9rqACPibPMVsBAmzO3Z67z22iuJegzHP7JQBCqn0CUN2Hv4jhj7lzIkrc4noYEfW/Vnw1KFk1cXsdGtTBmJ+0sJhMsDqH8wm1xnGLi4s3duWQxH0uyUkTgtyrDhoNpPHTX/bubFG0fNdvnA/7LjMuCpkTsaHELfZMrg==
+ bh=LTuEprvwrjk7mBn3yzDyr9Ex54iO4keA813TAWto3bc=;
+ b=e3lQRHyVUgOES93jhzqkm8c1CTfaNEPT2apUF1et3rQzteodgdHbBqjBm4XhlP3fS5c5y2NpVTCDyvPdbGamKz14H8WDnVXwMbdAJy6LLPvprzAcAiAsnm/5rUr+YLjUhCWXLMnxkDGo31BOUH927ZkDiFDNCMIuozp5ONJJ3nFKAkyTXQPrpN+efD5wWfnwkqFz4gIA1nzQ8J9ZAw5pxBdOwcl8YhG3DPqX3e8RrAxSHlQWumQ/SjAfcLfPIMa1qcl3N7AxH362LJfJ/Oft6MVyhlvVyXXdI4b/gxJoU790VRzdfRrr7XTrXsn3FQRU5/pBI0iu/dq3tC1QorTgig==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
- by GVXPR04MB12313.eurprd04.prod.outlook.com (2603:10a6:150:318::11) with
+ by VI0PR04MB10174.eurprd04.prod.outlook.com (2603:10a6:800:243::16) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Thu, 30 Jul
- 2026 02:16:19 +0000
+ 2026 02:16:29 +0000
 Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
  ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
  ([fe80::1f31:d3d0:6150:b49c%4]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
- 02:16:19 +0000
+ 02:16:29 +0000
 From: pankaj.gupta@oss.nxp.com
-Date: Thu, 30 Jul 2026 08:36:32 +0530
-Subject: [PATCH v32 4/7] firmware: imx: device context dedicated to priv
+Date: Thu, 30 Jul 2026 08:36:34 +0530
+Subject: [PATCH v32 6/7] arm64: dts: imx8ulp: add secure enclave node
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260730-imx-se-if-v32-4-95f56dff4ba9@nxp.com>
+Message-Id: <20260730-imx-se-if-v32-6-95f56dff4ba9@nxp.com>
 References: <20260730-imx-se-if-v32-0-95f56dff4ba9@nxp.com>
 In-Reply-To: <20260730-imx-se-if-v32-0-95f56dff4ba9@nxp.com>
 To: Jonathan Corbet <corbet@lwn.net>, 
@@ -70,82 +70,83 @@ To: Jonathan Corbet <corbet@lwn.net>,
  Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
 Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, sashiko-bot <sashiko-bot@kernel.org>
+ linux-arm-kernel@lists.infradead.org, 
+ Frieder Schrempf <frieder.schrempf@kontron.de>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785380794; l=14329;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785380794; l=1927;
  i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=jf0viptVfq9EWq5ouL92JjL1nIaeWG4aaCkfUdzRpbw=;
- b=UNQEwP6KEqGQh9E9g/Ah0nwYIT2QfDzLNfji/DCwETTGzIaAXv4FIxJDavn+whQ9siOKWexPq
- Qfh3K45nwthAYrMaYwmoP+lB6Q2VCSWWLTLnn9S8ahvJSIoiLPeb7We
+ bh=DSprtaFK9KsBwngLc2U94WQMZZff55qYg4dIQt6mh+k=;
+ b=/24BGpRqDIaOrcXln6Vk4ZhswcRnqYGu1KdX2Ajffuu4PhqfMhPewf0Y/HCQCHnlDWkNBnis8
+ uQNGOhrcOSPCPsBRYE0eH6pURZrf5jG0ahaYpb/4/0XawA83yItwq4J
 X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
  pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: MA5PR01CA0125.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1d5::16) To AM9PR04MB8469.eurprd04.prod.outlook.com
+X-ClientProxiedBy: MA5PR01CA0100.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1d1::8) To AM9PR04MB8469.eurprd04.prod.outlook.com
  (2603:10a6:20b:414::15)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|GVXPR04MB12313:EE_
-X-MS-Office365-Filtering-Correlation-Id: 31a7be15-7e99-45c0-9bf6-08deede08afc
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|VI0PR04MB10174:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4fe40037-6d67-4356-60ba-08deede090cf
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|19092799006|366016|1800799024|921020|6133799003|56012099006|11063799006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: gQxmp7y14J4q5f/aSjZ9AQex3OxPQCFT/OTtemnweXTu174nZO9/aKGCuOKFXQZ8FlBnu96YzUIC8M+3E8OaOOwf35PVvKrZMP4BrJEgEAsqsC9EWNNwK4frKMk2RavcNarQxApw0MmKikLsgLnLMvvIkPsODonLf2kSyERWE3kYlV2lfXwDsAkw/1SbxZS7Wi55qDtu661bsjsz6Ci40DvmBe3E/XMp9XebQlzkDUqEWN3IVBgAckfBhvXn9477BFR2P9cn4yyiOLaW/aNFAnsfG8PaDdV6vU7zgpXrpC6Vp4UcDaywboRO5BmV///P5dsQdJvN6j5k0lYdh9UezDPkHcvZFeUJlMeV6sTTsMhfjOvs0IJDM1tn/RTWAx4nkO6RXs7dDdYvLq0ZW3ubirHzxqKYDcQ36m3yvOkWKmqqkDUFwa/TWeFjAPGcKJndy5MUPSQZywgLUGjxM4WQCN2lLAonAL3w8DGIGQYC61R7yVEEvgObmeEnVjZZ3kziBmjuOr/kNsK7aD9v2T3JIIuP8Qjh2E2ksaCTPoA8LLLY8lF/O1ukWIXbHOToPRuXRsAj4htwKa+uvCsPKGuhtjWFD6V7Wobsxdr34BYZ4bY9xVVDxagofkIJJr9xIy3ZoJ199h+NpFBvOrqiOZ6V7A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(19092799006)(366016)(1800799024)(921020)(6133799003)(56012099006)(11063799006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|23010399003|376014|7416014|10067099003|56012099006|11063799006|22082099003|3023799007|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: DdhogAizfif2lGcgtoE3g0yI/5GvpzVLfbowkW9+vdl3G9L1pljAsWZ00o7UxWuwxRbVDNWlM2sesj6WI4WcP1OBwBLqD8BQOITI6hdkyZ8AJuKoZa6AUzqN+pE7vKZIEuVfymtJrnZH8xIrhHQ+JvXDXDvFNb8ZRdo48k21rQ8WqUyr+GpUwA4svonm4lh0N1gPGi6R12W06LBZejmnJyy1q+x9NOHdBdZwr0Ci6/qAyQQGTAbOnH39/8AzwzYhnMnkPoVec1KH1ziMO71y9SNX/npMXDXeaixVAsVz3GJkqZ2mglQBS+1gl7uG+jT7xBvzi5V19+bHi2GO0U+VeQOkX2/Fej/D0fSLHTPnnWczcompgiH6INCcwgiRm+LFsC5/eTjZfV5H2Ywe3ZZsMRPZI7KOicaTrfGqQhSYZwPB3oAWX4E8uqP3JUcaKahcwOw5J90aWyjBCG+SjrFVLy0ZR7gaaT+fI6ZRWSXvTKh6hLbyR1QZG5nvgT6B3bnbjzFxUq7Nyd7du8twoUvI6AuE63hLCMmKnGmGvdyPMsX41iBDuZrzHXy1kj0S9kchnnpmpiVcjUJF+R+x9GiKX5bVQpz3RRd+Isc32i4sZwdmQPnl0zN0w3bZnZNhXBaljjht7E6NFqjN+zpjYYhKUA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(23010399003)(376014)(7416014)(10067099003)(56012099006)(11063799006)(22082099003)(3023799007)(18002099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UThzZng2K3RtT0FsLzJkT0lnak5wdk1UWkRUWllWMVVnYkRzRWhCZnVBNW9q?=
- =?utf-8?B?N3JkMnlUdVpFVVFrbHFFeFRpR2NQSmsxUVdRSXlCeGJHODAzQVU4aGFHbGNm?=
- =?utf-8?B?bDg5c0ZjK2lWZFNFa29lMCtMZ3hJaTJ1QXVRbXdEd1M1Yi9xTGVSdUZSenV2?=
- =?utf-8?B?YTV0SnlUUVRmM24xZ2srV05xS042ajUycmxodXVhVjNoL2RJdDZUTkpKVGRN?=
- =?utf-8?B?YldaTEF2ODh3WWhzMlhvbE53Mll2MForaW8xa1pwKytwZ2piMTdXcEN2Y29E?=
- =?utf-8?B?Zk5QeHJrdkNVKzVLc3ZzZmVkV0tvQkwweUNJVlJKNHpWL3JZSUNwY24xQkov?=
- =?utf-8?B?R0xGb0k5SmkwbUZtL29SVmRZb3NyMzVvbGkyRzNIQmNBS1d4QkEvakhmby9J?=
- =?utf-8?B?bWNocUhKcUQ4QnBkejk1bUhCc1BlZ3lNMll4YmRSclgyZzZ3RnAxbTdjeGZD?=
- =?utf-8?B?UkthU1NSandwczNBMVV3d3J6dVY2ODZNWFdoNW1rUWxtRTZFVlVBRjQxRlNv?=
- =?utf-8?B?WjZXV3Z3NFhud0Y3bStQRmhxZnhNbXh5MnQvZlNyUU1oZ3VhWjRtYUpleXVx?=
- =?utf-8?B?VjZuWjVvL3hNdU1SaEF3RFlVdjJUNXVqNDl4N2FVWm1DVkozTTFxVHZGSTI3?=
- =?utf-8?B?K2FnMUFJd2ZVZTlrSGF2VFR2amVRMUxiZHlub2txNDFVUmZRSnk4WlZjcDBJ?=
- =?utf-8?B?T3J4cGtKWG05dUtVU1d2M3gwMHVwWW9sRlFNNFVpVFdhcnNtbVB5b1VTNzI1?=
- =?utf-8?B?UTRNU2dHNkZpeHdkNXZabEhISjFRTlRFZGVoSU05Z2VyMENkaW9odWEydDVU?=
- =?utf-8?B?SzI5MGF2Y1VLUG9EZjltcUNyUDRxNVA3WS9pYUJqMDdqVHFGcGxaTkphMHBk?=
- =?utf-8?B?dC9wbVhESG44czhVZmkxTlRoVzhxUlBJTmg5bXgzejlVWlBIa1NXM3g5MFB5?=
- =?utf-8?B?VkhGaVRWSEFHelVxdDVlc3ZUK0p6OVNSWXZRWGwyWEo4SUNYbDlWS1k4bjB4?=
- =?utf-8?B?N1h2cWFJKzFyNEQ5azVnR00weVN4MzVzVGRWV0JmSWd5SmdBNC9hbjI3ck5O?=
- =?utf-8?B?MkZnSkQvZ3BVVXQyNE1WdVVhWUFuOU92Ri9EYmJVc3ZvRTdMZmRhMVlwRFBn?=
- =?utf-8?B?aWs5Y3hoY20wMk9VQldBVEpDSzNUcG04M2wyZ0xFM1Bia3ptWlFBRFVMNHYz?=
- =?utf-8?B?ZWR0a2ZHd0RlMFBzOGE3aXJjZ00rOEo4T1VDbzJiSnJjSjJJMG1vVFhvQVpm?=
- =?utf-8?B?NWhydW9iSTh6aDZ5NFZ4SWR6eVN3WWZ0ZzdyNVdhQzhRVHhsYVRFYjNINFNC?=
- =?utf-8?B?S05OWnRkRm9uYWhzRFJCN0NUczVBZjA0VWlVcHdzWVN6ZjQ0dlQreDZBTjJC?=
- =?utf-8?B?Sm02T3VyVnJvczNZcTRiZUJjWWVmZVVNWEZCbnd2b0xOdWJqck1kK0JOT2hq?=
- =?utf-8?B?UTRsU0t1NXFEMUhxTUlpZ3J1aXB4TnRhSjErcXBFR24xTUcxQmF4QnRCekdl?=
- =?utf-8?B?U1BwQUNHVXBKZUxaSFVHNnl4LytLQllldUt1OXk3SFM5L0Nyd2RITXIybXlF?=
- =?utf-8?B?MGN5UEg2TW5ZcVYycGFrdjhXTlp5Z1hnbHlsb2x6MVFVTEQyUzQwWkZrVU5w?=
- =?utf-8?B?dDJ4WEgvdHgxYmRVMFJsbXN5b01HeUdnQjhsLzh5bFIxTXdISUV4amZmL0RD?=
- =?utf-8?B?YjBKaVBja201eDVDWnJPanN6SnBxNTdrMXZRY2Y1eEhZbFJ0L2JqMVROTGpp?=
- =?utf-8?B?cW1lN2JJWnlicHJzRFo3SGVzV1pzanRBUkJkWnlTVVBQWHljTUV5aVVzQW5Y?=
- =?utf-8?B?RVE0WmRvdEo1UmoralFvQXY5RnFMVGJwT1hmUU9PUE15M2J5eGpDQm04Witp?=
- =?utf-8?B?eXNyREhJcE03U1ZuUlg4MFNFbE9YQWh6cEVoV0JEY3BXM2xBcWxGc3EyL3Ry?=
- =?utf-8?B?V0FzakdpSStMSTRkdy9pbTFTUXVVOWFNZU1pT09SSDdRdGo4SG1ZdlZZcGZn?=
- =?utf-8?B?MlhnVzBWNWNjMWJWTjFIdE1YZ3lRMUNnSHNIYnNmQmEvQzRWOHNwQkloR0lx?=
- =?utf-8?B?bkhKMmZjQjlrdVcrQlpKV3o5Zk5kN3h3eU9SNU1ZbWRsdTd1ek9VRnlaVWNP?=
- =?utf-8?B?bStOUitnRlVFcWcyajVJR0xNRXBsdVFBeXVLUldCZmJhcWd2c09Mc3VWcENO?=
- =?utf-8?B?M1V3cnBMUE5uYjFyUTV2TnlBeWpVNE5vdnNDcFBhT2x6bHRPMVR2dklodjF2?=
- =?utf-8?B?RW9PNy9oY3c1OHpiakJjei9OL1AzUEJudkUyM0J1OVdqamVIczJqd3gxWHpx?=
- =?utf-8?B?cThVZHcwUHNhb0p0azhZS3VZaFI2ODBUYUNzaWVYN1V6dWxLVnBNWldOekVI?=
- =?utf-8?Q?UuwGIV3e89BKeCBbNlWNyI5B6qtJyeA6BaFby?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cVdNWWZVTEJMMytNNldJTktFcFZzMytCaFphR3lINnFoODVueFo4RXdEREs5?=
+ =?utf-8?B?OHluMWhHcVZUOTRJQUM0Q2UxSFVjT21TekhnMjY4NXFyYUdpZStYRnY5bVo4?=
+ =?utf-8?B?TVlIYWZySUFNT2NwT1BQK0ZROTduUmVzK3FnOW82bGxkbFFIU3dNeVFrSGZa?=
+ =?utf-8?B?UTZhdUdZaFNBM1EvT3BXZjhSa3N1OEFYYmZYK3NMbWZpVGZxRVByYTRnMEN4?=
+ =?utf-8?B?MURGSnBIWVhhZ1F2YnlEL0w0b0lJNEVzWXk3TFp1czgvTlU3REkwektoK0Ns?=
+ =?utf-8?B?YmNaeVN5VmtmdUxmeGlYbnltOUpoaTArWDBZWnBxYndncGxBWndhT0xDdHhm?=
+ =?utf-8?B?bFA0cGJWZ2hlSENHYmtaVWlMMkJIWUozYkpVSkF0encwNm9aS2luV2JBYml1?=
+ =?utf-8?B?bTFSdUpJUTA4V3Q4Nnh6cFN0YzNpY0ZyNjZSZTJIalZObDJnR2JTd29wL281?=
+ =?utf-8?B?YXFGN2lLMjdwN1FUZEZRZVVldXBNQ3hhQjd1REk0WEh1UGMxUXV4aVNQVmRT?=
+ =?utf-8?B?RXRSWE5OT3dQMVc3TytFeXI5VlRCek5jalNzamJTcmp6S0Z6Y3JvSXJrM0JO?=
+ =?utf-8?B?bUxlUlVOeDNqcUZUVDNNWlczV3FLRVo5NU1mM2ptUGtmTDZLSzBLc3ZJWjFj?=
+ =?utf-8?B?K2UyWlM0QmxCZnIyVE96blVFaFVXekt1c1dNMCtEK1NVbnhEbExBdmd6bFAr?=
+ =?utf-8?B?dE1rcEhYQ08xQmxFaVBYQU5nMjVzajlQY1IwdTRrVnFxUlozRW04RG5WeU13?=
+ =?utf-8?B?d0pqdVNOaWxmM0NEZWExcThQcEF0Q3EyNm1COW9xQ3htaUkyRC9nMW5ZK1Yw?=
+ =?utf-8?B?UHg0UW40LzhsQmcxTlVlSGNvcWFaa2VxT3BmM0c3K2oybmhmUDYwU0VsV2tW?=
+ =?utf-8?B?ZGtySlo5Z29xWWVPL0l6T05HandKL3UvMmdPSkZiK1BsQXBYMU1Tb3lGL3BI?=
+ =?utf-8?B?Y3J5a2J1dm9Ra2JnMjIxa25qRVhPZDRGQ1hGTEtNRUxjaHFhWnhLYzFlOVY5?=
+ =?utf-8?B?eEFiN1NpaXVsVDA2MVBEd0psWmNNbHVkZmVQcGlrRnNNZzgrdW9BRVRYVzc1?=
+ =?utf-8?B?TDNUaUhWLzdHWS9CRllJTS9heG5BTVoxMEJacHdjMCtiR0xpWDhqenJ1YnZV?=
+ =?utf-8?B?UGtXVGdzMWdLTk5MRjl1MGNsZ0pyZHhjODFkek1aRkJyMVoxVjJoUFNiMnh0?=
+ =?utf-8?B?Y3ZNNjRkV1RvYlpBa3JxSjJTa0oyNU16RGt1aHJLSG9HTjhwbmFFTEFTMjVW?=
+ =?utf-8?B?MVdocVBTNHJFeitaaTVldjFMQU1QS05QZHliZWxoY01SUlNkaHpZbHdjZmk4?=
+ =?utf-8?B?S05zRVQwWUV1dXFLOXVmSDFVcmtKcWh4cFFTQ1VKRWxNWS9GN1NZbVFTcDdN?=
+ =?utf-8?B?ekRpTXFLMXlTcDdCSmFDM3Y5VkZEdlRpdEFoWk9Sc3JBd0hUS2RIRTBLeW5B?=
+ =?utf-8?B?a2dmU2J1MEtvZFd1Y1lRUUF3VWVSMVl3S2dQdjNBZmpSOWJyakxEWWdwQ0pP?=
+ =?utf-8?B?STEyZnJRUko2N2ZVVlNpaUI1WVgwMkw0K3ZOOE02QWNjVERDa05OQm9RM0Jz?=
+ =?utf-8?B?cXZFVFJLMHNVckptQlk1amFzRzFWbEtBSjZGeTlhbmtJWnEyTWI5V1EyT3d0?=
+ =?utf-8?B?VUhpelFHWENMZkF2UmgySHBMUmIyZTV4ZHh4RW5wTXhLamV2emtZYzIraXRa?=
+ =?utf-8?B?bzdwa3BxbE9xWUViTTR5cWoxMFByRnFXNHJ3OFZZMXkwVnJwaGtTRkZEQi9D?=
+ =?utf-8?B?T0ViaS9OR2ZXNEpwTnNiUmJHU0NoN3V0YWJ4dlRIVjAvZCtmYVhlOXRrdUR3?=
+ =?utf-8?B?dzZYRW1kcXZHYXcyM2dDaDNNMmgyUUtJZG5remM0MHNjeDNwNFRiVUpyNzhi?=
+ =?utf-8?B?aVFFbmlCdGh3R0RhcVV0UUxuL1V6aksxK3kxWlhBNC9hcFkra0RaRzBxWGZr?=
+ =?utf-8?B?ZHBTME5YVG9oVHRDeXdQZE85MVVWdXhwVFh1dWF6QTgzdVpkT2tCMkdPSC9z?=
+ =?utf-8?B?YW4rWTRBVE9odzhVelpNRTlqS2ZxNG1ONDk2YTZTMndGN1BBYUlUNU51ejQ3?=
+ =?utf-8?B?cmdDdU5rSVdudTBtOUVNenhraG9hdjR0TGV2UzJJaU9KTjMrOE12eCtPRnJV?=
+ =?utf-8?B?NzhteVFHdEtYcEhPU1RSSFVjY2hKSDRsbzFEMTJLNnRGWWI5eHRwbDZPSCt4?=
+ =?utf-8?B?YjU0blhjQUhCMEovVytoRUVJOUQwR3lqWTNDdnV6OEVaeFp6RWJPUG5EcmNL?=
+ =?utf-8?B?NExiWnRPQk9YRVhpRDV1c0pvUFRvcmVDUm10d1RIb1UvYzRYR1hucEw0T1lZ?=
+ =?utf-8?B?YzRyR2ZhQWJuWFB3dVNjZm5sYWFzVTFPZmF5ZGR3OTBWeHJGcDdpWDlVMHV0?=
+ =?utf-8?Q?rlEQJCROwHnOVBXVPPwPiSoJ7aVuhsOPtKyoa?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 31a7be15-7e99-45c0-9bf6-08deede08afc
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4fe40037-6d67-4356-60ba-08deede090cf
 X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 02:16:19.4570
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 02:16:29.3251
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ilAKLzw7tMaVvt4GOeuW3BO18KigOlOl3mfr/+ZDcW3nngE0G8tPHNuLGo+VDkg7DdEN70lHSBflgAZuvgn3IzjOhaKrIJvTvufQkv3lOSObLt0oxDIl2HTBlolQ5RQE
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12313
+X-MS-Exchange-CrossTenant-UserPrincipalName: OFqHIeb9bX26A1VeXZBsJ+xWjko3X2EAa+L1CawHG1XZRy9Vc36yOE+EgUphVlID2K1DmKVIv+LH+yfDyUQLZWaftSdebCQm6JGtuc01UhdAU/HqH5wbYNwli86C8bTQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_191624_115817_0CF51E1F 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260729_191637_752966_EC13B79D 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,387 +163,63 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-Add priv_dev_ctx to prepare enabling misc-device context based send-receive
-path, to communicate with FW.
+Add the EdgeLock Enclave (ELE) secure-enclave node to the i.MX8ULP SoC
+dtsi, together with a label for sram@2201f000 that the node references.
 
-No functionality change.
+Keep the node disabled in the SoC dtsi so it does not impose a
+reserved-memory requirement on every board. Boards enable the enclave and
+provide its memory-region by including imx8ulp-firmware.dtsi.
 
 Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-Changes from v31 to v32:
-- moved the cleanup of priv_dev_ctx->dev_name & priv_dev_ctx, in the end of
-  se_if_probe_cleanup(), after priv->rx_chan freed.
-  Though it gets replaced in the next patch.
+Changes from v30 to v31:
+- Keep the node disabled in the SoC dtsi so it does not impose a
+  reserved-memory requirement on every board. Boards enable the enclave and
+  provide its memory-region by including imx8ulp-firmware.dtsi.
 
-Reported-by: sashiko-bot <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/patchset/20260721-imx-se-if-v29-0-04a362f4fcca@nxp.com?part=4
+Reported-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+Closes: https://sashiko.dev/#/patchset/20260724-imx-se-if-v30-0-ce8ba256692c@nxp.com?part=6
 ---
- drivers/firmware/imx/ele_base_msg.c | 15 +++++-----
- drivers/firmware/imx/ele_common.c   | 55 +++++++++++++++++++++----------------
- drivers/firmware/imx/ele_common.h   |  8 +++---
- drivers/firmware/imx/se_ctrl.c      | 41 +++++++++++++++++++++++++++
- drivers/firmware/imx/se_ctrl.h      |  9 ++++++
- 5 files changed, 94 insertions(+), 34 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/imx/ele_base_msg.c b/drivers/firmware/imx/ele_base_msg.c
-index 724f6e913ce7..b70e3ef88a16 100644
---- a/drivers/firmware/imx/ele_base_msg.c
-+++ b/drivers/firmware/imx/ele_base_msg.c
-@@ -71,8 +71,9 @@ int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
- 	tx_msg->data[0] = upper_32_bits(get_info_addr);
- 	tx_msg->data[1] = lower_32_bits(get_info_addr);
- 	tx_msg->data[2] = sizeof(*s_info);
--	ret = ele_msg_send_rcv(priv, tx_msg, ELE_GET_INFO_REQ_MSG_SZ, rx_msg,
--			       ELE_GET_INFO_RSP_MSG_SZ);
+diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+index c6d1bb9edf38..38233dd74ee3 100644
+--- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+ /*
+- * Copyright 2021 NXP
++ * Copyright 2021, 2025 NXP
+  */
+ 
+ #include <dt-bindings/clock/imx8ulp-clock.h>
+@@ -153,7 +153,7 @@ sosc: clock-sosc {
+ 		#clock-cells = <0>;
+ 	};
+ 
+-	sram@2201f000 {
++	sram0: sram@2201f000 {
+ 		compatible = "mmio-sram";
+ 		reg = <0x0 0x2201f000 0x0 0x1000>;
+ 
+@@ -185,6 +185,14 @@ scmi_sensor: protocol@15 {
+ 				#thermal-sensor-cells = <1>;
+ 			};
+ 		};
 +
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_GET_INFO_REQ_MSG_SZ,
-+			       rx_msg, ELE_GET_INFO_RSP_MSG_SZ);
- 	if (ret < 0) {
- 		ele_get_info_cleanup(priv, get_info_data, get_info_addr, get_info_len);
- 		return ret;
-@@ -117,8 +118,8 @@ int ele_ping(struct se_if_priv *priv)
- 	se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
- 			    ELE_PING_REQ, ELE_PING_REQ_SZ, true);
++		hsm0: secure-enclave {
++			compatible = "fsl,imx8ulp-se-ele-hsm";
++			mbox-names = "tx", "rx";
++			mboxes = <&s4muap 0 0>, <&s4muap 1 0>;
++			sram = <&sram0>;
++			status = "disabled";
++		};
+ 	};
  
--	ret = ele_msg_send_rcv(priv, tx_msg, ELE_PING_REQ_SZ, rx_msg,
--			       ELE_PING_RSP_SZ);
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_PING_REQ_SZ,
-+			       rx_msg, ELE_PING_RSP_SZ);
- 	if (ret < 0)
- 		return ret;
- 
-@@ -165,7 +166,7 @@ int ele_service_swap(struct se_if_priv *priv,
- 	if (ret)
- 		return -EINVAL;
- 
--	ret = ele_msg_send_rcv(priv, tx_msg, ELE_SERVICE_SWAP_REQ_MSG_SZ,
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_SERVICE_SWAP_REQ_MSG_SZ,
- 			       rx_msg, ELE_SERVICE_SWAP_RSP_MSG_SZ);
- 	if (ret < 0)
- 		return ret;
-@@ -213,7 +214,7 @@ int ele_fw_authenticate(struct se_if_priv *priv, dma_addr_t contnr_addr,
- 	tx_msg->data[1] = 0;
- 	tx_msg->data[2] = lower_32_bits(img_addr);
- 
--	ret = ele_msg_send_rcv(priv, tx_msg, ELE_FW_AUTH_REQ_SZ, rx_msg,
-+	ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_FW_AUTH_REQ_SZ, rx_msg,
- 			       ELE_FW_AUTH_RSP_MSG_SZ);
- 	if (ret < 0)
- 		return ret;
-@@ -251,7 +252,7 @@ int ele_debug_dump(struct se_if_priv *priv)
- 	do {
- 		memset(rx_msg, 0x0, ELE_DEBUG_DUMP_RSP_SZ);
- 
--		ret = ele_msg_send_rcv(priv, tx_msg, ELE_DEBUG_DUMP_REQ_SZ,
-+		ret = ele_msg_send_rcv(priv->priv_dev_ctx, tx_msg, ELE_DEBUG_DUMP_REQ_SZ,
- 				       rx_msg, ELE_DEBUG_DUMP_RSP_SZ);
- 		if (ret < 0)
- 			return ret;
-diff --git a/drivers/firmware/imx/ele_common.c b/drivers/firmware/imx/ele_common.c
-index f40eb4a07982..7254fc717e91 100644
---- a/drivers/firmware/imx/ele_common.c
-+++ b/drivers/firmware/imx/ele_common.c
-@@ -46,8 +46,9 @@ int se_update_msg_chksum(u32 *msg, u32 msg_len)
- 	return 0;
- }
- 
--int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl)
-+int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk_hdl)
- {
-+	struct se_if_priv *priv = dev_ctx->priv;
- 	bool is_rsp_wait_with_timeout = false;
- 	bool wait_uninterruptible = false;
- 	unsigned long remaining_jiffies;
-@@ -132,7 +133,7 @@ int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl)
- 	return ret;
- }
- 
--int ele_msg_send(struct se_if_priv *priv,
-+int ele_msg_send(struct se_if_device_ctx *dev_ctx,
- 		 void *tx_msg,
- 		 int tx_msg_sz)
- {
-@@ -144,9 +145,9 @@ int ele_msg_send(struct se_if_priv *priv,
- 	 * carried in the message.
- 	 */
- 	if (header->size << 2 != tx_msg_sz) {
--		dev_err(priv->dev,
--			"User buf hdr: 0x%x, sz mismatced with input-sz (%d != %d).",
--			*(u32 *)header, header->size << 2, tx_msg_sz);
-+		dev_err(dev_ctx->priv->dev,
-+			"%s: User buf hdr: 0x%x, sz mismatched with input-sz (%d != %d).",
-+			dev_ctx->devname, *(u32 *)header, header->size << 2, tx_msg_sz);
- 		return -EINVAL;
- 	}
- 
-@@ -156,9 +157,10 @@ int ele_msg_send(struct se_if_priv *priv,
- 	 * caller-provided tx_msg pointer after mbox_send_message() returns, so
- 	 * the caller-owned buffer may be released after a successful send.
- 	 */
--	err = mbox_send_message(priv->tx_chan, tx_msg);
-+	err = mbox_send_message(dev_ctx->priv->tx_chan, tx_msg);
- 	if (err < 0) {
--		dev_err(priv->dev, "Error: mbox_send_message failure.\n");
-+		dev_err(dev_ctx->priv->dev,
-+			"%s: Error: mbox_send_message failure.", dev_ctx->devname);
- 		return err;
- 	}
- 
-@@ -170,38 +172,41 @@ static void ele_msg_send_rcv_cleanup(struct se_if_priv *priv)
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
-+	priv->waiting_rsp_clbk_hdl.dev_ctx = NULL;
- 	priv->waiting_rsp_clbk_hdl.rx_msg = NULL;
- 	priv->waiting_rsp_clbk_hdl.rx_msg_sz = 0;
- 	spin_unlock_irqrestore(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
- }
- 
--/* API used for send/receive blocking call. */
--int ele_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
--		     void *rx_msg, int exp_rx_msg_sz)
-+/* API used for send/receive blocking calls. */
-+int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
-+		     int tx_msg_sz, void *rx_msg, int exp_rx_msg_sz)
- {
-+	struct se_if_priv *priv = dev_ctx->priv;
- 	unsigned long flags;
- 	int err;
- 
- 	guard(mutex)(&priv->se_if_cmd_lock);
- 
- 	if (atomic_read(&priv->fw_busy)) {
--		dev_dbg(priv->dev, "ELE became unresponsive.\n");
-+		dev_dbg(priv->dev, "%s: ELE became unresponsive.\n", dev_ctx->devname);
- 		return -EBUSY;
- 	}
- 	reinit_completion(&priv->waiting_rsp_clbk_hdl.done);
- 	/* Publish rx_msg/rx_msg_sz under the lock read by se_if_rx_callback(). */
- 	spin_lock_irqsave(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
-+	priv->waiting_rsp_clbk_hdl.dev_ctx = dev_ctx;
- 	priv->waiting_rsp_clbk_hdl.rx_msg_sz = exp_rx_msg_sz;
- 	priv->waiting_rsp_clbk_hdl.rx_msg = rx_msg;
- 	spin_unlock_irqrestore(&priv->waiting_rsp_clbk_hdl.clbk_rx_lock, flags);
- 
--	err = ele_msg_send(priv, tx_msg, tx_msg_sz);
-+	err = ele_msg_send(dev_ctx, tx_msg, tx_msg_sz);
- 	if (err < 0) {
- 		ele_msg_send_rcv_cleanup(priv);
- 		return err;
- 	}
- 
--	err = ele_msg_rcv(priv, &priv->waiting_rsp_clbk_hdl);
-+	err = ele_msg_rcv(dev_ctx, &priv->waiting_rsp_clbk_hdl);
- 
- 	if (priv->waiting_rsp_clbk_hdl.signal_rcvd) {
- 		/*
-@@ -212,7 +217,8 @@ int ele_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
- 		if (err > 0)
- 			err = -ERESTARTSYS;
- 		priv->waiting_rsp_clbk_hdl.signal_rcvd = false;
--		dev_dbg(priv->dev, "Err[0x%x]:Interrupted by signal.", err);
-+		dev_dbg(priv->dev, "%s: Err[0x%x]:Interrupted by signal.",
-+			dev_ctx->devname, err);
- 	}
- 
- 	ele_msg_send_rcv_cleanup(priv);
-@@ -241,6 +247,7 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- {
- 	struct se_clbk_handle *se_clbk_hdl;
- 	struct device *dev = mbox_cl->dev;
-+	const char *devname = NULL;
- 	struct se_msg_hdr *header;
- 	bool sz_mismatch = false;
- 	struct se_if_priv *priv;
-@@ -264,7 +271,7 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 	if (header->tag == priv->if_defs->cmd_tag) {
- 		se_clbk_hdl = &priv->cmd_receiver_clbk_hdl;
- 		spin_lock_irqsave(&se_clbk_hdl->clbk_rx_lock, flags);
--		if (!se_clbk_hdl->rx_msg) {
-+		if (!se_clbk_hdl->dev_ctx || !se_clbk_hdl->rx_msg) {
- 			spin_unlock_irqrestore(&se_clbk_hdl->clbk_rx_lock, flags);
- 			dev_warn(dev, "No command receiver registered for message: %.8x\n",
- 				 *((u32 *)header));
-@@ -278,8 +285,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 		 * SE_IOCTL_ENABLE_CMD_RCV and is not subject to the timeout/circuit-
- 		 * breaker handling used for rsp_tag messages.
- 		 */
--		dev_dbg(dev, "Selecting cmd receiver: for mesg header:0x%x.",
--			*(u32 *)header);
-+		dev_dbg(dev, "Selecting cmd receiver:%s for mesg header:0x%x.",
-+			se_clbk_hdl->dev_ctx->devname,  *(u32 *)header);
- 
- 		/*
- 		 * Pre-allocated buffer of MAX_NVM_MSG_LEN
-@@ -294,13 +301,14 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 		 * Clamp the copy length to the pre-allocated receiver buffer (MAX_NVM_MSG_LEN).
- 		 */
- 		se_clbk_hdl->rx_msg_sz = min_t(u32, rx_msg_sz, MAX_NVM_MSG_LEN);
-+		devname = se_clbk_hdl->dev_ctx->devname;
- 		memcpy(se_clbk_hdl->rx_msg, msg, se_clbk_hdl->rx_msg_sz);
- 		complete(&se_clbk_hdl->done);
- 		spin_unlock_irqrestore(&se_clbk_hdl->clbk_rx_lock, flags);
- 		if (sz_mismatch)
- 			dev_err(dev,
--				"CMD-RCVER NVM: hdr(0x%x) with different sz(%d != %d).\n",
--				*(u32 *)header,
-+				"%s: CMD-RCVER NVM: hdr(0x%x) with different sz(%d != %d).\n",
-+				devname, *(u32 *)header,
- 				(header->size << 2), rx_msg_sz);
- 	} else if (header->tag == priv->if_defs->rsp_tag) {
- 		bool exception_for_sz_mismatch = check_hdr_exception_for_sz(priv, header);
-@@ -322,8 +330,8 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 			return;
- 		}
- 		exp_rx_msg_sz = se_clbk_hdl->rx_msg_sz;
--		dev_dbg(dev, "Selecting resp waiter: for mesg header:0x%x.",
--			*(u32 *)header);
-+		dev_dbg(dev, "Selecting resp waiter:%s for mesg header:0x%x.",
-+			se_clbk_hdl->dev_ctx->devname, *(u32 *)header);
- 
- 		/*
- 		 * For rsp_tag traffic, the sender provides the expected response
-@@ -335,14 +343,15 @@ void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg)
- 			sz_mismatch = true;
- 
- 		se_clbk_hdl->rx_msg_sz = min(rx_msg_sz, exp_rx_msg_sz);
-+		devname = se_clbk_hdl->dev_ctx->devname;
- 		memcpy(se_clbk_hdl->rx_msg, msg, se_clbk_hdl->rx_msg_sz);
- 		complete(&se_clbk_hdl->done);
- 		spin_unlock_irqrestore(&se_clbk_hdl->clbk_rx_lock, flags);
- 
- 		if (sz_mismatch)
- 			dev_err(dev,
--				"Rsp to CMD: hdr(0x%x) with different sz(%d != %d).\n",
--				*(u32 *)header,
-+				"%s: Rsp to CMD: hdr(0x%x) with different sz(%d != %d).\n",
-+				devname, *(u32 *)header,
- 				(header->size << 2), exp_rx_msg_sz);
- 	} else {
- 		dev_err(dev, "Failed to select a device for message: %.8x\n",
-diff --git a/drivers/firmware/imx/ele_common.h b/drivers/firmware/imx/ele_common.h
-index 7bf2febefc45..07e6b6a1bafa 100644
---- a/drivers/firmware/imx/ele_common.h
-+++ b/drivers/firmware/imx/ele_common.h
-@@ -16,12 +16,12 @@
- 
- int se_update_msg_chksum(u32 *msg, u32 msg_len);
- 
--int ele_msg_rcv(struct se_if_priv *priv, struct se_clbk_handle *se_clbk_hdl);
-+int ele_msg_rcv(struct se_if_device_ctx *dev_ctx, struct se_clbk_handle *se_clbk_hdl);
- 
--int ele_msg_send(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz);
-+int ele_msg_send(struct se_if_device_ctx *dev_ctx, void *tx_msg, int tx_msg_sz);
- 
--int ele_msg_send_rcv(struct se_if_priv *priv, void *tx_msg, int tx_msg_sz,
--		     void *rx_msg, int exp_rx_msg_sz);
-+int ele_msg_send_rcv(struct se_if_device_ctx *dev_ctx, void *tx_msg,
-+		     int tx_msg_sz, void *rx_msg, int exp_rx_msg_sz);
- 
- void se_if_rx_callback(struct mbox_client *mbox_cl, void *msg);
- 
-diff --git a/drivers/firmware/imx/se_ctrl.c b/drivers/firmware/imx/se_ctrl.c
-index 53091cc37e7e..a8974eef190b 100644
---- a/drivers/firmware/imx/se_ctrl.c
-+++ b/drivers/firmware/imx/se_ctrl.c
-@@ -284,6 +284,36 @@ static int get_se_soc_info(struct se_if_priv *priv, const struct se_soc_info *se
- 	return 0;
- }
- 
-+static int init_misc_device_context(struct se_if_priv *priv, int ch_id,
-+				    struct se_if_device_ctx **new_dev_ctx)
-+{
-+	const char *err_str = "Failed to allocate memory";
-+	struct se_if_device_ctx *dev_ctx;
-+	int ret = -ENOMEM;
-+
-+	dev_ctx = kzalloc_obj(*dev_ctx, GFP_KERNEL);
-+
-+	if (!dev_ctx)
-+		return ret;
-+
-+	dev_ctx->devname = kasprintf(GFP_KERNEL, "%s0_ch%d",
-+				     get_se_if_name(priv->if_defs->se_if_type),
-+				     ch_id);
-+	if (!dev_ctx->devname)
-+		goto exit;
-+
-+	dev_ctx->priv = priv;
-+	*new_dev_ctx = dev_ctx;
-+
-+	return 0;
-+exit:
-+	*new_dev_ctx = NULL;
-+
-+	kfree(dev_ctx->devname);
-+	kfree(dev_ctx);
-+	return dev_err_probe(priv->dev, ret, "%s", err_str);
-+}
-+
- static int se_if_request_channel(struct device *dev, struct mbox_chan **chan,
- 				 struct mbox_client *cl, const char *name)
- {
-@@ -328,6 +358,11 @@ static void se_if_probe_cleanup(void *plat_dev)
- 
- 	dev_set_drvdata(dev, NULL);
- 
-+	if (priv->priv_dev_ctx) {
-+		kfree(priv->priv_dev_ctx->devname);
-+		kfree(priv->priv_dev_ctx);
-+	}
-+
- 	kfree(priv);
- }
- 
-@@ -425,6 +460,12 @@ static int se_if_probe(struct platform_device *pdev)
- 		load_fw->imem_mgmt = true;
- 	}
- 
-+	ret = init_misc_device_context(priv, 0, &priv->priv_dev_ctx);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed[0x%x] to create device contexts.",
-+				     ret);
-+
- 	if (if_node->if_defs.se_if_type == SE_TYPE_ID_HSM) {
- 		ret = get_se_soc_info(priv, se_info);
- 		if (ret)
-diff --git a/drivers/firmware/imx/se_ctrl.h b/drivers/firmware/imx/se_ctrl.h
-index 54b2a262a2c3..dd4a1ea7e35a 100644
---- a/drivers/firmware/imx/se_ctrl.h
-+++ b/drivers/firmware/imx/se_ctrl.h
-@@ -20,6 +20,7 @@
- #define MESSAGING_VERSION_7		0x7
- 
- struct se_clbk_handle {
-+	struct se_if_device_ctx *dev_ctx;
- 	struct completion done;
- 	bool signal_rcvd;
- 	u32 rx_msg_sz;
-@@ -44,6 +45,12 @@ struct se_imem_buf {
- 	u32 state;
- };
- 
-+/* Private struct for each char device instance. */
-+struct se_if_device_ctx {
-+	struct se_if_priv *priv;
-+	const char *devname;
-+};
-+
- /* Header of the messages exchange with the EdgeLock Enclave */
- struct se_msg_hdr {
- 	u8 ver;
-@@ -106,6 +113,8 @@ struct se_if_priv {
- 	struct se_fw_load_info load_fw;
- 
- 	atomic_t fw_busy;
-+
-+	struct se_if_device_ctx *priv_dev_ctx;
- };
- 
- char *get_se_if_name(u8 se_if_id);
+ 	cm33: remoteproc-cm33 {
 
 -- 
 2.43.0
