@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A43C55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79922C55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=kaxbb4hGIxen8PCLgFdLGDy/QkX3XGfhGMt8egYsPCA=; b=OOhzyvujrRUsXC
-	Xm8o4GR4/V8Vl/B2V6K+rVx4+Yax/bdsQYvDxxVK/xyA0tmgTQWRkJDVcdRLGdGJ6sgL1ts/wxcRN
-	c/YPxD6ef5pMw9IA67ykerYOsU70wSqfRyaejpKXdC+N/vfZXAMzFZOARDO5+EkAFGtj82PyQ47Zp
-	/6EgLL0BYLEn9aLp3XKS7rIRjfkCxrKqXo7AUWtM1sqdZ2DxGZ9gJJE97uOWFKfIuuHzZ5f0p1I3p
-	J4cQHYPCimyEAsRf9X9IhNJLpV6YZu7INoqWmIekccethXNM4aIKoPLRTHfN6yzr+1Luy4zcWFgO5
-	hivZjUFBzgMNQdev9sYg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VJ/yD7bE9ElkxiDxco8+gMprXLT5uuDnRcZMiLa4j+w=; b=rBLPBOQjaVhgEoxVO59utqa2pH
+	ULlHcm3dERr9IYFUnZnlYz6HdFxRwqIR6yI2Q3tTnxQdPGKD0NdYfk3KnT2yGHD4xEFNhwc83H05e
+	aIsBC21vc1PkGiELMWA8ypE8yksgtLbjRcVZvwfMJX8mGQWWaZeIDyzHYKBOFh7Z/XMa23iWTG0i+
+	atspTH8VCry2fIksi91rOnPQJ8xZd37II7sRxHHoDIeaPB4E8sA7D1V5vHGI6xztsDLCyPiqxmQxH
+	NlwDhb4DIy3z6ItRMSodWAax4Yqq068lKfAUiloDrdOm97J4INAsVvYqK4uw3BAkWVmaYGAJ9B6ag
+	9Fcde+ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPZd-0000000AQsO-3rqL;
-	Thu, 30 Jul 2026 12:09:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wpPaL-0000000AQxq-0bcQ;
+	Thu, 30 Jul 2026 12:10:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPZb-0000000AQs7-2ayM
+	id 1wpPaJ-0000000AQxR-0szd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:09:15 +0000
+	Thu, 30 Jul 2026 12:09:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B5356600BC;
-	Thu, 30 Jul 2026 12:09:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C6441F000E9;
-	Thu, 30 Jul 2026 12:09:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DA9AA43B01
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:09:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8AE41F00ADB
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785413354;
-	bh=kaxbb4hGIxen8PCLgFdLGDy/QkX3XGfhGMt8egYsPCA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=XZL1tGeFIup4XVQ5QJHQ0Rwt91LpypNnes9DTDM4JVhjHUmOx4F0DoLiQ0t0vfUO+
-	 zGSxp/o0/1igl6HlfM/WToSRFzDsW2WEs1clcOEhevrJlt3Eoxo/N5Qw7WKMoR+cWM
-	 9OPgFipM94aW40XNVtzKzQJzea/IvFEKQT6L6tyJO8KNkC04NoBFQmvUx/v+KS6+LC
-	 mKtvs+3Ksn3E0rz5MH8EWlyHNDIn9c84eB7J0yRPVHWPyrMywFtTU7aPfnHI4O3O8J
-	 ONONLp/V/NyBhYjIHs0jX1U+AzyC9df1FuS6JSITwfugzkLMrdm621T30gT5c8Z5DM
-	 W+qHiMbfgEVng==
-Date: Thu, 30 Jul 2026 07:09:13 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
-Cc: Frank Li <frank.li@nxp.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Hongxing Zhu <hongxing.zhu@nxp.com>
-Subject: Re: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms
- with RC power loss
-Message-ID: <20260730120913.GA1497203@bhelgaas>
+	s=k20260515; t=1785413398;
+	bh=VJ/yD7bE9ElkxiDxco8+gMprXLT5uuDnRcZMiLa4j+w=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=R9RGaN9qxG8rQzQTET92hake+Nl3JUKqqhAcY50GV11EAws3tNE7P5I1kNXxc3p96
+	 t2zdJbf6OA4LInTeZTF8WUS3gZ+YZO/CRM/c5mHWtEEahxJb4b4sbSb/t6rJ0yafGh
+	 ykgxxVE9yb2tfDidMQeaSngfT+I3IMEVIcLKaR5Mk/VC05N7lu3db/Id4QVddEjCgB
+	 ZV2htEghVIMKF04iM2AYhVyQlycoKwOU8yguD2ka0oS/g0z5roLdBZWH2tHGFnt0lT
+	 UIoBoP5mBe44nsx8i79BjmQkrA3E1ZkIpUWN4Gt8+ku3dVm53APqVE5t8UzGdFydig
+	 odYqJ/91uwwPA==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5aeb8c19017so2556553e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 05:09:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpmS5WkVTkWW8NEXHVk7IeEy5R4rxbMrOvs5xYriXOE5qwsfzIrbi8NKf44cOc7XIkCQsBdJrHFUiNdkaYNHKLX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkqZpN6PjgssVRVLYfNt80wP8OknQQcVwz9g8AK8rgK6gLPysj
+	yIXjC/47OvPuQdB6zmMPPucj4bT1eOZ2dDfMIasFlaDDxHDqg4qvH+aX/P+ozvTYRtFaep6/rbu
+	kzPqCh+rheO065OEudT6mlhWl4Da+JBPgdEJtTSSSiA==
+X-Received: by 2002:a05:6512:3195:b0:5ae:b0aa:8f07 with SMTP id
+ 2adb3069b0e04-5b2db34f39dmr592659e87.16.1785413397400; Thu, 30 Jul 2026
+ 05:09:57 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 30 Jul 2026 05:09:56 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Thu, 30 Jul 2026 05:09:56 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <fb520f00-1331-4136-8421-d82bdd46c48a@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <GV2PR04MB12019096F2A9E8337F2A1BF9F8CC92@GV2PR04MB12019.eurprd04.prod.outlook.com>
+References: <04dc047f8958a78a920f0a88ca3bd8bf70c56187.1785333986.git.chleroy@kernel.org>
+ <178539922190.574381.1359588018451529893.b4-ty@kernel.org> <fb520f00-1331-4136-8421-d82bdd46c48a@kernel.org>
+Date: Thu, 30 Jul 2026 05:09:56 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Mfj_JPQiomau+WLSzb74fiYSbMLarP56zqCDfZWcgbgqQ@mail.gmail.com>
+X-Gm-Features: AUfX_myTbYqVPzvlsNuejrqk3GuPKunBm_-wZJ0qoMrboKDcj4pxXoHQW0ErbbU
+Message-ID: <CAMRc=Mfj_JPQiomau+WLSzb74fiYSbMLarP56zqCDfZWcgbgqQ@mail.gmail.com>
+Subject: Re: [PATCH] soc: fsl: qe: properly scan GPIO nodes at startup
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>, 
+	Herve Codina <herve.codina@bootlin.com>, Paul Louvel <paul.louvel@bootlin.com>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,73 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 08:16:36AM +0000, Hongxing Zhu (OSS) wrote:
-> > -----Original Message-----
-> > From: Bjorn Helgaas <helgaas@kernel.org>
-> > Sent: Thursday, July 30, 2026 6:30 AM
-> ...
-
-> > On Fri, Jul 17, 2026 at 03:41:21PM +0800, hongxing.zhu@oss.nxp.com wrote:
-> > > From: Richard Zhu <hongxing.zhu@nxp.com>
-> > >
-> > > Some platforms like i.MX power off their PCIe RC controllers during
-> > > system suspend, requiring full re-initialization on resume. These
-> > > platforms need to enter L2 state to properly notify endpoints before
-> > > power loss.
-> > >
-> > > According to PCIe base spec r7.0, sec 5.2, the system software should
-> > > transition the device into D3Hot before broadcasting the PME_Turn_Off
-> > > message to initiate L2 entry. However, some endpoint devices fail the
-> > > D3cold capability check in pci_host_common_d3cold_possible(), which
-> > > would normally prevent L2 entry.
-> > 
-> > Wakeup devices that don't support PME from D3cold will fail the
-> > D3cold capability check, but I don't think those are the problem
-> > you're solving.
-> > 
-> You're right.
-> 
-> > This appears to handle devices that are not in D3hot, and that's
-> > not a property of the endpoint; it's a property of its driver.  Is
-> > the problem here that some driver didn't put its device in D3hot?
-> > 
-> I observed some endpoint devices failing the D3cold capability
-> check, but I haven't identified the root cause.
-
-Seems like some instrumentation in pci_host_common_d3cold_possible()
-could tell us which devices/drivers are relevant.
-
-> > > For platforms where the RC loses power during suspend, L2 entry
-> > > is essential regardless of D3cold support, as the link will be
-> > > lost anyway.  Add a suspend_poweroff flag to force L2 entry in
-> > > such cases, and enable it for i.MX PCIe controllers.
-> > >
-> > > Note: This violates the spec requirement that devices be in
-> > > D3Hot before PME_Turn_Off, but is necessary for proper operation
-> > > on platforms with RC power loss during suspend.
-> > 
-> > If the device isn't in D3hot, it may still be active, and I think
-> > the PME_Turn_Off will abort any DMAs in progress, which doesn't
-> > sound like proper operation of the endpoint.
+On Thu, 30 Jul 2026 13:15:25 +0200, Krzysztof Kozlowski <krzk@kernel.org> said:
+> On 30/07/2026 10:14, Christophe Leroy (CS GROUP) wrote:
+>>
+>> On Wed, 29 Jul 2026 16:10:36 +0200, Christophe Leroy (CS GROUP) wrote:
+>>> Before commit 156460811def ("soc: fsl: qe: Change GPIO driver to a
+>>> proper platform driver") qe_add_gpiochips() was walking the device
+>>> tree to find all nodes with compatible "fsl,mpc8323-qe-pario-bank".
+>>>
+>>> After that commit the discovery is handled by the platform core,
+>>> therefore it is necessary to call of_platform_default_populate() on
+>>> the par_io node.
+>>>
+>>> [...]
+>>
+>> Applied, thanks!
+>>
+>> [1/1] soc: fsl: qe: properly scan GPIO nodes at startup
+>>       commit: cf91e5909e620b77164b53c9b316a5c1f11f9ea7
 >
-> You're correct - this isn't ideal for endpoint operation. However,
-> on i.MX platforms, the RC controller will lose power during system
-> suspend regardless. Without sending PME_Turn_Off, endpoints would
-> have no notification before the link abruptly goes down.
+> You left very little time to respond to this - one day - and introduced
+> undocumented disallowed ABI. Please drop the patch. I will be objecting
+> to the entire pull request.
+>
 
-The PME_Turn_Off is some notification, but I don't think the endpoint
-can do DMA or MSI, so its driver won't be involved.  It may be able to
-do things internally, e.g., write caches to an SSD or transmit packets
-from its internal buffers.  But I think it might still lose power in
-the middle of operations like that, so it doesn't sound reliable.
+Hi,
 
-> This patch adds a flag to force L2 entry for such platforms,
-> choosing to notify endpoints (even if not ideal) rather than having
-> the link drop unexpectedly. I'm appreciated for suggestions if
-> there's a better approach to handle this scenario.
+Krzysztof explained to me what to watch out for in such patches. In this case
+it's about an undocumented node name which now becomes ABI. I'm of course
+retracting my R-b.
 
-Mani recently added pci_suspend_retains_context(), and I think it
-returns "true" on i.MX.  But if the RC is powered off and all the
-devices need full re-initialization on resume, it sounds like it
-*should* return "false".
+Thanks,
+Bartosz
 
