@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F21C5516E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 20:19:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2FA8C5516E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 20:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oabn4j+0fax77TiRX/c/TKcL9eo9nqglwTeuL6S0z50=; b=15dT6aX4O7o5dunBv8+bzuCGO2
-	z9sQFBIY/vDjBAqugdjm9DbG00XxDZiUVldamjRNBrY3ptQ7V1sv0G9QXDmPCpWyalA7LVmbNpSoj
-	7p5Fy3zA7MMvO6zJTloz9dFteOkZXMXrZs40Co/0uxe5hbQEwgbgW9U+oT/7LvoWjwbJafWAmxsA4
-	TnX3ALMgijLqG2OqM51JtbUTFr0ALz6oUfD/JTzKMZNnR4WkltlzshKRP5j07UrpRmDas7ZesqIqu
-	KEpQqWztI62QduLsur7y7ei21W2ueh6z7uJtia7LsTpv83FAugPpcyirYiBiR9t7wbj0dWSqQfatG
-	sxUXWJsQ==;
+	bh=D5Pxt3vkSr0XpWjuyyhisYEqhM1nqOyLS5iWyC6pYgg=; b=WF2d/NHNUCbKBZ5M3pcqKtg0Wy
+	BFK/9+g06mwMIN5kOq97+4ohQHgy6klTtBCo559YvfB7ZBv+XcdmTuOXiZh/IovFNy0f9p6bt9qg0
+	XOyn33bxCmMPhZOiSDO+tdRCaXJA9IngswHHeOTEzAqy8rabE0CMmt2aAtf3iuUnQ4FAJRrXcXx8E
+	1RjY/D8i0hrXeZ2hmBkT3kTr2FGsT76iD0NSQFSwTV8rQyROeEDUmIOtykAjVLgLBLVSXe+D9hsq/
+	3BMSkycbG46U9a+DNSMhs/gNlNh3RGL/s4Nw/nyPmXfxpO2+6BE6SYQkjQPtPMu6hbxvzSB4AkmUX
+	e3lecWAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpXE8-0000000BJhZ-3YZI;
-	Thu, 30 Jul 2026 20:19:36 +0000
+	id 1wpXEH-0000000BJlL-40KJ;
+	Thu, 30 Jul 2026 20:19:45 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpXDy-0000000BJd7-3ZAu
+	id 1wpXE7-0000000BJgb-3fWY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 20:19:28 +0000
+	Thu, 30 Jul 2026 20:19:37 +0000
 Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 2AB1C41B26;
-	Thu, 30 Jul 2026 22:19:13 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 39C3541C0E;
+	Thu, 30 Jul 2026 22:19:34 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id Q4j9SEw-Bkvx; Thu, 30 Jul 2026 22:19:12 +0200 (CEST)
+ id RlIxe6CB--oj; Thu, 30 Jul 2026 22:19:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1785442752; bh=5OosL7UAzAlw+AfOM4QcdD9qlKoevvkWJfZrS6zvBNQ=;
+	t=1785442773; bh=1pxtEPbbkPgv6h4h//+LaitoTkLz4GRWznHnxVBUQ8A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Ewe99sfkvWSZXTNSu3ln2Uho22qPWxPzZK5pkAfcK4GjyMJm7ipEuSqnlTxwhnzTV
-	 EuWrjy1SVA8+z+sSyzlP4yDXvbphbPtU7T17aANDh6s0qHmx7ACGjQuQgQCdS/5cw2
-	 pqxwUDrptkzRJnbW4D5ZAQ8STWhRT2lNqL+p1Tv8Je+ZLn6eQ69YrGesksfw/93D06
-	 cnKC/0CO0SXqo101L1CY9b/YoL1xtQABdc0RHBwFBM8D0K+nABbiWSNGwpeFnElEpw
-	 fAH9nFvNLyzta2MwW97RlFPiV4GAkYL+920fXs189RJIM7xpODQJrQm9rUEoDH6dUV
-	 bxbtlQ5ZL5xog==
+	b=h4HISSZn92Pu1IM0AEE9L4uS4U971ZTHFwAE5YxJv2cDsThm4GvQ+zONhu6Ho337s
+	 HlkTEAzOKNL5bOhL1KYzSBLRFv0kicAzNiI78KJT2JuLX3IVGH1SW9YAZuwyiWrczx
+	 qY6NEXIbbe15Vz0I2GyBcc7qQg7cU9Tj3BuQLd4nrtOlWqAbgYn9VMj3y1UfoR7l2f
+	 JkM6TWWaQjUiWV12j9n/8HBkXMRnVnnLF4cmCpBgsXrQscvznnVZK4nrcjGAYZxzb7
+	 t+eaVxS+RNI6586zLBSUqtPsmZlhT1gSEIvA/0hZT6NlPDsYfHflfLsHGO4SC3VwGB
+	 G3rmxoe806OmA==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 31 Jul 2026 01:48:35 +0530
-Subject: [PATCH v3 2/5] Input: zinitix - do not ignore non-moving fingers
+Date: Fri, 31 Jul 2026 01:48:37 +0530
+Subject: [PATCH v3 4/5] dt-bindings: input/ts/zinitix: document mode 0
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-zinitix-modes-v3-2-2c8de712997a@disroot.org>
+Message-Id: <20260731-zinitix-modes-v3-4-2c8de712997a@disroot.org>
 References: <20260731-zinitix-modes-v3-0-2c8de712997a@disroot.org>
 In-Reply-To: <20260731-zinitix-modes-v3-0-2c8de712997a@disroot.org>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
@@ -60,10 +60,11 @@ To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
+ Kaustabh Chakraborty <kauschluss@disroot.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_131927_525166_1549CCDA 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20260730_131936_057415_FD7D4F0B 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,53 +79,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the ZT7548 touchscreen present in the Galaxy J6, multitouch does not
-work reliably. This is due to the fact that the driver reports fingers
-only when their state is changed, so it's either placed against the
-screen, moved, or drawn away from the screen.
+Zinitix touchscreens support three modes, numbered 0 to 2. These modes
+differ based on their event report schema.
 
-The function which is responsible for this is zinitix_report_finger().
-This function is called from the IRQ handler, under the following
-condition:
+The devicetree schema does not mention mode 0, thus does not consider it
+as a valid state. Add it.
 
-		if (p->sub_status & SUB_BIT_EXIST)
-			zinitix_report_finger(bt541, i, p);
-
-This implies and ensures that every valid finger must have the
-SUB_BIT_EXIST flag.
-
-However, at the beginning of the function, it refuses to recognize any
-finger if it has none of SUB_BIT_UP | SUB_BIT_DOWN | SUB_BIT_MOVE. This
-excludes fingers in reports which do not move from the position since
-the previous interrupt. Add SUB_BIT_EXIST to the list of valid bits.
-
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- drivers/input/touchscreen/zinitix.c | 4 ++--
+ .../devicetree/bindings/input/touchscreen/zinitix,bt400.yaml          | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/input/touchscreen/zinitix.c b/drivers/input/touchscreen/zinitix.c
-index 3421b8ffb19b..a0a89d25e25b 100644
---- a/drivers/input/touchscreen/zinitix.c
-+++ b/drivers/input/touchscreen/zinitix.c
-@@ -406,7 +406,7 @@ static void zinitix_report_finger(struct bt541_ts_data *bt541, int slot,
- 	u16 x, y;
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/zinitix,bt400.yaml b/Documentation/devicetree/bindings/input/touchscreen/zinitix,bt400.yaml
+index f1ce837b16df..9b51212ea9b9 100644
+--- a/Documentation/devicetree/bindings/input/touchscreen/zinitix,bt400.yaml
++++ b/Documentation/devicetree/bindings/input/touchscreen/zinitix,bt400.yaml
+@@ -76,9 +76,9 @@ properties:
+   zinitix,mode:
+     description: Mode of reporting touch points. Some modes may not work
+       with a particular ts firmware for unknown reasons. Available modes are
+-      1 and 2. Mode 2 is the default and preferred.
++      0, 1, and 2. Mode 2 is the default and preferred.
+     $ref: /schemas/types.yaml#/definitions/uint32
+-    enum: [1, 2]
++    enum: [0, 1, 2]
  
- 	if (unlikely(!(p->sub_status &
--		       (SUB_BIT_UP | SUB_BIT_DOWN | SUB_BIT_MOVE)))) {
-+		       (SUB_BIT_EXIST | SUB_BIT_UP | SUB_BIT_DOWN | SUB_BIT_MOVE)))) {
- 		dev_dbg(&bt541->client->dev, "unknown finger event %#02x\n",
- 			p->sub_status);
- 		return;
-@@ -473,7 +473,7 @@ static irqreturn_t zinitix_ts_irq_handler(int irq, void *bt541_handler)
- 		const struct point_coord *p = &touch_event.point_coord[i];
- 
- 		/* Only process contacts that are actually reported */
--		if (p->sub_status & SUB_BIT_EXIST)
-+		if (p->sub_status)
- 			zinitix_report_finger(bt541, i, p);
- 	}
- 
+   linux,keycodes:
+     description:
 
 -- 
 2.54.0
