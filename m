@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A32C55172
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:27:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81537C55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:29:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V+vAmv8lTFS1JUAqW3kAUAxDA8ka/TDsoYUr0yBhGa4=; b=sBJcWJ+z6Ra+0gRtPLQRVLMySH
-	YLvRCDXkChAUubl6044Sl1sTSyhdSmoNB5iJ8iPcvMLkWHueMngUJOPCoEe5Qsp5spCMG7I9F8Ljp
-	sVx2NIWsbz8bKxM3ETmluHn7pi2ZWWBUXlb0iYAL1InTta37kLAY8uBGWziWvWcdoEJcWYQFg3zEh
-	1TvFMR1Iod+YWJR+rERbtyT5y0ifmFBoGLn6slZL7IC+Xyjnv51ar7rQylXTOQ4913SH7EnU0zMV/
-	Ul+EnWuP7VTRSM6GHUuiY+R2HvXgcmhQy0p6lCCO1vFNvdReci0uFCxy07E3OrYfDDQMtcAuzYHWM
-	UpKZuAug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PY9qEyZ/oEpVhh7Q83T+aXzwh5gGGaaNCJr1muo0Dw8=; b=N2Ge5QuHRBClHBz+9HivB6YlnJ
+	VwMJHnerrcjixQNntDc2/iQ7KTmVNx33+McQqJz6hmQ4GEXec1jNY4oN7yPBCTnr03LRS4qcJWH0N
+	w8kxkNiP+WBVEfS7Dent83ClAySy/koWxMw/y2EwPj948u6SeR6eaSXFqq5cJ9kzHKbQolnuJ3xCG
+	q3Xiwy1JOLojoerq3SdWdzi00f8v2bDqA4oC+ZcMkRTRRe5RxzFr4dMVx8qRDqW2unJmNpM0Hh3Uv
+	3KI3CDiW+oGK/r35u9n+r5AfKGvPQGuV09dLEUOgRWNPL5mb6aHuFHEJfBtUoTH6qj/SXnieFN1jb
+	OYca5bbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpa9g-0000000BV1b-39Ci;
-	Thu, 30 Jul 2026 23:27:12 +0000
-Received: from lpdvsmtp09.broadcom.com ([192.19.166.228] helo=relay.smtp-ext.broadcom.com)
+	id 1wpaBe-0000000BVDT-0RVf;
+	Thu, 30 Jul 2026 23:29:14 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpa9c-0000000BV0W-2xkp
+	id 1wpaBb-0000000BVD6-1ZEE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 23:27:12 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 2C4D2C000970;
-	Thu, 30 Jul 2026 16:27:08 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 2C4D2C000970
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1785454028;
-	bh=JUzHp1d+axrQc5biwf37xUXaO88UNr0hscqy4oY9U8c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XaTvHw4SDp0bpquhInHT9hiA9caSduealch8cFeljZX1Q967QIfuHnCLx4ZS0pWIY
-	 BLeuLjfisgpmDunwaFSqcqY+NYE7zyYQQlGPSx/DPbP0jmT0UV7FbC2NWitp97yV8a
-	 FmYpp9oigryavWqBG2e5HU9Nbbdf4mHFr56umNsQ=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 02BBEAD9;
-	Thu, 30 Jul 2026 16:27:08 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	Rosen Penev <rosenp@gmail.com>,
-	devicetree@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Hauke Mehrtens <hauke@hauke-m.de>,
-	=?iso-8859-2?q?Rafa=B3_Mi=B3ecki?= <zajec5@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"moderated list:BROADCOM BCM5301X ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] ARM: dts: BCM5301X: EA9200: add wifi definitions
-Date: Thu, 30 Jul 2026 16:27:07 -0700
-Message-ID: <20260730232707.2707061-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260727225446.267097-1-rosenp@gmail.com>
-References: <20260727225446.267097-1-rosenp@gmail.com>
+	Thu, 30 Jul 2026 23:29:12 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 15AF82E9;
+	Fri, 31 Jul 2026 01:28:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1785454082;
+	bh=TLEybU8RbQkyzN0WI44ggs/PpkN9LN5f3L7RTIkDaCE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XPDvqptmjr2Vs3Mk9GJMVmgUOmiC1ccfBBdVutsxU42TDIh9rxHX/CZiI6ue0GgJ0
+	 uwy0M/Li+lNwmJwDdtDe/DTZ72PoemcjvBKc8EWokkIvkrKYftWw0CA9BiXJHjxAa9
+	 FIUWdBS8ByjtC7YJOp7Bmy/Trp0LdilrZHD6I0xc=
+Date: Fri, 31 Jul 2026 02:29:06 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Bryan O'Donoghue <bod@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Robert Chiras <robert.chiras@nxp.com>
+Subject: Re: [PATCH v5 4/4] media: nxp: imx8-isi: Add additional 32-bit RGB
+ format support
+Message-ID: <20260730232906.GD1600813@killaraus.ideasonboard.com>
+References: <20260728-isi-v5-0-1d22ab91602a@oss.nxp.com>
+ <20260728-isi-v5-4-1d22ab91602a@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260728-isi-v5-4-1d22ab91602a@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_162710_760914_6B5BA01E 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260730_162911_587421_11FD3B7A 
+X-CRM114-Status: GOOD (  16.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,18 +79,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
+On Tue, Jul 28, 2026 at 02:58:59PM +0800, Guoniu Zhou wrote:
+> Add support for additional 32-bit RGB pixel formats (BGRA32, RGBA32,
+> BGRX32, RGBX32, ARGB2101010).
+> 
+> Formats with alpha channel (BGRA32, RGBA32) only support capture as
+> ISI ignores alpha bits when reading from memory.
+> 
+> Signed-off-by: Robert Chiras <robert.chiras@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Tested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
 
-On Mon, 27 Jul 2026 15:54:46 -0700, Rosen Penev <rosenp@gmail.com> wrote:
-> brcm,ccode-map and ieee80211-freq-limit are needed to be specified on
-> some of them for proper operation.
-> 
-> Also add an nvmem definition for the MAC addresses.
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
 > ---
+> Changes in v3:
+> - Drop M2M_OUT for ABGR32/BGRA32/RGBA32 as ISI ignores alpha bits (Laurent)
+> - Remove Android requirements from commit message as alpha formats
+>   cannot be used as M2M input (Laurent)
+> - Add Tested-by tag from Laurent Pinchart
+> 
+> Changes in v2:
+> - Add Reviewed-by tag from Frank Li
+> ---
+>  .../media/platform/nxp/imx8-isi/imx8-isi-video.c   | 51 ++++++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> index a6e044056762..f45c2aae59ce 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> @@ -166,6 +166,57 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+>  		.color_planes	= 1,
+>  		.depth		= { 32 },
+>  		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_BGRA32,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RGBA8888,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_RGBA32,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_ABGR8888,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_BGRX32,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> +				| MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_RGBX8,
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_RGBX888,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_RGBX32,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> +				| MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_XBGR888,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+> +	}, {
+> +		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
+> +		.fourcc		= V4L2_PIX_FMT_ARGB2101010,
+> +		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+> +				| MXC_ISI_VIDEO_M2M_CAP,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_A2RGB10,
+> +		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_A2RGB10,
+> +		.mem_planes	= 1,
+> +		.color_planes	= 1,
+> +		.depth		= { 32 },
+> +		.encoding	= MXC_ISI_ENC_RGB,
+>  	},
+>  	/*
+>  	 * RAW formats
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree/next, thanks!
---
-Florian
+-- 
+Regards,
+
+Laurent Pinchart
 
