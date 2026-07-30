@@ -4,97 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1531C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 15:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97227C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 15:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=slh2h9i6LmNp2WolpBB5Yw2Tk8/zNA233qAcOw9cOEU=; b=qYMeCfDEtM9KCGsKKoqpXOoebc
-	Io3dcvMR6ZPb7PAr89s3gKWpdnTKRdFx0wpC+JtGwIWGAlfy66wpOWTGN02VwrrahxKScuvABFkB/
-	u6SjZ13MyeTotEWy2G7QAI1LljXAp+d3WU21V5Jfl+KGiF+GUKt0mnWGicOyAsM5DtLppdg2d6mpQ
-	kjzqClzGcNg5xyI8qEkrU1RZoZ4UuLGXs8jzbTvYt0G7asurjLHbw3KoZOSLiSLqGbG3H/NC7yPvg
-	Ver9R95E7yy33LRkpgRIgrsBdBDZx5Z5qmu38C4r4fiJe4Ff4+eORTIyfMyedrG58z1c+OueuQr0j
-	Vnd46T2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3PHCFlOVYT5AkdAAS5RinGtErzFxHqclGA9MbwMBhMg=; b=PDAQY9B60Y228DeTPlKU1gTt74
+	3pPGgSJv9N2aAFKZ6hC1+g83qnbq+3flpXBFdxiP541XMR7Yz77he4he5mNlBkBl6ryvnz2sj5sS3
+	sI3+mOlz7umRK6oamdqTi2W4s7XpPiP4h+3CvvmSWrrXRB2Ds9Z+IRSy2AVb6XpZjuRn1g2TL74IE
+	+EYyfF88OqK4xGaF/RDBj1tGWm7vcrI4epGROxDfPTHF/ysB/d6JP4OcwNQgOY6y29n6LR/rXyDTL
+	TojAgiRqj0K7t//JC+Mz846KwAVPpLfwWkEdQs7sgxIJMqrYah/qZulAMJgwGIlxRfmYKrdwzHV5b
+	Xg03p4vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpT1j-0000000AsvH-0TyL;
-	Thu, 30 Jul 2026 15:50:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wpT8F-0000000Atds-2DSm;
+	Thu, 30 Jul 2026 15:57:15 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.48])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpT1Z-0000000Assl-1Wrr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 15:50:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF07C43364;
-	Thu, 30 Jul 2026 15:50:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF7501F00A3D;
-	Thu, 30 Jul 2026 15:50:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785426620;
-	bh=slh2h9i6LmNp2WolpBB5Yw2Tk8/zNA233qAcOw9cOEU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=du3CuQn5FbJjj+PuyjCv0FBKJmUIuzG4wTQztDWdjUZP9g/0obSKrgMM+2b501jZm
-	 WftRskHQri4dB7OGEH/4ukCwaJXv4MX2Kbtsyj7hnkwQVAbVewFthh9Nl21acJ3NaY
-	 0kEKtOMjaeqtAlEgt9l5c9m9vkM7UaOR/KF6yKkjrlmlWs9TO+nGnZpm+Sb1Hp/5dK
-	 1eWqZXCJY/oLFrL2pq8gVibSaaEmnx0HNkIr1NJKN525f6Z7RXXVHU8HoQJc9PmRyi
-	 +2g1pq5izPWNK7ybkmHUqIhkI6IQXhlSqiBvvmL3XdiMWkYexaA/QcRG+oiRk0mjAH
-	 HxgBYMnJJrk0A==
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 1F9B2F4008A;
-	Thu, 30 Jul 2026 11:50:19 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Thu, 30 Jul 2026 11:50:19 -0400
-X-ME-Sender: <xms:u3Jraprs1YcpCB5lPjUwCINax4JYVaiAz75uKnOK9zMJwrpPEvXVVg>
-    <xme:u3JrauwbxIU6YguaW8A75Fp02l5-I9F0-vOMdr_bGSoYcYpYZPdtlFEUJc6fDku0A
-    cU01vg9MWgZD201Ys4N41cNtze4V4PKvqhxPa0VxixBSWYmqJXCDVs>
-X-ME-Received: <xmr:u3Jrajp9Zq8wUw0_y6mYinSHTmQ98PHMwGbGksS47vuDPmcfEHnXl9iMc99sHA>
-X-ME-Proxy-Cause: dmFkZTFFxRhh5KtXZvMKng+4z/FIbdoeZvQuEFFHsoNeHQ+UNAcs3VBtxuRHLSDm37bIOn
-    oUuzCNuNSwrs7M3kDoMbUWv+JBMVKNQUBaHC/EV1u4MGvMVIdDMskyKWqDAeZEr5Fpvt1z
-    JonHD4tHPtT0T76ZjAKAxEDO6ycApw5+Kb35yY4OD+zCcJh8JxYFoxWZ7dqcw3RNMTjGxS
-    1HoztlSoTAMW8OF+c70eYl8eih37WQriL9x51T+OB5tx485FCEtTtfe6HXB/R5eNgrDOOK
-    BFY0X/K69HagfQ2jACUpCOUig+0JKtQXkbcQnkKMxa9iVfntYF4tTR1rMQ7SBHZadmZcFU
-    MaeJsLoxLRmyvtLIZPjxfzlUGxdCd3AOeCw6qHCbpaOI1Cen20GIX8GMfzfs0zt5eslK1X
-    Gclm0SvSCO9I4e0wNCMeF3MS21A5AXTyNq64AA4i4KeUYmElqxdzyCSGNAJ51xudbewmxU
-    exqtc+JkaLp8bhf/sngPQ1RUXKiwZ5ntIFb1agf2D4oOektTs/ApHVeVnXsDOeYKoSXVXi
-    SM/qSSJJihHLXHT6ngL9a85GwVKNmerGgojVh8HJJYnKr5gDmbz4L1Cp0GDjUM+jDPcTEM
-    1vX97HCgyFQS3PBeqIXIHsQQ7l+p2bMT9OxzLCUXwaR7C+Nv58Oxtm2QmFlQ
-X-ME-Proxy: <xmx:u3Jrapfsv4-L3EJE154XshdLHvpRYpfXIEBkM03d0HuYz1KMi68zhw>
-    <xmx:u3JraniUWOuHeki1e6gaV4FtEU1pHXAR2ToLY1TNICxJKML_mw7bcg>
-    <xmx:u3JraqLqRbY4zuH73EUBAGkL-KPuNCRdwGX_pNTSfbYbkXjGsXmchQ>
-    <xmx:u3JratkkHACdy_TDL5_fjO1rGuxgWtmNYWL9hz-CiK33xFY0M44cxw>
-    <xmx:u3JrauQ7u0vqEjBtLiwiFIzulinzWrHpf3-s-Vp2kGfRKGlZVeOyUrRU>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 30 Jul 2026 11:50:18 -0400 (EDT)
-Date: Thu, 30 Jul 2026 16:50:17 +0100
-From: Kiryl Shutsemau <kas@kernel.org>
-To: Doug Anderson <dianders@chromium.org>
-Cc: Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, James Morse <james.morse@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Petr Mladek <pmladek@suse.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>, 
-	Julien Thierry <julien.thierry.kdev@gmail.com>, Lecopzer Chen <lecopzer@gmail.com>, 
-	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, kexec@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/4] arm64: cross-CPU NMI via SDEI
-Message-ID: <amtyQH7lzLDKE3WD@thinkstation>
-References: <cover.1782744912.git.kas@kernel.org>
- <ak_IRHwd02EjWMf8@thinkstation>
- <amYR5VWHWC1WdFXc@willie-the-truck>
- <amZRtS2Lu1epc0S4@thinkstation>
- <amiDoZdszC1pB6Z2@willie-the-truck>
- <amiayYZA2kBSTzFB@thinkstation>
- <CAD=FV=UN8+Yydm1G-afbaAfh2ZF7MzEE27UXoDOG0HFB0cwyXg@mail.gmail.com>
+	id 1wpT8C-0000000Atcj-0kGe;
+	Thu, 30 Jul 2026 15:57:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1785427028; bh=3PHCFlOVYT5AkdAAS5RinGtErzFxHqclGA9MbwMBhMg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=atIJEyIFwnCG80Vd5d+S9tell50iKk846xc2+5mFikGGJ1YXeRRmydFGS3J2JGLmq
+	 zH8Yxfz/S4kjjwleS0gLf0ohr1vD9hDjAfAF4KSbB/AEhcQvMuBsYMMWhC72PsrbTX
+	 1J8s6LN4UBINuMeLukGuu0gUCv/RejP15shbxI3Y=
+Received: from ubuntu2204.localdomain ([2409:8d20:22b:54c:9e54:40ff:fe02:3f0f])
+	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
+	id E4428204; Thu, 30 Jul 2026 23:57:04 +0800
+X-QQ-mid: xmsmtpt1785427026tu83fufjn
+Message-ID: <tencent_BFFE7E8E4D7E349F32F509B7233D01FB8808@qq.com>
+X-QQ-XMAILINFO: MqyaMAvTBNK5cFtZqOJ2p1BVoXf/6YYa4PkdIMjqWrSIk7CVkp5J40GDx7HbDf
+	 UAbTVsJRsZLEi27padVS4q1rAUQoyRMYtBZd5E2oXLVYKq/7cuyLz4LrddCxufVSlMb3c2RpseFS
+	 ylt1UMHhZhAEu8Ebd56now7Jtx97aVGucSpq7kKX6KbbrQe5KNRZcklo0JrKUNRBBuG8i3KcXNQk
+	 bRUrTAaEV7NSdhz0JoQjdxhVO2zIlQPZmDrLnycLlvGvTGQJzCPIJh6jD4LRqb2PEB7nTNocRYOk
+	 szD9THfEa2oczgpBpYWLneUzijcCicH025bfa6njKSqbbQYbUBlvqr2Vcky3ydZq8lR6C2H8G0Wk
+	 DnEgRBEF/ikXfKdy/X3a6/6D1lI73GVzdU2yAuufAGLZuZfIRoXvST4w3yNetaUVcPJqjE8uZ3B0
+	 bsaYFuByHpdxl97AQC5LFutbsIVcrnvE5oAzz1pnsHs8wuddD3nyZUoRRZsHK+ZVh8P9b4Fe6G1Z
+	 qXb4YCBxZeSDWYTuCe7O32yq5zvq5ABUC2LYQuYzPb9X3XFbO+94luF3t0ih7O3KmiKpk/ik1Inz
+	 VSmCO16ozZ7mdV3E8vqg9MVGFspvOeLM41qB1vUHerezisT5LVntf+ubB7KRV530OVLxVm82aMQx
+	 u3gLiW2W10K4VqDGzeSiR5LH7fQyqAXEQgpqjMNCJYXKfDgLBS/Oc59kllryQ0x+SNrPFLBUxQ8o
+	 IitXNOqayAd2kv/IVConsANgQr+1m9O6Mx1ibJEOsecXihAEedbyZMUKrUKw1xOf3IMEwzoXZzLC
+	 PRcdSs9SxAh3qRccG3deV/eatdRH9Cigzej8ZDAFvhTd2bwlV1DSbz283nRKsu5LqMQ7SCwiZzQR
+	 IsjJO85QV9SfMIwo9SQDs3FgPryK1DqQgrDOXvRwLWKmGtSljWSkxnRUPFe6kr3ywdsnHcRtby7u
+	 KMXDEjgsgwChTiMe2Hzr+rEk2e1bTYxG6le1Js8XA/Hxl19dnSCINWXz5OJdMEI8Op4wga/dK7PD
+	 KUutjNtIEuPD+qSWbr17xHV4PVM1gC8ReaYSiB9ohTyol4J4H7st1x57xLCS4/xoPhqIQsiE38tr
+	 CfeJ4d5l9QPSoVAA1/QtnOUpw0lXHAa+ARiTyJjYqEoGjjL+X6fsDwl4vPVumoesaRiHp0FgBAqs
+	 wHQIqOkoTqz1248jI4WDOy/7ukWjwriY9xITRCgtzcFf3leXp5z2PsREqAN0Bz8Ap0HKodN3mSLo
+	 5cDQ==
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+From: Cunhao Lu <1579567540@qq.com>
+Date: Thu, 30 Jul 2026 23:50:41 +0800
+Subject: [PATCH v4 1/3] can: rockchip_canfd: prevent TX stall on echo skb
+ failure
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAD=FV=UN8+Yydm1G-afbaAfh2ZF7MzEE27UXoDOG0HFB0cwyXg@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-OQ-MSGID: <20260730-master-v4-1-07f7952f761d@qq.com>
+References: <20260730-master-v4-0-07f7952f761d@qq.com>
+In-Reply-To: <20260730-master-v4-0-07f7952f761d@qq.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol@kernel.org>, kernel@pengutronix.de, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ stable@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_085712_536656_299859DF 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,31 +90,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 02:37:37PM -0700, Doug Anderson wrote:
-> Hi,
-> 
-> On Tue, Jul 28, 2026 at 5:18 AM Kiryl Shutsemau <kas@kernel.org> wrote:
-> >
-> > The piece that isn't boot-time yet is the hardlockup detector that drives
-> > all this. perf and buddy are mutually exclusive at compile time. We want
-> > to use perf watchdog for FEAT_NMI while SDEI needs buddy.
-> 
-> FWIW: can I ask why? You're worried about the "all CPUs lock up at the
-> same time" problem? I am aware of some work towards solving that (even
-> with buddy) by letting the hardware watchdog driver's "bark" interrupt
-> run at NMI-level (or pseudo-NMI-level). With that change, I'm not
-> aware of any benefits of the "perf" detector over the buddy one. 
+rkcanfd_start_xmit() advances tx_head and requests transmission even when
+can_put_echo_skb() fails. This creates a pending TX entry without the echo
+skb that the RXSTX completion path needs to match the self-received frame.
+The entry cannot be completed, and the netdev TX queue can remain stopped
+after the two-entry software FIFO fills.
 
-Honestly, no strong reason. I flagged perf mostly as "the detector you'd
-reach for once NMIs are back", not from a concrete need.
+Do not advance tx_head or request transmission if the echo skb cannot be
+installed, and account the frame as dropped.
 
-The all-CPUs-wedge-at-once case is the only gap I was vaguely worried
-about, since there's no live buddy left to notice it. If the NMI-level
-bark work you mention closes that for buddy, then I don't see a reason to
-want perf at all -- and as you say, buddy is cheaper.
+This depends on the standalone can_put_echo_skb() ownership fix. It makes
+the remaining -EINVAL path consume the skb and was posted at:
 
-Buddy everywhere would be strictly better for us.
+Link: https://lore.kernel.org/linux-can/tencent_944DADCC4B42C8484EC01DA2B15F42132906@qq.com
+Fixes: b6661d73290c ("can: rockchip_canfd: add TX PATH")
+Cc: stable@vger.kernel.org
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+Changes in v4:
+- Split the can_put_echo_skb() ownership fix into a standalone patch.
+- Rely on the standalone patch for error-path skb ownership.
+- Drop the redundant error message from rkcanfd_start_xmit().
+---
+ drivers/net/can/rockchip/rockchip_canfd-tx.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+index 12200dcfd338..b1954b72560c 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+@@ -125,8 +125,11 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ 
+ 	frame_len = can_skb_get_frame_len(skb);
+ 	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
+-	if (!err)
+-		netdev_sent_queue(priv->ndev, frame_len);
++	if (err) {
++		ndev->stats.tx_dropped++;
++		return NETDEV_TX_OK;
++	}
++	netdev_sent_queue(priv->ndev, frame_len);
+ 
+ 	WRITE_ONCE(priv->tx_head, priv->tx_head + 1);
+ 
 
 -- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+2.34.1
+
 
