@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01379C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9593C54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZWjh26X8GUvxqy5FL5PAIbouaQ0ap31b7UOammsriX4=; b=uUNDdHjWO2bZNivd7D0igu4JQ2
-	aaXFyJOXyLSUMcLA8FKz7OPI9YthBJZcGneupsjwg9tJzoeDqxNmlgeZdjSJu2eXLVb5JJU5gw7Qi
-	/EjgqAM1pQbXpUSs9gkp4Pv9DgXraC2GmKINE9YC6EI56qQv5W4JARH/WAYp8osy2JvBB1xRojohh
-	cWx1oOIyUPJp5w7L8fEn+HxOKbg8ofG7VCXSKI0tR7k3BTs2pDPQoJ/Vtfbuw4fECtYR5MF1yYQtv
-	5QZcB4CqvnHgi8E9H2yIMtlKDIcE1wNmNWd44/Ilcz72C3/KPoizhoIkQQrB4XrEOfhHwyTbgoJrM
-	pf3of+Bg==;
+	bh=9FGPMfL7PH9eP+Zge0qWj9bUTToHMTTfVsVr7USZH/s=; b=ObunDhH7/JiZmWY2m20HLctxit
+	lCp63y6oKH5JpBx4wof1mSShrAueru71aax33iiK4JMIMPULsRbVS6Q0WMiFFKIyqPkMH3oa74x5j
+	qnwAMo78HhkprZy9eV/+5oD+sHK8Tf6S6bIHtYbbvvvWxncBpM0XmrIR7sxmOsXmXdjx6/lda5Je+
+	oqaxNhp+029SBXb18n9qQGM2KMzBzf9VcfxbOO/dUIGN7QvNUvr4Hc7MUUlTcQSbR/NPb4GHxRgpw
+	9eygNbApW9scuX+5Vs/FXYIXt4gXwhyM9ZFzJbmelWsDR3qnROQOO6KIxR5tGyR0RYM/t2wPgfmG0
+	mbvdzeOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpM0h-00000009q8P-2xVm;
-	Thu, 30 Jul 2026 08:20:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpM0e-00000009q7b-1TCT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 08:20:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 073551684;
-	Thu, 30 Jul 2026 01:20:51 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C96CB3F86F;
-	Thu, 30 Jul 2026 01:20:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785399655; bh=gjMRVfef1r4KhAEKV+k1umJxEPmgMMO1pW4mplg8FBU=;
+	id 1wpM30-00000009qVs-1Hnt;
+	Thu, 30 Jul 2026 08:23:22 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpM2x-00000009qTU-12QU;
+	Thu, 30 Jul 2026 08:23:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785399796;
+	bh=nGG9LtH3M3n5b0i0af5jANNTuqeyC/oMM6qwL7FI4is=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AiYTkj1T3SFCOBI7G0897c9RQPdqjZKJfYQXsp0rMC8Qn6/0oZz9bPc/O4Hsd+MNn
-	 qCaFLu1feAyj1qenpNSEfBBUBVUk92IvMRjAWrt+SpumIKsWgckK44zZdXm/fCQwUJ
-	 fs+jq04f3Fqgsx3BXzZqT9XPshEX/hyx+pjl6X2w=
-Message-ID: <1d600f7c-4654-4b93-b4a3-8e76730d8151@arm.com>
-Date: Thu, 30 Jul 2026 09:20:51 +0100
+	b=ZW6guvuf0Pa3TUqsqHD9xIFIOpIlto1dDyerDBo6lTaEhwwdvi3LD0+5lvtlreb8M
+	 VIAoCsoxmGsXWft6YSdWbbH6PaZNyik2FW7oRay0RyF+E/LPUqBxTHtjVud2Lyn3ly
+	 euUSLv12apRjBS4xsG3usTiSwDSaJh0zb7fdu2dKdzk64sB9D7IPUiT9L3PYE0EOa6
+	 aVCy2fMLpKnCJaBeM0fjITlZCtR46VEQpIgXok9m64rxQny0Xl7lC3dRtinz3CSnPx
+	 E+dKdt5ZnKT1xHshwWY55CWE0mk/KLYMpyGHCnWGuwRk95lu2RxztStHiu8KaCVeSQ
+	 JIyuAU1eP7FTg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 555DE17E001F;
+	Thu, 30 Jul 2026 10:23:15 +0200 (CEST)
+Message-ID: <36f2775a-d332-4913-8e9e-ca0429c3f713@collabora.com>
+Date: Thu, 30 Jul 2026 10:23:14 +0200
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v5 03/10] arm_mpam: propagate MSC access errors for MBWU
- counters
-To: Lee Trager <lee@trager.us>, Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260729134124.2506269-1-andre.przywara@arm.com>
- <20260729134124.2506269-4-andre.przywara@arm.com>
- <2228a2be-96b1-4c8a-9786-6ba07fd302c0@trager.us>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/5] powervr: MT8173 GPU support
+To: Chen-Yu Tsai <wenst@chromium.org>, Brian Masney <bmasney@redhat.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Alessio Belle <alessio.belle@imgtec.com>,
+ Luigi Santivetti <luigi.santivetti@imgtec.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ YoungJoon Lee <getfeus@gmail.com>
+References: <20260728091804.382753-1-wenst@chromium.org>
+ <amiqKRkFItYwD6oL@redhat.com>
+ <CAGb2v64zUO-azpTuei6LCypad2noGFbg+EmaBC1iidoZ2stQzw@mail.gmail.com>
+ <c1048eae-72c5-4e2e-ac49-25e2c4297018@collabora.com>
+ <CAGXv+5EgGYFVt4TJCysQgRqA1J5=Qz9c0oWY5YTxgc5PnNC_AQ@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <2228a2be-96b1-4c8a-9786-6ba07fd302c0@trager.us>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <CAGXv+5EgGYFVt4TJCysQgRqA1J5=Qz9c0oWY5YTxgc5PnNC_AQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_012056_554262_13A0D77F 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20260730_012319_450287_5A531F13 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,58 +87,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lee,
-
-On 7/30/26 02:33, Lee Trager wrote:
-> On 7/29/26 6:41 AM, Andre Przywara wrote:
+On 7/30/26 06:51, Chen-Yu Tsai wrote:
+> On Tue, Jul 28, 2026 at 10:33 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+>>
+>> On 7/28/26 15:13, Chen-Yu Tsai wrote:
+>>> On Tue, Jul 28, 2026 at 9:10 PM Brian Masney <bmasney@redhat.com> wrote:
+>>>>
+>>>> Hi Chen-Yu,
+>>>>
+>>>> On Tue, Jul 28, 2026 at 05:17:58PM +0800, Chen-Yu Tsai wrote:
+>>>>> Hi everyone,
+>>>>>
+>>>>> This is v4 of my MT8173 PowerVR GPU support series.
+>>>>>
+>>>>> This time around Mesa was ready for basic testing, using both vulkanmark
+>>>>> and glmark2-es2-drm (with Zink). Details below.
+>>>>>
+>>>>> Changes since v3 (all in the clk driver patch):
+>>>>> - Changed pm_runtime_put() to pm_runtime_put_sync()
+>>>>> - Added missing of_node_put() in remove function
+>>>>>
+>>>>> Changes since v2 (all in the clk driver patch):
+>>>>> - Made COMMON_CLK_MT8173_MFGTOP depend on PM
+>>>>>     - Needed since the driver implements PM domains using the generic PM
+>>>>>       domain library, which also depends on PM
+>>>>>     - Fixes build breakage (kernel test robot)
+>>>>> - Fixed "RST_DELAY_CNT" name (Brian)
+>>>>> - Dropped unused mfg_desc (Brian)
+>>>>> - Added check of clk_prepare_enable()'s return value in
+>>>>>     clk_mt8173_mfgtop_power_on() (Brian)
+>>>>> - Saved error value for return in IS_ERR(data->clk_26m) branch
+>>>>>     (Dan Carpenter / kernel test robot w/ smatch)
+>>>>>
+>>>>> Changes since v1:
+>>>>> - Adapted to changed DT bindings
+>>>>> - Dropped driver change
+>>>>> - Use same power domain for "a" and "b" GPU power domains
+>>>>>
+>>>>>
+>>>>> This series enables the PowerVR GPU found in the MT8173 SoC, found in
+>>>>> some Chromebooks.
+>>>>
+>>>> I'm making a pull for Stephen for the clk changes. Should patches 1,2,4
+>>>> go through the clk tree? Patches 3,5 go through the DRM tree?
+>>>
+>>> Only patches 1 and 2 should go through the clock tree.
+>>>
+>>> Patch 3, 4, 5 can all go through the soc tree if Angelo wants to pick up
+>>> DT binding patches. Otherwise I can push patch 3 through drm-misc.
+>>>
+>>
+>> Not sure if I can really take the DRM bindings patch through soc.
+>>
+>> I will take the devicetree ones exactly right now, even though it's going to
+>> give warnings.
 > 
->> @@ -1767,6 +1781,7 @@ static int mpam_save_mbwu_state(void *arg)
->>   {
->>       int i;
->>       u64 val;
->> +    int ret;
->>       struct mon_cfg *cfg;
->>       u32 cur_flt, cur_ctl, mon_sel;
->>       struct mpam_msc_ris *ris = arg;
->> @@ -1777,7 +1792,8 @@ static int mpam_save_mbwu_state(void *arg)
->>           mbwu_state = &ris->mbwu_state[i];
->>           cfg = &mbwu_state->cfg;
->>   -        if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
->> +        ACQUIRE(mon_sel_lock, guard)(msc);
->> +        if (ACQUIRE_ERR(mon_sel_lock, &guard))
->>               return -EIO;
->>             mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
->> @@ -1788,7 +1804,9 @@ static int mpam_save_mbwu_state(void *arg)
->>           mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
->>             if (mpam_ris_has_mbwu_long_counter(ris)) {
->> -            val = mpam_msc_read_mbwu_l(msc);
->> +            ret = mpam_msc_read_mbwu_l(msc, &val);
->> +            if (ret)
->> +                return ret;
->>               mpam_msc_zero_mbwu_l(msc);
->>           } else {
->>               u32 val32;
-> I think checking for (val & MSMON____L_NRDRY) is still required before updating the saved state.
-> mpam_msc_read_mbw_l() can return 0 while setting val to MSMON___L_NRDY when it cannot obtain a
-> stable value. The state saving path later adds val to mbwu_state->correction, so the sentinel would
-> corrupt the saved correction. Additionally, as Ben noted during the v3 review, hardware may also set
-> the NRDY bit.
+> Apologies for missing this, but the first DT patch depends on the clk DT
+> bindings patch for the clk ID macros. This is causing build errors in
+> linux-next right now.
+> 
+> Not sure how we can fix this right now.
+> 
+> Brian, would it be possible for you to split out that patch into a
+> separate immutable branch for Angelo to merge?
+> 
+> Otherwise Angelo might need to drop the DT patches until the next cycle.
+> 
+> 
+Yeah, that's so bad.
+I'd be happy to be able to resolve this, but it's too late on my side.
 
-This is an existing issue which I address in this patch:
-https://lore.kernel.org/linux-arm-kernel/20260710115546.29644-7-ben.horgan@arm.com/
+I should've checked the DT patches more carefully, my bad: I got a bit too excited
+to finally see this PowerVR stuff working on MT8173 and going upstream.
 
-Please can you check and see if that looks good to you.
+Sadly, I have to drop the devicetree patches :-(
 
-Thanks,
-
-Ben
-
->> @@ -1804,7 +1822,6 @@ static int mpam_save_mbwu_state(void *arg)
->>           cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
->>           mbwu_state->correction += val;
->>           mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
->> -        mpam_mon_sel_unlock(msc);
->>       }
->>         return 0;
-
+Cheers,
+Angelo
 
