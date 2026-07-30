@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB27EC55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 13:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B391FC55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 13:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BlBBYwRTDRAaiDfmDKu0GwfXvFKTY8AE4ZGeeeheVu4=; b=U3RE5MwCctr8iPpgi4aHSbFdr4
-	TEMJ3th7tN8D4Z0NHwzMbJJn+bttr6GWgd6bw6uBk73P/yR/WKQhGJLyoE/Clu+ydny2hOK962OIw
-	2He6cBgCWe6Au823dsDop2MMeMcj2Fe1mHjtfyGgDhaSTJw/jSn3lARuWMMYmpFUyv67sDmZKWJ09
-	H/HKUzEwZ+R9w1XX2gzx/EhozVLICWfP71Xeu3YxQHqd16AH0avG6tTb4jcJlbSA0xrANRPCSwzB+
-	RKBNW2CFc6h0wM6zhdfYBV+4nGitjSX0cL44ED/AGNv9TavmrzgCKSb5OSQk//AV9F7rnhL8JrS3Y
-	a6WomuYw==;
+	bh=FohYicaxGeOlfyZ3ibVk2DCfjtyQCUFwI8yIJuNjv0o=; b=niMYxvw86pj/neELUbeap/Sa79
+	Q5TeqhZGS0KDc8EqMWbzxoeIsXMNUKQ63UOsNzop24/Vh0i/jtlla5IxOlPdBlLfuT5PLPJBr3vzL
+	56Wg4y4dXyuMCD1XL0mV3KNOG3QIGWbKzyrJJDLm2O0oReEymh96oibMxl2bGO8GGZ0p9uh3Is+8h
+	8KB/HPquzDqoQgIUhjWEENRbiaCUS/aEdk+K9kJBJ/uxdJboh8rnhrBM7zSuzmnT1XvsIKVshbm9Z
+	hKb3W/Lt53cE4W8T/aG5VYyI5ybPq4mcyv3b3tGQqGv1NpfRCpNs5p0VuhyelxLL4mytkCleP4aTj
+	lcgbkV2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQv8-0000000Acnv-140M;
-	Thu, 30 Jul 2026 13:35:34 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wpR0T-0000000AdXc-0BNS;
+	Thu, 30 Jul 2026 13:41:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQv5-0000000Acmi-1Vhr
+	id 1wpR0R-0000000AdX4-1vCP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 13:35:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=BlBBYwRTDRAaiDfmDKu0GwfXvFKTY8AE4ZGeeeheVu4=; b=rg9kiSct5RsdD6WKRqypNdkEGp
-	KtuI1/9rIQPhGOXgZtqcDiVXyWmAi9A5qqqZl8VRunovPlSSzj9B9K9wZmvRyYqQA/l9fg55o7BVF
-	KVCjrYNwP3tXBh0UHymSYZ8gYLTXr3HHXQF+ROdplejQU3NFpa6IXeWxeYp0usCmsX9A=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wpQuj-00F0oL-Ax; Thu, 30 Jul 2026 15:35:09 +0200
-Date: Thu, 30 Jul 2026 15:35:09 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Daniel Thompson <daniel@riscstar.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Alex Elder <elder@riscstar.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org
-Subject: Re: [PATCH] net: stmmac: Avoid freeing and re-requesting IRQ during
- XDP set prog
-Message-ID: <ad3249e5-c607-4516-bf2e-63879e168272@lunn.ch>
-References: <20260706-tc956x-stmmac-no_irq_teardown-v1-1-df009d0272bf@riscstar.com>
- <akzLgrzsw4xYmnLH@aspen.lan>
- <9f949b97-da81-4bdc-8be5-68f7883d768c@lunn.ch>
- <amtQjCV6Oi7UI97t@aspen.lan>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <amtQjCV6Oi7UI97t@aspen.lan>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_063531_423367_10C3D6B1 
-X-CRM114-Status: GOOD (  13.40  )
+	Thu, 30 Jul 2026 13:41:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 164FC401DA;
+	Thu, 30 Jul 2026 13:41:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED1DD1F000E9;
+	Thu, 30 Jul 2026 13:41:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785418863;
+	bh=FohYicaxGeOlfyZ3ibVk2DCfjtyQCUFwI8yIJuNjv0o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Jv4C9+dGyWYxy0EHZxfwZ3IkPvlhu/ZZN6hw1Ksjl6od9BLSpd/FBCm6vzWPXPavh
+	 JAqQB37MSgIwePR9B0F9DTNb+FdOkzMHkiffSk5e87VnDk1FkylJCNib5kbI5MZZF0
+	 K+3kFJnuDiUEVQjWRbUb+9aJVPbfn/VMOVEV9vORgMqPMopuA3BYTX8xSFBpp+tkvi
+	 EhX3E7WB7MP67U3T9Oz9I/c0QBGGjfrBdHlT9ZCm5BsmCcnFnzWBPVdWGhCnx/XIq3
+	 DLtQt6p8/1pfimoe8LlIDmKurt+79+ct0VmoefZ5aoYAzsJVOmhTYiSbbdvZwwqZN3
+	 ggVX19VgBuWUg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wpR0P-0000000AYAQ-0oPS;
+	Thu, 30 Jul 2026 13:41:01 +0000
+Date: Thu, 30 Jul 2026 14:41:00 +0100
+Message-ID: <86fr10d28j.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>
+Subject: Re: [PATCH v2] arm64: cpucaps: Remove stale comment about keeping capabilities sorted
+In-Reply-To: <20260730132758.26039-1-will@kernel.org>
+References: <20260730132758.26039-1-will@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, mark.rutland@arm.com, fuad.tabba@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,22 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> After review I found that moving the disable to stmmac_xdp_release()
-> does and removing the call the stmmac_init_chan() gets things most of
-> the way there. After these changes every action in stmmac_xdp_release()
-> can now be traced by to corresponding restore code in stmmac_xdp_open().
+On Thu, 30 Jul 2026 14:27:57 +0100,
+Will Deacon <will@kernel.org> wrote:
+> 
+> There is no functional requirement to keep the entries in arm64's
+> tools/cpucaps file sorted alphabetically and, in fact, they have fallen
+> out of order over time. Given that only the arm64 tree touches this file
+> and the perceived benefit of sorting was to help with conflicts, just
+> remove the stale comment and accept that we're collectively not very
+> good at the alphabet.
+> 
+> In the limited cases where a specific ordering is important, we enforce
+> it through build-time assertions (e.g. in can_use_gic_priorities()).
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
+> Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+> Reported-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
 
-Great, thanks for finding time to look at this.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-> It's not fully symmetric because activity in open does not appear in
-> reverse order compared to release. However it definitely moves things
-> in the right direction ....
+	M.
 
-We cannot expect stmmac to be fixed all at once, it has too many
-issues. Maybe we can ask developers who need to touch some code to
-spend a little bit of time to also do some fixup in that area. So we
-slowly chip away at the problems.
-
-Thanks
-	Andrew
+-- 
+Without deviation from the norm, progress is not possible.
 
