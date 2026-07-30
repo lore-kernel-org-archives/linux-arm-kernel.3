@@ -4,60 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECB0EC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:11:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DCEEC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gN9j8IWdr/SYE/d3Avtp8AdFxeIwpiKz5SDihtLLAM0=; b=FP+YWolNIJs+A040SLKcT81FJY
-	5fWkmufBcurRHd8VnD2EiWXI5ruEI5ikWhkIttxJ7EZb/gTNi89a+TE+M0uZUse4ByWNR7GBs8zjU
-	RJuDbU36BYfxKke5L3n7U9zJwy7bUwAW8O0bXyaoBJgmCWSk5yKOB2um0zPEQoukadAZ4ATIQ0VNi
-	NmDvKvHe7nnElkNkEjRkAdq35eglHDbuj8OUHmYRF7f+3DSMUejzONa3hZWslOa+sKEvbwMmpElB/
-	4O4XN2468Fe6qZTkdn/7K6WToAIYWxoPuowQmNOm6w6AujyILvrpDlQ+AzAt9gXLbIl4YZd5gWZle
-	k9LP/nhg==;
+	bh=Ge1PBz0wXpq4aPLUUpnd6MnL97CGxs/2RXf5mdX8sik=; b=k9M4In8deuG2IabLcEn24VpuEW
+	NlPasZtiL+MMQlbgNkgvFP0Yt5BiVz//kB0rd8v6kkanRhhJEX+Y2lK8dHPUT9kjw6694f7fKoQW1
+	42QHhoj1ADGsX/+URXOv+9TSwfjWzepMaPfEUffCtOolOhxy2fhsYFXn1UfQudR66LOiifsK8xepo
+	avzXthHjX8JhoasBDAn5ReK09tlL81skrfUHjcrSefNaIG2oB7AJ7iwDNFns4SHBpecvJA3nv2w5M
+	BaTz5vqlxUkToLEx5xdXr/Eh0IiSK+sP5UBisTJFnBEW6JWW1h3FyUsyl0mtxwLjzFtfxjyy+IhBa
+	bo+NW2cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpLra-00000009otj-2jmT;
-	Thu, 30 Jul 2026 08:11:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wpLsQ-00000009p3G-3Sx5;
+	Thu, 30 Jul 2026 08:12:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpLrZ-00000009otM-2xyi
+	id 1wpLsP-00000009p2h-10db
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 08:11:33 +0000
+	Thu, 30 Jul 2026 08:12:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2D8FC600B1;
-	Thu, 30 Jul 2026 08:11:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 31A401F000E9;
-	Thu, 30 Jul 2026 08:11:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9DE3343D51;
+	Thu, 30 Jul 2026 08:12:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBA0A1F000E9;
+	Thu, 30 Jul 2026 08:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785399092;
-	bh=gN9j8IWdr/SYE/d3Avtp8AdFxeIwpiKz5SDihtLLAM0=;
+	s=k20260515; t=1785399144;
+	bh=Ge1PBz0wXpq4aPLUUpnd6MnL97CGxs/2RXf5mdX8sik=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=BsYVOZ/67qQbI6QKDC+hPmUtZcXQuauzsBmkdDFYlqLb7vCKYOVxrZuTUgLuiabJK
-	 PKPTCkfe3h7I2qe40fki/Ag2Wwh8RBx5pq+WNJ8QhHkkJ4CNQCSaM3jg/Mx7EzSIcX
-	 pFCSzhVlZQPyFO/Mg+GacXkKyIiwCROinNKtS841uqoCiNCl36hPKrXse65hy6oicj
-	 p+fqu/8cBSjdyUWnohOLamtEJu4WOdh4Dg3/4ueWoU/Jo/yQFpiEBdU9olgtSshego
-	 5DtPfRC9F3i2qKOhJrv3U8BLZSNYzqV3jUu108ODWchElZa+bM6ret8EiTOeh3eZLO
-	 4MPiN/rgHHmyA==
-Message-ID: <0e5628ae-886a-4a8e-8a35-6402737ad65a@kernel.org>
-Date: Thu, 30 Jul 2026 10:11:29 +0200
+	b=Bf22bg1WxcNv74or8Qqu2EsIqc6NWP2BzKojekkPFJmBq9H6D5eu/vkOywoBlTthA
+	 ycqE6SwvumTx9t5Y4/2QsaX4i2DwVy2H5xxXsdYquPO/Q+XJgdI8YhHzYNOcz+MaPs
+	 jMPnpGrYEWMTy/IE3DZiqTDvqWwLqtwoaOHQEE6o3iyx7pPBEepc0eaf6MNedxYMbO
+	 hX2T8TanvUN2Unlu+Bp5C9RAKKL0LYnoSHzrBeqGl/lIOxC7c7WNRlXrYiH6S0UcHg
+	 jbUm3jlCnp0/C2quaqNsklp7pEMvOABsjyqcKW3efwORCI6PTlijq6TiDsO2EgEW3e
+	 Rv1AyXw2QmrOQ==
+Message-ID: <ed8ca066-bb8b-4476-be96-37a2b6e022ab@kernel.org>
+Date: Thu, 30 Jul 2026 10:12:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qe: properly scan GPIO nodes at startup
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
- Paul Louvel <paul.louvel@bootlin.com>
-References: <04dc047f8958a78a920f0a88ca3bd8bf70c56187.1785333986.git.chleroy@kernel.org>
- <20260729172156.4371a8bc@bootlin.com>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20260729172156.4371a8bc@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 1/2] dt-bindings: media: add axiado,ax3000-video
+To: Tzu-Hao Wei <twei@axiado.com>, Shubhangini G <shubhangini@axiado.com>,
+ Prasad Bolisetty <pbolisetty@axiado.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Karthikeyan Mitran <kmitran@axiado.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org
+References: <20260730-ax3000-display-driver-v1-0-4fbd4d0c85d3@axiado.com>
+ <20260730-ax3000-display-driver-v1-1-4fbd4d0c85d3@axiado.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260730-ax3000-display-driver-v1-1-4fbd4d0c85d3@axiado.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,84 +119,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Hervé,
+On 30/07/2026 09:26, Tzu-Hao Wei wrote:
+> Add a Device Tree binding for the Axiado AX3000 and AX3005 video
+> capture path. There is no local register interface to describe: frames
+> arrive asynchronously into a reserved memory region written by the
+> host's display engine over PCIe, and this node only identifies that
+> region.
+> 
+> memory-region accepts an optional second entry for a host-written
+> control mailbox, letting the driver detect the mode the host is
+> actually driving instead of only echoing back the configured capture
+> format.
+> 
+> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
+> ---
+>  .../bindings/media/axiado,ax3000-video.yaml        | 44 ++++++++++++++++++++++
+>  MAINTAINERS                                        |  8 ++++
+>  2 files changed, 52 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/axiado,ax3000-video.yaml b/Documentation/devicetree/bindings/media/axiado,ax3000-video.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..c6d8d1843aac9f42869ff90a550b92d0bed7c16f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/axiado,ax3000-video.yaml
+> @@ -0,0 +1,44 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/axiado,ax3000-video.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Axiado AX3000 Video Controller
+> +
+> +maintainers:
+> +  - Shubhangini G <shubhangini@axiado.com>
+> +  - Tzu-Hao Wei <twei@axiado.com>
+> +  - Prasad Bolisetty <pbolisetty@axiado.com>
+> +
+> +description:
+> +  Axiado AX3000 video capture controller. Reads frames written by the
+> +  display engine into a shared reserved memory region and exposes them
+> +  as a V4L2 capture device.
 
-Le 29/07/2026 à 17:21, Herve Codina a écrit :
-> Hi Christophe,
-> 
-> On Wed, 29 Jul 2026 16:10:36 +0200
-> "Christophe Leroy (CS GROUP)" <chleroy@kernel.org> wrote:
-> 
->> Before commit 156460811def ("soc: fsl: qe: Change GPIO driver to a
->> proper platform driver") qe_add_gpiochips() was walking the device
->> tree to find all nodes with compatible "fsl,mpc8323-qe-pario-bank".
->>
->> After that commit the discovery is handled by the platform core,
->> therefore it is necessary to call of_platform_default_populate() on
->> the par_io node.
->>
->> Fixes: 156460811def ("soc: fsl: qe: Change GPIO driver to a proper platform driver")
->> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
->> ---
->>   drivers/soc/fsl/qe/qe_io.c | 15 +++++++++++++++
->>   1 file changed, 15 insertions(+)
->>
->> diff --git a/drivers/soc/fsl/qe/qe_io.c b/drivers/soc/fsl/qe/qe_io.c
->> index a5e2d0e5ab51..02ca556c8db0 100644
->> --- a/drivers/soc/fsl/qe/qe_io.c
->> +++ b/drivers/soc/fsl/qe/qe_io.c
->> @@ -15,6 +15,7 @@
->>   #include <linux/errno.h>
->>   #include <linux/module.h>
->>   #include <linux/ioport.h>
->> +#include <linux/of_platform.h>
->>   
->>   #include <asm/io.h>
->>   #include <soc/fsl/qe/qe.h>
->> @@ -184,3 +185,17 @@ int par_io_of_config(struct device_node *np)
->>   	return 0;
->>   }
->>   EXPORT_SYMBOL(par_io_of_config);
->> +
->> +static int __init par_io_populate(void)
->> +{
->> +	struct device_node *np = of_find_node_by_name(NULL, "par_io");
->> +
->> +	if (!np)
->> +		return 0;
->> +
->> +	of_platform_default_populate(np, NULL, NULL);
->> +	of_node_put(np);
->> +
->> +	return 0;
->> +}
->> +arch_initcall(par_io_populate);
-> 
-> 
-> The par_io node is a sub-node of the soc@xxx node.
-> The soc@xxx node is simple-bus compatible. This child node should be
-> populated.
-> 
-> Why do we need this additional of_platform_default_populate?
-> 
-> Also par_io node has a compatible. Maybe the related driver should call
-> of_platform_populate() to populate children of par_io if needed. If this
-> driver is missing, maybe it should be created.
-> 
-> Do I miss something?
+This is really incomplete. You need at least way to power things on,
+reset them, provide clocks, sensors, data paths. Or at the very minimal:
+START capturing the frames after configuring the resolution.
 
-As discussed together off-line, at the time being the par_io driver is 
-not a platform driver. par_io_init() is called from setup_arch() by some 
-board setups.
+It seems you described driver or just a piece of entire video pipeline.
 
-In order to fix the regression, I keep it minimal with an 
-arch_initcall() function which is equivalent to what we had before 
-changing this driver to a platform driver. It will also ease applying 
-the fix to stable without too much churn.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - const: axiado,ax3000-video
+> +      - items:
+> +          - const: axiado,ax3005-video
+> +          - const: axiado,ax3000-video
+> +
+> +  memory-region:
+> +    minItems: 1
+> +    items:
+> +      - description: video frame buffer, shared with the display engine
+> +      - description: optional control mailbox, shared with the host
 
-It will still be possible to rework par_io driver in a follow-up patch 
-and change it to a propoer platform driver.
+Why is it optional?
 
-Christophe
-
+Best regards,
+Krzysztof
 
