@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0BB2C54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6740EC54FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BtGBUghZ3NVIAEOKhEMfE4OWjyrtG5sqoDoPPz9NCKI=; b=bbhOQJng76e+5KKttyAdJpR6EP
-	zFb16q7DdW8JQa3hO7x+Wx2gkEyAh8oyuuretgG8mxrH6cbNNcDpgDzxWRwIwN5t7Xvn4uYWG/g10
-	HYDKZ1uj0Oq7Vjp0VVSDxDVgObDdcx7Bx6rAC0CcN4SJcZojJ34UoZSBCcv6e1XbEte3sbHO6JBuW
-	BlPJ19zGg3DHMBy90oPefh7dIilVX5rOKOMN3YeGQitUSzZ/rK8ohZ/2M8bNo0pDbKplbiN/hiLiw
-	swQYK+fu81qDu1psv44m40jMiIco8JdZ7wV5GhbVeACNUdII/n+7RpkcVXuo9uuCLa7OPtOVSl/uk
-	N5C00qGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h8Ig4gIXtYgwzGQ5I1LRNr2VPU7co1Asg23QpE3nNo4=; b=TNc8PES3FCAgVXNsiYdcJeEVQm
+	WDgtNoZLNd+YKnp6415DsB9dYxj0rYneunaX+BVSaOhilz99oNac03M5W5I3HET0/yeWfXVIunRQp
+	BKnByj5kNqLNoduMKumv2o6v/FJPjLao5aOmhzbtzNXTzcUrvoL7AZM2MadmH8PIjjPgUdrYDu9GM
+	dIII+P8bOO3O5yTJ0yw4FEHUb87D6e/i0ieqgFJXyM/HsReII4rxwiten+q2DRY658YqKV5w+owP5
+	WHglsXpSxlvHV7EZrc0mJ6xOawOfH96f3sbdUhc/PEXZdS5h3I3JMzlCzgB8pPgZCSssAL+lm6iqM
+	+7QBSXDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpN4s-0000000A0kw-17h3;
-	Thu, 30 Jul 2026 09:29:22 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wpN5k-0000000A12W-2lsG;
+	Thu, 30 Jul 2026 09:30:17 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpN4o-0000000A0id-3bhJ
+	id 1wpN5h-0000000A11T-2ISb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 09:29:20 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 2C50B4E41001;
-	Thu, 30 Jul 2026 09:29:14 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E530A602B8;
-	Thu, 30 Jul 2026 09:29:13 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 074B311C15912;
-	Thu, 30 Jul 2026 11:29:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1785403749; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=BtGBUghZ3NVIAEOKhEMfE4OWjyrtG5sqoDoPPz9NCKI=;
-	b=lHRpTryOpV8JKVIpccrVl2dKXfsUls7y1AdqNdu+lbrNBdtrNAs6PeL/OlQ7OxIRNx/Dwq
-	hSoYbDY+ObMspxRJIPdg8y+9840xOr+OvewITwTLqWvJiKVwz/+Rz1NEwWP73Z4KURSzox
-	b96T/fWI9sr1mMgS3MSzmKgVti/5PCxnIx0VFJnocoufsgrdaz7JheIudlYyWGmAkwGPLQ
-	lAFLyag3CjNETsoxAIiqN3q4P9aW38M37y8u1eMIoEUu/IZ5vAc9dJek1a3w0ujpookQaW
-	PGFESeP4ZrCZLJ3/Q0kfpee/sk2QAcVYqbaTlIq9/TFvZRx5FyzfGFEC7H5qHA==
-Date: Thu, 30 Jul 2026 11:29:05 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>, Paul
- Louvel <paul.louvel@bootlin.com>
-Subject: Re: [PATCH] soc: fsl: qe: properly scan GPIO nodes at startup
-Message-ID: <20260730112905.23a4b2f2@bootlin.com>
-In-Reply-To: <0e5628ae-886a-4a8e-8a35-6402737ad65a@kernel.org>
-References: <04dc047f8958a78a920f0a88ca3bd8bf70c56187.1785333986.git.chleroy@kernel.org>
-	<20260729172156.4371a8bc@bootlin.com>
-	<0e5628ae-886a-4a8e-8a35-6402737ad65a@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Thu, 30 Jul 2026 09:30:14 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-69fec8b4638so10299a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 02:30:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785403811; x=1786008611; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=h8Ig4gIXtYgwzGQ5I1LRNr2VPU7co1Asg23QpE3nNo4=;
+        b=LxNUzl59AdmtgmfFrJ1iD5+4IQvOXXydM2ujSg5bSBrufr1A4BX0b6VQziRXyGP5qV
+         peBixQX+jddjDonLi6PvtCYTvVzCQWJSijjBHfdbd12Vghl5ue2fv+O6ScAjr7Zk9Mfa
+         HniDY1TgXX+dB2WtXfalFgdTr+ExnC7470lYi0QMyZl3fMu+kZ2SGoQsyG11rpzhzrs3
+         GQYC0lTdFEFY3BdBHoUBSdACXmVJbVn9XzXPWPXwVOJSyPP5Mrc8NqAbDWC4rnQkbAj/
+         ysHmden04IdbBh8Ny1jUIXE2YjVUPqDOSTaRDM6qulMPXVQ9Hr+NauKW7uPnYObLrENY
+         4TSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785403811; x=1786008611;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=h8Ig4gIXtYgwzGQ5I1LRNr2VPU7co1Asg23QpE3nNo4=;
+        b=Sq4jMwjlNIZJCLIciIaKEYvB9ut3L+6ZM/tcTCSdXNl26PjNAZlx3mvg+SgGXQRr7+
+         LU+N4YJu62nR7TDnbr20dnChfd6Y3am83FC2zxGgc1wK2DSEDc1rkwgvgkZ68gYfXdDZ
+         hJJJAJmPRlxXyRlQTGFTMfb3sISh6U+NgrMehnHZcmC6ffrUVLiwpy2FGgsFV/ywUH8F
+         6KjicjIIMgXD8msIYSzxKn8h5+dAMtX5W3yLI8uF45zjvHz7iWgs2w2Cf9h2ft0wZ7QC
+         POADQqdqGDZr6XvJRvWE6Q9lOmEjTe/e32KFYhU6yJ7RJyOi7ZjSwyVMXslm3IexCEfC
+         6hcQ==
+X-Forwarded-Encrypted: i=1; AHgh+Ro5WOMcADPnKSiqMyIY0NT+9bsZVvkaH3yvpfncGpM8O3yohEsEOfg/Tjyy9lgpHrjpQX6ywGyrhinQTB76G1bN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0Iptaav/7xZCohG5Kr1FB54/B7DtVXQ5tweO/eQqeNUzAxjEf
+	YL1wIkpNk87bi8ZYmjtaQPhpRhCr+OrblON+vWX9MjLbg043ENfH6SyohFWXlHuoKPwrEcMiND4
+	eK/uBng==
+X-Gm-Gg: AR+sD121sc7q070qYFhgghu42ruQ6iMDFrUFkf8HihtfrNfV9bmOV4crX10SFsX/BVb
+	oc2iv5JC7jWA8jl4pAf4BdUWw0eSjHlnmIP7i1K2Pm4wKsX3US9Skh3KF/5/RYAeHCYS7TLFDlr
+	BddvBJRZz1Vo2NlhqIxenUNman5ISCflkQ7pai3DJIuZQJL78YXaq508pQEj7b0ejxOi79kEHpA
+	F0zpDXb1ScBYl6Ryg1d6j8PxKnD8qU9p7abXeke8V1YEUBFfUkUFR8GPOGY/UxtSyWqeNCdzydm
+	RrDPkO7G3uP5qAxNAPbOY2xoM5HGdlh1nCnx3gn6G//tZ7S5Dn7xDAlAW4Sm6Vlp4W0a8NwA8N0
+	3YHxiGfaP5ramc7UCIRlsyq+cielZyxVj7czZ1tFv8iuop1AbS+BQ+/BnnB4k9btpevfC3Rlx4U
+	296Ex4BvYZSqcQZlfiwTqDFuo/4iajSzSyaj37n10Rtb4i4vnhvazIzUo9SV44u1VpALgWpdpds
+	Tq5yQicB9IewRssVR21eAEwtKSZPQ==
+X-Received: by 2002:a05:6402:1c06:b0:6a0:6677:37f9 with SMTP id 4fb4d7f45d1cf-6a07bcc1ec8mr29106a12.1.1785403809991;
+        Thu, 30 Jul 2026 02:30:09 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a07d38318esm414754a12.19.2026.07.30.02.30.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 02:30:09 -0700 (PDT)
+Date: Thu, 30 Jul 2026 09:30:05 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Linu Cherian <linu.cherian@arm.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
+	oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com,
+	tabba@google.com, sebastianene@google.com, keirf@google.com
+Subject: Re: [RFC PATCH v2 0/2] KVM: arm64: Add support for BBM level 3
+Message-ID: <amsZnfDSfWYpM9C0@google.com>
+References: <20260723182140.4025575-1-smostafa@google.com>
+ <amrDfR-6q3xAAkTq@a079125.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amrDfR-6q3xAAkTq@a079125.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_022919_040367_324C3216 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20260730_023013_606122_B30E9A20 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,94 +106,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christophe,
+Hi Linu,
 
-On Thu, 30 Jul 2026 10:11:29 +0200
-"Christophe Leroy (CS GROUP)" <chleroy@kernel.org> wrote:
+On Thu, Jul 30, 2026 at 08:52:37AM +0530, Linu Cherian wrote:
+> Hi,
+> 
+> On Thu, Jul 23, 2026 at 06:21:38PM +0000, Mostafa Saleh wrote:
+> > This patch series adds support for BBM level 3 to KVM pgtable, it
+> > depends on [1]
+> > 
+> > Changes from v1:
+> > https://lore.kernel.org/all/20260717130901.2239134-1-smostafa@google.com/
+> > - Limit BBML3 to systems with FWB and DIC and remove race check.
+> > 
+> > Motivation
+> > ==========
+> > I have been looking into this for the context of:
+> > - Page table sharing between the host CPU stage-2 and the SMMUv3 for
+> >   protected KVM.
+> > - Use the pagtable code to populate SMMUv3 stage-2 shadowed
+> >   page table [2]
+> > 
+> > However, BBM level 3 is still useful for CPU only operations as it
+> > avoids intermediately breaking translation.
+> > 
+> > Design
+> > ======
+> > Some of the conditions that BBM level 3 will be useful in (RWHZWS):
+> > 1) A change to a PTE memory type, shareability, cacheability or OA
+> 
+> Could you please clarify how BBM level 3 is helping this particular scenario ?
+> This is supposed to be a case where break before make is required.
 
-> Hi Hervé,
-> 
-> Le 29/07/2026 à 17:21, Herve Codina a écrit :
-> > Hi Christophe,
-> > 
-> > On Wed, 29 Jul 2026 16:10:36 +0200
-> > "Christophe Leroy (CS GROUP)" <chleroy@kernel.org> wrote:
-> >   
-> >> Before commit 156460811def ("soc: fsl: qe: Change GPIO driver to a
-> >> proper platform driver") qe_add_gpiochips() was walking the device
-> >> tree to find all nodes with compatible "fsl,mpc8323-qe-pario-bank".
-> >>
-> >> After that commit the discovery is handled by the platform core,
-> >> therefore it is necessary to call of_platform_default_populate() on
-> >> the par_io node.
-> >>
-> >> Fixes: 156460811def ("soc: fsl: qe: Change GPIO driver to a proper platform driver")
-> >> Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-> >> ---
-> >>   drivers/soc/fsl/qe/qe_io.c | 15 +++++++++++++++
-> >>   1 file changed, 15 insertions(+)
-> >>
-> >> diff --git a/drivers/soc/fsl/qe/qe_io.c b/drivers/soc/fsl/qe/qe_io.c
-> >> index a5e2d0e5ab51..02ca556c8db0 100644
-> >> --- a/drivers/soc/fsl/qe/qe_io.c
-> >> +++ b/drivers/soc/fsl/qe/qe_io.c
-> >> @@ -15,6 +15,7 @@
-> >>   #include <linux/errno.h>
-> >>   #include <linux/module.h>
-> >>   #include <linux/ioport.h>
-> >> +#include <linux/of_platform.h>
-> >>   
-> >>   #include <asm/io.h>
-> >>   #include <soc/fsl/qe/qe.h>
-> >> @@ -184,3 +185,17 @@ int par_io_of_config(struct device_node *np)
-> >>   	return 0;
-> >>   }
-> >>   EXPORT_SYMBOL(par_io_of_config);
-> >> +
-> >> +static int __init par_io_populate(void)
-> >> +{
-> >> +	struct device_node *np = of_find_node_by_name(NULL, "par_io");
-> >> +
-> >> +	if (!np)
-> >> +		return 0;
-> >> +
-> >> +	of_platform_default_populate(np, NULL, NULL);
-> >> +	of_node_put(np);
-> >> +
-> >> +	return 0;
-> >> +}
-> >> +arch_initcall(par_io_populate);  
-> > 
-> > 
-> > The par_io node is a sub-node of the soc@xxx node.
-> > The soc@xxx node is simple-bus compatible. This child node should be
-> > populated.
-> > 
-> > Why do we need this additional of_platform_default_populate?
-> > 
-> > Also par_io node has a compatible. Maybe the related driver should call
-> > of_platform_populate() to populate children of par_io if needed. If this
-> > driver is missing, maybe it should be created.
-> > 
-> > Do I miss something?  
-> 
-> As discussed together off-line, at the time being the par_io driver is 
-> not a platform driver. par_io_init() is called from setup_arch() by some 
-> board setups.
-> 
-> In order to fix the regression, I keep it minimal with an 
-> arch_initcall() function which is equivalent to what we had before 
-> changing this driver to a platform driver. It will also ease applying 
-> the fix to stable without too much churn.
-> 
-> It will still be possible to rework par_io driver in a follow-up patch 
-> and change it to a propoer platform driver.
-> 
+Right, I initially misinterpreted the rule.
+However, AFAIK, KVM does not rely on those, I added a comment based
+on Oliver feedback in the last version.
 
-Yes, indeed, this makes sense.
+I will update the cover letter. But looking again, may be we also need
+an extra check to enforce that in the run time and fallback to SW BBM
+as I'd be concerned about some of the KVM call chains as
+user_mem_abort().
 
-Thanks for the clarification.
+Thanks,
+Mostafa
 
-Best regards,
-Hervé
+> 
+> Thanks,
+> Linu Cherian.
+>  
 
