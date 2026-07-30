@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EBAC531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9D2C54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IDICa5WTmVXA7/3rA0NTJ4yy9CZEkUFa94J2IXsemd0=; b=eAj/ocK8KCGFMZzL0gnDRDAg1p
-	er/pfOEPjARudtx0yC/r2K7k5tlV26avHdEMkXeW1y6x+rIQLvtSUHzX6xHGhF/PhrHQOXn3mXN51
-	2/3FXvV/dw/XPCdsuKEQglwR/r97YbmEMIBnp11ABKNDqm/7O+HKHdi5Uer3PSEQ1oH2jvhkwAmX7
-	6377WvjaheSfohBgpXIhCAG2OQwyHZzw1ehUAvucUyfZ3ycnelsMmsGv6sdSvyHmhc8L4selfFEcV
-	a4CKi8eQBOOmMQPC953C/0+v+2URLMwIWhx/l3vtOjP2ALyAqRfwS7/rwd1x/sWBpiV4pQrkMWZC5
-	L0MCntnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+pfSGKw6zoBHefIbmUJrPakLviiQv6WIlLlvStgHT04=; b=IXaeaRDnvNMMh7DXUsVcFdJdhe
+	oStnlZNgue8u4nd3y5c6zNGWEatayShOcOD3VIicVQD7elPvTunfHYs8UtM2+c8BRLFhaogZNuKH1
+	HY3mQT8OnTAEs2kHByr0qM9jhrtGurfYtHlJKZUo6N27A0BVfx6K+PowHzU0cNqXMxhlf1f0TTOew
+	C+R5ZGwGjDI34lT6OFEWWHKgzrk4aUH5BafpqFCksRv+mMW8G52Y8kareJwPXQ9ktbQqBZkiklg2c
+	yUZrFKcYDT4wlmeXUdEMMr4xaMkXvdcUf8bNBD9BX9Gzir1hyCzBmRW32+DPHLCPblDZtdAgIRKM9
+	yZHcf7Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKvY-00000009geU-0IMe;
-	Thu, 30 Jul 2026 07:11:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wpM6i-00000009rN6-0dRW;
+	Thu, 30 Jul 2026 08:27:12 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKup-00000009gKb-354h
+	id 1wpM6f-00000009rMY-3N5e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 07:10:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6E8CB43F9A;
-	Thu, 30 Jul 2026 07:10:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 511AD1F00ACA;
-	Thu, 30 Jul 2026 07:10:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785395451;
-	bh=IDICa5WTmVXA7/3rA0NTJ4yy9CZEkUFa94J2IXsemd0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZncKKVKBgdGDuAA5R9/5zizxhJny8dAuCiJhnDZjyig7Na7FGqENnHIELevj9i1xV
-	 0cpoCAf79iS7i7iBH4OiIx67zOEo1XLmrNZzDh9zg+rRfRJLvOj7AFCFnbBSYBGiuP
-	 dbipo/PcHOJRtFs29i0pe7ZZxr3z0h1cjHhOJMIxGJfPuPkJN9Oz3ckpXjZBGaYPu4
-	 FML5JArs76yrEtjR8bjJZGgYsCuCd0wkDmTpD/uOLMveV6slJ4S78fyXfhdBXE6ASG
-	 +YzMBOT0d17EPsh2PPk8ovEdbFsSkToLNGZSEdKZOBtwqEjguRIWPewmAxIoqwoj46
-	 FjSmfRfvIWMZw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wpKun-0000000AOpW-2f78;
-	Thu, 30 Jul 2026 07:10:49 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>
-Subject: [PATCH v4 06/29] KVM: arm64: Classify CPTR_EL2 as a SR_LOC_SPECIAL register
-Date: Thu, 30 Jul 2026 08:09:59 +0100
-Message-ID: <20260730071022.296811-7-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260730071022.296811-1-maz@kernel.org>
-References: <20260730071022.296811-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, yaoyuan@linux.alibaba.com, weilin.chang@arm.com, vladimir.murzin@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 30 Jul 2026 08:27:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785400030; x=1816936030;
+  h=date:from:to:cc:subject:message-id;
+  bh=yrwiw/R0CAOha7U6sj1ZW5+E4boa6s8e+uv4qr2hV8w=;
+  b=k/JmxvEcJgQ6a8L/mCU/IEvGaNteSfAm19wsuM6/WWL0Wx/NaCWNxyLG
+   g9ipck40v3GobSnOakU4oljqVFSG4ppeGd+lYhcFXbG1YVuynzY8yLzhJ
+   stzvhmlpbsj+1kLyNzKtuei1gs5uyFkh0oMuesWJF0+yPozU2/jX8EsMT
+   vj0rTr+vM0WG5DTGwrKK+ojc+toa7IQvw8fxlJYX/03+Y4+S//bzRrGSJ
+   pOaJJih+ZXP4gm+8nLdiKCauy2ZBU2C0nrwPHDpcFCg8zTA80BzqzNaZA
+   aIVHfh2PsJbVL1H/gB8pgl8xmb420Wt8bTtQyF3wxXw9snpAD4Yz0veGI
+   w==;
+X-CSE-ConnectionGUID: 0QW9YmzNQgyyubjc3befHg==
+X-CSE-MsgGUID: lgHuvcNiReC6zy8zq+epaA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11859"; a="85139935"
+X-IronPort-AV: E=Sophos;i="6.25,194,1779174000"; 
+   d="scan'208";a="85139935"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2026 01:27:09 -0700
+X-CSE-ConnectionGUID: 2XZywV2XQcqPU5raLfl7cg==
+X-CSE-MsgGUID: 7B+Bx+IRToChiRHC6E/yuw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,194,1779174000"; 
+   d="scan'208";a="260839703"
+Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
+  by orviesa009.jf.intel.com with ESMTP; 30 Jul 2026 01:27:08 -0700
+Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wpM6b-00000000gIr-1KAd;
+	Thu, 30 Jul 2026 08:27:05 +0000
+Date: Thu, 30 Jul 2026 16:26:36 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ 0c642cefc072fc2e94b3c6531529ff352a855e50
+Message-ID: <202607301624.ieJNQMIW-lkp@intel.com>
+User-Agent: s-nail v14.9.25
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_012709_881091_17A98091 
+X-CRM114-Status: UNSURE (   5.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,90 +83,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It may not be obvious unless you look at it closely, but CPTR_EL2
-is treated very differently from other registers. It is one the
-registers that, despite looking very similar between EL1 and EL2
-when E2H==1, have RES0 bits that get in the way.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: 0c642cefc072fc2e94b3c6531529ff352a855e50  soc: document merges
 
-Make it clear that CPTR_EL2 is odd by classifying it as SR_LOC_SPECIAL,
-just like CNTHCTL_EL2 (and for the same reasons). This makes it
-possible to use vcpu_read_sys_reg() with it, and will be necessary
-once we support FEAT_NV2P1.
+elapsed time: 900m
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_emulate.h |  2 +-
- arch/arm64/kvm/sys_regs.c            | 20 ++++++++++++++++++--
- 2 files changed, 19 insertions(+), 3 deletions(-)
+configs tested: 129
+configs skipped: 1
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 5bf3d7e1d92c7..9831166695186 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -617,7 +617,7 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
-  */
- static inline u64 vcpu_sanitised_cptr_el2(const struct kvm_vcpu *vcpu)
- {
--	u64 cptr = __vcpu_sys_reg(vcpu, CPTR_EL2);
-+	u64 cptr = vcpu_read_sys_reg(vcpu, CPTR_EL2);
- 
- 	if (!vcpu_el2_e2h_is_set(vcpu))
- 		cptr = translate_cptr_el2_to_cpacr_el1(cptr);
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 5d5c579d45790..6b47d936efb32 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -183,8 +183,6 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
- 	switch (reg) {
- 		MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
- 				  translate_sctlr_el2_to_sctlr_el1	     );
--		MAPPED_EL2_SYSREG(CPTR_EL2,    CPACR_EL1,
--				  translate_cptr_el2_to_cpacr_el1	     );
- 		MAPPED_EL2_SYSREG(TTBR0_EL2,   TTBR0_EL1,
- 				  translate_ttbr0_el2_to_ttbr0_el1	     );
- 		MAPPED_EL2_SYSREG(TTBR1_EL2,   TTBR1_EL1,   NULL	     );
-@@ -210,6 +208,19 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
- 		loc->loc = ((is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu)) ?
- 			    SR_LOC_SPECIAL : SR_LOC_MEMORY);
- 		break;
-+	case CPTR_EL2:
-+		/*
-+		 * CPTR_EL2 is just as special, and needs a certain amount
-+		 * of handholding. It always lives in memory, due to being
-+		 * heavily trapped thanks to CPACR_EL1.TCPAC being RES0.
-+		 * FEAT_NV2p1 fixes this.
-+		 */
-+		locate_mapped_el2_register(vcpu, CPTR_EL2, CPACR_EL1,
-+					   translate_cptr_el2_to_cpacr_el1,
-+					   loc);
-+		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
-+			loc->loc = SR_LOC_SPECIAL;
-+		break;
- 	default:
- 		loc->loc = locate_direct_register(vcpu, reg);
- 	}
-@@ -314,6 +325,8 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
- 			val &= CNTKCTL_VALID_BITS;
- 			val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
- 			return val;
-+		case CPTR_EL2:
-+			return __vcpu_sys_reg(vcpu, reg);
- 		default:
- 			WARN_ON_ONCE(1);
- 		}
-@@ -359,6 +372,9 @@ void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
- 			 */
- 			write_sysreg_el1(val, SYS_CNTKCTL);
- 			break;
-+		case CPTR_EL2:
-+			write_sysreg_el1(val, SYS_CPACR);
-+			break;
- 		default:
- 			WARN_ON_ONCE(1);
- 		}
--- 
-2.47.3
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
+tested configs:
+alpha                            allnoconfig    gcc-16.1.0
+alpha                           allyesconfig    gcc-16.1.0
+alpha                              defconfig    gcc-16.1.0
+arc                             allmodconfig    gcc-16.1.0
+arc                             allyesconfig    gcc-16.1.0
+arc                  randconfig-001-20260730    gcc-8.5.0
+arc                  randconfig-002-20260730    gcc-8.5.0
+arm                  randconfig-001-20260730    gcc-8.5.0
+arm                  randconfig-002-20260730    gcc-8.5.0
+arm                  randconfig-003-20260730    gcc-8.5.0
+arm                  randconfig-004-20260730    gcc-8.5.0
+arm                       realview_defconfig    clang-17
+arm64                         randconfig-001    gcc-14.3.0
+arm64                randconfig-001-20260730    gcc-14.3.0
+arm64                randconfig-001-20260730    gcc-15.2.0
+arm64                randconfig-002-20260730    clang-21
+arm64                randconfig-002-20260730    gcc-14.3.0
+arm64                randconfig-002-20260730    gcc-15.2.0
+arm64                randconfig-003-20260730    gcc-14.3.0
+arm64                randconfig-003-20260730    gcc-15.2.0
+arm64                randconfig-003-20260730    gcc-8.5.0
+arm64                randconfig-004-20260730    gcc-13.4.0
+arm64                randconfig-004-20260730    gcc-14.3.0
+arm64                randconfig-004-20260730    gcc-15.2.0
+csky                            allmodconfig    gcc-16.1.0
+csky                 randconfig-001-20260730    gcc-13.4.0
+csky                 randconfig-001-20260730    gcc-14.3.0
+csky                 randconfig-001-20260730    gcc-15.2.0
+csky                 randconfig-002-20260730    gcc-14.3.0
+csky                 randconfig-002-20260730    gcc-15.2.0
+csky                 randconfig-002-20260730    gcc-16.1.0
+hexagon                       randconfig-001    clang-24
+hexagon              randconfig-001-20260730    clang-24
+hexagon              randconfig-002-20260730    clang-24
+i386                            allmodconfig    gcc-14
+i386                buildonly-randconfig-001    gcc-14
+i386       buildonly-randconfig-001-20260730    gcc-14
+i386       buildonly-randconfig-002-20260730    gcc-14
+i386       buildonly-randconfig-003-20260730    gcc-14
+i386       buildonly-randconfig-004-20260730    gcc-14
+i386       buildonly-randconfig-005-20260730    gcc-14
+i386       buildonly-randconfig-006-20260730    gcc-14
+i386                          randconfig-001    gcc-14
+i386                 randconfig-001-20260730    gcc-14
+i386                 randconfig-002-20260730    gcc-14
+i386                 randconfig-003-20260730    gcc-14
+i386                 randconfig-004-20260730    gcc-14
+i386                 randconfig-005-20260730    gcc-14
+i386                 randconfig-006-20260730    gcc-14
+i386                 randconfig-007-20260730    gcc-14
+i386                 randconfig-011-20260730    clang-22
+i386                 randconfig-012-20260730    clang-22
+i386                 randconfig-013-20260730    clang-22
+i386                 randconfig-014-20260730    clang-22
+i386                 randconfig-015-20260730    clang-22
+i386                 randconfig-016-20260730    clang-22
+i386                 randconfig-017-20260730    clang-22
+loongarch                          defconfig    clang-24
+loongarch            randconfig-001-20260730    clang-24
+loongarch            randconfig-002-20260730    clang-24
+m68k                      m5249evb_defconfig    gcc-16.1.0
+mips                         ath25_defconfig    clang-24
+mips                          ip30_defconfig    gcc-16.1.0
+nios2                           allmodconfig    gcc-11.5.0
+nios2                            allnoconfig    gcc-11.5.0
+nios2                randconfig-001-20260730    clang-24
+nios2                randconfig-002-20260730    clang-24
+parisc                          allmodconfig    gcc-16.1.0
+parisc                          allyesconfig    gcc-16.1.0
+parisc                             defconfig    gcc-16.1.0
+parisc                        randconfig-001    gcc-14.3.0
+parisc               randconfig-001-20260730    gcc-14.3.0
+parisc               randconfig-002-20260730    gcc-14.3.0
+powerpc              randconfig-001-20260730    gcc-14.3.0
+powerpc              randconfig-002-20260730    gcc-14.3.0
+powerpc64            randconfig-001-20260730    gcc-14.3.0
+powerpc64            randconfig-002-20260730    gcc-14.3.0
+riscv                randconfig-001-20260730    gcc-15.2.0
+riscv                randconfig-002-20260730    gcc-15.2.0
+s390                 randconfig-001-20260730    gcc-15.2.0
+s390                 randconfig-002-20260730    gcc-15.2.0
+sh                                 defconfig    gcc-16.1.0
+sh                   randconfig-001-20260730    gcc-15.2.0
+sh                   randconfig-002-20260730    gcc-15.2.0
+sh                          se7705_defconfig    gcc-16.1.0
+sparc                         randconfig-001    clang-24
+sparc                randconfig-001-20260730    clang-24
+sparc                randconfig-002-20260730    clang-24
+sparc64              randconfig-001-20260730    clang-24
+sparc64              randconfig-002-20260730    clang-24
+um                   randconfig-001-20260730    clang-24
+um                   randconfig-002-20260730    clang-24
+x86_64              buildonly-randconfig-001    gcc-14
+x86_64     buildonly-randconfig-001-20260730    gcc-14
+x86_64     buildonly-randconfig-002-20260730    gcc-14
+x86_64     buildonly-randconfig-003-20260730    gcc-14
+x86_64     buildonly-randconfig-004-20260730    gcc-14
+x86_64     buildonly-randconfig-005-20260730    gcc-14
+x86_64     buildonly-randconfig-006-20260730    gcc-14
+x86_64                                 kexec    clang-22
+x86_64                        randconfig-001    clang-22
+x86_64               randconfig-001-20260730    clang-22
+x86_64               randconfig-002-20260730    clang-22
+x86_64               randconfig-003-20260730    clang-22
+x86_64               randconfig-004-20260730    clang-22
+x86_64               randconfig-005-20260730    clang-22
+x86_64               randconfig-006-20260730    clang-22
+x86_64               randconfig-011-20260730    clang-22
+x86_64               randconfig-012-20260730    clang-22
+x86_64               randconfig-013-20260730    clang-22
+x86_64               randconfig-014-20260730    clang-22
+x86_64               randconfig-015-20260730    clang-22
+x86_64               randconfig-016-20260730    clang-22
+x86_64                        randconfig-071    gcc-14
+x86_64               randconfig-071-20260730    gcc-12
+x86_64               randconfig-071-20260730    gcc-14
+x86_64               randconfig-072-20260730    gcc-12
+x86_64               randconfig-072-20260730    gcc-14
+x86_64               randconfig-073-20260730    gcc-12
+x86_64               randconfig-073-20260730    gcc-14
+x86_64               randconfig-074-20260730    gcc-12
+x86_64               randconfig-074-20260730    gcc-14
+x86_64               randconfig-075-20260730    gcc-12
+x86_64               randconfig-075-20260730    gcc-14
+x86_64               randconfig-076-20260730    gcc-12
+x86_64               randconfig-076-20260730    gcc-14
+x86_64                          rhel-9.4-bpf    gcc-14
+xtensa               randconfig-001-20260730    clang-24
+xtensa               randconfig-002-20260730    clang-24
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
