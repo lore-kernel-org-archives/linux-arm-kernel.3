@@ -4,67 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B89C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 20:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5F0C55167
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 21:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L77jCv3f95ANc83ixm53SBXy3LLu0+ipYt59rygigCU=; b=FKxrPrJzuxLU6i3HBU+EzU/kn7
-	89No/le0U2bQfUmJiCXlOfkSDUYC9XuSWJobHjmtvqOmw9TfaCwIgSu+W4yxiB9imRzb8yahvQd49
-	yKy1UCubroHVqV9Uomdjp7CUDrSwh9HjqSW9ZtzXR2Dw8y4uV4dU6NYNt/t0vgLmay69rNCCucbBR
-	PHkZhvhipNGFggfEJ0nj0haqain3u3chDj1xDVPup1y5PUezVygvt2yqRqAobrzWouBZA/ZfNjhdK
-	nS87jTr6zxKRMVFHk5HTqmGqn2Jj3b0j4nID0Z2K5NDH9Cax4o3ouIYhV1JMf8R9XkRPAwZRiW/Xs
-	l8e3aoWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fP/tawnqcMvDolJUYihmY0R6sPFMX1yqtxwSlIbOMYk=; b=AdSQqadjI+xfMtM5XyI+KD1SmA
+	FpWEFAi/PyAMTTNWqwrwe68DLx9++K18KEJ+4Fl4PDnUz/5xL+w/KTk5sH7OZ7NT0/GCUItZ28ZAK
+	U1k3MPcWfEu0npZxovMQ4X+hPibhT+MNbneRCRM+50cfOw0YtP+/eBKIzbT2SxQZ/GvW+BHCDdOQw
+	bNqP2QZXBZyPRNpRu8Xn3lN9s4G06OgGGPa5TJzXTUQf1Yc1TlloK851aUuGhaHQftM2NQJxqdnr/
+	DNioKvwhRiIpvQ80K7o7wZn2qWbPfb7uaI/+SgWhWpN80iSlwiaVRHTNkYTkCSEtAA8c5lGWS/acy
+	7hj+uMqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpXER-0000000BJp8-0H79;
-	Thu, 30 Jul 2026 20:19:55 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1wpXwU-0000000BMoo-0Xzj;
+	Thu, 30 Jul 2026 21:05:26 +0000
+Received: from mail-westus3azon11011055.outbound.protection.outlook.com ([40.107.208.55] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpXEM-0000000BJmS-3W1S
+	id 1wpXwR-0000000BMoQ-3Z18
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 20:19:52 +0000
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 40CC08468D;
-	Thu, 30 Jul 2026 22:19:43 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 8RPTeP7d8JI8; Thu, 30 Jul 2026 22:19:42 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1785442782; bh=PHhg4NASLAVp09IUcpWPeWdg4j/hYt2r4k+sJeoXjAc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=cItL7OfI6aoZel27BS3cVDgQOPc9T3X0eCQnbv0q9fdYRp54bc0B+x4c4Zx3iQYvw
-	 JBV/4h2kzJNa4Vfaq0lavee50pn9kEOCWmNk82afEU5vNyKUFk+L7DexO5soT4AwlJ
-	 YYtoRgygx2rXuNAyf5liDbbV9wgzw5QYVRwnQnviYR72pNEanftpW/jQMZ4zdRnq61
-	 TXLfMIrDUJNFN1+h18bpHDVoT6LqN8ahpBEQzlm6rb68z5wKmz3Ce14+WF8n8o0pLY
-	 roZxoTBmndDTQBAXdryTV1lpu/F+Nyd0byTwsCVOUH7tCrWew4ktWO2fOf/8fCWCIs
-	 zyYUEgOOCFzEw==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 31 Jul 2026 01:48:38 +0530
-Subject: [PATCH v3 5/5] arm64: dts: exynos7870-j6lte: set mode 0 as default
- for zinitix touchscreen
+	Thu, 30 Jul 2026 21:05:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c3oQ68r/UK4get82mM0qewRqa1cwFdIYh21c7TvP9RJVfpn2oIlEwxU1aG5tUY8wSqJUQiFhxY7Okka82TL9CuyqgVY6CyZsNh8P3whVMlyfHwwzu1zbcmgSDyJe9hHCcnTOYXQL6go367TFYXI4HUXM8tsFrcRJs/WLJDTrSYVWX+7wwNDOFlFMXo49zDK9QaKv149Qy7PBbllogulk3kiMzWd6fzEktDB7DoUHPJErDgnHgA6/mLbYigocQzEzHDgjWs6Sl59ADr55hWL6WpxmwXliUuvM6XTm4S2NUQPxud9OVw2H+gpMZIUANPRZVGWOSncTkUZhNiB4oX+LZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fP/tawnqcMvDolJUYihmY0R6sPFMX1yqtxwSlIbOMYk=;
+ b=eSov1BY3R38ELJd54jXwt2S2VvqmQWsdtC4A1Y3KDmPBqYrgPpKCNlsvwJ0Kh/GLwOSQeVZ6CmodBmPRr776DApl+T2SztakHPNYNyKXaoyX+H1kZJ055R2RX/iPViRcLIzSK6LTZhwJq0qFtfA2Df09NZ/c1h74Tgcn5SSvQ5rfA0NhgUDHnIP4ZWchPn0g4NrMwX4CbMVHnuXhPcXw7xJHcXa9FTFrsVqHojZwFaDbxCb4tagWxJ0ECbajRLuR65t7/qBKooSlxcQpa1GDWp5gYTvAAepV/9usRd0K26jEaVzCYcEwKuj7eZ6YI01wQhgdPtgaOncTQJgIomL+ag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fP/tawnqcMvDolJUYihmY0R6sPFMX1yqtxwSlIbOMYk=;
+ b=bJ01/SLX70pYDcmisUzjreWNai1ECOcg7yJTyqGFax8i0pDO+PXEvwVQagy58qRagberdI2pk1dI7oiKuGthBu+h1kAnjyiOIg2xpHxwDvtBZg5aCcDn3F/0pIO+nOqlcKwPy9XrNZ9S/csiAtiRleAk4AXEjoNmCviqgOlJIawH2dfj/kpFnDqZFh6tw5hgDJBW69M0i56b4543J4f0EhqBYF+JKvTEBZJCxo8zKJ8aSYuSFN4Fl9rbsEobp5/InKB0syEDg5Ctqn3zchYGHYTp4RqjtaI1lP1AXrk+ANPT+qcQmPyUfcRbyaFoMjAzW//NOqwNiASwWXhYVm06jA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CY1PR12MB9601.namprd12.prod.outlook.com (2603:10b6:930:107::16)
+ by CYYPR12MB8962.namprd12.prod.outlook.com (2603:10b6:930:c4::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Thu, 30 Jul
+ 2026 21:05:16 +0000
+Received: from CY1PR12MB9601.namprd12.prod.outlook.com
+ ([fe80::cd76:b497:475f:4de3]) by CY1PR12MB9601.namprd12.prod.outlook.com
+ ([fe80::cd76:b497:475f:4de3%4]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
+ 21:05:16 +0000
+Date: Thu, 30 Jul 2026 18:05:14 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v8 15/23] dma-direct: pass attrs to dma_capable() for
+ DMA_ATTR_CC_SHARED checks
+Message-ID: <amu8iiOBR5YspzfI@nvidia.com>
+References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+ <20260717180442.110954-16-aneesh.kumar@kernel.org>
+ <ami9CIGanuQX3lxb@google.com>
+ <yq5a33x2go23.fsf@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <yq5a33x2go23.fsf@kernel.org>
+X-ClientProxiedBy: MW4P222CA0013.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:303:114::18) To CY1PR12MB9601.namprd12.prod.outlook.com
+ (2603:10b6:930:107::16)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-zinitix-modes-v3-5-2c8de712997a@disroot.org>
-References: <20260731-zinitix-modes-v3-0-2c8de712997a@disroot.org>
-In-Reply-To: <20260731-zinitix-modes-v3-0-2c8de712997a@disroot.org>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Michael Srba <Michael.Srba@seznam.cz>, 
- Linus Walleij <linusw@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9601:EE_|CYYPR12MB8962:EE_
+X-MS-Office365-Filtering-Correlation-Id: 81eb01ee-6a22-4efa-7e32-08deee7e410d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|23010399003|7416014|1800799024|56012099006|4143699003|5023799004|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: bEie4YF39BMPCD+6svrPbTaL0BaSqYGoBP8SC80KeANY60rbIdEIn4TYM9KnIDG3y/y8i6P9WGOGzeC8aZgWmQ2jk0UVPqJzjkYomUXzBrSzihqrBmwHtyBmzOR+72esWxWAoyfCmw6vz5BUwganjpTTf3Tm5G4+dfBCdVDKPSoZ4g1H1uNZAWhIyR4T5t4YQRnOJYXzigylOTr1aRuYTn6E/pIPjyb74Uc7HLdAXW9ewRqTS+8tAdOKIJSKfATmFMNcZXy5hJIAIZ+2FWiDsVFH4AI6vlZQY9ky0kWlaUePjZih2+JriZzNedClHNLOQzaGXqa2d8iDbJTTuoSg3z2rL/PajG7xawIz1RFQwddyL1iPFHV/zF7CxPql32n0ct54X8zRJkQiCbHciMJ87EVwjz66wRIc+suPC0L7jldwP3MkHQs+oKsCTw7LOAktV5rmO2UQHAPn3ad7qbBWrDm0YZxbI+r9V60ayThK97EM0uYpS2ZxHLlwLRliJQkY3SYOMm00IFQctmZj/Jckf4BXMln8u8p4XpctiaOJ6Kp3SF7jeJ2VEq0CU9alNQ9rCM7UEfDbo63FyBDWxk2RmohlFmXS8zN0HAuKRMbmFwAUgiXiWJlV/93hSaNXwjhSeyzx10vy3IRP5guybYPVMu89YXHfDOKyB4uxsJ46sNE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9601.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(7416014)(1800799024)(56012099006)(4143699003)(5023799004)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bgcwd4SPDJiAMmLE5rq7qpg5+zS3l8ygwKzLXcb03srwU62dhbRWmvKv+cYz?=
+ =?us-ascii?Q?nCM712X4wFSu6KCvXptVtKR3mVjwfYn6YWSo72P5Jowz+d1RlLZHP2ulo+lK?=
+ =?us-ascii?Q?IVwPPJ1L/8blxas0Lh0XfVkF1pvKt0fXtc092PXw9UTDmUo4BO97hPmvEJaj?=
+ =?us-ascii?Q?Wy92us4SFglw4kTgFkbBsAZUMl06MHhyXRMMMX5AQWtVvuyuxKPQahEWPby1?=
+ =?us-ascii?Q?j7Lgyx5fIkBc28WjvgI+IWCBs+oIjXCLpKmZJjt6qjCBWfmc2ttvbTqofQFr?=
+ =?us-ascii?Q?rGUfrRuCAR3WCRtHifGGxEnnDyfyXqf/EL1V10Gx+0aDA5qL23KHdchKtd9j?=
+ =?us-ascii?Q?/30O3+QtttnUu3f827kCvNfyJsmuFZg2AbaO3NWyEEIEfFCvg7DAYe5rtOr+?=
+ =?us-ascii?Q?GIeQ320yVrVJMy3GnQzUljqaiQEzi9yXwrYDqWPjluRR8ZTBuxCVpJcWY8M1?=
+ =?us-ascii?Q?Lo8iZEOi6IbuO1ZjUNLdnYc19Vc1UFltOrDtq4NhRNBQ8o9s+6PvNwBaeEaW?=
+ =?us-ascii?Q?AY5guiysCoA8oTMqrv1T3m+Gwb+guy1D9iYEoHTfsq2Be3K46kTq/0JZWMk8?=
+ =?us-ascii?Q?BsXq4KfaPSqRTthHyonTbGPCOfoWrWkuDJmLf9aji/cO9P2ZmkxlNM0JK5JL?=
+ =?us-ascii?Q?BByq2BobzK+eZaCRwiu+OXm+nISmKKIgaVQQBOZsTO0NozvrjB5o4ajoZSPk?=
+ =?us-ascii?Q?cBOs8uQOlqQVKFssl3qwvNXzEvxZSYlmVRUh2H6E77/cC5qZruR/LG6vo+NP?=
+ =?us-ascii?Q?jmv0z4aqspgM0XsRNqw2a448bbf+oqReUzzdLcseCyztEqM4UW+ixIVrs/sS?=
+ =?us-ascii?Q?4q/qzcO0DHIE6+5TFkA9YN9kam7dx7bM7eouGDRuTanLga4umoR6RcjaG8EN?=
+ =?us-ascii?Q?74dFJvi56pGNIUNASrw5Q5kiK3szFqDca6yNcAifT08oO7QWl9awGNp5GY6L?=
+ =?us-ascii?Q?Kn7k+SNHnJFE6vPiG5gcvQQZTTilNlfmfWQOvt/ZOUGnT/bKnderBIPLxXrx?=
+ =?us-ascii?Q?tTe8OnNvFNXN5UGmUrQUHX/nvdEzaKVflreg9RCQG/T4tiVFm3JmIS1OtmwX?=
+ =?us-ascii?Q?iWb0hMT8eygyVdYWu/uJARJ6k33qPBjpHjexhHFvlAZiCxi7Qq+F+bEhjTRu?=
+ =?us-ascii?Q?BB2ErkIUCtKkfvU01Agt4nW6jL/tbIAa0RJz/3olzSSBOdIQ1xZez9M1TfUw?=
+ =?us-ascii?Q?KdUeH46NKc8l+kyA4GBPWY/yGlwEDTXRPxOz7FAfl37pzgxln4lp9N0Jx79D?=
+ =?us-ascii?Q?UYA6tLCI9c6TIkQB7FrPAAhq+phSGfd+aXVjt1OWR+iEt3ZnpMSPNnylDLp5?=
+ =?us-ascii?Q?xKuq9e0PDcsOjbk2zCpV2r28uxPyXyyxEoN74ZvAyGsaYPXaVvOYkQN+JVKN?=
+ =?us-ascii?Q?pb0mp7VfAgJnOZ7e00U7h6FnhdkCm8kqegudB14tNjxrWI6bB2RNuz+ITaRk?=
+ =?us-ascii?Q?CSJZ2xDXM/VbVvEsPNR1h91yxVqap3DB79nj6zPYYsZCwLwz2FXkuKwCsM0L?=
+ =?us-ascii?Q?CdzKEpoOtKsB1WFdo4RZZJPZ8m7n0690sxp7VZEEXHFIJFx54HYE9XTP/Gl8?=
+ =?us-ascii?Q?q4vxT6HmBnNexunKSFyFv8/hH5/pg8VfaREBLvfEGv13CD1+7p8AX8Sdz1ak?=
+ =?us-ascii?Q?WfcxkQ8jAzvdL6JoTzMYl3WrxPURPk3xQSZllUggMN+gypCg0EDrafBWZHTQ?=
+ =?us-ascii?Q?Q31i40V87qIlanqJDeK9S1tdoIgyxtmUbf096axJKLy/hOaX?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 81eb01ee-6a22-4efa-7e32-08deee7e410d
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9601.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 21:05:15.9773
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0TgSSlFZ+GG5NyHGxa4z9KuvQ+BdXqxoFl130lSXeL4MBISZOAOdTE3DePxVAkOo
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8962
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_131951_018910_85080E3F 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20260730_140523_912760_1FC515F0 
+X-CRM114-Status: GOOD (  16.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +160,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ZT7548 chip in the Galaxy J6 is actually able to support mode 2 (the
-recommended mode) just fine.
+On Wed, Jul 29, 2026 at 02:39:08PM +0530, Aneesh Kumar K.V wrote:
+> Mostafa Saleh <smostafa@google.com> writes:
+> 
+> >>  static inline bool dma_capable(struct device *dev, dma_addr_t addr, size_t size,
+> >> -		bool is_ram)
+> >> +		bool is_ram, unsigned long attrs)
+> >>  {
+> >>  	dma_addr_t end = addr + size - 1;
+> >>  
+> >>  	if (addr == DMA_MAPPING_ERROR)
+> >>  		return false;
+> >> +	/*
+> >> +	 * The DMA address was derived from encrypted RAM, but this device
+> >> +	 * requires unencrypted DMA addresses. Treat it as not DMA-capable
+> >> +	 * so the caller can fall back to a suitable SWIOTLB pool.
+> >> +	 */
+> >> +	if (!(attrs & DMA_ATTR_CC_SHARED) && force_dma_unencrypted(dev))
+> >> +		return false;
+> >> +
+> >
+> > I guess it does not make sense to check the other way? I'd be worried if
+> > some a confidential device uses shared memory which might leak info.
+> >
+> 
+> From the perspective of the dma_capable() check, this should be allowed;
+> that is, a trusted device is permitted to access shared memory.
 
-However, the downstream kernel driver utilizes mode 0. This creates a
-problem in the aftermarket world where fake touch digitizers only
-implement the bare minimum functionality, as used by the downstream
-driver, to compromise on cost, which leads to such chips implementing
-mode 0 only. To ensure touch works on those devices, set the default
-mode to 0.
+Right, we have use cases that require confidential devices to use
+shared memory we cannot block it at the DMA layer.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts | 2 ++
- 1 file changed, 2 insertions(+)
+It would be a reasonable DMA debugging to block shared memory without
+the DMA ATTR CC SHARED.
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-index de30d0970336..bd8f798c9810 100644
---- a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-+++ b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-@@ -424,6 +424,8 @@ touchscreen@20 {
- 		touchscreen-size-y = <1480>;
- 
- 		vdd-supply = <&vdd_ldo34>;
-+
-+		zinitix,mode = <0>;
- 	};
- };
- 
-
--- 
-2.54.0
-
+Jason
 
