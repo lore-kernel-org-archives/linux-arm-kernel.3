@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29CBC5516A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C10C5516E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:11:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5XgWPbeuF17HDeYBLK0zctfrRTN4ZCZpz7lfkvW7RuU=; b=MT0TOI16sHSPYL0aOrmGKDbmO2
-	0kubpD89UhZClmHUYNUK6s2WApcQjIUmUfyw1ti9Pk8A4ZLamO+I3PBTUltD8rdhrppJx5+iPamW+
-	wlS1FB9c8otrlG9Wrf1ReZnkZXOeT4TjIcQNDZATsg1/11C8PpEXqrYUpk4A8jjtwJjddBbAA53h6
-	nbSfwdWu9w/qhlrWPeS7nJzUijenazj0Pgn13X99wQJjDQDvlekHrd6lyqUj7DyhKKOJJOGB4y0Zb
-	b40tJuYQKAX/P5BySWmOX0aOzMODAbUEoXKHNzSGtzTfaIDOxn8z+FdOhpp8UonZ0xYEq9DO8osvG
-	9mAvEEXQ==;
+	bh=iphw/trZbQgKuaLseXe8o8FXlhLchtJlvFzyolbcN1U=; b=ccYZ+m9z6m3E4tRXRcc6nX4RZZ
+	JtO0dtyHVbP+tpuRjoPUYQjspDeIir2Al+Hu8unyHqneSsNctWzKa2ewDpbAasRflogpKDGpEiO71
+	fcB8dXteS3JbogkdQ9qQ118l5FGB7G0JWpUs9MfhLskwiG/EyNPqmMloIYwn00Sm3XN/Mj+6E5hOg
+	PAzaJoGpE7+a56wYsDkC2wvw0y9momPwC+gAqM1aW7mU8gB1hYA9EpPLiZRa5bqNN97HcO3ZDmipu
+	7h+ChYH4+gRG3gZpqG0NpV2oqNI1+z3PGWSIl7LXW7k2kaM+FB68WvkrmL9Z8FD7oCD67GTSpW4H8
+	hmCY2pmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKvZ-00000009ggD-0FM9;
-	Thu, 30 Jul 2026 07:11:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wpKvb-00000009gmp-2knp;
+	Thu, 30 Jul 2026 07:11:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKuq-00000009gLY-3nzj
+	id 1wpKut-00000009gOl-2M6H
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 07:10:53 +0000
+	Thu, 30 Jul 2026 07:10:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 508EC600B0;
-	Thu, 30 Jul 2026 07:10:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0770B1F00ADE;
-	Thu, 30 Jul 2026 07:10:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 53B7E44037;
+	Thu, 30 Jul 2026 07:10:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 391211F0155B;
+	Thu, 30 Jul 2026 07:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785395452;
-	bh=5XgWPbeuF17HDeYBLK0zctfrRTN4ZCZpz7lfkvW7RuU=;
+	s=k20260515; t=1785395455;
+	bh=iphw/trZbQgKuaLseXe8o8FXlhLchtJlvFzyolbcN1U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gpwgp5wFkrSTu57SUw6MuGW6gUhrANWTUh0OVYCywUNRGhdciczJWLiUsiDTRW9TX
-	 JXo0q7ByD+EBfadiJjmPX9Yp4dlaTIOIWbJYA8a6pm5GXEeLcj7+6fWEYd7MGCGxaE
-	 8yNIN9V/mZ186hpW/hrGFU+mF6CNR3KUn2Wt0xm7GpZ2W690WQGIJ0lqt+V0WXbUdV
-	 3KRsKn+3Jpg+T8sXi1wSQ+n68FWtFfsgG/w8XFvbOIE+H6wFsCP+8GGnZAfLnf91Q0
-	 dofUPkTYuSlpAsJ1/lmuUoecHxb63YO802/WcsPHJ13L0POMgm5GONpQFkmpy1Jmnn
-	 gFeOxRcUIzixg==
+	b=eNsntE6cJcGyj56BJgdyOCjZzmZoi1R0PuaWlWqd/5Oa5TZvCHYDo/fGndmHfzbgF
+	 162aGnCZrLLduG/QDL6GWZkfrFqK/CX6ZZ3IC9MHykt068Mbg6Nfq6WNMTVmPsl+wS
+	 A9z/txwh3MV3nh4MMdHPEEH8zOzmDyOT471tcN2T4eLh2QLWU5U8HJ/3GhCGC/vDZ+
+	 TcJBXFrySwD7YOC0JZvr0Uy3MUfA++tCiyb+4fmi7J4E+p3b6M5paFQg6Rkvh1K6F1
+	 77KL2EmMntoT06VDJ4fjNwt28ZDKhejpxtMYm5LUO1Cd6zaQy5gND+jIV8dUNxwGex
+	 BPrx3jOZRCquw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wpKuo-0000000AOpW-1EwV;
-	Thu, 30 Jul 2026 07:10:50 +0000
+	id 1wpKur-0000000AOpW-2S4K;
+	Thu, 30 Jul 2026 07:10:53 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -60,9 +60,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>,
 	Vladimir Murzin <vladimir.murzin@arm.com>
-Subject: [PATCH v4 09/29] KVM: arm64: Relax CPTR_EL2 handling when FEAT_NV2p1 is present
-Date: Thu, 30 Jul 2026 08:10:02 +0100
-Message-ID: <20260730071022.296811-10-maz@kernel.org>
+Subject: [PATCH v4 24/29] KVM: arm64: Engage NV3 ERET trap elision
+Date: Thu, 30 Jul 2026 08:10:17 +0100
+Message-ID: <20260730071022.296811-25-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260730071022.296811-1-maz@kernel.org>
 References: <20260730071022.296811-1-maz@kernel.org>
@@ -86,89 +86,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With FEAT_NV2P1, it is no longer necessary to trap CPTR_EL2 accesses
-via CPACR_EL1, as CPACR_EL1.TCPAC is guaranteed to be stateful.
+When running on NV3 HW, always engage ERET trap elision when running
+the L1 context, as there is no benefit in not doing so.
 
-Prevent such trapping and context switch CPACTR_EL1 in NV contexts
-when NV2P1 is present.
+An L1 can itself engage trap elision by setting its own view of
+HCRX_EL2.NVTGE==1, which will subsequently be honored.
 
 Reviewed-by: Joey Gouly <joey.gouly@arm.com>
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 5 +++--
- arch/arm64/kvm/hyp/vhe/switch.c         | 3 +++
- arch/arm64/kvm/hyp/vhe/sysreg-sr.c      | 8 +++++---
- arch/arm64/kvm/sys_regs.c               | 5 ++++-
- 4 files changed, 15 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/kvm_emulate.h | 10 ++++++++++
+ arch/arm64/kvm/hyp/vhe/switch.c      |  4 ++++
+ 2 files changed, 14 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 8e5f492f39086..7b27296c94607 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -108,9 +108,10 @@ static inline void __activate_cptr_traps_vhe(struct kvm_vcpu *vcpu)
- 	 * The architecture is a bit crap (what a surprise): an EL2 guest
- 	 * writing to CPTR_EL2 via CPACR_EL1 can't set any of TCPAC or TTA,
- 	 * as they are RES0 in the guest's view. To work around it, trap the
--	 * sucker using the very same bit it can't set...
-+	 * sucker using the very same bit it can't set. FEAT_NV2p1 fixes it.
- 	 */
--	if (vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
-+	if (!cpus_have_final_cap(ARM64_HAS_NV2P1) &&
-+	    vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
- 		val |= CPTR_EL2_TCPAC;
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index bdb7dfaa271cd..ee340d3294478 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -705,6 +705,16 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
  
- 	/*
+ 		if (kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V))
+ 			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
++
++		/*
++		 * NV3 is a host-specific extension, and we always use
++		 * it when present and that the guest uses NV. It may
++		 * be hidden from the guest though.
++		 */
++		if (cpus_have_final_cap(ARM64_HAS_NV3) &&
++		    vcpu_has_nv(vcpu) && vcpu_el2_e2h_is_set(vcpu)) {
++			vcpu->arch.hcrx_el2 |= HCRX_EL2_NVTGE;
++		}
+ 	}
+ }
+ #endif /* __ARM64_KVM_EMULATE_H__ */
 diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 684cebf23aa0e..a8da40568a048 100644
+index cbda9e087db39..4ed745bdde418 100644
 --- a/arch/arm64/kvm/hyp/vhe/switch.c
 +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -443,6 +443,9 @@ static bool kvm_hyp_handle_cpacr_el1(struct kvm_vcpu *vcpu, u64 *exit_code)
+@@ -345,6 +345,10 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
  	u64 esr = kvm_vcpu_get_esr(vcpu);
- 	int rt;
+ 	u64 spsr, elr, mode;
  
-+	if (cpus_have_final_cap(ARM64_HAS_NV2P1))
++	/* With NV3, the fast path is handled in HW */
++	if (cpus_have_final_cap(ARM64_HAS_NV3) && vcpu_el2_e2h_is_set(vcpu))
 +		return false;
 +
- 	if (!is_hyp_ctxt(vcpu) || esr_sys64_to_sysreg(esr) != SYS_CPACR_EL1)
- 		return false;
- 
-diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-index be685b63e8cf2..6f0f046e4ca4e 100644
---- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-+++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-@@ -42,10 +42,12 @@ static void __sysreg_save_vel2_state(struct kvm_vcpu *vcpu)
- 		u64 val;
- 
- 		/*
--		 * We don't save CPTR_EL2, as accesses to CPACR_EL1
--		 * are always trapped, ensuring that the in-memory
--		 * copy is always up-to-date. A small blessing...
-+		 * Without FEAT_NV2p1, we don't save CPTR_EL2, as accesses
-+		 * to CPACR_EL1 are always trapped, ensuring that the
-+		 * in-memory copy is always up-to-date. A small blessing...
- 		 */
-+		if (cpus_have_final_cap(ARM64_HAS_NV2P1))
-+			__vcpu_assign_sys_reg(vcpu, CPTR_EL2, read_sysreg_el1(SYS_CPACR));
- 		__vcpu_assign_sys_reg(vcpu, SCTLR_EL2,	 read_sysreg_el1(SYS_SCTLR));
- 		__vcpu_assign_sys_reg(vcpu, TTBR0_EL2,	 read_sysreg_el1(SYS_TTBR0));
- 		__vcpu_assign_sys_reg(vcpu, TTBR1_EL2,	 read_sysreg_el1(SYS_TTBR1));
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 6b47d936efb32..1dfc1f88bec82 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -326,7 +326,10 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
- 			val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
- 			return val;
- 		case CPTR_EL2:
--			return __vcpu_sys_reg(vcpu, reg);
-+			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
-+				return read_sysreg_el1(SYS_CPACR);
-+			else
-+				return __vcpu_sys_reg(vcpu, reg);
- 		default:
- 			WARN_ON_ONCE(1);
- 		}
+ 	/*
+ 	 * Going through the whole put/load motions is a waste of time
+ 	 * if this is a VHE guest hypervisor returning to its own
 -- 
 2.47.3
 
