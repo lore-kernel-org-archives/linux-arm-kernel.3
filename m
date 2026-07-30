@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A3F2C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBB76C54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nvPddLwq+3E5BpZogpvn3U5ADhW+cJYX5/jH9oxoba8=; b=J8Z2RwOdPAm2uQfngZslMnDLdG
-	15QTNrt+yHvpTouoY2ftAs8UYJTiIAo7338R4qCeQVMctniaaisRqgeHwnIfSgFOptAh4NMoQaUrV
-	xtIxviZIl7S97a37PxwVfzGlzNnjx1sUAGNo44uDHH9VzqN8NYj+imRhNOOU5pk3/Z4pQTDKeaUQq
-	gsGbDXCIQYy9n7/dlYlpcdbzn5DJpOxPKwc8i2XWlIjkkCFLl6ooB0+5PWPmGkYg58OEnCbtVGO1K
-	nQ2r79KOuJze1aDYJq7VKtuOF2NkcPtAVFkz2iYopkFmOHAucChNG/9kP7ZYpsjp9X6yt91/YGNuD
-	DhMMQKIg==;
+	bh=xvfRoiVVXMz5ozRg++qNQ5fER4Qs3LDX4/NpXBs7HWc=; b=yZnHJn53dpWcOJwOk+BqUCu9Aa
+	GnpgCNi2qF7/yKeeWdZeVjcx/DMEQgYuiba3Cehy2p3yCEBjXhTFZctsNHWvNPDreqrnhKt/3kNrV
+	aW3btjuaNWdOHaB9bUYH1KLL3QeTvfdGCgrzEoYvoc/WHIuopnlrOWJ+1hTrFtmv48PgfzkQnLpsG
+	FZQObSeYVbOk90n+8fl3h7r9bRPb4zP6IVhes627IhS8oS8HayMmhPfDyLVTzlKMct9JN634T6oxZ
+	4XfU8TNPky4wPcCPQL3uw60Jrondn1KB/QcGxXgIl/fIWwCz6b2MQYBEpCc10jl8kWGKrBy7Tqauf
+	TMTo0vqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKva-00000009giW-0qLi;
-	Thu, 30 Jul 2026 07:11:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wpKvb-00000009gli-1Jbw;
+	Thu, 30 Jul 2026 07:11:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKus-00000009gNb-0f1g
+	id 1wpKut-00000009gOF-0YZ9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 07:10:54 +0000
+	Thu, 30 Jul 2026 07:10:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2B0843FD7;
-	Thu, 30 Jul 2026 07:10:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5C301F0156C;
-	Thu, 30 Jul 2026 07:10:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DA7D943C9A;
+	Thu, 30 Jul 2026 07:10:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFC4F1F01573;
+	Thu, 30 Jul 2026 07:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785395453;
-	bh=nvPddLwq+3E5BpZogpvn3U5ADhW+cJYX5/jH9oxoba8=;
+	s=k20260515; t=1785395454;
+	bh=xvfRoiVVXMz5ozRg++qNQ5fER4Qs3LDX4/NpXBs7HWc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=f463NtPaY4HT+/TSgo+5t/0JsVII9nY+joCZ9V1JmiGw3RjjSzC21ei1IGwDhG24/
-	 dFW+TjZqfseFpHSI62FFG+MxTCwoRT5t6+RtvxWe1tc1/XCVWze8EgoqLfztP/LSIp
-	 NW7qq7otBkud1FVWkpMcHnxXLV+vQlxAMg483poj8BmsI41z4G0x5y8wRYd1CHJHq8
-	 f117mRPqueVPGe08EmKQrnBNIK4aLUviJlBYnh3qXxvXve1nBfaBkrDvHFuBUZv+Wh
-	 3FIGJsvHCEA3z9zwBRB8NeMo2JiTofMH+k7LXb6oFV1jGukaNzTxU72wpbG2TBNrpf
-	 rQZidHPsWYnhA==
+	b=B4EI8MgtwgNFmzLk66mckYalz5k0UsVHZg/+KnxJYfcmTb4ILMzkrM3+TZRgQ/QW5
+	 zDZ6V7yHI87IT7t6gww1ww6aADHGLnrLRLajQrGF37qS26Pv0D3+f+IxEi/YR+ENG/
+	 bqA4C7C0kyV0LB9Y1Ff45QvHhpLOB2wkxvfLpFJ5Pcfj3LOImw9colz/s6CkPXaYH2
+	 h8QlWkAHPaxSpinohrV3sTLwFoE4g6WZSi/CkjolMVlGkoNEGVXCRICOjDmnjfaGDu
+	 +9Qd8um1XFrUOPdDq5NlWuiNdZ3vt8LK0O1VNsS1RjUVCAAqO3ZWX6VhoxSS/S/pi9
+	 zAU5kek6UUrYQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wpKuq-0000000AOpW-0KAz;
-	Thu, 30 Jul 2026 07:10:52 +0000
+	id 1wpKur-0000000AOpW-0YI6;
+	Thu, 30 Jul 2026 07:10:53 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -60,9 +60,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>,
 	Vladimir Murzin <vladimir.murzin@arm.com>
-Subject: [PATCH v4 17/29] KVM: arm64: Add NV3 control bits to HCRX_EL2 sanitisation
-Date: Thu, 30 Jul 2026 08:10:10 +0100
-Message-ID: <20260730071022.296811-18-maz@kernel.org>
+Subject: [PATCH v4 22/29] KVM: arm64: Add routing for NVHCR_EL2 trap
+Date: Thu, 30 Jul 2026 08:10:15 +0100
+Message-ID: <20260730071022.296811-23-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260730071022.296811-1-maz@kernel.org>
 References: <20260730071022.296811-1-maz@kernel.org>
@@ -86,38 +86,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose the FEAT_NV3 control bits to the sanitisation code so that
-KVM stops moaning about the unattributed bits.
+NVHCR_EL2 accesses from EL1 are taken to EL2 when HCRX_EL2.NVTGE==0
+and HCR_EL2.NV==1. Describe this in the exception routing tables.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/config.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/kvm/emulate-nested.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index c61d62b796023..467f57eb8e6bb 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -225,6 +225,7 @@ struct reg_feat_map_desc {
- #define FEAT_HCX		ID_AA64MMFR1_EL1, HCX, IMP
- #define FEAT_S2PIE		ID_AA64MMFR3_EL1, S2PIE, IMP
- #define FEAT_GCIE		ID_AA64PFR2_EL1, GCIE, IMP
-+#define FEAT_NV3		ID_AA64MMFR4_EL1, NV_frac, NV3
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index b7f3d86a94031..625604019fb32 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -136,6 +136,8 @@ enum cgt_group_id {
+ 	CGT_CPTR_TTA,
+ 	CGT_MDCR_HPMN,
  
- static bool not_feat_aa64el3(struct kvm *kvm)
- {
-@@ -904,6 +905,11 @@ static const DECLARE_FEAT_MAP_FGT(hdfgwtr2_desc, hdfgwtr2_masks,
++	CGT_HCR_NV_HCRX_nNVTGE,
++
+ 	/* Must be last */
+ 	__NR_CGT_GROUP_IDS__
+ };
+@@ -588,6 +590,15 @@ static enum trap_behaviour check_mdcr_hpmn(struct kvm_vcpu *vcpu)
+ 	return BEHAVE_HANDLE_LOCALLY;
+ }
  
++static enum trap_behaviour check_hcr_nv_hcrx_nnvtge(struct kvm_vcpu *vcpu)
++{
++	if ((__vcpu_sys_reg(vcpu, HCR_EL2) & HCR_EL2_NV) &&
++	    !(__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_NVTGE))
++		return BEHAVE_FORWARD_RW;
++
++	return BEHAVE_HANDLE_LOCALLY;
++}
++
+ #define CCC(id, fn)				\
+ 	[id - __COMPLEX_CONDITIONS__] = fn
  
- static const struct reg_bits_to_feat_map hcrx_feat_map[] = {
-+	NEEDS_FEAT(HCRX_EL2_NVTGE		|
-+		   HCRX_EL2_NVnTTLB		|
-+		   HCRX_EL2_NVnTTLBIS		|
-+		   HCRX_EL2_NVnTTLBOS,
-+		   FEAT_NV3),
- 	NEEDS_FEAT(HCRX_EL2_SRMASKEn, FEAT_SRMASK),
- 	NEEDS_FEAT(HCRX_EL2_PACMEn, feat_pauth_lr),
- 	NEEDS_FEAT(HCRX_EL2_EnFPM, FEAT_FPMR),
+@@ -598,6 +609,7 @@ static const complex_condition_check ccc[] = {
+ 	CCC(CGT_CNTHCTL_EL1NVVCT, check_cnthctl_el1nvvct),
+ 	CCC(CGT_CPTR_TTA, check_cptr_tta),
+ 	CCC(CGT_MDCR_HPMN, check_mdcr_hpmn),
++	CCC(CGT_HCR_NV_HCRX_nNVTGE, check_hcr_nv_hcrx_nnvtge),
+ };
+ 
+ /*
+@@ -853,6 +865,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
+ 	SR_TRAP(SYS_SCTLR2_EL2,		CGT_HCR_NV),
+ 	SR_RANGE_TRAP(SYS_HCR_EL2,
+ 		      SYS_HCRX_EL2,	CGT_HCR_NV),
++	SR_TRAP(SYS_NVHCR_EL2,		CGT_HCR_NV_HCRX_nNVTGE),
+ 	SR_TRAP(SYS_SMPRIMAP_EL2,	CGT_HCR_NV),
+ 	SR_TRAP(SYS_SMCR_EL2,		CGT_HCR_NV),
+ 	SR_RANGE_TRAP(SYS_TTBR0_EL2,
 -- 
 2.47.3
 
