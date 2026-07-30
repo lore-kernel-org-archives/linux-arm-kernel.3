@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A02EC55164
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B949C55164
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t+KqEaNzWqHCuOVTuY3+paIJQew4PZqcIQjocemxxEY=; b=s+ElN/BUR3hBYUZ6TQjAv29ZTk
-	Mp5ecf27l6j59RHU2Y3xSAJJFKrTTBnrMhHO5wCWGhEQlkiPDgBcbxxxuFFmwKNaUtt2dYRjbwZXq
-	zM/jF4XlIGc8VMu1H+phGMwxJ4R1YYQIBH/VvbeDfvsmNq/XHPjBfR0kpnNqM7zHMv28Al1QX5sJi
-	x7FmraBbcW+ecO0bJWGufWzg9bvFcP9O+4LgV/7XjpkM9nti7cew4T4IlSFZ60tfJ5HwOXsNokhzp
-	80o23kW5T6B60uDilyWK0h+3odERzi2IevmYCKvukyc5rQCLTjOQ2AHowXKuWcek61jonqrXUL2NY
-	sdDg6kYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YbT/VBy8/jyTVyfcMlrMZ1rcuYWd/SqJbq1DiU5dIYQ=; b=q5EsM/N053Wqq3HK7ASxh53Hyz
+	Kv7px5hS/8jOsJUi617If65UYpS/4wHi2LfYur7R6sfvjObwcmMjZiICCi/TboAw1m59sAKE7uqUD
+	xxnwHCz/r8umdS8NO6xw9Ao9lutaL4x43BOazbyz87/9XWPvhEMSRe8cNjDNY7bUdW+OZIXg3XH1j
+	++OjWKxT/+zcGE3cZHTIZfEFmMwn+LB/AOWhOW4+DhFoNemMb7qH3UC3TIrAnrIx4ETJhspV98PGU
+	1xQbNutoZ/VTCdV1cR2vVpOXhr8uPUURRze5z85vySOxyRzzxK3SbrU91r9jCDHliCBztaSh3Ykdl
+	P2yQHamg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRoJ-0000000Aku3-1f4a;
-	Thu, 30 Jul 2026 14:32:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wpRqg-0000000AlCa-3qZN;
+	Thu, 30 Jul 2026 14:35:02 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.49])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRoH-0000000Aktt-3ZGy
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 14:32:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5705340B90;
-	Thu, 30 Jul 2026 14:32:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 371001F000E9;
-	Thu, 30 Jul 2026 14:32:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785421953;
-	bh=t+KqEaNzWqHCuOVTuY3+paIJQew4PZqcIQjocemxxEY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=oLd2ar1YcANx/v39ZEOsHMAKeGJB37F1/02y/fKFmJ6XQYsWJdJh9tl/mGC9hGmBG
-	 SWrgSy5TXEs4Kgok3N+WgWUcN1eI6dSkX1bWjltlH2r66ZZD/e6aBUr6uNRyQqY/oQ
-	 Np0BqiQci2IABAX0leuggEDVcqujNtD1S52Dl3YpcMF2rORw8V34saJNQMBHbg8eDI
-	 5S7wLwE+uoiuXmFFhLltufzbWe7imIaCSITX88M9JEeaVCKjOei+3DOop4FBgvKMsv
-	 /PwOMP5isyDWvXb0etseoPc9Pqd7GHCvDbj/4uWJwwvwNkyPM4+GFckF4IujuAkYJO
-	 +glDaZ48d75DQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wpRoE-0000000AZFl-2oEA;
-	Thu, 30 Jul 2026 14:32:30 +0000
-Date: Thu, 30 Jul 2026 15:32:30 +0100
-Message-ID: <86ecgkczup.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Ivan T. Ivanov" <iivanov@suse.de>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Frank Li <frank.li@nxp.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	imx@lists.linux.dev,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v2] arm64: errata: Add NXP iMX8QM workaround for A53 cache coherency issue
-In-Reply-To: <20260730-imx8qm-cache-coherency-v2-1-5651aeb1af16@nxp.com>
-References: <20260730-imx8qm-cache-coherency-v2-1-5651aeb1af16@nxp.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: peng.fan@oss.nxp.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, oupton@kernel.org, fuad.tabba@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mark.rutland@arm.com, iivanov@suse.de, francesco@dolcini.it, frank.li@nxp.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, imx@lists.linux.dev, peng.fan@nxp.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wpRqd-0000000AlB5-2g6f;
+	Thu, 30 Jul 2026 14:35:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1785422097; bh=YbT/VBy8/jyTVyfcMlrMZ1rcuYWd/SqJbq1DiU5dIYQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Wphgl1a6iPqW8jaXPjQINjI8VPIoDXywirAvj4L2MXD1PyLNA3zX/ki1pjeA1mqRR
+	 yalruNkiO47hKXjAJOnFzr1xO/2eBVwhn+iQ+UWuINYH0L4wun6rQgMQQBJLoCGItx
+	 lmwPpxlNms97ZSW9CCaUof5ojpihLVyL5ctK9xuI=
+Received: from ubuntu2204.localdomain ([2409:8d20:22b:54c:9e54:40ff:fe02:3f0f])
+	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
+	id 8B38245A; Thu, 30 Jul 2026 22:34:51 +0800
+X-QQ-mid: xmsmtpt1785422093tylrip7vf
+Message-ID: <tencent_AE1A1199FC8C9ADC680C6458134A46B40309@qq.com>
+X-QQ-XMAILINFO: MC6m07AaSFhrvwmDTwhytxEJhh9nxDyjG7kdMzLWFRkZI5yPgzPYsP8xckGLFj
+	 5pHd/omhx2VtQrCp3o970+DnHWr5CHS/jvErnPaGxxOCa8gDxp99d1KX/FDOEZR2Gx7SM0fDq6Q+
+	 vR1iBzwq1ahtr1oCDKJ/yXipYb5fbmDeVeM8ns56KN/kpHRfhbl8BEJUNMVuuVXcy8uIxiXQQtR/
+	 QNTruEuS8jlyhiNq0NBo5LndRYOyheuHvgFAv45Dnr1m6YHoFHP0IqeE0n5tnCWO/8TJRKlr6UuA
+	 TZXsu6zseoiWEa3YXvLlSJ0VtKTUpaCH/S2NP8EWDVYHJkgQqiqvVUAiZocY4XbyYNLFLrb7335p
+	 9uniLOQMzoIpe1iDUfyh7n1oJLU3yWFUld1dHJ0hrtuyitiO7j9f9OJBQSa/+qaMbSH4djPr+dBL
+	 PyKplCDYqtdjwORfeYWlqs2PAll16+JFMgN8IkvOGpySAkMjVEaYiIjqdYcS9wNj9KI0NidgUDZm
+	 jrjoviR0elcfd+bXskzUjDzBD7qygKXcZOBEW3QaZalC42Uf2D0vLttZYVCG7m79IcsLKTEvui3m
+	 3VpZ/2cfZnT+3sT01E9kUYXah7DQtg+UXqFNPIy+G962tf2Xm3cwMGjZ9wjhrOCNdBMohOx02Eow
+	 DyMn8ISuYkIerKfvdfH2KG4ynPn9zOmNhd2bMEAsShBglfaz608FsxBASjRJP9GLxvv4lLNpBA6I
+	 Z1ZG7SXRr8i7m6XLAjQ3KnaSWOhGiTKlQhKFXdhha4aBLrUZhptE2S5+5mP2GDWnm6dPkepF/2Rw
+	 RIFngKgaeQOa/nxnvLZrisMcWZwoTSLwEbYjVdSmoR66P/LZkPd1tJFkkpOKksm9IuX/C+5Y0dzV
+	 vzFaWSwRAfz6/BNkpi/gIDzNt7IO6Wvzi5emNuhd/0jkSgQouxs0i1K29oxZpMc4dFII+i4RBb/r
+	 XHI1YP8esNffUh8q/BTBKM2gTOA8f3EYLKFDLJvw4xwfw+/2eVbeuSDQjv6ACrDGjw9VN03adRhj
+	 YSsw1a11IWEf/qY8vg5bHDUGArLciMOG4WmvkLCyaZ2YuARt1E2R0q6fGY1nNvtlaKzmfrC0tNBa
+	 T9GJpJ/5gRgpHJIOTDDVz/qjUpAz30h0xDohhqYlo67idKLxayL+obCXLht/6o1poKTCgpvGLgG3
+	 Y0qMI=
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+From: Cunhao Lu <1579567540@qq.com>
+Date: Thu, 30 Jul 2026 22:34:02 +0800
+Subject: [PATCH v6 1/4] dt-bindings: can: rockchip: add rk3588 CAN-FD
+ compatible
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-OQ-MSGID: <20260730-master-v6-1-dfb63e234775@qq.com>
+References: <20260730-master-v6-0-dfb63e234775@qq.com>
+In-Reply-To: <20260730-master-v6-0-dfb63e234775@qq.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de, 
+ Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Cunhao Lu <1579567540@qq.com>, linux-can@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_073500_009155_A729195B 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +91,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jul 2026 14:53:02 +0100,
-"Peng Fan (OSS)" <peng.fan@oss.nxp.com> wrote:
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 9a6c72a18672..734ccd7ec056 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -3032,6 +3032,11 @@ static __init int kvm_arm_init(void)
->  
->  	in_hyp_mode = is_kernel_in_hyp_mode();
->  
-> +	if (cpus_have_final_cap(ARM64_WORKAROUND_NXP_ERR050104)) {
-> +		kvm_info("KVM not supported on NXP iMX8QM (ERR050104)\n");
-> +		return -ENODEV;
-> +	}
-> +
->  	if (cpus_have_final_cap(ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE) ||
->  	    cpus_have_final_cap(ARM64_WORKAROUND_1508412))
->  		kvm_info("Guests without required CPU erratum workarounds can deadlock system!\n" \
+RK3588 integrates a Rockchip CAN-FD controller variant that is not
+fully compatible with RK3568v2. The RX FIFO count register field is
+encoded in bits 7:5 on RK3588, while RK3568v2 uses bits 6:4.
 
-I really dislike this sort of hacks in the KVM code.
+Add a dedicated rockchip,rk3588-canfd compatible to describe this
+variant. Do not use rockchip,rk3568v2-canfd as a fallback, because that
+would describe a register layout that does not match the hardware.
 
-Instead, please find a way to set 'kvm_mode' to KVM_MODE_NONE from
-your erratum handler, and KVM will gracefully disable itself, as if
-that was passed on the command line.
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+v3 -> v4:
+- Collect Krzysztof's Acked-by tag.
+v2 -> v3:
+- Move the Changelog below ---
+- Collect Heiko's Reviewed-by tag
+v1 -> v2:
+- Use enum for the single-compatible entries, as suggested by Krzysztof.
+- Reword the commit message to explain the hardware difference instead
+  of referring to Linux driver match data.
+---
+ .../devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml          | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-It shouldn't be too hard to do.
-
-Thanks,
-
-	M.
+diff --git a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
+index a077c0330013..81e2b6dfeb02 100644
+--- a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
++++ b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
+@@ -16,7 +16,9 @@ allOf:
+ properties:
+   compatible:
+     oneOf:
+-      - const: rockchip,rk3568v2-canfd
++      - enum:
++          - rockchip,rk3568v2-canfd
++          - rockchip,rk3588-canfd
+       - items:
+           - const: rockchip,rk3568v3-canfd
+           - const: rockchip,rk3568v2-canfd
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
