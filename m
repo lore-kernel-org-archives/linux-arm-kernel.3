@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E6FC55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B51C55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tIKRYxDOzycznw1bjlolv+a92AaCEXcgQ9UteZvvq6E=; b=tvpbRfpWgoX1sFgY324hwB4q43
-	roYuH3WqTsjzVqtHjUMruKrfDosFPi8lCXAhR2EupOWr424mT9WjMew1oh+wp9M8IH53mE25raDzt
-	3qLu44cnAvSfkGqc2EzuMAhWMD36JFoG2uBbE+pRNQPNEOxIHT3PzNuiXL2XaaHcx2jgVXA60HGcv
-	V/ywxUBw9WfhmdEKDMSGQ/qaT+ah5+r/zecsmJ6eXUHZqqC0+fReCqQDKGMyRVaohJdzhXaQP+6Ez
-	cjyFxPC1IMulKkDGmuC76p1bH1VfJgxIr2z8sGwkCqXtNJfAgT3ifMBdAanq9tEmH2Tf94vDCwq2R
-	RUuus8eQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mggr7wvIfCEo+6dv/C0d5uPBSyxJCecBvJHz21a0w1o=; b=uJhCGS4tvyqHQt
+	iSmc2WCr6665ssJ0DOjTqxbc2XSh6puT8ULmLfNwXhwvL3PJ8zNRoPuQYgbMRsI0xcHvV41qeK4dc
+	zFSPYRneFFWqu1xBzMbosGHJ6un4LwjddPlFKteFi4xJQNJEL7Ol9gGxAo42ommGa8zzhxo8a6Uia
+	/VBW99yjxOsQ14c81FAhV3I79ksO0ZvixIkofZ6r40YOvZMLCicHmdX5GZm9CKJMB3rQww24xFzHb
+	fueM9U6coC8KerVYCStL6L7TzlNIbogFdHgixKRNSTmxbEyRJvebtC3YCspJuUEZyowHHxoOeDofU
+	g6zQ5OvmNZzENoZXDskA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQ1K-0000000AU87-30MO;
-	Thu, 30 Jul 2026 12:37:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wpQ20-0000000AUFY-2MIF;
+	Thu, 30 Jul 2026 12:38:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQ1J-0000000AU81-43mP
+	id 1wpQ1z-0000000AUFK-3r2X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:37:54 +0000
+	Thu, 30 Jul 2026 12:38:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 148AF600B0;
-	Thu, 30 Jul 2026 12:37:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDC2E1F000E9;
-	Thu, 30 Jul 2026 12:37:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 898D440BFE
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:38:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E6951F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:38:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785415072;
-	bh=tIKRYxDOzycznw1bjlolv+a92AaCEXcgQ9UteZvvq6E=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dwp4fcp+9aFcM75nQWBHQTQytB3W+EUnrwq6DO7RapJNdyAkZuRacZkPGao1KYWQz
-	 nxq0+gXzhRutd+9XXOp0biFyYO4sKUle1qaBZkAspRjytAgA4ZPLQKY6qmcJNY2uK9
-	 wLps541DxE4Hotc6HD2hslBM00x9JaIC9uuLM3ArPA/TkOyAHFzFUi+cxnE/1ybgvU
-	 Mbnnk5RAWyiqXaH8uwnu6rzSHzYCV6q/xnLxq4IpguX7CjqT/FbuhrZ57biyxzbZb0
-	 qVVJMgcfEQv5DQ0fdZyM8XeYBeYHhjAe69eRg1pUbutd73jyJFUqf/jzjODGgCDqJr
-	 qPva0JaIHWVnA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wpQ1G-0000000AWgo-1Tqr;
-	Thu, 30 Jul 2026 12:37:50 +0000
-Date: Thu, 30 Jul 2026 13:37:49 +0100
-Message-ID: <86jyqcd55u.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: oupton@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	alexandru.elisei@arm.com,
-	vdonnefort@google.com,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	qperret@google.com,
-	ardb@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	tabba@google.com
-Subject: Re: [PATCH v1 09/11] KVM: arm64: Type-check hypercall arguments at the caller
-In-Reply-To: <20260720161343.1367007-10-fuad.tabba@linux.dev>
-References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
-	<20260720161343.1367007-10-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, rostedt@goodmis.org, mhiramat@kernel.org, alexandru.elisei@arm.com, vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1785415115;
+	bh=mggr7wvIfCEo+6dv/C0d5uPBSyxJCecBvJHz21a0w1o=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=JqQZ1Wem/W/7xLxCQm3EG3EkTkaXKflALH8qNzS3RVDmEiOS79agVsGHyEALzou3D
+	 GYUDku/DoBb52HTNcggTMGeLICvvemsWQlakuOY5bB+UmwfmBii4k2CukXAU2S7iDe
+	 wt69oS65mxwwR6vWL7PAIPlW5IuJmMjfeHnF9z4vvfvIBcEsbzREvQqtwkr3XeMNpL
+	 TRmxlhGCCQJI3k66rbIGtzo4Cl8XHAdq12B+9lnseX6lD4COHJG/nX7nmconEkwVYh
+	 HIZ7sq/ba32yxHFBy5FnWY9ypes/+veFhho8/C0RtSckRR8O1hGMGhjy/2oehu4DZ7
+	 ZLdwvjWEcZX6w==
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-39f1ac13687so15348661fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 05:38:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqvtDdC10oPT7vhG53zV4KJednHBAnFVW8WUG/bVG+n72Wwu8IgXkziJc99FKVwrO3uvtTCh9yQQCh8JrSeeu8I@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsXStfcCAuSJNy3YlsK25uWncK9SVycL4+uROmjEXLHGgtmwmT
+	8Saa+hg/H3K1WNGwLH8SD0Ld9PDL7z7TYUbr6VyFRe9vO3QR5lKc6USRT66j61wIKhr2+0LBjsn
+	RJm9pkTfAvMqmeezegYYI4B5YLENMP5g=
+X-Received: by 2002:a2e:a99b:0:b0:399:83a4:4f2c with SMTP id
+ 38308e7fff4ca-39f6d112905mr4228721fa.18.1785415113867; Thu, 30 Jul 2026
+ 05:38:33 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260728091804.382753-1-wenst@chromium.org> <amiqKRkFItYwD6oL@redhat.com>
+ <CAGb2v64zUO-azpTuei6LCypad2noGFbg+EmaBC1iidoZ2stQzw@mail.gmail.com>
+ <c1048eae-72c5-4e2e-ac49-25e2c4297018@collabora.com> <CAGXv+5EgGYFVt4TJCysQgRqA1J5=Qz9c0oWY5YTxgc5PnNC_AQ@mail.gmail.com>
+ <36f2775a-d332-4913-8e9e-ca0429c3f713@collabora.com> <amswFn2qWkvypMH8@redhat.com>
+In-Reply-To: <amswFn2qWkvypMH8@redhat.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Thu, 30 Jul 2026 20:38:20 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65yEtUH5LQ=kGL1io-urha12iOute=D2bbG872YXbK4fQ@mail.gmail.com>
+X-Gm-Features: AUfX_mwS6SDXJLNyyEHek9sC4FMHJj30AO-N34TA1MSNgmBhhcn22gBEYkF6-6I
+Message-ID: <CAGb2v65yEtUH5LQ=kGL1io-urha12iOute=D2bbG872YXbK4fQ@mail.gmail.com>
+Subject: Re: [PATCH v4 0/5] powervr: MT8173 GPU support
+To: Brian Masney <bmasney@redhat.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Chen-Yu Tsai <wenst@chromium.org>, Stephen Boyd <sboyd@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Alessio Belle <alessio.belle@imgtec.com>, 
+	Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
+	YoungJoon Lee <getfeus@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,109 +88,119 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 20 Jul 2026 17:13:41 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> kvm_call_hyp_nvhe() reduces its target to an SMCCC function number, so
-> the compiler never sees a callable: arguments that are wrong in number,
-> type or order are silently marshalled into registers. The kvm_call_hyp()
-> wrappers only catch this on the VHE branch, and the pKVM-only hypercalls
-> have no such branch.
-> 
-> Declare each hypercall's signature once in kvm_hcall.h and generate a
-> typed stub from it, in the mold of the syscall wrappers. Make
-> kvm_call_hyp_nvhe() resolve to the stub so every caller is checked
-> against the declared signature; a stale or mistyped call now fails to
-> compile. The stubs inline to the same SMCCC call the untyped macro used
-> to make: the compiled callers are unchanged, apart from hypercall
-> returns now being tested at their declared width.
-> 
-> The stage-2 protection arguments are declared u64 rather than
-> enum kvm_pgtable_prot, as kvm_pgtable.h includes linux/kvm_host.h and
-> the enum cannot be completed here.
-> 
-> Assisted-by: Antigravity:gemini-3.1-pro
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  arch/arm64/include/asm/kvm_hcall.h | 165 ++++++++++++++++++++++++++++-
->  arch/arm64/kvm/hyp_trace.c         |   2 +-
->  2 files changed, 165 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
-> index d925b2c28a3d8..51bfd14748464 100644
-> --- a/arch/arm64/include/asm/kvm_hcall.h
-> +++ b/arch/arm64/include/asm/kvm_hcall.h
-> @@ -16,12 +16,35 @@
->  
->  #include <asm/barrier.h>
->  #include <asm/kvm_asm.h>
-> +#include <asm/spectre.h>
->  #include <asm/virt.h>
->  
->  typedef u16 pkvm_handle_t;
->  
-> +struct kvm;
-> +struct kvm_s2_mmu;
-> +struct kvm_vcpu;
-> +struct vgic_v3_cpu_if;
-> +struct vgic_v5_cpu_if;
-> +
-> +/*
-> + * Hypercall signatures are declared as (type, name) argument pairs.
-> + * __KVM_HCALL_MAP() applies a macro to each pair, in the mold of __MAP()
-> + * in <linux/syscalls.h>.
-> + */
-> +#define __KVM_HCALL_MAP1(m, t, a, ...) m(t, a)
-> +#define __KVM_HCALL_MAP2(m, t, a, ...) m(t, a), __KVM_HCALL_MAP1(m, __VA_ARGS__)
-> +#define __KVM_HCALL_MAP3(m, t, a, ...) m(t, a), __KVM_HCALL_MAP2(m, __VA_ARGS__)
-> +#define __KVM_HCALL_MAP4(m, t, a, ...) m(t, a), __KVM_HCALL_MAP3(m, __VA_ARGS__)
-> +#define __KVM_HCALL_MAP5(m, t, a, ...) m(t, a), __KVM_HCALL_MAP4(m, __VA_ARGS__)
-> +#define __KVM_HCALL_MAP6(m, t, a, ...) m(t, a), __KVM_HCALL_MAP5(m, __VA_ARGS__)
-> +#define __KVM_HCALL_MAP(n, ...) __KVM_HCALL_MAP##n(__VA_ARGS__)
-> +
-> +#define __KVM_HCALL_DECL(t, a)	t a
-> +#define __KVM_HCALL_ARGS(t, a)	a
-> +
->  #ifndef __KVM_NVHE_HYPERVISOR__
-> -#define kvm_call_hyp_nvhe(f, ...)					\
-> +#define __kvm_call_hyp_nvhe(f, ...)					\
->  	({								\
->  		struct arm_smccc_res res;				\
->  									\
-> @@ -33,6 +56,43 @@ typedef u16 pkvm_handle_t;
->  		res.a1;							\
->  	})
->  
-> +/*
-> + * Generate a typed stub for each declared hypercall. kvm_call_hyp_nvhe()
-> + * resolves to the stub, so a call with the wrong argument count or types
-> + * fails to compile instead of being silently truncated to an SMCCC function
-> + * number and a pile of registers. The stub inlines to the same SMCCC call
-> + * the untyped macro used to make.
-> + */
-> +#define DECLARE_KVM_HOST_HCALL(ret, name, x, ...)			\
-> +	static __always_inline						\
-> +	ret nvhe_hvc_##name(__KVM_HCALL_MAP(x, __KVM_HCALL_DECL, __VA_ARGS__)) \
-> +	{								\
-> +		return (ret)__kvm_call_hyp_nvhe(name,			\
-> +			__KVM_HCALL_MAP(x, __KVM_HCALL_ARGS, __VA_ARGS__)); \
-> +	}
+On Thu, Jul 30, 2026 at 7:06=E2=80=AFPM Brian Masney <bmasney@redhat.com> w=
+rote:
+>
+> Hi Angelo and Chen-Yu,
+>
+> On Thu, Jul 30, 2026 at 10:23:14AM +0200, AngeloGioacchino Del Regno wrot=
+e:
+> > On 7/30/26 06:51, Chen-Yu Tsai wrote:
+> > > On Tue, Jul 28, 2026 at 10:33=E2=80=AFPM AngeloGioacchino Del Regno
+> > > <angelogioacchino.delregno@collabora.com> wrote:
+> > > >
+> > > > On 7/28/26 15:13, Chen-Yu Tsai wrote:
+> > > > > On Tue, Jul 28, 2026 at 9:10=E2=80=AFPM Brian Masney <bmasney@red=
+hat.com> wrote:
+> > > > > > On Tue, Jul 28, 2026 at 05:17:58PM +0800, Chen-Yu Tsai wrote:
+> > > > > > > Hi everyone,
+> > > > > > >
+> > > > > > > This is v4 of my MT8173 PowerVR GPU support series.
+> > > > > > >
+> > > > > > > This time around Mesa was ready for basic testing, using both=
+ vulkanmark
+> > > > > > > and glmark2-es2-drm (with Zink). Details below.
+> > > > > > >
+> > > > > > > Changes since v3 (all in the clk driver patch):
+> > > > > > > - Changed pm_runtime_put() to pm_runtime_put_sync()
+> > > > > > > - Added missing of_node_put() in remove function
+> > > > > > >
+> > > > > > > Changes since v2 (all in the clk driver patch):
+> > > > > > > - Made COMMON_CLK_MT8173_MFGTOP depend on PM
+> > > > > > >     - Needed since the driver implements PM domains using the=
+ generic PM
+> > > > > > >       domain library, which also depends on PM
+> > > > > > >     - Fixes build breakage (kernel test robot)
+> > > > > > > - Fixed "RST_DELAY_CNT" name (Brian)
+> > > > > > > - Dropped unused mfg_desc (Brian)
+> > > > > > > - Added check of clk_prepare_enable()'s return value in
+> > > > > > >     clk_mt8173_mfgtop_power_on() (Brian)
+> > > > > > > - Saved error value for return in IS_ERR(data->clk_26m) branc=
+h
+> > > > > > >     (Dan Carpenter / kernel test robot w/ smatch)
+> > > > > > >
+> > > > > > > Changes since v1:
+> > > > > > > - Adapted to changed DT bindings
+> > > > > > > - Dropped driver change
+> > > > > > > - Use same power domain for "a" and "b" GPU power domains
+> > > > > > >
+> > > > > > >
+> > > > > > > This series enables the PowerVR GPU found in the MT8173 SoC, =
+found in
+> > > > > > > some Chromebooks.
+> > > > > >
+> > > > > > I'm making a pull for Stephen for the clk changes. Should patch=
+es 1,2,4
+> > > > > > go through the clk tree? Patches 3,5 go through the DRM tree?
+> > > > >
+> > > > > Only patches 1 and 2 should go through the clock tree.
+> > > > >
+> > > > > Patch 3, 4, 5 can all go through the soc tree if Angelo wants to =
+pick up
+> > > > > DT binding patches. Otherwise I can push patch 3 through drm-misc=
+.
+> > > > >
+> > > >
+> > > > Not sure if I can really take the DRM bindings patch through soc.
+> > > >
+> > > > I will take the devicetree ones exactly right now, even though it's=
+ going to
+> > > > give warnings.
+> > >
+> > > Apologies for missing this, but the first DT patch depends on the clk=
+ DT
+> > > bindings patch for the clk ID macros. This is causing build errors in
+> > > linux-next right now.
+> > >
+> > > Not sure how we can fix this right now.
+> > >
+> > > Brian, would it be possible for you to split out that patch into a
+> > > separate immutable branch for Angelo to merge?
+>
+> Yes, I can split things out and make an immutable branch this morning.
+> But it sounds too late for that.
+>
+> > >
+> > > Otherwise Angelo might need to drop the DT patches until the next cyc=
+le.
+> >
+> > Yeah, that's so bad.
+> > I'd be happy to be able to resolve this, but it's too late on my side.
+> >
+> > I should've checked the DT patches more carefully, my bad: I got a bit =
+too excited
+> > to finally see this PowerVR stuff working on MT8173 and going upstream.
+> >
+> > Sadly, I have to drop the devicetree patches :-(
+>
+> Chen-Yu: Could Angelo add an Acked-by to the three patches, and then I se=
+nd
+> Stephen an additional pull with just those patches? Do you think he'd
+> pull that?
 
-One thing I find absolutely horrible is to have to specify the number
-of parameters here. It is already bad to have to comma-separate
-everything, but having to count them is too hard for me ;-).
+(replying from my @kernel.org address again because I don't feel like
+ pulling out my work laptop.)
 
-We already have facilities to count the number of parameters to a
-macro (see the COUNT_ARGS macro). You could make use of it all over
-the place.
+I think the question is whether the soc & dt maintainers would be bothered
+by it or not.
 
-Thanks,
+No need to sweat over it though. It's not like the GPU driver is production
+ready anyway. We can just merge the DT patches in the next cycle. :)
 
-	M.
 
--- 
-Without deviation from the norm, progress is not possible.
+ChenYu
 
