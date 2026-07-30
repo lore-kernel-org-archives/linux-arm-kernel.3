@@ -4,142 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D11C54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCB2C54FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4oETrMNNLvq8rW+mHubbIKBoCX5ysWoTEbLHhCxFdGs=; b=Fv2wd1DH+5If/F79IYvvGlnGu3
-	br1LixcaCInVRl9GQxoT3UqN1/HKqFJ7Li9giQgYvFFOad+llnHR2QzeGvrjpoDBiBbFZZhQl/3NQ
-	Z67Ad5qnZBYpLQFYmc2VbOBldPyPwX1x6GX/t/uoJb58kV/98IC+J3Cbmopd7uOBIfXWOh3zdvs9a
-	RS3Aq7/DPZOVRtMNzL8MMiPnzsuycF++8Xu2teOflrVv46ErhX+nJWPfnyz+GylHz1qFlGcnWBw5C
-	e0/TVaaRYDDfOlkusnrR8KvTXluMI+Bcn4tWv1uDTyjLzdWZRLJP3FsZxT0+qXONCDUsStc1rHRqX
-	mTla8PUg==;
+	bh=r7D+xutFpqSSg5uUi8QN36v5qhOBFCRAD67A2wtKPrg=; b=DsyXl1cKetoeQzIWR9bqcI23f+
+	IIqq0HK0rh/ipB/U/0ya52lqBSjBDY1lUARO0/e8tcg+T3Yzy2kkGN46Vh+hObKjju0q3zlLpcg1L
+	PXP7AOm8qu0Ja3244vMug23AXbO0qgELPxRkPP+Em9dbHFr2h8RRifGAMeBh/s5Gh3D2BVbWxDnPL
+	a66lyi/5QECt48FZhZxPoreeP91ij/uG3bTaEom2Ea9KOCDFpg2GXXTlVMLJb7Aiasp/rdgKKBldb
+	rPPtLHlvqe5cgPpZ+crIIgt6WPJ2ZHbEZdympmKWXRe78XtUPNBTDfqOoNe32v3lWnTAY2V9oD93b
+	R6K0vMcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpMa5-00000009w0E-3ZXc;
-	Thu, 30 Jul 2026 08:57:33 +0000
-Received: from mail-japaneastazlp170100000.outbound.protection.outlook.com ([2a01:111:f403:c405::] helo=TY3P286CU002.outbound.protection.outlook.com)
+	id 1wpMdI-00000009wXM-1wB8;
+	Thu, 30 Jul 2026 09:00:52 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpMa3-00000009vzl-0Kt4
+	id 1wpMdF-00000009wW6-27cV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 08:57:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ijvBeaJygERwY/7DzzGRsSQPb6H3EqJ1xyw1ogbIVRXSLpdm+SKMcPwPHUDA794XyfSbk0vjGVbRVF9oXj5WYG6TO2eXUX1aKl8lq/HuporRzJ7UqNw7CVFP0cJnzvmj/VZ0ggR0jFJgnsZskgNIs8VheB7FxMGUgBF6BSj9PDFZNXEfVTZje9FLGTO6L/9/2U5EMv26BL3+VY6QMZU/hsh2lQrUC/+smr5aL56xdzjH4SOW8v8vdSDFo5YkRijcnTKQLIAC6gWhi/E78RZD+ID4IzRhGgpaI9C4ikBv6ABgKFg5NpBY8/JfM7F4gWdc260+LKrTreKl4mK3hFnZgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4oETrMNNLvq8rW+mHubbIKBoCX5ysWoTEbLHhCxFdGs=;
- b=cTVR8tRfe05ElNe1FpiIXGVesSHbGM59tiRhksVPmuxEW7AJnDBVi4svddGwf44zVM8HakhXkBy3mxWey6np/AIHzKEl/fTxTt4gETukDrrhf2Z8d05vqQjdWZZfo3hwslgUwELbjcTTmXwhuHE8kZl8z9Mic3iEeQ324H5UaYPtC9opmY4yUXbGNDZlgoQlXWapjfRwOvschuY7mUU88KwJVQ9WNeLWSPnPHPPNjTC7DRcxm4wmy17rfqkFaH9udJtUKFQZBc3YWOQFu/vXzkoMezNbzGtO1qc3ZwXlljj5PCuk3UDZITWC+5QG82SLwPcheJY8EwF1ern+LN67Jg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4oETrMNNLvq8rW+mHubbIKBoCX5ysWoTEbLHhCxFdGs=;
- b=PsVBomj4VjiTH2X9TAgOlDLKAzqXvnL+QIKKkx1RgffbpCUg9hx9qFDjKUnb8JpkO/jCOJoF+F0Xi+/tNigIzYM+AuR3Duo/0UUZfVLeTh7xMcZ/Q7VSFmt0vxbTbVo8i7BeQNP3PnSrX7SfOVc8x0e9oOYl5K05tDV8vVFYPZs=
-Received: from OSCPR01MB12769.jpnprd01.prod.outlook.com (2603:1096:604:33c::9)
- by TYWPR01MB11379.jpnprd01.prod.outlook.com (2603:1096:400:3f7::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.14; Thu, 30 Jul
- 2026 08:57:23 +0000
-Received: from OSCPR01MB12769.jpnprd01.prod.outlook.com
- ([fe80::aa72:ef1b:2a85:fc2f]) by OSCPR01MB12769.jpnprd01.prod.outlook.com
- ([fe80::aa72:ef1b:2a85:fc2f%3]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
- 08:57:23 +0000
-From: Ovidiu Panait <ovidiu.panait.rb@renesas.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: "maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"mcoquelin.stm32@gmail.com" <mcoquelin.stm32@gmail.com>,
-	"alexandre.torgue@foss.st.com" <alexandre.torgue@foss.st.com>,
-	"joabreu@synopsys.com" <joabreu@synopsys.com>, "jun.ann.lai@intel.com"
-	<jun.ann.lai@intel.com>, "yi.fang.gan@intel.com" <yi.fang.gan@intel.com>,
-	"boon.khai.ng@altera.com" <boon.khai.ng@altera.com>,
-	"matthew.gerlach@altera.com" <matthew.gerlach@altera.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH net 0/5] net: stmmac: Fix double VLAN 802.1ad tag handling
-Thread-Topic: [PATCH net 0/5] net: stmmac: Fix double VLAN 802.1ad tag
- handling
-Thread-Index: AQHdHz/RntRPJl+oQEefyqoj3xFOEraEsD0AgAESgeA=
-Date: Thu, 30 Jul 2026 08:57:23 +0000
-Message-ID: <OSCPR01MB12769B66B3A1316E8B05AE8CAD3C92@OSCPR01MB12769.jpnprd01.prod.outlook.com>
-References: <20260729095110.164157-1-ovidiu.panait.rb@renesas.com>
- <d39c7b4c-04b4-4bfd-8a4b-821a8a32a885@lunn.ch>
-In-Reply-To: <d39c7b4c-04b4-4bfd-8a4b-821a8a32a885@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OSCPR01MB12769:EE_|TYWPR01MB11379:EE_
-x-ms-office365-filtering-correlation-id: 33058523-cbdf-4db2-7861-08deee18927c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|23010399003|1800799024|38070700021|6133799003|56012099006|4143699003|11063799006|10067099003|3023799007|18002099003|22082099003;
-x-microsoft-antispam-message-info: 2w/r9pzRvU4mN+1acbofsvjXz7h2Voc56lvDnzG+mWrlm+ljNMgE+Z5ThWDEiW752v9kiE39JgHHZjn1UnQLhjNY8Sszbjf1UqIihHTgZDos3NHhVk/IrS1BbIZi2NJq8L20+0f9H6AENEXUAmjs7lCPoUmg2qqGGTGGUgyND+A+2D9jNee1K9AsQt5tDzzX86D9j6sJ0AsDbJFP42KOm1Rbj5jzhepzg7iNLav/C8RY6N8GYyNPS/eMBQIaSKXZGkelPKLTHu5j+ZY+IQhbL6rVLrSdzGUm0oCfwRo9gXaP0nTAONLN73AWr/ihWfXXL/2XDp358i9mmt4oquzG3TRE3n9niwV0WiNEL3bQt3TI2zjQnzumI7a0f0v7wEPxig9m5wXWkmgZmJQwVibgzhlLO9ycIwZo3VJbJxNLz9dUSU13GiPCsIkOnXNMy+EoYqmEFwxS92c3ejZs97pCWlD/Efz5IpTZcpoH00Mx8VWsI45n/sI84DTbOTwdaGPLH93vbfLLkHdXsAvQu9dgEobE6KwBKCudOznsspVp7f1YLYbsk7Z3xpsKadoA70OcgYH9Aeke0Iswftg+4Tr0p9u9xHGSjftYdZUENyUMM1fI76POlUt32fh4EWMV5QLWU0QU9g+j1zRxEguFue0DBF+SvJlwzVXyiMGJbfvr6wYCT0V2JKnSmgFygG1MLD/ODYcASOlkn7asWlxqTtkjpW/hw2vO6n7YbyRnzPI1YmA=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSCPR01MB12769.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(23010399003)(1800799024)(38070700021)(6133799003)(56012099006)(4143699003)(11063799006)(10067099003)(3023799007)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?0vPpUThSx++xuD3GeMpChYJMC/8H2dKrmN8Hc+MjkpisBwaOCYVJKo7c+5SS?=
- =?us-ascii?Q?MzQIxAqzZfASuY1B9iOfjhDdpzFzb2UereNrOgK4otdcntWyXwB7Es6JaiC9?=
- =?us-ascii?Q?38P4mrJh3oxzuKY4+J7DjIRijU7za5xwV+GSBrg9XyuBMN9GyU2ICWyyvj6Z?=
- =?us-ascii?Q?83+4VNPAofzPER7zLcdy98Q5kUCTveT2rxw2fTQvLixqQZDDkVcgHTorux1z?=
- =?us-ascii?Q?QFGX5GcB88+tDjLDrZJk1GAanuuBld9CGhqfVJnnyJcKDYZQ0IY+yMkpKeQI?=
- =?us-ascii?Q?JtnTzpZWsShnsCN7gUkFrPHKfdhtIxE1ij0NOYN7L9VyM/0dKbxz9esjlNC4?=
- =?us-ascii?Q?yJHRe+ut531s8gjnepdiUvuGqOPjWKCGxQB/OS6Vnrhf7HIBYquwv5R/NYTP?=
- =?us-ascii?Q?uTVU5c3UYQrP2ko/C1D3stf7BBFmX345odx26bS4mDys4JHHpvf7a5hjdG+5?=
- =?us-ascii?Q?e21Gu0yKwF4+Xe6yKDv1ZZqGrZF7ntbtiOuQwYxtEorRDRoQXrOqCorxZ8Um?=
- =?us-ascii?Q?v8lcS11PM0aYjU9+sa+MAIJUlEmVqGkUl62Rl5gPMMNoxnPDGZx5wWzprZ+1?=
- =?us-ascii?Q?iQZk6A0dt1IZClustNEd02KSbQOqIrwuLZ+KYDw86D36A2YNlk3DPvm4bQ0e?=
- =?us-ascii?Q?WeYd9AKFw63M2nAzjHMkx+3veY2bH4OZFQCVDxl/fw6Fc59YKOUtBDtubFeC?=
- =?us-ascii?Q?88CNZjGtLPdbl0M3eQgOpt9k2eDfnHN1JZAVk6/3ZFbUReGOCN1dJwo6pPPp?=
- =?us-ascii?Q?CNFNAsyzCWzE3+yZ5Ri3Gq64DhzOR0JtTGfdvNiyPBSuXtPMxy7MqgaL7Ud5?=
- =?us-ascii?Q?Qi0zX2/DalYO5FwAs6JqJulwvh+CAjTdZxd5FhtnIfb4WmqxFqGyiK0K99nu?=
- =?us-ascii?Q?BjsOuOUcHIFynJ52bEpUf+O92w/Shr+GN9xGcRq3x7plT7JTqpi2ZS/0++e5?=
- =?us-ascii?Q?KWs3NZsFQfEtJ67YZSEJdv7xQliLb28wyFT05yhIyfUWKl/WqqCkhnZ2PW5f?=
- =?us-ascii?Q?wNjgd/J2lb+6Moplr6+jneL/BxnQSzlV6gOzX0xcWdqObi9AdIbjWDri0JcP?=
- =?us-ascii?Q?LsAmL6ghovPtYG0TaxFDg4wwoBcLaMihkSx9BbRpERYsyTHPuJr6NntWRgSU?=
- =?us-ascii?Q?Yw8ySvb0bec1wSHixTyqKbuXHabfxFZIkMa5+FzL0ejs9CT/6UrK+/1g0g3b?=
- =?us-ascii?Q?Se8BhHX9X+J45fnRzobvIc/EBo7cx4gGUAWvmKFRNesCAvnD3h6Lyyz7nS32?=
- =?us-ascii?Q?vfK8I/TnUB19wRls0A5JZ0Kg9CTUGO1HAiATJlydwb7Y56z9vpnzHbioyVxQ?=
- =?us-ascii?Q?yGnQi8Ha0fOppEjXTbZLADqgvaMiRYd2RIQYGHN96n2mBDOeDdZKE8nKL7Ie?=
- =?us-ascii?Q?dE3pvuY2C4RKNihaFvlO3RjU5krB97VDySWBQMsEKe/s7tsuTOhi8TMjfyMm?=
- =?us-ascii?Q?jiGRt5j2HfVdTFZTFk7Z1y1hsLRjYZcjQz6Abg0xjAFQXdp6ggt9AHkTtzHE?=
- =?us-ascii?Q?D9d8pBXs7xMY9AkM4s+wpuhSYoV7Uim8ESmfiSzYTVJ2pBBsKpPvxNbZ13u5?=
- =?us-ascii?Q?M+lRXrLO2QIjzE+L35qHhwTzMjeNoR4iRB3tsV7eZqpULcf39QwsbxfO38FS?=
- =?us-ascii?Q?oerrDSipC+D1S7rtTqLeGRtuJF9WhrbsT/F+p94aJxgDD//Vlzh0VslbHWKt?=
- =?us-ascii?Q?cy7YkZclJQPKCaPvijw4IemSPUgpU+8+OpSu3w3IDx7PCizXPVntEU7X3B++?=
- =?us-ascii?Q?dk9MCXmS96mWB5YIiPMgT6aYQlrPKk8=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 30 Jul 2026 09:00:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785402046;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=r7D+xutFpqSSg5uUi8QN36v5qhOBFCRAD67A2wtKPrg=;
+	b=Vs6XX+n1ib81rr5HS6uImNxHAFQJm0VeVNAC96snsVfV49gqN9oLEhxOe1Bsp4pYOA44kU
+	JlRlrIp0tDgX7wg0usq5Vl1HCcXpOQxyiScccFAaPle1tsFA/yA04FjNrMlVRiSxPCKyaI
+	nj+Qji0DicHa+0tVhKO2+bLcjBFRkGA=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-682-jFgMNW4qN6eqwqljLpwPDQ-1; Thu,
+ 30 Jul 2026 05:00:43 -0400
+X-MC-Unique: jFgMNW4qN6eqwqljLpwPDQ-1
+X-Mimecast-MFC-AGG-ID: jFgMNW4qN6eqwqljLpwPDQ_1785402041
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 963F51800350;
+	Thu, 30 Jul 2026 09:00:39 +0000 (UTC)
+Received: from gerbillo.redhat.com (unknown [10.44.32.174])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 347DC30002E9;
+	Thu, 30 Jul 2026 09:00:33 +0000 (UTC)
+From: Paolo Abeni <pabeni@redhat.com>
+To: hujy652@gmail.com
+Cc: nbd@nbd.name,
+	lorenzo@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	sujuan.chen@mediatek.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net v3 2/2] net:ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
+Date: Thu, 30 Jul 2026 11:00:30 +0200
+Message-ID: <20260730090030.201100-1-pabeni@redhat.com>
+In-Reply-To: <20260724172040.1653-2-hujy652@gmail.com>
+References: <20260724172040.1653-2-hujy652@gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OSCPR01MB12769.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 33058523-cbdf-4db2-7861-08deee18927c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jul 2026 08:57:23.7018
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rqHG2hBX3DZ4unxPk6Rk6wMO2XBEtREo+B2FgfxR55cv8gA9P8t/KCtVWyJ5TC5DaOh1JGKijTRtmPNYEj5CV6ub/043SHcpkeoMUS+B9wY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB11379
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-Mimecast-MFC-PROC-ID: _AmaKOv1XoGdCDTgk6u4MMSsBF33f3EwOjfLaVcQ1cY_1785402041
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_015731_137208_7DF66120 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20260730_020049_634932_691862F0 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,55 +97,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+From: AI Reviewer <ai@example.com>
 
->=20
-> On Wed, Jul 29, 2026 at 09:51:04AM +0000, Ovidiu Panait wrote:
-> > Currently, hardware VLAN stripping is broken for 802.1ad tags.
-> vlan_rx_hw()
-> > hardcodes ETH_P_8021Q when putting the hardware tag into the skb, rathe=
-r
-> > than using the actual protocol from the packet. Because of this, packet=
-s
-> > that contain an 802.1ad outer tag are incorrectly passed up the stack a=
-s
-> > having an 802.1Q tag.
-> >
-> > This issue was observed on the Renesas RZ/V2H platform (which has a
-> dwmac4
-> > IP), when testing QinQ ping:
-> >
-> >   # DUT
-> >   ip link add link end0 name end0.100 type vlan proto 802.1ad id 100
-> >   ip link add link end0.100 name end0.100.200 type vlan proto 802.1q id
-> 200
-> >   ip addr add 172.16.3.2/24 dev end0.100.200
-> >   ip link set end0 up
-> >   ip link set end0.100 up
-> >   ip link set end0.100.200 up
-> >
-> >   # Peer
-> >   ip link add link eth0 name eth0.100 type vlan proto 802.1ad id 100
-> >   ip link add link eth0.100 name eth0.100.200 type vlan proto 802.1q id
-> 200
-> >   ip addr add 172.16.3.1/24 dev eth0.100.200
-> >   ip link set eth0 up
-> >   ip link set eth0.100 up
-> >   ip link set eth0.100.200 up
-> >   ping 172.16.3.2
-> >     -- FAIL --
->=20
-> I stretch goal, if you are interested and have time. Can you turn this
-> into a test somewhere in tools/testing/selftests/net ? If one MAC
-> driver has it wrong, there are probably other MAC drivers which are
-> also wrong.
->=20
+This is an AI-generated review of your patch. The human sending this
+email has considered the AI review valid, or at least plausible.
+Full review at: https://sashiko.dev/
+---
+--- Patch [2]: [PATCH net v3 2/2] net:ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986 ---
+commit 30cd2d1bc8bf876e5d201d631684431920a3f165
+Author: Zhi-Jun You <hujy652@gmail.com>
 
-Sure, I can add a test for this in tools/testing/selftests/net. I'll includ=
-e it v2.
+net:ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
 
-Thanks,
-Ovidiu
+This commit fixes an issue on non-DBDC MT7986 where WDMA_RING_TX(0) is
+never set up because idx is 1, even though it is required for WED RX to
+function. It addresses this by explicitly calling mtk_wed_wdma_tx_ring_setup
+if the WED version is v2 and rx_ring[0] is unallocated.
 
-> 	Andrew
+Link: https://lore.kernel.org/r/20260711112128.971-1-hujy652@gmail.com
+Link: https://lore.kernel.org/r/20260630144831.1109-1-hujy652@gmail.com
+
+> diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+> --- a/drivers/net/ethernet/mediatek/mtk_wed.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+[ ... ]
+> @@ -2334,6 +2334,13 @@ mtk_wed_start(struct mtk_wed_device *dev, u32 irq_mask)
+>  		if (!dev->rx_wdma[i].desc)
+>  			mtk_wed_wdma_rx_ring_setup(dev, i, 16, false);
+
+[Severity: High]
+This is a pre-existing issue, but does this code ignore the return value
+from mtk_wed_wdma_rx_ring_setup()? 
+
+If mtk_wed_ring_alloc() fails due to memory pressure, it returns an error
+without configuring the hardware base registers. Because the error is
+ignored, when DMA is later enabled in mtk_wed_start(), could the hardware
+attempt to fetch from unmapped physical addresses and cause an IOMMU fault?
+
+>  
+> +	/*
+> +	 * non-DBDC MT7986 allocates only rx_ring[1] and tx_wdma[1] during setup
+> +	 * but tx_wdma[0] is also needed for WED to function.
+> +	 */
+> +	if (mtk_wed_is_v2(dev->hw) && !dev->rx_ring[0].desc)
+> +		mtk_wed_wdma_tx_ring_setup(dev, 0, MTK_WED_WDMA_RING_SIZE, !!dev->tx_wdma[0].desc);
+
+[Severity: High]
+Does this new call to mtk_wed_wdma_tx_ring_setup() also need to check its
+return value? 
+
+Similar to the RX ring above, if mtk_wed_ring_alloc() fails to allocate
+memory, the hardware base registers won't be configured. Since the caller
+proceeds to enable hardware DMA regardless, might this lead to the WED
+processing descriptors from unmapped memory and causing memory corruption
+or a system crash?
+
+> +
+>  	if (dev->wlan.hw_rro) {
+>  		for (i = 0; i < MTK_WED_RX_PAGE_QUEUES; i++) {
+-- 
+This is an AI-generated review.
+
 
