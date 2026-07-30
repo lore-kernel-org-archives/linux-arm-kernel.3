@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE26C55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96917C55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qsUQy8M66IQC4lINcyq/oQdCxyYdqshF1zc1xBHxHA4=; b=wGxiyYfpV8rxNB/qMMJzbOz5mY
-	zyekmGshg61tL8C2Oc2s4yTX02jPcsnZtBBlmagiJSXd0Nm9I3pKo9SGtBzrINbo4eecKOsBPLv9L
-	+q/dE+XLGuMNMoxuugnt7X/t+LYLjdcVMaGYk8SWp4/8NWvIjRAqK7K2AfWn2Ex0rT+sMCoYWKOxL
-	vazXfrmV7x1BdPtsg2jkVsT0MgB/PeuJW+erzqb/nrsNKuh18apdaHq5yB9oRF7P41hY1u4NH7FVp
-	u3UmSGwImPgyIIr6HB4fKyFTJj+meAeZHlyrmysYXMheIaniKoazsK7Arx66FC64SB7iB/seYFiu/
-	Q/WJk/fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EoLrUbPAObzEk7QfSzD57ZfstViCPOgwlL7CmfNG8JU=; b=AGxUCTRranx4rnUFnVE9KnkOXM
+	d7pNNpxfLJzsQLihfzh3u63N/tCaLUHLbcp+cZCV62naOQOISs5v8EyQJ69JxE5HKn+hnzy26A+vA
+	62bJgFWPvJCt/YYsko9TUYT+cKxnc98dVH0hVAO61VeAjiX7Hd2c1TavUitlioE5Bs4aiiyqWt42R
+	FPDc7znlrmFi7PufJtGGTzU6ZB8TbOhU1pPv4oLciBJwLNQycSA/VEhxqE6g0Pnr83g3l+dcxKf+s
+	d7SajoPe7Hk1Jp9VJEAHfHmtQTh4XKmpRdg1TPjwquVlqaVCuI7f9hmjklY8Zo9GsEBkgmIfp+BMN
+	FfD1qKUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPWJ-0000000AQ4v-2Tzi;
-	Thu, 30 Jul 2026 12:05:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPWG-0000000AQ3w-2IO7;
-	Thu, 30 Jul 2026 12:05:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 482E84124E;
-	Thu, 30 Jul 2026 12:05:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50E571F000E9;
-	Thu, 30 Jul 2026 12:05:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785413148;
-	bh=qsUQy8M66IQC4lINcyq/oQdCxyYdqshF1zc1xBHxHA4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=e2gk9GyZgq8oQEURY5p40WzWG9z4659Vkf3Ehzzt6nAG7f59GgY9fEXIQKviG6uxV
-	 s1OGPXVVbPk2Z7CX8V59491Lap2GC79ZUr2osPt9XIdbtvmgaqMec/nYObE7QyTBH+
-	 nyGeYAAFXGdxJ3av2WpsMgeDjUd4boPv/Jkse01hSAhr07CmZGL/wzgL+vCIocG+/y
-	 jw3UhkyxKZpYLecDHrSmL9Tn+YGyOKZUoltrU0XK1Z1ZQ9wkt49KNvHD+pyC5pQJMj
-	 g0QgSNkP6K8T0f2euFhc4GFcujxYpeLWe8mnXiuo3RDYCG9PtfqYrPUeQN1V75C83T
-	 XKE9oNVwsAw+w==
-Date: Thu, 30 Jul 2026 13:05:43 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] spi: meson-spifc: use devm_pm_runtime_set_active_enabled
-Message-ID: <d91cc800-1f41-424d-baf8-c1b2fe935978@sirena.org.uk>
-References: <20260722-spifc-v1-1-e4462a4c6a06@gmail.com>
+	id 1wpPXv-0000000AQTC-0h5I;
+	Thu, 30 Jul 2026 12:07:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpPXs-0000000AQSS-21DN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jul 2026 12:07:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B94CE1684;
+	Thu, 30 Jul 2026 05:07:23 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E3A53F86F;
+	Thu, 30 Jul 2026 05:07:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785413247; bh=21ia43FmNLq2y0FsA3F0kaUAm6yUkF+pRr+vqWLTMhw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=fHd8F1UUUR0YRIy6hArlDGYNvRodLaYi+EqYwlOqad5WU4lPfTCktn4mXh9o/awQO
+	 cBnjqKbMk3bXO/S8JHjdVzufNeRumBM3nfZ50IkaDlRSQjNpiaYoz0xwjFgh4P1fQj
+	 V6im/bwI3P5MwbjPOnLZ2ZQWI8WWeDW123g7Mxwc=
+Message-ID: <691560ab-d8a3-49ef-a5d8-e2306e381748@arm.com>
+Date: Thu, 30 Jul 2026 14:07:22 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="/A/xRZp0AlOIxdtl"
-Content-Disposition: inline
-In-Reply-To: <20260722-spifc-v1-1-e4462a4c6a06@gmail.com>
-X-Cookie: In specially marked packages only.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 09/10] arm_mpam: change error IRQ to use a threaded IRQ
+ handler
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260729134124.2506269-1-andre.przywara@arm.com>
+ <20260729134124.2506269-10-andre.przywara@arm.com>
+ <881a3224-fb19-4ded-ae7e-3f7ae139fe52@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <881a3224-fb19-4ded-ae7e-3f7ae139fe52@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_050728_603792_E88E726B 
+X-CRM114-Status: GOOD (  30.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,41 +84,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ben,
 
---/A/xRZp0AlOIxdtl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On 7/29/26 17:23, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 7/29/26 14:41, Andre Przywara wrote:
+>> When an MPAM MSC gets into an error condition, it can trigger an error
+>> IRQ. We cannot really do much about those errors, but we at least query
+>> and log the error, then disable MPAM functionality.
+>>
+>> This error report relies on reading the MSC's error status register
+>> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
+>> MSC accesses, since they involve mailbox routines that might sleep.
+>> The same is true for clearing the interrupt at the source, which
+>> requires an MSC access as well.
+>>
+>> Change the error IRQ to use a threaded IRQ handler, with an empty hard
+>> IRQ routine, and doing all the MSC accesses (to access the status and
+>> disable the IRQ line) in the threaded part. The change is minimal, we
+>> just check for the first MSC access error and bail out early.
+>> Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
+>> threaded IRQ here.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 42 ++++++++++++++++++++++------------
+>>   1 file changed, 28 insertions(+), 14 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index abe1e628928f..e535603d2c7d 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -2659,9 +2659,11 @@ static int mpam_disable_msc_ecr(void *_msc)
+>>   	return 0;
+>>   }
+>>   
+>> +/* threaded IRQ handler for shared IRQs, to allow MPAM-Fb accesses to sleep */
+> 
+> This comment seems incomplete. The same handler is used for the PPI hardirq.
 
-On Wed, Jul 22, 2026 at 08:09:17PM +0800, Felix Gu wrote:
-> Use devm_pm_runtime_set_active_enabled to replace
-> pm_runtime_set_active() + pm_runtime_enable() and drop the out_pm
-> error label and now-unnecessary remove function.
+Yes, I failed to convey that it's only a threaded handler for shared 
+IRQs. Reworded that to cover both cases.
 
-> -static void meson_spifc_remove(struct platform_device *pdev)
-> -{
-> -	pm_runtime_get_sync(&pdev->dev);
-> -	pm_runtime_disable(&pdev->dev);
-> -	pm_runtime_put_noidle(&pdev->dev);
->  }
+>>   static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>>   {
+>>   	u64 reg;
+>> +	int ret;
+>>   	u16 partid;
+>>   	u8 errcode, pmg, ris;
+>>   
+>> @@ -2670,13 +2672,19 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>>   					   &msc->accessibility)))
+>>   		return IRQ_NONE;
+>>   
+>> -	mpam_msc_read_esr(msc, &reg);
+>> +	ret = mpam_msc_read_esr(msc, &reg);
+> 
+> This is also called for MMIO accesses and the checks in the reads and writes call smp_processor_id()
+> which will give warnings if we are preemptible. There is also a similar to check higher up in this
+> handler. We need to choose in what context we call things based on whether we are using MMIO
+> accesses or MPAM-Fb.
 
-We still need the pm_runtime_get_sync() here since the driver uses
-devm_get_clk_enabled() - we need to exit remove() with the clock
-enabled.  The other changes look OK.
+Alright, after some off-line discussion we settled for keeping a 
+hard-IRQ handler for MMIO, and just use a threaded handler for MPAM-Fb. 
+Should solve this problem elegantly.
 
---/A/xRZp0AlOIxdtl
-Content-Type: application/pgp-signature; name="signature.asc"
+Thanks for pointing this out!
 
------BEGIN PGP SIGNATURE-----
+Cheers,
+Andre
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmprPhcACgkQJNaLcl1U
-h9BCFwf/fJYvAB49gnyQfVxHK32NXtzFjH+/iHS5QiweU/ilAXloDOMCGhHxw6Bt
-wEUpzncjFa+GP0Cy3L3uqO5+o2daTAh1JjfRsai8wCZ2OSa20PqmVJDmw+liiL0c
-jf86aCksazxg9Cx19/wyEPJ98mqcLUu3rLPrQ6VTi/DvWggukh3cs2o1q2XWK7qb
-eJb/+X57ex9cffILOmueqjG9SJSQQstM9k2MhRCfTeZw0hKwigKeGZW1F9JY95JW
-LqoAnFMbyx4Jk3Fcj6fr/KIYroMKNGSTaTh0mVQ5Cmnvp/lbYc0fWny861xwW0yb
-g7yhZ0cNaCHvxq4U/zBKFslj5eznMA==
-=JqfB
------END PGP SIGNATURE-----
+> 
+> Thanks,
+> 
+> Ben
+> 
+>> +	if (ret) {
+>> +		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
+>> +
+>> +		/* Try out best here ... */
+>> +		goto out_disable;
+>> +	}
+>>   
+>>   	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+>>   	if (!errcode)
+>>   		return IRQ_NONE;
+>>   
+>> -	/* Clear level triggered irq */
+>> +	/* Clear level triggered irq. Ignore errors, we need to proceed. */
+>>   	mpam_msc_clear_esr(msc);
+>>   
+>>   	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+>> @@ -2687,19 +2695,19 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>>   			   msc->id, mpam_errcode_names[errcode], partid, pmg,
+>>   			   ris);
+>>   
+>> -	/* Disable this interrupt. */
+>> +out_disable:
+>> +	/* Disable this interrupt. Ignore errors, we need to proceed anyway. */
+>>   	mpam_disable_msc_ecr(msc);
+>>   
+>> -	/* Are we racing with the thread disabling MPAM? */
+>> -	if (!mpam_is_enabled())
+>> -		return IRQ_HANDLED;
+>> -
+>>   	/*
+>> -	 * Schedule the teardown work. Don't use a threaded IRQ as we can't
+>> -	 * unregister the interrupt from the threaded part of the handler.
+>> +	 * Schedule the teardown work. We have to defer it as we can't
+>> +	 * unregister the interrupt from the threaded part of a handler.
+>> +	 * Check whether we are racing with the thread disabling MPAM.
+>>   	 */
+>> -	mpam_disable_reason = "hardware error interrupt";
+>> -	schedule_work(&mpam_broken_work);
+>> +	if (mpam_is_enabled()) {
+>> +		mpam_disable_reason = "hardware error interrupt";
+>> +		schedule_work(&mpam_broken_work);
+>> +	}
+>>   
+>>   	return IRQ_HANDLED;
+>>   }
+>> @@ -2735,6 +2743,11 @@ static int mpam_register_irqs(void)
+>>   		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
+>>   		/* We anticipate sharing the interrupt with other MSCs */
+>>   		if (irq_is_percpu(irq)) {
+>> +			if (msc->iface != MPAM_IFACE_MMIO) {
+>> +				dev_err(&msc->pdev->dev,
+>> +					"Only MMIO MSCs can use per-CPU interrupts\n");
+>> +				return -EINVAL;
+>> +			}
+>>   			err = request_percpu_irq(irq, &mpam_ppi_handler,
+>>   						 "mpam:msc:error",
+>>   						 msc->error_dev_id);
+>> @@ -2746,9 +2759,10 @@ static int mpam_register_irqs(void)
+>>   					       &_enable_percpu_irq, &irq,
+>>   					       true);
+>>   		} else {
+>> -			err = devm_request_irq(&msc->pdev->dev, irq,
+>> -					       &mpam_spi_handler, IRQF_SHARED,
+>> -					       "mpam:msc:error", msc);
+>> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
+>> +							NULL, &mpam_spi_handler,
+>> +							IRQF_SHARED | IRQF_ONESHOT,
+>> +							"mpam:msc:error", msc);
+>>   			if (err)
+>>   				return err;
+>>   		}
+> 
 
---/A/xRZp0AlOIxdtl--
 
