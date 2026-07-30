@@ -4,96 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C716C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 15:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1531C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 15:50:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eemCSxLVEosFJ70MWmOxEAPXsjZ44shUjMRdUXsw+jc=; b=PB9P8qz8a3VDy32PdcA3uGExBX
-	BIz/MbkkI4qGRpnRMhQ9enMEfJhRPFL8G1VwVRrGZFJRuJfgiAN6sbDcg/nY0OWjEsFGB6XQ/i1VT
-	l/owTrZ5KcONmFOfjKvLlaSfHD8gKc8rYpoQUrnSc+XLGaS0oWP/UiVmCpaywKGQ1218dYBgvRZs1
-	tVnnw5skb55TkFYH+X4IxLT3FOWKBYBVxXwi7cI9du2d319LfPoz1ChdT8+86saqr1MZDgyRxID3V
-	XIMrHGsQYr3TxI4PsSERdF1QLkTYYnOjmq6FiVmnf58xF6d+jo+kUXL4SvjBIrFN++kW16T2reUzt
-	KD3HpsEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=slh2h9i6LmNp2WolpBB5Yw2Tk8/zNA233qAcOw9cOEU=; b=qYMeCfDEtM9KCGsKKoqpXOoebc
+	Io3dcvMR6ZPb7PAr89s3gKWpdnTKRdFx0wpC+JtGwIWGAlfy66wpOWTGN02VwrrahxKScuvABFkB/
+	u6SjZ13MyeTotEWy2G7QAI1LljXAp+d3WU21V5Jfl+KGiF+GUKt0mnWGicOyAsM5DtLppdg2d6mpQ
+	kjzqClzGcNg5xyI8qEkrU1RZoZ4UuLGXs8jzbTvYt0G7asurjLHbw3KoZOSLiSLqGbG3H/NC7yPvg
+	Ver9R95E7yy33LRkpgRIgrsBdBDZx5Z5qmu38C4r4fiJe4Ff4+eORTIyfMyedrG58z1c+OueuQr0j
+	Vnd46T2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpSo1-0000000As41-0UqF;
-	Thu, 30 Jul 2026 15:36:21 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wpT1j-0000000AsvH-0TyL;
+	Thu, 30 Jul 2026 15:50:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpSny-0000000As3H-2Vni
+	id 1wpT1Z-0000000Assl-1Wrr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 15:36:19 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2caced6038eso11112815ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 08:36:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785425777; x=1786030577; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=eemCSxLVEosFJ70MWmOxEAPXsjZ44shUjMRdUXsw+jc=;
-        b=o4ZXHPVsEO9B7+nZt6MFql5AzTw5Ap+Aj9Lv4CdRlbT2ncFbbOZ4GXXwBW2T64eJDU
-         DhJYAqn6yFXZKBvJZkooTqTsotVOEZvx7jERAETkjbvrbfiAzR9+x6bt0oNtBL68cPKA
-         CWB061GT/WBOkEQ1tVaBXDsa4U08YXsanq1Xa0FHb9C34vkgU4DwOWqTDKui4EIcfTs7
-         gc/XdbAI/JluK/adGAYZTKgEbFyM2aqnCT9i6up1Y2/GZF9ydA/ECY4b8N9mTS4Xp2gI
-         Xuz3stetkjTUtI+Yxp5rYGhwjCYMTOqj/6NOtkXmA4mEVqVkMxGSwVofqlQezGY856zW
-         00Rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785425777; x=1786030577;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=eemCSxLVEosFJ70MWmOxEAPXsjZ44shUjMRdUXsw+jc=;
-        b=fSkCGVgLtolKwRry2aKv8E8TBk47LlriodKYLMQr4hfkULC4y0N9sh5i8OSplppkXf
-         utKmNOQml2Y1lgnJ4yCWmT2SsWUVf96wAzOkOM1eXvwHad89DgYkh5zZg1p6bbb3r4QU
-         u4HKfj7HjlPPHKq8Y+ETYLVPtl68wuumXeoJF8QQtVySE95fdYcwl33xWpAyZF00qZTz
-         fszbACGSa1u63VuQ51kqJIIdAkHvVbBr3pZaYgP755YI+kt2IE4qfK9lVpuA9mIA4OmW
-         UY4NWiuXshapneOFSKoZSHuWrfO+8gIp/grDSMpJ6qsnYlIMwKM6ZNq+3fJeRnx8T95a
-         E8vw==
-X-Forwarded-Encrypted: i=1; AHgh+RqJrsHITNOu6dB5Vfu2o2C0t38qMlnhpNUD1sGjVPpgI3xWtVFdIrmNIFio93msZrGxxhBB/I5tkwAs8iNwFF8s@lists.infradead.org
-X-Gm-Message-State: AOJu0Yygf/a43KWflPCpgNgZRrkSAWRtcxj5eMgE3wt5RQNubROSJ2Sh
-	swqUaNSC3nM8HWSgsX4UtPJb5B/3x9Wh8eRR+uCz9cavNiBa0430Yr1G
-X-Gm-Gg: AR+sD12s5QysAP1WHZ+MIiyo7uomb7ThVyGZ4SsESBiMjXq7dJA/WZnob7jmZ+wml0O
-	t6XSP08mYWTpX7yMo3e1Nw0ByXbppihwD1eEg/Gr625hUCVJ0I1OhvAAS+OYk+ePPejU2pcIqRt
-	FsdM4xAHtkTOXMylmAL7cVe5nXj9BUY/jHgWwL/KKOl3QbEzcbKSJZzYRG05l5x4Yo1ioNFEpmM
-	H4BJOkvlF2LMY/lqX3lf69xUyGLbp09V1MSscCpHj9jBj4/9XOSfd7cJxfl7DaROOCTDy3sQtrR
-	DEWoY2+oClyXtDIqRilG2ut1CMSDM8wzz+ZbbKO22lR4RhlEIrybu5974bm1JSj3agp/3cj+o55
-	rEvZN6M0K7APREtsGzXNPqHcH+jsVZBPZ2cvlRx7sIBIb7fsoKEDjeiakqO4XrZbBrb4u+zRGTe
-	xU8UIOrl8aoAPzTw1N9Pw5S7qlGiILJFBXqKs6Dmq5RlLtZZ/YMkcHU6mbExmIb/r6iro0J1o1+
-	py1uPmO/eTTm+tm43kF0tcj4ZCHLBonpxujXlsCiRVpKw==
-X-Received: by 2002:a17:903:1104:b0:2c9:d8c5:d55d with SMTP id d9443c01a7336-2d03e9b6bd5mr5417115ad.16.1785425777367;
-        Thu, 30 Jul 2026 08:36:17 -0700 (PDT)
-Received: from debian-rockchip-rock5b-rk3588.. ([184.22.25.116])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d022a46969sm28820085ad.25.2026.07.30.08.36.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 08:36:17 -0700 (PDT)
-From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil+cisco@kernel.org>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-kernel-mentees@lists.linux.dev,
-	skhan@linuxfoundation.org,
-	me@brighamcampbell.com,
-	jkoolstra@xs4all.nl,
-	Tharit Tangkijwanichakul <tharitt97@gmail.com>
-Subject: [PATCH] media: rkvdec: fix v4l2-compliance failure
-Date: Thu, 30 Jul 2026 15:36:03 +0000
-Message-ID: <20260730153603.5721-1-tharitt97@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	Thu, 30 Jul 2026 15:50:25 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BF07C43364;
+	Thu, 30 Jul 2026 15:50:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF7501F00A3D;
+	Thu, 30 Jul 2026 15:50:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785426620;
+	bh=slh2h9i6LmNp2WolpBB5Yw2Tk8/zNA233qAcOw9cOEU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=du3CuQn5FbJjj+PuyjCv0FBKJmUIuzG4wTQztDWdjUZP9g/0obSKrgMM+2b501jZm
+	 WftRskHQri4dB7OGEH/4ukCwaJXv4MX2Kbtsyj7hnkwQVAbVewFthh9Nl21acJ3NaY
+	 0kEKtOMjaeqtAlEgt9l5c9m9vkM7UaOR/KF6yKkjrlmlWs9TO+nGnZpm+Sb1Hp/5dK
+	 1eWqZXCJY/oLFrL2pq8gVibSaaEmnx0HNkIr1NJKN525f6Z7RXXVHU8HoQJc9PmRyi
+	 +2g1pq5izPWNK7ybkmHUqIhkI6IQXhlSqiBvvmL3XdiMWkYexaA/QcRG+oiRk0mjAH
+	 HxgBYMnJJrk0A==
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 1F9B2F4008A;
+	Thu, 30 Jul 2026 11:50:19 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-05.internal (MEProxy); Thu, 30 Jul 2026 11:50:19 -0400
+X-ME-Sender: <xms:u3Jraprs1YcpCB5lPjUwCINax4JYVaiAz75uKnOK9zMJwrpPEvXVVg>
+    <xme:u3JrauwbxIU6YguaW8A75Fp02l5-I9F0-vOMdr_bGSoYcYpYZPdtlFEUJc6fDku0A
+    cU01vg9MWgZD201Ys4N41cNtze4V4PKvqhxPa0VxixBSWYmqJXCDVs>
+X-ME-Received: <xmr:u3Jrajp9Zq8wUw0_y6mYinSHTmQ98PHMwGbGksS47vuDPmcfEHnXl9iMc99sHA>
+X-ME-Proxy-Cause: dmFkZTFFxRhh5KtXZvMKng+4z/FIbdoeZvQuEFFHsoNeHQ+UNAcs3VBtxuRHLSDm37bIOn
+    oUuzCNuNSwrs7M3kDoMbUWv+JBMVKNQUBaHC/EV1u4MGvMVIdDMskyKWqDAeZEr5Fpvt1z
+    JonHD4tHPtT0T76ZjAKAxEDO6ycApw5+Kb35yY4OD+zCcJh8JxYFoxWZ7dqcw3RNMTjGxS
+    1HoztlSoTAMW8OF+c70eYl8eih37WQriL9x51T+OB5tx485FCEtTtfe6HXB/R5eNgrDOOK
+    BFY0X/K69HagfQ2jACUpCOUig+0JKtQXkbcQnkKMxa9iVfntYF4tTR1rMQ7SBHZadmZcFU
+    MaeJsLoxLRmyvtLIZPjxfzlUGxdCd3AOeCw6qHCbpaOI1Cen20GIX8GMfzfs0zt5eslK1X
+    Gclm0SvSCO9I4e0wNCMeF3MS21A5AXTyNq64AA4i4KeUYmElqxdzyCSGNAJ51xudbewmxU
+    exqtc+JkaLp8bhf/sngPQ1RUXKiwZ5ntIFb1agf2D4oOektTs/ApHVeVnXsDOeYKoSXVXi
+    SM/qSSJJihHLXHT6ngL9a85GwVKNmerGgojVh8HJJYnKr5gDmbz4L1Cp0GDjUM+jDPcTEM
+    1vX97HCgyFQS3PBeqIXIHsQQ7l+p2bMT9OxzLCUXwaR7C+Nv58Oxtm2QmFlQ
+X-ME-Proxy: <xmx:u3Jrapfsv4-L3EJE154XshdLHvpRYpfXIEBkM03d0HuYz1KMi68zhw>
+    <xmx:u3JraniUWOuHeki1e6gaV4FtEU1pHXAR2ToLY1TNICxJKML_mw7bcg>
+    <xmx:u3JraqLqRbY4zuH73EUBAGkL-KPuNCRdwGX_pNTSfbYbkXjGsXmchQ>
+    <xmx:u3JratkkHACdy_TDL5_fjO1rGuxgWtmNYWL9hz-CiK33xFY0M44cxw>
+    <xmx:u3JrauQ7u0vqEjBtLiwiFIzulinzWrHpf3-s-Vp2kGfRKGlZVeOyUrRU>
+Feedback-ID: i10464835:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 30 Jul 2026 11:50:18 -0400 (EDT)
+Date: Thu, 30 Jul 2026 16:50:17 +0100
+From: Kiryl Shutsemau <kas@kernel.org>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, James Morse <james.morse@arm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, Petr Mladek <pmladek@suse.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
+	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>, 
+	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>, 
+	Julien Thierry <julien.thierry.kdev@gmail.com>, Lecopzer Chen <lecopzer@gmail.com>, 
+	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, kexec@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/4] arm64: cross-CPU NMI via SDEI
+Message-ID: <amtyQH7lzLDKE3WD@thinkstation>
+References: <cover.1782744912.git.kas@kernel.org>
+ <ak_IRHwd02EjWMf8@thinkstation>
+ <amYR5VWHWC1WdFXc@willie-the-truck>
+ <amZRtS2Lu1epc0S4@thinkstation>
+ <amiDoZdszC1pB6Z2@willie-the-truck>
+ <amiayYZA2kBSTzFB@thinkstation>
+ <CAD=FV=UN8+Yydm1G-afbaAfh2ZF7MzEE27UXoDOG0HFB0cwyXg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_083618_640731_C5DF1AC6 
-X-CRM114-Status: GOOD (  12.58  )
+In-Reply-To: <CAD=FV=UN8+Yydm1G-afbaAfh2ZF7MzEE27UXoDOG0HFB0cwyXg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,60 +109,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rkvdec fails v4l2-compliance in two tests related to
-V4L2_CID_STATELESS_HEVC_SPS. The Control ioctls test reads the control
-with GET_EXT_CTRLS and writes the same value back; TRY_EXT_CTRLS then
-returns -EINVAL because the VDPU38x rkvdec_hevc_validate_sps() rejects
-sps->chroma_format_idc == 0, which is the value returned when the
-control has no default.
+On Wed, Jul 29, 2026 at 02:37:37PM -0700, Doug Anderson wrote:
+> Hi,
+> 
+> On Tue, Jul 28, 2026 at 5:18 AM Kiryl Shutsemau <kas@kernel.org> wrote:
+> >
+> > The piece that isn't boot-time yet is the hardlockup detector that drives
+> > all this. perf and buddy are mutually exclusive at compile time. We want
+> > to use perf watchdog for FEAT_NMI while SDEI needs buddy.
+> 
+> FWIW: can I ask why? You're worried about the "all CPUs lock up at the
+> same time" problem? I am aware of some work towards solving that (even
+> with buddy) by letting the hardware watchdog driver's "bark" interrupt
+> run at NMI-level (or pseudo-NMI-level). With that change, I'm not
+> aware of any benefits of the "perf" detector over the buddy one. 
 
-    v4l2-compliance 1.33.0-5491, 64 bits, 64-bit time_t
-    v4l2-compliance SHA: b32589c51481 2026-07-16 08:51:38
-    Control ioctls:
-        fail: v4l2-test-controls.cpp(942):
-	try_ext_ctrls returned an error (22)
-      test VIDIOC_G/S/TRY_EXT_CTRLS: FAIL
-    Buffer ioctls:
-        fail: v4l2-test-buffers.cpp(3102): node->streamon(q.g_type())
-        fail: v4l2-test-buffers.cpp(3157): testBlockingDQBuf(node, m2m_q)
-      test blocking wait: FAIL
+Honestly, no strong reason. I flagged perf mostly as "the detector you'd
+reach for once NMIs are back", not from a concrete need.
 
-Provide a control default via p_def with chroma_format_idc = 1 (4:2:0),
-which is the only value the VDPU38x SPS validation accepts.
-This fixes both the Control ioctls and the Buffer ioctls failures.
+The all-CPUs-wedge-at-once case is the only gap I was vaguely worried
+about, since there's no live buddy left to notice it. If the NMI-level
+bark work you mention closes that for buddy, then I don't see a reason to
+want perf at all -- and as you say, buddy is cheaper.
 
-Tested on Radxa Rock 5B (RK3588).
+Buddy everywhere would be strictly better for us.
 
-Fixes: c9a59dc2acc7 ("media: rkvdec: Add HEVC support for the VDPU381 variant")
-Signed-off-by: Tharit Tangkijwanichakul <tharitt97@gmail.com>
----
- drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-index 1d1e9bfef8e9..37603f049788 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-@@ -236,6 +236,10 @@ static const struct rkvdec_ctrls rkvdec_hevc_ctrls = {
- 	.num_ctrls = ARRAY_SIZE(rkvdec_hevc_ctrl_descs),
- };
- 
-+static struct v4l2_ctrl_hevc_sps vdpu38x_hevc_sps_default = {
-+	.chroma_format_idc = 1,
-+};
-+
- static const struct rkvdec_ctrl_desc vdpu38x_hevc_ctrl_descs[] = {
- 	{
- 		.cfg.id = V4L2_CID_STATELESS_HEVC_DECODE_PARAMS,
-@@ -243,6 +247,7 @@ static const struct rkvdec_ctrl_desc vdpu38x_hevc_ctrl_descs[] = {
- 	{
- 		.cfg.id = V4L2_CID_STATELESS_HEVC_SPS,
- 		.cfg.ops = &rkvdec_ctrl_ops,
-+		.cfg.p_def.p_hevc_sps = &vdpu38x_hevc_sps_default,
- 	},
- 	{
- 		.cfg.id = V4L2_CID_STATELESS_HEVC_PPS,
 -- 
-2.47.3
-
+  Kiryl Shutsemau / Kirill A. Shutemov
 
