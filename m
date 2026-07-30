@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A53DC53200
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 00:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 463CAC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 00:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TZXWw/54kDIDx73XnHw22X7yeZR5LWN5LDGxddSIeDE=; b=Kze0ZOGP54L+HQPXcusCDvLWQd
-	Gmguy6ggFaHMwpujjCc6R2ey/51DsOgEA/lBgE/RntnITreYRQkT5GTU/dkyZuNEdTZmJKzynO72f
-	CChx9neSijlSnXNTxAL/XPmoujbKyYASHsx2jfEj8QGIY3LbsR0Y9yiYE+yOBXRRgqUcvK74bEwlA
-	odobErWsprZL5+yrVk5L9AawKpCarV8bW8/iGkrRAy66VlSGSpdIWwQ1T8Oa30BUBqwavLj55Ldkw
-	D2OjTw9F7GKUwc9UT35u49CcU/qUvfdevPN7E/HGhD6kG2sd2yMR7rHHp55K+cGCHzDSiZqLnb3Th
-	LXEy3GsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bP8EAeC1CZ9D1bfHHL3jOQrAcf6Vz3KCNlqRIImUCKM=; b=BDtIBLIPf/66GqVuEl4+cyeOEJ
+	sC29RubEhi3xzC7S7tDaKfg0wE4lEPQQm6oaxS1wDZptXtVdYuxiWJGfQJ81K3bP2set3mM2y+/rB
+	+K0mG3ETrFA6sReetO1ai1am237NFKqTIGxPxJC8f/dkqU+b0g3OUVj4UBZTqQe3Z31H5MeTZT72L
+	/PouQTQnkMKSQZ31GUBqWah0D4Q0yewW36qWozHbrTw8MGkItUe+Efih29Qs5HUJxliQryXhw2X6a
+	U6hX462mIepjvfzmFkiz6FK9Cl58YTA/vXAtgafD0PY4nikffgexWfInrYVQODxReH1zc8cc4FIo4
+	57g8pe5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpEF1-000000098tn-22fU;
-	Thu, 30 Jul 2026 00:03:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wpEQP-000000099UX-35jF;
+	Thu, 30 Jul 2026 00:15:01 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpEF0-000000098ta-3E63
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 00:03:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24BAC41AEB;
-	Thu, 30 Jul 2026 00:03:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87B0A1F000E9;
-	Thu, 30 Jul 2026 00:03:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785369794;
-	bh=TZXWw/54kDIDx73XnHw22X7yeZR5LWN5LDGxddSIeDE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=i5nFSGTa54IX2AUca+NVsi84ye/eHv0R/PXeVpCmikWEvqGvVEgNq01rWwCctSwKK
-	 mcSGvF3NJ2w4pKWWSewA8xqOsYR1ecGWQe+m9DBZu7LmSPKbIh1aJ98HRt7Qyvm0aV
-	 oQk7YKhzp9qUhN5VQCcWwqtj/TSSi/pWOQCDTEYW3ZB1zG2vznlvzhwlgz66DRjFYR
-	 +0oD2xTAN95YjfGa/2w0oug19eFahFBxbosPh8KDHTheLHoiAWJ+TvHESMEY8wz9Tk
-	 brs3/patuZKp+2R16Bh8C86IZ9tQkrrWOxXOO+CNlRDXVDU4uXSwY1nS7XgB2UVAxH
-	 A1t9WCsd6A78A==
-Date: Thu, 30 Jul 2026 09:03:07 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Steven Rostedt <steven@rostedt.org>
-Cc: Hongyan Xia <hongyan.xia@transsion.com>, Will Deacon <will@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Dennis Zhou <dennis@kernel.org>,
- Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, Oleg Nesterov
- <oleg@redhat.com>, Naveen N Rao <naveen@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, Nathan Chancellor <nathan@kernel.org>, Nick
- Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
- Justin Stitt <justinstitt@google.com>, Jiazi Li <jiazi.li@transsion.com>,
- Pu Hu <hupu@transsion.com>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-mm@kvack.org"
- <linux-mm@kvack.org>, "linux-trace-kernel@vger.kernel.org"
- <linux-trace-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
- <llvm@lists.linux.dev>
-Subject: Re: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
- __always_inline
-Message-Id: <20260730090307.24d3e4b1041f30d87d390e1c@kernel.org>
-In-Reply-To: <20260729140846.3c18f437@gandalf.local.home>
-References: <cover.1785153469.git.hongyan.xia@transsion.com>
-	<eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
-	<20260729140846.3c18f437@gandalf.local.home>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	id 1wpEQN-000000099Su-31MO;
+	Thu, 30 Jul 2026 00:15:00 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1wpEQC-000000002f9-2oqg;
+	Thu, 30 Jul 2026 00:14:48 +0000
+Date: Thu, 30 Jul 2026 01:14:45 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Alexander Couzens <lynxis@fe80.eu>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Landen Chao <Landen.Chao@mediatek.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net v2 2/5] net: dsa: mt7530: check bus->read() errors in the
+ MDIO regmap backend
+Message-ID: <cead5b47a21b7aeb8fc869f072ba981fc93aa6f0.1785368701.git.daniel@makrotopia.org>
+References: <cover.1785368701.git.daniel@makrotopia.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1785368701.git.daniel@makrotopia.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_171459_756498_6D0F0DC7 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,90 +76,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Jul 2026 14:08:46 -0400
-Steven Rostedt <steven@rostedt.org> wrote:
+bus->read() returns a negative errno on failure, but
+mt7530_regmap_read() assigns it to a u16, truncating e.g. -ETIMEDOUT
+into 0xff92, and returns success. The garbage word is then consumed as
+register data, and read-modify-write cycles write it back to the
+switch. Check both reads and propagate their errors.
 
-> 
-> Masami,
-> 
-> 
-> On Mon, 27 Jul 2026 12:25:48 +0000
-> Hongyan Xia <hongyan.xia@transsion.com> wrote:
-> 
-> > From: Hongyan Xia <hongyan.xia@transsion.com>
-> > 
-> > Static inline should be enough to actually inline functions for most
-> > compilers, but my Clang-19 somehow thinks it's better to outline them.
-> > These tiny helpers then live in normal .text sections instead of
-> > .noinstr sections, violating noinstr.
-> > 
-> > Mark them __always_inline so the compiler can never outline them.
-> > 
-> > Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
-> > ---
-> >  arch/arm64/include/asm/esr.h       | 2 +-
-> >  arch/arm64/include/asm/percpu.h    | 2 +-
-> >  arch/arm64/include/asm/preempt.h   | 4 ++--
-> >  arch/arm64/include/asm/ptrace.h    | 4 ++--
-> >  arch/arm64/kernel/debug-monitors.c | 2 +-
-> >  include/linux/kprobes.h            | 8 ++++----
-> 
-> Are you OK with this patch? If so, can you ack it?
+The same defect existed in mt7530_mii_read() since the driver was
+introduced and moved into the regmap backend unchanged. core_rmw(),
+which accesses the MMD core registers directly rather than through the
+regmap, has the identical unchecked bus->read(); fix it the same way.
 
-Yeah, this patch looks good to me. Anyway these are expected to be
-inlined.
+Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+---
+v2:
+ * also check the identical unchecked bus->read() in core_rmw()
+   (found by Sashiko AI review)
+ * split the mtk_pcs_lynxi_get_state() fix into its own patch
 
-Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+ drivers/net/dsa/mt7530-mdio.c | 11 +++++++++--
+ drivers/net/dsa/mt7530.c      |  6 +++++-
+ 2 files changed, 14 insertions(+), 3 deletions(-)
 
-For other patches, Sashiko noted some comments, I need to check it.
-
-Thank you,
-
-> 
-> -- Steve
-> 
-> >  6 files changed, 11 insertions(+), 11 deletions(-)
-> > 
-> 
-> [..]
-> 
-> > diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
-> > index 8c4f3bb24429..5880445ed0f0 100644
-> > --- a/include/linux/kprobes.h
-> > +++ b/include/linux/kprobes.h
-> > @@ -384,17 +384,17 @@ static inline void kprobe_ftrace_kill(void) {}
-> >  struct kprobe *get_kprobe(void *addr);
-> >  
-> >  /* kprobe_running() will just return the current_kprobe on this CPU */
-> > -static inline struct kprobe *kprobe_running(void)
-> > +static __always_inline struct kprobe *kprobe_running(void)
-> >  {
-> >  	return __this_cpu_read(current_kprobe);
-> >  }
-> >  
-> > -static inline void reset_current_kprobe(void)
-> > +static __always_inline void reset_current_kprobe(void)
-> >  {
-> >  	__this_cpu_write(current_kprobe, NULL);
-> >  }
-> >  
-> > -static inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
-> > +static __always_inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
-> >  {
-> >  	return this_cpu_ptr(&kprobe_ctlblk);
-> >  }
-> > @@ -449,7 +449,7 @@ static inline struct kprobe *get_kprobe(void *addr)
-> >  {
-> >  	return NULL;
-> >  }
-> > -static inline struct kprobe *kprobe_running(void)
-> > +static __always_inline struct kprobe *kprobe_running(void)
-> >  {
-> >  	return NULL;
-> >  }
-> 
-
-
+diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
+index 11ea924a9f35..784dd58a7158 100644
+--- a/drivers/net/dsa/mt7530-mdio.c
++++ b/drivers/net/dsa/mt7530-mdio.c
+@@ -55,8 +55,15 @@ mt7530_regmap_read(void *context, unsigned int reg, unsigned int *val)
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	lo = bus->read(bus, priv->mdiodev->addr, r);
+-	hi = bus->read(bus, priv->mdiodev->addr, 0x10);
++	ret = bus->read(bus, priv->mdiodev->addr, r);
++	if (ret < 0)
++		return ret;
++	lo = ret;
++
++	ret = bus->read(bus, priv->mdiodev->addr, 0x10);
++	if (ret < 0)
++		return ret;
++	hi = ret;
+ 
+ 	*val = (hi << 16) | (lo & 0xffff);
+ 
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 3c2a3029b10c..f349b54c2d9e 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -124,8 +124,12 @@ core_rmw(struct mt7530_priv *priv, u32 reg, u32 mask, u32 set)
+ 		goto err;
+ 
+ 	/* Read the content of the MMD's selected register */
+-	val = bus->read(bus, MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr),
++	ret = bus->read(bus, MT753X_CTRL_PHY_ADDR(priv->mdiodev->addr),
+ 			MII_MMD_DATA);
++	if (ret < 0)
++		goto err;
++	val = ret;
++
+ 	val &= ~mask;
+ 	val |= set;
+ 	/* Write the data into MMD's selected register */
 -- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+2.55.0
 
