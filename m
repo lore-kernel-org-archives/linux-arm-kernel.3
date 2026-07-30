@@ -4,109 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E12C54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 04:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34AAC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 04:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kNQXtzIynC28TDaE/Ql1n0+KoVl8k9chZuF6STvMMrI=; b=o5VMeNPdBNIS5mrphoJBTpylG8
-	j2fY8VhICTsOa6ydSrq+afv7By09nF1DD1/6mmcZztVBaHNsmtD09mX+SWUiudZ5efd+TaRzJXM5J
-	3ET1+Y8d06bRlVSkPbC83D1OL+X1UhxwlZdFN4wWZcltpnqtCnv42ORI49XgsKoU8Pia4UL18fk6I
-	BLbcGRvdLZC8JxTZwQP9deHenD05IKn9Kj/2o/XjTYzHxB0fT4p5boPtVEmjTnVZGzCH/lE+QBTLt
-	maRNCjS//8HjFo3WiEz2MFXPzAcf1X6yNdFItuFEB/g1sOs2uE9z2gC/LWpV8859iiu1gvDqDDdPC
-	v6ONBR0w==;
+	bh=ecm+GkYXB+9Ut0LKE7+J7JRBMM2c+6gxZvZq4bLAzAI=; b=y9RgRGa2rklT6KGgOnlaEumlHx
+	0Bm7toO/J6ydAtDxTFDgVVzh4oEP4KjOOyCGLv8cNkV7y4syRnXN7TtKvf89UJbF01uRGfE4l2nBW
+	aFsVcrGES2FVerulQM0HK+oUe+htu0MjolRZ9Y/XY9zrCt7zMc4osQrA5xU7PluxaNTzSuSi9OXUX
+	x8uzGasOu1h0vCzxH1Yf137SGX8R0JkOkSI94taIek3VT5KWPKlplfeKheQuKXYMmtUgPRds5d9vx
+	MXa71NTBr28tTtqi8sD3ai5EUNQWb42noJd8QY8ByXBdoIDiCwS0x0oeE8WU2f4mCMmxMBsw6YhUk
+	7oCRnHkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpIm7-00000009Vkj-0v69;
-	Thu, 30 Jul 2026 04:53:43 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1wpInj-00000009Vv8-3DwY;
+	Thu, 30 Jul 2026 04:55:23 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpIm4-00000009Vk5-0sGw
+	id 1wpIng-00000009Vuk-3347
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 04:53:42 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-81ee41aaec1so25706417b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 29 Jul 2026 21:53:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785387219; cv=none;
-        d=google.com; s=arc-20260327;
-        b=b0GU9vSWZTcM3cuH3+OC+6c7slWSrlTEMOFPYtCsChW+vtO2tjghRGPpT4sPjJt89V
-         K3O+fGdZwm2oO/zEN1lCL9FtfHWysefYPzBoEpUqf6EgP/MpdKZZbJ9VgWXsfqd5Dh0R
-         mTH7LbZRp5OYfOqcUnPnZ2w7wPRCNshbdMzCRm+A+PlYxtmPH+cs+Y3P7T2gC9k6nIgw
-         ecy8Rb2LK16zjMtf2h0WfpcYmBMTHB9MKL4WAIDApzW00KDcwNOk9kWKmbecYG7MC0nP
-         qdxC4fHQSbqle7BUDBoR8+uD+GwZLH6VIB3HRO+q0vJk54na6qoQO2jgBQzne+DwLFaZ
-         DFkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=kNQXtzIynC28TDaE/Ql1n0+KoVl8k9chZuF6STvMMrI=;
-        fh=bUsPyYtjukg6B89Dq7vUuUi0KGv+VNGyIWvUE6Jpea8=;
-        b=M6HHphfJEGsBGqbSXsIYpHpOpumS77EDPtr0jPpZ52NYdho9aLGLRUN8JdQ7n92luE
-         /DJWJkuc7Zib5JaMOWdOmagpcuPkSrns9KX9EUezL035bmz5zhQ8wdQsHc8HWRghB9Xm
-         LZFhznXax1QjKw+aF7INPoZDFA+/38oiC2OGxT6hSB6S7gIatgTFKupA2G28K6q5pM/3
-         5b00oF2r5SSRhbFSDu9GtAYdT2PuuCQ8LLwaef0VN70V+QarVBTtDXBC0+0UDAKBXo4W
-         AnJ5TMc7rbfv5M0Q8Gu0YV3CKJaBRBqhj7X/yDWUKO63nzUPOKe9HDau7CprC069nJuD
-         GTZQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1785387219; x=1785992019; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=kNQXtzIynC28TDaE/Ql1n0+KoVl8k9chZuF6STvMMrI=;
-        b=QQ3eR7z3nhSwJbgnXd1DWXaa35LGJ74r++hpRpK9cHB6+36AM7j6YqIIyBju7ZUcQw
-         WItA2nEpjJQ2wN/2HbJtcTbP7IB8gobEbfV/UDm/JeF6VsNS3RCx2Dz+QAHlBZIHdkZG
-         hEuOJZNHlvHXztdqdi2Lt3KALwV6sJNu5sndI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785387219; x=1785992019;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kNQXtzIynC28TDaE/Ql1n0+KoVl8k9chZuF6STvMMrI=;
-        b=LQ3XCXv074Vx18rJP8RJb1BLPBxrkylRQ4FM5b1gcm0TlNMQNKtY61VEw7H2Z/Jy/B
-         ApshMtY9WXhNl1GyBFvaJfE1/GU9yfT7KuueA3Fh/gC0kFSru9UjVvHIWzQeNj8pTs1K
-         7RAzcvbvREzYFaYIUpwZSl9BUUMNRZtFUbhnC8EPD5b2MCgFlTE3iqmxZ/J1A2A1NYHp
-         vpvDrgOvptbYZQeT5m+9OUeOiOllrTXazF33J/U2X8WqHVugvxBlXYq7/LcxV187KD5Z
-         +eXCXhUU4r9WYiGxx7Jh92hzgxXdDNzsNS/Q7kDdPzCqgjwPP9KJHQGGkcYoYXds+d/x
-         wpMA==
-X-Forwarded-Encrypted: i=1; AHgh+RpvdxgABfonZL4Bt2aC0IIQELWL8mLtlSEZV4oO3edzkqEzYQ8DD4CYk2Gqas1r+3c7FnJKPSYaSRX7Y9+d69AK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2SPPWD/i8UZW0SQp6fM3EflCewHGz93DFLaaDxsK9xFiBxjTU
-	KQBotIbVburBpzp8LlS4T9Mqs+mf9dUWMRoJqb0glMwZ4jfc/x64iFgsLJba/Jz88QUmfRRbJQr
-	2vuGhAExwS+Lgo5d/tJPMRvDEqD8uXUsgZguiACe/
-X-Gm-Gg: AR+sD13wD8Zhevw4Gk35eKGlJgm07+3B6MqZkUpIibxu5Num+WWcleeT+YN8nw+RB6V
-	/A1goiqaMh+wO3aiikS4DTEGGnZx4Wdle9c6D00aZM4XBoRQpcrTWPwnWqk6sLAc9Q9ZCGK2B+K
-	QZVI04nyuE8heYh5ujqAJDTOKgpzGjjTC2s9fRC1sY5yoGumu0Dp2i+SURt3CtM4bFJqgcS+iW5
-	U4ryQlX56bm4IWTzMmE245eeDLqsbMpDV2YNlo8m8EcKAeuhbBrIxTozBedntjbLnTmV7q0frd0
-	2D29CKL6DIHoD8YGEFkI/Kba0LwpBtS9RULHSaIVCQ9TJ7k4/9cPFZ2olVpuTiE6GUrLRSXT0od
-	SQyK7XPG0FkQ=
-X-Received: by 2002:a05:690c:c503:b0:81c:eca8:b31f with SMTP id
- 00721157ae682-81fb8a840f3mr6908137b3.39.1785387218988; Wed, 29 Jul 2026
- 21:53:38 -0700 (PDT)
+	Thu, 30 Jul 2026 04:55:22 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66U4OWW7087571;
+	Wed, 29 Jul 2026 23:55:16 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=ecm+GkYXB+9Ut0LKE7+J7JRBMM2c+6gxZvZq4bLAz
+	AI=; b=e6kzlb1a4m7mLdodIrVjwxrEvfBzG8JJ0NwabZVvCacTmqrU1bgu8zI0f
+	sal8Gch9XS/qn/BH9jA0gk7/9t0gjepkrkXNJS8UhqVJuG0HrQ7jDMrUT6wekQGD
+	eyRr+QYsiT5tHe2IUwkXMbuTvGVNxd8M2j94Py+hJ5eGCNCzfSl0XFyu3GzCFiyX
+	vjpcH8F+KlNZuSrEk6StP86Z/ciWeX1OqyaDeDhfVHf09yzNbKMpCtH/GQg3gyXO
+	DcxM9kESMOLhyqUuiw7PY40kkI71o80vHvWnOWDx7/h4qRZcJFpCAqs6TEO3J/WA
+	GuaOqwFXux1ey5UHCDzPxHdgKLCUg==
+Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010037.outbound.protection.outlook.com [52.101.193.37])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fqyj8042n-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 29 Jul 2026 23:55:16 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h0ZjDnFy8goCpREJySEBYE4CdYQJIx3SzOqfe5c7HlleuR2i/8T67IdudmhMXsesDmUbR53fpwIo37d9yNwrZfAf5e0LsQQE7xCpupsWEoQKHyTkhUskSZpWWfV9Ks2OD9jS1JrIExDt8LXKisyyOPFI3Vgm77dCDEjxrk/1CL9PI02/MhSNnOvnKTE745gc7+M9kDQuoEHqi+9R5Imyv/OqPretGecoQ8/7jNw43ez5kDICqcKagUJKaqlQ/XT0Y/kkWiTwK2SMtuXjH8eXpqKlZESJDb+PKTgVJ3Vs63C6ahBKtptiVcpYeM1EPyRseKDYKH3RhNrZ/wlVyLVh4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ecm+GkYXB+9Ut0LKE7+J7JRBMM2c+6gxZvZq4bLAzAI=;
+ b=JgiU9i72h2TGFUfQVW8nJSu8WultweQrQDzF+s7N7+SVTgHp7T9YCtt9nqFOGhK2au3Fgk3RheJMGEk+MFqKaMEt452EXE2dUzQsptw+9K5g1QqttsjtyIyzx4ThMxU31Y7zj5HGimKctQU46UOucQcnkc6kpPtoT3XKlNsXdqdOzQ4DgwHBlWLaqOdLR7VWBV9+B/p4pOIuHRrBpBmWXnjuNZ9upGQQdHiZrlePIMwM5bf6cWSF533FpE51zkf118pa+JvpLvpCc2YLYkEB1VTVtSfSQMCpedt+/ggqeIAoIAZz7r8tavyESMtWrMD3fVXeS+DC4OKDw06HT/To1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ecm+GkYXB+9Ut0LKE7+J7JRBMM2c+6gxZvZq4bLAzAI=;
+ b=Tw0apseWNRtY33tzOIdB643Osw6/IT9j65A++UN3CMwgAql2AnRJJM0m2k+2hxq70jQLCpzKYb/o9HKfuryRp/Um5D6f8TBuAluv9UAzPpAoNqjXg8JG+DKYD0cZcLQpIXQaL9ygQlmswGXHREuNY7dlpsl2L1O+tBnAz+Fqe2s=
+Received: from MN2PR20CA0055.namprd20.prod.outlook.com (2603:10b6:208:235::24)
+ by DS0PR10MB6946.namprd10.prod.outlook.com (2603:10b6:8:140::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Thu, 30 Jul
+ 2026 04:55:13 +0000
+Received: from MN1PEPF0000F0E2.namprd04.prod.outlook.com
+ (2603:10b6:208:235:cafe::32) by MN2PR20CA0055.outlook.office365.com
+ (2603:10b6:208:235::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Thu,
+ 30 Jul 2026 04:55:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ MN1PEPF0000F0E2.mail.protection.outlook.com (10.167.242.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.8 via Frontend Transport; Thu, 30 Jul 2026 04:55:13 +0000
+Received: from DLEE212.ent.ti.com (157.170.170.114) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 29 Jul
+ 2026 23:55:09 -0500
+Received: from DLEE212.ent.ti.com (157.170.170.114) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 29 Jul
+ 2026 23:55:09 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE212.ent.ti.com
+ (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Wed, 29 Jul 2026 23:55:09 -0500
+Received: from [10.24.50.130] (uda0132425.dhcp.ti.com [10.24.50.130])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 66U4t5Ar2001620;
+	Wed, 29 Jul 2026 23:55:06 -0500
+Message-ID: <c4c9ba91-2d72-464f-bdd0-6bf17680e293@ti.com>
+Date: Thu, 30 Jul 2026 10:25:05 +0530
 MIME-Version: 1.0
-References: <20260728212438.54078-1-rosenp@gmail.com> <20260728212438.54078-3-rosenp@gmail.com>
- <CAGXv+5EVSc4=ug=GU6Gvdu0UatqM1DD48i-c3AEb4p0GwktRvg@mail.gmail.com> <CAKxU2N8VeE+xPGZ-41nqDCtk_LA_PvgzjrUbnOZ-5JmEb-uKHg@mail.gmail.com>
-In-Reply-To: <CAKxU2N8VeE+xPGZ-41nqDCtk_LA_PvgzjrUbnOZ-5JmEb-uKHg@mail.gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 30 Jul 2026 12:53:28 +0800
-X-Gm-Features: AUfX_mw6g8L8q-LQMW-CQgvcfpzwOR1hh-FNl8gdfMDgDPM6vfWXNYP6-KfvIvo
-Message-ID: <CAGXv+5F+a_ZdbtX+ApHdOC0884EfUdkULVkaY=nipFX0JgCZNw@mail.gmail.com>
-Subject: Re: [PATCHv2 2/2] Input: mtk-pmic-keys: Count available keys during
- probe instead of pre-counting
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-input@vger.kernel.org, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] arm64: dts: ti: k3-am67a-beagley-ai: GPIO
+ improvements
+To: David Lechner <dlechner@baylibre.com>, Nishanth Menon <nm@ti.com>,
+        "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: Robert Nelson <robertcnelson@gmail.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20260728-arm-dts-beagleyai-gpio-info-v1-0-783ec90d54da@baylibre.com>
+ <7ee50408-aa33-4d16-b8ff-f5e2dc59104b@ti.com>
+ <02b159ad-42d3-4d1b-a73e-13612d9f2845@baylibre.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <02b159ad-42d3-4d1b-a73e-13612d9f2845@baylibre.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E2:EE_|DS0PR10MB6946:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b55a97f-0cef-40b3-1c22-08deedf6bdae
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700016|23010399003|13003099007|4143699003|56012099006|10067099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: CoUxSt69Jz7Lq3b1zsgsAe+1yaMj/MGrv0CJvP1Ld7kFkX+S0D3etpgmJeaJMnDuvwby/+3TnbQ9BbkatkaRevZjn2MNPuxzCwJMscOMOck6AQ715ZL0+Qlc2Khk1A49lBWjkfUFvMPuQbsOsY0XXPyXMSF77PEvNlJEcswgD4kRf/Io+Hk1G7ThKiu/vBacT38xFP6xaPK9IyYWb8TJ1z2HzjjZMqyCzabxjnBEMLEO5+MMkejS55jPfVJVNQK7TgVKO/vD2g8U4Efi5qm70aYM3LSRrBUrYVjfYLVlPPyJer/tbCG/iyo8IT3/FaCwVBY2nB8/SAitd4A5VB9FjkbzMGujCZOxCsMAkrG8umCWX6wdwEveaKxu5cKlo7QEe2znhc92vzupQile8qEEOPQB5tllyb6ERsgClgQiu3p1eZ+WNJynCRg1vvbrcr3v+wVQ1fQPWIJfj6NXZCs6pWtBfR8rXSPXV52YPms7LJU2vQ+lvLPXlp52TTP3O/R+7P3XVyw6eW9CEO4vCTVSpa/MlSS103JXqz77ntknGgIomInWpEsUsQ5D1PMJqFITD+rH4ubtGtez/KnV3dzmnFzgHvar4l5htjFzJho0hMHGS8EHXHOuJsuV7Do4U3oRd90ERu5Zo16/M4+cmpIXDBzwmBBYDBj20J+4FFd0ZnU=
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700016)(23010399003)(13003099007)(4143699003)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: rGMXELsDCF6meBMLRbN7YvsasBsnIwKv77QTPEinHu+432Mr6ZOZwhYC8w/Ax4Jr5V4E3UTtJvmeTl5aq5lZrwjrEr1xBb+s7gMTY3xfi7LOp6p6Qevtq7WUxBCCU/ZnTP9i9P82gkFjPIKqPPIc08e58+c7k6jIPutpnxAR3wKvt8yW8zi80ZnPLH57B285rqYmdrhuDDPDKLl/cio9elWnalUCHHqpKOk6W14wxkqbITmjptKxmjJj3P3BUgCLF4Ma6BBkCcRBNrQXmfan06MZjwfmnpQzOg+2HRD3PUnjw/q8XkHVKrzvuGqVWWd26Ko/9TmNIdERT4uyH91WRML4tcZjhLA4WFGZ20UkxSUAr3qhRVanpt1CF5cYcxXa3w1Y2chIF+NMaSMgdIG4pLr6aMBWPTqMwNMCooPUd0RAalvf0QqsnR3aVlb5KwlO
+X-Exchange-RoutingPolicyChecked: XAXuAi2he0rQfVfBc4yIB7SwWeCD6OLiR937zD/KpnkEpWHdk8Scr9hUQGm1yvIFBBgCUgGkontlAmDFQ9ywkYBBpzM9PxLITgBl4qba2VMMFEnGO8Eq3XFvkQf/oVQxkBWboQa5yvaH+kn69DtQiaq2E5wgaqQvnsWH/Kry0DMAcL4fIb5KvlQReB3bsWnlbcsZopHF0Xx14JmGw3jgW51sEHBMzphJjqXaE5qWY0WAfHsJZXIW1Vbd7A2B6FxsbdQeGH6PXoYcO9DPxVXaCwVMMZl8TH16AdSooxriJDX6+FmyCiDgAdI+VOZtD9UJRltXC1/6bgIqaV7KQWxkbg==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 04:55:13.2463
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b55a97f-0cef-40b3-1c22-08deedf6bdae
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E2.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB6946
+X-Proofpoint-GUID: pz8vv6bf3Fvstx87LZj2RxieGXedqfHz
+X-Authority-Analysis: v=2.4 cv=b/KCJNGx c=1 sm=1 tr=0 ts=6a6ad934 cx=c_pps
+ a=BZqtFTcsvC7LidonbSP6GA==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22 a=xVOUUHzFAAAA:8
+ a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=w6C2GRjRo4xIMcSIRlcA:9 a=QEXdDO2ut3YA:10
+ a=BFkDlhTjP3qpOTzr41qL:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDAzMCBTYWx0ZWRfX996W2DwijM7C
+ m1kSsFkASkduVoj5MulAIam3GkhliBtZNBzcRmHD5Ee1PVuLxZQY65EsTZBfhoc03EANJYp+cIU
+ 596JillaELPVHSyRyk6ZZzS4Q1VARtXDPo0xDTEf3wxwL/C7s1Ftxt20fDMOnxbRSkJC0XpQcj3
+ EJnSeMIvyJ8vhZUW44xaWtG9wxFvD5OfImpX51YSb5d94qKszVJm4OOtwUo7zAjN2BO3g55RveY
+ JTvyN8i6/9ItBu6Ynp7NC1FQRRZxpqQm8eNuVGJhikNlc7jUlFXySMVfDEMg1ge+9KAKhYCfut5
+ rnOacvxptMKSrTey/tlpYwqhjyhqdmukGcFLZHyUCs9wIgv1jzC5lCwFsrTnMG8Lofp+nK2qCaD
+ hKEQqCxe84b7XKnIpWSUe/5EkAXeXoSL9MrI8of2V5x55Zm9UtKOa043KZ+VAlnj2EQ6/0D1yGz
+ PttSAf2E2jWRINTIROA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDAzMCBTYWx0ZWRfX8kcHQ3fiukfw
+ eHcahjC/KwJW/cuEjOf8gIX2YEMrqcXlmwSQ4bxF7lJ/8Uw/UZJsxWzkRgy2pvCxBt/VoR33QAa
+ ODKUzKiFRvhf2cVrqPkDv8Zbm3nqIA0=
+X-Proofpoint-ORIG-GUID: pz8vv6bf3Fvstx87LZj2RxieGXedqfHz
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-30_01,2026-07-29_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 spamscore=0 suspectscore=0 phishscore=0 bulkscore=0
+ priorityscore=1501 impostorscore=0 adultscore=0 clxscore=1015
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607300030
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_215340_328230_77EAF5C6 
-X-CRM114-Status: GOOD (  37.92  )
+X-CRM114-CacheID: sfid-20260729_215521_017399_5D2E9913 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,224 +186,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 2:34=E2=80=AFAM Rosen Penev <rosenp@gmail.com> wrot=
-e:
->
-> On Tue, Jul 28, 2026 at 8:44=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org>=
- wrote:
-> >
-> > On Wed, Jul 29, 2026 at 5:25=E2=80=AFAM Rosen Penev <rosenp@gmail.com> =
-wrote:
-> > >
-> > > Replace the separate of_get_available_child_count() pre-count and
-> > > validation step with a single pass through
-> > > for_each_child_of_node_scoped().  Skip unavailable child nodes and
-> > > bail if more than MTK_PMIC_MAX_KEY_COUNT available keys are found.
-> >
-> > This actually fixes a small bug. The pre-count only gets the number
-> > of available keys, but the subsequent for_each_child block doesn't
-> > skip over the unavailable ones, so if an unavailable node is in
-> > the middle of the tree, there could end up being a mismatch.
-> >
-> > > Set nkeys after the loop so suspend/resume iterate only over
-> > > initialized entries.  Use a local key variable in the loop for
-> > > clarity.
-> > >
-> > > Add an irq > 0 guard to the suspend/resume wakeup paths so that
-> > > uninitialized key entries are safely skipped.
-> >
-> > You are trying to do too much in one patch. These other fixes should be
-> > in separate patches.
-> >
-> > And why not just modify the driver to keep "nkeys", so that it knows
-> > how many entries are valid? No use in iterating over empty entries.
-> >
-> >
-> > > Assisted-by: OpenCode:BigPickle
-> > > Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> > > ---
-> > >  drivers/input/keyboard/mtk-pmic-keys.c | 71 ++++++++++++------------=
---
-> > >  1 file changed, 34 insertions(+), 37 deletions(-)
-> > >
-> > > diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/k=
-eyboard/mtk-pmic-keys.c
-> > > index fd684ac16938..e2ced6e5165a 100644
-> > > --- a/drivers/input/keyboard/mtk-pmic-keys.c
-> > > +++ b/drivers/input/keyboard/mtk-pmic-keys.c
-> > > @@ -267,7 +267,7 @@ static int mtk_pmic_keys_suspend(struct device *d=
-ev)
-> > >         int index;
-> > >
-> > >         for (index =3D 0; index < MTK_PMIC_MAX_KEY_COUNT; index++) {
-> > > -               if (keys->keys[index].wakeup) {
-> > > +               if (keys->keys[index].irq > 0 && keys->keys[index].wa=
-keup) {
-> > >                         enable_irq_wake(keys->keys[index].irq);
-> > >                         if (keys->keys[index].irq_r > 0)
-> > >                                 enable_irq_wake(keys->keys[index].irq=
-_r);
-> > > @@ -283,7 +283,7 @@ static int mtk_pmic_keys_resume(struct device *de=
-v)
-> > >         int index;
-> > >
-> > >         for (index =3D 0; index < MTK_PMIC_MAX_KEY_COUNT; index++) {
-> > > -               if (keys->keys[index].wakeup) {
-> > > +               if (keys->keys[index].irq > 0 && keys->keys[index].wa=
-keup) {
-> > >                         disable_irq_wake(keys->keys[index].irq);
-> > >                         if (keys->keys[index].irq_r > 0)
-> > >                                 disable_irq_wake(keys->keys[index].ir=
-q_r);
-> > > @@ -324,13 +324,13 @@ MODULE_DEVICE_TABLE(of, of_mtk_pmic_keys_match_=
-tbl);
-> > >  static int mtk_pmic_keys_probe(struct platform_device *pdev)
-> > >  {
-> > >         int error, index =3D 0;
-> > > -       unsigned int keycount;
-> > >         struct mt6397_chip *pmic_chip =3D dev_get_drvdata(pdev->dev.p=
-arent);
-> > >         struct device_node *node =3D pdev->dev.of_node;
-> > >         static const char *const irqnames[] =3D { "powerkey", "homeke=
-y" };
-> > >         static const char *const irqnames_r[] =3D { "powerkey_r", "ho=
-mekey_r" };
-> > >         struct mtk_pmic_keys *keys;
-> > >         const struct mtk_pmic_regs *mtk_pmic_regs;
-> > > +       struct mtk_pmic_keys_info *key;
-> > >         struct input_dev *input_dev;
-> > >
-> > >         keys =3D devm_kzalloc(&pdev->dev, sizeof(*keys), GFP_KERNEL);
-> > > @@ -353,45 +353,42 @@ static int mtk_pmic_keys_probe(struct platform_=
-device *pdev)
-> > >         input_dev->id.product =3D 0x0001;
-> > >         input_dev->id.version =3D 0x0001;
-> > >
-> > > -       keycount =3D of_get_available_child_count(node);
-> > > -       if (keycount > MTK_PMIC_MAX_KEY_COUNT ||
-> > > -           keycount > ARRAY_SIZE(irqnames)) {
-> > > -               dev_err(keys->dev, "too many keys defined (%d)\n", ke=
-ycount);
-> > > -               return -EINVAL;
-> > > -       }
-> > > -
-> > >         for_each_child_of_node_scoped(node, child) {
-> > > -               keys->keys[index].regs =3D &mtk_pmic_regs->keys_regs[=
-index];
-> > > -
-> > > -               keys->keys[index].irq =3D
-> > > -                       platform_get_irq_byname(pdev, irqnames[index]=
-);
-> > > -               if (keys->keys[index].irq < 0)
-> > > -                       return keys->keys[index].irq;
-> > > -
-> > > -               if (mtk_pmic_regs->key_release_irq) {
-> > > -                       keys->keys[index].irq_r =3D platform_get_irq_=
-byname(pdev,
-> > > -                                                                    =
-     irqnames_r[index]);
-> > > -
-> > > -                       if (keys->keys[index].irq_r < 0)
-> > > -                               return keys->keys[index].irq_r;
-> > > +               if (index >=3D MTK_PMIC_MAX_KEY_COUNT) {
-> > > +                       dev_err(&pdev->dev, "too many keys defined\n"=
-);
-> > > +                       return -EINVAL;
-> > >                 }
-> > >
-> > > -               error =3D of_property_read_u32(child,
-> > > -                       "linux,keycodes", &keys->keys[index].keycode)=
-;
-> > > -               if (error) {
-> > > -                       dev_err(keys->dev,
-> > > -                               "failed to read key:%d linux,keycode =
-property: %d\n",
-> > > -                               index, error);
-> > > -                       return error;
-> > > +               if (of_device_is_available(child)) {
-> >
-> > Instead of re-indenting the whole block and making the diff huge and
-> > unreadable, please make this skip over the remaining code when the
-> > condition fails, i.e.:
-> >
-> >                   if (!of_device_is_available(child))
-> >                           continue;
-> Yeah probably better.
-> >
-> > Or better yet, just use for_each_available_child_of_node_scoped() { ...=
- }
-> > instead.
-> In v1 this is exactly what I did and was told not to.
-
-I see now that the interrupts are tied to each key in order, regardless
-whether the key is enabled or not. for_each_available_child_of_node_scoped(=
-)
-is not the right thing to use indeed.
-
-Could you add this bit of context to the commit message?
 
 
-Thanks
-ChenYu
+On 29/07/26 19:27, David Lechner wrote:
+> On 7/29/26 4:57 AM, Vignesh Raghavendra wrote:
+>> Hi David,
+>>
+>> On 29/07/26 01:14, David Lechner (TI) wrote:
+>>> This is picking up a few downstream changes from [1] to make GPIOs
+>>> easier to use that I missed when using the BeagleY-AI with a mainline
+>>> kernel.
+>>>
+>>> [1]: https://openbeagle.org/beagleboard/linux/-/blob/v6.6.58-ti-arm64-r35/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai-pinmux.dtsi?ref_type=heads
+>>>
+>> Above had to be reverted due to reasons mentioned here:
+>> https://lore.kernel.org/all/20250221091447.595199-2-mwalle@kernel.org/
+> Thanks. I was starting to suspect something like that.
+> 
+> Is PATCH 2/2 still acceptable?
+> 
 
-> >
-> > I normally suggest people read the API docs (either on docs.kernel.org
-> > or the kernel-doc sections in the code) to find better suited construct=
-s
-> > to use.
-> >
-> >
-> > Thanks
-> > ChenYu
-> >
-> > > +                       key =3D &keys->keys[index];
-> > > +                       key->regs =3D &mtk_pmic_regs->keys_regs[index=
-];
-> > > +
-> > > +                       key->irq =3D platform_get_irq_byname(pdev, ir=
-qnames[index]);
-> > > +                       if (key->irq < 0)
-> > > +                               return key->irq;
-> > > +
-> > > +                       if (mtk_pmic_regs->key_release_irq) {
-> > > +                               key->irq_r =3D platform_get_irq_bynam=
-e(pdev, irqnames_r[index]);
-> > > +                               if (key->irq_r < 0)
-> > > +                                       return key->irq_r;
-> > > +                       }
-> > > +
-> > > +                       error =3D of_property_read_u32(child, "linux,=
-keycodes", &key->keycode);
-> > > +                       if (error) {
-> > > +                               dev_err(keys->dev,
-> > > +                                       "failed to read key:%d linux,=
-keycode property: %d\n",
-> > > +                                       index, error);
-> > > +                               return error;
-> > > +                       }
-> > > +
-> > > +                       if (of_property_present(child, "wakeup-source=
-"))
-> > > +                               key->wakeup =3D true;
-> > > +
-> > > +                       error =3D mtk_pmic_key_setup(keys, key);
-> > > +                       if (error)
-> > > +                               return error;
-> > >                 }
-> > >
-> > > -               if (of_property_read_bool(child, "wakeup-source"))
-> > > -                       keys->keys[index].wakeup =3D true;
-> > > -
-> > > -               error =3D mtk_pmic_key_setup(keys, &keys->keys[index]=
-);
-> > > -               if (error)
-> > > -                       return error;
-> > > -
-> > >                 index++;
-> > >         }
-> > >
-> > > --
-> > > 2.55.0
-> > >
-> > >
+Yes, 2/2 is good. Will pull in post reviews
+
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
+
 
