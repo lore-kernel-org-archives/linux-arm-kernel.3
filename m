@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D6C5C54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65241C55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Kruq/R6ztnHJ+eq+TsufwvY3s1IZreB9R/rlD1wjSc=; b=b0btHTbP6TC2k9a6FhIveDtfEl
-	/QYLoRh+1oNj4VY7IyfsC6uwILAX3d2EB3yLCNvDU8ejDamNGPDCCPJz0cqgtjgPhLvYwCAKs5e1N
-	zP+3yLRigcxDweywedJC8w+aLP4ELjhTfYQjXxHOIastKPWuv8fSFY3gyOgx27iMGOkZA9LefRjFI
-	83oCJbj4/ZZY8Jaw9eVKMCEWWr8kmMgedaJcRBsbcc7JWasWQE3RGFfFoSRhYJDVSnTBVvCfIboJv
-	H4Dd3xKG7MwhmtlDYnxO+BFJgc5tJsP0I0NT5aYKFQUOyr10+Uki2eMuFU7FEmOrPKzlk58K6Vmo+
-	6IgLm86Q==;
+	bh=+gzTZcYKKcGbuW+pqjc5AqixIOglEGXpJkXzsWq8nRI=; b=aRsxeSirT9nTmWYj3Cph65KW8f
+	SCcb+4L7amqmFPH1UUtebh8EzR9lhkHaf+15W8WYhxRoKrU+CI6s0oEzVh/AXWtRVoEs9d8ZTgz/C
+	1oqwBFA9voWLwfSYj+Uiz03ifK7UFsDWxb2SrhwIdsYw6KIQLFe5+DoXK835xlAg5cK98Bl8RBTtD
+	8oUH8KDNemyTI7nIKnYSBXMf3hsTJBJTByv6E8+2sGy1ecA0i7RNsbjoJkWKmK1hGlOJ3/8n6Bjrn
+	TlQzmItYo1qHDcuPfimu77ovp+Km3YtXnrEjzfBUY/SFpEClUeJJ32/2+Vy88cwOiycLMlh//IPpc
+	HUffcelg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOFT-0000000AFUP-3j0V;
+	id 1wpOFT-0000000AFSw-0nA5;
 	Thu, 30 Jul 2026 10:44:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOFI-0000000AFN8-26qg
+	id 1wpOFI-0000000AFN5-1Y1B
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 30 Jul 2026 10:44:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=5Kruq/R6ztnHJ+eq+TsufwvY3s1IZreB9R/rlD1wjSc=; b=mN4Daq6ESCwBwDZXiIlodIu7Li
-	7QjIXxymPzdVCDOJ/UcU12CRUULmUCexUqOLUBNbwsRgg2pRdcei5/VlSb4jmIA8rE/o6aeA7bLNz
-	VC2f7IODNdjcqPXqQJSSAak/p4sVsSGAi99d5eSEjti7B19hwJYrakawRTlbyEKKlfrPd/StzIBpY
-	IA269e4YHhHv41LqOMnZZVRi34ySZizV5KG6qzw1OVrOxjl3vdzb2jLhWbYr5Flkispuen1dQRNCs
-	k2DRji3Kt9S78TSRX+lPD4j0ELYnQ3LVWk6Jhi/7tHOMUhU0m8qjyCcpOaEELPzF4CHF0knvxvSEk
-	J7PC1+aQ==;
+	bh=+gzTZcYKKcGbuW+pqjc5AqixIOglEGXpJkXzsWq8nRI=; b=ju8kDCMq+TTqwqSVBcQFL55t8p
+	ufRYbGyXsSy18YcZYD1l+18HR4/5KgkSAddrdmf5XN2mH9DP9k6i0ZSxk8GklLjvAzrqlbObVgEnn
+	p9T97tOC+CqI8wbDgXijE+r9LMtu3c/kMrBQHk0gKhWOuRzd2JM2KrbkJmzD1RP2RcBJ0qbbGTI7S
+	U2f+u1QyzVFDKIfz1x3HZaZ/OOwaU8vZCnBLgulcn6ITYDshth2JSwmG2ErUSq+ypGaKQPJW2JQev
+	/w9lwP+/Qkp7nHY1VsGkjaovZQik/agK6hm0Tqsv+735SPSfz+74ddJnHQcics/Y74RCEXVNSKX/p
+	dzjWNxXQ==;
 Received: from mx0b-00622301.pphosted.com ([205.220.175.205])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wpOFD-00000006asl-2mxH
+	id 1wpOFD-00000006ask-1md7
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 30 Jul 2026 10:44:11 +0000
 Received: from pps.filterd (m0241925.ppops.net [127.0.0.1])
-	by mx0a-00622301.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UA6Egl3332841;
-	Thu, 30 Jul 2026 10:43:49 GMT
+	by mx0a-00622301.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UA6Ego3332841;
+	Thu, 30 Jul 2026 10:43:53 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ambarella.com;
 	 h=cc:content-transfer-encoding:content-type:date:from
 	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	com20210415pp; bh=5Kruq/R6ztnHJ+eq+TsufwvY3s1IZreB9R/rlD1wjSc=; b=
-	YnP54G2HEpTI1PpEopfIn1J6rg4XF1SAdMPaR8AnpwYaGv75vzpBbaYJVaQZi1+q
-	KWJvpby9KYZQIURafF5OWPYxVtuzCYZtlSjUaq/lwikcM3f+CyXq/cB9+ihIxzZP
-	9d7jGzPdY4K7hNcMpV6ae4NzCEdoFvkqSOHXVRHacBldSdjZ3rLn4ByZAr/RTEPh
-	RzVbB7HWnU+zMgcOT78XPt3rn3rFEsUTCGWLk6yS58Wh17wIugabD8CulKB9Oknf
-	A05+X7wTgJwREzGUtFC/j/pV4nQC0wlcrbfu2vBGdZxmSZsQtbEq4qYi6kDuQQwV
-	P82j1yXKQTe5ZYWieNWNOw==
+	com20210415pp; bh=+gzTZcYKKcGbuW+pqjc5AqixIOglEGXpJkXzsWq8nRI=; b=
+	EypS0vj4j0orNzGF/KzovOIwR7Tvehve/EYmaa8Zt98ZzsLyGndDTWRF9l9TUgS7
+	CmwO6syw8R3XPQiraJoMnSp0F4vxT8Kyue9pnihKPmeQfdLwdGOQXHYWhPzHQXZ1
+	xEYZWbcysvOtqFzhEeQevzRr/QKuOc4B2+fJZj6/3nwwUckdxXwGaUJrewgPOPrY
+	MYMcDj7eyQizQ5O9PZ/8Wsu5nymB//T7/yZWF99464gq2TXMbQB3kQTRQKoA5Drr
+	dhQqtxv5r15W/WCrq+SY6Ib+HA/G5RXfYA+GjbPrMkGPyDrSpMyi1yw/FPi2hTuA
+	NqTugsQMWYKc2w2JHrgqfA==
 Received: from webmail.ambarella.com ([12.30.244.130])
-	by mx0a-00622301.pphosted.com (PPS) with ESMTPS id 4fq8twhnbb-1
+	by mx0a-00622301.pphosted.com (PPS) with ESMTPS id 4fq8twhnbe-2
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jul 2026 10:43:49 +0000 (GMT)
-Received: from ambtw-ex-se1.ambarella.net (10.2.5.164) by
- ambus-ex-se2.ambarella.net (10.1.4.10) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 30 Jul 2026 03:43:47 -0700
+	Thu, 30 Jul 2026 10:43:53 +0000 (GMT)
+Received: from ambtw-mbx5.ambarella.net (10.2.4.226) by
+ ambus-ex-se1.ambarella.net (10.1.4.9) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Thu, 30 Jul 2026 03:43:51 -0700
 Received: from ambtw-cas3.ambarella.net (10.2.4.228) by
- ambtw-ex-se1.ambarella.net (10.2.5.164) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 30 Jul 2026 03:43:46 -0700
+ ambtw-mbx5.ambarella.net (10.2.4.226) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 30 Jul 2026 18:43:51 +0800
 Received: from shbuild7.ambarella.net (10.4.8.70) by ambtw-cas3.ambarella.net
  (10.2.4.228) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Thu, 30 Jul 2026 18:43:44 +0800
+ Transport; Thu, 30 Jul 2026 18:43:49 +0800
 From: Long Zhao <longzhao@ambarella.com>
 To: Arnd Bergmann <arnd@arndb.de>,
         Alexandre Belloni
@@ -88,32 +88,32 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Will Deacon <will@kernel.org>, <linux-kernel@vger.kernel.org>,
         Long Zhao
 	<longzhao@ambarella.com>
-Subject: [PATCH 06/10] clk: ambarella: add CV75 CCU driver
-Date: Thu, 30 Jul 2026 18:43:26 +0800
-Message-ID: <20260730104330.81367-7-longzhao@ambarella.com>
+Subject: [PATCH 09/10] arm64: ambarella: add ARCH_AMBARELLA and CV75 EVK DT
+Date: Thu, 30 Jul 2026 18:43:29 +0800
+Message-ID: <20260730104330.81367-10-longzhao@ambarella.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260730104330.81367-1-longzhao@ambarella.com>
 References: <20260730104330.81367-1-longzhao@ambarella.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain
-X-Proofpoint-GUID: f4-Y_vSIsHn-KeeGlqQfWkyo9xRYu-_T
-X-Proofpoint-ORIG-GUID: f4-Y_vSIsHn-KeeGlqQfWkyo9xRYu-_T
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfX/5BQtCXdeyZy
- ZhMK0xjDYu6YbG7tIJ9MrZ5fdDYulbNBbdiEvMGrVc4R+WcOrtWxUSxBkwOTFsFAQHpe5wBB8qZ
- jvfA5N0oDg6HwXa95Oz2MPxOEJNIzuW3YXnixQokPWkhH3snWUiOwpzRxHbB5OxSs3lTwy7Ea4e
- XS6hZSUv1NaFwxr4uzeDkHbmqc6014MQ+dd/wkm2VDaaG7XHZ1aogjrD70mo05terGQyjIyQPpV
- eogrfyScVuZGV271hM1fuU+wVadYveU2E2+sfn3FP5iyVSEPb9fX7RKCUNyAI7oNOCYTd/ZbTUn
- 7aag5xq4ztJg0xTqoempDhketTCHNZPJ7/5nVFrUVTa0kfqm6OUFip01oPvHcC5j/MFQltZfXw9
- rSveT0tvcenMcSfMRhw4mR3xoe7b/ER6gqtKxLpzEs8jd5/gV8tyGeGxqP1N8PTiUg2x19LXyIe
- YOcYavTvr4DfUoAIDwg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfX8ToyGlfOq5QJ
- q3VcoqScqKBvtnRd2lV/zmt7lF6z5CQMCovsIa1+90ZzLaNTEJKGv/zzjq3jP9HFpVWLjZYKXNH
- 9RyuB4RE9jClmNKhqHCJhgPBdtsmI4Qr6u2rSJ018cV1OOZU4PNn
-X-Authority-Analysis: v=2.4 cv=PNE/P/qC c=1 sm=1 tr=0 ts=6a6b2ae5 cx=c_pps
+X-Proofpoint-GUID: 7iVuJU1wFZ8xt2K9BjmpOC4VqnQ_cME0
+X-Proofpoint-ORIG-GUID: 7iVuJU1wFZ8xt2K9BjmpOC4VqnQ_cME0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfX1kZdpEh1brac
+ Ag8RVpxQRKhAu1Nx4soZkbE0nRZlYm4G/OgSG6Vh9DlXiSQdpQnd01Oz6ugUvexXhGgfotcco9Z
+ XiDGiBTfl5DZRS3vKiV0jTbOA4ARwr9sjHi4YkgPnO3oC7QMDKdiWbXdP4zdn/w75NcGBtzijst
+ SprQSAIx1EvmJyqKuIZUpsJtMgATYQYCmDOHpFxVCQI1/zvD+VRcjVbDTTkEBNW057UhGyIMIBE
+ /x9HI7h2YQkpWfq7w/U3Pzh/qmGeVArKbv+JDyF1/98t/ksLqXdAmXzqYAvlgEAUcEzZmSyDtaZ
+ d3naM50As3uXuNBsLH1KkD9ONoSXiuIVHu2y0MYTnpss02+HT9WODhYDRqO2Z5JiTDrNPNM76Jb
+ mWUhClTW/OqULUsGgvpG85d9sliZqqsHgrIDH0Lenhh2wG443+ynKQFW6xS0fncq0JvV21w6NH5
+ hoA7f2VjEbd4qgeMKcg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfXwvJdxdH7d1NR
+ 09X9kNmYAkSstZD1MMdOtbvIoc4sLWAgInJ90aWHnnPJIRzHis3rHJ6Bug2suB+qZ9ti92XpyYu
+ 9MWalWfxna6AqrrmfE1Baisa4hOiyZUUHQDUgQWP2fXrpRqNomNM
+X-Authority-Analysis: v=2.4 cv=PNE/P/qC c=1 sm=1 tr=0 ts=6a6b2ae9 cx=c_pps
  a=DgnZYc2JwZ3KnY28M5UqXQ==:117 a=DgnZYc2JwZ3KnY28M5UqXQ==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=yXVIz-0bn9infC194UBj:22
- a=KblO7da7ppA7TBl3N-nE:22 a=ppJngBeKAAAA:8 a=zJAyzUMJKmXp9TaLk2sA:9
+ a=KblO7da7ppA7TBl3N-nE:22 a=ppJngBeKAAAA:8 a=NuV0J3eQuBn1ZHJjGOEA:9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-30_03,2026-07-29_01,2025-10-01_01
@@ -123,8 +123,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_114408_238754_265EA7D3 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20260730_114407_748889_2D426FC6 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,1253 +139,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a minimal Ambarella clock controller for CV75 covering the
-UART0 and core/ahb/apb clocks required for early console bring-up.
+Enable the Ambarella ARMv8 platform Kconfig, add the CV75 SoC and
+EVK device trees, and select the Ambarella UART in the arm64
+defconfig for console bring-up.
 
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- drivers/clk/Kconfig                 |   1 +
- drivers/clk/Makefile                |   1 +
- drivers/clk/ambarella/Kconfig       |  16 ++
- drivers/clk/ambarella/Makefile      |   6 +
- drivers/clk/ambarella/ccu-cv75.c    | 296 ++++++++++++++++++++++
- drivers/clk/ambarella/ccu_common.c  |  60 +++++
- drivers/clk/ambarella/ccu_common.h  |  25 ++
- drivers/clk/ambarella/ccu_mux_div.c | 223 +++++++++++++++++
- drivers/clk/ambarella/ccu_mux_div.h |  35 +++
- drivers/clk/ambarella/ccu_pll.c     | 374 ++++++++++++++++++++++++++++
- drivers/clk/ambarella/ccu_pll.h     |  70 ++++++
- 11 files changed, 1107 insertions(+)
- create mode 100644 drivers/clk/ambarella/Kconfig
- create mode 100644 drivers/clk/ambarella/Makefile
- create mode 100644 drivers/clk/ambarella/ccu-cv75.c
- create mode 100644 drivers/clk/ambarella/ccu_common.c
- create mode 100644 drivers/clk/ambarella/ccu_common.h
- create mode 100644 drivers/clk/ambarella/ccu_mux_div.c
- create mode 100644 drivers/clk/ambarella/ccu_mux_div.h
- create mode 100644 drivers/clk/ambarella/ccu_pll.c
- create mode 100644 drivers/clk/ambarella/ccu_pll.h
+ arch/arm64/Kconfig.platforms               |   9 ++
+ arch/arm64/boot/dts/Makefile               |   1 +
+ arch/arm64/boot/dts/ambarella/Makefile     |   3 +
+ arch/arm64/boot/dts/ambarella/cv75-evk.dts |  30 ++++
+ arch/arm64/boot/dts/ambarella/cv75.dtsi    | 151 +++++++++++++++++++++
+ arch/arm64/configs/defconfig               |   3 +
+ 6 files changed, 197 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ambarella/Makefile
+ create mode 100644 arch/arm64/boot/dts/ambarella/cv75-evk.dts
+ create mode 100644 arch/arm64/boot/dts/ambarella/cv75.dtsi
 
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index 1717ce75a907..fbbf4963716c 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -506,6 +506,7 @@ config COMMON_CLK_RPMI
-          the RISC-V platform management interface (RPMI) specification.
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index d2acfac73003..166430ddb3c9 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -26,6 +26,15 @@ config ARCH_SUNXI
+        help
+          This enables support for Allwinner sunxi based SoCs like the A64.
 
- source "drivers/clk/actions/Kconfig"
-+source "drivers/clk/ambarella/Kconfig"
- source "drivers/clk/analogbits/Kconfig"
- source "drivers/clk/aspeed/Kconfig"
- source "drivers/clk/bcm/Kconfig"
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index cc108a75a900..30d823ee606f 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -112,6 +112,7 @@ obj-$(CONFIG_COMMON_CLK_XGENE)              +=3D clk-xg=
-ene.o
-
- # please keep this section sorted lexicographically by directory path name
- obj-y                                  +=3D actions/
-+obj-y                                  +=3D ambarella/
- obj-y                                  +=3D analogbits/
- obj-y                                  +=3D aspeed/
- obj-$(CONFIG_COMMON_CLK_AT91)          +=3D at91/
-diff --git a/drivers/clk/ambarella/Kconfig b/drivers/clk/ambarella/Kconfig
-new file mode 100644
-index 000000000000..639993033f96
---- /dev/null
-+++ b/drivers/clk/ambarella/Kconfig
-@@ -0,0 +1,16 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config CLK_AMBARELLA_CV75
-+       bool "Ambarella CV75 RCT clock controller"
-+       depends on ARCH_AMBARELLA || COMPILE_TEST
-+       select CLK_AMBARELLA_CCU
-+       default ARCH_AMBARELLA
++config ARCH_AMBARELLA
++       bool "Ambarella SoC family"
++       select ARM_PSCI
++       select HAVE_ARM_ARCH_TIMER
++       select PINCTRL
++       select PINCTRL_AMB
 +       help
-+         Say Y to enable support for the Reset and Clock Tree controller
-+         found on Ambarella CV75 SoCs. The controller provides the core PL=
-L,
-+         bus clocks and UART clock required during early platform boot.
-+         It is needed to use the serial console on CV75-based systems.
++         This enables support for the ARM64 based Ambarella SoCs like CV75=
+.
 +
-+config CLK_AMBARELLA_CCU
-+       bool
-+       select REGMAP_MMIO
-diff --git a/drivers/clk/ambarella/Makefile b/drivers/clk/ambarella/Makefil=
-e
+ config ARCH_ALPINE
+        bool "Annapurna Labs Alpine platform"
+        select ALPINE_MSI if PCI
+diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
+index fc726b215f12..f1709eb5d915 100644
+--- a/arch/arm64/boot/dts/Makefile
++++ b/arch/arm64/boot/dts/Makefile
+@@ -4,6 +4,7 @@ subdir-y +=3D airoha
+ subdir-y +=3D allwinner
+ subdir-y +=3D altera
+ subdir-y +=3D amazon
++subdir-y +=3D ambarella
+ subdir-y +=3D amd
+ subdir-y +=3D amlogic
+ subdir-y +=3D apm
+diff --git a/arch/arm64/boot/dts/ambarella/Makefile b/arch/arm64/boot/dts/a=
+mbarella/Makefile
 new file mode 100644
-index 000000000000..36e96326ea97
+index 000000000000..ddca3d7b18cc
 --- /dev/null
-+++ b/drivers/clk/ambarella/Makefile
-@@ -0,0 +1,6 @@
-+#
-+# Makefile for ambarella specific clk
-+#
++++ b/arch/arm64/boot/dts/ambarella/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+obj-$(CONFIG_CLK_AMBARELLA_CCU) +=3D ccu_common.o ccu_mux_div.o ccu_pll.o
-+obj-$(CONFIG_CLK_AMBARELLA_CV75) +=3D ccu-cv75.o
-diff --git a/drivers/clk/ambarella/ccu-cv75.c b/drivers/clk/ambarella/ccu-c=
-v75.c
++dtb-$(CONFIG_ARCH_AMBARELLA) +=3D cv75-evk.dtb
+diff --git a/arch/arm64/boot/dts/ambarella/cv75-evk.dts b/arch/arm64/boot/d=
+ts/ambarella/cv75-evk.dts
 new file mode 100644
-index 000000000000..55132dfa7431
+index 000000000000..42a0fe24b83b
 --- /dev/null
-+++ b/drivers/clk/ambarella/ccu-cv75.c
-@@ -0,0 +1,296 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/arch/arm64/boot/dts/ambarella/cv75-evk.dts
+@@ -0,0 +1,30 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ *
-+ * CV75 RCT clock controller for boot clocks.
++ * Ambarella CV75 EVK board
 + */
 +
-+#include <linux/clk-provider.h>
-+#include <linux/clk.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
++/dts-v1/;
 +
-+#include <dt-bindings/clock/ambarella,cv75-clock.h>
++#include "cv75.dtsi"
 +
-+#include "ccu_common.h"
-+#include "ccu_mux_div.h"
-+#include "ccu_pll.h"
++/ {
++       model =3D "Ambarella CV75 EVK Board";
++       compatible =3D "ambarella,cv75-evk", "ambarella,cv75";
 +
-+enum amb_cv75_clk_type {
-+       AMB_CV75_CLK_FIXED_RATE,
-+       AMB_CV75_CLK_FIXED_FACTOR,
-+       AMB_CV75_CLK_PLL,
-+       AMB_CV75_CLK_DIV,
-+       AMB_CV75_CLK_MUX_DIV,
-+};
++       aliases {
++               serial0 =3D &uart0;
++       };
 +
-+enum amb_cv75_clk_ref {
-+       AMB_CV75_CLK_REF_OSC =3D -1,
-+       AMB_CV75_CLK_REF_DUMMY =3D -2,
-+};
++       chosen {
++               stdout-path =3D &uart0;
++       };
 +
-+/* PLL version for CV75 (ambarella,clkpll-v1 in vendor DTS) */
-+static const struct amb_pll_soc_data cv75_pll_soc_data =3D {
-+       .pll_version    =3D 1,
-+       .fsout_mask     =3D CTRL2_FSOUT_DIV2,
-+       .fsout_val      =3D CTRL2_FSOUT_DIV2,
-+       .fsdiv_mask     =3D CTRL2_FSDIV_DIV2,
-+       .fsdiv_val      =3D CTRL2_FSDIV_DIV2,
-+       .vcodiv_mask    =3D CTRL2_VCODIV_DIV2,
-+       .vcodiv_val     =3D CTRL2_VCODIV_DIV2,
-+       .vco_max_mhz    =3D 2600UL,
-+       .vco_min_mhz    =3D 850UL,
-+       .vco_range      =3D { 1800UL, 1400UL, 1100UL, 0UL },
-+};
-+
-+struct amb_cv75_clk_desc {
-+       int id;
-+       enum amb_cv75_clk_type type;
-+       const char *name;
-+       int parent;
-+
-+       union {
-+               struct {
-+                       unsigned long rate;
-+               } fixed_rate;
-+               struct {
-+                       unsigned long flags;
-+                       unsigned int mult;
-+                       unsigned int div;
-+               } fixed_factor;
-+               struct {
-+                       u32 reg_offset[REG_NUM];
-+                       const struct amb_pll_soc_data *soc_data;
-+               } pll;
-+               struct {
-+                       u32 reg;
-+                       u32 shift;
-+                       u32 width;
-+                       u32 flags;
-+                       u32 fix_divider;
-+               } div;
-+               struct amb_mux_div_desc mux_div;
++       memory@200000 {
++               device_type =3D "memory";
++               reg =3D <0x0 0x00200000 0x0 0x07e00000>;
 +       };
 +};
 +
-+static const struct amb_cv75_clk_desc cv75_clks[] =3D {
-+       {
-+               .id =3D AMB_CV75_CLK_REF_DUMMY,
-+               .type =3D AMB_CV75_CLK_FIXED_RATE,
-+               .name =3D "dummy",
-+               .fixed_rate.rate =3D 0,
-+       },
-+       {
-+               .id =3D CV75_GCLK_CORE,
-+               .type =3D AMB_CV75_CLK_PLL,
-+               .name =3D "core",
-+               .parent =3D AMB_CV75_CLK_REF_OSC,
-+               .pll =3D {
-+                       .reg_offset =3D {
-+                               0x000, 0x004, 0x100,
-+                               0x104, 0x000, 0x000,
-+                       },
-+                       .soc_data =3D &cv75_pll_soc_data,
-+               },
-+       },
-+       {
-+               .id =3D CV75_GCLK_AHB,
-+               .type =3D AMB_CV75_CLK_FIXED_FACTOR,
-+               .name =3D "ahb",
-+               .parent =3D CV75_GCLK_CORE,
-+               .fixed_factor =3D {
-+                       .flags =3D 0,
-+                       .mult =3D 1,
-+                       .div =3D 2,
-+               },
-+       },
-+       {
-+               .id =3D CV75_GCLK_APB,
-+               .type =3D AMB_CV75_CLK_FIXED_FACTOR,
-+               .name =3D "apb",
-+               .parent =3D CV75_GCLK_CORE,
-+               .fixed_factor =3D {
-+                       .flags =3D 0,
-+                       .mult =3D 1,
-+                       .div =3D 4,
-+               },
-+       },
-+       {
-+               .id =3D CV75_GCLK_UART0,
-+               .type =3D AMB_CV75_CLK_MUX_DIV,
-+               .name =3D "uart0",
-+               .mux_div =3D {
-+                       .name =3D "uart0",
-+                       .parents =3D (const int[]) {
-+                               AMB_CV75_CLK_REF_OSC, CV75_GCLK_CORE,
-+                               AMB_CV75_CLK_REF_DUMMY, AMB_CV75_CLK_REF_DU=
-MMY,
-+                       },
-+                       .num_parents =3D 4,
-+                       .mux_reg =3D 0x1c8,
-+                       .mux_shift =3D 0,
-+                       .mux_mask =3D 0x3,
-+                       .div_reg =3D 0x038,
-+                       .div_shift =3D 0,
-+                       .div_width =3D 24,
-+                       .div_flags =3D CLK_DIVIDER_ONE_BASED,
-+                       .fix_divider =3D 1,
-+               },
-+       },
++&uart0 {
++       status =3D "okay";
 +};
-+
-+static struct clk_hw *amb_cv75_get_parent(struct amb_ccu *ccu,
-+                                         struct clk_hw *osc,
-+                                         struct clk_hw *dummy,
-+                                         int parent)
-+{
-+       if (parent =3D=3D AMB_CV75_CLK_REF_OSC)
-+               return osc;
-+       if (parent =3D=3D AMB_CV75_CLK_REF_DUMMY)
-+               return dummy;
-+
-+       if (parent < 0 || parent >=3D ccu->data->num)
-+               return ERR_PTR(-EINVAL);
-+
-+       if (!ccu->data->hws[parent])
-+               return ERR_PTR(-EPROBE_DEFER);
-+
-+       return ccu->data->hws[parent];
-+}
-+
-+static struct clk_hw *amb_cv75_register_mux_div(struct device *dev,
-+                                               struct amb_ccu *ccu,
-+                                               const struct amb_cv75_clk_d=
-esc *desc,
-+                                               struct clk_hw *osc,
-+                                               struct clk_hw *dummy)
-+{
-+       const struct amb_mux_div_desc *md =3D &desc->mux_div;
-+       struct clk_parent_data *pdata;
-+       struct clk_hw *parent;
-+       u8 i;
-+
-+       pdata =3D devm_kcalloc(dev, md->num_parents, sizeof(*pdata), GFP_KE=
-RNEL);
-+       if (!pdata)
-+               return ERR_PTR(-ENOMEM);
-+
-+       for (i =3D 0; i < md->num_parents; i++) {
-+               if (md->parents[i] =3D=3D AMB_CV75_CLK_REF_OSC) {
-+                       pdata[i].fw_name =3D "osc";
-+                       continue;
-+               }
-+
-+               parent =3D amb_cv75_get_parent(ccu, osc, dummy, md->parents=
-[i]);
-+               if (IS_ERR(parent))
-+                       return parent;
-+
-+               pdata[i].hw =3D parent;
-+       }
-+
-+       return amb_mux_div_register(dev, ccu->map, md, pdata);
-+}
-+
-+static struct clk_hw *amb_cv75_register_clk(struct device *dev,
-+                                           struct amb_ccu *ccu,
-+                                           const struct amb_cv75_clk_desc =
-*desc,
-+                                           struct clk_hw *osc,
-+                                           struct clk_hw *dummy)
-+{
-+       struct amb_pll_desc pll_desc;
-+       struct clk_hw *parent;
-+
-+       switch (desc->type) {
-+       case AMB_CV75_CLK_FIXED_RATE:
-+               return devm_clk_hw_register_fixed_rate(dev, desc->name, NUL=
-L, 0,
-+                                                      desc->fixed_rate.rat=
-e);
-+       case AMB_CV75_CLK_FIXED_FACTOR:
-+               parent =3D amb_cv75_get_parent(ccu, osc, dummy, desc->paren=
-t);
-+               if (IS_ERR(parent))
-+                       return parent;
-+
-+               return devm_clk_hw_register_fixed_factor_parent_hw(dev,
-+                               desc->name, parent,
-+                               desc->fixed_factor.flags,
-+                               desc->fixed_factor.mult,
-+                               desc->fixed_factor.div);
-+       case AMB_CV75_CLK_PLL:
-+               parent =3D amb_cv75_get_parent(ccu, osc, dummy, desc->paren=
-t);
-+               if (IS_ERR(parent))
-+                       return parent;
-+
-+               pll_desc.name =3D desc->name;
-+               pll_desc.parent =3D parent;
-+               memcpy((void *)pll_desc.reg_offset, desc->pll.reg_offset,
-+                      sizeof(pll_desc.reg_offset));
-+               pll_desc.soc_data =3D desc->pll.soc_data;
-+               pll_desc.frac_mode =3D false;
-+
-+               return amb_pll_register(dev, ccu->map, &pll_desc);
-+       case AMB_CV75_CLK_DIV:
-+               parent =3D amb_cv75_get_parent(ccu, osc, dummy, desc->paren=
-t);
-+               if (IS_ERR(parent))
-+                       return parent;
-+
-+               return amb_div_register(dev, ccu->map, desc->name, parent,
-+                                       desc->div.reg, desc->div.shift,
-+                                       desc->div.width, desc->div.flags,
-+                                       desc->div.fix_divider);
-+       case AMB_CV75_CLK_MUX_DIV:
-+               return amb_cv75_register_mux_div(dev, ccu, desc, osc, dummy=
-);
-+       default:
-+               return ERR_PTR(-EINVAL);
-+       }
-+}
-+
-+static int amb_cv75_rct_probe(struct platform_device *pdev)
-+{
-+       struct amb_ccu *ccu;
-+       struct clk *osc_clk;
-+       struct clk_hw *osc, *dummy =3D NULL, *hw;
-+       int i;
-+
-+       ccu =3D amb_ccu_init(pdev, CV75_CLK_NUM);
-+       if (IS_ERR(ccu))
-+               return PTR_ERR(ccu);
-+
-+       osc_clk =3D devm_clk_get(&pdev->dev, "osc");
-+       if (IS_ERR(osc_clk))
-+               return dev_err_probe(&pdev->dev, PTR_ERR(osc_clk),
-+                                    "missing osc clock\n");
-+       osc =3D __clk_get_hw(osc_clk);
-+
-+       for (i =3D 0; i < ARRAY_SIZE(cv75_clks); i++) {
-+               hw =3D amb_cv75_register_clk(&pdev->dev, ccu, &cv75_clks[i]=
-,
-+                                          osc, dummy);
-+               if (IS_ERR(hw))
-+                       return dev_err_probe(&pdev->dev, PTR_ERR(hw),
-+                                            "failed to register %s\n",
-+                                            cv75_clks[i].name);
-+
-+               if (cv75_clks[i].id =3D=3D AMB_CV75_CLK_REF_DUMMY)
-+                       dummy =3D hw;
-+               else
-+                       ccu->data->hws[cv75_clks[i].id] =3D hw;
-+       }
-+
-+       return amb_ccu_register(ccu);
-+}
-+
-+static const struct of_device_id amb_cv75_rct_match[] =3D {
-+       { .compatible =3D "ambarella,cv75-rct" },
-+       { }
-+};
-+MODULE_DEVICE_TABLE(of, amb_cv75_rct_match);
-+
-+static struct platform_driver amb_cv75_rct_driver =3D {
-+       .probe  =3D amb_cv75_rct_probe,
-+       .driver =3D {
-+               .name =3D "ambarella-cv75-rct",
-+               .of_match_table =3D amb_cv75_rct_match,
-+       },
-+};
-+module_platform_driver(amb_cv75_rct_driver);
-+
-+MODULE_AUTHOR("Ambarella Inc.");
-+MODULE_DESCRIPTION("Ambarella CV75 RCT clock controller");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/clk/ambarella/ccu_common.c b/drivers/clk/ambarella/ccu=
-_common.c
+diff --git a/arch/arm64/boot/dts/ambarella/cv75.dtsi b/arch/arm64/boot/dts/=
+ambarella/cv75.dtsi
 new file mode 100644
-index 000000000000..78587c5f2ce1
+index 000000000000..7c6a61f473ef
 --- /dev/null
-+++ b/drivers/clk/ambarella/ccu_common.c
-@@ -0,0 +1,60 @@
-+// SPDX-License-Identifier: GPL-2.0-only
++++ b/arch/arm64/boot/dts/ambarella/cv75.dtsi
+@@ -0,0 +1,151 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
 +/*
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include "ccu_common.h"
-+
-+static const struct regmap_config amb_rct_regmap_config =3D {
-+       .reg_bits =3D 32,
-+       .val_bits =3D 32,
-+       .reg_stride =3D 4,
-+       .max_register =3D AMB_RCT_REG_SIZE - 4,
-+};
-+
-+struct amb_ccu *amb_ccu_init(struct platform_device *pdev,
-+                            unsigned int num_clks)
-+{
-+       struct amb_ccu *ccu;
-+       void __iomem *base;
-+
-+       if (!num_clks)
-+               return ERR_PTR(-EINVAL);
-+
-+       ccu =3D devm_kzalloc(&pdev->dev, sizeof(*ccu), GFP_KERNEL);
-+       if (!ccu)
-+               return ERR_PTR(-ENOMEM);
-+
-+       ccu->dev =3D &pdev->dev;
-+
-+       ccu->data =3D devm_kzalloc(&pdev->dev,
-+                                struct_size(ccu->data, hws, num_clks),
-+                                GFP_KERNEL);
-+       if (!ccu->data)
-+               return ERR_PTR(-ENOMEM);
-+
-+       ccu->data->num =3D num_clks;
-+
-+       base =3D devm_platform_ioremap_resource(pdev, 0);
-+       if (IS_ERR(base))
-+               return ERR_CAST(base);
-+
-+       ccu->map =3D devm_regmap_init_mmio(&pdev->dev, base,
-+                                        &amb_rct_regmap_config);
-+       if (IS_ERR(ccu->map))
-+               return ERR_CAST(ccu->map);
-+
-+       return ccu;
-+}
-+
-+int amb_ccu_register(struct amb_ccu *ccu)
-+{
-+       return devm_of_clk_add_hw_provider(ccu->dev, of_clk_hw_onecell_get,
-+                                          ccu->data);
-+}
-diff --git a/drivers/clk/ambarella/ccu_common.h b/drivers/clk/ambarella/ccu=
-_common.h
-new file mode 100644
-index 000000000000..f2bf9d1f06d7
---- /dev/null
-+++ b/drivers/clk/ambarella/ccu_common.h
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ */
-+
-+#ifndef __CCU_COMMON_H
-+#define __CCU_COMMON_H
-+
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/regmap.h>
-+
-+#define AMB_RCT_REG_SIZE       0x1000
-+
-+struct amb_ccu {
-+       struct device *dev;
-+       struct regmap *map;
-+       struct clk_hw_onecell_data *data;
-+};
-+
-+struct amb_ccu *amb_ccu_init(struct platform_device *pdev,
-+                            unsigned int num_clks);
-+int amb_ccu_register(struct amb_ccu *ccu);
-+
-+#endif
-diff --git a/drivers/clk/ambarella/ccu_mux_div.c b/drivers/clk/ambarella/cc=
-u_mux_div.c
-new file mode 100644
-index 000000000000..33430506f8ed
---- /dev/null
-+++ b/drivers/clk/ambarella/ccu_mux_div.c
-@@ -0,0 +1,223 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Ambarella, Inc.
++ * Ambarella CV75 SoC
 + *
-+ * Regmap-backed mux + divider, derived from the vendor composite-clock dr=
-iver.
++ * Boot peripheral: UART0 console.
++ * Clocks: a single ambarella,cv75-rct provider.
 + */
 +
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/regmap.h>
++#include <dt-bindings/clock/ambarella,cv75-clock.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/pinctrl/ambarella,pinctrl.h>
 +
-+#include "ccu_mux_div.h"
++/ {
++       compatible =3D "ambarella,cv75";
++       interrupt-parent =3D <&gic>;
++       #address-cells =3D <2>;
++       #size-cells =3D <2>;
 +
-+struct amb_mux {
-+       struct clk_hw hw;
-+       struct regmap *map;
-+       u32 offset;
-+       u32 mask;
-+       u32 shift;
++       osc: oscillator {
++               compatible =3D "fixed-clock";
++               #clock-cells =3D <0>;
++               clock-output-names =3D "osc";
++               clock-frequency =3D <24000000>;
++       };
++
++       psci {
++               compatible =3D "arm,psci-0.2";
++               method =3D "smc";
++       };
++
++       cpus {
++               #address-cells =3D <1>;
++               #size-cells =3D <0>;
++
++               cpu@0 {
++                       compatible =3D "arm,cortex-a76";
++                       device_type =3D "cpu";
++                       reg =3D <0x000>;
++                       enable-method =3D "psci";
++               };
++
++               cpu@1 {
++                       compatible =3D "arm,cortex-a76";
++                       device_type =3D "cpu";
++                       reg =3D <0x100>;
++                       enable-method =3D "psci";
++               };
++       };
++
++       gic: interrupt-controller@fff0100000 {
++               compatible =3D "arm,gic-400";
++               #interrupt-cells =3D <3>;
++               #address-cells =3D <0>;
++               #size-cells =3D <1>;
++               interrupt-controller;
++               reg =3D <0xff 0xf0101000 0x0 0x1000>,
++                     <0xff 0xf0102000 0x0 0x2000>,
++                     <0xff 0xf0104000 0x0 0x2000>,
++                     <0xff 0xf0106000 0x0 0x2000>;
++               interrupts =3D <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYP=
+E_LEVEL_HIGH)>;
++       };
++
++       timer {
++               compatible =3D "arm,armv8-timer";
++               interrupts =3D <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TY=
+PE_LEVEL_LOW)>,
++                            <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE=
+_LEVEL_LOW)>,
++                            <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE=
+_LEVEL_LOW)>,
++                            <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE=
+_LEVEL_LOW)>;
++       };
++
++       soc {
++               compatible =3D "simple-bus";
++               #address-cells =3D <2>;
++               #size-cells =3D <2>;
++               ranges;
++
++               /* Clock provider and shared system registers. */
++               rct: clock-controller@ffed080000 {
++                       compatible =3D "ambarella,cv75-rct", "syscon";
++                       reg =3D <0xff 0xed080000 0x0 0x1000>;
++                       clocks =3D <&osc>;
++                       clock-names =3D "osc";
++                       #clock-cells =3D <1>;
++
++                       assigned-clocks =3D <&rct CV75_GCLK_UART0>;
++                       assigned-clock-parents =3D <&osc>;
++                       assigned-clock-rates =3D <24000000>;
++               };
++
++               apb@ffe4000000 {
++                       compatible =3D "simple-bus";
++                       #address-cells =3D <1>;
++                       #size-cells =3D <1>;
++                       reg =3D <0xff 0xe4000000 0x0 0x01000000>;
++                       ranges =3D <0xe4000000 0xff 0xe4000000 0x01000000>;
++
++                       uart0: serial@e4000000 {
++                               compatible =3D "ambarella,cv75-uart", "amba=
+rella,uart";
++                               reg =3D <0xe4000000 0x1000>;
++                               interrupts =3D <GIC_SPI 170 IRQ_TYPE_LEVEL_=
+HIGH>;
++                               clocks =3D <&rct CV75_GCLK_UART0>;
++                               pinctrl-names =3D "default";
++                               pinctrl-0 =3D <&uart0_pins>;
++                               status =3D "disabled";
++                       };
++
++                       pinctrl: pinctrl@e4013000 {
++                               compatible =3D "ambarella,cv75-pinctrl";
++                               #address-cells =3D <1>;
++                               #size-cells =3D <0>;
++                               reg =3D <0xe4013000 0x1000>, <0xe4014000 0x=
+1000>,
++                                     <0xe4015000 0x1000>, <0xe4010000 0x10=
+00>;
++                               reg-names =3D "gpio0", "gpio1", "gpio2", "i=
+omux";
++                               interrupts =3D <GIC_SPI 163 IRQ_TYPE_LEVEL_=
+HIGH>,
++                                            <GIC_SPI 164 IRQ_TYPE_LEVEL_HI=
+GH>,
++                                            <GIC_SPI 165 IRQ_TYPE_LEVEL_HI=
+GH>;
++                               ambarella,drive-strength-syscon =3D <&rct>;
++                               ambarella,pull-syscon =3D <&s_scratchpad_sy=
+scon>;
++
++                               gpio: gpio@0 {
++                                       reg =3D <0>;
++                                       gpio-controller;
++                                       #gpio-cells =3D <2>;
++                                       gpio-ranges =3D <&pinctrl 0 0 95>;
++                                       interrupt-controller;
++                                       #interrupt-cells =3D <2>;
++                               };
++
++                               uart0_pins: uart0-pins {
++                                       function =3D "uart0";
++                                       pinmux =3D <AMBA_PINMUX(44, 1)>,
++                                                <AMBA_PINMUX(45, 1)>;
++                               };
++                       };
++               };
++
++               ahb@ffe0000000 {
++                       compatible =3D "simple-bus";
++                       #address-cells =3D <1>;
++                       #size-cells =3D <1>;
++                       reg =3D <0xff 0xe0000000 0x0 0x01000000>;
++                       ranges =3D <0xe0000000 0xff 0xe0000000 0x01000000>;
++
++                       s_scratchpad_syscon: scratchpad@e002e000 {
++                               compatible =3D "ambarella,cv75-sec-scratchp=
+ad",
++                                            "ambarella,sec-scratchpad", "s=
+yscon";
++                               reg =3D <0xe002e000 0x1000>;
++                       };
++               };
++       };
 +};
-+
-+struct amb_div {
-+       struct clk_hw hw;
-+       struct regmap *map;
-+       u32 offset;
-+       u32 shift;
-+       u32 width;
-+       u32 flags;
-+       u32 fix_divider;
-+};
-+
-+#define to_amb_mux(_hw)        container_of(_hw, struct amb_mux, hw)
-+#define to_amb_div(_hw)        container_of(_hw, struct amb_div, hw)
-+
-+static u8 amb_mux_get_parent(struct clk_hw *hw)
-+{
-+       struct amb_mux *mux =3D to_amb_mux(hw);
-+       u32 val;
-+
-+       regmap_read(mux->map, mux->offset, &val);
-+       val >>=3D mux->shift;
-+       val &=3D mux->mask;
-+
-+       return val;
-+}
-+
-+static int amb_mux_set_parent(struct clk_hw *hw, u8 index)
-+{
-+       struct amb_mux *mux =3D to_amb_mux(hw);
-+
-+       return regmap_update_bits(mux->map, mux->offset,
-+                                 mux->mask << mux->shift,
-+                                 index << mux->shift);
-+}
-+
-+static const struct clk_ops amb_mux_ops =3D {
-+       .get_parent =3D amb_mux_get_parent,
-+       .set_parent =3D amb_mux_set_parent,
-+};
-+
-+static unsigned long amb_div_recalc_rate(struct clk_hw *hw,
-+                                        unsigned long parent_rate)
-+{
-+       struct amb_div *div =3D to_amb_div(hw);
-+       unsigned long rate;
-+       u32 val;
-+
-+       regmap_read(div->map, div->offset, &val);
-+
-+       if (val & BIT(div->width))
-+               return 0;
-+
-+       val >>=3D div->shift;
-+       val &=3D clk_div_mask(div->width);
-+
-+       rate =3D divider_recalc_rate(hw, parent_rate, val, NULL,
-+                                  div->flags, div->width);
-+       if (div->fix_divider)
-+               do_div(rate, div->fix_divider);
-+
-+       return rate;
-+}
-+
-+static int amb_div_determine_rate(struct clk_hw *hw,
-+                                 struct clk_rate_request *req)
-+{
-+       struct amb_div *div =3D to_amb_div(hw);
-+       struct clk_rate_request scaled =3D *req;
-+       int ret;
-+
-+       if (!req->rate && (div->flags & CLK_DIVIDER_ONE_BASED))
-+               return 0;
-+
-+       if (div->fix_divider) {
-+               scaled.rate =3D min(req->rate,
-+                                 ULONG_MAX / div->fix_divider) *
-+                             div->fix_divider;
-+               scaled.min_rate =3D min(req->min_rate,
-+                                     ULONG_MAX / div->fix_divider) *
-+                                 div->fix_divider;
-+               scaled.max_rate =3D min(req->max_rate,
-+                                     ULONG_MAX / div->fix_divider) *
-+                                 div->fix_divider;
-+       }
-+
-+       ret =3D divider_determine_rate(hw, &scaled, NULL, div->width,
-+                                    div->flags);
-+       if (ret)
-+               return ret;
-+
-+       req->rate =3D scaled.rate;
-+       req->best_parent_rate =3D scaled.best_parent_rate;
-+       req->best_parent_hw =3D scaled.best_parent_hw;
-+       if (div->fix_divider)
-+               do_div(req->rate, div->fix_divider);
-+
-+       return 0;
-+}
-+
-+static int amb_div_set_rate(struct clk_hw *hw, unsigned long rate,
-+                           unsigned long parent_rate)
-+{
-+       struct amb_div *div =3D to_amb_div(hw);
-+       int val, mask;
-+
-+       if (div->fix_divider)
-+               rate *=3D div->fix_divider;
-+
-+       if (!rate) {
-+               val =3D BIT(div->width);
-+       } else {
-+               val =3D divider_get_val(rate, parent_rate, NULL,
-+                                     div->width, div->flags);
-+               if (val < 0)
-+                       return val;
-+       }
-+
-+       mask =3D (div->flags & CLK_DIVIDER_ONE_BASED) ?
-+               clk_div_mask(div->width + 1) : clk_div_mask(div->width);
-+
-+       regmap_update_bits(div->map, div->offset, mask << div->shift,
-+                          val << div->shift);
-+
-+       if (!(div->flags & CLK_DIVIDER_ONE_BASED)) {
-+               regmap_update_bits(div->map, div->offset, BIT(0), BIT(0));
-+               regmap_update_bits(div->map, div->offset, BIT(0), 0);
-+       }
-+
-+       return 0;
-+}
-+
-+static const struct clk_ops amb_div_ops =3D {
-+       .recalc_rate =3D amb_div_recalc_rate,
-+       .determine_rate =3D amb_div_determine_rate,
-+       .set_rate =3D amb_div_set_rate,
-+};
-+
-+struct clk_hw *amb_div_register(struct device *dev, struct regmap *map,
-+                               const char *name, const struct clk_hw *pare=
-nt,
-+                               u32 div_reg, u32 div_shift, u32 div_width,
-+                               u32 div_flags, u32 fix_divider)
-+{
-+       struct amb_div *div;
-+       struct clk_init_data init =3D {};
-+       int ret;
-+
-+       div =3D devm_kzalloc(dev, sizeof(*div), GFP_KERNEL);
-+       if (!div)
-+               return ERR_PTR(-ENOMEM);
-+
-+       div->map =3D map;
-+       div->offset =3D div_reg;
-+       div->shift =3D div_shift;
-+       div->width =3D div_width;
-+       div->flags =3D div_flags;
-+       div->fix_divider =3D fix_divider;
-+
-+       init.name =3D name;
-+       init.ops =3D &amb_div_ops;
-+       init.parent_hws =3D &parent;
-+       init.num_parents =3D 1;
-+
-+       div->hw.init =3D &init;
-+
-+       ret =3D devm_clk_hw_register(dev, &div->hw);
-+       if (ret)
-+               return ERR_PTR(ret);
-+
-+       return &div->hw;
-+}
-+
-+struct clk_hw *amb_mux_div_register(struct device *dev, struct regmap *map=
-,
-+                                   const struct amb_mux_div_desc *desc,
-+                                   const struct clk_parent_data *parent_da=
-ta)
-+{
-+       struct amb_mux *mux;
-+       struct amb_div *div;
-+
-+       mux =3D devm_kzalloc(dev, sizeof(*mux), GFP_KERNEL);
-+       div =3D devm_kzalloc(dev, sizeof(*div), GFP_KERNEL);
-+       if (!mux || !div)
-+               return ERR_PTR(-ENOMEM);
-+
-+       mux->map =3D map;
-+       mux->offset =3D desc->mux_reg;
-+       mux->shift =3D desc->mux_shift;
-+       mux->mask =3D desc->mux_mask;
-+
-+       div->map =3D map;
-+       div->offset =3D desc->div_reg;
-+       div->shift =3D desc->div_shift;
-+       div->width =3D desc->div_width;
-+       div->flags =3D desc->div_flags;
-+       div->fix_divider =3D desc->fix_divider;
-+
-+       return devm_clk_hw_register_composite_pdata(dev, desc->name,
-+                                                   parent_data,
-+                                                   desc->num_parents,
-+                                                   &mux->hw, &amb_mux_ops,
-+                                                   &div->hw, &amb_div_ops,
-+                                                   NULL, NULL,
-+                                                   CLK_SET_RATE_NO_REPAREN=
-T);
-+}
-diff --git a/drivers/clk/ambarella/ccu_mux_div.h b/drivers/clk/ambarella/cc=
-u_mux_div.h
-new file mode 100644
-index 000000000000..abaefff1201a
---- /dev/null
-+++ b/drivers/clk/ambarella/ccu_mux_div.h
-@@ -0,0 +1,35 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ */
-+
-+#ifndef __CCU_MUX_DIV_H
-+#define __CCU_MUX_DIV_H
-+
-+#include <linux/clk-provider.h>
-+#include <linux/regmap.h>
-+
-+struct amb_mux_div_desc {
-+       const char *name;
-+       const int *parents;
-+       u8 num_parents;
-+       u32 mux_reg;
-+       u32 mux_shift;
-+       u32 mux_mask;
-+       u32 div_reg;
-+       u32 div_shift;
-+       u32 div_width;
-+       u32 div_flags;
-+       u32 fix_divider;
-+};
-+
-+struct clk_hw *amb_mux_div_register(struct device *dev, struct regmap *map=
-,
-+                                   const struct amb_mux_div_desc *desc,
-+                                   const struct clk_parent_data *parent_da=
-ta);
-+
-+struct clk_hw *amb_div_register(struct device *dev, struct regmap *map,
-+                               const char *name, const struct clk_hw *pare=
-nt,
-+                               u32 div_reg, u32 div_shift, u32 div_width,
-+                               u32 div_flags, u32 fix_divider);
-+
-+#endif
-diff --git a/drivers/clk/ambarella/ccu_pll.c b/drivers/clk/ambarella/ccu_pl=
-l.c
-new file mode 100644
-index 000000000000..1293836e222e
---- /dev/null
-+++ b/drivers/clk/ambarella/ccu_pll.c
-@@ -0,0 +1,374 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/delay.h>
-+#include <linux/device.h>
-+#include <linux/math64.h>
-+#include <linux/rational.h>
-+#include <linux/regmap.h>
-+#include <linux/slab.h>
-+
-+#include "ccu_pll.h"
-+
-+#define AMB_PLL_MAX_SOUT       16UL
-+#define AMB_PLL_MAX_SDIV       16UL
-+
-+struct amb_pll {
-+       struct clk_hw hw;
-+       struct regmap *map;
-+       u32 reg_offset[REG_NUM];
-+       const struct amb_pll_soc_data *soc_data;
-+       u32 fix_divider;
-+       bool frac_mode;
-+};
-+
-+#define to_amb_pll(_hw) container_of(_hw, struct amb_pll, hw)
-+
-+static void amb_pll_write_enable(struct regmap *map, u32 offset, u32 val)
-+{
-+       regmap_write(map, offset, val);
-+       regmap_write(map, offset, val | CTRL_WRITE_ENABLE);
-+       regmap_write(map, offset, val);
-+}
-+
-+static unsigned long amb_pll_calc_vco(struct amb_pll *pll,
-+                                     unsigned long parent_rate)
-+{
-+       const struct amb_pll_soc_data *soc_data =3D pll->soc_data;
-+       u32 *reg =3D pll->reg_offset;
-+       u32 pre_scaler =3D 1;
-+       u32 ctrl_val, ctrl2_val =3D 0, frac_val;
-+       u32 intp, sdiv, vcodiv, fsdiv;
-+       u64 frac =3D 0, vco;
-+
-+       if (reg[PRES_OFFSET]) {
-+               regmap_read(pll->map, reg[PRES_OFFSET], &pre_scaler);
-+               pre_scaler =3D (pre_scaler >> 4) + 1;
-+       }
-+
-+       regmap_read(pll->map, reg[CTRL_OFFSET], &ctrl_val);
-+       intp =3D ((ctrl_val >> 24) & 0x7f) + 1;
-+       sdiv =3D ((ctrl_val >> 12) & 0xf) + 1;
-+
-+       if (soc_data->pll_version >=3D 2) {
-+               vcodiv =3D (ctrl_val & soc_data->vcodiv_mask) =3D=3D
-+                        soc_data->vcodiv_val ? 2 : 1;
-+               fsdiv =3D (ctrl_val & soc_data->fsdiv_mask) =3D=3D
-+                       soc_data->fsdiv_val ? 2 : 1;
-+       } else {
-+               regmap_read(pll->map, reg[CTRL2_OFFSET], &ctrl2_val);
-+               vcodiv =3D (ctrl2_val & soc_data->vcodiv_mask) =3D=3D
-+                        soc_data->vcodiv_val ? 2 : 1;
-+               fsdiv =3D (ctrl2_val & soc_data->fsdiv_mask) =3D=3D
-+                       soc_data->fsdiv_val ? 2 : 1;
-+       }
-+
-+       vco =3D (u64)parent_rate * vcodiv * fsdiv * intp * sdiv;
-+       vco =3D div_u64(vco, pre_scaler);
-+
-+       if (ctrl_val & CTRL_FRAC_MODE) {
-+               regmap_read(pll->map, reg[FRAC_OFFSET], &frac_val);
-+               frac =3D (u64)parent_rate * vcodiv * fsdiv * sdiv * frac_va=
-l;
-+               frac =3D div_u64(frac, pre_scaler) >> 32;
-+       }
-+
-+       return vco + frac;
-+}
-+
-+static unsigned long amb_pll_recalc_rate(struct clk_hw *hw,
-+                                        unsigned long parent_rate)
-+{
-+       struct amb_pll *pll =3D to_amb_pll(hw);
-+       const struct amb_pll_soc_data *soc_data =3D pll->soc_data;
-+       u32 *reg =3D pll->reg_offset;
-+       u32 pre_scaler =3D 1, post_scaler =3D 1;
-+       u32 ctrl_val, ctrl2_val =3D 0;
-+       u32 vcodiv, fsout, sout;
-+       u64 rate;
-+
-+       regmap_read(pll->map, reg[CTRL_OFFSET], &ctrl_val);
-+       if (ctrl_val & (CTRL_POWER_DOWN | CTRL_HALT_VCO | CTRL_FORCE_RESET)=
-)
-+               return 0;
-+
-+       if (reg[PRES_OFFSET]) {
-+               regmap_read(pll->map, reg[PRES_OFFSET], &pre_scaler);
-+               pre_scaler =3D (pre_scaler >> 4) + 1;
-+       }
-+
-+       if (reg[POST_OFFSET]) {
-+               regmap_read(pll->map, reg[POST_OFFSET], &post_scaler);
-+               post_scaler =3D (post_scaler >> 4) + 1;
-+       }
-+
-+       if (ctrl_val & CTRL_BYPASS)
-+               return parent_rate / pre_scaler / post_scaler;
-+
-+       if (soc_data->pll_version >=3D 2) {
-+               vcodiv =3D (ctrl_val & soc_data->vcodiv_mask) =3D=3D
-+                        soc_data->vcodiv_val ? 2 : 1;
-+               fsout =3D (ctrl_val & soc_data->fsout_mask) =3D=3D
-+                       soc_data->fsout_val ? 2 : 1;
-+       } else {
-+               regmap_read(pll->map, reg[CTRL2_OFFSET], &ctrl2_val);
-+               vcodiv =3D (ctrl2_val & soc_data->vcodiv_mask) =3D=3D
-+                        soc_data->vcodiv_val ? 2 : 1;
-+               fsout =3D (ctrl2_val & soc_data->fsout_mask) =3D=3D
-+                       soc_data->fsout_val ? 2 : 1;
-+       }
-+
-+       sout =3D ((ctrl_val >> 16) & 0xf) + 1;
-+       rate =3D amb_pll_calc_vco(pll, parent_rate);
-+
-+       if (soc_data->pll_version >=3D 2) {
-+               if (!(ctrl_val & CTRL_BYPASS_HSDIV))
-+                       rate =3D div_u64(rate, vcodiv * fsout * sout);
-+       } else {
-+               if (!(ctrl2_val & CTRL2_BYPASS_HSDIV))
-+                       rate =3D div_u64(rate, vcodiv * fsout * sout);
-+       }
-+
-+       rate =3D div_u64(rate, pll->fix_divider * post_scaler);
-+
-+       return rate;
-+}
-+
-+static int amb_pll_determine_rate(struct clk_hw *hw,
-+                                 struct clk_rate_request *req)
-+{
-+       struct amb_pll *pll =3D to_amb_pll(hw);
-+       unsigned long half_refclk =3D req->best_parent_rate / 2;
-+
-+       if (pll->frac_mode)
-+               return 0;
-+
-+       if (!half_refclk)
-+               return 0;
-+
-+       req->rate =3D roundup(req->rate, half_refclk);
-+
-+       return 0;
-+}
-+
-+static int amb_pll_calc_params(struct amb_pll *pll, unsigned long rate,
-+                              unsigned long parent_rate, u32 ctrl2_val,
-+                              u32 *intp, u32 *sdiv, u32 *sout,
-+                              u32 *vcodiv, u32 *fsdiv, u32 *fsout)
-+{
-+       const struct amb_pll_soc_data *soc_data =3D pll->soc_data;
-+       unsigned long max_numerator, max_denominator;
-+       unsigned long intp_ul, sout_ul, rate_tmp;
-+       u32 ctrl_val;
-+
-+       *sdiv =3D 1;
-+
-+       if (soc_data->pll_version >=3D 2) {
-+               ctrl_val =3D 0;
-+               *vcodiv =3D (ctrl_val & soc_data->vcodiv_mask) =3D=3D
-+                         soc_data->vcodiv_val ? 2 : 1;
-+               *fsdiv =3D (ctrl_val & soc_data->fsdiv_mask) =3D=3D
-+                        soc_data->fsdiv_val ? 2 : 1;
-+               *fsout =3D (ctrl_val & soc_data->fsout_mask) =3D=3D
-+                        soc_data->fsout_val ? 2 : 1;
-+       } else {
-+               *vcodiv =3D (ctrl2_val & soc_data->vcodiv_mask) =3D=3D
-+                         soc_data->vcodiv_val ? 2 : 1;
-+               *fsdiv =3D (ctrl2_val & soc_data->fsdiv_mask) =3D=3D
-+                        soc_data->fsdiv_val ? 2 : 1;
-+               *fsout =3D (ctrl2_val & soc_data->fsout_mask) =3D=3D
-+                        soc_data->fsout_val ? 2 : 1;
-+       }
-+
-+       if (rate < parent_rate)
-+               return -EINVAL;
-+
-+       max_numerator =3D soc_data->vco_max_mhz;
-+       max_numerator =3D div_u64(max_numerator * 1000000ULL, parent_rate);
-+       max_numerator =3D div_u64(max_numerator, *vcodiv * *fsdiv);
-+       max_numerator =3D min(128UL, max_numerator);
-+       if (!max_numerator)
-+               return -EINVAL;
-+
-+       max_denominator =3D AMB_PLL_MAX_SOUT;
-+       rate_tmp =3D rate;
-+       rational_best_approximation(rate_tmp, parent_rate, max_numerator,
-+                                   max_denominator, &intp_ul, &sout_ul);
-+
-+       while (parent_rate * *fsdiv * intp_ul * *sdiv / *fsout / sout_ul >
-+              rate) {
-+               unsigned long resolution =3D parent_rate / AMB_PLL_MAX_SOUT=
-;
-+
-+               if (rate_tmp <=3D resolution)
-+                       return -EINVAL;
-+
-+               rate_tmp -=3D resolution;
-+               rational_best_approximation(rate_tmp, parent_rate,
-+                                           max_numerator, max_denominator,
-+                                           &intp_ul, &sout_ul);
-+       }
-+
-+       while (parent_rate / 1000000 * *vcodiv * *fsdiv * intp_ul * *sdiv <
-+              soc_data->vco_min_mhz) {
-+               if (sout_ul > 8 || intp_ul > 64)
-+                       break;
-+
-+               intp_ul *=3D 2;
-+               sout_ul *=3D 2;
-+       }
-+
-+       if (intp_ul > max_numerator || sout_ul > max_denominator ||
-+           *sdiv > AMB_PLL_MAX_SDIV)
-+               return -EINVAL;
-+
-+       *intp =3D intp_ul;
-+       *sout =3D sout_ul;
-+
-+       return 0;
-+}
-+
-+static int amb_pll_set_rate(struct clk_hw *hw, unsigned long rate,
-+                           unsigned long parent_rate)
-+{
-+       struct amb_pll *pll =3D to_amb_pll(hw);
-+       const struct amb_pll_soc_data *soc_data =3D pll->soc_data;
-+       u32 *reg =3D pll->reg_offset;
-+       u32 ctrl_val, ctrl2_val =3D 0, ctrl3_val, frac_val =3D 0;
-+       u32 intp, sdiv, sout, vcodiv, fsdiv, fsout;
-+       unsigned long old_rate, new_rate, rate_tmp;
-+       int ret;
-+
-+       if (!rate) {
-+               regmap_read(pll->map, reg[CTRL_OFFSET], &ctrl_val);
-+               ctrl_val |=3D CTRL_POWER_DOWN | CTRL_HALT_VCO;
-+               amb_pll_write_enable(pll->map, reg[CTRL_OFFSET], ctrl_val);
-+               return 0;
-+       }
-+
-+       rate *=3D pll->fix_divider;
-+
-+       if (soc_data->ctrl2_val)
-+               ctrl2_val =3D soc_data->ctrl2_val;
-+       else
-+               regmap_read(pll->map, reg[CTRL2_OFFSET], &ctrl2_val);
-+
-+       ret =3D amb_pll_calc_params(pll, rate, parent_rate, ctrl2_val,
-+                                 &intp, &sdiv, &sout, &vcodiv, &fsdiv,
-+                                 &fsout);
-+       if (ret)
-+               return ret;
-+
-+       if (soc_data->ctrl2_val)
-+               regmap_write(pll->map, reg[CTRL2_OFFSET], soc_data->ctrl2_v=
-al);
-+
-+       ctrl_val =3D ((intp - 1) & 0x7f) << 24;
-+       ctrl_val |=3D ((sdiv - 1) & 0xf) << 12;
-+       ctrl_val |=3D ((sout - 1) & 0xf) << 16;
-+       if (soc_data->pll_version >=3D 2) {
-+               ctrl_val |=3D vcodiv =3D=3D 2 ? soc_data->vcodiv_val : 0;
-+               ctrl_val |=3D fsdiv =3D=3D 2 ? soc_data->fsdiv_val : 0;
-+               ctrl_val |=3D fsout =3D=3D 2 ? soc_data->fsout_val : 0;
-+       }
-+
-+       regmap_write(pll->map, reg[CTRL_OFFSET], ctrl_val);
-+       regmap_write(pll->map, reg[FRAC_OFFSET], 0);
-+
-+       old_rate =3D amb_pll_recalc_rate(hw, parent_rate) * pll->fix_divide=
-r;
-+       rate_tmp =3D old_rate > rate ? 0 : rate - old_rate;
-+       if (rate_tmp && pll->frac_mode) {
-+               u64 dividend, divider;
-+
-+               dividend =3D (u64)rate_tmp * sout * fsout;
-+               dividend <<=3D 32;
-+               divider =3D (u64)sdiv * fsdiv * parent_rate;
-+               frac_val =3D DIV_ROUND_CLOSEST_ULL(dividend, divider);
-+               regmap_write(pll->map, reg[FRAC_OFFSET], frac_val);
-+               ctrl_val |=3D CTRL_FRAC_MODE;
-+       }
-+
-+       if (soc_data->pll_version >=3D 2) {
-+               ctrl3_val =3D soc_data->ctrl3_val;
-+               regmap_write(pll->map, reg[CTRL3_OFFSET],
-+                            ctrl3_val | CTRL3_VCO_CLAMP);
-+               regmap_write(pll->map, reg[CTRL_OFFSET],
-+                            ctrl_val | CTRL_FORCE_RESET);
-+               ndelay(100);
-+               regmap_write(pll->map, reg[CTRL_OFFSET],
-+                            ctrl_val & ~CTRL_FORCE_RESET);
-+               ndelay(100);
-+               regmap_write(pll->map, reg[CTRL3_OFFSET],
-+                            ctrl3_val & ~CTRL3_VCO_CLAMP);
-+       } else {
-+               u32 fvco_mhz, range;
-+
-+               fvco_mhz =3D amb_pll_calc_vco(pll, parent_rate) / 1000000UL=
-;
-+               for (range =3D 0; range < ARRAY_SIZE(soc_data->vco_range);
-+                    range++) {
-+                       if (fvco_mhz > soc_data->vco_range[range])
-+                               break;
-+               }
-+               range =3D ARRAY_SIZE(soc_data->vco_range) - range - 1;
-+
-+               regmap_read(pll->map, reg[CTRL3_OFFSET], &ctrl3_val);
-+               ctrl3_val &=3D ~CTRL3_VCO_RANGE_MASK;
-+               ctrl3_val |=3D range << 1;
-+               regmap_write(pll->map, reg[CTRL3_OFFSET], ctrl3_val);
-+
-+               if (frac_val) {
-+                       ctrl_val |=3D CTRL_FORCE_RESET;
-+                       amb_pll_write_enable(pll->map, reg[CTRL_OFFSET],
-+                                            ctrl_val);
-+               }
-+
-+               ctrl_val &=3D ~CTRL_FORCE_RESET;
-+               amb_pll_write_enable(pll->map, reg[CTRL_OFFSET], ctrl_val);
-+       }
-+
-+       new_rate =3D amb_pll_recalc_rate(hw, parent_rate);
-+       rate_tmp =3D rate / pll->fix_divider;
-+       if (max(new_rate, rate_tmp) - min(new_rate, rate_tmp) > 10)
-+               pr_warn("%s: requested %lu, got %lu\n", clk_hw_get_name(hw)=
-,
-+                       rate_tmp, new_rate);
-+
-+       return 0;
-+}
-+
-+static const struct clk_ops amb_pll_ops =3D {
-+       .recalc_rate =3D amb_pll_recalc_rate,
-+       .determine_rate =3D amb_pll_determine_rate,
-+       .set_rate =3D amb_pll_set_rate,
-+};
-+
-+struct clk_hw *amb_pll_register(struct device *dev, struct regmap *map,
-+                               const struct amb_pll_desc *desc)
-+{
-+       struct amb_pll *pll;
-+       struct clk_init_data init =3D {};
-+       const struct clk_hw *parent =3D desc->parent;
-+       int ret;
-+
-+       pll =3D devm_kzalloc(dev, sizeof(*pll), GFP_KERNEL);
-+       if (!pll)
-+               return ERR_PTR(-ENOMEM);
-+
-+       pll->map =3D map;
-+       memcpy(pll->reg_offset, desc->reg_offset, sizeof(pll->reg_offset));
-+       pll->soc_data =3D desc->soc_data;
-+       pll->fix_divider =3D 1;
-+       pll->frac_mode =3D desc->frac_mode;
-+
-+       init.name =3D desc->name;
-+       init.ops =3D &amb_pll_ops;
-+       init.flags =3D CLK_GET_RATE_NOCACHE | CLK_IS_CRITICAL;
-+       init.parent_hws =3D &parent;
-+       init.num_parents =3D 1;
-+
-+       pll->hw.init =3D &init;
-+
-+       ret =3D devm_clk_hw_register(dev, &pll->hw);
-+       if (ret)
-+               return ERR_PTR(ret);
-+
-+       return &pll->hw;
-+}
-diff --git a/drivers/clk/ambarella/ccu_pll.h b/drivers/clk/ambarella/ccu_pl=
-l.h
-new file mode 100644
-index 000000000000..b9e453e9debf
---- /dev/null
-+++ b/drivers/clk/ambarella/ccu_pll.h
-@@ -0,0 +1,70 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) 2026 Ambarella, Inc.
-+ */
-+
-+#ifndef __CCU_PLL_H
-+#define __CCU_PLL_H
-+
-+#include <linux/bits.h>
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/regmap.h>
-+#include <linux/types.h>
-+
-+enum {
-+       CTRL_OFFSET =3D 0,
-+       FRAC_OFFSET,
-+       CTRL2_OFFSET,
-+       CTRL3_OFFSET,
-+       PRES_OFFSET,
-+       POST_OFFSET,
-+       REG_NUM,
-+};
-+
-+#define CTRL_BYPASS            BIT(2)
-+#define CTRL_WRITE_ENABLE      BIT(0)
-+#define CTRL_FRAC_MODE         BIT(3)
-+#define CTRL_FORCE_RESET       BIT(4)
-+#define CTRL_POWER_DOWN                BIT(5)
-+#define CTRL_HALT_VCO          BIT(6)
-+#define CTRL_VCODIV_DIV2       BIT(8)
-+#define CTRL_FSDIV_DIV2                BIT(9)
-+#define CTRL_FSOUT_DIV2                BIT(10)
-+#define CTRL_BYPASS_HSDIV      BIT(11)
-+
-+#define CTRL2_VCODIV_DIV2      BIT(8)
-+#define CTRL2_FSDIV_DIV2       BIT(9)
-+#define CTRL2_FSOUT_DIV2       BIT(11)
-+#define CTRL2_BYPASS_HSDIV     BIT(12)
-+
-+#define CTRL3_VCO_RANGE_MASK   0x6
-+#define CTRL3_VCO_CLAMP                0x8
-+
-+struct amb_pll_soc_data {
-+       u32 pll_version;
-+       u32 fsout_mask;
-+       u32 fsout_val;
-+       u32 fsdiv_mask;
-+       u32 fsdiv_val;
-+       u32 vcodiv_mask;
-+       u32 vcodiv_val;
-+       u32 vco_max_mhz;
-+       u32 vco_min_mhz;
-+       u32 vco_range[4];
-+       u32 ctrl2_val;
-+       u32 ctrl3_val;
-+};
-+
-+struct amb_pll_desc {
-+       const char *name;
-+       const struct clk_hw *parent;
-+       const u32 reg_offset[REG_NUM];
-+       const struct amb_pll_soc_data *soc_data;
-+       bool frac_mode;
-+};
-+
-+struct clk_hw *amb_pll_register(struct device *dev, struct regmap *map,
-+                               const struct amb_pll_desc *desc);
-+
-+#endif
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index ad3bd3d9507b..64e8fbe43d27 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -36,6 +36,7 @@ CONFIG_CRASH_DUMP=3Dy
+ CONFIG_ARCH_ACTIONS=3Dy
+ CONFIG_ARCH_AIROHA=3Dy
+ CONFIG_ARCH_SUNXI=3Dy
++CONFIG_ARCH_AMBARELLA=3Dy
+ CONFIG_ARCH_ALPINE=3Dy
+ CONFIG_ARCH_APPLE=3Dy
+ CONFIG_ARCH_ARTPEC=3Dy
+@@ -567,6 +568,8 @@ CONFIG_SERIAL_8250_OMAP=3Dy
+ CONFIG_SERIAL_8250_MT6577=3Dy
+ CONFIG_SERIAL_8250_UNIPHIER=3Dy
+ CONFIG_SERIAL_OF_PLATFORM=3Dy
++CONFIG_SERIAL_AMBARELLA=3Dy
++CONFIG_SERIAL_AMBARELLA_CONSOLE=3Dy
+ CONFIG_SERIAL_AMBA_PL011=3Dy
+ CONFIG_SERIAL_AMBA_PL011_CONSOLE=3Dy
+ CONFIG_SERIAL_MESON=3Dy
 --
 2.34.1
 
