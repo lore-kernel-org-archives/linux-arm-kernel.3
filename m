@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96917C55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A43C55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EoLrUbPAObzEk7QfSzD57ZfstViCPOgwlL7CmfNG8JU=; b=AGxUCTRranx4rnUFnVE9KnkOXM
-	d7pNNpxfLJzsQLihfzh3u63N/tCaLUHLbcp+cZCV62naOQOISs5v8EyQJ69JxE5HKn+hnzy26A+vA
-	62bJgFWPvJCt/YYsko9TUYT+cKxnc98dVH0hVAO61VeAjiX7Hd2c1TavUitlioE5Bs4aiiyqWt42R
-	FPDc7znlrmFi7PufJtGGTzU6ZB8TbOhU1pPv4oLciBJwLNQycSA/VEhxqE6g0Pnr83g3l+dcxKf+s
-	d7SajoPe7Hk1Jp9VJEAHfHmtQTh4XKmpRdg1TPjwquVlqaVCuI7f9hmjklY8Zo9GsEBkgmIfp+BMN
-	FfD1qKUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=kaxbb4hGIxen8PCLgFdLGDy/QkX3XGfhGMt8egYsPCA=; b=OOhzyvujrRUsXC
+	Xm8o4GR4/V8Vl/B2V6K+rVx4+Yax/bdsQYvDxxVK/xyA0tmgTQWRkJDVcdRLGdGJ6sgL1ts/wxcRN
+	c/YPxD6ef5pMw9IA67ykerYOsU70wSqfRyaejpKXdC+N/vfZXAMzFZOARDO5+EkAFGtj82PyQ47Zp
+	/6EgLL0BYLEn9aLp3XKS7rIRjfkCxrKqXo7AUWtM1sqdZ2DxGZ9gJJE97uOWFKfIuuHzZ5f0p1I3p
+	J4cQHYPCimyEAsRf9X9IhNJLpV6YZu7INoqWmIekccethXNM4aIKoPLRTHfN6yzr+1Luy4zcWFgO5
+	hivZjUFBzgMNQdev9sYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPXv-0000000AQTC-0h5I;
-	Thu, 30 Jul 2026 12:07:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPXs-0000000AQSS-21DN
+	id 1wpPZd-0000000AQsO-3rqL;
+	Thu, 30 Jul 2026 12:09:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpPZb-0000000AQs7-2ayM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:07:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B94CE1684;
-	Thu, 30 Jul 2026 05:07:23 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E3A53F86F;
-	Thu, 30 Jul 2026 05:07:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785413247; bh=21ia43FmNLq2y0FsA3F0kaUAm6yUkF+pRr+vqWLTMhw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fHd8F1UUUR0YRIy6hArlDGYNvRodLaYi+EqYwlOqad5WU4lPfTCktn4mXh9o/awQO
-	 cBnjqKbMk3bXO/S8JHjdVzufNeRumBM3nfZ50IkaDlRSQjNpiaYoz0xwjFgh4P1fQj
-	 V6im/bwI3P5MwbjPOnLZ2ZQWI8WWeDW123g7Mxwc=
-Message-ID: <691560ab-d8a3-49ef-a5d8-e2306e381748@arm.com>
-Date: Thu, 30 Jul 2026 14:07:22 +0200
+	Thu, 30 Jul 2026 12:09:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B5356600BC;
+	Thu, 30 Jul 2026 12:09:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C6441F000E9;
+	Thu, 30 Jul 2026 12:09:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785413354;
+	bh=kaxbb4hGIxen8PCLgFdLGDy/QkX3XGfhGMt8egYsPCA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=XZL1tGeFIup4XVQ5QJHQ0Rwt91LpypNnes9DTDM4JVhjHUmOx4F0DoLiQ0t0vfUO+
+	 zGSxp/o0/1igl6HlfM/WToSRFzDsW2WEs1clcOEhevrJlt3Eoxo/N5Qw7WKMoR+cWM
+	 9OPgFipM94aW40XNVtzKzQJzea/IvFEKQT6L6tyJO8KNkC04NoBFQmvUx/v+KS6+LC
+	 mKtvs+3Ksn3E0rz5MH8EWlyHNDIn9c84eB7J0yRPVHWPyrMywFtTU7aPfnHI4O3O8J
+	 ONONLp/V/NyBhYjIHs0jX1U+AzyC9df1FuS6JSITwfugzkLMrdm621T30gT5c8Z5DM
+	 W+qHiMbfgEVng==
+Date: Thu, 30 Jul 2026 07:09:13 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
+Cc: Frank Li <frank.li@nxp.com>,
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	Hongxing Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms
+ with RC power loss
+Message-ID: <20260730120913.GA1497203@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 09/10] arm_mpam: change error IRQ to use a threaded IRQ
- handler
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260729134124.2506269-1-andre.przywara@arm.com>
- <20260729134124.2506269-10-andre.przywara@arm.com>
- <881a3224-fb19-4ded-ae7e-3f7ae139fe52@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <881a3224-fb19-4ded-ae7e-3f7ae139fe52@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_050728_603792_E88E726B 
-X-CRM114-Status: GOOD (  30.01  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <GV2PR04MB12019096F2A9E8337F2A1BF9F8CC92@GV2PR04MB12019.eurprd04.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,153 +81,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+On Thu, Jul 30, 2026 at 08:16:36AM +0000, Hongxing Zhu (OSS) wrote:
+> > -----Original Message-----
+> > From: Bjorn Helgaas <helgaas@kernel.org>
+> > Sent: Thursday, July 30, 2026 6:30 AM
+> ...
 
-On 7/29/26 17:23, Ben Horgan wrote:
-> Hi Andre,
+> > On Fri, Jul 17, 2026 at 03:41:21PM +0800, hongxing.zhu@oss.nxp.com wrote:
+> > > From: Richard Zhu <hongxing.zhu@nxp.com>
+> > >
+> > > Some platforms like i.MX power off their PCIe RC controllers during
+> > > system suspend, requiring full re-initialization on resume. These
+> > > platforms need to enter L2 state to properly notify endpoints before
+> > > power loss.
+> > >
+> > > According to PCIe base spec r7.0, sec 5.2, the system software should
+> > > transition the device into D3Hot before broadcasting the PME_Turn_Off
+> > > message to initiate L2 entry. However, some endpoint devices fail the
+> > > D3cold capability check in pci_host_common_d3cold_possible(), which
+> > > would normally prevent L2 entry.
+> > 
+> > Wakeup devices that don't support PME from D3cold will fail the
+> > D3cold capability check, but I don't think those are the problem
+> > you're solving.
+> > 
+> You're right.
 > 
-> On 7/29/26 14:41, Andre Przywara wrote:
->> When an MPAM MSC gets into an error condition, it can trigger an error
->> IRQ. We cannot really do much about those errors, but we at least query
->> and log the error, then disable MPAM functionality.
->>
->> This error report relies on reading the MSC's error status register
->> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
->> MSC accesses, since they involve mailbox routines that might sleep.
->> The same is true for clearing the interrupt at the source, which
->> requires an MSC access as well.
->>
->> Change the error IRQ to use a threaded IRQ handler, with an empty hard
->> IRQ routine, and doing all the MSC accesses (to access the status and
->> disable the IRQ line) in the threaded part. The change is minimal, we
->> just check for the first MSC access error and bail out early.
->> Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
->> threaded IRQ here.
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/resctrl/mpam_devices.c | 42 ++++++++++++++++++++++------------
->>   1 file changed, 28 insertions(+), 14 deletions(-)
->>
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index abe1e628928f..e535603d2c7d 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -2659,9 +2659,11 @@ static int mpam_disable_msc_ecr(void *_msc)
->>   	return 0;
->>   }
->>   
->> +/* threaded IRQ handler for shared IRQs, to allow MPAM-Fb accesses to sleep */
-> 
-> This comment seems incomplete. The same handler is used for the PPI hardirq.
+> > This appears to handle devices that are not in D3hot, and that's
+> > not a property of the endpoint; it's a property of its driver.  Is
+> > the problem here that some driver didn't put its device in D3hot?
+> > 
+> I observed some endpoint devices failing the D3cold capability
+> check, but I haven't identified the root cause.
 
-Yes, I failed to convey that it's only a threaded handler for shared 
-IRQs. Reworded that to cover both cases.
+Seems like some instrumentation in pci_host_common_d3cold_possible()
+could tell us which devices/drivers are relevant.
 
->>   static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->>   {
->>   	u64 reg;
->> +	int ret;
->>   	u16 partid;
->>   	u8 errcode, pmg, ris;
->>   
->> @@ -2670,13 +2672,19 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->>   					   &msc->accessibility)))
->>   		return IRQ_NONE;
->>   
->> -	mpam_msc_read_esr(msc, &reg);
->> +	ret = mpam_msc_read_esr(msc, &reg);
-> 
-> This is also called for MMIO accesses and the checks in the reads and writes call smp_processor_id()
-> which will give warnings if we are preemptible. There is also a similar to check higher up in this
-> handler. We need to choose in what context we call things based on whether we are using MMIO
-> accesses or MPAM-Fb.
+> > > For platforms where the RC loses power during suspend, L2 entry
+> > > is essential regardless of D3cold support, as the link will be
+> > > lost anyway.  Add a suspend_poweroff flag to force L2 entry in
+> > > such cases, and enable it for i.MX PCIe controllers.
+> > >
+> > > Note: This violates the spec requirement that devices be in
+> > > D3Hot before PME_Turn_Off, but is necessary for proper operation
+> > > on platforms with RC power loss during suspend.
+> > 
+> > If the device isn't in D3hot, it may still be active, and I think
+> > the PME_Turn_Off will abort any DMAs in progress, which doesn't
+> > sound like proper operation of the endpoint.
+>
+> You're correct - this isn't ideal for endpoint operation. However,
+> on i.MX platforms, the RC controller will lose power during system
+> suspend regardless. Without sending PME_Turn_Off, endpoints would
+> have no notification before the link abruptly goes down.
 
-Alright, after some off-line discussion we settled for keeping a 
-hard-IRQ handler for MMIO, and just use a threaded handler for MPAM-Fb. 
-Should solve this problem elegantly.
+The PME_Turn_Off is some notification, but I don't think the endpoint
+can do DMA or MSI, so its driver won't be involved.  It may be able to
+do things internally, e.g., write caches to an SSD or transmit packets
+from its internal buffers.  But I think it might still lose power in
+the middle of operations like that, so it doesn't sound reliable.
 
-Thanks for pointing this out!
+> This patch adds a flag to force L2 entry for such platforms,
+> choosing to notify endpoints (even if not ideal) rather than having
+> the link drop unexpectedly. I'm appreciated for suggestions if
+> there's a better approach to handle this scenario.
 
-Cheers,
-Andre
-
-> 
-> Thanks,
-> 
-> Ben
-> 
->> +	if (ret) {
->> +		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
->> +
->> +		/* Try out best here ... */
->> +		goto out_disable;
->> +	}
->>   
->>   	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
->>   	if (!errcode)
->>   		return IRQ_NONE;
->>   
->> -	/* Clear level triggered irq */
->> +	/* Clear level triggered irq. Ignore errors, we need to proceed. */
->>   	mpam_msc_clear_esr(msc);
->>   
->>   	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
->> @@ -2687,19 +2695,19 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->>   			   msc->id, mpam_errcode_names[errcode], partid, pmg,
->>   			   ris);
->>   
->> -	/* Disable this interrupt. */
->> +out_disable:
->> +	/* Disable this interrupt. Ignore errors, we need to proceed anyway. */
->>   	mpam_disable_msc_ecr(msc);
->>   
->> -	/* Are we racing with the thread disabling MPAM? */
->> -	if (!mpam_is_enabled())
->> -		return IRQ_HANDLED;
->> -
->>   	/*
->> -	 * Schedule the teardown work. Don't use a threaded IRQ as we can't
->> -	 * unregister the interrupt from the threaded part of the handler.
->> +	 * Schedule the teardown work. We have to defer it as we can't
->> +	 * unregister the interrupt from the threaded part of a handler.
->> +	 * Check whether we are racing with the thread disabling MPAM.
->>   	 */
->> -	mpam_disable_reason = "hardware error interrupt";
->> -	schedule_work(&mpam_broken_work);
->> +	if (mpam_is_enabled()) {
->> +		mpam_disable_reason = "hardware error interrupt";
->> +		schedule_work(&mpam_broken_work);
->> +	}
->>   
->>   	return IRQ_HANDLED;
->>   }
->> @@ -2735,6 +2743,11 @@ static int mpam_register_irqs(void)
->>   		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
->>   		/* We anticipate sharing the interrupt with other MSCs */
->>   		if (irq_is_percpu(irq)) {
->> +			if (msc->iface != MPAM_IFACE_MMIO) {
->> +				dev_err(&msc->pdev->dev,
->> +					"Only MMIO MSCs can use per-CPU interrupts\n");
->> +				return -EINVAL;
->> +			}
->>   			err = request_percpu_irq(irq, &mpam_ppi_handler,
->>   						 "mpam:msc:error",
->>   						 msc->error_dev_id);
->> @@ -2746,9 +2759,10 @@ static int mpam_register_irqs(void)
->>   					       &_enable_percpu_irq, &irq,
->>   					       true);
->>   		} else {
->> -			err = devm_request_irq(&msc->pdev->dev, irq,
->> -					       &mpam_spi_handler, IRQF_SHARED,
->> -					       "mpam:msc:error", msc);
->> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
->> +							NULL, &mpam_spi_handler,
->> +							IRQF_SHARED | IRQF_ONESHOT,
->> +							"mpam:msc:error", msc);
->>   			if (err)
->>   				return err;
->>   		}
-> 
-
+Mani recently added pci_suspend_retains_context(), and I think it
+returns "true" on i.MX.  But if the RC is powered off and all the
+devices need full re-initialization on resume, it sounds like it
+*should* return "false".
 
