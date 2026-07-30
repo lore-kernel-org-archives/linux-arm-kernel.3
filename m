@@ -4,40 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C573C53200
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 01:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C26BC54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 01:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=quLfiHhuhZ4rZmR4UvnAX3/eBCRvvPk2hc96l8xk9uA=; b=uvXB4aVXo5lvY81uqYEb3NiG2A
-	YkqzAbOsc5A+KQFjYe10XpK2TomOKt42C0f1wWWb5FJz7EmLSPOqnWKXg7QPUXpbh8nr6TTW9YFrE
-	X+yRiyAJZgYOPQtpsUncLQ/hzUQ0R4aOgNhzCpGvm286TWBEQMJJvJMIIFaqTemrSTNH2gKItiYN5
-	/5U0/yA6b8SLh4m4cpYR3mQE1ZL7+46JKUDRUz1H23YEkADwNWmpgDFwixD+Hp6eqBpthYnmHEBe3
-	PJg64awv/KctZoZlrdkh6jxq0oxQ94Q7k3enhSlW4Vp9s34h7Jmhll9OjpxTkoVaJfDfU/kOjYdZ3
-	F364DwZw==;
+	bh=r88gkyp3tnoix3EQhLdo5VdpLbZjak+hr4pDnGs8gX4=; b=FvGfWihZlGFTLj0caiWlAKen9N
+	yf9RqOPVPi1d3urrU+yJ5OVIo+MRwZgugtAK7IQqqTCvlr141jM4Ta6xzkOqzB8BG6lSIWvmQbvpZ
+	MiJqMhgzc2WpdEbBxECigUEaHz1q+m1mA2jsN4Q9zmPnHhxoujG0SLfNbP3BCMppVRfI1a1U5D6UN
+	9xszR+keO1pFDnFe7EBx9mFXghZHBuyi0B36wja7yYZ/WdDXIHmLn8TzmTOuxdddC+IL712rh8J8X
+	O3cDCDEmyu+em2HVv3O7RS3yPlqKRH85OuziVEa+5+q9zONbBk3e8DNxhL1VFmGW2o3EopDftnygn
+	jf5Myuxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpFf5-00000009GEK-3pV9;
-	Thu, 30 Jul 2026 01:34:15 +0000
+	id 1wpFfK-00000009GGZ-04X3;
+	Thu, 30 Jul 2026 01:34:30 +0000
 Received: from trager.us ([52.5.81.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpFf3-00000009GDv-3AuT
+	id 1wpFfH-00000009GFw-3a3B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 01:34:14 +0000
+	Thu, 30 Jul 2026 01:34:28 +0000
 Received: from c-73-254-161-40.hsd1.wa.comcast.net ([73.254.161.40] helo=[192.168.1.226])
 	by trager.us with esmtpsa (TLSv1.3:TLS_AES_128_GCM_SHA256:128)
 	(Exim 4.92.3)
 	(envelope-from <lee@trager.us>)
-	id 1wpFen-0008Ic-CM; Thu, 30 Jul 2026 01:33:57 +0000
-Message-ID: <2228a2be-96b1-4c8a-9786-6ba07fd302c0@trager.us>
-Date: Wed, 29 Jul 2026 18:33:49 -0700
+	id 1wpFfA-0008Il-1M; Thu, 30 Jul 2026 01:34:20 +0000
+Message-ID: <ec478b24-0a30-4b63-b191-08d05f606bad@trager.us>
+Date: Wed, 29 Jul 2026 18:34:11 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 03/10] arm_mpam: propagate MSC access errors for MBWU
- counters
+Subject: Re: [PATCH v5 10/10] arm_mpam: detect and enable MPAM-Fb PCC support
 To: Andre Przywara <andre.przywara@arm.com>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
  <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
@@ -52,15 +51,15 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
  Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260729134124.2506269-1-andre.przywara@arm.com>
- <20260729134124.2506269-4-andre.przywara@arm.com>
+ <20260729134124.2506269-11-andre.przywara@arm.com>
 Content-Language: en-US
 From: Lee Trager <lee@trager.us>
-In-Reply-To: <20260729134124.2506269-4-andre.przywara@arm.com>
+In-Reply-To: <20260729134124.2506269-11-andre.przywara@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_183413_827246_D0D72A70 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20260729_183427_897812_93B6D064 
+X-CRM114-Status: GOOD (  19.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +76,80 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On 7/29/26 6:41 AM, Andre Przywara wrote:
 
-> @@ -1767,6 +1781,7 @@ static int mpam_save_mbwu_state(void *arg)
+> @@ -2231,7 +2316,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
+>   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
 >   {
->   	int i;
->   	u64 val;
-> +	int ret;
->   	struct mon_cfg *cfg;
->   	u32 cur_flt, cur_ctl, mon_sel;
->   	struct mpam_msc_ris *ris = arg;
-> @@ -1777,7 +1792,8 @@ static int mpam_save_mbwu_state(void *arg)
->   		mbwu_state = &ris->mbwu_state[i];
->   		cfg = &mbwu_state->cfg;
+>   	int err;
+> -	u32 tmp;
+> +	u32 pcc_subspace_id;
+>   	struct mpam_msc *msc;
+>   	struct resource *msc_res;
+>   	struct device *dev = &pdev->dev;
+> @@ -2279,7 +2364,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>   	if (err)
+>   		return ERR_PTR(err);
 >   
-> -		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
-> +		ACQUIRE(mon_sel_lock, guard)(msc);
-> +		if (ACQUIRE_ERR(mon_sel_lock, &guard))
->   			return -EIO;
+> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
+>   		msc->iface = MPAM_IFACE_MMIO;
+>   	else
+>   		msc->iface = MPAM_IFACE_PCC;
+> @@ -2295,6 +2380,36 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>   		}
+>   		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>   		msc->mapped_hwpage = io;
+> +	} else if (msc->iface == MPAM_IFACE_PCC) {
+> +		int ret;
+> +
+> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
+> +		if (IS_ERR(msc->pcc_chan)) {
+> +			pr_err("Failed to request MSC PCC channel\n");
+> +			return ERR_CAST(msc->pcc_chan);
+> +		}
+> +
+> +		if (msc->pcc_chan->pcc_chan->shmem_size < MPAM_FB_MAX_MSG_SIZE) {
+
+I think the PCC shared-memory size undercounts the required region. From 
+my understanding shmem_size is the length of the complete PCC 
+shared-memory region advertised by the PCCT and mapped by the PCC 
+driver. MPAM_FB_MAX_MSG_SIZE is the 4-byte protocol header stored in 
+pcc_shmem->command + the 16-byte write payload.
+
+However, mpam_fb_build_write_message() places the payload after the 
+complete 16 byte struct acpi_pcct_ext_pcc_shared_memory. The largest 
+request therefore occupies 32 bytes of shared memory region(16-byte PCC 
+header+ 16-byte write payload). Thus a firmware region between 20 and 31 
+bytes currently passes the check but overruns when constructing a write 
+request. I think this should be
+
+if (msc->pcc_chan->pcc_chan->shmem_size <
+
+     sizeof(struct acpi_pcct_ext_pcc_shared_memory) +
+     MPAM_FB_MAX_MSG_SIZE - MPAM_FB_PROT_HEADER_LEN)
+
 >   
->   		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
-> @@ -1788,7 +1804,9 @@ static int mpam_save_mbwu_state(void *arg)
->   		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index a2193e7df57c..e926b7feb72a 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -77,7 +77,6 @@ struct mpam_msc {
+>   	/* Not modified after mpam_is_enabled() becomes true */
+>   	enum mpam_msc_iface	iface;
+>   	struct mpam_pcc_chan	*pcc_chan;
+> -	int			mpam_fb_msc_id;	/* in its own name space */
+>   	u32			nrdy_usec;
+>   	cpumask_t		accessibility;
+>   	bool			has_extd_esr;
+> @@ -532,6 +531,11 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
+>   int mpam_fb_get_protocol_version(struct mpam_msc *msc);
 >   
->   		if (mpam_ris_has_mbwu_long_counter(ris)) {
-> -			val = mpam_msc_read_mbwu_l(msc);
-> +			ret = mpam_msc_read_mbwu_l(msc, &val);
-> +			if (ret)
-> +				return ret;
->   			mpam_msc_zero_mbwu_l(msc);
->   		} else {
->   			u32 val32;
-I think checking for (val & MSMON____L_NRDRY) is still required before 
-updating the saved state. mpam_msc_read_mbw_l() can return 0 while 
-setting val to MSMON___L_NRDY when it cannot obtain a stable value. The 
-state saving path later adds val to mbwu_state->correction, so the 
-sentinel would corrupt the saved correction. Additionally, as Ben noted 
-during the v3 review, hardware may also set the NRDY bit.
-> @@ -1804,7 +1822,6 @@ static int mpam_save_mbwu_state(void *arg)
->   		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
->   		mbwu_state->correction += val;
->   		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
-> -		mpam_mon_sel_unlock(msc);
->   	}
+>   #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
+> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
+> +#define MPAM_FB_MAX_MSG_SIZE	(MPAM_FB_PROT_HEADER_LEN + 4 * sizeof(u32))
+> +
+> +#define MPAM_FB_VERSION_MAJOR_MASK	GENMASK(31, 16)
+> +#define MPAM_FB_VERSION_MINOR_MASK	GENMASK(15, 0)
 >   
->   	return 0;
+>   /*
+>    * MPAM MSCs have the following register layout. See:
 
