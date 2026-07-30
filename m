@@ -4,67 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEB4C5516E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 18:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F65FC5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 18:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hGyNUr7fBhXY6LyFNtiiX9bN9EXJPu/P8HqPzvigmCk=; b=ShKO+EWyZp20c91BQinnon0HMj
-	UtR4jJeR7PvppKDG218g1rbTcsGSRxvGQIG4XvDQo9/S2hkZyUC1/Nf2vKYrX4OgIu47iZyWYpc0F
-	iTmTqAeKuchlIyVaigKQjlpJiJpyfWkeH80WKNGiFjcBQImJx8fsFEIKhp1ckX6OgGEM5MqnT1Y1C
-	4Iq1FP5SnmIOIdDwOEtv0hASL9HhIjqgXqfBCRn8UASOJIHJTTAUHOeGLzUKOiopvOB6zDlERzNL2
-	+x5NEQT7ImEpYrIroUx5fLCufNfKclsIG1lN8u3olva+15/7rpYhQ3NH8RU1AW2cYc9kmnF4hY5Cq
-	JVEh0//A==;
+	bh=57rmP4vhcSTbGsoBnLah+TzWrTa5sRCpdridw9cY9ZA=; b=yGtoJvUdRMiwOr22+oN1rKEbbs
+	0rqPDPeDJr6YhE/EKRydjcBTJgntN0fFqCn80VbywdhH+scHXCV0dL7qkr+RzQ1t26MXjv2Lb24ZD
+	TbXZedeIzjBTzx5J4JUIGGYcNC9XLJOY/0oi1fHLeoo/VSIj8i8Dt5Y1wbP7lkFGwjVj5qx2FJMhr
+	E+Gi+LS3C73nTXpqqQNvHQ3/T+HSKLa9G52E8bIlwahZ1IvgubclgMC7/bMz3Q1RB123NO10WmcxJ
+	vtMAQ+NLNdezbXZefLffVBOWk08LsjqMCy+82QsL0ozO7tOjJhssDZR0cC2eyqserTtWIgrOS4pCw
+	QGO4MuvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpVHN-0000000B8v1-40gw;
-	Thu, 30 Jul 2026 18:14:49 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wpVPF-0000000B9ZT-0pC4;
+	Thu, 30 Jul 2026 18:22:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpVHK-0000000B8tH-3ySI
+	id 1wpVPB-0000000B9YL-1NSM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 18:14:48 +0000
-Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B18411E4;
-	Thu, 30 Jul 2026 20:13:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1785435215;
-	bh=F6+Om4p+4oo6ZFQCdI73ewqN7GtwaTrmcvQiBnOu/Y0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LFQS8PGvLUXcVO9hXUO7yjUvuMrfoYeFfqgPRhlZA1/M5CacOvTHFAttRNwEJMr4V
-	 uTm2W/bVzaPnN3S+Xa71H+xLOjeNJ+D/iLefMGf2TnlItELijO0xfBy41cjbQH6izR
-	 Ug7vW3uOvgFEElhDlwMuG8XkERfjmD2vZ+RMtrCM=
-Date: Thu, 30 Jul 2026 21:14:40 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Christian Hemp <c.hemp@phytec.de>,
-	Stefan Riedmueller <s.riedmueller@phytec.de>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Bryan O'Donoghue <bod@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v5 1/4] media: nxp: imx8-isi: Use BIT_ULL() for 64-bit
- stream masks
-Message-ID: <20260730181440.GA1600813@killaraus.ideasonboard.com>
-References: <20260728-isi-v5-0-1d22ab91602a@oss.nxp.com>
- <20260728-isi-v5-1-1d22ab91602a@oss.nxp.com>
+	Thu, 30 Jul 2026 18:22:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785435771;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=57rmP4vhcSTbGsoBnLah+TzWrTa5sRCpdridw9cY9ZA=;
+	b=Bgs+D2/w0zk0FPCceFytKcRxM33AObSpgssoBr7mxH/T9VQYwHuEVVwPuqSCDlsRoBWU1G
+	HFZxZiAoJrg30PfEvvQLf1NoixmZC5HPig8EP/EkQGVYnn99S5Xd5bPk0HSeydwmlXLHRS
+	om0lOn9GUwTwZTmH07weYwYmOwS+QIQ=
+Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com
+ [209.85.128.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-339-__dw37DmP6SaozIs3RoIuA-1; Thu, 30 Jul 2026 14:22:50 -0400
+X-MC-Unique: __dw37DmP6SaozIs3RoIuA-1
+X-Mimecast-MFC-AGG-ID: __dw37DmP6SaozIs3RoIuA_1785435770
+Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-81bee860fb7so3894817b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 11:22:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785435770; x=1786040570;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=57rmP4vhcSTbGsoBnLah+TzWrTa5sRCpdridw9cY9ZA=;
+        b=UtOLfsteBC0GiTNDUaLCSLWvpGxb70GfWZPTL9DhyKuLfnEkBOF6geTksHvXTNgbdx
+         MJOGdAbrTK+rq27yNrmshNVgMvoVJRayeSWmRiJ2KxuQuQpvEx8oum+h5wvNcLcc/bfL
+         d12md5NWwvzUbqht+G/C1vXK0Z6/r9CGRG/+Z4FIH9LxfAYutETTqB0Ihft4Ow69E+AN
+         oheBZtyTYC5nBmWfth3jt+FTSg9PLOADMXvpoGrbQqJCs2lukmUqZXTcd1uIhBoimT8Z
+         9NuEmHisZm1xQUWdzJbwIuZ9SuJcQtOnQVRqwycRMcVppqlPasIqtqzfR+srbxMsamkt
+         g+Yg==
+X-Forwarded-Encrypted: i=1; AHgh+RpXpO90oo3b4ibnfoVScHBFSuYQwTPlf9sLxtOiqvsi+ga1PTRoCJComhKm5nCO8fu/leQleJpXvP9GFvserD+N@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywu49GgiP3zy7nsqp3Og920ILv2G/1KF6l3H4vg2nS4j7tneis8
+	pgmZXlunp9ZiS01Ui+xEyU4JCo3h/RjIvProBYp44xTLVH7XDRgrwH+SG+0uL0OFB/oNnpCdvYw
+	wWintoyWCAq2A68gpXhvWpsYJgiaJ2DuTlmy/wHqvF05Nbr6JsUEtF2MhnFU5nADaL9IJo/Luog
+	pX
+X-Gm-Gg: AR+sD13I2y++IxDfaEHTOqcOoB2Po2XyMKFHsTx2R9ERYFu228+/7W+UgwaLdWR0OiU
+	FsGy286E6yBGsccDm7Oo3+RFCmG2qYqGwWUqQpohuIr3nh4NEBU78gL7lEf313LIzFzhuq4VIsl
+	UB+h3862SEww54WdGogICBDNni5PYcaIYHgrMal7UBl9+YYRI9O9rlspUv+m37PWzOYG7zsC6kM
+	k98HPVw0ONpq/o8Qf3NxsdHgmgaq3norIjEYqg1orasANyDYqog8YrnvJRYYYJI/vGfMh2ZWPQ3
+	f1nOGRBPaCcPlzKe4JqzDs30KxDo5T9NWxTZovOxf1BLxY8opmBrtbnWYViZ35PTsIHfZCyBOjD
+	SgVQsKh+GE09Nf8UWjHyfBBuo/y2Q4ImNOFQ=
+X-Received: by 2002:a05:690c:3705:b0:7f4:fad5:2087 with SMTP id 00721157ae682-81fb8b36a91mr27760297b3.38.1785435769598;
+        Thu, 30 Jul 2026 11:22:49 -0700 (PDT)
+X-Received: by 2002:a05:690c:3705:b0:7f4:fad5:2087 with SMTP id 00721157ae682-81fb8b36a91mr27759957b3.38.1785435769087;
+        Thu, 30 Jul 2026 11:22:49 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81fc4175a04sm2847377b3.15.2026.07.30.11.22.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 11:22:48 -0700 (PDT)
+Date: Thu, 30 Jul 2026 14:22:45 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chun-Jie Chen <chun-jie.chen@mediatek.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Edward-JW Yang <edward-jw.yang@mediatek.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Irving-CH Lin <irving-ch.lin@mediatek.com>
+Subject: Re: [PATCH v4 00/24] MT8189: Add support for system and base clock
+ controllers
+Message-ID: <amuWdRD-TBQtFT_4@redhat.com>
+References: <20260729-mt8189-clocks-system-base-v4-0-e356b813a64c@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+In-Reply-To: <20260729-mt8189-clocks-system-base-v4-0-e356b813a64c@collabora.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 4TYEh2uaGNa1_lt9-pitHpBIDm2cDH2OlNn0xSjVxR0_1785435770
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260728-isi-v5-1-1d22ab91602a@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_111447_130513_179E932B 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20260730_112253_520062_8C08D1F6 
+X-CRM114-Status: GOOD (  39.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +124,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guoniu,
-
-Thank you for the patch.
-
-On Tue, Jul 28, 2026 at 02:58:56PM +0800, Guoniu Zhou wrote:
-> Use BIT_ULL() instead of BIT() for u64 stream masks to avoid incorrect
-> results on 32-bit architectures when stream IDs are 32 or greater.
+On Wed, Jul 29, 2026 at 12:02:44PM +0200, Louis-Alexis Eyraud wrote:
+> This series is a continuation by AngeloGioacchino Del Regno and I of a
+> previous series ([1]), that adds the clock controller support for
+> the Mediatek MT8189 SoC and its variants (MT8371, MT8391).  
 > 
-> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> Cc: stable@vger.kernel.org
-
-I'm not sure this deserves being backported, as streams IDs won't be
-larger than 31 in normal use cases, but it doesn't hurt.
-
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
+> The first major changes is the split of the series in two:
+> - one for all basic clock controllers including system ones (this
+> series)
+> - one for the multimedia and graphics related clock controllers (to be
+> send in the future)
+> 
+> We chose to separate the multimedia clock drivers from the base system
+> ones, as there is currently an unsolvable inter-dependency between the
+> power domains and multimedia clocks; the power domains need a
+> dual-stage bring-up, where only a part of the multimedia clocks are
+> accessible in the first power domain powerup stage, and the rest when
+> the second stage (SRAM enablement) is done.
+> The current workarounds for this issue, such as removing the is_enabled
+> operation from the impacted clock controllers clk_ops table or
+> let the multimedia power domain always on, were quickly discarded
+> for upstream.
+> 
+> The second major change is the dt-bindings patch ([2]) that got heavily
+> reworked, not only because of the split choice. We took the opportunity
+> to regroup in the MT8186 clock and system clock dt-bindings the
+> description of several other Mediatek SoC (MT8188, MT8192 and MT8195)
+> and add in them the MT8189 new ones.
+> The rationale is to ease maintainability and have common files for
+> several currently supported SoC or new future ones, that have the same
+> kind of clock controller design.
+> 
+> Finally the pending remarks from peer reviews on the v6 revision of [1]
+> were also taken into account and new fixes and cleanups were also
+> added.
+> 
+> A more detailed changelog between [1] and this series:
+> - Removed multimedia and graphics related clock controllers code and
+>   definitions from series
+> - Added new dt-bindings patches to factorise existing MT8188, MT8192
+>   and MT8195 in MT8186 clock dt-bindings
+> - Heavily modified the MT8189 dt-bindings to add new compatibles 
+>   in MT8186 clock dt-bindings
+> - Created a new dt-bindings include for the MT8189 reset controller
+>   definitions (include/dt-bindings/reset/mediatek,mt8189-resets.h)
+> - Removed unnecessary `syscon` compatible fallback from MT8189 base
+>   clock controllers
+> - Added missing 'mediatek,mt8189-fhctl' compatible declaration in
+>   dt-bindings
+> - Modified Kconfig to COMMON_CLK_MT8189 be tristate (and not bool) to 
+>   allow all MT8189 clock controller drivers to be built as modules (it
+>   was partial) 
+> - Fix pll unregisters in clk_mt8189_apmixed_probe error case
+> - Reparent several clocks to correct 26M references in clk-mt8189-bus.c,
+>   clk-mt8189-topckgen.c and clk-mt8189-vlpckgen.c
+> - Removed CLK_SET_RATE_NO_REPARENT flag from mfg_sel_mfgpll
+> - Rename TOPCKGEN_fmipi_csi_up26m clock to fmipi_csi_up26m to remove caps usage
+> - Implemented reset controllers in clk-mt8189-ufs.c
+> - Updated all file headers to update copyrights and add all authors
+> - Added all co-developed-by trailers
+> 
+> The series is based on linux-next tree (tag: next-20260728) and has
+> been tested on Mediatek Genio 520-EVK (MT8371) and 720-EVK (MT8391)
+> boards, with hardware enablement patch series ([3]), and on Genio
+> 510-EVK (MT8370, variant of MT8188) and Genio 1200-EVK (MT8395,
+> variant of MT8195).
+> 
+> [1]: https://lore.kernel.org/linux-mediatek/20260309120512.3624804-1-irving-ch.lin@mediatek.com/
+> [2]: https://lore.kernel.org/linux-mediatek/20260309120512.3624804-2-irving-ch.lin@mediatek.com/
+> [3]: https://lore.kernel.org/linux-mediatek/20260701-add-mediatek-genio-520-720-evk-v2-0-19d5da4ef984@collabora.com/
+> 
 > ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> Changes in v4:
+> - Rebased on next-20260728 tag
+> - Added patches 9 to 14 to add new clock ops data set for PLL and
+>   PLL-FHCTL to handle a new PLL switch logic for PLL control and BAR
+>   reset, supported by MT8189 SoC
+> - Patch 15:
+>   - Removed useless includes (B. Masney)
+>   - Fixed variable declaration order in clk_mt8189_apmixed_probe (B.
+>     Masney)
+>   - Added missing pwr_reg setting setting in PLL_SETCLR macro (B. 
+>     Masney, Sashiko)
+>   - Added en_set_reg, en_clr_reg, rst_bar_reg, rst_bar_set_reg and
+>     rst_bar_clr_reg fixed offsets and new mtk_pll_setclr_ops ops
+>     setting in PLL_SETCLR macro
+>   - Added pwr_reg offset values in apmixed_plls array
+>   - Fixed rst_bar_mask for mainpll univpll, and mmpll in apmixed_plls
+>     array to match rst_bar set/clr reg settings
+> - Fixed factor ratio for mainpll_d4_d8, tvdpll1_d16, tvdpll2_d16 and
+>   osc_d16 clocks (Sashiko)
+> - Link to v3: https://lore.kernel.org/r/20260720-mt8189-clocks-system-base-v3-0-8e6d99ab3ad2@collabora.com
 > 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> index 9f0231ca47a3..9db9c6e55c2c 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> @@ -157,10 +157,10 @@ mxc_isi_crossbar_xlate_streams(struct mxc_isi_crossbar *xbar,
->  	 */
->  	for_each_active_route(&state->routing, route) {
->  		if (route->source_pad != source_pad ||
-> -		    !(source_streams & BIT(route->source_stream)))
-> +		    !(source_streams & BIT_ULL(route->source_stream)))
->  			continue;
->  
-> -		sink_streams |= BIT(route->sink_stream);
-> +		sink_streams |= BIT_ULL(route->sink_stream);
->  		sink_pad = route->sink_pad;
->  	}
->  
+> Changes in v3:
+> - Rebased on next-20260717 tag
+> - Added Fixes tags to patches 1, 2 and 3
+> - Reworded patch 8 subject and description messages
+> - Updated Reviewed-by and Acked-by trailers
+> - Link to v2: https://lore.kernel.org/r/20260709-mt8189-clocks-system-base-v2-0-2926da3db6cf@collabora.com
+> 
+> Changes in v2:
+> - Rebased on next-20260708 tag
+> - Added patch 1,2 and 3 to make the #clock-cells a required property in
+>   MT8186, MT8192 and MT8195 clock controller dt-bindings
+> - Patch 5:
+>   - Removed conditional blocks to check clock-cells property presence
+>     for MT8188 clock controller compatible
+>   - Reworded commit message to remove the note (no more applicable)
+>   - Fixed incorrect property value in else block for #reset-cells
+>     property check.
+> _ Removed from patch 9 conditional blocks to check clock-cells property
+>   presence for MT8189 clock controller compatible
+> - Fixed missing MODULE_DEVICE_TABLE in patches 10, 11 and 12.
+> - Added devicetree series link in cover letter
+> - Link to v1: https://lore.kernel.org/r/20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com
+> 
+> ---
+> Louis-Alexis Eyraud (24):
+>       dt-bindings: clock: mediatek: Make '#clock-cells' required for MT8186
+>       dt-bindings: clock: mediatek: Make '#clock-cells' required for MT8192
+>       dt-bindings: clock: mediatek: Make '#clock-cells' required for MT8195
+>       dt-bindings: clock: mediatek: reorder MT8186 compatibles
+>       dt-bindings: clock: mediatek: regroup MT8188 dt-bindings into MT8186
+>       dt-bindings: clock: mediatek: regroup MT8192 dt-bindings into MT8186
+>       dt-bindings: clock: mediatek: regroup MT8195 dt-bindings into MT8186
+>       dt-bindings: clock: mediatek: Add MT8189 system/base clocks and resets
+>       clk: mediatek: Harmonize mtk_pll_fenc related symbol names
+>       clk: mediatek: pll: Add BAR reset register offsets
+>       clk: mediatek: pll: split default prepare/unprepare callbacks
+>       clk: mediatek: pll: Add ops for PLLs using set/clr regs
+>       clk: mediatek: pllfh: Add configurable clock ops to mtk_pllfh_data
+>       clk: mediatek: pllfh: Add ops for PLLs using set/clr regs
+>       clk: mediatek: Add MT8189 apmixedsys clock support
+>       clk: mediatek: Add MT8189 topckgen clock support
+>       clk: mediatek: Add MT8189 vlpckgen clock support
+>       clk: mediatek: Add MT8189 vlpcfg clock support
+>       clk: mediatek: Add MT8189 bus clock support
+>       clk: mediatek: Add MT8189 dbgao clock support
+>       clk: mediatek: Add MT8189 dvfsrc clock support
+>       clk: mediatek: Add MT8189 i2c clock support
+>       clk: mediatek: Add MT8189 scp clock support
+>       clk: mediatek: Add MT8189 ufs clock support
+> 
+>  .../bindings/clock/mediatek,mt8186-clock.yaml      |  128 ++-
+>  .../bindings/clock/mediatek,mt8186-fhctl.yaml      |    1 +
+>  .../bindings/clock/mediatek,mt8186-sys-clock.yaml  |   24 +-
+>  .../bindings/clock/mediatek,mt8188-clock.yaml      |   93 --
+>  .../bindings/clock/mediatek,mt8188-sys-clock.yaml  |   58 --
+>  .../bindings/clock/mediatek,mt8192-clock.yaml      |  191 ----
+>  .../bindings/clock/mediatek,mt8192-sys-clock.yaml  |   68 --
+>  .../bindings/clock/mediatek,mt8195-clock.yaml      |  238 -----
+>  .../bindings/clock/mediatek,mt8195-sys-clock.yaml  |   76 --
+>  drivers/clk/mediatek/Kconfig                       |   79 ++
+>  drivers/clk/mediatek/Makefile                      |    8 +
+>  drivers/clk/mediatek/clk-mt8189-apmixedsys.c       |  203 ++++
+>  drivers/clk/mediatek/clk-mt8189-bus.c              |  200 ++++
+>  drivers/clk/mediatek/clk-mt8189-dbgao.c            |   98 ++
+>  drivers/clk/mediatek/clk-mt8189-dvfsrc.c           |   58 ++
+>  drivers/clk/mediatek/clk-mt8189-iic.c              |  122 +++
+>  drivers/clk/mediatek/clk-mt8189-scp.c              |   77 ++
+>  drivers/clk/mediatek/clk-mt8189-topckgen.c         | 1025 ++++++++++++++++++++
+>  drivers/clk/mediatek/clk-mt8189-ufs.c              |  133 +++
+>  drivers/clk/mediatek/clk-mt8189-vlpcfg.c           |  116 +++
+>  drivers/clk/mediatek/clk-mt8189-vlpckgen.c         |  285 ++++++
+>  drivers/clk/mediatek/clk-mt8196-apmixedsys.c       |    2 +-
+>  drivers/clk/mediatek/clk-mt8196-vlpckgen.c         |    2 +-
+>  drivers/clk/mediatek/clk-pll.c                     |  135 ++-
+>  drivers/clk/mediatek/clk-pll.h                     |   13 +-
+>  drivers/clk/mediatek/clk-pllfh.c                   |   15 +-
+>  drivers/clk/mediatek/clk-pllfh.h                   |    3 +
+>  include/dt-bindings/clock/mediatek,mt8189-clk.h    |  433 +++++++++
+>  include/dt-bindings/reset/mediatek,mt8189-resets.h |   17 +
+>  29 files changed, 3135 insertions(+), 766 deletions(-)
 
--- 
-Regards,
+Should there be a new MAINTAINERS entry added? There's currently 221
+files under drivers/clk/mediatek/ and there's currently only one
+mediatek maintainer entry:
 
-Laurent Pinchart
+    MEDIATEK MT6735 CLOCK & RESET DRIVERS.
+
+Is there anyone from mediatek (or elsewhere) that could act as a clk
+subsystem maintainer similar to what the other SoC vendors do? Help with
+reviews, send in pulls, etc?
+
+I'll review this one in a bit but this subsystem is big enough that it
+really should have some support from the vendor (or via a consulting
+company) in some form.
+
+Brian
+
 
