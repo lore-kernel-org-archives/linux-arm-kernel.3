@@ -4,139 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B4CC55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 13:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77422C55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 13:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQ5dXOOWYXFVcM6x9nGVblT1wUHAuKXaLQ/Eg3mA7Fk=; b=2ZsD8ivBrG8asFp7t9A2dqi9Ah
-	5vOIQjuHGgPv0h2ICLOjbAttfQOvRjr5WT6mTLcLRcj1S2SR5VFOApE2ikWzyWYJ2bNXpNt50JYP6
-	l15hWiKML0aNgQ8/1UZymz3Jpvi6fqbQ2VdSLFm7V/9wDpF4opiBozozuNrNWmjBtvG9xKMlz9Mlj
-	Qnieq+kC0uf7ECICJvncey2PfzMACpz/77WSVni7MCVBDZtX2RhF6hNRxjRHp8syk/l3s0jdxtKZ7
-	J9XNeD2FSZq/VPympbNFnZ2j8dAepD9g6+412+31+uBZ+wof3UgjwJM+dIsejMsnqktMdcipwH8fk
-	SFk6Rg3w==;
+	bh=wTNiZqsPvsvAsqdJI3NYqaSJTMEuvNjWMEi2TBFAAqs=; b=NDJwHCY3J6fTS6wUffKqdz6bgb
+	rMiODCdC++yk+a9TyP3Pmka4PcCqnei/mH9wbhyW/DlUMJcq53jSD+ux1x+CBzFiv4c8UbicjG83T
+	v/lzYLMeEOZussZmL5lWKLOVALdjoZtsX+KVe/eQigVzwZO6aGosghegU+Ugml1klmO+MeK1VhHw/
+	6oxw8kp2/6/6QiBi5TdR7ntd4B1HZHv9Eep0bXFJJFVoMKt+ZPInw0h09D9a6om1IPEXB/HWkFErZ
+	JWPN8MihTw4JLNGTkn/RzhTziBLCpMiauacBnC4cPsZefpvAtw5C1e8BTyzhH7Fad2sksuW0vT1sm
+	6/vIBFwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQj7-0000000AaEU-0MDd;
-	Thu, 30 Jul 2026 13:23:09 +0000
-Received: from mail-norwayeastazon11013049.outbound.protection.outlook.com ([40.107.159.49] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wpQkX-0000000AaSx-1jHm;
+	Thu, 30 Jul 2026 13:24:37 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQj2-0000000AaDG-14y6;
-	Thu, 30 Jul 2026 13:23:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GhaHrxP9DyQlWFgxdVTtlilsVShsO+dXP97uZTmyD8BQpYD6nysnpmAY424sQ8kfpifQCcYSGxnmfEQgLL5UShvoUxWkXt2Pd0m7ATk+zeSseAn1rZxTP2aAKXKkZ0wFox9MHgUMZdwhwVR8yfIAbIoVQrjyj1Q8712iy26+v3Z06yOLFaV5lG5bik1GX7eGzieeOBKlbuj9sgzPCLooZ46HXREbtABjd3/DcEf44J2aPT1s/xOQSOM/7Mi81xMZOgeLKR5dTrykiu97pit1NX+b+pIgQjm96wInudN2xoI/C34dZCGX5u83gLXi566zQlSYfggR6VXqD53kjIrlHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GQ5dXOOWYXFVcM6x9nGVblT1wUHAuKXaLQ/Eg3mA7Fk=;
- b=Rp9hv4x/cM0yDk9fvPrVW2bQZ9Y/2++z+2zZfWRwZeIS1JWVuhRLZENMerZsZ/oXxpDigSz47aiQ0bnqvUS4d2De+9yf+5OmDjXd6EVt/c7tKmcLaLhMQVCU/ALqYIcvEAvCw5cwsxunbUMnPCgl/IDZvyHdtywTmCwZ5jkX/W1M1NYh6c145A4HSIAVSkaA8BhrM14epnJGXVrso3pRkG5A3qqEuvSpqhRThOxe0N0ZXqiyOEzy7bbn8ME3hBtSRz0nNLBf2PrzUbIG84flP4GRT18eITlWuPJdOFQgl+Cz0krvC6KUz23XfpW1rzz+97okla9HlCeuCkcfSXw9Bg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GQ5dXOOWYXFVcM6x9nGVblT1wUHAuKXaLQ/Eg3mA7Fk=;
- b=IXluj8yYLmkrma0TFlgCV2LL1lJ63bkWM0U19AbMrt7gv39YJzOJJLBkQI/q8pDYsbzBB+REl1sMeJ2LPtgRExCWwfymxs2uZzuhKNNIRECVn8SDfJXi7wd1Wdcw4m4d7Ljj3leHGDxRC5IGtYaLZEKwOD34/U6NlBoozYLRcpg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from PA4PR04MB7743.eurprd04.prod.outlook.com (2603:10a6:102:b8::20)
- by PA4PR04MB9221.eurprd04.prod.outlook.com (2603:10a6:102:27d::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Thu, 30 Jul
- 2026 13:22:54 +0000
-Received: from PA4PR04MB7743.eurprd04.prod.outlook.com
- ([fe80::9a4e:252f:2fd:97b7]) by PA4PR04MB7743.eurprd04.prod.outlook.com
- ([fe80::9a4e:252f:2fd:97b7%6]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
- 13:22:54 +0000
-Message-ID: <2b7519cc-9e22-45de-940e-2996c2423de5@cherry.de>
-Date: Thu, 30 Jul 2026 15:22:53 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] arm64: dts: rockchip: add CAN-FD nodes for RK3588
-To: Cunhao Lu <1579567540@qq.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
- kernel@pengutronix.de, Vincent Mailhol <mailhol@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-can@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20260725-master-v5-0-75da459d2b93@qq.com>
- <tencent_BE229ADF4693078DBBCC6C02CC0855C01E06@qq.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <tencent_BE229ADF4693078DBBCC6C02CC0855C01E06@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P195CA0031.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:65a::10) To PA4PR04MB7743.eurprd04.prod.outlook.com
- (2603:10a6:102:b8::20)
+	id 1wpQkU-0000000AaSF-0Zsu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jul 2026 13:24:36 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4954f5e8020so10285585e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 06:24:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1785417872; x=1786022672; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wTNiZqsPvsvAsqdJI3NYqaSJTMEuvNjWMEi2TBFAAqs=;
+        b=mSMK7gGDpfoMF5G2bSmec88gMkq2J/WfddAosYUgdwKeu8+g7ayKsvE8iTw7eXqaBZ
+         LDezDQIkj12sn9P8P3agnJEr32TcuI7HY5VRtGzju9Ay9X6L3GAvdGFYLOChqkUpgFsf
+         LBRfsVjIZC9PSVIx3OQN85BdUMNpSWc1b5xeKBvyTWyvIx5C10xJT0NlX3sxTNXQH3E9
+         zJwHpWmQwa8aG0ZOCpUPyhIuGlxwNeKsqI+ZeV0V/SDEiUeXrJvQGRaj6a4rOsx9LmZF
+         m1Q4jeeuJFP/V5KZ3NScVPD2j4WIz4IaorDytVyNdfMOKiEjxxZrs7/Y2KtLVX3I8dIK
+         4Sjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785417872; x=1786022672;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wTNiZqsPvsvAsqdJI3NYqaSJTMEuvNjWMEi2TBFAAqs=;
+        b=JaOR83qDoXWuu+RK1RRnRG2pre+b1TcAV3nGjwoXdMOE6txf4CaevqxrPk5wQFYqr3
+         VFjye4cyriViS3PpJ6fzkZ3RtjZIgmfM+25o9hEARUO+Zbsp5DnatK6zyLzgxRMuXfON
+         ln3aso8z9pozPZYsHMy81Jh12gOnZW3vGu+mIQMdKnYNy/UZBacra2im0KeUUuSb+qQS
+         Ii+bze1sGgblvH+azUlhvlYqVrNvd7Wxa1NnPwkli3le+4OMHEL0caTDtWaJERIJ6soL
+         tQHI1/v0KOQN9Ipdl1xm2mQBqPfTZwIFb1ZH23rNy3fh85YQv5AfzRCv+PDa7EMHltSf
+         mp3w==
+X-Forwarded-Encrypted: i=1; AHgh+RpnrvQDw90OpnM+BCB7RxSWSM9d+M0Kkk62Kkuyrjp9Y6wz6YEaV2p4kh6b3HTcEjMdhjpyzZILVMJib18/Y6kb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcBIe5s0Is4IBIuIf8wN6DrHBY3d2Z/JtKCzZ01usjzaENfQzo
+	wjPmZVWO+6aDe+3VhxXY64GB2NJThdoGq2VozIO1yZwamuFAaXuo7XP/OmeWi+hRzSw=
+X-Gm-Gg: AR+sD10Zy1LYok7Fh8Ov74Flxs7d5iS7ESd3gAtRFyK71UevaanW4qG7JqOrlENI60T
+	qtzMZY6HWxNUuskS3AnKHCSa71ghNNGTixp+Ayh8oO895q7r3sR9UWUijpbXVG3pM5/bNkW7spa
+	5XV/3YAKWyPpxJgp74ebWbe7hwb3arofYln7aS96wrXSM3xUom9qLJRfIICGQriSPCLgmfczJxh
+	kcHUXfeszgW+feZUYlZG+80uu4cSi2pBPzW5kh494VAfi/ZmNqsz1a5MWjkdfOgifDKEr2v9cHg
+	tZkqV9nrefAFnvd9xOu5ORm4vOnGTbSGGv4w5tniYxC6kPdAFpI0GR/p5AsqXS8Ki4Sbz/HQQHU
+	Ct3ycgisQOaXHsuKcwhoxtkrIz9dR55Vzbq2uhe2MvELsqmCAmjSQ1aEeC1yTBErmYZIueHXI2Z
+	tQYezmMPfZqwU16fN3DTr9hQsyRsdQ6nCQ9H9uU1ea6hJ6eY+HJa9yahc2O729jyW3pnUQUC/fY
+	Dxke0DKb51H5aIcwNGaagoKNpDcQwSLZh/S6byHOSXDB3r/q4316djTI3R/+4kQAqKoDaZRB779
+	wPzIFQzDTrgEJJ3juiQQOdYR0TX5LZ1HW4lMoVcFrsBaCw==
+X-Received: by 2002:a05:600c:8b66:b0:496:c1f3:e8f9 with SMTP id 5b1f17b1804b1-49800ea1378mr34361415e9.20.1785417871594;
+        Thu, 30 Jul 2026 06:24:31 -0700 (PDT)
+Received: from aspen.lan (aztw-34-b2-v4wan-166919-cust780.vm26.cable.virginm.net. [82.37.195.13])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49801c073a3sm8655585e9.4.2026.07.30.06.24.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 06:24:30 -0700 (PDT)
+Date: Thu, 30 Jul 2026 14:24:28 +0100
+From: Daniel Thompson <daniel@riscstar.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Alex Elder <elder@riscstar.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org
+Subject: Re: [PATCH] net: stmmac: Avoid freeing and re-requesting IRQ during
+ XDP set prog
+Message-ID: <amtQjCV6Oi7UI97t@aspen.lan>
+References: <20260706-tc956x-stmmac-no_irq_teardown-v1-1-df009d0272bf@riscstar.com>
+ <akzLgrzsw4xYmnLH@aspen.lan>
+ <9f949b97-da81-4bdc-8be5-68f7883d768c@lunn.ch>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB7743:EE_|PA4PR04MB9221:EE_
-X-MS-Office365-Filtering-Correlation-Id: d71ad0a7-c58d-4448-c717-08deee3da9ec
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|10067099003|4143699003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: iCgN/mFWoMXncKpVi9r573z3sJtZIdD3lnvrOSDhge7u8q9JdRkv951Fmqs8W253SOAZAOBR9b2ALXbSckWN2TpdOxY5D+gq7kKxiBlldg0V6Iu4SxJi/toKxY3DEU8zScKCiSXrpoPr/ADKXob9IVpqYdiUQdp7B63VyJ0Ax/VuuMkAMsIyOyctkeozX30Mbx8cv5C+9MLW51uomdNXcGIf8uNwB15cKs1xodJRuHWszEQGGZJQzTVCQbGYeuJLgQ8qzoT6GptOUS1vP7ZqGBOd3qIglzCbPV1ZR50HYhHUmOeeJmvACKnwCIX51Y6C9WEF6Eg0greSl4YtKm19Rcz2S/bzaD3II7a5QZoCRJ6Nj4mgp4VpPl7IKBXdmsBAh9ZIWv8tyaNaEqHuyfpHBIUlv9O0lONCb0FdNYjRzP2TxcBQlaG0jBA2P+KcvMzfAYY2t8OQkQLRdChUpO5pbBn6O87nTrnnCqm76QjBVDDjhFitYt/rYtRWSIe0Ogx4u/Z1HN1FW8YAP5kh2bl8JflM/8PX0KR7TwXV4PbAIc/5SApZFuGUjnRHrzBAL3CDY5C3qf/XWbUSW24zHttU7N18BZ6YZ0ggiL7m3aWBpyr7c+uMWEas7uGkuCVaNbmcRoMQFcRJQa73DJaUt9VlPbJ+9BV5HNhw6ZHiZOHBQU4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB7743.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(10067099003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cDBnSmJxcVJsSlB2R3AvKzlzY1RtbmdQcDBldUJQNi85bFJQSm00NHFPVUdL?=
- =?utf-8?B?K3NUQ01YVDA4TGJSa2s3Yis2SGw0RVJhMmF3RTh6aUJvajVFNnVrTWVtb1J1?=
- =?utf-8?B?M2dzZ2xGMFZ3dU9BMk41eE8yZVd0Z2hHeFVDZTV0czZCOWFoZ1JxRXNhUGlz?=
- =?utf-8?B?TkpUUHZMSlRjK0Z3SlBWM0YvMG55eE9DaVJUcGxaMGRsSEYwN0FhRGZUaXJM?=
- =?utf-8?B?T3lYTVQzUzNFa0M2MEhYNmVRbTlWeEcySExyZ08yVEljVmovOW1TbVBRKzVD?=
- =?utf-8?B?UGVUZUJXakRpUjZqZm5MOGI4aEtFY1hQcDI0T3hCdHAzRW8xVkhQblRWWFEv?=
- =?utf-8?B?OFc3NkxxMzRvVUpzcG00WWh2aUlZd2F2OHBrbS9SRHpWcjZlLzVoWUJ2U3lw?=
- =?utf-8?B?aU8vZGJ1d0VaSTVpRFdOM0gyM01PRlJtT1IyTjcyNGtFdUgwa3UyclJBZUVR?=
- =?utf-8?B?RWJDL0g0SGJ1VHUzUnRpRE1FdHEzdGpyQkp2djdZdmVjNURYM1VjbWtwWDNn?=
- =?utf-8?B?K2RybnFncXVnbFc5SGpOOFphTjBkbUE1S2pDY1hwbEphU05oZWthaXVYb2Yw?=
- =?utf-8?B?NnpYaG9VazFSNE5tNG13MWdCOUJ6VWVWT2wyRXBmZjlVaHJCTTFOeGwwYmtX?=
- =?utf-8?B?UTg3WFdLQXBCd3FJWFZzdnBSN2IvakM5b2htQ085WDVpdWlqZlhxVllMa3E4?=
- =?utf-8?B?YVBWeWFkNHdrOVVHZUdOMUhZeXFTQ0p6Y01WU3BoTUJ0elhmUGliQVhWWGxG?=
- =?utf-8?B?Nk5YQzhXZmdDNUN6SHBoWmxQVW5nZjBqWjBSYzBBVGlSUXVablp6Nmp4R3RJ?=
- =?utf-8?B?K2pVZCttbU84Smh2Wkp1aG1ZVi9sY01DK1NJcmlrQWlOT1BsN2FZL2FqcjY5?=
- =?utf-8?B?SlNTU2tYVUVsd084U0JjVE1BbVN4c0FEZEFFUTh4Z043QWhJZ3JvbFZQTmtz?=
- =?utf-8?B?WW4yLzVpMzlPL2xsVVVuTCtTb1Z1RVk1SWVzNDRwc2t4blNRWXJWbnYyckZz?=
- =?utf-8?B?K1MwcG55M3QxRkxMMWMvbXhNZ0NlZXhMWEhFKzkrYnVXY21DYkUrRTRYMU4v?=
- =?utf-8?B?MzNEbmdBUFNCaSsrKzBCU1UzZW9BQ1o2YzR5MW8wVk9ucytyQWN5cnBvOUZ6?=
- =?utf-8?B?TExoVmNMR3c5WU5jTk5DNSsyZkk4eDVmaFpjeHNsMk1zakxUZWFZc2tzT0F2?=
- =?utf-8?B?OU1HM1VmWXR1Y2x5bVFNaENKWHNiVGh1T1pTNmR4VTFBWnFNOU8zSlZjTWNB?=
- =?utf-8?B?YmV6RzdoeTZXQ2FqOW9KV2I3dmdpY1dXMm9zS2k3SElyRlFEWktHSG9NbDYv?=
- =?utf-8?B?aDc1dEJpVXp1Z3RodXVXck1HV1VvalJkTiszSVprWGdDeXViZXJ2THRIOXZT?=
- =?utf-8?B?SnQyR1hWanVZUWk3Rk5INkd5SkcwSjRFdGlFbE5jUWdWdnZKaXBPYzVlY1dJ?=
- =?utf-8?B?N0dXdVRJSjRJYVlPN0pJcjJ6Q3hXdXVzMkFxckQrOUJFNHFPanE1MzIvQTBt?=
- =?utf-8?B?WGZQckwwRk5sV1ZYU1UraVhkd3RsR01yUkhBdjhWWGxmNjFQYmFCd280UXlx?=
- =?utf-8?B?YVVXMHVONFB3SGJGbVBDQmxtNXhCTXdBNGsyT2Q4YVYwNGhUdnhPWnZ2K2gz?=
- =?utf-8?B?bi93NmhlVFRUUkQ1aDBzUEJNNnZIcjhLcUpReEZKbVZGdVNCNFJXbCtBNUd6?=
- =?utf-8?B?S1A0em1nbFBmS0xoRlhEUExRTWJPNHBpRENna3ZDT0FIbXY2ZlBqWjFYdUtV?=
- =?utf-8?B?UTk4RWxoOFY1cXdzVWNMcjFHelhhcFB6ak9Wb1QrWWxDcmtZSk1IRTNwUnBQ?=
- =?utf-8?B?OWhXSWRmczMzRlRwOG1MdlMxV0xiVVJwTU1xbExOYVlSZURIY1JtSWJzdHdV?=
- =?utf-8?B?c0c1Zm85SzQxN3VFb1BXb2FOWnF4ajYvVW5lUWV6U0lTSlVITzVHQ3d4STRo?=
- =?utf-8?B?KzRmdmd3VGhhTGlCRVl5dGZNOEFaU0t3R2hYL0pqT0VXQkp5T1JJcWhzVGNo?=
- =?utf-8?B?MkFwekh5L21NSjFPaGVNOEUxblV4aDJvQzlMdWZrcDlpZUxjRUtBeVdPOXk5?=
- =?utf-8?B?eWpqNm1nMUZ5dHRpZyszYjZ1TUVKaVFROHRyT1dzWU5xUDBaQ3g1dlpqVWhC?=
- =?utf-8?B?cmxBMWovMFl4UVl1enVyZWtiRTRJL1JOdTg5THBFK0ZTRDJQa3lweGNMdkRE?=
- =?utf-8?B?TmtIblF0QlQwK3hncnpsYkgvZCtRNzROWDkwL0tRMjM0OU5BWCttSDduQzBP?=
- =?utf-8?B?cW9EajBXU3FXcUp0b1RtbXpsOUZvbHdFUGZ6MmpSRXhoWkJMQmlsNHNoZG0w?=
- =?utf-8?B?WjcxMmswQzJZOEZTQjMrQzRxemMyMTVhUTVlREZRMzIrbXU2SFpaQT09?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: d71ad0a7-c58d-4448-c717-08deee3da9ec
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB7743.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 13:22:54.6703
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kogD20edc+nTrvadNutN2lqGZPAt5GUT2LpQjFmbk3ne/NZo+RcwBTrj1BJN3mQZqha7TfJZwmPymOunvh6LHruTpfHykUuQ80egKenU4UM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9221
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9f949b97-da81-4bdc-8be5-68f7883d768c@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_062304_335968_2D69EA95 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260730_062434_335706_550CB3C5 
+X-CRM114-Status: GOOD (  31.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,28 +117,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cunhao Lu,
+On Tue, Jul 07, 2026 at 02:30:44PM +0200, Andrew Lunn wrote:
+> On Tue, Jul 07, 2026 at 10:48:50AM +0100, Daniel Thompson wrote:
+> > On Mon, Jul 06, 2026 at 05:17:58PM +0100, Daniel Thompson wrote:
+> > > Currently stmmac will run a full cycle of IRQ tear down and setup when
+> > > setting up a new XDP program. This makes tuning TSN systems difficult
+> > > because whenever a new XDP program is installed then the irq threads will
+> > > be stopped and restarted which will undo any thread tuning.
+> > >
+> > > The problem is avoided by removing stmmac_free_irq()/stmmac_request_irq()
+> > > from stmmac_xdp_release()/stmmac_xdp_open().
+> > >
+> > > stmmac_free_irq() implicitly synchronizes interrupts and, with that
+> > > removed, I was unable to prove that later actions in
+> > > stmmac_xdp_release() are safe when there are concurrent interrupts. To
+> > > avoid problems let's also move the code to disable DMA interrupts earlier
+> > > in the sequence and explicitly sync the interrupts handler(s).
+> > >
+> > > Signed-off-by: Daniel Thompson <daniel@riscstar.com>
+> > > <snip>
+> > > @@ -7156,10 +7201,8 @@ int stmmac_xdp_open(struct net_device *dev)
+> > >  	stmmac_reset_queues_param(priv);
+> > >
+> > >  	/* DMA CSR Channel configuration */
+> > > -	for (chan = 0; chan < dma_csr_ch; chan++) {
+> > > +	for (chan = 0; chan < dma_csr_ch; chan++)
+> > >  		stmmac_init_chan(priv, priv->ioaddr, priv->plat->dma_cfg, chan);
+> > > -		stmmac_disable_dma_irq(priv, priv->ioaddr, chan, 1, 1);
+> > > -	}
+> >
+> > Sashiko picked up that stmmac_init_chan() has the effect of enabling DMA
+> > irqs, making this code unsafe.
+> >
+> > Given stmmac_xdp_open() can only be called on a running interface (and that
+> > stmmac_xdp_open() explicitly sets sph) then re-initializing with stmmac_init_chan()
+> > should have no effect and we can drop that as well.
+>
+> Something i like to see is symmetry. In theory, stmmac_xdp_open() and
+> stmmac_xdp_release() should be mirrors of each other. But i don't see
+> anything like the opposite of stmmac_init_chan() in
+> stmmac_xdp_release(). So i can well understand that something is
+> wrong.
+>
+> Maybe rather than just fixing this IRQ issue, you can look at both
+> functions and see about making them symmetric? I've no idea what that
+> actually entails, it could be a can of worms, which is not so uncommon
+> with stmmmac.
 
-On 7/25/26 9:03 AM, Cunhao Lu wrote:
-> Describe the three CAN-FD controllers integrated in RK3588 in the base
-> SoC .dtsi.
-> 
-> Add CAN0, CAN1 and CAN2 nodes with their register ranges, interrupts,
-> clocks and resets, and keep them disabled by default so board DTS files
-> can enable them as needed.
-> 
-> Co-developed-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> Signed-off-by: Cunhao Lu <1579567540@qq.com>
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+After review I found that moving the disable to stmmac_xdp_release()
+does and removing the call the stmmac_init_chan() gets things most of
+the way there. After these changes every action in stmmac_xdp_release()
+can now be traced by to corresponding restore code in stmmac_xdp_open().
 
-Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Jaguar
+It's not fully symmetric because activity in open does not appear in
+reverse order compared to release. However it definitely moves things
+in the right direction because the new stmmac_disable_all_dma_irq()
+function pairs nicely with stmmac_enable_all_dma_irq().
 
-where we have all three CAN controllers accessible (two via an adapter 
-board). See 
-https://lore.kernel.org/linux-rockchip/20260730-jaguar-can-v1-0-9b566bd785da@cherry.de/ 
-for more info and the test setup.
 
-Thanks!
-Quentin
+Daniel.
 
