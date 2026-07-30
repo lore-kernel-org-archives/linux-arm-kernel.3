@@ -4,128 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 332CAC54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB336C54FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YvuFtUHRJ622fTQw6EE1ghwsynYcwiJGjeuiRoRxumM=; b=Ev+4vx7AQL43f2qsqu2qpX63lY
-	9TpspJoDTOMySijWss4z+tNCeVfCRiM5PX8SjRiN3UsRvqQG87+NICwGL1cgV+0xegRDWO4YcLnoi
-	dpGMFZdJkz/qQ/d+UJ2KPY9Ioud37Ne27eMoTM/4g0SIcXfw9s8LyO2OHMpyvV8dBAG4AAI0XBtG1
-	+T0gCDldeL29HoUkK1nM0K57afiQXD27okSE0Qw1y+9pHrwuxzB4/u1wia8TneoWZgEw30kjyE1P+
-	c9IgL9EnLiFFTZM7g4NS7PTztZeP9kjmWypBrD83EhAd+dhU7FArD0K8oi+YAZRArm+Z5zskbbAky
-	zwGUvWNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fuRHbIkmSMaFWb8LZmF2c4LfdvenqBLwTyvnnrouf6A=; b=wcVMOC26M0iEc96WXIj0hnhc9a
+	m36iJZJwK0bYtSuAXKydiLEItLojB+qlfGha2XHbhd1YAl/TEfBkMGo+rSeGxr6Kr8a44mU5EQkVT
+	ZW8vMQUe/mDMkV2rzdKC/DdpwK0IP3vdeYTLJkKbYAAv+cSZavJjNN3PDb7c7kR0+wddYLf5Ad6pt
+	zneESoDvCK4Fb7M1SSasAWTpslCCDVco5EhaSuOURRVIFmeleIUWuzGGAF6QivIrb/MqYX7Yv7xD5
+	3l88SbUXGX5bNCWiU/nrJH8NQ8gE8bPdavS/cU83euknxEgvqeRwOgwX4qnQ0OPgF16/mRi2I78o5
+	S5FOGwtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOFU-0000000AFUz-0bmi;
-	Thu, 30 Jul 2026 10:44:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wpOH5-0000000AGNO-05E5;
+	Thu, 30 Jul 2026 10:46:03 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOFI-0000000AFNK-3cxz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 30 Jul 2026 10:44:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=YvuFtUHRJ622fTQw6EE1ghwsynYcwiJGjeuiRoRxumM=; b=K0R+hYXCxMmaPx+WbGRNr92wM5
-	SRezUxnN9hvAnSxq2IHN/OheAjle0pD/ZVFRLImmiOKHxwRgxFFAPS/mjQ8KjLBg86IXw6MPRDalb
-	I5DOwLrE5V2zTIXCIcsb74Df/DHdZPaYuNWSNa4uFwGS/XivI0/ilSxjCRZegWAaBknobmbf0dtuP
-	GSErBn39PtwfBCHONfe4fbbgKWDSZuWwjonaKv2WvlW2MtnZrFyalchCZpWsWQPBZn4yyxJg01i1r
-	UugncD4GWL7qtVYVZgaYHt5GP4rrHDbAPHDHLxoiSELFFzR7TAJsqcT8zFqO1/4msfQS+h1FcANXd
-	itIe58lg==;
-Received: from mx0b-00622301.pphosted.com ([205.220.175.205])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wpOFF-00000006au7-2sbx
+	id 1wpOH0-0000000AGM7-356P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 10:44:11 +0000
-Received: from pps.filterd (m0241925.ppops.net [127.0.0.1])
-	by mx0a-00622301.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UA6Egm3332841;
-	Thu, 30 Jul 2026 10:43:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ambarella.com;
-	 h=cc:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	com20210415pp; bh=YvuFtUHRJ622fTQw6EE1ghwsynYcwiJGjeuiRoRxumM=; b=
-	OebNI5VRxOmyVPW1SGzRmGi7YC05G6RwIZBMaQlwgVI1cjqB+qFaXoCj/TXAR8wK
-	0+wheBf7/dDfrYyq+91zTyKcCz0AxXk9HAl/OWRVzhNmPFyy61HcuPgpwqMr78TV
-	mcB+VAzg4ly8ZbOiiNFf+qKFgiDQEpUB7jfpwgwjyis5l80kor3aXk9TfUQMM9NO
-	ilOlzdZByY94CbE4Lw0CHmIOVOiBxJeooCSmJ1Sj0tIDLIT9iM8F/c/VAtSCkCbw
-	36hMDnw0WOq1EVRBsn1QKuUygamL8pboje/5t7C4p7K7/3QBB63qLNOGlfjz1xoW
-	5eAjQUJkjXfMhyvQWah29w==
-Received: from webmail.ambarella.com ([12.30.244.130])
-	by mx0a-00622301.pphosted.com (PPS) with ESMTPS id 4fq8twhnbd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jul 2026 10:43:50 +0000 (GMT)
-Received: from ambtw-cas2.ambarella.net (10.2.4.227) by
- ambus-ex-se2.ambarella.net (10.1.4.10) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 30 Jul 2026 03:43:49 -0700
-Received: from ambtw-cas3.ambarella.net (10.2.4.228) by
- ambtw-cas2.ambarella.net (10.2.4.227) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.58; Thu, 30 Jul 2026 18:43:47 +0800
-Received: from shbuild7.ambarella.net (10.4.8.70) by ambtw-cas3.ambarella.net
- (10.2.4.228) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Thu, 30 Jul 2026 18:43:46 +0800
-From: Long Zhao <longzhao@ambarella.com>
-To: Arnd Bergmann <arnd@arndb.de>,
-        Alexandre Belloni
-	<alexandre.belloni@bootlin.com>,
-        <linux-arm-kernel@lists.infradead.org>, <soc@lists.linux.dev>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-        "Michael
- Turquette" <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, <linux-clk@vger.kernel.org>,
-        Linus Walleij <linusw@kernel.org>, <linux-gpio@vger.kernel.org>,
-        Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-        Jiri Slaby <jirislaby@kernel.org>, <linux-serial@vger.kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <linux-kernel@vger.kernel.org>,
-        Long Zhao
-	<longzhao@ambarella.com>
-Subject: [PATCH 07/10] pinctrl: ambarella: add Ambarella pin controller
-Date: Thu, 30 Jul 2026 18:43:27 +0800
-Message-ID: <20260730104330.81367-8-longzhao@ambarella.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260730104330.81367-1-longzhao@ambarella.com>
-References: <20260730104330.81367-1-longzhao@ambarella.com>
+	Thu, 30 Jul 2026 10:46:02 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-4a427e628a9so728187b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 03:45:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785408356; cv=none;
+        d=google.com; s=arc-20260327;
+        b=JMPFxhuTw6zTrqXiZHyrUljRa5MSh8kujx6M51fjkF0D5BmHyN1bSTMfgkOwTzCqug
+         /lgtchlX9VOKokRTcw5TNri3lc6G2Hhw2xyN3mZzrTez0s+nfF8vpzZQzQzK6KKbTrVw
+         BHgCGkT5GzFpXsHirMXJj/fsrUc9vPNpHmLebpAye4AjOYCr2gZbQAaLkxr12+/WQKW9
+         zkeDJdQSWrmc+0N1Baoug9zQsgxKFEKlpGdErAOH52Pt82fpubeASsswkFOdxsh6/Y0z
+         gaovI6zP6MZNSyEbeoL6pDHqvlQYtWujdjvXzPBfi/YKHGAl+kkEnITd0IadOdaCuNhk
+         F4bQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fuRHbIkmSMaFWb8LZmF2c4LfdvenqBLwTyvnnrouf6A=;
+        fh=sAyKenLvKEkXaW8KuJKmh5DdL/3LV6BJdWn7CMBMsFE=;
+        b=BEGPiB805AZ5cKGLs9dhsSsjzlWq71MjopresdvTlV35GapNPcmsPV5WlLEJ/aKQgt
+         BNr23nkBvBlF/HkMyCdlG3wu33vViYSi+5EW6rFOL0FVxIJtQZ8KdUpAAZkIz3V/v7Ox
+         uTChIQRT0vBo4Dr+bbM9bbp9V4pMSMRVBpqEct0FuJRvZnnxrizj96S5xqIvWQG3sOsk
+         bF1XPJT00heTa0n+ReA6/Qrn5tUdEod6z7rKtd88W9/c9q2hQGt0CRorSC2fHClutcB7
+         uMqKnMXFNDcd5h9VQbUXSOfmW9T9Hu+EeRDN10yhIib3J+EyEJQxdt0V0eNg0KRGn39f
+         v69Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785408356; x=1786013156; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fuRHbIkmSMaFWb8LZmF2c4LfdvenqBLwTyvnnrouf6A=;
+        b=gr/TY8TT2xPGkSFcgHpqpNGScYzdbEkmM5cum0tLozcMTZ5Ktk0Uvg3LSKHLkIY2dc
+         Vfmi+gR7M4F4O2ON9NyZXFZ9MtAluB0GaxX9IHC5xL4SuGZiSXbY8f9pO0A4WczPXDzW
+         cEQAbFhGMMC+0xq6Z3mCXahRV8edjeFKKfQCCKcVibkykAn2O7LvS/s9FiQSTwCHPknG
+         9vatTN0bJHjAkZsNqE3zmbXTqrNaUw75cbv8P2b6AEY4dQaVcSIsl1JZvLzBrGUlmTdG
+         7Xx3YRksb9kCQye8yGLgaFaMTLIbluObcglxadnBbxc83GBloXqqzNzsyEIzmtBQ2sF7
+         asuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785408356; x=1786013156;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fuRHbIkmSMaFWb8LZmF2c4LfdvenqBLwTyvnnrouf6A=;
+        b=o6pcpERM97Z+qdnuxhh+C2lmDhxInMIO8XlTC5zkqEr2BT8WSzpLd9IDTk20qU7lEs
+         3vaEAKCod8rRmjQbcgOpw6UMyTjWlAj2JV2dZqmn2SFylxejLkNmnATWAR3bVvuaZ7Ys
+         KLsi2XDGEp533IAErLk5IJTcgacAw21/ZRQEYRaI55JJxVbNETCVZ4bNBVZdLf8eo0bW
+         lkP9EcvElpqmPkCzhHM4H0ZDmsz93kmjoxRhU8F3NtZXXM45/6Uc7/t9HtIR8o8SeZ9n
+         08hp70P7FUYf2oE3+aGjZ8QwQ1zQ4N3ATKvVGlofsJauFOTixQTc/6P/zuPBh6lLYgI6
+         Vidg==
+X-Forwarded-Encrypted: i=1; AHgh+RpufTgIyCTjiNjSLShSRZlK0nHm0H2u87ex1HskdpwvPzNFieIwsF/8AdLaQHcLVNJNNK9L2URHKnvOTJWvCz5s@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbfuNMRiyw1fWPMn+XblsLc5S2ZUkVv9Ytiefca4THo1S1HRY1
+	8V0XYbNwZERFhHqUvsAMZC/enSkvdDeJJ9DW41AnhnxF6VTV+RdolIuHwdztv4Sk7u80cJNGh40
+	mdl6avBstC7AIFYdxyF8uM4dx3V2tu98=
+X-Gm-Gg: AR+sD10tITLMGcugF6npHmJWcMl0N4gEwQSSOJjEFv4Nb3fNY1M8fHXTSJMccIQj1SB
+	/qqFfALyEPtn/C76nVLb1EmuCOA0GOYJsCnqk1W+I6GeqVh5GZJlkIhiG26viU1Z2/MSy6o6AnO
+	POhf9O/RYgboLJV1r/9ldZ/q1cxWNxVoZydKiEAVoIG8/9slXGl3p+gUSF7BMYnudPPsa2Cdatn
+	aiE/5OalncpNBZ93jHIZ507po8HTlj1Q+O8wwFKWS/6J55xHcx5rT4hHm9MAMsdMZmNec0tY45n
+	bWs93BDvUI6sHcNStszBBc4kiwy7bXm6uvptIG0Yvcx6GKkJQr/Ow89dlHzQWfojnlLcYNQB30G
+	C3w==
+X-Received: by 2002:a05:6808:13c5:b0:497:e1b7:d7bf with SMTP id
+ 5614622812f47-4ad8792c413mr1607208b6e.32.1785408356120; Thu, 30 Jul 2026
+ 03:45:56 -0700 (PDT)
 MIME-Version: 1.0
+References: <20260728091804.382753-1-wenst@chromium.org> <amiqKRkFItYwD6oL@redhat.com>
+ <CAGb2v64zUO-azpTuei6LCypad2noGFbg+EmaBC1iidoZ2stQzw@mail.gmail.com>
+ <c1048eae-72c5-4e2e-ac49-25e2c4297018@collabora.com> <CAGb2v67VRhy_xzkdwUAYhzM_sWzoXyfZ3rYSHYLYaxuve9H17w@mail.gmail.com>
+ <a0ae9525-9288-4d13-a080-9cb3d965d536@collabora.com> <CA+m4KrAvATV9qMMN9h+tKcPdrHRp7-jFJ0-Jq3DeCZLi3Z6RsA@mail.gmail.com>
+ <CAGXv+5G8zPGb3SUwnzuutCF_U=+NKB4VQBsu+the6nLUqM-RDg@mail.gmail.com>
+ <CA+m4KrDQ0tf0ffx9ttARBF-5sDZUz5bF0Apu3-M=wr=psYLogg@mail.gmail.com>
+ <CA+m4KrCZdQb7=+7wJDH0H8KZgDzWkB1CtB2jEbEnRUxu9OJybA@mail.gmail.com> <CAGXv+5HcwgmEEmhtTU5TpexxRVwDXC-ggdtOViLdmThT7FjB+g@mail.gmail.com>
+In-Reply-To: <CAGXv+5HcwgmEEmhtTU5TpexxRVwDXC-ggdtOViLdmThT7FjB+g@mail.gmail.com>
+From: YoungJoon Lee <getfeus@gmail.com>
+Date: Thu, 30 Jul 2026 19:45:43 +0900
+X-Gm-Features: AUfX_mwdD2ZTuptxemrBnMkBWAJZzxtdwPTtYISNfHSIpFsf0WzQLSW0-4D-zDU
+Message-ID: <CA+m4KrAK24AY-1xt-VdpuSycM43LwP07euYwgNatmyf=YCwvCQ@mail.gmail.com>
+Subject: Re: [PATCH v4 0/5] powervr: MT8173 GPU support
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, wens@kernel.org, 
+	Brian Masney <bmasney@redhat.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Alessio Belle <alessio.belle@imgtec.com>, 
+	Luigi Santivetti <luigi.santivetti@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain
-X-Proofpoint-GUID: kcJt9lrt0ZUIqc_mUSlYukSblaeURZG3
-X-Proofpoint-ORIG-GUID: kcJt9lrt0ZUIqc_mUSlYukSblaeURZG3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfX2vLs/idSfRNH
- YVWNr6Ym5M+/52HMkuX3ZKCEcyEFhtFjDxjx4M5/Mkcz7rB+OJvkccFGB/005HIVeTG4EvW6z+N
- OJvxia5q2PESNe47dzZiNlbDgmkvhX0ruSFRdGhvcXfwmkzveb8RT+txdqYRZUjmXVGYww1Dr9R
- kfNSyXDmRQN/BNyshj4DqpOTaR/9GBFQhYxX+LVCHIRWmEyzfyUM+i8IKr1Ob9MXGc6KltwWOH9
- TRpmGX/j/zmdsXH3uQj6IHUIzavtSvnaGUJPsJSC7Roz7pc5wpUf9YwOJmtOhv7pAeGYZZ5O5+F
- R/w8BHrGktX5VDCvQzBILLDIAQR4JacU0ZbYeKVkdBK9jpwB+B6gk2qQ5dlp1CtdiQnLNLTuPFy
- HO4OAj0dzyQMxPJUruO14r1mh4SVSv7/yJw/2bRzVYyrATk1Nr7+iR+Uw6Q26oWuCoGrpmDhVtA
- pOdHRz85eKpvlAocfTA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfX3cZ44uiO9cyk
- yp7BZ+3Z1OhxkFtFNKLm/YCxfzcns072pbtwBxjLvdb4y4mT99Buw0PAMOrQ1u7PEKqeM7rDOW2
- 7vWqqGhYOFDXs0K2FLdHIM/cC8oo+mfFiPNYvcPxEZbomDly/vfM
-X-Authority-Analysis: v=2.4 cv=PNE/P/qC c=1 sm=1 tr=0 ts=6a6b2ae7 cx=c_pps
- a=DgnZYc2JwZ3KnY28M5UqXQ==:117 a=DgnZYc2JwZ3KnY28M5UqXQ==:17
- a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=yXVIz-0bn9infC194UBj:22
- a=KblO7da7ppA7TBl3N-nE:22 a=ppJngBeKAAAA:8 a=cH2J6t5YKUCr9WsprtMA:9
- a=O8hF6Hzn-FEA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-30_03,2026-07-29_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 impostorscore=0 adultscore=0 malwarescore=0 clxscore=1015
- phishscore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_114410_135900_7B4C3577 
-X-CRM114-Status: GOOD (  24.09  )
+X-CRM114-CacheID: sfid-20260730_034558_826133_1B4FCAE8 
+X-CRM114-Status: GOOD (  51.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,1778 +132,445 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the Ambarella pinmux/GPIO controller driver used by CV75.
+Thanks, that matches my understanding as well.
 
-Signed-off-by: Long Zhao <longzhao@ambarella.com>
----
- drivers/pinctrl/Kconfig             |   15 +
- drivers/pinctrl/Makefile            |    1 +
- drivers/pinctrl/pinctrl-ambarella.c | 1561 +++++++++++++++++++++++++++
- 3 files changed, 1577 insertions(+)
- create mode 100644 drivers/pinctrl/pinctrl-ambarella.c
+Since the MT8173 enablement patches do not touch the common HWRT/free-list
+lifetime code, I agree that this is more likely related to the currently
+unsupported GX6250 path.
 
-diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
-index c2cdd7b2c49b..572a4a898a99 100644
---- a/drivers/pinctrl/Kconfig
-+++ b/drivers/pinctrl/Kconfig
-@@ -37,6 +37,21 @@ config DEBUG_PINCTRL
-        help
-          Say Y here to add some extra checks and diagnostics to PINCTRL ca=
-lls.
+I am preparing a diagnostic kernel patch to trace all free-list references
+during HWRT creation and destruction. I will reproduce the issue again and
+send the resulting trace to the Imagination and DRM mailing lists.
 
-+config PINCTRL_AMB
-+       bool "Ambarella pin controller support"
-+       depends on ARCH_AMBARELLA || COMPILE_TEST
-+       select GENERIC_PINCONF
-+       select GPIOLIB
-+       select GPIOLIB_IRQCHIP
-+       select MFD_SYSCON
-+       select PINCONF
-+       select PINMUX
-+       help
-+         Say Y here to enable the pin controller found on Ambarella SoCs.
-+         The driver provides pin multiplexing and pin configuration as wel=
-l
-+         as GPIO and GPIO interrupt support. It is required to configure
-+         peripheral pins on systems using an Ambarella SoC.
-+
- config PINCTRL_AMD
-        bool "AMD GPIO pin control"
-        depends on HAS_IOMEM
-diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
-index a35d71135abf..7cd9820d3088 100644
---- a/drivers/pinctrl/Makefile
-+++ b/drivers/pinctrl/Makefile
-@@ -10,6 +10,7 @@ obj-$(CONFIG_GENERIC_PINCONF) +=3D pinconf-generic.o
- obj-$(CONFIG_GENERIC_PINCTRL)  +=3D pinctrl-generic.o
- obj-$(CONFIG_OF)               +=3D devicetree.o
+Thank you for taking a look.
 
-+obj-$(CONFIG_PINCTRL_AMB)      +=3D pinctrl-ambarella.o
- obj-$(CONFIG_PINCTRL_AMD)      +=3D pinctrl-amd.o
- obj-$(CONFIG_PINCTRL_AMDISP)   +=3D pinctrl-amdisp.o
- obj-$(CONFIG_PINCTRL_APPLE_GPIO) +=3D pinctrl-apple-gpio.o
-diff --git a/drivers/pinctrl/pinctrl-ambarella.c b/drivers/pinctrl/pinctrl-=
-ambarella.c
-new file mode 100644
-index 000000000000..641b50a0624d
---- /dev/null
-+++ b/drivers/pinctrl/pinctrl-ambarella.c
-@@ -0,0 +1,1561 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Pinctrl driver for Ambarella SoCs
-+ *
-+ * History:
-+ *     2013/12/18 - [Cao Rongrong] created file
-+ *
-+ * Copyright (C) 2012-2026, Ambarella, Inc.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/of_irq.h>
-+#include <linux/pm.h>
-+#include <linux/slab.h>
-+#include <linux/regmap.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/irqdomain.h>
-+#include <linux/irqchip/chained_irq.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/pinctrl/pinctrl.h>
-+#include <linux/pinctrl/pinmux.h>
-+#include <linux/pinctrl/pinconf.h>
-+#include <linux/pinctrl/pinconf-generic.h>
-+#include <linux/seq_file.h>
-+#include "core.h"
-+
-+/* =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D*/
-+
-+#define GPIO_DATA_OFFSET               0x00
-+#define GPIO_DIR_OFFSET                        0x04
-+#define GPIO_IS_OFFSET                 0x08
-+#define GPIO_IBE_OFFSET                        0x0c
-+#define GPIO_IEV_OFFSET                        0x10
-+#define GPIO_IE_OFFSET                 0x14
-+#define GPIO_AFSEL_OFFSET              0x18
-+#define GPIO_RIS_OFFSET                        0x1c
-+#define GPIO_MIS_OFFSET                        0x20
-+#define GPIO_IC_OFFSET                 0x24
-+#define GPIO_MASK_OFFSET               0x28
-+#define GPIO_ENABLE_OFFSET             0x2c
-+
-+#define IOMUX_OFFSET(bank, n)          (((bank) * 0xc) + ((n) * 4))
-+#define IOMUX_CTRL_SET_OFFSET          0xf0
-+
-+/* =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D*/
-+
-+#define MAX_BANK_NUM                   8
-+#define MAX_PIN_NUM                    (MAX_BANK_NUM * 32)
-+
-+#define PINID_TO_BANK(p)               ((p) >> 5)
-+#define PINID_TO_OFFSET(p)             ((p) & 0x1f)
-+
-+#define MUXIDS_TO_PINID(m)             ((m) & 0xfff)
-+#define MUXIDS_TO_ALT(m)               (((m) >> 12) & 0xf)
-+
-+struct ambpin_group {
-+       const char              *name;
-+       const char              *function;
-+       unsigned int            *pins;
-+       unsigned int            num_pins;
-+       u8                      *alt;
-+       unsigned long           *configs;
-+       unsigned int            num_configs;
-+};
-+
-+struct ambpin_function {
-+       const char              *name;
-+       const char              **groups;
-+       unsigned int            num_groups;
-+};
-+
-+struct amb_pinctrl_data {
-+       unsigned int            ds0[MAX_BANK_NUM];
-+       unsigned int            ds1[MAX_BANK_NUM];
-+       unsigned int            ds2[MAX_BANK_NUM];
-+       unsigned int            pull_en[MAX_BANK_NUM];
-+       unsigned int            pull_dir[MAX_BANK_NUM];
-+       bool                    have_ds2;
-+       u32                     hsm_domain_id;
-+       u32                     clk_au_dedicated_pin;
-+};
-+
-+struct amb_pinctrl_pm_state {
-+       u32 iomux[3];
-+       u32 pull[2];
-+       u32 ds[3];
-+       u32 data;
-+       u32 dir;
-+       u32 is;
-+       u32 ibe;
-+       u32 iev;
-+       u32 ie;
-+       u32 afsel;
-+       u32 mask;
-+};
-+
-+struct amb_pinctrl_soc_data {
-+       struct device                   *dev;
-+       const struct amb_pinctrl_data   *data;
-+       void __iomem                    *gpio_base[MAX_BANK_NUM];
-+       void __iomem                    *iomux_base;
-+       struct regmap                   *ds_regmap;
-+       struct regmap                   *pull_regmap;
-+       unsigned int                    ds0[MAX_BANK_NUM];
-+       unsigned int                    ds1[MAX_BANK_NUM];
-+       unsigned int                    ds2[MAX_BANK_NUM];
-+       unsigned int                    pull_en[MAX_BANK_NUM];
-+       unsigned int                    pull_dir[MAX_BANK_NUM];
-+       unsigned int                    bank_num;
-+       unsigned int                    have_ds2;
-+       int                             irq[MAX_BANK_NUM];
-+       unsigned int                    irq_wake_mask[MAX_BANK_NUM];
-+       unsigned long                   used[BITS_TO_LONGS(MAX_PIN_NUM)];
-+       raw_spinlock_t lock;
-+
-+       struct pinctrl_dev              *pctl;
-+       struct gpio_chip                *gc;
-+       struct irq_domain               *domain;
-+
-+       struct ambpin_function          *functions;
-+       unsigned int                    nr_functions;
-+       struct ambpin_group             *groups;
-+       unsigned int                    nr_groups;
-+
-+       struct amb_pinctrl_pm_state     pm[MAX_BANK_NUM];
-+
-+       /* Domain ID used in HSM boot. */
-+       u32                             hsm_domain_id;
-+       /* Dedicated clk_au pin used on some chips. */
-+       u32                             clk_au_dedicated_pin;
-+};
-+
-+static __iomem void *
-+amb_get_gpio_base(const struct amb_pinctrl_soc_data *soc,
-+                 struct irq_data *data)
-+{
-+       return soc->gpio_base[PINID_TO_BANK(irqd_to_hwirq(data))];
-+}
-+
-+/* check if the selector is a valid pin group selector */
-+static int amb_get_group_count(struct pinctrl_dev *pctldev)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+
-+       return soc->nr_groups;
-+}
-+
-+/* return the name of the group selected by the group selector */
-+static const char *amb_get_group_name(struct pinctrl_dev *pctldev,
-+                                     unsigned int selector)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+
-+       return soc->groups[selector].name;
-+}
-+
-+/* return the pin numbers associated with the specified group */
-+static int amb_get_group_pins(struct pinctrl_dev *pctldev,
-+                             unsigned int selector, const unsigned int **p=
-ins,
-+                             unsigned int *num_pins)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+
-+       *pins =3D soc->groups[selector].pins;
-+       *num_pins =3D soc->groups[selector].num_pins;
-+
-+       return 0;
-+}
-+
-+#if IS_ENABLED(CONFIG_DEBUG_FS)
-+static void amb_pin_dbg_show(struct pinctrl_dev *pctldev,
-+                            struct seq_file *s, unsigned int pin)
-+{
-+       struct pin_desc *desc;
-+
-+       seq_printf(s, " %s", dev_name(pctldev->dev));
-+
-+       desc =3D pin_desc_get(pctldev, pin);
-+       if (desc) {
-+               seq_printf(s, " owner: %s%s%s%s",
-+                          desc->mux_owner ? desc->mux_owner : "",
-+                          desc->mux_owner && desc->gpio_owner ? " " : "",
-+                          desc->gpio_owner ? desc->gpio_owner : "",
-+                          !desc->mux_owner && !desc->gpio_owner ? "NULL" :=
- "");
-+       } else {
-+               seq_puts(s, " not registered");
-+       }
-+}
-+#endif
-+
-+#if IS_ENABLED(CONFIG_OF)
-+static int amb_dt_node_to_map(struct pinctrl_dev *pctldev,
-+                             struct device_node *np,
-+                             struct pinctrl_map **map,
-+                             unsigned int *num_maps)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+       struct ambpin_group *grp =3D NULL;
-+       struct pinctrl_map *new_map;
-+       u32 i, new_num;
-+
-+       /* find the group of this node by name */
-+       for (i =3D 0; i < soc->nr_groups; i++) {
-+               if (!strcmp(soc->groups[i].name, np->name)) {
-+                       grp =3D &soc->groups[i];
-+                       break;
-+               }
-+       }
-+       if (!grp) {
-+               dev_err(soc->dev, "unable to find group for node %s\n", np-=
->name);
-+               return -EINVAL;
-+       }
-+
-+       new_num =3D !!grp->num_pins + !!grp->num_configs;
-+       new_map =3D kcalloc(new_num, sizeof(*new_map), GFP_KERNEL);
-+       if (!new_map)
-+               return -ENOMEM;
-+
-+       *map =3D new_map;
-+       *num_maps =3D new_num;
-+
-+       /* create mux map */
-+       if (grp->num_pins) {
-+               new_map[0].type =3D PIN_MAP_TYPE_MUX_GROUP;
-+               new_map[0].data.mux.group =3D grp->name;
-+               new_map[0].data.mux.function =3D grp->function;
-+               new_map++;
-+       }
-+
-+       if (grp->num_configs) {
-+               new_map[0].type =3D PIN_MAP_TYPE_CONFIGS_GROUP;
-+               new_map[0].data.configs.group_or_pin =3D grp->name;
-+               new_map[0].data.configs.configs =3D grp->configs;
-+               new_map[0].data.configs.num_configs =3D grp->num_configs;
-+       }
-+
-+       return 0;
-+}
-+
-+static void amb_dt_free_map(struct pinctrl_dev *pctldev,
-+                           struct pinctrl_map *map, unsigned int num_maps)
-+{
-+       kfree(map);
-+}
-+#endif
-+
-+/* list of pinctrl callbacks for the pinctrl core */
-+static const struct pinctrl_ops amb_pctrl_ops =3D {
-+       .get_groups_count       =3D amb_get_group_count,
-+       .get_group_name         =3D amb_get_group_name,
-+       .get_group_pins         =3D amb_get_group_pins,
-+#if IS_ENABLED(CONFIG_DEBUG_FS)
-+       .pin_dbg_show           =3D amb_pin_dbg_show,
-+#endif
-+#if IS_ENABLED(CONFIG_OF)
-+       .dt_node_to_map         =3D amb_dt_node_to_map,
-+       .dt_free_map            =3D amb_dt_free_map,
-+#endif
-+};
-+
-+/* check if the selector is a valid pin function selector */
-+static int amb_pinmux_request(struct pinctrl_dev *pctldev, unsigned int pi=
-n)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+
-+       if (test_and_set_bit(pin, soc->used))
-+               return -EBUSY;
-+
-+       return 0;
-+}
-+
-+/* check if the selector is a valid pin function selector */
-+static int amb_pinmux_free(struct pinctrl_dev *pctldev, unsigned int pin)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+
-+       clear_bit(pin, soc->used);
-+
-+       return 0;
-+}
-+
-+/* check if the selector is a valid pin function selector */
-+static int amb_pinmux_get_fcount(struct pinctrl_dev *pctldev)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+
-+       return soc->nr_functions;
-+}
-+
-+/* return the name of the pin function specified */
-+static const char *amb_pinmux_get_fname(struct pinctrl_dev *pctldev,
-+                                       unsigned int selector)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+
-+       return soc->functions[selector].name;
-+}
-+
-+/* return the groups associated for the specified function selector */
-+static int amb_pinmux_get_groups(struct pinctrl_dev *pctldev,
-+                                unsigned int selector,
-+                                const char * const **groups,
-+                                unsigned int * const num_groups)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+
-+       *groups =3D soc->functions[selector].groups;
-+       *num_groups =3D soc->functions[selector].num_groups;
-+
-+       return 0;
-+}
-+
-+static void amb_pinmux_set_altfunc(struct amb_pinctrl_soc_data *soc,
-+                                  u32 bank, u32 offset, u32 altfunc)
-+{
-+       u32 i, data;
-+
-+       /* On CV3 platform, only ARM cluster0 (safety domain) can access pi=
-nctrl registers */
-+       if (soc->hsm_domain_id !=3D 0)
-+               return;
-+
-+       for (i =3D 0; i < 3; i++) {
-+               data =3D readl_relaxed(soc->iomux_base + IOMUX_OFFSET(bank,=
- i));
-+               data &=3D (~(0x1 << offset));
-+               data |=3D (((altfunc >> i) & 0x1) << offset);
-+               writel_relaxed(data, soc->iomux_base + IOMUX_OFFSET(bank, i=
-));
-+       }
-+
-+       writel_relaxed(0x1, soc->iomux_base + IOMUX_CTRL_SET_OFFSET);
-+       writel_relaxed(0x0, soc->iomux_base + IOMUX_CTRL_SET_OFFSET);
-+}
-+
-+/* enable a specified pinmux by writing to registers */
-+static int amb_pinmux_set_mux(struct pinctrl_dev *pctldev,
-+                             unsigned int selector, unsigned int group)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+       const struct ambpin_group *grp;
-+       u32 i, bank, offset;
-+       unsigned long flags;
-+
-+       grp =3D &soc->groups[group];
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       for (i =3D 0; i < grp->num_pins; i++) {
-+               bank =3D PINID_TO_BANK(grp->pins[i]);
-+               offset =3D PINID_TO_OFFSET(grp->pins[i]);
-+               amb_pinmux_set_altfunc(soc, bank, offset,  grp->alt[i]);
-+       }
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+
-+       return 0;
-+}
-+
-+static int amb_pinmux_gpio_request_enable(struct pinctrl_dev *pctldev,
-+                                         struct pinctrl_gpio_range *range,
-+                                         unsigned int pin)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+       u32 bank, offset;
-+       unsigned long flags;
-+
-+       if (!range || !range->gc) {
-+               dev_err(soc->dev, "invalid range: %p\n", range);
-+               return -EINVAL;
-+       }
-+
-+       if (test_and_set_bit(pin, soc->used))
-+               return -EBUSY;
-+
-+       bank =3D PINID_TO_BANK(pin);
-+       offset =3D PINID_TO_OFFSET(pin);
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       amb_pinmux_set_altfunc(soc, bank, offset, 0);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+
-+       return 0;
-+}
-+
-+static void amb_pinmux_gpio_disable_free(struct pinctrl_dev *pctldev,
-+                                        struct pinctrl_gpio_range *range,
-+                                        unsigned int pin)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+
-+       dev_dbg(soc->dev, "disable pin %u as GPIO\n", pin);
-+       /* Set the pin to some default state, GPIO is usually default */
-+
-+       clear_bit(pin, soc->used);
-+}
-+
-+/* list of pinmux callbacks for the pinmux vertical in pinctrl core */
-+static const struct pinmux_ops amb_pinmux_ops =3D {
-+       .request                =3D amb_pinmux_request,
-+       .free                   =3D amb_pinmux_free,
-+       .get_functions_count    =3D amb_pinmux_get_fcount,
-+       .get_function_name      =3D amb_pinmux_get_fname,
-+       .get_function_groups    =3D amb_pinmux_get_groups,
-+       .set_mux                =3D amb_pinmux_set_mux,
-+       .gpio_request_enable    =3D amb_pinmux_gpio_request_enable,
-+       .gpio_disable_free      =3D amb_pinmux_gpio_disable_free,
-+};
-+
-+static int amb_drive_strength_to_reg(struct amb_pinctrl_soc_data *soc,
-+                                    u32 strength)
-+{
-+       if (soc->have_ds2) {
-+               switch (strength) {
-+               case 3:
-+                       return 0;
-+               case 4:
-+               case 5:
-+                       return 1;
-+               case 6:
-+                       return 2;
-+               case 7:
-+               case 8:
-+                       return 3;
-+               case 9:
-+                       return 4;
-+               case 12:
-+                       return 5;
-+               default:
-+                       return -EINVAL;
-+               }
-+       }
-+
-+       switch (strength) {
-+       case 2:
-+               return 0;
-+       case 4:
-+               return 1;
-+       case 8:
-+               return 2;
-+       case 12:
-+               return 3;
-+       default:
-+               return -EINVAL;
-+       }
-+}
-+
-+/* set the pin config settings for a specified pin */
-+static int amb_pinconf_set(struct pinctrl_dev *pctldev, unsigned int pin,
-+                          unsigned long *configs, unsigned int num_configs=
-)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+       u32 i, bank, offset;
-+       unsigned long config, flags;
-+       enum pin_config_param param;
-+       u32 arg;
-+       int ds;
-+
-+       bank =3D PINID_TO_BANK(pin);
-+       offset =3D PINID_TO_OFFSET(pin);
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       for (i =3D 0; i < num_configs; i++) {
-+               config =3D configs[i];
-+               param =3D pinconf_to_config_param(config);
-+               arg =3D pinconf_to_config_argument(config);
-+
-+               switch (param) {
-+               case PIN_CONFIG_BIAS_DISABLE:
-+                       regmap_update_bits(soc->pull_regmap,
-+                                          soc->pull_en[bank], BIT(offset),=
- 0);
-+                       break;
-+               case PIN_CONFIG_BIAS_PULL_DOWN:
-+               case PIN_CONFIG_BIAS_PULL_UP:
-+                       regmap_update_bits(soc->pull_regmap, soc->pull_dir[=
-bank],
-+                                          BIT(offset),
-+                                          (param =3D=3D PIN_CONFIG_BIAS_PU=
-LL_UP) ?
-+                                          BIT(offset) : 0);
-+                       regmap_update_bits(soc->pull_regmap, soc->pull_en[b=
-ank],
-+                                          BIT(offset), BIT(offset));
-+                       break;
-+               case PIN_CONFIG_DRIVE_STRENGTH:
-+                       ds =3D amb_drive_strength_to_reg(soc, arg);
-+                       if (ds < 0) {
-+                               raw_spin_unlock_irqrestore(&soc->lock, flag=
-s);
-+                               return ds;
-+                       }
-+                       if (soc->have_ds2) {
-+                               regmap_update_bits(soc->ds_regmap,
-+                                                  soc->ds0[bank], BIT(offs=
-et),
-+                                                  (ds & BIT(0)) ? BIT(offs=
-et) : 0);
-+                               regmap_update_bits(soc->ds_regmap,
-+                                                  soc->ds1[bank], BIT(offs=
-et),
-+                                                  (ds & BIT(1)) ? BIT(offs=
-et) : 0);
-+                               regmap_update_bits(soc->ds_regmap,
-+                                                  soc->ds2[bank], BIT(offs=
-et),
-+                                                  (ds & BIT(2)) ? BIT(offs=
-et) : 0);
-+                       } else {
-+                               regmap_update_bits(soc->ds_regmap,
-+                                                  soc->ds0[bank], BIT(offs=
-et),
-+                                                  (ds & BIT(1)) ? BIT(offs=
-et) : 0);
-+                               regmap_update_bits(soc->ds_regmap,
-+                                                  soc->ds1[bank], BIT(offs=
-et),
-+                                                  (ds & BIT(0)) ? BIT(offs=
-et) : 0);
-+                       }
-+                       break;
-+               default:
-+                       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+                       return -EOPNOTSUPP;
-+               }
-+       }
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+
-+       return 0;
-+}
-+
-+static int amb_pinconf_group_set(struct pinctrl_dev *pctldev,
-+                                unsigned int selector,
-+                                unsigned long *configs,
-+                                unsigned int num_configs)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+       const struct ambpin_group *grp =3D &soc->groups[selector];
-+       int ret;
-+       u32 i;
-+
-+       for (i =3D 0; i < grp->num_pins; i++) {
-+               ret =3D amb_pinconf_set(pctldev, grp->pins[i], configs,
-+                                     num_configs);
-+               if (ret)
-+                       return ret;
-+       }
-+
-+       return 0;
-+}
-+
-+/* get the pin config settings for a specified pin */
-+static int amb_pinconf_get(struct pinctrl_dev *pctldev,
-+                          unsigned int pin, unsigned long *config)
-+{
-+       dev_WARN_ONCE(pctldev->dev, true, "NOT Implemented.\n");
-+       return -EOPNOTSUPP;
-+}
-+
-+#if IS_ENABLED(CONFIG_DEBUG_FS)
-+static void amb_pinconf_dbg_show(struct pinctrl_dev *pctldev,
-+                                struct seq_file *s, unsigned int pin)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D pinctrl_dev_get_drvdata(pctlde=
-v);
-+       u32 pull_en, pull_dir, ds0, ds1, ds2, drv_strength;
-+       u32 bank, offset;
-+
-+       bank =3D PINID_TO_BANK(pin);
-+       offset =3D PINID_TO_OFFSET(pin);
-+
-+       regmap_read(soc->pull_regmap, soc->pull_en[bank], &pull_en);
-+       pull_en =3D (pull_en >> offset) & 0x1;
-+       regmap_read(soc->pull_regmap, soc->pull_dir[bank], &pull_dir);
-+       pull_dir =3D (pull_dir >> offset) & 0x1;
-+       seq_printf(s, " pull: %s, ", pull_en ? pull_dir ? "up" : "down" : "=
-disable");
-+
-+       regmap_read(soc->ds_regmap, soc->ds0[bank], &ds0);
-+       ds0 =3D (ds0 >> offset) & 0x1;
-+       regmap_read(soc->ds_regmap, soc->ds1[bank], &ds1);
-+       ds1 =3D (ds1 >> offset) & 0x1;
-+       if (soc->have_ds2) {
-+               regmap_read(soc->ds_regmap, soc->ds2[bank], &ds2);
-+               ds2 =3D (ds2 >> offset) & 0x1;
-+               drv_strength =3D (ds2 << 2) | (ds1 << 1) | ds0;
-+               seq_printf(s, "drive-strength: %s",
-+                          drv_strength =3D=3D 5 ? "12mA(lvl5)" :
-+                          drv_strength =3D=3D 4 ? "9mA(lvl4)" :
-+                          drv_strength =3D=3D 3 ? "7.5mA(lvl3)" :
-+                          drv_strength =3D=3D 2 ? "6mA(lvl2)" :
-+                          drv_strength =3D=3D 1 ? "4.5mA(lvl1)" :
-+                          drv_strength =3D=3D 0 ? "3mA(lvl0)" : "invalid")=
-;
-+       } else {
-+               drv_strength =3D (ds0 << 1) | ds1;
-+               seq_printf(s, "drive-strength: %s",
-+                          drv_strength =3D=3D 3 ? "12mA" :
-+                          drv_strength =3D=3D 2 ? "8mA" :
-+                          drv_strength =3D=3D 1 ? "4mA" : "2mA");
-+       }
-+}
-+#endif
-+
-+/* list of pinconfig callbacks for pinconfig vertical in the pinctrl code =
-*/
-+static const struct pinconf_ops amb_pinconf_ops =3D {
-+       .is_generic             =3D true,
-+       .pin_config_get         =3D amb_pinconf_get,
-+       .pin_config_set         =3D amb_pinconf_set,
-+       .pin_config_group_set   =3D amb_pinconf_group_set,
-+#if IS_ENABLED(CONFIG_DEBUG_FS)
-+       .pin_config_dbg_show    =3D amb_pinconf_dbg_show,
-+#endif
-+};
-+
-+static int amb_pinctrl_get_function_name(struct device_node *np,
-+                                        const char **function)
-+{
-+       if (of_property_read_string(np, "function", function))
-+               *function =3D np->name;
-+
-+       return 0;
-+}
-+
-+static int amb_pinctrl_count_configs(struct device_node *np)
-+{
-+       unsigned int bias =3D 0, count =3D 0;
-+
-+       if (of_property_read_bool(np, "bias-disable"))
-+               bias++;
-+       if (of_property_read_bool(np, "bias-pull-down"))
-+               bias++;
-+       if (of_property_read_bool(np, "bias-pull-up"))
-+               bias++;
-+       if (bias > 1)
-+               return -EINVAL;
-+
-+       count +=3D bias;
-+       if (of_find_property(np, "drive-strength", NULL))
-+               count++;
-+
-+       return count;
-+}
-+
-+static int amb_pinctrl_parse_configs(struct amb_pinctrl_soc_data *soc,
-+                                    struct device_node *np,
-+                                    struct ambpin_group *grp)
-+{
-+       u32 drive;
-+       int num_configs, i =3D 0;
-+
-+       num_configs =3D amb_pinctrl_count_configs(np);
-+       if (num_configs < 0)
-+               return dev_err_probe(soc->dev, num_configs,
-+                                    "%pOF has conflicting bias properties\=
-n", np);
-+       if (!num_configs)
-+               return 0;
-+
-+       grp->configs =3D devm_kcalloc(soc->dev, num_configs,
-+                                   sizeof(*grp->configs), GFP_KERNEL);
-+       if (!grp->configs)
-+               return -ENOMEM;
-+
-+       if (of_property_read_bool(np, "bias-disable"))
-+               grp->configs[i++] =3D
-+                       pinconf_to_config_packed(PIN_CONFIG_BIAS_DISABLE, 0=
-);
-+       else if (of_property_read_bool(np, "bias-pull-down"))
-+               grp->configs[i++] =3D
-+                       pinconf_to_config_packed(PIN_CONFIG_BIAS_PULL_DOWN,=
- 1);
-+       else if (of_property_read_bool(np, "bias-pull-up"))
-+               grp->configs[i++] =3D
-+                       pinconf_to_config_packed(PIN_CONFIG_BIAS_PULL_UP, 1=
-);
-+
-+       if (!of_property_read_u32(np, "drive-strength", &drive))
-+               grp->configs[i++] =3D
-+                       pinconf_to_config_packed(PIN_CONFIG_DRIVE_STRENGTH,
-+                                                drive);
-+
-+       grp->num_configs =3D i;
-+
-+       return 0;
-+}
-+
-+static int amb_pinctrl_parse_group(struct amb_pinctrl_soc_data *soc,
-+                                  struct device_node *np, int idx,
-+                                  const char **out_name)
-+{
-+       struct ambpin_group *grp =3D &soc->groups[idx];
-+       struct device *dev =3D soc->dev;
-+       struct property *prop;
-+       int length;
-+       int ret;
-+       u32 i;
-+
-+       grp->name =3D np->name;
-+       amb_pinctrl_get_function_name(np, &grp->function);
-+
-+       prop =3D of_find_property(np, "pinmux", &length);
-+       if (prop) {
-+               grp->num_pins =3D length / sizeof(u32);
-+
-+               grp->pins =3D devm_kcalloc(dev, grp->num_pins, sizeof(*grp-=
->pins), GFP_KERNEL);
-+               if (!grp->pins)
-+                       return -ENOMEM;
-+
-+               grp->alt =3D devm_kcalloc(dev, grp->num_pins, sizeof(*grp->=
-alt), GFP_KERNEL);
-+               if (!grp->alt)
-+                       return -ENOMEM;
-+
-+               of_property_read_u32_array(np, "pinmux", grp->pins,
-+                                          grp->num_pins);
-+
-+               for (i =3D 0; i < grp->num_pins; i++) {
-+                       grp->alt[i] =3D MUXIDS_TO_ALT(grp->pins[i]);
-+                       grp->pins[i] =3D MUXIDS_TO_PINID(grp->pins[i]);
-+               }
-+       }
-+
-+       if (!grp->num_pins)
-+               return dev_err_probe(soc->dev, -EINVAL,
-+                                    "%pOF: missing pinmux property\n", np)=
-;
-+
-+       ret =3D amb_pinctrl_parse_configs(soc, np, grp);
-+       if (ret)
-+               return ret;
-+
-+       if (out_name)
-+               *out_name =3D grp->name;
-+
-+       return 0;
-+}
-+
-+static int amb_pinctrl_find_function(struct amb_pinctrl_soc_data *soc,
-+                                    const char *function)
-+{
-+       int i;
-+
-+       for (i =3D 0; i < soc->nr_functions; i++) {
-+               if (soc->functions[i].name &&
-+                   !strcmp(soc->functions[i].name, function))
-+                       return i;
-+       }
-+
-+       return -ENOENT;
-+}
-+
-+static int amb_pinctrl_parse_dt(struct amb_pinctrl_soc_data *soc)
-+{
-+       struct device_node *np =3D soc->dev->of_node;
-+       struct device_node *child;
-+       int idxf =3D 0, idxg =3D 0;
-+       int i, ret;
-+
-+       /* Count total functions and groups */
-+       for_each_child_of_node(np, child) {
-+               if (of_find_property(child, "gpio-controller", NULL))
-+                       continue;
-+
-+               soc->nr_groups++;
-+       }
-+
-+       if (!soc->nr_groups) {
-+               dev_err(soc->dev, "no group is defined\n");
-+               return -ENOENT;
-+       }
-+
-+       soc->functions =3D devm_kcalloc(soc->dev, soc->nr_groups,
-+                                     sizeof(struct ambpin_function), GFP_K=
-ERNEL);
-+       if (!soc->functions)
-+               return -ENOMEM;
-+
-+       soc->groups =3D devm_kcalloc(soc->dev, soc->nr_groups,
-+                                  sizeof(struct ambpin_group), GFP_KERNEL)=
-;
-+       if (!soc->groups)
-+               return -ENOMEM;
-+
-+       /* Parse groups and collect unique functions. */
-+       idxg =3D 0;
-+       for_each_child_of_node(np, child) {
-+               if (of_find_property(child, "gpio-controller", NULL))
-+                       continue;
-+
-+               ret =3D amb_pinctrl_parse_group(soc, child, idxg, NULL);
-+               if (ret) {
-+                       of_node_put(child);
-+                       return ret;
-+               }
-+
-+               i =3D amb_pinctrl_find_function(soc, soc->groups[idxg].func=
-tion);
-+               if (i < 0) {
-+                       soc->functions[idxf].name =3D soc->groups[idxg].fun=
-ction;
-+                       i =3D idxf++;
-+               }
-+
-+               soc->functions[i].num_groups++;
-+               idxg++;
-+       }
-+
-+       soc->nr_functions =3D idxf;
-+
-+       for (idxf =3D 0; idxf < soc->nr_functions; idxf++) {
-+               soc->functions[idxf].groups =3D
-+                       devm_kcalloc(soc->dev, soc->functions[idxf].num_gro=
-ups,
-+                                    sizeof(*soc->functions[idxf].groups),
-+                                    GFP_KERNEL);
-+               if (!soc->functions[idxf].groups)
-+                       return -ENOMEM;
-+
-+               soc->functions[idxf].num_groups =3D 0;
-+       }
-+
-+       for (idxg =3D 0; idxg < soc->nr_groups; idxg++) {
-+               i =3D amb_pinctrl_find_function(soc, soc->groups[idxg].func=
-tion);
-+               if (i < 0)
-+                       return -EINVAL;
-+
-+               soc->functions[i].groups[soc->functions[i].num_groups++] =
-=3D
-+                       soc->groups[idxg].name;
-+       }
-+
-+       return 0;
-+}
-+
-+/* register the pinctrl interface with the pinctrl subsystem */
-+static int amb_pinctrl_register(struct amb_pinctrl_soc_data *soc)
-+{
-+       struct pinctrl_pin_desc *pindesc;
-+       int pin, pin_num, rval;
-+       struct pinctrl_desc *amb_pinctrl_desc;
-+
-+       /* Addition one for clk_au dedicated pin */
-+       pin_num =3D soc->bank_num * 32 + 16;
-+
-+       /* dynamically populate the pin number and pin name for pindesc */
-+       pindesc =3D devm_kcalloc(soc->dev, pin_num, sizeof(*pindesc), GFP_K=
-ERNEL);
-+       if (!pindesc)
-+               return -ENOMEM;
-+
-+       for (pin =3D 0; pin < pin_num; pin++) {
-+               pindesc[pin].number =3D pin;
-+               pindesc[pin].name =3D devm_kasprintf(soc->dev, GFP_KERNEL, =
-"io%d", pin);
-+               if (!pindesc[pin].name)
-+                       return -ENOMEM;
-+       }
-+
-+       amb_pinctrl_desc =3D devm_kzalloc(soc->dev, sizeof(*amb_pinctrl_des=
-c), GFP_KERNEL);
-+       if (!amb_pinctrl_desc)
-+               return -ENOMEM;
-+
-+       amb_pinctrl_desc->name =3D dev_name(soc->dev);
-+       amb_pinctrl_desc->pins =3D pindesc;
-+       amb_pinctrl_desc->npins =3D pin_num;
-+       amb_pinctrl_desc->pctlops =3D &amb_pctrl_ops;
-+       amb_pinctrl_desc->pmxops =3D &amb_pinmux_ops;
-+       amb_pinctrl_desc->confops =3D &amb_pinconf_ops;
-+
-+       rval =3D amb_pinctrl_parse_dt(soc);
-+       if (rval)
-+               return rval;
-+
-+       soc->pctl =3D devm_pinctrl_register(soc->dev, amb_pinctrl_desc, soc=
-);
-+       if (IS_ERR(soc->pctl)) {
-+               dev_err(soc->dev, "could not register pinctrl driver\n");
-+               return PTR_ERR(soc->pctl);
-+       }
-+
-+       return 0;
-+}
-+
-+/* gpiolib gpio_set callback function */
-+static int amb_gpio_set(struct gpio_chip *gc, unsigned int pin, int value)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       u32 bank, offset, data;
-+       unsigned long flags;
-+
-+       bank =3D PINID_TO_BANK(pin);
-+       offset =3D PINID_TO_OFFSET(pin);
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       writel_relaxed(0x1 << offset, soc->gpio_base[bank] + GPIO_MASK_OFFS=
-ET);
-+       data =3D (value =3D=3D 0) ? 0 : 0x1 << offset;
-+       writel_relaxed(data, soc->gpio_base[bank] + GPIO_DATA_OFFSET);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+
-+       return 0;
-+}
-+
-+/* gpiolib gpio_get callback function */
-+static int amb_gpio_get(struct gpio_chip *gc, unsigned int pin)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       u32 bank, offset, data;
-+       unsigned long flags;
-+
-+       bank =3D PINID_TO_BANK(pin);
-+       offset =3D PINID_TO_OFFSET(pin);
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       writel_relaxed(0x1 << offset, soc->gpio_base[bank] + GPIO_MASK_OFFS=
-ET);
-+       data =3D readl_relaxed(soc->gpio_base[bank] + GPIO_DATA_OFFSET);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+
-+       return (data >> offset) & 0x1;
-+}
-+
-+static int amb_gpio_get_direction(struct gpio_chip *gc, unsigned int pin)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       u32 bank, offset, data;
-+       unsigned long flags;
-+
-+       bank =3D PINID_TO_BANK(pin);
-+       offset =3D PINID_TO_OFFSET(pin);
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       data =3D readl_relaxed(soc->gpio_base[bank] + GPIO_DIR_OFFSET);
-+       data =3D (data >> offset) & 0x1;
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+
-+       return data ? GPIO_LINE_DIRECTION_OUT : GPIO_LINE_DIRECTION_IN;
-+}
-+
-+static int amb_gpio_set_direction(struct gpio_chip *gc, unsigned int pin, =
-bool input)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       u32 bank, offset, data;
-+       unsigned long flags;
-+
-+       bank =3D PINID_TO_BANK(pin);
-+       offset =3D PINID_TO_OFFSET(pin);
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       data =3D readl_relaxed(soc->gpio_base[bank] + GPIO_DIR_OFFSET);
-+       if (input)
-+               writel_relaxed(data & ~(0x1 << offset), soc->gpio_base[bank=
-] + GPIO_DIR_OFFSET);
-+       else
-+               writel_relaxed(data | (0x1 << offset), soc->gpio_base[bank]=
- + GPIO_DIR_OFFSET);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+
-+       return 0;
-+}
-+
-+/* gpiolib gpio_direction_input callback function */
-+static int amb_gpio_direction_input(struct gpio_chip *gc, unsigned int pin=
-)
-+{
-+       return amb_gpio_set_direction(gc, pin, true);
-+}
-+
-+/* gpiolib gpio_direction_output callback function */
-+static int amb_gpio_direction_output(struct gpio_chip *gc, unsigned int pi=
-n, int value)
-+{
-+       amb_gpio_set_direction(gc, pin, false);
-+       amb_gpio_set(gc, pin, value);
-+       return 0;
-+}
-+
-+/* gpiolib gpio_to_irq callback function */
-+static int amb_gpio_to_irq(struct gpio_chip *gc, unsigned int pin)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+
-+       return irq_create_mapping(soc->domain, pin);
-+}
-+
-+#if IS_ENABLED(CONFIG_DEBUG_FS)
-+static void amb_gpio_dbg_show(struct seq_file *s, struct gpio_chip *gc)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       u32 afsel, data, dir, mask, iomux0, iomux1, iomux2, alt;
-+       u32 i, bank, offset;
-+
-+       for (i =3D 0; i < gc->ngpio; i++) {
-+               offset =3D PINID_TO_OFFSET(i);
-+               if (!offset) {
-+                       bank =3D PINID_TO_BANK(i);
-+
-+                       afsel =3D readl_relaxed(soc->gpio_base[bank] + GPIO=
-_AFSEL_OFFSET);
-+                       dir =3D readl_relaxed(soc->gpio_base[bank] + GPIO_D=
-IR_OFFSET);
-+                       mask =3D readl_relaxed(soc->gpio_base[bank] + GPIO_=
-MASK_OFFSET);
-+                       writel_relaxed(0xffffffff, soc->gpio_base[bank] + G=
-PIO_MASK_OFFSET);
-+                       data =3D readl_relaxed(soc->gpio_base[bank] + GPIO_=
-DATA_OFFSET);
-+                       writel_relaxed(mask, soc->gpio_base[bank] + GPIO_MA=
-SK_OFFSET);
-+
-+                       seq_printf(s, "\nGPIO[%d]:\t[%d - %d]\n", bank, i, =
-i + 32 - 1);
-+                       seq_printf(s, "GPIO_AFSEL:\t0x%08X\n", afsel);
-+                       seq_printf(s, "GPIO_DIR:\t0x%08X\n", dir);
-+                       seq_printf(s, "GPIO_MASK:\t0x%08X\n", mask);
-+                       seq_printf(s, "GPIO_DATA:\t0x%08X\n", data);
-+
-+                       iomux0 =3D readl_relaxed(soc->iomux_base + bank * 1=
-2);
-+                       iomux1 =3D readl_relaxed(soc->iomux_base + bank * 1=
-2 + 4);
-+                       iomux2 =3D readl_relaxed(soc->iomux_base + bank * 1=
-2 + 8);
-+                       seq_printf(s, "IOMUX_REG%d_0:\t0x%08X\n", bank, iom=
-ux0);
-+                       seq_printf(s, "IOMUX_REG%d_1:\t0x%08X\n", bank, iom=
-ux1);
-+                       seq_printf(s, "IOMUX_REG%d_2:\t0x%08X\n", bank, iom=
-ux2);
-+               }
-+
-+               seq_printf(s, " gpio-%-3d", gc->base + i);
-+
-+               alt =3D ((iomux2 >> offset) & 1) << 2;
-+               alt |=3D ((iomux1 >> offset) & 1) << 1;
-+               alt |=3D ((iomux0 >> offset) & 1) << 0;
-+               if (alt) {
-+                       seq_printf(s, " [HW  ] (alt%d)\n", alt);
-+               } else {
-+                       char *label __free(kfree) =3D gpiochip_dup_line_lab=
-el(gc, i);
-+                       if (IS_ERR(label)) {
-+                               pr_debug("Failed to duplicate label\n");
-+                               continue;
-+                       }
-+
-+                       seq_printf(s, " [GPIO] (%-20.20s) %s %s\n",
-+                                  label ? label : "",
-+                                  (dir & (1 << offset)) ? "out" : "in ",
-+                                  (data & (1 << offset)) ? "hi" : "lo");
-+               }
-+       }
-+}
-+#endif
-+
-+static void amb_gpio_irq_enable(struct irq_data *data)
-+{
-+       struct gpio_chip *gc =3D irq_data_get_irq_chip_data(data);
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       void __iomem *gpio_base =3D amb_get_gpio_base(soc, data);
-+       void __iomem *iomux_base =3D soc->iomux_base;
-+       u32 i, val, bank, offset;
-+       unsigned long flags;
-+
-+       bank =3D PINID_TO_BANK(irqd_to_hwirq(data));
-+       offset =3D PINID_TO_OFFSET(irqd_to_hwirq(data));
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+
-+       val =3D readl_relaxed(gpio_base + GPIO_DIR_OFFSET);
-+       val &=3D ~(0x1 << offset);
-+       writel_relaxed(val, gpio_base + GPIO_DIR_OFFSET);
-+
-+       for (i =3D 0; i < 3; i++) {
-+               val =3D readl_relaxed(iomux_base + IOMUX_OFFSET(bank, i));
-+               val &=3D ~(0x1 << offset);
-+               writel_relaxed(val, iomux_base + IOMUX_OFFSET(bank, i));
-+       }
-+       writel_relaxed(0x1, iomux_base + IOMUX_CTRL_SET_OFFSET);
-+       writel_relaxed(0x0, iomux_base + IOMUX_CTRL_SET_OFFSET);
-+
-+       writel_relaxed(0x1 << offset, gpio_base + GPIO_IC_OFFSET);
-+
-+       val =3D readl_relaxed(gpio_base + GPIO_IE_OFFSET);
-+       val |=3D 0x1 << offset;
-+       writel_relaxed(val, gpio_base + GPIO_IE_OFFSET);
-+
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+}
-+
-+static void amb_gpio_irq_disable(struct irq_data *data)
-+{
-+       struct gpio_chip *gc =3D irq_data_get_irq_chip_data(data);
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       void __iomem *gpio_base =3D amb_get_gpio_base(soc, data);
-+       u32 offset, ie;
-+       unsigned long flags;
-+
-+       offset =3D PINID_TO_OFFSET(irqd_to_hwirq(data));
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       ie =3D readl_relaxed(gpio_base + GPIO_IE_OFFSET);
-+       writel_relaxed(ie & ~(0x1 << offset), gpio_base + GPIO_IE_OFFSET);
-+       writel_relaxed(0x1 << offset, gpio_base + GPIO_IC_OFFSET);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+}
-+
-+static void amb_gpio_irq_ack(struct irq_data *data)
-+{
-+       struct gpio_chip *gc =3D irq_data_get_irq_chip_data(data);
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       void __iomem *gpio_base =3D amb_get_gpio_base(soc, data);
-+       u32 offset =3D PINID_TO_OFFSET(irqd_to_hwirq(data));
-+       unsigned long flags;
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       writel_relaxed(0x1 << offset, gpio_base + GPIO_IC_OFFSET);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+}
-+
-+static void amb_gpio_irq_mask(struct irq_data *data)
-+{
-+       struct gpio_chip *gc =3D irq_data_get_irq_chip_data(data);
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       void __iomem *gpio_base =3D amb_get_gpio_base(soc, data);
-+       u32 offset, ie;
-+       unsigned long flags;
-+
-+       offset =3D PINID_TO_OFFSET(irqd_to_hwirq(data));
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       ie =3D readl_relaxed(gpio_base + GPIO_IE_OFFSET);
-+       writel_relaxed(ie & ~(0x1 << offset), gpio_base + GPIO_IE_OFFSET);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+}
-+
-+static void amb_gpio_irq_mask_ack(struct irq_data *data)
-+{
-+       struct gpio_chip *gc =3D irq_data_get_irq_chip_data(data);
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       void __iomem *gpio_base =3D amb_get_gpio_base(soc, data);
-+       u32 offset, ie;
-+       unsigned long flags;
-+
-+       offset =3D PINID_TO_OFFSET(irqd_to_hwirq(data));
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       ie =3D readl_relaxed(gpio_base + GPIO_IE_OFFSET);
-+       writel_relaxed(ie & ~(0x1 << offset), gpio_base + GPIO_IE_OFFSET);
-+       writel_relaxed(0x1 << offset, gpio_base + GPIO_IC_OFFSET);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+}
-+
-+static void amb_gpio_irq_unmask(struct irq_data *data)
-+{
-+       struct gpio_chip *gc =3D irq_data_get_irq_chip_data(data);
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       void __iomem *gpio_base =3D amb_get_gpio_base(soc, data);
-+       u32 offset, ie;
-+       unsigned long flags;
-+
-+       offset =3D PINID_TO_OFFSET(irqd_to_hwirq(data));
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       ie =3D readl_relaxed(gpio_base + GPIO_IE_OFFSET);
-+       writel_relaxed(ie | (0x1 << offset), gpio_base + GPIO_IE_OFFSET);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+}
-+
-+static int amb_gpio_irq_set_type(struct irq_data *data, unsigned int type)
-+{
-+       struct gpio_chip *gc =3D irq_data_get_irq_chip_data(data);
-+       struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+       void __iomem *gpio_base =3D amb_get_gpio_base(soc, data);
-+       u32 offset =3D PINID_TO_OFFSET(irqd_to_hwirq(data));
-+       u32 mask, bit, sense, bothedges, event;
-+       unsigned long flags;
-+
-+       mask =3D ~(0x1 << offset);
-+       bit =3D (0x1 << offset);
-+       sense =3D readl_relaxed(gpio_base + GPIO_IS_OFFSET);
-+       bothedges =3D readl_relaxed(gpio_base + GPIO_IBE_OFFSET);
-+       event =3D readl_relaxed(gpio_base + GPIO_IEV_OFFSET);
-+
-+       switch (type) {
-+       case IRQ_TYPE_EDGE_RISING:
-+               sense &=3D mask;
-+               bothedges &=3D mask;
-+               event |=3D bit;
-+               irq_set_handler_locked(data, handle_edge_irq);
-+               break;
-+       case IRQ_TYPE_EDGE_FALLING:
-+               sense &=3D mask;
-+               bothedges &=3D mask;
-+               event &=3D mask;
-+               irq_set_handler_locked(data, handle_edge_irq);
-+               break;
-+       case IRQ_TYPE_EDGE_BOTH:
-+               sense &=3D mask;
-+               bothedges |=3D bit;
-+               event &=3D mask;
-+               irq_set_handler_locked(data, handle_edge_irq);
-+               break;
-+       case IRQ_TYPE_LEVEL_HIGH:
-+               sense |=3D bit;
-+               bothedges &=3D mask;
-+               event |=3D bit;
-+               irq_set_handler_locked(data, handle_level_irq);
-+               break;
-+       case IRQ_TYPE_LEVEL_LOW:
-+               sense |=3D bit;
-+               bothedges &=3D mask;
-+               event &=3D mask;
-+               irq_set_handler_locked(data, handle_level_irq);
-+               break;
-+       default:
-+               pr_err("%s: irq[%d] type[%d] fail!\n",
-+                      __func__, data->irq, type);
-+               return -EINVAL;
-+       }
-+
-+       raw_spin_lock_irqsave(&soc->lock, flags);
-+       writel_relaxed(sense, gpio_base + GPIO_IS_OFFSET);
-+       writel_relaxed(bothedges, gpio_base + GPIO_IBE_OFFSET);
-+       writel_relaxed(event, gpio_base + GPIO_IEV_OFFSET);
-+       /* clear obsolete irq */
-+       writel_relaxed(0x1 << offset, gpio_base + GPIO_IC_OFFSET);
-+       raw_spin_unlock_irqrestore(&soc->lock, flags);
-+
-+       return 0;
-+}
-+
-+static int amb_gpio_irq_set_wake(struct irq_data *data, unsigned int on)
-+{
-+       if (IS_ENABLED(CONFIG_PM)) {
-+               struct gpio_chip *gc =3D irq_data_get_irq_chip_data(data);
-+               struct amb_pinctrl_soc_data *soc =3D gpiochip_get_data(gc);
-+               u32 bank =3D PINID_TO_BANK(irqd_to_hwirq(data));
-+               u32 offset =3D PINID_TO_OFFSET(irqd_to_hwirq(data));
-+               unsigned long flags;
-+
-+               raw_spin_lock_irqsave(&soc->lock, flags);
-+               if (on)
-+                       soc->irq_wake_mask[bank] |=3D (1 << offset);
-+               else
-+                       soc->irq_wake_mask[bank] &=3D ~(1 << offset);
-+               raw_spin_unlock_irqrestore(&soc->lock, flags);
-+       }
-+       return 0;
-+}
-+
-+static struct irq_chip amb_gpio_irqchip =3D {
-+       .name           =3D "GPIO",
-+       .irq_enable     =3D amb_gpio_irq_enable,
-+       .irq_disable    =3D amb_gpio_irq_disable,
-+       .irq_ack        =3D amb_gpio_irq_ack,
-+       .irq_mask       =3D amb_gpio_irq_mask,
-+       .irq_mask_ack   =3D amb_gpio_irq_mask_ack,
-+       .irq_unmask     =3D amb_gpio_irq_unmask,
-+       .irq_set_type   =3D amb_gpio_irq_set_type,
-+       .irq_set_wake   =3D amb_gpio_irq_set_wake,
-+       .flags          =3D IRQCHIP_SET_TYPE_MASKED | IRQCHIP_MASK_ON_SUSPE=
-ND,
-+};
-+
-+static int amb_gpio_irqdomain_map(struct irq_domain *d, unsigned int irq,
-+                                 irq_hw_number_t hwirq)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D d->host_data;
-+
-+       irq_set_chip_data(irq, soc->gc);
-+       irq_set_chip_and_handler(irq, &amb_gpio_irqchip, handle_level_irq);
-+       irq_set_noprobe(irq);
-+
-+       return 0;
-+}
-+
-+static const struct irq_domain_ops amb_gpio_irq_domain_ops =3D {
-+       .map =3D amb_gpio_irqdomain_map,
-+       .xlate =3D irq_domain_xlate_twocell,
-+};
-+
-+static void amb_gpio_handle_irq(struct irq_desc *desc)
-+{
-+       struct amb_pinctrl_soc_data *soc;
-+       struct irq_chip *irqchip;
-+       u32 i, bit, gpio_mis, gpio_hwirq;
-+
-+       irqchip =3D irq_desc_get_chip(desc);
-+       chained_irq_enter(irqchip, desc);
-+
-+       soc =3D irq_desc_get_handler_data(desc);
-+
-+       /* find the GPIO bank generating this irq */
-+       for (i =3D 0; i < soc->bank_num; i++) {
-+               if (soc->irq[i] =3D=3D irq_desc_get_irq(desc))
-+                       break;
-+       }
-+
-+       if (i =3D=3D soc->bank_num)
-+               goto out;
-+
-+       gpio_mis =3D readl_relaxed(soc->gpio_base[i] + GPIO_MIS_OFFSET);
-+       while (gpio_mis) {
-+               bit =3D __ffs(gpio_mis);
-+               gpio_hwirq =3D i * 32 + bit;
-+               generic_handle_domain_irq(soc->domain, gpio_hwirq);
-+               gpio_mis &=3D ~BIT(bit);
-+       }
-+
-+out:
-+       chained_irq_exit(irqchip, desc);
-+}
-+
-+/* register the pinctrl interface with the pinctrl subsystem */
-+static int amb_gpio_register(struct amb_pinctrl_soc_data *soc)
-+{
-+       struct device_node *np;
-+       int i, rval =3D -ENODEV;
-+
-+       for_each_child_of_node(soc->dev->of_node, np) {
-+               if (of_find_property(np, "gpio-controller", NULL)) {
-+                       rval =3D 0;
-+                       break;
-+               }
-+       }
-+       if (rval < 0) {
-+               dev_err(soc->dev, "no gpio-controller child node\n");
-+               return rval;
-+       }
-+
-+       soc->gc =3D devm_kzalloc(soc->dev, sizeof(struct gpio_chip), GFP_KE=
-RNEL);
-+       if (!soc->gc)
-+               return -ENOMEM;
-+       soc->gc->label =3D dev_name(soc->dev);
-+       soc->gc->base =3D -1;
-+       soc->gc->request =3D gpiochip_generic_request;
-+       soc->gc->free =3D gpiochip_generic_free;
-+       soc->gc->direction_input =3D amb_gpio_direction_input;
-+       soc->gc->direction_output =3D amb_gpio_direction_output;
-+       soc->gc->get_direction =3D amb_gpio_get_direction;
-+       soc->gc->get =3D amb_gpio_get;
-+       soc->gc->set =3D amb_gpio_set;
-+       soc->gc->to_irq =3D amb_gpio_to_irq;
-+#if IS_ENABLED(CONFIG_DEBUG_FS)
-+       soc->gc->dbg_show  =3D amb_gpio_dbg_show;
-+#endif
-+       soc->gc->parent =3D soc->dev;
-+       soc->gc->fwnode =3D of_fwnode_handle(np);
-+       soc->gc->ngpio =3D soc->bank_num * 32;
-+
-+       rval =3D devm_gpiochip_add_data(soc->dev, soc->gc, soc);
-+       if (rval) {
-+               dev_err(soc->dev, "gpiochip_add_data failed %d\n", rval);
-+               return rval;
-+       }
-+
-+       for (i =3D 0; i < soc->bank_num; i++) {
-+               writel_relaxed(0xffffffff, soc->gpio_base[i] + GPIO_ENABLE_=
-OFFSET);
-+               writel_relaxed(0x00000000, soc->gpio_base[i] + GPIO_AFSEL_O=
-FFSET);
-+               writel_relaxed(0x00000000, soc->gpio_base[i] + GPIO_MASK_OF=
-FSET);
-+       }
-+
-+       /* Initialize GPIO irq */
-+       soc->domain =3D irq_domain_add_linear(np, soc->gc->ngpio,
-+                                           &amb_gpio_irq_domain_ops, soc);
-+       if (!soc->domain) {
-+               dev_err(soc->dev, "Failed to create irqdomain\n");
-+               return -ENODEV;
-+       }
-+
-+       for (i =3D 0; i < soc->bank_num; i++) {
-+               irq_set_irq_type(soc->irq[i], IRQ_TYPE_LEVEL_HIGH);
-+               irq_set_chained_handler_and_data(soc->irq[i], amb_gpio_hand=
-le_irq, soc);
-+       }
-+
-+       return 0;
-+}
-+
-+static int amb_pinctrl_probe(struct platform_device *pdev)
-+{
-+       struct amb_pinctrl_soc_data *soc;
-+       struct device_node *np;
-+       int i, rval;
-+
-+       soc =3D devm_kzalloc(&pdev->dev, sizeof(*soc), GFP_KERNEL);
-+       if (!soc)
-+               return -ENOMEM;
-+
-+       soc->dev =3D &pdev->dev;
-+       soc->data =3D of_device_get_match_data(&pdev->dev);
-+       if (!soc->data)
-+               return dev_err_probe(&pdev->dev, -EINVAL, "missing soc data=
-");
-+
-+       np =3D pdev->dev.of_node;
-+       soc->bank_num =3D of_irq_count(np);
-+       if (!soc->bank_num || soc->bank_num > MAX_BANK_NUM)
-+               return dev_err_probe(&pdev->dev, -EINVAL, "Invalid gpio ban=
-k(irq)");
-+
-+       for (i =3D 0; i < soc->bank_num; i++) {
-+               soc->gpio_base[i] =3D devm_platform_ioremap_resource(pdev, =
-i);
-+               if (IS_ERR(soc->gpio_base[i]))
-+                       return dev_err_probe(&pdev->dev, PTR_ERR(soc->gpio_=
-base[i]),
-+                                                                "couldn't =
-get gpio[%d] reg", i);
-+
-+               soc->irq[i] =3D platform_get_irq(pdev, i);
-+               if (soc->irq[i] < 0)
-+                       return dev_err_probe(&pdev->dev, -ENODEV, "couldn't=
- get gpio[%d] irq", i);
-+       }
-+
-+       soc->iomux_base =3D devm_platform_ioremap_resource(pdev, i);
-+       if (IS_ERR(soc->iomux_base))
-+               return dev_err_probe(&pdev->dev, PTR_ERR(soc->iomux_base),
-+                                                        "couldn't get iomu=
-x reg");
-+
-+       soc->ds_regmap =3D syscon_regmap_lookup_by_phandle(np, "ambarella,d=
-rive-strength-syscon");
-+       if (IS_ERR(soc->ds_regmap))
-+               return dev_err_probe(&pdev->dev, PTR_ERR(soc->ds_regmap),
-+                                    "couldn't get drive-strength regmap");
-+
-+       soc->pull_regmap =3D syscon_regmap_lookup_by_phandle(np, "ambarella=
-,pull-syscon");
-+       if (IS_ERR(soc->pull_regmap))
-+               return dev_err_probe(&pdev->dev, PTR_ERR(soc->pull_regmap),
-+                                    "couldn't get pull regmap");
-+
-+       for (i =3D 0; i < soc->bank_num; i++) {
-+               soc->ds0[i] =3D soc->data->ds0[i];
-+               soc->ds1[i] =3D soc->data->ds1[i];
-+               soc->ds2[i] =3D soc->data->ds2[i];
-+               soc->pull_en[i] =3D soc->data->pull_en[i];
-+               soc->pull_dir[i] =3D soc->data->pull_dir[i];
-+       }
-+
-+       soc->have_ds2 =3D soc->data->have_ds2;
-+       soc->hsm_domain_id =3D soc->data->hsm_domain_id;
-+       soc->clk_au_dedicated_pin =3D soc->data->clk_au_dedicated_pin;
-+
-+       raw_spin_lock_init(&soc->lock);
-+
-+       /* not allowed to use for non-existed pins */
-+       for (i =3D soc->bank_num * 32; i < MAX_BANK_NUM * 32; i++)
-+               set_bit(i, soc->used);
-+
-+       if (soc->clk_au_dedicated_pin)
-+               clear_bit(soc->clk_au_dedicated_pin, soc->used);
-+
-+       rval =3D amb_pinctrl_register(soc);
-+       if (rval)
-+               return dev_err_probe(&pdev->dev, rval, "pinctrl register fa=
-iled!");
-+
-+       rval =3D amb_gpio_register(soc);
-+       if (rval)
-+               return dev_err_probe(&pdev->dev, rval, "gpio register faile=
-d!");
-+
-+       platform_set_drvdata(pdev, soc);
-+       dev_info(&pdev->dev, "Ambarella pinctrl driver registered");
-+
-+       return 0;
-+}
-+
-+static int amb_pinctrl_suspend_noirq(struct device *dev)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D dev_get_drvdata(dev);
-+       u32 i;
-+
-+       for (i =3D 0; i < soc->bank_num; i++) {
-+               regmap_read(soc->pull_regmap, soc->pull_en[i], &soc->pm[i].=
-pull[0]);
-+               regmap_read(soc->pull_regmap, soc->pull_dir[i], &soc->pm[i]=
-.pull[1]);
-+
-+               regmap_read(soc->ds_regmap, soc->ds0[i], &soc->pm[i].ds[0])=
-;
-+               regmap_read(soc->ds_regmap, soc->ds1[i], &soc->pm[i].ds[1])=
-;
-+               if (soc->have_ds2)
-+                       regmap_read(soc->ds_regmap, soc->ds2[i], &soc->pm[i=
-].ds[2]);
-+
-+               soc->pm[i].iomux[0] =3D readl_relaxed(soc->iomux_base + IOM=
-UX_OFFSET(i, 0));
-+               soc->pm[i].iomux[1] =3D readl_relaxed(soc->iomux_base + IOM=
-UX_OFFSET(i, 1));
-+               soc->pm[i].iomux[2] =3D readl_relaxed(soc->iomux_base + IOM=
-UX_OFFSET(i, 2));
-+
-+               soc->pm[i].afsel =3D readl_relaxed(soc->gpio_base[i] + GPIO=
-_AFSEL_OFFSET);
-+               soc->pm[i].dir =3D readl_relaxed(soc->gpio_base[i] + GPIO_D=
-IR_OFFSET);
-+               soc->pm[i].is =3D readl_relaxed(soc->gpio_base[i] + GPIO_IS=
-_OFFSET);
-+               soc->pm[i].ibe =3D readl_relaxed(soc->gpio_base[i] + GPIO_I=
-BE_OFFSET);
-+               soc->pm[i].iev =3D readl_relaxed(soc->gpio_base[i] + GPIO_I=
-EV_OFFSET);
-+               soc->pm[i].ie =3D readl_relaxed(soc->gpio_base[i] + GPIO_IE=
-_OFFSET);
-+               soc->pm[i].mask =3D readl_relaxed(soc->gpio_base[i] + GPIO_=
-MASK_OFFSET);
-+               writel_relaxed(0xffffffff, soc->gpio_base[i] + GPIO_MASK_OF=
-FSET);
-+               soc->pm[i].data =3D readl_relaxed(soc->gpio_base[i] + GPIO_=
-DATA_OFFSET);
-+
-+               if (soc->irq_wake_mask[i])
-+                       writel_relaxed(soc->irq_wake_mask[i], soc->gpio_bas=
-e[i] + GPIO_IE_OFFSET);
-+       }
-+
-+       if (soc->clk_au_dedicated_pin) {
-+               i =3D PINID_TO_BANK(soc->clk_au_dedicated_pin);
-+               soc->pm[i].iomux[0] =3D readl_relaxed(soc->iomux_base + IOM=
-UX_OFFSET(i, 0));
-+               soc->pm[i].iomux[1] =3D readl_relaxed(soc->iomux_base + IOM=
-UX_OFFSET(i, 1));
-+               soc->pm[i].iomux[2] =3D readl_relaxed(soc->iomux_base + IOM=
-UX_OFFSET(i, 2));
-+       }
-+
-+       return 0;
-+}
-+
-+static int amb_pinctrl_resume_noirq(struct device *dev)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D dev_get_drvdata(dev);
-+       u32 i;
-+
-+       for (i =3D 0; i < soc->bank_num; i++) {
-+               regmap_write(soc->pull_regmap, soc->pull_en[i], soc->pm[i].=
-pull[0]);
-+               regmap_write(soc->pull_regmap, soc->pull_dir[i], soc->pm[i]=
-.pull[1]);
-+
-+               regmap_write(soc->ds_regmap, soc->ds0[i], soc->pm[i].ds[0])=
-;
-+               regmap_write(soc->ds_regmap, soc->ds1[i], soc->pm[i].ds[1])=
-;
-+               if (soc->have_ds2)
-+                       regmap_write(soc->ds_regmap, soc->ds2[i], soc->pm[i=
-].ds[2]);
-+
-+               writel_relaxed(soc->pm[i].iomux[0], soc->iomux_base + IOMUX=
-_OFFSET(i, 0));
-+               writel_relaxed(soc->pm[i].iomux[1], soc->iomux_base + IOMUX=
-_OFFSET(i, 1));
-+               writel_relaxed(soc->pm[i].iomux[2], soc->iomux_base + IOMUX=
-_OFFSET(i, 2));
-+
-+               writel_relaxed(soc->pm[i].afsel, soc->gpio_base[i] + GPIO_A=
-FSEL_OFFSET);
-+               writel_relaxed(soc->pm[i].dir, soc->gpio_base[i] + GPIO_DIR=
-_OFFSET);
-+               /* Expose DATA writes while restoring the saved GPIO state.=
- */
-+               writel_relaxed(0xffffffff,
-+                              soc->gpio_base[i] + GPIO_MASK_OFFSET);
-+               writel_relaxed(soc->pm[i].data, soc->gpio_base[i] + GPIO_DA=
-TA_OFFSET);
-+               /* Ensure DATA restore reaches hardware before restoring ma=
-sk. */
-+               wmb();
-+               writel_relaxed(soc->pm[i].mask, soc->gpio_base[i] + GPIO_MA=
-SK_OFFSET);
-+               writel_relaxed(soc->pm[i].is, soc->gpio_base[i] + GPIO_IS_O=
-FFSET);
-+               writel_relaxed(soc->pm[i].ibe, soc->gpio_base[i] + GPIO_IBE=
-_OFFSET);
-+               writel_relaxed(soc->pm[i].iev, soc->gpio_base[i] + GPIO_IEV=
-_OFFSET);
-+               writel_relaxed(soc->pm[i].ie, soc->gpio_base[i] + GPIO_IE_O=
-FFSET);
-+               writel_relaxed(0xffffffff, soc->gpio_base[i] + GPIO_ENABLE_=
-OFFSET);
-+       }
-+
-+       if (soc->clk_au_dedicated_pin) {
-+               i =3D PINID_TO_BANK(soc->clk_au_dedicated_pin);
-+               writel_relaxed(soc->pm[i].iomux[0], soc->iomux_base + IOMUX=
-_OFFSET(i, 0));
-+               writel_relaxed(soc->pm[i].iomux[1], soc->iomux_base + IOMUX=
-_OFFSET(i, 1));
-+               writel_relaxed(soc->pm[i].iomux[2], soc->iomux_base + IOMUX=
-_OFFSET(i, 2));
-+               /* Ensure dedicated-pin iomux writes reach hardware before =
-commit. */
-+               wmb();
-+       }
-+
-+       writel_relaxed(0x1, soc->iomux_base + IOMUX_CTRL_SET_OFFSET);
-+       writel_relaxed(0x0, soc->iomux_base + IOMUX_CTRL_SET_OFFSET);
-+
-+       return 0;
-+}
-+
-+static DEFINE_NOIRQ_DEV_PM_OPS(amb_pinctrl_pm_ops,
-+                              amb_pinctrl_suspend_noirq,
-+                              amb_pinctrl_resume_noirq);
-+
-+static const struct amb_pinctrl_data cv75_pinctrl_data =3D {
-+       .ds0 =3D {
-+               0x314, 0x320, 0x32c,
-+       },
-+       .ds1 =3D {
-+               0x318, 0x324, 0x330,
-+       },
-+       .ds2 =3D {
-+               0x31c, 0x328, 0x334,
-+       },
-+       .pull_en =3D {
-+               0x60, 0x64, 0x68,
-+       },
-+       .pull_dir =3D {
-+               0x7c, 0x80, 0x84,
-+       },
-+       .have_ds2 =3D true,
-+       .clk_au_dedicated_pin =3D 96,
-+};
-+
-+static const struct of_device_id amb_pinctrl_dt_match[] =3D {
-+       {
-+               .compatible =3D "ambarella,cv75-pinctrl",
-+               .data =3D &cv75_pinctrl_data,
-+       },
-+       {},
-+};
-+MODULE_DEVICE_TABLE(of, amb_pinctrl_dt_match);
-+
-+static void amb_pinctrl_remove(struct platform_device *pdev)
-+{
-+       struct amb_pinctrl_soc_data *soc =3D platform_get_drvdata(pdev);
-+       unsigned int i;
-+
-+       for (i =3D 0; i < soc->bank_num; i++)
-+               irq_set_chained_handler_and_data(soc->irq[i], NULL, NULL);
-+
-+       if (soc->domain)
-+               irq_domain_remove(soc->domain);
-+}
-+
-+static struct platform_driver amb_pinctrl_driver =3D {
-+       .probe  =3D amb_pinctrl_probe,
-+       .remove =3D amb_pinctrl_remove,
-+       .driver =3D {
-+               .name   =3D "ambarella-pinctrl",
-+               .of_match_table =3D of_match_ptr(amb_pinctrl_dt_match),
-+               .pm =3D pm_sleep_ptr(&amb_pinctrl_pm_ops),
-+       },
-+};
-+
-+static int __init amb_pinctrl_drv_register(void)
-+{
-+       return platform_driver_register(&amb_pinctrl_driver);
-+}
-+arch_initcall(amb_pinctrl_drv_register);
-+
-+MODULE_AUTHOR("Cao Rongrong <rrcao@ambarella.com>");
-+MODULE_DESCRIPTION("Ambarella SoC pinctrl driver");
-+MODULE_LICENSE("GPL");
---
-2.34.1
-
-NOTE: This email (including attachments) contain Ambarella Proprietary and/=
-or Confidential Information and is intended solely for the use of the indiv=
-idual(s) to whom it is addressed. Any unauthorized review, use, disclosure,=
- distribute, copy, or print is prohibited. If you are not an intended recip=
-ient, please contact the sender by reply email and destroy all copies of th=
-e original message. Thank you.
+2026=E5=B9=B47=E6=9C=8830=E6=97=A5(=E6=9C=A8) 17:37 Chen-Yu Tsai <wenst@chr=
+omium.org>:
+>
+> On Wed, Jul 29, 2026 at 5:35=E2=80=AFPM YoungJoon Lee <getfeus@gmail.com>=
+ wrote:
+> >
+> > Hi Chen-Yu,
+> >
+> > A follow-up to my previous email.
+> >
+> > The official v1.1 firmware did fix the original "GPU device lost"
+> > problem.
+> >
+> > The following now works correctly:
+> >
+> >     PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 vulkaninfo --summary
+> >
+> > The driver initializes successfully and detects the PowerVR Rogue
+> > GX6250.
+> >
+> > However, while testing actual rendering, I found another issue which
+> > appears to be unrelated to the firmware.
+> >
+> > Kernel:
+> >
+> >     Linux 7.2.0-rc5-next-20260727-stb-cbm-next-pvr-v4+
+> >
+> > Board:
+> >
+> >     Google Elm (Acer Chromebook R13 / MT8173)
+> >
+> > Mesa:
+> >
+> >     mesa 26.1.5
+> >     vulkan-powervr 26.1.5
+> >
+> > Firmware:
+> >
+> >     rogue_4.40.2.51_v1.fw
+> >     FW version v1.1 (build 6976702 OS)
+> >
+> > Kernel command line:
+> >
+> >     powervr.exp_hw_support=3D1
+> >
+> > Test command:
+> >
+> >     PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 glmark2-es2-drm
+> >
+> > Renderer:
+> >
+> >     GL_RENDERER:
+> >     zink Vulkan 1.2
+> >     (PowerVR Rogue GX6250)
+> >
+> > The benchmark progresses normally:
+> >
+> >     build (VBO off)          212 FPS
+> >     build (VBO on)           216 FPS
+> >     texture nearest          174 FPS
+> >     texture linear           173 FPS
+> >     texture mipmap           174 FPS
+> >     shading gouraud          165 FPS
+> >     shading blinn-phong      135 FPS
+> >     shading phong             99 FPS
+> >
+> > It consistently hangs at:
+> >
+> >     shading=3Dcel
+> >
+> > Immediately afterwards the kernel reports:
+> >
+> >     refcount_t: underflow; use-after-free
+> >
+> > The first warning is:
+> >
+> >     pvr_free_list_put()
+> >       -> pvr_hwrt_dataset_release()
+> >       -> pvr_hwrt_dataset_put()
+> >       -> pvr_ioctl_destroy_hwrt_dataset()
+> >
+> > followed by:
+> >
+> >     refcount_warn_saturate()
+> >
+> > Shortly afterwards another kernel Oops occurs:
+> >
+> >     Unable to handle kernel NULL pointer dereference
+> >
+> > The second backtrace shows:
+> >
+> >     pvr_gem_object_create()
+> >       -> pvr_fw_object_create()
+> >       -> pvr_hwrt_dataset_create()
+> >       -> pvr_ioctl_create_hwrt_dataset()
+> >
+> > The glmark2 process remains as:
+> >
+> >     glmark2-es2-drm <defunct>
+>
+> I think this is more related to the unsupported nature of the GX6250,
+> and not specific to MT8173. Maybe someone else on the Imagination or
+> DRM mailing lists has a better idea of what's going on.
+>
+>
+> ChenYu
+>
+> > The system is otherwise still reachable through SSH.
+> >
+> > I collected additional diagnostics, including:
+> >
+> >     - complete dmesg
+> >     - complete kernel journal
+> >     - kernel configuration
+> >     - PowerVR module information
+> >     - userspace package versions
+> >     - process/thread state
+> >     - runtime PM state
+> >     - running Device Tree
+> >
+> > I can send any of these if they would help.
+> >
+> > Also, please disregard my previous Tested-by tag for now, since this
+> > rendering issue was discovered afterwards.
+> >
+> > Thank you again for your help.
+> >
+> > Best regards,
+> >
+> > YoungJoon Lee
+> >
+> > 2026=E5=B9=B47=E6=9C=8829=E6=97=A5(=E6=B0=B4) 13:38 YoungJoon Lee <getf=
+eus@gmail.com>:
+> > >
+> > > Hi Chen-Yu,
+> > >
+> > > Thank you. Updating the firmware fixed the issue.
+> > >
+> > > I replaced my previous firmware blob with the official v1.1 firmware:
+> > >
+> > >   FW version v1.1 (build 6976702 OS)
+> > >
+> > >   SHA256:
+> > >   e6bf10aaf442798fd81df9b9122e7e85900aafe77fcbec34b426af435c2b1c44
+> > >
+> > > After rebooting, the driver loaded the new firmware successfully:
+> > >
+> > >   powervr 13000000.gpu: [drm] loaded firmware
+> > >   powervr/rogue_4.40.2.51_v1.fw
+> > >   powervr 13000000.gpu: [drm] FW version v1.1
+> > >   (build 6976702 OS)
+> > >
+> > > I then ran:
+> > >
+> > >   PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 vulkaninfo --summary
+> > >
+> > > This now completes successfully and detects the PowerVR Rogue GX6250.
+> > > The previous "GPU device lost" error no longer occurs.
+> > >
+> > > So the issue was caused by the older, non-official firmware blob I wa=
+s
+> > > using, rather than the v4 kernel series or my kernel configuration.
+> > >
+> > > Thank you for pointing this out, and sorry for the noise.
+> > >
+> > > Tested-by: YoungJoon Lee <getfeus@gmail.com>
+> > >
+> > > Best regards,
+> > > YoungJoon
+> > >
+> > > 2026=E5=B9=B47=E6=9C=8829=E6=97=A5(=E6=B0=B4) 12:32 Chen-Yu Tsai <wen=
+st@chromium.org>:
+> > > >
+> > > > On Wed, Jul 29, 2026 at 8:08=E2=80=AFAM YoungJoon Lee <getfeus@gmai=
+l.com> wrote:
+> > > > >
+> > > > > Hi Chen-Yu,
+> > > > >
+> > > > > Thank you for posting the v4 series.
+> > > > >
+> > > > > I tested the complete v4 series on my MT8173 Chromebook, but I am
+> > > > > seeing a GPU device loss as soon as Mesa initializes the Vulkan d=
+evice.
+> > > > >
+> > > > > My current setup is:
+> > > > >
+> > > > >   Board: Google Elm / Acer Chromebook R13 (CB5-312T)
+> > > > >   Kernel:
+> > > > >     linux-next next-20260727
+> > > > >     commit: 33d6e5134c70446eddafbb3fd5ad088e848a7ad6
+> > > > >     (next-20260727-5-g33d6e5134c70)
+> > > > >
+> > > > >   Kernel release: 7.2.0-rc5-next-20260727-stb-cbm-next-pvr-v4+
+> > > > >
+> > > > >   Mesa: 26.1.5
+> > > > >   vulkan-powervr: 26.1.5
+> > > > >   Firmware:
+> > > > >     rogue_4.40.2.51_v1.fw
+> > > > >     SHA256:
+> > > > >     f44b7056992fb4057c987dcd7073468bec628aa56cb9815b1162f1cb7c1d7=
+3f2
+> > > >
+> > > > My firmware blob is different from yours:
+> > > >
+> > > > powervr 13000000.gpu: [drm] loaded firmware powervr/rogue_4.40.2.51=
+_v1.fw
+> > > > powervr 13000000.gpu: [drm] FW version v1.0 (build 6503725 OS)
+> > > >
+> > > > SHA256: 1456504351bd041f0bf96667403ad32460fc7b807c09858df1f083e2073=
+23e4a
+> > > >
+> > > > Funny thing is neither of ours match the official firmware blobs re=
+leased
+> > > > by Imagination [1].
+> > > >
+> > > > The latest version is "FW version v1.1 (build 6976702 OS)" with
+> > > > SHA256: e6bf10aaf442798fd81df9b9122e7e85900aafe77fcbec34b426af435c2=
+b1c44
+> > > >
+> > > > This version also works for me.
+> > > >
+> > > > The "initial version" is "FW version v1.0 (build 6734358 OS)" with
+> > > > SHA256: baa227de4f297b7c0928c6535d15affd80aa9c5f528d2d5dc4b764ad050=
+d22f2
+> > > >
+> > > > And this version also works.
+> > > >
+> > > > It seems your firmware build is even older than mine. I suggest you
+> > > > update it and try again?
+> > > >
+> > > > [1] https://gitlab.freedesktop.org/imagination/linux-firmware/-/blo=
+b/powervr/powervr/rogue_4.40.2.51_v1.fw
+> > > >
+> > > >
+> > > > > All five patches applied cleanly. The PowerVR driver probes, load=
+s the
+> > > > > firmware, and creates the DRM render node successfully.
+> > > > >
+> > > > > However, when I run the following from an SSH session without GDM=
+ or
+> > > > > another graphical session running:
+> > > > >
+> > > > >   PVR_I_WANT_A_BROKEN_VULKAN_DRIVER=3D1 vulkaninfo --summary
+> > > > >
+> > > > > Mesa prints the expected GX6250 warnings:
+> > > > >
+> > > > >   Missing reset support for brn51764
+> > > > >   Missing reset support for brn58839
+> > > > >   Missing support for brn62269
+> > > > >
+> > > > > The command then hangs, and the kernel reports:
+> > > > >
+> > > > >   powervr 13000000.gpu: [drm] *ERROR* GPU device lost
+> > > > >
+> > > > > There are no additional timeout, MMU fault, firmware, clock, or r=
+untime
+> > > > > PM messages immediately before the device-lost message.
+> > > > >
+> > > > > I originally also observed the same failure when GDM started GNOM=
+E
+> > > > > Shell, but reproducing it with vulkaninfo from a non-graphical SS=
+H
+> > > > > session indicates that this is not specific to Mutter or GNOME.
+> > > > >
+> > > > > Since your cover letter reports that vkmark and glmark2-es2-drm w=
+ork
+> > > > > with Mesa 26.1.5, I suspect that there may be a difference in the
+> > > > > kernel configuration or another part of the test environment.
+> > > > >
+> > > > > Could you please share the following details from your working se=
+tup?
+> > > > >
+> > > > >   1. The exact Chromebook board/model used for testing
+> > > >
+> > > > The codename is "telesu", which is basically a hana in a different =
+case.
+> > > >
+> > > > >   2. The exact kernel base commit
+> > > >
+> > > > I have a whole bunch of patches on top of next-20260727, but none
+> > > > that should affect this.
+> > > >
+> > > > >   3. The kernel configuration, or at least the relevant DRM, PM,
+> > > > >      generic power-domain, IOMMU, and MediaTek clock options
+> > > >
+> > > > All relevant options are built-in.
+> > > >
+> > > > >   4. Whether CONFIG_DRM_POWERVR was built-in or built as a module
+> > > >
+> > > > Module.
+> > > >
+> > > > >   5. The firmware SHA256
+> > > >
+> > > > See above.
+> > > >
+> > > > >   6. The kernel command line and bootloader used
+> > > >
+> > > > Chromebook's builtin bootloader.
+> > > >
+> > > > cmdline:
+> > > >
+> > > >     cros_secure root=3DPARTUUID=3D824526A4-24EE-344D-85A2-20630C42D=
+31A
+> > > >     console=3Dtty0 console=3DttyS0,115200n8 earlycon ro text drm.de=
+bug=3D0x106
+> > > >     panic=3D30 rootwait log_buf_len=3D1M no_console_suspend
+> > > >
+> > > > AFAICT nothing special.
+> > > >
+> > > > >   7. Whether `vulkaninfo --summary` also completes successfully
+> > > > >
+> > > > > My current relevant configuration includes:
+> > > > >
+> > > > > CONFIG_PM_SLEEP=3Dy
+> > > > > CONFIG_PM=3Dy
+> > > > > CONFIG_PM_GENERIC_DOMAINS=3Dy
+> > > > > CONFIG_MODULES=3Dy
+> > > > > CONFIG_DMA_SHARED_BUFFER=3Dy
+> > > > > CONFIG_DRM_POWERVR=3Dm
+> > > > > CONFIG_DRM_MEDIATEK=3Dy
+> > > > > CONFIG_SYNC_FILE=3Dy
+> > > > > CONFIG_COMMON_CLK_MT8173_MFGTOP=3Dy
+> > > > > CONFIG_IOMMU_SUPPORT=3Dy
+> > > > > CONFIG_ARM_SMMU=3Dy
+> > > > > CONFIG_MTK_IOMMU=3Dy
+> > > > >
+> > > > > I would be happy to test additional patches or provide any furthe=
+r
+> > > > > logs, kernel configuration, or debugging information if that woul=
+d
+> > > > > help.
+> > > >
+> > > > As mentioned above, please try updating your firmware blob. Your
+> > > > version is even older than mine, and neither of ours is the "offici=
+al"
+> > > > release.
+> > > >
+> > > >
+> > > > Thanks
+> > > > ChenYu
+> > > >
+> > > >
+> > > > > Thanks,
+> > > > > YoungJoon Lee
+> > > > >
+> > > > > 2026=E5=B9=B47=E6=9C=8829=E6=97=A5(=E6=B0=B4) 0:28 AngeloGioacchi=
+no Del Regno
+> > > > > <angelogioacchino.delregno@collabora.com>:
+> > > > > >
+> > > > > > On 7/28/26 16:44, Chen-Yu Tsai wrote:
+> > > > > > > On Tue, Jul 28, 2026 at 10:33=E2=80=AFPM AngeloGioacchino Del=
+ Regno
+> > > > > > > <angelogioacchino.delregno@collabora.com> wrote:
+> > > > > > >>
+> > > > > > >> On 7/28/26 15:13, Chen-Yu Tsai wrote:
+> > > > > > >>> On Tue, Jul 28, 2026 at 9:10=E2=80=AFPM Brian Masney <bmasn=
+ey@redhat.com> wrote:
+> > > > > > >>>>
+> > > > > > >>>> Hi Chen-Yu,
+> > > > > > >>>>
+> > > > > > >>>> On Tue, Jul 28, 2026 at 05:17:58PM +0800, Chen-Yu Tsai wro=
+te:
+> > > > > > >>>>> Hi everyone,
+> > > > > > >>>>>
+> > > > > > >>>>> This is v4 of my MT8173 PowerVR GPU support series.
+> > > > > > >>>>>
+> > > > > > >>>>> This time around Mesa was ready for basic testing, using =
+both vulkanmark
+> > > > > > >>>>> and glmark2-es2-drm (with Zink). Details below.
+> > > > > > >>>>>
+> > > > > > >>>>> Changes since v3 (all in the clk driver patch):
+> > > > > > >>>>> - Changed pm_runtime_put() to pm_runtime_put_sync()
+> > > > > > >>>>> - Added missing of_node_put() in remove function
+> > > > > > >>>>>
+> > > > > > >>>>> Changes since v2 (all in the clk driver patch):
+> > > > > > >>>>> - Made COMMON_CLK_MT8173_MFGTOP depend on PM
+> > > > > > >>>>>     - Needed since the driver implements PM domains using=
+ the generic PM
+> > > > > > >>>>>       domain library, which also depends on PM
+> > > > > > >>>>>     - Fixes build breakage (kernel test robot)
+> > > > > > >>>>> - Fixed "RST_DELAY_CNT" name (Brian)
+> > > > > > >>>>> - Dropped unused mfg_desc (Brian)
+> > > > > > >>>>> - Added check of clk_prepare_enable()'s return value in
+> > > > > > >>>>>     clk_mt8173_mfgtop_power_on() (Brian)
+> > > > > > >>>>> - Saved error value for return in IS_ERR(data->clk_26m) b=
+ranch
+> > > > > > >>>>>     (Dan Carpenter / kernel test robot w/ smatch)
+> > > > > > >>>>>
+> > > > > > >>>>> Changes since v1:
+> > > > > > >>>>> - Adapted to changed DT bindings
+> > > > > > >>>>> - Dropped driver change
+> > > > > > >>>>> - Use same power domain for "a" and "b" GPU power domains
+> > > > > > >>>>>
+> > > > > > >>>>>
+> > > > > > >>>>> This series enables the PowerVR GPU found in the MT8173 S=
+oC, found in
+> > > > > > >>>>> some Chromebooks.
+> > > > > > >>>>
+> > > > > > >>>> I'm making a pull for Stephen for the clk changes. Should =
+patches 1,2,4
+> > > > > > >>>> go through the clk tree? Patches 3,5 go through the DRM tr=
+ee?
+> > > > > > >>>
+> > > > > > >>> Only patches 1 and 2 should go through the clock tree.
+> > > > > > >>>
+> > > > > > >>> Patch 3, 4, 5 can all go through the soc tree if Angelo wan=
+ts to pick up
+> > > > > > >>> DT binding patches. Otherwise I can push patch 3 through dr=
+m-misc.
+> > > > > > >>>
+> > > > > > >>
+> > > > > > >> Not sure if I can really take the DRM bindings patch through=
+ soc.
+> > > > > > >>
+> > > > > > >> I will take the devicetree ones exactly right now, even thou=
+gh it's going to
+> > > > > > >> give warnings.
+> > > > > > >>
+> > > > > > >> I trust that you'll make the binding get into linux-next bef=
+ore it's too late.
+> > > > > > >
+> > > > > > > Rob beat me to it. :D
+> > > > > >
+> > > > > > Love it!
+> > > > > >
+> > > > > > Thanks Rob :-D
+> > > > > >
+> > > > > > Cheers,
+> > > > > > Angelo
 
