@@ -4,95 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4561C5516E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:54:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1BFC5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:56:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rVGHrnlM8S0Tru24jhbKwCBMGMa41rcxjUCE1vIpC6A=; b=ZI6yYYt3RVgGyen4cQYuIPom5I
-	s/9GMg4ZQOpfQSqeYaifovdcocYBKRx35Ae5d31xCrCkqrCGVyISYeIrLUq4NF7OMjclSOhZb+mD0
-	UrRrV0FHzbnLADkQg+nlRZZ9KJNvB9Nv4LopfyrGup8AfFDFU1o6++YJWt78sbzbXFM3HozPosLrQ
-	NZxm3XYBYi+wnKnp5aXEFt8uEj7tQ99UKAZbtfFRrIDS2b0h8O/zsALAWXuLLC8LSXTmB8+vLgKaI
-	fjy+17g3QSqwr5GuqX2bVY/VSQc6ohmhQQS7DrwJdboFIHSpyaRJ0cNktBOXHGvb5dcFAMyzJTRcc
-	yPA+4wxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A3+RQo/HppHWztT11zWZQCBoviyZeuu95fXLxqIvMec=; b=SbUTBcenrqWL+s+wTLLsMMSiQq
+	FasjrcmMTzxt5BEj9C9Y8PEAyYYfRf3fktOP0Nafw3ocnyFYxWkptI6xWhrGq8moNVBX/70IBRyW+
+	oT4FhwfexMbn9sqHPQRis+HVPEVyz0rCpHfLtCmc2Hj64ycRcQD+chRvhiHkm+i/rplDHGAJPXA+Y
+	QbTv5oDPA4mW127+ROmXJE54b7jQPiHvasbxRfinqR6jx6VoEpff8VHXvym04oomf3tvV0s1ZzsZL
+	SxJsE4eL/uVOM+a3GqVOksRVj3G3x/yExb0b4ZyEY5t+e1lv988reGe2soIHDn3E6hv8BfvCc+VLq
+	AEmV+wsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpWpq-0000000BHNK-3Dyd;
-	Thu, 30 Jul 2026 19:54:30 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wpWrs-0000000BHYh-0xFS;
+	Thu, 30 Jul 2026 19:56:36 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpWpn-0000000BHMZ-18az
+	id 1wpWrd-0000000BHWW-12Rv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 19:54:29 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-496bb7cdf51so1365905e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:54:26 -0700 (PDT)
+	Thu, 30 Jul 2026 19:56:22 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-84847482584so62878b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:56:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785441380; cv=none;
+        d=google.com; s=arc-20260327;
+        b=UpPAafiSsZY32alPaOHh5rB1lmEb95kuF5BymBr9hFDrmSKoyMIzyV8xNeLPtn763f
+         XK/tSweg/nMnf28S8b/hK6djOUh2cE522o7ur5LZjL+OY5+4SbfdJRwKC1MRvZ3e3ayu
+         KiqZOIKdfYFRiplZeny+CpLBj5SZfSm3PJpYc1jFF6FVI/kSpW5WQkecfP2BZ3R1B7nt
+         k6fQTknynEohyDm+Lxn+sQuBvp+8GQfoKq6/ewhv/f4cmfx2Mlx6ibHZkNttcYV53pDu
+         1FD1vhavC5QiCz5bxnBYRAJBTmhKSwN43dItKxGMQUvSePyYJUWDxww7OdYm72qfC4aF
+         3Qrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=A3+RQo/HppHWztT11zWZQCBoviyZeuu95fXLxqIvMec=;
+        fh=tFvCb3vKTrC1/jUWWnlCKuSxPu8YRbgxEVcmkwWzHPI=;
+        b=K8Hr2joBRayEqQeHIE8ewZXrrMs4gOtSk87JWMNgpLEfdYkd1s+oaXSaCEiIiG4gNZ
+         AGnPLkGtLDeG6Vuk5XSB+UF8q492y1q6MVLN1WD/fNGP4f/wJzgP3QCrhXtfIMtY10Aq
+         VBS1/RdEzBwWItBxUKNlYJeYOezR11z3OHRd8J4tM9SvXdjbHopTT5wfthf1CTRtnRDU
+         6Wrl9IWWdQR5e5/oiCvt3BKq1fhVFbux2Nh8Ghi+R9mh5R3Ct1VkhYG46XY/AWUSjrJC
+         MXbdwwZgCmFqZkLNQhAXD9c0FPk1KpnqS9HdMa1Q0vX0WslDR4XYJ/qTSn3sXgCN1JvC
+         rcLA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1785441265; x=1786046065; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1785441380; x=1786046180; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=rVGHrnlM8S0Tru24jhbKwCBMGMa41rcxjUCE1vIpC6A=;
-        b=KBpTmAqtq37Q7jINUqu3dvbeGArg9Lraps9cJ4LODCaTi/isBYwAyJ4pFVTo7Kgdcr
-         IvkY9QQ+iaEGPraFqndWS0GEQE7ChvYklg6tnawPEoh7IqkIV9NCPmI+nFjJ1jGSqVm4
-         HuOE+nrQHndwizkA6GwW8AKzMAKX+J4wKPoYvvrIjNKSKc45aQw4k3d0mk1BsGWQbvuy
-         OGxYeagGZ+soChKw0NpMAgm8Vt1DLWXqUArvqeAykL1XjjSa7Q/VvfD4qJb6VG4kjAfL
-         6ta2bW3mHUjVoncLDBdI5K4GsLt+5eSsEhROCdLnQtgQ8H7wPPrUpvzB1y+SHiIzAMsg
-         yBLw==
+        bh=A3+RQo/HppHWztT11zWZQCBoviyZeuu95fXLxqIvMec=;
+        b=Ai5E8msTSkutAQmhN0dRVk6RmjeE9tEKOE2u32aho+DuUITjqXDdisVJSolkJaXlTn
+         2HHOBINhI+aYw174RR3HOXcmMCfjyER4oKlYFO1/25kNircwBAAu/IIaLAc4H0ZdFkKh
+         Ws1NwUZZj2Vrq3M8kPA/n0fGJjVUoSKHGpqgmhbv9sNFrmPR+zWnpBhzYJG9NTEvbDlm
+         KNgEQUUSwpOiev58Q4qTnIA+ziyGaduFdVd4ZLeb80PtJIyqYNDPMNhHYkD9WumcRPIH
+         Kq7JuUoZb41qtwLAEz8OTpaCVu+/FtwcjAAjJ1hRbEM7ZFNJsMFO2QD8vZbJovmrc28s
+         t7TQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785441265; x=1786046065;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1785441380; x=1786046180;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=rVGHrnlM8S0Tru24jhbKwCBMGMa41rcxjUCE1vIpC6A=;
-        b=AmlTu8BCfy9/jkshsd6MwU2ZVSbhBGjpFPZi0igbXReKknDneEHSx89p66oAcZqT3M
-         dAx7cvd6v/kiRIsuvcNm8vOhh+O+Dvu8+gbCAESb1uSdxttN6pOJCVE5jEUWy5W6OlKU
-         xZ9pSP8eRgHBTvd/lj+E/THF0+l16EfYIdVq5jSP+xpFSyO0e6GNS1K6lR7hRo7n3q/j
-         22PVwi3poYUoFXDHS3y8q3mYtLXH0KLxy84UV5FjRS8GmUEMx+aKSD+sYhmtbtCSuU2j
-         mXCyyKsUdxrok6NDtNXY9htZ0LYdm7fy9DBozy90XPcFgYdjALRCVjCuUoYXnYF2isyu
-         IkxA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp6YzKotUbu6TWZwkzee5lKIBy2Ewa0EzG9pthDzFRqTuk+tNg1FAylHqY+8V3z9/06DBvC6Fnwu4aiEg4Hs3w0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9ZkTYtTntMrnPMuauY9CKS6TEIHRFgEBC1aTc0TsYntq8XbVK
-	aWq5jhrAA0Uw4wWM8Ae56GkNI6K05sP8IJvmDa9/3CyNbrQZPrBNK9WcadSjUOEO/0Y=
-X-Gm-Gg: AR+sD12d6cWzucNMekqdjT6ZzhJXLAW/ts2l8xQo8TjRVxsB3sWKRAvqXBT09V5vlpw
-	JlXlD8J+TsgOp1Xtj6FpvMhn70Qsn5ZAhSKUJxPdmVjTaw4VPOTbxC5jJfymIqxWSyad4G96b5P
-	eVxGcRXTT2rAQ8TwkXee7qnGb73hFsBveYNJjanSzYR1pwsjc4ZVhfqC25/kQIxi2zXMcSaYGgr
-	LAaJ4zCI7UFrDb9ucxmnUImfLLbc1U9R7wSoJe4UsY4y4FVvPj2TifRRVpezgFCknnkjh1Hj4IB
-	ISieB8Bu6khfOjgfAifRcHMjtokxDvmFqbqASFBRZHaOhdFm724KAPZq5hpQGpKm6v78jOs3uDX
-	IbzzbBB8Y7uWcVLkDw5J5t/KnmAAT6R1YiLNFy/OYxBaLCqMxuxZksgG2SbahJHNpRIytIIA4di
-	elps5hduFy0PhZ/QmwO5clizevloM0UFXuSnhxb/MmOPspvI7cZ/3JC5aXqz0R87cX2Q==
-X-Received: by 2002:a05:600c:a3a2:b0:495:6396:8b67 with SMTP id 5b1f17b1804b1-49800e89181mr42298655e9.4.1785441265073;
-        Thu, 30 Jul 2026 12:54:25 -0700 (PDT)
-Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-498011f341fsm71200825e9.5.2026.07.30.12.54.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 12:54:24 -0700 (PDT)
-Date: Thu, 30 Jul 2026 21:54:23 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-iio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] iio: proximity: add driver for Sharp GP2AP070S
- proximity sensor
-Message-ID: <amurhVbZi_y0N55n@monoceros>
-References: <20260731-gp2ap070s-v2-0-1bdfee07d5ea@disroot.org>
- <20260731-gp2ap070s-v2-2-1bdfee07d5ea@disroot.org>
+        bh=A3+RQo/HppHWztT11zWZQCBoviyZeuu95fXLxqIvMec=;
+        b=mbmdZNd//N1FDpG8krNgSqIjbNU/KixfrFIjtiQjE5evpCxY8fs/Hst1OQBz8qfD+B
+         B6VtDFxxWwYrnMsiMHW8EZ0WEW0gozYAcpkKsehWO45Kya1TVIgdXlDC3KlRCdF+mJaw
+         dHtLIIAmP/hg0Nfi4TbLZnhb/SRhkMAbSY6mNLcjafgqD+UyG2+Ga7euv0gLryz+WLzj
+         zJyQAgRXaETilYQikfuvWOGWuGDdiD5A6Nx9cNo7PakpugzKES9jaUG+CQyHMOFk2XZl
+         DfYKElq3WhayAbjmZlsix+hflJT8ZYisNgEiGcowT4no8Trqlr2/8Ov/NW6zIUiThThD
+         kjYA==
+X-Forwarded-Encrypted: i=1; AHgh+RrQebeB9/JrQv1AOu2Gx0kXpLGgWNI9/VQkm75MTqv+vy+gPmPoFTD2ZQvYMo2p3bijwv1ZTDpW15zUdQmkFwIB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2mk6DFnH+vNZaS1MF4+lvBSTapdeFcJZtlBjjRHy9teCz8Nfv
+	tMqCWMcpojlYOthzjQlIn292XrgPunTPMvd5TGXrgMtVj+NrfFgs90mmIiM68+IfxASIhv8bupA
+	GwKGOJBOY52u6u64gsij+bz2MAefXd3s=
+X-Gm-Gg: AR+sD10PoaZ5XV5sLeEQmxm0FYhB3PaCUUIq1uSyicgOZDMoqOz9lky0sDgSnZE2rkU
+	jGw+QSVmW2XTnXcoOSXe1+ErwJpdIlLCQ6dg2ZMnPGvC6bcHSfsqYIzZn2o1G4Bj8CYmtoX0biK
+	X/caQZOoT5nqkPxpmYUYkWOrt078haxqzVCiT/+cJV7fDxjp0r+8S9FRKn75HQx8pBJcI8hV8SU
+	NR3mkZ8+cKFDQGQer4TCNfu8I45rjjQ/Gzn9VqxdtQfcDeTkTf5Q4Hjfjrl3RUQ0jr7taTR7/I1
+	XEmc5e/6EtBLq2JhYKCkgKi8D3vCgejZhJR6pCh/FkoV9cxwe+hPtOR/KKvungIgDhIg7Aoet58
+	KhUKscpIuykvbxn40wHGx6v4wlkhRbJCm8maGGlnuEA==
+X-Received: by 2002:a05:6a00:b53:b0:845:df5c:2567 with SMTP id
+ d2e1a72fcca58-84eca755270mr1251616b3a.25.1785441380230; Thu, 30 Jul 2026
+ 12:56:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6iqq33laew6sina5"
-Content-Disposition: inline
-In-Reply-To: <20260731-gp2ap070s-v2-2-1bdfee07d5ea@disroot.org>
+References: <20260616155716.2631508-1-puranjay@kernel.org> <20260616155716.2631508-2-puranjay@kernel.org>
+In-Reply-To: <20260616155716.2631508-2-puranjay@kernel.org>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Thu, 30 Jul 2026 12:56:03 -0700
+X-Gm-Features: AUfX_myauPf-9BUS4q5KaEKx2Sh46ySRXTd0ms5asoEI3-_AoZYC3_ia32CZLHo
+Message-ID: <CAEf4BzakTaTr16F4xRF4wti46Gfq7Csky=drai=aE_aUSOFbTQ@mail.gmail.com>
+Subject: Re: [PATCH v5 1/4] perf/core: Fix sched_task callbacks for CPU-wide
+ branch stack events
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>
+Cc: bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>, 
+	Puranjay Mohan <puranjay12@gmail.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	James Clark <james.clark@linaro.org>, Ian Rogers <irogers@google.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Shuah Khan <shuah@kernel.org>, 
+	Breno Leitao <leitao@debian.org>, Ravi Bangoria <ravi.bangoria@amd.com>, 
+	Stephane Eranian <eranian@google.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Usama Arif <usama.arif@linux.dev>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_125427_661215_A53AED55 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260730_125621_298342_D53901B1 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,43 +133,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jun 16, 2026 at 8:57=E2=80=AFAM Puranjay Mohan <puranjay@kernel.org=
+> wrote:
+>
+> perf_pmu_sched_task() returns early when cpuctx->task_ctx is non-NULL,
+> deferring to perf_ctx_sched_task_cb() in the context sched_in/out
+> paths. But perf_ctx_sched_task_cb() only walks the task context's
+> pmu_ctx_list -- PMUs that have only CPU-wide events are not on that
+> list and their sched_task callback is silently skipped.
+>
+> On ARM64 with CPU-wide branch recording:
+>
+>   perf record -b -e cycles -a -- ls
+>
+> armv8pmu_sched_task() is skipped whenever the scheduled task has an
+> unrelated perf event (e.g. a software event), and branch records leak
+> across task boundaries.
+>
+> A second problem exists in __perf_pmu_sched_task(): it passes
+> cpc->task_epc directly to pmu->sched_task(), but task_epc is NULL for
+> PMUs with only CPU-wide events. When perf_pmu_sched_task() does reach
+> the loop (because cpuctx->task_ctx is NULL), this causes a NULL
+> pointer dereference:
+>
+>   Unable to handle kernel NULL pointer dereference at virtual address 00[=
+.]
+>   PC is at armv8pmu_sched_task+0x14/0x50
+>   Call trace:
+>     armv8pmu_sched_task+0x14/0x50 (P)
+>     perf_pmu_sched_task+0xac/0x108
+>     __perf_event_task_sched_out+0x6c/0xe0
+>
+> Fix both:
+>
+>  - Remove the blanket early return in perf_pmu_sched_task() when
+>    cpuctx->task_ctx is set. Instead, skip individual CPCs that have a
+>    task_epc (those are handled by perf_ctx_sched_task_cb()). CPCs
+>    without a task_epc are CPU-only and must be handled here.
+>
+>  - Fall back to &cpc->epc in __perf_pmu_sched_task() when task_epc is
+>    NULL, so the callback always gets a valid pmu_ctx.
+>
+> Fixes: bd2756811766 ("perf: Rewrite core context handling")
+> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+> ---
+>  kernel/events/core.c | 17 +++++++++++++----
+>  1 file changed, 13 insertions(+), 4 deletions(-)
+>
 
---6iqq33laew6sina5
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v2 2/3] iio: proximity: add driver for Sharp GP2AP070S
- proximity sensor
-MIME-Version: 1.0
+This looks like perf core bug fix, Peter/Ingo, would you like to take
+this directly into your tip/perf/urgent tree?
 
-Hello,
 
-On Fri, Jul 31, 2026 at 01:01:30AM +0530, Kaustabh Chakraborty wrote:
-> +#include <linux/i2c.h>
-> [...]
-> +#include <linux/mod_devicetable.h>
-
-<linux/i2c.h> is enough to get the definitions for i2c_device_id and
-of_device_id. Please rely on that and don't explicitly add an include
-for <linux/mod_devicetable.h>. The latter is a dependency hell and is
-going away soon.
-
-Best regards
-Uwe
-
---6iqq33laew6sina5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmprq+wACgkQj4D7WH0S
-/k6zUAf/Sx1cl/BKPkqGFdNbaghmO2SASm11okWqQNPUBAASK9s2FJe8D7X0d2Pc
-rxbD9qNMckkIkAmLcK0z25WgZBGBFp9p7JFMNNaNtODVdDrSzVAWkpVsCP+1KxKx
-wpfH4GBPCJ7KZs5VSphtsnQZEUPocJI1S6+FR/2erYowET73idWdL578hdOguif3
-gGC3nzPWAAeIr2NuLcA/wszaK7meQrPxhg24VjiqyZiKWV+sCg6btmb31dzv0U+w
-iNJKNRoMfAACrLENOmFoF7u5Ca/msHAhYS5POf7oB3t3//qGzwY98+DPRHeZzWfu
-loDsTIst5Wzn48eksG4i14baHoA+Rg==
-=xgKb
------END PGP SIGNATURE-----
-
---6iqq33laew6sina5--
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index 6d1f8bad7e1c..6604f6e8f352 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -3906,7 +3906,8 @@ static void __perf_pmu_sched_task(struct perf_cpu_p=
+mu_context *cpc,
+>         perf_ctx_lock(cpuctx, cpuctx->task_ctx);
+>         perf_pmu_disable(pmu);
+>
+> -       pmu->sched_task(cpc->task_epc, task, sched_in);
+> +       pmu->sched_task(cpc->task_epc ? cpc->task_epc : &cpc->epc,
+> +                       task, sched_in);
+>
+>         perf_pmu_enable(pmu);
+>         perf_ctx_unlock(cpuctx, cpuctx->task_ctx);
+> @@ -3919,12 +3920,20 @@ static void perf_pmu_sched_task(struct task_struc=
+t *prev,
+>         struct perf_cpu_context *cpuctx =3D this_cpu_ptr(&perf_cpu_contex=
+t);
+>         struct perf_cpu_pmu_context *cpc;
+>
+> -       /* cpuctx->task_ctx will be handled in perf_event_context_sched_i=
+n/out */
+> -       if (prev =3D=3D next || cpuctx->task_ctx)
+> +       if (prev =3D=3D next)
+>                 return;
+>
+> -       list_for_each_entry(cpc, this_cpu_ptr(&sched_cb_list), sched_cb_e=
+ntry)
+> +       list_for_each_entry(cpc, this_cpu_ptr(&sched_cb_list), sched_cb_e=
+ntry) {
+> +               /*
+> +                * PMUs with per-task events are handled by
+> +                * perf_ctx_sched_task_cb() via perf_event_context_sched_=
+in/out
+> +                * when a task context is active.
+> +                */
+> +               if (cpuctx->task_ctx && cpc->task_epc)
+> +                       continue;
+> +
+>                 __perf_pmu_sched_task(cpc, sched_in ? next : prev, sched_=
+in);
+> +       }
+>  }
+>
+>  static void perf_event_switch(struct task_struct *task,
+> --
+> 2.53.0-Meta
+>
 
