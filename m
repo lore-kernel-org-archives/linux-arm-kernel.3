@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF10C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:11:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 466C0C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t3OsRNm/LgtUUKlEl5oqCab/dsqCViWJfNpDdHuMMXg=; b=cKpS6KNeyjTR3e0c4cPnBSRV0q
-	Z8IrYO5hJ7LF7WWIWXOakFkHUKdpVa539KcKEt+K/AY92epX3li/aygvhBWs13LRbUjLbm4efj3JG
-	oNXqZXrmDe7m3vcml2dar07VG3p6QHYaKQpZZ4KzkseBR7JON3OxoGG5dkP+VmwHME1GuKanlLAOK
-	xGpiCCSbbtsverUAw8M2CZI9s7dNkgeSU25nvxt+RzfeKH4iJRyj6hJoTSxBMBx8T3fCCS0UCe9aw
-	pBX8DuhOh0mI1Liu3D1+oOwZLAaB857WvRWwLTj54Wq+3p+h2Ho+3bJCYkFyQvz5GH74Nkf6CyvJy
-	B4qL12eA==;
+	bh=jlKRqeuAHeiHYifY33jkifn9qRcM+UmxYlbf8Yr05cs=; b=wIDbggdSRI1rUHbsSKYPegCw6d
+	97QJolVRZN6nYRoeHGUTlahmro9pyi7IRkgSF3x9/p/ac7p0xZeFNfAHQJP0TA2Sn+0kCBpyCnpZw
+	UEKobD+3skFKYHNiBzMnXGAf4ITDCl4mjcQ2LguvP8Ts/UnWsiPgg/hSFjlyliLhg5N6KjJDYg1LJ
+	a4Ty6vgrK7Siq4dbULEsAsml+4k92XFMj4ijCsT7vKi+F02ufuOvqlRWkt29cYCqElr0cmkqHtjpj
+	uJ/KnLrhxBLpXEtQcuQHJdQHHS++wEEPKBzH2+bPPyJJN30PG9i+yN+l0GYV/QsrlCIfjrPfNnniZ
+	fjwt3ufw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKvb-00000009glQ-0Rq4;
-	Thu, 30 Jul 2026 07:11:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wpKve-00000009gtb-0Hqt;
+	Thu, 30 Jul 2026 07:11:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKus-00000009gO1-3NzU
+	id 1wpKuu-00000009gQ1-2xR1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 07:10:54 +0000
+	Thu, 30 Jul 2026 07:10:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7C76B41E40;
-	Thu, 30 Jul 2026 07:10:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DD3B1F0156E;
-	Thu, 30 Jul 2026 07:10:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 784114144F;
+	Thu, 30 Jul 2026 07:10:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B0641F00A3F;
+	Thu, 30 Jul 2026 07:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785395454;
-	bh=t3OsRNm/LgtUUKlEl5oqCab/dsqCViWJfNpDdHuMMXg=;
+	s=k20260515; t=1785395456;
+	bh=jlKRqeuAHeiHYifY33jkifn9qRcM+UmxYlbf8Yr05cs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cVmZBCmUJyByq+vMpbE3Ed7SRenb4HH6PVoFAZtlZruAYXaPtHxDzq5Q0TkBHubHx
-	 p/ImGx8fXMT9M0gTK+DvC4uAOZRskYKPLoKWtk0hrL6nHJ0VdVqpmIK2Nc6G1lEjM8
-	 /8xTg6JC6k/TLEzHJRseQ5x3ghkG1884E5Fz1Bb2XKZeIyMQ8i5ICKTVwE+6fATMR+
-	 FxilQPSpHCHi6v/5v4jOez53FxNv8TBz0L3RmlLyOJJLXDE21YuEoNO4eowlAcDA/N
-	 imi8G+nnbEZ951aIhgBLt6aZccv5/SIvNHyTUD0i9LBecHSONNrvKbQ5qj0egX2yrM
-	 v1ChdLlsYprpA==
+	b=FitMpvnqFkGwrUg/vD/duU8xcE9iGn1rUnbyq4ngExAcY4XNGkxjtOt983hsffOUK
+	 t4+RVlk2A+O8mldc+O6mfjsVBaB53bkX+Ug19s3TdeF1YXa5JyKi3JI+qS88oPQh64
+	 pJ8UU1teGofI+brZmJFGms7GRQ29gqR5zHedXzSj+rYS7UbfshDlDS6c+fbHOz4m8G
+	 PqAFWA7bCYltEh1JzNpPDEEeUM7q0r1rU69K+sO0pGlIW3vmrW7zhJS6RBMCu5iIxX
+	 Hbd5mJmloaj71CaGxEXJ0Zpxg2AlCtjN3UJbHUVDAVVn4tbiJbWwxMXMv4+6FHNqQc
+	 jN69PGut3f4Mw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wpKuq-0000000AOpW-2xHU;
-	Thu, 30 Jul 2026 07:10:52 +0000
+	id 1wpKus-0000000AOpW-32Wa;
+	Thu, 30 Jul 2026 07:10:54 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -60,9 +60,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>,
 	Vladimir Murzin <vladimir.murzin@arm.com>
-Subject: [PATCH v4 20/29] KVM: arm64: Add sanitisation for NVHCR_EL2
-Date: Thu, 30 Jul 2026 08:10:13 +0100
-Message-ID: <20260730071022.296811-21-maz@kernel.org>
+Subject: [PATCH v4 29/29] arm64: Add override for ID_AA64MMFR4_EL1.NV_frac
+Date: Thu, 30 Jul 2026 08:10:22 +0100
+Message-ID: <20260730071022.296811-30-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260730071022.296811-1-maz@kernel.org>
 References: <20260730071022.296811-1-maz@kernel.org>
@@ -86,76 +86,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Just like any other VNCR-based register, NVHCR_EL2 requires some
-level of sanitisation. Being specified as a live copy of HCR_EL2,
-it adopts the exact same format, but depends on FEAT_NV3 instead.
+In a very unsurprising turn of events, there is a large class of
+firmware that is totally unable to deal with FEAT_NV3, and doesn't
+set the required SCR2_EL3.NV3En bit, leading to an UNDEF exception
+or an unhandled trap to EL3, depending on the implementation.
 
-A subtle aspect is that we only want to apply the sanitisation if
-FEAT_NV3 is actually present, as the VNCR location is otherwise
-used to back accesses to HCR_EL2.
+Allow the unfortunate user to override ID_AA64MMFR4_EL1.NV_frac
+and get a working system. Hopefully firmware will be fixed before
+actually HW ships, but I have been there before... :-/
 
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/config.c | 15 +++++++++++++++
- arch/arm64/kvm/nested.c |  4 ++++
- 2 files changed, 19 insertions(+)
+ arch/arm64/include/asm/cpufeature.h   |  1 +
+ arch/arm64/kernel/cpufeature.c        |  4 +++-
+ arch/arm64/kernel/image-vars.h        |  1 +
+ arch/arm64/kernel/pi/idreg-override.c | 10 ++++++++++
+ 4 files changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index 467f57eb8e6bb..1053676551aff 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -1019,6 +1019,9 @@ static const struct reg_bits_to_feat_map hcr_feat_map[] = {
- static const DECLARE_FEAT_MAP(hcr_desc, HCR_EL2,
- 			      hcr_feat_map, FEAT_AA64EL2);
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index a57870fa96db5..a42683af79fb5 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -968,6 +968,7 @@ struct arm64_ftr_reg *get_arm64_ftr_reg(u32 sys_id);
+ extern struct arm64_ftr_override id_aa64mmfr0_override;
+ extern struct arm64_ftr_override id_aa64mmfr1_override;
+ extern struct arm64_ftr_override id_aa64mmfr2_override;
++extern struct arm64_ftr_override id_aa64mmfr4_override;
+ extern struct arm64_ftr_override id_aa64pfr0_override;
+ extern struct arm64_ftr_override id_aa64pfr1_override;
+ extern struct arm64_ftr_override id_aa64zfr0_override;
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 6ae1c816e2010..14fbfa8e6b7b5 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -785,6 +785,7 @@ static const struct arm64_ftr_bits ftr_raz[] = {
+ struct arm64_ftr_override __read_mostly id_aa64mmfr0_override;
+ struct arm64_ftr_override __read_mostly id_aa64mmfr1_override;
+ struct arm64_ftr_override __read_mostly id_aa64mmfr2_override;
++struct arm64_ftr_override __read_mostly id_aa64mmfr4_override;
+ struct arm64_ftr_override __read_mostly id_aa64pfr0_override;
+ struct arm64_ftr_override __read_mostly id_aa64pfr1_override;
+ struct arm64_ftr_override __read_mostly id_aa64zfr0_override;
+@@ -858,7 +859,8 @@ static const struct __ftr_reg_entry {
+ 	ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2,
+ 			       &id_aa64mmfr2_override),
+ 	ARM64_FTR_REG(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3),
+-	ARM64_FTR_REG(SYS_ID_AA64MMFR4_EL1, ftr_id_aa64mmfr4),
++	ARM64_FTR_REG_OVERRIDE(SYS_ID_AA64MMFR4_EL1, ftr_id_aa64mmfr4,
++			       &id_aa64mmfr4_override),
  
-+static const DECLARE_FEAT_MAP(nvhcr_desc, NVHCR_EL2,
-+			      hcr_feat_map, FEAT_NV3);
-+
- static const struct reg_bits_to_feat_map sctlr2_feat_map[] = {
- 	NEEDS_FEAT(SCTLR2_EL1_NMEA	|
- 		   SCTLR2_EL1_EASE,
-@@ -1393,6 +1396,7 @@ void __init check_feature_map(void)
- 	check_reg_desc(&hdfgwtr2_desc);
- 	check_reg_desc(&hcrx_desc);
- 	check_reg_desc(&hcr_desc);
-+	check_reg_desc(&nvhcr_desc);
- 	check_reg_desc(&sctlr2_desc);
- 	check_reg_desc(&tcr2_el2_desc);
- 	check_reg_desc(&sctlr_el1_desc);
-@@ -1592,6 +1596,17 @@ struct resx get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg)
- 	case HCR_EL2:
- 		resx = compute_reg_resx_bits(kvm, &hcr_desc, 0, 0);
- 		break;
-+	case NVHCR_EL2:
-+		/*
-+		 * Only apply sanitisation if we do have FEAT_NV3.
-+		 * Otherwise, the register aliases with HCR_EL2 in VNCR,
-+		 * and we're better off relying on data transfers between
-+		 * NVHCR_EL2 and HCR_EL2 to sanitise things.
-+		 */
-+		resx = (kvm_has_nv3(kvm) ?
-+			compute_reg_resx_bits(kvm, &nvhcr_desc, 0, 0) :
-+			(typeof(resx)){});
-+		break;
- 	case SCTLR2_EL1:
- 	case SCTLR2_EL2:
- 		resx = compute_reg_resx_bits(kvm, &sctlr2_desc, 0, 0);
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 35a1c42ad3f84..f646894fec9a9 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1830,6 +1830,10 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
- 	resx = get_reg_fixed_bits(kvm, HCR_EL2);
- 	set_sysreg_masks(kvm, HCR_EL2, resx);
+ 	/* Op1 = 0, CRn = 10, CRm = 4 */
+ 	ARM64_FTR_REG(SYS_MPAMIDR_EL1, ftr_mpamidr),
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index d4c7d45ae6bc8..d15c2cb1b0f28 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -51,6 +51,7 @@ PI_EXPORT_SYM(id_aa64isar2_override);
+ PI_EXPORT_SYM(id_aa64mmfr0_override);
+ PI_EXPORT_SYM(id_aa64mmfr1_override);
+ PI_EXPORT_SYM(id_aa64mmfr2_override);
++PI_EXPORT_SYM(id_aa64mmfr4_override);
+ PI_EXPORT_SYM(id_aa64pfr0_override);
+ PI_EXPORT_SYM(id_aa64pfr1_override);
+ PI_EXPORT_SYM(id_aa64smfr0_override);
+diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+index bc57b290e5e7b..4e47616bcac23 100644
+--- a/arch/arm64/kernel/pi/idreg-override.c
++++ b/arch/arm64/kernel/pi/idreg-override.c
+@@ -106,6 +106,15 @@ static const struct ftr_set_desc mmfr2 __prel64_initconst = {
+ 	},
+ };
  
-+	/* NVHCR_EL2 */
-+	resx = get_reg_fixed_bits(kvm, NVHCR_EL2);
-+	set_sysreg_masks(kvm, NVHCR_EL2, resx);
++static const struct ftr_set_desc mmfr4 __prel64_initconst = {
++	.name		= "id_aa64mmfr4",
++	.override	= &id_aa64mmfr4_override,
++	.fields		= {
++		FIELD("nv_frac", ID_AA64MMFR4_EL1_NV_frac_SHIFT, NULL),
++		{}
++	},
++};
 +
- 	/* HCRX_EL2 */
- 	resx = get_reg_fixed_bits(kvm, HCRX_EL2);
- 	set_sysreg_masks(kvm, HCRX_EL2, resx);
+ static bool __init pfr0_sve_filter(u64 val)
+ {
+ 	/*
+@@ -220,6 +229,7 @@ PREL64(const struct ftr_set_desc, reg) regs[] __prel64_initconst = {
+ 	{ &mmfr0	},
+ 	{ &mmfr1	},
+ 	{ &mmfr2	},
++	{ &mmfr4	},
+ 	{ &pfr0 	},
+ 	{ &pfr1 	},
+ 	{ &isar1	},
 -- 
 2.47.3
 
