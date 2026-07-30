@@ -4,112 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABD4C54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:26:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29FB7C55167
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=; b=aLB8pt1wrITDeLH2vFQLIbDj+e
-	9A1e9ZctsQ7nNExJQ/fHbjuUi7lpVPkDNwBTWy6rSW+Xv69rIlKbsdxeeAl3PuI4YrhSvHuAeChf+
-	cvCxVheobF8MtnPN86Rfu1L5w/8FSZlCvGcldooIgJcS+9xgmEZuRNv3MCZ+QDwvJWGJwW7ZA7jQz
-	yMcI+y+x64hBbZC8zy8WgXzHiqHq8GtkZsmEv34qHkIs+sQIUEwY9keME/aDrEgh/aMfWLPaEiVv9
-	30EJngdbzqwz/uaCbUpr+R4Ddiu92+3rPo08R65ri0wTG61ZcjOiLXy2D9Zz6sKHEW2DZvcnjGSlb
-	lnOuf9tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vb9hWpPzLLmgPeOk6my/OoSrfoPIctJAyics1WhoyJ4=; b=L0aIx5Xr/00Za2rKjtqE4Tl4DU
+	mj7liGAcF4dNInEaAh+aLlaot4LZGUo1QTPLfWS7J5z1eOFKk+gkqBdkS1/yERS1RR8M6AedcrcvZ
+	3xL6vjC5sWjTlw+z1rN2JDTf8LithnmxL8dD1WdGZKK4eQJbW7kfEydxRsNCeNj5udJLykWRNRQjA
+	O4zLCTMBUFerwuEKWMmkJrxpCqxCedwbw8KmXiDjP3N4zS8ve2jXc1z5TvXEWA+4QomIpoScS3iHk
+	RB26KiKb/YNchQ4FPaVVC+9CDAToTR03tnoI2QGcEP0f/sLP+6H97L4EOOin4+Jpz3z8/M4xn625C
+	b+t8bCYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNxt-0000000ACKT-1DB5;
-	Thu, 30 Jul 2026 10:26:13 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wpNy9-0000000ACWS-0Lun;
+	Thu, 30 Jul 2026 10:26:29 +0000
+Received: from mail-southcentralusazon11011068.outbound.protection.outlook.com ([40.93.194.68] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNwz-0000000ABfu-1LAm
+	id 1wpNx3-0000000ABiV-1U34
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 10:25:20 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4955aa106b1so17830445e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 03:25:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785407116; x=1786011916; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=;
-        b=JGXw13lSFI/D6cdtJTBfYhfXougZPL9KRwZa1BlcmlcPfb8Cg8hRsX9FQuKev+ZgTz
-         wAXEIgJdTRn9WvnpEfhyoGg/ZKu2+TD+sQ8icqmPUyyx8E0YrwEZZDLyKeebTo1HNxLG
-         uNl+QaxSjVrTW4DPFdPSe8q5Bn/83h5UJRZ4xMUPaktkcKT7PpY1vtDNG86oHE8oImLG
-         UXA4fkZRDZPGsCsbZXWh1tz0e5gcWNMANuGsYeL2KEjYnMIECX3gRlMa5n7T2dXBAbEW
-         A3TP6p3sZQqEvH21sLBCdg5FSZIYH71Lh5k2Et1vD/dn6Hk9cgPR4DDpi27U0NeONzCc
-         +uag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785407116; x=1786011916;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=FLNBnsANrTUMdnBcC9IapvMl8huqE7Ah/L99fobP8RQ=;
-        b=HsCZD6pFmDVDfZovUgwhWIRKhqMvFIyoa16sIUq3iSqJdFRKkQGWCXCSaiHu0sylZ3
-         Otq8HxOBXkwwhOW2BheGDBb7Sxh4X77Mf7GSWE4HaA+IZzFiLT8/4vWlDDl/aoYPcrLU
-         vPHjVjX4MPwfup9oF6USgFMr8Z5Yn2iDYEJxVuDPnLWICACRqbUebQiNprX2yIdmOOHk
-         wG3ltd+8sarILcJ9z3YmLaLqNJ+vWbNI4giRRZiqXV4j2sJPzgLvOF1neM0X1H61LFsF
-         ZrRHqVcgp/mlJb5bfS4l4nswV7tlXJYczE9LlkqwQ9DWTvFYPs1o8sIB5Gcud23Kncz5
-         1aBg==
-X-Forwarded-Encrypted: i=1; AHgh+RoJyOdvX3vMrNROEcylkPVpoG+jScLZSqIPhv9G1Zzdb6P7dvEBYP5deBbc/C6iTTq2WxDVmqk0jG/e8yindCTC@lists.infradead.org
-X-Gm-Message-State: AOJu0YxP9lxLWJXkmlPbDKfyE9FbeSI+SHIBOP8qGufiV1tJMNIzS7W9
-	zvLVVytoJkYkxsDZzg0Bk8u8aKi6Vh5leyhb9Ux3mZmTLgPj9rB4cLOq
-X-Gm-Gg: AR+sD10Q8q0bnkCiL0kleplqC77aTUXd+8bEcutTBAX1wJrztpLsS+qXpqfYYncdYu/
-	i6554T8fUv+bSpdgKPSOf6GKpBZ/5lTRGdvYtsAVJxhVJVX82ByZpqHxw5t53U+P0c3NS+mh49C
-	MjF8oy4dQrUgZUWRWyYdDM9NEpUOUKUyJE8TLvDc2mfa5kJOMaHIqvXQ8V+0tBHhdmBitZnS08N
-	5boQEfY9C9+EcvFN5RqFADJCM9eeLgybDbPRJ8oDA/dkawGO0xD5p/4HvgkCbLodKo+VOuZS7Gp
-	3Nx4AfEUG0iFR9lXuYQ0k3RFVACosN1yt9cJ17CtTUbeDupwAcxxvnsXm+mOrm54R8LjgPy3T1o
-	tcEiA1QwUBqNXdFF6Z1xhZTv+4alC/BT3AZ+mWQE49frOZt939x9Cv9yiGeHQhyAQEl6GMRNeJV
-	7fgJRPQ12MgBe9WdD2agxE92RCIIIaUr70NO14gGc5rwsU+spPjJYzRyBflI/r+Rngsooe4wjX7
-	NpBVbmNnb7CBFgg6TwsxA+s8uwYSoLLz/jVdtzz2IMmBAyuXdN9VjlwlzYWiK/4
-X-Received: by 2002:a05:600c:1d19:b0:493:df1d:7488 with SMTP id 5b1f17b1804b1-49800e81092mr26932555e9.16.1785407115527;
-        Thu, 30 Jul 2026 03:25:15 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (host-87-11-254-126.retail.telecomitalia.it. [87.11.254.126])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-498011fd5fesm44720295e9.7.2026.07.30.03.25.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 03:25:14 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	llvm@lists.linux.dev
-Subject: [PATCH net-next v10 09/11] dt-bindings: net: pcs: Document support for Airoha Ethernet PCS
-Date: Thu, 30 Jul 2026 12:24:20 +0200
-Message-ID: <20260730102444.1967900-10-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260730102444.1967900-1-ansuelsmth@gmail.com>
-References: <20260730102444.1967900-1-ansuelsmth@gmail.com>
+	Thu, 30 Jul 2026 10:25:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TF5OpiAAvebjxQx/Up6c6SRbI+MfOi/LjIi24t3htgUuemOvedDDBDdYjzdQaZnGWYQNoEnx41Jr1EmrmfGQ7CyXVY2yyV+ZwmcqGl6Ju5JlzVdwEfO/GgRX4VtA9nfacFnwQaX5jao8KturWnaMG60VzoP8fp+EnSVecViNlu5auOhbePdRC0IJNu1o1DQ8fdBL326QQSuBAXKi69i3OPCQT7X14VU5VDf0Hf20zQ4UMZHQQN5AP1ER9ef/e4Cecd0TzgxBmfuoeDwfZmVEB3NjLmggMy4QzUiQ+07LQ4eRd9hhBXz2cascJAyLpq4+9CK6eefgMd0JL+kg61kaiw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Vb9hWpPzLLmgPeOk6my/OoSrfoPIctJAyics1WhoyJ4=;
+ b=rswGZtyGv1uuxa3BVwq/7VLuH+xmtqcMCcZICcrt+k5tJJUb3qS8uOld9dZzE5RjYHkzoXicNFQ+0m7m6M3MHX7kbN9WZbQkw0GrVogLjEfGRn+OM8otaPpYhv44qyKbwu/LyV+m3pDmZ8rnHSOqMH7Ug6iKaicclcVV0XI848gIBdwNeVntqFcQsSTvB9DYO9FYzedywvsJ8FgLIw4Ln73KMYpGEsU7u/jirIFv56iIISYyZ31oGs3Qte5M309pAd89IzLtAcHZspGuiuNA0DtAHbjXGpaLBPmUbLjPoskIIUuFBVDRPCQUPVf35wmOio5rICf28Hd1uF3tGmkyoQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Vb9hWpPzLLmgPeOk6my/OoSrfoPIctJAyics1WhoyJ4=;
+ b=M9GTSvu05SKJdf/xuQTuH3lgHdZSa8GUKGdExlATqJdlT0M9n8c7MV0e63mooCFZRcs+gUwjXZBTSuEBwOYVs5GpJa/ns+N2+fq7pEQD4bQB8pYrc4RU+KtrdUZK7QiJNQ2sGqHAgGrg7LmL7n8p4+TF2RoPq2uzIR/tddoAHb7z8mFCBVUZnwVdH8wDWS/zmGQ17ghkqS37YWfDgBfAtNxmnb5e4CxBvPqyf84XDaoNAUrNJaUVYT1ejnLBTCd5xwNEJK28aAol1MTkEwNmRtGQxdZjdO1PDCLawzQ7SIiMSPXs6YR5Kmnc+mvxviu5c7CXd+rYiCWTU7LudplfVQ==
+Received: from BLAPR03CA0129.namprd03.prod.outlook.com (2603:10b6:208:32e::14)
+ by IA1PR12MB9064.namprd12.prod.outlook.com (2603:10b6:208:3a8::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.12; Thu, 30 Jul
+ 2026 10:25:13 +0000
+Received: from BN3PEPF0000B372.namprd21.prod.outlook.com
+ (2603:10b6:208:32e:cafe::f) by BLAPR03CA0129.outlook.office365.com
+ (2603:10b6:208:32e::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.13 via Frontend Transport; Thu,
+ 30 Jul 2026 10:25:13 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN3PEPF0000B372.mail.protection.outlook.com (10.167.243.169) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.1 via Frontend Transport; Thu, 30 Jul 2026 10:25:13 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Jul
+ 2026 03:24:56 -0700
+Received: from nvidia.com (10.126.230.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 30 Jul
+ 2026 03:24:54 -0700
+From: Jacky Huang <jackyhuang@nvidia.com>
+To: Rob Herring <robh@kernel.org>
+CC: <andrew@codeconstruct.com.au>, <joel@jms.id.au>,
+	<krzysztof.kozlowski@oss.qualcomm.com>, <conor+dt@kernel.org>,
+	<andrew@lunn.ch>, <devicetree@vger.kernel.org>,
+	<linux-aspeed@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>
+Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: Add NVIDIA VR-NVL BMC
+Date: Thu, 30 Jul 2026 19:24:17 +0900
+Message-ID: <20260730102419.1218311-1-jackyhuang@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <CAL_JsqKx4OEM-asdvs1wUiP3FFObzJHZtNTtqiwtcRhJ5CPRyQ@mail.gmail.com>
+References: <20260728085640.1001890-1-jackyhuang@nvidia.com> <20260728085640.1001890-3-jackyhuang@nvidia.com> <20260728143952.GA2121505-robh@kernel.org> <20260729060612.1085870-1-jackyhuang@nvidia.com> <CAL_JsqKx4OEM-asdvs1wUiP3FFObzJHZtNTtqiwtcRhJ5CPRyQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.126.230.37]
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B372:EE_|IA1PR12MB9064:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1e59bb73-e7a5-4e2e-bf2a-08deee24d7c1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|82310400026|36860700016|7416014|376014|11063799006|56012099006|4143699003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Ych+SC6hLxTVsCSmrAZct084vLZaxFR+EhqY2S1JRLLi3747LxjYy6lWPE1VpH+FICjpmKzpico5r8XgviqWqn/IXJXBhvDkPjNFABqtO2JuGMgxxu4iP4b7bfgQmW5jK7EZSyR748C/PE3EUdcOaEJFrZtTJlv2lOhrY54ErpF1rI9tCHYJw0JgAwLu/HDZVv6/prZKYXyUM5d4iMW5kZOHmJa7eLrxruBWFzZUpIJmkHREsM81c/xP1PMIIoNcUaAgdxgk8G41wVqZuMit+WtU23yZYHo87eaxP5vfoeTL6MbXqwf9TA5vf9iRNcf0gC29hfsRLoewdIIB8XM0ZJDQwy/NeYsUj+mw0WxNTx7UTwrSCZzIT1NU/U8cOZGrSJuBaZ0IU2ivEc6rOvHb1e1W0/fzTXuCfDdbR/bunaHY2b5rIk8ScoBm6sK7WVoIydh+B86ahCxZyPlmYMMfWnRYxmiFJ9PbPhO0Sb2WBRwNdtCx/hlJDwgCwGZ+iKFoGafh3iJaowGleF3pFZYRAOgTzzhdW/Ywg/JUR+FWsp5orPT+7ykruO4ghfWFV+0KaDBPYywC6rvgj4bjVmU8B1glVPMtPYej0tloJ6pYo/a4llu/uqGr3SQopjxgkFwuiuxCvvmWOlilX7kcCFrs/Z8of4d3vQ7DaD5SWpgjrerSQk59p9O31BhSfey5W693+FKAHnEbRPH8AGMI+uF2yQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(82310400026)(36860700016)(7416014)(376014)(11063799006)(56012099006)(4143699003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: WRhlkwtUxSaGiHihRhQC9W/7mnHMUMAbIJzKG6D4oLtyLmDpUGGzeHn8mJ6s4LY2B0fP00fNzPkWwZ+yNMgqHxjZPXfWKFbruN9u2sAkQl5SNV0L509f8/mPpJM9b/iAPb0l9rtzQ6E/IKU+ep/fddtXuWJelo5naRQJ9npjG633fSoJPZ18o4Lo+mcuB8C0y5dsslldXfDo5SR84welLTHafooqpsFGxFYeEXKJhVwg5q8zbakyVxIxbJRl7rNg65382fuZpliaTrPOAbCXUkWV2frWlt6p8srCQEoHAleErTj193Kd7z3hseT5ult6wjgkXzg4Vm6wpZpVtnS9iOGsYWBXqWdk5h7ZeDzmWZnzMGZdLsj6VWrFnlkKFg+tHQcFV549RqXDsP5lFJDWDFYLiQU4Fv+2SvzR9OK9cdqMumpLM+N9cXxw/3ZlPwen
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 10:25:13.7331
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1e59bb73-e7a5-4e2e-bf2a-08deee24d7c1
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B372.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_032517_854827_F548D75B 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260730_032521_406951_8B4A4787 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,288 +128,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document support for Airoha Ethernet PCS for AN7581 SoC.
+Hi Rob,
 
-Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
-the various Serdes port supporting different Media Independent Interface
-(10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
+On Wed, Jul 29, 2026 at 08:17:40AM -0500, Rob Herring wrote:
+> Is the flash part of the SoC package? A board level component
+> shouldn't be in the SoC .dtsi file. If there's some components that
+> all/most boards happen to use, then those should be a common board
+> .dtsi file.
 
-This follow the new PCS provider with the use of #pcs-cells property.
+No, it is not part of the AST2600 SoC package. It is a discrete SPI NOR
+on the BMC module.
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- .../bindings/net/pcs/airoha,pcs.yaml          | 261 ++++++++++++++++++
- 1 file changed, 261 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
+I agree a common board .dtsi would be the better structure. The nodes
+are already in aspeed-g6.dtsi today and more than 28 AST2600 board files
+extend them. I can help prepare that cleanup if it is wanted.
 
-diff --git a/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
-new file mode 100644
-index 000000000000..9c1d116c1b01
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/pcs/airoha,pcs.yaml
-@@ -0,0 +1,261 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/pcs/airoha,pcs.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Airoha Ethernet PCS and Serdes
-+
-+maintainers:
-+  - Christian Marangi <ansuelsmth@gmail.com>
-+
-+description:
-+  Airoha AN7581 SoC expose multiple Physical Coding Sublayer (PCS) for
-+  the various Serdes port supporting different Media Independent Interface
-+  (10BASE-R, USXGMII, 2500BASE-X, 1000BASE-X, SGMII).
-+
-+properties:
-+  compatible:
-+    enum:
-+      - airoha,an7581-pcs-eth
-+      - airoha,an7581-pcs-pon
-+      - airoha,an7581-pcs-pcie
-+      - airoha,an7581-pcs-usb
-+
-+  reg:
-+    minItems: 6
-+    maxItems: 15
-+
-+  reg-names:
-+    minItems: 6
-+    maxItems: 15
-+
-+  airoha,scu:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: phandle to the SCU node required to configure
-+      the serdes line to the correct interface mode.
-+
-+  phys:
-+    maxItems: 1
-+
-+  "#pcs-cells": true
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - "#pcs-cells"
-+
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - airoha,an7581-pcs-eth
-+              - airoha,an7581-pcs-pon
-+
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PCS MAC reg
-+            - description: HSGMII AN reg
-+            - description: HSGMII PCS reg
-+            - description: MULTI SGMII reg
-+            - description: USXGMII reg
-+            - description: HSGMII rate adaption reg
-+            - description: PCS Analog register
-+            - description: PCS PMA (Physical Medium Attachment) register
-+
-+        reg-names:
-+          items:
-+            - const: pcs_mac
-+            - const: hsgmii_an
-+            - const: hsgmii_pcs
-+            - const: multi_sgmii
-+            - const: usxgmii
-+            - const: hsgmii_rate_adp
-+            - const: pcs_ana
-+            - const: pcs_pma
-+
-+        phys: false
-+
-+        "#pcs-cells":
-+          const: 0
-+
-+      required:
-+        - airoha,scu
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: airoha,an7581-pcs-pcie
-+
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PCS MAC 0 reg
-+            - description: HSGMII AN 0 reg
-+            - description: HSGMII PCS 0 reg
-+            - description: MULTI SGMII 0 reg
-+            - description: USXGMII 0 reg
-+            - description: HSGMII rate adaption 0 reg
-+            - description: PCS MAC 1 reg
-+            - description: HSGMII AN 1 reg
-+            - description: HSGMII PCS 1 reg
-+            - description: MULTI SGMII 1 reg
-+            - description: USXGMII 1 reg
-+            - description: HSGMII rate adaption 1 reg
-+            - description: PCS Analog register
-+            - description: PCS PMA (Physical Medium Attachment) 0 register
-+            - description: PCS PMA (Physical Medium Attachment) 1 register
-+
-+        reg-names:
-+          items:
-+            - const: pcs_mac0
-+            - const: hsgmii_an0
-+            - const: hsgmii_pcs0
-+            - const: multi_sgmii0
-+            - const: usxgmii0
-+            - const: hsgmii_rate_adp0
-+            - const: pcs_mac1
-+            - const: hsgmii_an1
-+            - const: hsgmii_pcs1
-+            - const: multi_sgmii1
-+            - const: usxgmii1
-+            - const: hsgmii_rate_adp1
-+            - const: pcs_ana
-+            - const: pcs_pma0
-+            - const: pcs_pma1
-+
-+        phys: false
-+
-+        "#pcs-cells":
-+          const: 1
-+
-+      required:
-+        - airoha,scu
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: airoha,an7581-pcs-usb
-+
-+    then:
-+      properties:
-+        reg:
-+          items:
-+            - description: PCS MAC reg
-+            - description: HSGMII AN reg
-+            - description: HSGMII PCS reg
-+            - description: MULTI SGMII reg
-+            - description: HSGMII rate adaption reg
-+            - description: PCS Analog register
-+
-+        reg-names:
-+          items:
-+            - const: pcs_mac
-+            - const: hsgmii_an
-+            - const: hsgmii_pcs
-+            - const: multi_sgmii
-+            - const: hsgmii_rate_adp
-+            - const: pcs_ana
-+
-+        airoha,scu: false
-+
-+        "#pcs-cells":
-+          const: 0
-+
-+      required:
-+        - phys
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/phy/phy.h>
-+
-+    pcs@1fa08000 {
-+      compatible = "airoha,an7581-pcs-pon";
-+      reg = <0x1fa08000 0x1000>,
-+            <0x1fa80000 0x60>,
-+            <0x1fa80a00 0x164>,
-+            <0x1fa84000 0x450>,
-+            <0x1fa85900 0x338>,
-+            <0x1fa86000 0x300>,
-+            <0x1fa8a000 0x1000>,
-+            <0x1fa8b000 0x1000>;
-+      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
-+                  "multi_sgmii", "usxgmii",
-+                  "hsgmii_rate_adp", "pcs_ana", "pcs_pma";
-+
-+      airoha,scu = <&scuclk>;
-+      #pcs-cells = <0>;
-+    };
-+
-+    pcs@1fa09000 {
-+      compatible = "airoha,an7581-pcs-eth";
-+      reg = <0x1fa09000 0x1000>,
-+            <0x1fa70000 0x60>,
-+            <0x1fa70a00 0x164>,
-+            <0x1fa74000 0x450>,
-+            <0x1fa75900 0x338>,
-+            <0x1fa76000 0x300>,
-+            <0x1fa7a000 0x1000>,
-+            <0x1fa7b000 0x1000>;
-+      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
-+                  "multi_sgmii", "usxgmii",
-+                  "hsgmii_rate_adp", "pcs_ana", "pcs_pma";
-+
-+      airoha,scu = <&scuclk>;
-+      #pcs-cells = <0>;
-+    };
-+
-+    pcs@1fa04000 {
-+      compatible = "airoha,an7581-pcs-pcie";
-+      reg = <0x1fa04000 0x1000>,
-+            <0x1fa50000 0x60>,
-+            <0x1fa50a00 0x164>,
-+            <0x1fa54000 0x450>,
-+            <0x1fa55900 0x338>,
-+            <0x1fa56000 0x300>,
-+            <0x1fa05000 0x1000>,
-+            <0x1fa60000 0x60>,
-+            <0x1fa60a00 0x164>,
-+            <0x1fa64000 0x450>,
-+            <0x1fa65900 0x338>,
-+            <0x1fa66000 0x300>,
-+            <0x1fa5a000 0x1000>,
-+            <0x1fa5b000 0x1000>,
-+            <0x1fa5c000 0x1000>;
-+      reg-names = "pcs_mac0", "hsgmii_an0", "hsgmii_pcs0",
-+                  "multi_sgmii0", "usxgmii0",
-+                  "hsgmii_rate_adp0",
-+                  "pcs_mac1", "hsgmii_an1", "hsgmii_pcs1",
-+                  "multi_sgmii1", "usxgmii1",
-+                  "hsgmii_rate_adp1",
-+                  "pcs_ana", "pcs_pma0", "pcs_pma1";
-+
-+      airoha,scu = <&scuclk>;
-+      #pcs-cells = <1>;
-+    };
-+
-+    pcs@1fa07000 {
-+      compatible = "airoha,an7581-pcs-usb";
-+      reg = <0x1fa07000 0x1000>,
-+            <0x1fa90000 0x60>,
-+            <0x1fa90a00 0x164>,
-+            <0x1fa94000 0x450>,
-+            <0x1fa96000 0x300>,
-+            <0x1fa9a000 0x600>;
-+      reg-names = "pcs_mac", "hsgmii_an", "hsgmii_pcs",
-+                  "multi_sgmii", "hsgmii_rate_adp","pcs_ana";
-+
-+      phys = <&usb0_phy PHY_TYPE_USB3>;
-+
-+      #pcs-cells = <0>;
-+    };
--- 
-2.53.0
-
+Thanks,
+Jacky
 
