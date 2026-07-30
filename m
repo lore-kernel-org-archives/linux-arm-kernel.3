@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9811C54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2599BC54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UnLRaVPWPQZEK/6V146uMIJTjvHZOKMkuiI72X2sjgo=; b=XF3pC+KpYVUXSvmyw6aIh+3cu4
-	z2CoQYZDUk6+k0Krs35IEvf17mH2ghpnkKUPYLnxyZnJRJzfqDEqvjGAgOJTXTFvekkRkOHF2ut9A
-	eoKafsh4/hhdfVwrlHK8VZbph1RlvIWQzbrNryXVtdQ/Hi7G6QxRE7gJe2Cmxf59urruBcy7C6TGk
-	Vp0M8TMQrwbQct6z706iX6wW6o2tvS2PtwEuyXk0QlFOc4oqb8J6pHfQWp42Ifde9tEgeZg3j5U+G
-	plv4yjEd7I3ypm1cQXsGKBwnQM9rxfJiBVElJbqf5Og0Bz/rfsQM1oT/rvhi7CK1Oj2MTxBEOhuwL
-	ZVjW6l8A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hHXOv04DuMhM+9hs8qoLTNRU6S66RipG6LbigyuoqQI=; b=HQzcH/Jg6UGzVqQp43qaSRV86J
+	L/e/c9aGzsWLI+g72MBF0tY5NKyIUTUV+uGN+HYn5TK7S0K57DypH7PKHXfWi833mqJSDo//W1QlK
+	G3+WvpBnmeBCWhMsti2jW0F//yS42Xb3Hn3L/EzJc/3F/IRdT8DhKCW4kNG530FHhsD6I9B3p3SvA
+	5oqtZS9Aybdm2gvuw5ni8J6QOLt1YRjN61BNkwp0o3yiaJ9ET8HZvv7Ca5nxkvNjLsvUKFcIZBCvD
+	lKUToVGne3cq8PFhyWQwRFwpBG8KF9EO1YJQI39DSxfT6bXZ319SvinEE4p5l6ddBXJp+fRajIE8a
+	2r7aw8CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNeP-0000000A8aU-3vMG;
-	Thu, 30 Jul 2026 10:06:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNeN-0000000A8a3-0dSe
+	id 1wpNiA-0000000A91n-2EVF;
+	Thu, 30 Jul 2026 10:09:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpNi8-0000000A91d-1XaA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 10:06:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDC1A1688;
-	Thu, 30 Jul 2026 03:05:56 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C5FE13F86F;
-	Thu, 30 Jul 2026 03:05:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785405961; bh=v4V2gdET86XAJclDguNfpx2W1wsFhmMD/X0Z7GT4l6c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=M8GMK3Jynb+fO6dBwN9sR+CzM4U3+oUgWw8scFhrB6fr+SMTaM2+B/Wqyf740qKYX
-	 DMynXn8Tl/w1FdvgwEfMDmHVJqVtSDZdOJ26HwprEhaKQez3oZbYgzVv4wKdd84q1D
-	 bT1PjhyIFU2pvdPPg9H8f4KCZaUUHj2V/GQLEXpI=
-Message-ID: <455fc826-50c9-4380-b4e6-87f241dcd86f@arm.com>
-Date: Thu, 30 Jul 2026 12:05:56 +0200
+	Thu, 30 Jul 2026 10:09:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 24DDE40E15;
+	Thu, 30 Jul 2026 10:09:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5E1D1F000E9;
+	Thu, 30 Jul 2026 10:09:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785406196;
+	bh=hHXOv04DuMhM+9hs8qoLTNRU6S66RipG6LbigyuoqQI=;
+	h=From:To:Cc:Subject:Date;
+	b=mVA+POSHxQAZLN+oAZWAVt9cmwnWFvtoz1E1rRBi6l/LsKDcpaSIM13dY1xwRPS6f
+	 wjuBRIviuLuhLECvrSOXsYVOAT226CczOgVnCBzYY55/oD75ugofZ226zNKdPAgjCq
+	 g+EaPGsXzlrCsMxHAfvEIwPC3hBpxECMuPuDIFKyKbbBO0dsXk79yKGAuZKuVtQUr9
+	 Ks/ydUVHrCTvUvLU2jRxRqpyWIejaUfyuVlGbjlXLX9/kF4JctAUd3CrFBCPFUOZyA
+	 2rhyWdTfqqB6tbcW6GmkFTnZMkdk8hxE4A7aK2DvBt+CnqnOeggU2A29UEtGviLlXh
+	 8QbsryWpEFFhQ==
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: RAGUENES Jean Noel <jean-noel.raguenes2@cs-soprasteria.com>,
+	Qiang Zhao <qiang.zhao@nxp.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org
+Subject: [PATCH] soc: fsl: qe: implement get_direction()
+Date: Thu, 30 Jul 2026 12:09:40 +0200
+Message-ID: <30b3f278a10b46252783458c81dc438df176f86c.1785405882.git.chleroy@kernel.org>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 10/10] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260729134124.2506269-1-andre.przywara@arm.com>
- <20260729134124.2506269-11-andre.przywara@arm.com>
- <5722b21f-6406-44e8-9b55-7272cf6014e0@oss.qualcomm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <5722b21f-6406-44e8-9b55-7272cf6014e0@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1728; i=chleroy@kernel.org; h=from:subject:message-id; bh=t4jN5WDxBUnYILBi/TUtcunD2+40jxQnux/VuTVXIiY=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRlK706cLh8n9izg9viW/Os8+8qGp2/ev/Rc4VTLE3rH MNOhiTN7ihlYRDjYpAVU2Q5/p9714yuL6n5U3fpw8xhZQIZwsDFKQATadRjZNh0aoo5z6fjy6/s 5ioK69db+M44VkaeP/Jx2797pzc9zbJjZOh9a2O+cPnF21qaahNOzHq062mPctv1RT5OPH+zDxy 6OpkJAA==
+X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_030603_288987_00CA7197 
-X-CRM114-Status: GOOD (  29.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,196 +74,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Srivathsa,
+The lack of get_direction() callback in this driver causes GPIOLIB to
+emit a warning. Implement it.
 
-many thanks for having a thorough look!
+Fixes: e623c4303ed1 ("gpiolib: sanitize the return value of gpio_chip::get_direction()")
+Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+---
+ drivers/soc/fsl/qe/gpio.c | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-On 7/30/26 11:58, Srivathsa L Rao wrote:
-> Hi Andre ,
-> 
-> On 7/29/2026 7:11 PM, Andre Przywara wrote:
->> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
->> registers through a firmware interface. This requires a shared memory
->> region to hold the message, and a mailbox to trigger the access.
->> For ACPI this is wrapped as a PCC channel, described using existing
->> ACPI abstractions.
->>
->> Add code to parse those PCC table descriptions associated with an MSC,
->> and store the parsed information in the MSC struct.
->> There can be multiple PCC channels, and each channel can serve multiple
->> MSCs, so we need to keep track of the channel usage, using a list and
->> a refcount.
->>
->> This will be used by the MPAM-Fb access wrapper code.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/resctrl/mpam_devices.c  | 119 +++++++++++++++++++++++++++++++-
->>   drivers/resctrl/mpam_fb.c       |   4 +-
->>   drivers/resctrl/mpam_internal.h |   6 +-
->>   3 files changed, 124 insertions(+), 5 deletions(-)
->>
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/ 
->> mpam_devices.c
->> index e535603d2c7d..e360051f4aa7 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -19,14 +19,19 @@
->>   #include <linux/irqdesc.h>
->>   #include <linux/list.h>
->>   #include <linux/lockdep.h>
->> +#include <linux/mailbox_client.h>
->>   #include <linux/mutex.h>
->>   #include <linux/platform_device.h>
->>   #include <linux/printk.h>
->> +#include <linux/property.h>
->>   #include <linux/srcu.h>
->>   #include <linux/spinlock.h>
->>   #include <linux/types.h>
->>   #include <linux/workqueue.h>
->>
-> [...]
-> 
->>   /*
->>    * Number of MSCs that have been probed. Once all MSCs have been 
->> probed MPAM
->>    * can be enabled.
->> @@ -2221,6 +2304,8 @@ static void mpam_msc_drv_remove(struct 
->> platform_device *pdev)
->>   {
->>       struct mpam_msc *msc = platform_get_drvdata(pdev);
->> +    mpam_pcc_chan_put(msc->pcc_chan);
->> +
->>       mutex_lock(&mpam_list_lock);
->>       mpam_msc_destroy(msc);
->>       mutex_unlock(&mpam_list_lock);
->> @@ -2231,7 +2316,7 @@ static void mpam_msc_drv_remove(struct 
->> platform_device *pdev)
->>   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device 
->> *pdev)
->>   {
->>       int err;
->> -    u32 tmp;
->> +    u32 pcc_subspace_id;
->>       struct mpam_msc *msc;
->>       struct resource *msc_res;
->>       struct device *dev = &pdev->dev;
->> @@ -2279,7 +2364,7 @@ static struct mpam_msc 
->> *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>       if (err)
->>           return ERR_PTR(err);
->> -    if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
->> +    if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
->>           msc->iface = MPAM_IFACE_MMIO;
->>       else
->>           msc->iface = MPAM_IFACE_PCC;
->> @@ -2295,6 +2380,36 @@ static struct mpam_msc 
->> *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>           }
->>           msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
-> 
-> Ritwick pointed out in the v4 thread that mapped_hwpage_sz should use
-> resource_size() rather than open-coding (end - start).  That fix doesn't
-> appear to have made it into v5.
-
-Yes, that's because that's an existing bug, so it deserves a separate 
-fix (from him), with a Fixes: tag. I didn't want to complicate things by 
-making it part of this series unnecessarily. He will send something 
-ASAP. That being a fix it's less timing critical (as in: could be taken 
-any time).
-
-Cheers,
-Andre
-
-> 
-> Also I did verify the resource_size() in my setup by adding prints, it 
-> did work well.>           msc->mapped_hwpage = io;
->> +    } else if (msc->iface == MPAM_IFACE_PCC) {
->> +        int ret;
->> +
->> +        msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
->> +        if (IS_ERR(msc->pcc_chan)) {
->> +            pr_err("Failed to request MSC PCC channel\n");
->> +            return ERR_CAST(msc->pcc_chan);
->> +        }
->> +
->> +        if (msc->pcc_chan->pcc_chan->shmem_size < 
->> MPAM_FB_MAX_MSG_SIZE) {
->> +            pr_err("MPAM-Fb PCC channel size too small.\n");
->> +            mpam_pcc_chan_put(msc->pcc_chan);
->> +            return ERR_PTR(-ENOMEM);
->> +        }
->> +        ret = mpam_fb_get_protocol_version(msc);
->> +        if (ret < 0) {
->> +            pr_err("Cannot query MPAM-Fb protocol version.\n");
->> +            mpam_pcc_chan_put(msc->pcc_chan);
->> +
->> +            /* ret is an MPAM-Fb error code, return a Linux one. */
->> +            return ERR_PTR(-EIO);
->> +        }
->> +        if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, ret) != 1) {
->> +            pr_err("Incompatible MPAM-Fb protocol version %ld.%ld\n",
->> +                   FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, ret),
->> +                   FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, ret));
->> +            mpam_pcc_chan_put(msc->pcc_chan);
->> +
->> +            return ERR_PTR(-EINVAL);
->> +        }
->>       } else {
->>           return ERR_PTR(-EINVAL);
->>       }
->> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
->> index dbe984241b0d..55c4778a8379 100644
->> --- a/drivers/resctrl/mpam_fb.c
->> +++ b/drivers/resctrl/mpam_fb.c
->> @@ -190,13 +190,13 @@ static int mpam_fb_send_request(struct 
->> mpam_pcc_chan *pcc_chan, u32 msc_id,
->>   int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 
->> *result)
->>   {
->> -    return mpam_fb_send_request(msc->pcc_chan, msc->mpam_fb_msc_id,
->> +    return mpam_fb_send_request(msc->pcc_chan, msc->id,
->>                       reg, result, MPAM_MSC_READ_CMD);
->>   }
->>   int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 
->> value)
->>   {
->> -    return mpam_fb_send_request(msc->pcc_chan, msc->mpam_fb_msc_id,
->> +    return mpam_fb_send_request(msc->pcc_chan, msc->id,
->>                       reg, &value, MPAM_MSC_WRITE_CMD);
->>   }
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/ 
->> mpam_internal.h
->> index a2193e7df57c..e926b7feb72a 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -77,7 +77,6 @@ struct mpam_msc {
->>       /* Not modified after mpam_is_enabled() becomes true */
->>       enum mpam_msc_iface    iface;
->>       struct mpam_pcc_chan    *pcc_chan;
->> -    int            mpam_fb_msc_id;    /* in its own name space */
->>       u32            nrdy_usec;
->>       cpumask_t        accessibility;
->>       bool            has_extd_esr;
->> @@ -532,6 +531,11 @@ int mpam_fb_send_write_request(struct mpam_msc 
->> *msc, u16 reg, u32 value);
->>   int mpam_fb_get_protocol_version(struct mpam_msc *msc);
->>   #define MPAM_FB_PROT_HEADER_LEN        sizeof(u32)
->> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
->> +#define MPAM_FB_MAX_MSG_SIZE    (MPAM_FB_PROT_HEADER_LEN + 4 * 
->> sizeof(u32))
->> +
->> +#define MPAM_FB_VERSION_MAJOR_MASK    GENMASK(31, 16)
->> +#define MPAM_FB_VERSION_MINOR_MASK    GENMASK(15, 0)
->>   /*
->>    * MPAM MSCs have the following register layout. See:
-> 
-> 
-> -- 
-> Best Regards,
-> Srivathsa
-> 
+diff --git a/drivers/soc/fsl/qe/gpio.c b/drivers/soc/fsl/qe/gpio.c
+index 66828f2a3577..6d8f4d549fe2 100644
+--- a/drivers/soc/fsl/qe/gpio.c
++++ b/drivers/soc/fsl/qe/gpio.c
+@@ -135,6 +135,30 @@ static int qe_gpio_dir_out(struct gpio_chip *gc, unsigned int gpio, int val)
+ 	return 0;
+ }
+ 
++static int qe_gpio_get_direction(struct gpio_chip *gc, unsigned int gpio)
++{
++	struct qe_gpio_chip *qe_gc = gpiochip_get_data(gc);
++	struct qe_pio_regs __iomem *regs = qe_gc->regs;
++	unsigned long flags;
++	u32 val, mask;
++
++	spin_lock_irqsave(&qe_gc->lock, flags);
++
++	if (gpio < QE_PIO_PINS / 2)
++		val = ioread32be(&regs->cpdir1);
++	else
++		val = ioread32be(&regs->cpdir2);
++
++	spin_unlock_irqrestore(&qe_gc->lock, flags);
++
++	mask = (u32)QE_PIO_DIR_OUT << (QE_PIO_PINS - 2 - (gpio % (QE_PIO_PINS / 2)) * 2);
++
++	if (val & mask)
++		return GPIO_LINE_DIRECTION_OUT;
++	else
++		return GPIO_LINE_DIRECTION_IN;
++}
++
+ struct qe_pin {
+ 	/*
+ 	 * The qe_gpio_chip name is unfortunate, we should change that to
+@@ -308,6 +332,7 @@ static int qe_gpio_probe(struct platform_device *ofdev)
+ 	gc->ngpio = QE_PIO_PINS;
+ 	gc->direction_input = qe_gpio_dir_in;
+ 	gc->direction_output = qe_gpio_dir_out;
++	gc->get_direction = qe_gpio_get_direction;
+ 	gc->get = qe_gpio_get;
+ 	gc->set = qe_gpio_set;
+ 	gc->set_multiple = qe_gpio_set_multiple;
+-- 
+2.54.0
 
 
