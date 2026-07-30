@@ -4,77 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30282C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 13:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB26C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 13:55:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xBr+L3ZwuiP4mVg149qPGP5ZOMsWtZxNKgOqCdiAMQQ=; b=1xo2dl2wINlUErPdn4GgJw6BOE
-	Ij4vCKllB5XG8Q5oL9NbCABj6L+XCA6eFih3mlMxcs2UgxtpEK9dBtS+4p/B3YwslBEVxk1F1vkDx
-	sIfWdLUiLkUgjjNkjm5g7n5e8mfvcMlNZDjg+R0mOekowNFTL1BxV1sAZGIThstFL6gnCSKP2370L
-	Q6gAEkS2O/3ZCUhuvQhlhUgkMMpd0lkmiMOX/E3+6sm4qjIkqdzGOCJWw5muXIGVXsGXM7XtSXCXj
-	9rhOsgrolJNmj7ODudGCSSerhPZnTfxgwFAzmqErKliN+xX9O9dKfTjqGkCHaku+eZK8HjPray3jO
-	yDI02Bpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8wfHXzLtT3KSH1AkfwGGMSHm3cZublZBD+EK4E8Pg24=; b=ZxqcBFevoIWDTyp4flJQTt89DH
+	Dv+SB2KfRVdDaBbQuXDuaEZMZ7gZ2CiNRzKiNuDjYwP1U/zHu+whG+eeb+hRdYmhcLCy7ngrN8c4g
+	KJwBArR7A4Owk+F0UEpnHiVO/b2CbzhhCCjLGVvKInDsc+pe5QYOnHtlbgq3/lDI5YC9scRzAFG/+
+	gYJR7dZBA/WoVNNwKm7on4d0rOGxmnQBegUazW3TxiRhz4kXInWk849EfbisiAjoZ/nQKCyovlpeC
+	EH9D9GbcUbg8CLf9Cy+9+SegbFBUE6CLKzf0IMdiZ6aWTlXc0Kyy5Me3tNbUxGdv7xxhZcPz55+fk
+	m4OxD27w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpR8W-0000000Aewu-32xI;
-	Thu, 30 Jul 2026 13:49:24 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.49])
+	id 1wpRDx-0000000Afih-3Lfq;
+	Thu, 30 Jul 2026 13:55:01 +0000
+Received: from mail-westeuropeazon11011064.outbound.protection.outlook.com ([52.101.70.64] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpR7z-0000000AeZb-0zno;
-	Thu, 30 Jul 2026 13:48:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1785419328; bh=xBr+L3ZwuiP4mVg149qPGP5ZOMsWtZxNKgOqCdiAMQQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=u3c0U4gEWCgB1ka6MoRdvZPyJmi31n2XYHHPGaRrxZQS6eHrH7SRym1fVQFt3MiHc
-	 LzMYlHfMwl7Bv229A2a6hw647C6tQfyTozGhL6G01LQ23zdtpalFiThn3X9kLPa8dA
-	 gnhJMrnnaBBI1BjbSd074AJykCDzF2myygHOko7w=
-Received: from ubuntu2204.localdomain ([2409:8d20:22b:54c:9e54:40ff:fe02:3f0f])
-	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
-	id C291AE95; Thu, 30 Jul 2026 21:48:41 +0800
-X-QQ-mid: xmsmtpt1785419326t95dps3r8
-Message-ID: <tencent_DF0D7ED74DEC340D32DF095A239B01238808@qq.com>
-X-QQ-XMAILINFO: MllZffuBkEb5N5+tXQQPRFZn89mMmsIJSm+0MekUoGSIAv8hsGoAhd0RUijoB4
-	 fTiWcpNLsIE/zKMhmI8Wdn5aUQZ49xOzBpL9s+FcTkCzrXJu0WZc/AD/kQMLKpbQGLI+DrOxax7H
-	 4SVc4fJmAFUsMEpoEu2kGU4NUkRDe428SlrTFYjImpaTNb+7R5CWE2artjv+TsVwLwSlbIwUcBzt
-	 IJZnq0I8XTwidgDLwvGMsPsAFTCFo4C8OosCuot/+WEZcYnQD/c13cNAxy7H2+gIzDhzUokaYmBn
-	 Ef16XMQEB2u4WRPXwhu8Xds8olnTS6z5pUxR2fUwWYnJV8GNPoHVfKegkgmEGqI7OywOIckAzUIL
-	 4e90W8kM10Nfaq1GbjbTyX2JWSyfVEaoxO8l2WKkAdEasYwZsVPNSKoWQEJIhk0DY4Tjp260o6ms
-	 UbYAFmmPh5lqtHR69cKc+D+hksUO78azI3cHHIhuC0hilrn4sbGxb95RN4unw94n9A2Fx3njnZcm
-	 UC0BnkFs2zgTkeL6ooQBvoQxR3jaXz75UxBXmk9OunHOGg7LOTWBDbpwgUOnl0McTXdRgzuRFdiN
-	 xkHtKPKnyIoMmmN6uqaP5qf5Ka2fAw/zF2jQvvhTEM7tuy4gMa4AS10kf+FcNGLR1nmNwrFQHp4L
-	 g7Ym7mhsjw8bWdaspGxwGFjnAHZCBtVcEe7iHQzTIoIEuJikLNqDDPOGLBDw+qn0lBHTjiFUWwYD
-	 HmAzX3bskkrdghpEwJnFEQg/Lxf5ckB3tpjsUxnGlpO53ED3wyoQVPVtlLFvRliCPT56AvDFj6Fk
-	 sWzRzm3TKd2VL9onQsZCYuZxah6h5KVJAkUvVev0CJBZtQPjyIXIJILLBq0fKi9Eo/Y39nyH1O7f
-	 7VuT5+eY/VcjLj5+BFYl4ZbrCzQ+G1akCBdgIYJ2H9IhEUMVjYNE8LEqZe5lrtpeWoxOhqRqLyA5
-	 ubojLqVPCQ13O/U+rYU9FrrMrhEzK8ybg2xXeAVWs+u5Gi2yjLsBjrw2WmMFIQPWh4enLo437ccE
-	 iB1BvIDy9EbATugebairzX2ZWYGIdE78FMsMyvd421ChCupyIruPbyLfAiM09HOYiXcHFo2I1IJI
-	 WOyKu3ofPWFh9s78pDzrSGAb7/6kJpmG4/X8BCBxJZiRh6+MutpTHBFOGI7+xgW4k2GM10wGV+O4
-	 q69tp49mW95OfqGI3bQo0swvE5N0/NbHDgK6Q=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-From: Cunhao Lu <1579567540@qq.com>
-Date: Thu, 30 Jul 2026 21:48:40 +0800
-Subject: [PATCH v3 3/3] can: rockchip_canfd: serialize TX state and command
- writes
-MIME-Version: 1.0
+	id 1wpRDu-0000000AfgS-1YnP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jul 2026 13:55:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IdANODgfm8KleDPgvYm0wDhIuaFESkQmwa7qlHWZx548g9Z6PvPfw31JDq3m5qKbBbznEw3D3lMyFza3XNlkX550pvFcV3WFtXxGtSq9myEpQHEVSdO0Xpx8HRHE9mb0i39AI3/QhxxUdvbE0fhs4mCTVfkpwztQaGIUw+aHbWo5WmfaLTLzy2uMJHQwXnXIoXBMWi0/VoVOf0TizhDNyUi2xQYz6oTfj9GkSPk71P4vT30wWaDtGw+9CczJuwgkq1/Ob5XG+wS7yheuf2qjrlNBJgqiCZc8B24pQ294xttAvWKjw6yO2LUqBDgstNZRhvMccPR9XQ9lWr9HIMmCjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8wfHXzLtT3KSH1AkfwGGMSHm3cZublZBD+EK4E8Pg24=;
+ b=gRxCuzijb0DXmRA8hsz/TOTSMeCXCoEVisxdjDX3CBQibd92S8xsDyB0SU5zouSXRsfCILmIRgMezTDRV8Saeo0jsvaC2X+d+tFODyF43uoK7vGalCNBiskA+llxnb/CNRQnjy2cFYXCI9eL2wWQo4Bwgj3wvnmXYvqGW7elJT10rZHbUYHNcwmc42l9ms6Lp4H8JS1xBT0IvZ125q06B4zMRalDmWfxVWmjFn52wo+OPmeXcuAnoFiyZMoTedgRyvGLqQzjyKU5CjqW7OrVnDe8pLp9nU0iaxkYwngqXzjOt42od7y03J6Zlq53/rsf4pkVlGEV0bD0vBpeOPbonA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8wfHXzLtT3KSH1AkfwGGMSHm3cZublZBD+EK4E8Pg24=;
+ b=ieB7bEYvoetrAu/4h4V+iHXGUknxvaUQlnH78qhcNXwvLziEk2T/5AxAZkwy6Dgq+Am60u98nHP2fs9KP7DHQLPwwNmyu6T6pp7X7Csy/09t8Qk0j6uWxM/9HqqmXNzZz8MLdnffbzPueC9NJ21OyzjqHSk62eDS3ueI2PxJ4Cm5sIZRhC2w++XyjdTrd2w0uYHg5gUANbuig2q0CJ3wS+4Zn2JDKxT6V0SoRgGALTElUhruLZGbnhFl9KG3fSexBZeIkme6xm8y/fJu8bHthbjYFbqA3xM8yUodO7PAJr44Tuwd+RvrSnJ+29gKa+uxHLxvgX4ZY8GP4TMZr14i7g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by AS8PR04MB8850.eurprd04.prod.outlook.com (2603:10a6:20b:42d::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Thu, 30 Jul
+ 2026 13:54:52 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%6]) with mapi id 15.21.0245.010; Thu, 30 Jul 2026
+ 13:54:51 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Date: Thu, 30 Jul 2026 21:53:02 +0800
+Subject: [PATCH v2] arm64: errata: Add NXP iMX8QM workaround for A53 cache
+ coherency issue
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-OQ-MSGID: <20260730-master-v3-3-91cf030c337d@qq.com>
-References: <20260730-master-v3-0-91cf030c337d@qq.com>
-In-Reply-To: <20260730-master-v3-0-91cf030c337d@qq.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>, 
- Vincent Mailhol <mailhol@kernel.org>, kernel@pengutronix.de, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- stable@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
+Message-Id: <20260730-imx8qm-cache-coherency-v2-1-5651aeb1af16@nxp.com>
+X-B4-Tracking: v=1; b=H4sIAD1Xa2oC/4WNTQ6CMBBGr2Jm7RhakB9X3sOwwOlox4QWWyQQw
+ t0FPIDLl7zvfTNEDsIRLocZAg8SxbsV9PEAZBv3ZBSzMuhE50mhK5R2LN8tUkOWkbzlwI4mTJW
+ uzNk0qWEF67gL/JBxD9/qH8fP/cXUb7XNsBJ7H6b9eVCb9/dkUKiQqjLPWJdJlhZXN3Yn8i3Uy
+ 7J8AYLwRZzMAAAA
+X-Change-ID: 20260729-imx8qm-cache-coherency-3129d5da3de1
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+ Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>
+Cc: Mark Rutland <mark.rutland@arm.com>, "Ivan T. Ivanov" <iivanov@suse.de>, 
+ Francesco Dolcini <francesco@dolcini.it>, Frank Li <frank.li@nxp.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, imx@lists.linux.dev, 
+ Peng Fan <peng.fan@nxp.com>
 X-Mailer: b4 0.15.2
+X-ClientProxiedBy: SI1PR02CA0026.apcprd02.prod.outlook.com
+ (2603:1096:4:1f4::11) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AS8PR04MB8850:EE_
+X-MS-Office365-Filtering-Correlation-Id: 343dcdeb-46fe-4a7a-7e68-08deee4220a0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|366016|1800799024|19092799006|13003099007|6133799003|56012099006|11063799006|10067099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Pg1vj46sloEisdSSqmxBB8cJInSovW4W+2rvqlbG9+0AmTXXdCkZA6SV7zlwvte05WVXTcTDWEo/5RNf/b3SndqSqowuRVbLr4pkQ6cfZ6DY2sNMV41op4nYXVDBaLS9QhFrTAviUFhPkXvEKnkqszxUMUxh8BBx30oVWLpHapaCRVMQPv3NLHkCe8bCCnd+ZfoK1aOxFPtSJ/GMUuLkae5WHnkacAjDpwUKbIRKJY+2QpX5PULswQtJ0YF6MZU1xf44Qdz2TJVvhTD10mtjRCRmptC7UfgV04ehZuIiTkU/wyaaxtX28rzASAiiaN4zM2Nbob84SuKBdbmuZpCn9FRa7rtNHKdKxuKH9OgBGKoEsWmoI8Y1TrmnkqX03cYwQ+K+qvMJUolreYiLMbk1YbyyQwk6zjWk2RMhRaDrXczM8Ee8I8EW4DfP2O3f3qMFTSqjbkMM2ywG9G9853xReHZSQbHVkRhwUBai+sAc7FrGKW4RUctA0kCG0YcmVpTqbZR8Gl9GsQ49kmBNhqdnAecxmKPRU6OsL4vQSoWqtzSZU/k7tcEQ9XgaiwkRxv7bUYWYg+c4MUdjbOudsJTktwaj5TvLTA/KjN4TyHMo8/NwWDsyVcUcaqq8gclrCsLM
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(366016)(1800799024)(19092799006)(13003099007)(6133799003)(56012099006)(11063799006)(10067099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MXhNZkN4QzgrTkZqc0tvOHRHSmpIRlQ0OUlzWGxUSjBqbDFsSmQ4LzdJZ0xx?=
+ =?utf-8?B?bURzSXY5aGVlK0Nyc0VNVHJiekZ0YklqNHlVYjcyYXdadEV6bEVpOFNxaWRi?=
+ =?utf-8?B?ZTI1UU0ybUwvRHVvM3RqZ1NJU0tMWTFRbitNWUFydGdLTnY0blhpSisrRmNu?=
+ =?utf-8?B?WU1za2FiM2lCSXFRU21mbG5kQUZ2cCtGWHI1aWEyTTJ4ekllcmY2OWR1bTJK?=
+ =?utf-8?B?ZFdhaDJkZDJlNndZNkRXM2Y1SjhMeERkeXJKZ1crOFZ1QkRmNzhOK1BpYzVC?=
+ =?utf-8?B?VEhwTGFUVGMwWm5Ca0xXcWNZb3VGMjJnOExrT2liaTBBU2hHY21oTFN4cEVE?=
+ =?utf-8?B?V0VVQlVpRDZ2aGxDd0dIMElIMGVxUWlReHhIQWkzMmVkRWYyZVJjVHdLWGRm?=
+ =?utf-8?B?SFpHd0FkYmpTS0JwOUlwV1craEdzQ09vV00yS0QrRVVpTFl6SDJxM01hU3I1?=
+ =?utf-8?B?MTFLMkZOdk1sNUFnU3FaMmFnYmphTWlTekRXeExiQTdqNWdqemZ2ZmhxQWx3?=
+ =?utf-8?B?QVViNGU0MEdtaWZhRkw5RFZnOERmblVuR2p2Q3hJNHJGemdJTVJQbk9qcWRM?=
+ =?utf-8?B?UHlZSytsTDNvcWlTVGJBemczNk0za1JLbWI1V0tBbWlvSllGU3hYUm1Oc2NR?=
+ =?utf-8?B?cWlEUW5KYXJYYXBQVTZNcXByK09UdVpsTnVHUSsvRUZ6NjlCV0lvQXNXVUZr?=
+ =?utf-8?B?OStoR0lwdk52RUFJK2VrL3FTeXlzbFVJTmlhTVUyV01FNFh3T2pZS2IrSm1l?=
+ =?utf-8?B?bWl3WjNERWZ1cWoxTHlxQlJiU1VWME9kMUE1VXZUc0p3L1ppVlRoN1UvNlNr?=
+ =?utf-8?B?MzQ1VUxMQzF0ZXowVjNNRFkwc3Q3UVJCdTduQlFvYmZ3aWg5L21KaWpIRlBa?=
+ =?utf-8?B?Y1BuaGJiZTkrcVpZK2hLS0gvbFl6NmpZbytnS29NM25xaDJsRTRlYzZYQU9k?=
+ =?utf-8?B?TmRmS1R5dXN5WmVaNUVobE1qaTJWVnlCZGswUWNua0w4OHViZmxzVVEydlpY?=
+ =?utf-8?B?aFBZY3NzYUsrQW42TnhmcUpXdEJPRUkrSnNVOFJwOS9KWmY1cjl3VCt6MHht?=
+ =?utf-8?B?Rkg4ZGZXeEhmZml1ZzBmajhjSkZ2OThDSThTMU9NSlI1dHUrcWlPQlpSekJJ?=
+ =?utf-8?B?TTJYZUlDRjlJMmxSNzRCNisrVjJ5azZyeFhFU1kwbFFCK1lYTkE2RHhvT1FF?=
+ =?utf-8?B?aVNrVzE4Yk4yREY0Qy90NkVjcEZmenhsZXpPVmYybG1zemxuMkF5NVJ5Q01a?=
+ =?utf-8?B?a1ppN0RiVlJqUWh5QXRMN2M3SGhCazBQbDk2UnN0dzZnOXhrUCt1T1pQakh3?=
+ =?utf-8?B?RGRZODZuTE5US1pBQ0lHbFdsRS9uV0N1d0kvVDVEMEpzcjFXQXVTVW5pODF4?=
+ =?utf-8?B?bHB2WjV5MGF6V3dlWmc1TWZBcGV4YjJUS3VzQXZQMm5pTmgyNkxpQjJrY2Rh?=
+ =?utf-8?B?MXlLYXM1a0IxVzNVM29TWE1Jc3RjT1BhWjY2LysyZzZBS29EMG5KbU1PR0NT?=
+ =?utf-8?B?Q2Z0a0lCWWtxL1hkb3ZuUEphalF6RjNVYkxMTU5BQkV5ZS9rc1NPTjRZSkdQ?=
+ =?utf-8?B?SW1ObnI0QWtuY3NHOE8ySVAwT0FENFE0WW5VRUZlanM5Ulhjb20xTGlBT3dP?=
+ =?utf-8?B?aGZrL0JSNVZnb2Y1enBvdlc2aVJoeEFQS056a2xTa215SjFRb0pnZDJqbVVJ?=
+ =?utf-8?B?Y1d1YTd6a0UrTDhoZEt2b2lUbUpmL09kZHdDSE8wNmFNQjVyVU1KVUxOZTI0?=
+ =?utf-8?B?ZTlFKzA4cFVHL2Jla1VNUjlpc1RGUSswWDY3ZExVZnZqOUdqV0tIL0xsRXBy?=
+ =?utf-8?B?NTdpZ0lhZjVFbCtBTGFxSmdRcVJHbzNFOXlYVXZJK3FhbVBxS1k2KzVwUjdP?=
+ =?utf-8?B?KzJENG9jMHh4UEhXc1BXaWNsc0VvSUtWcFFDTWVqZjllcFRucFJtRzlJZEdT?=
+ =?utf-8?B?cWpLTjJVaDRHcjdsT3ZiM3FGTENQTlNUcnBZMFVpMzQ2Wit0UnpzeCszY0I4?=
+ =?utf-8?B?Y0lRc0V1cmtKNzBKRGZHWWIxRTZoN0hodmxSV2oxdTZWamxZVERIYXBxcGYw?=
+ =?utf-8?B?T2NsZ3JtU1VQejVEMUpVenN6QlRQbGRaOGpwZ2llZW9iQ2x0OXdzYnE2eDBW?=
+ =?utf-8?B?ZjZ3czBvaHVOQ1VRbkE2YVZQRXpXOVVlZ0s1UnBVVys4em9tNVgzVVJkTmo4?=
+ =?utf-8?B?bzlMSEFneVVPV3JjaWRhUW9uMzVDSm0vaFEraVgrd3N3NU4rN3l3UDlVdEtP?=
+ =?utf-8?B?SCszb1hQRTVncUVCZyswaVhwVXdmeThvTWtWSXFIT214NFNWdTEyVE9MN2tD?=
+ =?utf-8?B?S2hteVlQeSszRzVYTlhXdEZYSHQ2WDZEdUk1THN0U1UweE1JcGpPYUZIdVpa?=
+ =?utf-8?Q?MUoqw9CserPMSJWrrwF+2mCDaZo1zutRp7wvO?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 343dcdeb-46fe-4a7a-7e68-08deee4220a0
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 13:54:51.9119
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ahKmt5uL1VrCgRds8toNsWrMrJ+cLYtts5jnaYUwoPiUEprw9ZkWujbQkDCO2nZdWJINhsMQ2fHub0DM6H8suAiQ9G1tckCdpHIbyTq2l+RSxFpRic0NfXIuQ7bRwHyG
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8850
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_064851_678883_27293D8E 
-X-CRM114-Status: GOOD (  24.62  )
+X-CRM114-CacheID: sfid-20260730_065458_584841_AF6561C8 
+X-CRM114-Status: GOOD (  16.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,287 +158,352 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TX completion path removes an echo skb before advancing tx_tail. In
-parallel, the transmit path reads tx_head, tx_tail and the tail echo slot
-when applying the erratum 6 queue restriction. There is no synchronization
-between these operations.
+From: Peng Fan <peng.fan@nxp.com>
 
-On SMP, the transmit path can consequently observe a pending frame with
-an empty echo slot:
+According to NXP errata document IMX8_1N94W[1], the i.MX8QuadMax SoC
+suffers from a serious cache coherency issue (ERR050104). The upper
+bits, above bit 35, of the ARADDR and ACADDR buses within the Arm A53
+subsystem have been incorrectly connected. This causes some TLBI and IC
+maintenance operations exchanged between the A53 and A72 core clusters
+to be corrupted.
 
-  rockchip_canfd fea60000.can can0: rkcanfd_tx_tail_is_eff:
-  echo_skb[0]=NULL tx_head=0x00060f7d tx_tail=0x00060f7c
+The workaround requires:
 
-It can also keep a pointer to an echo skb while the completion path removes
-and queues it for NAPI, where it can be freed on another CPU. The
-inconsistent snapshot can stop the netdev TX queue when there is no later
-completion to wake it.
+  - Downgrading targeted TLBI operations to broadcast-all variants.
+    Instead of patching the low-level __TLBI_1 macro (which interferes
+    with the REPEAT_TLBI workaround and causes excessive over-
+    invalidation), redirect high-level TLB flush functions
+    (flush_tlb_mm, __do_flush_tlb_range, flush_tlb_kernel_range,
+    __flush_tlb_kernel_pgtable) to use VMALLE1IS via static key checks.
 
-There is a second race in the command submission sequence.
-rkcanfd_start_xmit() runs in softirq context while rkcanfd_xmit_retry() is
-called from the RX interrupt handler. On controllers affected by erratum
-12, both execute a MODE/CMD/MODE register sequence. The interrupt handler
-can restore the default MODE between the softirq writes, causing the
-resumed softirq to issue CMD without SPACE_RX_MODE and bypass the erratum
-12 workaround.
+  - Upgrading IC IVAU to IC IALLUIS for both kernel (via ALTERNATIVE in
+    invalidate_icache_by_line) and EL0 userspace (via trap-and-upgrade
+    in user_cache_maint_handler with SCTLR_EL1.UCI=0).
 
-Add a TX state lock and use it to protect tx_head, tx_tail and the echo skb
-ring as one state. The same lock serializes the MODE/CMD/MODE sequence
-between the transmit and interrupt paths. Keep the queue completion and
-wake operation outside the lock to avoid nesting the TX state lock with
-the netdev TX queue lock.
+  - Disabling KVM since correct TLB maintenance cannot be guaranteed
+    for guests without the proper devicetree.
 
-Tested on an RK3588 rev2.2 at 1 Mbit/s with 100,000 extended CAN frames.
-The run triggered 138 erratum 6 retries and completed without drops, queue
-stalls or driver warnings. RK3588 does not enable erratum 12, so this test
-does not exercise that hardware workaround.
+  - No need to touch SMMU Broadcast TLB Maintenance (BTM) since i.MX8QM
+    does not support broadcast TLB.
 
-Fixes: ae002cc32ec4 ("can: rockchip_canfd: prepare to use full TX-FIFO depth")
-Fixes: 83f9bd6bf39d ("can: rockchip_canfd: implement workaround for erratum 12")
-Cc: stable@vger.kernel.org
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
+SoC detection uses devicetree compatible string "fsl,imx8qm" since the
+boot CPU MIDR_EL1 (0x410fd034) and AIDR_EL1 (0) are not unique to this
+SoC.
 
+[1] https://www.nxp.com/docs/en/errata/IMX8_1N94W.pdf
+
+[ Reworked per review feedback from Will Deacon and Mark Rutland:
+  - Move TLBI workaround from __TLBI_1 macro to high-level flush
+    functions to avoid REPEAT_TLBI interaction issues
+  - Add kernel IC IVAU upgrade via ALTERNATIVE in assembler.h
+  - Add cpucap_is_possible() entry for compile-time elimination]
+
+Co-developed-by: Ivan T. Ivanov <iivanov@suse.de>
+Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+Link: https://lore.kernel.org/all/20230420112952.28340-1-iivanov@suse.de/
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
-Changes in v3:
-- Adjust for the can_put_echo_skb() ownership change in patch 1; no
-  functional changes.
+This picks up the work originally done by Ivan T. Ivanov in 2023 [1],
+reworked to address review feedback from Will Deacon and Mark Rutland,
+and rebased onto linux-next (next-20260723).
 
+Changes from v2 [1]:
+  - Moved TLBI workaround from __TLBI_1 macro to high-level flush
+    functions (flush_tlb_mm, __do_flush_tlb_range, flush_tlb_kernel_range,
+    __flush_tlb_kernel_pgtable) to avoid REPEAT_TLBI interaction issues,
+    per Will Deacon suggestion to use static keys at the higher level.
+  - Added kernel IC IVAU -> IC IALLUIS upgrade via ALTERNATIVE in
+    assembler.h, per Mark Rutland review noting that only EL0 traps
+    were handled in v2.
+  - Added cpucap_is_possible() entry for compile-time elimination when
+    CONFIG_NXP_IMX8QM_ERRATUM_ERR050104 is not set.
+  - Dropped SMMU BTM changes since iMX8QM does not support broadcast TLB.
+
+[1] https://lore.kernel.org/all/20230420112952.28340-1-iivanov@suse.de/
+[2] https://www.nxp.com/docs/en/errata/IMX8_1N94W.pdf
+---
 Changes in v2:
-- Serialize the erratum 12 MODE/CMD/MODE sequence with the TX lock.
-- Add the erratum 12 commit to the Fixes tags.
-- Add RK3588 extended-frame stress-test results.
+- Skip the workaround for local (TLBF_NOBROADCAST) TLB flushes; they
+  don't cross the core's external interface (Mark Rutland).
+- Preserve IC IVAU fault reporting: run "ic ivau" for the local fault
+  check, then "ic ialluis" only on success (Mark Rutland).
+- Link to v1: https://patch.msgid.link/20260729-imx8qm-cache-coherency-v1-1-c9864e280437@nxp.com
 ---
- drivers/net/can/rockchip/rockchip_canfd-core.c |  1 +
- drivers/net/can/rockchip/rockchip_canfd-rx.c   | 31 +++++++++++++++++++-------
- drivers/net/can/rockchip/rockchip_canfd-tx.c   | 26 ++++++++++++++++++---
- drivers/net/can/rockchip/rockchip_canfd.h      |  4 +++-
- 4 files changed, 50 insertions(+), 12 deletions(-)
+ Documentation/arch/arm64/silicon-errata.rst |  2 +
+ arch/arm64/Kconfig                          | 16 ++++++++
+ arch/arm64/include/asm/assembler.h          |  5 +++
+ arch/arm64/include/asm/cpucaps.h            |  2 +
+ arch/arm64/include/asm/tlbflush.h           | 62 ++++++++++++++++++-----------
+ arch/arm64/kernel/cpu_errata.c              | 20 ++++++++++
+ arch/arm64/kernel/traps.c                   |  2 +
+ arch/arm64/kvm/arm.c                        |  5 +++
+ arch/arm64/tools/cpucaps                    |  1 +
+ 9 files changed, 91 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
-index 29de0c01e4ed..c8257858b452 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-@@ -904,6 +904,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
- 	priv->can.do_set_mode = rkcanfd_set_mode;
- 	priv->can.do_get_berr_counter = rkcanfd_get_berr_counter;
- 	priv->ndev = ndev;
-+	spin_lock_init(&priv->tx_lock);
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index 868bd9eed9a6..a90fd2ec532b 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -321,6 +321,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Freescale/NXP  | LS2080A/LS1043A | A-008585        | FSL_ERRATUM_A008585         |
+ +----------------+-----------------+-----------------+-----------------------------+
++| Freescale/NXP  | i.MX 8QuadMax   | ERR050104       | NXP_IMX8QM_ERRATUM_ERR050104|
+++----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Hisilicon      | Hip0{5,6,7}     | #161010101      | HISILICON_ERRATUM_161010101 |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index faccdf847a67..eea6774baf0d 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1454,6 +1454,22 @@ config ROCKCHIP_ERRATUM_3588001
  
- 	match = device_get_match_data(&pdev->dev);
- 	if (match) {
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-index 475c0409e215..9f57a35672ed 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-@@ -99,15 +99,26 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 	struct rkcanfd_stats *rkcanfd_stats = &priv->stats;
- 	const struct canfd_frame *cfd_nominal;
- 	const struct sk_buff *skb;
-+	unsigned long flags;
- 	unsigned int tx_tail;
+ 	  If unsure, say Y.
  
-+	spin_lock_irqsave(&priv->tx_lock, flags);
++config NXP_IMX8QM_ERRATUM_ERR050104
++	bool "NXP iMX8QM ERR050104: broken cache/TLB invalidation broadcast"
++	default y
++	help
++	  On iMX8QM, address bits above bit 35 in the A53 subsystem ARADDR and
++	  ACADDR buses are incorrectly connected. This corrupts targeted TLBI
++	  and IC broadcasts exchanged between the A53 and A72 core clusters.
 +
-+	if (!rkcanfd_get_tx_pending(priv))
-+		goto out_unlock;
++	  Work around this by redirecting targeted TLBI operations to
++	  broadcast-all variants (VMALLE1IS) in the high-level TLB flush
++	  functions, upgrading IC IVAU to IC IALLUIS for both kernel and
++	  user-space, and disabling KVM since correct TLB maintenance
++	  cannot be guaranteed for guests.
 +
- 	tx_tail = rkcanfd_get_tx_tail(priv);
- 	skb = priv->can.echo_skb[tx_tail];
- 	if (!skb) {
-+		const unsigned int tx_head = priv->tx_head;
-+		const unsigned int tx_tail_full = priv->tx_tail;
++	  If unsure, say Y.
 +
-+		spin_unlock_irqrestore(&priv->tx_lock, flags);
-+
- 		netdev_err(priv->ndev,
- 			   "%s: echo_skb[%u]=NULL tx_head=0x%08x tx_tail=0x%08x\n",
- 			   __func__, tx_tail,
--			   priv->tx_head, priv->tx_tail);
-+			   tx_head, tx_tail_full);
+ config SOCIONEXT_SYNQUACER_PREITS
+ 	bool "Socionext Synquacer: Workaround for GICv3 pre-ITS"
+ 	default y
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index effae53e9739..b35c9308e32b 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -455,6 +455,10 @@ alternative_else_nop_endif
+  * 	Corrupts:	tmp1, tmp2
+  */
+ 	.macro invalidate_icache_by_line start, end, tmp1, tmp2, fixup
++alternative_if ARM64_WORKAROUND_NXP_ERR050104
++	ic	ialluis
++	b	.Licache_done\@
++alternative_else_nop_endif
+ 	icache_line_size \tmp1, \tmp2
+ 	sub	\tmp2, \tmp1, #1
+ 	bic	\tmp2, \start, \tmp2
+@@ -463,6 +467,7 @@ alternative_else_nop_endif
+ 	add	\tmp2, \tmp2, \tmp1
+ 	cmp	\tmp2, \end
+ 	b.lo	.Licache_op\@
++.Licache_done\@:
+ 	dsb	ish
+ 	isb
  
- 		return -ENOMSG;
- 	}
-@@ -123,17 +134,18 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 		rkcanfd_handle_tx_done_one(priv, ts, &frame_len);
+diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+index 76350b38f0d7..0c3bfbe99aad 100644
+--- a/arch/arm64/include/asm/cpucaps.h
++++ b/arch/arm64/include/asm/cpucaps.h
+@@ -66,6 +66,8 @@ cpucap_is_possible(const unsigned int cap)
+ 		return IS_ENABLED(CONFIG_ARM64_ERRATUM_3194386);
+ 	case ARM64_WORKAROUND_4193714:
+ 		return IS_ENABLED(CONFIG_ARM64_ERRATUM_4193714);
++	case ARM64_WORKAROUND_NXP_ERR050104:
++		return IS_ENABLED(CONFIG_NXP_IMX8QM_ERRATUM_ERR050104);
+ 	case ARM64_MPAM:
+ 		/*
+ 		 * KVM MPAM support doesn't rely on the host kernel supporting MPAM.
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 14a78ac0f800..a05520d3a013 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -378,9 +378,13 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+ 	unsigned long asid;
  
- 		WRITE_ONCE(priv->tx_tail, priv->tx_tail + 1);
-+		*tx_done = true;
-+
-+		spin_unlock_irqrestore(&priv->tx_lock, flags);
- 		netif_subqueue_completed_wake(priv->ndev, 0, 1, frame_len,
- 					      rkcanfd_get_effective_tx_free(priv),
- 					      RKCANFD_TX_START_THRESHOLD);
- 
--		*tx_done = true;
--
- 		return 0;
- 	}
- 
- 	if (!(priv->devtype_data.quirks & RKCANFD_QUIRK_RK3568_ERRATUM_6))
--		return 0;
-+		goto out_unlock;
- 
- 	/* Erratum 6: Extended frames may be send as standard frames.
- 	 *
-@@ -143,7 +155,7 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 	 */
- 	if (!(cfd_nominal->can_id & CAN_EFF_FLAG) ||
- 	    (cfd_rx->can_id & CAN_EFF_FLAG))
--		return 0;
-+		goto out_unlock;
- 
- 	/* Not affected if:
- 	 * - standard part and RTR flag of the TX'ed frame
-@@ -151,20 +163,20 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 	 */
- 	if ((cfd_nominal->can_id & (CAN_RTR_FLAG | CAN_SFF_MASK)) !=
- 	    (cfd_rx->can_id & (CAN_RTR_FLAG | CAN_SFF_MASK)))
--		return 0;
-+		goto out_unlock;
- 
- 	/* Not affected if:
- 	 * - length is not the same
- 	 */
- 	if (cfd_nominal->len != cfd_rx->len)
--		return 0;
-+		goto out_unlock;
- 
- 	/* Not affected if:
- 	 * - the data of non RTR frames is different
- 	 */
- 	if (!(cfd_nominal->can_id & CAN_RTR_FLAG) &&
- 	    memcmp(cfd_nominal->data, cfd_rx->data, cfd_nominal->len))
--		return 0;
-+		goto out_unlock;
- 
- 	/* Affected by Erratum 6 */
- 	u64_stats_update_begin(&rkcanfd_stats->syncp);
-@@ -185,6 +197,9 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 
- 	rkcanfd_xmit_retry(priv);
- 
-+out_unlock:
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
-+
- 	return 0;
+ 	dsb(ishst);
+-	asid = __TLBI_VADDR(0, ASID(mm));
+-	__tlbi(aside1is, asid);
+-	__tlbi_user(aside1is, asid);
++	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_NXP_ERR050104)) {
++		__tlbi(vmalle1is);
++	} else {
++		asid = __TLBI_VADDR(0, ASID(mm));
++		__tlbi(aside1is, asid);
++		__tlbi_user(aside1is, asid);
++	}
+ 	__tlbi_sync_s1ish(mm);
+ 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
  }
+@@ -580,23 +584,28 @@ static __always_inline void __do_flush_tlb_range(struct vm_area_struct *vma,
  
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
-index 2b5cd6aab31b..ff9d8b77499c 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
-@@ -14,6 +14,8 @@ static bool rkcanfd_tx_tail_is_eff(const struct rkcanfd_priv *priv)
- 	const struct sk_buff *skb;
- 	unsigned int tx_tail;
+ 	asid = ASID(mm);
  
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	if (!rkcanfd_get_tx_pending(priv))
- 		return false;
+-	switch (flags & (TLBF_NOWALKCACHE | TLBF_NOBROADCAST)) {
+-	case TLBF_NONE:
+-		__flush_s1_tlb_range_op(vae1is, start, pages, stride,
+-					asid, tlb_level);
+-		break;
+-	case TLBF_NOWALKCACHE:
+-		__flush_s1_tlb_range_op(vale1is, start, pages, stride,
+-					asid, tlb_level);
+-		break;
+-	case TLBF_NOBROADCAST:
+-		/* Combination unused */
+-		BUG();
+-		break;
+-	case TLBF_NOWALKCACHE | TLBF_NOBROADCAST:
+-		__flush_s1_tlb_range_op(vale1, start, pages, stride,
+-					asid, tlb_level);
+-		break;
++	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_NXP_ERR050104) &&
++	    !(flags & TLBF_NOBROADCAST)) {
++		__tlbi(vmalle1is);
++	} else {
++		switch (flags & (TLBF_NOWALKCACHE | TLBF_NOBROADCAST)) {
++		case TLBF_NONE:
++			__flush_s1_tlb_range_op(vae1is, start, pages, stride,
++						asid, tlb_level);
++			break;
++		case TLBF_NOWALKCACHE:
++			__flush_s1_tlb_range_op(vale1is, start, pages, stride,
++						asid, tlb_level);
++			break;
++		case TLBF_NOBROADCAST:
++			/* Combination unused */
++			BUG();
++			break;
++		case TLBF_NOWALKCACHE | TLBF_NOBROADCAST:
++			__flush_s1_tlb_range_op(vale1, start, pages, stride,
++						asid, tlb_level);
++			break;
++		}
+ 	}
  
-@@ -33,13 +35,22 @@ static bool rkcanfd_tx_tail_is_eff(const struct rkcanfd_priv *priv)
- 	return cfd->can_id & CAN_EFF_FLAG;
- }
+ 	if (!(flags & TLBF_NONOTIFY))
+@@ -657,7 +666,8 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
+ 	end = round_up(end, stride);
+ 	pages = (end - start) >> PAGE_SHIFT;
  
--unsigned int rkcanfd_get_effective_tx_free(const struct rkcanfd_priv *priv)
-+unsigned int rkcanfd_get_effective_tx_free(struct rkcanfd_priv *priv)
+-	if (__flush_tlb_range_limit_excess(pages, stride)) {
++	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_NXP_ERR050104) ||
++	    __flush_tlb_range_limit_excess(pages, stride)) {
+ 		flush_tlb_all();
+ 		return;
+ 	}
+@@ -675,10 +685,14 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
+  */
+ static inline void __flush_tlb_kernel_pgtable(unsigned long kaddr)
  {
-+	unsigned long flags;
-+	unsigned int tx_free;
+-	unsigned long addr = __TLBI_VADDR(kaddr, 0);
+-
+ 	dsb(ishst);
+-	__tlbi(vaae1is, addr);
++	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_NXP_ERR050104)) {
++		__tlbi(vmalle1is);
++	} else {
++		unsigned long addr = __TLBI_VADDR(kaddr, 0);
 +
-+	spin_lock_irqsave(&priv->tx_lock, flags);
-+
- 	if (priv->devtype_data.quirks & RKCANFD_QUIRK_RK3568_ERRATUM_6 &&
- 	    rkcanfd_tx_tail_is_eff(priv))
--		return 0;
-+		tx_free = 0;
-+	else
-+		tx_free = rkcanfd_get_tx_free(priv);
-+
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
- 
--	return rkcanfd_get_tx_free(priv);
-+	return tx_free;
++		__tlbi(vaae1is, addr);
++	}
+ 	__tlbi_sync_s1ish_kernel();
+ 	isb();
  }
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 5db8f0619e4b..1866eeec27ca 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -6,6 +6,7 @@
+  */
  
- static void rkcanfd_start_xmit_write_cmd(const struct rkcanfd_priv *priv,
-@@ -60,6 +71,8 @@ void rkcanfd_xmit_retry(struct rkcanfd_priv *priv)
- 	const unsigned int tx_tail = rkcanfd_get_tx_tail(priv);
- 	const u32 reg_cmd = RKCANFD_REG_CMD_TX_REQ(tx_tail);
- 
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	rkcanfd_start_xmit_write_cmd(priv, reg_cmd);
- }
- 
-@@ -69,6 +82,7 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 	u32 reg_frameinfo, reg_id, reg_cmd;
- 	unsigned int tx_head, frame_len;
- 	const struct canfd_frame *cfd;
-+	unsigned long flags;
- 	int err;
- 	u8 i;
- 
-@@ -124,8 +138,11 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 			      *(u32 *)(cfd->data + i));
- 
- 	frame_len = can_skb_get_frame_len(skb);
-+	spin_lock_irqsave(&priv->tx_lock, flags);
- 	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
- 	if (err) {
-+		spin_unlock_irqrestore(&priv->tx_lock, flags);
-+
- 		ndev->stats.tx_dropped++;
- 		return NETDEV_TX_OK;
- 	}
-@@ -134,6 +151,7 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 	WRITE_ONCE(priv->tx_head, priv->tx_head + 1);
- 
- 	rkcanfd_start_xmit_write_cmd(priv, reg_cmd);
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
- 
- 	netif_subqueue_maybe_stop(priv->ndev, 0,
- 				  rkcanfd_get_effective_tx_free(priv),
-@@ -150,6 +168,8 @@ void rkcanfd_handle_tx_done_one(struct rkcanfd_priv *priv, const u32 ts,
- 	unsigned int tx_tail;
- 	struct sk_buff *skb;
- 
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	tx_tail = rkcanfd_get_tx_tail(priv);
- 	skb = priv->can.echo_skb[tx_tail];
- 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
-index 93131c7d7f54..3cf283a7b380 100644
---- a/drivers/net/can/rockchip/rockchip_canfd.h
-+++ b/drivers/net/can/rockchip/rockchip_canfd.h
-@@ -15,6 +15,7 @@
- #include <linux/netdevice.h>
- #include <linux/reset.h>
- #include <linux/skbuff.h>
-+#include <linux/spinlock.h>
- #include <linux/timecounter.h>
+ #include <linux/arm-smccc.h>
++#include <linux/of.h>
  #include <linux/types.h>
- #include <linux/u64_stats_sync.h>
-@@ -462,6 +463,7 @@ struct rkcanfd_priv {
- 	struct can_rx_offload offload;
- 	struct net_device *ndev;
+ #include <linux/cpu.h>
+ #include <asm/cpu.h>
+@@ -200,6 +201,16 @@ cpu_enable_cache_maint_trap(const struct arm64_cpu_capabilities *__unused)
+ 	sysreg_clear_set(sctlr_el1, SCTLR_EL1_UCI, 0);
+ }
  
-+	spinlock_t tx_lock; /* protects tx_head, tx_tail and echo_skb */
- 	void __iomem *regs;
- 	unsigned int tx_head;
- 	unsigned int tx_tail;
-@@ -544,7 +546,7 @@ void rkcanfd_timestamp_start(struct rkcanfd_priv *priv);
- void rkcanfd_timestamp_stop(struct rkcanfd_priv *priv);
- void rkcanfd_timestamp_stop_sync(struct rkcanfd_priv *priv);
++#ifdef CONFIG_NXP_IMX8QM_ERRATUM_ERR050104
++static bool
++is_imx8qm_soc(const struct arm64_cpu_capabilities *entry, int scope)
++{
++	WARN_ON(preemptible());
++
++	return of_machine_is_compatible("fsl,imx8qm");
++}
++#endif
++
+ #define CAP_MIDR_RANGE(model, v_min, r_min, v_max, r_max)	\
+ 	.matches = is_affected_midr_range,			\
+ 	.midr_range = MIDR_RANGE(model, v_min, r_min, v_max, r_max)
+@@ -1030,6 +1041,15 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+ 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+ 		.matches = has_broken_gic_v3_seis,
+ 	},
++#ifdef CONFIG_NXP_IMX8QM_ERRATUM_ERR050104
++	{
++		.desc = "NXP erratum ERR050104",
++		.capability = ARM64_WORKAROUND_NXP_ERR050104,
++		.type = ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE,
++		.matches = is_imx8qm_soc,
++		.cpu_enable = cpu_enable_cache_maint_trap,
++	},
++#endif
+ 	{
+ 	}
+ };
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 914282016069..d6391ab20db3 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -586,6 +586,8 @@ static void user_cache_maint_handler(unsigned long esr, struct pt_regs *regs)
+ 		break;
+ 	case ESR_ELx_SYS64_ISS_CRM_IC_IVAU:	/* IC IVAU */
+ 		__user_cache_maint("ic ivau", address, ret);
++		if (cpus_have_final_cap(ARM64_WORKAROUND_NXP_ERR050104) && !ret)
++			asm volatile("ic ialluis");
+ 		break;
+ 	default:
+ 		force_signal_inject(SIGILL, ILL_ILLOPC, regs->pc, 0);
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 9a6c72a18672..734ccd7ec056 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -3032,6 +3032,11 @@ static __init int kvm_arm_init(void)
  
--unsigned int rkcanfd_get_effective_tx_free(const struct rkcanfd_priv *priv);
-+unsigned int rkcanfd_get_effective_tx_free(struct rkcanfd_priv *priv);
- void rkcanfd_xmit_retry(struct rkcanfd_priv *priv);
- netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev);
- void rkcanfd_handle_tx_done_one(struct rkcanfd_priv *priv, const u32 ts,
+ 	in_hyp_mode = is_kernel_in_hyp_mode();
+ 
++	if (cpus_have_final_cap(ARM64_WORKAROUND_NXP_ERR050104)) {
++		kvm_info("KVM not supported on NXP iMX8QM (ERR050104)\n");
++		return -ENODEV;
++	}
++
+ 	if (cpus_have_final_cap(ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE) ||
+ 	    cpus_have_final_cap(ARM64_WORKAROUND_1508412))
+ 		kvm_info("Guests without required CPU erratum workarounds can deadlock system!\n" \
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index fbf27e887e71..fb3fe9736cc6 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -123,6 +123,7 @@ WORKAROUND_DEVICE_LOAD_ACQUIRE
+ WORKAROUND_DISABLE_CNP
+ WORKAROUND_GICv3_BROKEN_SEIS
+ WORKAROUND_NVIDIA_OLYMPUS_1027
++WORKAROUND_NXP_ERR050104
+ WORKAROUND_PMUV3_IMPDEF_TRAPS
+ WORKAROUND_QCOM_FALKOR_E1003
+ WORKAROUND_QCOM_ORYON_CNTVOFF
 
--- 
-2.34.1
+---
+base-commit: 9eebf259d5352b87080d67758f483583d9e763d7
+change-id: 20260729-imx8qm-cache-coherency-3129d5da3de1
+
+Best regards,
+--  
+Peng Fan <peng.fan@nxp.com>
 
 
