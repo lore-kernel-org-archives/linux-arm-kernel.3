@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7F5C55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95253C55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=grh6uIkLuMWHxDWJonkPHNm23xVrSrmqEXBN/kCQpaQ=; b=BBCKEDhJykfOFcwMtIJociMngs
-	0Wx+su/9UuIWt/0JeThPQZOPdDbZ303VuLhzeizLLpGKiSTWvTTH//pIVu3BWB0DvWFs+1ub5wreu
-	Mpn3oucRFlJhJoR9Fd1L9v5XxG+/72v65Yp10gxEbfCCtWNJTjKZV3ZZhE6uSDI1Q72Um52ThydRE
-	BDXUD7b6as19MAiT6kArU4gW0rAwIMxuh+v1pEIaoId8zoS9EL6Y7uWqXVbBj4j3r+xj9jUkG0lVw
-	aeT6a/XoFO6ksZAMBkHLauehvCHGJNYrXviozVPwDCW5RDrAz0whDKwdBvw78y4E+YtfUZlFvRMgO
-	8tAA+Vng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J51ZKPd6o6/BUGHko+ufxpPLTQ3XMe+QO50MAUxdiFE=; b=JDSAYx+709Zw4Jd/VS+HxEGSJg
+	UsC02ddVv/s2KAw5NkfR221Lm/22B+E752FdVggGWijDcZ02NZTYOuYDoM3bTMVA90pHQiN7HLWIH
+	0tKvSdLDmMuI/woleTMhtFF0K6QaZlA0vXZrNTyfl/FlbYDQUh93sYlNA1LK67kE+VZnaeECqq/wl
+	9jEGxQtNshPiZvlCu04tGtzie9Rrt+KxZx2n10QFrPc6cbtlNEgjQiA3vZYuMngZDce5KMX2n3Hsr
+	371RBDtoi/J5jJIHZIDOmOsl6Tl5VGtd7oZbGjlAw79gRsdICOtKWVGhGYGK0C47m+MGYD6pDu+HH
+	aT7cFecA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPg5-0000000ARie-02c7;
-	Thu, 30 Jul 2026 12:15:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wpPiw-0000000AS6X-2tS5;
+	Thu, 30 Jul 2026 12:18:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPg4-0000000ARiS-1His
+	id 1wpPiu-0000000AS6N-44Ig
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:15:56 +0000
+	Thu, 30 Jul 2026 12:18:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 08ABD43255;
-	Thu, 30 Jul 2026 12:15:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A560A1F00A3F;
-	Thu, 30 Jul 2026 12:15:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3EFDF600B0;
+	Thu, 30 Jul 2026 12:18:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3D301F000E9;
+	Thu, 30 Jul 2026 12:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785413755;
-	bh=grh6uIkLuMWHxDWJonkPHNm23xVrSrmqEXBN/kCQpaQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AjuG/kK6MRMktVEnRlNytoItAis6V46imW1ENIYp+pCz6ybJDz2Lg8lVRsdcx1XAX
-	 dTbauWQip9+smPNC6xoObLCxahBm+PhkhampPfheGnQP5DgCs/diOLATbbKXIT7/s6
-	 aexPn5I8pyy2bP8WvxtzjsBzh/LGcebEccEIu1ipXtsDHU3l0eqsuKDsplX0FQUO0A
-	 A0nP2Iie7IRidlrxnn8YXylARvGG4HiCDEwjcaK7zs+MgfDmqGA+W8or4SvHnthLbc
-	 Uk31NvI04xSx9Upswi2fJpvwK85QMeah6TcifwMnq0GTrVgiaNOICMwwU5D8qEwjXB
-	 guKm5fC3PqkGg==
-Message-ID: <2c0e084c-afab-4796-8ea8-cdc6aef88918@kernel.org>
-Date: Thu, 30 Jul 2026 14:15:50 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: fsl: qe: properly scan GPIO nodes at startup
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
- Herve Codina <herve.codina@bootlin.com>,
- Paul Louvel <paul.louvel@bootlin.com>
-References: <04dc047f8958a78a920f0a88ca3bd8bf70c56187.1785333986.git.chleroy@kernel.org>
- <e1bd8dcf-9b8e-4bc7-8ba8-6c06222e1659@kernel.org>
- <223afb76-9f6f-48a1-a5c5-beb1a641916c@kernel.org>
- <f1b4c866-6cd7-4d6f-812b-d95e94f69e83@kernel.org>
- <59156118-27b2-453d-81b9-86a3d411a855@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <59156118-27b2-453d-81b9-86a3d411a855@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1785413932;
+	bh=J51ZKPd6o6/BUGHko+ufxpPLTQ3XMe+QO50MAUxdiFE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=IERn+3yT3GKAwlEz98+hOOx2EELH5lepwtkHN1LPJPtSbBcaqZH8R70BuuTlh0A/8
+	 k5n++E+0Q+jQMwVMJ5nkn/Xd6iHEoJJnvs/YUNaRar4FAS8vlAs7p1Q/fuvnhnBKEA
+	 NFTW/P6d+tNp6ozLVFlHrQGpnzNz5ygDa67uINaflNJeY3CLZ5ETiif99Fwy2t+40S
+	 mADy0iBff6NfDgZyxfiJ4G7MyoPoL3GzrPyU60gqBkwNQq9DeSwXGb7lfNYpiyyPt/
+	 Mqm37WJE36T0QKo6JWfmlIp+mvylB5nxq7lzE2+1q9NZiL1TBlFFhRx//2VevGaH8G
+	 ACuAsWAw8gANg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wpPir-0000000AWIY-1wZS;
+	Thu, 30 Jul 2026 12:18:49 +0000
+Date: Thu, 30 Jul 2026 13:18:49 +0100
+Message-ID: <86ldasd61i.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Long Zhao <longzhao@ambarella.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Alexandre Belloni
+	<alexandre.belloni@bootlin.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<soc@lists.linux.dev>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	<devicetree@vger.kernel.org>,
+	"Michael\
+ Turquette" <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	<linux-clk@vger.kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	<linux-gpio@vger.kernel.org>,
+	Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	<linux-serial@vger.kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 09/10] arm64: ambarella: add ARCH_AMBARELLA and CV75 EVK DT
+In-Reply-To: <20260730104330.81367-10-longzhao@ambarella.com>
+References: <20260730104330.81367-1-longzhao@ambarella.com>
+	<20260730104330.81367-10-longzhao@ambarella.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: longzhao@ambarella.com, arnd@arndb.de, alexandre.belloni@bootlin.com, linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, mturquette@baylibre.com, sboyd@kernel.org, linux-clk@vger.kernel.org, linusw@kernel.org, linux-gpio@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, linux-serial@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,31 +101,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/07/2026 14:14, Christophe Leroy (CS GROUP) wrote:
->> Well, depends. Is it a documented ABI?
-> 
-> In Documentation/devicetree/bindings/soc/fsl/cpm_qe/qe/par_io.txt:
-> 
-> Required properties:
-> - device_type : should be "par_io".
-> - reg : offset to the register set and its length.
-> - num-ports : number of Parallel I/O ports
-> 
-> Example:
-> par_io@1400 {
-> 	reg = <1400 100>;
-> 	#address-cells = <1>;
-> 	#size-cells = <0>;
-> 	device_type = "par_io";
-> 	num-ports = <7>;
-> 	ucc_pin@1 {
-> 		......
-> 	};
-> 
-> Is it OK ?
+On Thu, 30 Jul 2026 11:43:29 +0100,
+Long Zhao <longzhao@ambarella.com> wrote:
 
-Yes, this is fine.
+[...]
 
-Best regards,
-Krzysztof
+> diff --git a/arch/arm64/boot/dts/ambarella/cv75.dtsi b/arch/arm64/boot/dts/ambarella/cv75.dtsi
+> new file mode 100644
+> index 000000000000..7c6a61f473ef
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ambarella/cv75.dtsi
+> @@ -0,0 +1,151 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Ambarella CV75 SoC
+> + *
+> + * Boot peripheral: UART0 console.
+> + * Clocks: a single ambarella,cv75-rct provider.
+> + */
+> +
+
+[...]
+
+> +       timer {
+> +               compatible = "arm,armv8-timer";
+> +               interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
+> +                            <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
+> +                            <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
+> +                            <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
+> +       };
+
+You are missing the EL2 virtual timer interrupt, which is provided by
+Cortex-A76. This isn't optional. A recent Linux kernel will shout at
+you at boot time when booted at EL2 if this interrupt isn't present.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
