@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE81AC55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119AEC55167
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w0qIs3ynZHgkXTYTbvPP3qUgG0ysx0KqrNSlrPX/EX8=; b=kXTFFXSCIfcHfJzONrwfTKAEOQ
-	kzy93pb5d6FNhp5ZT+pMNLh1zIn4N3/0M0hNygdMEtVfIxx+MK5t221rdhU9W88G6uwpnT0iRhijA
-	uH6SlflWvEZdOrA20sAlLsHdjIqS/Aayxcf47kjLPGl1cwr9piOmo7QdcRPy2uLzJ2R6AkqUFgMks
-	rqXZJPPyXQc5j91jdNYnZknmivUWM1ndiyAsWwB1OwV9d1fs9HaPt5vyMsLcfsbcfbcMxplQ7fTZ6
-	sCSF7kUJG85cVRQ3//VJMsb81DcbKZl2tP3QrHrusLfAIZFw8sIuqUAG2v26f2dGehdGygkOoIf2k
-	UYyQ+FgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aJUCWtqiYp3MzazFJFstpq7urKk8PTa/reM6aRzMYDQ=; b=EAXXfAEoIjohA6XvJ712f9lxMR
+	Tgy5CWseW4YIAJJe3g7bIkPqxjYKNKZO95wPoZJdxYtDNsDkIlpdHjgl1+nyRgNUOIg6cNZn9fTqN
+	Ta5oIJltFjIAoUjXub+rKnR6vgE3dwotpMVMCi3N17ttQLw2P5DBLCYZfU4GyZJoG/qJJITA6DZLc
+	XasWAfQDZ3l+2zj9FfcfbB9lVTZ0IF9RrAfkuOqhDR+wwFI/sahLrXRrwyX7dIVIOR2zOjAmLB7Ev
+	yWEjnZtO0QgUJRoG+i10ifBIPaWz/cytsGNm6+H9Vv7zeF+4SwbIdFgUGJB6OBpMi6kbOvByt66L3
+	SjowB3tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQ6H-0000000AUqY-3Ige;
-	Thu, 30 Jul 2026 12:43:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQ65-0000000AUoU-2XtN
+	id 1wpQAc-0000000AVFS-2lnj;
+	Thu, 30 Jul 2026 12:47:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpQAa-0000000AVEV-0Zn5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:42:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3C63B60A6C;
-	Thu, 30 Jul 2026 12:42:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD35F1F000E9;
-	Thu, 30 Jul 2026 12:42:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785415366;
-	bh=w0qIs3ynZHgkXTYTbvPP3qUgG0ysx0KqrNSlrPX/EX8=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=k55iXxW/57vq4N7SQpzmf7TxlWiDqiu6jL+I4xd5BgkznDjH5YKXqPabxXI86qHbU
-	 3l0qGAPwnGS3ynu24kjqGaj3WRAKGkCVujl23HrcAh3cufaV0drXP7j65LGeeIbDQx
-	 SkqIir1IzMQF0cgHaZgbgm2riM/d3Cidi5UC2dNfOdQDV6ZPhUeR4Hcg8DuVFmwHdc
-	 KoaAHJAOeAbEMvHTAumgQDANvEFfcycUxNWMFdI3Cqt3/PeFuozDET6dbY2dLHBSWV
-	 hsK2/tm4vNz7XQ0zAaoPPWxi8IGFXU5o5jDsABEUAQ5kuo+MhggSqE6Tm8iTQOZ/We
-	 UvaIEpAQP+N0g==
-Date: Thu, 30 Jul 2026 07:42:46 -0500
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	Thu, 30 Jul 2026 12:47:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CCBA91688;
+	Thu, 30 Jul 2026 05:47:22 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AFE693F86F;
+	Thu, 30 Jul 2026 05:47:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785415646; bh=WfoefAgOES6CV8muplxagsKiTcKIhpvznQ3erz47QIs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=M9GlJbEnDyAE36ajxjU3N/JvgUuLPxebLwxy32c5OG18qrASRykhHyODOxg1C0mlQ
+	 8fThFosPU3gph4odkmhtrOXhVxno4HzVAlL6/Ry9DXsKHWj48QmPZtNDRIisbzDaeX
+	 InQfqjrXh9dGRHgVaiju4ohl4n0GJWKae81oIRds=
+Message-ID: <3a06f20a-c7dd-4deb-abc5-b0f67faee343@arm.com>
+Date: Thu, 30 Jul 2026 14:47:22 +0200
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Jiri Slaby <jirislaby@kernel.org>, linux-gpio@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Linus Walleij <linusw@kernel.org>, Will Deacon <will@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Michael Turquette <mturquette@baylibre.com>, Arnd Bergmann <arnd@arndb.de>, 
- devicetree@vger.kernel.org, soc@lists.linux.dev, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-clk@vger.kernel.org, 
- Catalin Marinas <catalin.marinas@arm.com>, Stephen Boyd <sboyd@kernel.org>, 
- linux-serial@vger.kernel.org
-To: Long Zhao <longzhao@ambarella.com>
-In-Reply-To: <20260730104330.81367-4-longzhao@ambarella.com>
-References: <20260730104330.81367-1-longzhao@ambarella.com>
- <20260730104330.81367-4-longzhao@ambarella.com>
-Message-Id: <178541536479.2601751.14563666222918731032.robh@kernel.org>
-Subject: Re: [PATCH 03/10] dt-bindings: clock: add Ambarella CV75 RCT clock
- controller
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 10/10] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Lee Trager <lee@trager.us>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260729134124.2506269-1-andre.przywara@arm.com>
+ <20260729134124.2506269-11-andre.przywara@arm.com>
+ <ec478b24-0a30-4b63-b191-08d05f606bad@trager.us>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <ec478b24-0a30-4b63-b191-08d05f606bad@trager.us>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_054728_344890_25B40702 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,42 +81,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Lee,
 
-On Thu, 30 Jul 2026 18:43:23 +0800, Long Zhao wrote:
-> Add the CV75 RCT clock controller binding and clock ID header.
+On 7/30/26 03:34, Lee Trager wrote:
+> On 7/29/26 6:41 AM, Andre Przywara wrote:
 > 
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
->  .../bindings/clock/ambarella,cv75-rct.yaml    | 94 +++++++++++++++++++
->  .../dt-bindings/clock/ambarella,cv75-clock.h  | 17 ++++
->  2 files changed, 111 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
->  create mode 100644 include/dt-bindings/clock/ambarella,cv75-clock.h
+>> @@ -2231,7 +2316,7 @@ static void mpam_msc_drv_remove(struct 
+>> platform_device *pdev)
+>>   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device 
+>> *pdev)
+>>   {
+>>       int err;
+>> -    u32 tmp;
+>> +    u32 pcc_subspace_id;
+>>       struct mpam_msc *msc;
+>>       struct resource *msc_res;
+>>       struct device *dev = &pdev->dev;
+>> @@ -2279,7 +2364,7 @@ static struct mpam_msc 
+>> *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>       if (err)
+>>           return ERR_PTR(err);
+>> -    if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
+>> +    if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
+>>           msc->iface = MPAM_IFACE_MMIO;
+>>       else
+>>           msc->iface = MPAM_IFACE_PCC;
+>> @@ -2295,6 +2380,36 @@ static struct mpam_msc 
+>> *do_mpam_msc_drv_probe(struct platform_device *pdev)
+>>           }
+>>           msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+>>           msc->mapped_hwpage = io;
+>> +    } else if (msc->iface == MPAM_IFACE_PCC) {
+>> +        int ret;
+>> +
+>> +        msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
+>> +        if (IS_ERR(msc->pcc_chan)) {
+>> +            pr_err("Failed to request MSC PCC channel\n");
+>> +            return ERR_CAST(msc->pcc_chan);
+>> +        }
+>> +
+>> +        if (msc->pcc_chan->pcc_chan->shmem_size < 
+>> MPAM_FB_MAX_MSG_SIZE) {
 > 
+> I think the PCC shared-memory size undercounts the required region. From 
+> my understanding shmem_size is the length of the complete PCC shared- 
+> memory region advertised by the PCCT and mapped by the PCC driver. 
+> MPAM_FB_MAX_MSG_SIZE is the 4-byte protocol header stored in pcc_shmem- 
+>  >command + the 16-byte write payload.
+> 
+> However, mpam_fb_build_write_message() places the payload after the 
+> complete 16 byte struct acpi_pcct_ext_pcc_shared_memory. The largest 
+> request therefore occupies 32 bytes of shared memory region(16-byte PCC 
+> header+ 16-byte write payload). Thus a firmware region between 20 and 31 
+> bytes currently passes the check but overruns when constructing a write 
+> request. I think this should be
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Ah, you are right, there are indeed multiple things at play here.
 
-yamllint warnings/errors:
+ > if (msc->pcc_chan->pcc_chan->shmem_size <>
+>      sizeof(struct acpi_pcct_ext_pcc_shared_memory) +
+>      MPAM_FB_MAX_MSG_SIZE - MPAM_FB_PROT_HEADER_LEN)
 
-dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/clock/ambarella,cv75-rct.example.dtb: / (ambarella,cv75-evk): 'model' is a required property
-	from schema $id: http://devicetree.org/schemas/root-node.yaml
+I simplified that by just dropping MPAM_FB_PROT_HEADER_LEN from the 
+MPAM_FB_MAX_MSG_SIZE definition.
 
-doc reference errors (make refcheckdocs):
+Thanks for having a thorough look!
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260730104330.81367-4-longzhao@ambarella.com
+Cheers,
+Andre
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+> 
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/ 
+>> mpam_internal.h
+>> index a2193e7df57c..e926b7feb72a 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+>> @@ -77,7 +77,6 @@ struct mpam_msc {
+>>       /* Not modified after mpam_is_enabled() becomes true */
+>>       enum mpam_msc_iface    iface;
+>>       struct mpam_pcc_chan    *pcc_chan;
+>> -    int            mpam_fb_msc_id;    /* in its own name space */
+>>       u32            nrdy_usec;
+>>       cpumask_t        accessibility;
+>>       bool            has_extd_esr;
+>> @@ -532,6 +531,11 @@ int mpam_fb_send_write_request(struct mpam_msc 
+>> *msc, u16 reg, u32 value);
+>>   int mpam_fb_get_protocol_version(struct mpam_msc *msc);
+>>   #define MPAM_FB_PROT_HEADER_LEN        sizeof(u32)
+>> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
+>> +#define MPAM_FB_MAX_MSG_SIZE    (MPAM_FB_PROT_HEADER_LEN + 4 * 
+>> sizeof(u32))
+>> +
+>> +#define MPAM_FB_VERSION_MAJOR_MASK    GENMASK(31, 16)
+>> +#define MPAM_FB_VERSION_MINOR_MASK    GENMASK(15, 0)
+>>   /*
+>>    * MPAM MSCs have the following register layout. See:
 
 
