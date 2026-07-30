@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D00C55164
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018D8C55164
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OiynT78oIPX1RAHlRH5+0StsOYMM0ByoUKjomq2+Khg=; b=f6eNeuBK/dveDbHxykI8TddM8o
-	OdDvJOKFdK/Z7rvT1Xp5wKCsyMSp9L3+s8B3lOekX4LudEZHAHbYHe2a1g1dr7rPV/R/7bnipEqey
-	shy3YPETAw4Nk3XqfA5olNKZoF92+uHYCNJdQ4ouTW8ucmo8rF2nJpnYtDwBXeqLSzCBDHfh4bXTE
-	2vKdR1hK0qWrab8QRU7q8yjH7xRz1Q7HbKSk275pwu/tjkIMoy9DHUSqqrCdQPa7wCsxyQ4Pynaxb
-	yKexc2cxvM7tKfQR5LuWtSuQtXAgR1o44lPMawLJVrJFDEtoSiF1MyKLYs+oDubAkcuxJTegobjrH
-	ZhDv+k4A==;
+	bh=2gWyMz65/0u8et/Acgqdp9Pg0w7FC3E041Xv8BfNcag=; b=qO4Ge3cRZENMZDImJVqT+4JY+Z
+	NFZeK/romHGyKQmhSaRRtJy0rdKuCUQHp7TFZCX43n/ChPzKyhCLoZ4A4O5Ny+gscqGncD+ORAv8x
+	+nrIOTCxMPD53BenMWIFBOfVGe03HKOULOBtj4Zh3wf4o4156l+t79aJJx9lIGdRE6NEd8CmmoYCf
+	7yqFztiCe7oyLH0atY1uxXoJQK1EjMtl7B2ODQ9TAC6CJLf5axo9WPE313jCbSQTg6biseCmZnyND
+	ABKn/QS9GJQAMS2zs+HRJBkds0NfatGhRQwrdVl7TZ+ROElYij+IHOzduQTJVTKVLsZls4X3erbQq
+	nD8ExzcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRrH-0000000Alar-28vl;
-	Thu, 30 Jul 2026 14:35:39 +0000
-Received: from out203-205-221-155.mail.qq.com ([203.205.221.155])
+	id 1wpRuU-0000000Am1e-1YDA;
+	Thu, 30 Jul 2026 14:38:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRr3-0000000AlNl-2gRG;
-	Thu, 30 Jul 2026 14:35:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1785422102; bh=OiynT78oIPX1RAHlRH5+0StsOYMM0ByoUKjomq2+Khg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=TboLKejonrBMd5pXR1CBLuVkl9eluURMKcm5fu4fnYBS7zV51RgT187dHpm73EJUD
-	 Ey50fn3hIsM4vyAC7nHnRY83U0qNgd9R3YxiYJjLxzCZ+oVaezBAOA4xMdoJkzJfjZ
-	 5NgpOsgv0u8lTevbgwObv9KMe9vZ1g4g1MQWTaaU=
-Received: from ubuntu2204.localdomain ([2409:8d20:22b:54c:9e54:40ff:fe02:3f0f])
-	by newxmesmtplogicsvrszc56-0.qq.com (NewEsmtp) with SMTP
-	id 8B38245A; Thu, 30 Jul 2026 22:34:51 +0800
-X-QQ-mid: xmsmtpt1785422099tb9ugx61j
-Message-ID: <tencent_A982C9885A401DE2AB5F405336CDA14C7C06@qq.com>
-X-QQ-XMAILINFO: M91SeYiYjPckoQIolAYWVdM2SqAync6XSnGvaPkVT9uD+DPfGzokokbZfIz5J7
-	 u2+O1K7ittY2x5epwqXNh7IyfMdeYXWQPcSOxt7V+QRVd5fVpMICUdyan9FT8Gfyoep3+oanVk/6
-	 cnx6L/BBHNtI5XnUaxvKb1/T8pEqvucHjgW59SNh3bJH2rwNc/h8dpiZITmimCXbMlCxD57VEIvG
-	 LSgX/wPef8v0kOw7WPfwKk6wdy8P0URzCwmnk1OmVkKqlcopgyUiIAgcQtG3xRaUB6DpwJTMXkjh
-	 3kVkazuHL0SejqiGO6FjnWTe1dWBCFJt+Fb5WmAZ66nrN3BnwhS1I1jKC0J3PP26XwXAfIcGqI2q
-	 IGb+ZueM8kWoEu+W3es4xiE2Uvclk/d1Zw8jMbaWpukQ8fevoAm7v1KEuBLmrp7Um3FqUzbAJkrQ
-	 pmGWCaISd0ASpIEUdSOi4Y79aHA/dnrLZW2c9X1p76/15fkHXFUj38HcEZWN2cbC2zF2zrVSQQIt
-	 ZOmss7aW5/xKMdnsv67D3rGibt8RE/NR2MG1Kgnl2jDWLZhCxYlFGe+9B7CK1GBwvM77Zp9w2+N6
-	 7OVV9biRr5wQg30s6HIgU22P1AzmcdvjCDigb0k/GLT2A/UKOWwE9A0BHHgfwMkoreMDja3MiNm4
-	 FGk2fr/9DT0G5hOvt1BKaY9BLtpgxJ1K44MCAbD6IpuUZ+uWbZmR+Y+NAVZZrtv7dzby0GfLcVQ2
-	 o4xRGaSKaMrZVMSBoH3CEPaA2McwOaAO9ashwH87dBbasV6IwoeqqxueW2im2pmbVrPmVlbGvmfW
-	 jvhp6GgunIJO6KX1VC/S+SPKhJXpA42c4mo/ux6nxRIK9CII3mvsuo6PNpWLtQ24BmFYJYQ5idMz
-	 4tgoT10j7J7OBPAqPpTViWLyYLkbCSSh8hJccoVLwn00iVer6F/oozyIZKxMwc7hDnQ/CVdTMt/f
-	 C+BtovmeUxuCuKkCGepgRuBePR0Ur4yqTVKSJDoY0BWagSbib0sKqoVopx05HsP4oi9a8q8mDEZR
-	 MwoI7+7cZWk1TWS1nR9m0uiqDlVzReO7Vn+UNQCDqWP9tOy45kEgnEzFlvl89fB2QNc45qTX/VIM
-	 0q7jVX6E4d60p0McchSAhBJUpzgfUJKFbUVqWA7gN3Vw5E9+kOAwV64SnvYJQ3sy7S8Ut0
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-From: Cunhao Lu <1579567540@qq.com>
-Date: Thu, 30 Jul 2026 22:34:05 +0800
-Subject: [PATCH v6 4/4] arm64: dts: rockchip: Enable CAN controller on
- RK3588-Tiger-Haikou
+	id 1wpRuS-0000000Am1T-3Z27
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jul 2026 14:38:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E9D1C43C15;
+	Thu, 30 Jul 2026 14:38:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 453AE1F000E9;
+	Thu, 30 Jul 2026 14:38:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1785422335;
+	bh=2gWyMz65/0u8et/Acgqdp9Pg0w7FC3E041Xv8BfNcag=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=O+eVplFKGom7sJy9vBsX4LI843OzFUmI80EosvQaJ6gpAPt60Ldr4W5V5VHCbNU4C
+	 jRG6K04LbUhAJi8+cktqgeuRCezyAGRRFpMQLD9S0PAbilzTuXvTfpeFvAp4j9NiNg
+	 n/MYbU68W1CkMz1rdKcaCjYEVPrOeAeVS7lIgNaM=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Inki Dae <inki.dae@samsung.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: [PATCH 7.1 366/744] drm/exynos: fbdev: Remove offset into screen_buffer
+Date: Thu, 30 Jul 2026 16:10:39 +0200
+Message-ID: <20260730141452.064947942@linuxfoundation.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260730141444.267951807@linuxfoundation.org>
+References: <20260730141444.267951807@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-OQ-MSGID: <20260730-master-v6-4-dfb63e234775@qq.com>
-References: <20260730-master-v6-0-dfb63e234775@qq.com>
-In-Reply-To: <20260730-master-v6-0-dfb63e234775@qq.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de, 
- Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Cunhao Lu <1579567540@qq.com>, linux-can@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Heiko Stuebner <heiko.stuebner@cherry.de>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_073526_547888_6520F4D1 
-X-CRM114-Status: GOOD (  10.08  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +74,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+7.1-stable review patch.  If anyone has any objections, please let me know.
 
-CAN0 is piped through the Q7 connector to the CAN header on the Haikou
-baseboard, so enable support for it there.
+------------------
 
-At least on RK3588 Tiger, the CAN clocks default to 99 MHz, limiting
-usable CAN bitrates without skew. The RK3568 errata documentation
-mentions 300 MHz as the default frequency, so request the same rate to
-allow more bitrates.
+From: Thomas Zimmermann <tzimmermann@suse.de>
 
-The CAN clock setup is common to the Tiger SoM regardless of which
-carrier board exposes CAN0, so place it in rk3588-tiger.dtsi. Keep CAN0
-disabled by default and enable it in rk3588-tiger-haikou.dts, where the
-carrier board routes it to a transceiver.
+commit 760bbc58c2c833dec0ee38dd959f4f2f4084fc57 upstream.
 
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
+The screen_buffer field in struct fb_info contains the kernel address
+of the first byte of framebuffer memory. Do not add the display offset.
+This offset only describes scrolling during scanout.
+
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Fixes: 19c8b8343d9c ("drm/exynos: fixed overlay data updating.")
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Signed-off-by: Inki Dae <inki.dae@samsung.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-samsung-soc@vger.kernel.org
+Cc: <stable@vger.kernel.org> # v3.2+
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts | 4 ++++
- arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi       | 5 +++++
- 2 files changed, 9 insertions(+)
+ drivers/gpu/drm/exynos/exynos_drm_fbdev.c |    6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-index 873fbeb8daa1..6c57c9f54a30 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-@@ -155,6 +155,10 @@ vddd_audio_1v6: regulator-vddd-audio-1v6 {
- 	};
- };
+--- a/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_fbdev.c
+@@ -61,17 +61,13 @@ static int exynos_drm_fbdev_update(struc
+ 	struct fb_info *fbi = helper->info;
+ 	struct drm_framebuffer *fb = helper->fb;
+ 	unsigned int size = fb->width * fb->height * fb->format->cpp[0];
+-	unsigned long offset;
  
-+&can0 {
-+	status = "okay";
-+};
-+
- &combphy2_psu {
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-index 139f70e7bbd9..161c89c62bcd 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi
-@@ -90,6 +90,11 @@ vcc5v0_sys: regulator-vcc5v0-sys {
- 	};
- };
+ 	fbi->fbops = &exynos_drm_fb_ops;
  
-+&can0 {
-+	assigned-clocks = <&cru CLK_CAN0>;
-+	assigned-clock-rates = <300000000>;
-+};
-+
- &cpu_b0 {
- 	cpu-supply = <&vdd_cpu_big0_s0>;
- };
+ 	drm_fb_helper_fill_info(fbi, helper, sizes);
+ 
+-	offset = fbi->var.xoffset * fb->format->cpp[0];
+-	offset += fbi->var.yoffset * fb->pitches[0];
+-
+ 	fbi->flags |= FBINFO_VIRTFB;
+-	fbi->screen_buffer = exynos_gem->kvaddr + offset;
++	fbi->screen_buffer = exynos_gem->kvaddr;
+ 	fbi->screen_size = size;
+ 	fbi->fix.smem_len = size;
+ 
 
--- 
-2.34.1
 
 
