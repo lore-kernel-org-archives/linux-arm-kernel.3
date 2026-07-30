@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 429CBC55164
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D252C55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z5CSwG55YADucmpwN1DahTYwaTO0UaQN77qVWu7jJdw=; b=YrIAgn9FukFLhuExmyXL7iWT40
-	dEjReWxcmk/EQVyc71KfPrq2G646ujHH4oP+Yfn2GdbVsp43IyUlnVSPqiZTSDp5wCec5ynavULnb
-	lw3i6rLfIYCCUe4tqlNe8DmOxc58nAx0BbGQUjrpz84my1rtbo1UAU3cboFvJlTZrq2hlZ8O5Y82G
-	Fq/57F5KxCrD7P/zbd5Na8srolOcZTUDsXqHsIiDsbtqBSmFxPMzCuaJOYLsNZQBjEK1+piWZC+vH
-	vaxhc83P+0F0qcNThbVzdXD3UD3nS2te01POdRmi2BEVWriDqYtEOb0jj9nHBK9VI8EEncsan12Di
-	B1BG6ndg==;
+	bh=UuuLUuawaayCJVuDTZJqD2lNszQ3OigHxJNv3y24qV8=; b=b3sdP538+AgMolJahtl2UjCr1k
+	lFuLqXPiK0pnWrqbd4dS2IL47BSTsRVA83DtYSGcmsg6xz6G0qUBAzviCDiQN6wT8dKdwWyDVPFHe
+	y0dGQAvFhJdaVmvWPGjydWPc8vr6PyCTNe610zgE/CHKjild4+TDp58AXT5KegjI4Yox+AHdFHgr9
+	9IuCxdJRPlutEyJevxn/lNK5KE3p/PLt84kSLiAXmXlOXqldthsaxYeKTssvVO+UiezHQ9+s7Oj/m
+	HEP3/5ZMLw/J0ePUayQ/6EuXyoAu6k+1V2zIx+g6G987Cj9JUjG2Sd8In56ZS7Uq0I/vU7+6FSV8z
+	OvJFuQKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpLuO-00000009pQz-0efl;
+	id 1wpLuO-00000009pRM-1du9;
 	Thu, 30 Jul 2026 08:14:28 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpLuI-00000009pQB-0lrc
+	id 1wpLuK-00000009pQc-3cbk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 08:14:22 +0000
+	Thu, 30 Jul 2026 08:14:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA3FC41507;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9CB8343BAC;
+	Thu, 30 Jul 2026 08:14:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B1241F000E9;
 	Thu, 30 Jul 2026 08:14:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51FC51F00A3A;
-	Thu, 30 Jul 2026 08:14:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785399261;
-	bh=z5CSwG55YADucmpwN1DahTYwaTO0UaQN77qVWu7jJdw=;
+	s=k20260515; t=1785399264;
+	bh=UuuLUuawaayCJVuDTZJqD2lNszQ3OigHxJNv3y24qV8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZtfpqxMO3QFI6FhUxbO7MgZno07408HCX2BJ13cnCuh3ST+y4ee4fOVozzS1/seAh
-	 QPqyySyPTKLuQTJs27mRwDqh7kMkdTuCFGdyY0VS5igbyXZhp2ggaAIEKJ5VpslOv5
-	 tKVz7WuBlUau1LGTw3U5i/HJcOXqYIpKlSOgEv9wPwcjyaJUpZpmPHAFj2r0yIcfYE
-	 puphLa9ipeR8KVzGq+JLk7re19uPRuPOQFq6uEj1/kexkaAw6FLNSynRLxMLSPlKzm
-	 2DBfZ+TCexWh2rOM3B2+ANpXosCD+gwfVJE37cKKdmIo+J/hJTzfRDt1wDSGF4I9Qw
-	 x8fgGgMRdsxbg==
+	b=nxhmCqfPlK6UIWU1sS5+Y0VftkpBIE8Ngc3sN/jyWeajNWkVM92b4eVd5W3b0I2bu
+	 Jvfx9dydDPVeP7cxzwIlz02k0S/VfP249AjJAXF/+uSa2SXRt0zK54bGV7a2wZ/Q8a
+	 lAiHC3O6+PkkIH9PRWhpyValH149fYsCqMIfVRKRg6sPLcQGl8XDFQLQGwj/d12X+l
+	 9bIiTPEEbealMSLyWzZ578tcajeDUSjdlLXN3sDQQg6Tzl2EzVsG7SrDdLIvyTe8di
+	 QRkzR//8kMILjAXdfcdNzquVFiT6r9SjZ+Nwwmqs6N1VAC09tvgN+5kAnOcW+z+ZOS
+	 OPUxFmFnDfppA==
 From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Kees Cook <kees@kernel.org>,
-	Andrey Skvortsov <andrej.skvortzov@gmail.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
+To: linux-kernel@vger.kernel.org,
+	Randy Dunlap <rdunlap@infradead.org>
+Cc: Christophe Leroy <chleroy@kernel.org>,
+	Li Yang <leoyang.li@nxp.com>,
 	linuxppc-dev@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	Pan Chuang <panchuang@vivo.com>
-Cc: Christophe Leroy <chleroy@kernel.org>
-Subject: Re: (subset) [PATCH 0/2] bus: Remove redundant error messages on IRQ request failure
-Date: Thu, 30 Jul 2026 10:14:04 +0200
-Message-ID: <178539922194.574381.11201940278716774894.b4-ty@kernel.org>
+	Frank Li <Frank.Li@nxp.com>,
+	Guanhua Gao <guanhua.gao@nxp.com>,
+	Roy Pledge <Roy.Pledge@nxp.com>
+Subject: Re: [PATCH v3] soc: fsl: dpio: fix kernel-doc typos
+Date: Thu, 30 Jul 2026 10:14:05 +0200
+Message-ID: <178539922196.574381.15816296584474390241.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260710110930.462109-1-panchuang@vivo.com>
-References: <20260710110930.462109-1-panchuang@vivo.com>
+In-Reply-To: <20260728004938.905415-1-rdunlap@infradead.org>
+References: <20260728004938.905415-1-rdunlap@infradead.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=731; i=chleroy@kernel.org; h=from:subject:message-id; bh=oet0d/75qkhExnrQA65w4zG1pGl8gFrf327e7raz+Go=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRls1/4FTg9MmSmW90GaflLi9Rf2n3MfDlhZ2+RoYrtt XsBV2d86ChlYRDjYpAVU2Q5/p9714yuL6n5U3fpw8xhZQIZwsDFKQATmV/C8D8jZU7FqhQO9cXr JJR7mR8o9JySPL1IN6BDyUb2Ys3cuY8Y/rsFR/dVZyr252o9WX/zJrvmFLcHRwpyJR/eyg5a2a+ 9lhUA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=291; i=chleroy@kernel.org; h=from:subject:message-id; bh=By2W1VB8mqUfqZp8DyWN2xoLqcwcwcJYHG2/1C1d5oE=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRls1+UWSJ805g7qITJoCnmbiWjSpAi3/HSPyK6K1MTf K7PL+bqKGVhEONikBVTZDn+n3vXjK4vqflTd+nDzGFlAhnCwMUpABNpZGX4K+wTonSe05RLK3tD 2Yn9a3ZX8F5Us0rvWssfMnl7tu0dJ4b/oW3fy+cp79E3/PnQOnbR5ci5cqkHNs9v37Rh7y9vuTZ xZgA=
 X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,23 +78,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 10 Jul 2026 19:09:25 +0800, Pan Chuang wrote:
-> Commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-> devm_request_*_irq()") added automatic error logging to
-> devm_request_threaded_irq() and devm_request_any_context_irq()
-> via the new devm_request_result() helper, which prints device
-> name, IRQ number, handler functions, and error code on failure.
+On Mon, 27 Jul 2026 17:49:38 -0700, Randy Dunlap wrote:
+> Correct spelling of 2 words.
 > 
-> Since devm_request_irq() is a static inline wrapper around
-> devm_request_threaded_irq(), it also benefits from this
-> automatic logging.
 > 
-> [...]
 
 Applied, thanks!
 
-[1/2] bus: fsl-mc: Remove redundant dev_err()
-      commit: 1831c3b0fb726221671ace9b10c760b80dcce597
+[1/1] soc: fsl: dpio: fix kernel-doc typos
+      commit: 13dadf4581f774180665083c3342a3928dbf677b
 
 Best regards,
 -- 
