@@ -4,133 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E5ABC54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20958C54FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nK3fxoKKuamJeMbqD8OvdylnNIMC6gUQRUju9Y2xwD4=; b=1VV7Gq1wMPapeSXXj5pq01iM7e
-	jhrrk8DwP32AvAlPaYsTwDC9U9CWY5sMmi1VTEDacMvuo1yk+r5tNeZzTHa/atOiU5mDDjRl/rjqr
-	54TIeSqUmW5zpfjhfPVkgys2fTKwok05+T/z+Qjv3LB7mm/THPMmrXzgWqEjv3jo6mOmLTVJLEvE4
-	MPCToS/Hyu0J0mHh5N7lGFfdTp4zGsDAIoPLzFXwjZRpMGd+3lhpGUz82183azOfq/DNdcnCeM6Tv
-	JoFZNGs5ImGYE46rrpaJQLzUtx9mGHIrEPUaSSE8PN1vHs1TCBuvWsWyOcjVM+Y/C9kPCOK3sj3Nk
-	LrtMAUIQ==;
+	bh=JyUPYL2OrXSKt8rHjiCQrmfpBKq5z8MLwljG9M1Hes8=; b=12HYVw0przuPPeWgLSYdZx+8B3
+	IZ1NjH3kScWiLso0fl+gytg0R7uUP09o5jfmTwRb2iYWT5PwELDYQF48+XxtaNdS/wOVXUbHCjeqM
+	2N9bWa1ABw3uyRo/KQkcMl/qrVt9g+pqenn5IeVGPC/ArK8WWeyBhnqIP1VUqGqhWWep4LB/qk7lL
+	ElFrnji5lyHTDi/n6yaPJl8tw12fclNBB/iNuTd9ddjKcEV9N/6n7iIDL0OJoKrfDVuF+06DcBtn3
+	PVNty3MjrcmjXKtXL+vZPOaNK3wAcewmj/rGM6x4vN93V2iLR+zDBHle5UEZ2bOsLmj0dQpkfLLfm
+	9eeYd1xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpMdo-00000009wi0-3Z4c;
-	Thu, 30 Jul 2026 09:01:24 +0000
-Received: from mail-westeuropeazon11011030.outbound.protection.outlook.com ([52.101.70.30] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wpMjF-00000009xNQ-1vVT;
+	Thu, 30 Jul 2026 09:07:01 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpMdn-00000009wgy-0jL3
+	id 1wpMjD-00000009xMw-0Fav
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 09:01:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F3bfrEnt5rI+ysS4U9cpaZg3Yg6MpPPILA+a62dgj9cy2s6h5X08+xb93SgvRvGr4hK+w22+jR2Z4vh6PcYR2IM7gWDi/3K+xU31xAxKH4qKJHs4kbXJlnYDPf/rsts5T3t7iwEJWtuPJNCHMV/VMO8S9/Kn/sYTD8p9n4UAoq9SaqaMCdzgZiNJuSsP7NLg5h7RkflXTtYnjsOySI2IqnnVPEEUHnJbzmODXjYICb70LDyPQtGU+8VoaEVpkQioBxQlxlN1M/CGZEe8sYBB+/d0WLvwYvk6XQILsXkOo3HqxZ1K7LzXg27ltPTvPqaqPfQ86rPS7c59ZTfhln5CoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nK3fxoKKuamJeMbqD8OvdylnNIMC6gUQRUju9Y2xwD4=;
- b=ZOqmOJAabSDgcEsnuX20ODAqXl7vcoOHUv7iYk4yZGjEMadQKlEhLPcwCpr66qmQ9zqJ9ThW/VB4xRtiJBhWZiHOFinxLt7FezAjcQxV6KMekgf6h5tlxkNbdajzC0bVcJFbzG18y/FWBuScOXjMc/xvCe25yoGvdBtxKAcTLgQqqLmJ4LgVInc5WSw+fWxAO3FqsTAHWq991WWtBco84AbJ1w72VWvuuoUou5gdFoHsfsDj3YG1i/bmaJCenMrVU9jmK/apD9xhjJmtKhgiGBVNgtdB+kpXQKaatrDjmBKI+9AnUhIAKbEj5WTQ3nxIY7BAiB98M9YtV6TwBB6Kng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nK3fxoKKuamJeMbqD8OvdylnNIMC6gUQRUju9Y2xwD4=;
- b=kxPnzcGJW0nabf/pl3S36sCkC6B1s8PuUWjbpFP8YZw/HErRrLarEBVLV1xVrnTmH1rMs2ozpR4PLWYdPYzbcof4RNRhgZj32xVQV/fi3mJZZEE7/TEREhVbtQq1C8XjjGAabMhgZUJljld+Ba0oKIxGewdW3wsPtuVIxmpoOVZu9xlBbHRdLR+gwnT5v8LhhIF538p2T84RcxTC0OqTzCuD8ZX3SVOj4O7FvSwgh9hWlynKVkev05tUZuYXMS3OA1CCHdAgbuOZAlBclOJs3+xsom0hiQnF6/lRuoVGqTW+ImuQdRP6axMDlI9evoOwm+VBJhl41/2wxyNS50+exQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
- by GV4PR04MB11776.eurprd04.prod.outlook.com (2603:10a6:150:2d7::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.14; Thu, 30 Jul
- 2026 09:01:17 +0000
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
- 09:01:17 +0000
-From: hongxing.zhu@oss.nxp.com
-To: abelvesa@kernel.org,
-	peng.fan@nxp.com,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	bmasney@redhat.com,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: kernel@pengutronix.de,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
+	Thu, 30 Jul 2026 09:07:00 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-849f2f32facso140051b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 02:06:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785402418; x=1786007218; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JyUPYL2OrXSKt8rHjiCQrmfpBKq5z8MLwljG9M1Hes8=;
+        b=n/Y/k1CvBAccbQzls6d4SOydLTHkjYAs7PeUTS7AiS4RxdWeBS8ASiOxmsgedJgVvE
+         3rObN2W0MhCd4j+LLQ1IiW1MUtxzhiT93pIxMjwYzsZSzEbVGYuOMvd+VAMhQ33xrcvc
+         R41YXZbnC3YWZd/2aK5r8WbpzTsT52co/wPqeG26azP+4xiOdagMv7ziaPBDyHBjhDao
+         C6yoNobM3gE7S6oxbP/iXsoSEGDcfiPL9iJwQYWZ7gYMV8xCP3XEdBP5jIau/kI/kSGw
+         Sqa4w+4ywfmmEByCKOZOxzR6OI02qLQb4s6PGo2nznkhoNMHGqem1+kkNCPQjR/voF2I
+         XmbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785402418; x=1786007218;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JyUPYL2OrXSKt8rHjiCQrmfpBKq5z8MLwljG9M1Hes8=;
+        b=ZQMAYih3EPztsoQErBNwrxYVgPcWhav7jGf4vhz20ecoGZKs52g16ybHicmjC82nkD
+         xh8kzcunIRaQuuwYtOkJVaC9MhvYdz7UZvq3dEq9PnDRqa2u2RL0QS5YvP/5bQmdRz7n
+         MiVHpSdQvDlWcGYIyJYi8U9NYse9FcODPTG0uXYryfkNCsbGbji1aojTr3rfTwjS6DEh
+         s+MmScS4P1cOrkJG7rrhVHzIFkdg5mu7WfLH0hN9Y3vU7hOlefpt6nPyEr2+wfQhcDu9
+         a/t6FqIY2O3nfTkvBlu2J+JqTkkhOk+LvsNRvYqKwNWxpDePn4yMUVArX8Wh4lKFOOLn
+         aJHg==
+X-Forwarded-Encrypted: i=1; AHgh+RrncPGvqU8w+AmesAsZyyDZaCZ3ieQTeO7DlKmJWp+o5GK5wQ2Q+2Szm+2yJsNtIMD7dko1jGhuEvrLyIHfPXnG@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKSoMZPg0P2SYtyz50r2uLbtNyTWeuVYcbvhKdyTc2zsA8F7SL
+	fUL4Uud4WIfeb1ffSdiQSwVNoLdFfZ7ynRZK2XTSVaqM30N7P9qxI5XS
+X-Gm-Gg: AR+sD13MNp8aBcSF60qhTK5g3r9wcSzC2dsdkV5+8VUBLyORxOPgP85kk5TKSvze6HR
+	teHE+IDJzcI8HC1Y/crcdrJqdE2L+qOgjAZlsAHy/ZRkwfuNw6Qc8S+YPYUSVhgjb1v2wray2bS
+	Wu++TaNrZQ8CCpaC+V7bplD+6+HxFKcETLH8WPGHlvWZRAbeetWgirczIFnaJ/VhRobPRIddGsf
+	i4O+5/sezZD6IZ4PIr7h55Iqaw9s9XWaoYw3Wc0qOQRywowmQDGWq3g+WiFH8q3K1RYnzoxTDDB
+	mT/b2BF6qLqFB0tF90IEL7dCYnRM0bbo5bp2IS6T2SzVQ+hBcamerZl06nsGP55PgQnD5ygGXnP
+	0NkU18w8rYrlhsALQisQZSsLvgwROVEunnJHP2H0/b0mUexHdRlseFi56tcLzC2KVm4Bx1T/Tfm
+	sbVqa7Y63vfb550JtgzBCaKZoCrLQr82kTnIFDorqs+zXk+dTE5LELZL3jrDbIVlM71IjoQgExF
+	x3I1tbvVX1teGyiNO44dplEaneVltlAUPp6ZfHTG1wG/zhArnsC
+X-Received: by 2002:a05:6a21:3997:b0:3c6:7648:5ab0 with SMTP id adf61e73a8af0-3c9003cc78cmr2258784637.0.1785402417981;
+        Thu, 30 Jul 2026 02:06:57 -0700 (PDT)
+Received: from debian.lan ([155.117.85.23])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbdba447107sm1902510a12.21.2026.07.30.02.06.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 02:06:57 -0700 (PDT)
+From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+To: akpm@linux-foundation.org
+Cc: david@kernel.org,
+	ljs@kernel.org,
+	usama.arif@linux.dev,
+	catalin.marinas@arm.com,
+	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	rppt@kernel.org,
+	ryan.roberts@arm.com,
+	ziy@nvidia.com,
+	baohua@kernel.org,
+	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [RESEND v1] clk: imx95-blk-ctl: Fix REFCLK rise-fall mismatch on i.MX95
-Date: Thu, 30 Jul 2026 17:04:47 +0800
-Message-Id: <20260730090447.271109-1-hongxing.zhu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR06CA0002.apcprd06.prod.outlook.com
- (2603:1096:4:186::10) To PAXPR04MB8096.eurprd04.prod.outlook.com
- (2603:10a6:102:1c7::19)
+	Xueyuan Chen <xueyuan.chen21@gmail.com>
+Subject: [PATCH v6 0/3] mm: make persistent huge zero folio read-only
+Date: Thu, 30 Jul 2026 17:06:44 +0800
+Message-ID: <20260730090647.2401252-1-xueyuan.chen21@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|GV4PR04MB11776:EE_
-X-MS-Office365-Filtering-Correlation-Id: bfde4967-9151-46bd-70bd-08deee191d9e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|1800799024|376014|7416014|56012099006|10067099003|18002099003|6133799003|11063799006;
-X-Microsoft-Antispam-Message-Info: tK9FoUpXFt+AzRnpBMPTsodjnMH5hCGwBeRJKwAgZyJiE1E/811+t4S7g8Fb0hxcSNoanmfgRypPC2JCxdhmBOsJmN7FuMGSHQi1K45XiLGI1aen6A6o14Uj7CoYdCy00ExqLE4IgCRDrInlKuhG6nygmRAg9Lts72uhR2ko5M64l28wvNRTh8webSqQPjSjo2Xhl95KBkpeNCBDH+sMopIoOiACHXs2CIWE1WOF1fy80GXUXS29p0QRJlh8jxiN5ytfDMElvMd8SGHwSODMpzFdBCvQp+qN4IaX2MUDsHRXo9QNNzv34pBD5zj+8jsHtLlqzAgNAV1Edi4F4tCs0yUJcwN3/R6Om2wrO6sORH6EKk6D+CX+q3m23s83+n2si1K7vq87cKyOqK1k+AZMOcEmeMHLFvGLumOheb0KRqachQ7PAkKRETfFoN5CgHp4YXLOWIr1Dw65ZR2s1d/TwVr2bgc3oFE3ztUCNkmvIYa8/ZUSg/qZ3yot8iirNSV/ihOUtza92iUSPv2Dnw9jEwpB3K0lr+Ik+YhsjSmOMppcwl9ocutIMVxT/I4g0OVXXOejqU+LNhKqntPcMNLLL6HBKptWBJiPMlEfox3szfIubKWALZBAhNcvsk4Q/rKn/zw0Lq/ZE1zanr5z9W6O3OoZ5r6C8FkMTksPRBRqv+0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(1800799024)(376014)(7416014)(56012099006)(10067099003)(18002099003)(6133799003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FOCTATESBUH2oBB6D9lwPbtP3TBFCyE1p020bE5lHJm61MrP39edknizjZR9?=
- =?us-ascii?Q?dheGFZ/1G1dVCzDi9Mdrw5ktsnQ+z2n1KyCNS5tNtiKjZqo9GHGtxm3TkipG?=
- =?us-ascii?Q?O3BWN5PmbSEvP208QITuZOAm/iijJ4BnDPxg9dc5iaHe8fxiY0ir+qUefKXg?=
- =?us-ascii?Q?KDk1CW7YN888XA78gMZ+hYkEbWzI+BPZWIJV++ohKSkgBRd1hR25HwN6jmU+?=
- =?us-ascii?Q?Ouo18B2yvZCd8qzkfQRK0hO+jh4s3SOmxpU0WxaRhtzepSH/EN9TKHsJEWU6?=
- =?us-ascii?Q?YZkaleCxfJZievINz8UyfIpdc1QaZqmKNU6XAXghXcQsDjKIsTQVwN2e6i+2?=
- =?us-ascii?Q?Tuz63yGhwc0ThWcTz1YdJ24jqwbvA3ihogNQDaku0zCVPSjQwNRzeDirW4Yy?=
- =?us-ascii?Q?/ecssEAswtwbs9ik/7PP4WANo75R7kDWZSkvJEls82wtfTxZJUpx2Ta0gmsj?=
- =?us-ascii?Q?2o/Sgna/Mf2dXYORLYQHniFOQs1yfHll4WvFuuj8eqJNFo42b9QAkeaMsCRa?=
- =?us-ascii?Q?xNSJvdztngA2okzj3vQvS8x3qoh9Pv/0jb9iIScnzcjHl7/7KbHvscFPlvd8?=
- =?us-ascii?Q?Dt5y94UeR+BTm5LRLMKZJsPVn6z0p3XTXpowAWFFLbz7Q3dBc023A64/OBLL?=
- =?us-ascii?Q?7S56YmC5uuwTZO0zjk/zSFuGa/KDGgqMxsbfpIXQHqdYh4BPECpR1RXvoDUL?=
- =?us-ascii?Q?4o8pdwzYVavN33Ea86+SuVSmyZEkW1zUUl7qmA4FRXFMDwCSefCB8iI2FWEP?=
- =?us-ascii?Q?6Uj/Aw2D2INKSSTh1E6BngQqeu83HF2dgMJR0OsH5rg0AN5bA/eWpSFBrNYm?=
- =?us-ascii?Q?YUTnzXpMi/MoYU8ftGB1txvYEoeFFFrMAtk6APZoCHrNqqom20mrFZWnsIOV?=
- =?us-ascii?Q?YySjvXpg22rJmTyOfLfczUVsWDE0QTPKFCzYwT0nyHHFWSQhqknoLopTbklm?=
- =?us-ascii?Q?wTU6gzLeC2C/YPa9FZQatJQd3b7N0QI6VDpzemibQ704oTmKsPZseUquyBsX?=
- =?us-ascii?Q?s29mGU8SromaLbwUdukCmZyp7tNH49vAU3rjRV35oNZIViELGlsLpSA6erwn?=
- =?us-ascii?Q?BXFDtr3r/My37MjxpPemhtlYhLt8eJIFNnND/SuWZny5GHvyWw6XEK+lV7U4?=
- =?us-ascii?Q?HyrE5oOuhYHybiC6n4d6u4zBqZaNmpsQV67ylvmEnaKlG+bEz0eJOhDc1pV+?=
- =?us-ascii?Q?bsar7nc0F+eOpM8sz5c4s5ni+PjupwWNyEUILth+4cm0R+DFHHLtSss3ad4H?=
- =?us-ascii?Q?CeKlXOk0SBH12NgxQ2pm1nOyL6lDVbdedcVfxuqvrS5Y3ahLSbYdTB9RQTMa?=
- =?us-ascii?Q?81+yqo3uNIByqYjNkvqgnZMvhlwa3GW+egDf8AH5BYzwbaTLroyozYlKE3y+?=
- =?us-ascii?Q?Aq7G5x0BpQMOywcofbc5ZTDWS3lRdpNyVYH7cAHz9ASsaDWTeYIPj1zbGcZw?=
- =?us-ascii?Q?AOX5yukF2K3Oby9bh60amUEoRkUDnMexDwFerh9GNF90rn/+E6j3KIJ3S6gF?=
- =?us-ascii?Q?67QhqjFzQ6qrhq/BsACkRNWkKLZ1eAW4ZmckexsP7rcl/ecyQARtu1LsX7na?=
- =?us-ascii?Q?jUMFtAf/2aNM8oVDpu0RUDuHGCd4xFy+K6DipUjEU+WHIQecUxq+J2TAXi1V?=
- =?us-ascii?Q?3H77lt4S3ZhMog1DbACDfw9MPE/Ps/r4cW/KG3H4t9cGBWzpsCUjBON+mdz9?=
- =?us-ascii?Q?DJ66XYoeOfvyyOOerGknnWNP/sh4SGmlMA4RwmmiyAWJVmSK7QcxYrNVsvgi?=
- =?us-ascii?Q?0J//2ZGt0WOtLD18Kk8Hi+jZ52gyv46REW65WQ3YvXy7S3mAPoOy?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bfde4967-9151-46bd-70bd-08deee191d9e
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 09:01:17.3490
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gxX3Gj0Z2TB+FqKLuUp7IIBgI+NzrGTjJORNo1kd8S/mBJQ63xTN6vE//cdj307nO0HBH7kApT9/D13UW78H0okf0B1AGHL8M+2FYubngnuYS3MfQ77MmdUYjC3+JVuy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11776
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_020123_220041_DB6B17F6 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20260730_020659_111516_EF8237B8 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,55 +113,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
+The persistent huge zero folio is shared globally and should stay zero
+after initialization. As Jann Horn pointed out[1], kernel bugs have ended
+up writing to pages that were meant to be read-only, including in
+security-sensitive cases. Making the folio read-only in the direct map
+turns such writes into faults instead of silent zero-page corruption.
 
-When the internal PLL is used as the PCIe reference clock source on i.MX95,
-a REFCLK rise-fall time mismatch is observed during PCIe Gen1 compliance
-testing with the Lfast IO analyzer.
+This series adds set_direct_map_ro_noflush() so mm code can make a
+direct-map range read-only, then uses it for the persistent huge zero
+folio. The helper is direct-map specific, takes an address-based range as
+discussed for set_direct_map* helpers[2], and leaves TLB invalidation to
+the caller.
 
-Fix this issue by configuring the IREF_TX field to 0xF (15), which adjusts
-the transmitter current reference to meet the PCIe specification timing
-requirements.
+The folio is allocated and zeroed through the writable direct map before
+thp_shrinker_init() changes its permissions. thp_shrinker_init() is called
+from hugepage_init(), which is registered as a subsys_initcall and runs
+after SMP initialization. Writable TLB entries may therefore already be
+cached when the page-table permissions change. Patch 1 flushes the exact
+direct-map range immediately after the noflush page-table update. Keeping
+the flush at the call site preserves the helper's explicit noflush contract
+and follows existing direct-map helper users such as secretmem and
+hibernation.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/clk/imx/clk-imx95-blk-ctl.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+GFP_TRANSHUGE can allocate from high memory on 32-bit systems. Since a
+highmem folio has no permanent direct-map mapping, patch 1 skips both the
+permission change and TLB flush in that case.
 
-diff --git a/drivers/clk/imx/clk-imx95-blk-ctl.c b/drivers/clk/imx/clk-imx95-blk-ctl.c
-index 1f9259f456079..bc6957299ceca 100644
---- a/drivers/clk/imx/clk-imx95-blk-ctl.c
-+++ b/drivers/clk/imx/clk-imx95-blk-ctl.c
-@@ -44,6 +44,8 @@ struct imx95_blk_ctl_clk_dev_data {
- 	const char * const *parent_names;
- 	u32 num_parents;
- 	u32 reg;
-+	u32 reg_init_msk;
-+	u32 reg_init_val;
- 	u32 bit_idx;
- 	u32 bit_width;
- 	u32 clk_type;
-@@ -289,6 +291,8 @@ static const struct imx95_blk_ctl_clk_dev_data hsio_blk_ctl_clk_dev_data[] = {
- 		.parent_names = (const char *[]){ "func_out_en", },
- 		.num_parents = 1,
- 		.reg = 0,
-+		.reg_init_msk = GENMASK(10, 7),
-+		.reg_init_val = GENMASK(10, 7),
- 		.bit_idx = 6,
- 		.bit_width = 1,
- 		.type = CLK_GATE,
-@@ -410,6 +414,9 @@ static int imx95_bc_probe(struct platform_device *pdev)
- 		const struct imx95_blk_ctl_clk_dev_data *data = &bc->pdata->clk_dev_data[i];
- 		void __iomem *reg = base + data->reg;
- 
-+		if (data->reg_init_msk)
-+			writel((readl(reg) & ~data->reg_init_msk) | data->reg_init_val, reg);
-+
- 		if (data->type == CLK_MUX) {
- 			hws[i] = clk_hw_register_mux(dev, data->name, data->parent_names,
- 						     data->num_parents, data->flags, reg,
+Patches 2 and 3 add arm64 and x86 implementations.
+
+Link: https://lore.kernel.org/linux-mm/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/ [1]
+Link: https://lore.kernel.org/linux-mm/0e5b23a6-4895-454a-9dfa-6dc21adc2991@kernel.org/ [2]
+Link: https://lore.kernel.org/linux-mm/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com/ [3]
+
+v5 -> v6:
+- Patch #01: Skip the direct-map permission change and TLB flush for
+  highmem folios, which have no permanent direct-map mapping.
+Link: https://lore.kernel.org/all/20260727143426.1077133-1-xueyuan.chen21@gmail.com/
+
+RFC v4 -> v5:
+- Drop the RFC tag.
+- No code changes.
+Link: https://lore.kernel.org/all/20260718095647.182592-1-xueyuan.chen21@gmail.com/
+
+RFC v3 -> RFC v4:
+- Patch #01: Flush the direct-map range after changing it read-only, since
+  the folio was cleared through writable mappings after SMP initialization
+  (per Usama, thanks!).
+- Patch #01: Keep the flush in the caller to preserve the
+  set_direct_map_ro_noflush() contract and make the flushed range explicit.
+- Patch #01: Clarify the noflush API contract and the reason stale writable
+  translations must be invalidated.
+Link: https://lore.kernel.org/linux-mm/20260706130440.9295-1-xueyuan.chen21@gmail.com/
+
+RFC v2 -> RFC v3:
+- Patch #01: Replace arch_make_pages_readonly() with
+  set_direct_map_ro_noflush() in the existing set_direct_map* family
+  (per Mike and David, thanks!).
+- Patch #01: Use a direct-map address and number of pages, and document the
+  direct-map-only and no-TLB-flush semantics (per David, thanks!).
+- Patch #02 and #03: Update the arm64 and x86 implementations for
+  set_direct_map_ro_noflush().
+Link: https://lore.kernel.org/linux-mm/20260609143801.7917-1-xueyuan.chen21@gmail.com/
+
+RFC v1 -> RFC v2:
+- Patch #01: Drop the READONLY_HUGE_ZERO_FOLIO Kconfig option
+  (per Dave, thanks!).
+- Patch #01: Replace the huge-zero-folio-specific hook with a generic
+  page-range hook (per David, thanks!).
+- Patch #02 and #03: Update the arm64 and x86 implementations for the new
+  hook.
+Link: https://lore.kernel.org/linux-mm/20260527035607.14919-1-xueyuan.chen21@gmail.com/
+
+Xueyuan Chen (3):
+  mm: make persistent huge zero folio read-only
+  arm64/mm: add set_direct_map_ro_noflush()
+  x86/mm: add set_direct_map_ro_noflush()
+
+ arch/arm64/include/asm/set_memory.h |  2 ++
+ arch/arm64/mm/pageattr.c            | 10 ++++++++++
+ arch/x86/include/asm/set_memory.h   |  2 ++
+ arch/x86/mm/pat/set_memory.c        | 15 +++++++++++++++
+ include/linux/set_memory.h          | 29 +++++++++++++++++++++++++++++
+ mm/huge_memory.c                    | 20 +++++++++++++++++++-
+ 6 files changed, 77 insertions(+), 1 deletion(-)
+
 -- 
-2.34.1
-
+2.47.3
 
