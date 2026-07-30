@@ -4,62 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C26BC54FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 01:34:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EEBC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 01:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r88gkyp3tnoix3EQhLdo5VdpLbZjak+hr4pDnGs8gX4=; b=FvGfWihZlGFTLj0caiWlAKen9N
-	yf9RqOPVPi1d3urrU+yJ5OVIo+MRwZgugtAK7IQqqTCvlr141jM4Ta6xzkOqzB8BG6lSIWvmQbvpZ
-	MiJqMhgzc2WpdEbBxECigUEaHz1q+m1mA2jsN4Q9zmPnHhxoujG0SLfNbP3BCMppVRfI1a1U5D6UN
-	9xszR+keO1pFDnFe7EBx9mFXghZHBuyi0B36wja7yYZ/WdDXIHmLn8TzmTOuxdddC+IL712rh8J8X
-	O3cDCDEmyu+em2HVv3O7RS3yPlqKRH85OuziVEa+5+q9zONbBk3e8DNxhL1VFmGW2o3EopDftnygn
-	jf5Myuxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HGwgkD8UDDC/KvvjZYPql/0Ajl4ttvz4Z13BCLoOB8Y=; b=JYvoBSFQ0CzHdkO9FbQWxo3+2k
+	sZkbiLGjA+b8Uju/ztz4xEcEMKhIr2KFzCOJSlVXo8mbM7d7Pwq7I2pEj/Ec9C/GJfo+8HZa2BvDx
+	Dj4TvzHZpN/pwjnKjk6fAcXkNF9Vktk8C5RhaNGezC65XLNETzIIPhxBGarKCItzAY1xLU5Nc+Zho
+	K99u3yVGPN5Z4Jso2llvLB6ZVjVh7K3BWTYvdFCLrDXM1qwJPrvSGztUGqaCkvx4FM2Uphwd4EsQv
+	9UXQ8Wu2n8G0DvxVLTsNRSxWWVzgCSzbg+kjbhicIUttvtVtn1kdB3Lll52bvJUyb4q9r7iAh0ag1
+	5C0gbeDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpFfK-00000009GGZ-04X3;
-	Thu, 30 Jul 2026 01:34:30 +0000
-Received: from trager.us ([52.5.81.116])
+	id 1wpFfr-00000009GNK-17mD;
+	Thu, 30 Jul 2026 01:35:03 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpFfH-00000009GFw-3a3B
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 01:34:28 +0000
-Received: from c-73-254-161-40.hsd1.wa.comcast.net ([73.254.161.40] helo=[192.168.1.226])
-	by trager.us with esmtpsa (TLSv1.3:TLS_AES_128_GCM_SHA256:128)
-	(Exim 4.92.3)
-	(envelope-from <lee@trager.us>)
-	id 1wpFfA-0008Il-1M; Thu, 30 Jul 2026 01:34:20 +0000
-Message-ID: <ec478b24-0a30-4b63-b191-08d05f606bad@trager.us>
-Date: Wed, 29 Jul 2026 18:34:11 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 10/10] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260729134124.2506269-1-andre.przywara@arm.com>
- <20260729134124.2506269-11-andre.przywara@arm.com>
-Content-Language: en-US
-From: Lee Trager <lee@trager.us>
-In-Reply-To: <20260729134124.2506269-11-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	id 1wpFfn-00000009GJS-2i1c;
+	Thu, 30 Jul 2026 01:35:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1785375243;
+	bh=HGwgkD8UDDC/KvvjZYPql/0Ajl4ttvz4Z13BCLoOB8Y=;
+	h=From:To:Subject:Date:Message-Id;
+	b=AJX3MZY+tJ734Afe7rme/XY9iIJIPYhAByc1QkTS0fWqU+p+iIChIIqapjsBf5qez
+	 ABKVlrjCNEmaKG4WKAdgRwN6dXiZUBbUbggOJUfIvhwUPgSQXoLC4wmoJkiU2ENeu1
+	 kR7tnf4hCUZ3V/4gFLiKItz0pvnS0fu7LvJg0mS4=
+X-QQ-mid: esmtpgz16t1785375240taa39783a
+X-QQ-Originating-IP: YGs2uIrkoN4Lncdxa0Oh1sKiphWaNYiOWO2tkWSHOGA=
+Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 30 Jul 2026 09:33:56 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16287405302588008076
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: [PATCH v5 0/6] drm/bridge: Implement generic USB Type-C DP HPD bridge
+Date: Thu, 30 Jul 2026 09:33:43 +0800
+Message-Id: <20260730013349.51-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: MACXe2l6e7j9fOLui6QNBT7mkm/GJTwT6ImJafccB1It2StDppDCC7R2
+	KvPtPEqbzJ64Md2GOwZaFGk7Qb3oskgHw4fwEusZZGPh+0+6/n15WANQql4Y/IqBLe3aPXU
+	YnDEvZnJyTEFGPSgm11ttp4/vXtxtMH0t5ZUibzsAtyTRa+M4WBN+0JOyUWBVSMDfB/tGSr
+	VxEbNLNdl+sjfxZ0UmEtG+y12HQ5rubBME3YYIFRPicg5Njt6QGdMx0eqPl8CZM5Fv/7VhN
+	ueZ6HZIGmB2KhNesTcC0OPjN3ar8MuDd3+UAJ61RI3TURRGWXkhQr1HBneHi+Jus9aGxK8O
+	2zKquDqtvNAQC7ICv88zORA6DBxpmHxBl7y/AL3LDLqAG9TKV3xGE5cMLjxWQXJswvCew4K
+	NN28Os4DmMtOUCMa8S2Lir9357s7OBRZ/Zafew0UPR8r405peRDvuhGc8QCixVw44IlSTla
+	rekmnrRWf9J/4nZanZD8S6ZJ+KR0e8B06kAXA1pmkUWlKMhVItHwV7krXhTTwzs660DrW9u
+	wmPPmLiOIfiQ4IHJ0cAxi9o+yvBJWBAAC56fuuolwpY5+jraiG1STr6lYNzswJ2zw1yNPAG
+	KWfzTTn2YPBg1bH3uumVTQ/48bR+NOrA5YQoLdSW7R8iqOhtVCaPLG/hbsDU/XFKgJS8exa
+	MeOQ4dGOWzNf9SlcBp8IxsS4djsFrX6VJivXLvMWrg/kA0Ow2tsTjUYM+ZQCcKkN5JO2Ug4
+	cTSPSVPiuImESVfF5rZH/drk/hfwHpPAVnd+htb3vvlBch44h+7pcO4EQU540r22bm/xTL5
+	wrrGZjrKSjyoUn3qv0Y/CxHX/R0ibmMrk8KrievvUbKpu9qKJvhCOlB7pGzBsiLY9oQjVAS
+	A1RB7TO9vczAgbPoKVq75+h8Dw9JxpYa3jHTQtRXsvGQVic/KjYugvk76uF1zaCUmim5vvD
+	H4zEKW6xygAV185B/qD6hykx9hGD8qqf031wuwX40qR6XYzOr0v7YftLJv7kq66o2o9yjNY
+	7Tx6e6nQ==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_183427_897812_93B6D064 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20260729_183500_211334_8688FCB4 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,82 +108,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/29/26 6:41 AM, Andre Przywara wrote:
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-> @@ -2231,7 +2316,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->   {
->   	int err;
-> -	u32 tmp;
-> +	u32 pcc_subspace_id;
->   	struct mpam_msc *msc;
->   	struct resource *msc_res;
->   	struct device *dev = &pdev->dev;
-> @@ -2279,7 +2364,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->   	if (err)
->   		return ERR_PTR(err);
->   
-> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
-> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
->   		msc->iface = MPAM_IFACE_MMIO;
->   	else
->   		msc->iface = MPAM_IFACE_PCC;
-> @@ -2295,6 +2380,36 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->   		}
->   		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->   		msc->mapped_hwpage = io;
-> +	} else if (msc->iface == MPAM_IFACE_PCC) {
-> +		int ret;
-> +
-> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
-> +		if (IS_ERR(msc->pcc_chan)) {
-> +			pr_err("Failed to request MSC PCC channel\n");
-> +			return ERR_CAST(msc->pcc_chan);
-> +		}
-> +
-> +		if (msc->pcc_chan->pcc_chan->shmem_size < MPAM_FB_MAX_MSG_SIZE) {
+This series is split from the v15 "Add Type-C DP support for RK3399 EVB
+IND board" series [1]. It focuses on the DRM bridge and Rockchip
+platform CDN-DP controller changes.
 
-I think the PCC shared-memory size undercounts the required region. From 
-my understanding shmem_size is the length of the complete PCC 
-shared-memory region advertised by the PCCT and mapped by the PCC 
-driver. MPAM_FB_MAX_MSG_SIZE is the 4-byte protocol header stored in 
-pcc_shmem->command + the 16-byte write payload.
+[1] https://lore.kernel.org/all/20260304094152.92-1-kernel@airkyi.com/
 
-However, mpam_fb_build_write_message() places the payload after the 
-complete 16 byte struct acpi_pcct_ext_pcc_shared_memory. The largest 
-request therefore occupies 32 bytes of shared memory region(16-byte PCC 
-header+ 16-byte write payload). Thus a firmware region between 20 and 31 
-bytes currently passes the check but overruns when constructing a write 
-request. I think this should be
+====
+1. Generic Type-C DP HPD bridge
 
-if (msc->pcc_chan->pcc_chan->shmem_size <
+Currently, several USB-C controller drivers register their own DP HPD
+bridge via aux-hpd-bridge.c, each duplicating the same logic. For
+devicetree based platforms, the USB-C controller may vary across boards,
+and not every USB-C controller driver implements this feature. Patch 1
+implements a generic DP HPD bridge that monitors Type-C bus events and
+automatically creates an HPD bridge when a Type-C port device with DP
+SVID is registered.
 
-     sizeof(struct acpi_pcct_ext_pcc_shared_memory) +
-     MPAM_FB_MAX_MSG_SIZE - MPAM_FB_PROT_HEADER_LEN)
+2. Multiple bridge model for CDN-DP
 
->   
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index a2193e7df57c..e926b7feb72a 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -77,7 +77,6 @@ struct mpam_msc {
->   	/* Not modified after mpam_is_enabled() becomes true */
->   	enum mpam_msc_iface	iface;
->   	struct mpam_pcc_chan	*pcc_chan;
-> -	int			mpam_fb_msc_id;	/* in its own name space */
->   	u32			nrdy_usec;
->   	cpumask_t		accessibility;
->   	bool			has_extd_esr;
-> @@ -532,6 +531,11 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
->   int mpam_fb_get_protocol_version(struct mpam_msc *msc);
->   
->   #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
-> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
-> +#define MPAM_FB_MAX_MSG_SIZE	(MPAM_FB_PROT_HEADER_LEN + 4 * sizeof(u32))
-> +
-> +#define MPAM_FB_VERSION_MAJOR_MASK	GENMASK(31, 16)
-> +#define MPAM_FB_VERSION_MINOR_MASK	GENMASK(15, 0)
->   
->   /*
->    * MPAM MSCs have the following register layout. See:
+The RK3399 has two USB/DP combo PHY and one CDN-DP controller. Patch 5
+introduces a multi-bridge model where each PHY port gets a separate
+encoder and bridge, allowing flexible selection of the output PHY port.
+This is based on the DRM AUX HPD bridge rather than extcon.
+
+====
+Patch 1 adds generic USB Type-C DP HPD bridge (Dmitry, Heikki).
+Patch 2 add module soft depend for USB Type-C DP HPD bridge(Sebastian).
+Patch 3 adds new API drm_aux_bridge_register_from_node() (Neil).
+Patch 4 adds DRM AUX bridge support for RK3399 USBDP PHY (Neil).
+Patch 5 drops CDN-DP's extcon dependency when Type-C is present (Dmitry).
+Patch 6 adds multiple bridges to support PHY port selection (Dmitry, Luca).
+
+Changes in v5:
+- Link to v4: https://lore.kernel.org/all/20260727064408.101-1-kernel@airkyi.com/
+- Add module soft depend for USB Type-C DP HPD bridge.
+
+Changes in v4:
+- Link to v3: https://lore.kernel.org/all/20260717072323.96-1-kernel@airkyi.com/
+- Scan the entire typec_bus and attempt to register the hpd bridge,
+  so as not to miss devices that were already added during initialization.
+
+Changes in v3:
+- Link to v2: https://lore.kernel.org/all/20260608070805.88-1-kernel@airkyi.com/
+  (Sorry, I forgot to add the "v2" title, so it looks like v1.)
+- Remove now-redundant call to drm_connector_attach_encoder()
+- Rebase to v7.2-rc2
+
+Changes in v2:
+- Link to v1: https://lore.kernel.org/all/20260521032854.103-1-kernel@airkyi.com/
+- Add copyright text.
+- Remove useless goto.
+- Fix incorrect function names in the documentation comments.
+- Fix the check logic for dp->active_port (0 is valid).
+- Fix the uninitialized prev_port.
+- Remove duplicate logic from cdn_dp_switch_port().
+- Fix the prototype of cdn_dp_bridge_hpd_notify().
+- Properly release connector->fwnode.
+- Properly release next_bridge.
+
+Chaoyi Chen (6):
+  drm/bridge: Implement generic USB Type-C DP HPD bridge
+  drm/display: Add soft depend for aux-hpd-typec-dp-bridge module
+  drm/bridge: aux: Add drm_aux_bridge_register_from_node()
+  phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
+  drm/rockchip: cdn-dp: Support handle lane info without extcon
+  drm/rockchip: cdn-dp: Add multiple bridges to support PHY port
+    selection
+
+ drivers/gpu/drm/bridge/Kconfig                |  10 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ drivers/gpu/drm/bridge/aux-bridge.c           |  26 +-
+ .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  |  64 ++++
+ .../gpu/drm/display/drm_display_helper_mod.c  |   1 +
+ drivers/gpu/drm/rockchip/Kconfig              |   1 +
+ drivers/gpu/drm/rockchip/cdn-dp-core.c        | 358 ++++++++++++++----
+ drivers/gpu/drm/rockchip/cdn-dp-core.h        |  18 +-
+ drivers/phy/rockchip/Kconfig                  |   2 +
+ drivers/phy/rockchip/phy-rockchip-typec.c     |  13 +-
+ include/drm/bridge/aux-bridge.h               |   6 +
+ 11 files changed, 429 insertions(+), 71 deletions(-)
+ create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+
+-- 
+2.53.0
+
 
