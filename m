@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 123D0C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7896C55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E40iejKfu9cGhaEtcYIJWerAgnZnDES8iawHbf3MzfE=; b=Tu9e4MAemo4TES736Cx5nD2ICN
-	qSzgAAHvdOZ5bf/QBOOr0dAboKD3V+cZvFSNWOnWvEb5Q+wChcDCS5X8EHatrtmdAC/TFW7HqDgCI
-	nnljEzLfPhAChS75+5Nn5gZO5FSyKC7lGPVM2bxroPT7mu/De1uPDpNU+DPvFGB5A82I889lZn/3w
-	nIHqRJSnH8zAJO+s1xB3xUNkg6XoNRTSRLB4/G8XUAMG2t+mhrblMBSpk87YZeId8YDL6BHHYJRkf
-	62dqLDUGtYodbzkidxXYX6IcefrMDM7GERPW2Gv73HuhGmyuT6dYj1XQf204Ie83NTUun2zP2RrnR
-	3p0iIpGA==;
+	bh=xOfZ1XZtmIGv5xPs/JpL5IA5kDeBp4wZjvToK2htZEg=; b=afO+2CFDPjDjCPMEeh92Vn+TQQ
+	lz6kREvJknCCRQ1UgYh/SfsLbpkjCTR0fXF40gfQl2kNKq6VoFMA/SEZ+YdJImvGyv8r3MOmjzkEw
+	bvj6mhV/0gj0Q2PXu0Cz0VL7tDfqrnJqNoWMmbiG+ZHtIw/gufXKdLJIi7HUoYklJZzUb1pHQKTVp
+	vVrbWY/3vCAgwOu82z9V33iLi4aNlXJLIPjf8FVNv2y2DX9pZ11//72Q1uI60kNN1B3dJV4q6Ew2f
+	Y56zAEg8lpjV7Eo7+jxbrW2ntuorXCxQxkgr51TfVOyl7W+ymSLixXEDyJ7oDM+vsTJCbvrhnH9BM
+	sftE+DaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRSS-0000000Ai18-3iIn;
-	Thu, 30 Jul 2026 14:10:00 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1wpRUF-0000000AiFe-13op;
+	Thu, 30 Jul 2026 14:11:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRSQ-0000000Ai0U-03uq;
-	Thu, 30 Jul 2026 14:10:00 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id A6C26202C4D;
-	Thu, 30 Jul 2026 16:09:51 +0200 (CEST)
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1wpRSJ-0023mQ-1p;
-	Thu, 30 Jul 2026 16:09:51 +0200
-Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 46A05577064;
-	Thu, 30 Jul 2026 14:09:51 +0000 (UTC)
-Date: Thu, 30 Jul 2026 16:09:50 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Cunhao Lu <1579567540@qq.com>
-Cc: Vincent Mailhol <mailhol@kernel.org>, kernel@pengutronix.de, 
-	Heiko Stuebner <heiko@sntech.de>, linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] can: rockchip_canfd: serialize TX state and
- command writes
-Message-ID: <20260730-accelerated-ambitious-sparrow-44e187-mkl@pengutronix.de>
-References: <20260730-master-v3-0-91cf030c337d@qq.com>
- <tencent_DF0D7ED74DEC340D32DF095A239B01238808@qq.com>
+	id 1wpRUE-0000000AiFG-1EiM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jul 2026 14:11:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A120B40204;
+	Thu, 30 Jul 2026 14:11:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70AC31F000E9;
+	Thu, 30 Jul 2026 14:11:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785420709;
+	bh=xOfZ1XZtmIGv5xPs/JpL5IA5kDeBp4wZjvToK2htZEg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Z8vLubTbVrC5ggTk1y2XualK8J6337oJ22xbo6bslpP7b4zn0dWTkMpUIQ9r2F1vd
+	 wVgQx4rddZtSPRahJAUSCohb8kgDwjkOe/0FJzH9ieNLIiG6MR96um9+5hEimKYvL/
+	 al4vXaF0SYqn4yr3k9vm1F4IHLxrex+cFKMj2FP2iwvdYCeY1dESMqfjP+wKT1aSAZ
+	 DOyOQN5S1xNyPYjdZL9wIk5mMYrO+1bNzh1stF/vmBLT6xHQnRp4VP8U81ldpWcz6t
+	 jEgq4ctZt4/UPYwlQeQl+RD46/tA3FfeX5ZVxDfq/wxEzU60d6kQ+0ZhQ/eG3ndBTN
+	 mjIFhls78msYw==
+Date: Thu, 30 Jul 2026 09:11:48 -0500
+From: Rob Herring <robh@kernel.org>
+To: Long Zhao <longzhao@ambarella.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
+	Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, linux-serial@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 03/10] dt-bindings: clock: add Ambarella CV75 RCT clock
+ controller
+Message-ID: <20260730141148.GA2828054-robh@kernel.org>
+References: <20260730104330.81367-1-longzhao@ambarella.com>
+ <20260730104330.81367-4-longzhao@ambarella.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="djdjifzti4t4ojeh"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <tencent_DF0D7ED74DEC340D32DF095A239B01238808@qq.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_070958_214336_9D979A12 
-X-CRM114-Status: GOOD (  38.52  )
+In-Reply-To: <20260730104330.81367-4-longzhao@ambarella.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,249 +80,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---djdjifzti4t4ojeh
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 3/3] can: rockchip_canfd: serialize TX state and
- command writes
-MIME-Version: 1.0
-
-On 30.07.2026 21:48:40, Cunhao Lu wrote:
-> The TX completion path removes an echo skb before advancing tx_tail. In
-> parallel, the transmit path reads tx_head, tx_tail and the tail echo slot
-> when applying the erratum 6 queue restriction. There is no synchronization
-> between these operations.
->
-> On SMP, the transmit path can consequently observe a pending frame with
-> an empty echo slot:
->
->   rockchip_canfd fea60000.can can0: rkcanfd_tx_tail_is_eff:
->   echo_skb[0]=3DNULL tx_head=3D0x00060f7d tx_tail=3D0x00060f7c
->
-> It can also keep a pointer to an echo skb while the completion path remov=
-es
-> and queues it for NAPI, where it can be freed on another CPU. The
-> inconsistent snapshot can stop the netdev TX queue when there is no later
-> completion to wake it.
->
-> There is a second race in the command submission sequence.
-> rkcanfd_start_xmit() runs in softirq context while rkcanfd_xmit_retry() is
-> called from the RX interrupt handler. On controllers affected by erratum
-> 12, both execute a MODE/CMD/MODE register sequence. The interrupt handler
-> can restore the default MODE between the softirq writes, causing the
-> resumed softirq to issue CMD without SPACE_RX_MODE and bypass the erratum
-> 12 workaround.
->
-> Add a TX state lock and use it to protect tx_head, tx_tail and the echo s=
-kb
-> ring as one state. The same lock serializes the MODE/CMD/MODE sequence
-> between the transmit and interrupt paths. Keep the queue completion and
-> wake operation outside the lock to avoid nesting the TX state lock with
-> the netdev TX queue lock.
->
-> Tested on an RK3588 rev2.2 at 1 Mbit/s with 100,000 extended CAN frames.
-> The run triggered 138 erratum 6 retries and completed without drops, queue
-> stalls or driver warnings. RK3588 does not enable erratum 12, so this test
-> does not exercise that hardware workaround.
->
-> Fixes: ae002cc32ec4 ("can: rockchip_canfd: prepare to use full TX-FIFO de=
-pth")
-> Fixes: 83f9bd6bf39d ("can: rockchip_canfd: implement workaround for errat=
-um 12")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Cunhao Lu <1579567540@qq.com>
->
+On Thu, Jul 30, 2026 at 06:43:23PM +0800, Long Zhao wrote:
+> Add the CV75 RCT clock controller binding and clock ID header.
+> 
+> Signed-off-by: Long Zhao <longzhao@ambarella.com>
 > ---
-> Changes in v3:
-> - Adjust for the can_put_echo_skb() ownership change in patch 1; no
->   functional changes.
->
-> Changes in v2:
-> - Serialize the erratum 12 MODE/CMD/MODE sequence with the TX lock.
-> - Add the erratum 12 commit to the Fixes tags.
-> - Add RK3588 extended-frame stress-test results.
-> ---
->  drivers/net/can/rockchip/rockchip_canfd-core.c |  1 +
->  drivers/net/can/rockchip/rockchip_canfd-rx.c   | 31 +++++++++++++++++++-=
-------
->  drivers/net/can/rockchip/rockchip_canfd-tx.c   | 26 ++++++++++++++++++---
->  drivers/net/can/rockchip/rockchip_canfd.h      |  4 +++-
->  4 files changed, 50 insertions(+), 12 deletions(-)
->
-> diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net=
-/can/rockchip/rockchip_canfd-core.c
-> index 29de0c01e4ed..c8257858b452 100644
-> --- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-> +++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-> @@ -904,6 +904,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
->  	priv->can.do_set_mode =3D rkcanfd_set_mode;
->  	priv->can.do_get_berr_counter =3D rkcanfd_get_berr_counter;
->  	priv->ndev =3D ndev;
-> +	spin_lock_init(&priv->tx_lock);
->
->  	match =3D device_get_match_data(&pdev->dev);
->  	if (match) {
-> diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net/c=
-an/rockchip/rockchip_canfd-rx.c
-> index 475c0409e215..9f57a35672ed 100644
-> --- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
-> +++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-> @@ -99,15 +99,26 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *=
-priv,
->  	struct rkcanfd_stats *rkcanfd_stats =3D &priv->stats;
->  	const struct canfd_frame *cfd_nominal;
->  	const struct sk_buff *skb;
-> +	unsigned long flags;
->  	unsigned int tx_tail;
-
-nitpick: please keep reverse xmas tree for variable declaration, move
-flags to the end.
-
->
-> +	spin_lock_irqsave(&priv->tx_lock, flags);
+>  .../bindings/clock/ambarella,cv75-rct.yaml    | 94 +++++++++++++++++++
+>  .../dt-bindings/clock/ambarella,cv75-clock.h  | 17 ++++
+>  2 files changed, 111 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
+>  create mode 100644 include/dt-bindings/clock/ambarella,cv75-clock.h
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
+> new file mode 100644
+> index 000000000000..5ff5b6a4a0b9
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
+> @@ -0,0 +1,94 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/ambarella,cv75-rct.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	if (!rkcanfd_get_tx_pending(priv))
-> +		goto out_unlock;
+> +title: Ambarella CV75 RCT Clock Controller
 > +
->  	tx_tail =3D rkcanfd_get_tx_tail(priv);
->  	skb =3D priv->can.echo_skb[tx_tail];
->  	if (!skb) {
-> +		const unsigned int tx_head =3D priv->tx_head;
-> +		const unsigned int tx_tail_full =3D priv->tx_tail;
+> +maintainers:
+> +  - Long Zhao <longzhao@ambarella.com>
+> +
+> +description: |
+> +  The RCT (Reset and Clock Tree) block on the Ambarella CV75 SoC provides
+> +  PLLs, clock muxes and dividers for on-chip peripherals.
+> +
+> +  The same register region is also exposed as a syscon for other drivers
+> +  (e.g. pin drive-strength), hence the "syscon" compatible.
+> +
+> +  Clock indices are defined in
+> +  include/dt-bindings/clock/ambarella,cv75-clock.h:
+> +
+> +  - CV75_GCLK_UART0: UART0 mux/div clock
+> +  - CV75_GCLK_CORE: Core PLL (gclk_core)
+> +  - CV75_GCLK_AHB: AHB bus clock (core / 2)
+> +  - CV75_GCLK_APB: APB bus clock (core / 4)
+> +
+> +allOf:
+> +  - $ref: /schemas/mfd/syscon-common.yaml#
 
-nitpick: As it's both the unmasked head and tail, please use the same
-suffix for both.
+Drop this.
 
 > +
-> +		spin_unlock_irqrestore(&priv->tx_lock, flags);
+> +properties:
+> +  $nodename:
+> +    pattern: "^clock-controller(@.*)?$"
+
+"^clock-controller@"
+
+unit-address is not optional.
+
 > +
->  		netdev_err(priv->ndev,
->  			   "%s: echo_skb[%u]=3DNULL tx_head=3D0x%08x tx_tail=3D0x%08x\n",
->  			   __func__, tx_tail,
-> -			   priv->tx_head, priv->tx_tail);
-> +			   tx_head, tx_tail_full);
->
->  		return -ENOMSG;
->  	}
-> @@ -123,17 +134,18 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv=
- *priv,
->  		rkcanfd_handle_tx_done_one(priv, ts, &frame_len);
->
->  		WRITE_ONCE(priv->tx_tail, priv->tx_tail + 1);
-> +		*tx_done =3D true;
+> +  compatible:
+> +    items:
+> +      - const: ambarella,cv75-rct
+> +      - const: syscon
 > +
-> +		spin_unlock_irqrestore(&priv->tx_lock, flags);
->  		netif_subqueue_completed_wake(priv->ndev, 0, 1, frame_len,
->  					      rkcanfd_get_effective_tx_free(priv),
->  					      RKCANFD_TX_START_THRESHOLD);
->
-> -		*tx_done =3D true;
-> -
->  		return 0;
->  	}
->
->  	if (!(priv->devtype_data.quirks & RKCANFD_QUIRK_RK3568_ERRATUM_6))
-> -		return 0;
-> +		goto out_unlock;
->
->  	/* Erratum 6: Extended frames may be send as standard frames.
->  	 *
-> @@ -143,7 +155,7 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *=
-priv,
->  	 */
->  	if (!(cfd_nominal->can_id & CAN_EFF_FLAG) ||
->  	    (cfd_rx->can_id & CAN_EFF_FLAG))
-> -		return 0;
-> +		goto out_unlock;
->
->  	/* Not affected if:
->  	 * - standard part and RTR flag of the TX'ed frame
-> @@ -151,20 +163,20 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv=
- *priv,
->  	 */
->  	if ((cfd_nominal->can_id & (CAN_RTR_FLAG | CAN_SFF_MASK)) !=3D
->  	    (cfd_rx->can_id & (CAN_RTR_FLAG | CAN_SFF_MASK)))
-> -		return 0;
-> +		goto out_unlock;
->
->  	/* Not affected if:
->  	 * - length is not the same
->  	 */
->  	if (cfd_nominal->len !=3D cfd_rx->len)
-> -		return 0;
-> +		goto out_unlock;
->
->  	/* Not affected if:
->  	 * - the data of non RTR frames is different
->  	 */
->  	if (!(cfd_nominal->can_id & CAN_RTR_FLAG) &&
->  	    memcmp(cfd_nominal->data, cfd_rx->data, cfd_nominal->len))
-> -		return 0;
-> +		goto out_unlock;
->
->  	/* Affected by Erratum 6 */
->  	u64_stats_update_begin(&rkcanfd_stats->syncp);
-> @@ -185,6 +197,9 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *=
-priv,
->
->  	rkcanfd_xmit_retry(priv);
->
-> +out_unlock:
-> +	spin_unlock_irqrestore(&priv->tx_lock, flags);
+> +  reg:
+> +    maxItems: 1
 > +
->  	return 0;
->  }
->
-> diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/c=
-an/rockchip/rockchip_canfd-tx.c
-> index 2b5cd6aab31b..ff9d8b77499c 100644
-> --- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
-> +++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
-> @@ -14,6 +14,8 @@ static bool rkcanfd_tx_tail_is_eff(const struct rkcanfd=
-_priv *priv)
->  	const struct sk_buff *skb;
->  	unsigned int tx_tail;
->
-> +	lockdep_assert_held(&priv->tx_lock);
+> +  clocks:
+> +    description: Reference crystal oscillator (typically 24 MHz)
+> +    maxItems: 1
 > +
->  	if (!rkcanfd_get_tx_pending(priv))
->  		return false;
->
-> @@ -33,13 +35,22 @@ static bool rkcanfd_tx_tail_is_eff(const struct rkcan=
-fd_priv *priv)
->  	return cfd->can_id & CAN_EFF_FLAG;
->  }
->
-> -unsigned int rkcanfd_get_effective_tx_free(const struct rkcanfd_priv *pr=
-iv)
-> +unsigned int rkcanfd_get_effective_tx_free(struct rkcanfd_priv *priv)
->  {
-> +	unsigned long flags;
-> +	unsigned int tx_free;
+> +  clock-names:
+> +    const: osc
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
 
-nitpick: please use reverse xmas tree for the variables, move tx_free
-first.
+> +  assigned-clocks: true
+> +
+> +  assigned-clock-parents: true
+> +
+> +  assigned-clock-rates: true
 
-Marc
+Drop. These are implicitly allowed for any node with 'clocks'.
 
---
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +  - "#clock-cells"
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/ambarella,cv75-clock.h>
+> +
+> +    / {
+> +        compatible = "ambarella,cv75-evk", "ambarella,cv75";
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
 
---djdjifzti4t4ojeh
-Content-Type: application/pgp-signature; name="signature.asc"
+Drop all this, not relevant to this binding.
 
------BEGIN PGP SIGNATURE-----
+> +
+> +        osc: oscillator {
+> +            compatible = "fixed-clock";
+> +            #clock-cells = <0>;
+> +            clock-output-names = "osc";
+> +            clock-frequency = <24000000>;
+> +        };
 
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCamtbLAAKCRDMOmT6rpmt
-0ksiAQD7vcEPzavi0oGiOx79XuJq7fuxdJDV9+CGtNjF7R1AAQEA3j7WKRRhizg/
-j/lebtLFK4Lp3LtU5hqdjPUZFqPylwk=
-=I9MM
------END PGP SIGNATURE-----
+Drop. We don't put providers in examples.
 
---djdjifzti4t4ojeh--
+> +
+> +        rct: clock-controller@ed080000 {
+> +            compatible = "ambarella,cv75-rct", "syscon";
+> +            reg = <0xff 0xed080000 0x0 0x1000>;
+> +            clocks = <&osc>;
+> +            clock-names = "osc";
+> +            #clock-cells = <1>;
+> +
+> +            assigned-clocks = <&rct CV75_GCLK_UART0>;
+> +            assigned-clock-parents = <&osc>;
+> +            assigned-clock-rates = <24000000>;
+> +        };
+> +    };
+> diff --git a/include/dt-bindings/clock/ambarella,cv75-clock.h b/include/dt-bindings/clock/ambarella,cv75-clock.h
+> new file mode 100644
+> index 000000000000..3d3314446e75
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/ambarella,cv75-clock.h
+> @@ -0,0 +1,17 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright (C) 2026 Ambarella, Inc.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLOCK_AMBARELLA_CV75_CLOCK_H
+> +#define _DT_BINDINGS_CLOCK_AMBARELLA_CV75_CLOCK_H
+> +
+> +/* Boot / bus clocks */
+> +#define CV75_GCLK_UART0                0
+> +#define CV75_GCLK_CORE         1
+> +#define CV75_GCLK_AHB          2
+> +#define CV75_GCLK_APB          3
+> +
+> +#define CV75_CLK_NUM           4
+> +
+> +#endif
+> --
+> 2.34.1
+> 
+> NOTE: This email (including attachments) contain Ambarella Proprietary and/or Confidential Information and is intended solely for the use of the individual(s) to whom it is addressed. Any unauthorized review, use, disclosure, distribute, copy, or print is prohibited. If you are not an intended recipient, please contact the sender by reply email and destroy all copies of the original message. Thank you.
+
+You must remove this or we can't do anything with your patches.
+
+Rob
 
