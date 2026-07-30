@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FC0C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 03:48:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E42BC54FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 03:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fz0OgPJHskeZCecIhowCqY7VOgUdIoTQSDl165K/eiA=; b=2/jxQN9UIsBtXWOaiD3P//j4a0
-	g0UOYSmwe0OgeP7lDhLKLui6vntBMNVdNJdJKjQODps7sms33CannImFx6znnDSu18WduIhhx67D9
-	z9pbjmp6d4aIgLeCHxHj25E+0fPBf32F/7lbOnQYMty3JKWsZ/GMye+ugPJ2G5fPdiSqUb7mFNtdQ
-	6zqlmf9Nh0gHwh40XyB5v482yN0ygk+rhIRdSYzI/u2GLa2194kiuirH03MoffmzVovIalSAssk/N
-	1S2Y/e1QmmbvvJG5FOfOLMbXErg6cR78SYLlaTmWAuIBRFdHvaecqB5t/ZPCTyqpR/RS64+N93bcp
-	WZ5xB5og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X7Mux6FE7z9fKIoWpY6C8S3xx1B7JjI8DMShzGceysM=; b=HI9DkZIpPB+WlskRiu4rlKIJDM
+	Hqq0PhDtlggWC5V9BSd9QSrk9YXyO37A8QPKsqjl/SK/rZc55O2LwoKc2BrBeJvkoULR/ji6DerKk
+	nrzB80eX953bBJuGt9PZZgcyrMw19LGrqreQMwr0AwNz0SQVsWCBchC1SvcV4XZFeSiVnZB7Y0esa
+	PRZG7GJj6XZ0TZAGOTe7FiZ/UvTACy54FBhnF2oGhjZfHib9X5/DBAunsyH/ZQyc0bgDRBtp5o4BN
+	vFmGl95zB4DsYLWUcopkjFC2/R+HgUEgiiHaA1l8BEDmTcKws3ZWBHKrW3vGBo/dUx7eTWJKcJEVu
+	rDIMT6Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpHkv-00000009RyL-06HH;
-	Thu, 30 Jul 2026 03:48:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wpHle-00000009S4D-1Jqi;
+	Thu, 30 Jul 2026 03:49:10 +0000
+Received: from mail-m128175.netease.com ([103.209.128.175])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpHkt-00000009RyD-1vCv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 03:48:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 36E32600AA;
-	Thu, 30 Jul 2026 03:48:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530061F000E9;
-	Thu, 30 Jul 2026 03:48:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785383301;
-	bh=Fz0OgPJHskeZCecIhowCqY7VOgUdIoTQSDl165K/eiA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Lh3SI/4G3RDTWRTW0NdHgz98g1xe5CFI4f5qgm15wero2ItllUSHgs45TZPbQYL2Q
-	 rCHS6Zze5Q9Y2/ARfhG2TffPAN3NS6mLuKT6e4uzyPXMIDVdwLQ2DDgyYzf0aRy36e
-	 CcdN19IHoaSAO4dl38o5KBknoP0CUOlRdYqRBHyzIn73xiP0LwfPnhxls9HSeOr4ex
-	 Mr1oKYRbef3TG8pQez/gWER5ZdMct9iKrj4F5ocJlwCd9PrJW9wA9ijlbyLp0uwC9Z
-	 bgZ67ckMARrD6Y5ujaicC3KFybE51P26CACDPAeatppWbrZYAoKyLmILliJjeKPUeb
-	 S/e3xi5pSTRWQ==
-Date: Thu, 30 Jul 2026 05:48:12 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Michal Simek <michal.simek@amd.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
-Subject: Re: [PATCHv2] PCI: xilinx: use fwnode_irq_get() for INTx IRQ lookup
-Message-ID: <5ea47pp3ctiieqahn3mkcg3dqrlmwdgdjyv6pa65qmjuqop4lb@tbax2lojuwkr>
-References: <20260716205811.800920-1-rosenp@gmail.com>
- <g3gtckpqgacw44jqqb5hb3oejpelxvbba47tdwsvksxbbskygp@mcwtsbypoyar>
- <CAKxU2N_f1nN4Oo94V9MY6Q-wp66j=3kodfMs0BeXVGB9XivvNA@mail.gmail.com>
+	id 1wpHla-00000009S3U-33f0;
+	Thu, 30 Jul 2026 03:49:08 +0000
+Received: from [127.0.0.1] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 481d48273;
+	Thu, 30 Jul 2026 11:49:02 +0800 (GMT+08:00)
+Message-ID: <a791f935-1634-4e21-966d-6d75bec87566@rock-chips.com>
+Date: Thu, 30 Jul 2026 11:49:00 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKxU2N_f1nN4Oo94V9MY6Q-wp66j=3kodfMs0BeXVGB9XivvNA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/rockchip: vop2: give rk3576 VP2 a primary plane
+To: Tomonori Nakagawa <jack@supremeoverlordjabs.co>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260729232450.13797-1-jack@supremeoverlordjabs.co>
+ <24547ed2-0950-48be-92cb-bbb0e1653258@rock-chips.com>
+ <7b6b347d-f5d9-45fe-8255-27e01f23578c@supremeoverlordjabs.co>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <7b6b347d-f5d9-45fe-8255-27e01f23578c@supremeoverlordjabs.co>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9fb123d26603a7kunme747ba0b4a4eb8
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHk4fVktLHRlCGk1CGE5KGVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=InTrd8rEXIAzz/o+tE2MmWAT/BagpE1/UvSTJclh6647mKFu5oSGVEKDY5NX9PrMvKoT1W+RcFFCT1rV820atajhNjkP/W3Qsyp55Xzod5LJQWw3w0jlzGbVn/UTkubXh6i+mc6r7HZGPQcQMoQ/uRJPL9XCToxlvFGQcTHNbwM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=X7Mux6FE7z9fKIoWpY6C8S3xx1B7JjI8DMShzGceysM=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_204906_999821_B40B1863 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 11:18:15AM -0700, Rosen Penev wrote:
-> On Wed, Jul 29, 2026 at 9:00 AM Manivannan Sadhasivam <mani@kernel.org> wrote:
-> >
-> > On Thu, Jul 16, 2026 at 01:58:11PM -0700, Rosen Penev wrote:
-> > > Replace irq_of_parse_and_map() with fwnode_irq_get(dev_fwnode(dev), 0)
-> > > in xilinx_pcie_parse_dt(). For an OF-backed device this is equivalent to
-> > > the previous call, but uses the generic firmware-node API.
-> > >
-> >
-> > What is the benefit of using fwnode API for OF only driver?
-> I get conflicting information. Apparently of_irq_get needs a call to
-> irq_dispose_mapping but fwnode_irq_get does not.
+On 7/30/2026 11:39 AM, Tomonori Nakagawa wrote:
+> On 2026/07/30 10:56, Chaoyi Chen wrote:
+>> The description here is not accurate. VP2 can wire to different
+>> display interfaces which depending on your board configuration.
+> 
+> You're right, thanks. VP2 isn't tied to DP - the VP-to-interface
+> routing is board/DT dependent. The actual issue is the plane topology:
+> on rk3576 the two Cluster windows (the only DRM_PLANE_TYPE_PRIMARY
+> windows) both have possible_vp_mask = BIT(0) | BIT(1), so they can only
+> attach to VP0/VP1. VP2's only attachable windows are the Esmart ones,
+> which are all DRM_PLANE_TYPE_OVERLAY. So whenever a board's DT wires any
+> output to video_port2, vop2_create_crtcs() finds no primary plane for it
+> and fails with -ENOENT ("no primary plane for vp 2").
+> 
+> I'll reword the commit message accordingly (dropping the DP framing) in
+> a v2. Does the fix itself - promoting Esmart0 to PRIMARY - look
+> acceptable, or would you prefer a different window or a driver-side
+> approach for VP2's primary?
+> 
+> 
+> 
 
-That's not true. fwnode_irq_get() becomes a wrapper to of_irq_get() if OF is
-used. So both needs a call to irq_dispose_mapping() in the error path.
-
-- Mani
+No, it looks good to me. Let's see if anyone else has any opinions.
 
 -- 
-மணிவண்ணன் சதாசிவம்
+Best, 
+Chaoyi
+
 
