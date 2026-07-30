@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F974C54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D56C54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LQIam8Lk/rhF6Lm0HgQ3emsXNkYF4X/I9Zk8Ot6vu/0=; b=mMf3hIeuxvGFdVPxIy33mjgGDj
-	48bVU+H9pBwq6iR7PWuzg+LmVPmG/o/61xA9KifXNPUAf6BoJhoawHfY5YgYa3s281IKl+Fyxm5xW
-	S8n9fQB7fORFJOpFlOnR+pz8cxNgLu290ugFS274IYXMLscdsL7ed7dlo7DzYvvfyHDsHpUblnKI7
-	Wco1vtabSbJhOOBFOo8cVnwVXZ8S35CrB1V+Dupq6a97G+r8U+NNy3ZK0F9BVKHtO0jsY/oho7KqW
-	0KnJQfEZ66m4DoD1zeKP7BoSGHVjBCJyVxIFZokTz4UzQ1fgSRbjDh3LtSMOxLRD8x3PupHwwuogX
-	EZUGjMpw==;
+	bh=QTdgNsdGDTCmZo9xgJnK/MTeBgWspAAt7z0FxnG2ZF4=; b=Nc5CSHE7GFS54CJvgQ44e10J31
+	7G368UcSlxp/kBUm5GhbAdDdxnpfYbanEyxBnwCXSaTx/4YtdhLLVhWjbhhEAxsyTPH0QP8lseKa8
+	S+8Y1YBL7ropHST5Hk6vEjC5vW8CTnOzHg/d+4aBCnIQ4/XApjmseriCl4PVSsNad/fHZKa4FbBIN
+	UjcaVvohQE9yww/0HNPcRwWxV48q/EsOen/441020Dih83E635XvjtohEIrMyf7QppsP8SSFEtNgM
+	yGfe7LUbzKsOOQNVIcE5w6iJpqDZZeJ+bjwsPohj3wBtNiqgf7zVrfrIKm6LxMKsm5JvAFImiBcOQ
+	+wGfLb4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOJN-0000000AGgJ-0REd;
-	Thu, 30 Jul 2026 10:48:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wpOL1-0000000AGwG-1xrm;
+	Thu, 30 Jul 2026 10:50:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOJL-0000000AGfx-1BKs
+	id 1wpOL0-0000000AGw5-2si4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 10:48:24 +0000
+	Thu, 30 Jul 2026 10:50:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F0E1600B0;
-	Thu, 30 Jul 2026 10:48:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F4851F000E9;
-	Thu, 30 Jul 2026 10:48:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 70BD5439A7;
+	Thu, 30 Jul 2026 10:50:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD6281F000E9;
+	Thu, 30 Jul 2026 10:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785408502;
-	bh=LQIam8Lk/rhF6Lm0HgQ3emsXNkYF4X/I9Zk8Ot6vu/0=;
+	s=k20260515; t=1785408606;
+	bh=QTdgNsdGDTCmZo9xgJnK/MTeBgWspAAt7z0FxnG2ZF4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Xu6/QUX/oYydCHTvPQ/A3cSkpBcfjLGjdI8g/Y+41jhXN40Gg0UAiujEcIvC1ehJl
-	 lYz7cWerr2Dtpftv15hLuy17PRMWhBuQk1kbePC8HNjxmRfELyavcoIPB0wtUy+CHz
-	 bDW4kxs9sQDdVAoxyfeC8Uz/mgtUicj/OlVCpADHH0SuDsPEHNqiVL4b944ysfC/ND
-	 nbKehVfpQ+PQsSuUQCFzXRVAhbZjpvDLqlN8z/MeMqComHi5ppUvJJZi7E3POkEW8E
-	 uqDdvwDmpd0f/aHhJPPXPnJccb/awCQ2ILSZqmlxfjo9C7sEGpOLc7HHThmOu40FYt
-	 bDX6DGX6cF4ZQ==
-Message-ID: <0fce6943-0d4b-4f3f-ae5f-277633577774@kernel.org>
-Date: Thu, 30 Jul 2026 12:48:12 +0200
+	b=DMcYY0E8S9mkD403M9X0OtCB+ADWh6z8gDlG/a37jog5MMvnZHM+xGnREqNGggU3+
+	 pzkbqqr6EJL5cy473Fevj1dRmK+9j/ywoI5cArPzuTe9I+UCQ44IcDGkGV0ZYvDCNz
+	 dIwqISmpQuFa4KmhQFJBIumArB1a38+26jCX5Ze5B0AckPaUi3Kv2RLTAOHMIJ882/
+	 SW0sf89h12t4gPLYAyO1qe2LyreH147CiSnHlByvjobhgiD4UQJQN0B9peePT4Jr2b
+	 f1WGBLoIfRxpspWV49U9fLwbYM7HtyZ2Iben+QFkBMXwNfveDOTHbdKDg1TgYb4HDc
+	 S28NRPri/UT/g==
+Message-ID: <efb23a70-ae3d-44fc-af3c-1407c38fd6b3@kernel.org>
+Date: Thu, 30 Jul 2026 12:49:57 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] Ambarella CV75 SoC minimal bring-up
+Subject: Re: [PATCH 05/10] dt-bindings: serial: add Ambarella UART
 To: Long Zhao <longzhao@ambarella.com>, Arnd Bergmann <arnd@arndb.de>,
  Alexandre Belloni <alexandre.belloni@bootlin.com>,
  linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
@@ -60,6 +60,7 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-kernel@vger.kernel.org
 References: <20260730104330.81367-1-longzhao@ambarella.com>
+ <20260730104330.81367-6-longzhao@ambarella.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260730104330.81367-1-longzhao@ambarella.com>
+In-Reply-To: <20260730104330.81367-6-longzhao@ambarella.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,25 +124,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 30/07/2026 12:43, Long Zhao wrote:
-> 
+> Document the Ambarella UART controller.
+
+I will drop all your patches from DT patchwork as you requested in the
+footer.
+
+I cannot destroy the copies, but I will comply as much as I can.
+
+Just a note - generic compatibles are not the way to go. Please
+carefully read writing bindings document and DTS101 slides
+
+...
+
 > NOTE: This email (including attachments) contain Ambarella Proprietary and/or Confidential Information and is intended solely for the use of the individual(s) to whom it is addressed. Any unauthorized review, use, disclosure, distribute, copy, or print is prohibited. If you are not an intended recipient, please contact the sender by reply email and destroy all copies of the original message. Thank you.
 
-Maybe I am the intended recipient of your message, maybe not. I don't
-want to have any legal questions regarding upstream, public
-collaboration, thus probably I should just remove your messages.
-
-Please talk with your IT that such disclaimers in open-source are not
-desired (and maybe even harmful).
-If you do not understand why, please also see:
-https://www.youtube.com/live/fMeH7wqOwXA?si=GY7igfbda6vnjXlJ&t=835
-
-If you need to go around company SMTP server, then consider using b4
-web-relay: https://b4.docs.kernel.org/en/latest/contributor/send.html
-
-Please be informed that by responding to this email you agree that all
-communications from you and/or your company is made public. In other
-words, all messages originating from you and/or your company will be
-made public.
 
 Best regards,
 Krzysztof
