@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3A4C54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 03:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91259C54FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 03:39:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CpM9Y/DW/rPww6MoRecMawp94vW2lyXOoX1QBOllpIk=; b=Fy+kXqeAUmTD9pC/N6Y+PNmXAQ
-	qydZdloDFx42MqiGmtg8xsLyj5/awAqsPBvP2XYfE72rAuie7Ppt4hUbKsKZtR3G9iWbS6JsN/OS2
-	e+g2UbbLFODqpA5e+eF8l9uCuB0z0z+bM6WSJUSDM1uXihSMUvmKJoFV3efAWD5liAwaXoyl5tK8J
-	UwBHmHS/p2QL/jqBiiC3hSIWiuS/NaeyX4oadH1QknbDHovTwedH4hgJAAcSBCOc1v+WpaWcrDghL
-	phr5O6MSbvzvbO714VwLQb4gyJSIGWnkhEtgONqRohlnulYedUfHSzVUrGETJnIIKNBByC1OUUcVO
-	Fy9w28QQ==;
+	bh=vykFRFO1VtVDuVt3kH6teeCBdWSI2dWepNG70FgQnmo=; b=B3KFDIR+9wuDXVL0UNz+0Gr4/S
+	ESAofrJ56GiWu9v8uiC6mVfHl5o/BWZ+zgPHq4UvC+DKu8c3C6Qi8KMHG6yF2OyPzpKnO/xY2JZst
+	iCfwyKbGRTb6BK14O+O8sleJH0b9e5GqhuQC2dXr/rQr4Xtk0ew/BDuU9DmR4DmVkWEQqKx5gYclQ
+	AiBwJw83qjgk0etuZmtWj+CJEtZvYGRfmaqjKhGave6Ny7gys0bAsCzoaqtQZRL5pcLj4CKTXCH3+
+	fnieIi1eC0E0mMvdpZTDLzrW6ag4gaQi0Rnpf8RFlUplIbE17OiT8UWbNykeKssVLcoYPmOz8fWGI
+	YVENAT2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpHUx-00000009RKU-1qSz;
-	Thu, 30 Jul 2026 03:31:55 +0000
-Received: from mail-m158240.netease.com ([47.251.158.240])
+	id 1wpHcY-00000009RfI-0cy0;
+	Thu, 30 Jul 2026 03:39:46 +0000
+Received: from mail-gw-fk003.vdone.jp ([160.251.152.193])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpHUu-00000009RJP-0RGe
+	id 1wpHcV-00000009ReW-1v2E
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 03:31:54 +0000
-Received: from tsdl-HP-EliteDesk-880-G6-Tower-PC.. (unknown [36.129.139.90])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 481c9b915;
-	Thu, 30 Jul 2026 11:31:42 +0800 (GMT+08:00)
-From: Hongyang Zhao <hongyang.zhao@thundersoft.com>
-To: konrad.dybcio@oss.qualcomm.com
-Cc: Frank.Li@nxp.com,
-	andersson@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	festevam@gmail.com,
-	hongyang.zhao@thundersoft.com,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	konradybcio@kernel.org,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	robh@kernel.org,
-	rosh@debian.org
-Subject: Re: [PATCH v2 1/2] arm64: dts: qcom: qcs6490-rubikpi3: Add 3.3 V output supply
-Date: Thu, 30 Jul 2026 11:31:33 +0800
-Message-ID: <20260730033133.63823-1-hongyang.zhao@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <ad142a95-ffcd-46fa-8d55-b3328bc00e20@oss.qualcomm.com>
-References: <ad142a95-ffcd-46fa-8d55-b3328bc00e20@oss.qualcomm.com>
+	Thu, 30 Jul 2026 03:39:44 +0000
+Received: from mail-gw-fk003.vdone.jp (localhost.localdomain [127.0.0.1])
+	by mail-gw-fk003.vdone.jp (Proxmox) with ESMTP id EC042401449C0
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:39:37 +0900 (JST)
+Received: from e3.valueserver.jp (e3.valueserver.jp [157.7.184.13])
+	by mail-gw-fk003.vdone.jp (Proxmox) with ESMTPS id 58836401449E6
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:39:36 +0900 (JST)
+Received: (qmail 514985 invoked by uid 89); 30 Jul 2026 12:39:36 +0900
+Received: from p1706034-ipxg06601niigatani.niigata.ocn.ne.jp (HELO ?192.168.1.120?) (jack@supremeoverlordjabs.co)
+  by e3.valueserver.jp with ESMTPSA (TLS_AES_128_GCM_SHA256 encrypted, authenticated); 30 Jul 2026 12:39:36 +0900
+Message-ID: <7b6b347d-f5d9-45fe-8255-27e01f23578c@supremeoverlordjabs.co>
+Date: Thu, 30 Jul 2026 12:39:34 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9fb113f1b109d5kunmc26dca11408bbf
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGEtCVkhJQkNJHUhIH0hMTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlITVVKSUJVSkhCVUJLWVdZFhoPEhUdFFlBWU9LSFVCQk
-	lOS1VKS0tVSkJLQlkG
-DKIM-Signature: a=rsa-sha256;
-	b=LxfXREz7/oJn1rTqqBe7zYYcNmwJmZHwqlClRstYIi0c3doYORY0AN+nEIVzvOmwe/lEL4jYoNjnkQcxgXUnsF4PaEtQ2wUicCjH2B11+UdzUArtRtdOseABWpfboUwCdVcLKmnoxSVnBzi0B9DlCj9yaPtYfmn3ZSrWy0FovIQ=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
-	bh=CpM9Y/DW/rPww6MoRecMawp94vW2lyXOoX1QBOllpIk=;
-	h=date:mime-version:subject:message-id:from;
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/rockchip: vop2: give rk3576 VP2 a primary plane
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, Sandy Huang
+ <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260729232450.13797-1-jack@supremeoverlordjabs.co>
+ <24547ed2-0950-48be-92cb-bbb0e1653258@rock-chips.com>
+Content-Language: en-US
+From: Tomonori Nakagawa <jack@supremeoverlordjabs.co>
+In-Reply-To: <24547ed2-0950-48be-92cb-bbb0e1653258@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_203152_802634_96CA6362 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20260729_203943_666675_78A7BFE9 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +74,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the review!
+On 2026/07/30 10:56, Chaoyi Chen wrote:
+ > The description here is not accurate. VP2 can wire to different
+ > display interfaces which depending on your board configuration.
 
-On 7/22/26 6:12 PM, Hongyang Zhao wrote:
-> > Describe the GPIO-controlled VCC3V3_OUTPUT rail. This board-level rail
-> > supplies the two camera connectors and the 40-pin expansion header.
-> >
-> > Signed-off-by: Hongyang Zhao <hongyang.zhao@thundersoft.com>
-> > ---
-> >  .../boot/dts/qcom/qcs6490-thundercomm-rubikpi3.dts | 24 ++++++++++++++++++++++
-> >  1 file changed, 24 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/qcom/qcs6490-thundercomm-rubikpi3.dts b/arch/arm64/boot/dts/qcom/qcs6490-thundercomm-rubikpi3.dts
-> > index d8a9a7e47bdc..45514918562b 100644
-> > --- a/arch/arm64/boot/dts/qcom/qcs6490-thundercomm-rubikpi3.dts
-> > +++ b/arch/arm64/boot/dts/qcom/qcs6490-thundercomm-rubikpi3.dts
-> > @@ -214,6 +214,23 @@ vreg_usbhub_rest_1v8: regulator-usbhub-rest-1v8 {
-> >  		regulator-boot-on;
-> >  	};
-> >
-> > +	vreg_vcc3v3_output: regulator-vcc3v3-output {
-> > +		compatible = "regulator-fixed";
-> > +
-> > +		regulator-name = "vcc3v3_output";
-> > +		regulator-min-microvolt = <3300000>;
-> > +		regulator-max-microvolt = <3300000>;
-> > +
-> > +		gpio = <&tlmm 14 GPIO_ACTIVE_HIGH>;
-> > +		enable-active-high;
-> > +
-> > +		pinctrl-0 = <&vcc3v3_output_en>;
-> > +		pinctrl-names = "default";
-> > +
-> > +		regulator-always-on;
-> > +		regulator-boot-on;
->
-> Is it really on by default at boot?
+You're right, thanks. VP2 isn't tied to DP - the VP-to-interface
+routing is board/DT dependent. The actual issue is the plane topology:
+on rk3576 the two Cluster windows (the only DRM_PLANE_TYPE_PRIMARY
+windows) both have possible_vp_mask = BIT(0) | BIT(1), so they can only
+attach to VP0/VP1. VP2's only attachable windows are the Esmart ones,
+which are all DRM_PLANE_TYPE_OVERLAY. So whenever a board's DT wires any
+output to video_port2, vop2_create_crtcs() finds no primary plane for it
+and fails with -ENOENT ("no primary plane for vp 2").
 
-Before submitting the patch, I measured GPIO14 and found that it was
-already high before the kernel started, so I described the regulator
-as regulator-boot-on.
+I'll reword the commit message accordingly (dropping the DP framing) in
+a v2. Does the fix itself - promoting Esmart0 to PRIMARY - look
+acceptable, or would you prefer a different window or a driver-side
+approach for VP2's primary?
 
-I have now checked the bootloader code and confirmed that it does not
-drive GPIO14 high. According to the schematic, GPIO14 is actually pulled
-high by VREG_L18B_1P8.
-
-Therefore, I will remove regulator-boot-on in the next revision of the
-patch series while retaining Bryan's Reviewed-by tag.
-
-Thanks,
-Hongyang
 
