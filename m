@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9593C54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:23:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1EBAC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9FGPMfL7PH9eP+Zge0qWj9bUTToHMTTfVsVr7USZH/s=; b=ObunDhH7/JiZmWY2m20HLctxit
-	lCp63y6oKH5JpBx4wof1mSShrAueru71aax33iiK4JMIMPULsRbVS6Q0WMiFFKIyqPkMH3oa74x5j
-	qnwAMo78HhkprZy9eV/+5oD+sHK8Tf6S6bIHtYbbvvvWxncBpM0XmrIR7sxmOsXmXdjx6/lda5Je+
-	oqaxNhp+029SBXb18n9qQGM2KMzBzf9VcfxbOO/dUIGN7QvNUvr4Hc7MUUlTcQSbR/NPb4GHxRgpw
-	9eygNbApW9scuX+5Vs/FXYIXt4gXwhyM9ZFzJbmelWsDR3qnROQOO6KIxR5tGyR0RYM/t2wPgfmG0
-	mbvdzeOQ==;
+	bh=IDICa5WTmVXA7/3rA0NTJ4yy9CZEkUFa94J2IXsemd0=; b=eAj/ocK8KCGFMZzL0gnDRDAg1p
+	er/pfOEPjARudtx0yC/r2K7k5tlV26avHdEMkXeW1y6x+rIQLvtSUHzX6xHGhF/PhrHQOXn3mXN51
+	2/3FXvV/dw/XPCdsuKEQglwR/r97YbmEMIBnp11ABKNDqm/7O+HKHdi5Uer3PSEQ1oH2jvhkwAmX7
+	6377WvjaheSfohBgpXIhCAG2OQwyHZzw1ehUAvucUyfZ3ycnelsMmsGv6sdSvyHmhc8L4selfFEcV
+	a4CKi8eQBOOmMQPC953C/0+v+2URLMwIWhx/l3vtOjP2ALyAqRfwS7/rwd1x/sWBpiV4pQrkMWZC5
+	L0MCntnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpM30-00000009qVs-1Hnt;
-	Thu, 30 Jul 2026 08:23:22 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wpKvY-00000009geU-0IMe;
+	Thu, 30 Jul 2026 07:11:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpM2x-00000009qTU-12QU;
-	Thu, 30 Jul 2026 08:23:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785399796;
-	bh=nGG9LtH3M3n5b0i0af5jANNTuqeyC/oMM6qwL7FI4is=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZW6guvuf0Pa3TUqsqHD9xIFIOpIlto1dDyerDBo6lTaEhwwdvi3LD0+5lvtlreb8M
-	 VIAoCsoxmGsXWft6YSdWbbH6PaZNyik2FW7oRay0RyF+E/LPUqBxTHtjVud2Lyn3ly
-	 euUSLv12apRjBS4xsG3usTiSwDSaJh0zb7fdu2dKdzk64sB9D7IPUiT9L3PYE0EOa6
-	 aVCy2fMLpKnCJaBeM0fjITlZCtR46VEQpIgXok9m64rxQny0Xl7lC3dRtinz3CSnPx
-	 E+dKdt5ZnKT1xHshwWY55CWE0mk/KLYMpyGHCnWGuwRk95lu2RxztStHiu8KaCVeSQ
-	 JIyuAU1eP7FTg==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 555DE17E001F;
-	Thu, 30 Jul 2026 10:23:15 +0200 (CEST)
-Message-ID: <36f2775a-d332-4913-8e9e-ca0429c3f713@collabora.com>
-Date: Thu, 30 Jul 2026 10:23:14 +0200
+	id 1wpKup-00000009gKb-354h
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jul 2026 07:10:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6E8CB43F9A;
+	Thu, 30 Jul 2026 07:10:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 511AD1F00ACA;
+	Thu, 30 Jul 2026 07:10:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785395451;
+	bh=IDICa5WTmVXA7/3rA0NTJ4yy9CZEkUFa94J2IXsemd0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ZncKKVKBgdGDuAA5R9/5zizxhJny8dAuCiJhnDZjyig7Na7FGqENnHIELevj9i1xV
+	 0cpoCAf79iS7i7iBH4OiIx67zOEo1XLmrNZzDh9zg+rRfRJLvOj7AFCFnbBSYBGiuP
+	 dbipo/PcHOJRtFs29i0pe7ZZxr3z0h1cjHhOJMIxGJfPuPkJN9Oz3ckpXjZBGaYPu4
+	 FML5JArs76yrEtjR8bjJZGgYsCuCd0wkDmTpD/uOLMveV6slJ4S78fyXfhdBXE6ASG
+	 +YzMBOT0d17EPsh2PPk8ovEdbFsSkToLNGZSEdKZOBtwqEjguRIWPewmAxIoqwoj46
+	 FjSmfRfvIWMZw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wpKun-0000000AOpW-2f78;
+	Thu, 30 Jul 2026 07:10:49 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>,
+	Vladimir Murzin <vladimir.murzin@arm.com>
+Subject: [PATCH v4 06/29] KVM: arm64: Classify CPTR_EL2 as a SR_LOC_SPECIAL register
+Date: Thu, 30 Jul 2026 08:09:59 +0100
+Message-ID: <20260730071022.296811-7-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260730071022.296811-1-maz@kernel.org>
+References: <20260730071022.296811-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/5] powervr: MT8173 GPU support
-To: Chen-Yu Tsai <wenst@chromium.org>, Brian Masney <bmasney@redhat.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Alessio Belle <alessio.belle@imgtec.com>,
- Luigi Santivetti <luigi.santivetti@imgtec.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>,
- YoungJoon Lee <getfeus@gmail.com>
-References: <20260728091804.382753-1-wenst@chromium.org>
- <amiqKRkFItYwD6oL@redhat.com>
- <CAGb2v64zUO-azpTuei6LCypad2noGFbg+EmaBC1iidoZ2stQzw@mail.gmail.com>
- <c1048eae-72c5-4e2e-ac49-25e2c4297018@collabora.com>
- <CAGXv+5EgGYFVt4TJCysQgRqA1J5=Qz9c0oWY5YTxgc5PnNC_AQ@mail.gmail.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <CAGXv+5EgGYFVt4TJCysQgRqA1J5=Qz9c0oWY5YTxgc5PnNC_AQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_012319_450287_5A531F13 
-X-CRM114-Status: GOOD (  22.70  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, yaoyuan@linux.alibaba.com, weilin.chang@arm.com, vladimir.murzin@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,82 +86,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/30/26 06:51, Chen-Yu Tsai wrote:
-> On Tue, Jul 28, 2026 at 10:33 PM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
->>
->> On 7/28/26 15:13, Chen-Yu Tsai wrote:
->>> On Tue, Jul 28, 2026 at 9:10 PM Brian Masney <bmasney@redhat.com> wrote:
->>>>
->>>> Hi Chen-Yu,
->>>>
->>>> On Tue, Jul 28, 2026 at 05:17:58PM +0800, Chen-Yu Tsai wrote:
->>>>> Hi everyone,
->>>>>
->>>>> This is v4 of my MT8173 PowerVR GPU support series.
->>>>>
->>>>> This time around Mesa was ready for basic testing, using both vulkanmark
->>>>> and glmark2-es2-drm (with Zink). Details below.
->>>>>
->>>>> Changes since v3 (all in the clk driver patch):
->>>>> - Changed pm_runtime_put() to pm_runtime_put_sync()
->>>>> - Added missing of_node_put() in remove function
->>>>>
->>>>> Changes since v2 (all in the clk driver patch):
->>>>> - Made COMMON_CLK_MT8173_MFGTOP depend on PM
->>>>>     - Needed since the driver implements PM domains using the generic PM
->>>>>       domain library, which also depends on PM
->>>>>     - Fixes build breakage (kernel test robot)
->>>>> - Fixed "RST_DELAY_CNT" name (Brian)
->>>>> - Dropped unused mfg_desc (Brian)
->>>>> - Added check of clk_prepare_enable()'s return value in
->>>>>     clk_mt8173_mfgtop_power_on() (Brian)
->>>>> - Saved error value for return in IS_ERR(data->clk_26m) branch
->>>>>     (Dan Carpenter / kernel test robot w/ smatch)
->>>>>
->>>>> Changes since v1:
->>>>> - Adapted to changed DT bindings
->>>>> - Dropped driver change
->>>>> - Use same power domain for "a" and "b" GPU power domains
->>>>>
->>>>>
->>>>> This series enables the PowerVR GPU found in the MT8173 SoC, found in
->>>>> some Chromebooks.
->>>>
->>>> I'm making a pull for Stephen for the clk changes. Should patches 1,2,4
->>>> go through the clk tree? Patches 3,5 go through the DRM tree?
->>>
->>> Only patches 1 and 2 should go through the clock tree.
->>>
->>> Patch 3, 4, 5 can all go through the soc tree if Angelo wants to pick up
->>> DT binding patches. Otherwise I can push patch 3 through drm-misc.
->>>
->>
->> Not sure if I can really take the DRM bindings patch through soc.
->>
->> I will take the devicetree ones exactly right now, even though it's going to
->> give warnings.
-> 
-> Apologies for missing this, but the first DT patch depends on the clk DT
-> bindings patch for the clk ID macros. This is causing build errors in
-> linux-next right now.
-> 
-> Not sure how we can fix this right now.
-> 
-> Brian, would it be possible for you to split out that patch into a
-> separate immutable branch for Angelo to merge?
-> 
-> Otherwise Angelo might need to drop the DT patches until the next cycle.
-> 
-> 
-Yeah, that's so bad.
-I'd be happy to be able to resolve this, but it's too late on my side.
+It may not be obvious unless you look at it closely, but CPTR_EL2
+is treated very differently from other registers. It is one the
+registers that, despite looking very similar between EL1 and EL2
+when E2H==1, have RES0 bits that get in the way.
 
-I should've checked the DT patches more carefully, my bad: I got a bit too excited
-to finally see this PowerVR stuff working on MT8173 and going upstream.
+Make it clear that CPTR_EL2 is odd by classifying it as SR_LOC_SPECIAL,
+just like CNTHCTL_EL2 (and for the same reasons). This makes it
+possible to use vcpu_read_sys_reg() with it, and will be necessary
+once we support FEAT_NV2P1.
 
-Sadly, I have to drop the devicetree patches :-(
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/kvm_emulate.h |  2 +-
+ arch/arm64/kvm/sys_regs.c            | 20 ++++++++++++++++++--
+ 2 files changed, 19 insertions(+), 3 deletions(-)
 
-Cheers,
-Angelo
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 5bf3d7e1d92c7..9831166695186 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -617,7 +617,7 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
+  */
+ static inline u64 vcpu_sanitised_cptr_el2(const struct kvm_vcpu *vcpu)
+ {
+-	u64 cptr = __vcpu_sys_reg(vcpu, CPTR_EL2);
++	u64 cptr = vcpu_read_sys_reg(vcpu, CPTR_EL2);
+ 
+ 	if (!vcpu_el2_e2h_is_set(vcpu))
+ 		cptr = translate_cptr_el2_to_cpacr_el1(cptr);
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 5d5c579d45790..6b47d936efb32 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -183,8 +183,6 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
+ 	switch (reg) {
+ 		MAPPED_EL2_SYSREG(SCTLR_EL2,   SCTLR_EL1,
+ 				  translate_sctlr_el2_to_sctlr_el1	     );
+-		MAPPED_EL2_SYSREG(CPTR_EL2,    CPACR_EL1,
+-				  translate_cptr_el2_to_cpacr_el1	     );
+ 		MAPPED_EL2_SYSREG(TTBR0_EL2,   TTBR0_EL1,
+ 				  translate_ttbr0_el2_to_ttbr0_el1	     );
+ 		MAPPED_EL2_SYSREG(TTBR1_EL2,   TTBR1_EL1,   NULL	     );
+@@ -210,6 +208,19 @@ static void locate_register(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg,
+ 		loc->loc = ((is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu)) ?
+ 			    SR_LOC_SPECIAL : SR_LOC_MEMORY);
+ 		break;
++	case CPTR_EL2:
++		/*
++		 * CPTR_EL2 is just as special, and needs a certain amount
++		 * of handholding. It always lives in memory, due to being
++		 * heavily trapped thanks to CPACR_EL1.TCPAC being RES0.
++		 * FEAT_NV2p1 fixes this.
++		 */
++		locate_mapped_el2_register(vcpu, CPTR_EL2, CPACR_EL1,
++					   translate_cptr_el2_to_cpacr_el1,
++					   loc);
++		if (is_hyp_ctxt(vcpu) && vcpu_el2_e2h_is_set(vcpu))
++			loc->loc = SR_LOC_SPECIAL;
++		break;
+ 	default:
+ 		loc->loc = locate_direct_register(vcpu, reg);
+ 	}
+@@ -314,6 +325,8 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
+ 			val &= CNTKCTL_VALID_BITS;
+ 			val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
+ 			return val;
++		case CPTR_EL2:
++			return __vcpu_sys_reg(vcpu, reg);
+ 		default:
+ 			WARN_ON_ONCE(1);
+ 		}
+@@ -359,6 +372,9 @@ void vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, enum vcpu_sysreg reg)
+ 			 */
+ 			write_sysreg_el1(val, SYS_CNTKCTL);
+ 			break;
++		case CPTR_EL2:
++			write_sysreg_el1(val, SYS_CPACR);
++			break;
+ 		default:
+ 			WARN_ON_ONCE(1);
+ 		}
+-- 
+2.47.3
+
 
