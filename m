@@ -4,72 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DC4C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:15:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7DD8C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SwkH9XaoCa13wc4+S4EGR+0lca2+/4IaQb96VBK1TQA=; b=g6W6c/YpsdkcJFLgbdH7LJJnlk
-	6FdvrmV/Ghc/Y7ADWa11qFCNacAs2XGWmzpQpLKniBdUP/F5Mv6aqmbkOlBrYTwLMP2eMVMxjWEo5
-	fRo71p4OHbQiOs4I6XjuOzEjo3RWCYqHYfyi9tMy/8B/XcFPCFvSrh0fk4WiIwATBYWWn4bIO0QDo
-	dsVc27b5nprMvqXmaTyrzZzhcyvsuHuAD3zEibXDMBPUT57oMdwsymANJmV2poWen2wFPHtkQtj4z
-	ocD+iX9JQn2k4Z71RMc+QRhwxqykrYpf80rUJg6KEDEE32+NfNVsYtXbARMpOFlhs/sSJ+/MDxeMF
-	GutOWTiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HAcjBe82Ke7CVi17ZsTQFBiwepjYmc7ZuAWAiqCmkRY=; b=mVPvqq5xrQpvae3DXt7W8hsxc/
+	w0Hbjmk7tHcN7ZeIoEi5aQCupgv3+w/KzTW32aHdE9GQ4cVKTfopfUzkMausD26h+ynfMFp5QM+4m
+	2BUoSHaaQrSnGydcRMpZJoup3xcjoIqMFOVY3KXLUJWJCXt7IKWqZMhBNhCE+iqkC4931hgr6Tz46
+	ycvnjJovTIZELhYRb83eT5MZ3b4zfg83lotP/HsoetMX4hlykbYaLRWRJqccQjIzDvVxlaE8ebLyY
+	sOF05FniF42F8kjZcso421CRYTFVXcR26SRqJLkcIc/NIPWH8zM2brmI+OTIiyQt4cJCniyIq8fnj
+	8TjUpQuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpLur-00000009pZu-2hyY;
-	Thu, 30 Jul 2026 08:14:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wpLwf-00000009pkX-0b76;
+	Thu, 30 Jul 2026 08:16:49 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpLuS-00000009pTV-3q8A;
-	Thu, 30 Jul 2026 08:14:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AAFA643672;
-	Thu, 30 Jul 2026 08:14:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E5E01F000E9;
-	Thu, 30 Jul 2026 08:14:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785399272;
-	bh=SwkH9XaoCa13wc4+S4EGR+0lca2+/4IaQb96VBK1TQA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DDjRuhBNK1vDBHwwDcwRemcaBGxrBHsfylBpk9kDXZvEtRahMvanJmpvZWgBVv84J
-	 yVfbP/gRptzDKqH0dnM6NfYddKHZ3TXzoFyODtDtZCWC9qVaZ+zGFhQ3vGu2h50neb
-	 t+z8+tyj6g5l8Q5i05KsGbclo4uzY+ABO16Cz6CMKSBQ+hrJ8jdok1M1VHUMGznZGp
-	 o5lj16rc1kbbZkokh5l7VBZj7/LoVWSxAixYzCvFG2O+FyUAMyIWtMour4YAEVWmaR
-	 Y+h1M76EZ6ZF77Ylmp1rVjtRgVA3hTJvcIJMcGzQonKC7l1GaFNEbVmxwut8OiRiYR
-	 6PXg2kUAH9J3A==
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: linux-phy@lists.infradead.org,
-	Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Christophe Leroy <chleroy@kernel.org>,
-	devicetree@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Tanjeff Moos <tanjeff.moos@westermo.com>,
-	Michael Walle <mwalle@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v4 phy-next 0/9] RCW override for 10G Lynx dynamic protocol reconfiguration
-Date: Thu, 30 Jul 2026 10:14:07 +0200
-Message-ID: <178539922189.574381.6258263697994334139.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260721231603.67865-1-vladimir.oltean@nxp.com>
-References: <20260721231603.67865-1-vladimir.oltean@nxp.com>
+	id 1wpLwc-00000009pk9-2Vly
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jul 2026 08:16:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O0styMdm9PoPyzWOa1r4EhIeu8p+q22zmjR8kXjZqYcxyGmmt7y62g+agbz+N9RGZZyYHtW6qN9EH23z9Dw62y4tX34Qte8GdbiL0F/4RuEOPGv/QoPd2AoSBEHjxo3v7aUhYPsMedIxaDUpVQUW0CTay5bbSIhEMTsYLZib1qYtmy5gTzuiWzIN2op3eP8Kjpel2UA2Xph0eN0jfwjGJ80NRDupEHobqXbmUCZhQsQ/0aaM0rWtxi+M3+EDb8h7Zt56+hNFm3HutPcnVI/8R2AngZzb/uYpMutVd49HR+LS2MC27qFbeuoSl9UhGo73m9OdU/WRZskHrPJWT83QyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HAcjBe82Ke7CVi17ZsTQFBiwepjYmc7ZuAWAiqCmkRY=;
+ b=EuKUbOTz+Cb7EFhVgBgpKxZ6qIFmNWol46Ay9DBpCnsDoVLTdk5E2V3CsF+Y9F0wRVzqN/N1gRfobGofZW3sNB/pypYrJN/Swx5jIk7zAG3iaNj+Hc74Q+P/yUZKlbNmQ+Uu4lLQMNCIuhdhf3/ZWYeM+FEN1n+74zwHxzqSnmdtvh5eksEOehNPvVNFc+zW0W5y2GGoaB2hqKlgNwalkH+7UamWthjMO+EZ/W/rGfHMX2UN2Crm5CYP4FxW4XPWO46hILkt8yVuDBudaVrZLjHGcarWzSKsO7MaNJ91jt3ieNu4PQp5SErb72n8mRc4srmA8KbP11WX3T7hrTTF8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HAcjBe82Ke7CVi17ZsTQFBiwepjYmc7ZuAWAiqCmkRY=;
+ b=raeiEPmaJjykZBt6lRTefm/i/SA7GkWMnJhohsYu1eGe9S0iHvE21Bdb4ryxrBaaZvRAqro1HUC5FzNjYPx/gtrD9ktCKhPIRiG449lM4IV+SCU587nrc4mfOMFdN61P4z8f4Ub9mxDYYM2w9yjCusuz9+RR1nrCfJEo6W2B2IPopTGZjRZ1Fq5Ug8ek7wIjpcAPMRpjRskqikhce3LPlt6P1i8YVX1wbQmEnpMlN2nPxr3T6G14G//8ngnSbh+J02+edQ+Mbr8fQoWpDg7jQ13CooGoE0WOaxwXBvz99stRVT6kkRQWRu2xpR62/l2VG+amk/Fz6WiIuZkR/C+hUA==
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ (2603:10a6:150:30c::14) by GV2PR04MB11633.eurprd04.prod.outlook.com
+ (2603:10a6:150:2b0::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.14; Thu, 30 Jul
+ 2026 08:16:37 +0000
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
+ 08:16:36 +0000
+From: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>, "Hongxing Zhu (OSS)"
+	<hongxing.zhu@oss.nxp.com>
+CC: Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
+	<mani@kernel.org>, "robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com"
+	<bhelgaas@google.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Hongxing Zhu <hongxing.zhu@nxp.com>
+Subject: RE: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms with
+ RC power loss
+Thread-Topic: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms
+ with RC power loss
+Thread-Index: AQHdH6nG8t4d/+36IkayVsl6C+RRu7aFt+kQ
+Date: Thu, 30 Jul 2026 08:16:36 +0000
+Message-ID: <GV2PR04MB12019096F2A9E8337F2A1BF9F8CC92@GV2PR04MB12019.eurprd04.prod.outlook.com>
+References: <20260717074121.3214222-1-hongxing.zhu@oss.nxp.com>
+ <20260729222946.GA1466768@bhelgaas>
+In-Reply-To: <20260729222946.GA1466768@bhelgaas>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV2PR04MB12019:EE_|GV2PR04MB11633:EE_
+x-ms-office365-filtering-correlation-id: b66b200c-974b-4f15-5f58-08deee12dff9
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|19092799006|1800799024|6133799003|22082099003|18002099003|38070700021|56012099006|10067099003|4143699003|5023799004|11063799006;
+x-microsoft-antispam-message-info: +IMDEX5+xglp+LiHzRxA11zPW+IhuSbncjlzVSk1etfOw/HMtSjhIlMOndxZROMXiSfMwSPgY9h4ot3SDEcnEJBF0OGaC/igxOpo4aaokQwtY2LeS5VHC9j/urKri2WNrDkukUG0F3747q0w8HqfGoOzV0TPbYXS1aILnflr5yWSg4Ha1LduS1OmI9PEPkGSekvKutM+3PF26NoWXtosFzzli3WRnC/K12J+Gtb16ePdMfHdvJV6gjXVrFNK93Y9+x7FOKHpoCqbIqMO/K4bMGdFV5Y69WvxPZ8e11fMnr8qmifXjykxNFqkJUhp+IOtSyXF3dOrVBn6lgg23ufW2KyqU9geV4Mdv0noPy0AyJpW6sK9k5D9nAB/Y4qJzrvMadjgklyEmDgMDtDeXHSo2qwdV1GL7WQud93az390WM4CpepK03W2mJGi6jPsqwR9SNlVV87AptKYOIbhuYjzC/tqkhXwmuYIY56KQUhSBBThmJ6C/vBu+QIJ1D9A9yTQNZWC+RxAy5dxAmgz2uFQegr9tLBu1D8DJuNT2ndpcddsriGg008RJiDX3tyriJKiJ0l/bpDxbpudVVtLr82tbLoF66ioLUK8oC5SbrM05xLUM6zOdgjxCRW63XuRxbZ1Hxaa4FXMaOiisD3mDAixButoRk3L7SE7vkmsET1nXJD9zEtTy/1xG9lEzM/V8f2YRhO0mYw/6JPcuVQik6PEIpYDB+r1N15OxAr9CgCO+jk=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(19092799006)(1800799024)(6133799003)(22082099003)(18002099003)(38070700021)(56012099006)(10067099003)(4143699003)(5023799004)(11063799006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DXbOHTWujId8l40MOqxbaTf07jMQnSpUw9W391SlY2652ZhDEZxcD+aJ16MG?=
+ =?us-ascii?Q?Hy5c0xIZFhYKD65HMibmIp/J/ECEwmai3+ciOG4pFe0FkTv1sEKiI5Pzc4+g?=
+ =?us-ascii?Q?xjiRcHJJIEKCdym6KAczA4ibALX7EzFpaVoLSn22D6blvMN5Ooc0M79hp6k6?=
+ =?us-ascii?Q?y9ZsbNJCJwblMRiKLpjXaTAymBjgch360EQ7ZahJujfYwQfgV+HYBrlq1zrN?=
+ =?us-ascii?Q?rOpUy2OU3g4RJDvVmmfC26KE6cBfunsnXM+qjZ1tHT5jV0388tbMJy8t10xU?=
+ =?us-ascii?Q?uzd2RXukqNhtkpnp6D3V8e1/0dL/RYQ83LUW/+8VDY9BaQoYSePO9il17cSg?=
+ =?us-ascii?Q?6k9Lym9mcrve6OlY3uKlJSO5YAgoehlVm4CBOOCKtHO1w2+B81yDgBAURZBX?=
+ =?us-ascii?Q?R1Y8VRB3Heccsj5xnH2mIUEZuJtI+InmVxFH0pC2VmjgQvDYkXHGANuFJu3b?=
+ =?us-ascii?Q?FegYpxI01hwCNtqS0NqY9pWHTyKPMcFHsVBclq4x1rWWs4ZqzrdYEqAXnMny?=
+ =?us-ascii?Q?SZSe/qHyJXfX54w/XNVChberL9y8fRo9kJTY63yMNg7ZhsW9SeJMzTZEIooH?=
+ =?us-ascii?Q?6pRFPQlQLTjuZ+swdPgMdcW1SKCuL1Zl1e4F9j3+sFOafVndicz2W1vEav1F?=
+ =?us-ascii?Q?mQmPNMGFJP2Wdf0nTgwIz38ToB1XAJcFZj7GSREn2oBwXM8kUgWeazutp2VV?=
+ =?us-ascii?Q?p15eWZIF8ASJ35IQuCyzmy13riTUaSUAToyUQRUjGH0aC7t1lzYuNn+XbD29?=
+ =?us-ascii?Q?HcDhSh+81+MPnM6dnH7QWw55hEdswW0jHzq+Guhje/uaCtzm5hq6L/RfRcvf?=
+ =?us-ascii?Q?65qjfURhMFUq+8gel3P2CGXBr0Mp397dB7qJ9aj73chGowrSpCN8M5o5yhMh?=
+ =?us-ascii?Q?mrKmoADUxjazTShdH2KscyzoyfE4s3jRRUWWC4W6EaETDtjbAxh8qQoqRQbu?=
+ =?us-ascii?Q?9fXdJw0UQWwurnLsRrfToUlsIL7JsUICB3nh2S8bS7L2PdJwuob10kP5PF30?=
+ =?us-ascii?Q?nCrrFrpfuj3ug8cVBKxt6DjEgR9D0BdOyTzjPNykoEvJSqq5RP5bJbqaQBjk?=
+ =?us-ascii?Q?RaGIx7C0jLnGDGLm8csVQFHQpyBpkRzNjQLtaRaOeFzFbNrbCQ9p+mPtdMJ2?=
+ =?us-ascii?Q?Kro2m+lt5/RVGu6savUTyfR4/Blb3HigVfEXI5ot4Dh2YebcKRvMOBrUjrvy?=
+ =?us-ascii?Q?if9MsLrhh5BlTHkTg3JXDsJ1IZrskH9rB3FSmR7A8fA4PDAGGScwNzo6brCh?=
+ =?us-ascii?Q?/DsH8jJ/o0BjPGHQQwt+xDiqiIEOI326DW0sWmVsT9PNTyulLerzq6khGIkC?=
+ =?us-ascii?Q?hDLmziNnYWHlNKRuMIAYkzZVFQXF8MVP/4ukca4BcJow7R/bxhyc+noNWFen?=
+ =?us-ascii?Q?sswkEbyOws3zz4nLVrTgoQxLpLMYV6qVxKyGbxMQk5epPyR6qE97liRSnh97?=
+ =?us-ascii?Q?zquZ/HyK/8YY3Bqhly/4C6XDCGrAGxN4xkrjlkGMkU1SfoN4HUXcLD3rnnzn?=
+ =?us-ascii?Q?981I86mmx3VhRk8HC2zaBn23obscBJilXYu9c1I4LR443eB9MOZ2l0mKCcg4?=
+ =?us-ascii?Q?+lbogJ0bs739geq/r0P682qWfhwEpQG6+Htruz5aBH1ofMvTlNAUj+d0QiR2?=
+ =?us-ascii?Q?csHbwLZVR8Rum0sDXlPJJEde2gQQ4SUeaqrNTp+GaG4AZvlahioJjOl1LYBw?=
+ =?us-ascii?Q?AdN/mTntujZPajq3/PA324GsOlQxOBAkrPypxKl02ADyGW1vgy06vZVIxynk?=
+ =?us-ascii?Q?ARuCvDMdPQ=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1716; i=chleroy@kernel.org; h=from:subject:message-id; bh=Qt+vOFxP9nNU5Yu1070glj6/XYtWpjM8nIz+zpYRJJ4=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRls18UjW8ryxGu0F176CvH16WSOYzJUtvUowOq1hyLy DNI9FPsKGVhEONikBVTZDn+n3vXjK4vqflTd+nDzGFlAhnCwMUpABNRuM7IMNVulcS7qB/uh298 +bfu/OcU5kNBX1YsuCRyJqH3exHfljUMfyXsXdvfG+bZPippu3/8aK3YA5fapKtLlVtkr3TsyPc UYQYA
-X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b66b200c-974b-4f15-5f58-08deee12dff9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jul 2026 08:16:36.7084
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: tzC4IyKYUUvR1qYQF+CYlrK9vwzw/eoZthO6FoH2zYmwKFSGNy+tRXxwKzvdUanFY7nJrJHZn5tNtxU2xULi1A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11633
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_011646_804916_F4E5964E 
+X-CRM114-Status: GOOD (  43.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +153,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> -----Original Message-----
+> From: Bjorn Helgaas <helgaas@kernel.org>
+> Sent: Thursday, July 30, 2026 6:30 AM
+> To: Hongxing Zhu (OSS) <hongxing.zhu@oss.nxp.com>
+> Cc: Frank Li <frank.li@nxp.com>; l.stach@pengutronix.de; lpieralisi@kerne=
+l.org;
+> kwilczynski@kernel.org; mani@kernel.org; robh@kernel.org;
+> bhelgaas@google.com; s.hauer@pengutronix.de; kernel@pengutronix.de;
+> festevam@gmail.com; linux-pci@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; imx@lists.linux.dev; linux-kernel@vger.kernel=
+.org;
+> Hongxing Zhu <hongxing.zhu@nxp.com>
+> Subject: Re: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms=
+ with
+> RC power loss
+>=20
+> On Fri, Jul 17, 2026 at 03:41:21PM +0800, hongxing.zhu@oss.nxp.com wrote:
+> > From: Richard Zhu <hongxing.zhu@nxp.com>
+> >
+> > Some platforms like i.MX power off their PCIe RC controllers during
+> > system suspend, requiring full re-initialization on resume. These
+> > platforms need to enter L2 state to properly notify endpoints before
+> > power loss.
+> >
+> > According to PCIe base spec r7.0, sec 5.2, the system software should
+> > transition the device into D3Hot before broadcasting the PME_Turn_Off
+> > message to initiate L2 entry. However, some endpoint devices fail the
+> > D3cold capability check in pci_host_common_d3cold_possible(), which
+> > would normally prevent L2 entry.
+>=20
+> Wakeup devices that don't support PME from D3cold will fail the D3cold ca=
+pability
+> check, but I don't think those are the problem you're solving.
+>=20
+You're right.
 
-On Wed, 22 Jul 2026 02:15:54 +0300, Vladimir Oltean wrote:
-> Previous set "New Generic PHY driver for Lynx 10G SerDes":
-> https://lore.kernel.org/linux-phy/20260610151952.2141019-1-vladimir.oltean@nxp.com/
-> introduced the 10G Lynx SerDes driver with a reduced functionality set.
-> Namely, only minor protocol changes are supported (1GbE <-> 2.5GbE).
-> The major protocol changes need a procedure named RCW override,
-> explained in more detail in commits 6/8 and 7/8.
-> 
-> [...]
+> This appears to handle devices that are not in D3hot, and that's not a pr=
+operty of
+> the endpoint; it's a property of its driver.  Is the problem here that so=
+me driver
+> didn't put its device in D3hot?
+>=20
+I observed some endpoint devices failing the D3cold capability check, but I
+haven't identified the root cause.
 
-Applied, thanks!
+> > For platforms where the RC loses power during suspend, L2 entry is
+> > essential regardless of D3cold support, as the link will be lost anyway=
+.
+> > Add a suspend_poweroff flag to force L2 entry in such cases, and
+> > enable it for i.MX PCIe controllers.
+> >
+> > Note: This violates the spec requirement that devices be in D3Hot
+> > before PME_Turn_Off, but is necessary for proper operation on
+> > platforms with RC power loss during suspend.
+>=20
+> If the device isn't in D3hot, it may still be active, and I think the PME=
+_Turn_Off
+> will abort any DMAs in progress, which doesn't sound like proper operatio=
+n of the
+> endpoint.
+You're correct - this isn't ideal for endpoint operation. However, on i.MX
+platforms, the RC controller will lose power during system suspend
+regardless. Without sending PME_Turn_Off, endpoints would have no notificat=
+ion
+before the link abruptly goes down.
 
-[1/9] soc: fsl: guts: perform fsl_guts_init() error teardown in reverse order of setup
-      commit: c200e79a5e3a9af0ed368f2f60ecbe37c3077d48
-[2/9] soc: fsl: guts: use a macro to encode the DCFG CCSR space
-      commit: 77a46f8fa169b1c01940c4c12851dd4a07f8de4a
-[3/9] soc: fsl: guts: add a global structure to hold state
-      commit: 2c498f7254acf7ec0c0c589c0e42024ffdd6e81b
-[4/9] soc: fsl: guts: add a central fsl_guts_read() function
-      commit: 51749b225c21889e4c59c5850ec14c392b8d17b0
-[5/9] soc: fsl: guts: make it easier to determine on which SoC we are running
-      commit: 9ee864e5c28b30b97db03b9e94c1624484a46e30
-[6/9] soc: fsl: guts: make fsl_soc_data available after fsl_guts_init()
-      commit: 989c49a752850789eec8a79a68613210b11bc765
-[7/9] dt-bindings: fsl: layerscape-dcfg: define DCFG_DCSR region
-      commit: 086923eb1fef29995ffdf75cb7574dc947caf5e8
-[8/9] soc: fsl: guts: implement the RCW override procedure
-      commit: f1ab3e661b457937cc1cb975e9f2090f6b6de6d7
-[9/9] phy: lynx-10g: use RCW override procedure for dynamic protocol change
-      commit: 2e233235fd463c65188626b9cc5e272c5ee96c07
+This patch adds a flag to force L2 entry for such platforms, choosing to
+notify endpoints (even if not ideal) rather than having the link drop
+unexpectedly. I'm appreciated for suggestions if there's a better approach =
+to
+handle this scenario.
 
-Best regards,
--- 
-Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Thanks a lot.
+Best Regards
+Richard Zhu
+>=20
+> > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > ---
+> > Changes in v2:
+> > - Rename the new added flag.
+> > - Update commit description and comments.
+> >
+> > ---
+> >  drivers/pci/controller/dwc/pci-imx6.c             | 11 +++++++++++
+> >  drivers/pci/controller/dwc/pcie-designware-host.c | 10 ++++++++--
+> >  drivers/pci/controller/dwc/pcie-designware.h      |  8 ++++++++
+> >  3 files changed, 27 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
+> > b/drivers/pci/controller/dwc/pci-imx6.c
+> > index 98e1db751132a..5a43bf396521b 100644
+> > --- a/drivers/pci/controller/dwc/pci-imx6.c
+> > +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> > @@ -1957,6 +1957,17 @@ static int imx_pcie_probe(struct platform_device
+> *pdev)
+> >  		 */
+> >  		imx_pcie_add_lut_by_rid(imx_pcie, 0);
+> >  	} else {
+> > +		/*
+> > +		 * i.MX RC is powered off during suspend, requiring L2 entry
+> > +		 * to notify endpoints before power loss. Some endpoints fail
+> > +		 * the D3cold capability check, which would normally prevent
+> > +		 * L2 entry. Force L2 entry anyway since the link will be lost
+> > +		 * when RC powers off.
+> > +		 *
+> > +		 * Note: Per PCIe spec r7.0 sec 5.2, devices should be in D3Hot
+> > +		 * before PME_Turn_Off. This may not be guaranteed here.
+> > +		 */
+> > +		pci->pp.suspend_poweroff =3D true;
+> >  		if (imx_check_flag(imx_pcie,
+> IMX_PCIE_FLAG_SKIP_L23_READY))
+> >  			pci->pp.skip_l23_ready =3D true;
+> >  		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
+> diff
+> > --git a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > index 06722259d2e37..95a31d65e1ca9 100644
+> > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > @@ -1222,14 +1222,20 @@ static int dw_pcie_pme_turn_off(struct dw_pcie
+> > *pci)
+> >
+> >  int dw_pcie_suspend_noirq(struct dw_pcie *pci)  {
+> > -	bool pme_capable =3D false;
+> > +	bool d3cold, pme_capable =3D false;
+> >  	int ret =3D 0;
+> >  	u32 val;
+> >
+> >  	if (!dw_pcie_link_up(pci))
+> >  		goto stop_link;
+> >
+> > -	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
+> > +	d3cold =3D pci_host_common_d3cold_possible(pci->pp.bridge,
+> &pme_capable);
+> > +	/*
+> > +	 * Enter L2 if D3cold is possible, or if the platform loses RC power
+> > +	 * during suspend (in which case L2 entry is required to notify
+> > +	 * endpoints before power loss, regardless of D3cold support).
+> > +	 */
+> > +	if (!d3cold && !pci->pp.suspend_poweroff)
+> >  		return 0;
+> >
+> >  	if (pci->pp.ops->pme_turn_off) {
+> > diff --git a/drivers/pci/controller/dwc/pcie-designware.h
+> > b/drivers/pci/controller/dwc/pcie-designware.h
+> > index de4b245b1758c..3ce7d30d9a4d5 100644
+> > --- a/drivers/pci/controller/dwc/pcie-designware.h
+> > +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> > @@ -471,6 +471,14 @@ struct dw_pcie_rp {
+> >  	bool			native_ecam;
+> >  	bool                    skip_l23_ready;
+> >  	bool			skip_pwrctrl_off;
+> > +	/*
+> > +	 * suspend_poweroff: Force L2 entry during suspend even when D3cold
+> > +	 * capability check fails. Used on platforms where RC loses power
+> > +	 * during suspend and must notify endpoints via L2 entry before
+> > +	 * power loss. May not meet PCIe spec requirement for devices to be
+> > +	 * in D3Hot before PME_Turn_Off.
+> > +	 */
+> > +	bool                    suspend_poweroff;
+> >  };
+> >
+> >  struct dw_pcie_ep_ops {
+> > --
+> > 2.34.1
+> >
 
