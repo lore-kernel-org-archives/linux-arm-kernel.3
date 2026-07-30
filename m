@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C429C55167
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 22:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9629C55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEd6hXttOvySEFhA8BB4g88telRNG8B5whgcgWs6ekE=; b=LGAVpMFecqSikQzLMv07J4WOlS
-	a/Spss2cZzQRbVFOeH8CWIRpc2C0Z0J08br2wnTz5HC07dUE94eS22BGZulZl2rH/yL9P2WpXD2gC
-	O49eaYvCqlE527twRTRMbxF+xDJNw7aLn6ybQHBpndtexN4kF6lL0nP6vexXvWUV/ctiGnO2EbCCb
-	y0klUL+8ViSv5FNpzyhv+agIirbeOzeVA94WEBPYU/s32/VPHOMnmr/iKYZoTY11HyvRqI5yRkhnj
-	D/Mgdd8AU4Qx0vs67tjCQhBm87qxZ9DhYfr1UN2g5uBlMRa64SNc0lC9U7rYdigIrG6229KmBfy+a
-	3Pc6jx/g==;
+	bh=OAzNMKmzxCFzEOWAiEeFQaer1iebyg6cnDmy70dSSVc=; b=NnEYKvnHB/+Ou2WAAYPZ8/ikDo
+	bidSA8rr2fQY0p/oepLUelwEoZFt8q2suCk/eW3zaR0F1hmdOQdoeIq2xOgNKKMk89wgcYOk+8IWH
+	LTXbOseLYgzp1sOjPdIA5Opm1+dOwEkYY2CsIFh5AySMYgj2BjyJBrq63tKoYQi0rhiDjlZ52SMeJ
+	ctaRK9g/OvHgOhlQYXxbLkeQjKu8gwJ9COcjdwXAnEnehHaYYsT1qCYuFECzPAoaEaNhqOT+ynnO0
+	sNMVYJyrTSSJSek1FsHvFlbkccxX47bonTkkAteUYZX0MZiwjbUA3u6Lr7dTP9mZvelI2VV8PzmQ5
+	PppsOj/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpZaS-0000000BSDh-3w5m;
-	Thu, 30 Jul 2026 22:50:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wpZnG-0000000BSo5-0pEF;
+	Thu, 30 Jul 2026 23:04:02 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpZaR-0000000BSDL-3xRz
+	id 1wpZnB-0000000BSnX-2Mz0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 22:50:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 721AD6001D;
-	Thu, 30 Jul 2026 22:50:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6C711F000E9;
-	Thu, 30 Jul 2026 22:50:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785451846;
-	bh=XEd6hXttOvySEFhA8BB4g88telRNG8B5whgcgWs6ekE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HAOTyD4B8puIKieu5T5fmZPrOiCunXcFCu/RbkdR3cIIyYfh4FHH+tqt7J0ViTd+y
-	 0qWN67PzI+lA973vWHy7s3tHObtMYDcPXhjdxVGQuOEVqs27+Nwrg7pgzBlCMX4IJu
-	 n6Y5seAb3ieitQm7kd6BFSGeo2AR3TGN8hVVFbOogCcKKyPe3vwt8UBKIAJ9jBvqsV
-	 h2ROiem8ZHHHq1nGrzXdea2fNxe9O1PlVNdOmgLxDogE+mMG0+TqcIK1JYTfJZJU8b
-	 At07fPNAd13f7qq6Lw5j27VNmy8Y0zdLOoCJLlG753+wHr/1Hy0/Gzx1WtvZjT8ffa
-	 CmK8fyOyLi0gQ==
-Date: Thu, 30 Jul 2026 15:50:45 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Abdun Nihaal <nihaal@cse.iitm.ac.in>
-Cc: Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
- UNGLinuxDriver@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, joe@dama.to,
- linux-arm-kernel@lists.infradead.org, horatiu.vultur@microchip.com,
- stable@vger.kernel.org
-Subject: Re: [PATCH net v2] net: microchip: vcap api: Fix possible memory
- leak in vcap_decode_rule()
-Message-ID: <20260730155045.49d7252b@kernel.org>
-In-Reply-To: <20260728114253.196398-1-nihaal@cse.iitm.ac.in>
-References: <20260728114253.196398-1-nihaal@cse.iitm.ac.in>
+	Thu, 30 Jul 2026 23:04:01 +0000
+Message-ID: <77edc25d-a521-4f65-84ed-dbb016593902@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785452631;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OAzNMKmzxCFzEOWAiEeFQaer1iebyg6cnDmy70dSSVc=;
+	b=ByXJ6MS1MhKl0IZKznqW2J5nDrksOfD/dwgBIHmiEQXINrWpU3ijNcB6h40pP7yFC5i1vM
+	gUD57GI4yWuIFnk56E1motluBATL65JoyAMundcpQ2zA2vs6bjJIR14Nd3A/OfA2iTBfTn
+	CMAjhXxMsRAxvi87UlEJeKSsQFE83ms=
+Date: Thu, 30 Jul 2026 16:03:33 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Subject: Re: [PATCH 1/2] arm64: ftrace: enable single ftrace_ops for direct
+ calls
+To: Leon Hwang <leon.hwang@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>, Shuah Khan <shuah@kernel.org>,
+ "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20260727142844.21212-1-leon.hwang@linux.dev>
+ <20260727142844.21212-2-leon.hwang@linux.dev>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Ihor Solodrai <ihor.solodrai@linux.dev>
+In-Reply-To: <20260727142844.21212-2-leon.hwang@linux.dev>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_160359_324216_1C903BEE 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,61 +82,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Jul 2026 17:12:51 +0530 Abdun Nihaal wrote:
-> The memory allocated for struct vcap_rule_internal, keyfields and
-> actionfields inside vcap_dup_rule() are not freed in some of the error
-> paths in vcap_decode_rule(). Fix that by calling vcap_free_rule().
+On 7/27/26 7:28 AM, Leon Hwang wrote:
+> The BPF tracing multi link updates several direct-call sites through one
+> ftrace_ops. Its implementation is therefore gated by
+> HAVE_SINGLE_FTRACE_DIRECT_OPS in addition to
+> DYNAMIC_FTRACE_WITH_DIRECT_CALLS.
 > 
-> Fixes: 610c32b2ce66 ("net: microchip: vcap: Add vcap_get_rule")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Joe Damato <joe@dama.to>
-> Signed-off-by: Abdun Nihaal <nihaal@cse.iitm.ac.in>
+> Select HAVE_SINGLE_FTRACE_DIRECT_OPS whenever arm64 enables dynamic ftrace
+> direct calls. This enables BPF tracing multi links on arm64. Also
+> generalize the unreachable-trampoline comment because the single-ops path
+> does not use ops->direct_call.
+
+Hi Leon,
+
+I don't think this change can land as is yet. The series doesn't even
+apply cleanly to bpf-next, but that's minor.
+
+More importantly, it depends on Jose's series [1], which is not in the
+mainline yet. And there Mark has raised performance concerns [2] and
+the discussion still seems to be open.
+
+[1] https://lore.kernel.org/all/20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev/
+[2] https://lore.kernel.org/all/amjnf5gz0xP5PTSB@J2N7QTR9R3/
+
+> 
+> Assisted-by: Codex:gpt-5.6-sol
+> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
 > ---
-> Compile tested only. Issue found using static analysis.
-
-This is important information please add it to the main commit message
-body.
-
-> v1->v2:
-> - Convert the error labels from "err" to "out_err" to avoid confusion
->   with the err variable, as suggested by Joe Damato.
+>  arch/arm64/Kconfig         | 2 ++
+>  arch/arm64/kernel/ftrace.c | 3 +--
+>  2 files changed, 3 insertions(+), 2 deletions(-)
 > 
-> Link to v1: https://patchwork.kernel.org/project/netdevbpf/patch/20260727125757.134611-1-nihaal@cse.iitm.ac.in/
-> 
->  drivers/net/ethernet/microchip/vcap/vcap_api.c | 9 ++++++---
->  1 file changed, 6 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/net/ethernet/microchip/vcap/vcap_api.c
-> index ff86cde11a32..376be059d662 100644
-> --- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
-> +++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
-> @@ -2427,18 +2427,21 @@ struct vcap_rule *vcap_decode_rule(struct vcap_rule_internal *elem)
->  
->  	err = vcap_read_rule(ri);
->  	if (err)
-> -		return ERR_PTR(err);
-> +		goto out_err;
->  
->  	err = vcap_decode_keyset(ri);
->  	if (err)
-> -		return ERR_PTR(err);
-> +		goto out_err;
->  
->  	err = vcap_decode_actionset(ri);
->  	if (err)
-> -		return ERR_PTR(err);
-> +		goto out_err;
->  
->  out:
->  	return &ri->data;
-> +out_err:
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 0de419ed780f..c98dca76859b 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -188,6 +188,8 @@ config ARM64
+>  		    CLANG_SUPPORTS_DYNAMIC_FTRACE_WITH_ARGS)
+>  	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS \
+>  		if DYNAMIC_FTRACE_WITH_ARGS
+> +	select HAVE_SINGLE_FTRACE_DIRECT_OPS \
+> +		if DYNAMIC_FTRACE_WITH_DIRECT_CALLS\
 
-Please name the label after the first action being undone
+The select is only conditional on DYNAMIC_FTRACE_WITH_DIRECT_CALLS, so
+it can be set along with HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS. And AFAIU
+this would make the fast path effectively dead: every BPF direct call
+routed through ftrace_caller now goes through the slow path.
 
-err_free_rule:
+As Mark noted in the other thread, on arm64 trampolines come from
+EXECMEM_BPF, so they always land out of BL range (chance of landing in
+range is 256M/terabytes).
 
-> +	vcap_free_rule(&ri->data);
-> +	return ERR_PTR(err);
--- 
-pw-bot: cr
+I vibe-slop-coded a benchmark and ran it on a Neoverse V2 machine, and
+toggling your config change seems to be causing a 1.3x regression in
+the tracing overhead:
+
+  do-nothing fentry (r0=0; exit) on __arm64_sys_getpid, 20 M calls, min-of-N, several boots. Results:
+
+              untraced (base)   traced        overhead
+  Kernel A    ~128 ns/call      ~145.5 ns     ~17.6 ns   (fast path: br x17)
+  Kernel B    ~127 ns/call      ~150.4 ns     ~23.4 ns   (slow path: save regs + call_direct_funcs + hash)
+
+This confirms Jiri's suspicion.
+
+However my understanding is the regression should mostly disappear in
+case some version of in-range trampoline allocation on arm64 lands.
+
+So, I think the landing sequence should be something like follows:
+  * in-range BPF-trampoline allocation that Jose proposed [3]
+  * then HAVE_SINGLE_FTRACE_DIRECT_OPS selection
+
+After all of that reaches mainline, then a selftest patch can go
+through the bpf-next.
+
+[3] https://lore.kernel.org/all/amn7cBQ-cqs2XlKV@linux.dev/
+
+>  	select HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS \
+>  		if (DYNAMIC_FTRACE_WITH_ARGS && !CFI && \
+>  		    (CC_IS_CLANG || !CC_OPTIMIZE_FOR_SIZE))
+> diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
+> index e1a3c0b3a051..56ba72a87dfa 100644
+> --- a/arch/arm64/kernel/ftrace.c
+> +++ b/arch/arm64/kernel/ftrace.c
+> @@ -301,8 +301,7 @@ static bool ftrace_find_callable_addr(struct dyn_ftrace *rec,
+>  
+>  	/*
+>  	 * If a custom trampoline is unreachable, rely on the ftrace_caller
+> -	 * trampoline which knows how to indirectly reach that trampoline
+> -	 * through ops->direct_call.
+> +	 * trampoline which knows how to indirectly reach that trampoline.
+>  	 */
+>  	if (*addr != FTRACE_ADDR && !reachable_by_bl(*addr, pc))
+>  		*addr = FTRACE_ADDR;
+
 
