@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670C8C55164
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DC4C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:15:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0awF699iaHXQ7IDP9u+2DZ5xUbh+hdWpBExaW+7TnD0=; b=3FMtPmC0OBsf66EI9XgsoUYLOI
-	PZc8H0LucDhEE2G9XNgajX3sL/ZFYgbibzW3iq4iexODs8OFGMJt51+ZWcWRNBlU9bOD+rs0rurV5
-	H9M5CKnEp1IWOSFAfNlISHnhRyqBh6xvyK3BTYCA4kPoIKD/uD7hfUAqpDD3vHLj7CQZSQ1KNSXPf
-	7ociGFhetO7HlRqHHn7NSrb4XdBpCvIN6DoSs7VJ72FRWLS2b8hAfH4vqRgSVtYXqbUKXQWl2zswH
-	N9vgmfm7ibdplBdPkPuXqNDQvH1F9i0CISUmq22A65OueOkdwWIr+MB+l7pHtH26l5BfVAhZgpMJT
-	lD72apBw==;
+	bh=SwkH9XaoCa13wc4+S4EGR+0lca2+/4IaQb96VBK1TQA=; b=g6W6c/YpsdkcJFLgbdH7LJJnlk
+	6FdvrmV/Ghc/Y7ADWa11qFCNacAs2XGWmzpQpLKniBdUP/F5Mv6aqmbkOlBrYTwLMP2eMVMxjWEo5
+	fRo71p4OHbQiOs4I6XjuOzEjo3RWCYqHYfyi9tMy/8B/XcFPCFvSrh0fk4WiIwATBYWWn4bIO0QDo
+	dsVc27b5nprMvqXmaTyrzZzhcyvsuHuAD3zEibXDMBPUT57oMdwsymANJmV2poWen2wFPHtkQtj4z
+	ocD+iX9JQn2k4Z71RMc+QRhwxqykrYpf80rUJg6KEDEE32+NfNVsYtXbARMpOFlhs/sSJ+/MDxeMF
+	GutOWTiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpLur-00000009pZc-2G7R;
+	id 1wpLur-00000009pZu-2hyY;
 	Thu, 30 Jul 2026 08:14:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpLuO-00000009pR0-2fMR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 08:14:28 +0000
+	id 1wpLuS-00000009pTV-3q8A;
+	Thu, 30 Jul 2026 08:14:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 04FA760A66;
+	by sea.source.kernel.org (Postfix) with ESMTP id AAFA643672;
+	Thu, 30 Jul 2026 08:14:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E5E01F000E9;
 	Thu, 30 Jul 2026 08:14:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E9F31F00A3A;
-	Thu, 30 Jul 2026 08:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785399267;
-	bh=0awF699iaHXQ7IDP9u+2DZ5xUbh+hdWpBExaW+7TnD0=;
+	s=k20260515; t=1785399272;
+	bh=SwkH9XaoCa13wc4+S4EGR+0lca2+/4IaQb96VBK1TQA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IB1TnayQfKNzUBaSupyZ7MbfBAz01gulj3TLGj1Bwuo4lKgvGx8YHjzyhU7ohC1kS
-	 IS88Pw70g5y+I9jLmZT91QNmESlJBNxSu0zH/VT1xxEWzs89EDXC5aUlGJdEZjpiHZ
-	 2kPipfvUf37NzHe25mNccY87yYPhFmtmBhEOFQpEksjdwAOrbf4qO8gI+/C9U2vO5K
-	 czZeIivdczFZV4tqWglofYax+GUGs98XDNzAfkz3zqQb5Zo+kS4Km3mcnfcv2uaofp
-	 CS0Gkaz6+wykuKKCRzrrk8b5zbcD0diDq00k4NbwstNy/xnb7Xtx21NmXNH7IWkUCZ
-	 e0CFmtwgUK6fw==
+	b=DDjRuhBNK1vDBHwwDcwRemcaBGxrBHsfylBpk9kDXZvEtRahMvanJmpvZWgBVv84J
+	 yVfbP/gRptzDKqH0dnM6NfYddKHZ3TXzoFyODtDtZCWC9qVaZ+zGFhQ3vGu2h50neb
+	 t+z8+tyj6g5l8Q5i05KsGbclo4uzY+ABO16Cz6CMKSBQ+hrJ8jdok1M1VHUMGznZGp
+	 o5lj16rc1kbbZkokh5l7VBZj7/LoVWSxAixYzCvFG2O+FyUAMyIWtMour4YAEVWmaR
+	 Y+h1M76EZ6ZF77Ylmp1rVjtRgVA3hTJvcIJMcGzQonKC7l1GaFNEbVmxwut8OiRiYR
+	 6PXg2kUAH9J3A==
 From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	Randy Dunlap <rdunlap@infradead.org>
+To: linux-phy@lists.infradead.org,
+	Vladimir Oltean <vladimir.oltean@nxp.com>
 Cc: Christophe Leroy <chleroy@kernel.org>,
-	Li Yang <leoyang.li@nxp.com>,
+	devicetree@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
+	Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Tanjeff Moos <tanjeff.moos@westermo.com>,
+	Michael Walle <mwalle@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Frank Li <Frank.Li@nxp.com>,
-	Guanhua Gao <guanhua.gao@nxp.com>,
-	Roy Pledge <Roy.Pledge@nxp.com>
-Subject: Re: [PATCH v3] soc: fsl: fix kernel-doc warnings and typos
-Date: Thu, 30 Jul 2026 10:14:06 +0200
-Message-ID: <178539922195.574381.190484277984136967.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v4 phy-next 0/9] RCW override for 10G Lynx dynamic protocol reconfiguration
+Date: Thu, 30 Jul 2026 10:14:07 +0200
+Message-ID: <178539922189.574381.6258263697994334139.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260728004924.904210-1-rdunlap@infradead.org>
-References: <20260728004924.904210-1-rdunlap@infradead.org>
+In-Reply-To: <20260721231603.67865-1-vladimir.oltean@nxp.com>
+References: <20260721231603.67865-1-vladimir.oltean@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=498; i=chleroy@kernel.org; h=from:subject:message-id; bh=GI9klVCerpi1vEXP4vDD3h3VHIlMwDNSBV979hEqBaU=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRls1/0MLJUPOaxyOX63Zkt59eFN55O/r8tTufmET4Ny V8SDaxrOkpZGMS4GGTFFFmO/+feNaPrS2r+1F36MHNYmUCGMHBxCsBEtucx/I++s8h3SvAv8YjJ wnmKN/nLDd9XFkjr8KVsWyAvNTN7zRFGhr1nagQ0Ni0IerpH/tCDr2/Mbiw6+0tWlblvyYlPFxf 7iHEAAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1716; i=chleroy@kernel.org; h=from:subject:message-id; bh=Qt+vOFxP9nNU5Yu1070glj6/XYtWpjM8nIz+zpYRJJ4=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRls18UjW8ryxGu0F176CvH16WSOYzJUtvUowOq1hyLy DNI9FPsKGVhEONikBVTZDn+n3vXjK4vqflTd+nDzGFlAhnCwMUpABNRuM7IMNVulcS7qB/uh298 +bfu/OcU5kNBX1YsuCRyJqH3exHfljUMfyXsXdvfG+bZPippu3/8aK3YA5fapKtLlVtkr3TsyPc UYQYA
 X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -78,20 +85,36 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 27 Jul 2026 17:49:24 -0700, Randy Dunlap wrote:
-> Correct spelling of "list".
-> 
-> Fix a kernel-doc warning by describing the nested structure completely:
-> 
-> include/soc/fsl/dpaa2-fd.h:52: warning: Function parameter or member 'simple' not described in 'dpaa2_fd'
-> 
+On Wed, 22 Jul 2026 02:15:54 +0300, Vladimir Oltean wrote:
+> Previous set "New Generic PHY driver for Lynx 10G SerDes":
+> https://lore.kernel.org/linux-phy/20260610151952.2141019-1-vladimir.oltean@nxp.com/
+> introduced the 10G Lynx SerDes driver with a reduced functionality set.
+> Namely, only minor protocol changes are supported (1GbE <-> 2.5GbE).
+> The major protocol changes need a procedure named RCW override,
+> explained in more detail in commits 6/8 and 7/8.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] soc: fsl: fix kernel-doc warnings and typos
-      commit: 2c1e7396f54c39ff0591b15fede6813cc85f5f9f
+[1/9] soc: fsl: guts: perform fsl_guts_init() error teardown in reverse order of setup
+      commit: c200e79a5e3a9af0ed368f2f60ecbe37c3077d48
+[2/9] soc: fsl: guts: use a macro to encode the DCFG CCSR space
+      commit: 77a46f8fa169b1c01940c4c12851dd4a07f8de4a
+[3/9] soc: fsl: guts: add a global structure to hold state
+      commit: 2c498f7254acf7ec0c0c589c0e42024ffdd6e81b
+[4/9] soc: fsl: guts: add a central fsl_guts_read() function
+      commit: 51749b225c21889e4c59c5850ec14c392b8d17b0
+[5/9] soc: fsl: guts: make it easier to determine on which SoC we are running
+      commit: 9ee864e5c28b30b97db03b9e94c1624484a46e30
+[6/9] soc: fsl: guts: make fsl_soc_data available after fsl_guts_init()
+      commit: 989c49a752850789eec8a79a68613210b11bc765
+[7/9] dt-bindings: fsl: layerscape-dcfg: define DCFG_DCSR region
+      commit: 086923eb1fef29995ffdf75cb7574dc947caf5e8
+[8/9] soc: fsl: guts: implement the RCW override procedure
+      commit: f1ab3e661b457937cc1cb975e9f2090f6b6de6d7
+[9/9] phy: lynx-10g: use RCW override procedure for dynamic protocol change
+      commit: 2e233235fd463c65188626b9cc5e272c5ee96c07
 
 Best regards,
 -- 
