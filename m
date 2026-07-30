@@ -4,69 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DA3C54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ECE5C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3H6MWK6GwyDeXeOh9tGK2U19UW/15BQhpRWg3MHlJEI=; b=mw7grhgZY2PnLYYBIqQT+RecLJ
-	OQWrNRqq+8S5sPdeUkJjwoDnoRNjMm2BPsNagx9fPErS++kfqHofGxyU6w721WFhprM3zCDM7GST4
-	AeWmyDViqeU05pjiGuv6KiTO4Td8vgR6hy7uHQ4U82fXCicwjDPIi/yBTU2bm5potvYrALHHId6ls
-	coD6DWFzfrnd4b7UVp3IbpF2gaid11fUEII/tK5TrzjpkBsMXRTcZp9c/vDr1xxsLHicPtHdOilr+
-	sCssOvl9WO7lVkRPydLO30Zuvxo1/TRPlZWZHu9U10tarSuFqqwgl+T+RQo74jJ9pZ7tIGavu0BpD
-	WlD5WzCg==;
+	bh=2y5QAVeNEbw4rwpIis7dsdZArac2vQn3qNAs9Ae58oc=; b=WRme85znzOjEToA8csOr8gfljU
+	Ao9kOwSpW2AUqJDK8tHSLVRfiq/qznQOitndnjZhjUsFssN7OCHAEPrijwAac7Jjgr5p0KQVzi100
+	SvWSFFUVCJX15zHmWwTbtBo3J+nxx8B8drKMIFieMmXPYD8M+Vyp9uZaFqtTPs/vrvAFDDQOwmM3w
+	+3kbrDtDC8GxlFVeviJSnaf/+w33fyto7C+Yhyekd7NeiLk+gBFZWLUHJjeAXiVdPZ0faq/rGpDCH
+	Y54Ge+yxXsJPolWumakzobD24qBDjSlSCn2tP/s3WOJc967qOEDNzXQTmgWAkMPIZMdSSvDppckdO
+	DR0ngHJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpL1E-00000009itU-2qCP;
-	Thu, 30 Jul 2026 07:17:28 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wpL39-00000009j1l-02eH;
+	Thu, 30 Jul 2026 07:19:27 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpL1B-00000009isn-0gkW
+	id 1wpL36-00000009j1L-3XNr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 07:17:27 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 6EB3B4E41000;
-	Thu, 30 Jul 2026 07:17:21 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2F5D9602B8;
-	Thu, 30 Jul 2026 07:17:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4CCB511C15761;
-	Thu, 30 Jul 2026 09:17:09 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1785395835; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=3H6MWK6GwyDeXeOh9tGK2U19UW/15BQhpRWg3MHlJEI=;
-	b=qvBTU4UgiJERlymmlQTYl2oKQFff1y6cSPjY4Im1uWQm4Sqm5IGQjyP2HYoq+190piGqib
-	CUll1NMoV7VRPpQdXp9Et998bquRUIrxsZx51WMRPKQ00AjYZRy0PJJa3xhWA2J1gcJJrV
-	UtH9+vCGVyD4IyPPveHs9JrMRqV1Nyp5t0Tu95xhJsYEdV2GXO3bUIYHNQCdUHm9Oo51Tr
-	M3VokwPpJ4O5V4hwcKsyQVsCT9FqffbrI9IZ08Nzto1LJxRikgn8MWOXPTSM09EtT46x30
-	2l8ioYFCQbcXGu7IgWSqqos2+JHDe3JByWUQEMCZTcZbtnIdqf6UJcNp7kmecg==
-Message-ID: <d0f6d828-1c73-42af-aac6-e48330b77dea@bootlin.com>
-Date: Thu, 30 Jul 2026 09:17:08 +0200
+	Thu, 30 Jul 2026 07:19:26 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4954df200ddso10460325e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 00:19:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785395963; x=1786000763; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=2y5QAVeNEbw4rwpIis7dsdZArac2vQn3qNAs9Ae58oc=;
+        b=UqwRsloJsFbJlfxz6145aenT96ha8C83gZsH1kVkFqfJQTocqtfg0WzCXpfK74HDPP
+         /EIKYhuRfSnDaQ6w0bva26kdifho15HIizZtrGn50YwFyXc2ctl/3ooxpvvJKkV9/d/W
+         0V3u0bZzenQ6upScJL2QW4CepBV3QuUrbdCgnVh9LvtG43/HBh+kP7mVJfnyZz0UP7sk
+         c8vLawwl71Mv1CEfHEZvaY/8ynVNPAB3oZeMhUWzAzjF6Dk33hfaBm6yu7m7zQeang8X
+         dBaNBccVLhiZX323bmTJQRJIPOXmIk6clhBjA1CPwwuPCBEzPkUAIIZmKqtYefbnoCDL
+         vnmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785395963; x=1786000763;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2y5QAVeNEbw4rwpIis7dsdZArac2vQn3qNAs9Ae58oc=;
+        b=NyruRSrGHCqdseoXm79YnpnOOzLrBXetviVCCOnArZQx+fpIJBrHEUA6dhqmEhZFvO
+         2C/QxqkJyGRF0vg4bJHtBwjOEnQS08cQakcXt3cqYb4/toELo9e9SSeGX61KV/3scgmU
+         yqE3S9Niq50V+uQa78B1C9wo9qOqpsJ+AM69C338Q1+NDxlJ1ErmhThzAjZh0H0ZMx5g
+         XMdlM1oLNAKEtnv0HAY6YohXXkWJND19sWFX4rbVDhsNhabAqw58c2AigcY8x1sHYkKU
+         Ii+iKb4EFb+TJXU7Gw1jl55PnrOia4EZ26eW8lpoACuHMAkA8k1VOBCpyz1/7IZjxYhP
+         l1WA==
+X-Forwarded-Encrypted: i=1; AHgh+RoEyjqsSn+VTudNSa1xt+67uqXIlSplKsKucf3lgjMR5nalySH8D5opWPW31B4YT3JKJN3LmYlLdncAFkxC4Yeq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMeSmvaHTqJQ5+DnJ9jo9HiitfsaO7Il1gBsfnqXJzK62feiYu
+	dULv94ZMTiyFKGxuh6Wu5dKyp6bAzLuoBfkxys/6Ikh6gKlEMj1rpIS7
+X-Gm-Gg: AR+sD136fm+3VFbInIVcdsgRu+Z8ms5VyUsavAV7LICRepGl4TVUPfpnjr756FKwtJn
+	W2E5m0qxtUyG0Upv938M4jk3BsDgzWwe679P+b7cDnPngjZhEhiLbOQwKNbpJwWDJdxynaw6Y7a
+	6mzrLPWlICJcnDwvOHxroP8yYq2FjiBPkupCPIqfy5pguYgrOGnCnRnw5wJNCW4xbO+e1SUhMNJ
+	BPutUIhJxzvEJlRuAZhclETU6k6E+qCf0KgrUHyuLjEbZhGJXpjwvULucyx3may5cNWlC/3yKWy
+	DC//yxvIs7RrMVIpEwr4rwTn2pGBtAJWQGHFgmcf35HauXrWsW6sKXlGe6e0ZKyrdUYDdlLv1U5
+	PdjfqrdlBn/u+ywU6fOF0qoDoEmLae+AxKyub0iGMqI7jTBVJBetm8M7q0IMusCJJSOTFKdtXnf
+	0EiiZ5iC858P7Si3ylOHLpUpnDbftLKVAbUZ381SpcfqUo6i+sFpH3DaA87C38xm4tAM+tSWcbt
+	KZxE0gnFtzKDFyEGft1Z+SkrXVwUdVfSg0xk9m9XANL3TB0ECvwFJVem8NCMJ2Ab9zZat0uyD/i
+	Sls6WyHDRFBTJF1bD3m0P8q/F9vwVWA9LOb535P6Pbc94Ye1ImgNIbQLpnYAydhrlsBGx3fFsjA
+	DhvFJ4sMbBQkbl82BUlBparwEEd92e0cXXpzdWEw9s4cnm1/lBuxVWFisn7Kh+33bP7woy7jZ
+X-Received: by 2002:a05:600c:3306:b0:493:b6ee:fcb7 with SMTP id 5b1f17b1804b1-49800e753admr10529425e9.14.1785395962626;
+        Thu, 30 Jul 2026 00:19:22 -0700 (PDT)
+Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fc88d6e68sm3625182f8f.7.2026.07.30.00.19.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 00:19:22 -0700 (PDT)
+Date: Thu, 30 Jul 2026 09:19:21 +0200
+From: Joshua Crofts <joshua.crofts1@gmail.com>
+To: "Kaustabh Chakraborty" <kauschluss@disroot.org>
+Cc: "Jonathan Cameron" <jic23@kernel.org>, "David Lechner"
+ <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
+ "Andy Shevchenko" <andy@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
+ <conor+dt@kernel.org>, "Peter Griffin" <peter.griffin@linaro.org>, "Alim
+ Akhtar" <alim.akhtar@samsung.com>, <linux-iio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>
+Subject: Re: [PATCH 2/3] iio: proximity: add driver for Sharp GP2AP070S
+ proximity sensor
+Message-ID: <20260730091921.00002d45@gmail.com>
+In-Reply-To: <DKB8WW9AK4KQ.2A9KVJWD5ORFT@disroot.org>
+References: <20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org>
+	<20260723-gp2ap070s-v1-2-b8ca3a4c10dd@disroot.org>
+	<20260723234439.06411731@systembl0wer>
+	<DKB8WW9AK4KQ.2A9KVJWD5ORFT@disroot.org>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: Select sleep pin state after suspending
- phylink
-To: Fabio Estevam <festevam@gmail.com>, kuba@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- qiangqing.zhang@nxp.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux@armlinux.org.uk, Clark Wang <xiaoning.wang@nxp.com>
-References: <20260729224535.506598-1-festevam@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260729224535.506598-1-festevam@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_001725_370681_5E8225C9 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20260730_001924_910394_DB9D571E 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,69 +113,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, 29 Jul 2026 23:23:45 +0530
+"Kaustabh Chakraborty" <kauschluss@disroot.org> wrote:
 
-On 7/30/26 00:45, Fabio Estevam wrote:
-> From: Clark Wang <xiaoning.wang@nxp.com>
+...
+
+> > Please add iio/* includes after the generic linux/* headers. Ensure
+> > that there is a blank line between the two groups.
+> >
+> > Additionally, you're also missing <asm/byteorder.h>, array_size.h, err.h,
+> > types.h and delay.h.  
 > 
-> When MAC Wake-on-LAN is disabled, stmmac_suspend() selects the sleep
-> pinctrl state before calling phylink_suspend().
-> 
-> phylink_suspend() may access PHY registers over MDIO while stopping or
-> reconfiguring the PHY. If selecting the sleep state muxes the MDC and
-> MDIO pins away from the MDIO bus function, these accesses no longer work.
-> 
-> Select the sleep pin state only after phylink_suspend() has completed.
-> 
-> Keep the transition conditional on MAC Wake-on-LAN being disabled so
-> that the pins remain active when the MAC must receive wake-up packets.
-I think we need that fix, but it does raise even more questions:
+> By the way, is there any tooling to satisfactorily point out the
+> shortfalls with includes? Or is it just intuition and experience?
 
-How about when the PHY handles WoL ? We may have to access it early at wakeup,
-possibly even before the MAC has woken up and restored the pinmux for mdio ?
+"Fully satisfactorily" no, but there is a tool called iwyu_tool (IWYU
+meaning include-what-you-use). It requires Clang/LLVM on your machine
+but it can serve as a pretty good starting point when cleaning up
+includes. There is an unofficial mapping file for IIO that makes the
+output of the tool less noisy, however it will probably still need
+tweaking. Here's the link to that thread:
 
-The mdio bus may be shared with other PHYs as well, they may race on suspend
-as well if the stmmac instance that drives MDIO quiesces before the other MAC
-that needs the other PHY ?
+https://lore.kernel.org/linux-iio/20260512073505.1310-1-joshua.crofts1@gmail.com/
 
-All in all the question is, should we instead deal with MDIO muxing independently
-of MII muxing, especially for suspend/resume ?
-
-Maxime
+Setting it up may be a bit tedious, but I found Gemini to be pretty
+good at this.
 
 > 
-> Fixes: 90702dcd19c0 ("net: stmmac: fix MAC not working when system resume back with WoL active")
-> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-> [fabio: Reworded subject/commit log for clarity and made it priv->wolopts conditional]
-> Signed-off-by: Fabio Estevam <festevam@gmail.com>
-> ---
-> Based on the NXP kernel fix:
+> >> +	ret = devm_request_threaded_irq(dev, client->irq, NULL,
+> >> +					gp2ap070s_irq_handler, IRQF_ONESHOT,
+> >> +					"gp2ap070s-irq", indio_dev);
+> >> +	if (ret)
+> >> +		return dev_err_probe(dev, ret, "Failed to request IRQ");  
+> >
+> > Just return ret instead, dev_err_probe() is called automatically on failure.  
 > 
-> https://github.com/nxp-imx/linux-imx/commit/7905fa71ed07d8c2f1da88ad9fffd5ac5e89461f
-> 
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 0de4bc949913..36ab66ad80fd 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -8183,13 +8183,15 @@ int stmmac_suspend(struct device *dev)
->  		priv->irq_wake = 1;
->  	} else {
->  		stmmac_mac_set(priv, priv->ioaddr, false);
-> -		pinctrl_pm_select_sleep_state(priv->device);
->  	}
->  
->  	mutex_unlock(&priv->lock);
->  
->  	rtnl_lock();
->  	phylink_suspend(priv->phylink, !!priv->wolopts);
-> +
-> +	if (!priv->wolopts)
-> +		pinctrl_pm_select_sleep_state(priv->device);
->  	rtnl_unlock();
->  
->  	if (stmmac_fpe_supported(priv))
+> Are you sure about that? I happen to call dev_err_probe() on all other
+> places and other drivers (as of late) as well (other than -ENOMEM).
 
+See the comment at the devm_request_threaded_irq definition here:
+
+https://elixir.bootlin.com/linux/v7.2-rc4/source/kernel/irq/devres.c#L94
+
+-- 
+Kind regards,
+Joshua Crofts
 
