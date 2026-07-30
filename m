@@ -4,94 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899C7C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4561C5516E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwVWNRy6nalbM0tK/ypHZd0adndrVP+y49fN+aH/CbI=; b=Y+YHebm9ZzR+S2yVu2LKuOggN0
-	1ucBEbkTuKzSHWKgoEdK3UKol7JOS5fSIjvzKrGsUwdZTG4Irzg6NpkMf3UJvS5aReT582z3eJ0PV
-	guURrf8/WS+dqEsmRpg8Q5VTjpJQwLUaIuF49oA2D0vdiYA1VsbtEOxZLJ+mHXYbxoY1hTn82q80P
-	jts7TypMaskqy5IUisxZYanUIzImOrz93z5aZkohVFUJEoPg3krpxbvZavw6pGx8pvliZhiEchGIc
-	vKHaHCr2PTe9YQVIz55c0diSttfO+B4LmCtDI/tkYVheD7fVzQbm7yeF9ydsPfzDj52Rd8VvbIprC
-	AwxYae+w==;
+	bh=rVGHrnlM8S0Tru24jhbKwCBMGMa41rcxjUCE1vIpC6A=; b=ZI6yYYt3RVgGyen4cQYuIPom5I
+	s/9GMg4ZQOpfQSqeYaifovdcocYBKRx35Ae5d31xCrCkqrCGVyISYeIrLUq4NF7OMjclSOhZb+mD0
+	UrRrV0FHzbnLADkQg+nlRZZ9KJNvB9Nv4LopfyrGup8AfFDFU1o6++YJWt78sbzbXFM3HozPosLrQ
+	NZxm3XYBYi+wnKnp5aXEFt8uEj7tQ99UKAZbtfFRrIDS2b0h8O/zsALAWXuLLC8LSXTmB8+vLgKaI
+	fjy+17g3QSqwr5GuqX2bVY/VSQc6ohmhQQS7DrwJdboFIHSpyaRJ0cNktBOXHGvb5dcFAMyzJTRcc
+	yPA+4wxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpWnv-0000000BHC4-1V8c;
-	Thu, 30 Jul 2026 19:52:31 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wpWpq-0000000BHNK-3Dyd;
+	Thu, 30 Jul 2026 19:54:30 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpWns-0000000BHBV-1aa5
+	id 1wpWpn-0000000BHMZ-18az
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 19:52:30 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-47f7854678bso49259f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:52:27 -0700 (PDT)
+	Thu, 30 Jul 2026 19:54:29 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-496bb7cdf51so1365905e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:54:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1785441146; x=1786045946; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1785441265; x=1786046065; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=vwVWNRy6nalbM0tK/ypHZd0adndrVP+y49fN+aH/CbI=;
-        b=TGrGR3IU8TA2Plk3GAlk5I0MBKrgud8S051F7TC9DrQKLpIF5CSsu7yTNlr5UM1VMb
-         679eZ6fzMyj5kItmF7b3qZ9lfEUSk0BUIfYFfR6ySpg3Cb04h3zWAr7kHRmhtCbD+nCi
-         GX1sSFL2aAXlTS+9ZhBXhoqMtYWy5rOlm1qZ2EpG/YGvS+SNJ8LK7T+sOBv3hkZTo2pk
-         /HixIn7LD9hXyzcI9ztkfQ1hBDmZT+H/JK4+ghgYyOhVj9JuRPEygHqBs9Qh/MXTVXmQ
-         X+/qc460UEVhwRn8ycUmuQzWgmwBAmm48330aJzgwC2xKXnA08tEqvGIUf/ZRVyLmRgK
-         p8BQ==
+        bh=rVGHrnlM8S0Tru24jhbKwCBMGMa41rcxjUCE1vIpC6A=;
+        b=KBpTmAqtq37Q7jINUqu3dvbeGArg9Lraps9cJ4LODCaTi/isBYwAyJ4pFVTo7Kgdcr
+         IvkY9QQ+iaEGPraFqndWS0GEQE7ChvYklg6tnawPEoh7IqkIV9NCPmI+nFjJ1jGSqVm4
+         HuOE+nrQHndwizkA6GwW8AKzMAKX+J4wKPoYvvrIjNKSKc45aQw4k3d0mk1BsGWQbvuy
+         OGxYeagGZ+soChKw0NpMAgm8Vt1DLWXqUArvqeAykL1XjjSa7Q/VvfD4qJb6VG4kjAfL
+         6ta2bW3mHUjVoncLDBdI5K4GsLt+5eSsEhROCdLnQtgQ8H7wPPrUpvzB1y+SHiIzAMsg
+         yBLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785441146; x=1786045946;
+        d=1e100.net; s=20251104; t=1785441265; x=1786046065;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=vwVWNRy6nalbM0tK/ypHZd0adndrVP+y49fN+aH/CbI=;
-        b=FeWwOvbljzm5SwS1QX/wTln2aDJ8RZYYrk22djwN+Zi4sFU9nhKmP/HXRN+0q5SwtT
-         wVNFZysroCR2J8rBfvDnHOfXBDcZw3VOD8zYHZf+EQ8/ORoaqBYk32z4eNn2z/CIun7M
-         VYQYkMCxfRO45jKArFIbHt1HUhIlpaf/PEmy3yKadWTGdWGOVOAUVG8ln3124BkB4QrD
-         TQvOrsdGGdnj5r86JhQjz0LFZ4kYDq+eZsuQxuGVyVnNfpQ02GP4g5rZAH6r/kSxDCNR
-         0VUw/YbriD08Ee6BFUKbRst6ll0+MnaFkUeeVig9QaxkzE+UAqRlQiMJXdq5AzAWprNU
-         eZtw==
-X-Forwarded-Encrypted: i=1; AHgh+RqxMi2v3gwWumLzRS8CAlJ+RwYswIlE6LE+6Wt20rBOykdDrnXRM1wozG1m77PjSwwNLnMVkym1YkfzoYGezOQn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz15dSsBun4vnE1SSla4XFkgP5uOXWaMzDUlF7KGIn0hr+n4x93
-	m5iCs4x9KXfTCsUSLoa2AFXz0PLackKmkgXT2FMwaz8gr1np3x6O+SzLg13ha7youm8=
-X-Gm-Gg: AR+sD12tJegmXUkibUVGz6xpJQsTabay3m0FaRleu46oKqSygKkfWb2HUh4kwIcFVya
-	iJR4J2k4wC6hDf09VqdUXNGTc3v+foOMJj13yxfxo7IbMau4saWM0h2F3CPUEE5Qcf1A09nQUa2
-	rw7VTT94u+YvEHvzihajLOIVxBzJMwMbENLmE5lgID7MZwfUdsdXfpPH+yCrpZAvGulmAytTyCi
-	8aKaz1XnBdPc2ACJApN2ovSTPsCWt9H4JfZxLBIO6vj/risiIzd8SB7auHB9ZXhHUGxoOo2NAg+
-	GV/tdjJHQ8ycEbu4JXqaN11o4qKDjlshpG/AjpAZevDVhSi55fSU7npK/TBZHes/cw0B7CYTnhr
-	0531SoghPXWngiX7kklnUibxQtrd5N0pjO714pUCLBO5AdKXcdzsdRB3q8aPPM7DYVjz4NYbTlZ
-	/aNANluyCGRsk7To5/bCt3mlNiNz2joKsg0IfPiYHgfVFzaWx87nKfDMJTGKQoNYiF0mvbsZBhy
-	rx3AQ==
-X-Received: by 2002:a05:6000:4383:b0:47f:9254:d45c with SMTP id ffacd0b85a97d-47fc82305a5mr6432813f8f.31.1785441146101;
-        Thu, 30 Jul 2026 12:52:26 -0700 (PDT)
+        bh=rVGHrnlM8S0Tru24jhbKwCBMGMa41rcxjUCE1vIpC6A=;
+        b=AmlTu8BCfy9/jkshsd6MwU2ZVSbhBGjpFPZi0igbXReKknDneEHSx89p66oAcZqT3M
+         dAx7cvd6v/kiRIsuvcNm8vOhh+O+Dvu8+gbCAESb1uSdxttN6pOJCVE5jEUWy5W6OlKU
+         xZ9pSP8eRgHBTvd/lj+E/THF0+l16EfYIdVq5jSP+xpFSyO0e6GNS1K6lR7hRo7n3q/j
+         22PVwi3poYUoFXDHS3y8q3mYtLXH0KLxy84UV5FjRS8GmUEMx+aKSD+sYhmtbtCSuU2j
+         mXCyyKsUdxrok6NDtNXY9htZ0LYdm7fy9DBozy90XPcFgYdjALRCVjCuUoYXnYF2isyu
+         IkxA==
+X-Forwarded-Encrypted: i=1; AHgh+Rp6YzKotUbu6TWZwkzee5lKIBy2Ewa0EzG9pthDzFRqTuk+tNg1FAylHqY+8V3z9/06DBvC6Fnwu4aiEg4Hs3w0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9ZkTYtTntMrnPMuauY9CKS6TEIHRFgEBC1aTc0TsYntq8XbVK
+	aWq5jhrAA0Uw4wWM8Ae56GkNI6K05sP8IJvmDa9/3CyNbrQZPrBNK9WcadSjUOEO/0Y=
+X-Gm-Gg: AR+sD12d6cWzucNMekqdjT6ZzhJXLAW/ts2l8xQo8TjRVxsB3sWKRAvqXBT09V5vlpw
+	JlXlD8J+TsgOp1Xtj6FpvMhn70Qsn5ZAhSKUJxPdmVjTaw4VPOTbxC5jJfymIqxWSyad4G96b5P
+	eVxGcRXTT2rAQ8TwkXee7qnGb73hFsBveYNJjanSzYR1pwsjc4ZVhfqC25/kQIxi2zXMcSaYGgr
+	LAaJ4zCI7UFrDb9ucxmnUImfLLbc1U9R7wSoJe4UsY4y4FVvPj2TifRRVpezgFCknnkjh1Hj4IB
+	ISieB8Bu6khfOjgfAifRcHMjtokxDvmFqbqASFBRZHaOhdFm724KAPZq5hpQGpKm6v78jOs3uDX
+	IbzzbBB8Y7uWcVLkDw5J5t/KnmAAT6R1YiLNFy/OYxBaLCqMxuxZksgG2SbahJHNpRIytIIA4di
+	elps5hduFy0PhZ/QmwO5clizevloM0UFXuSnhxb/MmOPspvI7cZ/3JC5aXqz0R87cX2Q==
+X-Received: by 2002:a05:600c:a3a2:b0:495:6396:8b67 with SMTP id 5b1f17b1804b1-49800e89181mr42298655e9.4.1785441265073;
+        Thu, 30 Jul 2026 12:54:25 -0700 (PDT)
 Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47fc892cc3asm9575726f8f.23.2026.07.30.12.52.24
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-498011f341fsm71200825e9.5.2026.07.30.12.54.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 12:52:25 -0700 (PDT)
-Date: Thu, 30 Jul 2026 21:52:24 +0200
+        Thu, 30 Jul 2026 12:54:24 -0700 (PDT)
+Date: Thu, 30 Jul 2026 21:54:23 +0200
 From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Dileep Kumar Nagavarapu <DileepKumar.Nagavarapu@amd.com>
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
 Cc: Jonathan Cameron <jic23@kernel.org>, 
 	David Lechner <dlechner@baylibre.com>, Nuno =?utf-8?B?U8Oh?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Michal Simek <michal.simek@amd.com>, 
-	Conall O'Griofa <conall.ogriofa@amd.com>, linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, git@amd.com, Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Subject: Re: [PATCH v3 3/6] iio: adc: xilinx-xadc: Split driver into core and
- platform files
-Message-ID: <amuqm5qdzXqKutPS@monoceros>
-References: <20260729125455.95893-1-DileepKumar.Nagavarapu@amd.com>
- <20260729125455.95893-4-DileepKumar.Nagavarapu@amd.com>
+	Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, linux-iio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] iio: proximity: add driver for Sharp GP2AP070S
+ proximity sensor
+Message-ID: <amurhVbZi_y0N55n@monoceros>
+References: <20260731-gp2ap070s-v2-0-1bdfee07d5ea@disroot.org>
+ <20260731-gp2ap070s-v2-2-1bdfee07d5ea@disroot.org>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="b5ow5tkqlkhhbeq5"
+	protocol="application/pgp-signature"; boundary="6iqq33laew6sina5"
 Content-Disposition: inline
-In-Reply-To: <20260729125455.95893-4-DileepKumar.Nagavarapu@amd.com>
+In-Reply-To: <20260731-gp2ap070s-v2-2-1bdfee07d5ea@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_125228_715385_774E589C 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20260730_125427_661215_A53AED55 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +108,42 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---b5ow5tkqlkhhbeq5
+--6iqq33laew6sina5
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
-Subject: Re: [PATCH v3 3/6] iio: adc: xilinx-xadc: Split driver into core and
- platform files
+Subject: Re: [PATCH v2 2/3] iio: proximity: add driver for Sharp GP2AP070S
+ proximity sensor
 MIME-Version: 1.0
 
 Hello,
 
-On Wed, Jul 29, 2026 at 06:24:52PM +0530, Dileep Kumar Nagavarapu wrote:
-> @@ -19,21 +19,13 @@
->  #include <linux/err.h>
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
-> -#include <linux/kernel.h>
+On Fri, Jul 31, 2026 at 01:01:30AM +0530, Kaustabh Chakraborty wrote:
+> +#include <linux/i2c.h>
+> [...]
 > +#include <linux/mod_devicetable.h>
 
-I wonder why so many people recently add <linux/mod_devicetable.h> in
-their patches. Is there some tool that suggests that?
-
-Anyhow: Please don't. <linux/platform_device.h> is already enough to get
-of_device_id (which is the only *_device_id this driver is using unless
-I missed something).
-
-linux/mod_devicetable.h will hopefully go away soon, so each patch
-adding an #include for it is annoying.
+<linux/i2c.h> is enough to get the definitions for i2c_device_id and
+of_device_id. Please rely on that and don't explicitly add an include
+for <linux/mod_devicetable.h>. The latter is a dependency hell and is
+going away soon.
 
 Best regards
 Uwe
 
---b5ow5tkqlkhhbeq5
+--6iqq33laew6sina5
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmprq3UACgkQj4D7WH0S
-/k483wf+OGssOXqZyZNhVlMbxIFkvol7gw7dRZpH+FLGCwaz+YoZOShc6uF/dy0R
-toxrO3NuL6fqemrQygPUT7CDqUxs2H+fpREr6fqwxp28MDtOMojPvp98Hz3WkGsy
-32ONJaOn6e/cqTNYeRBts9+710rveP80zM5/iO5Hl2srSXemwjlip72uWRymUdme
-lJLVrZbJJMTt2zVeJIfx0HrstM+ZeG8BnU0+oTSoUaFkfVRbeyJYqmifZ6Y/jtB2
-gaTmouQCp47MEEUcEmXHf3tJ2o4Dt576bsXp3x++/XW3KCYvHgA+HRkgLWjZ1QNz
-TfvUbzG14aw7+PZE5PzAT3zdD16KaQ==
-=rINs
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmprq+wACgkQj4D7WH0S
+/k6zUAf/Sx1cl/BKPkqGFdNbaghmO2SASm11okWqQNPUBAASK9s2FJe8D7X0d2Pc
+rxbD9qNMckkIkAmLcK0z25WgZBGBFp9p7JFMNNaNtODVdDrSzVAWkpVsCP+1KxKx
+wpfH4GBPCJ7KZs5VSphtsnQZEUPocJI1S6+FR/2erYowET73idWdL578hdOguif3
+gGC3nzPWAAeIr2NuLcA/wszaK7meQrPxhg24VjiqyZiKWV+sCg6btmb31dzv0U+w
+iNJKNRoMfAACrLENOmFoF7u5Ca/msHAhYS5POf7oB3t3//qGzwY98+DPRHeZzWfu
+loDsTIst5Wzn48eksG4i14baHoA+Rg==
+=xgKb
 -----END PGP SIGNATURE-----
 
---b5ow5tkqlkhhbeq5--
+--6iqq33laew6sina5--
 
