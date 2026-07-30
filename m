@@ -4,100 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E59C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 16:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 962CAC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 16:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJhL3RsYBYDwWZhud+U9+49c/408+YK8Ri5w8J9rOB0=; b=tCQNw9UxZW5eq77r6/2WOlCDoI
-	ETS6+GEGZCl2/e9dJ90ooiGQ2e54qzWJQi2ReUHPl7kTOu79s55F738hJ6yypHgHPbA5GCHgejIFU
-	HtMrJMK6r4ACKRfPL6jMaDRWyisLCavY8ulNDiI+aweYSXTmD/LGS+/q8uTVEU8VSdOIrdDuE1Xt5
-	b7vKGHgsJvZ/5FzJR3HfJ8zKdGASGLpgosNReQswTX6hpxtS/gAQwrP1IOmJY8sww6m0baIHQlMAs
-	xUK1IeT+Yt5xTlPKRKwHjRNPsSyaA/tnp/IhquRMf7StHb0OdVj1znyPjHNvpamwie6sGQj19A8mv
-	OYKmPPNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KQK0UZKoyz2ZGITRCV0MZEm4Z1Ggizwl/51xOSw6Qsg=; b=VrPgXmyU8l/3qVG1zoepjtMW24
+	lg0mKE04vcTfTtLEI9n550DEvGclBwgX7dYxOkvHZiClA1JPX9MW0x0aJyUtadxAGMUc/Biccpxzw
+	XFZ1ZV6hy8EiBlCxvvNGofbMVlA+LYkkmINgNPxGSIgRae6UD3KqkloweXW8Mbc6u4IL0ilD6Fjhb
+	pY7gOUQWdcxxJXFIEaxZ8+3KxQHs/idAnCwE59Jeby2ojTLQXwcqemrvd3+1+EmMZbNApTI5zcuwU
+	4cpdUJv2HXNUJcSEyWUeqsxP3RwswML6yMadhd7neFuRw5oyI5UVGVp8c41InmtTnKwPM2dhzQ06X
+	dl0jgMzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTjQ-0000000B0e6-1avR;
-	Thu, 30 Jul 2026 16:35:40 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wpTjr-0000000B0ui-2bXf;
+	Thu, 30 Jul 2026 16:36:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTjH-0000000B0an-2wie
+	id 1wpTjl-0000000B0qs-2KDj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 16:35:32 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4954afac04bso26369195e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 09:35:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785429330; x=1786034130; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kJhL3RsYBYDwWZhud+U9+49c/408+YK8Ri5w8J9rOB0=;
-        b=CIoZkiD/l+9JvHYZq64nEIG+ru/PdOtypWSZ+3C/+0UgUoc7sL2xLz0As0yrr4F3nq
-         8C+QOCQ5DmQYUMZJm9Kg3yrMMc/AYkJjufuHWXVYVqCw9p/4Tg+F464jqSR3yrIRtOvQ
-         p470Q209XDGYUxQtixAIDEJASY9BI4SNU0lpNfJ35fswdA0IEZ6Pag1CuGXQvh7lq6VR
-         oMq+jgSTj06fSFjbsY36fzdH4wwgxoRYKxN92vOzlSKCqS4wtl3ZvOioeoCUyIdjcp65
-         UVZ0o72FRar58S59O6RXvU/eSItwicD3Ixpdsm1YbdxH4AnTfb5r5Auqo4dSIdMNabRQ
-         lBmA==
+	Thu, 30 Jul 2026 16:36:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785429360;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KQK0UZKoyz2ZGITRCV0MZEm4Z1Ggizwl/51xOSw6Qsg=;
+	b=blmqyeLQ7ccuaXzbIoYXwbLO9xkffpCe+6hGgiLb9DRjSPjWnKOORNNwUfL9yapOfUh6nF
+	ELGb/J18CPyVaYufjWrmqkwn6ATflIH5NT9DolG08SqWaqcxsn9NQkqq3qBoYDp2UiC5o8
+	vTTxc3JHAoNqRI8QIompJk9Zxgu3OSY=
+Received: from mail-yx1-f71.google.com (mail-yx1-f71.google.com
+ [74.125.224.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-460-SDuOMeZkMyWTBZ_gZIpouA-1; Thu, 30 Jul 2026 12:35:59 -0400
+X-MC-Unique: SDuOMeZkMyWTBZ_gZIpouA-1
+X-Mimecast-MFC-AGG-ID: SDuOMeZkMyWTBZ_gZIpouA_1785429358
+Received: by mail-yx1-f71.google.com with SMTP id 956f58d0204a3-667d6c4384dso6119422d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 09:35:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785429330; x=1786034130;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=kJhL3RsYBYDwWZhud+U9+49c/408+YK8Ri5w8J9rOB0=;
-        b=r0ohrlPe6bq3If96eEh56JYtP24Qo0Mc0gx2/wqU13lHnj/ezDBsqtpZX79n3TubqV
-         D3L2SC2cyGlTR7+ZrQRb+KOsu5/Wqq55wTdGV+LHt7I119ZXP19g4sqcOzmq/JzSdMrK
-         5W4JxipLbW2lXe8XGG7lwAvD60C8B+Eom2h5RCFYvpHZ8fYYu5klBqPy9t0WhfG7fEZo
-         9oWiud9SN+x9TOiANgJL3L3NguhdMnU/xDC6GyxCUNpSP3IJMUl4DVpQC2QBf1A9pOwf
-         48rHH6Yg0zrE47CB426e1Dvk5O5eQ74ITG0I/d/KYs01GlL3zG5ErHOy5fP0Chi8FQT+
-         21VA==
-X-Forwarded-Encrypted: i=1; AHgh+RoijSzwypBMZ1HztAcDx7MeI8lFFvBOTTgm5WTGKIbN1LflbMIlJ+2NS/T3m4Nw7nYpVUeW0F8+7kvqLLnwXnGd@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkW70CVTsjW7m9e/33YBcafgiLWNKfPaMxhOWUUtHKQ0/gYaop
-	J0uXlKwBs4sYOzCwarCXuCm9qmJVeuDTWLn/XdsHQJRbnR9qY0aEHGnd
-X-Gm-Gg: AR+sD11AqMj2+Nwu4uB99Jx6Nmev9tpn3MR8LePxvK9kbbRRrM73rEaGFoMp3ulophX
-	d888SUTSgansPQR/M+iFtoC+Wpa3xg+1figjrLFXscmyaBw3nNW8z92bkbsWRiF2m4obO0qTx1E
-	MBEQ2tHt9cpOMl6sE+XurCcFmkvWQlMA/LhtBYyDUFzpi8S0Cm8kOBWrxC3K7iRu1DAqw0EQ1CX
-	fDf9MeLSZ5TKP5HOjWZjlf+uTu1Fdj6vmJYa3kMpm1bXy4e44WkN7C4zQLZLmdMughkVAqlFEje
-	yHxiEnVZJryyZ6YZL9itaEZWqBjWW/aM2GH8mNE1gnpRiepwFPMlcWKFszqQHowL1AFl+OefvRT
-	XIHiHmvbh49EAQpHhatn5ot+kjWEJeg+7XMRe4mB0lBI1BHkMgsDR7GFOhcqq8ccbovLTFrN4k+
-	IYKs8H+lvZLjMo6BtBSbqMMHpcmeFpFiJVkCIqltXKURcY/vVIpRDwz1G2MGDK8aJBD+nujMCyq
-	qtf23+qprH52g==
-X-Received: by 2002:a05:600c:1987:b0:493:a438:7f98 with SMTP id 5b1f17b1804b1-49800ea99b0mr45414735e9.18.1785429329577;
-        Thu, 30 Jul 2026 09:35:29 -0700 (PDT)
-Received: from SMW024614.wbi.nxp.com ([128.77.115.158])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fc892cdeasm7758445f8f.22.2026.07.30.09.35.27
+        d=1e100.net; s=20251104; t=1785429358; x=1786034158;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KQK0UZKoyz2ZGITRCV0MZEm4Z1Ggizwl/51xOSw6Qsg=;
+        b=efD6iIUWScInCestPwEr4hcYeeveIOPfCRSh2LmtkzEZKSmezciyPRzi9gGOaLTueM
+         4UDPlTa+ZAIE1oj10XMVMY+58whQpJgqeq5XjgIXrkXZ5GOBZHujJV96UveYdRY3hi91
+         0AKKva0Xws58noisNIAaUAc/gUob/e5cdedU1mGsNRGvCgJ0GmoUi9csguWjg6INOkVf
+         JAolcLCgLCD8UbUKvAGKwdouZDxeZkWXh2aRADaCljW2pkNKuv0ct6Oboqy4CcZU81OO
+         KA2/i9VF9j7l7JkHkWsQe9pLWL0xMXVdFfWEG3Y3Npbu6Qzg4V4vR/KE68QZk5d0pYS8
+         bIlg==
+X-Forwarded-Encrypted: i=1; AHgh+RrfowctVrI5q1CTP+1BW3BjADm38ew5G5lTimXxFY/in9JVt9qicYWScg6tGbiC2/3eM7xiuh18HsZ7GBBwMsSl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxcsj/NZqm9tFGaipGzJ+kOy3D6hR3Qcr/9djACJORO4lBo8vmh
+	56TZkcaiGgQ0Hbrmp8c5YzndJ3qmziZ2fk+0cx47lotvcwiBoOjh/jzmNOajdMlqvWXpkmB9cY6
+	2QvmL329VAUOfzJ/a+txZ4T9zD5sbVZYbLF5M+C20MD8ka3yKDFKBHkY94/tjqJQpy3mhhvYCJy
+	RH
+X-Gm-Gg: AR+sD12Vb/rj4fqdThYZJGwcWTERrR69G2RcMneYu79IRT4koDPa7qN6bGKTZmlhk4X
+	KS1FRlj1Gdy80IS/uLACZbghAePd76o/SuSrURaSdrmQ+JG4Off2CNQLtrGu3m51MZM/AYix+qo
+	OFlCOgVCqAfGCSLz/LHgqSGwxmPQTmBOTd4KLj2s4tJ6NTZtNJFXUjfmX/HYjvAJXJ2wRrA5H+H
+	6vPLOsxefLeThHC5LiuGv7wdmfqP0LFR9VFowHQL/LGS7ThKnHXS8VqKkhQuL+ot+E36RSwg0c9
+	J2xqWNl8KEtrUfBfgmc87u82Ozcu4jL2VCeZXc6bpqlwdXhpm99BwpKY1uRmDHHqoX6Z8B4xcMi
+	eZ3VPQcski9b0qrzF08/GHGPBYiYLBV0xMCU=
+X-Received: by 2002:a05:690e:4844:b0:665:e31:fd8d with SMTP id 956f58d0204a3-6692f477c6fmr1754699d50.13.1785429358410;
+        Thu, 30 Jul 2026 09:35:58 -0700 (PDT)
+X-Received: by 2002:a05:690e:4844:b0:665:e31:fd8d with SMTP id 956f58d0204a3-6692f477c6fmr1754670d50.13.1785429357912;
+        Thu, 30 Jul 2026 09:35:57 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6693b131342sm358314d50.19.2026.07.30.09.35.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 09:35:29 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@oss.nxp.com>,
-	Francesco Dolcini <francesco@dolcini.it>
-Cc: linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/4] arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
-Date: Thu, 30 Jul 2026 09:34:12 -0700
-Message-ID: <20260730163412.1145-5-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
-References: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
+        Thu, 30 Jul 2026 09:35:56 -0700 (PDT)
+Date: Thu, 30 Jul 2026 12:35:54 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Yu-Chun Lin <eleanor.lin@realtek.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
+	cylee12@realtek.com, jyanchou@realtek.com, afaerber@suse.com,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-realtek-soc@lists.infradead.org, james.tai@realtek.com,
+	cy.huang@realtek.com, stanley_chang@realtek.com
+Subject: Re: [PATCH v11 07/11] clk: realtek: Add support for mux clock
+Message-ID: <amt9avQReRq_hWtJ@redhat.com>
+References: <20260728142806.1954638-1-eleanor.lin@realtek.com>
+ <20260728142806.1954638-8-eleanor.lin@realtek.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260728142806.1954638-8-eleanor.lin@realtek.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 1sHMSVQScro4L2zdzkYnYIu1Wcz4i-Xf-wCTJ5ZgR-Q_1785429358
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_093531_783624_4E992C16 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20260730_093601_672646_806F3928 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,115 +116,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Tue, Jul 28, 2026 at 10:28:02PM +0800, Yu-Chun Lin wrote:
+> From: Cheng-Yu Lee <cylee12@realtek.com>
+> 
+> Add a simple regmap-based clk_ops implementation for Realtek mux clocks.
+> 
+> The implementation supports parent selection and rate determination through
+> regmap-backed register access.
+> 
+> Signed-off-by: Cheng-Yu Lee <cylee12@realtek.com>
+> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
 
-Add RPMSG DT overlay for the MX95-15x15-FRDM board. This overlay is meant
-to be used with the mx95evkrpmsg system manager configuration for
-remoteproc and audio over rpmsg-usecases.
-
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |  3 +
- .../dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 67 +++++++++++++++++++
- 2 files changed, 70 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 95ae85ab4adf..3f98132f5a32 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -707,6 +707,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx943-evk-sdwifi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-ab2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm-rpmsg.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-frdm-pro.dtb
-@@ -729,6 +730,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-yavia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-zinnia.dtb
- 
-+imx95-15x15-frdm-rpmsg-dtbs = imx95-15x15-frdm.dtb imx95-15x15-frdm-rpmsg.dtbo
-+
- imx95-15x15-evk-pcie-dtbs += imx95-15x15-evk.dtb imx-m2-pcie.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie.dtb
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
-new file mode 100644
-index 000000000000..bc02864c6f88
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 NXP
-+ *
-+ * This DT overlay is meant to be used alongside the mx95evkrpmsg SM
-+ * configuration for remoteproc and audio over rpmsg.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	remoteproc-cm7 {
-+		compatible = "fsl,imx95-cm7";
-+		mboxes = <&mu7 0 1>, <&mu7 1 1>, <&mu7 3 1>;
-+		mbox-names = "tx", "rx", "rxdb";
-+		memory-region = <&vdev0buffer>, <&vdev0vring0>,
-+				<&vdev0vring1>, <&rsc_table>;
-+		memory-region-names = "vdev0buffer", "vdev0vring0",
-+				      "vdev0vring1", "rsc-table";
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		vdev0vring0: memory@88000000 {
-+			reg = <0 0x88000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: memory@88008000 {
-+			reg = <0 0x88008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0buffer: memory@88020000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x88020000 0 0x100000>;
-+			no-map;
-+		};
-+
-+		rsc_table: memory@88220000 {
-+			reg = <0 0x88220000 0 0x1000>;
-+			no-map;
-+		};
-+	};
-+
-+	sound-micfil {
-+		status = "disabled";
-+	};
-+};
-+
-+&edma1 {
-+	/* reserved for M7 */
-+	dma-channel-mask = <0x40>;
-+};
-+
-+&edma2 {
-+	/* reserved for M7 and V2X */
-+	dma-channel-mask = <0xf>;
-+};
-+
-+&micfil {
-+	/* reserved for M7 */
-+	status = "reserved";
-+};
--- 
-2.53.0
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
 
