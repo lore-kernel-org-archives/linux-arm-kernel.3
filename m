@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41CAFC54FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 29 Jul 2026 23:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A53DC53200
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 00:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gOPSkr2wlloefEPrua6lklGG7M4k2QPcT5/yGwy/0lw=; b=l7bdY9kWlVHxhr4JSkiE1to/pI
-	iR2F1LRw0+5vShpph3xioYX8ObtB8vqMSATsY9K3REMu0gTlYpCPoz2thcX6xqs4G9Liv9QIZjIMc
-	NIeM0F0A3m1uM5r8cpmwfzXcgzYXzKKpvGNCyC1YCnKBVJQ9N55kKiGXGNlY7+4u2857O9RVdIUVz
-	T2BB+tvYWqRQrZB77fQKkedXlsl9wKkQJT6Hz5waSnp884HCKZeMR1Wd+1f/O11Vv6TuBRQU4VDAw
-	56Uw5e/jmz5Vc+7zDJarR46dxVMb9CKt3PYVWKMe6/rZqnzYePXbpp3uibRcW3EK0X9hcpvwdKu0A
-	8uMqiF3Q==;
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TZXWw/54kDIDx73XnHw22X7yeZR5LWN5LDGxddSIeDE=; b=Kze0ZOGP54L+HQPXcusCDvLWQd
+	Gmguy6ggFaHMwpujjCc6R2ey/51DsOgEA/lBgE/RntnITreYRQkT5GTU/dkyZuNEdTZmJKzynO72f
+	CChx9neSijlSnXNTxAL/XPmoujbKyYASHsx2jfEj8QGIY3LbsR0Y9yiYE+yOBXRRgqUcvK74bEwlA
+	odobErWsprZL5+yrVk5L9AawKpCarV8bW8/iGkrRAy66VlSGSpdIWwQ1T8Oa30BUBqwavLj55Ldkw
+	D2OjTw9F7GKUwc9UT35u49CcU/qUvfdevPN7E/HGhD6kG2sd2yMR7rHHp55K+cGCHzDSiZqLnb3Th
+	LXEy3GsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpDeF-000000096qH-29xz;
-	Wed, 29 Jul 2026 23:25:15 +0000
-Received: from mail-gw-fk003.vdone.jp ([160.251.152.193])
+	id 1wpEF1-000000098tn-22fU;
+	Thu, 30 Jul 2026 00:03:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpDeD-000000096p6-1Jb5
+	id 1wpEF0-000000098ta-3E63
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 29 Jul 2026 23:25:14 +0000
-Received: from mail-gw-fk003.vdone.jp (localhost.localdomain [127.0.0.1])
-	by mail-gw-fk003.vdone.jp (Proxmox) with ESMTP id 5E055401827D4
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 08:24:55 +0900 (JST)
-Received: from e3.valueserver.jp (e3.valueserver.jp [157.7.184.13])
-	by mail-gw-fk003.vdone.jp (Proxmox) with ESMTPS id 7F7EE4015A643
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 08:24:54 +0900 (JST)
-Received: (qmail 287325 invoked by uid 89); 30 Jul 2026 08:24:54 +0900
-Received: from p1706034-ipxg06601niigatani.niigata.ocn.ne.jp (HELO localhost.localdomain) (jack@supremeoverlordjabs.co)
-  by e3.valueserver.jp with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 30 Jul 2026 08:24:54 +0900
-From: Tomonori Nakagawa <jack@supremeoverlordjabs.co>
-To: Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Tomonori Nakagawa <jack@supremeoverlordjabs.co>
-Subject: [PATCH] drm/rockchip: vop2: give rk3576 VP2 a primary plane
-Date: Thu, 30 Jul 2026 08:24:50 +0900
-Message-ID: <20260729232450.13797-1-jack@supremeoverlordjabs.co>
-X-Mailer: git-send-email 2.54.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_162513_491576_67A23D7E 
-X-CRM114-Status: GOOD (  11.92  )
+	Thu, 30 Jul 2026 00:03:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 24BAC41AEB;
+	Thu, 30 Jul 2026 00:03:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87B0A1F000E9;
+	Thu, 30 Jul 2026 00:03:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785369794;
+	bh=TZXWw/54kDIDx73XnHw22X7yeZR5LWN5LDGxddSIeDE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=i5nFSGTa54IX2AUca+NVsi84ye/eHv0R/PXeVpCmikWEvqGvVEgNq01rWwCctSwKK
+	 mcSGvF3NJ2w4pKWWSewA8xqOsYR1ecGWQe+m9DBZu7LmSPKbIh1aJ98HRt7Qyvm0aV
+	 oQk7YKhzp9qUhN5VQCcWwqtj/TSSi/pWOQCDTEYW3ZB1zG2vznlvzhwlgz66DRjFYR
+	 +0oD2xTAN95YjfGa/2w0oug19eFahFBxbosPh8KDHTheLHoiAWJ+TvHESMEY8wz9Tk
+	 brs3/patuZKp+2R16Bh8C86IZ9tQkrrWOxXOO+CNlRDXVDU4uXSwY1nS7XgB2UVAxH
+	 A1t9WCsd6A78A==
+Date: Thu, 30 Jul 2026 09:03:07 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Steven Rostedt <steven@rostedt.org>
+Cc: Hongyan Xia <hongyan.xia@transsion.com>, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Dennis Zhou <dennis@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Christoph Lameter <cl@gentwo.org>, Oleg Nesterov
+ <oleg@redhat.com>, Naveen N Rao <naveen@kernel.org>, "David S. Miller"
+ <davem@davemloft.net>, Nathan Chancellor <nathan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
+ Justin Stitt <justinstitt@google.com>, Jiazi Li <jiazi.li@transsion.com>,
+ Pu Hu <hupu@transsion.com>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-mm@kvack.org"
+ <linux-mm@kvack.org>, "linux-trace-kernel@vger.kernel.org"
+ <linux-trace-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+ <llvm@lists.linux.dev>
+Subject: Re: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
+ __always_inline
+Message-Id: <20260730090307.24d3e4b1041f30d87d390e1c@kernel.org>
+In-Reply-To: <20260729140846.3c18f437@gandalf.local.home>
+References: <cover.1785153469.git.hongyan.xia@transsion.com>
+	<eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
+	<20260729140846.3c18f437@gandalf.local.home>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,47 +83,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The rk3576 VOP2 has three video ports. VP0 and VP1 each have a Cluster
-window that acts as their primary plane, but VP2 - the port wired to the
-DesignWare DP controller - only has Esmart windows, all typed
-DRM_PLANE_TYPE_OVERLAY.
+On Wed, 29 Jul 2026 14:08:46 -0400
+Steven Rostedt <steven@rostedt.org> wrote:
 
-The driver requires every active video port to own a
-DRM_PLANE_TYPE_PRIMARY plane. When VP2 is driven (a board that uses the
-DP output) it finds none, CRTC creation returns -ENOENT, and the whole
-VOP2 bind fails, taking down the entire display subsystem.
+> 
+> Masami,
+> 
+> 
+> On Mon, 27 Jul 2026 12:25:48 +0000
+> Hongyan Xia <hongyan.xia@transsion.com> wrote:
+> 
+> > From: Hongyan Xia <hongyan.xia@transsion.com>
+> > 
+> > Static inline should be enough to actually inline functions for most
+> > compilers, but my Clang-19 somehow thinks it's better to outline them.
+> > These tiny helpers then live in normal .text sections instead of
+> > .noinstr sections, violating noinstr.
+> > 
+> > Mark them __always_inline so the compiler can never outline them.
+> > 
+> > Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
+> > ---
+> >  arch/arm64/include/asm/esr.h       | 2 +-
+> >  arch/arm64/include/asm/percpu.h    | 2 +-
+> >  arch/arm64/include/asm/preempt.h   | 4 ++--
+> >  arch/arm64/include/asm/ptrace.h    | 4 ++--
+> >  arch/arm64/kernel/debug-monitors.c | 2 +-
+> >  include/linux/kprobes.h            | 8 ++++----
+> 
+> Are you OK with this patch? If so, can you ack it?
 
-Promote Esmart0 to DRM_PLANE_TYPE_PRIMARY so VP2 has a primary plane.
-Esmart0's possible_vp_mask already includes VP2 (BIT(2)) and its
-layer_sel_id[2] = 0 is a valid VP2 layer slot, while VP0 keeps Cluster0
-as its primary, so the existing VP0/VP1 assignments are unchanged:
+Yeah, this patch looks good to me. Anyway these are expected to be
+inlined.
 
-  VP0: primary=Cluster0, overlay=Esmart2
-  VP1: primary=Cluster1, overlays=Esmart1, Esmart3
-  VP2: primary=Esmart0,  overlays=Esmart1, Esmart2, Esmart3
+Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
-Tested on Anbernic RG Vita Pro (rk3576) with the DP alt-mode output.
+For other patches, Sashiko noted some comments, I need to check it.
 
-Signed-off-by: Tomonori Nakagawa <jack@supremeoverlordjabs.co>
----
- drivers/gpu/drm/rockchip/rockchip_vop2_reg.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thank you,
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-index 17eda592b..e7d013dc3 100644
---- a/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_vop2_reg.c
-@@ -894,7 +894,7 @@ static const struct vop2_win_data rk3576_vop_win_data[] = {
- 		.format_modifiers = format_modifiers,
- 		.layer_sel_id = { 2, 0xf, 0, 0xf },
- 		.supported_rotations = DRM_MODE_REFLECT_Y,
--		.type = DRM_PLANE_TYPE_OVERLAY,
-+		.type = DRM_PLANE_TYPE_PRIMARY,
- 		.axi_bus_id = 0,
- 		.axi_yrgb_r_id = 0x10,
- 		.axi_uv_r_id = 0x11,
+> 
+> -- Steve
+> 
+> >  6 files changed, 11 insertions(+), 11 deletions(-)
+> > 
+> 
+> [..]
+> 
+> > diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
+> > index 8c4f3bb24429..5880445ed0f0 100644
+> > --- a/include/linux/kprobes.h
+> > +++ b/include/linux/kprobes.h
+> > @@ -384,17 +384,17 @@ static inline void kprobe_ftrace_kill(void) {}
+> >  struct kprobe *get_kprobe(void *addr);
+> >  
+> >  /* kprobe_running() will just return the current_kprobe on this CPU */
+> > -static inline struct kprobe *kprobe_running(void)
+> > +static __always_inline struct kprobe *kprobe_running(void)
+> >  {
+> >  	return __this_cpu_read(current_kprobe);
+> >  }
+> >  
+> > -static inline void reset_current_kprobe(void)
+> > +static __always_inline void reset_current_kprobe(void)
+> >  {
+> >  	__this_cpu_write(current_kprobe, NULL);
+> >  }
+> >  
+> > -static inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
+> > +static __always_inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
+> >  {
+> >  	return this_cpu_ptr(&kprobe_ctlblk);
+> >  }
+> > @@ -449,7 +449,7 @@ static inline struct kprobe *get_kprobe(void *addr)
+> >  {
+> >  	return NULL;
+> >  }
+> > -static inline struct kprobe *kprobe_running(void)
+> > +static __always_inline struct kprobe *kprobe_running(void)
+> >  {
+> >  	return NULL;
+> >  }
+> 
+
+
 -- 
-2.54.0
-
-
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
