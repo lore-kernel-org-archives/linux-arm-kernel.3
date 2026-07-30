@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65241C55160
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C04F6C54FD2
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 10:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,53 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+gzTZcYKKcGbuW+pqjc5AqixIOglEGXpJkXzsWq8nRI=; b=aRsxeSirT9nTmWYj3Cph65KW8f
-	SCcb+4L7amqmFPH1UUtebh8EzR9lhkHaf+15W8WYhxRoKrU+CI6s0oEzVh/AXWtRVoEs9d8ZTgz/C
-	1oqwBFA9voWLwfSYj+Uiz03ifK7UFsDWxb2SrhwIdsYw6KIQLFe5+DoXK835xlAg5cK98Bl8RBTtD
-	8oUH8KDNemyTI7nIKnYSBXMf3hsTJBJTByv6E8+2sGy1ecA0i7RNsbjoJkWKmK1hGlOJ3/8n6Bjrn
-	TlQzmItYo1qHDcuPfimu77ovp+Km3YtXnrEjzfBUY/SFpEClUeJJ32/2+Vy88cwOiycLMlh//IPpc
-	HUffcelg==;
+	bh=ijrYr6YBtJFCRCgubYGp5VRaGPQc7AEyp9FuRJSTWl0=; b=bZwUH/KmtMJdFxj7wdCk4Bh+Js
+	XBIZslvIVcMC16NoQxmvl3sZ4kFRchVfjBtowMGSYivTrQ7QDbbjecajVgAL53mYpM6mD2LlvXFT0
+	jrgHovhZw8eAxm3m4RwfrVBDfDw7LGEIXF10wlDJijYFynSeRaqzRIX2Y4SSNmDcYAzEuSVF/Fx/l
+	TIHrpRFY4yWDgSYTG5HXV3OvGEXksQ5ecqU5MPaWsJtXbmZ6A6f49xW0DC/aAV9BH/HtSpGaffSuU
+	EXKj9QO1TXyvQugA5txrPd1jLZlbxVRSSfL7UrlrxAtBLA5J6uU7k5bwCHKtPgeZYODYCEjgrmfh2
+	GyX6oKzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOFT-0000000AFSw-0nA5;
+	id 1wpOFT-0000000AFTs-2Shp;
 	Thu, 30 Jul 2026 10:44:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpOFI-0000000AFN5-1Y1B
+	id 1wpOFI-0000000AFN9-29gH
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 30 Jul 2026 10:44:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=+gzTZcYKKcGbuW+pqjc5AqixIOglEGXpJkXzsWq8nRI=; b=ju8kDCMq+TTqwqSVBcQFL55t8p
-	ufRYbGyXsSy18YcZYD1l+18HR4/5KgkSAddrdmf5XN2mH9DP9k6i0ZSxk8GklLjvAzrqlbObVgEnn
-	p9T97tOC+CqI8wbDgXijE+r9LMtu3c/kMrBQHk0gKhWOuRzd2JM2KrbkJmzD1RP2RcBJ0qbbGTI7S
-	U2f+u1QyzVFDKIfz1x3HZaZ/OOwaU8vZCnBLgulcn6ITYDshth2JSwmG2ErUSq+ypGaKQPJW2JQev
-	/w9lwP+/Qkp7nHY1VsGkjaovZQik/agK6hm0Tqsv+735SPSfz+74ddJnHQcics/Y74RCEXVNSKX/p
-	dzjWNxXQ==;
+	bh=ijrYr6YBtJFCRCgubYGp5VRaGPQc7AEyp9FuRJSTWl0=; b=QrssNs9SSMoLrAFx1qW9ABAkBA
+	/7R7B1Z4xJI93NtyVDCK92AEq2E1Xd3wvpPeoA91//RXPtWfIqRQRn9IlC3Q1FIYvXloALvjChyky
+	9LS5ASf2ztqFvgeEkYsrGpIekr0Nq3Vf+gXhwLlyMNQk/u3GY72uKSvM081hlB0+Hm7PD0m+7Yz9f
+	qhkJL0At69UK8uU2gbqTzORkq6ELEYFbeEQDrRkxv3PO0rIafeXwNnw6FYR+Hi6k+t8EMnsx64NF7
+	7Oa2oYoiMbHJJ5tMDD+rVv04YtN3nYsEAXaeGn9O94vhSnF9+dbCL1WHIkq6h6c9Pq2XA04Lseiw1
+	zGpaMO6w==;
 Received: from mx0b-00622301.pphosted.com ([205.220.175.205])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wpOFD-00000006ask-1md7
+	id 1wpOFD-00000006asi-30QF
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 30 Jul 2026 10:44:11 +0000
 Received: from pps.filterd (m0241925.ppops.net [127.0.0.1])
-	by mx0a-00622301.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UA6Ego3332841;
-	Thu, 30 Jul 2026 10:43:53 GMT
+	by mx0a-00622301.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UA6Egn3332841;
+	Thu, 30 Jul 2026 10:43:52 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ambarella.com;
 	 h=cc:content-transfer-encoding:content-type:date:from
 	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	com20210415pp; bh=+gzTZcYKKcGbuW+pqjc5AqixIOglEGXpJkXzsWq8nRI=; b=
-	EypS0vj4j0orNzGF/KzovOIwR7Tvehve/EYmaa8Zt98ZzsLyGndDTWRF9l9TUgS7
-	CmwO6syw8R3XPQiraJoMnSp0F4vxT8Kyue9pnihKPmeQfdLwdGOQXHYWhPzHQXZ1
-	xEYZWbcysvOtqFzhEeQevzRr/QKuOc4B2+fJZj6/3nwwUckdxXwGaUJrewgPOPrY
-	MYMcDj7eyQizQ5O9PZ/8Wsu5nymB//T7/yZWF99464gq2TXMbQB3kQTRQKoA5Drr
-	dhQqtxv5r15W/WCrq+SY6Ib+HA/G5RXfYA+GjbPrMkGPyDrSpMyi1yw/FPi2hTuA
-	NqTugsQMWYKc2w2JHrgqfA==
+	com20210415pp; bh=ijrYr6YBtJFCRCgubYGp5VRaGPQc7AEyp9FuRJSTWl0=; b=
+	W6CkfW+hQ4Rr3F21IryAAvcHWDrAaX7UsJ1XEnfg5127jK18H71pJ0GyvtzYAsvg
+	MJv+01Xrldy/6sUsbeM+DHuPmKdlbYN/tJXwWfHk6DjZ+ObcCOfzmAxck1uSmvcY
+	XmX8nTpqXVw2Z72GT807X1HhzuH/jb5rLFOx6ipyxRPRSaSTf/mkz+YdHqmEbKtc
+	NV2gz+Plj4/4G9hDp+Gf6DE/QwF+6HGcMjkXOurINLV89gFXVePnPUpKF/HhA6n+
+	Irb0DQ4jPl32GIyteX60uWHArIKC6vLA/ZclZvahonIMdsIeeO1fpER5P0hUgRIP
+	PMKQHSOXbl0DiJ8q90B1Tg==
 Received: from webmail.ambarella.com ([12.30.244.130])
-	by mx0a-00622301.pphosted.com (PPS) with ESMTPS id 4fq8twhnbe-2
+	by mx0a-00622301.pphosted.com (PPS) with ESMTPS id 4fq8twhnbe-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jul 2026 10:43:53 +0000 (GMT)
+	Thu, 30 Jul 2026 10:43:52 +0000 (GMT)
 Received: from ambtw-mbx5.ambarella.net (10.2.4.226) by
  ambus-ex-se1.ambarella.net (10.1.4.9) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
@@ -66,10 +66,10 @@ Received: from ambtw-mbx5.ambarella.net (10.2.4.226) by
 Received: from ambtw-cas3.ambarella.net (10.2.4.228) by
  ambtw-mbx5.ambarella.net (10.2.4.226) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 30 Jul 2026 18:43:51 +0800
+ 15.1.2507.58; Thu, 30 Jul 2026 18:43:49 +0800
 Received: from shbuild7.ambarella.net (10.4.8.70) by ambtw-cas3.ambarella.net
  (10.2.4.228) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Thu, 30 Jul 2026 18:43:49 +0800
+ Transport; Thu, 30 Jul 2026 18:43:48 +0800
 From: Long Zhao <longzhao@ambarella.com>
 To: Arnd Bergmann <arnd@arndb.de>,
         Alexandre Belloni
@@ -88,32 +88,32 @@ CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Will Deacon <will@kernel.org>, <linux-kernel@vger.kernel.org>,
         Long Zhao
 	<longzhao@ambarella.com>
-Subject: [PATCH 09/10] arm64: ambarella: add ARCH_AMBARELLA and CV75 EVK DT
-Date: Thu, 30 Jul 2026 18:43:29 +0800
-Message-ID: <20260730104330.81367-10-longzhao@ambarella.com>
+Subject: [PATCH 08/10] serial: ambarella: add Ambarella UART driver
+Date: Thu, 30 Jul 2026 18:43:28 +0800
+Message-ID: <20260730104330.81367-9-longzhao@ambarella.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260730104330.81367-1-longzhao@ambarella.com>
 References: <20260730104330.81367-1-longzhao@ambarella.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain
-X-Proofpoint-GUID: 7iVuJU1wFZ8xt2K9BjmpOC4VqnQ_cME0
-X-Proofpoint-ORIG-GUID: 7iVuJU1wFZ8xt2K9BjmpOC4VqnQ_cME0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfX1kZdpEh1brac
- Ag8RVpxQRKhAu1Nx4soZkbE0nRZlYm4G/OgSG6Vh9DlXiSQdpQnd01Oz6ugUvexXhGgfotcco9Z
- XiDGiBTfl5DZRS3vKiV0jTbOA4ARwr9sjHi4YkgPnO3oC7QMDKdiWbXdP4zdn/w75NcGBtzijst
- SprQSAIx1EvmJyqKuIZUpsJtMgATYQYCmDOHpFxVCQI1/zvD+VRcjVbDTTkEBNW057UhGyIMIBE
- /x9HI7h2YQkpWfq7w/U3Pzh/qmGeVArKbv+JDyF1/98t/ksLqXdAmXzqYAvlgEAUcEzZmSyDtaZ
- d3naM50As3uXuNBsLH1KkD9ONoSXiuIVHu2y0MYTnpss02+HT9WODhYDRqO2Z5JiTDrNPNM76Jb
- mWUhClTW/OqULUsGgvpG85d9sliZqqsHgrIDH0Lenhh2wG443+ynKQFW6xS0fncq0JvV21w6NH5
- hoA7f2VjEbd4qgeMKcg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfXwvJdxdH7d1NR
- 09X9kNmYAkSstZD1MMdOtbvIoc4sLWAgInJ90aWHnnPJIRzHis3rHJ6Bug2suB+qZ9ti92XpyYu
- 9MWalWfxna6AqrrmfE1Baisa4hOiyZUUHQDUgQWP2fXrpRqNomNM
-X-Authority-Analysis: v=2.4 cv=PNE/P/qC c=1 sm=1 tr=0 ts=6a6b2ae9 cx=c_pps
+X-Proofpoint-GUID: D2ypH8hkxi8ZbtHRbbGTvoVzRgp9kDpW
+X-Proofpoint-ORIG-GUID: D2ypH8hkxi8ZbtHRbbGTvoVzRgp9kDpW
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfXyIqfZmdpLWSe
+ 8RWqBt5GvnKS+7+UybBZ8000OKVeKyZ+1DnrQwHhnoIjhlsWRDAmsLCSmyn2+t+6KNbT8KotcS4
+ u2zl/T0/kuseRs5ClqkglP5rc2Jr2Lkk3I9RpmvrhQd1nvSzZKGYnrIzmWPyzghif98UbzDcCi7
+ WNKSeNQbuBygFQWMUAm8YJvRGaw5RagSE+DGf1Nx+Hp1QTwv2wcaHhTdaNsHONAhMGCYSP9lv9y
+ 6jsTFqNaOi3HzKPS5JdW/oppWyy3y9Chkwkt7WfgQTtIbIiRMYmz9qxPD70ugHGMwDqG38LErSs
+ PWS2k+dll+65/F0bf3WA1qdMYnY14jeQnOy5EdpyisC0XLurI9MN/HM2DQxB48Ya9B13Is0JeWm
+ vMzxnbdrX3cht6/dmt73FFylwUY6DY946jm5vgh0mVRXqK9mlzZ3Y8yzGGoLJE1zkGn+p3qz6g8
+ VfcyK/VlItVUkGPwUZQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDA4MCBTYWx0ZWRfX5D32+OHONhg9
+ 0oJZFbCfUj1CPHC8Mm29Ca4Cs+Mq7oAF2GzA2A8JQNx0Pu9KvXRbEzrDrc6nWBDOm5CfD8FMDko
+ 8L1PjeNtSinaX7WsswLWapO7WvV+b/UvnrXzQqPJs+B/UyGEzvxZ
+X-Authority-Analysis: v=2.4 cv=PNE/P/qC c=1 sm=1 tr=0 ts=6a6b2ae8 cx=c_pps
  a=DgnZYc2JwZ3KnY28M5UqXQ==:117 a=DgnZYc2JwZ3KnY28M5UqXQ==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=yXVIz-0bn9infC194UBj:22
- a=KblO7da7ppA7TBl3N-nE:22 a=ppJngBeKAAAA:8 a=NuV0J3eQuBn1ZHJjGOEA:9
+ a=KblO7da7ppA7TBl3N-nE:22 a=ppJngBeKAAAA:8 a=ZEP-G582OeCys1fdM1QA:9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-30_03,2026-07-29_01,2025-10-01_01
@@ -123,8 +123,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_114407_748889_2D426FC6 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20260730_114408_227696_AC982F6F 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,298 +139,1035 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the Ambarella ARMv8 platform Kconfig, add the CV75 SoC and
-EVK device trees, and select the Ambarella UART in the arm64
-defconfig for console bring-up.
+Add an Ambarella UART driver with console support for early boot
+bring-up on CV75. Keep udelay() in wait_for_tx(); it runs under
+console/poll paths that may hold the port lock with IRQs disabled.
 
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- arch/arm64/Kconfig.platforms               |   9 ++
- arch/arm64/boot/dts/Makefile               |   1 +
- arch/arm64/boot/dts/ambarella/Makefile     |   3 +
- arch/arm64/boot/dts/ambarella/cv75-evk.dts |  30 ++++
- arch/arm64/boot/dts/ambarella/cv75.dtsi    | 151 +++++++++++++++++++++
- arch/arm64/configs/defconfig               |   3 +
- 6 files changed, 197 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ambarella/Makefile
- create mode 100644 arch/arm64/boot/dts/ambarella/cv75-evk.dts
- create mode 100644 arch/arm64/boot/dts/ambarella/cv75.dtsi
+ drivers/tty/serial/Kconfig          |  21 +
+ drivers/tty/serial/Makefile         |   1 +
+ drivers/tty/serial/ambarella_uart.c | 937 ++++++++++++++++++++++++++++
+ 3 files changed, 959 insertions(+)
+ create mode 100644 drivers/tty/serial/ambarella_uart.c
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index d2acfac73003..166430ddb3c9 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -26,6 +26,15 @@ config ARCH_SUNXI
-        help
-          This enables support for Allwinner sunxi based SoCs like the A64.
+diff --git a/drivers/tty/serial/Kconfig b/drivers/tty/serial/Kconfig
+index cf7dba473b20..e3f5ec794c72 100644
+--- a/drivers/tty/serial/Kconfig
++++ b/drivers/tty/serial/Kconfig
+@@ -18,6 +18,27 @@ source "drivers/tty/serial/8250/Kconfig"
 
-+config ARCH_AMBARELLA
-+       bool "Ambarella SoC family"
-+       select ARM_PSCI
-+       select HAVE_ARM_ARCH_TIMER
-+       select PINCTRL
-+       select PINCTRL_AMB
+ comment "Non-8250 serial port support"
+
++config SERIAL_AMBARELLA
++       bool "Ambarella UART support"
++       depends on ARCH_AMBARELLA || COMPILE_TEST
++       select SERIAL_CORE
 +       help
-+         This enables support for the ARM64 based Ambarella SoCs like CV75=
-.
++         Say Y here to enable the on-chip UART controller found on Ambarel=
+la
++         SoCs. The driver supports interrupt-driven transmit and receive
++         operation through the serial core. It can also provide a system
++         console when SERIAL_AMBARELLA_CONSOLE is enabled.
 +
- config ARCH_ALPINE
-        bool "Annapurna Labs Alpine platform"
-        select ALPINE_MSI if PCI
-diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-index fc726b215f12..f1709eb5d915 100644
---- a/arch/arm64/boot/dts/Makefile
-+++ b/arch/arm64/boot/dts/Makefile
-@@ -4,6 +4,7 @@ subdir-y +=3D airoha
- subdir-y +=3D allwinner
- subdir-y +=3D altera
- subdir-y +=3D amazon
-+subdir-y +=3D ambarella
- subdir-y +=3D amd
- subdir-y +=3D amlogic
- subdir-y +=3D apm
-diff --git a/arch/arm64/boot/dts/ambarella/Makefile b/arch/arm64/boot/dts/a=
-mbarella/Makefile
-new file mode 100644
-index 000000000000..ddca3d7b18cc
---- /dev/null
-+++ b/arch/arm64/boot/dts/ambarella/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
++config SERIAL_AMBARELLA_CONSOLE
++       bool "Console on Ambarella UART"
++       depends on SERIAL_AMBARELLA
++       select SERIAL_CORE_CONSOLE
++       select SERIAL_EARLYCON
++       help
++         Say Y here to use an Ambarella UART as the system console. This
++         enables both the regular serial console and earlycon support for
++         messages emitted before the full UART driver is initialized.
++         Select this option for early boot diagnostics on Ambarella system=
+s.
 +
-+dtb-$(CONFIG_ARCH_AMBARELLA) +=3D cv75-evk.dtb
-diff --git a/arch/arm64/boot/dts/ambarella/cv75-evk.dts b/arch/arm64/boot/d=
-ts/ambarella/cv75-evk.dts
+ config SERIAL_AMBA_PL010
+        tristate "ARM AMBA PL010 serial port support"
+        depends on ARM_AMBA || COMPILE_TEST
+diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
+index bba7b21a4a1d..5c951719528b 100644
+--- a/drivers/tty/serial/Makefile
++++ b/drivers/tty/serial/Makefile
+@@ -26,6 +26,7 @@ obj-y +=3D 8250/
+
+ obj-$(CONFIG_SERIAL_ALTERA_JTAGUART)   +=3D altera_jtaguart.o
+ obj-$(CONFIG_SERIAL_ALTERA_UART)       +=3D altera_uart.o
++obj-$(CONFIG_SERIAL_AMBARELLA)         +=3D ambarella_uart.o
+ obj-$(CONFIG_SERIAL_AMBA_PL010)                +=3D amba-pl010.o
+ obj-$(CONFIG_SERIAL_AMBA_PL011)                +=3D amba-pl011.o
+ obj-$(CONFIG_SERIAL_GRLIB_GAISLER_APBUART) +=3D apbuart.o
+diff --git a/drivers/tty/serial/ambarella_uart.c b/drivers/tty/serial/ambar=
+ella_uart.c
 new file mode 100644
-index 000000000000..42a0fe24b83b
+index 000000000000..e79f27c71986
 --- /dev/null
-+++ b/arch/arm64/boot/dts/ambarella/cv75-evk.dts
-@@ -0,0 +1,30 @@
++++ b/drivers/tty/serial/ambarella_uart.c
+@@ -0,0 +1,937 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Ambarella CV75 EVK board
-+ */
 +
-+/dts-v1/;
++#include <linux/clk.h>
++#include <linux/console.h>
++#include <linux/delay.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/pinctrl/consumer.h>
++#include <linux/platform_device.h>
++#include <linux/pm.h>
++#include <linux/serial_reg.h>
++#include <linux/serial_core.h>
++#include <linux/sysrq.h>
++#include <linux/tty.h>
++#include <linux/tty_flip.h>
 +
-+#include "cv75.dtsi"
++#define UART_RB_OFFSET                 0x00
++#define UART_TH_OFFSET                 0x00
++#define UART_DLL_OFFSET                        0x00
++#define UART_IE_OFFSET                 0x04
++#define UART_DLH_OFFSET                        0x04
++#define UART_II_OFFSET                 0x08
++#define UART_FC_OFFSET                 0x08
++#define UART_LC_OFFSET                 0x0c
++#define UART_MC_OFFSET                 0x10
++#define UART_LS_OFFSET                 0x14
++#define UART_MS_OFFSET                 0x18
++#define UART_US_OFFSET                 0x7c
++#define UART_SRR_OFFSET                        0x88
 +
-+/ {
-+       model =3D "Ambarella CV75 EVK Board";
-+       compatible =3D "ambarella,cv75-evk", "ambarella,cv75";
++#define UART_IE_ERETOI                 0x40
++#define UART_IE_ETOI                   0x20
++#define UART_IE_EDSSI                  0x08
++#define UART_IE_ELSI                   0x04
++#define UART_IE_ETBEI                  0x02
++#define UART_IE_ERBFI                  0x01
 +
-+       aliases {
-+               serial0 =3D &uart0;
-+       };
++#define UART_II_MODEM_STATUS_CHANGED   0x00
++#define UART_II_NO_INT_PENDING         0x01
++#define UART_II_THR_EMPTY              0x02
++#define UART_II_RCV_DATA_AVAIL         0x04
++#define UART_II_RCV_STATUS             0x06
++#define UART_II_CHAR_TIMEOUT           0x0c
++#define UART_II_CHAR_TIMEOUT_FIFO_EMPTY        0x0d
 +
-+       chosen {
-+               stdout-path =3D &uart0;
-+       };
++#define UART_FC_RX_2_TO_FULL           0xc0
++#define UART_FC_TX_EMPTY               0x00
++#define UART_FC_XMITR                  0x04
++#define UART_FC_RCVRR                  0x02
++#define UART_FC_FIFOE                  0x01
 +
-+       memory@200000 {
-+               device_type =3D "memory";
-+               reg =3D <0x0 0x00200000 0x0 0x07e00000>;
-+       };
++#define UART_LC_DLAB                   0x80
++#define UART_LC_BRK                    0x40
++#define UART_LC_EVEN_PARITY            0x10
++#define UART_LC_ODD_PARITY             0x00
++#define UART_LC_PEN                    0x08
++#define UART_LC_STOP_2BIT              0x04
++#define UART_LC_STOP_1BIT              0x00
++#define UART_LC_CLS_8_BITS             0x03
++#define UART_LC_CLS_7_BITS             0x02
++#define UART_LC_CLS_6_BITS             0x01
++#define UART_LC_CLS_5_BITS             0x00
++
++#define UART_MC_AFCE                   0x20
++#define UART_MC_LB                     0x10
++#define UART_MC_OUT2                   0x08
++#define UART_MC_OUT1                   0x04
++#define UART_MC_RTS                    0x02
++#define UART_MC_DTR                    0x01
++
++#define UART_LS_TEMT                   0x40
++#define UART_LS_THRE                   0x20
++#define UART_LS_BI                     0x10
++#define UART_LS_FE                     0x08
++#define UART_LS_PE                     0x04
++#define UART_LS_OE                     0x02
++#define UART_LS_DR                     0x01
++
++#define UART_MS_DCD                    0x80
++#define UART_MS_RI                     0x40
++#define UART_MS_DSR                    0x20
++#define UART_MS_CTS                    0x10
++#define UART_MS_DDCD                   0x08
++#define UART_MS_DCTS                   0x01
++
++#define UART_US_TFNF                   0x02
++
++#define UART_FIFO_SIZE                 64
++
++#define DEFAULT_AMBARELLA_UART_MCR     0
++#define DEFAULT_AMBARELLA_UART_IER     (UART_IE_ELSI | UART_IE_ERBFI | \
++                                        UART_IE_ETOI)
++
++#define AMBA_UART_MAX_NUM              8
++
++#define AMBA_UART_RESET_FLAG           0 /* bit 0 */
++
++#define AMBARELLA_UART_TIMEOUT         (1000000)
++
++struct ambarella_uart_port {
++       struct uart_port port;
++       struct clk *uart_pll;
++       unsigned long flags;
++       u32 mcr;
 +};
 +
-+&uart0 {
-+       status =3D "okay";
++static struct ambarella_uart_port ambarella_port[AMBA_UART_MAX_NUM];
++
++static void __serial_ambarella_stop_tx(struct uart_port *port)
++{
++       u32 ier;
++
++       ier =3D readl_relaxed(port->membase + UART_IE_OFFSET);
++       writel_relaxed(ier & ~UART_IE_ETBEI, port->membase + UART_IE_OFFSET=
+);
++}
++
++static u32 __serial_ambarella_read_ms(struct uart_port *port)
++{
++       return readl_relaxed(port->membase + UART_MS_OFFSET);
++}
++
++static void __serial_ambarella_enable_ms(struct uart_port *port)
++{
++       u32 ier =3D readl_relaxed(port->membase + UART_IE_OFFSET);
++
++       writel_relaxed(ier | UART_IE_EDSSI, port->membase + UART_IE_OFFSET)=
+;
++}
++
++static void __serial_ambarella_disable_ms(struct uart_port *port)
++{
++       u32 ier =3D readl_relaxed(port->membase + UART_IE_OFFSET);
++
++       writel_relaxed(ier & ~UART_IE_EDSSI, port->membase + UART_IE_OFFSET=
+);
++}
++
++static inline void wait_for_tx(struct uart_port *port)
++{
++       unsigned int timeout =3D AMBARELLA_UART_TIMEOUT;
++
++       while (timeout &&
++              !(readl(port->membase + UART_LS_OFFSET) & UART_LS_TEMT)) {
++               udelay(1);
++               timeout--;
++       }
++
++       if (unlikely(!timeout)) {
++               writel_relaxed(UART_FC_RX_2_TO_FULL | UART_FC_TX_EMPTY |
++                               UART_FC_XMITR | UART_FC_RCVRR,
++                               port->membase + UART_FC_OFFSET);
++               udelay(100);
++               writel_relaxed(UART_FC_FIFOE | UART_FC_RX_2_TO_FULL |
++                               UART_FC_TX_EMPTY | UART_FC_XMITR |
++                               UART_FC_RCVRR,
++                               port->membase + UART_FC_OFFSET);
++       }
++}
++
++static inline void wait_for_rx(struct uart_port *port)
++{
++       u32 ls;
++
++       ls =3D readl_relaxed(port->membase + UART_LS_OFFSET);
++       while ((ls & UART_LS_DR) !=3D UART_LS_DR) {
++               cpu_relax();
++               ls =3D readl_relaxed(port->membase + UART_LS_OFFSET);
++       }
++}
++
++static inline int tx_fifo_is_full(struct uart_port *port)
++{
++       return !(readl_relaxed(port->membase + UART_US_OFFSET) & UART_US_TF=
+NF);
++}
++
++static void serial_ambarella_hw_setup(struct uart_port *port)
++{
++       struct ambarella_uart_port *amb_port;
++
++       amb_port =3D (struct ambarella_uart_port *)(port->private_data);
++
++       if (!test_and_set_bit(AMBA_UART_RESET_FLAG, &amb_port->flags)) {
++               if (amb_port->uart_pll)
++                       port->uartclk =3D clk_get_rate(amb_port->uart_pll);
++               /* reset the whole UART only once */
++               writel_relaxed(0x01, port->membase + UART_SRR_OFFSET);
++               mdelay(1);
++               writel_relaxed(0x00, port->membase + UART_SRR_OFFSET);
++       }
++
++       writel_relaxed(UART_FC_FIFOE | UART_FC_RX_2_TO_FULL | UART_FC_TX_EM=
+PTY |
++                       UART_FC_XMITR | UART_FC_RCVRR, port->membase + UART=
+_FC_OFFSET);
++       /* Keep interrupts disabled until the IRQ handler is registered. */
++       writel_relaxed(0, port->membase + UART_IE_OFFSET);
++}
++
++static inline void serial_ambarella_receive_chars(struct uart_port *port,
++                                                 u32 tmo)
++{
++       u32 ch, flag, ls;
++       int max_count;
++
++       ls =3D readl_relaxed(port->membase + UART_LS_OFFSET);
++       max_count =3D port->fifosize;
++
++       do {
++               flag =3D TTY_NORMAL;
++               if (unlikely(ls & (UART_LS_BI | UART_LS_PE |
++                                       UART_LS_FE | UART_LS_OE))) {
++                       if (ls & UART_LS_BI) {
++                               ls &=3D ~(UART_LS_FE | UART_LS_PE);
++                               port->icount.brk++;
++
++                               if (uart_handle_break(port))
++                                       goto ignore_char;
++                       }
++                       if (ls & UART_LS_FE)
++                               port->icount.frame++;
++                       if (ls & UART_LS_PE)
++                               port->icount.parity++;
++                       if (ls & UART_LS_OE)
++                               port->icount.overrun++;
++
++                       ls &=3D port->read_status_mask;
++
++                       if (ls & UART_LS_BI)
++                               flag =3D TTY_BREAK;
++                       else if (ls & UART_LS_FE)
++                               flag =3D TTY_FRAME;
++                       else if (ls & UART_LS_PE)
++                               flag =3D TTY_PARITY;
++                       else if (ls & UART_LS_OE)
++                               flag =3D TTY_OVERRUN;
++
++                       if (ls & UART_LS_OE)
++                               pr_debug("%s: OVERFLOW\n", __func__);
++               }
++
++               if (likely(ls & UART_LS_DR)) {
++                       ch =3D readl_relaxed(port->membase + UART_RB_OFFSET=
+);
++                       port->icount.rx++;
++                       tmo =3D 0;
++
++                       if (uart_handle_sysrq_char(port, ch))
++                               goto ignore_char;
++
++                       uart_insert_char(port, ls, UART_LS_OE, ch, flag);
++               } else if (tmo) {
++                       ch =3D readl_relaxed(port->membase + UART_RB_OFFSET=
+);
++               }
++
++ignore_char:
++               ls =3D readl_relaxed(port->membase + UART_LS_OFFSET);
++       } while ((ls & (UART_LS_DR | UART_LSR_BI)) && (max_count-- > 0));
++
++       tty_flip_buffer_push(&port->state->port);
++}
++
++static void serial_ambarella_transmit_chars(struct uart_port *port)
++{
++       struct tty_port *tport =3D &port->state->port;
++       int count;
++
++       if (port->x_char) {
++               writel_relaxed(port->x_char, port->membase + UART_TH_OFFSET=
+);
++               port->icount.tx++;
++               port->x_char =3D 0;
++               return;
++       }
++
++       if (uart_tx_stopped(port) || kfifo_is_empty(&tport->xmit_fifo)) {
++               __serial_ambarella_stop_tx(port);
++               return;
++       }
++
++       count =3D port->fifosize;
++       while (count-- > 0) {
++               unsigned char c;
++
++               if (tx_fifo_is_full(port))
++                       break;
++
++               if (!kfifo_peek(&tport->xmit_fifo, &c))
++                       break;
++
++               writel_relaxed(c, port->membase + UART_TH_OFFSET);
++               kfifo_skip(&tport->xmit_fifo);
++               port->icount.tx++;
++               if (kfifo_is_empty(&tport->xmit_fifo))
++                       break;
++       }
++
++       if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
++               uart_write_wakeup(port);
++       if (kfifo_is_empty(&tport->xmit_fifo))
++               __serial_ambarella_stop_tx(port);
++}
++
++static inline void serial_ambarella_check_modem_status(struct uart_port *p=
+ort)
++{
++       u32 ms;
++
++       ms =3D __serial_ambarella_read_ms(port);
++
++       if (ms & UART_MS_RI)
++               port->icount.rng++;
++       if (ms & UART_MS_DSR)
++               port->icount.dsr++;
++       if (ms & UART_MS_DCTS)
++               uart_handle_cts_change(port, (ms & UART_MS_CTS));
++       if (ms & UART_MS_DDCD)
++               uart_handle_dcd_change(port, (ms & UART_MS_DCD));
++
++       wake_up_interruptible(&port->state->port.delta_msr_wait);
++}
++
++static irqreturn_t serial_ambarella_irq(int irq, void *dev_id)
++{
++       struct uart_port *port =3D dev_id;
++       struct ambarella_uart_port *amb_port;
++       unsigned long flags;
++       u32 ii, ier;
++
++       amb_port =3D (struct ambarella_uart_port *)(port->private_data);
++
++       spin_lock_irqsave(&port->lock, flags);
++
++       ii =3D readl_relaxed(port->membase + UART_II_OFFSET);
++       switch (ii & 0x0F) {
++       case UART_II_MODEM_STATUS_CHANGED:
++               serial_ambarella_check_modem_status(port);
++               break;
++       case UART_II_THR_EMPTY:
++               serial_ambarella_transmit_chars(port);
++               break;
++       case UART_II_RCV_STATUS:
++       case UART_II_RCV_DATA_AVAIL:
++               serial_ambarella_receive_chars(port, 0);
++               break;
++       case UART_II_CHAR_TIMEOUT_FIFO_EMPTY:
++               /* Clear ERETOI to dismiss timeout-with-empty-FIFO IRQ */
++               ier =3D readl_relaxed(port->membase + UART_IE_OFFSET);
++               writel_relaxed(ier & ~UART_IE_ERETOI,
++                              amb_port->port.membase + UART_IE_OFFSET);
++               writel_relaxed(ier | UART_IE_ERETOI,
++                              amb_port->port.membase + UART_IE_OFFSET);
++               fallthrough;
++       case UART_II_CHAR_TIMEOUT:
++               serial_ambarella_receive_chars(port, 1);
++               break;
++       case UART_II_NO_INT_PENDING:
++               break;
++       default:
++               pr_debug("%s: 0x%x\n", __func__, ii);
++               break;
++       }
++
++       spin_unlock_irqrestore(&port->lock, flags);
++
++       return IRQ_HANDLED;
++}
++
++static void serial_ambarella_enable_ms(struct uart_port *port)
++{
++       __serial_ambarella_enable_ms(port);
++}
++
++static void serial_ambarella_start_tx(struct uart_port *port)
++{
++       u32 ier;
++
++       /* if transmit buffer is not allocated, just return */
++       if (!port->state->port.xmit_buf)
++               return;
++
++       ier =3D readl_relaxed(port->membase + UART_IE_OFFSET);
++       writel_relaxed(ier | UART_IE_ETBEI, port->membase + UART_IE_OFFSET)=
+;
++
++       serial_ambarella_transmit_chars(port);
++}
++
++static void serial_ambarella_stop_tx(struct uart_port *port)
++{
++       __serial_ambarella_stop_tx(port);
++}
++
++static void serial_ambarella_stop_rx(struct uart_port *port)
++{
++       u32 ier;
++
++       ier =3D readl_relaxed(port->membase + UART_IE_OFFSET);
++       writel_relaxed(ier & ~UART_IE_ERBFI, port->membase + UART_IE_OFFSET=
+);
++}
++
++static unsigned int serial_ambarella_tx_empty(struct uart_port *port)
++{
++       unsigned int lsr;
++       unsigned long flags;
++
++       spin_lock_irqsave(&port->lock, flags);
++       lsr =3D readl_relaxed(port->membase + UART_LS_OFFSET);
++       spin_unlock_irqrestore(&port->lock, flags);
++
++       return ((lsr & (UART_LS_TEMT | UART_LS_THRE)) =3D=3D
++               (UART_LS_TEMT | UART_LS_THRE)) ? TIOCSER_TEMT : 0;
++}
++
++static unsigned int serial_ambarella_get_mctrl(struct uart_port *port)
++{
++       u32 ms, mctrl =3D 0;
++
++       ms =3D __serial_ambarella_read_ms(port);
++
++       if (ms & UART_MS_CTS)
++               mctrl |=3D TIOCM_CTS;
++       if (ms & UART_MS_DSR)
++               mctrl |=3D TIOCM_DSR;
++       if (ms & UART_MS_RI)
++               mctrl |=3D TIOCM_RI;
++       if (ms & UART_MS_DCD)
++               mctrl |=3D TIOCM_CD;
++
++       return mctrl;
++}
++
++static void serial_ambarella_set_mctrl(struct uart_port *port,
++                                      unsigned int mctrl)
++{
++       struct ambarella_uart_port *amb_port;
++       u32 mcr, mcr_new =3D 0;
++
++       amb_port =3D (struct ambarella_uart_port *)(port->private_data);
++
++       mcr =3D readl_relaxed(port->membase + UART_MC_OFFSET);
++
++       if (mctrl & TIOCM_DTR)
++               mcr_new |=3D UART_MC_DTR;
++       if (mctrl & TIOCM_RTS)
++               mcr_new |=3D UART_MC_RTS;
++       if (mctrl & TIOCM_OUT1)
++               mcr_new |=3D UART_MC_OUT1;
++       if (mctrl & TIOCM_OUT2)
++               mcr_new |=3D UART_MC_OUT2;
++       if (mctrl & TIOCM_LOOP)
++               mcr_new |=3D UART_MC_LB;
++
++       mcr_new |=3D amb_port->mcr;
++       if (mcr_new !=3D mcr) {
++               if ((mcr & UART_MC_AFCE) =3D=3D UART_MC_AFCE) {
++                       mcr &=3D ~UART_MC_AFCE;
++                       writel_relaxed(mcr, port->membase + UART_MC_OFFSET)=
+;
++               }
++               writel_relaxed(mcr_new, port->membase + UART_MC_OFFSET);
++       }
++}
++
++static void serial_ambarella_break_ctl(struct uart_port *port, int break_s=
+tate)
++{
++       u32 lcr =3D readl_relaxed(port->membase + UART_LC_OFFSET);
++       unsigned long flags;
++
++       spin_lock_irqsave(&port->lock, flags);
++       if (break_state !=3D 0)
++               writel_relaxed(lcr | UART_LC_BRK, port->membase + UART_LC_O=
+FFSET);
++       else
++               writel_relaxed(lcr & ~UART_LC_BRK, port->membase + UART_LC_=
+OFFSET);
++       spin_unlock_irqrestore(&port->lock, flags);
++}
++
++static void serial_ambarella_hw_deinit(struct ambarella_uart_port *amb_por=
+t)
++{
++       struct uart_port *port =3D &amb_port->port;
++
++       /* Disable interrupts */
++       writel_relaxed(0, port->membase + UART_IE_OFFSET);
++
++       /* Reset the Rx and Tx FIFOs */
++       writel_relaxed(UART_FCR_CLEAR_XMIT | UART_FCR_CLEAR_RCVR,
++                      port->membase + UART_SRR_OFFSET);
++}
++
++static int serial_ambarella_startup(struct uart_port *port)
++{
++       int rval;
++       struct ambarella_uart_port *amb_port;
++
++       amb_port =3D (struct ambarella_uart_port *)(port->private_data);
++
++       serial_ambarella_hw_setup(port);
++
++       rval =3D request_irq(port->irq, serial_ambarella_irq, IRQF_TRIGGER_=
+HIGH,
++                          dev_name(amb_port->port.dev), &amb_port->port);
++       if (rval < 0) {
++               dev_err(amb_port->port.dev,
++                       "Failed to register ISR for IRQ %d\n", port->irq);
++               serial_ambarella_hw_deinit(amb_port);
++               return rval;
++       }
++
++       writel_relaxed(DEFAULT_AMBARELLA_UART_IER,
++                      port->membase + UART_IE_OFFSET);
++
++       return 0;
++}
++
++static void serial_ambarella_shutdown(struct uart_port *port)
++{
++       struct ambarella_uart_port *amb_port;
++       u32 lcr;
++       unsigned long flags;
++
++       amb_port =3D (struct ambarella_uart_port *)(port->private_data);
++
++       spin_lock_irqsave(&port->lock, flags);
++       serial_ambarella_hw_deinit(amb_port);
++       lcr =3D readl_relaxed(port->membase + UART_LC_OFFSET);
++       writel_relaxed(lcr & ~UART_LC_BRK, port->membase + UART_LC_OFFSET);
++       spin_unlock_irqrestore(&port->lock, flags);
++
++       free_irq(amb_port->port.irq, &amb_port->port);
++}
++
++static void serial_ambarella_set_termios(struct uart_port *port,
++                                        struct ktermios *termios,
++                                        const struct ktermios *old)
++{
++       struct ambarella_uart_port *amb_port;
++       unsigned int baud, quot;
++       unsigned long flags;
++       u32 lc =3D 0x0;
++
++       amb_port =3D (struct ambarella_uart_port *)(port->private_data);
++
++       port->uartclk =3D clk_get_rate(amb_port->uart_pll);
++       switch (termios->c_cflag & CSIZE) {
++       case CS5:
++               lc |=3D UART_LC_CLS_5_BITS;
++               break;
++       case CS6:
++               lc |=3D UART_LC_CLS_6_BITS;
++               break;
++       case CS7:
++               lc |=3D UART_LC_CLS_7_BITS;
++               break;
++       case CS8:
++       default:
++               lc |=3D UART_LC_CLS_8_BITS;
++               break;
++       }
++
++       if (termios->c_cflag & CSTOPB)
++               lc |=3D UART_LC_STOP_2BIT;
++       else
++               lc |=3D UART_LC_STOP_1BIT;
++
++       if (termios->c_cflag & PARENB) {
++               if (termios->c_cflag & PARODD)
++                       lc |=3D (UART_LC_PEN | UART_LC_ODD_PARITY);
++               else
++                       lc |=3D (UART_LC_PEN | UART_LC_EVEN_PARITY);
++       }
++
++       baud =3D uart_get_baud_rate(port, termios, old, 0, port->uartclk / =
+16);
++       quot =3D uart_get_divisor(port, baud);
++
++       spin_lock_irqsave(&port->lock, flags);
++       uart_update_timeout(port, termios->c_cflag, baud);
++
++       port->read_status_mask =3D UART_LSR_OE | UART_LSR_THRE | UART_LSR_D=
+R;
++       if (termios->c_iflag & INPCK)
++               port->read_status_mask |=3D UART_LSR_FE | UART_LSR_PE;
++       if (termios->c_iflag & (BRKINT | PARMRK))
++               port->read_status_mask |=3D UART_LSR_BI;
++
++       port->ignore_status_mask =3D 0;
++       if (termios->c_iflag & IGNPAR)
++               port->ignore_status_mask |=3D UART_LSR_PE | UART_LSR_FE;
++       if (termios->c_iflag & IGNBRK) {
++               port->ignore_status_mask |=3D UART_LSR_BI;
++               if (termios->c_iflag & IGNPAR)
++                       port->ignore_status_mask |=3D UART_LSR_OE;
++       }
++       if ((termios->c_cflag & CREAD) =3D=3D 0)
++               port->ignore_status_mask |=3D UART_LSR_DR;
++
++       if ((termios->c_cflag & CRTSCTS) =3D=3D 0) {
++               amb_port->mcr &=3D ~UART_MC_AFCE;
++               port->status &=3D ~UPSTAT_AUTOCTS;
++       } else {
++               amb_port->mcr |=3D UART_MC_AFCE;
++               port->status |=3D UPSTAT_AUTOCTS;
++       }
++
++       writel_relaxed(UART_LC_DLAB, port->membase + UART_LC_OFFSET);
++       writel_relaxed(quot & 0xff, port->membase + UART_DLL_OFFSET);
++       writel_relaxed((quot >> 8) & 0xff, port->membase + UART_DLH_OFFSET)=
+;
++       writel_relaxed(lc, port->membase + UART_LC_OFFSET);
++       if (UART_ENABLE_MS(port, termios->c_cflag))
++               __serial_ambarella_enable_ms(port);
++       else
++               __serial_ambarella_disable_ms(port);
++       serial_ambarella_set_mctrl(port, port->mctrl);
++
++       spin_unlock_irqrestore(&port->lock, flags);
++}
++
++static void serial_ambarella_pm(struct uart_port *port,
++                               unsigned int state, unsigned int oldstate)
++{
++}
++
++static void serial_ambarella_release_port(struct uart_port *port)
++{
++}
++
++static int serial_ambarella_request_port(struct uart_port *port)
++{
++       return 0;
++}
++
++static void serial_ambarella_config_port(struct uart_port *port, int flags=
+)
++{
++}
++
++static int serial_ambarella_verify_port(struct uart_port *port,
++                                       struct serial_struct *ser)
++{
++       int rval =3D 0;
++
++       if (ser->type !=3D PORT_UNKNOWN && ser->type !=3D PORT_UART00)
++               rval =3D -EINVAL;
++       if (port->irq !=3D ser->irq)
++               rval =3D -EINVAL;
++       if (ser->io_type !=3D SERIAL_IO_MEM)
++               rval =3D -EINVAL;
++
++       return rval;
++}
++
++static const char *serial_ambarella_type(struct uart_port *port)
++{
++       return "ambuart";
++}
++
++#ifdef CONFIG_CONSOLE_POLL
++static void serial_ambarella_poll_put_char(struct uart_port *port,
++                                          unsigned char chr)
++{
++       if (!port->suspended) {
++               wait_for_tx(port);
++               writel_relaxed(chr, port->membase + UART_TH_OFFSET);
++       }
++}
++
++static int serial_ambarella_poll_get_char(struct uart_port *port)
++{
++       if (!port->suspended) {
++               wait_for_rx(port);
++               return readl_relaxed(port->membase + UART_RB_OFFSET);
++       }
++       return 0;
++}
++#endif
++
++static const struct uart_ops serial_ambarella_pops =3D {
++       .tx_empty       =3D serial_ambarella_tx_empty,
++       .set_mctrl      =3D serial_ambarella_set_mctrl,
++       .get_mctrl      =3D serial_ambarella_get_mctrl,
++       .stop_tx        =3D serial_ambarella_stop_tx,
++       .start_tx       =3D serial_ambarella_start_tx,
++       .stop_rx        =3D serial_ambarella_stop_rx,
++       .enable_ms      =3D serial_ambarella_enable_ms,
++       .break_ctl      =3D serial_ambarella_break_ctl,
++       .startup        =3D serial_ambarella_startup,
++       .shutdown       =3D serial_ambarella_shutdown,
++       .set_termios    =3D serial_ambarella_set_termios,
++       .pm             =3D serial_ambarella_pm,
++       .type           =3D serial_ambarella_type,
++       .release_port   =3D serial_ambarella_release_port,
++       .request_port   =3D serial_ambarella_request_port,
++       .config_port    =3D serial_ambarella_config_port,
++       .verify_port    =3D serial_ambarella_verify_port,
++#ifdef CONFIG_CONSOLE_POLL
++       .poll_put_char  =3D serial_ambarella_poll_put_char,
++       .poll_get_char  =3D serial_ambarella_poll_get_char,
++#endif
 +};
-diff --git a/arch/arm64/boot/dts/ambarella/cv75.dtsi b/arch/arm64/boot/dts/=
-ambarella/cv75.dtsi
-new file mode 100644
-index 000000000000..7c6a61f473ef
---- /dev/null
-+++ b/arch/arm64/boot/dts/ambarella/cv75.dtsi
-@@ -0,0 +1,151 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Ambarella CV75 SoC
-+ *
-+ * Boot peripheral: UART0 console.
-+ * Clocks: a single ambarella,cv75-rct provider.
-+ */
 +
-+#include <dt-bindings/clock/ambarella,cv75-clock.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/pinctrl/ambarella,pinctrl.h>
++#if defined(CONFIG_SERIAL_AMBARELLA_CONSOLE)
 +
-+/ {
-+       compatible =3D "ambarella,cv75";
-+       interrupt-parent =3D <&gic>;
-+       #address-cells =3D <2>;
-+       #size-cells =3D <2>;
++static struct uart_driver serial_ambarella_reg;
 +
-+       osc: oscillator {
-+               compatible =3D "fixed-clock";
-+               #clock-cells =3D <0>;
-+               clock-output-names =3D "osc";
-+               clock-frequency =3D <24000000>;
-+       };
++static void serial_ambarella_console_putchar(struct uart_port *port,
++                                            unsigned char ch)
++{
++       wait_for_tx(port);
++       writel_relaxed(ch, port->membase + UART_TH_OFFSET);
++}
 +
-+       psci {
-+               compatible =3D "arm,psci-0.2";
-+               method =3D "smc";
-+       };
++static void serial_ambarella_console_write(struct console *co,
++                                          const char *s, unsigned int coun=
+t)
++{
++       struct uart_port *port;
++       int locked =3D 1;
++       unsigned long flags;
 +
-+       cpus {
-+               #address-cells =3D <1>;
-+               #size-cells =3D <0>;
++       port =3D &ambarella_port[co->index].port;
 +
-+               cpu@0 {
-+                       compatible =3D "arm,cortex-a76";
-+                       device_type =3D "cpu";
-+                       reg =3D <0x000>;
-+                       enable-method =3D "psci";
-+               };
++       if (!port->suspended) {
++               if (port->sysrq)
++                       locked =3D 0;
++               else if (oops_in_progress)
++                       locked =3D uart_port_trylock_irqsave(port, &flags);
++               else
++                       uart_port_lock_irqsave(port, &flags);
 +
-+               cpu@1 {
-+                       compatible =3D "arm,cortex-a76";
-+                       device_type =3D "cpu";
-+                       reg =3D <0x100>;
-+                       enable-method =3D "psci";
-+               };
-+       };
++               uart_console_write(port, s, count,
++                                  serial_ambarella_console_putchar);
++               wait_for_tx(port);
 +
-+       gic: interrupt-controller@fff0100000 {
-+               compatible =3D "arm,gic-400";
-+               #interrupt-cells =3D <3>;
-+               #address-cells =3D <0>;
-+               #size-cells =3D <1>;
-+               interrupt-controller;
-+               reg =3D <0xff 0xf0101000 0x0 0x1000>,
-+                     <0xff 0xf0102000 0x0 0x2000>,
-+                     <0xff 0xf0104000 0x0 0x2000>,
-+                     <0xff 0xf0106000 0x0 0x2000>;
-+               interrupts =3D <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYP=
-E_LEVEL_HIGH)>;
-+       };
++               if (locked)
++                       uart_port_unlock_irqrestore(port, flags);
++       }
++}
 +
-+       timer {
-+               compatible =3D "arm,armv8-timer";
-+               interrupts =3D <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TY=
-PE_LEVEL_LOW)>,
-+                            <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE=
-_LEVEL_LOW)>,
-+                            <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE=
-_LEVEL_LOW)>,
-+                            <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE=
-_LEVEL_LOW)>;
-+       };
++static int __init serial_ambarella_console_setup(struct console *co,
++                                                char *options)
++{
++       struct uart_port *port;
++       int baud =3D 115200, bits =3D 8, parity =3D 'n', flow =3D 'n';
 +
-+       soc {
-+               compatible =3D "simple-bus";
-+               #address-cells =3D <2>;
-+               #size-cells =3D <2>;
-+               ranges;
++       if (co->index < 0 || co->index >=3D serial_ambarella_reg.nr)
++               co->index =3D 0;
 +
-+               /* Clock provider and shared system registers. */
-+               rct: clock-controller@ffed080000 {
-+                       compatible =3D "ambarella,cv75-rct", "syscon";
-+                       reg =3D <0xff 0xed080000 0x0 0x1000>;
-+                       clocks =3D <&osc>;
-+                       clock-names =3D "osc";
-+                       #clock-cells =3D <1>;
++       port =3D &ambarella_port[co->index].port;
++       if (!port->membase) {
++               pr_err("No device available for serial console\n");
++               return -ENODEV;
++       }
 +
-+                       assigned-clocks =3D <&rct CV75_GCLK_UART0>;
-+                       assigned-clock-parents =3D <&osc>;
-+                       assigned-clock-rates =3D <24000000>;
-+               };
++       port->ops =3D &serial_ambarella_pops;
++       port->private_data =3D &ambarella_port[co->index];
++       port->line =3D co->index;
 +
-+               apb@ffe4000000 {
-+                       compatible =3D "simple-bus";
-+                       #address-cells =3D <1>;
-+                       #size-cells =3D <1>;
-+                       reg =3D <0xff 0xe4000000 0x0 0x01000000>;
-+                       ranges =3D <0xe4000000 0xff 0xe4000000 0x01000000>;
++       serial_ambarella_hw_setup(port);
 +
-+                       uart0: serial@e4000000 {
-+                               compatible =3D "ambarella,cv75-uart", "amba=
-rella,uart";
-+                               reg =3D <0xe4000000 0x1000>;
-+                               interrupts =3D <GIC_SPI 170 IRQ_TYPE_LEVEL_=
-HIGH>;
-+                               clocks =3D <&rct CV75_GCLK_UART0>;
-+                               pinctrl-names =3D "default";
-+                               pinctrl-0 =3D <&uart0_pins>;
-+                               status =3D "disabled";
-+                       };
++       if (options)
++               uart_parse_options(options, &baud, &parity, &bits, &flow);
 +
-+                       pinctrl: pinctrl@e4013000 {
-+                               compatible =3D "ambarella,cv75-pinctrl";
-+                               #address-cells =3D <1>;
-+                               #size-cells =3D <0>;
-+                               reg =3D <0xe4013000 0x1000>, <0xe4014000 0x=
-1000>,
-+                                     <0xe4015000 0x1000>, <0xe4010000 0x10=
-00>;
-+                               reg-names =3D "gpio0", "gpio1", "gpio2", "i=
-omux";
-+                               interrupts =3D <GIC_SPI 163 IRQ_TYPE_LEVEL_=
-HIGH>,
-+                                            <GIC_SPI 164 IRQ_TYPE_LEVEL_HI=
-GH>,
-+                                            <GIC_SPI 165 IRQ_TYPE_LEVEL_HI=
-GH>;
-+                               ambarella,drive-strength-syscon =3D <&rct>;
-+                               ambarella,pull-syscon =3D <&s_scratchpad_sy=
-scon>;
++       return uart_set_options(port, co, baud, parity, bits, flow);
++}
 +
-+                               gpio: gpio@0 {
-+                                       reg =3D <0>;
-+                                       gpio-controller;
-+                                       #gpio-cells =3D <2>;
-+                                       gpio-ranges =3D <&pinctrl 0 0 95>;
-+                                       interrupt-controller;
-+                                       #interrupt-cells =3D <2>;
-+                               };
-+
-+                               uart0_pins: uart0-pins {
-+                                       function =3D "uart0";
-+                                       pinmux =3D <AMBA_PINMUX(44, 1)>,
-+                                                <AMBA_PINMUX(45, 1)>;
-+                               };
-+                       };
-+               };
-+
-+               ahb@ffe0000000 {
-+                       compatible =3D "simple-bus";
-+                       #address-cells =3D <1>;
-+                       #size-cells =3D <1>;
-+                       reg =3D <0xff 0xe0000000 0x0 0x01000000>;
-+                       ranges =3D <0xe0000000 0xff 0xe0000000 0x01000000>;
-+
-+                       s_scratchpad_syscon: scratchpad@e002e000 {
-+                               compatible =3D "ambarella,cv75-sec-scratchp=
-ad",
-+                                            "ambarella,sec-scratchpad", "s=
-yscon";
-+                               reg =3D <0xe002e000 0x1000>;
-+                       };
-+               };
-+       };
++static struct console serial_ambarella_console =3D {
++       .name           =3D "ttyAB",
++       .write          =3D serial_ambarella_console_write,
++       .device         =3D uart_console_device,
++       .setup          =3D serial_ambarella_console_setup,
++       .flags          =3D CON_PRINTBUFFER | CON_ANYTIME,
++       .index          =3D -1,
++       .data           =3D &serial_ambarella_reg,
 +};
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index ad3bd3d9507b..64e8fbe43d27 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -36,6 +36,7 @@ CONFIG_CRASH_DUMP=3Dy
- CONFIG_ARCH_ACTIONS=3Dy
- CONFIG_ARCH_AIROHA=3Dy
- CONFIG_ARCH_SUNXI=3Dy
-+CONFIG_ARCH_AMBARELLA=3Dy
- CONFIG_ARCH_ALPINE=3Dy
- CONFIG_ARCH_APPLE=3Dy
- CONFIG_ARCH_ARTPEC=3Dy
-@@ -567,6 +568,8 @@ CONFIG_SERIAL_8250_OMAP=3Dy
- CONFIG_SERIAL_8250_MT6577=3Dy
- CONFIG_SERIAL_8250_UNIPHIER=3Dy
- CONFIG_SERIAL_OF_PLATFORM=3Dy
-+CONFIG_SERIAL_AMBARELLA=3Dy
-+CONFIG_SERIAL_AMBARELLA_CONSOLE=3Dy
- CONFIG_SERIAL_AMBA_PL011=3Dy
- CONFIG_SERIAL_AMBA_PL011_CONSOLE=3Dy
- CONFIG_SERIAL_MESON=3Dy
++
++static void serial_ambarella_console_early_write(struct console *con,
++                                                const char *s,
++                                                unsigned int count)
++{
++       struct earlycon_device *dev =3D con->data;
++
++       uart_console_write(&dev->port, s, count, serial_ambarella_console_p=
+utchar);
++}
++
++static int __init serial_ambarella_console_early_setup(struct earlycon_dev=
+ice *dev,
++                                                      const char *opt)
++{
++       if (!dev->port.membase)
++               return -ENODEV;
++
++       dev->con->write =3D serial_ambarella_console_early_write;
++
++       return 0;
++}
++
++OF_EARLYCON_DECLARE(ambarella_uart, "ambarella,uart", serial_ambarella_con=
+sole_early_setup);
++
++#define AMBARELLA_CONSOLE      (&serial_ambarella_console)
++#else
++#define AMBARELLA_CONSOLE      NULL
++#endif
++
++static struct uart_driver serial_ambarella_reg =3D {
++       .owner          =3D THIS_MODULE,
++       .driver_name    =3D "ambarella-uart",
++       .dev_name       =3D "ttyAB",
++       .major          =3D 0,
++       .minor          =3D 0,
++       .nr             =3D AMBA_UART_MAX_NUM,
++       .cons           =3D AMBARELLA_CONSOLE,
++};
++
++static int serial_ambarella_probe(struct platform_device *pdev)
++{
++       struct ambarella_uart_port *amb_port;
++       struct resource *mem;
++       struct pinctrl *pinctrl;
++       int irq, id, rval;
++
++       mem =3D platform_get_resource(pdev, IORESOURCE_MEM, 0);
++       if (!mem) {
++               dev_err(&pdev->dev, "no mem resource!\n");
++               return -ENODEV;
++       }
++
++       irq =3D platform_get_irq(pdev, 0);
++       if (irq < 0) {
++               dev_err(&pdev->dev, "no irq resource!\n");
++               return -ENODEV;
++       }
++
++       id =3D of_alias_get_id(pdev->dev.of_node, "serial");
++       if (id < 0 || id >=3D serial_ambarella_reg.nr) {
++               dev_err(&pdev->dev, "Invalid uart ID %d!\n", id);
++               return -ENXIO;
++       }
++
++       pinctrl =3D devm_pinctrl_get_select_default(&pdev->dev);
++       if (IS_ERR(pinctrl)) {
++               dev_err(&pdev->dev, "Failed to request pinctrl\n");
++               return PTR_ERR(pinctrl);
++       }
++
++       amb_port =3D &ambarella_port[id];
++
++       amb_port->uart_pll =3D devm_clk_get_enabled(&pdev->dev, NULL);
++       if (IS_ERR(amb_port->uart_pll)) {
++               dev_err(&pdev->dev, "Get uart clk failed!\n");
++               return PTR_ERR(amb_port->uart_pll);
++       }
++
++       amb_port->mcr =3D DEFAULT_AMBARELLA_UART_MCR;
++
++       amb_port->port.dev =3D &pdev->dev;
++       amb_port->port.type =3D PORT_UART00;
++       amb_port->port.iotype =3D UPIO_MEM;
++       amb_port->port.fifosize =3D UART_FIFO_SIZE;
++       amb_port->port.uartclk =3D clk_get_rate(amb_port->uart_pll);
++       amb_port->port.ops =3D &serial_ambarella_pops;
++       amb_port->port.private_data =3D amb_port;
++       amb_port->port.irq =3D irq;
++       amb_port->port.line =3D id;
++       amb_port->port.mapbase =3D mem->start;
++       amb_port->port.membase =3D devm_ioremap_resource(&pdev->dev, mem);
++       if (IS_ERR(amb_port->port.membase))
++               return PTR_ERR(amb_port->port.membase);
++
++       rval =3D uart_add_one_port(&serial_ambarella_reg, &amb_port->port);
++       if (rval < 0)
++               dev_err(&pdev->dev, "failed to add port: %d, %d!\n", id, rv=
+al);
++
++       platform_set_drvdata(pdev, amb_port);
++
++       return rval;
++}
++
++static void serial_ambarella_remove(struct platform_device *pdev)
++{
++       struct ambarella_uart_port *amb_port;
++
++       amb_port =3D platform_get_drvdata(pdev);
++       uart_remove_one_port(&serial_ambarella_reg, &amb_port->port);
++}
++
++static int serial_ambarella_suspend(struct device *dev)
++{
++       struct ambarella_uart_port *amb_port =3D dev_get_drvdata(dev);
++
++       return uart_suspend_port(&serial_ambarella_reg, &amb_port->port);
++}
++
++static int serial_ambarella_resume(struct device *dev)
++{
++       struct ambarella_uart_port *amb_port =3D dev_get_drvdata(dev);
++
++       clear_bit(AMBA_UART_RESET_FLAG, &amb_port->flags);
++       serial_ambarella_hw_setup(&amb_port->port);
++
++       return uart_resume_port(&serial_ambarella_reg, &amb_port->port);
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(serial_ambarella_pm_ops,
++                               serial_ambarella_suspend,
++                               serial_ambarella_resume);
++
++static const struct of_device_id ambarella_serial_of_match[] =3D {
++       { .compatible =3D "ambarella,cv75-uart" },
++       { .compatible =3D "ambarella,uart" },
++       {},
++};
++MODULE_DEVICE_TABLE(of, ambarella_serial_of_match);
++
++static struct platform_driver serial_ambarella_driver =3D {
++       .probe          =3D serial_ambarella_probe,
++       .remove         =3D serial_ambarella_remove,
++       .driver         =3D {
++               .name   =3D "ambarella-uart",
++               .of_match_table =3D ambarella_serial_of_match,
++               .pm =3D pm_sleep_ptr(&serial_ambarella_pm_ops),
++       },
++};
++
++static int __init serial_ambarella_init(void)
++{
++       int rval;
++
++       rval =3D uart_register_driver(&serial_ambarella_reg);
++       if (rval < 0)
++               return rval;
++
++       rval =3D platform_driver_register(&serial_ambarella_driver);
++       if (rval < 0) {
++               uart_unregister_driver(&serial_ambarella_reg);
++               return rval;
++       }
++
++       return 0;
++}
++
++static void __exit serial_ambarella_exit(void)
++{
++       platform_driver_unregister(&serial_ambarella_driver);
++       uart_unregister_driver(&serial_ambarella_reg);
++}
++
++module_init(serial_ambarella_init);
++module_exit(serial_ambarella_exit);
++
++MODULE_DESCRIPTION("Ambarella UART driver");
++MODULE_LICENSE("GPL");
++MODULE_ALIAS("platform:ambarella-uart");
 --
 2.34.1
 
