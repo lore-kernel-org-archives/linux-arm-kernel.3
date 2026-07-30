@@ -4,101 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ECE5C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E9C3C54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2y5QAVeNEbw4rwpIis7dsdZArac2vQn3qNAs9Ae58oc=; b=WRme85znzOjEToA8csOr8gfljU
-	Ao9kOwSpW2AUqJDK8tHSLVRfiq/qznQOitndnjZhjUsFssN7OCHAEPrijwAac7Jjgr5p0KQVzi100
-	SvWSFFUVCJX15zHmWwTbtBo3J+nxx8B8drKMIFieMmXPYD8M+Vyp9uZaFqtTPs/vrvAFDDQOwmM3w
-	+3kbrDtDC8GxlFVeviJSnaf/+w33fyto7C+Yhyekd7NeiLk+gBFZWLUHJjeAXiVdPZ0faq/rGpDCH
-	Y54Ge+yxXsJPolWumakzobD24qBDjSlSCn2tP/s3WOJc967qOEDNzXQTmgWAkMPIZMdSSvDppckdO
-	DR0ngHJA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IrNx642kewl/zDKJOpDkLzgjGLhqUgb7rTigNrbEyMI=; b=ygRRRl90DxglRbU/OKdGgZ6OUH
+	l/kef2QTntSJusgplNpWJ3C5np4abm34arJzJ6XyLYY1yuIfLYyZobE4yanSNTPBlAK+kOIjVV9sl
+	FI8IKG0HA1yIoy0BdvJ1eRqkAchFq21YcES8LiV8ZeSDlBBBJ17l9RRZJ+Tg+7sIDS34Gv6oNRpb4
+	o1FmYVLhb93cbjHxgZLvzx9Kp8e0f6mucDdvzDXvXpUP2RTZGqhNsJduJwa2FY3j8GB54okm2nbYf
+	nghPFc1oKZWExjyemfOxp8M+4e3f2BFlheM9pMLnq248gtnbLNLqIAJlrQRZ/iUeSrR5BoeLbjjLl
+	eNMFR7Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpL39-00000009j1l-02eH;
-	Thu, 30 Jul 2026 07:19:27 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wpL67-00000009jOM-1xoL;
+	Thu, 30 Jul 2026 07:22:31 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpL36-00000009j1L-3XNr
+	id 1wpL64-00000009jNP-1Azm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 07:19:26 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4954df200ddso10460325e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 00:19:24 -0700 (PDT)
+	Thu, 30 Jul 2026 07:22:29 +0000
+Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-84e507b079dso1273729b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 00:22:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785395963; x=1786000763; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2y5QAVeNEbw4rwpIis7dsdZArac2vQn3qNAs9Ae58oc=;
-        b=UqwRsloJsFbJlfxz6145aenT96ha8C83gZsH1kVkFqfJQTocqtfg0WzCXpfK74HDPP
-         /EIKYhuRfSnDaQ6w0bva26kdifho15HIizZtrGn50YwFyXc2ctl/3ooxpvvJKkV9/d/W
-         0V3u0bZzenQ6upScJL2QW4CepBV3QuUrbdCgnVh9LvtG43/HBh+kP7mVJfnyZz0UP7sk
-         c8vLawwl71Mv1CEfHEZvaY/8ynVNPAB3oZeMhUWzAzjF6Dk33hfaBm6yu7m7zQeang8X
-         dBaNBccVLhiZX323bmTJQRJIPOXmIk6clhBjA1CPwwuPCBEzPkUAIIZmKqtYefbnoCDL
-         vnmA==
+        d=nearthlab.com; s=google; t=1785396147; x=1786000947; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=IrNx642kewl/zDKJOpDkLzgjGLhqUgb7rTigNrbEyMI=;
+        b=NhmHDLPJYyAlG4ikVxbI0bVQqGyn/MACFcbvyNMpm20CSh27jWzgUPdVjXMYs4nx0V
+         IZeHHvFtYX30BfcDMRqosvpTTgORMNKCSuo9qMZEOVEB365iNpZK7IPXJ5svDUYCsxkX
+         FARxMrot66gSz+h4ywz0dSnOE2UKXDNm9NOJQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785395963; x=1786000763;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=2y5QAVeNEbw4rwpIis7dsdZArac2vQn3qNAs9Ae58oc=;
-        b=NyruRSrGHCqdseoXm79YnpnOOzLrBXetviVCCOnArZQx+fpIJBrHEUA6dhqmEhZFvO
-         2C/QxqkJyGRF0vg4bJHtBwjOEnQS08cQakcXt3cqYb4/toELo9e9SSeGX61KV/3scgmU
-         yqE3S9Niq50V+uQa78B1C9wo9qOqpsJ+AM69C338Q1+NDxlJ1ErmhThzAjZh0H0ZMx5g
-         XMdlM1oLNAKEtnv0HAY6YohXXkWJND19sWFX4rbVDhsNhabAqw58c2AigcY8x1sHYkKU
-         Ii+iKb4EFb+TJXU7Gw1jl55PnrOia4EZ26eW8lpoACuHMAkA8k1VOBCpyz1/7IZjxYhP
-         l1WA==
-X-Forwarded-Encrypted: i=1; AHgh+RoEyjqsSn+VTudNSa1xt+67uqXIlSplKsKucf3lgjMR5nalySH8D5opWPW31B4YT3JKJN3LmYlLdncAFkxC4Yeq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMeSmvaHTqJQ5+DnJ9jo9HiitfsaO7Il1gBsfnqXJzK62feiYu
-	dULv94ZMTiyFKGxuh6Wu5dKyp6bAzLuoBfkxys/6Ikh6gKlEMj1rpIS7
-X-Gm-Gg: AR+sD136fm+3VFbInIVcdsgRu+Z8ms5VyUsavAV7LICRepGl4TVUPfpnjr756FKwtJn
-	W2E5m0qxtUyG0Upv938M4jk3BsDgzWwe679P+b7cDnPngjZhEhiLbOQwKNbpJwWDJdxynaw6Y7a
-	6mzrLPWlICJcnDwvOHxroP8yYq2FjiBPkupCPIqfy5pguYgrOGnCnRnw5wJNCW4xbO+e1SUhMNJ
-	BPutUIhJxzvEJlRuAZhclETU6k6E+qCf0KgrUHyuLjEbZhGJXpjwvULucyx3may5cNWlC/3yKWy
-	DC//yxvIs7RrMVIpEwr4rwTn2pGBtAJWQGHFgmcf35HauXrWsW6sKXlGe6e0ZKyrdUYDdlLv1U5
-	PdjfqrdlBn/u+ywU6fOF0qoDoEmLae+AxKyub0iGMqI7jTBVJBetm8M7q0IMusCJJSOTFKdtXnf
-	0EiiZ5iC858P7Si3ylOHLpUpnDbftLKVAbUZ381SpcfqUo6i+sFpH3DaA87C38xm4tAM+tSWcbt
-	KZxE0gnFtzKDFyEGft1Z+SkrXVwUdVfSg0xk9m9XANL3TB0ECvwFJVem8NCMJ2Ab9zZat0uyD/i
-	Sls6WyHDRFBTJF1bD3m0P8q/F9vwVWA9LOb535P6Pbc94Ye1ImgNIbQLpnYAydhrlsBGx3fFsjA
-	DhvFJ4sMbBQkbl82BUlBparwEEd92e0cXXpzdWEw9s4cnm1/lBuxVWFisn7Kh+33bP7woy7jZ
-X-Received: by 2002:a05:600c:3306:b0:493:b6ee:fcb7 with SMTP id 5b1f17b1804b1-49800e753admr10529425e9.14.1785395962626;
-        Thu, 30 Jul 2026 00:19:22 -0700 (PDT)
-Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fc88d6e68sm3625182f8f.7.2026.07.30.00.19.21
+        d=1e100.net; s=20251104; t=1785396147; x=1786000947;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IrNx642kewl/zDKJOpDkLzgjGLhqUgb7rTigNrbEyMI=;
+        b=OOt7aKoKdVkhr3MFI5tjqOUrB45AxEYhsHrO9N+hbHIMTld/TCRp1Aoftas67I/XCR
+         qrjHt6UsVuO3E7WhgMQQcEhSDLT24QtqQQ6eotaIDpBZg46XHykzjO1SOB3/rRZzC3hI
+         BJTtOxJAceS2XCDvQT9moTjakRzUCc77JyQY0/xEwTTmso+kcsjzp+9BSQq3tlHRmAi2
+         PFSi1sQ6ma5ouOiThOYlGQ9vV8KOGOqVVfl2Th1YVEFc5ed8NuUT81O3fG5lwlO/OBkD
+         yN6c3MwF3XfNPgcIfx/NWrAth2BfeYbJ0lo9/7j8ow8YT1GyIJf9SQcKVav8wrYNpH7Z
+         AkPA==
+X-Forwarded-Encrypted: i=1; AHgh+RpvH4HFpZPnyRMxLbaIVFzhPTNiq0U7Z386nJkpWc1Ovrfy8zYVFmyHdJD4HHcbUfVOv1PIPIFWp9og/+mtVkth@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQ02ErV7N1bGnB8Sw0vkBWJ6xErOjL6pJW7trIo6BYnRlW3v5P
+	7kBrVIGmUfUco51tFzkOu+vcFy6YEYu3Z5AHXnHajVPBs7bKE7BbmSjN4Wv5fMaBkVI=
+X-Gm-Gg: AR+sD13EumJrmSp9xGjl2hy71IxRxOmx3B2B7BtXSqVXgCYMfslE8Q1IXW9/ZEqC+Qu
+	8v0F3yUaJenFK0hZ2E6ztZuwVWdn9BsnBRZFvz1B38FlXUs4inwNQDrhjp9Jnhb0u4kzJPhjXmK
+	3Suxlx9GysPjViXunxDvqHVRTKAzfQ7uan/vYX74C0ACnOp5wcYm/kl71VqscdXznfPt6BJJ4if
+	k8RvUWSHZO6YaimWXmBGITbBbz3QiotBMRVgfj2yjyZ0e0I/IAcrQIC8uT47UNGJNgxUUVWQMNK
+	WkW8As9CeGTMTZTAU3BglaSmRJ1jVBdcNTy6db8PT5b4MW/mtr6q8P7rXBVHgtMyonaAKRVNuN/
+	7YcOsRMToZoMMwupGTsgcYlDxgolz7tV5z0SYKDL0HKTs/cqGzIFX0IJkt7uPqRsNvm9E4nsohJ
+	ohxNgyYbZv8vlcxMjrlXGZ5iFxhtJw0txn8w0FgUKOr+VQxqxwgCr5ghDodkZESTDN+EMLxKF4s
+	k6Rl6ET
+X-Received: by 2002:a05:6a00:a16:b0:848:4080:afe8 with SMTP id d2e1a72fcca58-84ebc2384fcmr1614396b3a.22.1785396146880;
+        Thu, 30 Jul 2026 00:22:26 -0700 (PDT)
+Received: from sangwoohan-nearthlab ([121.133.119.21])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ea02fa4c9sm2573323b3a.32.2026.07.30.00.22.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 00:19:22 -0700 (PDT)
-Date: Thu, 30 Jul 2026 09:19:21 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: "Kaustabh Chakraborty" <kauschluss@disroot.org>
-Cc: "Jonathan Cameron" <jic23@kernel.org>, "David Lechner"
- <dlechner@baylibre.com>, Nuno =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
- "Andy Shevchenko" <andy@kernel.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Peter Griffin" <peter.griffin@linaro.org>, "Alim
- Akhtar" <alim.akhtar@samsung.com>, <linux-iio@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>
-Subject: Re: [PATCH 2/3] iio: proximity: add driver for Sharp GP2AP070S
- proximity sensor
-Message-ID: <20260730091921.00002d45@gmail.com>
-In-Reply-To: <DKB8WW9AK4KQ.2A9KVJWD5ORFT@disroot.org>
-References: <20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org>
-	<20260723-gp2ap070s-v1-2-b8ca3a4c10dd@disroot.org>
-	<20260723234439.06411731@systembl0wer>
-	<DKB8WW9AK4KQ.2A9KVJWD5ORFT@disroot.org>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        Thu, 30 Jul 2026 00:22:26 -0700 (PDT)
+From: Sangwoo Han <sangwoo.han@nearthlab.com>
+To: jim2101024@gmail.com,
+	florian.fainelli@broadcom.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	bhelgaas@google.com
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	robh@kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	sangwoo.han@nearthlab.com
+Subject: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are handed out
+Date: Thu, 30 Jul 2026 16:22:15 +0900
+Message-ID: <20260730072215.2090974-1-sangwoo.han@nearthlab.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_001924_910394_DB9D571E 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20260730_002228_341672_2DC0A124 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,49 +103,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Jul 2026 23:23:45 +0530
-"Kaustabh Chakraborty" <kauschluss@disroot.org> wrote:
+brcm_msi_alloc() reserves a naturally aligned power-of-two region with
+bitmap_find_free_region(order_base_2(nr_irqs)), but the irqdomain core
+releases the vectors of a block one at a time:
 
-...
+  /* irq_domain_free_irqs_hierarchy() */
+  for (i = 0; i < nr_irqs; i++)
+          if (irq_domain_get_irq_data(domain, irq_base + i))
+                  domain->ops->free(domain, irq_base + i, 1);
 
-> > Please add iio/* includes after the generic linux/* headers. Ensure
-> > that there is a blank line between the two groups.
-> >
-> > Additionally, you're also missing <asm/byteorder.h>, array_size.h, err.h,
-> > types.h and delay.h.  
-> 
-> By the way, is there any tooling to satisfactorily point out the
-> shortfalls with includes? Or is it just intuition and experience?
+That loop is the only caller of an irq_domain's ops->free(), so
+brcm_irq_domain_free() always sees nr_irqs == 1 and
+bitmap_release_region() clears exactly one bit per call. A request whose
+vector count is not a power of two therefore reserves
+roundup_pow_of_two(nr_irqs) bits but releases only nr_irqs of them, and
+the difference stays set for the lifetime of the controller.
 
-"Fully satisfactorily" no, but there is a tool called iwyu_tool (IWYU
-meaning include-what-you-use). It requires Clang/LLVM on your machine
-but it can serve as a pretty good starting point when cleaning up
-includes. There is an unofficial mapping file for IIO that makes the
-output of the tool less noisy, however it will probably still need
-tweaking. Here's the link to that thread:
+Multi-MSI regions are order-aligned and the controller has at most 32
+MSIs, so the pool is quickly exhausted. Observed on a BCM2712 with a
+5-vector endpoint behind a 4-port PCIe switch: the switch ports take
+hwirq 0x0-0x3 and the endpoint's block walks 0x8 -> 0x10 -> 0x18 across
+three driver reloads until no aligned order-3 region is left.
+pci_alloc_irq_vectors() then falls back to a single vector for the rest
+of the boot, silently multiplexing the endpoint's four completion
+interrupts onto one hwirq.
 
-https://lore.kernel.org/linux-iio/20260512073505.1310-1-joshua.crofts1@gmail.com/
+Devices that ask for a non-power-of-two vector count are not exotic:
+wil6210 asks for 3, the MHI modems for 5 (Quectel EM1xx, Foxconn SDX55,
+Telit FN990, MediaTek MV3x) or 7 (Qualcomm v1), ath11k WCN6750 for 28
+and ptp_ocp for 17. MSI-X is unaffected because it allocates one
+descriptor per vector with nvec_used == 1, so the order is always zero.
 
-Setting it up may be a bit tedious, but I found Gemini to be pretty
-good at this.
+Reserve exactly the vectors that are handed out, at a base found with
+bitmap_find_next_zero_area(), and clear exactly the vectors that are
+freed. The number of reserved bits then matches the number the core
+releases, whatever arity it uses.
 
-> 
-> >> +	ret = devm_request_threaded_irq(dev, client->irq, NULL,
-> >> +					gp2ap070s_irq_handler, IRQF_ONESHOT,
-> >> +					"gp2ap070s-irq", indio_dev);
-> >> +	if (ret)
-> >> +		return dev_err_probe(dev, ret, "Failed to request IRQ");  
-> >
-> > Just return ret instead, dev_err_probe() is called automatically on failure.  
-> 
-> Are you sure about that? I happen to call dev_err_probe() on all other
-> places and other drivers (as of late) as well (other than -ENOMEM).
+The base still has to be aligned: PCI Local Bus Specification 3.0
+(section 6.8.1.6) lets the endpoint encode the vector number in the low
+order_base_2(nr_irqs) bits of the Message Data register, and in this
+controller those bits are the hwirq itself. The alignment mask has to be
+roundup_pow_of_two(nr_irqs) - 1 rather than nr_irqs - 1:
+bitmap_find_next_zero_area() requires a mask of the form 2^k - 1. No
+align_offset is needed because the bitmap index is the value the
+endpoint ORs in, see brcm_msi_compose_msi_msg().
 
-See the comment at the devm_request_threaded_irq definition here:
+For a power-of-two nr_irqs the alignment and the region length are both
+nr_irqs, so the base returned is the same as before and those
+allocations are unaffected.
 
-https://elixir.bootlin.com/linux/v7.2-rc4/source/kernel/irq/devres.c#L94
+Fixes: 198acab1772f ("PCI: brcmstb: Enable Multi-MSI")
+Cc: stable@vger.kernel.org
+Signed-off-by: Sangwoo Han <sangwoo.han@nearthlab.com>
+---
 
+Notes:
+    Tested on a BCM2712 (Raspberry Pi 5) with a 5-vector endpoint behind a
+    4-port PCIe switch, running 6.12.25 where brcm_msi_alloc() and
+    brcm_msi_free() are byte-identical to mainline. Without the patch the
+    endpoint's block walks 0x8 -> 0x10 -> 0x18 over three driver reloads and
+    then falls back to a single vector for the rest of the boot; with it the
+    block returns to 0x8 on all of eight reload cycles and the inner
+    domain's mapped count round-trips cleanly.
+    
+    Compile-tested on mainline for arm64 with W=1 and C=1 (sparse); no new
+    warnings.
+
+ drivers/pci/controller/pcie-brcmstb.c | 17 ++++++++++++++---
+ 1 file changed, 14 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+index 8a0c353d2a..6c5166666d 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -595,11 +595,22 @@ static struct irq_chip brcm_msi_bottom_irq_chip = {
+ 
+ static int brcm_msi_alloc(struct brcm_msi *msi, unsigned int nr_irqs)
+ {
++	/*
++	 * brcm_msi_compose_msi_msg() puts hwirq in the low order bits of the
++	 * message data, which a Multi-MSI endpoint rewrites per vector, so a
++	 * block's base must be aligned to the Multiple Message Enable count.
++	 */
++	unsigned long align_mask = roundup_pow_of_two(nr_irqs) - 1;
+ 	int hwirq;
+ 
+ 	mutex_lock(&msi->lock);
+-	hwirq = bitmap_find_free_region(msi->used, msi->nr,
+-					order_base_2(nr_irqs));
++	hwirq = bitmap_find_next_zero_area(msi->used, msi->nr, 0, nr_irqs,
++					   align_mask);
++	if (hwirq >= msi->nr) {
++		mutex_unlock(&msi->lock);
++		return -ENOSPC;
++	}
++	bitmap_set(msi->used, hwirq, nr_irqs);
+ 	mutex_unlock(&msi->lock);
+ 
+ 	return hwirq;
+@@ -609,7 +620,7 @@ static void brcm_msi_free(struct brcm_msi *msi, unsigned long hwirq,
+ 			  unsigned int nr_irqs)
+ {
+ 	mutex_lock(&msi->lock);
+-	bitmap_release_region(msi->used, hwirq, order_base_2(nr_irqs));
++	bitmap_clear(msi->used, hwirq, nr_irqs);
+ 	mutex_unlock(&msi->lock);
+ }
+ 
 -- 
-Kind regards,
-Joshua Crofts
+2.53.0
+
 
