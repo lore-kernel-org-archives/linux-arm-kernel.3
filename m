@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B51C55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69C4DC55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mggr7wvIfCEo+6dv/C0d5uPBSyxJCecBvJHz21a0w1o=; b=uJhCGS4tvyqHQt
-	iSmc2WCr6665ssJ0DOjTqxbc2XSh6puT8ULmLfNwXhwvL3PJ8zNRoPuQYgbMRsI0xcHvV41qeK4dc
-	zFSPYRneFFWqu1xBzMbosGHJ6un4LwjddPlFKteFi4xJQNJEL7Ol9gGxAo42ommGa8zzhxo8a6Uia
-	/VBW99yjxOsQ14c81FAhV3I79ksO0ZvixIkofZ6r40YOvZMLCicHmdX5GZm9CKJMB3rQww24xFzHb
-	fueM9U6coC8KerVYCStL6L7TzlNIbogFdHgixKRNSTmxbEyRJvebtC3YCspJuUEZyowHHxoOeDofU
-	g6zQ5OvmNZzENoZXDskA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ylBp3ID7LGMPxx9g2HOSILblRK6WLP/WK8iYeAR7QiU=; b=W8sOfEDsOUz83dIP0VO+v7Ofjy
+	7NIIzN8A4DnyeFTSWor9iNwJKrz0yveBV+OUGfxD/TmUPfG6Z1tD8T/IRS+wfLoJcVM9A4/KTU4QR
+	4SmXNS0q/65FNRzzmkn2HYAM1HBL3cPwpOWrguMHZhW3ubX5UVJlcsTpLB/dDgZXEnFWMkkgTaQCs
+	kzNpq9ADDRkAna3elqaws3A/moIdlUEbiiYT0RiJMHi/5YPtFYg48jawIWy5J4452K0EZNME4NvgR
+	8szAyVEHHGayXz1FrNwtLIlS1BtIrGX7JLcXihT7/6BeDNQvssPC0E4Tpg4nY3eymAsii5YUNUhe4
+	TBXhobGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQ20-0000000AUFY-2MIF;
-	Thu, 30 Jul 2026 12:38:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wpQ3O-0000000AUQf-0GZm;
+	Thu, 30 Jul 2026 12:40:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQ1z-0000000AUFK-3r2X
+	id 1wpQ3N-0000000AUQN-1KOE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:38:35 +0000
+	Thu, 30 Jul 2026 12:40:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 898D440BFE
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:38:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E6951F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:38:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BFEA160A63;
+	Thu, 30 Jul 2026 12:40:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 750551F000E9;
+	Thu, 30 Jul 2026 12:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785415115;
-	bh=mggr7wvIfCEo+6dv/C0d5uPBSyxJCecBvJHz21a0w1o=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=JqQZ1Wem/W/7xLxCQm3EG3EkTkaXKflALH8qNzS3RVDmEiOS79agVsGHyEALzou3D
-	 GYUDku/DoBb52HTNcggTMGeLICvvemsWQlakuOY5bB+UmwfmBii4k2CukXAU2S7iDe
-	 wt69oS65mxwwR6vWL7PAIPlW5IuJmMjfeHnF9z4vvfvIBcEsbzREvQqtwkr3XeMNpL
-	 TRmxlhGCCQJI3k66rbIGtzo4Cl8XHAdq12B+9lnseX6lD4COHJG/nX7nmconEkwVYh
-	 HIZ7sq/ba32yxHFBy5FnWY9ypes/+veFhho8/C0RtSckRR8O1hGMGhjy/2oehu4DZ7
-	 ZLdwvjWEcZX6w==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-39f1ac13687so15348661fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 05:38:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqvtDdC10oPT7vhG53zV4KJednHBAnFVW8WUG/bVG+n72Wwu8IgXkziJc99FKVwrO3uvtTCh9yQQCh8JrSeeu8I@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsXStfcCAuSJNy3YlsK25uWncK9SVycL4+uROmjEXLHGgtmwmT
-	8Saa+hg/H3K1WNGwLH8SD0Ld9PDL7z7TYUbr6VyFRe9vO3QR5lKc6USRT66j61wIKhr2+0LBjsn
-	RJm9pkTfAvMqmeezegYYI4B5YLENMP5g=
-X-Received: by 2002:a2e:a99b:0:b0:399:83a4:4f2c with SMTP id
- 38308e7fff4ca-39f6d112905mr4228721fa.18.1785415113867; Thu, 30 Jul 2026
- 05:38:33 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260728091804.382753-1-wenst@chromium.org> <amiqKRkFItYwD6oL@redhat.com>
- <CAGb2v64zUO-azpTuei6LCypad2noGFbg+EmaBC1iidoZ2stQzw@mail.gmail.com>
- <c1048eae-72c5-4e2e-ac49-25e2c4297018@collabora.com> <CAGXv+5EgGYFVt4TJCysQgRqA1J5=Qz9c0oWY5YTxgc5PnNC_AQ@mail.gmail.com>
- <36f2775a-d332-4913-8e9e-ca0429c3f713@collabora.com> <amswFn2qWkvypMH8@redhat.com>
-In-Reply-To: <amswFn2qWkvypMH8@redhat.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Thu, 30 Jul 2026 20:38:20 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65yEtUH5LQ=kGL1io-urha12iOute=D2bbG872YXbK4fQ@mail.gmail.com>
-X-Gm-Features: AUfX_mwS6SDXJLNyyEHek9sC4FMHJj30AO-N34TA1MSNgmBhhcn22gBEYkF6-6I
-Message-ID: <CAGb2v65yEtUH5LQ=kGL1io-urha12iOute=D2bbG872YXbK4fQ@mail.gmail.com>
-Subject: Re: [PATCH v4 0/5] powervr: MT8173 GPU support
-To: Brian Masney <bmasney@redhat.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Chen-Yu Tsai <wenst@chromium.org>, Stephen Boyd <sboyd@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, Alessio Belle <alessio.belle@imgtec.com>, 
-	Luigi Santivetti <luigi.santivetti@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	imagination@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, Icenowy Zheng <zhengxingda@iscas.ac.cn>, 
-	YoungJoon Lee <getfeus@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20260515; t=1785415200;
+	bh=ylBp3ID7LGMPxx9g2HOSILblRK6WLP/WK8iYeAR7QiU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LdKV0UX9bNSTpp24GeRMDpcBAg6s2yEDz5n+vTHl4dsXmoxN0mtKB6u8SM4i3SUQK
+	 F+ZX/uf2pwzfh+DR5UMvWv0Z7Kd9gJJ+TsJ5Tl83T+wY1ui9uDzDMUJMXqBsUiNneC
+	 AW6gz5hhjtg6G4uR7yfTJN0EAbOji8QBjIeQwaaYb4zXiOT2dTotWlOGXxtzBj5gRj
+	 AGHc1cpbyl/sVs7JmfyNdK3qc1A1UDIwcSitY4rXfwKpERcs5JhTkhJjquXj7aTUwB
+	 WS5iPmR1Fwh+ykoMmaAww/F1QknOuKt5Pe8mOjUJs2DJk9mQM3VgMJsqn4yO3tTcQ/
+	 VjI6muE/VhgLw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wpQ3K-0000000AWkz-2GkT;
+	Thu, 30 Jul 2026 12:39:58 +0000
+Date: Thu, 30 Jul 2026 13:39:58 +0100
+Message-ID: <86ik5wd529.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oupton@kernel.org,
+	seiden@linux.ibm.com,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	vdonnefort@google.com,
+	tabba@google.com,
+	sebastianene@google.com,
+	keirf@google.com
+Subject: Re: [PATCH v3] KVM: arm64: Optimize protected mode with FWB and DIC
+In-Reply-To: <20260723162002.3848054-1-smostafa@google.com>
+References: <20260723162002.3848054-1-smostafa@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: smostafa@google.com, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, tabba@google.com, sebastianene@google.com, keirf@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,119 +89,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 7:06=E2=80=AFPM Brian Masney <bmasney@redhat.com> w=
-rote:
->
-> Hi Angelo and Chen-Yu,
->
-> On Thu, Jul 30, 2026 at 10:23:14AM +0200, AngeloGioacchino Del Regno wrot=
-e:
-> > On 7/30/26 06:51, Chen-Yu Tsai wrote:
-> > > On Tue, Jul 28, 2026 at 10:33=E2=80=AFPM AngeloGioacchino Del Regno
-> > > <angelogioacchino.delregno@collabora.com> wrote:
-> > > >
-> > > > On 7/28/26 15:13, Chen-Yu Tsai wrote:
-> > > > > On Tue, Jul 28, 2026 at 9:10=E2=80=AFPM Brian Masney <bmasney@red=
-hat.com> wrote:
-> > > > > > On Tue, Jul 28, 2026 at 05:17:58PM +0800, Chen-Yu Tsai wrote:
-> > > > > > > Hi everyone,
-> > > > > > >
-> > > > > > > This is v4 of my MT8173 PowerVR GPU support series.
-> > > > > > >
-> > > > > > > This time around Mesa was ready for basic testing, using both=
- vulkanmark
-> > > > > > > and glmark2-es2-drm (with Zink). Details below.
-> > > > > > >
-> > > > > > > Changes since v3 (all in the clk driver patch):
-> > > > > > > - Changed pm_runtime_put() to pm_runtime_put_sync()
-> > > > > > > - Added missing of_node_put() in remove function
-> > > > > > >
-> > > > > > > Changes since v2 (all in the clk driver patch):
-> > > > > > > - Made COMMON_CLK_MT8173_MFGTOP depend on PM
-> > > > > > >     - Needed since the driver implements PM domains using the=
- generic PM
-> > > > > > >       domain library, which also depends on PM
-> > > > > > >     - Fixes build breakage (kernel test robot)
-> > > > > > > - Fixed "RST_DELAY_CNT" name (Brian)
-> > > > > > > - Dropped unused mfg_desc (Brian)
-> > > > > > > - Added check of clk_prepare_enable()'s return value in
-> > > > > > >     clk_mt8173_mfgtop_power_on() (Brian)
-> > > > > > > - Saved error value for return in IS_ERR(data->clk_26m) branc=
-h
-> > > > > > >     (Dan Carpenter / kernel test robot w/ smatch)
-> > > > > > >
-> > > > > > > Changes since v1:
-> > > > > > > - Adapted to changed DT bindings
-> > > > > > > - Dropped driver change
-> > > > > > > - Use same power domain for "a" and "b" GPU power domains
-> > > > > > >
-> > > > > > >
-> > > > > > > This series enables the PowerVR GPU found in the MT8173 SoC, =
-found in
-> > > > > > > some Chromebooks.
-> > > > > >
-> > > > > > I'm making a pull for Stephen for the clk changes. Should patch=
-es 1,2,4
-> > > > > > go through the clk tree? Patches 3,5 go through the DRM tree?
-> > > > >
-> > > > > Only patches 1 and 2 should go through the clock tree.
-> > > > >
-> > > > > Patch 3, 4, 5 can all go through the soc tree if Angelo wants to =
-pick up
-> > > > > DT binding patches. Otherwise I can push patch 3 through drm-misc=
-.
-> > > > >
-> > > >
-> > > > Not sure if I can really take the DRM bindings patch through soc.
-> > > >
-> > > > I will take the devicetree ones exactly right now, even though it's=
- going to
-> > > > give warnings.
-> > >
-> > > Apologies for missing this, but the first DT patch depends on the clk=
- DT
-> > > bindings patch for the clk ID macros. This is causing build errors in
-> > > linux-next right now.
-> > >
-> > > Not sure how we can fix this right now.
-> > >
-> > > Brian, would it be possible for you to split out that patch into a
-> > > separate immutable branch for Angelo to merge?
->
-> Yes, I can split things out and make an immutable branch this morning.
-> But it sounds too late for that.
->
-> > >
-> > > Otherwise Angelo might need to drop the DT patches until the next cyc=
-le.
-> >
-> > Yeah, that's so bad.
-> > I'd be happy to be able to resolve this, but it's too late on my side.
-> >
-> > I should've checked the DT patches more carefully, my bad: I got a bit =
-too excited
-> > to finally see this PowerVR stuff working on MT8173 and going upstream.
-> >
-> > Sadly, I have to drop the devicetree patches :-(
->
-> Chen-Yu: Could Angelo add an Acked-by to the three patches, and then I se=
-nd
-> Stephen an additional pull with just those patches? Do you think he'd
-> pull that?
+On Thu, 23 Jul 2026 17:20:02 +0100,
+Mostafa Saleh <smostafa@google.com> wrote:
+> 
+> KVM opportunistically enables FWB if supported by the system for guest
+> VMs, which allows it to elude cache maintenance for data as they are
+> forced to be cacheable from stage-2.
+> In that case, __clean_dcache_guest_page() will immediately return.
+> However in protected mode, before calling __clean_dcache_guest_page()
+> it loops over the range and fix_map/unmap it, issuing TLB
+> invalidations, dsb() and isb() unnecessarily.
+> 
+> This can be optimized by returning early if FWB is supported,
+> kvm_pgtable_stage2_map() already issues dsb() and tlb invalidation
+> functions issue dsb() for the unmap path.
+> 
+> Similarly for DIC, we can omit the call in
+> invalidate_icache_guest_page()
+> 
+> No isb() needed as ERET is context synchronization event.
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
 
-(replying from my @kernel.org address again because I don't feel like
- pulling out my work laptop.)
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-I think the question is whether the soc & dt maintainers would be bothered
-by it or not.
+	M.
 
-No need to sweat over it though. It's not like the GPU driver is production
-ready anyway. We can just merge the DT patches in the next cycle. :)
-
-
-ChenYu
+-- 
+Without deviation from the norm, progress is not possible.
 
