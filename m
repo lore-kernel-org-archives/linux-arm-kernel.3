@@ -4,188 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BA0C55167
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5BC3C55167
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:In-reply-to:CC:Subject:To:From:References:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RCj+orpzesOeJE+xTLr0wsbdVnrDxZ9aftGEfZ0RucQ=; b=w0XlWb+mcmyYAbLLzlqiZ+4niX
-	aVrFp1R++6T4rKVPo0KH5wVspabKDWWO9iuz1GrvVfNQt9/kXiS4bL5quIQmES/ERswiBNjzTgyXm
-	jyEt7PnaEZCVqX7UMSIf15Dc86S2BtxHIAwHGZ51EF/yJU9YPZsUAYQ0feTTVtcpij4cHQ8y9ZDCi
-	l6lzuJvz4iE9kqJA8lgfFsR3V2Z3Ab6Yhgpmh2HIXt3eFzoonb4P3/673n0/CY/RpcBPQJq/EWYZz
-	PiKQuY/QwR/DfadiL9sqfD5WbnfXkJR36kuau70rd7CrxkT8yBPcpczvvSdfeWytdv7zGHRY/dvlu
-	SMiz7ROg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1swx6ZS7vRHB6s/IgYx4mgkiMyCPAEEjNZGLF7mxwyE=; b=zGMVm9ETMB6NXjgT+8knHGFXDT
+	iL2kVGjEsquU94jha+8YqZo+b8Q92ZKT5xacNhebzA1ff1uc8iFN+qm8Gfv5GezAtphZJ8NaJuAVg
+	Eyo8DIIdMs0mKvLPr1H0hMCXJK003lTocNsQJzaPaUnqQSGI7msPng4gSVVECFtSXTM+HDp1FI7eI
+	9bBFKuAF8APA4YlUv1YcSrpOHBySq0siWRTeEQiwRbNGG2yTbzq3ZBi4aNQc5xHHWjJMQ1iS4oDi4
+	XP+vx7XZCRzZuAQDoYlJX9jqB7kd05P+sfjob8fs7lx5qdcdp4BKvUSzvOpv9T1lxqCinFx9Be9AH
+	A+Jyr89g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpaFC-0000000BVTp-2ptp;
-	Thu, 30 Jul 2026 23:32:54 +0000
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
+	id 1wpaFy-0000000BVao-455F;
+	Thu, 30 Jul 2026 23:33:42 +0000
+Received: from mail-vk1-xa34.google.com ([2607:f8b0:4864:20::a34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpaF9-0000000BVTH-1oXv
+	id 1wpaFw-0000000BVa5-1MsE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 23:32:53 +0000
-Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UEu47Q1780317;
-	Thu, 30 Jul 2026 23:32:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=RCj+orpzesOeJE+xTL
-	r0wsbdVnrDxZ9aftGEfZ0RucQ=; b=EAsArye4V8HumOBQCcqz1/lCmj9gO/ck0q
-	0cuv32gXUAoDmSJKLo+VW8bpJ8i3Pq5WtHYzXF5wLSgrOTpEULVfWQGZE5xEmyUw
-	qkrLeB1GCVURN3GAmq5EOdJZg0uxDd4o96J9mhIgo1tsqiDzjsV4YMrOy92iAXEI
-	vgVrPpefU7iZM9AuNQGR8YSunukmdBj04vSeavVa+4Thqyh9j/bwMicREiYt8NZq
-	oArKXQ67OXXFOv4OlNiVNNj1TXgILh1HNFmlrKzXaBlod4K0PM1rINGgl7Fiy2bc
-	NuzmcIDHoGEi2MSjzXQ2es8qcVj3lPb4gXgoo3+E8sLnipcCN0dg==
-Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4fmr018msk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 30 Jul 2026 23:32:08 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 66UN9wBk015665;
-	Thu, 30 Jul 2026 23:32:07 GMT
-Received: from cy7pr03cu001.outbound.protection.outlook.com (mail-westcentralusazon11010025.outbound.protection.outlook.com [40.93.198.25])
-	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4fnh8a145u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 30 Jul 2026 23:32:06 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ePwgXhldQ+pssQDO4mfyaIRjZT1tDakkHocVIEZO3K1dbrIvbklD8ko/MjucEpVZP/B8KJKjErqQ3dVRpMM1yDCLnXeJlJmrvPPu+xkX1iMiP9aZLBw+qPHpBfLsr6kMIqMZyds3uAPZeX7X5uX505MzzJsH63Wmr8sux3EqO8jLOKesTfTTh0MByiI99jhqBtP6LyvNd7gQkdz8zRKGF8fhmYpHPjfVOuZJhjrNTw/yZchxBpvoDsCmpzDQeMtyxmkNC98XPvsvmHll6bq+p85CvtktGWQ9z0kjwHpyklfwo80dDwtMjQD8GEfY3V4awH6vNpCNyOA/htSY3PC0Ag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RCj+orpzesOeJE+xTLr0wsbdVnrDxZ9aftGEfZ0RucQ=;
- b=EY1geZ96P+mDTGdNDJMM1WKxLmr38kZnErRd00I3G2wUz3vCgWoiC5vGMm/awtqOnv/da/Nmxsm4qfdR6u+hsoa48PRK+k3SdPq1H1UJ/ucmqW8pyUkuwLzmD1qBMvk6eRqIUMh/tNroObm/QKyHRHHC9AiW11g6oByRjg+jk9+nAfUb0vCLR3W1vgF7hrrFFze+TibFneMJAzB1ne9aXFQTZM3f7nvztxiQSvT7JcaTTD/WfTdchyS9g4jZirN9qT8SSrAFOS9AZ3+YurtJx2uXSGKLWHFFNA7S1WrWxusEhiX2D89yu6ONEvDATrxM3YP2se4WYQ22f+b3VA4ycA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
+	Thu, 30 Jul 2026 23:33:41 +0000
+Received: by mail-vk1-xa34.google.com with SMTP id 71dfb90a1353d-5c30d9adfa7so157572e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 16:33:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RCj+orpzesOeJE+xTLr0wsbdVnrDxZ9aftGEfZ0RucQ=;
- b=KW3NL2C3dld1dXRjLibRiq9FAay+bZJ8dqqvxfO9/xKGW0UYShUO5WRjug2sntpXXxeG5crDf09wfqsjCMNjN4bGzVZDb+W/gcvT4Cx3gU6TfLRnWB5P1Ix8fUxwAsj+GO5bf0UBNoGh37W28kuFdyFN2nQUjaPhG0nVC1cwbsI=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by PH3PPF46347F8D1.namprd10.prod.outlook.com (2603:10b6:518:1::79a) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Thu, 30 Jul
- 2026 23:32:02 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574%6]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
- 23:32:02 +0000
-References: <20260714073041.40250-1-ankur.a.arora@oracle.com>
- <20260714073041.40250-6-ankur.a.arora@oracle.com>
- <20260714074406.95EDF1F000E9@smtp.kernel.org>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: sashiko-reviews@lists.linux.dev, <linux-kernel@vger.kernel.org>,
-        <linux-arch@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-pm@vger.kernel.org>, <bpf@vger.kernel.org>
-Subject: Re: [PATCH v14 05/15] arm64: rqspinlock: Remove private copy of
- smp_cond_load_acquire_timewait()
-CC: <arnd@arndb.de>, <catalin.marinas@arm.com>, <will@kernel.org>,
-        <peterz@infradead.org>, <akpm@linux-foundation.org>,
-        <mark.rutland@arm.com>, <harisokn@amazon.com>, <cl@gentwo.org>,
-        <ast@kernel.org>, <rafael@kernel.org>, <daniel.lezcano@linaro.org>,
-        <memxor@gmail.com>, <zhenglifeng1@huawei.com>,
-        <xueshuai@linux.alibaba.com>, <rdunlap@infradead.org>,
-        <david.laight.linux@gmail.com>, <broonie@kernel.org>,
-        <joao.m.martins@oracle.com>, <boris.ostrovsky@oracle.com>,
-        <konrad.wilk@oracle.com>, <ashok.bhat@arm.com>,
-        Ankur Arora
- <ankur.a.arora@oracle.com>
-In-reply-to: <20260714074406.95EDF1F000E9@smtp.kernel.org>
-Date: Thu, 30 Jul 2026 16:31:55 -0700
-Message-ID: <87cxw42gwk.fsf@oracle.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR04CA0341.namprd04.prod.outlook.com
- (2603:10b6:303:8a::16) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+        d=chromium.org; s=google; t=1785454418; x=1786059218; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1swx6ZS7vRHB6s/IgYx4mgkiMyCPAEEjNZGLF7mxwyE=;
+        b=PQR8fy3pRUc6zoqK+2Dg1pUfSSyCE+5eR89LwAgMM2mxurfeCVjfmHPn/Kw4pBbrkS
+         p57+8fsfs/iTcOGHswSvP5Awzb2CUPbozhEqI5rgh45vhctEn/hthyBrg+oIvBcHG0zj
+         p4mxpPLcHwHkSiZ1BSvfIb+mZBo79Bfudd17Y=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785454418; x=1786059218;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1swx6ZS7vRHB6s/IgYx4mgkiMyCPAEEjNZGLF7mxwyE=;
+        b=RPfzOBvZuwuXG485ykUnD88avsbo5h6VYPl2qIFLYHpPjGBHJ43Fj8CtpJBEBpcq0A
+         7ceBCImRtLCTlj01OYX8WEDLD3iBGhsWRz+4bBZZfgpo/dlgtFTG7QzDCvEyjCltFXRq
+         4SYL9TNI4sKhB0/jdLPl9pkeDhzRUo9oT1Jr90+RyalkVYmuTrfMTvhCXPm+JOUxaqsE
+         5B0H0iJjf6MZxSml9i53jiOK/0aKyXMjf/yQWhsyF7djgJc28L3MUbhpi94Jf9rJoZW+
+         OYYUk+l+cNFQzbzj8Xb4a0tppq/kBMlI7Dv2znA1ctLW2pMwy/t0J7M+S24WNOYGbUzI
+         5gOw==
+X-Forwarded-Encrypted: i=1; AHgh+RogOCz3XGTeKc8DP1Ks2/1l1l+RQv9rDTdWJ7FKQ29podb+YhU3MHSv2hj29UkO9Rh4Mj+sH4oPS0dCQBONonSU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZoiP9BawIfbAZNCBh/LZi14U7T/7ZOd07Ge1ppJBOMgRpKh/R
+	24q7U2tH/+coQ+YXBwss1EqKLC+Lr242Y31xPssqDqNBDnhDDHIVNLUviAO7x3iplREToxe1aVx
+	HbvM=
+X-Gm-Gg: AR+sD10ilxnODl7GrYhym8HAz8hCCF70fG6GRYwuaudlkSIhAdboan8om9DpFcOWEbP
+	WJT4x3teOHl+TjtONLD3cR8CXx/Apo7J2imCJt79TPygDvaQAAuteE50g0IAhQfgaGqzwAf84U0
+	ptayQyC2H30j6pYEh+dPLX+Rgr2HNtmU2kZf5lyB4tof3vz7TbEI9bxtJJ7JKK4hGUkG/3drX0N
+	+06ssh/AfoGbEXGvOyD1u/ecgUsm3JC/uNRQCL2zGASOxK8E9CuLP7Exb8nDg2L2/23Nj3bVpvm
+	o7qDFCA2LiWqx5n82RQ9sgDvoacId2q9+7UUN3jp8Qr61im6mirjfPnDTQbixkhxBujSJEM+Vqz
+	yIjac8mGyyZBKLWzuk6Nnkc2Ti+IwhlDGZmR7uVjq+X4yDNr0P6JNrxjpbDAxFcK1yc0+AbA5Oo
+	CPhnVTgLPsbqh+99DP6yHfijFF5nmkCnTMqklm9/8KY+DPgcfwxRwcl1zmhdsfZsbflDG1ERctJ
+	AeaZLjKGmWiVEi5+47Hc4WgfPQ=
+X-Received: by 2002:a05:6122:1d0c:b0:5bf:92d4:5d3d with SMTP id 71dfb90a1353d-5c3660a49a5mr1435928e0c.8.1785454418192;
+        Thu, 30 Jul 2026 16:33:38 -0700 (PDT)
+Received: from mail-ua1-f54.google.com (mail-ua1-f54.google.com. [209.85.222.54])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c3662af7b8sm2762324e0c.0.2026.07.30.16.33.35
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Jul 2026 16:33:36 -0700 (PDT)
+Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-977bbf2eb3aso75266241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 16:33:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoZ0PEXHT7+AxB1Cg4Q7Kr4Ti+9br0fuD5if+ZmdEei7U6fEB4gMKUXwOv4JeZYAPYaUyZCMBzjIvYXkNDmdDIK@lists.infradead.org
+X-Received: by 2002:a05:6102:3592:b0:608:9a34:c8ea with SMTP id
+ ada2fe7eead31-7574e6d1a1amr1650546137.10.1785454414391; Thu, 30 Jul 2026
+ 16:33:34 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|PH3PPF46347F8D1:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1c9b11da-061d-4dbb-a148-08deee92c221
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|1800799024|366016|3023799007|10067099003|4143699003|56012099006|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: Ti3OV2ruRFVyMGm2qd5XI7JmnLUoSjKLIK58WKN8s7e8LTdtcqa2QfydtUQOtlrfMokDxf89Hhpkyg6rcB02eYOReJeyuzNYPiyqYtLqZ0HPiOUEJt4TErOWRr7s/HMVEWEGGazeviLWttrrlPk23LZV1VD298e0QE6pQZJPX5d4hcamDrfVB9eXWxKla6PqpanhNd1qFHJlAqTK2CFle9RIEinNqdC/AbyhqWB7sOnViaH8qCKKL9+z1JH7vBgNi7o4X5R1tqVW9f0ipoZREekHAKPkA1tcITilziiiisiK3hXhTsq37HkH9WwgILx8oGoJbfl/QISGUDSuu6uzi5QWmfG+jN36FW//z58ULCsoAOfKIhnVeATwWAfvghhGTYxPFhP9tED4+tqKtwT35V/sfD5W4ibmq3CYEY6/Z9tUH7pUBL41QYxMRNibnb2bGZOm2A1ismKT5uskrOEvdOc4xydBjwObCmIYG6J8tULlXthn5GpE6vgoEstKNQrQaJbEvuJIp5kcatBfXAKh1i8VnWxz4U1C5fckjlRwhmx+OmWW/BizjJGczNCQLvtuQXoeIgjL4flLD+1b++8IzAmgY8m6xW4TJa7CW7RsdGUlfNmoMK0CUYPnS1p82IBW6dFvjo9nlp8W518wmqRhSyRhWZvPmXxrgW8kAplGkfQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(1800799024)(366016)(3023799007)(10067099003)(4143699003)(56012099006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AC1yHUiNBNQlFeszUmF4wDpRp2YEOhPigzNlUpJ+3vgsoyJSiftfh2ps+nuB?=
- =?us-ascii?Q?ClaU5d0tQ6eHPuBV/Ovbew+h7Uty+Rt+xioy1XnTbJqn+hNxY3GCAK8CS570?=
- =?us-ascii?Q?tnD30cs9t9dCqdGjPiCZPqg8oxuE1Ry7DmLrT4bqHm4gOUAivBqtsqadgFyl?=
- =?us-ascii?Q?a7ATcAe6E4sUuNMCSUGfsTzSSlkKavm82tqs+if0fTKDVh12VXTd9+UJfQxx?=
- =?us-ascii?Q?wOtXPGj9uWufPYB1klhxXNqkg/Tr+w3qO37OXQH3gY3mAscPrjQwfTg8WBdm?=
- =?us-ascii?Q?1cBDsgZjfHKzY/NWYDx7cajjRznTn0/Mt3HNd7l8GpqjA7SYxwOp203fPebp?=
- =?us-ascii?Q?0riHlGOYMdcLCKd01+vCzk1WCI5VVptbMB76s110XWn5u9+9u3dL+CIM7BO8?=
- =?us-ascii?Q?o0DaStRsMnFd4GJ7tfnlBHvnPzJanP09BJ95YrzUWgLp3ESUP4CZcW8EYQLh?=
- =?us-ascii?Q?k1YqBXGQDv1DkFeXxcJV2qPaIh9iwf/oMf7MfP0sIJinit2t6r7zjnOist4f?=
- =?us-ascii?Q?XTM5zrpN2BfAIr5uskVIqaBvSfyxXA+27cHyPKAvklIpD5bv9NazE9MM+r5i?=
- =?us-ascii?Q?vvkKYBKmUBrORRSGXcbwriMSeF4x3upKnEcIZZ26BEpUmCtzw6TwjzhbbYJf?=
- =?us-ascii?Q?zfWkH4kVcPPU4MZTzs1QV0nTTuAcMskmSvom4wR6UyHMyKNJ4i29CzF8vMn9?=
- =?us-ascii?Q?ayEejRX7wBxtX/3fAN07XDVVgA7mvceS2hNrBdY0bxlLsjN//EqVBfASDv+l?=
- =?us-ascii?Q?d6tQAkWW6Mv5RKJPXRHvWPnO/suJhk59wfEFVGu83YYEpHGXv8oEFkVYvjTz?=
- =?us-ascii?Q?bLx37I6+2lTX/zQevFrgDeKHIDF8F0QP/cPSzmE+rFo2g3rVCArKJf9E3PUA?=
- =?us-ascii?Q?prqQoatYW4Qx+brdRv3IMyMDtiCMitmYy/wgsjWRQVoEVjUVSHqDBAsKZXoA?=
- =?us-ascii?Q?NLw+ldt3HvAN/kwIuPik5eP47Gi3usXcHL04F8meJwh8XNDAS0KdoYbhKFR6?=
- =?us-ascii?Q?UiIeCz6eIT0x+dNS/N0tNtISbji0SUOirw7V3rgPLEQ+IPDAPRqz71bgXMOi?=
- =?us-ascii?Q?9648a4P3kV639gv9YZlgaIwNdaWKKxHROpYWxxrQ/YcN7DtyLs+res+v/23i?=
- =?us-ascii?Q?kIznPaYIJBiKVnAFpqfJjRyvtNd8eYa8CHeG7wQTzAifcjpdqUkfhIYuFjhL?=
- =?us-ascii?Q?LX8t4Y9JWvBnI6PHL07uZFN/Kw9QqSHSpEatCLrEUQYFqv1ikt+ulEyUL0sR?=
- =?us-ascii?Q?qlOLvzL/TjC1uRZoBnHFBZLaPw/fk+NMarmncO2l/yRu0XEd+komHV0IFfod?=
- =?us-ascii?Q?qbc6hrDWkZ15rg0ms0ZljMh/SaFASBIk3WRu/tqW1loHdCV99HTpN047/+wm?=
- =?us-ascii?Q?LvEfolXIwrUjfLgpROzGSXcPYSFleKMfbFpVxvYbcGZHG9C6C++4Eoo2LJot?=
- =?us-ascii?Q?ouwPd4lIfWgyfmJIJftn6qxiEm0GVt3sM8ix00I9mk7IXSef30+5GnF2YHww?=
- =?us-ascii?Q?iRlXFq0eeCVbOcw0hC/qzEYwMXlf3Q/h0TEp9b8atVtVyEl1bMuGYWslpC+D?=
- =?us-ascii?Q?TuN3taOerXxfMDE5UI5MOaPdFSg5Uksyk1YoRMhIXdbP4VGMl0Lf0pVBili0?=
- =?us-ascii?Q?eQSa9zacpPWeOrRXBDG+xpulGncAI8xL7+WyDcFMaUXCz2QUygDMhAmp8pJJ?=
- =?us-ascii?Q?278QGgnc6ar/bEhF0Q6dXKUxovA7Oo9ySYFiIqEExzwC4wd7zpcBCbF2OyOZ?=
- =?us-ascii?Q?lMZG5OzyOzHl6S7MPD7HyxK/rZocnyc=3D?=
-X-Exchange-RoutingPolicyChecked: kiQkff7b8ZzMpzgNQEn3LFZLVsIvdV0bMIgOcupvm0vExouUU2Kf43KwMHQm7vUwKhTB0J61jiS2qqY6Djd794FPWcY7fPJoaZDZm4V33jznJF1SpPvqRGzRpUJeTFkoUELp9ix4m3BQlNl5zoAOoNYTBT7BFmBpyQmSXBjHMbVW6wLxqYtOEcWGSidnFT1GKmHLwkMDhGPZY+a3pesz4DNHnN/6AFdqlYFiVTwtLwKKEwZ40HpfgIyUIRWOxqb/jflxwap2/Jh+wtbsPGcFj/LR9YR0Qm5G8quX76pvMA7Jn2/b/Okfo1MAWM+dxIe7pjZJhPFXpmlqLJVVIHBFOQ==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: thDzlAjfRDdYAOtSnfHk2VIZtYhg3HPPYwVmuAvfqiPxY7D2+zPpHO9tsnAu+29ejVQjuM2y2oGmib3m5b8K3v3yCgC3RkZAYyM6J7KE8v+653HP893NOWt03OXO9avpSoegELjSSs2oZkiKdGhHi3DfK699M6Cb+cNn7LyegJeMkCHYgf531uzd7ZT+M1AMSdUAfwvRR2P0jnslWIZkqMjjMZS595odwTSl7gtFfssZ3qfH+ANBrJebtgC28hqCB4Sv7bwhMBaEgPXJPIILkl23sBVHrRNditLVxJrx+28mDb2cHlzGBEj7KVQUSWQfwzI2rGgvMw/LiZ0IWDxjH67ernMpRK3UilcJ5WSNl4Qww+Bk7FLl0mMSLRPfxm3bLicSCjwR4zZUPzvhxBtRRKxnVcZwY7xvfKF0y4qSmXhZ++i2iPovmdl5NrBPvyHailF4WHcjdOEMDrUDizdrXKTy3bawTpvjpAHuaRXmA/71CvB2r51t8hPfM38AtSWvJ4TmwDVvKSLNjJO1i0cfTLmmMHj0mMYA4/WjkR0WsfhVAclWqKJa1jDd8bPWe19345g02VPQK7hBCyba5Ulf+mlVd3xOmh4JkeWK5Ze6wxQ=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1c9b11da-061d-4dbb-a148-08deee92c221
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 23:32:02.4732
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AInE9VRWJEMevJTl7MoxU4UtOADLUAqY6z9uZjRGoP7JSmUEUdyMCOuzc5oqmEiLbkYEE8CPngtYr0sSKv9U6S2MEa7Mcb0RpWol9BFR6bc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF46347F8D1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-30_07,2026-07-30_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
- lowpriorityscore=0 mlxscore=0 suspectscore=0 adultscore=0 mlxlogscore=999
- bulkscore=0 phishscore=0 spamscore=0 malwarescore=0 classifier=spam adjust=0
- reason=mlx scancount=1 engine=8.19.0-2606160000 definitions=main-2607300165
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDE2NiBTYWx0ZWRfX1TVbgMU7R17G
- AquXr45x55scY23GGgKBtwFGoKzDykUVwuNg0h2WcNgJn0BdPrB6EXMufFDHo9xrlJ8P4X9O0nQ
- iQTizUU0pOMWn9LO1uL8LwQlxGJXNub6+WLJ96VP9AsfMEX7qU2I
-X-Proofpoint-GUID: vU1l58rZ8EDIx56kA7cQBdVNu-qh7_TO
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDE2NiBTYWx0ZWRfX5Q/3yndie8EM
- qlUueSDJCrAJro0nI/JlnzsqKjr+rvrcmkVDp4Xe5Xd7WkqKrJQ5xDaem7z7NUxIKn8mbjITqhP
- CDijZYTPhPj9G3yncEpsuxe4wKaz5NhaVCGL8VaCIn6wRiAmXJFHHzLrXr+xpnSFVJSytNOvetb
- bF+eDhUZHDK785gXCadwh2Z3fAwlkI+hc5FiunYAdG1Xj6VO3nqupAqupE2hwcHerM547YvHizd
- VT9n8oHsAS2YDYJkjsJ0BEWKqR7a/EjFQcz5unbzuQcek61DZaLcaMQgiBuePaDYEdUFcEXu/4s
- LeMRzEZ2UFJcjzFSM84ofuq9HjESLELtK5DULVmVaV+h4TWQdBJEarht7xQ2toKZM5QHGd6dlP+
- Mrz9agbvyP3Ph5FJBAp53ij2UDBiFeHDAfVqRSk/zr+9lR/4HoBTxk4CxmNuVFidBLe+ZyhRwGf
- xE/RF9rm2Z4usOY/pTQ==
-X-Authority-Analysis: v=2.4 cv=KL1qylFo c=1 sm=1 tr=0 ts=6a6bdef8 cx=c_pps
- a=OOZaFjgC48PWsiFpTAqLcw==:117 a=OOZaFjgC48PWsiFpTAqLcw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=RAioF0-LDSMA:10
- a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
- a=x0eKOSpe3m1H3M0S9YoZ:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=yPCof4ZbAAAA:8
- a=vHjVXOEvDUsu6dP0IXMA:9
-X-Proofpoint-ORIG-GUID: vU1l58rZ8EDIx56kA7cQBdVNu-qh7_TO
+References: <20260722-contrib-pg-pixel10-initial-dts-v2-0-3abae9717feb@linaro.org>
+ <20260722-contrib-pg-pixel10-initial-dts-v2-1-3abae9717feb@linaro.org>
+In-Reply-To: <20260722-contrib-pg-pixel10-initial-dts-v2-1-3abae9717feb@linaro.org>
+From: Doug Anderson <dianders@chromium.org>
+Date: Thu, 30 Jul 2026 16:33:22 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=X32DiN2X26AutA97cpmywW9C3-76p-crT8sSQ+XqZNZw@mail.gmail.com>
+X-Gm-Features: AUfX_mwLrAK1Nx-rPTyOqhPQSXAd6QqwkRvKOTa5fFmS8RMZbaeNFVMG8HEBq6M
+Message-ID: <CAD=FV=X32DiN2X26AutA97cpmywW9C3-76p-crT8sSQ+XqZNZw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] dt-bindings: arm: google: Add dt bindings for frankel/blazer/mustang
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linusw@kernel.org>, 
+	Drew Fustini <fustini@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org, 
+	soc@lists.linux.dev, Juan Yescas <jyescas@google.com>, RD Babiera <rdbabiera@google.com>, 
+	Brian Norris <briannorris@google.com>, William McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_163251_482884_4726DACF 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20260730_163340_411067_769A7653 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -200,76 +119,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-sashiko-bot@kernel.org writes:
+On Wed, Jul 22, 2026 at 2:56=E2=80=AFAM Peter Griffin <peter.griffin@linaro=
+.org> wrote:
+>
+> -  # Bootloader requires empty ect node to be present
+> +      # Google Tensor G5 AKA lga (laguna) SoC and boards
+> +      - description:
+> +          Google Pixel 10, 10 Pro, 10 Pro XL (Frankel, Blazer,
+> +          Mustang).
+> +        items:
+> +          - enum:
+> +              - google,lga-blazer
+> +              - google,lga-frankel
+> +              - google,lga-mustang
+> +          - const: google,lga
 
-> Thank you for your contribution! Sashiko AI review found 1 potential issue(s) to consider:
-> - [High] Removing the ARM64-specific `smp_cond_load_acquire_timewait()` fallback before replacing it with a working alternative breaks BPF `rqspinlock` timeout functionality, causing indefinite hangs on platforms without a timer event stream.
+I'm not sure I really want to make a big stink here since I'm
+certainly interested in getting something landed. That being said, I
+at least want to ask about the "google,lga" entry in the above
+snippet. "google,lga" represents the SoC and I don't think that's
+technically required in the top-level compatible string.
 
-A private copy of this interface was committed to the tree prematurely.
+I had a previous email about this that essentially went nowhere [1],
+but I'm hoping to continue the discussion (along with other similar
+topics) and Plumbers. The essence of the question is: how much data do
+we really want to jam into the top-level compatible string, and is the
+top-level compatible string truly the best place to indicate which SoC
+is present in the system? While many boards put the SoC here, I don't
+think anything in the DT spec requires it, and I'm hoping that we can
+stop doing it for new boards. When/if we need the SoC info in the
+device tree, it seems like we could put it somewhere better...
 
-Removal (while temporarily breaking bisection) was acked by the author
-here:
-  https://lore.kernel.org/lkml/CAP01T75VaNGk+adULuX3q_8uxc0z78J5B_5ECLy2VR=i7pBi0g@mail.gmail.com/
-
-Ankur
-
->
-> --- Patch [5]: [PATCH v14 05/15] arm64: rqspinlock: Remove private copy of smp_cond_load_acquire_timewait() ---
-> commit e150f6dc634a9b6af6666a67d9bc5ea262bedad7
-> Author: Ankur Arora <ankur.a.arora@oracle.com>
->
-> arm64: rqspinlock: Remove private copy of smp_cond_load_acquire_timewait()
->
-> This commit removes the private definition of smp_cond_load_acquire_timewait()
-> and its helper macros from arch/arm64/include/asm/rqspinlock.h. The commit
-> message notes this is in preparation for defining
-> smp_cond_load_acquire_timeout(), allowing rqspinlock to fall back to using
-> smp_cond_load_acquire() in the interim.
->
->> diff --git a/arch/arm64/include/asm/rqspinlock.h b/arch/arm64/include/asm/rqspinlock.h
->> index 9ea0a74e58927..a385603436e98 100644
->> --- a/arch/arm64/include/asm/rqspinlock.h
->> +++ b/arch/arm64/include/asm/rqspinlock.h
-> [ ... ]
->> -#define smp_cond_load_acquire_timewait(ptr, cond_expr,			\
->> -				      time_expr_ns, time_limit_ns)	\
->> -({									\
->> -	__unqual_scalar_typeof(*ptr) _val;				\
->> -	int __wfe = arch_timer_evtstrm_available();			\
->> -									\
->> -	if (likely(__wfe)) {						\
->> -		_val = __smp_cond_load_acquire_timewait(ptr, cond_expr,	\
->> -							time_expr_ns,	\
->> -							time_limit_ns);	\
->> -	} else {							\
->> -		_val = __smp_cond_load_relaxed_spinwait(ptr, cond_expr,	\
->> -							time_expr_ns,	\
->> -							time_limit_ns);	\
->> -		smp_acquire__after_ctrl_dep();				\
->> -	}								\
->> -	(typeof(*ptr))_val;						\
->> -})
->> -
->> -#endif
->> -
->> -#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire_timewait(v, c, 0, 1)
->
-> [Severity: High]
-> With this custom fallback removed, the BPF rqspinlock code will use the generic
-> smp_cond_load_acquire(). Does this mean on platforms without a timer event
-> stream (arch_timer_evtstrm_available() is false), a CPU could get permanently
-> stuck in a WFE instruction during a lock timeout?
->
-> In kernel/bpf/rqspinlock.c:resilient_queued_spin_lock_slowpath(), the timeout is
-> evaluated as part of the condition expression:
->
->     res_smp_cond_load_acquire(&lock->locked, !VAL || RES_CHECK_TIMEOUT(ts, ret, _Q_LOCKED_MASK));
->
-> But smp_cond_load_acquire() calls __cmpwait_relaxed() which executes WFE:
->
->     __cmpwait_relaxed(__PTR, VAL);
->
-> If no stores occur to the locked byte, WFE will wait indefinitely, and the
-> embedded timeout check won't be evaluated while the CPU is asleep.
+[1] https://lore.kernel.org/r/CAD=3DFV=3DW+jE_L_LLgAhD8K_4+CtivSD9-9t7Xe63X=
+uKrKjfyfeQ@mail.gmail.com/
 
