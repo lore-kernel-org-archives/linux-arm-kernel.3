@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7725AC5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E343CC5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qn/I86EwarKgiaKJwJtzwq9CiBk4X3V0TOo2b54xzJs=; b=rI58iyN2XbXtfoxGLEOBrz7EsJ
-	rvTKEnmOFdrO7jvftQREcXkRAifZXWf3WjfluGLptihKw2kTtSAJQYjOsqCKxALqKT0VK3446VKg8
-	inLaZiWpxqnb0Y+h3vrDQUO66mGr5dnHAGmUhvWAzMYIlWMTt+bqYGiQZ6Tr9fi2bmTZu+Zkf2Dxl
-	tvb8uvP44p2BZ4ylAmxmM0sXN3HDgL/pDOXv6mD8ike1Jo4WT5VK3QEB+KSpZzQZiwybnr3bYj0CZ
-	zicZ2YwiUb+NECFmVwczgu6Po5FWf/uPQwPfgYepRH+XrOeXEAZzGLJJaDuPsLFzVhC/WqSiZLVIK
-	iF/pWPJw==;
+	bh=muvQnjrD0lZ97lHGH/9/vXL1MMfZ4a+cyU2MgUNnBpk=; b=MbDfMx+mr4smKrkCE3htYdn1VA
+	pCg107E3tMLMPrIChlHlWas3vJbKPbMjEk/WUpxGZQRU+5YACnUE9j6fNUtmKHpgmtrJ3NM+oyglH
+	TSlWv4d7dqPrYAZYz8ff0ULxO8RVahb/M4h2FYtB29Jxlm226ScSHuPXpfFI/nDTFYxsnr2yzpoL0
+	7nUxMBgmm3Cw/kc2KQiZlw04U0j7wEkZgkKtPt5zfLkh463+Vt2/PAvpIrd+Gs0W5O7zgoYAZhBtc
+	GMjQvglPaCQyGvXbQRrq1XBOyDciWEotohLeaYdo2tz9lzucpCaEtop4zKAx5q10Qf7kZmwU6ZB82
+	3689rHjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpWkq-0000000BGiP-3Ryy;
-	Thu, 30 Jul 2026 19:49:20 +0000
+	id 1wpWky-0000000BGlq-3s7D;
+	Thu, 30 Jul 2026 19:49:28 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpWki-0000000BGeH-114d
+	id 1wpWkq-0000000BGi0-3X7J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 19:49:14 +0000
+	Thu, 30 Jul 2026 19:49:22 +0000
 Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id C17DC41BE1;
-	Thu, 30 Jul 2026 21:49:10 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id 0EA0041C2A;
+	Thu, 30 Jul 2026 21:49:19 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id TkeT9Pdai3f6; Thu, 30 Jul 2026 21:49:10 +0200 (CEST)
+ id FNCcvnCjca7V; Thu, 30 Jul 2026 21:49:18 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1785440950; bh=aj8hhWibeTU8QIY9QYQlCqxjBoWJiWzaRKvTZMNVdc4=;
+	t=1785440958; bh=oP/7/X7LVlKSo31gPcRHpIls0+Y5eEnnq2IMVb1d09A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=WqeIvB8hknFbmSYU20I7I9ytGKZPE3IKSE8WKVGtm2+bznE3+UmDYwvmkwR+/XS+x
-	 Ax0/BYVv7evmdnMu0IPZrkQIXVQQvdsZvU/UktSMhaVXOlbC4w0M3Ka4Gmv6FC7MIt
-	 IHqszHuu97C0Fgd7g57TYSIbzO+WimM9Oz20x2Xi1GOkEDT+437aj7MypChhXy46K/
-	 uExaj5yTEuutEorxxDZw1/Hdiox6/1SKS9DdHYjvFkDSsY0NgOJgevNtBs8tAOUD1r
-	 xXuH1Gjwlzxkkrc62mSnmpioJyMWpavyjwkOhEktckKhTEsgzb9+sNEvU2eBxvMqnP
-	 g+tW6+j56xGbg==
+	b=Sl32IOQSC/xf6N1g6abR1McJhAS/b2Apha3UnUcWE6b6sRDBCt3bonIbT/9vLSZHW
+	 b9njLQFBlRjgXggegm/XOSB21mxda8DC+PJosT/9ZUUMrbf96KoKKTqDxsMeVxQbU4
+	 wlILa+jQY2kd9SihS/km07euRpUa33HRSI0dr7vZqzkst/RlBh01T7mSG+58ceK4dR
+	 m97ni6SI/ujQVLaZCNyKaFOR6eolwa2EfHjTe+3QbHVe3vkraE7rUzes39ZZ3WOAaM
+	 wJxFn6HrNRjzZvGxEMGaHL1b4ZTqCtOrsnL0gn+lrzvUfGg2YIPwikLEHZ6aOFFxK2
+	 ZY7bx+KIm9kbw==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 31 Jul 2026 01:18:23 +0530
-Subject: [PATCH v2 3/5] Input: zinitix - add support for modes 0 and 1
+Date: Fri, 31 Jul 2026 01:18:24 +0530
+Subject: [PATCH v2 4/5] dt-bindings: input/ts/zinitix: document mode 0
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-zinitix-modes-v2-3-ffe2ec9a9031@disroot.org>
+Message-Id: <20260731-zinitix-modes-v2-4-ffe2ec9a9031@disroot.org>
 References: <20260731-zinitix-modes-v2-0-ffe2ec9a9031@disroot.org>
 In-Reply-To: <20260731-zinitix-modes-v2-0-ffe2ec9a9031@disroot.org>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
@@ -62,8 +62,8 @@ Cc: linux-input@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, 
  Kaustabh Chakraborty <kauschluss@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_124913_242692_6F2D393A 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20260730_124921_034752_1AF154DF 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,194 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Zinitix touchscreens have three modes, numbered 0 to 2. The driver
-implements mode 2, and leaves out modes 0 and 1. The difference in the
-touchscreen modes is the schema of the event data.
+Zinitix touchscreens support three modes, numbered 0 to 2. These modes
+differ based on their event report schema.
 
-Implement modes 0 and 1 in the driver, along with their event structs.
-Maintain a common, canonical event struct which is to be the superset of
-the mode-specific structs. With that, introduce functions to convert the
-mode event info to the canonical format.
+The devicetree schema does not mention mode 0, thus does not consider it
+as a valid state. Add it.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- drivers/input/touchscreen/zinitix.c | 133 +++++++++++++++++++++++++++++++++---
- 1 file changed, 125 insertions(+), 8 deletions(-)
+ .../devicetree/bindings/input/touchscreen/zinitix,bt400.yaml          | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/input/touchscreen/zinitix.c b/drivers/input/touchscreen/zinitix.c
-index a0a89d25e25b..aafd0b7d8edb 100644
---- a/drivers/input/touchscreen/zinitix.c
-+++ b/drivers/input/touchscreen/zinitix.c
-@@ -145,7 +145,37 @@ struct point_coord {
- 	u8	angle;
- };
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/zinitix,bt400.yaml b/Documentation/devicetree/bindings/input/touchscreen/zinitix,bt400.yaml
+index f1ce837b16df..9b51212ea9b9 100644
+--- a/Documentation/devicetree/bindings/input/touchscreen/zinitix,bt400.yaml
++++ b/Documentation/devicetree/bindings/input/touchscreen/zinitix,bt400.yaml
+@@ -76,9 +76,9 @@ properties:
+   zinitix,mode:
+     description: Mode of reporting touch points. Some modes may not work
+       with a particular ts firmware for unknown reasons. Available modes are
+-      1 and 2. Mode 2 is the default and preferred.
++      0, 1, and 2. Mode 2 is the default and preferred.
+     $ref: /schemas/types.yaml#/definitions/uint32
+-    enum: [1, 2]
++    enum: [0, 1, 2]
  
-+struct point_coord_mode0 {
-+	__le16	x;
-+	__le16	y;
-+	u8	width;
-+	u8	sub_status;
-+};
-+
- struct touch_event {
-+	__le16	status;
-+	__le16	event_flag;
-+	u8	finger_mask;
-+	u8	time_stamp;
-+	struct point_coord point_coord[MAX_SUPPORTED_FINGER_NUM];
-+};
-+
-+struct touch_event_mode0 {
-+	__le16	status;
-+	u8	finger_mask;
-+	u8	time_stamp;
-+	struct point_coord_mode0 point_coord[MAX_SUPPORTED_FINGER_NUM];
-+};
-+
-+struct touch_event_mode1 {
-+	__le16	status;
-+	__le16	event_flag;
-+	u8	finger_mask;
-+	u8	time_stamp;
-+	struct point_coord_mode0 point_coord[MAX_SUPPORTED_FINGER_NUM];
-+};
-+
-+struct touch_event_mode2 {
- 	__le16	status;
- 	u8	finger_mask;
- 	u8	time_stamp;
-@@ -165,6 +195,7 @@ struct bt541_ts_data {
- 	u16 firmware_version;
- 	u16 regdata_version;
- 	u16 icon_status_reg;
-+	int (*read_point_status)(struct bt541_ts_data *bt541, struct touch_event *event);
- };
- 
- static int zinitix_read_data(struct i2c_client *client,
-@@ -440,6 +471,87 @@ static void zinitix_report_keys(struct bt541_ts_data *bt541, u16 icon_events)
- 				 bt541->keycodes[i], icon_events & BIT(i));
- }
- 
-+static int zinitix_read_point_status_mode0(struct bt541_ts_data *bt541,
-+					   struct touch_event *event)
-+{
-+	struct touch_event_mode0 event_mode0;
-+	int ret;
-+	int i;
-+
-+	ret = zinitix_read_data(bt541->client, ZINITIX_POINT_STATUS_REG,
-+				&event_mode0, sizeof(struct touch_event_mode0));
-+	if (ret)
-+		return ret;
-+
-+	event->status = event_mode0.status;
-+	event->finger_mask = event_mode0.finger_mask;
-+	event->time_stamp = event_mode0.time_stamp;
-+
-+	for (i = 0; i < ARRAY_SIZE(event_mode0.point_coord); i++) {
-+		event->point_coord[i].x = event_mode0.point_coord[i].x;
-+		event->point_coord[i].y = event_mode0.point_coord[i].y;
-+		event->point_coord[i].width = event_mode0.point_coord[i].width;
-+		event->point_coord[i].sub_status = event_mode0.point_coord[i].sub_status;
-+	}
-+
-+	return 0;
-+}
-+
-+static int zinitix_read_point_status_mode1(struct bt541_ts_data *bt541,
-+					   struct touch_event *event)
-+{
-+	struct touch_event_mode1 event_mode1;
-+	int ret;
-+	int i;
-+
-+	ret = zinitix_read_data(bt541->client, ZINITIX_POINT_STATUS_REG,
-+				&event_mode1, sizeof(struct touch_event_mode1));
-+	if (ret)
-+		return ret;
-+
-+	event->status = event_mode1.status;
-+	event->event_flag = event_mode1.event_flag;
-+	event->finger_mask = event_mode1.finger_mask;
-+	event->time_stamp = event_mode1.time_stamp;
-+
-+	for (i = 0; i < ARRAY_SIZE(event_mode1.point_coord); i++) {
-+		event->point_coord[i].x = event_mode1.point_coord[i].x;
-+		event->point_coord[i].y = event_mode1.point_coord[i].y;
-+		event->point_coord[i].width = event_mode1.point_coord[i].width;
-+		event->point_coord[i].sub_status = event_mode1.point_coord[i].sub_status;
-+	}
-+
-+	return 0;
-+}
-+
-+static int zinitix_read_point_status_mode2(struct bt541_ts_data *bt541,
-+					   struct touch_event *event)
-+{
-+	struct touch_event_mode2 event_mode2;
-+	int ret;
-+	int i;
-+
-+	ret = zinitix_read_data(bt541->client, ZINITIX_POINT_STATUS_REG,
-+				&event_mode2, sizeof(struct touch_event_mode2));
-+	if (ret)
-+		return ret;
-+
-+	event->status = event_mode2.status;
-+	event->finger_mask = event_mode2.finger_mask;
-+	event->time_stamp = event_mode2.time_stamp;
-+
-+	for (i = 0; i < ARRAY_SIZE(event_mode2.point_coord); i++) {
-+		event->point_coord[i].x = event_mode2.point_coord[i].x;
-+		event->point_coord[i].y = event_mode2.point_coord[i].y;
-+		event->point_coord[i].width = event_mode2.point_coord[i].width;
-+		event->point_coord[i].sub_status = event_mode2.point_coord[i].sub_status;
-+		event->point_coord[i].minor_width = event_mode2.point_coord[i].minor_width;
-+		event->point_coord[i].angle = event_mode2.point_coord[i].angle;
-+	}
-+
-+	return 0;
-+}
-+
- static irqreturn_t zinitix_ts_irq_handler(int irq, void *bt541_handler)
- {
- 	struct bt541_ts_data *bt541 = bt541_handler;
-@@ -451,8 +563,7 @@ static irqreturn_t zinitix_ts_irq_handler(int irq, void *bt541_handler)
- 
- 	memset(&touch_event, 0, sizeof(struct touch_event));
- 
--	error = zinitix_read_data(bt541->client, ZINITIX_POINT_STATUS_REG,
--				  &touch_event, sizeof(struct touch_event));
-+	error = bt541->read_point_status(bt541, &touch_event);
- 	if (error) {
- 		dev_err(&client->dev, "Failed to read in touchpoint struct\n");
- 		goto out;
-@@ -682,13 +793,19 @@ static int zinitix_ts_probe(struct i2c_client *client)
- 		bt541->zinitix_mode = DEFAULT_TOUCH_POINT_MODE;
- 	}
- 
--	if (bt541->zinitix_mode != 2) {
--		/*
--		 * If there are devices that don't support mode 2, support
--		 * for other modes (0, 1) will be needed.
--		 */
-+	switch (bt541->zinitix_mode) {
-+	case 0:
-+		bt541->read_point_status = zinitix_read_point_status_mode0;
-+		break;
-+	case 1:
-+		bt541->read_point_status = zinitix_read_point_status_mode1;
-+		break;
-+	case 2:
-+		bt541->read_point_status = zinitix_read_point_status_mode2;
-+		break;
-+	default:
- 		dev_err(&client->dev,
--			"Malformed zinitix,mode property, must be 2 (supplied: %d)\n",
-+			"Malformed zinitix,mode property, must be 0, 1, or 2 (supplied: %d)\n",
- 			bt541->zinitix_mode);
- 		return -EINVAL;
- 	}
+   linux,keycodes:
+     description:
 
 -- 
 2.54.0
