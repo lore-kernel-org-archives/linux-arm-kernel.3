@@ -4,130 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5580C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F166CC5516E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eym2HDx2N3xRiFaoTQyng5PelDkIJBOhdpfYXq9Blig=; b=zAPIhiEnGtEGDdlCNUf4DzeeF9
-	rhE2+YfnyL74f8P/T2KS6oiGIW2wMRbzDWvDpFfac8MXH0RH/s06dz2aUqic28qTYK64+gYK3UITh
-	KJBiJ8u2jF9n8teQNjnLisJwGh2oQzn36TEtIydSBl2Lvf1a7buARTQM6C461Luh5bL6WfmB2+dCf
-	6o3+BnyHGmw+TSayN3xBTZ62HxggPJ4IEtxzEwg+hvawEUwU1TGSfN7QKDLpj3Z2SESyORURw+Ntr
-	VpcLggZgAHs1L+1dtvimeInonWy9jL96MADA1E8VuQ97eUhM4p8e/7eswEG0vzKYTf4UbZRkWHpsF
-	CozZ6n9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GqFouO/Y0c5A8aRED0hGU8nzTxnUOhLbljZSc3SPdr8=; b=sy26cP7PCG3u/YqUXNURFRedpP
+	26ETRDiIiucEMVM6ebnVooOgybal75PbDZiEkp7qR/XJt2ERc5xwiF6jK1RHFPu6Z7zD0pmV0+lVf
+	6grvJOhMhp/IV2xz9XOe0HvhgkRF+UFrmLIHPVno94GdIuJlpvyTdtCIb1HUzJyyhPA6IPtRKN4lr
+	F1Fu/PG3+nZVYCHb7I27BCZG/j3TQ3iKIJhgfMACqQ06EWXkLv10VLgHuXlSSY/UhJ8jSoIi4SOiU
+	n66ICzSDssrbJ5CRn9WOmI6GW4Sp/DPnaQ8aPwG7vw243gXTKYDRMuRxRVHxjG+mp0Nn0C+zwNTMX
+	VTX56QnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpW1O-0000000BCAc-2rOB;
-	Thu, 30 Jul 2026 19:02:22 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wpW4N-0000000BCZm-1wud;
+	Thu, 30 Jul 2026 19:05:27 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpW1L-0000000BC9s-0Nkq
+	id 1wpW4K-0000000BCZA-0RO8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 19:02:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bw2QWyl4S0tVKZ7Z4lszADaHukkkCY8SbcbuPLco5XbHL3A4fvbWgNc6DvwBqxWwVKMqfP2ZFv7NwDzjX2LNK/bCUTSDmW87SWt4LrXtVrftaWp7LCjDf3LKzfYbDajKGPBK1yvBBpDimzKnEMrcX2CAzrRsnRTK4Uyxx0dFahj4HHLTjN7ch9qb9cBblKo25hy+Htqnj39d84L5iWM6XUJFFCjZfPagJtPzxaMhB5LE5uM4m+cvL9cU+Kf1BbuRyskTE3X52RSjV4+Tvp32bJdSDSrOGixFvZce2+p/+plAsTHbqWzzmiuO78c6U3UhBRnZK55td6LDUaFyVaflNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eym2HDx2N3xRiFaoTQyng5PelDkIJBOhdpfYXq9Blig=;
- b=wRwp3Wqq1LfGtyRbPAXFeCu7a0iXF4ZJyZ61fsDqNn+cl9y+Vs4zbANvBMSHUk9qdGRpRwV8105s581ih0rKVpIkKb/Xut8xXPUB1KMWfaDwJ0cNqdgJG3DhN34vgWHtqH6frffo3ZparphSY05afZBHy8znKUwXh4U51Wan0X++U1vE6L+447RQ07aJ4TwhRatSk13dnD92uibQ5FRagCJxK+kNzMZiuKt9PhA9OUX3C4Lq20vNHTewpGQAku13Cmw3fqYSANFYWXlBR3yWGgoGarZDYsUgIyl6CR8L2VRCed8CqXXPhzF5IllJzCzqvPwkaWzCamES/jsE6cTenQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eym2HDx2N3xRiFaoTQyng5PelDkIJBOhdpfYXq9Blig=;
- b=AAA3wVy0u7EdtKMXWdmL0VHRE1n1cR3jwVoJYrHsa4IhJlgHpwM/Afu2myHO7Behsgom5a/f75SeyRnaH+ZgJGGh60AFIcB7eiPkam69m7gZ9ODEDy9qnje/cMUYZYBRzgBiNiHXii1JRxFGKbSaHaOqDWzzr+uRD1liaUMh/qh5cEUsQCoWZPcPUUjsvDRSPyLBlIl/EgccKpaW9NJGFzzLqJECM+1k1SigeP9vjYNKW6IN6NrLhcnZGHJ9BroDs7YObZBjwPlNyFaxrOxerb1tg00B/svA56LVzYGXcnxhqj82F/QTNyytZnytIYR5SAESHonPPAIJTIuTMfIgVA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DB9PR04MB9776.eurprd04.prod.outlook.com (2603:10a6:10:4f0::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Thu, 30 Jul
- 2026 19:02:14 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
- 19:02:14 +0000
-Date: Thu, 30 Jul 2026 14:02:05 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] serial: imx: serialize imx_uart_ports[] lifetime
-Message-ID: <amufrR-1hop2pZOz@SMW015318>
-References: <20260719221014.44354-1-kmehltretter@gmail.com>
- <20260719221014.44354-5-kmehltretter@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260719221014.44354-5-kmehltretter@gmail.com>
-X-ClientProxiedBy: SA1P222CA0163.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c3::22) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
+	Thu, 30 Jul 2026 19:05:25 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UGWfnA1377596
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 19:05:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	GqFouO/Y0c5A8aRED0hGU8nzTxnUOhLbljZSc3SPdr8=; b=QpUixNTyrWH4KVoV
+	tVDCeqi0jYtHrpR/Z5/f0oC18+A+6h/iU14wotg513bT/EzpJ0HPkhpBVtA04Zw0
+	r1g77haoJwdtQt+QGcQbaXdtynhR+TJoxHr5MZDIRlbDNy3lHKjtI1W3ZFfCx77O
+	xcDxK220a1yqlEffKUy6vq5fJdQxRDLW2T/0FO98YBBVFZ79Yb+p0Y/GrXooFF1I
+	hEriF+By07dbkwiisoCL89jA6GvJi9i0ubDZeQkK9hpyjrAQXKs3x+yrM/nZHNlx
+	maGZxd5DUdJw++//nv8+h6Rw1sRCgitbC4Trot+SHsgBqg/HrVfebvD+k7um8Qmu
+	EyQ+DA==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fr8jmscmq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 19:05:22 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cb733fc5024so170253a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:05:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785438322; x=1786043122; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=GqFouO/Y0c5A8aRED0hGU8nzTxnUOhLbljZSc3SPdr8=;
+        b=bYCFTIb+A1PebGz0ahlc7XLMVrEQIjPdZGMA7ajtsGf7gsdV3vb8SpS5/csZJ+wTBQ
+         Rqx/1M1s7ulL7LwBNv/C/ksqZOXBElOcVhQSzikkdoodRucHoRbcbznRD+xpnx3CzGjv
+         15YcLquMqdMurrHQSjiV4B5VFRNS490x6Tcm4cWZ+VJPpHsEbzo9huGk8HdE0ZdHEgpd
+         oayOgrWtlmZcVlmSZqSylx3530JGc5klKv0HMTlUfavGCZNWAYlWKn7iSPzIFS2HeSCz
+         lXk+AvfwyGX3Urik8M7W2Q4iPiVlNwo0MNjEa7xWzAXmQ49NrInZK4M7Oy1Bbaz22rBQ
+         fbyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785438322; x=1786043122;
+        h=content-transfer-encoding:content-type:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GqFouO/Y0c5A8aRED0hGU8nzTxnUOhLbljZSc3SPdr8=;
+        b=ToPxqRvvbdlLf3l4kM33vry+JTRVHSETtmp732f+Zc1Uq1YwU0zlaAIZQrDljks0li
+         OhjrfIDF2CQjA5WoVdP5mwqPHTmPZ8lq6lyRY4yxg+74F+VsjoE1TIZEfhIOYNMP3cdS
+         T84bYgshf6Rhd606Qj7Nyh/NWHxaNrzxV/3kus6IUjzzSjBRMD3T6KCZ8X7Z7a5hTMOE
+         Z8uzgf6ymLmOAeSLS7N4m8/t6AaHrsGDjNZXg+GDGnOh6ORaunx13rsZ1OsCjJUjx17Q
+         Pdvm0/ItRT8gpA+mrGG3JB0zx94K77Vje9RBka/oTEwc7o/InJl9/RLWPPs+o+MgNjh7
+         foWQ==
+X-Forwarded-Encrypted: i=1; AHgh+Roy3zArh9UMx+4p2zJVyMnXSu5n1PQ8d3Fxq3Z2eqnkpHEhUbib45nL+QZ6YgKvY1T74A/g8assWwHdB3J0Q/Mp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHvXXKxz3YSLIHuXo2cDzvrG1chTQun3MCdeBhJ9jG1DjcZ86D
+	V1FsjZOX7/Y/icEnXpa5d1b1BpqxJhzbZFbRjbFACNTTRZrUO0mjmjX6WlZ+dCUs5Nsnc6r8ArS
+	i2DJMGg2DZP3CRBNLtX3A2jnXnCJTkqxZqMjVVjZYOriMkHnoE/+UL7GUIlJByFyR2eDo+EjmsL
+	Bluw==
+X-Gm-Gg: AR+sD11cChpzEgitmYunUUYo9KGcgyTFzBWbrIDdhET9UETLRxuQqIhVE+/forH+aUI
+	fpN737NfV7DmqIVDGlnY0Niu08+15fP7HAgmCYrqAiUlJatCeHZyImqvMbIJOX8TEaZ0XSvaAx9
+	dfKLl+UUSRDoHFqgOjiSTyauieEaIQg9e8urLc9MsFqU0Ie8V9B+idtoJxQXTvzv6gNQ3gkGgRK
+	Ualq8G5NaJJGgTf4yyCGGCOIKgQ9b65WeyiYUu4jW5MMmfUVspIo1qSLGcEGDLKHTZSFPsbH5vm
+	7wgN213d94HHcc+I34ZBU+ts+BQPOAZMMUI4WNr62oZioK3JsqrOeS4bq4nQK+LJ8a0uP1oo9DQ
+	SSAyY0I86zdLBMYatps+N1s/J8A==
+X-Received: by 2002:a05:6a21:692:b0:3a0:bc61:62e6 with SMTP id adf61e73a8af0-3c90d3da39fmr1381071637.8.1785438321816;
+        Thu, 30 Jul 2026 12:05:21 -0700 (PDT)
+X-Received: by 2002:a05:6a21:692:b0:3a0:bc61:62e6 with SMTP id adf61e73a8af0-3c90d3da39fmr1381039637.8.1785438321357;
+        Thu, 30 Jul 2026 12:05:21 -0700 (PDT)
+Received: from localhost ([50.35.46.84])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31504b15f77sm25603658eec.4.2026.07.30.12.05.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 12:05:20 -0700 (PDT)
+Date: Thu, 30 Jul 2026 12:05:16 -0700
+From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Hanjun Guo
+ <guohanjun@huawei.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>,
+        Catalin
+ Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        "Rafael J
+ . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+        James Morse
+ <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+        Reinette Chatre
+ <reinette.chatre@intel.com>,
+        Fenghua Yu <fenghuay@nvidia.com>, Jonathan
+ Cameron <jic23@kernel.org>,
+        Srivathsa L Rao
+ <srivathsa.rao@oss.qualcomm.com>,
+        Ganapatrao Kulkarni
+ <ganapatrao.kulkarni@oss.qualcomm.com>,
+        Trilok Soni <tsoni@quicinc.com>,
+        Srinivas Ramana <sramana@qti.qualcomm.com>,
+        Niyas Sait
+ <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+        Ritwick Sharma
+ <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 08/10] arm_mpam: add MPAM-Fb MSC firmware access
+ support
+Message-ID: <20260730120516.000059aa@oss.qualcomm.com>
+In-Reply-To: <20260730152539.2712312-9-andre.przywara@arm.com>
+References: <20260730152539.2712312-1-andre.przywara@arm.com>
+	<20260730152539.2712312-9-andre.przywara@arm.com>
+Organization: Qualcomm
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DB9PR04MB9776:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c61c763-b6fe-4e23-47fb-08deee6d109c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|19092799006|10067099003|4143699003|5023799004|11063799006|6133799003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 1cLdSufxYNtWuQOfBKLGJbGC1yRAm+bxdSQA5CqIXPS9jee8hMwHSWOoFwqkoEYQRsOaoX1RkQOAOdq+mpKGtDVSy4b7SCtaQF9MNvJo3M6BtRfBhLeGGCJu9CvsL2YGRPaNP/8xLbnNqkHniCx9dsVnynrxu4e3aJ2xWZ0DcoDquG9PVz7SLnN9HK9yaoZbTloSSHjrziu02aYMAHiLMaXCicYBsfdEqIAr8eFxa9YDV+u/Qootx9fksoxhf/A4CvDYo0Shk9GBcfNvkteBYh4Otjb9AQ64m3IPk6a4arxrWT028NZ8YX2Fj3bYlL3YWP2i4HGwBPa7QjRjXYW3kQGTkv1mWOk6o5L0sQLafT3lLfKfCgPd/497ZfxYDmna1ymtMDXAPgD4oC7NIoooSe0QebgGI7y/OusPyIBVam04aSXsmsIhI/ArVSnUybM+04viD3swb6agdEXh+xbM1YrVQwXzql7GMGw1gKkwdbsTlt/GxoJfRiwQyX/Aw+G3liRGynSyktMZV4+fBOydlAGk3ayR3mX2NdAPQIcx6UnjxY6+Do6VWzFGyjHrKdYB87tYo9TlpgfxYqBXL8gcJ2mQc8LPIuPTmP07z9PCYirmFEqGQ8t30tiSVHkEEAkm
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(19092799006)(10067099003)(4143699003)(5023799004)(11063799006)(6133799003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ijyym7k1cqq64OV/R+UWveBzH2sfmSptjpHsMsU1AR6jtWwRZbcjyxPv59UJ?=
- =?us-ascii?Q?p0P8J7F5xtYzYBUMGP7atzGc81jbnFP9JS1xWDFY0xAzxJoxMMCjOl2Fs0H9?=
- =?us-ascii?Q?1KPoikZMIYZkFAwrl1pckiyr0mlemsk947WvLOPHleWE4UdBXodtD8EMP1EO?=
- =?us-ascii?Q?50cY4F0ik2dcB85HfKFy0K/SPzCGBOJlwvCPC4x+f2KTkUOY/COiY2OrSiO3?=
- =?us-ascii?Q?CF7mEaR/4cOEoinqxBXI+t7VVNzRzgvx6Cm1nbayxeyLckEkZiub5Kj+sYCD?=
- =?us-ascii?Q?4ekx2S86qb96xzzUjP/xhD1KI9wI1w5kHLM0qtC/4VNI6t/qeUyQlOdCwSZU?=
- =?us-ascii?Q?Y/g7xWnwmHMI0NYKKwsWyUTshIP6nQ56u38TuKTW0onW3bHo+ao1fl9Dsw7k?=
- =?us-ascii?Q?vi+veEauiazTr0dK7WCy808OO7hq+AKYpTCSDGEBNpzNbhegPhMjP3wTG1mI?=
- =?us-ascii?Q?PJz+T2TmTwoLq5x2hD2KXAL5OQyXjYR/LjT1WqM0W/e8RSTkb7RpnFF4phMU?=
- =?us-ascii?Q?WsI7qCbFYPCjJyvZgxXMvqE3gpdal20YdYtj64NSIqY41A82olSoPgbA4jgF?=
- =?us-ascii?Q?hc/awxnPsmgAhr2LlwQPpbCLG7fXh2HEO3CB36vKmayAPkjZDdr45tfZgmrA?=
- =?us-ascii?Q?sUsJSjZ9QgXSDoQNytHmYpi79WN5esm8+Or7hiJjH6EwcO0/h5oD5PdE7/+O?=
- =?us-ascii?Q?hjDWu10AlqJVvcQndaKZjNxfZya3gfZR329657oX2Oqf7dwU+tWUzZVo2DPv?=
- =?us-ascii?Q?w3upXY7Jlm6DQ7DT7tpWd6yT1/lQ0yCEU2av4bAVn5MBdiAwk2dFdmTIzmCu?=
- =?us-ascii?Q?q/kmH7b8PqxO8q4MRxSMiTswxvNiivHCc/5MqYLCYT+cxS3YFOuLD/tZWFFs?=
- =?us-ascii?Q?OAVbQo6sot2CdN28aMZNnIC4v47PNtT1xBDAA/LxlBdzWJzPKS+jCLqY2XFh?=
- =?us-ascii?Q?QwzEVHK+DAS/adhUD79kTjzNw7QFWey5i0yUgY11vK4MAFMJ9uPzn5oI5hI2?=
- =?us-ascii?Q?jmS3yHaZIxhBwYEjZ63/hUfAcgvGF26FFMw0pLKNG+GPMy3ql8Ba6oZin59H?=
- =?us-ascii?Q?N1N7jSgwHY0RcczKUvXhwOWyuZPjyQr0lRHfbaR9MqIPidQNoEwJd3GIPa5R?=
- =?us-ascii?Q?0V1ItFdB95EcUDqbW45ALVh/uOGMBt/Pk4bJNazOujQlibLKBMcefQ2mHseQ?=
- =?us-ascii?Q?SQNrSTu5aggbTLSN6ff3j0eUlgFw0Wan3cT0Y5yGTGQ7PREnl2gpS5X37h3w?=
- =?us-ascii?Q?SP0i5W6MIpVabOpVmy1Uefr1actOYLXE+eIO9bPQJ3hZ7KiwvokqOt8gMqeY?=
- =?us-ascii?Q?VFc2PdtLYEJnh7Q3FhJtferQTKDKFn4yCtpBgnW/G2uIGqDrmdP/+1Xz/As8?=
- =?us-ascii?Q?cAswNUWscLuhGTyIUaknrcfxGsSTRw2PaKbGm9LTk6G+K/mAXOqLT54W31Ue?=
- =?us-ascii?Q?JUE3FVOHBZMUzD6EMg4A/vQptb9T8Yb56IdYyOnP1FsNk6YejfQTZjXqF//K?=
- =?us-ascii?Q?dc5k6XGs0qcJkt2sKhYNfvXqPtnldbsGFytcvK2rHzQJUJaAVCrjt82oJRnm?=
- =?us-ascii?Q?gagEXHumSxcE7elUseFUSvt2kX9g/BkbYCWYuOeCbyqOoxZ8vgvWtYmSGd/b?=
- =?us-ascii?Q?i1c9Tji1cobuYoMiAX2IiMI890tnuxBeZgRz9UZJ7bZmDhUtUoMMqUiOAVmu?=
- =?us-ascii?Q?Y3VM5TOa1ZE09X5Fhy2aWNHhDhTCrqz7zHs0ZM9R11wEY32OaKFEj7DX8rkA?=
- =?us-ascii?Q?umG4AFUM/7HpDvLLQxRyumruC7WZRv8PxfNV30V0CNWeMZdiBnGs?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c61c763-b6fe-4e23-47fb-08deee6d109c
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 19:02:13.9420
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AJ4Sn9vWmntwJz3zECchQqU4NZSQpBBVjAbj2zyTQU5Ex2S2PAvFfRBzg4gzXJ1v5QQH1YP+vfc9X7JKkTV3Urx3JCNWGHE1/p2/qyz2UyjvBTFvvS3K6QzizkZTahAT
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9776
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=V4tNF+ni c=1 sm=1 tr=0 ts=6a6ba072 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=irsnRLeOcCLjm4-ghIcA:9 a=CjuIK1q_8ugA:10
+ a=3WC7DwWrALyhR5TkjVHa:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: glkKmjflPGqFVA4j3xrrvIJg5045GVNu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDE0MCBTYWx0ZWRfX4HxWI96WhFhz
+ 2wPIfpeOQ72UWdkm9yoWH39/dhB5xp+lq+xhxkB4IDANilr3OjFljCbJeSXNDOWE5PX/Lxy/HRw
+ C+/lhYTEUbrRY/cpjGlBGh9bUfnppPAHJXua2/EQyRtS5B4kIuQdP8ruNDawCMKaCuYc0mJ4Fjf
+ lEvaSozi2qCTzWZKAVcRuU5Untf3ygJCIlKY6rnMdKraAljzaKApYUzAawMccaWfK+831M975gQ
+ iMIWSonPOs+Bq7CoSSinGPKKJ06pMN9sFf5EiDD4WbsW2oALZyHLwVbLWElkLmHEE+P3qLImZ9X
+ 4PDMWKyLrf3IRUQ0+E3s6kso0SNctdZ2uLkSKy6pG/icyPXDWlX4pCPhARTko51KfV4UTRlI91j
+ oSiGW+wEn2PKHcWASBzrw6X5j1Z9SBEcnpFGp0SRLjumAq8qlzdN4S0MhkiH6lzfY9ZRtJANPBh
+ Mw/isFhXhQhDvmoP5uw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDE0MCBTYWx0ZWRfX/4ZUan2K3U5H
+ BgZEDC17qvOgxe4ts+nMqIhu1FTsib6krHbFpj7isjC2xICERGfsOqANyQZrFHj4p9uFaKmIxFs
+ fQeimv4bWmHGlwX44+0Ximw8xxmt+PA=
+X-Proofpoint-ORIG-GUID: glkKmjflPGqFVA4j3xrrvIJg5045GVNu
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-30_05,2026-07-30_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 bulkscore=0 impostorscore=0 suspectscore=0 phishscore=0
+ adultscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300140
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_120219_140629_E38BBBFC 
-X-CRM114-Status: GOOD (  30.89  )
+X-CRM114-CacheID: sfid-20260730_120524_271041_1322C8E4 
+X-CRM114-Status: GOOD (  29.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,129 +174,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 12:10:14AM +0200, Karl Mehltretter wrote:
-> [You don't often get email from kmehltretter@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
->
-> imx_uart_probe() publishes the port in imx_uart_ports[] before
-> uart_add_one_port(), because console setup during that call uses the
-> table. The entry is not cleared if adding the port fails or after
-> imx_uart_remove() removes it.
->
-> The port is devm-allocated, so a failed probe or unbind leaves the table
-> pointing at freed memory. A later registration of the shared console can
-> then dereference the stale entry. Reproduced on QEMU's mcimx6ul-evk by
-> unbinding a sibling UART, unbinding the console UART and rebinding the
-> sibling:
->
->   BUG: KASAN: slab-use-after-free in imx_uart_console_setup+0xd0/0x3d8
->
-> The entry must remain valid until uart_remove_one_port() unregisters the
-> console. Clearing it afterward without serialization still races a
-> sibling probe: the sibling can register the shared console using the
-> dying entry before it is cleared. The next console write then
-> dereferences NULL.
->
-> Use a driver-wide mutex to serialize table publication, port addition
-> and rollback with port removal and table clearing. Console callbacks
-> remain lockless because uart_add_one_port() may invoke setup while
-> probe holds the mutex.
->
-> The probe-failure path also relies on "serial: core: do fallible
-> allocations before the console can be registered", which moves the
-> uport->name and uport->tty_groups allocations before console
-> registration. Both changes should be backported together.
->
-> Fixes: dbff4e9ea2e8 ("IMX UART: remove statically initialized tables")
-> Fixes: 9f322ad064f9 ("imx: serial: handle initialisation failure correctly")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Link: https://lore.kernel.org/all/20260719162850.043B41F000E9@smtp.kernel.org
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-fable-5
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
->  drivers/tty/serial/imx.c | 21 +++++++++++++++++++--
->  1 file changed, 19 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-> index 251a50c8aa38..def874f9cd00 100644
-> --- a/drivers/tty/serial/imx.c
-> +++ b/drivers/tty/serial/imx.c
-> @@ -22,6 +22,7 @@
->  #include <linux/clk.h>
->  #include <linux/delay.h>
->  #include <linux/ktime.h>
-> +#include <linux/mutex.h>
->  #include <linux/pinctrl/consumer.h>
->  #include <linux/rational.h>
->  #include <linux/slab.h>
-> @@ -2080,6 +2081,15 @@ static const struct uart_ops imx_uart_pops = {
->
->  static struct imx_port *imx_uart_ports[UART_NR];
->
-> +/*
-> + * Store the port in imx_uart_ports[] before uart_add_one_port() and clear
-> + * it only after uart_remove_one_port() returns. Console callbacks in both
-> + * calls use the table, so this mutex serializes these sequences between
-> + * sibling ports. Callbacks must not take it because uart_add_one_port()
-> + * may invoke setup while it is held.
-> + */
-> +static DEFINE_MUTEX(imx_uart_ports_lock);
+On Thu, 30 Jul 2026 17:25:37 +0200
+Andre Przywara <andre.przywara@arm.com> wrote:
+
+> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
+> alternative way of accessing the "Memory System Components" (MSC) in an
+> MPAM enabled system.
+> 
+> Normally the MSCs are MMIO mapped, but in some implementations this
+> might not be possible (MSC located outside of the local socket, MSC
+> mapped secure-only) or desirable (direct MMIO access too slow or needs
+> to be mediated through a control processor). MPAM-fb standardises a
+> protocol to abstract MSC accesses, building on the SCMI protocol.
+> 
+> Add functions that do an MSC read or write access by redirecting the
+> request through a firmware interface. For now this done via an ACPI
+> PCC shared memory and mailbox combination.
+> 
+> Since the protocol used is only a small subset of the full SCMI spec,
+> and the SCMI protocol has no full ACPI support anyway, open-code the
+> (simple) SCMI message generation, for just the fields we need.
+> 
+> [1] https://developer.arm.com/documentation/den0144/latest
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+On trivial style consistency comment. Otherwise looks fine to me.
+
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+> new file mode 100644
+> index 000000000000..e2ce28a602aa
+> --- /dev/null
+> +++ b/drivers/resctrl/mpam_fb.c
+...
+> +static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 msc_id,
+> +				u16 reg, u32 *result, int mpam_fb_command)
+> +{
+> +	unsigned int token = atomic_inc_return(&mpam_fb_token);
+> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem;
+> +	struct pcc_mbox_chan *chan;
+> +	void __iomem *payload_ofs;
+> +	int mpam_fb_err = 0;
+> +	u32 status;
+> +	int ret;
 > +
->  #if IS_ENABLED(CONFIG_SERIAL_IMX_CONSOLE)
->  static void imx_uart_console_putchar(struct uart_port *port, unsigned char ch)
->  {
-> @@ -2632,11 +2642,14 @@ static int imx_uart_probe(struct platform_device *pdev)
->                 }
->         }
->
-> -       imx_uart_ports[sport->port.line] = sport;
-> -
->         platform_set_drvdata(pdev, sport);
->
-> +       mutex_lock(&imx_uart_ports_lock);
-> +       imx_uart_ports[sport->port.line] = sport;
->         ret = uart_add_one_port(&imx_uart_uart_driver, &sport->port);
-> +       if (ret)
-> +               imx_uart_ports[sport->port.line] = NULL;
-> +       mutex_unlock(&imx_uart_ports_lock);
+> +	if (!pcc_chan)
+> +		return -ENODEV;
+> +
+> +	chan = pcc_chan->pcc_chan;
+> +
+> +	/* prune token to fit into the 10 bits inside the command register */
+> +	token = FIELD_GET(MPAM_MSC_TOKEN_MASK,
+> +			  FIELD_PREP(MPAM_MSC_TOKEN_MASK, token));
+> +
+> +	mutex_lock(&pcc_chan->pcc_chan_lock);
+> +
+> +	switch (mpam_fb_command) {
+> +	case MPAM_MSC_WRITE_CMD:
+> +		mpam_fb_build_write_message(msc_id, reg, *result,
+> +					    token, chan->shmem);
+> +		break;
+> +	case MPAM_MSC_READ_CMD:
+> +		mpam_fb_build_read_message(msc_id, reg, token, chan->shmem);
+> +		break;
+> +	case MPAM_PROTOCOL_VERSION_CMD:
+> +		mpam_fb_build_version_message(token, chan->shmem);
+> +		break;
+> +	default:
+> +		dev_err(pcc_chan->pcc_cl.dev, "unsupported MPAM-Fb command %d\n",
+> +			mpam_fb_command);
+> +		ret = -EINVAL;
+> +		goto out_err;
+> +	}
+> +
+> +	ret = mbox_send_message(chan->mchan, NULL);
+> +	if (ret < 0)
+> +		goto out_err;
+> +
+> +	pcc_shmem = chan->shmem;
+> +	payload_ofs = chan->shmem + sizeof(*pcc_shmem);
+> +	status = readl(&pcc_shmem->command);
+> +	if (FIELD_GET(MPAM_MSC_TOKEN_MASK, status) != token) {
+> +		ret = -ETIMEDOUT;
+> +
 
-ret = uart_add_one_port(&imx_uart_uart_driver, &sport->port);
-if (ret)
-	goto err_clk;
+Slightly odd style. I'd drop blank lines in places like this.
+They aren't consistent as things stand.
 
-imx_uart_ports[sport->port.line] = sport;
-
-return 0
-
-and at imx_uart_remove()
-
-imx_uart_remove()
-{
-	imx_uart_ports[line] = NULL;
-	uart_remove_one_port(&imx_uart_uart_driver, &sport->port);
-}
-
-Is above sequence to avoid use mutex?
-
-Frank
-
->
->  err_clk:
->         clk_disable_unprepare(sport->clk_ipg);
-> @@ -2647,8 +2660,12 @@ static int imx_uart_probe(struct platform_device *pdev)
->  static void imx_uart_remove(struct platform_device *pdev)
->  {
->         struct imx_port *sport = platform_get_drvdata(pdev);
-> +       unsigned int line = sport->port.line;
->
-> +       mutex_lock(&imx_uart_ports_lock);
->         uart_remove_one_port(&imx_uart_uart_driver, &sport->port);
-> +       imx_uart_ports[line] = NULL;
-> +       mutex_unlock(&imx_uart_ports_lock);
->  }
->
->  static void imx_uart_restore_context(struct imx_port *sport)
-> --
-> 2.53.0
->
+> +		goto out_err;
+> +	}
+> +
+> +	mpam_fb_err = readl(payload_ofs + 0x0);
+> +	if (mpam_fb_err < 0) {
+> +		ret = mpam_fb_translate_error_code(mpam_fb_err);
+> +
+> +		goto out_err;
+> +	}
+> +
+> +	if (mpam_fb_command != MPAM_MSC_WRITE_CMD)
+> +		*result = readl(payload_ofs + 0x4);
+> +
+> +	mutex_unlock(&pcc_chan->pcc_chan_lock);
+> +
+> +	return 0;
+> +
+> +out_err:
+> +	mutex_unlock(&pcc_chan->pcc_chan_lock);
+> +
+> +	mpam_fb_disable_mpam(ret, mpam_fb_err);
+> +
+> +	return ret;
+> +}
 
