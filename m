@@ -4,60 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17C5C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 06:01:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CF60C531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 06:06:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JnBP3MozLqB78h8Vck0oTx7eKSL7wBDDqu2AWcK27iA=; b=nH7D0BmbushCmbGqJv7h7U0xRi
-	F2b828hFaMS0zOt0aNX922wSuLiSPDC08MSDB78/3jAj5pxZ3W7uWLhEFLxPdfUHZtxNuL3oH5EXf
-	66uV/iaKLVheK9PuGosh2Sa99+33EjAb0eDaOowksWWz234XA9WzvpVM4STLJ8lgLMheNWnxHAAD+
-	2QInJaG358EtR7m9x/XnhZ5DFcggeULE4+vUqyC6xl2AxFXJNSWsKjxB+oamm2997x9jbRQjwAoj5
-	OwXJVWdOmDts1IPaE75CAMgMyPyWpHJTED281APaTTAL716YcCDavHxwPOCbLHkcGUooGlBkTglSb
-	K71jmArA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fSKpK5beRJSFXxCftlJ/6i2fmlt/3JwNSqzLkzUOYIs=; b=D7OikiV1Fc/phRFAgekI7EU9zG
+	n8DsP1KYvOaZ+yfKRrvA/nrf3oHjeBwwwGQZWA4kfiUDC7QiJxDPAOf3UQK3LKdGOz/Lrl1rA6Hm/
+	NGTZYsOvokSEd/vRHU1akph74Fxl9wCmVwMH+WHJVU/ap/8lz8PczKaxGdPbJYDY3O9QVppVXE0kT
+	UtaCcGVgZRe48NavdP+f5kqeKrToOaKyr/9dL3nIXONGefbt7827Wd76NajJVba+3qvggPQIalmz7
+	uoJ2j2FO0fwGU+ZBACQMfaWvdgRBiv+FUQbn1oZrppcXkf6QxKokKylkc9hfBL+o6DrJ3Z5zlfrCG
+	9nsV8R6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpJpw-00000009Zbv-32jc;
-	Thu, 30 Jul 2026 06:01:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wpJuP-00000009ZsC-113B;
+	Thu, 30 Jul 2026 06:06:21 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpJpu-00000009Zbl-2r4I
+	id 1wpJuN-00000009Zrq-1gTK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 06:01:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B9C243F47;
-	Thu, 30 Jul 2026 06:01:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90A4B1F000E9;
-	Thu, 30 Jul 2026 06:01:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1785391302;
-	bh=JnBP3MozLqB78h8Vck0oTx7eKSL7wBDDqu2AWcK27iA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T32GjTBodZ9btouiLBlZdPBy/C4hYgkSgYPQxjc97tzXgEjrIaKsNW8kjg9sd08w+
-	 hM0rJL6pxpOwpHo8tl4DzCKAIRtLnp+WqivpY26rARytw3DyC90kFzF4e7EcnXEhue
-	 9m+/vYUB92uhPFepVsDTxM5trc5+FDz1uwarKa6U=
-Date: Thu, 30 Jul 2026 08:01:28 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Neal Gompa <neal@gompa.dev>
-Cc: Danilo Krummrich <dakr@kernel.org>, Russ Weight <russ.weight@linux.dev>,
-	Luis Chamberlain <mcgrof@kernel.org>, asahi@lists.linux.dev,
-	driver-core@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>
-Subject: Re: [PATCH] firmware_loader: Add /lib/firmware/vendor paths for
- Apple ARM platforms
-Message-ID: <2026073019-emoticon-decidable-200e@gregkh>
-References: <20260730004759.3089449-1-neal@gompa.dev>
+	Thu, 30 Jul 2026 06:06:20 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66U3laV01933585;
+	Thu, 30 Jul 2026 06:06:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=fSKpK5
+	beRJSFXxCftlJ/6i2fmlt/3JwNSqzLkzUOYIs=; b=s8Uk9W8uV5FJtCx0SbDAh3
+	YNFN3+TeiruYlev0C/0DU/tf0DzMuHjMq2kOxnLx25pno10CX8HUptcMWsBfSXAo
+	9tGkKt4kAU1tLWoylL4JMu3jq4U56hndhVIvTTmgvsnoYKMCHBynzf5rPGZGstd7
+	PMq4lQ3Ljb6dO6MfSPWdRWifD3OLBdi+Ya9gvTKa12VvpunyiOM34qx4EGZn7hMX
+	yT0yaRhJT0MepDDBWdLJP+yeVUQBmZxRHYcg5upYbwWoJXTxo71Wd4CmMcEmQjXe
+	nyR3Mx5aqdqxMJHDnndbe6jAjKRaLrDO4slY+ECe/WNM+g5ssIaAcse3Q7Dkqibg
+	==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmv0xxa3b-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Jul 2026 06:06:08 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66U5uHWh012301;
+	Thu, 30 Jul 2026 06:06:07 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fn7fqj6wh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 30 Jul 2026 06:06:07 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66U663Rc35127580
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 30 Jul 2026 06:06:03 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 72E832004D;
+	Thu, 30 Jul 2026 06:06:03 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 10DBC20043;
+	Thu, 30 Jul 2026 06:06:03 +0000 (GMT)
+Received: from [9.224.76.67] (unknown [9.224.76.67])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 30 Jul 2026 06:06:02 +0000 (GMT)
+Message-ID: <18ca706f-ef45-4207-a55d-025f90133978@linux.ibm.com>
+Date: Thu, 30 Jul 2026 08:06:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260730004759.3089449-1-neal@gompa.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)~
+To: Yang Shi <yang@os.amperecomputing.com>,
+        Ryan Roberts <ryan.roberts@arm.com>, cl@gentwo.org, dennis@kernel.org,
+        tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
+        will@kernel.org, david@kernel.org, akpm@linux-foundation.org,
+        hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+ <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+Content-Language: en-US
+From: Mete Durlu <meted@linux.ibm.com>
+In-Reply-To: <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: r-zTKHDUsTXOcFmf_-9wS5lhnkg_qTkD
+X-Proofpoint-ORIG-GUID: SOP_yvGrI1a3-1kuGNqQ95swD9gDixMk
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDAzOCBTYWx0ZWRfX3sdFvOaD+SK5
+ BwqMslyT06eKdSQz0oVVw1k7nVE1QnWBDNlUtJeG8OzEZn1Qwoo9TgP2LDtITB8K11bp8UHn33n
+ Yi+SYqS182tCyPn3xWE9dgJhNNaRla0=
+X-Authority-Analysis: v=2.4 cv=dYuwG3Xe c=1 sm=1 tr=0 ts=6a6ae9d0 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=U7nrCbtTmkRpXpFmAIza:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=cpGfkXA4JyvoFA7YCHUA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDAzOCBTYWx0ZWRfX5gMfbafa3aqX
+ NNjDEl9HOtJXNn4YfJJOTBdNIIC8zGhagzyCNDyk/MKfMb5upZKxisfIr4F7NvBQg1xaBcPQyNv
+ 46vDVGcFHsZvz6oM5aox1Wu2jAQXWZi+7ZoV/5dAmfE8cDa93FDH0Re4fTtIXlnHqkmNTojKxIp
+ MSMINRnnbCBPy0EJhnBzP4XQTVgxjMsqIuUhdnJ3diktuFy/wt7Wwp40O9F68IUluEiQXO5/7S9
+ eDQ9I+v86YpB6F5FwzVztmvgQV8nENbYPPyZKklzu2b+ZE9cVLNVyQ2aTkkurLiDMtUElHm0yqB
+ 55gNYq4GxIJcsYjXQ7QUnEBwxHurFePOj6BlQTekavxxKGzzBdtYKaTJ+4C6Eza0rl68n5cy+fC
+ ZLiVYWsF9IKSiD+qYRqfxKebYddG+4YKGZ9v8/KonRkZJYHycXOJAcJShzHh5i86D3exEA42k9e
+ 0rkzXrDM4oGWfaDZuaQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-30_01,2026-07-29_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 clxscore=1011 phishscore=0 malwarescore=0
+ spamscore=0 lowpriorityscore=0 bulkscore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300038
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260729_230619_459830_232DD08E 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,32 +130,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 29, 2026 at 08:42:58PM -0400, Neal Gompa wrote:
-> On Apple ARM machines (branded Apple Silicon Macs), there is
-> non-redistributable firmware provided in macOS that is required
-> for Linux to leverage the hardware to run properly.
+On 22/07/2026 01:20, Yang Shi wrote:
 > 
-> The firmware covers Wi-Fi+BT support, USB, hardware ISP, the touchbar
-> touchscreen, and the trackpad.
-> 
-> In order to ensure this firmware can be installed without messing
-> with firmware provided by linux-firmware and other packages that
-> put things in the tree, the empty "vendor" subdirectory was created
-> to serve this purpose. This directory is used by the asahi dracut
-> module as part of the Asahi Linux installation process to transfer
-> firmware from macOS to the newly installed Linux system.
+> S390 implemented restart sequence. Heiko didn't share too much benchmark 
+> data, just confirmed there is no regression and I had a lengthy 
+> discussion with him (https://lore.kernel.org/ 
+> lkml/20260520092243.264847-1-hca@linux.ibm.com/).
 
-Why is this needed when there is the ability for userspace to add their
-own firmware search path to the list today?
+Hi,
 
-We aren't going to keep adding random paths here, please use the option
-that is designed specifically for this:
+regarding performance numbers from s390 and Heiko's implementation.
+It is safe to say we see noticeable improvements on micro benchmarks
+but nothing really pops out on regular workloads.
 
->  * fw_path_para - module parameter - default is empty so this is ignored
+on 24 Cores - 48 CPUs
 
-Right there.
+1. Kernel Build
+---------------------------------------------------------------------
+time make -j $(nproc)
+~0-2% improvement - within noise ratio
 
-thanks,
+2. stress-ng vm ops
+---------------------------------------------------------------------
+stress-ng --vm $(nproc) --vm-bytes 128M --vm-ops 100000000
+~16% improvement on bogo/ops
 
-greg k-h
+3. stress-ng vm ops + fork
+---------------------------------------------------------------------
+stress-ng -M --mmapfork $(nproc) --mmapfork-bytes 128M --mmapfork-ops 10000
+~6% improvement on bogo/ops
+
+4. fork test
+---------------------------------------------------------------------
+stress-ng -M --fork $(nproc) --fork-ops 10000000
+~13% improvement on bogo/ops
+
+Basecommit: a2b94afeb516 ("s390/zcrypt: Replace get_zeroed_page() with 
+kzalloc()")
+
+Thanks,
+-Mete Durlu
 
