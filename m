@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CFCDC54FDF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B60EC531D0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rkX/v3XNeGygUT/8D/djMPKEGNmKX6+zsREBTK237l4=; b=QFCidzGuS0t0W6uF2dteCsEuHc
-	7IlDmrHXCygHgM/poAn7/s4GBCYoCgsttgP/CuSFIKyzT3LNdE5bQj+ytnr+xlBT1YX87KcVB2soR
-	rcklblYHxG93sPLPQPOklcDThEVJwq7HWWZR81+Uh7vbELThw4f8Ve1+Vu0LdDlq8WLaSQJrD2jmF
-	YEc/s5Dv1HDTDFokQb8jAzJyTvPFgSoYI9T9dsypg9V/aMBFJzlOSSCgSj98ol0AntENltkt2uVQH
-	EERmNUXhsUanI+HxK5bVNcIOVHsyAAFxsLiHgy0uXZjf6sa0qssKpxpnZsXesLEtI+IH+oQVwdLE0
-	hkHD/iKA==;
+	bh=J1JPH9AKZzJchBn7pDlPot8tRe7bTeB76GJZrx18aD4=; b=c8ynJXwyH3NkVY5iyZwK4Roqtm
+	TZrusGNs+GqfTzrv601CdufEyLONsd1RtuPDULPqw7Dcsnn91ib662pEF02ird5bbZpjY18wW0Jsm
+	0+4/rtVDnBKKobBFw9rrVHtxSi+fKMpDj2vwfse0LiFubU5jzpatBNnQzHOYNKMRIs8Po1LV3St2+
+	8W+ArIs7+lBgXQJzr9qPjTgDK+b00dnZN7QWrstu4Kqgf6zREXVc39mVHj4O+7/yxBD6bwBhG+ePG
+	1c89UQ88VCPXwn5micIcaW/CO74hpI935wKtwJFPJwXDJPxHM3cqdLDbDUr2FGVvbI3CL4QGaWVFm
+	jg33yeJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpM8o-00000009s0m-0sAi;
-	Thu, 30 Jul 2026 08:29:22 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1wpMCJ-00000009sTh-2yhN;
+	Thu, 30 Jul 2026 08:32:59 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpM8f-00000009rxm-3ClT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 08:29:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785400154; x=1816936154;
-  h=date:from:to:cc:subject:message-id;
-  bh=Fl/xNokjExMPq0LuoOp8Fq+9RtD8nvFj+wpdG+LjJhg=;
-  b=HlN7hL20sSDGwxyZR13nPoNj9Oy4pHGSpanPgVKDckf9afAnLtR4Lpvf
-   da8PtTd7ppz50wA03cSWwJTlOralCM2etUl+ohNDQJ3AWCJAQOlVoz7of
-   KbM34VOJQ49sdSi+s95pfljmdApWOIOxXFRIrB+DipRl7kX83//LSPhWX
-   5Y1gfNikldGhSTWsaHBDdbbnyNAk9ZMHOGNM0KMex6EjnBl/4i1xeYJWx
-   e7WNeYroZ+hOhjZiUiurXUDUKfUWY+alkhm2dPtZDLIZNjFXeAKiyMjIk
-   3a6nYE1a3OoTAB1DIuIRNb2BXQ/LzKut0WGeaQY+D0BImTthboXcwjb+D
-   A==;
-X-CSE-ConnectionGUID: NlQnDhtfRyejfOrhsvryeQ==
-X-CSE-MsgGUID: 1xaH3/u6SCiZGY4ZYCiPnA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11859"; a="86029378"
-X-IronPort-AV: E=Sophos;i="6.25,194,1779174000"; 
-   d="scan'208";a="86029378"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jul 2026 01:29:11 -0700
-X-CSE-ConnectionGUID: 9vEWoBbGSiiaDCo6vK32rw==
-X-CSE-MsgGUID: uxGPPE3LT5eCpc6wh5C2oA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,194,1779174000"; 
-   d="scan'208";a="284815872"
-Received: from lkp-server02.sh.intel.com (HELO ea128546eb3d) ([10.239.97.151])
-  by fmviesa001.fm.intel.com with ESMTP; 30 Jul 2026 01:29:09 -0700
-Received: from kbuild by ea128546eb3d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wpM8Z-00000000gJW-28jG;
-	Thu, 30 Jul 2026 08:29:07 +0000
-Date: Thu, 30 Jul 2026 16:28:11 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- ec563ef1c006e7de4b479df8d6695a4b6ebe7a6b
-Message-ID: <202607301659.JjUewR5u-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	id 1wpMCH-00000009sSG-1Mqe;
+	Thu, 30 Jul 2026 08:32:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785400372;
+	bh=zwE0qptctD4Vx8UNaJjRHbNvZ7ftCwYmm5ExAmdvNVw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=H0cba5VKUrs7eXqNSH0twaGS4pg2YkxSc0lARup7d2xePB2QTFrFaJmbunMYWBX8T
+	 Eo2XNUQdYlagiHtOqgNNCuKPAGkhN5OIUqrqFYKV9/LaPaNoOH02PHjFUCwAW1l4Nk
+	 H5DQneFCuWDedkMlhYhakEO1/NZld5aZ065BQyqtHNKoXIcTlZnnCCaZrBUrhFfbH4
+	 ulT1pqhNAxqdM8EmIIGKIsRsIzzNMVcQmACF573oGPd6WJAVQyHiDiKeNhXL+lQhXd
+	 Ud+02GS4ktGf6flAeP0jXiNpCm6PfcZi4nFdfdufi/kaQs3Zc/nudlmHgsvzoTk2hN
+	 roR2ow/pIvCJQ==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8DAF417E063E;
+	Thu, 30 Jul 2026 10:32:52 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: arm-soc <arm@kernel.org>,
+	soc <soc@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	matthias.bgg@gmail.com
+Subject: [GIT,PULL,1/3] MediaTek ARM64 Device Tree updates for v7.3
+Date: Thu, 30 Jul 2026 10:32:44 +0200
+Message-ID: <20260730083249.13867-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.55.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_012913_843529_301BD0B9 
-X-CRM114-Status: UNSURE (   5.51  )
+X-CRM114-CacheID: sfid-20260730_013257_518509_8BBE3AD1 
+X-CRM114-Status: UNSURE (   9.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,175 +73,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: ec563ef1c006e7de4b479df8d6695a4b6ebe7a6b  Merge tag 'cix-dt-v7.3-rc1' of https://github.com/cixtech/linux-mainline into soc/dt
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-elapsed time: 896m
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-configs tested: 155
-configs skipped: 0
+are available in the Git repository at:
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts64-for-v7.3
 
-tested configs:
-alpha                            allnoconfig    gcc-16.1.0
-alpha                           allyesconfig    gcc-16.1.0
-alpha                              defconfig    gcc-16.1.0
-arc                             allmodconfig    gcc-16.1.0
-arc                             allyesconfig    gcc-16.1.0
-arc                  randconfig-001-20260730    gcc-8.5.0
-arc                  randconfig-002-20260730    gcc-8.5.0
-arm                  randconfig-001-20260730    gcc-8.5.0
-arm                  randconfig-002-20260730    gcc-8.5.0
-arm                  randconfig-003-20260730    gcc-8.5.0
-arm                  randconfig-004-20260730    gcc-8.5.0
-arm                       realview_defconfig    clang-17
-arm64                         randconfig-001    gcc-14.3.0
-arm64                randconfig-001-20260730    gcc-14.3.0
-arm64                randconfig-001-20260730    gcc-15.2.0
-arm64                randconfig-002-20260730    gcc-14.3.0
-arm64                randconfig-002-20260730    gcc-15.2.0
-arm64                randconfig-003-20260730    gcc-14.3.0
-arm64                randconfig-003-20260730    gcc-15.2.0
-arm64                randconfig-004-20260730    gcc-14.3.0
-arm64                randconfig-004-20260730    gcc-15.2.0
-csky                            allmodconfig    gcc-16.1.0
-csky                 randconfig-001-20260730    gcc-14.3.0
-csky                 randconfig-001-20260730    gcc-15.2.0
-csky                 randconfig-002-20260730    gcc-14.3.0
-csky                 randconfig-002-20260730    gcc-15.2.0
-hexagon                       randconfig-001    clang-24
-hexagon              randconfig-001-20260730    clang-24
-hexagon              randconfig-002-20260730    clang-24
-i386                            allmodconfig    gcc-14
-i386                buildonly-randconfig-001    gcc-14
-i386       buildonly-randconfig-001-20260730    clang-22
-i386       buildonly-randconfig-001-20260730    gcc-14
-i386       buildonly-randconfig-002-20260730    clang-22
-i386       buildonly-randconfig-002-20260730    gcc-14
-i386       buildonly-randconfig-003-20260730    gcc-14
-i386       buildonly-randconfig-004-20260730    clang-22
-i386       buildonly-randconfig-004-20260730    gcc-14
-i386       buildonly-randconfig-005-20260730    gcc-14
-i386       buildonly-randconfig-006-20260730    gcc-14
-i386                          randconfig-001    gcc-14
-i386                 randconfig-001-20260730    gcc-14
-i386                 randconfig-002-20260730    clang-22
-i386                 randconfig-002-20260730    gcc-14
-i386                 randconfig-003-20260730    gcc-14
-i386                 randconfig-004-20260730    clang-22
-i386                 randconfig-004-20260730    gcc-14
-i386                 randconfig-005-20260730    clang-22
-i386                 randconfig-005-20260730    gcc-14
-i386                 randconfig-006-20260730    gcc-14
-i386                 randconfig-007-20260730    gcc-14
-i386                 randconfig-011-20260730    clang-22
-i386                 randconfig-012-20260730    clang-22
-i386                 randconfig-013-20260730    clang-22
-i386                 randconfig-014-20260730    clang-22
-i386                 randconfig-015-20260730    clang-22
-i386                 randconfig-016-20260730    clang-22
-i386                 randconfig-017-20260730    clang-22
-loongarch                          defconfig    clang-24
-loongarch            randconfig-001-20260730    clang-24
-loongarch            randconfig-002-20260730    clang-24
-m68k                      m5249evb_defconfig    gcc-16.1.0
-mips                         ath25_defconfig    clang-24
-mips                          ip30_defconfig    gcc-16.1.0
-nios2                           allmodconfig    gcc-11.5.0
-nios2                            allnoconfig    gcc-11.5.0
-nios2                randconfig-001-20260730    clang-24
-nios2                randconfig-002-20260730    clang-24
-parisc                          allmodconfig    gcc-16.1.0
-parisc                          allyesconfig    gcc-16.1.0
-parisc                             defconfig    gcc-16.1.0
-parisc                        randconfig-001    gcc-14.3.0
-parisc               randconfig-001-20260730    gcc-14.3.0
-parisc               randconfig-002-20260730    gcc-14.3.0
-parisc               randconfig-002-20260730    gcc-16.1.0
-powerpc              randconfig-001-20260730    clang-24
-powerpc              randconfig-001-20260730    gcc-14.3.0
-powerpc              randconfig-002-20260730    gcc-11.5.0
-powerpc              randconfig-002-20260730    gcc-14.3.0
-powerpc                    tqm8548_defconfig    clang-24
-powerpc64            randconfig-001-20260730    clang-24
-powerpc64            randconfig-001-20260730    gcc-14.3.0
-powerpc64            randconfig-002-20260730    gcc-14.3.0
-powerpc64            randconfig-002-20260730    gcc-8.5.0
-riscv                randconfig-001-20260730    gcc-15.2.0
-riscv                randconfig-002-20260730    gcc-15.2.0
-riscv                randconfig-002-20260730    gcc-9.5.0
-s390                 randconfig-001-20260730    clang-17
-s390                 randconfig-001-20260730    gcc-15.2.0
-s390                 randconfig-002-20260730    gcc-15.2.0
-s390                 randconfig-002-20260730    gcc-8.5.0
-sh                                 defconfig    gcc-16.1.0
-sh                   randconfig-001-20260730    gcc-13.4.0
-sh                   randconfig-001-20260730    gcc-15.2.0
-sh                   randconfig-002-20260730    gcc-15.2.0
-sh                          se7705_defconfig    gcc-16.1.0
-sparc                         randconfig-001    clang-24
-sparc                randconfig-001-20260730    clang-24
-sparc                randconfig-001-20260730    gcc-16.1.0
-sparc                randconfig-002-20260730    clang-24
-sparc                randconfig-002-20260730    gcc-16.1.0
-sparc64              randconfig-001-20260730    clang-20
-sparc64              randconfig-001-20260730    clang-24
-sparc64              randconfig-002-20260730    clang-24
-sparc64              randconfig-002-20260730    gcc-14.3.0
-um                   randconfig-001-20260730    clang-17
-um                   randconfig-001-20260730    clang-24
-um                   randconfig-002-20260730    clang-24
-x86_64              buildonly-randconfig-001    gcc-14
-x86_64     buildonly-randconfig-001-20260730    clang-22
-x86_64     buildonly-randconfig-001-20260730    gcc-14
-x86_64     buildonly-randconfig-002-20260730    clang-22
-x86_64     buildonly-randconfig-002-20260730    gcc-14
-x86_64     buildonly-randconfig-003-20260730    clang-22
-x86_64     buildonly-randconfig-003-20260730    gcc-14
-x86_64     buildonly-randconfig-004-20260730    gcc-14
-x86_64     buildonly-randconfig-005-20260730    gcc-14
-x86_64     buildonly-randconfig-006-20260730    gcc-14
-x86_64                                 kexec    clang-22
-x86_64                        randconfig-001    clang-22
-x86_64               randconfig-001-20260730    clang-22
-x86_64               randconfig-002-20260730    clang-22
-x86_64               randconfig-002-20260730    gcc-14
-x86_64               randconfig-003-20260730    clang-22
-x86_64               randconfig-004-20260730    clang-22
-x86_64               randconfig-004-20260730    gcc-14
-x86_64               randconfig-005-20260730    clang-22
-x86_64               randconfig-006-20260730    clang-22
-x86_64               randconfig-011-20260730    clang-22
-x86_64               randconfig-012-20260730    clang-22
-x86_64               randconfig-013-20260730    clang-22
-x86_64               randconfig-014-20260730    clang-22
-x86_64               randconfig-015-20260730    clang-22
-x86_64               randconfig-016-20260730    clang-22
-x86_64                        randconfig-071    gcc-14
-x86_64               randconfig-071-20260730    gcc-12
-x86_64               randconfig-071-20260730    gcc-14
-x86_64               randconfig-072-20260730    gcc-12
-x86_64               randconfig-072-20260730    gcc-14
-x86_64               randconfig-073-20260730    clang-22
-x86_64               randconfig-073-20260730    gcc-12
-x86_64               randconfig-073-20260730    gcc-14
-x86_64               randconfig-074-20260730    gcc-12
-x86_64               randconfig-074-20260730    gcc-14
-x86_64               randconfig-075-20260730    clang-22
-x86_64               randconfig-075-20260730    gcc-12
-x86_64               randconfig-075-20260730    gcc-14
-x86_64               randconfig-076-20260730    clang-22
-x86_64               randconfig-076-20260730    gcc-12
-x86_64               randconfig-076-20260730    gcc-14
-x86_64                          rhel-9.4-bpf    gcc-14
-xtensa               randconfig-001-20260730    clang-24
-xtensa               randconfig-001-20260730    gcc-16.1.0
-xtensa               randconfig-002-20260730    clang-24
-xtensa               randconfig-002-20260730    gcc-14.3.0
+for you to fetch changes up to 3dc552c1bab6e83bb45af0a49f3a900845a24495:
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+  arm64: dts: mediatek: mt6359: use proper compatible for rtc (2026-07-21 15:16:45 +0200)
+
+----------------------------------------------------------------
+MediaTek ARM64 DeviceTree updates
+
+This adds a couple of fixes and improvements for multiple
+MediaTek SoCs.
+
+In particular:
+- Indentation/whitespace fixes for some devicetrees
+- Documentation improvements for MediaTek Mute-X
+- dtbs-check warnings fixes
+  - MT8390 Tungsten boards: removal of unnecessary cells
+  - MT6795 SoC: removal of deprecated property in UART DMA
+- MT6359 PMIC's RTC now uses the correct compatible string
+- MT8183/86/88/92/95 SoCs gain support for the UART DMA IPs
+- MT8186 gets a new CCI OPP table to resolve lockups
+- MT8188/83 Chromebooks now got the correct SPI NOR supply
+- MT8192 Asurada drops support for the (unused) MMC1 port
+- MediaTek Genio 510/700/1200 EVKs and Radxa NIO-12L now get
+  their PMIC power input tree completed with assignment of
+  the correct supplies
+
+----------------------------------------------------------------
+AngeloGioacchino Del Regno (8):
+      arm64: dts: mediatek: tungsten-smarc: Remove unnecessary cells
+      arm64: dts: mediatek: mt6795: Remove deprecated UART DMA property
+      arm64: dts: mediatek: mt8183: Add and use UART AP_DMA controller
+      arm64: dts: mediatek: mt8186: Add and use UART AP_DMA controller
+      arm64: dts: mediatek: mt8188: Add and use UART AP_DMA controller
+      arm64: dts: mediatek: mt8192: Add and use UART AP_DMA controller
+      arm64: dts: mediatek: mt8195: Add and use UART AP_DMA controller
+      dt-bindings: soc: mediatek: mutex: Improve title and description
+
+Chen-Yu Tsai (3):
+      arm64: dts: mediatek: mt8183-kukui: Add supply for SPI NOR flash
+      arm64: dts: mediatek: mt8188-geralt: Add supply for SPI NOR flash
+      arm64: dts: mediatek: mt8192-asurada: Disable mmc1 on Spherion
+
+Krzysztof Kozlowski (1):
+      arm64: dts: mediatek: Correct indentation and whitespace
+
+Louis-Alexis Eyraud (4):
+      arm64: dts: mediatek: mt8390-genio-common: Add MT6365 PMIC supplies
+      arm64: dts: mediatek: mt8395-genio-common: Add MT6365 PMIC supplies
+      arm64: dts: mediatek: mt8395-radxa-nio-12l: Add MT6365 PMIC supplies
+      arm64: dts: mediatek: mt6359: use proper compatible for rtc
+
+Mark Tseng (1):
+      arm64: dts: mediatek: mt8186: change CCI OPP scaling mapping
+
+ Documentation/devicetree/bindings/soc/mediatek/mediatek,mutex.yaml |  17 ++++++-----
+ arch/arm64/boot/dts/mediatek/mt6359.dtsi                           |   2 +-
+ arch/arm64/boot/dts/mediatek/mt6795.dtsi                           |   4 +--
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-kodama.dtsi              |   6 ++--
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-krane-sku176.dts         |   4 +--
+ arch/arm64/boot/dts/mediatek/mt8183-kukui.dtsi                     |   2 ++
+ arch/arm64/boot/dts/mediatek/mt8183.dtsi                           |  22 +++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8186.dtsi                           | 112 ++++++++++++++++++++++++++++++++++++++++---------------------------
+ arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi                    |   1 +
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi                           |  33 ++++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts        |   4 +++
+ arch/arm64/boot/dts/mediatek/mt8192.dtsi                           |  17 +++++++++++
+ arch/arm64/boot/dts/mediatek/mt8195.dtsi                           |  37 ++++++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi              |  19 +++++++++++-
+ arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dtsi            |   4 ---
+ arch/arm64/boot/dts/mediatek/mt8395-genio-common.dtsi              |  17 +++++++++++
+ arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts              |  17 +++++++++++
+ 17 files changed, 252 insertions(+), 66 deletions(-)
+
 
