@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE4DDC54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 03:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826BDC55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 03:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2pOneZc7dpt16hg70UmlDabGGhoDjNds+kJxO+jHrek=; b=ubWN2p/iTpjdmmVd15Bi+Y49l5
-	osUWbF2TwRuUkDnLvScBqMT4IfKM7dPaQA5feapmJCyTHVUD78+AkEnNCuM+xHtb8ODJiZHDR388J
-	aDi4YH1QtbNgM59NYHMoMdfb+WSIv425Iqsuyk5j/ccDKRPU4zb6ncpTMlGkKmK6foVuo+WPAxSrj
-	kI9TOW+mSkdoXe8EgGZESfu+yn3GwWti3ZGdpzwxPCDTmNYtY8cVige58g+vIjepHt3DTaNgCnpmp
-	pC4aBzplUHa65mIb/ovzUOMedtlduKeMte3hWMMZxED0tvPhZUwFSInk+a86vEWs1/uN/jGxDf36f
-	fKeRNkbw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2DTb8Z0TivZDfrZk89jRLneek8ISpVFxvHsaLnCrg2Q=; b=2VYin+LcNtXdEYXC8IjfUXmTNT
+	x0K/T3bX6S64vL7DsODooIzvwvSxZ09ho7syGmVh2b5nowqt7PUygwpOyPb3oRNfo6ARmAxrmyZPi
+	+9VHpDY+Y5o8Z/UcrxA1zXgJkO1RqZ8Xx6vwwnAUsnvez/43TGx5gIYMD5HXywCAwb26PkfyI2Y2d
+	724LLZZnNkb/jVX4pQjiPW1HID10rkFpsaXZTxSI48VdSyVk7Mgw0m1+D/WszxVymvK3qvk7od41r
+	7P8Eh0pKzn+KShx3rqmhUkHs6eV2rHgC9e6pM/2qw+dHuJmKTUXtKWChbjIt6mqJ3lHSGOcJ0S69z
+	JOeAe1wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpHRd-00000009QK0-0oig;
-	Thu, 30 Jul 2026 03:28:29 +0000
-Received: from mail-m93209.xmail.ntesmail.com ([103.126.93.209])
+	id 1wpHRl-00000009QQg-2E6G;
+	Thu, 30 Jul 2026 03:28:37 +0000
+Received: from mail-m8142.xmail.ntesmail.com ([156.224.81.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpHRF-00000009Q9a-2xvE;
-	Thu, 30 Jul 2026 03:28:11 +0000
+	id 1wpHRG-00000009Q9G-15P7;
+	Thu, 30 Jul 2026 03:28:12 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 481c5dbda;
-	Thu, 30 Jul 2026 11:28:01 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 481c5dbc2;
+	Thu, 30 Jul 2026 11:27:56 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -53,27 +53,25 @@ Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v1 5/7] drm/bridge: analogix_dp: Simplify analogix_dp_config_interrupt()
-Date: Thu, 30 Jul 2026 11:27:42 +0800
-Message-Id: <20260730032744.381566-6-damon.ding@rock-chips.com>
+Subject: [PATCH v1 0/7] Add HPD support for Rockchip Analogix DP
+Date: Thu, 30 Jul 2026 11:27:37 +0800
+Message-Id: <20260730032744.381566-1-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260730032744.381566-1-damon.ding@rock-chips.com>
-References: <20260730032744.381566-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9fb110950f03a8kunm040f79123746f8
+X-HM-Tid: 0a9fb1107efc03a8kunm040f79123746ca
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDSUtJVkMdGh9KGkwaQkofTVYVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSxlPVhpDQkNIQk1NS0kdHVYVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
 	9PT0hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=Mca5uDRSaes9/7HjpZKjiKF5k4WJu0Wll7jSbl0AvqQMijECQl9mZH1eQg3VvYv/58dxuLyRRJNrbsIZUYdgoSCPpmCRjXQnZVkGEWxTVs5igELr13dvZ+EbGdhZt6BbsviUCDEtaIYjbFrEvUV9U9l0HON0PasDAZwdOxSVI3Q=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=2pOneZc7dpt16hg70UmlDabGGhoDjNds+kJxO+jHrek=;
+	b=M5jPIv6UdHfbkWzCY96X6Pj0bLzAEZZRcyH61ovgYl9m3kd9ON0PPhp7nVeMAfIbeNn3EgNmfjz0Hv1QAsxV2LWOi+rNXJD6QDNCo+8Gga3dnOGM+R/mSBJm7XUcsZM5LPZ9SeLeyfS4nHe78t5M+QzivXqdBrCvm24vY5aGM4o=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=2DTb8Z0TivZDfrZk89jRLneek8ISpVFxvHsaLnCrg2Q=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_202806_352691_852C7AF0 
-X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-CacheID: sfid-20260729_202807_395403_10573955 
+X-CRM114-Status: UNSURE (   7.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,66 +87,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove local COMMON_INT_MASK and INT_STA_MASK macros. These constants
-are only used once inside this function and bring no reuse benefit.
+This series improves the HPD (Hotplug Detect) interrupt handling in
+the Analogix DP driver to enable reliable native HPD pin detection on
+Rockchip platforms, and introduces platform-specific HPD detection
+schemes with fine-grained interrupt control.
 
-Replace open-coded register writes for COMMON_INT_MASK_1~3 with
-direct writel(0) calls.
+On Rockchip platforms, the Analogix DP native HPD pin IRQ requires the
+DP controller to remain powered, clocked and initialized to generate
+plug/unplug interrupts. The previous driver enabled/disabled IRQ during
+bridge enable/disable, which left no HPD detection when the display
+pipeline was inactive. Additionally, the interrupt mute/unmute/clear
+routines operated on all HPD interrupt bits unconditionally, lacking
+the granularity needed for per-event control.
 
-Leverage analogix_dp_unmute_hpd_interrupt() using the full HPD_IRQ
-mask to initialize HPD interrupt state, removing duplicated register
-handling.
+The series reorganizes IRQ and pm_runtime management into bind/unbind,
+converts the interrupt type detection to a bitmask-based scheme for
+fine-grained mute/unmute/clear operations, and configures Rockchip
+platforms to use the HOTPLUG_CHG interrupt with a 2ms HPD deglitch
+setting, which provides better stability than the PLUG + HPD_LOST
+pair.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
----
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 25 +++----------------
- 1 file changed, 4 insertions(+), 21 deletions(-)
+Tested on RK3576 with both native HPD pin and GPIO HPD configurations.
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-index 816be79a8da6..42463e18f392 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-@@ -18,12 +18,6 @@
- #include "analogix_dp_core.h"
- #include "analogix_dp_reg.h"
- 
--#define COMMON_INT_MASK_1	0
--#define COMMON_INT_MASK_2	0
--#define COMMON_INT_MASK_3	0
--#define COMMON_INT_MASK_4	(HOTPLUG_CHG | HPD_LOST | PLUG)
--#define INT_STA_MASK		INT_HPD
--
- #define HPD_IRQ			(DP_IRQ_TYPE_HP_CABLE_IN | DP_IRQ_TYPE_HP_CABLE_OUT | \
- 				 DP_IRQ_TYPE_HP_CHANGE | DP_IRQ_TYPE_IRQ_HPD)
- #define COMMON_INT_4_HPD_IRQ	(DP_IRQ_TYPE_HP_CABLE_IN | DP_IRQ_TYPE_HP_CABLE_OUT | \
-@@ -178,23 +172,12 @@ void analogix_dp_swreset(struct analogix_dp_device *dp)
- 
- void analogix_dp_config_interrupt(struct analogix_dp_device *dp)
- {
--	u32 reg;
--
- 	/* 0: mask, 1: unmask */
--	reg = COMMON_INT_MASK_1;
--	writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_1);
--
--	reg = COMMON_INT_MASK_2;
--	writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_2);
--
--	reg = COMMON_INT_MASK_3;
--	writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_3);
--
--	reg = COMMON_INT_MASK_4;
--	writel(reg, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_4);
-+	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_1);
-+	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_2);
-+	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_3);
- 
--	reg = INT_STA_MASK;
--	writel(reg, dp->reg_base + ANALOGIX_DP_INT_STA_MASK);
-+	analogix_dp_unmute_hpd_interrupt(dp, HPD_IRQ);
- }
- 
- void analogix_dp_mute_hpd_interrupt(struct analogix_dp_device *dp, u32 irq_type)
+Native HPD pin mode:
+
+  &edp {
+      status = "okay";
+      pinctrl-names = "default";
+      pinctrl-0 = <&edp_txm0_pins>;
+  };
+
+GPIO HPD mode:
+
+  &edp {
+      status = "okay";
+      pinctrl-names = "default";
+      pinctrl-0 = <&edp0_hpd>;
+      hpd-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
+  };
+
+  &pinctrl {
+      edp {
+          edp0_hpd: edp0-hpd {
+              rockchip,pins = <4 RK_PC1 0 &pcfg_pull_none>;
+          };
+      };
+  };
+
+Both configurations detect cable plug/unplug events correctly.
+
+Patch 1: Move enable_irq()/disable_irq() to bind/unbind and hold a
+         pm_runtime reference for Rockchip native HPD pin mode.
+Patch 2: Convert analogix_dp_get_irq_type() to return a u32 bitmask
+         instead of an enum, accumulating all pending interrupt flags.
+Patch 3: Extend mute/unmute helpers to accept an irq_type bitmask for
+         per-event interrupt masking.
+Patch 4: Extend clear_hotplug_interrupts() to accept an irq_type
+         bitmask for per-event pending interrupt clearing.
+Patch 5: Simplify analogix_dp_config_interrupt() by removing redundant
+         local macros and leveraging the unmute helper.
+Patch 6: Configure Rockchip platforms to use HOTPLUG_CHG interrupt with
+         2ms HPD deglitch; other platforms keep PLUG + HPD_LOST pair.
+Patch 7: Skip native HPD interrupt register operations for GPIO HPD
+         mode, where hotplug is detected through an external GPIO.
+
+Damon Ding (7):
+  drm/bridge: analogix_dp: Manage pm runtime and IRQ for native HPD pin
+    detection
+  drm/bridge: analogix_dp: Return bitmask from
+    analogix_dp_get_irq_type()
+  drm/bridge: analogix_dp: Extend mute/unmute HPD interrupts to accept
+    irq bitmask
+  drm/bridge: analogix_dp: Extend clear_hotplug_interrupts to accept IRQ
+    bitmask
+  drm/bridge: analogix_dp: Simplify analogix_dp_config_interrupt()
+  drm/bridge: analogix_dp: Use platform-specific HPD detection scheme
+  drm/bridge: analogix_dp: Skip native HPD interrupt ops for GPIO HPD
+
+ .../drm/bridge/analogix/analogix_dp_core.c    |  46 ++++--
+ .../drm/bridge/analogix/analogix_dp_core.h    |  10 +-
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 146 ++++++++++++------
+ 3 files changed, 134 insertions(+), 68 deletions(-)
+
 -- 
 2.34.1
 
