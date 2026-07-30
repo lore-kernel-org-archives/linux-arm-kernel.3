@@ -4,89 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95253C55160
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F84C55160
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J51ZKPd6o6/BUGHko+ufxpPLTQ3XMe+QO50MAUxdiFE=; b=JDSAYx+709Zw4Jd/VS+HxEGSJg
-	UsC02ddVv/s2KAw5NkfR221Lm/22B+E752FdVggGWijDcZ02NZTYOuYDoM3bTMVA90pHQiN7HLWIH
-	0tKvSdLDmMuI/woleTMhtFF0K6QaZlA0vXZrNTyfl/FlbYDQUh93sYlNA1LK67kE+VZnaeECqq/wl
-	9jEGxQtNshPiZvlCu04tGtzie9Rrt+KxZx2n10QFrPc6cbtlNEgjQiA3vZYuMngZDce5KMX2n3Hsr
-	371RBDtoi/J5jJIHZIDOmOsl6Tl5VGtd7oZbGjlAw79gRsdICOtKWVGhGYGK0C47m+MGYD6pDu+HH
-	aT7cFecA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2a6dfSsGD/MmTbGKcRMsjqnnX+0xSYoSHnMVeczgVxc=; b=eYETBO7PMQtbUaxsQ4s/NLP9Ns
+	JT2zcYvKYzm02HnwEUIs0YbHwFf0+mfGwhEd3/bLqc7wqtHdNRImeu4fLlOjuF2KaYpx/LoUIfulh
+	WEnEzLgobE3HTxytLsHeZG3kSAPFWy7JwYUDc8oMZE26ALLkLho5l8D5cn/FLLIORhYfckfOJtzXh
+	e6/GYXNtxc0W3P42Ez4S3+bzQvhC+uK7JmKEXe/q1nidzqV+qunG3XV9ugcWjWXR2U/N/ephp+/Mf
+	wAcrp4mIaF/EzwEjTXml0KReysEzSA5D3GOJR2RUWUoPjkeY1a7gEnT3CAWRdN2tvQYiShW/DLy1Q
+	hFa25pvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPiw-0000000AS6X-2tS5;
-	Thu, 30 Jul 2026 12:18:54 +0000
+	id 1wpPrL-0000000AT53-2A1W;
+	Thu, 30 Jul 2026 12:27:35 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpPiu-0000000AS6N-44Ig
+	id 1wpPrJ-0000000AT4m-1jbf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:18:53 +0000
+	Thu, 30 Jul 2026 12:27:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3EFDF600B0;
-	Thu, 30 Jul 2026 12:18:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3D301F000E9;
-	Thu, 30 Jul 2026 12:18:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 75D2260120;
+	Thu, 30 Jul 2026 12:27:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97AA71F00A3A;
+	Thu, 30 Jul 2026 12:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785413932;
-	bh=J51ZKPd6o6/BUGHko+ufxpPLTQ3XMe+QO50MAUxdiFE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=IERn+3yT3GKAwlEz98+hOOx2EELH5lepwtkHN1LPJPtSbBcaqZH8R70BuuTlh0A/8
-	 k5n++E+0Q+jQMwVMJ5nkn/Xd6iHEoJJnvs/YUNaRar4FAS8vlAs7p1Q/fuvnhnBKEA
-	 NFTW/P6d+tNp6ozLVFlHrQGpnzNz5ygDa67uINaflNJeY3CLZ5ETiif99Fwy2t+40S
-	 mADy0iBff6NfDgZyxfiJ4G7MyoPoL3GzrPyU60gqBkwNQq9DeSwXGb7lfNYpiyyPt/
-	 Mqm37WJE36T0QKo6JWfmlIp+mvylB5nxq7lzE2+1q9NZiL1TBlFFhRx//2VevGaH8G
-	 ACuAsWAw8gANg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wpPir-0000000AWIY-1wZS;
-	Thu, 30 Jul 2026 12:18:49 +0000
-Date: Thu, 30 Jul 2026 13:18:49 +0100
-Message-ID: <86ldasd61i.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Long Zhao <longzhao@ambarella.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Alexandre Belloni
-	<alexandre.belloni@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<soc@lists.linux.dev>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	<devicetree@vger.kernel.org>,
-	"Michael\
- Turquette" <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	<linux-clk@vger.kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	<linux-gpio@vger.kernel.org>,
-	Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	<linux-serial@vger.kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 09/10] arm64: ambarella: add ARCH_AMBARELLA and CV75 EVK DT
-In-Reply-To: <20260730104330.81367-10-longzhao@ambarella.com>
-References: <20260730104330.81367-1-longzhao@ambarella.com>
-	<20260730104330.81367-10-longzhao@ambarella.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: longzhao@ambarella.com, arnd@arndb.de, alexandre.belloni@bootlin.com, linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org, mturquette@baylibre.com, sboyd@kernel.org, linux-clk@vger.kernel.org, linusw@kernel.org, linux-gpio@vger.kernel.org, gregkh@linuxfoundation.org, jirislaby@kernel.org, linux-serial@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1785414452;
+	bh=2a6dfSsGD/MmTbGKcRMsjqnnX+0xSYoSHnMVeczgVxc=;
+	h=From:To:Cc:Subject:Date;
+	b=AG5RHG4XD3dI3+Pzm2tS0JeeffHjlVhHTKycm5LvTenFIz1gz4+Da4jhXD3ivB+Nm
+	 s9OkNBgMRI8kC7dmVNwPY7N6IztrqDaHLG2uxgkF61oEYzuSYCqTVgGEXI4k0d5Knc
+	 H83X1EzqkQn6n7X7LUFXvjIkfSLXyLRCVhNxnOXf9I7hON1zZO8AhtJnY5VN21hjZj
+	 NiYt5SGo6Z3PHQYzVzlmFF8qmtigPvHh9w7l/hIgFbr/4M87TmOkXIoE67Sc/kKQdl
+	 q4y+IzvsYkxi0l2IbMMXJa+mXTT+U8UJigg0TZCEw7qedveYondN6oUQIbDPcHUZ2W
+	 RjK6q/Ih4e3aQ==
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+To: Christophe Leroy <chleroy@kernel.org>
+Cc: linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Paul Louvel <paul.louvel@bootlin.com>
+Subject: [PATCH] soc: fsl: qe: properly scan GPIO nodes at startup
+Date: Thu, 30 Jul 2026 14:27:22 +0200
+Message-ID: <04dc047f8958a78a920f0a88ca3bd8bf70c56187.1785333986.git.chleroy@kernel.org>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1375; i=chleroy@kernel.org; h=from:subject:message-id; bh=NgJogTZ8D2TsSvzSmrE4tRc1/6SYj6BMw9ra0XiPBuo=; b=owGbwMvMwCV2d0KB2p7V54MZT6slMWRlO+s8WhX5UGzP0pRd70O3cVjna2rfmNCbL/jldnip7 MFtN40vdZSyMIhxMciKKbIc/8+9a0bXl9T8qbv0YeawMoEMYeDiFICJmE9jZHjAee76Sonl1fuk ucP/Rx/3lGF4K/FFwOTQ3/2qigax27YxMrxf1Z8Rsa0nXGa69JllhrUSYsdFFQwuB9v93ny9+ZJ ODB8A
+X-Developer-Key: i=chleroy@kernel.org; a=openpgp; fpr=10FFE6F8B390DE17ACC2632368A92FEB01B8DD78
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +71,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20260730122722.5PUA-BhUHISym4PetYjSA8-JctSYeHFUleOit0U77lg@z>
 
-On Thu, 30 Jul 2026 11:43:29 +0100,
-Long Zhao <longzhao@ambarella.com> wrote:
+Before commit 156460811def ("soc: fsl: qe: Change GPIO driver to a
+proper platform driver") qe_add_gpiochips() was walking the device
+tree to find all nodes with compatible "fsl,mpc8323-qe-pario-bank".
 
-[...]
+After that commit the discovery is handled by the platform core,
+therefore it is necessary to call of_platform_default_populate() on
+the par_io node.
 
-> diff --git a/arch/arm64/boot/dts/ambarella/cv75.dtsi b/arch/arm64/boot/dts/ambarella/cv75.dtsi
-> new file mode 100644
-> index 000000000000..7c6a61f473ef
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ambarella/cv75.dtsi
-> @@ -0,0 +1,151 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Ambarella CV75 SoC
-> + *
-> + * Boot peripheral: UART0 console.
-> + * Clocks: a single ambarella,cv75-rct provider.
-> + */
-> +
+Fixes: 156460811def ("soc: fsl: qe: Change GPIO driver to a proper platform driver")
+Signed-off-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+---
+ drivers/soc/fsl/qe/qe_io.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-[...]
-
-> +       timer {
-> +               compatible = "arm,armv8-timer";
-> +               interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-> +                            <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-> +                            <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
-> +                            <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
-> +       };
-
-You are missing the EL2 virtual timer interrupt, which is provided by
-Cortex-A76. This isn't optional. A recent Linux kernel will shout at
-you at boot time when booted at EL2 if this interrupt isn't present.
-
-	M.
-
+diff --git a/drivers/soc/fsl/qe/qe_io.c b/drivers/soc/fsl/qe/qe_io.c
+index a5e2d0e5ab51..02ca556c8db0 100644
+--- a/drivers/soc/fsl/qe/qe_io.c
++++ b/drivers/soc/fsl/qe/qe_io.c
+@@ -15,6 +15,7 @@
+ #include <linux/errno.h>
+ #include <linux/module.h>
+ #include <linux/ioport.h>
++#include <linux/of_platform.h>
+ 
+ #include <asm/io.h>
+ #include <soc/fsl/qe/qe.h>
+@@ -184,3 +185,17 @@ int par_io_of_config(struct device_node *np)
+ 	return 0;
+ }
+ EXPORT_SYMBOL(par_io_of_config);
++
++static int __init par_io_populate(void)
++{
++	struct device_node *np = of_find_node_by_name(NULL, "par_io");
++
++	if (!np)
++		return 0;
++
++	of_platform_default_populate(np, NULL, NULL);
++	of_node_put(np);
++
++	return 0;
++}
++arch_initcall(par_io_populate);
 -- 
-Without deviation from the norm, progress is not possible.
+2.54.0
+
 
