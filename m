@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 516C4C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 527EEC54FDF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 08:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+RPbD/JeYF3yIl4iKPtSEaMHSyvunbW8sXw1CEjpKfk=; b=sDYDbc5Gs65Q9zMm66XLFgoH5A
-	/WTePWQIhw9h1jwBZ9Ekcop2W1NlWteQAc/68UQ4vmBUS5t/C8mzTLixxittwFtygn5LAQJWoZ8XL
-	UdIyGiuKg9p2fEZqhYLgA6Jzy9ex/DxapdXKzV7tyCL3uX1T1jtHJiU1X+3w4xRctFKcJOG4L6AO2
-	Kevv+S7l4C33MyjOMKIEAyE74j7YBGrGTsJk3Sh+lgpRQmmlDtxvCwjhv9ZRQt/K9hqzLj3bKqOl7
-	TGuSVGSc/tIt/UA6Lol3vC9oHaAR1pMERmxDcRb4THCQnVVtaAAsQsz76onx2QcezS5ZO4llx2iRr
-	XmRxCZ0Q==;
+	bh=T0KgRuPwYqTqOkfED0vrX1sYWNPgQ0FBaLi1ye8oN3E=; b=RiXhsxsetUjSHKNyC2mCD7CzXY
+	SHSZSxOFU5UDiwkMCexEl/Q1N3ou8V6lGZSQd4k4C2fc8cFznNl00W0vLT5FAK9ozrNdIQajnbaLk
+	md2tgvhmUnOhOH5c5z8QuTBKPDjAAfpXxpK4C1SShLJc75L09Fns/nb2yrbU/35oy18qZdLZTdEYw
+	A+XkL2XAJBPfXGtUTkeOIorcNA4uG8JBKeNzHGeMbRRbO3Kma6aFAkpxFj0/XOrf/7t51hiQ5/Gt2
+	Fdi++lR1dJxQ+cuWizPvXZnY7OU4glrXFMKiAwZaWG17288VRKNv3IUfOS7GgoYAKYQrAIiDAhAtd
+	ieDvGHeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpMCJ-00000009sTG-2QeN;
-	Thu, 30 Jul 2026 08:32:59 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wpMCS-00000009sZv-3tw3;
+	Thu, 30 Jul 2026 08:33:08 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpMCG-00000009sSC-31L6;
-	Thu, 30 Jul 2026 08:32:58 +0000
+	id 1wpMCM-00000009sUX-0cPR;
+	Thu, 30 Jul 2026 08:33:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1785400373;
-	bh=VL0n7nQUDCiDkQdds0YBEGiAKC+RIRLDCXpvqYPJpNI=;
+	bh=ZIo8rE82+wDxPG4WdNoiRqJk8tGJQ7oEYtlWqZp0m8o=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EUQ+iJdSJgtcwIfTdL2vHfhy4wuK1MhtaxrGZVwolMhKOPhYYk288Sp7Use/D6Qge
-	 QP+9QgWRjExn47K3VWpntcXuvtAdCgq8EhqZDYtt6iXGYZ15nsxGWNttjt6SiRBtWx
-	 hj9RGymv6rCF7ZwpO+6T7Mca4Enkbd2d7qZVf+ZHshAcoCYthuA1+RMz05DhQ02H5t
-	 Ur9+uOoNFz9qwDnvGyd9SYnIGfSyhZoNCzmypUqrwJ0J8982W5oclKY0TYv46kEvdB
-	 hbg8gZlXKgP041QyDkalIPsegVE/oCvh1uSkFZZsYJsWREegzqmXryhnjirNlCvuon
-	 pEp+IWRV5iW1A==
+	b=WPViPcVza8171Of+ouDEGA3nRUcpyo+3f605gwtkY3mNqkKTZoreH9xLvzwkdkZcm
+	 GLGwfsgzYonOdzhJY90dRCKa3gK19DdASLryBjIVyj2mT1CM3WZ0kcfzFjlcgrqBxC
+	 NN59bcQ9jI1vpgQB6Fskvc7SQjc4zSOh+qrIEL2Xa8KEfC0dxwKgljTNodULqOZtD3
+	 YpGjCMo7AP0ti8uHmhbXS4gxF1b8JJrcswrMMNA0wSWNj2iFMqgJnGb093DLz3gBkP
+	 POOXA79xd/vJVkHy3r+A9TxhhioPDw7oGqsBUOwOmgxp3SM5cVZH14Ses8BCH6yrI/
+	 YfjnraLhheLow==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F3F6817E0667;
-	Thu, 30 Jul 2026 10:32:52 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6285A17E0682;
+	Thu, 30 Jul 2026 10:32:53 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: arm-soc <arm@kernel.org>,
 	soc <soc@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	matthias.bgg@gmail.com
-Subject: [GIT,PULL,2/3] MediaTek ARM32 Device Tree updates for v7.3
-Date: Thu, 30 Jul 2026 10:32:45 +0200
-Message-ID: <20260730083249.13867-2-angelogioacchino.delregno@collabora.com>
+Subject: [GIT,PULL,3/3] MediaTek SoC driver updates for v7.3
+Date: Thu, 30 Jul 2026 10:32:46 +0200
+Message-ID: <20260730083249.13867-3-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260730083249.13867-1-angelogioacchino.delregno@collabora.com>
 References: <20260730083249.13867-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_013256_910991_63F11ECA 
-X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-CacheID: sfid-20260730_013302_393561_24F39190 
+X-CRM114-Status: UNSURE (   9.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,27 +81,45 @@ The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts32-for-v7.3
+  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-soc-for-v7.3
 
-for you to fetch changes up to 6326a6811b1af6674e3eef128df6a3825de26872:
+for you to fetch changes up to ec762057868d70d474a9816e9c293c2ef801c3c9:
 
-  ARM: dts: mediatek: mt6323: add AUXADC support (2026-07-28 10:56:55 +0200)
-
-----------------------------------------------------------------
-MediaTek ARM32 DeviceTree updates
-
-This fixes a minor indentation issue in the MT8127 devicetree
-and adds support for the Auxiliary ADC found in the MT6323 PMIC.
+  soc: mediatek: add missing MODULE_DEVICE_TABLE() (2026-07-30 09:41:54 +0200)
 
 ----------------------------------------------------------------
-Krzysztof Kozlowski (1):
-      ARM: dts: mediatek: mt8127: Correct indentation
+MediaTek SoC driver updates
 
-Roman Vivchar (1):
-      ARM: dts: mediatek: mt6323: add AUXADC support
+This adds a fix for a missing error check in mtk-socinfo, and
+also a missing MODULE_DEVICE_TABLE() in the mtk-dvfsrc driver.
 
- arch/arm/boot/dts/mediatek/mt6323.dtsi | 5 +++++
- arch/arm/boot/dts/mediatek/mt8127.dtsi | 2 +-
- 2 files changed, 6 insertions(+), 1 deletion(-)
+Besides from that, this also reworks how the MMSYS tables are
+specified with the macro, separating the component's hardware
+instance from the actual type, resolving a prerequirement for
+the restructuring of mediatek-drm.
+
+----------------------------------------------------------------
+AngeloGioacchino Del Regno (2):
+      soc: mediatek: mtk-mmsys: Rework routes to specify component ID
+      soc: mediatek: mtk-mmsys: Use MMSYS_ROUTE() in default routing table
+
+Griffin Kroah-Hartman (1):
+      soc: mediatek: mtk-socinfo Add error handling in devm_kasprintf()
+
+Pengpeng Hou (1):
+      soc: mediatek: add missing MODULE_DEVICE_TABLE()
+
+ drivers/soc/mediatek/mt8167-mmsys.h |  10 ++--
+ drivers/soc/mediatek/mt8173-mmsys.h |  28 +++++-----
+ drivers/soc/mediatek/mt8183-mmsys.h |  14 ++---
+ drivers/soc/mediatek/mt8186-mmsys.h |  22 ++++----
+ drivers/soc/mediatek/mt8188-mmsys.h |  78 +++++++++++++-------------
+ drivers/soc/mediatek/mt8192-mmsys.h |  20 +++----
+ drivers/soc/mediatek/mt8195-mmsys.h | 181 +++++++++++++++++++++++++++++------------------------------
+ drivers/soc/mediatek/mt8365-mmsys.h |  20 +++----
+ drivers/soc/mediatek/mtk-dvfsrc.c   |   1 +
+ drivers/soc/mediatek/mtk-mmsys.h    | 300 ++++++++++++++++++++++++++++++++++++++++++--------------------------------------------------------
+ drivers/soc/mediatek/mtk-socinfo.c  |   7 ++-
+ 11 files changed, 321 insertions(+), 360 deletions(-)
 
 
