@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97855C55164
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 00:15:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E379C54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 00:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x6VEIGoM0CTqq1w7BV8EITL2hcdo71wvSqgOUEq1fKk=; b=DqHsdQXRlxesTK31HTO989Mtfw
-	26Y4DVu/WEBXFEDELSHPWWJdn2VIR/ixvYdEq6fOjMpcPR9dpalewYY221eErErhTTCh1ApiWA/gV
-	OpruLVXq1HVw45AH2734UXx5osdtmaX5D6MH2gU/Gluu0zY6t+DZHRrXIBTiPTrL/F5px7kRJbySO
-	KhTiZUq6kCiL2JZ0HtPrPouOdB5ve81X2alnUkckD2yZBW99BMPzAiJglv/CWrOAQCiHf5OJjte+s
-	wBzEfTb3dP5/BOG8HcTYQjhsqBu8oJyxzX9BxjEMA1AXI6FmBhR1vQXP4UKH+4Hj1X8RSHJjWRyE/
-	4cFkcBuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qgsYVT3l6iCHVps1iREv/tscFajn8p5GAEe8HQP8Gmk=; b=MdeoL4HlCfZvBxMxSAJX22c3N5
+	3prlS4oE/hLCkDiC9a7+mXQhm5Ix6F6mpvgjGofFQTeXecSRM/5OegS9Ez2+76HfnIDT4rG0kWxAR
+	yfA5SNy4/rj9q0fk2pG7k5tLOqorWg0WPiPmzEUrh+a7tIGuysdaH6wuba11hWl64SIPzD9zj2LgY
+	SvJeG4O5d/Yc1G/42EPqwEezrMaltxlcW9Fhftn2UF5AviySDgNPnUgllv+xphKbP7Qk3N5uQzX9p
+	V4YFSMJ1yUZAo3QK9I8Nv17cg/AcbzmGb1PRzsJbRBlpwV1H+1/zC+rxesoHn801N3vrauOBIeMmW
+	tjecbIbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpEQP-000000099UL-2BVg;
-	Thu, 30 Jul 2026 00:15:01 +0000
+	id 1wpEQn-000000099iB-1vwA;
+	Thu, 30 Jul 2026 00:15:25 +0000
 Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpEQM-000000099St-3jgI;
-	Thu, 30 Jul 2026 00:15:00 +0000
+	id 1wpEQP-000000099TT-3DUp;
+	Thu, 30 Jul 2026 00:15:02 +0000
 Received: from local
 	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
 	 (Exim 4.99)
 	(envelope-from <daniel@makrotopia.org>)
-	id 1wpEPx-000000002eX-3Jjt;
-	Thu, 30 Jul 2026 00:14:33 +0000
-Date: Thu, 30 Jul 2026 01:14:30 +0100
+	id 1wpEQJ-000000002fc-1daf;
+	Thu, 30 Jul 2026 00:14:55 +0000
+Date: Thu, 30 Jul 2026 01:14:52 +0100
 From: Daniel Golle <daniel@makrotopia.org>
 To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
 	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
@@ -51,14 +51,17 @@ To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
 	Landen Chao <Landen.Chao@mediatek.com>, netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH net v2 0/5] net: dsa: mt7530: fix swallowed MDIO read errors
-Message-ID: <cover.1785368701.git.daniel@makrotopia.org>
+Subject: [PATCH net v2 3/5] net: dsa: mt7530: error out on failed reads in
+ ATC/VTCR command polling
+Message-ID: <b3158e751c5e8e3a36cd3bbb6b1c6f4ac9c17afd.1785368701.git.daniel@makrotopia.org>
+References: <cover.1785368701.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <cover.1785368701.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_171458_934033_6887F970 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20260729_171501_835981_98121413 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,74 +76,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While working on a register access cleanup for the mt7530 driver, the
-Sashiko AI reviewers flagged long-standing error handling gaps in the
-driver's read paths [1].
+mt7530_fdb_cmd() and mt7530_vlan_cmd() poll the command register
+through a helper which returns 0 when the underlying read fails. A
+failed bus transaction thus clears ATC_BUSY/VTCR_BUSY and is treated
+as successful command completion, and the subsequent ATC_INVALID and
+VTCR_INVALID checks are defeated the same way.
 
-The MDIO regmap backend truncates negative bus->read() errnos into u16
-register halves and returns success, handing garbage data to callers
-and to read-modify-write cycles which then write it back to the switch.
+Poll using regmap_read_poll_timeout(), which stops on read errors and
+propagates them, and use the register value it already read back
+instead of re-reading it. Take the MDIO bus lock across the sequence
+as the switch regmap is set up with locking disabled.
 
-The ATC/VTCR command polls and the MT7531 indirect PHY polls consume
-reads through a helper which returns 0 when the underlying read fails.
-A failed bus transaction thus clears the polled busy bit and is
-mistaken for command completion, defeats the subsequent
-ATC_INVALID/VTCR_INVALID checks the same way, and lets the indirect
-PHY access functions return garbage PHY register data.
+Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+Fixes: 83163f7dca56 ("net: dsa: mediatek: add VLAN support for MT7530")
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+---
+v2:
+ * drop the extra regmap_read() after regmap_read_poll_timeout(); the
+   macro already leaves the polled value in val (found by Sashiko AI
+   review)
+ * print ret in the error messages and stop mislabeling propagated bus
+   errors as "reset timeout"/"poll timeout"
 
-Fix the backend to propagate bus->read() errors, and convert the
-command and PHY access polls to regmap_read_poll_timeout(), which
-terminates polling on read errors and propagates them. The driver's
-legacy read helpers return plain u32 values and cannot convey errors,
-hence the affected reads switch to the plain regmap API the helpers
-are built on, while all other accesses are deliberately left
-untouched; the cleanup series converts the rest of the driver.
+ drivers/net/dsa/mt7530.c | 28 ++++++++++++++++------------
+ 1 file changed, 16 insertions(+), 12 deletions(-)
 
-The Sashiko reviewers went over v1 as well [2] and found that the same
-unchecked-read pattern recurs in a couple of other places, and that the
-read-error propagation above widens a pre-existing gap in a PCS driver
-consumer; patches 1-3 grew companion fixes for those. They also found a
-separate locking gap between the switch regmap and its IRQ chip, fixed
-in the new patch 4 with its own Fixes: tag.
-
-The cleanup series depending on these fixes will be submitted to
-net-next separately.
-
-Changes since v1:
- * 1/4: also check the identical unchecked bus->read() in core_rmw(),
-   and fix mtk_pcs_lynxi_get_state() (drivers/net/pcs/pcs-mtk-lynxi.c)
-   to check regmap_read() now that a failed read can leave its output
-   unwritten instead of holding truncated-but-defined garbage
- * 2/4: drop the redundant regmap_read() after
-   regmap_read_poll_timeout(), and print ret in the error messages
- * 3/4: also check mt7530_mii_write()'s return for the PHY_IAC command
-   word in all four PHY access helpers, and print ret in the poll
-   error messages
- * add 4/4, calling mt7530_mutex_lock()/unlock() around the regmap IRQ
-   chip's own accesses via handle_pre_irq/handle_post_irq/
-   handle_mask_sync, the same driver-provided locking every other user
-   of the unlocked switch regmap already goes through, instead of
-   adding a second regmap instance
-
-[1] https://lore.kernel.org/netdev/cover.1784481922.git.daniel@makrotopia.org/
-[2] https://lore.kernel.org/netdev/cover.1785213071.git.daniel@makrotopia.org/
-
-Daniel Golle (5):
-  net: pcs: mtk-lynxi: check regmap reads in mtk_pcs_lynxi_get_state()
-  net: dsa: mt7530: check bus->read() errors in the MDIO regmap backend
-  net: dsa: mt7530: error out on failed reads in ATC/VTCR command
-    polling
-  net: dsa: mt7530: error out on failed reads in MT7531 PHY polling
-  net: dsa: mt7530: serialize the regmap IRQ chip like every other user
-
- drivers/net/dsa/mt7530-mdio.c   |  11 ++-
- drivers/net/dsa/mt7530.c        | 170 ++++++++++++++++++--------------
- drivers/net/pcs/pcs-mtk-lynxi.c |   5 +-
- 3 files changed, 108 insertions(+), 78 deletions(-)
-
-
-base-commit: 51b093a7ba27476e1f639455f005e8d2e75390e4
-prerequisite-patch-id: 0000000000000000000000000000000000000000
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index f349b54c2d9e..aab26970f39b 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -252,24 +252,26 @@ mt7530_fdb_cmd(struct mt7530_priv *priv, enum mt7530_fdb_cmd cmd, u32 *rsp)
+ {
+ 	u32 val;
+ 	int ret;
+-	struct mt7530_dummy_poll p;
+ 
+ 	/* Set the command operating upon the MAC address entries */
+ 	val = ATC_BUSY | ATC_MAT(0) | cmd;
+ 	mt7530_write(priv, MT7530_ATC, val);
+ 
+-	INIT_MT7530_DUMMY_POLL(&p, priv, MT7530_ATC);
+-	ret = readx_poll_timeout(_mt7530_read, &p, val,
+-				 !(val & ATC_BUSY), 20, 20000);
++	mt7530_mutex_lock(priv);
++
++	ret = regmap_read_poll_timeout(priv->regmap, MT7530_ATC, val,
++				       !(val & ATC_BUSY), 20, 20000);
++
++	mt7530_mutex_unlock(priv);
++
+ 	if (ret < 0) {
+-		dev_err(priv->dev, "reset timeout\n");
++		dev_err(priv->dev, "ATC poll failed: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+ 	/* Additional sanity for read command if the specified
+ 	 * entry is invalid
+ 	 */
+-	val = mt7530_read(priv, MT7530_ATC);
+ 	if ((cmd == MT7530_FDB_READ) && (val & ATC_INVALID))
+ 		return -EINVAL;
+ 
+@@ -1630,22 +1632,24 @@ mt7530_port_bridge_join(struct dsa_switch *ds, int port,
+ static int
+ mt7530_vlan_cmd(struct mt7530_priv *priv, enum mt7530_vlan_cmd cmd, u16 vid)
+ {
+-	struct mt7530_dummy_poll p;
+ 	u32 val;
+ 	int ret;
+ 
+ 	val = VTCR_BUSY | VTCR_FUNC(cmd) | vid;
+ 	mt7530_write(priv, MT7530_VTCR, val);
+ 
+-	INIT_MT7530_DUMMY_POLL(&p, priv, MT7530_VTCR);
+-	ret = readx_poll_timeout(_mt7530_read, &p, val,
+-				 !(val & VTCR_BUSY), 20, 20000);
++	mt7530_mutex_lock(priv);
++
++	ret = regmap_read_poll_timeout(priv->regmap, MT7530_VTCR, val,
++				       !(val & VTCR_BUSY), 20, 20000);
++
++	mt7530_mutex_unlock(priv);
++
+ 	if (ret < 0) {
+-		dev_err(priv->dev, "poll timeout\n");
++		dev_err(priv->dev, "VTCR poll failed: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+-	val = mt7530_read(priv, MT7530_VTCR);
+ 	if (val & VTCR_INVALID) {
+ 		dev_err(priv->dev, "read VTCR invalid\n");
+ 		return -EINVAL;
 -- 
 2.55.0
 
