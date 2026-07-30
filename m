@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51846C54FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:50:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07906C54FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 09:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TaaZl5GmaW2NfuUA6tcCmwJ6qRigH2LvATcDIn8roDc=; b=xzaCapbJBXQc7jKPHK6uZx/eH7
-	T+DcF6GEYEsXeKBn0R+RWRHRwgCwaUPpAtYSrolVIgs51Qz5MnjAOspfAqC1xwavlJbB42XoIpLuh
-	r9lIIrkhWg+2ve9bGNlPDgFpNzWdrq8a5qdg/hfSxBYZnTKB7vC/3Hiv/6L8GjfUoQizCnEYsyTMO
-	XXwbIdZtj4fPC3iyN1aT8ZMl1txixoJcf7MkUx0BrQuTz7dC6in216eMOzEbsh6Gl15rKEbKbeGSO
-	6QWIfoJYXrUZpP06Yqz177lebn/i5KVoZL12ueoAs4sg9GSKkF4qb0a6bwsmGhBfaLAipYNNO8fMN
-	W/Fu6mfg==;
+	bh=VrbdI+3O7VLWBBQ52j1XvamMGa6q3GEz3oZsQ8NPzcE=; b=FBVNPNZkm52Zql3bpGDaRAXXJe
+	lADRp4Hc7mNCXZyRIeCQIdRUtZMFB9E9aosivarSRjSwA4okyJW/V8kZgW8zRT4Dd9wM4UubYwe88
+	QsSdWcRWqheCO9lVhjxpELdcT6AJ+xbeAn+PorArPR98e25bZ3pAwDerctwOui+9bJ1fTaofjClgz
+	rNsSxqPLxzvSUgUU3a170dMenj1D+a4V85tUm2+CmrU34fJIUXX5tPycIBlq3KxxDAvTZFEZMoK/E
+	DDKVHaPro04sGvMDRJqG0zeBM2YpO3Mc+T64kluRGQFFLvb19ARrTYuYR0wPnnbmAPTPdZZuGi3Ja
+	W+QM3UhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNPM-0000000A3mD-0N0M;
-	Thu, 30 Jul 2026 09:50:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wpNPW-0000000A3sh-1OO7;
+	Thu, 30 Jul 2026 09:50:42 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpNOt-0000000A3Os-2PpM;
+	id 1wpNOs-0000000A3O7-31qW;
 	Thu, 30 Jul 2026 09:50:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785405001;
-	bh=HXEFqOMYQclLXNgj2YBJ3cW9HGMGfJeqHst6wm/hNow=;
+	s=mail; t=1785404999;
+	bh=LVYx9mhcDnPo1tnQ6sCMS9IkMWbpCEPCVQ9iCPF5BsY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ATev4JZTdEnxFzDoL0rtTOhEEJxle5HAf3hyui2HpyyhaonGhA9fxl/jqOVfw66T3
-	 8eQUwMbFF5k4jbRdbKmYg6T/KHpePGkFpmnhAM6k7SYyquXDfJiAGrXz3cM6XUJ8kG
-	 C75+Tlt0k42t4GxjvgJ8Y2ZthwYcSRQvi+Gw8nhZ0MeB5nOiwgj/8yaFRnavyrvRf5
-	 faViUVBCQ0EDcM383XbCaVNdZKnITdBsdgi8iGVS447IG4jfA3OK8s9LL2FGl2FPSn
-	 60VoW9ptEeLrYzPhJ/U6cx3Zx+crMtthiuAfvswCuJm3dCdFIwDXA+1eARMgy2pB0g
-	 vcvKEDrFf8D4w==
+	b=PAr6flNgMi5dPMolQpCD00qLwCRk9IvffKK56YBoY1lNWpIoBKT28JCthckpnJ4xR
+	 CvGO8F6OixEiDbVcgIOMJLGOso+sgXv1QwZf/K7qxiOnt5MT3DHUvWG3KsIxY357aN
+	 0OIpN1WSElGrRHSy7jZZSEkDjfCFW1csilV2MKWmNy5y6yIqDS+kKhxwRFFDXIdnyt
+	 Ffu9EHt9b693szff+getPvJte6HIzt2TRwndpenNtd0VMLXB7cc86h2yghpJU9+m7q
+	 eZRKNf569078fuCTtTjEtxeANWuxU6MQwhiINmBFQYa/sqy7DT0BzXwUECZnBDQGJd
+	 SdIrE0lSRJ37w==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 11AD517E08E0;
-	Thu, 30 Jul 2026 11:50:00 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8A88117E0700;
+	Thu, 30 Jul 2026 11:49:58 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 30 Jul 2026 11:49:00 +0200
-Subject: [PATCH v10 04/26] scsi: ufs: mediatek: Move MTK_SIP_UFS_CONTROL to
- mtk_sip_svc.h
+Date: Thu, 30 Jul 2026 11:48:59 +0200
+Subject: [PATCH v10 03/26] dt-bindings: ufs: mediatek,ufs: Add mt8196
+ variant
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260730-mt8196-ufs-v10-4-bc5ecef202dc@collabora.com>
+Message-Id: <20260730-mt8196-ufs-v10-3-bc5ecef202dc@collabora.com>
 References: <20260730-mt8196-ufs-v10-0-bc5ecef202dc@collabora.com>
 In-Reply-To: <20260730-mt8196-ufs-v10-0-bc5ecef202dc@collabora.com>
 To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
@@ -75,16 +75,16 @@ Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785404993; l=1832;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785404993; l=2995;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=z5h4Zo+etU6eLsizbb7MCmCVs96yTicxCToFv5toJJQ=;
- b=ltzaaD4uUT56HrSsWvvyDlJAmpZXx4oApLuqRqzQJBlB5lR5ZrHwJjZwFUQB/512g1x/6kKmr
- 7BYM7gqLCiHCRhJ41wf8Ez/32oM7APOmETeFTdrqmNWP6OKTpjiex6H
+ bh=vXbgbbA/ReyeJVMGYyefCg84nGPa42OXg9cLzrvqrGk=;
+ b=FD71VCnaCRD9uOjvl0KtqwkgTo+W+SzgO8ZZIcNasugmRBBS4KA4/SXJsQI6B6a49ZatoJrMK
+ P4v//IZ0okRBETzfUV9h7TTkwtfacSru4bR3pfSZAwuNYDjun48jUhk
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_025004_124174_442178DD 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20260730_025004_103140_356FD736 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,49 +101,89 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-SMC commands used by multiple drivers need to live in a shared header
-file somewhere to avoid code duplication. In order to rework the MPHY
-reset control to be in the phy-mtk-ufs.c driver, both ufs-mediatek and
-the phy driver need access to this command.
+The MediaTek MT8196 SoC's UFS controller uses a different set of supplies.
+It is therefore not compatible with the MT8195.
 
-Move it to mtk_sip_svc.h, where other such command definitions already
-live.
+While it does have a AVDD09_UFS_1 pin in addition to the AVDD09_UFS pin,
+it appears that these two pins are commoned together, as the board
+schematic I have access to uses the same supply for both, and the
+downstream driver does not distinguish between the two supplies either.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+Add a compatible for it, and modify the binding correspondingly.
+
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek-sip.h      | 1 -
- include/linux/soc/mediatek/mtk_sip_svc.h | 3 +++
- 2 files changed, 3 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 45 ++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-diff --git a/drivers/ufs/host/ufs-mediatek-sip.h b/drivers/ufs/host/ufs-mediatek-sip.h
-index 7d17aedf6fb8..d627dfb4a766 100644
---- a/drivers/ufs/host/ufs-mediatek-sip.h
-+++ b/drivers/ufs/host/ufs-mediatek-sip.h
-@@ -11,7 +11,6 @@
- /*
-  * SiP (Slicon Partner) commands
-  */
--#define MTK_SIP_UFS_CONTROL               MTK_SIP_SMC_CMD(0x276)
- #define UFS_MTK_SIP_VA09_PWR_CTRL         BIT(0)
- #define UFS_MTK_SIP_DEVICE_RESET          BIT(1)
- #define UFS_MTK_SIP_CRYPTO_CTRL           BIT(2)
-diff --git a/include/linux/soc/mediatek/mtk_sip_svc.h b/include/linux/soc/mediatek/mtk_sip_svc.h
-index 6c95a29b79fa..36ab3153fe44 100644
---- a/include/linux/soc/mediatek/mtk_sip_svc.h
-+++ b/include/linux/soc/mediatek/mtk_sip_svc.h
-@@ -22,6 +22,9 @@
- 	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL, MTK_SIP_SMC_CONVENTION, \
- 			   ARM_SMCCC_OWNER_SIP, fn_id)
+diff --git a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+index e7e360c59ba5..70164e4e54c5 100644
+--- a/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
++++ b/Documentation/devicetree/bindings/ufs/mediatek,ufs.yaml
+@@ -16,6 +16,7 @@ properties:
+       - mediatek,mt8183-ufshci
+       - mediatek,mt8192-ufshci
+       - mediatek,mt8195-ufshci
++      - mediatek,mt8196-ufshci
  
-+/* UFS related SMC call */
-+#define MTK_SIP_UFS_CONTROL		MTK_SIP_SMC_CMD(0x276)
+   clocks:
+     minItems: 1
+@@ -131,6 +132,20 @@ allOf:
+         clock-names:
+           minItems: 10
+         avdd09-supply: false
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8196-ufshci
++    then:
++      properties:
++        clocks:
++          minItems: 10
++        clock-names:
++          minItems: 10
++        avdd18-supply: false
++      required:
++        - operating-points-v2
+ 
+ examples:
+   - |
+@@ -177,3 +192,33 @@ examples:
+ 
+         mediatek,ufs-disable-mcq;
+     };
++  - |
++    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
 +
- /* Modem related SMC call */
- #define MTK_SIP_KERNEL_CCCI_CONTROL	MTK_SIP_SMC_CMD(0x505)
- 
++    ufshci@16810000 {
++        compatible = "mediatek,mt8196-ufshci";
++        reg = <0x16810000 0x2a00>;
++        interrupts = <GIC_SPI 320 IRQ_TYPE_LEVEL_HIGH>;
++
++        clocks = <&ufs_ao_clk 6>, <&ufs_ao_clk 7>, <&clk26m>, <&ufs_ao_clk 3>,
++                 <&clk26m>, <&ufs_ao_clk 4>, <&ufs_ao_clk 0>,
++                 <&topckgen 7>, <&ufs_ao_clk 1>, <&ufs_ao_clk 2>;
++        clock-names = "main", "aes", "tick", "unipro_sysclk",
++                      "unipro_tick", "unipro_mp_bclk", "tx_symbol",
++                      "mem_sub", "rx_symbol0", "rx_symbol1";
++
++        operating-points-v2 = <&ufs_opp_table>;
++
++        phys = <&ufsphy>;
++
++        avdd09-supply = <&mt6363_vsram_modem>;
++        vcc-supply = <&mt6363_vemc>;
++        vccq-supply = <&mt6363_vufs12>;
++
++        resets = <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_UNIPRO>,
++                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFS_CRYPTO>,
++                 <&ufs_ao_clk MT8196_UFSAO_RST1_UFSHCI>;
++        reset-names = "unipro", "crypto", "hci";
++        mediatek,ufs-disable-mcq;
++    };
 
 -- 
 2.55.0
