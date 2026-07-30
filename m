@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F166CC5516E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AB51C5516E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 19:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GqFouO/Y0c5A8aRED0hGU8nzTxnUOhLbljZSc3SPdr8=; b=sy26cP7PCG3u/YqUXNURFRedpP
-	26ETRDiIiucEMVM6ebnVooOgybal75PbDZiEkp7qR/XJt2ERc5xwiF6jK1RHFPu6Z7zD0pmV0+lVf
-	6grvJOhMhp/IV2xz9XOe0HvhgkRF+UFrmLIHPVno94GdIuJlpvyTdtCIb1HUzJyyhPA6IPtRKN4lr
-	F1Fu/PG3+nZVYCHb7I27BCZG/j3TQ3iKIJhgfMACqQ06EWXkLv10VLgHuXlSSY/UhJ8jSoIi4SOiU
-	n66ICzSDssrbJ5CRn9WOmI6GW4Sp/DPnaQ8aPwG7vw243gXTKYDRMuRxRVHxjG+mp0Nn0C+zwNTMX
-	VTX56QnQ==;
+	bh=Qfn2cECZLsHqprJcGxd/mBRupQRn27rJQwENTMwC0N0=; b=P/SwbNRIGdnqJFVFS6INIgLBE1
+	03ieE+2NZP+bStu6Dbo10MHJv1AJchbGn4fFMjVOyog7JjwP5WF889/HH3Q9KJ5st+DBd08IHz9LU
+	T1wijJqf9coavmgvZu+iLKsK9BJ4pQjXtCbie0AOYpUiEATulrK24uc+6++anlz778Oc2Zz++rMmP
+	VSq4nZMdIvz1MH30gwefYO8iuGDvjEUrPfTsur8RBqfujiDkp11PdEVAsu4/kDPxXU3Z99YoiOIjz
+	/bo2UivWG+0ArMsgYL58DclaOOD3E0Xapo7uyh+R9PngoiZ5agxjiYTWjZptubI/mMGUBo8FZvT5Z
+	64A2MvNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpW4N-0000000BCZm-1wud;
-	Thu, 30 Jul 2026 19:05:27 +0000
+	id 1wpWCQ-0000000BD9i-1ATt;
+	Thu, 30 Jul 2026 19:13:46 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpW4K-0000000BCZA-0RO8
+	id 1wpWCN-0000000BD98-2aTy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 19:05:25 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UGWfnA1377596
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 19:05:23 GMT
+	Thu, 30 Jul 2026 19:13:44 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UIOW7m1879359
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 19:13:42 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	GqFouO/Y0c5A8aRED0hGU8nzTxnUOhLbljZSc3SPdr8=; b=QpUixNTyrWH4KVoV
-	tVDCeqi0jYtHrpR/Z5/f0oC18+A+6h/iU14wotg513bT/EzpJ0HPkhpBVtA04Zw0
-	r1g77haoJwdtQt+QGcQbaXdtynhR+TJoxHr5MZDIRlbDNy3lHKjtI1W3ZFfCx77O
-	xcDxK220a1yqlEffKUy6vq5fJdQxRDLW2T/0FO98YBBVFZ79Yb+p0Y/GrXooFF1I
-	hEriF+By07dbkwiisoCL89jA6GvJi9i0ubDZeQkK9hpyjrAQXKs3x+yrM/nZHNlx
-	maGZxd5DUdJw++//nv8+h6Rw1sRCgitbC4Trot+SHsgBqg/HrVfebvD+k7um8Qmu
-	EyQ+DA==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fr8jmscmq-1
+	Qfn2cECZLsHqprJcGxd/mBRupQRn27rJQwENTMwC0N0=; b=QmqRE2syTkGqVp9U
+	uOsp8jix3o5QgYKCMjAHgzo6ebANTU+LlQ6d9MqDBzdNzzceBFWaS6ANREc/dEmL
+	WCTPheBvT/xBmrJkJZ8hOxvsUdF8Jnw7IDs/WAWfHaZygXQPzg1C5furt75rbPlw
+	XyxP9vwXDhEQuNeX2LmZHn+n0WM7IdnjH8sBGCDhkZe7BaTTj99xh0TJy5QuzPao
+	HTIMfMZr2Ql7im1ZcqY+udr/rEfXAy2YYYdNk20WeeaCQJrEA4RrO3o6fYqTYynW
+	G3zK0DmUG+repXAQO5VjvC7c7dXoVCry8nk1Il/GhgY2cpU52jxrkMGEgHTvRqHX
+	rFjAxg==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4frbv5075j-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 19:05:22 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cb733fc5024so170253a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:05:22 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 19:13:42 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2cf6acd760cso1132245ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 12:13:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785438322; x=1786043122; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1785438821; x=1786043621; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=GqFouO/Y0c5A8aRED0hGU8nzTxnUOhLbljZSc3SPdr8=;
-        b=bYCFTIb+A1PebGz0ahlc7XLMVrEQIjPdZGMA7ajtsGf7gsdV3vb8SpS5/csZJ+wTBQ
-         Rqx/1M1s7ulL7LwBNv/C/ksqZOXBElOcVhQSzikkdoodRucHoRbcbznRD+xpnx3CzGjv
-         15YcLquMqdMurrHQSjiV4B5VFRNS490x6Tcm4cWZ+VJPpHsEbzo9huGk8HdE0ZdHEgpd
-         oayOgrWtlmZcVlmSZqSylx3530JGc5klKv0HMTlUfavGCZNWAYlWKn7iSPzIFS2HeSCz
-         lXk+AvfwyGX3Urik8M7W2Q4iPiVlNwo0MNjEa7xWzAXmQ49NrInZK4M7Oy1Bbaz22rBQ
-         fbyw==
+        bh=Qfn2cECZLsHqprJcGxd/mBRupQRn27rJQwENTMwC0N0=;
+        b=jjn1rQyNM58frcK1tZBmikW7fv+ETb/OltYJLcO1OgUMEqMzG79wECUqwIYxnGaENq
+         LOWdR/xwsVbexQh07GJsu1JCfOKwpRUCu40pXr4AiPnzta7R0cNeRQQ+MNHcMssq+r+B
+         9aK78ggTS4pkZ3upP5K7Ppk9wHq6S41vCnOjgG4YecLcHqWb2smeg7yti04+V2Me+KlD
+         RkBy4gtH1rl3wnk9m69cAVeZ86BK4EzJMIqgXWpl1OGNuue9K5toYGjs7mDozX6oTCDe
+         ExegoAN+OBKsQjQlCoerjHrXf1Peq+s5f/YQ4/sOL/5AATKB+PKMpRCgjvUw/kf1oMKv
+         8jng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785438322; x=1786043122;
+        d=1e100.net; s=20251104; t=1785438821; x=1786043621;
         h=content-transfer-encoding:content-type:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=GqFouO/Y0c5A8aRED0hGU8nzTxnUOhLbljZSc3SPdr8=;
-        b=ToPxqRvvbdlLf3l4kM33vry+JTRVHSETtmp732f+Zc1Uq1YwU0zlaAIZQrDljks0li
-         OhjrfIDF2CQjA5WoVdP5mwqPHTmPZ8lq6lyRY4yxg+74F+VsjoE1TIZEfhIOYNMP3cdS
-         T84bYgshf6Rhd606Qj7Nyh/NWHxaNrzxV/3kus6IUjzzSjBRMD3T6KCZ8X7Z7a5hTMOE
-         Z8uzgf6ymLmOAeSLS7N4m8/t6AaHrsGDjNZXg+GDGnOh6ORaunx13rsZ1OsCjJUjx17Q
-         Pdvm0/ItRT8gpA+mrGG3JB0zx94K77Vje9RBka/oTEwc7o/InJl9/RLWPPs+o+MgNjh7
-         foWQ==
-X-Forwarded-Encrypted: i=1; AHgh+Roy3zArh9UMx+4p2zJVyMnXSu5n1PQ8d3Fxq3Z2eqnkpHEhUbib45nL+QZ6YgKvY1T74A/g8assWwHdB3J0Q/Mp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHvXXKxz3YSLIHuXo2cDzvrG1chTQun3MCdeBhJ9jG1DjcZ86D
-	V1FsjZOX7/Y/icEnXpa5d1b1BpqxJhzbZFbRjbFACNTTRZrUO0mjmjX6WlZ+dCUs5Nsnc6r8ArS
-	i2DJMGg2DZP3CRBNLtX3A2jnXnCJTkqxZqMjVVjZYOriMkHnoE/+UL7GUIlJByFyR2eDo+EjmsL
-	Bluw==
-X-Gm-Gg: AR+sD11cChpzEgitmYunUUYo9KGcgyTFzBWbrIDdhET9UETLRxuQqIhVE+/forH+aUI
-	fpN737NfV7DmqIVDGlnY0Niu08+15fP7HAgmCYrqAiUlJatCeHZyImqvMbIJOX8TEaZ0XSvaAx9
-	dfKLl+UUSRDoHFqgOjiSTyauieEaIQg9e8urLc9MsFqU0Ie8V9B+idtoJxQXTvzv6gNQ3gkGgRK
-	Ualq8G5NaJJGgTf4yyCGGCOIKgQ9b65WeyiYUu4jW5MMmfUVspIo1qSLGcEGDLKHTZSFPsbH5vm
-	7wgN213d94HHcc+I34ZBU+ts+BQPOAZMMUI4WNr62oZioK3JsqrOeS4bq4nQK+LJ8a0uP1oo9DQ
-	SSAyY0I86zdLBMYatps+N1s/J8A==
-X-Received: by 2002:a05:6a21:692:b0:3a0:bc61:62e6 with SMTP id adf61e73a8af0-3c90d3da39fmr1381071637.8.1785438321816;
-        Thu, 30 Jul 2026 12:05:21 -0700 (PDT)
-X-Received: by 2002:a05:6a21:692:b0:3a0:bc61:62e6 with SMTP id adf61e73a8af0-3c90d3da39fmr1381039637.8.1785438321357;
-        Thu, 30 Jul 2026 12:05:21 -0700 (PDT)
+        bh=Qfn2cECZLsHqprJcGxd/mBRupQRn27rJQwENTMwC0N0=;
+        b=hrmo3PV7eM0DrgUglX9P+bxQrPin17gDcw6yx1zIjjDOAsC3yNMy1SEj7+pnTq0udo
+         GEdkZW2TeB0jqFmfVWLQjWPsYPOo7fMprj1iTEwBXBMtpelLsai9Hhm/uRhF+MNflXXz
+         roDofwCY5uaoDF1letH84pyuRhfWDJxEKZQGz/94LLuvRfcGSLhee87qirjFMKnODYcp
+         AEv1/VgZFnJ9iIhpLvkpw8gVc7TgjnR7TybllGvz00oOak65QssnnOmtAO34NM9meWkm
+         TvdhsCQAIGu2vvaRS5jRRlL4iYyxxOFdg4XQu9cVYCN4H7eYuEKnjzXEN6v7JOqt6t7J
+         9R7w==
+X-Forwarded-Encrypted: i=1; AHgh+RotEPSKN1unB6yHLmDL9k6uUnV3+G6M9cLLrX+wYHshhhHKdq0OR5jBjt1G1WQCwns7drZr9AtLvhD7wUk8Lotl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHDyHxyenCx+RGQgAR/HqL50iFyPaOAvsLJxtKLttHbgUj/fZn
+	A/2pT4Lz7UMU2jCel6JG8/xOveKZYnG3vkFhIJPcQ//9tb55EhYl8Qw9I7QDA2hyvSfWaxfLI2W
+	xLJiDzQvcxdnJA3MMrc2g5BDXeSDGuEkGYSGPjpNnlXS4fsbT1yLOGHDRQ6XV4fhWGEe2rac15Z
+	Xktw==
+X-Gm-Gg: AR+sD10L28VvdXEsgVOIdWDJwmlU4Zd7Qx8wFgMqTQ+qx2sTRLlwqBjSxukve1DR38g
+	BSciLL8HilBJvBtzlqDHcPyMpzDeuzokXVkXL7eAOHDUgqJohLnoHyFXIOTzCk89f1aovVc9wc/
+	f+SA/v1SimfbcX4vHIWc8l/0Vfk0YxUeJ11ta6kd4DrMVTtR9vCAMc90OHCFcdKZL4n9pPJcaWt
+	/0N31bjB/FNRIugTYj4a7G2jaq3nxxGzTg3soxrrjVmXnwbdtTp65CwblN2H9nsD3QB9UaZjZG1
+	D3T14Gxe+PFmiuwzLqH2REzx+hxmWcALjEgyf/MuPu5D889OaTM+bx8GdkvPgsdw8WY2/iZO7jh
+	0f2OVulJnB8K6HgBCVN6NVvcScw==
+X-Received: by 2002:a17:903:2f8f:b0:2ce:b8c5:5de3 with SMTP id d9443c01a7336-2d035e50f61mr33614665ad.36.1785438821186;
+        Thu, 30 Jul 2026 12:13:41 -0700 (PDT)
+X-Received: by 2002:a17:903:2f8f:b0:2ce:b8c5:5de3 with SMTP id d9443c01a7336-2d035e50f61mr33614395ad.36.1785438820777;
+        Thu, 30 Jul 2026 12:13:40 -0700 (PDT)
 Received: from localhost ([50.35.46.84])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31504b15f77sm25603658eec.4.2026.07.30.12.05.19
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31504dab154sm26198193eec.26.2026.07.30.12.13.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 30 Jul 2026 12:05:20 -0700 (PDT)
-Date: Thu, 30 Jul 2026 12:05:16 -0700
+        Thu, 30 Jul 2026 12:13:40 -0700 (PDT)
+Date: Thu, 30 Jul 2026 12:13:36 -0700
 From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -119,47 +119,47 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
         Ritwick Sharma
  <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 08/10] arm_mpam: add MPAM-Fb MSC firmware access
- support
-Message-ID: <20260730120516.000059aa@oss.qualcomm.com>
-In-Reply-To: <20260730152539.2712312-9-andre.przywara@arm.com>
+Subject: Re: [PATCH v6 09/10] arm_mpam: change MPAM-Fb error IRQ to use a
+ threaded IRQ handler
+Message-ID: <20260730121336.00002130@oss.qualcomm.com>
+In-Reply-To: <20260730152539.2712312-10-andre.przywara@arm.com>
 References: <20260730152539.2712312-1-andre.przywara@arm.com>
-	<20260730152539.2712312-9-andre.przywara@arm.com>
+	<20260730152539.2712312-10-andre.przywara@arm.com>
 Organization: Qualcomm
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=V4tNF+ni c=1 sm=1 tr=0 ts=6a6ba072 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
+X-Proofpoint-ORIG-GUID: NRqiEzffVcwTWg-_x-EXqRizznFbY_T5
+X-Authority-Analysis: v=2.4 cv=RcmgzVtv c=1 sm=1 tr=0 ts=6a6ba266 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
  a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=irsnRLeOcCLjm4-ghIcA:9 a=CjuIK1q_8ugA:10
- a=3WC7DwWrALyhR5TkjVHa:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-GUID: glkKmjflPGqFVA4j3xrrvIJg5045GVNu
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDE0MCBTYWx0ZWRfX4HxWI96WhFhz
- 2wPIfpeOQ72UWdkm9yoWH39/dhB5xp+lq+xhxkB4IDANilr3OjFljCbJeSXNDOWE5PX/Lxy/HRw
- C+/lhYTEUbrRY/cpjGlBGh9bUfnppPAHJXua2/EQyRtS5B4kIuQdP8ruNDawCMKaCuYc0mJ4Fjf
- lEvaSozi2qCTzWZKAVcRuU5Untf3ygJCIlKY6rnMdKraAljzaKApYUzAawMccaWfK+831M975gQ
- iMIWSonPOs+Bq7CoSSinGPKKJ06pMN9sFf5EiDD4WbsW2oALZyHLwVbLWElkLmHEE+P3qLImZ9X
- 4PDMWKyLrf3IRUQ0+E3s6kso0SNctdZ2uLkSKy6pG/icyPXDWlX4pCPhARTko51KfV4UTRlI91j
- oSiGW+wEn2PKHcWASBzrw6X5j1Z9SBEcnpFGp0SRLjumAq8qlzdN4S0MhkiH6lzfY9ZRtJANPBh
- Mw/isFhXhQhDvmoP5uw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDE0MCBTYWx0ZWRfX/4ZUan2K3U5H
- BgZEDC17qvOgxe4ts+nMqIhu1FTsib6krHbFpj7isjC2xICERGfsOqANyQZrFHj4p9uFaKmIxFs
- fQeimv4bWmHGlwX44+0Ximw8xxmt+PA=
-X-Proofpoint-ORIG-GUID: glkKmjflPGqFVA4j3xrrvIJg5045GVNu
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=7CQSdrXTAAAA:8 a=Ah_BjpGRzk7GCQLzXeIA:9 a=CjuIK1q_8ugA:10
+ a=uG9DUKGECoFWVXl0Dc02:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDE0MSBTYWx0ZWRfX77JAb6S23WAo
+ AxGMw5MeLU+2AUrbfFRGmqv0PT0JJJA5usFKSq9uBB9dVdbs+dsViXzeXyAqny3jcQ69hFaONfx
+ c6E+JDk7PBpCcUG+sbDIE6wvCPlnblhk1pm0ocVI1KVRouiWcwDn7di0z0Mvy1eAYn+/kxKxcIo
+ oGn2a7m7WxcylP72JzwMuVA+2ONlpa9JxmA2E4d2df+AySu+xxYIv0xAKT2mT2wH9rbKnlAiYc9
+ OnbDiECZxMqM7hldqoUMLxPug3/ocTNjXkw0KT6qsIDjNk5TgXLQOL7MQLRSE7OWJgE/tiSCnia
+ oGrtVpkagiYa2Q8R7rEcurv/colWUgczKt1dIH7TWbPCZbG8w7XhWNirLXtXyUkixaSIMkUXA4K
+ jyE23O14h8nzF7f9pKIBwJ6QWbFitK6u7MctdGkAsNM15GkZkqBa9VseWYAV3J1i31XM7GLLS1z
+ tb4RCcmEr7nuH3yFtPQ==
+X-Proofpoint-GUID: NRqiEzffVcwTWg-_x-EXqRizznFbY_T5
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDE0MSBTYWx0ZWRfX4EW2BmrwgX5U
+ hMPnJBfGEdV58DTQYXKw9Tlcq7PPOjul1cfprMovi2DyISPw3O4OvRLniMhxHQ00emUDkzsveIz
+ tS5d6vF2iR0pYpVtHGLGdDG+6vLMk+4=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-30_05,2026-07-30_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 bulkscore=0 impostorscore=0 suspectscore=0 phishscore=0
- adultscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0 malwarescore=0
+ suspectscore=0 malwarescore=0 adultscore=0 impostorscore=0 bulkscore=0
+ lowpriorityscore=0 spamscore=0 phishscore=0 priorityscore=1501 clxscore=1015
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300140
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300141
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_120524_271041_1322C8E4 
-X-CRM114-Status: GOOD (  29.07  )
+X-CRM114-CacheID: sfid-20260730_121343_799800_07CF3E0C 
+X-CRM114-Status: GOOD (  31.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,115 +174,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jul 2026 17:25:37 +0200
+On Thu, 30 Jul 2026 17:25:38 +0200
 Andre Przywara <andre.przywara@arm.com> wrote:
 
-> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
-> alternative way of accessing the "Memory System Components" (MSC) in an
-> MPAM enabled system.
+> When an MPAM MSC gets into an error condition, it can trigger an error
+> IRQ. We cannot really do much about those errors, but we at least query
+> and log the error, then disable MPAM functionality.
 > 
-> Normally the MSCs are MMIO mapped, but in some implementations this
-> might not be possible (MSC located outside of the local socket, MSC
-> mapped secure-only) or desirable (direct MMIO access too slow or needs
-> to be mediated through a control processor). MPAM-fb standardises a
-> protocol to abstract MSC accesses, building on the SCMI protocol.
+> This error report relies on reading the MSC's error status register
+> (ESR) in the current hard-IRQ handler, which is not possible for MPAM-Fb
+> based MSC accesses, since they involve mailbox routines that might sleep.
+> The same is true for clearing the interrupt at the source, which requires
+> an MSC access as well.
 > 
-> Add functions that do an MSC read or write access by redirecting the
-> request through a firmware interface. For now this done via an ACPI
-> PCC shared memory and mailbox combination.
-> 
-> Since the protocol used is only a small subset of the full SCMI spec,
-> and the SCMI protocol has no full ACPI support anyway, open-code the
-> (simple) SCMI message generation, for just the fields we need.
-> 
-> [1] https://developer.arm.com/documentation/den0144/latest
+> When an MSC is using MPAM-Fb, change the error IRQ to use a threaded IRQ
+> handler, with an empty hard IRQ routine, and doing all the MSC accesses
+> (to access the status and disable the IRQ line) in the threaded part.
+> The change is minimal, we just check for the first MSC access error and
+> bail out early. MMIO based MSCs keep using a hard-IRQ handler, since
+> they must be at least non-migrate-able when doing MSC accesses, for the
+> CPU affinity check to work.
+> Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
+> threaded IRQ here.
 > 
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-On trivial style consistency comment. Otherwise looks fine to me.
 
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
-> new file mode 100644
-> index 000000000000..e2ce28a602aa
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_fb.c
-...
-> +static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 msc_id,
-> +				u16 reg, u32 *result, int mpam_fb_command)
-> +{
-> +	unsigned int token = atomic_inc_return(&mpam_fb_token);
-> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem;
-> +	struct pcc_mbox_chan *chan;
-> +	void __iomem *payload_ofs;
-> +	int mpam_fb_err = 0;
-> +	u32 status;
-> +	int ret;
-> +
-> +	if (!pcc_chan)
-> +		return -ENODEV;
-> +
-> +	chan = pcc_chan->pcc_chan;
-> +
-> +	/* prune token to fit into the 10 bits inside the command register */
-> +	token = FIELD_GET(MPAM_MSC_TOKEN_MASK,
-> +			  FIELD_PREP(MPAM_MSC_TOKEN_MASK, token));
-> +
-> +	mutex_lock(&pcc_chan->pcc_chan_lock);
-> +
-> +	switch (mpam_fb_command) {
-> +	case MPAM_MSC_WRITE_CMD:
-> +		mpam_fb_build_write_message(msc_id, reg, *result,
-> +					    token, chan->shmem);
-> +		break;
-> +	case MPAM_MSC_READ_CMD:
-> +		mpam_fb_build_read_message(msc_id, reg, token, chan->shmem);
-> +		break;
-> +	case MPAM_PROTOCOL_VERSION_CMD:
-> +		mpam_fb_build_version_message(token, chan->shmem);
-> +		break;
-> +	default:
-> +		dev_err(pcc_chan->pcc_cl.dev, "unsupported MPAM-Fb command %d\n",
-> +			mpam_fb_command);
-> +		ret = -EINVAL;
-> +		goto out_err;
-> +	}
-> +
-> +	ret = mbox_send_message(chan->mchan, NULL);
-> +	if (ret < 0)
-> +		goto out_err;
-> +
-> +	pcc_shmem = chan->shmem;
-> +	payload_ofs = chan->shmem + sizeof(*pcc_shmem);
-> +	status = readl(&pcc_shmem->command);
-> +	if (FIELD_GET(MPAM_MSC_TOKEN_MASK, status) != token) {
-> +		ret = -ETIMEDOUT;
-> +
+One thing below.
 
-Slightly odd style. I'd drop blank lines in places like this.
-They aren't consistent as things stand.
+> ---
+>  drivers/resctrl/mpam_devices.c | 64 ++++++++++++++++++++++++++--------
+>  1 file changed, 49 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index daaf3cf48475..606ae4af2be9 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
 
-> +		goto out_err;
-> +	}
+> @@ -2747,9 +2766,24 @@ static int mpam_register_irqs(void)
+>  					       &_enable_percpu_irq, &irq,
+>  					       true);
+>  		} else {
+> -			err = devm_request_irq(&msc->pdev->dev, irq,
+> -					       &mpam_spi_handler, IRQF_SHARED,
+> -					       "mpam:msc:error", msc);
+> +			irq_handler_t hard, threaded;
 > +
-> +	mpam_fb_err = readl(payload_ofs + 0x0);
-> +	if (mpam_fb_err < 0) {
-> +		ret = mpam_fb_translate_error_code(mpam_fb_err);
-> +
-> +		goto out_err;
-> +	}
-> +
-> +	if (mpam_fb_command != MPAM_MSC_WRITE_CMD)
-> +		*result = readl(payload_ofs + 0x4);
-> +
-> +	mutex_unlock(&pcc_chan->pcc_chan_lock);
-> +
-> +	return 0;
-> +
-> +out_err:
-> +	mutex_unlock(&pcc_chan->pcc_chan_lock);
-> +
-> +	mpam_fb_disable_mpam(ret, mpam_fb_err);
-> +
-> +	return ret;
-> +}
+> +			/*
+> +			 * MPAM-Fb needs a sleepable context for the MSC
+> +			 * accesses, whereas MMIO requires at least a
+> +			 * non-migrateable context for the processor ID check.
+> +			 */
+> +			if (msc->iface == MPAM_IFACE_MMIO) {
+> +				hard = &mpam_spi_handler;
+> +				threaded = NULL;
+> +			} else {
+> +				hard = NULL;
+> +				threaded = &mpam_spi_handler;
+> +			}
+> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
+> +							hard, threaded,
+> +							IRQF_SHARED | IRQF_ONESHOT,
+
+IIRC correctly you'll trip a warning message for the case of MMIO and marking
+it as IRQF_ONESHOT. See __setup_irq()
+
+That was a fairly recent check to be added and caused all sorts of problems
+with cases similar to this one where the handlers are coming from variables.
+
+Upshot, you need to call appropriate registration function.
+
+
+Jonathan
+
+
+
+
+> +							"mpam:msc:error", msc);
+>  			if (err)
+>  				return err;
+>  		}
+
 
