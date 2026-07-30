@@ -4,64 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98404C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 16:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C7FC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 16:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KcEcWYmNmr/YwRv/wbbdXROwJ9GfqzJi4PNlqHkG4cU=; b=QhBzoHzwU1HMMCu4CFZDHA7wxp
-	lEe0ynGl3LyPClVX2wC0VfYAHds45FiW/jVMMfiW7i5CB8cc8Za7Cc8B1k8pWCLDPhNH6qQw3w9Ns
-	sspETsj4ZbKW7N4X/uMOwtlHf3jODOU1vuCpRn9/RzYP71bSnRzwrqT8hLeUHTgF27YWBd9E7TP7N
-	aJ65yZmXIcIXvQbzzvTN6ivl1ifmBUUz1OEjrXSODsVIJVEjneDw+6iiU6Yofcty7mHjOVJqcdj+r
-	GGgj2lDnwPymvSGpfBfBLhJLnitenEb3X/0ZtbTGQlkRIiuUxsnuq30oLdQkF39LidiETd+D02vf/
-	0Ua4Ssgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iFXm/EtDVHs2U2W42SOddHPDOyqIH60tAMkZpM5gLvE=; b=do+oE9DssudFwn
+	AZGzKueczcyHkcdrNDCkUB16ogW0/8wO/ARbK1nIUaeYqtT8PzWa8xigLq1zg6C5newc+zJvUg98K
+	ndi7HjVoH91OrIlvLWH9E/R5U5bnR7MirhxmOaBCrEtsmsqm6HpsRegMIrY1cGKAKTMi3ke6MXPhR
+	OaY7SnnVScJGsj/+/VvWEirbsAZoEtsfuAN3/f0bayKQnUv+kN3PnLwS6sPxxDeAQKN55QhEv6wUK
+	55rjeW4oCtEx77uL7PqReVhsyX1briw5FntqFf7AzbWah44REKKFbrF2y0+waYXArsiUzZ8f70bpa
+	DpGnHYIXqXSN8H6tNU9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTEn-0000000Avs2-0LpB;
-	Thu, 30 Jul 2026 16:04:01 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1wpTFn-0000000Aw7L-1Ia2;
+	Thu, 30 Jul 2026 16:05:03 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpTEj-0000000Avpv-0sDT;
-	Thu, 30 Jul 2026 16:03:58 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.99)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1wpTEc-000000007YI-3FOH;
-	Thu, 30 Jul 2026 16:03:50 +0000
-Date: Thu, 30 Jul 2026 17:03:47 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: "Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Alexander Couzens <lynxis@fe80.eu>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Landen Chao <Landen.Chao@mediatek.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net 4/4] net: dsa: mt7530: serialize the regmap IRQ chip like
- every other user
-Message-ID: <f2a52e4ada145fe6aa3fcbe5f923b125364b1a87.1785427248.git.daniel@makrotopia.org>
-References: <cover.1785427248.git.daniel@makrotopia.org>
+	id 1wpTFj-0000000Aw5L-2lyW
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 30 Jul 2026 16:05:02 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UFQr0H1223244
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 16:04:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=iFXm/EtDVHs2U2W42SOddH
+	PDOyqIH60tAMkZpM5gLvE=; b=QusIGmhp6mW6EyGv9twO/Zq+NzUdxELCLpc6Zg
+	0idyNnFuvkQeS+7XVwCljDSKUjhUY7RIyFUO90beTfhaT+Smi+EP8jcIFuHPvTxK
+	1eyWN/iGIX+DxHiZPG3JUedz04ZnwDzN0rW8wL3G62t0QQZkOH/M6LRf0p71Uv7S
+	p4/R5mX63+WsoKPQJ8m0X9flvaHodWTWCmlHABg9gsBvOIHUdbwY0i55PIKZCOqB
+	J3FxLi6u7YFN1WKI69dYyIfas1HEMCLi/oX7CwescZKc3dMVS81rvQ+id4LJ2cUp
+	UyJGeGKT3vLL3aa+kwNwLThD6XP1Thtzgcfmdonz5xS30MIw==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fr8jmrg6x-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 16:04:58 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-6751db2792dso697266137.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 09:04:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785427498; x=1786032298; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=iFXm/EtDVHs2U2W42SOddHPDOyqIH60tAMkZpM5gLvE=;
+        b=jfIkOG0VTRpwvZ/fQRKcYRKxg6AA77ZLFAuE4eN+FPq8/Kby/+7ReI0eyVQLfkxHO8
+         WInk5l4M2UPvSCbygUPwrJusheW4BVlDdGReCMsaRFwO33UttCptt5eHzCK/vswgyjQm
+         gEiixGW28H7qgL5L/oiHltCkg32W27pHF5WmwocBovWDU5Pxn7WoOCjB7zuCGAvsS17Q
+         9CKoGluUeyRlW+LWDCJep3nrQQ2M/kmhhrkinbCsTKta99nw8vFKNifpPADTOhl34XE1
+         GneNODDV+DKfpPAyU0CEczblVzxafE7bxsTSyrhFhf6uyKAG5yMESOZmDhLG9vqsUrln
+         5eNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785427498; x=1786032298;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=iFXm/EtDVHs2U2W42SOddHPDOyqIH60tAMkZpM5gLvE=;
+        b=hU7kWRbQ13AYkm/+UjA/ekBDA8v0eaDLldbAtYdVg4OcdjF6cbyatXYHDApthjhoaO
+         bm7cBJ2spx+UsKKBIC/+CDpuCnE3lTZaNk3AgLcTfUT2j0s520Y1BhwTLpu9d76oSHEj
+         SJ3YLQ09WZTUIOzs451IqTmV92M4oqN9zuf+kCbkLMXFmfGavdWOBkVwFudVR4jL/L+2
+         O1PcFZc9HF0g3BpihhUcmw39Udak/IScbAiI17/gh/wQz2Bhi0Nigxs5Vzspco8KUQJM
+         w6PLnHhHqssWZ35LmsqdlXTKX0a9VvX6RlnYX0Q0Gv90G/0XO9peOJDS6m/kXjN5Eao9
+         Uy6Q==
+X-Forwarded-Encrypted: i=1; AHgh+Rq2SLJjp6ZOWk5UAl+J9Hbt1Gir2AiXhK8hdVX8PmBkyeIqkkHbvVaKeRD42gpdE20K1sMZ7dyBNeRJ04fHG8lh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqTxk43c7zAwkgkBsWzuOk95ErJnYM1Yb6t3xfXp/CCEhga4ii
+	FBdeq+LKsvjDqiSYx8leMVkO3WhGDPv8AgrWVqh5Qb8p5E8Y0+oGKX0pD7pbT11KkdZXIpvqJBO
+	ITvqPimBjMwXdZ914NivQZchuN4wITGO64M4+CLJEiXaq7XtWc3ybzTVuyY3K/Q+zf07cQpPvbp
+	Svyg==
+X-Gm-Gg: AR+sD12X7954gtSGfcWzRNc0FwbP1/Ilo5p4Y9AcgBhgLXrq/MDgBXpTS2Q6pnXGjZ9
+	OpFh4gtqL+ZKyxImY1cF8ZFIbEJxsSg7bLJslifk3cEt+dDjXXwWUlxyIHvwp9lB80ERk1emtz1
+	2B71htcGbKIOj3rmnjaCxtmQxWEZZGpv37DgNP/4JpNO1fYgfLxEUKQ629El5yrgU21FIJavpV4
+	RPb8cXVxW91GerQ9olUw3GUuyDBr59hqFh+hxcGu0AHEBLvyWriE65dviz6rOMD0RnkcQHvGuYW
+	zZtai6PQFsLdUNFvwp0dZFpSCwdfnwpMv99iK1Eji6IW5n4H+pfwPUeLIg1v4T22O1ieXc7Ejkx
+	ml/HEGvePpm7IzCOhBXl+6ATBATZduEwlaOMhmX+XXa8KDElDWmXpDytwRqkTG9o4J7b7t03ooK
+	/RS4XM3FJTkN6GRg==
+X-Received: by 2002:a05:6102:3e8c:b0:73f:7bca:217d with SMTP id ada2fe7eead31-7574fa3ba08mr1029594137.20.1785427497727;
+        Thu, 30 Jul 2026 09:04:57 -0700 (PDT)
+X-Received: by 2002:a05:6102:3e8c:b0:73f:7bca:217d with SMTP id ada2fe7eead31-7574fa3ba08mr1029575137.20.1785427497269;
+        Thu, 30 Jul 2026 09:04:57 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b2db8a3bbbsm455174e87.0.2026.07.30.09.04.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 09:04:55 -0700 (PDT)
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: [PATCH v2 0/3] Fix GPU and display on ARM32 platforms using the
+ MSM IOMMU
+Date: Thu, 30 Jul 2026 19:04:53 +0300
+Message-Id: <20260730-fix-qcom-smmu-v2-0-18e0daf2d836@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1785427248.git.daniel@makrotopia.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACV2a2oC/12P3W6DMAxGXwXleu5CKOHnau8x9SIEd2RaYMQBd
+ ap49zrQadJuLH3S53PsuyAMDkm02V0EXB25aeSgXjJhBzN+ILies1BSaVmpAq7uBrOdPJD3C3R
+ l1dRWl72uG8E73wG5sPPeL0empftEGxPk2Qg4LyyKR+3Pw9pfiye/m2wwNEBt80Ip2TdnXbZrn
+ jCdIQQ+w7vYZiPe4qs3FDGIZB0cxSn87E9xPUkOciH/3b/mIKHL1dVIXdXyjG8T0WlezFdin3i
+ Iy7ZtDyLZA5knAQAA
+X-Change-ID: 20260723-fix-qcom-smmu-b5798c65d689
+To: Robin Murphy <robin.murphy@arm.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Joerg Roedel <jroedel@suse.de>,
+        Sricharan Ramabadhran <quic_srichara@quicinc.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Heiko Stuebner <heiko@sntech.de>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3859;
+ i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
+ bh=BHH+L9EWf1eI35feeV2M9kSj2Yp6qdSNKH4O3ElD7TY=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBqa3YnzXUe8LbXC2C3A+oEnLgKRB++0m7O/7hCb
+ Kdljnb8F8iJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCamt2JwAKCRCLPIo+Aiko
+ 1QAAB/40QNIv6eWzYMBfkNAG/IWHLSeopWBSj9IuGGh+y3n0U2PsnvmupUFge4UGzK/jZkHbvVF
+ kIFu+pfiSMmcmXeZNrLv4cGbM5DhT/hlWEmAZT1SKsmPGa7CHgNBW0ghINKEPeKrNCmDmRr0wiC
+ FVbeq3T0PK5r9vQ1nCOhdW+dmQb0noPxhBq8gzdkdZ0t3bltjHAtBOH0dOKJ2SyIKAwfwodCMqp
+ S1Nzq/OZ1MuKwEpitAjq2piPoYNNm/q57FPnoxKtow5u/9MfNI6SGTIO+d7kcGOoHvBqS1yvA6p
+ jnn614YdJ5rEs6LZd1UrTWGCv6zi74/8nVASY7z9PK2deEKM
+X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+X-Authority-Analysis: v=2.4 cv=V4tNF+ni c=1 sm=1 tr=0 ts=6a6b762a cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=bC-a23v3AAAA:8
+ a=EUspDBNiAAAA:8 a=tA7aZXjiAAAA:8 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8
+ a=COk6AnOGAAAA:8 a=pGLkceISAAAA:8 a=tVI0ZWmoAAAA:8 a=e5mUnYsNAAAA:8
+ a=JfrnYn6hAAAA:8 a=CmaK_EYR3W9A6RVS5Z0A:9 a=QEXdDO2ut3YA:10
+ a=gYDTvv6II1OnSo0itH1n:22 a=FO4_E8m0qiDe52t0p3_H:22 a=kIIFJ0VLUOy1gFZzwZHL:22
+ a=a-qgeE7W1pNrGK8U0ZQC:22 a=TjNXssC_j7lpFel5tvFf:22 a=-BPWgnxRz2uhmvdm1NTO:22
+ a=Vxmtnl_E_bksehYqCbjh:22 a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-GUID: 2Pnm72hBmI6bp_eScsr9fwCpj0kwPjHb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDEyMSBTYWx0ZWRfXxHS83VyuuVaM
+ 2a4rtEfXEEnsJXb8jSPB39TPM81k1DuRpT/cIadLjre8sHLtuvSSNN9gMxh6+lNAtuVxMBLvG3n
+ P+HsUu+umuGo0B97i0XM737TniEcrziBKeUfLN0FPkaIWqsMVUy85wRpM1scWizkRPk3lb+ZqB1
+ mXMhIuE3lmAPdViSG13oVYGFOOgb1s9BIg9cFtMkf2JVYkixx3y68XaFoBLxf/gMC6kRxlGi/4P
+ zaf4TYzOz7Zb1FHXjj5tVcYgXUm4H7iwbIglHlCdL7EnNa4zMVYAcRW0iFIem3RGjBa15VQY0m+
+ vkCkS190tRKcxtMSAuf4gOsfyQnG/ZBi2ohqQdSMbISADpACYLDQvIMC5ZnfSnrrfAOrJHQTfeM
+ fnPv3ZOcny9mB9yCZllgdRZCFf0fOkOfDjZ6MltTvRBDeW8MYv0gs0Y5yLxYDfvBoh+xw5+Drk+
+ 70WVYRIdXD8qZfFddTw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDEyMSBTYWx0ZWRfX/bN0JTFWAE4p
+ kap7qFsDo0VP/49BKyH/HO1srK5z0xwg/lg71bXyHpGoyLfIGPpMcmU8gFAWMAH2xVdTr0WszDu
+ s7FupmHnuoWuhRU1lPI5mFc0M7By1HI=
+X-Proofpoint-ORIG-GUID: 2Pnm72hBmI6bp_eScsr9fwCpj0kwPjHb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-30_04,2026-07-30_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 bulkscore=0 impostorscore=0 suspectscore=0 phishscore=0
+ adultscore=0 spamscore=0 priorityscore=1501 lowpriorityscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_090357_250277_8974A58B 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20260730_090459_817662_9477B169 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,111 +180,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The switch register regmap is created with .disable_locking = true;
-every other user in this driver calls mt7530_mutex_lock()/unlock()
-around it, which takes priv->bus->mdio_lock, since the underlying
-mt7530_regmap_read()/write() issue raw, unserialized bus->read()/
-write() MDIO transactions.
+On apq8064 (tested on the IFC6410 board) neither the GPU nor the display
+controller comes up in mainline: with CONFIG_ARM_DMA_USE_IOMMU enabled
+both devices either fail to probe with -EBUSY or take the kernel down
+during the ensuing unwind. Three independent problems stack up on that
+path, one in each of three subsystems, and only fixing all of them makes
+the board usable.
 
-mt7530_setup_irq() hands this same unlocked regmap straight to
-devm_regmap_add_irq_chip_fwnode(), whose threaded IRQ handler then
-calls regmap_read()/regmap_update_bits() on it without ever calling
-mt7530_mutex_lock(). An interrupt firing while another thread is
-mid-transaction on the same regmap (e.g. a paged register access, or
-an indirect PHY access) can interleave with the IRQ handler's own
-paged access and corrupt page selection on either side.
+First, the MSM IOMMU driver does not handle a device that is attached to
+several IOMMU instances, which is exactly how apq8064 describes both the
+GPU (&gfx3d and &gfx3d1) and the display controller (&mdp_port0 and
+&mdp_port1). It keyed the per-device bookkeeping off two mismatched
+things, a per-IOMMU list and a per-device pointer, so only one of the
+instances ever got programmed with the stream IDs. That had been merely
+wrong for years, but it turned into a NULL dereference once the IOMMU
+core started deferring probe per instance, so today the board does not
+even reach a shell with the display enabled.
 
-Use struct regmap_irq_chip's handle_mask_sync hook to call
-mt7530_mutex_lock()/unlock() around the mask register write regmap-irq
-issues whenever a consumer of one of the mapped sub-IRQs enables,
-disables, requests or frees its line. This needs a per-device copy of
-mt7530_regmap_irq_chip, since devm_regmap_add_irq_chip_fwnode() keeps
-a pointer to it rather than copying it.
+Second, on ARM32 the arch code gives every IOMMU-backed device a
+dma_iommu_mapping of its own and attaches it. drm/msm manages its address
+spaces itself and cannot take over a device whose group already has that
+foreign domain attached. The other ARM32 DRM drivers that are in the same
+position (tegra, rockchip, exynos) drop the arch mapping first; drm/msm
+has to do the same.
 
-handle_pre_irq/handle_post_irq, which would additionally cover the
-status read and ack write the threaded handler does directly, bracket
-the whole handler including its handle_nested_irq() calls. Lockdep
-caught this on hardware: those calls reach phy_interrupt() for the
-per-port PHY IRQ lines mapped through this chip, which takes
-phydev->lock, while phy_attach_direct() and this driver's own indirect
-PHY access already establish the opposite order (phydev->lock, then
-priv->bus->mdio_lock) elsewhere. Using them here would close that
-cycle, so they are not used.
+Third, arm_iommu_detach_device() undoes things in the opposite order from
+the one arm_iommu_attach_device() set them up in. An IOMMU driver that
+allocates its page tables during attach therefore frees them with the
+IOMMU DMA ops installed rather than the direct ops that mapped them,
+which ends in a NULL pointer dereference. This is trivially reachable as
+soon as any of the probe failures above unwinds, and it is what turns the
+GPU probe failure into a crash rather than an error message.
 
-regmap_irq_sync_unlock() also has its own init_ack_masked path, used
-by this chip, which unconditionally does its own regmap_write() to ack
-currently-masked IRQs; that path has no per-driver hook. Together with
-the threaded handler's own status read and ack write, these stay
-unprotected -- a narrower, harder-to-hit gap than the recurring mask
-sync above -- and will be closed once the switch regmap moves to
-regmap's own locking in the driver-wide register access cleanup.
+The three patches are independent and are expected to be picked up by
+three different maintainers.
 
-Fixes: 254f6b272e3b ("dsa: mt7530: Utilize REGMAP_IRQ for interrupt handling")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
- drivers/net/dsa/mt7530.c | 26 +++++++++++++++++++++++++-
- 1 file changed, 25 insertions(+), 1 deletion(-)
+Changes in v2:
+- dropped dev_warn -> dev_dbg chunk (Konrad)
+- rewrote second patch to use correct device inside msm_iommu unmapping
+  (Robin)
+- Link to v1: https://patch.msgid.link/20260730-fix-qcom-smmu-v1-0-b12fa067804e@oss.qualcomm.com
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index 2a17696e6a45..f8f0799ede63 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -2311,6 +2311,21 @@ static const struct regmap_irq mt7530_irqs[] = {
- 	REGMAP_IRQ_REG_LINE(31, 32), /* ACL */
- };
- 
-+/* Serialize regmap-irq's mask sync like every other regmap user */
-+static int mt7530_irq_mask_sync(int index, unsigned int mask_buf_def,
-+				unsigned int mask_buf, void *irq_drv_data)
-+{
-+	struct mt7530_priv *priv = irq_drv_data;
-+	int ret;
-+
-+	mt7530_mutex_lock(priv);
-+	ret = regmap_update_bits(priv->regmap, MT7530_SYS_INT_EN,
-+				 mask_buf_def, ~mask_buf);
-+	mt7530_mutex_unlock(priv);
-+
-+	return ret;
-+}
-+
- static const struct regmap_irq_chip mt7530_regmap_irq_chip = {
- 	.name = KBUILD_MODNAME,
- 	.status_base = MT7530_SYS_INT_STS,
-@@ -2320,12 +2335,14 @@ static const struct regmap_irq_chip mt7530_regmap_irq_chip = {
- 	.irqs = mt7530_irqs,
- 	.num_irqs = ARRAY_SIZE(mt7530_irqs),
- 	.num_regs = 1,
-+	.handle_mask_sync = mt7530_irq_mask_sync,
- };
- 
- static int
- mt7530_setup_irq(struct mt7530_priv *priv)
- {
- 	struct regmap_irq_chip_data *irq_data;
-+	struct regmap_irq_chip *chip;
- 	struct device *dev = priv->dev;
- 	struct device_node *np = dev->of_node;
- 	int irq, ret;
-@@ -2345,10 +2362,17 @@ mt7530_setup_irq(struct mt7530_priv *priv)
- 	if (priv->id == ID_MT7530 || priv->id == ID_MT7621)
- 		mt7530_set(priv, MT7530_TOP_SIG_CTRL, TOP_SIG_CTRL_NORMAL);
- 
-+	chip = devm_kmemdup(dev, &mt7530_regmap_irq_chip, sizeof(*chip),
-+			    GFP_KERNEL);
-+	if (!chip)
-+		return -ENOMEM;
-+
-+	chip->irq_drv_data = priv;
-+
- 	ret = devm_regmap_add_irq_chip_fwnode(dev, dev_fwnode(dev),
- 					      priv->regmap, irq,
- 					      IRQF_ONESHOT,
--					      0, &mt7530_regmap_irq_chip,
-+					      0, chip,
- 					      &irq_data);
- 	if (ret)
- 		return ret;
--- 
-2.55.0
+To: Rob Clark <robin.clark@oss.qualcomm.com>
+To: "Joerg Roedel (AMD)" <joro@8bytes.org>
+To: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+To: Joerg Roedel <jroedel@suse.de>
+To: Sricharan Ramabadhran <quic_srichara@quicinc.com>
+To: Dmitry Baryshkov <lumag@kernel.org>
+To: Abhinav Kumar <abhinav.kumar@linux.dev>
+To: Jessica Zhang <jesszhan0024@gmail.com>
+To: Sean Paul <sean@poorly.run>
+To: Marijn Suijten <marijn.suijten@somainline.org>
+To: David Airlie <airlied@gmail.com>
+To: Simona Vetter <simona@ffwll.ch>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: iommu@lists.linux.dev
+Cc: linux-arm-msm@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: freedreno@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+
+---
+Dmitry Baryshkov (3):
+      iommu/msm: track a context master per device and IOMMU
+      iommu/msm: use the IOMMU device for page table allocation
+      drm/msm: detach the ARM DMA mapping before attaching our own domain
+
+ drivers/gpu/drm/msm/msm_iommu.c | 22 +++++++++++++
+ drivers/iommu/msm_iommu.c       | 68 +++++++++++++++++++++++++++++++----------
+ 2 files changed, 74 insertions(+), 16 deletions(-)
+---
+base-commit: 78bc8af4affb9a732504eb22eeac7d1e50883853
+change-id: 20260723-fix-qcom-smmu-b5798c65d689
+prerequisite-change-id: 20260723-msm-fix-crash-8c13220d9465:v1
+prerequisite-patch-id: 3556d41e924ad64e8e9c06cc5bd1972c66957f42
+
+Best regards,
+--  
+With best wishes
+Dmitry
+
 
