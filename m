@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7896C55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F19C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 14:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xOfZ1XZtmIGv5xPs/JpL5IA5kDeBp4wZjvToK2htZEg=; b=afO+2CFDPjDjCPMEeh92Vn+TQQ
-	lz6kREvJknCCRQ1UgYh/SfsLbpkjCTR0fXF40gfQl2kNKq6VoFMA/SEZ+YdJImvGyv8r3MOmjzkEw
-	bvj6mhV/0gj0Q2PXu0Cz0VL7tDfqrnJqNoWMmbiG+ZHtIw/gufXKdLJIi7HUoYklJZzUb1pHQKTVp
-	vVrbWY/3vCAgwOu82z9V33iLi4aNlXJLIPjf8FVNv2y2DX9pZ11//72Q1uI60kNN1B3dJV4q6Ew2f
-	Y56zAEg8lpjV7Eo7+jxbrW2ntuorXCxQxkgr51TfVOyl7W+ymSLixXEDyJ7oDM+vsTJCbvrhnH9BM
-	sftE+DaQ==;
+	bh=3PO2K4Ssqg7RBGCwe5X9pMMcZOtrjhgedkVtiGNfQ+k=; b=c24R/SnhcEVWQ058dVsWSVGin6
+	FaXBoYXlx5errMfiX7HE4u+99NY1VzU1O7W+DVsqWXxDR/0+vqogq541Vjhtl/RFhTIfMlQs2gibO
+	zP/bUJoliXqQCt0wCp9hQv2n35R/kd9DuJ/rW2Vd/qiqVRlcMOm6/Oq/GHJdCiYEFVplDg92GO6+a
+	qsxklNzILguhxjCpdbuhl7UcR0JM5XxpDXbTnYs835AlmKT6aAA25B57JflXstKv/Rp3LF/lhYMtM
+	1ir+w/Mzj7WCwV+/9UVV4rwVvDHTkyZWM/O58l/ghEqotc9WXxSUddgV3gS+BiQwYNryMFXQ/72e5
+	97q/NYvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRUF-0000000AiFe-13op;
-	Thu, 30 Jul 2026 14:11:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wpRW7-0000000AiWO-2IxW;
+	Thu, 30 Jul 2026 14:13:47 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpRUE-0000000AiFG-1EiM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 14:11:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A120B40204;
-	Thu, 30 Jul 2026 14:11:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70AC31F000E9;
-	Thu, 30 Jul 2026 14:11:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785420709;
-	bh=xOfZ1XZtmIGv5xPs/JpL5IA5kDeBp4wZjvToK2htZEg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z8vLubTbVrC5ggTk1y2XualK8J6337oJ22xbo6bslpP7b4zn0dWTkMpUIQ9r2F1vd
-	 wVgQx4rddZtSPRahJAUSCohb8kgDwjkOe/0FJzH9ieNLIiG6MR96um9+5hEimKYvL/
-	 al4vXaF0SYqn4yr3k9vm1F4IHLxrex+cFKMj2FP2iwvdYCeY1dESMqfjP+wKT1aSAZ
-	 DOyOQN5S1xNyPYjdZL9wIk5mMYrO+1bNzh1stF/vmBLT6xHQnRp4VP8U81ldpWcz6t
-	 jEgq4ctZt4/UPYwlQeQl+RD46/tA3FfeX5ZVxDfq/wxEzU60d6kQ+0ZhQ/eG3ndBTN
-	 mjIFhls78msYw==
-Date: Thu, 30 Jul 2026 09:11:48 -0500
-From: Rob Herring <robh@kernel.org>
-To: Long Zhao <longzhao@ambarella.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
-	Linus Walleij <linusw@kernel.org>, linux-gpio@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, linux-serial@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 03/10] dt-bindings: clock: add Ambarella CV75 RCT clock
- controller
-Message-ID: <20260730141148.GA2828054-robh@kernel.org>
-References: <20260730104330.81367-1-longzhao@ambarella.com>
- <20260730104330.81367-4-longzhao@ambarella.com>
+	id 1wpRW4-0000000AiUf-3wAd;
+	Thu, 30 Jul 2026 14:13:46 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id DAD15202C77;
+	Thu, 30 Jul 2026 16:13:37 +0200 (CEST)
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1wpRVx-0023ms-2a;
+	Thu, 30 Jul 2026 16:13:37 +0200
+Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 7902357706C;
+	Thu, 30 Jul 2026 14:13:37 +0000 (UTC)
+Date: Thu, 30 Jul 2026 16:13:37 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Cunhao Lu <1579567540@qq.com>
+Cc: Quentin Schulz <quentin.schulz@cherry.de>, 
+	kernel <kernel@pengutronix.de>, Vincent Mailhol <mailhol@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	linux-can <linux-can@vger.kernel.org>, devicetree <devicetree@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-rockchip <linux-rockchip@lists.infradead.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v5 3/4] arm64: dts: rockchip: add CAN-FD nodes for RK3588
+Message-ID: <20260730-defiant-mahogany-cow-60152b-mkl@pengutronix.de>
+References: <tencent_BE229ADF4693078DBBCC6C02CC0855C01E06@qq.com>
+ <2b7519cc-9e22-45de-940e-2996c2423de5@cherry.de>
+ <tencent_415F4BD31A0D950C4202CC08424010A28106@qq.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="acta2h3uc54gwlp3"
 Content-Disposition: inline
-In-Reply-To: <20260730104330.81367-4-longzhao@ambarella.com>
+In-Reply-To: <tencent_415F4BD31A0D950C4202CC08424010A28106@qq.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260730_071345_148957_4F72AE89 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,164 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 06:43:23PM +0800, Long Zhao wrote:
-> Add the CV75 RCT clock controller binding and clock ID header.
-> 
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
->  .../bindings/clock/ambarella,cv75-rct.yaml    | 94 +++++++++++++++++++
->  .../dt-bindings/clock/ambarella,cv75-clock.h  | 17 ++++
->  2 files changed, 111 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
->  create mode 100644 include/dt-bindings/clock/ambarella,cv75-clock.h
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-> new file mode 100644
-> index 000000000000..5ff5b6a4a0b9
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/ambarella,cv75-rct.yaml
-> @@ -0,0 +1,94 @@
-> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/ambarella,cv75-rct.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Ambarella CV75 RCT Clock Controller
-> +
-> +maintainers:
-> +  - Long Zhao <longzhao@ambarella.com>
-> +
-> +description: |
-> +  The RCT (Reset and Clock Tree) block on the Ambarella CV75 SoC provides
-> +  PLLs, clock muxes and dividers for on-chip peripherals.
-> +
-> +  The same register region is also exposed as a syscon for other drivers
-> +  (e.g. pin drive-strength), hence the "syscon" compatible.
-> +
-> +  Clock indices are defined in
-> +  include/dt-bindings/clock/ambarella,cv75-clock.h:
-> +
-> +  - CV75_GCLK_UART0: UART0 mux/div clock
-> +  - CV75_GCLK_CORE: Core PLL (gclk_core)
-> +  - CV75_GCLK_AHB: AHB bus clock (core / 2)
-> +  - CV75_GCLK_APB: APB bus clock (core / 4)
-> +
-> +allOf:
-> +  - $ref: /schemas/mfd/syscon-common.yaml#
 
-Drop this.
+--acta2h3uc54gwlp3
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 3/4] arm64: dts: rockchip: add CAN-FD nodes for RK3588
+MIME-Version: 1.0
 
-> +
-> +properties:
-> +  $nodename:
-> +    pattern: "^clock-controller(@.*)?$"
+On 30.07.2026 22:03:15, Cunhao Lu wrote:
+> Hi Quentin,
+>
+> > Tested-by: Quentin Schulz <quentin.schulz@cherry.de> # RK3588 Jaguar
+> >
+> > where we have all three CAN controllers accessible (two via an adapter
+> > board). See
+> > https://lore.kernel.org/linux-rockchip/20260730-jaguar-can-v1-0-9b566bd=
+785da@cherry.de/
+> > for more info and the test setup.
+>
+> Thank you for testing all three CAN controllers on the RK3588 Jaguar.
+>
+> I will add your Tested-by tag to patch 3. I am preparing v6 now and will
+> post it shortly with this update included.
 
-"^clock-controller@"
+Please put your S-o-b last.
 
-unit-address is not optional.
+Marc
 
-> +
-> +  compatible:
-> +    items:
-> +      - const: ambarella,cv75-rct
-> +      - const: syscon
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    description: Reference crystal oscillator (typically 24 MHz)
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    const: osc
-> +
-> +  "#clock-cells":
-> +    const: 1
-> +
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
-> +  assigned-clocks: true
-> +
-> +  assigned-clock-parents: true
-> +
-> +  assigned-clock-rates: true
+--acta2h3uc54gwlp3
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Drop. These are implicitly allowed for any node with 'clocks'.
+-----BEGIN PGP SIGNATURE-----
 
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - "#clock-cells"
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/ambarella,cv75-clock.h>
-> +
-> +    / {
-> +        compatible = "ambarella,cv75-evk", "ambarella,cv75";
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
+iHQEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCamtcDgAKCRDMOmT6rpmt
+0p1sAPUY4G1w3X2EqPgOZ9cXCnSglJTueBasAi2owfSEAwLgAQCzRXSnS1tT/dKq
+jVnAyxj9YeLicq7OPQLH1eAL4l9VAA==
+=/TNY
+-----END PGP SIGNATURE-----
 
-Drop all this, not relevant to this binding.
-
-> +
-> +        osc: oscillator {
-> +            compatible = "fixed-clock";
-> +            #clock-cells = <0>;
-> +            clock-output-names = "osc";
-> +            clock-frequency = <24000000>;
-> +        };
-
-Drop. We don't put providers in examples.
-
-> +
-> +        rct: clock-controller@ed080000 {
-> +            compatible = "ambarella,cv75-rct", "syscon";
-> +            reg = <0xff 0xed080000 0x0 0x1000>;
-> +            clocks = <&osc>;
-> +            clock-names = "osc";
-> +            #clock-cells = <1>;
-> +
-> +            assigned-clocks = <&rct CV75_GCLK_UART0>;
-> +            assigned-clock-parents = <&osc>;
-> +            assigned-clock-rates = <24000000>;
-> +        };
-> +    };
-> diff --git a/include/dt-bindings/clock/ambarella,cv75-clock.h b/include/dt-bindings/clock/ambarella,cv75-clock.h
-> new file mode 100644
-> index 000000000000..3d3314446e75
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/ambarella,cv75-clock.h
-> @@ -0,0 +1,17 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
-> +/*
-> + * Copyright (C) 2026 Ambarella, Inc.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLOCK_AMBARELLA_CV75_CLOCK_H
-> +#define _DT_BINDINGS_CLOCK_AMBARELLA_CV75_CLOCK_H
-> +
-> +/* Boot / bus clocks */
-> +#define CV75_GCLK_UART0                0
-> +#define CV75_GCLK_CORE         1
-> +#define CV75_GCLK_AHB          2
-> +#define CV75_GCLK_APB          3
-> +
-> +#define CV75_CLK_NUM           4
-> +
-> +#endif
-> --
-> 2.34.1
-> 
-> NOTE: This email (including attachments) contain Ambarella Proprietary and/or Confidential Information and is intended solely for the use of the individual(s) to whom it is addressed. Any unauthorized review, use, disclosure, distribute, copy, or print is prohibited. If you are not an intended recipient, please contact the sender by reply email and destroy all copies of the original message. Thank you.
-
-You must remove this or we can't do anything with your patches.
-
-Rob
+--acta2h3uc54gwlp3--
 
