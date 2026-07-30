@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCD8C5516B
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D03C55169
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 07:11:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9+ykDGTeX7ssPXU6PioVfASuLM5szFW8JhODOwghig=; b=ZkTyJFtzzYsP+IRvVmy2uelG9S
-	7Prs23DSe9+Yc/bsdsyRFlHXVZI6gQfhXfOqlySo3UYyMpVLjwlURQ575zOJh3AHzPi/qzow0yhtY
-	N9moeSbG6PJKyUa8eNoS4fmVxvXyZKlnUAGTQFmh4jwNLsZ/qNfXcMM3q+xHl1PghB8+breeCtqvn
-	uHzttzgbW8xiQbN+XRHhVMS+tRvuxr+aQNty4GBuA4Q4nKEKfSWmCi8s7mekDQzy/NH78Ld6AI26D
-	2218mOwOukXjz8ZFTG7pNcljlxYZQplFV14Q8VZRdiwUyMYZrcvlUDIB0EEhPDBV+6LF1qNSP7UDk
-	WkSn8K8g==;
+	bh=JAhWhZje9gmOpJhtyVPvANp/6kcIKzyOvMGnE5qE5Xw=; b=uauXXv32fN49lR2BXZ4qXtPsJT
+	P4Dwqbukg5SYIuAZIT3Ux1Z6aZbBwSUvsDn4/Bp+eFAR9QCXfvXgd8xBc4VbDdue5kVWet8WAW/Wg
+	YNME15HnO+w/fYLM4CkEk9W0xZJMDJhSmYLlGZEkh8m5GMzafOlUkXkCT2x0c+wNqvHjU9jHaCHyR
+	9aboGQAlyYoc/21uvQboYZnyVDZd/uYFu7doQXx5ElK5/J+baRjZ2/04VO0kUJ+xums0zW9rKEiA0
+	XeCKLCLgENsebR/scT+a284OEoBCkpT2Epps1Fnb/dHt6nuXZu5bwDa/0FtcijTSOf6Gi3ph0NqWj
+	c/VMWibQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKvY-00000009gfH-1pkQ;
-	Thu, 30 Jul 2026 07:11:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wpKvZ-00000009giJ-3olV;
+	Thu, 30 Jul 2026 07:11:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKuq-00000009gKs-210a
+	id 1wpKus-00000009gNU-0QPf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 07:10:52 +0000
+	Thu, 30 Jul 2026 07:10:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C38C5600AB;
-	Thu, 30 Jul 2026 07:10:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B21C1F00ACF;
-	Thu, 30 Jul 2026 07:10:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 07BAB4214F;
+	Thu, 30 Jul 2026 07:10:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDF7E1F01564;
+	Thu, 30 Jul 2026 07:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785395451;
-	bh=G9+ykDGTeX7ssPXU6PioVfASuLM5szFW8JhODOwghig=;
+	s=k20260515; t=1785395453;
+	bh=JAhWhZje9gmOpJhtyVPvANp/6kcIKzyOvMGnE5qE5Xw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=GC5jL5Yvk3BBNxpeTcyUiE43rRWpQGTSSZXneAYATTMu78kPRAkabECkPXFd/hZJg
-	 XbNkATTY/QzRuwSZbY/CElX45F2sd7igxN2sKrl6jAoH/6cFFGo22lW0IiQVK7L7ak
-	 d0ZO7pk3/ceq9ovY8X54Qr33YMBXyOgj4sOVmt9Gx/P8NWxZ8qNb7wpI5RgAQjZeYX
-	 oulSL2Fyk5L8kFMCAIGXt9s+sZmwaIQ8L+4Mf9XJuDKFfO9ng/YMWr5E6Sisa5OoQo
-	 WjYE7Hae8/EhMDj2+uA5xwCO7gTCcYXWcEtazsQH7cnVur3D4UJuC5s2Wz4xGsb9Ng
-	 1I9D+etpVw71A==
+	b=SSBp+4jpb1EWcn9BcacpjFcmc1dj4Xz9sU0xd3TFoPMuQ2q7JoQ9UFGMAUVLVBbjc
+	 vB9atIHrq9B0r3IkwkeKbdOay1V7ujcU1dMMYiLMGaOAJhNBCIj/g+44AATLU7OgBg
+	 yp6vfMFShyv5XhOCxiQxd0HqvWkKyYC2M+CGC3HDDsUc31+fFN48uSmNiPGV+Q+1er
+	 I6Vri6GULZk8Q19PS7YHzDEl6SGIQGHErpm1lJqFvaQMkH9L/0dSIE+XKp70o+/ON8
+	 F2WMVE0VZz5zOazzZ/s0ZZTPCmdjeNzHr4YzYEWqQPy+DV9M/SmGXi921pRdu6QyBZ
+	 gt2o0gGzImG2A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wpKun-0000000AOpW-3bIa;
-	Thu, 30 Jul 2026 07:10:49 +0000
+	id 1wpKuq-0000000AOpW-18cG;
+	Thu, 30 Jul 2026 07:10:52 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -60,9 +60,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>,
 	Vladimir Murzin <vladimir.murzin@arm.com>
-Subject: [PATCH v4 07/29] KVM: arm64: Don't evaluate HCR_EL2.NV nor HFGITR_EL2.ERET on ERET fast path
-Date: Thu, 30 Jul 2026 08:10:00 +0100
-Message-ID: <20260730071022.296811-8-maz@kernel.org>
+Subject: [PATCH v4 18/29] KVM: arm64: Add kvm_has_nv{2,3}() predicates
+Date: Thu, 30 Jul 2026 08:10:11 +0100
+Message-ID: <20260730071022.296811-19-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260730071022.296811-1-maz@kernel.org>
 References: <20260730071022.296811-1-maz@kernel.org>
@@ -86,48 +86,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently avoid using the ERET fast path if the guest has HCR_EL2.NV
-set. This is an odd check, as NV doesn't mean much if HCR_EL2.TGE==1.
+Add a new set of predicates indicating whether VM is capable of
+NV2, NV3, and is in a nested NV3 context.
 
-Similarly, evaluating HFGITR_EL2.ERET makes little sense, as
-this only applies to the nested context, while the ERET fast-path
-is purely for the benefit of L1.
+This is going to become useful as we start dealing with a mix of
+behaviours (NV2, NV3, NV2 on NV3...).
 
-Replace these bizarre checks with is_nested_ctxt() which makes a lot
-more sense: if we are running an L2, the ERET trap must go to L1.
-
-Fixes: dd0717a998f77 ("KVM: arm64: nv: Fast-track 'InHost' exception returns")
 Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/vhe/switch.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/kvm_emulate.h | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index bbe9cebd3d9d5..684cebf23aa0e 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -344,13 +344,15 @@ static bool kvm_hyp_handle_eret(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	 * if this is a VHE guest hypervisor returning to its own
- 	 * userspace, or the hypervisor performing a local exception
- 	 * return. No need to save/restore registers, no need to
--	 * switch S2 MMU. Just do the canonical ERET.
-+	 * switch S2 MMU. Just do the canonical ERET unless we are in
-+	 * nested context.
- 	 *
--	 * Unless the trap has to be forwarded further down the line,
--	 * of course...
-+	 * Note that this is made possible because KVM itself never traps
-+	 * ERET when running an L2. The consequence is that any ERET trap is
-+	 * the result of HCR_EL2 or HFGITR_EL2 programming by L1 for its own
-+	 * guest, and the exception must be forwarded to L1.
- 	 */
--	if ((__vcpu_sys_reg(vcpu, HCR_EL2) & HCR_NV) ||
--	    (__vcpu_sys_reg(vcpu, HFGITR_EL2) & HFGITR_EL2_ERET))
-+	if (is_nested_ctxt(vcpu))
- 		return false;
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 9831166695186..bdb7dfaa271cd 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -266,6 +266,25 @@ static inline bool vserror_state_is_nested(struct kvm_vcpu *vcpu)
+ 	       (__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_TMEA);
+ }
  
- 	spsr = read_sysreg_el1(SYS_SPSR);
++static inline bool kvm_has_nv2(struct kvm *kvm)
++{
++	return (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT) &&
++		kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY));
++}
++
++static inline bool kvm_has_nv3(struct kvm *kvm)
++{
++	return (cpus_have_final_cap(ARM64_HAS_NV3) &&
++		kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV3));
++}
++
++static inline bool is_nested_nv3_ctxt(struct kvm_vcpu *vcpu)
++{
++	return (has_vhe() && kvm_has_nv3(vcpu->kvm) && is_nested_ctxt(vcpu) &&
++		(__vcpu_sys_reg(vcpu, HCR_EL2) & HCR_EL2_NV) &&
++		(__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_NVTGE));
++}
++
+ /*
+  * The layout of SPSR for an AArch32 state is different when observed from an
+  * AArch64 SPSR_ELx or an AArch32 SPSR_*. This function generates the AArch32
 -- 
 2.47.3
 
