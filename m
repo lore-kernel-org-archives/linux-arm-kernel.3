@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D3C1C531D0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 06:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899FBC54FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 06:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TeZJfMeEBUKgq5/BN6M8K1O5LEECpi0aBZRRrkDbOj0=; b=vABCE5KkMrJDM561AuequQ8cwc
-	+AIJw9KNhhQiq03aZKcwc1obFZc7eLrAqXRtaYy/WXVacXW06Vjn1PzwlRKyg3lGFTC4SOuixPiWM
-	S51wuCz759tcJazxsJ1ZHqUMoQdCB5/gCp3CDDmrk4OuRqcy6ctsqayuSVUp/nK3K1sBjjrqErR8Y
-	ESKSpb9sXuM1S1NPW7SyNSnbM92dqePGWNqX/qlphMMz4DzS2RPqvoolr2e2dob+KtvlU0l1ot150
-	gc2eoZpjCpKtLYCqgaR+VYNba8jBOW1RyqnuE6pQ4Su5E5Miybm60kFwIxaSy/I5fa7xhipPT2ntD
-	inSykGWA==;
+	bh=/MaMi87RWhMSAus5qN4EIk8TtDM9x9f0bzGDNP+s4l8=; b=C0udVN0zcxhpt9f+e+PHgMQE+I
+	KqznRP/9VH9hVpPMGx1n/2On1Pu0TbfKPfoIhUykmmKgQe8UjpE9pbh0iZatKyToKRG3RJgD/KE47
+	Ociv9dgUKHzeke79JEmBmjkvUDBr5+58UquVBm+YcjghW7T8i2jJofyyoc/Ejw4eAW02/JBv7exmg
+	Vd8UHEs7mPpRbBAs9bIZQIcAOZXX8Dreefga4LO1C92RwS7iRzocZwcOa1EZDXMn0yElMSh0b2jLp
+	Xc6UEoycz1DeldT45C1LCbWjVN08E4VaHM59gXz1w+FYRYfiELemf2LbpV8Ig6Quvm7ZlrSHQ/cd+
+	fWAnAwjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKK7-00000009cds-3b7a;
-	Thu, 30 Jul 2026 06:32:55 +0000
-Received: from mail-m93181.xmail.ntesmail.com ([103.126.93.181])
+	id 1wpKOA-00000009dHr-0RWW;
+	Thu, 30 Jul 2026 06:37:06 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpKJh-00000009cXl-2ucb
+	id 1wpKO5-00000009dGN-1gdy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 06:32:32 +0000
-Received: from tsdl-HP-EliteDesk-880-G6-Tower-PC.. (unknown [36.129.139.90])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 48229bf3b;
-	Thu, 30 Jul 2026 14:32:22 +0800 (GMT+08:00)
-From: Hongyang Zhao <hongyang.zhao@thundersoft.com>
-To: konrad.dybcio@oss.qualcomm.com
-Cc: Frank.Li@nxp.com,
-	andersson@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	festevam@gmail.com,
-	hongyang.zhao@thundersoft.com,
-	imx@lists.linux.dev,
-	kernel@pengutronix.de,
-	konradybcio@kernel.org,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	robh@kernel.org,
-	rosh@debian.org,
-	s.hauer@pengutronix.de
-Subject: Re: [PATCH v2 2/2] arm64: dts: qcom: qcs6490-rubikpi3: Add IMX219 camera overlays
-Date: Thu, 30 Jul 2026 14:32:09 +0800
-Message-ID: <20260730063209.101985-1-hongyang.zhao@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <df03eb18-6928-453e-971b-681875e9cb0d@oss.qualcomm.com>
-References: <df03eb18-6928-453e-971b-681875e9cb0d@oss.qualcomm.com>
+	Thu, 30 Jul 2026 06:37:05 +0000
+Received: from [133.11.54.183] (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 66U6aH4o056545
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Thu, 30 Jul 2026 15:36:17 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=/MaMi87RWhMSAus5qN4EIk8TtDM9x9f0bzGDNP+s4l8=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-ID:To:Subject:Date;
+        s=rs20250326; t=1785393378; v=1;
+        b=CR02EmMJ6YJKNFkKLren40kXzZGtLt35yQRS20Az0NGX7Jm0IItpOIiJ48tk4D+j
+         rVeOUQaPTaJLIRQMGQGPymW+FcXh4R5wmIxwBqX6xun4O/ZABjohzvFq452q1ev/
+         YrSg6ACGWGVzhxeqB01mYofr+/ZJgWbwtqkkbmyAAP/YRm1+e7Rz3/UVkgzaU6Wt
+         dr0B0wZv9b+dBkyktdOfUGGcH10DMnIhloYmuEY1CnDswT7VJRMVYCyf8ra5Kb4s
+         ZKZderu/9rHc0ARcUKa3rC1OPfvFkqbg9UXc7WcR4S+1DZISyboyD9RQ+jn0zfbV
+         viziw2KISB01Nbt8FTXigQ==
+Message-ID: <e023d791-38c3-47b4-9b09-3420fe78d9ea@rsg.ci.i.u-tokyo.ac.jp>
+Date: Thu, 30 Jul 2026 15:36:15 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9fb1b95bc609d5kunm33851e72421b63
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZSU5PVh0YHk1KSBlMTBpOSVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlITVVKSUJVSkhCVUJLWVdZFhoPEhUdFFlBWU9LSFVCQk
-	lOS1VKS0tVSkJLQlkG
-DKIM-Signature: a=rsa-sha256;
-	b=lUVes6gpRtPahu70dav9JcaPDiXD8qCqZEDGGd7mIF6iazNQSF2SLuWFhbFiC5Qm0Ryx+45wRAaCgxbLQeOjxf0u/LIB/JhU7IB3+PQfWNBoW7W8c4w9AIa51hpdJaGWdMNlkKAFgjbdY69mrPNJCOvIuUwizcDTV59s0mrNGPk=; s=default; c=relaxed/relaxed; d=thundersoft.com; v=1;
-	bh=TeZJfMeEBUKgq5/BN6M8K1O5LEECpi0aBZRRrkDbOj0=;
-	h=date:mime-version:subject:message-id:from;
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 14/16] KVM: arm64: PMU: Implement fixed-counters-only
+ emulation
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas
+ <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
+        Yury Norov <yury.norov@gmail.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Steffen Eiden <seiden@linux.ibm.com>,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org
+References: <20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
+ <20260720-hybrid-v9-14-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp>
+ <CA+EHjTx0zNQ_yPCz38vGYpBssshE4b3KWaoUxjzuerGgzB=JSQ@mail.gmail.com>
+Content-Language: en-US
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <CA+EHjTx0zNQ_yPCz38vGYpBssshE4b3KWaoUxjzuerGgzB=JSQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260729_233230_287814_0432F9B1 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20260729_233701_668334_785FF3A6 
+X-CRM114-Status: GOOD (  18.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,53 +92,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the review!
 
-On 7/22/26 6:12 PM, Hongyang Zhao wrote:
-> > RUBIK Pi 3 ships without camera sensors, and its two connectors support
-> > multiple modules. Keep module-specific nodes out of the base board DTS
-> > and add per-connector overlays for Raspberry Pi Camera Module V2 IMX219
-> > sensors.
-> >
-> > CAM1 uses CCI1 and CSIPHY1, while CAM2 uses CCI0 and CSIPHY4. Each
-> > overlay describes the 24 MHz sensor input clock and the three sensor
-> > rails derived from the switched 3.3 V connector supply.
-> >
-> > Describe each connector CAMERA_GPIO signal as a privacy indicator LED
-> > and associate it with the corresponding sensor. This lets the V4L2 core
-> > control the LED while the sensor is streaming.
-> >
-> > Signed-off-by: Hongyang Zhao <hongyang.zhao@thundersoft.com>
-> > ---
->
-> [...]
->
-> > +	/* The module enables its three sensor rails together through PWR_EN. */
-> > +	vreg_cam2_pwr: regulator-camera2-pwr {
-> > +		compatible = "regulator-fixed";
-> > +
-> > +		regulator-name = "vreg_camera2_pwr";
-> > +		regulator-min-microvolt = <3300000>;
-> > +		regulator-max-microvolt = <3300000>;
-> > +
-> > +		gpio = <&tlmm 58 GPIO_ACTIVE_HIGH>;
->
-> Is this (and the other) regulator on the SBC, or on the module (with
-> the PWR_EN pin just being an output to the module connector)?
 
-The per-camera power regulation is located on the camera module, not on
-the baseboard. The board-level VCC3V3_OUTPUT rail supplies both the
-40-pin header and the two camera connectors. On the baseboard, U1500
-only level-shifts the PWR_EN signals before routing them to the camera
-connectors; there is no dedicated per-camera regulator.
+On 2026/07/30 3:18, Fuad Tabba wrote:
+> Hi Akihiko,
+> 
+> On Mon, 20 Jul 2026 at 06:39, Akihiko Odaki
+> <odaki@rsg.ci.i.u-tokyo.ac.jp> wrote:
+> ...
+> 
+>> +/**
+>> + * kvm_pmu_create_perf_event - create a perf event for a counter
+>> + * @pmc: Counter context
+>> + */
+>> +static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+>> +{
+>> +       struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+>> +       struct arm_pmu *arm_pmu = vcpu->kvm->arch.arm_pmu;
+>> +
+>> +       if (kvm_pmu_fixed_counters_only(vcpu->kvm)) {
+>> +               do {
+>> +                       arm_pmu = kvm_pmu_probe_armpmu(READ_ONCE(vcpu->cpu));
+>> +
+>> +                       if (!arm_pmu) {
+>> +                               pr_warn_once("kvm: Unsupported PMU variation detected.\n");
+>> +                               add_taint(TAINT_CPU_OUT_OF_SPEC, LOCKDEP_STILL_OK);
+>> +                               return;
+>> +                       }
+> 
+> Sashiko flagged that this can leave the perf event out of sync with
+> the sysreg, which looks plausible: on a pCPU with no registered pPMU
+> this returns without recreating the event, so a guest event-type
+> change there updates the sysreg but not the event, and after migrating
+> back to a pCPU the original pPMU covers, kvm_pmc_enable_perf_event()
+> re-enables the stale event instead of recreating it.
+> 
+> I know you treat the no-pPMU case as out of spec, but the dropped
+> update lands once the vCPU is back on a normal pCPU. Is this intended?
 
-The fixed-regulator node in the module-specific Device Tree overlay
-models the camera module's power domain controlled through the
-connector's PWR_EN signal.
+"[PATCH v9 06/16] KVM: arm64: PMU: Recreate events after MDCR_EL2 
+changes" calls kvm_pmu_stop_counter() in kvm_vcpu_reload_pmu(), so it 
+does not matter whether this function calls kvm_pmu_stop_counter().
 
-Hardware Schematic:
-https://thundercomm.s3-accelerate.amazonaws.com/uploads/web/rubik-pi-3/RUBIKPI3-IOB-V02-RELEASE.pdf
+The other changes that require recreating the event are currently not 
+handled at all as Sashiko complains [1]. I'll fix that as done in 
+MDCR_EL2 setters in the next version.
 
-Thanks,
-Hongyang
+That said, I do not intend to add any extra complexity to provide any 
+guarantee for a system with unsupported PMU variation except that the 
+user can notice and react to that (i.e., the taint is reported and no 
+oops happens due to NULL dereference). The patch message is somewhat 
+misleading in this aspect so I'm going to fix that in the next version.
+
+[1] 
+https://sashiko.dev/#/patchset/20260720-hybrid-v9-0-2b713ca1b5dc@rsg.ci.i.u-tokyo.ac.jp?part=6
+
+Regards,
+Akihiko Odaki
 
