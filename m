@@ -4,135 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 340C0C5516E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 18:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEEB4C5516E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 18:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nv5Omu9yXhFcyL2TT+yOEeSkp8IS521SRqMG7Zc+BH0=; b=edriP9ZDt5KmPEObYDSdTmf1I8
-	uEKe99zDLt9IxlQVLQ1VX36ZbR2dpQvhmEORcp2Se42/YwrMHYNngSSqLwZDytrYxHn/BzxIbDnyJ
-	c5nQLew4kTIqlEMZaPL1qlP33cC2rrb5W5hg/iTUxzO3nOZXuYf5CyhmykvBXnW+dfCITItJwz1tK
-	6k8Pw8HT9dJM75GQpl4As0PKDF5xiKlItOcc+VVc4BEVp6RcecSwh5ZRt2Hgrqag55tgB1k/f4w4q
-	XCLTDTYM3JnZOY/JbhnrYjyEpp0hy7gQaFRWSQnB04DFrDwYUuAb2eBBRSdpr4FGHT/HuMf89YM1I
-	lnfgY1Xw==;
+	bh=hGyNUr7fBhXY6LyFNtiiX9bN9EXJPu/P8HqPzvigmCk=; b=ShKO+EWyZp20c91BQinnon0HMj
+	UtR4jJeR7PvppKDG218g1rbTcsGSRxvGQIG4XvDQo9/S2hkZyUC1/Nf2vKYrX4OgIu47iZyWYpc0F
+	iTmTqAeKuchlIyVaigKQjlpJiJpyfWkeH80WKNGiFjcBQImJx8fsFEIKhp1ckX6OgGEM5MqnT1Y1C
+	4Iq1FP5SnmIOIdDwOEtv0hASL9HhIjqgXqfBCRn8UASOJIHJTTAUHOeGLzUKOiopvOB6zDlERzNL2
+	+x5NEQT7ImEpYrIroUx5fLCufNfKclsIG1lN8u3olva+15/7rpYhQ3NH8RU1AW2cYc9kmnF4hY5Cq
+	JVEh0//A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpVGw-0000000B8pf-3Czj;
-	Thu, 30 Jul 2026 18:14:22 +0000
-Received: from mail-francesouthazon11011029.outbound.protection.outlook.com ([40.107.130.29] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wpVHN-0000000B8v1-40gw;
+	Thu, 30 Jul 2026 18:14:49 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpVGu-0000000B8od-1JH8
+	id 1wpVHK-0000000B8tH-3ySI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 18:14:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PBHZHn6W2PEOrfkojarU4JdcifvybUHgovsukYyTil7V5jDDR+hAX8WZNU7l7AVBGNHKpELlz4Uea4wT5VEKcbWqr4OWb3acFsLJn0bnBr24ZIezEkGWQVoWMiWXOtAJ5v9TzxEtXWiinvBqaRxJj6QbBHFhs6c0GYYHkbLPwBNadWUdatNx6PjUaw/OBjwTlC+q5+PKB9SP2oE4CrIO1NVsysic2b1Sbn9qyx3I1F6N0QdfeGKfH8S0c3PiRavAIA8cYRO4/v5pMkMiZZSxlVIiRQ05gO5sT1GCAqH1YMf/R3cQwYkbShNQFgv/ryyBPsSiKHPssIjrT71yvkVmzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Nv5Omu9yXhFcyL2TT+yOEeSkp8IS521SRqMG7Zc+BH0=;
- b=enKutgOX4K9b1HAQzzzFRL2Xah+amXxCO3GQVJpJHGgJyCh13cIcaUge8U1RQOi1dH4gqjHOHjS3Xg0/CgE2/RKijUe/vBvvxhydT+FsPwRI6FB9Sfv9TW5JwPewIsRwVuVyYCqvxGpIaD1Mc9EXf3M4zZGrDvA0xbaiUwu6Nh6r8l8rUKsWTp/hnGWD95390+MxsnCRDzGWpyERitFZgxmALAFWT2H4Rp28fA0pGLOp2TsZHOCp8oz6njV7nV3RUFDzPh0Pt6O6RomcFHpFOpU1CVjXsX78YxWFmQ14/k4er9Fw8LNCSXwWZMEVuWK7zbAVNBY5e2WFJA0s4wTqsw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Nv5Omu9yXhFcyL2TT+yOEeSkp8IS521SRqMG7Zc+BH0=;
- b=DE9r35hGORjveNotUdvdJcI9S8/nRVMnaHsysG/SJvSRlFrOxm3Cf4O8hVyJdf33kGXTRjR7vlTJtWi/jQ70CgD2aJ0nYhcyk1jnAc5AVvckPLG8KyXd7ZNZcfhqpIE+SmiWxcp+O+Huo5xckedSETGz1RafcbG5ITWGRE9szqVb0rIRbCXJp7ecs1tYeoqOiAprJExaflRNudnPirozXFx9QPoqDmEJv+GSI6CZQm+KIY5M1BHQI05ekfvVHt+VjnYioIXnZAL+DJcChW+j9Mz9/4iO5+Q17nIdLCW6XbKKHBO2Th1NR1jw/H00Ki/K8GAzTHS7rj85uVa+jzdiMg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
- by VI0PR04MB10175.eurprd04.prod.outlook.com (2603:10a6:800:242::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.14; Thu, 30 Jul
- 2026 18:14:14 +0000
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de%5]) with mapi id 15.21.0270.012; Thu, 30 Jul 2026
- 18:14:14 +0000
-Date: Thu, 30 Jul 2026 14:14:06 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>, Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@oss.nxp.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	Thu, 30 Jul 2026 18:14:48 +0000
+Received: from killaraus.ideasonboard.com (2001-14ba-70f3-e800--a06.rev.dnainternet.fi [IPv6:2001:14ba:70f3:e800::a06])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B18411E4;
+	Thu, 30 Jul 2026 20:13:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1785435215;
+	bh=F6+Om4p+4oo6ZFQCdI73ewqN7GtwaTrmcvQiBnOu/Y0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LFQS8PGvLUXcVO9hXUO7yjUvuMrfoYeFfqgPRhlZA1/M5CacOvTHFAttRNwEJMr4V
+	 uTm2W/bVzaPnN3S+Xa71H+xLOjeNJ+D/iLefMGf2TnlItELijO0xfBy41cjbQH6izR
+	 Ug7vW3uOvgFEElhDlwMuG8XkERfjmD2vZ+RMtrCM=
+Date: Thu, 30 Jul 2026 21:14:40 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Bryan O'Donoghue <bod@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: remoteproc: imx_rproc: document
- optional "memory-region-names"
-Message-ID: <amuUbkDM60eFzvJo@lizhi-Precision-Tower-5810>
-References: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
- <20260730163412.1145-2-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260730163412.1145-2-laurentiumihalcea111@gmail.com>
-X-ClientProxiedBy: PH7P220CA0173.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:33b::6) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v5 1/4] media: nxp: imx8-isi: Use BIT_ULL() for 64-bit
+ stream masks
+Message-ID: <20260730181440.GA1600813@killaraus.ideasonboard.com>
+References: <20260728-isi-v5-0-1d22ab91602a@oss.nxp.com>
+ <20260728-isi-v5-1-1d22ab91602a@oss.nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|VI0PR04MB10175:EE_
-X-MS-Office365-Filtering-Correlation-Id: d3d876d6-2ada-4b2a-ea35-08deee665ca2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|19092799006|1800799024|22082099003|18002099003|56012099006|11063799006|4143699003|10067099003;
-X-Microsoft-Antispam-Message-Info: 2hIdKcsBqV+b7zzPdzmgpfVNaEjKjcXR1Zkv4zK43QwB0StVO58Ye5qIc8NQXoh7ZBbJKEY5ebal5+cVAprxvAJMS9Z2GoZwJiT4VWwXunLr+v2ZMUzaKY/osSN9rLoMNuX6AGYYfehGdlb17v13TVbynvd73EueOXSjGpabs6fM0GcxbL6wX59RpsTl5TV/vP06l2fjXfcgDzj9EnWFJbRCQW4oKdKhVISxY6szMcMz0+UJF6C2nbTkNQAoyNr3/yWsarhEeeAJq7bJ6ChoJaggjzJj8oX43XkW4sUEh0Y4qlQ5BN2YNnTc2ABxldwdkk4G8mtzy1XOdmQZY+CrRME+3/mUA4U9judwMqKlRszsCBcKBceavJJAqsaZ9gxQ00eBLNTZwQIiUs2LMCmDCLKCNW2jfwTRg5XBpV2ymCHq1ZBIB4Lue/iFtCqKlqihpOQ7+pyFBhAnEO6cGF8lXvBXAb0pOSD8t2V+nMRVbVUmAv96ZjC2o6/MgbrsqOS5NsSbwW+XX+spTeIBBBtUduIzZDuMGqvsSYoTRpgJ5IN9d01v8GtBCcyJfBZ01Q6Ueyw4F/L/Ani75XOZMz84gYHlEA88AAiXrwo4x160yx8YNgKL/aXwdj9D+ZtiD4lJ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(19092799006)(1800799024)(22082099003)(18002099003)(56012099006)(11063799006)(4143699003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aE38tqjZfk2Ybf1tdVe8uTv3EHkfJ4FMmM0hFqVknCahKRWCzuDS5a6vKJsP?=
- =?us-ascii?Q?Biz8hHxNlmukJgDli3khwk4+NXnktYL2A0EG8cvI2A3Xbf0V9BfKKg35NApn?=
- =?us-ascii?Q?S004A8Ud2/UlLFxzO2RxHRqTTC6a3yZJQ0rq6KHLVUGs4TB0oQPHNaA+qr9W?=
- =?us-ascii?Q?DO5ZPCg6XLjFH8NlM3Lz6bbC9d4mLAR9cCXh4HwE/K0eF+j/FTGtfNDWuhd4?=
- =?us-ascii?Q?lK9vb+nZlEgo+q3D57z7ZOWlUTvfdxYhbuXYQtnVwVIo9Cpn6Kd9sOev2+h1?=
- =?us-ascii?Q?RrjYVcF+FEa9wOHlMjo1m+cHbmyU0pLsWMZ+D/jvLLyVEKQjAho0NwDqurxX?=
- =?us-ascii?Q?xsBZtkur3FdTBCp20n+stWBUdlo9whicD9nLmgaLFjcFqxsChkmb/0Ix4H4B?=
- =?us-ascii?Q?fzaBRDKJaW1FyNrQE8Y2Aw2D5UTYOqaPkOmR6bBqXsVVdmyb+LGYYc919hVY?=
- =?us-ascii?Q?7CtGa5lRIh7TfvsAtEaPSpIzno0X9ZM10SqfgLorkSdBqNja46vQSnSqVDse?=
- =?us-ascii?Q?3h8zhhC4Oi4zN0TIG1YqbLYXmublGNBMkobLGVeSZVjxgXpC3Q6wqfr+Ha7Q?=
- =?us-ascii?Q?Ey0XZxho3Os2KKhjzUo2noFd41SnBWFnFk+gNj0Q0itowkc4AshhhT030e3i?=
- =?us-ascii?Q?CzHgeQbc9fyZMPkTGGt23xLMzn7RUrbXSONVgdhJiBP02nvlUZnCSC1FZNiX?=
- =?us-ascii?Q?OtSdGL1Qj5AQisURMSZ4EGBa2ziVtgRZrUD7hlvHH+mrC4lkRTao840jYdKa?=
- =?us-ascii?Q?4/28rVTDmb+8kU1ozHRq1fKye2+C2yhxQZbJbURRnip+0ZRvLhXMMPUE6IuS?=
- =?us-ascii?Q?z933R4OMsFQSlAuU36W09XvoZ+YMbvom27HoRmQnbtKpc+2V8FFPdtkhu9PR?=
- =?us-ascii?Q?kUsshNOR4WlpcaX8lMjbzNmGd/U22J9117hLDjdbDEox91cCx4HI3pzUh9gI?=
- =?us-ascii?Q?tLYX2H+aaDdnqIx9KwKTYeXf7CsT0kBf182457mN+gn2rvo6w94jM6F+jeIi?=
- =?us-ascii?Q?cpOzwVElZW/yBnjXFt4ENMWnQqDik6Mp/3Zls5/ZZShi0KED/TPlzt4MU/85?=
- =?us-ascii?Q?ASTVD53k7jAS25m4tqv9JQLdSznLkiB8hsaIUHsUsDKzLuxjfRQpa+kmk4ay?=
- =?us-ascii?Q?i5IfV9JrMepNs1MsSKqPn8pSR/9XCLrabyZzQOsFT1Twu91fd8QS+kaXQNps?=
- =?us-ascii?Q?W0v8UQnQb9g+aGDS6inGIWVBZrccvrTraSVc9DAwNrsszv5jlfdw/7fbtQAF?=
- =?us-ascii?Q?hHLqyswlssU0cU4/32kT66pWI1Zk/AKFVJ5WI0u8LyvzrOkp/dKMBdZOueQf?=
- =?us-ascii?Q?h3bxLgYOLxtAnOEGKXpguptK+JYkYZzmrBH+74ma/A49o7f32o2hYUqSJj43?=
- =?us-ascii?Q?zdoJnPkeOUE+AR5PRzcuU44dqyiGzlmGUuPkPkeL1Aemxlm0klFpYG6WYYTh?=
- =?us-ascii?Q?cxk+Athbt1sWDEULSkrD6S+0AcsdFTPDwYlevaZBjcbRZRy0GTX8RFLgSzIF?=
- =?us-ascii?Q?2TYr6OCjPx6RgnikaUTIWg+y3cqm2sUBEKBWjE9bHXoRjYVf0wofLomSv1Xl?=
- =?us-ascii?Q?WN8jFSGzPM/3E/4B5+fjGJatsLhWaSN4JeF/XwGpRk2LRgAWZPz8OOmnAorn?=
- =?us-ascii?Q?tQtA+jiQFwlhFv9xdYkpv7/1/rA5hiKQdcioiXYf6glsNvNzxmvLFa5tc/u8?=
- =?us-ascii?Q?xzu2vzWUXvjjiEBoX8xyn3IfUCscAdIeJMHgjYoFpu/vTQo6II8ebwaohDS1?=
- =?us-ascii?Q?w7O9eRqHHtafKLJAbA2jyJlUcODqmqNvirEiffks2j6Z+8tEpecu?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d3d876d6-2ada-4b2a-ea35-08deee665ca2
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 18:14:14.3450
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yqZRjEhqLysbkSghrnrG96I+he+d04yE7iojVJ65Be+GV7XmE7eMmDG66uKsFBgEsCbgQF8FXMaEme41iCeXQFdwZixGWCAk+LtsRbc1G2ccS2rBd+JpoC9WrC3yCtkz
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10175
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260728-isi-v5-1-1d22ab91602a@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_111420_356070_3E65349B 
-X-CRM114-Status: GOOD (  18.96  )
+X-CRM114-CacheID: sfid-20260730_111447_130513_179E932B 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,76 +79,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 09:34:09AM -0700, Laurentiu Mihalcea wrote:
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
-> The carveout region names are derived based on the DT node names. Because
-> of this, the DT node names are ABI, which is not supposed to happen.
->
-> Fix this by documenting an additional, optional property:
-> "memory-region-names". This way, the software will have a way to build the
-> carveout region names without relying on the DT node names.
+Hi Guoniu,
 
-"After update all existing DT tree, this will be required.
+Thank you for the patch.
 
->
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On Tue, Jul 28, 2026 at 02:58:56PM +0800, Guoniu Zhou wrote:
+> Use BIT_ULL() instead of BIT() for u64 stream masks to avoid incorrect
+> results on 32-bit architectures when stream IDs are 32 or greater.
+> 
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Cc: stable@vger.kernel.org
+
+I'm not sure this deserves being backported, as streams IDs won't be
+larger than 31 in normal use cases, but it doesn't hurt.
+
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
 > ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> index 9f0231ca47a3..9db9c6e55c2c 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> @@ -157,10 +157,10 @@ mxc_isi_crossbar_xlate_streams(struct mxc_isi_crossbar *xbar,
+>  	 */
+>  	for_each_active_route(&state->routing, route) {
+>  		if (route->source_pad != source_pad ||
+> -		    !(source_streams & BIT(route->source_stream)))
+> +		    !(source_streams & BIT_ULL(route->source_stream)))
+>  			continue;
+>  
+> -		sink_streams |= BIT(route->sink_stream);
+> +		sink_streams |= BIT_ULL(route->sink_stream);
+>  		sink_pad = route->sink_pad;
+>  	}
+>  
 
-Additional information to help understand why it is important.
+-- 
+Regards,
 
-1. at thread wrong use vdevbuffer insteand vdev0buffer as node name
-https://lore.kernel.org/imx/20260705202439.3F5771F000E9@smtp.kernel.org/
-2. similar case happen at
-https://lore.kernel.org/imx/20260715071741.79CA81F000E9@smtp.kernel.org/
-
-Suppose these problem should be detected by dt binding check instead of
-sashkio ai.
-
-
->  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml         | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> index c18f71b64889..8e3e6676a95e 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> @@ -62,6 +62,10 @@ properties:
->      minItems: 1
->      maxItems: 32
->
-> +  memory-region-names:
-> +    minItems: 1
-> +    maxItems: 32
-> +
-
-Need restrict names
-
-  memory-region-names:
-    description:
-      Names for the memory-region phandles. Each entry must be one of the
-      following recognized names. "vdev0buffer" is the shared buffer for
-      virtio device 0, handled automatically by the rproc virtio framework.
-      "vdev<n>ring<n>" (e.g. "vdev0vring0", "vdev0vring1") are the virtio
-      vring buffers for device N, also managed by the virtio framework.
-      "rsc-table" is the resource table region used to share the resource
-      table between Linux and the remote processor when it is pre-loaded in
-      memory. All other entries are treated as generic carveout regions that
-      are mapped and made available to the remote processor.
-    minItems: 1
-    maxItems: 32
-    items:
-      anyOf:
-        - const: rsc-table
-        - pattern: "^vdev[0-9]+buffer$"
-        - pattern: "^vdev[0-9]+vring[0-9]+$"
-
-Frank
-
->    power-domains:
->      minItems: 2
->      maxItems: 8
-> --
-> 2.53.0
->
+Laurent Pinchart
 
