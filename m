@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBC3C55167
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A32C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 23:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4YvZ4kVt4dqBDxffzaLkFF722/OO9QJDhfAFiG7FZZM=; b=JQwKCgoxPDX838BqFEUiUm6TeB
-	7u2/JTGmOPV9hUMw7nN2vrkg7NRU4FNgP7E623WhFKH+1WeH4L/YbaLTonYmFuDBBTPIjgYUKpdGn
-	GqKJYWQdt0m/bIU5/nO2nHe/QUC1GSJDu4KGVf2A9X9Nk0rCzOdkjNTm0XI1sHllZ7c5CS10eO/Wf
-	ibR9K2zRgLEpSGUwAuhlHXI8pjsL6asAcJPe/erZHZtaxXeMpARuVRh3xF3kcfhu089siL59FVT6o
-	CBJErnE1dyWLEhPluOiydX5P68aET5SwYtcneXtHwdCaYMOySfVQiB2tvSuquHuhoDB318NrCyOaW
-	VcwE888A==;
+	bh=V+vAmv8lTFS1JUAqW3kAUAxDA8ka/TDsoYUr0yBhGa4=; b=sBJcWJ+z6Ra+0gRtPLQRVLMySH
+	YLvRCDXkChAUubl6044Sl1sTSyhdSmoNB5iJ8iPcvMLkWHueMngUJOPCoEe5Qsp5spCMG7I9F8Ljp
+	sVx2NIWsbz8bKxM3ETmluHn7pi2ZWWBUXlb0iYAL1InTta37kLAY8uBGWziWvWcdoEJcWYQFg3zEh
+	1TvFMR1Iod+YWJR+rERbtyT5y0ifmFBoGLn6slZL7IC+Xyjnv51ar7rQylXTOQ4913SH7EnU0zMV/
+	Ul+EnWuP7VTRSM6GHUuiY+R2HvXgcmhQy0p6lCCO1vFNvdReci0uFCxy07E3OrYfDDQMtcAuzYHWM
+	UpKZuAug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpa9C-0000000BUtY-2eck;
-	Thu, 30 Jul 2026 23:26:42 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
+	id 1wpa9g-0000000BV1b-39Ci;
+	Thu, 30 Jul 2026 23:27:12 +0000
+Received: from lpdvsmtp09.broadcom.com ([192.19.166.228] helo=relay.smtp-ext.broadcom.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpa98-0000000BUrq-2N8b
+	id 1wpa9c-0000000BV0W-2xkp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 23:26:41 +0000
+	Thu, 30 Jul 2026 23:27:12 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 7B732C0003F9;
-	Thu, 30 Jul 2026 16:26:37 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 7B732C0003F9
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 2C4D2C000970;
+	Thu, 30 Jul 2026 16:27:08 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 2C4D2C000970
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1785453997;
-	bh=x09/5qC7zCH4AEATkKJvdGKeAGwMUMYzOJHttrM4C7Y=;
+	s=dkimrelay; t=1785454028;
+	bh=JUzHp1d+axrQc5biwf37xUXaO88UNr0hscqy4oY9U8c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Gv/t0Rz4d8OcPOl3klbO9iWGRWy97ttHp1czKHv09xY42n48KHYGBs2smpaz3qx6M
-	 B6VVXJ2ILCUSr5FK2mdf1c/UaP9cjaUUjqeR4OdrOJ/ZXps3ACE7xRkJyFW3o0Z9wb
-	 GG/yH9sHGXYDhfxOEq2mp6WlLKZWCSNi7Wga0xFw=
+	b=XaTvHw4SDp0bpquhInHT9hiA9caSduealch8cFeljZX1Q967QIfuHnCLx4ZS0pWIY
+	 BLeuLjfisgpmDunwaFSqcqY+NYE7zyYQQlGPSx/DPbP0jmT0UV7FbC2NWitp97yV8a
+	 FmYpp9oigryavWqBG2e5HU9Nbbdf4mHFr56umNsQ=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 28903AD9;
-	Thu, 30 Jul 2026 16:26:37 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 02BBEAD9;
+	Thu, 30 Jul 2026 16:27:08 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	Rosen Penev <rosenp@gmail.com>,
@@ -56,17 +56,17 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>,
 	"moderated list:BROADCOM BCM5301X ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
 	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] ARM: dts: BCM5301X: Add missing phy-mode and fixed-link to DSA switch ports
-Date: Thu, 30 Jul 2026 16:26:36 -0700
-Message-ID: <20260730232636.2706946-1-florian.fainelli@broadcom.com>
+Subject: Re: [PATCH] ARM: dts: BCM5301X: EA9200: add wifi definitions
+Date: Thu, 30 Jul 2026 16:27:07 -0700
+Message-ID: <20260730232707.2707061-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260727221728.40811-1-rosenp@gmail.com>
-References: <20260727221728.40811-1-rosenp@gmail.com>
+In-Reply-To: <20260727225446.267097-1-rosenp@gmail.com>
+References: <20260727225446.267097-1-rosenp@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_162638_670321_F4C34F1F 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20260730_162710_760914_6B5BA01E 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,19 +83,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Florian Fainelli <f.fainelli@gmail.com>
 
-On Mon, 27 Jul 2026 15:17:28 -0700, Rosen Penev <rosenp@gmail.com> wrote:
-> Ports 5, 7 and 8 in the BCM5301x SRAB switch node carry an 'ethernet'
-> property linking them to GMACs, but lack the required 'phy-mode' and
-> 'fixed-link' properties. The DSA port schema (dsa-port.yaml) mandates
-> that any port with an 'ethernet' property must also have 'phy-mode'
-> and one of 'fixed-link', 'phy-handle', or 'managed'.
+On Mon, 27 Jul 2026 15:54:46 -0700, Rosen Penev <rosenp@gmail.com> wrote:
+> brcm,ccode-map and ieee80211-freq-limit are needed to be specified on
+> some of them for proper operation.
 > 
-> Add phy-mode = "internal" and a fixed-link subnode to ports 5, 7
-> and 8, matching the properties already present on their respective
-> GMAC nodes (gmac0, gmac1, gmac2). This resolves dtbs_check schema
-> validation warnings for all BCM5301x-based board DTBs.
+> Also add an nvmem definition for the MAC addresses.
 > 
-> Assisted-by: Opencode:Big-Pickle
 > Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
 
