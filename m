@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB05BC55165
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 12:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C652BC55165
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 30 Jul 2026 13:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e6IdtlE/M/aHocSynaYwFulszvAfuE5RsxW/R8Cl1b8=; b=0wOV+FoMHQwStqznJvcPrmT2JU
-	n/0qM24hDgIugyqztEPQKRS9KNR+uy8cEbK4g6wVFCHhfUZ4Hr4Ab81FHTcS9DuoezUbbgQH056Ln
-	V1Z6OBkHq3fEx8xjGZHseAu37gSWt3FIltWvwo1mq03AJZeRYkVDiFu0tab4AsOYEYZdE995TB9bW
-	i+4a70aE5YwM/ZsNGPqNhlOdEPAmM8W6b5aGmRY5z44f5qPei6M0W49sc0eAOgx5OMHK6FJ0E/asW
-	kNwD74cAuO2U7f/W8Y03c0yNqunRsZMJ9aPqtbunAXVeeiNm7CKxZf1dK32LVPAojpW1U0zIP5Xxp
-	Ks8jOdMg==;
+	bh=zLMzAM2jhcBcjvUbjDVz8nPB2UWdb+PQz/+bnXZY5Sk=; b=yjvRIjJ/ta0cXBiJP/7f7MJpDb
+	Iepj/1skh6tHyyQ+mML91m1obu9NOYulyn5VtWD/zBKn8+mqRecDSzck5YfFiEPSh3Wc/0Dd0TcbD
+	8i+o5DWhqDKdc0zo1KtM+HrtfqzBEEwpYRPZpvFuyAB2RUyKT44C8sP/TOfAXUmv6vITzIAcAUCqv
+	yUpPS7JV/8JBpbO9LyzdxzBgM+rCVFeiPeKCVJ2eqodyu2bCi+anwgadTTDN5H/4+vfVyJw2m5VXF
+	Kh84iZAfqip31ZmDyrC5d5EmE0X3uDuA4gHBwPOXv0Peruvq40Yr8OfCylGAaRNcqbA9xwzFARwL1
+	wvlPOwYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQHl-0000000AWJn-1HDR;
-	Thu, 30 Jul 2026 12:54:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpQHi-0000000AWJ3-1hYp
+	id 1wpQP8-0000000AXB1-49JX;
+	Thu, 30 Jul 2026 13:02:30 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpQP6-0000000AX9z-0Gn0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 30 Jul 2026 12:54:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19FFA1684;
-	Thu, 30 Jul 2026 05:54:45 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F334C3F86F;
-	Thu, 30 Jul 2026 05:54:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785416089; bh=m/tRGUrIaJo1gPHNCa8dnjK9j+dBKwJ7krErT2oQ6a8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bE5T29qkS76RnrCw+OxH/pPEKcKJvFbsUD+DukTPKpzNq/zevovXTjBX2R6DRS7xm
-	 7AmC7THjz2iyEZBDEv/5YvldBHGRuYk9li03WFZp+5z6DrHmN9FpZ512jv/BuBUjVH
-	 Httr9pt/ygimTc6Nv1MUfiNbQPXDR23mk8iEzxAI=
-Message-ID: <e8a86895-5ebb-45fe-b6ae-97f45793dba3@arm.com>
-Date: Thu, 30 Jul 2026 14:54:45 +0200
+	Thu, 30 Jul 2026 13:02:29 +0000
+Message-ID: <48631703-cbd9-45ba-b079-c4d94f4cf405@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785416543;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zLMzAM2jhcBcjvUbjDVz8nPB2UWdb+PQz/+bnXZY5Sk=;
+	b=wBl8/CeKE7+AeEZjGa6VWejw62/EHMA7eEQYOJ3nVvQ7kjaSGESyyQG4pdczMaWLVPNOEK
+	9xfo2BxYDy2gNs0som1K/KVC7F/IghOggkT8Ca0xYfBzDMDke2F+sXTlfEgHe7FUlq8DS1
+	RqCo+bpdLqximLeWFkxfXBw9iZoZVPI=
+Date: Thu, 30 Jul 2026 14:02:19 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 08/10] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260729134124.2506269-1-andre.przywara@arm.com>
- <20260729134124.2506269-9-andre.przywara@arm.com>
- <f26fde3c-3772-454b-b70c-176b3efaf02c@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <f26fde3c-3772-454b-b70c-176b3efaf02c@arm.com>
+Subject: Re: [PATCH net-next 6/7] net: dsa: netc: add PTP two-step
+ timestamping support
+To: Wei Fang <wei.fang@nxp.com>, "Wei Fang (OSS)" <wei.fang@oss.nxp.com>,
+ "richardcochran@gmail.com" <richardcochran@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, Clark Wang
+ <xiaoning.wang@nxp.com>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+ "davem@davemloft.net" <davem@davemloft.net>,
+ "edumazet@google.com" <edumazet@google.com>,
+ "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
+ <pabeni@redhat.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
+ "olteanv@gmail.com" <olteanv@gmail.com>
+Cc: "chleroy@kernel.org" <chleroy@kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <20260728104548.3301214-1-wei.fang@oss.nxp.com>
+ <20260728104548.3301214-7-wei.fang@oss.nxp.com>
+ <59ecaa4e-f111-4dd4-914a-7704990ac58e@linux.dev>
+ <GV2PR04MB11739A4EDB782AB83B60968D988C92@GV2PR04MB11739.eurprd04.prod.outlook.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <GV2PR04MB11739A4EDB782AB83B60968D988C92@GV2PR04MB11739.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_055450_522731_D14874B5 
-X-CRM114-Status: GOOD (  27.62  )
+X-CRM114-CacheID: sfid-20260730_060228_309896_A78DED7F 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,166 +85,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+On 30/07/2026 02:31, Wei Fang wrote:
+>>> +int netc_get_ts_info(struct dsa_switch *ds, int port,
+>>> +		     struct kernel_ethtool_ts_info *info)
+>>> +{
+>>> +	struct netc_switch *priv = ds->priv;
+>>> +
+>>> +	info->so_timestamping = SOF_TIMESTAMPING_TX_SOFTWARE |
+>>> +				SOF_TIMESTAMPING_RX_SOFTWARE |
+>>> +				SOF_TIMESTAMPING_SOFTWARE;
+>>
+>> SOF_TIMESTAMPING_RX_SOFTWARE and SOF_TIMESTAMPING_SOFTWARE
+>> are available
+>> by default, no need to add them.
+> 
+> Yes, you are right, I will remove them.
+> 
+>>
+>> the code doesn't have skb_tx_timestamp() calls, I wonder how is
+>> SOF_TIMESTAMPING_TX_SOFTWARE implemented?
+> 
+> The switch and the conduit port (ENETC) are integrated into the NETC IP,
+> so the switch can only connect to the ENETC MAC. And the ENETC driver
+> calls skb_tx_timestamp() unconditionally, so I thought
+> SOF_TIMESTAMPING_TX_SOFTWARE can be added. I checked the existing
+> DSA drivers and found no drivers set this flag, maybe I should remove this
+> flag as well. Thanks.
 
-On 7/29/26 18:10, Ben Horgan wrote:
-> Hi Andre,
-> 
-> On 7/29/26 14:41, Andre Przywara wrote:
->> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
->> alternative way of accessing the "Memory System Components" (MSC) in an
->> MPAM enabled system.
->>
->> Normally the MSCs are MMIO mapped, but in some implementations this
->> might not be possible (MSC located outside of the local socket, MSC
->> mapped secure-only) or desirable (direct MMIO access too slow or needs
->> to be mediated through a control processor). MPAM-fb standardises a
->> protocol to abstract MSC accesses, building on the SCMI protocol.
->>
->> Add functions that do an MSC read or write access by redirecting the
->> request through a firmware interface. For now this done via an ACPI
->> PCC shared memory and mailbox combination.
->>
->> Since the protocol used is only a small subset of the full SCMI spec,
->> and the SCMI protocol has no full ACPI support anyway, open-code the
->> (simple) SCMI message generation, for just the fields we need.
->>
->> [1] https://developer.arm.com/documentation/den0144/latest
->>
->> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->> ---
->>   drivers/resctrl/Makefile        |   2 +-
->>   drivers/resctrl/mpam_devices.c  |  52 ++++++--
->>   drivers/resctrl/mpam_fb.c       | 214 ++++++++++++++++++++++++++++++++
->>   drivers/resctrl/mpam_internal.h |  22 ++++
->>   include/linux/arm_mpam.h        |   2 +-
->>   5 files changed, 279 insertions(+), 13 deletions(-)
->>   create mode 100644 drivers/resctrl/mpam_fb.c
->>
->> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
->> index 4f6d0e81f9b8..097c036724e9 100644
->> --- a/drivers/resctrl/Makefile
->> +++ b/drivers/resctrl/Makefile
->> @@ -1,5 +1,5 @@
->>   obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
->> -mpam-y						+= mpam_devices.o
->> +mpam-y						+= mpam_devices.o mpam_fb.o
->>   mpam-$(CONFIG_ARM64_MPAM_RESCTRL_FS)		+= mpam_resctrl.o
->>   
->>   ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index f6910ab3bbc2..abe1e628928f 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -83,6 +83,16 @@ static DECLARE_WORK(mpam_broken_work, &mpam_disable);
->>   /* When mpam is disabled, the printed reason to aid debugging */
->>   static char *mpam_disable_reason;
->>   
->> +void mpam_fb_disable_mpam(int err)
->> +{
->> +	static char mpam_fb_reason[32];
->> +
->> +	snprintf(mpam_fb_reason, sizeof(mpam_fb_reason), "MPAM-Fb error %d",
->> +		 err);
->> +	mpam_disable_reason = mpam_fb_reason;
->> +	schedule_work(&mpam_broken_work);
->> +}
->> +
-> 
-> [...]
-> 
->> +static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 msc_id,
->> +				u16 reg, u32 *result, int mpam_fb_command)
->> +{
->> +	unsigned int token = atomic_inc_return(&mpam_fb_token);
->> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem;
->> +	struct pcc_mbox_chan *chan;
->> +	void __iomem *payload_ofs;
->> +	u32 status;
->> +	int ret;
->> +
->> +	if (!pcc_chan)
->> +		return -ENODEV;
->> +
->> +	chan = pcc_chan->pcc_chan;
->> +
->> +	/* prune token to fit into the 10 bits inside the command register */
->> +	token = FIELD_GET(MPAM_MSC_TOKEN_MASK,
->> +			  FIELD_PREP(MPAM_MSC_TOKEN_MASK, token));
->> +
->> +	guard(mutex)(&pcc_chan->pcc_chan_lock);
->> +
->> +	switch (mpam_fb_command) {
->> +	case MPAM_MSC_WRITE_CMD:
->> +		mpam_fb_build_write_message(msc_id, reg, *result,
->> +					    token, chan->shmem);
->> +		break;
->> +	case MPAM_MSC_READ_CMD:
->> +		mpam_fb_build_read_message(msc_id, reg, token, chan->shmem);
->> +		break;
->> +	case MPAM_PROTOCOL_VERSION_CMD:
->> +		mpam_fb_build_version_message(token, chan->shmem);
->> +		break;
->> +	default:
->> +		dev_err(pcc_chan->pcc_cl.dev, "unsupported MPAM-Fb command %d\n",
->> +			mpam_fb_command);
->> +		ret = -EINVAL;
->> +		goto out_err;
->> +	}
->> +
->> +	ret = mbox_send_message(chan->mchan, NULL);
->> +	if (ret < 0)
->> +		goto out_err;
->> +
->> +	pcc_shmem = chan->shmem;
->> +	payload_ofs = chan->shmem + sizeof(*pcc_shmem);
->> +	status = readl(&pcc_shmem->command);
->> +	if (FIELD_GET(MPAM_MSC_TOKEN_MASK, status) != token) {
->> +		ret = -ETIMEDOUT;
->> +
->> +		goto out_err;
->> +	}
->> +
->> +	ret = readl(payload_ofs + 0x0);
->> +	if (ret < 0) {
->> +		switch (ret) {
->> +		case MPAM_FB_ERR_NOT_SUPPORTED:
->> +			ret = -EOPNOTSUPP;
->> +			break;
->> +		case MPAM_FB_ERR_INVALID_PARAMETERS:
->> +			ret = -EINVAL;
->> +			break;
->> +		case MPAM_FB_ERR_NOT_FOUND:
->> +			ret = -ENOENT;
->> +			break;
->> +		case MPAM_FB_ERR_OUT_OF_RANGE:
->> +			ret = -ERANGE;
->> +			break;
->> +		default:
->> +			ret = -EINVAL;
->> +		}
->> +
->> +		goto out_err;
->> +	}
->> +
->> +	if (mpam_fb_command != MPAM_MSC_WRITE_CMD)
->> +		*result = readl(payload_ofs + 0x4);
->> +
->> +	return 0;
->> +
->> +out_err:
->> +	mpam_fb_disable_mpam(ret);
-> 
-> Given that the 'ret' here is just used to create the log message we could provide more information
-> just by indicating if we timed out waiting for firmware response or by giving the mpam_fb error code.
+well, you have the hardware, you can actually check if enetc driver 
+provides it for you
 
-I see what you mean. It gets a bit nasty in the details, since 
-mpam_disable_reason is just a pointer, so putting arbitrary strings of 
-unknown length into that message is a bit involved. I changed that now 
-to also pass the untranslated error value here, so both numbers are 
-printed in the logs.
-If we still feel like it, we can improve on this later, I think.
+> 
+>>
+>>> +
+>>> +	info->phc_index = netc_get_phc_index(priv);
+>>> +	if (info->phc_index < 0)
+>>> +		return 0;
+>>> +
+>>> +	info->so_timestamping |= SOF_TIMESTAMPING_TX_HARDWARE |
+>>> +				 SOF_TIMESTAMPING_RX_HARDWARE |
+>>> +				 SOF_TIMESTAMPING_RAW_HARDWARE;
+>>> +
+>>> +	info->tx_types = BIT(HWTSTAMP_TX_OFF) | BIT(HWTSTAMP_TX_ON);
+>>> +
+>>> +	info->rx_filters = BIT(HWTSTAMP_FILTER_NONE) |
+>>> +			   BIT(HWTSTAMP_FILTER_PTP_V2_EVENT) |
+>>> +			   BIT(HWTSTAMP_FILTER_PTP_V2_L2_EVENT) |
+>>> +			   BIT(HWTSTAMP_FILTER_PTP_V2_L4_EVENT);
+>>> +
+>>> +	return 0;
+>>> +}
+>>
+> 
 
-Cheers,
-Andre
 
