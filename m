@@ -4,97 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC95C54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 07:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B05C5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 07:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Rvnc4OeOnPEfVntwCGgYK4aj0ASFa6o50BvZ74uNJc=; b=vDX8QlSciZwElb132FH44NPnZl
-	HRESfe6CJSm+6w9JKUaj8qSb9DwxY/wa72gfKaMTCbDBFZnp8n3yvMHFNvyd7mBd31sKiCh0d0j9i
-	yCcHDEyVx5t7ZeolenzPs1fNafXBRX3HnqWT9c8XqsklymV03MCZLeDYRq3wfiVESyqGAGbLJXfoM
-	xxo7VmZ6YfHeGmR+pg4jk5n1YnIsazTMrSokB0WV9P5br08AJbYo3J5YPyk7t+EGmwZdN67wFk8mM
-	wyOvW04SgJO9p3qo1BpycJcSrd8Z4A+sngzovlTFWWyY2M4mBZpME7Zs5S+ZSK67TBBeZS+Gapsv3
-	WedwEq0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wFkTo+n5O4m7NjE25jNyk98XEGUqbdgL1J/Xn4sF+G0=; b=u3KyeZueE22AqJpyp8IpYQrkF+
+	TQrTViTj8OtU33KEF2xROMyf52zIpKrWxxdHbrE7DMKM21yf89U1857s0/P+OFbhoVlK7UHle8yGx
+	pbSFfi6vH86YNAJZKeBWFRU1gX3R1dgrPR+0aqNzNyN50KanjfIa1SJ/KhXNsqHq2QQ4lq/5YYvtq
+	Vns5NM2iMpdQVvrshAHX+rP2wz616QFK/nWhY796oQk3oDr51Tx4hYzI/QJxxkukI+q9Z34Yrc9BO
+	C8mFpbd3a3evC35nhqwS8nUuEQiRbbw4B7SXDfoiHn1ppGRECsMkD7Cg5fBtXTdgbHOsR8Bw54ZW6
+	IrxwvxTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wphmt-0000000ByKg-27j0;
-	Fri, 31 Jul 2026 07:36:11 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wphtF-0000000BzDO-0Yv8;
+	Fri, 31 Jul 2026 07:42:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wphmq-0000000ByKE-2DAQ
+	id 1wphtD-0000000BzDH-1TmK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 07:36:09 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47f703a9d05so383195f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 00:36:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785483366; x=1786088166; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3Rvnc4OeOnPEfVntwCGgYK4aj0ASFa6o50BvZ74uNJc=;
-        b=WnzxvKLat4g9AqhuTV7N+xNzpyNfnbkXC1imILILNl8Ibn785C2ZS82za4Z6qD21jk
-         vHA9JCVx8kEMHZIq2vOvxkpTLFcIxfDR513FV2a+yyBxfxrybFbOzPtf2A6HDG1gMb/5
-         qnXNBz7chcP2WerY5SDv+ybXj4CWiQRZAF1UxBcsOKYa9NkAUx9w1UfZxrwuMc340O8O
-         /Z2dYL4uzQ62mV6Ui7Xb4E/heprOtpuyoTm+LwOE3/r2cOaepw1ForszcvwNQvyVsaK4
-         oU/OxT9ETFLEsmDGdzpwyZZh21d6+fbCgcNLsdonjjGWyaboic8Kn+vK5Yr0CGPh4mut
-         JsLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785483366; x=1786088166;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3Rvnc4OeOnPEfVntwCGgYK4aj0ASFa6o50BvZ74uNJc=;
-        b=ONAi8DQvYLTZ3W2RMt6HHxzJezRjo9+6FaWinsB7eIUfckLEGKtQuuzvfOhipMtNlF
-         gXt4+AAZhEmyNd8/6jzifXhI7C7aAV7C0x0BbHwxcWBua5KlpxkM4gD6l5UUSi71vYTz
-         bhBIXuNOBEt9K1OBXFl2IaoYrCsJtaNNesThwvSO9bHCtvb5M4K0dDpGqH5c+Bq/gY0Y
-         SwV1s+l4KNCQLTVIxvfv9UoeRw4ba32p5BtbFDpmJfxf/xaD4zWIcGOvWE0nCYs2lMVt
-         h/f+fjdN0y+lcsiQoTeo94sxKltRJBcBIyYKYN4CDSiuAc/lQ/pRMXa3XuHnBlCHkm3Z
-         //ZA==
-X-Forwarded-Encrypted: i=1; AHgh+RrJkj2EMIObOFw9VnZeEXwDPPBmdwaPA3fU4rUhEZVWrrkANBo7q2GOfoej50xEYNpROdCF76GBFZQftzZE8zkb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6LB+25UYm4b5wPg+4o3Vm27vL/Cn/A8Oky4bEm8S/+WzMuxjt
-	1i2YefHymRjASWEYT3/ZXkXsPSDNAtyTSAMx5K5It431ucNYgMZJh2WF
-X-Gm-Gg: AR+sD13ogzoewz0nqUm34IF2fJ9DTbNMj2F2/zldxPh3Rw5TX5R1p0SBRO+FIrFFYR2
-	kS2qyb9T3clVdM77h4kcs4869L8UZx/VRmWCrIlIB7QG8vRtOEEnEDmnFj0Qbqcld62ba0yDy9K
-	Frax913T6w9MM2qY+Eo5qgBzaqXVDmHadOVQvF1YLqPuNyYP1gtGEyv5U6hRlGgXCmbcMEvenOJ
-	q/auCBVLSvHxCrEbZwRU6atqGlJWMer2WhCb11RfQma5GxsOvjpsT0j0NVeaL/KhyyZKbAR4Ve+
-	+tx29/dVL41k7UlJsDG0gC6MYpy0bWmESF+T3WGeHOa3SJ1Jk/nQPgJKIygpg1qXb5HL1Bjwhoo
-	g/vN1OBTqmAxeO5rzP+PogVb9W2nz25SEAkExMAnR1Ru90HWYSbCV1Um9+2vH8YewCkX4Pq478o
-	pdL9Jfe8G+SShOeSragxm3YR16rOUM+++xbB64JGJo1aX1O4M4s4jzv+3z4UFmXw7jEiJg7InCp
-	sfRkhbW7Q9lPgmVwmTk1CeVaLjit5PaVmTeSa0YCA==
-X-Received: by 2002:a05:6000:4a0a:b0:47f:cb39:10c4 with SMTP id ffacd0b85a97d-47fd2abac8emr2630603f8f.12.1785483366028;
-        Fri, 31 Jul 2026 00:36:06 -0700 (PDT)
-Received: from INBSWN167928.ad.harman.com (bba-86-96-6-50.alshamil.net.ae. [86.96.6.50])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd456a5a4sm1751576f8f.20.2026.07.31.00.36.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jul 2026 00:36:05 -0700 (PDT)
-From: Abid Ali <dev.taqnialabs@gmail.com>
-To: kuba@kernel.org
-Cc: alexandre.torgue@foss.st.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	dev.taqnialabs@gmail.com,
-	edumazet@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	maxime.chevallier@bootlin.com,
-	mcoquelin.stm32@gmail.com,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com
-Subject: Re: [PATCH v2] net: stmmac: enable MAC rx/tx after DMA start
-Date: Fri, 31 Jul 2026 07:35:48 +0000
-Message-ID: <20260731073548.1145-1-dev.taqnialabs@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260730160715.5ba5e272@kernel.org>
-References: <20260730160715.5ba5e272@kernel.org>
+	Fri, 31 Jul 2026 07:42:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 74A4D600AD
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 07:42:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BB241F000E9
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 07:42:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785483762;
+	bh=wFkTo+n5O4m7NjE25jNyk98XEGUqbdgL1J/Xn4sF+G0=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=GPOdMUpWpRCsdYchKDzcpFf1VW/A0Io4/Vmcn+c40JGVt55/EZsuVH7fdnCEDd0mU
+	 LFGvAkKLnhaG0Caa37n2ZUPgq2BKIGzpA3+PdTMWSxvGkjjBajJnWS2ho5niyhowZm
+	 muR+MMM8cp/RriF5SYAFvDgcJUzBbHd4jOB479Ag99IUQ3qON1n/PyPcHwZsOGzBnt
+	 kYQ2+wq5D5He/n87nFUy1bzFRvj1Z9McYTbDMgNXKMor46YZxgCLtRNLdBbcHi9Ng7
+	 HzqBIcPpC6rxx86W1OP0UHLC23CsOXBxJIUUa3T8y3KxIAV8sKqLgaYbq/ASTBYm2o
+	 /IQd8j7kKy25Q==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5b14d1f9315so547552e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 00:42:42 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrQyAr6m93lIPODahLDAenjJQhOfz9fxvA5e6k4Yzsl8CZMdiE25sfEZ/1EFi1Gxi8gXqAW75XHXX6wUJCWRlcW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIi7yVXwMEYs+DQOto097ySuuSinl+znOfjVuVYfRgbr82NRNk
+	4qrtkbHyHDRAQsNfDECLLcP8eiiZEuFFfjNYL2txQJ07xEXlVZ2sKN4lxwvBDytZYYgqMiS/huv
+	eREHtz7WtDrGs3Tv+I1c9IoMAi/NRO8okqSC1hcP06g==
+X-Received: by 2002:a05:6512:1191:b0:5ae:bb19:1864 with SMTP id
+ 2adb3069b0e04-5b2e1fd6ad2mr298883e87.21.1785483760958; Fri, 31 Jul 2026
+ 00:42:40 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 31 Jul 2026 00:42:39 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 31 Jul 2026 00:42:39 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260731050838.158825-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_003608_578718_B0AC3E15 
-X-CRM114-Status: GOOD (  15.84  )
+References: <20260731050838.158825-1-ebiggers@kernel.org>
+Date: Fri, 31 Jul 2026 00:42:39 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MeBzj9xqTP09rnVBQFPqSj-TDt5U8mtr8vN7NDJk-tY6A@mail.gmail.com>
+X-Gm-Features: AUfX_my6wmZYiP2QRVhE1TA08-SLamheFCyXF2KVAELztKTqkEap1AuyWBDa-_w
+Message-ID: <CAMRc=MeBzj9xqTP09rnVBQFPqSj-TDt5U8mtr8vN7NDJk-tY6A@mail.gmail.com>
+Subject: Re: [PATCH] crypto: qce - Replace with stub driver
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Demi Marie Obenour <demiobenour@gmail.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-crypto@vger.kernel.org, 
+	Herbert Xu <herbert@gondor.apana.org.au>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,40 +87,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jul 2026 16:07:15 -0700 Jakub Kicinski wrote:
-> Looking at the patch - isn't it a bit awkward to handle Rx and Tx
-> together? We want to keep Rx blocked to prevent incoming frames,
-> but Tx should be allowed so that Tx can egress?
+On Fri, 31 Jul 2026 07:08:38 +0200, Eric Biggers <ebiggers@kernel.org> said:
+> None of the algorithms the QCE driver registers with the crypto API are
+> even close to being useful.  They're massively outperformed by the
+> CPU-based crypto (even actually using far more CPU cycles than the
+> CPU-based crypto, due to the massive driver overhead), don't provide any
+> security benefits over the CPU-based crypto, and have various other
+> issues.  They're also unrelated to the Inline Crypto Engine which works
+> far better and is what is actually being used these days.
+>
+> Due to the major performance problems people experienced when
+> accidentally using this driver, the algorithms were already demoted to
+> below the priority of ARMv8 CE in the crypto API several years ago.
+> Regardless of priority, these algorithms also aren't compatible with the
+> most common uses of in-kernel crypto; for example, they don't support
+> dm-crypt because they allocate memory, and they don't support IPsec
+> since they take a mutex which isn't compatible with softirq context.
+>
+> It's time to move on and just drop this obsolete functionality entirely.
+>
+> However, the driver does serve one purpose which is to bind to the
+> devicetree node and allow the interconnects to scale down (though even
+> that part is broken, as it holds static interconnect bandwidth votes).
+>
+> Thus, clear out the crypto functionality, leaving just a stub driver
+> that drops the interconnection bandwidth votes to zero.
+>
+> Tested on the SM8650 HDK.
+>
+> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+> ---
 
-netif_tx_start_all_queues() runs after stmmac_mac_set() in both
-__stmmac_open() and stmmac_xdp_open(), so no frame can be queued
-in the window between DMA start and MAC enable. So I expect this
-reorder to be fine and see no issue of coupling them together.
+I'll be on vacation for most of August so my lack of responses won't mean I
+no longer care, only that I'm disconnected. Let me just leave this here for
+completness:
 
-> Grepping around I'm not seeing any flushing of Tx. Aren't there
-> issues with this driver if we stop the interface while it was
-> paused by link partner?
+Nacked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
-I haven't run into these issues myself, but as Qingfang noted in
-this thread the proper release sequence per the programming guide
-needs more steps:
-
-  stop TX DMA -> wait TPS (TX DMA stop confirmation) ->
-  wait TX drain -> disable MAC RX/TX -> drain RX FIFO ->
-  stop RX DMA -> wait RPS
-
-This is a pre-existing gap in the driver, currently it just clears
-the SR/ST bits for each channel and returns. Implementing the
-proper sequence would need readl_poll_timeout on TPS/RPS status
-bits per channel (up to 16 TX + 16 RX in my case), plus handling
-timeouts if the status never updates in teardown.
-
-The startup reorder is tested and verified to fix the RX hang I
-have seen. Would it make sense to take this on its own (only the
-startup reorder, with the teardown changes removed from v2) and
-address the teardown at a later point as I see multiple open points
-on what would be the right implementation to have there.
+I don't understand why the push to fast track the removal of this driver now,
+when there's clearly an effort to get it fixed from the vendor itself. I've
+also never seen a driver for an IP on a supported platform being removed from
+mainline linux.
 
 Thanks,
-Abid
+Bartosz
 
