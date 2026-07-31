@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A096C55167
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 10:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A003C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 10:13:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K9dY2H808Dp/6uy1n4CWr6HmC/jUngPktQ7cJPU2xVg=; b=oLTYHlrTYvkm0bUTWhEA4GZl0x
-	vCC0j2DdrJCZ1P7IRY/pECiLaiw688G7ygY3BmAPXPcFBpZXLfjHX9gyc1sJ53+wkXPG724i7SPP5
-	VRgeICdONxT/+a+gL6t7bpHvyc7hRRZAO10JIK8tSFaTZLsut5UZ8QYZK7zVgCuu5iuNs7rvhJF/Q
-	ix+L8Gcwd8hR7Kag10lMAgdABtkJSoEnwwk3+kGXrRoJDD6ICPoQ28Dt0yECzr4ORTuYcjengnzK+
-	9i5taz4dAXEVmWkSkBr3sxnab1LK+Fq434WysK9TiX2kH1JZ/35jdEMYrFtlqTkh1i9nxMRDL3OuM
-	YRT/Yb6w==;
+	bh=LaN13+7CpsbYTP/3/mBgmUw3PgfcWiL1ZfNR8mI434I=; b=YNgm5h0e4wk0Qb/ffoyuqyHpZp
+	m/bk3NVbXdhSwDVbACvxJ4/twm+UUItCidHLeEmfvshVcndlaUHmGgNQuK9JzZLfJZSACp0y3RVv5
+	bOGJ4rqthzWGcLNMXQqYhnAzEFGnKfIuxChg+voxgKRht0rNH9Wj4eIURyvjE9IMoLA8uFmifUrR3
+	JiTOzc6SELLIm8C5fSsclKTitEcz1qsGdT32Jcl75cEc5wdf4GNo9wJBBWXk+vgzCkCu7AvK/hG97
+	QE+9BZLP8TvrkeZqoyWiyQLtbt5+1vWhKR0AJ3wsQVkSiMuA8S7GH/qEWRcKASujSnqVsfvuddlp+
+	1PQ+JvtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpkDU-0000000CHbl-2pZU;
-	Fri, 31 Jul 2026 10:11:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpkDR-0000000CHap-2noy
+	id 1wpkEm-0000000CHpq-40ef;
+	Fri, 31 Jul 2026 10:13:08 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpkEj-0000000CHp7-1NG1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 10:11:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 210D7165C;
-	Fri, 31 Jul 2026 03:11:38 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D4AF3F86F;
-	Fri, 31 Jul 2026 03:11:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785492702; bh=RLS3/hfdCm6N4efnsqtV235Qxd88UElm9zNsArg8c8o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bnRfKAlmHFVVBv9DMLUdgTeR1G/1D3Ncia+1IKAI5TDeb9jIfXNynWvyDrP7+YKT8
-	 jo8Nz0tKjkZv0/B/D+MntRD7ncpk6xVBBkragociRiJ9KSN9Tcoqexjapf2+5zW5hj
-	 PqRV/xtD5nYgdiAr9WDOdwnhZY+oXFzQkzG2ES5I=
-Message-ID: <d22d8dae-e005-4353-a360-c38f2a52b2f4@arm.com>
-Date: Fri, 31 Jul 2026 12:11:36 +0200
+	Fri, 31 Jul 2026 10:13:08 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id E30051A1353;
+	Fri, 31 Jul 2026 10:12:59 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AD7BC6039A;
+	Fri, 31 Jul 2026 10:12:59 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C3DC511C1668F;
+	Fri, 31 Jul 2026 12:12:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785492774; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=LaN13+7CpsbYTP/3/mBgmUw3PgfcWiL1ZfNR8mI434I=;
+	b=yLwMA7iyqgonpMGSYH9xJ1iK6F3trUXsGDkd3e6REYkL8WnvFAeIBRbV2K9utGY6DEuswU
+	a7qd/1sqgHCq+g9j0SRtnR+XcmSXkmbQEA7GLutHqCRoRagCh2EydQ+lVHP3C2hcOwo3rP
+	P2Kb07JyIxdwNY0gNhyuTHoBTaSKH/u0y+cjz772tYObuiou1HlkFpuQYd/PpMR2qBRAuO
+	MXHyermOE355ZIS78NJ3U889fdJPMLiuwh4+3V0WZzslfwifs+Mh6adZQEo9Xg10IceBRU
+	PgsP23Kw0BdsoswPmrRrTeJ5vLdv+QDR8VFFqnu5BEHO0SIA3FL5D20hVEJq/Q==
+Message-ID: <a31ca086-5feb-4602-9c5b-f0e74487c094@bootlin.com>
+Date: Fri, 31 Jul 2026 12:12:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 10/10] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Lee Trager <lee@trager.us>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Ritwick Sharma <ritwick.sharma@arm.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260730152539.2712312-1-andre.przywara@arm.com>
- <20260730152539.2712312-11-andre.przywara@arm.com>
- <c3d43f56-b875-4bbd-b249-1a5f33cd54ed@trager.us>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <c3d43f56-b875-4bbd-b249-1a5f33cd54ed@trager.us>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2] net: stmmac: resume PHY before hardware setup when
+ opening the interface
+To: Stefan Agner <stefan@agner.ch>, Paolo Abeni <pabeni@redhat.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev
+References: <message-id-of-your-v1-mail>
+ <20260707195425.405989-1-stefan@agner.ch>
+ <c8cbf359-e224-44c6-8692-9e1d1527ae0c@bootlin.com>
+ <2946c0f7-1c79-4890-a4b3-94141f42bc1a@redhat.com>
+ <2f7fc28f777ce870e30e400640418c71@agner.ch>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <2f7fc28f777ce870e30e400640418c71@agner.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_031145_844080_BE784360 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260731_031305_517263_651C4B83 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +88,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lee,
+Hi,
 
-On 7/31/26 00:28, Lee Trager wrote:
+On 7/31/26 12:03, Stefan Agner wrote:
+> Hi Paolo, hi Maxime,
 > 
-> On 7/30/26 8:25 AM, Andre Przywara wrote:
->> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
->> +                           int subspace_id)
->> +{
->> +    struct mpam_pcc_chan *cur;
->> +
->> +    guard(mutex)(&pcc_chan_list_lock);
->> +
->> +    list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
->> +        if (cur->subspace_id == subspace_id) {
->> +            kref_get(&cur->refcount);
->> +
->> +            return cur;
->> +        }
->> +    }
->> +
->> +    cur = kzalloc_obj(*cur);
->> +    if (!cur)
->> +        return ERR_PTR(-ENOMEM);
->> +
->> +    cur->pcc_cl.dev = dev;
->> +    cur->pcc_cl.tx_block = true;
->> +
->> +    cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
->> +    if (IS_ERR(cur->pcc_chan)) {
->> +        long err = PTR_ERR(cur->pcc_chan);
->> +
->> +        kfree(cur);
->> +        return ERR_PTR(err);
->> +    }
->> +
->> +    /* Timeout based on the "nominal latency" from the PCC ACPI 
->> table. */
->> +    cur->pcc_cl.tx_tout = cur->pcc_chan->latency * 5;
-> I think this may need a unit conversion. ACPI 6.6 describes PCC nominal 
-> latency in microseconds, and the PCC mailbox driver appears to copy that 
-> value directly into pcc_chan->latency. However mbox_client::tx_tout is 
-> documented in milliseconds.
-
-Ah, good point, they are indeed using different units.
-Will fix that.
-
-Thanks,
-Andre
-
-> If I'm reading that correctly, assigning latency * 5 would make the 
-> timeout 1000 times longer than intended. Would something like this be 
-> better?
+> On 2026-07-21 10:12, Paolo Abeni wrote:
+>> Hi,
+>>
+>> On 7/8/26 11:16 AM, Maxime Chevallier wrote:
+>>> On 7/7/26 21:54, Stefan Agner wrote:
+>>>> Since the referenced commit, changing the MTU on a running interface no
+>>>> longer disconnects and reconnects the PHY; __stmmac_release() merely
+>>>> stops phylink, which also suspends the PHY (BMCR power-down) when WoL
+>>>> is not enabled. __stmmac_open() then performs the DMA software reset in
+>>>> stmmac_hw_setup() before phylink_start() resumes the PHY again.
+>>>>
+>>>> IEEE 802.3 22.2.4.1.5 allows a PHY to stop its receive clock while
+>>>> powered down, and stmmac requires a running receive clock for the DMA
+>>>> software reset to complete (the phylink config sets mac_requires_rxc).
+>>>> On such setups, e.g. the RK3566-based Home Assistant Green with an
+>>>> RTL8211F-VD PHY in RGMII mode, any runtime MTU change now times out and
+>>>> leaves the interface dead:
+>>>>
+>>>>   rk_gmac-dwmac fe010000.ethernet end0: Failed to reset the dma
+>>>>   rk_gmac-dwmac fe010000.ethernet end0: stmmac_hw_setup: DMA engine initialization failed
+>>>>   rk_gmac-dwmac fe010000.ethernet end0: __stmmac_open: Hw setup failed
+>>>>   rk_gmac-dwmac fe010000.ethernet end0: failed reopening the interface after MTU change
+>>>>
+>>>> In the field this is triggered by NetworkManager applying an MTU while
+>>>> activating the connection, breaking networking entirely.
+>>>>
+>>>> Resume the PHY in __stmmac_open() before the hardware setup, making it
+>>>> the counterpart of the phylink_stop() in __stmmac_release(), like
+>>>> stmmac_resume() already does for the same reason. phylink_start() also
+>>>> resumes the PHY, but only after stmmac_hw_setup(), and it cannot be
+>>>> moved before the hardware setup since it may bring the link up
+>>>> immediately from a workqueue, racing with the initialization (see the
+>>>> comment in stmmac_resume()). For the regular ndo_open path the PHY has
+>>>> just been attached and is not suspended, in which case
+>>>> phylink_prepare_resume() does nothing.
+>>>>
+>>>> Fixes: db299a0c09e9 ("net: stmmac: move PHY handling out of __stmmac_open()/release()")
+>>>> Link: https://github.com/home-assistant/operating-system/issues/4858
+>>>> Signed-off-by: Stefan Agner <stefan@agner.ch>
+>>>
+>>> I was able to reproduce the issue on imx8mp and socfpga. Adding this case to
+>>> my periodic test list...
+>>>
+>>> Indeed the assymetry isn't very nice, OTOH there's not phylink counterpart
+>>> for phylink_prepare_resume(). This helper was added for the suspend/resume
+>>> case, and only for it as the doc states, it just happens to do exactly
+>>> what we need to fix the issue :
+>>>
+>>> /**
+>>>  * phylink_prepare_resume() - prepare to resume a network device
+>>>  * @pl: a pointer to a &struct phylink returned from phylink_create()
+>>>  *
+>>>  * Optional, but if called must be called prior to phylink_resume().
+>>>  *
+>>>  * Prepare to resume a network device, preparing the PHY as necessary.
+>>>  */
+>>> void phylink_prepare_resume(struct phylink *pl)
+>>>
+>>> I think this helper should be renamed and the doc updated, stmmac is the
+>>> sole user, and it's really about controlling that rxc and not about
+>>> suspend / resume. Resuming from suspend is just one of the cases where we
+>>> need that RXC early on.
+>>>
+>>> So either something like 'phylink_prepare_start_or_resume' but it's long,
+>>> or maybe we can be more explicit about it and simply call it:
+>>>
+>>> phylink_start_rxc(pl)
+>>>
+>>> (without a corresponding stop)
+>> I read the above as a possible follow-up more than actual changes
+>> requested to this patch, am I correct?
 > 
-> cur->pcc_cl.tx_tout = DIV_ROUND_UP_ULL((u64)cur->pcc_chan->latency * 5, 
-> USEC_PER_MSEC);
+> Since this fixes a bug, I'd prefer to keep the patch minimal to make it
+> easier to backport. Therefor I would prefer to do make such structural
+> changes as a follow-up change rather than part of this patch.
+> 
+> Does that work for you, Maxime?
+
+That works for me yeah, I agree we need that fixed.
+
+Thanks Stefan,
+
+Maxime
 
 
