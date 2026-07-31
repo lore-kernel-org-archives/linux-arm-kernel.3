@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E62C55165
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 00:57:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878B5C55167
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 01:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tFIvxc0yETXWKpPQGPxspz+paA0ymoMe+1tTXizzsgk=; b=GPpPaGimlyMgMkCwrXJBBW3EP/
-	qqYb6bKpfDdVlG1DhX6xtLq/hmqvrTE2VV1vQVSCzVJfWCsIo0CkfhnidhmwwnsTc5U89l+KpUy88
-	ehgOaoJaNQdjPG9K6JbOf8gVn2zuLpTY4sF5RbfhP7t8FPqjWg1/DyCy3mSHORcLh9TwJS13kx/R+
-	cBWD8wlXTF91i9RVr67SS4GjoRpCQmUTlqFjVhaBmP712nDJip/kfiWiH7DhUXabyyB0KWiBjxvxL
-	5x3Fyn9tfUo82VS826KM7pT1uLygx/6GNj4bGYy/XC04IgQUJQCb+FH9flNy2r4g7AaMHkRjuWujg
-	eT5TE5Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lFttCK6+IiI9LAnY0cBt5R9XII1QMStajnONswWnhUU=; b=uT7MqozKdMcQi6M3EE6micgJSh
+	ryqwJgp+3PIGlBLKTWErv5vqWqsZkBrWUEUTIBhxI24HVhvqkY2GHLYwzdib8VasCftKNEQzkXoxe
+	PCLAdpYhgbBu2dnC24hzpg1Qu2kDuZQ8mf6dMv8HtafwbwOy/JlftUcnSoQUz/w3qC5yTnfTFdi7s
+	uNY3IoyNPKnMr70Fe3JI/zCeuFt8RE3XBfi+pu5A3R3wovryd1zU6rzZ4ME1COOclyRcAVxI4JGCT
+	6sN6rNnU/Ql5e6dQ8ZgPDkUwQSBSplwqRDTbbf+rn6/FnJe5gkJsVl/LjhqyZLsUEvXMhniDGwrfc
+	PTuA4rMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpbZ6-0000000BZDe-10Bs;
-	Fri, 31 Jul 2026 00:57:32 +0000
-Received: from esa6.hc1455-7.c3s2.iphmx.com ([68.232.139.139])
+	id 1wpbgQ-0000000BZTX-0EOX;
+	Fri, 31 Jul 2026 01:05:06 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpbYy-0000000BZD8-2um4
+	id 1wpbgN-0000000BZT6-0NPU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 00:57:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1785459444; x=1816995444;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=CldFfWlOgnf4zC1U/6YI+wfPKxwfum0uI/0Ov2QKXAc=;
-  b=IYk1u0aTgcAesM/jKVOsGWNsPlWL5TM4MOMarCak+9PgeL508sfpPGvQ
-   1OOChHkx0DFvD2idHHSx6FN0U/ctiUtcL11vng2vU1UoG7uuBTFdZ1+vZ
-   wQ3JGqJq22SI/tPaJaPjKb/LadXQXv/MCWRo4sMxnVH8wcO8Z5MdQitjP
-   IiclSv48sPT+hQ/cFUBvjUD3OyQtLLRTCWUs9/GXC94CHTmIAxdqpCjvy
-   KjrLL+x1R8IrrAkbVLITAKJccfvdzaffNrxS1RvWhDTFtr3ZLo+GnTVG9
-   AiISbPGK6IlDamDZUz3lZ2gZVFbZrH7EuGmNlVqmTmnY7A0qSdbkhbXg6
-   g==;
-X-CSE-ConnectionGUID: qokCEiE5RnKsCGACGMN8fg==
-X-CSE-MsgGUID: rs5QpKnOTl6qKQkaXOH6Hw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11860"; a="252750412"
-X-IronPort-AV: E=Sophos;i="6.25,195,1779116400"; 
-   d="scan'208";a="252750412"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa6.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Jul 2026 09:57:18 +0900
-Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id D0AB51C01697
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 00:57:18 +0000 (UTC)
-Received: from az2nlsmom2.o.css.fujitsu.com (unknown [10.150.26.200])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 88CFFC2BABB
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 00:57:18 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.9.24.243])
-	by az2nlsmom2.o.css.fujitsu.com (Postfix) with SMTP id 21DD11800D71;
-	Fri, 31 Jul 2026 00:57:08 +0000 (UTC)
-Date: Fri, 31 Jul 2026 09:57:06 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
-	kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, 
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 14/37] KVM: arm64: CCA: Handle realm enter/exit
-Message-ID: <amvx9kxuc6FTkJC4@FCCLS0092175.localdomain>
-References: <20260715142841.80544-1-steven.price@arm.com>
- <20260715142841.80544-15-steven.price@arm.com>
- <amcOp7tpRCkI29vt@FCCLS0092175.localdomain>
- <08599315-2dd3-4602-a902-09b197265b44@arm.com>
- <763eb5db-e9af-4b3a-b05b-746700cf0304@arm.com>
+	Fri, 31 Jul 2026 01:05:04 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c966b9ee9cbso208552a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 18:05:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785459901; x=1786064701; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lFttCK6+IiI9LAnY0cBt5R9XII1QMStajnONswWnhUU=;
+        b=Z80pBF8xnyRq4e5zflPGN3Gv4MWOdVdj3Ydy0PckJOMfIvWJQhIcWp9N9maPPEhXzP
+         aBy7BqaoeqM8w5DqILsUexQ8C/Fb1Punu1X/o1XeGI21TocmO/S7f+i9ybhboMVhJUvR
+         vu+NgBhNwy5soregl0uZ0dpVmjHEq76+gWK/kSA0ru1o6ooZfatdzNmlFLfTm8/MeZXS
+         7kcOBxPf1nwVQu3uCQ+PwHRyApEYYLprNb9rhNr8ljAIRndPCR3PqNKPQ6sYBNtgz9Ut
+         azRTA+Ip15eSU8CE471ifskoVszOjK60hpMRi+JuJx83LvGQF72PWIJke5FHV/veD7fG
+         CXmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785459901; x=1786064701;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=lFttCK6+IiI9LAnY0cBt5R9XII1QMStajnONswWnhUU=;
+        b=RuvKiDpCfeKvEEdb1CD8hjJunShp2nlVjMoFJRhh9rKL+xnJVruyYeW7qxwdY5dq9y
+         ObllUB8b/EwvO64nygBkkhSLtzSdJR9/uYXq07JmTT5ynrnTZxZRtLaGXU5CaDmXaObk
+         jstZ9iCfNAXuxeu+xhE2Fdd9TifVdU3DqK3mQza/r/ekwjHb5gjSTgTRLTfuWnIon5+t
+         urDYnOrd2C0vZzNqKorRC327IOFABSdKlliJ9EtB3uPl5veiTzdBzuOCw2D4BV/BtW51
+         QnFWuhGi3b/fwlzglBorcy6pIOsM19MlM/Um90fyPyxVp/AS+0ybOCbaun8cS8SQ3zcG
+         GWYQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoWBCDqLWzKU3qRxbHLCUnz7y03K11xUFL0/PAR3GV/5anHx5RhpKN5f/StK0O3u75LKhgmZFBSPXs6aWL3bbSL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBkrSyKUZ+jMaTj8AFJJJQZ9vB5paMnTC8z0+2GwF2pNZUNqha
+	LxOEtNHj1jV6oPcBFcJgugAH/X55YIzU7TySsmXjGTkXGXW8FOfiQAcL
+X-Gm-Gg: AR+sD10k45R+/Va02e5C9U6DdX9yLD4FM59Rnwq4qyyTPN3TrSDV0G/0+xY1q4lccZs
+	wxgR+BayaNPtxy4e5/TRSuBFMVLJ/i4Reak51qHfwtb2vDI474VMWOCu+ihHyJFiCucR1RseqqS
+	RXjKo+XiAKb0V25F6ThNnffc4ZicxHdl4hq9FkUTHcp9oyTYwaAQo9ziHPoM3x+oVeTf1BO3zgj
+	dmrCkwiduSmHhhA6xEY0YDXl/5Aw6jwsOOpI9dZ+jzEHW5NCoDhrrSybBsD5JiflE7LCrbt0hmB
+	IEESNgpGSDAVSC9zSahBRKSj6qFW0xN5ExTq87qvaXhi62HWfb4PkrKez5q2TCbGc/ObQNDd764
+	bLzdlVMXot1u3O95tDYN39YRh4s261fJ65CappEHHlxbeMqXwmrd13hxTInZszgS9263g+TeBvK
+	tkQ41lATiJSH0Rz6ss/FuCk7MqgxGUDY4UCygzGOmf4M4XzYHflPX6bblydXrak3CMR8qsyFMlL
+	chNX7vPlHxSTlcBvCDkP3WWixwn4KeR6DmmLsuX
+X-Received: by 2002:a05:6a00:12c7:b0:84c:5349:daa1 with SMTP id d2e1a72fcca58-84ebc425d21mr3954345b3a.76.1785459901336;
+        Thu, 30 Jul 2026 18:05:01 -0700 (PDT)
+Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ed5e30a41sm17865b3a.58.2026.07.30.18.04.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 30 Jul 2026 18:05:00 -0700 (PDT)
+Message-ID: <6c5b44c6-f06d-4f4c-b014-5a06601454ab@gmail.com>
+Date: Fri, 31 Jul 2026 09:04:57 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <763eb5db-e9af-4b3a-b05b-746700cf0304@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] spi: ma35d1-qspi: Add Nuvoton MA35D1 QSPI
+ controller support
+To: Mark Brown <broonie@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+References: <20260727091833.750051-1-cwweng.linux@gmail.com>
+ <20260727091833.750051-3-cwweng.linux@gmail.com>
+ <f698ec65-1677-45fa-bb05-34aa8e092100@sirena.org.uk>
+Content-Language: en-US
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+In-Reply-To: <f698ec65-1677-45fa-bb05-34aa8e092100@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_175725_300098_0A024731 
-X-CRM114-Status: GOOD (  44.89  )
+X-CRM114-CacheID: sfid-20260730_180503_132681_21371708 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,134 +107,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/30 15:57, Suzuki K Poulose wrote:
-> On 30/07/2026 14:58, Steven Price wrote:
-> > On 27/07/2026 09:14, Kohei Enju wrote:
-> > > Hi Steven, I have a comment about rec_exit_sys_reg() below.
-> > > 
-> > > On 07/15 15:28, Steven Price wrote:
-> > > > Entering a realm is done using a SMC call to the RMM. On exit the
-> > > > exit-codes need to be handled slightly differently to the normal KVM
-> > > > path so define our own functions for realm enter/exit and hook them
-> > > > in if the guest is a realm guest.
-> > > > 
-> > > > Signed-off-by: Steven Price <steven.price@arm.com>
-> > > > Reviewed-by: Gavin Shan <gshan@redhat.com>
-> > > > ---
-> > > > Changes since v13:
-> > > >   * The RMM is now required to provide an ESR value with the correct
-> > > >     information to emulate MMIO, so we no longer need to hardcode 0s in
-> > > >     rec_exit_sys_reg().
-> > > >   * The PSCI changes mean that there is a potential race when turning on
-> > > >     a VCPU which can cause a RMI_ERROR_REC return. Exit to user space
-> > > >     with -EAGAIN in this case.
-> > > > Changes since v12:
-> > > >   * Call guest_state_{enter,exit}_irqoff() around rmi_rec_enter().
-> > > >   * Add handling of the IRQ exception case where IRQs need to be briefly
-> > > >     enabled before exiting guest timing.
-> > > > Changes since v8:
-> > > >   * Introduce kvm_rec_pre_enter() called before entering an atomic
-> > > >     section to handle operations that might require memory allocation
-> > > >     (specifically completing a RIPAS change introduced in a later patch).
-> > > >   * Updates to align with upstream changes to hpfar_el2 which now (ab)uses
-> > > >     HPFAR_EL2_NS as a valid flag.
-> > > >   * Fix exit reason when racing with PSCI shutdown to return
-> > > >     KVM_EXIT_SHUTDOWN rather than KVM_EXIT_UNKNOWN.
-> > > > Changes since v7:
-> > > >   * A return of 0 from kvm_handle_sys_reg() doesn't mean the register has
-> > > >     been read (although that can never happen in the current code). Tidy
-> > > >     up the condition to handle any future refactoring.
-> > > > Changes since v6:
-> > > >   * Use vcpu_err() rather than pr_err/kvm_err when there is an associated
-> > > >     vcpu to the error.
-> > > >   * Return -EFAULT for KVM_EXIT_MEMORY_FAULT as per the documentation for
-> > > >     this exit type.
-> > > >   * Split code handling a RIPAS change triggered by the guest to the
-> > > >     following patch.
-> > > > Changes since v5:
-> > > >   * For a RIPAS_CHANGE request from the guest perform the actual RIPAS
-> > > >     change on next entry rather than immediately on the exit. This allows
-> > > >     the VMM to 'reject' a RIPAS change by refusing to continue
-> > > >     scheduling.
-> > > > Changes since v4:
-> > > >   * Rename handle_rme_exit() to handle_rec_exit()
-> > > >   * Move the loop to copy registers into the REC enter structure from the
-> > > >     to rec_exit_handlers callbacks to kvm_rec_enter(). This fixes a bug
-> > > >     where the handler exits to user space and user space wants to modify
-> > > >     the GPRS.
-> > > >   * Some code rearrangement in rec_exit_ripas_change().
-> > > > Changes since v2:
-> > > >   * realm_set_ipa_state() now provides an output parameter for the
-> > > >     top_iap that was changed. Use this to signal the VMM with the correct
-> > > >     range that has been transitioned.
-> > > >   * Adapt to previous patch changes.
-> > > > ---
-> > > > 
-> > > > [...]
-> > > > 
-> > > > +static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
-> > > > +{
-> > > > +	struct realm_rec *rec = &vcpu->arch.rec;
-> > > > +	unsigned long esr = kvm_vcpu_get_esr(vcpu);
-> > > > +	int rt = kvm_vcpu_sys_get_rt(vcpu);
-> > > > +	bool is_write = (esr & ESR_ELx_SYS64_ISS_DIR_MASK) == ESR_ELx_SYS64_ISS_DIR_WRITE;
-> > > > +	int ret;
-> > > > +
-> > > > +	if (is_write)
-> > > > +		vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[rt]);
-> > > 
-> > > When rt is 31 (XZR), does exit.gprs[rt] trigger an out-of-bounds read
-> > > since REC_RUN_GPRS is 31? Although the padding after the gprs means this
-> > > OOB may not cause any practical issue, would it make sense to skip the
-> > > access when rt is 31?
-> > > 
-> 
-> RMM mandates that the ESR_ELx.ISS.RT == 0 on an exit due to System register
-> access. See "A4.3.4.4 REC exit due to System register access"
-> 
-> So this shouldn't be a problem, but doesn't hurt to defend the host
-> against a malicious RMM ?
 
-Ah, I missed that requirement. The changelog and the old RMM
-implementation led me to mistakenly assume tat Rt could be non-zero.
+Mark Brown 於 2026/7/30 下午 11:11 寫道:
+> On Mon, Jul 27, 2026 at 05:18:33PM +0800, Chi-Wen Weng wrote:
+>
+>> Add SPI controller driver support for the Quad SPI controller found in
+>> Nuvoton MA35D1 SoCs.
+>> +static int nuvoton_qspi_mem_exec_op(struct spi_mem *mem,
+>> +				    const struct spi_mem_op *op)
+>> +{
+>> +	if (op->dummy.nbytes) {
+>> +		nuvoton_qspi_set_bus_width(qspi, op->dummy.buswidth,
+>> +					   SPI_MEM_DATA_IN);
+>> +		ret = nuvoton_qspi_txrx(qspi, NULL, NULL, op->dummy.nbytes);
+>> +		if (ret)
+>> +			goto out_deassert_cs;
+>> +	}
+> I would expect dummy data to be an output rather than an input, we don't
+> want the lines left floating?  There's a similar thing below when
+> setting up the dummy xfer.
 
-Then special-casing Rt == 31 doesn't really make sense. So keeping the
-code as it is seems fine to me:)
+Hi Mark,
 
-Thanks,
-Kohei
+Thanks for pointing this out.
 
-> 
-> Suzuki
-> 
-> 
-> 
-> > > if (is_write && rt != 31)
-> > >      vcpu_set_reg(vcpu, rt, rec->run->exit.gprs[rt]);
-> > 
-> > Very true - as you say in practise this isn't a big issue because
-> > vcpu_set_reg() is a no-op, so it's just a read of padding. But
-> > definitely worth fixing.
-> > 
-> > > > +
-> > > > +	ret = kvm_handle_sys_reg(vcpu);
-> > > > +	if (!is_write)
-> > > > +		rec->run->enter.gprs[rt] = vcpu_get_reg(vcpu, rt);
-> > > 
-> > > The same applies here:
-> > > 
-> > > if (!is_write && rt != 31)
-> > >      rec->run->enter.gprs[rt] = vcpu_get_reg(vcpu, rt);
-> > 
-> > And the same here - a zero written into the padding.
-> > 
-> > Thanks for the review!
-> > 
-> > Steve
-> > 
-> > > > +
-> > > > +	return ret;
-> > > > +}
-> > 
-> 
+You are right. The dummy phase should be driven as an output rather than 
+leaving the data lines in input mode.
+
+I will update the direct spi-mem path to use SPI_MEM_DATA_OUT for the 
+dummy phase. I will also fix the generic transfer path so that spi-mem 
+dummy transfers remain output transfers instead of switching the lines 
+to input.
+
+Best regards,
+Chi-Wen
+
+
 
