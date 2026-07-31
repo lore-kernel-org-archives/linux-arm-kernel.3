@@ -4,70 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2544C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:28:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9483C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JT8xi+LYfJ/lkhRCzd7X6UxWwkgghhtU4W+AfhVJTFk=; b=n9xZvOZOHcu8rFzP0pFpJcjWCb
-	DsZ9rUtW7A/H3XLf3eySft8TpxGsrRUxpC6ZRbIjY1OZMZT8q4oBT40mQ97I/IFPr7YgtNK7gx7Wd
-	JpaMhwio7vPGFzHwppxC7yn2DfyurnD3avN7dXUaof03GAecKnJcVq5lQZ948e8i9p2um3MgMeU6M
-	hI9HPGLkENqhAwufNEZP0StD20ratSTPMmwJBPvP0RVyL3fKntpfubXhQu/Glz2f8ZmeTfw84giV9
-	MtQrHTmDAfEQi6gEzS2ae8qU29zqW2PKrd10brRWlRVyjvkWk5iJbIsYSJC/X7wa+paSqb+d35gGp
-	ZaYDRd7A==;
+	bh=cVQwd2qEgKjHAgU7Zi16NvRD9FWP06z/1zGikoEGa2k=; b=rOFdPJt8rI8qmk7DbaLj4PP6rF
+	cpK7PTJygOlFxqKOADRPwZGMmRGTaDxEmNIVxb3FN/g105BhfW9DszF8s38VjObiWaE9a47kfateW
+	VEk50qE3YJ0I11Y2+PQ16ot3w7Y4I/EjA7PMeNasWOC7NFpfKVzvpKtPPK8frKUjTZAm2yqLH5EQO
+	zaTU3JytRBuI1wmzusvWzFsFwNjTTv1BtMQPwSBydghDwESrSqe7A8bnuyxuwoECQI4SRtfOTXYTa
+	oi6P6oX24jkCm77+/c9tzvEHjssZe9xfWN40BKD07arE5Zk2bhjWQ/+dinqL6zb4rjaYlqToXiava
+	pBMS753g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpp9R-0000000Cu6r-0c6z;
-	Fri, 31 Jul 2026 15:27:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wppAD-0000000CuCA-1vjy;
+	Fri, 31 Jul 2026 15:28:45 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpp9Q-0000000Cu6j-0bwJ
+	id 1wppA8-0000000CuBX-2G7X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 15:27:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 899A540A38;
-	Fri, 31 Jul 2026 15:27:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE4BA1F000E9;
-	Fri, 31 Jul 2026 15:27:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785511675;
-	bh=JT8xi+LYfJ/lkhRCzd7X6UxWwkgghhtU4W+AfhVJTFk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=R/G2PsrwbLj5UBqI6fxnplbccH2TfJ3is2/eG1W2dpWNhFJNrcccWcQabCsK66mV9
-	 RN5yQ/LdtVmoE883tZpRN1KmoqjLEgwoQ4yJRMnlxyJM1XwSECwPcjqdMYc7QHduXx
-	 9FyFTxmLWomYtFbP/JtxpCvKYJ7EoeOiBb5ocYZOfWb09k9/6LGUese17ekddwMeJK
-	 cqnYzYdIHKPrloDtidEOgIeLHDKF8McnAUiu4rugXFJErzOXq7f6kPfpUtjPUHensW
-	 GJdsYRC8ogNosBpHJd3//l25n1/wdVcefDC7TueCXNtrmYZNC9BfNUzHK0SUN1+42n
-	 9NQaaNuhsLlKw==
-Date: Fri, 31 Jul 2026 16:27:50 +0100
-From: Will Deacon <will@kernel.org>
-To: Ben Horgan <ben.horgan@arm.com>
-Cc: Geethasowjanya Akula <gakula@marvell.com>,
-	"linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	Sunil Kovvuri Goutham <sgoutham@marvell.com>,
-	Tanmay Jagdale <tanmay@marvell.com>
-Subject: Re: [EXTERNAL] Re: [PATCH v4 1/3] perf: marvell: Add MPAM partid
- filtering to CN10K TAD PMU
-Message-ID: <amy-9oBsRnQd_Qtr@google.com>
-References: <20260618153610.13649-1-gakula@marvell.com>
- <20260618153610.13649-2-gakula@marvell.com>
- <6b15d3fc-4b4e-4c6c-a96d-5817d7114d02@arm.com>
- <CH0PR18MB43394668EAEBD367DB4D4990CDEB2@CH0PR18MB4339.namprd18.prod.outlook.com>
- <44cd4364-37ac-4a54-a7b2-256fbad10446@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Fri, 31 Jul 2026 15:28:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FyqUl6lNxRgxcpcWuEdNOVoW1xZNCi2VK4Zs9Gl2oTi5X9tegIkZHv42l/KWlZtom+FtKOfisbT5ctPvqhZH5ZLhCeSxv34fjHbTLQRkx5ia4HNT9wuvBK1r3ENsGrRrcmewfNQNRWtUFejLZ9cuUIRGjIdYJW/CYXx3xXA3crdpiVUwRo3N6ZyAYXpK4KK3N6dxoowbZr2H08BjTG7lyddnh3IUgzS3uLsYxKwUV9lJfMYpXRJ/+T58+C5KphR6mxLjIcFxioa6iZ8TCtPzunk6MLihj/KpdWQGQ2miqj68+rSR51xdG1pDtdt0SQ3/gsdfiV/BfT2w0uNPQU4C3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cVQwd2qEgKjHAgU7Zi16NvRD9FWP06z/1zGikoEGa2k=;
+ b=i2ufJncx3XQhgozJspXsCZGQPWBlFbUq/4BFaHCilcljmUeGa/ED4hwtspVgSBpUZh4GhjzAbcYs4uisrSpeqB5i5Gq3TrZzeYdSQBhE7Ss11erxLSwh+APLRhgXU9350LXo1FQRQWf9vw2kVbqe/eDRFnZH0oq+TKnmVXKB/ErHna0fTi5kXxek4wg+g58x0bzj+mHESNeYmGuqurZLncuI6+6pjVk+UOnkjfwWEJvM391f5Kets/p0uTvYNAVAq30lKz3db3NVrW1TqaURBKiPYIIeJIMSDhzC7jLIEU05a92fmPHBuDcIE8G7+h05YwHS5Ah+2DTf+NoIaDoQKg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cVQwd2qEgKjHAgU7Zi16NvRD9FWP06z/1zGikoEGa2k=;
+ b=TU/ELSd4CFZ1UnkDv2JwIXAQ8f3IgwfFcdgurVqqTrdnj8RFuCs8dseYuUXPr02SVAuojQnCrK4vIXGZpWNuj9H9bP+kHnmCfXNL8CGRcCdca4Xf2R4yKKYCZ6ID9e7qTkgxHexsbmT9Ngy2eLI/wPmIgmf5cmbxGLqKu2cW2ztIQDAo6Jpry1WdNtPo7vVbZzem/CAPQswKV28WJNLeZago7jiSo+J3Nn9dlBoH+FvwqH5kMzeFqVOYWdIi/4zfNyhoZTJ4K5VI9y7k6kPfdOBytGJps5VZ3prpB+SHGuPM9CmKeU+py15JBnfv17iLC9OpTIRrDXKlDDUtXihfog==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GV1PR04MB10487.eurprd04.prod.outlook.com (2603:10a6:150:1cc::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Fri, 31 Jul
+ 2026 15:28:31 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.012; Fri, 31 Jul 2026
+ 15:28:31 +0000
+Date: Fri, 31 Jul 2026 10:28:21 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v2 4/4] serial: imx: serialize imx_uart_ports[] lifetime
+Message-ID: <amy_Fe7hYtidlua5@SMW015318>
+References: <20260719221014.44354-1-kmehltretter@gmail.com>
+ <20260719221014.44354-5-kmehltretter@gmail.com>
+ <amufrR-1hop2pZOz@SMW015318>
+ <amyxxce6haNJBJ3G@gmail.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <44cd4364-37ac-4a54-a7b2-256fbad10446@arm.com>
+In-Reply-To: <amyxxce6haNJBJ3G@gmail.com>
+X-ClientProxiedBy: PH2PEPF0000384B.namprd17.prod.outlook.com
+ (2603:10b6:518:1::68) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GV1PR04MB10487:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6c18ca36-0b77-4ad8-09ed-08deef186098
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|19092799006|376014|7416014|22082099003|18002099003|10067099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: geIP2OKogcNG7XaITlrnzDo3mHQPCpMv/35wKkwvK8n5yTK9HTe1ULj8qS6JJK4VMqout9j5igNwXJBhJPW8AWPNUwOUDjqBfA00HntNEkQPEXodB8Qz8A7Eozmb5pP8AaQN3nFnWHyR3brLcSEI10PuIpCD/r8YXa5UJulf9fMA/PdxfhJRYXRTXaUrn2y0lJN4VPDw3zyFCk8jkAoPz1VAhsH+cqnR2bNbm+zD6ep7P18/iITasYNLbw2LLyFNtJgQ+7oA7fzWwmj9skLUVThVwqZPwyYiT3BtXAmTJAGBOjPglBKEhf2PFGZQLpUh0rWe8cPjN5qJJ75on04U78GTZkAZCnWZdT2OcAxBpIYH8Hn3rGyZTzIxKSfuCsNzA/EW8c1+qtwomN83Q2EMBvXsrCpdRfPPOEsp6iM0t9ac5t/l7+hoY3XySfKY9PJj5CbI6IMoj8SRL1Wz0t6VVuOoGYHYbwaO4x+VgnjyJGhC4UjaEmU4wqMxr5iMIFO5jlnepdEAmjfbPodkaZYnMA61ajGCesuLudtz5qidb5ZtvKPFFRMmsPZlGNn1MKG3Fj1B1DZApkdfk8Rct8DY1oFNOCz1rmyTPo+5RwpZrk5nmFwEVUOI4oIs2N7lVcVCG9Yn4nbcZf+znnzPQRB5xuG3Cws6+rkJkXClRzdRWZU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(19092799006)(376014)(7416014)(22082099003)(18002099003)(10067099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6vitXt37InHseua3UgYlDYVbRuGr7xD+fWCUAqZc3Gg9uWKnJ93qjgz8Qibn?=
+ =?us-ascii?Q?Qa/40ZoxoyV0c8ZSYBlEMkm+6h121O0bNHYl+1X/rOPRIGqDRltzOIXxBnQD?=
+ =?us-ascii?Q?lMdVEO1C0HiCfP4gPsCQUvjLgBqf8FCcGdeo43VXzTQaoiqC+GpgSr+PTTjE?=
+ =?us-ascii?Q?ErUIEv0KzOk2CVOgS10Ex+nMOhxSp+y4+UFVbnZM4VpRze40OczfpXLrIocd?=
+ =?us-ascii?Q?BetgkYXe3qcP0O2lpxGUYXsHNHBLtefkXJjARQpl3MjTKXpYxLSuXvTNvOVk?=
+ =?us-ascii?Q?iva/ymHQEpSGZbqzgRHXQpFfcdL0CTe1IAIiCt1894t+thaTPDhxnvfKTuyR?=
+ =?us-ascii?Q?4AU0V55hI9JXe9rwnRQYZoTZ7ajQWCQ/P1aBH+2n3Evtf4rT9TWJtMFLfV6G?=
+ =?us-ascii?Q?CGbKohOIwELxhyCSUP6mGwPrrB+WYPIiUlovQeuG8QIywXWnlN9AOVJgRkPS?=
+ =?us-ascii?Q?HcAPUO3ZHsQiIO6QJ8AS5pee0+YoYAS08getlLKrdPtE8EQY1qqlxbnjAOk+?=
+ =?us-ascii?Q?b5UzPU9A4fQUhnDWxTIirK1HSN5LqdNcHrOHosh0EKm6Z3mBon5H2DDDFiLE?=
+ =?us-ascii?Q?RWPojwmbLzHI2Bhql0XTYHlTQIpTJJjoEACAfq6RC0Jd3IZzkiZIqwSSxNIE?=
+ =?us-ascii?Q?veL2zjnGNR+NlqxTt6K5eMasXvAuZlHtwH2b3dSmS+/g0LRrBJ6LS6r9JgX3?=
+ =?us-ascii?Q?XmsHv/blcJfpnQ/JD05VpXZAeqG80O3UBdB1zk6gdjdzfwagBOR8aS/84J5i?=
+ =?us-ascii?Q?XOENQqNjTtIVU611lUnpdNvFFq+vHVC1HF/VSLms5J3r395y0kJbGg75aCT1?=
+ =?us-ascii?Q?6MLsZmmHygVBvvt090BKDC2dtGsMljfQLRPxrpe4Hi+SWyrcQ3OtMLIhuYvV?=
+ =?us-ascii?Q?57tB9jxonrZvf+tanzpGn899xNu5OsdhlmDhfVPsnZi3O7N7QYuR7PCftIY2?=
+ =?us-ascii?Q?k5PD9+fev+dtnkEhDWbSjYODD/JbckgG4L9n8cHpNXhYbYv6wdA8NgriJtED?=
+ =?us-ascii?Q?SP3QZAugfTanbcK38gPEHqBkor94fMDvVTzo5dNsxVFLSOJSJSdCx1xxQIxr?=
+ =?us-ascii?Q?Xyy03GuwyWjPdeFHgK07aRyTtUDZb/n7WJCQqjR12CksAWol/Mw0RoDrDIyG?=
+ =?us-ascii?Q?Wb67S/DZNoBunWeLFSzhQJQXFMJ9nNaKBM1cV3uo7Y5/PBf3B2yvq0lLmlCk?=
+ =?us-ascii?Q?rc/ZzWqZMF5flI2feBTyQ+GWJR914B2PAgAn32+xxFGbHcx1t0pFGiftHuPj?=
+ =?us-ascii?Q?ijIvq6+sMXyNIoW3vIncwEAMWwVDRe2ox07E5sbBEswEIUgJOc011oHBbTpn?=
+ =?us-ascii?Q?yjORy8jDEaBw1OfV/ZGBz6hMVxvBhuhN1s44zKLjW5bOTpEZrfbRM49IhaF5?=
+ =?us-ascii?Q?BM5May2KNjG2BVUqQ660ObanvumVfhaZv3BHBZaHPRAyNz5xHGd80SbJJc0G?=
+ =?us-ascii?Q?oNyl3Bt7Hi02oZJCFO1ALxYk7i0h+/0+9T8yKq7Vf9er56wxShcTx0J736ht?=
+ =?us-ascii?Q?Osnv+ccpPCPeLKddE4X/rEVw+8qOaoJQ/1oGCt/InkiV7/MWwPHVN2WGBSo3?=
+ =?us-ascii?Q?Txa7IuF0x37o4y/SKBhmpphwPkUfe8M+hWh9rfddgPtiCUoKM9zYnSWHEBdu?=
+ =?us-ascii?Q?MPBPnfQ5dsXl/IvuvGPjOlfC8FW4sCeVklA/bjgAXj7WTTe2BaKJVWXrns56?=
+ =?us-ascii?Q?aiL6UtkXJztM8wb4Z1fRZFz2vjxAFR7GjNyQS8ZuptWWxJL1kBrpL5pgNah6?=
+ =?us-ascii?Q?LW7CQ8iKuaHPemFUK5LE0wRgEg0CmCowd6Mi/0AB0wiFlZz+S/x4?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6c18ca36-0b77-4ad8-09ed-08deef186098
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2026 15:28:31.3782
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UgM0UVfvE3HcdydOflJabLxqf4UJnNXkdI4n3V9TH+jwQEZoXUqJL4JT7lPjyvHEKaQaBy3onUD2wu7/akhiesnLeqBYnXAuK6zuu6wtL90GjmQdfKG7OBnv8jbI9Tuc
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10487
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260731_082840_577099_12A027DF 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +144,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 26, 2026 at 09:57:44AM +0100, Ben Horgan wrote:
-> >> Where is the user expected to get the PARTID from? The MPAM driver
-> >> considers the PARTID as an internal only value.
-> >> …
-> >> Perhaps some helpers along the lines of:
-> >> int resctrl_mount_generation(void)
-> >> …
-> > Thank you for the detailed feedback — the concern you raise is valid, particularly when 
-> > viewed from the perspective of resctrl-managed deployments.
-> > 
-> > However, to clarify the intent of this patch: the exposure of partid in the TAD PMU is deliberately
-> > a low-level, hardware-facing interface, and is not intended to integrate with or mirror the
-> > abstractions provided by resctrl. It is mainly meant for platform bring-up and low-level
-> > performance/debug users, who already have explicit knowledge of the MPAM configuration,
-> > typically provisioned by firmware or other privileged software layers (e.g. EL3/EL2).
-> > In such environments, PARTIDs are known out-of-band, so the expectation is that the
-> > user supplying partid is already aware of the MPAM IDs programmed on the system.
-> 
-> When this was proposed before, [1], there was feedback asking to
-> document how to get the PARTID.
+On Fri, Jul 31, 2026 at 04:40:21PM +0200, Karl Mehltretter wrote:
+> On Thu, Jul 30, 2026 at 02:02:05PM +0100, Frank Li wrote:
+> > imx_uart_remove()
+> > {
+> > 	imx_uart_ports[line] = NULL;
+> > 	uart_remove_one_port(&imx_uart_uart_driver, &sport->port);
+> > }
+> >
+> > Is above sequence to avoid use mutex?
+> >
+>
+> I now tried this, but it doesn't work as-is:
+>
+> uart_add_one_port() may call imx_uart_console_setup(), so the entry
+> must be present before the call.
+>
+> uart_remove_one_port() unregisters the console. Clearing the entry first
+> causes its callbacks to dereference NULL.
+>
+> The mutex protects those sequences against sibling probes.
 
-Yes, please can you update the documentation to cover this? I'm not
-necessarily asking for a programmatic way to do it, but even something
-like a reference to a document or a firmware table would be useful for
-people trying to use the driver to profile their workload. Otherwise,
-it's just an opaque id :/
+Okay
 
-There are also some comments from Sashiko to consider:
-
-https://sashiko.dev/#/patchset/20260618153610.13649-1-gakula@marvell.com?part=1
-
-Thanks,
-
-Will
+Frank
+>
+> Thanks,
+> Karl
 
