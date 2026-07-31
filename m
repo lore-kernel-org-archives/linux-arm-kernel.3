@@ -4,89 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F02B1C55167
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C89C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LonlxyNI/UROq/7FsvfLYFpLarTm2H6nAAjtd6tWp9A=; b=KqT4IyO/XGYuEH4ygalMPC2ta7
-	i0Eoj88nn7IP2jlguzWQ7RxcafH0sIThMDbKuxyjDG6XuU65O6BIxWw4GEbr2iiNzWQLWbPneeHNQ
-	BHv5VZy3nzcyDk+LvNyxKn+AjGs24AitrjONB8W09CjuQ7nts97YMqPHpUi5lHK07h+Suw6s9bAqz
-	+4tDmXJHDrzZhXqA2dZb2zYlJJE+4s2o3uI8NzJGkxIcwmUHL0sKuijXQW8oFI7j1a0csaf0dn/tv
-	H8wX+ZPgHQ4vWcVFTMJhAbIvFR+YAl+56vO4kRRV3Y/2rEfSYdgccb3hqOCPJ/Y2gaGg/dYTYM17n
-	qLMI1IPA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=frlyNymqGXt0pnIVkKKvRVE5D0NMSUG3wLunq5u5Wxo=; b=katIJ4tSbII7Fn1ftljX6wZS91
+	0Nb9QWAgbiFErhrdiSiAfXq37nXRkoklWGeH60P45dUnsuT9uxvpWKFP39LabBjabwcm++wkyb1xt
+	RhUA0a2J1vDrLOgG3xKECAKUdW1tnjnhMXDeHQNDrpn8nj08HSAEh4LMnkuIJEtjaB69iN03PvXug
+	WgivoaKpASR7FHOXN5Yyk9OOOThImQlXSkshohbJ8vQNnrAwkrYH0ejE/WdMjCAlTeY+ko/rmHCjR
+	2mCKL6/wEVcXEoNSXnwVZpfD2sXgldSDpNeE2SsafbKbP6+8Qj8Cr+czgZDAm3v8EYia/PuykJTGT
+	zci+vOFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpqTp-0000000DBWg-3JF3;
-	Fri, 31 Jul 2026 16:53:05 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpqTn-0000000DBWL-2Dtj
+	id 1wpqXK-0000000DBrM-1JAu;
+	Fri, 31 Jul 2026 16:56:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpqXG-0000000DBqi-1WRr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 16:53:04 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2ccdce28edeso1264765ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 09:53:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785516781; x=1786121581; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LonlxyNI/UROq/7FsvfLYFpLarTm2H6nAAjtd6tWp9A=;
-        b=c9lSThlxNLPjqO9DJHMiuZUTL4MRTqmosj9b0D8UP/4zecneIeXLviyus1eCuPYugL
-         hgBCDEyS4KxwILTJK+oa4eTpmuhvauKqXD/iOxYnVHWOUhGdwv0ZvxT0rq3LZnlhVnmZ
-         kr2KzFfH8hHMcwzkhaTCoFI0dasiD+SI55MaxmyQOZ0nQ/7XsQQUXrSIj15fXmd8j06b
-         JDht/g9ZZhxCxRGus+zyC/6thmyBFHCeYIqJztvr/kluQgzXSgztJ1yEQ6LzF/+0ImIx
-         oMGz8CdPJzQ5iChq9bX76iG1InAxPAO7p5oydQpM67M2f3HgiPq5DsosBk9VWwHd5aHC
-         Dy0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785516781; x=1786121581;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LonlxyNI/UROq/7FsvfLYFpLarTm2H6nAAjtd6tWp9A=;
-        b=FlF9ZhHtllwO+dRFvAPXjZeQCn9jMs5cS9YQYQXJxmNtnYjgdUs5Jpl316kY9zu0EN
-         bPdqOSYgxBm0xdMBR9rdF9KxhSEYJ5w/SOCzG4+ERMdCddjSO5XEJmitSls70Vv8A6bB
-         lX/yWsYeVt3gLe8JAak+bVoavgnYbahinqUK20HlQEjd4wr4P61SolCnvQT/u6LID4BZ
-         zpVI2A3/48jbOcrnHUH7yFbWST/lsowdQsSRaDZ71thejIKEepD8h/LkBsOXrN7uoYov
-         pJeCG126wOz4SBJTeDiWTjTkeTBXJzpSKQzo3yVuiTajeApENwJUOsD6er1RjZPFCtjC
-         ckHA==
-X-Forwarded-Encrypted: i=1; AHgh+RpUmxXfqfgZKCSMfiIjYy79H8ImW/nkiO7lczUBm1nkzJCO4g7Ql2yV9PwxWeuugJ2XZvoTrevulWlmzycmdbp+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhOZzJ13O59IWHdrWwGIypBlwn7JYUNKMion+neuBBXY96Sp0S
-	nlPdyJ015TUCDBx3k9gaRlHn58WWpc0OhRs98aV/FAmKm329dLCHGGaV
-X-Gm-Gg: AR+sD12HVJSZvywA44Qefh8cAqnYKX07U92twBael9wAYoXPGLVlNfKAsbtlhN4OISC
-	mxU7QjbGkr4mraYiBjUcbQjQxlaPu8Sn56M3BIUOGHOZ4ddFlSlvQ2IoYi1/wFiUPbMbj6GgXAJ
-	4itGEiUILbjp31DnKaFY2AdFGX2vBs2wzRQDcLAjabdiDkGSvPV0E2OtP4Q8XOpiQkNcecciCTm
-	Xtetw1mRX2Xhi+kvBEXgxbtH+6kUs4k2Pw049kzPPcwvbAwREDhKFsPlyJYMmbVYRyBke6SYu62
-	IJU0tShz2InRC+i8shcbQDe6qp+4jtQesgLwoBEE5Kc4AnWa/G1i6FSzTbcZnKVWhmnPFU7epRf
-	5VaAH2aGYhL8DFGFZ62M2X3/H7P0ZJn74uQX3+aoprVedgQyK3MySiLasjOuSItV1dj4ZCi3v8y
-	Hch1GURlj0K6gir6Pzpdemd33YXwhnwL00uJvsCr529hBbCZpM7K0K4g==
-X-Received: by 2002:a17:902:ced1:b0:2c9:fbde:ab68 with SMTP id d9443c01a7336-2d0523c0f5emr9691545ad.3.1785516781082;
-        Fri, 31 Jul 2026 09:53:01 -0700 (PDT)
-Received: from kali ([2402:e280:3d7c:a2:536a:b505:93f5:9d5d])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153ddda5d9sm10399096eec.13.2026.07.31.09.52.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jul 2026 09:53:00 -0700 (PDT)
-From: Pavitra Jha <jhapavitra98@gmail.com>
-To: Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>
-Cc: Neal Gompa <neal@gompa.dev>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Pavitra Jha <jhapavitra98@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] soc: apple: rtkit: fix OOB reads in crashlog parser
-Date: Fri, 31 Jul 2026 12:52:10 -0400
-Message-ID: <20260731165210.113227-1-jhapavitra98@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	Fri, 31 Jul 2026 16:56:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DD16204C;
+	Fri, 31 Jul 2026 09:56:33 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC4183F86F;
+	Fri, 31 Jul 2026 09:56:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785516997; bh=CMU0imILpAq7DOm5KpqtMDsZevIKfaMPIhQP5iA97/c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oRRI93TWNDB5PU4eFPBQBy8m/ninfDZDBACMIedG4Hd/FEKhh6c2Pj7slJgZYupBU
+	 cxKigUPRsDGsCZ/W8i9jZChM4CftbRfew/ggLzv/magOLzTwC8AAfModwiwWMM8gzv
+	 jC2TpCatM1u9dZaLPv9vwfVOeFBpcuWcuvm8asHU=
+Message-ID: <9431b95f-89c4-498a-87bd-ff4583124f0a@arm.com>
+Date: Fri, 31 Jul 2026 18:56:28 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 09/10] arm_mpam: change MPAM-Fb error IRQ to use a
+ threaded IRQ handler
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260730152539.2712312-1-andre.przywara@arm.com>
+ <20260730152539.2712312-10-andre.przywara@arm.com>
+ <0b190985-3a71-43fb-9530-d6b50faf2e27@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <0b190985-3a71-43fb-9530-d6b50faf2e27@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_095303_672119_A1A9DE07 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20260731_095638_872598_DAEC3BE9 
+X-CRM114-Status: GOOD (  29.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,137 +84,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-apple_rtkit_crashlog_dump() parses a binary blob copied from a shared
-memory region populated by the RTKit coprocessor after a crash. The
-blob is treated as trusted structured data, but four distinct bugs
-allow a malicious or compromised coprocessor to trigger out-of-bounds
-reads against the kernel heap:
+Hi,
 
-1. Section header read without tail-space guard
-   The main loop is guarded by (offset < size), but the section header
-   occupies bytes [offset, offset+16). A section starting within the
-   last 15 bytes of the buffer causes the memcpy at offset+12 to read
-   past the end of the allocation.
+On 7/31/26 15:33, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 7/30/26 16:25, Andre Przywara wrote:
+>> When an MPAM MSC gets into an error condition, it can trigger an error
+>> IRQ. We cannot really do much about those errors, but we at least query
+>> and log the error, then disable MPAM functionality.
+>>
+>> This error report relies on reading the MSC's error status register
+>> (ESR) in the current hard-IRQ handler, which is not possible for MPAM-Fb
+>> based MSC accesses, since they involve mailbox routines that might sleep.
+>> The same is true for clearing the interrupt at the source, which requires
+>> an MSC access as well.
+>>
+>> When an MSC is using MPAM-Fb, change the error IRQ to use a threaded IRQ
+>> handler, with an empty hard IRQ routine, and doing all the MSC accesses
+>> (to access the status and disable the IRQ line) in the threaded part.
+>> The change is minimal, we just check for the first MSC access error and
+>> bail out early. MMIO based MSCs keep using a hard-IRQ handler, since
+>> they must be at least non-migrate-able when doing MSC accesses, for the
+>> CPU affinity check to work.
+>> Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
+>> threaded IRQ here.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/resctrl/mpam_devices.c | 64 ++++++++++++++++++++++++++--------
+>>   1 file changed, 49 insertions(+), 15 deletions(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index daaf3cf48475..606ae4af2be9 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+>> @@ -2660,24 +2660,38 @@ static int mpam_disable_msc_ecr(void *_msc)
+>>   	return 0;
+>>   }
+>>   
+>> +/*
+>> + * This will run as the threaded IRQ handler part when using MPAM-Fb, but
+>> + * as the sole hard-IRQ handler for MMIO based accesses.
+>> + */
+>>   static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>>   {
+>>   	u64 reg;
+>> +	int ret;
+>>   	u16 partid;
+>>   	u8 errcode, pmg, ris;
+>>   
+>> -	if (WARN_ON_ONCE(!msc) ||
+>> +	if (WARN_ON_ONCE(!msc))
+>> +		return IRQ_NONE;
+>> +
+>> +	if (msc->iface == MPAM_IFACE_MMIO &&
+>>   	    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
+>>   					   &msc->accessibility)))
+>>   		return IRQ_NONE;
+>>   
+>> -	mpam_msc_read_esr(msc, &reg);
+>> +	ret = mpam_msc_read_esr(msc, &reg);
+>> +	if (ret) {
+>> +		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
+>> +
+>> +		/* Try out best here ... */
+>> +		goto out_disable;
+>> +	}
+>>   
+>>   	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+>>   	if (!errcode)
+>>   		return IRQ_NONE;
+>>   
+>> -	/* Clear level triggered irq */
+>> +	/* Clear level triggered irq. Ignore errors, we need to proceed. */
+>>   	mpam_msc_clear_esr(msc);
+>>   
+>>   	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+>> @@ -2688,19 +2702,19 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>>   			   msc->id, mpam_errcode_names[errcode], partid, pmg,
+>>   			   ris);
+>>   
+>> -	/* Disable this interrupt. */
+>> +out_disable:
+>> +	/* Disable this interrupt. Ignore errors, we need to proceed anyway. */
+>>   	mpam_disable_msc_ecr(msc);
+> 
+> If we fail to disable the interrupt then I don't think we can claim we handled it.
+> Shouldn't we, after scheduling broken work, return IRQ_NONE?
 
-2. section_size not validated against remaining buffer space
-   section_size is a u32 read verbatim from the coprocessor blob.
-   It is passed directly to each handler as the 'size' argument without
-   checking offset + section_size <= size. Every handler therefore
-   operates on memory past the end of the shadow buffer. Additionally,
-   section_size == 0 causes an infinite loop because offset never
-   advances.
+That's tricky, I'd say. IRQ_NONE means the handler is not recognising 
+the interrupt, so it probably becomes spurious, which doesn't sound right.
+So I think IRQ_HANDLED is the least worst of the two. We are somewhat 
+doomed, but eventually mpam_disable() will unregister the IRQ, so it 
+won't fire again. And we protect again repeated calls to mpam_disable(), 
+should the IRQ handler be called again.
 
-3. dump_mailbox: size_t underflow when section_size < 28
-   n_messages = (size - 28) / sizeof(entry) performs size_t arithmetic.
-   If the coprocessor reports section_size < 28, the subtraction wraps
-   to ~0UL, n_messages becomes enormous, and the subsequent memcpy loop
-   reads and dev_warn-logs arbitrary adjacent slab memory, constituting
-   a kernel heap info-leak.
+Cheers,
+Andre
 
-KASAN confirmed (kernel 7.1.0, QEMU/x86_64, kasan_multi_shot):
-
-  BUG: KASAN: slab-out-of-bounds in apple_rtkit_crashlog_dump.cold
-  Read of size 24 at addr ffff88800469f08c by task insmod/60
-
-  Call Trace:
-    kasan_check_range
-    __asan_memcpy
-    apple_rtkit_crashlog_dump.cold
-    rtkit_poc_init
-
-4. dump_version and dump_str: bare %s with no NUL guarantee
-   dump_version() ignores its size argument entirely and passes bfr+16
-   directly to dev_warn() as a %s argument. If section_size places the
-   section end before a NUL byte, dev_warn walks arbitrarily past the
-   allocation. dump_str() has the same issue in its else branch: memchr
-   correctly bounds the search, but the resulting pointer is then passed
-   to dev_warn() as %s without a NUL guarantee within the real buffer.
-
-Fix:
-- Check offset + 16 <= size before reading each section header.
-- Reject section_size < 16 or offset + section_size > size before
-  dispatching, ensuring every handler receives a size bounded by the
-  real buffer. This also eliminates the infinite-loop case.
-- Add an explicit size < 28 guard in dump_mailbox() to prevent the
-  size_t underflow regardless of the outer check.
-- Replace bare %s with %.*s in dump_version() and the else branch of
-  dump_str(), using the (now validated) size argument as the bound.
-
-Attacker model: any entity able to influence RTKit coprocessor firmware
-or crash-log shared memory (coprocessor compromise, DMA-capable
-peripheral on the same interconnect) can trigger these bugs against any
-Linux system running Asahi Linux on Apple Silicon hardware.
-
-Fixes: 9bd1d9a0d8bb ("soc: apple: Add RTKit IPC library")
-Cc: stable@vger.kernel.org
-Signed-off-by: Pavitra Jha <jhapavitra98@gmail.com>
----
- drivers/soc/apple/rtkit-crashlog.c | 28 +++++++++++++++++++++++++---
- 1 file changed, 25 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/soc/apple/rtkit-crashlog.c b/drivers/soc/apple/rtkit-crashlog.c
-index 8319e3651..3af17c31d 100644
---- a/drivers/soc/apple/rtkit-crashlog.c
-+++ b/drivers/soc/apple/rtkit-crashlog.c
-@@ -81,8 +81,8 @@ static void apple_rtkit_crashlog_dump_str(struct apple_rtkit *rtk, u8 *bfr,
- 			*newline = tmp;
- 			ptr = newline + 1;
- 		} else {
--			dev_warn(rtk->dev, "RTKit: Message (id=%x): %s", idx,
--				 ptr);
-+			dev_warn(rtk->dev, "RTKit: Message (id=%x): %.*s", idx,
-+				 (int)(end - ptr), ptr);
- 			break;
- 		}
- 	}
-@@ -91,7 +91,12 @@ static void apple_rtkit_crashlog_dump_str(struct apple_rtkit *rtk, u8 *bfr,
- static void apple_rtkit_crashlog_dump_version(struct apple_rtkit *rtk, u8 *bfr,
- 					      size_t size)
- {
--	dev_warn(rtk->dev, "RTKit: Version: %s", bfr + 16);
-+	if (size < 17) {
-+		dev_warn(rtk->dev, "RTKit: Version section too small: 0x%zx",
-+			 size);
-+		return;
-+	}
-+	dev_warn(rtk->dev, "RTKit: Version: %.*s", (int)(size - 16), bfr + 16);
- }
- 
- static void apple_rtkit_crashlog_dump_time(struct apple_rtkit *rtk, u8 *bfr,
-@@ -112,6 +117,11 @@ static void apple_rtkit_crashlog_dump_mailbox(struct apple_rtkit *rtk, u8 *bfr,
- 
- 	memcpy(&type, bfr + 16, 4);
- 	memcpy(&index, bfr + 24, 4);
-+	if (size < 28) {
-+		dev_warn(rtk->dev, "RTKit: Mailbox section too small: 0x%zx",
-+			 size);
-+		return;
-+	}
- 	n_messages = (size - 28) / sizeof(entry);
- 
- 	dev_warn(rtk->dev, "RTKit: Mailbox history (type = %d, index = %d)",
-@@ -206,8 +216,20 @@ void apple_rtkit_crashlog_dump(struct apple_rtkit *rtk, u8 *bfr, size_t size)
- 	offset = sizeof(header);
- 
- 	while (offset < size) {
-+		if (offset + 16 > size) {
-+			dev_warn(rtk->dev,
-+				 "RTKit: Crashlog section header out of bounds at 0x%zx",
-+				 offset);
-+			break;
-+		}
- 		memcpy(&section_fourcc, bfr + offset, 4);
- 		memcpy(&section_size, bfr + offset + 12, 4);
-+		if (section_size < 16 || offset + section_size > size) {
-+			dev_warn(rtk->dev,
-+				 "RTKit: Crashlog section size out of bounds: %u at 0x%zx",
-+				 section_size, offset);
-+			break;
-+		}
- 
- 		switch (section_fourcc) {
- 		case APPLE_RTKIT_CRASHLOG_HEADER:
--- 
-2.53.0
+>>   
+>> -	/* Are we racing with the thread disabling MPAM? */
+>> -	if (!mpam_is_enabled())
+>> -		return IRQ_HANDLED;
+>> -
+>>   	/*
+>> -	 * Schedule the teardown work. Don't use a threaded IRQ as we can't
+>> -	 * unregister the interrupt from the threaded part of the handler.
+>> +	 * Schedule the teardown work. We have to defer it as we can't
+>> +	 * unregister the interrupt from the threaded part of a handler.
+>> +	 * Check whether we are racing with the thread disabling MPAM.
+>>   	 */
+>> -	mpam_disable_reason = "hardware error interrupt";
+>> -	schedule_work(&mpam_broken_work);
+>> +	if (mpam_is_enabled()) {
+>> +		mpam_disable_reason = "hardware error interrupt";
+>> +		schedule_work(&mpam_broken_work);
+>> +	}
+>>   
+>>   	return IRQ_HANDLED;
+>>   }
+>> @@ -2736,6 +2750,11 @@ static int mpam_register_irqs(void)
+>>   		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
+>>   		/* We anticipate sharing the interrupt with other MSCs */
+>>   		if (irq_is_percpu(irq)) {
+>> +			if (msc->iface != MPAM_IFACE_MMIO) {
+>> +				dev_err(&msc->pdev->dev,
+>> +					"Only MMIO MSCs can use per-CPU interrupts\n");
+>> +				return -EINVAL;
+>> +			}
+>>   			err = request_percpu_irq(irq, &mpam_ppi_handler,
+>>   						 "mpam:msc:error",
+>>   						 msc->error_dev_id);
+>> @@ -2747,9 +2766,24 @@ static int mpam_register_irqs(void)
+>>   					       &_enable_percpu_irq, &irq,
+>>   					       true);
+>>   		} else {
+>> -			err = devm_request_irq(&msc->pdev->dev, irq,
+>> -					       &mpam_spi_handler, IRQF_SHARED,
+>> -					       "mpam:msc:error", msc);
+>> +			irq_handler_t hard, threaded;
+>> +
+>> +			/*
+>> +			 * MPAM-Fb needs a sleepable context for the MSC
+>> +			 * accesses, whereas MMIO requires at least a
+>> +			 * non-migrateable context for the processor ID check.
+>> +			 */
+>> +			if (msc->iface == MPAM_IFACE_MMIO) {
+>> +				hard = &mpam_spi_handler;
+>> +				threaded = NULL;
+>> +			} else {
+>> +				hard = NULL;
+>> +				threaded = &mpam_spi_handler;
+>> +			}
+>> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
+>> +							hard, threaded,
+>> +							IRQF_SHARED | IRQF_ONESHOT,
+>> +							"mpam:msc:error", msc);
+>>   			if (err)
+>>   				return err;
+>>   		}
+> 
 
 
