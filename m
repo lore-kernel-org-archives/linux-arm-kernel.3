@@ -4,74 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A881FC55173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 21:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B0E4C55173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 22:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ijj4vdGluIomNxLmquFU6pFVXzJ7ScyjET2Aj3N8QSA=; b=Nl/vo8TT6g5oIWZ0vfVwthaSqi
-	cXs+Ox8/MGQ2yBUk39xQRQWIwjk25B9nAEIYSSZKRwCHedt9CpTCfcoe911rNgzIyOREuSQFxRn/E
-	5gyIVx9vDZbQlEyhh5E/s1eO3iCrN92c7jSr+GowLMuo3uEW4/cnDApxUvCWjCOt8AwVj/5P1i8iH
-	AZWsojS4B7GsyhEP45N3/IUwAVf5pK6GWDVVu/YjlWPw8K22QV4JxvjafXhbjOr/DBRjC/5NFV8Cv
-	X4ghecHsawWPbWkj3r3SfxxDw/i9AiDTQlS1JfG/OHAlgEXfqZJMVs7y1ZoVaWDfyLhZz/9vJOel1
-	VUTenL+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Fn9fvAwbHBdoZnU5Z3GXU92H9WGoBp0GZQN96d0z5ZU=; b=ARv81j0KPoQYhXi13AU7HSm0AY
+	XqysGjbqg9C3P6tvdKA179elei7QoIOKv7CRoN0GEC/mtcvpaGFXIuvTI9Hlw2aqkXAy7oXKn70sm
+	qVm01ErjbBqXlwIBD3/fulifK8WAra01E+4LXjpozsx8KqF9Dlt4ya2oBiWnB0IuSLPX7/s0MPquE
+	KFc2NonsezAA2KY9ZvRhjmTgUJUeWXEMjr5xReV643rK0cECjCXiTPBMozGdimDgV/CigIOiWVVqK
+	C2nlHeucGu+VYW8gxrbxPxJjzsOSuMR59xnFISliJ5unrfP3NvRUz7SWLDw82eDapkksp+cLr+1Dt
+	Tq6b7L6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpv0p-0000000DdMz-31fO;
-	Fri, 31 Jul 2026 21:43:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wpvSe-0000000DfQX-4Aid;
+	Fri, 31 Jul 2026 22:12:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpv0o-0000000DdMR-0P1Z
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 21:43:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 75D2943E98
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 21:43:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59E701F00ACF
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 21:43:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785534205;
-	bh=Ijj4vdGluIomNxLmquFU6pFVXzJ7ScyjET2Aj3N8QSA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=X4fN3hI0eISr4yL7s8jIga4xCyftseWBmBZzcaOoyYE5MbI29mtKq1/FILmpMlhcV
-	 nH22vmKiUBCmGokVAYhvZjvWdUwEGuIEwVneCx849AX36zIuEY7W91cTz80KEEMS24
-	 JaMLR0QsJaqTiOt4jDKbfmJox7wnK7MseTB2MhfxHu+QnH79//4ITl58reAMYxSUs2
-	 QXFBklaEIdF5Ge8MnDHBVggpqeGUMSbN9DHNNINEAl8axXBDYOUEQ28xKT4oKDQ3NO
-	 v8V/rNrAZCwfU3yi7FcfyKnLAR/gjT+EyoGkuTbJ2ICQo+DBzFZnSJcY8AME6ve0To
-	 jnhpsje7PEptw==
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c167bda216fso216902966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 14:43:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rrq0FtHAYo2ZzW9I6wPu8IECYPF5keXgKg8cOnSIYN3gii2K6djzgrFupSlQ0WF1EH5BH7y4flyy2ZB9RbFbslF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWeGJF4h1venMbQjLSajCNAR9PT5pGPrieXW1SPTmAPLe+FJcp
-	xGn8y1G4wfJuCH2OZw2krQ/tJMT1xDkHRSKZie4C5rVvfDJpxMC0o80sgPlrdWJw+O+UEGEZWs6
-	qWdmm5y3RJngKrQdqAOV/+WeaJPgloMA=
-X-Received: by 2002:a17:907:5c7:b0:c16:9bd:39cb with SMTP id
- a640c23a62f3a-c1fe83c9c78mr65074866b.52.1785534204316; Fri, 31 Jul 2026
- 14:43:24 -0700 (PDT)
+	id 1wpvSc-0000000DfPf-2cAX;
+	Fri, 31 Jul 2026 22:12:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=Fn9fvAwbHBdoZnU5Z3GXU92H9WGoBp0GZQN96d0z5ZU=; b=w5HR/1LZw6TbXw/7ZQXQf7yrZj
+	AEVABoOBZE4N4DEIIk4hIr1WvG0y5nmp1Fv+hiReZz0vddTQ5oOSVpF55gqiANvCpwV/pnagYzfXN
+	gsWbnN5zVL3bnxSKY5iOEWVih5rqCBg1wEeqXeHNCa8awS7yztXUaGAW2s5Nolrci89NQPZVEGg0Q
+	09fehZChDG+ZAIIaoSm/gLm1MV3/Ag27qs4k9ROAP72ySaO9OLN9nS2b0u0YdicXmtyMShafSWARg
+	FnxzbFhGAHxfE/OmKQQ25dbQQVMm9tBZIPf/4NUHloWc2bIZQ85L9gZy2pFYo9JFVnWjXRmHrWoAU
+	TLgkev9A==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip dts64 changes for 7.3 #1
+Date: Sat, 01 Aug 2026 00:12:03 +0200
+Message-ID: <2742274.XQYqjrCR6X@diego>
 MIME-Version: 1.0
-References: <20260731195612.2697986-1-seanjc@google.com> <CAO9r8zO-eCz-4Gpa_FUjRKPaDj82PP7et7KON4S5QfhRU2J-Ug@mail.gmail.com>
- <am0Wkak_vhy1n_xu@google.com>
-In-Reply-To: <am0Wkak_vhy1n_xu@google.com>
-From: Yosry Ahmed <yosry@kernel.org>
-Date: Fri, 31 Jul 2026 14:43:12 -0700
-X-Gmail-Original-Message-ID: <CAO9r8zNmjinr53exDSwVKooosz1w2=4qexRF88u21AFwUpfFJQ@mail.gmail.com>
-X-Gm-Features: AUfX_mxmaz6udCEjo0Ly-CUEkoOgpG40UmqWTnodi_oXGgnlaAp6cc87pxxAuL4
-Message-ID: <CAO9r8zNmjinr53exDSwVKooosz1w2=4qexRF88u21AFwUpfFJQ@mail.gmail.com>
-Subject: Re: [PATCH v3 00/12] KVM: selftests: Add more syscall wrappers, fix hardware_disable_test
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	David Hildenbrand <david@kernel.org>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260731_151210_732636_91DAB78F 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +62,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 31, 2026 at 2:41=E2=80=AFPM Sean Christopherson <seanjc@google.=
-com> wrote:
->
-> On Fri, Jul 31, 2026, Yosry Ahmed wrote:
-> > On Fri, Jul 31, 2026 at 12:56=E2=80=AFPM Sean Christopherson <seanjc@go=
-ogle.com> wrote:
-> > >
-> > > Third time's a charm.  Sorry for the spam.
-> > >
-> > > Buried in the middle of this is a fix for the hardware_disable_test w=
-here
-> > > it can end up with a runtime of multiple minutes when running a preem=
-ptible
-> > > kernels on a large NUMA system.  Turns out my analysis/guess in v1 wa=
-s wrong;
-> > > the problem isn't direct CPU contention, it's that letting the worker=
-s do any
-> > > amount of "real" work on any CPUs leads to pthread_create() slowdowns=
- from
-> > > the perspective of the caller.
-> >
-> > How long does the test take to run with this series?
->
-> Less than 5 seconds if nothing else is running.  ~12 seconds if I run it
-> concurrently with mmu_stress_test using default settings, and ~25 seconds=
- if I
-> run it on an overloaded system (naively running all selftests in parallel=
-).
+Hi soc maintainers,
 
-Cool, I will stop skipping it after this series lands then :)
+please find below Rockchip DT changes for the merge-window for 7.3 .
+
+
+Not sure if it matters, but my pgp key got an update in the kernel keyring.
+The existing keys themself did not change, just the SHA1 signatures from
+the main key to the subkeys got refresh by better ones.
+
+And I added a second signing key that I plan to use in the future.
+
+
+Please pull.
+Thanks
+Heiko
+
+
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.3-rockchip-dts64-1
+
+for you to fetch changes up to 7707e4555cf1d52689621e3206df8ad2debaa0dd:
+
+  arm64: dts: rockchip: Fix rk3566-bigtreetech-cb2 touchscreen property (2026-07-24 21:30:31 +0200)
+
+----------------------------------------------------------------
+New boards: Graperain G3568, HINLINK H28K, LCKFB Taishan Pi 3M,
+Orange Pi 5 Pro, Vicharak Axon, Vicharak Vaaman2, Youyeetoo YY3588
+
+New peripherals: eDP support on RK3576
+
+And of course a number of board-fixes, style-fixes and some newly
+enabled board-components.
+
+----------------------------------------------------------------
+Brian Mayer (1):
+      arm64: dts: rockchip: add HYM8563 RTC to Radxa CM5 IO board
+
+Chukun Pan (2):
+      dt-bindings: arm: rockchip: Add HINLINK H28K
+      arm64: dts: rockchip: Add HINLINK H28K
+
+Coia Prant (6):
+      arm64: dts: rockchip: Replace deprecated 'gpio' property with 'gpios' for 9Tripod X3568 v4
+      arm64: dts: rockchip: Add AP6275S support for 9Tripod X3568 v4
+      arm64: dts: rockchip: Fix incorrect interrupt for the 9Tripod X3568 v4
+      dt-bindings: vendor-prefixes: Add graperain
+      dt-bindings: arm: rockchip: Add Graperain G3568 series
+      arm64: dts: rockchip: Add devicetree for the Graperain G3568 v2
+
+Damon Ding (3):
+      arm64: dts: rockchip: Add missing hclk for RK3588 eDP0
+      arm64: dts: rockchip: Add missing hclk for RK3588 eDP1
+      arm64: dts: rockchip: Add eDP node for RK3576
+
+Daniele Briguglio (4):
+      dt-bindings: vendor-prefixes: Add youyeetoo
+      dt-bindings: arm: rockchip: Add Youyeetoo YY3588
+      arm64: dts: rockchip: Add Youyeetoo YY3588
+      arm64: dts: rockchip: fix HDMI-RX signal detect GPIO on yy3588
+
+Dennis Gilmore (4):
+      dt-bindings: arm: rockchip: Add Orange Pi 5 Pro
+      arm64: dts: rockchip: rename PLDO regulator labels to match schematic on rk3588s-orangepi-5
+      arm64: dts: rockchip: refactor items from Orange Pi 5/b to prep for Pro
+      arm64: dts: rockchip: Add Orange Pi 5 Pro board support
+
+Fabio Estevam (5):
+      arm64: dts: rockchip: Fix rk3588s-roc-pc audio description
+      arm64: dts: rockchip: Enable USB device mode on rk3588s-roc-pc
+      arm64: dts: rockchip: Fix Gru WLAN sideband interrupt
+      arm64: dts: rockchip: Fix the rk3566-radxa-cm3 Wifi compatible
+      arm64: dts: rockchip: Fix rk3566-bigtreetech-cb2 touchscreen property
+
+Hrushiraj Gandhi (4):
+      dt-bindings: arm: rockchip: add Vicharak Axon board
+      arm64: dts: rockchip: add Vicharak Axon board
+      dt-bindings: arm: rockchip: Add Vicharak Vaaman2
+      arm64: dts: rockchip: Add Vicharak Vaaman2 board
+
+Jakob Unterwurzacher (1):
+      arm64: dts: rockchip: fix emmc reset polarity on px30-cobra
+
+Krzysztof Kozlowski (1):
+      arm64: dts: rockchip: Correct indentation
+
+Liu Changjie (2):
+      dt-bindings: arm: rockchip: Add LCKFB Taishan Pi 3M
+      arm64: dts: rockchip: Add LCKFB Taishan Pi 3M
+
+Oren Klopfer (1):
+      Revert "arm64: dts: rockchip: Further describe the WiFi for the Pinephone Pro"
+
+Quentin Schulz (2):
+      arm64: dts: rockchip: fix eMMC reset polarity on PP-1516
+      arm64: dts: rockchip: fix eMMC reset polarity on PX30 Ringneck
+
+Ricardo Pardini (1):
+      arm64: dts: rockchip: fix regulator names on NanoPC-T6
+
+Vic B (1):
+      arm64: dts: rockchip: fix label of sys_led for nanopi-r4s
+
+Vsevolod Kozlov (1):
+      arm64: dts: rockchip: fan speed control for FriendlyELEC CM3588 NAS
+
+ .../devicetree/bindings/arm/rockchip.yaml          |   32 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |    4 +
+ arch/arm64/boot/dts/rockchip/Makefile              |    7 +
+ arch/arm64/boot/dts/rockchip/px30-cobra.dtsi       |    2 +-
+ arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi      |    2 +-
+ .../rockchip/px30-ringneck-haikou-video-demo.dtso  |   10 +-
+ arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi    |    2 +-
+ .../boot/dts/rockchip/rk3399-gru-chromebook.dtsi   |    3 +-
+ .../arm64/boot/dts/rockchip/rk3399-nanopi-r4s.dtsi |   10 +-
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts     |   18 -
+ arch/arm64/boot/dts/rockchip/rk3399-rock960.dtsi   |    2 +-
+ .../boot/dts/rockchip/rk3528-hinlink-h28k.dts      |  318 ++++++
+ .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  |    2 +-
+ arch/arm64/boot/dts/rockchip/rk3566-radxa-cm3.dtsi |    2 +-
+ .../boot/dts/rockchip/rk3568-9tripod-x3568-v4.dts  |   60 +-
+ .../dts/rockchip/rk3568-graperain-g3568-v2.dts     |  940 ++++++++++++++++
+ .../boot/dts/rockchip/rk3576-lckfb-tspi-3m.dts     |  997 +++++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           |   28 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |    4 +-
+ arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi     |    4 +-
+ .../rockchip/rk3588-friendlyelec-cm3588-nas.dts    |   31 +
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi |   14 +-
+ .../boot/dts/rockchip/rk3588-vicharak-axon.dts     |  842 ++++++++++++++
+ .../boot/dts/rockchip/rk3588-vicharak-vaaman2.dts  |  535 +++++++++
+ .../boot/dts/rockchip/rk3588-youyeetoo-yy3588.dts  | 1180 ++++++++++++++++++++
+ .../boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi   |  256 +++++
+ .../boot/dts/rockchip/rk3588s-orangepi-5-pro.dts   |  358 ++++++
+ .../arm64/boot/dts/rockchip/rk3588s-orangepi-5.dts |    6 +-
+ .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi      |  263 +----
+ .../boot/dts/rockchip/rk3588s-orangepi-5b.dts      |    2 +-
+ .../boot/dts/rockchip/rk3588s-radxa-cm5-io.dts     |   19 +
+ arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts    |   29 +-
+ 32 files changed, 5674 insertions(+), 308 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-hinlink-h28k.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-graperain-g3568-v2.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-lckfb-tspi-3m.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-vicharak-axon.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-vicharak-vaaman2.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-youyeetoo-yy3588.dts
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-5b.dtsi
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5-pro.dts
+
+
+
 
