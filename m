@@ -4,70 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 934F2C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 02:31:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07276C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 02:38:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=go9e1FTWLKxTTOfTi113qwmgUMtPejwq61+ADMUh6Dc=; b=snf4L/zIC7yfcCp/kK5UE4DKsW
-	uqJ58Cx2NITLsxpwaTdlU++RIfanTWsLhB4Q5KXUzl8iLoc+y7f2qwMvIJ/TTYYOAoGqv/DGbMDJy
-	4y56yJdXD/mvCeBWlWBMfXJB3kdKNdYWLaJaM8EuwX1ANzrZQ1ySuXmgFEQBNBFP8SEZj6Vfd+A2Q
-	P+E3KwMDF6fppDjbC2vSrQbbu0meOAi5LkQZ4uMXqHwcFhbZbXLqTpvz3wzYY8dlQx2oBqcfYo3+s
-	x/D/au8AchxHek9zK0oPLzfa7zdQkzjpG9x1uvxCjrX4wC2Xdcbx5+NAjcPOm7Sz2eT17gvzGEb0w
-	IvSFAUVg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=a7nGbc39gTC+6W7YyaE7zf4mojKQP8S+x93D9t97UTc=; b=yA9jrRYCZmRX6klH/70MyQfnKG
+	IGy4l1KdrPWcK5vuy8Fs40OFHYkuvxJLX2mK4f3e6PFtFPqjxQ4M2c4VRF4qrngfemO0OO0lfHuso
+	9wXFZgrVwlsidk5c87E9Xskzje2vYF+a7amf39cWfUaKAOKEkcYWLaA5oY7HGPAOugnTL9ppvTeVk
+	HgU6ooapgUpIPBWk9ou1o0CxvgWOutKGoumakUPY9RvLZ6+XMTtkqaRu5u+ENkLcwHHs6LAwWLVQk
+	FEW2opBAfREJ//5q/ACisz/C4/gEAr64n0IEUqpfjETsR80lBkLgxk1nMzj7KUqol+KRaUEWLtYqR
+	gsV07OcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpd1o-0000000Bd7A-3aWs;
-	Fri, 31 Jul 2026 02:31:16 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1wpd8p-0000000BdP0-1zI1;
+	Fri, 31 Jul 2026 02:38:31 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpd1l-0000000Bd6n-33ii
+	id 1wpd8l-0000000BdOe-2oZP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 02:31:15 +0000
-Message-ID: <3f8e64b4-e60a-4eba-afb6-5af668ac1f85@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785465071;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=go9e1FTWLKxTTOfTi113qwmgUMtPejwq61+ADMUh6Dc=;
-	b=YpGoNeNNwTqx9ibJwMxEeOMg0AK9brZQjsfrgeSAz/B/G1V0kjp7YOAKgCHRHgVPRYkT5w
-	tVsin+P46wlmcpajdK6uJO1VSehLEpOLnGg+ktVcOKNXSVWF46rE68ku1et81odaYsHCeJ
-	o0D7L0eOMgHQ8go3cYwoCLXYxleh/lU=
-Date: Fri, 31 Jul 2026 10:30:37 +0800
+	Fri, 31 Jul 2026 02:38:29 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2d02b4c3601so5107295ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 19:38:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785465507; x=1786070307; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=a7nGbc39gTC+6W7YyaE7zf4mojKQP8S+x93D9t97UTc=;
+        b=DZKIr5tBYhxfzI0dp4WXrealgced3CfNGYlexNKKRF603gC38Be0lYYTkXKxfjCtou
+         wjdn57JjMd81NxjETIRSoxoaUowTUh0hF1xUreP+Fqu68YnoSxix8R2/5gi+qPl3yyF3
+         nuEucaG28GH5s5GeQ2EFvV8MhKo9t+avBpDullF/+FtQbpAc4Zk02KWZjQOn+HA5vaIM
+         jkywBs1+O4sotMCtL24vX8UFLwUmeQoNQy1a25RRuE7CSJ+7yU4SCB1mthPnGW5VuLOf
+         gYOnmig0QOd3aWsjvxXypq2n6Dh5VbMDQLI+FCxn/DX5LK4xc0vtiIlhktEINAbf9rnv
+         Oz5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785465507; x=1786070307;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=a7nGbc39gTC+6W7YyaE7zf4mojKQP8S+x93D9t97UTc=;
+        b=XXk5DCP3muAhTF2hDqg8hmA+zPE0VOOuwqeVIpaCxbepK+f6WUwoWiZ3bNtQBkvJBf
+         Qkxuy2etJYWujCzhO6e/3gEsKHcbsAPQieGelTT2fasByEZ8aO9wDGPNSP6U2nOo61nP
+         kyKORaX+VlqCHFF3a46fE1ap+ianvwSeQw7bkJnwQf9kiWDeaIiJSNMYifTeFoIiwlBU
+         3jA8fIQ/Mti9VvbA5Okog167//engEfL4BL/HRC0qATmcN+STC9xws//OeMFEls0au/u
+         p0oBLkZZ9jvDZnodzlmA2OxAS59VJFl7m9nVhtrgGHJvCAYk27MPpZCYVST5ltm1tAuf
+         KVoQ==
+X-Gm-Message-State: AOJu0Yw1LwbhhlAe8x7olNMgLX04YxMn37YtvxQSolgBl2Dfq1bX4gC1
+	Tpb1QJa0uC74lcvOGS7/O0UcQOEVbmG3Z88e1agLOJKTTHR1Jq/qWPTP
+X-Gm-Gg: AR+sD106eO6C865+hqDNjLe4eRMQthZIIeM2dE1mGCqPJhjRjPzdsXGNxoNNWjuBC2o
+	n9hKEspM+lGRO3SXpeFdB8huamv5XaalyLwEorN23Xk0rQuAgnJ1VgKEtKP8vEPH8QNTHdQbpGq
+	7KYBHtefFNHVqpx8kuuBcZXdEZxT84hbqQVDd2c8Xzuex45c6UHt1F5Isa4FXXOyaSjwLDjw4k8
+	ojIdQY1HYhtTzTNw34VpPPNxDW//SDcNVeY1tX/SnGWH3abMAyiOut7zgzcIALlhjRc4L94VVvo
+	SPvBTWHBL6+IwuUmfXvs2uOjRft4LyTpJkvScZAcHsmK+D2AzDfSbjje28gYTE9ydB/bO4EJn81
+	LZYHmh1fMESLysgs3zANVBN8XM6XfQSHMYQd9tW7JMMhs0FH8O3v99s3aym/S7VzHvVnzFG7hUz
+	yXxIEKZgprQ0cOjo/EuoBgMv0fpoEkcYqPGgO4r0OwZApol5DCq4e13msBVi0nM3ZXyOSCErPaK
+	9koqc/iD9ONVynOjQ/uFstOzhK55D0pIm9BSqXgYlMa/4jK39Vk
+X-Received: by 2002:a05:6a21:4d02:b0:3c0:9c18:d5ad with SMTP id adf61e73a8af0-3c91b526f6dmr45001637.74.1785465506628;
+        Thu, 30 Jul 2026 19:38:26 -0700 (PDT)
+Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbe3808a8d9sm81938a12.7.2026.07.30.19.38.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jul 2026 19:38:25 -0700 (PDT)
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+To: broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cwweng@nuvoton.com,
+	cwweng.linux@gmail.com
+Subject: [PATCH v5 0/2] spi: ma35d1-qspi: Add Nuvoton MA35D1 QSPI controller
+Date: Fri, 31 Jul 2026 10:38:16 +0800
+Message-Id: <20260731023818.1626075-1-cwweng.linux@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] arm64: ftrace: enable single ftrace_ops for direct
- calls
-To: Jiri Olsa <olsajiri@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>,
- Emil Tsalapatis <emil@etsalapatis.com>, Shuah Khan <shuah@kernel.org>,
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20260727142844.21212-1-leon.hwang@linux.dev>
- <20260727142844.21212-2-leon.hwang@linux.dev> <amnqXeC6D4mjcAe_@krava>
- <d745ca80-6516-4c61-8107-88c6a2d9cea4@linux.dev> <amsuU7eXuoziObdh@krava>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <amsuU7eXuoziObdh@krava>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_193114_019965_0FF549E1 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20260730_193827_735196_4ACA203F 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,60 +102,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/7/26 18:58, Jiri Olsa wrote:
-> On Thu, Jul 30, 2026 at 11:05:42AM +0800, Leon Hwang wrote:
->> On 29/7/26 19:56, Jiri Olsa wrote:
->>> On Mon, Jul 27, 2026 at 10:28:43PM +0800, Leon Hwang wrote:
->>>> The BPF tracing multi link updates several direct-call sites through one
->>>> ftrace_ops. Its implementation is therefore gated by
->>>> HAVE_SINGLE_FTRACE_DIRECT_OPS in addition to
->>>> DYNAMIC_FTRACE_WITH_DIRECT_CALLS.
->>>>
->>>> Select HAVE_SINGLE_FTRACE_DIRECT_OPS whenever arm64 enables dynamic ftrace
->>>> direct calls. This enables BPF tracing multi links on arm64. Also
->>>> generalize the unreachable-trampoline comment because the single-ops path
->>>> does not use ops->direct_call.
->>>
->>> hi,
->>> iirc arm needs ops->direct_call for trampolines to work properly,
->>> that's the reason we enabled single ftrace_ops on x86 only:
->>>
->>>   424f6a361096 bpf,x86: Use single ftrace_ops for direct calls
->>>
->>> I don't understand the arm usage of op->direct_call, but it looks like
->>> (codex thinks) that the fast path won't always work without op->direct_call
->>> being set
->>
->>
->> In theory, op->direct_call is the fallback for the case:
->> HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS=y, out-of-range target, and non-BPF
->> direct ops. This is what Codex thinks about.
->>
->> However, after searching the call sites of
->> register_ftrace_direct()/__modify_ftrace_direct() in kernel, which would
->> set ops->direct_call, the actual callers are in bpf/trampoline.c, which
->> have been gated with HAVE_SINGLE_FTRACE_DIRECT_OPS. That said, for
->> normal usage of HAVE_SINGLE_FTRACE_DIRECT_OPS=y, op->direct_call is unused.
->>
->> If someone uses register_ftrace_direct() or
->> modify_ftrace_direct/_nolock() outside BPF in the future,
->> op->direct_call will be used.
-> 
-> so any 2nd user on the same function triggers the slow path,
-> and that's fine, the single_ops handles slow path correctly
-> 
-> but IIUC the out-of-range target will now always go through slow path,
-> which in current code it doesn't, right?
-> 
+From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-Right.
+Add devicetree binding and SPI controller driver support for the Quad SPI
+controller found in Nuvoton MA35D1 SoCs.
 
-Pls see the sibling thread with Ihor. With in-range BPF trampoline
-allocation, the slow-path regression should mostly disappear.
+The controller provides two native chip selects and supports standard SPI
+and spi-mem operations using single, dual and quad bus widths.
 
-Let's continue the discussion in that thread.
+This initial implementation uses 8-bit PIO transfers and supports
+per-operation clock configuration, clock and reset handling, and direct
+execution of SPI memory operations. DMA and active-high chip select support
+are intentionally left out of the initial driver.
 
-Thanks,
-Leon
+Changes in v5:
+
+* Changed dummy cycles to use output direction in both the direct
+  spi-mem path and the generic SPI transfer path.
+
+Changes in v4:
+
+* Added minimum 1 and default 2 constraints for num-cs in the devicetree
+  binding.
+* Made the driver read num-cs and fall back to two chip selects when the
+  property is absent.
+* Dropped SPI_CS_HIGH support from the initial driver.
+* Kept separate chip-select helpers for the SPI core and direct spi-mem
+  paths because their boolean arguments have different semantics.
+* Protected SSCTL register read-modify-write operations with a spinlock.
+* Limited spi-mem operations and individual SPI transfers to 4 KiB.
+* Limited complete SPI messages to 8 KiB.
+* Restricted the initial driver to 8-bit words.
+* Added defensive transfer-size validation to keep the PIO polling path
+  bounded.
+* Kept bidirectional data pins in input mode during dual and quad dummy
+  transfers in the generic spi-mem fallback path.
+* Treated zero tx_nbits and rx_nbits values as single-lane transfers in
+  the generic SPI path.
+
+Changes in v3:
+
+* Fixed the DCO mismatch by using a consistent author and Signed-off-by
+  address.
+* Added spi_controller_mem_caps and enabled per-operation frequency
+  handling for spi-mem operations.
+* Added a short delay after requesting FIFO reset before polling reset
+  completion.
+* Documented that the controller generates one RX FIFO entry for each TX
+  word in single, dual-output and quad-output modes.
+* Added the missing linux/delay.h include.
+* Removed unused register bit definitions.
+
+Changes in v2:
+
+* Updated patch subject lines to follow SPI subsystem style.
+* Added a commit message to the devicetree binding patch.
+* Added ARCH_MA35 || COMPILE_TEST dependency to Kconfig.
+* Expanded the Kconfig help text.
+* Converted the driver file header to C++-style comments.
+* Added reset control handling.
+* Added the resets property to the binding.
+* Added a num-cs constraint to the binding.
+* Removed the flash child node from the binding example.
+* Used op->max_freq for spi-mem operations.
+* Split low-level chip-select register handling from the SPI core callback.
+* Limited spi-mem command opcode length to one byte.
+* Forced spi-mem operations to use 8-bit words.
+* Avoided driving bidirectional data pins during dummy cycles.
+* Drained RX FIFO entries during transmit-only transfers.
+* Rejected invalid chip-select numbers.
+* Rejected unsupported dual and quad full-duplex generic SPI transfers.
+* Fixed checkpatch style issues.
+
+Chi-Wen Weng (2):
+  dt-bindings: spi: nuvoton,ma35d1-qspi: Add Nuvoton MA35D1 QSPI
+  spi: ma35d1-qspi: Add Nuvoton MA35D1 QSPI controller support
+
+ .../bindings/spi/nuvoton,ma35d1-qspi.yaml     |  63 ++
+ drivers/spi/Kconfig                           |  10 +
+ drivers/spi/Makefile                          |   1 +
+ drivers/spi/spi-ma35d1-qspi.c                 | 657 ++++++++++++++++++
+ 4 files changed, 731 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
+ create mode 100644 drivers/spi/spi-ma35d1-qspi.c
+
+-- 
+2.25.1
 
 
