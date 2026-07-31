@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9DC8C54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:09:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB54C5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:09:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sKaPD0GBm7OH0DCkpgRZ2wPwwuBU/2nK/HFJ1bUGeuo=; b=YthTC9RxRph3Ynjlf2GlE/WLLf
-	EO0nHDZAbBeG24Ym5xEcAQ0v8O9MAa5bQ8w+j/audwn8rftE78wYv2FLYhCauOI5+jUtbRpPQZ8fc
-	vBlLHWcBesAfQme0imQ6j6nvccZnUiIQCtm6nHI0CsCioxYeqnnLEYqKJZU8CkwK+YPEBoOUW12DE
-	1FUc+4iJOTNspW4X/kLnDTXLJFzJw7mthVnf2SmfbDVSPrDLDHKTtXeCQYQZuBkyQAJq0HSC5z1zk
-	VQLtR6H0wlpLS4xjWiJ+kDMOhu0an9M58ynUN7dTSt09ZF9u0gEOnOWdNPJLxUJII/1n8vp8WdwRT
-	CMrORDdw==;
+	bh=SM7oNCI4u0y5aJ6mjP8ZOQnyJ9ITYGSkXVkpk4AYg/8=; b=QcPVyKBzIgMpRXLVEwVECU1vX3
+	UbGxKaVm2ak6Pu5tK3CCmUniOFiCEZ+zavVzWn7ekVw7n/GEc0o9RXsGOf+3wrvTaXx3JtmBUfTdS
+	dukvvm3l/PgOvOM467s1R/RQJNuSaqDg9Y8+qVTKKiTlINmGNJ0IZ7K+DLGKiQ7ul8c8rxcOnpucI
+	+JxvECFAFFayMOa7dCL2GEEx2eaGtz+LC3g3bopZO+ZNuRRcb5MLYYtMoxnmyJ39PkVQ810EY2M+v
+	H+DrXhI4gUp/UQUjOlXluXpclj9WoITK1RbXz3U5A656xc7AcytKLNojq8I4bGycY2nsSRRMLxXdx
+	l9Iero/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzQ-0000000CXpy-01iy;
-	Fri, 31 Jul 2026 13:09:28 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wpmzh-0000000CY3d-0np4;
+	Fri, 31 Jul 2026 13:09:45 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzN-0000000CXnE-2YDe
+	id 1wpmzN-0000000CXmy-2tlg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:09:26 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBlxVG4072948;
-	Fri, 31 Jul 2026 13:09:14 GMT
+	Fri, 31 Jul 2026 13:09:28 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBlwiC1791081;
+	Fri, 31 Jul 2026 13:09:13 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=sKaPD0GBm7OH0DCkp
-	gRZ2wPwwuBU/2nK/HFJ1bUGeuo=; b=nnXwXRUP7sRH+EWC3uySZA6pmYM24upOb
-	0Vi3AF3nqP9HuDMbztDiB5yHVHNVzL1484X8ZXyvFz+lei5kzpzAOvYMrdK10ztx
-	zBWQ9teJLylM2J8ho44zmvLFZn0+pF8ttjszQUT3h5YWYa4Cm79O+YGJbEfkVAud
-	W7vNLJg4bDkdaAiK0ZRrNhDbdySPTK917cHouYtXFeOOotr8+QSBP897Iwrdv7kD
-	wZpHBYIjF/D/MzT9TiNxO6/h4tMS+5Z7iz9OphbKzTJ9iZjcHT/RGpC4+p0Ox5B1
-	NH0HLPX8nVDs+78Qrp/zHP/9W0FoYnxBeCrLUpniuQsCp4/Dp/Shw==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuycw2n1-1
+	:mime-version:references:subject:to; s=pp1; bh=SM7oNCI4u0y5aJ6mj
+	P8ZOQnyJ9ITYGSkXVkpk4AYg/8=; b=g94x0XB8b+zRs4XLQ7qIp0zYqRcmnmgnY
+	P0MpHxE98/jBcDdodyZBoqjGnA4qAmkAT0OcPcwai7R77iRf39EMFBH3wHCdiAbh
+	aL1t58ojvD3+M7TfZKYyXbTZuyKQCDvKQLSu1DRBK4SYz8UeM8NLa5dxFvWg2lcM
+	fiR4/Ja3hfuqoXKDAFZcdeNc9weHdmvAnABehfjwjP0viIgeRiYOV+bIf5IL+of1
+	NPQGBVhCMfBALCWUfBCDoBsksFqrGTGmnAYIOSK/T/3AZX9VJeVC2Vbz5iQOoJCT
+	TpXXfk+djqvlQoDRdo1ZMclHSPnyJ5W53DwLboUxMl7rBKJ4TCiqg==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuwdc41m-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:13 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCQEIF026841;
+	Fri, 31 Jul 2026 13:09:12 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuN5O012675;
 	Fri, 31 Jul 2026 13:09:12 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fn9pgqtbk-1
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn8fkg07r-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 31 Jul 2026 13:09:12 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD95UI30671174
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD94u447382904
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jul 2026 13:09:06 GMT
+	Fri, 31 Jul 2026 13:09:04 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D88B520043;
-	Fri, 31 Jul 2026 13:09:05 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 91FE82004D;
+	Fri, 31 Jul 2026 13:09:04 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7639C20040;
-	Fri, 31 Jul 2026 13:09:05 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 2CD4F2004B;
+	Fri, 31 Jul 2026 13:09:04 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 31 Jul 2026 13:09:05 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:04 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,9 +88,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v5 06/31] arm64/sysreg: Convert SPSR_ELx to automatic register generation
-Date: Fri, 31 Jul 2026 15:08:34 +0200
-Message-ID: <20260731130902.654679-7-seiden@linux.ibm.com>
+Subject: [PATCH v5 03/31] KVM: Allow KVM implementations to switch off MMIO independent of Kconfig
+Date: Fri, 31 Jul 2026 15:08:31 +0200
+Message-ID: <20260731130902.654679-4-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
 References: <20260731130902.654679-1-seiden@linux.ibm.com>
@@ -98,34 +98,34 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: xFdaPvHbcxmvcTa5fx8PWhhYQoO9bVy_
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX5FhqiuiFNHwS
- xc6pQWhH8BztvNld/+e56OZ/FkVF6UBV7FNKNmRZwV/BSrPuCrS0vffb9QTxjUyATIDCHGC8dnl
- F04oclHAybrauRLwLW+vyRGDwTOncoN8yE/lkd5I/tkoVXc6v5EPIkx9YDHZ1nBwIjVLU2L7vEb
- EqsurKMzt9ppgUnrsvtqDLx3f+cw34BIxMjMQ5pNB3YaaVNFCIyvjmwD1WEJsItbFjr/OrOUZQI
- qsCLPJ5qhYs39TuwAXpZKcNr1Kna8RSz4ngPJdE3T93+g+4Klkhvi6T14hOGWfzXDTuI9h9tHRV
- VXrU7YWoXRAaBTICGN3X/m7+1fiBQDFw2s5DJUoHhssAWbGeMYsKFboITGkcG+4FJ7DjM1+gqPg
- 7E6pt6TMqVtK3IzfzFlpFUCS5AW5epXR5iSGuZ8HVfiWZxuDswMkXAvNVUsrTvR8J5V1Ms6Daxb
- lWyx8yH2MckH2cF2TtA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX70latcCQcgs2
- JHPvvOBsjvUAqz4qc+YzoSvHdk/iVJMcQVjnyUP7ot6LnBaPdXVnbhfxdelkF4kLjTtD0JNEnSF
- /G3zxN3v/pjnQ84cSCAh2uNmmaCI4mA=
-X-Authority-Analysis: v=2.4 cv=AZeB2XXG c=1 sm=1 tr=0 ts=6a6c9e7a cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+X-Proofpoint-ORIG-GUID: DFLIu-1q7DRkoGPS0JzL_Dc-7tB-KhNl
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX/fv9TXVmQsVY
+ yMIkJpvl04L5JK/tNXPT8sUWdUId88Tdp3VQ8h0x9sAnNGAAnplI2zJcM/yYJjRLhtyW7i8HMe3
+ 2qkCypsgzL0ELCS22I3i1TtkvvuqV6s=
+X-Authority-Analysis: v=2.4 cv=E/z9Y6dl c=1 sm=1 tr=0 ts=6a6c9e79 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=ABWHSbNOgyVrhIrjGdkA:9
-X-Proofpoint-GUID: g9BRLfpZhitxLMLYmPoF67pJ-rYYvlPn
+ a=RzCfie-kr_QcCd8fBx8p:22 a=VnNF1IyMAAAA:8 a=-AqJVl6EvvwGbS2dlloA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX/tIFvvQgwy7K
+ lFdunpfj13EYbP5Z/6kpYT/MeuWHKHzmBKxIgkT9D2oKo8l/ujCFt9mNybL3dVQUm6Z5lfHrYLV
+ XHdyo8F6VkdpyibrL9EZ1r6fk03ummmhNJfd0m1DSIxS7M3clJMJQYLTP32/FysrTHhtsX4aQ6g
+ ZzWayUWA2qijtQ3Zf0Qa428YkJtnTNASXNrEmA4ynHzfr4757utNaL+qWtx8az23NF4H0/oAj4n
+ WrssHWnKGOWGKLMmdNSsihdEc7TAzo5ZvoAB204rIaD4F1my8QXcmPLmz/lTCgKJPAjsZtl8dno
+ QqxVkmifWHA4dF5nU/1Zg1jO6hmP46+nu8krmOlcQYiNRdogOd/ZHnJSouxIHOD2OOMHJf0QyrM
+ XKxTslfidqescdupWL1RQ0pyCQnaCxgzlGrCrwB52R/yxJa6kcWmYkTikm375x4fK/iUsNo8JAG
+ Qz1h7LD6HK/5gvsmMXQ==
+X-Proofpoint-GUID: 2Sxg6PMissB01-jMXtKoSktWy8YNwTQd
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 phishscore=0 adultscore=0 impostorscore=0
- clxscore=1015 malwarescore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0
+ adultscore=0 priorityscore=1501 spamscore=0 clxscore=1015 phishscore=0
+ lowpriorityscore=0 bulkscore=0 malwarescore=0 impostorscore=0 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607310096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060925_657025_9EE93728 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20260731_060925_846233_E391A509 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,126 +140,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert SPSR_EL{1, 2, 12} to automatic register generation as per
-DDIO616 2026-06. No functional change.
+Only defining KVM_MMIO is not flexible enough for multi-KVM systems
+where one KVM implements MMIO but others do not. Solve this by
+additionally testing for the non-existence of KVM_NO_MMIO before
+including MMIO code to KVM.
 
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/sysreg.h |  3 --
- arch/arm64/tools/sysreg         | 72 +++++++++++++++++++++++++++++++++
- 2 files changed, 72 insertions(+), 3 deletions(-)
+ virt/kvm/coalesced_mmio.c | 4 ++++
+ virt/kvm/coalesced_mmio.h | 2 +-
+ virt/kvm/kvm_main.c       | 8 ++++----
+ 3 files changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 4bfdac9401bd..1aa601c95188 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -295,7 +295,6 @@
- #define SYS_APGAKEYLO_EL1		sys_reg(3, 0, 2, 3, 0)
- #define SYS_APGAKEYHI_EL1		sys_reg(3, 0, 2, 3, 1)
+diff --git a/virt/kvm/coalesced_mmio.c b/virt/kvm/coalesced_mmio.c
+index 6b1d90161099..8ff9d9a6f47a 100644
+--- a/virt/kvm/coalesced_mmio.c
++++ b/virt/kvm/coalesced_mmio.c
+@@ -15,6 +15,8 @@
+ #include <linux/slab.h>
+ #include <linux/kvm.h>
  
--#define SYS_SPSR_EL1			sys_reg(3, 0, 4, 0, 0)
- #define SYS_ELR_EL1			sys_reg(3, 0, 4, 0, 1)
- 
- #define SYS_ICC_PMR_EL1			sys_reg(3, 0, 4, 6, 0)
-@@ -518,7 +517,6 @@
- #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
- 
- #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
--#define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
- #define SYS_ELR_EL2			sys_reg(3, 4, 4, 0, 1)
- #define SYS_SP_EL1			sys_reg(3, 4, 4, 1, 0)
- #define SYS_SPSR_irq			sys_reg(3, 4, 4, 3, 0)
-@@ -604,7 +602,6 @@
- #define SYS_BRBCR_EL12			sys_reg(2, 5, 9, 0, 0)
- #define SYS_TTBR0_EL12			sys_reg(3, 5, 2, 0, 0)
- #define SYS_TTBR1_EL12			sys_reg(3, 5, 2, 0, 1)
--#define SYS_SPSR_EL12			sys_reg(3, 5, 4, 0, 0)
- #define SYS_ELR_EL12			sys_reg(3, 5, 4, 0, 1)
- #define SYS_AFSR0_EL12			sys_reg(3, 5, 5, 1, 0)
- #define SYS_AFSR1_EL12			sys_reg(3, 5, 5, 1, 1)
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 7cb61aca3797..2a4b94e8c62f 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -401,6 +401,78 @@ Res0	3:1
- Field	0	SO
- EndSysreg
- 
-+Sysreg	SPSR_EL1	3	0	4	0	0
-+Res0	63:37
-+Field	36	UNIJ
-+Res0	35:34
-+Field	33	PPEND
-+Res0	32
-+Field	31	N
-+Field	30	Z
-+Field	29	C
-+Field	28	V
-+Field	27	Q
-+Field	26:25	IT01
-+Field	24	DIT
-+Field	23	SSBS
-+Field	22	PAN
-+Field	21	SS
-+Field	20	IL
-+Field	19:16	GE
-+Field	15:10	IT27
-+Field	9	E
-+Field	8	A
-+Field	7	I
-+Field	6	F
-+Field	5	T
-+Field	4	M4
-+Enum	3:0	M
-+	0b0000	EL0
-+	0b0100	EL1t
-+	0b0101	EL1h
-+	0b1000	EL1tnv
-+	0b1001	EL1hnv
-+EndEnum
-+EndSysreg
++#ifndef KVM_NO_MMIO
 +
-+Sysreg	SPSR_EL2	3	4	4	0	0
-+Res0	63:37
-+Field	36	UNIJ
-+Res0	35:34
-+Field	33	PPEND
-+Res0	32
-+Field	31	N
-+Field	30	Z
-+Field	29	C
-+Field	28	V
-+Field	27	Q
-+Field	26:25	IT01
-+Field	24	DIT
-+Field	23	SSBS
-+Field	22	PAN
-+Field	21	SS
-+Field	20	IL
-+Field	19:16	GE
-+Field	15:10	IT27
-+Field	9	E
-+Field	8	A
-+Field	7	I
-+Field	6	F
-+Field	5	T
-+Field	4	M4
-+Enum	3:0	M
-+	0b0000	EL0
-+	0b0100	EL1t
-+	0b0101	EL1h
-+	0b1000	EL2t
-+	0b1001	EL3h
-+EndEnum
-+EndSysreg
+ #include "coalesced_mmio.h"
+ 
+ static inline struct kvm_coalesced_mmio_dev *to_mmio(struct kvm_io_device *dev)
+@@ -188,3 +190,5 @@ int kvm_vm_ioctl_unregister_coalesced_mmio(struct kvm *kvm,
+ 	 */
+ 	return 0;
+ }
 +
-+Sysreg	SPSR_EL12	3	5	4	0	0
-+Mapping	SPSR_EL1
-+EndSysreg
-+
- Sysreg ID_PFR0_EL1	3	0	0	1	0
- Res0	63:32
- UnsignedEnum	31:28	RAS
++#endif /* ifndef KVM_NO_MMIO */
+diff --git a/virt/kvm/coalesced_mmio.h b/virt/kvm/coalesced_mmio.h
+index 36f84264ed25..826af421a5be 100644
+--- a/virt/kvm/coalesced_mmio.h
++++ b/virt/kvm/coalesced_mmio.h
+@@ -11,7 +11,7 @@
+  *
+  */
+ 
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 
+ #include <linux/list.h>
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 18eb3d5d04f4..bb3682d8e1f7 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -4056,7 +4056,7 @@ static vm_fault_t kvm_vcpu_fault(struct vm_fault *vmf)
+ 	else if (vmf->pgoff == KVM_PIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->arch.pio_data);
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 	else if (vmf->pgoff == KVM_COALESCED_MMIO_PAGE_OFFSET)
+ 		page = virt_to_page(vcpu->kvm->coalesced_mmio_ring);
+ #endif
+@@ -4882,7 +4882,7 @@ static int kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
+ 	case KVM_CAP_ENABLE_CAP_VM:
+ 	case KVM_CAP_HALT_POLL:
+ 		return 1;
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 	case KVM_CAP_COALESCED_MMIO:
+ 		return KVM_COALESCED_MMIO_PAGE_OFFSET;
+ 	case KVM_CAP_COALESCED_PIO:
+@@ -5223,7 +5223,7 @@ static long kvm_vm_ioctl(struct file *filp,
+ 		break;
+ 	}
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 	case KVM_REGISTER_COALESCED_MMIO: {
+ 		struct kvm_coalesced_mmio_zone zone;
+ 
+@@ -5558,7 +5558,7 @@ static long kvm_dev_ioctl(struct file *filp,
+ #ifdef CONFIG_X86
+ 		r += PAGE_SIZE;    /* pio data page */
+ #endif
+-#ifdef CONFIG_KVM_MMIO
++#if defined(CONFIG_KVM_MMIO) && !defined(KVM_NO_MMIO)
+ 		r += PAGE_SIZE;    /* coalesced mmio ring page */
+ #endif
+ 		break;
 -- 
 2.53.0
 
