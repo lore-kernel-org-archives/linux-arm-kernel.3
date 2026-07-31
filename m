@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CED8C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 12:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD02AC55172
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 12:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MWKdz3JjvBdWuvOM6XAtmb0QINEsI1qn45G5e91+shs=; b=lNd+V5lBFgytswWophxhl6ckxs
-	l9j30FgYH6EV8vLhU7iNDuYg+t/VZDCha+3xDf7SCDDtmZU0+8hEWO5n/M+/2yOHG8SuXU/UxB3Wj
-	ZlLR3fa5vnCPjw+bltx8CIkxYwtixIJI3KVWEa2vaJYFDYC2h+1mGFkV2oJXCs+Xak9WJtqh/t8jt
-	qyBWPEGCXYq/JHNXBS3LJwti95I3zDE+33QSzQQnZjYG+Nzd8UUzo5Fkyl9fPMEuqaN/Ib6zZyWeN
-	fMrdl7uc51L+uj0MXJLOq2qppBBA6h6Bw1kjoFuH3pRuOEnwyMoqfSkklC/BD4nsgvAoxjzV3B4GW
-	6lIRmWYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zxJ+yA42EHLQdUzb/+RpNk8wZMGnUA7//ORKkd+D1IE=; b=yUpu84FzP3p//T42kiJg/qGE/0
+	B47sVI0FV/q4mZYaRWd3CskR3XHWWVL9LfPEizBC7Cuabb0O728BPW3eIM5rnE1BL3b+zJm3j0K9t
+	5mxZXH0Y1LacVS47DlEX8BFUY8cB06bmHsaxGx07/l3dGZbBw7r/regMEuJ0W4NdhvggxAoA+iLfd
+	d2bSWHjTWxLz8ycXPJdDcbQysnTVXaZYM7gJNeaJa+pbjZ1/wzCtvgs7znzrK1MF2X+1MX2w6bo1O
+	GZgpZg8MeQGx9qIAp7AKjsqui0E9LdCq5XB5G9iaNmZiDDaGXGFqrYQqE3zV27QAwDx4QFcsxZZyP
+	xV0rUclw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmUg-0000000CUZA-1NhH;
+	id 1wpmUg-0000000CUYs-10UH;
 	Fri, 31 Jul 2026 12:37:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmUY-0000000CUX8-3iPV
+	id 1wpmUW-0000000CUWD-2zxI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 12:37:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5723A600AD;
-	Fri, 31 Jul 2026 12:37:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D4CB1F000E9;
-	Fri, 31 Jul 2026 12:37:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785501454;
-	bh=MWKdz3JjvBdWuvOM6XAtmb0QINEsI1qn45G5e91+shs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=cvBFESrR3CxGZ5Kh/nyxaisfo4jRQYOdA/20/1uEg87uBXNVkMYl/rYaUXQI5ECM0
-	 B532Pf8reI7UHl84wG2LfgA7pfHtWHanPxsbIcVbEAsrEsf++gWDfmU40CahrRM3wH
-	 KUws2WPo+oKWuywDcomLveF4YTKWVJQdMgL5LFRdEy/Z/fYKlayZoRThecm23rMEF6
-	 NtndSMMw+bhunG1Qkj0FgX7wlpJKIANEBGWiAMJ597nxQqFmnsKczcEFSt+jX1fK+g
-	 Zvlb9ZIXLvnmgFwvx6q85SsK4h4e7Fzuv0z1nINKdMm4MkCo1rthbpgGD5fYr6uHDt
-	 xBbqCtghHK5Ag==
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 31 Jul 2026 13:25:39 +0100
-Subject: [PATCH v17 01/14] arm64/gcs: Ensure FGTs for EL1 GCS instructions
- are disabled
+	Fri, 31 Jul 2026 12:37:33 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6a0a4a18180so183144a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 05:37:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785501450; x=1786106250; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zxJ+yA42EHLQdUzb/+RpNk8wZMGnUA7//ORKkd+D1IE=;
+        b=XU1uWljjpik5CyLp9jOYWZ4gq/dF4GZW8sauHQ2u/PuVUnN6HZsbtu/CZ0gj7Ld+c1
+         1HgNTfeWW2F7fC5IeLh6ndd6M3IYqjr7oq/bedYalE1oHISmxzlHJSL8PEEjAtErqIGS
+         3N/jx2BP3KlflOYITmndSSb4qGSeMcgjnUKBJyXLXuzfqqHKUC0mPl4CRtN8fICEaWMD
+         0QfIBFyThV6XDWPrjTHFxU/sOfDhXQWBEyZtbxMcERZmtltXIb+GJHF1roeNiLsqXhq2
+         7MWd2XqJD8o0wCxgoBFctZ2mE+i8c+3QSJ7Fp1JIZaCCNs5YQ4Afw5JLHNB3wj4/hH70
+         xRoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785501450; x=1786106250;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zxJ+yA42EHLQdUzb/+RpNk8wZMGnUA7//ORKkd+D1IE=;
+        b=IVrh2rnA/m8HqOJWl29Ulvj/DGIwwhnakesDrq9ArzLkcLm12UUa0nleDAVR80B6Iw
+         /snzG4z95D0T3sj6OeuM3ce8dPjOk24yyqmixuYzk0W6VyImif6jkChGLkFFj2JVEeA3
+         TqaEHAoWUPlPZ410E+l6Nm9UX3bjS8QlPOwbBsUp8jeksvtoSY2SdMfaeSh1F3+0kng/
+         odWmhiZmXN/wgQZKIztdsJ/P6nendL/NmtrxFzDh/2Ug2AaBRMv/cmoXVq9ljb9Oa+ee
+         fpupsoqscI9t1QklYcOkI47PRmDZcKRu/C7g92hpohjTm/t0cPvvzpEHNx7vO8xpeUtx
+         nd7w==
+X-Forwarded-Encrypted: i=1; AHgh+Rr4viErdL70iYvuYNZ3zwt4/bmUAy2jn/bxR0vSZ+nilRcWzb2oqVxdTKQeAv+Cy+9ZZUkDAm57uBUykEJC/jA2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYa74kV0PK2nIuCpKh/PaHpORvPkFF4+DzRP6d9S30SZWOCMFR
+	31SHMyDAeCLZh9yGUc6j1dlbwnjFvEhLTgLRX0H+vBB2/HitniKmLejh
+X-Gm-Gg: AR+sD13e/wGTGZq9k9gxZfRRBOUqw6UNeISO8RD+oTiUFaPyV9+TJ5+E/bTh9ZvxLI9
+	vcK0sg4LnwbMgMitBVgNXOj3lRy5RBt1vGy5zOWpDZyovGaIiWqAqFMtu5OoeZeH312Yr6XWE8R
+	z0QFReYNSaN+m54rDnN6JBoUDZzkknb9wD8n3mDuDyMwEaLEkOy4ZO6OfxO82IiCvBlqvjO+kgj
+	gkHaFGJGz/FCKHMVWcVyLlr/yUhSuEKgFMkbIANKoSPo8mqI2xyAkmbYjW7tMHWVYEKvcR/xqPB
+	zELDmbYXbHGjExL4TDSm4sgXGoHYXUo5y0XB4G2pVZHu3O7MaNogqGL2K+0bdWUJ6wbDb/Cmas+
+	qmqjJVns7DKOB4OJLVaKquc+9eNIr0RXMCciH93UBxAxK4FhqkgOGkfuPrBndc7R6Ca+7M9L3qA
+	aLmIgxo7Q34NkzPwAFcegCRLtIKhJRlMcGIifFu6InJytzCTxtsu+32SnpOIcQoc2KEwDMUBwu1
+	3ZbwjO3zPsPIA+p//C3vUZNb4Da15NAavpNC+ASKpVBcUAxDtLFF6Gkep8EZ8n9Ec/rf9K2X3Y3
+	5xRSDalQmRqHHq/6fcCsYzmATmd9XqA/XGMV+tkH64H3xoCAMCQQWPSvK6jb+vQAt8wt0rk=
+X-Received: by 2002:a05:6402:51c8:b0:6a0:1704:de29 with SMTP id 4fb4d7f45d1cf-6a098d07135mr979233a12.33.1785501450131;
+        Fri, 31 Jul 2026 05:37:30 -0700 (PDT)
+Received: from unknown748F3CBA5068 (dynamic-2a02-3100-a8d0-bc01-6d31-3d12-3a11-d2d0.310.pool.telefonica.de. [2a02:3100:a8d0:bc01:6d31:3d12:3a11:d2d0])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a09c660febsm1308537a12.28.2026.07.31.05.37.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jul 2026 05:37:29 -0700 (PDT)
+Date: Fri, 31 Jul 2026 14:37:28 +0200
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] serial: core: do fallible allocations before the
+ console can be registered
+Message-ID: <amyWRaZN2kSiv3YQ@gmail.com>
+References: <20260719221014.44354-1-kmehltretter@gmail.com>
+ <20260719221014.44354-2-kmehltretter@gmail.com>
+ <2026073056-embargo-rejoicing-87c2@gregkh>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-arm64-gcs-v17-1-5e39ca01b14e@kernel.org>
-References: <20260731-arm64-gcs-v17-0-5e39ca01b14e@kernel.org>
-In-Reply-To: <20260731-arm64-gcs-v17-0-5e39ca01b14e@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>, 
- Oliver Upton <oupton@kernel.org>
-Cc: Peter Maydell <peter.maydell@linaro.org>, 
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=906; i=broonie@kernel.org;
- h=from:subject:message-id; bh=DZmwxJP+W8fGWvn/wOKVMifNip3avlrIAIcelKvVs+o=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqbJb8k/ukZxuQUhgXKjtP01NML2pUPOlCvoh0f
- s999fxmh+CJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCamyW/AAKCRAk1otyXVSH
- 0HuOB/9c6Gqp+d+HfjQFdWj85CzYmskkQFl4+SlKZ56UE4JBhcE6ZpJZVtY62TkhCLITGP0Bb4B
- zFex3fzrOQhrp9lYXACagYESr+Pnvc/n2RCNtRSy0Fo0o8vSvMkTLbf3iWvOI9aUYhylBJf4HE2
- ZOgSltv517kPrNH7DHTHiqIdQPSr37+6vGQiPzF8oJTjAXhY9OTuz0J5ydLBpzpczNHVLvaxGE3
- K0o51os+0ddpmO9+iLCAnTF5WgnHIjdEf6ZMqFhPrxkSJPC14I0cYd3KPH4wxBWKtcKcZrDnRR+
- r34hxZVFjl0YpzhwQE0XCk0mNMf/9c8GJdTnas5kTC0cMgj5
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2026073056-embargo-rejoicing-87c2@gregkh>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260731_053732_759688_55E77336 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +106,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The initial EL2 setup for GCS did not include disabling of EL1 usage of
-GCS instructions, also disable these traps.
+On Thu, Jul 30, 2026 at 04:28:10PM +0100, Greg Kroah-Hartman wrote:
+> > Cc: stable@vger.kernel.org
+> 
+> As this can only be duplicated with fault-injection, it really doesn't
+> need to go to any stable kernels, right?
 
-Fixes: ff5181d8a2a8 ("arm64/gcs: Provide basic EL2 setup to allow GCS usage at EL0 and EL1")
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/include/asm/el2_setup.h | 5 +++++
- 1 file changed, 5 insertions(+)
+Agreed, I'll drop it.
 
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index aa8ec9df8024..d308c6e6757d 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -393,6 +393,11 @@
- 	orr	x0, x0, #HFGRTR_EL2_nGCS_EL1_MASK
- 	orr	x0, x0, #HFGRTR_EL2_nGCS_EL0_MASK
- 
-+	/* Disable traps of GCS instructions at EL1 */
-+	orr	x2, x2, #HFGITR_EL2_nGCSEPP_MASK
-+	orr	x2, x2, #HFGITR_EL2_nGCSSTR_EL1_MASK
-+	orr	x2, x2, #HFGITR_EL2_nGCSPUSHM_EL1_MASK
-+
- .Lskip_gce_fgt_\@:
- 
- .Lset_fgt_\@:
+> 
+> > +	if (!uport->tty_groups) {
+> > +		kfree(uport->name);
+> > +		uport->name = NULL;
+> 
+> Why set this to NULL?
+> 
 
--- 
-2.47.3
+It's not necessary. I will remove it.
 
+Thanks,
+Karl
 
