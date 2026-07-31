@@ -4,90 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 881C9C54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 10:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1BBC5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 10:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KvZnB8ilLIwu5R8FZVzXX0PY43qv8Q2CmIPD7haY9Qg=; b=rvWjdmq6wn1UxIVPItnicKz2VA
-	nQiKA3TjZCH/EPhwTis9FRLUEgosxE/u9wqyaHpoqBZdoNVhXL2Ww3OC08Bt2uesFm7hynh/ehlzx
-	LBX3xgztGQCJETbEFYxdkjAww7fNTMIUMpc9IRpKbCg62kL7T7jQ/xiBWSQAH6Hq3uSXPeCDNGpOv
-	NEsiIl+ZjkWKhCWXU1+EmBVgRumTAH+krEswn9JZMMmBs6zmicyaU/HKyIKpp5z0BVQy30ZmJcwjw
-	Hz98Xx7w/+HkFG6jMJu13OCOr9ZunRB19lyjaD8RGIedWDpHpAwmzIKWxWlfLllOgCxzRa1RE6oHV
-	7t4nI78g==;
+	bh=Ae2sJbIrS709idD+fj4IWol+Kvj7U33FS2Qr6TCm0SI=; b=gLXB0ncpAEPk0BXJlzhqmDRsQX
+	mvLiVqUmJTCZtzQI9ZWGd7VLOPaxGSkRMgAZzEayqA4rCg5YSUPa5DBRTPdFVGSTWRSpzor7myk79
+	OHKojaXlbi5tJ1aROFDlvA08LVkBNs2oaJdf81Thm4SK+cgC39QXOCspWimuEbaP/EYEhhVVzA2Xz
+	Tdyg+KVqtNWMZPWginapiF1hfKtuG6JqZJRyvQxmfJnfg5iViCEorxpWnlI+rgp447OCrEPgAplhx
+	7CRI2m79HgnfwjyWCuAIwchA0s2H2Gu7+Xcdpp+MaR4BY8WJiKQLq8IkHZagqyZXk5UnezfW0UEoq
+	t5Ngn0qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpkfi-0000000CLYK-0SwK;
-	Fri, 31 Jul 2026 10:40:58 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpkfg-0000000CLXd-0Vcl;
-	Fri, 31 Jul 2026 10:40:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=KvZnB8ilLIwu5R8FZVzXX0PY43qv8Q2CmIPD7haY9Qg=; b=dRbpjMulagCbuAbi7CyeUaD80p
-	QH6ItsDje1Ep9t4l/FgxWf+1bTMwaexx49nkaHCN/JhPUN7nshtvdDqxI0M3SrMi/milSJ0iETllP
-	cIYTsCb+e1fLHhc86BCI6DiDxN8zNjPUxo9xg1s+EpQ8x45DsC1E6c0UjMYccLy5FUwN+XshBduyN
-	qCZIyDeSiBKhFdbzLTFaKzgC07Z8s7ksYmPkGQPbXiN9gZGSJma9e+ManZK2OUmAujBXEvaSXmZNR
-	B3hpynVr3dfbimkJ+2dSHUDOQG+E912VVUu903wurnR7GE1jVm+alWaWDfERBpvcuyt18h0K+W7Q1
-	Ko+VeInA==;
-Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpkfb-00000001Swn-0OX3;
-	Fri, 31 Jul 2026 10:40:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1785494443; bh=KvZnB8ilLIwu5R8FZVzXX0PY43qv8Q2CmIPD7haY9Qg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=MVX9UiyzQOJ0lkHuMll1SL59TaavoymL9KpfUCiLuIQSMAjqi2p0vYsk71DDvyCbP
-	 OAmVw3AOudI5S966eg9+ZwoD1g4dpvdH+egdSVdxz6OLoUL+S5k2bwM6HW24Ch5FlI
-	 FYEfxtFfzLzyMItTsEEPtIUcSx291jzXZTp7CdPg=
-Received: from ubuntu2204.localdomain ([2409:8d20:22b:54c:9e54:40ff:fe02:3f0f])
-	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
-	id 9C92DE69; Fri, 31 Jul 2026 18:39:09 +0800
-X-QQ-mid: xmsmtpt1785494355tg0nre34l
-Message-ID: <tencent_AF224EFBC9343DD238C80824AC8CA805480A@qq.com>
-X-QQ-XMAILINFO: OLHLRPgEm/lFBDX1jZ930v/2ePlaUvWy8OXjkSfa5ei3d28cISUTX3o97Y+yy3
-	 dbEoghbRXI/8h69RkxVxnCNwUUvTon5XfZVWEkjaNvZAD/xqw2lDwM0PeBLthJaapvAtvVpY6v6g
-	 6pykDbZatWeQ17C6JuJniuqgobWyvYRkid7/iwfQK8E54hRucUrWbF6esDDIkdwxxUDk4288HOEr
-	 /a5vHDwxwkeYZ+gPvuY3H7MpO7FiZQ8HbZzqdEy3ERRVw+dX6e1w88XHBt1wOQ1X0lN/sjT4jHu8
-	 1dItL4haq6CLftk72M5TgXaZ7yl3/oYH/Xk4uHUAT2mnVFkcU4fK8F7bY6FOMjX2jTYCsu8pkLrX
-	 z4tkyVHbOrYu3dUVKuTN+FKS9C4tpSx1CR8kH+bMLY+pLxNAnXcgu63pQdQrmT3UdMN9Mouw2URR
-	 gE9KzjEnHsK3hxWLiEqRheuFZkJPRQgOSJHlxV3Gzo5xWDQJ8TpbbGcp4AFpkFoucQJrB8ItBBrM
-	 nc/jrrJPTlKmwZUAIUNjvuibXExclxm2KO5b3x3TH4V6Fs01DBVe8tV52IvbaakmmbZVG8L1aHgy
-	 Ptp/stj55Rek4RgHQHeJS44DLUiCtyHDc6JZnSBOhwfosnQTVRz0VP3I30WgxOrK+z6c+Pazq/8F
-	 Ycv140Ufz3XyydRRM9O6jgcefhRMHhb43F9cuQ6TY+uDIEUkimtO9nYtbJ2bxkT20O5fb0e2TDj3
-	 apyQw2QcdFgXSAKUETdbxrPcomK2BBSrZsypJmMwv1uO5ZeTmyub+MSAlh25y6OvSDp+EYkK9buv
-	 gYCO+3OiWKjhzy8Q5h3Bv+hooFDXoss+BNiNcsrq5jWL9BEqQPMZ5jQ/YKA3pDmwYd3pfbDG0uqY
-	 OjFPMuPiAr4lBtHbixwZbRGQhkjjNYH1Plq5oQsn/LsxqRQ2wuhUZhvsevjOJ+3UOXDxToLTh4nY
-	 ukduDmrH645Dw/lte6Lc9MGq3n6lAmzWqwAEGKLTmgopFLRo8rF4QobOPZ72cTdsMv/IGFSPnro2
-	 rTETFjLedBfEaG9lryPI3by4fQ9pSVhBM9CRw/nHH/9diQLCBkEkNtBb7OKO+QhGFcgR0fCI4/of
-	 PolwG5sjSdO4fS2dE=
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: Cunhao Lu <1579567540@qq.com>
-Date: Fri, 31 Jul 2026 18:39:05 +0800
-Subject: [PATCH v5 3/3] can: rockchip_canfd: serialize TX state and command
- writes
+	id 1wpklf-0000000CM75-48Rq;
+	Fri, 31 Jul 2026 10:47:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpklc-0000000CM6g-3hzk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jul 2026 10:47:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 430B9165C;
+	Fri, 31 Jul 2026 03:46:59 -0700 (PDT)
+Received: from [10.57.41.95] (unknown [10.57.41.95])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7DDAA3F86F;
+	Fri, 31 Jul 2026 03:46:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785494823; bh=xnQDXFr6x9WSg7RzzF32+vNJKDwAKWafEf9u1c2+2A8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=U0I5ymXyAcvtBhfwzLJP6OiqaHKPHoEJ+/G9qjCJbs8UU44IG9uFNYAdplwIDZZtU
+	 1OJ/kllaVrv5Zu+K9RZ9Xg9DUesQAMGg1DxH8SXy8m9QPuj0n7NW4QFfC1m0zY2zKW
+	 Jw/X8cGnlds8C47/dOOL8fUyWBrnTBCNaEwMiRTY=
+Message-ID: <54805b15-c3cd-4dfd-ad50-fdaa460d4f5f@arm.com>
+Date: Fri, 31 Jul 2026 11:46:57 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/6] firmware: arm_rmm: Check for RMI support at init
+Content-Language: en-GB
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260715142739.80398-1-steven.price@arm.com>
+ <20260715142739.80398-4-steven.price@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260715142739.80398-4-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-OQ-MSGID: <20260731-master-v5-3-5b27029dee20@qq.com>
-References: <20260731-master-v5-0-5b27029dee20@qq.com>
-In-Reply-To: <20260731-master-v5-0-5b27029dee20@qq.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>, 
- Vincent Mailhol <mailhol@kernel.org>, kernel@pengutronix.de, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: Cunhao Lu <1579567540@qq.com>, linux-can@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, stable@vger.kernel.org
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_114051_767511_0AB3BF2D 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20260731_034705_175659_3252DA80 
+X-CRM114-Status: GOOD (  33.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,275 +83,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TX completion path removes an echo skb before advancing tx_tail. In
-parallel, the transmit path reads tx_head, tx_tail and the tail echo slot
-when applying the erratum 6 queue restriction. There is no synchronization
-between these operations.
+On 15/07/2026 15:27, Steven Price wrote:
+> Query the RMI version number and check if it is a compatible version.
+> The first two feature registers are read and exposed for future code to
+> use.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> v15:
+>   * The code is moved again, this time into the 'firmware' directory.
+> v14:
+>   * This moves the basic RMI setup into the 'kernel' directory. This is
+>     because RMI will be used for some features outside of KVM so should
+>     be available even if KVM isn't compiled in.
+> ---
+>   arch/arm64/Kconfig                |   1 +
+>   arch/arm64/kernel/cpufeature.c    |   1 +
+>   drivers/firmware/Kconfig          |   1 +
+>   drivers/firmware/Makefile         |   1 +
+>   drivers/firmware/arm_rmm/Kconfig  |  22 +++++++
+>   drivers/firmware/arm_rmm/Makefile |   2 +
+>   drivers/firmware/arm_rmm/rmi.c    | 100 ++++++++++++++++++++++++++++++
+>   7 files changed, 128 insertions(+)
+>   create mode 100644 drivers/firmware/arm_rmm/Kconfig
+>   create mode 100644 drivers/firmware/arm_rmm/Makefile
+>   create mode 100644 drivers/firmware/arm_rmm/rmi.c
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index b3afe0688919..0f1956edf130 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -38,6 +38,7 @@ config ARM64
+>   	select ARCH_HAS_MEMBARRIER_SYNC_CORE
+>   	select ARCH_HAS_MEM_ENCRYPT
+>   	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS
+> +	select ARCH_SUPPORTS_RMM
+>   	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+>   	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+>   	select ARCH_HAS_NONLEAF_PMD_YOUNG if ARM64_HAFT
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index 9a22df0c5120..4ae63c89cda9 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -293,6 +293,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
+>   static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
+>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV3_SHIFT, 4, 0),
+>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV2_SHIFT, 4, 0),
+> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_RME_SHIFT, 4, 0),
+>   	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_DIT_SHIFT, 4, 0),
+>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_AMU_SHIFT, 4, 0),
+>   	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_MPAM_SHIFT, 4, 0),
+> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+> index 12dc70254842..55542879fbb8 100644
+> --- a/drivers/firmware/Kconfig
+> +++ b/drivers/firmware/Kconfig
+> @@ -301,5 +301,6 @@ source "drivers/firmware/samsung/Kconfig"
+>   source "drivers/firmware/smccc/Kconfig"
+>   source "drivers/firmware/tegra/Kconfig"
+>   source "drivers/firmware/xilinx/Kconfig"
+> +source "drivers/firmware/arm_rmm/Kconfig"
+>   
+>   endmenu
+> diff --git a/drivers/firmware/Makefile b/drivers/firmware/Makefile
+> index 4ddec2820c96..07e8ca1789b4 100644
+> --- a/drivers/firmware/Makefile
+> +++ b/drivers/firmware/Makefile
+> @@ -38,3 +38,4 @@ obj-y				+= samsung/
+>   obj-y				+= smccc/
+>   obj-y				+= tegra/
+>   obj-y				+= xilinx/
+> +obj-y				+= arm_rmm/
+> diff --git a/drivers/firmware/arm_rmm/Kconfig b/drivers/firmware/arm_rmm/Kconfig
+> new file mode 100644
+> index 000000000000..d224a72cca90
+> --- /dev/null
+> +++ b/drivers/firmware/arm_rmm/Kconfig
+> @@ -0,0 +1,22 @@
+> +
+> +config ARCH_SUPPORTS_RMM
+> +	bool
+> +
+> +config ARM_RMM
+> +	bool "Realm Management Monitor (RMM) Support"
+> +	depends on ARCH_SUPPORTS_RMM
+> +	default y
+> +	help
+> +	  Support the Realm Management Monitor (RMM) on Arm systems that
+> +	  implement the Realm Management Extension (RME), as defined by the
+> +	  Arm Confidential Compute Architecture.
+> +
+> +	  The RMM runs in the Realm world and provides the Realm Management
 
-On SMP, the transmit path can consequently observe a pending frame with
-an empty echo slot. It can also keep a pointer to an echo skb while the
-completion path removes and queues it for NAPI, where it can be freed on
-another CPU. The inconsistent snapshot can stop the netdev TX queue when
-there is no later completion to wake it.
+minor nit:
+	  The RMM runs at EL2 in the Realm world ...
+		OR
+	  The RMM runs at R-EL2 ...
 
-There is a second race in the command submission sequence.
-rkcanfd_start_xmit() runs in softirq context.
-rkcanfd_xmit_retry() runs from the RX interrupt handler. On controllers
-affected by erratum 12, both execute a MODE/CMD/MODE register sequence. The
-interrupt handler can restore the default MODE between the softirq writes.
-The resumed softirq then issues CMD without SPACE_RX_MODE and bypasses the
-erratum 12 workaround.
 
-Add a TX state lock and use it to protect tx_head, tx_tail and the echo skb
-ring as one state. The same lock serializes the MODE/CMD/MODE sequence
-between the transmit and interrupt paths. Keep completion and wakeup
-outside the lock to avoid nesting the TX state lock with the netdev TX
-queue lock. Install the echo skb before loading the hardware TX buffer so
-an echo setup failure cannot desynchronize the hardware and software TX
-state.
+> +	  Interface (RMI) used by a Normal World host to create, manage and run
+> +	  protected virtual machines called Realms. This option builds the
 
-Tested on an RK3588 rev2.2 at 1 Mbit/s with 100,000 extended CAN frames.
-The run triggered 138 erratum 6 retries and completed without drops, queue
-stalls or driver warnings. RK3588 does not enable erratum 12, so this test
-does not exercise that hardware workaround.
+           The RMM could also act as a TSM, as defined by the PCIe TDISP
+	  and can manage the PCI IDE setup for securing the PCIe links.
 
-Fixes: ae002cc32ec4 ("can: rockchip_canfd: prepare to use full TX-FIFO depth")
-Fixes: 83f9bd6bf39d ("can: rockchip_canfd: implement workaround for erratum 12")
-Cc: stable@vger.kernel.org
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
----
- drivers/net/can/rockchip/rockchip_canfd-core.c |  1 +
- drivers/net/can/rockchip/rockchip_canfd-rx.c   | 31 +++++++++++++++++++-------
- drivers/net/can/rockchip/rockchip_canfd-tx.c   | 26 ++++++++++++++++++---
- drivers/net/can/rockchip/rockchip_canfd.h      |  4 +++-
- 4 files changed, 50 insertions(+), 12 deletions(-)
+for covering the IDE setup case, which could exist withou the Realm VM
+support.
 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
-index 29de0c01e4ed..c8257858b452 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-@@ -904,6 +904,7 @@ static int rkcanfd_probe(struct platform_device *pdev)
- 	priv->can.do_set_mode = rkcanfd_set_mode;
- 	priv->can.do_get_berr_counter = rkcanfd_get_berr_counter;
- 	priv->ndev = ndev;
-+	spin_lock_init(&priv->tx_lock);
- 
- 	match = device_get_match_data(&pdev->dev);
- 	if (match) {
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-index 475c0409e215..02efc8c0cddc 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-@@ -100,14 +100,25 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 	const struct canfd_frame *cfd_nominal;
- 	const struct sk_buff *skb;
- 	unsigned int tx_tail;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&priv->tx_lock, flags);
-+
-+	if (!rkcanfd_get_tx_pending(priv))
-+		goto out_unlock;
- 
- 	tx_tail = rkcanfd_get_tx_tail(priv);
- 	skb = priv->can.echo_skb[tx_tail];
- 	if (!skb) {
-+		const unsigned int tx_head_unmasked = priv->tx_head;
-+		const unsigned int tx_tail_unmasked = priv->tx_tail;
-+
-+		spin_unlock_irqrestore(&priv->tx_lock, flags);
-+
- 		netdev_err(priv->ndev,
- 			   "%s: echo_skb[%u]=NULL tx_head=0x%08x tx_tail=0x%08x\n",
- 			   __func__, tx_tail,
--			   priv->tx_head, priv->tx_tail);
-+			   tx_head_unmasked, tx_tail_unmasked);
- 
- 		return -ENOMSG;
- 	}
-@@ -123,17 +134,18 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 		rkcanfd_handle_tx_done_one(priv, ts, &frame_len);
- 
- 		WRITE_ONCE(priv->tx_tail, priv->tx_tail + 1);
-+		*tx_done = true;
-+
-+		spin_unlock_irqrestore(&priv->tx_lock, flags);
- 		netif_subqueue_completed_wake(priv->ndev, 0, 1, frame_len,
- 					      rkcanfd_get_effective_tx_free(priv),
- 					      RKCANFD_TX_START_THRESHOLD);
- 
--		*tx_done = true;
--
- 		return 0;
- 	}
- 
- 	if (!(priv->devtype_data.quirks & RKCANFD_QUIRK_RK3568_ERRATUM_6))
--		return 0;
-+		goto out_unlock;
- 
- 	/* Erratum 6: Extended frames may be send as standard frames.
- 	 *
-@@ -143,7 +155,7 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 	 */
- 	if (!(cfd_nominal->can_id & CAN_EFF_FLAG) ||
- 	    (cfd_rx->can_id & CAN_EFF_FLAG))
--		return 0;
-+		goto out_unlock;
- 
- 	/* Not affected if:
- 	 * - standard part and RTR flag of the TX'ed frame
-@@ -151,20 +163,20 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 	 */
- 	if ((cfd_nominal->can_id & (CAN_RTR_FLAG | CAN_SFF_MASK)) !=
- 	    (cfd_rx->can_id & (CAN_RTR_FLAG | CAN_SFF_MASK)))
--		return 0;
-+		goto out_unlock;
- 
- 	/* Not affected if:
- 	 * - length is not the same
- 	 */
- 	if (cfd_nominal->len != cfd_rx->len)
--		return 0;
-+		goto out_unlock;
- 
- 	/* Not affected if:
- 	 * - the data of non RTR frames is different
- 	 */
- 	if (!(cfd_nominal->can_id & CAN_RTR_FLAG) &&
- 	    memcmp(cfd_nominal->data, cfd_rx->data, cfd_nominal->len))
--		return 0;
-+		goto out_unlock;
- 
- 	/* Affected by Erratum 6 */
- 	u64_stats_update_begin(&rkcanfd_stats->syncp);
-@@ -185,6 +197,9 @@ static int rkcanfd_rxstx_filter(struct rkcanfd_priv *priv,
- 
- 	rkcanfd_xmit_retry(priv);
- 
-+out_unlock:
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
-+
- 	return 0;
- }
- 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
-index fc338ea865fe..b367341dd0ae 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
-@@ -14,6 +14,8 @@ static bool rkcanfd_tx_tail_is_eff(const struct rkcanfd_priv *priv)
- 	const struct sk_buff *skb;
- 	unsigned int tx_tail;
- 
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	if (!rkcanfd_get_tx_pending(priv))
- 		return false;
- 
-@@ -33,13 +35,22 @@ static bool rkcanfd_tx_tail_is_eff(const struct rkcanfd_priv *priv)
- 	return cfd->can_id & CAN_EFF_FLAG;
- }
- 
--unsigned int rkcanfd_get_effective_tx_free(const struct rkcanfd_priv *priv)
-+unsigned int rkcanfd_get_effective_tx_free(struct rkcanfd_priv *priv)
- {
-+	unsigned int tx_free;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&priv->tx_lock, flags);
-+
- 	if (priv->devtype_data.quirks & RKCANFD_QUIRK_RK3568_ERRATUM_6 &&
- 	    rkcanfd_tx_tail_is_eff(priv))
--		return 0;
-+		tx_free = 0;
-+	else
-+		tx_free = rkcanfd_get_tx_free(priv);
-+
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
- 
--	return rkcanfd_get_tx_free(priv);
-+	return tx_free;
- }
- 
- static void rkcanfd_start_xmit_write_cmd(const struct rkcanfd_priv *priv,
-@@ -60,6 +71,8 @@ void rkcanfd_xmit_retry(struct rkcanfd_priv *priv)
- 	const unsigned int tx_tail = rkcanfd_get_tx_tail(priv);
- 	const u32 reg_cmd = RKCANFD_REG_CMD_TX_REQ(tx_tail);
- 
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	rkcanfd_start_xmit_write_cmd(priv, reg_cmd);
- }
- 
-@@ -69,6 +82,7 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 	u32 reg_frameinfo, reg_id, reg_cmd;
- 	unsigned int tx_head, frame_len;
- 	const struct canfd_frame *cfd;
-+	unsigned long flags;
- 	int err;
- 	u8 i;
- 
-@@ -88,10 +102,13 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 		return NETDEV_TX_BUSY;
- 	}
- 
-+	spin_lock_irqsave(&priv->tx_lock, flags);
- 	tx_head = rkcanfd_get_tx_head(priv);
- 	frame_len = can_skb_get_frame_len(skb);
- 	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
- 	if (err) {
-+		spin_unlock_irqrestore(&priv->tx_lock, flags);
-+
- 		ndev->stats.tx_dropped++;
- 		return NETDEV_TX_OK;
- 	}
-@@ -136,6 +153,7 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- 	WRITE_ONCE(priv->tx_head, priv->tx_head + 1);
- 
- 	rkcanfd_start_xmit_write_cmd(priv, reg_cmd);
-+	spin_unlock_irqrestore(&priv->tx_lock, flags);
- 
- 	netif_subqueue_maybe_stop(priv->ndev, 0,
- 				  rkcanfd_get_effective_tx_free(priv),
-@@ -152,6 +170,8 @@ void rkcanfd_handle_tx_done_one(struct rkcanfd_priv *priv, const u32 ts,
- 	unsigned int tx_tail;
- 	struct sk_buff *skb;
- 
-+	lockdep_assert_held(&priv->tx_lock);
-+
- 	tx_tail = rkcanfd_get_tx_tail(priv);
- 	skb = priv->can.echo_skb[tx_tail];
- 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
-index 93131c7d7f54..3cf283a7b380 100644
---- a/drivers/net/can/rockchip/rockchip_canfd.h
-+++ b/drivers/net/can/rockchip/rockchip_canfd.h
-@@ -15,6 +15,7 @@
- #include <linux/netdevice.h>
- #include <linux/reset.h>
- #include <linux/skbuff.h>
-+#include <linux/spinlock.h>
- #include <linux/timecounter.h>
- #include <linux/types.h>
- #include <linux/u64_stats_sync.h>
-@@ -462,6 +463,7 @@ struct rkcanfd_priv {
- 	struct can_rx_offload offload;
- 	struct net_device *ndev;
- 
-+	spinlock_t tx_lock; /* protects tx_head, tx_tail and echo_skb */
- 	void __iomem *regs;
- 	unsigned int tx_head;
- 	unsigned int tx_tail;
-@@ -544,7 +546,7 @@ void rkcanfd_timestamp_start(struct rkcanfd_priv *priv);
- void rkcanfd_timestamp_stop(struct rkcanfd_priv *priv);
- void rkcanfd_timestamp_stop_sync(struct rkcanfd_priv *priv);
- 
--unsigned int rkcanfd_get_effective_tx_free(const struct rkcanfd_priv *priv);
-+unsigned int rkcanfd_get_effective_tx_free(struct rkcanfd_priv *priv);
- void rkcanfd_xmit_retry(struct rkcanfd_priv *priv);
- netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev);
- void rkcanfd_handle_tx_done_one(struct rkcanfd_priv *priv, const u32 ts,
+Rest looks good to me.
 
--- 
-2.34.1
+Suzuki
+
+
+
+> +	  host-side RMI support used by KVM to detect a compatible RMM,
+> +	  configure it, manage delegated memory and enable Realm guests.
+> +
+> +	  Selecting this option does not by itself make Realm guests available:
+> +	  the system must also provide RME-capable hardware and firmware with a
+> +	  compatible RMM implementation.
+> diff --git a/drivers/firmware/arm_rmm/Makefile b/drivers/firmware/arm_rmm/Makefile
+> new file mode 100644
+> index 000000000000..51aef5cc04b0
+> --- /dev/null
+> +++ b/drivers/firmware/arm_rmm/Makefile
+> @@ -0,0 +1,2 @@
+> +
+> +obj-$(CONFIG_ARM_RMM)	= rmi.o
+> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+> new file mode 100644
+> index 000000000000..c4850976544f
+> --- /dev/null
+> +++ b/drivers/firmware/arm_rmm/rmi.c
+> @@ -0,0 +1,100 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2023-2026 ARM Ltd.
+> + */
+> +
+> +#include <linux/cpufeature.h>
+> +#include <linux/memblock.h>
+> +#include <linux/arm-rmi-cmds.h>
+> +#include <linux/slab.h>
+> +
+> +#include <asm/memory.h>
+> +#include <asm/pgtable-hwdef.h>
+> +
+> +/* Currently only the first 2 registers are used by Linux */
+> +#define RMI_FEAT_REG_COUNT	2
+> +static __ro_after_init unsigned long rmi_feat_reg_cache[RMI_FEAT_REG_COUNT];
+> +
+> +unsigned long rmi_feat_reg(unsigned long id)
+> +{
+> +	if (WARN_ON(id >= RMI_FEAT_REG_COUNT))
+> +		return 0;
+> +
+> +	return rmi_feat_reg_cache[id];
+> +}
+> +
+> +static int rmi_check_version(void)
+> +{
+> +	struct arm_smccc_res res;
+> +	unsigned short version_major, version_minor;
+> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
+> +						     RMI_ABI_MINOR_VERSION);
+> +	unsigned long aa64pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
+> +
+> +	/* If RME isn't supported, then RMI can't be */
+> +	if (cpuid_feature_extract_unsigned_field(aa64pfr0, ID_AA64PFR0_EL1_RME_SHIFT) == 0)
+> +		return -ENXIO;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
+> +
+> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+> +		return -ENXIO;
+> +
+> +	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
+> +	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
+> +
+> +	if (res.a0 != RMI_SUCCESS) {
+> +		unsigned short high_version_major, high_version_minor;
+> +
+> +		high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
+> +		high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
+> +
+> +		pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
+> +		       version_major, version_minor,
+> +		       high_version_major, high_version_minor,
+> +		       RMI_ABI_MAJOR_VERSION,
+> +		       RMI_ABI_MINOR_VERSION);
+> +		return -ENXIO;
+> +	}
+> +
+> +	pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_read_features(void)
+> +{
+> +	/*
+> +	 * Since we've negotiated a compatible version these feature registers
+> +	 * should always be available
+> +	 */
+> +	for (int i = 0; i < RMI_FEAT_REG_COUNT; i++) {
+> +		if (WARN_ON(rmi_features(i, &rmi_feat_reg_cache[i])))
+> +			return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int __init arm64_init_rmi(void)
+> +{
+> +	int ret;
+> +
+> +	/* Continue without realm support if we can't agree on a version */
+> +	ret = rmi_check_version();
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = rmi_read_features();
+> +	if (ret)
+> +		return ret;
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Note arm64_init_rmi() must be called before kvm_init_rmi() otherwise KVM
+> + * will not support realm guests. subsys_initcall() is called before
+> + * module_init() (used for KVM) so this is OK.
+> + */
+> +subsys_initcall(arm64_init_rmi);
 
 
