@@ -4,129 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88BE0C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6192CC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=95UkFCIKZHD0qyNwCh0AGNHm2eE1q88YYOkgFwaaugQ=; b=AfKBqY0kerul13MEiNuil3xntG
-	qx0qN/DD/MKVSDt8XY8vZr8gMbJK5MxzT9Z0V097CN2iAtQHIb4NV1skN48xCMhODQXkuzcS/C7Ah
-	38Bx0SSNAA68IU/ergtfg+Eipggm88qBEAK+HV2MPblcjLSzIWVDKA8fxrF1ywKNUGI/a9I8lohaj
-	HIrPiPWrlpf9BQ0St6NIWwNXEr5HzqTVDcl1E/gReeGqXd9yX4lUJ9jRNjngsQQ0WdFrZ6R1TBu0c
-	rcikwFOtZC+J2inTxV39S3EebStC8HQtbBafEde2Y8qdjB6cGsq+1ed9VHMfaPQgc6R34wXO0aBEf
-	0jCaGaqQ==;
+	bh=zTQyXQ+ZwgZu74MYRcL/BJqp9vaDuN2k5mnimlsQCkA=; b=ns504UfdAFx9WAr+g6iDhDUIqZ
+	N2WHpx4DzoXPEHltX79/HysE3wEJvZY0PLsJb+yjLJtX/C67JRsK1A6Pf/wD1peBy35eGvLoGb9Kg
+	N+4l/bkzSXkVgEuvPWeO6b715eXl9mk7NMqYME84u5NTItdqv37RYkKVyKNqLBi/1H0v73aF/r0gV
+	huvYbJCiGYLLdoNwYxuSBR6YSsHabHYsYJ+nswuECmQniUspxDLwkkhBL9nDLD3yiq6b3iwBdQ6+l
+	4NG4OgJFe1fwelQXAaW1gp/PD1esI4KgIQL/JgSF0IOxk9XAheYxY/NhSVNuo7QoIh2tCfaPZcl+/
+	dUlcE/Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoTR-0000000CnzK-35TG;
-	Fri, 31 Jul 2026 14:44:33 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoRt-0000000CmPv-3ZbH;
-	Fri, 31 Jul 2026 14:43:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HosPHj/hGa/Yo/w0c9Wfx1i1YmJFVjGYMqThUipOr8YGNujaoVJlT1xHkYXQYhLm6FxUOEgXxaxXdIoiUdIKopY7EFNQ4rrhbfvRMMprhrVIc7oHNqzhaX5xwe9jvSQzdWasKH7/2kPiLD9agZrH7AiTI6BXAyMGZB80tWyIUnShkQsl8CRSL14PzzeSbziNVZsQCEjjZZ/PopOkEeXldltuUAuanvUigMMkqgvNBLATZz5x6ilyoal6dc3IL000oMf2SnZgdto/o4SmZG421HYfeY85FnuZ1vQz0PkF581mc7nmzOg0ciErnrlDSVeUXSMg5ffmMX8v/7UjVzaYCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=95UkFCIKZHD0qyNwCh0AGNHm2eE1q88YYOkgFwaaugQ=;
- b=rSFXHL2ryj7nOJmkbQnEX3mWdB06wMwwOyzvvBNAb1bUybPiCW4AscogGZ/ptjr09jiijGWtMTXzct9MR0JOhTGV3aCNFML3tfFKcx3NQ6OQIWQIyKOwVBlDt29FWAfvD2KnPCUxUnP7iuXWKSO0zPqx5OdxxWCBimhAPIhJO5GbzRm+846S1n1gIfS/dNw/RCKPRPOzdEeWt5GriCojcLUrqBFrQ1aKvoSebY5QjkZOA9zTYDq9CTTQbwrQDO3GlRsbEd/leOre1wOWnwFmhpyDJmqLtB+On61vq6+kYXUd9gK9S6TIBFRMpu/lPTjnCNRBkyUlOF0Nzdh0jGysDA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=95UkFCIKZHD0qyNwCh0AGNHm2eE1q88YYOkgFwaaugQ=;
- b=r7xJkt/3bleKBzm40zl5PWbkK6h290xji5rHkovix0ra3711KAoIVi2zFhMgqyWVgtSsSD4qsFCvWec2Vuze7r1ObrfIrhEx8J6b5abP1fiPbsUJ7YzJdmVQu64Hp1CeyRXipfyv+/yJADb9U0Jo/Vb8oSvXl4kjFXzzFwqHX/kId5aC7a7TFITi+JV71L/sNd/2PkSwEm3K/dev24VNnP0bQLYq5iG39Dc3LrcSA6aKgUu/yGdvC5Ys3ox/pGvQgST1dbdBQrzLXfov8zs315PMVuxdtGoiD/lReHcNy/mrjgDxvcehVvuu5uacT+neelDFC7EBK0PcrMhhrqaGug==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AMBPR04MB11741.eurprd04.prod.outlook.com (2603:10a6:20b:6f3::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.16; Fri, 31 Jul
- 2026 14:42:49 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.012; Fri, 31 Jul 2026
- 14:42:49 +0000
-Date: Fri, 31 Jul 2026 09:42:39 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Xu Yang <xu.yang_2@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Xu Yang <xu.yang_2@nxp.com>
-Subject: Re: [PATCH v8 3/6] phy: fsl-imx8mq-usb: add runtime PM support
-Message-ID: <amy0X12qllKAXhXg@SMW015318>
-References: <20260731-imx8mp-usb-phy-improvement-v8-0-2ec8d6b3854d@nxp.com>
- <20260731-imx8mp-usb-phy-improvement-v8-3-2ec8d6b3854d@nxp.com>
+	id 1wpoTS-0000000Co0N-0sXm;
+	Fri, 31 Jul 2026 14:44:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpoSq-0000000CnQa-3M0e
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jul 2026 14:43:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E1A715A1;
+	Fri, 31 Jul 2026 07:43:51 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F28F73F86F;
+	Fri, 31 Jul 2026 07:43:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785509035; bh=PzWteN1QWhe4JHT13mQYIO/VwTEzMzEqxavV1NFDI60=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pcxasyko5i49uIS+oUGkntoGeHocun8pEEhjyPS6VSLjVHtsstHkyXWkre7/nLS3u
+	 6p/BfW98EegXis5Bmo7TW8gLY7DNOdmJ0s+6xPjxQSce28G5OJlL+eIUnpGGxafH+6
+	 EsjrsYxJbcF2dSLF2CzOycTzN7EMm1rM5HaKl7L4=
+Date: Fri, 31 Jul 2026 15:43:51 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Cc: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [RFC PATCH 2/9] arm64/entry: Make debug_exception_enter/exit()
+ noinstr
+Message-ID: <amy0p2p2QMZtexhz@J2N7QTR9R3>
+References: <cover.1785153469.git.hongyan.xia@transsion.com>
+ <774d423f462ff2c245e5f796dad98dd1740fa5f7.1785153469.git.hongyan.xia@transsion.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260731-imx8mp-usb-phy-improvement-v8-3-2ec8d6b3854d@nxp.com>
-X-ClientProxiedBy: PH1PEPF0001330F.namprd07.prod.outlook.com
- (2603:10b6:518:1::a) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMBPR04MB11741:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ffa54cd-db72-4372-c46f-08deef11fdfb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|19092799006|366016|1800799024|6133799003|10067099003|56012099006|5023799004|11063799006|4143699003|18002099003|22082099003|3023799007;
-X-Microsoft-Antispam-Message-Info: WFlKCIbjQz3nybSr22gIPR/EP9o1WNFJqF1stxdZq5rm/eGm45Jz1jEwHOcsgmCJG0E62QgEBHGge6y0XwEUqvpEi1XdTO7bWwhRCtb9OCMard6zq+yKsJlJAiS2zOgdCTKLmIJXmWUPxuCiHwR9B3DB1FTLXB8vasfOtKN58gWkjyBeovkr4t28Wp+F7rkHjGUG/SykrGgH69Ud0Iw7lbPHMn4F68UfFYFNj10iZFf08xdQNDDMkgz03WKCVb2yqL1J/k9d2DvBlhOY1VE86pk/vCYCmr0UlcrRwl9hdT5R9JUJnwB8IYG3U6GkPnO/nyCdeMy/I3YOIAeY4oS24I+zdpXhkm0oMHriMA61Qz7UgetJ5AsxgvJg99OsIKO77L+6biB5koeMsizUpt99MjTcEpUtTAQlh8lGmaead+5Y2pePrcbgS3ORC3CmvdQbTrVvUHwLgsGr2de2b94TQr5GPtPyPpgYoo+4MscXFK00vM4Pt5l7NfETeSJktHSXeZ8dM8x92eOchEicSUe0m/1ZOQDqwE3WaDGCHjIvxun8P2ElskePzm/Jsl/dLZLX+zAQ0IiYfHDfPngFYwARp/Y0nVFXApSuoKUHYanuzVQ3kck1+lgpy39FCl8nb6pbE9g9VHHG1MgsDagQ7R7fgr465NC3+3zG1mMXCyflVuQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(19092799006)(366016)(1800799024)(6133799003)(10067099003)(56012099006)(5023799004)(11063799006)(4143699003)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jzqu7OLX/NlHE67v7fZ6GkTP+6ctP2CBGGkqD7Hk4q/SBL6uYr0M0f/J/u+i?=
- =?us-ascii?Q?QvEJAkw3ycuKOl+As5Z0US2rvr+mXQ5yITK0fEbfHBpkUmiO2kGOVjHiFuKV?=
- =?us-ascii?Q?5x7C7KELTJbekdP23QHA67abzv5+dWS7y4LiFH2tsjhqLVh2of9ejL0vITpB?=
- =?us-ascii?Q?7A+9hGTFeMDfIh/hS8pCia0LrUH8M6cd1ey/MYCsGrDnYpgWBTsPZGAfAMur?=
- =?us-ascii?Q?33t0iZFVgUZ2TebOLyuo53JyWbCAELdtKeInl7w1qWSZoJGrUA/5mR9cW2RU?=
- =?us-ascii?Q?4wR7A1BsjTklZaBIJWinxQmcY4cNLIKXNVWAJPPmHk4R1eC6fYUZ3bu+1F+E?=
- =?us-ascii?Q?9SR0MCOrb7Mbo9YHfwEgAwwWl4pHbPvjTqwgzrCd1hrb7wjlItoQCFVeZpEe?=
- =?us-ascii?Q?kYr5tGLLVYqZhqEdnqrPnm2abfF3QsIz4AKka/755GCUpzVHJgfO9UNVmr2a?=
- =?us-ascii?Q?HGkf+l/J6MOs2dUGA47NFJha7vKetH+Egpufhh32k9xP0ohOh37BiQYM3CDP?=
- =?us-ascii?Q?Bik41SqDIhVc/xom5FMe9E80q8RAWTRNUrxYIAV3B9C8ST28BF5/yOYnPAdf?=
- =?us-ascii?Q?4CjHKVE15MJP4/kqjZpDCry/CXoHoJNIEkaR7Ae01oT45yyiyjHQhOeovHYT?=
- =?us-ascii?Q?w4shT+68lBwRXOk3yhw1tjukfCXGLtwyY3wrMtEs9zHi5qb6XojvyfEsmLMC?=
- =?us-ascii?Q?xM5Mg/nwBB5+bFqx+MreDzbdhf/TMNVnNlqWLxLr592gkUe6bnWBej412ojy?=
- =?us-ascii?Q?K7Gf57xN01JfIsoBLFd4Zpn1oNyDiZki+4flgz0O9w6Fo5SgOdlr1GEqqfjy?=
- =?us-ascii?Q?I3RrUpBrujqaeNGiCe8a4ZJbeVEMfjL7AUHRG/jMNWZoFfkZErqWXYaXpfGO?=
- =?us-ascii?Q?O7fsYR13w4whooOeztPnPkJjtUJF1QHck7AFT84HMW6tutV60xL/+rJuoO1N?=
- =?us-ascii?Q?+F6DiQAHdzxZkHlKlHeQgojPsvDDlHngrOGFHW4aFpUo2WPkWKT22q22NDJA?=
- =?us-ascii?Q?f7rZ052SSP9Ujqvhlc8AGY7oju4kwYtx7K3HYkQWCo1au2rXjQ9aK2DosmT4?=
- =?us-ascii?Q?lPGKauL5HF+6XQKfqcjQCRn9W+eN2ha5vJ0WtRYL9S80v4Z2aBvNnBuydycr?=
- =?us-ascii?Q?wG0rF/5JgKBhbhW8tqDKcccLGEPkTD2ngJ5vIrhGBC+0ZfgAfhy5q4uHnbdx?=
- =?us-ascii?Q?UidPl84c/CVi+braqb10P69TzAVNnelqA0SL1ivmY47ohEXhpSgGN6kNWyi4?=
- =?us-ascii?Q?egC081z8hnU73fCAi9DgVMcVJceakEiOeUx/yrYow3CiX44hpwiY9TPk/IEz?=
- =?us-ascii?Q?YYE9Q4YXkreQr4hXA6mLabDLhpHucVLuitZZ07WMi8MiMK9bKHnNyG4NO1CI?=
- =?us-ascii?Q?qmSrwQ3EhRP+Md4ypwt8D38ex8jCYm7aomOIiOOxSG3dH/a55kbcUUPeRysz?=
- =?us-ascii?Q?S1CW7zdGGhqfDGCATRPP5ops5lULDSITrryT9ZoUPf0iEAzRvw1LyH/DE6+1?=
- =?us-ascii?Q?q/ve7pwo3fqHhooVq5tlACXOqYE1a5QJ+Cj6IOE6hIdvcGwRvSb+Prv+kgwE?=
- =?us-ascii?Q?BHzxted+oD2mbw8bRup1OHfV4ls5UCKeNVExx3yQbGJ8S16I38HDJYdpOZ6H?=
- =?us-ascii?Q?jUBgac3i46KXCS73+jnQnClejRxbT9EDRv9iWY7zvNmhNJbXmmtyUWvC/z64?=
- =?us-ascii?Q?nqIYnGiXkrq6XQQ1+igS4/vHKPG4xQW4QoIhjr8PJUE+U75AdWVsyfRPS1t4?=
- =?us-ascii?Q?hjcdDZHX0imgm+rYTRZNAz84+DPkDao19EBCcYHuIeEY4oe/Y/+P?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ffa54cd-db72-4372-c46f-08deef11fdfb
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2026 14:42:49.0866
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DEevUt3k+/TzBAz35hrgTTIY2jYVlKnaIs//1IaOgV8k+4y75b7a2p6pde9TZ4HPsJCewGINpZG0nVxiGHfVCip+CAmQWR+8KLELacdL1HA7anj8Vtq08s2nwslJCMG8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB11741
+In-Reply-To: <774d423f462ff2c245e5f796dad98dd1740fa5f7.1785153469.git.hongyan.xia@transsion.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_074258_053677_DE226AD4 
-X-CRM114-Status: GOOD (  29.45  )
+X-CRM114-CacheID: sfid-20260731_074357_088532_5858F091 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,259 +73,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 31, 2026 at 04:11:21PM +0800, Xu Yang wrote:
-> From: Xu Yang <xu.yang_2@nxp.com>
->
-> Add runtime PM support to ensure the PHY clocks are properly gated
-> when the PHY is not in use, reducing power consumption.
->
-> Clock management is moved from power_on()/power_off() callbacks into
-> the runtime_resume()/runtime_suspend() callbacks respectively. The PHY
-> subsystem core already holds a runtime PM reference around init() and
-> power_on/off() calls, so no explicit clock handling is needed there.
->
-> Use devm_clk_get_enabled() and devm_clk_get_optional_enabled() in
-> probe() to keep clocks enabled initially. This ensures the PHY remains
-> functional when CONFIG_PM is disabled, where runtime suspend/resume
-> callbacks are never invoked.
->
-> In tca_blk_typec_switch_set(), replace the manual clk_prepare_enable()
-> / clk_disable_unprepare() pair with PM_RUNTIME_ACQUIRE_IF_ENABLED() to
-> guard register access against a concurrently suspended PHY.
->
-> Move devm_regulator_get() before pm_runtime_enable() to avoid having
-> to clean up runtime PM state on regulator acquisition failure.
->
-> In remove(), call pm_runtime_get_sync() before pm_runtime_disable() to
-> ensure the PHY is resumed and clocks are enabled before the devres
-> teardown disables them.
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
->
+On Mon, Jul 27, 2026 at 12:25:36PM +0000, Hongyan Xia wrote:
+> From: Hongyan Xia <hongyan.xia@transsion.com>
+> 
+> Commit 879a6754d3d11e30af24b7dc486f561510d62641 ran into a crash because
+> debug_exception_enter/exit() triggered page faults caused by perf dwarf
+> call graph tracing. That patch was a band-aid on top. Instead of trying
+> to band-aid all possible paths that can happen during instrumentation or
+> perf tracing, simply make both functions noinstr.
+> 
+> Drop the RCU_LOCKDEP_WARN(): arm64_enter_el1_dbg() runs first and
+> enters NMI context via ct_nmi_enter(), so RCU is always watching by the
+> time debug_exception_enter() runs.
+> 
+> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
 > ---
-> Changes in v8:
->  - fix if condition in imx8mq_usb_phy_remove()
-> Changes in v7:
->  - replase PM_RUNTIME_ACQUIRE()  with PM_RUNTIME_ACQUIRE_IF_ENABLED()
->  - use non-devm PM runtime callback because it's hard to avoid double clock
->    disable issue when probe fails or remove the driver
->  - improve commit message
-> Changes in v6:
->  - use devm_pm_runtime_enable() to disable runtime PM when probe fails
->  - simply pm_runtime_get_sync/disable/put_noidle() to pm_runtime_resume()
-> Changes in v5:
->  - use non-devm PM runtime callback to correctly enable/disable clocks
->    when unbind the device
-> Changes in v4:
->  - replace guard() with PM_RUNTIME_ACQUIRE()
-> Changes in v3:
->  - new patch
-> ---
->  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 103 +++++++++++++++++++++--------
->  1 file changed, 74 insertions(+), 29 deletions(-)
->
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> index 3a5788c609e1..42de2cff4d5f 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> @@ -9,6 +9,7 @@
->  #include <linux/of.h>
->  #include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
->  #include <linux/regulator/consumer.h>
->  #include <linux/usb/typec_mux.h>
->
-> @@ -136,17 +137,15 @@ static int tca_blk_typec_switch_set(struct typec_switch_dev *sw,
+>  arch/arm64/kernel/entry-common.c | 24 +++++++++++++++---------
+>  1 file changed, 15 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+> index 466529cce1c3..f06b5e2437cd 100644
+> --- a/arch/arm64/kernel/entry-common.c
+> +++ b/arch/arm64/kernel/entry-common.c
+> @@ -293,20 +293,26 @@ static __always_inline void fpsimd_syscall_exit(void)
+>   * accidentally schedule in exception context and it will force a warning
+>   * if we somehow manage to schedule by accident.
+>   */
+> -static void debug_exception_enter(struct pt_regs *regs)
+> +static void noinstr debug_exception_enter(struct pt_regs *regs)
 >  {
->  	struct imx8mq_usb_phy *imx_phy = typec_switch_get_drvdata(sw);
->  	struct tca_blk *tca = imx_phy->tca;
-> -	int ret;
->
->  	if (tca->orientation == orientation)
->  		return 0;
->
-> -	ret = clk_prepare_enable(imx_phy->clk);
-> -	if (ret)
-> -		return ret;
-> +	PM_RUNTIME_ACQUIRE_IF_ENABLED(&imx_phy->phy->dev, pm);
-> +	if (PM_RUNTIME_ACQUIRE_ERR(&pm))
-> +		return -ENXIO;
->
->  	tca_blk_orientation_set(tca, orientation);
-> -	clk_disable_unprepare(imx_phy->clk);
->
->  	return 0;
->  }
-> @@ -620,16 +619,6 @@ static int imx8mq_phy_power_on(struct phy *phy)
->  	if (ret)
->  		return ret;
->
-> -	ret = clk_prepare_enable(imx_phy->clk);
-> -	if (ret)
-> -		return ret;
+> -	preempt_disable();
 > -
-> -	ret = clk_prepare_enable(imx_phy->alt_clk);
-> -	if (ret) {
-> -		clk_disable_unprepare(imx_phy->clk);
-> -		return ret;
-> -	}
-> -
->  	/* Disable rx term override */
->  	value = readl(imx_phy->base + PHY_CTRL6);
->  	value &= ~PHY_CTRL6_RXTERM_OVERRIDE_SEL;
-> @@ -648,8 +637,6 @@ static int imx8mq_phy_power_off(struct phy *phy)
->  	value |= PHY_CTRL6_RXTERM_OVERRIDE_SEL;
->  	writel(value, imx_phy->base + PHY_CTRL6);
->
-> -	clk_disable_unprepare(imx_phy->alt_clk);
-> -	clk_disable_unprepare(imx_phy->clk);
->  	regulator_disable(imx_phy->vbus);
->
->  	return 0;
-> @@ -686,6 +673,7 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  	struct device *dev = &pdev->dev;
->  	struct imx8mq_usb_phy *imx_phy;
->  	const struct phy_ops *phy_ops;
-> +	int ret;
->
->  	imx_phy = devm_kzalloc(dev, sizeof(*imx_phy), GFP_KERNEL);
->  	if (!imx_phy)
-> @@ -693,13 +681,13 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->
->  	platform_set_drvdata(pdev, imx_phy);
->
-> -	imx_phy->clk = devm_clk_get(dev, "phy");
-> +	imx_phy->clk = devm_clk_get_enabled(dev, "phy");
->  	if (IS_ERR(imx_phy->clk)) {
->  		dev_err(dev, "failed to get imx8mq usb phy clock\n");
->  		return PTR_ERR(imx_phy->clk);
->  	}
->
-> -	imx_phy->alt_clk = devm_clk_get_optional(dev, "alt");
-> +	imx_phy->alt_clk = devm_clk_get_optional_enabled(dev, "alt");
->  	if (IS_ERR(imx_phy->alt_clk))
->  		return dev_err_probe(dev, PTR_ERR(imx_phy->alt_clk),
->  				    "Failed to get alt clk\n");
-> @@ -708,44 +696,101 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  	if (IS_ERR(imx_phy->base))
->  		return PTR_ERR(imx_phy->base);
->
-> +	imx_phy->vbus = devm_regulator_get(dev, "vbus");
-> +	if (IS_ERR(imx_phy->vbus))
-> +		return dev_err_probe(dev, PTR_ERR(imx_phy->vbus), "failed to get vbus\n");
-> +
->  	phy_ops = of_device_get_match_data(dev);
->  	if (!phy_ops)
->  		return -EINVAL;
->
-> -	imx_phy->phy = devm_phy_create(dev, NULL, phy_ops);
-> -	if (IS_ERR(imx_phy->phy))
-> -		return PTR_ERR(imx_phy->phy);
-> +	pm_runtime_set_active(dev);
-> +	pm_runtime_enable(dev);
-
-does devm_pm_runtime_set_active_enabled() work?
-
-Frank
->
-> -	imx_phy->vbus = devm_regulator_get(dev, "vbus");
-> -	if (IS_ERR(imx_phy->vbus))
-> -		return dev_err_probe(dev, PTR_ERR(imx_phy->vbus), "failed to get vbus\n");
-> +	imx_phy->phy = devm_phy_create(dev, NULL, phy_ops);
-> +	if (IS_ERR(imx_phy->phy)) {
-> +		ret = dev_err_probe(dev, PTR_ERR(imx_phy->phy),
-> +				    "failed to create PHY\n");
-> +		goto disable_rpm;
-> +	}
->
->  	phy_set_drvdata(imx_phy->phy, imx_phy);
->
->  	imx_phy->tca = imx95_usb_phy_get_tca(pdev, imx_phy);
-> -	if (IS_ERR(imx_phy->tca))
-> -		return dev_err_probe(dev, PTR_ERR(imx_phy->tca),
-> -					"failed to get tca\n");
-> +	if (IS_ERR(imx_phy->tca)) {
-> +		ret = dev_err_probe(dev, PTR_ERR(imx_phy->tca),
-> +				    "failed to get tca\n");
-> +		goto disable_rpm;
-> +	}
->
->  	imx8m_get_phy_tuning_data(imx_phy);
->  	device_set_wakeup_capable(dev, true);
->
->  	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-> +	if (IS_ERR(phy_provider)) {
-> +		ret = dev_err_probe(dev, PTR_ERR(phy_provider),
-> +				    "failed to register phy provider\n");
-> +		goto disable_rpm;
-> +	}
->
-> -	return PTR_ERR_OR_ZERO(phy_provider);
-> +	return 0;
-> +
-> +disable_rpm:
-> +	pm_runtime_disable(dev);
-> +	return ret;
+> -	/* This code is a bit fragile.  Test it. */
+> -	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
+> +	/*
+> +	 * debug_exception_enter/exit() can be quite delicate. The normal
+> +	 * preempt_disable/enable() can be instrumented or traced by perf,
+> +	 * which leads to a can of worms including triggering page faults.
+> +	 *
+> +	 * Instead of trying to make all of them work properly here, just
+> +	 * open-code the simpler version of preempt_disable/enable() and make
+> +	 * enter/exit() both noinstr to avoid the entire complexity.
+> +	 */
+> +	__preempt_count_inc();
+> +	barrier();
 >  }
->
->  static void imx8mq_usb_phy_remove(struct platform_device *pdev)
+> -NOKPROBE_SYMBOL(debug_exception_enter);
+
+This is an open-coded version of preempt_disable_notrace(), and there's
+no reason the existing code needs to be out-of-line in the first place.
+Please make this:
+
+static __always_inline void debug_exception_enter(struct pt_regs *regs)
+{
+	preempt_disable_notrace();
+}
+
+> -static void debug_exception_exit(struct pt_regs *regs)
+> +static void noinstr debug_exception_exit(struct pt_regs *regs)
 >  {
-> +	struct device *dev = &pdev->dev;
-> +	int ret;
-> +
-> +	ret = pm_runtime_get_sync(dev);
-> +	if (ret < 0)
-> +		dev_warn(dev, "failed to resume on remove: %d\n", ret);
-> +
-> +	pm_runtime_disable(dev);
-> +	pm_runtime_put_noidle(dev);
-> +}
-> +
-> +static int imx8mq_usb_phy_runtime_suspend(struct device *dev)
-> +{
-> +	struct imx8mq_usb_phy *imx_phy = dev_get_drvdata(dev);
-> +
-> +	clk_disable_unprepare(imx_phy->alt_clk);
-> +	clk_disable_unprepare(imx_phy->clk);
-> +
-> +	return 0;
-> +}
-> +
-> +static int imx8mq_usb_phy_runtime_resume(struct device *dev)
-> +{
-> +	struct imx8mq_usb_phy *imx_phy = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(imx_phy->clk);
-> +	if (ret)
-> +		return ret;
->
-> +	ret = clk_prepare_enable(imx_phy->alt_clk);
-> +	if (ret) {
-> +		clk_disable_unprepare(imx_phy->clk);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
+> -	preempt_enable_no_resched();
+> +	barrier();
+> +	__preempt_count_dec();
 >  }
->
-> +static DEFINE_RUNTIME_DEV_PM_OPS(imx8mq_usb_phy_pm_ops, imx8mq_usb_phy_runtime_suspend,
-> +				 imx8mq_usb_phy_runtime_resume, NULL);
-> +
->  static struct platform_driver imx8mq_usb_phy_driver = {
->  	.probe	= imx8mq_usb_phy_probe,
->  	.remove = imx8mq_usb_phy_remove,
->  	.driver = {
->  		.name	= "imx8mq-usb-phy",
->  		.of_match_table	= imx8mq_usb_phy_of_match,
-> +		.pm = pm_ptr(&imx8mq_usb_phy_pm_ops),
->  		.suppress_bind_attrs = true,
->  	}
->  };
->
-> --
-> 2.34.1
->
->
+> -NOKPROBE_SYMBOL(debug_exception_exit);
+
+Similarly, this is an open-coded copy of
+preempt_enable_no_resched_notrace(). Please make this:
+
+static __always_inline void debug_exception_exit(struct pt_regs *regs)
+{
+	preempt_enable_no_resched_notrace();
+}
+
+In both cases I'm happy with keeping the regs argument for now.
+
+Mark.
 
