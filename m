@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 878B5C55167
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 01:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BC4C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 02:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lFttCK6+IiI9LAnY0cBt5R9XII1QMStajnONswWnhUU=; b=uT7MqozKdMcQi6M3EE6micgJSh
-	ryqwJgp+3PIGlBLKTWErv5vqWqsZkBrWUEUTIBhxI24HVhvqkY2GHLYwzdib8VasCftKNEQzkXoxe
-	PCLAdpYhgbBu2dnC24hzpg1Qu2kDuZQ8mf6dMv8HtafwbwOy/JlftUcnSoQUz/w3qC5yTnfTFdi7s
-	uNY3IoyNPKnMr70Fe3JI/zCeuFt8RE3XBfi+pu5A3R3wovryd1zU6rzZ4ME1COOclyRcAVxI4JGCT
-	6sN6rNnU/Ql5e6dQ8ZgPDkUwQSBSplwqRDTbbf+rn6/FnJe5gkJsVl/LjhqyZLsUEvXMhniDGwrfc
-	PTuA4rMw==;
+	bh=zmPGEnHMged4MVtOCZdKBh7EW5THeW2s3SZc/Fx5p8U=; b=WVhbBMWUXOsyZkxEqInEEWi0rP
+	Cf1SBce2BHwEo/StFDIyQZW3KaJ/HcJT5Q7MnmvyNxHoieCZPOU6PkJz4SmtwXsKXzEhDM69U7i4e
+	RCVOi0GZEMN7OdErAEprsZ8P20qQB6lvAbR/LgGFECgVNhsBzHXmT2a4j8bQi817y8Xo9pGwHNOut
+	OLCyaXTBGh6Bdj11Os9vt+QsyNZf3xt7h8rIsRi77+WIVr757gwXXqlo4F08FSTTDKKOFsIs1kRt6
+	DDBd5aog7GuvWe9VosBrM5AyitsPVzwy+ExIkyMizcvEpq3ouviRvja134vvqFbsEkD/ZGCuNGA1L
+	wpdTPdYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpbgQ-0000000BZTX-0EOX;
-	Fri, 31 Jul 2026 01:05:06 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1wpcjW-0000000BbrL-2Oxs;
+	Fri, 31 Jul 2026 02:12:22 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpbgN-0000000BZT6-0NPU
+	id 1wpcjT-0000000BbpJ-2tbc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 01:05:04 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c966b9ee9cbso208552a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 30 Jul 2026 18:05:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785459901; x=1786064701; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lFttCK6+IiI9LAnY0cBt5R9XII1QMStajnONswWnhUU=;
-        b=Z80pBF8xnyRq4e5zflPGN3Gv4MWOdVdj3Ydy0PckJOMfIvWJQhIcWp9N9maPPEhXzP
-         aBy7BqaoeqM8w5DqILsUexQ8C/Fb1Punu1X/o1XeGI21TocmO/S7f+i9ybhboMVhJUvR
-         vu+NgBhNwy5soregl0uZ0dpVmjHEq76+gWK/kSA0ru1o6ooZfatdzNmlFLfTm8/MeZXS
-         7kcOBxPf1nwVQu3uCQ+PwHRyApEYYLprNb9rhNr8ljAIRndPCR3PqNKPQ6sYBNtgz9Ut
-         azRTA+Ip15eSU8CE471ifskoVszOjK60hpMRi+JuJx83LvGQF72PWIJke5FHV/veD7fG
-         CXmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785459901; x=1786064701;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lFttCK6+IiI9LAnY0cBt5R9XII1QMStajnONswWnhUU=;
-        b=RuvKiDpCfeKvEEdb1CD8hjJunShp2nlVjMoFJRhh9rKL+xnJVruyYeW7qxwdY5dq9y
-         ObllUB8b/EwvO64nygBkkhSLtzSdJR9/uYXq07JmTT5ynrnTZxZRtLaGXU5CaDmXaObk
-         jstZ9iCfNAXuxeu+xhE2Fdd9TifVdU3DqK3mQza/r/ekwjHb5gjSTgTRLTfuWnIon5+t
-         urDYnOrd2C0vZzNqKorRC327IOFABSdKlliJ9EtB3uPl5veiTzdBzuOCw2D4BV/BtW51
-         QnFWuhGi3b/fwlzglBorcy6pIOsM19MlM/Um90fyPyxVp/AS+0ybOCbaun8cS8SQ3zcG
-         GWYQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoWBCDqLWzKU3qRxbHLCUnz7y03K11xUFL0/PAR3GV/5anHx5RhpKN5f/StK0O3u75LKhgmZFBSPXs6aWL3bbSL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBkrSyKUZ+jMaTj8AFJJJQZ9vB5paMnTC8z0+2GwF2pNZUNqha
-	LxOEtNHj1jV6oPcBFcJgugAH/X55YIzU7TySsmXjGTkXGXW8FOfiQAcL
-X-Gm-Gg: AR+sD10k45R+/Va02e5C9U6DdX9yLD4FM59Rnwq4qyyTPN3TrSDV0G/0+xY1q4lccZs
-	wxgR+BayaNPtxy4e5/TRSuBFMVLJ/i4Reak51qHfwtb2vDI474VMWOCu+ihHyJFiCucR1RseqqS
-	RXjKo+XiAKb0V25F6ThNnffc4ZicxHdl4hq9FkUTHcp9oyTYwaAQo9ziHPoM3x+oVeTf1BO3zgj
-	dmrCkwiduSmHhhA6xEY0YDXl/5Aw6jwsOOpI9dZ+jzEHW5NCoDhrrSybBsD5JiflE7LCrbt0hmB
-	IEESNgpGSDAVSC9zSahBRKSj6qFW0xN5ExTq87qvaXhi62HWfb4PkrKez5q2TCbGc/ObQNDd764
-	bLzdlVMXot1u3O95tDYN39YRh4s261fJ65CappEHHlxbeMqXwmrd13hxTInZszgS9263g+TeBvK
-	tkQ41lATiJSH0Rz6ss/FuCk7MqgxGUDY4UCygzGOmf4M4XzYHflPX6bblydXrak3CMR8qsyFMlL
-	chNX7vPlHxSTlcBvCDkP3WWixwn4KeR6DmmLsuX
-X-Received: by 2002:a05:6a00:12c7:b0:84c:5349:daa1 with SMTP id d2e1a72fcca58-84ebc425d21mr3954345b3a.76.1785459901336;
-        Thu, 30 Jul 2026 18:05:01 -0700 (PDT)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84ed5e30a41sm17865b3a.58.2026.07.30.18.04.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 30 Jul 2026 18:05:00 -0700 (PDT)
-Message-ID: <6c5b44c6-f06d-4f4c-b014-5a06601454ab@gmail.com>
-Date: Fri, 31 Jul 2026 09:04:57 +0800
+	Fri, 31 Jul 2026 02:12:21 +0000
+Message-ID: <507ad6a6-52a2-4c68-9ba2-5cc4f92e192d@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785463933;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zmPGEnHMged4MVtOCZdKBh7EW5THeW2s3SZc/Fx5p8U=;
+	b=set1ZuMU2l1LJhdbElnaHncW3htVMpJ+LT8KAyNE87oHGeSl7ekI5XfgExA7/eEmyO/xEK
+	cH9suoKK28MhKg/0O3j1IwdJeTw1fAH2LwjDMLqOmWbVqqs2wRfjKhxljNqtMwsg7XPFSu
+	S0HbUbvxgby2Ctjh8oGiyIouzCzomMI=
+Date: Fri, 31 Jul 2026 10:11:40 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] spi: ma35d1-qspi: Add Nuvoton MA35D1 QSPI
- controller support
-To: Mark Brown <broonie@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cwweng@nuvoton.com
-References: <20260727091833.750051-1-cwweng.linux@gmail.com>
- <20260727091833.750051-3-cwweng.linux@gmail.com>
- <f698ec65-1677-45fa-bb05-34aa8e092100@sirena.org.uk>
-Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <f698ec65-1677-45fa-bb05-34aa8e092100@sirena.org.uk>
+Subject: Re: [PATCH v2] net: stmmac: enable MAC rx/tx after DMA start
+To: Abid Ali <dev.taqnialabs@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260727-stmmac-rx-fifo-block-v2-1-4dc3457d31d0@gmail.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Qingfang Deng <qingfang.deng@linux.dev>
+In-Reply-To: <20260727-stmmac-rx-fifo-block-v2-1-4dc3457d31d0@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_180503_132681_21371708 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20260730_191219_879524_A89ADD8D 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,40 +73,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-Mark Brown 於 2026/7/30 下午 11:11 寫道:
-> On Mon, Jul 27, 2026 at 05:18:33PM +0800, Chi-Wen Weng wrote:
->
->> Add SPI controller driver support for the Quad SPI controller found in
->> Nuvoton MA35D1 SoCs.
->> +static int nuvoton_qspi_mem_exec_op(struct spi_mem *mem,
->> +				    const struct spi_mem_op *op)
->> +{
->> +	if (op->dummy.nbytes) {
->> +		nuvoton_qspi_set_bus_width(qspi, op->dummy.buswidth,
->> +					   SPI_MEM_DATA_IN);
->> +		ret = nuvoton_qspi_txrx(qspi, NULL, NULL, op->dummy.nbytes);
->> +		if (ret)
->> +			goto out_deassert_cs;
->> +	}
-> I would expect dummy data to be an output rather than an input, we don't
-> want the lines left floating?  There's a similar thing below when
-> setting up the dummy xfer.
+On 2026/7/27 14:14, Abid Ali wrote:
+> The EMAC should only accept packets after the DMAs are enabled.
+This is correct.
+> Similarly, the teardown should ensure the MAC rx/tx is stopped before
+> DMA engine is stopped.
 
-Hi Mark,
+This is _not_ correct. Instead it's a bit more complicated, according to 
+their programming guidelines:
 
-Thanks for pointing this out.
+Stopping and Restarting Transmission
 
-You are right. The dummy phase should be driven as an output rather than 
-leaving the data lines in input mode.
+- Disable the Transmit DMA (if applicable) by clearing Bit 0 (ST) of the 
+`DMA_CH(#i)_Tx_Control` register.
+- Wait until the Transmit DMA generates the stopped interrupt (TPS field 
+of the `DMA_CH(#i)_Status` register).
+- Wait for any previous frame transmissions to complete. You can check 
+this by reading the appropriate fields of the `MTL_TxQ0_Debug` register 
+(`TRCSTS != 1` and `TXQSTS = 0`).
+- Disable the MAC transmitter and MAC receiver by clearing Bit 0 (RE) of 
+the `MAC_Rx_Configuration` and Bit 0 (TE) of the `MAC_Tx_Configuration` 
+register.
+- Disable the Receive DMA (if applicable), after ensuring the data in 
+the Rx FIFO is transferred to the system memory (by reading the 
+appropriate fields of the `MTL_RxQ0_Debug` register; `PRXQ = 0` and 
+`RXQSTS = 0`).
+- Wait until the Receive DMA generates the stopped interrupt, which is 
+available in the RPS field of the `DMA_CH(#i)_Status` register.
+- Restart the DMAs.
+- Enable the MAC Transmitter and Receiver.
 
-I will update the direct spi-mem path to use SPI_MEM_DATA_OUT for the 
-dummy phase. I will also fix the generic transfer path so that spi-mem 
-dummy transfers remain output transfers instead of switching the lines 
-to input.
+So the correct order is: stop TX DMA -> stop MAC RX/TX -> stop RX DMA.
 
 Best regards,
-Chi-Wen
 
+Qingfang
 
 
