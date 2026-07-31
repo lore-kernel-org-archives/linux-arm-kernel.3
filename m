@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54037C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13A83C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJJQ/G2kZs1c4zIaZuTxFX0nplW5nAX8O8ASYe38ez4=; b=PBkY7Ynn5dAuX7pTyqP3h1UZEd
-	Rrt28Ox6L5QI3VjinFgBF5PLJNk45xUb9ySjWVVnOBeCSC52FiSIHM8gqmTNGVBOhV7qF8h5C7Cys
-	AxA1XNT6V11tc3KL9EX3BAJVD4BKOqARMrxgScQlwHuNjtjWktP7txfoQbq8LjepNr087qRrtAw0V
-	oP1oe9RWuW12edRMZ8GnquJCIhBFgDYxx6+W52hpOI8uq3a4IDJ/vtl7h7oZEXGbhfWes5DWNhV/i
-	h947b1/0cjjbJmVrIFkcFcmDaj4sGRidxPcUZPPd2G5BPdcMrnseRunmSj0bKD/SVbAtAkOOrwIja
-	fV9g874Q==;
+	bh=xxZYHMhVAEUDLM1IQfdeZwQlZ/rcCpptMIeWQn+wqCw=; b=khAAdSzt8Lit2Lg0iV3PfKZeci
+	mRHeZB1sMx0dMmEzzFJRg58O4TdvstL0Hk2jylZ156aIxZiSbtlRpVDWBCXcGTK3VQib34oVIGkUr
+	VmC7aRVKxcIvTy5BcLtjgE1jIPQen5U7e+yrFCooC7E8Z34XuWVUEGSbMY0Q/7FDRXgmGFm5W63k4
+	eLNtYh3xB98DUhnxP0knS5NaBdjp2f+4dzqeAJLRX1P1PF7JVGK+i75jcCPYKfpSNSyJ74+lQ7z40
+	xYdDT+lQThcEqrYMNukazxA48fCN5mivUMQX2ouwii/Xs3lcqFVram/t7uKssGqDdahqLEzx+d5JO
+	1waCv9MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpq1O-0000000D2m2-1l1x;
-	Fri, 31 Jul 2026 16:23:42 +0000
+	id 1wpq1W-0000000D2xD-1ws2;
+	Fri, 31 Jul 2026 16:23:50 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxa-0000000CzQS-2BRJ;
-	Fri, 31 Jul 2026 16:19:53 +0000
+	id 1wppxc-0000000CzTt-11Mv;
+	Fri, 31 Jul 2026 16:19:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514784;
-	bh=T57B2HIpxjOg2246T5ktjF/JgTCd4d9jWzrI7OnBqP0=;
+	s=mail; t=1785514785;
+	bh=KwjregJEK1zHltpBaTSfhes6ErUtOgc/LRhZ6h3oFOI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=LP7UoA9Xj4+0SCmFFy4slUzG9qksnmPdmhrc+bzX4b1fl+siK8bEPBcvSxVMlzahA
-	 xy/mcQ5TIqSvGUIVbnxnsbCAduq94oxpZPqv5LYQH9iVljwwGyA0Ig55Qi6uc0wj+P
-	 Pm9cD5dtEQJfQgG7nS82WFbX5VkqI+4ds+3xbr4OUMo9Eb7ZSgW1X6sojH7zog1xpa
-	 VNH/aktvWtNwhpP4JtWxa5AXyWFkbhOqjrbIe5hAXks/fjyRyn8+i445yrZwL5ZIxm
-	 7OvWCfQleS8eMUN1wPKcvlyjuUqe+zci5NN7iq/tt5upQJzj585ESM3B80lEgHYQq6
-	 7gLHueC2ZBlmQ==
+	b=NtmcqgNSXRllEqlJW21sZx46nixZ5YWJzFqDA0DLvVWk07hwsd9sms+ahhduBVtGz
+	 QWOadKsy596BtM/7jAO9ZFaIwS94m8HitODlKf8zG0MtYyHt09pvaLfgVGspcBojma
+	 qu1u0hi3IpVyBxCS9MlyhhdsoEoR7ZJ0B7FHgBe/5nyHeI/xkUus4mzmAoaHV2GGWD
+	 FCzk7tbZXpad4UEyACbzX6bSVBqggvYnKtufy/ePUWMtjPqmuUMtsI4Cit2vucjM9O
+	 c4BTVRyyfOMjdE1Pg1LRBc6v7lz9IcCa0SPrbVA/ls5xqIma+YSWxOIvJ51Ex0O8o7
+	 YM9rVA/DRRMIw==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1B4A017E0936;
-	Fri, 31 Jul 2026 18:19:44 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7B05517E092C;
+	Fri, 31 Jul 2026 18:19:45 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:19:48 +0300
-Subject: [PATCH v10 41/69] drm/vc4: hdmi: Switch to
- drm_hdmi_mode_needs_scrambling()
+Date: Fri, 31 Jul 2026 19:19:50 +0300
+Subject: [PATCH v10 43/69] drm/vc4: hdmi: Propagate -EDEADLK to the top
+ level
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-41-294364b2cf15@collabora.com>
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-43-294364b2cf15@collabora.com>
 References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -75,8 +75,8 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091946_796232_7E8B7B2D 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20260731_091948_461946_A2B38C21 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,66 +91,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VC4 HDMI driver has a local helper to check whether a mode requires
-scrambling.  It is equivalent to drm_hdmi_mode_needs_scrambling(), so
-use the common helper instead.
+drm_connector_helper_funcs.detect_ctx() is expected to propagate
+-EDEADLK so that context owners, e.g. drm_helper_probe_detect_ctx(), can
+perform the required backoff and retry.
 
-No functional change intended.
+vc4_hdmi_handle_hotplug() instead runs its own retry loop and calls
+drm_modeset_backoff() on an acquire context it does not own.  This drops
+all locks in the context, including connection_mutex held by the core.
 
-Acked-by: Maxime Ripard <mripard@kernel.org>
+Drop the local retry logic and propagate -EDEADLK to the caller instead.
+This aligns VC4 with the expected detect_ctx() semantics.
+
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/vc4/vc4_hdmi.c | 16 ++++------------
- 1 file changed, 4 insertions(+), 12 deletions(-)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 23 +++++++----------------
+ 1 file changed, 7 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-index 9ce56eca775c..4f7fc6689869 100644
+index ba16e7944cf3..72042fad04c5 100644
 --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
 +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-@@ -130,15 +130,6 @@ static bool vc4_hdmi_supports_scrambling(struct vc4_hdmi *vc4_hdmi)
- 	return true;
+@@ -344,12 +344,11 @@ static int vc4_hdmi_reset_link(struct drm_connector *connector,
+ 	return drm_atomic_helper_reset_crtc(crtc, ctx);
  }
  
--static bool vc4_hdmi_mode_needs_scrambling(const struct drm_display_mode *mode,
--					   unsigned int bpc,
--					   enum drm_output_color_format fmt)
--{
--	unsigned long long clock = drm_hdmi_compute_mode_clock(mode, bpc, fmt);
--
--	return clock > HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
--}
--
- static int vc4_hdmi_debugfs_regs(struct seq_file *m, void *unused)
+-static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
+-				    struct drm_modeset_acquire_ctx *ctx,
+-				    enum drm_connector_status status)
++static int vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
++				   struct drm_modeset_acquire_ctx *ctx,
++				   enum drm_connector_status status)
  {
- 	struct drm_debugfs_entry *entry = m->private;
-@@ -313,7 +304,7 @@ static int vc4_hdmi_reset_link(struct drm_connector *connector,
- 		return 0;
+ 	struct drm_connector *connector = &vc4_hdmi->connector;
+-	int ret;
+ 
+ 	/*
+ 	 * NOTE: This function should really be called with vc4_hdmi->mutex
+@@ -368,17 +367,9 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
+ 	drm_atomic_helper_connector_hdmi_hotplug(connector, ctx, status);
+ 
+ 	if (status != connector_status_connected)
+-		return;
++		return 0;
+ 
+-	for (;;) {
+-		ret = vc4_hdmi_reset_link(connector, ctx);
+-		if (ret == -EDEADLK) {
+-			drm_modeset_backoff(ctx);
+-			continue;
+-		}
+-
+-		break;
+-	}
++	return vc4_hdmi_reset_link(connector, ctx);
+ }
+ 
+ static int vc4_hdmi_connector_detect_ctx(struct drm_connector *connector,
+@@ -416,10 +407,10 @@ static int vc4_hdmi_connector_detect_ctx(struct drm_connector *connector,
+ 			status = connector_status_connected;
  	}
  
--	scrambling_needed = vc4_hdmi_mode_needs_scrambling(&vc4_hdmi->saved_adjusted_mode,
-+	scrambling_needed = drm_hdmi_mode_needs_scrambling(&vc4_hdmi->saved_adjusted_mode,
- 							   vc4_hdmi->output_bpc,
- 							   vc4_hdmi->output_format);
- 	if (!scrambling_needed) {
-@@ -443,7 +434,8 @@ static int vc4_hdmi_connector_get_modes(struct drm_connector *connector)
- 		const struct drm_display_mode *mode;
+-	vc4_hdmi_handle_hotplug(vc4_hdmi, ctx, status);
++	ret = vc4_hdmi_handle_hotplug(vc4_hdmi, ctx, status);
+ 	pm_runtime_put(&vc4_hdmi->pdev->dev);
  
- 		list_for_each_entry(mode, &connector->probed_modes, head) {
--			if (vc4_hdmi_mode_needs_scrambling(mode, 8, DRM_OUTPUT_COLOR_FORMAT_RGB444)) {
-+			if (drm_hdmi_mode_needs_scrambling(mode, 8,
-+							   DRM_OUTPUT_COLOR_FORMAT_RGB444)) {
- 				drm_warn_once(drm, "The core clock cannot reach frequencies high enough to support 4k @ 60Hz.");
- 				drm_warn_once(drm, "Please change your config.txt file to add hdmi_enable_4kp60.");
- 			}
-@@ -802,7 +794,7 @@ static void vc4_hdmi_enable_scrambling(struct drm_encoder *encoder)
- 	if (!vc4_hdmi_supports_scrambling(vc4_hdmi))
- 		return;
+-	return status;
++	return ret == -EDEADLK ? ret : status;
+ }
  
--	if (!vc4_hdmi_mode_needs_scrambling(mode,
-+	if (!drm_hdmi_mode_needs_scrambling(mode,
- 					    vc4_hdmi->output_bpc,
- 					    vc4_hdmi->output_format))
- 		return;
+ static int vc4_hdmi_connector_get_modes(struct drm_connector *connector)
 
 -- 
 2.55.0
