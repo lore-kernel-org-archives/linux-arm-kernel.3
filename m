@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F2FC55173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 17:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 330EAC55167
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 17:06:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F2wB8IP388Lc2MBAteJRNDo31xEFc0D1s8JJGVqmoX8=; b=HNooo2Cr/zdDYUr9QEXEbI2tzD
-	9PXcnyx+c+Wv8JzrLMsTSqCv+EDGZXyGBvzOh4caB5dkJIS2bLCFCA45cSy3dCQFaoDRtYrXZHfel
-	Y+pzs6pCbuSJ1CSCw1/V+zs0zcbZYFvc4i7f3iE040MTcZBs3voH75LVDeCYgQcDdZvbl3TJ5VhcW
-	J5jz1AcZt4hEDFlqj1mF7R4DBM/vztDKtGaF+vsyeBR3YeQ9KJjnkp3iQDr3les6tbBKUzREZnvCA
-	I9829HUN4hiEyl57dsDPFg+sseCLMGRnvN7c93Y105yT5X7n7Lj3DLgAXNo2AhdCkXviqAIDvwVot
-	PIOK9uFw==;
+	bh=Hu2nzxTULIrNid+T0wW8lXLrPPrctqAZSUyi9Ewmd1M=; b=vWqrGH5lBnRK4bc5P2sBScH/5s
+	Vc2Vt9nbziCODKviiKJnWVio/ykdwAj0mcjisRIBkwE2DnM3f43gI7c3MbrqtpH6YQ/e+z5L77Q3a
+	pyTq7aKc2a5NIl8vOXGt6hRIQh7t8kRbIwubEgHVyTgYTPtqhUGgrLItXb/w/PROEqkodO/xkbPbl
+	YK1ht0ugSkXKfQQiGu11KFA57smoUYvGQHg1CcC5Ruozn9DM6QnjH14omrghPVKOl56ghsqZlqr6d
+	48yo4O/R8mHDBm9ZTD4ii7RToArRzprkQDhNOLyBzZ6J84D/RbRbfKd/ADWw+HMnmRCfOXHtPbt90
+	SFE1UROQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpqh6-0000000DDjQ-4B4s;
-	Fri, 31 Jul 2026 17:06:49 +0000
-Received: from mail-pf1-x446.google.com ([2607:f8b0:4864:20::446])
+	id 1wpqh9-0000000DDmq-0qiH;
+	Fri, 31 Jul 2026 17:06:51 +0000
+Received: from mail-pf1-x448.google.com ([2607:f8b0:4864:20::448])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpqgq-0000000DDc5-3f0N
+	id 1wpqgw-0000000DDe2-0jiL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 17:06:34 +0000
-Received: by mail-pf1-x446.google.com with SMTP id d2e1a72fcca58-8487eb67173so2401443b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 10:06:32 -0700 (PDT)
+	Fri, 31 Jul 2026 17:06:39 +0000
+Received: by mail-pf1-x448.google.com with SMTP id d2e1a72fcca58-8485d853b08so2212981b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 10:06:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785517591; x=1786122391; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1785517597; x=1786122397; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=F2wB8IP388Lc2MBAteJRNDo31xEFc0D1s8JJGVqmoX8=;
-        b=KCVLG/TPHdgVtdQ4VgaMTvDkR5MBQJsuI4/7M+70VzZZxZGLvnYkIJCfKbmjf2LMWX
-         qhqN+6uvKVPXzbcejwzBRS1PIGOWMZ1Yc1XWuOqbbx7QupYWse778b34zUUfe8dzIU2N
-         PqpZl06s4w0PFLJHrtGGjCCRSRKqC1xeIFH/Xd7GaYzy7ESBc3x/aQVWFsvTFs7oQc2P
-         NGYpSR5FM8EJLviYO0YkRyXmVKy9A4q66TMIuKzopywx0ZThD3iEe+LA9OcihcKicIah
-         kOIPisMRa1/8xMEW9mCaR1viiXkStjPtI02aZ4dzSBJV9eSv3wGxljgk5v8LJSFbhDF4
-         byNw==
+        bh=Hu2nzxTULIrNid+T0wW8lXLrPPrctqAZSUyi9Ewmd1M=;
+        b=BaEOpmZ/H1JZkUIaewlgDo2rdEZYuAe6SjcHsHIevJThL56ZHAAn4j7DiqdyFOTBk7
+         MJwjQphr137lAuUTG+lQ8SlO5ZoKu7pHdUeb/nxHs5sL1FGR/omE+XHFxhqFmodW+6xP
+         prmiFVd1UnpI2BjgZ7vTQx60DbC84qHxYYs9FDX3Ar7mCdhUM5HHTnFhNXXlCV852vs6
+         xAT3NWEymPLKo9Ls72uHGthX8drlQzVbZBUr3YxdOpPq0PCGJeGhAzj4w115fS7o6wwt
+         CSFAEr8UjkyKv+MMbyoaj7OHzOFXZNcBhAYtVcwE+CXq24jxiqvJW7X/IzREOXDdcixn
+         of3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785517591; x=1786122391;
+        d=1e100.net; s=20251104; t=1785517597; x=1786122397;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=F2wB8IP388Lc2MBAteJRNDo31xEFc0D1s8JJGVqmoX8=;
-        b=EQiQ9fIlOuP3ff1Rk1ba/m98YkylGP7zcMHazRm6FIkc8n6cyxRytEHEsBi9xwV8In
-         6SCnOJuDBALfsvj4PLtWNDhNbs5edQM5QbPFN8K0ncHn6N1WVZIGqcmfOdaHY+pPi1ip
-         Ka5ID/LJ94H0n4li3LOeL+a1nvMqQCXUzE6fGvxEDongXgfk7cZmShPTseOdiaTSFCyz
-         XXBI9OgtIMiG5fEV12YSY2vmiB28C2qCPpOHI3Vyiy32Joe6XufmIxMdfdI382sCkrxB
-         /IWn70/RjGhteY3bTWMqtIHJdMbPD0xopFFuB3pEwSTRe12RS5Up/MMJvNMrlFXwElH8
-         Cfxw==
-X-Forwarded-Encrypted: i=1; AHgh+RrJcHeAm5hHy/gfDo3J0UzpyOzSPx9Z//ejII57xy9OzazK9I7srBktncXbUzkp5Ikoivtfnjs/TwcaQPYAfFF8@lists.infradead.org
-X-Gm-Message-State: AOJu0YziGoOl5J/BVjiBwk5Q3s9Y5r32DodjQBJrO4GVk5bGqYRD1Aa9
-	Zq+IKW6but11Pd7pQr+ifdPZyRjChmPTISyl+nxGhJZDsWl/zmjerCBDVXYUJo0ENM6Od9VczNB
-	q54y2HA==
-X-Received: from pfbdc10.prod.google.com ([2002:a05:6a00:35ca:b0:84c:2b7d:213b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:885:b0:847:8c4e:1d5e
- with SMTP id d2e1a72fcca58-84ee48f8431mr387593b3a.56.1785517591199; Fri, 31
- Jul 2026 10:06:31 -0700 (PDT)
-Date: Fri, 31 Jul 2026 10:06:14 -0700
+        bh=Hu2nzxTULIrNid+T0wW8lXLrPPrctqAZSUyi9Ewmd1M=;
+        b=CY++5PyZUT4b5xuuy2HP22AVJK7Ncmn7whhasNzU4OKgvn3YWwBRrEsd2F5PByCJ07
+         qmX1WhxJnS5l6whMMUllgrobi8+Lh+tIFP4qV9lvzX9FExoRgpOQCebqfhciQyeS/qnP
+         63NpY0y705/N9tAFnnSQrppBh4okjCyhNAHp3VwRQqpOB4gZBq6oPKovg7llm31Jeyj9
+         1juncGF/HM7GJ1wHUXhdV/2qJ+YJz7Cr2l8NRjhpOMvJjq7SJi7JVxOQP6xjeXwkDDhi
+         YWN4DYYaBLk6Vbl7fkSl4ewaZPizL8GJiiBjnr33Vb5SwiuhID/e/07T/fEh3Yke8fND
+         07iQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqHA8ApLKqUzKb5tBMOc1cfg5jcoJlZxorCI6TrsqSFo27l4/N4kgyuDoCJ6IBz22zJRHwq6eeC+l32dAlaGBWz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzN3x7QcoQqXkDw8wIdQRHm0FYdQYubTy0WNKr2UPJD9oB09b6Q
+	TvV7OR0ApOQIlahWSOOLXUFFFJkejHBzs+Jaix/155Nnj/r3Nc4k21i/Vi7dRvfugwx/c1djKln
+	+wGluuA==
+X-Received: from pgsb25.prod.google.com ([2002:a65:67d9:0:b0:c99:aff5:707d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:484:b0:3c3:8c88:7b2a
+ with SMTP id adf61e73a8af0-3c92a84bcf4mr591268637.58.1785517596388; Fri, 31
+ Jul 2026 10:06:36 -0700 (PDT)
+Date: Fri, 31 Jul 2026 10:06:18 -0700
 In-Reply-To: <20260731170619.2620845-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260731170619.2620845-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
-Message-ID: <20260731170619.2620845-8-seanjc@google.com>
-Subject: [PATCH v2 07/12] KVM: selftests: Drop unreachable, dead code from
- hardware disable test
+Message-ID: <20260731170619.2620845-12-seanjc@google.com>
+Subject: [PATCH v2 11/12] KVM: selftests: Add KVM syscall wrappers for pthread_{g,s}etaffinity_np()
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
@@ -81,8 +80,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_100632_918238_4B851368 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20260731_100638_213647_686531AF 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,115 +97,60 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Drop all of the code that is unreachable in the hardware disable test, as
-it adds a lot of noise that makes the test seem far more complicated than
-it actually is.
+Add and use KVM wrappers for pthread_{g,s}etaffinity_np() so that selftests
+don't need to manually assert that the syscalls succeeded, and so that they
+don't need to manually pass in sizeof(cpu_set_t) for the size.
+
+Note, the steal time test didn't assert success, but the TEST_ASSERT() one
+line later makes it quite clear the test relies on pthread_getaffinity_np()
+succeeding.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../selftests/kvm/hardware_disable_test.c     | 41 +++++++------------
- 1 file changed, 14 insertions(+), 27 deletions(-)
+ .../testing/selftests/kvm/include/kvm_syscalls.h | 16 ++++++++++++++++
+ tools/testing/selftests/kvm/steal_time.c         |  2 +-
+ 2 files changed, 17 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/hardware_disable_test.c b/tools/testing/selftests/kvm/hardware_disable_test.c
-index bd23c1300370..b8115b2dcae3 100644
---- a/tools/testing/selftests/kvm/hardware_disable_test.c
-+++ b/tools/testing/selftests/kvm/hardware_disable_test.c
-@@ -15,6 +15,7 @@
- #include <test_util.h>
+diff --git a/tools/testing/selftests/kvm/include/kvm_syscalls.h b/tools/testing/selftests/kvm/include/kvm_syscalls.h
+index c0657e54aee5..dc7461894aef 100644
+--- a/tools/testing/selftests/kvm/include/kvm_syscalls.h
++++ b/tools/testing/selftests/kvm/include/kvm_syscalls.h
+@@ -98,6 +98,22 @@ __KVM_SYSCALL_DEFINE(madvise, 3, void *, addr, size_t, length, int, advice);
+ __KVM_SYSCALL_DEFINE(sched_getaffinity, 3, pid_t, pid, size_t, cpusetsize, cpu_set_t *, mask);
+ __KVM_SYSCALL_DEFINE(sched_setaffinity, 3, pid_t, pid, size_t, cpusetsize, cpu_set_t *, mask);
  
- #include "kvm_util.h"
-+#include "ucall_common.h"
- 
- #define VCPU_NUM 4
- #define SLEEPING_THREAD_NUM (1 << 4)
-@@ -28,7 +29,7 @@ static void guest_code(void)
- {
- 	for (;;)
- 		;  /* Some busy work */
--	printf("Should not be reached.\n");
-+	GUEST_ASSERT(0);
- }
- 
- static void *run_vcpu(void *arg)
-@@ -42,10 +43,8 @@ static void *run_vcpu(void *arg)
- 
- 	vcpu_run(vcpu);
- 
--	TEST_ASSERT(false, "%s: exited with reason %d: %s",
--		    __func__, run->exit_reason,
--		    exit_reason_str(run->exit_reason));
--	pthread_exit(NULL);
-+	TEST_FAIL("vCPU%d exited with reason %d: %s",
-+		  vcpu->id, run->exit_reason, exit_reason_str(run->exit_reason));
- }
- 
- static void *sleeping_thread(void *arg)
-@@ -56,12 +55,11 @@ static void *sleeping_thread(void *arg)
- 	kvm_sched_setaffinity(0, sizeof(cpu_set_t), &threads_cpu_set);
- #endif
- 
--	while (true) {
-+	while (1) {
- 		fd = open("/dev/null", O_RDWR);
- 		close(fd);
- 	}
--	TEST_ASSERT(false, "%s: exited", __func__);
--	pthread_exit(NULL);
-+	TEST_FAIL("%s: exited", __func__);
- }
- 
- static inline void check_create_thread(pthread_t *thread, pthread_attr_t *attr,
-@@ -73,22 +71,12 @@ static inline void check_create_thread(pthread_t *thread, pthread_attr_t *attr,
- 	TEST_ASSERT(r == 0, "%s: failed to create thread", __func__);
- }
- 
--static inline void check_join(pthread_t thread, void **retval)
--{
--	int r;
--
--	r = pthread_join(thread, retval);
--	TEST_ASSERT(r == 0, "%s: failed to join thread", __func__);
--}
--
- static void run_test(u32 run)
- {
- 	struct kvm_vcpu *vcpu;
- 	pthread_attr_t attr;
- 	struct kvm_vm *vm;
--	pthread_t threads[VCPU_NUM];
--	pthread_t throw_away;
--	void *b;
-+	pthread_t thread;
- 	u32 i, j;
- 
- 	pthread_attr_init(&attr);
-@@ -102,19 +90,18 @@ static void run_test(u32 run)
- 	for (i = 0; i < VCPU_NUM; ++i) {
- 		vcpu = vm_vcpu_add(vm, i, guest_code);
- 
--		check_create_thread(&threads[i], &attr, run_vcpu, vcpu);
-+		check_create_thread(&thread, &attr, run_vcpu, vcpu);
- 
--		for (j = 0; j < SLEEPING_THREAD_NUM; ++j) {
--			check_create_thread(&throw_away, &attr, sleeping_thread,
-+		for (j = 0; j < SLEEPING_THREAD_NUM; ++j)
-+			check_create_thread(&thread, &attr, sleeping_thread,
- 					    (void *)NULL);
--		}
- 	}
- 	pr_debug("%s: [%d] all threads launched\n", __func__, run);
- 	sem_post(sem);
--	for (i = 0; i < VCPU_NUM; ++i)
--		check_join(threads[i], &b);
--	/* Should not be reached */
--	TEST_ASSERT(false, "%s: [%d] child escaped the ninja", __func__, run);
++__KVM_SYSCALL_DEFINE(pthread_getaffinity_np, 3, pthread_t, thread,
++		     size_t, cpusetsize, cpu_set_t *, cpuset);
++__KVM_SYSCALL_DEFINE(pthread_setaffinity_np, 3, pthread_t, thread,
++		     size_t, cpusetsize, const cpu_set_t *, cpuset);
 +
-+	/* Wait for the parent to SIGKILL this child. */
-+	while (1)
-+		pause();
- }
++static inline void kvm_pthread_getaffinity(pthread_t thread, cpu_set_t *cpuset)
++{
++	kvm_pthread_getaffinity_np(thread, sizeof(cpu_set_t), cpuset);
++}
++
++static inline void kvm_pthread_setaffinity(pthread_t thread,
++					   const cpu_set_t *cpuset)
++{
++	kvm_pthread_setaffinity_np(thread, sizeof(cpu_set_t), cpuset);
++}
++
+ typedef void *(*pthread_fn_t)(void *);
+ __KVM_SYSCALL_DEFINE(pthread_create, 4, pthread_t *, thread,
+ 		     const pthread_attr_t *, attr, pthread_fn_t, fn, void *, arg);
+diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+index 6cb1eb4c40c9..bc3c62b72c58 100644
+--- a/tools/testing/selftests/kvm/steal_time.c
++++ b/tools/testing/selftests/kvm/steal_time.c
+@@ -549,7 +549,7 @@ int main(int ac, char **av)
+ 		/* Steal time from the VCPU. The steal time thread has the same CPU affinity as the VCPUs. */
+ 		run_delay = get_run_delay();
+ 		kvm_pthread_create(&thread, NULL, do_steal_time, NULL);
+-		pthread_getaffinity_np(thread, sizeof(cpuset), &cpuset);
++		kvm_pthread_getaffinity(thread, &cpuset);
+ 		TEST_ASSERT(CPU_COUNT(&cpuset) == 1 && CPU_ISSET(cpu, &cpuset),
+ 			    "Worker failed to inherit parent's CPU affinity");
  
- void wait_for_child_setup(pid_t pid)
 -- 
 2.55.0.508.g3f0d502094-goog
 
