@@ -4,84 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E012C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 12:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5918C5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zAhwrWMY6PvLC/P8M84L7525EvKre07drBqR9LRCx8A=; b=WAL94ZRpiRjskZ3G2n6UG91aKl
-	rSzOvt4LXFf2fCdwrS81GdFlRCc4XRE98a/WbHoTu3jShsEifY0Oi46VD7edRgB8jyFmL9nmGYi30
-	pOpwvZN1wlpeu/KD1iPQsb/jNmIfEezWO+1Hwi01rSYzFo4G92KSeHjHTiT8m4bf3c2ylRaEzEKLx
-	ukTzzI/+q9UEWSEBvy40rSHjCuemhb9I21M5gSdh/2CC7146p05h+MsRV0nwW660nmZC0st9oQgz8
-	oMePKl1INqr+7k6hDdD2Cj9WAbBCXnk3LKujZ4XslPPY2iLcMDosOCR/F9UlaZgfORVBdT/+ehwhC
-	5yFf1gtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XEplQyDJV/hD+jMr1nJP3q3x4a/yIY1QGzHv0URj6Fk=; b=BGOEHQJC9ntHROibdvUUMZWnUY
+	TMzIRZ3RC4DLRRW7+4VwM7q8MB10HZcdX7kfbIPEOrSfee8JeHR0PhSfbKxzK/NFfacin4HxStq1N
+	IpxwtFaDV3t6MzwgsojRymISw+v/NOGCH1XFYDDFdRVvgnNOrAznvS23y7PW7A4I8uPVDCaphAWqV
+	SeKOJWZJGwzbfnvh4E6TAjEjgc2AJxkitvyBcO/2B/4jM+xmF0IXVI0nMRDVxNANfMTsojK5kkbzS
+	NM0N40fy5BqZFQ5Z9yUQB70eiJ07h6AHr1pstCoRJgdEiBTPKmzgvBLt9aq8sVZEviugx2JxdP6jr
+	GoGBLhsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmmC-0000000CWiZ-4BRa;
-	Fri, 31 Jul 2026 12:55:49 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmmA-0000000CWi4-2Ff6;
-	Fri, 31 Jul 2026 12:55:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1785502536; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=NAceC1nZ03Z8OJtT3c/AkcqWZgr6iyrkBVJVptqz1VI1XwcNZa5DUKJu2CuJO8K/6aH+uUpXT8xMYH0MA0kYdHATwK7tlzsgyozc/uiGdQYHzU71iVpB32hC91kPKVKU08a6HR2iZZnug91O2geOadZ7E65Uc7zB2Iy1jRwaCNc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1785502536; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=zAhwrWMY6PvLC/P8M84L7525EvKre07drBqR9LRCx8A=; 
-	b=ex6DKoFlliJOmgcPdpT8RNRN+jpjfYz+mbeqTHrF3BFMyXYN2691fJROBKkKZaW5LOS0Xq34KSoe1b5HJkWtoW7LQ21D+v8L+xJg8pR5G0L2WFPZ0xAm6b5E38EDijVKIzNBZPe1F2uQnbiPI3agEnbkcLR8y1KrwkNkOpF8NX0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785502536;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=zAhwrWMY6PvLC/P8M84L7525EvKre07drBqR9LRCx8A=;
-	b=E5hGGX8nJlFV4riMFbzQfwVYLjS+jFZyeZtpkU8eqm8AHTNUVc3Nk5lYPYk/G20m
-	uRZPT2CBMnSHVw4riWDfmAw3RHLX3ib58YjKzTibCNPgZlbdWvLIL4bMUMnwZ1B+9zs
-	w8BEK0diuqrVdbbMbZVulLYAM9BLKWAdGxBaaG0U=
-Received: by mx.zohomail.com with SMTPS id 1785502535132267.4450717048104;
-	Fri, 31 Jul 2026 05:55:35 -0700 (PDT)
-Message-ID: <d418ce620a6128d7dac0c8e56f2a07653e5d035e.camel@collabora.com>
-Subject: Re: [PATCH v10 24/26] arm64: dts: mediatek: mt8195: Align ufshci
- node to dt-bindings changes
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
-  Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>,
- Peter Wang <peter.wang@mediatek.com>,  Chaotian Jing
- <chaotian.jing@mediatek.com>, Alim Akhtar <alim.akhtar@samsung.com>, Avri
- Altman	 <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
- Stanley Jhu	 <chu.stanley@gmail.com>, "James E.J. Bottomley"	
- <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen"	
- <martin.petersen@oracle.com>, Philipp Zabel <p.zabel@pengutronix.de>, Liam
- Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- kernel@collabora.com, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 	linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-scsi@vger.kernel.org, Nicolas Frattaroli	
- <nicolas.frattaroli@collabora.com>
-Date: Fri, 31 Jul 2026 14:55:28 +0200
-In-Reply-To: <20260731-curious-unnatural-octopus-cef3e9@quoll>
-References: <20260730-mt8196-ufs-v10-0-bc5ecef202dc@collabora.com>
-	 <20260730-mt8196-ufs-v10-24-bc5ecef202dc@collabora.com>
-	 <20260731-curious-unnatural-octopus-cef3e9@quoll>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1wpmyc-0000000CXi0-3WvL;
+	Fri, 31 Jul 2026 13:08:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpmya-0000000CXhe-1oWb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jul 2026 13:08:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F9F3204C;
+	Fri, 31 Jul 2026 06:08:30 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB6083F7B4;
+	Fri, 31 Jul 2026 06:08:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785503314; bh=nrcar04cvFJC+ca/pCx8J0BMjodvp6Ms01tyJ+xahhM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=luulRorDkUZw5bQbnYOwknuhMOVqwtfWZBwjZS1beSAGvPqWlCk/AKViaAV8nJFDd
+	 X/oZdIAdREdxYv9/Biq/AMVH1r/LHDRzneFlfUYeuAgYU2/qAG2KwTlYI+PnQa3pUy
+	 xiSbpk/pvpG9HohXT7O6Ai0dUX7NZGPnIlf6BnFo=
+Message-ID: <c539e5c4-f21e-49a1-b0e3-d35f42893fc4@arm.com>
+Date: Fri, 31 Jul 2026 15:08:31 +0200
 MIME-Version: 1.0
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
+To: Juan Manuel <juanmanuellopezcarrillo@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260721223956.13665-1-andre.przywara@arm.com>
+ <20260722172356.2509190-1-juanmanuellopezcarrillo@gmail.com>
+ <20260723002319.2793cdaf@ryzen.lan>
+ <CA+c=wxVB-cEncgBE12S2YgXhL7DVgRyg12_4jJ-CjxzBjK62kw@mail.gmail.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <CA+c=wxVB-cEncgBE12S2YgXhL7DVgRyg12_4jJ-CjxzBjK62kw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_055546_646242_93291320 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20260731_060836_569628_489E714B 
+X-CRM114-Status: GOOD (  25.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,49 +77,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Juan,
 
-On Fri, 2026-07-31 at 10:28 +0200, Krzysztof Kozlowski wrote:
-> On Thu, Jul 30, 2026 at 11:49:20AM +0200, Louis-Alexis Eyraud wrote:
-> > The MT8195 UFS host controller dt bindings now describe several
-> > extra
-> > required clocks that were previously missing from clock description
-> > and deprecates the freq-table-hz property use in favour of
-> > operating-points-v2 instead.
-> >=20
-> > Currently, the ufshci node declares the freq-table-hz property but
-> > all
-> > values contained in the array are zero, thus converting it to an
-> > OPP
-> > table is not needed.
-> >=20
-> > So, add in ufshci node the rx_symbol clocks in clock list and
-> > remove
-> > freq-table-hz property.
-> > Also reorder properties in node.
-> >=20
-> > Signed-off-by: Louis-Alexis Eyraud
-> > <louisalexis.eyraud@collabora.com>
-> > ---
-> > =C2=A0arch/arm64/boot/dts/mediatek/mt8195.dtsi | 21 ++++++++++---------=
--
-> > -
-> > =C2=A01 file changed, 10 insertions(+), 11 deletions(-)
->=20
-> DTS must not be combined with patchset targetting SCSI/UFS, because
-> UFS
-> folks were grabbing entire thread. Please follow the same rules as
-> when
-> submitting to USB, serial etc.
->=20
-Ack.
-I'll drop the 3 devicetree patches in the next revision and send them
-in a new series.
+On 7/30/26 19:40, Juan Manuel wrote:
+> Hi Andre,
+> 
+>> There is more to enabling Ethernet on the box, though, right? The
+>> EMAC25M pin needs to be configured correctly - not even sure that
+>> works cleanly with mainline? And what are the delay values that work
+>> for you?
+> 
+> Right, the withstand fix alone isn't enough. Three things were needed to
+> get GMAC1 up on the OPi 4A:
 
-Best regards,
-Louis-Alexis
+Sorry, there might be some confusion here: I think Chen-Yu already 
+mentioned that Ethernet works on his OPi 4A, with just the withstanding fix.
+I think I was mixing this up with the X96QPro+ TV box when asking, which 
+also uses the second MAC, but has a different setup.
+So are you talking about the Orange Pi 4A? Because ...
 
-> Best regards,
-> Krzysztof
->=20
+> 1) The PJ pinmux. Mainline's rgmii1 group was missing PJ10, which left
+>     one RX signal unmapped, so I got rx_packets=0. The BSP muxes the full
+>     PJ0..PJ15 (16 pins) as function "gmac1" (mux 5); with all 16 mapped,
+>     RX comes alive. I don't mux any separate/dedicated 25 MHz clock-out
+>     pin beyond that gmac1 group, and the link is rock solid, so on this
+>     board the PHY's 25 MHz reference isn't provided by an extra SoC pin.
+
+I think there is some misunderstanding here, probably caused by 
+Allwinner's naming of that pin. Pin PJ10 (and PH13, inside the GMAC0 
+group) are mere clock fanouts, they connect internally to two gated 
+divider clocks, with the main peripheral PLL as their parent. They 
+produce a 25 MHz clock signal, which is simply routed out to those pins. 
+They work independently of the MACs, and could be even used for 
+something else.
+
+On boards which do not use a crystal oscillator to clock the PHY (most 
+boards, including the OPi 4A, have an oscillator!), the pin is not 
+needed, hence we didn't include it in the pinmux. According to the 
+schematic, PJ10 is not even connected on the OPi 4A, so whether you 
+include it in the pinmux or not doesn't matter.
+
+So can you please double check this? For PJ10 to have any effect, it 
+also would need the associated clock enabled.
+
+And for the records: I think I found now the proper solution to enable 
+Ethernet on the X96QPro+: the pinmux for PJ10 gets added, either in the 
+PHY, or the MAC DT node. The associated EPHY_25M clock must then be 
+referenced by the PHY node. And the respective PHY driver needs to 
+enable that clock (some do, others don't).
+With those things in place, Ethernet works on the X96QPro+ board, which 
+does not feature a crystal oscillator, hence relies on that 25 MHz clock 
+output to step in.
+
+> 2) RGMII clock delays. The board has a Motorcomm YT8531 PHY:
+>       - phy-mode          = "rgmii-rxid"
+>       - PHY node          : rx-internal-delay-ps = 1900  (YT8531
+> RXC_DLY_EN, ~1.9ns)
+>       - MAC syscon        : tx-internal-delay-ps = 100
+>                             rx-internal-delay-ps = 0
+>     That combo gives a stable 1 Gbps / full-duplex link, 0% packet loss.
+
+Those settings differ from what's in mainline. What are the results with 
+those delays? Does it work as well, and those are just other settings 
+that happen to work, because the math works out the same?
+
+Cheers,
+Andre
+
+> 3) Your withstand encoding fix. Before it, the PJ bank was driven at 1.8V
+>     while the receiver sat in 3.3V mode, so RX was effectively deaf. With
+>     your patch RX reads correctly.
+> 
+> All of the above is validated on my board (2026-07-08): link up at
+> 1 Gbps/full, ping 0% loss over a sustained transfer.
+> 
+> Thanks again for the withstand fix - glad the POW_MOD_SEL patch helped
+> connect the dots.
+> 
+> Cheers,
+> Juan
+
 
