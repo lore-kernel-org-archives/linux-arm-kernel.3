@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE1D8C54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37ACBC55167
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3oSPo/QkAHOUHrcuIVZ6KwocCD4v1uwf/1m4LU9tfeE=; b=RBrrPlKA/l/81QCVORKG0I3fjc
-	dEPZmNPbmfQrJD6IlOhu6MW0SUCJJD0I2U5Z0Jhw8dzrzoemX2w0LwPr+MDYZ6djCWBd5QfTgIiyM
-	ED9oK09Lb22hZ/YiK1KmSb0Iaj1jsQaHWV44pHb5sFNBPqQ/OpKZ0QUzTGpT8Yd0xRcPSCMohrla/
-	paQKtRdcXtOlSJDJfZVcl+Tee5kt5ibDvSCdWhI1OGtyxPh37f82w6j9YdEMC6ySkr52S2F+f8FGZ
-	65X1V6jIwR3RbN+9frIAwCLDVEduq8fIjHlgHC+TUlKHyBRnYhWmdvD1X+BWLJyuHuVh4C/H4ZNEL
-	RmhEZ4OQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:Reply-To:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:To:From:
+	Date:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bhfMd0xQKSaunZOLs9S9OqYp5MXykTMEGswqHz/JJOU=; b=0bG5oKHwSO2/5v98L6DAedqfu7
+	JY4f6AFrLhoThF3f3KUyEdWtmTWoq2uLJH/vHEFQ2P/6rdfEyYH5oXyKqFrJfQyEM8wgXITcc1FkF
+	SuXDj4zur45JT4i4WiHyHygbcf3KRLqDPe4EXlVlD+fNeUJZWrDdx8/HjCwoFpePEClzdgkslXnZS
+	Cw1yvg71sn0RDWCFMIzaQ3hzxUpnjLcrml8LoW2f/sp0cF0b6rqdDCgeZNO2kNgK5MwXYls+OdfNK
+	SjKuLPaAhyZw0i7nzjNHBPEhmdWBPzFfr5zvWMyhDe9+rcPQ3wW6peCebsVnuuxzO9iQAjXsXIcso
+	u/DC820w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpq9j-0000000D8oY-1dcT;
-	Fri, 31 Jul 2026 16:32:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpq9h-0000000D8nU-0ik1
+	id 1wpqLJ-0000000DAgH-2hKp;
+	Fri, 31 Jul 2026 16:44:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpqLJ-0000000DAg3-0ApB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 16:32:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E4B1204C;
-	Fri, 31 Jul 2026 09:32:12 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 71A233F86F;
-	Fri, 31 Jul 2026 09:32:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785515536; bh=VbxlaKfrlvVQz4HJBJtoAZXt2oWQTXMKrfRAQCHlrvA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hPN34vbp4F+JtFjYjq6NM52DmQeW5hEDr6P+aePDLP9XQTBQlk/4DQFEiSoKV7i9C
-	 9tODQZM7wZhedQAcGCLw4TeprZtegBAK6FHBJmda9baR/SbeWQElXQPVb/B+u6elaV
-	 RDBrh+ctknoQg4I+hoR4xBAtYGanTZKVFUFlZhpc=
-Message-ID: <771b0fb7-7689-49dd-a06f-8bef174e432d@arm.com>
-Date: Fri, 31 Jul 2026 18:32:06 +0200
+	Fri, 31 Jul 2026 16:44:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 79FE7435EA;
+	Fri, 31 Jul 2026 16:44:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CDFA1F00AC4;
+	Fri, 31 Jul 2026 16:44:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785516256;
+	bh=bhfMd0xQKSaunZOLs9S9OqYp5MXykTMEGswqHz/JJOU=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=UYUKT6TyphrtSw7L+pRFB1Il1b/ED70WjDg83ObdFt2q8he5xjc6r4tzikDwit659
+	 qAASPpK7GiXYqeKOLiuUGoZx/LqXAiARPh9XgjltIV/bei7by0yc2JMaFzX7At3o7p
+	 enFn88RsriXV7AbMawpk0Oz0QEq4HX2kwVE1v+oavNiTqzxfJ1gxIn04VVJrvFLAc5
+	 b4ZqUUVz+qAKm2lrdI200tQjMdKwQJOJF+CDgly55sFEduzvcFAbdgXLecBMXmn/Ut
+	 EdY86OsjZd+z8Cfc9L+uulBiauSkwx27HNKKVtRoU9RXrPJ9q5Pf6HbtL0VjLpjV9V
+	 7Ut+Q8Usbmyyg==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 1E849CE13C6; Fri, 31 Jul 2026 09:44:16 -0700 (PDT)
+Date: Fri, 31 Jul 2026 09:44:16 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH RFC] arm64: Mark set_preempt_need_resched() access to
+ .need_resched
+Message-ID: <13df4ff4-8594-4c37-b25f-860248a222cf@paulmck-laptop>
+References: <d345dc9f-c61e-4db5-a342-11b0ff3fb846@paulmck-laptop>
+ <amyaRXx8zXxOMgTL@J2N7QTR9R3>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/10] arm_mpam: Add MPAM-Fb firmware support
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260730152539.2712312-1-andre.przywara@arm.com>
- <af820923-c423-4f19-99dd-7d8fdd2da864@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <af820923-c423-4f19-99dd-7d8fdd2da864@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_093217_328766_A694B981 
-X-CRM114-Status: GOOD (  16.85  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amyaRXx8zXxOMgTL@J2N7QTR9R3>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,41 +67,66 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
+Cc: "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
-
-On 7/30/26 19:10, Ben Horgan wrote:
-> Hi Andre,
+On Fri, Jul 31, 2026 at 01:51:26PM +0100, Mark Rutland wrote:
+> Hi Paul,
 > 
-> On 7/30/26 16:25, Andre Przywara wrote:
-> [...]
->> The first six patches rework all MSC access wrappers to propagate error
->> information. Pure MMIO based MSC accesses would never fail, but the
->> MPAM-Fb access can go wrong in multiple ways. The patches have been split
->> up purely for reviewing reasons, if the number is a problem, we could as
->> well squash them. Please note that until the very last patch of this series
->> any MSC accesses would always only return 0, it's only the final enablement
->> of MPAM-Fb that could possibly introduce errors. Hence all former patches
->> can add error handling gradually, those code paths wouldn't be triggered
->> before patch 10/10.
+> On Thu, Jul 30, 2026 at 04:59:57PM -0700, Paul E. McKenney wrote:
+> > The .need_resched field can be accessed from both task level and
+> > from interrrupt handlers, so apply WRITE_ONCE() to the update in
+> > set_preempt_need_resched().  This also brings arm64 in line with s390
+> > (which uses atomic operations) and x86 (which uses inline assembly).
+> > Other architectures avoid this issue via the empty definition in
+> > include/asm-generic/preempt.h.
+> > 
+> > KCSAN located this issue.
 > 
-> I had a go at injecting some errors and noticed that at least some aren't getting to user space.
-> When writing the schemata file any MPAM-Fb error is not propagated to the user. The
-> resctrl_arch_update_domains() continues to return 0 as there are some missing links in the chain
-> down to the writes, e.g. __write_config() always returns 0.
+> Do you have the KCSAN splat to hand? Seeing the exact race (and the
+> relevant reader(s)) would be handy.
+> 
+> > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> > Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> > Cc: <linux-arm-kernel@lists.infradead.org>
+> > 
+> > ---
+> >  preempt.h |    2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+> > index 932ea4b6204289..610853da140a78 100644
+> > --- a/arch/arm64/include/asm/preempt.h
+> > +++ b/arch/arm64/include/asm/preempt.h
+> > @@ -28,7 +28,7 @@ static inline void preempt_count_set(u64 pc)
+> >  
+> >  static inline void set_preempt_need_resched(void)
+> >  {
+> > -	current_thread_info()->preempt.need_resched = 0;
+> > +	WRITE_ONCE(current_thread_info()->preempt.need_resched, 0);
+> >  }
+> 
+> I was under the impression that we only used this in a context where we
+> couldn't have a nested writer (e.g. within a scheduler IRQ hook, with
+> IRQs disabled).
+> 
+> If we have concurrent writers, this is probably broken regardless of
+> whether it is single-copy-atomic, and I worry WRITE_ONCE() will mask a
+> bug.
+> 
+> If you can share the KCSAN splat, that'd really help.
 
-Ah yeah, that's true. With the write functions using a compatible 
-prototype (just ignoring the new return value) this is harder to check, 
-since the compiler is just fine with it.
+Let me regenerate it...
 
-So I propagate all MSC access errors now in mpam_reprogram_ris_partid(), 
-and the depending mpam_apply_config(), __write_config and 
-mpam_reset_ris() functions. From my quick analysis I'd say that covers 
-all functions now that mpam_devices.c exports. That will be a new patch 
-07/11.
+> I think we need READ_ONCE() in test_preempt_need_resched(), but today
+> that's only used by tracing to determine what to log.
 
-Cheers,
-Andre
+I do have tracing enabled on some of my runs.
+
+							Thanx, Paul
 
