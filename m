@@ -4,65 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5918C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:08:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34B8EC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEplQyDJV/hD+jMr1nJP3q3x4a/yIY1QGzHv0URj6Fk=; b=BGOEHQJC9ntHROibdvUUMZWnUY
-	TMzIRZ3RC4DLRRW7+4VwM7q8MB10HZcdX7kfbIPEOrSfee8JeHR0PhSfbKxzK/NFfacin4HxStq1N
-	IpxwtFaDV3t6MzwgsojRymISw+v/NOGCH1XFYDDFdRVvgnNOrAznvS23y7PW7A4I8uPVDCaphAWqV
-	SeKOJWZJGwzbfnvh4E6TAjEjgc2AJxkitvyBcO/2B/4jM+xmF0IXVI0nMRDVxNANfMTsojK5kkbzS
-	NM0N40fy5BqZFQ5Z9yUQB70eiJ07h6AHr1pstCoRJgdEiBTPKmzgvBLt9aq8sVZEviugx2JxdP6jr
-	GoGBLhsg==;
+	bh=OgCWXZefIrbXXFaJfpg2eTiIEQqfkoaud39PK+2kZgw=; b=Cs3Y0xKi3+gsUCk0P7EnbCGVNQ
+	4Q/4ReNyvtpL9xF1/ghYBEFC8RYHjs9KZzq8LbqzIHFmjGkRlqBJbBTBUMIc1Zeqe6W9WDaPfs2uR
+	xspg2hUvmJam/xDRrIcKdgCkW/kkNxv1oItuX8f087uPkzByO+c3t78k2BWco89AxkkeoYwmhtZ1x
+	inGLXG5I1wcLVmS6qtNdO/BP+jcLLfQg1L9APgXP9p2Wq1OPAiUn5KQ/SXmPmT3i/tyNh/IGge0Ba
+	+d11B2RGOX+g8ARYrEUcRo8F5AVjBUTNOxysEDDPrKvJHeF5jKD/hCyJbyVXE9KFzW0jC8CDhHAhe
+	UL7e5bxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmyc-0000000CXi0-3WvL;
-	Fri, 31 Jul 2026 13:08:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmya-0000000CXhe-1oWb
+	id 1wpmzQ-0000000CXqJ-0ZqR;
+	Fri, 31 Jul 2026 13:09:28 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpmzN-0000000CXnA-2ls8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:08:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F9F3204C;
-	Fri, 31 Jul 2026 06:08:30 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB6083F7B4;
-	Fri, 31 Jul 2026 06:08:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785503314; bh=nrcar04cvFJC+ca/pCx8J0BMjodvp6Ms01tyJ+xahhM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=luulRorDkUZw5bQbnYOwknuhMOVqwtfWZBwjZS1beSAGvPqWlCk/AKViaAV8nJFDd
-	 X/oZdIAdREdxYv9/Biq/AMVH1r/LHDRzneFlfUYeuAgYU2/qAG2KwTlYI+PnQa3pUy
-	 xiSbpk/pvpG9HohXT7O6Ai0dUX7NZGPnIlf6BnFo=
-Message-ID: <c539e5c4-f21e-49a1-b0e3-d35f42893fc4@arm.com>
-Date: Fri, 31 Jul 2026 15:08:31 +0200
+	Fri, 31 Jul 2026 13:09:26 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBlZGb4072607;
+	Fri, 31 Jul 2026 13:09:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=OgCWXZefIrbXXFaJf
+	pg2eTiIEQqfkoaud39PK+2kZgw=; b=iZZm+RpCLqI77ocLUtF2Bz2l66xMPhMp+
+	KYmxjP2RboLcDCvX81lm6cOQ0n/OoMlcgd35l3eC1LCbGS2aTXzCZJR1Rx9YRTRH
+	1iaWSHlLZhlfg8AQnTAUDV5hKgvE5sI2zABW4KiNQtOmACFnpDgpOdyJwkxhQIYD
+	LapuxQm/AnGOBxLxTdzUEgS/LL5zvG1fPtbX+M+tjbMfCI/BkRsjw1IiLfX4I16E
+	IYFxN+pPcGdmgfXL4DcA0UcE+Z2DJpAt39W0hzGYJs1SdGD9FuvvdDFo6J/IWjmg
+	d03l+J5kh4SpsU2LRSd/+fsR1rzulzAv2JGrP5dytCAs+rq8/NxzA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuycw2my-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 31 Jul 2026 13:09:13 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuP3i021771;
+	Fri, 31 Jul 2026 13:09:12 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn7uwg43a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 31 Jul 2026 13:09:12 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD95Ht51380698
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 31 Jul 2026 13:09:05 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2613920040;
+	Fri, 31 Jul 2026 13:09:04 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B7D4720043;
+	Fri, 31 Jul 2026 13:09:03 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 31 Jul 2026 13:09:03 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v5 02/31] KVM: Make device name configurable
+Date: Fri, 31 Jul 2026 15:08:30 +0200
+Message-ID: <20260731130902.654679-3-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
+References: <20260731130902.654679-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
-To: Juan Manuel <juanmanuellopezcarrillo@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260721223956.13665-1-andre.przywara@arm.com>
- <20260722172356.2509190-1-juanmanuellopezcarrillo@gmail.com>
- <20260723002319.2793cdaf@ryzen.lan>
- <CA+c=wxVB-cEncgBE12S2YgXhL7DVgRyg12_4jJ-CjxzBjK62kw@mail.gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <CA+c=wxVB-cEncgBE12S2YgXhL7DVgRyg12_4jJ-CjxzBjK62kw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: V6fYSpNAeFcLtfl6NhWWo6vfUFaFWnAJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfXxGpXNCnRG3mr
+ HZaC5H7YO5J4tE9lTCHw7BlmqkpWvccvf7YT7+p7smU5aqyT4SaO3/HJBKlOiuOVPC//9MpYVin
+ cVI9owSMjSAw7GbS6qOxNwXpDNtypTtcyC/lJCbtNPEk/Vd2Iv/sxu+/GjsNXpBS59ptsK20j5i
+ GxPZZdpzPbqLPIcRkeXbSA/6IXfz+oDFhXZ/ns5V/GTRf9ouuF1kRObXBlBgbgSjMxpTZ+zTQ2K
+ Pa5BPYiCRukGBTprIEolgNqdExgyygeZS+dHKZ1HyECbZb8xcEKZtFiWo6fQCQJ1YPfbwJRzSIz
+ bQd7sVl9YBSjCEeHaz7sp4vwQPsEhRe0VmiLE32Trn9kIk62Y2XcDmnEti0fRmEkn7sWwLWpSK6
+ yH1WDMRKTMt8wnb00A5tqS6DlsIOSacj4/+nUE7A9aXNra8PFQQhyaW5Y+ZaLxJgd1MZEeE+XKV
+ NRrlMVQ4pTuEafz9vIQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfXxqX+UltkVUXP
+ kD3p78kgvhqF1Zo4rfSHjQJjkZBV8UgISj9DvkABoiqqq3uCpuBExlbTzAzhI+JDZYlXKsGonbd
+ 6q49iRN3Uq1es6bDYAdOm7DFz1UAYC4=
+X-Authority-Analysis: v=2.4 cv=AZeB2XXG c=1 sm=1 tr=0 ts=6a6c9e7a cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=mNtOeJMeAAAA:8
+ a=HlZ9FdNpOgxRqm6DjigA:9 a=_FGNsZxrd-dVGcz-3RuP:22
+X-Proofpoint-GUID: z45eeoq7oYfjv2J1RfM93CyuIyJaB1Gv
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 phishscore=0 adultscore=0 impostorscore=0
+ clxscore=1015 malwarescore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607310096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060836_569628_489E714B 
-X-CRM114-Status: GOOD (  25.22  )
+X-CRM114-CacheID: sfid-20260731_060925_703468_398B6F84 
+X-CRM114-Status: GOOD (  18.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,84 +141,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Juan,
+Allow KVM implementations to choose alternative device names. This is
+especially useful for architectures providing multiple KVM
+implementations simultaneously.
 
-On 7/30/26 19:40, Juan Manuel wrote:
-> Hi Andre,
-> 
->> There is more to enabling Ethernet on the box, though, right? The
->> EMAC25M pin needs to be configured correctly - not even sure that
->> works cleanly with mainline? And what are the delay values that work
->> for you?
-> 
-> Right, the withstand fix alone isn't enough. Three things were needed to
-> get GMAC1 up on the OPi 4A:
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+---
+ include/linux/kvm_host.h |  4 +++-
+ virt/kvm/kvm_main.c      | 38 +++++++++++++++++++++++++++++---------
+ 2 files changed, 32 insertions(+), 10 deletions(-)
 
-Sorry, there might be some confusion here: I think Chen-Yu already 
-mentioned that Ethernet works on his OPi 4A, with just the withstanding fix.
-I think I was mixing this up with the X96QPro+ TV box when asking, which 
-also uses the second MAC, but has a different setup.
-So are you talking about the Orange Pi 4A? Because ...
-
-> 1) The PJ pinmux. Mainline's rgmii1 group was missing PJ10, which left
->     one RX signal unmapped, so I got rx_packets=0. The BSP muxes the full
->     PJ0..PJ15 (16 pins) as function "gmac1" (mux 5); with all 16 mapped,
->     RX comes alive. I don't mux any separate/dedicated 25 MHz clock-out
->     pin beyond that gmac1 group, and the link is rock solid, so on this
->     board the PHY's 25 MHz reference isn't provided by an extra SoC pin.
-
-I think there is some misunderstanding here, probably caused by 
-Allwinner's naming of that pin. Pin PJ10 (and PH13, inside the GMAC0 
-group) are mere clock fanouts, they connect internally to two gated 
-divider clocks, with the main peripheral PLL as their parent. They 
-produce a 25 MHz clock signal, which is simply routed out to those pins. 
-They work independently of the MACs, and could be even used for 
-something else.
-
-On boards which do not use a crystal oscillator to clock the PHY (most 
-boards, including the OPi 4A, have an oscillator!), the pin is not 
-needed, hence we didn't include it in the pinmux. According to the 
-schematic, PJ10 is not even connected on the OPi 4A, so whether you 
-include it in the pinmux or not doesn't matter.
-
-So can you please double check this? For PJ10 to have any effect, it 
-also would need the associated clock enabled.
-
-And for the records: I think I found now the proper solution to enable 
-Ethernet on the X96QPro+: the pinmux for PJ10 gets added, either in the 
-PHY, or the MAC DT node. The associated EPHY_25M clock must then be 
-referenced by the PHY node. And the respective PHY driver needs to 
-enable that clock (some do, others don't).
-With those things in place, Ethernet works on the X96QPro+ board, which 
-does not feature a crystal oscillator, hence relies on that 25 MHz clock 
-output to step in.
-
-> 2) RGMII clock delays. The board has a Motorcomm YT8531 PHY:
->       - phy-mode          = "rgmii-rxid"
->       - PHY node          : rx-internal-delay-ps = 1900  (YT8531
-> RXC_DLY_EN, ~1.9ns)
->       - MAC syscon        : tx-internal-delay-ps = 100
->                             rx-internal-delay-ps = 0
->     That combo gives a stable 1 Gbps / full-duplex link, 0% packet loss.
-
-Those settings differ from what's in mainline. What are the results with 
-those delays? Does it work as well, and those are just other settings 
-that happen to work, because the math works out the same?
-
-Cheers,
-Andre
-
-> 3) Your withstand encoding fix. Before it, the PJ bank was driven at 1.8V
->     while the receiver sat in 3.3V mode, so RX was effectively deaf. With
->     your patch RX reads correctly.
-> 
-> All of the above is validated on my board (2026-07-08): link up at
-> 1 Gbps/full, ping 0% loss over a sustained transfer.
-> 
-> Thanks again for the withstand fix - glad the POW_MOD_SEL patch helped
-> connect the dots.
-> 
-> Cheers,
-> Juan
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 90a9f840fece..7a5e2797db7f 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1068,7 +1068,9 @@ static inline void kvm_irqfd_exit(void)
+ {
+ }
+ #endif
+-int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module);
++int kvm_init(unsigned int vcpu_size, unsigned int vcpu_align, struct module *module);
++int kvm_init_with_dev(unsigned int vcpu_size, unsigned int vcpu_align,
++		      struct module *module, const char *dev_name, int minor);
+ void kvm_exit(void);
+ 
+ void kvm_get_kvm(struct kvm *kvm);
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 994cb40cf2ef..18eb3d5d04f4 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -10,6 +10,7 @@
+  *   Yaniv Kamay  <yaniv@qumranet.com>
+  */
+ 
++#include "linux/sprintf.h"
+ #include <kvm/iodev.h>
+ 
+ #include <linux/kvm_host.h>
+@@ -5575,9 +5576,7 @@ static struct file_operations kvm_chardev_ops = {
+ };
+ 
+ static struct miscdevice kvm_dev = {
+-	KVM_MINOR,
+-	"kvm",
+-	&kvm_chardev_ops,
++	.fops = &kvm_chardev_ops,
+ };
+ 
+ #ifdef CONFIG_KVM_GENERIC_HARDWARE_ENABLING
+@@ -6349,13 +6348,13 @@ static void kvm_uevent_notify_change(unsigned int type, struct kvm *kvm)
+ 	kfree(env);
+ }
+ 
+-static void kvm_init_debug(void)
++static void kvm_init_debug(const char *dev_name)
+ {
+ 	const struct file_operations *fops;
+ 	const struct kvm_stats_desc *pdesc;
+ 	int i;
+ 
+-	kvm_debugfs_dir = debugfs_create_dir("kvm", NULL);
++	kvm_debugfs_dir = debugfs_create_dir(dev_name, NULL);
+ 
+ 	for (i = 0; i < kvm_vm_stats_header.num_desc; ++i) {
+ 		pdesc = &kvm_vm_stats_desc[i];
+@@ -6491,23 +6490,39 @@ void kvm_unregister_perf_callbacks(void)
+ }
+ #endif
+ 
+-int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
++int kvm_init(unsigned int vcpu_size, unsigned int vcpu_align, struct module *module)
+ {
++	return kvm_init_with_dev(vcpu_size, vcpu_align, module, "kvm", KVM_MINOR);
++}
++
++int kvm_init_with_dev(unsigned int vcpu_size, unsigned int vcpu_align,
++		      struct module *module, const char *dev_name, int minor)
++{
++	char *cache_name __free(kfree) = NULL;
+ 	int r;
+ 	int cpu;
+ 
++	kvm_dev.minor = minor;
++	kvm_dev.name = kstrdup_const(dev_name, GFP_KERNEL);
++	if (!kvm_dev.name)
++		return -ENOMEM;
++
+ 	/* A kmem cache lets us meet the alignment requirements of fx_save. */
+ 	if (!vcpu_align)
+ 		vcpu_align = __alignof__(struct kvm_vcpu);
++	cache_name = kasprintf(GFP_KERNEL, "%s_vcpu", dev_name);
++	if (!cache_name)
++		return -ENOMEM;
+ 	kvm_vcpu_cache =
+-		kmem_cache_create_usercopy("kvm_vcpu", vcpu_size, vcpu_align,
++		kmem_cache_create_usercopy(cache_name, vcpu_size, vcpu_align,
+ 					   SLAB_ACCOUNT,
+ 					   offsetof(struct kvm_vcpu, arch),
+ 					   offsetofend(struct kvm_vcpu, stats_id)
+ 					   - offsetof(struct kvm_vcpu, arch),
+ 					   NULL);
++	r = -ENOMEM;
+ 	if (!kvm_vcpu_cache)
+-		return -ENOMEM;
++		goto err_dev_name;
+ 
+ 	for_each_possible_cpu(cpu) {
+ 		if (!alloc_cpumask_var_node(&per_cpu(cpu_kick_mask, cpu),
+@@ -6533,7 +6548,7 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ 	kvm_preempt_ops.sched_in = kvm_sched_in;
+ 	kvm_preempt_ops.sched_out = kvm_sched_out;
+ 
+-	kvm_init_debug();
++	kvm_init_debug(kvm_dev.name);
+ 
+ 	r = kvm_vfio_ops_init();
+ 	if (WARN_ON_ONCE(r))
+@@ -6574,6 +6589,8 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ 	for_each_possible_cpu(cpu)
+ 		free_cpumask_var(per_cpu(cpu_kick_mask, cpu));
+ 	kmem_cache_destroy(kvm_vcpu_cache);
++err_dev_name:
++	kfree_const(kvm_dev.name);
+ 	return r;
+ }
+ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_init);
+@@ -6599,5 +6616,8 @@ void kvm_exit(void)
+ 	kvm_vfio_ops_exit();
+ 	kvm_async_pf_deinit();
+ 	kvm_irqfd_exit();
++
++	kfree_const(kvm_dev.name);
++	kvm_dev.name = NULL;
+ }
+ EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_exit);
+-- 
+2.53.0
 
 
