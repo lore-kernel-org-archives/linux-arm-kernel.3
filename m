@@ -4,97 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CCE7C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691CFC55173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pw2+6W330KNNbLzF0QvSgAqSLp8AT2ZZJuEbFAlLaQ4=; b=SOi2In332pdWLKTWX4Xen7qjbO
-	f7XigXhMy9prDCk7M2R6CTRoY8By6Eooq6wFERdMBu/yhh+8hLc+S+T/wjEINzmgXZBvKdMBSCk2D
-	CewYzeIRwiLtIITrbdPOmBkbX4ThNGD6TB5ZrplSgSqzjbtKo3mpGDBndJUj2GiUZzH1KecKYenRb
-	OXDFY0poVnwZt+Q81oph/5sZao8WSXxf0KULnfMGAwz5JYitR/GByLSJiYiuV328hq3vs64/+whFB
-	EE3ouMyvIn17S1U9Po9NP0Dc9qQC9CEvKpL9NbOe86JRm6JUdVhcVPhgwX5u2Jc29BO/DsMTeQdCw
-	NdXC+vuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1t219Uo5uTrxIXX4Pq8w6KIqBvayeGDC3OL82qt7QsE=; b=zCBGhUVREWz/8lhs19JRSu/f7x
+	wIGftj79P82BfgagxZJXJBuaaOKQMMZkF97RUtvPEB1pf2HZ1V+fSP8M2qFXBC/ncEMvILTndigVC
+	U5RPaOXVlAa1PEnJhAXcvv9FaQTGS8cF3Nbu8yuoVeCqMzYjn/yMH74qi592Jk7xMwUH84AD6HoIs
+	bAdZWItK1tjK041EXXc7FWuxBKoCNHoK1adiBRBo45lWF7wo2aqGHpPv73CjgybfsqrXE6wEyUEe4
+	zS5bsWQfsErHmXIxUUhdRgTNh3Zr6g1zBhWhjdTUBAsjS9G3MwThA1AifX7xevbxaClNoUgz0Fvkn
+	3+8KlXHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wprp2-0000000DLNF-47kC;
-	Fri, 31 Jul 2026 18:19:04 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1wprsd-0000000DLs2-3W2H;
+	Fri, 31 Jul 2026 18:22:47 +0000
+Received: from mail-ej1-x645.google.com ([2a00:1450:4864:20::645])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpror-0000000DLJg-2ttG
+	id 1wprsb-0000000DLrg-2WVP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 18:18:54 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47db714766aso1474514f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 11:18:53 -0700 (PDT)
+	Fri, 31 Jul 2026 18:22:46 +0000
+Received: by mail-ej1-x645.google.com with SMTP id a640c23a62f3a-c15fc5a1b7eso95416966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 11:22:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785521932; x=1786126732; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=pw2+6W330KNNbLzF0QvSgAqSLp8AT2ZZJuEbFAlLaQ4=;
-        b=FXKZPrGOmBghQiYwyGheGxtpw2U5VrmvjD7H+oMS03nz2MQE+wv1tNEsJBq8y5I+jo
-         t7SK77tqT9nZq24eXPv669vNW/J364mEPyJHRErip/3WJA7RPRO4Z7vBZy7cK7Zgnx9o
-         vNXt7eDtxBJDXQ4Qr2k0moVjQy9P5+X+ahSHBhkW2mXyX8yLeykQcMXGCJQ0f9xW0dKx
-         dLIKQpTK9oC2DH8z4MDoE59W1aPpY/7om0lLuHRu5T4mFmgOs5UOplFtI3W0HO8dwxB/
-         bKU9mShct9jrzspEoaGG20N9ueF84Fb9M+/1+5vmcwTNiBjdzPzZ3+kTQevYe/Ct/5Ko
-         j3Tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785521932; x=1786126732;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=google.com; s=20251104; t=1785522163; x=1786126963; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pw2+6W330KNNbLzF0QvSgAqSLp8AT2ZZJuEbFAlLaQ4=;
-        b=etBooMqiHGCdd0loyMrjo2M+krVvlBLukOM2nU1bytCsVSU6zDCQ1sDJiYTPJKrlAU
-         337m8WhsyBERX4i3i61hFitm9kn1+2Ahi/hV5V1+f5EO2V3kSas6pxFhjjWIFesyxi5i
-         1CkJlc7Lb1+Kh24OYHzTT08JnLZmgQ0RyCQNRpP7MiIZ2vADFBsEIqqODMshDNdVhXGZ
-         0jmpa/zyoYa3THJyOXqhV7PY8T++s7bwPCw5X3/U7E7UF+2tzZEE7306stat2Fn2iNB3
-         NkJ09Z1UOm9DAN+vtLr0aWtVltyLe5qEuF7GsfA7tzlPlVrFxVdEIsmHhKHWmCcUqtWr
-         UsLQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpPkUatu2wZ+x5QPHKmvGuZTv+v1UXz+oJtzMB8ASTpKgCNQcGqUJJlGimVDRLi25D5zLRAXoLVmu1LfjgnkuXF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRB6jO+mdDsEXhr+9OAs/hWDdgrAiwqvyMnmjS1Y1J2JN/y1SD
-	zEK6vUetlKquLHm/nS+tGiYawCxAV5dOUPyv8aFyqwrecZj32Nl2zEYd
-X-Gm-Gg: AR+sD12kVXRZMsgLnKQD/2njFRpbmn2/oRFFJCHRFLCPSG3kjjNwuHslo9T8fLoN+CW
-	IsZqzb9eC9QZxBolxAgZhNQE31jC3KPMqBxSPwaIzljmljhLPEIEFakqNtNeqT2/7OPx7X1Popq
-	U5G0e5jMdqV5tes6uh/4V3cWSHnrMGO1GW6ARAk16i93MBs3qJ+MDrx7p3DHDvwE/lTbSYE1wsC
-	Sd0+0gXsRWYX2nZ8PeehNK2Az5bkg4Z0AnWaXxcg0mFHDRMRiZ8VDg6IzMf3yrcn9pTFADFEn6O
-	FVi445o+Eo57Nd5YgzFfC3AUplGoOLGK04ubDqiVKKU2xxJT4vhkvMT5G0X1iMbCOw93RS/PYYy
-	YmF2Yb29dYiNdXr+B6MMGKMunifxVqlVDv4lFgg5ba4pEH+Q1FM8kkUWdDWbKzAMrBM0RT7QY12
-	VrNFrxIvMsssvJhMXq/HHZu9nMvaysskbwED4INSKE1Qq3NGiUi3zOJgy3kQqAPC4+BN/FUo8Cr
-	icQwMrTpIDmj3KIx6oISe+Iux9gWIj4fVMdrRGDAtG1wXBqQCqXxiDyb28v9uFU2Rh5Qo1s8Ie5
-	OaLzGOCT0VFhvnZK8cOHsVgs0Qfe7XTmSHBVtgSTTC+sQmn3rnxUuU8Ah960RGsgbPmc
-X-Received: by 2002:a5d:5f09:0:b0:47f:97e9:fe55 with SMTP id ffacd0b85a97d-47fd32ea399mr6710072f8f.22.1785521931614;
-        Fri, 31 Jul 2026 11:18:51 -0700 (PDT)
-Received: from localhost.localdomain (dynamic-2a02-3100-a8d0-bc01-6d31-3d12-3a11-d2d0.310.pool.telefonica.de. [2a02:3100:a8d0:bc01:6d31:3d12:3a11:d2d0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd41d1756sm7293694f8f.4.2026.07.31.11.18.50
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 31 Jul 2026 11:18:51 -0700 (PDT)
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH v4 1/5] serial: core: do fallible allocations before the console can be registered
-Date: Fri, 31 Jul 2026 20:18:40 +0200
-Message-Id: <20260731181844.11330-2-kmehltretter@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20260731181844.11330-1-kmehltretter@gmail.com>
-References: <20260731181844.11330-1-kmehltretter@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        bh=1t219Uo5uTrxIXX4Pq8w6KIqBvayeGDC3OL82qt7QsE=;
+        b=Ha44WahMLQ3kKMOzlH4jsnf1465Ta5zfeDg7HZeRKsECOc1Qm03qC8SB4G4k/1rTn4
+         nhJdLEY1ngTbLzqymxcDVmG167MLpOZHjyl1j+xI2nwD56t5LPSh4VNah8mpqptq3VoH
+         Pr2dwFinXFucy6165ZsTeX69DsjOtqK68M+/7k4YMW1RZmEM7e/o6Ln0wdLe8IGrKvGd
+         ABApXjqKoQbL0t0f9tMaP201V5ScWOCN4g9ZXKbIcsUlBJOeSIf82PpHLZGVGH7km/SB
+         AtXCnez6vWcV41kqUADCsMLtoPL1j5glTrGi/WiqcfL5+GTzIFBSeIT+6tXqGcBeaTk9
+         ehRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785522163; x=1786126963;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1t219Uo5uTrxIXX4Pq8w6KIqBvayeGDC3OL82qt7QsE=;
+        b=iP7DHY1lEx1xGpozDPezD4yEMMagHyjgIQlwcA7F3Emw6mBmm5BRO1cDG8GIsLNLiM
+         bX/ybkezGFxflraSL3tgrhT0Z2jUswVqhJ3LqrVVI7+eq03ox5h454zRozRx4On4v+N8
+         dAkDWnI2znSrsHASLEgb1Dp/fJP32QGM6HpW17PfEMB6PUoRyxvlXSsFC6Vk49nKq2hK
+         OK5srmgYJrdLmRRiXC2+1sR9RAO/LRMXZsuKcpH5ARdUS6eBgB65SsUx3yWNYoI5cqFu
+         B0TjhdQJ6N+MvGlCAae2Cdn1lj3cFDGtKN22eSs8GPGRJ5ZxFg20AujlHW4S9kgTJXXv
+         MvUA==
+X-Forwarded-Encrypted: i=1; AHgh+RplJ8DNnq/p9wTzRiEo7PQrxFBlByFPZPalF4/PW/9Inal7bFzexeDd7QB++8AdxT3EBqnTIcVHuxxN9vXOGnMY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDFj5FWBCka9U1jGOAIyC46LaFyLxAq7fexgTbDWZ8qi1BrSnH
+	3ImgN2Z2OkKzo0NYbuWB2pSXkIUGbS7LStpoQBRplv0E6QQPkfWjla6pwbaE81KqcYrcO61su+c
+	1WYuZQ91t9acwkj1Mkr80Ig==
+X-Received: from ejcwb5.prod.google.com ([2002:a17:907:d505:b0:c12:5033:55e7])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:907:c05:b0:c16:6669:a4fd with SMTP id a640c23a62f3a-c1fe8103ebcmr38912166b.16.1785522162650;
+ Fri, 31 Jul 2026 11:22:42 -0700 (PDT)
+Date: Fri, 31 Jul 2026 19:22:31 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
+Message-ID: <20260731182231.1277064-1-vdonnefort@google.com>
+Subject: [PATCH] KVM: arm64: Drop %pB on nVHE panic when stage-2 is active
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_111853_749366_305F8996 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20260731_112245_666768_448BBA5D 
+X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,91 +91,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-serial_core_add_one_port() allocates uport->tty_groups after
-uart_configure_port(), which may register the console. If the allocation
-fails, the driver unwinds the port while its console remains registered.
-The earlier uport->name allocation has a related failure path that leaves
-state->uart_port linked to a port being freed.
+Currently, the host stage-2 is lazily mapped. kallsyms, accessed with
+the modifier %pB is therefore potentially unmapped. If the hyp panic
+occured with the host stage-2 lock taken, a dead lock will occur.
 
-Failslab reproduced a NULL dereference in PL011 console output and a KASAN
-use-after-free in i.MX console output after failed binds.
+Fixes: 6ccf9cb557bd ("KVM: arm64: Symbolize the nVHE HYP addresses")
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Allocate the name and tty_groups before linking the port and configuring
-it. Reserve space for the optional driver attribute group because
-config_port() may populate uport->attr_group during configuration.
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index 54aedf93c78b..2e1951c215ae 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -509,8 +509,12 @@ void handle_exit_early(struct kvm_vcpu *vcpu, int exception_index)
+ 
+ static void print_nvhe_hyp_panic(const char *name, u64 panic_addr)
+ {
+-	kvm_err("nVHE hyp %s at: [<%016llx>] %pB!\n", name, panic_addr,
+-		(void *)(panic_addr + kaslr_offset()));
++	/* Kallsyms might not be mapped in the host stage-2 */
++	if (is_protected_kvm_enabled() && !IS_ENABLED(CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC))
++		kvm_err("nVHE hyp %s at: %016llx!\n", name, panic_addr);
++	else
++		kvm_err("nVHE hyp %s at: [<%016llx>] %pB!\n", name, panic_addr,
++			(void *)(panic_addr + kaslr_offset()));
+ }
+ 
+ static void kvm_nvhe_report_cfi_failure(u64 panic_addr)
 
-Fixes: 266dcff03eed ("Serial: allow port drivers to have a default attribute group")
-Fixes: f7048b15900f ("tty: serial_core: Add name field to uart_port struct")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260719070454.D6FA21F000E9@smtp.kernel.org/
-Assisted-by: Claude:claude-fable-5
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
- drivers/tty/serial/serial_core.c | 30 ++++++++++++++++--------------
- 1 file changed, 16 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/tty/serial/serial_core.c b/drivers/tty/serial/serial_core.c
-index a530ad372b43..03ee3d038f4e 100644
---- a/drivers/tty/serial/serial_core.c
-+++ b/drivers/tty/serial/serial_core.c
-@@ -3056,7 +3056,6 @@ static int serial_core_add_one_port(struct uart_driver *drv, struct uart_port *u
- 	struct uart_state *state;
- 	struct tty_port *port;
- 	struct device *tty_dev;
--	int num_groups;
- 
- 	if (uport->line >= drv->nr)
- 		return -EINVAL;
-@@ -3068,6 +3067,22 @@ static int serial_core_add_one_port(struct uart_driver *drv, struct uart_port *u
- 	if (state->uart_port)
- 		return -EINVAL;
- 
-+	uport->name = kasprintf(GFP_KERNEL, "%s%u", drv->dev_name,
-+				drv->tty_driver->name_base + uport->line);
-+	if (!uport->name)
-+		return -ENOMEM;
-+
-+	/*
-+	 * uart_configure_port() may set uport->attr_group and register the
-+	 * console. Allocate room for both groups and a NULL terminator first.
-+	 */
-+	uport->tty_groups = kzalloc_objs(*uport->tty_groups, 3);
-+	if (!uport->tty_groups) {
-+		kfree(uport->name);
-+		return -ENOMEM;
-+	}
-+	uport->tty_groups[0] = &tty_dev_attr_group;
-+
- 	/* Link the port to the driver state table and vice versa */
- 	atomic_set(&state->refcount, 1);
- 	init_waitqueue_head(&state->remove_wait);
-@@ -3084,10 +3099,6 @@ static int serial_core_add_one_port(struct uart_driver *drv, struct uart_port *u
- 	state->pm_state = UART_PM_STATE_UNDEFINED;
- 	uart_port_set_cons(uport, drv->cons);
- 	uport->minor = drv->tty_driver->minor_start + uport->line;
--	uport->name = kasprintf(GFP_KERNEL, "%s%u", drv->dev_name,
--				drv->tty_driver->name_base + uport->line);
--	if (!uport->name)
--		return -ENOMEM;
- 
- 	if (uport->cons && uport->dev)
- 		of_console_check(uport->dev->of_node, uport->cons->name, uport->line);
-@@ -3102,15 +3113,6 @@ static int serial_core_add_one_port(struct uart_driver *drv, struct uart_port *u
- 
- 	port->console = uart_console(uport);
- 
--	num_groups = 2;
--	if (uport->attr_group)
--		num_groups++;
--
--	uport->tty_groups = kzalloc_objs(*uport->tty_groups, num_groups);
--	if (!uport->tty_groups)
--		return -ENOMEM;
--
--	uport->tty_groups[0] = &tty_dev_attr_group;
- 	if (uport->attr_group)
- 		uport->tty_groups[1] = uport->attr_group;
- 
+base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
 -- 
-2.53.0
+2.55.0.508.g3f0d502094-goog
+
 
