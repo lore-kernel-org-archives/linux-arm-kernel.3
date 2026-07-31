@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5B3C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42BDEC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6m+8w0QVgGm8urXe/cU07WfU5xAZ+QJVFPsiFH0egMo=; b=bfcf8sBlISzanI1T8AKqv0dQI9
-	7DC1fyA2Lu9Z4mWnqrXzLgPewATvnQ6T46j3UF1E4/A7y+bYo7S95E22Nr9K+gVefddScw01GhXcC
-	Rege8KjLJt8lbCcYV0oBHgn/zzBiuFG4lkZNofbrh1htwKbtDESOGKDOuTuSnq5mUTSBKwKU5jRDX
-	IhaO6/d09WyjfJwup2Fl+uIaGJA7YYHE2Nvfk174D/G53TQwVrYOqwH27h58soNr8mu0FXZ3DbXnq
-	JQNxMOWPpXXGuTracPVD+1j64+8n/66iPIsEEeefVVrdkFr+9NHKmgoxyhkrVMBBHuBCV7Qwdthdu
-	1U66ng+A==;
+	bh=zBCM5Nh2Z+pyL6wOrSHgIaBsinADA485LhOFyzTIsjs=; b=npHAdwidbMhWAH4ac84pg07bde
+	17VG3p/kwjHgoZUQeAmiYHLPTf/SYflK6VRoDo7SG7R/bH1TdYlNtmM8qMvVQEqlQg3zs+qQ16hlW
+	uCfqLiI3MdEFkl3irqEXi1YXQOeQH+AH0hy1Xn0zGeZ6wu1Ijr5MvTOx9Ci+/j+dsiGkUumC/+aCX
+	8edfI1Gh5inCWZSABHt5PwMkGGzPwSoACkKjoPpoZbpwXyM/of1f2UHnbfrUoOt0mnyUF3f839wNb
+	TxKqkvNZd2tPw3qLWgMKTl47WLUt6LU4tfFssSFsrk08cxRTOoh2dXXmUtyYFeoEnjOp7afgiCHpZ
+	F5xizO/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wprbu-0000000DK3C-0enn;
-	Fri, 31 Jul 2026 18:05:30 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wpror-0000000DLJv-3eTu;
+	Fri, 31 Jul 2026 18:18:53 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wprbp-0000000DK2d-0OWf
+	id 1wprop-0000000DLJM-2QfR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 18:05:28 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-47db714766aso1463521f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 11:05:24 -0700 (PDT)
+	Fri, 31 Jul 2026 18:18:52 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47f904e80eeso1184462f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 11:18:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785521123; x=1786125923; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785521930; x=1786126730; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6m+8w0QVgGm8urXe/cU07WfU5xAZ+QJVFPsiFH0egMo=;
-        b=JAepeJEewrx/45OCKhHIooXM/xeKIvvrWyeYGRoYzew1RVM2rzhUWO82R98CfRGSl6
-         toH3C2zylTZ6oqJAx4UjV1EvpLk+HRz8W3ONVcBNahLjrWNErqvsOOwejHkXHLUFNSs+
-         NSAZtsJ1QsWvb2SJXm+89kbj4W3+d4LFYxUMoVf2kFWzMtq8/fe8Ns2BfMzvF7pUBmhU
-         pZuRFXzZyBjIPBJAd8lAreTTq9I1GX5r0jTc9JszwGhliNfSz7w53Aj+fNp9BwSX96iV
-         Wqx1bNMYtrQNcFN+6V8mLcTXpUP1WJqcqBDWwXYwqFbwUZXe8S8OJ4RpiEB7fdLCx8wY
-         HCUg==
+        bh=zBCM5Nh2Z+pyL6wOrSHgIaBsinADA485LhOFyzTIsjs=;
+        b=IIn7EilUXacYqSxQjE6L5vjYi+aFwtLHy9JXFxgK6m8Y/qgI9jYZAeRc2szw+fqbzl
+         NdQ+ZtmaByiKyfdMucmy4E3hzKXohtNSQciYyw73iiSygt/20m6GucsItvrh2LTBWhYk
+         4sUtTN8s12Feo2oe2aGGtdPp7J3irTk1lUL5Ebf2t8T+1kIGNGNRpnwiyhaq+N7QPmwC
+         Ah8MHRUb61MYZwXHpXPGjGqzjKylFRt4ZAzL0Mjsz9fycVSXOWleYZ6rfUocXqZsNxRZ
+         Hpbwmtwefr3R0HgPsvkTNbXSjMomrKaEqGpx49/qBfz0ZCc7AOUQPOiqFqzQV+Uj0NiZ
+         D3Iw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785521123; x=1786125923;
+        d=1e100.net; s=20251104; t=1785521930; x=1786126730;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6m+8w0QVgGm8urXe/cU07WfU5xAZ+QJVFPsiFH0egMo=;
-        b=MCGJwlRa3EuZFZ7yXqibRu5wP+5iO+BaMg4LzUZgvHiQqfRvIUlPxYbTQghPEZdpQC
-         lu4ILeqHODMgSQS7FxHL6omDdB8lk5LqIrfMQlpkLCDMZ9TOqHx37F7M4NXH6jF7hE0m
-         jyA382LRReFDbRWjDQsWfY7G/69IkvasQks7ylSKu2E15R6RGsWxd+fj9+hbOg8JUali
-         HVbqlZgBpktyl22q9C2Sb+AFxWZCH3/oH3vMHgH6YLovzRE0aU0ALH1FnZ360J0fVXht
-         CpoVo7cxloshJVHLHSnD+4AhVcn/ins2uIM4gHChM1Bxzk60CpckcMKSUKVIV3StG74E
-         A2jQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqekfhTpkoay2IymMTz1BUdKQxFnX1kassnpgtzhfvSrCWmtpLoEuZikb2a/Y63WaK68jfDG4W6qIxnifMfzueh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWatXo0HjgWofItoS4f+FE1t7CKU0cu4UXu5+BtZP254ANSRWn
-	vIunoHD9xH/cM8luf8vXTJyRoq7YZVNcm3qhw8fVOgBjMK9I6ixVfMZRdbolP1KK
-X-Gm-Gg: AR+sD13dPMfb0epVrR0rN9xAaEo66wCSwH8/gBVo9t4WmaK5PTGShBR/ihdMEYLT19L
-	aXx5+moL3gLF6lHmXrCtonhIt0HX/ZOU9c02BrZyeomKcyNSype1niuv7vgsUzQgWqCO5cAiHB6
-	MMlvrSS6kxW3bwsJzAOhbgL4BBeN1N8wUVjqoKYbtm+6qQuqnrbP9SkHTXY63aGgjibNGPE/k2Q
-	OrT1p+lmDRLrR5e7XVrON07bf09PV2GeL4J3neDuU4+ChynDd39uAbAri/ajFwpaALiyCMeNb5D
-	s2WwgBCUQ6OEqQo4tQNCFsOODZUvvoZNlUGo44LTwavT+cviuKWoZJ9rofN3a+Cn0Fo8g/yQoaU
-	zPXuwLvxQnpnDxOzrnFGV/MI4c/7u4hb7y3QIzUZTFh3BxCHBCVj2ZXFBnrao6e3i0GMIXBEy5D
-	imSB0YIexAvKyOsDKXb1TSTeWYOuM/y+OF5SL4q3nRre87lV/QD6k1wyl9taRcyG3ndQGK8NQ5K
-	zOte9XDBjKiU7w1Rs7EbcbFSGrD5A7VPxRjjXX0R3FwD4T/bSoz093z71mCId/Y5dLgYHVgjmAs
-	yjfEtBUrCPSwfFskUMBQkFu5VV71wHqx70yKzcD861yU8CmUIsvWldtD1KRbt2Q4VEtY
-X-Received: by 2002:a05:6000:310f:b0:47f:775b:f5dc with SMTP id ffacd0b85a97d-47fd32e1c76mr5907524f8f.19.1785521123140;
-        Fri, 31 Jul 2026 11:05:23 -0700 (PDT)
+        bh=zBCM5Nh2Z+pyL6wOrSHgIaBsinADA485LhOFyzTIsjs=;
+        b=XdHR4kBEXWeYXtnHAbWPcWRDSE4hQNNB/PH16bjvAQO1MW4vQ8JGXIP5lmn/vqBuky
+         Nq1IZxUUc8CaBW72GGGTsV9yBK0akpm3fj/8YBl3MEOmG9Xi/MdJ8zPSbTZWrqRA9Pai
+         TPlTq6xq4lVFcxErcz4ZyXvW4AgGBuRqw8+EQLWPNLMb1gMIxNsdjyEWQh3CG59tYRl/
+         gK/s3Ik3IAc9WNYni5eZ70Tn0OusuwttMIuJA7BONsXpFlecrPFOkAsox97EzicsBNTu
+         Vk8bj6j1eu+70pCwVkoXArQidzQzVu/Bgb/eJX6ZGyJwFYTAO3NqN+0vely3LrGM71FO
+         Qe7g==
+X-Forwarded-Encrypted: i=1; AHgh+RqVwIR9ZESHHjHkwtg7M+peL/koUD07rkSOMSZtBP7PC2TNMgzSRrRBx+yJ2WHTEl5knxUP0fWYJy7tTZzB2QFz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhO8Kr5EP1TypmbYbZI0FLFunhS1dDclraIQ1Mqhkbflu35V2T
+	Ix/NKcGFF5JhsN1dZ5+rQ6DGQ6Z7CZ3Gq6ChVtOv+FLmPAGZR/kEjXit
+X-Gm-Gg: AR+sD13WDFoDG52bastTbkj4XyH1xeBfvlHlJv1oN4qkTqFGUxweH/DS19PkT3fGXVu
+	cDPYeR3/5UlSF84n2vLJXJH9OZu/2h8fy7x8dcs9QDVMgECfSMvvp5uUPCFvbxsD5mB/+iIsgKt
+	cYON/AvYhTyeTl1m81fMU1ClsxSgk6L1HAuq5lTI2ncpzhaG8vBOINq4TnbkdUzUe0NNQSdoiHl
+	BcOpBiBOirw49cpS9YeLXBFDzw+9oHL1juCFzj2c6zimUj5fT6nThJoAn2zBCqffhSGxP9gIL9u
+	KEHCVUn62Vy4dy7qHi8KXmgIfD/u7Ajr2pxcEw34PGHR6OTomS2IDf2vMDWwmCe4FJ6sK4AMawQ
+	noIMDFifguhFyEQP9WWxeoFZS9Dq5OXm7Vr78EIq/Ko2VrWS0Csn3hD+Hz2obe7ZtVbH9HQ3tkD
+	RcWaDhvGuL5HME4QTPxe8mQCrs0+JjZdWl06oe+bgjlojLBaHEqicfoTXlUCpqaPUdn5VDVpHHp
+	ePSpXu0wwiU4gC7iziBNFJTIMNXJbJBW+nNQ2YHKaaWBDfuxo49+pw3avRSCZbp2qynIdBBTDlc
+	HZtI7KlVqYccoQRt3kW3mC59w231kQ6pqSsXBXlXleEQOqR4LOpz7TZ3rhx3t9M0JlJo
+X-Received: by 2002:a05:6000:c90:b0:47f:d0fb:ea40 with SMTP id ffacd0b85a97d-47fd72db353mr1079198f8f.21.1785521929339;
+        Fri, 31 Jul 2026 11:18:49 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-a8d0-bc01-6d31-3d12-3a11-d2d0.310.pool.telefonica.de. [2a02:3100:a8d0:bc01:6d31:3d12:3a11:d2d0])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd456a6besm7094559f8f.22.2026.07.31.11.05.21
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd41d1756sm7293694f8f.4.2026.07.31.11.18.47
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Fri, 31 Jul 2026 11:05:22 -0700 (PDT)
+        Fri, 31 Jul 2026 11:18:48 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Jiri Slaby <jirislaby@kernel.org>
@@ -81,18 +81,17 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	linux-serial@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Sashiko <sashiko-bot@kernel.org>,
-	stable@vger.kernel.org
-Subject: [PATCH v3 5/5] serial: imx: serialize imx_uart_ports[] lifetime
-Date: Fri, 31 Jul 2026 20:05:19 +0200
-Message-Id: <20260731180519.10988-1-kmehltretter@gmail.com>
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4 0/5] serial: fix console lifetime bugs on failed bind and removal
+Date: Fri, 31 Jul 2026 20:18:39 +0200
+Message-Id: <20260731181844.11330-1-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_110527_444821_58594088 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260731_111851_634041_65E3B1B7 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,95 +106,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx_uart_probe() publishes its devm-allocated port in imx_uart_ports[]
-before uart_add_one_port() because console setup uses the table. The entry
-is not cleared when adding the port fails or after removal, leaving a
-dangling pointer.
+This series fixes four serial/tty error-path bugs and an i.MX console
+port-table lifetime bug. The fixes were found with failslab fail-nth sweeps
+and sysfs bind/unbind sequences under KASAN on QEMU's raspi1ap and
+mcimx6ul-evk machines.
 
-A sibling probe can register the shared console through that stale entry.
-This was reproduced under KASAN on QEMU mcimx6ul-evk by unbinding a
-sibling UART, unbinding the console UART and rebinding the sibling.
+Patches 1-4 fix shared serial/tty core code. They move fallible allocations
+before console registration, clear pointers after uart_driver registration
+fails, and make a non-NULL tty cdev slot mean that the cdev is live.
 
-Keep the entry valid through uart_remove_one_port(), then clear it. Protect
-port addition and removal together with their table updates so sibling
-operations cannot interleave. Reject an occupied slot rather than
-clobbering an active port during a duplicate-line probe.
+Patch 5 clears i.MX's devm-allocated port-table entry after failed probe and
+removal. It keeps the entry valid through console unregistration, rejects
+duplicate lines and serializes table updates against other port probes.
 
-Fixes: dbff4e9ea2e8 ("IMX UART: remove statically initialized tables")
-Fixes: 9f322ad064f9 ("imx: serial: handle initialisation failure correctly")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Link: https://lore.kernel.org/all/20260719162850.043B41F000E9@smtp.kernel.org
-Link: https://lore.kernel.org/all/20260719222501.CB4CB1F000E9@smtp.kernel.org
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-fable-5
-Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
----
-Backport note: the removal fix is self-contained. Complete probe-failure
-coverage also requires patch 1. With patch 1, all fallible allocations
-precede console registration, so rollback can safely clear the table.
-Without it, a late allocation failure (only reachable with fault
-injection) can leave the console registered after imx_uart_ports[] is
-cleared, turning the pre-existing use-after-free into a NULL
-dereference.
+Validation includes fail-nth sweeps on both boards. The i.MX tests also
+cover the sibling-probe race, sequential unbind/rebind and
+CONFIG_PROVE_LOCKING=y.
 
- drivers/tty/serial/imx.c | 20 +++++++++++++++++---
- 1 file changed, 17 insertions(+), 3 deletions(-)
+Changes in v4:
+- No code changes. v3 was accidentally sent as individual mails.
+  Resending as a single thread.
 
-diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-index 251a50c8aa38..b0f34a6e7d4f 100644
---- a/drivers/tty/serial/imx.c
-+++ b/drivers/tty/serial/imx.c
-@@ -22,6 +22,7 @@
- #include <linux/clk.h>
- #include <linux/delay.h>
- #include <linux/ktime.h>
-+#include <linux/mutex.h>
- #include <linux/pinctrl/consumer.h>
- #include <linux/rational.h>
- #include <linux/slab.h>
-@@ -2080,6 +2081,9 @@ static const struct uart_ops imx_uart_pops = {
- 
- static struct imx_port *imx_uart_ports[UART_NR];
- 
-+/* Held across uart_add/remove_one_port(); console callbacks must not take it. */
-+static DEFINE_MUTEX(imx_uart_ports_lock);
-+
- #if IS_ENABLED(CONFIG_SERIAL_IMX_CONSOLE)
- static void imx_uart_console_putchar(struct uart_port *port, unsigned char ch)
- {
-@@ -2632,11 +2636,19 @@ static int imx_uart_probe(struct platform_device *pdev)
- 		}
- 	}
- 
--	imx_uart_ports[sport->port.line] = sport;
--
- 	platform_set_drvdata(pdev, sport);
- 
--	ret = uart_add_one_port(&imx_uart_uart_driver, &sport->port);
-+	scoped_guard(mutex, &imx_uart_ports_lock) {
-+		if (imx_uart_ports[sport->port.line]) {
-+			ret = -EBUSY;
-+		} else {
-+			imx_uart_ports[sport->port.line] = sport;
-+			ret = uart_add_one_port(&imx_uart_uart_driver,
-+						&sport->port);
-+			if (ret)
-+				imx_uart_ports[sport->port.line] = NULL;
-+		}
-+	}
- 
- err_clk:
- 	clk_disable_unprepare(sport->clk_ipg);
-@@ -2648,7 +2660,9 @@ static void imx_uart_remove(struct platform_device *pdev)
- {
- 	struct imx_port *sport = platform_get_drvdata(pdev);
- 
-+	guard(mutex)(&imx_uart_ports_lock);
- 	uart_remove_one_port(&imx_uart_uart_driver, &sport->port);
-+	imx_uart_ports[sport->port.line] = NULL;
- }
- 
- static void imx_uart_restore_context(struct imx_port *sport)
+Changes in v3:
+- Drop Cc: stable from patches 1-4.
+- Patch 1: remove redundant uport->name clearing and credit Sashiko's report
+  with Reported-by and Closes trailers.
+- Split v2 patch 3 into two patches with corresponding Fixes tags.
+- Shorten the changelogs.
+- Patch 5: use scoped guards, reject occupied slots, remove the unnecessary
+  line variable, document the console-callback locking constraint and add a
+  backport note.
+
+Changes in v2:
+- Patch 4: serialize port registration and removal with imx_uart_ports[]
+  updates to close the reported sibling-probe race.
+- Patches 1-3 are unchanged.
+
+v3: https://lore.kernel.org/r/20260731180343.10818-1-kmehltretter@gmail.com
+v2: https://lore.kernel.org/r/20260719221014.44354-1-kmehltretter@gmail.com
+v1: https://lore.kernel.org/r/20260719160812.35407-1-kmehltretter@gmail.com
+
+Karl Mehltretter (5):
+  serial: core: do fallible allocations before the console can be
+    registered
+  serial: core: clear freed pointers on uart_register_driver() failure
+  tty: skip cdev_del() when no cdev is registered
+  tty: clear cdev pointer after cdev_add() failure
+  serial: imx: serialize imx_uart_ports[] lifetime
+
+ drivers/tty/serial/imx.c         | 20 +++++++++++++++++---
+ drivers/tty/serial/serial_core.c | 32 ++++++++++++++++++--------------
+ drivers/tty/tty_io.c             |  6 ++++--
+ 3 files changed, 39 insertions(+), 19 deletions(-)
+
 -- 
 2.53.0
 
