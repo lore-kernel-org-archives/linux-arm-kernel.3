@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B331C55175
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F00C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jkfOij6lz6C1BXqgFfxHnThsvpcJBEfqQj9SCtiulu8=; b=A8Fyhswr/i+hw4cxrIoubXhyVB
-	8GXwHm+fVzlCPQTtv1rhCYo8z8Q8UC1K5D85/8RmwGOMz2cVpzIsovqTzopbFelSzc1P4gKPpDVte
-	uY83eNVvKX/gbwOrC+j4vBH2DauThdvoGKZfbNwXAuOJv5H2U/fTGoM4d+ryd77aBiEZQ/LV97K+R
-	l5PCFvMoIw1QaRUhm9n0+w68RzYMRBk7A0zMJzREbR0JoArS7Zfy0G2mbnE7abAiSmH3/5mU/jzGc
-	rFByPM6sSncnLNp/DYU5kdRj1ShLBSMN3p4RQY2j42bgkzVlN89L1z0ALPBBq6ZgSDh/x8GqVvJB1
-	FK/uPEYw==;
+	bh=CRKafAl1YCGglDpLBBWC3R12VQMpxpT46hTg5kd0Yaw=; b=CtjhpB0hO7hHObkPg0wa8jYxQq
+	k3RXqTXmf62iHdnUpsLclKLLSu6mQFJ69lckiilYCZAaITefDpKzoLe1v4t2vLQ/lGhrDSnXvyHTD
+	CoaSKu4PGPuixeCT4zSQdwMWvfBlZGgKS0F4X/huR4sH7qmNvGGMOjCV/IkVvuN+cdf90u60+PF6Q
+	P1tPLGKjtzng74GzOJqhUOJaja2aihObn+7BrayLqu75raioG0UdfzklxjRPEEKWMLybpwGolKQZz
+	mr0v6HKb2/SEVSiMuCA/v93bnm7c2wx1JClbKy1fGWZWuHqS5GcaiYsw+cKsG4nupVXQtszy2Stk0
+	uV5rrTNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzj-0000000CY7u-3enC;
-	Fri, 31 Jul 2026 13:09:47 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wpmzl-0000000CYAJ-0qy7;
+	Fri, 31 Jul 2026 13:09:49 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzO-0000000CXoS-38vh
+	id 1wpmzR-0000000CXqr-1BfF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:09:30 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBm1Xq4073015;
-	Fri, 31 Jul 2026 13:09:15 GMT
+	Fri, 31 Jul 2026 13:09:31 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBlisB1670385;
+	Fri, 31 Jul 2026 13:09:16 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=jkfOij6lz6C1BXqgF
-	fxHnThsvpcJBEfqQj9SCtiulu8=; b=CRc3lcUZZHFEr3ii2TOnWZHtWZ2Hwu7oz
-	mJfayQUcFQgAzTrJScvlrfqGy/BUSwXgV1BlU64d8QFULE9kk4VFawRKQ9HuADe1
-	HFMcnBEIe4hfNdw3QxqQNmW+TUz+MYt5mOg+oT+mAsg+zFou6ejfNPrY1/MHsB15
-	HN5GjqOxAqVRfs44bk0tGLhcpHJ42NgG2cH0FqPq/Wl0tBTMvfn4/WWKbf9YvgPf
-	oC76RZLB9qBWZKTwBCj2Opyh13AOGbtmcnFp7a2uzjr6CUxsnLbgW6ELy5szF+r0
-	5UHwY4Myd2SHv4n4+W9/MkLdEcHVFoJugxEWDyN3ByuV6ckG51KIg==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuycw2n4-1
+	:mime-version:references:subject:to; s=pp1; bh=CRKafAl1YCGglDpLB
+	BWC3R12VQMpxpT46hTg5kd0Yaw=; b=HzloxzMRlg50TxI4f1wPDrfJeAeNA6iRo
+	hmOPwwcSnAmnPypXUJZWQRk/0lZFyuJe2hilFHA76PcBM+ORD4lB6jCbLhpGPGhT
+	KKKc19AEQWXUwZdhGguHXekSw3QTaxoLRglWozXIb/Wd4K6CpJscDLAiKZWOMt75
+	3jopQHS9lxak42udAln+pXhBEaqFlk9wK4AzF3gQSOjgn2SKEc1oXWUDxsmt7MlV
+	e9g9vAY0eblrIhD2xplBqU5yq8lAivpORABNSrYWgWcouSqFlJ00QVtWMMki531S
+	nQ0LHKidEXohd5sSS+MM5AoQzs9F9d7R2eeRe4vltrgozgETQGZ6w==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuyjm3vc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 31 Jul 2026 13:09:15 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuQ20021776;
+	Fri, 31 Jul 2026 13:09:14 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn7uwg43f-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Fri, 31 Jul 2026 13:09:14 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuMcs012670;
-	Fri, 31 Jul 2026 13:09:13 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn8fkg07x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:13 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD96gx42926470
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD98Pd14483870
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jul 2026 13:09:06 GMT
+	Fri, 31 Jul 2026 13:09:08 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4F56520040;
-	Fri, 31 Jul 2026 13:09:06 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 0C73820040;
+	Fri, 31 Jul 2026 13:09:08 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DF46D2004B;
-	Fri, 31 Jul 2026 13:09:05 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 97F9A20043;
+	Fri, 31 Jul 2026 13:09:07 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 31 Jul 2026 13:09:05 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:07 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,9 +88,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v5 07/31] KVM: arm64: Access elements of vcpu_gp_regs individually
-Date: Fri, 31 Jul 2026 15:08:35 +0200
-Message-ID: <20260731130902.654679-8-seiden@linux.ibm.com>
+Subject: [PATCH v5 11/31] arm64: Share arm64 headers with s390
+Date: Fri, 31 Jul 2026 15:08:39 +0200
+Message-ID: <20260731130902.654679-12-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
 References: <20260731130902.654679-1-seiden@linux.ibm.com>
@@ -98,34 +98,36 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: Y0IFm64B4MSYgLgMgy5REkWBQIx2a0W-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX1AP9b492oSU9
- pJtPxrj4koGhYaHQ00Qwn2YYfVBfopAI0E5BQoHxuGlYpwsTLFDtPivTiYcAnzWuXNCackjlifT
- llYMhlPY3Tm2Kp492VQcIL4xdH7wIxHgyXEt8sAxdFpLflvCZmZhDsTDLiTcIC/OhyOoN3uYW4j
- cszg6Sc/z872KNvkD3MXE6rkWawybI3f81JbA0hoFnnSyUt5flJMekL3kPA+8nK703uM55HIGTw
- ACWF6GX+LCwdXTT2797uB1kzEx6j0uZ/fKb33vzDCg16ElK/J+7vthUQs/WOLiHQnBbEenwNZGQ
- 6/c3ghF+JC/ISlPs9vqladHida+MvHpf6QrKTZB/VAd6031JA4NwKqNAkUFzZJoTxhKxLZ4Gtzz
- S4wtFoH4WMPseVIhLb3yAUn58lQMk+L2K/w9fqTcMWSvHACVdgGooh3FidGz7PVroa30vW9D5Sc
- VCnfLQCPZmr+pTDTU5g==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfXxUXi41x3Pec3
- 7ipdz3j0xnlRGHStnATg1SMtQGX4H2cVneK1vGCDHD6fNmqK8+AxqgtmJwBBLxhR8+MX3KcRqBE
- sq0AlYLY6goBmLUcPuxk3ZoEBTWPtOs=
-X-Authority-Analysis: v=2.4 cv=AZeB2XXG c=1 sm=1 tr=0 ts=6a6c9e7b cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX7dow1tM7qOqw
+ GEThlMmbxHxT8Ti1PeHjMrGbqVTjJkpb0tnFSlhaYSPy1X/YZaE/7E26quFgFIDunzatbKLaAS9
+ dHYIGOuF5c1v6qbA61LDZn6zO6lIJ+o=
+X-Proofpoint-GUID: uJSoaiyv9d_bp1DO16XGqZJaG87ztMP5
+X-Proofpoint-ORIG-GUID: XgXIOgRBgtsEEVArMM-0wUP3l1DCv6iI
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfXyQjSyuHBt/mX
+ 8Roi1wkI/G+AxNM45Zzk544EJm13b6LtjnxR7MzNuPZYer2PRHxUeI9a4WYbvGgi1foBg2Vw1Ei
+ n3mqqfgubNSSxTeGkQiscu46HXdQyuNRZiamupjqboPR/N8rCbBz0ngGGTjDjj649/GQxgsmemd
+ XRWUBQLyNuSnqTezaVGDc7Er8HLQXJaxcF/v5uv5NG0Keef4gjS2O1m1qITZg+G+3045PEJrJA1
+ h6ZB8NPChkYKNJW5nK+BNQ8N8+d2NuhHtuJn5tAayWh1bdA/tKcyrHgyO/hxA5OuanityFhPvbR
+ uiHE3ncsgJ5IIWQo3zaCYMgntZFYAdaJW5PIqdVxYfH5iliUHBNJXBdNIyhBB1bdPPFksIUTJI1
+ rSHTzJWfIpLPwROu4KJ4/jwcPLGiBlefq0OYRyaCd3PAKjUQqbaXuupincvIzhJ4QPB5ISVyKTQ
+ wCGBb1m58iN/uR5DfyA==
+X-Authority-Analysis: v=2.4 cv=X5Vi7mTe c=1 sm=1 tr=0 ts=6a6c9e7b cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=u9TCuROiSGUiZ2HIOOsA:9
-X-Proofpoint-GUID: T2PHQVFGXqHBcEOgizWcBx3pKTc0kniu
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=7CQSdrXTAAAA:8
+ a=6P2ef70na_-CBmQj_eQA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 phishscore=0 adultscore=0 impostorscore=0
- clxscore=1015 malwarescore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607310096
+ clxscore=1015 impostorscore=0 lowpriorityscore=0 phishscore=0
+ priorityscore=1501 malwarescore=0 spamscore=0 suspectscore=0 bulkscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607310096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060926_839816_7896D684 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20260731_060929_559937_2505DFAC 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,158 +142,374 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While for arm64 the members of vcpu_gp_regs are allocated continuous
-this is not necessarily true for other architectures implementing ARM.
+Allow sharing of arm64 headers with s390 by marking the shared regions
+or add a comment that the whole file is shared.
 
-Let vcpu_gp_regs() no longer return the address of the user_pt_regs in
-the vcpu context but the address of the gp-register array field in the
-user_pt_reg struct. Note, this change semantically excludes pc from the
-GPRs.
+The shared regions are marked with:
 
+ #define ARM64_S390_COMMON
+
+ /* insert shared definitions here */
+
+ #endif /* ARM64_S390_COMMON */
+
+The preprocessor symbol ARM64_S390_COMMON is always defined for arm64.
 No functional change.
 
-Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/include/asm/kvm_emulate.h       | 8 ++++----
- arch/arm64/include/asm/kvm_host.h          | 2 +-
- arch/arm64/kvm/hyp/exception.c             | 4 ++--
- arch/arm64/kvm/hyp/include/hyp/adjust_pc.h | 4 ++--
- arch/arm64/kvm/hyp/include/hyp/switch.h    | 4 ++--
- arch/arm64/kvm/reset.c                     | 6 ++++--
- 6 files changed, 15 insertions(+), 13 deletions(-)
+ arch/arm64/Makefile                  |  2 ++
+ arch/arm64/include/asm/brk-imm.h     |  1 +
+ arch/arm64/include/asm/esr.h         |  1 +
+ arch/arm64/include/asm/kvm_arm.h     |  1 +
+ arch/arm64/include/asm/kvm_emulate.h | 15 +++++++++++++++
+ arch/arm64/include/asm/kvm_host.h    | 20 ++++++++++++++++++++
+ arch/arm64/include/asm/ptrace.h      |  4 ++++
+ arch/arm64/include/asm/sysreg.h      | 15 +++++++++++++++
+ 8 files changed, 59 insertions(+)
 
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 6b005c8fef70..1cd7cd94a855 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -43,7 +43,9 @@ CC_FLAGS_NO_FPU	:= -mgeneral-regs-only
+ KBUILD_CFLAGS	+= $(CC_FLAGS_NO_FPU) \
+ 		   $(compat_vdso) $(cc_has_k_constraint)
+ KBUILD_CFLAGS	+= $(call cc-disable-warning, psabi)
++KBUILD_CFLAGS	+= -DARM64_S390_COMMON
+ KBUILD_AFLAGS	+= $(compat_vdso)
++KBUILD_AFLAGS	+= -DARM64_S390_COMMON
+ 
+ ifeq ($(call rustc-min-version, 108500),y)
+ KBUILD_RUSTFLAGS += --target=aarch64-unknown-none-softfloat
+diff --git a/arch/arm64/include/asm/brk-imm.h b/arch/arm64/include/asm/brk-imm.h
+index beb42c62b6ac..dd2d153dc0d8 100644
+--- a/arch/arm64/include/asm/brk-imm.h
++++ b/arch/arm64/include/asm/brk-imm.h
+@@ -2,6 +2,7 @@
+ /*
+  * Copyright (C) 2012 ARM Ltd.
+  */
++/* Whole file is shared with s390 */
+ 
+ #ifndef __ASM_BRK_IMM_H
+ #define __ASM_BRK_IMM_H
+diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+index da085c83b57e..2cb73bde7346 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/arch/arm64/include/asm/esr.h
+@@ -3,6 +3,7 @@
+  * Copyright (C) 2013 - ARM Ltd
+  * Author: Marc Zyngier <marc.zyngier@arm.com>
+  */
++/* Whole file is shared with s390 */
+ 
+ #ifndef __ASM_ESR_H
+ #define __ASM_ESR_H
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index a99d8de99961..cc4175176f94 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -3,6 +3,7 @@
+  * Copyright (C) 2012,2013 - ARM Ltd
+  * Author: Marc Zyngier <marc.zyngier@arm.com>
+  */
++/* Whole file is shared with s390 */
+ 
+ #ifndef __ARM64_KVM_ARM_H__
+ #define __ARM64_KVM_ARM_H__
 diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 5bf3d7e1d92c..c5b30d334e79 100644
+index 45b3f98f0c7e..2dac665ccfd1 100644
 --- a/arch/arm64/include/asm/kvm_emulate.h
 +++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -133,12 +133,12 @@ static inline void vcpu_set_vsesr(struct kvm_vcpu *vcpu, u64 vsesr)
+@@ -47,6 +47,7 @@ void kvm_skip_instr32(struct kvm_vcpu *vcpu);
+ int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
+ int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
  
- static __always_inline unsigned long *vcpu_pc(const struct kvm_vcpu *vcpu)
- {
--	return (unsigned long *)&vcpu_gp_regs(vcpu)->pc;
-+	return (unsigned long *)&vcpu->arch.ctxt.regs.pc;
++#ifdef ARM64_S390_COMMON
+ void kvm_inject_undefined(struct kvm_vcpu *vcpu);
+ void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
+ int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
+@@ -62,6 +63,8 @@ static inline int kvm_inject_sea_iabt(struct kvm_vcpu *vcpu, u64 addr)
+ 	return kvm_inject_sea(vcpu, true, addr);
  }
  
- static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
++#endif /* ARM64_S390_COMMON */
++
+ static inline int kvm_inject_serror(struct kvm_vcpu *vcpu)
  {
--	return (unsigned long *)&vcpu_gp_regs(vcpu)->pstate;
-+	return (unsigned long *)&vcpu->arch.ctxt.regs.pstate;
+ 	/*
+@@ -165,6 +168,7 @@ static inline void vcpu_set_thumb(struct kvm_vcpu *vcpu)
+ 	*vcpu_cpsr(vcpu) |= PSR_AA32_T_BIT;
  }
  
- static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
-@@ -167,14 +167,14 @@ static inline void vcpu_set_thumb(struct kvm_vcpu *vcpu)
- static __always_inline unsigned long vcpu_get_reg(const struct kvm_vcpu *vcpu,
- 					 u8 reg_num)
- {
--	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)->regs[reg_num];
-+	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)[reg_num];
++#ifdef ARM64_S390_COMMON
+ /*
+  * vcpu_get_reg and vcpu_set_reg should always be passed a register number
+  * coming from a read of ESR_EL2. Otherwise, it may give the wrong result on
+@@ -183,6 +187,8 @@ static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
+ 		vcpu_gp_regs(vcpu)[reg_num] = val;
  }
  
- static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
- 				unsigned long val)
- {
- 	if (reg_num != 31)
--		vcpu_gp_regs(vcpu)->regs[reg_num] = val;
-+		vcpu_gp_regs(vcpu)[reg_num] = val;
- }
- 
++#endif /* ARM64_S390_COMMON */
++
  static inline bool vcpu_is_el2_ctxt(const struct kvm_cpu_context *ctxt)
+ {
+ 	switch (ctxt->regs.pstate & (PSR_MODE32_BIT | PSR_MODE_MASK)) {
+@@ -366,6 +372,7 @@ static inline u64 kvm_vcpu_get_disr(const struct kvm_vcpu *vcpu)
+ 	return vcpu->arch.fault.disr_el1;
+ }
+ 
++#ifdef ARM64_S390_COMMON
+ static inline u32 kvm_vcpu_hvc_get_imm(const struct kvm_vcpu *vcpu)
+ {
+ 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_xVC_IMM_MASK;
+@@ -443,6 +450,8 @@ static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
+ 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
+ }
+ 
++#endif /* ARM64_S390_COMMON */
++
+ static inline
+ bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
+ {
+@@ -483,6 +492,7 @@ static __always_inline int kvm_vcpu_sys_get_rt(struct kvm_vcpu *vcpu)
+ 	return ESR_ELx_SYS64_ISS_RT(esr);
+ }
+ 
++#ifdef ARM64_S390_COMMON
+ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
+ {
+ 	if (kvm_vcpu_abt_iss1tw(vcpu)) {
+@@ -507,6 +517,8 @@ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
+ 	return kvm_vcpu_dabt_iswrite(vcpu);
+ }
+ 
++#endif /* ARM64_S390_COMMON */
++
+ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
+ {
+ 	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
+@@ -542,6 +554,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
+ 	return vcpu_read_sys_reg(vcpu, r) & bit;
+ }
+ 
++#ifdef ARM64_S390_COMMON
+ static inline unsigned long vcpu_data_guest_to_host(struct kvm_vcpu *vcpu,
+ 						    unsigned long data,
+ 						    unsigned int len)
+@@ -617,6 +630,8 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
+ 		vcpu_set_flag((v), e);					\
+ 	} while (0)
+ 
++#endif /* ARM64_S390_COMMON */
++
+ /*
+  * Returns a 'sanitised' view of CPTR_EL2, translating from nVHE to the VHE
+  * format if E2H isn't set.
 diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index bae2c4f92ef5..1094a5997fc2 100644
+index 875fc7c3366b..83fefceed952 100644
 --- a/arch/arm64/include/asm/kvm_host.h
 +++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1152,7 +1152,7 @@ struct kvm_vcpu_arch {
- #define vcpu_clear_on_unsupported_cpu(vcpu)				\
- 	vcpu_clear_flag(vcpu, ON_UNSUPPORTED_CPU)
+@@ -39,6 +39,7 @@
  
--#define vcpu_gp_regs(v)		(&(v)->arch.ctxt.regs)
-+#define vcpu_gp_regs(v)		((v)->arch.ctxt.regs.regs)
+ #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
  
++#ifdef ARM64_S390_COMMON
+ #define KVM_VCPU_MAX_FEATURES 9
+ #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
+ 
+@@ -86,6 +87,8 @@
+ /* Unhandled SEAs are taken to userspace */
+ #define KVM_ARCH_FLAG_EXIT_SEA				11
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+ 				     KVM_DIRTY_LOG_INITIALLY_SET)
+ 
+@@ -832,6 +835,8 @@ extern s64 kvm_nvhe_sym(hyp_physvirt_offset);
+ extern u64 kvm_nvhe_sym(hyp_cpu_logical_map)[NR_CPUS];
+ #define hyp_cpu_logical_map CHOOSE_NVHE_SYM(hyp_cpu_logical_map)
+ 
++#ifdef ARM64_S390_COMMON
++
+ struct vcpu_reset_state {
+ 	unsigned long	pc;
+ 	unsigned long	r0;
+@@ -839,6 +844,8 @@ struct vcpu_reset_state {
+ 	bool		reset;
+ };
+ 
++#endif /* ARM64_S390_COMMON */
++
+ struct vncr_tlb;
+ 
+ struct kvm_vcpu_arch {
+@@ -948,6 +955,7 @@ struct kvm_vcpu_arch {
+ 	pid_t pid;
+ };
+ 
++#ifdef ARM64_S390_COMMON
  /*
-  * Only use __vcpu_sys_reg/ctxt_sys_reg if you know you want the
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index bef40ddb16db..9e63c4aebb29 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -292,12 +292,12 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
- 	switch(mode) {
- 	case PSR_AA32_MODE_ABT:
- 		__vcpu_write_spsr_abt(vcpu, host_spsr_to_spsr32(spsr));
--		vcpu_gp_regs(vcpu)->compat_lr_abt = return_address;
-+		vcpu_gp_regs(vcpu)[__compat_lr_abt] = return_address;
- 		break;
+  * Each 'flag' is composed of a comma-separated triplet:
+  *
+@@ -1099,6 +1107,8 @@ struct kvm_vcpu_arch {
+ /* KVM is currently emulating an L2 to L1 exception */
+ #define IN_NESTED_EXCEPTION	__vcpu_single_flag(sflags, BIT(9))
  
- 	case PSR_AA32_MODE_UND:
- 		__vcpu_write_spsr_und(vcpu, host_spsr_to_spsr32(spsr));
--		vcpu_gp_regs(vcpu)->compat_lr_und = return_address;
-+		vcpu_gp_regs(vcpu)[__compat_lr_und] = return_address;
- 		break;
- 	}
++#endif /* ARM64_S390_COMMON */
++
+ #define vcpu_sve_max_vq(vcpu)	sve_vq_from_vl((vcpu)->arch.sve_max_vl)
  
-diff --git a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-index 4fdfeabefeb4..a049983bd5c3 100644
---- a/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/adjust_pc.h
-@@ -33,11 +33,11 @@ static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
- static inline void __kvm_skip_instr(struct kvm_vcpu *vcpu)
- {
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
--	vcpu_gp_regs(vcpu)->pstate = read_sysreg_el2(SYS_SPSR);
-+	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
+ #define vcpu_sve_zcr_elx(vcpu)						\
+@@ -1240,6 +1250,7 @@ struct kvm_vcpu_stat {
+ 	u64 exits;
+ };
  
- 	kvm_skip_instr(vcpu);
++#ifdef ARM64_S390_COMMON
+ unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu);
+ int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *indices);
+ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
+@@ -1248,6 +1259,8 @@ int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
+ unsigned long kvm_arm_num_sys_reg_descs(struct kvm_vcpu *vcpu);
+ int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices);
  
--	write_sysreg_el2(vcpu_gp_regs(vcpu)->pstate, SYS_SPSR);
-+	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
- 	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
++#endif /* ARM64_S390_COMMON */
++
+ int __kvm_arm_vcpu_get_events(struct kvm_vcpu *vcpu,
+ 			      struct kvm_vcpu_events *events);
+ 
+@@ -1326,6 +1339,7 @@ int __init populate_nv_trap_config(void);
+ 
+ void kvm_calculate_traps(struct kvm_vcpu *vcpu);
+ 
++#ifdef ARM64_S390_COMMON
+ /* MMIO helpers */
+ void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data);
+ unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
+@@ -1333,6 +1347,8 @@ unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
+ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu);
+ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
+ 
++#endif /* ARM64_S390_COMMON */
++
+ /*
+  * Returns true if a Performance Monitoring Interrupt (PMI), a.k.a. perf event,
+  * arrived in guest context.  For arm64, any event that arrives while a vCPU is
+@@ -1530,11 +1546,15 @@ static inline bool __vcpu_has_feature(const struct kvm_arch *ka, int feature)
+ 	return test_bit(feature, ka->vcpu_features);
  }
  
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 4bf624a49591..fc1fdc99d82c 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -451,7 +451,7 @@ static inline bool kvm_hyp_handle_mops(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	u64 spsr;
++#ifdef ARM64_S390_COMMON
++
+ #define kvm_vcpu_has_feature(k, f)	__vcpu_has_feature(&(k)->arch, (f))
+ #define vcpu_has_feature(v, f)	__vcpu_has_feature(&(v)->kvm->arch, (f))
  
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
--	arm64_mops_reset_regs(vcpu_gp_regs(vcpu), vcpu->arch.fault.esr_el2);
-+	arm64_mops_reset_regs(&vcpu->arch.ctxt.regs, vcpu->arch.fault.esr_el2);
- 	write_sysreg_el2(*vcpu_pc(vcpu), SYS_ELR);
+ #define kvm_vcpu_initialized(v) vcpu_get_flag(v, VCPU_INITIALIZED)
  
- 	/*
-@@ -896,7 +896,7 @@ static inline void synchronize_vcpu_pstate(struct kvm_vcpu *vcpu)
- 	/*
- 	 * Check for the conditions of Cortex-A510's #2077057. When these occur
- 	 * SPSR_EL2 can't be trusted, but isn't needed either as it is
--	 * unchanged from the value in vcpu_gp_regs(vcpu)->pstate.
-+	 * unchanged from the value in vcpu_cpsr(vcpu).
- 	 * Are we single-stepping the guest, and took a PAC exception from the
- 	 * active-not-pending state?
- 	 */
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index b963fd975aac..be829fa6f130 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -218,13 +218,15 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 		pstate = VCPU_RESET_PSTATE_EL1;
++#endif /* ARM64_S390_COMMON */
++
+ int kvm_trng_call(struct kvm_vcpu *vcpu);
+ #ifdef CONFIG_KVM
+ extern phys_addr_t hyp_mem_base;
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index 6f5b79ee1f3f..bb16a9894a5a 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -28,6 +28,8 @@
  
- 	/* Reset core registers */
--	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
-+	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
-+	*vcpu_pc(vcpu) = 0;
-+	vcpu->arch.ctxt.regs.sp = 0;
- 	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
- 	vcpu->arch.ctxt.spsr_abt = 0;
- 	vcpu->arch.ctxt.spsr_und = 0;
- 	vcpu->arch.ctxt.spsr_irq = 0;
- 	vcpu->arch.ctxt.spsr_fiq = 0;
--	vcpu_gp_regs(vcpu)->pstate = pstate;
-+	*vcpu_cpsr(vcpu) = pstate;
+ #define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
  
- 	/* Reset system registers */
- 	kvm_reset_sys_regs(vcpu);
++#ifdef ARM64_S390_COMMON
++
+ /* Additional SPSR bits not exposed in the UABI */
+ #define PSR_MODE_THREAD_BIT	(1 << 0)
+ #define PSR_IL_BIT		(1 << 20)
+@@ -68,6 +70,8 @@
+ #define PSR_AA32_IT_MASK	0x0600fc00	/* If-Then execution state mask */
+ #define PSR_AA32_GE_MASK	0x000f0000
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #ifdef CONFIG_CPU_BIG_ENDIAN
+ #define PSR_AA32_ENDSTATE	PSR_AA32_E_BIT
+ #else
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index ab205f9db94a..1c5c4df260be 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -16,6 +16,8 @@
+ 
+ #include <asm/gpr-num.h>
+ 
++#ifdef ARM64_S390_COMMON
++
+ /*
+  * ARMv8 ARM reserves the following encoding for system registers:
+  * (Ref: ARMv8 ARM, Section: "System instruction class encoding overview",
+@@ -50,6 +52,8 @@
+ #define sys_reg_CRm(id)	(((id) >> CRm_shift) & CRm_mask)
+ #define sys_reg_Op2(id)	(((id) >> Op2_shift) & Op2_mask)
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #ifndef CONFIG_BROKEN_GAS_INST
+ 
+ #ifdef __ASSEMBLER__
+@@ -123,6 +127,8 @@
+ #define GSB_SYS_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 0, 31)
+ #define GSB_ACK_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 1, 31)
+ 
++#ifdef ARM64_S390_COMMON
++
+ /* Data cache zero operations */
+ #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
+ #define SYS_DC_IGSW			sys_insn(1, 0, 7, 6, 4)
+@@ -832,6 +838,8 @@
+ #define SCTLR_ELx_A	 (BIT(1))
+ #define SCTLR_ELx_M	 (BIT(0))
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #ifdef CONFIG_CPU_BIG_ENDIAN
+ #define ENDIAN_SET_EL2		SCTLR_ELx_EE
+ #else
+@@ -866,6 +874,7 @@
+ 	 SCTLR_EL1_LSMAOE | SCTLR_EL1_nTLSMD | SCTLR_EL1_EIS   | \
+ 	 SCTLR_EL1_TSCXT  | SCTLR_EL1_EOS)
+ 
++#ifdef ARM64_S390_COMMON
+ /* MAIR_ELx memory attributes (used by Linux) */
+ #define MAIR_ATTR_DEVICE_nGnRnE		UL(0x00)
+ #define MAIR_ATTR_DEVICE_nGnRE		UL(0x04)
+@@ -1102,6 +1111,8 @@
+ #define GICV5_GICR_CDNMIA_TYPE_MASK	GENMASK_ULL(31, 29)
+ #define GICV5_GICR_CDNMIA_ID_MASK	GENMASK_ULL(23, 0)
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
+ #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
+ 
+@@ -1251,6 +1262,8 @@
+ 	par;								\
+ })
+ 
++#ifdef ARM64_S390_COMMON
++
+ #define SYS_FIELD_VALUE(reg, field, val)	reg##_##field##_##val
+ 
+ #define SYS_FIELD_GET(reg, field, val)		\
+@@ -1263,6 +1276,8 @@
+ 		 FIELD_PREP(reg##_##field##_MASK,	\
+ 			    SYS_FIELD_VALUE(reg, field, val))
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #endif /* __ASSEMBLER__ */
+ 
+ #endif	/* __ASM_SYSREG_H */
 -- 
 2.53.0
 
