@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5C0C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A98CC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/UwgvKYFPPar4fqUMM1nUY0QbNb/Wo+lwFxWuvZUvRU=; b=mYsbOw5PzSq0xjiGZKYyVXJgB4
-	3HloY//aiZXGqzwT9eyon9zNup1GMqccDAG/a4+mOCeUNtf4+B3edRjEZsmJa4+P6M0jqVNKramEJ
-	DwTUvqhRef5uOO9Hkg2AHYsXNnmydcw+S4S/OVfwHUKZAeWoCfTaZDgirxQgQYs3I1AwQHY635+Zb
-	dQa6N/xRqWIPIJUsh828dqTEz+mgXNqLUas3gEMyYsSS1fMl0EkbqyQHYNLBsL8abMp557sYhgUqa
-	S8M8t8hLhtObf4lk9w5euhFN/1ivqSaJxUM2DhFYLuQxLn9v46sWr818I9j+MC7ou/2855WPMWBgW
-	+IycqXxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eAxOsLYpK9eFmi4OxuFp7qfHkUr7yvIHaNSSrtdi+OQ=; b=qGfVvyNeZCkqYMMqU/wkgNAnDI
+	JJFhPEVgJlrIFvlp2rRwhlssiaJRDvLGQ4rGDCR9uIwR7ic/Y1sqwRlE2UzbPHZW50rhWrJ4CB4no
+	eKU+MSXb4bfGhVvpcLB492yYB3CVsPen5v5nWTLwP5oAAU+CRwMynNuJzdx54Ta7/tCS8IW49ouNE
+	m3sJBf+juAyO8VVBmsnKuZkwbwhDHdWGiB8b1YbXGG4rYXyNQSfb3Wg6Tkgy0dsaMt6KC3CrV432M
+	FQH5oMHzROq2RHzR4+ka8MoqI5eA5g23Z/0C6k7Dqleplm5iJgJAlS+D1T7qiIQTAJfghEZZ/pzD9
+	1SQOlkpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpp4k-0000000CtbC-214W;
-	Fri, 31 Jul 2026 15:23:06 +0000
+	id 1wpp7C-0000000Ctqe-3KTL;
+	Fri, 31 Jul 2026 15:25:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpp4i-0000000Ctaj-3MUt
+	id 1wpp78-0000000Ctpv-1Jfk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 15:23:06 +0000
+	Fri, 31 Jul 2026 15:25:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0E28204C;
-	Fri, 31 Jul 2026 08:22:59 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C56833F66F;
-	Fri, 31 Jul 2026 08:23:02 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDAF4204C;
+	Fri, 31 Jul 2026 08:25:28 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 930313F66F;
+	Fri, 31 Jul 2026 08:25:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785511383; bh=qF7X6G6poyy5lqDPXb9HhX6b/JufNdkincTkzi8dE9Y=;
-	h=From:To:Cc:Subject:Date:From;
-	b=NhT9O7OI9UYxPZJrrf5Asf2YyGTeuspp2rqFtafYrqcb0/kSUwVDBIqdiczg9Bq8N
-	 u7exZrzRAcrYIpEcn0cbytVZTS2VlOloCDmMcQCmwo3lkaWGk2wGLy7pLeTwNYrDHn
-	 h0amUIwqKl8x4NherSn25u7HOt70bIrmDrqQouEE=
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	ilkka@os.amperecomputing.com,
-	bwicaksono@nvidia.com
-Subject: [PATCH v2] perf/arm_cspmu: Support 64-bit programmers' model
-Date: Fri, 31 Jul 2026 16:22:58 +0100
-Message-ID: <2bde4469c918494e8fa04b2d297a6189ac8b7796.1785511378.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.54.0.dirty
+	t=1785511532; bh=QCuz6mWm4b2OnDvgJj6FOQ71UL0rPX8NCGIBuN1iKEs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Tu0ZOyDPm/zoA1LcwEK8YcKgXEQCb4LLg/ECvdVNDteJCr6UWbnRROZmbmZ2kBS5X
+	 oMibasxGm+YO7qMHvd7twzvCapACtYYXc5UULpmHsR3czM6TR4RzHwSXElLVT/3CxV
+	 s5iDyXByz9Orvq5sz1vLW9Y6N5jYJdYjuWCXIhac=
+Date: Fri, 31 Jul 2026 16:25:20 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Cc: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [RFC PATCH 3/9] arm64/debug-monitors: Make
+ do_el1_brk64()/do_el1_softstep() noinstr
+Message-ID: <amy-YDef9iuQUPZe@J2N7QTR9R3>
+References: <cover.1785153469.git.hongyan.xia@transsion.com>
+ <c914d2b8ff0421eb35665eba7b49c92f3857d2bb.1785153469.git.hongyan.xia@transsion.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c914d2b8ff0421eb35665eba7b49c92f3857d2bb.1785153469.git.hongyan.xia@transsion.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_082304_925792_EC612BA0 
-X-CRM114-Status: GOOD (  30.49  )
+X-CRM114-CacheID: sfid-20260731_082535_004939_650973A6 
+X-CRM114-Status: GOOD (  28.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,343 +73,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 64-bit Programmers' model extension, now named FEAT_CSPMU_EXT64,
-makes all the non-counter registers 64-bit as well, of which we most
-need to care PMEVFILTR<n>, PMEVTYPER<n>, and PMCR since it changes
-location. Our event config fields are ready for this internally, but
-we need a few more tweaks to propagate 64-bit values properly from
-end to end.
+On Mon, Jul 27, 2026 at 12:25:38PM +0000, Hongyan Xia wrote:
+> From: Hongyan Xia <hongyan.xia@transsion.com>
+> 
+> Convert do_el1_brk64(), do_el1_softstep() and call_el1_break_hook() to
+> noinstr. The kprobe and kretprobe BRK handlers (converted to noinstr in
+> the following patches) are dispatched directly. Every other BRK handler
+> are ordinary instrumentable code and now run bounded by
+> instrumentation_begin()/end().
 
-Since 64-bit events leave no room for our existing "cycles" encoding,
-and we don't really expect to see implementations of it anyway, we
-deliberately omit generic support for the architectural fixed cycle
-counter in this case to save some bother. At worst, vendor modules
-can still implement their own encoding if they really want to.
+Why is it necessary to change do_el1_softstep()?
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
+Neither kprobes nor kretprobes uses software stepping since commit:
 
-v2: Fix off-by-one in the event format
----
- drivers/perf/arm_cspmu/arm_cspmu.c    | 121 +++++++++++++++++++++-----
- drivers/perf/arm_cspmu/arm_cspmu.h    |  25 +++---
- drivers/perf/arm_cspmu/nvidia_cspmu.c |   2 +-
- 3 files changed, 114 insertions(+), 34 deletions(-)
+  7ee31a3aa8f4 ("arm64: kprobes: Use BRK instead of single-step when executing instructions out-of-line")
 
-diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-index ad82de166dd1..3b48a35b6241 100644
---- a/drivers/perf/arm_cspmu/arm_cspmu.c
-+++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-@@ -78,13 +78,13 @@ static struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev)
- }
- 
- /*
-- * In CoreSight PMU architecture, all of the MMIO registers are 32-bit except
-- * counter register. The counter register can be implemented as 32-bit or 64-bit
-- * register depending on the value of PMCFGR.SIZE field. For 64-bit access,
-- * single-copy 64-bit atomic support is implementation defined. APMT node flag
-- * is used to identify if the PMU supports 64-bit single copy atomic. If 64-bit
-- * single copy atomic is not supported, the driver treats the register as a pair
-- * of 32-bit register.
-+ * With FEAT_CSPMU_EXT32, all of the MMIO registers are 32-bit except the
-+ * counter registers, which are either 32-bit or 64-bit depending on the value
-+ * of PMCFGR.SIZE. It is implementation-defined whether single-copy-atomic
-+ * 64-bit accesses are supported, so we rely on a firmware flag to identify
-+ * that, and otherwise treat a 64-bit counter as a non-atomic pair of 32-bit
-+ * registers. With FEAT_CSPMU_EXT64, everything is 64-bit, but we may still
-+ * have to deal with atomicity being broken.
-  */
- 
- /*
-@@ -173,13 +173,30 @@ arm_cspmu_event_attr_is_visible(struct kobject *kobj,
- 	eattr = container_of(attr, typeof(*eattr), attr.attr);
- 
- 	/* Hide cycle event if not supported */
--	if (!supports_cycle_counter(cspmu) &&
-+	if ((cspmu->has_ext64 || !supports_cycle_counter(cspmu)) &&
- 	    eattr->id == ARM_CSPMU_EVT_CYCLES_DEFAULT)
- 		return 0;
- 
- 	return attr->mode;
- }
- 
-+ssize_t arm_cspmu_default_format_show(struct device *dev,
-+				      struct device_attribute *attr, char *buf)
-+{
-+	struct perf_pmu_events_attr *fmt = container_of(attr, typeof(*fmt), attr);
-+	struct arm_cspmu *cspmu = to_arm_cspmu(dev_get_drvdata(dev));
-+	u64 field = cspmu->has_ext64 ? U64_MAX : U32_MAX;
-+	DECLARE_BITMAP(bits, 64) = { BITMAP_FROM_U64(field) };
-+
-+	if (!fmt->id) {
-+		set_bit(32, bits); /* For 32-bit "cycles" event */
-+		return sysfs_emit(buf, "config:%*pbl\n", 64, bits);
-+	}
-+
-+	return sysfs_emit(buf, "config%lld:%*pbl\n", fmt->id, 64, bits);
-+}
-+EXPORT_SYMBOL_GPL(arm_cspmu_default_format_show);
-+
- static struct attribute *arm_cspmu_format_attrs[] = {
- 	ARM_CSPMU_FORMAT_EVENT_ATTR,
- 	ARM_CSPMU_FORMAT_FILTER_ATTR,
-@@ -198,9 +215,9 @@ arm_cspmu_get_format_attrs(const struct arm_cspmu *cspmu)
- 	return attrs;
- }
- 
--static u32 arm_cspmu_event_type(const struct perf_event *event)
-+static u64 arm_cspmu_event_type(const struct perf_event *event)
- {
--	return event->attr.config & ARM_CSPMU_EVENT_MASK;
-+	return event->attr.config;
- }
- 
- static bool arm_cspmu_is_cycle_counter_event(const struct perf_event *event)
-@@ -208,6 +225,16 @@ static bool arm_cspmu_is_cycle_counter_event(const struct perf_event *event)
- 	return (event->attr.config == ARM_CSPMU_EVT_CYCLES_DEFAULT);
- }
- 
-+static u64 arm_cspmu_filter(const struct perf_event *event)
-+{
-+	return event->attr.config1;
-+}
-+
-+static u64 arm_cspmu_filter2(const struct perf_event *event)
-+{
-+	return event->attr.config2;
-+}
-+
- static ssize_t arm_cspmu_identifier_show(struct device *dev,
- 					 struct device_attribute *attr,
- 					 char *page)
-@@ -417,6 +444,17 @@ static int arm_cspmu_init_impl_ops(struct arm_cspmu *cspmu)
- 		DEFAULT_IMPL_OP(event_attr_is_visible),
- 	};
- 
-+	/*
-+	 * With 64-bit events, since our default "cycles" encoding won't work,
-+	 * and the architecture recommends against implementing it anyway, we
-+	 * choose to effectively ignore FEAT_CSPMU_CCNTR, unless a vendor
-+	 * module really wants to provide its own encoding and ops.
-+	 */
-+	if (cspmu->has_ext64) {
-+		cspmu->impl.ops.is_cycle_counter_event = NULL;
-+		cspmu->impl.ops.set_cc_filter = NULL;
-+	}
-+
- 	/* Firmware may override implementer/product ID from PMIIDR */
- 	if (apmt_node && apmt_node->impl_id)
- 		cspmu->impl.pmiidr = apmt_node->impl_id;
-@@ -518,19 +556,24 @@ static int arm_cspmu_alloc_attr_groups(struct arm_cspmu *cspmu)
- 	return 0;
- }
- 
-+static inline int arm_cspmu_pmcr(struct arm_cspmu *cspmu)
-+{
-+	return cspmu->has_ext64 ? PMCR_64 : PMCR;
-+}
-+
- static inline void arm_cspmu_reset_counters(struct arm_cspmu *cspmu)
- {
--	writel(PMCR_C | PMCR_P, cspmu->base0 + PMCR);
-+	writel(PMCR_C | PMCR_P, cspmu->base0 + arm_cspmu_pmcr(cspmu));
- }
- 
- static inline void arm_cspmu_start_counters(struct arm_cspmu *cspmu)
- {
--	writel(PMCR_E, cspmu->base0 + PMCR);
-+	writel(PMCR_E, cspmu->base0 + arm_cspmu_pmcr(cspmu));
- }
- 
- static inline void arm_cspmu_stop_counters(struct arm_cspmu *cspmu)
- {
--	writel(0, cspmu->base0 + PMCR);
-+	writel(0, cspmu->base0 + arm_cspmu_pmcr(cspmu));
- }
- 
- static void arm_cspmu_enable(struct pmu *pmu)
-@@ -561,7 +604,8 @@ static int arm_cspmu_get_event_idx(struct arm_cspmu_hw_events *hw_events,
- 	struct arm_cspmu *cspmu = to_arm_cspmu(event->pmu);
- 
- 	if (supports_cycle_counter(cspmu)) {
--		if (cspmu->impl.ops.is_cycle_counter_event(event)) {
-+		if (cspmu->impl.ops.is_cycle_counter_event &&
-+		    cspmu->impl.ops.is_cycle_counter_event(event)) {
- 			/* Search for available cycle counter. */
- 			if (test_and_set_bit(cspmu->cycle_counter_logical_idx,
- 					     hw_events->used_ctrs))
-@@ -804,26 +848,33 @@ static void arm_cspmu_event_update(struct perf_event *event)
- static inline void arm_cspmu_set_event(struct arm_cspmu *cspmu,
- 					struct hw_perf_event *hwc)
- {
--	u32 offset = PMEVTYPER + (4 * hwc->idx);
--
--	writel(hwc->config, cspmu->base0 + offset);
-+	if (cspmu->has_ext64)
-+		writeq(hwc->config, cspmu->base0 + PMEVTYPER + (8 * hwc->idx));
-+	else
-+		writel(hwc->config, cspmu->base0 + PMEVTYPER + (4 * hwc->idx));
- }
- 
- static void arm_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
- 				    const struct perf_event *event)
- {
--	u32 filter = event->attr.config1 & ARM_CSPMU_FILTER_MASK;
--	u32 filter2 = event->attr.config2 & ARM_CSPMU_FILTER_MASK;
--	u32 offset = 4 * event->hw.idx;
-+	u64 filter = arm_cspmu_filter(event);
-+	u64 filter2 = arm_cspmu_filter2(event);
-+	int n = event->hw.idx;
- 
--	writel(filter, cspmu->base0 + PMEVFILTR + offset);
--	writel(filter2, cspmu->base0 + PMEVFILT2R + offset);
-+	if (cspmu->has_ext64) {
-+		writeq(filter, cspmu->base0 + PMEVFILTR + (8 * n));
-+		writeq(filter2, cspmu->base0 + PMEVFILT2R + (8 * n));
-+	} else {
-+		writel(filter, cspmu->base0 + PMEVFILTR + (4 * n));
-+		writel(filter2, cspmu->base0 + PMEVFILT2R + (4 * n));
-+	}
- }
- 
-+/* Note we deliberately don't expect 64-bit filters here; see init_impl_ops */
- static void arm_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
- 				    const struct perf_event *event)
- {
--	u32 filter = event->attr.config1 & ARM_CSPMU_FILTER_MASK;
-+	u32 filter = arm_cspmu_filter(event);
- 
- 	writel(filter, cspmu->base0 + PMCCFILTR);
- }
-@@ -976,6 +1027,30 @@ static int arm_cspmu_init_mmio(struct arm_cspmu *cspmu)
- 		}
- 	}
- 
-+	/*
-+	 * We can infer FEAT_CSPMU_EXT64 from PMCNTEN, or hope that anything
-+	 * that failed to get that right has at least implemented the optional
-+	 * PMDEVARCH correctly...
-+	 *
-+	 * Note that architecturally, has_ext64 *should* imply has_atomic_dword,
-+	 * but enough implementations have ignored that already that we'll just
-+	 * have to still rely on the firmware flag.
-+	 */
-+	writel(~0U, cspmu->base0 + PMCNTENCLR);
-+	writel(~0U, cspmu->base0 + PMCNTEN);
-+	if (readl(cspmu->base0 + PMCNTENCLR)) {
-+		cspmu->has_ext64 = true;
-+		writel(0, cspmu->base0 + PMCNTEN);
-+	} else {
-+		u32 reg = readl(cspmu->base0 + PMDEVARCH);
-+
-+		if (reg & ARM_CSPMU_PMDEVARCH_PRESENT) {
-+			reg &= ARM_CSPMU_PMDEVARCH_ARCHPART;
-+			if (reg == 0xaf4 || reg == 0xaf5)
-+				cspmu->has_ext64 = true;
-+		}
-+	}
-+
- 	cspmu->pmcfgr = readl(cspmu->base0 + PMCFGR);
- 
- 	cspmu->num_logical_ctrs = FIELD_GET(PMCFGR_N, cspmu->pmcfgr) + 1;
-diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
-index 3fc5c8d77266..c4058d602477 100644
---- a/drivers/perf/arm_cspmu/arm_cspmu.h
-+++ b/drivers/perf/arm_cspmu/arm_cspmu.h
-@@ -35,21 +35,15 @@
- 	PMU_EVENT_ATTR_ID(_name, arm_cspmu_sysfs_event_show, _config)
- 
- 
--/* Default event id mask */
--#define ARM_CSPMU_EVENT_MASK	GENMASK_ULL(63, 0)
--
--/* Default filter value mask */
--#define ARM_CSPMU_FILTER_MASK	GENMASK_ULL(63, 0)
--
- /* Default event format */
- #define ARM_CSPMU_FORMAT_EVENT_ATTR	\
--	ARM_CSPMU_FORMAT_ATTR(event, "config:0-32")
-+	PMU_EVENT_ATTR_ID(event, arm_cspmu_default_format_show, 0)
- 
- /* Default filter format */
- #define ARM_CSPMU_FORMAT_FILTER_ATTR	\
--	ARM_CSPMU_FORMAT_ATTR(filter, "config1:0-31")
-+	PMU_EVENT_ATTR_ID(filter, arm_cspmu_default_format_show, 1)
- #define ARM_CSPMU_FORMAT_FILTER2_ATTR	\
--	ARM_CSPMU_FORMAT_ATTR(filter2, "config2:0-31")
-+	PMU_EVENT_ATTR_ID(filter2, arm_cspmu_default_format_show, 2)
- 
- /*
-  * This is the default event number for cycle count, if supported, since the
-@@ -78,6 +72,7 @@
- #define PMEVFILT2R			0x800
- #define PMEVFILTR			0xA00
- #define PMCNTENSET			0xC00
-+#define PMCNTEN				0xC10
- #define PMCNTENCLR			0xC20
- #define PMINTENSET			0xC40
- #define PMINTENCLR			0xC60
-@@ -87,6 +82,8 @@
- #define PMCFGR				0xE00
- #define PMCR				0xE04
- #define PMIIDR				0xE08
-+#define PMCR_64				0xE10
-+#define PMDEVARCH			0xFBC
- #define PMPIDR0				0xFE0
- #define PMPIDR1				0xFE4
- #define PMPIDR2				0xFE8
-@@ -154,6 +151,10 @@
- #define ARM_CSPMU_IMPL_ID_NVIDIA	0x36B
- #define ARM_CSPMU_IMPL_ID_AMPERE	0xA16
- 
-+/* PMDEVARCH */
-+#define ARM_CSPMU_PMDEVARCH_PRESENT	BIT(20)
-+#define ARM_CSPMU_PMDEVARCH_ARCHPART	GENMASK(11, 0)
-+
- struct arm_cspmu;
- 
- /* This tracks the events assigned to each counter in the PMU. */
-@@ -183,7 +184,7 @@ struct arm_cspmu_impl_ops {
- 	/* Check if the event corresponds to cycle count event */
- 	bool (*is_cycle_counter_event)(const struct perf_event *event);
- 	/* Decode event type/id from configs */
--	u32 (*event_type)(const struct perf_event *event);
-+	u64 (*event_type)(const struct perf_event *event);
- 	/* Set/reset event filters */
- 	void (*set_cc_filter)(struct arm_cspmu *cspmu,
- 			      const struct perf_event *event);
-@@ -234,6 +235,7 @@ struct arm_cspmu {
- 	int irq;
- 
- 	bool has_atomic_dword;
-+	bool has_ext64;
- 	u32 pmcfgr;
- 	u32 num_logical_ctrs;
- 	u32 num_set_clr_reg;
-@@ -250,6 +252,9 @@ ssize_t arm_cspmu_sysfs_event_show(struct device *dev,
- 				   struct device_attribute *attr,
- 				   char *buf);
- 
-+ssize_t arm_cspmu_default_format_show(struct device *dev,
-+				      struct device_attribute *attr, char *buf);
-+
- /* Register vendor backend. */
- int arm_cspmu_impl_register(const struct arm_cspmu_impl_match *impl_match);
- 
-diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-index bac83e424d6d..a4c1ab886709 100644
---- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
-+++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-@@ -762,7 +762,7 @@ static void pcie_tgt_pmu_reset_ev_filter(struct arm_cspmu *cspmu,
- 	pcie_tgt_pmu_config_addr_filter(cspmu, false, base, mask, idx);
- }
- 
--static u32 pcie_tgt_pmu_event_type(const struct perf_event *event)
-+static u64 pcie_tgt_pmu_event_type(const struct perf_event *event)
- {
- 	return event->attr.config & NV_PCIE_TGT_EV_TYPE_MASK;
- }
--- 
-2.54.0.dirty
+... so either that shouldn't be necessary, or there's a problem that
+needs to be described in this commit message.
 
+> With this, everything on the el1 debug exception path from the vectors
+> down to the kprobe handlers is noinstr, and instrumentation only runs
+> inside explicit instrumentation windows.
+> 
+> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
+> ---
+>  arch/arm64/kernel/debug-monitors.c | 74 +++++++++++++++++-------------
+>  1 file changed, 41 insertions(+), 33 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+> index 29307642f4c9..a970ab6327cd 100644
+> --- a/arch/arm64/kernel/debug-monitors.c
+> +++ b/arch/arm64/kernel/debug-monitors.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/debugfs.h>
+>  #include <linux/hardirq.h>
+>  #include <linux/init.h>
+> +#include <linux/instrumentation.h>
+>  #include <linux/ptrace.h>
+>  #include <linux/kprobes.h>
+>  #include <linux/stat.h>
+> @@ -193,59 +194,65 @@ void do_el0_softstep(unsigned long esr, struct pt_regs *regs)
+>  	user_rewind_single_step(current);
+>  }
+>  
+> -void do_el1_softstep(unsigned long esr, struct pt_regs *regs)
+> +void noinstr do_el1_softstep(unsigned long esr, struct pt_regs *regs)
+>  {
+> -	if (kgdb_single_step_handler(regs, esr) == DBG_HOOK_HANDLED)
+> +	int handled;
+> +
+> +	instrumentation_begin();
+> +	handled = kgdb_single_step_handler(regs, esr);
+> +	instrumentation_end();
+> +
+> +	if (handled == DBG_HOOK_HANDLED)
+>  		return;
+>  
+> +	instrumentation_begin();
+>  	pr_warn("Unexpected kernel single-step exception at EL1\n");
+> +	instrumentation_end();
+>  	/*
+>  	 * Re-enable stepping since we know that we will be
+>  	 * returning to regs.
+>  	 */
+>  	set_regs_spsr_ss(regs);
+>  }
+> -NOKPROBE_SYMBOL(do_el1_softstep);
+
+As above, I don't think it's necessary to change do_el1_softstep(), but
+I might be missing something that you haven't described in the commit
+message.
+
+Is the existing NOKPROBE_SYMBOL() annotation actually necessary? It
+looks like that dates from before commit 7ee31a3aa8f4, and I suspect we
+can delete it even without making this noinstr.
+
+I don't think you need to make structural changes here.  Given the first
+thing the function does is an unconditional call to an instrumented
+function, we're not gaining anything by litering this with
+instrumentation_{begin,end}().
+
+> -static int call_el1_break_hook(struct pt_regs *regs, unsigned long esr)
+> +static int noinstr call_el1_break_hook(struct pt_regs *regs, unsigned long esr)
+>  {
+> -	if (esr_brk_comment(esr) == BUG_BRK_IMM)
+> -		return bug_brk_handler(regs, esr);
+> -
+> -	if (IS_ENABLED(CONFIG_CFI) && esr_is_cfi_brk(esr))
+> -		return cfi_brk_handler(regs, esr);
+> -
+> -	if (esr_brk_comment(esr) == FAULT_BRK_IMM)
+> -		return reserved_fault_brk_handler(regs, esr);
+> -
+> -	if (IS_ENABLED(CONFIG_KASAN_SW_TAGS) &&
+> -		(esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
+> -		return kasan_brk_handler(regs, esr);
+> -
+> -	if (IS_ENABLED(CONFIG_UBSAN_TRAP) && esr_is_ubsan_brk(esr))
+> -		return ubsan_brk_handler(regs, esr);
+> -
+> -	if (IS_ENABLED(CONFIG_KGDB)) {
+> -		if (esr_brk_comment(esr) == KGDB_DYN_DBG_BRK_IMM)
+> -			return kgdb_brk_handler(regs, esr);
+> -		if (esr_brk_comment(esr) == KGDB_COMPILED_DBG_BRK_IMM)
+> -			return kgdb_compiled_brk_handler(regs, esr);
+> -	}
+> +	unsigned long comment = esr_brk_comment(esr);
+> +	int ret = DBG_HOOK_ERROR;
+>  
+>  	if (IS_ENABLED(CONFIG_KPROBES)) {
+> -		if (esr_brk_comment(esr) == KPROBES_BRK_IMM)
+> +		if (comment == KPROBES_BRK_IMM)
+>  			return kprobe_brk_handler(regs, esr);
+> -		if (esr_brk_comment(esr) == KPROBES_BRK_SS_IMM)
+> +		if (comment == KPROBES_BRK_SS_IMM)
+>  			return kprobe_ss_brk_handler(regs, esr);
+>  	}
+>  
+>  	if (IS_ENABLED(CONFIG_KRETPROBES) &&
+> -		esr_brk_comment(esr) == KRETPROBES_BRK_IMM)
+> +	    comment == KRETPROBES_BRK_IMM)
+>  		return kretprobe_brk_handler(regs, esr);
+>  
+> -	return DBG_HOOK_ERROR;
+> +	instrumentation_begin();
+> +	if (comment == BUG_BRK_IMM)
+> +		ret = bug_brk_handler(regs, esr);
+> +	else if (IS_ENABLED(CONFIG_CFI) && esr_is_cfi_brk(esr))
+> +		ret = cfi_brk_handler(regs, esr);
+> +	else if (comment == FAULT_BRK_IMM)
+> +		ret = reserved_fault_brk_handler(regs, esr);
+> +	else if (IS_ENABLED(CONFIG_KASAN_SW_TAGS) &&
+> +		 (comment & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
+> +		ret = kasan_brk_handler(regs, esr);
+> +	else if (IS_ENABLED(CONFIG_UBSAN_TRAP) && esr_is_ubsan_brk(esr))
+> +		ret = ubsan_brk_handler(regs, esr);
+> +	else if (IS_ENABLED(CONFIG_KGDB)) {
+> +		if (comment == KGDB_DYN_DBG_BRK_IMM)
+> +			ret = kgdb_brk_handler(regs, esr);
+> +		else if (comment == KGDB_COMPILED_DBG_BRK_IMM)
+> +			ret = kgdb_compiled_brk_handler(regs, esr);
+> +	}
+> +	instrumentation_end();
+> +
+> +	return ret;
+>  }
+> -NOKPROBE_SYMBOL(call_el1_break_hook);
+
+I don't think you need to make any structural changes to
+call_el1_break_hook(). Just mark it as noinstr, and remove the
+NOKPROBE_SYMBOL() annotation. The existing control flow will be safe.
+
+>  /*
+>   * We have already unmasked interrupts and enabled preemption
+> @@ -261,14 +268,15 @@ void do_el0_brk64(unsigned long esr, struct pt_regs *regs)
+>  	send_user_sigtrap(TRAP_BRKPT);
+>  }
+>  
+> -void do_el1_brk64(unsigned long esr, struct pt_regs *regs)
+> +void noinstr do_el1_brk64(unsigned long esr, struct pt_regs *regs)
+>  {
+>  	if (call_el1_break_hook(regs, esr) == DBG_HOOK_HANDLED)
+>  		return;
+>  
+> +	instrumentation_begin();
+>  	die("Oops - BRK", regs, esr);
+> +	instrumentation_end();
+>  }
+> -NOKPROBE_SYMBOL(do_el1_brk64);
+
+Likewise, just mark do_el1_brk64() as noinstr and remove the
+NOKPROBE_SYMBOL() annotation, without the instrumentation_{begin,end}()
+calls.
+
+Mark.
 
