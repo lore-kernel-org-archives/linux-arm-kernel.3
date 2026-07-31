@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2BC4C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 02:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF7DC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 02:16:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zmPGEnHMged4MVtOCZdKBh7EW5THeW2s3SZc/Fx5p8U=; b=WVhbBMWUXOsyZkxEqInEEWi0rP
-	Cf1SBce2BHwEo/StFDIyQZW3KaJ/HcJT5Q7MnmvyNxHoieCZPOU6PkJz4SmtwXsKXzEhDM69U7i4e
-	RCVOi0GZEMN7OdErAEprsZ8P20qQB6lvAbR/LgGFECgVNhsBzHXmT2a4j8bQi817y8Xo9pGwHNOut
-	OLCyaXTBGh6Bdj11Os9vt+QsyNZf3xt7h8rIsRi77+WIVr757gwXXqlo4F08FSTTDKKOFsIs1kRt6
-	DDBd5aog7GuvWe9VosBrM5AyitsPVzwy+ExIkyMizcvEpq3ouviRvja134vvqFbsEkD/ZGCuNGA1L
-	wpdTPdYQ==;
+	bh=hc3mGOfYflVhngcBU0mpXS3nwU3AmmEu7q+5ujBogpY=; b=efazXdT1sMvMFVBoUCvWSt/X3g
+	nOU7uLqKo26bzE5vDeI+XBi/y1LULBhCE6hfHG1fUe7TMoTAL3yCub+TTm4RihrTcDWuU2DjmgEwF
+	y9xb4eJLPWGVV4zsRb9ZHsEz/rkRH5Th2gH77ZNJZ83GBfg9yeAIErm3zIPAx+9oakHdPHHRMSu8G
+	gcrEoIEJ21BmoZLCqHmwSM/tVpvNgQ6Fh+f7pDaTI49Ho8pRl+yXVyJImHyaKx66liKtUDFrmKCl+
+	nTVmJKQLHuEHlCS+9kSL3azv+17QHjx4VEyjfAkvKLW0jz7iKZqgOoz64nCAOI1ZWKqu6BSS6ZEqk
+	XmimpHTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpcjW-0000000BbrL-2Oxs;
-	Fri, 31 Jul 2026 02:12:22 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1wpcnD-0000000Bc6n-47GF;
+	Fri, 31 Jul 2026 02:16:11 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpcjT-0000000BbpJ-2tbc
+	id 1wpcnA-0000000Bc5z-3NwU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 02:12:21 +0000
-Message-ID: <507ad6a6-52a2-4c68-9ba2-5cc4f92e192d@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785463933;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zmPGEnHMged4MVtOCZdKBh7EW5THeW2s3SZc/Fx5p8U=;
-	b=set1ZuMU2l1LJhdbElnaHncW3htVMpJ+LT8KAyNE87oHGeSl7ekI5XfgExA7/eEmyO/xEK
-	cH9suoKK28MhKg/0O3j1IwdJeTw1fAH2LwjDMLqOmWbVqqs2wRfjKhxljNqtMwsg7XPFSu
-	S0HbUbvxgby2Ctjh8oGiyIouzCzomMI=
-Date: Fri, 31 Jul 2026 10:11:40 +0800
+	Fri, 31 Jul 2026 02:16:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1785464163; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=hc3mGOfYflVhngcBU0mpXS3nwU3AmmEu7q+5ujBogpY=;
+	b=Nz693zvudJHcZD8FabaP2ZJW6QjFq/AJT4/DmBvLFMgxmijA4YRiJAi1DsanL4V75YS82aalj6danFe+7sk+byi2cjjiOHWujrkoJGJdwnPWvM1AE1ovO9pX107iS/8fT9YW6j+Njh6aAaPelhIDkczgvE5PMJcd2LiiC+Yc+dk=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=yadong.qi@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0X86a7kc_1785464160;
+Received: from LG41624401116(mailfrom:yadong.qi@linux.alibaba.com fp:SMTPD_---0X86a7kc_1785464160 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 31 Jul 2026 10:16:01 +0800
+From: <yadong.qi@linux.alibaba.com>
+To: "'Ben Horgan'" <ben.horgan@arm.com>,
+	<james.morse@arm.com>,
+	<reinette.chatre@intel.com>,
+	<fenghuay@nvidia.com>,
+	<linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>,
+	<guohanjun@huawei.com>,
+	<sudeep.holla@kernel.org>,
+	<catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<rafael@kernel.org>,
+	<lenb@kernel.org>,
+	<linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<ying.huang@linux.alibaba.com>
+Cc: <ptg-linux-kernel@linux.alibaba.com>
+References: <20260720072409.2660-1-yadong.qi@linux.alibaba.com_quarantine> <d471ead3-d6fd-4e2e-a800-5bbeba42cb90@arm.com>
+In-Reply-To: <d471ead3-d6fd-4e2e-a800-5bbeba42cb90@arm.com>
+Subject: RE: [RFC PATCH] arm_mpam: remove sanity check of accessibility when error interrupt is SPI on SMT platforms
+Date: Fri, 31 Jul 2026 10:15:57 +0800
+Message-ID: <000d01dd2092$8739f760$95ade620$@linux.alibaba.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] net: stmmac: enable MAC rx/tx after DMA start
-To: Abid Ali <dev.taqnialabs@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260727-stmmac-rx-fifo-block-v2-1-4dc3457d31d0@gmail.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Qingfang Deng <qingfang.deng@linux.dev>
-In-Reply-To: <20260727-stmmac-rx-fifo-block-v2-1-4dc3457d31d0@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: zh-cn
+Thread-Index: AQHSkGkfR30OQX7y8B7c/MgsEN8rbgJ7XVU9toWBJYA=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_191219_879524_A89ADD8D 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260730_191609_020103_12733493 
+X-CRM114-Status: GOOD (  28.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +82,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+> Hi Yadong,
+>=20
+> On 7/20/26 08:24, Yadong Qi wrote:
+> > On SMT platforms, an L2 cache MSC is typically shared between =
+sibling
+> > threads. Per the MPAM ACPI spec (DEN0065B), the MSC's linked device
+> > should be set to the processor container of those siblings, so the
+> > kernel derives msc->accessibility as just the sibling CPUs.
+> >
+> > Per the MPAM spec (IHI0099B), when an MSC is not integrated into a =
+PE,
+> > SPI/LPI is the recommended error interrupt. SPIs are not per-CPU, =
+and a
+> > sanity check in mpam_msc_setup_error_irq() requires accessibility =
+=3D=3D
+> > cpu_possible_mask =E2=80=94 assuming a shared interrupt must be =
+routable to all
+> > CPUs. This creates a conflict on SMT platforms: the MSC has a =
+restricted
+> > accessibility but a shared error interrupt, causing probe to fail =
+with:
+> >
+> >   msc:N is a private resource with a shared error interrupt
+> >
+> > This RFC patch removes the check to allow MSC probe to succeed on =
+SMT
+> > platforms, but this is mainly intended to start a discussion. We =
+would
+> > appreciate advice on the right way to handle this conflict. Is this =
+a
+> > spec issue, or should the driver handle SPI error interrupts =
+differently
+>=20
+> For advice on questions broader than just linux please ask arm =
+support:
+> support@arm.com
 
-On 2026/7/27 14:14, Abid Ali wrote:
-> The EMAC should only accept packets after the DMAs are enabled.
-This is correct.
-> Similarly, the teardown should ensure the MAC rx/tx is stopped before
-> DMA engine is stopped.
+Thanks Ben, I will send mail for arm support.
 
-This is _not_ correct. Instead it's a bit more complicated, according to 
-their programming guidelines:
+>=20
+> > when an MSC has a restricted accessibility mask?
+>=20
+> I expect the MPAM driver could be taught to deal with SPI interrupts =
+without global
+> affinity.
 
-Stopping and Restarting Transmission
+I guess MPAM driver could set the interrupt affinity to accessibility =
+mask if SPI interrupt
+is per-MSC. But if the SPI interrupt is shared between different MSCs, =
+it seems no proper
+method.
 
-- Disable the Transmit DMA (if applicable) by clearing Bit 0 (ST) of the 
-`DMA_CH(#i)_Tx_Control` register.
-- Wait until the Transmit DMA generates the stopped interrupt (TPS field 
-of the `DMA_CH(#i)_Status` register).
-- Wait for any previous frame transmissions to complete. You can check 
-this by reading the appropriate fields of the `MTL_TxQ0_Debug` register 
-(`TRCSTS != 1` and `TXQSTS = 0`).
-- Disable the MAC transmitter and MAC receiver by clearing Bit 0 (RE) of 
-the `MAC_Rx_Configuration` and Bit 0 (TE) of the `MAC_Tx_Configuration` 
-register.
-- Disable the Receive DMA (if applicable), after ensuring the data in 
-the Rx FIFO is transferred to the system memory (by reading the 
-appropriate fields of the `MTL_RxQ0_Debug` register; `PRXQ = 0` and 
-`RXQSTS = 0`).
-- Wait until the Receive DMA generates the stopped interrupt, which is 
-available in the RPS field of the `DMA_CH(#i)_Status` register.
-- Restart the DMAs.
-- Enable the MAC Transmitter and Receiver.
+>=20
+> >
+> > Signed-off-by: Yadong Qi <yadong.qi@linux.alibaba.com>
+> > ---
+> >  drivers/resctrl/mpam_devices.c | 7 -------
+> >  1 file changed, 7 deletions(-)
+> >
+> > diff --git a/drivers/resctrl/mpam_devices.c =
+b/drivers/resctrl/mpam_devices.c
+> > index b69f99488111..e8b2b5e00d7c 100644
+> > --- a/drivers/resctrl/mpam_devices.c
+> > +++ b/drivers/resctrl/mpam_devices.c
+> > @@ -1964,13 +1964,6 @@ static int mpam_msc_setup_error_irq(struct
+> mpam_msc *msc)
+> >  	if (irq_is_percpu(irq))
+> >  		return __setup_ppi(msc);
+> >
+> > -	/* sanity check: shared interrupts can be routed anywhere? */
+> > -	if (!cpumask_equal(&msc->accessibility, cpu_possible_mask)) {
+> > -		pr_err_once("msc:%u is a private resource with a shared error =
+interrupt",
+> > -			    msc->id);
+> > -		return -EINVAL;
+> > -	}
+> > -
+>=20
+> To do this the MPAM driver would have to remove the interrupt from =
+balancing,
+> IRQF_NOBALANCING, and
+> control the balancing itself.
 
-So the correct order is: stop TX DMA -> stop MAC RX/TX -> stop RX DMA.
+Yes, but another problem is SPI could be shared between different MSCs, =
+interrupt
+affinity could not be set correctly.
+Currently, the error irq handler print the error message and disabled =
+MPAM, maybe
+we can allow interrupt from any CPU?
 
-Best regards,
+>=20
+> Thanks,
+>=20
+> Ben
 
-Qingfang
+
+Best Regard
+Yadong
 
 
