@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38630C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:19:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437DFC55181
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5C4KBGp34p6ghtc8dC8WcjbQKC4pVCTe1x6qZCa5kh8=; b=tYvzHbcys7AAkR94PR5F+tFx0k
-	QdslwMXIroiSMNokTrawz0x5+fTPfEN16FXIQYHFu5lCQLX6GsIhsIOVKD/3pCXV20L23VXJCCTgv
-	pELB9K+Zgc/AyunMD9oXQrjbYjaDdLECWnBZzZ5JaPPVzNWLwq0ZP0gtKkolmgTtaqsNzh6iJ3W6F
-	RslGIlC7TAUhMR9HnTByKvBRJeK3NUweVxhxDd8LA+V5GGHkMmlCQwcWeVD3xovVFadE7T7Uu/keq
-	IJVrufrrmsAmkWOSrVzIFpiutU0WW8z3CWuHFCbcfNfJAmtmphy6bpl7g4w47F3vmS5eTXEEh7nSk
-	go/gRe8Q==;
+	bh=HSVGt/9SlrjuK/ZIX6ZAFF3RPTSVgBjbBKfDXd4mUBo=; b=jnOEOgSuRFcibZHHMnJGdo7aAF
+	RsZaH4PtX24P323EDZQi4aNm2pywEHaf7klAD1ge4mPJeDR3HJZSVPvhtumSC5iIvv88QGYu1BLU0
+	i07YnkW7gqwhSvgro4O9tSHS+He4TZK7Y8R6OVK4/E691RQUgdANI/pRoaAKlsoh2CWhD0tN+E+hb
+	qJ6tXuX4U4UfuFL598euSXslLoaTy2Y73xsRRwqL7UWiZ0YR1DB/zsbCBHXSZYiFzPw/qGneIM+gU
+	t2lFs3cfKPDOwMlfxwdGFORBHSHAalf3yqTX0/r6g2rVBLQYyY8mHbhXMmjvOc0uFN5nO0Rk3YTMo
+	uloP97Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxC-0000000CynM-0B1N;
-	Fri, 31 Jul 2026 16:19:22 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wppxL-0000000Cywx-38Yx;
+	Fri, 31 Jul 2026 16:19:31 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppx8-0000000Cylk-2C5o;
-	Fri, 31 Jul 2026 16:19:19 +0000
+	id 1wppxB-0000000Cymv-31lC;
+	Fri, 31 Jul 2026 16:19:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514755;
-	bh=D/Mo27GDMqgDFGKu/PHByp3WOMc3rGEVU+1xPyeAtoA=;
+	s=mail; t=1785514756;
+	bh=LoKeK7pz3tUS/HI4nQVJBEnI7or53/FZb/3CkVSEbPw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Btvzf6YQ8Hr6V5dxzD3f7nLe5rZLZWQBrh8abN2zzoUgX2XRBCakV09TDJbTfkUdK
-	 yUnJyXHhNkOyN6lcnxCRaNYfaSCXO4E8F9x3HLdboU4RgYb65wQXZ1RN5CICZLCne7
-	 9KQMMQmp6GvWgfi3pIqkyo26BKoH6aOzVPiL997ZQTAzZoRjFnld7Tb/53qq3nnGx8
-	 ydcgePpBjZAgxCNaBfZuv861joyCQqdGYsWk/zR4G/5V08sqES2VRnQI+NAi3fJ752
-	 tEyOnlo6REWRnbfLclXexLFFETBvbQV9ZSFqioJ8N1S81ROnOHotBYCUW+CfspSqbv
-	 PlK+nMYHfTXAQ==
+	b=QQM1/ODCZaPF1EY3Nxc7TDsGlmIpqDCOp1EloFd/Dg0nSRCI8T0Yua4Xa6iFFl0EQ
+	 93L0dJXf4MvpSKPTrnZAoSll5FcXHffJWev2kM+iUT1VIky+BM8eqQjKbboK/cBqCD
+	 v8jvuh5ULLoPfn4lFhAgNl7UfCwyLP+KTMafOUsQ/RwnfXG09kVG58/P/P8SfV3oIo
+	 9Z2r0DVtmbO2ReeYVgWBLAMST73ftdx792z/gqpaqAzHBKjzaDb7hDh7Pnbl/gDVi6
+	 krHJpbQkBGyYr5MQlQ+ouHuzD48rdOhbnsZzKc4qyUjQfnlowx83kkaJ2/dk31XZ5J
+	 p5w1n8oDumsmg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7D33017E0682;
-	Fri, 31 Jul 2026 18:19:15 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 34FF117E0700;
+	Fri, 31 Jul 2026 18:19:16 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:19:08 +0300
-Subject: [PATCH v10 01/69] video/hdmi: Introduce HDMI version enum
+Date: Fri, 31 Jul 2026 19:19:09 +0300
+Subject: [PATCH v10 02/69] drm/connector: hdmi: Handle reset() state
+ allocation failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-1-294364b2cf15@collabora.com>
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-2-294364b2cf15@collabora.com>
 References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -72,11 +73,11 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+ Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091918_715361_37A2A700 
-X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-CacheID: sfid-20260731_091921_938516_FCEF7423 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,41 +93,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add an enum to represent HDMI specification versions.  This will be used
-by upcoming changes to associate HDMI connectors and bridges with a
-maximum supported version and to simplify handling of version-dependent
-features.
+In drmm_connector_hdmi_init(), if the reset callback fails to allocate
+memory, e.g. inside drm_atomic_helper_connector_reset(),
+connector->state will remain NULL.  This is unconditionally passed to
+drm_connector_attach_max_bpc_property(), leading to a NULL pointer
+dereference.
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Bail out with -ENOMEM if the reset callback leaves connector->state
+unset.
+
+Fixes: aadb3e16b8f3 ("drm/connector: hdmi: Add output BPC to the connector state")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/20260723015306.C94241F000E9@smtp.kernel.org/
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- include/linux/hdmi.h | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/gpu/drm/drm_connector.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/include/linux/hdmi.h b/include/linux/hdmi.h
-index 8dab78e1f61b..b80a5ee63bb2 100644
---- a/include/linux/hdmi.h
-+++ b/include/linux/hdmi.h
-@@ -27,6 +27,18 @@
- #include <linux/types.h>
- #include <linux/device.h>
+diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+index 8b4baed060f3..0e39431e85b2 100644
+--- a/drivers/gpu/drm/drm_connector.c
++++ b/drivers/gpu/drm/drm_connector.c
+@@ -628,6 +628,8 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+ 		connector->state = state;
+ 	} else if (connector->funcs->reset) {
+ 		connector->funcs->reset(connector);
++		if (!connector->state)
++			return -ENOMEM;
+ 	}
  
-+enum hdmi_version {
-+	HDMI_VERSION_UNKNOWN,
-+	HDMI_VERSION_1_0,
-+	HDMI_VERSION_1_1,
-+	HDMI_VERSION_1_2,
-+	HDMI_VERSION_1_3,
-+	HDMI_VERSION_1_4,
-+	HDMI_VERSION_2_0,
-+	HDMI_VERSION_2_1,
-+	HDMI_VERSION_2_2,
-+};
-+
- enum hdmi_packet_type {
- 	HDMI_PACKET_TYPE_NULL = 0x00,
- 	HDMI_PACKET_TYPE_AUDIO_CLOCK_REGEN = 0x01,
+ 	drm_connector_attach_max_bpc_property(connector, 8, max_bpc);
 
 -- 
 2.55.0
