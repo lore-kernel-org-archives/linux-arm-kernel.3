@@ -4,129 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0627C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:20:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A06C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QWZn+Q7nTgF3D3UTiWJxf4taxphpUYdOHuAoPhIH858=; b=4QlaaG0GTn6dhdTe5CKfUJCEkz
-	bl0DnPsste7oyRyBx3aG9HwVvoNFCqlgvR0+Ye07fW0Ae++knycsQ8J12wQbApXEBnbWECHKbR8vo
-	6NE0JChNWWARn/ZKCSO20E5D3MZQTPv0wy0EkAz8qpMqTXGPQ78+nZL3LKCHy6VZ/3IH57a9+JU13
-	GLYZPIjygxH1kqmYLYuQ3QOHxHHn8rMrgtVngn4hX0rbYm0iZqlvVqHfZtz17/6sBT/jEU5bZd0fh
-	Xu/lQfGqsSNkdsPUM7MNtP+Dm6jJCgiHY5MHpYPqo7cLRaKguC7LxIYrGxWixwPTc3c+1xpt3inCM
-	mZC03ZtA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aCl9K/obc/qaBcU2SXRis+1PiCbpcZjSV6qqaO7YKoo=; b=dMnArSo6qxQagP
+	joUaQAL5aYWCzcZML+NlgauFMJKAVDdR51Z9qHW2RGOkKEnj69C39G6ENl15p3oKTItCvGQiTauoq
+	r1ieUu9GOiHTXroqBsO2fWCq/zZu820+BWET3/n2+p7Z8DkbR6UU0gKJLIF4B0TOWrkO3FJsaBN7Q
+	COI3zPuEHKE93KayjX3CTXCPJZQIyCYoDnAvTyivSjXq7N9Z0mz8wwziYt42fzswEl6uL9gpdJb8+
+	WdDi2MvoXKc+s3t+y7gtI2bounwrMSmn1+w78ag4UuGtla4+O3DX+VX1IJ4lbtaIWOUtydW0Ck5vj
+	UK4GbXrkKUG5VIbpEDFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzm-0000000CYD8-2oCb;
-	Fri, 31 Jul 2026 13:09:50 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wpnA2-0000000CbRQ-3Y3x;
+	Fri, 31 Jul 2026 13:20:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzU-0000000CXua-2KHW
+	id 1wpn9z-0000000CbRJ-1PnH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:09:34 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBmC6r1732219;
-	Fri, 31 Jul 2026 13:09:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=QWZn+Q7nTgF3D3UTi
-	WJxf4taxphpUYdOHuAoPhIH858=; b=dFOyKlqiu58NU2/rTKKiRexgYxW2AtdSB
-	nLTsqI2CEWOJg5MkeKuBj2++/JWzCt+/M3c2O6a5VHMD1YyznSxGUDlSkl8wsxKz
-	pNslJl4zA0p9spEE3/cZw0w3wM8OXG2R/qDxVmJmUTHiJuOS2+64nmpdKxUhZDDn
-	moJhWzrfMpeXdAnpT49oGWWFcZK2gEEX5bDZzOtDxLHabLhDrZ1irguLggnZTAo2
-	la2q7jt9uCO8JL667B/vqYgkdrGaB+rOt7mzfJGQ9/CpdHaMml8Nld7kr1rr2h7+
-	Ng8mQDjzJSIso7Qu1sCENvqRKL93J89p7v0GODWaluTfxtmacLjEQ==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuw7w4ky-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:19 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuHVr026404;
-	Fri, 31 Jul 2026 13:09:17 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn8yhqw79-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:17 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD9AfT32637360
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jul 2026 13:09:10 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BA19920040;
-	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 506C120043;
-	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v5 17/31] KVM: s390: Prepare gmap for a second KVM implementation
-Date: Fri, 31 Jul 2026 15:08:45 +0200
-Message-ID: <20260731130902.654679-18-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
-References: <20260731130902.654679-1-seiden@linux.ibm.com>
+	Fri, 31 Jul 2026 13:20:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 001C443A9D
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 13:20:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8AE31F00A3D
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 13:20:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785504022;
+	bh=aCl9K/obc/qaBcU2SXRis+1PiCbpcZjSV6qqaO7YKoo=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=aDTOX6ug8z2gMz6azpLB55TzWkpUJSTbavBYEnANaXkUDCowmzcjvePmKbQwSbSnx
+	 //M7fpAS/X1zZcgZlVuMOMq8MDogmqGPtHen2i3U6iw0QhpcDNqmxneo6/l5ZWudyj
+	 zqUGkER39Xzt2n7AhUxPoDOS+IRdlw21AgpEps1fUBf7oyIRuRvfsvRV3pcwkTZ/9H
+	 8pYVUncx3TN6W0aE+70nlN8jAEjb8AO1lA15wytedRXBH8QsnIqkVg59QbG26qP0u2
+	 88xslNRXfyJnftHpCqQtfRKUC6al8yLgOfuaQliHOZXQjhCBXAxbIlfKWoQ6jPyuao
+	 L/Q+eSr/YGxow==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-39f631dbce3so6803021fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 06:20:22 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rq3kCBeGE/0IdJlsQQJPcaKO2rM4uL9ZiqJLgSy7DkSfA99jZIVEC+tk5ktQvH8HP/18f+oeXmzQdeviMZLd029@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhBtdV62azKHo5o/U1SvAfO9cN3ia5S5fLNkWoIuyfUWrz3pJI
+	pV5jxySQhTxgZo9i5tghCZCIB8iRf4uZR9P2AdWcVYKy4DmhIaoHy18pZPTz63lQ7oTwSAkTCYS
+	iOQClSbj+ZVaRJoS4rVmNDP7/NN5QKmc=
+X-Received: by 2002:a2e:be20:0:b0:39b:3018:e5e8 with SMTP id
+ 38308e7fff4ca-39f7e399a84mr4063191fa.12.1785504021258; Fri, 31 Jul 2026
+ 06:20:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: X-sIKNlfr6TaEdkBYNs_EZgl62fvN4od
-X-Proofpoint-ORIG-GUID: 5DovtgPzdI6E0CuIWomXw-E0L6r-RNeF
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX1JatzVhlt1qY
- 7MtsgWG7Jt9pJw/C9s77rDhe8FKKfCmHkQhBIPXcabuol6lNsfCzdY8E9rwO3KmCZPjHrP4eIBp
- +JYc7GP6k1m5qv3lYHDxi6nU62D5r3BPaqZVhqJwE3POw/OO5acXWLlkIeTsPTjNgBiVjSw5RLM
- 20TwdVra8tIzlD9a4DN/WiPWbt1XyhK5CuHz8w+fgHoEdinkEboUoztHsD5mb0E9pG7AIlsJnmx
- GhYC+udvoSb9A4hZcpYv6ac5w+vozbNMsZ/6AZc9P7mVMYYhewHiX2jMs15f2q8vKJ5glyKI1/n
- sOfp8nh6WNfnTb0r4e6O9874Kzjf0T7zkG7o2031RbkStovMc/8KB0D65WpRYkordFz7DMntG1z
- iZswK7dRO+NcdFeeAQ2fwPHSxXl1la0PZI9iVBhjE+/jLhgDKr2MAbKOThjE9eXcwHwPNLFeRMm
- JN9Eh65MKBzUw8LUAXw==
-X-Authority-Analysis: v=2.4 cv=SKFykuvH c=1 sm=1 tr=0 ts=6a6c9e7f cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=_uJ2qFJvUlpRL0NV2hwA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX2EF4VS/hhWJc
- gvmGI0wGW+ztU3qdYCRDm4gTf7sIR+BsgK6P8IYI0llm9NKoUXFp6B1/JEImq/41CySjx+2IVfy
- MzMO6FHR8u3dUcCNK2Wfkygy140D0Yc=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0
- lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607310096
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060932_660994_61E8DEEB 
-X-CRM114-Status: GOOD (  32.69  )
+References: <20260721223956.13665-1-andre.przywara@arm.com>
+ <20260722172356.2509190-1-juanmanuellopezcarrillo@gmail.com>
+ <20260723002319.2793cdaf@ryzen.lan> <CA+c=wxVB-cEncgBE12S2YgXhL7DVgRyg12_4jJ-CjxzBjK62kw@mail.gmail.com>
+ <c539e5c4-f21e-49a1-b0e3-d35f42893fc4@arm.com>
+In-Reply-To: <c539e5c4-f21e-49a1-b0e3-d35f42893fc4@arm.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Fri, 31 Jul 2026 22:20:22 +0900
+X-Gmail-Original-Message-ID: <CAGb2v67CGcaQmSz_tTbSTQ7dzfCV2+7i5t_34iHKmyU05h-yRQ@mail.gmail.com>
+X-Gm-Features: AUfX_mwhrLD5Q1QX9sADUb1-mA4bFhX0ct_Zhama9EUbjG0lVP36L811sJeDsZ0
+Message-ID: <CAGb2v67CGcaQmSz_tTbSTQ7dzfCV2+7i5t_34iHKmyU05h-yRQ@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Juan Manuel <juanmanuellopezcarrillo@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,382 +82,105 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor gmap code such that a second s390 (host) KVM implementation can
-use the gmap code as well. Move mmu code from s390 to gmap so the other
-KVM implementation can use it as well.
+On Fri, Jul 31, 2026 at 10:08=E2=80=AFPM Andre Przywara <andre.przywara@arm=
+.com> wrote:
+>
+> Hi Juan,
+>
+> On 7/30/26 19:40, Juan Manuel wrote:
+> > Hi Andre,
+> >
+> >> There is more to enabling Ethernet on the box, though, right? The
+> >> EMAC25M pin needs to be configured correctly - not even sure that
+> >> works cleanly with mainline? And what are the delay values that work
+> >> for you?
+> >
+> > Right, the withstand fix alone isn't enough. Three things were needed t=
+o
+> > get GMAC1 up on the OPi 4A:
+>
+> Sorry, there might be some confusion here: I think Chen-Yu already
+> mentioned that Ethernet works on his OPi 4A, with just the withstanding f=
+ix.
+> I think I was mixing this up with the X96QPro+ TV box when asking, which
+> also uses the second MAC, but has a different setup.
+> So are you talking about the Orange Pi 4A? Because ...
 
-No functional change.
+I only said the patch fixes eMMC. Ethernet already worked before. Though
+to be honest, ethernet on the A523 has other problems. The performance
+is really bad (even RX), and there are errors or packet drops.
 
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/kvm/gmap/Makefile  |   2 +-
- arch/s390/kvm/gmap/kvm_mmu.c | 131 +++++++++++++++++++++++++++++++++++
- arch/s390/kvm/gmap/kvm_mmu.h |  18 +++++
- arch/s390/kvm/s390/s390.c    | 111 ++---------------------------
- arch/s390/kvm/s390/s390.h    |  11 +++
- 5 files changed, 168 insertions(+), 105 deletions(-)
- create mode 100644 arch/s390/kvm/gmap/kvm_mmu.c
- create mode 100644 arch/s390/kvm/gmap/kvm_mmu.h
+ChenYu
 
-diff --git a/arch/s390/kvm/gmap/Makefile b/arch/s390/kvm/gmap/Makefile
-index 21967ed88877..02b797f63ffb 100644
---- a/arch/s390/kvm/gmap/Makefile
-+++ b/arch/s390/kvm/gmap/Makefile
-@@ -2,4 +2,4 @@
- 
- GMAP ?= ../gmap
- 
--kvm-y += $(GMAP)/dat.o $(GMAP)/gmap.o $(GMAP)/faultin.o
-+kvm-y += $(GMAP)/dat.o $(GMAP)/gmap.o $(GMAP)/faultin.o $(GMAP)/kvm_mmu.o
-diff --git a/arch/s390/kvm/gmap/kvm_mmu.c b/arch/s390/kvm/gmap/kvm_mmu.c
-new file mode 100644
-index 000000000000..40fee79eb71f
---- /dev/null
-+++ b/arch/s390/kvm/gmap/kvm_mmu.c
-@@ -0,0 +1,131 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/kvm_types.h>
-+#include <linux/kvm_host.h>
-+
-+#include "s390.h"
-+#include "gmap.h"
-+#include "dat.h"
-+#include "kvm_mmu.h"
-+
-+/*
-+ * Get (and clear) the dirty memory log for a memory slot.
-+ */
-+int s390_kvm_mmu_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log *log)
-+{
-+	int r;
-+	unsigned long n;
-+	struct kvm_memory_slot *memslot;
-+	int is_dirty;
-+
-+	if (kvm_is_ucontrol(kvm))
-+		return -EINVAL;
-+
-+	mutex_lock(&kvm->slots_lock);
-+
-+	r = -EINVAL;
-+	if (log->slot >= KVM_USER_MEM_SLOTS)
-+		goto out;
-+
-+	r = kvm_get_dirty_log(kvm, log, &is_dirty, &memslot);
-+	if (r)
-+		goto out;
-+
-+	/* Clear the dirty log */
-+	if (is_dirty) {
-+		n = kvm_dirty_bitmap_bytes(memslot);
-+		memset(memslot->dirty_bitmap, 0, n);
-+	}
-+	r = 0;
-+out:
-+	mutex_unlock(&kvm->slots_lock);
-+	return r;
-+}
-+
-+int s390_kvm_mmu_prepare_memory_region(struct kvm *kvm,
-+			       const struct kvm_memory_slot *old,
-+			       struct kvm_memory_slot *new,
-+			       enum kvm_mr_change change)
-+{
-+	if (kvm_is_ucontrol(kvm) && new && new->id < KVM_USER_MEM_SLOTS)
-+		return -EINVAL;
-+
-+	/* When we are protected, we should not change the memory slots */
-+	if (kvm_s390_pv_get_handle(kvm))
-+		return -EINVAL;
-+
-+	if (change != KVM_MR_DELETE && change != KVM_MR_FLAGS_ONLY) {
-+		/*
-+		 * A few sanity checks. The memory in userland is ok to be
-+		 * fragmented into various different vmas. It is okay to mmap()
-+		 * and munmap() stuff in this slot after doing this call at any
-+		 * time.
-+		 */
-+		if (new->userspace_addr & ~PAGE_MASK)
-+			return -EINVAL;
-+		if ((new->base_gfn + new->npages) * PAGE_SIZE > kvm->arch.mem_limit)
-+			return -EINVAL;
-+		if (!asce_contains_gfn(kvm->arch.gmap->asce, new->base_gfn + new->npages - 1))
-+			return -EINVAL;
-+	}
-+
-+	if (!kvm_s390_is_migration_mode(kvm))
-+		return 0;
-+
-+	/*
-+	 * Turn off migration mode when:
-+	 * - userspace creates a new memslot with dirty logging off,
-+	 * - userspace modifies an existing memslot (MOVE or FLAGS_ONLY) and
-+	 *   dirty logging is turned off.
-+	 * Migration mode expects dirty page logging being enabled to store
-+	 * its dirty bitmap.
-+	 */
-+	if (change != KVM_MR_DELETE &&
-+	    !(new->flags & KVM_MEM_LOG_DIRTY_PAGES))
-+		WARN(kvm_s390_vm_stop_migration(kvm),
-+		     "Failed to stop migration mode");
-+
-+	return 0;
-+}
-+
-+void s390_kvm_mmu_commit_memory_region(struct kvm *kvm,
-+			       struct kvm_memory_slot *old,
-+			       const struct kvm_memory_slot *new,
-+			       enum kvm_mr_change change)
-+{
-+	struct kvm_s390_mmu_cache *mc = NULL;
-+	int rc = 0;
-+
-+	if (change == KVM_MR_FLAGS_ONLY)
-+		return;
-+
-+	mc = kvm_s390_new_mmu_cache();
-+	if (!mc) {
-+		rc = -ENOMEM;
-+		goto out;
-+	}
-+
-+	scoped_guard(write_lock, &kvm->mmu_lock) {
-+		switch (change) {
-+		case KVM_MR_DELETE:
-+			rc = dat_delete_slot(mc, kvm->arch.gmap->asce, old->base_gfn, old->npages);
-+			break;
-+		case KVM_MR_MOVE:
-+			rc = dat_delete_slot(mc, kvm->arch.gmap->asce, old->base_gfn, old->npages);
-+			if (rc)
-+				break;
-+			fallthrough;
-+		case KVM_MR_CREATE:
-+			rc = dat_create_slot(mc, kvm->arch.gmap->asce, new->base_gfn, new->npages);
-+			break;
-+		case KVM_MR_FLAGS_ONLY:
-+			break;
-+		default:
-+			WARN(1, "Unknown KVM MR CHANGE: %d\n", change);
-+		}
-+	}
-+out:
-+	if (rc)
-+		pr_warn("failed to commit memory region\n");
-+	kvm_s390_free_mmu_cache(mc);
-+}
-diff --git a/arch/s390/kvm/gmap/kvm_mmu.h b/arch/s390/kvm/gmap/kvm_mmu.h
-new file mode 100644
-index 000000000000..4167eaec8f6f
---- /dev/null
-+++ b/arch/s390/kvm/gmap/kvm_mmu.h
-@@ -0,0 +1,18 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef ARCH_KVM_GMAP_MMU_H
-+#define ARCH_KVM_GMAP_MMU_H
-+
-+#include <linux/kvm_host.h>
-+
-+int s390_kvm_mmu_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log *log);
-+int s390_kvm_mmu_prepare_memory_region(struct kvm *kvm,
-+				       const struct kvm_memory_slot *old,
-+				       struct kvm_memory_slot *new,
-+				       enum kvm_mr_change change);
-+void s390_kvm_mmu_commit_memory_region(struct kvm *kvm,
-+				       struct kvm_memory_slot *old,
-+				       const struct kvm_memory_slot *new,
-+				       enum kvm_mr_change change);
-+
-+#endif /* ARCH_KVM_GMAP_MMU_H */
-diff --git a/arch/s390/kvm/s390/s390.c b/arch/s390/kvm/s390/s390.c
-index f1962cf61cc1..87d4b25bc849 100644
---- a/arch/s390/kvm/s390/s390.c
-+++ b/arch/s390/kvm/s390/s390.c
-@@ -55,6 +55,7 @@
- #include "gmap.h"
- #include "faultin.h"
- #include "pci.h"
-+#include "kvm_mmu.h"
- 
- #define CREATE_TRACE_POINTS
- #include "trace.h"
-@@ -746,33 +747,7 @@ static void sca_del_vcpu(struct kvm_vcpu *vcpu);
- int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm,
- 			       struct kvm_dirty_log *log)
- {
--	int r;
--	unsigned long n;
--	struct kvm_memory_slot *memslot;
--	int is_dirty;
--
--	if (kvm_is_ucontrol(kvm))
--		return -EINVAL;
--
--	mutex_lock(&kvm->slots_lock);
--
--	r = -EINVAL;
--	if (log->slot >= KVM_USER_MEM_SLOTS)
--		goto out;
--
--	r = kvm_get_dirty_log(kvm, log, &is_dirty, &memslot);
--	if (r)
--		goto out;
--
--	/* Clear the dirty log */
--	if (is_dirty) {
--		n = kvm_dirty_bitmap_bytes(memslot);
--		memset(memslot->dirty_bitmap, 0, n);
--	}
--	r = 0;
--out:
--	mutex_unlock(&kvm->slots_lock);
--	return r;
-+	return s390_kvm_mmu_get_dirty_log(kvm, log);
- }
- 
- static void icpt_operexc_on_all_vcpus(struct kvm *kvm)
-@@ -1268,7 +1243,7 @@ static int kvm_s390_vm_start_migration(struct kvm *kvm)
-  * Must be called with kvm->slots_lock to avoid races with ourselves,
-  * kvm_s390_vm_start_migration() and kvm_s390_get_cmma_bits().
-  */
--static int kvm_s390_vm_stop_migration(struct kvm *kvm)
-+int kvm_s390_vm_stop_migration(struct kvm *kvm)
- {
- 	/* migration mode already disabled */
- 	if (!kvm->arch.migration_mode)
-@@ -5753,45 +5728,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
- 				   struct kvm_memory_slot *new,
- 				   enum kvm_mr_change change)
- {
--	if (kvm_is_ucontrol(kvm) && new && new->id < KVM_USER_MEM_SLOTS)
--		return -EINVAL;
--
--	/* When we are protected, we should not change the memory slots */
--	if (kvm_s390_pv_get_handle(kvm))
--		return -EINVAL;
--
--	if (change != KVM_MR_DELETE && change != KVM_MR_FLAGS_ONLY) {
--		/*
--		 * A few sanity checks. The memory in userland is ok to be
--		 * fragmented into various different vmas. It is okay to mmap()
--		 * and munmap() stuff in this slot after doing this call at any
--		 * time.
--		 */
--		if (new->userspace_addr & ~PAGE_MASK)
--			return -EINVAL;
--		if ((new->base_gfn + new->npages) * PAGE_SIZE > kvm->arch.mem_limit)
--			return -EINVAL;
--		if (!asce_contains_gfn(kvm->arch.gmap->asce, new->base_gfn + new->npages - 1))
--			return -EINVAL;
--	}
--
--	if (!kvm->arch.migration_mode)
--		return 0;
--
--	/*
--	 * Turn off migration mode when:
--	 * - userspace creates a new memslot with dirty logging off,
--	 * - userspace modifies an existing memslot (MOVE or FLAGS_ONLY) and
--	 *   dirty logging is turned off.
--	 * Migration mode expects dirty page logging being enabled to store
--	 * its dirty bitmap.
--	 */
--	if (change != KVM_MR_DELETE &&
--	    !(new->flags & KVM_MEM_LOG_DIRTY_PAGES))
--		WARN(kvm_s390_vm_stop_migration(kvm),
--		     "Failed to stop migration mode");
--
--	return 0;
-+	return s390_kvm_mmu_prepare_memory_region(kvm, old, new, change);
- }
- 
- void kvm_arch_commit_memory_region(struct kvm *kvm,
-@@ -5799,42 +5736,7 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
- 				const struct kvm_memory_slot *new,
- 				enum kvm_mr_change change)
- {
--	struct kvm_s390_mmu_cache *mc = NULL;
--	int rc = 0;
--
--	if (change == KVM_MR_FLAGS_ONLY)
--		return;
--
--	mc = kvm_s390_new_mmu_cache();
--	if (!mc) {
--		rc = -ENOMEM;
--		goto out;
--	}
--
--	scoped_guard(write_lock, &kvm->mmu_lock) {
--		switch (change) {
--		case KVM_MR_DELETE:
--			rc = dat_delete_slot(mc, kvm->arch.gmap->asce, old->base_gfn, old->npages);
--			break;
--		case KVM_MR_MOVE:
--			rc = dat_delete_slot(mc, kvm->arch.gmap->asce, old->base_gfn, old->npages);
--			if (rc)
--				break;
--			fallthrough;
--		case KVM_MR_CREATE:
--			rc = dat_create_slot(mc, kvm->arch.gmap->asce, new->base_gfn, new->npages);
--			break;
--		case KVM_MR_FLAGS_ONLY:
--			break;
--		default:
--			WARN(1, "Unknown KVM MR CHANGE: %d\n", change);
--		}
--	}
--out:
--	if (rc)
--		pr_warn("failed to commit memory region\n");
--	kvm_s390_free_mmu_cache(mc);
--	return;
-+	s390_kvm_mmu_commit_memory_region(kvm, old, new, change);
- }
- 
- /**
-@@ -5857,7 +5759,8 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
-  * * other error codes < 0 in case of other errors.
-  * * otherwise a number > 0 of bytes that have been faulted in successfully.
-  */
--long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu, struct kvm_pre_fault_memory *range)
-+long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-+				    struct kvm_pre_fault_memory *range)
- {
- 	struct guest_fault f = { .gfn = gpa_to_gfn(range->gpa), };
- 	gpa_t end;
-diff --git a/arch/s390/kvm/s390/s390.h b/arch/s390/kvm/s390/s390.h
-index e144ca2e6d5e..9feb1fa66323 100644
---- a/arch/s390/kvm/s390/s390.h
-+++ b/arch/s390/kvm/s390/s390.h
-@@ -594,6 +594,11 @@ static inline bool kvm_s390_cur_gmap_fault_is_write(void)
- 	return test_facility(75) && (current->thread.gmap_teid.fsi == TEID_FSI_STORE);
- }
- 
-+static __always_inline int kvm_s390_is_migration_mode(struct kvm *kvm)
-+{
-+	return kvm->arch.migration_mode;
-+}
-+
- /**
-  * kvm_s390_vcpu_crypto_reset_all
-  *
-@@ -624,4 +629,10 @@ void kvm_s390_vcpu_pci_enable_interp(struct kvm *kvm);
-  */
- extern unsigned int diag9c_forwarding_hz;
- 
-+/*
-+ * Must be called with kvm->slots_lock to avoid races with ourselves and
-+ * kvm_s390_vm_start_migration.
-+ */
-+int kvm_s390_vm_stop_migration(struct kvm *kvm);
-+
- #endif
--- 
-2.53.0
-
+> > 1) The PJ pinmux. Mainline's rgmii1 group was missing PJ10, which left
+> >     one RX signal unmapped, so I got rx_packets=3D0. The BSP muxes the =
+full
+> >     PJ0..PJ15 (16 pins) as function "gmac1" (mux 5); with all 16 mapped=
+,
+> >     RX comes alive. I don't mux any separate/dedicated 25 MHz clock-out
+> >     pin beyond that gmac1 group, and the link is rock solid, so on this
+> >     board the PHY's 25 MHz reference isn't provided by an extra SoC pin=
+.
+>
+> I think there is some misunderstanding here, probably caused by
+> Allwinner's naming of that pin. Pin PJ10 (and PH13, inside the GMAC0
+> group) are mere clock fanouts, they connect internally to two gated
+> divider clocks, with the main peripheral PLL as their parent. They
+> produce a 25 MHz clock signal, which is simply routed out to those pins.
+> They work independently of the MACs, and could be even used for
+> something else.
+>
+> On boards which do not use a crystal oscillator to clock the PHY (most
+> boards, including the OPi 4A, have an oscillator!), the pin is not
+> needed, hence we didn't include it in the pinmux. According to the
+> schematic, PJ10 is not even connected on the OPi 4A, so whether you
+> include it in the pinmux or not doesn't matter.
+>
+> So can you please double check this? For PJ10 to have any effect, it
+> also would need the associated clock enabled.
+>
+> And for the records: I think I found now the proper solution to enable
+> Ethernet on the X96QPro+: the pinmux for PJ10 gets added, either in the
+> PHY, or the MAC DT node. The associated EPHY_25M clock must then be
+> referenced by the PHY node. And the respective PHY driver needs to
+> enable that clock (some do, others don't).
+> With those things in place, Ethernet works on the X96QPro+ board, which
+> does not feature a crystal oscillator, hence relies on that 25 MHz clock
+> output to step in.
+>
+> > 2) RGMII clock delays. The board has a Motorcomm YT8531 PHY:
+> >       - phy-mode          =3D "rgmii-rxid"
+> >       - PHY node          : rx-internal-delay-ps =3D 1900  (YT8531
+> > RXC_DLY_EN, ~1.9ns)
+> >       - MAC syscon        : tx-internal-delay-ps =3D 100
+> >                             rx-internal-delay-ps =3D 0
+> >     That combo gives a stable 1 Gbps / full-duplex link, 0% packet loss=
+.
+>
+> Those settings differ from what's in mainline. What are the results with
+> those delays? Does it work as well, and those are just other settings
+> that happen to work, because the math works out the same?
+>
+> Cheers,
+> Andre
+>
+> > 3) Your withstand encoding fix. Before it, the PJ bank was driven at 1.=
+8V
+> >     while the receiver sat in 3.3V mode, so RX was effectively deaf. Wi=
+th
+> >     your patch RX reads correctly.
+> >
+> > All of the above is validated on my board (2026-07-08): link up at
+> > 1 Gbps/full, ping 0% loss over a sustained transfer.
+> >
+> > Thanks again for the withstand fix - glad the POW_MOD_SEL patch helped
+> > connect the dots.
+> >
+> > Cheers,
+> > Juan
+>
 
