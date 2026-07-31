@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C29C55175
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23399C55177
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9F/M0qnIe/Qp3VH/5GsEitNu2xy9kMLHOn2oSggZtX4=; b=mggL2BsUohQgbdVcpDSjrOo1/a
-	764mF8FBOS4ogfmlaR8fUCZAzVUq+Z7Zw7tdy4tI8l4mpNtwuoIaWuKOBHh5isDpnt1yW23OdjdT+
-	vOm4Z7akaDV8UGLoj1mbt0DdE0DR33iexNI/G9zeSdm4mYSWqXV/SzIuRQERd67V0pepmi6vcxOvL
-	h1f8ZTgMKra9MyZwz5PJ6c1OFwOg9/Rt7TJaYzeH9jY6HKDG1ieBggqK0YesCvPUOY2stkyP23VTK
-	1ozS9ts619EaU8qWYzKpe05m/TVUiBvKr3k5OJpUAkvjAiGwKpKwRi1BdPyvLEKE5PzjuIaRbM5Yr
-	bmbcT+wg==;
+	bh=YxD742gcjMY0qMXk/9OH+No+7VGwqeemh9hJUvcmbe4=; b=utvWaZlvx4mW9kPObvI61JUae5
+	4yZNbGKfi7buoJD5T+ah0rOLNrFOcmYvz5pSGISoRp4sMpjYC1ix9y6QPh04ZNiT28VnXRdB+iAEd
+	ol/ZNgggyAAkSuawOcgb9zjfYYPnpZHDzi6/799bDs8RxlU1JsoCYp9ddmk0O+VvHhle1s0bdJzFH
+	tqE7SxiPo4n0TtmmI8scXzNMtJjr9O6vIarBjQ0QHHMV1iAG1HB3xocqAwgeo6Kfpu8x7SDiEP2+4
+	nS3mlBqTSDg9StMXmq5Amh/j2yn0/NHF5erPbe5q4AjzyQ5y6j3dugJo7NG0EV7+IaXB2ccUN98bH
+	Cz5Voq2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpq2d-0000000D5QU-4BVq;
-	Fri, 31 Jul 2026 16:25:00 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wpq2d-0000000D5Pn-3Syp;
+	Fri, 31 Jul 2026 16:24:59 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxK-0000000Cytf-02FI;
-	Fri, 31 Jul 2026 16:19:31 +0000
+	id 1wppxF-0000000CypY-2q0N;
+	Fri, 31 Jul 2026 16:19:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514766;
-	bh=YSrshcvKlPJVkMkdkCHSWe2+F7O6yThKS89QqJLfJgU=;
+	s=mail; t=1785514761;
+	bh=7R9BhZhCyLUbve7Hk5/UX4wcbViLo6DsTEiegFJ7c0M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=NaZLp4vVwcpqBh2I//J0jNjl/gaTmNAKo7sXaQXj414VByKEmVIAhGtS2GPGy1krd
-	 AJSavfMwpNoNYLrTYVEmsvLUOePL9x4pg4D3r6BMDZT80jRt6sulEtoB8YBRh3+qR1
-	 w50ijZYK4VY88B3gCW0vfp4FZUxYiP+igRBXvl1ktH8ZyBFju5/x0JPTJj7B1asHCy
-	 CA//5BAA1DIfVs8h3XOwB6BuTYIyGL0aDiK4bmWjGeCYsfCxcHXuiv6m9Y1yXA4C/B
-	 ws1hJntQA9W/hD4xbyht7UejlFYDGVG7bY2nWGtpaSD3nW7nEmD1V8sCSOy7MsFTsE
-	 kGy49S8XLqCgQ==
+	b=Cmp1zkJeb75hdD0GB2WOsrT3TzHWyFI65GOyYes9D0MDgCSGmnXg491UhlnZuXe8P
+	 X1limW0xZudgcxX0gCcfi0iRkDl9yA4RiaVBYrrK2ZHYgPRHsZ85NaeDioQ9T6PC1H
+	 GmtkrNOXVV2HY24VnRtMQAo8seUvBTqYV+0pBx66zKuFFq4med9bK8njFCMpFItMJz
+	 AzcnuAshyvrgSgEsbIJWeCuVeQmMzu6ibF8i0WWp9Uw5VLU+z4ywF6NfX9kKAUIXH8
+	 SIVPO9//8AkJSWTz6OUvddWZXDSEKLpxm06R5Ir55hnxAZ9Ausq6TXyV9j3l14LT+o
+	 h9fVekEGF8r3Q==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 464A817E0937;
-	Fri, 31 Jul 2026 18:19:26 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3440717E090B;
+	Fri, 31 Jul 2026 18:19:21 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:19:23 +0300
-Subject: [PATCH v10 16/69] drm/display: bridge_connector: Use cached
- connector status in .get_modes()
+Date: Fri, 31 Jul 2026 19:19:16 +0300
+Subject: [PATCH v10 09/69] drm/display: scdc-helper: Add helper to set SCDC
+ version information
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-16-294364b2cf15@collabora.com>
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-9-294364b2cf15@collabora.com>
 References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -78,8 +78,8 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  Diederik de Haas <diederik@cknow-tech.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091930_208019_348A63D1 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20260731_091925_904148_B8F89A92 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,42 +94,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the active drm_bridge_connector_detect() call in get_modes()
-with a read of the already-cached connector->status.
+The HDMI 2.x specs mandate that compliant Sink devices report their SCDC
+version in the Sink Version register, which reads as 1 on any
+SCDC-capable sink.
 
-The .get_modes() callback is only invoked from
-drm_helper_probe_single_connector_modes(), which has already retrieved
-the connector status.  Calling detect again is redundant and triggers a
-duplicate hotplug event.  This is also a prerequisite for switching to
-the .detect_ctx() hook, which requires a drm_modeset_acquire_ctx not
-available in the .get_modes() path.
+There is also a dedicated Source Version register.  Writing it is not
+compulsory, but the spec advises that compliant Source devices do so, in
+which case the value must be 1.
 
+Add drm_scdc_set_source_version() to follow this recommendation.  The
+Sink Version register is read first, both to log the advertised SCDC
+version and to guard against non-conformant devices: a sink reporting
+version 0 is either not SCDC-version-aware or broken, so writing the
+source version gains nothing and risks upsetting such hardware.  In that
+case the write is skipped.
+
+The source version is passed as a parameter rather than hardcoded, as
+future spec revisions may define additional rules for the allowable
+version values.  The written value is additionally clamped to the sink's
+reported version so the source never advertises a version the sink does
+not understand.
+
+Acked-by: Maxime Ripard <mripard@kernel.org>
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Tested-by: Maud Spierings <maud_spierings@hotmail.com>
 Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/gpu/drm/display/drm_scdc_helper.c | 46 ++++++++++++++++++++++++++++++-
+ include/drm/display/drm_scdc_helper.h     |  2 ++
+ 2 files changed, 47 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 9ad31e9df0ab..8a833c813101 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -325,12 +325,10 @@ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
- static int drm_bridge_connector_get_modes_edid(struct drm_connector *connector,
- 					       struct drm_bridge *bridge)
- {
--	enum drm_connector_status status;
- 	const struct drm_edid *drm_edid;
- 	int n;
+diff --git a/drivers/gpu/drm/display/drm_scdc_helper.c b/drivers/gpu/drm/display/drm_scdc_helper.c
+index cb6632346aad..6d804ee19420 100644
+--- a/drivers/gpu/drm/display/drm_scdc_helper.c
++++ b/drivers/gpu/drm/display/drm_scdc_helper.c
+@@ -21,10 +21,11 @@
+  * DEALINGS IN THE SOFTWARE.
+  */
  
--	status = drm_bridge_connector_detect(connector, false);
--	if (status != connector_status_connected)
-+	if (connector->status != connector_status_connected)
- 		goto no_edid;
++#include <linux/delay.h>
+ #include <linux/export.h>
+ #include <linux/i2c.h>
++#include <linux/minmax.h>
+ #include <linux/slab.h>
+-#include <linux/delay.h>
  
- 	drm_edid = drm_bridge_edid_read(bridge, connector);
+ #include <drm/display/drm_scdc_helper.h>
+ #include <drm/drm_connector.h>
+@@ -270,3 +271,46 @@ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector,
+ 	return true;
+ }
+ EXPORT_SYMBOL(drm_scdc_set_high_tmds_clock_ratio);
++
++/**
++ * drm_scdc_set_source_version - set SCDC source version on the sink
++ * @connector: connector
++ * @ver: source version to advertise (per spec, 1)
++ *
++ * Reads the sink version for diagnostics and as a guard, then writes
++ * the source version unless the sink reports version 0.
++ *
++ * Returns:
++ * 0 on success or when skipped; a negative error code when either
++ * the read or the write failed.
++ */
++int drm_scdc_set_source_version(struct drm_connector *connector, u8 ver)
++{
++	u8 sink_ver;
++	int ret;
++
++	ret = drm_scdc_readb(connector->ddc, SCDC_SINK_VERSION, &sink_ver);
++	if (ret) {
++		drm_scdc_dbg(connector, "Failed to read SCDC_SINK_VERSION: %d\n", ret);
++		return ret;
++	}
++
++	drm_scdc_dbg(connector, "Sink reported SCDC ver. %u\n", sink_ver);
++
++	/*
++	 * Only advertise our source version to sinks that report a
++	 * non-zero sink version.  A sink reporting version 0 is either
++	 * not SCDC-version-aware or non-conformant; writing the source
++	 * version gains nothing and may upset broken hardware.
++	 */
++	if (sink_ver) {
++		ret = drm_scdc_writeb(connector->ddc, SCDC_SOURCE_VERSION,
++				      min_t(u8, sink_ver, ver));
++		if (ret)
++			drm_scdc_dbg(connector,
++				     "Failed to write SCDC_SOURCE_VERSION: %d\n", ret);
++	}
++
++	return ret;
++}
++EXPORT_SYMBOL(drm_scdc_set_source_version);
+diff --git a/include/drm/display/drm_scdc_helper.h b/include/drm/display/drm_scdc_helper.h
+index 34600476a1b9..90b0828364c2 100644
+--- a/include/drm/display/drm_scdc_helper.h
++++ b/include/drm/display/drm_scdc_helper.h
+@@ -77,4 +77,6 @@ bool drm_scdc_get_scrambling_status(struct drm_connector *connector);
+ bool drm_scdc_set_scrambling(struct drm_connector *connector, bool enable);
+ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector, bool set);
+ 
++int drm_scdc_set_source_version(struct drm_connector *connector, u8 ver);
++
+ #endif
 
 -- 
 2.55.0
