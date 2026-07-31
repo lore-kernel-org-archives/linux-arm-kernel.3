@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4BD0C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C29C55175
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GseR/4rIwmv4ssW4cil/yTAT5gQZjTd5OHiT4vt1s7c=; b=eAKY4dB46eqKsfS5U7Op0Qehrx
-	hUv1bixvSXeU3nwgRqdyT/tjOqahfoaFUNeSeML53dD4GORgtnYH9dXRr5jtxGuOmRVKIYmAHL7vt
-	AFays3HNgu/AyDel5Puh5xo5tzYIAL3roHL1vxF2+EdxFGUMZIatPMirkLpRimOLbzYVJYfKKnl0E
-	jLzz7rifdk0XsjA+FRkFM7OBaENyNvdXsi1JagkgWwzIbyIFNfE3l2p392d5iVxLXMgHGKJOO969C
-	cHhVjHOkOUJqu9J1YPvx57L7lDDNMotdClzC9Tb+JrVGAiM4a0USzO6v+cq0PBkGhm6UAyP+5o7Ge
-	H9vHMNrA==;
+	bh=9F/M0qnIe/Qp3VH/5GsEitNu2xy9kMLHOn2oSggZtX4=; b=mggL2BsUohQgbdVcpDSjrOo1/a
+	764mF8FBOS4ogfmlaR8fUCZAzVUq+Z7Zw7tdy4tI8l4mpNtwuoIaWuKOBHh5isDpnt1yW23OdjdT+
+	vOm4Z7akaDV8UGLoj1mbt0DdE0DR33iexNI/G9zeSdm4mYSWqXV/SzIuRQERd67V0pepmi6vcxOvL
+	h1f8ZTgMKra9MyZwz5PJ6c1OFwOg9/Rt7TJaYzeH9jY6HKDG1ieBggqK0YesCvPUOY2stkyP23VTK
+	1ozS9ts619EaU8qWYzKpe05m/TVUiBvKr3k5OJpUAkvjAiGwKpKwRi1BdPyvLEKE5PzjuIaRbM5Yr
+	bmbcT+wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpq2i-0000000D5Wt-3Ykd;
-	Fri, 31 Jul 2026 16:25:04 +0000
+	id 1wpq2d-0000000D5QU-4BVq;
+	Fri, 31 Jul 2026 16:25:00 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxq-0000000Czot-02ds;
-	Fri, 31 Jul 2026 16:20:10 +0000
+	id 1wppxK-0000000Cytf-02FI;
+	Fri, 31 Jul 2026 16:19:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514796;
-	bh=9+B0lSYbOtT/mNa8n8pzlwF+N7/unRvesgf3I/R8mRg=;
+	s=mail; t=1785514766;
+	bh=YSrshcvKlPJVkMkdkCHSWe2+F7O6yThKS89QqJLfJgU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IIwuyw5BA8jWEPG+nGLqT+NOCEphHcfyU5Bv02DsdqmgRqmnlqBRA5WyVs4xzvgK9
-	 XQ1FXf4obJSaq/BTvb9wd4aKLbCyuqZG8CgM/+kN9ipMDhdOaxlS4+uMBxuflW08ll
-	 55QCZEvTLx+Mk7PSZTwTvMGUPKiIVPwS6D7gFAViwqTGrS1bIGPxS07eiJcOb1R2Zv
-	 TngoOaQTi4RbDv5bJTO4V+NRRxZ5/IkThkb0SpeS7d1zhVZI17VC99xm2PRN1eB8tc
-	 18tFrJTsU6x7M7KDvdDETwUGX5lFRVLUCTeAms24dq1+taOMlrPTVV4WEhhsaHO2D9
-	 fqm6ew1wZLoyA==
+	b=NaZLp4vVwcpqBh2I//J0jNjl/gaTmNAKo7sXaQXj414VByKEmVIAhGtS2GPGy1krd
+	 AJSavfMwpNoNYLrTYVEmsvLUOePL9x4pg4D3r6BMDZT80jRt6sulEtoB8YBRh3+qR1
+	 w50ijZYK4VY88B3gCW0vfp4FZUxYiP+igRBXvl1ktH8ZyBFju5/x0JPTJj7B1asHCy
+	 CA//5BAA1DIfVs8h3XOwB6BuTYIyGL0aDiK4bmWjGeCYsfCxcHXuiv6m9Y1yXA4C/B
+	 ws1hJntQA9W/hD4xbyht7UejlFYDGVG7bY2nWGtpaSD3nW7nEmD1V8sCSOy7MsFTsE
+	 kGy49S8XLqCgQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AB5A617E09A3;
-	Fri, 31 Jul 2026 18:19:56 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 464A817E0937;
+	Fri, 31 Jul 2026 18:19:26 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:20:06 +0300
-Subject: [PATCH v10 59/69] drm/tests: bridge: Set supported HDMI version
+Date: Fri, 31 Jul 2026 19:19:23 +0300
+Subject: [PATCH v10 16/69] drm/display: bridge_connector: Use cached
+ connector status in .get_modes()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-59-294364b2cf15@collabora.com>
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-16-294364b2cf15@collabora.com>
 References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -71,12 +72,14 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
  Phong LE <ple@baylibre.com>
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
+ linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Maud Spierings <maud_spierings@hotmail.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_092002_279554_F911D592 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260731_091930_208019_348A63D1 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +94,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
-supported HDMI version.  This is not yet enforced, but will become
-mandatory once the migration to the new HDMI connector initialization API
-is completed.
+Replace the active drm_bridge_connector_detect() call in get_modes()
+with a read of the already-cached connector->status.
 
-Advertise HDMI 1.4 as the default for the test bridges, since that is
-the highest version that does not require additional initialization
-data.  This also avoids implying support for HDMI capabilities they do
-not currently model.
+The .get_modes() callback is only invoked from
+drm_helper_probe_single_connector_modes(), which has already retrieved
+the connector status.  Calling detect again is redundant and triggers a
+duplicate hotplug event.  This is also a prerequisite for switching to
+the .detect_ctx() hook, which requires a drm_modeset_acquire_ctx not
+available in the .get_modes() path.
 
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/tests/drm_bridge_test.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/display/drm_bridge_connector.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/gpu/drm/tests/drm_bridge_test.c b/drivers/gpu/drm/tests/drm_bridge_test.c
-index 15583ade8494..a445f71c31b8 100644
---- a/drivers/gpu/drm/tests/drm_bridge_test.c
-+++ b/drivers/gpu/drm/tests/drm_bridge_test.c
-@@ -497,6 +497,7 @@ drm_test_bridge_chain_init(struct kunit *test, unsigned int num_bridges,
- 			bridge->type = DRM_MODE_CONNECTOR_HDMIA;
- 			bridge->vendor = "LNX";
- 			bridge->product = "KUnit";
-+			bridge->supported_hdmi_ver = HDMI_VERSION_1_4;
- 			bridge->supported_formats = (BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444) |
- 						     BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) |
- 						     BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422) |
-@@ -597,6 +598,7 @@ drm_test_bridge_hdmi_init(struct kunit *test, const struct drm_bridge_funcs *fun
- 	bridge->ops |= DRM_BRIDGE_OP_HDMI;
- 	bridge->vendor = "LNX";
- 	bridge->product = "KUnit";
-+	bridge->supported_hdmi_ver = HDMI_VERSION_1_4;
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 9ad31e9df0ab..8a833c813101 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -325,12 +325,10 @@ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+ static int drm_bridge_connector_get_modes_edid(struct drm_connector *connector,
+ 					       struct drm_bridge *bridge)
+ {
+-	enum drm_connector_status status;
+ 	const struct drm_edid *drm_edid;
+ 	int n;
  
- 	ret = drm_kunit_bridge_add(test, bridge);
- 	if (ret)
+-	status = drm_bridge_connector_detect(connector, false);
+-	if (status != connector_status_connected)
++	if (connector->status != connector_status_connected)
+ 		goto no_edid;
+ 
+ 	drm_edid = drm_bridge_edid_read(bridge, connector);
 
 -- 
 2.55.0
