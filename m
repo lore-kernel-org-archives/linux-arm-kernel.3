@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D59C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 20:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22802C55173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 20:46:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6yW61SMZr04gIIPBlCEQvBwEJCF0yd/ErxiSOHKrD2E=; b=F2K52ivzfjGCw9
-	T4MdZObntYc22XYWVOKDg26idSaqf4kg+TIbdmuUwXDVNz9/rwY1QSUMSBZ2w+A/5+pGmuhuNoZz1
-	kX+EjZvx8KrAJelqCC/xubk4go5S9irsoPdwGIJoDLun64wLcm/x8TiIKlfmdLhdtjKgjiqGB4nP7
-	CcHZw/WljM7jCF/oNqAqOMF0Dt+1On+ZXO3iHsQfo3ZTiF1rzrYl4BZQ/qIa/XNjs4gagPxJNNGYn
-	OWRqVBSy3jVnTv/2ybYKdGWvka7vHXuPq/WET76Tio2tg7bLEOUJ29nJIJM1QBAdwB2U+13Du/2Ax
-	GkE7wvhR+F6pr+bjTpNA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1788FpKq2MQsvrC2BttQ63hnkLjcQiCKybYoWgRjOgQ=; b=Gn224e9poEAVqlkck1SvNtYkLZ
+	jER15DQHvhlBIGEjTXOFbCILJtJB+xwqEDs4r9VO+yvA2qkg5q0ZRUSVY6ypWxb48vn0IKkpY8/Pk
+	OjE3va8foRFsF3z2M9wfEmLAAcQTQ4XQHI0EZTMYE89CKTnZ+ZqTmBdgYN/YhO8GbPTUCoGMNpYyN
+	6Nwo1qZBHL6/N5yl8QJoi6vkIdFdSBlEHHl08/6KcFyKq9bTZUo7pXnYiws3KMLLaZUDNeaDAjjOb
+	Oz8YBT+XWXn+WS5Z7+D7KliFjzcYi5KkM4992pC9KohoqStS4x7vhQssJpLjEBCb/Ra8XSj7t4QqF
+	fgU1JjAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpu7m-0000000DZKl-1Ona;
-	Fri, 31 Jul 2026 20:46:34 +0000
+	id 1wpu7u-0000000DZMd-2KBf;
+	Fri, 31 Jul 2026 20:46:42 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpu7l-0000000DZKU-1U7J
+	id 1wpu7r-0000000DZLw-0M7I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 20:46:33 +0000
+	Fri, 31 Jul 2026 20:46:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7A985600C3;
-	Fri, 31 Jul 2026 20:46:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A7BC1F00AC4;
-	Fri, 31 Jul 2026 20:46:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7EBE360A7B;
+	Fri, 31 Jul 2026 20:46:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EE221F00AC4;
+	Fri, 31 Jul 2026 20:46:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785530792;
-	bh=6yW61SMZr04gIIPBlCEQvBwEJCF0yd/ErxiSOHKrD2E=;
-	h=From:Subject:Date:To:Cc;
-	b=RhT89E5uH9wfvNQkQCaD3r7jsXJWIYCgk07+k8KUc3rvJLcAMedqZmsPc2s/JSeBB
-	 lWlQoQdqkrI1Fyw3gS6/y8msYqNVbf6bCIXPSUGMS6OdGSrf0BSfoTDIAY17HoAQSe
-	 UVlXiY4TCB7d2pP40Li9MruFvaMHkaURwRU/EQqA/JjQAdqPCvgnH9RBoxZgTePe3l
-	 21tFIpLArR7bhFBoewm3mQ2qg+jMahg/L0YUb3WYg/y8Gp3JT7k4vREvVhgzg0mFuL
-	 SbWTZ3XKe5n8SAEWVAMpq2ZvRiwvVr1PrjtOW7e9YxZAOiwOuKUFZD2bJdMlfBzXET
-	 /Zpv6cNpxINvw==
+	s=k20260515; t=1785530798;
+	bh=1788FpKq2MQsvrC2BttQ63hnkLjcQiCKybYoWgRjOgQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=WS+nR94dCib0xZGZnyZdvSxQnjqD+bKYY5jlAmNsfLWUGachUjSoPgyycuvKhCv+1
+	 p99jXfr320l9VxbC3bYp55zHdDc0lWDsrs3vXz0YPmRNXqwdtuyjyNFJsgrPog5gNo
+	 TBMtb4OG5enIxZAbxHuRw644sMAWd+4kgmMtAT+6w8aGWGBtpzgPqahHGi3fp062Sy
+	 CSAIBeUkVBdG1OTlkyB1AwtHN/RYxpOHn2Jzh/EOYD494qEUbS9pcP5P2hPsMPwOUt
+	 euYI+hsptfx7QNhutWauFB9XpvpKmRxhTqvkk2+I5KKautd4aQMqshGJNLW6Ami95Y
+	 C2re7gOH0TfFg==
 From: Mark Brown <broonie@kernel.org>
-Subject: [PATCH 0/2] KVM: arm64: ID register finalisation fixes
-Date: Fri, 31 Jul 2026 21:44:44 +0100
-Message-Id: <20260731-kvm-arm64-idreg-final-v1-0-3de2a5616dc6@kernel.org>
+Date: Fri, 31 Jul 2026 21:44:46 +0100
+Subject: [PATCH 2/2] KVM: arm64: Block ID register changes after we rely on
+ the values
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAD0JbWoC/yXMQQ6CMBCF4auQWTMJNqVVr0JYtGXAUalkisSEc
- HcLLL+8vH+FRMKU4F6sILRw4k/MuJQFhIeLAyF32aAqZSqrbvhaRnQyGp0HoQF7ju6N1gYftPF
- 1fXWQv5NQz7+j27Sn09c/Kcx7DLbtDzVMynl5AAAA
-X-Change-ID: 20260729-kvm-arm64-idreg-final-77cbc46b558a
+Message-Id: <20260731-kvm-arm64-idreg-final-v1-2-3de2a5616dc6@kernel.org>
+References: <20260731-kvm-arm64-idreg-final-v1-0-3de2a5616dc6@kernel.org>
+In-Reply-To: <20260731-kvm-arm64-idreg-final-v1-0-3de2a5616dc6@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
  Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
  Steffen Eiden <seiden@linux.ibm.com>, 
@@ -63,15 +62,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1001; i=broonie@kernel.org;
- h=from:subject:message-id; bh=PdJJXOt98kzJz4gtUFAIu6dqJF4USgdFMdWL3Slu3eA=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqbQmjpvTPrvJBcFud78RS/97Dw9ezyY2aHz2fO
- Vv/3qRYOuiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCam0JowAKCRAk1otyXVSH
- 0I/FB/96JM8c0/VQoss2cShl+HCAfsRCd7T1f+E29p24JbAVPFrCvcvRUnSTfw4i9JqfjX3Go7b
- J7IL+afUmtjwtAqvQAvogbCc0TE0GLNHou6Wg0mjq/6u1ecVxS5kkFHRv1LwluJsvIhuniVS8F8
- XyHrDFvZpV8eVEf6Pprg4oYXskgDvi/hDo08A4w6fUoRR99Rn1mheh7FNvAlS5k1ldq3sn3LATN
- VTajkc+O6YrEo9WaHYCNnvvWPuhaU4boMlStqXsfdtc34Jj1JqXbAAoZkcx02TLBv8zePXcs88p
- O+fg2BNdYOapB+aE8ulcVcmHs72ulkDvo3wHopZmNKXOXkWk
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5514; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=ZYIdTyS6+gTxOz7kuPB5KP6ZwC/NiAAsdSBfmdRN8oc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqbQmkQTFNHE/X7jyM1RgY6o2RlLj5bNDIwZVxk
+ gYIxajU7HiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCam0JpAAKCRAk1otyXVSH
+ 0N76B/kBW8hT2mUncxHGhc3FwXoG/eT1fkFUlw/OZJ9q1wCEuJKuGwkrarYovvT4bOCCpurY3L2
+ TWSR9PWfZwYC46nCJvj5FIYymhLSZS2HbBblqZf+MWY3HQwWti9s9HGJ0DJ7F+XCle9iwQMuXKA
+ 810bC9rqO5559zQIMB5C4KiDMb6ycE/5lz1iY/BhScMqn93zdPiHfFwkOSyGIekWdoxNYKxer+Z
+ TBJ3xIHv7oJD3tDhe0PeufT0P2v7HBMKyCtQIJKlpFD4vSvmlD0QI+IbN6kfYuqJO8Tp/IGiI7O
+ 9XlQKDVzfyn+mVWNPqCnSKoAdSF0LQox7ZUZCIoOGVYL7o0I
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -88,29 +87,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While looking at some feature enablement I noticed that there are some
-scenarios where we can end up with an inconsistently configured vCPU due
-to finalizing configuration based on ID registers before we have blocked
-writes to the ID registers. This series aims to clean up these issues.
+In commit c5bac1ef7df6b ("KVM: arm64: Move existing feature disabling
+over to FGU infrastructure") a check was added to suppress duplicate
+recalculation of FGUs based on a flag KVM_ARCH_FLAG_FGU_INITIALIZED. This
+flag is set when we complete kvm_calculate_traps(), which is called from
+kvm_arch_vcpu_run_pid_change(). There are several points where that
+function could fail after we have calculated FGUs (eg, due to an invalid
+timer configuration). If this happens then userspace will still be able
+to write to the ID registers, writes to which are gated on
+KVM_ARCH_FLAG_HAS_RAN_ONCE being set. This in turn means that the FGU
+configuration for a running guest may not match the ID register
+configuration.
 
+This will result in issues based on the hypervisor assuming a consistent
+configuration, for example it allows the creation of guests which have
+untrapped access to system registers which are not context switched for
+the guest.
+
+A similar issue exists in kvm_init_nv_sysregs() where once sysreg_masks
+is allocated the RES0/RES1 masks for registers are fixed based on the ID
+register values at the time the function ran, and also for copying the
+implementation ID registers to the hypervisor for pKVM.
+
+There is a further issue with vGIC setup, creating a vGIC includes
+updating the ID registers to reflect the GIC configuration. We refuse
+to create a vGIC after the first vCPU has run but if a vCPU fails its
+first run we may already have finalized the ID register values.
+
+Avoid these issues by adding a new flag that we set when we finalize the
+system registers, blocking ID register changes after that has been set
+even if something fails later on. Do this in kvm_vm_finalize_sys_regs(),
+this is where we finalize the GIC fields in the ID registers and happens
+before we do the FGU and RES0/1 setup. A VMM which tries to create an
+irqchip after failing to run a vCPU will now get -EBUSY rather than a
+likely misconfigured guest. Userspace is not expected to try to run a
+guest that fails to start, never mind try to repair the guest
+configuration after doing so, so this is not expected to have any impact
+on practical users.
+
+Fixes: c5bac1ef7df6b ("KVM: arm64: Move existing feature disabling over to FGU infrastructure")
+Fixes: 888f088070229 ("KVM: arm64: nv: Add sanitising to VNCR-backed sysregs")
+Fixes: 03e1b89d051f ("KVM: arm64: Copy MIDR_EL1 into hyp VM when it is writable")
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-Mark Brown (2):
-      KVM: arm64: Finalize guest-wide sysregs prior to per-vCPU sysregs
-      KVM: arm64: Block ID register changes after we rely on the values
+ arch/arm64/include/asm/kvm_host.h |  8 ++++++++
+ arch/arm64/kvm/sys_regs.c         | 13 ++++++++-----
+ arch/arm64/kvm/vgic/vgic-init.c   |  6 ++----
+ 3 files changed, 18 insertions(+), 9 deletions(-)
 
- arch/arm64/include/asm/kvm_host.h |  8 ++++++
- arch/arm64/kvm/arm.c              |  2 +-
- arch/arm64/kvm/sys_regs.c         | 53 +++++++++++++++++++++++++--------------
- arch/arm64/kvm/sys_regs.h         |  2 +-
- arch/arm64/kvm/vgic/vgic-init.c   |  6 ++---
- 5 files changed, 46 insertions(+), 25 deletions(-)
----
-base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
-change-id: 20260729-kvm-arm64-idreg-final-77cbc46b558a
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index bae2c4f92ef5..8c8f7d83b6ff 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -367,6 +367,8 @@ struct kvm_arch {
+ #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+ 	/* Unhandled SEAs are taken to userspace */
+ #define KVM_ARCH_FLAG_EXIT_SEA				11
++	/* No further ID register changes possible */
++#define KVM_ARCH_FLAG_ID_REGS_FINAL			12
+ 	unsigned long flags;
+ 
+ 	/* VM-wide vCPU feature set */
+@@ -1143,6 +1145,12 @@ struct kvm_vcpu_arch {
+ #define vcpu_has_ptrauth(vcpu)		false
+ #endif
+ 
++#define kvm_id_regs_final(kvm)						\
++	test_bit(KVM_ARCH_FLAG_ID_REGS_FINAL, &(kvm)->arch.flags)
++
++#define vcpu_id_regs_final(vcpu)					\
++	kvm_id_regs_final((vcpu)->kvm)
++
+ #define vcpu_on_unsupported_cpu(vcpu)					\
+ 	vcpu_get_flag(vcpu, ON_UNSUPPORTED_CPU)
+ 
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 958d7ef78785..3b423db56d3c 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2427,9 +2427,10 @@ static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+ 
+ 	/*
+ 	 * Once the VM has started the ID registers are immutable. Reject any
+-	 * write that does not match the final register value.
++	 * write that does not match the final register value once we have
++	 * got far enough into first running the VM to use the values.
+ 	 */
+-	if (kvm_vm_has_ran_once(vcpu->kvm)) {
++	if (vcpu_id_regs_final(vcpu)) {
+ 		if (val != read_id_reg(vcpu, rd))
+ 			ret = -EBUSY;
+ 		else
+@@ -3149,10 +3150,10 @@ static int set_imp_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+ 		return -EINVAL;
+ 
+ 	/*
+-	 * Once the VM has started the ID registers are immutable. Reject the
+-	 * write if userspace tries to change it.
++	 * Once we have been far enough into starting the VM the ID registers
++	 * are immutable. Reject the write if userspace tries to change it.
+ 	 */
+-	if (kvm_vm_has_ran_once(kvm))
++	if (kvm_id_regs_final(kvm))
+ 		return -EBUSY;
+ 
+ 	/*
+@@ -5811,6 +5812,8 @@ static int kvm_vm_finalize_sys_regs(struct kvm *kvm)
+ 		kvm_vgic_finalize_idregs(kvm);
+ 	}
+ 
++	set_bit(KVM_ARCH_FLAG_ID_REGS_FINAL, &kvm->arch.flags);
++
+ 	return 0;
+ }
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index 907057881b26..4ffe0b7c3407 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -123,10 +123,8 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
+ 		goto out_unlock;
+ 	}
+ 
+-	kvm_for_each_vcpu(i, vcpu, kvm) {
+-		if (vcpu_has_run_once(vcpu))
+-			goto out_unlock;
+-	}
++	if (kvm_id_regs_final(kvm))
++		goto out_unlock;
+ 	ret = 0;
+ 
+ 	if (type == KVM_DEV_TYPE_ARM_VGIC_V2)
 
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
+-- 
+2.47.3
 
 
