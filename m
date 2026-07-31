@@ -4,61 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6192CC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B258C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zTQyXQ+ZwgZu74MYRcL/BJqp9vaDuN2k5mnimlsQCkA=; b=ns504UfdAFx9WAr+g6iDhDUIqZ
-	N2WHpx4DzoXPEHltX79/HysE3wEJvZY0PLsJb+yjLJtX/C67JRsK1A6Pf/wD1peBy35eGvLoGb9Kg
-	N+4l/bkzSXkVgEuvPWeO6b715eXl9mk7NMqYME84u5NTItdqv37RYkKVyKNqLBi/1H0v73aF/r0gV
-	huvYbJCiGYLLdoNwYxuSBR6YSsHabHYsYJ+nswuECmQniUspxDLwkkhBL9nDLD3yiq6b3iwBdQ6+l
-	4NG4OgJFe1fwelQXAaW1gp/PD1esI4KgIQL/JgSF0IOxk9XAheYxY/NhSVNuo7QoIh2tCfaPZcl+/
-	dUlcE/Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BWFrFrjVtfbKBBjs4r4K1bZlmTng9wcO1QH/xLCh+dY=; b=drH1/dTl43Uy4a/7nDdcLiFP+c
+	8DyDONkE/yLmN/zV21MzahvZjWKfsHo42yHVuPBXWHS/e8epy7kUWEZJiLTMc1FTEHNPBic+z+aVy
+	wUXWPbE2Nzm4atW+/o9lQfKk+n/iDlBz9lWXthiPbzBwR4uoyUlztIcs2IHrlF1Bgln/ppOpe0/T9
+	2WukPKlUHi4BJrYEsIzrNfAY0Ec7Z4u88dv23tpNDWmqsdRDm3UrUkcJf2YsyGiEQyy7aLK883p8w
+	7vdt3LOltNmkP2FuCs6ZcBkXikjntHke3bx4j18pZPD5oTSDdCEhYuNUJy3Rip0gLDA0EK89y3GFS
+	XW/7/VeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoTS-0000000Co0N-0sXm;
-	Fri, 31 Jul 2026 14:44:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoSq-0000000CnQa-3M0e
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 14:43:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E1A715A1;
-	Fri, 31 Jul 2026 07:43:51 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F28F73F86F;
-	Fri, 31 Jul 2026 07:43:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785509035; bh=PzWteN1QWhe4JHT13mQYIO/VwTEzMzEqxavV1NFDI60=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pcxasyko5i49uIS+oUGkntoGeHocun8pEEhjyPS6VSLjVHtsstHkyXWkre7/nLS3u
-	 6p/BfW98EegXis5Bmo7TW8gLY7DNOdmJ0s+6xPjxQSce28G5OJlL+eIUnpGGxafH+6
-	 EsjrsYxJbcF2dSLF2CzOycTzN7EMm1rM5HaKl7L4=
-Date: Fri, 31 Jul 2026 15:43:51 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Hongyan Xia <hongyan.xia@transsion.com>
-Cc: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [RFC PATCH 2/9] arm64/entry: Make debug_exception_enter/exit()
- noinstr
-Message-ID: <amy0p2p2QMZtexhz@J2N7QTR9R3>
-References: <cover.1785153469.git.hongyan.xia@transsion.com>
- <774d423f462ff2c245e5f796dad98dd1740fa5f7.1785153469.git.hongyan.xia@transsion.com>
+	id 1wpoTQ-0000000CnwN-1nRh;
+	Fri, 31 Jul 2026 14:44:32 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpoRF-0000000ClcO-400F;
+	Fri, 31 Jul 2026 14:42:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785508930;
+	bh=rAX8Gkdd0l2SvPThxGwSATdesygL1W5j4bmXRGpe4TM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=BzgoTAZuLpIhChG1z9LFKGCcE9eLeJYj72GNPrzr2X4PfsrqY/ijCqUgTG/2dswUH
+	 f+Y4yU0y8SAfqfyth5rN3KZo973UXA+RIGdhcxtrtRHLiw6c3UO6uOvtfS8BJ1JbxO
+	 Q3Fzg87kyQeck5OATxVnPpXFmOsczJfXUnIGTgcTRbSscVovFbgLNZBSOWvSj43SKt
+	 hXj7W25MBgaWP5s2oVO9ihZo6k8Fj2jWph0YbJ0VMSUj2r/tJQUI6HzT/wKIKqW4bL
+	 9A4QS6D+Ag5fakCfdOZKmCO+kDl1CAuJMi2wPhEDOrwPdsdyawCQc0J9TyXx42BL/u
+	 yjUUygFzcAL/g==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B348317E092F;
+	Fri, 31 Jul 2026 16:42:09 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 0CA3C480048; Fri, 31 Jul 2026 16:42:09 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 31 Jul 2026 16:42:16 +0200
+Subject: [PATCH v8 11/21] drm/bridge: Add out-of-band HPD notify handler
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <774d423f462ff2c245e5f796dad98dd1740fa5f7.1785153469.git.hongyan.xia@transsion.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260731-synopsys-dw-dp-improvements-v8-11-ac1e6a75782f@collabora.com>
+References: <20260731-synopsys-dw-dp-improvements-v8-0-ac1e6a75782f@collabora.com>
+In-Reply-To: <20260731-synopsys-dw-dp-improvements-v8-0-ac1e6a75782f@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2377;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=rAX8Gkdd0l2SvPThxGwSATdesygL1W5j4bmXRGpe4TM=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpstEABLQDVMHJP/uS0OCzQUhxcaVi2JD9G7
+ 61Rlu6ekPGfI4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqbLRAAAoJENju1/PI
+ O/qabekP/02yh/jX7Z0sGPbbBmuCzOV7MMLqYfCl52UKQubyh23VuD82JslrDfbwbUNgzkTO61K
+ JNEmH0aPVS3ngw6uedOIA4cJkX8gZmpNi45VQoMZQVglQcbCHptbyXxy6yP0fjbMAP04WkYGdWt
+ I7xp0ywcY0mbmuKm0x7k3KJ5Eupagaj8+JyPTYynqHZfu2YKFc2FMVUCftvdIXO9DLSn4Gv2bRF
+ M0B9zTNtcU0uRXpk+gd4gKfnvifMaLuSgExTkbIc45e8Z41IM/sk3W41iUZsZxCKOYyojPgMflS
+ HQEvzNjbYZ2EX/O/XTJUIQYP0cS3EsXRSkcn2IWs/k5WRPsAsv1M+g6qz1EGdJveZVC92yVx3V3
+ Jt4ywSomCwgkUyqgJtxDCWRIYgJfOtly18utZawWreoQVtsijlyv+0o2bnCQYfP4nLUy+B1oifX
+ 7KQR0FEDmTn2WN9C9PHrj1Vu5MO1HEhO9Stc+EQcqKC7Wp4/r1JK44KkipwQIHzBF/dhX7IaQLr
+ jlmOQvgYdwUkQMWuGuWmnoFo79phQf+pX+zdouNOFhKzNAQFqEwg2n31ey/4Wf+L9a1hLVbLZ9V
+ K6K3xBsKY2gYJ2LA/wQxLKq216vNH3nQIqDxUjJ2nD8BNEpmr+HuYMjaBzcI2LUOnvvGtutZw72
+ YK7s1fNDOtTa++NvGq2o0eg==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_074357_088532_5858F091 
-X-CRM114-Status: GOOD (  21.68  )
+X-CRM114-CacheID: sfid-20260731_074218_264160_8C588278 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,80 +111,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 12:25:36PM +0000, Hongyan Xia wrote:
-> From: Hongyan Xia <hongyan.xia@transsion.com>
-> 
-> Commit 879a6754d3d11e30af24b7dc486f561510d62641 ran into a crash because
-> debug_exception_enter/exit() triggered page faults caused by perf dwarf
-> call graph tracing. That patch was a band-aid on top. Instead of trying
-> to band-aid all possible paths that can happen during instrumentation or
-> perf tracing, simply make both functions noinstr.
-> 
-> Drop the RCU_LOCKDEP_WARN(): arm64_enter_el1_dbg() runs first and
-> enters NMI context via ct_nmi_enter(), so RCU is always watching by the
-> time debug_exception_enter() runs.
-> 
-> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
-> ---
->  arch/arm64/kernel/entry-common.c | 24 +++++++++++++++---------
->  1 file changed, 15 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index 466529cce1c3..f06b5e2437cd 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -293,20 +293,26 @@ static __always_inline void fpsimd_syscall_exit(void)
->   * accidentally schedule in exception context and it will force a warning
->   * if we somehow manage to schedule by accident.
->   */
-> -static void debug_exception_enter(struct pt_regs *regs)
-> +static void noinstr debug_exception_enter(struct pt_regs *regs)
->  {
-> -	preempt_disable();
-> -
-> -	/* This code is a bit fragile.  Test it. */
-> -	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
-> +	/*
-> +	 * debug_exception_enter/exit() can be quite delicate. The normal
-> +	 * preempt_disable/enable() can be instrumented or traced by perf,
-> +	 * which leads to a can of worms including triggering page faults.
-> +	 *
-> +	 * Instead of trying to make all of them work properly here, just
-> +	 * open-code the simpler version of preempt_disable/enable() and make
-> +	 * enter/exit() both noinstr to avoid the entire complexity.
-> +	 */
-> +	__preempt_count_inc();
-> +	barrier();
->  }
-> -NOKPROBE_SYMBOL(debug_exception_enter);
+For DP bridges, that can be used for DP AltMode, it might be necessary
+to enforce HPD status. There is an existing ->oob_hotplug_event() on
+the DRM connector, but it currently just calls into hpd_notify().
 
-This is an open-coded version of preempt_disable_notrace(), and there's
-no reason the existing code needs to be out-of-line in the first place.
-Please make this:
+As DP bridge drivers usually also implement .detect and that also
+generates calls into hpd_notify, this is a bad place to force the
+HPD status as the follow-up detect call might force it off again
+resulting in all follow-up calls to the detection routine also
+failing.
 
-static __always_inline void debug_exception_enter(struct pt_regs *regs)
-{
-	preempt_disable_notrace();
-}
+Avoid this by having a dedicated function for OOB events.
 
-> -static void debug_exception_exit(struct pt_regs *regs)
-> +static void noinstr debug_exception_exit(struct pt_regs *regs)
->  {
-> -	preempt_enable_no_resched();
-> +	barrier();
-> +	__preempt_count_dec();
->  }
-> -NOKPROBE_SYMBOL(debug_exception_exit);
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/gpu/drm/display/drm_bridge_connector.c |  6 ++++++
+ include/drm/drm_bridge.h                       | 14 ++++++++++++++
+ 2 files changed, 20 insertions(+)
 
-Similarly, this is an open-coded copy of
-preempt_enable_no_resched_notrace(). Please make this:
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 8b54069fa53a..632cc3ae3b54 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -180,6 +180,12 @@ static void drm_bridge_connector_oob_hotplug_event(struct drm_connector *connect
+ 	struct drm_bridge_connector *bridge_connector =
+ 		to_drm_bridge_connector(connector);
+ 
++	/* Notify all bridges in the pipeline of hotplug events. */
++	drm_for_each_bridge_in_chain(bridge_connector->encoder, bridge) {
++		if (bridge->funcs->oob_notify)
++			bridge->funcs->oob_notify(bridge, connector, status);
++	}
++
+ 	drm_bridge_connector_handle_hpd(bridge_connector, status);
+ }
+ 
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index 58fff047f43b..713652fca033 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -540,6 +540,20 @@ struct drm_bridge_funcs {
+ 	 */
+ 	void (*hpd_disable)(struct drm_bridge *bridge);
+ 
++	/**
++	 * @oob_notify:
++	 *
++	 * Notify the bridge of out of band hot plug detection.
++	 *
++	 * This callback is optional, it may be implemented by bridges that
++	 * need to be notified of display connection or disconnection for
++	 * internal reasons. One use case is to force the DP controllers HPD
++	 * signal for USB-C DP AltMode.
++	 */
++	void (*oob_notify)(struct drm_bridge *bridge,
++			   struct drm_connector *connector,
++			   enum drm_connector_status status);
++
+ 	/**
+ 	 * @hdmi_tmds_char_rate_valid:
+ 	 *
 
-static __always_inline void debug_exception_exit(struct pt_regs *regs)
-{
-	preempt_enable_no_resched_notrace();
-}
+-- 
+2.53.0
 
-In both cases I'm happy with keeping the regs argument for now.
-
-Mark.
 
