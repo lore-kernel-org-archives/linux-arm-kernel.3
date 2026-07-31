@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62CBDC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B0DC5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xHFhezlzmWBtsHAlwZHJP2pWN8JOwp29t4pPghLKM7A=; b=Xz3Z/5Nsrr6me/LUHX/VvnmeM9
-	2Lfj7Gba7veJonv+CVej8vmRyu9WHE11tKVlziG2eCwKK92Y5ubAnptsGsD/aFfm0AQUVublW8DgW
-	ke00EehYVC637iDBU1rxwpUSiwNClhZZSJGl33JannIk+6MSIwtQtY+uJIhk1SSwL4vH8F674xjTH
-	/sM2Qj6qcMeWt2repJIoI32IkQhuGqstQ1gF6rQ6dXJcczGTMlPr19wT2caQfsHJ16mgFafVfCJNe
-	CYSB/7XVWt3mVcxt5nsvrZQJYNwrbX40llfX+pmk2/KdfZFyiEg0lMnl8j5N9SuNSOsqZFpyi7iO4
-	XmmXamiQ==;
+	bh=1lfIFJI1AS7WviRV8XHkQFOJObFgunzglmAgnH/u+AY=; b=uJr++DeRY/0TIS/zPuc6BE3Ywb
+	F8nqzB5u1QABZYZJeBuAdq8k7gNlprvON+puSt2DgChW7mnf6P8B5hdrFqgIGD5/3L4ZAzDunXeeS
+	nj50hX61Q7G35r4gHXp5cSEq47nbb8/w/obm0WPy/iwK+Q6Q3iWjM/Y1MHMHAZ0rRUVJB7dvlaCQP
+	XUik6m1zUKwSL7u1e/J5Q6CRRMMLxJThSW5XxwoEEAKVSG73W55HMSOiw+RD/LNRIeHnUQQ6AKFBo
+	A5u5Qta4KW4dr6r9AZQ5JWONBYYOmsWWEJYHqJdGxQMwvJR1cpD89oRt/hp/4DMVZi7RxCPBnQSws
+	WbjPpGKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxi-0000000Czgm-2ds8;
-	Fri, 31 Jul 2026 16:19:54 +0000
+	id 1wppxg-0000000Czci-19WI;
+	Fri, 31 Jul 2026 16:19:53 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxG-0000000Cyq2-0s0P;
+	id 1wppxF-0000000CypG-1vMk;
 	Fri, 31 Jul 2026 16:19:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514764;
-	bh=QfP7xZFECc7vFiekq/+2Q7b3eH9Ms2hU2uC26kblPso=;
+	s=mail; t=1785514759;
+	bh=J1vxmseoLPQQnv2CmyOezLJSX3z1Sy0R9f4GOVZ1xq4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=CrkXIV4pSbcS2j13yhmqRBSGHJg+x2dBkRF3JBOoE5pT/GVqog8GEe2lCoWfdoup0
-	 71WFGnTTc/xb+Ht/5XfQBWs+2I2Ngpid9U+nbh8HFky+OeP6/e6y/eHt+6D9rl+mga
-	 Itjcjl9fTk+WmE8+ok3H3ut44M2ZqFQD2KRuFP5HPe3fpojoNrqNs2Le4ReLQXDXG1
-	 S3eS6Vzl8HfM81mumZWNCX2doC3mLmV+vgJGJLtvFPsdarjmZnPcpvyRHQxNe/gBB6
-	 mkmmmv3nFHUUMb36/0NufYnQg6lcNaNiw7sTOwrjX3DgUywFpwxHmXP5AoDzvvhk5G
-	 zBMBBfoL3iaEg==
+	b=n2HWz8SG6RstpcZ9zFQnUXMQH9z1/0e7VaWgppUHpn4sJQk3gXGV+Dw4pWZlu/4ns
+	 Ce3Xed+/KWrQycb1w+i4KJZbj3pgdSOvHvTIevkqPKsF9ySjaiZMtEOA+1DJK2xCjh
+	 xKxt5PmqsOPbGVSbj1YB3kqzMHM+UyofBhfpjSSNSdbnihZV7fA4T9q7Snuiya98VE
+	 EO06t4ZptZELQB7msWLgicEXbMcqasWI14b+0kwtkr6m/rAsa4IKnDhMHXi1ook0tG
+	 xx2rY0xS1HmQbsbQJONAB/vEPlQ2Q+KT1C3Zq4QfuTIVA4IMqzY/ScE4gRquQa0S3E
+	 cMFPHF1936ymw==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2A70117E092F;
-	Fri, 31 Jul 2026 18:19:24 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C7AA817E08F7;
+	Fri, 31 Jul 2026 18:19:19 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:19:20 +0300
-Subject: [PATCH v10 13/69] drm/bridge: Fix unlocked list access in
- drm_bridge_attach()
+Date: Fri, 31 Jul 2026 19:19:14 +0300
+Subject: [PATCH v10 07/69] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-13-294364b2cf15@collabora.com>
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-7-294364b2cf15@collabora.com>
 References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -72,11 +72,13 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
  Phong LE <ple@baylibre.com>
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
+ linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+ Maud Spierings <maud_spierings@hotmail.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091926_607939_2D7D3987 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260731_091925_662822_6B8741FD 
+X-CRM114-Status: GOOD (  21.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,41 +93,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-drm_bridge_attach() inspects bridge->list to warn about bridges being
-attached without a previous drm_bridge_add() call, but it does so
-without holding bridge_lock.
+Add the connector-level infrastructure to support HDMI 2.0 scrambling:
 
-The list head can be concurrently written by drm_bridge_add(),
-drm_bridge_remove() and __drm_bridge_free() while they operate on
-neighbouring entries of bridge_list or bridge_lingering_list, all of
-them under bridge_lock.  Hence the unlocked read is a data race, even
-though it is unlikely to change the outcome of list_empty() in practice.
+- A drm_connector_hdmi_scrambler_supported() helper to report whether
+  the source supports the scrambling capability, based on the presence
+  of the newly introduced .scrambler_{enable|disable}() callbacks in
+  drm_connector_hdmi_funcs are mandatory
+- A scrambler_needed flag to be managed by the hdmi state helpers based
+  on the negotiated TMDS character rate and the source/sink scrambling
+  capabilities
+- A scrambler_enabled flag to track whether scrambling is currently
+  active
+- A delayed work item (scdc_work) to monitor sink-side scrambling status
+  and retry the setup if the sink resets it
+- A scdc_work_initialized flag to support lazy initialization of the
+  work item on the first scrambling enable and guard the teardown paths
 
-Perform the check with bridge_lock held.
+These are intended to be used by SCDC scrambling helpers to coordinate
+scrambling setup and teardown between the source driver and the DRM
+core.
 
-Fixes: 76f1a9711b83 ("drm/bridge: add warning for bridges attached without being added")
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/drm_bridge.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/drm_connector.c | 31 ++++++++++++---
+ include/drm/drm_connector.h     | 83 +++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 109 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index 8b8f71c3ccff..9a658decad2a 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -600,8 +600,10 @@ int drm_bridge_attach(struct drm_encoder *encoder, struct drm_bridge *bridge,
- 	if (!bridge->container)
- 		DRM_WARN("DRM bridge corrupted or not allocated by devm_drm_bridge_alloc()\n");
- 
--	if (list_empty(&bridge->list))
--		DRM_WARN("Missing drm_bridge_add() before attach\n");
-+	scoped_guard(mutex, &bridge_lock) {
-+		if (list_empty(&bridge->list))
-+			DRM_WARN("Missing drm_bridge_add() before attach\n");
+diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+index 4721cdeafc84..a18410faf040 100644
+--- a/drivers/gpu/drm/drm_connector.c
++++ b/drivers/gpu/drm/drm_connector.c
+@@ -622,12 +622,29 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+ 	 * default with the actual controller capability. A value of zero keeps
+ 	 * the limit inferred from supported_hdmi_ver.
+ 	 */
+-	if (hdmi_funcs->supported_hdmi_ver >= HDMI_VERSION_2_0)
++	if (hdmi_funcs->supported_hdmi_ver >= HDMI_VERSION_2_0) {
++		if (!hdmi_funcs->scrambler_enable || !hdmi_funcs->scrambler_disable) {
++			drm_err(dev, "Scrambler callbacks missing for HDMI 2.x\n");
++			return -EINVAL;
++		}
++
+ 		connector->hdmi.max_tmds_char_rate = HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
+-	else if (hdmi_funcs->supported_hdmi_ver >= HDMI_VERSION_1_3)
+-		connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
+-	else if (hdmi_funcs->supported_hdmi_ver >= HDMI_VERSION_1_0)
+-		connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
++	} else {
++		/*
++		 * Scrambler callbacks are only valid for connectors advertising
++		 * HDMI 2.0 capability. drm_connector_hdmi_scrambler_supported()
++		 * relies on their presence to report scrambling support.
++		 */
++		if (hdmi_funcs->scrambler_enable || hdmi_funcs->scrambler_disable) {
++			drm_err(dev, "Scrambler callbacks unexpected for HDMI 1.x\n");
++			return -EINVAL;
++		}
++
++		if (hdmi_funcs->supported_hdmi_ver >= HDMI_VERSION_1_3)
++			connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
++		else if (hdmi_funcs->supported_hdmi_ver >= HDMI_VERSION_1_0)
++			connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
 +	}
  
- 	drm_bridge_get(bridge);
+ 	if (hdmi_funcs->supported_tmds_char_rate) {
+ 		if (hdmi_funcs->supported_tmds_char_rate > connector->hdmi.max_tmds_char_rate) {
+@@ -635,6 +652,7 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+ 				connector->hdmi.max_tmds_char_rate);
+ 			return -EINVAL;
+ 		}
++
+ 		connector->hdmi.max_tmds_char_rate = hdmi_funcs->supported_tmds_char_rate;
+ 	}
  
+@@ -918,6 +936,9 @@ void drm_connector_cleanup(struct drm_connector *connector)
+ 		    DRM_CONNECTOR_REGISTERED))
+ 		drm_connector_unregister(connector);
+ 
++	if (connector->hdmi.scdc_work_initialized)
++		cancel_delayed_work_sync(&connector->hdmi.scdc_work);
++
+ 	platform_device_unregister(connector->hdmi_audio.codec_pdev);
+ 
+ 	if (connector->privacy_screen) {
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index a6de3e63b462..89a140d6f064 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -28,6 +28,7 @@
+ #include <linux/ctype.h>
+ #include <linux/hdmi.h>
+ #include <linux/notifier.h>
++#include <linux/workqueue.h>
+ #include <drm/drm_mode_object.h>
+ #include <drm/drm_util.h>
+ #include <drm/drm_property.h>
+@@ -1131,6 +1132,17 @@ struct drm_connector_hdmi_state {
+ 	 * @tmds_char_rate: TMDS Character Rate, in Hz.
+ 	 */
+ 	unsigned long long tmds_char_rate;
++
++	/**
++	 * @scrambler_needed: Whether HDMI 2.0 SCDC scrambling is required
++	 * for the negotiated mode/bpc/format.
++	 *
++	 * Computed by drm_atomic_helper_connector_hdmi_check() according to
++	 * the HDMI 2.0 specification: scrambling is mandatory above a 340 MHz
++	 * TMDS character rate. Optional scrambling at lower rates is
++	 * deliberately not requested by the helper.
++	 */
++	bool scrambler_needed;
+ };
+ 
+ /**
+@@ -1481,6 +1493,36 @@ struct drm_connector_hdmi_funcs {
+ 	 */
+ 	const struct drm_edid *(*read_edid)(struct drm_connector *connector);
+ 
++	/**
++	 * @scrambler_enable:
++	 *
++	 * The callback is invoked via @drm_connector_hdmi_enable_scrambling
++	 * during commit to setup SCDC scrambling and high TMDS clock ratio on
++	 * the source side.
++	 *
++	 * The @scrambler_enable callback is mandatory if HDMI 2.0 is to be
++	 * supported.
++	 *
++	 * Returns:
++	 * 0 on success, a negative error code otherwise
++	 */
++	int (*scrambler_enable)(struct drm_connector *connector);
++
++	/**
++	 * @scrambler_disable:
++	 *
++	 * The callback is invoked via @drm_connector_hdmi_disable_scrambling
++	 * during commit to tear down SCDC scrambling and high TMDS clock ratio
++	 * on the source side.
++	 *
++	 * The @scrambler_disable callback is mandatory if HDMI 2.0 is to be
++	 * supported.
++	 *
++	 * Returns:
++	 * 0 on success, a negative error code otherwise
++	 */
++	int (*scrambler_disable)(struct drm_connector *connector);
++
+ 	/**
+ 	 * @avi:
+ 	 *
+@@ -2111,6 +2153,25 @@ struct drm_connector_hdmi {
+ 	 */
+ 	unsigned long long max_tmds_char_rate;
+ 
++	/**
++	 * @scrambler_enabled: Tracks whether HDMI 2.0 scrambler is currently enabled.
++	 */
++	bool scrambler_enabled;
++
++	/**
++	 * @scdc_work: Work item currently used to monitor sink-side scrambling
++	 * status and retry setup if the sink resets it.
++	 */
++	struct delayed_work scdc_work;
++
++	/**
++	 * @scdc_work_initialized: Tracks whether @scdc_work has been set up via
++	 * INIT_DELAYED_WORK(). The work item is initialized lazily on the first
++	 * scrambling enable, so this guards the teardown paths against touching
++	 * an uninitialized work item.
++	 */
++	bool scdc_work_initialized;
++
+ 	/**
+ 	 * @funcs: HDMI connector Control Functions and controller capabilities
+ 	 */
+@@ -2702,6 +2763,28 @@ drm_connector_is_unregistered(struct drm_connector *connector)
+ 		DRM_CONNECTOR_UNREGISTERED;
+ }
+ 
++/**
++ * drm_connector_hdmi_scrambler_supported - does connector support HDMI
++ * scrambling?
++ * @connector: DRM connector
++ *
++ * Checks whether or not @connector driver supports HDMI scrambling. When
++ * controller advertises HDMI_VERSION_2_0 support, the
++ * @drm_connector_hdmi_funcs.scrambler_enable and
++ * @drm_connector_hdmi_funcs.scrambler_disable callbacks are mandatory and
++ * enforced during drmm_connector_hdmi_init().
++ *
++ * Returns:
++ * True if the connector supports scrambling, false otherwise.
++ */
++static inline bool
++drm_connector_hdmi_scrambler_supported(struct drm_connector *connector)
++{
++	return connector->hdmi.funcs &&
++		connector->hdmi.funcs->scrambler_enable &&
++		connector->hdmi.funcs->scrambler_disable;
++}
++
+ void drm_connector_oob_hotplug_event(struct fwnode_handle *connector_fwnode,
+ 				     enum drm_connector_status status);
+ enum drm_connector_color_format
 
 -- 
 2.55.0
