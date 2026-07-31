@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC384C55167
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A81C54F54
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 07:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ImfmA7YTjbuyPA3PgekPNGgD+bNMUMbetigG1vwt0D0=; b=GMLk+Zqvt55mgypclA5UBTFQ2w
-	ocxy9w6RhrUvWMNKYAY0XujrrhB/W/cfrubgY7rvYwd72gcMC57ROySjiaPzgAC47v57Er0pFCj62
-	CJ8n5iEm+jKOjhLjTNH0ZLEoOhdn2LsdFUeSAhXgUyqc1ZRcJVX4uDIZrO7RQIHaxEfRU4XokSDnH
-	IhFz4eomldafF+ejU3tv9rwVag24bR/5+DjsjrbChsCAGG6tSHj0EN9boRI3U6Ke0ktcipl5Y8hAF
-	wALDGpTGP3UqovxeJIih2rLgorR0CDph2oVY6MBpowi2ZQoduzmI4LXR4JoxyYg/Ysyq2IV9oLI7j
-	YInz1t1A==;
+	bh=PCdLZVjTlaRKlWFfj9PM3Rpmp4ZU+vahASlvomEtAtI=; b=2yZuJzuBwwGzGRogN+OdpGU0Av
+	0T+TY0So8fwYLTXyLEFdMaOZAuWv4f6Nc2itFDY7GuOzpyj0jDpnpDpyd59kmZeeC+ONQ9OZDMD9j
+	lID9gUV1FhbpICQ0BdIYxr7zVP/csQByQFcEitpzTJ+X56TSLTvTgiOjypp0MTOE5l0jHP329G+AU
+	D03eNxGaIhqgOCUnvJLvagCBzlsAOkLgEnOYZ9cPnu5CXvYgDIY9mpfEW9Dr413YRLPZjIloYzHYz
+	tUKZC7bp5F3w9ng3dHIKxyR/jHFyz8vAK3Tz3klXFRJdNIqCWkiig+LPIu22KuwuX3H10gcx8BPzd
+	CUbOiBPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wphYn-0000000Bwx1-3bOE;
+	id 1wphYn-0000000Bwwo-3BgF;
 	Fri, 31 Jul 2026 07:21:37 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+Received: from mail-northcentralusazon11012032.outbound.protection.outlook.com ([40.107.200.32] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wphYb-0000000Bwqt-3kNe
+	id 1wphYU-0000000Bwmt-38j8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 07:21:27 +0000
+	Fri, 31 Jul 2026 07:21:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N+FsSV6Jd7BPxbBPKBHfdftfhBlGDsQ2sImqm/7p60uZXHChS0FPXTNSpLGNS6JUw7hJhLwVCv+qlExpiIsQSPksIlHz1bxn/K5VLEVZI1eG3jRPev5tAajnLCLUzlKkDguoquRGUE0gSHjvaKHZYPwrm7SxxDjGEfOwa6xCuc6SxrmbmPcqctVVZylWegXTixPIIskE05JET2804yrJANIVpZ/3gNQ2TWbeVuvej2fthChgq7EVHT3vNcBvnNZ6p3mA/xughhkvQpUuNdY6ArITJVdUaV+l5gfxUtlOmGFnqBh7nfx+TBjVe3ZtbFJJLDzR9f5jHEGZ+MYLBEnndQ==
+ b=grZPP29Cb5OJdCPXH5FinsyHEmnYT5dw5aE52RxLjYm9/K5K4GuzxUA+y0uX75nXGiGfxEQWG3dpkSXtKZkjfsYqZ0UA9svx8Vj1AQTZIK/uDAFovVa/UdsUQKL32o2GzabBSOpSVtkSn9DK+gb6KzLHd31xIruM8FT8TaJ0fRO1akjWz2ZTtY/dQd3Vm5hRNfQ86tK9mh7MRfVzxEyp4yv+ugn8j5IUX+8PFOVgxKJl48xnA4D/UPJHI4sEkHb/Nm/ziGCxNSa56WsxmqxSQppOINNNbr78ONHLav+7a2T6A6fTdItZ3eFSECZDc463ZU6VF1lVXgePAC5DOymuDg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ImfmA7YTjbuyPA3PgekPNGgD+bNMUMbetigG1vwt0D0=;
- b=sMbjS8pRXmf+GXaFIE2qhDgfTO0FCKbiWgVn+IfoiURnyh20m3RvwRRohCqkDIgJ8qK6NsnJpMhPNp1NzyoKayQDIT2LVNS676/13PCB7ZaTXVpqZIa6C8quw8Wm2naPSXd0NdCycEWZHW010WNW7X2iFSDsTPOF0GSY/48Q7xiAzbRXu1pwYdkLq8bTbwCt02WLGV9l5a1vtJRHRT9amUONLJcLILM6FdfHalaaEQlcg468ODqdooX0OXtIGw+qHOXb5WEX2vLx17PVMUWHxu4hgXXJUOKQ/OrVVyRbedph/Tn78Z4z7cxvonPfKih7K/D7sRiJgDg4iM6skj+xug==
+ bh=PCdLZVjTlaRKlWFfj9PM3Rpmp4ZU+vahASlvomEtAtI=;
+ b=OLIGwA4PKRw0L7W8tA4KrNTzICoHXvFG6Y7a+V30SlG8RXD8UE7Y215zOpdNIoubxOpFt6Gzdx9AhxKd9Qou8MDWFhBT+zdQ5eSJ+TFRzSx4iB8dQ9KItfx3m5mFJxehw9+GLZfdAFW6ieMMDK12k+nt33NxD7d5QOaDLEmCAJRdtjzs3H6Iz4lhsqjrGr4CLc6R+zS9pgxZYbYU6+fOv+IxpEBf8MQblVe8ATx8WytDKfecUlJ7Y/XC/p67NgSPEbaEsxKoUtoxIAQyCA6EqTBRl9Ag2UJKm4hmUvSGdEU/g3bDAEdzpx9drfwbnwGEvx4S/3AuaD1A3mKVNu7Smw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ImfmA7YTjbuyPA3PgekPNGgD+bNMUMbetigG1vwt0D0=;
- b=j/Z+qLqlXe9qYjQR+uNkOolf9i8fE+WRq8ZFTeHyJDLo8KrcELhnX6tUeNg6tsjJkBdAL0FILLVb/qvekGxPBxaBlPuPVQjgw0J1KOrZTCPNPnLaem0otqJMow+h3nxxMRJEgQl0RYRi0qULjIKFkmtufQ8CoNK9k2sMAwN8H5M=
-Received: from DS7P220CA0011.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:1ca::16) by
- PH0PR12MB7838.namprd12.prod.outlook.com (2603:10b6:510:287::10) with
+ bh=PCdLZVjTlaRKlWFfj9PM3Rpmp4ZU+vahASlvomEtAtI=;
+ b=46CCtZK3Z5MAegGVi+bi2RS1xrlPAXCMXTTORCfxSd8pTa5+dxgJ54p2Dn4na0OsoRFaDWR31JKZk1gr/PmR6C8TZa6wKsjQv7MLg+kQtN9ikgfONidCnSYHW5vgzAH6NSj0Qy88GjMXTlIHK7nWWC9WGkng3YRSbwC35Uuuqgw=
+Received: from DS7PR03CA0028.namprd03.prod.outlook.com (2603:10b6:5:3b8::33)
+ by IA0PPF52B16157D.namprd12.prod.outlook.com (2603:10b6:20f:fc04::bce) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.16; Fri, 31 Jul
- 2026 07:21:18 +0000
-Received: from DS1PEPF0001709C.namprd05.prod.outlook.com
- (2603:10b6:8:1ca:cafe::2b) by DS7P220CA0011.outlook.office365.com
- (2603:10b6:8:1ca::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.16 via Frontend Transport; Fri,
- 31 Jul 2026 07:21:18 +0000
+ 2026 07:21:10 +0000
+Received: from DS1PEPF00017098.namprd05.prod.outlook.com
+ (2603:10b6:5:3b8:cafe::6) by DS7PR03CA0028.outlook.office365.com
+ (2603:10b6:5:3b8::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.15 via Frontend Transport; Fri,
+ 31 Jul 2026 07:21:10 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,20 +59,16 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- DS1PEPF0001709C.mail.protection.outlook.com (10.167.18.106) with Microsoft
+ DS1PEPF00017098.mail.protection.outlook.com (10.167.18.102) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.292.8 via Frontend Transport; Fri, 31 Jul 2026 07:21:17 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ 15.21.292.8 via Frontend Transport; Fri, 31 Jul 2026 07:21:10 +0000
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 31 Jul
- 2026 02:21:17 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 31 Jul
- 2026 02:21:16 -0500
+ 2026 02:21:09 -0500
 Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Fri, 31 Jul 2026 02:21:13 -0500
+ Transport; Fri, 31 Jul 2026 02:21:05 -0500
 From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 To: <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>
 CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, Michael Turquette
@@ -81,9 +77,9 @@ CC: <git@amd.com>, <shubhrajyoti.datta@gmail.com>, Michael Turquette
 	<conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>, "Shubhrajyoti
  Datta" <shubhrajyoti.datta@amd.com>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 6/8] clk: clocking-wizard: Use dev_err_probe() when mapping registers
-Date: Fri, 31 Jul 2026 12:50:47 +0530
-Message-ID: <20260731072049.957624-7-shubhrajyoti.datta@amd.com>
+Subject: [PATCH v3 4/8] clk: clocking-wizard: Add static-config clock provider support
+Date: Fri, 31 Jul 2026 12:50:45 +0530
+Message-ID: <20260731072049.957624-5-shubhrajyoti.datta@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260731072049.957624-1-shubhrajyoti.datta@amd.com>
 References: <20260731072049.957624-1-shubhrajyoti.datta@amd.com>
@@ -92,28 +88,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF0001709C:EE_|PH0PR12MB7838:EE_
-X-MS-Office365-Filtering-Correlation-Id: e97a2819-f776-449e-d484-08deeed4503e
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017098:EE_|IA0PPF52B16157D:EE_
+X-MS-Office365-Filtering-Correlation-Id: df7517ad-3786-4c72-01a1-08deeed44bae
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|7416014|376014|82310400026|1800799024|56012099006|11063799006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: G4vv8r7y5TIFEjf3QzQhEto+zwiz0OqAm+uY9ubZ+XWYI9+B2UVRIGtZAPL722ssdQqkhQfyJZU5f38wgJoTM0w89CC4S8wcICtTDLVDJdvMzwZsD94jDk8NIVN/dQZQZN6rDqac2f2XWKmBBfZIeHwzmZm50rgjaHQsNq9yshtrCy2fIW1buLiNs7OeUU4lyjL67bI5j+BOjb2l9dKpGhfaot8eyOcdZHUdCFuxwrLA2viWIdLFpHMZjdF4eN8SQpjf3D6cE5j4IxYffesycxieCFvbq6hk9ofGRN6osKrmym4ofGutFhCqQcdajR6aMtHHa4JGlKOLdXwt8bYJ4UaAZmtWCmTOQUY7x3cwzBj+Smnmzp1ZBWzBrj32higWlfXMODHscW0Nr/cJT1IkYAE+sOY1TWNAoC6l63A+9+F5ZPuueLea+aVZJARM7uRjguwUvKzih3pVsfVZzAdHOlH9HOIazNFikmvUVF1BAunHj01pmvsJkzgnyVNsxK9BDVta6o5eeeygfrt0dIdzk4yueOib33tKo5urLpV3Ai7nTX/GYdeBtHszOcMMinTps9ZxkSYeZXa2Ya4zZc2vO8JHby3u1F38CP7Wl5pfRMkSMq8DXrGES/vtyE0vYYlONMzm4CUP0VoaPZsZH5lYakYy5gpCwKq3eUG3BpmQnFQxeYHBqPv8pMqA2VOj91kr8iTF1+rqZpY0S17pAUWsxQ==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(7416014)(376014)(82310400026)(1800799024)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|7416014|1800799024|82310400026|56012099006|3023799007|5023799004|11063799006|6133799003|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: qjXYIbCilrgCEmtArDXVyXUqUR3W9HMS+5xm9kb+hMhZW1ilRfdb1R749eDhy5Q3K7c3TWpqh4zzjrrWWmJW6Y/HMwQzUYx8NnDr1klOYDgBhHhsOb6GG5SabCypiSKOGbqhE1HU4AND3sA6tINUcackKQDg7UgNyvq5C4L0f9h1MnrtXltYCZtqG4wX8XJjZmfkKk0nzDGAcLMpcZ7V/nTbMDHhkepBF2hqg79au2up1G4KuOsffMfQm2qWpq7Y7Kv23exiql/cqWvU8YgCsu1mS3iCXrYgVjjNx7XwfGjRG9/mzgTWFsyPN7ONwURUhwZ6qxO4zmPKVu2gUW41ZRjtzw6XXG8lSflg5QYBHs4Hu2nvx04MEH446NYt85aP81n3ZVI6oLQxw/V5ELMPucVNu1uTfYOHqtkc5MsirqMPwNji+4QquCjfUKH9Z02hGTcA+IC+IKTSo3XXmZJWwoWLx5a0GT9VB43WQMFth0wqW5KClSi//4VLajrvdcww76Dv3CYoqSQ0XDERrsbBI7S9ZibM0Q/iSepP9a4OUiYeWOXePGDwcZQHIWCkjgPugqxAppqvRaTX4sF55qQTDLSWhREw81ETbYqEJO09bSQKMR8JsGgt/aYzuS9aP//IYbgrG1cMirVt2al/F3gXUbyQ3F1SsegHqbrAOoSjZysY3woLLnt6zUtCS2BoTqKCSiJ5oa+TWSJJ0c8AM6sSwg==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(7416014)(1800799024)(82310400026)(56012099006)(3023799007)(5023799004)(11063799006)(6133799003)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: SzdnsEtVdrq322T7IDlAKGAuo9KHnKoEX+KKQJCvUGKPSdTQAGD+P8zZOG5mBDTMM488tS4xF3ueXk3yn+ge5jS8Jnw+v0HkSNLFnj7u82S/qYCNkl8maaYm9pblwszsoHYzArc6YMmDMdmRHbd6K3q4jpbrgkJqQeLUbR0ZSCuYgVlrrf2nxm24mRJ6T/ruEmSkTGOBntIchR5/wcckEsAlK2W86N1Adf1SBDO63l2o8mSFkRxjV1v+g+3lsi9JVk+cmhub+GPwznf2ejMUYkAkbcUMC+2pYMTqMInZy6bK8Vzpmy90FwYiElIpWJMhHUE7HMHOc/RLDevHK5IBeXqa+5L70J76eWcCLEDPNRzcImmh99z3tGBjRE5cQsjIKgr/fqx/ka0rP6l4RfnvYTtUN3U2TbLbm971Ea+EtibuVt32aRhxFYa8kPQp6S7b
+X-MS-Exchange-AntiSpam-MessageData-0: QeEeZn/4ahImjboCF0T+TrDKzK+wUeUtadqwwA8Y319EEh2zuqJEjrtpXaDMSDyfRhKPxxPqPTavlYLnqWmDQrZn5bwilupPK2KgtHqLWb1V3JPeiyLIY7QnBR1gKR07xNZCb/YO//2T7r4+DiAoXLUNsmdbwy3rnJjW6D4LQWv33ttdr9usPOLY+5mprCGGTl7QZ3iMZW0W0Yyal2/avE/YkT0VCPBft8t+6q9vJrNhtplH1///3P56sAaED+n0x2zl37eIeHJGqEHlVwVKlpTeq6O32LFkZnVUdU+XyUt3iIwe4AfGtErF+Pn9DoVpjcTtm9s2V2tHJH3Pz9RmooKI/z7o33spzW27kqZ1xTr/4K4/OPM2O/l8hghZDbNWV9ZCvdb+eIsoc8/hhhjQX9pSobA1V4FNPdUka2oQUWcir48HXDIZb9zFtqqSCjQJ
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2026 07:21:17.9580
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2026 07:21:10.2582
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e97a2819-f776-449e-d484-08deeed4503e
+X-MS-Exchange-CrossTenant-Network-Message-Id: df7517ad-3786-4c72-01a1-08deeed44bae
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF0001709C.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017098.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7838
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPF52B16157D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_002125_939031_9D9B0EFA 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20260731_002118_793701_6C623553 
+X-CRM114-Status: GOOD (  23.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,31 +124,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Align the devm_platform_ioremap_resource() error path with clk_in1 and
-s_axi_aclk handling for consistent logging and deferred-probe behavior.
+When xlnx,static-config is present the divider/multiplier path is
+synthesized inside the Wizard without exposing runtime MMIO
+reconfiguration, so omit the AXI register mapping and advertise each
+routed output clock as a clk_fixed_factor child of clk_in1 using the
+synthesized ratios exported through xlnx,clk-mul-div.
+
+However the parent clock of clk_in1 can still be gated, disabled, or
+(re-)enabled after FPGA programming (typical FPGA Manager flows,
+CCF-managed parents, PLL fabric power sequencing).
+
+Add a 10 us delay in each output clock's .enable() hook so consumers
+wait for reference settling before first access.
 
 Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+
 ---
 
-(no changes since v1)
+Changes in v3:
+the number of outputs duplication removed
 
- drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/clk/xilinx/clk-xlnx-clock-wizard.c | 137 ++++++++++++++++++++-
+ 1 file changed, 135 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-index c79733f58082..4ddcb4135306 100644
+index ffc78c90bee6..1332abc8a950 100644
 --- a/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
 +++ b/drivers/clk/xilinx/clk-xlnx-clock-wizard.c
-@@ -1278,7 +1278,8 @@ static int clk_wzrd_probe(struct platform_device *pdev)
+@@ -12,6 +12,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/clk.h>
+ #include <linux/clk-provider.h>
++#include <linux/delay.h>
+ #include <linux/slab.h>
+ #include <linux/io.h>
+ #include <linux/of.h>
+@@ -107,6 +108,7 @@
+ #define VER_WZRD_O_MAX			511
+ #define WZRD_MIN_ERR			20000
+ #define WZRD_FRAC_POINTS		1000
++#define WZRD_ENABLE_DELAY_US		10
  
- 		clk_wzrd->base = devm_platform_ioremap_resource(pdev, 0);
- 		if (IS_ERR(clk_wzrd->base))
--			return PTR_ERR(clk_wzrd->base);
-+			return dev_err_probe(&pdev->dev, PTR_ERR(clk_wzrd->base),
-+					     "failed to map registers\n");
+ /* Get the mask from width */
+ #define div_mask(width)			((1 << (width)) - 1)
+@@ -697,6 +699,13 @@ static int clk_wzrd_ver_determine_rate_all(struct clk_hw *hw,
+ 	return 0;
+ }
  
- 		ret = of_property_read_u32(np, "xlnx,speed-grade", &clk_wzrd->speed_grade);
- 		if (!ret) {
++static int clk_wzrd_enable(struct clk_hw *hw)
++{
++	/* Allow the output clock to settle after enable */
++	udelay(WZRD_ENABLE_DELAY_US);
++	return 0;
++}
++
+ static const struct clk_ops clk_wzrd_ver_divider_ops = {
+ 	.determine_rate = clk_wzrd_determine_rate,
+ 	.set_rate = clk_wzrd_ver_dynamic_reconfig,
+@@ -790,6 +799,85 @@ static const struct clk_ops clk_wzrd_clk_divider_ops_f = {
+ 	.recalc_rate = clk_wzrd_recalc_ratef,
+ };
+ 
++static unsigned long
++clk_wzrd_static_factor_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
++{
++	struct clk_fixed_factor *fix = to_clk_fixed_factor(hw);
++	unsigned long long rate;
++
++	rate = (unsigned long long)parent_rate * fix->mult;
++	do_div(rate, fix->div);
++	return (unsigned long)rate;
++}
++
++static int clk_wzrd_static_factor_determine_rate(struct clk_hw *hw,
++						 struct clk_rate_request *req)
++{
++	struct clk_fixed_factor *fix = to_clk_fixed_factor(hw);
++
++	if (clk_hw_get_flags(hw) & CLK_SET_RATE_PARENT) {
++		unsigned long best_parent;
++
++		best_parent = (req->rate / fix->mult) * fix->div;
++		req->best_parent_rate =
++			clk_hw_round_rate(clk_hw_get_parent(hw), best_parent);
++	}
++
++	req->rate = (req->best_parent_rate / fix->div) * fix->mult;
++
++	return 0;
++}
++
++static int clk_wzrd_static_factor_set_rate(struct clk_hw *hw,
++					   unsigned long rate,
++					   unsigned long parent_rate)
++{
++	return 0;
++}
++
++static const struct clk_ops clk_wzrd_static_fixed_factor_ops = {
++	.enable = clk_wzrd_enable,
++	.determine_rate = clk_wzrd_static_factor_determine_rate,
++	.set_rate = clk_wzrd_static_factor_set_rate,
++	.recalc_rate = clk_wzrd_static_factor_recalc_rate,
++};
++
++static struct clk_hw *
++clk_wzrd_devm_register_static_fixed_factor(struct device *dev,
++					   const char *name,
++					   const struct clk_parent_data *parent_data,
++					   unsigned long flags,
++					   unsigned int mult,
++					   unsigned int div)
++{
++	struct clk_init_data init = {};
++	struct clk_fixed_factor *fix;
++	struct clk_hw *hw;
++	int ret;
++
++	fix = devm_kzalloc(dev, sizeof(*fix), GFP_KERNEL);
++	if (!fix)
++		return ERR_PTR(-ENOMEM);
++
++	fix->mult = mult;
++	fix->div = div;
++
++	init.name = name;
++	init.ops = &clk_wzrd_static_fixed_factor_ops;
++	init.flags = flags;
++	init.parent_data = parent_data;
++	init.num_parents = 1;
++
++	fix->hw.init = &init;
++
++	hw = &fix->hw;
++	ret = devm_clk_hw_register(dev, hw);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return hw;
++}
++
+ static struct clk_hw *clk_wzrd_register_divf(struct device *dev,
+ 					  const char *name,
+ 					  const char *parent_name,
+@@ -1154,9 +1242,11 @@ static int clk_wzrd_probe(struct platform_device *pdev)
+ {
+ 	struct device_node *np = pdev->dev.of_node;
+ 	struct clk_wzrd *clk_wzrd;
++	const char *clk_name;
+ 	unsigned long rate;
++	struct clk_hw *hw;
+ 	int nr_outputs;
+-	int ret;
++	int ret, i;
+ 
+ 	ret = of_property_read_u32(np, "xlnx,nr-outputs", &nr_outputs);
+ 	if (ret || nr_outputs > WZRD_NUM_OUTPUTS)
+@@ -1166,6 +1256,7 @@ static int clk_wzrd_probe(struct platform_device *pdev)
+ 				GFP_KERNEL);
+ 	if (!clk_wzrd)
+ 		return -ENOMEM;
++	clk_wzrd->clk_data.num = nr_outputs;
+ 	platform_set_drvdata(pdev, clk_wzrd);
+ 
+ 	clk_wzrd->axi_clk = devm_clk_get_enabled(&pdev->dev, "s_axi_aclk");
+@@ -1201,7 +1292,6 @@ static int clk_wzrd_probe(struct platform_device *pdev)
+ 		if (ret)
+ 			return ret;
+ 
+-		clk_wzrd->clk_data.num = nr_outputs;
+ 		ret = devm_of_clk_add_hw_provider(&pdev->dev, of_clk_hw_onecell_get,
+ 						  &clk_wzrd->clk_data);
+ 		if (ret) {
+@@ -1224,6 +1314,49 @@ static int clk_wzrd_probe(struct platform_device *pdev)
+ 				dev_warn(&pdev->dev,
+ 					 "unable to register clock notifier\n");
+ 		}
++	} else {
++		u32 mul_div[WZRD_NUM_OUTPUTS * 2];
++		const struct clk_parent_data parent_data = { .fw_name = "clk_in1" };
++		int num_elems = nr_outputs * 2;
++
++		/*
++		 * xlnx,clk-mul-div is a uint32-matrix of <mul div> pairs;
++		 * FDT encodes it as a flat u32 array so we can read it directly.
++		 */
++		ret = of_property_read_u32_array(np, "xlnx,clk-mul-div",
++						 mul_div, num_elems);
++		if (ret) {
++			dev_err(&pdev->dev, "xlnx,clk-mul-div missing or invalid\n");
++			return ret;
++		}
++
++		for (i = 0; i < nr_outputs; i++) {
++			u32 mul = mul_div[2 * i];
++			u32 div = mul_div[2 * i + 1];
++
++			if (!mul || !div)
++				return dev_err_probe(&pdev->dev, -EINVAL,
++						     "invalid mul/div for clkout%d\n", i);
++
++			clk_name = devm_kasprintf(&pdev->dev, GFP_KERNEL,
++						  "%s_out%d", dev_name(&pdev->dev), i);
++			if (!clk_name)
++				return -ENOMEM;
++
++			hw = clk_wzrd_devm_register_static_fixed_factor(&pdev->dev, clk_name,
++									&parent_data,
++									CLK_SET_RATE_PARENT,
++									mul, div);
++			if (IS_ERR(hw))
++				return PTR_ERR(hw);
++			clk_wzrd->clk_data.hws[i] = hw;
++		}
++
++		ret = devm_of_clk_add_hw_provider(&pdev->dev, of_clk_hw_onecell_get,
++						  &clk_wzrd->clk_data);
++		if (ret)
++			return dev_err_probe(&pdev->dev, ret,
++					     "unable to register clock provider\n");
+ 	}
+ 
+ 	return 0;
 -- 
 2.34.1
 
