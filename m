@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFADC5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 17:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908FEC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 17:06:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6tcAvkg/zKE4Wpx2bpF+dHLf7/L283ci232zJUD1488=; b=nKQ0dKfoyYxUkqE443SBYGfdeU
-	cc0bRzrtk7FqwpEn3rQWXf7WB2R0N9/4qQb/Ccac9c/qBWNbtow2Gx7cFCJXIuJhKQfDNY52WpNiq
-	9WgIxCQYFoybIZ24oazsTtnGUkjjrxnwZvvQ5k6UwvIfF5VhLYfU5Wr5TQfrh1TmPmPCq61Li7Xe1
-	/4ahEKrPSg1RQ38uqlrRZL2gLvMelBk8M25qFLPucNhE84tT+u+BX7WZhuw6Hp+6ixaaC/RbI21AS
-	wLSTEqhBq7krb3u3fbAHrlXrshdeIwPyxlnm50YHJdYXwhc+JedXZxZZtnBNPnj4azxWq4zg+FMxs
-	rLpd3iUA==;
+	bh=WT44MxQUWgN2yFdZkSrr/Ua/CnkjLi1Rcv3VTroVkdU=; b=s6Elwm+rhDxct8xXmlaRtfpUh5
+	iNtMiNiA88HdYnQ7xNMRUABjLMcsrasXIVCgR1ohJM9WK71TQMW3Nqo959YlG3PrCOvRdMI4he5Ks
+	e+zGmp5ltkm6bKNWcUBLo0q2OJ/Ok9w04A5ubRWeetisL3axRtSLoJLL/SfZF0wUW5q5vUPSIqLqQ
+	QaGSztkz3J5NEO4Ee8iaIAQdajUbFnsDcQTaFBcdrPIYsAO5MOTg0YC19VuZvAMovGquTtdBEa2Oc
+	r1fvV6FKM1GVuNucYQyOljk+KCTgFeugfOEu3pKOI/Xh5NzSEWcxy4r3wuI/fp4d+G9DEMXRmUpuc
+	qXzbZtRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpqh5-0000000DDhh-3bMA;
-	Fri, 31 Jul 2026 17:06:47 +0000
-Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
+	id 1wpqh7-0000000DDjy-1B4S;
+	Fri, 31 Jul 2026 17:06:49 +0000
+Received: from mail-pl1-x645.google.com ([2607:f8b0:4864:20::645])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpqgk-0000000DDXk-3oSV
+	id 1wpqgt-0000000DDd6-29TM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 17:06:28 +0000
-Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-8482b95574dso1662660b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 10:06:26 -0700 (PDT)
+	Fri, 31 Jul 2026 17:06:37 +0000
+Received: by mail-pl1-x645.google.com with SMTP id d9443c01a7336-2cc6dd43737so25945995ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 10:06:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785517585; x=1786122385; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1785517594; x=1786122394; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=6tcAvkg/zKE4Wpx2bpF+dHLf7/L283ci232zJUD1488=;
-        b=goE8wuW4sM5dY6aFmgc4ekvM7CAueAnHtgT1ugv3/RAxdj0K2qZWYvYpjgw61uDQ7a
-         c2CJaCUfSnWfMHwOUSIpmJcaISyyUyovF+59j/q6URhPSC4EpYrtLbg3hoqb3GYtZ+CB
-         kFQl1mNNdbBPz41KAWhlXlI8lmsNihYEp1YVW3JWWU9XLGcCiEGc71iJn0HEF2LIDjOm
-         yOxGVpuVNh33606u/0oPXIrqee8nNRgh9i+wifwC7E1wg1HRG+42a7v8A37qAsw4/0KP
-         rBBk4fhvTG/DZ41NPFGCMehGDtAuSm+BO/66i2RSLUzpq2onsbFYf2OtogQXk4YQ4pVx
-         Gskw==
+        bh=WT44MxQUWgN2yFdZkSrr/Ua/CnkjLi1Rcv3VTroVkdU=;
+        b=dfG0jyz48fpRyjeAz38YUD3CaIwaNKbxcQg4ruJAlLhXm8+MN9VsB87Xw+8VYvnOgb
+         pPJoCRN/3KgUeBdMQpnGN5S3ucyJgKkDjFytjR7XcDaeYJrNq/LPe3g6YihmB8y8pjjk
+         0doipsruZizjR+lxkmWI9Xq55hjO+b4ojn7pKWDo67TEYi4/1R24GurPF3gUuyX3lPut
+         VdVXAzviwXFVbDjbO6klbrSUHZkOyy1sYdOvsMJR7xzP0kmdwN9/YknSMbQJqcWY3j05
+         YbSGwlU+iUK1kENV3seHls+4wYTcwnhXw8b9fh74cAjDV0lBxCcxZOBEZQSQSQA4YgbG
+         p3sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785517585; x=1786122385;
+        d=1e100.net; s=20251104; t=1785517594; x=1786122394;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=6tcAvkg/zKE4Wpx2bpF+dHLf7/L283ci232zJUD1488=;
-        b=k73JRpvIvYY3m+BVtOAYSvxh9zsj8HbMcFTKsIbOGflNngiYzQvsvYcO+ay8xWcer+
-         FuPqJlVJaSRxDw5G+gVOMJoqfU9DIsLASc02qNzjgRB7C+rWyq6I1KNOOgJ8PATZcPAW
-         KaC/DcEsB6+Mks4yxzU/VsMMdviaM9z4oBbLLHhDNSqj3ewefJabVwo5XCManUEQ//xN
-         YwyPlywso+kFCWN5ytsaKh9h/1K1eidqFunCw2oMMP3eFgHOuNkdPQOP/D+Rql3JCOEe
-         BpG2VPYg+nAZIq7jKqj2CthttIaYrK3OpCCo1oewdNrOP/4ZRPxKnCwYLl83shNTZC2H
-         JbhA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq+Frn1ECywSno9pLY8K8LQ+mNFlk4Fr6EDYc7y1iVKOrVowCfC3M/uF28BfE06y6H8t8Tvr5Vl69lIySE+6pbD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgYTqPvMlYgghheTgTmFkzeUGBPud6aomvdj4NT+ctcpwhp/SK
-	jY66naLsJmZBvDrYhTjGKGVisDloy74pf/KsIlSr7CB+gZQnSFA+S7em0xPDCWli4tHClSoaaIx
-	Zonu1gg==
-X-Received: from pfnu15.prod.google.com ([2002:aa7:848f:0:b0:847:8962:8101])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:a909:b0:84e:1815:f999
- with SMTP id d2e1a72fcca58-84ee4998f39mr357940b3a.64.1785517585158; Fri, 31
- Jul 2026 10:06:25 -0700 (PDT)
-Date: Fri, 31 Jul 2026 10:06:09 -0700
+        bh=WT44MxQUWgN2yFdZkSrr/Ua/CnkjLi1Rcv3VTroVkdU=;
+        b=Z+LveSQag3lmGZZaIWP/f871e1SnxG1S7mkR+sMvqhSrE9lWBPx/FoGBZaySgde2pS
+         gr/0ScQhv6sUqpU3QXPY9g39vpRBOSFh+WaNZUNoNAdoB8xNntQC3PQk2uPSsUBxeSaP
+         U7UnqltK2kNeNBRc3+PX6l4sWBdyjXbunYD1h1EW4n1FxRMxmj0u/d3UH75jAf1rGjwE
+         kqKNdHieg28eTPlZo+gsWs0pK6TWpKOnLPUEKeeJ8FcovpaumSjL1FbUMVUAsuhKSVkW
+         KZp8PTGJ3NTtkI41JBLyf/Z3gh8pjxh2z2WWU0ApLATCHJNOAFyJuS9x1ZVUae9AlqDA
+         6Ckw==
+X-Forwarded-Encrypted: i=1; AHgh+RrP+re+Y51xMmisnvPshU23XQxZlKP5AKYcVsUwPsD7SYb3edZ/WOW0eNVhdLNHRitx7oDzITkMEeCstxGIBym7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLvQf/6jmnx+251X0qdBf/La0a//R1tQtYjWqNubhY9RcWdc6m
+	yVI1Jz48hus6SAp4LyprATQK9tvPdMLUWhWSUIY5hzOMvlwUBXFp1RnxSOZbISQJDUIlYzY++W9
+	pNWBLrQ==
+X-Received: from plbkk4.prod.google.com ([2002:a17:903:704:b0:2cc:8a78:d849])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2407:b0:2cc:9a86:9c42
+ with SMTP id d9443c01a7336-2d0524ac403mr7163065ad.45.1785517594071; Fri, 31
+ Jul 2026 10:06:34 -0700 (PDT)
+Date: Fri, 31 Jul 2026 10:06:16 -0700
 In-Reply-To: <20260731170619.2620845-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260731170619.2620845-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
-Message-ID: <20260731170619.2620845-3-seanjc@google.com>
-Subject: [PATCH v2 02/12] KVM: selftests: Set threads CPU affinity before
- doing work in hardware disable test
+Message-ID: <20260731170619.2620845-10-seanjc@google.com>
+Subject: [PATCH v2 09/12] KVM: selftests: Add KVM syscall wrappers for pthread_{cancel,join}()
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
@@ -81,8 +80,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_100626_954221_7675D9E6 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20260731_100635_584437_60935411 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,106 +97,464 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Affine worker threads to their target pCPU set *before* doing any work in
-the hardware disable test.  When running a preemptible kernel on a NUMA
-system with a large number of CPUs (100+ of CPUs), waiting to set the
-affinity of the grandchildren until after the grandchild is fully spun up
-results in total test runtimes of over a minute, presumably due to
-cross-node NUMA penalties and scheduler lock contention.
+Add and use KVM wrappers for pthread_{cancel,join}() so that selftests
+don't need to manually assert that the syscalls succeeded.
 
-E.g. from the perspective of the caller, when waiting to affine the tasks,
-pthread_create() takes ~100x longer.
+Note, the vast majority tests don't actually assert success, but they all
+obviously rely on the syscall to succeed.
+
+Other than explicitly failing if a syscall fails, no functional change
+intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../selftests/kvm/hardware_disable_test.c     | 23 +++++++------------
- 1 file changed, 8 insertions(+), 15 deletions(-)
+ tools/testing/selftests/kvm/arch_timer.c             |  4 ++--
+ tools/testing/selftests/kvm/arm64/vgic_irq.c         |  4 ++--
+ tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c  |  4 ++--
+ tools/testing/selftests/kvm/dirty_log_test.c         |  2 +-
+ tools/testing/selftests/kvm/include/kvm_syscalls.h   |  2 ++
+ tools/testing/selftests/kvm/irq_test.c               |  2 +-
+ tools/testing/selftests/kvm/irqfd_test.c             |  2 +-
+ tools/testing/selftests/kvm/kvm_page_table_test.c    |  2 +-
+ tools/testing/selftests/kvm/lib/memstress.c          |  2 +-
+ tools/testing/selftests/kvm/lib/userfaultfd_util.c   |  3 +--
+ tools/testing/selftests/kvm/memslot_perf_test.c      |  2 +-
+ tools/testing/selftests/kvm/mmu_stress_test.c        |  2 +-
+ tools/testing/selftests/kvm/pre_fault_memory_test.c  |  2 +-
+ tools/testing/selftests/kvm/rseq_test.c              |  2 +-
+ tools/testing/selftests/kvm/s390/memop.c             |  2 +-
+ tools/testing/selftests/kvm/set_memory_region_test.c |  4 ++--
+ tools/testing/selftests/kvm/steal_time.c             |  2 +-
+ tools/testing/selftests/kvm/x86/hyperv_ipi.c         | 10 ++--------
+ tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c   | 10 ++--------
+ .../selftests/kvm/x86/private_mem_conversions_test.c |  2 +-
+ .../selftests/kvm/x86/private_mem_kvm_exits_test.c   |  2 +-
+ .../testing/selftests/kvm/x86/recalc_apic_map_test.c |  4 ++--
+ tools/testing/selftests/kvm/x86/sev_migrate_tests.c  |  2 +-
+ tools/testing/selftests/kvm/x86/sync_regs_test.c     |  4 ++--
+ tools/testing/selftests/kvm/x86/tsc_scaling_sync.c   |  2 +-
+ tools/testing/selftests/kvm/x86/xapic_ipi_test.c     | 12 ++----------
+ tools/testing/selftests/kvm/x86/xen_shinfo_test.c    |  8 ++------
+ 27 files changed, 38 insertions(+), 61 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/hardware_disable_test.c b/tools/testing/selftests/kvm/hardware_disable_test.c
-index 3147f5c97e94..f088b4af3ccc 100644
---- a/tools/testing/selftests/kvm/hardware_disable_test.c
-+++ b/tools/testing/selftests/kvm/hardware_disable_test.c
-@@ -21,6 +21,7 @@
- #define FORK_NUM (1ULL << 9)
- #define DELAY_US_MAX 2000
+diff --git a/tools/testing/selftests/kvm/arch_timer.c b/tools/testing/selftests/kvm/arch_timer.c
+index a6a66b5b7ea9..03160ad666f5 100644
+--- a/tools/testing/selftests/kvm/arch_timer.c
++++ b/tools/testing/selftests/kvm/arch_timer.c
+@@ -158,10 +158,10 @@ static void test_run(struct kvm_vm *vm)
+ 	}
  
-+static cpu_set_t threads_cpu_set;
- sem_t *sem;
+ 	for (i = 0; i < test_args.nr_vcpus; i++)
+-		pthread_join(pt_vcpu_run[i], NULL);
++		kvm_pthread_join(pt_vcpu_run[i], NULL);
  
- static void guest_code(void)
-@@ -35,6 +36,8 @@ static void *run_vcpu(void *arg)
- 	struct kvm_vcpu *vcpu = arg;
- 	struct kvm_run *run = vcpu->run;
+ 	if (test_args.migration_freq_ms)
+-		pthread_join(pt_vcpu_migration, NULL);
++		kvm_pthread_join(pt_vcpu_migration, NULL);
  
-+	kvm_sched_setaffinity(0, sizeof(cpu_set_t), &threads_cpu_set);
-+
- 	vcpu_run(vcpu);
+ 	bitmap_free(vcpu_done_map);
+ }
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+index 2d6f20d5c117..3cb85932ee85 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
+@@ -1007,8 +1007,8 @@ static void test_vgic_two_cpus(void *gcode)
+ 	kvm_pthread_create(&thr[0], NULL, test_vcpu_run, vcpus[0]);
+ 	kvm_pthread_create(&thr[1], NULL, test_vcpu_run, vcpus[1]);
  
- 	TEST_ASSERT(false, "%s: exited with reason %d: %s",
-@@ -47,6 +50,8 @@ static void *sleeping_thread(void *arg)
- {
- 	int fd;
+-	pthread_join(thr[0], NULL);
+-	pthread_join(thr[1], NULL);
++	kvm_pthread_join(thr[0], NULL);
++	kvm_pthread_join(thr[1], NULL);
  
-+	kvm_sched_setaffinity(0, sizeof(cpu_set_t), &threads_cpu_set);
-+
- 	while (true) {
- 		fd = open("/dev/null", O_RDWR);
- 		close(fd);
-@@ -64,14 +69,6 @@ static inline void check_create_thread(pthread_t *thread, pthread_attr_t *attr,
- 	TEST_ASSERT(r == 0, "%s: failed to create thread", __func__);
+ 	close(gic_fd);
+ 	kvm_vm_free(vm);
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+index 549e0547d905..9a69c439a0f8 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_lpi_stress.c
+@@ -321,13 +321,13 @@ static void run_test(void)
+ 	clock_gettime(CLOCK_MONOTONIC, &start);
+ 
+ 	for (i = 0; i < nr_devices; i++)
+-		pthread_join(lpi_threads[i], NULL);
++		kvm_pthread_join(lpi_threads[i], NULL);
+ 
+ 	delta = timespec_elapsed(start);
+ 	write_guest_global(vm, test_data.request_vcpus_stop, true);
+ 
+ 	for (i = 0; i < nr_vcpus; i++)
+-		pthread_join(vcpu_threads[i], NULL);
++		kvm_pthread_join(vcpu_threads[i], NULL);
+ 
+ 	report_stats(delta);
+ }
+diff --git a/tools/testing/selftests/kvm/dirty_log_test.c b/tools/testing/selftests/kvm/dirty_log_test.c
+index ca22e5f09ac2..af5eb0334a74 100644
+--- a/tools/testing/selftests/kvm/dirty_log_test.c
++++ b/tools/testing/selftests/kvm/dirty_log_test.c
+@@ -805,7 +805,7 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+ 	WRITE_ONCE(host_quit, true);
+ 	sem_post(&sem_vcpu_cont);
+ 
+-	pthread_join(vcpu_thread, NULL);
++	kvm_pthread_join(vcpu_thread, NULL);
+ 
+ 	pr_info("Total bits checked: dirty (%lu), clear (%lu)\n",
+ 		host_dirty_count, host_clear_count);
+diff --git a/tools/testing/selftests/kvm/include/kvm_syscalls.h b/tools/testing/selftests/kvm/include/kvm_syscalls.h
+index e75be8378779..d6c18e13b9c8 100644
+--- a/tools/testing/selftests/kvm/include/kvm_syscalls.h
++++ b/tools/testing/selftests/kvm/include/kvm_syscalls.h
+@@ -101,6 +101,8 @@ __KVM_SYSCALL_DEFINE(sched_setaffinity, 3, pid_t, pid, size_t, cpusetsize, cpu_s
+ typedef void *(*pthread_fn_t)(void *);
+ __KVM_SYSCALL_DEFINE(pthread_create, 4, pthread_t *, thread,
+ 		     const pthread_attr_t *, attr, pthread_fn_t, fn, void *, arg);
++__KVM_SYSCALL_DEFINE(pthread_join, 2, pthread_t, thread, void **, thread_return);
++__KVM_SYSCALL_DEFINE(pthread_cancel, 1, pthread_t, thread);
+ 
+ #define kvm_free_fd(fd)		\
+ do {				\
+diff --git a/tools/testing/selftests/kvm/irq_test.c b/tools/testing/selftests/kvm/irq_test.c
+index 7da5f8d75e85..168c52734fef 100644
+--- a/tools/testing/selftests/kvm/irq_test.c
++++ b/tools/testing/selftests/kvm/irq_test.c
+@@ -356,7 +356,7 @@ int main(int argc, char **argv)
+ 	WRITE_AND_SYNC_TO_GUEST(vm, done, true);
+ 
+ 	for (i = 0; i < nr_vcpus; i++)
+-		pthread_join(vcpu_threads[i], NULL);
++		kvm_pthread_join(vcpu_threads[i], NULL);
+ 
+ 	return 0;
+ }
+diff --git a/tools/testing/selftests/kvm/irqfd_test.c b/tools/testing/selftests/kvm/irqfd_test.c
+index 8b39144a2834..ebb2478878de 100644
+--- a/tools/testing/selftests/kvm/irqfd_test.c
++++ b/tools/testing/selftests/kvm/irqfd_test.c
+@@ -139,5 +139,5 @@ int main(int argc, char *argv[])
+ 	}
+ 
+ 	WRITE_ONCE(done, true);
+-	pthread_join(racing_thread, NULL);
++	kvm_pthread_join(racing_thread, NULL);
+ }
+diff --git a/tools/testing/selftests/kvm/kvm_page_table_test.c b/tools/testing/selftests/kvm/kvm_page_table_test.c
+index 8222bdb63e49..974813ea8953 100644
+--- a/tools/testing/selftests/kvm/kvm_page_table_test.c
++++ b/tools/testing/selftests/kvm/kvm_page_table_test.c
+@@ -413,7 +413,7 @@ static void run_test(enum vm_guest_mode mode, void *arg)
+ 	}
+ 
+ 	for (i = 0; i < nr_vcpus; i++)
+-		pthread_join(vcpu_threads[i], NULL);
++		kvm_pthread_join(vcpu_threads[i], NULL);
+ 
+ 	ret = sem_destroy(&test_stage_updated);
+ 	TEST_ASSERT(ret == 0, "Error in sem_destroy");
+diff --git a/tools/testing/selftests/kvm/lib/memstress.c b/tools/testing/selftests/kvm/lib/memstress.c
+index 0bfa623ce9b5..2864562f57b4 100644
+--- a/tools/testing/selftests/kvm/lib/memstress.c
++++ b/tools/testing/selftests/kvm/lib/memstress.c
+@@ -312,7 +312,7 @@ void memstress_join_vcpu_threads(int nr_vcpus)
+ 	WRITE_ONCE(memstress_args.stop_vcpus, true);
+ 
+ 	for (i = 0; i < nr_vcpus; i++)
+-		pthread_join(vcpu_threads[i].thread, NULL);
++		kvm_pthread_join(vcpu_threads[i].thread, NULL);
  }
  
--static inline void check_set_affinity(pthread_t thread, cpu_set_t *cpu_set)
--{
--	int r;
--
--	r = pthread_setaffinity_np(thread, sizeof(cpu_set_t), cpu_set);
--	TEST_ASSERT(r == 0, "%s: failed set affinity", __func__);
--}
--
- static inline void check_join(pthread_t thread, void **retval)
+ static void toggle_dirty_logging(struct kvm_vm *vm, int slots, bool enable)
+diff --git a/tools/testing/selftests/kvm/lib/userfaultfd_util.c b/tools/testing/selftests/kvm/lib/userfaultfd_util.c
+index 4b3e3158ed87..f7ce5a6ddcc2 100644
+--- a/tools/testing/selftests/kvm/lib/userfaultfd_util.c
++++ b/tools/testing/selftests/kvm/lib/userfaultfd_util.c
+@@ -187,8 +187,7 @@ void uffd_stop_demand_paging(struct uffd_desc *uffd)
+ 			    "Unable to write to pipefd %i for uffd_desc %p", i, uffd);
+ 
+ 	for (i = 0; i < uffd->num_readers; ++i)
+-		TEST_ASSERT(!pthread_join(uffd->readers[i], NULL),
+-			    "Pthread_join failed on reader %i for uffd_desc %p", i, uffd);
++		kvm_pthread_join(uffd->readers[i], NULL);
+ 
+ 	close(uffd->uffd);
+ 
+diff --git a/tools/testing/selftests/kvm/memslot_perf_test.c b/tools/testing/selftests/kvm/memslot_perf_test.c
+index eb49305db404..e1299611be32 100644
+--- a/tools/testing/selftests/kvm/memslot_perf_test.c
++++ b/tools/testing/selftests/kvm/memslot_perf_test.c
+@@ -381,7 +381,7 @@ static void free_vm(struct vm_data *data)
+ 
+ static void wait_guest_exit(struct vm_data *data)
  {
- 	int r;
-@@ -84,16 +81,11 @@ static void run_test(u32 run)
- {
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
--	cpu_set_t cpu_set;
- 	pthread_t threads[VCPU_NUM];
- 	pthread_t throw_away;
- 	void *b;
- 	u32 i, j;
+-	pthread_join(data->vcpu_thread, NULL);
++	kvm_pthread_join(data->vcpu_thread, NULL);
+ }
  
--	CPU_ZERO(&cpu_set);
--	for (i = 0; i < VCPU_NUM; i++)
--		CPU_SET(i, &cpu_set);
--
- 	vm = vm_create(VCPU_NUM);
+ static void let_guest_run(struct sync_area *sync)
+diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
+index 9448498849ff..741e343962ed 100644
+--- a/tools/testing/selftests/kvm/mmu_stress_test.c
++++ b/tools/testing/selftests/kvm/mmu_stress_test.c
+@@ -409,7 +409,7 @@ int main(int argc, char *argv[])
  
- 	pr_debug("%s: [%d] start vcpus\n", __func__, run);
-@@ -101,12 +93,10 @@ static void run_test(u32 run)
- 		vcpu = vm_vcpu_add(vm, i, guest_code);
+ 	/* Sanity check that the vCPUs actually ran. */
+ 	for (i = 0; i < nr_vcpus; i++)
+-		pthread_join(threads[i], NULL);
++		kvm_pthread_join(threads[i], NULL);
  
- 		check_create_thread(&threads[i], NULL, run_vcpu, vcpu);
--		check_set_affinity(threads[i], &cpu_set);
+ 	/*
+ 	 * Deliberately exit without deleting the remaining memslots or closing
+diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
+index 88287ccb9093..c57631aab3d3 100644
+--- a/tools/testing/selftests/kvm/pre_fault_memory_test.c
++++ b/tools/testing/selftests/kvm/pre_fault_memory_test.c
+@@ -116,7 +116,7 @@ static void pre_fault_memory(struct kvm_vcpu *vcpu, u64 base_gpa, u64 offset,
+ 		 */
+ 		if (!slot_recreated) {
+ 			WRITE_ONCE(data.recreate_slot, true);
+-			pthread_join(slot_worker, NULL);
++			kvm_pthread_join(slot_worker, NULL);
+ 			slot_recreated = true;
  
- 		for (j = 0; j < SLEEPING_THREAD_NUM; ++j) {
- 			check_create_thread(&throw_away, NULL, sleeping_thread,
- 					    (void *)NULL);
--			check_set_affinity(throw_away, &cpu_set);
+ 			/*
+diff --git a/tools/testing/selftests/kvm/rseq_test.c b/tools/testing/selftests/kvm/rseq_test.c
+index 0921b8d90d4a..b386aece68fd 100644
+--- a/tools/testing/selftests/kvm/rseq_test.c
++++ b/tools/testing/selftests/kvm/rseq_test.c
+@@ -312,7 +312,7 @@ int main(int argc, char *argv[])
+ 		    "  e.g. via cpuidle.off=1 or via -l <latency>, or run with -u to\n"
+ 		    "  disable this sanity check.", i);
+ 
+-	pthread_join(migration_thread, NULL);
++	kvm_pthread_join(migration_thread, NULL);
+ 
+ 	kvm_vm_free(vm);
+ 
+diff --git a/tools/testing/selftests/kvm/s390/memop.c b/tools/testing/selftests/kvm/s390/memop.c
+index 96b32bd74009..ce8db96ccf7e 100644
+--- a/tools/testing/selftests/kvm/s390/memop.c
++++ b/tools/testing/selftests/kvm/s390/memop.c
+@@ -701,7 +701,7 @@ static void test_cmpxchg_key_concurrent(void)
  		}
  	}
- 	pr_debug("%s: [%d] all threads launched\n", __func__, run);
-@@ -153,6 +143,9 @@ int main(int argc, char **argv)
- 	int s, r;
- 	pid_t pid;
  
-+	for (i = 0; i < VCPU_NUM; i++)
-+		CPU_SET(i, &threads_cpu_set);
-+
- 	sem = sem_open("vm_sem", O_CREAT | O_EXCL, 0644, 0);
- 	sem_unlink("vm_sem");
+-	pthread_join(thread, NULL);
++	kvm_pthread_join(thread, NULL);
  
+ 	MOP(t.vcpu, LOGICAL, READ, mem2, max_block, GADDR_V(mem2));
+ 	TEST_ASSERT(popcount_eq(*(__uint128_t *)mem1, *(__uint128_t *)mem2),
+diff --git a/tools/testing/selftests/kvm/set_memory_region_test.c b/tools/testing/selftests/kvm/set_memory_region_test.c
+index 12f5022bb164..dffe9654f45b 100644
+--- a/tools/testing/selftests/kvm/set_memory_region_test.c
++++ b/tools/testing/selftests/kvm/set_memory_region_test.c
+@@ -216,7 +216,7 @@ static void test_move_memory_region(bool disable_slot_zap_quirk)
+ 	/* Defered sync from when the memslot was misaligned (above). */
+ 	wait_for_vcpu();
+ 
+-	pthread_join(vcpu_thread, NULL);
++	kvm_pthread_join(vcpu_thread, NULL);
+ 
+ 	kvm_vm_free(vm);
+ }
+@@ -302,7 +302,7 @@ static void test_delete_memory_region(bool disable_slot_zap_quirk)
+ 	 */
+ 	vm_mem_region_delete(vm, 0);
+ 
+-	pthread_join(vcpu_thread, NULL);
++	kvm_pthread_join(vcpu_thread, NULL);
+ 
+ 	run = vcpu->run;
+ 
+diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
+index f5f708be5aa0..6cb1eb4c40c9 100644
+--- a/tools/testing/selftests/kvm/steal_time.c
++++ b/tools/testing/selftests/kvm/steal_time.c
+@@ -556,7 +556,7 @@ int main(int ac, char **av)
+ 		do
+ 			sched_yield();
+ 		while (get_run_delay() - run_delay < MIN_RUN_DELAY_NS);
+-		pthread_join(thread, NULL);
++		kvm_pthread_join(thread, NULL);
+ 		run_delay = get_run_delay() - run_delay;
+ 		TEST_ASSERT(run_delay >= MIN_RUN_DELAY_NS,
+ 			    "Expected run_delay >= %ld, got %ld",
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_ipi.c b/tools/testing/selftests/kvm/x86/hyperv_ipi.c
+index 3cf451f3153e..d2efb1043534 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_ipi.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_ipi.c
+@@ -225,15 +225,9 @@ static void *vcpu_thread(void *arg)
+ static void cancel_join_vcpu_thread(pthread_t thread, struct kvm_vcpu *vcpu)
+ {
+ 	void *retval;
+-	int r;
+ 
+-	r = pthread_cancel(thread);
+-	TEST_ASSERT(!r, "pthread_cancel on vcpu_id=%d failed with errno=%d",
+-		    vcpu->id, r);
+-
+-	r = pthread_join(thread, &retval);
+-	TEST_ASSERT(!r, "pthread_join on vcpu_id=%d failed with errno=%d",
+-		    vcpu->id, r);
++	kvm_pthread_cancel(thread);
++	kvm_pthread_join(thread, &retval);
+ 	TEST_ASSERT(retval == PTHREAD_CANCELED,
+ 		    "expected retval=%p, got %p", PTHREAD_CANCELED,
+ 		    retval);
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c b/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c
+index 87fac1968a47..e4fc9bb6f329 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c
+@@ -551,15 +551,9 @@ static void *vcpu_thread(void *arg)
+ static void cancel_join_vcpu_thread(pthread_t thread, struct kvm_vcpu *vcpu)
+ {
+ 	void *retval;
+-	int r;
+ 
+-	r = pthread_cancel(thread);
+-	TEST_ASSERT(!r, "pthread_cancel on vcpu_id=%d failed with errno=%d",
+-		    vcpu->id, r);
+-
+-	r = pthread_join(thread, &retval);
+-	TEST_ASSERT(!r, "pthread_join on vcpu_id=%d failed with errno=%d",
+-		    vcpu->id, r);
++	kvm_pthread_cancel(thread);
++	kvm_pthread_join(thread, &retval);
+ 	TEST_ASSERT(retval == PTHREAD_CANCELED,
+ 		    "expected retval=%p, got %p", PTHREAD_CANCELED,
+ 		    retval);
+diff --git a/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c b/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
+index e419b08f1fa6..3aa0673f79f3 100644
+--- a/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
++++ b/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
+@@ -418,7 +418,7 @@ static void test_mem_conversions(enum vm_mem_backing_src_type src_type, u32 nr_v
+ 	WRITE_ONCE(run_vcpus, true);
+ 
+ 	for (i = 0; i < nr_vcpus; i++)
+-		pthread_join(threads[i], NULL);
++		kvm_pthread_join(threads[i], NULL);
+ 
+ 	kvm_vm_free(vm);
+ 
+diff --git a/tools/testing/selftests/kvm/x86/private_mem_kvm_exits_test.c b/tools/testing/selftests/kvm/x86/private_mem_kvm_exits_test.c
+index e26524fb4b50..e6d16e9d6120 100644
+--- a/tools/testing/selftests/kvm/x86/private_mem_kvm_exits_test.c
++++ b/tools/testing/selftests/kvm/x86/private_mem_kvm_exits_test.c
+@@ -70,7 +70,7 @@ static void test_private_access_memslot_deleted(void)
+ 
+ 	vm_mem_region_delete(vm, EXITS_TEST_SLOT);
+ 
+-	pthread_join(vm_thread, &thread_return);
++	kvm_pthread_join(vm_thread, &thread_return);
+ 	exit_reason = (u32)(u64)thread_return;
+ 
+ 	TEST_ASSERT_EQ(exit_reason, KVM_EXIT_MEMORY_FAULT);
+diff --git a/tools/testing/selftests/kvm/x86/recalc_apic_map_test.c b/tools/testing/selftests/kvm/x86/recalc_apic_map_test.c
+index 13abb65620d5..e3e397f32bff 100644
+--- a/tools/testing/selftests/kvm/x86/recalc_apic_map_test.c
++++ b/tools/testing/selftests/kvm/x86/recalc_apic_map_test.c
+@@ -65,8 +65,8 @@ int main(void)
+ 		vcpu_set_msr(vcpuN, MSR_IA32_APICBASE, LAPIC_DISABLED);
+ 	}
+ 
+-	TEST_ASSERT_EQ(pthread_cancel(thread), 0);
+-	TEST_ASSERT_EQ(pthread_join(thread, NULL), 0);
++	kvm_pthread_cancel(thread);
++	kvm_pthread_join(thread, NULL);
+ 
+ 	kvm_vm_free(vm);
+ 
+diff --git a/tools/testing/selftests/kvm/x86/sev_migrate_tests.c b/tools/testing/selftests/kvm/x86/sev_migrate_tests.c
+index 66c7ce49620a..de006e1c861c 100644
+--- a/tools/testing/selftests/kvm/x86/sev_migrate_tests.c
++++ b/tools/testing/selftests/kvm/x86/sev_migrate_tests.c
+@@ -131,7 +131,7 @@ static void test_sev_migrate_locking(void)
+ 		kvm_pthread_create(&pt[i], NULL, locking_test_thread, &input[i]);
+ 
+ 	for (i = 0; i < NR_LOCK_TESTING_THREADS; ++i)
+-		pthread_join(pt[i], NULL);
++		kvm_pthread_join(pt[i], NULL);
+ 	for (i = 0; i < NR_LOCK_TESTING_THREADS; ++i)
+ 		kvm_vm_free(input[i].vm);
+ }
+diff --git a/tools/testing/selftests/kvm/x86/sync_regs_test.c b/tools/testing/selftests/kvm/x86/sync_regs_test.c
+index f7228af7d594..99a5bbeffc5d 100644
+--- a/tools/testing/selftests/kvm/x86/sync_regs_test.c
++++ b/tools/testing/selftests/kvm/x86/sync_regs_test.c
+@@ -199,8 +199,8 @@ static void race_sync_regs(struct kvm_vcpu *vcpu, void *racer)
+ 		}
+ 	}
+ 
+-	TEST_ASSERT_EQ(pthread_cancel(thread), 0);
+-	TEST_ASSERT_EQ(pthread_join(thread, NULL), 0);
++	kvm_pthread_cancel(thread);
++	kvm_pthread_join(thread, NULL);
+ 
+ 	kvm_x86_state_cleanup(state);
+ }
+diff --git a/tools/testing/selftests/kvm/x86/tsc_scaling_sync.c b/tools/testing/selftests/kvm/x86/tsc_scaling_sync.c
+index 54b4b8d06d3b..2a3a9bd8b338 100644
+--- a/tools/testing/selftests/kvm/x86/tsc_scaling_sync.c
++++ b/tools/testing/selftests/kvm/x86/tsc_scaling_sync.c
+@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
+ 	unsigned long failures = 0;
+ 	for (cpu = 0; cpu < NR_TEST_VCPUS; cpu++) {
+ 		void *this_cpu_failures;
+-		pthread_join(cpu_threads[cpu], &this_cpu_failures);
++		kvm_pthread_join(cpu_threads[cpu], &this_cpu_failures);
+ 		failures += (unsigned long)this_cpu_failures;
+ 	}
+ 
+diff --git a/tools/testing/selftests/kvm/x86/xapic_ipi_test.c b/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
+index 271ec09c629e..33e78b284c67 100644
+--- a/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
++++ b/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
+@@ -231,17 +231,9 @@ static void *vcpu_thread(void *arg)
+ static void cancel_join_vcpu_thread(pthread_t thread, struct kvm_vcpu *vcpu)
+ {
+ 	void *retval;
+-	int r;
+ 
+-	r = pthread_cancel(thread);
+-	TEST_ASSERT(r == 0,
+-		    "pthread_cancel on vcpu_id=%d failed with errno=%d",
+-		    vcpu->id, r);
+-
+-	r = pthread_join(thread, &retval);
+-	TEST_ASSERT(r == 0,
+-		    "pthread_join on vcpu_id=%d failed with errno=%d",
+-		    vcpu->id, r);
++	kvm_pthread_cancel(thread);
++	kvm_pthread_join(thread, &retval);
+ 	TEST_ASSERT(retval == PTHREAD_CANCELED,
+ 		    "expected retval=%p, got %p", PTHREAD_CANCELED,
+ 		    retval);
+diff --git a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
+index 20f518fe2450..3ec5e67b21ef 100644
+--- a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
++++ b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
+@@ -437,7 +437,6 @@ int main(int argc, char *argv[])
+ 	struct kvm_vm *vm;
+ 	pthread_t thread;
+ 	bool verbose;
+-	int ret;
+ 
+ 	verbose = argc > 1 && (!strncmp(argv[1], "-v", 3) ||
+ 			       !strncmp(argv[1], "--verbose", 10));
+@@ -948,11 +947,8 @@ int main(int argc, char *argv[])
+ 				TEST_ASSERT(!evtchn_irq_expected,
+ 					    "Expected event channel IRQ but it didn't happen");
+ 
+-				ret = pthread_cancel(thread);
+-				TEST_ASSERT(ret == 0, "pthread_cancel() failed: %s", strerror(ret));
+-
+-				ret = pthread_join(thread, 0);
+-				TEST_ASSERT(ret == 0, "pthread_join() failed: %s", strerror(ret));
++				kvm_pthread_cancel(thread);
++				kvm_pthread_join(thread, 0);
+ 				goto done;
+ 
+ 			case TEST_GUEST_SAW_IRQ:
 -- 
 2.55.0.508.g3f0d502094-goog
 
