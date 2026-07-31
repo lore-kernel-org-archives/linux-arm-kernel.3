@@ -4,95 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5AAC5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40138C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wGVPADeki+0/bIy545BYdtbcA87ECTF8VmVOWBf1hwc=; b=gDK/JH4sftxBU6IO/LNZNR7ZTX
-	s48WW/KQuupeIJd+JGV6pHnV77ZWh2lam0vgL+9Lm43FBNzefgRSPCgFvwdH00IXYjDoOZySkuHL2
-	aikhJZninIUYjFAkWxJCgU2AtSCldu87aAGtnSse9C15c90xJBoiwTOAayHZhYkGbhpRh4UieZxbY
-	p/ckSg47421vTfherStLf5kwKHfh/sU3n+nGISpVSjSMstbafLYNZcHP000U05IeioCNL+6Txc5ne
-	9ZpkH7yE7oZUNA2QnxZb2i3QsrteMUoElx3nL81SSCk92H94xmqLTyStTqd5RbRSf3ZkvKavG8bQj
-	NYNuW9gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VT4GMCV34NLKfagWcQH9V4qPrMyXYT4pruyMrAm0O/w=; b=4l/5vp+aer7Nz8x+he01UtAspt
+	3QpuYiTag+pKfelwLbRgvCzfiL7r6socycTcTQQXFBX3EoJOmQU8vuTWIuebF4eUjX2A0DHOFsZJO
+	JBbJlzdaRoJ80ZS91oJS/eHhJmY93657KBn5WzSPzrrJW4NI6OOFPKsziYjY98cB7RSop8tCnn+Ex
+	Ilo0nTG/17Vu/9u4ptAF/egPOHfclQl2yGl1InazVpw8rh4t/OtrOSOmlPXJKCzin7/yhF7c+dbAx
+	fGY8LkcqpsYoBlaVBfZ6rBG9jhOuNPV71LWocgutfVfr16e7QPQABWoqs7Ucg3vLlKhcvws0XQqVw
+	lsIrlngg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoPT-0000000ClAT-3MX0;
-	Fri, 31 Jul 2026 14:40:27 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1wpokf-0000000CrbJ-0W8E;
+	Fri, 31 Jul 2026 15:02:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoPR-0000000Cl9o-1RGt
+	id 1wpokb-0000000CrZg-3pJD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 14:40:26 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c197eaaab00so170159166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 07:40:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785508823; x=1786113623; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wGVPADeki+0/bIy545BYdtbcA87ECTF8VmVOWBf1hwc=;
-        b=Y+7QE7weg8ynBHWngtI3myBLAWw2sni+jIYhYMWEmGBsItP5v3X3fDt85SUc4zvGtn
-         LkOVy7mjxvnvDHWF7ngdfqJPy/e4a98PKwv5rLUsnvTfMS/iCmOaXoR6e97MWbwInl8n
-         Ebru1tZg4Qv+p6WL2JDUIIa19QDchw6zoepk1vx42IZPkzpvlNoXW25qjG5q2q4xM1VT
-         XpddDQy5hkmMwEWTU1XV/a6InaF3GvSaq+NmEaUBSxEdhP6KdZ9T1+L2aROtRjiBbp+n
-         AFexhvmUJeYcgNbLheXBA+e4pA6QLP9S0BKhQoMxB2yKzWhemrN6Zp++Pi27ZlKhryUC
-         nIqg==
+	Fri, 31 Jul 2026 15:02:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785510135;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VT4GMCV34NLKfagWcQH9V4qPrMyXYT4pruyMrAm0O/w=;
+	b=dxVjT8AYWUogqCHzWskruCmgKW0NvKc8ZC3hQK/nd+SBGBzoaMofg2vWVoNTvUtmAJBmN1
+	nqWyxl4brh4hF2PceoZEBp2YEb+N5+OO+8e4kRMkXG7Q3Bc6XheSN4NpqaHZP+2koBExY4
+	09UDObjDBqTQ7ZLImAtZfCkAUSETboY=
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
+ [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-217--kORc8P-ODKJof7nnDrSZw-1; Fri, 31 Jul 2026 11:02:12 -0400
+X-MC-Unique: -kORc8P-ODKJof7nnDrSZw-1
+X-Mimecast-MFC-AGG-ID: -kORc8P-ODKJof7nnDrSZw_1785510132
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-81ebbbd60cbso16177107b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 08:02:12 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785508823; x=1786113623;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wGVPADeki+0/bIy545BYdtbcA87ECTF8VmVOWBf1hwc=;
-        b=s7//mYahy8x/cUcBGxCekD4NcJF1+zsHQvlLCTAc2l4XZrzxP2EbSs95IbMSenzM22
-         CACoHwJlQJNf6eLAkMOxkYlxz2FKNyLEdVaY0sczJt3DACLDs4XBpjpUWMFTRQKGDuQS
-         DI7Xh+rglTXCcoLWny/kwyWAu1gsMoppvBwx9uy8kusKYBbClkCyJ4fVNtSuBMWFNP40
-         sbhY+SMYviYyDqgFwvkNGo9XhF2wxa1GSdZWKJBWA+mmVb1Ed3/a0JGrwh5EB0K00pxm
-         nQVICmZT4RJu493b7WjUTonj3y5L6Z7M4UU1MCLQKFG0qOqLGx3sqCUsnD3HiDc0E/j1
-         l6Ow==
-X-Forwarded-Encrypted: i=1; AHgh+RpyZFG0U22ksX0WqZzoawf1X6vDxpi2cRkndDhE64HQgVmnQliWEo0qLyTtARfF0a2gojLyxlAQm3Afglhoypto@lists.infradead.org
-X-Gm-Message-State: AOJu0YyILNCEHpz2t5lDc5SW9Kag6Q8/ZWBCZCYPihjP3ldyDLHy45UY
-	a/77qLCl9fG47vcu1SByaeo7VffToEeTqRQ1dNeuwC69ss09CkGVWbvc
-X-Gm-Gg: AR+sD10m7xoYm6YzUvEFar5iaxugP5kdAfL2aZX07ibLjHPnq+vHYwBOLXhNfHIGD0L
-	VXcRelxjSvPmjohW/qqeaSEAWMjiv3wFWM934f/mWmcj7rLLbEM06DzG0IYyYKN6wnw3Y+HDhGK
-	enajK45dKu+nT6+TS8JlQuEr571rf3T6xIbtYAhoW+hOHMDCaMw8W56cDC30MUT9WdLmaErlHrl
-	/5+TXjhIhJraOFGLKbsaBxST2TDWQufkH/TrcQr8Kc3FBLGLx9RFoq3j37oazYYhx3WMMwLsTjd
-	37my3yBOysgnDH0OY5gJeLO1tGFZjH2x2Uz/XW4NE8wQe/Yx/Tuy23+h1mAZN2QQD/d6bV/7d/v
-	YR/x/c276QdW/xg7XTLXZ7C4zo4GN87D7EsIKbxU0Yq8H1ovetqSBJvqi4jRRqOfmFi6O+z+9il
-	d+6OYM8Cr7oJ1hPbV435b+wm9B6TVGOdtuGnVcM/wgRXs8XvycVVPw/U0N5G3c8alCVjqDPKbVw
-	YT9YNVD58UXtIrhfQLAuh4ZCC9r92A1mjAzpuiEAFMUktFaTydlfNrkFu3z+t8QYUMRIY4a8CpI
-	WRYhUPU3GwVEFdyuQYaOX/x6RYluFOlfEhUuN3/2iqbbM+ZT7oov0kcy5LeVmSZpNNKd7lk=
-X-Received: by 2002:a17:907:d08e:b0:c16:6e45:5ba7 with SMTP id a640c23a62f3a-c1fd271cb9fmr136450466b.59.1785508823290;
-        Fri, 31 Jul 2026 07:40:23 -0700 (PDT)
-Received: from unknown748F3CBA5068 (dynamic-2a02-3100-a8d0-bc01-6d31-3d12-3a11-d2d0.310.pool.telefonica.de. [2a02:3100:a8d0:bc01:6d31:3d12:3a11:d2d0])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c1fd4453823sm185693866b.40.2026.07.31.07.40.22
+        d=1e100.net; s=20251104; t=1785510132; x=1786114932;
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:content-type:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=VT4GMCV34NLKfagWcQH9V4qPrMyXYT4pruyMrAm0O/w=;
+        b=XXj7lRro1a2GPesgVexxYbLw4eBsBaWfiJKdrRHXbOx93OHWhyiKbs67QGq7X4b1jE
+         l+aCOxboTC/no/VrJsKnY7GGVaf0h7WI7kQz6+ZUdjMY7ceE1GY3TXMi7qdEitX5I5tB
+         yLtCQIzYGcDyn0Dic7yAZE6h3sJdjBJQLXq3rEKPKpbPgIY25Ggw/G8Jj7MaFFPt8iCG
+         KTp5SWx0xAPddysYd1KbMb4KG00Q389+hG0q94RliIp+mdO0bF/QGEQs8rmM2MvTAvBz
+         p8WShw1b8Rk9KdM6w2xsIr7zxdXf7r8wlwPizdGshsAkEj0bdlUC7i8IXGLsxEeOMLiW
+         OjOA==
+X-Forwarded-Encrypted: i=1; AHgh+Rpo+msVZ9VM3T2oNcT6qPwQ9Lpl2PNquybHL1Pv6xqNW1rwvQqczy7+YwEiTeYH5Z4W7IeWuOpMOHzC7dg6eEFX@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFGnDdNLZ8GiCndvqTASCRMu+FHZSZIEZsXbJXqA1cy69AITBb
+	C1zY6VLFrAdLEoFCdZYD+Bokt4CzkETQ60BaGHdBU0qonOCDG1yLKy9hPAgPuXxxQncoPsXedNh
+	9XvDZdwWozaxI+jEk7x7D/nr7MQ2IOc1cofapH59IKg+5WW7FUjec17kQzmD7MU7P9A9KWuIs/L
+	92
+X-Gm-Gg: AR+sD13Deuvr4yy9dR/pD3EcGK9nrG8yMZB6qK2gn8zLkCUwjgXkF5lkO8kjVmslEmF
+	4DIRw8IyuLoeXTE8zoNW8HC23EbcTiXObBL2Q1SsZVdLCKaJIYUZJpMfV9FVTXlKzrKFBDHz5k/
+	i4hpfWaSX4pfktjYJK+5GBQK6icHUB4hGRKtXv0MLyGx8G6pRH1pB8vO481j8Oaxo+pNm9mPXgy
+	GTAXBw70kwwTU2JCgTH1YnMtER2y1f0uteYwtCRu5oMjAvc3Az8IXyquNzg4y7a4boXIwaEIC1s
+	IMwL5ME0gWjm5baD0rsN6CA2P0GzhOEad9i1qQfETKNQg7iANLbYcMCEOZwfKKbIg2oPmdWQYQu
+	42zb3tkQ2rWOeQOa8itBuCtwmBLmSfTegJAo=
+X-Received: by 2002:a05:690c:3705:b0:7fd:e030:23db with SMTP id 00721157ae682-81fd4bc5fbamr1315697b3.31.1785510131724;
+        Fri, 31 Jul 2026 08:02:11 -0700 (PDT)
+X-Received: by 2002:a05:690c:3705:b0:7fd:e030:23db with SMTP id 00721157ae682-81fd4bc5fbamr1313677b3.31.1785510130851;
+        Fri, 31 Jul 2026 08:02:10 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81fcd11d08esm7875547b3.37.2026.07.31.08.02.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jul 2026 07:40:22 -0700 (PDT)
-Date: Fri, 31 Jul 2026 16:40:21 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] serial: imx: serialize imx_uart_ports[] lifetime
-Message-ID: <amyxxce6haNJBJ3G@gmail.com>
-References: <20260719221014.44354-1-kmehltretter@gmail.com>
- <20260719221014.44354-5-kmehltretter@gmail.com>
- <amufrR-1hop2pZOz@SMW015318>
+        Fri, 31 Jul 2026 08:02:09 -0700 (PDT)
+Date: Fri, 31 Jul 2026 11:02:06 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Yu-Chun Lin =?utf-8?B?W+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+Cc: "mturquette@baylibre.com" <mturquette@baylibre.com>,
+	"sboyd@kernel.org" <sboyd@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	Edgar Lee =?utf-8?B?W+adjuaJv+irrV0=?= <cylee12@realtek.com>,
+	Jyan Chou =?utf-8?B?W+WRqOiKt+WuiV0=?= <jyanchou@realtek.com>,
+	"afaerber@suse.com" <afaerber@suse.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-realtek-soc@lists.infradead.org" <linux-realtek-soc@lists.infradead.org>,
+	James Tai =?utf-8?B?W+aItOW/l+WzsF0=?= <james.tai@realtek.com>,
+	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
+	Stanley =?utf-8?B?Q2hhbmdb5piM6IKy5b63XQ==?= <stanley_chang@realtek.com>
+Subject: Re: [PATCH v11 09/11] clk: realtek: Add RTD1625-CRT clock controller
+ driver
+Message-ID: <amy47how40BJnHsn@redhat.com>
+References: <20260728142806.1954638-1-eleanor.lin@realtek.com>
+ <20260728142806.1954638-10-eleanor.lin@realtek.com>
+ <amuBqi43ce9bYbir@redhat.com>
+ <577a6882b25e457fa94fa199e66f3197@realtek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+In-Reply-To: <577a6882b25e457fa94fa199e66f3197@realtek.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: LFaf052ZW4JF9YRxgVcYo4wsLvUB5vre_xI62rZ7eec_1785510132
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <amufrR-1hop2pZOz@SMW015318>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_074025_404093_E8E9AA57 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20260731_080218_022355_C69493B4 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,26 +130,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 02:02:05PM +0100, Frank Li wrote:
-> imx_uart_remove()
-> {
-> 	imx_uart_ports[line] = NULL;
-> 	uart_remove_one_port(&imx_uart_uart_driver, &sport->port);
-> }
+On Fri, Jul 31, 2026 at 08:17:44AM +0000, Yu-Chun Lin [林祐君] wrote:
+> > On Tue, Jul 28, 2026 at 10:28:04PM +0800, Yu-Chun Lin wrote:
+> > > From: Cheng-Yu Lee <cylee12@realtek.com>
+> > >
 > 
-> Is above sequence to avoid use mutex?
+> (...)
 > 
+> > > +
+> > > +static int rtd1625_crt_probe(struct platform_device *pdev) {
+> > > +     const struct rtk_clk_desc *desc;
+> > > +
+> > > +     desc = of_device_get_match_data(&pdev->dev);
+> > 
+> > of_device_get_match_data() is deprecated. Use
+> > device_get_match_data(&pdev->dev) instead. You should be able to drop the
+> > linux/of_device.h include at the top.
+> > 
+> 
+> Ack.
+> 
+> > 
+> > > +     if (!desc)
+> > > +             return -EINVAL;
+> > > +
+> > > +     return rtk_clk_probe(pdev, desc); }
+> > > +
+> > > +static const struct of_device_id rtd1625_crt_match[] = {
+> > > +     {.compatible = "realtek,rtd1625-crt-clk", .data =
+> > > +&rtd1625_crt_desc,},
+> > 
+> > Add a space after the { and before the ending }.
+> > 
+> 
+> Ack.
+> 
+> > > +     { /* sentinel */ }
+> > > +};
+> > > +MODULE_DEVICE_TABLE(of, rtd1625_crt_match);
+> > > +
+> > > +static struct platform_driver rtd1625_crt_driver = {
+> > > +     .probe = rtd1625_crt_probe,
+> > > +     .driver = {
+> > > +             .name = "rtk-rtd1625-crt-clk",
+> > > +             .of_match_table = rtd1625_crt_match,
+> > > +             .suppress_bind_attrs = true,
+> > 
+> > This driver is listed as a tristate in the Kconfig but then you have this. Is the
+> > intention of this driver to be built in only?
+> > 
+> 
+> I will change the Kconfig options for this driver, as well as the related
+> config, from tristate to bool.
 
-I now tried this, but it doesn't work as-is:
+Keep it as a tristate if you are going to use module_platform_driver().
+You can also drop suppress_bind_attrs unless you have a specific need
+why.
 
-uart_add_one_port() may call imx_uart_console_setup(), so the entry
-must be present before the call.
+Brian
 
-uart_remove_one_port() unregisters the console. Clearing the entry first
-causes its callbacks to dereference NULL.
-
-The mutex protects those sequences against sibling probes.
-
-Thanks,
-Karl
 
