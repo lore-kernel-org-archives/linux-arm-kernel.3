@@ -4,66 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F1CDC55173
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD46C5516F
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zeOdbGxA0Hq8bC3KgDfNJ1qxDpOGR14VawtdX+k5mec=; b=3FHarqndJXLZ+RxL2A3/XlcpZc
-	YEZADHbv6BkdjAqc2vzQbiTvjgTa4+WQM2qZYcXSEMyTi7o3BY5TpF8QDIjE8ADDzmQp73guqZKJZ
-	FI2rLUXzoO9sb0m89K/KwJLBKe9KzAMDFg8h3CkbHPNhmQWl16r9baNAHQdLGk82mHYLTKvV53mk8
-	uw0PwpB9pirkSAWBUGP+Izof8vEqX6WYTkByWwPWlNsPTJ5E4RjRLRGGf2uticN2jVF4uRlb1FRmU
-	f2APRoWl4lx0fKqmccjsGOUYf4ifTHcfQblXGAhldijItmfukP7ee0S/LDPK92Pkqik/y90mvyOon
-	71VC2wbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5kwna2xOk6dGjGj7gk7txAhtmP7Kn7mVAW9LcJaKhew=; b=ETnkBWNX6/1pUdULMOjX/uNtJq
+	hVUDJ3Y+tCkPyOIAlnJQW7lbcr6z+5N3aH1sa+Xb5/FAFiOuoXnVuvWdJLs7zjkGipjUTvO8ExSoo
+	iad5Y8cSiTT5GPM76SftspTjDYnQBkLojFafp+3cpcInU4QRjamuEbJCLq0eCONHOCfjTY243/AVE
+	3eaLkziRj3VTrFter7ZIUpZMT7PfQzOoqt7FPzlhvxXrCBCnukk846qHynVkA6zTxaqWybY1CVd5R
+	pwuGAGr3fUH8QekwAPG+q1mYKzDQKhzVujI4NFB/BGTZOiv8PXbMRo2LaJ/QYiIiFdxPXEWxhcu3A
+	pO1OWG9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpsLX-0000000DQ2i-2kWN;
+	id 1wpsLY-0000000DQ3g-3MOn;
 	Fri, 31 Jul 2026 18:52:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpsKo-0000000DPmi-3DkO
+	id 1wpsL2-0000000DPsa-3soD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 18:51:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7BB654358F;
-	Fri, 31 Jul 2026 18:51:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 400211F01558;
-	Fri, 31 Jul 2026 18:51:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785523914;
-	bh=zeOdbGxA0Hq8bC3KgDfNJ1qxDpOGR14VawtdX+k5mec=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=LsxUJQ5fDbsD7+F0eTToEZCsc3CPeeLCO8pBZhmPciYe4ali+ltlobWHz8GaknuAC
-	 0yQPll18J0pUgylcD5XoX5P/QmBTP6gofXl31VAnNxMKef6Bl0MsDhmTmXCh2L/LYT
-	 SIwiZdEKj+TJ5oxh3KGdtqlf7HFfio03Dkk/SBz5M4oDWO2qyDyAyfrYfFkrhfd0++
-	 58Alky/QF1yv3AUb0ww+lvG7dMJgM71RW3cp7BiD5d/LISngPtrcBpLTQ1x8iYwkeY
-	 pfiJPloLMLMTzyl3B4V0CES+XejnMYpYnL9OSyQt90H8B2ofooXbMhq2jK+fs1DPr5
-	 ul1SB9vk3bvNA==
-From: Oliver Upton <oupton@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>,
-	Vladimir Murzin <vladimir.murzin@arm.com>
-Subject: Re: [PATCH v4 00/29] KVM: arm64: Add support for FEAT_NV2p1 and FEAT_NV3
-Date: Fri, 31 Jul 2026 11:51:48 -0700
-Message-ID: <178552142347.30097.13874588546478889683.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260730071022.296811-1-maz@kernel.org>
-References: <20260730071022.296811-1-maz@kernel.org>
+	Fri, 31 Jul 2026 18:52:10 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-9030f8ea3b3so12607296d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 11:52:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785523927; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ig6TKKTyEeBlCTAs6nwMB366t4kFy3Nj8bfb3uwP6e62IhL3tyCziiDdzyes/3R1kc
+         oYn0z5iO0bpfJfO080aRdmhGe+LdKSsgdmxTGAFCLYOPl+WakXaex1NNQAp8LXLiXTKI
+         LOOSjGQijPZhQke3d9CuRv5brKFzP9QeEGLgdRQ4bg4My3WcEUrlcIHcp+bYba7GlFOV
+         rGkvDCkHXZMFkOFBIVpLy+u9gEYl6ZMbMmB4ydxIR5FhTEgIFgHzcGlrPLB+dYZlIfv3
+         LHJ/885Pj2A8UWBAm8JeKTOC+QcusKE2hDUKGd24nw2YeZM8yXiqgkwhwQhJnDFj4POl
+         UukQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=5kwna2xOk6dGjGj7gk7txAhtmP7Kn7mVAW9LcJaKhew=;
+        fh=MMo2ceZ/YuDrubn00v+z1VQ30X3ZsMGrA8VqTflpgzg=;
+        b=RtjDPGTr7EW1g3H5IVAh72FFzydKE/DUqqYaYIbUjsGziqHGC836AL5vwixxgNm4bs
+         vXdXfRWUuwcVm+LYiLbJ3GFTpzOsy+lOWjT6bmdcqlNqM7ejtzHJw4RYKJy7CSA9X4YU
+         JPCL+4Pj7yc4cEqBM7HzEQWpuRDoaJxyyAfRcpX9bOYEI36pqO4RA8Ii9iJSvmBuR01H
+         LroLfnwU8SNydfr1hg9Zk++Ir3o4H19Oi9KmG/AtuV9zMfaRKqyr42V9kamn5IwBBNei
+         hMrG1lBTrSBvSDBUddcc/OH2Mkq/1OiBipsqBHNKEA+9fHuLcBMfgrpLpGoFQ+sj5CZt
+         ieCA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785523927; x=1786128727; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5kwna2xOk6dGjGj7gk7txAhtmP7Kn7mVAW9LcJaKhew=;
+        b=tOAXRyG7utLccrNWCawVWgY2ILO9gEYECfWDyDDOzlj74VeUR7bsz8dz0nXYSJg97y
+         6V7SCyI3A4uM3/8fxFscmqIJbBOArDbRdIlKOpXEzI4H28p5JOLUIVNnKmqcQX7lvq25
+         hgQiXKVklg7lan0FKqNRgYEVcW1Uy+R6laBWA3N39PTDRAAkVw18HFu26/xorg6HiszI
+         X5ADBXVMHlVO0Za4IcDHRDRUewQE4al18eCIizI2NLbZOh1nD2CjMhWHqTk6roGn5Gkc
+         0p1D39/gswobSgjBwzS9JT8D701i8u6r2uHJc9IZpW6of/qN3trHUybQzVsHcqLiV0gn
+         PobA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785523927; x=1786128727;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=5kwna2xOk6dGjGj7gk7txAhtmP7Kn7mVAW9LcJaKhew=;
+        b=E9/rko6Nhx9JaPWJu52dgiw5JP5/H5gtRYKD5YZcNBpcxkSCMWL3SdJZwWrZ3quEoX
+         7AEexB7LdT+Z+IJWwwL2XkqnDENIGtHP/jLgB4A9NMfXyTiY/Y0mGSCo/14Ucw+5sw3S
+         0XyzhfLmEpsKF7nrfX7nkbxK2bXnVsPUJSvDj1l0COY/13cktPGqNkayxm/avwA/ha0U
+         VWP/NJSJJ9xB48ZqhG+q+jZP2qrselfZF0H06ciry1MsKzXpt0Pkeu9BkZbNffHI0732
+         gaStPML5HPh6ucral+ZDmeSJZOT9qU1d1nwXXqcsPVmiXr4oJZDnkXuu0alk/SXOiJA6
+         ZmsA==
+X-Forwarded-Encrypted: i=1; AHgh+RriezQrC5h3zpbfKKuxA34cGkozkM5O1a6hgQjyQ42hhoXEMnzL7gqGIdZ7d+gmin0TQO8SUroWKtyBby3VSHlp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4pENZkBer0FeZqtKG4/ucwRDgSfbXT82DBJaZ+t8jl9AyyMBC
+	5idyfUenhCHyvaR1UhZXbY3g86zePxULa/QjCWV6Ic6DT4G8toaJW0OHb8Er7VM4kU1Pn5ZufaJ
+	twkDP7rIau5efQBdgYerkMXhBiOVs6bo=
+X-Gm-Gg: AR+sD11pyLwWuzXhyRcVFs68JWsWJZ9pOst0kSAQCiocX1lvqBq24F1aFnojNxTwayH
+	OcUCFGEM6XWx/P5WI+R++oJo+EVpwF3sdyaphzdr9QIfafErtO4v/MyK3kCiIFDXkOk0W7sfN1k
+	549ctxetW/6p9LChck9Uh+AkGQFdjeKBNoU+B1OIvwYJoDUr80UY61JBMp4uJCicLJ0kGzqf+j1
+	XkmIOCbN4yd7Upis7JMqjiSvpekEKSME9aztkxvO0mmMgFWPfE58JN96PZUaIyYER2EsV48xD42
+	amYeVsdlK8/OmJgUkkNZ5M3WhWKsxb3qhGOP+CU/GfOA9FodKz1goX1bfi692y9UgjX3cS/8nfs
+	b5YmBzISjEbF5UAR8tyQtu9sb5RBiW7hNPhnm7+u8bDVLkstU1Hy+YX3J4RegTDL7c0We/oR2VS
+	wwtVAQ4EEq7Sx9UAqmfAgwTG6XhwUO5qNGii9kYmviazeYSnKRpw==
+X-Received: by 2002:a05:6214:4303:b0:8de:25f7:98bc with SMTP id
+ 6a1803df08f44-908496a5548mr23058966d6.22.1785523927226; Fri, 31 Jul 2026
+ 11:52:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+References: <20250924085712.1040284-1-pbrobinson@gmail.com> <37220187-7369-4b20-8e00-0846ee0ee6fd@broadcom.com>
+In-Reply-To: <37220187-7369-4b20-8e00-0846ee0ee6fd@broadcom.com>
+From: Peter Robinson <pbrobinson@gmail.com>
+Date: Fri, 31 Jul 2026 19:51:54 +0100
+X-Gm-Features: AUfX_mzQnZLWCFJQhCZHQY17kUuP3iVdbulRTa2AVQinjNouiLe0xQFMr_sqY84
+Message-ID: <CALeDE9MfhU+hL-d1vruhCzN5vvb9LsR8YwDPOR1XmpLcygLbLQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: broadcom: bcm2712: adjust display status
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, 
+	Phil Elwell <phil@raspberrypi.com>, Andrea della Porta <andrea.porta@suse.com>, devicetree@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260731_115208_970085_B9411772 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,79 +121,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jul 2026 08:09:53 +0100, Marc Zyngier wrote:
-> This is the fourth (and hopefully last) version of a series adding
-> support for two extensions targeting Nested Virt on arm64:
-> 
-> - FEAT_NV2p1 is effectively a bug fix for two registers (CNTHCTL_EL2
->   and CPTR_EL2) that are missing stateful bits when accessed from EL1
->   in a NV configuration. When this is present, the hypervisor can
->   avoid a bunch of traps.
-> 
-> [...]
+Hey Florian,
 
-Applied to next, thanks!
+Not sure what happened to this, you said it was applied almost a year
+ago but now I dig I don't see it upstream.
 
-[01/29] arm64: sysreg: Emit RESx/UNKN values for Mapping/Fields definitions
-        https://git.kernel.org/kvmarm/kvmarm/c/6ae7fab7d9d3
-[02/29] arm64: Update ID_AA64MMFR4_EL1 description to 2026-03 JSON release
-        https://git.kernel.org/kvmarm/kvmarm/c/1441f717ab5c
-[03/29] KVM: arm64: Merge guest's HCRX_EL2 using NV_HCRX_GUEST_EXCLUDE
-        https://git.kernel.org/kvmarm/kvmarm/c/4422d8b7502d
-[04/29] KVM: arm64: Drop __HCRX_EL2_* masks
-        https://git.kernel.org/kvmarm/kvmarm/c/34a7514b87ac
-[05/29] KVM: arm64: Plumb HCRX_EL2.SRMASKEn in HCRX_EL2 sanitisation
-        https://git.kernel.org/kvmarm/kvmarm/c/fed0a1e87c28
-[06/29] KVM: arm64: Classify CPTR_EL2 as a SR_LOC_SPECIAL register
-        https://git.kernel.org/kvmarm/kvmarm/c/0b72c4060057
-[07/29] KVM: arm64: Don't evaluate HCR_EL2.NV nor HFGITR_EL2.ERET on ERET fast path
-        https://git.kernel.org/kvmarm/kvmarm/c/c938c826c1ef
-[08/29] arm64: Add ARM64_HAS_NV2P1 capability
-        https://git.kernel.org/kvmarm/kvmarm/c/0dbb49dcdbbe
-[09/29] KVM: arm64: Relax CPTR_EL2 handling when FEAT_NV2p1 is present
-        https://git.kernel.org/kvmarm/kvmarm/c/649ba043262c
-[10/29] KVM: arm64: Relax CNTHCTL_EL2 handling when FEAT_NV2p1 is present
-        https://git.kernel.org/kvmarm/kvmarm/c/7c614e169826
-[11/29] KVM: arm64: Expose FEAT_NV2p1 to NV guests
-        https://git.kernel.org/kvmarm/kvmarm/c/4eb776d0b984
-[12/29] arm64: Add FEAT_NV2p1 detection
-        https://git.kernel.org/kvmarm/kvmarm/c/1f4177ea49b5
-[13/29] arm64: sysreg: Add NVHCR_EL2 description as a mirror of HCR_EL2
-        https://git.kernel.org/kvmarm/kvmarm/c/7c81d7c4ef6e
-[14/29] arm64: sysreg: Add HCRX_EL2 bits related to FEAT_NV3
-        https://git.kernel.org/kvmarm/kvmarm/c/9809bdf151e2
-[15/29] arm64: Add ARM64_HAS_NV3 capability
-        https://git.kernel.org/kvmarm/kvmarm/c/5be1b8de27dc
-[16/29] KVM: arm64: Split NV-specific exit fixups from the non-NV handling
-        https://git.kernel.org/kvmarm/kvmarm/c/dbb45adfcdef
-[17/29] KVM: arm64: Add NV3 control bits to HCRX_EL2 sanitisation
-        https://git.kernel.org/kvmarm/kvmarm/c/6ec15c963e53
-[18/29] KVM: arm64: Add kvm_has_nv{2,3}() predicates
-        https://git.kernel.org/kvmarm/kvmarm/c/3908e3027235
-[19/29] KVM: arm64: Make HCR_EL2 a non-VNCR register
-        https://git.kernel.org/kvmarm/kvmarm/c/3fc7867a95c0
-[20/29] KVM: arm64: Add sanitisation for NVHCR_EL2
-        https://git.kernel.org/kvmarm/kvmarm/c/3b3ae6bfaca0
-[21/29] KVM: arm64: Add NVHCR_EL2 handling to the sysreg array
-        https://git.kernel.org/kvmarm/kvmarm/c/0c0b2ad26b36
-[22/29] KVM: arm64: Add routing for NVHCR_EL2 trap
-        https://git.kernel.org/kvmarm/kvmarm/c/d6debf95f1aa
-[23/29] KVM: arm64: Add NVHCR_EL2 context switching
-        https://git.kernel.org/kvmarm/kvmarm/c/62ed180231f4
-[24/29] KVM: arm64: Engage NV3 ERET trap elision
-        https://git.kernel.org/kvmarm/kvmarm/c/c962853bf5e1
-[25/29] KVM: arm64: Engage NV3 TLBI trap elision
-        https://git.kernel.org/kvmarm/kvmarm/c/328ab9719ee0
-[26/29] KVM: arm64: Add FEAT_NV3 detection
-        https://git.kernel.org/kvmarm/kvmarm/c/a64183418a80
-[27/29] KVM: arm64: Expose FEAT_NV3 to guests
-        https://git.kernel.org/kvmarm/kvmarm/c/89cdbeb18382
-[28/29] KVM: arm64: selftest: Add NVHCR_EL2 to get-reg-list
-        https://git.kernel.org/kvmarm/kvmarm/c/1f4a10ff9090
-[29/29] arm64: Add override for ID_AA64MMFR4_EL1.NV_frac
-        https://git.kernel.org/kvmarm/kvmarm/c/13c164acef36
+Was there a problem, or did it just fall through the cracks? Should I resend it?
 
---
-Best,
-Oliver
+Peter
+
+On Tue, 7 Oct 2025 at 22:11, Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
+>
+> On 9/24/2025 1:57 AM, Peter Robinson wrote:
+> > Typically non critical IP in a SoC are disabled by
+> > default in the SoC .dtsi and enabled on board specific
+> > configs. There are usecases, such as some CM5 carrier
+> > boards, where display output may not be desired or
+> > connected. So disable them on the SoC .dtsi and enable
+> > them on the RPi5 board.
+> >
+> > Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+> > Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> > Cc: Andrea della Porta <andrea.porta@suse.com>
+> > Fixes: 25d77bdd7df2 ("arm64: dts: broadcom: Add display pipeline support to BCM2712")
+>
+> Applied to
+> https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
+> --
+> Florian
+>
 
