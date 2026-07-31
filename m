@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4496CC55182
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54037C55184
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TARE8/sXv3L6g2hxD7xnpFQW2oHrPU6OhXPR2+eRj3g=; b=GE3/a3XKEuT9eeXwSHr0cKnXXe
-	n5Pohhz1Xuhixlt2M2dTXh+eJB/xnPJauA/fCRw2wZzBytCrtkqURGWBsvPM+d6CsugPwq5Cn4WA3
-	RUmtQMb/zqm+VTLrKqYhZhv1wXh5R9vcz0y71/Qk23ZofzTNN/G5puGivNCQtpCEgjDVH+3E8xu6I
-	raDJFkUsm28PrnHW3mX6izrNtXVfnO1HdUoud5iBXLAn4nyDhOGABth5vrltpN82shZ3S+Uqv7URd
-	CWU3xHT8dEqEadczCm1+hN9QWefiT02usNQL6D0OgatJjzpeqxLxShXJdw2y8wNrFfaTST7P2Go9p
-	T594KwZw==;
+	bh=yJJQ/G2kZs1c4zIaZuTxFX0nplW5nAX8O8ASYe38ez4=; b=PBkY7Ynn5dAuX7pTyqP3h1UZEd
+	Rrt28Ox6L5QI3VjinFgBF5PLJNk45xUb9ySjWVVnOBeCSC52FiSIHM8gqmTNGVBOhV7qF8h5C7Cys
+	AxA1XNT6V11tc3KL9EX3BAJVD4BKOqARMrxgScQlwHuNjtjWktP7txfoQbq8LjepNr087qRrtAw0V
+	oP1oe9RWuW12edRMZ8GnquJCIhBFgDYxx6+W52hpOI8uq3a4IDJ/vtl7h7oZEXGbhfWes5DWNhV/i
+	h947b1/0cjjbJmVrIFkcFcmDaj4sGRidxPcUZPPd2G5BPdcMrnseRunmSj0bKD/SVbAtAkOOrwIja
+	fV9g874Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpq1N-0000000D2jf-1stc;
-	Fri, 31 Jul 2026 16:23:41 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wpq1O-0000000D2m2-1l1x;
+	Fri, 31 Jul 2026 16:23:42 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxa-0000000CzOl-0FVN;
-	Fri, 31 Jul 2026 16:19:50 +0000
+	id 1wppxa-0000000CzQS-2BRJ;
+	Fri, 31 Jul 2026 16:19:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514783;
-	bh=iLBgGcOxsOS2yAa7hsIIJ+lrcLo+tkotBZn2zYbteNg=;
+	s=mail; t=1785514784;
+	bh=T57B2HIpxjOg2246T5ktjF/JgTCd4d9jWzrI7OnBqP0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=FuouhmE5WKR/cwxLxk68g3Re9XTm68F1E70jZT37s5Cy236NflauLhMUjbDnipY5G
-	 S7RAkyl4Ci2J2Q6p9KBNxvKCM2In7RoCLqf2FvwC3GQRzR5RXLiIs8zv/IUXAWVoGh
-	 0w6zomaPplnl93t3dH+JzfCgxDeBrCDq7VWKlo+KPx7BPJUQPAED8ZqWll+l4kFUfF
-	 H+oGU/mXMOYjigMJ55NcgbkCv9prbQ5fFOEYVPD+ACcZ/nxg7Tt5WYL16qWEp4ooDd
-	 mj66OfMScjjNPns9SbhuHNqoVJldLhdT5uuJkQVwQfmZeSv7XSXNFpYe436QQW5fXK
-	 5U7c+T3CVuQDQ==
+	b=LP7UoA9Xj4+0SCmFFy4slUzG9qksnmPdmhrc+bzX4b1fl+siK8bEPBcvSxVMlzahA
+	 xy/mcQ5TIqSvGUIVbnxnsbCAduq94oxpZPqv5LYQH9iVljwwGyA0Ig55Qi6uc0wj+P
+	 Pm9cD5dtEQJfQgG7nS82WFbX5VkqI+4ds+3xbr4OUMo9Eb7ZSgW1X6sojH7zog1xpa
+	 VNH/aktvWtNwhpP4JtWxa5AXyWFkbhOqjrbIe5hAXks/fjyRyn8+i445yrZwL5ZIxm
+	 7OvWCfQleS8eMUN1wPKcvlyjuUqe+zci5NN7iq/tt5upQJzj585ESM3B80lEgHYQq6
+	 7gLHueC2ZBlmQ==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 668AC17E093E;
-	Fri, 31 Jul 2026 18:19:43 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1B4A017E0936;
+	Fri, 31 Jul 2026 18:19:44 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:19:47 +0300
-Subject: [PATCH v10 40/69] drm/vc4: hdmi: Use common TMDS char rate
- constants
+Date: Fri, 31 Jul 2026 19:19:48 +0300
+Subject: [PATCH v10 41/69] drm/vc4: hdmi: Switch to
+ drm_hdmi_mode_needs_scrambling()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-40-294364b2cf15@collabora.com>
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-41-294364b2cf15@collabora.com>
 References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -75,8 +75,8 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091946_322420_0F50C933 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20260731_091946_796232_7E8B7B2D 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,105 +91,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace HDMI_14_MAX_TMDS_CLK defined locally with
-HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ provided by linux/hdmi.h.  Note this
-incorrectly referenced HDMI 1.4, as the 340 MHz maximum TMDS character
-rate was actually introduced in HDMI 1.3.
+The VC4 HDMI driver has a local helper to check whether a mode requires
+scrambling.  It is equivalent to drm_hdmi_mode_needs_scrambling(), so
+use the common helper instead.
 
-Similarly, use HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ instead of the 600000000
-magic number.
+No functional change intended.
 
-Reviewed-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 Acked-by: Maxime Ripard <mripard@kernel.org>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/vc4/vc4_hdmi.c | 17 ++++++++---------
- 1 file changed, 8 insertions(+), 9 deletions(-)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 16 ++++------------
+ 1 file changed, 4 insertions(+), 12 deletions(-)
 
 diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-index 7f613f912368..9ce56eca775c 100644
+index 9ce56eca775c..4f7fc6689869 100644
 --- a/drivers/gpu/drm/vc4/vc4_hdmi.c
 +++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-@@ -45,6 +45,7 @@
- #include <linux/clk.h>
- #include <linux/component.h>
- #include <linux/gpio/consumer.h>
-+#include <linux/hdmi.h>
- #include <linux/i2c.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-@@ -113,8 +114,6 @@
- #define HSM_MIN_CLOCK_FREQ	120000000
- #define CEC_CLOCK_FREQ 40000
- 
--#define HDMI_14_MAX_TMDS_CLK   (340 * 1000 * 1000)
--
- static bool vc4_hdmi_supports_scrambling(struct vc4_hdmi *vc4_hdmi)
- {
- 	struct drm_display_info *display = &vc4_hdmi->connector.display_info;
-@@ -137,7 +136,7 @@ static bool vc4_hdmi_mode_needs_scrambling(const struct drm_display_mode *mode,
- {
- 	unsigned long long clock = drm_hdmi_compute_mode_clock(mode, bpc, fmt);
- 
--	return clock > HDMI_14_MAX_TMDS_CLK;
-+	return clock > HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
+@@ -130,15 +130,6 @@ static bool vc4_hdmi_supports_scrambling(struct vc4_hdmi *vc4_hdmi)
+ 	return true;
  }
  
+-static bool vc4_hdmi_mode_needs_scrambling(const struct drm_display_mode *mode,
+-					   unsigned int bpc,
+-					   enum drm_output_color_format fmt)
+-{
+-	unsigned long long clock = drm_hdmi_compute_mode_clock(mode, bpc, fmt);
+-
+-	return clock > HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
+-}
+-
  static int vc4_hdmi_debugfs_regs(struct seq_file *m, void *unused)
-@@ -1727,7 +1726,7 @@ vc4_hdmi_connector_clock_valid(const struct drm_connector *connector,
- 	if (clock > vc4_hdmi->variant->max_pixel_clock)
- 		return MODE_CLOCK_HIGH;
+ {
+ 	struct drm_debugfs_entry *entry = m->private;
+@@ -313,7 +304,7 @@ static int vc4_hdmi_reset_link(struct drm_connector *connector,
+ 		return 0;
+ 	}
  
--	if (!vc4->hvs->vc5_hdmi_enable_hdmi_20 && clock > HDMI_14_MAX_TMDS_CLK)
-+	if (!vc4->hvs->vc5_hdmi_enable_hdmi_20 && clock > HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ)
- 		return MODE_CLOCK_HIGH;
+-	scrambling_needed = vc4_hdmi_mode_needs_scrambling(&vc4_hdmi->saved_adjusted_mode,
++	scrambling_needed = drm_hdmi_mode_needs_scrambling(&vc4_hdmi->saved_adjusted_mode,
+ 							   vc4_hdmi->output_bpc,
+ 							   vc4_hdmi->output_format);
+ 	if (!scrambling_needed) {
+@@ -443,7 +434,8 @@ static int vc4_hdmi_connector_get_modes(struct drm_connector *connector)
+ 		const struct drm_display_mode *mode;
  
- 	/* 4096x2160@60 is not reliable without overclocking core */
-@@ -3253,7 +3252,7 @@ static int vc4_hdmi_bind(struct device *dev, struct device *master, void *data)
- 	 * vc4_hdmi_disable_scrambling() will thus run at boot, make
- 	 * sure it's disabled, and avoid any inconsistency.
- 	 */
--	if (variant->max_pixel_clock > HDMI_14_MAX_TMDS_CLK)
-+	if (variant->max_pixel_clock > HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ)
- 		vc4_hdmi->scdc_enabled = true;
+ 		list_for_each_entry(mode, &connector->probed_modes, head) {
+-			if (vc4_hdmi_mode_needs_scrambling(mode, 8, DRM_OUTPUT_COLOR_FORMAT_RGB444)) {
++			if (drm_hdmi_mode_needs_scrambling(mode, 8,
++							   DRM_OUTPUT_COLOR_FORMAT_RGB444)) {
+ 				drm_warn_once(drm, "The core clock cannot reach frequencies high enough to support 4k @ 60Hz.");
+ 				drm_warn_once(drm, "Please change your config.txt file to add hdmi_enable_4kp60.");
+ 			}
+@@ -802,7 +794,7 @@ static void vc4_hdmi_enable_scrambling(struct drm_encoder *encoder)
+ 	if (!vc4_hdmi_supports_scrambling(vc4_hdmi))
+ 		return;
  
- 	ret = variant->init_resources(drm, vc4_hdmi);
-@@ -3383,7 +3382,7 @@ static const struct vc4_hdmi_variant bcm2711_hdmi0_variant = {
- 	.encoder_type		= VC4_ENCODER_TYPE_HDMI0,
- 	.debugfs_name		= "hdmi0_regs",
- 	.card_name		= "vc4-hdmi-0",
--	.max_pixel_clock	= 600000000,
-+	.max_pixel_clock	= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ,
- 	.registers		= vc5_hdmi_hdmi0_fields,
- 	.num_registers		= ARRAY_SIZE(vc5_hdmi_hdmi0_fields),
- 	.phy_lane_mapping	= {
-@@ -3412,7 +3411,7 @@ static const struct vc4_hdmi_variant bcm2711_hdmi1_variant = {
- 	.encoder_type		= VC4_ENCODER_TYPE_HDMI1,
- 	.debugfs_name		= "hdmi1_regs",
- 	.card_name		= "vc4-hdmi-1",
--	.max_pixel_clock	= HDMI_14_MAX_TMDS_CLK,
-+	.max_pixel_clock	= HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ,
- 	.registers		= vc5_hdmi_hdmi1_fields,
- 	.num_registers		= ARRAY_SIZE(vc5_hdmi_hdmi1_fields),
- 	.phy_lane_mapping	= {
-@@ -3441,7 +3440,7 @@ static const struct vc4_hdmi_variant bcm2712_hdmi0_variant = {
- 	.encoder_type		= VC4_ENCODER_TYPE_HDMI0,
- 	.debugfs_name		= "hdmi0_regs",
- 	.card_name		= "vc4-hdmi-0",
--	.max_pixel_clock	= 600000000,
-+	.max_pixel_clock	= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ,
- 	.registers		= vc6_hdmi_hdmi0_fields,
- 	.num_registers		= ARRAY_SIZE(vc6_hdmi_hdmi0_fields),
- 	.phy_lane_mapping	= {
-@@ -3468,7 +3467,7 @@ static const struct vc4_hdmi_variant bcm2712_hdmi1_variant = {
- 	.encoder_type		= VC4_ENCODER_TYPE_HDMI1,
- 	.debugfs_name		= "hdmi1_regs",
- 	.card_name		= "vc4-hdmi-1",
--	.max_pixel_clock	= 600000000,
-+	.max_pixel_clock	= HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ,
- 	.registers		= vc6_hdmi_hdmi1_fields,
- 	.num_registers		= ARRAY_SIZE(vc6_hdmi_hdmi1_fields),
- 	.phy_lane_mapping	= {
+-	if (!vc4_hdmi_mode_needs_scrambling(mode,
++	if (!drm_hdmi_mode_needs_scrambling(mode,
+ 					    vc4_hdmi->output_bpc,
+ 					    vc4_hdmi->output_format))
+ 		return;
 
 -- 
 2.55.0
