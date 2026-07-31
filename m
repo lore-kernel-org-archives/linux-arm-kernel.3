@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E55EBC5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:10:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66852C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vhArfC7qd0cgViyp7q1CFnFeq1KxdsH9OXQIhqKz5BI=; b=Wx3w9K35V5KYL0bIGybUJB/ZEv
-	Xg+yuIhUW66gICAa/wT08WV4Ltlt6qZfxz0xp5BrmKKBsoL9ge5aiijS792B/4MItzdJVKSAstDeO
-	KsERxiTgXsXaKw1gSw7vnAVzqQ8AUbauZq9ypuHGpTdtwWJFEZq5Vrox4E1zdTKT489TZ5CUY+JXI
-	oclD+x8l3XaDUT15Q2KbZD32GrRmjhEmvrNn3xL81Kv3HyQa378dIgzSfy1ehpxt6LBRKWmSvK3OZ
-	ucd5Ea5hLEIVs1s3lR0wMzSD5ZvvCbKVzAJQZFvukeSnHvyb/6O5B+b49rxt4KCYCAiD1V6/1eHBG
-	Dwryl3dA==;
+	bh=ILe1dRkZtRVAxMCaBVCcApvKGLuy0jK34rt6Fw2SQX8=; b=k2NXU3NcE8ooLg5TaUfE8bk8Zy
+	gtlxY1K4/ISVnP4zgLndehhrIogPD+gqD1h5aWKT0jTw7VNbafgFMvkonijSS1hFx5oswpKbj6HM4
+	pRvSoRY+T/9v5P8CaDgSvWFdVfUT7MtyTMsBkE2gmV6pVGibq20CQVKQctTB9l9BkYiBSHeXIUYO8
+	+H3Nw+xRE8/DN+faLjbxpSOtcyQf4fPupKu7HnIkOa5h8Sz+Xf+6iqurmY/d5HsM9dWyIQIJo1JKn
+	jK3zaAwjR7LYjLr8rF3F8CQ6fv/8DEdtlkjMr6XxWWNV529youMk09Rg54413SVxv9eel74DAx3QH
+	MwDhRRgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzv-0000000CYXZ-3Kdp;
-	Fri, 31 Jul 2026 13:09:59 +0000
+	id 1wpmzt-0000000CYRq-3LL7;
+	Fri, 31 Jul 2026 13:09:57 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzX-0000000CXy0-2tUg
+	id 1wpmzW-0000000CXvk-0cUS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:09:41 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBmC6t1732219;
-	Fri, 31 Jul 2026 13:09:22 GMT
+	Fri, 31 Jul 2026 13:09:39 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBlYZD1765217;
+	Fri, 31 Jul 2026 13:09:20 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=vhArfC7qd0cgViyp7
-	q1CFnFeq1KxdsH9OXQIhqKz5BI=; b=mFEXq3VdIev6tR+neKJ84hWcCixo53AH+
-	4z+9Ez1ZAqViEC6sIj67uFPBtmSGkp0Rip3LbxlPXLAMZeSGb259rg+QC4dEqRcx
-	BsIMWa5+iRKHjLuw4qZqYmQeSoj5QKrDs5cla/4ltlkqF5v/k3kRdApoYFt+OPhr
-	n7KMcO+oSfA/eN6FQ7qNdIFEoRq6W13/q/oNR6r4KPhf4X6FtWtpt+pSrl/jGgxQ
-	afvm0NWcxhtYsJzRgeVEchTNuDVJVrVsNq+KbBoPLMSaVgf4Tgmrun0XVaVoL8+w
-	ugnQ/tq7MeJDugTBM/zuRjyIMayv/12Tdlw3C/3GZLmXwU3gAOEuQ==
+	:mime-version:references:subject:to; s=pp1; bh=ILe1dRkZtRVAxMCaB
+	VCcApvKGLuy0jK34rt6Fw2SQX8=; b=gvN7AfJS3RD+lY4yuFlTfX48jDrch2vRA
+	/z5KTZuWBp4yeNnDJexyuhr4Qcn1SJqANq/FyYj39MgF02qarKJr8Qb1ua4kb6Tk
+	gEYKCPth6Zx6TYopUWsFmbH1cQjQDMzvADlJs5s1xn6XnVbzMf9tHPim57zHj2lJ
+	gzMdqFeOczRP5lps+LuCpO1qYJqFcHK+AqGQJlq99Qq6Pu5o22DbdtMBzCuQ7eiD
+	M+eHKc0pApGBE0U8tla1b3dWUcq+COMf6K566Kso4+z57Tg3iIYy8KMkngQGpd71
+	DswvIJsnfC21hLeq9t6fnTVxAtXufbvUAt/UkD/fiIRU+VhpLvuZQ==
 Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuw7w4mb-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmv0y565u-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:21 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:19 +0000 (GMT)
 Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuR3O021781;
-	Fri, 31 Jul 2026 13:09:20 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn7uwg43m-1
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuOHC021766;
+	Fri, 31 Jul 2026 13:09:18 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn7uwg43k-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:20 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:18 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD9Dbc48103818
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD9B1950135412
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jul 2026 13:09:13 GMT
+	Fri, 31 Jul 2026 13:09:11 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6C53F20040;
-	Fri, 31 Jul 2026 13:09:13 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 3DFE020040;
+	Fri, 31 Jul 2026 13:09:11 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 05B8320043;
-	Fri, 31 Jul 2026 13:09:13 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id C0FE52004B;
+	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 31 Jul 2026 13:09:12 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,9 +88,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v5 23/31] s390: Introduce Start Arm Execution instruction
-Date: Fri, 31 Jul 2026 15:08:51 +0200
-Message-ID: <20260731130902.654679-24-seiden@linux.ibm.com>
+Subject: [PATCH v5 18/31] KVM: s390: gmap: Move storage key and CMMA code to kvm/s390
+Date: Fri, 31 Jul 2026 15:08:46 +0200
+Message-ID: <20260731130902.654679-19-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
 References: <20260731130902.654679-1-seiden@linux.ibm.com>
@@ -98,35 +98,34 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: biXO83C_qemiC5yx8Kipdnn7HFfeJ6SF
-X-Proofpoint-ORIG-GUID: uyGX5-P6ZTM6NCouhgy_1AaBmDWw2i64
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX5EwN3xnTwPAk
- NedXGodRazNeBmw/US6vkhu2vWgb9A17RLPqeWWGkCwQ3pC0aiFErrYIQAieBidA1GZPAf8Udtm
- A3WVreRGLr9Mr6vZix4qkDJ0ZILFLMY5hBLAyRqW1t5lPwy5ghIL/p1/v8Xb2B/srPPYEN6jJYk
- L5hc/n9hmv4EdXmorIw8AMGOoWCzAv+SR+TQuMCOLvPphBDDZTsIM/cyFrbEVtRp/H+eQQlqmB0
- 0dRf89TU4o4KBS4nfcVlBpyTCXQVdpM69YyYbMiZaQunCs2n1dpyXVAOcA+zPFGLjDD3WhNKmZN
- U3FsgkQOVOeEN/k6rtjKFabW7ZuPDdN6Kce/38bB9fU6wCV3QELfOOcsLEcmFyJWb0iqDdr3uAz
- skzf3nFEuRJyHK6bU9+WckRjtNG886doG+xVPFY1ZzlJcWRnGoykvHr0uyP6XbIi5dnYLRm66Yp
- +kvVWBAmEuPvK73CEbg==
-X-Authority-Analysis: v=2.4 cv=SKFykuvH c=1 sm=1 tr=0 ts=6a6c9e82 cx=c_pps
+X-Proofpoint-GUID: UTzjk0zZWBMJCe5Pdkkb4VzoktwNzmgy
+X-Proofpoint-ORIG-GUID: 6VLgfxXqWy4hl5ym2MEQa2k-NwaD8KMK
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX+nbagoTK28+T
+ BMHKxMtKbRGau31xB0aLorxcwpeIY71hQJKCe6cgpw4PcDOrPIQrH9Ubll7kGA1V0DkWB2QV/Wc
+ /ofXpOf2DxhwnqOo32Y9ssjfl229MUo=
+X-Authority-Analysis: v=2.4 cv=dYuwG3Xe c=1 sm=1 tr=0 ts=6a6c9e80 cx=c_pps
  a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=D7HF9d94yUUfLUezzdoA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX+ujBLxpHjC90
- 9ahDjnuH5APiAV9DOfo+8oQzmSZmT8+EJnTw+COutjNo6xfeSjd5dBpDf1KhI9taqSF1oxxXKHi
- sIBD8VZlVfo4rZR2ORPckUGuRjomFoE=
+ a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=gLUulVKEJhMzuiw3ne4A:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX9vRKaqzcrjvU
+ dDAytiDpHhIjH8AHrvEy1wsvUI94Q7dTNs3B5Tl1IrdmfN7RyOAT5TsnjTyAmeejpmE0FVphkwp
+ tG51sheJQwHXG6i6ESEbT3RVw2NCN2aw63ll7xfLgbKoHy30csgCdXkyw4lnObuqhH5Jm4/LPlO
+ aRgh55k4q3PqepvnDej411xvrpkA2vfG/SEyGDAwDes0do/JE1L6gqcPZooyLPen8TaY9RjIitN
+ 2lBtPQz+tDjM32vi8Qos9Jr2i5gBRrKHXVS5pfJ3xkVEQEA6e8M21IUXwzRRnYAqW3mSXhpTyXn
+ gkxwWdw0GBjT14TxPlAs5Z6bQuNbaEGwl3JM7F4+GNdxoF+799qwIrzqU8c/tzaoAoBccaWqk1j
+ o0VN42N/wsJMQgO+4DK9hau0OvFsaPeMP/gP6tRYMnbncbzkMNoGX4x7EkrVWOR6HRPZS0Qli4R
+ pgE+wMp4G833AZb+tpA==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0
- lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607310096
+ priorityscore=1501 impostorscore=0 clxscore=1015 phishscore=0 malwarescore=0
+ spamscore=0 lowpriorityscore=0 bulkscore=0 suspectscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607310096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060935_784899_B1B31991 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20260731_060934_418062_78F6AF86 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,345 +140,1329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Start Arm Execution (SAE) instruction is the centerpiece for
-executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
-enable accelerated execution of arm64 virtual machines. SAE expects the
-physical address of a control block as the only argument.
+Extract storage key and CMMA functionality from kvm/gmap to kvm/s390.
+This enables other KVM implementations to use gmap without implementing
+storage key or CMMA handling which only makes sense for s390 guests.
 
-The host is responsible to save & restore
- - GPRs 0-13
- - access register 0-15
- - breaking event register (BEAR)
- - vector/floating point registers
-between SAE executions to guarantee host consistency.
+No functional changes.
 
-GPRs and BEAR are save and restores in the asm functions. The other
-register are handled in within C code. Access registers are handled in a
-later patch and SVEs will be handled when they are introduced in a
-future series. Most arm64 registers are handled by a satellite block
-called save_area. Some registers, frequently used by hypervisors, are
-placed into the SAE control block itself.
-
-Enlighten asm/kvm_host_types.h for the new header variant. The new
-header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
-is defined.
-
-Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/s390/include/asm/asm-prototypes.h       |   1 +
- arch/s390/include/asm/kvm_host_arm64_types.h | 118 +++++++++++++++++++
- arch/s390/include/asm/kvm_host_types.h       |   4 +
- arch/s390/include/asm/sae.h                  |  56 +++++++++
- arch/s390/include/asm/stacktrace.h           |   5 +
- arch/s390/kernel/asm-offsets.c               |   1 +
- arch/s390/kernel/entry.S                     |  25 ++++
- arch/s390/tools/opcodes.txt                  |   3 +
- 8 files changed, 213 insertions(+)
- create mode 100644 arch/s390/include/asm/kvm_host_arm64_types.h
- create mode 100644 arch/s390/include/asm/sae.h
+ arch/s390/kvm/gmap/dat.c    | 500 -----------------------------------
+ arch/s390/kvm/gmap/dat.h    |   7 -
+ arch/s390/kvm/gmap/gmap.c   |  77 ------
+ arch/s390/kvm/gmap/gmap.h   |  11 -
+ arch/s390/kvm/s390/Makefile |   1 +
+ arch/s390/kvm/s390/dat.c    | 506 ++++++++++++++++++++++++++++++++++++
+ arch/s390/kvm/s390/gmap.c   |  84 ++++++
+ arch/s390/kvm/s390/s390.h   |  23 ++
+ 8 files changed, 614 insertions(+), 595 deletions(-)
+ create mode 100644 arch/s390/kvm/s390/dat.c
+ create mode 100644 arch/s390/kvm/s390/gmap.c
 
-diff --git a/arch/s390/include/asm/asm-prototypes.h b/arch/s390/include/asm/asm-prototypes.h
-index d4da4436d02b..faa2afb259a1 100644
---- a/arch/s390/include/asm/asm-prototypes.h
-+++ b/arch/s390/include/asm/asm-prototypes.h
-@@ -6,6 +6,7 @@
- #include <asm/bug.h>
- #include <asm/fpu.h>
- #include <asm/nospec-branch.h>
-+#include <asm/sae.h>
- #include <asm-generic/asm-prototypes.h>
+diff --git a/arch/s390/kvm/gmap/dat.c b/arch/s390/kvm/gmap/dat.c
+index ed4259d17629..1ac6457de498 100644
+--- a/arch/s390/kvm/gmap/dat.c
++++ b/arch/s390/kvm/gmap/dat.c
+@@ -613,229 +613,6 @@ long _dat_walk_gfn_range(gfn_t start, gfn_t end, union asce asce,
+ 	return dat_crste_walk_range(start, min(end, asce_end(asce)), table, &walk);
+ }
  
- #endif /* _ASM_S390_PROTOTYPES_H */
-diff --git a/arch/s390/include/asm/kvm_host_arm64_types.h b/arch/s390/include/asm/kvm_host_arm64_types.h
+-int dat_get_storage_key(union asce asce, gfn_t gfn, union skey *skey)
+-{
+-	union crste *crstep;
+-	union pgste pgste;
+-	union pte *ptep;
+-	int rc;
+-
+-	skey->skey = 0;
+-	rc = dat_entry_walk(NULL, gfn, asce, DAT_WALK_ANY, TABLE_TYPE_PAGE_TABLE, &crstep, &ptep);
+-	if (rc)
+-		return rc;
+-
+-	if (!ptep) {
+-		union crste crste;
+-
+-		crste = READ_ONCE(*crstep);
+-		if (!crste.h.fc || !crste.s.fc1.pr)
+-			return 0;
+-		skey->skey = page_get_storage_key(large_crste_to_phys(crste, gfn));
+-		return 0;
+-	}
+-	pgste = pgste_get_lock(ptep);
+-	if (ptep->h.i) {
+-		skey->acc = pgste.acc;
+-		skey->fp = pgste.fp;
+-	} else {
+-		skey->skey = page_get_storage_key(pte_origin(*ptep));
+-	}
+-	skey->r |= pgste.gr;
+-	skey->c |= pgste.gc;
+-	pgste_set_unlock(ptep, pgste);
+-	return 0;
+-}
+-
+-static void dat_update_ptep_sd(union pgste old, union pgste pgste, union pte *ptep)
+-{
+-	if (pgste.acc != old.acc || pgste.fp != old.fp || pgste.gr != old.gr || pgste.gc != old.gc)
+-		__atomic64_or(_PAGE_SD, &ptep->val);
+-}
+-
+-int dat_set_storage_key(struct kvm_s390_mmu_cache *mc, union asce asce, gfn_t gfn,
+-			union skey skey, bool nq)
+-{
+-	union pgste pgste, old;
+-	union crste *crstep;
+-	union pte *ptep;
+-	int rc;
+-
+-	rc = dat_entry_walk(mc, gfn, asce, DAT_WALK_LEAF_ALLOC, TABLE_TYPE_PAGE_TABLE,
+-			    &crstep, &ptep);
+-	if (rc)
+-		return rc;
+-
+-	if (!ptep) {
+-		page_set_storage_key(large_crste_to_phys(*crstep, gfn), skey.skey, !nq);
+-		return 0;
+-	}
+-
+-	old = pgste_get_lock(ptep);
+-	pgste = old;
+-
+-	pgste.acc = skey.acc;
+-	pgste.fp = skey.fp;
+-	pgste.gc = skey.c;
+-	pgste.gr = skey.r;
+-
+-	if (!ptep->h.i) {
+-		union skey old_skey;
+-
+-		old_skey.skey = page_get_storage_key(pte_origin(*ptep));
+-		pgste.hc |= old_skey.c;
+-		pgste.hr |= old_skey.r;
+-		old_skey.c = old.gc;
+-		old_skey.r = old.gr;
+-		skey.r = 0;
+-		skey.c = 0;
+-		page_set_storage_key(pte_origin(*ptep), skey.skey, !nq);
+-	}
+-
+-	dat_update_ptep_sd(old, pgste, ptep);
+-	pgste_set_unlock(ptep, pgste);
+-	return 0;
+-}
+-
+-static bool page_cond_set_storage_key(phys_addr_t paddr, union skey skey, union skey *oldkey,
+-				      bool nq, bool mr, bool mc)
+-{
+-	oldkey->skey = page_get_storage_key(paddr);
+-	if (oldkey->acc == skey.acc && oldkey->fp == skey.fp &&
+-	    (oldkey->r == skey.r || mr) && (oldkey->c == skey.c || mc))
+-		return false;
+-	page_set_storage_key(paddr, skey.skey, !nq);
+-	return true;
+-}
+-
+-int dat_cond_set_storage_key(struct kvm_s390_mmu_cache *mmc, union asce asce, gfn_t gfn,
+-			     union skey skey, union skey *oldkey, bool nq, bool mr, bool mc)
+-{
+-	union pgste pgste, old;
+-	union crste *crstep;
+-	union skey prev;
+-	union pte *ptep;
+-	int rc;
+-
+-	rc = dat_entry_walk(mmc, gfn, asce, DAT_WALK_LEAF_ALLOC, TABLE_TYPE_PAGE_TABLE,
+-			    &crstep, &ptep);
+-	if (rc)
+-		return rc;
+-
+-	if (!ptep)
+-		return page_cond_set_storage_key(large_crste_to_phys(*crstep, gfn), skey, oldkey,
+-						 nq, mr, mc);
+-
+-	old = pgste_get_lock(ptep);
+-	pgste = old;
+-
+-	rc = 1;
+-	pgste.acc = skey.acc;
+-	pgste.fp = skey.fp;
+-	pgste.gc = skey.c;
+-	pgste.gr = skey.r;
+-
+-	if (!ptep->h.i) {
+-		rc = page_cond_set_storage_key(pte_origin(*ptep), skey, &prev, nq, mr, mc);
+-		pgste.hc |= prev.c;
+-		pgste.hr |= prev.r;
+-		prev.c |= old.gc;
+-		prev.r |= old.gr;
+-	} else {
+-		prev.acc = old.acc;
+-		prev.fp = old.fp;
+-		prev.c = old.gc;
+-		prev.r = old.gr;
+-	}
+-	if (oldkey)
+-		*oldkey = prev;
+-
+-	dat_update_ptep_sd(old, pgste, ptep);
+-	pgste_set_unlock(ptep, pgste);
+-	return rc;
+-}
+-
+-int dat_reset_reference_bit(union asce asce, gfn_t gfn)
+-{
+-	union pgste pgste, old;
+-	union crste *crstep;
+-	union pte *ptep;
+-	int rc;
+-
+-	rc = dat_entry_walk(NULL, gfn, asce, DAT_WALK_ANY, TABLE_TYPE_PAGE_TABLE, &crstep, &ptep);
+-	if (rc)
+-		return rc;
+-
+-	if (!ptep) {
+-		union crste crste = READ_ONCE(*crstep);
+-
+-		if (!crste.h.fc || !crste.s.fc1.pr)
+-			return 0;
+-		return page_reset_referenced(large_crste_to_phys(*crstep, gfn));
+-	}
+-	old = pgste_get_lock(ptep);
+-	pgste = old;
+-
+-	if (!ptep->h.i) {
+-		rc = page_reset_referenced(pte_origin(*ptep));
+-		pgste.hr = rc >> 1;
+-	}
+-	rc |= (pgste.gr << 1) | pgste.gc;
+-	pgste.gr = 0;
+-
+-	dat_update_ptep_sd(old, pgste, ptep);
+-	pgste_set_unlock(ptep, pgste);
+-	return rc;
+-}
+-
+-static long dat_reset_skeys_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+-{
+-	union pgste pgste;
+-
+-	pgste = pgste_get_lock(ptep);
+-	pgste.acc = 0;
+-	pgste.fp = 0;
+-	pgste.gr = 0;
+-	pgste.gc = 0;
+-	if (ptep->s.pr)
+-		page_set_storage_key(pte_origin(*ptep), PAGE_DEFAULT_KEY, 1);
+-	pgste_set_unlock(ptep, pgste);
+-
+-	if (need_resched())
+-		return next;
+-	return 0;
+-}
+-
+-static long dat_reset_skeys_crste(union crste *crstep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+-{
+-	phys_addr_t addr, end, origin = crste_origin_large(*crstep);
+-
+-	if (!crstep->h.fc || !crstep->s.fc1.pr)
+-		return 0;
+-
+-	addr = ((max(gfn, walk->start) - gfn) << PAGE_SHIFT) + origin;
+-	end = ((min(next, walk->end) - gfn) << PAGE_SHIFT) + origin;
+-	while (ALIGN(addr + 1, _SEGMENT_SIZE) <= end)
+-		addr = sske_frame(addr, PAGE_DEFAULT_KEY);
+-	for ( ; addr < end; addr += PAGE_SIZE)
+-		page_set_storage_key(addr, PAGE_DEFAULT_KEY, 1);
+-
+-	if (need_resched())
+-		return next;
+-	return 0;
+-}
+-
+-long dat_reset_skeys(union asce asce, gfn_t start)
+-{
+-	const struct dat_walk_ops ops = {
+-		.pte_entry = dat_reset_skeys_pte,
+-		.pmd_entry = dat_reset_skeys_crste,
+-		.pud_entry = dat_reset_skeys_crste,
+-	};
+-
+-	return _dat_walk_gfn_range(start, asce_end(asce), asce, &ops, DAT_WALK_IGN_HOLES, NULL);
+-}
+-
+ struct slot_priv {
+ 	unsigned long token;
+ 	struct kvm_s390_mmu_cache *mc;
+@@ -1048,280 +825,3 @@ int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn)
+ 	return 0;
+ }
+ 
+-/**
+- * dat_perform_essa() - Perform ESSA actions on the PGSTE.
+- * @asce: The asce to operate on.
+- * @gfn: The guest page frame to operate on.
+- * @orc: The specific action to perform, see the ESSA_SET_* macros.
+- * @state: The storage attributes to be returned to the guest.
+- * @dirty: Returns whether the function dirtied a previously clean entry.
+- *
+- * Context: Called with kvm->mmu_lock held.
+- *
+- * Return:
+- * * %1 if the page state has been altered and the page is to be added to the CBRL
+- * * %0 if the page state has been altered, but the page is not to be added to the CBRL
+- * * %-1 if the page state has not been altered and the page is not to be added to the CBRL
+- */
+-int dat_perform_essa(union asce asce, gfn_t gfn, int orc, union essa_state *state, bool *dirty)
+-{
+-	union crste *crstep;
+-	union pgste pgste;
+-	union pte *ptep;
+-	int res = 0;
+-
+-	if (dat_entry_walk(NULL, gfn, asce, 0, TABLE_TYPE_PAGE_TABLE, &crstep, &ptep)) {
+-		*state = (union essa_state) { .exception = 1 };
+-		return -1;
+-	}
+-
+-	pgste = pgste_get_lock(ptep);
+-
+-	*state = (union essa_state) {
+-		.content = (ptep->h.i << 1) + (ptep->h.i && pgste.zero),
+-		.nodat = pgste.nodat,
+-		.usage = pgste.usage,
+-		};
+-
+-	switch (orc) {
+-	case ESSA_GET_STATE:
+-		res = -1;
+-		break;
+-	case ESSA_SET_STABLE:
+-		pgste.usage = PGSTE_GPS_USAGE_STABLE;
+-		pgste.nodat = 0;
+-		break;
+-	case ESSA_SET_UNUSED:
+-		pgste.usage = PGSTE_GPS_USAGE_UNUSED;
+-		if (ptep->h.i)
+-			res = 1;
+-		break;
+-	case ESSA_SET_VOLATILE:
+-		pgste.usage = PGSTE_GPS_USAGE_VOLATILE;
+-		if (ptep->h.i)
+-			res = 1;
+-		break;
+-	case ESSA_SET_POT_VOLATILE:
+-		if (!ptep->h.i) {
+-			pgste.usage = PGSTE_GPS_USAGE_POT_VOLATILE;
+-		} else if (pgste.zero) {
+-			pgste.usage = PGSTE_GPS_USAGE_VOLATILE;
+-		} else if (!pgste.gc) {
+-			pgste.usage = PGSTE_GPS_USAGE_VOLATILE;
+-			res = 1;
+-		}
+-		break;
+-	case ESSA_SET_STABLE_RESIDENT:
+-		pgste.usage = PGSTE_GPS_USAGE_STABLE;
+-		/*
+-		 * Since the resident state can go away any time after this
+-		 * call, we will not make this page resident. We can revisit
+-		 * this decision if a guest will ever start using this.
+-		 */
+-		break;
+-	case ESSA_SET_STABLE_IF_RESIDENT:
+-		if (!ptep->h.i)
+-			pgste.usage = PGSTE_GPS_USAGE_STABLE;
+-		break;
+-	case ESSA_SET_STABLE_NODAT:
+-		pgste.usage = PGSTE_GPS_USAGE_STABLE;
+-		pgste.nodat = 1;
+-		break;
+-	default:
+-		WARN_ONCE(1, "Invalid ORC!");
+-		res = -1;
+-		break;
+-	}
+-	/* If we are discarding a page, set it to logical zero. */
+-	pgste.zero = res == 1;
+-	if (orc > 0) {
+-		*dirty = !pgste.cmma_d;
+-		pgste.cmma_d = 1;
+-	}
+-
+-	pgste_set_unlock(ptep, pgste);
+-
+-	return res;
+-}
+-
+-static long dat_reset_cmma_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+-{
+-	union pgste pgste;
+-
+-	pgste = pgste_get_lock(ptep);
+-	pgste.usage = 0;
+-	pgste.nodat = 0;
+-	pgste.cmma_d = 0;
+-	pgste_set_unlock(ptep, pgste);
+-	if (need_resched())
+-		return next;
+-	return 0;
+-}
+-
+-long dat_reset_cmma(union asce asce, gfn_t start)
+-{
+-	const struct dat_walk_ops dat_reset_cmma_ops = {
+-		.pte_entry = dat_reset_cmma_pte,
+-	};
+-
+-	return _dat_walk_gfn_range(start, asce_end(asce), asce, &dat_reset_cmma_ops,
+-				   DAT_WALK_IGN_HOLES, NULL);
+-}
+-
+-struct dat_get_cmma_state {
+-	gfn_t start;
+-	gfn_t end;
+-	unsigned int count;
+-	u8 *values;
+-	atomic64_t *remaining;
+-};
+-
+-static long __dat_peek_cmma_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+-{
+-	struct dat_get_cmma_state *state = walk->priv;
+-	union pgste pgste;
+-
+-	pgste = pgste_get_lock(ptep);
+-	state->values[gfn - walk->start] = pgste.usage | (pgste.nodat << 6);
+-	pgste_set_unlock(ptep, pgste);
+-	state->end = next;
+-
+-	return 0;
+-}
+-
+-static long __dat_peek_cmma_crste(union crste *crstep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+-{
+-	struct dat_get_cmma_state *state = walk->priv;
+-
+-	if (crstep->h.i)
+-		state->end = min(walk->end, next);
+-	return 0;
+-}
+-
+-int dat_peek_cmma(gfn_t start, union asce asce, unsigned int *count, u8 *values)
+-{
+-	const struct dat_walk_ops ops = {
+-		.pte_entry = __dat_peek_cmma_pte,
+-		.pmd_entry = __dat_peek_cmma_crste,
+-		.pud_entry = __dat_peek_cmma_crste,
+-		.p4d_entry = __dat_peek_cmma_crste,
+-		.pgd_entry = __dat_peek_cmma_crste,
+-	};
+-	struct dat_get_cmma_state state = { .values = values, };
+-	int rc;
+-
+-	rc = _dat_walk_gfn_range(start, start + *count, asce, &ops, DAT_WALK_DEFAULT, &state);
+-	*count = state.end >= start ? state.end - start : 0;
+-	/* Return success if at least one value was saved, otherwise an error. */
+-	return (rc == -EFAULT && *count > 0) ? 0 : rc;
+-}
+-
+-static long __dat_get_cmma_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+-{
+-	struct dat_get_cmma_state *state = walk->priv;
+-	union pgste pgste;
+-
+-	if (state->start != -1) {
+-		if ((gfn - state->end) > KVM_S390_MAX_BIT_DISTANCE)
+-			return 1;
+-		if (gfn - state->start >= state->count)
+-			return 1;
+-	}
+-
+-	if (!READ_ONCE(*pgste_of(ptep)).cmma_d)
+-		return 0;
+-
+-	pgste = pgste_get_lock(ptep);
+-	if (pgste.cmma_d) {
+-		if (state->start == -1)
+-			state->start = gfn;
+-		pgste.cmma_d = 0;
+-		atomic64_dec(state->remaining);
+-		state->values[gfn - state->start] = pgste.usage | pgste.nodat << 6;
+-		state->end = next;
+-	}
+-	pgste_set_unlock(ptep, pgste);
+-	return 0;
+-}
+-
+-int dat_get_cmma(union asce asce, gfn_t *start, unsigned int *count, u8 *values, atomic64_t *rem)
+-{
+-	const struct dat_walk_ops ops = { .pte_entry = __dat_get_cmma_pte, };
+-	struct dat_get_cmma_state state = {
+-		.remaining = rem,
+-		.values = values,
+-		.count = *count,
+-		.start = -1,
+-	};
+-
+-	_dat_walk_gfn_range(*start, asce_end(asce), asce, &ops, DAT_WALK_IGN_HOLES, &state);
+-	/* If no dirty pages were found, wrap around and continue searching */
+-	if (*start && state.start == -1)
+-		_dat_walk_gfn_range(0, *start, asce, &ops, DAT_WALK_IGN_HOLES, &state);
+-
+-	if (state.start == -1) {
+-		*count = 0;
+-	} else {
+-		*count = state.end - state.start;
+-		*start = state.start;
+-	}
+-
+-	return 0;
+-}
+-
+-struct dat_set_cmma_state {
+-	unsigned long mask;
+-	const u8 *bits;
+-};
+-
+-static long __dat_set_cmma_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+-{
+-	struct dat_set_cmma_state *state = walk->priv;
+-	union pgste pgste, tmp;
+-
+-	tmp.val = (state->bits[gfn - walk->start] << 24) & state->mask;
+-
+-	pgste = pgste_get_lock(ptep);
+-	pgste.usage = tmp.usage;
+-	pgste.nodat = tmp.nodat;
+-	pgste_set_unlock(ptep, pgste);
+-
+-	return 0;
+-}
+-
+-/**
+- * dat_set_cmma_bits() - Set CMMA bits for a range of guest pages.
+- * @mc: Cache used for allocations.
+- * @asce: The ASCE of the guest.
+- * @gfn: The guest frame of the fist page whose CMMA bits are to set.
+- * @count: How many pages need to be processed.
+- * @mask: Which PGSTE bits should be set.
+- * @bits: Points to an array with the CMMA attributes.
+- *
+- * This function sets the CMMA attributes for the given pages. If the input
+- * buffer has zero length, no action is taken, otherwise the attributes are
+- * set and the mm->context.uses_cmm flag is set.
+- *
+- * Each byte in @bits contains new values for bits 32-39 of the PGSTE.
+- * Currently, only the fields NT and US are applied.
+- *
+- * Return: %0 in case of success, a negative error value otherwise.
+- */
+-int dat_set_cmma_bits(struct kvm_s390_mmu_cache *mc, union asce asce, gfn_t gfn,
+-		      unsigned long count, unsigned long mask, const uint8_t *bits)
+-{
+-	const struct dat_walk_ops ops = { .pte_entry = __dat_set_cmma_pte, };
+-	struct dat_set_cmma_state state = { .mask = mask, .bits = bits, };
+-	union crste *crstep;
+-	union pte *ptep;
+-	gfn_t cur;
+-	int rc;
+-
+-	for (cur = ALIGN_DOWN(gfn, _PAGE_ENTRIES); cur < gfn + count; cur += _PAGE_ENTRIES) {
+-		rc = dat_entry_walk(mc, cur, asce, DAT_WALK_ALLOC, TABLE_TYPE_PAGE_TABLE,
+-				    &crstep, &ptep);
+-		if (rc)
+-			return rc;
+-	}
+-	return _dat_walk_gfn_range(gfn, gfn + count, asce, &ops, DAT_WALK_IGN_HOLES, &state);
+-}
+diff --git a/arch/s390/kvm/gmap/dat.h b/arch/s390/kvm/gmap/dat.h
+index 711ae2f96107..e6fd201ec9b9 100644
+--- a/arch/s390/kvm/gmap/dat.h
++++ b/arch/s390/kvm/gmap/dat.h
+@@ -532,13 +532,6 @@ int dat_entry_walk(struct kvm_s390_mmu_cache *mc, gfn_t gfn, union asce asce, in
+ void dat_free_level(struct crst_table *table, bool owns_ptes);
+ struct crst_table *dat_alloc_crst_sleepable(unsigned long init);
+ int dat_set_asce_limit(struct kvm_s390_mmu_cache *mc, union asce *asce, int newtype);
+-int dat_get_storage_key(union asce asce, gfn_t gfn, union skey *skey);
+-int dat_set_storage_key(struct kvm_s390_mmu_cache *mc, union asce asce, gfn_t gfn,
+-			union skey skey, bool nq);
+-int dat_cond_set_storage_key(struct kvm_s390_mmu_cache *mmc, union asce asce, gfn_t gfn,
+-			     union skey skey, union skey *oldkey, bool nq, bool mr, bool mc);
+-int dat_reset_reference_bit(union asce asce, gfn_t gfn);
+-long dat_reset_skeys(union asce asce, gfn_t start);
+ 
+ unsigned long dat_get_ptval(struct page_table *table, struct ptval_param param);
+ void dat_set_ptval(struct page_table *table, struct ptval_param param, unsigned long val);
+diff --git a/arch/s390/kvm/gmap/gmap.c b/arch/s390/kvm/gmap/gmap.c
+index 9ae55a1d6f09..c4ed40ea3475 100644
+--- a/arch/s390/kvm/gmap/gmap.c
++++ b/arch/s390/kvm/gmap/gmap.c
+@@ -945,39 +945,6 @@ void gmap_split_huge_pages(struct gmap *gmap)
+ 	} while (start);
+ }
+ 
+-static int _gmap_enable_skeys(struct gmap *gmap)
+-{
+-	gfn_t start = 0;
+-	int rc;
+-
+-	if (uses_skeys(gmap))
+-		return 0;
+-
+-	set_bit(GMAP_FLAG_USES_SKEYS, &gmap->flags);
+-	rc = gmap_helper_disable_cow_sharing();
+-	if (rc) {
+-		clear_bit(GMAP_FLAG_USES_SKEYS, &gmap->flags);
+-		return rc;
+-	}
+-
+-	do {
+-		scoped_guard(write_lock, &gmap->kvm->mmu_lock)
+-			start = dat_reset_skeys(gmap->asce, start);
+-		cond_resched();
+-	} while (start);
+-	return 0;
+-}
+-
+-int gmap_enable_skeys(struct gmap *gmap)
+-{
+-	int rc;
+-
+-	mmap_write_lock(gmap->kvm->mm);
+-	rc = _gmap_enable_skeys(gmap);
+-	mmap_write_unlock(gmap->kvm->mm);
+-	return rc;
+-}
+-
+ static long _destroy_pages_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+ {
+ 	if (!ptep->s.pr)
+@@ -1098,50 +1065,6 @@ int gmap_protect_rmap(struct kvm_s390_mmu_cache *mc, struct gmap *sg, gfn_t p_gf
+ 	return 0;
+ }
+ 
+-static long __set_cmma_clean_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+-{
+-	union pgste pgste;
+-
+-	pgste = pgste_get_lock(ptep);
+-	pgste.cmma_d = 0;
+-	pgste_set_unlock(ptep, pgste);
+-
+-	if (need_resched())
+-		return next;
+-	return 0;
+-}
+-
+-static long __set_cmma_dirty_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
+-{
+-	union pgste pgste;
+-
+-	pgste = pgste_get_lock(ptep);
+-	if (!pgste.cmma_d)
+-		atomic64_inc(walk->priv);
+-	pgste.cmma_d = 1;
+-	pgste_set_unlock(ptep, pgste);
+-
+-	if (need_resched())
+-		return next;
+-	return 0;
+-}
+-
+-void _gmap_set_cmma_all(struct gmap *gmap, bool dirty)
+-{
+-	const struct dat_walk_ops ops = {
+-		.pte_entry = dirty ? __set_cmma_dirty_pte : __set_cmma_clean_pte,
+-	};
+-	gfn_t gfn = 0;
+-
+-	do {
+-		scoped_guard(read_lock, &gmap->kvm->mmu_lock)
+-			gfn = _dat_walk_gfn_range(gfn, asce_end(gmap->asce), gmap->asce, &ops,
+-						  DAT_WALK_IGN_HOLES,
+-						  &gmap->kvm->arch.cmma_dirty_pages);
+-		cond_resched();
+-	} while (gfn);
+-}
+-
+ static void gmap_unshadow_level(struct gmap *sg, gfn_t r_gfn, int level)
+ {
+ 	unsigned long align = PAGE_SIZE;
+diff --git a/arch/s390/kvm/gmap/gmap.h b/arch/s390/kvm/gmap/gmap.h
+index c54c35e47d6d..c9cab8f60f62 100644
+--- a/arch/s390/kvm/gmap/gmap.h
++++ b/arch/s390/kvm/gmap/gmap.h
+@@ -104,7 +104,6 @@ int gmap_insert_rmap(struct kvm_s390_mmu_cache *mc, struct gmap *sg, gfn_t p_gfn
+ 		     gfn_t r_gfn, int level);
+ int gmap_protect_rmap(struct kvm_s390_mmu_cache *mc, struct gmap *sg, gfn_t p_gfn, gfn_t r_gfn,
+ 		      kvm_pfn_t pfn, int level, bool wr);
+-void _gmap_set_cmma_all(struct gmap *gmap, bool dirty);
+ void _gmap_handle_vsie_unshadow_event(struct gmap *parent, gfn_t gfn);
+ struct gmap *gmap_create_shadow(struct kvm_s390_mmu_cache *mc, struct gmap *gmap,
+ 				union asce asce, int edat_level);
+@@ -198,16 +197,6 @@ static inline bool pte_needs_unshadow(union pte oldpte, union pte newpte, union
+ 	return !newpte.h.p || !newpte.s.pr;
+ }
+ 
+-static inline void gmap_set_cmma_all_dirty(struct gmap *gmap)
+-{
+-	_gmap_set_cmma_all(gmap, true);
+-}
+-
+-static inline void gmap_set_cmma_all_clean(struct gmap *gmap)
+-{
+-	_gmap_set_cmma_all(gmap, false);
+-}
+-
+ static inline union pgste _gmap_ptep_xchg(struct gmap *gmap, union pte *ptep, union pte newpte,
+ 					  union pgste pgste, gfn_t gfn, bool needs_lock)
+ {
+diff --git a/arch/s390/kvm/s390/Makefile b/arch/s390/kvm/s390/Makefile
+index 354cb4c52635..1a1e8ce80400 100644
+--- a/arch/s390/kvm/s390/Makefile
++++ b/arch/s390/kvm/s390/Makefile
+@@ -8,6 +8,7 @@ ccflags-y := -I$(src) -I$(srctree)/arch/s390/kvm/gmap
+ 
+ kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
+ kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
++kvm-y += dat.o gmap.o
+ 
+ kvm-$(CONFIG_VFIO_PCI_ZDEV_KVM) += pci.o
+ 
+diff --git a/arch/s390/kvm/s390/dat.c b/arch/s390/kvm/s390/dat.c
 new file mode 100644
-index 000000000000..d112ca8c6bc1
+index 000000000000..ff2d6c1cf90e
 --- /dev/null
-+++ b/arch/s390/include/asm/kvm_host_arm64_types.h
-@@ -0,0 +1,118 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef ASM_KVM_HOST_ARM64_TYPES_H
-+#define ASM_KVM_HOST_ARM64_TYPES_H
++++ b/arch/s390/kvm/s390/dat.c
+@@ -0,0 +1,506 @@
++// SPDX-License-Identifier: GPL-2.0
 +
-+#include <linux/types.h>
-+#include <linux/kvm_types.h>
-+#include <linux/compiler_attributes.h>
-+#include <asm/page.h>
-+#include <asm/fault.h>
++#include <asm/page-states.h>
 +
-+struct kvm_sae_block {
-+	u64	_0000[16];		/* 0x0000 */
-+#define SAE_ICPTR_SPURIOUS			0x00
-+#define SAE_ICPTR_VALIDITY			0x01
-+#define SAE_ICPTR_HOST_ACCESS_EXCEPTION		0x02
-+#define SAE_ICPTR_SYNCHRONOUS_EXCEPTION		0x03
-+#define SAE_ICPTR_TIMER				0x04
-+#define SAE_ICPTR_PE_INTERCOMM			0x05
-+#define SAE_ICPTR_GUEST_ADDRESS_SIZE		0x06
-+#define SAE_ICPTR_STOP				0x07
-+#define SAE_ICPTR_SYSTEM_REGISTER		0x08
-+#define SAE_ICPTR_PMU				0x09
-+#define SAE_ICPTR_MAINTENANCE			0x0a
-+	u8	icptr;			/* 0x0080 */
-+	u8	_0081[7];		/* 0x0081 */
-+	u64	scad;			/* 0x0088 */
-+	u64	_0090[16];		/* 0x00b0 */
-+	u32	cntp_ctl;		/* 0x0110 */
-+	u32	cntv_ctl;		/* 0x0114 */
-+	u8	irq_ctl;		/* 0x0118 */
-+	u8	_0119[7];		/* 0x0119 */
-+	struct {
-+		u64	ich_hcr_el2;	/* 0x0120 */
-+		u64	ich_vmcr_el2;	/* 0x0128 */
-+		u64	ich_ap0r0_el2;	/* 0x0130 */
-+		u64	ich_ap1r0_el2;	/* 0x0138 */
-+		u64	_0140[2];	/* 0x0140 */
-+		u64	ich_lrn_el2[4];	/* 0x0150 */
-+		u64	_0170[4];	/* 0x0170 */
-+	} ic_regs;
-+	u64	_0190[12];		/* 0x0190 */
-+	u64	contextidr_el1;		/* 0x01f0 */
-+	u32	wip;			/* 0x01f8 */
-+	u32	_01fc;			/* 0x01fc */
-+#define SAE_SD_FORMAT_0                 0x00
-+	u8	sdf;			/* 0x0200  */
-+	u8	_0201[7];		/* 0x0201  */
-+	u64	mso;			/* 0x0208  */
-+	u64	msl;			/* 0x0210  */
-+	u64	hbasce;			/* 0x0218  */
-+	u64	_0220;			/* 0x0220  */
-+	u64	gpto;			/* 0x0228  */
-+	u64	ic;			/* 0x0230  */
-+	u64	ec;			/* 0x0238  */
-+	u64	save_area;		/* 0x0240  */
-+	u64	_0248[7];		/* 0x0248  */
-+	u8	_0280[6];		/* 0x0280  */
-+	u16	lrcpua;			/* 0x0286  */
-+	u64	pstate;			/* 0x0288  */
-+	u64	pc;			/* 0x0290  */
-+	u64	sp_el0;			/* 0x0298  */
-+	u64	sp_el1;			/* 0x02a0  */
-+	u64	_02a8;			/* 0x02a8  */
-+	u64	fpcr;			/* 0x02b0  */
-+	u64	fpsr;			/* 0x02b8  */
-+	u16	sve_pregs[16];		/* 0x02c0  */
-+	u16	sve_ffr;		/* 0x02e0  */
-+	u8	_02e2[6];		/* 0x02e2  */
-+	u64	_02e8[3];		/* 0x02e8  */
++#include "s390.h"
 +
-+	u64	gpr[31];		/* 0x0300  */
-+	u64	_03f8;			/* 0x03f8  */
++int dat_get_storage_key(union asce asce, gfn_t gfn, union skey *skey)
++{
++	union crste *crstep;
++	union pgste pgste;
++	union pte *ptep;
++	int rc;
 +
-+	union {
-+		u64	icptd[8];		/* 0x0400 */
-+		/* validity-interception reason; icptr 0x01 */
-+		u16 vir;			/* 0x0400 */
-+		/* host access interception details; icptr 0x02 */
-+		struct {
-+			u64		esr_elz;	/* 0x0400 */
-+			u8		_0408[6];	/* 0x0408 */
-+			u16		pic;		/* 0x040e */
-+			union teid	teid;		/* 0x0410 */
-+			gva_t		far_elz;	/* 0x0418 */
-+			gva_t		vaddr;		/* 0x0420 */
-+			u64		suppl;		/* 0x0428 */
-+			u8		gltl;		/* 0x0430 */
-+			u8		_0431[7];	/* 0x0431 */
-+			u64		_0438;		/* 0x0438 */
-+		} hai;
-+		/* exception-interception details; icptr 0x03 */
-+		struct {
-+			u64	esr_elz;		/* 0x0400 */
-+			u64	_0408[2];		/* 0x0408 */
-+			gva_t	far_elz;		/* 0x0418 */
-+		} trap;
-+		/* timer-interception reason; icptr 0x04 */
-+#define SAE_IR_TIMER_ID_VIRT		BIT(6)
-+#define SAE_IR_TIMER_ID_PHYS		BIT(7)
-+		u8	tir;			/* 0x0400 */
++	skey->skey = 0;
++	rc = dat_entry_walk(NULL, gfn, asce, DAT_WALK_ANY, TABLE_TYPE_PAGE_TABLE, &crstep, &ptep);
++	if (rc)
++		return rc;
++
++	if (!ptep) {
++		union crste crste;
++
++		crste = READ_ONCE(*crstep);
++		if (!crste.h.fc || !crste.s.fc1.pr)
++			return 0;
++		skey->skey = page_get_storage_key(large_crste_to_phys(crste, gfn));
++		return 0;
++	}
++	pgste = pgste_get_lock(ptep);
++	if (ptep->h.i) {
++		skey->acc = pgste.acc;
++		skey->fp = pgste.fp;
++	} else {
++		skey->skey = page_get_storage_key(pte_origin(*ptep));
++	}
++	skey->r |= pgste.gr;
++	skey->c |= pgste.gc;
++	pgste_set_unlock(ptep, pgste);
++	return 0;
++}
++
++static void dat_update_ptep_sd(union pgste old, union pgste pgste, union pte *ptep)
++{
++	if (pgste.acc != old.acc || pgste.fp != old.fp || pgste.gr != old.gr || pgste.gc != old.gc)
++		__atomic64_or(_PAGE_SD, &ptep->val);
++}
++
++int dat_set_storage_key(struct kvm_s390_mmu_cache *mc, union asce asce, gfn_t gfn,
++			union skey skey, bool nq)
++{
++	union pgste pgste, old;
++	union crste *crstep;
++	union pte *ptep;
++	int rc;
++
++	rc = dat_entry_walk(mc, gfn, asce, DAT_WALK_LEAF_ALLOC, TABLE_TYPE_PAGE_TABLE,
++			    &crstep, &ptep);
++	if (rc)
++		return rc;
++
++	if (!ptep) {
++		page_set_storage_key(large_crste_to_phys(*crstep, gfn), skey.skey, !nq);
++		return 0;
++	}
++
++	old = pgste_get_lock(ptep);
++	pgste = old;
++
++	pgste.acc = skey.acc;
++	pgste.fp = skey.fp;
++	pgste.gc = skey.c;
++	pgste.gr = skey.r;
++
++	if (!ptep->h.i) {
++		union skey old_skey;
++
++		old_skey.skey = page_get_storage_key(pte_origin(*ptep));
++		pgste.hc |= old_skey.c;
++		pgste.hr |= old_skey.r;
++		old_skey.c = old.gc;
++		old_skey.r = old.gr;
++		skey.r = 0;
++		skey.c = 0;
++		page_set_storage_key(pte_origin(*ptep), skey.skey, !nq);
++	}
++
++	dat_update_ptep_sd(old, pgste, ptep);
++	pgste_set_unlock(ptep, pgste);
++	return 0;
++}
++
++static bool page_cond_set_storage_key(phys_addr_t paddr, union skey skey, union skey *oldkey,
++				      bool nq, bool mr, bool mc)
++{
++	oldkey->skey = page_get_storage_key(paddr);
++	if (oldkey->acc == skey.acc && oldkey->fp == skey.fp &&
++	    (oldkey->r == skey.r || mr) && (oldkey->c == skey.c || mc))
++		return false;
++	page_set_storage_key(paddr, skey.skey, !nq);
++	return true;
++}
++
++int dat_cond_set_storage_key(struct kvm_s390_mmu_cache *mmc, union asce asce, gfn_t gfn,
++			     union skey skey, union skey *oldkey, bool nq, bool mr, bool mc)
++{
++	union pgste pgste, old;
++	union crste *crstep;
++	union skey prev;
++	union pte *ptep;
++	int rc;
++
++	rc = dat_entry_walk(mmc, gfn, asce, DAT_WALK_LEAF_ALLOC, TABLE_TYPE_PAGE_TABLE,
++			    &crstep, &ptep);
++	if (rc)
++		return rc;
++
++	if (!ptep)
++		return page_cond_set_storage_key(large_crste_to_phys(*crstep, gfn), skey, oldkey,
++						 nq, mr, mc);
++
++	old = pgste_get_lock(ptep);
++	pgste = old;
++
++	rc = 1;
++	pgste.acc = skey.acc;
++	pgste.fp = skey.fp;
++	pgste.gc = skey.c;
++	pgste.gr = skey.r;
++
++	if (!ptep->h.i) {
++		rc = page_cond_set_storage_key(pte_origin(*ptep), skey, &prev, nq, mr, mc);
++		pgste.hc |= prev.c;
++		pgste.hr |= prev.r;
++		prev.c |= old.gc;
++		prev.r |= old.gr;
++	} else {
++		prev.acc = old.acc;
++		prev.fp = old.fp;
++		prev.c = old.gc;
++		prev.r = old.gr;
++	}
++	if (oldkey)
++		*oldkey = prev;
++
++	dat_update_ptep_sd(old, pgste, ptep);
++	pgste_set_unlock(ptep, pgste);
++	return rc;
++}
++
++int dat_reset_reference_bit(union asce asce, gfn_t gfn)
++{
++	union pgste pgste, old;
++	union crste *crstep;
++	union pte *ptep;
++	int rc;
++
++	rc = dat_entry_walk(NULL, gfn, asce, DAT_WALK_ANY, TABLE_TYPE_PAGE_TABLE, &crstep, &ptep);
++	if (rc)
++		return rc;
++
++	if (!ptep) {
++		union crste crste = READ_ONCE(*crstep);
++
++		if (!crste.h.fc || !crste.s.fc1.pr)
++			return 0;
++		return page_reset_referenced(large_crste_to_phys(*crstep, gfn));
++	}
++	old = pgste_get_lock(ptep);
++	pgste = old;
++
++	if (!ptep->h.i) {
++		rc = page_reset_referenced(pte_origin(*ptep));
++		pgste.hr = rc >> 1;
++	}
++	rc |= (pgste.gr << 1) | pgste.gc;
++	pgste.gr = 0;
++
++	dat_update_ptep_sd(old, pgste, ptep);
++	pgste_set_unlock(ptep, pgste);
++	return rc;
++}
++
++static long dat_reset_skeys_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
++{
++	union pgste pgste;
++
++	pgste = pgste_get_lock(ptep);
++	pgste.acc = 0;
++	pgste.fp = 0;
++	pgste.gr = 0;
++	pgste.gc = 0;
++	if (ptep->s.pr)
++		page_set_storage_key(pte_origin(*ptep), PAGE_DEFAULT_KEY, 1);
++	pgste_set_unlock(ptep, pgste);
++
++	if (need_resched())
++		return next;
++	return 0;
++}
++
++static long dat_reset_skeys_crste(union crste *crstep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
++{
++	phys_addr_t addr, end, origin = crste_origin_large(*crstep);
++
++	if (!crstep->h.fc || !crstep->s.fc1.pr)
++		return 0;
++
++	addr = ((max(gfn, walk->start) - gfn) << PAGE_SHIFT) + origin;
++	end = ((min(next, walk->end) - gfn) << PAGE_SHIFT) + origin;
++	while (ALIGN(addr + 1, _SEGMENT_SIZE) <= end)
++		addr = sske_frame(addr, PAGE_DEFAULT_KEY);
++	for ( ; addr < end; addr += PAGE_SIZE)
++		page_set_storage_key(addr, PAGE_DEFAULT_KEY, 1);
++
++	if (need_resched())
++		return next;
++	return 0;
++}
++
++long dat_reset_skeys(union asce asce, gfn_t start)
++{
++	const struct dat_walk_ops ops = {
++		.pte_entry = dat_reset_skeys_pte,
++		.pmd_entry = dat_reset_skeys_crste,
++		.pud_entry = dat_reset_skeys_crste,
 +	};
-+	u64	_0440[376];			/* 0x0440 */
-+} __packed __aligned(PAGE_SIZE);
-+static_assert(sizeof(struct kvm_sae_block) == PAGE_SIZE);
 +
-+struct kvm_sae_save_area {
-+#define SAE_SAVE_AREA_FORMAT_0	0x00
-+	u8	saf;		/* 0x0000 */
-+	u8	_0001[5];	/* 0x0001 */
-+#define SAE_SAS_VALID		BIT(0)
-+	u16	sas;		/* 0x0006 */
-+	u64	sdo;		/* 0x0008 */
-+	u64	_0010[2];	/* 0x0010 */
-+	u64	regs[508];	/* 0x0020 */
-+} __packed __aligned(PAGE_SIZE);
-+static_assert(sizeof(struct kvm_sae_save_area) == PAGE_SIZE);
-+
-+#endif /* ASM_KVM_HOST_ARM64_TYPES_H */
-diff --git a/arch/s390/include/asm/kvm_host_types.h b/arch/s390/include/asm/kvm_host_types.h
-index e5bdba07cab0..d308739ebcf5 100644
---- a/arch/s390/include/asm/kvm_host_types.h
-+++ b/arch/s390/include/asm/kvm_host_types.h
-@@ -3,6 +3,10 @@
- #ifndef ASM_KVM_HOST_TYPES_H
- #define ASM_KVM_HOST_TYPES_H
- 
-+#ifdef KVM_S390_ARM64
-+#include <asm/kvm_host_arm64_types.h>
-+#else
- #include <asm/kvm_host_s390_types.h>
-+#endif /* KVM_S390_ARM64 */
- 
- #endif /* ASM_KVM_HOST_TYPES_H */
-diff --git a/arch/s390/include/asm/sae.h b/arch/s390/include/asm/sae.h
-new file mode 100644
-index 000000000000..fe010a1a7729
---- /dev/null
-+++ b/arch/s390/include/asm/sae.h
-@@ -0,0 +1,56 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __ASM_S390_SAE_H
-+#define __ASM_S390_SAE_H
-+
-+#include "linux/linkage.h"
-+#include <linux/types.h>
-+
-+/* defined in arch/s390/kernel/entry.S */
-+asmlinkage int __sae64a(phys_addr_t sae_block_phys);
-+
-+#ifndef __ASSEMBLER__
-+#include <linux/io.h>
-+#include <asm/kvm_host_arm64_types.h>
-+
-+/**
-+ * __sae64a() - Start Arm Execution
-+ */
-+static inline void sae64a(struct kvm_sae_block *sae_block)
-+{
-+	__sae64a(virt_to_phys(sae_block));
++	return _dat_walk_gfn_range(start, asce_end(asce), asce, &ops, DAT_WALK_IGN_HOLES, NULL);
 +}
 +
 +/**
-+ * stiasrm() - STore and Invalidate Arm System Register Multiple
-+ * @save_area: Pointer to SAE save area
++ * dat_perform_essa() - Perform ESSA actions on the PGSTE.
++ * @asce: The asce to operate on.
++ * @gfn: The guest page frame to operate on.
++ * @orc: The specific action to perform, see the ESSA_SET_* macros.
++ * @state: The storage attributes to be returned to the guest.
++ * @dirty: Returns whether the function dirtied a previously clean entry.
 + *
-+ * Store the guest system register to the save area.
-+ * The values in the guest are not valid anymore..
++ * Context: Called with kvm->mmu_lock held.
++ *
++ * Return:
++ * * %1 if the page state has been altered and the page is to be added to the CBRL
++ * * %0 if the page state has been altered, but the page is not to be added to the CBRL
++ * * %-1 if the page state has not been altered and the page is not to be added to the CBRL
 + */
-+static __always_inline void stiasrm(struct kvm_sae_save_area *save_area)
++int dat_perform_essa(union asce asce, gfn_t gfn, int orc, union essa_state *state, bool *dirty)
 +{
-+	asm volatile(
-+		"	.insn	rre,0xb9a70000,%[r1],0\n"
-+		: "+m"(*save_area)
-+		: [r1] "a"(save_area)
-+	);
-+}
++	union crste *crstep;
++	union pgste pgste;
++	union pte *ptep;
++	int res = 0;
 +
-+/**
-+ * lasrm() - Load Arm System Register Multiple
-+ *
-+ * @save_area: Pointer to SAE save area
-+ *
-+ * Load the system registers from save_area into the guest.
-+ */
-+static __always_inline void lasrm(struct kvm_sae_save_area *save_area)
-+{
-+	asm volatile(
-+		"	.insn	rre,0xb9a60000,%[r1],0\n"
-+		:
-+		: "m"(*save_area), [r1] "a"(save_area)
-+	);
-+}
++	if (dat_entry_walk(NULL, gfn, asce, 0, TABLE_TYPE_PAGE_TABLE, &crstep, &ptep)) {
++		*state = (union essa_state) { .exception = 1 };
++		return -1;
++	}
 +
-+#endif /* !__ASSEMBLER__ */
-+#endif /* __ASM_S390_SAE_H */
-diff --git a/arch/s390/include/asm/stacktrace.h b/arch/s390/include/asm/stacktrace.h
-index ac3606c3babe..2d332d7c8145 100644
---- a/arch/s390/include/asm/stacktrace.h
-+++ b/arch/s390/include/asm/stacktrace.h
-@@ -59,6 +59,7 @@ static inline bool on_stack(struct stack_info *info,
- struct stack_frame {
- 	union {
- 		unsigned long empty[9];
-+		/* SIE stack frame */
- 		struct {
- 			unsigned long sie_control_block;
- 			unsigned long sie_savearea;
-@@ -68,6 +69,10 @@ struct stack_frame {
- 			unsigned long sie_guest_asce;
- 			unsigned long sie_irq;
- 		};
-+		/* SAE stack frame */
-+		struct {
-+			unsigned long sae_bear;
++	pgste = pgste_get_lock(ptep);
++
++	*state = (union essa_state) {
++		.content = (ptep->h.i << 1) + (ptep->h.i && pgste.zero),
++		.nodat = pgste.nodat,
++		.usage = pgste.usage,
 +		};
- 	};
- 	unsigned long gprs[10];
- 	unsigned long back_chain;
-diff --git a/arch/s390/kernel/asm-offsets.c b/arch/s390/kernel/asm-offsets.c
-index f6dd2b67dcee..f9f9c2246074 100644
---- a/arch/s390/kernel/asm-offsets.c
-+++ b/arch/s390/kernel/asm-offsets.c
-@@ -70,6 +70,7 @@ int main(void)
- 	OFFSET(__SF_SIE_CONTROL_PHYS, stack_frame, sie_control_block_phys);
- 	OFFSET(__SF_SIE_GUEST_ASCE, stack_frame, sie_guest_asce);
- 	OFFSET(__SF_SIE_IRQ, stack_frame, sie_irq);
-+	OFFSET(__SF_SAE_BEAR, stack_frame, sae_bear);
- 	DEFINE(STACK_FRAME_OVERHEAD, sizeof(struct stack_frame));
- 	BLANK();
- 	OFFSET(__SFUSER_BACKCHAIN, stack_frame_user, back_chain);
-diff --git a/arch/s390/kernel/entry.S b/arch/s390/kernel/entry.S
-index 9572620fcaa6..248bea26921b 100644
---- a/arch/s390/kernel/entry.S
-+++ b/arch/s390/kernel/entry.S
-@@ -244,6 +244,31 @@ EXPORT_SYMBOL(__sie64a)
- EXPORT_SYMBOL(sie_exit)
- #endif
- 
-+#if IS_ENABLED(CONFIG_KVM_ARM64)
-+/*
-+ * __sae64a calling convention:
-+ * %r2 pointer to sae control block physical address
-+ */
-+SYM_FUNC_START(__sae64a)
-+	stmg	%r6,%r14,__SF_GPRS(%r15)	# store kernel registers
-+	STBEAR	__SF_SAE_BEAR(%r15)		# save breaking event address register
-+	.insn	rre,0xb9a50000,%r2,0		# Start Arm Execution
-+# Let the next instruction be NOP to avoid triggering a machine check
-+# and handling it in a guest as result of the instruction execution.
-+	nopr	7
-+	LBEAR	__SF_SAE_BEAR(%r15)		# restore breaking event address register
-+	lmg	%r6,%r14,__SF_GPRS(%r15)	# restore kernel registers
-+	xgr	%r0,%r0				# clear guest registers to
-+	xgr	%r1,%r1				# prevent speculative use
-+	xgr	%r3,%r3
-+	xgr	%r2,%r2
-+	xgr	%r4,%r4
-+	xgr	%r5,%r5
-+	BR_EX	%r14
-+SYM_FUNC_END(__sae64a)
-+EXPORT_SYMBOL(__sae64a)
-+#endif
 +
- /*
-  * SVC interrupt handler routine. System calls are synchronous events and
-  * are entered with interrupts disabled.
-diff --git a/arch/s390/tools/opcodes.txt b/arch/s390/tools/opcodes.txt
-index def2659f6602..0e4773c94af0 100644
---- a/arch/s390/tools/opcodes.txt
-+++ b/arch/s390/tools/opcodes.txt
-@@ -594,6 +594,9 @@ b9a0	clp	RRF_U0RR
- b9a1	tpei	RRE_RR
- b9a2	ptf	RRE_R0
- b9a4	uvc	RRF_URR
-+b9a5	sae	RRE_R0
-+b9a6	lasrm	RRE_R0
-+b9a7	stiasrm	RRE_R0
- b9aa	lptea	RRF_RURR2
- b9ab	essa	RRF_U0RR
- b9ac	irbm	RRE_RR
++	switch (orc) {
++	case ESSA_GET_STATE:
++		res = -1;
++		break;
++	case ESSA_SET_STABLE:
++		pgste.usage = PGSTE_GPS_USAGE_STABLE;
++		pgste.nodat = 0;
++		break;
++	case ESSA_SET_UNUSED:
++		pgste.usage = PGSTE_GPS_USAGE_UNUSED;
++		if (ptep->h.i)
++			res = 1;
++		break;
++	case ESSA_SET_VOLATILE:
++		pgste.usage = PGSTE_GPS_USAGE_VOLATILE;
++		if (ptep->h.i)
++			res = 1;
++		break;
++	case ESSA_SET_POT_VOLATILE:
++		if (!ptep->h.i) {
++			pgste.usage = PGSTE_GPS_USAGE_POT_VOLATILE;
++		} else if (pgste.zero) {
++			pgste.usage = PGSTE_GPS_USAGE_VOLATILE;
++		} else if (!pgste.gc) {
++			pgste.usage = PGSTE_GPS_USAGE_VOLATILE;
++			res = 1;
++		}
++		break;
++	case ESSA_SET_STABLE_RESIDENT:
++		pgste.usage = PGSTE_GPS_USAGE_STABLE;
++		/*
++		 * Since the resident state can go away any time after this
++		 * call, we will not make this page resident. We can revisit
++		 * this decision if a guest will ever start using this.
++		 */
++		break;
++	case ESSA_SET_STABLE_IF_RESIDENT:
++		if (!ptep->h.i)
++			pgste.usage = PGSTE_GPS_USAGE_STABLE;
++		break;
++	case ESSA_SET_STABLE_NODAT:
++		pgste.usage = PGSTE_GPS_USAGE_STABLE;
++		pgste.nodat = 1;
++		break;
++	default:
++		WARN_ONCE(1, "Invalid ORC!");
++		res = -1;
++		break;
++	}
++	/* If we are discarding a page, set it to logical zero. */
++	pgste.zero = res == 1;
++	if (orc > 0) {
++		*dirty = !pgste.cmma_d;
++		pgste.cmma_d = 1;
++	}
++
++	pgste_set_unlock(ptep, pgste);
++
++	return res;
++}
++
++static long dat_reset_cmma_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
++{
++	union pgste pgste;
++
++	pgste = pgste_get_lock(ptep);
++	pgste.usage = 0;
++	pgste.nodat = 0;
++	pgste.cmma_d = 0;
++	pgste_set_unlock(ptep, pgste);
++	if (need_resched())
++		return next;
++	return 0;
++}
++
++long dat_reset_cmma(union asce asce, gfn_t start)
++{
++	const struct dat_walk_ops dat_reset_cmma_ops = {
++		.pte_entry = dat_reset_cmma_pte,
++	};
++
++	return _dat_walk_gfn_range(start, asce_end(asce), asce, &dat_reset_cmma_ops,
++				   DAT_WALK_IGN_HOLES, NULL);
++}
++
++struct dat_get_cmma_state {
++	gfn_t start;
++	gfn_t end;
++	unsigned int count;
++	u8 *values;
++	atomic64_t *remaining;
++};
++
++static long __dat_peek_cmma_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
++{
++	struct dat_get_cmma_state *state = walk->priv;
++	union pgste pgste;
++
++	pgste = pgste_get_lock(ptep);
++	state->values[gfn - walk->start] = pgste.usage | (pgste.nodat << 6);
++	pgste_set_unlock(ptep, pgste);
++	state->end = next;
++
++	return 0;
++}
++
++static long __dat_peek_cmma_crste(union crste *crstep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
++{
++	struct dat_get_cmma_state *state = walk->priv;
++
++	if (crstep->h.i)
++		state->end = min(walk->end, next);
++	return 0;
++}
++
++int dat_peek_cmma(gfn_t start, union asce asce, unsigned int *count, u8 *values)
++{
++	const struct dat_walk_ops ops = {
++		.pte_entry = __dat_peek_cmma_pte,
++		.pmd_entry = __dat_peek_cmma_crste,
++		.pud_entry = __dat_peek_cmma_crste,
++		.p4d_entry = __dat_peek_cmma_crste,
++		.pgd_entry = __dat_peek_cmma_crste,
++	};
++	struct dat_get_cmma_state state = { .values = values, };
++	int rc;
++
++	rc = _dat_walk_gfn_range(start, start + *count, asce, &ops, DAT_WALK_DEFAULT, &state);
++	*count = state.end >= start ? state.end - start : 0;
++	/* Return success if at least one value was saved, otherwise an error. */
++	return (rc == -EFAULT && *count > 0) ? 0 : rc;
++}
++
++static long __dat_get_cmma_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
++{
++	struct dat_get_cmma_state *state = walk->priv;
++	union pgste pgste;
++
++	if (state->start != -1) {
++		if ((gfn - state->end) > KVM_S390_MAX_BIT_DISTANCE)
++			return 1;
++		if (gfn - state->start >= state->count)
++			return 1;
++	}
++
++	if (!READ_ONCE(*pgste_of(ptep)).cmma_d)
++		return 0;
++
++	pgste = pgste_get_lock(ptep);
++	if (pgste.cmma_d) {
++		if (state->start == -1)
++			state->start = gfn;
++		pgste.cmma_d = 0;
++		atomic64_dec(state->remaining);
++		state->values[gfn - state->start] = pgste.usage | pgste.nodat << 6;
++		state->end = next;
++	}
++	pgste_set_unlock(ptep, pgste);
++	return 0;
++}
++
++int dat_get_cmma(union asce asce, gfn_t *start, unsigned int *count, u8 *values, atomic64_t *rem)
++{
++	const struct dat_walk_ops ops = { .pte_entry = __dat_get_cmma_pte, };
++	struct dat_get_cmma_state state = {
++		.remaining = rem,
++		.values = values,
++		.count = *count,
++		.start = -1,
++	};
++
++	_dat_walk_gfn_range(*start, asce_end(asce), asce, &ops, DAT_WALK_IGN_HOLES, &state);
++	/* If no dirty pages were found, wrap around and continue searching */
++	if (*start && state.start == -1)
++		_dat_walk_gfn_range(0, *start, asce, &ops, DAT_WALK_IGN_HOLES, &state);
++
++	if (state.start == -1) {
++		*count = 0;
++	} else {
++		*count = state.end - state.start;
++		*start = state.start;
++	}
++
++	return 0;
++}
++
++struct dat_set_cmma_state {
++	unsigned long mask;
++	const u8 *bits;
++};
++
++static long __dat_set_cmma_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
++{
++	struct dat_set_cmma_state *state = walk->priv;
++	union pgste pgste, tmp;
++
++	tmp.val = (state->bits[gfn - walk->start] << 24) & state->mask;
++
++	pgste = pgste_get_lock(ptep);
++	pgste.usage = tmp.usage;
++	pgste.nodat = tmp.nodat;
++	pgste_set_unlock(ptep, pgste);
++
++	return 0;
++}
++
++/**
++ * dat_set_cmma_bits() - Set CMMA bits for a range of guest pages.
++ * @mc: Cache used for allocations.
++ * @asce: The ASCE of the guest.
++ * @gfn: The guest frame of the fist page whose CMMA bits are to set.
++ * @count: How many pages need to be processed.
++ * @mask: Which PGSTE bits should be set.
++ * @bits: Points to an array with the CMMA attributes.
++ *
++ * This function sets the CMMA attributes for the given pages. If the input
++ * buffer has zero length, no action is taken, otherwise the attributes are
++ * set and the mm->context.uses_cmm flag is set.
++ *
++ * Each byte in @bits contains new values for bits 32-39 of the PGSTE.
++ * Currently, only the fields NT and US are applied.
++ *
++ * Return: %0 in case of success, a negative error value otherwise.
++ */
++int dat_set_cmma_bits(struct kvm_s390_mmu_cache *mc, union asce asce, gfn_t gfn,
++		      unsigned long count, unsigned long mask, const uint8_t *bits)
++{
++	const struct dat_walk_ops ops = { .pte_entry = __dat_set_cmma_pte, };
++	struct dat_set_cmma_state state = { .mask = mask, .bits = bits, };
++	union crste *crstep;
++	union pte *ptep;
++	gfn_t cur;
++	int rc;
++
++	for (cur = ALIGN_DOWN(gfn, _PAGE_ENTRIES); cur < gfn + count; cur += _PAGE_ENTRIES) {
++		rc = dat_entry_walk(mc, cur, asce, DAT_WALK_ALLOC, TABLE_TYPE_PAGE_TABLE,
++				    &crstep, &ptep);
++		if (rc)
++			return rc;
++	}
++	return _dat_walk_gfn_range(gfn, gfn + count, asce, &ops, DAT_WALK_IGN_HOLES, &state);
++}
+diff --git a/arch/s390/kvm/s390/gmap.c b/arch/s390/kvm/s390/gmap.c
+new file mode 100644
+index 000000000000..83def0ed2284
+--- /dev/null
++++ b/arch/s390/kvm/s390/gmap.c
+@@ -0,0 +1,84 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/kvm_host.h>
++#include <asm/gmap_helpers.h>
++#include <gmap.h>
++#include "s390.h"
++
++static int _gmap_enable_skeys(struct gmap *gmap)
++{
++	gfn_t start = 0;
++	int rc;
++
++	if (uses_skeys(gmap))
++		return 0;
++
++	set_bit(GMAP_FLAG_USES_SKEYS, &gmap->flags);
++	rc = gmap_helper_disable_cow_sharing();
++	if (rc) {
++		clear_bit(GMAP_FLAG_USES_SKEYS, &gmap->flags);
++		return rc;
++	}
++
++	do {
++		scoped_guard(write_lock, &gmap->kvm->mmu_lock)
++			start = dat_reset_skeys(gmap->asce, start);
++		cond_resched();
++	} while (start);
++	return 0;
++}
++
++int gmap_enable_skeys(struct gmap *gmap)
++{
++	int rc;
++
++	mmap_write_lock(gmap->kvm->mm);
++	rc = _gmap_enable_skeys(gmap);
++	mmap_write_unlock(gmap->kvm->mm);
++	return rc;
++}
++
++static long __set_cmma_clean_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
++{
++	union pgste pgste;
++
++	pgste = pgste_get_lock(ptep);
++	pgste.cmma_d = 0;
++	pgste_set_unlock(ptep, pgste);
++
++	if (need_resched())
++		return next;
++	return 0;
++}
++
++static long __set_cmma_dirty_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
++{
++	union pgste pgste;
++
++	pgste = pgste_get_lock(ptep);
++	if (!pgste.cmma_d)
++		atomic64_inc(walk->priv);
++	pgste.cmma_d = 1;
++	pgste_set_unlock(ptep, pgste);
++
++	if (need_resched())
++		return next;
++	return 0;
++}
++
++void _gmap_set_cmma_all(struct gmap *gmap, bool dirty)
++{
++	const struct dat_walk_ops ops = {
++		.pte_entry = dirty ? __set_cmma_dirty_pte : __set_cmma_clean_pte,
++	};
++	gfn_t gfn = 0;
++
++	do {
++		scoped_guard(read_lock, &gmap->kvm->mmu_lock)
++			gfn = _dat_walk_gfn_range(gfn, asce_end(gmap->asce), gmap->asce, &ops,
++						  DAT_WALK_IGN_HOLES,
++						  &gmap->kvm->arch.cmma_dirty_pages);
++		cond_resched();
++	} while (gfn);
++}
++
+diff --git a/arch/s390/kvm/s390/s390.h b/arch/s390/kvm/s390/s390.h
+index 9feb1fa66323..c846b7c6be93 100644
+--- a/arch/s390/kvm/s390/s390.h
++++ b/arch/s390/kvm/s390/s390.h
+@@ -635,4 +635,27 @@ extern unsigned int diag9c_forwarding_hz;
+  */
+ int kvm_s390_vm_stop_migration(struct kvm *kvm);
+ 
++/* implemented in dat.c */
++int dat_get_storage_key(union asce asce, gfn_t gfn, union skey *skey);
++int dat_set_storage_key(struct kvm_s390_mmu_cache *mc, union asce asce, gfn_t gfn,
++			union skey skey, bool nq);
++int dat_cond_set_storage_key(struct kvm_s390_mmu_cache *mmc, union asce asce, gfn_t gfn,
++			     union skey skey, union skey *oldkey, bool nq, bool mr, bool mc);
++int dat_reset_reference_bit(union asce asce, gfn_t gfn);
++long dat_reset_skeys(union asce asce, gfn_t start);
++
++/* implemented in gmap.c */
++int gmap_enable_skeys(struct gmap *gmap);
++void _gmap_set_cmma_all(struct gmap *gmap, bool dirty);
++
++static inline void gmap_set_cmma_all_dirty(struct gmap *gmap)
++{
++	_gmap_set_cmma_all(gmap, true);
++}
++
++static inline void gmap_set_cmma_all_clean(struct gmap *gmap)
++{
++	_gmap_set_cmma_all(gmap, false);
++}
++
+ #endif
 -- 
 2.53.0
 
