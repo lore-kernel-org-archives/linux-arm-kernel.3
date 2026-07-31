@@ -4,95 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6936C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78670C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S96pVSc6qSK7JNjBnWVrJfF1KAwOzUVlXD18tkrIn6w=; b=a7xkKFb4dxN1RJDa4lJjB4gcii
-	JGP4csSQZx/sKVxokH8jurAUHedPDaKQ08kc66TKPZ33/biozlPUcd2qimQw3VxN8TnC4w3b2L19M
-	tnrDz8GfG5jhiI+eo0RnIANNfyolrjegjWEuquNbJDKdC+s2C2kNzcP9o4YP3ZcxbyWj0wFDlCkBc
-	B9dJda/TTT6sM/ufaR5xrnZXsVYgwCT9ayquatZwr9Yj40aTzvSsUkih7VUYzP3ClEIbKxqoaSRuB
-	fepxAr07N7K6xHMgvDpLoAcRYhmrcSe1knKBTdGpL5CwkRGDhel/S0SqkcwZbP7OVFvpjq0iHkUkW
-	PAMJ+rLw==;
+	bh=5FURrUq3KEBhwpFvkmrej/xgUzaesmaXWACa6v9sOzg=; b=Hu56mYtVeZz867RI4sPTfdtL26
+	4m1cinyoQsUbKhGRbXgkKMTZgOscWdOOISoV5crbX4ZgEeSJLfKXpg1gzxVthZgBRMFcGczze67c6
+	skVurt/iU/UEEsdvQUbiNK48WErZTXnaROF1mWBRqfJpTj7JC1HDDDiK9hF3EgjH3otlscRLXEQaz
+	oyT+zB+gQWE7C39wDZFbCWobG0xPIQOlXiRlXJT0+j8a95VOc0ftCiENwiTg/LHJDwRUC5VsGPVyx
+	D0O+/+a/NvdoHcsRMKApOXbFs0wpdJRbUpjoz5vyq+Q6aJKK4NmVHBbaHZID/LekcNlknD7H1nmYT
+	FoBbz23g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpruW-0000000DMDM-2MdR;
-	Fri, 31 Jul 2026 18:24:44 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpruV-0000000DMCS-0jIT
+	id 1wprvS-0000000DMZF-32Qc;
+	Fri, 31 Jul 2026 18:25:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wprvQ-0000000DMXy-37r3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 18:24:44 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2cea3004256so15460275ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 11:24:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785522282; x=1786127082; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S96pVSc6qSK7JNjBnWVrJfF1KAwOzUVlXD18tkrIn6w=;
-        b=YxRvsFs/XYChzzoaGqTkwpB5WeEDyhKUcBHOZ66+7s8mu1/pbxPLfzEjb/Z4DD+C7N
-         3VBlq9044tNbvd5UKxf83KcEKakHRyXgcO0hwC+Sxgw8WAByUgBlaXLjlwyi3FiCnShp
-         buADQMZbj70oOxhY3dwqYV+rO23QtletWKnlFgIPKCuIgJQPmd56hRV7VE2TaOOLVxzt
-         DZD8eSbtzIdr/fY42mCf6bJATzjcEXpemgnXTPnB0BLVU1Qd48+zApH5Sm8w/nHb9lUe
-         WOumXfB8VQGMoaBZj9FN5E/cvc4Gj6JMrlPkalYkp17eJzLSJ7ZihDYCga/2IMbd9znT
-         TSbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785522282; x=1786127082;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S96pVSc6qSK7JNjBnWVrJfF1KAwOzUVlXD18tkrIn6w=;
-        b=jAPGR3a2qa1XEmHpxOmHIRW9yFbUITYnvkaYJRleTVc1FRUOUwtEXO2FMWE75++2zs
-         CFNeM/pQSnJ82s5Qs/dZEGlbJBFHeB3SjYnXFDf95Wz6PMgZhAxI7i8gyuFD6cbJf7rj
-         P0KKvGGUVfOUjBMqNfBV/csVUlQSVM5Dtl6EKKkbGwXB+75eNi5CVpWjJS6ov/2M6XOf
-         rpZVZoxtq93goDva7rurwcW3+ZSmqw5vV1G+IZUTxtdmX0p2i9tN1/Mgkhl5T2/mNwdP
-         4LkPHNDeUw+wXtRg1eCm6Y77yv4yd+tISncEgFcGhiPbbRyfS4zRyI1zbEdj8VwKBzZ0
-         Py2g==
-X-Forwarded-Encrypted: i=1; AHgh+RrYe9R+7cHfzrzh18ZNnQ2ntgZ8R9CgZOBdMcNuaeZKk9v51BkL+20blie5tqn1BnuF1OJXRSV/ISRzxkhbkiKL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmpFzlr1wfCSxbrkRT5KvlDHcgiEe5P8rZ7S94ez1vVbyqAAZh
-	XEQL8kynkhs1rlRqrPxQaeqZZT24+T1f3JHQabnYnA0z70tG5ELNNa4Z
-X-Gm-Gg: AR+sD110XHFt8PXos3L65NrN3B28sqHSuubxZgDxjCuriv6LoFmKLunV52bRQS214vz
-	JE3Hb03Z2EAuEZGDWiEfM2M74td/lRMdf3NJ5PVP3Pi9/meanVajoR924TRn6u2byDo9qw6cpLz
-	bDC91GUCsif5IHw3LcQcDKheLC5wL2u7qOIxezlzcHjp7CUhH5DWFBfK1Prshm0+3ELo8FvtP4J
-	xWaVpZ5KuxODJmpkBNxeXveK2lcyY95qAQrlvkaRyvmjnJixBtHzmkCtKlKgAiX+GtI+791A4gx
-	EqKUnC3VrXYWEQbi9yi5GdE80Tl7WMiyTS791zEXJtPskmCTykC5o27upxAJBhAxqzOwrhXhWWl
-	TUPVmuLnTJl43iPEquFI2/vvuzB3LcDsOPEFqDWRcowlGLAPDaXtskkFzCplHlftDhFj1D9BYVY
-	z5BDnYGjnfPamC3+GmKKkFOwoOFqQr9TiDFs3ypGX5UEsElRiPv1mlpXuIv5Q=
-X-Received: by 2002:a17:903:3886:b0:2ca:feb:303b with SMTP id d9443c01a7336-2d052429193mr8562495ad.25.1785522282316;
-        Fri, 31 Jul 2026 11:24:42 -0700 (PDT)
-Received: from ubuntu.. ([2405:201:8026:213e:d69c:7f00:28b4:311c])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153dd9c1casm8400785eec.10.2026.07.31.11.24.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jul 2026 11:24:41 -0700 (PDT)
-From: mdshahid03@gmail.com
-To: Jonathan Cameron <jic23@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Joshua Crofts <joshua.crofts@broadcom.com>,
-	Broadcom internal kernel list <bcm-kernel-feedback-list@broadcom.com>,
-	David Lechner <dlechner@baylibre.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v3 3/3] iio: adc: bcm_iproc_adc: Convert probe error handling to dev_err_probe()
-Date: Fri, 31 Jul 2026 23:53:47 +0530
-Message-ID: <20260731182347.42888-4-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260731182347.42888-1-mdshahid03@gmail.com>
-References: <20260731182347.42888-1-mdshahid03@gmail.com>
+	Fri, 31 Jul 2026 18:25:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B971C204C;
+	Fri, 31 Jul 2026 11:25:33 -0700 (PDT)
+Received: from [10.57.41.95] (unknown [10.57.41.95])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD98D3F86F;
+	Fri, 31 Jul 2026 11:25:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785522337; bh=Fk8B+Pduq/Umd1AuJQEpBBkJ75M82MRArJWNWlQQ3hk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EpTo3SPvJRCnit/TJ6V5YputDuyD9upCEIsmkvNFREaZamgMRk2y2jpE9rgpBF4zx
+	 tixRrx51DpUaRlPxPcdvQwfCD3Bpb4NFoxfpjKnQkw2uGsVIjqVffVdozmr7oiFIUL
+	 3rTGn8JziFaAuCOxzBBsdZ9drjCBAE3FeUCdKlHQ=
+Message-ID: <a694a1d3-d8d8-4167-9f77-6d9d1e86254f@arm.com>
+Date: Fri, 31 Jul 2026 19:25:33 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/6] firmware: arm_rmm: Add support for SRO
+Content-Language: en-GB
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260715142739.80398-1-steven.price@arm.com>
+ <20260715142739.80398-6-steven.price@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260715142739.80398-6-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_112443_215125_EE346546 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20260731_112540_962726_A4F14624 
+X-CRM114-Status: GOOD (  42.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,99 +83,496 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+Hi Steven
 
-This simplifies the probe error handling by replacing open-coded
-dev_err() and return sequences. Also remove the redundant
-dev_err() after iproc_adc_enable(), as the helper already reports
-the failure.
 
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
----
- drivers/iio/adc/bcm_iproc_adc.c | 43 +++++++++++++++------------------
- 1 file changed, 19 insertions(+), 24 deletions(-)
+I have left some minor comments below. Otherwise looks good to me.
 
-diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-index 29ea35972a23..5fcd528eb88a 100644
---- a/drivers/iio/adc/bcm_iproc_adc.c
-+++ b/drivers/iio/adc/bcm_iproc_adc.c
-@@ -523,19 +523,16 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 
- 	adc_priv->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
- 			   "adc-syscon");
--	if (IS_ERR(adc_priv->regmap)) {
--		dev_err(dev, "failed to get handle for tsc syscon\n");
--		ret = PTR_ERR(adc_priv->regmap);
--		return ret;
--	}
-+	if (IS_ERR(adc_priv->regmap))
-+		return dev_err_probe(dev,
-+				     PTR_ERR(adc_priv->regmap),
-+				     "failed to get handle for tsc syscon\n");
- 
- 	adc_priv->adc_clk = devm_clk_get(dev, "tsc_clk");
--	if (IS_ERR(adc_priv->adc_clk)) {
--		dev_err(dev,
--			"failed getting clock tsc_clk\n");
--		ret = PTR_ERR(adc_priv->adc_clk);
--		return ret;
--	}
-+	if (IS_ERR(adc_priv->adc_clk))
-+		return dev_err_probe(dev,
-+				     PTR_ERR(adc_priv->adc_clk),
-+				     "failed getting clock tsc_clk\n");
- 
- 	adc_priv->irqno = platform_get_irq(pdev, 0);
- 	if (adc_priv->irqno < 0)
-@@ -543,10 +540,10 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 
- 	ret = regmap_clear_bits(adc_priv->regmap, IPROC_REGCTL2,
- 				IPROC_ADC_AUXIN_SCAN_ENA);
--	if (ret) {
--		dev_err(dev, "failed to write IPROC_REGCTL2 %d\n", ret);
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(dev,
-+				     ret,
-+				     "failed to write IPROC_REGCTL2\n");
- 
- 	ret = devm_request_threaded_irq(dev, adc_priv->irqno,
- 				iproc_adc_interrupt_handler,
-@@ -556,17 +553,14 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	ret = clk_prepare_enable(adc_priv->adc_clk);
--	if (ret) {
--		dev_err(dev,
--			"clk_prepare_enable failed %d\n", ret);
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(dev,
-+				     ret,
-+				     "failed to enable clock\n");
- 
- 	ret = iproc_adc_enable(indio_dev);
--	if (ret) {
--		dev_err(dev, "failed to enable adc %d\n", ret);
-+	if (ret)
- 		goto err_adc_enable;
--	}
- 
- 	indio_dev->name = "iproc-static-adc";
- 	indio_dev->info = &iproc_adc_iio_info;
-@@ -576,7 +570,8 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 
- 	ret = iio_device_register(indio_dev);
- 	if (ret) {
--		dev_err(dev, "iio_device_register failed:err %d\n", ret);
-+		dev_err_probe(dev, ret,
-+			      "failed to register IIO device\n");
- 		goto err_clk;
- 	}
- 
--- 
-2.43.0
+On 15/07/2026 15:27, Steven Price wrote:
+> RMM v2.0 introduces the concept of "Stateful RMI Operations" (SRO). This
+> means that an SMC can return with an operation still in progress. The
+> host is expected to continue the operation until it reaches a conclusion
+> (either success or failure). During this process the RMM can request
+> additional memory ('donate') or hand memory back to the host
+> ('reclaim'). The host can request an in progress operation is cancelled,
+> but still continue the operation until it has completed (otherwise the
+> incomplete operation may cause future RMM operations to fail).
+> 
+> The SRO is tracked using a struct rmi_sro_state object which keeps track
+> of any memory which has been allocated but not yet consumed by the RMM
+> or reclaimed from the RMM. This allows the memory to be reused in a
+> future request within the same operation. It will also permit an
+> operation to be done in a context where memory allocation may be
+> difficult (e.g. atomic context) with the option to abort the operation
+> and retry the memory allocation outside of the atomic context. The
+> memory stored in the struct rmi_sro_state object can then be reused on
+> the subsequent attempt.
+> 
+> Wrappers for SRO RMI commands are also provided here because they depend
+> on the rmi_sro_execute() implementation added by this patch.
+> Delegate/undelegate handles are also added here because they now use the
+> SRO/stateful command infrastructure.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> v15:
+>   * Wrappers for SRO RMI functions are provided in this patch due to
+>     their dependency on the SRO infrastructure.
+>   * Fold the range delegate/undelegate wrappers into this patch because
+>     they depend on the stateful command infrastructure.
+>   * Add cpu_relax() calls when RMI_BUSY/RMI_BLOCKED is returned.
+>   * Various fixes.
+> v14:
+>   * SRO support has improved although is still not fully complete. The
+>     infrastructure has been moved out of KVM.
+> ---
+>   arch/arm64/include/asm/rmi_cmds.h | 392 ++++++++++++++++++++++++
+>   drivers/firmware/arm_rmm/rmi.c    | 491 +++++++++++++++++++++++++++++-
+>   include/linux/arm-rmi-cmds.h      | 114 +++++++
+>   3 files changed, 996 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+> index 7eb2c8d7f7fa..f13ecdb40ded 100644
+> --- a/arch/arm64/include/asm/rmi_cmds.h
+> +++ b/arch/arm64/include/asm/rmi_cmds.h
+> @@ -9,6 +9,102 @@
+>   #include <linux/arm-rmi-cmds.h>
+>   #include <linux/arm-smccc-rmi.h>
 
+
+--8>--
+
+
+> + * rmi_rtt_data_map_init() - Create a protected mapping with data contents
+
+> + * rmi_rtt_data_map() - Create mappings in protected IPA with unknown contents
+
+> + * rmi_rtt_data_unmap() - Remove mappings to conventional memory
+
+>    * rmi_psci_complete() - Complete pending PSCI command
+
+
+> + * rmi_realm_create() - Create a realm
+
+> + * rmi_realm_terminate() - Terminate a realm
+
+> + * rmi_realm_destroy() - Destroy a realm
+
+> + * rmi_rec_create() - Create a REC
+
+> + * rmi_rec_destroy() - Destroy a REC
+
+> + * rmi_rtt_create() - Creates an RTT
+
+> + * rmi_rtt_destroy() - Destroy an RTT
+
+> + * rmi_rtt_fold() - Fold an RTT
+
+> + * rmi_rtt_init_ripas() - Set RIPAS for new realm
+
+> + * rmi_rtt_unprot_map() - Map unprotected granules into a realm
+
+> + * rmi_rtt_set_ripas() - Set RIPAS for an running realm
+
+> + * rmi_rtt_unprot_unmap() - Remove mappings within an unprotected IPA range
+...
+
+--<8--
+
+
+All of the above wrappers seems to be the Realm VM related ones. Could
+we move them to the KVM support patches ? They kind of look out of place
+here ?  That way we can maintain the logical separation of the series's
+from that of the KVM support ?
+
+
+> +
+>   #endif /* __ASM_RMI_CMDS_H */
+> diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+> index e7ab4a7df3ca..6a9f61760fd7 100644
+> --- a/drivers/firmware/arm_rmm/rmi.c
+> +++ b/drivers/firmware/arm_rmm/rmi.c
+> @@ -6,6 +6,7 @@
+>   #include <linux/cpufeature.h>
+>   #include <linux/memblock.h>
+>   #include <linux/arm-rmi-cmds.h>
+> +#include <linux/processor.h>
+>   #include <linux/slab.h>
+>   
+>   #include <asm/memory.h>
+> @@ -22,6 +23,487 @@ unsigned long rmi_feat_reg(unsigned long id)
+>   
+>   	return rmi_feat_reg_cache[id];
+>   }
+> +EXPORT_SYMBOL_GPL(rmi_feat_reg);
+> +
+
+This looks like should be part of the patch which introduced rmi_feat_reg?
+
+> +int rmi_delegate_range(phys_addr_t phys,
+> +		       unsigned long size,
+> +		       phys_addr_t *out_phys)
+> +{
+> +	unsigned long ret = 0;
+> +	unsigned long top = phys + size;
+> +	unsigned long out_top;
+> +
+> +	while (phys < top) {
+> +		ret = rmi_granule_range_delegate(phys, top, &out_top);
+> +		if (ret == RMI_SUCCESS)
+> +			phys = out_top;
+> +		else if (ret == RMI_BUSY || ret == RMI_BLOCKED)
+> +			cpu_relax();
+> +		else
+> +			break;
+> +	}
+> +
+> +	if (out_phys)
+> +		*out_phys = phys;
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(rmi_delegate_range);
+> +
+> +int rmi_undelegate_range(phys_addr_t phys,
+> +			 unsigned long size)
+> +{
+> +	unsigned long ret = 0;
+> +	unsigned long top = phys + size;
+> +	unsigned long out_top;
+> +
+> +	while (phys < top) {
+> +		ret = rmi_granule_range_undelegate(phys, top, &out_top);
+> +		if (ret == RMI_SUCCESS)
+> +			phys = out_top;
+> +		else if (ret == RMI_BUSY || ret == RMI_BLOCKED)
+> +			cpu_relax();
+> +		else
+> +			break;
+> +	}
+> +
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(rmi_undelegate_range);
+> +
+> +static unsigned long donate_req_to_size(unsigned long donatereq)
+> +{
+> +	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
+> +
+> +	return BIT(ARM64_HW_PGTABLE_LEVEL_SHIFT(3 - unit_size));
+> +}
+> +
+> +static void rmi_smccc_invoke(struct arm_smccc_1_2_regs *regs_in,
+> +			     struct arm_smccc_1_2_regs *regs_out)
+> +{
+> +	struct arm_smccc_1_2_regs regs = *regs_in;
+> +	unsigned long status;
+> +
+> +	while (1) {
+> +		arm_smccc_1_2_invoke(&regs, regs_out);
+> +		status = RMI_RETURN_STATUS(regs_out->a0);
+> +		if (status != RMI_BUSY && status != RMI_BLOCKED)
+> +			break;
+> +		cpu_relax();
+> +	}
+> +}
+> +
+> +static void rmi_op_continue(unsigned long sro_handle, unsigned long flags,
+> +			    struct arm_smccc_1_2_regs *out_regs)
+> +{
+> +	struct arm_smccc_1_2_regs regs = {
+> +		SMC_RMI_OP_CONTINUE, sro_handle, flags
+> +	};
+> +
+> +	rmi_smccc_invoke(&regs, out_regs);
+> +}
+> +
+> +static void rmi_op_cancel(unsigned long sro_handle,
+> +			  struct arm_smccc_1_2_regs *out_regs)
+> +{
+> +	struct arm_smccc_1_2_regs regs = {
+> +		SMC_RMI_OP_CANCEL, sro_handle
+> +	};
+> +
+> +	rmi_smccc_invoke(&regs, out_regs);
+> +}
+> +
+> +static void rmi_op_mem_donate(unsigned long sro_handle, unsigned long list_addr,
+> +			      unsigned long list_count, unsigned long flags,
+> +			      struct arm_smccc_1_2_regs *out_regs)
+> +{
+> +	struct arm_smccc_1_2_regs regs = {
+> +		SMC_RMI_OP_MEM_DONATE, sro_handle, list_addr, list_count, flags
+> +	};
+> +
+> +	rmi_smccc_invoke(&regs, out_regs);
+> +}
+> +
+> +static void rmi_op_mem_reclaim(unsigned long sro_handle,
+> +			       unsigned long list_addr,
+> +			       unsigned long list_count,
+> +			       struct arm_smccc_1_2_regs *out_regs)
+> +{
+> +	struct arm_smccc_1_2_regs regs = {
+> +		SMC_RMI_OP_MEM_RECLAIM, sro_handle, list_addr, list_count
+> +	};
+> +
+> +	rmi_smccc_invoke(&regs, out_regs);
+> +}
+> +
+> +int free_delegated_page(phys_addr_t phys)
+> +{
+> +	if (WARN_ON_ONCE(rmi_undelegate_page(phys))) {
+> +		/* Undelegate failed: leak the page */
+> +		return -EBUSY;
+> +	}
+> +
+> +	free_page((unsigned long)phys_to_virt(phys));
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(free_delegated_page);
+> +
+> +static int rmi_sro_ensure_capacity(struct rmi_sro_state *sro,
+> +				   unsigned long count)
+> +{
+> +	if (WARN_ON_ONCE(sro->addr_count > RMI_MAX_ADDR_LIST))
+> +		return -EOVERFLOW;
+> +
+> +	if (count > RMI_MAX_ADDR_LIST - sro->addr_count)
+> +		return -ENOSPC;
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_sro_donate_contig(struct rmi_sro_state *sro,
+> +				 unsigned long sro_handle,
+> +				 unsigned long donatereq,
+> +				 struct arm_smccc_1_2_regs *out_regs,
+> +				 gfp_t gfp)
+> +{
+> +	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
+> +	unsigned long unit_size_bytes = donate_req_to_size(donatereq);
+> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
+> +	unsigned long state = RMI_DONATE_STATE(donatereq);
+> +	unsigned long size = unit_size_bytes * count;
+> +	unsigned long addr_range;
+> +	int ret;
+> +	void *virt;
+> +	phys_addr_t phys;
+> +
+> +	for (int i = 0; i < sro->addr_count; i++) {
+> +		unsigned long entry = sro->addr_list[i];
+> +
+> +		if (RMI_ADDR_RANGE_SIZE(entry) == unit_size &&
+> +		    RMI_ADDR_RANGE_COUNT(entry) == count &&
+> +		    RMI_ADDR_RANGE_STATE(entry) == state &&
+> +		    IS_ALIGNED(RMI_ADDR_RANGE_ADDR(entry), size)) {
+> +			sro->addr_count--;
+> +			swap(sro->addr_list[sro->addr_count],
+> +			     sro->addr_list[i]);
+> +
+> +			goto out;
+> +		}
+> +	}
+> +
+> +	ret = rmi_sro_ensure_capacity(sro, 1);
+> +	if (ret)
+> +		return ret;
+> +
+> +	virt = alloc_pages_exact(size, gfp);
+> +	if (!virt)
+> +		return -ENOMEM;
+> +	phys = virt_to_phys(virt);
+> +
+> +	if (state == RMI_OP_MEM_DELEGATED) {
+> +		phys_addr_t delegated_phys;
+> +
+> +		if (rmi_delegate_range(phys, size, &delegated_phys)) {
+> +			if (!rmi_undelegate_range(phys, delegated_phys - phys))
+> +				free_pages_exact(virt, size);
+> +			return -ENXIO;
+> +		}
+> +	}
+> +
+> +	addr_range = phys & RMI_ADDR_RANGE_ADDR_MASK;
+> +	FIELD_MODIFY(RMI_ADDR_RANGE_SIZE_MASK, &addr_range, unit_size);
+> +	FIELD_MODIFY(RMI_ADDR_RANGE_COUNT_MASK, &addr_range, count);
+> +	FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, state);
+> +
+> +	sro->addr_list[sro->addr_count] = addr_range;
+> +
+> +out:
+> +	rmi_op_mem_donate(sro_handle,
+> +			  virt_to_phys(&sro->addr_list[sro->addr_count]), 1,
+> +			  0, out_regs);
+> +
+> +	unsigned long donated_granules = out_regs->a1;
+> +	unsigned long donated_size = donated_granules << PAGE_SHIFT;
+
+super minor nit: Some slightly older toolchains can't tolerate these
+variable declarations. May be a good idea to move them to the top.
+
+
+> +
+> +	if (donated_granules == 0) {
+> +		/* No pages used by the RMM */
+> +		sro->addr_count++;
+> +	} else if (donated_size < size) {
+> +		phys = sro->addr_list[sro->addr_count] & RMI_ADDR_RANGE_ADDR_MASK;
+> +
+> +		/* Not all granules used by the RMM, free the remaining pages */
+> +		for (long i = donated_size; i < size; i += PAGE_SIZE) {
+> +			if (state == RMI_OP_MEM_DELEGATED)
+> +				free_delegated_page(phys + i);
+> +			else
+> +				__free_page(phys_to_page(phys + i));
+> +		}
+
+super minor nit: This pattern is repeated below and may be wrapped into
+a helper ?
+
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_sro_donate_noncontig(struct rmi_sro_state *sro,
+> +				    unsigned long sro_handle,
+> +				    unsigned long donatereq,
+> +				    struct arm_smccc_1_2_regs *out_regs,
+> +				    gfp_t gfp)
+> +{
+> +	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
+> +	unsigned long unit_size_bytes = donate_req_to_size(donatereq);
+> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
+> +	unsigned long state = RMI_DONATE_STATE(donatereq);
+> +	unsigned long found = 0;
+> +	unsigned long addr_list_start = sro->addr_count;
+> +	int ret;
+> +
+> +	for (int i = 0; i < addr_list_start && found < count; i++) {
+> +		unsigned long entry = sro->addr_list[i];
+> +
+> +		if (RMI_ADDR_RANGE_SIZE(entry) == unit_size &&
+> +		    RMI_ADDR_RANGE_COUNT(entry) == 1 &&
+> +		    RMI_ADDR_RANGE_STATE(entry) == state) {
+> +			addr_list_start--;
+> +			swap(sro->addr_list[addr_list_start],
+> +			     sro->addr_list[i]);
+> +			found++;
+> +			i--;
+> +		}
+> +	}
+> +
+> +	ret = rmi_sro_ensure_capacity(sro, count - found);
+> +	if (ret)
+> +		return ret;
+> +
+> +	while (found < count) {
+> +		unsigned long addr_range;
+> +		void *virt = alloc_pages_exact(unit_size_bytes, gfp);
+> +		phys_addr_t phys;
+> +
+> +		if (!virt)
+> +			return -ENOMEM;
+> +
+> +		phys = virt_to_phys(virt);
+> +
+> +		if (state == RMI_OP_MEM_DELEGATED) {
+> +			phys_addr_t delegated_phys;
+> +
+> +			if (rmi_delegate_range(phys, unit_size_bytes,
+> +					       &delegated_phys)) {
+> +				if (!rmi_undelegate_range(phys, delegated_phys - phys))
+> +					free_pages_exact(virt, unit_size_bytes);
+> +				return -ENXIO;
+> +			}
+> +		}
+> +
+> +		addr_range = phys & RMI_ADDR_RANGE_ADDR_MASK;
+> +		FIELD_MODIFY(RMI_ADDR_RANGE_SIZE_MASK, &addr_range, unit_size);
+> +		FIELD_MODIFY(RMI_ADDR_RANGE_COUNT_MASK, &addr_range, 1);
+> +		FIELD_MODIFY(RMI_ADDR_RANGE_STATE_MASK, &addr_range, state);
+> +
+> +		sro->addr_list[sro->addr_count++] = addr_range;
+> +		found++;
+> +	}
+> +
+> +	rmi_op_mem_donate(sro_handle,
+> +			  virt_to_phys(&sro->addr_list[addr_list_start]),
+> +			  found, 0, out_regs);
+> +
+> +	unsigned long donated_granules = out_regs->a1;
+> +	unsigned long granules_per_unit = unit_size_bytes >> PAGE_SHIFT;
+> +	unsigned long consumed_units;
+> +
+> +	/*
+> +	 * The RMM shouldn't report more granules than we provided, but clamp
+> +	 * just in case.
+> +	 */
+> +	if (WARN_ON_ONCE(donated_granules > found * granules_per_unit))
+> +		donated_granules = found * granules_per_unit;
+> +
+> +	/*
+> +	 * The RMM reports the consumed memory in terms of granules, but we
+> +	 * track in the address lists in unit-sized ranges. So divide to get
+> +	 * the number of (complete) consumed units.
+> +	 */
+> +	consumed_units = donated_granules / granules_per_unit;
+> +	if (donated_granules % granules_per_unit) {
+> +		/*
+> +		 * A unit has been partially consumed, the start is owned by
+> +		 * the RMM, the tail is owned by the host
+> +		 */
+> +		unsigned long entry =
+> +			sro->addr_list[addr_list_start + consumed_units];
+> +		phys_addr_t phys = RMI_ADDR_RANGE_ADDR(entry);
+> +		unsigned long donated_size =
+> +			(donated_granules % granules_per_unit) << PAGE_SHIFT;
+> +
+> +		/* Free the tail back */
+> +		for (unsigned long i = donated_size; i < unit_size_bytes;
+> +		     i += PAGE_SIZE) {
+> +			if (state == RMI_OP_MEM_DELEGATED)
+> +				free_delegated_page(phys + i);
+> +			else
+> +				__free_page(phys_to_page(phys + i));
+> +		}
+> +
+> +		/*
+> +		 * This unit is now fully 'consumed' (either held by the RMM or
+> +		 * freed)
+> +		 */
+> +		consumed_units++;
+> +	}
+> +
+> +	/* Keep just the units the RMM didn't use in addr_list */
+> +	for (unsigned long i = consumed_units; i < found; i++)
+> +		sro->addr_list[addr_list_start + i - consumed_units] =
+> +			sro->addr_list[addr_list_start + i];
+> +
+> +	sro->addr_count -= consumed_units;
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_sro_donate(struct rmi_sro_state *sro,
+> +			  unsigned long sro_handle,
+> +			  unsigned long donatereq,
+> +			  struct arm_smccc_1_2_regs *regs,
+> +			  gfp_t gfp)
+> +{
+> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
+> +
+> +	if (WARN_ON_ONCE(!count))
+> +		return 0;
+
+minor nit :
+	if (WARN_ON_ONCE(!RMI_DONATE_COUNT(donatereq)))
+		return 0;
+
+and drop count ?
+
+Suzuki
 
