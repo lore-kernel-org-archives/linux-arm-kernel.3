@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0E2C54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923BFC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pEoQV27iS4e8ivu4L89IUt/qpH7+G69Fwk5z3rja0hE=; b=VCxWk+qDBhDAL8JPxRZ9DvKQyA
-	54Wa/r3RYD5oqQBIVCg9bZxRSnzBijmZ62wiEloVSgYNy70HIwrmcXD0eqCWGlDsQNPoJ2h6Yp9O9
-	Ei+zkTABwS2gohcmvf4Fw5AaG5DyPhoXc5xZbbmiyr3NxBvwRv+uP41HqtqOFMLcKQGe5n45kcNIH
-	kZLHTRo8artB3k0PqZvGgUQhyj5r3INnS/snTJkB+3iC8onSYleeHkp2I1yKj4SupjWreUEfU6FI9
-	/Qz9Sx4+chYBUEe5HLnKesm/puWYMxNrEuJVIhX4NxFBbZZ9+54EUJWiqqQBVm6he8QTbZNF43Ju7
-	vwqHZCcA==;
+	bh=9ytOyVvVUp1+iOjUCBAJJ+Zr5Yli10sJrrWCx9PaxhI=; b=xUwNFz4azY65NtezqI6orQoi4Z
+	q5ywb7sT2pdhwY7mZSpINdzc4hfONedlgFGWbiIAXYhglKO43JvK1sfNGp1yARL3ZpJrvjaf7CUDr
+	UoOXszOE95UcyYmapH3H/O6RFj01VLDZ/ZcY4wY1gMk/dqAiaLtESgjhUUxDsG5d+KceZdHzKXtr2
+	X7ymQeZQMIEwgsw9pNRw1mASoC+WhjxD6FWUzGde0vaSHzHkLnOyMD7fnh+43Ad8eAVKnC1ldZGCB
+	aZpt7RuIuz0O02NZn+jNt1kVn97X7cJ5ao3SG2eHMfRdObC9KmfNuJYKtTxv23MGWaBG9pUO1Al1v
+	UNng6EOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppta-0000000CyQA-1vgD;
-	Fri, 31 Jul 2026 16:15:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpptW-0000000CyPb-10Gi
+	id 1wpptt-0000000CySs-2OBn;
+	Fri, 31 Jul 2026 16:15:57 +0000
+Received: from mail-pl1-x645.google.com ([2607:f8b0:4864:20::645])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpptq-0000000CyRh-0QFj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 16:15:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FC70204C;
-	Fri, 31 Jul 2026 09:15:27 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 419BA3F86F;
-	Fri, 31 Jul 2026 09:15:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785514531; bh=EC4Qldz0I8//eu8X9qUqICG1s0ODDvI3gx2a299M5Cs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=D5ysb3m8w0oV0jAuBPN2EE+x7/QiB3HmzsLsl9Of48PCq8y3Avccb+Y8RjUcWjGAw
-	 rOgeZKxweIvJrVq0r88o419dcChgko7LZGWsupv8c7SKqE0dJYqqxK/kbRxbJNaEn6
-	 KdEEXCxRq4MU5tuCGf1pHIl25TaKJf1Xf9FZlbJ8=
-Date: Fri, 31 Jul 2026 17:15:25 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Hongyan Xia <hongyan.xia@transsion.com>
-Cc: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dennis Zhou <dennis@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Christoph Lameter <cl@gentwo.org>, Oleg Nesterov <oleg@redhat.com>,
-	Naveen N Rao <naveen@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
-	"llvm@lists.linux.dev" <llvm@lists.linux.dev>
-Subject: Re: [RFC PATCH 9/9] arm64/debug: Mark debug exception helpers
- __always_inline
-Message-ID: <amzKHV5fBeRFhwlJ@J2N7QTR9R3>
-References: <cover.1785153469.git.hongyan.xia@transsion.com>
- <eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <eb38b41ae1b3216ec69fb45555ef5df57efd7b8d.1785153469.git.hongyan.xia@transsion.com>
+	Fri, 31 Jul 2026 16:15:55 +0000
+Received: by mail-pl1-x645.google.com with SMTP id d9443c01a7336-2cfe48ca1efso16425555ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 09:15:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785514553; x=1786119353; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9ytOyVvVUp1+iOjUCBAJJ+Zr5Yli10sJrrWCx9PaxhI=;
+        b=T5U8bdwRuUZ5sXNBDc43hPLH/3UGwyNbWQVYr8kT/De0Mu7KsVRs7wpUR6OW50rRBk
+         M4NOHmJmSkfmwnu/rGsVPHYEH76IiPqC65pCgZLulIOb1XQvXblL3SbpfkCRyQZDL37N
+         T4yU1AVFaaFuYpKPwZKBB7n3J7fiRSVTiTanCE+P6ISJ79deQHKRAEn5OJJlBgj4KQdm
+         ecvOrRc7R8ECmG/D5i4JYMpGLlavdXKUmEPSWTQsRwzvrZ1eBHdIziMBxNvo/S9BYYZA
+         VUijOcGv2MK7cQuk1H9GTWf/V7LYROENNfFMbBoEkQ/vqGvyQtOjz+r9Sb56Zh7gTtsB
+         WCtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785514553; x=1786119353;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9ytOyVvVUp1+iOjUCBAJJ+Zr5Yli10sJrrWCx9PaxhI=;
+        b=acYTm5NQ+sUIjj2PIe98e7hmYOd/bE32FNBEL6omcUaLSZIm6Awo7J9R67gieTuU88
+         WwmPD58OhsN2ZbdYNId0seZpXBRSduZY8hOIZBffo14IWT0d5XTKqlW+UWGoCvbzmu4j
+         SBFcPkSyskfBOMq+tcgAQH4CU2x3pRqvfymGW+XkSHyHsJXlBLcFG5r151zK5JCZ9l1H
+         0GdlBaU1sTtXrCeV2FrlxSmvO4XNf5uqdpDlhkWD3f/MJQVk/qIFRq1tsPl3hRF0/WE+
+         fnpNUBtHbNPaSaMJOISu/0l0fQ+xEc2hPyUx77vJTzNPZJS7YfUTeYumHz15zFg+S3tb
+         JoGg==
+X-Forwarded-Encrypted: i=1; AHgh+RrYRn64rmogDqo0ePsVK2EFikeRPzLaPpRA7w/SBQrCJSzNtC4pyDeYGnrFx6uxcvJf3yEjRHb/i7vIyp7hhfmX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxh58We0USInUK0jMdVs2gupxHq6REklsVQ9xgOGCWundRlzHcQ
+	VsKoY4209SNn7kiIXdmZpKoy++5aIODJSsKCGZ2BPqW2e1Ksef2wNoDNFuGUSBg9hMj469Jhdjo
+	sCXcuog==
+X-Received: from plbjg5.prod.google.com ([2002:a17:903:26c5:b0:2d0:40fa:a53d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2410:b0:2d0:4021:bb62
+ with SMTP id d9443c01a7336-2d0521bcc4dmr5824855ad.16.1785514552447; Fri, 31
+ Jul 2026 09:15:52 -0700 (PDT)
+Date: Fri, 31 Jul 2026 09:15:51 -0700
+In-Reply-To: <20260731145435.1016137-B-seiden@linux.ibm.com>
+Mime-Version: 1.0
+References: <20260731130902.654679-1-seiden@linux.ibm.com> <20260731130902.654679-2-seiden@linux.ibm.com>
+ <20260731145435.1016137-B-seiden@linux.ibm.com>
+Message-ID: <amzKNzYWD1ngXdOZ@google.com>
+Subject: Re: [PATCH v5 01/31] vfio: Use file-based reference counting for KVM
+From: Sean Christopherson <seanjc@google.com>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@kernel.org>, 
+	Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>, 
+	Gautam Gala <ggala@linux.ibm.com>, Hariharan Mari <hari55@linux.ibm.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Hendrik Brueckner <brueckner@linux.ibm.com>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>, 
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>, Oliver Upton <oupton@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Ulrich Weigand <Ulrich.Weigand@de.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091535_012032_F684CEA8 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20260731_091554_144020_3B755FB5 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,146 +103,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 12:25:48PM +0000, Hongyan Xia wrote:
-> From: Hongyan Xia <hongyan.xia@transsion.com>
+On Fri, Jul 31, 2026, Steffen Eiden wrote:
+> On Fri, Jul 31, 2026 at 03:08:29PM +0200, Steffen Eiden wrote:
+> > Replace manual module reference counting with file-based reference
+> > counting for KVM integration. Previously, VFIO used symbol_get() to
+> > obtain function pointers for kvm_get_kvm_safe() and kvm_put_kvm(),
+> > then manually tracked module references through these symbols. This
+> > approach required storing the put_kvm function pointer in each device
+> > and carefully managing symbol references.
+> > 
+> > Pass struct file pointers instead of struct kvm pointers throughout the
+> > VFIO-KVM interface. This leverages the kernel's existing file reference
+> > counting mechanism via get_file_active() and fput(), eliminating the
+> > need for manual module reference tracking. The file->private_data field
+> > provides access to the underlying struct kvm when needed.
+> > 
+> > This simplifies the code and removes all remaining externally exported
+> > symbols for KVM, paving the path for a second concurrent KVM module.
+> > 
+> > Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> > Suggested-by: Sean Christopherson <seanjc@google.com>
+> > Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> > ---
+> >  arch/x86/include/asm/kvm_page_track.h |  8 ++---
+> >  arch/x86/kvm/Makefile                 |  3 --
+> >  arch/x86/kvm/mmu/page_track.c         | 16 +++++----
+> >  drivers/s390/crypto/vfio_ap_ops.c     | 24 ++++++++++---
+> >  drivers/vfio/group.c                  |  2 +-
+> >  drivers/vfio/pci/vfio_pci_zdev.c      |  7 +++-
+> >  drivers/vfio/vfio.h                   | 10 +++---
+> >  drivers/vfio/vfio_main.c              | 49 ++++++---------------------
+> >  include/linux/kvm_host.h              |  2 ++
+> >  include/linux/vfio.h                  |  4 +--
+> >  virt/kvm/kvm_main.c                   | 23 ++++++++++---
+> >  virt/kvm/vfio.c                       |  8 ++---
+> >  12 files changed, 81 insertions(+), 75 deletions(-)
 > 
-> Static inline should be enough to actually inline functions for most
-> compilers, but my Clang-19 somehow thinks it's better to outline them.
-> These tiny helpers then live in normal .text sections instead of
-> .noinstr sections, violating noinstr.
-> 
-> Mark them __always_inline so the compiler can never outline them.
-> 
-> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
-> ---
->  arch/arm64/include/asm/esr.h       | 2 +-
->  arch/arm64/include/asm/percpu.h    | 2 +-
->  arch/arm64/include/asm/preempt.h   | 4 ++--
->  arch/arm64/include/asm/ptrace.h    | 4 ++--
->  arch/arm64/kernel/debug-monitors.c | 2 +-
->  include/linux/kprobes.h            | 8 ++++----
->  6 files changed, 11 insertions(+), 11 deletions(-)
+> @sean: This is based on your draft in https://lore.kernel.org/all/adkFk3ZN4HJtpLA3@google.com/
+> do you want another/more attribution? 
 
-I think this should be split into separate patches. In particular, the
-preempt count helpers are used in mane other places than debug
-exceptions, and if those are used in noinstr code today, we need to
-backport those as fixes.
+No preference.  Do whatever feels right to you, you'll know better than me how
+much of the final code came from me.  If you want to give me a Co-developed-by,
+here's my:
 
-Mark.
-
-> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-> index f816f5d77f1a..a75bfdb7e5fe 100644
-> --- a/arch/arm64/include/asm/esr.h
-> +++ b/arch/arm64/include/asm/esr.h
-> @@ -437,7 +437,7 @@
->  #ifndef __ASSEMBLER__
->  #include <asm/types.h>
->  
-> -static inline unsigned long esr_brk_comment(unsigned long esr)
-> +static __always_inline unsigned long esr_brk_comment(unsigned long esr)
->  {
->  	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
->  }
-> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-> index b57b2bb00967..d4cae47fde8c 100644
-> --- a/arch/arm64/include/asm/percpu.h
-> +++ b/arch/arm64/include/asm/percpu.h
-> @@ -29,7 +29,7 @@ static inline unsigned long __hyp_my_cpu_offset(void)
->  	return read_sysreg(tpidr_el2);
->  }
->  
-> -static inline unsigned long __kern_my_cpu_offset(void)
-> +static __always_inline unsigned long __kern_my_cpu_offset(void)
->  {
->  	unsigned long off;
->  
-> diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-> index 932ea4b62042..326f221c3f56 100644
-> --- a/arch/arm64/include/asm/preempt.h
-> +++ b/arch/arm64/include/asm/preempt.h
-> @@ -41,14 +41,14 @@ static inline bool test_preempt_need_resched(void)
->  	return !current_thread_info()->preempt.need_resched;
->  }
->  
-> -static inline void __preempt_count_add(int val)
-> +static __always_inline void __preempt_count_add(int val)
->  {
->  	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
->  	pc += val;
->  	WRITE_ONCE(current_thread_info()->preempt.count, pc);
->  }
->  
-> -static inline void __preempt_count_sub(int val)
-> +static __always_inline void __preempt_count_sub(int val)
->  {
->  	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
->  	pc -= val;
-> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-> index 39582511ad72..460726224299 100644
-> --- a/arch/arm64/include/asm/ptrace.h
-> +++ b/arch/arm64/include/asm/ptrace.h
-> @@ -336,11 +336,11 @@ static inline unsigned long regs_get_kernel_argument(struct pt_regs *regs,
->  struct task_struct;
->  int valid_user_regs(struct user_pt_regs *regs, struct task_struct *task);
->  
-> -static inline unsigned long instruction_pointer(struct pt_regs *regs)
-> +static __always_inline unsigned long instruction_pointer(struct pt_regs *regs)
->  {
->  	return regs->pc;
->  }
-> -static inline void instruction_pointer_set(struct pt_regs *regs,
-> +static __always_inline void instruction_pointer_set(struct pt_regs *regs,
->  		unsigned long val)
->  {
->  	regs->pc = val;
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index a970ab6327cd..66cb8151f5df 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -146,7 +146,7 @@ postcore_initcall(debug_monitors_init);
->  /*
->   * Single step API and exception handling.
->   */
-> -static void set_user_regs_spsr_ss(struct user_pt_regs *regs)
-> +static __always_inline void set_user_regs_spsr_ss(struct user_pt_regs *regs)
->  {
->  	regs->pstate |= DBG_SPSR_SS;
->  }
-> diff --git a/include/linux/kprobes.h b/include/linux/kprobes.h
-> index 8c4f3bb24429..5880445ed0f0 100644
-> --- a/include/linux/kprobes.h
-> +++ b/include/linux/kprobes.h
-> @@ -384,17 +384,17 @@ static inline void kprobe_ftrace_kill(void) {}
->  struct kprobe *get_kprobe(void *addr);
->  
->  /* kprobe_running() will just return the current_kprobe on this CPU */
-> -static inline struct kprobe *kprobe_running(void)
-> +static __always_inline struct kprobe *kprobe_running(void)
->  {
->  	return __this_cpu_read(current_kprobe);
->  }
->  
-> -static inline void reset_current_kprobe(void)
-> +static __always_inline void reset_current_kprobe(void)
->  {
->  	__this_cpu_write(current_kprobe, NULL);
->  }
->  
-> -static inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
-> +static __always_inline struct kprobe_ctlblk *get_kprobe_ctlblk(void)
->  {
->  	return this_cpu_ptr(&kprobe_ctlblk);
->  }
-> @@ -449,7 +449,7 @@ static inline struct kprobe *get_kprobe(void *addr)
->  {
->  	return NULL;
->  }
-> -static inline struct kprobe *kprobe_running(void)
-> +static __always_inline struct kprobe *kprobe_running(void)
->  {
->  	return NULL;
->  }
-> -- 
-> 2.47.3
-> 
+  Signed-off-by: Sean Christopherson <seanjc@google.com>
 
