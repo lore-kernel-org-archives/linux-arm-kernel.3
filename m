@@ -4,112 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858AAC5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C5C0C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:23:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KGP6YYWa3E46HVm4iujdsDlLjDhR2AjMoL5m0l3+/TY=; b=H2LZU4zWmoEDeFR3JpVANiJFmO
-	9BtlpZl+ZG2qL68/hHXg1R9/Vp/RdTveAf0zr0Y2YvAWcebE+KlLGFTMmjEcXLaykaU8h4dp3FmM7
-	gD06is6ZWv+ewHiTbjg0cFNZP142PVWqIUVgHQ/XiN+xsA+bKa0cPip/oj26JYqwFM4x/h9pDGJ7l
-	HHbCphOiUI+tcja7ngkUGdT5lGYzhuV4LwB2ffljdKAhhP/KwgPsPM4Z+dRoqNY6SxxP+uvYQOyLI
-	eic/puG8jG5bk0513oVPaIdsa+3OUtJ+JgXsNg4Oe39jdZGkGVZtd/ouDVpsV2pv5T/BtvR5c8IO8
-	+9DkQTMA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/UwgvKYFPPar4fqUMM1nUY0QbNb/Wo+lwFxWuvZUvRU=; b=mYsbOw5PzSq0xjiGZKYyVXJgB4
+	3HloY//aiZXGqzwT9eyon9zNup1GMqccDAG/a4+mOCeUNtf4+B3edRjEZsmJa4+P6M0jqVNKramEJ
+	DwTUvqhRef5uOO9Hkg2AHYsXNnmydcw+S4S/OVfwHUKZAeWoCfTaZDgirxQgQYs3I1AwQHY635+Zb
+	dQa6N/xRqWIPIJUsh828dqTEz+mgXNqLUas3gEMyYsSS1fMl0EkbqyQHYNLBsL8abMp557sYhgUqa
+	S8M8t8hLhtObf4lk9w5euhFN/1ivqSaJxUM2DhFYLuQxLn9v46sWr818I9j+MC7ou/2855WPMWBgW
+	+IycqXxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpozc-0000000Ct5d-3poh;
-	Fri, 31 Jul 2026 15:17:48 +0000
-Received: from mail-vs1-xe2f.google.com ([2607:f8b0:4864:20::e2f])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoza-0000000Ct4o-28tM
+	id 1wpp4k-0000000CtbC-214W;
+	Fri, 31 Jul 2026 15:23:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpp4i-0000000Ctaj-3MUt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 15:17:47 +0000
-Received: by mail-vs1-xe2f.google.com with SMTP id ada2fe7eead31-74ad03fa605so622476137.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 08:17:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785511065; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ITKjjnBuV2nj7hI9c374xSXZX6/+ndfIbMwyWdERKewK1a+H/Yyt8AbtVikIz7r9eO
-         eqzEOqaZUfRog4yG4xy0JwiSH+/eeXGOjdmvsvf8Eg3m8iKtZWmfFx00URMQZy5j/tB+
-         fYXNV6Qm6kKZLxEmrnxAgon7EuGj3lQtyzbwrFIGepbswEw1b+Y1T4Ou0Vg6suzUzypF
-         9a4zdKxtCyhlaVB7nI/ZYYBsJBJjSoVuP7x/n/KwQPdxA0aQY4ffJNkS+n4lNQAKI8As
-         E8YVLEqz5v91jLuxizqU/Glr4E/TFQ0hL2IjFBo7mog15pEUsEtaNP5BhcBfmiBNA2v0
-         GQ9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KGP6YYWa3E46HVm4iujdsDlLjDhR2AjMoL5m0l3+/TY=;
-        fh=TGM9QA3F8qDJa6TjHl91DHyJ1QeinVOYwqI+4WNhY0k=;
-        b=ErTOz3G+obkw3+tbl7TsA9g/GXMTzOG30W3TAzP9Ep6xTh4ob4TgUiG2YLsuajCvRu
-         5BJq6hxbYYS/koFlrVUJQHTMtSD0jObXSzKVCnrqhefVggcjUB4AwKaV75lrCQ40qffN
-         C5QFN14G4ZJnm5QmsIpiP5V0ej9ZbnKb3LUeBLvBcxiqZskEyAxXFj0sNfqs14PJKsFS
-         j0chppRbj6FzijK6khZdmPJG2GdyjttKy2WW5LMGuO4SA1V1wJRlbUpPsve2cosGnjkh
-         Qub1I2oQWWddOWsouvPRmYiglxuoVRzcQXpnHqzYLf7gONk+cXD0Bo5VjrYpfqZqDGKI
-         fTSw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785511065; x=1786115865; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KGP6YYWa3E46HVm4iujdsDlLjDhR2AjMoL5m0l3+/TY=;
-        b=U+jm/28XRYTqzyH/O7QBonicMuDaT2aDVDwHtSYzN3Z3+Uk3vgxBGqJo5aR8ku0HXt
-         0/dR9JXh2jczU9lDrpOZ55goHShEwKGgGsGOMts5PNn+ySNgM+X5vY1dxOvgdH36vIdD
-         TSqn7++FwqRVX30cgBpD6FeNddTXrBLgjtuDN0D0e96SZDSecCuGMzPFk02BcTYSLsSy
-         KPoadi+0Zej+VoTVwi4xgVbJ0fARLYAbelBhANm+noaP6FbBdgIu0DKR+93oOshQRo/p
-         RaFDeoefjiWVwVBkFKS+52s4BXriC+AQslmSweMIgwEWCZfTDSxvUmQzdvMFxI/e+yKb
-         0xXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785511065; x=1786115865;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KGP6YYWa3E46HVm4iujdsDlLjDhR2AjMoL5m0l3+/TY=;
-        b=dijGD7ytmZGn+ZlEAFvVo78WWFqfpSJhS8f1lYZitp1GDiQS9xeJidBHGHIjnY7Suw
-         24WfL4D/6I7dkrNyoygVP1QxqxFJdlk0xb7PT0i0716dqPk12QiMnEo6x/2RLgbjvZs5
-         EMdLMqDnSsEoTqDyWAcmIavUH5odtqEpUBXUizEvOfeT3TaVv5xxXdLKGql99V1/NMe9
-         JoBSv9DOCysikSoX5fniOLTc05pLm2F/LYuPCjMzWkIEFkAM+A5D0pJTnDudvI3mDNkS
-         luzmxZa3GLqMZKv74yfzjbxSoJGNvF99xVhh16I/65UV9iQJCugVEZggjcLLgA+S80o9
-         gehg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro3/OMb8KNdi1J6rw/fVQLSYeD/bhQD4qb17VyDlLrRBy8Stsw+lh87oFZt8yq1EtHQfyjm2dNzk6csijAvXH1H@lists.infradead.org
-X-Gm-Message-State: AOJu0YytEezjjSYquRSvpQiezsdiiULrCPvivUrhYnZiA8uQOC5ZNgBr
-	orrsPbHvXBG8RlAbTpYpAtOOp8XoNq38JClTP4UbSIZkouwq2imWWo0KETUeJzSRrLU/GeJad07
-	xeAvlHctDLrZoQxfGIzLp8oSiWMXDWYs=
-X-Gm-Gg: AR+sD11fz7RgGFhq79WMuat66bnQtaEf0TujdlIu4DbcJCbNpuwB7bJtdYmFp+PLEpx
-	b8pFvQeyYubew4kEf8S+SuiNZ8nqpE8PzSjT0Nxx7Gvuo6HPcpm9G0a+7mnnn094Rolv91kdqOq
-	G0D8Jg11vf7ItiyKWLY8+Des22ZR9mSEUzlR1/JqGq+ZpdHXWGW7ZAyOBkcfHPQrLmC+qiWKKwY
-	z1QsidEDOsGkyUNBD5L6cWWkMKigbb6YwrovfR6dWYHJGwv0Mdhj6LsMaxihWrE7CD/pINnW9JE
-	JLKskgGH4cudYt6DLiHavpMylTMJYUHCNaRVfzKjZMjkFAGPb4KAzwizXXbtsAOSy8265pTmvf4
-	=
-X-Received: by 2002:a05:6102:441a:b0:738:1ef6:51b9 with SMTP id
- ada2fe7eead31-75b22260dffmr475318137.5.1785511064843; Fri, 31 Jul 2026
- 08:17:44 -0700 (PDT)
+	Fri, 31 Jul 2026 15:23:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0E28204C;
+	Fri, 31 Jul 2026 08:22:59 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C56833F66F;
+	Fri, 31 Jul 2026 08:23:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785511383; bh=qF7X6G6poyy5lqDPXb9HhX6b/JufNdkincTkzi8dE9Y=;
+	h=From:To:Cc:Subject:Date:From;
+	b=NhT9O7OI9UYxPZJrrf5Asf2YyGTeuspp2rqFtafYrqcb0/kSUwVDBIqdiczg9Bq8N
+	 u7exZrzRAcrYIpEcn0cbytVZTS2VlOloCDmMcQCmwo3lkaWGk2wGLy7pLeTwNYrDHn
+	 h0amUIwqKl8x4NherSn25u7HOt70bIrmDrqQouEE=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org,
+	mark.rutland@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	ilkka@os.amperecomputing.com,
+	bwicaksono@nvidia.com
+Subject: [PATCH v2] perf/arm_cspmu: Support 64-bit programmers' model
+Date: Fri, 31 Jul 2026 16:22:58 +0100
+Message-ID: <2bde4469c918494e8fa04b2d297a6189ac8b7796.1785511378.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
-References: <20260705110221.153481-1-mdshahid03@gmail.com> <20260724122254.121935-1-mdshahid03@gmail.com>
-In-Reply-To: <20260724122254.121935-1-mdshahid03@gmail.com>
-From: Inki Dae <daeinki@gmail.com>
-Date: Sat, 1 Aug 2026 00:17:04 +0900
-X-Gm-Features: AUfX_mxZnAVCtLemF1RKBEDkqKNByd4RYkTmPt_s3OtHb2BMMIen4YexrgB9y3Q
-Message-ID: <CAAQKjZPwb00MePpUTmKZbn67jXp=UWX7m81evttd29L+9UcVxw@mail.gmail.com>
-Subject: Re: [PATCH] drm/exynos: vidi: use memdup_user() instead of kmalloc()
- and copy_from_user()
-To: mdshahid03@gmail.com
-Cc: Seung-Woo Kim <sw0312.kim@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_081746_559378_BA75DFFB 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260731_082304_925792_EC612BA0 
+X-CRM114-Status: GOOD (  30.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,25 +69,343 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The 64-bit Programmers' model extension, now named FEAT_CSPMU_EXT64,
+makes all the non-counter registers 64-bit as well, of which we most
+need to care PMEVFILTR<n>, PMEVTYPER<n>, and PMCR since it changes
+location. Our event config fields are ready for this internally, but
+we need a few more tweaks to propagate 64-bit values properly from
+end to end.
 
-Thanks for your contribution. I will review it soon.
+Since 64-bit events leave no room for our existing "cycles" encoding,
+and we don't really expect to see implementations of it anyway, we
+deliberately omit generic support for the architectural fixed cycle
+counter in this case to save some bother. At worst, vendor modules
+can still implement their own encoding if they really want to.
 
-Thanks,
-Inki Dae
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
 
-2026=EB=85=84 7=EC=9B=94 24=EC=9D=BC (=EA=B8=88) =EC=98=A4=ED=9B=84 9:27, <=
-mdshahid03@gmail.com>=EB=8B=98=EC=9D=B4 =EC=9E=91=EC=84=B1:
->
-> Hi,
->
-> Gentle ping on this patch.
->
-> Could please take a look when time permits?
->
-> Thanks!
->
-> Mohammad Shahid
->
->
+v2: Fix off-by-one in the event format
+---
+ drivers/perf/arm_cspmu/arm_cspmu.c    | 121 +++++++++++++++++++++-----
+ drivers/perf/arm_cspmu/arm_cspmu.h    |  25 +++---
+ drivers/perf/arm_cspmu/nvidia_cspmu.c |   2 +-
+ 3 files changed, 114 insertions(+), 34 deletions(-)
+
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+index ad82de166dd1..3b48a35b6241 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.c
++++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+@@ -78,13 +78,13 @@ static struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev)
+ }
+ 
+ /*
+- * In CoreSight PMU architecture, all of the MMIO registers are 32-bit except
+- * counter register. The counter register can be implemented as 32-bit or 64-bit
+- * register depending on the value of PMCFGR.SIZE field. For 64-bit access,
+- * single-copy 64-bit atomic support is implementation defined. APMT node flag
+- * is used to identify if the PMU supports 64-bit single copy atomic. If 64-bit
+- * single copy atomic is not supported, the driver treats the register as a pair
+- * of 32-bit register.
++ * With FEAT_CSPMU_EXT32, all of the MMIO registers are 32-bit except the
++ * counter registers, which are either 32-bit or 64-bit depending on the value
++ * of PMCFGR.SIZE. It is implementation-defined whether single-copy-atomic
++ * 64-bit accesses are supported, so we rely on a firmware flag to identify
++ * that, and otherwise treat a 64-bit counter as a non-atomic pair of 32-bit
++ * registers. With FEAT_CSPMU_EXT64, everything is 64-bit, but we may still
++ * have to deal with atomicity being broken.
+  */
+ 
+ /*
+@@ -173,13 +173,30 @@ arm_cspmu_event_attr_is_visible(struct kobject *kobj,
+ 	eattr = container_of(attr, typeof(*eattr), attr.attr);
+ 
+ 	/* Hide cycle event if not supported */
+-	if (!supports_cycle_counter(cspmu) &&
++	if ((cspmu->has_ext64 || !supports_cycle_counter(cspmu)) &&
+ 	    eattr->id == ARM_CSPMU_EVT_CYCLES_DEFAULT)
+ 		return 0;
+ 
+ 	return attr->mode;
+ }
+ 
++ssize_t arm_cspmu_default_format_show(struct device *dev,
++				      struct device_attribute *attr, char *buf)
++{
++	struct perf_pmu_events_attr *fmt = container_of(attr, typeof(*fmt), attr);
++	struct arm_cspmu *cspmu = to_arm_cspmu(dev_get_drvdata(dev));
++	u64 field = cspmu->has_ext64 ? U64_MAX : U32_MAX;
++	DECLARE_BITMAP(bits, 64) = { BITMAP_FROM_U64(field) };
++
++	if (!fmt->id) {
++		set_bit(32, bits); /* For 32-bit "cycles" event */
++		return sysfs_emit(buf, "config:%*pbl\n", 64, bits);
++	}
++
++	return sysfs_emit(buf, "config%lld:%*pbl\n", fmt->id, 64, bits);
++}
++EXPORT_SYMBOL_GPL(arm_cspmu_default_format_show);
++
+ static struct attribute *arm_cspmu_format_attrs[] = {
+ 	ARM_CSPMU_FORMAT_EVENT_ATTR,
+ 	ARM_CSPMU_FORMAT_FILTER_ATTR,
+@@ -198,9 +215,9 @@ arm_cspmu_get_format_attrs(const struct arm_cspmu *cspmu)
+ 	return attrs;
+ }
+ 
+-static u32 arm_cspmu_event_type(const struct perf_event *event)
++static u64 arm_cspmu_event_type(const struct perf_event *event)
+ {
+-	return event->attr.config & ARM_CSPMU_EVENT_MASK;
++	return event->attr.config;
+ }
+ 
+ static bool arm_cspmu_is_cycle_counter_event(const struct perf_event *event)
+@@ -208,6 +225,16 @@ static bool arm_cspmu_is_cycle_counter_event(const struct perf_event *event)
+ 	return (event->attr.config == ARM_CSPMU_EVT_CYCLES_DEFAULT);
+ }
+ 
++static u64 arm_cspmu_filter(const struct perf_event *event)
++{
++	return event->attr.config1;
++}
++
++static u64 arm_cspmu_filter2(const struct perf_event *event)
++{
++	return event->attr.config2;
++}
++
+ static ssize_t arm_cspmu_identifier_show(struct device *dev,
+ 					 struct device_attribute *attr,
+ 					 char *page)
+@@ -417,6 +444,17 @@ static int arm_cspmu_init_impl_ops(struct arm_cspmu *cspmu)
+ 		DEFAULT_IMPL_OP(event_attr_is_visible),
+ 	};
+ 
++	/*
++	 * With 64-bit events, since our default "cycles" encoding won't work,
++	 * and the architecture recommends against implementing it anyway, we
++	 * choose to effectively ignore FEAT_CSPMU_CCNTR, unless a vendor
++	 * module really wants to provide its own encoding and ops.
++	 */
++	if (cspmu->has_ext64) {
++		cspmu->impl.ops.is_cycle_counter_event = NULL;
++		cspmu->impl.ops.set_cc_filter = NULL;
++	}
++
+ 	/* Firmware may override implementer/product ID from PMIIDR */
+ 	if (apmt_node && apmt_node->impl_id)
+ 		cspmu->impl.pmiidr = apmt_node->impl_id;
+@@ -518,19 +556,24 @@ static int arm_cspmu_alloc_attr_groups(struct arm_cspmu *cspmu)
+ 	return 0;
+ }
+ 
++static inline int arm_cspmu_pmcr(struct arm_cspmu *cspmu)
++{
++	return cspmu->has_ext64 ? PMCR_64 : PMCR;
++}
++
+ static inline void arm_cspmu_reset_counters(struct arm_cspmu *cspmu)
+ {
+-	writel(PMCR_C | PMCR_P, cspmu->base0 + PMCR);
++	writel(PMCR_C | PMCR_P, cspmu->base0 + arm_cspmu_pmcr(cspmu));
+ }
+ 
+ static inline void arm_cspmu_start_counters(struct arm_cspmu *cspmu)
+ {
+-	writel(PMCR_E, cspmu->base0 + PMCR);
++	writel(PMCR_E, cspmu->base0 + arm_cspmu_pmcr(cspmu));
+ }
+ 
+ static inline void arm_cspmu_stop_counters(struct arm_cspmu *cspmu)
+ {
+-	writel(0, cspmu->base0 + PMCR);
++	writel(0, cspmu->base0 + arm_cspmu_pmcr(cspmu));
+ }
+ 
+ static void arm_cspmu_enable(struct pmu *pmu)
+@@ -561,7 +604,8 @@ static int arm_cspmu_get_event_idx(struct arm_cspmu_hw_events *hw_events,
+ 	struct arm_cspmu *cspmu = to_arm_cspmu(event->pmu);
+ 
+ 	if (supports_cycle_counter(cspmu)) {
+-		if (cspmu->impl.ops.is_cycle_counter_event(event)) {
++		if (cspmu->impl.ops.is_cycle_counter_event &&
++		    cspmu->impl.ops.is_cycle_counter_event(event)) {
+ 			/* Search for available cycle counter. */
+ 			if (test_and_set_bit(cspmu->cycle_counter_logical_idx,
+ 					     hw_events->used_ctrs))
+@@ -804,26 +848,33 @@ static void arm_cspmu_event_update(struct perf_event *event)
+ static inline void arm_cspmu_set_event(struct arm_cspmu *cspmu,
+ 					struct hw_perf_event *hwc)
+ {
+-	u32 offset = PMEVTYPER + (4 * hwc->idx);
+-
+-	writel(hwc->config, cspmu->base0 + offset);
++	if (cspmu->has_ext64)
++		writeq(hwc->config, cspmu->base0 + PMEVTYPER + (8 * hwc->idx));
++	else
++		writel(hwc->config, cspmu->base0 + PMEVTYPER + (4 * hwc->idx));
+ }
+ 
+ static void arm_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
+ 				    const struct perf_event *event)
+ {
+-	u32 filter = event->attr.config1 & ARM_CSPMU_FILTER_MASK;
+-	u32 filter2 = event->attr.config2 & ARM_CSPMU_FILTER_MASK;
+-	u32 offset = 4 * event->hw.idx;
++	u64 filter = arm_cspmu_filter(event);
++	u64 filter2 = arm_cspmu_filter2(event);
++	int n = event->hw.idx;
+ 
+-	writel(filter, cspmu->base0 + PMEVFILTR + offset);
+-	writel(filter2, cspmu->base0 + PMEVFILT2R + offset);
++	if (cspmu->has_ext64) {
++		writeq(filter, cspmu->base0 + PMEVFILTR + (8 * n));
++		writeq(filter2, cspmu->base0 + PMEVFILT2R + (8 * n));
++	} else {
++		writel(filter, cspmu->base0 + PMEVFILTR + (4 * n));
++		writel(filter2, cspmu->base0 + PMEVFILT2R + (4 * n));
++	}
+ }
+ 
++/* Note we deliberately don't expect 64-bit filters here; see init_impl_ops */
+ static void arm_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
+ 				    const struct perf_event *event)
+ {
+-	u32 filter = event->attr.config1 & ARM_CSPMU_FILTER_MASK;
++	u32 filter = arm_cspmu_filter(event);
+ 
+ 	writel(filter, cspmu->base0 + PMCCFILTR);
+ }
+@@ -976,6 +1027,30 @@ static int arm_cspmu_init_mmio(struct arm_cspmu *cspmu)
+ 		}
+ 	}
+ 
++	/*
++	 * We can infer FEAT_CSPMU_EXT64 from PMCNTEN, or hope that anything
++	 * that failed to get that right has at least implemented the optional
++	 * PMDEVARCH correctly...
++	 *
++	 * Note that architecturally, has_ext64 *should* imply has_atomic_dword,
++	 * but enough implementations have ignored that already that we'll just
++	 * have to still rely on the firmware flag.
++	 */
++	writel(~0U, cspmu->base0 + PMCNTENCLR);
++	writel(~0U, cspmu->base0 + PMCNTEN);
++	if (readl(cspmu->base0 + PMCNTENCLR)) {
++		cspmu->has_ext64 = true;
++		writel(0, cspmu->base0 + PMCNTEN);
++	} else {
++		u32 reg = readl(cspmu->base0 + PMDEVARCH);
++
++		if (reg & ARM_CSPMU_PMDEVARCH_PRESENT) {
++			reg &= ARM_CSPMU_PMDEVARCH_ARCHPART;
++			if (reg == 0xaf4 || reg == 0xaf5)
++				cspmu->has_ext64 = true;
++		}
++	}
++
+ 	cspmu->pmcfgr = readl(cspmu->base0 + PMCFGR);
+ 
+ 	cspmu->num_logical_ctrs = FIELD_GET(PMCFGR_N, cspmu->pmcfgr) + 1;
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
+index 3fc5c8d77266..c4058d602477 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.h
++++ b/drivers/perf/arm_cspmu/arm_cspmu.h
+@@ -35,21 +35,15 @@
+ 	PMU_EVENT_ATTR_ID(_name, arm_cspmu_sysfs_event_show, _config)
+ 
+ 
+-/* Default event id mask */
+-#define ARM_CSPMU_EVENT_MASK	GENMASK_ULL(63, 0)
+-
+-/* Default filter value mask */
+-#define ARM_CSPMU_FILTER_MASK	GENMASK_ULL(63, 0)
+-
+ /* Default event format */
+ #define ARM_CSPMU_FORMAT_EVENT_ATTR	\
+-	ARM_CSPMU_FORMAT_ATTR(event, "config:0-32")
++	PMU_EVENT_ATTR_ID(event, arm_cspmu_default_format_show, 0)
+ 
+ /* Default filter format */
+ #define ARM_CSPMU_FORMAT_FILTER_ATTR	\
+-	ARM_CSPMU_FORMAT_ATTR(filter, "config1:0-31")
++	PMU_EVENT_ATTR_ID(filter, arm_cspmu_default_format_show, 1)
+ #define ARM_CSPMU_FORMAT_FILTER2_ATTR	\
+-	ARM_CSPMU_FORMAT_ATTR(filter2, "config2:0-31")
++	PMU_EVENT_ATTR_ID(filter2, arm_cspmu_default_format_show, 2)
+ 
+ /*
+  * This is the default event number for cycle count, if supported, since the
+@@ -78,6 +72,7 @@
+ #define PMEVFILT2R			0x800
+ #define PMEVFILTR			0xA00
+ #define PMCNTENSET			0xC00
++#define PMCNTEN				0xC10
+ #define PMCNTENCLR			0xC20
+ #define PMINTENSET			0xC40
+ #define PMINTENCLR			0xC60
+@@ -87,6 +82,8 @@
+ #define PMCFGR				0xE00
+ #define PMCR				0xE04
+ #define PMIIDR				0xE08
++#define PMCR_64				0xE10
++#define PMDEVARCH			0xFBC
+ #define PMPIDR0				0xFE0
+ #define PMPIDR1				0xFE4
+ #define PMPIDR2				0xFE8
+@@ -154,6 +151,10 @@
+ #define ARM_CSPMU_IMPL_ID_NVIDIA	0x36B
+ #define ARM_CSPMU_IMPL_ID_AMPERE	0xA16
+ 
++/* PMDEVARCH */
++#define ARM_CSPMU_PMDEVARCH_PRESENT	BIT(20)
++#define ARM_CSPMU_PMDEVARCH_ARCHPART	GENMASK(11, 0)
++
+ struct arm_cspmu;
+ 
+ /* This tracks the events assigned to each counter in the PMU. */
+@@ -183,7 +184,7 @@ struct arm_cspmu_impl_ops {
+ 	/* Check if the event corresponds to cycle count event */
+ 	bool (*is_cycle_counter_event)(const struct perf_event *event);
+ 	/* Decode event type/id from configs */
+-	u32 (*event_type)(const struct perf_event *event);
++	u64 (*event_type)(const struct perf_event *event);
+ 	/* Set/reset event filters */
+ 	void (*set_cc_filter)(struct arm_cspmu *cspmu,
+ 			      const struct perf_event *event);
+@@ -234,6 +235,7 @@ struct arm_cspmu {
+ 	int irq;
+ 
+ 	bool has_atomic_dword;
++	bool has_ext64;
+ 	u32 pmcfgr;
+ 	u32 num_logical_ctrs;
+ 	u32 num_set_clr_reg;
+@@ -250,6 +252,9 @@ ssize_t arm_cspmu_sysfs_event_show(struct device *dev,
+ 				   struct device_attribute *attr,
+ 				   char *buf);
+ 
++ssize_t arm_cspmu_default_format_show(struct device *dev,
++				      struct device_attribute *attr, char *buf);
++
+ /* Register vendor backend. */
+ int arm_cspmu_impl_register(const struct arm_cspmu_impl_match *impl_match);
+ 
+diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c b/drivers/perf/arm_cspmu/nvidia_cspmu.c
+index bac83e424d6d..a4c1ab886709 100644
+--- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
++++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
+@@ -762,7 +762,7 @@ static void pcie_tgt_pmu_reset_ev_filter(struct arm_cspmu *cspmu,
+ 	pcie_tgt_pmu_config_addr_filter(cspmu, false, base, mask, idx);
+ }
+ 
+-static u32 pcie_tgt_pmu_event_type(const struct perf_event *event)
++static u64 pcie_tgt_pmu_event_type(const struct perf_event *event)
+ {
+ 	return event->attr.config & NV_PCIE_TGT_EV_TYPE_MASK;
+ }
+-- 
+2.54.0.dirty
+
 
