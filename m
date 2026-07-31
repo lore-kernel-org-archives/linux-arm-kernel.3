@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF7DC55162
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 02:16:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4496DC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 02:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hc3mGOfYflVhngcBU0mpXS3nwU3AmmEu7q+5ujBogpY=; b=efazXdT1sMvMFVBoUCvWSt/X3g
-	nOU7uLqKo26bzE5vDeI+XBi/y1LULBhCE6hfHG1fUe7TMoTAL3yCub+TTm4RihrTcDWuU2DjmgEwF
-	y9xb4eJLPWGVV4zsRb9ZHsEz/rkRH5Th2gH77ZNJZ83GBfg9yeAIErm3zIPAx+9oakHdPHHRMSu8G
-	gcrEoIEJ21BmoZLCqHmwSM/tVpvNgQ6Fh+f7pDaTI49Ho8pRl+yXVyJImHyaKx66liKtUDFrmKCl+
-	nTVmJKQLHuEHlCS+9kSL3azv+17QHjx4VEyjfAkvKLW0jz7iKZqgOoz64nCAOI1ZWKqu6BSS6ZEqk
-	XmimpHTg==;
+	bh=s6dMstA3s1q3jz7gMCf0YyeW1NWmEDHVWbTYZcaJQdY=; b=NvLKEt5rf2JDomVnNUtkqioboO
+	PJmGmy9/LdxDhmYKnhqyGRpnxfiapSuXMGLS9xIutDWJHzWePfXPhVtJYn8mTGY6SJ8j6s1Ex4Bwv
+	oexk4FSF4VuCFsHfTqk3RlrXGgimg1pjQ2Bh4MWoPLqy1QgP7U04kt3NkVLF7zMJ0JusZwNamr43f
+	c3PNjNPHwsXTPCHbT/4HrjcNQxJMOYeYCZMpIbUQyELjOS3aOR6znpfox30Wni2ON0owZw/enCZKE
+	eMSfOYmc78Lvd05Empr1gAmhM/eZE/aFnPeB+rIi7mzjM6k/U6IyYHO/dq0hZy8pZuRgr2/r/Mg3J
+	cNA5waBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpcnD-0000000Bc6n-47GF;
-	Fri, 31 Jul 2026 02:16:11 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1wpcsw-0000000BcYg-2cRs;
+	Fri, 31 Jul 2026 02:22:06 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpcnA-0000000Bc5z-3NwU
+	id 1wpcst-0000000BcYK-1JOt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 02:16:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1785464163; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
-	bh=hc3mGOfYflVhngcBU0mpXS3nwU3AmmEu7q+5ujBogpY=;
-	b=Nz693zvudJHcZD8FabaP2ZJW6QjFq/AJT4/DmBvLFMgxmijA4YRiJAi1DsanL4V75YS82aalj6danFe+7sk+byi2cjjiOHWujrkoJGJdwnPWvM1AE1ovO9pX107iS/8fT9YW6j+Njh6aAaPelhIDkczgvE5PMJcd2LiiC+Yc+dk=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045098064;MF=yadong.qi@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0X86a7kc_1785464160;
-Received: from LG41624401116(mailfrom:yadong.qi@linux.alibaba.com fp:SMTPD_---0X86a7kc_1785464160 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 31 Jul 2026 10:16:01 +0800
-From: <yadong.qi@linux.alibaba.com>
-To: "'Ben Horgan'" <ben.horgan@arm.com>,
-	<james.morse@arm.com>,
-	<reinette.chatre@intel.com>,
-	<fenghuay@nvidia.com>,
-	<linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>,
-	<guohanjun@huawei.com>,
-	<sudeep.holla@kernel.org>,
-	<catalin.marinas@arm.com>,
-	<will@kernel.org>,
-	<rafael@kernel.org>,
-	<lenb@kernel.org>,
-	<linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<ying.huang@linux.alibaba.com>
-Cc: <ptg-linux-kernel@linux.alibaba.com>
-References: <20260720072409.2660-1-yadong.qi@linux.alibaba.com_quarantine> <d471ead3-d6fd-4e2e-a800-5bbeba42cb90@arm.com>
-In-Reply-To: <d471ead3-d6fd-4e2e-a800-5bbeba42cb90@arm.com>
-Subject: RE: [RFC PATCH] arm_mpam: remove sanity check of accessibility when error interrupt is SPI on SMT platforms
-Date: Fri, 31 Jul 2026 10:15:57 +0800
-Message-ID: <000d01dd2092$8739f760$95ade620$@linux.alibaba.com>
+	Fri, 31 Jul 2026 02:22:05 +0000
+Message-ID: <93b6496e-8f52-4983-95e1-01db68609bc0@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785464519;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=s6dMstA3s1q3jz7gMCf0YyeW1NWmEDHVWbTYZcaJQdY=;
+	b=l1ZbtrjKAzRkvs24cBTwpKonWTyd14o0F7EvbfY9RMtZNkyM6mNCdhteXhYFZn5SoA5r+N
+	FHyWJR7YEFRe3GkWTgUCgWID775ogz3/PPAm7Uv9qslKbxqVY2lO/PBxHajRosk6aQVe+m
+	lSgONwJ/8oDN3jEppAMDdVl1XfKJ3Lc=
+Date: Fri, 31 Jul 2026 10:21:37 +0800
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Content-Language: zh-cn
-Thread-Index: AQHSkGkfR30OQX7y8B7c/MgsEN8rbgJ7XVU9toWBJYA=
+Subject: Re: [PATCH 1/2] arm64: ftrace: enable single ftrace_ops for direct
+ calls
+To: Ihor Solodrai <ihor.solodrai@linux.dev>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>, Shuah Khan <shuah@kernel.org>,
+ "Jose Fernandez (Anthropic)" <jose.fernandez@linux.dev>
+Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20260727142844.21212-1-leon.hwang@linux.dev>
+ <20260727142844.21212-2-leon.hwang@linux.dev>
+ <77edc25d-a521-4f65-84ed-dbb016593902@linux.dev>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Leon Hwang <leon.hwang@linux.dev>
+In-Reply-To: <77edc25d-a521-4f65-84ed-dbb016593902@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_191609_020103_12733493 
-X-CRM114-Status: GOOD (  28.58  )
+X-CRM114-CacheID: sfid-20260730_192203_992386_8D93BC02 
+X-CRM114-Status: GOOD (  29.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,103 +83,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Hi Yadong,
->=20
-> On 7/20/26 08:24, Yadong Qi wrote:
-> > On SMT platforms, an L2 cache MSC is typically shared between =
-sibling
-> > threads. Per the MPAM ACPI spec (DEN0065B), the MSC's linked device
-> > should be set to the processor container of those siblings, so the
-> > kernel derives msc->accessibility as just the sibling CPUs.
-> >
-> > Per the MPAM spec (IHI0099B), when an MSC is not integrated into a =
-PE,
-> > SPI/LPI is the recommended error interrupt. SPIs are not per-CPU, =
-and a
-> > sanity check in mpam_msc_setup_error_irq() requires accessibility =
-=3D=3D
-> > cpu_possible_mask =E2=80=94 assuming a shared interrupt must be =
-routable to all
-> > CPUs. This creates a conflict on SMT platforms: the MSC has a =
-restricted
-> > accessibility but a shared error interrupt, causing probe to fail =
-with:
-> >
-> >   msc:N is a private resource with a shared error interrupt
-> >
-> > This RFC patch removes the check to allow MSC probe to succeed on =
-SMT
-> > platforms, but this is mainly intended to start a discussion. We =
-would
-> > appreciate advice on the right way to handle this conflict. Is this =
-a
-> > spec issue, or should the driver handle SPI error interrupts =
-differently
->=20
-> For advice on questions broader than just linux please ask arm =
-support:
-> support@arm.com
-
-Thanks Ben, I will send mail for arm support.
-
->=20
-> > when an MSC has a restricted accessibility mask?
->=20
-> I expect the MPAM driver could be taught to deal with SPI interrupts =
-without global
-> affinity.
-
-I guess MPAM driver could set the interrupt affinity to accessibility =
-mask if SPI interrupt
-is per-MSC. But if the SPI interrupt is shared between different MSCs, =
-it seems no proper
-method.
-
->=20
-> >
-> > Signed-off-by: Yadong Qi <yadong.qi@linux.alibaba.com>
-> > ---
-> >  drivers/resctrl/mpam_devices.c | 7 -------
-> >  1 file changed, 7 deletions(-)
-> >
-> > diff --git a/drivers/resctrl/mpam_devices.c =
-b/drivers/resctrl/mpam_devices.c
-> > index b69f99488111..e8b2b5e00d7c 100644
-> > --- a/drivers/resctrl/mpam_devices.c
-> > +++ b/drivers/resctrl/mpam_devices.c
-> > @@ -1964,13 +1964,6 @@ static int mpam_msc_setup_error_irq(struct
-> mpam_msc *msc)
-> >  	if (irq_is_percpu(irq))
-> >  		return __setup_ppi(msc);
-> >
-> > -	/* sanity check: shared interrupts can be routed anywhere? */
-> > -	if (!cpumask_equal(&msc->accessibility, cpu_possible_mask)) {
-> > -		pr_err_once("msc:%u is a private resource with a shared error =
-interrupt",
-> > -			    msc->id);
-> > -		return -EINVAL;
-> > -	}
-> > -
->=20
-> To do this the MPAM driver would have to remove the interrupt from =
-balancing,
-> IRQF_NOBALANCING, and
-> control the balancing itself.
-
-Yes, but another problem is SPI could be shared between different MSCs, =
-interrupt
-affinity could not be set correctly.
-Currently, the error irq handler print the error message and disabled =
-MPAM, maybe
-we can allow interrupt from any CPU?
-
->=20
-> Thanks,
->=20
-> Ben
+On 31/7/26 07:03, Ihor Solodrai wrote:
+> On 7/27/26 7:28 AM, Leon Hwang wrote:
+>> The BPF tracing multi link updates several direct-call sites through one
+>> ftrace_ops. Its implementation is therefore gated by
+>> HAVE_SINGLE_FTRACE_DIRECT_OPS in addition to
+>> DYNAMIC_FTRACE_WITH_DIRECT_CALLS.
+>>
+>> Select HAVE_SINGLE_FTRACE_DIRECT_OPS whenever arm64 enables dynamic ftrace
+>> direct calls. This enables BPF tracing multi links on arm64. Also
+>> generalize the unreachable-trampoline comment because the single-ops path
+>> does not use ops->direct_call.
+> 
+> Hi Leon,
+> 
+> I don't think this change can land as is yet. The series doesn't even
+> apply cleanly to bpf-next, but that's minor.
+> 
+> More importantly, it depends on Jose's series [1], which is not in the
+> mainline yet. And there Mark has raised performance concerns [2] and
+> the discussion still seems to be open.
+> 
+> [1] https://lore.kernel.org/all/20260609-arm64-ftrace-direct-calls-v1-0-4a46f266697f@linux.dev/
+> [2] https://lore.kernel.org/all/amjnf5gz0xP5PTSB@J2N7QTR9R3/
+> 
+>>
+>> Assisted-by: Codex:gpt-5.6-sol
+>> Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+>> ---
+>>  arch/arm64/Kconfig         | 2 ++
+>>  arch/arm64/kernel/ftrace.c | 3 +--
+>>  2 files changed, 3 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index 0de419ed780f..c98dca76859b 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -188,6 +188,8 @@ config ARM64
+>>  		    CLANG_SUPPORTS_DYNAMIC_FTRACE_WITH_ARGS)
+>>  	select HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS \
+>>  		if DYNAMIC_FTRACE_WITH_ARGS
+>> +	select HAVE_SINGLE_FTRACE_DIRECT_OPS \
+>> +		if DYNAMIC_FTRACE_WITH_DIRECT_CALLS\
+> 
+> The select is only conditional on DYNAMIC_FTRACE_WITH_DIRECT_CALLS, so
+> it can be set along with HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS. And AFAIU
+> this would make the fast path effectively dead: every BPF direct call
+> routed through ftrace_caller now goes through the slow path.
+> 
+> As Mark noted in the other thread, on arm64 trampolines come from
+> EXECMEM_BPF, so they always land out of BL range (chance of landing in
+> range is 256M/terabytes).
+> 
+> I vibe-slop-coded a benchmark and ran it on a Neoverse V2 machine, and
+> toggling your config change seems to be causing a 1.3x regression in
+> the tracing overhead:
+> 
+>   do-nothing fentry (r0=0; exit) on __arm64_sys_getpid, 20 M calls, min-of-N, several boots. Results:
+> 
+>               untraced (base)   traced        overhead
+>   Kernel A    ~128 ns/call      ~145.5 ns     ~17.6 ns   (fast path: br x17)
+>   Kernel B    ~127 ns/call      ~150.4 ns     ~23.4 ns   (slow path: save regs + call_direct_funcs + hash)
 
 
-Best Regard
-Yadong
+Thanks for your testing.
+
+> 
+> This confirms Jiri's suspicion.
+
+True.
+
+> 
+> However my understanding is the regression should mostly disappear in
+> case some version of in-range trampoline allocation on arm64 lands.
+> 
+> So, I think the landing sequence should be something like follows:
+>   * in-range BPF-trampoline allocation that Jose proposed [3]
+>   * then HAVE_SINGLE_FTRACE_DIRECT_OPS selection
+> 
+> After all of that reaches mainline, then a selftest patch can go
+> through the bpf-next.
+
+Sounds reasonable.
+
+This series is based on Jose's series and is intended for the arm64
+tree, rather than bpf-next. Like Jose's series, this series aims to
+enable BPF tracing_multi link on arm64. And yes, with in-range
+BPF-trampoline allocation, the regression should mostly disappear.
+
+I'll follow the sequence and repost the patches afterward.
+
+Thanks,
+Leon
+
+> 
+> [3] https://lore.kernel.org/all/amn7cBQ-cqs2XlKV@linux.dev/
+> 
+>>  	select HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS \
+>>  		if (DYNAMIC_FTRACE_WITH_ARGS && !CFI && \
+>>  		    (CC_IS_CLANG || !CC_OPTIMIZE_FOR_SIZE))
+>> diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
+>> index e1a3c0b3a051..56ba72a87dfa 100644
+>> --- a/arch/arm64/kernel/ftrace.c
+>> +++ b/arch/arm64/kernel/ftrace.c
+>> @@ -301,8 +301,7 @@ static bool ftrace_find_callable_addr(struct dyn_ftrace *rec,
+>>  
+>>  	/*
+>>  	 * If a custom trampoline is unreachable, rely on the ftrace_caller
+>> -	 * trampoline which knows how to indirectly reach that trampoline
+>> -	 * through ops->direct_call.
+>> +	 * trampoline which knows how to indirectly reach that trampoline.
+>>  	 */
+>>  	if (*addr != FTRACE_ADDR && !reachable_by_bl(*addr, pc))
+>>  		*addr = FTRACE_ADDR;
+> 
 
 
