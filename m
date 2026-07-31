@@ -4,153 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0304CC5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 08:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA61DC5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 08:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:CC:References:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iy4wiYXl79l8LB40Yma0iDcyY5WXwNq1cjHYseC20fw=; b=AAhgKBFLH7ZISJFXJTBXq3hDcT
-	/DP6qkcNgXT+UJCu4OvTyBVyjBd6+jxfd9USAHw9NJ66uhbPdDwbbqvp41EbnQgvKB1FPNRPowcja
-	m58IUEgnfMHey76b/XTK0JNQ1Eu8an1h1EcCNDAqiCmDnEzMMU/W2F5itV4G/Q2qCN+ginrWxgDxD
-	nwYQaqam9VsEBeReSSOUtjZP8Sgti2vBFtj6WDGM/v/nhn1W9G5wXqEZjFwRNueNYOUafIvyK5rD7
-	U+/M0RCx3akCZssl1Ul35lPre4l3898EGLxLPePajegEPSJ08FOIz/rdSNlUTElMeDPXhfFNamdtN
-	0hiSeZ0g==;
+	bh=lKdvpX9jIcKvdlsCPR8ChGhOQWNeF9QopX/bCDIHqJM=; b=BbVOAv1r7XJ9kC2c/wNGqml33M
+	RTeOgxIktQfOTF042e8UjogdvB4i230gGk0SS9eFGhM0I9P8lGDYvVr49EoiqMCVmW4Ai5Ux2HPpw
+	AMf/L6v48zNn4cE++OyEQpAnIU9ewh/iEnBrsaxpXm+5o6QGNlLNSz90OpF9pWToVrbiPQSF5igh/
+	TVU2ctn+YCYF81YXgNAdIKljHFAoLx4A7fg6LfVOROZqKKsXbzd0l6EJjUQc4KkZlfavEIAlqeChj
+	37JLVyJ1j2CgthWZIbvHJMzNb772WMb67TmWoJqifTFrZnb8XgHb4sA4uVdMeSVThXZe2HNbJYsNb
+	0u/IH1wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpik3-0000000C4tK-2Ve0;
-	Fri, 31 Jul 2026 08:37:19 +0000
-Received: from mail-norwayeastazon11013031.outbound.protection.outlook.com ([40.107.159.31] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wpimf-0000000C5Hd-0fNc;
+	Fri, 31 Jul 2026 08:40:01 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpijz-0000000C4sW-449a
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 08:37:18 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=hJuogBmaVxTTbPNbDLsczqs/hWdgBS+UFbCZVk7xAWE2uoOzyFP/01BekRWXzfkIGMheqsh1gJjM7pMnZ7nEZsSK8+JYen93NEHsB1HkgiF2koZJJDDndQlPLlTq9NH/ko6kN2L731hGUNd2i9UIHT0t/+kUQW0Uhwsn/FLKPSLiRJ21HSpVifTnT32uBsjGyWo11KRb9Wwryn7TMDQF63WT/52VZxxULAuS/nArKqIxG+ARdHY/cucL1Fa3Nk0UWDWBnmo7V/3Yowv37OaT26M3JnbKNXhcsD2spIU3X3sSSIzvpB5fzH1J9LPxlXWsgt09n0jPppxn8HzzV1F0iQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iy4wiYXl79l8LB40Yma0iDcyY5WXwNq1cjHYseC20fw=;
- b=Kb65brjlCujA3UWGZsGh+U8wMM/6ALGVizOcdk70SN4iDg3eLm/C+P/VBavZsQwl4grA+UDS7SppmWvDttkq/PfdOzvQMTRfLeC/+oyJyTxpVrNp5Koet+KI8XhCQjGdkHQ2wp7WiIh3j6jaBj/lrnNHFqvUpWou9qtuM0hUvBOnFCxa60AYXlC2JeXgnQRGaI5xR0Resni3Y/xUUp0EmmYmK6/6f5N//xkDjCxDX1jCbPFrSfiV/c//hPBgzR02UpFT2Ad8vFITBMIhHfEUgPjjZsQb5UCmQ8JHHRUoH0eCwJCXhfC4lp5tNOOlJzzpbcYZNIPBSBoofeNHuA+NuQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iy4wiYXl79l8LB40Yma0iDcyY5WXwNq1cjHYseC20fw=;
- b=Fb22bVGEUWJy97PUMPo98VxVArJAtKXUuWirZUyhA7Yxu9QjkYniC0irfbBWVr2eVilddWM9HG1ptPsqZaUg+aYr8tAzs2P2OFgdr7Wjs3FV+qYYBVgYMxdYq7pVkMeFPsEIDPGQOxUhecyfBSBPO3PBnpOBMbiX5GyvIKGu+QU=
-Received: from AM0PR10CA0011.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:208:17c::21)
- by PAVPR08MB9185.eurprd08.prod.outlook.com (2603:10a6:102:30d::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Fri, 31 Jul
- 2026 08:36:59 +0000
-Received: from AM2PEPF0001C713.eurprd05.prod.outlook.com
- (2603:10a6:208:17c:cafe::a) by AM0PR10CA0011.outlook.office365.com
- (2603:10a6:208:17c::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.15 via Frontend Transport; Fri,
- 31 Jul 2026 08:36:59 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM2PEPF0001C713.mail.protection.outlook.com (10.167.16.183) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.8
- via Frontend Transport; Fri, 31 Jul 2026 08:36:59 +0000
+	id 1wpimb-0000000C5Go-1YNc;
+	Fri, 31 Jul 2026 08:39:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785487197; x=1817023197;
+  h=message-id:date:subject:to:references:cc:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=jd50DQc/t98TdSp0XvvX7uZSQ62hXTi2n1T7+ADp6EU=;
+  b=cVPO/X91E6J9Wpge/twF3/XsoLnBSwIrjXaEEjIr5b2qsM/MVMTX4att
+   B3HwPEarLLpb44EjVKVsrkifcyh6HF7MXIz6mHxC7FohDDj2dPTXxxEv0
+   UlOdULuwy4JEz4IAIA7B/XVGTEPNVJcghMUbtLthPMfZiXx0/U857Ix+5
+   MThcJOBbjSjEno6JADWdBuPq0uTSK+01HGehxdddKkRMlzjV6vaDp7WW9
+   c723rwDFdi8qS8xGlka4zYqej4fc0nm+3+3lzh6Y+R0YDp68r8mqzvocg
+   4+S9hAomaaQFatxdkvTeH2YAYMxCyxcRGZ8ORkOW0/8nT2ttMOWsJwVe3
+   w==;
+X-CSE-ConnectionGUID: U1FulxlNToe8oPi3K8++9g==
+X-CSE-MsgGUID: 2XqFw36gTUm6WZoJl4818w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11860"; a="97267715"
+X-IronPort-AV: E=Sophos;i="6.25,196,1779174000"; 
+   d="scan'208";a="97267715"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Jul 2026 01:39:56 -0700
+X-CSE-ConnectionGUID: Ptfha/MwQR6Ij8NFeSaYEg==
+X-CSE-MsgGUID: BxUbmLBnS8yFISkNwz1JIQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,196,1779174000"; 
+   d="scan'208";a="259282819"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Jul 2026 01:39:55 -0700
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 31 Jul 2026 01:39:55 -0700
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45 via Frontend Transport; Fri, 31 Jul 2026 01:39:55 -0700
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.22)
+ by edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Fri, 31 Jul 2026 01:39:55 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iZCJtHR3oegBYh+2pnJQij+i+n4gBegNqysHs4nvtv2V89dt1HNzJGRCouSv58B/aNxYkYn6Z9QDhkaNCNlFdYMgH2Igb4v33Yl8xGWr5pn0hq9u97Zek2tQ01/MM+RZVvJ3QQEEAHzsl2bWUbVB1F7YYRhHdmYp7FJHRqZJSTKV/oo8J4V/9AnW3R14gSY7Rz1bCNXNCduNsGa/TcIFtZZo/lTrmEhKkWD+MUWnd+DJ1DrsCCRkHNkkZvyx3Q6e9RMYum2iyV/fuRXcvKnxomYUfS8FlYdmMIVA774NCRDg8NsaUyCcmOfT63BgN6rhlJOo0IHPk6cI3zqd4MPQbA==
+ b=hhkLKn/4nAw1buBua1ioUz3KtNgdwyvw8KM9GGzbHpvN+JMQ5RcJkkUsS2yyelFNt5hYQ9lrDbRaYevk9/I56xZcZ/nDlTRkIL/qqquNXjRW2n7gZVwwWy48NDqn27BGIv1sDizyV+0bVYxPAD+XUcWjjiE3xqxvtunQ/816PhXg2Xfil5Qm6++vyxaMjf5DXWyoM1JNLlODI/DQNrZj2dabLJQ+ueZTRLNjCV4QZnd9nKAIP81CSeFM/it+f1FYQ9VLZh/iHpR+1/GRqTbDknWjaechplr3W1XUpvkYW55Y3+XbKXXfRyQp2aus/CCUWuOXLR3EA/Nb0JJ87U3Oeg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iy4wiYXl79l8LB40Yma0iDcyY5WXwNq1cjHYseC20fw=;
- b=l9Gc9t+4oz8GOv73aDoXPPK+C5kfiLY+Y4N7Rkm0DnFFTUZNKv3KU8jenz/Zx0ZYfiSi3CYYY4VJ6tjd+PG7v/I7fryDjTKrx2T8Kj7CsEu2MBop93bzhTIxziIVlgW5fPU7LKHoGjv8Nt2GIsqvbKdHp27hzy+RrX+3a2tWN1eScUtt0VE2uom1AQygeqiC1+NChH0YjkQvMbHCwUMC0yN1mwUyx8nTUQU0JbSd0C7IGkNOjCreUop9dygJ+UHNbVcz13RkOaDs7A9QLNdkODykg0EQxhr2jfxbyQfwdyZpSiVZV4zNbLB6V/6q//5qVTwyxGWDDVoqujvN+vBuDQ==
+ bh=lKdvpX9jIcKvdlsCPR8ChGhOQWNeF9QopX/bCDIHqJM=;
+ b=USAb1UfiIEcN8dJ7LCuap1Rtz3Q3U5pK1fxKznCTIOoytezNxPZ2egw73qq/KE8sBXopWsmpbJyLmIkdjGzNF+q8ysFnFvA8sXK8gAmJFlzctLND1c63xSI0161N9g2XA1RqmuMiIh3JqjAwvYZ39GKm60Xguyhzt/6VUrEvkczAT5Rqt6Igs7tAO49X/c6b4kqRY9Ne6naPJcZfRlD0bnBR1YfcfK7r7XF4VV3Ni4ESwvZQ08SqFX5JJ3RQLh/WixHwVQK5vXIlxHjQ4hopgVNL8QTriv4UqL7bzXWHdEOmTtliJRBfj04/ztoq0ISQr/9h9MvBWxW5X3c3nW4yLQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iy4wiYXl79l8LB40Yma0iDcyY5WXwNq1cjHYseC20fw=;
- b=Fb22bVGEUWJy97PUMPo98VxVArJAtKXUuWirZUyhA7Yxu9QjkYniC0irfbBWVr2eVilddWM9HG1ptPsqZaUg+aYr8tAzs2P2OFgdr7Wjs3FV+qYYBVgYMxdYq7pVkMeFPsEIDPGQOxUhecyfBSBPO3PBnpOBMbiX5GyvIKGu+QU=
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com (2603:10a6:10:407::19)
- by GV1PR08MB10534.eurprd08.prod.outlook.com (2603:10a6:150:160::5) with
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SA1PR11MB6967.namprd11.prod.outlook.com (2603:10b6:806:2bb::15)
+ by DS7PR11MB7692.namprd11.prod.outlook.com (2603:10b6:8:ef::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Fri, 31 Jul
- 2026 08:35:54 +0000
-Received: from DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e]) by DU0PR08MB8421.eurprd08.prod.outlook.com
- ([fe80::2158:1cab:1d88:ba2e%5]) with mapi id 15.21.0270.012; Fri, 31 Jul 2026
- 08:35:54 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "maz@kernel.org" <maz@kernel.org>
-CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, "fuad.tabba@linux.dev"
-	<fuad.tabba@linux.dev>, Timothy Hayes <Timothy.Hayes@arm.com>, Suzuki Poulose
-	<Suzuki.Poulose@arm.com>, nd <nd@arm.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>
-Subject: Re: [PATCH v4 08/48] KVM: arm64: gic-v5: Add VPE doorbell domain
-Thread-Topic: [PATCH v4 08/48] KVM: arm64: gic-v5: Add VPE doorbell domain
-Thread-Index: AQHdG1o9o4xfPVyRiEiLv1Ols+Ph4rZ+EecAgAlGlQA=
-Date: Fri, 31 Jul 2026 08:35:53 +0000
-Message-ID: <79c1477c45c28a67c8625e5ae4319e61a4354ef4.camel@arm.com>
-References: <20260724104819.1296803-1-sascha.bischoff@arm.com>
-	 <20260724104819.1296803-9-sascha.bischoff@arm.com>
-	 <87y0ezpcax.wl-maz@kernel.org>
-In-Reply-To: <87y0ezpcax.wl-maz@kernel.org>
-Accept-Language: en-GB, en-US
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.16; Fri, 31 Jul
+ 2026 08:39:52 +0000
+Received: from SA1PR11MB6967.namprd11.prod.outlook.com
+ ([fe80::36a9:3aca:a63e:c8f4]) by SA1PR11MB6967.namprd11.prod.outlook.com
+ ([fe80::36a9:3aca:a63e:c8f4%3]) with mapi id 15.21.0270.012; Fri, 31 Jul 2026
+ 08:39:52 +0000
+Message-ID: <c1ac7957-dcfc-42b6-bb24-9aa76f9c334a@intel.com>
+Date: Fri, 31 Jul 2026 10:39:44 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/4] ASoC: airoha: Add AFE and machine driver for
+ Airoha AN7581
+To: Christian Marangi <ansuelsmth@gmail.com>
+References: <20260731064326.2284228-1-ansuelsmth@gmail.com>
+ <20260731064326.2284228-5-ansuelsmth@gmail.com>
 Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: DU0PR08MB8421:EE_|GV1PR08MB10534:EE_|AM2PEPF0001C713:EE_|PAVPR08MB9185:EE_
-X-MS-Office365-Filtering-Correlation-Id: ae4dea26-f8f1-4794-056c-08deeedee321
-x-checkrecipientrouted: true
-nodisclaimer: true
+CC: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
+	<tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+	"AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Cyril Chao <Cyril.Chao@mediatek.com>,
+	Darren Ye <darren.ye@mediatek.com>, Daniel Golle <daniel@makrotopia.org>,
+	Rosen Penev <rosenp@gmail.com>, bui duc phuc <phucduc.bui@gmail.com>,
+	<linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+From: Cezary Rojewski <cezary.rojewski@intel.com>
+In-Reply-To: <20260731064326.2284228-5-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VIUP296CA0040.AUTP296.PROD.OUTLOOK.COM
+ (2603:10a6:800:34d::18) To SA1PR11MB6967.namprd11.prod.outlook.com
+ (2603:10b6:806:2bb::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR11MB6967:EE_|DS7PR11MB7692:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5d1ba1ad-0b89-4570-a279-08deeedf49e4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|18002099003|22082099003|11063799006|4143699003|56012099006|3023799007|38070700021|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info-Original: AqYn+CuODTYEpgYWr1AwtXRe99tNAyYMkn+WTpf2h4LSQuvpSzlYBGtz+mAzUx0SxgJ+Hnheno6AJaVm2XP5QBoCU4cy9N/DzrFokTjNLUnNOUEKI4k+L/2w8W/9FuCjL0ddeVOBVC/s71RXLN2WGc2T8wrv+LVM+sXs8y7lCtMdbpMWf/y34T3eEbo/dquTdRS6gCBOyQpKo1ZXSeFvGbamjeW1C1NueiPelbH8eNhdUGYSulo9/5WEXM4iiHmoyk0eksyQmjedgurZM0gbA/b7OZmAcZNnGQG6TiqcBk3onv9RdC7bU67vwkiLv9cRizKC9xN6PVkqOxNkvDx72U2IAzOmPVhjk8HSOX7pYegUv9A8d/S+E95RAnip5xrYGqcFkAFSJb8oSgNLa2bBkq7o+pKeD0BfDxVmdZKo8ZMIGpqbkkP1EzAznn7N0aWJ3oVZPWyYpl4BGxxXzWsYMP9rEQ8j3qTHi/R0RyjSyEjCziBjB+6VLFgiXqg3wR2ZvjkJe0fPAnUPPW5jldaanZN8sh1z71lsiCuLQk3o1PwFrt3vWB99fHIk2RnxuhkOTWOsGqBfzDafTJsldSFVlCI7OlDyla4VEmU9iaBkOaVBjPb5f1ix1saxNOg0XRMlUJ2CJ+Vb8aCvMwbcfl14TfLH7fFw9BddUKV14WYTP2p9y2LeMAVQSRuxVqDKLsjzCMnxzrE6y6fjy0UpSctOvhwlLY2AHbWBP+xasz8DU3I=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB8421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006)(3023799007)(38070700021)(6133799003)(10067099003);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <4ADFDE7A261BD74DA53481CA23EBD20E@eurprd08.prod.outlook.com>
-Content-Transfer-Encoding: base64
-MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: FAWoZV/QmHay+NhA5mCKCgd8yLOy00wO3RYvXLbGQBA/bbQOcnpZcR/EZcotm77BDUNr6YvraVRXXPtLLnxXpIItCLalEVIb33uGBRfBgYFEMZ2U1pKPdFE3MZp1qTWxreZ+7l+DyDSgU6qyqNYj6JVY9Gq7fCGVWW361TwX3ADZGpqOahD1u+cTupVYauOpbMwtYzHjz+kwM1dJ4Jvw6G4plpiFWc83xUdJiUGjls1nPRGyZ5CFCsQbLaJaQApOqK7gMcpAcSDqgn1RxoxYj4OQ1/WTovFyn7nfm3YfZFCh8gCuo3eLKmZlICGadvzH0x8ISwA3ewItauGxdjjMNA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB10534
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM2PEPF0001C713.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 73cc119d-309a-42a7-0584-08deeedebc20
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|35042699022|23010399003|14060799003|82310400026|1800799024|6133799003|10067099003|11063799006|4143699003|56012099006|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: jNKhl3bworB0kAfpD5iwUPyvh9oNL9jBhPgSwsK8IR1XMUbTvQfvy6S0oNNYxc/xUlri0CL59uh89ezoBHbkPQP63x/XvhxoFbdf9ezaWUOzx4JWg3iF6z9CSNWMyp1XH+GxGdJHscj0f5sShN2ozuV7b6oqhm/MrJGzUjlsHATuXiAY+InYwze9sHJPu2dHycOCC0S3OJVMynIChpJu4IzjusJPt+6HWHtV5nKzkda2Gv+wHQyGLWmCtcgjgfy83vkTT1Cen8lANAplNOAZquvH9Q9ZJJOApqYPvs5Y8i8Tn/NDx27toURtEbIaAnwRrgvpGSNvC/dGKSkptzJT9bpPAjwJvN+dm4JvZ7WxKCSIgzpDg76Hew1DQypLthb+LF0d50MaWmG44E50Zy7d0Z64fVT3090TdkudgQG8udokGgaoXEubCwNfndmaL0dD0QULx8QAvMK7aV83iIE6ItJLMJKCWEHgE+ac3XYvw9lt/P2EAK82Lz61Op62Vp/WljJQVM5eEeSi4PCdldlA0UyahTEyxUvIEtkfJe7yn7kF1fbXmAw9VnLPDq1yv/JoBf3QRtNXgVfHYiTFWv1+vgmmfec/4md3TO1OavNgK/DknVzQ9aqiJ6cW6ndzimqwKmT1l2SzzwjaG33bBudfl6rwkwj0jQZrAvdrC4j0ZtbgcSongQeH7tEoqdcPVrbKpLLBIJvLl3/d6dELWu5bBw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700016)(35042699022)(23010399003)(14060799003)(82310400026)(1800799024)(6133799003)(10067099003)(11063799006)(4143699003)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|56012099006|11063799006|4143699003|6133799003|7136999003|10067099003|22082099003|18002099003|11062099010;
+X-Microsoft-Antispam-Message-Info: q5uvCLhF9tcbKZppz3lWpFOunEE8CzBx+Pt2N3q3+2v6bkPUj8mv3rWWevj5F8jx6XDf4h8vEG1N8a7oZ22dw10cIx9Vgkdq2LKQ17pZRG5+W+uRHvy2Ko31z93pGj3m4rETYchs4SzEvZov8wFV0Uek4Hit9XsKEEw43kCpWnkyMpxzFuudA6SeIDvLouFvhXNYaOzvvzwL92qLlVggG1iZ1N5OI2YZswWgCSqxh4oN5wIiMDV10XTc9CD5F66pLnx0061Lw8x90VkDen9LXgemEYFgJQe2KxaVpvqh6cVd9F9S1McLj2Y8zbw2TpHEYj8Cyq3ndVnPp++jp9z5+j3L/PGVRjJqHkW0Px5cjR+e96ppoGFZm5m03YYLMnGAnNDHsILMmFPXma1erka0s8zpDH8zWjqs6k4VzjDqRWQAGlgwQLDT8VmqlvDQ5dektuBE94lXj/Rw5Ni7K4RZ9hDn8tdlD8uFPH/tbIqavAyn4wKuG29sSxB0vEhiwsSEj6+lO2HYGyerxnu+RmtYtcdr+ZKRl1SnVEc/kosZ62vxit67ynxP0v8McEVIqyOkUWdWKod2mCjn/lmVIoPKPUkOTz7zqOf+YPEi7qqE2e5/v80ttYlCpKL/pNHBlhcxLuLW5zFSnXXNC2I+pjjWRaV09cBOC4YARX0KGjAdQfw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR11MB6967.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(56012099006)(11063799006)(4143699003)(6133799003)(7136999003)(10067099003)(22082099003)(18002099003)(11062099010);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: KhjZ8p8ziyAHZAUjUdYWTbYFLNTX8WNb8TNBS6KPUO2pDVSID9wmZ7b4SUX9tRDdEunyjIsJaJKfOFdnKP0MD48nJsm36hMjZUK2f7Bl88UENZh9MsqQ94SzD9ZMqd3iM2ep+esNEs43JS1QLh+4dNdACgodPcVcnWQLUtVBu/fG841HXMz8Jg2fsc3zvKjVV2R8zjjUrCv9fJXxizIsNAQjuAQAyHvfFq/EYA380ZGmxMvR/AaY6qHHpF6RM1dbVOHlYNZ0qQTdkRV4YXrEWyLMYT+890jSjxZmue20tl4VMkaFHr9yw13SKXV8oFZ4TiSEzC+razVp4bHdPrStk+bGISaF+grYsiEYi+D09osOcAEC+B0reONRmjT1lwOByrlKfiQq9YOMfE6Vu1LunGVtItfycS6SO1Y6T9P/hMuWnEqFWLCwS/w+u9V+qKMu
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2026 08:36:59.2947
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cHhUUWNiSmQyc2Nvd2h5SkdhNTFrdW9XUGRsSWcwQWIvc0dSTnVvQytWMGR2?=
+ =?utf-8?B?cVVsRGdpYmpoNEJIUHM3dkNSUW00MXBRcHp0UzdIWlFTQ3RtN2FDdFZGdkdH?=
+ =?utf-8?B?dEg3b0FvT1paWmNZc0RaZjltWE5UL0c4Y3FGYnByZjVITStkQTRGSDBHSkk3?=
+ =?utf-8?B?ZGVNbkNtUkhPTG9qNE5BQXpWUlJRNEN5RXRFZUtKQ3EwRWVjTERZTE5FS1di?=
+ =?utf-8?B?YlVUb2hDR1QzS050eE1ERHdkbm5MQkk5dnhjUzR6LzhYY2dQQWZBUzZaUS8y?=
+ =?utf-8?B?L0luV3VvZ0ZhakVpUGNlYlF1NDkwVlJSQ1NiUUsvaVpyMUhVTXR6c3lGRUN0?=
+ =?utf-8?B?d2FWUHJVbWVGd3d4N2RFZXNFVENuMjA1NmxnV2lkbEpXVkQ2TUE3U21zRWgr?=
+ =?utf-8?B?T29YRGxab1Q5ZGx4ckhVYlBheUhwNGlZQktab1p2Mis2THE4dmVEQkRNdGQ2?=
+ =?utf-8?B?cCt4ZXl4VGFjbWR6eURsbG5KWjhFelRrU2tvdHJDNDJqTCtTaStkcFZBTll3?=
+ =?utf-8?B?WmhmQ3ViMk9WbjdSakNDVElRRzl2cEFneGkyVmJJQzQ2aTEzZmhUclgwWmts?=
+ =?utf-8?B?OGozbDZUSGNrR0QreU0vRkxERjArT3hTNDlWYnRHU1ZrM0tPSEgzRENDeHdQ?=
+ =?utf-8?B?bUJqWUxnQWxTai82ZnhjU1VhWWNDLzM2VmlaV2h5YlFKZmZyVzIvbXNzVGh1?=
+ =?utf-8?B?dzc1RWdaM1AwQ21HYUVCaVBvdXB5SUlqRWRlaXVORWhCTndyNHdhZDljaDYz?=
+ =?utf-8?B?NzBHYmZXS1RjVFVPOFp5ZVlObUJvdnhXVnh5TXgwa3lGemNiVGJkNlpmOHBn?=
+ =?utf-8?B?Vzc5cWV6dVdad3FSbzhrL2dpbWxTa2U5b2U3U1IrOXNNRjFkTFY0VDR2M0Ni?=
+ =?utf-8?B?NVRzYW9GTmJuSVdyRjN1bnBwVmRFNk44TjdJMnFHbGRRYk91aU82S0JNbUc2?=
+ =?utf-8?B?UW56L0kxaGdUYllaTG1tRTNWeFd1dE10M3VSM1lqbXo0ZENWdFVEYlFpWmNR?=
+ =?utf-8?B?QXNQS3ZmYW92VTF6YS92SHVxSkFuQzV3ZDVQbkZ3Mk9GU3pSdzVFdTIwQ2Mz?=
+ =?utf-8?B?bVAzaVpzTjhPS0FUa1NFOFZjeEZZUC84ZnY1azBLZnZTajhGOFRKZkJHblN4?=
+ =?utf-8?B?NnRDdTU1UWc1OEZwWG00dWUveTQ2dW05aDNCa0VUSVFGajNUS3g2WUlyZk5n?=
+ =?utf-8?B?cFdTRnphRWVrbmhCMS8yK2txWFYzb01vZC9LOUExUnpDSWEzbnc4S2d6Y1oz?=
+ =?utf-8?B?VlZEUjJEWml4bkRBVlNzZ1VwME8xRnJzc0t2a3BQZG5mVUZVT0J5SmxTSVZ5?=
+ =?utf-8?B?aERXbU5VUUF6dTNDVk9xdG9meXBKdkJaVnJVYUY3V1hCZ3AyeEFmNHo5YzUz?=
+ =?utf-8?B?a3J5NWRJdTRqeGdqNExjekUzdk5mMVNhR2dxeGlabThzT3dmOHFBbGF4Um1N?=
+ =?utf-8?B?bEdYSkI3dCsyekdXUEsreXlJSDdza00wUmpSSldJWjJyUTlBWjRsYktETFhL?=
+ =?utf-8?B?OTJ0elhpcmNTTjd2OHFWRlVtTmRyTTRzZTVWOCtWZ25IYVZpNVJwY2FZbzZv?=
+ =?utf-8?B?V1pZQVFPNGdMSFQ2ZDhaTUpmVVBvVHMvTEJocU82K2tpT21vV1pyYlZ4RzlW?=
+ =?utf-8?B?L3JuZzBDODUyMkl1OGtnOUYrUkxUZ3BpVkxFc1lVRG9sQkpNWFgwZ0JIUmty?=
+ =?utf-8?B?dVBHcDdXOVpQWEo4UnZiOVF4R1E1L1ZuczdzT3h2V09RUHZINWlybU8rTUYx?=
+ =?utf-8?B?WE9IaldydDlrYjltVDJVZENUVXc5Sk9ZdkJxc3BHQzhVakx0NmlDenJvMEVO?=
+ =?utf-8?B?VHJkT09lRHp1VzRuWjhLVjZDVi9lS295NHJNVkQrS3hVcE9EeEhXTWlQU0dz?=
+ =?utf-8?B?ZlJjNUxoY0k2elE5L0ptbStHUmdzZ2xLRmdscC9mV0JVQnVGcXQ0MVRJMTlZ?=
+ =?utf-8?B?VmlvWHpIUFZDTTlDa3g4S2VicW1BM0tja1pOZDJPNkJOZytQeU05emFLYWFL?=
+ =?utf-8?B?VHFvb2RPZ0t1Rk1mVTFJNXBXb1RnNWFGUUpzN0dsdGx2eDloUjRuWDhSMFNJ?=
+ =?utf-8?B?VXlTOHBOM0prVHN1NWF1akxYZnM4WWtGSGloRTZmMTVrMnZad3B6MW1Xaklw?=
+ =?utf-8?B?djVMVnVxNks3dzd1QTdEZExVMUZJQktDK0JrdXZFWCsrZEpVU0N0UlY5ei8v?=
+ =?utf-8?B?bzFtWmh3SnEzSytvRGE5VjBoNUZKaCtqMVYzcGhFUFFSR20waXdiR1FzYjIy?=
+ =?utf-8?B?dVFpZlJON0JOTVQvUUgwaitTWG9RWHM1Nk9IWjFEZXdyK2VickwveWVJeW9x?=
+ =?utf-8?B?VGd4ZXNhVGF2SWpxOFFjOWtDcUVTdkp2NitEdmhrdHpKSnFaNWlMc2dCMzVw?=
+ =?utf-8?Q?mxEQNqIoxPTtRXgk=3D?=
+X-Exchange-RoutingPolicyChecked: NOrdX0x8WC7ZlaATB3jn6wkjE9IOpm/licYE5icqadsuoooPEUcd5hCVajvSFoArYT/sfESMO4QKMNxffK7Nf+16EPg0QI6SJROWYPwNNA/fKGAdqCcuPcByFthS+eAQ+NbaHNq8OW5tWG3445dO7j2jjpBHRGXa6y56y/s4GldDO1wc6DVJDN5a8n/KLSw+0rpUMhnP1YIN64h3ocic9zlPdV4lhETHN5e30ID0izsHBcojoZKnEeDIK8+z01FFe4m3o1gbUbad5okQPI8GBq+Ahnew6Z2J2ZCT1gOewLeqVsPhqeH+wSBn8johRf0o/LliADJ2jYrKTk14c5CD7Q==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d1ba1ad-0b89-4570-a279-08deeedf49e4
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR11MB6967.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2026 08:39:52.0498
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ae4dea26-f8f1-4794-056c-08deeedee321
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C713.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR08MB9185
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8APrZNe48PVwMwDGQ4lDHmUamX+AiMZwVyx5GaKmshylfgkz1lFgrNHo/6O28dkCnZHqsJGPlbPNFKc1JzjrHHW186VopHTlZ8DGoqUAZSU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR11MB7692
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_013716_321730_182A2311 
-X-CRM114-Status: GOOD (  27.77  )
+X-CRM114-CacheID: sfid-20260731_013957_479941_6ADBA795 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,191 +192,600 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCAyMDI2LTA3LTI1IGF0IDExOjU2ICswMTAwLCBNYXJjIFp5bmdpZXIgd3JvdGU6DQo+
-IE9uIEZyaSwgMjQgSnVsIDIwMjYgMTE6NTA6MjggKzAxMDAsDQo+IFNhc2NoYSBCaXNjaG9mZiA8
-U2FzY2hhLkJpc2Nob2ZmQGFybS5jb20+IHdyb3RlOg0KPiA+IA0KPiA+IFZQRSBkb29yYmVsbHMg
-YWxsb3cgdGhlIEdJQ3Y1IGhhcmR3YXJlIHRvIG5vdGlmeSBLVk0gd2hlbiBhbiBTUEkgb3INCj4g
-PiBMUEkNCj4gPiBjYW4gYmUgc2lnbmFsbGVkIHRvIGEgbm9uLXJlc2lkZW50IFZQRS4gVGhpcyBw
-cm92aWRlcyB0aGUgbWVjaGFuaXNtDQo+ID4gdXNlZA0KPiA+IHRvIHdha2UgYmxvY2tlZCB2Y3B1
-cyBvbmNlIHRoZSBoYXJkd2FyZSBkZXRlcm1pbmVzIHRoYXQgdGhlDQo+ID4gaW50ZXJydXB0IGlz
-DQo+ID4gZWxpZ2libGUgdG8gYmUgZGVsaXZlcmVkLg0KPiA+IA0KPiA+IEFkZCBzdXBwb3J0IGZv
-ciBhIHBlci1WTSBWUEUgZG9vcmJlbGwgaXJxIGRvbWFpbi4gVGhlIGRvbWFpbiBpcw0KPiA+IGNy
-ZWF0ZWQNCj4gPiB1bmRlciB0aGUgR0lDdjUgTFBJIGRvbWFpbiwgd2l0aCBvbmUgZG9vcmJlbGwg
-YWxsb2NhdGVkIHBlciBWUEUuDQo+ID4gU3RvcmUNCj4gPiB0aGUgYWxsb2NhdGVkIGRvb3JiZWxs
-IGJhc2UgaW4gdGhlIFZNJ3MgR0lDdjUgc3RhdGUgc28gdGhhdCBsYXRlcg0KPiA+IHBhdGNoZXMg
-Y2FuIHJlcXVlc3QgcGVyLXZjcHUgZG9vcmJlbGwgSVJRcyBhbmQgdXNlIHRoZW0gZm9yIElSUw0K
-PiA+IGNvbW1hbmRzIGFuZCB3YWtldXBzLg0KPiA+IA0KPiA+IEFkZCB0aGUgcGVyLVZQRSBkb29y
-YmVsbCBzdGF0ZSB0byB0aGUgR0lDdjUgQ1BVIGludGVyZmFjZSBzdGF0ZS4NCj4gPiBUaGUNCj4g
-PiBkb29yYmVsbCBJUlEgbnVtYmVyIGlzIHBvcHVsYXRlZCB3aGVuIHRoZSBJUlFzIGFyZSByZXF1
-ZXN0ZWQsIGFuZA0KPiA+IHRoZQ0KPiA+IGRiX2ZpcmVkIHN0YXRlIGlzIHVzZWQgYnkgbGF0ZXIg
-cGF0Y2hlcyBvbmNlIGRvb3JiZWxsIGRlbGl2ZXJ5IGlzDQo+ID4gd2lyZWQNCj4gPiB1cC4NCj4g
-PiANCj4gPiBTaWduZWQtb2ZmLWJ5OiBTYXNjaGEgQmlzY2hvZmYgPHNhc2NoYS5iaXNjaG9mZkBh
-cm0uY29tPg0KPiA+IC0tLQ0KPiA+IMKgYXJjaC9hcm02NC9rdm0vdmdpYy92Z2ljLWluaXQuY8Kg
-wqDCoCB8wqAgMTggKystLQ0KPiA+IMKgYXJjaC9hcm02NC9rdm0vdmdpYy92Z2ljLXY1LmPCoMKg
-wqDCoMKgIHwgMTM5DQo+ID4gKysrKysrKysrKysrKysrKysrKysrKysrKysrKysNCj4gPiDCoGFy
-Y2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy5owqDCoMKgwqDCoMKgwqDCoCB8wqDCoCAxICsNCj4gPiDC
-oGluY2x1ZGUva3ZtL2FybV92Z2ljLmjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgNCAr
-DQo+ID4gwqBpbmNsdWRlL2xpbnV4L2lycWNoaXAvYXJtLWdpYy12NS5oIHzCoMKgIDIgKw0KPiA+
-IMKgNSBmaWxlcyBjaGFuZ2VkLCAxNTggaW5zZXJ0aW9ucygrKSwgNiBkZWxldGlvbnMoLSkNCj4g
-PiANCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9rdm0vdmdpYy92Z2ljLWluaXQuYw0KPiA+
-IGIvYXJjaC9hcm02NC9rdm0vdmdpYy92Z2ljLWluaXQuYw0KPiA+IGluZGV4IDkwNzA1Nzg4MWIy
-NmEuLjYyNWQzNTI3NTZmY2YgMTAwNjQ0DQo+ID4gLS0tIGEvYXJjaC9hcm02NC9rdm0vdmdpYy92
-Z2ljLWluaXQuYw0KPiA+ICsrKyBiL2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy1pbml0LmMNCj4g
-PiBAQCAtNDkyLDE2ICs0OTIsMjIgQEAgc3RhdGljIHZvaWQga3ZtX3ZnaWNfZGlzdF9kZXN0cm95
-KHN0cnVjdCBrdm0NCj4gPiAqa3ZtKQ0KPiA+IMKgCWRpc3QtPm5yX3NwaXMgPSAwOw0KPiA+IMKg
-CWRpc3QtPnZnaWNfZGlzdF9iYXNlID0gVkdJQ19BRERSX1VOREVGOw0KPiA+IMKgDQo+ID4gLQlp
-ZiAoZGlzdC0+dmdpY19tb2RlbCA9PSBLVk1fREVWX1RZUEVfQVJNX1ZHSUNfVjMpIHsNCj4gPiAr
-CXN3aXRjaCAoZGlzdC0+dmdpY19tb2RlbCkgew0KPiA+ICsJY2FzZSBLVk1fREVWX1RZUEVfQVJN
-X1ZHSUNfVjI6DQo+ID4gKwkJZGlzdC0+dmdpY19jcHVfYmFzZSA9IFZHSUNfQUREUl9VTkRFRjsN
-Cj4gPiArCQlicmVhazsNCj4gPiArCWNhc2UgS1ZNX0RFVl9UWVBFX0FSTV9WR0lDX1YzOg0KPiA+
-IMKgCQlsaXN0X2Zvcl9lYWNoX2VudHJ5X3NhZmUocmRyZWcsIG5leHQsICZkaXN0LQ0KPiA+ID5y
-ZF9yZWdpb25zLCBsaXN0KQ0KPiA+IMKgCQkJdmdpY192M19mcmVlX3JlZGlzdF9yZWdpb24oa3Zt
-LCByZHJlZyk7DQo+ID4gwqAJCUlOSVRfTElTVF9IRUFEKCZkaXN0LT5yZF9yZWdpb25zKTsNCj4g
-PiAtCX0gZWxzZSB7DQo+ID4gLQkJZGlzdC0+dmdpY19jcHVfYmFzZSA9IFZHSUNfQUREUl9VTkRF
-RjsNCj4gPiAtCX0NCj4gPiDCoA0KPiA+IC0JaWYgKHZnaWNfc3VwcG9ydHNfZGlyZWN0X2lycXMo
-a3ZtKSkNCj4gPiAtCQl2Z2ljX3Y0X3RlYXJkb3duKGt2bSk7DQo+ID4gKwkJaWYgKHZnaWNfc3Vw
-cG9ydHNfZGlyZWN0X2lycXMoa3ZtKSkNCj4gPiArCQkJdmdpY192NF90ZWFyZG93bihrdm0pOw0K
-PiA+ICsJCWJyZWFrOw0KPiA+ICsJY2FzZSBLVk1fREVWX1RZUEVfQVJNX1ZHSUNfVjU6DQo+ID4g
-KwkJdmdpY192NV90ZWFyZG93bihrdm0pOw0KPiA+ICsJCWJyZWFrOw0KPiA+ICsJfQ0KPiA+IMKg
-DQo+ID4gwqAJeGFfZGVzdHJveSgmZGlzdC0+bHBpX3hhKTsNCj4gPiDCoH0NCj4gPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9hcm02NC9rdm0vdmdpYy92Z2ljLXY1LmMNCj4gPiBiL2FyY2gvYXJtNjQva3Zt
-L3ZnaWMvdmdpYy12NS5jDQo+ID4gaW5kZXggM2Y3YjEzMjExMDExNC4uZWJkN2MzZWRlOTc1ZiAx
-MDA2NDQNCj4gPiAtLS0gYS9hcmNoL2FybTY0L2t2bS92Z2ljL3ZnaWMtdjUuYw0KPiA+ICsrKyBi
-L2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy12NS5jDQo+ID4gQEAgLTcsNiArNyw3IEBADQo+ID4g
-wqANCj4gPiDCoCNpbmNsdWRlIDxsaW51eC9iaXRvcHMuaD4NCj4gPiDCoCNpbmNsdWRlIDxsaW51
-eC9pcnFjaGlwL2FybS12Z2ljLWluZm8uaD4NCj4gPiArI2luY2x1ZGUgPGxpbnV4L2lycWRvbWFp
-bi5oPg0KPiA+IMKgDQo+ID4gwqAjaW5jbHVkZSAidmdpYy5oIg0KPiA+IMKgDQo+ID4gQEAgLTE1
-Miw2ICsxNTMsMTM0IEBAIGludCB2Z2ljX3Y1X3Byb2JlKGNvbnN0IHN0cnVjdCBnaWNfa3ZtX2lu
-Zm8NCj4gPiAqaW5mbykNCj4gPiDCoAlyZXR1cm4gMDsNCj4gPiDCoH0NCj4gPiDCoA0KPiA+ICsv
-Kg0KPiA+ICsgKiBUaGlzIHNldCBvZiBpcnFfY2hpcCBmdW5jdGlvbnMgaXMgc3BlY2lmaWMgZm9y
-IGRvb3JiZWxscy4NCj4gPiArICovDQo+ID4gK3N0YXRpYyBjb25zdCBzdHJ1Y3QgaXJxX2NoaXAg
-dmdpY192NV9kYl9pcnFfY2hpcCA9IHsNCj4gPiArCS5uYW1lID0gIkdJQ3Y1LURCIiwNCj4gPiAr
-CS5pcnFfbWFzayA9IGlycV9jaGlwX21hc2tfcGFyZW50LA0KPiA+ICsJLmlycV91bm1hc2sgPSBp
-cnFfY2hpcF91bm1hc2tfcGFyZW50LA0KPiA+ICsJLmlycV9lb2kgPSBpcnFfY2hpcF9lb2lfcGFy
-ZW50LA0KPiA+ICsJLmlycV9zZXRfYWZmaW5pdHkgPSBpcnFfY2hpcF9zZXRfYWZmaW5pdHlfcGFy
-ZW50LA0KPiA+ICsJLmlycV9nZXRfaXJxY2hpcF9zdGF0ZSA9IGlycV9jaGlwX2dldF9wYXJlbnRf
-c3RhdGUsDQo+ID4gKwkuaXJxX3NldF9pcnFjaGlwX3N0YXRlID0gaXJxX2NoaXBfc2V0X3BhcmVu
-dF9zdGF0ZSwNCj4gPiArCS5mbGFncyA9IElSUUNISVBfU0VUX1RZUEVfTUFTS0VEIHwgSVJRQ0hJ
-UF9TS0lQX1NFVF9XQUtFIHwNCj4gPiArCQkgSVJRQ0hJUF9NQVNLX09OX1NVU1BFTkQsDQo+ID4g
-K307DQo+ID4gKw0KPiA+ICtzdGF0aWMgdm9pZCB2Z2ljX3Y1X2lycV9kYl9kb21haW5fZnJlZShz
-dHJ1Y3QgaXJxX2RvbWFpbiAqZG9tYWluLA0KPiA+ICsJCQkJwqDCoMKgwqDCoMKgIHVuc2lnbmVk
-IGludCB2aXJxLCB1bnNpZ25lZA0KPiA+IGludCBucl9pcnFzKQ0KPiA+ICt7DQo+ID4gKwlpbnQg
-aTsNCj4gPiArDQo+ID4gKwlmb3IgKGkgPSAwOyBpIDwgbnJfaXJxczsgaSsrKSB7DQo+ID4gKwkJ
-c3RydWN0IGlycV9kYXRhICpkID0NCj4gPiBpcnFfZG9tYWluX2dldF9pcnFfZGF0YShkb21haW4s
-IHZpcnEgKyBpKTsNCj4gPiArDQo+ID4gKwkJaXJxX3NldF9oYW5kbGVyKHZpcnEgKyBpLCBOVUxM
-KTsNCj4gPiArCQlpcnFfZG9tYWluX3Jlc2V0X2lycV9kYXRhKGQpOw0KPiA+ICsJfQ0KPiA+ICsN
-Cj4gPiArCWlycV9kb21haW5fZnJlZV9pcnFzX3BhcmVudChkb21haW4sIHZpcnEsIG5yX2lycXMp
-Ow0KPiA+ICt9DQo+ID4gKw0KPiA+ICtzdGF0aWMgaW50IHZnaWNfdjVfaXJxX2RiX2RvbWFpbl9h
-bGxvYyhzdHJ1Y3QgaXJxX2RvbWFpbiAqZG9tYWluLA0KPiA+ICsJCQkJwqDCoMKgwqDCoMKgIHVu
-c2lnbmVkIGludCB2aXJxLCB1bnNpZ25lZA0KPiA+IGludCBucl9pcnFzLA0KPiA+ICsJCQkJwqDC
-oMKgwqDCoMKgIHZvaWQgKmFyZykNCj4gPiArew0KPiA+ICsJY29uc3Qgc3RydWN0IGlycV9jaGlw
-ICpjaGlwID0gJnZnaWNfdjVfZGJfaXJxX2NoaXA7DQo+ID4gKwlzdHJ1Y3QgdmdpY192NV92bSAq
-dm0gPSBhcmc7DQo+ID4gKwlzdHJ1Y3QgaXJxX2RhdGEgKmlycWQ7DQo+ID4gKwlpbnQgcmV0Ow0K
-PiA+ICsNCj4gPiArCWlmICghdm0pIHsNCj4gPiArCQlrdm1fZXJyKCJpbnZhbGlkIHBhcmFtZXRl
-ciBmb3IgZG9vcmJlbGwgaXJxDQo+ID4gYWxsb2NhdGlvblxuIik7DQo+ID4gKwkJcmV0dXJuIC1F
-SU5WQUw7DQo+ID4gKwl9DQo+IA0KPiBIb3cgY2FuIHRoaXMgaGFwcGVuPw0KDQpJIGRvbid0IHRo
-aW5rIGl0IHJlYWxpc3RpY2FsbHkgY2FuLiBXZSBjYW4ndCBtYWtlIGl0IHRoaXMgZmFyIHdpdGhv
-dXQNCnRoYXQgc28gdGhlIGNoZWNrIGlzIHV0dGVybHkgcG9pbnRsZXNzLiBJJ3ZlIGRyb3BwZWQg
-aXQuDQoNCj4gDQo+ID4gKw0KPiA+ICsJcmV0ID0gaXJxX2RvbWFpbl9hbGxvY19pcnFzX3BhcmVu
-dChkb21haW4sIHZpcnEsIG5yX2lycXMsDQo+ID4gTlVMTCk7DQo+ID4gKwlpZiAocmV0KQ0KPiA+
-ICsJCXJldHVybiByZXQ7DQo+ID4gKw0KPiA+ICsJZm9yIChpbnQgaSA9IDA7IGkgPCBucl9pcnFz
-OyBpKyspIHsNCj4gPiArCQlpcnFfZG9tYWluX3NldF9od2lycV9hbmRfY2hpcChkb21haW4sIHZp
-cnEgKyBpLCBpLA0KPiA+IGNoaXAsDQo+ID4gKwkJCQkJwqDCoMKgwqDCoCBkb21haW4tPmhvc3Rf
-ZGF0YSk7DQo+ID4gKwkJaXJxZCA9IGlycV9kZXNjX2dldF9pcnFfZGF0YShpcnFfdG9fZGVzYyh2
-aXJxICsNCj4gPiBpKSk7DQo+ID4gKwkJaXJxZF9zZXRfc2luZ2xlX3RhcmdldChpcnFkKTsNCj4g
-PiArCX0NCj4gPiArDQo+ID4gKwlyZXR1cm4gMDsNCj4gPiArfQ0KPiA+ICsNCj4gPiArc3RhdGlj
-IGNvbnN0IHN0cnVjdCBpcnFfZG9tYWluX29wcyB2Z2ljX3Y1X2lycV9kYl9kb21haW5fb3BzID0g
-ew0KPiA+ICsJLmFsbG9jID0gdmdpY192NV9pcnFfZGJfZG9tYWluX2FsbG9jLA0KPiA+ICsJLmZy
-ZWUgPSB2Z2ljX3Y1X2lycV9kYl9kb21haW5fZnJlZSwNCj4gPiArfTsNCj4gPiArDQo+ID4gK3N0
-YXRpYyBpbnQgdmdpY192NV9jcmVhdGVfcGVyX3ZtX2RvbWFpbihzdHJ1Y3Qga3ZtICprdm0pDQo+
-ID4gK3sNCj4gPiArCXN0cnVjdCB2Z2ljX3Y1X3ZtICp2bSA9ICZrdm0tPmFyY2gudmdpYy5naWN2
-NV92bTsNCj4gPiArCWludCBucl92Y3B1cyA9IGF0b21pY19yZWFkKCZrdm0tPm9ubGluZV92Y3B1
-cyk7DQo+ID4gKwlpbnQgaWQgPSB0YXNrX3BpZF9ucihjdXJyZW50KTsNCj4gPiArCWludCByZXQs
-IGRiX3ZpcnEgPSAwOw0KPiA+ICsNCj4gPiArCWlmICghZ2ljdjVfZ2xvYmFsX2RhdGEubHBpX2Rv
-bWFpbikgew0KPiA+ICsJCWt2bV9lcnIoIkxQSSBkb21haW4gdW5pbml0aWFsaXplZCwgY2FuJ3Qg
-c2V0IHVwDQo+ID4gS1ZNIERvb3JiZWxsc1xuIik7DQo+ID4gKwkJcmV0dXJuIC1FTk9ERVY7DQo+
-ID4gKwl9DQo+IA0KPiBTdXJlbHkgd2Ugc2hvdWxkIGZhaWwgS1ZNJ3MgaW5pdGlhbGlzYXRpb24g
-aWYgd2UgZG9uJ3QgaGF2ZSB0aGUgTFBJDQo+IGRvbWFpbiwgcmF0aGVyIHRoYW4gY2hlY2tpbmcg
-dGhpcyBhdCB0aGUgcG9pbnQgb2YgY3JlYXRpbmcgdGhlDQo+IGRvb3JiZWxscy4gSSBjYW4ndCBp
-bWFnaW5lIGhvdyB3ZSdkIHJ1biBvbiBHSUN2NSB3aXRob3V0IExQSXMNCj4gYW55d2F5Li4uDQoN
-CkkndmUgbW92ZWQgdGhpcyBjaGVjayB0byBwcm9iZSB0aW1lLiBJdCBtaWdodCBldmVuIG1ha2Ug
-c2Vuc2UgdG8gc2tpcA0KdGhlIHJlZ2lzdHJhdGlvbiB3aXRoIEtWTSBpbiB0aGUgaG9zdCBkcml2
-ZXIgYWx0b2dldGhlciwgaG93ZXZlci4NCg0KPiANCj4gPiArDQo+ID4gKwl2bS0+Zndub2RlID0g
-aXJxX2RvbWFpbl9hbGxvY19uYW1lZF9pZF9md25vZGUoIkdJQ3Y1LXZwZS0NCj4gPiBkYiIsIGlk
-KTsNCj4gPiArCWlmICghdm0tPmZ3bm9kZSkNCj4gPiArCQlyZXR1cm4gLUVOT01FTTsNCj4gPiAr
-DQo+ID4gKwkvKg0KPiA+ICsJICogS1ZNIHBlci1WTSBWUEUgREIgZG9tYWluOyBjaGlsZCBvZiBM
-UEkgZG9tYWluOyBvbmx5DQo+ID4gZXZlciBoYW5kbGVzDQo+ID4gKwkgKiBkb29yYmVsbHMuIFdl
-IGtub3cgaG93IG1hbnkgZG9vcmJlbGxzIHdlIGhhdmUsIGFuZA0KPiA+IHRoZXJlZm9yZSB3ZQ0K
-PiA+ICsJICogY3JlYXRlIGEgbGluZWFyIGRvbWFpbi4NCj4gDQo+IFRoZSBsaW5lYXIgZG9tYWlu
-IHRoaW5nIGlzIGFuIGlycWRvbWFpbiBpbXBsZW1lbnRhdGlvbiBkZXRhaWwuIFdlDQo+IGRvbid0
-IG5lZWQgdG8gY2FwdHVyZSB0aGlzIGhlcmUuDQoNCk9LLCByZW1vdmVkLg0KDQo+IA0KPiA+ICsJ
-ICovDQo+ID4gKwl2bS0+ZG9tYWluID0NCj4gPiBpcnFfZG9tYWluX2NyZWF0ZV9oaWVyYXJjaHko
-Z2ljdjVfZ2xvYmFsX2RhdGEubHBpX2RvbWFpbiwNCj4gPiArCQkJCQkJIDAsIG5yX3ZjcHVzLCB2
-bS0NCj4gPiA+Zndub2RlLA0KPiA+ICsJCQkJCQkNCj4gPiAmdmdpY192NV9pcnFfZGJfZG9tYWlu
-X29wcywgdm0pOw0KPiA+ICsJaWYgKCF2bS0+ZG9tYWluKSB7DQo+ID4gKwkJcmV0ID0gLUVOT01F
-TTsNCj4gPiArCQlnb3RvIGVycjsNCj4gPiArCX0NCj4gPiArDQo+ID4gKwlkYl92aXJxID0gaXJx
-X2RvbWFpbl9hbGxvY19pcnFzKHZtLT5kb21haW4sIG5yX3ZjcHVzLA0KPiA+IE5VTUFfTk9fTk9E
-RSwgdm0pOw0KPiA+ICsJaWYgKGRiX3ZpcnEgPD0gMCkgew0KPiA+ICsJCXJldCA9IGRiX3ZpcnE7
-DQo+ID4gKwkJZ290byBlcnI7DQo+ID4gKwl9DQo+ID4gKw0KPiA+ICsJa3ZtLT5hcmNoLnZnaWMu
-Z2ljdjVfdm0udnBlX2RiX2Jhc2UgPSBkYl92aXJxOw0KPiA+ICsNCj4gPiArCXJldHVybiAwOw0K
-PiA+ICsNCj4gPiArZXJyOg0KPiA+ICsJaWYgKGRiX3ZpcnEgPiAwKQ0KPiA+ICsJCWlycV9kb21h
-aW5fZnJlZV9pcnFzKGRiX3ZpcnEsIG5yX3ZjcHVzKTsNCj4gPiArCWlmICh2bS0+ZG9tYWluKQ0K
-PiA+ICsJCWlycV9kb21haW5fcmVtb3ZlKHZtLT5kb21haW4pOw0KPiA+ICsJaWYgKHZtLT5md25v
-ZGUpDQo+ID4gKwkJaXJxX2RvbWFpbl9mcmVlX2Z3bm9kZSh2bS0+Zndub2RlKTsNCj4gPiArDQo+
-ID4gKwlrdm0tPmFyY2gudmdpYy5naWN2NV92bS52cGVfZGJfYmFzZSA9IDA7DQo+ID4gKwl2bS0+
-ZG9tYWluID0gTlVMTDsNCj4gPiArCXZtLT5md25vZGUgPSBOVUxMOw0KPiA+ICsNCj4gPiArCXJl
-dHVybiByZXQ7DQo+ID4gK30NCj4gPiArDQo+ID4gK3N0YXRpYyB2b2lkIHZnaWNfdjVfdGVhcmRv
-d25fcGVyX3ZtX2RvbWFpbihzdHJ1Y3QgdmdpY192NV92bSAqdm0pDQo+ID4gK3sNCj4gPiArCWlm
-ICghdm0tPmRvbWFpbikNCj4gPiArCQlyZXR1cm47DQo+ID4gKw0KPiA+ICsJaXJxX2RvbWFpbl9y
-ZW1vdmUodm0tPmRvbWFpbik7DQo+ID4gKwlpcnFfZG9tYWluX2ZyZWVfZndub2RlKHZtLT5md25v
-ZGUpOw0KPiA+ICsJdm0tPmRvbWFpbiA9IE5VTEw7DQo+ID4gKwl2bS0+Zndub2RlID0gTlVMTDsN
-Cj4gPiArfQ0KPiA+ICsNCj4gPiDCoHZvaWQgdmdpY192NV9yZXNldChzdHJ1Y3Qga3ZtX3ZjcHUg
-KnZjcHUpDQo+ID4gwqB7DQo+ID4gwqAJLyoNCj4gPiBAQCAtMTY3LDEwICsyOTYsMTYgQEAgdm9p
-ZCB2Z2ljX3Y1X3Jlc2V0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkNCj4gPiDCoAl2Y3B1LT5hcmNo
-LnZnaWNfY3B1Lm51bV9wcmlfYml0cyA9IDU7DQo+ID4gwqB9DQo+ID4gwqANCj4gPiArdm9pZCB2
-Z2ljX3Y1X3RlYXJkb3duKHN0cnVjdCBrdm0gKmt2bSkNCj4gPiArew0KPiA+ICsJdmdpY192NV90
-ZWFyZG93bl9wZXJfdm1fZG9tYWluKCZrdm0tPmFyY2gudmdpYy5naWN2NV92bSk7DQo+ID4gK30N
-Cj4gDQo+IFNpbmNlIHRoaXMgaXMgYSBnbG9iYWwgc3ltYm9sLCBJJ2QgbGlrZSB0byBtYWtlIHN1
-cmUgdGhpcyBpcyBuZXZlcg0KPiBjYWxsZWQgY29uY3VycmVudGx5IHdpdGggYW55dGhpbmcgcmVs
-YXRlZC4gQ291bGQgeW91IHBsZWFzZSBhZGQNCj4gDQo+IAlsb2NrZGVwX2Fzc2VydF9oZWxkKCZr
-dm0tPmFyY2guY29uZmlnX2xvY2spOw0KPiANCj4gaGVyZT8NCg0KRG9uZS4NCg0KPiANCj4gPiAr
-DQo+ID4gwqBpbnQgdmdpY192NV9pbml0KHN0cnVjdCBrdm0gKmt2bSkNCj4gPiDCoHsNCj4gPiDC
-oAlzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHU7DQo+ID4gwqAJdW5zaWduZWQgbG9uZyBpZHg7DQo+ID4g
-KwlpbnQgcmV0Ow0KPiANCj4gYW5kIGhlcmU/DQoNCkFuZCBkb25lLg0KDQo+IA0KPiA+IMKgDQo+
-ID4gwqAJaWYgKHZnaWNfaW5pdGlhbGl6ZWQoa3ZtKSkNCj4gPiDCoAkJcmV0dXJuIDA7DQo+ID4g
-QEAgLTE4Miw2ICszMTcsMTAgQEAgaW50IHZnaWNfdjVfaW5pdChzdHJ1Y3Qga3ZtICprdm0pDQo+
-ID4gwqAJCX0NCj4gPiDCoAl9DQo+ID4gwqANCj4gPiArCXJldCA9IHZnaWNfdjVfY3JlYXRlX3Bl
-cl92bV9kb21haW4oa3ZtKTsNCj4gPiArCWlmIChyZXQpDQo+ID4gKwkJcmV0dXJuIHJldDsNCj4g
-PiArDQo+ID4gwqAJLyogV2Ugb25seSBhbGxvdyB1c2Vyc3BhY2UgdG8gZHJpdmUgdGhlIFNXX1BQ
-SSwgaWYgaXQgaXMNCj4gPiBpbXBsZW1lbnRlZC4gKi8NCj4gPiDCoAliaXRtYXBfemVybyhrdm0t
-PmFyY2gudmdpYy5naWN2NV92bS51c2Vyc3BhY2VfcHBpcywNCj4gPiDCoAkJwqDCoMKgIFZHSUNf
-VjVfTlJfUFJJVkFURV9JUlFTKTsNCj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9rdm0vdmdp
-Yy92Z2ljLmgNCj4gPiBiL2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy5oDQo+ID4gaW5kZXggZjQ1
-ZjdlM2VjNGQ2ZS4uZjJmNWZkYzMyMTFkNyAxMDA2NDQNCj4gPiAtLS0gYS9hcmNoL2FybTY0L2t2
-bS92Z2ljL3ZnaWMuaA0KPiA+ICsrKyBiL2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy5oDQo+ID4g
-QEAgLTM2Niw2ICszNjYsNyBAQCB2b2lkIHZnaWNfZGVidWdfZGVzdHJveShzdHJ1Y3Qga3ZtICpr
-dm0pOw0KPiA+IMKgaW50IHZnaWNfdjVfcHJvYmUoY29uc3Qgc3RydWN0IGdpY19rdm1faW5mbyAq
-aW5mbyk7DQo+ID4gwqB2b2lkIHZnaWNfdjVfcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsN
-Cj4gPiDCoGludCB2Z2ljX3Y1X2luaXQoc3RydWN0IGt2bSAqa3ZtKTsNCj4gPiArdm9pZCB2Z2lj
-X3Y1X3RlYXJkb3duKHN0cnVjdCBrdm0gKmt2bSk7DQo+ID4gwqBpbnQgdmdpY192NV9tYXBfcmVz
-b3VyY2VzKHN0cnVjdCBrdm0gKmt2bSk7DQo+ID4gwqB2b2lkIHZnaWNfdjVfc2V0X3BwaV9vcHMo
-c3RydWN0IGt2bV92Y3B1ICp2Y3B1LCB1MzIgdmludGlkKTsNCj4gPiDCoGJvb2wgdmdpY192NV9o
-YXNfcGVuZGluZ19wcGkoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsNCj4gPiBkaWZmIC0tZ2l0IGEv
-aW5jbHVkZS9rdm0vYXJtX3ZnaWMuaCBiL2luY2x1ZGUva3ZtL2FybV92Z2ljLmgNCj4gPiBpbmRl
-eCA4ZDY1YTE4ZmVmYjgwLi5iZmYyYjdjODk2ZDU1IDEwMDY0NA0KPiA+IC0tLSBhL2luY2x1ZGUv
-a3ZtL2FybV92Z2ljLmgNCj4gPiArKysgYi9pbmNsdWRlL2t2bS9hcm1fdmdpYy5oDQo+ID4gQEAg
-LTM5Miw2ICszOTIsMTAgQEAgc3RydWN0IHZnaWNfdjVfdm0gew0KPiA+IMKgCSAqIGNvbnZlbmll
-bnQgd2F5IHRvIGRvIHRoYXQpLg0KPiA+IMKgCSAqLw0KPiA+IMKgCURFQ0xBUkVfQklUTUFQKHZn
-aWNfcHBpX2htciwgVkdJQ19WNV9OUl9QUklWQVRFX0lSUVMpOw0KPiA+ICsNCj4gPiArCXN0cnVj
-dCBmd25vZGVfaGFuZGxlCSpmd25vZGU7DQo+ID4gKwlzdHJ1Y3QgaXJxX2RvbWFpbgkqZG9tYWlu
-Ow0KPiA+ICsJaW50CQkJdnBlX2RiX2Jhc2U7DQo+ID4gwqB9Ow0KPiA+IMKgDQo+ID4gwqBzdHJ1
-Y3QgdmdpY19kaXN0IHsNCj4gPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9pcnFjaGlwL2Fy
-bS1naWMtdjUuaA0KPiA+IGIvaW5jbHVkZS9saW51eC9pcnFjaGlwL2FybS1naWMtdjUuaA0KPiA+
-IGluZGV4IDgzY2ZjZDA1NmIyNTAuLjIxYzhhNjlmOTliYjYgMTAwNjQ0DQo+ID4gLS0tIGEvaW5j
-bHVkZS9saW51eC9pcnFjaGlwL2FybS1naWMtdjUuaA0KPiA+ICsrKyBiL2luY2x1ZGUvbGludXgv
-aXJxY2hpcC9hcm0tZ2ljLXY1LmgNCj4gPiBAQCAtNjEzLDYgKzYxMyw4IEBAIHZvaWQgZ2ljdjVf
-aXJzX3N5bmNyKHZvaWQpOw0KPiA+IMKgDQo+ID4gwqAvKiBFbWJlZGRlZCBpbiBrdm0uYXJjaCAq
-Lw0KPiA+IMKgc3RydWN0IGdpY3Y1X3ZwZSB7DQo+ID4gKwlpbnQJCQlkYjsNCj4gPiArCWJvb2wJ
-CQlkYl9maXJlZDsNCj4gPiDCoAlib29sCQkJcmVzaWRlbnQ7DQo+ID4gwqB9Ow0KPiANCj4gVGhh
-bmtzLA0KPiANCj4gCU0uDQo+IA0KDQo=
+On 7/31/2026 8:43 AM, Christian Marangi wrote:
+> Add support for the Sound system present on Airoha AN7581 SoC. This is
+> based on the mediatek AFE drivers.
+> 
+> Also add the machine driver to create an actual sound card for the AFE.
+
+...
+
+> --- /dev/null
+> +++ b/sound/soc/mediatek/an7581/an7581-afe-common.h
+> @@ -0,0 +1,50 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * an7581-afe-common.h  --  Airoha AN7581 audio driver definitions
+> + */
+> +
+> +#ifndef _AN7581_AFE_COMMON_H_
+> +#define _AN7581_AFE_COMMON_H_
+> +
+> +#include <linux/atomic.h>
+> +#include <sound/soc.h>
+> +#include <linux/list.h>
+> +#include <linux/regmap.h>
+
+Sort these, linux/ comes before sound/.
+
+> +#include "../../mediatek/common/mtk-base-afe.h"
+> +
+> +enum {
+> +	AN7581_MEMIF_DL1,
+> +	AN7581_MEMIF_UL1,
+> +	AN7581_MEMIF_NUM,
+> +	AN7581_DAI_ETDM = AN7581_MEMIF_NUM,
+> +	AN7581_DAI_NUM,
+> +};
+> +
+> +enum {
+> +	AN7581_IRQ_0,
+> +	AN7581_IRQ_1,
+> +	AN7581_IRQ_NUM,
+> +};
+> +
+> +struct an7581_memif_irq_desc {
+> +	u8 irq;
+> +	u32 status_bit;
+> +	u32 clear_reg;
+> +};
+> +
+> +struct an7581_afe_private {
+> +	unsigned int users;
+> +	/* protect concurrent ETDM user tracking */
+> +	struct mutex user_lock;
+> +
+> +	/* dai */
+> +	void *dai_priv[AN7581_DAI_NUM];
+
+The comment is redundant.
+
+> +};
+> +
+> +unsigned int an7581_afe_rate_transform(struct device *dev,
+> +				       unsigned int rate);
+> +
+> +/* dai register */
+> +int an7581_dai_etdm_register(struct mtk_base_afe *afe);
+
+Ditto.
+
+> +
+> +#endif
+
+...
+
+> +unsigned int an7581_afe_rate_transform(struct device *dev, unsigned int rate)
+> +{
+> +	switch (rate) {
+> +	case 7350:
+> +		return ARH_AFE_RATE_7K;
+> +	case 8000:
+> +		return ARH_AFE_RATE_8K;
+> +	case 11025:
+> +		return ARH_AFE_RATE_11K;
+> +	case 12000:
+> +		return ARH_AFE_RATE_12K;
+> +	case 14700:
+> +		return ARH_AFE_RATE_14K;
+> +	case 16000:
+> +		return ARH_AFE_RATE_16K;
+> +	case 22050:
+> +		return ARH_AFE_RATE_22K;
+> +	case 24000:
+> +		return ARH_AFE_RATE_24K;
+> +	case 29400:
+> +		return ARH_AFE_RATE_29K;
+> +	case 32000:
+> +		return ARH_AFE_RATE_32K;
+> +	case 44100:
+> +		return ARH_AFE_RATE_44K;
+> +	case 48000:
+> +		return ARH_AFE_RATE_48K;
+> +	case 88200:
+> +		return ARH_AFE_RATE_88K;
+> +	case 96000:
+> +		return ARH_AFE_RATE_96K;
+> +	case 176400:
+> +		return ARH_AFE_RATE_176K;
+> +	case 192000:
+> +		return ARH_AFE_RATE_192K;
+> +	case 352800:
+> +		return ARH_AFE_RATE_352K;
+> +	case 384000:
+> +		return ARH_AFE_RATE_384K;
+> +	default:
+> +		dev_warn(dev, "%s(), rate %u invalid, using %d!!!\n",
+> +			 __func__, rate, ARH_AFE_RATE_48K);
+
+Three '!', really? :)
+
+> +		return ARH_AFE_RATE_48K;
+> +	}
+> +}
+
+> +static const struct snd_pcm_hardware an7581_afe_hardware = {
+> +	.info = SNDRV_PCM_INFO_MMAP |
+> +		SNDRV_PCM_INFO_INTERLEAVED |
+> +		SNDRV_PCM_INFO_MMAP_VALID,
+> +	.formats = SNDRV_PCM_FMTBIT_S16_LE |
+> +		   SNDRV_PCM_FMTBIT_S24_LE |
+> +		   SNDRV_PCM_FMTBIT_S32_LE,
+> +	.period_bytes_min = 512,
+> +	.period_bytes_max = 128 * 1024,
+> +	.periods_min = 2,
+> +	.periods_max = 256,
+> +	.buffer_bytes_max = 256 * 1024,
+> +	.fifo_size = 0,
+
+static takes care of this unless you want to explicitly state the 
+fifo_size must be 0 - in such case comment is necessary, otherwise drop 
+the assignment.
+
+> +};
+> +
+> +static int an7581_memif_fs(struct snd_pcm_substream *substream,
+> +			   unsigned int rate)
+
+For the entire file - char limit is 100, there is no reason not to 
+utilize it.
+
+> +{
+> +	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+> +	struct snd_soc_component *component = snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
+> +	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
+> +
+> +	return an7581_afe_rate_transform(afe->dev, rate);
+> +}
+> +
+> +static int an7581_irq_fs(struct snd_pcm_substream *substream,
+> +			 unsigned int rate)
+> +{
+> +	struct snd_soc_pcm_runtime *rtd = snd_soc_substream_to_rtd(substream);
+> +	struct snd_soc_component *component = snd_soc_rtdcom_lookup(rtd, AFE_PCM_NAME);
+> +	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
+> +
+> +	return an7581_afe_rate_transform(afe->dev, rate);
+> +}
+
+These two functions seem to be identical.
+
+> +
+> +static int an7581_afe_fe_startup(struct snd_pcm_substream *substream,
+> +				 struct snd_soc_dai *dai)
+> +{
+> +	struct snd_pcm_runtime *runtime = substream->runtime;
+> +	struct mtk_base_afe *afe = snd_soc_dai_get_drvdata(dai);
+> +	int ret;
+> +
+> +	ret = mtk_afe_fe_startup(substream, dai);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	if (substream->stream == SNDRV_PCM_STREAM_CAPTURE) {
+> +		ret = snd_pcm_hw_constraint_minmax(runtime,
+> +						   SNDRV_PCM_HW_PARAM_PERIOD_SIZE,
+> +						   0x2000, UINT_MAX);
+> +		if (ret < 0)
+> +			dev_err(afe->dev, "hw_constraint_minmax failed\n");
+> +	}
+> +
+> +	return ret;
+
+mtk_afe_fe_startup() acquires irq via mtk_dynamic_irq_acquire(). Do we 
+need to unwind the process if snd_pcm_hw_constraint_minmax() fails?
+
+> +}
+
+...
+
+> +static int an7581_afe_pcm_dev_probe(struct platform_device *pdev)
+> +{
+> +	struct an7581_afe_private *afe_priv;
+> +	struct reset_control *reset;
+> +	struct mtk_base_afe *afe;
+> +	struct device *dev;
+> +	int i, irq_id, ret;
+> +	void *base;
+> +
+> +	afe = devm_kzalloc(&pdev->dev, sizeof(*afe), GFP_KERNEL);
+> +	if (!afe)
+> +		return -ENOMEM;
+> +	platform_set_drvdata(pdev, afe);
+
+Typically drvdata is assigned last, one we know probe() is successful. 
+Is there some specific reason why you assign the pointer immediately?
+> +
+> +	afe->platform_priv = devm_kzalloc(&pdev->dev, sizeof(*afe_priv),
+> +					  GFP_KERNEL);
+> +	if (!afe->platform_priv)
+> +		return -ENOMEM;
+
+Especially when the memory allocation is still ongoing..
+
+> +
+> +	afe_priv = afe->platform_priv;
+> +	mutex_init(&afe_priv->user_lock);
+> +	afe->dev = &pdev->dev;
+> +	dev = afe->dev;
+> +
+> +	reset = devm_reset_control_get_exclusive(dev, NULL);
+> +	if (IS_ERR(reset))
+> +		return PTR_ERR(reset);
+> +
+> +	/* Global reset I2S */
+> +	reset_control_assert(reset);
+> +	usleep_range(10, 20);
+> +	reset_control_deassert(reset);
+> +
+> +	afe->base_addr = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(afe->base_addr))
+> +		return PTR_ERR(afe->base_addr);
+> +
+> +	base = devm_platform_ioremap_resource(pdev, 1);
+> +	if (IS_ERR(base))
+> +		return PTR_ERR(base);
+> +
+> +	ret = devm_pm_runtime_enable(dev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	afe->regmap = devm_regmap_init_mmio(&pdev->dev, afe->base_addr,
+> +					    &an7581_afe_regmap_config);
+> +	if (IS_ERR(afe->regmap))
+> +		return PTR_ERR(afe->regmap);
+> +
+> +	mutex_init(&afe->irq_alloc_lock);
+> +
+> +	/* irq initialize */
+> +	afe->irqs_size = AN7581_IRQ_NUM;
+> +	afe->irqs = devm_kcalloc(dev, afe->irqs_size, sizeof(*afe->irqs),
+> +				 GFP_KERNEL);
+> +	if (!afe->irqs)
+> +		return -ENOMEM;
+
+If the size is known upfront, I'd just move all the allocations to the top.
+
+> +
+> +	for (i = 0; i < afe->irqs_size; i++)
+> +		afe->irqs[i].irq_data = &irq_data[i];
+> +
+> +	afe->irqs[AN7581_IRQ_0].regmap = afe->regmap;
+> +	afe->irqs[AN7581_IRQ_1].regmap = devm_regmap_init_mmio(&pdev->dev, base,
+> +							       &an7581_afe_irq1_regmap_config);
+> +	if (IS_ERR(afe->irqs[AN7581_IRQ_1].regmap))
+> +		return PTR_ERR(afe->irqs[AN7581_IRQ_1].regmap);
+> +
+> +	/* request irq */
+> +	irq_id = platform_get_irq(pdev, 0);
+> +	if (irq_id < 0)
+> +		return irq_id;
+> +
+> +	/* init memif */
+> +	afe->memif_size = AN7581_MEMIF_NUM;
+> +	afe->memif = devm_kcalloc(dev, afe->memif_size, sizeof(*afe->memif),
+> +				  GFP_KERNEL);
+> +	if (!afe->memif)
+> +		return -ENOMEM;
+> +
+> +	for (i = 0; i < afe->memif_size; i++) {
+> +		int sel_irq = an7581_memif_irq_descs[i].irq;
+> +
+> +		afe->memif[i].data = &memif_data[i];
+> +		afe->memif[i].irq_usage = sel_irq;
+> +		afe->memif[i].const_irq = 1;
+> +		afe->irqs[sel_irq].irq_occupyed = true;
+> +	}
+> +
+> +	/* init sub_dais */
+> +	INIT_LIST_HEAD(&afe->sub_dais);
+> +
+> +	ret = devm_request_irq(dev, irq_id, an7581_afe_irq_handler,
+> +			       IRQF_TRIGGER_NONE, "asys-isr", (void *)afe);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Failed to request irq for asys-isr\n");
+> +
+> +	for (i = 0; i < ARRAY_SIZE(dai_register_cbs); i++) {
+> +		ret = dai_register_cbs[i](afe);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "DAI register failed, i: %d\n", i);
+> +	}
+> +
+> +	/* init dai_driver and component_driver */
+> +	ret = mtk_afe_combine_sub_dai(afe);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "mtk_afe_combine_sub_dai fail\n");
+> +
+> +	afe->mtk_afe_hardware = &an7581_afe_hardware;
+> +	afe->memif_fs = an7581_memif_fs;
+> +	afe->irq_fs = an7581_irq_fs;
+> +
+> +	/* register component */
+> +	ret = devm_snd_soc_register_component(&pdev->dev,
+> +					      &mtk_afe_pcm_platform,
+> +					      NULL, 0);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Cannot register AFE component\n");
+> +
+> +	ret = devm_snd_soc_register_component(afe->dev,
+> +					      &an7581_afe_pcm_dai_component,
+> +					      afe->dai_drivers,
+> +					      afe->num_dai_drivers);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Cannot register PCM DAI component\n");
+> +
+> +	return 0;
+> +}
+
+...
+
+> +/* dai ops */
+> +static int mtk_dai_etdm_startup(struct snd_pcm_substream *substream,
+> +				struct snd_soc_dai *dai)
+> +{
+> +	struct mtk_base_afe *afe = snd_soc_dai_get_drvdata(dai);
+> +	struct an7581_afe_private *afe_priv = afe->platform_priv;
+> +
+> +	regmap_set_bits(afe->regmap, AFE_DAC_CON0,
+> +			BIT(AFE_AFE_ENABLE_SHIFT));
+> +
+> +	mutex_lock(&afe_priv->user_lock);
+
+I'd suggest to switch to guards, see cleanup.h.
+
+> +	afe_priv->users++;
+> +	mutex_unlock(&afe_priv->user_lock);
+> +
+> +	return 0;
+
+Why skip the return code of regmap_set_bits()?
+
+> +}
+> +
+> +static void mtk_dai_etdm_shutdown(struct snd_pcm_substream *substream,
+> +				  struct snd_soc_dai *dai)
+> +{
+> +	struct mtk_base_afe *afe = snd_soc_dai_get_drvdata(dai);
+> +	struct an7581_afe_private *afe_priv = afe->platform_priv;
+> +
+> +	mutex_lock(&afe_priv->user_lock);
+> +	afe_priv->users--;
+> +	if (!afe_priv->users)
+> +		regmap_clear_bits(afe->regmap, AFE_DAC_CON0,
+> +				  BIT(AFE_AFE_ENABLE_SHIFT));
+> +	mutex_unlock(&afe_priv->user_lock);
+
+Well, here we clear bits in locked state whereas above they're set 
+unlocked. Typically such inconsistency translates to an issue.
+
+> +}
+> +
+> +static unsigned int get_etdm_ch_fixup(unsigned int channels)
+> +{
+> +	if (channels > 16)
+> +		return 24;
+> +	else if (channels > 8)
+> +		return 16;
+> +	else if (channels > 4)
+> +		return 8;
+> +	else if (channels > 2)
+> +		return 4;
+> +	else
+> +		return 2;
+
+Refactor, not a single 'else-if' is needed here as well as 'else'.
+If a preceding if-statement ends with 'return' there is no elsing anything.
+
+> +}
+> +
+> +static int mtk_dai_etdm_config(struct mtk_base_afe *afe,
+> +			       struct snd_pcm_hw_params *params,
+> +			       struct snd_soc_dai *dai,
+> +			       int stream)
+> +{
+> +	struct an7581_afe_private *afe_priv = afe->platform_priv;
+> +	struct mtk_dai_etdm_priv *etdm_data = afe_priv->dai_priv[dai->id];
+> +	unsigned int rate = params_rate(params);
+> +	unsigned int etdm_rate = an7581_etdm_rate_transform(afe->dev, rate);
+> +	unsigned int channels = params_channels(params);
+> +	unsigned int bit_width = params_width(params);
+> +	unsigned int wlen = get_etdm_wlen(bit_width);
+
+All the format variables are used once or twice. I'd drop them. Right 
+now you have 11 (!) locals on the stack.
+
+> +	unsigned int val = 0, val1 = 0;
+> +	unsigned int mask = 0, mask1 = 0;
+> +
+> +	dev_dbg(afe->dev, "%s(), stream %d, rate %u, bitwidth %u\n",
+> +		__func__, stream, rate, bit_width);
+> +
+> +	/* CON0 */
+> +	mask |= ETDM_SLAVE_MODE;
+> +	if (etdm_data->slave_mode)
+> +		val |= ETDM_SLAVE_MODE;
+> +	mask |= ETDM_BIT_LEN;
+> +	val |= FIELD_PREP(ETDM_BIT_LEN, bit_width - 1);
+> +	mask |= ETDM_WRD_LEN;
+> +	val |= FIELD_PREP(ETDM_WRD_LEN, wlen - 1);
+> +	mask |= ETDM_FMT;
+> +	val |= FIELD_PREP(ETDM_FMT, etdm_data->format);
+> +	mask |= ETDM_CH_NUM;
+> +	val |= FIELD_PREP(ETDM_CH_NUM, get_etdm_ch_fixup(channels) - 1);
+
+I'd group 'mask' and 'val' together, easier to follow. These do not seem 
+intertwined.
+
+> +
+> +	/* CON1 */
+> +	mask1 |= EDTM_LRCK_AUTO_MODE;
+> +	val1 |= EDTM_LRCK_AUTO_MODE;
+> +	mask1 |= EDTM_CKEN_SEL;
+> +	val1 |= EDTM_CKEN_SEL;
+> +	mask1 |= EDTM_LRCK_AUTO_OFF;
+> +	val1 |= EDTM_LRCK_AUTO_OFF;
+> +	mask1 |= EDTM_INITIAL_POINT;
+> +	val1 |= FIELD_PREP(EDTM_INITIAL_POINT, 14);
+> +	mask1 |= EDTM_INITIAL_COUNT;
+> +	val1 |= FIELD_PREP(EDTM_INITIAL_COUNT, 14);
+
+Ditto.
+
+> +
+> +	switch (stream) {
+> +	case SNDRV_PCM_STREAM_PLAYBACK:
+> +		/* set ETDM_OUT1_CON0 */
+> +		regmap_update_bits(afe->regmap, ETDM_OUT1_CON0, mask, val);
+> +
+> +		mask1 |= EDTM_DIRECT_INPUT_MASTER_BCK;
+> +		val1 |= EDTM_DIRECT_INPUT_MASTER_BCK;
+> +
+> +		/* set ETDM_OUT1_CON1 */
+> +		regmap_update_bits(afe->regmap, ETDM_OUT1_CON1, mask1, val1);
+> +
+> +		/* set ETDM_OUT1_CON4 */
+> +		regmap_update_bits(afe->regmap, ETDM_OUT1_CON4, OUT_SEL_FS,
+> +				   FIELD_PREP(OUT_SEL_FS, etdm_rate));
+> +
+> +		regmap_update_bits(afe->irqs[AN7581_IRQ_0].regmap,
+> +				   afe->irqs[AN7581_IRQ_0].irq_data->irq_en_reg,
+> +				   AFE_IRQ_EN_SEL, AFE_IRQ_EN_SEL_I2SOUT);
+> +		break;
+> +	case SNDRV_PCM_STREAM_CAPTURE:
+> +		/* set ETDM_IN1_CON0 */
+> +		regmap_update_bits(afe->regmap, ETDM_IN1_CON0, mask, val);
+> +
+> +		/* set ETDM_IN1_CON1 */
+> +		regmap_update_bits(afe->regmap, ETDM_IN1_CON1, mask1, val1);
+> +
+> +		/* set ETDM_IN1_CON3 */
+
+All the comments found in this function do not explain anything. Drop them.
+
+> +		regmap_update_bits(afe->regmap, ETDM_IN1_CON3, IN_SEL_FS,
+> +				   FIELD_PREP(IN_SEL_FS, etdm_rate));
+> +
+> +		regmap_update_bits(afe->irqs[AN7581_IRQ_1].regmap,
+> +				   afe->irqs[AN7581_IRQ_1].irq_data->irq_en_reg,
+> +				   AFE_IRQ_EN_SEL, AFE_IRQ_EN_SEL_I2SIN);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int mtk_dai_etdm_hw_params(struct snd_pcm_substream *substream,
+> +				  struct snd_pcm_hw_params *params,
+> +				  struct snd_soc_dai *dai)
+> +{
+> +	unsigned int rate = params_rate(params);
+> +	struct mtk_base_afe *afe = snd_soc_dai_get_drvdata(dai);
+> +
+> +	regmap_update_bits(afe->regmap, ETDM_COWORK_CON0,
+> +			   EDTM_IN1_SLAVE_SEL,
+> +			   EDTM_IN1_SLAVE_FROM_ETDMIN1_SLAVE);
+> +	regmap_update_bits(afe->regmap, ETDM_COWORK_CON0,
+> +			   EDTM_OUT1_SLAVE_SEL,
+> +			   EDTM_OUT1_SLAVE_FROM_ETDMOUT1_SLAVE);
+> +	regmap_update_bits(afe->regmap, ETDM_COWORK_CON1,
+> +			   EDTM_IN1_SDATA0_SEL,
+> +			   EDTM_IN1_SDATA0_FROM_PAD);
+> +
+> +	switch (rate) {
+> +	case 7350:
+> +	case 8000:
+> +	case 11025:
+> +	case 12000:
+> +	case 14700:
+> +	case 16000:
+> +	case 22050:
+> +	case 24000:
+> +	case 29400:
+> +	case 32000:
+> +	case 44100:
+> +	case 48000:
+> +	case 88200:
+> +	case 96000:
+> +	case 176400:
+> +	case 192000:
+> +	case 352800:
+> +	case 384000:
+> +		mtk_dai_etdm_config(afe, params, dai, substream->stream);
+> +		return 0;
+
+Again, skipping return code of the main procedure. I'd avoid blind 
+'return 0'.
+
+> +	default:
+> +		dev_err(afe->dev,
+> +			"Sample rate %d invalid\n",
+> +			rate);
+> +		return -EINVAL;
+> +	}
+> +}
+
+...
+
+> +static int mtk_dai_etdm_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
+> +{
+> +	struct mtk_base_afe *afe = snd_soc_dai_get_drvdata(dai);
+> +	struct an7581_afe_private *afe_priv = afe->platform_priv;
+> +	struct mtk_dai_etdm_priv *etdm_data;
+> +	void *priv_data;
+> +
+> +	switch (dai->id) {
+> +	case AN7581_DAI_ETDM:
+> +		break;
+> +	default:
+> +		dev_warn(afe->dev, "%s(), id %d not support\n",
+> +			 __func__, dai->id);
+
+s/support/supported/
+
+Though this entire check looks weird. Why should set_fmt() care about 
+DAI's ID? Such check shall be done once, early with the rest of the 
+runtime doing just the important stuff.
+
+> +		return -EINVAL;
+> +	}
+> +
+> +	priv_data = devm_kzalloc(afe->dev, sizeof(struct mtk_dai_etdm_priv),
+> +				 GFP_KERNEL);
+> +	if (!priv_data)
+> +		return -ENOMEM;
+> +
+> +	afe_priv->dai_priv[dai->id] = priv_data;
+> +	etdm_data = afe_priv->dai_priv[dai->id];
+> +
+> +	switch (fmt & SND_SOC_DAIFMT_FORMAT_MASK) {
+> +	case SND_SOC_DAIFMT_I2S:
+> +		etdm_data->format = MTK_DAI_ETDM_FORMAT_I2S;
+> +		break;
+> +	case SND_SOC_DAIFMT_DSP_A:
+> +		etdm_data->format = MTK_DAI_ETDM_FORMAT_DSPA;
+> +		break;
+> +	case SND_SOC_DAIFMT_DSP_B:
+> +		etdm_data->format = MTK_DAI_ETDM_FORMAT_DSPB;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+
+Please waterfall the points to all the functions/files. I can do another 
+round once this batch is addressed or explained first.
+
+Kind regards,
+Czarek
 
