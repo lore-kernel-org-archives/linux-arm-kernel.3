@@ -4,102 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A831C54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 03:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F811C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 03:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=akuK2urvgXG9SCTQ0N5ym1OmK+N97P7BeMBdBXYrulE=; b=NjivSzm6JhSBgGq0g1JRNNGfxV
-	y0v+/nQGSzzMEqgPP3WAZ2eWy3spxwN1PWbXwkn5/7rPYIQ3DOM5Xeu3YO2ca5dEZ/lWTdsCE12Tj
-	kgHRqBPuwF7QKRjSLaSV4sm5VKxERqDCKxU2+gHuDa7UsAv6X/G88sz/ThEgp1Qdb4TJEit3vlhx2
-	EkUG7JMWnQfZ9Pgpn8PKZJjtoxJCwXL5g7+tlZRwcsi2B3SVkjcwq5NWkFEV57PvMxDunZjCYduM/
-	7E9Cr2YGRlv8HZo3y/C84ehIWyoQSunPgzP7QVnOHBsKipE7ZLNjGxheVNmtVEn6LB/GBfiji+ZRW
-	pIjaEwTw==;
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m2w7jZ1KH1RvIYaYXMlMmItVP/gdyni9Fk6pSH/rnPk=; b=zakrh45mY0/617+aqeEenk2jhn
+	bAHzfWcXG3u+qmAXx/vjekZ5y9YsfAkBnN6JREbIUj/RlfPTfVesdufEb+obHCaGukEHX9lXpjbn3
+	h/VAI8zqXl3GamLp+WCYSfLaJ5u5UlskCeHmM0C/bnwBVak6/gU7uHCpb+/HPXW/O+pP3OJpOCgHE
+	frCcLlgOZmxfg057zrAZjSrzl23PVRpsvdHjBDVdSuOsxnYb89Xfol+TUMpdFg+Oe1AnPFOT7sBNT
+	yWrrPC6E4JrMgr0UGNMW2Wl3C9SG60wpQHqc0Q1GTK9D0dv5ZNoqzownpoPjlJxU1U05GaIEIHRKn
+	oM9/EUyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpeLS-0000000BiFS-1uNl;
-	Fri, 31 Jul 2026 03:55:38 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wpeLh-0000000BiJo-2tyn;
+	Fri, 31 Jul 2026 03:55:53 +0000
+Received: from mail-japaneastazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c405::5] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpeLQ-0000000BiEo-104f;
-	Fri, 31 Jul 2026 03:55:37 +0000
+	id 1wpeLe-0000000BiHx-1P0N
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jul 2026 03:55:51 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eAMORnA2H0uC84QbZSFSh7iyjcGfMf49U6ZjoFT8zPGTn4XvoohT/v9aV1Jbi8k0ZSvrl+u9s6+tUIYUzoymTNAdOGMRmponNVzlfUO7KbvqeL4khoE+IiiIHwJfO6viZ+VPhMRFF1WY+K1Gs5bjY6QvdDqDLXEDcoXxIW/caoKs74llqYcXoic5FhisUZhN2hNvkg9qtFST53n+TJCwjXABHLU6hSy7qxe9bvLOydQtNDgupjHeYGsIpHfbckpisDAsgd5j6aoNPjoCFIxswpO6IjDQ5FdWJjOZjiiMSAS/q3bHpbwA+K6vtwnR/4kG+gbXo/GiCV5NseXpZrnocA==
+ b=KjcdcCPErXrEtt8KJHnzUuBNTAxFNhprs0IniK//DWNGinumrRuPhDYUXk9hdvTmAfErwd7R4bLYJiGTvtpGOg+udNJ8fVTHCkTTU09S0UEof396vPlK7/MwSEn7fVvgg9Yb/Fyoc/9NU+zS+SeumZkHVVBkGsLNxQGm5J2kmGXZ9OWYrSaFrtxeJzr1n1/a6z5bnxqHUqvoEs88mqAns47q9xMPtuxF2TDDh17HlSFI7W92jZQ1b77KEdcBAVwyCCCW98QpEh5N+argKFgkQdJwfNzeHuWHZj31VrNh9m1kB6hbx9NAlB/dsx6TDQCxnVrpwIshdbMYysGLijXzlA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=akuK2urvgXG9SCTQ0N5ym1OmK+N97P7BeMBdBXYrulE=;
- b=bYWt3L1XqU8ElvZYDZIFbswFKW9VWua3hXhVn8Us2Br7JxcP9PiCe3Nkgl7BmnvTw9ugtlAivjufkqSjQ8oclnmZ9r8gxZ5NZs3rJadyQ49EsFGhKryLcHkowYJ+rqXTUUSdA0dhD5yr649Yrf9tplngCZbtcitR9IUfmQ9nxY0HlNaFC6cws/mkje5vsek6Fmhgx2wvtEzlbBoV4LbMNtgFzid2mii5fu3PfE4wUuuBJB+odO5QAAyp7RGJVg4SXSuvE3jSKERjzthYRoRK/a4XvKjwtJFO087LwP2Gdld94CdePzBRVzEFS0yrfRo+D1gj83uyPpJGYmZEFAqTCQ==
+ bh=m2w7jZ1KH1RvIYaYXMlMmItVP/gdyni9Fk6pSH/rnPk=;
+ b=I3/JVwyuG5jBuEwagxYZKGMdBx9KQqPYuQaEZu96bct/E4JPGT+P3Ap36aZQmg2RwAcrE5OyLiOUlanNmVXv8aeO0Y5+T23C26eift2QEBqr634u9xfrJXfa1o1yulpG78Vt8tV7RhJCd+ZHO5whLA5h9yp5+qj/j/wHDNKcxbxm0PNz6shFwJ8DIdruPN5+J8ZY9+w4EnZRY5lDjNw1o/jsmZ0GpP1CKO+/6GK27cy9Gsu/Efn9jNo3AbQaOeP489SeVjxzszGdzFeD9N1A9DAer2TEzmdbIDvqLRP1cqCzKnglZQeTsU4ygZSSifa3m1/7B2Z7JtUzieFm32xqWg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
  dkim=pass header.d=vivo.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=akuK2urvgXG9SCTQ0N5ym1OmK+N97P7BeMBdBXYrulE=;
- b=gFB31pgP6x241qtNG7HJOZULb4W2vHASJXBFE6vVPuYoXSi8jG0EXQb04JetKBmLcbj/VInoBflYtFXo7Xh5005vVbCrEgnLYgKdWHftdbhWxUjmfHEIv9Hnui6gRsxqDHi+sJRWXEaqIBGtW80A+t7X4TC/DeW4mJRHgzLGwzL6Jw6aG+DSeMiP993bldMd3KpgV5ylasA3yMTZx1z0Yxtru17nX6C7pP24bz1GiJAhFcQAiSvx3RFhGD1KqcteKUiaRoA365ioYfrf9gahc9avx6sm86RoQ2RDWiZKEEwtfLxfRCT7oaoZEkX5lQFNU4sEVhivqPC1O7Ipx20cPQ==
+ bh=m2w7jZ1KH1RvIYaYXMlMmItVP/gdyni9Fk6pSH/rnPk=;
+ b=Q+zzyjD3Uw8jz3hiAUb7aveEb50bESn7i4/1rkT+0FDK6a9blr721ukxyIixRYTZ4HrMbH8epakkRk6h8nziHq51pV6lHnyX6CeKcKBVqfG00ipwobUPh/f5zQz/Wt+KjlObY5qDeWT4P6OXgBHXQnNleY7NyOMXawqn3te0S4M/bwZj83Bm6Wd0nKLeltdI0sQ0UwUx9K1wUhZTl0tqqm0+6YgD7Ip1XIy9dTrh7GF71L2IFa+muJJICsW+a2Pi4Pkw61xJOq1LlvIbk6rKKd5jxG2H5M5n1aBzwP7g4nSadnLb4DCrGDHZVn/WnEPpi7sJKzKnssDSft0LIiQQeA==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=vivo.com;
 Received: from SEZPR06MB5832.apcprd06.prod.outlook.com (2603:1096:101:c8::12)
- by KUYPR06MB8722.apcprd06.prod.outlook.com (2603:1096:d10:92::14) with
+ by TYNPR06MB8782.apcprd06.prod.outlook.com (2603:1096:405:3c5::9) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Fri, 31 Jul
- 2026 03:55:16 +0000
+ 2026 03:55:21 +0000
 Received: from SEZPR06MB5832.apcprd06.prod.outlook.com
  ([fe80::f98:5e32:4ccb:d07b]) by SEZPR06MB5832.apcprd06.prod.outlook.com
  ([fe80::f98:5e32:4ccb:d07b%6]) with mapi id 15.21.0245.012; Fri, 31 Jul 2026
- 03:55:15 +0000
+ 03:55:21 +0000
 From: Pan Chuang <panchuang@vivo.com>
-To: Peter Chen <peter.chen@kernel.org>,
-	Pawel Laszczak <pawell@cadence.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Minas Harutyunyan <hminas@synopsys.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
+To: Peter Griffin <peter.griffin@linaro.org>,
 	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
 	Tudor Ambarus <tudor.ambarus@linaro.org>,
 	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Neal Liu <neal_liu@aspeedtech.com>,
-	Cristian Birsan <cristian.birsan@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Mathias Nyman <mathias.nyman@intel.com>,
-	Al Cooper <alcooperx@gmail.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Souradeep Chowdhury <quic_schowdhu@quicinc.com>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-usb@vger.kernel.org (open list:CADENCE USB3 DRD IP DRIVER),
-	linux-kernel@vger.kernel.org (open list),
 	linux-arm-kernel@lists.infradead.org (moderated list:GOOGLE TENSOR SoC SUPPORT),
 	linux-samsung-soc@vger.kernel.org (open list:GOOGLE TENSOR SoC SUPPORT),
+	linux-usb@vger.kernel.org (open list:DESIGNWARE USB3 DRD IP DRIVER),
+	linux-kernel@vger.kernel.org (open list),
 	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-omap@vger.kernel.org (open list:OMAP USB SUPPORT),
-	linux-aspeed@lists.ozlabs.org (moderated list:ARM/ASPEED MACHINE SUPPORT),
-	linux-renesas-soc@vger.kernel.org (open list:RENESAS RZ/N1 USBF CONTROLLER DRIVER),
-	linux-tegra@vger.kernel.org (open list:TEGRA ARCHITECTURE SUPPORT),
-	linux-arm-msm@vger.kernel.org (open list:ARM/QUALCOMM MAILING LIST),
-	linux-mediatek@lists.infradead.org (moderated list:MEDIATEK USB3 DRD IP DRIVER)
+	linux-omap@vger.kernel.org (open list:OMAP USB SUPPORT)
 Cc: Pan Chuang <panchuang@vivo.com>
-Subject: [PATCH 00/11] usb: Remove redundant error messages on IRQ request failure
-Date: Fri, 31 Jul 2026 11:54:34 +0800
-Message-Id: <20260731035448.252289-1-panchuang@vivo.com>
+Subject: [PATCH 04/11] usb: dwc3: Remove redundant dev_err()/dev_err_probe()
+Date: Fri, 31 Jul 2026 11:54:38 +0800
+Message-Id: <20260731035448.252289-5-panchuang@vivo.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260731035448.252289-1-panchuang@vivo.com>
+References: <20260731035448.252289-1-panchuang@vivo.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-ClientProxiedBy: TY4PR01CA0115.jpnprd01.prod.outlook.com
@@ -107,59 +82,58 @@ X-ClientProxiedBy: TY4PR01CA0115.jpnprd01.prod.outlook.com
  (2603:1096:101:c8::12)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|KUYPR06MB8722:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32c00f12-0737-4170-fcf8-08deeeb78740
+X-MS-TrafficTypeDiagnostic: SEZPR06MB5832:EE_|TYNPR06MB8782:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8968bc90-5e83-43fc-5920-08deeeb78b1d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|23010399003|1800799024|38350700014|921020|6133799003|56012099006|10067099003|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: Yu+YOUNL8mq2pEY4pitonDc1SKtMtdyKG6qY/YM/7dq7T93U2NA2/CAF/sG3rIkbcCxinfu2uTbIvguyHxrYyqVe24rEtMdkBNVtxkARIYOmbiaFsyyrHfPZTxyMuYXv7K9c98+TvTnaBUSiBMflR6Q6QkI7k6R619vqHVEjuvV8f2jbD5U/EuXPqAPxONbdCOBm0rpvaxSNOLf94xoMTTOtkttghoEvqNsca4UAV3/mpYXngr0TbZGjih+O8snFuwItdmds1Q2irXUJVSW2M4tS+6DN1+ZmeZYFGZJX/13vlGEogt+44um5IIHF+4ldX1l+HVgwdNIFN8TRX7EfM+tmQ1Uk2dQMSXQMhaNlGguT/Lmr7g9cacK0ILaYsCsIYOIG95ZVxpo1sljHqCupD21VDsQSSe0MwYPJVRm0RVONLfWghWMWyA+K2yl74DJG+kXu571reXyf13/w0cyDFQ2k0EUNuxoKl3vAtY25KIhYvhue4ZFpYuDOBF1AvzsXHL5SQ7nIEZ25nr/Vx8K9OHeXzJs82rP6HOw0eJjsVPLtMEK4/v9dYdjkS6ICyKXlJ1bpCuhEu3L1IbAH87Weo9+IrFwNkNQd81oXQ20TdDtRI1YKL4TfRjSCnILMdBojGTcFL48qwCbGtYaBMVOZ3WKz6G0HJjagW3rHY0S23UMVI8qtlTyyxuToJ//0gWBQPTd2Tn1oEmIgdkt+mN4MHOF+4JSzPRuwG7SUO58PW6ByMS6sSpqYzhWD/691Ol8M
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(23010399003)(1800799024)(38350700014)(921020)(6133799003)(56012099006)(10067099003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|23010399003|366016|1800799024|38350700014|921020|6133799003|56012099006|11063799006|10067099003|5023799004|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: H81BeyXTWTZYFXvu1saL3Lt8mbxFxLMywCSXdXe5IkHHVDZYJz9xeBFXY7/32DFNuhYweQcOEATuEco4BARLXvK+V4INP25RbmTNittItFaqs7u/erpAISociw3fcJR19ONU0EIVJT5dnF8/plUtgUB1tgLXrl8PLgwfHaDGx2OriKXr1gkCgTakEgJ+mZVVSToCVKYrew4SL2C9ppqZ0XayLFMH68vNwAaF1j5az1jb/Kw7FsJY5gz6NidcGgogxJ83YoUHoaN+ME0IMLlp3KiO2Gvry/y8pfMYILKLfVX535oyjZkIu7faG+qQrsmlIrli8Xn4jMvuIY+wnJHcukAUUu8NxPjOLGJfMAzg9UbR5tmg6h3CQni5omYQLbMOgwBH//tC8dDydN+U7Zx2vneHXpirA/4qIN/ebchIxB/rUICEJedcDqOyRB5evfy+Z3jr1lPhHbGP7BUKupzC8g7Me9UiIP8yEjXBJq9ggxMcIw0OuN6RdK4LwPfsjS4u9rcT5uWU9jPeZajdtHwHSXHI3P6C9zir2iBsPJ3RrXBXeb0wSy1juacA2DskfuACv70/Ar2N0gzQJtoUgs/OO/Ix10O4K+Id2p8nUnmCe4lZ7fjb+HeiV8D/6AD5EsekjJz88O1WG8ibzWSqM6LeezXBSodV6jHrws3Bq/qn6Gh9SDjfCI3xxyft/aDW/vsieAZCnKnk8ECDHCoIHxjLEVgvH3VVtHgILJ49XX7XqUBK7btA0Zka4smHU5iKX0cE
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR06MB5832.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(23010399003)(366016)(1800799024)(38350700014)(921020)(6133799003)(56012099006)(11063799006)(10067099003)(5023799004)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F7ITm9pu8d4bHF8sGCZCarW3HIgVU8UeYwSu4V7Big5QwUyhdI4/Sy6M+vGR?=
- =?us-ascii?Q?3TU3WoH+ZumHuj9DPxfBInEB5EDQPNZjmkA5No4800J1B1oJ3D89Vds1s6f3?=
- =?us-ascii?Q?W/Ex14agWnJoypEv87JQTvd2gbGu1nN9b24/uaDuSYZ1dbJFuk2/JA6VvOOn?=
- =?us-ascii?Q?G2pq+esg/HAhMjNomvl5DpNiBvN5xdiClpqFEiC8LGNEjX/y0nIEYixbzPJz?=
- =?us-ascii?Q?9EM5v2kUhWxVHf1gwOaJH9Ii0b5ZRl74B30QhLD76y8BIOfgXsM9kaooXton?=
- =?us-ascii?Q?wCTXAIkOmzJt++7+OT3OkxaVXnj+udspeye9PGWVUpgcBE0huOw9NeBAnah/?=
- =?us-ascii?Q?tbW1LhdIsQNgyncQf+ge7CpucGFmz+Jtfdo7haKZm5BaT+tLj24OWzoVQT3M?=
- =?us-ascii?Q?LgyqB5C7L0ZhomgTG2X4RJYYL2rpn+C9nlfoSB4rurPZKCheJ1ai3zx70Key?=
- =?us-ascii?Q?7OI5h/p6ASXVzoMzsQmEFdL+JRgySXbgHZ/MtlP+JTuoSHpd23CD+Svya2NO?=
- =?us-ascii?Q?psaeDDCgmUyb/xZ/icBlqpvC2wCZW0v8QY9fHaBLVZmwskH8L3yAvR/I9TLG?=
- =?us-ascii?Q?oFKd1hzclrO+1lfq/AzPKfuEpvxcET59VDSxgCBRo1vYNPgnPADoVvCsHnkZ?=
- =?us-ascii?Q?gixHK6mP6KFK7oU8HUIjl90xKagNgASWSR969V+Wdm/AHrPQGWt7mGafKMyS?=
- =?us-ascii?Q?tCsHswok1LWVJEPD+31xgJFC5a5gdeNSQACJq2ehIJKouN3bMhblbdow2c/8?=
- =?us-ascii?Q?8iSkE1Dvb0ZnGIMEvUUpHlxLAneg3JqfOWvGANHT20XxQ+guuEXyAN7zcZUK?=
- =?us-ascii?Q?2tl6BYoxwZ9cjLB78g9FB4cZ5I7pXjSmUbhPNLzn/iwCNmuTrk/VP3KfLNoM?=
- =?us-ascii?Q?9hrXNEGacbgbCILfrpesdDrc//Jf2XzPLSMsHgcvUSGuQ1sMsIkoGEBcsOeb?=
- =?us-ascii?Q?zamJ7oVCI2H1dtxaRrCQsI6SEb/b/KjTNoCMESdESOfXwhaz+iipb1+XfRLK?=
- =?us-ascii?Q?vTkK4SX42gtvJV6mxU6Tf22HL0KSNkY2lJts9ddiTYYOm+LtzzReJh4GC0mz?=
- =?us-ascii?Q?OQW+dR4gaW3Y4dyPbKAwUaqIoYJ/BeS7sbqlaS7irwJRztsbZfXGJpp6+QPy?=
- =?us-ascii?Q?5ufxVDIY8YzHbjskqgR6B4TrL+A18H9BHD1HBviKsBPwWMv2xF4dRDNqoqz2?=
- =?us-ascii?Q?pk2ineXVyJDLtwinKnrWySwUEUZM9874Bp8oLuUhPXmHoKG5f5L5fpCuaqpc?=
- =?us-ascii?Q?+U38GlAY8n2rBb55s1Wbl+rilYi+spRoaD38UdosgKng5DqbaBI322ijiqyp?=
- =?us-ascii?Q?ChszxV6VBLrQukS3rdVDxdngN93Wldev4jK+Z9rzFaCbchH32zvnnme4K+yU?=
- =?us-ascii?Q?haqRtKLPEWxprFeEZAUIWqr2q3jYyikPAtxB7OVL+0s4O0ynsMEN7h/JujeQ?=
- =?us-ascii?Q?IWkDsWdggf9kbNGgXecDg4SIrzYvHZODGEWU70pgHf8D4u+121+cW6xNmZVH?=
- =?us-ascii?Q?r4ftl5HYXWqKvz3o7EKzs0ZfIaBiix0ctRWxHFU31Z3SBkpsEczBdTrq9gG/?=
- =?us-ascii?Q?l4ros6hRr5V8HM1YScaY145GbL5lQTCjxeUZ0VdcXz9y9H/s9Sdgnu3oIZyt?=
- =?us-ascii?Q?URhYTuymqLTierX643EtJhyeuTFKPPilu+dtsOCU8hLH32cTud6B+/vqbpf9?=
- =?us-ascii?Q?yoHLbuMSgE9etqskFuLsprZ59AL76hklZMahVTUqTSV2xbVhRblb/BFYwSUZ?=
- =?us-ascii?Q?OsihgDfbdQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?J5U1G/0akIAAT5qLyvcCqxGgqpZqfojh35KZJej57K67G9dFxtGoYhAAfS6Y?=
+ =?us-ascii?Q?lweGZ72AV39y4zp2ejjsoFF5RLuJVWO1daSS6jBp/QVfoZDEdYGFanH2b2p7?=
+ =?us-ascii?Q?7qJEiAqLksNft35x+G3tbiL1SvsXHRckkKvkucJfQ/PnuJ8IXIqVTdbweMm1?=
+ =?us-ascii?Q?DC2cSHBm5EDelzF/T749qwme1vvMNlrt0Z+I+9fnKZiSk1Tqk6/Uvv2Jwna5?=
+ =?us-ascii?Q?laUmVapsnUMoIsM5Px52nLA6o5Ey0HculTfxvF3KRljT09MLcdHBye3lw6z7?=
+ =?us-ascii?Q?lmAWR+gVnpKjTdXEtrTHJbvkRMUUefvpdHKXcaLlWrSiKjO2D1C52LGUSoqw?=
+ =?us-ascii?Q?2D4JbCmn0w5R20al0q0JGbJXYdn8460quDBbtmjNoL2iine2zDQrE5j9olJ4?=
+ =?us-ascii?Q?TGwd67R7cljQA+t6O0jQQ9qBlgO2KHxZN0gc/jZdZOQWyk4sC/0MPvcVtIWF?=
+ =?us-ascii?Q?A1BG8CBBRynW2gOmWO8uhXlfIV6geF4pCeV7CMTnv+YUWKTLHnOkIJJjalMT?=
+ =?us-ascii?Q?GATQ0WpA5wTiu1QfYcYk4h25Tnz9P6JLemg/bLCQfYihoVDd1at5FTh4xjnH?=
+ =?us-ascii?Q?/7Liar2Bp+EUGBffEpUBUR/w2O+dly82fB7edmFT10UUvhvZbmKenEqCiA7x?=
+ =?us-ascii?Q?uUx63WP5gh29Z9BVkATEBmpqnLPU5tBg1dqEOBmnOn82mqLRET9EANlGfngl?=
+ =?us-ascii?Q?R8Fq/7SpdkqTV1How3bxLEo8Z3BhgaQX9yQW1yeIWXdjUTPd2yo+mwtMDQyX?=
+ =?us-ascii?Q?qZMWn6JJNUGqUVQ1+RoCCgiDVqs+DInu5bmAFMH1DSgzo0p46eDeAED4xujc?=
+ =?us-ascii?Q?pbFc3Yc2ZSOSIUH2Eh4jLdDRn8VApo7ocAXCQ9YxOotRMmlQqyMtoprlyTgQ?=
+ =?us-ascii?Q?Rah/+rNE8wyKFczg1zyMpF/bG6hZuX2cYnWHZ6FwlwNpih3bY+LidGMsZGUB?=
+ =?us-ascii?Q?yKhgfmis8HvK6IVo1H2sp544tGIeYZ6QHBguyttQ6ubW7Qvjk4V6hSC3Zu+h?=
+ =?us-ascii?Q?oFh8+BkvFWiuPMluXwy6q5CAk/GfMxG0nVaUqEatvem7HqYI1HXxL8EDrDQL?=
+ =?us-ascii?Q?+U6z7E1XnekCOERze9j6qkA44YV31UyU561lkNR5UBeiaHoy4QDBenwuIO12?=
+ =?us-ascii?Q?9PRzXk8dbdj7DVLCHDtZ1zrtp26iVI7By87kzOYi5JQKhYOJDeq7jan5yrh4?=
+ =?us-ascii?Q?GelprjroR802z9ESSDoK2AnQKZ5Z1RSAEUHaWPwuBvZgKAy/qvgGWSbrduSr?=
+ =?us-ascii?Q?VKoLXsOyjAQ+vgQBegXKGZCrmJ7XL+FBQVVnw64bn65V4Cwk3wPhR4ZU1onF?=
+ =?us-ascii?Q?Hn3/PWyV0zEYNFEWCM4gD6Ag5Eje5I/o/iFbGpyppktVg3RczK0wvz9h6p2y?=
+ =?us-ascii?Q?M/WzXGT7MKWWQEc/dpBe7vqJqJWRmiv2FKfmg8jXCeKcFeMj+tqA65LW098u?=
+ =?us-ascii?Q?1UsSJkOfBOlTB0CKnK/3shi0zAAZ6ICsJmAEDV043s38mqIj1qRC8YbNSTVA?=
+ =?us-ascii?Q?B4xW6p52i1X9jPBx2caNm1xBA0tawarlQjryqZ1XjxUi8JO8v3/l9U+VfOFk?=
+ =?us-ascii?Q?XqtN2XhyGIq198kaVmShEnPzgVP+m1GuuvWAf/kyqCVDyHeTHvN/WzOz9fiA?=
+ =?us-ascii?Q?J42Ko02FQpAevOGjMCHIbZa1NIdtQsjzNfM1SRILA6+CuKem1FKJ3YyYCHc5?=
+ =?us-ascii?Q?37n/w/t3hn9uuV2AXc/p3KeOiYSgptItcPlqiICjTC2pzqY+UTy2iSAjxdof?=
+ =?us-ascii?Q?eusRiaVyNA=3D=3D?=
 X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32c00f12-0737-4170-fcf8-08deeeb78740
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8968bc90-5e83-43fc-5920-08deeeb78b1d
 X-MS-Exchange-CrossTenant-AuthSource: SEZPR06MB5832.apcprd06.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2026 03:55:15.1219
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2026 03:55:21.5480
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: V68DrNJuPx29a2//JmkT4tnImIRBm+jym5L6U9OGosS5rbI88+6E0k5wGWrg1E92D4ZOdQU8+vHbwYz6sSPRIw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KUYPR06MB8722
+X-MS-Exchange-CrossTenant-UserPrincipalName: 88uBg0oAT46aYtXEC9mqnOEuEtVihCVZc3+kAQ2SNed+9jnKFWl6QDyWKeoDYsOSxtkGaH+Hbq9KnOgzUxk1iQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYNPR06MB8782
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260730_205536_283973_9F5BCC2A 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260730_205550_377401_5E431082 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,65 +148,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_request_threaded_irq() and devm_request_any_context_irq()
-automatically log detailed error messages on failure via
-the devm_request_result() helper, which prints device
-name, IRQ number, handler functions, and error code.
+Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+devm_request_*_irq()"),
+devm_request_irq() and devm_request_threaded_irq() automatically log
+detailed error messages on failure. Remove the now-redundant
+driver-specific dev_err() and dev_err_probe() calls.
 
-Since devm_request_irq() is a static inline wrapper around
-devm_request_threaded_irq(), it also benefits from this
-automatic logging.
+Signed-off-by: Pan Chuang <panchuang@vivo.com>
+---
+ drivers/usb/dwc3/dwc3-google.c   | 4 +---
+ drivers/usb/dwc3/dwc3-imx.c      | 2 +-
+ drivers/usb/dwc3/dwc3-imx8mp.c   | 4 +---
+ drivers/usb/dwc3/dwc3-keystone.c | 5 +----
+ drivers/usb/dwc3/dwc3-omap.c     | 5 +----
+ 5 files changed, 5 insertions(+), 15 deletions(-)
 
-Remove the now-redundant dev_err() and dev_err_probe() calls
-in usb drivers that follow these devm_request_*_irq()
-functions, as the core now provides more detailed diagnostic
-information on failure.
-
-Pan Chuang (11):
-  usb: cdns3: Remove redundant dev_err()
-  usb: common: usb-conn-gpio: Remove redundant dev_err()
-  usb: dwc2: gadget: Remove redundant dev_err()
-  usb: dwc3: Remove redundant dev_err()/dev_err_probe()
-  usb: gadget: Remove redundant dev_err()
-  usb: host: xhci-tegra: Remove redundant dev_err()
-  usb: misc: Remove redundant dev_err()/dev_err_probe()
-  usb: mtu3: Remove redundant dev_err()
-  usb: phy: Remove redundant dev_err()/dev_err_probe()
-  usb: renesas_usbhs: Remove redundant dev_err()
-  usb: typec: Remove redundant dev_err()/dev_err_probe()
-
- drivers/usb/cdns3/core.c                  |  4 +---
- drivers/usb/cdns3/drd.c                   |  4 +---
- drivers/usb/common/usb-conn-gpio.c        |  8 ++------
- drivers/usb/dwc2/gadget.c                 |  4 +---
- drivers/usb/dwc3/dwc3-google.c            |  4 +---
- drivers/usb/dwc3/dwc3-imx.c               |  2 +-
- drivers/usb/dwc3/dwc3-imx8mp.c            |  4 +---
- drivers/usb/dwc3/dwc3-keystone.c          |  5 +----
- drivers/usb/dwc3/dwc3-omap.c              |  5 +----
- drivers/usb/gadget/udc/aspeed-vhub/core.c |  4 +---
- drivers/usb/gadget/udc/aspeed_udc.c       |  4 +---
- drivers/usb/gadget/udc/atmel_usba_udc.c   |  5 +----
- drivers/usb/gadget/udc/r8a66597-udc.c     |  4 +---
- drivers/usb/gadget/udc/renesas_usbf.c     |  8 ++------
- drivers/usb/gadget/udc/snps_udc_plat.c    |  4 +---
- drivers/usb/gadget/udc/tegra-xudc.c       |  5 +----
- drivers/usb/host/xhci-tegra.c             |  8 ++------
- drivers/usb/misc/brcmstb-usb-pinmap.c     |  9 ++-------
- drivers/usb/misc/qcom_eud.c               |  2 +-
- drivers/usb/mtu3/mtu3_core.c              |  4 +---
- drivers/usb/phy/phy-ab8500-usb.c          | 12 +++---------
- drivers/usb/phy/phy-generic.c             |  3 +--
- drivers/usb/phy/phy-gpio-vbus-usb.c       |  5 +----
- drivers/usb/renesas_usbhs/mod.c           |  4 +---
- drivers/usb/typec/anx7411.c               |  4 +---
- drivers/usb/typec/hd3ss3220.c             |  4 +---
- drivers/usb/typec/mux/it5205.c            |  2 +-
- drivers/usb/typec/tcpm/tcpci_maxim_core.c |  3 +--
- drivers/usb/typec/tcpm/tcpci_mt6360.c     |  1 -
- drivers/usb/typec/tcpm/tcpci_mt6370.c     |  2 +-
- 30 files changed, 35 insertions(+), 102 deletions(-)
-
+diff --git a/drivers/usb/dwc3/dwc3-google.c b/drivers/usb/dwc3/dwc3-google.c
+index 60ee4cc99b28..e581d407b872 100644
+--- a/drivers/usb/dwc3/dwc3-google.c
++++ b/drivers/usb/dwc3/dwc3-google.c
+@@ -235,10 +235,8 @@ static int dwc3_google_request_irq(struct dwc3_google *google, struct platform_d
+ 					dwc3_google_resume_irq,
+ 					IRQF_TRIGGER_HIGH | IRQF_ONESHOT,
+ 					req_name, google);
+-	if (ret < 0) {
+-		dev_err(google->dev, "failed to request irq %s\n", req_name);
++	if (ret < 0)
+ 		return ret;
+-	}
+ 
+ 	return irq;
+ }
+diff --git a/drivers/usb/dwc3/dwc3-imx.c b/drivers/usb/dwc3/dwc3-imx.c
+index 973a486b544d..d967acd43d44 100644
+--- a/drivers/usb/dwc3/dwc3-imx.c
++++ b/drivers/usb/dwc3/dwc3-imx.c
+@@ -250,7 +250,7 @@ static int dwc3_imx_probe(struct platform_device *pdev)
+ 					IRQF_ONESHOT | IRQF_NO_AUTOEN,
+ 					irq_name, dwc_imx);
+ 	if (ret)
+-		return dev_err_probe(dev, ret, "failed to request IRQ #%d\n", irq);
++		return ret;
+ 
+ 	ret = device_add_software_node(dev, &dwc3_imx_swnode);
+ 	if (ret)
+diff --git a/drivers/usb/dwc3/dwc3-imx8mp.c b/drivers/usb/dwc3/dwc3-imx8mp.c
+index 1cf96540b66e..ee92a5efaa6e 100644
+--- a/drivers/usb/dwc3/dwc3-imx8mp.c
++++ b/drivers/usb/dwc3/dwc3-imx8mp.c
+@@ -273,10 +273,8 @@ static int dwc3_imx8mp_probe(struct platform_device *pdev)
+ 
+ 	err = devm_request_threaded_irq(dev, irq, NULL, dwc3_imx8mp_interrupt,
+ 					IRQF_ONESHOT, dev_name(dev), dwc3_imx);
+-	if (err) {
+-		dev_err(dev, "failed to request IRQ #%d --> %d\n", irq, err);
++	if (err)
+ 		goto put_dwc3;
+-	}
+ 
+ 	device_set_wakeup_capable(dev, true);
+ 	pm_runtime_put(dev);
+diff --git a/drivers/usb/dwc3/dwc3-keystone.c b/drivers/usb/dwc3/dwc3-keystone.c
+index 7ee1610162b9..8ad302abe883 100644
+--- a/drivers/usb/dwc3/dwc3-keystone.c
++++ b/drivers/usb/dwc3/dwc3-keystone.c
+@@ -144,11 +144,8 @@ static int kdwc3_probe(struct platform_device *pdev)
+ 
+ 	error = devm_request_irq(dev, irq, dwc3_keystone_interrupt, IRQF_SHARED,
+ 			dev_name(dev), kdwc);
+-	if (error) {
+-		dev_err(dev, "failed to request IRQ #%d --> %d\n",
+-				irq, error);
++	if (error)
+ 		goto err_irq;
+-	}
+ 
+ 	kdwc3_enable_irqs(kdwc);
+ 
+diff --git a/drivers/usb/dwc3/dwc3-omap.c b/drivers/usb/dwc3/dwc3-omap.c
+index fe74d11bb629..3bff775fbe4e 100644
+--- a/drivers/usb/dwc3/dwc3-omap.c
++++ b/drivers/usb/dwc3/dwc3-omap.c
+@@ -518,11 +518,8 @@ static int dwc3_omap_probe(struct platform_device *pdev)
+ 	ret = devm_request_threaded_irq(dev, omap->irq, dwc3_omap_interrupt,
+ 					dwc3_omap_interrupt_thread, IRQF_SHARED,
+ 					"dwc3-omap", omap);
+-	if (ret) {
+-		dev_err(dev, "failed to request IRQ #%d --> %d\n",
+-			omap->irq, ret);
++	if (ret)
+ 		goto err2;
+-	}
+ 	dwc3_omap_enable_irqs(omap);
+ 	return 0;
+ 
 -- 
 2.34.1
 
