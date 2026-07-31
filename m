@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45547C55173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 21:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC609C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 21:35:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ao3ZSjCdxBZ9ngJzdRZGopcXFbDg/P/c/fCwujyahw8=; b=b2c+VbedDHFnYy9oJFWYlWy1RX
-	R/N4gaBprYEieJ+AIKzTs3F0GheDUUjB0724yBuOvPQziZdkf7mR+gywtqvCRer0PZFtppccaDd5g
-	2aylUwuz6CcYxKTEXSbo4oKWSYuDH32odbyQAcuepASGCjB3KcTN9dpCuUc+HEoMteeVEC/RlFE8r
-	dHVxJHm8Sc4ZCKMUsCs/pNR4ALYfKvHRBQ9qy8n+7/vUwcU9W1Q0dCalRNGSJXcnnpwrIpfxq60rT
-	oKg9DI6zJMdQ2L8g99mg4ZPD+seyFSMToGaRVkQ/+tni7+8ck/T6W20IMOL0NR6861BXN5gRNBi1L
-	6hzLlmIQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K++rx1kgaP2Gvj5Cqx+OBSxkCsmXhtm0mAnimMEoo0o=; b=vV4jQXBWl48SLd7JjTv9ZFqxIR
+	wQTcYAkRrUKDSvrfVxyqOOuYmFhdeowNZqwiGZZoBua2933wQwUO0FJM29J6vaoRwnHdL5ZastotB
+	TV5Obp2QB48nfZwK0GujvT76jUzrY4/SLmzWkNcrTs25p0ZQ/H5JCDKXFWEYvRoau4NCVGkSzXm3V
+	Aa1skS1Vsp2oDDO/txr/k1ZcSUmhN/I9AZHUBOuS0px5phKKr3iGVGApcEOX0/CyNmoY2aVrc6nPQ
+	GP8xHSXQm80ywh7iphOCrSHPdYNkCqIB7FWiTIxRht4bdLaYfki/HBfs1caauhszFTNcf2z4wujWn
+	x1pyXw1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpuqy-0000000DcS7-0bMA;
-	Fri, 31 Jul 2026 21:33:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wput9-0000000Dcga-1zpU;
+	Fri, 31 Jul 2026 21:35:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpuqv-0000000DcRd-1v8s
+	id 1wput7-0000000DcgR-2lwp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 21:33:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785533590;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ao3ZSjCdxBZ9ngJzdRZGopcXFbDg/P/c/fCwujyahw8=;
-	b=hlIICaCeUSGEu/Mu4vdMu9LgG1qJPgJ8ZUGVamEP0CwvnWoSAmDwZfC/kwYqtH9GBrP3qj
-	sUIIHhiGGpb09auJ4W0dZGCj2wZM8yC3ResBF4dAWWQ+Xf8nuVfLIflkTggznHvOaBNL+i
-	TxYNCOGUcuHDHDSBLnJxSaXLnT9ooXM=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-193-u94eN8s7MrCLoXG0u5MTrw-1; Fri,
- 31 Jul 2026 17:33:06 -0400
-X-MC-Unique: u94eN8s7MrCLoXG0u5MTrw-1
-X-Mimecast-MFC-AGG-ID: u94eN8s7MrCLoXG0u5MTrw_1785533585
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6BABA180044F;
-	Fri, 31 Jul 2026 21:33:05 +0000 (UTC)
-Received: from [172.20.35.218] (unknown [10.30.44.80])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7C4DC423;
-	Fri, 31 Jul 2026 21:33:03 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (7.2.0-rc5,
- upstream-arm-next, e2d5e239)
-Date: Fri, 31 Jul 2026 21:33:03 -0000
-To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- fs-test@redhat.com, will@kernel.org
+	Fri, 31 Jul 2026 21:35:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C6D6460A5D
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 21:35:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CAF21F00AC4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 21:35:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785533728;
+	bh=K++rx1kgaP2Gvj5Cqx+OBSxkCsmXhtm0mAnimMEoo0o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=fcdh5uXQ8J17UNZiJjPZxiCcZj9kCpIZat/7Q1TNleFpevWzca4DIoFmB1cj+uKAu
+	 VEKZtL0/TvjR/zs2ZH1OZSo7FiRcASX47S+6roDXIEHVvUSu+/61GQpAI1BE9yiW9e
+	 4BYOEHnCjwxErnUzao/3OcAGiYy1PRNOENwhZ+BsAW+Z8dBj1tbT11GvtFAAryiOps
+	 CnL64qIRL4V9Bp3cXQkteQ8Zw7dON0SX3SGfBS79wGak/CZDQEHEk1RuUzHUybsZBz
+	 IjIha/gxifdk7WpY7qyq47SnYSPGCz3ptYsmSxZYYCfTwYW5nB5GHCpbRCAR/D+sJi
+	 b36wZq3p+c9qA==
+Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-c1712a04ddaso237911066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 14:35:28 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrIOsUirVpYdncOfubPDoXhArPydQORd7vMNC8rEuBEAIH0sGpodrOHw63NERGXA4Em7kvG1sE9ZjB56KriruIT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0SEf79B7QEdLm4u0s9vzzgQrTHkqoDHcfT1oawVzTLpV63q1P
+	sI3ewyODz4bBo7RF9/771Qss5cw8Jh3SZOouZsXxnFRqGOxvoPus1zCSNz6F59xjSrVLcuopfGJ
+	fuLxwNMZ4t6UrI1OwLhOB77QI1T0N/7g=
+X-Received: by 2002:a17:906:7f84:b0:c12:8664:6aec with SMTP id
+ a640c23a62f3a-c1fe826eac5mr42821066b.53.1785533727476; Fri, 31 Jul 2026
+ 14:35:27 -0700 (PDT)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
-Message-Id: <69286.126073117330600203@us-mta-193.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8G8-HFcQFFG2xhtzdYmqSINLzVIrYKFvCJ7waFB0JRk_1785533585
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
+References: <20260731195612.2697986-1-seanjc@google.com>
+In-Reply-To: <20260731195612.2697986-1-seanjc@google.com>
+From: Yosry Ahmed <yosry@kernel.org>
+Date: Fri, 31 Jul 2026 14:35:16 -0700
+X-Gmail-Original-Message-ID: <CAO9r8zO-eCz-4Gpa_FUjRKPaDj82PP7et7KON4S5QfhRU2J-Ug@mail.gmail.com>
+X-Gm-Features: AUfX_mwe_OJz39TjVH0VtgPbVgoU9MwzP5iyfl-3Rd-uJd2L1ePI9CeEd3Sup4w
+Message-ID: <CAO9r8zO-eCz-4Gpa_FUjRKPaDj82PP7et7KON4S5QfhRU2J-Ug@mail.gmail.com>
+Subject: Re: [PATCH v3 00/12] KVM: selftests: Add more syscall wrappers, fix hardware_disable_test
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	David Hildenbrand <david@kernel.org>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_143313_595890_9922A0EC 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +85,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Fri, Jul 31, 2026 at 12:56=E2=80=AFPM Sean Christopherson <seanjc@google=
+.com> wrote:
+>
+> Third time's a charm.  Sorry for the spam.
+>
+> Buried in the middle of this is a fix for the hardware_disable_test where
+> it can end up with a runtime of multiple minutes when running a preemptib=
+le
+> kernels on a large NUMA system.  Turns out my analysis/guess in v1 was wr=
+ong;
+> the problem isn't direct CPU contention, it's that letting the workers do=
+ any
+> amount of "real" work on any CPUs leads to pthread_create() slowdowns fro=
+m
+> the perspective of the caller.
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: OK
-              Test: FAILED
-
-
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2722617056
-
-One or more kernel tests failed:
-    Unrecognized or new issues:
-        xfstests - btrfs
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2722617056_aarch64_kernel_kcidb_tool_21770680_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL generic/301
-
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+How long does the test take to run with this series?
 
