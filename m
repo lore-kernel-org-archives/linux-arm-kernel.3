@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 069BEC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 12:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67108C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 12:38:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P3e2rBRtLDRgrOIaI1elxNnJ/2QhoA9om1fNfFAW7Yo=; b=dyx9Q1iKSoa6o/pWmat870g6fh
-	hShnWoBgnhjMX+aIJVfsLweNHrJzieztlo1c+d+eCxJiV2o7+rUJdbdKUlNBjndelx633KeEOxSd4
-	7pT/R316NpCCHDaHPBB9QfUvjHEEmi/Aa+zoxfAG0Dx2J597cwHxkfWEZeeUF86Ysw5Kl33ntCIkP
-	U/Jh5hv+11BKwkyes6CkOoWbTdh3nRJe3MLcCAs5lgJpHd1gdTOGom22wGUhlCNl5WH+gcSEYYbFU
-	yuTwGjBRAxIqxG7dgRLlC8GxhToerCTEAaN3Y1sj8QEv5KDjB1H4l8BJizcdvGAi1Coc5SsL/zJVM
-	NkVqqtiQ==;
+	bh=nW2uwG3VWmqTYBYq5oWNcIeaMFqReX/mfTA7yT0Lz8Q=; b=qSd4TIuAXotGKxoD7zh/xhwGl3
+	/gWeUbePBfCIFuIkHd6Ubv+ggZkB/XeFLNUuk+fi7sMo9mOuD2oLMmsBcy2QyCgFNLLdP17E15nUS
+	Lt4rNX7QlXsfFeXKbBl/bIPcDD6CKRB7XH05fB1zS7R7ombK5loPVXjeolQZbxeIll76zK0ngM1E3
+	Xr7xI8JqM+Jz9c6EERoELi5+bNkpIxQK7RJvr37JkwdMG9h1rFIqmj0PajEC/OI8KWKqPYHz7+gPK
+	PXymASBf0k8ryu0QL9XTg1YsyNNlwFjZ3oAM9fdgziw3t92VxhgtoT6qyS9vbKgExSNXXOqQIbViH
+	dZ6dHzGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmVM-0000000CUwR-26Ja;
-	Fri, 31 Jul 2026 12:38:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wpmVO-0000000CUzU-0bLW;
+	Fri, 31 Jul 2026 12:38:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmUv-0000000CUj1-0TtS
+	id 1wpmV7-0000000CUoV-3wTo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 12:37:57 +0000
+	Fri, 31 Jul 2026 12:38:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8AE9860A6B;
-	Fri, 31 Jul 2026 12:37:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ECB71F00A3D;
-	Fri, 31 Jul 2026 12:37:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 62F1F60A6B;
+	Fri, 31 Jul 2026 12:38:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A50F1F00A3A;
+	Fri, 31 Jul 2026 12:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785501476;
-	bh=P3e2rBRtLDRgrOIaI1elxNnJ/2QhoA9om1fNfFAW7Yo=;
+	s=k20260515; t=1785501489;
+	bh=nW2uwG3VWmqTYBYq5oWNcIeaMFqReX/mfTA7yT0Lz8Q=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=biHSZU6kYX5v/wvxBwgrqds94+SRUsdrs9cFYmKK2XfdaaWDUHcf0EmH/451Xh9Qy
-	 0gmqeXJQ3gaxq/yhEniHylXGmwSruAxDjLnNZdyLAvMj7L7Qn2Oq9iv2uHKCAp/8YI
-	 hLqIgCOAEo/E6WbmdYvHntzLnxUJc0Axhxf5a/RaauEKTRmODjOu4Eu4BxCccQiS4d
-	 JDg0BcjawbsF0LCKcQ7756qpooTFVYLgJ9Py+mEYwxue00ctkomE6fFiF0B9P5AyYq
-	 +Z/MeYLVKUs67p7UpkvgxiaIxeI9b6FR2pckj9k8oYQfdJnbTIMGzdYIjOdf1dnNWX
-	 gmsRmrbgJkAog==
+	b=SRPLBaAA3VTtgRW2r2ldajLvKJ1MqweSLObW+8SvAdiDBbwyzEyphKahzpYPlgzts
+	 EM4MBTsTokwdnKbLGOwDg2jWcN2JnyB6jfnk5GrZqqBZvt7FGpfdsLSiBdB+RN7Qnw
+	 75+PTNjpvA3udyFIdfJk2x2L08T4PaAMVN1er8zaceSGa7RuK/rLXfcdws2zY8UD2u
+	 gLF87UwJVV8dwz24auHQOFm1OgP+UG2Y8c4c5P6Xn4/d5MlbCt5LCmiOlPgyjopqCh
+	 4ZwfXjPytHIdQpy1W9pd0mEJJr2xvuuva/WBZQpmE/fPu20B28US6j3z4PPZgCDB2Z
+	 +plpGy8Lsnyvg==
 From: Mark Brown <broonie@kernel.org>
-Date: Fri, 31 Jul 2026 13:25:46 +0100
-Subject: [PATCH v17 08/14] KVM: arm64: Enforce EXLOCK for SPSR and ELR
+Date: Fri, 31 Jul 2026 13:25:50 +0100
+Subject: [PATCH v17 12/14] KVM: selftests: arm64: Only restore SPSR_EL1 and
+ ELR_EL1 if they change
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-arm64-gcs-v17-8-5e39ca01b14e@kernel.org>
+Message-Id: <20260731-arm64-gcs-v17-12-5e39ca01b14e@kernel.org>
 References: <20260731-arm64-gcs-v17-0-5e39ca01b14e@kernel.org>
 In-Reply-To: <20260731-arm64-gcs-v17-0-5e39ca01b14e@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -61,15 +62,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3010; i=broonie@kernel.org;
- h=from:subject:message-id; bh=oWZdUmuK4nAtItYIMoZ1Nyc4/gTFqii47mmxgcveKIQ=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqbJcCLPFgrfQ8svgEbiadv+hYFS4UMRXY1yBSB
- f+PnSAFLfqJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCamyXAgAKCRAk1otyXVSH
- 0HZbCACFJ9H+iuLy41JSKNoCVsfPYquTy02+GfUpVMKkTTYKxB+OUMC6X49vOrXNHgw4pyQuch2
- gKjY9JNWIpqojyCMFmUKeHMcSHLxFf8X+6MQAn6r1V4wTT4I31KiLHYdlbkTjGMaE/NFldVmh7m
- IaTG9IgcDwxmgBQmID8dHquSjsKnMOeiGwemb/kQvFcnCMd5SMR9XvhhG3+Il/YHNqL0E+NRFTy
- 323bnRPy4jEhNj+/z71mFsC/r27M5NbLph+tMxF2IQ1AY+Y6Uor0MXouDBZaWrPu44LXgQE9M0J
- lOL+cqn/eRLorIGFfCzxhqfOSob2nRUmOiyDwOSWa2n1Hmi9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1508; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=kq5inm4XLV9y3q0emrqMvgSlwP7yu7PrdQSzkYGOWPo=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqbJcFnjMOtw0swGPvnW50uvGG391F/yvmA0jXd
+ uYSZMtYsCyJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCamyXBQAKCRAk1otyXVSH
+ 0KFLB/4uy9NGwVVvwOBSQZyKtFNFQX2//3ZKfNQgttRdsvPdI10IaDENOqulUF2MxEqFqgVf3JC
+ /8PQWi4p1Zr3MDg+nKfn3ZrmpSH10j2p906EBhrfLW7YA8LSGevK8ZT46DB6dQk0BHtsocmSRDi
+ awOh6BkKwDM/U9VCXmqbVnu/iJL+6twpknBh9tMgIVgxWO96Be49G0oCPX5wKL0EGQP8ZaRYVKK
+ sZPWpGlYZwEBEV1JDfTpJNFuDxp3Ew9/tSvtFJYRCiw80tsVfTsKTnM2yjQ37hfS9SixsGYVZCq
+ KoS7TvAbEC7IkPALaVpLnA1yi/II1gukqnCROOHkmajaEqlw
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -86,105 +87,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per I_CFFNS and the pseudocode for the SPSR_ELx and ELR_ELx registers
-a GCS exception with ExType 1 is generated for attempts to write to
-those registers when both GCSCR_ELx.EXLOCKEN and PSTATE.EXLOCK are set.
-Ensure that this is enforced for guests if access to these registers
-from the guest is handled by the hypervisor.
+When EXLOCK is enabled for ELx writes to SPSR_ELx and ELR_ELx generate
+GCS exceptions. Currently the selftest helpers unconditionally reload the
+saved values for these registers regardless of if the handler didn't change
+them. This gets in the way of EXLOCK testing, making it hard to generate
+contexts which will generate an invalid ERET since we never get as far as
+doing an exception return while EXLOCK is enabled.
+
+In order to facilitate testing of nested virtualisation emulation of EXLOCK
+change our reloads into read/modify/write cycles, suppressing the writes
+when they would not change the value in the register.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_emulate.h |  8 +++++++
- arch/arm64/kvm/sys_regs.c            | 42 ++++++++++++++++++++++++++++++++----
- 2 files changed, 46 insertions(+), 4 deletions(-)
+ tools/testing/selftests/kvm/lib/arm64/handlers.S | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index ee774c3b8dcd..bc012c86fcd6 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -81,6 +81,14 @@ int kvm_inject_nested_irq(struct kvm_vcpu *vcpu);
- int kvm_inject_nested_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
- int kvm_inject_nested_serror(struct kvm_vcpu *vcpu, u64 esr);
+diff --git a/tools/testing/selftests/kvm/lib/arm64/handlers.S b/tools/testing/selftests/kvm/lib/arm64/handlers.S
+index 0e443eadfac6..367c22d61cba 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/handlers.S
++++ b/tools/testing/selftests/kvm/lib/arm64/handlers.S
+@@ -33,8 +33,18 @@
  
-+static inline void kvm_inject_exlock(struct kvm_vcpu *vcpu)
-+{
-+	u64 esr = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_GCS) | ESR_ELx_IL |
-+		  FIELD_PREP(ESR_ELx_ExType_MASK, ESR_ELx_ExType_EXLOCK);
+ .macro restore_registers
+ 	ldp	x1, x2, [sp, #16 * 16] /* PC, PSTATE */
 +
-+	kvm_inject_sync(vcpu, esr);
-+}
-+
- static inline void kvm_inject_nested_sve_trap(struct kvm_vcpu *vcpu)
- {
- 	u64 esr = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SVE) |
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 1a1e45d64552..3d9f4eb9d093 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2776,14 +2776,42 @@ static bool access_sp_el1(struct kvm_vcpu *vcpu,
- 	return true;
- }
++	/* Suppress redundant writes to support GCS exception lock testing */
++	mrs	x3, elr_el1
++	cmp	x1, x3
++	beq	.Lskip_elr_\@
+ 	msr	elr_el1, x1
++.Lskip_elr_\@:
++	mrs	x3, spsr_el1
++	cmp	x2, x3
++	beq	.Lskip_spsr_\@
+ 	msr	spsr_el1, x2
++.Lskip_spsr_\@:
  
-+static inline bool sysregs_exlocked(struct kvm_vcpu *vcpu)
-+{
-+	u64 gcscr;
-+
-+	if (!kvm_has_gcs(vcpu->kvm))
-+		return false;
-+
-+	if (!(vcpu->arch.ctxt.regs.pstate & PSR_EXLOCK_BIT))
-+		return false;
-+
-+	/*
-+	 * Note that the EXLOCKEN for the running EL is checked
-+	 * regardless of the register written to.
-+	 */
-+	if (is_hyp_ctxt(vcpu))
-+		gcscr = vcpu_read_sys_reg(vcpu, GCSCR_EL2);
-+	else
-+		gcscr = vcpu_read_sys_reg(vcpu, GCSCR_EL1);
-+
-+	return gcscr & GCSCR_ELx_EXLOCKEN;
-+}
-+
- static bool access_elr(struct kvm_vcpu *vcpu,
- 		       struct sys_reg_params *p,
- 		       const struct sys_reg_desc *r)
- {
--	if (p->is_write)
-+	if (p->is_write) {
-+		if (sysregs_exlocked(vcpu)) {
-+			kvm_inject_exlock(vcpu);
-+			return false;
-+		}
-+
- 		vcpu_write_sys_reg(vcpu, p->regval, ELR_EL1);
--	else
-+	} else {
- 		p->regval = vcpu_read_sys_reg(vcpu, ELR_EL1);
-+	}
- 
- 	return true;
- }
-@@ -2792,10 +2820,16 @@ static bool access_spsr(struct kvm_vcpu *vcpu,
- 			struct sys_reg_params *p,
- 			const struct sys_reg_desc *r)
- {
--	if (p->is_write)
-+	if (p->is_write) {
-+		if (sysregs_exlocked(vcpu)) {
-+			kvm_inject_exlock(vcpu);
-+			return false;
-+		}
-+
- 		__vcpu_assign_sys_reg(vcpu, SPSR_EL1, p->regval);
--	else
-+	} else {
- 		p->regval = __vcpu_sys_reg(vcpu, SPSR_EL1);
-+	}
- 
- 	return true;
- }
+ 	/* sp is not restored */
+ 	ldp	x30, xzr, [sp, #16 * 15] /* x30, SP */
 
 -- 
 2.47.3
