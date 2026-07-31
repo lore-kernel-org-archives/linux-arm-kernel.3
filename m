@@ -4,112 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13C4C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CD8C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=e6j3hHRJCAXjbnkzKw0InC59a2Jr/wtnnQ/J/lnUnRI=; b=OfcicDyvDS+aiL6CbGWGRcXUuu
-	AF/aI+RSX1YnTozS2K5jUVWAGL7we1h4GhOgZ74K7tp6FruiZUj1lq1eVUlIwJhXrKK6rreuOwqWS
-	UYCA/8wGU4iF0QW8j/WD9kQIPkl/65ttI+ls1VCDQ9hkqIXyTFBoK+LFY7D5xZnDGcViE6jeb/5QK
-	i/BVNqSZa29a+KAvOsaMfi8C2NthvqJSTQRSQsw+Ceifk+UhR7hJTQn1E20E5VamDidDCK2wfll6o
-	mnsdPe1Qo60LFJyA+j67V0aE2/nwGJEznEpEnIO1Ei/UJ2tSurjbQ5EwbTVw4oqZrNNIqoDHQLGhv
-	mjiWJEDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/POiDSF4+IDt70JCBdZJdIZK3UUd6KqN9kSgrd/+PSA=; b=iv1ytgr9vVwRKp6blfFwvgP/ZZ
+	FyF9bAXIQOjKk8Ve/JpFZOjW1TGlGzvXwsOEIXMrz6uFgKcjXJRLJnPV6yg9GpKwTxewVvjW9PldO
+	Zy+Xv7UjIMQD+2nYr1DwIxA4eVCOQcvJWNL3Vzgzyqa68PEWn80BOEkLzHhd+MvuNWhYvyXRAjKEA
+	M7K4h5grgvkVF7IkoxFCXq6WnyK4A6dz0mTVkfLyFV30s12qZpFo9TKDmOJolOSx8aQOvjXFBLfGA
+	QB4lgj8oPsfaWh8h01Suwq0qVgHzgMT14ZOJlcTYOCgBYsxXZLXh0AZEIn9FYduykrvrgyMUZ8co8
+	BqvsmQsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppoC-0000000CxeI-1QEc;
-	Fri, 31 Jul 2026 16:10:04 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppo8-0000000CxdS-1lI9
+	id 1wppqX-0000000Cy13-3AES;
+	Fri, 31 Jul 2026 16:12:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wppqV-0000000Cy0M-2RXV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 16:10:02 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-c1c26d7e951so173511966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 09:09:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1785514198; x=1786118998; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=e6j3hHRJCAXjbnkzKw0InC59a2Jr/wtnnQ/J/lnUnRI=;
-        b=e8s0RkU/LXUdLRnVyVR52emlEPu4rU7ecl8ogWA93e+4TKQaqx2AEcF4UrKzdPxjYf
-         BqwLwtXcGADHxJ1XTKplfApHe5n5MPIzh5CLPThsXyk/pymB/BD1xyket7ZrkyfQ9Lt3
-         G05PIbZy1rO1k8hJ30ZGocEl6iObPAYZoSOgqo39qCYrStLRzh1g2W+rgw9t54+lwoyi
-         QC8SS/ItO3UC2Ez9GVn+BmWqXDqvuoxa4iB++FYF03dz2dYEAoFmHyDvbw2nUi4LPX1z
-         iF+y1Wap2g3DnjOzdZ9oddknaIVsEZuTwg8ko9uv3eY5YDoFnJXKY5MxONtcK+dA/fcK
-         6iHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785514198; x=1786118998;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=e6j3hHRJCAXjbnkzKw0InC59a2Jr/wtnnQ/J/lnUnRI=;
-        b=FqVyT4tX8xeRA1UF2UF0b1UGVcUH2qvucyKPqxxXBmniqIhJSf2KBAVmxzmh8g8D9O
-         fIdLwhMt8p7xlRO8sw4IqnFxBntCbc+qleEEcChsSVJ2fznM0NkRQCuC7r6gTeLHnLpo
-         gCKHOolXoCF4HK8x53Nna1R8dsQN9QxihGy8XE6SfPMqGkFQtIMZb+EdgmlUJycK024h
-         QQMjNq+5NHDthmn6yT2nm2+jZ9F5H8OdTNSwLRZXLMgfpuoSnm36m5RJH1SgnUHv6Rgv
-         QtR0SbUTe/iCTVcKw9MlleDBKZjZHbfAuMzAqBsgHWvP3yqcS4hrXTiYjH9BUc/MtDl7
-         rFBw==
-X-Forwarded-Encrypted: i=1; AHgh+RpydMjzQeX3cQ6QWl/czgjasPPVhWztLNtd7UczsGwoarqHaO9ZiVm9g+jOzedmlbOrgxAKyJrlh/FbCTfm6ldD@lists.infradead.org
-X-Gm-Message-State: AOJu0YyA51k2duSKRp+mUNDWyyzzHqlA0GrD8QAMtIod8GqCPrhbyKHq
-	IJHhMbED/PK0Uu+WYa6Aj3nWAk0xqkPhn0M2AQ+xS0crUtwiFe1AgXru6FiYL02+vTk=
-X-Gm-Gg: AR+sD10UD4M1kTQ9j26C1IkGY3/9I0k+lLQ7210kCel4zAOX7r7S8RGNwrUxHnz/Qie
-	Fpi9AcMdBVbPjcwzMdH3g2U5Ok9jiB4qQ9lKx2R2QsmgYYaWitk5r5AGVan++DjfW9HbFiCEQS0
-	MK+E4YyEm3nJz5RTvpA54ePLIEaloTJdSBKqKSIIiPZ8bA5Pj/6M1Lyqqiiw4rr2P21xqqzrvuu
-	nIxFYKF5zLEIyiJ4/1Uum1sskmAWqei0WIiFlYbW9FfDj69DbCMEJg1wmOCGIvQiw+ncWd5dT2c
-	/YRSmitew006XCo5c50zn6yGqSc7X1Cyh96RvQOufJtcysotyh6UawYYjjnr6WpgawGO77rJuTc
-	JFZSppzzlUF4FpnwuU7hPBdYpTjM7PnTTZ4o7fsjluCC/h/M+FkLJKPZt4s+V93cjZsZ9JNknCR
-	I6OWBF1YwXjjktZSkersciOBWCa1+IefN7OEY/0vXcXQcQ9ubaE0yvR2uoTA==
-X-Received: by 2002:a17:906:f85a:b0:c15:cc30:6c74 with SMTP id a640c23a62f3a-c1fe816fa83mr13218066b.44.1785514198430;
-        Fri, 31 Jul 2026 09:09:58 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:d00b:bc94:65a:a73d])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47fd4562667sm6729424f8f.24.2026.07.31.09.09.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jul 2026 09:09:57 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Fri, 31 Jul 2026 18:09:52 +0200
-Subject: [PATCH] dt-bindings: irq: sun7i-nmi: Document the Allwinner A733
- NMI controller
+	Fri, 31 Jul 2026 16:12:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15FAF204C;
+	Fri, 31 Jul 2026 09:12:22 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BAF1C3F86F;
+	Fri, 31 Jul 2026 09:12:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785514346; bh=OIrbsNtLBKqeLLiyTmESOoHaJ+8BZ8ouhX3sjsjrM2w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dKRnAsadszwh0OBdqjd4fc4kmNwbh8RndSsUlRaaR32LyiuOp2fTCLLcgkfvwdBUJ
+	 D5hWgZKuZz357hFEDQu64Wh29dOX+/+7SHrYKCvHI9U3dQoXUS0WJIkA3u7OcQoplt
+	 Fw5rXoJblKMhfAu75Yr96Qu/WYf06FMIC+BnnhDA=
+Date: Fri, 31 Jul 2026 17:12:22 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Cc: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [RFC PATCH 8/9] arm64/kprobes: Drop the XOL single-step fault PC
+ check
+Message-ID: <amzJZoxnpScpKWSR@J2N7QTR9R3>
+References: <cover.1785153469.git.hongyan.xia@transsion.com>
+ <747c80a43d3345cae59ec1456dfff45d237981dc.1785153469.git.hongyan.xia@transsion.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-allwinner-a733-nmi-support-v1-1-61e4a0825b20@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAM/IbGoC/yXMQQ6CQAxA0auQrm3CMAbEqxgWAxSowTJpQU0Id
- 3fU5Ut+/g5GymRwzXZQerLxIgnulEE3BRkJuU+GIi/KvPIOwzy/WIQUQ+U9yoPRthgXXXFoU3Q
- p674+O0iDqDTw+ze/NX/b1t6pW79HOI4PZc8kdX4AAAA=
-X-Change-ID: 20260731-allwinner-a733-nmi-support-fb026869d941
-To: Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1181; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=c1BBB6bs8QkRJGVWb9VKH09aVOOWU4p3wPWDCQ5h4r8=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqbMjTXlrz8rv5mNapSZHl5WcOPxLnYyYNtyA1v
- pQrskCrQ4GJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamzI0wAKCRDm/A8cN/La
- hZQED/9s3wGP6F3JuJnfZQb8AMYiff+jEIymztKBJmuUapVpEX1g6yG7VgtcuinzOj50NimCXST
- C5F4G0DVAjSJ0aNNtqfMnpuUHfZRGMers44mqlkR5eaUcs6ivK8NMAwCKfy8dW5HbWSKoEjM2vf
- BlpME3HnSpanmW90H5I7Q/+wYL8nBEtBrb5AwNV8eXjt1GrsVAA+QF2kTVZWNGWWEGTUol7I4mX
- 6/9NK6wAnSZj5YFQtLfKH3yT5rO4dASNYXlGymkFjudS2R3LXarLSy/VWib4GF0d8KrQWUVLFeU
- jVQcho5P9+DOn16gFnf98uhRrW8O9Ye2HoP6UL43ICmUjNGuqaDEcA9F1Sja2Kls4G87S8XdewI
- 4xT/YCKhbI3kf1JQvExxXe70bMvyqa/E0fE0OaUCT46OpU1s0CJTy05Abs6bHasfjp7SaX0hR6H
- vnvAB9ihBDboKlmfYqfhiLhDzE6rtPQq0PLwmo5VhWKlwGwKLt1myTUJbgFd9JEB0LmBCbDij1n
- GeGD9K/dzURhv7nXn0PDQph8Wde72L4swPxCy+zooa7IJPPUy/jJvtgM97FZA8oUi5EuQyPpvDD
- EbH6AadYG1kzLJOg5KG5/GRL8LK4khnWzPi7CYRQ9JgTna2edissvwBqYS769OE+afxoNzqb/FU
- mQLn7PvJkUM10BA==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <747c80a43d3345cae59ec1456dfff45d237981dc.1785153469.git.hongyan.xia@transsion.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091000_479269_C93F927F 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260731_091228_280189_FB881B97 
+X-CRM114-Status: GOOD (  23.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,35 +73,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A733 NMI controller is compatible with the A523 one. Add an
-A733-specific compatible string, with the A523 as fallback.
+On Mon, Jul 27, 2026 at 12:25:46PM +0000, Hongyan Xia wrote:
+> From: Hongyan Xia <hongyan.xia@transsion.com>
+> 
+> With the armed single-step window closed (the whole path noinstr, and
+> every piece of instrumentable code confined to instrumentation windows
+> that run in KPROBE_HIT_ACTIVE/HIT_SSDONE state), no code other than the
+> XOL instruction itself can execute while the state is KPROBE_HIT_SS or
+> KPROBE_REENTER. A page fault taken in those states therefore necessarily
+> originates from the XOL instruction, and the faulting-PC comparison is
+> redundant; revert to handling all such faults as single-step faults (as
+> before commit 879a6754d3d1).
+> 
+> The simulated-kprobe early bail is kept: simulated probes have no XOL
+> slot and execute (inside an instrumentation window) in debug trap
+> context, so a fault there can still come from the simulation handlers
+> and must not be treated as a single-step fault.
 
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
- .../bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml      | 3 +++
- 1 file changed, 3 insertions(+)
+As commented on an earlier patch, to fix this properly I think we have
+to make the simulation noinstr-safe.
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml b/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
-index 06e3621a8c06..bb9273ec2457 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
-@@ -33,6 +33,9 @@ properties:
-               - allwinner,sun50i-a100-nmi
-               - allwinner,sun50i-h616-nmi
-           - const: allwinner,sun9i-a80-nmi
-+      - items:
-+          - const: allwinner,sun60i-a733-nmi
-+          - const: allwinner,sun55i-a523-nmi
- 
-   reg:
-     maxItems: 1
+Mark.
 
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260731-allwinner-a733-nmi-support-fb026869d941
-
-Best regards,
---  
-Jerome
-
+> 
+> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
+> ---
+>  arch/arm64/kernel/probes/kprobes.c | 12 ------------
+>  1 file changed, 12 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+> index 1658b6acd803..73bbbcdbbfe5 100644
+> --- a/arch/arm64/kernel/probes/kprobes.c
+> +++ b/arch/arm64/kernel/probes/kprobes.c
+> @@ -309,18 +309,6 @@ int noinstr kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
+>  	switch (kcb->kprobe_status) {
+>  	case KPROBE_HIT_SS:
+>  	case KPROBE_REENTER:
+> -		/*
+> -		 * A page fault taken while in KPROBE_HIT_SS or
+> -		 * KPROBE_REENTER state is only attributable to kprobe
+> -		 * single-stepping if the faulting PC points to the
+> -		 * current kprobe's XOL instruction. If the fault occurred
+> -		 * elsewhere (e.g. in perf or tracing code invoked from the
+> -		 * debug exception path), leave it for the normal page fault
+> -		 * handler to process.
+> -		 */
+> -		if (instruction_pointer(regs) != (unsigned long)cur->ainsn.xol_insn)
+> -			break;
+> -
+>  		/*
+>  		 * We are here because the instruction being single
+>  		 * stepped caused a page fault. We reset the current
+> -- 
+> 2.47.3
+> 
 
