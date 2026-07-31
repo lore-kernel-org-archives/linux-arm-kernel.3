@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB6FC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38630C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iTHe1fmNUO9bvL9hCjLeub+8/tAAP+2ZQbhY2uHobs4=; b=Z2aTsEP+sOsw98FyDzctQKpqB/
-	iWTInAkxVcpU7u20oeW/+nvLhrehgsP+RWDo6IlymJ+5878wxG1OwK6Qls5ejgf5N9E4VRLMPN/7H
-	9/Y48wR4kqHkmyVY+Gq4PqjMDiVffJZmiMokgtcCqHM1Y+hABNWCWSyuR6iGjUjKonKN2W8+CDfPh
-	m3wdzKbIMD7FhYRnil87z9eRuOkFbyNU1fKCDzSP0EJth6DDJsBvMBrd75qaLVNnOxk7bNBtFBZiq
-	kt0P2ofoX5ByVjDsQHq8dJAzRfEUGWUbtsHt1uuG9D9+d+V9e34A/iMbvaQIoLevYmn+aZGAUT4gz
-	mU+ceh3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5C4KBGp34p6ghtc8dC8WcjbQKC4pVCTe1x6qZCa5kh8=; b=tYvzHbcys7AAkR94PR5F+tFx0k
+	QdslwMXIroiSMNokTrawz0x5+fTPfEN16FXIQYHFu5lCQLX6GsIhsIOVKD/3pCXV20L23VXJCCTgv
+	pELB9K+Zgc/AyunMD9oXQrjbYjaDdLECWnBZzZ5JaPPVzNWLwq0ZP0gtKkolmgTtaqsNzh6iJ3W6F
+	RslGIlC7TAUhMR9HnTByKvBRJeK3NUweVxhxDd8LA+V5GGHkMmlCQwcWeVD3xovVFadE7T7Uu/keq
+	IJVrufrrmsAmkWOSrVzIFpiutU0WW8z3CWuHFCbcfNfJAmtmphy6bpl7g4w47F3vmS5eTXEEh7nSk
+	go/gRe8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppug-0000000Cya7-314b;
-	Fri, 31 Jul 2026 16:16:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wppxC-0000000CynM-0B1N;
+	Fri, 31 Jul 2026 16:19:22 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppue-0000000CyZs-3ELq
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 16:16:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DB0036004E;
-	Fri, 31 Jul 2026 16:16:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 936231F00AC4;
-	Fri, 31 Jul 2026 16:16:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785514603;
-	bh=iTHe1fmNUO9bvL9hCjLeub+8/tAAP+2ZQbhY2uHobs4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=f7YBLmtnFmTslofGzS3hwbZxgz4GJWBwGCfZ2n/xsQV6wD1takhdmkFvCjGSLZWmE
-	 pZKWQU6ozvZhrilus4n1XAB7J4loKay8CBeiOYTNc3/XmLAilMjky7Lzxnz0SisaxC
-	 o/xwV83soagMYdxB1xPD2UNG0XtDxQaJE/XFjnXn4eHm9KCZDYD9gp/w8EL3NwYQzy
-	 ZresMeF1Kp+IJ2C7eKinAa2EaNNmF0Pl4eeTebclz8cSzMz4HkkxmVMKPG32hwn4i7
-	 kdUyqu2dklna0+IXAWLI2mV//2cin5GnIlYmEiv2ToRjFfOMuCfq1PEkMCo+Ejbejf
-	 Gxpd9Xe1fWwow==
-Date: Fri, 31 Jul 2026 17:16:38 +0100
-From: Will Deacon <will@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arch: arm64: add early_param idle=<wfi|yield|nop>
-Message-ID: <amzKZgqrqqM7E_9Q@google.com>
-References: <20260711-arm64-idle-param-v2-1-0ab67652a435@cyberchaos.dev>
- <amE5bX0jey6WS0U1@willie-the-truck>
- <a6602971-87f8-4365-9ec2-dfe3a1ccfeb6@cyberchaos.dev>
+	id 1wppx8-0000000Cylk-2C5o;
+	Fri, 31 Jul 2026 16:19:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785514755;
+	bh=D/Mo27GDMqgDFGKu/PHByp3WOMc3rGEVU+1xPyeAtoA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Btvzf6YQ8Hr6V5dxzD3f7nLe5rZLZWQBrh8abN2zzoUgX2XRBCakV09TDJbTfkUdK
+	 yUnJyXHhNkOyN6lcnxCRaNYfaSCXO4E8F9x3HLdboU4RgYb65wQXZ1RN5CICZLCne7
+	 9KQMMQmp6GvWgfi3pIqkyo26BKoH6aOzVPiL997ZQTAzZoRjFnld7Tb/53qq3nnGx8
+	 ydcgePpBjZAgxCNaBfZuv861joyCQqdGYsWk/zR4G/5V08sqES2VRnQI+NAi3fJ752
+	 tEyOnlo6REWRnbfLclXexLFFETBvbQV9ZSFqioJ8N1S81ROnOHotBYCUW+CfspSqbv
+	 PlK+nMYHfTXAQ==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7D33017E0682;
+	Fri, 31 Jul 2026 18:19:15 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Fri, 31 Jul 2026 19:19:08 +0300
+Subject: [PATCH v10 01/69] video/hdmi: Introduce HDMI version enum
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a6602971-87f8-4365-9ec2-dfe3a1ccfeb6@cyberchaos.dev>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-1-294364b2cf15@collabora.com>
+References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
+In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
+ Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, 
+ Phong LE <ple@baylibre.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260731_091918_715361_37A2A700 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,79 +92,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yureka,
+Add an enum to represent HDMI specification versions.  This will be used
+by upcoming changes to associate HDMI connectors and bridges with a
+maximum supported version and to simplify handling of version-dependent
+features.
 
-On Mon, Jul 27, 2026 at 10:49:57AM +0200, Yureka Lilian wrote:
-> On 7/22/26 23:43, Will Deacon wrote:
-> > On Sat, Jul 11, 2026 at 09:35:25AM +0200, Yureka Lilian wrote:
-> > > diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-> > > index e278e060e78a..2452990ed37a 100644
-> > > --- a/arch/arm64/lib/delay.c
-> > > +++ b/arch/arm64/lib/delay.c
-> > > @@ -15,6 +15,8 @@
-> > >   #include <clocksource/arm_arch_timer.h>
-> > > +#include "../kernel/idle.h"
-> > > +
-> > >   #define USECS_TO_CYCLES(time_usecs)			\
-> > >   	xloops_to_cycles((time_usecs) * 0x10C7UL)
-> > > @@ -49,7 +51,8 @@ void __delay(unsigned long cycles)
-> > >   		 * Start with WFIT. If an interrupt makes us resume
-> > >   		 * early, use a WFET loop to complete the delay.
-> > >   		 */
-> > > -		wfit(end);
-> > > +		if (likely(idle == ARM64_IDLE_WFI))
-> > > +			wfit(end);
-> > Rather than scatter the idle implementation check across all users of
-> > WFI*, why not move this into the macro itself? That way, the callers can
-> > all stay like they are but the macro behaves as specified.
-> 
-> In practise, I could only find the following uses of WFI / WFIT / wfi() /
-> wfit() in arm64 code: 1) the default idle loop and delay() function;
-> arguably the only "real" users 2) parking cores after different kinds of
-> unexpected situations / crashes.
-> 
-> Just to confirm, you are suggesting to add the conditionals to
-> arch/arm64/include/asm/barrier.h, and have wfi() and wfit() macros not
-> actually do WFI / WFIT depending on the value of the idle param?
-> 
-> I'm torn about this: We should maybe first discuss what effect idle= should
-> have: Should it prevent WFI running anywhere in the kernel when idle=nop, OR
-> is its intended use case to change the default arm64 implementations for
-> idle and delay, while still allowing other parts of the kernel to use WFI
-> (for example, for custom cpuidle implementation)? I think the existing nohlt
-> parameter, which disables all idle states, is more fitting for the first
-> goal, even though it currently does not prevent the wfit in the delay
-> function.
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ include/linux/hdmi.h | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-I think nohlt will break the PSCI cpuidle proposal here:
+diff --git a/include/linux/hdmi.h b/include/linux/hdmi.h
+index 8dab78e1f61b..b80a5ee63bb2 100644
+--- a/include/linux/hdmi.h
++++ b/include/linux/hdmi.h
+@@ -27,6 +27,18 @@
+ #include <linux/types.h>
+ #include <linux/device.h>
+ 
++enum hdmi_version {
++	HDMI_VERSION_UNKNOWN,
++	HDMI_VERSION_1_0,
++	HDMI_VERSION_1_1,
++	HDMI_VERSION_1_2,
++	HDMI_VERSION_1_3,
++	HDMI_VERSION_1_4,
++	HDMI_VERSION_2_0,
++	HDMI_VERSION_2_1,
++	HDMI_VERSION_2_2,
++};
++
+ enum hdmi_packet_type {
+ 	HDMI_PACKET_TYPE_NULL = 0x00,
+ 	HDMI_PACKET_TYPE_AUDIO_CLOCK_REGEN = 0x01,
 
-https://lore.kernel.org/all/20260708-efi-psci-v1-0-9efb3abf0e4c@kernel.org/
+-- 
+2.55.0
 
-> For preventing WFI anywhere, I think alternatives patching based on the
-> earlyparam would be the most reliable way to achieve that, and second most
-> reliable way is putting the conditional in the wfi() / wfit() macros.
-> 
-> But my assumption is that what we want to achieve is actually closer to
-> changing only the default idle implementation, while allowing an idle state
-> registered at later point to still do its thing (including using WFI for
-> this purpose). And for this (and to be more flexible with other idle modes
-> e.g. yield), what I proposed in this patch makes more sense, and I'm
-> relatively confident it will fulfill the Apple Silicon use case without
-> adding many more scattered checks other than these two.
-> Does this make sense?
-
-I keep changing my mind about this patch :/
-
-What do you think about a funny sort of hybrid approach where:
-
-  * We have idle=, but it really only affects the idle loop
-  * We have a cpu_errata entry to detect (based on the MIDR) this CPU
-    and then avoid patching in the WFIT instructions (i.e. don't detect
-    the ARM64_HAS_WFXT capability).
-
-I think that would solve the case for you, as well as giving others finer
-grained control over the idle implementation and adding the infrastructure
-we need to handle a CPU with broken wfit.
-
-Will
 
