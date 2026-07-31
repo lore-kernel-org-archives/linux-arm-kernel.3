@@ -4,87 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F8D8C55167
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 07:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC95C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 07:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3Jgur6eGpI5uF6i9kwDYaTQ48SNIpZ5QYt0ueN9Z1A=; b=tjpu30n9EYVEXf/1qsapoXuDXi
-	JNzaNQN3Jws7cy7HcYjWazn4gjTo60FtK57MQ/nZj5TE/FwGfj0gXSdnKvYq9vCK4qQJmUfJCJSjP
-	9s+ABsKoXA7DRTZ+ROqrguhRq9vJuS/76gtYXIkggfIYB/R4yHH7A/MJiUHyvXBURx4TxrqtLmfBg
-	doonWtr0SZp6jWrAYL/0npoQnjv77jESbQAn6LaCU1PduKtG0Cbc57Hf6G5IOUhXH5mm3B3bK2uTk
-	iCuUumZ0QX7ezaFvq/yc386VVK1lUq4JCnl9hxXiLhTKMf/1hh5UGpy+Cxe8xTLcW5XvJDHAk6f47
-	C+icaOuQ==;
+	bh=3Rvnc4OeOnPEfVntwCGgYK4aj0ASFa6o50BvZ74uNJc=; b=vDX8QlSciZwElb132FH44NPnZl
+	HRESfe6CJSm+6w9JKUaj8qSb9DwxY/wa72gfKaMTCbDBFZnp8n3yvMHFNvyd7mBd31sKiCh0d0j9i
+	yCcHDEyVx5t7ZeolenzPs1fNafXBRX3HnqWT9c8XqsklymV03MCZLeDYRq3wfiVESyqGAGbLJXfoM
+	xxo7VmZ6YfHeGmR+pg4jk5n1YnIsazTMrSokB0WV9P5br08AJbYo3J5YPyk7t+EGmwZdN67wFk8mM
+	wyOvW04SgJO9p3qo1BpycJcSrd8Z4A+sngzovlTFWWyY2M4mBZpME7Zs5S+ZSK67TBBeZS+Gapsv3
+	WedwEq0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wphkx-0000000ByAx-1Csl;
-	Fri, 31 Jul 2026 07:34:11 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1wphmt-0000000ByKg-27j0;
+	Fri, 31 Jul 2026 07:36:11 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wphks-0000000ByAV-1UYO
+	id 1wphmq-0000000ByKE-2DAQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 07:34:09 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260731073359euoutp01b326523e6f9dce2fa68dcdf5a4089e5b~HT4vhc6Cs1162311623euoutp01Z;
-	Fri, 31 Jul 2026 07:33:59 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260731073359euoutp01b326523e6f9dce2fa68dcdf5a4089e5b~HT4vhc6Cs1162311623euoutp01Z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1785483239;
-	bh=N3Jgur6eGpI5uF6i9kwDYaTQ48SNIpZ5QYt0ueN9Z1A=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=h2vFzdGPU5rK6aIg9RL7QWF075tsWv+IJpqYD+rwoehY/vNWBMRBWGrq2fWusmWGk
-	 J790EJlBOERW4eikBs6SJ0XQKF/mLNr0HDnXFmef70VwH7PnAlB0ueKl/8aXpOpDw3
-	 NAWoNOdVoKDxcVtSBMhZr5p81NEbyYPO8PB+QGI0=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260731073359eucas1p2ff8cd0f84dea171a8b4f0061154dc5ae~HT4vTnQXs1993519935eucas1p2y;
-	Fri, 31 Jul 2026 07:33:59 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20260731073350eusmtip181b6e9861358d1e9a24ec292d0634e20~HT4nVsXtj0839208392eusmtip1O;
-	Fri, 31 Jul 2026 07:33:50 +0000 (GMT)
-Message-ID: <85be992d-9567-433e-ae2e-64ae5483964d@samsung.com>
-Date: Fri, 31 Jul 2026 09:33:47 +0200
+	Fri, 31 Jul 2026 07:36:09 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-47f703a9d05so383195f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 00:36:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785483366; x=1786088166; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3Rvnc4OeOnPEfVntwCGgYK4aj0ASFa6o50BvZ74uNJc=;
+        b=WnzxvKLat4g9AqhuTV7N+xNzpyNfnbkXC1imILILNl8Ibn785C2ZS82za4Z6qD21jk
+         vHA9JCVx8kEMHZIq2vOvxkpTLFcIxfDR513FV2a+yyBxfxrybFbOzPtf2A6HDG1gMb/5
+         qnXNBz7chcP2WerY5SDv+ybXj4CWiQRZAF1UxBcsOKYa9NkAUx9w1UfZxrwuMc340O8O
+         /Z2dYL4uzQ62mV6Ui7Xb4E/heprOtpuyoTm+LwOE3/r2cOaepw1ForszcvwNQvyVsaK4
+         oU/OxT9ETFLEsmDGdzpwyZZh21d6+fbCgcNLsdonjjGWyaboic8Kn+vK5Yr0CGPh4mut
+         JsLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785483366; x=1786088166;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3Rvnc4OeOnPEfVntwCGgYK4aj0ASFa6o50BvZ74uNJc=;
+        b=ONAi8DQvYLTZ3W2RMt6HHxzJezRjo9+6FaWinsB7eIUfckLEGKtQuuzvfOhipMtNlF
+         gXt4+AAZhEmyNd8/6jzifXhI7C7aAV7C0x0BbHwxcWBua5KlpxkM4gD6l5UUSi71vYTz
+         bhBIXuNOBEt9K1OBXFl2IaoYrCsJtaNNesThwvSO9bHCtvb5M4K0dDpGqH5c+Bq/gY0Y
+         SwV1s+l4KNCQLTVIxvfv9UoeRw4ba32p5BtbFDpmJfxf/xaD4zWIcGOvWE0nCYs2lMVt
+         h/f+fjdN0y+lcsiQoTeo94sxKltRJBcBIyYKYN4CDSiuAc/lQ/pRMXa3XuHnBlCHkm3Z
+         //ZA==
+X-Forwarded-Encrypted: i=1; AHgh+RrJkj2EMIObOFw9VnZeEXwDPPBmdwaPA3fU4rUhEZVWrrkANBo7q2GOfoej50xEYNpROdCF76GBFZQftzZE8zkb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6LB+25UYm4b5wPg+4o3Vm27vL/Cn/A8Oky4bEm8S/+WzMuxjt
+	1i2YefHymRjASWEYT3/ZXkXsPSDNAtyTSAMx5K5It431ucNYgMZJh2WF
+X-Gm-Gg: AR+sD13ogzoewz0nqUm34IF2fJ9DTbNMj2F2/zldxPh3Rw5TX5R1p0SBRO+FIrFFYR2
+	kS2qyb9T3clVdM77h4kcs4869L8UZx/VRmWCrIlIB7QG8vRtOEEnEDmnFj0Qbqcld62ba0yDy9K
+	Frax913T6w9MM2qY+Eo5qgBzaqXVDmHadOVQvF1YLqPuNyYP1gtGEyv5U6hRlGgXCmbcMEvenOJ
+	q/auCBVLSvHxCrEbZwRU6atqGlJWMer2WhCb11RfQma5GxsOvjpsT0j0NVeaL/KhyyZKbAR4Ve+
+	+tx29/dVL41k7UlJsDG0gC6MYpy0bWmESF+T3WGeHOa3SJ1Jk/nQPgJKIygpg1qXb5HL1Bjwhoo
+	g/vN1OBTqmAxeO5rzP+PogVb9W2nz25SEAkExMAnR1Ru90HWYSbCV1Um9+2vH8YewCkX4Pq478o
+	pdL9Jfe8G+SShOeSragxm3YR16rOUM+++xbB64JGJo1aX1O4M4s4jzv+3z4UFmXw7jEiJg7InCp
+	sfRkhbW7Q9lPgmVwmTk1CeVaLjit5PaVmTeSa0YCA==
+X-Received: by 2002:a05:6000:4a0a:b0:47f:cb39:10c4 with SMTP id ffacd0b85a97d-47fd2abac8emr2630603f8f.12.1785483366028;
+        Fri, 31 Jul 2026 00:36:06 -0700 (PDT)
+Received: from INBSWN167928.ad.harman.com (bba-86-96-6-50.alshamil.net.ae. [86.96.6.50])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd456a5a4sm1751576f8f.20.2026.07.31.00.36.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jul 2026 00:36:05 -0700 (PDT)
+From: Abid Ali <dev.taqnialabs@gmail.com>
+To: kuba@kernel.org
+Cc: alexandre.torgue@foss.st.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	dev.taqnialabs@gmail.com,
+	edumazet@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	maxime.chevallier@bootlin.com,
+	mcoquelin.stm32@gmail.com,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com
+Subject: Re: [PATCH v2] net: stmmac: enable MAC rx/tx after DMA start
+Date: Fri, 31 Jul 2026 07:35:48 +0000
+Message-ID: <20260731073548.1145-1-dev.taqnialabs@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260730160715.5ba5e272@kernel.org>
+References: <20260730160715.5ba5e272@kernel.org>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v8 00/23] dma-mapping: Track shared DMA state through
- direct, pool and swiotlb paths
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev
-Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, Marc
-	Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>, Suzuki K
-	Poulose <Suzuki.Poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh
-	<smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>, Alexey
-	Kardashevskiy <aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, Xu
-	Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
-	<svens@linux.ibm.com>, x86@kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <yq5azezfeeax.fsf@kernel.org>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260731073359eucas1p2ff8cd0f84dea171a8b4f0061154dc5ae
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260725070930eucas1p16cbafb514de7a2e7531d0e4ae158acfb
-X-EPHeader: CA
-X-CMS-RootMailID: 20260725070930eucas1p16cbafb514de7a2e7531d0e4ae158acfb
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
-	<CGME20260725070930eucas1p16cbafb514de7a2e7531d0e4ae158acfb@eucas1p1.samsung.com>
-	<yq5azezfeeax.fsf@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_003407_008031_75CF3BD7 
-X-CRM114-Status: GOOD (  15.72  )
+X-CRM114-CacheID: sfid-20260731_003608_578718_B0AC3E15 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,71 +109,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25.07.2026 09:09, Aneesh Kumar K.V wrote:
-> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> writes:
->> This series tracks confidential-computing shared DMA state through the
->> dma-direct, dma-pool, and swiotlb paths so that encrypted and decrypted
->> DMA buffers are handled consistently.
->>
->> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
->> shared/decrypted buffer handling. This series consolidates the
->> force_dma_unencrypted() checks in the top-level functions and ensures
->> that the remaining DMA interfaces use DMA attributes to make the correct
->> decisions.
->>
->> The series separates mapping and allocation state:
->> - DMA_ATTR_CC_SHARED describes the DMA address attribute requested for a
->>   mapping. It tells the DMA mapping path that the DMA address must target
->>   shared/decrypted memory.
->> - __DMA_ATTR_ALLOC_CC_SHARED is an internal DMA-mapping attribute used only
->>   by allocation paths after the DMA core decides that the backing pages
->>   must be allocated as shared/decrypted memory.
->>
->> The series:
->> - moves swiotlb-backed allocations out of __dma_direct_alloc_pages(),
->> - uses __DMA_ATTR_ALLOC_CC_SHARED through the dma-direct alloc/free paths
->> - teaches the atomic DMA pools to track encrypted versus decrypted
->>   state
->> - tracks swiotlb pool encryption state and enforces strict pool
->>   selection
->> - centralizes encrypted/decrypted pgprot handling in dma_pgprot() using
->>   DMA attributes
->> - passes DMA attributes down to dma_capable() so capability checks can
->>   validate whether the selected DMA address encoding matches
->>   DMA_ATTR_CC_SHARED
->> - makes dma_direct_map_phys() choose the DMA address encoding from
->>   DMA_ATTR_CC_SHARED and fall back to swiotlb when a shared DMA request
->>   cannot use the direct mapping, which lets arm64 and x86 CCA guests stop
->>   relying on SWIOTLB_FORCE for DMA mappings
->> - use the selected swiotlb pool state to derive the returned DMA
->>   address
->> - reports CC_ATTR_GUEST_MEM_ENCRYPT for arm64 Realms, powerpc secure
->>   guests, and s390 protected virtualization guests.
->>
->> Dependency:
->> This series depends on the pKVM changes posted at:
->> https://lore.kernel.org/all/20260603110522.3331819-1-smostafa@google.com
->>
->> Please merge this series only after the pKVM changes above are merged.
->> Otherwise pKVM will be broken.
->>
-> pKVM topic branch is now available 
->
-> https://lore.kernel.org/all/178467286876.125042.12010461715645610054.b4-ty@kernel.org/
->
-> https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/coco
-I've just got back from my holiday's and I see that there is everything ready to give
-this patchset some tests in linux-next. I hope nothing will break.
+On Thu, 30 Jul 2026 16:07:15 -0700 Jakub Kicinski wrote:
+> Looking at the patch - isn't it a bit awkward to handle Rx and Tx
+> together? We want to keep Rx blocked to prevent incoming frames,
+> but Tx should be allowed so that Tx can egress?
 
-I've applied this patchset to dma-mapping-for-next, on top of pKVM topic branch with
-patch "[PATCH v8 17/23] dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED"
-rebased onto latest changes in arch/arm64/mm/init.c.
+netif_tx_start_all_queues() runs after stmmac_mac_set() in both
+__stmmac_open() and stmmac_xdp_open(), so no frame can be queued
+in the window between DMA start and MAC enable. So I expect this
+reorder to be fine and see no issue of coupling them together.
 
-The remaining items pointed in the review can be fixed incrementally.
+> Grepping around I'm not seeing any flushing of Tx. Aren't there
+> issues with this driver if we stop the interface while it was
+> paused by link partner?
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+I haven't run into these issues myself, but as Qingfang noted in
+this thread the proper release sequence per the programming guide
+needs more steps:
 
+  stop TX DMA -> wait TPS (TX DMA stop confirmation) ->
+  wait TX drain -> disable MAC RX/TX -> drain RX FIFO ->
+  stop RX DMA -> wait RPS
+
+This is a pre-existing gap in the driver, currently it just clears
+the SR/ST bits for each channel and returns. Implementing the
+proper sequence would need readl_poll_timeout on TPS/RPS status
+bits per channel (up to 16 TX + 16 RX in my case), plus handling
+timeouts if the status never updates in teardown.
+
+The startup reorder is tested and verified to fix the RX hang I
+have seen. Would it make sense to take this on its own (only the
+startup reorder, with the teardown changes removed from v2) and
+address the teardown at a later point as I see multiple open points
+on what would be the right implementation to have there.
+
+Thanks,
+Abid
 
