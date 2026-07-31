@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA80C55173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B7D6C55175
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L4p1XdJ2rQ+ykoJzCzKUFKUu4U3A+uIpOPLxdZ8umUI=; b=v4P4jY0pv67hlOf5le4IYU13Ly
-	ZpGxZdPdjsx+0ec8u4BoCOKCT41e0y9ntq6uF4Gz0g1A1Fujdfyspw8e0pxEmdMxUs71GSagzejMn
-	6D8FyP0xreQdnh8l54eqQvVfBBKu6PHVQljiCqB6TPxX+aiTmG6gxv1UHb0H0vrljAV2WpWEQRqSz
-	2HpgC+mEMgJ3batz+O80YG5f2F/8HqCpxycGMmshpJ7XG2tmToNoey91woP7ZdE7SsMM4mn1ECTfh
-	fxb63e9QBKoYYxOY3xaAzXzNmv1hYNu8ag8xleLFEY1Agv2dEGMSdZ+laOPyADOpdlO2zYAHUSzPz
-	50l7G0NA==;
+	bh=r0Ii2FNlV0pZiidhdvwyoAt0t79HDJ6o/7lDJ4FLcUA=; b=5CnSZhLyHnI6gwBoogMdfwtqw0
+	mDEJngSLA+oav9iqRJ1TFr9WpoSm0d0p3vnQVft8S33TR/lfw5BJQ16H0rxPQBKUSn3UslDqgQyp1
+	oO1tbphYrKC0vAFOxw8GglatNre76GJCi8LdcU69IWJro8+ISQ+JaZGM4SBsGFk7gu3RyY6SwV+6V
+	x6SvoUyg5bGcNZ7YNDnnd0hUQ5cg7wxpsQ01ZGl2gry65GkS/0QwnhYS2v7clLQndk58hF9qHPUiD
+	Pg4bZ1Wo2ZhkGhDLqHcJJy9gzujVWO6g+FiKRgfel8b+J7PB88WkfkshA9RikJ9/NNDUu33brwRtQ
+	hbCUyClw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpq1o-0000000D3fe-2YSQ;
-	Fri, 31 Jul 2026 16:24:08 +0000
+	id 1wpq1m-0000000D3YM-0qBB;
+	Fri, 31 Jul 2026 16:24:06 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxl-0000000Czja-29IE;
+	id 1wppxh-0000000Czch-2gex;
 	Fri, 31 Jul 2026 16:20:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514793;
-	bh=Nxh58kkTCJhDJZ7LOkXxKPsnDbbAawY8MD7ZCqqJ5bs=;
+	s=mail; t=1785514790;
+	bh=FjNG/FbAfUxNWdfXcasZdzMERNWbRLC78jj086GTy6I=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=KpewS9PA1BDaDp0B//q/gO+9yphcABEgsq9KIxwt/mjHZ+3nObMDEbeyjCRp4k9pp
-	 7TNs6AhYJoyXwy9v1Wji1tb3FoTTJt8FqsrP8oo18um45n5gzB67F2DNUVc58MxGzM
-	 ivtmVXnEwEHqebl2ge/J7XLYI64BuUPAi60OqpxbgS/rWt/6jEnntRQm1f3B7xsKo+
-	 nTNJRG7WuDXCb38b5NL4caiHrVLYlj93yZc40CbFskxARjhuAljeyQTG5JBAUE2UqZ
-	 YDMmtW8z8Ek0JvYYSezDCHqbBLviOXqchG+/RfpV6co1nZKqrdjY3UJ3P79evuGYdM
-	 NDWy/xPTO4gNg==
+	b=Hyrr0XvAvuzJDNa4V3fiG10eP9Etlr1hu5kpnKfXp3XP900r4GhIrAS8DlBN0bjqK
+	 SNAd5iaIPQ97UyS6C8qMrkvdZtYOjJvjNqmnY3uKU7NDWa+/NlAjk2h3hIVRqgKATX
+	 jztlOrxBM8CfmbKFxaZlP9824yanMlGxW911NyDjsuEosqtU8besE0lw9Bf7MkZhF+
+	 0A/1gmYzATtn7uNC+8uquq9pCKWh5CtTad+QxWE8vIYPxruer/e/bnebHK6Kk2G13A
+	 zxgVz8G2mpFHm99QAReBetdo9n4IkSh4RpOlEqK99sla344hDoIbYxzhUft3tegrOg
+	 LXd3FTojNwsHA==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3431217E08F7;
-	Fri, 31 Jul 2026 18:19:53 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6709017E093D;
+	Fri, 31 Jul 2026 18:19:50 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:20:01 +0300
-Subject: [PATCH v10 54/69] drm/rockchip: rk3066_hdmi: Advertise HDMI 1.4
- capabilities
+Date: Fri, 31 Jul 2026 19:19:57 +0300
+Subject: [PATCH v10 50/69] drm/bridge: ite-it6263: Drop redundant
+ .mode_valid hook
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-54-294364b2cf15@collabora.com>
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-50-294364b2cf15@collabora.com>
 References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -75,8 +75,8 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091958_750159_99150372 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20260731_091954_308950_3DFB0E6F 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +91,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
-supported HDMI version.  This is not yet enforced, but will become
-mandatory once the migration to the new caps-based HDMI connector
-initialization API is completed.
+Bridges using DRM_BRIDGE_OP_HDMI expect connectors to be created through
+drm_bridge_connector_init(), thereby relying on the bridge connector's
+.mode_valid hook to invoke drm_hdmi_connector_mode_valid().
 
-The RK3066 HDMI TX supports HDMI 1.4a, as described in commit
-f84d3d37b7fb ("drm: rockchip: introduce rk3066 hdmi").  However, the
-driver does not currently enforce a maximum TMDS character rate, it only
-filters non-CEA modes and excludes VIC 1 (640x480) via the .mode_valid
-callback.
+The generic helper computes the mode's TMDS character rate and forwards
+it to the bridge's .hdmi_tmds_char_rate_valid callback through the
+connector HDMI funcs.  This covers exactly what
+it6263_bridge_mode_valid() does for 8 bpc RGB444, but due to being
+output-format aware, it also handles the validation more thoroughly.
 
-Advertise HDMI 1.4 support for now so that modes exceeding the 340 MHz
-TMDS limit are rejected by the core.
+Both the connector and bridge .mode_valid hooks are invoked during
+mode validation through drm_mode_validate_pipeline(), so the custom
+bridge hook is redundant.  Drop it.
+
+While at it, remove the now-unused drm_hdmi_helper.h include.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rk3066_hdmi.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/bridge/ite-it6263.c | 16 ----------------
+ 1 file changed, 16 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-index f28d6a883e09..f748700b0ba6 100644
---- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-+++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-@@ -14,6 +14,7 @@
- #include <drm/drm_probe_helper.h>
- 
- #include <linux/clk.h>
-+#include <linux/hdmi.h>
- #include <linux/mfd/syscon.h>
- #include <linux/platform_device.h>
+diff --git a/drivers/gpu/drm/bridge/ite-it6263.c b/drivers/gpu/drm/bridge/ite-it6263.c
+index 21ac8e58b9d2..550999491086 100644
+--- a/drivers/gpu/drm/bridge/ite-it6263.c
++++ b/drivers/gpu/drm/bridge/ite-it6263.c
+@@ -15,7 +15,6 @@
  #include <linux/regmap.h>
-@@ -712,6 +713,7 @@ rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
- 	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
- 	hdmi->bridge.vendor = "Rockchip";
- 	hdmi->bridge.product = "RK3066 HDMI";
-+	hdmi->bridge.supported_hdmi_ver = HDMI_VERSION_1_4;
+ #include <linux/regulator/consumer.h>
  
- 	hdmi->bridge.ddc = rk3066_hdmi_i2c_adapter(hdmi);
- 	if (IS_ERR(hdmi->bridge.ddc))
+-#include <drm/display/drm_hdmi_helper.h>
+ #include <drm/display/drm_hdmi_state_helper.h>
+ #include <drm/drm_atomic.h>
+ #include <drm/drm_atomic_helper.h>
+@@ -669,20 +668,6 @@ static void it6263_bridge_atomic_enable(struct drm_bridge *bridge,
+ 	regmap_write(regmap, HDMI_REG_PKT_GENERAL_CTRL, ENABLE_PKT | REPEAT_PKT);
+ }
+ 
+-static enum drm_mode_status
+-it6263_bridge_mode_valid(struct drm_bridge *bridge,
+-			 const struct drm_display_info *info,
+-			 const struct drm_display_mode *mode)
+-{
+-	unsigned long long rate;
+-
+-	rate = drm_hdmi_compute_mode_clock(mode, 8, DRM_OUTPUT_COLOR_FORMAT_RGB444);
+-	if (rate == 0)
+-		return MODE_NOCLOCK;
+-
+-	return bridge->funcs->hdmi_tmds_char_rate_valid(bridge, mode, rate);
+-}
+-
+ static int it6263_bridge_attach(struct drm_bridge *bridge,
+ 				struct drm_encoder *encoder,
+ 				enum drm_bridge_attach_flags flags)
+@@ -831,7 +816,6 @@ static const struct drm_bridge_funcs it6263_bridge_funcs = {
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+ 	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+ 	.attach = it6263_bridge_attach,
+-	.mode_valid = it6263_bridge_mode_valid,
+ 	.atomic_disable = it6263_bridge_atomic_disable,
+ 	.atomic_enable = it6263_bridge_atomic_enable,
+ 	.detect = it6263_bridge_detect,
 
 -- 
 2.55.0
