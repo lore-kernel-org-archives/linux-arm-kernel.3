@@ -4,67 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5563C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0707C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHeesaJVgZhODLJEt2qmHsP6Es6q1uAxOplOykYQedM=; b=Dp6Eylansz/eVvd79Ia3jirmYb
-	ScRNBu+os1STAdlfVI3JF85ehzJCZCevJ7shsuz1bJ4aTd8lwLN9dB+uV2E8G5Uj/hSPDj1Cxge6v
-	ZYK8cRxPQ0pgId6EJQPcKZgeDfvTDcQMveWdZQ3R/HQvYhib9ZvwLJYDmLiPceaJYCjxCp3J7TrNh
-	xIgC4XTutJP5Czq3Zsupua7QW94kxp9agKiyWOGtkN9JB4hzQKJQI6todhTkFVnMzi/eQ0qMBSzXq
-	YZcbUo0eUTN0IP9PNxPs4gt8j38uq6VSjPfJyBw+CPiZZuWOr0h3qWcbgVgCD8GNMsZBTmWJDxAUG
-	nKHzOh7Q==;
+	bh=krnFUH9noJF3BUeutEj8rq9XttbIzN7HTjiKQ7YscuY=; b=ffye+acj0nczV7DFlmAJy0y3RD
+	lq3sZycq3nlzdPqJQLV3U8wMu4ALhPKW5Dw6k2vJiuAS/p1mvpi2w5FUGFGqX8WXhLkwI8mQFwsSe
+	zs8AUfamp+MPG7QWwybqrhy5YkVWRUgEOV3z+fs08ZnJQ7Cm8MUxwjoN/SgLsIoc8IJiJN+YQ+WDd
+	FR/fpYnRV0XnqC7oewQ/7Vf4zsef3HudqYEUo9e2HIkAYSe53nMaA0caaGeaYfI8hXZLdfxZkWQJC
+	FiWVb7Qq88YjTFJFsAFdmkfvp1fn26YCvChkZvEOW+DansZpE8NrucCLjKTyclFY7vc/t9coegJ4d
+	zN3hCcoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpq1d-0000000D38v-1Aj1;
-	Fri, 31 Jul 2026 16:23:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wpq1e-0000000D3F9-3kaq;
+	Fri, 31 Jul 2026 16:23:59 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxp-0000000Czpv-40X6;
-	Fri, 31 Jul 2026 16:20:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=IHeesaJVgZhODLJEt2qmHsP6Es6q1uAxOplOykYQedM=; b=ch9XOQYMT++eowZtG0PMmslUfq
-	IsH1/RV6zg2UXuYcrFU3mdX+2T59T9wZKWqpi+HgFn9uKEpTSPS9JA+KZPycW9IvAjR9e6G3UUdwe
-	MWBrkYx+Ra6xf/Orvd24ZJq6uT878eIBk7SS2RlH3YI5KItmayC16SH7onhpCigOYIsI68L08mAH3
-	xwJhlgYHHUmo67tCe1ULItvv2M/Yu8U8r92fI4MnAc/SzxBxWtNTLo/Pz3fxL63aQa1IA+Z5xOoEL
-	HAxwXgzEkD3QqX38VbAPOfdaqeohL+wBX/qOSfuaHcp4zez1LePqJQC+GQMNz/4JVkGDislXX197T
-	Xp98DaXA==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wppxl-00000007b9C-2dQG;
-	Fri, 31 Jul 2026 16:19:59 +0000
+	id 1wppxf-0000000CzaO-1FC6;
+	Fri, 31 Jul 2026 16:20:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514791;
-	bh=sA9hvcyp15eD/qblsyZ0XpFBugSaj6mhi+/AmnkxIDY=;
+	s=mail; t=1785514788;
+	bh=AJ/omjN/lK86toWZGrUtZiZmvSWbYljt1UsCr8wPgmY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=fKlWS2BQ9dRVs3IfHTGb4xDa37lKfuv0PoV87f0mci1XAKivqLCk6jMeqK+7QchEB
-	 1koxi0GGIJzc4DBIicvY4q4aX1J9yh3u9EsM6IxMU/tixuEEXPf8kpDCAuatd7iCvx
-	 +7wzVBmaqlBE5BEHHETSdyS61T07FJXDkjYSt5cuKaruplmuEQQwsUo6uX65fUFYF4
-	 ph0zDDOb81Tk15Mqr4IGZHYQHejWfOe1TaibzgRAVF3Deyx99D+pXtTj24FdVIihZb
-	 QMLS88og1I7mrjuPVYo1o2X29NF+RNTqqzFk5D56+xVmJKphB5SEo23KVzkNFEU/AF
-	 naXgccTTPV3Nw==
+	b=dVnch+0kNLmLhfj41SPiKFwqYpfM0HL/9gmQ8VhVgah7IsW8juZUXcdYRLva1LXuF
+	 rGeizyZs4dqtJyweYyYRLtpyAZEF5hII0tfaDn+l6wvaqZMkW6RPfCk1rsXrwXg5z9
+	 BHI0BE6+KUZIIUICEFa6q7UjezPL4PE7qBfkInxKWDOIFRANBX4z/852NSMgasMcDB
+	 Bt0Ibsa7ESFWkDrDrSSHxRxT4qdlte9swm7kdVDrpk/lTa50ASYk0jmAOkIXxlDl0w
+	 jQOYXzoBj6mssyyNQRpSMFjx01iE8ljm1YOc9jUivTkJ3C3IjqddFhw2jopUD1nqcG
+	 KWtmIBJ3EIzQg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C99E217E08E9;
-	Fri, 31 Jul 2026 18:19:51 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 444E017E091F;
+	Fri, 31 Jul 2026 18:19:48 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:19:59 +0300
-Subject: [PATCH v10 52/69] drm/bridge: ite-it66121: Advertise HDMI 1.2
- capabilities
+Date: Fri, 31 Jul 2026 19:19:54 +0300
+Subject: [PATCH v10 47/69] drm/display: hdmi-state-helper: Drop
+ drm_atomic_helper_connector_hdmi_force()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-52-294364b2cf15@collabora.com>
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-47-294364b2cf15@collabora.com>
 References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -89,8 +75,9 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_171957_864771_4DDF78CB 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260731_091953_918946_4D2A1CCE 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,65 +92,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bridges using DRM_BRIDGE_OP_HDMI are now expected to also provide a
-supported HDMI version.  This is not yet enforced, but will become
-mandatory once the migration to the new caps-based HDMI connector
-initialization API is completed.
-
-Since none of the chip variants handled by the driver can drive a TMDS
-character rate exceeding 148.5 MHz, advertise HDMI 1.2 as the supported
-version.  HDMI 1.2 allows up to 165 MHz, so set the bridge's
-max_tmds_char_rate to ensure the connector limit derived from
-supported_hdmi_ver remains within the hardware capabilities.
-
-drm_bridge_connector_atomic_check() runs
-drm_atomic_helper_connector_hdmi_check(), which rejects modes whose
-computed TMDS character rate exceeds the connector limit before invoking
-the driver's .tmds_char_rate_valid() hook, making the max_rate check in
-it66121_bridge_hdmi_tmds_char_rate_valid() redundant.  Drop it.
+With all callers converted to the .force_ctx() connector helper, this
+function has no users left.  Remove it.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/bridge/ite-it66121.c | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 15 ---------------
+ include/drm/display/drm_hdmi_state_helper.h     |  1 -
+ 2 files changed, 16 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/ite-it66121.c b/drivers/gpu/drm/bridge/ite-it66121.c
-index 51fc68ffdf8f..c8d0a26e8e90 100644
---- a/drivers/gpu/drm/bridge/ite-it66121.c
-+++ b/drivers/gpu/drm/bridge/ite-it66121.c
-@@ -10,6 +10,7 @@
- #include <linux/media-bus-format.h>
- #include <linux/module.h>
- #include <linux/device.h>
-+#include <linux/hdmi.h>
- #include <linux/interrupt.h>
- #include <linux/i2c.h>
- #include <linux/bitfield.h>
-@@ -867,15 +868,6 @@ it66121_bridge_hdmi_tmds_char_rate_valid(const struct drm_bridge *bridge,
- 					 const struct drm_display_mode *mode,
- 					 unsigned long long tmds_rate)
- {
--	const struct it66121_ctx *ctx =
--		container_of(bridge, const struct it66121_ctx, bridge);
--	unsigned long long max_rate;
--
--	max_rate = (ctx->bus_width == 12) ? 74250000ULL : 148500000ULL;
--
--	if (tmds_rate > max_rate)
--		return MODE_CLOCK_HIGH;
--
- 	if (tmds_rate < HDMI_TMDS_CHAR_RATE_MIN_HZ)
- 		return MODE_CLOCK_LOW;
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index 9544eb8659aa..04c9e06b9dc1 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -1261,21 +1261,6 @@ int drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
+ }
+ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug);
  
-@@ -1670,6 +1662,9 @@ static int it66121_probe(struct i2c_client *client)
- 			  DRM_BRIDGE_OP_HDMI;
- 	ctx->bridge.vendor = "ITE";
- 	ctx->bridge.product = "IT66121";
-+	ctx->bridge.supported_hdmi_ver = HDMI_VERSION_1_2;
-+	ctx->bridge.max_tmds_char_rate = ctx->bus_width == 12 ? 74250000ULL : 148500000ULL;
-+
- 	if (client->irq > 0) {
- 		ctx->bridge.ops |= DRM_BRIDGE_OP_HPD;
+-/**
+- * drm_atomic_helper_connector_hdmi_force - HDMI Connector implementation of the force callback
+- * @connector: A pointer to the HDMI connector
+- *
+- * This function implements the .force() callback for the HDMI connectors. It
+- * can either be used directly as the callback or should be called from within
+- * the .force() callback implementation to maintain the HDMI-specific
+- * connector's data.
+- */
+-void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector)
+-{
+-	drm_atomic_helper_connector_hdmi_update(connector, NULL, connector->status);
+-}
+-EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_force);
+-
+ /**
+  * drm_atomic_helper_connector_hdmi_force_ctx - HDMI Connector implementation
+  * of the force_ctx callback
+diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/display/drm_hdmi_state_helper.h
+index ae4fff82c3fb..81c85b4dce56 100644
+--- a/include/drm/display/drm_hdmi_state_helper.h
++++ b/include/drm/display/drm_hdmi_state_helper.h
+@@ -26,7 +26,6 @@ int drm_atomic_helper_connector_hdmi_update_infoframes(struct drm_connector *con
+ int drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
+ 					     struct drm_modeset_acquire_ctx *ctx,
+ 					     enum drm_connector_status status);
+-void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector);
+ int drm_atomic_helper_connector_hdmi_force_ctx(struct drm_connector *connector,
+ 					       struct drm_modeset_acquire_ctx *ctx);
  
 
 -- 
