@@ -4,71 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD53AC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CA4C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:36:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLEtjzZC6XO2Qlnk7Il0JAoCv42mikWjeIUVBXRtBTM=; b=IwOXQSbigSLzhosXH51gXYdriB
-	522XOxTPffCCjiLricglOrZG98a7WK94rGgdb/kSte8BWGWU1aVUtesWF2ZCSuc8MpknyQr7atvtk
-	fM6ec1ibcvC70sBfoBSUkiAfHdHSLTbrqFOyfb9pnQIZUfDJsTV+KYhdPcBPjhqEzA6uvtb/IAVjK
-	8mxqWepHoOelgqmeY0BVcMjtV+L6hF4JVgyOg9ibXS0py2dY26b0aA9gUwjw9TuaUWUdGE12mHuXc
-	8bn4bRUdVxnkKbMtTZRlTNtfZAtNL9ygcsbiR5rSJdDf/DUd+SYHC4lXmUlunveyO0DjAflFSXcpx
-	6HAH8vJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uduIPrl1I11Bqm2iizUnhzteBLIc++VlIS5E5JRZkT0=; b=AzFkcHdSXCXKXg3CN61RsXjG97
+	g6bkn5ySh2hStFb5egpWBpiaWxPiZ3hnSFaoq6kQZb4C3AhR1My3r/UV7+TKbUFkXWohwgkFCFzN1
+	Qb6DbU6u5GYd18j4U0L7tc9WAnlre0jM8qfL2BSSKcIX30Lpn52G1qRdIno2Xc/1ugTa1tfI5P9gU
+	NVM7jBuqSJrcZDEKG3xm+cTNNAJLIWuJ8vNrXNKq45uGn2qLnNXJU7DiwoIBOxlUG3p3iRh6nnBke
+	wymbTYECWdtk5lZ6Tg9dnDC210ruXOqVI4vL/exRlKmpa5DgyD/2eLASn5C7Y08NXqRBgq4Zb4TZg
+	l9gJFk9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpnMe-0000000CcuJ-0q6c;
-	Fri, 31 Jul 2026 13:33:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpnMa-0000000Cctk-1KKI
+	id 1wpnPE-0000000Cd7J-2NbZ;
+	Fri, 31 Jul 2026 13:36:08 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpnPB-0000000Cd6a-15Iq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:33:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE89C204C;
-	Fri, 31 Jul 2026 06:33:16 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17D5E3F7B4;
-	Fri, 31 Jul 2026 06:33:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785504800; bh=Su2Q0vEK8ZDYhYpvfxPBORRIylsS9MVKYgKQH/+k5h4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=H6BqC0ar6aExA+pO/+IEowd3nNJXiVsPhWxc5JJ4A/C0p4EoRha2jNW2GwVXw1ssY
-	 OGudSuqZT8LMtet8hTH0KbY40RCd46zhLxWhXLwsk+uYittan+J86wnZ/93zZ7zkx2
-	 Cd6/adrMz038bOfBVfB0uDbv9SsiPQEJNEq0QCIE=
-Message-ID: <0b190985-3a71-43fb-9530-d6b50faf2e27@arm.com>
-Date: Fri, 31 Jul 2026 14:33:16 +0100
+	Fri, 31 Jul 2026 13:36:06 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cea3004256so10818125ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 06:36:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785504964; x=1786109764; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=uduIPrl1I11Bqm2iizUnhzteBLIc++VlIS5E5JRZkT0=;
+        b=BRV6jCdAqj8eyKF6gvMVHkF1fd0VgsZ0rnq4AseQiuhb3AhwizwryGHcPJzhMf8dL4
+         iN6REc/ugfTbXFp5jDJi5WkGMD6AD27Y1u8f/VdIh8hjNRlBPLVODnpYSYaTCNbusdzZ
+         aVXYeUAWTCILwYVhr4mByMQqI+6wvESzUK6w2eq6zQFqgSiBbt3nk61SSKLDoew5wRlA
+         8ulX1l6xPFC6eC6xdrLjTVnRArpsXVE39tIUChxZCLNLJBt3Vr/YtpK18sDiTyXIuSpO
+         3Qn1TRf23+jFL2TyYasaeYgkVDJe0ZIzKwDkjI2Xjxt7Fj/WuPHNd4o8DoUUv49btFXY
+         CXsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785504964; x=1786109764;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=uduIPrl1I11Bqm2iizUnhzteBLIc++VlIS5E5JRZkT0=;
+        b=ffgshoBMch8cHrfyqqO2tSNhfd92lAOO2S7opXahy+dJZISlYE1Cfz2FJdm6y1L1It
+         T/jjWBa2H/jnhogNgA6jbs+Xe+EtRNm3hsGTzauXi5A4uc8hBVCItwrlrYDqNeThDVes
+         Sn+oPNLhOZpbBWY2ZejSfVCfmNbQLs93aLTypzzacASSTBAKDxGklV286M+cUyVdspRH
+         mzSYoVDqawh8A8SSqM/MfE8qhmHQ+jD3362kOLO287omUsAvCCxcGT+glc7h4p1WNoEw
+         mPTnVnUH193ecSHqh0jK3h23Gg7fND4LIC6VaeXaoEReDqVzdmAlMX9nY8CSH6AQJanV
+         QAcg==
+X-Forwarded-Encrypted: i=1; AHgh+Rr1wqStb5tBnSYYLFhb6TRKK8EOdJA8GtmNpycITHQDlV1CbdmBTFmD2fqQf7oP8Sl9NyVu5Dxe5c1cbJIvd64k@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOH4KiOu/hwB+t1fakZXT1VjVmYB/A0OOPTbtJPa32x8f8Htwj
+	5rzZ/x1NT/i/kQq9/qydAu+5FigQE8OZWzkRImhFYx8a0j3OfUrEbDQk
+X-Gm-Gg: AR+sD11VxS/P22snxETLUkA4jJHcyvIQQUyEcI+4iTunjD+nYVZWzLZLB8t1/AuCp0H
+	UAt7MT/i+jGpyzEggUKA7KuPv/RDyCb6L4EvlxanlLJr6O1qC0LBZY7gOzQKItfld4Z1bECZMky
+	pA+94Ps9DIWXOwdTTKOuB9H2+mjcyerTLTx4dA9sxW9twuw0x97ED4ssp/MTnbCJ4/Z+eHnrKgQ
+	yi6PWhd63WlDMGCvFdIGo/3HfZZLu9tO114PNYR07nRN8ZJ2BlbMXhblB02QKGFuqJs8KJQqbL+
+	21hp85GLBNNLKznih9MEyiKElPREQvJqf982cjD4OnuOReEgrFfMI6XHxCocAqLzxugZP0DY08v
+	gBRj4JoZ0KWcucTP7I7lH41B+TrNzG6XD4Vb42tLo6L4OOoF4CkJtd4CNmptD3E5uT3okO7PCpY
+	NUZloU5JprTv83HDMcyAILsvJcJ4Yx710NgKuNu50deTR9dPvMCuovcrLIbOIL9vZFKOt18t7Q9
+	heA8EiDtTfQ+skPIh1o4BQ/QdGuFBQ=
+X-Received: by 2002:a17:903:182:b0:2ca:53e9:1277 with SMTP id d9443c01a7336-2d0521e9560mr634015ad.1.1785504963767;
+        Fri, 31 Jul 2026 06:36:03 -0700 (PDT)
+Received: from [10.10.15.228] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04ae196a2sm5621035ad.16.2026.07.31.06.36.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jul 2026 06:36:03 -0700 (PDT)
+From: Potin Lai <potin.lai.pt@gmail.com>
+Date: Fri, 31 Jul 2026 21:33:44 +0800
+Subject: [PATCH v2] ARM: dts: aspeed: sanmiguel: Disable HSC nodes
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v6 09/10] arm_mpam: change MPAM-Fb error IRQ to use a
- threaded IRQ handler
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260730152539.2712312-1-andre.przywara@arm.com>
- <20260730152539.2712312-10-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260730152539.2712312-10-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260731-upstream-sanmiguel-remove-hsc-nodes-v2-1-6a954ea49ba8@gmail.com>
+X-B4-Tracking: v=1; b=H4sIADekbGoC/5WOQQ6CMBBFr0K6dswAiVJX3sOwaMsIY2hLOkA0h
+ LsLeAKXL3n57y9KKDGJumWLSjSzcAwbFKdMuc6EloCbjVWBxQWvJcI0yJjIeBATPLcT9ZDIx5m
+ gEwchNiRgtXa6JIeNtmpbGhI9+X1UHvWPZbIvcuM+vRsdyxjT57gx57v3X3HOIYcnlliRrQyiu
+ 7fecH920at6XdcvVLZZGOgAAAA=
+X-Change-ID: 20260730-upstream-sanmiguel-remove-hsc-nodes-b99c93ec0d9b
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Patrick Williams <patrick@stwcx.xyz>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, 
+ Mik Lin <Mik.Lin@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
+ Potin Lai <potin.lai.pt@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785504960; l=2663;
+ i=potin.lai.pt@gmail.com; s=20260522; h=from:subject:message-id;
+ bh=eyeZF/GOeEoskqfrS05+TdeD1fnc46qKy1AQ7cbiGkU=;
+ b=P/nATfAEnRGOJBomjmjs2N4AEqd1gXN+yIgUBZQpk6saBfGRcRI7xQs+RHFrBFJOxYETrt48D
+ /NCKAHNgCIdCmz7h+vuw/K4ebvONGPuFhX36F8agP9n4sC1Oc+6gNEH
+X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
+ pk=j3/nMxzz1ZPpp1revghyZ8IqOnwi6RWfuxXN2XrNMRE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_063324_545082_71EF14F0 
-X-CRM114-Status: GOOD (  35.85  )
+X-CRM114-CacheID: sfid-20260731_063605_305070_126BFDA2 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,156 +116,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Disable Hot-Swap Controller (HSC) power monitor nodes in the DTS.
 
-On 7/30/26 16:25, Andre Przywara wrote:
-> When an MPAM MSC gets into an error condition, it can trigger an error
-> IRQ. We cannot really do much about those errors, but we at least query
-> and log the error, then disable MPAM functionality.
-> 
-> This error report relies on reading the MSC's error status register
-> (ESR) in the current hard-IRQ handler, which is not possible for MPAM-Fb
-> based MSC accesses, since they involve mailbox routines that might sleep.
-> The same is true for clearing the interrupt at the source, which requires
-> an MSC access as well.
-> 
-> When an MSC is using MPAM-Fb, change the error IRQ to use a threaded IRQ
-> handler, with an empty hard IRQ routine, and doing all the MSC accesses
-> (to access the status and disable the IRQ line) in the threaded part.
-> The change is minimal, we just check for the first MSC access error and
-> bail out early. MMIO based MSCs keep using a hard-IRQ handler, since
-> they must be at least non-migrate-able when doing MSC accesses, for the
-> CPU affinity check to work.
-> Also forbid per-CPU interrupts (PPIs) for MPAM-Fb, as we cannot use a
-> threaded IRQ here.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/resctrl/mpam_devices.c | 64 ++++++++++++++++++++++++++--------
->  1 file changed, 49 insertions(+), 15 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index daaf3cf48475..606ae4af2be9 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -2660,24 +2660,38 @@ static int mpam_disable_msc_ecr(void *_msc)
->  	return 0;
->  }
->  
-> +/*
-> + * This will run as the threaded IRQ handler part when using MPAM-Fb, but
-> + * as the sole hard-IRQ handler for MMIO based accesses.
-> + */
->  static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->  {
->  	u64 reg;
-> +	int ret;
->  	u16 partid;
->  	u8 errcode, pmg, ris;
->  
-> -	if (WARN_ON_ONCE(!msc) ||
-> +	if (WARN_ON_ONCE(!msc))
-> +		return IRQ_NONE;
-> +
-> +	if (msc->iface == MPAM_IFACE_MMIO &&
->  	    WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(),
->  					   &msc->accessibility)))
->  		return IRQ_NONE;
->  
-> -	mpam_msc_read_esr(msc, &reg);
-> +	ret = mpam_msc_read_esr(msc, &reg);
-> +	if (ret) {
-> +		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
-> +
-> +		/* Try out best here ... */
-> +		goto out_disable;
-> +	}
->  
->  	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
->  	if (!errcode)
->  		return IRQ_NONE;
->  
-> -	/* Clear level triggered irq */
-> +	/* Clear level triggered irq. Ignore errors, we need to proceed. */
->  	mpam_msc_clear_esr(msc);
->  
->  	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
-> @@ -2688,19 +2702,19 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
->  			   msc->id, mpam_errcode_names[errcode], partid, pmg,
->  			   ris);
->  
-> -	/* Disable this interrupt. */
-> +out_disable:
-> +	/* Disable this interrupt. Ignore errors, we need to proceed anyway. */
->  	mpam_disable_msc_ecr(msc);
+Due to design requirements, the HSC driver probing is moved to userspace.
+Disabling these nodes in the device tree prevents kernel-level automatic
+driver probing and allows userspace to handle HSC device instantiation.
 
-If we fail to disable the interrupt then I don't think we can claim we handled it.
-Shouldn't we, after scheduling broken work, return IRQ_NONE?
+Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
+---
+Changes in v2:
+- Set the HSC nodes status disabled instead of removing.
+- Link to v1: https://patch.msgid.link/20260730-upstream-sanmiguel-remove-hsc-nodes-v1-1-f0308eb8a00c@gmail.com
 
-Thanks,
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Joel Stanley <joel@jms.id.au>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-aspeed@lists.ozlabs.org
+Cc: linux-kernel@vger.kernel.org
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Ben
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
+index 3cc6e772cc8c..b4463533d2d2 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
+@@ -445,45 +445,53 @@ &i2c9 {
+ 	pdb_mps_hsc1: power-monitor@10 {
+ 		compatible = "mps,mp5926";
+ 		reg = <0x10>;
++		status = "disabled";
+ 	};
+ 
+ 	pdb_ti_hsc1: power-monitor@11 {
+ 		compatible = "ti,lm5066i";
+ 		reg = <0x11>;
+ 		shunt-resistor-micro-ohms = <1000>;
++		status = "disabled";
+ 	};
+ 
+ 	pdb_mps_hsc2: power-monitor@12 {
+ 		compatible = "mps,mp5926";
+ 		reg = <0x12>;
++		status = "disabled";
+ 	};
+ 
+ 	pdb_ti_hsc2: power-monitor@13 {
+ 		compatible = "ti,lm5066i";
+ 		reg = <0x13>;
+ 		shunt-resistor-micro-ohms = <321>;
++		status = "disabled";
+ 	};
+ 
+ 	pdb_mps_hsc3: power-monitor@14 {
+ 		compatible = "mps,mp5926";
+ 		reg = <0x14>;
++		status = "disabled";
+ 	};
+ 
+ 	pdb_ti_hsc3: power-monitor@15 {
+ 		compatible = "ti,lm5066i";
+ 		reg = <0x15>;
+ 		shunt-resistor-micro-ohms = <321>;
++		status = "disabled";
+ 	};
+ 
+ 	pdb_mps_hsc4: power-monitor@16 {
+ 		compatible = "mps,mp5926";
+ 		reg = <0x16>;
++		status = "disabled";
+ 	};
+ 
+ 	pdb_ti_hsc4: power-monitor@17 {
+ 		compatible = "ti,lm5066i";
+ 		reg = <0x17>;
+ 		shunt-resistor-micro-ohms = <500>;
++		status = "disabled";
+ 	};
+ 
+ 	pdb_ioexp_20: gpio@20 {
 
->  
-> -	/* Are we racing with the thread disabling MPAM? */
-> -	if (!mpam_is_enabled())
-> -		return IRQ_HANDLED;
-> -
->  	/*
-> -	 * Schedule the teardown work. Don't use a threaded IRQ as we can't
-> -	 * unregister the interrupt from the threaded part of the handler.
-> +	 * Schedule the teardown work. We have to defer it as we can't
-> +	 * unregister the interrupt from the threaded part of a handler.
-> +	 * Check whether we are racing with the thread disabling MPAM.
->  	 */
-> -	mpam_disable_reason = "hardware error interrupt";
-> -	schedule_work(&mpam_broken_work);
-> +	if (mpam_is_enabled()) {
-> +		mpam_disable_reason = "hardware error interrupt";
-> +		schedule_work(&mpam_broken_work);
-> +	}
->  
->  	return IRQ_HANDLED;
->  }
-> @@ -2736,6 +2750,11 @@ static int mpam_register_irqs(void)
->  		/* The MPAM spec says the interrupt can be SPI, PPI or LPI */
->  		/* We anticipate sharing the interrupt with other MSCs */
->  		if (irq_is_percpu(irq)) {
-> +			if (msc->iface != MPAM_IFACE_MMIO) {
-> +				dev_err(&msc->pdev->dev,
-> +					"Only MMIO MSCs can use per-CPU interrupts\n");
-> +				return -EINVAL;
-> +			}
->  			err = request_percpu_irq(irq, &mpam_ppi_handler,
->  						 "mpam:msc:error",
->  						 msc->error_dev_id);
-> @@ -2747,9 +2766,24 @@ static int mpam_register_irqs(void)
->  					       &_enable_percpu_irq, &irq,
->  					       true);
->  		} else {
-> -			err = devm_request_irq(&msc->pdev->dev, irq,
-> -					       &mpam_spi_handler, IRQF_SHARED,
-> -					       "mpam:msc:error", msc);
-> +			irq_handler_t hard, threaded;
-> +
-> +			/*
-> +			 * MPAM-Fb needs a sleepable context for the MSC
-> +			 * accesses, whereas MMIO requires at least a
-> +			 * non-migrateable context for the processor ID check.
-> +			 */
-> +			if (msc->iface == MPAM_IFACE_MMIO) {
-> +				hard = &mpam_spi_handler;
-> +				threaded = NULL;
-> +			} else {
-> +				hard = NULL;
-> +				threaded = &mpam_spi_handler;
-> +			}
-> +			err = devm_request_threaded_irq(&msc->pdev->dev, irq,
-> +							hard, threaded,
-> +							IRQF_SHARED | IRQF_ONESHOT,
-> +							"mpam:msc:error", msc);
->  			if (err)
->  				return err;
->  		}
+---
+base-commit: c2b9fc3f7091157518a3ac2282a0a8bc797c227a
+change-id: 20260730-upstream-sanmiguel-remove-hsc-nodes-b99c93ec0d9b
+
+Best regards,
+--  
+Potin Lai <potin.lai.pt@gmail.com>
 
 
