@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC7CC5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1641C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JvQVZ1ESGezpxjygr4C7owbnXGGgdQC8kVVUjMZgPfM=; b=rALgD7tri/tupDMRld/MWTyVtN
-	eOadNL+IpuSPe589Qq4mfiGbPZ0WjceqIG/ZClYJMvx7Z65J2K4lApI7HKrKtq8B04H4fQI5irCc4
-	tQaqFUkbzw3KiBOPwWVckzWPl7xSHpsrv6rUayF8xutK34J2OIzT4A0el8zIWXzvo1js6Rcop7Wtg
-	5m2dj3XUAhlnWnhVm+gVRte8zTkCr1eqHNg5YwEuB8Fam72CDs+hw4aOAXkMiEAIoNAaswNhfXAxo
-	PaWSkeaAw8A0p2MuZ+VGV5e6GA1+LmKyl+34GHSjZP0UXfPQdIleQZXjZqJTsnlFGCjdYCDCEqbOU
-	79h0GD/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U0aoTx+JIMbNcemvR5BXn3jXNyYGeWb89EHxZLv8ff0=; b=CkuEF27O4So32msqfagnKZIBv2
+	W3SfeaP93qXGcS8yvA/geJP5eNMTh2weWfCcqEHfJYI0yFMTkSI/C8OU5VXxN8Vq+37dVKZLM/AtC
+	OO3M1Cq8MOtjL+RH+zchzKuyNXupyCrbdy3xGclinc/lM9cgXxKQQTfmoE4b0D4G5t4kw08W0dtgs
+	hvseXI1c91J1cXwhSXx8szaI3X2VyvYdzdYjkAp4sB1OHPGtoxr7czv6EJ5mcezrSSAJQ/6uGwrSe
+	k5EXb5uECFtECcsOy2mqLFdCH4G66Exi14WyWK0SgV+OKgzg3w62ewxKapnKjJSlN8ulyA6mzvA5s
+	QMmghewA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpnwv-0000000Cfiv-2Hfy;
-	Fri, 31 Jul 2026 14:10:57 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1wpo3D-0000000CgJK-1a3L;
+	Fri, 31 Jul 2026 14:17:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpnws-0000000CfiI-0QRJ
+	id 1wpo3C-0000000CgJ1-0Vhe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 14:10:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785507054; x=1817043054;
-  h=date:from:to:cc:subject:message-id;
-  bh=+3LK3A/OQ3XFFROQdeVrJ1TaOvQnEouxp6XMh36NyZU=;
-  b=Rhe+jj0niKB3bfOItqCUO2cYm0hiugvH2+bJFCjm+nf7zRUyqjx+Mlbt
-   lRzHzZ7tX5L92X1IPJBjqXW7E6AofKrVpLXSv3VYTPVSO6liWRFTSFTul
-   r9YXy/KmFtGnwakbcgbKJR8hWoSBG3Mb6H1gedqVP0YW+ywLhnNupf1HP
-   q6v4DMX3BrRrr4yYgcoMUtQ/msXd3SFM4pbviKpZJ7IyW9ANh9LFH7T8S
-   NbZ9PTrGApkVhwXAgKUExbHOJzVmV5rcMS4fthmkAoE2TELmQI3Dn4Z77
-   IBAqMqn15UWslltINUkI6Pns/ekfIYB1hevqpEOm11IsA8o0ngweQSUg/
-   A==;
-X-CSE-ConnectionGUID: tc6n5BemT1eixw/js+9AxQ==
-X-CSE-MsgGUID: XscJuwZnR2CsdwYT4pm46A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11861"; a="111678950"
-X-IronPort-AV: E=Sophos;i="6.25,196,1779174000"; 
-   d="scan'208";a="111678950"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 31 Jul 2026 07:10:53 -0700
-X-CSE-ConnectionGUID: pjfHunUwR46yGxIlY56GdA==
-X-CSE-MsgGUID: GKypds1hQLSkCQVGT4kJig==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,196,1779174000"; 
-   d="scan'208";a="260650029"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 31 Jul 2026 07:10:52 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wpnwn-0000000018z-0qI4;
-	Fri, 31 Jul 2026 14:10:49 +0000
-Date: Fri, 31 Jul 2026 22:10:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:imx/maintainers] BUILD SUCCESS
- 645effc0984ba8cd83cdf31e5a29945cd40973e1
-Message-ID: <202607312253.TeVLctxe-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_071054_158746_55DFADCD 
-X-CRM114-Status: UNSURE (   5.31  )
-X-CRM114-Notice: Please train this message.
+	Fri, 31 Jul 2026 14:17:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 219836004E;
+	Fri, 31 Jul 2026 14:17:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6CE51F000E9;
+	Fri, 31 Jul 2026 14:17:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785507444;
+	bh=U0aoTx+JIMbNcemvR5BXn3jXNyYGeWb89EHxZLv8ff0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=fOSctRSm8cIqWDiHJFYiZMeOidcwD4vGG1KQbnwRXNBXPFblLD/B5Te+bDb1jTWlC
+	 F1h/Iq5qStKIgccVUO6RZGvMLaW/YwGl50eIaL6dzcGhQMnIb79YTBdKPElyAKmvRf
+	 h1IvWndxICYUV8mvilnpBD4mDnkC/da4gcNK9L4NWEKsUT0z+80pVvUEu0H8u0kfr5
+	 0X/uf6c+tfppW7efvGwd5J+GWTeEl1cRhKDx/UureKjvPeTzJK+u4XmSIEFtFIqnuf
+	 uB7Uu1lvEmvDzQIBW1x1GQPq7MBnGgGWrt7yNpY6cZ+p90H2CRPzVjcnS7f+x2ZadP
+	 GELFhp6Kjfu8g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wpo38-0000000Ay4o-0kT9;
+	Fri, 31 Jul 2026 14:17:22 +0000
+Date: Fri, 31 Jul 2026 15:17:21 +0100
+Message-ID: <86bjbnckge.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v5 06/31] arm64/sysreg: Convert SPSR_ELx to automatic register generation
+In-Reply-To: <20260731130902.654679-7-seiden@linux.ibm.com>
+References: <20260731130902.654679-1-seiden@linux.ibm.com>
+	<20260731130902.654679-7-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, tabba@google.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,128 +110,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git imx/maintainers
-branch HEAD: 645effc0984ba8cd83cdf31e5a29945cd40973e1  MAINTAINERS: ARM/FREESCALE: merge Layerscape entry into i.MX entry
+On Fri, 31 Jul 2026 14:08:34 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> Convert SPSR_EL{1, 2, 12} to automatic register generation as per
+> DDIO616 2026-06. No functional change.
+>
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> ---
+>  arch/arm64/include/asm/sysreg.h |  3 --
+>  arch/arm64/tools/sysreg         | 72 +++++++++++++++++++++++++++++++++
+>  2 files changed, 72 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 4bfdac9401bd..1aa601c95188 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -295,7 +295,6 @@
+>  #define SYS_APGAKEYLO_EL1		sys_reg(3, 0, 2, 3, 0)
+>  #define SYS_APGAKEYHI_EL1		sys_reg(3, 0, 2, 3, 1)
+>  
+> -#define SYS_SPSR_EL1			sys_reg(3, 0, 4, 0, 0)
+>  #define SYS_ELR_EL1			sys_reg(3, 0, 4, 0, 1)
+>  
+>  #define SYS_ICC_PMR_EL1			sys_reg(3, 0, 4, 6, 0)
+> @@ -518,7 +517,6 @@
+>  #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+>  
+>  #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+> -#define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+>  #define SYS_ELR_EL2			sys_reg(3, 4, 4, 0, 1)
+>  #define SYS_SP_EL1			sys_reg(3, 4, 4, 1, 0)
+>  #define SYS_SPSR_irq			sys_reg(3, 4, 4, 3, 0)
+> @@ -604,7 +602,6 @@
+>  #define SYS_BRBCR_EL12			sys_reg(2, 5, 9, 0, 0)
+>  #define SYS_TTBR0_EL12			sys_reg(3, 5, 2, 0, 0)
+>  #define SYS_TTBR1_EL12			sys_reg(3, 5, 2, 0, 1)
+> -#define SYS_SPSR_EL12			sys_reg(3, 5, 4, 0, 0)
+>  #define SYS_ELR_EL12			sys_reg(3, 5, 4, 0, 1)
+>  #define SYS_AFSR0_EL12			sys_reg(3, 5, 5, 1, 0)
+>  #define SYS_AFSR1_EL12			sys_reg(3, 5, 5, 1, 1)
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 7cb61aca3797..2a4b94e8c62f 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -401,6 +401,78 @@ Res0	3:1
+>  Field	0	SO
+>  EndSysreg
+>  
+> +Sysreg	SPSR_EL1	3	0	4	0	0
+> +Res0	63:37
+> +Field	36	UNIJ
+> +Res0	35:34
+> +Field	33	PPEND
+> +Res0	32
+> +Field	31	N
+> +Field	30	Z
+> +Field	29	C
+> +Field	28	V
+> +Field	27	Q
+> +Field	26:25	IT01
+> +Field	24	DIT
+> +Field	23	SSBS
+> +Field	22	PAN
+> +Field	21	SS
+> +Field	20	IL
+> +Field	19:16	GE
+> +Field	15:10	IT27
 
-elapsed time: 795m
+I'm sorry, but this is complete nonsense. It looks like you have
+lifted the AArch32 version of the definition, and not the AArch64 view
+(which really is what matters here).
 
-configs tested: 108
-configs skipped: 0
+> +Field	9	E
+> +Field	8	A
+> +Field	7	I
+> +Field	6	F
+> +Field	5	T
+> +Field	4	M4
+> +Enum	3:0	M
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+I don't think you should split the M field as such. The AArch32
+encoding uses bit 4, and should be described.
 
-tested configs:
-alpha                            allnoconfig    gcc-16.1.0
-alpha                           allyesconfig    gcc-16.1.0
-alpha                              defconfig    gcc-16.1.0
-arc                             allmodconfig    gcc-16.1.0
-arc                             allyesconfig    gcc-16.1.0
-arc                  randconfig-001-20260731    clang-17
-arc                  randconfig-002-20260731    clang-17
-arm                           mmp2_defconfig    gcc-16.1.0
-arm                  randconfig-001-20260731    clang-17
-arm                  randconfig-002-20260731    clang-17
-arm                  randconfig-003-20260731    clang-17
-arm                  randconfig-004-20260731    clang-17
-arm64                randconfig-001-20260731    gcc-8.5.0
-arm64                randconfig-002-20260731    gcc-8.5.0
-arm64                randconfig-003-20260731    gcc-8.5.0
-arm64                randconfig-004-20260731    gcc-8.5.0
-csky                            allmodconfig    gcc-16.1.0
-csky                 randconfig-001-20260731    gcc-8.5.0
-csky                 randconfig-002-20260731    gcc-8.5.0
-hexagon                       randconfig-001    clang-24
-hexagon              randconfig-001-20260731    clang-24
-hexagon              randconfig-002-20260731    clang-24
-i386                            allmodconfig    gcc-14
-i386       buildonly-randconfig-001-20260731    clang-22
-i386       buildonly-randconfig-002-20260731    clang-22
-i386       buildonly-randconfig-003-20260731    clang-22
-i386       buildonly-randconfig-004-20260731    clang-22
-i386       buildonly-randconfig-005-20260731    clang-22
-i386       buildonly-randconfig-006-20260731    clang-22
-i386                 randconfig-001-20260731    gcc-14
-i386                 randconfig-002-20260731    gcc-14
-i386                 randconfig-003-20260731    gcc-14
-i386                 randconfig-004-20260731    gcc-14
-i386                 randconfig-005-20260731    gcc-14
-i386                 randconfig-006-20260731    gcc-14
-i386                 randconfig-007-20260731    gcc-14
-i386                 randconfig-011-20260731    clang-22
-i386                 randconfig-012-20260731    clang-22
-i386                 randconfig-013-20260731    clang-22
-i386                 randconfig-014-20260731    clang-22
-i386                 randconfig-015-20260731    clang-22
-i386                 randconfig-016-20260731    clang-22
-i386                 randconfig-017-20260731    clang-22
-loongarch                          defconfig    clang-24
-loongarch            randconfig-001-20260731    clang-24
-loongarch            randconfig-002-20260731    clang-24
-nios2                           allmodconfig    gcc-11.5.0
-nios2                            allnoconfig    gcc-11.5.0
-nios2                randconfig-001-20260731    clang-24
-nios2                randconfig-002-20260731    clang-24
-parisc                          allmodconfig    gcc-16.1.0
-parisc                          allyesconfig    gcc-16.1.0
-parisc                             defconfig    gcc-16.1.0
-parisc                        randconfig-001    gcc-8.5.0
-parisc               randconfig-001-20260731    gcc-8.5.0
-parisc               randconfig-002-20260731    gcc-13.4.0
-parisc               randconfig-002-20260731    gcc-8.5.0
-powerpc              randconfig-001-20260731    clang-17
-powerpc              randconfig-001-20260731    gcc-8.5.0
-powerpc              randconfig-002-20260731    clang-24
-powerpc              randconfig-002-20260731    gcc-8.5.0
-powerpc64            randconfig-001-20260731    gcc-8.5.0
-powerpc64            randconfig-002-20260731    gcc-8.5.0
-riscv                   nommu_k210_defconfig    clang-24
-riscv                         randconfig-001    clang-19
-riscv                randconfig-001-20260731    clang-19
-riscv                randconfig-002-20260731    clang-19
-s390                 randconfig-001-20260731    clang-19
-s390                 randconfig-002-20260731    clang-19
-sh                                 defconfig    gcc-16.1.0
-sh                   randconfig-001-20260731    clang-19
-sh                   randconfig-002-20260731    clang-19
-sparc                         randconfig-001    gcc-14
-sparc                randconfig-001-20260731    gcc-14
-sparc                randconfig-002-20260731    gcc-14
-sparc64              randconfig-001-20260731    gcc-14
-sparc64              randconfig-002-20260731    gcc-14
-um                   randconfig-001-20260731    gcc-14
-um                   randconfig-002-20260731    gcc-14
-x86_64     buildonly-randconfig-001-20260731    gcc-14
-x86_64     buildonly-randconfig-002-20260731    gcc-14
-x86_64     buildonly-randconfig-003-20260731    gcc-14
-x86_64     buildonly-randconfig-004-20260731    gcc-14
-x86_64     buildonly-randconfig-005-20260731    gcc-14
-x86_64     buildonly-randconfig-006-20260731    gcc-14
-x86_64                                 kexec    clang-22
-x86_64                        randconfig-001    gcc-14
-x86_64               randconfig-001-20260731    gcc-14
-x86_64               randconfig-002-20260731    gcc-14
-x86_64               randconfig-003-20260731    gcc-14
-x86_64               randconfig-004-20260731    gcc-14
-x86_64               randconfig-005-20260731    gcc-14
-x86_64               randconfig-006-20260731    gcc-14
-x86_64               randconfig-011-20260731    gcc-14
-x86_64               randconfig-012-20260731    gcc-14
-x86_64               randconfig-013-20260731    gcc-14
-x86_64               randconfig-014-20260731    gcc-14
-x86_64               randconfig-015-20260731    gcc-14
-x86_64               randconfig-016-20260731    gcc-14
-x86_64               randconfig-071-20260731    clang-22
-x86_64               randconfig-072-20260731    clang-22
-x86_64               randconfig-073-20260731    clang-22
-x86_64               randconfig-074-20260731    clang-22
-x86_64               randconfig-075-20260731    clang-22
-x86_64               randconfig-076-20260731    clang-22
-x86_64                          rhel-9.4-bpf    gcc-14
-xtensa               randconfig-001-20260731    gcc-14
-xtensa               randconfig-002-20260731    gcc-14
+> +	0b0000	EL0
+> +	0b0100	EL1t
+> +	0b0101	EL1h
+> +	0b1000	EL1tnv
+> +	0b1001	EL1hnv
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Please do *not* invent names. These are EL2t/EL2h, and cannot be
+anything else.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
