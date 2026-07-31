@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F8CCC55175
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 17:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9254FC55167
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 17:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9BfMO7lDi/jb9f6SoYoHXqiGNPLVG4w0N20HXOwKIiI=; b=O4OFunbTPdprzR1lgYBjB80sB8
-	yGzBxzmySsMQGRo39EDm9nNTAZeK+sPImnJaUr5d1kc4JE46f3uC7affSxiC1xxL6mFmBd4KvEta+
-	J2Y2CL64zsEgJfZij572FADlemqKyAp55dtrvr0QUg7LRBTo6PCN7CD11jzVObkA8WWn3lXM0kYvk
-	g2wIsg6KPH7jLx4O6ti3oxuQD0ROJPv6XMBWsUjKPCYSyuWZudoySUYbrEidMHfJPzNT6DbmDb923
-	7GE2EhC2dGfetgVIOZoOuvb5BOXcjSaODqxFSSxsCw4FWnen5JZKHqY1rTwh6XXibP1MY2a85TruZ
-	3GrCoERQ==;
+	bh=t+9CTldHkmPcTJwS5mSWfk0XaYsDahSdFAriIqs5uQo=; b=T8eM+3yjHDRUSJdpPvBIk0yRYd
+	tNs9GoZjjWAnpM7zq7lFbvSDdB67b+jAB57qGbLMncl0sQPB18mAxYwrqg5K9v5Zc5VGGIVYijP7V
+	CxwHJM9F4cwemZO1aihPpwOdHk/T7iyBtO/VPwyDprD1QwslqvMOOspLNvrNXmcnSoLVzq2HDXxOY
+	h7qkifKyMGox9rAKfCZJDYPv+60R4y9fQ0NJp/0oprN3shyeFW4A1PC9DCWoXrQCqCmsaL7ojbBDK
+	/90gYE2nRW57Z1G21aW2ebL4v0D3i/ubgPQQ/Sj8vhkLuJOLvEYA1PHzpADalRY9SP1bPZdJEINOq
+	q8X+n+0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpqh6-0000000DDix-1qb4;
-	Fri, 31 Jul 2026 17:06:48 +0000
-Received: from mail-pl1-x645.google.com ([2607:f8b0:4864:20::645])
+	id 1wpqh8-0000000DDlm-3bSy;
+	Fri, 31 Jul 2026 17:06:50 +0000
+Received: from mail-pg1-x545.google.com ([2607:f8b0:4864:20::545])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpqgp-0000000DDbJ-15nW
+	id 1wpqgv-0000000DDdi-11l2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 17:06:32 +0000
-Received: by mail-pl1-x645.google.com with SMTP id d9443c01a7336-2cc7e86e7c5so22488745ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 10:06:30 -0700 (PDT)
+	Fri, 31 Jul 2026 17:06:38 +0000
+Received: by mail-pg1-x545.google.com with SMTP id 41be03b00d2f7-cbb92868263so1542424a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 10:06:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785517590; x=1786122390; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1785517595; x=1786122395; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=9BfMO7lDi/jb9f6SoYoHXqiGNPLVG4w0N20HXOwKIiI=;
-        b=JAhZOhOIMmXxKNri3356voq1YbyFH2PoEN+w+z+F1fUSjd15wYW6MzG2oggeYPIHhG
-         UOJRLABU/m6rLpf1OLYmxc+W80GCkHnOW4FcWKJMbOJ9NsUKfOo9uqCYemaLgWtRu0cb
-         Q2oEDz7O1HA80MaTt+jHcVD1vdzRn64W5Lx+OxyjF4Akv5eACCyFi37X0QsFMu4q5Y/p
-         ah/ltTZ8wg+lIMtxy4goEMYEVPhQ49p2pRifyT7Z1KHvRQMiz8N7K2xwe0QucaJ2SYP3
-         Na3AOkFxe+zTWxbWDJIBo+ReHpJ5GcW9jWNEwjlEhTF9ZsiRNlEvfomnQPDBXzI7qviO
-         vQBg==
+        bh=t+9CTldHkmPcTJwS5mSWfk0XaYsDahSdFAriIqs5uQo=;
+        b=jjJxBtF/ZZ31KR5tYPUWzYUeRjCgpFNOz0N+OrvQfv1s9BnSC5kEMXHdaAoeq+nAtl
+         S+pTryuHZzxbzhYUTuyEkye2uAheyE/qR+Td8XdvlGsBshn2RdVP6oCs1+9K0DE+syfB
+         +Nc6WNZG/8qDKIi44jqW3zhILMVLmB/CqoozRKlJC+y83ghYI/A7DR5d38v3yvEpU23U
+         09K/xxNdMb8VF0yzC9015NPkopvbA0YXRK18xg8Cd4w/xmdADabOdcSnv2YiPWpX2oHB
+         syjUwQ01nw3pKhHvmyN2I1OS3pKh78wI3gMJKreoaxIqv4lpEBlGmG2DEdA1i07PxcQQ
+         1CIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785517590; x=1786122390;
+        d=1e100.net; s=20251104; t=1785517595; x=1786122395;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=9BfMO7lDi/jb9f6SoYoHXqiGNPLVG4w0N20HXOwKIiI=;
-        b=PFKsd5pi/ve0k++BBE06kXA2D8Fh8Uq70fq6sFsP2yHCYww5qNXlYvL5Q/jnIRF5Ai
-         KOXkaKuF2l+DU3XINxYRQYNLED5IL0A7Ixg85DEXN1AOH+mwMIfkkzjYyrbMxHTfvhUa
-         ymHTf+X0B0eUb+NHpua6YP1xhAGchckxZOEURKBFJzHimSV3TDzXfaocZ2KfOZH3bCgj
-         NSMDcPpgOR7hW+j+V7eIYdZiN+t9aDmx9BgmaTx5Y71XCnWVysjQGIcKoKAjik7dHgvx
-         V1ygLEpY0+/IPk62cBPZ58BZsmBCf8CG8U6f2UMi6k6bynG2Xa10TbpWQkwyxbihTiQB
-         NBdQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoF4BIOXlN172qLl74mT3sOUuHf4EQpZ1Z1UgNvfyA4COdX+MMBJ1D7GYcdRU4PgKb43WrmTY1L+b5Sl53s5y0d@lists.infradead.org
-X-Gm-Message-State: AOJu0YytrsRyZMKYHOgEa1p/BxoZjl7QFMYOtfXMqyjBXPRVqq1nGTt3
-	vJtoS/fE62eUWLTZ19za+28pqeP/XXujXo5nNGTyF/cUfWdmNUzrJtjLkpmpHrAb0zzu17bR46P
-	wQBptTQ==
-X-Received: from plje10.prod.google.com ([2002:a17:902:ed8a:b0:2ca:e62e:eb94])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:2d1:b0:2cc:6817:d9bc
- with SMTP id d9443c01a7336-2d0523e6ee5mr6994735ad.38.1785517589951; Fri, 31
- Jul 2026 10:06:29 -0700 (PDT)
-Date: Fri, 31 Jul 2026 10:06:13 -0700
+        bh=t+9CTldHkmPcTJwS5mSWfk0XaYsDahSdFAriIqs5uQo=;
+        b=EUeGV30bMRFBYHDl78Y7wyPkha2JvMbvEeSFhgeGdSnTum2XdtbFmC+ApN1d9D5WQW
+         7ksxgiGZlb0mwBVyLMVS8xpHWHj8IP1RuN5oRTZDAKpAQ3Q++jXLTqeFk5q/pcTJrEUn
+         zI0RZyybwKw2GtDxo8fGaWLCIgRMhQ8fMNKYffxExZtdpETVSJ0mY3yAK5ZMxuXGa1XD
+         XaEsA9FK3hdrsee9aGwuBcG7//jOinb2XBqnXrI83SO5GUwn0Q1b0t/ltdfzAXPqavbq
+         Ys3b8n+0NHcVQ5aYdiJtgET6gdz2/1T5d9zNhROntYkFLIGCL8AE1aD/9X5ZRO3T3bq9
+         +tLw==
+X-Forwarded-Encrypted: i=1; AHgh+RrobJNSPogRT7jHxjDFWNGuST1nENTx/jv+wCF5BDsjsH7FIZdYAhlfukKC2rKiHVGY6RNwBfetNfvnlwX0tqrR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxslBWdFmATlBOM0VEUjxR4W3A029RRuUK6/92hq1/ayMLrASag
+	pc2KhQyn4Hr0IrJedjSfNFD8fmsUNcRkU95b8AkDk5DjT9Hoz5Q+OSC5mlFPvqpx/hwMhyaZBVj
+	leyWIIQ==
+X-Received: from pgbcp10.prod.google.com ([2002:a05:6a02:400a:b0:c99:7baf:125f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:10d:b0:3c3:96dd:9ecc
+ with SMTP id adf61e73a8af0-3c92a867734mr515731637.57.1785517595183; Fri, 31
+ Jul 2026 10:06:35 -0700 (PDT)
+Date: Fri, 31 Jul 2026 10:06:17 -0700
 In-Reply-To: <20260731170619.2620845-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260731170619.2620845-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
-Message-ID: <20260731170619.2620845-7-seanjc@google.com>
-Subject: [PATCH v2 06/12] KVM: selftests: Affine threads to random CPUs in
- hardware disable test
+Message-ID: <20260731170619.2620845-11-seanjc@google.com>
+Subject: [PATCH v2 10/12] KVM: selftests: Add helper APIs to cancel+join pthreads
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
@@ -81,8 +80,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_100631_309880_1DE4AE1C 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20260731_100637_310556_AB58B9AD 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +97,201 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Affine the worker threads to random CPUs in the hardware disable test, and
-honor the starting CPU set in the process.  Hardcoding to CPUs 0-3 is both
-wrong and less interesting than running on random CPUs.
+Deduplicate test code that does cancel()+join() on pthreads by adding a
+collection of syscall wrappers.  The tests that asynchronously cancel
+pthreads, i.e. use PTHREAD_CANCEL_ASYNCHRONOUS, are particularly ugly,
+especially since it's not immediately obvious why those tests assert on
+the thread being CANCELED, whereas others do not.
+
+No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/hardware_disable_test.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ .../selftests/kvm/include/kvm_syscalls.h      | 24 +++++++++++++++++++
+ tools/testing/selftests/kvm/x86/hyperv_ipi.c  | 15 ++----------
+ .../selftests/kvm/x86/hyperv_tlb_flush.c      | 15 ++----------
+ .../selftests/kvm/x86/recalc_apic_map_test.c  |  3 +--
+ .../selftests/kvm/x86/sync_regs_test.c        |  3 +--
+ .../selftests/kvm/x86/xapic_ipi_test.c        | 15 ++----------
+ .../selftests/kvm/x86/xen_shinfo_test.c       |  3 +--
+ 7 files changed, 33 insertions(+), 45 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/hardware_disable_test.c b/tools/testing/selftests/kvm/hardware_disable_test.c
-index d8288147b0a6..bd23c1300370 100644
---- a/tools/testing/selftests/kvm/hardware_disable_test.c
-+++ b/tools/testing/selftests/kvm/hardware_disable_test.c
-@@ -149,12 +149,15 @@ void wait_for_child_setup(pid_t pid)
+diff --git a/tools/testing/selftests/kvm/include/kvm_syscalls.h b/tools/testing/selftests/kvm/include/kvm_syscalls.h
+index d6c18e13b9c8..c0657e54aee5 100644
+--- a/tools/testing/selftests/kvm/include/kvm_syscalls.h
++++ b/tools/testing/selftests/kvm/include/kvm_syscalls.h
+@@ -104,6 +104,30 @@ __KVM_SYSCALL_DEFINE(pthread_create, 4, pthread_t *, thread,
+ __KVM_SYSCALL_DEFINE(pthread_join, 2, pthread_t, thread, void **, thread_return);
+ __KVM_SYSCALL_DEFINE(pthread_cancel, 1, pthread_t, thread);
  
- int main(int argc, char **argv)
- {
-+	cpu_set_t allowed_cpu_set;
- 	u32 i;
- 	int s, r;
- 	pid_t pid;
- 
--	for (i = 0; i < VCPU_NUM; i++)
--		CPU_SET(i, &threads_cpu_set);
-+	kvm_sched_getaffinity(0, sizeof(cpu_set_t), &allowed_cpu_set);
++static inline void __kvm_pthread_cancel_join(pthread_t thread, void **r)
++{
++	kvm_pthread_cancel(thread);
++	kvm_pthread_join(thread, r);
++}
 +
-+	for (i = 0; i < VCPU_NUM && CPU_COUNT(&allowed_cpu_set); i++)
-+		CPU_SET(kvm_pick_random_cpu(&allowed_cpu_set), &threads_cpu_set);
++static inline void kvm_pthread_cancel_join(pthread_t thread)
++{
++	__kvm_pthread_cancel_join(thread, NULL);
++}
++
++/*
++ * Cancel+Join a pthread that was configured with PTHREAD_CANCEL_ASYNCHRONOUS
++ * and is expected to exit only in response to cancellation.
++ */
++static inline void kvm_pthread_cancel_join_async(pthread_t thread)
++{
++	void *r;
++
++	__kvm_pthread_cancel_join(thread, &r);
++	TEST_ASSERT(r == PTHREAD_CANCELED,
++		    "expected retval=%p, got %p", PTHREAD_CANCELED, r);
++}
++
+ #define kvm_free_fd(fd)		\
+ do {				\
+ 	kvm_close(fd);		\
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_ipi.c b/tools/testing/selftests/kvm/x86/hyperv_ipi.c
+index d2efb1043534..a2fc0bca8011 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_ipi.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_ipi.c
+@@ -222,17 +222,6 @@ static void *vcpu_thread(void *arg)
+ 	return NULL;
+ }
  
- 	sem = sem_open("vm_sem", O_CREAT | O_EXCL, 0644, 0);
- 	sem_unlink("vm_sem");
+-static void cancel_join_vcpu_thread(pthread_t thread, struct kvm_vcpu *vcpu)
+-{
+-	void *retval;
+-
+-	kvm_pthread_cancel(thread);
+-	kvm_pthread_join(thread, &retval);
+-	TEST_ASSERT(retval == PTHREAD_CANCELED,
+-		    "expected retval=%p, got %p", PTHREAD_CANCELED,
+-		    retval);
+-}
+-
+ int main(int argc, char *argv[])
+ {
+ 	struct kvm_vm *vm;
+@@ -293,8 +282,8 @@ int main(int argc, char *argv[])
+ 	}
+ 
+ done:
+-	cancel_join_vcpu_thread(threads[0], vcpu[1]);
+-	cancel_join_vcpu_thread(threads[1], vcpu[2]);
++	kvm_pthread_cancel_join_async(threads[0]);
++	kvm_pthread_cancel_join_async(threads[1]);
+ 	kvm_vm_free(vm);
+ 
+ 	return 0;
+diff --git a/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c b/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c
+index e4fc9bb6f329..dc9d40830a7f 100644
+--- a/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c
++++ b/tools/testing/selftests/kvm/x86/hyperv_tlb_flush.c
+@@ -548,17 +548,6 @@ static void *vcpu_thread(void *arg)
+ 	return NULL;
+ }
+ 
+-static void cancel_join_vcpu_thread(pthread_t thread, struct kvm_vcpu *vcpu)
+-{
+-	void *retval;
+-
+-	kvm_pthread_cancel(thread);
+-	kvm_pthread_join(thread, &retval);
+-	TEST_ASSERT(retval == PTHREAD_CANCELED,
+-		    "expected retval=%p, got %p", PTHREAD_CANCELED,
+-		    retval);
+-}
+-
+ int main(int argc, char *argv[])
+ {
+ 	struct kvm_vm *vm;
+@@ -652,8 +641,8 @@ int main(int argc, char *argv[])
+ 	}
+ 
+ done:
+-	cancel_join_vcpu_thread(threads[0], vcpu[1]);
+-	cancel_join_vcpu_thread(threads[1], vcpu[2]);
++	kvm_pthread_cancel_join_async(threads[0]);
++	kvm_pthread_cancel_join_async(threads[1]);
+ 	kvm_vm_free(vm);
+ 
+ 	return 0;
+diff --git a/tools/testing/selftests/kvm/x86/recalc_apic_map_test.c b/tools/testing/selftests/kvm/x86/recalc_apic_map_test.c
+index e3e397f32bff..6252a96320ee 100644
+--- a/tools/testing/selftests/kvm/x86/recalc_apic_map_test.c
++++ b/tools/testing/selftests/kvm/x86/recalc_apic_map_test.c
+@@ -65,8 +65,7 @@ int main(void)
+ 		vcpu_set_msr(vcpuN, MSR_IA32_APICBASE, LAPIC_DISABLED);
+ 	}
+ 
+-	kvm_pthread_cancel(thread);
+-	kvm_pthread_join(thread, NULL);
++	kvm_pthread_cancel_join(thread);
+ 
+ 	kvm_vm_free(vm);
+ 
+diff --git a/tools/testing/selftests/kvm/x86/sync_regs_test.c b/tools/testing/selftests/kvm/x86/sync_regs_test.c
+index 99a5bbeffc5d..ed0c21b427c9 100644
+--- a/tools/testing/selftests/kvm/x86/sync_regs_test.c
++++ b/tools/testing/selftests/kvm/x86/sync_regs_test.c
+@@ -199,8 +199,7 @@ static void race_sync_regs(struct kvm_vcpu *vcpu, void *racer)
+ 		}
+ 	}
+ 
+-	kvm_pthread_cancel(thread);
+-	kvm_pthread_join(thread, NULL);
++	kvm_pthread_cancel_join(thread);
+ 
+ 	kvm_x86_state_cleanup(state);
+ }
+diff --git a/tools/testing/selftests/kvm/x86/xapic_ipi_test.c b/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
+index 33e78b284c67..469e3ab16460 100644
+--- a/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
++++ b/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
+@@ -228,17 +228,6 @@ static void *vcpu_thread(void *arg)
+ 	return NULL;
+ }
+ 
+-static void cancel_join_vcpu_thread(pthread_t thread, struct kvm_vcpu *vcpu)
+-{
+-	void *retval;
+-
+-	kvm_pthread_cancel(thread);
+-	kvm_pthread_join(thread, &retval);
+-	TEST_ASSERT(retval == PTHREAD_CANCELED,
+-		    "expected retval=%p, got %p", PTHREAD_CANCELED,
+-		    retval);
+-}
+-
+ void do_migrations(struct test_data_page *data, int run_secs, int delay_usecs,
+ 		   u64 *pipis_rcvd)
+ {
+@@ -450,8 +439,8 @@ int main(int argc, char *argv[])
+ 	/*
+ 	 * Cancel threads and wait for them to stop.
+ 	 */
+-	cancel_join_vcpu_thread(threads[0], params[0].vcpu);
+-	cancel_join_vcpu_thread(threads[1], params[1].vcpu);
++	kvm_pthread_cancel_join_async(threads[0]);
++	kvm_pthread_cancel_join_async(threads[1]);
+ 
+ 	/*
+ 	 * If the host support Idle HLT, i.e. KVM *might* be using Idle HLT,
+diff --git a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
+index 3ec5e67b21ef..aaa414c677ad 100644
+--- a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
++++ b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
+@@ -947,8 +947,7 @@ int main(int argc, char *argv[])
+ 				TEST_ASSERT(!evtchn_irq_expected,
+ 					    "Expected event channel IRQ but it didn't happen");
+ 
+-				kvm_pthread_cancel(thread);
+-				kvm_pthread_join(thread, 0);
++				kvm_pthread_cancel_join(thread);
+ 				goto done;
+ 
+ 			case TEST_GUEST_SAW_IRQ:
 -- 
 2.55.0.508.g3f0d502094-goog
 
