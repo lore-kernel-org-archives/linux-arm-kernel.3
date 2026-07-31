@@ -4,104 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C269C54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:16:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91255C5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
+	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WV+jYURdiXcT2nyjhn/fxVeJaR+freDjSCEpiaE2zWs=; b=gZP3f1Ob8E3Lm3s0z8PR+1qZxV
-	C4/e6dcCz3xKIJGCgePm6ok8avtbPY9WKisR9d4Z/qxdtD/XEuV1dGnG+peAznB+jWiKbBi3PAA79
-	fpqBgEQGRMoUSH2drPBvWqiCPYRGh5SYpYU4HT5Kdr2OgEEYMitrai2TrARBP66WElsuthpB8LIoI
-	VDfO/XC1+HGaWFsy4PGYxzKvJ7zrO3pEhLhUmN6fBWU5aKUDvfScJfHlp0Cr95U/TU8/RfRd5/Jmg
-	NWAYqmGjD+I2Ns2tVcfqkbhweSowpDb1yuobDytOKgJ4K9JfU9DciNfNrx1N6XJExJU93Ge1rvR1J
-	u+h9rWfg==;
+	bh=gW+tvRQPk481HdTwPz8zkkWSMpWsfa6tS8dyetXXOrU=; b=Xjd1PaIRkh6nSZWMUNauzGluBP
+	d7p4upE8Ky8ULHd08IEFpvTu+8BHMisTT0KrYmWHc61JqHkeMCysUsmoSjNg4sPVLbKrMHONDJQxw
+	OH4eL6Vzd0ovbKDgsdU6eId3J1VJ6wQBDAz1FFwHaB5kQeQgMiHE28ygmE424u7YkJeGtUU4w3dl2
+	+g/UQ18lxr00I86POvrDMU+7Sn0TteFZSPAwPshfHbDS34/GkyOLgKAoE74yybcB9Ei+RoP6n8kYA
+	z5K737b10fIOJ9Fd3lePajK5sgTRBmowIRkuhbHOdQswI8jRK9lLYrcNMCaDZZ1jDOskX1X+uJ4T7
+	nVGNDOFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpn6F-0000000Cazy-2ncJ;
-	Fri, 31 Jul 2026 13:16:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wpn76-0000000CbA0-0byo;
+	Fri, 31 Jul 2026 13:17:24 +0000
+Received: from out203-205-221-149.mail.qq.com ([203.205.221.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpn6D-0000000Cazh-2vs1
+	id 1wpn71-0000000Cb7J-0xSB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:16:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1D650439B5;
-	Fri, 31 Jul 2026 13:16:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C37831F000E9;
-	Fri, 31 Jul 2026 13:16:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785503789;
-	bh=WV+jYURdiXcT2nyjhn/fxVeJaR+freDjSCEpiaE2zWs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=mRUkusClTRkapsoWZ5rNeOfDRt1nUTRB/gq0RJN+mR1oiQfHf6s8xHTiJfeQIWc6+
-	 0Sm4SdLjO9Pq0yD4nauD06NbTfPfTo107MsloY6jA9fyE9g76+LNK2JcvWviBS0jUO
-	 DV0Ji6USu51JonjJwPTs3LwoBwKZ+RpBY3xMJYcLsFH7qaWxtT3rGJtp051dLKsmcV
-	 bSXrMx/RryGI/j0z99d2dmadKtTbnZQWKfuYOLk85pSVnx0Bbiua/o/vd9h8k5nMKG
-	 DiVP0CUyMPLyxkrmp4KZ1EQwe89jS0NamU0rUqHHOrzkA6p3i066v5n6iSFnGh2HZk
-	 KjZFWcywXCO9A==
-Message-ID: <a305f816-b297-4619-8a27-01219367ac08@kernel.org>
-Date: Fri, 31 Jul 2026 15:16:23 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: defconfig: enable the necessary drivers for the
- Ayaneo Pockegt S2
-To: Neil Armstrong <neil.armstrong@linaro.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260731-topic-sm8650-ayaneo-pocket-s2-defconfigs-v2-1-fc409e59290c@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260731-topic-sm8650-ayaneo-pocket-s2-defconfigs-v2-1-fc409e59290c@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 31 Jul 2026 13:17:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1785503832; bh=gW+tvRQPk481HdTwPz8zkkWSMpWsfa6tS8dyetXXOrU=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=ewV+8ARlCn7ZAMKcE79lizjisbfeU2oczTzpc0TFED9y8m2W5Q9/Sq0Wrs36zYZrc
+	 3KprUZeCURqox5ekUEh57UwE1pr//ENACRGlP1R3xkcvtfF4RxWEQf78d4TQIyv10p
+	 oIpqCvlVFU1JsSWvz2CdzmS/FEQOpiNblyhtLYfI=
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-XMAILINFO: MhgqsjsLyB9lgglpvTRWkq4RtQwA360U8xUnh2PTRxSK+CQBsNgNq1J1FIRxgq
+	 r218z1HFIuJ9IRcNN5zmmaMt/+Swh/pTr+m/FmKmAGPYysj39rXWqFCEG9LDTiz/QS0L5Mt5TDq12
+	 hK8AZIhchdjCP3Y10d3BrioMfVynEtIteUUrAJiEbx36wL1yuA4tr38v1xSg9J7UUf1Ph5rDVJocu
+	 S6a9oD38B8YhsvvwpOCwbJ0ru4XfWofU59ZHPAeP6AylfuSJ12t2gbay4LCiC8XwWLe+g6Vi2xqdn
+	 JYy2A4ISNpdjEcdoKmWT2gTo9aKVmZ3rNFqtnFOd015HhD8uqW/btnIuxVBiaBD1fK3slEOiya8QP
+	 /Os9yMk4OvS+HTRwyI/WWIf+GQ8vyyt8p/gOiAimMRtVh6g0oOztKvqd/VlWM+hxGtpglIfa9U7aa
+	 7Q0AoYrM0EzA9A0jqNO9IFtTr+m6ZzpV40hmGYh06zr49fvC+ri5ridNtnHELqCFSf1YxxZWNzx4t
+	 1s/g6FdM8Mj7tzrqc5yKJJMu9TSMyFUCcme2wdjPZoHq2vZw2zgq01YMDjKrR/KLF9Ijm5V7WuaCq
+	 fW04sxTl5GSnFtdwlK/6uRAx/UkQwWDt+GqomKu8rjDu59JJPVRTbcLP5kLn1q2/TzuVyL0XnVBJe
+	 9rfEdH/l1xFLif18WpiWQXP4mvFIdnR60a7wrKY+xZ0M5pV74OBX4QC6nP5H8L1E8Y7FB4EB6lrk+
+	 HmMzyPoe8rq+3thLJUbXhMtf87Ho+akGM06EE0d/kC52iRq/pEmQmwyupb7BTcMlD31DNapja5TPH
+	 8LFV1Eg/QqmyhzBhJUSuSN6ZpLJEzgUN5s3Ex7lbSNBJmrrJHS4P1ewnVzJHkxck0rrHt7r/p4d9G
+	 kERH+8anl8MLPpkrwcCnsS/tdDnL9YXtZEDChwvx3W+p1rxxb3DUG9GNrlvp+w9GJxSOU4cGxAa4Q
+	 O1wHEbJ4Q29JHduTzjfV24N/6YaJc5OAzeS490Y2lDYDP/jXcAq6Jh3Dbn3iyP9uOWHRUZDUFFKvy
+	 vzpgMqmCwmtuZWjMOuk/9eRMhA9ajLpmh5waTNNmqut1OxsvFQDd0YfNaVutwqokygINboFFp86cn
+	 9D8=
+From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
+To: "=?utf-8?B?TWFyYyBLbGVpbmUtQnVkZGU=?=" <mkl@pengutronix.de>
+Cc: "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?VmluY2VudCBNYWlsaG9s?=" <mailhol@kernel.org>, "=?utf-8?B?Um9iIEhlcnJpbmc=?=" <robh@kernel.org>, "=?utf-8?B?S3J6eXN6dG9mIEtvemxvd3NraQ==?=" <krzk+dt@kernel.org>, "=?utf-8?B?Q29ub3IgRG9vbGV5?=" <conor+dt@kernel.org>, "=?utf-8?B?SGVpa28gU3R1ZWJuZXI=?=" <heiko@sntech.de>, "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?ZGV2aWNldHJlZQ==?=" <devicetree@vger.kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?SGVpa28gU3R1ZWJuZXI=?=" <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v6 2/4] can: rockchip: add RK3588 CAN support
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Fri, 31 Jul 2026 21:17:10 +0800
+X-Priority: 3
+Message-ID: <tencent_5AC853C017A2AE1F5B13110D854C79C2FF06@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <tencent_7BAA0052C402BFFD26291A64198084E39107@qq.com>
+ <tencent_207E464D12344B3228096E23A001D6882508@qq.com>
+ <20260731-tall-camouflaged-earthworm-e1a7d0-mkl@pengutronix.de>
+ <tencent_A3698A465C4621E164443B0005D1CC6FAE05@qq.com>
+	<20260731-precise-functional-lobster-cd779f-mkl@pengutronix.de>
+In-Reply-To: <20260731-precise-functional-lobster-cd779f-mkl@pengutronix.de>
+X-QQ-mid: xmsezb41-0t1785503830tg7jpmm29
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260731_061721_546568_9B9BDA83 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,22 +88,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/07/2026 10:13, Neil Armstrong wrote:
-> Enable the SGM3804 regulator, SY7758 backlight and Renesas 63419 panel
-> drivers as module since used by the display on the Qualcomm SM8650 based
-> Ayaneo Pocket S2 Gaming Console.
-> 
-> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
-> ---
-> Changes in v2:
-> - squashed into a single patch
-> - Link to v1: https://patch.msgid.link/20260728-topic-sm8650-ayaneo-pocket-s2-defconfigs-v1-0-49e3ac1c8ff4@linaro.org
-> ---
->  arch/arm64/configs/defconfig | 3 +++
->  1 file changed, 3 insertions(+)
+SGkgTWFyYywKCj4gPsKgPsKgQ2FuwqB5b3XCoGF0dGFjaMKgdGhlwqBUREPCoHRvwqB0aGXC
+oENBTsKgZnJhbWV3b3JrP8KgU2VlwqBjb21taXTCoDVlMTY2MzgxMGUxMQo+ID7CoD7CoCgi
+Y2FuOsKgbWNwMjUxeGZkOsKgZml4wqBUREPCoHNldHRpbmfCoGZvcsKgbG93wqBkYXRhwqBi
+aXTCoHJhdGVzIikuwqBBbmTCoGNoZWNrwqBpZgo+ID7CoD7CoENBTi1GRMKgd29ya3PCoG9u
+wqB0aGXCoHJrMzU4OMKgd29ya3M/Cj4gPgo+ID7CoENvdWxkwqB3ZcKgbGVhdmXCoHRoZcKg
+UkszNTg4wqBUREPCoHN1cHBvcnTCoG91dMKgb2bCoHRoaXPCoHBhdGNowqBzZXJpZXPCoGZv
+csKgbm93Pwo+IAo+IC4uYW5kwqBtYXJrwqB0aGXCoHJrMzU4OMKgYXPCoFJLQ0FORkRfUVVJ
+UktfQ0FORkRfQlJPS0VOwqBmb3LCoG5vdz/CoEZpbmXCoHdpdGjCoG1lLgoKSSBoYXZlIGZp
+bmlzaGVkIHRlc3RpbmcgdGhlIENBTi1GRCBUREMgaW50ZWdyYXRpb24gb24gUkszNTg4LgoK
+RW5hYmxpbmcgVERDIG1ha2VzIHRoZSB0cmFuc21pdHRlciBlbnRlciBidXMtb2ZmIGZvciBl
+dmVyeSBURENPIHZhbHVlCnRlc3RlZC4gVGhpcyBpbmNsdWRlcyB0aGUgZnJhbWV3b3JrIHZh
+bHVlIChURENPPTQ4KSwgVERDTz0wLCBhbmQgdGhlCm5vbi16ZXJvIHZhbHVlcyAxLCA4LCAx
+NiwgMjQsIDMyLCA0MCwgNDggYW5kIDU2LiBXaXRoIFREQ089NjMsIG9ubHkgb25lCmZyYW1l
+IHdhcyByZWNlaXZlZCBkdXJpbmcgYSAxMCBzZWNvbmQgdGVzdCwgc28gdGhhdCBzZXR0aW5n
+IGlzIG5vdCB1c2FibGUuCgpJIGNoZWNrZWQgdGhlIHJlZ2lzdGVyIGRlZmluaXRpb24gYWdh
+aW5zdCBSb2NrY2hpcCBSSzM1ODggVFJNClYxLjAtUGFydDEtMjAyMjAzMDkucGRmLiBUaGUg
+ZHJpdmVyIHVzZXMgQ0FOX1RSQU5TTUlUX0RFTEFZX0NPTVBFTlNBVElPTiBhdApvZmZzZXQg
+MHgxMDgsIHdpdGggdGRjX29mZnNldCBpbiBiaXRzIDY6MSBhbmQgdGRjX2VuYWJsZSBpbiBi
+aXQgMCwgd2hpY2gKbWF0Y2hlcyB0aGUgVFJNLiBUaHVzLCB0aGUgZmFpbHVyZSBpcyBub3Qg
+ZXhwbGFpbmVkIGJ5IGFuIGluY29ycmVjdCByZWdpc3RlcgphZGRyZXNzIG9yIGZpZWxkIGRl
+ZmluaXRpb24uCgpUaGUgdGVzdCBzZXR1cCB3YXM6CgogIEJvYXJkOiAgICAgICAgICAgICBl
+bWJlZGZpcmUscmszNTg4LWx1YmFuY2F0LTVpbwogIENBTiBjbG9jazogICAgICAgICAzMDAg
+TUh6CiAgTm9taW5hbCBiaXRyYXRlOiAgIDUwMCBrYml0L3MKICBEYXRhIGJpdHJhdGU6ICAg
+ICAgNSBNYml0L3MKICBTYW1wbGUgcG9pbnRzOiAgICAgODAlIG5vbWluYWwsIDgwJSBkYXRh
+CiAgQnVzOiAgICAgICAgICAgICAgIGNhbjAgYW5kIGNhbjEgZGlyZWN0bHkgY29ubmVjdGVk
+LCA2MCBPaG0gdGVybWluYXRpb24KCldpdGggVERDIGRpc2FibGVkLCBhYm91dCAyOSw3NzUg
+ZnJhbWVzIHdlcmUgcmVjZWl2ZWQgaW4gdGhyZWUgc2Vjb25kcyB3aXRoCm5vIGJ1cyBlcnJv
+cnMuIFdpdGggVERDIGVuYWJsZWQsIGNhbjAgdHlwaWNhbGx5IHJlYWNoZWQgYnVzLW9mZiBh
+ZnRlciBhYm91dAoxNS0zMSBidXMgZXJyb3JzLgoKVGhpcyBpcyBhIHByZWxpbWluYXJ5IGlu
+ZGljYXRpb24gb2YgYSBwcm9ibGVtIGluIHRoZSBSSzM1ODggQ0FOIElQIFREQwpwYXRoLCBh
+bHRob3VnaCBpdCBpcyBub3Qgc3VmZmljaWVudCB0byBwcm92ZSBhIHNpbGljb24gZGVmZWN0
+LiBJbgpwYXJ0aWN1bGFyLCB0aGUgaGFyZHdhcmUtbWVhc3VyZWQgdHJhbnNtaXR0ZXIgZGVs
+YXkgKFREQ1YpIGlzIG5vdCBvYnNlcnZhYmxlCnRocm91Z2ggdGhlIHJlZ2lzdGVycyBkZXNj
+cmliZWQgYnkgdGhlIFRSTSwgc28gdGhlIFREQyBvZmZzZXQgc2VtYW50aWNzCnN0aWxsIG5l
+ZWQgdG8gYmUgdmVyaWZpZWQgaW5kZXBlbmRlbnRseS4KClREQyBpcyBub3QgYSBtYW5kYXRv
+cnkgZmVhdHVyZSBmb3IgYSBDQU4tRkQgaW1wbGVtZW50YXRpb24uIEl0IGNvbXBlbnNhdGVz
+CnRoZSBUWC10by1SWCBsb29wIGRlbGF5IHdoZW4gdGhhdCBkZWxheSB3b3VsZCBvdGhlcndp
+c2UgY29uc3VtZSB0aGUgdGltaW5nCm1hcmdpbiBiZWZvcmUgdGhlIG5vcm1hbCBzYW1wbGUg
+cG9pbnQuIFdoZXRoZXIgaXQgbXVzdCBiZSBlbmFibGVkIGRlcGVuZHMgb24KdGhlIGNvbXBs
+ZXRlIGhhcmR3YXJlIHBhdGgsIGluY2x1ZGluZyB0aGUgY29udHJvbGxlciwgdHJhbnNjZWl2
+ZXIsIFBDQiBhbmQKYnVzLiBJdCBpcyB0aGVyZWZvcmUgbm90IHJlcXVpcmVkIHNvbGVseSBi
+ZWNhdXNlIENBTi1GRCBvciBhIHBhcnRpY3VsYXIKZGF0YSBiaXRyYXRlIGlzIHVzZWQuCgpP
+biB0aGUgYm9hcmQgdXNlZCBmb3IgdGhpcyB0ZXN0LCBDQU4tRkQgcnVucyByZWxpYWJseSBh
+dCA1IE1iaXQvcyB3aXRoIFREQwpkaXNhYmxlZCBhbmQgbm8gbG9zdCBmcmFtZXMuIFRoaXMg
+ZGVtb25zdHJhdGVzIHRoYXQgUkszNTg4IHN1cHBvcnRzIENBTi1GRCwKd2hpbGUgdGhlIG1h
+eGltdW0gdXNhYmxlIGRhdGEgYml0cmF0ZSBzdGlsbCBkZXBlbmRzIG9uIHRoZSBib2FyZCBk
+ZXNpZ24gYW5kCml0cyBUWC10by1SWCBkZWxheS4gQm9hcmRzIHdpdGggYSBsb25nZXIgZGVs
+YXkgbWF5IG5lZWQgYSBsb3dlciBkYXRhIGJpdHJhdGUsCmp1c3QgYXMgZGlmZmVyZW50IENB
+TiB0cmFuc2NlaXZlcnMgaGF2ZSBkaWZmZXJlbnQgbWF4aW11bSBkYXRhLXJhdGUKc3BlY2lm
+aWNhdGlvbnMgKGZvciBleGFtcGxlLCA4IE1iaXQvcyBmb3Igc29tZSBkZXZpY2VzIGFuZCA1
+IE1iaXQvcyBmb3IKb3RoZXJzKS4KCkluIG15IG9waW5pb24sIGVuYWJsaW5nIENBTi1GRCBz
+dXBwb3J0IG9uIFJLMzU4OCBpcyBpbmRlcGVuZGVudCBvZiBUREMuClREQyBpcyBhbiBvcHRp
+bWl6YXRpb24gZm9yIGhhcmR3YXJlIHBhdGhzIHRoYXQgbmVlZCBhZGRpdGlvbmFsIFRYLXRv
+LVJYCmRlbGF5IGNvbXBlbnNhdGlvbiwgcmF0aGVyIHRoYW4gYSBwcmVyZXF1aXNpdGUgZm9y
+IENBTi1GRCBvcGVyYXRpb24uIEkgd291bGQKdGhlcmVmb3JlIHN0aWxsIGxpa2UgdG8gZW5h
+YmxlIENBTi1GRCBzdXBwb3J0IGZvciBSSzM1ODggaW4gdGhpcyBzZXJpZXMgd2hpbGUKa2Vl
+cGluZyBUREMgZGlzYWJsZWQuIFREQyBzdXBwb3J0IGNhbiBiZSBpbnZlc3RpZ2F0ZWQgc2Vw
+YXJhdGVseSBpbiBhCmZvbGxvdy11cCBwYXRjaCBvbmNlIGl0cyBiZWhhdmlvciBoYXMgYmVl
+biB1bmRlcnN0b29kLgoKQmVzdCByZWdhcmRzLApDdW5oYW8K
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
 
