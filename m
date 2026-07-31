@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D8BBC5516D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB819C55174
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 17:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=if13ED8uLC8+wndoRg3A8dWG/gXqM5pkQpFeNofv1tU=; b=XSKHd7G8sC2jHoOgo5Dr64NS2X
-	lFAJ47/VmdN39lxte+hAMxydyH+mx0IqUZpJ7peb8Z3ZvINHIpwo8ocRfem/cuWZSINJ6zwN3smAE
-	JYtc21+wqpDUzH4Mr/m0/N2KQBioXjtvxMYptDo3MtzJv1tYyZ12U9C00as9dET5RcrhNGk8BHcWv
-	JZksaazcClGJK6c8kzI4Wq6InfBFYyWMYiR9iRnfokNuqJIDIQ2BHD0DQISvxQv/aUpWWZfd8WKWN
-	xsLLx+hYgg9xOhOEmM40ECyYbUH426NkE6Fwgf3fY2VAHSk0GME8p/4JaJLnyvuc9kZk+oIZlodV+
-	Xy2Ttndg==;
+	bh=HbwVJZZH8ZzrI+RF7qURJzltXs9Sil7+lRJAZNzSVCE=; b=xm793si70mkY8TvCvW/TwbSc7i
+	jkTzulgp1I9XRMCLZq7EQVLHlDY+KwZAyI2yaQeTyHoEoE6lFkmcv+sXCWgYnFeeRFnp4VOEqfBUG
+	cQ34bG5Cqw55lOKySUI3EU8AMVPsfRT8J7cg+xZRo5M7TNFHoBt6il8cmNYNkzqCeh59bgATiJldc
+	erju9Gbw6I79IGi2vWmwUTyGWCgHFhFjxc2cvAWboG7k4Dnc481XH7nMqlTw5547SL+JRe0fm7PEj
+	QqsVrSAoByIRHyF/owuaM3+ys0Wzg36GPMem38gX/Abq2UgM/3Q1CfSqOGHlXO40jPceDYAPbkbG8
+	gi3uVkcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wprPx-0000000DIb1-1lLF;
+	id 1wprPx-0000000DIbc-2iWl;
 	Fri, 31 Jul 2026 17:53:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wprPo-0000000DIXW-0DMt
+	id 1wprPs-0000000DIZC-2Nok
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 17:53:01 +0000
+	Fri, 31 Jul 2026 17:53:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3A6020E3;
-	Fri, 31 Jul 2026 10:52:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F6EC22C7;
+	Fri, 31 Jul 2026 10:52:59 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0634B3F66F;
-	Fri, 31 Jul 2026 10:52:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7E1DA3F66F;
+	Fri, 31 Jul 2026 10:53:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785520379; bh=p67MsNaPk2h2uveTN+qhhWyzAkeVkIvVQissMGf3+Wg=;
+	t=1785520383; bh=aaANCuK6JowsooolSKuvPbBp3qe85hIFwZCVvu0N4OE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aAsFZ9QnjIDlFlrz0bk+eB4doJq3eMwGgTCxEOwpyZfCCKpa3NGfpK+TIbVOjL7Qz
-	 Wc2uXSi3GfPm/UD9qmty9oA5wDi5flu3PYRSgMEyojYe0roUPssFRxb5R1ItpqDQt1
-	 sMagzjLpkK6Repf1J7kcgNWTv9pzB/SMYKn7NgYY=
+	b=hMZznL9/5+ZbCizTCWG6g+v56JwTH1TlbriX/6WfffCJLkKQnpHAkThYq6aGtAGKQ
+	 qmHsUFM2YrtxyYQl26uY/ULiC2Ikihj03XmdzefNAPYcp0nhh5uvxTxm3pz6TW8Azn
+	 D/7i5WHN6fNfk5IioMBuDyl1kh7tLGdGuCmuc+sc=
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com,
 	will@kernel.org
@@ -50,19 +50,18 @@ Cc: james.morse@arm.com,
 	tan.shaopeng@jp.fujitsu.com,
 	sdonthineni@nvidia.com,
 	jonathan.cameron@oss.qualcomm.com,
-	Zeng Heng <zengheng4@huawei.com>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH 1/6] arm_mpam: resctrl: Pick classes for use as MBM counters
-Date: Fri, 31 Jul 2026 18:52:38 +0100
-Message-ID: <20260731175243.904730-2-ben.horgan@arm.com>
+Subject: [PATCH 3/6] arm_mpam: resctrl: Add resctrl_arch_config_cntr() for ABMC use
+Date: Fri, 31 Jul 2026 18:52:40 +0100
+Message-ID: <20260731175243.904730-4-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260731175243.904730-1-ben.horgan@arm.com>
 References: <20260731175243.904730-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_105300_168735_1688CC32 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20260731_105304_700862_0F772AE8 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,95 +78,105 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-resctrl has two types of bandwidth counters, NUMA-local and global. MPAM
-can only count globally; either using MSC at the L3 cache or in the memory
-controllers. When global and local equate to the same thing continue just
-to call it global.
+ABMC, mbm_event mode, has a helper resctrl_arch_config_cntr() for changing
+the mapping between 'cntr_id' and a CLOSID/RMID pair.
 
-Pick the corresponding MPAM classes to back the MBM counters. As resctrl
-requires all monitors to be at the L3 cache, we can only use the counters
-at the memory controllers when they have the same topology as the L3 cache
-and the traffic they see if the same. In particular, for the bandwidth
-counters at the memory controllers to be exposed to resctrl it is required
-there is a single L3 cache and a single NUMA node as otherwise cross NUMA
-traffic will be counted at the wrong instance.
+Add the helper.
+
+For MPAM this is done by updating the mon->mbwu_idx_to_mon[] array, and as
+usual CDP means it needs doing in three different ways.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
 Tested-by: Fenghua Yu <fenghuay@nvidia.com>
 Tested-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 ---
-Changes since rfc v1:
-Move finding any_mon_comp into monitor boilerplate patch
-Move mpam_resctrl_get_domain_from_cpu() into monitor boilerplate
-Remove free running check
-Trim commit message
+Changes since new rfc:
+Mention mbm_event mode in commit message
 
 Changes since v3:
-Extra paragraph in commit message
+Warning bound (Sashiko)
 
 Changes since v4:
-Commit message tag ordering
-New sentence in block comment (Fenghua)
+resctrl_arch_reset_rmid() -> reset_arch_reset_cntr()
 
 Changes since v5:
 Add Gavin's R-b & T-b
 ---
- drivers/resctrl/mpam_resctrl.c | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ drivers/resctrl/mpam_resctrl.c | 48 +++++++++++++++++++++++++++++-----
+ 1 file changed, 42 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 226ff6f532fa..0fce9703b869 100644
+index 0698a235d15c..ab322865c51b 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -606,6 +606,16 @@ static bool cache_has_usable_csu(struct mpam_class *class)
- 	return true;
+@@ -125,12 +125,6 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d
+ {
  }
  
-+static bool class_has_usable_mbwu(struct mpam_class *class)
-+{
-+	struct mpam_props *cprops = &class->props;
-+
-+	if (!mpam_has_feature(mpam_feat_msmon_mbwu, cprops))
-+		return false;
-+
-+	return true;
-+}
-+
- /*
-  * Calculate the worst-case percentage change from each implemented step
-  * in the control.
-@@ -983,6 +993,24 @@ static void mpam_resctrl_pick_counters(void)
- 				break;
- 			}
- 		}
-+
-+		if (class_has_usable_mbwu(class) &&
-+		    topology_matches_l3(class) &&
-+		    traffic_matches_l3(class)) {
-+			pr_debug("class %u has usable MBWU, and matches L3 topology and traffic\n",
-+				 class->level);
-+
-+			/*
-+			 * An MSC measures bandwidth for a path determined by
-+			 * its location in hardware. We can't distinguish
-+			 * traffic by destination so we don't know if it's
-+			 * staying on the same NUMA node. Hence, we can't
-+			 * calculate mbm_local except when we only have one L3
-+			 * and it's equivalent to mbm_total and so always use
-+			 * mbm_total.
-+			 */
-+			counter_update_class(QOS_L3_MBM_TOTAL_EVENT_ID, class);
-+		}
+-void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+-			      enum resctrl_event_id evtid, u32 rmid, u32 closid,
+-			      u32 cntr_id, bool assign)
+-{
+-}
+-
+ int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+ 			   u32 unused, u32 rmid, int cntr_id,
+ 			   enum resctrl_event_id eventid, u64 *val)
+@@ -1082,6 +1076,48 @@ static void mpam_resctrl_pick_counters(void)
  	}
  }
  
++static void __config_cntr(struct mpam_resctrl_mon *mon, u32 cntr_id,
++			  enum resctrl_conf_type cdp_type, u32 closid, u32 rmid,
++			  bool assign)
++{
++	/* Same CDP index remap as closid; maps cntr_id to assigned_counters[]. */
++	u32 mbwu_idx, mon_idx = resctrl_get_config_index(cntr_id, cdp_type);
++
++	closid = resctrl_get_config_index(closid, cdp_type);
++	mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
++
++	if (assign)
++		mon->mbwu_idx_to_mon[mbwu_idx] = mon->assigned_counters[mon_idx];
++	else
++		mon->mbwu_idx_to_mon[mbwu_idx] = -1;
++}
++
++void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			      enum resctrl_event_id evtid, u32 rmid, u32 closid,
++			      u32 cntr_id, bool assign)
++{
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evtid];
++
++	if (evtid != QOS_L3_MBM_TOTAL_EVENT_ID) {
++		pr_debug("unexpected event id\n");
++		return;
++	}
++
++	if (!mon->mbwu_idx_to_mon || !mon->assigned_counters) {
++		pr_debug("monitor arrays not allocated\n");
++		return;
++	}
++
++	if (cdp_enabled) {
++		__config_cntr(mon, cntr_id, CDP_CODE, closid, rmid, assign);
++		__config_cntr(mon, cntr_id, CDP_DATA, closid, rmid, assign);
++	} else {
++		__config_cntr(mon, cntr_id, CDP_NONE, closid, rmid, assign);
++	}
++
++	resctrl_arch_reset_cntr(r, d, closid, rmid, cntr_id, QOS_L3_MBM_TOTAL_EVENT_ID);
++}
++
+ static int mpam_resctrl_control_init(struct mpam_resctrl_res *res)
+ {
+ 	struct mpam_class *class = res->class;
 -- 
 2.43.0
 
