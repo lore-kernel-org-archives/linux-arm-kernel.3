@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569AFC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 20:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EB0C55173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 20:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yebtGUa2uL7h2MtOfCtXvRl825pwJqmlyhUE+Wjb6EY=; b=cC77Kz9biqu2o8w7O6HTFJU8im
-	djnIGzYcbFo/mfRo2+5flyTQvqIHF94MIBFfAOSAC8tRmOGfeUzt6PMOF6LdXvy9Bo1gxe2ilds52
-	vYtD2eaA1DlJJ0H5ZkkUGKZikwP0rBqcG3qLKzolffzFpUdsyR1XVEJ475cujP1cNtLB4/Ju0b0UI
-	kGnNUXmK5CrElknTqtodv/ja0n7Ct0u6NtOWHmKeVNPyKTs5ePtfYwHrPWPvWhWO4VSRXLPbOw+NY
-	TurSlQkbf4T5TjJV1+jDIeA45Mu41n2XdNkQR5Rc8bIpNPMQvTGqRXXE6S/OTlvNBigGl99Lp465q
-	tSPu6R0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MBI+DxucX7uN1fwo7HqSW/JtnIQy5htPAaDCcSSW7Vw=; b=iRnJJgFg8BPM4mNvTcdzf/34PC
+	r94SZmSdCAOMSoBFQ0Q1lX6UTyBDD3wOXCmrs4289xWB1u4uGVyyHomoWoi5PMZm9spG/LHg052GE
+	/IcxQ+XwJ5Yr1wscM9w9rGiEGPiW7glXBZs7v66ne12+NGKjjdc7OwBGyXW8vRxLEoIwQ79Y76DER
+	RqvwrTXr+teFeXuCKivDtraIVm46vnYuangytP3DJ3SQCGZ3NO1vflzP7VK8OHs0ogKMciI1sOFnv
+	r9GbGzIyVswlN8CBR3rQf3A2OAcAw0nWeXeh0NdpkJDQp6fQabB7nP7O9KbvblDod9Qk4ET25Wcyj
+	GxQxf4tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpu8E-0000000DZUO-3L6i;
-	Fri, 31 Jul 2026 20:47:02 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1wpuCz-0000000DZol-1YeK;
+	Fri, 31 Jul 2026 20:51:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpu8C-0000000DZTQ-1m2J
+	id 1wpuCx-0000000DZoa-3FQJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 20:47:01 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=Fen9wKt55bvlJ6YwZALJLAh1T0TNrU2GbVmVG/BJvOY2xjajJZ4w+1EqBrRH8igeoV+7iV+UJmnV4yHTm11oHNuXI7KVVIlhQIk45UBpRVaP6drMBS6PEaYiS/nLJw2VdPd9XXuYjxERW3oBOcJnNyn/Hmz23RmoendTlSQh7VuB0gKvnf4x8txxefH5VEqFJiev/oe71RiVYwFMU/NXFogIfZKOODk19ys4zdjN60NgXDaaIzDGIonRertmu6biu5bezrPSIvfGg6NuKmMzdtXyw5DKlWWtMIMpoYnirI8tmE4yvVqf8dDzCqnZdY48F0GyRUqCLD5AlLgf9La4zA==; s=purelymail1; d=c127.dev; v=1; bh=yebtGUa2uL7h2MtOfCtXvRl825pwJqmlyhUE+Wjb6EY=; h=Received:From:To:Subject:Date;
-DKIM-Signature: a=rsa-sha256; b=fhOQSsTDbK4PMqvXrBFp2EAPGjpy5I4Z7yH7u83e/c0hfPTYYropER4VOX/eWuYsdtf9jzYMIDoqeQZwyDPrsUT8XHq4KLPcZjjrR+OuHn1djVLzItqY4cZjgcR9v6GX4YQqaIvV/EBJHPoU2XH6m1338OezIakMMT3n0rWhLYjKkDWLaE0IWknBZrJRuDS3G86x5Phh7icBARQ19LbxhR+ColyBAkhDtYYmRsVXEaI385AdUhfr7GW9e7domi+DgdVnIlQCgiEIuYxDbz6f9mecArVKddpC5cI/fXGwptEMqWNrPkvJ23DXm0/BGU+90yTEDSNSvlEF0vuvYjsm6Q==; s=purelymail1; d=purelymail.com; v=1; bh=yebtGUa2uL7h2MtOfCtXvRl825pwJqmlyhUE+Wjb6EY=; h=Feedback-ID:Received:From:To:Subject:Date;
-Feedback-ID: 1017243:43747:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1250848215;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Fri, 31 Jul 2026 20:46:27 +0000 (UTC)
-From: Johan Alvarado <contact@c127.dev>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Johan Alvarado <contact@c127.dev>,
-	netdev@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	Jose.Abreu@synopsys.com,
-	rmk+kernel@armlinux.org.uk,
-	pavel@ucw.cz,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net RESEND] net: stmmac: raise TX completion interrupt at the end of an xmit burst
-Date: Fri, 31 Jul 2026 15:44:44 -0500
-Message-ID: <20260731204444.65925-1-contact@c127.dev>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260731194522.55069-1-contact@c127.dev>
-References: <20260731194522.55069-1-contact@c127.dev>
+	Fri, 31 Jul 2026 20:51:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 328B4418CD;
+	Fri, 31 Jul 2026 20:51:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C70B1F00AC4;
+	Fri, 31 Jul 2026 20:51:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785531115;
+	bh=MBI+DxucX7uN1fwo7HqSW/JtnIQy5htPAaDCcSSW7Vw=;
+	h=From:Date:Subject:To:Cc;
+	b=EXdyf0hss9aPzJ/i4db3jAzDgBxtdTxeow2HG5hN/IvQdlkLz/vWEyzORxxFphV1l
+	 s+dYGQeQAH7+DQHzi6XP+arKsqfNQx8SkaIDjmHRadMj1fe/tp48HBSragg4uDUZqc
+	 46rQLfJVpgD2PWvAIT5qWVruziRvg3bAYDpNa8UdqPHs4E7+tXozF9O1w9/vd2qLav
+	 kh9fv216jztT7MJkApuaVUu7zSODOA36UKti5uKd4ELAeuVKw41aStz5792/qGHCcr
+	 OGaop1ezSS4v+Q6KFGvbV8/bMKc17I9Gf0gHT9FQfOVScyynYgY83KIx5JcauSniiM
+	 33L/LZGiKevHw==
+From: Mark Brown <broonie@kernel.org>
+Date: Fri, 31 Jul 2026 21:50:52 +0100
+Subject: [PATCH] kselftest/arm64: Don't write to P0 in irritator on SME
+ only systems
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-MIME-Autoconverted: from 8bit to quoted-printable by Purelymail
-Content-Type: text/plain; charset=UTF-8
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_134700_544830_9FBD9CDD 
-X-CRM114-Status: UNSURE (   5.90  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260731-arm64-sve-test-sme-only-v1-1-eb559009dce8@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAKsKbWoC/yXMQQrCMBBG4auUWTuQ1hDRq4iLmP7REZtKJhZL6
+ d0bdfkt3ltIkQVKp2ahjElUxlTR7hoKd59uYOmrqTOdM4d9yz4PzrJO4AItrAN4TM+ZrbOw5ti
+ HGD3V+pUR5fM7ny9/6/v6QCjfHa3rBu0kex97AAAA
+X-Change-ID: 20260731-arm64-sve-test-sme-only-464e409dcffa
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>, 
+ Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1755; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=GJ5LmgPC4TEjYq3Z1NrIggZZfJeakFkQR4490y54zBE=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqbQroWQFZFzuMZ5bOpnu6Yh4Qh7/o/9MFxgpIr
+ uBHWDg1W+mJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCam0K6AAKCRAk1otyXVSH
+ 0M8kB/sEm5oMNxHsgcp5vf8BiN9HkeZiuzvNcdvl/YJmB8C/sEYwRwd+bf5Jrx06BnwOlc+ZgXC
+ IsVfXJT8NkUapMMiu1f5QxH0ccop31qu39HG8yaPF7KvzhS0wB08/Ea8vLpLlhR/fFO4Sz2+cpl
+ KVHC2ZQtkLEwb2+I0UlEloNyTqQ9L194ytGj3SkdzufS8WHqURSJYjts/529IujGO7mKycjHolq
+ 8Ju+wBVHWCzS0/XJf70kjAoQZJWzEKb3+3f0rfwJFtDq4KgPrG6DTeQkBiiuVr4S40A6APGHvh6
+ 9Np3TyvAf1Inqng9TjwdZMplFJI58paTiKdSjFgS0Nn3bQTs
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,19 +85,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Cc Maxime Chevallier, who now maintains stmmac; the MAINTAINERS
-handover postdates the CC list of the original posting, sorry for the
-omission.
+Commit 3e360ef0c0a1f ("kselftest/arm64: Corrupt P0 in the irritator when
+testing SSVE") added corruption of P0 to the sve-test case in order to
+ensure that the predicate registers were covered as part of the
+corruption.  On SME only systems this results in an illegal instruction
+since signal handlers are run out of streaming mode and the predicate
+registers do not exist out of streaming mode without SVE.  Switch to
+entering and exiting streaming mode in the irritator, this will reset
+all relevant registers to 0 if they somehow weren't already by the
+signal entry.
 
-Maxime: this is a repost of a fix originally sent on 2026-07-06,
-reposted at Jakub's request after the netdev patch queue overflowed.
-The previous posting, including the review discussion with Maciej
-Fijalkowski on whether frame-based coalescing could be dropped
-entirely, is here:
+Fixes: 3e360ef0c0a1f ("kselftest/arm64: Corrupt P0 in the irritator when testing SSVE")
+Reported-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ tools/testing/selftests/arm64/fp/sve-test.S | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-https://lore.kernel.org/netdev/0100019f35ea26e0-42ad009c-01ab-4a8f-b126-fa6=
-5fbacae5c-000000@email.amazonses.com/
+diff --git a/tools/testing/selftests/arm64/fp/sve-test.S b/tools/testing/selftests/arm64/fp/sve-test.S
+index 80e072f221cd..7ef7835389e7 100644
+--- a/tools/testing/selftests/arm64/fp/sve-test.S
++++ b/tools/testing/selftests/arm64/fp/sve-test.S
+@@ -298,15 +298,20 @@ function irritator_handler
+ 	add	x0, x0, #1
+ 	str	x0, [x2, #ucontext_regs + 8 * 23]
+ 
++#ifndef SSVE
+ 	// Corrupt some random Z-regs
+ 	movi	v0.8b, #1
+ 	movi	v9.16b, #2
+ 	movi	v31.8b, #3
+ 	// And P0
+ 	ptrue	p0.d
+-#ifndef SSVE
+ 	// And FFR
+ 	wrffr	p15.b
++#else
++	// Enter and exit streaming mode, will reset all of the V, Z, P
++	// and FFR registers that the system has.
++	smstart_sm
++	smstop
+ #endif
+ 
+ 	ret
+
+---
+base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
+change-id: 20260731-arm64-sve-test-sme-only-464e409dcffa
 
 Best regards,
-Johan
+--  
+Mark Brown <broonie@kernel.org>
+
 
