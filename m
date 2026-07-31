@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B586BC5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD1E7C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+dW/n3lV9NnxZfqXfv7a2nhfsFMVeaCYAmFfsOgoDn4=; b=gN2nfCAzxQxI2KaoOzQ+uyNYM5
-	9FVPGVAe20/keO4YO8anLSYUeQAvCfvoPfkyuz+L9qab071MQbCaSDam9lVaFPvJZI1b10MUUB58c
-	xwIeZlIrU41rHPoH4S3VI+KzPkHB7uKkdHjEX3A57Ti3ii/F5KNryJT2YEhzBvJL2504BMg9aEab4
-	MTkCqabZSuEiPNhhMusPyMsdaWZr2Y5hbdDFnMbclWdXR37jm2wNUKwERYkWM6lXsr9AmyB5zv1y/
-	3jDA7xjg0kYJUKhTFUQuP8DIsuhHZVjeE3ABWH3vTRVAAD5p9qjuatKMxV3xuVsQoAOZfc2HIXXNI
-	zB6qKcgA==;
+	bh=3lUGd3IITVT6HjPOdZ0pO/ggz3I3U/MrxpmjMy4dB9s=; b=dc/oxYaJjszmv/3MTW3vDEQm6o
+	1XA8cYvDj+TgTI8MHxQyvGL4ZtOm+2g4ttlV7WeHsTFDbkpOa2eUJuCLdAqmTEbpnfK0kpNm5hbNr
+	ldClH93pN5ByLGnU7553DQstpGrYq5h2BrzVL9eB/iigoFYXc8WstXgWW/0GVWgkwVUc40mVnWtgi
+	MxePBPQuKML7yI6EaVJGu0cL53W1U4M57frR923MRN/FqEK/3WnroB8AmsQxl028a2wvaywsznBHH
+	S15wU5gu7bww3uiAO+zEI2xrlV60clLPnFuCIv1SlvsSlnJ8WMw4onOOcAOzT1P59DUNrkdvHxuIm
+	hYYmkr2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoS6-0000000Cmh2-0cWi;
-	Fri, 31 Jul 2026 14:43:10 +0000
+	id 1wpoSN-0000000Cn0P-2N5R;
+	Fri, 31 Jul 2026 14:43:27 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoRF-0000000ClbP-0zgs;
-	Fri, 31 Jul 2026 14:42:30 +0000
+	id 1wpoRF-0000000ClbS-1Q41;
+	Fri, 31 Jul 2026 14:42:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1785508929;
-	bh=rrt5YOOAgulVloGhA8XYLb7XVQPmqKwIeo2+VJPjwtM=;
+	bh=67aod2y/NN3Z0/tR+63bhBBILIefJK85gRwCSfTU17o=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=MtNpxYUi9XbAo1fed4Wm2aqPkXCznUo6OhXX301G+SJSaRxPb0e3l9XeKWoH652dy
-	 Gpx7Fan3FW1D61d5RrMh/dWO7wK5e5b+3HtdtrjpsK+yTxOtkCeRZe/zzk/hLCI/Qi
-	 Byox237ZWOF+p1Frn/AAvUbWe0ItliE4h2qjGB+yuLcpHzwQRFSp9IJ3tVUM6Hl3ax
-	 z0fa8bnJZZjCnqg5K/bio+7PUdOD3EVWM06U3nCA2hJNUMn20g8z2YdJNjx7JHNVAF
-	 VCspQwGXQDVMvhMhdI9epD26zPBhvYMW+co6O4uBSk32fEm4MPeTcDZmFkdIlw2gsR
-	 xba/81lqTiUKQ==
+	b=lCZ8Q7sIO6icNPa1zc1qNzM8EBaOkmXd1Hhw6YsHpN1kFpzWNtehuXU7SVdXsi3Zl
+	 /H7T/DMe1gz9+mHNZXTSgZmkMRFABqORMMTjqH7Dg8Mk/qwmQ4dtsDdJbGAlI+k6f9
+	 n9meeF642LcNnAB9GkofSECWnnacz50qVXqd3cVrpyiqNy4O/cPICzvt+m4HxhkfNV
+	 iNU1PPsPogL0bzLvS35wJ9+Y5ceLnVrOiOODoc3Y9yVJAhrG0D92vbGu/4KBtKLNwl
+	 RUONywN5wKlRDIadZol1xX1NNGDiwLw7WFOtackLY/suT8uorvZd30HhiQLQca0wPS
+	 mqw/TFs9U1teg==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AB91817E092C;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4991217E08EB;
 	Fri, 31 Jul 2026 16:42:09 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 0B18A480047; Fri, 31 Jul 2026 16:42:09 +0200 (CEST)
+	id 01AF1480030; Fri, 31 Jul 2026 16:42:09 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 31 Jul 2026 16:42:15 +0200
-Subject: [PATCH v8 10/21] drm/bridge: synopsys: dw-dp: Add follow-up bridge
- support
+Date: Fri, 31 Jul 2026 16:42:09 +0200
+Subject: [PATCH v8 04/21] drm/bridge: synopsys: dw-dp: Document missing
+ reset line deassert
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-synopsys-dw-dp-improvements-v8-10-ac1e6a75782f@collabora.com>
+Message-Id: <20260731-synopsys-dw-dp-improvements-v8-4-ac1e6a75782f@collabora.com>
 References: <20260731-synopsys-dw-dp-improvements-v8-0-ac1e6a75782f@collabora.com>
 In-Reply-To: <20260731-synopsys-dw-dp-improvements-v8-0-ac1e6a75782f@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -76,28 +76,29 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@collabora.com, 
  linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2515;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1609;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=rrt5YOOAgulVloGhA8XYLb7XVQPmqKwIeo2+VJPjwtM=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpstECb1PZQPHkTUx0coHpDEhRO5v68sVK7Y
- xlXtNAk2100hokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqbLRAAAoJENju1/PI
- O/qa47gP/2cAZf9HKtm/2zrGPQmMiKs1452MaG+YQ7iDQ/J0w3uIbSckJDW0bVkFtGEmOw3CSYc
- 9jDj0jFAljkb3viMlQnTvYaoCRXC94fPk88n19MfqILfD1+0LlhZnEsi0ulzTp67gSWNtPrRder
- nYDOu5P+fAJtjTTbtiep0yV6gz58BL9HRPzDDz1KgsD6EIu0wMqFk2MFxW61NUvo2jquZo6WyLJ
- Ybm6nlwM8c4JCoc9paTDOq/fZsP0sMe9uxnT6SPiW+2wNYpALLFkIwB3EdZoJwL8XLJQPwoJSqD
- h2B1AhQ+gEs1fQrgDy4tBBt9RhW7KYmXHDCfqm6BDt75pEK1jbZbKOKB/raIkr5anZgLXgc6ip8
- REx8MGSff0EPL8zxhtecJUkpcF62o6axLsZnE2kveIzJ8duJZbYqydrt9PlmRiSzgdGX6wV4Plv
- yoveYAlhUVk2R6iq3oemJEmYveTY7xxKjK5KRCxFItT7pijzjl+gnZzxZFuDtxrwY2Nipk9wATS
- 9ebnEs9RR84UnAEfrQFSMzO1r3A6xbEk5wORNpg8KmFKfzr9cobeKTBnZ4bsVHYAn1t2x8qeTrn
- r4zlZh9KgiYwItaWjdQLjsjMJ2hcp+Rv1+YwC/dxtgu6f9kfLKbjGr2oON7KdvT32M/Tpz5uOJS
- tUgET7ma0mfDVukWFNvUuig==
+ bh=67aod2y/NN3Z0/tR+63bhBBILIefJK85gRwCSfTU17o=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpstEAiiDNAYe6ydxJrk23XOS90RTpqdTZAV
+ 3w6vGf3yhnmhokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqbLRAAAoJENju1/PI
+ O/qaESEP/RGU/Si0lmndkxUhc6ydkA6dgLRS1ot5p+2zBwW0Tz/CtyF+vPWVasjkkQAq7BNnP2B
+ 8GfsS8dwfx808J3IUFhnGQku/4wClW9Lz5vhOfUrKDV0KIS9IUiC5K0jandniEzH5j/F3BJCWrP
+ Dm8LrSiSO+9xseV4ziLz5cOTVL7HbwaA4PJvZWcVE81jRuuTNq/b/sZ+ablD/FQKWl8iW69ykOs
+ 0KJC4M+RU5tD8yxyfsjC9KzxtFdeT1bJNG5LwS8286ueiqzMmxZi3TQ9DRyblBAVs6stJdIvjEk
+ ulsKS/U5kBpuNqf4+nUFZCtOUot1V08Mdqm1wUFiy3s+EfdS+DtNpThwnoVFoHan376/9XyA2yZ
+ AL8Ii0d6aek9tyXk3qgKdKav+HArBeqbnj/9vQkzEMNQsTQCKpGM1AL2cfttwSxt5rs8WIMi4xX
+ QS+9E0WYuqtxylHq9PMIEmh//sDWIqFLgmxcjbCHu/2H/8V0zxuQ3ypUycYOzeKVaF28JLdcsj/
+ a5o14hD/IA/peyOcw3qSwYg/fTceEoWuZ/lPdz5ryavs6XZfPOXIHb5OJKyKi0UFDqKDG6kVpLq
+ bBA1qgd4ZYldfO/cRsP2ES/7G2t25lSFL6S+mTt3TlpoFKw+ygZfAbFDAb1XIdF1p5t0OksYN/Q
+ dC5bkNt3Hu+vOu5RBvHcpRw==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_074217_526518_EFD7A6BF 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20260731_074217_641497_2E6C94D7 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,84 +113,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support to use USB-C connectors with the DP altmode helper code on
-devicetree based platforms. To get this working there must be a DRM
-bridge chain from the DisplayPort controller to the USB-C connector.
-E.g. on Rockchip RK3576:
+If the driver uses devm_reset_control_get_exclusive_deasserted() instead
+of devm_reset_control_get() and thus automatically deasserts during
+probe, the SoC will hang when the device is unbound.
 
-root@rk3576 # cat /sys/kernel/debug/dri/0/encoder-0/bridges
-bridge[0]: dw_dp_bridge_funcs
-        refcount: 7
-        type: [10] DP
-        OF: /soc/dp@27e40000:rockchip,rk3576-dp
-        ops: [0x47] detect edid hpd
-bridge[1]: drm_aux_bridge_funcs
-        refcount: 4
-        type: [0] Unknown
-        OF: /soc/phy@2b010000:rockchip,rk3576-usbdp-phy
-        ops: [0x0]
-bridge[2]: drm_aux_hpd_bridge_funcs
-        refcount: 5
-        type: [10] DP
-        OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
-        ops: [0x4] hpd
+This does not happen, when runtime PM is being used (not yet supported
+in mainline), which suggests the power-domain involved requires this reset
+line to be deasserted.
 
-It's fine to fatally error out when there is no follow-up bridge
-as the Rockchip Designware Displayport controller is the only
-user of the bridge helper and has the port marked as required
-in its binding.
+Even with runtime PM there is no gurantee that the power-domain is
+disabled as it is shared. Considering the power-domain does not have
+the reset dependency described in DT, document the problem but leave
+things in the current state until a better solution is found as the
+reset line is deasserted by default on all supported platforms.
 
+Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 22 +++++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 42927335f0fd..7d42067df2cf 100644
+index 6289ed06e231..a8ae13cf91d6 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -330,6 +330,8 @@ struct dw_dp {
- 	struct dw_dp_plat_data plat_data;
- 	u8 pixel_mode;
+@@ -2076,6 +2076,10 @@ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_
+ 		return ERR_CAST(dp->hdcp_clk);
+ 	}
  
-+	struct drm_bridge *next_bridge;
-+
- 	DECLARE_BITMAP(sdp_reg_bank, SDP_REG_BANK_SIZE);
- };
- 
-@@ -2037,13 +2039,31 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "Failed to attach bridge\n");
- 
-+	dp->next_bridge = of_drm_get_bridge_by_endpoint(dev->of_node, 1, 0);
-+	if (IS_ERR(dp->next_bridge)) {
-+		ret = PTR_ERR(dp->next_bridge);
-+		return dev_err_probe(dev, ret, "failed to get follow-up bridge.\n");
-+	}
-+
-+	ret = drm_bridge_attach(encoder, dp->next_bridge, bridge,
-+				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to attach next bridge\n");
-+		goto put_next_bridge;
-+	}
-+
- 	return 0;
-+
-+put_next_bridge:
-+	drm_bridge_put(dp->next_bridge);
-+
-+	return ret;
- }
- EXPORT_SYMBOL_GPL(dw_dp_bind);
- 
- void dw_dp_unbind(struct dw_dp *dp)
- {
--	/* nothing to do */
-+	drm_bridge_put(dp->next_bridge);
- }
- EXPORT_SYMBOL_GPL(dw_dp_unbind);
- 
++	/*
++	 * This reset line is deasserted by default; asserting it hangs the SoC if the
++	 * related power-domain is still active.
++	 */
+ 	dp->rstc = devm_reset_control_get(dev, NULL);
+ 	if (IS_ERR(dp->rstc)) {
+ 		dev_err_probe(dev, PTR_ERR(dp->rstc), "failed to get reset control\n");
 
 -- 
 2.53.0
