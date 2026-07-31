@@ -4,129 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75AC2C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:39:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6053C55173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:Reply-To:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:To:From:
+	Date:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ia0DqGUa2XXoAmzsV6VqWsE8QytI+B6npF/KMkchDEQ=; b=jeQmnOntdXD80V+jUtJoelT3jl
-	3d7TIzDpvRqN1arD+timvf2zLwWuu5TMtSYhMtAxAOQErJ+XKIhDanf5R/LP1vD8Ltj3Sdf9Ra1qN
-	u6IXkmzHwcODdFz/CwUZBVT4yTZh6MZoRRRdn5Fq+ZtAFGFHiGK/69lI6ZQSqRDM5/JP6bNTzOfva
-	TWOtgK0pLQ+/ixUU58x6y+AmhIL/MMYbBGyAD+huNCBZLxbQ+W3RCk/YBqzVlfoJtveAJihwztYVN
-	ivSv4Ya63TuS7JA6m2p7FERIs6AqgezA3hnXd9vX7Un0bPgyEq57KVDui5QudnDopnd5v9HPT2Xij
-	ewYP11Lg==;
+	bh=VY0MSaV3PofK/ZpiBnnhgDYItAmKtwQIdDAPUmiK8iM=; b=mjbOUeRLigImtNQVUOtiGYIr77
+	5hvTRC60IouHWdYWEhHauHtbnKqFRsIfQrWW7+WeORtTT1RTLVAH35QEAm3B2290jgTkjM3u8GLfL
+	0gy4K75gObOeqaMxVNvwdhL+C2ZD6FbfK+JJgr4u09Pi1CjBaspt4DSQxe7Q2hSnQxEwcyEGNfzce
+	Nm4iCUGAFpufNJxz89zPvutMhPUsF8fPJ0nt9ACbBK5CGR27fqItxXu/GXvKaG3R9yxXbhr4OWRKz
+	MMAQl7kp/5xKgjEknNZ87LazAt+q5PHWsY5WfuE5XGGmY9e48du/sNzGlwacP/Z3P+Ym3TzMBkuw+
+	ru3rxBcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wps8T-0000000DOZV-2OiT;
-	Fri, 31 Jul 2026 18:39:09 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wps8b-0000000DObR-2oHa;
+	Fri, 31 Jul 2026 18:39:17 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wps8R-0000000DOYW-1vkR
+	id 1wps8Z-0000000DOaq-2lmE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 18:39:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XjbWflQLKiNOLcVf4jcZoaN0LmoAFMNpmGF0ljSqb/crwJm89OHJyDFJ9BNtsuGcrmrbYJq/ZV3ieOIn3zL0RbupctyO9g7K6PggrTPBt3WsK+m06o81Vm6JvQMQ2iTisXp+ZvoIj7Ufj/5Ft9rvDYVCG99d77mhJRQi+g3GE6/u56I4Ni2V/ao1ZbmmvjYO+Z4S/NDVF189InvEyebnHLIgxqK2eMl3snNEqOYOiv2uXRxcZgFyUl3mG8MApQ882ybjgDpsnPu7hUfP/jPwa/b0/PTizxNAfEF4FM+qCV5ryTcZk4fEtskR3gkiGeaAW+UG9vUpjR2C/2mHOoai0g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ia0DqGUa2XXoAmzsV6VqWsE8QytI+B6npF/KMkchDEQ=;
- b=fC5xZTQ0C9u+CcSOrIZo3AAydEgDRA0yLQAgaSCDFF1zIQokzAimUN7ezqN7UKlcvFs3X5IFydQrgJ1esSDzWksS/J+CQIF3z8gk/7xLvIrr1WolKvyxcmNJYqC73cNRHkJosNxXZD0fUqNYoTj8JRhvtFHku9xgfZWu21HlkMPA644WBFMpzNvyMQT/1t4PN4cbKQbUfC8webWETPoVY+kb5PzdWwKCueVZhMmpdg44CMmsqgEvIQ107K/6o4B9T0zcjSbhRvWp+jamou8sOh0SLl/wJscBnH28l/WvfFbfl0Upn+6RYCsHxKZnj8ESzPL93WhIw1ncNpwy7daW2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ia0DqGUa2XXoAmzsV6VqWsE8QytI+B6npF/KMkchDEQ=;
- b=HuA+nFFt5S5LlNXvtJil0e6sW41zXCWYsNQMHRNFWy15+SK+Pz2t9XjZIJObnmqKRKZHelQegwebRadwrH20n8wRl5u8wXmtxzfEutafJB9WShtKjfMrq3Pr0A0oPlVPNKQR1Z8yVrs/vtWIySIXBGWTLCeg1NSr0vs+bLGDB8IXkDHftUcSJNPgtSsSozEH3NgP2Zb+pC36UW9EG9cYpkEnUVLSHauJlz3ZlNyzq2Tqn9CNsKct2wZg53KfbZlmftSC/ADnGTvKjjy/HUrDN+G1BiIBqUDYlqBJgnLcRgyc8TDHKHGfeiQ1RV023KEKBNif9edUoNc5V0cgPmeGgg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM9PR04MB8587.eurprd04.prod.outlook.com (2603:10a6:20b:43a::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Fri, 31 Jul
- 2026 18:38:59 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0270.015; Fri, 31 Jul 2026
- 18:38:59 +0000
-Date: Fri, 31 Jul 2026 13:38:49 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v3 5/5] serial: imx: serialize imx_uart_ports[] lifetime
-Message-ID: <amzrudchE7v1Uj27@SMW015318>
-References: <20260731180519.10988-1-kmehltretter@gmail.com>
+	Fri, 31 Jul 2026 18:39:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 650294030B;
+	Fri, 31 Jul 2026 18:39:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47E9F1F00AC4;
+	Fri, 31 Jul 2026 18:39:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785523155;
+	bh=VY0MSaV3PofK/ZpiBnnhgDYItAmKtwQIdDAPUmiK8iM=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=PFYk1BU2q0dCBL0ecWw9YLQAXB5OxBx7/AXXGILd7YITVeQu28Um9ihq5CtCnQgA7
+	 VD0uljKtopdObBdZGEm2ytg6E1nE9S9kR7PijcQGmtZpcilCejVdLt89Fu+rgE37Z4
+	 WpEGFJEi/WgF4TtbjssL1AQJf6RvqdZlpt+4hQ+dC+cNM7X9IYCvZZsJBYWAr1oQnp
+	 1roHUcsnxLFkue/7gBlXgyVVmPxuV8VBih89bAQj+pNXRWOmx5tYcXggKrBCGimRRW
+	 RzLQg73Y4WZjjN75PGkqbw4h+NWnC3QIEhMUPIAqDHIVRSJI06bo2ywWwyXM4djFIF
+	 +NTsLb+3R6+Qg==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id F0BD0CE11BE; Fri, 31 Jul 2026 11:39:14 -0700 (PDT)
+Date: Fri, 31 Jul 2026 11:39:14 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH RFC] arm64: Mark set_preempt_need_resched() access to
+ .need_resched
+Message-ID: <4fa802e7-6cfc-4cce-afee-c29b28171ad3@paulmck-laptop>
+References: <d345dc9f-c61e-4db5-a342-11b0ff3fb846@paulmck-laptop>
+ <amyaRXx8zXxOMgTL@J2N7QTR9R3>
+ <13df4ff4-8594-4c37-b25f-860248a222cf@paulmck-laptop>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260731180519.10988-1-kmehltretter@gmail.com>
-X-ClientProxiedBy: SA1P222CA0003.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:22c::31) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB8587:EE_
-X-MS-Office365-Filtering-Correlation-Id: 458c5db9-f72d-4fba-9404-08deef32fc0d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|19092799006|23010399003|1800799024|18002099003|22082099003|10067099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 40FBiz9X2TOuL28B5sGqfYF4PFqmHqoFVWjAai6xsq/CnY1aDgxraXIgTbC0YNeCtYGdZ215QYFcVbHCov5zXSkSJI00raTrQktTdoRPPkutxOmsCRAlnoeqJB4lDFTMz4hfVSQwS8QPMYPmOCwc4SOFYIhpvM+jiPBxl5FZcLuPOiF46Jhd+SgpxscmZl+Fn/IEp4Kd7ecpC+AjPLJdEH4OpBLwfeu8M3mvYiJygrUb+ETWWfjr+/eykqcF5nz7QUautDt4JApumalh9JfXCikfga6BFKwmjCre0ahPKlSJsXxmiwMgM8RvPYKege484BMXzoRid3jqKUyy9FCvcGRbCjRQFS0WZhu+bGIP1nc4YS+tlC5fmPqirD05WsCMSStf/63txT2pNIuOjB+yPFSRW+c8ABuDKDAbEYoyBo1NvZVc/54Itd5LZWc79mvUbCie+mmgyG6O2npayFGZPu50hv4/gyP50wkej0O45TV0Ue1l+p06u3l/if3c4lupVQ4cCHjB+OL1QSsbSqz29Jot4XxhW7J9Rkxk0HmXZoDYlDw4tplSj99xoaa8SjaRTRmV8jjcqkWBtzd9SFzLZBnLSMiPmZ6NtF8J81qzxOSmPptNGf60cJ4ATJKcnDqK
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(19092799006)(23010399003)(1800799024)(18002099003)(22082099003)(10067099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OhOuzCHq5GWvQbC5/Pp35A2HtIkvbeRIlecCiCpRGqxt2xt1l0YNZvg1CTrY?=
- =?us-ascii?Q?qgqj7YOo1R5x272LvURia0wIup2UPwrZesG52gtVsJxhJ5QA9YNNIlq/ZPrL?=
- =?us-ascii?Q?wR1IUc/aP3OWk1gfGniPM8ROkIaHpsT5ldIM8sAgwJtBKrCAsipYzoGANUI3?=
- =?us-ascii?Q?mHDH56a/u/EwAAG1rVJqL6lsp82eWbSzGmqyiBSPh4qEo9MKxDkbKfzJYMEg?=
- =?us-ascii?Q?txE5jqNM5fA9h4dbND6GMZWS0K5pNdPWc98h61o80WvrJCBcPQvK1loeanEj?=
- =?us-ascii?Q?ro3HWs0UnryLuKScRKnnRbi9TxmHMdbPNhkUI3+hARM1uwDA0MtW7yDbNhod?=
- =?us-ascii?Q?es5b6HJYJN0PtEzMn2RQTY5xdPlnOULH9f7zRz3ffaj9+Z+T8KTubW6695H8?=
- =?us-ascii?Q?WRMlU9vJIGBXJnXCKg8QA6K175oanqy5rizuU8qjh+KsEAR25tVi3+eOgdXh?=
- =?us-ascii?Q?4+Wb1qwtDLEIVltRfeOe0onIvIW9eMelt5FmXf275ciG3vu0ZIRW+hsd9+rH?=
- =?us-ascii?Q?nzjn44OoPT0VCDav9fV6m/hjFU7UGevF0WKKScJZjbTOvMW2hqN2bvSnVZm9?=
- =?us-ascii?Q?NaANTb0uzRCu0VTeWUIV+pERULQjCYFXYqI8+jVO1ubo/u1F3hyMJDs1uw7n?=
- =?us-ascii?Q?uNsINRd+aCy5N5+l4VKH1yVKbfy6rVrs1kLKdhRV5Ns5mGWYTbyH19QfVFVV?=
- =?us-ascii?Q?jheLp9VcWDdkXyR8mcvMwRbUt+rq3GPXSaikJYymuJopb5KXs29Nf63hSc3V?=
- =?us-ascii?Q?vRzbLRwpy0ZOGmd1MWlSRfwT1HjB7oQa0JLY8XkY9D2jGXCapfA7R/ffsUUC?=
- =?us-ascii?Q?VtpcT2jtOAbkq5xakQpglKo7l4WJw4gzhw3wPc8Rnead004ZcMXFM9Yr4zsl?=
- =?us-ascii?Q?H5pDiE3124MZKnNx60B/MGhVBTBJgXQwEQ+WQCMPT5WGgrqWXNnNgozD54Z/?=
- =?us-ascii?Q?Fi5HpaO2OwoEeK2sFFcpIlILm1/HH4VQIA9dRnBitLCTT3v4H2S8bsl/p8Hj?=
- =?us-ascii?Q?pWYXN7vBxGkNYWaeTkLlpwhoNdWVWdqOLmibSASLDmVo8UkvYgLq7j8VaS1B?=
- =?us-ascii?Q?ov8zuikzz0qgNTL5M62NAy8LDK5B/TyEATZJdOSHkapg4P8ixrdkFA2t9O74?=
- =?us-ascii?Q?31SHsISkVn7lylBNHr+wDwylHQX1MOkA1fcNmVAYUANmMUsuDNnIKYZv2e67?=
- =?us-ascii?Q?0/tmK6xPr3FmY6w0LXbMpFL+YmuYW2NDWDv+Y5OcvkwzWSQXoNpWbPSWkHbw?=
- =?us-ascii?Q?cNVQa/uSDkYQavWofEoIfzpGWuYX3LkxWCj9H4zgYQjdhrelYP9dB579dPV5?=
- =?us-ascii?Q?D49DneQ7oDBHVhhO1CEImNUgpxCyg67FgcL33ht0uOpM4oYcvCViJfX1sRvO?=
- =?us-ascii?Q?6DMD5hDHbibatZZVLaebPN9UQ3LU39nlynw9jSQ+UMA08Ix8fbp9P63D/FT7?=
- =?us-ascii?Q?/f7JeCFDVqniusk8YNFTzUjzebfOQtZN8fX3K4MIIyQxnurg9NC5cYQHbQjP?=
- =?us-ascii?Q?mvth1XNcgFD4FOQSnjbLSVtvE0PVWLLrns8JYb56C9pjfTYq6P0BQ4aogIx3?=
- =?us-ascii?Q?keSktsL41gLlLLqW6S29+lcVkt3HW8w4KvG9/v4G3pImYeN5E08++HZ7jnLT?=
- =?us-ascii?Q?PE5vg6fHS6uTLrrjS32dMB3UirrTihtHtk/eIDBNoKFA7D/nnNuX32P2zBbP?=
- =?us-ascii?Q?dn2FAFvQBzRHpXXlVcxW+XbImuZ7X8/6/JevhICIXUcG0OBwsn5OCajXIFf7?=
- =?us-ascii?Q?opf6kgtlZUDOhb2sbbAx4Rq+qarHEkdbby+MqmqBodYBb1mm0LD2?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 458c5db9-f72d-4fba-9404-08deef32fc0d
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Jul 2026 18:38:59.3031
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Re4T4qPdEeGf6flp0TAkPdULxeGhABSByW0qln10P2Ab3uVKENXSeUTi6aBmK4cgy5o+GEFddqKFGKUT7q3wr9V+qbyVldVfvWdbtNkLGYJjQwkbkRGGXxbYsxgoXZRO
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8587
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_113907_509567_B674B7E8 
-X-CRM114-Status: GOOD (  24.64  )
+In-Reply-To: <13df4ff4-8594-4c37-b25f-860248a222cf@paulmck-laptop>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,103 +68,163 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
+Cc: "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 31, 2026 at 08:05:19PM +0200, Karl Mehltretter wrote:
-> imx_uart_probe() publishes its devm-allocated port in imx_uart_ports[]
-> before uart_add_one_port() because console setup uses the table. The entry
-> is not cleared when adding the port fails or after removal, leaving a
-> dangling pointer.
->
-> A sibling probe can register the shared console through that stale entry.
-> This was reproduced under KASAN on QEMU mcimx6ul-evk by unbinding a
-> sibling UART, unbinding the console UART and rebinding the sibling.
->
-> Keep the entry valid through uart_remove_one_port(), then clear it. Protect
-> port addition and removal together with their table updates so sibling
-> operations cannot interleave. Reject an occupied slot rather than
-> clobbering an active port during a duplicate-line probe.
->
-> Fixes: dbff4e9ea2e8 ("IMX UART: remove statically initialized tables")
-> Fixes: 9f322ad064f9 ("imx: serial: handle initialisation failure correctly")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Link: https://lore.kernel.org/all/20260719162850.043B41F000E9@smtp.kernel.org
-> Link: https://lore.kernel.org/all/20260719222501.CB4CB1F000E9@smtp.kernel.org
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-fable-5
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
+On Fri, Jul 31, 2026 at 09:44:16AM -0700, Paul E. McKenney wrote:
+> On Fri, Jul 31, 2026 at 01:51:26PM +0100, Mark Rutland wrote:
+> > Hi Paul,
+> > 
+> > On Thu, Jul 30, 2026 at 04:59:57PM -0700, Paul E. McKenney wrote:
+> > > The .need_resched field can be accessed from both task level and
+> > > from interrrupt handlers, so apply WRITE_ONCE() to the update in
+> > > set_preempt_need_resched().  This also brings arm64 in line with s390
+> > > (which uses atomic operations) and x86 (which uses inline assembly).
+> > > Other architectures avoid this issue via the empty definition in
+> > > include/asm-generic/preempt.h.
+> > > 
+> > > KCSAN located this issue.
+> > 
+> > Do you have the KCSAN splat to hand? Seeing the exact race (and the
+> > relevant reader(s)) would be handy.
+> > 
+> > > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > Cc: Will Deacon <will@kernel.org>
+> > > Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> > > Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> > > Cc: <linux-arm-kernel@lists.infradead.org>
+> > > 
+> > > ---
+> > >  preempt.h |    2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+> > > index 932ea4b6204289..610853da140a78 100644
+> > > --- a/arch/arm64/include/asm/preempt.h
+> > > +++ b/arch/arm64/include/asm/preempt.h
+> > > @@ -28,7 +28,7 @@ static inline void preempt_count_set(u64 pc)
+> > >  
+> > >  static inline void set_preempt_need_resched(void)
+> > >  {
+> > > -	current_thread_info()->preempt.need_resched = 0;
+> > > +	WRITE_ONCE(current_thread_info()->preempt.need_resched, 0);
+> > >  }
+> > 
+> > I was under the impression that we only used this in a context where we
+> > couldn't have a nested writer (e.g. within a scheduler IRQ hook, with
+> > IRQs disabled).
+> > 
+> > If we have concurrent writers, this is probably broken regardless of
+> > whether it is single-copy-atomic, and I worry WRITE_ONCE() will mask a
+> > bug.
+> > 
+> > If you can share the KCSAN splat, that'd really help.
+> 
+> Let me regenerate it...
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+And please see below.
 
-> Backport note: the removal fix is self-contained. Complete probe-failure
-> coverage also requires patch 1. With patch 1, all fallible allocations
-> precede console registration, so rollback can safely clear the table.
-> Without it, a late allocation failure (only reachable with fault
-> injection) can leave the console registered after imx_uart_ports[] is
-> cleared, turning the pre-existing use-after-free into a NULL
-> dereference.
->
->  drivers/tty/serial/imx.c | 20 +++++++++++++++++---
->  1 file changed, 17 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-> index 251a50c8aa38..b0f34a6e7d4f 100644
-> --- a/drivers/tty/serial/imx.c
-> +++ b/drivers/tty/serial/imx.c
-> @@ -22,6 +22,7 @@
->  #include <linux/clk.h>
->  #include <linux/delay.h>
->  #include <linux/ktime.h>
-> +#include <linux/mutex.h>
->  #include <linux/pinctrl/consumer.h>
->  #include <linux/rational.h>
->  #include <linux/slab.h>
-> @@ -2080,6 +2081,9 @@ static const struct uart_ops imx_uart_pops = {
->
->  static struct imx_port *imx_uart_ports[UART_NR];
->
-> +/* Held across uart_add/remove_one_port(); console callbacks must not take it. */
-> +static DEFINE_MUTEX(imx_uart_ports_lock);
-> +
->  #if IS_ENABLED(CONFIG_SERIAL_IMX_CONSOLE)
->  static void imx_uart_console_putchar(struct uart_port *port, unsigned char ch)
->  {
-> @@ -2632,11 +2636,19 @@ static int imx_uart_probe(struct platform_device *pdev)
->  		}
->  	}
->
-> -	imx_uart_ports[sport->port.line] = sport;
-> -
->  	platform_set_drvdata(pdev, sport);
->
-> -	ret = uart_add_one_port(&imx_uart_uart_driver, &sport->port);
-> +	scoped_guard(mutex, &imx_uart_ports_lock) {
-> +		if (imx_uart_ports[sport->port.line]) {
-> +			ret = -EBUSY;
-> +		} else {
-> +			imx_uart_ports[sport->port.line] = sport;
-> +			ret = uart_add_one_port(&imx_uart_uart_driver,
-> +						&sport->port);
-> +			if (ret)
-> +				imx_uart_ports[sport->port.line] = NULL;
-> +		}
-> +	}
->
->  err_clk:
->  	clk_disable_unprepare(sport->clk_ipg);
-> @@ -2648,7 +2660,9 @@ static void imx_uart_remove(struct platform_device *pdev)
->  {
->  	struct imx_port *sport = platform_get_drvdata(pdev);
->
-> +	guard(mutex)(&imx_uart_ports_lock);
->  	uart_remove_one_port(&imx_uart_uart_driver, &sport->port);
-> +	imx_uart_ports[sport->port.line] = NULL;
->  }
->
->  static void imx_uart_restore_context(struct imx_port *sport)
-> --
-> 2.53.0
->
+> > I think we need READ_ONCE() in test_preempt_need_resched(), but today
+> > that's only used by tracing to determine what to log.
+> 
+> I do have tracing enabled on some of my runs.
+
+I did build with CONFIG_TRACEPOINTS=y.  Or let me know what sort of tracing
+you are interested in.  Or I can send you this guy from my ARM test system:
+
+tools/testing/selftests/rcutorture/res/2026.07.31-10.25.08-torture/results-rcutorture-kcsan/TREE01/.config
+
+							Thanx, Paul
+
+------------------------------------------------------------------------
+
+[  738.696166] BUG: KCSAN: data-race in __delay / set_need_resched_current
+[  738.696184]
+[  738.696188] read (marked) to 0xffff000005899b48 of 8 bytes by interrupt on cpu 8:
+[  738.696198]  __delay+0xb0/0x378
+[  738.696212]  __udelay+0x4c/0x60
+[  738.696225]  kcsan_setup_watchpoint+0x3b4/0x820
+[  738.696238]  __tsan_unaligned_write4+0x228/0x26c
+[  738.696249]  set_need_resched_current+0x138/0x1a8
+[  738.696260]  rcu_exp_handler+0x418/0x4a0
+[  738.696273]  __flush_smp_call_function_queue+0x36c/0x4a0
+[  738.696288]  generic_smp_call_function_single_interrupt+0x20/0x30
+[  738.696302]  ipi_handler+0xec/0x558
+[  738.696314]  handle_percpu_devid_irq+0x220/0x2a0
+[  738.696325]  generic_handle_domain_irq+0x84/0xb4
+[  738.696339]  gic_handle_irq+0x64/0x144
+[  738.696349]  call_on_irq_stack+0x30/0x48
+[  738.696363]  do_interrupt_handler+0x80/0xb8
+[  738.696374]  el1_interrupt+0x3c/0x60
+[  738.696385]  el1h_64_irq_handler+0x18/0x24
+[  738.696397]  el1h_64_irq+0x6c/0x70
+[  738.696406]  smp_call_function_single+0x18c/0x25c
+[  738.696419]  sync_rcu_exp_select_node_cpus+0x534/0x8bc
+[  738.696433]  rcu_exp_sel_wait_wake+0x358/0xef4
+[  738.696445]  wait_rcu_exp_gp+0x30/0x44
+[  738.696458]  kthread_worker_fn+0x1b4/0x5dc
+[  738.696472]  kthread+0x1d8/0x204
+[  738.696483]  ret_from_fork+0x10/0x20
+[  738.696496]
+[  738.696499] write to 0xffff000005899b4c of 4 bytes by interrupt on cpu 8:
+[  738.696508]  set_need_resched_current+0x138/0x1a8
+[  738.696519]  rcu_exp_handler+0x418/0x4a0
+[  738.696532]  __flush_smp_call_function_queue+0x36c/0x4a0
+[  738.696545]  generic_smp_call_function_single_interrupt+0x20/0x30
+[  738.696559]  ipi_handler+0xec/0x558
+[  738.696570]  handle_percpu_devid_irq+0x220/0x2a0
+[  738.696580]  generic_handle_domain_irq+0x84/0xb4
+[  738.696593]  gic_handle_irq+0x64/0x144
+[  738.696602]  call_on_irq_stack+0x30/0x48
+[  738.696615]  do_interrupt_handler+0x80/0xb8
+[  738.696625]  el1_interrupt+0x3c/0x60
+[  738.696636]  el1h_64_irq_handler+0x18/0x24
+[  738.696648]  el1h_64_irq+0x6c/0x70
+[  738.696657]  smp_call_function_single+0x18c/0x25c
+[  738.696670]  sync_rcu_exp_select_node_cpus+0x534/0x8bc
+[  738.696684]  rcu_exp_sel_wait_wake+0x358/0xef4
+[  738.696696]  wait_rcu_exp_gp+0x30/0x44
+[  738.696710]  kthread_worker_fn+0x1b4/0x5dc
+[  738.696722]  kthread+0x1d8/0x204
+[  738.696735]  ret_from_fork+0x10/0x20
+[  738.696748]
+[  738.696752] no locks held by rcu_exp_gp_kthr/19.
+[  738.696759] irq event stamp: 1427532
+[  738.717431] hardirqs last  enabled at (1427531): [<ffffb4646136fbfc>] _raw_spin_unlock_irqrestore+0x48/0xa0
+[  738.718368] hardirqs last disabled at (1427532): [<ffffb46461357d80>] el1_interrupt+0x28/0x60
+[  738.719022] softirqs last  enabled at (1427262): [<ffffb4645f773ac0>] handle_softirqs+0x508/0x55c
+[  738.719776] softirqs last disabled at (1427255): [<ffffb4645f610b4c>] __do_softirq+0x14/0x20
+[  738.720431]
+[  738.720436] Reported by Kernel Concurrency Sanitizer on:
+[  738.720444] CPU: 8 UID: 0 PID: 19 Comm: rcu_exp_gp_kthr Not tainted 7.2.0-rc3-00125-g1a23334a317e #14393 PREEMPT
+[  738.720458] Hardware name: linux,dummy-virt (DT)
+[  738.720464] ==================================================================
+
+(gdb) l*__delay+0xb0
+0xffff800081d11084 is in __delay (./arch/arm64/include/asm/preempt.h:61).
+56      }
+57
+58      static inline bool __preempt_count_dec_and_test(void)
+59      {
+60              struct thread_info *ti = current_thread_info();
+61              u64 pc = READ_ONCE(ti->preempt_count);
+62
+63              /* Update only the count field, leaving need_resched unchanged */
+64              WRITE_ONCE(ti->preempt.count, --pc);
+65
+(gdb) l*set_need_resched_current+0x138
+0xffff80008028b580 is in set_need_resched_current (./arch/arm64/include/asm/preempt.h:31).
+26              task_thread_info(p)->preempt_count = PREEMPT_DISABLED; \
+27      } while (0)
+28
+29      static inline void set_preempt_need_resched(void)
+30      {
+31              current_thread_info()->preempt.need_resched = 0;
+32      }
+33
+34      static inline void clear_preempt_need_resched(void)
+35      {
 
