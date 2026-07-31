@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0F1AC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1309C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4lJnn4e7C9hE6wEWtqXYdtrs6SZibcqzJoHLR3d96n8=; b=m7L2xm++jftsBG9c5sLAT0n0eE
-	KWh1B29BHXril2D2jYV6uY7R1nh+/gK5zdd/gBlfaWLzdEC+8/zqTZjxRPpwMnuDURUz3aDIge1Gt
-	LJoxXHSBO42PXRY32O6D6zNjxD2LEWhFCEeQd997mKNBFQ0T8VcNkLDM/RuyDVgxalBHh043UwwUb
-	2QCjT7lIKyMLVqUcTybyVxOMQWV8RYy+OMNwffHbBvffAEY5QORxWhi5TxPbmcYWSqq9ar3eOiLXy
-	MSx5qSsAk7uMjvfIpcdfeEj11ZWzWUHJj3q5Cl17xan8GBbpV/ebWMLKblLxLY8SCqpwrJfnPLYno
-	MBG7EWyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6jXTwQ9t0J4ctbtSgOVyZqJqazCiZmUwCYVwcmyoIwQ=; b=mTky8n7W/owwwDky9y0PRDIkxM
+	RhY4jT6Xxo7LG6GhysExACnuD8mNgzzx604Rw4eSsTczcp5XnkBeNslsvmtwjGXZ7UyaDRttzxZTG
+	Ey9qfGk2z4zlFi61fKeatQi2zmV9zlQrt9WM7UXLs7iqqcOscwQvUf7qJ+XzwTwcvrY8E9K/vhWPM
+	Q/FXPgOGJByDwZQcFh2WJ5OOcY54whs9MyFrudWwVMKcQexI/qJByINr/7QX+bwmhHqKXrxY+0hBs
+	whbXkenIbF3PwGMgvDmOIWkdZOesZqb67npVM3WuTOjnPWFOjHOsKSFuQ5r1gyuzkKuh4mfwz5GOz
+	X/YfG9kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppSz-0000000Cvdy-0OTI;
-	Fri, 31 Jul 2026 15:48:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppSy-0000000Cvdp-0Ww4;
-	Fri, 31 Jul 2026 15:48:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 25F856004E;
-	Fri, 31 Jul 2026 15:48:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5989B1F000E9;
-	Fri, 31 Jul 2026 15:48:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785512886;
-	bh=4lJnn4e7C9hE6wEWtqXYdtrs6SZibcqzJoHLR3d96n8=;
-	h=From:Date:Subject:To:Cc;
-	b=nnoasHzsDdLvEN2QpeRX1ph5kHse9vG8b5v0LLU9Pgf+Jij8GtrLXweeDr0HICtJ5
-	 cMDJZHdbE0vlsdQRmKbergVjSarNn3ymSq7iG64hsibhPaY/usqwMhE77E+QlWhjrx
-	 RNuf0VS0RWAJMTybz8zNMcoHVOpGsCnUuwZPsEp209gn25zqw+91vdD2jMkvrS/WNM
-	 +3XQhojPT0nWmtDo0CHtqudif05HiW35HoIVSAUFNT9ih1q4RrOiJvMd+4jHY95tUG
-	 +XdDWuZMArvbjWOEpFzw0pVq1ibZX+3Ipx1mMljhIBadglr6hb0p+U1II4sQ85F7Fm
-	 0aeNbqh5flXSw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 31 Jul 2026 17:47:38 +0200
-Subject: [PATCH net-next] net: airoha: fix ARRAY_SIZE() division by zero on
- UP builds
+	id 1wppbv-0000000CwDl-21Y9;
+	Fri, 31 Jul 2026 15:57:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wppbr-0000000CwDH-1Y0m
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jul 2026 15:57:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ACFC8204C;
+	Fri, 31 Jul 2026 08:57:13 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59F3D3F66F;
+	Fri, 31 Jul 2026 08:57:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785513437; bh=3fE17VY55jEg8Yh3SdwZWySOppkdrVhRKTzR+2tl0VA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=MybJcXmny7qIExuu143hMNLviFJLnxpF70W9oe2p4DTW3MnID/2HuO5QNgXiysHEi
+	 FGGmh7m8ehcMMWp6YJG0lPt1Az0XridfkJ+FvSlcBJTCRTdFOiq3ZmssZm4stks/xa
+	 zTTmlB0nZseiYr7fywVupjtsg5kCan2d0oCo/8YU=
+Date: Fri, 31 Jul 2026 16:57:13 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Hongyan Xia <hongyan.xia@transsion.com>
+Cc: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [RFC PATCH 6/9] arm64/kprobes: Make kprobe_fault_handler()
+ noinstr
+Message-ID: <amzF2Rfan44rYxI6@J2N7QTR9R3>
+References: <cover.1785153469.git.hongyan.xia@transsion.com>
+ <c18bdf933f9712d9c1d5c06a6c07600d8e62746f.1785153469.git.hongyan.xia@transsion.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-airoha-spinlock-array-fix-v1-1-863a7e239a5f@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqDQAwAvyI5N+CuUm2/UjzENdagZCUrxSL+3
- cXjDMwckNiEE7yLA4x/kiRqBvcoIEykX0YZMoMv/bNsKockFifCtIouMcxIZvTHUXYcfPUam7Z
- 2oW8h96tx1vf7A8obKu8bdOd5ARE5m6x1AAAA
-X-Change-ID: 20260731-airoha-spinlock-array-fix-d239f7841cb8
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <ndesaulniers@google.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Simon Horman <horms@kernel.org>, 
- Alexander Lobakin <aleksander.lobakin@intel.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- llvm@lists.linux.dev, Miguel Ojeda <ojeda@kernel.org>, 
- kernel test robot <lkp@intel.com>, Lorenzo Bianconi <lorenzo@kernel.org>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c18bdf933f9712d9c1d5c06a6c07600d8e62746f.1785153469.git.hongyan.xia@transsion.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260731_085719_456975_5553B80F 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +73,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-airoha_alloc_gdm_device() initializes the txq_lock[] array iterating
-over ARRAY_SIZE(dev->txq_lock). ARRAY_SIZE() expands to
-sizeof(dev->txq_lock) / sizeof((dev->txq_lock)[0]), but on UP builds
-(CONFIG_SMP unset, CONFIG_DEBUG_SPINLOCK unset) arch_spinlock_t is an
-empty struct, so sizeof(spinlock_t) is zero and the expression is a
-compile-time division by zero (undefined behavior), reported by clang
-as "division by zero is undefined [-Wdivision-by-zero]".
+On Mon, Jul 27, 2026 at 12:25:43PM +0000, Hongyan Xia wrote:
+> From: Hongyan Xia <hongyan.xia@transsion.com>
+> 
+> kprobe_fault_handler() is reached from do_page_fault() when a fault
+> happens while a kprobe single-step is armed. Everything it calls (the
+> save/restore helpers, kprobes_restore_local_irqflag(),
+> reset_current_kprobe(), register access) is noinstr after the previous
+> patch, and being called from an instrumentable caller into a noinstr
+> callee is fine.
 
-Since the array is statically sized with AIROHA_NUM_NETDEV_TX_RINGS,
-use the named constant as loop bound instead of ARRAY_SIZE().
+I think it's fine to mark this as noinstr.
 
-Fixes: 78a35725e533 ("net: airoha: defer GDM3/GDM4 WAN mode and GDM2 loopback to QoS offload")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202607311850.6p0ZUVq4-lkp@intel.com/
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I don't think we need kprobe_fault_handler() in the first place given we
+don't permit kprobes to be placed on instructions with an extable entry.
+Any instruction which can be probled cannot legitimately cause a fault.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index dba7c52c0896..64619e9a704d 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -3467,7 +3467,7 @@ static int airoha_alloc_gdm_device(struct airoha_eth *eth,
- 	netdev->dev.of_node = of_node_get(np);
- 	dev = netdev_priv(netdev);
- 	u64_stats_init(&dev->stats.syncp);
--	for (i = 0; i < ARRAY_SIZE(dev->txq_lock); i++)
-+	for (i = 0; i < AIROHA_NUM_NETDEV_TX_RINGS; i++)
- 		spin_lock_init(&dev->txq_lock[i]);
- 	dev->port = port;
- 	dev->eth = eth;
+That and kprobes_restore_local_irqflag() can't do the right thing w.r.t
+DAIF, since it only fiddles with the value in the pt_regs, and doesn't
+touch the live inherited DAIF value. If we need to fiddle with the live
+DAIF value, we must do that much earlier in the entry-common code.
 
----
-base-commit: 2fbade66245059c78daeaccfce13ecf499fffb51
-change-id: 20260731-airoha-spinlock-array-fix-d239f7841cb8
+Mark.
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
+> ---
+>  arch/arm64/kernel/probes/kprobes.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kernel/probes/kprobes.c b/arch/arm64/kernel/probes/kprobes.c
+> index e9fa66fa4217..4172998d48d9 100644
+> --- a/arch/arm64/kernel/probes/kprobes.c
+> +++ b/arch/arm64/kernel/probes/kprobes.c
+> @@ -310,7 +310,7 @@ post_kprobe_handler(struct kprobe *cur, struct kprobe_ctlblk *kcb, struct pt_reg
+>  	reset_current_kprobe();
+>  }
+>  
+> -int __kprobes kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
+> +int noinstr kprobe_fault_handler(struct pt_regs *regs, unsigned int fsr)
+>  {
+>  	struct kprobe *cur = kprobe_running();
+>  	struct kprobe_ctlblk *kcb = get_kprobe_ctlblk();
+> -- 
+> 2.47.3
+> 
 
