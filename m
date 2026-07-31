@@ -4,63 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D842C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 17:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98130C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GU+tsc+RzMuyFa7007MrWHfZ9LjITE8iUwHkl/UCfAM=; b=smmNlMnffAJm5s+xTxEt/D+clI
-	HoVVRxOjRjzisX41DIwSsVaJZ09Oh67q89XlhWdSnAgBg/ZnG7JxrbIU0jbFVp6PYf43M7CHKuctL
-	D1iN4rv9TEvH3GMQXs3HqFlpRPHcMbXQa+ihq9xMooF7EV0eCPXe6koskMnwmXI6iDDJ79O3DM9lU
-	9tozbdZnd5/WBclgEfPIlmXJzMlWh7EMLB5AKna3ODO+ZX8QuTP7cdjuPJeW3cHD8UEl17Oa+IXfq
-	wSYxteBx04N3Ts01U9dU0ahL7lx80rpT6r0lfPdwGxtNyiWX+uGiy57Vc87KHbG/B5ACS9VBNw/wp
-	AiFxwJig==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z3rxXlGHbXQONq0nbuDOk1X0SJF+agPubKPIOuTmpB4=; b=GjElnkpeYeoP+LpxfOtml+/7Af
+	8sB1GBj8/QPjDZwPIqTVLotKAalB7oZ6H/MktA+CCdXMLBs/9gVGarW9CRLQHT3h80tmNBeydFOkV
+	X16HNH1hSXOB3vI/8gqWxrWefLBUGhM8eyHf/yN8AJ1rKRrQ+4jrReI/QK9rfT+88bWhacgLtn6Ac
+	e+NY1K4bsuEZwVBVpGYwbecP4GE2GYac5WSkFn2WtLR8h2qHjkELWVISA+ioDUMpUd8qhl6qCnHWg
+	ZJvXRiG5GhdGGo2m2N+sN9IlNxLgcZzBo/3z632J7+rm6+JRjK8oWHPsQVKkADQgcBJwwWm8vv99y
+	aseo2/iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wprQQ-0000000DIr6-3jjT;
-	Fri, 31 Jul 2026 17:53:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wprPw-0000000DIaZ-3Bjb
+	id 1wpraN-0000000DJjC-3CbV;
+	Fri, 31 Jul 2026 18:03:55 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpraL-0000000DJiE-1WNM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 17:53:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4A031595;
-	Fri, 31 Jul 2026 10:53:03 -0700 (PDT)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 020CE3F66F;
-	Fri, 31 Jul 2026 10:53:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785520387; bh=6EfGYUXnKKBHHuYowjEcCKBALcv0osir6Ea6z6Kf8rE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pTLCEDE1Ps8dQVe4Hox+3nPTmum8Kyyex0QDAF+Bip2eNzX4XM1J/FeR34SJzI+SF
-	 9snuoxNt7sNekDBi3bK8h+gPFygWO+RnGWm5FylJoKgj/fkIrjHy2XEHPMJawZheV5
-	 WxomhmEYFyWUoDcOovpb4H1ZxgjaWR/RR1jELB1A=
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com,
-	will@kernel.org
-Cc: james.morse@arm.com,
-	fenghuay@nvidia.com,
-	linux-arm-kernel@lists.infradead.org,
-	andre.przywara@arm.com,
-	gshan@redhat.com,
-	tan.shaopeng@jp.fujitsu.com,
-	sdonthineni@nvidia.com,
-	jonathan.cameron@oss.qualcomm.com
-Subject: [PATCH 5/6] arm64: mpam: Add memory bandwidth usage (MBWU) documentation
-Date: Fri, 31 Jul 2026 18:52:42 +0100
-Message-ID: <20260731175243.904730-6-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260731175243.904730-1-ben.horgan@arm.com>
-References: <20260731175243.904730-1-ben.horgan@arm.com>
+	Fri, 31 Jul 2026 18:03:54 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-471eeac43bfso1382473f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 11:03:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785521031; x=1786125831; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Z3rxXlGHbXQONq0nbuDOk1X0SJF+agPubKPIOuTmpB4=;
+        b=QUqwvMZjoKRiLJTteW6nH080szBATaQSB7FP14q/ZRmkDNneQms2przQ0HCWFWJ7+o
+         AlQ9MG0Xir78oLqlSm7tFWAEtBrB0kv6j7/ITcI1pFfEGN3jiUM/uqa1RMM/A3Wsa734
+         xq2lNnsvhacHQLCH5AOKG/436kI5gSYWfcBEUjYka6bjnsdvBqNaethTxCqfH7tim3LD
+         BkZLvl5U4dUlNGDABzvTKhcYQ50Hk+ZgueRMoVMKcctke3pM0lvP+quGVgp2EnkRUgnS
+         hpk8+s19nnGb7mJAMIWD22kxzHE1inf7zIiOzniKKp5ZSuQUZ2nMewdIPOPuzLsgTn7P
+         KPcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785521031; x=1786125831;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Z3rxXlGHbXQONq0nbuDOk1X0SJF+agPubKPIOuTmpB4=;
+        b=owTrCF7xosQ6IfNa3ODQApb8bLdd0OGjr0la7idJGroaAW0txzh8dAJuXkVFxXvGf3
+         QPX4iyZPkv6XfuNANxUzjTIeX19zG2NgecmgOzKHI3vA4mek86pt5G3UyIQvmAxDhwZB
+         V/4K/dqewVGVrA5wuCW6jeARouQH0DakYwKsmZqDazRe9wsT9vSBPPUUyu4TpdK2G+vQ
+         +/fQ+hgI2PReGKlK4hYXkixE/jnRh0ZgwfQ0/8Um+FJyL3lCA0vJ4UiHbCdg2VxG8cTI
+         2Eyh+vQnHvrb9tacTs9hFTRSZ9KIrNNJrEL3bE0cFsknaDyOm2u8TgN98i1kG5tOGJof
+         QbhQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrHbFoIsOlKTZ6DOrpfvhuTu2DUv3Mq3Fls6FG1o+Qa42DuDVszx3c0rCrdXfDTFl1ATvCxxn0/lU2CuYS6Utes@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLL98uc16T/bj3zu6jD5Z+ily5mo7TNgG75DtwaQV1DKBMcw88
+	8vRyKX3cKo3gKdDXbsoPWXgsjpSLde2sZtlo5M5AJq/h3NoZUFvzv8+yX/zLv0Ts
+X-Gm-Gg: AR+sD12m3bOg/sG8Bi3/G4BeWVAYDljaNbtYoOedNZPQaY8duvcsnPWS6b4QObPbh/v
+	XBsNg+tXLNLfVk01P4eczWO0J94kJO027SDLfbEuwvpsy8pvGmBg4dEChW2S5Uc+DXO+w0f8Zqv
+	LDL1BKFdNycWvSh5DA4s9VcdW1sbt2LJbucmvjNrt2oxh2fRdQ1l7DbPYghKtOEvBuaA9H3zLdN
+	SJX9YF1rO5IkoQKiyS0qKj8X4BXs8ks+AkhBKOUBrNl6yokvzhz+PEheArJtEd9R4aw4Nz+LikL
+	1Sw16ZL+jKViaQK6FwaOTcT53VHobXfdvf1FHS+DC7sVDXiX6+TnuYLHN5no8nQ7cL5sYr7zUDg
+	lg+WLQZZthYMLD+T9pzJPmSY6wTEczrqTMVICzcSSEIr1Zh8SBssVccJqXUqP3CpeomBgTjIZhs
+	cSRIxjOL2sld8TbW2Vm9PsiFoQazQm82WtrkfbGpTKzw1aEVbOl5JxTfkZ3GcR582AiEp+pWjPR
+	b0YTipQ/D4XsTbm7Fq3NsBsKcgkCMixG3frfXVDTlKwymBn8TDVdpjUxsBrY2uMKI8n8G9DGzBt
+	Xh4zWKYaohgdvBPTrExVWh9jerxxzHn+EcszJAeyn/WxrV6q8+dSWQI/NaZMqzlgBsKJ
+X-Received: by 2002:a05:6000:4693:b0:470:2fb1:3dbc with SMTP id ffacd0b85a97d-47fd72e0638mr836970f8f.35.1785521030885;
+        Fri, 31 Jul 2026 11:03:50 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-a8d0-bc01-6d31-3d12-3a11-d2d0.310.pool.telefonica.de. [2a02:3100:a8d0:bc01:6d31:3d12:3a11:d2d0])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd42d91bfsm7878295f8f.15.2026.07.31.11.03.48
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 31 Jul 2026 11:03:49 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>
+Cc: Karl Mehltretter <kmehltretter@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 0/5] serial: fix console lifetime bugs on failed bind and removal
+Date: Fri, 31 Jul 2026 20:03:43 +0200
+Message-Id: <20260731180343.10818-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_105309_245180_96FAEEAF 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20260731_110353_413890_DDFCC2D4 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,60 +106,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Memory bandwidth monitoring make uses of MBWU monitors and is now exposed
-to the user via resctrl. Add some documentation so the user knows what to
-expect.
+This series fixes four serial/tty error-path bugs and an i.MX console
+port-table lifetime bug. The fixes were found with failslab fail-nth sweeps
+and sysfs bind/unbind sequences under KASAN on QEMU's raspi1ap and
+mcimx6ul-evk machines.
 
-Co-developed-by: James Morse <james.morse@arm.com>
-Signed-off-by: James Morse <james.morse@arm.com>
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
----
-Changes since v4:
-Add paragraph about the future.
+Patches 1-4 fix shared serial/tty core code. They move fallible allocations
+before console registration, clear pointers after uart_driver registration
+fails, and make a non-NULL tty cdev slot mean that the cdev is live.
 
-Changes since v5:
-Add R-b's from Fenghua and Gavin
----
- Documentation/arch/arm64/mpam.rst | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+Patch 5 clears i.MX's devm-allocated port-table entry after failed probe and
+removal. It keeps the entry valid through console unregistration, rejects
+duplicate lines and serializes table updates against other port probes.
 
-diff --git a/Documentation/arch/arm64/mpam.rst b/Documentation/arch/arm64/mpam.rst
-index 570f51a8d4eb..67fe515ed501 100644
---- a/Documentation/arch/arm64/mpam.rst
-+++ b/Documentation/arch/arm64/mpam.rst
-@@ -65,6 +65,28 @@ The supported features are:
-   there is at least one CSU monitor on each MSC that makes up the L3 group.
-   Exposing CSU counters from other caches or devices is not supported.
- 
-+* Memory Bandwidth Usage (MBWU) on or after the L3 cache.  resctrl uses the
-+  L3 cache-id to identify where the memory bandwidth is measured. For this
-+  reason the platform must have an L3 cache with cache-id's supplied by
-+  firmware. (The platform doesn't need to support MPAM.)
-+
-+  Memory bandwidth monitoring makes use of MBWU monitors in each MSC that
-+  makes up the L3 group. If the memory bandwidth monitoring is on the memory
-+  rather than the L3 then there must be a single global L3 as otherwise it
-+  is unknown which L3 the traffic came from.
-+
-+  To expose 'mbm_total_bytes', the topology of the group of MSC chosen must
-+  match the topology of the L3 cache so that the cache-id's can be
-+  repainted. For example: Platforms with Memory bandwidth monitors on
-+  CPU-less NUMA nodes cannot expose 'mbm_total_bytes' as these nodes do not
-+  have a corresponding L3 cache. 'mbm_local_bytes' is not exposed as MPAM
-+  cannot distinguish local traffic from global traffic.
-+
-+  All these restrictions based on L3 cache are due to resctrl, currently, only
-+  supporting monitoring at the L3 scope. It is expected that going forward more
-+  MBWU monitors can be exposed to the user after support for more monitoring
-+  scopes is added to resctrl.
-+
- Reporting Bugs
- ==============
- If you are not seeing the counters or controls you expect please share the
+Validation includes fail-nth sweeps on both boards. The i.MX tests also
+cover the sibling-probe race, sequential unbind/rebind and
+CONFIG_PROVE_LOCKING=y.
+
+Changes in v3:
+- Drop Cc: stable from patches 1-4.
+- Patch 1: remove redundant uport->name clearing and credit Sashiko's report
+  with Reported-by and Closes trailers.
+- Split v2 patch 3 into two patches with corresponding Fixes tags.
+- Shorten the changelogs.
+- Patch 5: use scoped guards, reject occupied slots, remove the unnecessary
+  line variable, document the console-callback locking constraint and add a
+  backport note.
+
+Changes in v2:
+- Patch 4: serialize port registration and removal with imx_uart_ports[]
+  updates to close the reported sibling-probe race.
+- Patches 1-3 are unchanged.
+
+v2: https://lore.kernel.org/r/20260719221014.44354-1-kmehltretter@gmail.com
+v1: https://lore.kernel.org/r/20260719160812.35407-1-kmehltretter@gmail.com
+
+Karl Mehltretter (5):
+  serial: core: do fallible allocations before the console can be
+    registered
+  serial: core: clear freed pointers on uart_register_driver() failure
+  tty: skip cdev_del() when no cdev is registered
+  tty: clear cdev pointer after cdev_add() failure
+  serial: imx: serialize imx_uart_ports[] lifetime
+
+ drivers/tty/serial/imx.c         | 20 +++++++++++++++++---
+ drivers/tty/serial/serial_core.c | 32 ++++++++++++++++++--------------
+ drivers/tty/tty_io.c             |  6 ++++--
+ 3 files changed, 39 insertions(+), 19 deletions(-)
+
 -- 
-2.43.0
-
+2.53.0
 
