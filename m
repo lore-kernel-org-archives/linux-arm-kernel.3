@@ -4,79 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FFC5C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A28C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VT+FQoUusWN6lxHwX7dwIR3q584pgbRO5zjMhvu5F5g=; b=0YQl1w513W8mPj5hM/j5Ub6vO0
-	5euFFHSvFnYNDAC50b9cK0TUMq6Aabdwht1RPjaTjJPYyOMNa1idi24s8tuanhkU7LrGkti3aWf+U
-	Xd+2RZDjvoZ73TL3PgXzXxA6R7RQHs+rNuvW6pZfyeTaEYNrtV5WVZ20PRm8OaSW59dWLuNtTAzAu
-	OylJJTxKldrnuXcSdGMshXNWaq2Jr5rm8DxbvddkWpe9vidYZd0hnBv3neh0PeXCIneBN7Jw4Zbiz
-	ztWtk1rYpqzG6EuTVL0O+X+/WYNIbom/sykD3PobU9Y4I24/WwWUyqhcjkvD1vDrup6HKRKStxp+x
-	nY2VYnqA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=B01D71Y0rA5zgk1TYOrIFEwTDt7QQ32kG9Mc4Wkc7Jw=; b=cGmPYrjjzYSj16
+	n05CpUJSnuujOAAwz04kPjKLGnJYGaZo8D6amKL9xucMjU5EgYu4huEEAWMo/y9EDsNs9xuPPXL1b
+	U2byTgMXMtOFQ9gF/XFc8g90IvCiPFc7G9qWlcoEB9b3otdwJ4qi8gdSpfJ++/8yqmmPTrp2TSNyu
+	QYOGrC5hfLHvSyKauzb3RfZdohsfVq5GB2iCTjZG1iT00EFmuFgeCaOY1zKYMcyXJktKKpqCePA0c
+	7pfFu+2IG5gXQb0Dwh2RSk2yS9jaFpikByaKggMbT6VvsyqIlcL/UzT66NFerYHXARKJz2B3Wgo7j
+	bg6nUsyqnXvd5RPbzu8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxN-0000000Cz0P-00QY;
-	Fri, 31 Jul 2026 16:19:33 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wpq8P-0000000D8Iy-121L;
+	Fri, 31 Jul 2026 16:30:57 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxC-0000000Cymx-19ha;
-	Fri, 31 Jul 2026 16:19:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514759;
-	bh=zZekc2wO4hv/88Qt7fIQVdz7WdxIyZgalaH2L/jTaLU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YbtuXWh6M2rS59EBp6uD5toPJfpcC2gpfkuP1MOCUSlPNR5yDYmyXg0xQUh4ecfz9
-	 1T6fqVztjllvq68VsDIMWAXeoFJV1+FDH9y8crvEmhse3u2L74n73qimA4xsBQU2B8
-	 1GsgY0ynuv7t+EBsvYgpEURHtluxoUsou15L34vGeuNUFdjkm450bcROBKbQ4SIEX1
-	 Va7pf0Za//tNv0IGIULDeJMrXvNj7t3ENIgPOZ+zLirE4VT7U1q/lP37dbeMWjFpa9
-	 cnZdwuWyzM1M4IYBQAX5P4QdLsmNzPW7TwR+Dj+ZmqHDVLwZD16fmkf2JbLedyQrNf
-	 jldHOD1oUtuYg==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1A91017E08EB;
-	Fri, 31 Jul 2026 18:19:19 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:19:13 +0300
-Subject: [PATCH v10 06/69] drm/probe-helper: Introduce .force_ctx()
- connector callback
+	id 1wpq8F-0000000D8Fi-3bSj
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jul 2026 16:30:49 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-47ddf7b09e5so1509692f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 09:30:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1785515446; x=1786120246; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=B01D71Y0rA5zgk1TYOrIFEwTDt7QQ32kG9Mc4Wkc7Jw=;
+        b=KOP8qwE5+i8VKs4pipR5Yt53vDs6JYo3oeMWdEVEVYRF8nkBbqgSl9Fx+si/0Ve7+I
+         no8PN57DHLzTF+8XOsNY0zi8GZi3CxuUrvVeNx7tBRwn9tTGdFkw2Ex2y+Yg3c+7Tb92
+         iM4rIG91No7kGRI+nRdamCludB/Op8N3V9gLgSbn6yyqfeOc70G7W/9bLVM/mWgYCaOF
+         WR7FYEMgESRg4UIJ2SwJ8YA34OsAaBIpbKtkYYglFJxtpEiEGQeInJKLI2hNcems3sss
+         K6pvr4sxs62+qzDtOiQzAtMBCfJHnB5xarx71Ua3Dl2Sc5yEr3RkLwjbKqPoWJDhseWu
+         hVlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785515446; x=1786120246;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=B01D71Y0rA5zgk1TYOrIFEwTDt7QQ32kG9Mc4Wkc7Jw=;
+        b=Va6d2BZBkmLMsVeMPAO9RjGazwqPoyUgaR4UdzUov9zM/EmiEvvWkCh2f5TrwxPZmk
+         NcMEhenvXSeT6SY5ukbr79Hbg+RDj8DNZcd5VtyDGmopqWN8CM1ljyFB6ffDykzvSnEj
+         iuim/sx2T5VCNWCli/3l2cOO3Uz5ty7e5yn9M/vnF2CZwWAuL8ODoNjWm1MiP8x8OOHk
+         r9+ll7gclil6OH3pf02b3869Jth8ooTWy5yIgLtf81z6uVWPAi8hE+nu/tGbZbF5ANwE
+         5bwGv4orXFwWAk/8NIwb9AjbWxy3iWxEJ5mL8w3fIPm6VDyUAxmfjzmYL5DgEmOimKmw
+         C/HA==
+X-Forwarded-Encrypted: i=1; AHgh+Rq6lQAesvuvzPXEEmX4VRrqZyvCmP1CrdiOSM916+0VX0cR1ftVPXqIVBjLuOoFWW6iTtklRoXBzGLQLBthKH/G@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8RV1vVZPK7s3HESMyC9PduQuwKmt5SnEZ1JxUh9eZjdOwRLHy
+	uAhatBr07DJPbP92SREBDrovtrNpLrAU6+xCam64NAbTdHer5fhcwjfbQSPZsvOHQvI=
+X-Gm-Gg: AR+sD1026wS5hy9/1Yme4wS/cl1LJX2LllYFUkOJ7ifJ8TEF2CQyf+IWHsNrjZt0HgT
+	QQom5yhbeH1yiI65VeNsdzt3zx+i+nDImefGmbzffwictmkhOI0l0e9vhTdtNwrxXMZPucM6wG0
+	6F7dTKwqa3/iZK5TgfWwb1bZZmng2nrZEqGfSNs1ZLggv4ytbrX2y2VAteTlS7q0YF09YruwsEl
+	C/pi08p7Aj5fDzqzFhmSGD/S46OpA7GiTu6K82+9HGB0bwOqhTJnVn2lqZ0LTM07DdSfRSpG752
+	36E2LqY2LvdT5w/8uZnV/3MLl9epBfbeScoIb1SMMiXqGHgi8+vWEpUZj/MOT5bOj2emi0UuzV3
+	Wu+nGUYoSO+NQ61ZnjdGJRJX3D2PGkwY71ss+pgLkeHnjY8cwL07aIdFUUd/4T4MGveCSnluDN+
+	Wo7S5LtYjVv1gDkn6RiSigvzpH+5p8mmzuOI2eKPCyrYmh6VZDudZvbYCo4A==
+X-Received: by 2002:a05:6000:615:b0:47f:762f:32a9 with SMTP id ffacd0b85a97d-47fd72a8f3fmr672008f8f.12.1785515445887;
+        Fri, 31 Jul 2026 09:30:45 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:d00b:bc94:65a:a73d])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47fd456262bsm5900050f8f.17.2026.07.31.09.30.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jul 2026 09:30:45 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Subject: [PATCH RFC/RFT 0/2] net: stmmac: Add support for Allwinner A733
+ GMAC210
+Date: Fri, 31 Jul 2026 18:30:25 +0200
+Message-Id: <20260731-allwinner-a733-gmac-support-v1-0-d0a8732bfa82@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-6-294364b2cf15@collabora.com>
-References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
-In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Chen-Yu Tsai <wens@kernel.org>, Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, Algea Cao <algea.cao@rock-chips.com>, 
- Daniel Stone <daniels@collabora.com>, Liu Ying <victor.liu@nxp.com>, 
- Phong LE <ple@baylibre.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org
+X-B4-Tracking: v=1; b=H4sIAKHNbGoC/yXMzwqCQBCA8VeROTe0f0iha+ADiLfosK6TTdi67
+ GgF4ru31fHjg98KQolJ4FiskOjJwlPIoXcF+JsLAyH3ucEoU6rKanTj+OIQKKGrrMXh4TzKEuO
+ UZtSl7XrSyuuDgSzERFd+//QzNPVp39QtXP5Dlu5Ofv7asG0fT1HmGogAAAA=
+X-Change-ID: 20260731-allwinner-a733-gmac-support-163bde10c152
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Jerome Brunet <jbrunet@baylibre.com>
 X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1899; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=w35lwaZM5Jhv5tWlfxuQgAkqn1ey5k+A/02M2sV6IqQ=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqbM2wWoLP6AQ9cI4VA8q5m/5+1cKrwSXpM2W6M
+ e/cJohJsgKJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCamzNsAAKCRDm/A8cN/La
+ hVL6D/4331XwVduIAIJWF+PeOpvRZZDsSD9BtI2hgcNm6X2vDunqVGtocqmr56Jkh2ndnuyheam
+ AFy0FMb5r1OfNFGb4MM4mA06458dALYQ1wwTE2cJm2MfDm84tsnEs8wZE6Q+4FJfOalOsTvRJeA
+ FnZq8tRRhMa8DwM+lqd8jiRwOrOWoEXqZWh/6GAufDFGT3Kdwsff+h7hBT6D2SYixP9xdOHjaMz
+ hEBBm20A+US5YRsSqVpNiplu5yQcPU1yjOoSIead3uK7OW7L/fcfkYraoH+R/8OTrneEMY8l4si
+ TobSWyrQJYZU2N9pASoqLqHs0YECoOJ64Ip6U2LAv0t5PzG96h9tVr0bpSUfBcaf39VwIKfA3ys
+ dD2ewdOB80Uz4FmanIWRFHcQRlbLFxvcy/4DQzDjIShGbrbo5p5Wrztv0vf2phHY7lDlUtTTLwA
+ Tz5u/7zqA0l3ElKWPlugOpTWx3lOmcOcuSY1kKb//Yn5oiv4omwKcMN5PYQZhy6gygtDowA0uVT
+ dAcbNSws2YqesuL60imTCz0PgGcWrz3yQV717FFKg7rSdBodLwXwA9D5M0pvaccOmz+SQgzxAMg
+ E+7rQnDLEnEiSIGlV+warlyT649gI9lDTHgmDPStcy0IR8EawQlVN+SMzvFSm9XG9AKMlsVxJ24
+ Q1BqcpuHSlezGCQ==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091922_474319_9310EFD7 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20260731_093047_928926_069B9E31 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,118 +131,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The .force() connector callback is invoked by
-drm_helper_probe_single_connector_modes() while the modeset acquire
-context it created is live, but the hook signature provides no way to
-pass it down, e.g. to support implementations needing to lock further
-objects.
+The A733 GMAC210 is a DesignWare MAC 5.20 with an Allwinner glue close to
+the A523 GMAC200 already supported by dwmac-sun55i, but with a few
+significant differences:
 
-Add a .force_ctx() variant to drm_connector_helper_funcs, taking the
-acquire context and returning an error code, so that -EDEADLK propagates
-into the existing retry path.  When provided, it takes precedence over
-drm_connector_funcs' .force(), which is kept for existing users.
+ * The glue configuration registers are a dedicated MMIO region of the
+   controller instead of a syscon register.
+ * That region is inside the controller reset domain, so the reset must be
+   released before the configuration is written, and must not be asserted
+   again afterwards or the configuration is lost.
+ * The DMA channels have their own interrupt lines.
+ * A PTP reference clock and an AHB reset are needed.
+ * The controllers do not require a power domain (AFAIK).
+ * The TX clock delay value is 5 bits wide instead of 3, split over 2
+   register fields.
 
-This is a prerequisite for SCDC status synchronization in the HDMI
-connector framework.
+The DT changes for the A733 and the Cubie A7A board are not part of this
+series and will be sent separately through the sunxi tree.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Tested on a Cubie A7A, RGMII with an external PHY on GMAC0.
+
+Full disclosure: at the moment there is a problem with EEE/LPI while
+testing on the Cubie A7A. If the device stays in LPI mode long enough, the
+link sometimes (but not always) goes down, coming back up when the device
+exits LPI mode.
+
+I'm currently working around the problem by adding the following
+properties to the PHY node:
+
+	eee-broken-100tx;
+	eee-broken-1000t;
+
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- drivers/gpu/drm/drm_probe_helper.c       | 14 +++++++++++++-
- include/drm/drm_connector.h              |  6 ++++++
- include/drm/drm_modeset_helper_vtables.h | 28 ++++++++++++++++++++++++++++
- 3 files changed, 47 insertions(+), 1 deletion(-)
+Jerome Brunet (2):
+      dt-bindings: net: sun8i-emac: Add A733 GMAC210 compatible
+      net: stmmac: Add support for Allwinner A733 GMAC210
 
-diff --git a/drivers/gpu/drm/drm_probe_helper.c b/drivers/gpu/drm/drm_probe_helper.c
-index e26ead5b5e58..918255bcfa09 100644
---- a/drivers/gpu/drm/drm_probe_helper.c
-+++ b/drivers/gpu/drm/drm_probe_helper.c
-@@ -559,6 +559,7 @@ static int __drm_helper_update_and_validate(struct drm_connector *connector,
- int drm_helper_probe_single_connector_modes(struct drm_connector *connector,
- 					    uint32_t maxX, uint32_t maxY)
- {
-+	const struct drm_connector_helper_funcs *funcs = connector->helper_private;
- 	struct drm_device *dev = connector->dev;
- 	struct drm_display_mode *mode;
- 	int count = 0, ret;
-@@ -592,8 +593,19 @@ int drm_helper_probe_single_connector_modes(struct drm_connector *connector,
- 			connector->status = connector_status_connected;
- 		else
- 			connector->status = connector_status_disconnected;
--		if (connector->funcs->force)
-+
-+		if (funcs && funcs->force_ctx) {
-+			ret = funcs->force_ctx(connector, &ctx);
-+			if (ret == -EDEADLK) {
-+				drm_modeset_backoff(&ctx);
-+				goto retry;
-+			} else if (ret < 0) {
-+				drm_dbg_kms(dev, "[CONNECTOR:%d:%s] force_ctx failed: %d\n",
-+					    connector->base.id, connector->name, ret);
-+			}
-+		} else if (connector->funcs->force) {
- 			connector->funcs->force(connector);
-+		}
- 	} else {
- 		ret = drm_helper_probe_detect(connector, &ctx, true);
- 
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index 2a49c4d55f77..a6de3e63b462 100644
---- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -1603,6 +1603,12 @@ struct drm_connector_funcs {
- 	 * the sysfs interfaces or on the kernel cmdline. In that case the
- 	 * @detect callback isn't called.
- 	 *
-+	 * New drivers should implement
-+	 * &drm_connector_helper_funcs.force_ctx instead, which gets passed
-+	 * the modeset acquire context and thus allows taking additional
-+	 * locks.  It takes precedence over this callback when both are
-+	 * implemented.
-+	 *
- 	 * FIXME:
- 	 *
- 	 * Note that this hook is only called by the probe helper. It's not in
-diff --git a/include/drm/drm_modeset_helper_vtables.h b/include/drm/drm_modeset_helper_vtables.h
-index ca6268945c28..cf5fe5ba2b18 100644
---- a/include/drm/drm_modeset_helper_vtables.h
-+++ b/include/drm/drm_modeset_helper_vtables.h
-@@ -921,6 +921,34 @@ struct drm_connector_helper_funcs {
- 			  struct drm_modeset_acquire_ctx *ctx,
- 			  bool force);
- 
-+	/**
-+	 * @force_ctx:
-+	 *
-+	 * This function is called to update internal encoder state when the
-+	 * connector is forced to a certain state by userspace, either through
-+	 * the sysfs interfaces or on the kernel cmdline. In that case the
-+	 * @detect_ctx callback isn't called.
-+	 *
-+	 * This is the atomic version of &drm_connector_funcs.force.  When
-+	 * both are implemented, this one takes precedence and
-+	 * &drm_connector_funcs.force is not called.
-+	 *
-+	 * To avoid races against concurrent connector state updates, the
-+	 * helper libraries always call this with ctx set to a valid context,
-+	 * and &drm_mode_config.connection_mutex will always be locked with
-+	 * the ctx parameter set to this ctx. This allows taking additional
-+	 * locks as required.
-+	 *
-+	 * RETURNS:
-+	 *
-+	 * Zero on success, or a negative error code otherwise.  This includes
-+	 * -EDEADLK when a lock acquisition needs to be restarted, in which
-+	 * case the helpers take care of backing off and calling this function
-+	 * again.
-+	 */
-+	int (*force_ctx)(struct drm_connector *connector,
-+			 struct drm_modeset_acquire_ctx *ctx);
-+
- 	/**
- 	 * @mode_valid:
- 	 *
+ .../bindings/net/allwinner,sun8i-a83t-emac.yaml    | 130 +++++++++++++++---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c | 145 ++++++++++++++++++---
+ 2 files changed, 242 insertions(+), 33 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260731-allwinner-a733-gmac-support-163bde10c152
 
--- 
-2.55.0
+Best regards,
+--  
+Jerome
 
 
