@@ -4,129 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B93AC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B71B6C5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9O9bxcs/CQGb5OBe7pnl0LW2foATwy5DPiHGFcANeLc=; b=owrKCIOVMwYKH1NPs/7+RZocRs
-	iGwLQO8omxL+bDQ5RPFrTb0lub0U136AW3m60nqabWN6ImhY2BTqXLVH1SWY41+8VJxMTHHJMTVCk
-	2sIFnqiXHu+91xJUr6IjC8eZpyXJgs657y+H+gizY+bemlnMETUDeHyqazj6JPWx4blSBq0TW8HTv
-	H+FqBOkGoulpzIEX5slct/wibyzR9GMAp+QqDm7rCUmY/aAlvSjE0uC2KfKmDGJQIWHrObSKHyoiT
-	bGe7WzoLUt4duWKTLL2rdQQ3Alvr7LpTqLla3/AeSpkhFHj6ven3lAHkdbOrSiBn/jYKLpns5CgjE
-	G3kGjRCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tbqtOFs9zlL8i8nLzqSqayZV4ABdonTOL9PAP1vFtvs=; b=PfYhpMrjanvVw4ICGDMfLFthR+
+	QpbGX7CGiyY3qmfKg7mNuStr2Kesyc3a3gc3DgCSC5DcOA1PQOJPQxQCJKB26M71SSHqprgIU8YQz
+	FW6KXQJ8kiaUcIfNOk7FI1BuARwRG/Au71/tQDmTJSkyxec4eZhWOu4O4GhatCDWyYnTSWqEBKDPX
+	fYsOXzuWPVYWqCi4YAykpA0JF7GwPLxO1FMBS9HsL/c1b7/al1HlvU0meOTe0l9l5OSsg1Q5OSz8+
+	3S6hkOixZmU08szPxVzrkz70MX5G/DXeJ1hh4EwGnoj2FFNf1ZWw+Tlcxrz+bFb0P++kkiOtxlGgT
+	Q2NGVm+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzt-0000000CYS9-40kC;
-	Fri, 31 Jul 2026 13:09:57 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wpnY4-0000000Cdm0-2dyC;
+	Fri, 31 Jul 2026 13:45:16 +0000
+Received: from mail-ej2-x01.google.com ([2a00:1450:4864:34::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzZ-0000000CXz1-2KGm
+	id 1wpnY1-0000000CdlZ-0cie
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:09:40 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBm7nw1732055;
-	Fri, 31 Jul 2026 13:09:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=9O9bxcs/CQGb5OBe7
-	pnl0LW2foATwy5DPiHGFcANeLc=; b=kjlRiwT8bavw3mKEf8rwW0ZgpOrwFSdLV
-	Faty8sqiEfRGnKX+o50P+sxqX+UPAnjLt+9+ZQTfF47UAyh+bHyR1AGkuw2CplYC
-	QwGFbwY5RMK6dKq84gWV7yqGryFyLAUoJ6hsJnmbuhucGKftU9J/gFW5Lo/cHojC
-	xZP8nEP+6RDSo9hC6T9/vz8AGtVf00pEelsVZj2KEGQMlPIABQ2Ef7I8hZ+bSTy1
-	HayOdMTE0ePeBhjmqHB6Wt1+TEFSLg2rvLIakzireM+ke/d1uNsMHB/fC2bOxgAV
-	pBJQ5sLyGXbaP6l6zL3pIigb4g8a5PTnZWEt/fH0G6p/cXgU+Zo+w==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuw7w4mh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:25 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuN5R012675;
-	Fri, 31 Jul 2026 13:09:23 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn8fkg08c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:23 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD9Htk32637366
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jul 2026 13:09:17 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 18A5120040;
-	Fri, 31 Jul 2026 13:09:17 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A49E820043;
-	Fri, 31 Jul 2026 13:09:16 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 31 Jul 2026 13:09:16 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v5 31/31] KVM: s390: arm64: Enable KVM_ARM64 config and Kbuild
-Date: Fri, 31 Jul 2026 15:08:59 +0200
-Message-ID: <20260731130902.654679-32-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
-References: <20260731130902.654679-1-seiden@linux.ibm.com>
+	Fri, 31 Jul 2026 13:45:15 +0000
+Received: by mail-ej2-x01.google.com with SMTP id a640c23a62f3a-c15e0279316so38840766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 06:45:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1785505510; x=1786110310; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=tbqtOFs9zlL8i8nLzqSqayZV4ABdonTOL9PAP1vFtvs=;
+        b=C1v4Umb2LFU19cBJo2ZLVcMaOTf/jVtTdJw5/C7cZOTHKx7R5Xnte4m4136qw8MwdJ
+         hUGMFS4P7FKvDbSfKodTp/ppDvZL9vATVN+f4iab1yS5gCjE9mdY1NQDNf7QipCj5BF6
+         N4e5XKRcGD0Svvxk2ZmmWC2LajVFyt1q+7oTcO/23c+iwyptnRA+8+NI/WUcoID2xUAg
+         T3dXU5O09fFA5vjv0rLGmA2dzpwJDPZLLxhQUCTPFMF5RpbyBoEAGbYdg7IqqdLFoWgM
+         ZMhUndU6jwnUBunj3ROmmBKaSU0IEEIcWyaiyqTjcrGVRMQ+Af4M7m49fC0/TpwNNyEy
+         DTHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785505510; x=1786110310;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=tbqtOFs9zlL8i8nLzqSqayZV4ABdonTOL9PAP1vFtvs=;
+        b=GKkEZmUWgGWGZY3M2fA1+L1G3evqOu+CToyrnvSvXLfVC5jRK1+H2ypU3iLd8V0FB9
+         +VIF7uLQJGoR4574F9hwAtykZSOQxrPemsww2AEQ9vol06EWq7odpa2nPEwBi9vKkp+h
+         bS9LEB3q1PQ29q8of+ZBPUweAa7KPyidS8YiAMkJYmUQhV7DsqESYhxYy56FVtaPpQIZ
+         ySP+hlWx4v5Qv66otToc9eMDK9m9EqyKXZkG64kJxEl1HxaggHE4kh7gLFLcu2L+YAJs
+         6jVKe8+79oqT2tReqrtc0UnfahlOYN/T9xaiZe4+pK5HcZII9wJSqCyCvX5kmY4VDgoU
+         WZxQ==
+X-Forwarded-Encrypted: i=1; AHgh+RocS2AAP2PgdBwCyMxG9CNVyGOb3Irv7T8Ku18sp+MRSwsmP4MBEh6+CKXdCq9U40tj5D2KAoc2o72Rm6IhBKr6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNCYaLvChHCIPUSqVVYNFj6vKt6QMADaD7SSJNVn8GNBBPO6ts
+	lBYk/Ibun3PSuwIumEwYEV/zBYdaFUXV90MkhobmD5ruD/WIPMsKBlnLo4u45dfI2fkODdjKzjk
+	KIp+a/WTBaR4=
+X-Gm-Gg: AR+sD128+Pg7AP6d5mJYjtsP80lpS8T5Tp4Oepxu5qzLY1H2izk06u91Arn3rcfkHkP
+	Y2rdV206Y5HGLQUNFCKtwipB/Xvl03vnvpv9JfQWxGbQG4Hal6e49054NyBPfYa5WDBHIYyv1gC
+	o3Z2qua9b9j9woG2f3IjPy92nK+YRCIDxWXiNzGioMo0+YVAsPG6ZAL2ryXnbP7WQIZuvHOb9BR
+	9WVaw0To9qC019HjTF6kMZVNW6Shc/eqxhZJuAMW5aBuKP/v6fLyQZeh0ID+hZ2qnxK3BmIdzQb
+	A7CC6BcODWTgTtsc+ymDZIAk07RPVXIP8NEkvIfOAjosrU7TUSjKncGrPkrMX4zsnvkzpzlId1e
+	eJSITqFXP+1cD6oGcinNPb30+NXC3Pe81GMm38qzQYvEAegrEdY5NiLh181M0XU45giOdnD202R
+	x2f0elfdASSdiJu8el6tJmKPGfk5WF7i1gdXpdG8rm9QnYmhZM+x6Si0/+fQy3EOM5AwFj
+X-Received: by 2002:a17:907:9621:b0:c11:efec:6ca9 with SMTP id a640c23a62f3a-c1fd200e918mr139538366b.8.1785505509645;
+        Fri, 31 Jul 2026 06:45:09 -0700 (PDT)
+Received: from [127.0.0.2] ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a09c63d9aesm2059189a12.19.2026.07.31.06.45.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jul 2026 06:45:09 -0700 (PDT)
+From: Michal Gorlas <michal.gorlas@9elements.com>
+Date: Fri, 31 Jul 2026 15:44:56 +0200
+Subject: [PATCH v2] PCI: imx6: Enable ASPM L1 only iff CLKREQ# is supported
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: pfdhqXbQC7jqJMONarHISRs4XYt2XbXg
-X-Proofpoint-ORIG-GUID: qgJ8BdUnfumoSAFTZjSYs_6dq4KqKIZU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX8S31ufeTk2JT
- cTq8XLGekONKaIkR+7wtbzF3FPNfxHoP8em+tTz41RN34jnNxpHr4fFz6dodBBID9Wg+RehSXLU
- VjMfPJ1FrV6Rt03wDL4iu+MpNJKr0UTSdpgUKi/N263o5I/KUxGh2bccZe2pol+fcnWfvfXuFaY
- 9BpdcpI/FVZ/JImKIdV5SZHzl/6ZlhuZNeQd64GzBzWokmfgRA5UGpvF84ySnL0SSCaSSF0XWCt
- J9xq7WASmNbsCt1cK/MnDgBLS/ZAvHkXQf4YSMsO799ishHcl55wSASS3b5v//oF+WQnIf8HksG
- V5dpf8UDGqJflsfZkEGpq8qcpVhxYM+AfB341bLsPdXDBKCV1EAfFxD2L1Fz6HrWbrKNV0Nu+Zh
- ugshwnD7WcYWn8CoAwOhLYoSil601kkkA7Y6m32XaOBGUm4g9oYA3omHA9TIyNmZKQMhvr2finr
- ixUnvR6hv+Wplwyk53A==
-X-Authority-Analysis: v=2.4 cv=SKFykuvH c=1 sm=1 tr=0 ts=6a6c9e85 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=Zz3svKs3IDGlfYr5LI8A:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX3Gop5Qm/Sl5u
- 1R0oQN0H5xH0GLfACWWcCe6MVBMhys50CkbTXehE5EQpANZ7uKG+A3+7OavjyCS/69GXkMHNrN5
- I6qx4xSZqVUOPXw69e3UMqcf+/LtcQI=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0
- lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607310096
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260731-l1-conditional-imx-v2-1-6016ee9148b2@9elements.com>
+X-B4-Tracking: v=1; b=H4sIANimbGoC/22Nyw6CMBBFf4V07Zi2pjxc+R+GRSmDjIGWtJVgC
+ P9uwbhzeZJz71lZQE8Y2DVbmceZAjmbQJ4yZnptHwjUJmaSy5wX4gKDAONsSzGJegAaFzCy6Vr
+ JNfJSsTScPHa0HKf3+svh1TzRxP1pN3oK0fn3UZ3F7v0C1b/ALECAVkqrohLK5OWtwgFHtDGcj
+ RtZvW3bB3cEs5zKAAAA
+X-Change-ID: 20260713-l1-conditional-imx-c2bfd20ae085
+To: Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3162;
+ i=michal.gorlas@9elements.com; h=from:subject:message-id;
+ bh=xwQHtsrljpLUNJTTWYKrxa5N2l9IwyucZA1Mt1aK1Dg=;
+ b=owEBbQKS/ZANAwAKAWKaksyA3pPLAcsmYgBqbKbhd6STa3KbItAP4bOK6R6qv/8owrUVZ79/l
+ eT+DTQOAE+JAjMEAAEKAB0WIQTgoC0bQQLz7jVH2W9impLMgN6TywUCamym4QAKCRBimpLMgN6T
+ y8Z2EACdH7Z5EH7boQzskJW/YN42hEYIIeBVjKVlmUM5wxvYFMpm1VAa/kUE6COvGUX/shm1MrD
+ Pl12ztVFe+ywQbXWGHaWc98cSB2najzZbS6/Q7A+4fDw3g/KX7bpwK8RxTSO37ksnzWs3zGIWFv
+ wjKqY0831tZ8ZRCgFrWVCTnX+TVA+/yvocB48PPfdMvaHXrjHAwBFUbGFh1VSwofLjjy88EFzdR
+ wQJ8BmXNfwmoX13f59mp3qCv8Q2xjD7kyOsIl4roIIFAf/Ti21EV/BtvtB56IaSMXF891Vdmk2N
+ 4rk+MYeJjsSMSjv9pwCsQO1c8bIP0P/+r7p8PFbWFZK7HkXkz9dTb9kkVhSqI3+APUHdHHq3TlR
+ xX1wPGRByfHAEpueR6jogS0qiap0fwyTi6XocSUOLd0YF/ZjewO2tDR/TU396bXdfgg+JIThOik
+ qiZ+S/pCBBrXGPjAS50z0moC/+lJ0M4eNPvAhljCXAgFnWXC3tZVh0vdi3uFAxz+quixD+JmG/Z
+ 6nY+402vHF9tq9AggXeomWSpPMQyfHMhZPmrGsg+2cDcsynUWomq++EoC+flKa2bodLXY1Ta/xJ
+ mOyIX8FwVfEOj/CjJ6mPY//v1+2e8X1sPiwSyvlZLEbETs35Ph/iOgNCA42D9oMkSe1DxJuLsem
+ lRJ0Aw80WCRfWLA==
+X-Developer-Key: i=michal.gorlas@9elements.com; a=openpgp;
+ fpr=B4EB74EA41969D1140A4D1791596726986433F8C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060938_215579_159AB2FC 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20260731_064513_421597_C944A7A2 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,203 +128,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add all Kbuild/Makefile configurations to build a second KVM module on
-s390 implementing the arm64-KVM API. To prevent symbol conflicts with
-kvm-s390 all internal symbols in kvm-arm64 are mangled if compiled as
-built-in. The new module ins named kvm-arm64.
+Since commit f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM
+states for devicetree platforms"), ASPM states are force enabled
+on all devicetree platforms. This causes PCI devices on some i.MX SoCs
+(for e.g. i.MX 8M Plus Kontron SMARC eval carrier) to enter L1 even
+though CLKREQ# is not supported (and consequently supports-clkreq is
+not set in pcie controller node of their DT), which causes the device to
+never wake up from L1.
 
-As in this case the build does not go through the normal build process
-the module parameter handling would be messed up. By forcing
-KBUILD_MODNAME to kvm-arm64 all parameters are at the same location and
-not at object/basename of the object file the parameter is introduced.
+Hence, disable L1 capability in the LNKCAP register if supports-clkreq
+is not set in the DT explicitly. For devices that set
+IMX_PCIE_FLAG_BROKEN_SUSPEND, disable L1 on resume as well, as these
+skip imx_pcie_host_init().
 
-Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Co-developed-by: Gautam Gala <ggala@linux.ibm.com>
-Signed-off-by: Gautam Gala <ggala@linux.ibm.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+Note, the logic here is very similar to 613f3255a35a, only difference
+is that leaving L0s enabled does not cause issues (at least
+I never encountered them myself when testing on the device) as its
+not dependent on CLKREQ# being physically there.
+Since there is already a way of specifying its presence in the DT,
+the driver should be aware and disable L1.
+
+Fixes: f3ac2ff14834 ("PCI/ASPM: Enable all ClockPM and ASPM states for devicetree platforms")
+Signed-off-by: Michal Gorlas <michal.gorlas@9elements.com>
+Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reviewed-by: Richard Zhu <hongxing.zhu@nxp.com>
 ---
- arch/s390/configs/defconfig  |  1 +
- arch/s390/include/asm/Kbuild |  3 ++
- arch/s390/kvm/Kconfig        |  1 +
- arch/s390/kvm/Makefile       |  1 +
- arch/s390/kvm/arm64/Kconfig  | 22 +++++++++
- arch/s390/kvm/arm64/Makefile | 91 ++++++++++++++++++++++++++++++++++++
- 6 files changed, 119 insertions(+)
- create mode 100644 arch/s390/kvm/arm64/Kconfig
- create mode 100644 arch/s390/kvm/arm64/Makefile
+Changes in v2:
+- disable L1 unconditionally on resume for platforms advertising
+IMX_PCIE_FLAG_BROKEN_SUSPEND (Sashiko)
+- typos in the commit message
+- Link to v1: https://patch.msgid.link/20260719-l1-conditional-imx-v1-1-a55a57915c68@9elements.com
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
-index 327ab4a3933c..20de85c96e9e 100644
---- a/arch/s390/configs/defconfig
-+++ b/arch/s390/configs/defconfig
-@@ -62,6 +62,7 @@ CONFIG_CMM=m
- CONFIG_APPLDATA_BASE=y
- CONFIG_S390_HYPFS_FS=y
- CONFIG_KVM_S390=m
-+CONFIG_KVM_ARM64=m
- CONFIG_S390_UNWIND_SELFTEST=m
- CONFIG_S390_KPROBES_SANITY_TEST=m
- CONFIG_S390_MODULES_SANITY_TEST=m
-diff --git a/arch/s390/include/asm/Kbuild b/arch/s390/include/asm/Kbuild
-index 0c1fc47c3ba0..f6fd67d1c651 100644
---- a/arch/s390/include/asm/Kbuild
-+++ b/arch/s390/include/asm/Kbuild
-@@ -8,3 +8,6 @@ generic-y += asm-offsets.h
- generic-y += mcs_spinlock.h
- generic-y += mmzone.h
- generic-y += ring_buffer.h
-+
-+generated-y += sysreg-gen-defs.h
-+generated-y += kvm_arm64_modname.h
-diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
-index f8d4a9a38dae..bbae58aa8bc4 100644
---- a/arch/s390/kvm/Kconfig
-+++ b/arch/s390/kvm/Kconfig
-@@ -20,5 +20,6 @@ config KVM
- 	tristate
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 98e1db751132..1fdcbcd2422e 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -1318,6 +1318,22 @@ static void imx_pcie_assert_perst(struct imx_pcie *imx_pcie, bool assert)
+ 	}
+ }
  
- source "arch/s390/kvm/s390/Kconfig"
-+source "arch/s390/kvm/arm64/Kconfig"
++static void imx_pcie_disable_l1(struct dw_pcie *pci)
++{
++	u32 val;
++	u8 offset;
++
++	offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
++
++	dw_pcie_dbi_ro_wr_en(pci);
++
++	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_LNKCAP);
++	val &= ~PCI_EXP_LNKCAP_ASPM_L1;
++	dw_pcie_writel_dbi(pci, offset + PCI_EXP_LNKCAP, val);
++
++	dw_pcie_dbi_ro_wr_dis(pci);
++}
++
+ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+@@ -1442,6 +1458,9 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
  
- endif # VIRTUALIZATION
-diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
-index c43d7dffca13..38bdd7c9b42d 100644
---- a/arch/s390/kvm/Makefile
-+++ b/arch/s390/kvm/Makefile
-@@ -4,3 +4,4 @@
- # Copyright IBM Corp. 2008
+ 	imx_setup_phy_mpll(imx_pcie);
  
- obj-$(CONFIG_KVM_S390) += s390/
-+obj-$(CONFIG_KVM_ARM64) += arm64/
-diff --git a/arch/s390/kvm/arm64/Kconfig b/arch/s390/kvm/arm64/Kconfig
-new file mode 100644
-index 000000000000..15de7c52c861
---- /dev/null
-+++ b/arch/s390/kvm/arm64/Kconfig
-@@ -0,0 +1,22 @@
-+# SPDX-License-Identifier: GPL-2.0
++	if (!imx_pcie->supports_clkreq)
++		imx_pcie_disable_l1(pci);
 +
-+config KVM_ARM64
-+	def_tristate y
-+	prompt "Kernel-based Virtual Machine (KVM) support for arm64 guests"
-+	depends on HAS_IOMEM
-+	select KVM
-+	select GUEST_PERF_EVENTS if PERF_EVENTS
-+	select HAVE_KVM_CPU_RELAX_INTERCEPT
-+	select HAVE_KVM_IRQCHIP
-+	select HAVE_KVM_MSI
-+	select HAVE_KVM_VCPU_RUN_PID_CHANGE
-+	select IRQ_BYPASS_MANAGER
-+	select KVM_COMMON
-+	select KVM_MMIO
-+	select KVM_VFIO
-+	select SCHED_INFO
-+	select XARRAY_MULTI
-+	help
-+	  Support hosting virtualized arm64 guest machines on s390 host machines.
-+
-+	  If unsure, say N.
-diff --git a/arch/s390/kvm/arm64/Makefile b/arch/s390/kvm/arm64/Makefile
-new file mode 100644
-index 000000000000..a102c35664ca
---- /dev/null
-+++ b/arch/s390/kvm/arm64/Makefile
-@@ -0,0 +1,91 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+KVM := ../../../../virt/kvm
-+include $(srctree)/virt/kvm/Makefile.kvm
-+KVM_MANAGES_S390_GUEST = n
-+include $(srctree)/arch/s390/kvm/gmap/Makefile
-+include $(src)/Makefile.gen
-+
-+ccflags-y += -I $(src) -I $(objtree)/$(obj) -I$(srctree)/arch/s390/kvm/gmap -DKVM_S390_ARM64
-+
-+kvm-arm64-obj := \
-+	arm.o \
-+	guest.o \
-+	handle_exit.o \
-+	inject_fault.o \
-+	mmu.o \
-+	mmio.o \
-+	reset.o \
-+
-+kvm-arm64-obj += $(patsubst %.o,%-arm64.o,$(kvm-y))
-+
-+targets += $(kvm-arm64-obj)
-+
-+$(obj)/%-arm64.o: $(src)/%.c FORCE
-+	@mkdir -p $(dir $@)
-+	$(call if_changed_rule,cc_o_c)
-+
-+ifeq ($(CONFIG_KVM_ARM64),m)
-+
-+kvm-arm64-y = $(kvm-arm64-obj)
-+
-+else ifeq ($(CONFIG_KVM_ARM64),y)
-+
-+KVM_ARM64_GEN_DIR := $(objtree)/arch/${SRCARCH}/include/generated/asm
-+KVM_ARM64_MODNAME_H := $(KVM_ARM64_GEN_DIR)/kvm_arm64_modname.h
-+ccflags-y += -include $(KVM_ARM64_MODNAME_H)
-+
-+targets += $(KVM_ARM64_MODNAME_H)
-+
-+quiet_cmd_kvm_arm64_modname_h = GEN     $@
-+      cmd_kvm_arm64_modname_h = { \
-+	echo '/* Automatically generated; do not edit. */'; \
-+	echo '\#ifndef _KVM_ARM64_MODNAME_H'; \
-+	echo '\#define _KVM_ARM64_MODNAME_H'; \
-+	echo '\#undef KBUILD_MODNAME'; \
-+	echo '\#define KBUILD_MODNAME "kvm_arm64"'; \
-+	echo '\#endif /* _KVM_ARM64_MODNAME_H */'; \
-+	} > $@
-+
-+$(addprefix $(obj)/,$(kvm-arm64-obj)): $(KVM_ARM64_MODNAME_H)
-+
-+$(KVM_ARM64_MODNAME_H):
-+	@mkdir -p $(KVM_ARM64_GEN_DIR)
-+	$(call cmd,kvm_arm64_modname_h)
-+
-+prereq-o-cmd = $(foreach o, $(filter %.o, $^), $(dir $(o)).$(notdir $(o)).cmd)
-+cmd_gen_symversions_o = \
-+	grep --no-filename "^\#SYMVER" $(prereq-o-cmd) >> $(dot-target).cmd || true
-+
-+define rule_ld_o_o
-+	$(call cmd_and_savecmd,ld)
-+	$(call cmd,gen_symversions_o)
-+endef
-+
-+LDFLAGS_kvm-unnamespaced.o := -r --whole-archive
-+$(obj)/kvm-unnamespaced.o: $(addprefix $(obj)/,$(kvm-arm64-obj)) FORCE
-+	$(call if_changed_rule,ld_o_o)
-+
-+quiet_cmd_nm_filter = NMFLTR  $@
-+	cmd_nm_filter = $(NM) -jU $< | sort -u > $@
-+
-+$(obj)/kvm_symbol_list: $(obj)/kvm-unnamespaced.o FORCE
-+	$(call if_changed,nm_filter)
-+
-+define rule_oc_o_o
-+	$(call cmd_and_savecmd,objcopy)
-+	$(call cmd,gen_objtooldep)
-+	$(call cmd,gen_symversions_o)
-+endef
-+
-+OBJCOPYFLAGS_kvm-namespaced.o := -O default --localize-symbols=$(obj)/kvm_symbol_list
-+$(obj)/kvm-namespaced.o: $(obj)/kvm-unnamespaced.o $(obj)/kvm_symbol_list FORCE
-+	$(call if_changed_rule,oc_o_o)
-+
-+kvm-arm64-y = kvm-namespaced.o
-+
-+targets += kvm-unnamespaced.o kvm_symbol_list kvm-namespaced.o
-+
-+endif
-+
-+obj-$(CONFIG_KVM_ARM64) += kvm-arm64.o
--- 
-2.53.0
+ 	return 0;
+ 
+ err_phy_off:
+@@ -1748,6 +1767,7 @@ static int imx_pcie_resume_noirq(struct device *dev)
+ 			return ret;
+ 		imx_pcie_deassert_core_reset(imx_pcie);
+ 		imx_pcie_assert_perst(imx_pcie, false);
++		imx_pcie_disable_l1(imx_pcie->pci);
+ 
+ 		/*
+ 		 * Using PCIE_TEST_PD seems to disable MSI and powers down the
+
+---
+base-commit: a13c140cc289c0b7b3770bce5b3ad42ab35074aa
+change-id: 20260713-l1-conditional-imx-c2bfd20ae085
+
+Best regards,
+--  
+Michal Gorlas <michal.gorlas@9elements.com>
 
 
