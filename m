@@ -4,85 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3091BC5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 12:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 712CAC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 12:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qeYDLVJO6z9LXain17/mTHxd8Oy2iz9/kyAW2nqshBE=; b=PWKhR2S5tZKlknE5dVOCGNA43l
-	g8pV5et6aJ3k/VmNQKw6oR62xGKOrmUBIaHxQV8ESS3DaIdX7dAAY22OoCCsxLRMm/LaPloj7gg7Q
-	XIczyakX+VPL6Ygjhot+IO83sDoArAlHnuWYYYyQJ0erodts2AFW5fN+dKos8M+vSlgbTGhKXFvTs
-	4LAfCSbJOLedUzHqiU5CzvATMsKaGFWoZ3IwSXp5YjuW9kJfLEDJPD0anIGjmmxkMoC0tPFPYr2q3
-	187wRonVJYXZgu4rv3H79I0WGNIukoC9JWTjvs4f9nNchsI1tyakrcL+0W79DjJiv1JhCszq68ZMN
-	vOHU6y/w==;
+	bh=s5MfiV0pCwt6oZcEN6c56AZWWbQZZepnoz0+uvh0FfY=; b=2feq1/tHVKLq+D/1FJokMWI5S/
+	KyVmdMGIMVdR77DAclG/saNYa3lEQVAruaik6nYxPoX2Of6XvLVm9Jo+JFR3nX6OGcOhXckNGLz6d
+	cVKgEovJzmSnAHB7o/jL0m1vFoT2lidaYtZ29g3s1mZNP9LXVGmNkgeRxyaAiXlUBv+y8IwSTEKj4
+	xv4lSswAUMdh4vUHkv15rUspA5eU6xbWPd1XDgNQ3KKuyPh+SmvZqrhyXs2+wjFkWd8l8Mh9hMn3B
+	zt5uj4LTjlCYSu/ue2cRavJPcvo4ectD965lB2VAuBphXuWMptBEeA8B6YqaIC01zNrJ44465MYMU
+	DE5VSyXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmdk-0000000CWJZ-1jNT;
-	Fri, 31 Jul 2026 12:47:04 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmdh-0000000CWIr-2QKq;
-	Fri, 31 Jul 2026 12:47:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1785502007; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=OeH5Dy/FYVuYCKeZD7ETFLym30115pEeQHUK8EFerm9DGeQ17QG6HLRwLQqPxqj32SPgKoZjuEemD17T+fT8YwMt4uLYGB/RFRjCt5DZdV9ZfiXxsKXoyhw6XqMkH/TBjml+F3pqDCWKbcTxYU/99tFhYOpOMwsXa/suuQPa3iQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1785502007; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=qeYDLVJO6z9LXain17/mTHxd8Oy2iz9/kyAW2nqshBE=; 
-	b=Ewia+hWSrcN8nuTb2/KWmsMrseOsS8uwlr/2pd4T1kd8bKpYrGL5QVZVPWTz3pNEvtRYNlBu/fzbDDuc18v8Z6+COCd+SvtydRNkOSHUPwzOsx1gGdnzqsSAJ3yNVyIDGLK7zTJn2LbWX6Up3sHTsb0dpmx9yIoRwz1CdRG450U=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785502007;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=qeYDLVJO6z9LXain17/mTHxd8Oy2iz9/kyAW2nqshBE=;
-	b=cFa/IwnbXsJs2SNpbXMcCYy/c9CCBJ5GGG7KgygXugBTT+QfT+3K3tPs/6FtIeNh
-	rJ+d15WgPKIbO11Gw7GCMP9ONxaJ6bDwYiaMN+Ulp4rwcqH/yvAGLT9Y0Vdb6t+Gy5q
-	1ZWqSl/sP13YAKfJkrrMuJLZ/3dfszRocuxjggbY=
-Received: by mx.zohomail.com with SMTPS id 178550200445654.5554775503316;
-	Fri, 31 Jul 2026 05:46:44 -0700 (PDT)
-Message-ID: <86c8b2ba77f109b77f93b74b13dc1fa995b7d4f7.camel@collabora.com>
-Subject: Re: [PATCH v10 03/26] dt-bindings: ufs: mediatek,ufs: Add mt8196
- variant
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
-  Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>,
- Peter Wang <peter.wang@mediatek.com>,  Chaotian Jing
- <chaotian.jing@mediatek.com>, Alim Akhtar <alim.akhtar@samsung.com>, Avri
- Altman	 <avri.altman@sandisk.com>, Bart Van Assche <bvanassche@acm.org>,
- Stanley Jhu	 <chu.stanley@gmail.com>, "James E.J. Bottomley"	
- <James.Bottomley@hansenpartnership.com>, "Martin K. Petersen"	
- <martin.petersen@oracle.com>, Philipp Zabel <p.zabel@pengutronix.de>, Liam
- Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- kernel@collabora.com, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 	linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-scsi@vger.kernel.org, Nicolas Frattaroli	
- <nicolas.frattaroli@collabora.com>
-Date: Fri, 31 Jul 2026 14:46:36 +0200
-In-Reply-To: <20260731-fanatic-zealous-inchworm-ddfe0b@quoll>
-References: <20260730-mt8196-ufs-v10-0-bc5ecef202dc@collabora.com>
-	 <20260730-mt8196-ufs-v10-3-bc5ecef202dc@collabora.com>
-	 <20260731-fanatic-zealous-inchworm-ddfe0b@quoll>
-Organization: Collabora Ltd
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+	id 1wpmiE-0000000CWWo-2Qg2;
+	Fri, 31 Jul 2026 12:51:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpmiC-0000000CWWF-0nTy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jul 2026 12:51:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22EB8204C;
+	Fri, 31 Jul 2026 05:51:33 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CF75F3F86F;
+	Fri, 31 Jul 2026 05:51:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785502297; bh=pzoMoHN8Xbk+tBHJK4RtpsuB9qr2xAHSbWUTa2L+TEs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YboKNLhB9rvsoGAVCqlSNlUZKCuGpyDBGkA+QSqQzQr5L5JPB/PMQBTYx4FNFZBay
+	 ikgCYLubmzgs/kqx8lHlVpFKzTKLrhUJMWmnJCMGjun3SyjQaBQQxhtTmqhhg+ZqK6
+	 +deT62mhcmPbSnbZ5TuWP2DFDmqVykEM+Rc3dtpQ=
+Date: Fri, 31 Jul 2026 13:51:26 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Subject: Re: [PATCH RFC] arm64: Mark set_preempt_need_resched() access to
+ .need_resched
+Message-ID: <amyaRXx8zXxOMgTL@J2N7QTR9R3>
+References: <d345dc9f-c61e-4db5-a342-11b0ff3fb846@paulmck-laptop>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d345dc9f-c61e-4db5-a342-11b0ff3fb846@paulmck-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_054701_671169_C75C38F6 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260731_055140_276800_BD6D4C8E 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,49 +64,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Paul,
 
-On Fri, 2026-07-31 at 10:27 +0200, Krzysztof Kozlowski wrote:
-> On Thu, Jul 30, 2026 at 11:48:59AM +0200, Louis-Alexis Eyraud wrote:
-> > =C2=A0
-> > =C2=A0examples:
-> > =C2=A0=C2=A0 - |
-> > @@ -177,3 +192,33 @@ examples:
-> > =C2=A0
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 mediatek,ufs-disable-m=
-cq;
-> > =C2=A0=C2=A0=C2=A0=C2=A0 };
-> > +=C2=A0 - |
-> > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/reset/mediatek,mt8196-resets.=
-h>
-> > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/interrupt-controller/arm-gic.=
-h>
-> > +
-> > +=C2=A0=C2=A0=C2=A0 ufshci@16810000 {
->=20
-> You already added second example. That's enough.
->=20
-I'll drop it.
+On Thu, Jul 30, 2026 at 04:59:57PM -0700, Paul E. McKenney wrote:
+> The .need_resched field can be accessed from both task level and
+> from interrrupt handlers, so apply WRITE_ONCE() to the update in
+> set_preempt_need_resched().  This also brings arm64 in line with s390
+> (which uses atomic operations) and x86 (which uses inline assembly).
+> Other architectures avoid this issue via the empty definition in
+> include/asm-generic/preempt.h.
+> 
+> KCSAN located this issue.
 
-> Sashiko reports are valid.
->=20
-the reports are indeed right about the missing supply description for
-AVDD09_UFS_1 pin.
+Do you have the KCSAN splat to hand? Seeing the exact race (and the
+relevant reader(s)) would be handy.
 
-The MT8196 and MT88894 SoC datasheets do confirm they are different
-supplies, so I'll add its description and also its handling in the
-driver (in an additional patch) in the next revision.
+> Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Cc: <linux-arm-kernel@lists.infradead.org>
+> 
+> ---
+>  preempt.h |    2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+> index 932ea4b6204289..610853da140a78 100644
+> --- a/arch/arm64/include/asm/preempt.h
+> +++ b/arch/arm64/include/asm/preempt.h
+> @@ -28,7 +28,7 @@ static inline void preempt_count_set(u64 pc)
+>  
+>  static inline void set_preempt_need_resched(void)
+>  {
+> -	current_thread_info()->preempt.need_resched = 0;
+> +	WRITE_ONCE(current_thread_info()->preempt.need_resched, 0);
+>  }
 
-I'll fix the typo (present since v3) as well.
+I was under the impression that we only used this in a context where we
+couldn't have a nested writer (e.g. within a scheduler IRQ hook, with
+IRQs disabled).
 
-Best regards,
-Louis-Alexis
+If we have concurrent writers, this is probably broken regardless of
+whether it is single-copy-atomic, and I worry WRITE_ONCE() will mask a
+bug.
 
+If you can share the KCSAN splat, that'd really help.
 
-> Best regards,
-> Krzysztof
->=20
+I think we need READ_ONCE() in test_preempt_need_resched(), but today
+that's only used by tracing to determine what to log.
+
+Mark.
 
