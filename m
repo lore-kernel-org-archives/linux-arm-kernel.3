@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB065C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA97C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wAx6cg4X8Yvm9/y43nGkEkCLxuVsjsZZ6IGp3mpgH0Y=; b=AoctUYj+w1XtESB666zD1jbaW9
-	W9XjmPcR6XvHdRHXnvxeMHBYgqjPac9TeOqX9YwjK/atJjA/6DwfKTmqDd0+x4ItKRECyy1A4BVT+
-	co1jL7A3vj12Yg1kwS81nSuzy2vp6U9e023aUbztR35QQOVlFucvke/G/jmDdddJTe5KR2v34X8de
-	lUufNgeFi6QVSOAcWin7b5C9FmotKgqlnvlpp1DwCO9+Z2XKh7M6wab3PkUGnI+pNjT0EVkKJpxtk
-	wnuOr9LHwKJcS7/Tn7pnNQszOi4RDN3hqeYWllbEQpm0twOxpMbd4+0pmRMcqWPsFn8lPiQ7HRnJm
-	pOZQBR8A==;
+	bh=3UhK5YmUdmMvcOTRbYWKMVw6tSYQ82hiNVjgPLai9/8=; b=qEvaj/CPIItWiUPM5/ERDwN2c3
+	/K5LH1Ca3Z53UPyLWqcsFUUEeQShNgFIk/WWYnlB42dHHkacFCuc7QzqKGlPIl58bHTbjdgjtfXOd
+	4wXuxyFgVuxdGzfKOgXHXLn29YCkRv09QEUs2+IE7BWpyx7rhwiPYClNbV8OMTCWBWb5z2QEfSsCf
+	fJ8IVy8BmGbJcyi5C1ZFtWckuiMqF4W6TmgS/dExQaS0b2uF9dXIOLARyEegYKSAf8fgD+OHJr9A3
+	PSLeeOgN6me08kpJeOIQP463SwJerRY6t93FzRZoE07hx66XYaTzAgQI1yoat1cCbMSr+U01Aa/HW
+	ZuWnBIWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzj-0000000CY6P-0mwr;
-	Fri, 31 Jul 2026 13:09:47 +0000
+	id 1wpmzi-0000000CY5e-3QwC;
+	Fri, 31 Jul 2026 13:09:46 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzP-0000000CXp7-0ncU
+	id 1wpmzN-0000000CXnF-33g8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:09:30 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBm3EK4073668;
-	Fri, 31 Jul 2026 13:09:16 GMT
+	Fri, 31 Jul 2026 13:09:28 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBlkS91765505;
+	Fri, 31 Jul 2026 13:09:14 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=wAx6cg4X8Yvm9/y43
-	nGkEkCLxuVsjsZZ6IGp3mpgH0Y=; b=Y4h3eeFZKsE8c/TEA7oYdCG0kICPpfDyu
-	z+K1D6BMpn4osn8sRj7o/cj6YIp1iJqIyQ/qnSOqW1r+EBpeHONuv3CV4ErQ9AZz
-	gqQCp0D6IT+zgQuz4TLeyPtr+MB6Jzk87K5zwk+3dA5VnUDrTq1kfs2cciraJjA6
-	40F7wQHsF8fKwzTKKOqJW72j7s9ijNWBvrfPPOvcJ2qG5RkJaGuM7hUNrFDPe5Xe
-	CXsVDs2RHTX1lBy1dIYC1L/Et8loPb0RVfrkfauOv0aAXpM+heytsS4ylWtgjINA
-	6CJ/aeRUsJVRXx0F2Y037ME6MhqszfMlbWfsCA+pnp+W/9TXb507Q==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuycw2nc-1
+	:mime-version:references:subject:to; s=pp1; bh=3UhK5YmUdmMvcOTRb
+	YWKMVw6tSYQ82hiNVjgPLai9/8=; b=IjLfiIlXncP0YHSEOcgh0IudpkBlqANCi
+	LRQKiwdh+XrqEMLjemZ9RZHjO6/DmhMIrdhLmkwvYC/6w3joR7LxapBEhjZKcYit
+	oW4MXTB3jDGmc2OhHoYzhuva2a8/wJTmfH7Um91ecvkwwGmGBNq6uLJkFAGXXDz6
+	F/CXeT7IUAFtZNWPOG06t8Vf8l66O51CHT7HFsZNl+Hy2lc0r3OTVu+FY+w/E3Vz
+	SqsuY8HMNJhFhcMgSPCfDA/NOvjr7kub9bZQyezE4dQbV3oJqHSn/A4VFSR2Ip0c
+	HAuqpmwsYsDnBUCEtLxRv4d0v6u7VGEZf6Goh9yYmd4MhD8y43/Sw==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmv0y5658-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:15 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuOoC021058;
-	Fri, 31 Jul 2026 13:09:14 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fn7fqr55q-1
+	Fri, 31 Jul 2026 13:09:13 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuQ1x021776;
+	Fri, 31 Jul 2026 13:09:12 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn7uwg43d-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:14 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:12 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD97EJ28901790
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD95pR31130088
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jul 2026 13:09:07 GMT
+	Fri, 31 Jul 2026 13:09:05 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 29BE920040;
-	Fri, 31 Jul 2026 13:09:07 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 6F8B520043;
+	Fri, 31 Jul 2026 13:09:05 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id BE42B2004D;
-	Fri, 31 Jul 2026 13:09:06 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 1108F2004F;
+	Fri, 31 Jul 2026 13:09:05 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 31 Jul 2026 13:09:06 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:05 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,9 +88,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v5 09/31] KVM: arm64: Refactor core-reset into a separate function
-Date: Fri, 31 Jul 2026 15:08:37 +0200
-Message-ID: <20260731130902.654679-10-seiden@linux.ibm.com>
+Subject: [PATCH v5 05/31] arm64: ptrace: Use constants for compat register numbers
+Date: Fri, 31 Jul 2026 15:08:33 +0200
+Message-ID: <20260731130902.654679-6-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
 References: <20260731130902.654679-1-seiden@linux.ibm.com>
@@ -98,34 +98,34 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: qVJbrzEBut6CJjyhF5av3W4r_Aw8RDXK
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfXxJVuI9ry72Ua
- uAMZEMpZ+ptFaxKGRhuJ1IEVXcuyVi3n0/1W3ub0ZaaJXNAFZkUjcxFdc38lTZPyea3mHJUMu8s
- 3Cj49eSPY5z/cYwaHY4uICUEYIW2EOCnqX795xFvzLeKoMHXEAktEWPn3aCcp55l0t3UKJ9PBat
- pBKM7lU2QhWNw1/bPIUzTmDA9vhek3aQCqZXU2Qsu+1IZB9Uxp3xTpgcLNTeGIkDmW53pQoRf5w
- i21zo5C6ZpFM1RcuMIMxS3MilYBUAMzO3VDHvpsQc7f3E0qvtSU5BMxBeW57GxDdGrGWknIne1h
- RqubIa/QGxsbf9r48VvdO8dUjTzsxItfB98+F+xPXbkbdGIRL8vuS+GcUkKPzvoURnTcdDLStYk
- nRmiAcH4bT242psN8wFdJ52XMpQhq/mQnyoj/m8xCsRmpFhXdT9FBoPS4v+LWiCIc9jDk3LJke5
- YerOWNveXei2CXPfjmA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX7cTmf35y+q0E
- zBaNmzIWotXdfTWUQQYadwy/aRcadt89ronQd/6JQOGr9rbjDSMsA70Ifv4WKgFHddr4kwFUwRs
- RNUQwmlP1Jjflqek/W2CeVQ1a5FFkmE=
-X-Authority-Analysis: v=2.4 cv=AZeB2XXG c=1 sm=1 tr=0 ts=6a6c9e7c cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+X-Proofpoint-GUID: vIV77J6sCKVUS31HtHRbg5PWhRh2cT7L
+X-Proofpoint-ORIG-GUID: rRP1Gnw3Vu8yqoAKu3qG3hn5ahB1Z4z0
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX/Bnipok4nDZ9
+ dknm3KkCWueF0CWTnUB/8pAJwC0T95GhhqyjMzlbSmUhumGgYkpwBcNdLMiT87cQ6T9sOyPDReQ
+ BFxm/pulmcA0LH4SbtMgp3kcecm2lX8=
+X-Authority-Analysis: v=2.4 cv=dYuwG3Xe c=1 sm=1 tr=0 ts=6a6c9e7a cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=F8MYsyl7xEsdMw5BvxkA:9
-X-Proofpoint-GUID: VEHAphmfyHStG09vxDfCw8DqFZ_xu2TA
+ a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=8sKaXpLx0aSSeG29UzUA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX9VROhnMdKu62
+ /EtrgHI7kTjpuzF1N2XiHYMXgEG8jp7bUssiuYKtCG5xGhGg5GtaPsMNy2qcx1EtwlHbGT0288f
+ iuFJLUWjMKDQIBt1k8cpwFXRGV06HkjvIeWifdRdrFUw8Sq0h+gz+LYThhjSC1dN4oVFoiw2cV6
+ 1HQ+2U3gIVf7BzmW5ZMtaVTz9V6v22v45AoPwL+TTzcQpPSa5NeKNVB3qgrYOv9hoivf/PhPeMw
+ B0nPWj/XG7D13yjgqKoMvzTAIat/p0oiZxe7pXjnrpJ2iNdGLjWmkQQMAObYNnhx9xFTuT/pz9v
+ mYQwmVuiGVpKBZ31WtUcLE2k5LDT9PFjTpjUDAtNOIIA0y0npEkxr75yfHzYVegBAA9qW9yUz/c
+ b5oU9zeqkNttWComBz09bO9ADwNF1WKfpjUdxMfKiz8TAkuXmpYC3onOsUdD+R5BJFJtfHo2D9u
+ 8GA+vyeBaWN3DGKwJVA==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 phishscore=0 adultscore=0 impostorscore=0
- clxscore=1015 malwarescore=0 suspectscore=0 lowpriorityscore=0 bulkscore=0
+ priorityscore=1501 impostorscore=0 clxscore=1015 phishscore=0 malwarescore=0
+ spamscore=0 lowpriorityscore=0 bulkscore=0 suspectscore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607310096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060927_268169_288141F8 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20260731_060925_779226_ABA291CD 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,84 +140,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the reset of the arm core register into a separate function for
-later reuse.
-
-No functional change.
+Define an enum to determine the register number for the mapping from
+AArch32 and AArch64 registers. This allows for a more flexible use of
+the register mappings.
 
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/arm64/kvm/reset.c | 42 +++++++++++++++++++++++++-----------------
- 1 file changed, 25 insertions(+), 17 deletions(-)
+ arch/arm64/include/asm/ptrace.h | 60 ++++++++++++++++++++++-----------
+ 1 file changed, 41 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index ea8cac173a0b..727abbff2b6a 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -169,6 +169,30 @@ static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
- 		memset(vcpu->arch.sve_state, 0, vcpu_sve_state_size(vcpu));
- }
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index 39582511ad72..6f5b79ee1f3f 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -104,26 +104,48 @@
+ #define COMPAT_USER_SZ	296
  
-+static void kvm_reset_vcpu_core_regs(struct kvm_vcpu *vcpu)
-+{
-+	u32 pstate;
+ /* Architecturally defined mapping between AArch32 and AArch64 registers */
++enum {
++	__compat_fp	= 11,
++	__compat_sp	= 13,
++	__compat_lr	= 14,
++	__compat_sp_hyp	= 15,
++	__compat_lr_irq	= 16,
++	__compat_sp_irq	= 17,
++	__compat_lr_svc	= 18,
++	__compat_sp_svc	= 19,
++	__compat_lr_abt	= 20,
++	__compat_sp_abt	= 21,
++	__compat_lr_und	= 22,
++	__compat_sp_und	= 23,
++	__compat_r8_fiq	= 24,
++	__compat_r9_fiq	= 25,
++	__compat_r10_fi	= 26,
++	__compat_r11_fi	= 27,
++	__compat_r12_fi	= 28,
++	__compat_sp_fiq	= 29,
++	__compat_lr_fiq	= 30,
++};
 +
-+	if (vcpu_el1_is_32bit(vcpu))
-+		pstate = VCPU_RESET_PSTATE_SVC;
-+	else if (vcpu_has_nv(vcpu))
-+		pstate = VCPU_RESET_PSTATE_EL2;
-+	else
-+		pstate = VCPU_RESET_PSTATE_EL1;
-+
-+	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
-+	*vcpu_pc(vcpu) = 0;
-+	*vcpu_sp_el0(vcpu) = 0;
-+	memset(kvm_vcpu_get_vregs(vcpu), 0, sizeof(*kvm_vcpu_get_vregs(vcpu)));
-+	memset(kvm_vcpu_get_fpsr(vcpu), 0, sizeof(*kvm_vcpu_get_fpsr(vcpu)));
-+	memset(kvm_vcpu_get_fpcr(vcpu), 0, sizeof(*kvm_vcpu_get_fpcr(vcpu)));
-+	vcpu->arch.ctxt.spsr_abt = 0;
-+	vcpu->arch.ctxt.spsr_und = 0;
-+	vcpu->arch.ctxt.spsr_irq = 0;
-+	vcpu->arch.ctxt.spsr_fiq = 0;
-+	*vcpu_cpsr(vcpu) = pstate;
-+}
-+
- /**
-  * kvm_reset_vcpu - sets core registers and sys_regs to reset value
-  * @vcpu: The VCPU pointer
-@@ -191,7 +215,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ #define compat_usr(x)	regs[(x)]
+-#define compat_fp	regs[11]
+-#define compat_sp	regs[13]
+-#define compat_lr	regs[14]
+-#define compat_sp_hyp	regs[15]
+-#define compat_lr_irq	regs[16]
+-#define compat_sp_irq	regs[17]
+-#define compat_lr_svc	regs[18]
+-#define compat_sp_svc	regs[19]
+-#define compat_lr_abt	regs[20]
+-#define compat_sp_abt	regs[21]
+-#define compat_lr_und	regs[22]
+-#define compat_sp_und	regs[23]
+-#define compat_r8_fiq	regs[24]
+-#define compat_r9_fiq	regs[25]
+-#define compat_r10_fiq	regs[26]
+-#define compat_r11_fiq	regs[27]
+-#define compat_r12_fiq	regs[28]
+-#define compat_sp_fiq	regs[29]
+-#define compat_lr_fiq	regs[30]
++#define compat_fp	regs[__compat_fp]
++#define compat_sp	regs[__compat_sp]
++#define compat_lr	regs[__compat_lr]
++#define compat_sp_hyp	regs[__compat_sp_hyp]
++#define compat_lr_irq	regs[__compat_lr_irq]
++#define compat_sp_irq	regs[__compat_sp_irq]
++#define compat_lr_svc	regs[__compat_lr_svc]
++#define compat_sp_svc	regs[__compat_sp_svc]
++#define compat_lr_abt	regs[__compat_lr_ab]
++#define compat_sp_abt	regs[__compat_sp_abt]
++#define compat_lr_und	regs[__compat_lr_und]
++#define compat_sp_und	regs[__compat_sp_und]
++#define compat_r8_fiq	regs[__compat_r8_fiq]
++#define compat_r9_fiq	regs[__compat_r9_fiq]
++#define compat_r10_fiq	regs[__compat_r10_fi]
++#define compat_r11_fiq	regs[__compat_r11_fi]
++#define compat_r12_fiq	regs[__compat_r12_fi]
++#define compat_sp_fiq	regs[__compat_sp_fiq]
++#define compat_lr_fiq	regs[__compat_lr_fiq]
+ 
+ static inline unsigned long compat_psr_to_pstate(const unsigned long psr)
  {
- 	struct vcpu_reset_state reset_state;
- 	bool loaded;
--	u32 pstate;
- 
- 	spin_lock(&vcpu->arch.mp_state_lock);
- 	reset_state = vcpu->arch.reset_state;
-@@ -210,23 +233,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 		kvm_vcpu_reset_sve(vcpu);
- 	}
- 
--	if (vcpu_el1_is_32bit(vcpu))
--		pstate = VCPU_RESET_PSTATE_SVC;
--	else if (vcpu_has_nv(vcpu))
--		pstate = VCPU_RESET_PSTATE_EL2;
--	else
--		pstate = VCPU_RESET_PSTATE_EL1;
--
- 	/* Reset core registers */
--	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
--	*vcpu_pc(vcpu) = 0;
--	*vcpu_sp_el0(vcpu) = 0;
--	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
--	vcpu->arch.ctxt.spsr_abt = 0;
--	vcpu->arch.ctxt.spsr_und = 0;
--	vcpu->arch.ctxt.spsr_irq = 0;
--	vcpu->arch.ctxt.spsr_fiq = 0;
--	*vcpu_cpsr(vcpu) = pstate;
-+	kvm_reset_vcpu_core_regs(vcpu);
- 
- 	/* Reset system registers */
- 	kvm_reset_sys_regs(vcpu);
 -- 
 2.53.0
 
