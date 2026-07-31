@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9FBBC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 09:40:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E3CC55167
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 09:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=296IOgT1YKkCjkcCAkZR63Ipl/+FqyHSsI4X/8Mm764=; b=UhZHEfqx+0T7YCN/dHWGEaFvTY
-	sYxlN3sOH28df/lgftPvUlYoys3jdYfrElOkWuj1kS2gDAl2xsNeAcMPFKlSehp001Csw8A9BT1GA
-	rDRfocJZau3Tq3AsWfN1SD1UNJWkUZoORY1rTOsTaBnhyzAwU60nwiAxsr5fZSWNrqrqqaL/HfWTG
-	YU3weAhGPl89JCGNN3EE/JFR44TDTa4ui8UI5T2RhzM2267c25e2cXSykF7kvfwl7ZB8O0Ebk36hM
-	hm60z10gK7EjQh40l3Va0sQfGn1C6qhpmV/M3fPn/fpAv5ixZtvbWxaFRHM1Ce/vhcFYOzhjAj8bY
-	gK47tM5w==;
+	bh=vKqHgu89toClZtLrbRRFUeLu3qUj+HkOGqSj5VPW9kE=; b=r/M//xB2b+3M2P/VU9pLLa1utG
+	Mi5dhWUHIF1vEmRR37PVwDXUvkS7WVdrZPgPsIsUAr/pQVuPOlMQSQxchX1RR4wdRaMrhDqiMJWPa
+	pGkkBO5DbSFr+z7j4zKUJe7aI0U1JgUbD/jnrYguJYbSredlp+z+N4Y8xmet4Fj1Rd4e2mGoexlIB
+	sKiZcUpHnV4qC6aJomih70+7wogRbqxTxKFlrnFodMyT5QMsNv70XB6PaMBzcZHQLAL5VluKnpHV0
+	eTZgCSW02g1iLwLwcA149BYKM2cEb3kcBwGF8dp/F8W2Fp91Aq0mOg7eLT1q8+X5CYKikStAQZ2zm
+	Sze9WxkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpjin-0000000CCjq-0OxG;
-	Fri, 31 Jul 2026 09:40:05 +0000
+	id 1wpjlM-0000000CDIW-0omW;
+	Fri, 31 Jul 2026 09:42:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpjim-0000000CCja-1NUA
+	id 1wpjlL-0000000CDHf-2dvR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 09:40:04 +0000
+	Fri, 31 Jul 2026 09:42:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4207243FEF;
-	Fri, 31 Jul 2026 09:40:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 042281F000E9;
-	Fri, 31 Jul 2026 09:39:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 65A394009C;
+	Fri, 31 Jul 2026 09:42:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3029F1F000E9;
+	Fri, 31 Jul 2026 09:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785490803;
-	bh=296IOgT1YKkCjkcCAkZR63Ipl/+FqyHSsI4X/8Mm764=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=m4Bmaply048zfXGHHMfUoDumaYL5ZjQ0jv5DtNKW2CXJDwGsf09gi6YxZDptiUYDy
-	 NDZ/7loTVdnPgwqK0ZzTvlqyIny80F5i/owgS0iNcHQEIHcrLCTIcN3O/n7Egka2Qg
-	 o/Lz1QZ/qCn5Mi8EqoG9UKdsHwbvu6Rw4Ko3WTxDehNURyUnMhJy+41CSlnfzFeE/z
-	 2LXEP4PJQeALWEh73tJ0rX+O6FJ5PH2JlkYI73yGl4NEZ6RzWfAmalh75vFMajnITk
-	 TAnTzG0zXB2KBqxR5/kbAorlS+zoPDqcGJfOG/lnfZ8/PmatpRlovFXvkgKqONmGAe
-	 8x77115258SLQ==
-Message-ID: <5267c0e8-e20c-4e9c-a1fc-da27433e8523@kernel.org>
-Date: Fri, 31 Jul 2026 11:39:52 +0200
+	s=k20260515; t=1785490963;
+	bh=vKqHgu89toClZtLrbRRFUeLu3qUj+HkOGqSj5VPW9kE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=csM+11/210+dEgLAvpyhQmeNsaVy9NwZF+/VLKA8SWXD/y61KIKPlB+s1XzT53fox
+	 C0ZY+STU75/1jSVrICi116uzXNAU45yARi4Zu0JvdJ2mW0qrhOg0PSBsdQzHCHvD7E
+	 kI47pja1YJBSbmOS5093LDKEeKXe9axXf8g0EK6fFWXSxmlIV723Pjp8nBS0Gz6Vip
+	 sZXQMZylJHsN2wkoWIsKSs08w435AylxU18P3/f+zdYzUOr2Ut66Bji4rWacn1c8M0
+	 2PhHZdDy0Rg/UCuQTkMKjzYt88q3JPLvX0+JYlJam69SWdi41YwcdxRw+wUr7vmUTa
+	 oA5YLZTetnxGg==
+Message-ID: <47266a1b-1e19-4a9d-af0c-9a5abe51fabd@kernel.org>
+Date: Fri, 31 Jul 2026 11:42:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] dt-bindings: remoteproc: imx_rproc: document
+Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: imx_rproc: document
  optional "memory-region-names"
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>,
+ Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Peng Fan <peng.fan@nxp.com>, Frank Li <Frank.Li@nxp.com>,
- Fabio Estevam <festevam@gmail.com>, Daniel Baluta
- <daniel.baluta@oss.nxp.com>, Francesco Dolcini <francesco@dolcini.it>,
- linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
- <20260730163412.1145-2-laurentiumihalcea111@gmail.com>
- <20260731-merciful-whispering-serpent-3a8eef@quoll>
+ Peng Fan <peng.fan@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Daniel Baluta <daniel.baluta@oss.nxp.com>,
+ Francesco Dolcini <francesco@dolcini.it>, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260605113621.1479-1-laurentiumihalcea111@gmail.com>
+ <20260605113621.1479-2-laurentiumihalcea111@gmail.com>
+ <aihB5rVLsVqzg6cb@p14s> <aihIIwt_9T7yYxP3@SMW015318>
+ <CANLsYkxw6rbWNom8rNfKurKAXKpihqV1LTd51D5YXG4oFP6-wg@mail.gmail.com>
+ <20260610-accomplished-antique-mink-cf0ead@quoll>
+ <ail0sH1UhnQBPRkr@SMW015318>
+ <562096a5-6601-42ae-9d88-90a72ee075fc@kernel.org>
+ <airFCYTIPiOUG3DJ@lizhi-Precision-Tower-5810>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -107,7 +112,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260731-merciful-whispering-serpent-3a8eef@quoll>
+In-Reply-To: <airFCYTIPiOUG3DJ@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,46 +129,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/07/2026 11:37, Krzysztof Kozlowski wrote:
-> On Thu, Jul 30, 2026 at 09:34:09AM -0700, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On 11/06/2026 16:24, Frank Li wrote:
+> On Thu, Jun 11, 2026 at 03:47:00PM +0200, Krzysztof Kozlowski wrote:
+>> On 10/06/2026 16:29, Frank Li wrote:
+>>> For example:
+>>>
+>>> rsc_table: rsc-table@90000000
+>>> {	ret  = <0x90000000>;
+>>> 	no-map;
+>>> }
+>>>
+>>> m4 {
+>>> 	...
+>>> 	memory-region = <&rsc_table>;
+>>> }
+>>>
+>>> If you change node name "rsc-table" to "memory", driver will failure
+>>> because it parse node name "rsc-table", which phandle point to. but no
+>>> binding to restrict node name to "rsc-table". So rsc-table became hidden
+>>> ABI.
 >>
->> The carveout region names are derived based on the DT node names. Because
->> of this, the DT node names are ABI, which is not supposed to happen.
->>
->> Fix this by documenting an additional, optional property:
->> "memory-region-names". This way, the software will have a way to build the
->> carveout region names without relying on the DT node names.
+>> Then you need to fix the driver to not parse the node names. Node names
+>> are not supposed to be ABI.
 > 
-> That's not the point of xxx-names property. It only serves as a helper
-> to get the resource.
-> 
->>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> ---
->>  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml         | 4 ++++
->>  1 file changed, 4 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
->> index c18f71b64889..8e3e6676a95e 100644
->> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
->> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
->> @@ -62,6 +62,10 @@ properties:
->>      minItems: 1
->>      maxItems: 32
->>  
->> +  memory-region-names:
->> +    minItems: 1
->> +    maxItems: 32
-> 
-> This cannot be flexible and unspecific. Why "yellow submarine" would be
-> a correct name?
+> Yes, that is this patch set's purpose. Just need below steps to do smooth
+> migration.
+> 1. allow memory-region-name as options for binding
+> 2. update driver to parse memory-region-names
+> 3. update all dts to add memory-region-names
+> 4. remove old Node name code and change binding to force memory-region-names
 > 
 
-And I already SAID that at v2, so you just keep pushing this without
-implementing feedback.
+Obviously that is ABI break, so no.
 
-NAK
+Fix the driver properly instead of coming with band-aid solutions
+ignoring my feedback here.
+
+v3 repeats THE SAME mistakes and basically asks me to give the same NAK.
 
 Best regards,
 Krzysztof
