@@ -4,104 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CA4C54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B93AC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uduIPrl1I11Bqm2iizUnhzteBLIc++VlIS5E5JRZkT0=; b=AzFkcHdSXCXKXg3CN61RsXjG97
-	g6bkn5ySh2hStFb5egpWBpiaWxPiZ3hnSFaoq6kQZb4C3AhR1My3r/UV7+TKbUFkXWohwgkFCFzN1
-	Qb6DbU6u5GYd18j4U0L7tc9WAnlre0jM8qfL2BSSKcIX30Lpn52G1qRdIno2Xc/1ugTa1tfI5P9gU
-	NVM7jBuqSJrcZDEKG3xm+cTNNAJLIWuJ8vNrXNKq45uGn2qLnNXJU7DiwoIBOxlUG3p3iRh6nnBke
-	wymbTYECWdtk5lZ6Tg9dnDC210ruXOqVI4vL/exRlKmpa5DgyD/2eLASn5C7Y08NXqRBgq4Zb4TZg
-	l9gJFk9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9O9bxcs/CQGb5OBe7pnl0LW2foATwy5DPiHGFcANeLc=; b=owrKCIOVMwYKH1NPs/7+RZocRs
+	iGwLQO8omxL+bDQ5RPFrTb0lub0U136AW3m60nqabWN6ImhY2BTqXLVH1SWY41+8VJxMTHHJMTVCk
+	2sIFnqiXHu+91xJUr6IjC8eZpyXJgs657y+H+gizY+bemlnMETUDeHyqazj6JPWx4blSBq0TW8HTv
+	H+FqBOkGoulpzIEX5slct/wibyzR9GMAp+QqDm7rCUmY/aAlvSjE0uC2KfKmDGJQIWHrObSKHyoiT
+	bGe7WzoLUt4duWKTLL2rdQQ3Alvr7LpTqLla3/AeSpkhFHj6ven3lAHkdbOrSiBn/jYKLpns5CgjE
+	G3kGjRCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpnPE-0000000Cd7J-2NbZ;
-	Fri, 31 Jul 2026 13:36:08 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wpmzt-0000000CYS9-40kC;
+	Fri, 31 Jul 2026 13:09:57 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpnPB-0000000Cd6a-15Iq
+	id 1wpmzZ-0000000CXz1-2KGm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:36:06 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cea3004256so10818125ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 06:36:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785504964; x=1786109764; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=uduIPrl1I11Bqm2iizUnhzteBLIc++VlIS5E5JRZkT0=;
-        b=BRV6jCdAqj8eyKF6gvMVHkF1fd0VgsZ0rnq4AseQiuhb3AhwizwryGHcPJzhMf8dL4
-         iN6REc/ugfTbXFp5jDJi5WkGMD6AD27Y1u8f/VdIh8hjNRlBPLVODnpYSYaTCNbusdzZ
-         aVXYeUAWTCILwYVhr4mByMQqI+6wvESzUK6w2eq6zQFqgSiBbt3nk61SSKLDoew5wRlA
-         8ulX1l6xPFC6eC6xdrLjTVnRArpsXVE39tIUChxZCLNLJBt3Vr/YtpK18sDiTyXIuSpO
-         3Qn1TRf23+jFL2TyYasaeYgkVDJe0ZIzKwDkjI2Xjxt7Fj/WuPHNd4o8DoUUv49btFXY
-         CXsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785504964; x=1786109764;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=uduIPrl1I11Bqm2iizUnhzteBLIc++VlIS5E5JRZkT0=;
-        b=ffgshoBMch8cHrfyqqO2tSNhfd92lAOO2S7opXahy+dJZISlYE1Cfz2FJdm6y1L1It
-         T/jjWBa2H/jnhogNgA6jbs+Xe+EtRNm3hsGTzauXi5A4uc8hBVCItwrlrYDqNeThDVes
-         Sn+oPNLhOZpbBWY2ZejSfVCfmNbQLs93aLTypzzacASSTBAKDxGklV286M+cUyVdspRH
-         mzSYoVDqawh8A8SSqM/MfE8qhmHQ+jD3362kOLO287omUsAvCCxcGT+glc7h4p1WNoEw
-         mPTnVnUH193ecSHqh0jK3h23Gg7fND4LIC6VaeXaoEReDqVzdmAlMX9nY8CSH6AQJanV
-         QAcg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr1wqStb5tBnSYYLFhb6TRKK8EOdJA8GtmNpycITHQDlV1CbdmBTFmD2fqQf7oP8Sl9NyVu5Dxe5c1cbJIvd64k@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOH4KiOu/hwB+t1fakZXT1VjVmYB/A0OOPTbtJPa32x8f8Htwj
-	5rzZ/x1NT/i/kQq9/qydAu+5FigQE8OZWzkRImhFYx8a0j3OfUrEbDQk
-X-Gm-Gg: AR+sD11VxS/P22snxETLUkA4jJHcyvIQQUyEcI+4iTunjD+nYVZWzLZLB8t1/AuCp0H
-	UAt7MT/i+jGpyzEggUKA7KuPv/RDyCb6L4EvlxanlLJr6O1qC0LBZY7gOzQKItfld4Z1bECZMky
-	pA+94Ps9DIWXOwdTTKOuB9H2+mjcyerTLTx4dA9sxW9twuw0x97ED4ssp/MTnbCJ4/Z+eHnrKgQ
-	yi6PWhd63WlDMGCvFdIGo/3HfZZLu9tO114PNYR07nRN8ZJ2BlbMXhblB02QKGFuqJs8KJQqbL+
-	21hp85GLBNNLKznih9MEyiKElPREQvJqf982cjD4OnuOReEgrFfMI6XHxCocAqLzxugZP0DY08v
-	gBRj4JoZ0KWcucTP7I7lH41B+TrNzG6XD4Vb42tLo6L4OOoF4CkJtd4CNmptD3E5uT3okO7PCpY
-	NUZloU5JprTv83HDMcyAILsvJcJ4Yx710NgKuNu50deTR9dPvMCuovcrLIbOIL9vZFKOt18t7Q9
-	heA8EiDtTfQ+skPIh1o4BQ/QdGuFBQ=
-X-Received: by 2002:a17:903:182:b0:2ca:53e9:1277 with SMTP id d9443c01a7336-2d0521e9560mr634015ad.1.1785504963767;
-        Fri, 31 Jul 2026 06:36:03 -0700 (PDT)
-Received: from [10.10.15.228] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04ae196a2sm5621035ad.16.2026.07.31.06.36.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jul 2026 06:36:03 -0700 (PDT)
-From: Potin Lai <potin.lai.pt@gmail.com>
-Date: Fri, 31 Jul 2026 21:33:44 +0800
-Subject: [PATCH v2] ARM: dts: aspeed: sanmiguel: Disable HSC nodes
+	Fri, 31 Jul 2026 13:09:40 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBm7nw1732055;
+	Fri, 31 Jul 2026 13:09:25 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=9O9bxcs/CQGb5OBe7
+	pnl0LW2foATwy5DPiHGFcANeLc=; b=kjlRiwT8bavw3mKEf8rwW0ZgpOrwFSdLV
+	Faty8sqiEfRGnKX+o50P+sxqX+UPAnjLt+9+ZQTfF47UAyh+bHyR1AGkuw2CplYC
+	QwGFbwY5RMK6dKq84gWV7yqGryFyLAUoJ6hsJnmbuhucGKftU9J/gFW5Lo/cHojC
+	xZP8nEP+6RDSo9hC6T9/vz8AGtVf00pEelsVZj2KEGQMlPIABQ2Ef7I8hZ+bSTy1
+	HayOdMTE0ePeBhjmqHB6Wt1+TEFSLg2rvLIakzireM+ke/d1uNsMHB/fC2bOxgAV
+	pBJQ5sLyGXbaP6l6zL3pIigb4g8a5PTnZWEt/fH0G6p/cXgU+Zo+w==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuw7w4mh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 31 Jul 2026 13:09:25 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuN5R012675;
+	Fri, 31 Jul 2026 13:09:23 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn8fkg08c-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 31 Jul 2026 13:09:23 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD9Htk32637366
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 31 Jul 2026 13:09:17 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 18A5120040;
+	Fri, 31 Jul 2026 13:09:17 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A49E820043;
+	Fri, 31 Jul 2026 13:09:16 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 31 Jul 2026 13:09:16 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v5 31/31] KVM: s390: arm64: Enable KVM_ARM64 config and Kbuild
+Date: Fri, 31 Jul 2026 15:08:59 +0200
+Message-ID: <20260731130902.654679-32-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
+References: <20260731130902.654679-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-upstream-sanmiguel-remove-hsc-nodes-v2-1-6a954ea49ba8@gmail.com>
-X-B4-Tracking: v=1; b=H4sIADekbGoC/5WOQQ6CMBBFr0K6dswAiVJX3sOwaMsIY2hLOkA0h
- LsLeAKXL3n57y9KKDGJumWLSjSzcAwbFKdMuc6EloCbjVWBxQWvJcI0yJjIeBATPLcT9ZDIx5m
- gEwchNiRgtXa6JIeNtmpbGhI9+X1UHvWPZbIvcuM+vRsdyxjT57gx57v3X3HOIYcnlliRrQyiu
- 7fecH920at6XdcvVLZZGOgAAAA=
-X-Change-ID: 20260730-upstream-sanmiguel-remove-hsc-nodes-b99c93ec0d9b
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Patrick Williams <patrick@stwcx.xyz>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Cosmo Chou <cosmo.chou@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, 
- Mik Lin <Mik.Lin@quantatw.com>, Potin Lai <potin.lai@quantatw.com>, 
- Potin Lai <potin.lai.pt@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785504960; l=2663;
- i=potin.lai.pt@gmail.com; s=20260522; h=from:subject:message-id;
- bh=eyeZF/GOeEoskqfrS05+TdeD1fnc46qKy1AQ7cbiGkU=;
- b=P/nATfAEnRGOJBomjmjs2N4AEqd1gXN+yIgUBZQpk6saBfGRcRI7xQs+RHFrBFJOxYETrt48D
- /NCKAHNgCIdCmz7h+vuw/K4ebvONGPuFhX36F8agP9n4sC1Oc+6gNEH
-X-Developer-Key: i=potin.lai.pt@gmail.com; a=ed25519;
- pk=j3/nMxzz1ZPpp1revghyZ8IqOnwi6RWfuxXN2XrNMRE=
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: pfdhqXbQC7jqJMONarHISRs4XYt2XbXg
+X-Proofpoint-ORIG-GUID: qgJ8BdUnfumoSAFTZjSYs_6dq4KqKIZU
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX8S31ufeTk2JT
+ cTq8XLGekONKaIkR+7wtbzF3FPNfxHoP8em+tTz41RN34jnNxpHr4fFz6dodBBID9Wg+RehSXLU
+ VjMfPJ1FrV6Rt03wDL4iu+MpNJKr0UTSdpgUKi/N263o5I/KUxGh2bccZe2pol+fcnWfvfXuFaY
+ 9BpdcpI/FVZ/JImKIdV5SZHzl/6ZlhuZNeQd64GzBzWokmfgRA5UGpvF84ySnL0SSCaSSF0XWCt
+ J9xq7WASmNbsCt1cK/MnDgBLS/ZAvHkXQf4YSMsO799ishHcl55wSASS3b5v//oF+WQnIf8HksG
+ V5dpf8UDGqJflsfZkEGpq8qcpVhxYM+AfB341bLsPdXDBKCV1EAfFxD2L1Fz6HrWbrKNV0Nu+Zh
+ ugshwnD7WcYWn8CoAwOhLYoSil601kkkA7Y6m32XaOBGUm4g9oYA3omHA9TIyNmZKQMhvr2finr
+ ixUnvR6hv+Wplwyk53A==
+X-Authority-Analysis: v=2.4 cv=SKFykuvH c=1 sm=1 tr=0 ts=6a6c9e85 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=Zz3svKs3IDGlfYr5LI8A:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX3Gop5Qm/Sl5u
+ 1R0oQN0H5xH0GLfACWWcCe6MVBMhys50CkbTXehE5EQpANZ7uKG+A3+7OavjyCS/69GXkMHNrN5
+ I6qx4xSZqVUOPXw69e3UMqcf+/LtcQI=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0
+ lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607310096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_063605_305070_126BFDA2 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20260731_060938_215579_159AB2FC 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,96 +141,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Disable Hot-Swap Controller (HSC) power monitor nodes in the DTS.
+Add all Kbuild/Makefile configurations to build a second KVM module on
+s390 implementing the arm64-KVM API. To prevent symbol conflicts with
+kvm-s390 all internal symbols in kvm-arm64 are mangled if compiled as
+built-in. The new module ins named kvm-arm64.
 
-Due to design requirements, the HSC driver probing is moved to userspace.
-Disabling these nodes in the device tree prevents kernel-level automatic
-driver probing and allows userspace to handle HSC device instantiation.
+As in this case the build does not go through the normal build process
+the module parameter handling would be messed up. By forcing
+KBUILD_MODNAME to kvm-arm64 all parameters are at the same location and
+not at object/basename of the object file the parameter is introduced.
 
-Signed-off-by: Potin Lai <potin.lai.pt@gmail.com>
+Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Co-developed-by: Gautam Gala <ggala@linux.ibm.com>
+Signed-off-by: Gautam Gala <ggala@linux.ibm.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
-Changes in v2:
-- Set the HSC nodes status disabled instead of removing.
-- Link to v1: https://patch.msgid.link/20260730-upstream-sanmiguel-remove-hsc-nodes-v1-1-f0308eb8a00c@gmail.com
+ arch/s390/configs/defconfig  |  1 +
+ arch/s390/include/asm/Kbuild |  3 ++
+ arch/s390/kvm/Kconfig        |  1 +
+ arch/s390/kvm/Makefile       |  1 +
+ arch/s390/kvm/arm64/Kconfig  | 22 +++++++++
+ arch/s390/kvm/arm64/Makefile | 91 ++++++++++++++++++++++++++++++++++++
+ 6 files changed, 119 insertions(+)
+ create mode 100644 arch/s390/kvm/arm64/Kconfig
+ create mode 100644 arch/s390/kvm/arm64/Makefile
 
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Joel Stanley <joel@jms.id.au>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-aspeed@lists.ozlabs.org
-Cc: linux-kernel@vger.kernel.org
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
-index 3cc6e772cc8c..b4463533d2d2 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
-@@ -445,45 +445,53 @@ &i2c9 {
- 	pdb_mps_hsc1: power-monitor@10 {
- 		compatible = "mps,mp5926";
- 		reg = <0x10>;
-+		status = "disabled";
- 	};
+diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
+index 327ab4a3933c..20de85c96e9e 100644
+--- a/arch/s390/configs/defconfig
++++ b/arch/s390/configs/defconfig
+@@ -62,6 +62,7 @@ CONFIG_CMM=m
+ CONFIG_APPLDATA_BASE=y
+ CONFIG_S390_HYPFS_FS=y
+ CONFIG_KVM_S390=m
++CONFIG_KVM_ARM64=m
+ CONFIG_S390_UNWIND_SELFTEST=m
+ CONFIG_S390_KPROBES_SANITY_TEST=m
+ CONFIG_S390_MODULES_SANITY_TEST=m
+diff --git a/arch/s390/include/asm/Kbuild b/arch/s390/include/asm/Kbuild
+index 0c1fc47c3ba0..f6fd67d1c651 100644
+--- a/arch/s390/include/asm/Kbuild
++++ b/arch/s390/include/asm/Kbuild
+@@ -8,3 +8,6 @@ generic-y += asm-offsets.h
+ generic-y += mcs_spinlock.h
+ generic-y += mmzone.h
+ generic-y += ring_buffer.h
++
++generated-y += sysreg-gen-defs.h
++generated-y += kvm_arm64_modname.h
+diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
+index f8d4a9a38dae..bbae58aa8bc4 100644
+--- a/arch/s390/kvm/Kconfig
++++ b/arch/s390/kvm/Kconfig
+@@ -20,5 +20,6 @@ config KVM
+ 	tristate
  
- 	pdb_ti_hsc1: power-monitor@11 {
- 		compatible = "ti,lm5066i";
- 		reg = <0x11>;
- 		shunt-resistor-micro-ohms = <1000>;
-+		status = "disabled";
- 	};
+ source "arch/s390/kvm/s390/Kconfig"
++source "arch/s390/kvm/arm64/Kconfig"
  
- 	pdb_mps_hsc2: power-monitor@12 {
- 		compatible = "mps,mp5926";
- 		reg = <0x12>;
-+		status = "disabled";
- 	};
+ endif # VIRTUALIZATION
+diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
+index c43d7dffca13..38bdd7c9b42d 100644
+--- a/arch/s390/kvm/Makefile
++++ b/arch/s390/kvm/Makefile
+@@ -4,3 +4,4 @@
+ # Copyright IBM Corp. 2008
  
- 	pdb_ti_hsc2: power-monitor@13 {
- 		compatible = "ti,lm5066i";
- 		reg = <0x13>;
- 		shunt-resistor-micro-ohms = <321>;
-+		status = "disabled";
- 	};
- 
- 	pdb_mps_hsc3: power-monitor@14 {
- 		compatible = "mps,mp5926";
- 		reg = <0x14>;
-+		status = "disabled";
- 	};
- 
- 	pdb_ti_hsc3: power-monitor@15 {
- 		compatible = "ti,lm5066i";
- 		reg = <0x15>;
- 		shunt-resistor-micro-ohms = <321>;
-+		status = "disabled";
- 	};
- 
- 	pdb_mps_hsc4: power-monitor@16 {
- 		compatible = "mps,mp5926";
- 		reg = <0x16>;
-+		status = "disabled";
- 	};
- 
- 	pdb_ti_hsc4: power-monitor@17 {
- 		compatible = "ti,lm5066i";
- 		reg = <0x17>;
- 		shunt-resistor-micro-ohms = <500>;
-+		status = "disabled";
- 	};
- 
- 	pdb_ioexp_20: gpio@20 {
-
----
-base-commit: c2b9fc3f7091157518a3ac2282a0a8bc797c227a
-change-id: 20260730-upstream-sanmiguel-remove-hsc-nodes-b99c93ec0d9b
-
-Best regards,
---  
-Potin Lai <potin.lai.pt@gmail.com>
+ obj-$(CONFIG_KVM_S390) += s390/
++obj-$(CONFIG_KVM_ARM64) += arm64/
+diff --git a/arch/s390/kvm/arm64/Kconfig b/arch/s390/kvm/arm64/Kconfig
+new file mode 100644
+index 000000000000..15de7c52c861
+--- /dev/null
++++ b/arch/s390/kvm/arm64/Kconfig
+@@ -0,0 +1,22 @@
++# SPDX-License-Identifier: GPL-2.0
++
++config KVM_ARM64
++	def_tristate y
++	prompt "Kernel-based Virtual Machine (KVM) support for arm64 guests"
++	depends on HAS_IOMEM
++	select KVM
++	select GUEST_PERF_EVENTS if PERF_EVENTS
++	select HAVE_KVM_CPU_RELAX_INTERCEPT
++	select HAVE_KVM_IRQCHIP
++	select HAVE_KVM_MSI
++	select HAVE_KVM_VCPU_RUN_PID_CHANGE
++	select IRQ_BYPASS_MANAGER
++	select KVM_COMMON
++	select KVM_MMIO
++	select KVM_VFIO
++	select SCHED_INFO
++	select XARRAY_MULTI
++	help
++	  Support hosting virtualized arm64 guest machines on s390 host machines.
++
++	  If unsure, say N.
+diff --git a/arch/s390/kvm/arm64/Makefile b/arch/s390/kvm/arm64/Makefile
+new file mode 100644
+index 000000000000..a102c35664ca
+--- /dev/null
++++ b/arch/s390/kvm/arm64/Makefile
+@@ -0,0 +1,91 @@
++# SPDX-License-Identifier: GPL-2.0
++
++KVM := ../../../../virt/kvm
++include $(srctree)/virt/kvm/Makefile.kvm
++KVM_MANAGES_S390_GUEST = n
++include $(srctree)/arch/s390/kvm/gmap/Makefile
++include $(src)/Makefile.gen
++
++ccflags-y += -I $(src) -I $(objtree)/$(obj) -I$(srctree)/arch/s390/kvm/gmap -DKVM_S390_ARM64
++
++kvm-arm64-obj := \
++	arm.o \
++	guest.o \
++	handle_exit.o \
++	inject_fault.o \
++	mmu.o \
++	mmio.o \
++	reset.o \
++
++kvm-arm64-obj += $(patsubst %.o,%-arm64.o,$(kvm-y))
++
++targets += $(kvm-arm64-obj)
++
++$(obj)/%-arm64.o: $(src)/%.c FORCE
++	@mkdir -p $(dir $@)
++	$(call if_changed_rule,cc_o_c)
++
++ifeq ($(CONFIG_KVM_ARM64),m)
++
++kvm-arm64-y = $(kvm-arm64-obj)
++
++else ifeq ($(CONFIG_KVM_ARM64),y)
++
++KVM_ARM64_GEN_DIR := $(objtree)/arch/${SRCARCH}/include/generated/asm
++KVM_ARM64_MODNAME_H := $(KVM_ARM64_GEN_DIR)/kvm_arm64_modname.h
++ccflags-y += -include $(KVM_ARM64_MODNAME_H)
++
++targets += $(KVM_ARM64_MODNAME_H)
++
++quiet_cmd_kvm_arm64_modname_h = GEN     $@
++      cmd_kvm_arm64_modname_h = { \
++	echo '/* Automatically generated; do not edit. */'; \
++	echo '\#ifndef _KVM_ARM64_MODNAME_H'; \
++	echo '\#define _KVM_ARM64_MODNAME_H'; \
++	echo '\#undef KBUILD_MODNAME'; \
++	echo '\#define KBUILD_MODNAME "kvm_arm64"'; \
++	echo '\#endif /* _KVM_ARM64_MODNAME_H */'; \
++	} > $@
++
++$(addprefix $(obj)/,$(kvm-arm64-obj)): $(KVM_ARM64_MODNAME_H)
++
++$(KVM_ARM64_MODNAME_H):
++	@mkdir -p $(KVM_ARM64_GEN_DIR)
++	$(call cmd,kvm_arm64_modname_h)
++
++prereq-o-cmd = $(foreach o, $(filter %.o, $^), $(dir $(o)).$(notdir $(o)).cmd)
++cmd_gen_symversions_o = \
++	grep --no-filename "^\#SYMVER" $(prereq-o-cmd) >> $(dot-target).cmd || true
++
++define rule_ld_o_o
++	$(call cmd_and_savecmd,ld)
++	$(call cmd,gen_symversions_o)
++endef
++
++LDFLAGS_kvm-unnamespaced.o := -r --whole-archive
++$(obj)/kvm-unnamespaced.o: $(addprefix $(obj)/,$(kvm-arm64-obj)) FORCE
++	$(call if_changed_rule,ld_o_o)
++
++quiet_cmd_nm_filter = NMFLTR  $@
++	cmd_nm_filter = $(NM) -jU $< | sort -u > $@
++
++$(obj)/kvm_symbol_list: $(obj)/kvm-unnamespaced.o FORCE
++	$(call if_changed,nm_filter)
++
++define rule_oc_o_o
++	$(call cmd_and_savecmd,objcopy)
++	$(call cmd,gen_objtooldep)
++	$(call cmd,gen_symversions_o)
++endef
++
++OBJCOPYFLAGS_kvm-namespaced.o := -O default --localize-symbols=$(obj)/kvm_symbol_list
++$(obj)/kvm-namespaced.o: $(obj)/kvm-unnamespaced.o $(obj)/kvm_symbol_list FORCE
++	$(call if_changed_rule,oc_o_o)
++
++kvm-arm64-y = kvm-namespaced.o
++
++targets += kvm-unnamespaced.o kvm_symbol_list kvm-namespaced.o
++
++endif
++
++obj-$(CONFIG_KVM_ARM64) += kvm-arm64.o
+-- 
+2.53.0
 
 
