@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF07C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5490BC55172
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=haO0xLg1lpYQDFg+IUbQ8KntQoXbMlCu5mOwhPaZ38Y=; b=3BAKxpm/72EB8bDf1zD/pf9Epf
-	Zrwf5sbykKkKooHsOl73IbguSVLqymVWBcGhbmg+pLUJkTTY5xUvfv2TdGG7RZLdwHwqyxSn55Dhf
-	AR8ORaAfXWy1DOpvNpxwXLDz4Ljs8bdU+p6Y4aliQRkCXI5LCrcyBwSxVTl98UqifWAChTZZYZdVE
-	LTEeimvAO8sBdMnGWuITo5gn+RC8TzMru5UoU1NFA5mtyqNcwM6nevSX1R0w02MrFFtWHjWRILMfk
-	K1kFH10yck4xMgH6c1308F1X2CSn5raZn2xuEOmfzh0K4nk3KfstEf5oAGIO/1xSc8GrblqjBq4Kd
-	CZEG34BA==;
+	bh=WE1juuDRkDodrIk7Y44eGv6k6mTFRgrA6xPVXKZnMYQ=; b=bPVB0HXWnrwYINJfubZv9wu580
+	vGw2U2cQtvZ7hhtg4JVPHG95oibyHUrnjKN28QmbsWWwff7gQlMHocNCwn0FOXb+djo0ANpcItBrf
+	N95StkLQS6YURAg0hO5Sa4CPqnISKQkSULlEwPiJ0uTjebxAB8+5XtNN1QVg3epy0qzPuuCN0fyIt
+	XSgTavBLDzw+UY28at0v9qh+1bi+j+JTx3EdmgWt3BIgyqf9NLHaspOCIUXSZuYzfGLnBAVIfd52a
+	5vZexwsBhDXtj4DSyoXRt7wgDMU3zx9+Litznk7cj6PmLDsG6Dg1aDFJi2UNxDXQ7kzu8/9NPuZ9L
+	TMuF8LZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzj-0000000CY77-2EEV;
-	Fri, 31 Jul 2026 13:09:47 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wpmzi-0000000CY5w-3xSd;
+	Fri, 31 Jul 2026 13:09:46 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzP-0000000CXoR-2DGI
+	id 1wpmzO-0000000CXoT-3t4I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:09:30 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBlwdT1791076;
-	Fri, 31 Jul 2026 13:09:12 GMT
+	Fri, 31 Jul 2026 13:09:29 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBlo7D1765817;
+	Fri, 31 Jul 2026 13:09:17 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=haO0xL
-	g1lpYQDFg+IUbQ8KntQoXbMlCu5mOwhPaZ38Y=; b=CkJj1HOwbZfiRhwIjzkUOc
-	hVHGjuN3IGRbD0Nb+r2y1BEIFjjlDHgy+NPANbUhQp0WvTn0mRmj3UWuabS5StiX
-	TqdZmMxvXGU8HF0DBi6DTlEWZS2ieWO7cS0AKXPFgPQH4zla1GlRxp2jfxF9rSnX
-	BOXZrRN6VNzt3q0o6W7qHD/EH79KYw/jryCgc5BXmUP0T5YU75Ankv0p817565tj
-	UDWYxL0ballBkBiv75jExPoocVsXQ9k4161zcKeeWFlNJhUfq34U3q/jwYjjgl/2
-	cBRSeOhFdbU3ikdbo3k6CH/paF0u/kfVNj6d+44v9un6mS3cC6n5FXLRyPa4CtwQ
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuwdc41g-1
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=WE1juuDRkDodrIk7Y
+	44eGv6k6mTFRgrA6xPVXKZnMYQ=; b=KG03/PtmcZ43ULcYkKz1owBTDd+uZy7ne
+	wFUo9Qt0m6FclAunIUGb+Q2r6wPw4UVEGhNOP4mOI9262X3qhAeeQptrKNGZ0mpY
+	mUQ6GN+FoGByXo3L1ULdh++vMVC4bmPbMauydLwlJ68JAKbYrcnu2DHLzEGOPtai
+	+2o1CxFnVI/4/3dUyE6f0SwX87g72gluISDZM6tQO49Qbi+aXVwD1Uh83m22VJsT
+	qG0y/lmyYFGHY+RRIBRNLP7n0Plx5ac7Kru/oz0ilEeHk7Z4V88VBEnXu6zdnJer
+	L//1kWqAtuXlYLTQ9VeWQNDUMa85tTf6OJrgzIi7mvaadtY1+A9Gw==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmv0y565f-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:11 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuGHF021726;
-	Fri, 31 Jul 2026 13:09:11 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn7uwg436-1
+	Fri, 31 Jul 2026 13:09:16 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCQFoT026851;
+	Fri, 31 Jul 2026 13:09:15 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fn9pgqtbp-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:15 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD93CA32965088
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD990A45547846
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jul 2026 13:09:03 GMT
+	Fri, 31 Jul 2026 13:09:09 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B13E620040;
-	Fri, 31 Jul 2026 13:09:03 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 68BB520040;
+	Fri, 31 Jul 2026 13:09:09 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 3ADD22004B;
-	Fri, 31 Jul 2026 13:09:03 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 008CA2004B;
+	Fri, 31 Jul 2026 13:09:09 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 31 Jul 2026 13:09:03 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:08 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -89,47 +88,45 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v5 01/31] vfio: Use file-based reference counting for KVM
-Date: Fri, 31 Jul 2026 15:08:29 +0200
-Message-ID: <20260731130902.654679-2-seiden@linux.ibm.com>
+Subject: [PATCH v5 14/31] KVM: s390: Move s390 kvm code into a subdirectory
+Date: Fri, 31 Jul 2026 15:08:42 +0200
+Message-ID: <20260731130902.654679-15-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
 References: <20260731130902.654679-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: Zkjb6K7lJBXcG6qt_qPGmH9FhMYnE4iR
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfXx92q1D91z8MN
- CnLPRFpuefHDoA1CrGKOH8NheaD1LWqVbK9lppP1XCbpey6IekS39BHwoh8ajT6lbVvKF49AlTp
- KIpmTDTmLV1VbcWsteZ8+0Z1djOWiKc=
-X-Authority-Analysis: v=2.4 cv=E/z9Y6dl c=1 sm=1 tr=0 ts=6a6c9e78 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=Ikd4Dj_1AAAA:8
- a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8 a=x4cQU7UQcekLRWkedJUA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfXyEH0gfwrCeq7
- hUEgU1RPtk0jO/XM1QZPC6zcC8Vz7Ja3ipTg/s+FnaXJxUlHu/s+/pgT90aWt8IUoyCRbvVPsoc
- JBvSygvUAP0oUFLtyWxXYa/OYN16f2JFzIJDKFqVMMHYoEwzxMmYauIhL8AzzqJeq3GFvrtC1wc
- YouVdKb9URxEm656zyE+z353CyNd+TQIoIVAxG08RmHGx92XhkQ9MZ1r4Wpfuwz8sgd6hen1TzF
- vk2jL5CXsGeML5QjDYDoHeRFHyUpbwZV1csyLS/YMrf0k6BQZV/S7ubd0lLPZcelnI+k6Sk4eIB
- 3JG2RyjnePDz23MpBvV33u9ntYyScb6EdNJijcoQZqPlYNNRXtzKnfNKnlXK2uLxfZfsRee7kfG
- 5n0tDAygXmCATKZ4JJQTQcnWa2w5mE5ciH6Qm/psURHnUMYb+cYG/CA8uVaPmxu5Gtuq5sTSP1C
- 3HN0SvNNZOCjYhL48/w==
-X-Proofpoint-GUID: u029MMhrGTWQTlFvb-nZKPp46zOeFdW6
+X-Proofpoint-GUID: OXx-ERYv_mekzpbcxk_sG9OJzMeuOsOy
+X-Proofpoint-ORIG-GUID: tvHpK62mCDGhVprRE-Opo9ziqTSElVIH
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfXwTpT8ffdJ5SU
+ DZDtDfXH1jnN6fOnDVGWFTyyiw0shqfTM3xih1fqHT5KogCcH1yWJn5PDWFrWHWpza+IHi9W3b3
+ s0pCzYeEXAb+0R47p10Fbw+LP8P1eHs=
+X-Authority-Analysis: v=2.4 cv=dYuwG3Xe c=1 sm=1 tr=0 ts=6a6c9e7d cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=U7nrCbtTmkRpXpFmAIza:22 a=VnNF1IyMAAAA:8 a=VwQbUJbxAAAA:8
+ a=_XZOIuALDOYOogwKVDcA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX7CI6EXPQstl0
+ 6L2U6aS6FYMg5I0rprUGeGR4qGo4/Cznl8rLM9ZCc+kFYAh9OBwbbfG/uMPwyzuNX6NaMQSPtRY
+ Qgzo+YoAwledBoNfgbG5n93JUb5Dh2kuMQW6qD8a17zwfTNWmg1OQ6ou5groc9UQcDTE4KF+vmE
+ +MWKmTOiQSIB8tdWRaBVthuv3jwui70AM9m5BjUK4P6xMzRNZ1m59EEWZcuBLIWEWklKKUUskev
+ dvRAdSXzo7Vfo147ZGRipWmyCSL9O2EeV3YwC1NuHAhQDFdcM11wfkCJz5f7j2mgKmci7MkdMDy
+ I7OQMS0UxS51944NbRqEw32GOHWtGkVMv9OhPiSfYKsL/cfNV0zf1KHsK2dGCnLRv91ioUkBfF9
+ XrV4ZaouCHlLWECxfDJpUIoVx0jXEy6vVnbXs89C6b7Ay6YmCJy83aVQbtrrgrRcsbdYvKQQkcF
+ vl1w1iWJPyGns/JAJcg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 spamscore=0 clxscore=1015 phishscore=0
- lowpriorityscore=0 bulkscore=0 malwarescore=0 impostorscore=0 suspectscore=0
+ priorityscore=1501 impostorscore=0 clxscore=1015 phishscore=0 malwarescore=0
+ spamscore=0 lowpriorityscore=0 bulkscore=0 suspectscore=0 adultscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607310096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060927_698940_DCCA28CD 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20260731_060926_995252_F3D9FC68 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,541 +141,328 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace manual module reference counting with file-based reference
-counting for KVM integration. Previously, VFIO used symbol_get() to
-obtain function pointers for kvm_get_kvm_safe() and kvm_put_kvm(),
-then manually tracked module references through these symbols. This
-approach required storing the put_kvm function pointer in each device
-and carefully managing symbol references.
+Move all the code required to run s390 KVM guests on s390 to a s390
+subdirectory. Move gmap related code into a gmap directory to later
+share gmap code between KVM implementations.
 
-Pass struct file pointers instead of struct kvm pointers throughout the
-VFIO-KVM interface. This leverages the kernel's existing file reference
-counting mechanism via get_file_active() and fput(), eliminating the
-need for manual module reference tracking. The file->private_data field
-provides access to the underlying struct kvm when needed.
+Update S390 VFIO-PCI MAINTAINERS filepath.
 
-This simplifies the code and removes all remaining externally exported
-symbols for KVM, paving the path for a second concurrent KVM module.
+No functional change.
 
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Suggested-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/x86/include/asm/kvm_page_track.h |  8 ++---
- arch/x86/kvm/Makefile                 |  3 --
- arch/x86/kvm/mmu/page_track.c         | 16 +++++----
- drivers/s390/crypto/vfio_ap_ops.c     | 24 ++++++++++---
- drivers/vfio/group.c                  |  2 +-
- drivers/vfio/pci/vfio_pci_zdev.c      |  7 +++-
- drivers/vfio/vfio.h                   | 10 +++---
- drivers/vfio/vfio_main.c              | 49 ++++++---------------------
- include/linux/kvm_host.h              |  2 ++
- include/linux/vfio.h                  |  4 +--
- virt/kvm/kvm_main.c                   | 23 ++++++++++---
- virt/kvm/vfio.c                       |  8 ++---
- 12 files changed, 81 insertions(+), 75 deletions(-)
+ MAINTAINERS                           |  2 +-
+ arch/s390/kvm/Kconfig                 | 37 +--------------------------
+ arch/s390/kvm/Makefile                | 11 +-------
+ arch/s390/kvm/gmap/Makefile           |  5 ++++
+ arch/s390/kvm/{ => gmap}/dat.c        |  0
+ arch/s390/kvm/{ => gmap}/dat.h        |  0
+ arch/s390/kvm/{ => gmap}/faultin.c    |  0
+ arch/s390/kvm/{ => gmap}/faultin.h    |  0
+ arch/s390/kvm/{ => gmap}/gmap.c       |  0
+ arch/s390/kvm/{ => gmap}/gmap.h       |  0
+ arch/s390/kvm/{ => gmap}/trace-gmap.h |  2 +-
+ arch/s390/kvm/{ => s390}/Kconfig      | 18 -------------
+ arch/s390/kvm/{ => s390}/Makefile     |  9 +++----
+ arch/s390/kvm/{ => s390}/diag.c       |  0
+ arch/s390/kvm/{ => s390}/gaccess.c    |  0
+ arch/s390/kvm/{ => s390}/gaccess.h    |  0
+ arch/s390/kvm/{ => s390}/guestdbg.c   |  0
+ arch/s390/kvm/{ => s390}/intercept.c  |  0
+ arch/s390/kvm/{ => s390}/interrupt.c  |  0
+ arch/s390/kvm/{ => s390}/pci.c        |  0
+ arch/s390/kvm/{ => s390}/pci.h        |  0
+ arch/s390/kvm/{ => s390}/priv.c       |  0
+ arch/s390/kvm/{ => s390}/pv.c         |  0
+ arch/s390/kvm/{ => s390}/s390.c       |  0
+ arch/s390/kvm/{ => s390}/s390.h       |  0
+ arch/s390/kvm/{ => s390}/sigp.c       |  0
+ arch/s390/kvm/{ => s390}/trace-s390.h |  0
+ arch/s390/kvm/{ => s390}/trace.h      |  0
+ arch/s390/kvm/{ => s390}/vsie.c       |  0
+ 29 files changed, 13 insertions(+), 71 deletions(-)
+ create mode 100644 arch/s390/kvm/gmap/Makefile
+ rename arch/s390/kvm/{ => gmap}/dat.c (100%)
+ rename arch/s390/kvm/{ => gmap}/dat.h (100%)
+ rename arch/s390/kvm/{ => gmap}/faultin.c (100%)
+ rename arch/s390/kvm/{ => gmap}/faultin.h (100%)
+ rename arch/s390/kvm/{ => gmap}/gmap.c (100%)
+ rename arch/s390/kvm/{ => gmap}/gmap.h (100%)
+ rename arch/s390/kvm/{ => gmap}/trace-gmap.h (96%)
+ copy arch/s390/kvm/{ => s390}/Kconfig (71%)
+ copy arch/s390/kvm/{ => s390}/Makefile (65%)
+ rename arch/s390/kvm/{ => s390}/diag.c (100%)
+ rename arch/s390/kvm/{ => s390}/gaccess.c (100%)
+ rename arch/s390/kvm/{ => s390}/gaccess.h (100%)
+ rename arch/s390/kvm/{ => s390}/guestdbg.c (100%)
+ rename arch/s390/kvm/{ => s390}/intercept.c (100%)
+ rename arch/s390/kvm/{ => s390}/interrupt.c (100%)
+ rename arch/s390/kvm/{ => s390}/pci.c (100%)
+ rename arch/s390/kvm/{ => s390}/pci.h (100%)
+ rename arch/s390/kvm/{ => s390}/priv.c (100%)
+ rename arch/s390/kvm/{ => s390}/pv.c (100%)
+ rename arch/s390/kvm/{ => s390}/s390.c (100%)
+ rename arch/s390/kvm/{ => s390}/s390.h (100%)
+ rename arch/s390/kvm/{ => s390}/sigp.c (100%)
+ rename arch/s390/kvm/{ => s390}/trace-s390.h (100%)
+ rename arch/s390/kvm/{ => s390}/trace.h (100%)
+ rename arch/s390/kvm/{ => s390}/vsie.c (100%)
 
-diff --git a/arch/x86/include/asm/kvm_page_track.h b/arch/x86/include/asm/kvm_page_track.h
-index 3d040741044b..046a25c8fe4f 100644
---- a/arch/x86/include/asm/kvm_page_track.h
-+++ b/arch/x86/include/asm/kvm_page_track.h
-@@ -44,13 +44,13 @@ struct kvm_page_track_notifier_node {
- 				    struct kvm_page_track_notifier_node *node);
- };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0d7987278c07..c7ef6c0163a9 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23918,7 +23918,7 @@ R:	Eric Farman <farman@linux.ibm.com>
+ L:	linux-s390@vger.kernel.org
+ L:	kvm@vger.kernel.org
+ S:	Supported
+-F:	arch/s390/kvm/pci*
++F:	arch/s390/kvm/s390/pci*
+ F:	drivers/vfio/pci/vfio_pci_zdev.c
+ F:	include/uapi/linux/vfio_zdev.h
  
--int kvm_page_track_register_notifier(struct kvm *kvm,
-+int kvm_page_track_register_notifier(struct file *file,
- 				     struct kvm_page_track_notifier_node *n);
--void kvm_page_track_unregister_notifier(struct kvm *kvm,
-+void kvm_page_track_unregister_notifier(struct file *file,
- 					struct kvm_page_track_notifier_node *n);
+diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
+index e9d2ca797907..51646b067935 100644
+--- a/arch/s390/kvm/Kconfig
++++ b/arch/s390/kvm/Kconfig
+@@ -16,41 +16,6 @@ menuconfig VIRTUALIZATION
  
--int kvm_write_track_add_gfn(struct kvm *kvm, gfn_t gfn);
--int kvm_write_track_remove_gfn(struct kvm *kvm, gfn_t gfn);
-+int kvm_write_track_add_gfn(struct file *file, gfn_t gfn);
-+int kvm_write_track_remove_gfn(struct file *file, gfn_t gfn);
- #else
- /*
-  * Allow defining a node in a structure even if page tracking is disabled, e.g.
-diff --git a/arch/x86/kvm/Makefile b/arch/x86/kvm/Makefile
-index 77337c37324b..713fb6e76730 100644
---- a/arch/x86/kvm/Makefile
-+++ b/arch/x86/kvm/Makefile
-@@ -61,9 +61,6 @@ exports_grep_trailer := --include='*.[ch]' -nrw $(srctree)/virt/kvm $(srctree)/a
- 				-e kvm_page_track_unregister_notifier \
- 				-e kvm_write_track_add_gfn \
- 				-e kvm_write_track_remove_gfn \
--				-e kvm_get_kvm \
--				-e kvm_get_kvm_safe \
--				-e kvm_put_kvm
+ if VIRTUALIZATION
  
- # Force grep to emit a goofy group separator that can in turn be replaced with
- # the above newline macro (newlines in Make are a nightmare).  Note, grep only
-diff --git a/arch/x86/kvm/mmu/page_track.c b/arch/x86/kvm/mmu/page_track.c
-index 7e8195a311bb..860049ed24ea 100644
---- a/arch/x86/kvm/mmu/page_track.c
-+++ b/arch/x86/kvm/mmu/page_track.c
-@@ -237,10 +237,11 @@ static int kvm_enable_external_write_tracking(struct kvm *kvm)
-  * register the notifier so that event interception for the tracked guest
-  * pages can be received.
-  */
--int kvm_page_track_register_notifier(struct kvm *kvm,
-+int kvm_page_track_register_notifier(struct file *file,
- 				     struct kvm_page_track_notifier_node *n)
- {
- 	struct kvm_page_track_notifier_head *head;
-+	struct kvm *kvm = file_to_kvm(file);
- 	int r;
- 
- 	if (!kvm || kvm->mm != current->mm)
-@@ -252,7 +253,7 @@ int kvm_page_track_register_notifier(struct kvm *kvm,
- 			return r;
- 	}
- 
--	kvm_get_kvm(kvm);
-+	get_file(file);
- 
- 	head = &kvm->arch.track_notifier_head;
- 
-@@ -267,10 +268,11 @@ EXPORT_SYMBOL_GPL(kvm_page_track_register_notifier);
-  * stop receiving the event interception. It is the opposed operation of
-  * kvm_page_track_register_notifier().
-  */
--void kvm_page_track_unregister_notifier(struct kvm *kvm,
-+void kvm_page_track_unregister_notifier(struct file *file,
- 					struct kvm_page_track_notifier_node *n)
- {
- 	struct kvm_page_track_notifier_head *head;
-+	struct kvm *kvm = file_to_kvm(file);
- 
- 	head = &kvm->arch.track_notifier_head;
- 
-@@ -279,7 +281,7 @@ void kvm_page_track_unregister_notifier(struct kvm *kvm,
- 	write_unlock(&kvm->mmu_lock);
- 	synchronize_srcu(&head->track_srcu);
- 
--	kvm_put_kvm(kvm);
-+	fput(file);
- }
- EXPORT_SYMBOL_GPL(kvm_page_track_unregister_notifier);
- 
-@@ -339,8 +341,9 @@ void kvm_page_track_delete_slot(struct kvm *kvm, struct kvm_memory_slot *slot)
-  * @kvm: the guest instance we are interested in.
-  * @gfn: the guest page.
-  */
--int kvm_write_track_add_gfn(struct kvm *kvm, gfn_t gfn)
-+int kvm_write_track_add_gfn(struct file *file, gfn_t gfn)
- {
-+	struct kvm *kvm = file_to_kvm(file);
- 	struct kvm_memory_slot *slot;
- 	int idx;
- 
-@@ -369,8 +372,9 @@ EXPORT_SYMBOL_GPL(kvm_write_track_add_gfn);
-  * @kvm: the guest instance we are interested in.
-  * @gfn: the guest page.
-  */
--int kvm_write_track_remove_gfn(struct kvm *kvm, gfn_t gfn)
-+int kvm_write_track_remove_gfn(struct file *file, gfn_t gfn)
- {
-+	struct kvm *kvm = file_to_kvm(file);
- 	struct kvm_memory_slot *slot;
- 	int idx;
- 
-diff --git a/drivers/s390/crypto/vfio_ap_ops.c b/drivers/s390/crypto/vfio_ap_ops.c
-index 44b3a1dcc1b3..bf6a5b959fcd 100644
---- a/drivers/s390/crypto/vfio_ap_ops.c
-+++ b/drivers/s390/crypto/vfio_ap_ops.c
-@@ -8,6 +8,7 @@
-  *	      Halil Pasic <pasic@linux.ibm.com>
-  *	      Pierre Morel <pmorel@linux.ibm.com>
-  */
-+#include "linux/cleanup.h"
- #include <linux/string.h>
- #include <linux/vfio.h>
- #include <linux/device.h>
-@@ -1815,13 +1816,26 @@ static const struct attribute_group *vfio_ap_mdev_attr_groups[] = {
-  * @matrix_mdev: a mediated matrix device
-  * @kvm: reference to KVM instance
-  *
-- * Return: 0 if no other mediated matrix device has a reference to @kvm;
-- * otherwise, returns an -EPERM.
-+ * Returns: 0 if the reference to kvm is successfully retrieved from @kvm_file
-+ * and set into @matrix_mdev; otherwise, returns:
-+ *	-ENOENT if a reference to kvm could not be retrieved from @kvm_file
-+ *	-EPERM if another mediated matrix device already has a reference to the same kvm instance
-+ * 
-  */
- static int vfio_ap_mdev_set_kvm(struct ap_matrix_mdev *matrix_mdev,
--				struct kvm *kvm)
-+				struct file *kvm_file)
- {
-+	struct file *kvm_file_ref __free(fput) = NULL;
- 	struct ap_matrix_mdev *m;
-+	struct kvm *kvm;
-+
-+	kvm_file_ref = get_file_active(&kvm_file);
-+	if (!kvm_file_ref)
-+		return -ENOENT;
-+
-+	kvm = kvm_file->private_data;
-+	if (!kvm)
-+		return -ENOENT;
- 
- 	if (kvm->arch.crypto.crycbd) {
- 		down_write(&kvm->arch.crypto.pqap_hook_rwsem);
-@@ -1837,13 +1851,13 @@ static int vfio_ap_mdev_set_kvm(struct ap_matrix_mdev *matrix_mdev,
- 			}
- 		}
- 
--		kvm_get_kvm(kvm);
- 		matrix_mdev->kvm = kvm;
- 		vfio_ap_mdev_update_guest_apcb(matrix_mdev);
- 
- 		release_update_locks_for_kvm(kvm);
- 	}
- 
-+	no_free_ptr(kvm_file_ref);
- 	return 0;
- }
- 
-@@ -1891,7 +1905,7 @@ static void vfio_ap_mdev_unset_kvm(struct ap_matrix_mdev *matrix_mdev)
- 
- 		kvm_arch_crypto_clear_masks(kvm);
- 		vfio_ap_mdev_reset_queues(matrix_mdev);
--		kvm_put_kvm(kvm);
-+		fput(kvm->file);
- 		matrix_mdev->kvm = NULL;
- 
- 		release_update_locks_for_kvm(kvm);
-diff --git a/drivers/vfio/group.c b/drivers/vfio/group.c
-index b2299e5bc6df..807378cb48de 100644
---- a/drivers/vfio/group.c
-+++ b/drivers/vfio/group.c
-@@ -860,7 +860,7 @@ bool vfio_group_enforced_coherent(struct vfio_group *group)
- 	return ret;
- }
- 
--void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
-+void vfio_group_set_kvm(struct vfio_group *group, struct file *kvm)
- {
- 	spin_lock(&group->kvm_ref_lock);
- 	group->kvm = kvm;
-diff --git a/drivers/vfio/pci/vfio_pci_zdev.c b/drivers/vfio/pci/vfio_pci_zdev.c
-index 0990fdb146b7..d3a110101353 100644
---- a/drivers/vfio/pci/vfio_pci_zdev.c
-+++ b/drivers/vfio/pci/vfio_pci_zdev.c
-@@ -144,6 +144,7 @@ int vfio_pci_info_zdev_add_caps(struct vfio_pci_core_device *vdev,
- int vfio_pci_zdev_open_device(struct vfio_pci_core_device *vdev)
- {
- 	struct zpci_dev *zdev = to_zpci(vdev->pdev);
-+	struct kvm *kvm;
- 
- 	if (!zdev)
- 		return -ENODEV;
-@@ -151,8 +152,12 @@ int vfio_pci_zdev_open_device(struct vfio_pci_core_device *vdev)
- 	if (!vdev->vdev.kvm)
- 		return 0;
- 
-+	kvm = vdev->vdev.kvm->private_data;
-+	if (!kvm)
-+		return -ENOENT;
-+
- 	if (zpci_kvm_hook.kvm_register)
--		return zpci_kvm_hook.kvm_register(zdev, vdev->vdev.kvm);
-+		return zpci_kvm_hook.kvm_register(zdev, kvm);
- 
- 	return -ENOENT;
- }
-diff --git a/drivers/vfio/vfio.h b/drivers/vfio/vfio.h
-index e4b72e79b7e3..ede8a8001b03 100644
---- a/drivers/vfio/vfio.h
-+++ b/drivers/vfio/vfio.h
-@@ -23,7 +23,7 @@ struct vfio_device_file {
- 	u8 access_granted;
- 	u32 devid; /* only valid when iommufd is valid */
- 	spinlock_t kvm_ref_lock; /* protect kvm field */
--	struct kvm *kvm;
-+	struct file *kvm;
- 	struct iommufd_ctx *iommufd; /* protected by struct vfio_device_set::lock */
- };
- 
-@@ -88,7 +88,7 @@ struct vfio_group {
- #endif
- 	enum vfio_group_type		type;
- 	struct mutex			group_lock;
--	struct kvm			*kvm;
-+	struct file			*kvm;
- 	struct file			*opened_file;
- 	struct iommufd_ctx		*iommufd;
- 	spinlock_t			kvm_ref_lock;
-@@ -107,7 +107,7 @@ void vfio_device_group_unuse_iommu(struct vfio_device *device);
- void vfio_df_group_close(struct vfio_device_file *df);
- struct vfio_group *vfio_group_from_file(struct file *file);
- bool vfio_group_enforced_coherent(struct vfio_group *group);
--void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm);
-+void vfio_group_set_kvm(struct vfio_group *group, struct file *kvm);
- bool vfio_device_has_container(struct vfio_device *device);
- int __init vfio_group_init(void);
- void vfio_group_cleanup(void);
-@@ -434,11 +434,11 @@ static inline void vfio_virqfd_exit(void)
- #endif
- 
- #if IS_ENABLED(CONFIG_KVM)
--void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm);
-+void vfio_device_get_kvm_safe(struct vfio_device *device, struct file *kvm);
- void vfio_device_put_kvm(struct vfio_device *device);
- #else
- static inline void vfio_device_get_kvm_safe(struct vfio_device *device,
--					    struct kvm *kvm)
-+					    struct file *kvm)
- {
- }
- 
-diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
-index ed538aebb0b8..8fad1ca1189f 100644
---- a/drivers/vfio/vfio_main.c
-+++ b/drivers/vfio/vfio_main.c
-@@ -448,35 +448,13 @@ void vfio_unregister_group_dev(struct vfio_device *device)
- EXPORT_SYMBOL_GPL(vfio_unregister_group_dev);
- 
- #if IS_ENABLED(CONFIG_KVM)
--void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
-+void vfio_device_get_kvm_safe(struct vfio_device *device, struct file *kvm)
- {
--	void (*pfn)(struct kvm *kvm);
--	bool (*fn)(struct kvm *kvm);
--	bool ret;
+-config KVM
+-	def_tristate y
+-	prompt "Kernel-based Virtual Machine (KVM) support (s390)"
+-	select HAVE_KVM_CPU_RELAX_INTERCEPT
+-	select KVM_ASYNC_PF
+-	select KVM_ASYNC_PF_SYNC
+-	select KVM_COMMON
+-	select HAVE_KVM_IRQCHIP
+-	select HAVE_KVM_IRQ_ROUTING
+-	select HAVE_KVM_INVALID_WAKEUPS
+-	select HAVE_KVM_NO_POLL
+-	select KVM_VFIO
+-	select VIRT_XFER_TO_GUEST_WORK
+-	select KVM_MMU_LOCKLESS_AGING
+-	select KVM_GENERIC_PRE_FAULT_MEMORY
+-	help
+-	  Support hosting paravirtualized s390 guest machines using the SIE
+-	  virtualization capability on the mainframe. This should work
+-	  on any 64bit machine.
 -
- 	lockdep_assert_held(&device->dev_set->lock);
- 
--	if (!kvm)
--		return;
+-	  This module provides access to the hardware capabilities through
+-	  a character device node named /dev/kvm.
 -
--	pfn = symbol_get(kvm_put_kvm);
--	if (WARN_ON(!pfn))
-+	if (!get_file_active(&kvm))
- 		return;
- 
--	fn = symbol_get(kvm_get_kvm_safe);
--	if (WARN_ON(!fn)) {
--		symbol_put(kvm_put_kvm);
--		return;
--	}
+-	  To compile this as a module, choose M here: the module
+-	  will be called kvm.
 -
--	ret = fn(kvm);
--	symbol_put(kvm_get_kvm_safe);
--	if (!ret) {
--		symbol_put(kvm_put_kvm);
--		return;
--	}
+-	  If unsure, say N.
 -
--	device->put_kvm = pfn;
- 	device->kvm = kvm;
- }
- 
-@@ -487,14 +465,7 @@ void vfio_device_put_kvm(struct vfio_device *device)
- 	if (!device->kvm)
- 		return;
- 
--	if (WARN_ON(!device->put_kvm))
--		goto clear;
+-config KVM_S390_UCONTROL
+-	bool "Userspace controlled virtual machines"
+-	depends on KVM
+-	help
+-	  Allow CAP_SYS_ADMIN users to create KVM virtual machines that are
+-	  controlled by userspace.
 -
--	device->put_kvm(device->kvm);
--	device->put_kvm = NULL;
--	symbol_put(kvm_put_kvm);
+-	  If unsure, say N.
++source "arch/s390/kvm/s390/Kconfig"
+ 
+ endif # VIRTUALIZATION
+diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
+index 961de97b8e80..a4e3875b5bdd 100644
+--- a/arch/s390/kvm/Makefile
++++ b/arch/s390/kvm/Makefile
+@@ -3,13 +3,4 @@
+ #
+ # Copyright IBM Corp. 2008
+ 
+-include $(srctree)/virt/kvm/Makefile.kvm
 -
--clear:
-+	fput(device->kvm);
- 	device->kvm = NULL;
- }
- #endif
-@@ -1520,7 +1491,7 @@ bool vfio_file_enforced_coherent(struct file *file)
- }
- EXPORT_SYMBOL_GPL(vfio_file_enforced_coherent);
- 
--static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
-+static void vfio_device_file_set_kvm(struct file *file, struct file *kvm)
- {
- 	struct vfio_device_file *df = file->private_data;
- 
-@@ -1536,22 +1507,22 @@ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
- 
- /**
-  * vfio_file_set_kvm - Link a kvm with VFIO drivers
-- * @file: VFIO group file or VFIO device file
-- * @kvm: KVM to link
-+ * @vfio_file: VFIO group file or VFIO device file
-+ * @kvm: KVM file to link
-  *
-  * When a VFIO device is first opened the KVM will be available in
-  * device->kvm if one was associated with the file.
-  */
--void vfio_file_set_kvm(struct file *file, struct kvm *kvm)
-+void vfio_file_set_kvm(struct file *vfio_file, struct file *kvm)
- {
- 	struct vfio_group *group;
- 
--	group = vfio_group_from_file(file);
-+	group = vfio_group_from_file(vfio_file);
- 	if (group)
- 		vfio_group_set_kvm(group, kvm);
- 
--	if (vfio_device_from_file(file))
--		vfio_device_file_set_kvm(file, kvm);
-+	if (vfio_device_from_file(vfio_file))
-+		vfio_device_file_set_kvm(vfio_file, kvm);
- }
- EXPORT_SYMBOL_GPL(vfio_file_set_kvm);
- 
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index ab8cfaec82d3..90a9f840fece 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -784,6 +784,7 @@ struct kvm {
- 	 * kvm_swap_active_memslots().
- 	 */
- 	struct mutex slots_arch_lock;
-+	struct file *file;  /* Back-reference to VM file descriptor */
- 	struct mm_struct *mm; /* userspace tied to this vm */
- 	unsigned long nr_memslot_pages;
- 	/* The two memslot sets - active and inactive (per address space) */
-@@ -1074,6 +1075,7 @@ void kvm_get_kvm(struct kvm *kvm);
- bool kvm_get_kvm_safe(struct kvm *kvm);
- void kvm_put_kvm(struct kvm *kvm);
- bool file_is_kvm(struct file *file);
-+struct kvm *file_to_kvm(struct file *file);
- void kvm_put_kvm_no_destroy(struct kvm *kvm);
- 
- static inline struct kvm_memslots *__kvm_memslots(struct kvm *kvm, int as_id)
-diff --git a/include/linux/vfio.h b/include/linux/vfio.h
-index 31b826efba00..b279bdb6f813 100644
---- a/include/linux/vfio.h
-+++ b/include/linux/vfio.h
-@@ -54,7 +54,7 @@ struct vfio_device {
- 	struct list_head dev_set_list;
- 	unsigned int migration_flags;
- 	u8 precopy_info_v2;
--	struct kvm *kvm;
-+	struct file *kvm;  /* Holds reference to KVM file */
- 
- 	/* Members below here are private, not for driver use */
- 	unsigned int index;
-@@ -377,7 +377,7 @@ static inline bool vfio_file_has_dev(struct file *file, struct vfio_device *devi
- #endif
- bool vfio_file_is_valid(struct file *file);
- bool vfio_file_enforced_coherent(struct file *file);
--void vfio_file_set_kvm(struct file *file, struct kvm *kvm);
-+void vfio_file_set_kvm(struct file *vfio_file, struct file *kvm);
- 
- #define VFIO_PIN_PAGES_MAX_ENTRIES	(PAGE_SIZE/sizeof(unsigned long))
- 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 45e784462ec6..994cb40cf2ef 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1313,7 +1313,7 @@ void kvm_get_kvm(struct kvm *kvm)
- {
- 	refcount_inc(&kvm->users_count);
- }
--EXPORT_SYMBOL_GPL(kvm_get_kvm);
-+EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_get_kvm);
- 
- /*
-  * Make sure the vm is not during destruction, which is a safe version of
-@@ -1323,14 +1323,14 @@ bool kvm_get_kvm_safe(struct kvm *kvm)
- {
- 	return refcount_inc_not_zero(&kvm->users_count);
- }
--EXPORT_SYMBOL_GPL(kvm_get_kvm_safe);
-+EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_get_kvm_safe);
- 
- void kvm_put_kvm(struct kvm *kvm)
- {
- 	if (refcount_dec_and_test(&kvm->users_count))
- 		kvm_destroy_vm(kvm);
- }
--EXPORT_SYMBOL_GPL(kvm_put_kvm);
-+EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_put_kvm);
- 
- /*
-  * Used to put a reference that was taken on behalf of an object associated
-@@ -4802,7 +4802,7 @@ void kvm_unregister_device_ops(u32 type)
- 		kvm_device_ops_table[type] = NULL;
- }
- 
--static int kvm_ioctl_create_device(struct kvm *kvm,
-+static int kvm_ioctl_create_device(struct file *file, struct kvm *kvm,
- 				   struct kvm_create_device *cd)
- {
- 	const struct kvm_device_ops *ops;
-@@ -5345,7 +5345,7 @@ static long kvm_vm_ioctl(struct file *filp,
- 		if (copy_from_user(&cd, argp, sizeof(cd)))
- 			goto out;
- 
--		r = kvm_ioctl_create_device(kvm, &cd);
-+		r = kvm_ioctl_create_device(filp, kvm, &cd);
- 		if (r)
- 			goto out;
- 
-@@ -5477,6 +5477,15 @@ bool file_is_kvm(struct file *file)
- }
- EXPORT_SYMBOL_FOR_KVM_INTERNAL(file_is_kvm);
- 
-+struct kvm *file_to_kvm(struct file *file)
-+{
-+	if (!file_is_kvm(file))
-+		return NULL;
+-ccflags-y := -I$(src)
+-
+-kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
+-kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
+-kvm-y += dat.o gmap.o faultin.o
+-
+-kvm-$(CONFIG_VFIO_PCI_ZDEV_KVM) += pci.o
+-obj-$(CONFIG_KVM) += kvm.o
++obj-$(CONFIG_KVM) += s390/
+diff --git a/arch/s390/kvm/gmap/Makefile b/arch/s390/kvm/gmap/Makefile
+new file mode 100644
+index 000000000000..21967ed88877
+--- /dev/null
++++ b/arch/s390/kvm/gmap/Makefile
+@@ -0,0 +1,5 @@
++# SPDX-License-Identifier: GPL-2.0
 +
-+	return file->private_data;
-+}
-+EXPORT_SYMBOL_FOR_KVM_INTERNAL(file_to_kvm);
++GMAP ?= ../gmap
 +
- static int kvm_dev_ioctl_create_vm(unsigned long type)
- {
- 	char fdname[ITOA_MAX_LEN + 1];
-@@ -5508,6 +5517,10 @@ static int kvm_dev_ioctl_create_vm(unsigned long type)
- 	 * cases it will be called by the final fput(file) and will take
- 	 * care of doing kvm_put_kvm(kvm).
- 	 */
++kvm-y += $(GMAP)/dat.o $(GMAP)/gmap.o $(GMAP)/faultin.o
+diff --git a/arch/s390/kvm/dat.c b/arch/s390/kvm/gmap/dat.c
+similarity index 100%
+rename from arch/s390/kvm/dat.c
+rename to arch/s390/kvm/gmap/dat.c
+diff --git a/arch/s390/kvm/dat.h b/arch/s390/kvm/gmap/dat.h
+similarity index 100%
+rename from arch/s390/kvm/dat.h
+rename to arch/s390/kvm/gmap/dat.h
+diff --git a/arch/s390/kvm/faultin.c b/arch/s390/kvm/gmap/faultin.c
+similarity index 100%
+rename from arch/s390/kvm/faultin.c
+rename to arch/s390/kvm/gmap/faultin.c
+diff --git a/arch/s390/kvm/faultin.h b/arch/s390/kvm/gmap/faultin.h
+similarity index 100%
+rename from arch/s390/kvm/faultin.h
+rename to arch/s390/kvm/gmap/faultin.h
+diff --git a/arch/s390/kvm/gmap.c b/arch/s390/kvm/gmap/gmap.c
+similarity index 100%
+rename from arch/s390/kvm/gmap.c
+rename to arch/s390/kvm/gmap/gmap.c
+diff --git a/arch/s390/kvm/gmap.h b/arch/s390/kvm/gmap/gmap.h
+similarity index 100%
+rename from arch/s390/kvm/gmap.h
+rename to arch/s390/kvm/gmap/gmap.h
+diff --git a/arch/s390/kvm/trace-gmap.h b/arch/s390/kvm/gmap/trace-gmap.h
+similarity index 96%
+rename from arch/s390/kvm/trace-gmap.h
+rename to arch/s390/kvm/gmap/trace-gmap.h
+index c139b4ef75f6..78559298932c 100644
+--- a/arch/s390/kvm/trace-gmap.h
++++ b/arch/s390/kvm/gmap/trace-gmap.h
+@@ -6,7 +6,7 @@
+ 
+ #undef TRACE_SYSTEM
+ #define TRACE_SYSTEM kvm
+-#define TRACE_INCLUDE_PATH .
++#define TRACE_INCLUDE_PATH ../gmap
+ #undef TRACE_INCLUDE_FILE
+ #define TRACE_INCLUDE_FILE trace-gmap
+ 
+diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/s390/Kconfig
+similarity index 71%
+copy from arch/s390/kvm/Kconfig
+copy to arch/s390/kvm/s390/Kconfig
+index e9d2ca797907..62d65de3878d 100644
+--- a/arch/s390/kvm/Kconfig
++++ b/arch/s390/kvm/s390/Kconfig
+@@ -1,20 +1,4 @@
+ # SPDX-License-Identifier: GPL-2.0
+-#
+-# KVM configuration
+-#
+-source "virt/kvm/Kconfig"
+-
+-menuconfig VIRTUALIZATION
+-	def_bool y
+-	prompt "KVM"
+-	help
+-	  Say Y here to get to see options for using your Linux host to run other
+-	  operating systems inside virtual machines (guests).
+-	  This option alone does not add any kernel code.
+-
+-	  If you say N, all options in this submenu will be skipped and disabled.
+-
+-if VIRTUALIZATION
+ 
+ config KVM
+ 	def_tristate y
+@@ -52,5 +36,3 @@ config KVM_S390_UCONTROL
+ 	  controlled by userspace.
+ 
+ 	  If unsure, say N.
+-
+-endif # VIRTUALIZATION
+diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/s390/Makefile
+similarity index 65%
+copy from arch/s390/kvm/Makefile
+copy to arch/s390/kvm/s390/Makefile
+index 961de97b8e80..de7deb81e655 100644
+--- a/arch/s390/kvm/Makefile
++++ b/arch/s390/kvm/s390/Makefile
+@@ -1,15 +1,14 @@
+ # SPDX-License-Identifier: GPL-2.0
+-# Makefile for kernel virtual machines on s390
+-#
+-# Copyright IBM Corp. 2008
+ 
++KVM := ../../../../virt/kvm
+ include $(srctree)/virt/kvm/Makefile.kvm
++include $(srctree)/arch/s390/kvm/gmap/Makefile
+ 
+-ccflags-y := -I$(src)
++ccflags-y := -I$(src) -I$(srctree)/arch/s390/kvm/gmap
+ 
+ kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
+ kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
+-kvm-y += dat.o gmap.o faultin.o
+ 
+ kvm-$(CONFIG_VFIO_PCI_ZDEV_KVM) += pci.o
 +
-+	/* Store back-reference for VFIO and other subsystems */
-+	kvm->file = file;
-+
- 	kvm_uevent_notify_change(KVM_EVENT_CREATE_VM, kvm);
- 
- 	fd_install(fd, file);
-diff --git a/virt/kvm/vfio.c b/virt/kvm/vfio.c
-index 6cdc4e9a333a..0166cc4d39b3 100644
---- a/virt/kvm/vfio.c
-+++ b/virt/kvm/vfio.c
-@@ -35,15 +35,15 @@ struct kvm_vfio {
- 	bool noncoherent;
- };
- 
--static void kvm_vfio_file_set_kvm(struct file *file, struct kvm *kvm)
-+static void kvm_vfio_file_set_kvm(struct file *vfio_file, struct file *kvm)
- {
--	void (*fn)(struct file *file, struct kvm *kvm);
-+	void (*fn)(struct file *vfio_file, struct file *kvm);
- 
- 	fn = symbol_get(vfio_file_set_kvm);
- 	if (!fn)
- 		return;
- 
--	fn(file, kvm);
-+	fn(vfio_file, kvm);
- 
- 	symbol_put(vfio_file_set_kvm);
- }
-@@ -168,7 +168,7 @@ static int kvm_vfio_file_add(struct kvm_device *dev, unsigned int fd)
- 	kvf->file = get_file(filp);
- 	list_add_tail(&kvf->node, &kv->file_list);
- 
--	kvm_vfio_file_set_kvm(kvf->file, dev->kvm);
-+	kvm_vfio_file_set_kvm(kvf->file, dev->kvm->file);
- 	kvm_vfio_update_coherency(dev);
- 
- 	return 0;
+ obj-$(CONFIG_KVM) += kvm.o
+diff --git a/arch/s390/kvm/diag.c b/arch/s390/kvm/s390/diag.c
+similarity index 100%
+rename from arch/s390/kvm/diag.c
+rename to arch/s390/kvm/s390/diag.c
+diff --git a/arch/s390/kvm/gaccess.c b/arch/s390/kvm/s390/gaccess.c
+similarity index 100%
+rename from arch/s390/kvm/gaccess.c
+rename to arch/s390/kvm/s390/gaccess.c
+diff --git a/arch/s390/kvm/gaccess.h b/arch/s390/kvm/s390/gaccess.h
+similarity index 100%
+rename from arch/s390/kvm/gaccess.h
+rename to arch/s390/kvm/s390/gaccess.h
+diff --git a/arch/s390/kvm/guestdbg.c b/arch/s390/kvm/s390/guestdbg.c
+similarity index 100%
+rename from arch/s390/kvm/guestdbg.c
+rename to arch/s390/kvm/s390/guestdbg.c
+diff --git a/arch/s390/kvm/intercept.c b/arch/s390/kvm/s390/intercept.c
+similarity index 100%
+rename from arch/s390/kvm/intercept.c
+rename to arch/s390/kvm/s390/intercept.c
+diff --git a/arch/s390/kvm/interrupt.c b/arch/s390/kvm/s390/interrupt.c
+similarity index 100%
+rename from arch/s390/kvm/interrupt.c
+rename to arch/s390/kvm/s390/interrupt.c
+diff --git a/arch/s390/kvm/pci.c b/arch/s390/kvm/s390/pci.c
+similarity index 100%
+rename from arch/s390/kvm/pci.c
+rename to arch/s390/kvm/s390/pci.c
+diff --git a/arch/s390/kvm/pci.h b/arch/s390/kvm/s390/pci.h
+similarity index 100%
+rename from arch/s390/kvm/pci.h
+rename to arch/s390/kvm/s390/pci.h
+diff --git a/arch/s390/kvm/priv.c b/arch/s390/kvm/s390/priv.c
+similarity index 100%
+rename from arch/s390/kvm/priv.c
+rename to arch/s390/kvm/s390/priv.c
+diff --git a/arch/s390/kvm/pv.c b/arch/s390/kvm/s390/pv.c
+similarity index 100%
+rename from arch/s390/kvm/pv.c
+rename to arch/s390/kvm/s390/pv.c
+diff --git a/arch/s390/kvm/s390.c b/arch/s390/kvm/s390/s390.c
+similarity index 100%
+rename from arch/s390/kvm/s390.c
+rename to arch/s390/kvm/s390/s390.c
+diff --git a/arch/s390/kvm/s390.h b/arch/s390/kvm/s390/s390.h
+similarity index 100%
+rename from arch/s390/kvm/s390.h
+rename to arch/s390/kvm/s390/s390.h
+diff --git a/arch/s390/kvm/sigp.c b/arch/s390/kvm/s390/sigp.c
+similarity index 100%
+rename from arch/s390/kvm/sigp.c
+rename to arch/s390/kvm/s390/sigp.c
+diff --git a/arch/s390/kvm/trace-s390.h b/arch/s390/kvm/s390/trace-s390.h
+similarity index 100%
+rename from arch/s390/kvm/trace-s390.h
+rename to arch/s390/kvm/s390/trace-s390.h
+diff --git a/arch/s390/kvm/trace.h b/arch/s390/kvm/s390/trace.h
+similarity index 100%
+rename from arch/s390/kvm/trace.h
+rename to arch/s390/kvm/s390/trace.h
+diff --git a/arch/s390/kvm/vsie.c b/arch/s390/kvm/s390/vsie.c
+similarity index 100%
+rename from arch/s390/kvm/vsie.c
+rename to arch/s390/kvm/s390/vsie.c
 -- 
 2.53.0
 
