@@ -4,97 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6D9C55167
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 09:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18865C54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 09:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fwbZejQtpnuo86QdZNkvfiwPzfIoi9keDu3oZjpOvc0=; b=YjWcolc2Bn72R8FSMGGQBQFMfC
-	4ZW6yIaDrRPGTktTk3OHdAadsQQ5lqWIxjWm3MLoPI1RRjjmYfUxC0eOd55CD/5slfSIo/qFxWeea
-	NplJb556zK0N5L/hx55EWHkMuaZMmUbKyVjubHN/qF4Mgc29C6dMLiUeoS/0jgJdVfEuh1Ymqqk80
-	rRK+ECRWPK4ic7ffdddGo7xazJ+46fssYDX2BafzMa7ZMr8WZ4ng9/A515ejkxRbMK5/m/6dCYZMz
-	lcWqWVcCYkWFrQpomK9QG2GjNxoJCI5dnPkFBdi7XY14RUXWkWzJazSmym7p2f1IDccfCd8aH89NA
-	j19fvykw==;
+	bh=zGIHZsEACYaSirFT7cPZzzvNNQj09PGnO9eQHvTAFAo=; b=aGAXG51hOnIGY4naR9TxyvStF8
+	SwS7bddEFtlbix1wnKSYI5gPkdHgCJy4fbksGK3PqVqRXMnAslYgrUB7/bxuJNNlrUnd+8LCFzaaL
+	UdZ6xoXWDxwuQfY1lSONTQgVNwLD6viG9PLBs7OMklgQp29ObB84jsMEXJ7WEdwFU7kHxKDWXu0c/
+	PypTyamlcZWXfRKJkUbbrp56LxS1zCc9YUWtjIhxTwKcdKsnnZwHwnSXHU0v227SW3uXiYseCojQI
+	wSFveiMi/6gFoqfIrFGmN6mclA/gx0i3oCl8ZZi62gv9udL39Twhjb05Cs4raRISxrVBmgvvh5XVH
+	uiIJiQDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpjvY-0000000CF9p-1Vot;
-	Fri, 31 Jul 2026 09:53:16 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wpjyA-0000000CGAq-3D4H;
+	Fri, 31 Jul 2026 09:55:58 +0000
+Received: from mail-m60213.netease.com ([210.79.60.213])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpjvV-0000000CF7b-0Ujx
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 09:53:14 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47f84023916so801779f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 02:53:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785491591; x=1786096391; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=fwbZejQtpnuo86QdZNkvfiwPzfIoi9keDu3oZjpOvc0=;
-        b=D/mwx3LddvyjeTQm3PYB1sxCyQj7St5wH6QkL3VBj+k7M/U94AWc3tVhtkf+kU8hdc
-         oct+VSyin4IeofPIvL7yFBIVVGgyuvmO/cV432tGbXsa1h8x8k/Cj1LwmlAbofWvc9JO
-         7UOzR1VMLQQZolF98OzwYTN/vAScZU3NXsMeZws02VolpObcqKCM0/OcTYJo0JlReLZM
-         MBmbB89/KYHj5qDCNu0uMeeWWiN5Z23Uv1C/Z2fsuIs8+soYoezg7fdEdGqQShoMKN85
-         i3vL9aGxb+hDwAu4a+seCf6qv2wYnv3wZZBz+XMRjyTPD1qxXiN9F7JlfwF/Vvf0hZQf
-         r8pQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785491591; x=1786096391;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=fwbZejQtpnuo86QdZNkvfiwPzfIoi9keDu3oZjpOvc0=;
-        b=X8MmZdx4wXudtGXzngXYXsKHXpIs0afEI36V8ZD20e6LzVcAEmKs+7JcDdqS0uMl7n
-         YG3+fH4nNuuhOIXaNdTrh85mfkul+R9qiMyVQt3jahH0xbbPcnEzPhQ7XjmwAFWJGh4N
-         XDK4+ZdObHtE/FVdWtHGX2g/vBpskV4Lsjuc+/HAGaS3p+GAIsExfqZtLsxFobzpXkcG
-         cPVw1uagcCOPQx6x786EoP9Q/fNmiWX/vLIorGP7c7KK9LkfxD0nujFHJ+/fqNAt5X1n
-         Li1iBWM5TWZD9pGTY0wd9Bq5FB+HyW5UkXeTTt2K9TVxtIPdFQo0y61L7h55BcwVVLqM
-         efMw==
-X-Forwarded-Encrypted: i=1; AHgh+RpazJ0UWZc5/DTlE+0AUmS5AkI73uKtQ4TAFFSX6JRgZV9iJS1roemM0CpevSmHHDvVAFixZNCr6ugqhLpus1kV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEE6Vry7Hmi4+tbdAc6yCAdNmcC7v8qDV9ZnW8N6QqObq5WRSw
-	qhXgRvBxQ+4GiXcEtCYULmGpwu3oonK2IJ7cE/2YXkVaVKQdLRm5BWN2
-X-Gm-Gg: AR+sD116hpdbDcALTIs7mWcbW3iKxJF6fYPChOYypewV9/3kJ/SGEzl/Mf+ZDSJiPxH
-	AtS+0mXtHmY1EAnrZcRa0JGobaSrR5MLwXbcCpYnxsO6j1Q7HjQvF4lSDxxVnBxbcM/4XzUGDT0
-	aNqVsYauic0O+ZX7ZSd8CVGZxLtcu4190JRSSgJCS94HYnT7dQNR1wUmH14pkZCiVsppXkUdFsG
-	McbXqIlX+hOlCmKYhLRljMX21UT7SC0Ngk00CL099qYKSLPUi6kn+FiaOuJg4IiA3mOw3Trxq5O
-	HFd7ogH7KbB2buzAeecK9Vcw6NUakIu6RPlWOP0Y0OMMiRRLEExKVMOEfomwB0m9oUWEKh1Kbao
-	3nN+kTsRZ7yH1BfYqpNtu8dD9dBvLqflPrvw1+Nb79T73FWh1H7Zs4ubb9kQhGZIpKayt6DRjfB
-	QlC96rAPXFnhEDLBDao04K8fEHTFGaromSBuQWHR5kSZca8qXtpoF9BqOcYup8dh2NGCiKLmzY7
-	8lNBRzncNOXN7Gr2pFgfIwPfn67ydaGHN8dXmIVSf8qI/QSLZmVxVTYfxJ6kNX0Tex4slvHmraa
-	s2K3kT1wRlXp+WRivVVLD0wUGlvzHfuqDcFAAdR14MmT9u9ukgPVLCEU+s29Kzy/R0mVXQdwpZx
-	wJrBS5vd3Wg/BuJRNJ4y01wrSgQKp2qWANcIupS0CkK0ccmKppdDV6AmFfFB70+oA5T6eeL0=
-X-Received: by 2002:a05:6000:712:b0:47f:9254:d453 with SMTP id ffacd0b85a97d-47fd2abbdf4mr3203164f8f.8.1785491591146;
-        Fri, 31 Jul 2026 02:53:11 -0700 (PDT)
-Received: from localhost (90-182-112-124.rcp.o2.cz. [90.182.112.124])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd45a0ae0sm2757970f8f.33.2026.07.31.02.53.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 31 Jul 2026 02:53:10 -0700 (PDT)
-Date: Fri, 31 Jul 2026 11:53:09 +0200
-From: Joshua Crofts <joshua.crofts1@gmail.com>
-To: mdshahid03@gmail.com
-Cc: Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko <andy@kernel.org>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, David Lechner
- <dlechner@baylibre.com>, linux-arm-kernel@lists.infradead.org,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Nuno
- =?ISO-8859-1?Q?S=E1?= <nuno.sa@analog.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>
-Subject: Re: [RESEND PATCH v2] iio: adc: bcm_iproc_adc: Convert probe() to
- use dev_err_probe()
-Message-ID: <20260731115309.000073a3@gmail.com>
-In-Reply-To: <20260730155712.374464-1-mdshahid03@gmail.com>
-References: <20260730155712.374464-1-mdshahid03@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	id 1wpjy7-0000000CG8f-11p9;
+	Fri, 31 Jul 2026 09:55:57 +0000
+Received: from [172.16.12.74] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 48503fdf9;
+	Fri, 31 Jul 2026 17:55:42 +0800 (GMT+08:00)
+Message-ID: <44ff5316-43cc-46be-b947-ea6e1f5da1bb@rock-chips.com>
+Date: Fri, 31 Jul 2026 17:55:42 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/7] Add HPD support for Rockchip Analogix DP
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260730032744.381566-1-damon.ding@rock-chips.com>
+ <2014349.VZ3vTMCxA0@diego>
+ <f0bec6c2-5bc9-4c06-abe0-cf6189382314@rock-chips.com>
+ <24131962.ssLaC8jLEa@diego>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <24131962.ssLaC8jLEa@diego>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9fb799df1903a8kunm9c7fd6a043b8bf
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZShlKVh9MSUwfHxoYSUtPTlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=T2j7X27HYtjAWW4o20v0+5UDqSqE/WwfWaMehWBW70qp721NPeY28++miQ+glaDp3ABci8X2ZdHwHYrLf6apvAgUZUue0S8LUx9H/TlUjXSWpiZyj+ii1l0Tmv/MnZrWtqwAiur/jZ0hry4MmjviIgCZtNaeNdduxrtRbEUAZaQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=zGIHZsEACYaSirFT7cPZzzvNNQj09PGnO9eQHvTAFAo=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_025313_525853_12E7E473 
-X-CRM114-Status: GOOD (  26.24  )
+X-CRM114-CacheID: sfid-20260731_025555_864415_A54F83FF 
+X-CRM114-Status: GOOD (  31.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,133 +86,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jul 2026 21:27:12 +0530
-mdshahid03@gmail.com wrote:
+Hi Heiko,
 
-> From: Mohammad Shahid <mdshahid03@gmail.com>
+On 7/31/2026 5:23 PM, Heiko Stübner wrote:
+> Hi Damon,
 > 
-> Replace open-coded probe error handling with dev_err_probe() for
-> resource acquisition and initialization failures.
+> Am Freitag, 31. Juli 2026, 05:08:45 Mitteleuropäische Sommerzeit schrieb Damon Ding:
+>> On 7/31/2026 2:49 AM, Heiko Stübner wrote:
+>>> Am Donnerstag, 30. Juli 2026, 05:27:37 Mitteleuropäische Sommerzeit schrieb Damon Ding:
+>>>> This series improves the HPD (Hotplug Detect) interrupt handling in
+>>>> the Analogix DP driver to enable reliable native HPD pin detection on
+>>>> Rockchip platforms, and introduces platform-specific HPD detection
+>>>> schemes with fine-grained interrupt control.
+>>>
+>>> [...]
+>>>
+>>>> Tested on RK3576 with both native HPD pin and GPIO HPD configurations.
+>>>>
+>>>> Native HPD pin mode:
+>>>>
+>>>>     &edp {
+>>>>         status = "okay";
+>>>>         pinctrl-names = "default";
+>>>>         pinctrl-0 = <&edp_txm0_pins>;
+>>>>     };
+>>>>
+>>>> GPIO HPD mode:
+>>>>
+>>>>     &edp {
+>>>>         status = "okay";
+>>>>         pinctrl-names = "default";
+>>>>         pinctrl-0 = <&edp0_hpd>;
+>>>>         hpd-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
+>>>>     };
+>>>>
+>>>>     &pinctrl {
+>>>>         edp {
+>>>>             edp0_hpd: edp0-hpd {
+>>>>                 rockchip,pins = <4 RK_PC1 0 &pcfg_pull_none>;
+>>>>             };
+>>>>         };
+>>>>     };
+>>>
+>>> Yay and thanks a lot for working on that.
+>>>
+>>> If I roll my display-port carrier board back to the analogix-dp being
+>>> the endpoint, this works exactly as expected :-) .
+>>>
+>>> I can plug in the display at some point after the boot and have it
+>>> detected and setup correctly. Same with unplugging it while
+>>> the system is running. The connection status is correctly reported
+>>> in sysfs.
+>>>
+>>>
+>>> Though there is a caveat. When the eDP is not the last part, this does not
+>>> work anymore. The detect function always returns "connected" if there is
+>>> a next bridge available.
+>>>
+>>> My board [0] has a physical DP connector on it, so models it as
+>>> dp-connector, but in that case the Analogix driver always reports being
+>>> connected.
+>>>
+>>>
+>>> [0] https://lore.kernel.org/linux-rockchip/20251009225050.88192-3-heiko@sntech.de/
+>>> ... same effect with hpd-gpios in either the edp node or dp-connector node
+>>>
+>>>
+>>
+>> My previous tests were carried out on the modified RK3576 IOTEST board
+>> DTS based on RK3576 EVB1, which includes dp-connector by default. I also
+>> did extra verification without dp-connector, and HPD detection works
+>> correctly in both cases.
+>>
+>> I've taken a look at the Tiger board DT configuration. The pinctrl
+>> settings for the eDP HPD GPIO may need adjustment:
+>>
+>> &pinctrl {
+>> 	edp0 {
+>> 		edp0_hpd_l: edp0-hpd-l-pin {
+>> 			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_down>;
+>> 		};
+>> 	};
+>> };
+>>
+>> It is recommended to configure GPIO4B5 as pull-down or pll-none. Pull-up
+>> configuration may prevent GPIO interrupts from being triggered properly,
+>> resulting in a permanent "connected" status.
 > 
-> This simplifies the error paths, avoids repetitive error handling,
-> and automatically suppresses duplicate messages when -EPROBE_DEFER is
-> returned while preserving the existing error messages.
+> At least on that DP-carrier the pin direction is different.
+> I.e. it is active-low, meaning 0 for plugged in.
 > 
-> Also remove the redundant error message after iproc_adc_enable(),
-> allowing the error to be propagated without additional logging.
+> In the schematics I do see a hw pull up too - so pull-none in the pinconfig
+> would also be possible, but pull-down is definitly wrong on _this_ board.
+> 
+> So we're talking about the same code, I put the dts up on [0] .
+> 
+> I'm currently running with a printk diff [1] to showcase the issue.
+> 
+> So on boot, with the display unplugged I get:
+> [   14.757911] ---> drm_bridge_connector_detect: detect
+> [   14.757914] ---> analogix_dp_bridge_detect a
+> [   14.757918] ---> drm_bridge_connector_detect: detect
+> [   14.773779] ---> analogix_dp_bridge_detect a
+> [   14.838658] rockchip-dp fdec0000.edp: failed to read dpcd caps: -110
+> [   14.838662] [drm:analogix_dp_bridge_atomic_enable [analogix_dp]] *ERROR* dp commit error, ret = -110
+> [   14.838670] rockchip-dp fdec0000.edp: failed to set bridge, retry: 0
+> [   14.884791] rockchip-dp fdec0000.edp: failed to read dpcd caps: -110
+> [   14.884793] [drm:analogix_dp_bridge_atomic_enable [analogix_dp]] *ERROR* dp commit error, ret = -110
+> [   14.884796] rockchip-dp fdec0000.edp: failed to set bridge, retry: 1
+> [   14.930925] rockchip-dp fdec0000.edp: failed to read dpcd caps: -110
+> [   14.930927] [drm:analogix_dp_bridge_atomic_enable [analogix_dp]] *ERROR* dp commit error, ret = -110
+> [   14.930930] rockchip-dp fdec0000.edp: failed to set bridge, retry: 2
+> [   14.977032] rockchip-dp fdec0000.edp: failed to read dpcd caps: -110
+> [   14.977034] [drm:analogix_dp_bridge_atomic_enable [analogix_dp]] *ERROR* dp commit error, ret = -110
+> [   14.977037] rockchip-dp fdec0000.edp: failed to set bridge, retry: 3
+> [   15.023150] rockchip-dp fdec0000.edp: failed to read dpcd caps: -110
+> [   15.023152] [drm:analogix_dp_bridge_atomic_enable [analogix_dp]] *ERROR* dp commit error, ret = -110
+> [   15.023155] rockchip-dp fdec0000.edp: failed to set bridge, retry: 4
+> [   15.023168] rockchip-dp fdec0000.edp: too many times retry set bridge, give it up
+> [   15.052485] Console: switching to colour frame buffer device 80x30
+> [   15.210457] rockchip-drm display-subsystem: [drm] fb0: rockchipdrmfb frame buffer device
+> [   15.223444] ---> drm_bridge_connector_detect: detect
+> [   15.231974] ---> analogix_dp_bridge_detect a
+> [   15.239587] ---> drm_bridge_connector_detect: detect
+> [   15.245341] ---> analogix_dp_bridge_detect a
+> 
+> So analogix_dp_bridge_detect() is called and always returns connected.
+> 
+> Plugging in the the display, I get:
+> [  290.592096] ---> display_connector_detect gpio value is 1   {display-connector returning connected}
+> [  290.598648] ---> drm_bridge_connector_detect: detect
+> [  290.604637] ---> analogix_dp_bridge_detect a
+> [  290.609826] ---> drm_bridge_connector_detect: detect
+> [  290.615784] ---> analogix_dp_bridge_detect a
+> 
+> Unplugging the display, I get:
+> [  302.081444] ---> display_connector_detect gpio value is 0   {display-connector returning disconnected}
+> [  302.087996] ---> drm_bridge_connector_detect: detect
+> [  302.093945] ---> analogix_dp_bridge_detect a
+> [  302.099131] ---> drm_bridge_connector_detect: detect
+> [  302.105090] ---> analogix_dp_bridge_detect a
+> [  302.144834] ---> drm_bridge_connector_detect: detect
+> [  302.150784] ---> analogix_dp_bridge_detect a
+> [  302.155933] ---> drm_bridge_connector_detect: detect
+> [  302.161859] ---> analogix_dp_bridge_detect a
+> 
+> 
+> So it looks like on the gpio-side the detection is correct and/but
+> analogix_dp_bridge_detect() is always returning a connected state
+> ("b" output is never reached).
+> 
+> I'm still working on understanding how the whole detection logic works
+> in drm ;-) .
+> 
+> 
 
-Separate patch for this along with the removal of dev_err() at
-devm_request_threaded_irq(), see below.
+I think I've spotted the environmental difference between our setups.
+Your DTS places the hpd-gpios property under the dp-connector node,
+which is a scenario I haven't covered yet. I will reproduce and test 
+this case locally.
+
+As a quick experiment, could you try removing hpd-gpios from 
+dp-connector and move it under the edp node instead? As expected, GPIO 
+HPD should work properly with that configuration.
+
+Best regards,
+Damon
 
 > 
-> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
-> ---
-> v2:
-> - Convert remaining probe error paths to use dev_err_probe().
-> - Remove redundant error message after iproc_adc_enable()
->  drivers/iio/adc/bcm_iproc_adc.c | 52 +++++++++++++++------------------
->  1 file changed, 24 insertions(+), 28 deletions(-)
 > 
-> diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-> index cf4738b16e62..08e056468d8e 100644
-> --- a/drivers/iio/adc/bcm_iproc_adc.c
-> +++ b/drivers/iio/adc/bcm_iproc_adc.c
-> @@ -522,52 +522,48 @@ static int iproc_adc_probe(struct platform_device *pdev)
->  
->  	adc_priv->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
->  			   "adc-syscon");
-> -	if (IS_ERR(adc_priv->regmap)) {
-> -		dev_err(&pdev->dev, "failed to get handle for tsc syscon\n");
-> -		ret = PTR_ERR(adc_priv->regmap);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(adc_priv->regmap))
-> +		return dev_err_probe(&pdev->dev,
+> [0] https://github.com/mmind/linux-rockchip/blob/dev/v7.3/rk3588-tiger-dp-carrier-v5/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
+> [1]
+> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> index 7a89548a7a885..0accdf62637ae 100644
+> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> @@ -915,8 +915,10 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
+>          struct analogix_dp_device *dp = to_dp(bridge);
+>          enum drm_connector_status status = connector_status_disconnected;
+>   
+> +printk("---> %s a\n", __func__);
+>          if (dp->plat_data->next_bridge)
+>                  return connector_status_connected;
+> +printk("---> %s b\n", __func__);
+>   
+>          if (!analogix_dp_detect_hpd(dp))
+>                  status = connector_status_connected;
+> diff --git a/drivers/gpu/drm/bridge/display-connector.c b/drivers/gpu/drm/bridge/display-connector.c
+> index 16c0631adeb18..b0c07694b82e3 100644
+> --- a/drivers/gpu/drm/bridge/display-connector.c
+> +++ b/drivers/gpu/drm/bridge/display-connector.c
+> @@ -45,6 +45,7 @@ static enum drm_connector_status display_connector_detect(struct drm_bridge *bri
+>          struct display_connector *conn = to_display_connector(bridge);
+>   
+>          if (conn->hpd_gpio) {
+> +printk("---> %s gpio value is %d\n", __func__, gpiod_get_value_cansleep(conn->hpd_gpio));
+>                  if (gpiod_get_value_cansleep(conn->hpd_gpio))
+>                          return connector_status_connected;
+>                  else
+> @@ -84,6 +85,7 @@ static enum drm_connector_status display_connector_detect(struct drm_bridge *bri
+>   static enum drm_connector_status
+>   display_connector_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
+>   {
+> +printk("---> %s\n", __func__);
+>          return display_connector_detect(bridge);
+>   }
+>   
+> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+> index 649969fca1413..8816d837c9a77 100644
+> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
+> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+> @@ -218,6 +218,7 @@ drm_bridge_connector_detect(struct drm_connector *connector, bool force)
+>          enum drm_connector_status status;
+>   
+>          if (detect) {
+> +printk("---> %s: detect\n", __func__);
+>                  status = detect->funcs->detect(detect, connector);
+>   
+>                  if (hdmi)
+> 
+> 
+> 
+> 
+> 
 
-Given the amount of &pdev->dev calls, it would be a good idea to introduce a
-local `struct device *dev = &pdev->dev;` in a separate patch which would go
-before the dev_err_probe() patch.
-
-> +				     PTR_ERR(adc_priv->regmap),
-> +				     "failed to get handle for tsc syscon\n");
->  
->  	adc_priv->adc_clk = devm_clk_get(&pdev->dev, "tsc_clk");
-> -	if (IS_ERR(adc_priv->adc_clk)) {
-> -		dev_err(&pdev->dev,
-> -			"failed getting clock tsc_clk\n");
-> -		ret = PTR_ERR(adc_priv->adc_clk);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(adc_priv->adc_clk))
-> +		return dev_err_probe(&pdev->dev,
-> +				     PTR_ERR(adc_priv->adc_clk),
-> +				     "failed getting clock tsc_clk\n");
->  
->  	adc_priv->irqno = platform_get_irq(pdev, 0);
->  	if (adc_priv->irqno < 0)
-> -		return adc_priv->irqno;
-> +		return dev_err_probe(&pdev->dev,
-> +				     adc_priv->irqno,
-> +				     "failed to get IRQ\n");
-
-Remove this, platform_get_irq() already prints an error message, keep
-the original.
-
->  
->  	ret = regmap_clear_bits(adc_priv->regmap, IPROC_REGCTL2,
->  				IPROC_ADC_AUXIN_SCAN_ENA);
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "failed to write IPROC_REGCTL2 %d\n", ret);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev,
-> +				     ret,
-> +				     "failed to write IPROC_REGCTL2\n");
->  
->  	ret = devm_request_threaded_irq(&pdev->dev, adc_priv->irqno,
->  				iproc_adc_interrupt_handler,
->  				iproc_adc_interrupt_thread,
->  				IRQF_SHARED, "iproc-adc", indio_dev);
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "request_irq error %d\n", ret);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev,
-> +				     ret,
-> +				     "failed to request IRQ\n");
-
-You only need to return ret here, devm_request_threaded_irq() already
-prints an error message on failure. Separate patch for the removal please
-(ideally the first patch in your series to reduce churn).
-
->  
->  	ret = clk_prepare_enable(adc_priv->adc_clk);
-> -	if (ret) {
-> -		dev_err(&pdev->dev,
-> -			"clk_prepare_enable failed %d\n", ret);
-> -		return ret;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev,
-> +				     ret,
-> +				     "failed to enable clock\n");
->  
->  	ret = iproc_adc_enable(indio_dev);
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "failed to enable adc %d\n", ret);
-> +	if (ret)
->  		goto err_adc_enable;
-> -	}
->  
->  	indio_dev->name = "iproc-static-adc";
->  	indio_dev->info = &iproc_adc_iio_info;
-
-Also, you've missed an additional dev_err() in the iio_device_register()
-check, you can change that one as well.
-
--- 
-Kind regards,
-Joshua Crofts
 
