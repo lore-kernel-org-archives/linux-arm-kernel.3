@@ -4,68 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C4EC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 10:35:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B13AC5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 10:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FXC2Au/SZEtpbONFtZ9u2dZZF1NrvflI1A9we56preg=; b=CjQ68LTZ/7spHZsoQMkGTc8Op9
-	We2jpsI9NafsB65Fg/bDLFq7OMtoJDoEnatPjaZDIhzPI75trltDq30B7oRD+cX1iC9CDqsVx7vs2
-	XTp2zwM4tfFAhNt1jgQTLpSvXtP3L7Jt+kKBVe0BkcTPvVcDuhkBYabc5uTGxAUcprU8PAc1TZsRd
-	/8Zv0pWmuPCWjw2wcx8UeIxGymApfu5xA1SeWjLyq4ysz6pbJUAZ7/3GlzMMB4q26fZj7ujbXiyKv
-	jLm2dI0E4FOEYY7SNiN1oFVny6vBqfQhG6VvLM+Tkvnb4Jez8Hwp5l+0Md1xYJv3EWqVB9IkcHw1X
-	9mwF3p2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m7qxUfNuNYwHLukQ/v7wucFmPYkJnNgWcHS1M9XrEsU=; b=WZcdd4GbW9wFamThq/HtQRbEPw
+	orB5MnHCQaGsplbqIX8u+fDlsk4iJSVRFYy9yF1odBYxMiw2ytf/BPswrMQEdbyuC1H8zTugE1cno
+	onIMrL5DXWFvjOyqkQqSpCO91frNJMOzu0kj/obNvAveG/ncZ9TczCz3/5PAerhRZ07hjMBu/Q/Bo
+	5mPJREroxBQYJBABY+ZZNEEbYwY44GqV8rH0LlxUmjxsZD7BSiqhmPtUiQZnq5k4fJ1ttXkaCCzUL
+	TXM39X7msIVHVDEv4abhYXXbUW9mDZWZy1nyPip7lOX+BL+fEiuPptaNZ3sws/dpH3Fc5nhQg1xFV
+	E7z3/zMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpkaR-0000000CKf8-1M7i;
-	Fri, 31 Jul 2026 10:35:31 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1wpke9-0000000CL1v-46zo;
+	Fri, 31 Jul 2026 10:39:21 +0000
+Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpkaM-0000000CKcf-2rqu;
-	Fri, 31 Jul 2026 10:35:30 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 15034200060;
-	Fri, 31 Jul 2026 12:35:23 +0200 (CEST)
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1wpkaI-002CCS-37;
-	Fri, 31 Jul 2026 12:35:22 +0200
-Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id A39C8577EF6;
-	Fri, 31 Jul 2026 10:35:22 +0000 (UTC)
-Date: Fri, 31 Jul 2026 12:35:22 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Cunhao Lu <1579567540@qq.com>
-Cc: kernel <kernel@pengutronix.de>, Vincent Mailhol <mailhol@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	linux-can <linux-can@vger.kernel.org>, devicetree <devicetree@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-rockchip <linux-rockchip@lists.infradead.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>, Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH v6 2/4] can: rockchip: add RK3588 CAN support
-Message-ID: <20260731-precise-functional-lobster-cd779f-mkl@pengutronix.de>
-References: <tencent_7BAA0052C402BFFD26291A64198084E39107@qq.com>
- <tencent_207E464D12344B3228096E23A001D6882508@qq.com>
- <20260731-tall-camouflaged-earthworm-e1a7d0-mkl@pengutronix.de>
- <tencent_A3698A465C4621E164443B0005D1CC6FAE05@qq.com>
+	id 1wpke7-0000000CL0V-07dr;
+	Fri, 31 Jul 2026 10:39:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1785494354; bh=m7qxUfNuNYwHLukQ/v7wucFmPYkJnNgWcHS1M9XrEsU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=nM3gX43OQYGpPrbi+jc9/p9TtaRTAjubxcDis8p1PThEW3aJd0jdv8FNd9eNckNQJ
+	 yUhEXiaNXuT2CyEVMc/ur/FLYGe5QKcMyrSbDbP3V3Vmwe6yW+HaKjLNjImxvseo1v
+	 8a0VNDrEftsNUn0qhUKyAN8dBvIwHBY6dDaPcRVo=
+Received: from ubuntu2204.localdomain ([2409:8d20:22b:54c:9e54:40ff:fe02:3f0f])
+	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
+	id 9C92DE69; Fri, 31 Jul 2026 18:39:09 +0800
+X-QQ-mid: xmsmtpt1785494351tx3mh9mqp
+Message-ID: <tencent_C82C09E7235101CC88A97E154D2534183208@qq.com>
+X-QQ-XMAILINFO: MllZffuBkEb541XAeqd43cOdeeHJFxxvmwp8y4jTE0nEspTojKTJ+gYXgKdzpH
+	 ADS6Fgpgss50hz0G/FZuFM7F7Qyw/0v5lEuWyl5ECnImL64fZHcljs9Ul/qjUaPUkjb5S25+z3eS
+	 3GKdYgkXALJgui7F5NNVpRPe2ssZntf1Nfyv3Om0QYIRegohB4IK1ZC/Xgynd5foe5d1OO7aaji4
+	 m6nnPDtlCz0KtXYHFbBIheo8P6LEbLu31FtP8Yts7WiGKG5+ta/GKUj3cL7+JwS9k/E5fxiOaYW2
+	 ADc7J/Xf0Cvec5P384xEU7eLzpeIBWUTVj73QnoJfQ8Cmy1aim1Tx5VYrAxTz+Q129LUz4zaXGTH
+	 OiagMwtXRaOf+IzOx0EqLKlL1p9WGH6/hxJHv6rVTACLGnW2T7+OLyt40PoPCXjGa2y2Wk/haWFL
+	 YiB6X/+Yj2KJ8CPEy4dLKVRtgkOgfatkxGtkucAB3QOHUKLsAIzlyEe2qOCfS47WZIvWrXsx3FaI
+	 FsSFAU9UtsQpN/ac3tLS3+vYIbdtXCRlMB2b/AGPYOYfIyAzZhf5Gag9a+TElWH6qOdhOnV2z6U3
+	 h/pYLQfSwK2rC0gRYmhk27Y/FuuDDGF931tk0fulYENUhyqJia86M5fT/rY/RxSkLJOvW0AcC+YY
+	 uE0QlfZzTEgH+QRnynPmluKksqz1+4KJGfFDhraLnTD3nPFP2H96ejKKHdV1S3xuQjCAKBrEvgmz
+	 7jeanJ4XqHPSk7mEyPfjs4ZIelmrFnp665iwyHsCpVqoPJVi1qPH3VrXPiT3dCM0MLf9qChce5pU
+	 bi8VFxV2K+31bTIFga7VHPHn0AQXZ/lGnL9c+p2Q9BLWNPhfGDxVL+zvhRU3qrvDilNdy2aIzS0F
+	 gH2LrdiDQxALDh2ozH9lx8Bv8K1jvLbS+cn3wvqC2EdxPlpaiJK7K/5jFjNv3G8agEs+xQc2emBd
+	 cN+fpXQJAlApAWfo4qNQVvpdh797/SpglyqvSZJTpsbiS7zQlsvWmgc5QGlAKOBJFKQfZ5uzLo5u
+	 y42nJSbY1WBLD+5yXY+J9+EaNQ2Yg1zsuignSLtMleX+/6CSO6bu2jRQCRKSCgsytk49V3GAwujo
+	 jlAhIWE5T0B8n9tQw=
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+From: Cunhao Lu <1579567540@qq.com>
+Date: Fri, 31 Jul 2026 18:39:03 +0800
+Subject: [PATCH v5 1/3] can: rockchip_canfd: prevent TX stall on echo skb
+ failure
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cnylr377k2yewvl7"
-Content-Disposition: inline
-In-Reply-To: <tencent_A3698A465C4621E164443B0005D1CC6FAE05@qq.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-OQ-MSGID: <20260731-master-v5-1-5b27029dee20@qq.com>
+References: <20260731-master-v5-0-5b27029dee20@qq.com>
+In-Reply-To: <20260731-master-v5-0-5b27029dee20@qq.com>
+To: Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Vincent Mailhol <mailhol@kernel.org>, kernel@pengutronix.de, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Cunhao Lu <1579567540@qq.com>, linux-can@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, stable@vger.kernel.org
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_033526_872960_F7426DE5 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20260731_033919_700407_F5323A98 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +88,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+rkcanfd_start_xmit() advances tx_head and requests transmission even when
+can_put_echo_skb() fails. This creates a pending TX entry without the echo
+skb that the RXSTX completion path needs to match the self-received frame.
+The entry cannot be completed, and the netdev TX queue can remain stopped
+after the two-entry software FIFO fills.
 
---cnylr377k2yewvl7
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 2/4] can: rockchip: add RK3588 CAN support
-MIME-Version: 1.0
+Install the echo skb before loading the hardware TX buffer. If installation
+fails, account the frame as dropped and leave both the hardware FIFO and
+software TX state unchanged. After the echo skb is installed, use the
+stored echo skb as the source for the hardware frame data.
 
-On 31.07.2026 17:23:45, Cunhao Lu wrote:
-> Hi Marc,
->
-> > Can you attach the TDC to the CAN framework? See commit 5e1663810e11
-> > ("can: mcp251xfd: fix TDC setting for low data bit rates"). And check if
-> > CAN-FD works on the rk3588 works?
->
-> Could we leave the RK3588 TDC support out of this patch series for now?
+This depends on the standalone can_put_echo_skb() ownership fix. It makes
+the remaining -EINVAL path consume the skb and was posted at:
 
-=2E.and mark the rk3588 as RKCANFD_QUIRK_CANFD_BROKEN for now? Fine with me.
+Link: https://lore.kernel.org/linux-can/tencent_944DADCC4B42C8484EC01DA2B15F42132906@qq.com
+Fixes: b6661d73290c ("can: rockchip_canfd: add TX PATH")
+Cc: stable@vger.kernel.org
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+ drivers/net/can/rockchip/rockchip_canfd-tx.c | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
 
-> I will test whether CAN-FD works on RK3588 with TDC integrated with the
-> CAN framework and report the test result. If the testing shows that it
-> works, I will enable it in a separate follow-up patch.
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-tx.c b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+index 12200dcfd338..86fa8f2e1c8b 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-tx.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-tx.c
+@@ -88,7 +88,16 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ 		return NETDEV_TX_BUSY;
+ 	}
+ 
+-	cfd = (struct canfd_frame *)skb->data;
++	tx_head = rkcanfd_get_tx_head(priv);
++	frame_len = can_skb_get_frame_len(skb);
++	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
++	if (err) {
++		ndev->stats.tx_dropped++;
++		return NETDEV_TX_OK;
++	}
++
++	skb = priv->can.echo_skb[tx_head];
++	cfd = (const struct canfd_frame *)skb->data;
+ 
+ 	if (cfd->can_id & CAN_EFF_FLAG) {
+ 		reg_frameinfo = RKCANFD_REG_FD_FRAMEINFO_FRAME_FORMAT;
+@@ -114,7 +123,6 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ 					    cfd->len);
+ 	}
+ 
+-	tx_head = rkcanfd_get_tx_head(priv);
+ 	reg_cmd = RKCANFD_REG_CMD_TX_REQ(tx_head);
+ 
+ 	rkcanfd_write(priv, RKCANFD_REG_FD_TXFRAMEINFO, reg_frameinfo);
+@@ -123,10 +131,7 @@ netdev_tx_t rkcanfd_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+ 		rkcanfd_write(priv, RKCANFD_REG_FD_TXDATA0 + i,
+ 			      *(u32 *)(cfd->data + i));
+ 
+-	frame_len = can_skb_get_frame_len(skb);
+-	err = can_put_echo_skb(skb, ndev, tx_head, frame_len);
+-	if (!err)
+-		netdev_sent_queue(priv->ndev, frame_len);
++	netdev_sent_queue(priv->ndev, frame_len);
+ 
+ 	WRITE_ONCE(priv->tx_head, priv->tx_head + 1);
+ 
 
-Sounds good,
-Marc
+-- 
+2.34.1
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---cnylr377k2yewvl7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCamx6ZwAKCRDMOmT6rpmt
-0vtOAP0UQb/GCgeUljeDGPlvGiMz5FF5kTb5taLlQIf0aMF/eAD/YqQGGpp+XdXD
-XNCbZNGlV/rUCLuJOo4u6txQAqLuzgY=
-=7yZ/
------END PGP SIGNATURE-----
-
---cnylr377k2yewvl7--
 
