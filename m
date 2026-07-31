@@ -4,129 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8524C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5A7C5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLfR4PknkK0B2DHzNDYzQZRzuf7xrRVnikz3SrnDfmY=; b=K1aziU8Q44j7OjS/Gtvfi1DqCW
-	6W7Tc2gsthiHe3xCVDRRwGM+uted2Hxe7dgQ1VCn7iBqa1M+OK4zGY3dz3xZXDiSbdS3XwA72IxAO
-	qf1x0/WqlVWUC3pVMLvhvwkPKrOyOt5njiq3xh3ITmuPrNCZ6aop+cWEwqnP3cUB0V9SnY1gnXOFH
-	BEWICkG8Qzb1GeCQ2wwNgnQjUXcPOGHui/XMWoqmt4/4Gd/G6fBIulE2+5Sw/9/XRostTdxelXYNd
-	C7fCZ9demNUq3KTJRPHONF0llovo5f8lZurcf4sVDhS+Eywde6lRAI/vjuIbRuPu9NNlEh9EMDADc
-	e0h0fNnA==;
+	bh=eA4/Jfq3oApsdwkMmM8JpBKsrNAF9FmOl3wpFinK2xk=; b=SDnj1LMp37wADKyueGqlS7Vnpm
+	D+ogxqlfy5Hjz8DxnRgXirOqA6D1ba4ZDmXaAo3GNBrTNOzunm4RoP36T6lhS0EGgW4g8d6Vwxv6/
+	bJSIuqAfPYFcTylakMCiL/oy8d+D17vviKTj9mg06mwZx80pI58sTWzC3Ij1PN6ShuoNpgufZ0w2s
+	ARkCHX4l6Dzpy9skusEqDwFXrbXUNMgcdB9l1geiCmf8Drwef1i4ERy0WE66VP8wfXO9XFOatkv2W
+	gDgEpJmKtZdSXUxOnMCI2GApRyCDUdLaiJqVKXx18O7bPsn/9IT/w0qOeG5AfQtzcL6nWhtW3XXRq
+	jqE+ZHWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzl-0000000CYAg-27so;
-	Fri, 31 Jul 2026 13:09:49 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wpoIl-0000000Civt-2MFX;
+	Fri, 31 Jul 2026 14:33:31 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzR-0000000CXqp-0bt6
+	id 1wpoIi-0000000Ciu8-0YUq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:09:32 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBm9AF1671732;
-	Fri, 31 Jul 2026 13:09:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=pLfR4PknkK0B2DHzN
-	DYzQZRzuf7xrRVnikz3SrnDfmY=; b=fh6QLlNd5JFOaJSwaIQVHP6lDf0zZLT9a
-	fCpJ6SmXWdOodl2x/uYfG4h9/0ogXR4T1pRJUESGByEdsDMFyAKNQYMrbOlfm/Ii
-	NrMoTh/nXNTC2glrodjQkH6NTZt35Vkn6y2sGjXcuz0XrXy0tNRbCN47t8wO0FTU
-	lBOuTJcDYAg+INOOb8FJKyCFX2L7+Lzx0PWPE655/SqBuMlHVyEnrxQxYCaTArfg
-	FxUHI8XWSsqUYmYBzqWjE2KILONlEKbq9laJbFXh1PEJT5RTtBLDXbyn2ZyvGxzb
-	7obq6F5x5fjPDYeFkEoIzxwxBpdxpGgdEWjhqZai4LrWU1wiAjtgg==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuyjm3vg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:17 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCQEfW026835;
-	Fri, 31 Jul 2026 13:09:16 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fn9pgqtbq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:15 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD97Vn28901792
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jul 2026 13:09:07 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 917FA20040;
-	Fri, 31 Jul 2026 13:09:07 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 302BB2004B;
-	Fri, 31 Jul 2026 13:09:07 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 31 Jul 2026 13:09:07 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v5 10/31] arm64: Prepare sharing arm64 headers with s390
-Date: Fri, 31 Jul 2026 15:08:38 +0200
-Message-ID: <20260731130902.654679-11-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
-References: <20260731130902.654679-1-seiden@linux.ibm.com>
+	Fri, 31 Jul 2026 14:33:29 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5aeb2bc82ccso1109144e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 07:33:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785508406; x=1786113206; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=eA4/Jfq3oApsdwkMmM8JpBKsrNAF9FmOl3wpFinK2xk=;
+        b=avH/Gj0nnXgs0Y0bP/dYMTG+aVQ+hyUuIZDYInNGxUUQYhaUCvXivNzCxWA6HwQCjn
+         5jKYD/YKBPOuAsc2KHAhRbP8peEk9fDAr96TpAAyT2hbN6/WWGVG068860CCyUv4a0ju
+         uqU8p+0I5xahPl8UwoNH8hs6V5dUib3LwKDWNqG56Pil/tlY125DDIxiLqxsqJyBHmWl
+         JSVnFg5xg0TyCyUeZVUHOOqMSbbNy1FWiqo3SoFOZJqKjg7cZY/Qzp/4bGETPfnxyZ7Q
+         ulp0R8gLt6RyYodRSZ9FyFSZ1XOZSnsECT4P6Bx/kptaRggmaOXlfuO4GTHck5QXam/s
+         KDkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785508406; x=1786113206;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=eA4/Jfq3oApsdwkMmM8JpBKsrNAF9FmOl3wpFinK2xk=;
+        b=HOKQLThD9YV15ZPC15rS5splzqE7taXS47YZfuJZWrcIbwNClGg6z99t5GKlMswdkV
+         kJM03eNUTG2t8WHImm3gXXfLPtiS3ZkyyIMW/zGgTKqndffMFm7hoa4rXERukgV6le19
+         OzK/bRFi4ewDcna/CJCQlXsIjAd/h+l2ZnrG9FIkEAjV29iR8GoWO1jfQuBu9tGtYtf6
+         eXq7xzYk754Mh4/IWtkNIsiSIoVh0nlwfKRVDF2R08B7skrAkuaJWTUHVXzfLd0Bmkv/
+         Uf6uqho936RjMrzJN9dFynmXaXDQ1L1lmuJfuVi5Ko/hVxwnXhHF5smwch/OZ1eUoe9f
+         9Daw==
+X-Forwarded-Encrypted: i=1; AHgh+RqZX8+SuoNN08Tlv2U9DD1bDCimZPov3dTTX/uAV7wVpHnIZTGMfFjxTSwcs9jHlPACsxsHCQb8kjn00PTKEt1Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzKWM65AFRAwVOG39eb43a5IvzE3DmmvMDYsQjlKilijuMYI1L
+	4j+ucCzfYFXFzfiP71s0NtvRWwFBoGz71tuBaCMiFcDc6MT1HZhNoI8X
+X-Gm-Gg: AR+sD13WYS2C9RTPleEuAk07UH4X+34v5tAiOncBRwqFpk4mjcux1H59/vAcdtl7GMS
+	d0pjwlsp+64+jwaPIvPT3x7MgPqxNG9uxPOq1OlNzQ4GTtFHB2a++K6AF1kbOOm8rkaCH/gG51y
+	/3TejSqMhUvhDt1k7f7oK4w3UAyhC2EqW3abkRZPBh3Ar7BeHdWK1xCQCTbd5ZaJIbtQV58wE5n
+	vqjj15tXUm3z3J8OmgnfYiKl4hq4zz28Wno/QY0Qit1tjvWgFcoFgS79CV2+MeW0rGq1Ewk7nox
+	yXTWm3H212tmnWuMaXoOKJkJNsXB0VUPYvoFLhPZ1eaQkumx6oOSqsrDfzhh8DgKV7/Z6LuekXv
+	D1lB1GTWNzgS+df6Sf8s3SRrcgQbpMA/VGfrmpaBWR+yReHinzhiasBM3sRgImWHMXSgHoFqnzW
+	iFe9oRD0xZHDVSgHi4msnUMDDtgOvMKiA0s2GJX/cyWhEBlra7KOO6z+JaB4nLTuBre7ORRbqA
+X-Received: by 2002:a05:6512:3d0f:b0:5b0:17e7:67cb with SMTP id 2adb3069b0e04-5b2e1fc6317mr582376e87.17.1785508405470;
+        Fri, 31 Jul 2026 07:33:25 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5b2e23c556asm341380e87.9.2026.07.31.07.33.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 31 Jul 2026 07:33:24 -0700 (PDT)
+Message-ID: <38397324-56b0-41e9-960f-152a16ce8b12@gmail.com>
+Date: Fri, 31 Jul 2026 16:33:20 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX2eJw/fiNewsM
- Yls4UqKBZ4Nkcf7HU6UYBzrI4tv/S3HW2+UdZSqlMV/Zq6IxaC0gSZGAU3UUvhOhsqZHZe9fQ28
- svxfE1CPAM7SEUtDokCT6evTIkY/6gQ=
-X-Proofpoint-GUID: NtIJFbUyn--iL_wXaWoDIxBrkb9yjPRo
-X-Proofpoint-ORIG-GUID: B8kbB1CfCkO0oPOaBFXJ-wBn_TT1LSHy
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX2uL3drOmh+xp
- 4EEk/h3pFI8LRvQrclVEcEyfOtwXmi3k9LtBdxnG+SOMfaDbcLwgVMfX3TxP+e9IEl9NWISVFpq
- 9f5FYuv9TiS/RgoAvdnsxOHWhyqYrNyg1M/FMtxkouu6FuCwVK8cC8ZhH7G4+rM5LrfBb07okc1
- ORIwF5QA2VU+ZWNzF1FMnrOGOzLTxQuVWOK8pKZQM5UdoxTQgjRn5//JH/OXOCpcwpl6hbdhtOv
- 5nCrSwCy+gNN7Dvgelz4/X14LTV5iS9AwK/2WJda9+BeaHAc0NK+icKpmG6fRvLSycBjP7JldEx
- rSLF5Lh97d8dqS4AigsosCBXDRq65Q8HQs+K8CPQ3fByhChuYXOmeUNI6Uq6JgqL4qGUnzhYarh
- J2pN1HZsaJMa+m6rudMza9MyS640FifGVhQ+FMTm30ftvuZd5NguB0XNPTuQE+6ImHnJqMVeAFF
- XH5cnmU4KHRYHFPppgg==
-X-Authority-Analysis: v=2.4 cv=X5Vi7mTe c=1 sm=1 tr=0 ts=6a6c9e7d cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=CvB7ObVER1VTR8-vp5wA:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 lowpriorityscore=0 phishscore=0
- priorityscore=1501 malwarescore=0 spamscore=0 suspectscore=0 bulkscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607310096
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 11/16] dt-bindings: usb: mediatek,mtk-xhci: Switch to
+ ports for USB connections
+To: Chen-Yu Tsai <wenst@chromium.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Daniel Scally <djrscally@gmail.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
+ linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Alan Stern <stern@rowland.harvard.edu>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+References: <20260721065413.2306137-1-wenst@chromium.org>
+ <20260721065413.2306137-12-wenst@chromium.org>
+Content-Language: en-US
+From: Konrad Dybcio <konradybcio@gmail.com>
+In-Reply-To: <20260721065413.2306137-12-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060929_340121_25494478 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20260731_073328_194432_A48E2121 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,170 +120,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare the sharing of arm64 headers with s390 by moving a few
-definitions inside headers to reduce the number of shared markers.
-Clean up some includes to further streamline the sharing of headers.
+On 7/21/26 8:54 AM, Chen-Yu Tsai wrote:
+> This reverts commit 454a1e3cd36c113341d7b71e8e691c6e47ab4a8a.
+> 
+> MediaTek's XHCI implementation supports both USB 2.0 High Speed (HS)
+> and USB 3.x Super Speed (SS). The block can also be synthesized with
+> either HS-only capability or HS+SS capability. The SSUSB controller
+> handles the device or gadget mode. Saying that SSUSB handles the HS
+> portion is wrong.
 
-No functional change.
+[...]
 
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/arm64/include/asm/esr.h         |  4 +-
- arch/arm64/include/asm/kvm_arm.h     |  5 ++-
- arch/arm64/include/asm/kvm_emulate.h |  5 ++-
- arch/arm64/include/asm/kvm_host.h    | 59 ++++++++++++++--------------
- arch/arm64/include/asm/sysreg.h      |  2 +-
- 5 files changed, 39 insertions(+), 36 deletions(-)
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Super Speed (SS) data bus if SS-capable;
+> +          otherwise High Speed (HS) data bus.
+> +
+> +      port@2:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: High Speed (HS) data bus if controller is SS-capable.
 
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index f816f5d77f1a..da085c83b57e 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -7,7 +7,7 @@
- #ifndef __ASM_ESR_H
- #define __ASM_ESR_H
- 
--#include <asm/memory.h>
-+#include <asm/brk-imm.h>
- #include <asm/sysreg.h>
- 
- #define ESR_ELx_EC_UNKNOWN	UL(0x00)
-@@ -435,7 +435,7 @@
- #define ESR_ELx_IT_GCSPOPX		7
- 
- #ifndef __ASSEMBLER__
--#include <asm/types.h>
-+#include <linux/types.h>
- 
- static inline unsigned long esr_brk_comment(unsigned long esr)
- {
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 3f9233b5a130..a99d8de99961 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -7,10 +7,11 @@
- #ifndef __ARM64_KVM_ARM_H__
- #define __ARM64_KVM_ARM_H__
- 
-+#include <linux/const.h>
-+#include <linux/bits.h>
-+#include <linux/types.h>
- #include <asm/esr.h>
--#include <asm/memory.h>
- #include <asm/sysreg.h>
--#include <asm/types.h>
- 
- /*
-  * Because I'm terribly lazy and that repainting the whole of the KVM
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 4ef4a77aaa8e..45b3f98f0c7e 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -44,11 +44,12 @@ enum exception_type {
- bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
- void kvm_skip_instr32(struct kvm_vcpu *vcpu);
- 
-+int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
-+int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
-+
- void kvm_inject_undefined(struct kvm_vcpu *vcpu);
- void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
--int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
--int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
- void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
- 
- static inline int kvm_inject_sea_dabt(struct kvm_vcpu *vcpu, u64 addr)
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 4a23d3662d6b..875fc7c3366b 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -56,6 +56,36 @@
- #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
- #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
- 
-+/*
-+ * If we encounter a data abort without valid instruction syndrome
-+ * information, report this to user space.  User space can (and
-+ * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
-+ * supported.
-+ */
-+#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
-+/* Memory Tagging Extension enabled for the guest */
-+#define KVM_ARCH_FLAG_MTE_ENABLED			1
-+/* At least one vCPU has ran in the VM */
-+#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
-+/* The vCPU feature set for the VM is configured */
-+#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
-+/* PSCI SYSTEM_SUSPEND enabled for the guest */
-+#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
-+/* VM counter offset */
-+#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
-+/* Timer PPIs made immutable */
-+#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
-+/* Initial ID reg values loaded */
-+#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
-+/* Fine-Grained UNDEF initialised */
-+#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
-+/* SVE exposed to guest */
-+#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
-+/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
-+#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
-+/* Unhandled SEAs are taken to userspace */
-+#define KVM_ARCH_FLAG_EXIT_SEA				11
-+
- #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
- 				     KVM_DIRTY_LOG_INITIALLY_SET)
- 
-@@ -338,35 +368,6 @@ struct kvm_arch {
- 	/* Protects VM-scoped configuration data */
- 	struct mutex config_lock;
- 
--	/*
--	 * If we encounter a data abort without valid instruction syndrome
--	 * information, report this to user space.  User space can (and
--	 * should) opt in to this feature if KVM_CAP_ARM_NISV_TO_USER is
--	 * supported.
--	 */
--#define KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER	0
--	/* Memory Tagging Extension enabled for the guest */
--#define KVM_ARCH_FLAG_MTE_ENABLED			1
--	/* At least one vCPU has ran in the VM */
--#define KVM_ARCH_FLAG_HAS_RAN_ONCE			2
--	/* The vCPU feature set for the VM is configured */
--#define KVM_ARCH_FLAG_VCPU_FEATURES_CONFIGURED		3
--	/* PSCI SYSTEM_SUSPEND enabled for the guest */
--#define KVM_ARCH_FLAG_SYSTEM_SUSPEND_ENABLED		4
--	/* VM counter offset */
--#define KVM_ARCH_FLAG_VM_COUNTER_OFFSET			5
--	/* Timer PPIs made immutable */
--#define KVM_ARCH_FLAG_TIMER_PPIS_IMMUTABLE		6
--	/* Initial ID reg values loaded */
--#define KVM_ARCH_FLAG_ID_REGS_INITIALIZED		7
--	/* Fine-Grained UNDEF initialised */
--#define KVM_ARCH_FLAG_FGU_INITIALIZED			8
--	/* SVE exposed to guest */
--#define KVM_ARCH_FLAG_GUEST_HAS_SVE			9
--	/* MIDR_EL1, REVIDR_EL1, and AIDR_EL1 are writable from userspace */
--#define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
--	/* Unhandled SEAs are taken to userspace */
--#define KVM_ARCH_FLAG_EXIT_SEA				11
- 	unsigned long flags;
- 
- 	/* VM-wide vCPU feature set */
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 1aa601c95188..ab205f9db94a 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -1263,6 +1263,6 @@
- 		 FIELD_PREP(reg##_##field##_MASK,	\
- 			    SYS_FIELD_VALUE(reg, field, val))
- 
--#endif
-+#endif /* __ASSEMBLER__ */
- 
- #endif	/* __ASM_SYSREG_H */
--- 
-2.53.0
+FWIW this is opposite vs what the (most common) DWC3 schema defines:
 
+
+(also true for mediatek,mtu3 and renesas,usb3-peri)
+
+-- Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml
+  ports:
+    $ref: /schemas/graph.yaml#/properties/ports
+    description:
+      Those ports should be used with any connector to the data bus of this
+      controller using the OF graph bindings specified if the "usb-role-switch"
+      property is used.
+
+    properties:
+      port@0:
+        $ref: /schemas/graph.yaml#/properties/port
+        description: High Speed (HS) data bus.
+
+      port@1:
+        $ref: /schemas/graph.yaml#/properties/port
+        description: Super Speed (SS) data bus.
+
+Konrad
 
