@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4238CC55171
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 22:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1AE5C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 23:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MfyPXuzHFrgeP1BY9ER7yd6RDg+vnAlA5a1UueZqk9w=; b=xO63yt71xmNyHNjfw7SJa+MulH
-	JxawxaESmUkw+SDNng/1zmSchyVNheyQwKPTDGWQrTH9ZXmGxZCWke8kc5fsFgN+bTf9n3PobyUvW
-	NQ0CW0MKJFU4sKkJWk/S6S2amR5cwGFcJMQzKEagsw+82Jz9tLEeILq5Z+YGy56YfUUqtW+ECbEH4
-	7B+EgOejnqSoGAuLeYYjsC/s1X8ZzTz4fqXNUXPI53Onu+4znkoGDU6W5SrkttAOL/p4L+TisP2jn
-	Myu2bPp9kMUae+YzO+HpnIuoPjLEg3ZWKYL/iGP1qNciMtDid83gWtrN+8TJRWHMQGpYaIJCRXtXH
-	xieDy/0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8mkw2ozZY1Mo7jsuI6tkydXSVhLTGH/6y9oFCam1vp8=; b=FyxBO8qdo13yh8JDBlRGFk/a4Z
+	gQ6T4SP629ey+UL1BW+Hv0526qpLO6/S96y3lM14etn71DdVxfon8Eo0rcWb+L0Cba5r+P9qxt79+
+	Bz2Px9F4+HBKuwhgHu7l3zSiLE7A+bRRMr/ROEnbr+CKt6LzKVREjSP8UjI6/Fq1v20jI95/v6S2L
+	0RXCRvsbGi+MTQ3JwX0HAWch7cejoRblPbX7WigGhKaxj20CxOg2fPmVCHnwV8yQ8BwC/y8LbVBSG
+	6DVdAprhWbeiuQ4EVFI7sjSCTj6MAASSuqy0/S320s6rPWTw1ld8EawTTysLreAVHo41sKaHjFk2B
+	fJEWdqoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpwCU-0000000Dhnb-0SyB;
-	Fri, 31 Jul 2026 22:59:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wpwWg-0000000Dibp-00yR;
+	Fri, 31 Jul 2026 23:20:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpwCS-0000000DhnS-04RT
+	id 1wpwWe-0000000Dibi-34Dj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 22:59:32 +0000
+	Fri, 31 Jul 2026 23:20:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 18280600DA;
-	Fri, 31 Jul 2026 22:59:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A72EA1F00AC4;
-	Fri, 31 Jul 2026 22:59:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CEE33600B0;
+	Fri, 31 Jul 2026 23:20:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D29721F00AC4;
+	Fri, 31 Jul 2026 23:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785538770;
-	bh=MfyPXuzHFrgeP1BY9ER7yd6RDg+vnAlA5a1UueZqk9w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bS9G3Tec/7Iy9FTjR8vc35fepxYxeZolPIHJV02pj2ppUGeoTRKcFKKGhRbqiSXew
-	 HsOvWKZBgUpMdQ/eyCcedegXjjYiRJwoWtzh61y7pDRek2U2DCufuxMLjYuCaDsRD/
-	 BPreSUDR6nrs8I/HbLH1ojemW4lQ3rlq1E/EpeW3aylLWZ/blntGAjantnwPuabuGd
-	 GnBywAxhFeSOEeLz0MQySmdvT6qj4wfTxvDMR3vjK7GAyVSDUjaVtaKu6j+txfsZTq
-	 EXoV9Rp/xNnSavV7kTsyHEVeIOUyVSX6W5j+3+zd5YL0q3iFt3WaFGvMJk/gFCOxNK
-	 sWLwJX8xX0c0w==
-Date: Fri, 31 Jul 2026 17:59:30 -0500
-From: Rob Herring <robh@kernel.org>
-To: shengjiu.wang@oss.nxp.com
-Cc: lgirdwood@gmail.com, broonie@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Frank.Li@nxp.com, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, shawnguo@kernel.org,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, perex@perex.cz,
-	tiwai@suse.com, linuxppc-dev@lists.ozlabs.org,
-	Shengjiu Wang <shengjiu.wang@nxp.com>
-Subject: Re: [PATCH 1/4] dt-bindings: sound: fsl,imx-asrc: update port
- binding to support multiple pairs
-Message-ID: <20260731225930.GA2098187-robh@kernel.org>
-References: <20260720095450.1618747-1-shengjiu.wang@oss.nxp.com>
- <20260720095450.1618747-2-shengjiu.wang@oss.nxp.com>
+	s=k20260515; t=1785540022;
+	bh=8mkw2ozZY1Mo7jsuI6tkydXSVhLTGH/6y9oFCam1vp8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=DHgVz/tiNc6xVf5ezGNzvzmeT+JpI7/q4uW8guJR2XDc7BSs3BtWb7liSZxMFca9b
+	 wWUfKP0nMTXvV1KofHwNnG13K5hTuImnRJKl51J3hQU//ZAyMqfV9IRdLcqIAuM12b
+	 1FYwUgT1lGhZPgvAZJmRMg+zNNhf3Xi9zzdu6CeBtLdbtIL7TrD7zVznoQpoFewnG4
+	 aK5Fv4YBNYSDdrQRXuYF9Cw/ozgjg5gwJg0zCNMiTU+OcUgHh/JToMhpauEBZaodlQ
+	 go4OYqzjKNnzQR9C1ir6yZLqOqKIuqiztiyEnGz6Bd0tHuCGC+qjfkmrLSRA9NZe93
+	 J/3ijLG5qI9hw==
+From: Mark Brown <broonie@kernel.org>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ cwweng@nuvoton.com
+In-Reply-To: <20260731023818.1626075-1-cwweng.linux@gmail.com>
+References: <20260731023818.1626075-1-cwweng.linux@gmail.com>
+Subject: Re: [PATCH v5 0/2] spi: ma35d1-qspi: Add Nuvoton MA35D1 QSPI
+ controller
+Message-Id: <178552979126.353541.328189267219361170.b4-ty@b4>
+Date: Fri, 31 Jul 2026 21:29:51 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260720095450.1618747-2-shengjiu.wang@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1438; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=b1jbsBN8PVKIk1W1VVQJ7Hb77/au6VADIXZdL/L1c3o=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqbS2zeX6rISPNvKpyKp8c1RxviMtHppXNrokSt
+ /Lu6u2F/TKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCam0tswAKCRAk1otyXVSH
+ 0P3DB/4ksrqYeNau7j6Rik9hG10h9oSsTDlcGayjNIyj4T0B8peFSt6R3SPT+xPDawU29cJghuQ
+ JEBbrI4r9t/UUJ0Hx55xY2RWhal9yqvg/+fZfWn2ZVKmalVrsZTJ4bU2G/VrOZmuUsef7NGBIWQ
+ Waqnwvbb0FtBUegUh8+os1CO0/N+m9VsAAZCZf66WBbLjaR6LxuspN4vgHJOAiPC0j+BZo7vSGj
+ MJI/9oQs+m7Atu8eeESvA9F6oj3sNJ38BDOnSr7/7KZtwNvYZCi1YlJiMbeaMI32T40PPNwrpvm
+ p1W/tywBqEwINGe075qcmt14qMlDydHLpTxMCTG7Qwp9DqZ7
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 05:54:47PM +0800, shengjiu.wang@oss.nxp.com wrote:
-> From: Shengjiu Wang <shengjiu.wang@nxp.com>
+On Fri, 31 Jul 2026 10:38:16 +0800, Chi-Wen Weng wrote:
+> spi: ma35d1-qspi: Add Nuvoton MA35D1 QSPI controller
 > 
-> The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
-> The existing binding exposed only a single generic audio-graph port,
-> which cannot represent the individual pair endpoints.
+> From: Chi-Wen Weng <cwweng@nuvoton.com>
 > 
-> Add a ports container that enumerates three named sub-ports:
->   port@0 -- pair A
->   port@1 -- pair B
->   port@2 -- pair C
+> Add devicetree binding and SPI controller driver support for the Quad SPI
+> controller found in Nuvoton MA35D1 SoCs.
 > 
-> Each sub-port references audio-graph-port.yaml as before.
-> 
-> For backwards compatibility, keep the old single port property but mark
-> it deprecated. A schema constraint (not: required: [port, ports]) ensures
-> that both forms cannot be used at the same time. Update the examples to
-> show both the new ports form and the deprecated port form.
-> 
-> No existing upstream DTS file for fsl,imx-asrc uses the previously
-> documented single 'port' node, so this change does not break any
-> in-tree device tree.
-> 
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> ---
->  .../bindings/sound/fsl,imx-asrc.yaml          | 78 +++++++++++++++++++
->  1 file changed, 78 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml b/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml
-> index 608defc93c1e..18d252722aa8 100644
-> --- a/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml
-> +++ b/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml
-> @@ -78,9 +78,29 @@ properties:
->    power-domains:
->      maxItems: 1
->  
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +    properties:
-> +      port@0:
-> +        $ref: audio-graph-port.yaml#
-> +        unevaluatedProperties: false
-> +        description: port for pair A
-> +
-> +      port@1:
-> +        $ref: audio-graph-port.yaml#
-> +        unevaluatedProperties: false
-> +        description: port for pair B
-> +
-> +      port@2:
-> +        $ref: audio-graph-port.yaml#
-> +        unevaluatedProperties: false
-> +        description: port for pair C
-> +
->    port:
->      $ref: audio-graph-port.yaml#
->      unevaluatedProperties: false
-> +    deprecated: true
-> +    description: deprecated, use ports instead
->  
->    fsl,asrc-rate:
->      $ref: /schemas/types.yaml#/definitions/uint32
-> @@ -125,6 +145,10 @@ required:
->    - fsl,asrc-width
->  
->  allOf:
-> +  - not:
-> +      required:
-> +        - port
-> +        - ports
->    - $ref: dai-common.yaml#
->    - if:
->        properties:
-> @@ -188,3 +212,57 @@ examples:
->              };
->         };
->      };
-> +
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/clock/imx6qdl-clock.h>
-> +    asrc1: asrc@2034000 {
+> [...]
 
-Drop unused label.
+Applied to
 
-Presumably the existing example uses the deprecated 'port'. If so, just 
-modify it to use ports and drop the deprecated part.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.3
 
-Rob
+Thanks!
+
+[1/2] dt-bindings: spi: nuvoton,ma35d1-qspi: Add Nuvoton MA35D1 QSPI
+      https://git.kernel.org/broonie/spi/c/d458c752cf6c
+[2/2] spi: ma35d1-qspi: Add Nuvoton MA35D1 QSPI controller support
+      https://git.kernel.org/broonie/spi/c/78b16af159ae
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
