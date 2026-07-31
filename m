@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D2BC5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D12C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 16:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nWiudaF/i+eaq174oU2FanajvtRWphw6tA/QEdaPzjk=; b=kFi7OzGhWrTcWl1c5HLZfOM38L
-	uXUNvjnW7ytqpWbnOsH+fGzX7PtnqTzAF/Ch1GOtdCTy7kNuyriqMWbCVV0Bj7sR2BjvrNwlTrEmU
-	KGnSRTMvsKbSayAs6K7kFX7ZI/d4o3AuqZ8nmKbYmwsDFuNQpQapwB47ZffCOMeCxHnBuPXpCPNy0
-	DwMDeRpacisPIinEUsIzcLpY+a5e4kuc418SCa1VS5XAqOrBcEB4jyBpIKC8ewr05B4W1u5jOxWOi
-	hOJjH5I+plnscA0uZ2C824DqDxJFO4BZnkH9LW9QPw+vKqbkKXi18rZuodI30vXmdBrCk1zzQLlCD
-	bfjFaiog==;
+	bh=wZ498eCKdui32bq4eRqbNwgXgeNA/x6ZjYVw+AMGVpQ=; b=FqahEsPR03OXOuu3K6QGmqeJxF
+	RmCAgtT6OJ6zI3uY7K+9OnzsyS7mOtHT17v7efMREBgUx6f99ABx/ZYuWndbiU/AZeoRTzvzumkm5
+	UC1QRA+MXH40/kQFEWyasj3Z4s2W2vIuk9rmn/gne0377FJ3wb7+TRj2GPhp9OfMJn41rm/bB//3l
+	BAjySxevAoxXjcWSwWJX+vzvvrQM5KTWe+20dU+MT6/c9R7yaoUaxjiS4Y4Sovr/Om0bGsb0H2kZe
+	P40nkto/F1GXziz0igfs43wD++UxOPLDOcltP1m0bc2Vqguhn+MZOWKHNnp8iM4zF+OsoschKa64o
+	NWULw3Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppzf-0000000D1FF-10Vn;
+	id 1wppzf-0000000D1Eo-0TUG;
 	Fri, 31 Jul 2026 16:21:55 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wppxM-0000000Cyvt-14tE;
+	id 1wppxM-0000000Cyvr-144P;
 	Fri, 31 Jul 2026 16:19:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785514770;
-	bh=YrLuithMFkLDAjThMfMTDpP5bdJo0erAdpeO29hYvF4=;
+	s=mail; t=1785514769;
+	bh=/yiHYpv6JDAP8TqmgFqNkriKXPlZVLMG1+AZdUe8aaI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ku3bQHkYSrt0LYc9m+gpk2ZS3I4kRzbsdeHbu+38zF3JW1JyRnR47C8+zPO9gb0k3
-	 Jx6QhvvTrtW9GxplaQPjV6xi6MTvc+wxbTqB9TbT2t8t+g4770RJQJ0gC1Qxb0LR+1
-	 6Z+UjnsN7YibLXqGRMtDF/zINxGnyh5ABGsuqEQAxTr4PrnwQZZ16vIEdU7HgSzJjd
-	 lnK2oTS8IqgPHgo6dSrGYJ5R2SQRhPR0iKqQ1ZdZL/pJmRY/nlnLFO21wYtnasGl4G
-	 +X32VpAf7TOEBcSscjaVVK4amQUpiLg36ZQuYMjWirkVPPXtX9+tDSa7ZDDxSO7TcW
-	 N7QH5eLU2DNhA==
+	b=Nx3zp4QP1XWq1RhdyKxkJGxDjKSAnScsdyLyY/Ejw8Maix9gxRsKZmnBh48DMaOk8
+	 Dc8B/0q2srvMM6Vb9cuztdMcU0TndG/ZwvQrn3f7BabQcibqis3G0Z5OFrTgGnHEDp
+	 6g7rAhRyZNC7Hn3BSpy9O50UHugX5cNaCSHEMn3q8m2Ema5cSwb3z/M8aW47RKvGJD
+	 z926IbktF3gvsVSniXa5qoJLtyHVqYc73Bu0yP50EN4pPxa+4xvCnGm3KoBa0/iBxw
+	 FviX8yaiIpnynaWY+ncL+ofGGpKjGi0cC64I2V8wg7+9f8uVXAWGz9LSxL7NkVtCxE
+	 yEOaibzjaAsMg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D3AB517E0945;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2A77117E0943;
 	Fri, 31 Jul 2026 18:19:29 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Fri, 31 Jul 2026 19:19:28 +0300
-Subject: [PATCH v10 21/69] drm/display: hdmi-state-helper: Pass acquire ctx
- to hotplug helpers
+Date: Fri, 31 Jul 2026 19:19:27 +0300
+Subject: [PATCH v10 20/69] drm/display: hdmi-state-helper: Add source TMDS
+ rate validation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-dw-hdmi-qp-scramb-v10-21-294364b2cf15@collabora.com>
+Message-Id: <20260731-dw-hdmi-qp-scramb-v10-20-294364b2cf15@collabora.com>
 References: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 In-Reply-To: <20260731-dw-hdmi-qp-scramb-v10-0-294364b2cf15@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -73,11 +73,13 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
  dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
  linux-sunxi@lists.linux.dev, linux-rockchip@lists.infradead.org, 
+ Maud Spierings <maud_spierings@hotmail.com>, 
  Diederik de Haas <diederik@cknow-tech.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_091932_494664_CCA66764 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20260731_091932_483314_899B78E6 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,185 +94,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for supporting SCDC status synchronization on hotplug
-events, extend drm_atomic_helper_connector_hdmi_hotplug() and
-drm_atomic_helper_connector_hdmi_update() to take a struct
-drm_modeset_acquire_ctx argument.  This will be used when a CRTC reset
-is required.
+Validate the computed TMDS character rate against
+connector->hdmi.max_tmds_char_rate, when provided by the driver/source.
 
-Additionally, change their return type from void to int to allow
-propagation of errors such as -EDEADLK caused by lock contention.
+This gives HDMI connectors common support for rejecting modes whose TMDS
+character rate exceeds the source supported limit, while still allowing
+drivers with custom validation requirements to implement their own
+tmds_char_rate_valid() callback.
 
-Update existing callers accordingly.  Note that in the VC4 case, the
-return code is ignored, as it cannot fail: being in the .detect_ctx()
-call path, the connection mutex is already held through ctx, and it
-bails out early because the driver relies on a local SCDC
-state-management implementation, and therefore does not yet expose the
-scrambler capability through the common helpers.
-
-Similarly, introduce drm_atomic_helper_connector_hdmi_force_ctx() as the
-HDMI connector implementation of the .force_ctx() callback.  Since
-migrating from the .force() callback is somewhat more involved, its
-users will be migrated incrementally, after which
-drm_atomic_helper_connector_hdmi_force() will be removed.
-
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
 Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS, Rock 5B
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c  |  8 +++--
- drivers/gpu/drm/display/drm_hdmi_state_helper.c | 42 +++++++++++++++++++++----
- drivers/gpu/drm/vc4/vc4_hdmi.c                  |  2 +-
- include/drm/display/drm_hdmi_state_helper.h     |  8 +++--
- 4 files changed, 49 insertions(+), 11 deletions(-)
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 80b33d4f6b38..e78efccb7757 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -286,12 +286,16 @@ static int drm_bridge_connector_detect_ctx(struct drm_connector *connector,
- 	struct drm_bridge *detect = bridge_connector->bridge_detect;
- 	struct drm_bridge *hdmi = bridge_connector->bridge_hdmi;
- 	enum drm_connector_status status;
-+	int ret;
- 
- 	if (detect) {
- 		status = detect->funcs->detect(detect, connector);
- 
--		if (hdmi)
--			drm_atomic_helper_connector_hdmi_hotplug(connector, status);
-+		if (hdmi) {
-+			ret = drm_atomic_helper_connector_hdmi_hotplug(connector, ctx, status);
-+			if (ret == -EDEADLK)
-+				return ret;
-+		}
- 
- 		drm_bridge_connector_hpd_notify(connector, status);
- 	} else {
 diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-index 92be6278ea44..4a93c279c9a7 100644
+index ce17eeefc2da..92be6278ea44 100644
 --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
 +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-@@ -1199,8 +1199,9 @@ drm_atomic_helper_connector_hdmi_clear_audio_infoframe(struct drm_connector *con
- }
- EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_clear_audio_infoframe);
+@@ -560,6 +560,10 @@ hdmi_clock_valid(const struct drm_connector *connector,
+ 	if (info->max_tmds_clock && clock > info->max_tmds_clock * 1000)
+ 		return MODE_CLOCK_HIGH;
  
--static void
-+static int
- drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
-+					struct drm_modeset_acquire_ctx *ctx,
- 					enum drm_connector_status status)
- {
- 	const struct drm_edid *drm_edid;
-@@ -1210,7 +1211,7 @@ drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
- 		drm_connector_hdmi_audio_plugged_notify(connector, false);
- 		drm_edid_connector_update(connector, NULL);
- 		drm_connector_cec_phys_addr_invalidate(connector);
--		return;
-+		return 0;
- 	}
- 
- 	if (connector->hdmi.funcs->read_edid)
-@@ -1227,20 +1228,28 @@ drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
- 		drm_connector_hdmi_audio_plugged_notify(connector, true);
- 		drm_connector_cec_phys_addr_set(connector);
- 	}
++	if (connector->hdmi.max_tmds_char_rate &&
++	    clock > connector->hdmi.max_tmds_char_rate)
++		return MODE_CLOCK_HIGH;
 +
-+	return 0;
- }
+ 	if (funcs && funcs->tmds_char_rate_valid) {
+ 		enum drm_mode_status status;
  
- /**
-  * drm_atomic_helper_connector_hdmi_hotplug - Handle the hotplug event for the HDMI connector
-  * @connector: A pointer to the HDMI connector
-+ * @ctx: Lock acquisition context to be used for resetting CRTC
-  * @status: Connection status
-  *
-  * This function should be called as a part of the .detect() / .detect_ctx()
-  * callbacks for all status changes.
-+ *
-+ * Returns:
-+ * Zero on success, error code on failure.
-+ * If @ctx is set, it might also return -EDEADLK.
-  */
--void drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
--					      enum drm_connector_status status)
-+int drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
-+					     struct drm_modeset_acquire_ctx *ctx,
-+					     enum drm_connector_status status)
- {
--	drm_atomic_helper_connector_hdmi_update(connector, status);
-+	return drm_atomic_helper_connector_hdmi_update(connector, ctx, status);
- }
- EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug);
- 
-@@ -1255,6 +1264,27 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug);
-  */
- void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector)
- {
--	drm_atomic_helper_connector_hdmi_update(connector, connector->status);
-+	drm_atomic_helper_connector_hdmi_update(connector, NULL, connector->status);
- }
- EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_force);
-+
-+/**
-+ * drm_atomic_helper_connector_hdmi_force_ctx - HDMI Connector implementation
-+ * of the force_ctx callback
-+ * @connector: A pointer to the HDMI connector
-+ * @ctx: Lock acquisition context to be used for resetting CRTC
-+ *
-+ * This function implements the .force_ctx() callback for the HDMI connectors.
-+ * It can either be used directly as the callback or should be called from
-+ * within the .force_ctx() callback implementation to maintain the HDMI-specific
-+ * connector's data.
-+ *
-+ * Returns:
-+ * Zero on success, error code on failure, including -EDEADLK.
-+ */
-+int drm_atomic_helper_connector_hdmi_force_ctx(struct drm_connector *connector,
-+					       struct drm_modeset_acquire_ctx *ctx)
-+{
-+	return drm_atomic_helper_connector_hdmi_update(connector, ctx, connector->status);
-+}
-+EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_force_ctx);
-diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-index 72ff95ca97de..7f613f912368 100644
---- a/drivers/gpu/drm/vc4/vc4_hdmi.c
-+++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-@@ -375,7 +375,7 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
- 	 * the lock for now.
- 	 */
- 
--	drm_atomic_helper_connector_hdmi_hotplug(connector, status);
-+	drm_atomic_helper_connector_hdmi_hotplug(connector, ctx, status);
- 
- 	if (status != connector_status_connected)
- 		return;
-diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/display/drm_hdmi_state_helper.h
-index 13375bd0f4ae..ae4fff82c3fb 100644
---- a/include/drm/display/drm_hdmi_state_helper.h
-+++ b/include/drm/display/drm_hdmi_state_helper.h
-@@ -7,6 +7,7 @@ struct drm_atomic_commit;
- struct drm_connector;
- struct drm_connector_state;
- struct drm_display_mode;
-+struct drm_modeset_acquire_ctx;
- struct hdmi_audio_infoframe;
- 
- enum drm_connector_status;
-@@ -22,9 +23,12 @@ int drm_atomic_helper_connector_hdmi_update_audio_infoframe(struct drm_connector
- int drm_atomic_helper_connector_hdmi_clear_audio_infoframe(struct drm_connector *connector);
- int drm_atomic_helper_connector_hdmi_update_infoframes(struct drm_connector *connector,
- 						       struct drm_atomic_commit *state);
--void drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
--					      enum drm_connector_status status);
-+int drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
-+					     struct drm_modeset_acquire_ctx *ctx,
-+					     enum drm_connector_status status);
- void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector);
-+int drm_atomic_helper_connector_hdmi_force_ctx(struct drm_connector *connector,
-+					       struct drm_modeset_acquire_ctx *ctx);
- 
- enum drm_mode_status
- drm_hdmi_connector_mode_valid(struct drm_connector *connector,
 
 -- 
 2.55.0
