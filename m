@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9558C55177
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19384C55172
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,57 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pxBQDzcefpvTkc6N816N8JcNplQq+L7zx85iUJorX5Q=; b=QRo64lEkXVTIm+Xk1smXYJ1nWs
-	Gqdxf52DaM19kN9lyPRX7NfJeByeWqagOMHipLv/pqLUulW9IkZ6EfScW/UQy+0Y829l4PYiCLJJl
-	1YyD2fLoquBFnogCe8ahZd7CFechKcYXh4RpcMHjqhkjiY+j0pL0pZcgqFOwwthKVBnfO62Gs0uPu
-	0MfJDLTJk/XnYLSQ/NVlMDK+fCzBClLSYp4IisWNSG0bwVtq1MECCXt0EZjJR3K8PxIUfuTnMlyVB
-	PAaLnojlXEutfZLToVGOCANSgETstbhclcpsYdOAoyV4MBnOrB64rNUuSmgKKNQ3cG9HmlrVpO0ow
-	w6efCrag==;
+	bh=GKbbFOvINxKNwNvujFCoMbtxWQXvW5tCYzYMDrhF8e8=; b=gqc16ytpNmtDWdKdSLpjlOW4z+
+	kSSHYwcRA7RWIwj5WrAauFpXyujflEx/dR8ngbBPbX5nbaaSBMHpDgokel1FJGPupbh3BPbsZag19
+	BbYrUi9VZGtbCkauMXHCuXvMmytodKazVt6+AxytE6LqpFFGHb1cW+Us8Tg4FnsgvCE0fWV8BpjaE
+	5zyktbxCKhI0OCs1ccGzyOtWNyyyreUMe4edVK62s/5EokPlCMslIlAdaM1bDWTRP1nB8PNHWMRiq
+	tUhIOPUVOO4jDriyU7hFSbHjuKdPsUQL5+OagZ3nGgk/xDRv8qYf3RQ8frHMX/VPAt8abCDWbGD2z
+	M1UiRjJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzk-0000000CY9Z-3Rtd;
-	Fri, 31 Jul 2026 13:09:48 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wpmzn-0000000CYG9-47ME;
+	Fri, 31 Jul 2026 13:09:51 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpmzR-0000000CXrQ-0nme
+	id 1wpmzW-0000000CXva-1946
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:09:31 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBmUqC1732345;
-	Fri, 31 Jul 2026 13:09:18 GMT
+	Fri, 31 Jul 2026 13:09:36 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBlhfZ1670366;
+	Fri, 31 Jul 2026 13:09:22 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=pxBQDzcefpvTkc6N8
-	16N8JcNplQq+L7zx85iUJorX5Q=; b=lYFH91c3Q49AJZxfK0CP9omslwsrhUr5L
-	pcHOi1WIYDZs17D38EtC6J8/yhVrM7I9U1Ib0QTUO8BkUq64ejdhH8ZnPADNMFXM
-	4D2qL70u/XaTy6n9giH1QJqxh4dR900ZwscnuzwLQ8nShwIkZA92fTlQEvMuMFME
-	Tx1TiBS2RGWuSGR0yS+PXtzVAWxF5QzN6QOy841w9ZOhwhQr5pDuhmjC9R/HIdap
-	bal4z5IfY75faVbMWVwwOAPl9WK/ENCwVHdHxberpREoZrVJlarO+5VCCYvE9PBN
-	R39p2+qtnhIVVDEDiCTa3jcynEbBCnmIPSFJE6TqbA3wkRbt1RnkQ==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuw7w4kt-1
+	:mime-version:references:subject:to; s=pp1; bh=GKbbFOvINxKNwNvuj
+	FCoMbtxWQXvW5tCYzYMDrhF8e8=; b=Qb6YQ/7sWnaTKBnAKTvsRnLgP+RA2JTvU
+	lCdq+Shxo8T+1JDoYF6XRR6GMLOT1+VhbKsxJhBO0v0gBBtK4VQoEcD9zMef66PT
+	1HACsnuuBMKg1RnUh7YL+qVgOqbcp+Zy0MGlmc/fJOhOHcXg0vcSnD3IgcSI9gVQ
+	E5TEc+f38Xh/Rnwd4BS1ao0g9gd0FPJ0ycL4F0rC+WYs/9oTEYgTgkPPGfiUS928
+	4a45jTnUBb3ekH8yJXLweATsfaYWVE/Q+TMRH8CK4atYg4yogviB3hlTqfbUfFlE
+	RgI477B/r7gqy8rz8CSqy/AiRD/1cqs/hEW4swglt92IS+tfyK3bw==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuyjm3w5-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:17 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuLc6023579;
-	Fri, 31 Jul 2026 13:09:16 GMT
-Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fna5yfqfj-1
+	Fri, 31 Jul 2026 13:09:21 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuIsA021736;
+	Fri, 31 Jul 2026 13:09:21 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn7uwg43p-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 31 Jul 2026 13:09:16 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:20 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD9Akw32637358
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD9EuW32309544
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 31 Jul 2026 13:09:10 GMT
+	Fri, 31 Jul 2026 13:09:14 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4A36F20040;
-	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id BE7CF20043;
+	Fri, 31 Jul 2026 13:09:14 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DE2142004B;
-	Fri, 31 Jul 2026 13:09:09 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 56B7A2004B;
+	Fri, 31 Jul 2026 13:09:14 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 31 Jul 2026 13:09:09 +0000 (GMT)
+	Fri, 31 Jul 2026 13:09:14 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,9 +88,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v5 16/31] KVM: s390: Move PGM code definitions to asm/kvm_host.h
-Date: Fri, 31 Jul 2026 15:08:44 +0200
-Message-ID: <20260731130902.654679-17-seiden@linux.ibm.com>
+Subject: [PATCH v5 26/31] KVM: s390: Add basic arm64 kvm module
+Date: Fri, 31 Jul 2026 15:08:54 +0200
+Message-ID: <20260731130902.654679-27-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
 References: <20260731130902.654679-1-seiden@linux.ibm.com>
@@ -98,35 +98,35 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
 X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-GUID: cU7S3y4KSk2SIDvEgrsO8afsPJQL_AIn
-X-Proofpoint-ORIG-GUID: a2lqMBN7jYHmnRoNghA6BeDvM0XIgTvb
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX7B4GY8RGThkQ
- URj2Jneu56iseBIK2qgNknpnHN0nx5XYYBOf14Wg/wOV09EVsUSxQGTG2r3/hAgjH5XiFfcOKhz
- hJybZNDp4QUiaqgEVXgLnRN2os1+7EoM5bpViIOafovR57xI0gE9oqmz2iKBJ8j9H2e0eHXlQE5
- 2iMJzipC0QUomQ8SWcD6dqTf2WzIe1THoAgZWQtB8di6C8KFuM3qDL0u4U6WcyQb+ddCa32bxJQ
- Ww5Ym3EqkUUce/gcn3026MMTeigmADZvRpGUpXqg2Hn+/GOgRxfwGxO4HjwkSwwnI1Jz7SLZStD
- QvLCRtFF/fbkodJ/FMFLYZ2UsGo0zlJzurgoEbylCAMYYMG8lmP024Hifw+V4zNgpMkD1XFzoDH
- ie4Y3LBfy1BmZHOaYpqE2+jOs8ScSpAm0bQ4nVdXYWbp68XO0sWxJ3efTmsEsWnr9sHWBYHfk/i
- xqAMpkar3cUXF7Z+GUg==
-X-Authority-Analysis: v=2.4 cv=SKFykuvH c=1 sm=1 tr=0 ts=6a6c9e7e cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX2L8+mRKtEoQy
+ XlXooGQQ9Ws2eluXkPb7bYA/EG77ZXPQMIxkHyOYBSxzJtJKIWCuhxVPAZvGrAOxGVDM76Ww+JF
+ 7PF7+u88FjcvnKiYvvWEOZ24qmmQpBk=
+X-Proofpoint-GUID: zl0ppmbdcrmMEJzoeurH8XNhQKrFsWe-
+X-Proofpoint-ORIG-GUID: 5YUfC37jybVk_09KXoUdzw4P36yLjbC_
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX/H7jB6ug+Nxc
+ FOEXElie/o18OaR1Wx3tr4pJEKGPsuuW33WNEWGFuq/TolHyume+eOgOW8k4E7uBC0A5BoxyFQx
+ xVjIhRWBcKGCV3LnDhnlQbgFPDe7OUwUOrKtyHhUhLlYcf9JUm89Jzn2zfc+IHX4m5l/GsQuNCA
+ EyGiMLlXE0lx2ZjnBZUtqROXjzlKj/PRUZg900GLCanqDh24VIkwHM/yI/9Ge0Gpq6DqZ/+uduX
+ jD5OhTNJkWXE63PBoiec8uXvr/wguHjYsUw+sM11d24c6fqzZH0PHNp91q0X70ZlhDq2H4iVeNg
+ F3GzHuWXT/cLUpFTp1nMkkQZa+VEnLFNoMvvV6hwYzcGJLDlcv79LTxx/KzF8KNfIut+ytcFbWa
+ Jl+xQiwz9xPiZXS3FElpp7TVLUSkRmrqP6ZS0jQK1dKhFpKVMvk+2Uxg3Whd7PFR2N/nX/1IVGA
+ NJqGY24c6wpKqipxwrw==
+X-Authority-Analysis: v=2.4 cv=X5Vi7mTe c=1 sm=1 tr=0 ts=6a6c9e82 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=TiwjLMfUdNF-F4zQeIEA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX+h51CXDNeRl6
- dc8fzXFh8PPy2q4DIvhSzsZy4Hw0z5I35A21sy3ZAnLN+S7sxUj+jf0j0CIPy45kb9FyuWGACXL
- BGAFxw0b1lkvUa1Fojf64ziw6LMUapA=
+ a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VnNF1IyMAAAA:8 a=36xwF7fJQ_K8JzKkrRgA:9
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0
- lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ clxscore=1015 impostorscore=0 lowpriorityscore=0 phishscore=0
+ priorityscore=1501 malwarescore=0 spamscore=0 suspectscore=0 bulkscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
  definitions=main-2607310096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_060929_270848_E7230D7A 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260731_060934_557171_980A50B8 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,151 +141,320 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the PGM definitions from kvm_host_s390.h (back) to kvm_host.h so
-they can be used by a second KVM implementation.
-
-No functional change.
+Add basic code for the new arm64 on s390 KVM implementation.
+Add kernel module boilerplate code and trivial functions.
+Add tracing scaffolding.
 
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/s390/include/asm/kvm_host.h      | 57 +++++++++++++++++++++++++++
- arch/s390/include/asm/kvm_host_s390.h | 57 ---------------------------
- 2 files changed, 57 insertions(+), 57 deletions(-)
+ arch/s390/kvm/arm64/arm.c   | 157 ++++++++++++++++++++++++++++++++++++
+ arch/s390/kvm/arm64/arm.h   |   7 ++
+ arch/s390/kvm/arm64/guest.c |  92 +++++++++++++++++++++
+ arch/s390/kvm/arm64/trace.h |  18 +++++
+ 4 files changed, 274 insertions(+)
+ create mode 100644 arch/s390/kvm/arm64/arm.c
+ create mode 100644 arch/s390/kvm/arm64/arm.h
+ create mode 100644 arch/s390/kvm/arm64/guest.c
+ create mode 100644 arch/s390/kvm/arm64/trace.h
 
-diff --git a/arch/s390/include/asm/kvm_host.h b/arch/s390/include/asm/kvm_host.h
-index e76ceee11ef5..147325978225 100644
---- a/arch/s390/include/asm/kvm_host.h
-+++ b/arch/s390/include/asm/kvm_host.h
-@@ -5,4 +5,61 @@
- 
- #include <asm/kvm_host_s390.h>
- 
-+#define PGM_OPERATION			0x01
-+#define PGM_PRIVILEGED_OP		0x02
-+#define PGM_EXECUTE			0x03
-+#define PGM_PROTECTION			0x04
-+#define PGM_ADDRESSING			0x05
-+#define PGM_SPECIFICATION		0x06
-+#define PGM_DATA			0x07
-+#define PGM_FIXED_POINT_OVERFLOW	0x08
-+#define PGM_FIXED_POINT_DIVIDE		0x09
-+#define PGM_DECIMAL_OVERFLOW		0x0a
-+#define PGM_DECIMAL_DIVIDE		0x0b
-+#define PGM_HFP_EXPONENT_OVERFLOW	0x0c
-+#define PGM_HFP_EXPONENT_UNDERFLOW	0x0d
-+#define PGM_HFP_SIGNIFICANCE		0x0e
-+#define PGM_HFP_DIVIDE			0x0f
-+#define PGM_SEGMENT_TRANSLATION		0x10
-+#define PGM_PAGE_TRANSLATION		0x11
-+#define PGM_TRANSLATION_SPEC		0x12
-+#define PGM_SPECIAL_OPERATION		0x13
-+#define PGM_OPERAND			0x15
-+#define PGM_TRACE_TABEL			0x16
-+#define PGM_VECTOR_PROCESSING		0x1b
-+#define PGM_SPACE_SWITCH		0x1c
-+#define PGM_HFP_SQUARE_ROOT		0x1d
-+#define PGM_PC_TRANSLATION_SPEC		0x1f
-+#define PGM_AFX_TRANSLATION		0x20
-+#define PGM_ASX_TRANSLATION		0x21
-+#define PGM_LX_TRANSLATION		0x22
-+#define PGM_EX_TRANSLATION		0x23
-+#define PGM_PRIMARY_AUTHORITY		0x24
-+#define PGM_SECONDARY_AUTHORITY		0x25
-+#define PGM_LFX_TRANSLATION		0x26
-+#define PGM_LSX_TRANSLATION		0x27
-+#define PGM_ALET_SPECIFICATION		0x28
-+#define PGM_ALEN_TRANSLATION		0x29
-+#define PGM_ALE_SEQUENCE		0x2a
-+#define PGM_ASTE_VALIDITY		0x2b
-+#define PGM_ASTE_SEQUENCE		0x2c
-+#define PGM_EXTENDED_AUTHORITY		0x2d
-+#define PGM_LSTE_SEQUENCE		0x2e
-+#define PGM_ASTE_INSTANCE		0x2f
-+#define PGM_STACK_FULL			0x30
-+#define PGM_STACK_EMPTY			0x31
-+#define PGM_STACK_SPECIFICATION		0x32
-+#define PGM_STACK_TYPE			0x33
-+#define PGM_STACK_OPERATION		0x34
-+#define PGM_ASCE_TYPE			0x38
-+#define PGM_REGION_FIRST_TRANS		0x39
-+#define PGM_REGION_SECOND_TRANS		0x3a
-+#define PGM_REGION_THIRD_TRANS		0x3b
-+#define PGM_SECURE_STORAGE_ACCESS	0x3d
-+#define PGM_NON_SECURE_STORAGE_ACCESS	0x3e
-+#define PGM_SECURE_STORAGE_VIOLATION	0x3f
-+#define PGM_MONITOR			0x40
-+#define PGM_PER				0x80
-+#define PGM_CRYPTO_OPERATION		0x119
+diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
+new file mode 100644
+index 000000000000..8e17b7eef813
+--- /dev/null
++++ b/arch/s390/kvm/arm64/arm.c
+@@ -0,0 +1,157 @@
++// SPDX-License-Identifier: GPL-2.0
 +
- #endif /* ASM_KVM_HOST_H */
-diff --git a/arch/s390/include/asm/kvm_host_s390.h b/arch/s390/include/asm/kvm_host_s390.h
-index 3c592e4bb883..9e4d7ed53078 100644
---- a/arch/s390/include/asm/kvm_host_s390.h
-+++ b/arch/s390/include/asm/kvm_host_s390.h
-@@ -150,63 +150,6 @@ struct kvm_vcpu_stat {
- 	u64 signal_exits;
- };
- 
--#define PGM_OPERATION			0x01
--#define PGM_PRIVILEGED_OP		0x02
--#define PGM_EXECUTE			0x03
--#define PGM_PROTECTION			0x04
--#define PGM_ADDRESSING			0x05
--#define PGM_SPECIFICATION		0x06
--#define PGM_DATA			0x07
--#define PGM_FIXED_POINT_OVERFLOW	0x08
--#define PGM_FIXED_POINT_DIVIDE		0x09
--#define PGM_DECIMAL_OVERFLOW		0x0a
--#define PGM_DECIMAL_DIVIDE		0x0b
--#define PGM_HFP_EXPONENT_OVERFLOW	0x0c
--#define PGM_HFP_EXPONENT_UNDERFLOW	0x0d
--#define PGM_HFP_SIGNIFICANCE		0x0e
--#define PGM_HFP_DIVIDE			0x0f
--#define PGM_SEGMENT_TRANSLATION		0x10
--#define PGM_PAGE_TRANSLATION		0x11
--#define PGM_TRANSLATION_SPEC		0x12
--#define PGM_SPECIAL_OPERATION		0x13
--#define PGM_OPERAND			0x15
--#define PGM_TRACE_TABEL			0x16
--#define PGM_VECTOR_PROCESSING		0x1b
--#define PGM_SPACE_SWITCH		0x1c
--#define PGM_HFP_SQUARE_ROOT		0x1d
--#define PGM_PC_TRANSLATION_SPEC		0x1f
--#define PGM_AFX_TRANSLATION		0x20
--#define PGM_ASX_TRANSLATION		0x21
--#define PGM_LX_TRANSLATION		0x22
--#define PGM_EX_TRANSLATION		0x23
--#define PGM_PRIMARY_AUTHORITY		0x24
--#define PGM_SECONDARY_AUTHORITY		0x25
--#define PGM_LFX_TRANSLATION		0x26
--#define PGM_LSX_TRANSLATION		0x27
--#define PGM_ALET_SPECIFICATION		0x28
--#define PGM_ALEN_TRANSLATION		0x29
--#define PGM_ALE_SEQUENCE		0x2a
--#define PGM_ASTE_VALIDITY		0x2b
--#define PGM_ASTE_SEQUENCE		0x2c
--#define PGM_EXTENDED_AUTHORITY		0x2d
--#define PGM_LSTE_SEQUENCE		0x2e
--#define PGM_ASTE_INSTANCE		0x2f
--#define PGM_STACK_FULL			0x30
--#define PGM_STACK_EMPTY			0x31
--#define PGM_STACK_SPECIFICATION		0x32
--#define PGM_STACK_TYPE			0x33
--#define PGM_STACK_OPERATION		0x34
--#define PGM_ASCE_TYPE			0x38
--#define PGM_REGION_FIRST_TRANS		0x39
--#define PGM_REGION_SECOND_TRANS		0x3a
--#define PGM_REGION_THIRD_TRANS		0x3b
--#define PGM_SECURE_STORAGE_ACCESS	0x3d
--#define PGM_NON_SECURE_STORAGE_ACCESS	0x3e
--#define PGM_SECURE_STORAGE_VIOLATION	0x3f
--#define PGM_MONITOR			0x40
--#define PGM_PER				0x80
--#define PGM_CRYPTO_OPERATION		0x119
--
- /* irq types in ascend order of priorities */
- enum irq_types {
- 	IRQ_PEND_SET_PREFIX = 0,
++#define KMSG_COMPONENT "kvm-s390-arm64"
++#define pr_fmt(fmt) KMSG_COMPONENT ": " fmt
++
++#include <linux/miscdevice.h>
++#include <linux/kvm.h>
++#include <linux/kvm_types.h>
++#include <linux/kvm_host.h>
++
++#include "arm.h"
++
++#define CREATE_TRACE_POINTS
++#include "trace.h"
++
++static unsigned long system_supported_vcpu_features(void);
++
++#define __INCL_GEN_ARM_FILE
++#include "generated/arm.inc"
++#undef __INCL_GEN_ARM_FILE
++
++int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
++{
++	int ret;
++
++	switch (ext) {
++	case KVM_CAP_NR_VCPUS:
++	case KVM_CAP_MAX_VCPUS:
++	case KVM_CAP_MAX_VCPU_ID:
++		ret = KVM_MAX_VCPUS;
++		break;
++	case KVM_CAP_ARM_VM_IPA_SIZE:
++		ret = get_kvm_ipa_limit();
++		break;
++	case KVM_CAP_IOEVENTFD:
++		ret = 1;
++		break;
++	default:
++		ret = 0;
++	}
++
++	return ret;
++}
++
++static u64 kvm_max_guest_address(void)
++{
++	u64 max_addr;
++
++	if (sclp.hamax == U64_MAX)
++		max_addr = TASK_SIZE_MAX;
++	else
++		max_addr = min_t(u64, TASK_SIZE_MAX, sclp.hamax);
++	return ALIGN_DOWN(max_addr + 1, 1 << 30) - 1;
++}
++
++vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
++{
++	return VM_FAULT_SIGBUS;
++}
++
++long kvm_arch_dev_ioctl(struct file *filp,
++			unsigned int ioctl, unsigned long arg)
++{
++	return -EINVAL;
++}
++
++u32 get_kvm_ipa_limit(void)
++{
++	return fls64(kvm_max_guest_address() + 1) - 1;
++}
++
++int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
++{
++	return 0;
++}
++
++void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
++{
++}
++
++int kvm_arch_vcpu_ioctl_get_mpstate(struct kvm_vcpu *vcpu,
++				    struct kvm_mp_state *mp_state)
++{
++	*mp_state = READ_ONCE(vcpu->arch.mp_state);
++	return 0;
++}
++
++int kvm_arch_vcpu_ioctl_set_mpstate(struct kvm_vcpu *vcpu,
++				    struct kvm_mp_state *mp_state)
++{
++	return -EINVAL;
++}
++
++int kvm_arch_vcpu_runnable(struct kvm_vcpu *vcpu)
++{
++	return 0;
++}
++
++static unsigned long system_supported_vcpu_features(void)
++{
++	unsigned long features = KVM_S390_ARM64_IMPL_FEATURES;
++
++	return features;
++}
++
++bool kvm_arch_irqchip_in_kernel(struct kvm *kvm)
++{
++	return false;
++}
++
++int kvm_set_msi(struct kvm_kernel_irq_routing_entry *e, struct kvm *kvm,
++		int irq_source_id, int level, bool line_status)
++{
++	return -EINVAL;
++}
++
++int kvm_set_routing_entry(struct kvm *kvm,
++			  struct kvm_kernel_irq_routing_entry *e,
++			  const struct kvm_irq_routing_entry *ue)
++{
++	return -EINVAL;
++}
++
++int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
++{
++	return 0;
++}
++
++#ifdef CONFIG_HAVE_KVM_NO_POLL
++__weak bool kvm_arch_no_poll(struct kvm_vcpu *vcpu)
++{
++	return false;
++}
++#endif
++
++long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
++				  unsigned long arg)
++{
++	return -ENOIOCTLCMD;
++}
++
++static int __init kvm_s390_arm64_init(void)
++{
++	if (!sclp.has_aef)
++		return -ENXIO;
++
++	return kvm_init_with_dev(sizeof(struct kvm_vcpu), 0, THIS_MODULE,
++				 KVM_DEV_NAME, MISC_DYNAMIC_MINOR);
++}
++
++static __exit void kvm_s390_arm64_exit(void)
++{
++	kvm_exit();
++}
++
++module_init(kvm_s390_arm64_init);
++module_exit(kvm_s390_arm64_exit);
+diff --git a/arch/s390/kvm/arm64/arm.h b/arch/s390/kvm/arm64/arm.h
+new file mode 100644
+index 000000000000..a3db254462c0
+--- /dev/null
++++ b/arch/s390/kvm/arm64/arm.h
+@@ -0,0 +1,7 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef ARCH_S390_KVM_ARM64_H
++#define ARCH_S390_KVM_ARM64_H
++
++#define KVM_DEV_NAME "kvm-arm64"
++
++#endif /* ARCH_S390_KVM_ARM64_H */
+diff --git a/arch/s390/kvm/arm64/guest.c b/arch/s390/kvm/arm64/guest.c
+new file mode 100644
+index 000000000000..fd6442d9e4f4
+--- /dev/null
++++ b/arch/s390/kvm/arm64/guest.c
+@@ -0,0 +1,92 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <linux/kvm_host.h>
++#include <linux/kvm.h>
++
++#include <arm64/kvm_emulate.h>
++#include <arm64/kvm_nested.h>
++
++#include "guest.h"
++
++#define __INCL_GEN_ARM_FILE
++#include "generated/guest.inc"
++#undef __INCL_GEN_ARM_FILE
++
++const struct kvm_stats_desc kvm_vm_stats_desc[] = {
++	KVM_GENERIC_VM_STATS()
++};
++
++const struct kvm_stats_header kvm_vm_stats_header = {
++	.name_size = KVM_STATS_NAME_SIZE,
++	.num_desc = ARRAY_SIZE(kvm_vm_stats_desc),
++	.id_offset =  sizeof(struct kvm_stats_header),
++	.desc_offset = sizeof(struct kvm_stats_header) + KVM_STATS_NAME_SIZE,
++	.data_offset = sizeof(struct kvm_stats_header) + KVM_STATS_NAME_SIZE +
++		       sizeof(kvm_vm_stats_desc),
++};
++
++const struct kvm_stats_desc kvm_vcpu_stats_desc[] = {
++	KVM_GENERIC_VCPU_STATS(),
++	/* ARM64 stats */
++	STATS_DESC_COUNTER(VCPU, hvc_exit_stat),
++	STATS_DESC_COUNTER(VCPU, wfe_exit_stat),
++	STATS_DESC_COUNTER(VCPU, wfi_exit_stat),
++	STATS_DESC_COUNTER(VCPU, mmio_exit_user),
++	STATS_DESC_COUNTER(VCPU, mmio_exit_kernel),
++	STATS_DESC_COUNTER(VCPU, signal_exits),
++	STATS_DESC_COUNTER(VCPU, exits),
++	/* GMAP stats */
++	STATS_DESC_COUNTER(VCPU, pfault_sync),
++};
++
++const struct kvm_stats_header kvm_vcpu_stats_header = {
++	.name_size = KVM_STATS_NAME_SIZE,
++	.num_desc = ARRAY_SIZE(kvm_vcpu_stats_desc),
++	.id_offset = sizeof(struct kvm_stats_header),
++	.desc_offset = sizeof(struct kvm_stats_header) + KVM_STATS_NAME_SIZE,
++	.data_offset = sizeof(struct kvm_stats_header) + KVM_STATS_NAME_SIZE +
++		       sizeof(kvm_vcpu_stats_desc),
++};
++
++int kvm_arch_vcpu_ioctl_get_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
++{
++	return -EINVAL;
++}
++
++int kvm_arch_vcpu_ioctl_set_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
++{
++	return -EINVAL;
++}
++
++int kvm_arch_vcpu_ioctl_get_sregs(struct kvm_vcpu *vcpu,
++				  struct kvm_sregs *sregs)
++{
++	return -EINVAL;
++}
++
++int kvm_arch_vcpu_ioctl_set_sregs(struct kvm_vcpu *vcpu,
++				  struct kvm_sregs *sregs)
++{
++	return -EINVAL;
++}
++
++int kvm_arch_vcpu_ioctl_get_fpu(struct kvm_vcpu *vcpu, struct kvm_fpu *fpu)
++{
++	return -EINVAL;
++}
++
++int kvm_arch_vcpu_ioctl_set_fpu(struct kvm_vcpu *vcpu, struct kvm_fpu *fpu)
++{
++	return -EINVAL;
++}
++
++int kvm_arch_vcpu_ioctl_translate(struct kvm_vcpu *vcpu,
++				  struct kvm_translation *tr)
++{
++	return -EINVAL;
++}
++
++int kvm_arch_vcpu_ioctl_set_guest_debug(struct kvm_vcpu *vcpu,
++					struct kvm_guest_debug *dbg)
++{
++	return -EINVAL;
++}
+diff --git a/arch/s390/kvm/arm64/trace.h b/arch/s390/kvm/arm64/trace.h
+new file mode 100644
+index 000000000000..3a5dcd039c13
+--- /dev/null
++++ b/arch/s390/kvm/arm64/trace.h
+@@ -0,0 +1,18 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#if !defined(KVM_ARM64_TRACE_KVM_H) || defined(TRACE_HEADER_MULTI_READ)
++#define KVM_ARM64_TRACE_KVM_H
++
++#include <linux/tracepoint.h>
++
++#undef TRACE_SYSTEM
++#define TRACE_SYSTEM kvm
++
++#endif /* KVM_ARM64_TRACE_KVM_H */
++
++#undef TRACE_INCLUDE_PATH
++#define TRACE_INCLUDE_PATH .
++#undef TRACE_INCLUDE_FILE
++#define TRACE_INCLUDE_FILE trace
++
++/* This part must be outside protection */
++#include <trace/define_trace.h>
 -- 
 2.53.0
 
