@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD0F9C55173
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB549C55173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 18:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8KTNxMlIN0pnUs3TRuIuX660Ecy/2UP8DgaHWLgMlGk=; b=dwqxHEb1ffPSoldxJyiCEkN+jX
-	LKa7tnTOf5pVTWMfXI69UxFPLdgEGH/tCLRS5+cwlT/P5ICqm8TzUNd8XF3vgj3s6w6wZo3yb2g8U
-	q2DDh6/6gPOPNmlxdf7oLOysODIaJX8wCcWS1gw+iq1Mo6rArY4A5c2sYdq4pYS5eocTgzn2mewg2
-	N6kZu0/pfA1AElyhtlCxlPcRe51vXtvp9xYhLb2I9bvIhtk66s1lFZEErLnLC/7KwgM2MH5iTielT
-	5bg9PYNtQzJeHK+vJcsfC/EhmHUYBOUKeH4ORJfVJI2tXFlKFQZxZS7Lrbw1mJn86IWNuKApe1Xf7
-	mA716lqg==;
+	bh=XdiDIa8NUQSLfVGJe/NaVaWb+skzu3+raBFzb05hxto=; b=mtew+N3Qpb0ylgB54llK727aUQ
+	NzztIFRu2Ok1ciwbha6XoTxCO06xsLk7nrrFKL5Kax6ErzYEvcI8CjZUjWRd8jZRZ4jSZVemP2Csj
+	nTzcJ7oFIHzctpPld5FWUcwSn/E5Lrsjk32nxNdPs3Z41LVuxZjUFwG/jkqTZKqjEzduwKkEKjOv8
+	XSgq0qxbKjBmYtompJ/BRZUZb2QX4mwKAfSmPpCyUwSWu2PFkgW066WXqlvyaRW8868jtqMkmtjAS
+	RfG18YeV8FZmJuSY3k9KC+QIBTh5sFYhQVG00htsWTXDC/74IXbo2tljDoRw0sHEcCpfsWlUritGj
+	mjnpJ4Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpsKp-0000000DPn2-1Dfo;
-	Fri, 31 Jul 2026 18:51:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wpsLY-0000000DQ3O-29e4;
+	Fri, 31 Jul 2026 18:52:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpsKn-0000000DPmF-42Wh
+	id 1wpsKp-0000000DPmz-3V8G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 18:51:53 +0000
+	Fri, 31 Jul 2026 18:51:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82B40435F4;
-	Fri, 31 Jul 2026 18:51:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A8C81F00ADE;
-	Fri, 31 Jul 2026 18:51:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0F7D460A77;
+	Fri, 31 Jul 2026 18:51:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 805081F00AC4;
+	Fri, 31 Jul 2026 18:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785523913;
-	bh=8KTNxMlIN0pnUs3TRuIuX660Ecy/2UP8DgaHWLgMlGk=;
+	s=k20260515; t=1785523914;
+	bh=XdiDIa8NUQSLfVGJe/NaVaWb+skzu3+raBFzb05hxto=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=eUKHKA1wuLnW5C0nJ6eCTWgN2NNB2COcAONC9dmowBvJRyotWWR8nJjY800XArEqm
-	 ShwKrH1J/wpVbLwroRnNcWXS2yTGwg+Xmn1DG0kfYC/i9lqP4XQC1LyQguPB2rBJW4
-	 LvAyR2GZISsiCYTTWJyK2hyGmHHWUnTUEraodNLsn/YhThYMIliE28HLD3aeUSnDrp
-	 hXzLGiV/dfTSLQaAFJrW3bK/JOxT81dKGG3NQ+fHJHoG5i6WbVy2lnEvSG1uYkQM3o
-	 Dn7yZytY4lSMzlxVyDiFZZ+FV2g9hKegE2LYD3Ypc+7ccfI49uPxsAZo0qn+rf7+4f
-	 vuM3y+awkqg1A==
+	b=SJWUOkonsQEKYzJ17537pNVwZXUV/oYXelsRh6p0kHOmhjqlvBhu/GfQod+9O6ghz
+	 mGJOjdoiu9YmpEae02Z2T8XxpnazLFW6ptzCdXC/0yQDhYhQmo1H0hJRF3zP/Da5YV
+	 Nifh0g4sE23HaPGqkM8zSZxNC4iAkBYPjrMGyKr6UQOuhrWbX6RwDsc9fMSrJpoaAs
+	 fKxHkkyT5+6a0F0hu7KuhaZ4aqp1Zw8/JOEfcDtyZhc86UCKVIKSQ944tiXzVtFTKM
+	 mWZFTQ3BYi0rrXtHfY7m7C536KVDGrIUd7Qqgud/Q0mFZMawTIIh5SjYboFZm30TMR
+	 qNkahoHalUQKg==
 From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>,
-	Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+To: linux-kernel@vger.kernel.org,
 	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	tabba@google.com
-Subject: Re: [PATCH 0/2] KVM: arm64: Fix host-directed debug for non-protected pKVM guests
-Date: Fri, 31 Jul 2026 11:51:45 -0700
-Message-ID: <178552142330.30097.7850333849629828287.b4-ty@kernel.org>
+	Mostafa Saleh <smostafa@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	maz@kernel.org,
+	seiden@linux.ibm.com,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	vdonnefort@google.com,
+	tabba@google.com,
+	sebastianene@google.com,
+	keirf@google.com
+Subject: Re: [PATCH v3] KVM: arm64: Optimize protected mode with FWB and DIC
+Date: Fri, 31 Jul 2026 11:51:49 -0700
+Message-ID: <178552142327.30097.5768444825254040023.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260726143643.303456-1-fuad.tabba@linux.dev>
-References: <20260726143643.303456-1-fuad.tabba@linux.dev>
+In-Reply-To: <20260723162002.3848054-1-smostafa@google.com>
+References: <20260723162002.3848054-1-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,25 +82,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 26 Jul 2026 15:36:41 +0100, Fuad Tabba wrote:
-> Under pKVM, host-directed hardware debug of a non-protected guest
-> (KVM_GUESTDBG_USE_HW) and userspace single-step never fire.
-> 
-> When the host owns the debug registers, the world switch loads
-> MDSCR_EL1 from external_mdscr_el1, where the host's MDE/KDE/SS bits
-> live. flush_debug_state() copies the guest's debug_owner and the
-> owner-selected debug register state to the hyp vCPU, but not
-> external_mdscr_el1, so the field reaches hardware as zero and the debug
-> exceptions stay disabled. Patch 1 propagates it.
+On Thu, 23 Jul 2026 16:20:02 +0000, Mostafa Saleh wrote:
+> KVM opportunistically enables FWB if supported by the system for guest
+> VMs, which allows it to elude cache maintenance for data as they are
+> forced to be cacheable from stage-2.
+> In that case, __clean_dcache_guest_page() will immediately return.
+> However in protected mode, before calling __clean_dcache_guest_page()
+> it loops over the range and fix_map/unmap it, issuing TLB
+> invalidations, dsb() and isb() unnecessarily.
 > 
 > [...]
 
 Applied to next, thanks!
 
-[1/2] KVM: arm64: Flush external_mdscr_el1 to the pKVM hyp vCPU
-      https://git.kernel.org/kvmarm/kvmarm/c/119a9a23fbae
-[2/2] KVM: arm64: selftests: Add a userspace watchpoint test
-      https://git.kernel.org/kvmarm/kvmarm/c/3be99f8751c9
+[1/1] KVM: arm64: Optimize protected mode with FWB and DIC
+      https://git.kernel.org/kvmarm/kvmarm/c/81b2d03f8c86
 
 --
 Best,
