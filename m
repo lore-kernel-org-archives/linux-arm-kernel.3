@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A98CC54F54
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2544C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 15:28:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eAxOsLYpK9eFmi4OxuFp7qfHkUr7yvIHaNSSrtdi+OQ=; b=qGfVvyNeZCkqYMMqU/wkgNAnDI
-	JJFhPEVgJlrIFvlp2rRwhlssiaJRDvLGQ4rGDCR9uIwR7ic/Y1sqwRlE2UzbPHZW50rhWrJ4CB4no
-	eKU+MSXb4bfGhVvpcLB492yYB3CVsPen5v5nWTLwP5oAAU+CRwMynNuJzdx54Ta7/tCS8IW49ouNE
-	m3sJBf+juAyO8VVBmsnKuZkwbwhDHdWGiB8b1YbXGG4rYXyNQSfb3Wg6Tkgy0dsaMt6KC3CrV432M
-	FQH5oMHzROq2RHzR4+ka8MoqI5eA5g23Z/0C6k7Dqleplm5iJgJAlS+D1T7qiIQTAJfghEZZ/pzD9
-	1SQOlkpg==;
+	bh=JT8xi+LYfJ/lkhRCzd7X6UxWwkgghhtU4W+AfhVJTFk=; b=n9xZvOZOHcu8rFzP0pFpJcjWCb
+	DsZ9rUtW7A/H3XLf3eySft8TpxGsrRUxpC6ZRbIjY1OZMZT8q4oBT40mQ97I/IFPr7YgtNK7gx7Wd
+	JpaMhwio7vPGFzHwppxC7yn2DfyurnD3avN7dXUaof03GAecKnJcVq5lQZ948e8i9p2um3MgMeU6M
+	hI9HPGLkENqhAwufNEZP0StD20ratSTPMmwJBPvP0RVyL3fKntpfubXhQu/Glz2f8ZmeTfw84giV9
+	MtQrHTmDAfEQi6gEzS2ae8qU29zqW2PKrd10brRWlRVyjvkWk5iJbIsYSJC/X7wa+paSqb+d35gGp
+	ZaYDRd7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpp7C-0000000Ctqe-3KTL;
-	Fri, 31 Jul 2026 15:25:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpp78-0000000Ctpv-1Jfk
+	id 1wpp9R-0000000Cu6r-0c6z;
+	Fri, 31 Jul 2026 15:27:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpp9Q-0000000Cu6j-0bwJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 15:25:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDAF4204C;
-	Fri, 31 Jul 2026 08:25:28 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 930313F66F;
-	Fri, 31 Jul 2026 08:25:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785511532; bh=QCuz6mWm4b2OnDvgJj6FOQ71UL0rPX8NCGIBuN1iKEs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Tu0ZOyDPm/zoA1LcwEK8YcKgXEQCb4LLg/ECvdVNDteJCr6UWbnRROZmbmZ2kBS5X
-	 oMibasxGm+YO7qMHvd7twzvCapACtYYXc5UULpmHsR3czM6TR4RzHwSXElLVT/3CxV
-	 s5iDyXByz9Orvq5sz1vLW9Y6N5jYJdYjuWCXIhac=
-Date: Fri, 31 Jul 2026 16:25:20 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Hongyan Xia <hongyan.xia@transsion.com>
-Cc: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
+	Fri, 31 Jul 2026 15:27:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 899A540A38;
+	Fri, 31 Jul 2026 15:27:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE4BA1F000E9;
+	Fri, 31 Jul 2026 15:27:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785511675;
+	bh=JT8xi+LYfJ/lkhRCzd7X6UxWwkgghhtU4W+AfhVJTFk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=R/G2PsrwbLj5UBqI6fxnplbccH2TfJ3is2/eG1W2dpWNhFJNrcccWcQabCsK66mV9
+	 RN5yQ/LdtVmoE883tZpRN1KmoqjLEgwoQ4yJRMnlxyJM1XwSECwPcjqdMYc7QHduXx
+	 9FyFTxmLWomYtFbP/JtxpCvKYJ7EoeOiBb5ocYZOfWb09k9/6LGUese17ekddwMeJK
+	 cqnYzYdIHKPrloDtidEOgIeLHDKF8McnAUiu4rugXFJErzOXq7f6kPfpUtjPUHensW
+	 GJdsYRC8ogNosBpHJd3//l25n1/wdVcefDC7TueCXNtrmYZNC9BfNUzHK0SUN1+42n
+	 9NQaaNuhsLlKw==
+Date: Fri, 31 Jul 2026 16:27:50 +0100
+From: Will Deacon <will@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: Geethasowjanya Akula <gakula@marvell.com>,
+	"linux-perf-users@vger.kernel.org" <linux-perf-users@vger.kernel.org>,
 	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [RFC PATCH 3/9] arm64/debug-monitors: Make
- do_el1_brk64()/do_el1_softstep() noinstr
-Message-ID: <amy-YDef9iuQUPZe@J2N7QTR9R3>
-References: <cover.1785153469.git.hongyan.xia@transsion.com>
- <c914d2b8ff0421eb35665eba7b49c92f3857d2bb.1785153469.git.hongyan.xia@transsion.com>
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	Sunil Kovvuri Goutham <sgoutham@marvell.com>,
+	Tanmay Jagdale <tanmay@marvell.com>
+Subject: Re: [EXTERNAL] Re: [PATCH v4 1/3] perf: marvell: Add MPAM partid
+ filtering to CN10K TAD PMU
+Message-ID: <amy-9oBsRnQd_Qtr@google.com>
+References: <20260618153610.13649-1-gakula@marvell.com>
+ <20260618153610.13649-2-gakula@marvell.com>
+ <6b15d3fc-4b4e-4c6c-a96d-5817d7114d02@arm.com>
+ <CH0PR18MB43394668EAEBD367DB4D4990CDEB2@CH0PR18MB4339.namprd18.prod.outlook.com>
+ <44cd4364-37ac-4a54-a7b2-256fbad10446@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <c914d2b8ff0421eb35665eba7b49c92f3857d2bb.1785153469.git.hongyan.xia@transsion.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_082535_004939_650973A6 
-X-CRM114-Status: GOOD (  28.20  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <44cd4364-37ac-4a54-a7b2-256fbad10446@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,178 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 12:25:38PM +0000, Hongyan Xia wrote:
-> From: Hongyan Xia <hongyan.xia@transsion.com>
+On Fri, Jun 26, 2026 at 09:57:44AM +0100, Ben Horgan wrote:
+> >> Where is the user expected to get the PARTID from? The MPAM driver
+> >> considers the PARTID as an internal only value.
+> >> …
+> >> Perhaps some helpers along the lines of:
+> >> int resctrl_mount_generation(void)
+> >> …
+> > Thank you for the detailed feedback — the concern you raise is valid, particularly when 
+> > viewed from the perspective of resctrl-managed deployments.
+> > 
+> > However, to clarify the intent of this patch: the exposure of partid in the TAD PMU is deliberately
+> > a low-level, hardware-facing interface, and is not intended to integrate with or mirror the
+> > abstractions provided by resctrl. It is mainly meant for platform bring-up and low-level
+> > performance/debug users, who already have explicit knowledge of the MPAM configuration,
+> > typically provisioned by firmware or other privileged software layers (e.g. EL3/EL2).
+> > In such environments, PARTIDs are known out-of-band, so the expectation is that the
+> > user supplying partid is already aware of the MPAM IDs programmed on the system.
 > 
-> Convert do_el1_brk64(), do_el1_softstep() and call_el1_break_hook() to
-> noinstr. The kprobe and kretprobe BRK handlers (converted to noinstr in
-> the following patches) are dispatched directly. Every other BRK handler
-> are ordinary instrumentable code and now run bounded by
-> instrumentation_begin()/end().
+> When this was proposed before, [1], there was feedback asking to
+> document how to get the PARTID.
 
-Why is it necessary to change do_el1_softstep()?
+Yes, please can you update the documentation to cover this? I'm not
+necessarily asking for a programmatic way to do it, but even something
+like a reference to a document or a firmware table would be useful for
+people trying to use the driver to profile their workload. Otherwise,
+it's just an opaque id :/
 
-Neither kprobes nor kretprobes uses software stepping since commit:
+There are also some comments from Sashiko to consider:
 
-  7ee31a3aa8f4 ("arm64: kprobes: Use BRK instead of single-step when executing instructions out-of-line")
+https://sashiko.dev/#/patchset/20260618153610.13649-1-gakula@marvell.com?part=1
 
-... so either that shouldn't be necessary, or there's a problem that
-needs to be described in this commit message.
+Thanks,
 
-> With this, everything on the el1 debug exception path from the vectors
-> down to the kprobe handlers is noinstr, and instrumentation only runs
-> inside explicit instrumentation windows.
-> 
-> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
-> ---
->  arch/arm64/kernel/debug-monitors.c | 74 +++++++++++++++++-------------
->  1 file changed, 41 insertions(+), 33 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-> index 29307642f4c9..a970ab6327cd 100644
-> --- a/arch/arm64/kernel/debug-monitors.c
-> +++ b/arch/arm64/kernel/debug-monitors.c
-> @@ -11,6 +11,7 @@
->  #include <linux/debugfs.h>
->  #include <linux/hardirq.h>
->  #include <linux/init.h>
-> +#include <linux/instrumentation.h>
->  #include <linux/ptrace.h>
->  #include <linux/kprobes.h>
->  #include <linux/stat.h>
-> @@ -193,59 +194,65 @@ void do_el0_softstep(unsigned long esr, struct pt_regs *regs)
->  	user_rewind_single_step(current);
->  }
->  
-> -void do_el1_softstep(unsigned long esr, struct pt_regs *regs)
-> +void noinstr do_el1_softstep(unsigned long esr, struct pt_regs *regs)
->  {
-> -	if (kgdb_single_step_handler(regs, esr) == DBG_HOOK_HANDLED)
-> +	int handled;
-> +
-> +	instrumentation_begin();
-> +	handled = kgdb_single_step_handler(regs, esr);
-> +	instrumentation_end();
-> +
-> +	if (handled == DBG_HOOK_HANDLED)
->  		return;
->  
-> +	instrumentation_begin();
->  	pr_warn("Unexpected kernel single-step exception at EL1\n");
-> +	instrumentation_end();
->  	/*
->  	 * Re-enable stepping since we know that we will be
->  	 * returning to regs.
->  	 */
->  	set_regs_spsr_ss(regs);
->  }
-> -NOKPROBE_SYMBOL(do_el1_softstep);
-
-As above, I don't think it's necessary to change do_el1_softstep(), but
-I might be missing something that you haven't described in the commit
-message.
-
-Is the existing NOKPROBE_SYMBOL() annotation actually necessary? It
-looks like that dates from before commit 7ee31a3aa8f4, and I suspect we
-can delete it even without making this noinstr.
-
-I don't think you need to make structural changes here.  Given the first
-thing the function does is an unconditional call to an instrumented
-function, we're not gaining anything by litering this with
-instrumentation_{begin,end}().
-
-> -static int call_el1_break_hook(struct pt_regs *regs, unsigned long esr)
-> +static int noinstr call_el1_break_hook(struct pt_regs *regs, unsigned long esr)
->  {
-> -	if (esr_brk_comment(esr) == BUG_BRK_IMM)
-> -		return bug_brk_handler(regs, esr);
-> -
-> -	if (IS_ENABLED(CONFIG_CFI) && esr_is_cfi_brk(esr))
-> -		return cfi_brk_handler(regs, esr);
-> -
-> -	if (esr_brk_comment(esr) == FAULT_BRK_IMM)
-> -		return reserved_fault_brk_handler(regs, esr);
-> -
-> -	if (IS_ENABLED(CONFIG_KASAN_SW_TAGS) &&
-> -		(esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
-> -		return kasan_brk_handler(regs, esr);
-> -
-> -	if (IS_ENABLED(CONFIG_UBSAN_TRAP) && esr_is_ubsan_brk(esr))
-> -		return ubsan_brk_handler(regs, esr);
-> -
-> -	if (IS_ENABLED(CONFIG_KGDB)) {
-> -		if (esr_brk_comment(esr) == KGDB_DYN_DBG_BRK_IMM)
-> -			return kgdb_brk_handler(regs, esr);
-> -		if (esr_brk_comment(esr) == KGDB_COMPILED_DBG_BRK_IMM)
-> -			return kgdb_compiled_brk_handler(regs, esr);
-> -	}
-> +	unsigned long comment = esr_brk_comment(esr);
-> +	int ret = DBG_HOOK_ERROR;
->  
->  	if (IS_ENABLED(CONFIG_KPROBES)) {
-> -		if (esr_brk_comment(esr) == KPROBES_BRK_IMM)
-> +		if (comment == KPROBES_BRK_IMM)
->  			return kprobe_brk_handler(regs, esr);
-> -		if (esr_brk_comment(esr) == KPROBES_BRK_SS_IMM)
-> +		if (comment == KPROBES_BRK_SS_IMM)
->  			return kprobe_ss_brk_handler(regs, esr);
->  	}
->  
->  	if (IS_ENABLED(CONFIG_KRETPROBES) &&
-> -		esr_brk_comment(esr) == KRETPROBES_BRK_IMM)
-> +	    comment == KRETPROBES_BRK_IMM)
->  		return kretprobe_brk_handler(regs, esr);
->  
-> -	return DBG_HOOK_ERROR;
-> +	instrumentation_begin();
-> +	if (comment == BUG_BRK_IMM)
-> +		ret = bug_brk_handler(regs, esr);
-> +	else if (IS_ENABLED(CONFIG_CFI) && esr_is_cfi_brk(esr))
-> +		ret = cfi_brk_handler(regs, esr);
-> +	else if (comment == FAULT_BRK_IMM)
-> +		ret = reserved_fault_brk_handler(regs, esr);
-> +	else if (IS_ENABLED(CONFIG_KASAN_SW_TAGS) &&
-> +		 (comment & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
-> +		ret = kasan_brk_handler(regs, esr);
-> +	else if (IS_ENABLED(CONFIG_UBSAN_TRAP) && esr_is_ubsan_brk(esr))
-> +		ret = ubsan_brk_handler(regs, esr);
-> +	else if (IS_ENABLED(CONFIG_KGDB)) {
-> +		if (comment == KGDB_DYN_DBG_BRK_IMM)
-> +			ret = kgdb_brk_handler(regs, esr);
-> +		else if (comment == KGDB_COMPILED_DBG_BRK_IMM)
-> +			ret = kgdb_compiled_brk_handler(regs, esr);
-> +	}
-> +	instrumentation_end();
-> +
-> +	return ret;
->  }
-> -NOKPROBE_SYMBOL(call_el1_break_hook);
-
-I don't think you need to make any structural changes to
-call_el1_break_hook(). Just mark it as noinstr, and remove the
-NOKPROBE_SYMBOL() annotation. The existing control flow will be safe.
-
->  /*
->   * We have already unmasked interrupts and enabled preemption
-> @@ -261,14 +268,15 @@ void do_el0_brk64(unsigned long esr, struct pt_regs *regs)
->  	send_user_sigtrap(TRAP_BRKPT);
->  }
->  
-> -void do_el1_brk64(unsigned long esr, struct pt_regs *regs)
-> +void noinstr do_el1_brk64(unsigned long esr, struct pt_regs *regs)
->  {
->  	if (call_el1_break_hook(regs, esr) == DBG_HOOK_HANDLED)
->  		return;
->  
-> +	instrumentation_begin();
->  	die("Oops - BRK", regs, esr);
-> +	instrumentation_end();
->  }
-> -NOKPROBE_SYMBOL(do_el1_brk64);
-
-Likewise, just mark do_el1_brk64() as noinstr and remove the
-NOKPROBE_SYMBOL() annotation, without the instrumentation_{begin,end}()
-calls.
-
-Mark.
+Will
 
