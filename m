@@ -4,76 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91255C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0627C5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 13:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
-	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gW+tvRQPk481HdTwPz8zkkWSMpWsfa6tS8dyetXXOrU=; b=Xjd1PaIRkh6nSZWMUNauzGluBP
-	d7p4upE8Ky8ULHd08IEFpvTu+8BHMisTT0KrYmWHc61JqHkeMCysUsmoSjNg4sPVLbKrMHONDJQxw
-	OH4eL6Vzd0ovbKDgsdU6eId3J1VJ6wQBDAz1FFwHaB5kQeQgMiHE28ygmE424u7YkJeGtUU4w3dl2
-	+g/UQ18lxr00I86POvrDMU+7Sn0TteFZSPAwPshfHbDS34/GkyOLgKAoE74yybcB9Ei+RoP6n8kYA
-	z5K737b10fIOJ9Fd3lePajK5sgTRBmowIRkuhbHOdQswI8jRK9lLYrcNMCaDZZ1jDOskX1X+uJ4T7
-	nVGNDOFg==;
+	bh=QWZn+Q7nTgF3D3UTiWJxf4taxphpUYdOHuAoPhIH858=; b=4QlaaG0GTn6dhdTe5CKfUJCEkz
+	bl0DnPsste7oyRyBx3aG9HwVvoNFCqlgvR0+Ye07fW0Ae++knycsQ8J12wQbApXEBnbWECHKbR8vo
+	6NE0JChNWWARn/ZKCSO20E5D3MZQTPv0wy0EkAz8qpMqTXGPQ78+nZL3LKCHy6VZ/3IH57a9+JU13
+	GLYZPIjygxH1kqmYLYuQ3QOHxHHn8rMrgtVngn4hX0rbYm0iZqlvVqHfZtz17/6sBT/jEU5bZd0fh
+	Xu/lQfGqsSNkdsPUM7MNtP+Dm6jJCgiHY5MHpYPqo7cLRaKguC7LxIYrGxWixwPTc3c+1xpt3inCM
+	mZC03ZtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpn76-0000000CbA0-0byo;
-	Fri, 31 Jul 2026 13:17:24 +0000
-Received: from out203-205-221-149.mail.qq.com ([203.205.221.149])
+	id 1wpmzm-0000000CYD8-2oCb;
+	Fri, 31 Jul 2026 13:09:50 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpn71-0000000Cb7J-0xSB
+	id 1wpmzU-0000000CXua-2KHW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 13:17:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1785503832; bh=gW+tvRQPk481HdTwPz8zkkWSMpWsfa6tS8dyetXXOrU=;
-	h=From:To:Cc:Subject:Date:References:In-Reply-To;
-	b=ewV+8ARlCn7ZAMKcE79lizjisbfeU2oczTzpc0TFED9y8m2W5Q9/Sq0Wrs36zYZrc
-	 3KprUZeCURqox5ekUEh57UwE1pr//ENACRGlP1R3xkcvtfF4RxWEQf78d4TQIyv10p
-	 oIpqCvlVFU1JsSWvz2CdzmS/FEQOpiNblyhtLYfI=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-XMAILINFO: MhgqsjsLyB9lgglpvTRWkq4RtQwA360U8xUnh2PTRxSK+CQBsNgNq1J1FIRxgq
-	 r218z1HFIuJ9IRcNN5zmmaMt/+Swh/pTr+m/FmKmAGPYysj39rXWqFCEG9LDTiz/QS0L5Mt5TDq12
-	 hK8AZIhchdjCP3Y10d3BrioMfVynEtIteUUrAJiEbx36wL1yuA4tr38v1xSg9J7UUf1Ph5rDVJocu
-	 S6a9oD38B8YhsvvwpOCwbJ0ru4XfWofU59ZHPAeP6AylfuSJ12t2gbay4LCiC8XwWLe+g6Vi2xqdn
-	 JYy2A4ISNpdjEcdoKmWT2gTo9aKVmZ3rNFqtnFOd015HhD8uqW/btnIuxVBiaBD1fK3slEOiya8QP
-	 /Os9yMk4OvS+HTRwyI/WWIf+GQ8vyyt8p/gOiAimMRtVh6g0oOztKvqd/VlWM+hxGtpglIfa9U7aa
-	 7Q0AoYrM0EzA9A0jqNO9IFtTr+m6ZzpV40hmGYh06zr49fvC+ri5ridNtnHELqCFSf1YxxZWNzx4t
-	 1s/g6FdM8Mj7tzrqc5yKJJMu9TSMyFUCcme2wdjPZoHq2vZw2zgq01YMDjKrR/KLF9Ijm5V7WuaCq
-	 fW04sxTl5GSnFtdwlK/6uRAx/UkQwWDt+GqomKu8rjDu59JJPVRTbcLP5kLn1q2/TzuVyL0XnVBJe
-	 9rfEdH/l1xFLif18WpiWQXP4mvFIdnR60a7wrKY+xZ0M5pV74OBX4QC6nP5H8L1E8Y7FB4EB6lrk+
-	 HmMzyPoe8rq+3thLJUbXhMtf87Ho+akGM06EE0d/kC52iRq/pEmQmwyupb7BTcMlD31DNapja5TPH
-	 8LFV1Eg/QqmyhzBhJUSuSN6ZpLJEzgUN5s3Ex7lbSNBJmrrJHS4P1ewnVzJHkxck0rrHt7r/p4d9G
-	 kERH+8anl8MLPpkrwcCnsS/tdDnL9YXtZEDChwvx3W+p1rxxb3DUG9GNrlvp+w9GJxSOU4cGxAa4Q
-	 O1wHEbJ4Q29JHduTzjfV24N/6YaJc5OAzeS490Y2lDYDP/jXcAq6Jh3Dbn3iyP9uOWHRUZDUFFKvy
-	 vzpgMqmCwmtuZWjMOuk/9eRMhA9ajLpmh5waTNNmqut1OxsvFQDd0YfNaVutwqokygINboFFp86cn
-	 9D8=
-From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
-To: "=?utf-8?B?TWFyYyBLbGVpbmUtQnVkZGU=?=" <mkl@pengutronix.de>
-Cc: "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?VmluY2VudCBNYWlsaG9s?=" <mailhol@kernel.org>, "=?utf-8?B?Um9iIEhlcnJpbmc=?=" <robh@kernel.org>, "=?utf-8?B?S3J6eXN6dG9mIEtvemxvd3NraQ==?=" <krzk+dt@kernel.org>, "=?utf-8?B?Q29ub3IgRG9vbGV5?=" <conor+dt@kernel.org>, "=?utf-8?B?SGVpa28gU3R1ZWJuZXI=?=" <heiko@sntech.de>, "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?ZGV2aWNldHJlZQ==?=" <devicetree@vger.kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?SGVpa28gU3R1ZWJuZXI=?=" <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH v6 2/4] can: rockchip: add RK3588 CAN support
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: base64
-Date: Fri, 31 Jul 2026 21:17:10 +0800
-X-Priority: 3
-Message-ID: <tencent_5AC853C017A2AE1F5B13110D854C79C2FF06@qq.com>
-X-QQ-MIME: TCMime 1.0 by Tencent
-X-Mailer: QQMail 2.x
-X-QQ-Mailer: QQMail 2.x
-References: <tencent_7BAA0052C402BFFD26291A64198084E39107@qq.com>
- <tencent_207E464D12344B3228096E23A001D6882508@qq.com>
- <20260731-tall-camouflaged-earthworm-e1a7d0-mkl@pengutronix.de>
- <tencent_A3698A465C4621E164443B0005D1CC6FAE05@qq.com>
-	<20260731-precise-functional-lobster-cd779f-mkl@pengutronix.de>
-In-Reply-To: <20260731-precise-functional-lobster-cd779f-mkl@pengutronix.de>
-X-QQ-mid: xmsezb41-0t1785503830tg7jpmm29
+	Fri, 31 Jul 2026 13:09:34 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66VBmC6r1732219;
+	Fri, 31 Jul 2026 13:09:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=QWZn+Q7nTgF3D3UTi
+	WJxf4taxphpUYdOHuAoPhIH858=; b=dFOyKlqiu58NU2/rTKKiRexgYxW2AtdSB
+	nLTsqI2CEWOJg5MkeKuBj2++/JWzCt+/M3c2O6a5VHMD1YyznSxGUDlSkl8wsxKz
+	pNslJl4zA0p9spEE3/cZw0w3wM8OXG2R/qDxVmJmUTHiJuOS2+64nmpdKxUhZDDn
+	moJhWzrfMpeXdAnpT49oGWWFcZK2gEEX5bDZzOtDxLHabLhDrZ1irguLggnZTAo2
+	la2q7jt9uCO8JL667B/vqYgkdrGaB+rOt7mzfJGQ9/CpdHaMml8Nld7kr1rr2h7+
+	Ng8mQDjzJSIso7Qu1sCENvqRKL93J89p7v0GODWaluTfxtmacLjEQ==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fmuw7w4ky-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 31 Jul 2026 13:09:19 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 66VCuHVr026404;
+	Fri, 31 Jul 2026 13:09:17 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fn8yhqw79-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 31 Jul 2026 13:09:17 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 66VD9AfT32637360
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 31 Jul 2026 13:09:10 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id BA19920040;
+	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 506C120043;
+	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 31 Jul 2026 13:09:10 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v5 17/31] KVM: s390: Prepare gmap for a second KVM implementation
+Date: Fri, 31 Jul 2026 15:08:45 +0200
+Message-ID: <20260731130902.654679-18-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260731130902.654679-1-seiden@linux.ibm.com>
+References: <20260731130902.654679-1-seiden@linux.ibm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-GUID: X-sIKNlfr6TaEdkBYNs_EZgl62fvN4od
+X-Proofpoint-ORIG-GUID: 5DovtgPzdI6E0CuIWomXw-E0L6r-RNeF
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX1JatzVhlt1qY
+ 7MtsgWG7Jt9pJw/C9s77rDhe8FKKfCmHkQhBIPXcabuol6lNsfCzdY8E9rwO3KmCZPjHrP4eIBp
+ +JYc7GP6k1m5qv3lYHDxi6nU62D5r3BPaqZVhqJwE3POw/OO5acXWLlkIeTsPTjNgBiVjSw5RLM
+ 20TwdVra8tIzlD9a4DN/WiPWbt1XyhK5CuHz8w+fgHoEdinkEboUoztHsD5mb0E9pG7AIlsJnmx
+ GhYC+udvoSb9A4hZcpYv6ac5w+vozbNMsZ/6AZc9P7mVMYYhewHiX2jMs15f2q8vKJ5glyKI1/n
+ sOfp8nh6WNfnTb0r4e6O9874Kzjf0T7zkG7o2031RbkStovMc/8KB0D65WpRYkordFz7DMntG1z
+ iZswK7dRO+NcdFeeAQ2fwPHSxXl1la0PZI9iVBhjE+/jLhgDKr2MAbKOThjE9eXcwHwPNLFeRMm
+ JN9Eh65MKBzUw8LUAXw==
+X-Authority-Analysis: v=2.4 cv=SKFykuvH c=1 sm=1 tr=0 ts=6a6c9e7f cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=_uJ2qFJvUlpRL0NV2hwA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMxMDA5NiBTYWx0ZWRfX2EF4VS/hhWJc
+ gvmGI0wGW+ztU3qdYCRDm4gTf7sIR+BsgK6P8IYI0llm9NKoUXFp6B1/JEImq/41CySjx+2IVfy
+ MzMO6FHR8u3dUcCNK2Wfkygy140D0Yc=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-31_04,2026-07-30_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 malwarescore=0 clxscore=1015 adultscore=0
+ lowpriorityscore=0 bulkscore=0 impostorscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607310096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_061721_546568_9B9BDA83 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20260731_060932_660994_61E8DEEB 
+X-CRM114-Status: GOOD (  32.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,64 +141,379 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTWFyYywKCj4gPsKgPsKgQ2FuwqB5b3XCoGF0dGFjaMKgdGhlwqBUREPCoHRvwqB0aGXC
-oENBTsKgZnJhbWV3b3JrP8KgU2VlwqBjb21taXTCoDVlMTY2MzgxMGUxMQo+ID7CoD7CoCgi
-Y2FuOsKgbWNwMjUxeGZkOsKgZml4wqBUREPCoHNldHRpbmfCoGZvcsKgbG93wqBkYXRhwqBi
-aXTCoHJhdGVzIikuwqBBbmTCoGNoZWNrwqBpZgo+ID7CoD7CoENBTi1GRMKgd29ya3PCoG9u
-wqB0aGXCoHJrMzU4OMKgd29ya3M/Cj4gPgo+ID7CoENvdWxkwqB3ZcKgbGVhdmXCoHRoZcKg
-UkszNTg4wqBUREPCoHN1cHBvcnTCoG91dMKgb2bCoHRoaXPCoHBhdGNowqBzZXJpZXPCoGZv
-csKgbm93Pwo+IAo+IC4uYW5kwqBtYXJrwqB0aGXCoHJrMzU4OMKgYXPCoFJLQ0FORkRfUVVJ
-UktfQ0FORkRfQlJPS0VOwqBmb3LCoG5vdz/CoEZpbmXCoHdpdGjCoG1lLgoKSSBoYXZlIGZp
-bmlzaGVkIHRlc3RpbmcgdGhlIENBTi1GRCBUREMgaW50ZWdyYXRpb24gb24gUkszNTg4LgoK
-RW5hYmxpbmcgVERDIG1ha2VzIHRoZSB0cmFuc21pdHRlciBlbnRlciBidXMtb2ZmIGZvciBl
-dmVyeSBURENPIHZhbHVlCnRlc3RlZC4gVGhpcyBpbmNsdWRlcyB0aGUgZnJhbWV3b3JrIHZh
-bHVlIChURENPPTQ4KSwgVERDTz0wLCBhbmQgdGhlCm5vbi16ZXJvIHZhbHVlcyAxLCA4LCAx
-NiwgMjQsIDMyLCA0MCwgNDggYW5kIDU2LiBXaXRoIFREQ089NjMsIG9ubHkgb25lCmZyYW1l
-IHdhcyByZWNlaXZlZCBkdXJpbmcgYSAxMCBzZWNvbmQgdGVzdCwgc28gdGhhdCBzZXR0aW5n
-IGlzIG5vdCB1c2FibGUuCgpJIGNoZWNrZWQgdGhlIHJlZ2lzdGVyIGRlZmluaXRpb24gYWdh
-aW5zdCBSb2NrY2hpcCBSSzM1ODggVFJNClYxLjAtUGFydDEtMjAyMjAzMDkucGRmLiBUaGUg
-ZHJpdmVyIHVzZXMgQ0FOX1RSQU5TTUlUX0RFTEFZX0NPTVBFTlNBVElPTiBhdApvZmZzZXQg
-MHgxMDgsIHdpdGggdGRjX29mZnNldCBpbiBiaXRzIDY6MSBhbmQgdGRjX2VuYWJsZSBpbiBi
-aXQgMCwgd2hpY2gKbWF0Y2hlcyB0aGUgVFJNLiBUaHVzLCB0aGUgZmFpbHVyZSBpcyBub3Qg
-ZXhwbGFpbmVkIGJ5IGFuIGluY29ycmVjdCByZWdpc3RlcgphZGRyZXNzIG9yIGZpZWxkIGRl
-ZmluaXRpb24uCgpUaGUgdGVzdCBzZXR1cCB3YXM6CgogIEJvYXJkOiAgICAgICAgICAgICBl
-bWJlZGZpcmUscmszNTg4LWx1YmFuY2F0LTVpbwogIENBTiBjbG9jazogICAgICAgICAzMDAg
-TUh6CiAgTm9taW5hbCBiaXRyYXRlOiAgIDUwMCBrYml0L3MKICBEYXRhIGJpdHJhdGU6ICAg
-ICAgNSBNYml0L3MKICBTYW1wbGUgcG9pbnRzOiAgICAgODAlIG5vbWluYWwsIDgwJSBkYXRh
-CiAgQnVzOiAgICAgICAgICAgICAgIGNhbjAgYW5kIGNhbjEgZGlyZWN0bHkgY29ubmVjdGVk
-LCA2MCBPaG0gdGVybWluYXRpb24KCldpdGggVERDIGRpc2FibGVkLCBhYm91dCAyOSw3NzUg
-ZnJhbWVzIHdlcmUgcmVjZWl2ZWQgaW4gdGhyZWUgc2Vjb25kcyB3aXRoCm5vIGJ1cyBlcnJv
-cnMuIFdpdGggVERDIGVuYWJsZWQsIGNhbjAgdHlwaWNhbGx5IHJlYWNoZWQgYnVzLW9mZiBh
-ZnRlciBhYm91dAoxNS0zMSBidXMgZXJyb3JzLgoKVGhpcyBpcyBhIHByZWxpbWluYXJ5IGlu
-ZGljYXRpb24gb2YgYSBwcm9ibGVtIGluIHRoZSBSSzM1ODggQ0FOIElQIFREQwpwYXRoLCBh
-bHRob3VnaCBpdCBpcyBub3Qgc3VmZmljaWVudCB0byBwcm92ZSBhIHNpbGljb24gZGVmZWN0
-LiBJbgpwYXJ0aWN1bGFyLCB0aGUgaGFyZHdhcmUtbWVhc3VyZWQgdHJhbnNtaXR0ZXIgZGVs
-YXkgKFREQ1YpIGlzIG5vdCBvYnNlcnZhYmxlCnRocm91Z2ggdGhlIHJlZ2lzdGVycyBkZXNj
-cmliZWQgYnkgdGhlIFRSTSwgc28gdGhlIFREQyBvZmZzZXQgc2VtYW50aWNzCnN0aWxsIG5l
-ZWQgdG8gYmUgdmVyaWZpZWQgaW5kZXBlbmRlbnRseS4KClREQyBpcyBub3QgYSBtYW5kYXRv
-cnkgZmVhdHVyZSBmb3IgYSBDQU4tRkQgaW1wbGVtZW50YXRpb24uIEl0IGNvbXBlbnNhdGVz
-CnRoZSBUWC10by1SWCBsb29wIGRlbGF5IHdoZW4gdGhhdCBkZWxheSB3b3VsZCBvdGhlcndp
-c2UgY29uc3VtZSB0aGUgdGltaW5nCm1hcmdpbiBiZWZvcmUgdGhlIG5vcm1hbCBzYW1wbGUg
-cG9pbnQuIFdoZXRoZXIgaXQgbXVzdCBiZSBlbmFibGVkIGRlcGVuZHMgb24KdGhlIGNvbXBs
-ZXRlIGhhcmR3YXJlIHBhdGgsIGluY2x1ZGluZyB0aGUgY29udHJvbGxlciwgdHJhbnNjZWl2
-ZXIsIFBDQiBhbmQKYnVzLiBJdCBpcyB0aGVyZWZvcmUgbm90IHJlcXVpcmVkIHNvbGVseSBi
-ZWNhdXNlIENBTi1GRCBvciBhIHBhcnRpY3VsYXIKZGF0YSBiaXRyYXRlIGlzIHVzZWQuCgpP
-biB0aGUgYm9hcmQgdXNlZCBmb3IgdGhpcyB0ZXN0LCBDQU4tRkQgcnVucyByZWxpYWJseSBh
-dCA1IE1iaXQvcyB3aXRoIFREQwpkaXNhYmxlZCBhbmQgbm8gbG9zdCBmcmFtZXMuIFRoaXMg
-ZGVtb25zdHJhdGVzIHRoYXQgUkszNTg4IHN1cHBvcnRzIENBTi1GRCwKd2hpbGUgdGhlIG1h
-eGltdW0gdXNhYmxlIGRhdGEgYml0cmF0ZSBzdGlsbCBkZXBlbmRzIG9uIHRoZSBib2FyZCBk
-ZXNpZ24gYW5kCml0cyBUWC10by1SWCBkZWxheS4gQm9hcmRzIHdpdGggYSBsb25nZXIgZGVs
-YXkgbWF5IG5lZWQgYSBsb3dlciBkYXRhIGJpdHJhdGUsCmp1c3QgYXMgZGlmZmVyZW50IENB
-TiB0cmFuc2NlaXZlcnMgaGF2ZSBkaWZmZXJlbnQgbWF4aW11bSBkYXRhLXJhdGUKc3BlY2lm
-aWNhdGlvbnMgKGZvciBleGFtcGxlLCA4IE1iaXQvcyBmb3Igc29tZSBkZXZpY2VzIGFuZCA1
-IE1iaXQvcyBmb3IKb3RoZXJzKS4KCkluIG15IG9waW5pb24sIGVuYWJsaW5nIENBTi1GRCBz
-dXBwb3J0IG9uIFJLMzU4OCBpcyBpbmRlcGVuZGVudCBvZiBUREMuClREQyBpcyBhbiBvcHRp
-bWl6YXRpb24gZm9yIGhhcmR3YXJlIHBhdGhzIHRoYXQgbmVlZCBhZGRpdGlvbmFsIFRYLXRv
-LVJYCmRlbGF5IGNvbXBlbnNhdGlvbiwgcmF0aGVyIHRoYW4gYSBwcmVyZXF1aXNpdGUgZm9y
-IENBTi1GRCBvcGVyYXRpb24uIEkgd291bGQKdGhlcmVmb3JlIHN0aWxsIGxpa2UgdG8gZW5h
-YmxlIENBTi1GRCBzdXBwb3J0IGZvciBSSzM1ODggaW4gdGhpcyBzZXJpZXMgd2hpbGUKa2Vl
-cGluZyBUREMgZGlzYWJsZWQuIFREQyBzdXBwb3J0IGNhbiBiZSBpbnZlc3RpZ2F0ZWQgc2Vw
-YXJhdGVseSBpbiBhCmZvbGxvdy11cCBwYXRjaCBvbmNlIGl0cyBiZWhhdmlvciBoYXMgYmVl
-biB1bmRlcnN0b29kLgoKQmVzdCByZWdhcmRzLApDdW5oYW8K
+Refactor gmap code such that a second s390 (host) KVM implementation can
+use the gmap code as well. Move mmu code from s390 to gmap so the other
+KVM implementation can use it as well.
+
+No functional change.
+
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+---
+ arch/s390/kvm/gmap/Makefile  |   2 +-
+ arch/s390/kvm/gmap/kvm_mmu.c | 131 +++++++++++++++++++++++++++++++++++
+ arch/s390/kvm/gmap/kvm_mmu.h |  18 +++++
+ arch/s390/kvm/s390/s390.c    | 111 ++---------------------------
+ arch/s390/kvm/s390/s390.h    |  11 +++
+ 5 files changed, 168 insertions(+), 105 deletions(-)
+ create mode 100644 arch/s390/kvm/gmap/kvm_mmu.c
+ create mode 100644 arch/s390/kvm/gmap/kvm_mmu.h
+
+diff --git a/arch/s390/kvm/gmap/Makefile b/arch/s390/kvm/gmap/Makefile
+index 21967ed88877..02b797f63ffb 100644
+--- a/arch/s390/kvm/gmap/Makefile
++++ b/arch/s390/kvm/gmap/Makefile
+@@ -2,4 +2,4 @@
+ 
+ GMAP ?= ../gmap
+ 
+-kvm-y += $(GMAP)/dat.o $(GMAP)/gmap.o $(GMAP)/faultin.o
++kvm-y += $(GMAP)/dat.o $(GMAP)/gmap.o $(GMAP)/faultin.o $(GMAP)/kvm_mmu.o
+diff --git a/arch/s390/kvm/gmap/kvm_mmu.c b/arch/s390/kvm/gmap/kvm_mmu.c
+new file mode 100644
+index 000000000000..40fee79eb71f
+--- /dev/null
++++ b/arch/s390/kvm/gmap/kvm_mmu.c
+@@ -0,0 +1,131 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/kvm_types.h>
++#include <linux/kvm_host.h>
++
++#include "s390.h"
++#include "gmap.h"
++#include "dat.h"
++#include "kvm_mmu.h"
++
++/*
++ * Get (and clear) the dirty memory log for a memory slot.
++ */
++int s390_kvm_mmu_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log *log)
++{
++	int r;
++	unsigned long n;
++	struct kvm_memory_slot *memslot;
++	int is_dirty;
++
++	if (kvm_is_ucontrol(kvm))
++		return -EINVAL;
++
++	mutex_lock(&kvm->slots_lock);
++
++	r = -EINVAL;
++	if (log->slot >= KVM_USER_MEM_SLOTS)
++		goto out;
++
++	r = kvm_get_dirty_log(kvm, log, &is_dirty, &memslot);
++	if (r)
++		goto out;
++
++	/* Clear the dirty log */
++	if (is_dirty) {
++		n = kvm_dirty_bitmap_bytes(memslot);
++		memset(memslot->dirty_bitmap, 0, n);
++	}
++	r = 0;
++out:
++	mutex_unlock(&kvm->slots_lock);
++	return r;
++}
++
++int s390_kvm_mmu_prepare_memory_region(struct kvm *kvm,
++			       const struct kvm_memory_slot *old,
++			       struct kvm_memory_slot *new,
++			       enum kvm_mr_change change)
++{
++	if (kvm_is_ucontrol(kvm) && new && new->id < KVM_USER_MEM_SLOTS)
++		return -EINVAL;
++
++	/* When we are protected, we should not change the memory slots */
++	if (kvm_s390_pv_get_handle(kvm))
++		return -EINVAL;
++
++	if (change != KVM_MR_DELETE && change != KVM_MR_FLAGS_ONLY) {
++		/*
++		 * A few sanity checks. The memory in userland is ok to be
++		 * fragmented into various different vmas. It is okay to mmap()
++		 * and munmap() stuff in this slot after doing this call at any
++		 * time.
++		 */
++		if (new->userspace_addr & ~PAGE_MASK)
++			return -EINVAL;
++		if ((new->base_gfn + new->npages) * PAGE_SIZE > kvm->arch.mem_limit)
++			return -EINVAL;
++		if (!asce_contains_gfn(kvm->arch.gmap->asce, new->base_gfn + new->npages - 1))
++			return -EINVAL;
++	}
++
++	if (!kvm_s390_is_migration_mode(kvm))
++		return 0;
++
++	/*
++	 * Turn off migration mode when:
++	 * - userspace creates a new memslot with dirty logging off,
++	 * - userspace modifies an existing memslot (MOVE or FLAGS_ONLY) and
++	 *   dirty logging is turned off.
++	 * Migration mode expects dirty page logging being enabled to store
++	 * its dirty bitmap.
++	 */
++	if (change != KVM_MR_DELETE &&
++	    !(new->flags & KVM_MEM_LOG_DIRTY_PAGES))
++		WARN(kvm_s390_vm_stop_migration(kvm),
++		     "Failed to stop migration mode");
++
++	return 0;
++}
++
++void s390_kvm_mmu_commit_memory_region(struct kvm *kvm,
++			       struct kvm_memory_slot *old,
++			       const struct kvm_memory_slot *new,
++			       enum kvm_mr_change change)
++{
++	struct kvm_s390_mmu_cache *mc = NULL;
++	int rc = 0;
++
++	if (change == KVM_MR_FLAGS_ONLY)
++		return;
++
++	mc = kvm_s390_new_mmu_cache();
++	if (!mc) {
++		rc = -ENOMEM;
++		goto out;
++	}
++
++	scoped_guard(write_lock, &kvm->mmu_lock) {
++		switch (change) {
++		case KVM_MR_DELETE:
++			rc = dat_delete_slot(mc, kvm->arch.gmap->asce, old->base_gfn, old->npages);
++			break;
++		case KVM_MR_MOVE:
++			rc = dat_delete_slot(mc, kvm->arch.gmap->asce, old->base_gfn, old->npages);
++			if (rc)
++				break;
++			fallthrough;
++		case KVM_MR_CREATE:
++			rc = dat_create_slot(mc, kvm->arch.gmap->asce, new->base_gfn, new->npages);
++			break;
++		case KVM_MR_FLAGS_ONLY:
++			break;
++		default:
++			WARN(1, "Unknown KVM MR CHANGE: %d\n", change);
++		}
++	}
++out:
++	if (rc)
++		pr_warn("failed to commit memory region\n");
++	kvm_s390_free_mmu_cache(mc);
++}
+diff --git a/arch/s390/kvm/gmap/kvm_mmu.h b/arch/s390/kvm/gmap/kvm_mmu.h
+new file mode 100644
+index 000000000000..4167eaec8f6f
+--- /dev/null
++++ b/arch/s390/kvm/gmap/kvm_mmu.h
+@@ -0,0 +1,18 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef ARCH_KVM_GMAP_MMU_H
++#define ARCH_KVM_GMAP_MMU_H
++
++#include <linux/kvm_host.h>
++
++int s390_kvm_mmu_get_dirty_log(struct kvm *kvm, struct kvm_dirty_log *log);
++int s390_kvm_mmu_prepare_memory_region(struct kvm *kvm,
++				       const struct kvm_memory_slot *old,
++				       struct kvm_memory_slot *new,
++				       enum kvm_mr_change change);
++void s390_kvm_mmu_commit_memory_region(struct kvm *kvm,
++				       struct kvm_memory_slot *old,
++				       const struct kvm_memory_slot *new,
++				       enum kvm_mr_change change);
++
++#endif /* ARCH_KVM_GMAP_MMU_H */
+diff --git a/arch/s390/kvm/s390/s390.c b/arch/s390/kvm/s390/s390.c
+index f1962cf61cc1..87d4b25bc849 100644
+--- a/arch/s390/kvm/s390/s390.c
++++ b/arch/s390/kvm/s390/s390.c
+@@ -55,6 +55,7 @@
+ #include "gmap.h"
+ #include "faultin.h"
+ #include "pci.h"
++#include "kvm_mmu.h"
+ 
+ #define CREATE_TRACE_POINTS
+ #include "trace.h"
+@@ -746,33 +747,7 @@ static void sca_del_vcpu(struct kvm_vcpu *vcpu);
+ int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm,
+ 			       struct kvm_dirty_log *log)
+ {
+-	int r;
+-	unsigned long n;
+-	struct kvm_memory_slot *memslot;
+-	int is_dirty;
+-
+-	if (kvm_is_ucontrol(kvm))
+-		return -EINVAL;
+-
+-	mutex_lock(&kvm->slots_lock);
+-
+-	r = -EINVAL;
+-	if (log->slot >= KVM_USER_MEM_SLOTS)
+-		goto out;
+-
+-	r = kvm_get_dirty_log(kvm, log, &is_dirty, &memslot);
+-	if (r)
+-		goto out;
+-
+-	/* Clear the dirty log */
+-	if (is_dirty) {
+-		n = kvm_dirty_bitmap_bytes(memslot);
+-		memset(memslot->dirty_bitmap, 0, n);
+-	}
+-	r = 0;
+-out:
+-	mutex_unlock(&kvm->slots_lock);
+-	return r;
++	return s390_kvm_mmu_get_dirty_log(kvm, log);
+ }
+ 
+ static void icpt_operexc_on_all_vcpus(struct kvm *kvm)
+@@ -1268,7 +1243,7 @@ static int kvm_s390_vm_start_migration(struct kvm *kvm)
+  * Must be called with kvm->slots_lock to avoid races with ourselves,
+  * kvm_s390_vm_start_migration() and kvm_s390_get_cmma_bits().
+  */
+-static int kvm_s390_vm_stop_migration(struct kvm *kvm)
++int kvm_s390_vm_stop_migration(struct kvm *kvm)
+ {
+ 	/* migration mode already disabled */
+ 	if (!kvm->arch.migration_mode)
+@@ -5753,45 +5728,7 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 				   struct kvm_memory_slot *new,
+ 				   enum kvm_mr_change change)
+ {
+-	if (kvm_is_ucontrol(kvm) && new && new->id < KVM_USER_MEM_SLOTS)
+-		return -EINVAL;
+-
+-	/* When we are protected, we should not change the memory slots */
+-	if (kvm_s390_pv_get_handle(kvm))
+-		return -EINVAL;
+-
+-	if (change != KVM_MR_DELETE && change != KVM_MR_FLAGS_ONLY) {
+-		/*
+-		 * A few sanity checks. The memory in userland is ok to be
+-		 * fragmented into various different vmas. It is okay to mmap()
+-		 * and munmap() stuff in this slot after doing this call at any
+-		 * time.
+-		 */
+-		if (new->userspace_addr & ~PAGE_MASK)
+-			return -EINVAL;
+-		if ((new->base_gfn + new->npages) * PAGE_SIZE > kvm->arch.mem_limit)
+-			return -EINVAL;
+-		if (!asce_contains_gfn(kvm->arch.gmap->asce, new->base_gfn + new->npages - 1))
+-			return -EINVAL;
+-	}
+-
+-	if (!kvm->arch.migration_mode)
+-		return 0;
+-
+-	/*
+-	 * Turn off migration mode when:
+-	 * - userspace creates a new memslot with dirty logging off,
+-	 * - userspace modifies an existing memslot (MOVE or FLAGS_ONLY) and
+-	 *   dirty logging is turned off.
+-	 * Migration mode expects dirty page logging being enabled to store
+-	 * its dirty bitmap.
+-	 */
+-	if (change != KVM_MR_DELETE &&
+-	    !(new->flags & KVM_MEM_LOG_DIRTY_PAGES))
+-		WARN(kvm_s390_vm_stop_migration(kvm),
+-		     "Failed to stop migration mode");
+-
+-	return 0;
++	return s390_kvm_mmu_prepare_memory_region(kvm, old, new, change);
+ }
+ 
+ void kvm_arch_commit_memory_region(struct kvm *kvm,
+@@ -5799,42 +5736,7 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+ 				const struct kvm_memory_slot *new,
+ 				enum kvm_mr_change change)
+ {
+-	struct kvm_s390_mmu_cache *mc = NULL;
+-	int rc = 0;
+-
+-	if (change == KVM_MR_FLAGS_ONLY)
+-		return;
+-
+-	mc = kvm_s390_new_mmu_cache();
+-	if (!mc) {
+-		rc = -ENOMEM;
+-		goto out;
+-	}
+-
+-	scoped_guard(write_lock, &kvm->mmu_lock) {
+-		switch (change) {
+-		case KVM_MR_DELETE:
+-			rc = dat_delete_slot(mc, kvm->arch.gmap->asce, old->base_gfn, old->npages);
+-			break;
+-		case KVM_MR_MOVE:
+-			rc = dat_delete_slot(mc, kvm->arch.gmap->asce, old->base_gfn, old->npages);
+-			if (rc)
+-				break;
+-			fallthrough;
+-		case KVM_MR_CREATE:
+-			rc = dat_create_slot(mc, kvm->arch.gmap->asce, new->base_gfn, new->npages);
+-			break;
+-		case KVM_MR_FLAGS_ONLY:
+-			break;
+-		default:
+-			WARN(1, "Unknown KVM MR CHANGE: %d\n", change);
+-		}
+-	}
+-out:
+-	if (rc)
+-		pr_warn("failed to commit memory region\n");
+-	kvm_s390_free_mmu_cache(mc);
+-	return;
++	s390_kvm_mmu_commit_memory_region(kvm, old, new, change);
+ }
+ 
+ /**
+@@ -5857,7 +5759,8 @@ void kvm_arch_commit_memory_region(struct kvm *kvm,
+  * * other error codes < 0 in case of other errors.
+  * * otherwise a number > 0 of bytes that have been faulted in successfully.
+  */
+-long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu, struct kvm_pre_fault_memory *range)
++long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
++				    struct kvm_pre_fault_memory *range)
+ {
+ 	struct guest_fault f = { .gfn = gpa_to_gfn(range->gpa), };
+ 	gpa_t end;
+diff --git a/arch/s390/kvm/s390/s390.h b/arch/s390/kvm/s390/s390.h
+index e144ca2e6d5e..9feb1fa66323 100644
+--- a/arch/s390/kvm/s390/s390.h
++++ b/arch/s390/kvm/s390/s390.h
+@@ -594,6 +594,11 @@ static inline bool kvm_s390_cur_gmap_fault_is_write(void)
+ 	return test_facility(75) && (current->thread.gmap_teid.fsi == TEID_FSI_STORE);
+ }
+ 
++static __always_inline int kvm_s390_is_migration_mode(struct kvm *kvm)
++{
++	return kvm->arch.migration_mode;
++}
++
+ /**
+  * kvm_s390_vcpu_crypto_reset_all
+  *
+@@ -624,4 +629,10 @@ void kvm_s390_vcpu_pci_enable_interp(struct kvm *kvm);
+  */
+ extern unsigned int diag9c_forwarding_hz;
+ 
++/*
++ * Must be called with kvm->slots_lock to avoid races with ourselves and
++ * kvm_s390_vm_start_migration.
++ */
++int kvm_s390_vm_stop_migration(struct kvm *kvm);
++
+ #endif
+-- 
+2.53.0
 
 
