@@ -4,82 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B6AC5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0772AC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgkkzLgavD1JLOx9pOWVhcYj+T5mcWCBWQkfA5oQhms=; b=wyGH162SvdyAYZuWSnhTPH2m5z
-	h7ED2TRz26kQ2eXBLHe+hTMJ1hBf916NBrh9F0S80GcvEYXLRXJBEDvT8Io1b2RN7DV4ORDjlVBtT
-	vdI1dnsYqcCgFIC/qVMCQ97Nn4SpvArY0+YChi7Pdb44WtP9ABOSHbsMQGs68LM64uUxFGL6ZSREj
-	xtktsYXW4FptQsdGeZ+X7gtIwGeuuT18STU7juaKLOJ5XazDQG6C/8rGUMUnID4zLXd0dw/63Yn8A
-	KUW3nC5rBOGOHz1OgdG6TY72jigt9f6g3sjOW81P6dlpRYrYJzhkFcQ77yeFiBregYbZASFMNLYNc
-	q84TQ4lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nj07TVSS88xh2c2zTrj+WBwUTZmshje68WracQeM4nY=; b=GL991obPzNWdbf9khQvG9YAyVy
+	zHGICv2pf1p7WGaANLIR88EuJWa7NXQRbDmZmo4OjMOmXCLxiWPMLa4wIlZCc/QpLSnY/WN/Di4S/
+	lqEFTe4bQe8OMtdB6Se/5nP2Gfauy9/Zixhr+WhZfopU8q5oSQveuu/kSIZKvCCw9X/mpNfktEFke
+	jMyyBn9YycwII0qCSEBSoSOogvD+h0o6H3jfN6jlkdawXqSnr/yKx29zO3yESNaD58D5bSHqlDirq
+	NwSuIkvIg4CRLIUpt9S9i4zZ92gixUiXNT3Qs4Nm1nQnZiwrQW1OwjHMB/dys9x0iOd8/bpQACgGP
+	4kYI3RYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpo8Q-0000000Cgzv-1nnM;
-	Fri, 31 Jul 2026 14:22:50 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpo8O-0000000Cgz5-1IQM;
-	Fri, 31 Jul 2026 14:22:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1785507608; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=gonwM0okZ6hITbCN/Ts7G4RSWCX89laF+zumSUVrwAm3oSEImua8/Ip3XZcGnxGl6XULlPKir3oD+3KhbSjsBbHJmflovKlVNIet0TDQsXb8fx/h/+dT+UySSYxxy8WmZuNHv7rmBoz54JNsjmDndkN0KzNKJRvCiAzgsmnR6L0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1785507608; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=GgkkzLgavD1JLOx9pOWVhcYj+T5mcWCBWQkfA5oQhms=; 
-	b=GO84OCE01uj9mMMoC8z/5OXltmEtqpXuHswEdTAQV34Pwa6FrxD8eUBTRduk0R2XrpptLJMj1k37Vv17SECccV8EYkX0jKqBt474eRpYtZiLi7vqIIJ8h7pkAcWX6adfFINnaHCzLHTTNRqrU2sOpFsade18MPzbvyu+6ec57Bg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785507608;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=GgkkzLgavD1JLOx9pOWVhcYj+T5mcWCBWQkfA5oQhms=;
-	b=QrZir8gD1Fhl9tzI/e8fj0GnAtfLqy68zI9Af7VVWI+IfKh65fPf+imDzAqgKqPD
-	wUDfyPTDepxJe5R4FEnzDMOw676FlFfi2td6hv0a8mj7wfEnofA0ik73cXA2DAn2ojj
-	zzFcZ+pxpDWEmGy+u/SUGIL66JCeHlrmrXRkBV0w=
-Received: by mx.zohomail.com with SMTPS id 1785507607193239.6197346559776;
-	Fri, 31 Jul 2026 07:20:07 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id A7E0118029A; Fri, 31 Jul 2026 16:20:00 +0200 (CEST)
-Date: Fri, 31 Jul 2026 16:20:00 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Vinod Koul <vkoul@kernel.org>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v5 1/6] drm/bridge: Implement generic USB Type-C DP HPD
- bridge
-Message-ID: <amyp3C_yzxpKzigR@venus>
-References: <20260730013349.51-1-kernel@airkyi.com>
- <20260730013349.51-2-kernel@airkyi.com>
+	id 1wpo8t-0000000Ch6i-3POV;
+	Fri, 31 Jul 2026 14:23:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpo8r-0000000Ch5w-2QJ6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 31 Jul 2026 14:23:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 949AE204C;
+	Fri, 31 Jul 2026 07:23:10 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A8F9C3F86F;
+	Fri, 31 Jul 2026 07:23:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785507794; bh=ksKcFdCryWP8YKPUDWxS2DbC+hibpP5T29zmb3nAGEA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hNVgkKG7dAE0lQ0xfRQ8Ie6kOr/K3KK4N9aQzEtjy0UwXCV4pvNxWoPvr+QJ5IblZ
+	 qOZgcTlUwezF0Kd3DM9LAF5gAGVMh6vR8tO1Y5wEEeMBfoMzYNzCUhOVVbD8KRKXNe
+	 URAc8HPsNZ+BDq0MNdx1uyD4bxJWXMeskChOFxr8=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org,
+	mark.rutland@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	ilkka@os.amperecomputing.com,
+	bwicaksono@nvidia.com
+Subject: [PATCH] perf/arm_cspmu: Support 64-bit programmers' model
+Date: Fri, 31 Jul 2026 15:23:08 +0100
+Message-ID: <df1d5eba590bcb12a3bab401ee47e172c51c9515.1785507788.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mc36q3ts5ojyt2ub"
-Content-Disposition: inline
-In-Reply-To: <20260730013349.51-2-kernel@airkyi.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/285.486.37
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_072248_408716_3F20C4D1 
-X-CRM114-Status: GOOD (  40.56  )
+X-CRM114-CacheID: sfid-20260731_072317_696876_3371F9D3 
+X-CRM114-Status: GOOD (  30.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,237 +69,338 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The 64-bit Programmers' model extension, now named FEAT_CSPMU_EXT64,
+makes all the non-counter registers 64-bit as well, of which we most
+need to care PMEVFILTR<n>, PMEVTYPER<n>, and PMCR since it changes
+location. Our event config fields are ready for this internally, but
+we need a few more tweaks to propagate 64-bit values properly from
+end to end.
 
---mc36q3ts5ojyt2ub
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 1/6] drm/bridge: Implement generic USB Type-C DP HPD
- bridge
-MIME-Version: 1.0
+Since 64-bit events leave no room for our existing "cycles" encoding,
+and we don't really expect to see implementations of it anyway, we
+deliberately omit generic support for the architectural fixed cycle
+counter in this case to save some bother. At worst, vendor modules
+can still implement their own encoding if they really want to.
 
-Hi,
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/perf/arm_cspmu/arm_cspmu.c    | 119 +++++++++++++++++++++-----
+ drivers/perf/arm_cspmu/arm_cspmu.h    |  25 +++---
+ drivers/perf/arm_cspmu/nvidia_cspmu.c |   2 +-
+ 3 files changed, 112 insertions(+), 34 deletions(-)
 
-On Thu, Jul 30, 2026 at 09:33:44AM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->=20
-> The HPD function of Type-C DP is implemented through
-> drm_connector_oob_hotplug_event(). For embedded DP, it is required
-> that the DRM connector fwnode corresponds to the Type-C port fwnode.
->=20
-> To describe the relationship between the DP controller and the Type-C
-> port device, we usually using drm_bridge to build a bridge chain.
->=20
-> Now several USB-C controller drivers have already implemented the DP
-> HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
-> HPD bridge on USB-C connector port device.
->=20
-> But this requires the USB-C controller driver to manually register the
-> HPD bridge. If the driver does not implement this feature, the bridge
-> will not be create.
->=20
-> So this patch implements a generic DP HPD bridge based on
-> aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
-> Type-C port device containing the DP svid is registered, it will
-> create an HPD bridge for it without the need for the USB-C controller
-> driver to implement it.
->=20
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-> Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->=20
-> (no changes since v5)
->=20
-> Changes in v4:
-> - Scan the entire typec_bus and attempt to register the hpd bridge,
->   so as not to miss devices that were already added during initialization.
->=20
-> (no changes since v3)
->=20
-> Changes in v2:
-> - Add copyright text.
-> - Remove useless goto.
-> ---
->  drivers/gpu/drm/bridge/Kconfig                | 10 +++
->  drivers/gpu/drm/bridge/Makefile               |  1 +
->  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 64 +++++++++++++++++++
->  3 files changed, 75 insertions(+)
->  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
->=20
-> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kcon=
-fig
-> index 4a57d49b4c6d..9739b2a19758 100644
-> --- a/drivers/gpu/drm/bridge/Kconfig
-> +++ b/drivers/gpu/drm/bridge/Kconfig
-> @@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
->  	  Simple bridge that terminates the bridge chain and provides HPD
->  	  support.
-> =20
-> +if DRM_AUX_HPD_BRIDGE
-> +config DRM_AUX_HPD_TYPEC_BRIDGE
-> +	tristate
-> +	depends on TYPEC || !TYPEC
-> +	default TYPEC
-> +	help
-> +	  Simple bridge that terminates the bridge chain and provides HPD
-> +	  support. It build bridge on each USB-C connector device node.
-> +endif
-> +
->  menu "Display Interface Bridges"
->  	depends on DRM && DRM_BRIDGE
-> =20
-> diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Mak=
-efile
-> index 15cc821d85b7..d88a9e1ccc9a 100644
-> --- a/drivers/gpu/drm/bridge/Makefile
-> +++ b/drivers/gpu/drm/bridge/Makefile
-> @@ -1,6 +1,7 @@
->  # SPDX-License-Identifier: GPL-2.0
->  obj-$(CONFIG_DRM_AUX_BRIDGE) +=3D aux-bridge.o
->  obj-$(CONFIG_DRM_AUX_HPD_BRIDGE) +=3D aux-hpd-bridge.o
-> +obj-$(CONFIG_DRM_AUX_HPD_TYPEC_BRIDGE) +=3D aux-hpd-typec-dp-bridge.o
->  obj-$(CONFIG_DRM_CHIPONE_ICN6211) +=3D chipone-icn6211.o
->  obj-$(CONFIG_DRM_CHRONTEL_CH7033) +=3D chrontel-ch7033.o
->  obj-$(CONFIG_DRM_CROS_EC_ANX7688) +=3D cros-ec-anx7688.o
-> diff --git a/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c b/drivers/g=
-pu/drm/bridge/aux-hpd-typec-dp-bridge.c
-> new file mode 100644
-> index 000000000000..43af3ea20f20
-> --- /dev/null
-> +++ b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
-> @@ -0,0 +1,64 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +/*
-> + * Copyright (C) 2026 Rockchip Electronics Co., Ltd.
-> + *
-> + * Author: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> + */
-> +#include <linux/of.h>
-> +#include <linux/usb/typec_altmode.h>
-> +#include <linux/usb/typec_dp.h>
-> +
-> +#include <drm/bridge/aux-bridge.h>
-> +
-> +static int drm_typec_bus_event(struct notifier_block *nb,
-> +			       unsigned long action, void *data)
-> +{
-> +	struct device *dev =3D (struct device *)data;
-> +	struct typec_altmode *alt =3D to_typec_altmode(dev);
-> +
-> +	if (action !=3D BUS_NOTIFY_ADD_DEVICE)
-> +		return NOTIFY_OK;
-> +
-> +	/*
-> +	 * alt->dev.parent->parent : USB-C controller device
-> +	 * alt->dev.parent         : USB-C connector device
-> +	 */
-> +	if (is_typec_port_altmode(&alt->dev) && alt->svid =3D=3D USB_TYPEC_DP_S=
-ID)
-> +		drm_dp_hpd_bridge_register(alt->dev.parent->parent,
-> +					   to_of_node(alt->dev.parent->fwnode));
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
+index ad82de166dd1..7e1b6cc534e4 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.c
++++ b/drivers/perf/arm_cspmu/arm_cspmu.c
+@@ -78,13 +78,13 @@ static struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev)
+ }
+ 
+ /*
+- * In CoreSight PMU architecture, all of the MMIO registers are 32-bit except
+- * counter register. The counter register can be implemented as 32-bit or 64-bit
+- * register depending on the value of PMCFGR.SIZE field. For 64-bit access,
+- * single-copy 64-bit atomic support is implementation defined. APMT node flag
+- * is used to identify if the PMU supports 64-bit single copy atomic. If 64-bit
+- * single copy atomic is not supported, the driver treats the register as a pair
+- * of 32-bit register.
++ * With FEAT_CSPMU_EXT32, all of the MMIO registers are 32-bit except the
++ * counter registers, which are either 32-bit or 64-bit depending on the value
++ * of PMCFGR.SIZE. It is implementation-defined whether single-copy-atomic
++ * 64-bit accesses are supported, so we rely on a firmware flag to identify
++ * that, and otherwise treat a 64-bit counter as a non-atomic pair of 32-bit
++ * registers. With FEAT_CSPMU_EXT64, everything is 64-bit, but we may still
++ * have to deal with atomicity being broken.
+  */
+ 
+ /*
+@@ -173,13 +173,28 @@ arm_cspmu_event_attr_is_visible(struct kobject *kobj,
+ 	eattr = container_of(attr, typeof(*eattr), attr.attr);
+ 
+ 	/* Hide cycle event if not supported */
+-	if (!supports_cycle_counter(cspmu) &&
++	if ((cspmu->has_ext64 || !supports_cycle_counter(cspmu)) &&
+ 	    eattr->id == ARM_CSPMU_EVT_CYCLES_DEFAULT)
+ 		return 0;
+ 
+ 	return attr->mode;
+ }
+ 
++ssize_t arm_cspmu_default_format_show(struct device *dev,
++				      struct device_attribute *attr, char *buf)
++{
++	struct perf_pmu_events_attr *fmt = container_of(attr, typeof(*fmt), attr);
++	struct arm_cspmu *cspmu = to_arm_cspmu(dev_get_drvdata(dev));
++	u64 field = cspmu->has_ext64 ? U64_MAX : U32_MAX;
++	DECLARE_BITMAP(bits, 64) = { BITMAP_FROM_U64(field) };
++
++	if (!fmt->id)
++		return sysfs_emit(buf, "config:%*pbl\n", 64, bits);
++
++	return sysfs_emit(buf, "config%lld:%*pbl\n", fmt->id, 64, bits);
++}
++EXPORT_SYMBOL_GPL(arm_cspmu_default_format_show);
++
+ static struct attribute *arm_cspmu_format_attrs[] = {
+ 	ARM_CSPMU_FORMAT_EVENT_ATTR,
+ 	ARM_CSPMU_FORMAT_FILTER_ATTR,
+@@ -198,9 +213,9 @@ arm_cspmu_get_format_attrs(const struct arm_cspmu *cspmu)
+ 	return attrs;
+ }
+ 
+-static u32 arm_cspmu_event_type(const struct perf_event *event)
++static u64 arm_cspmu_event_type(const struct perf_event *event)
+ {
+-	return event->attr.config & ARM_CSPMU_EVENT_MASK;
++	return event->attr.config;
+ }
+ 
+ static bool arm_cspmu_is_cycle_counter_event(const struct perf_event *event)
+@@ -208,6 +223,16 @@ static bool arm_cspmu_is_cycle_counter_event(const struct perf_event *event)
+ 	return (event->attr.config == ARM_CSPMU_EVT_CYCLES_DEFAULT);
+ }
+ 
++static u64 arm_cspmu_filter(const struct perf_event *event)
++{
++	return event->attr.config1;
++}
++
++static u64 arm_cspmu_filter2(const struct perf_event *event)
++{
++	return event->attr.config2;
++}
++
+ static ssize_t arm_cspmu_identifier_show(struct device *dev,
+ 					 struct device_attribute *attr,
+ 					 char *page)
+@@ -417,6 +442,17 @@ static int arm_cspmu_init_impl_ops(struct arm_cspmu *cspmu)
+ 		DEFAULT_IMPL_OP(event_attr_is_visible),
+ 	};
+ 
++	/*
++	 * With 64-bit events, since our default "cycles" encoding won't work,
++	 * and the architecture recommends against implementing it anyway, we
++	 * choose to effectively ignore FEAT_CSPMU_CCNTR, unless a vendor
++	 * module really wants to provide its own encoding and ops.
++	 */
++	if (cspmu->has_ext64) {
++		cspmu->impl.ops.is_cycle_counter_event = NULL;
++		cspmu->impl.ops.set_cc_filter = NULL;
++	}
++
+ 	/* Firmware may override implementer/product ID from PMIIDR */
+ 	if (apmt_node && apmt_node->impl_id)
+ 		cspmu->impl.pmiidr = apmt_node->impl_id;
+@@ -518,19 +554,24 @@ static int arm_cspmu_alloc_attr_groups(struct arm_cspmu *cspmu)
+ 	return 0;
+ }
+ 
++static inline int arm_cspmu_pmcr(struct arm_cspmu *cspmu)
++{
++	return cspmu->has_ext64 ? PMCR_64 : PMCR;
++}
++
+ static inline void arm_cspmu_reset_counters(struct arm_cspmu *cspmu)
+ {
+-	writel(PMCR_C | PMCR_P, cspmu->base0 + PMCR);
++	writel(PMCR_C | PMCR_P, cspmu->base0 + arm_cspmu_pmcr(cspmu));
+ }
+ 
+ static inline void arm_cspmu_start_counters(struct arm_cspmu *cspmu)
+ {
+-	writel(PMCR_E, cspmu->base0 + PMCR);
++	writel(PMCR_E, cspmu->base0 + arm_cspmu_pmcr(cspmu));
+ }
+ 
+ static inline void arm_cspmu_stop_counters(struct arm_cspmu *cspmu)
+ {
+-	writel(0, cspmu->base0 + PMCR);
++	writel(0, cspmu->base0 + arm_cspmu_pmcr(cspmu));
+ }
+ 
+ static void arm_cspmu_enable(struct pmu *pmu)
+@@ -561,7 +602,8 @@ static int arm_cspmu_get_event_idx(struct arm_cspmu_hw_events *hw_events,
+ 	struct arm_cspmu *cspmu = to_arm_cspmu(event->pmu);
+ 
+ 	if (supports_cycle_counter(cspmu)) {
+-		if (cspmu->impl.ops.is_cycle_counter_event(event)) {
++		if (cspmu->impl.ops.is_cycle_counter_event &&
++		    cspmu->impl.ops.is_cycle_counter_event(event)) {
+ 			/* Search for available cycle counter. */
+ 			if (test_and_set_bit(cspmu->cycle_counter_logical_idx,
+ 					     hw_events->used_ctrs))
+@@ -804,26 +846,33 @@ static void arm_cspmu_event_update(struct perf_event *event)
+ static inline void arm_cspmu_set_event(struct arm_cspmu *cspmu,
+ 					struct hw_perf_event *hwc)
+ {
+-	u32 offset = PMEVTYPER + (4 * hwc->idx);
+-
+-	writel(hwc->config, cspmu->base0 + offset);
++	if (cspmu->has_ext64)
++		writeq(hwc->config, cspmu->base0 + PMEVTYPER + (8 * hwc->idx));
++	else
++		writel(hwc->config, cspmu->base0 + PMEVTYPER + (4 * hwc->idx));
+ }
+ 
+ static void arm_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
+ 				    const struct perf_event *event)
+ {
+-	u32 filter = event->attr.config1 & ARM_CSPMU_FILTER_MASK;
+-	u32 filter2 = event->attr.config2 & ARM_CSPMU_FILTER_MASK;
+-	u32 offset = 4 * event->hw.idx;
++	u64 filter = arm_cspmu_filter(event);
++	u64 filter2 = arm_cspmu_filter2(event);
++	int n = event->hw.idx;
+ 
+-	writel(filter, cspmu->base0 + PMEVFILTR + offset);
+-	writel(filter2, cspmu->base0 + PMEVFILT2R + offset);
++	if (cspmu->has_ext64) {
++		writeq(filter, cspmu->base0 + PMEVFILTR + (8 * n));
++		writeq(filter2, cspmu->base0 + PMEVFILT2R + (8 * n));
++	} else {
++		writel(filter, cspmu->base0 + PMEVFILTR + (4 * n));
++		writel(filter2, cspmu->base0 + PMEVFILT2R + (4 * n));
++	}
+ }
+ 
++/* Note we deliberately don't expect 64-bit filters here; see init_impl_ops */
+ static void arm_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
+ 				    const struct perf_event *event)
+ {
+-	u32 filter = event->attr.config1 & ARM_CSPMU_FILTER_MASK;
++	u32 filter = arm_cspmu_filter(event);
+ 
+ 	writel(filter, cspmu->base0 + PMCCFILTR);
+ }
+@@ -976,6 +1025,30 @@ static int arm_cspmu_init_mmio(struct arm_cspmu *cspmu)
+ 		}
+ 	}
+ 
++	/*
++	 * We can infer FEAT_CSPMU_EXT64 from PMCNTEN, or hope that anything
++	 * that failed to get that right has at least implemented the optional
++	 * PMDEVARCH correctly...
++	 *
++	 * Note that architecturally, has_ext64 *should* imply has_atomic_dword,
++	 * but enough implementations have ignored that already that we'll just
++	 * have to still rely on the firmware flag.
++	 */
++	writel(~0U, cspmu->base0 + PMCNTENCLR);
++	writel(~0U, cspmu->base0 + PMCNTEN);
++	if (readl(cspmu->base0 + PMCNTENCLR)) {
++		cspmu->has_ext64 = true;
++		writel(0, cspmu->base0 + PMCNTEN);
++	} else {
++		u32 reg = readl(cspmu->base0 + PMDEVARCH);
++
++		if (reg & ARM_CSPMU_PMDEVARCH_PRESENT) {
++			reg &= ARM_CSPMU_PMDEVARCH_ARCHPART;
++			if (reg == 0xaf4 || reg == 0xaf5)
++				cspmu->has_ext64 = true;
++		}
++	}
++
+ 	cspmu->pmcfgr = readl(cspmu->base0 + PMCFGR);
+ 
+ 	cspmu->num_logical_ctrs = FIELD_GET(PMCFGR_N, cspmu->pmcfgr) + 1;
+diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
+index 3fc5c8d77266..c4058d602477 100644
+--- a/drivers/perf/arm_cspmu/arm_cspmu.h
++++ b/drivers/perf/arm_cspmu/arm_cspmu.h
+@@ -35,21 +35,15 @@
+ 	PMU_EVENT_ATTR_ID(_name, arm_cspmu_sysfs_event_show, _config)
+ 
+ 
+-/* Default event id mask */
+-#define ARM_CSPMU_EVENT_MASK	GENMASK_ULL(63, 0)
+-
+-/* Default filter value mask */
+-#define ARM_CSPMU_FILTER_MASK	GENMASK_ULL(63, 0)
+-
+ /* Default event format */
+ #define ARM_CSPMU_FORMAT_EVENT_ATTR	\
+-	ARM_CSPMU_FORMAT_ATTR(event, "config:0-32")
++	PMU_EVENT_ATTR_ID(event, arm_cspmu_default_format_show, 0)
+ 
+ /* Default filter format */
+ #define ARM_CSPMU_FORMAT_FILTER_ATTR	\
+-	ARM_CSPMU_FORMAT_ATTR(filter, "config1:0-31")
++	PMU_EVENT_ATTR_ID(filter, arm_cspmu_default_format_show, 1)
+ #define ARM_CSPMU_FORMAT_FILTER2_ATTR	\
+-	ARM_CSPMU_FORMAT_ATTR(filter2, "config2:0-31")
++	PMU_EVENT_ATTR_ID(filter2, arm_cspmu_default_format_show, 2)
+ 
+ /*
+  * This is the default event number for cycle count, if supported, since the
+@@ -78,6 +72,7 @@
+ #define PMEVFILT2R			0x800
+ #define PMEVFILTR			0xA00
+ #define PMCNTENSET			0xC00
++#define PMCNTEN				0xC10
+ #define PMCNTENCLR			0xC20
+ #define PMINTENSET			0xC40
+ #define PMINTENCLR			0xC60
+@@ -87,6 +82,8 @@
+ #define PMCFGR				0xE00
+ #define PMCR				0xE04
+ #define PMIIDR				0xE08
++#define PMCR_64				0xE10
++#define PMDEVARCH			0xFBC
+ #define PMPIDR0				0xFE0
+ #define PMPIDR1				0xFE4
+ #define PMPIDR2				0xFE8
+@@ -154,6 +151,10 @@
+ #define ARM_CSPMU_IMPL_ID_NVIDIA	0x36B
+ #define ARM_CSPMU_IMPL_ID_AMPERE	0xA16
+ 
++/* PMDEVARCH */
++#define ARM_CSPMU_PMDEVARCH_PRESENT	BIT(20)
++#define ARM_CSPMU_PMDEVARCH_ARCHPART	GENMASK(11, 0)
++
+ struct arm_cspmu;
+ 
+ /* This tracks the events assigned to each counter in the PMU. */
+@@ -183,7 +184,7 @@ struct arm_cspmu_impl_ops {
+ 	/* Check if the event corresponds to cycle count event */
+ 	bool (*is_cycle_counter_event)(const struct perf_event *event);
+ 	/* Decode event type/id from configs */
+-	u32 (*event_type)(const struct perf_event *event);
++	u64 (*event_type)(const struct perf_event *event);
+ 	/* Set/reset event filters */
+ 	void (*set_cc_filter)(struct arm_cspmu *cspmu,
+ 			      const struct perf_event *event);
+@@ -234,6 +235,7 @@ struct arm_cspmu {
+ 	int irq;
+ 
+ 	bool has_atomic_dword;
++	bool has_ext64;
+ 	u32 pmcfgr;
+ 	u32 num_logical_ctrs;
+ 	u32 num_set_clr_reg;
+@@ -250,6 +252,9 @@ ssize_t arm_cspmu_sysfs_event_show(struct device *dev,
+ 				   struct device_attribute *attr,
+ 				   char *buf);
+ 
++ssize_t arm_cspmu_default_format_show(struct device *dev,
++				      struct device_attribute *attr, char *buf);
++
+ /* Register vendor backend. */
+ int arm_cspmu_impl_register(const struct arm_cspmu_impl_match *impl_match);
+ 
+diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c b/drivers/perf/arm_cspmu/nvidia_cspmu.c
+index bac83e424d6d..a4c1ab886709 100644
+--- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
++++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
+@@ -762,7 +762,7 @@ static void pcie_tgt_pmu_reset_ev_filter(struct arm_cspmu *cspmu,
+ 	pcie_tgt_pmu_config_addr_filter(cspmu, false, base, mask, idx);
+ }
+ 
+-static u32 pcie_tgt_pmu_event_type(const struct perf_event *event)
++static u64 pcie_tgt_pmu_event_type(const struct perf_event *event)
+ {
+ 	return event->attr.config & NV_PCIE_TGT_EV_TYPE_MASK;
+ }
+-- 
+2.54.0.dirty
 
-So there are 3 ways to end up with duplicated hpd bridges now:
-
-1. TypeC controller driver already registered one manually
-2. There is a race in drm_aux_hpd_typec_dp_bridge_module_init, if a
-   device appears between registering the notifier and looping
-   through all pre-existing devices
-3. Reloading the aux-hpd-typec-dp-bridge module re-registers the
-   bridges
-
-It's not a huge problem as the system works with the duplicated HPD
-bridges, but it's also quite ugly.
-
-I think it can be trivially avoided by adding this function to
-drivers/gpu/drm/bridge/aux-hpd-bridge.c and then making use of it
-here as an additional check (code untested):
-
-bool drm_device_has_dp_hpd_bridge(struct device *parent)
-{
-	struct device *hpd_bridge =3D device_find_child_by_name(parent, "dp_hpd_br=
-idge");
-
-	if (!hpd_bridge)
-		return false;
-
-	put_device(hpd_bridge);
-	return true;
-}
-EXPORT_SYMBOL_GPL(drm_dev_has_dp_hpd_bridge);
-
-That would solve all of the above, but leaves one problem when this
-module races against manual device creation in a TypeC controller
-driver. That could be avoided by doing the check in
-devm_drm_dp_hpd_bridge_alloc() under a lock, but that's probably not
-worth the trouble (it would require updating all users to handle a
-new error code like -EEXIST) considering manual registration can be
-removed from all drivers anyways.
-
-Greetings,
-
--- Sebastian
-
-> +
-> +	return NOTIFY_OK;
-> +}
-> +
-> +static struct notifier_block drm_typec_event_nb =3D {
-> +	.notifier_call =3D drm_typec_bus_event,
-> +};
-> +
-> +static int check_device_already_added(struct device *dev, void *data)
-> +{
-> +	drm_typec_bus_event(NULL, BUS_NOTIFY_ADD_DEVICE, dev);
-> +	return 0;
-> +}
-> +
-> +static void drm_aux_hpd_typec_dp_bridge_module_exit(void)
-> +{
-> +	bus_unregister_notifier(&typec_bus, &drm_typec_event_nb);
-> +}
-> +
-> +static int __init drm_aux_hpd_typec_dp_bridge_module_init(void)
-> +{
-> +	bus_register_notifier(&typec_bus, &drm_typec_event_nb);
-> +	/*
-> +	 * Before module initialization, some devices may have already been add=
-ed.
-> +         * Register the HPD bridge for these devices.
-> +	 */
-> +	bus_for_each_dev(&typec_bus, NULL, NULL, check_device_already_added);
-> +	return 0;
-> +}
-> +
-> +module_init(drm_aux_hpd_typec_dp_bridge_module_init);
-> +module_exit(drm_aux_hpd_typec_dp_bridge_module_exit);
-> +
-> +MODULE_AUTHOR("Chaoyi Chen <chaoyi.chen@rock-chips.com>");
-> +MODULE_DESCRIPTION("DRM TYPEC DP HPD BRIDGE");
-> +MODULE_LICENSE("GPL");
-> --=20
-> 2.53.0
->=20
-
---mc36q3ts5ojyt2ub
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmpsrwkACgkQ2O7X88g7
-+poJkw/+KMpk0PnZBYCg+0tfUFBXNrjPd5jqvIzb1eMIcgN/E1jW9Qt79O6yXAAZ
-uwdcsGKpQ+DG8mmWZwirFCeeNCXP+GWntMKVkNY4SkLJQWNNha+B/KKuP1sobfP9
-c/Td1GfZSMJPG01KtOHpc3lL2R05nJp0v1fZOBPT8TjnH+4E+0XZDgaMtDZataDA
-p8lEUIOy9ZdVIV3yKRHesuGazKtSTxbNxaX23zqoTPipnuuJtqEP/DC/Z4NUIy5f
-yZhCNyNH9r8T6xXjhS3Wrg5A7bqz2x5X2UhEnLtKfVYpCo0TZh1vXgkSbQ9Sx8ff
-n7GQaeDiqZbo87sgCSRtbdXD1TBYgFHoY86qg0cZx2acwEe8mnxYpxV04ScAK4ef
-IsPhu/IlqZ21S0BRJfYLzDxWGofxDNOiB5CSrFwtpk6g4YHpfIbavMgRQNVqeQ92
-s6AiBvA4ot9fqtQTP9dZrT990c8qaluDVZKRoJgdG1nSfVjjZSlsennQi/EpS8yY
-cL41RQQdNNt1edxs/O/L0KcNrgPojwdx9NwydaO5iKEcGnqQRBg47+lrGFRlcnX3
-43HEL5S+F+qcO2cGp7W7B6oFpfSNGxjkMYjIuKmnI+rSCzfodseNcfhEqJLdGbOM
-DxRmSgCpGAlXirP95hduaKSR2UJ1PwvNUYCfR5LAh5mCApd7VuM=
-=DFla
------END PGP SIGNATURE-----
-
---mc36q3ts5ojyt2ub--
 
