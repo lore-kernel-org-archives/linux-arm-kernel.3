@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 476B3C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 20:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91AC6C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 20:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Se3TlLpuysYiEG2DYm26v81iW1ITt60yQ73LdmliEgA=; b=s2wL/3rRSE8f09NANsi1QCXL/m
-	bxd578a9EkqG6Ff+YKj3XCEipx8MmQ+waACXdOM12VzaWmLYUBmMMEoyLx4fxyf0mEowHPMGzFhE+
-	x/EXRktpXoCNqKUAc+QSlsTLlCcxDAziqfGDu3Orc2J3NoH1oL33oLv2RR5idCfNPP68eK9spzrWO
-	7sHu67nc51x+kxOA5MIo5dyqbHXOuzlEkqT4EyaJtz53cQKatazOIpvOyCbh4Q+X6ngUVXAxxiK0Q
-	JEMMMPqi1lc6UyPUSUDjbRHfvhyCXds35D9YIjxMmQj5KzFTP6Ksw6n3RaGsyaNcjDipEdC+ZpcOw
-	r2BDJB1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1b7OOK1ydfjojKAeVm00aLNWdWN8CVli0QWCGJGGJH4=; b=tJu/9tnL70709y66MO0NTT170B
+	S1v5u8qwVEwsCQkrg8zlDYtr77pryZitbRW1b9rAGl80BXVVJcrt+4O22Oqf4V+jvOB3jhLpBGneG
+	kBZrEETK3iTljxAuZYVJnzYGwEJTpwISNAHIqYqQ3I3U8x3qaD8VKHXLWCrm/rPT1K70kQ84rgQ5w
+	cf0M1bmhtDBDTd9IO+Vstq/5IjfvBuGgQcPZZz3jP1xO7eCoTm6QoX6Mx2sOp9/2zoH6A0mmhtD+m
+	q3B2ZethOeMbRLXzgE6e8K1/tSMIfmxXcVExMiFWryAi6/nxU/hEpOywmdHS3ndrg2MEuGAQW1BMh
+	Job8IWpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wptvm-0000000DYcf-19kB;
-	Fri, 31 Jul 2026 20:34:10 +0000
-Received: from mail-wr1-f43.google.com ([209.85.221.43])
+	id 1wptwr-0000000DYiN-2xKg;
+	Fri, 31 Jul 2026 20:35:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wptvj-0000000DYbw-27su
+	id 1wptwq-0000000DYi5-2D9t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 20:34:08 +0000
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4758bd3731bso1525960f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 13:34:06 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785530045; x=1786134845;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Se3TlLpuysYiEG2DYm26v81iW1ITt60yQ73LdmliEgA=;
-        b=FRMuQ289n1irgsXgJR1bUcb8ZOxU5l4pAtqsxicToxkuPefcX5zh2adAmH13cmTbJk
-         cCZoq/9NMlQUqmiM2WgSBTkwdg721Z+0zj+prJzQOvr/rVDR36+bu1ffWAFZCRXvlvZN
-         cduaRK4Ay7IbgAYF6i28DON1t0YZGR9v39GPPKkjRC4p/PznjUC7kDZ9JJHr+CDP5/ZP
-         PUuATMAu6EWZWMP4g2cq2UMVo24WWP5tFsbxpGrJJmEfJsvK2Il0zGXGMPdFXLNZI/IM
-         p5s1J0/ZW7oMLHa53EtXPzZPNIKIv5MPPBPIeHmcBXL0S8DQrXto38o8oDG5QVJoGOuV
-         1hgQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr4ugHhX+PEHfXGmYgEFmtpu6zsf+UzLXxHQ+yDieeiTx/OnEDuKuEvmWYytcRuZBUDZ/EHU/3ozM5VJRYvvDZg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVaYoKa4VDetc63UvGXE1QtRTczusbW/qDGtm5Kx/JpV4iJRSp
-	RjYiazxUXiF6fNSfgSIJo0dJY4bGFqVPBP+mvNyrXXDIKrJ6537z1bjM
-X-Gm-Gg: AR+sD11uwdABB7JWPQ+XykX1sopye6FruB4PxPeats8br0zmy4iAIIzaJp/sBZDY6Rz
-	3mQcZzzs7BCRTt/r7qQeE8Fkhyvcqj9zoP2nNNa23prfSEtNERWnDU+OB44ViYUsMkoSrk40JQG
-	buUxBKuYD4Ny3cIgayXGyE9clNxvYlcPpG5SsVquohCoCg+zYrIKKMz9etGzx2JqIc3/FIfNcZ4
-	JGFQ7Pv4Ai6MTHgybijcjXmDUvbGHm1YRry3qlnRhR/mz5ArngvEDW/jBbgybWRkVuH/cBSMwlg
-	FEKCDJMnOBHd50AvmdfCTOfJVZyPBLLHyGrby9R3HaTWonyddm2c3J9RQ5T498sc1i8vNTXSjhW
-	Wm4s++da6XgEdXuvszfU+l0KnD8Ss4c/d5I3EiYu60CtpEVlOfD0kU9JOk5jSPd7r4XGF5vHpue
-	3e9QcQnETKOwKHuf59so91/f1qWw7K163igUPT1MVfwKgFgZ9i7aAPLiR6+xwt3l4SLqdCi2t9f
-	gAqF4thMFqAQmxzhCYlu/wRidpjgQX4IwRmqA7xGMLEMBiBRZJfcWMUrvPkwCtq9eja
-X-Received: by 2002:a05:6000:1846:b0:47f:6e8b:699c with SMTP id ffacd0b85a97d-47fd729208fmr2040027f8f.14.1785530045266;
-        Fri, 31 Jul 2026 13:34:05 -0700 (PDT)
-Received: from ?IPV6:2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183? ([2001:8a0:d6cd:9000:86f4:4e71:9fc8:3183])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd456a6d7sm9618856f8f.19.2026.07.31.13.34.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 31 Jul 2026 13:34:04 -0700 (PDT)
-Message-ID: <6d9b28ec-0905-4cb0-9a62-980c7fa69572@reactivated.net>
-Date: Fri, 31 Jul 2026 21:34:02 +0100
+	Fri, 31 Jul 2026 20:35:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EEF09439FC;
+	Fri, 31 Jul 2026 20:35:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AED4B1F00AC4;
+	Fri, 31 Jul 2026 20:35:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785530115;
+	bh=1b7OOK1ydfjojKAeVm00aLNWdWN8CVli0QWCGJGGJH4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=MAnlS0XCeeG+IAX/DZqY8aetmPZb9L9iC68UYljTTm34OpK/T93OaKcoaWl9zDNlh
+	 qfS3qG4bG0a/935rvi1QLUI64nC7w4TZ+f2cZIQSKsLCdTY9izrFbigFcQ9NBCQ1z6
+	 IWGutnQJ3FiEYxA8SviAJheFFfSNnqA6V89hkE6axDb5jIcaUsHD0pIXRyuR1q1tPj
+	 zkfQjMVrLUPIP6nzoWlQ+HmsipDG4EdYUFtdrptG22DwTY8mrFEGOf9FGQ0sOkqjAq
+	 mlSn1vQL84YLakUibYG9bJuMBeyvIrfg8Vb0RyJx+vUOk/BnNVIP5+n86MG1itqxaP
+	 SSeejGJ0poq4Q==
+Date: Fri, 31 Jul 2026 15:35:15 -0500
+From: Rob Herring <robh@kernel.org>
+To: Umang Chheda <umang.chheda@oss.qualcomm.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Ruidong Tian <tianruidong@linux.alibaba.com>,
+	Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
+	faruque.ansari@oss.qualcomm.com, avaneesh.dwivedi@oss.qualcomm.com
+Subject: Re: [PATCH v2 1/4] dt-bindings: arm: ras: Introduce bindings for ARM
+ RAS error sources
+Message-ID: <20260731203515.GA1619665-robh@kernel.org>
+References: <20260720081954.1858180-1-umang.chheda@oss.qualcomm.com>
+ <20260720081954.1858180-2-umang.chheda@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] iommu: Add Broadcom BCM2712 IOMMU driver
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- nick.hollinghurst@raspberrypi.com, Jason Gunthorpe <jgg@ziepe.ca>
-References: <20260727-bcm2712-iommu-submit-v2-0-0247b5c03de8@reactivated.net>
- <20260727-bcm2712-iommu-submit-v2-4-0247b5c03de8@reactivated.net>
- <20260730-small-solid-spoonbill-8a8bbd@quoll>
-Content-Language: en-US
-From: Daniel Drake <dan@reactivated.net>
-In-Reply-To: <20260730-small-solid-spoonbill-8a8bbd@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_133407_557233_5649DAE8 
-X-CRM114-Status: GOOD (  16.78  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260720081954.1858180-2-umang.chheda@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +79,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/07/2026 08:00, Krzysztof Kozlowski wrote:
-> On Mon, Jul 27, 2026 at 09:43:59PM +0100, Daniel Drake wrote:
->> +static int bcm2712_iommu_init_cache(struct bcm2712_iommu *mmu,
->> +				    struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct platform_device *cache_pdev;
->> +	struct device_node *cache_np;
->> +
->> +	cache_np = of_parse_phandle(dev->of_node, "brcm,iommu-cache", 0);
->> +
->> +	/* Fall back on 'cache' property used in old/downstream firmware */
->> +	if (!cache_np)
->> +		cache_np = of_parse_phandle(dev->of_node, "cache", 0);
+On Mon, Jul 20, 2026 at 01:49:51PM +0530, Umang Chheda wrote:
+> ARMv8 and later processors implement the RAS (Reliability,
+> Availability and Serviceability) extensions, exposing hardware
+> error records through a standardised register interface.
 > 
-> NAK.
+> Add Device Tree bindings to describe RAS error sources.
 > 
-> You cannot have undocumented ABI. I asked you to drop this at v1.
-Is there any approach I should consider here in order to support 
-existing shipped firmware versions that use the 'cache' property, or 
-should I simply break compatibility?
+> Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
+> ---
+>  .../bindings/arm/arm,ras-error-source.yaml    | 330 ++++++++++++++++++
+>  include/dt-bindings/arm/arm-ras.h             |  11 +
+>  2 files changed, 341 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/arm/arm,ras-error-source.yaml
+>  create mode 100644 include/dt-bindings/arm/arm-ras.h
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/arm,ras-error-source.yaml b/Documentation/devicetree/bindings/arm/arm,ras-error-source.yaml
+> new file mode 100644
+> index 000000000000..add7063a1a62
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/arm/arm,ras-error-source.yaml
+> @@ -0,0 +1,330 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/arm,ras-error-source.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ARM RAS error source
+> +
+> +maintainers:
+> +  - Umang Chheda <umang.chheda@oss.qualcomm.com>
+> +
+> +description: |
+> +  ARMv8 and later processors implement the Reliability, Availability and
+> +  Serviceability (RAS) extensions.  Hardware blocks that support RAS expose
+> +  one or more error records through a standardised register interface.  Each
+> +  error record captures information about a detected hardware error (cache
+> +  ECC fault, TLB parity error, interconnect error, etc.) and can optionally
+> +  signal the OS via an interrupt.
+> +
+> +  Each DT node described by this binding represents one RAS error source —
+> +  a hardware block that exposes a set of error records.  Error records are
+> +  accessed either through system registers (for processor-local resources
+> +  such as L1/L2 caches and TLBs) or through a memory-mapped register window
+> +  (for shared or off-core resources such as L3 caches, SMMUs and GICs).
+> +
+> +properties:
+> +  compatible:
+> +    description:
+> +      Identifies the class of hardware block this error source belongs to.
+> +      arm,ras-processor covers processor error sources (cache, TLB, etc.).
+> +      arm,ras-smmu covers SMMU error sources.
+> +      arm,ras-gic covers GIC error sources.
+> +    enum:
+> +      - arm,ras-processor
+> +      - arm,ras-smmu
+> +      - arm,ras-gic
+> +
+> +  reg:
+> +    description:
+> +      Register windows for this error source.  When absent the error records
+> +      are accessed through system registers (ERRSELR_EL1 + ERX*_EL1).
+> +      When present, the first range is the primary error-record window;
+> +      additional named ranges are identified by reg-names.
+> +    minItems: 1
+> +    maxItems: 4
+> +
+> +  reg-names:
+> +    description:
+> +      Names for the optional additional register windows beyond the primary
+> +      error-record window.  err-group is the error group status register
+> +      window (ERRGSR).  fault-inject is the fault injection register window
+> +      (ERXPFG*).  irq-config is the interrupt routing configuration window.
+> +    minItems: 1
+> +    maxItems: 3
+> +    items:
+> +      enum:
+> +        - err-group
+> +        - fault-inject
+> +        - irq-config
 
-While I was working on another issue recently there was a lean towards 
-supporting existing/wrong DTs at the end of
-https://lore.kernel.org/all/878q898ulx.wl-maz@kernel.org/
+reg and reg-names must be the same number of entries.
 
-but admittedly that case has some different parameters: it was incorrect 
-DT values (not incorrect ABI) and also was more severe (breaks boot). In 
-this case if the system were to boot without iommu support it is not the 
-end of the world.
+> +
+> +  interrupts:
+> +    description:
+> +      Interrupts signalled by this error source.  The first interrupt is the
+> +      Fault Handling Interrupt (FHI), fired when a corrected error counter
+> +      overflows or a deferred error is detected.  The optional second
+> +      interrupt is the Error Recovery Interrupt (ERI), fired when an
+> +      uncorrected recoverable error is detected.
+> +    minItems: 1
+> +    maxItems: 2
 
-Thanks,
-Daniel
+Replace description with:
 
+minItems: 1
+items:
+  - description:
+      Fault Handling Interrupt (FHI), fired when a corrected error 
+      counter overflows or a deferred error is detected.
+  - description: 
+      Error Recovery Interrupt (ERI), fired when an uncorrected 
+      recoverable error is detected.
+
+
+Seems backwards to me that corrected errors is required and uncorrected 
+errors is optional. Should be fine to not care about corrected errors, 
+but uncorrected errors can't really be ignored.
+
+> +
+> +  interrupt-names:
+> +    description:
+> +      Names identifying the interrupts.  "fhi" is the Fault Handling
+> +      Interrupt; "eri" is the optional Error Recovery Interrupt.
+> +    minItems: 1
+> +    maxItems: 2
+> +    items:
+> +      enum:
+> +        - fhi
+> +        - eri
+
+Define the order.
+
+> +
+> +  arm,group-format:
+> +    description:
+> +      Page granularity of the memory-mapped error record group register
+> +      window.  Determines the ioremap size and the number of error group
+> +      status registers (ERRGSR) available.  Required when reg is present.
+
+Don't state constraints which are expressed as schemas.
+
+> +      Use the ARM_RAS_GROUP_* constants from <dt-bindings/arm/arm-ras.h>.
+> +      0 (ARM_RAS_GROUP_4K) is a 4 KiB window with 1 ERRGSR supporting up
+> +      to 64 records.  1 (ARM_RAS_GROUP_16K) is 16 KiB with 4 ERRGSRs and
+> +      up to 256 records.  2 (ARM_RAS_GROUP_64K) is 64 KiB with 14 ERRGSRs
+> +      and up to 896 records.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [0, 1, 2]
+> +
+> +  arm,num-records:
+> +    description:
+> +      Total number of error records in this error source, including both
+> +      implemented and unimplemented slots.
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 1
+> +
+> +  arm,record-impl:
+> +    description:
+> +      Bitmap of implemented error records.  Bit N set to 1 means error
+> +      record N is present and active in this error source.  Bit N set to 0
+> +      means record N is not implemented and must be skipped.  The array
+> +      length must equal the number of ERRGSRs implied by arm,group-format
+> +      (1 element for 4K, 4 for 16K, 14 for 64K).  For system-register
+> +      nodes (no reg property) a single u64 element is used.
+> +    $ref: /schemas/types.yaml#/definitions/uint64-array
+> +    minItems: 1
+> +    maxItems: 14
+> +
+> +  arm,status-reporting:
+> +    description:
+> +      Bitmap indicating which implemented error records must be polled
+> +      directly by the OS.  Bit N set to 1 means record N does not report
+> +      through the ERRGSR and must be polled by reading its ERX_STATUS
+> +      register directly in the interrupt handler.  Bit N set to 0 means
+> +      record N reports its status through the ERRGSR and will be discovered
+> +      via the ERRGSR scan path.  For system-register nodes (no reg property)
+> +      there is no ERRGSR, so every implemented record must be polled
+> +      directly; arm,status-reporting must equal arm,record-impl for all
+> +      system-register nodes.  Array length as for arm,record-impl.
+> +    $ref: /schemas/types.yaml#/definitions/uint64-array
+> +    minItems: 1
+> +    maxItems: 14
+> +
+> +  arm,addressing-mode:
+> +    description:
+> +      Bitmap indicating the type of address reported in the error address
+> +      register (ERX_ADDR) for each error record.  Bit N set to 0 means
+> +      record N reports a System Physical Address (SPA) that the OS can use
+> +      directly.  Bit N set to 1 means record N reports a node-specific
+> +      Logical Address (LA) that requires platform-specific translation to
+> +      obtain a SPA.  Array length as for arm,record-impl.
+> +    $ref: /schemas/types.yaml#/definitions/uint64-array
+> +    minItems: 1
+> +    maxItems: 14
+> +
+> +  # Processor error source properties (arm,ras-processor only)
+> +
+> +  cache:
+> +    description:
+> +      Phandle to the cache node (L1, L2, or L3) that this processor error
+> +      source monitors.  The referenced node must have compatible = "cache"
+> +      and a cache-level property identifying the level in the hierarchy.
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +
+> +  # SMMU error source properties (arm,ras-smmu only)
+> +
+> +  iommus:
+> +    description:
+> +      Phandle to the SMMU node that this error source monitors.
+
+If the iommu has #iommu-cells >0, then this property must match the cell 
+size. You can't have your own definition of 'iommus'.
+
+> +    maxItems: 1
+> +
+> +  # GIC error source properties (arm,ras-gic only)
+> +
+> +  arm,gic-ref:
+> +    description:
+> +      Phandle to the GIC node that this error source monitors.
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +
+> +required:
+> +  - compatible
+> +  - arm,num-records
+> +  - arm,record-impl
+> +  - arm,status-reporting
+> +
+> +allOf:
+> +  - if:
+> +      required:
+> +        - reg
+> +    then:
+> +      required:
+> +        - arm,group-format
+
+Better expressed as:
+
+dependentRequired:
+  reg: [ 'arm,group-format' ]
+
+Rob
 
