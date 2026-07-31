@@ -4,61 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0E76C5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9711C5516D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pfxSApNnDKp8oXD4We4iw4uuXptZ3JG6G+PRq4ukCHM=; b=ZSrJAGaglZL6TwuktWYgVkQbmh
-	TAgMO6uDIh4ACaxObnGitFnoPLOqToKu0tVtrQnfbeOFow4oI8kZ5Ju9E5KW+sMFgt2PCDwYA45OU
-	rKNioUqMGwZAvKNTZ1E14HV5IT9y6wBBO3oLVC8wxtBsbcfrpdFDKwUpQ6VR3DUUo3/de08++52Pr
-	+WPQaE5AFPHOb3zf9AuW1rroeXswO9M+ld1H/6ha6iO/4QuQYCPf4z33ho+2ugsTYfoiXJRFngkmp
-	0zxqUKhOwQO0kgEJjY1ntuWevg9s8ihbG10z8ZnOnPd/Joq18yVSI3VfAKFdyqayMsbB8pU9Co/fU
-	y8HCsC6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ghp7IlgSGAkktmWG76+/KYRDjfh2JesOk9n1fGTlGp8=; b=ert0jJEWzxxYLXCyPF+29XQu/W
+	iB5Nyez+zAht7Cl6K9Pu/gsspRnFUaXCdiHSmJPueVjNRrWIQTjlN808TRv1Giwz94mrGXtPfTAC1
+	UMo+7f/K2HTMAjC4x4RUr3I/eFZ/SiMx0bgYQ4UjmdYo0gnVi9TE1XYtebhB6KTu9TcMQS+MKAPVX
+	A1fVPKYBKQWIgIKYvyX+KA+Ip9P3BKEQ0gLy1etdq3mANeEKwEFZj66g5x+YHIB2arIxtvxXzdJTP
+	JePCEy5GtWwmfnvCYq7POxmI+7JSfitBI2quXQyKWY7oAeGVCBi2Hc/LWzsZQ7c2MLvn4fsi26F3M
+	1otynvhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoQi-0000000ClHo-42ys;
-	Fri, 31 Jul 2026 14:41:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoQf-0000000ClH9-43xl
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 14:41:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3E3EE204C;
-	Fri, 31 Jul 2026 07:41:36 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E21943F86F;
-	Fri, 31 Jul 2026 07:41:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785508900; bh=676jVp12RghrOPwzFXm6M05kWpCuXVi5gGt6A+m8Wbk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rcWDgzN7DaT98KKU6d9Tmxtar5LyOjNZpeu5BcDU7/tzFus9k6ofiWPauqW/8XvLE
-	 o2zf4y4Lxspwp7UsYuEKgYe8M+rxOLVPdiXIW2N/AB9Ux/gg7ESj83V6Ou60SpO5DU
-	 Hh1+dqSW5BT42uHBWor2NrN/HNhSOBjY3KXtPu/A=
-Date: Fri, 31 Jul 2026 15:41:32 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Hongyan Xia <hongyan.xia@transsion.com>
-Cc: Will Deacon <will@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiazi Li <jiazi.li@transsion.com>, Pu Hu <hupu@transsion.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [RFC PATCH 1/9] arm64/entry: Bound certain debug exception paths
- in instrumentation windows
-Message-ID: <amy0HHNl4GIdQ6qu@J2N7QTR9R3>
-References: <cover.1785153469.git.hongyan.xia@transsion.com>
- <38af667517b99785ccbc2075f53a364ba2acc73c.1785153469.git.hongyan.xia@transsion.com>
+	id 1wpoRD-0000000Claz-1b32;
+	Fri, 31 Jul 2026 14:42:15 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpoRA-0000000ClWV-0Ib1;
+	Fri, 31 Jul 2026 14:42:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785508929;
+	bh=T9YLXYV9yscTLz/3RQjqOP1ZHffRl5hykzJn/q2OMQQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=nMZ1J49UmJSiylL5ZMc1qaXItfkl7/0AR6+pUUAPTp2pkBXfa+4cIYEFLeVl9p07b
+	 XJF8SDTTv0o+9+wrH3VqvZNIMgSCr4TWzuZrBFrz4pi6Mv4MV9oQTOMLyqQcagiWE6
+	 /2CY8istQMlyDwKxkhKHRLsXyJ+9KoXImfU15IMcjWQxgDxlrPHoRGDomVp5WpJ5ow
+	 VxZoDCuayhm8e1ZYwjOMENZd1ktW0cmotVSqfOKdHUUtzbD+0GDI5KkazDkgMjy2Bn
+	 aINwEP48LyQmPxZJ/14JLOoX4EZ1QOtCWHhp0KUXfO1ophYpDlb6Yw0qjv//XQx3C/
+	 /HF7W6lugRyzQ==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 45C9A17E0700;
+	Fri, 31 Jul 2026 16:42:09 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id F1962480028; Fri, 31 Jul 2026 16:42:08 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Fri, 31 Jul 2026 16:42:06 +0200
+Subject: [PATCH v8 01/21] drm/bridge: synopsys: dw-dp: Register DP AUX on
+ bridge attach
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <38af667517b99785ccbc2075f53a364ba2acc73c.1785153469.git.hongyan.xia@transsion.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260731-synopsys-dw-dp-improvements-v8-1-ac1e6a75782f@collabora.com>
+References: <20260731-synopsys-dw-dp-improvements-v8-0-ac1e6a75782f@collabora.com>
+In-Reply-To: <20260731-synopsys-dw-dp-improvements-v8-0-ac1e6a75782f@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3652;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=T9YLXYV9yscTLz/3RQjqOP1ZHffRl5hykzJn/q2OMQQ=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpstED9e8dRXL1rkVWGQsXRgfrnozRvuB2FI
+ PW9+Ga/uMwZ4IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqbLRAAAoJENju1/PI
+ O/qavBkP+gOGNM24u6tNqQ+04hmuwpnFz9zKA3QM7dc0Y9nLYbeSeRDj8VP31IwUlSq9f6xiKdS
+ Na0Aek7k4whkZIw98cOC7lvOjNjh72XsfMyTbHr/NdpEEBy2IKnfyXkvB//0QMk5+6XODoFrBOR
+ ZO7JEkLqyAiQ9ZXu92m+qNkvPh7lJI5Yd+B0sjTvfwB5Roj+wkG/m9oj5g1e/YPWjCmHN7Hwjti
+ RVNxpCwLBTLdcOxjNgJdiZYYPofpLbZ0JsA2olrFeeOevR3aiG6eWXfr6YspGJc60aIDGbSJJ7K
+ Pm4/So1LHLF1cnyOS/jgGESu8PXadOk7pQCsQmRH868y8qANkAN+92HxuE79a3mcpPYLx5bfJ/l
+ QefdizrJmysgB+pgqmgJjWOj/a/F16IJS9WyGrZJs+/G7EOVQ1hla2iG4T9NYizJA+jSfCRiTp3
+ JJTdgUJKki25x6NfrpmuGeBG4VIlOhKgkomyj+m2sk9CEXxfjaRlyHotL5P00ONcGymh3FT6FQG
+ 2KloQ7mvKZCwcFSVaCK+u/yFKSQq2cWhXruJswHD+oPcJMhFAf1U+KBir7h/7oReHNV57rr1nse
+ ThyJbyeCd2GNvbc8uTeR91Q8sSIfTNY0DViWvyYKWKgQfR/deTAnq1NZlTd1Z97YooBjUQrauSt
+ 21nWsYca5kTnGz5VDh6I0mA==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_074142_171266_918BF7D9 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20260731_074212_304777_2C84B325 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,97 +113,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 12:25:34PM +0000, Hongyan Xia wrote:
-> From: Hongyan Xia <hongyan.xia@transsion.com>
-> 
-> The el1 debug exception handlers are noinstr, but their payload calls
-> (do_breakpoint(), do_watchpoint(), try_step_suspended_breakpoints()
-> and the Cortex-A76 erratum handler) are ordinary instrumentable code.
-> 
-> Mark the boundaries explicitly with instrumentation_begin()/end(), in
-> the same style as x86 exception entries.
-> 
-> The BRK handlers (do_el1_brk64(), do_el1_softstep()) will be dealt with
-> in later patches.
-> 
-> Signed-off-by: Hongyan Xia <hongyan.xia@transsion.com>
+Unregister the DP AUX device at the right spot as documented in the
+drm_dp_aux_register() function description. This helps that it is
+only accessed when the DRM device is ready and the bridge is powered
+and initialized (further fixes are required for that).
 
-Please don't do this.
+Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 55 +++++++++++++++++++++------------
+ 1 file changed, 35 insertions(+), 20 deletions(-)
 
-The instrumentation_{begin,end}() markers don't do anything useful on
-arm64 (since we don't use objtoo, etc), and adding them to a subset of
-arm64's exception entry code gives the misleading impression that these
-cases are different from other exception entry cases.
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index 3445c82e6f50..112a49911309 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -1813,7 +1813,36 @@ static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_b
+ 	return &state->base;
+ }
+ 
++static int dw_dp_bridge_attach(struct drm_bridge *bridge,
++			       struct drm_encoder *encoder,
++			       enum drm_bridge_attach_flags flags)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++	struct device *dev = dp->dev;
++	int ret;
++
++	dp->aux.dev = dev;
++	dp->aux.drm_dev = encoder->dev;
++	dp->aux.name = dev_name(dev);
++	dp->aux.transfer = dw_dp_aux_transfer;
++
++	ret = drm_dp_aux_register(&dp->aux);
++	if (ret)
++		dev_err(dev, "Aux register failed: %d\n", ret);
++
++	return ret;
++}
++
++static void dw_dp_bridge_detach(struct drm_bridge *bridge)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++
++	drm_dp_aux_unregister(&dp->aux);
++}
++
+ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
++	.attach = dw_dp_bridge_attach,
++	.detach = dw_dp_bridge_detach,
+ 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+ 	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+@@ -2044,20 +2073,10 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
+-	dp->aux.dev = dev;
+-	dp->aux.drm_dev = encoder->dev;
+-	dp->aux.name = dev_name(dev);
+-	dp->aux.transfer = dw_dp_aux_transfer;
+-	ret = drm_dp_aux_register(&dp->aux);
+-	if (ret) {
+-		dev_err_probe(dev, ret, "Aux register failed\n");
+-		return ERR_PTR(ret);
+-	}
+-
+ 	ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "Failed to attach bridge\n");
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	dw_dp_init_hw(dp);
+@@ -2065,37 +2084,33 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+ 	ret = phy_init(dp->phy);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "phy init failed\n");
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	ret = devm_add_action_or_reset(dev, dw_dp_phy_exit, dp);
+ 	if (ret)
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 
+ 	dp->irq = platform_get_irq(pdev, 0);
+ 	if (dp->irq < 0) {
+ 		ret = dp->irq;
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	ret = devm_request_threaded_irq(dev, dp->irq, NULL, dw_dp_irq,
+ 					IRQF_ONESHOT, dev_name(dev), dp);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "failed to request irq\n");
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	return dp;
+-
+-unregister_aux:
+-	drm_dp_aux_unregister(&dp->aux);
+-	return ERR_PTR(ret);
+ }
+ EXPORT_SYMBOL_GPL(dw_dp_bind);
+ 
+ void dw_dp_unbind(struct dw_dp *dp)
+ {
+-	drm_dp_aux_unregister(&dp->aux);
++	/* nothing to do */
+ }
+ EXPORT_SYMBOL_GPL(dw_dp_unbind);
+ 
 
-Mark.
+-- 
+2.53.0
 
-> ---
->  arch/arm64/kernel/entry-common.c | 19 +++++++++++++++++--
->  1 file changed, 17 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index ceb4eb11232a..466529cce1c3 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -6,6 +6,7 @@
->   */
->  
->  #include <linux/context_tracking.h>
-> +#include <linux/instrumentation.h>
->  #include <linux/irq-entry-common.h>
->  #include <linux/kasan.h>
->  #include <linux/linkage.h>
-> @@ -380,7 +381,9 @@ static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
->  
->  	state = arm64_enter_el1_dbg(regs);
->  	debug_exception_enter(regs);
-> +	instrumentation_begin();
->  	do_breakpoint(esr, regs);
-> +	instrumentation_end();
->  	debug_exception_exit(regs);
->  	arm64_exit_el1_dbg(regs, state);
->  }
-> @@ -388,9 +391,15 @@ static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
->  static void noinstr el1_softstp(struct pt_regs *regs, unsigned long esr)
->  {
->  	irqentry_state_t state;
-> +	bool handled;
->  
->  	state = arm64_enter_el1_dbg(regs);
-> -	if (!cortex_a76_erratum_1463225_debug_handler(regs)) {
-> +
-> +	instrumentation_begin();
-> +	handled = cortex_a76_erratum_1463225_debug_handler(regs);
-> +	instrumentation_end();
-> +
-> +	if (!handled) {
->  		debug_exception_enter(regs);
->  		/*
->  		 * After handling a breakpoint, we suspend the breakpoint
-> @@ -398,7 +407,11 @@ static void noinstr el1_softstp(struct pt_regs *regs, unsigned long esr)
->  		 * If we are stepping a suspended breakpoint there's nothing more to do:
->  		 * the single-step is complete.
->  		 */
-> -		if (!try_step_suspended_breakpoints(regs))
-> +		instrumentation_begin();
-> +		handled = try_step_suspended_breakpoints(regs);
-> +		instrumentation_end();
-> +
-> +		if (!handled)
->  			do_el1_softstep(esr, regs);
->  		debug_exception_exit(regs);
->  	}
-> @@ -413,7 +426,9 @@ static void noinstr el1_watchpt(struct pt_regs *regs, unsigned long esr)
->  
->  	state = arm64_enter_el1_dbg(regs);
->  	debug_exception_enter(regs);
-> +	instrumentation_begin();
->  	do_watchpoint(far, esr, regs);
-> +	instrumentation_end();
->  	debug_exception_exit(regs);
->  	arm64_exit_el1_dbg(regs, state);
->  }
-> -- 
-> 2.47.3
-> 
 
