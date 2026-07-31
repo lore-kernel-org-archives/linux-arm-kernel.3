@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9DF9C55174
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1448C55172
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:36:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q/CZYwUqsZsC4WZkgw4eFBh78uOJi0Jsf+zut7EQDaI=; b=0erCxjV1zsAvjiKAAYr5Nfwn53
-	sKdjbqc2L+TjfBJoigwgxOcLjhAHNenXxGAx50AzGlYxMWz+F0aR/hdv9W29Pi7xtOqOzAoEbnRJZ
-	AYA3aF9j/j60ixcBl/mEQOfisnpiau2xl40n5o752tzQ31cGx/1zORHTzYrlNM71l1yLYgSvsk7LM
-	CDz0IGWEpsJWj7apc4+Ed9/rndCYwxngke5SVZdYfrAMBULZvLfhpwXTiaRsT8Jj2jk6hwC1DtGvn
-	/I2qLsChNGLNVTgExIe3EZ/jkC2jSi0ajrZN04m/ChQt48HQL45yY9agy0ZzxEMcWVmH+nBcrShFw
-	INInengg==;
+	bh=5WScly32cO/pWys+NwDAhbqd6QITQjPoTI8up8SEAyk=; b=wCTww7+pLH12QMDceUMnpX0U87
+	wq6U33dCvlUAfTlTvv9ZmLabDNsPsV8O3mlVqaZcfaiTfiZdTXe00sm6PTwmaJhDi3NcoOuOjgyTo
+	JeW5Wz5qVVuJdph1DTedY+JMMJoUWV0DqP+THWk6EMNZUjyDm1tI386B1QLKTY6QgJ1kUe82n2gH9
+	NSDP4pHn0doFimi67Lgd5+WlGyq0jdc32rVO/GDNA/kgo4fCpn6vHK+mJFQWbnLiqf9+twoXSBGV/
+	v2tLtmUbwxkOLC0dw7yo2SqMuqeuXsTL+tsqkBgJBR+Plhm/PAR8nwW6HO2Q/jlhJOxvBn/X4ApnI
+	PJZBTi/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoLZ-0000000Cjhl-3V0r;
-	Fri, 31 Jul 2026 14:36:25 +0000
-Received: from mail-ej1-x647.google.com ([2a00:1450:4864:20::647])
+	id 1wpoLa-0000000CjjT-1Lcz;
+	Fri, 31 Jul 2026 14:36:26 +0000
+Received: from mail-ed1-x547.google.com ([2a00:1450:4864:20::547])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoLJ-0000000CjXi-339M
+	id 1wpoLP-0000000CjZC-3YuB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 14:36:15 +0000
-Received: by mail-ej1-x647.google.com with SMTP id a640c23a62f3a-c15fed5653eso80716366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 07:36:08 -0700 (PDT)
+	Fri, 31 Jul 2026 14:36:20 +0000
+Received: by mail-ed1-x547.google.com with SMTP id 4fb4d7f45d1cf-69c033344cdso1038469a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 07:36:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785508567; x=1786113367; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1785508572; x=1786113372; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Q/CZYwUqsZsC4WZkgw4eFBh78uOJi0Jsf+zut7EQDaI=;
-        b=wLmcaOTsSXSwgZc4dp+frhRk6I8HbEuoc6Gek8penRWGG7zbtZs/CAnIfaKNe1w+Fs
-         RXg8U9oLx9ZDKyfZfkRYUzemia46Cf3eL7w3CFoQPQ68RNCeMi9XaRFBMjHIIiUHiRar
-         e4As9Qae5VeSrIBiqh/Iu+S4TK3KpLK8fBUZAm2UqASeA8yfabpPDGU7GRFmFue50J/R
-         upd6lzEBKVYTQ0TeCxWVa87k9dlBDSCYXj883prExRmgAaR1POVSCOGetlXsLCtmCSLb
-         9ljz/X6093A9dBiHH8Fxje4EYPIjB8jwqlVLURIfS7J6aJ6VvRMWg5l2QjMADTlcX6WS
-         zoYA==
+        bh=5WScly32cO/pWys+NwDAhbqd6QITQjPoTI8up8SEAyk=;
+        b=HQGC6fm+nhM8Lmn+fTWu+4cfmFhvPWqiYl4opR83oznn1qN1m+iRG86jYy3RY/ld/q
+         Uks3DkOlEAMcNiEehinNM5FdykOJ8z7Y0AQ2ijVk5vesXY/ob7J865rptoDkOOPWqq5v
+         bIL+3vMdNV5RXTqIsWFavjvywSGyePosRMr4LKPIc7ppH/6bbE9gBOnnULUibzC/ulOQ
+         AdZR2/Pvo6LtCGJyEe7z9A5qqE6CYO4ON8Sr9few2dwGxB3F9+YzfEvE9Fhr/NtEilIW
+         12hDOgadEy1SkVAHOL9ND792znOqSF4EsjPrl4dHzvH5VWrm/L2qGBxB23ct9C8CqNnP
+         e4VQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785508567; x=1786113367;
+        d=1e100.net; s=20251104; t=1785508572; x=1786113372;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Q/CZYwUqsZsC4WZkgw4eFBh78uOJi0Jsf+zut7EQDaI=;
-        b=RCFpOBzYnZn3WRAaB4TjNuT+9u+ZqEi6yQj2ydPbK0LwFfIvL57IhRLdnExyx42UAX
-         aUJGJO9TQ9Ws46Jdb1DnHFT/CfxJ8yjDSdkndovsROf6fPTVXxv6khLVYXxbf0GdVwMY
-         81nK/NV2l8pevRIzJx66EqNnkkKUMxVJZ6z4NNJCTAcZCVSvg87tKlxpwreS0V4D6ep5
-         ECz7ORCMlqhwRXAUjsL5w5vXkUYDzq9HIHvIdCNqGdmzGQth6nwButYzu+i7zvuL7LUY
-         NSLrmpHNA2KscWa70bFbbQcKYhZelnF8VNDuAWvPBenR54IXmEtTBLZAp/ZxvPHCm7It
-         y/9Q==
-X-Forwarded-Encrypted: i=1; AHgh+RrpJVtg4IexnAYRQi7kYN4oV3VQ7aoQ4wehvy64/i4hhS1ZBGOIQ5U2gYCdXp2BpXXnlzzcLW6qCi6ccKUNq6sT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyWJZRC+3Pqu/Pdz3Xl3RfHMVGnlJKDl66nn+zMwvEAeTumyGE
-	n7ix+1Iq2Glvu1GXTebPosKuss853pKLaxKIDJabXaeRnnTF9abVc9nZPQOuWMwOwOApdnDVrwO
-	q31hDYShAOQoYy7zQVqxLnQ==
-X-Received: from wmqg13.prod.google.com ([2002:a05:600c:4ecd:b0:495:5422:15f2])
+        bh=5WScly32cO/pWys+NwDAhbqd6QITQjPoTI8up8SEAyk=;
+        b=cSf2bQZ297XISTn7m7Y4DnTIbxINIT2mRHtROw3a0PAulRJYIHFbByQ2Hb3ie4dfSQ
+         p6fjOVfErb8iV26GorFrq+FhP4/5Brpscoc+3MEdoV07sNWrzGkJKD6QO8hnqtbdU5Fj
+         GmwSDEWdW3VMz5x7hAWP+joeUDjUtIpJXfzYZfRfssG/nxL19zybySZCoBKuNciAMDpy
+         +WdPP/c2ttArQPt4hpoBar5f4ekCv/2bYblcZDW1eMhgMFOWLiC/QlLdxO77LskaLMPv
+         xs7ESKYxCxcUuGah0HWdYke76+5BVy5UNMwRfKmBvSgy0PpB43Ual3QmMTi+2fpCzYBq
+         dkKw==
+X-Forwarded-Encrypted: i=1; AHgh+RrKemdnu8hWCqyLEZu6u91FkkkgfS+Fm2lxPaxfqWI7Ur2bIHiNwYzSVV7EDwJxGkyZx24c/XsilTVz2T+owRqL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXffZ6wPA87+aRbldJdcOtH3Cq78JWKVvWFRMn6eA1oJqRKoZ4
+	xMbiO3VA6bSnfFBCzqPrepVl0H55QTJTwLFSumqCH3/uBzXdI/d+Kd3upNMisqZhdheVSPlhu5z
+	EIjSgN8sumxw2o9gzM8L07Q==
+X-Received: from wmjx19.prod.google.com ([2002:a05:600c:21d3:b0:493:c42c:7e97])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:3d09:b0:c12:67d2:3d67 with SMTP id a640c23a62f3a-c1fd28aeba8mr131003566b.45.1785508567274;
- Fri, 31 Jul 2026 07:36:07 -0700 (PDT)
-Date: Fri, 31 Jul 2026 15:35:35 +0100
+ 2002:a05:6402:5046:b0:6a0:9465:3e0c with SMTP id 4fb4d7f45d1cf-6a098d1bc48mr1448179a12.32.1785508572350;
+ Fri, 31 Jul 2026 07:36:12 -0700 (PDT)
+Date: Fri, 31 Jul 2026 15:35:40 +0100
 In-Reply-To: <20260731143541.956291-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260731143541.956291-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
-Message-ID: <20260731143541.956291-12-vdonnefort@google.com>
-Subject: [PATCH v4 11/17] KVM: arm64: Filter out non-kernel addresses in kern_hyp_va
+Message-ID: <20260731143541.956291-17-vdonnefort@google.com>
+Subject: [PATCH v4 16/17] KVM: arm64: Reject hyp trace descriptors with fewer
+ than 3 pages
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -77,8 +78,9 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_073609_775851_1F3903D1 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260731_073615_960226_6F17CEAE 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,38 +95,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kern_hyp_va() is idempotent for the hypervisor linear space. This is
-handy for nVHE hypervisor callers handling kvm_vcpu or kvm_arch
-pointers. Those pointers can originate from the hypervisor space (when
-protected mode is enabled, we don't trust the kernel and the hypervisor
-uses its own copy) or from the kernel space (we do trust the kernel in
-"non-protected" nVHE).
+A trace descriptor with 0 nr_page_va allocates a 0-size bpages
+backing region, which makes the ring buffer appear unloaded. Reject
+descriptors with nr_page_va < 3 in hyp_trace_desc_is_valid() as this is
+in any case the lower-limit for simple_ring_buffer.
 
-This idempotence does not hold for addresses within the hypervisor
-private range, like the ones you get from the pKVM heap allocator
-(hyp_alloc()). To resolve this, filter out non-kernel addresses based on
-PAGE_OFFSET.
-
-Leave the assembly version untouched as it has no current users.
-
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index 6eae7e7e2a68..d60e5f2de10c 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -126,6 +126,9 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
-  * replace the instructions with `nop`s.
-  */
- #ifndef __KVM_VHE_HYPERVISOR__
-+	if (!is_ttbr1_addr(v))
-+		return v;
+diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
+index 6e716295247a..96afa3d6de2f 100644
+--- a/arch/arm64/kvm/hyp/nvhe/trace.c
++++ b/arch/arm64/kvm/hyp/nvhe/trace.c
+@@ -189,6 +189,10 @@ static bool hyp_trace_desc_is_valid(struct hyp_trace_desc *desc, size_t desc_siz
+ 		if ((void *)rb_desc + struct_size(rb_desc, page_va, 0) > desc_end)
+ 			return false;
+ 
++		/* simple_ring_buffer_init_mm() expects at least 3 pages */
++		if (rb_desc->nr_page_va < 3)
++			return false;
 +
- 	asm volatile(ALTERNATIVE_CB("and %0, %0, #1\n"         /* mask with va_mask */
- 				    "ror %0, %0, #1\n"         /* rotate to the first tag bit */
- 				    "add %0, %0, #0\n"         /* insert the low 12 bits of the tag */
+ 		/* Overflow desc? */
+ 		if ((void *)rb_desc + struct_size(rb_desc, page_va, rb_desc->nr_page_va) > desc_end)
+ 			return false;
 -- 
 2.55.0.508.g3f0d502094-goog
 
