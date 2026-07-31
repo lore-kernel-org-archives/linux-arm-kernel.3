@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684FDC5516D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A32EC54F54
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 14:47:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=USA90P/z9HGS6Ymzx3+OUh65O3NB5uH8+3J9JEqJQ7U=; b=X8wD2EWjRXNU8bjzl1CwvBrlQQ
-	6U9kKbnXitULY6xOOxQYDIyTXUbaJ/QVDOv7vpJpCXosc23lQF/V8hVFtLqSvzI18N7mhgg0PpY56
-	r1JDQdTG6N8p3L5O8GWrfWDG+kh6CURMAKixo46i/FcTNsKLedxLd05AnCX57Uxw8GgmwLRKi8cXO
-	9QojCQOAMnSqkD6aWw3Evaq+TiDSZ9knB0JWDRBjWtQ9XJq3KyFE+a1B1CHoTiVUVHgzKS3fWZFw7
-	B18i/n9Kw54IeM7uU04Tjb+Dsnc5A9inmBANIHpzsPibgdwcaTr2Wjp2hnjlvKz4f8Ipuf3iIxNIp
-	cZEge/Yw==;
+	bh=1IbH8zrXfMicrmF2B3KzXbyugnYkCcv9AuD1U+I8ei0=; b=jyq/UMeirx+oD6kJmfVDAO67I5
+	jo0LsV2SHf9OTGzZS2wXCiZT8PHaK2FsAZ9PoFvR85oy47Kbh5Fnq0NWiCjHjxCRirbpAtJf9vt4E
+	mcK1ILj3OyYCIP2PQK7+/Ivia4wqkay0AQW+mnrYIVHDi0GJYJsgosbeO8SljVEL4B8bSwwskvWFG
+	4fOiaPmSs+EF0d3GcUcU6usNZTk5YRtClTcVqDevwu/nEs3mrLc0IKfVM/pkp82rg2TICCjTg5+Dd
+	eB901NgF5ZQGFqWEeaVrQ7rABG5OAUNpikyI+qiXhmH+sHJxl8Yx4h+CXStsd1pRremW/D0WUSCj/
+	da87TcVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoVt-0000000Cp5t-2otK;
-	Fri, 31 Jul 2026 14:47:05 +0000
+	id 1wpoW3-0000000CpAb-49iE;
+	Fri, 31 Jul 2026 14:47:15 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpoVp-0000000Cp4P-3Dww;
-	Fri, 31 Jul 2026 14:47:05 +0000
+	id 1wpoVp-0000000Cp4O-3Dzv;
+	Fri, 31 Jul 2026 14:47:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1785509219;
-	bh=291eDcvGr6NzZPipwAOdXZWL9zpP+JQBfcKpB6JNiFY=;
+	bh=+s2j1RmaFG+GnT5Tf+KSig25vVLZBCaUGSWzNu7tZN0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Xlgse8ExsLItHJ7/ZngrwxVXDGDYnnN3aPuE8+O/mXWQWVMyLH2wKfx1Jw+ZiUgia
-	 Mqfvwc5ZQZtcJJ1yzciebtTE3043Fp8cymhs11fgnpaBBIn4Br2RkSmxGTgBD7Kup/
-	 3L88lXRySR0gBTrl9SCLGWy4mCpTsYIOP6CAPfgFIPpYzDOg3KUtlJh0WTQTpdqihB
-	 Gl9FWAgdsd/g6jmWAWtS4W4TZp9RXlXvP94WI0e7YMfWFJEwid8ky5lzsbFoKAGS8E
-	 9Oc6wZuiQXDn77X9ymRJbkcjo3LN7GHLMs8CXiTnPKZJDewUf/T1mTkQFIO4QjmBxv
-	 7sjVtNqk3mbtQ==
+	b=GlKEIfzkIOd1T7zeGsFu6eaHpTLc7DR+sPo40SXpuJOgCcechu88XLgcljF4rDVTI
+	 iw4BCQciIR35rrgJRJA8kAuncwfoIc8caGropdhyoPlzLuWuRpJHM02y+x6gG59zkI
+	 e5NuPB3cWkzFfYE2xnWQg4wTPSgRIWX1dR1FxCyEtkjo1So8D2quJTg/50VtKfA4V0
+	 rOzEGj5GalpTFjhZqwOOhxP54gCFasE7uZFFBPETK+xYmcKoUe2deszQIU0i7zQUN4
+	 viYgC4jPp9BXWms8JKvdIDvC/IcBSX5ZAGbbcobuKXvBMB4igoYemyP2PHimIYXg5D
+	 LBvyl2fTc/OtA==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 998F417E06D8;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 982CE17E063E;
 	Fri, 31 Jul 2026 16:46:59 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 15F50480062; Fri, 31 Jul 2026 16:42:09 +0200 (CEST)
+	id 1BE9F480067; Fri, 31 Jul 2026 16:42:09 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Fri, 31 Jul 2026 16:42:22 +0200
-Subject: [PATCH v8 17/21] drm/bridge: synopsys: dw-dp: Drop useless
- reservation of first slot
+Date: Fri, 31 Jul 2026 16:42:26 +0200
+Subject: [PATCH v8 21/21] drm/bridge: synopsys: dw-dp: Add audio support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260731-synopsys-dw-dp-improvements-v8-17-ac1e6a75782f@collabora.com>
+Message-Id: <20260731-synopsys-dw-dp-improvements-v8-21-ac1e6a75782f@collabora.com>
 References: <20260731-synopsys-dw-dp-improvements-v8-0-ac1e6a75782f@collabora.com>
 In-Reply-To: <20260731-synopsys-dw-dp-improvements-v8-0-ac1e6a75782f@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -78,26 +77,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-arm-kernel@lists.infradead.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1300;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11879;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=291eDcvGr6NzZPipwAOdXZWL9zpP+JQBfcKpB6JNiFY=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpstECRcF8yghVwi11OGpqkglQ2n0saSKxyA
- xu1ypbNo+tnSIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqbLRAAAoJENju1/PI
- O/qambgQAIpyTZjW/tGa2a6VBawOydNjwDFJ/IBENWuxp8P8xPn88zVcCgX643v/eFwGxTNOlo1
- V5yAx+WBtYiVPSpKFwQyMpoSvVnbdsRuQpqgjpS9UH0QFgaRLknB9KI+ZXbmwncG8lPHjT7BQsN
- 7ZyrzRZzJ34ZW6a2xStQVSAjC7j7sIyOspilwJLb3JpX7HpAJ3Pu98e4E87B64QrPa4tkeSuXNg
- z1mxADA64qtAwjfKNjJLA9pmw6XSBoHN2qn7vBY5FF2H7+/57JmoIKpBl9jExrlDgqWxNJAab8/
- ekoQ69lVydYtV4yaO+6cVN8tBvensL/qcVy9noYbDSp8pVzCwVIXtXo4J7J1uxjnYNzjaMQU3GC
- 99alH824bEJlJM3t2J+A2L/OEceNG4xd1FqWMNBAlL6obbMmrrwY+Xs5/uxAON+n48oP/3mCc9M
- oh7uVpPc5XO8/DeKmMWqfTN8jw6YOjoFLdxlHb7UVfFC74thC7ma7E5ZzJTF/eS8van3fOTkAkj
- qeUFy0arZg02pD+KaxSxLlu9VJNDJo9krf54de6ieZg5MplFTppUYC4dXWNJMIEUnBRt0VQ7NRn
- z6G9J1F5XPoqFeB60kkQSCiUJNxZzlAsBpTgYwElgmqM6b8iZmzCeEbGFCR2y507E0eIshiRcWW
- mJi8rOCMG0C7hzw5VB5kubA==
+ bh=+s2j1RmaFG+GnT5Tf+KSig25vVLZBCaUGSWzNu7tZN0=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpstEAl02NzUAiPWbbrQNABr1BYUPZvJj2oG
+ jxY3jyDYVMwtIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqbLRAAAoJENju1/PI
+ O/qaqEkP/3H7Rq6clIK5p0OU5xGBlly+DX7I/Ik1KWKiV0X8u2NY7xdx28Ti2I4yFtP2a/2ZQzO
+ NHas32Jo0JxERNzcoMc49KGipA1FIzDsD3EYNh1JdHEqVETKmbQyz01yTCLyiBvo/tz3u3UpW76
+ OA8Tsq0sXE3gcjjFOUBVmwk2GVJcO6qCkLlgx5+B/nFxvSLW6trLuayIBOnSkdICZ9zy5QgI2Yg
+ q6vAO3GUFPvr5X/uQfuSPgi5DrYueDY5a4JbcyHxmH9+57GQTZJ92wx6kJsrTeJkVX/gYMY97F/
+ MJUViH16AdKW7l6lWS0t7Fn1V4BZMSjki0VYEydstCE6QhN4rhyhPSCdyx4wnHeiC1lhsm06RMy
+ MSf4JwHFFuRuF6PP72ydX0bDSflnKAR1F1C/3mOlWmcBylxWf3tZNYqPnKRkMGJitVTL+uUF82S
+ n4EEVgMjMOMA9Svh7GBWWuOMC8Ayuxzdi/QRPtK4yumgTTjc6L2hMIipTM06GZ4CSZn6lopzPEE
+ H1fThIjWbuE2cAKfkzZw1OJ0N/vhezksOQFSt+EE5xABN6iNLY4ji+UfU+UJksyZcW8X6g03rpJ
+ 39xo6hFWk5C4eB4Aec1zpbRgi8/EDGkYV6ftnYKHM6Xu/48+w1kIYVizmYgoevTFuvQgrp05USD
+ rfdCJcTyPMcZTgTen3uUoJg==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_074701_965094_F3A8CEE2 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20260731_074702_113289_A79B01BA 
+X-CRM114-Status: GOOD (  24.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,36 +111,413 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The origin of this reservation is unclear, but it is a problem in the
-atomic_enable code since it potentially races with the audio SDP
-reservation once that feature is added. I suppose it was either meant to
-be bitmap_zero(), but that is obviously not needed (and would also be a
-problem for audio support) or some left-over development code before the
-VSC SDP slot was allocated automatically.
-
-From my tests SDP slot 0 works fine and can be used. If SDP slot 0
-really needs to be reserved for some reason, the bit should be set in
-the probe function to ensure there are no race conditions.
+Implement audio support for the Synopsys DesignWare DisplayPort
+controller.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 3 ---
- 1 file changed, 3 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 305 +++++++++++++++++++++++++++++++-
+ 1 file changed, 304 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 4d4af6a388b1..193816126e44 100644
+index a39007f13a05..a62fca20ac2f 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1697,9 +1697,6 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
+@@ -24,17 +24,21 @@
+ #include <drm/drm_bridge.h>
+ #include <drm/drm_bridge_connector.h>
+ #include <drm/display/drm_dp_helper.h>
++#include <drm/display/drm_hdmi_audio_helper.h>
+ #include <drm/drm_edid.h>
+ #include <drm/drm_of.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+ #include <drm/drm_simple_kms_helper.h>
+ 
++#include <sound/hdmi-codec.h>
++
+ #define DW_DP_VERSION_NUMBER			0x0000
+ #define DW_DP_VERSION_TYPE			0x0004
+ #define DW_DP_ID				0x0008
+ 
+ #define DW_DP_CONFIG_REG1			0x0100
++#define AUDIO_SELECT				GENMASK(2, 1)
+ #define DW_DP_CONFIG_REG2			0x0104
+ #define DW_DP_CONFIG_REG3			0x0108
+ 
+@@ -111,6 +115,10 @@
+ #define HBR_MODE_ENABLE				BIT(10)
+ #define AUDIO_DATA_WIDTH			GENMASK(9, 5)
+ #define AUDIO_DATA_IN_EN			GENMASK(4, 1)
++#define AUDIO_DATA_IN_EN_CHANNEL12		BIT(0)
++#define AUDIO_DATA_IN_EN_CHANNEL34		BIT(1)
++#define AUDIO_DATA_IN_EN_CHANNEL56		BIT(2)
++#define AUDIO_DATA_IN_EN_CHANNEL78		BIT(3)
+ #define AUDIO_INF_SELECT			BIT(0)
+ 
+ #define DW_DP_SDP_VERTICAL_CTRL			0x0500
+@@ -254,6 +262,8 @@
+ 
+ #define SDP_REG_BANK_SIZE			16
+ 
++#define DW_DP_SDP_VERSION			0x12
++
+ struct dw_dp_link_caps {
+ 	bool enhanced_framing;
+ 	bool tps3_supported;
+@@ -306,6 +316,19 @@ struct dw_dp_hotplug {
+ 	bool long_hpd;
+ };
+ 
++enum dw_dp_audio_interface_support {
++	DW_DP_AUDIO_I2S_ONLY = 0,
++	DW_DP_AUDIO_SPDIF_ONLY = 1,
++	DW_DP_AUDIO_I2S_AND_SPDIF = 2,
++	DW_DP_AUDIO_NONE = 3,
++};
++
++enum dw_dp_audio_interface {
++	DW_DP_AUDIO_I2S = 0,
++	DW_DP_AUDIO_SPDIF = 1,
++	DW_DP_AUDIO_UNUSED,
++};
++
+ struct dw_dp {
+ 	struct drm_bridge bridge;
+ 	struct device *dev;
+@@ -321,10 +344,18 @@ struct dw_dp {
+ 	int irq;
+ 	struct work_struct hpd_work;
+ 	struct dw_dp_hotplug hotplug;
++	enum dw_dp_audio_interface audio_interface;
++	int audio_channels;
++	int audio_channel_allocation;
++	int audio_sample_width;
++	bool audio_muted;
++	int audio_sdp_nr;
+ 	/* Serialize hpd status access */
+ 	struct mutex irq_lock;
+ 	/* Serialize sdp_reg_bank access */
+ 	struct mutex sdp_lock;
++	/* Serialize audio state */
++	struct mutex audio_lock;
+ 
+ 	struct drm_dp_aux aux;
+ 
+@@ -1681,6 +1712,252 @@ static int dw_dp_link_enable(struct dw_dp *dp)
+ 	return ret;
+ }
+ 
++static int dw_dp_audio_infoframe_send(struct dw_dp *dp)
++{
++	struct hdmi_audio_infoframe frame;
++	struct dw_dp_sdp sdp;
++	int ret;
++
++	ret = hdmi_audio_infoframe_init(&frame);
++	if (ret < 0)
++		return ret;
++
++	frame.coding_type = HDMI_AUDIO_CODING_TYPE_STREAM;
++	frame.sample_frequency = HDMI_AUDIO_SAMPLE_FREQUENCY_STREAM;
++	frame.sample_size = HDMI_AUDIO_SAMPLE_SIZE_STREAM;
++	frame.channels = dp->audio_channels;
++	frame.channel_allocation = dp->audio_channel_allocation;
++
++	ret = hdmi_audio_infoframe_pack_for_dp(&frame, &sdp.base, DW_DP_SDP_VERSION);
++	if (ret < 0)
++		return ret;
++
++	sdp.flags = DW_DP_SDP_VERTICAL_INTERVAL;
++
++	return dw_dp_send_sdp(dp, &sdp);
++}
++
++static void __dw_dp_audio_disable(struct dw_dp *dp)
++{
++	if (dp->audio_sdp_nr >= 0) {
++		dw_dp_clear_sdp(dp, dp->audio_sdp_nr);
++		dp->audio_sdp_nr = -1;
++	}
++
++	regmap_clear_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
++			  EN_AUDIO_STREAM_SDP | EN_AUDIO_TIMESTAMP_SDP);
++	regmap_clear_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
++			  EN_AUDIO_STREAM_SDP);
++
++	regmap_clear_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_DATA_IN_EN);
++
++	if (dp->audio_interface == DW_DP_AUDIO_SPDIF)
++		clk_disable_unprepare(dp->spdif_clk);
++	else if (dp->audio_interface == DW_DP_AUDIO_I2S)
++		clk_disable_unprepare(dp->i2s_clk);
++
++	dp->audio_interface = DW_DP_AUDIO_UNUSED;
++}
++
++static int __dw_dp_audio_enable(struct dw_dp *dp)
++{
++	u8 audio_data_in_en;
++
++	switch (dp->audio_channels) {
++	case 1:
++	case 2:
++		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12;
++		break;
++	case 8:
++		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12 |
++				   AUDIO_DATA_IN_EN_CHANNEL34 |
++				   AUDIO_DATA_IN_EN_CHANNEL56 |
++				   AUDIO_DATA_IN_EN_CHANNEL78;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1,
++			   AUDIO_DATA_IN_EN | NUM_CHANNELS | AUDIO_DATA_WIDTH |
++			   AUDIO_INF_SELECT | HBR_MODE_ENABLE | AUDIO_MUTE,
++			   FIELD_PREP(AUDIO_DATA_IN_EN, audio_data_in_en) |
++			   FIELD_PREP(NUM_CHANNELS, dp->audio_channels - 1) |
++			   FIELD_PREP(AUDIO_DATA_WIDTH, dp->audio_sample_width) |
++			   FIELD_PREP(AUDIO_INF_SELECT, dp->audio_interface) |
++			   FIELD_PREP(HBR_MODE_ENABLE, 0) |
++			   FIELD_PREP(AUDIO_MUTE, dp->audio_muted));
++
++	/* Wait for inf switch */
++	usleep_range(20, 40);
++
++	/*
++	 * Send audio stream during vertical and horizontal blanking periods.
++	 * Send out audio timestamp SDP once per video frame during the vertical
++	 * blanking period
++	 */
++	regmap_update_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
++			   EN_AUDIO_STREAM_SDP | EN_AUDIO_TIMESTAMP_SDP,
++			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1) |
++			   FIELD_PREP(EN_AUDIO_TIMESTAMP_SDP, 1));
++	regmap_update_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
++			   EN_AUDIO_STREAM_SDP,
++			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1));
++
++	if (dp->audio_sdp_nr >= 0) {
++		dw_dp_clear_sdp(dp, dp->audio_sdp_nr);
++		dp->audio_sdp_nr = -1;
++	}
++
++	dp->audio_sdp_nr = dw_dp_audio_infoframe_send(dp);
++	if (dp->audio_sdp_nr < 0)
++		return dp->audio_sdp_nr;
++
++	return 0;
++}
++
++static int dw_dp_audio_startup(struct drm_bridge *bridge,
++			       struct drm_connector *connector)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++
++	dev_dbg(dp->dev, "audio startup\n");
++
++	return pm_runtime_get_active(dp->dev, RPM_TRANSPARENT);
++}
++
++static void dw_dp_audio_unprepare(struct drm_bridge *bridge,
++				  struct drm_connector *connector)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++
++	guard(mutex)(&dp->audio_lock);
++
++	__dw_dp_audio_disable(dp);
++}
++
++static int dw_dp_audio_prepare(struct drm_bridge *bridge,
++			       struct drm_connector *connector,
++			       struct hdmi_codec_daifmt *daifmt,
++			       struct hdmi_codec_params *params)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++	u8 supported_audio_interfaces;
++	enum dw_dp_audio_interface audio_interface;
++	u32 cfg1;
++	int ret;
++
++	guard(mutex)(&dp->audio_lock);
++
++	/*
++	 * prepare might be called multiple times, so release the clocks
++	 * from previous calls to keep the calls in balance.
++	 */
++	if (dp->audio_interface != DW_DP_AUDIO_UNUSED)
++		__dw_dp_audio_disable(dp);
++
++	/* The hardware is limited to 1,2 or 8 channels */
++	switch (params->cea.channels) {
++	case 1:
++	case 2:
++	case 8:
++		break;
++	default:
++		dev_err(dp->dev, "invalid audio channels %d\n", params->cea.channels);
++		return -EINVAL;
++	}
++
++	if (params->sample_width < 16 || params->sample_width > 24) {
++		dev_err(dp->dev, "invalid data sample width %d\n", params->sample_width);
++		return -EINVAL;
++	}
++
++	switch (daifmt->fmt) {
++	case HDMI_SPDIF:
++		audio_interface = DW_DP_AUDIO_SPDIF;
++		break;
++	case HDMI_I2S:
++		/*
++		 * It is recommended to use SPDIF instead of I2S, since I2S mode requires
++		 * manually inserting PCUV control bits from userspace and this is done
++		 * automatically in hardware for SPDIF mode.
++		 */
++		audio_interface = DW_DP_AUDIO_I2S;
++		break;
++	default:
++		dev_err(dp->dev, "invalid DAI format %d\n", daifmt->fmt);
++		return -EINVAL;
++	}
++
++	regmap_read(dp->regmap, DW_DP_CONFIG_REG1, &cfg1);
++	supported_audio_interfaces = FIELD_GET(AUDIO_SELECT, cfg1);
++
++	if (supported_audio_interfaces != DW_DP_AUDIO_I2S_AND_SPDIF &&
++	    supported_audio_interfaces != audio_interface) {
++		dev_err(dp->dev, "unsupported DAI %d\n", daifmt->fmt);
++		return -EINVAL;
++	}
++
++	ret = clk_prepare_enable(dp->spdif_clk);
++	if (ret)
++		return ret;
++
++	ret = clk_prepare_enable(dp->i2s_clk);
++	if (ret) {
++		clk_disable_unprepare(dp->spdif_clk);
++		return ret;
++	}
++
++	if (audio_interface == DW_DP_AUDIO_I2S)
++		clk_disable_unprepare(dp->spdif_clk);
++	else if (audio_interface == DW_DP_AUDIO_SPDIF)
++		clk_disable_unprepare(dp->i2s_clk);
++
++	dp->audio_channels = params->cea.channels;
++	dp->audio_channel_allocation = params->cea.channel_allocation;
++	dp->audio_sample_width = params->sample_width;
++	dp->audio_interface = audio_interface;
++
++	ret = __dw_dp_audio_enable(dp);
++	if (ret < 0) {
++		dev_err(dp->dev, "failed to enable audio\n");
++		__dw_dp_audio_disable(dp);
++		return ret;
++	}
++
++	dev_dbg(dp->dev, "audio prepare with %d channels using DAI=%d\n",
++		dp->audio_channels, dp->audio_interface);
++
++	return 0;
++}
++
++static void dw_dp_audio_shutdown(struct drm_bridge *bridge,
++				 struct drm_connector *connector)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++
++	dev_dbg(dp->dev, "audio shutdown\n");
++
++	dw_dp_audio_unprepare(bridge, connector);
++	pm_runtime_put_autosuspend(dp->dev);
++}
++
++static int dw_dp_audio_mute_stream(struct drm_bridge *bridge,
++				   struct drm_connector *connector,
++				   bool enable, int direction)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++
++	dev_dbg(dp->dev, "audio %smute\n", enable ? "" : "un");
++
++	dp->audio_muted = enable;
++
++	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_MUTE,
++			   FIELD_PREP(AUDIO_MUTE, enable));
++
++	return 0;
++}
++
+ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 				       struct drm_atomic_commit *state)
+ {
+@@ -1719,6 +1996,14 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 		dev_err(dp->dev, "failed to enable video: %d\n", ret);
  		return;
  	}
++
++	scoped_guard(mutex, &dp->audio_lock) {
++		if (dp->audio_interface != DW_DP_AUDIO_UNUSED) {
++			ret = __dw_dp_audio_enable(dp);
++			if (ret < 0)
++				dev_err(dp->dev, "failed to restore audio: %d\n", ret);
++		}
++	}
+ }
  
--	scoped_guard(mutex, &dp->sdp_lock)
--		set_bit(0, dp->sdp_reg_bank);
--
- 	ret = dw_dp_link_enable(dp);
- 	if (ret < 0) {
- 		dev_err(dp->dev, "failed to enable link: %d\n", ret);
+ static void dw_dp_reset(struct dw_dp *dp)
+@@ -1964,6 +2249,11 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
+ 	.detect = dw_dp_bridge_detect,
+ 	.edid_read = dw_dp_bridge_edid_read,
+ 	.oob_notify = dw_dp_bridge_oob_notify,
++
++	.dp_audio_startup = dw_dp_audio_startup,
++	.dp_audio_prepare = dw_dp_audio_prepare,
++	.dp_audio_shutdown = dw_dp_audio_shutdown,
++	.dp_audio_mute_stream = dw_dp_audio_mute_stream,
+ };
+ 
+ static int dw_dp_link_retrain(struct dw_dp *dp)
+@@ -2259,6 +2549,10 @@ int dw_dp_probe(struct dw_dp *dp)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = devm_mutex_init(dev, &dp->audio_lock);
++	if (ret)
++		return ret;
++
+ 	res = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(res))
+ 		return PTR_ERR(res);
+@@ -2342,12 +2636,21 @@ int dw_dp_probe(struct dw_dp *dp)
+ 		return ret;
+ 
+ 	dp->vsc_sdp_nr = -1;
++	dp->audio_interface = DW_DP_AUDIO_UNUSED;
++	dp->audio_sdp_nr = -1;
+ 
+ 	bridge = &dp->bridge;
+ 	bridge->of_node = dev->of_node;
+-	bridge->ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
++	bridge->ops = DRM_BRIDGE_OP_DP_AUDIO |
++		      DRM_BRIDGE_OP_DETECT |
++		      DRM_BRIDGE_OP_EDID |
++		      DRM_BRIDGE_OP_HPD;
+ 	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
+ 	bridge->ycbcr_420_allowed = true;
++	bridge->hdmi_audio_dev = dev;
++	bridge->hdmi_audio_max_i2s_playback_channels = 8;
++	bridge->hdmi_audio_dai_port = 1;
++	bridge->hdmi_audio_spdif_playback = true;
+ 
+ 	ret = devm_drm_bridge_add(dev, bridge);
+ 	if (ret)
 
 -- 
 2.53.0
