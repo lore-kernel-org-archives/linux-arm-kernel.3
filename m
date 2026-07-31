@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA72C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 19:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED9DC55173
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 31 Jul 2026 19:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QWTFo4fs/kSU6lr4ZzfhIdwS/NOVkYn2PmTaiQ/QINI=; b=Zr61EZTHMrtjuCnwlJhuaz8t+1
-	x5Gtf6XiL6FAdjqPu+UBWu7wwSTo83g/iGqE+6/6gouWtKKdM/OsFmDuEvRgwVOpB/SEj1/CyY4BJ
-	nk7u9apWLEuDxTafCBW5Kk1N5IP8Gs6BuF/+Ounc2SpdE8Q5FOH4pgO24QHGuHnhNgVk0ODiBTfk/
-	7VxhId5ewVZjDypld6Jx+oRuYsRmeu0q+YT7Gm/d+i7xeaQJYOwfPgoLBfLrRtjFwoqgY66/k8/yB
-	iELLTIy+HYjDKqT6s3/anOgdcPQBusitbXxthYiOc4D8fAXN3XfWrC/WBghRYWj2rM5Au2tpcXiq3
-	Dy+meayA==;
+	bh=hp708L//iArg9TjvY21pP5toBSAUeUQGGXgQT+srdHg=; b=Ph19/9xUVt/um+UCWLCXBFa8N4
+	HIWAXvj1g3NUFJkh2xKIIrIfJhSCXm6WNJ7EykTkLuy9Lst9X5r96ahi5Dm6oRgoJsHUlq8KBRPE7
+	sUrVznv3VmFxbKHvC1KmaAkAHpj0U7UOyRFccQKuw15nNWGp0Z/6Xza4bbkiOEpdT+L9v1blUQsjG
+	lm4dkh/EOmEQ/27R+vPNCFBF7YKtK0dZlFZGC+TE99Lf2DhOMRw0osO50kzb8Kyf0COyOpRsjPX8W
+	1UoSO0sf7Vy3CjcM4lM4ptbbt790ItnUT2IyydZqf7OfDvB5Ld5jLLTxAb4F/SpA6Fgi3i2/CGBtf
+	fpG4wZDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wptLI-0000000DUtE-1X1B;
-	Fri, 31 Jul 2026 19:56:28 +0000
+	id 1wptMD-0000000DVVl-06E1;
+	Fri, 31 Jul 2026 19:57:25 +0000
 Received: from mail-pg1-x546.google.com ([2607:f8b0:4864:20::546])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wptLB-0000000DUq1-2zMd
+	id 1wptLL-0000000DUxi-2OSR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 31 Jul 2026 19:56:22 +0000
-Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-cab048cdb3eso1679391a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 12:56:20 -0700 (PDT)
+	Fri, 31 Jul 2026 19:56:32 +0000
+Received: by mail-pg1-x546.google.com with SMTP id 41be03b00d2f7-ca860baea9fso2990990a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 12:56:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785527780; x=1786132580; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1785527790; x=1786132590; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=QWTFo4fs/kSU6lr4ZzfhIdwS/NOVkYn2PmTaiQ/QINI=;
-        b=M73JbxA3LaMq2rjpQyKiUYWm/bRjJPzqQ2xbgjds1/EU6vKI9ss/vSiglJ+DUZFwkh
-         clx2ToC3ZWaYiJyQ4Z5MJQIayPXdaykJl+VewZL2hXfvUl1CNVc6X5EweJpJBfdy8kAa
-         mkT3Msvv8GD6CmFLnFLadm6aIV1OifVZtYDOB22LV0Xi3jWJZWWf0iy4zo1xKmg36DlF
-         W404YGbbG3/WK8wcp/n88tEYb5QJT1OLWFj2RxwsV9ezI4zm+PYsI/sVoaKME2wVyyxW
-         Xn06mOiomUz8gi7j3exusrnukRqTSXiOZUSNc/vlGE3ufel8jPt+0YGhisQrIKxzwv4g
-         j0hQ==
+        bh=hp708L//iArg9TjvY21pP5toBSAUeUQGGXgQT+srdHg=;
+        b=qxILrK/4JX+e2arWTLvETZdxEAtKgpF/H+dt8QbBnCwY7AG9zzVPt9LDCvMRd1tSat
+         TZA20Jv4XTjW7H9J053/WfxWPIo7OP3IFDW/M1qcE0oEymYsIrFtNtzThdbRH8D6sA9S
+         y2F84Lhp0V9ziRIpanFj695VAI1GHTYBO/CagAf1/3b5CapYhtNYTpL5PZCJY1IcZ2Pu
+         0BD0cPRbcunkvXbl3Q8YLIHLBXAPumHKCBHU984HFobHAhg1ngkULMrj1hJosTXVr85b
+         lk8cyDJUq3P0DPXLLwhoe60hsvythtfwomUWHi3Dlp/LsxbvtV8JI1J8/pEFpUqQFwbN
+         D+6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785527780; x=1786132580;
+        d=1e100.net; s=20251104; t=1785527790; x=1786132590;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:reply-to:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=QWTFo4fs/kSU6lr4ZzfhIdwS/NOVkYn2PmTaiQ/QINI=;
-        b=I4bm4jgGJeNG4/5xs7LwEwM8e3y0dVolYeih9RIjAqG2olB8+ViYMFPXhglaHwvBw6
-         GRVppPTv/CXS5CSGi0AQqo1GZ4t9ZWEs4n8S9aGyiZqVUcS+LVR76b5P7hnpMGAoCNIR
-         ux4IOFiv9x2XAV3tfIWq8DtImQiGeNGuA145EAlKz62+CI6MIPmF4YHt/l9q2cYXFhmG
-         CA+YK/S5oTcj1GxtpS37HRlMUFaZXkuu7CXJJ06mNlUs8WMO6O1PONrZUp0ghiBtCJdH
-         PPTUdAoLOGgLZRwM5VfBLFDX3u5+GZozmV9DaoQrbVGZ3/xN8UGJUOX2C/YabaEogLo/
-         zqvg==
-X-Forwarded-Encrypted: i=1; AHgh+Rp5VM/id0qqFHxdyNMQO7384jjBITAmbulr9oJr7TCIAHXKfIfUKxjOvuhf6+Gs7CJESdo34YKWwA5yON1q84Tu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmmmwYUl8Txea8sWwa3PbGZ3b4Dl+iAlUa3+UPgKFnJofdXtBw
-	dGa/v4zZ7uY2/A1uyNU3USa4v7AZd5dXsu/gQr5RtWqaUz1TLGi1ImtxVr0d5vPhaVfc8syq/pl
-	7Xwg0iQ==
-X-Received: from pgnp30.prod.google.com ([2002:a63:7f5e:0:b0:cbb:b782:6be1])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:13aa:b0:847:1d73:f753
- with SMTP id d2e1a72fcca58-84ee48a4d18mr834507b3a.45.1785527779971; Fri, 31
- Jul 2026 12:56:19 -0700 (PDT)
-Date: Fri, 31 Jul 2026 12:56:03 -0700
+        bh=hp708L//iArg9TjvY21pP5toBSAUeUQGGXgQT+srdHg=;
+        b=MOPf77I0rWPSTQdVl7zqjO7TKwT2rY1AoW3ejwlThA8Jk4951x6T+ZTzENfZ+8n2P+
+         dKYdBCXOLvrp7rC9IxUI0QG0psDbn/FNii2dujEu/Rhd2mOwq9q2RTnMT9frNivTPF45
+         6ejx4KUx0MN2eYffCrxJTGTNVLJnoeNa7260jf5onk1RkcJEfXTDQuYY/Sr2EpKyUGV0
+         hgCbjL1h0y+Yx3d7rxxMi2UcJcN0+pWDItoV4WheIv2K/OgD427IeuN8qt2p6WOZ/RQE
+         sgB5r42FmzLtmZ/m0Zew+oUP1cyw7mHKeRuPfBezhxldX8vHMkOcSSamfbL9HVTTzLRr
+         zohQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp12Nu3bHBex8nI1YzSIPLm1BRFUZoDSssjP7e+/ppyXrN3hsgKUb/p1hQWuX32HAgVLpl57q0GR204vnTCLCDp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyl1N2i7Lk+sahk3lWsD+LHtWsn+ZtpUam7Dl4qRCTtVfdY9q4H
+	RtaaUc4BMWO0QAaF13GWrZ+ELE3bah03KrznZE7g0dq8TzbQMQpWNDkemB1fYTfdqj6nb+0vYQB
+	E4nP1pw==
+X-Received: from pgmh4.prod.google.com ([2002:a63:5744:0:b0:c92:dd1e:dc60])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:aa7:88ca:0:b0:847:893f:2d0c
+ with SMTP id d2e1a72fcca58-84ee47e512dmr830032b3a.5.1785527790077; Fri, 31
+ Jul 2026 12:56:30 -0700 (PDT)
+Date: Fri, 31 Jul 2026 12:56:12 -0700
 In-Reply-To: <20260731195612.2697986-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20260731195612.2697986-1-seanjc@google.com>
 X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
-Message-ID: <20260731195612.2697986-4-seanjc@google.com>
-Subject: [PATCH v3 03/12] KVM: selftests: Pre-set threads affinity in hardware
- disable test when possible
+Message-ID: <20260731195612.2697986-13-seanjc@google.com>
+Subject: [PATCH v3 12/12] KVM: selftests: Clean up global constants in
+ hardware disable test
 From: Sean Christopherson <seanjc@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
 	Oliver Upton <oupton@kernel.org>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
@@ -81,8 +81,8 @@ Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>,
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_125621_755567_E4D2FA53 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20260731_125631_624472_105F21D2 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,71 +98,80 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When building against a libc that provides pthread_attr_setaffinity_np(),
-pre-set the grandchildren threads CPU affinity in the hardware disable test
-to further reduce the perceived latency of pthread_create().  On large NUMA
-systems, this reduces the average runtime from ~10s to ~5s.
+Rename the global constants in the hardware disable test to better
+capture what they control, and open code the literal number of sleeping
+tasks and iterations instead of using power-of-2 math to express values
+that are 100% arbitrary.
+
+Opportunistically tag the global semaphore with "static".
+
+No functional change intended.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../testing/selftests/kvm/hardware_disable_test.c  | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+ .../selftests/kvm/hardware_disable_test.c     | 20 +++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
 diff --git a/tools/testing/selftests/kvm/hardware_disable_test.c b/tools/testing/selftests/kvm/hardware_disable_test.c
-index f088b4af3ccc..b4edeadfa3f4 100644
+index 72bac346bdd9..43a36ef3ead8 100644
 --- a/tools/testing/selftests/kvm/hardware_disable_test.c
 +++ b/tools/testing/selftests/kvm/hardware_disable_test.c
-@@ -36,7 +36,9 @@ static void *run_vcpu(void *arg)
- 	struct kvm_vcpu *vcpu = arg;
- 	struct kvm_run *run = vcpu->run;
+@@ -17,13 +17,13 @@
+ #include "kvm_util.h"
+ #include "ucall_common.h"
  
-+#ifndef _GNU_SOURCE
- 	kvm_sched_setaffinity(0, sizeof(cpu_set_t), &threads_cpu_set);
-+#endif
+-#define VCPU_NUM 4
+-#define SLEEPING_THREAD_NUM (1 << 4)
+-#define FORK_NUM (1ULL << 9)
+-#define DELAY_US_MAX 2000
++#define NR_VCPUS		4
++#define NR_SLEEPERS_PER_VCPU	16
++#define NR_ITERATIONS		512
++#define DELAY_US_MAX		2000
  
- 	vcpu_run(vcpu);
+ static cpu_set_t threads_cpu_set;
+-sem_t *sem;
++static sem_t *sem;
  
-@@ -50,7 +52,9 @@ static void *sleeping_thread(void *arg)
+ static void guest_code(void)
  {
- 	int fd;
+@@ -75,15 +75,15 @@ static void run_test(u32 run)
+ 	TEST_ASSERT_EQ(pthread_attr_setaffinity_np(&attr, sizeof(cpu_set_t), &threads_cpu_set), 0);
+ #endif
  
-+#ifndef _GNU_SOURCE
- 	kvm_sched_setaffinity(0, sizeof(cpu_set_t), &threads_cpu_set);
-+#endif
- 
- 	while (true) {
- 		fd = open("/dev/null", O_RDWR);
-@@ -80,22 +84,28 @@ static inline void check_join(pthread_t thread, void **retval)
- static void run_test(u32 run)
- {
- 	struct kvm_vcpu *vcpu;
-+	pthread_attr_t attr;
- 	struct kvm_vm *vm;
- 	pthread_t threads[VCPU_NUM];
- 	pthread_t throw_away;
- 	void *b;
- 	u32 i, j;
- 
-+	TEST_ASSERT_EQ(pthread_attr_init(&attr), 0);
-+#ifdef _GNU_SOURCE
-+	TEST_ASSERT_EQ(pthread_attr_setaffinity_np(&attr, sizeof(cpu_set_t), &threads_cpu_set), 0);
-+#endif
-+
- 	vm = vm_create(VCPU_NUM);
+-	vm = vm_create(VCPU_NUM);
++	vm = vm_create(NR_VCPUS);
  
  	pr_debug("%s: [%d] start vcpus\n", __func__, run);
- 	for (i = 0; i < VCPU_NUM; ++i) {
+-	for (i = 0; i < VCPU_NUM; ++i) {
++	for (i = 0; i < NR_VCPUS; ++i) {
  		vcpu = vm_vcpu_add(vm, i, guest_code);
  
--		check_create_thread(&threads[i], NULL, run_vcpu, vcpu);
-+		check_create_thread(&threads[i], &attr, run_vcpu, vcpu);
+ 		kvm_pthread_create(&thread, &attr, run_vcpu, vcpu);
  
- 		for (j = 0; j < SLEEPING_THREAD_NUM; ++j) {
--			check_create_thread(&throw_away, NULL, sleeping_thread,
-+			check_create_thread(&throw_away, &attr, sleeping_thread,
- 					    (void *)NULL);
- 		}
+-		for (j = 0; j < SLEEPING_THREAD_NUM; ++j)
++		for (j = 0; j < NR_SLEEPERS_PER_VCPU; ++j)
+ 			kvm_pthread_create(&thread, &attr, sleeping_thread, (void *)NULL);
  	}
+ 	pr_debug("%s: [%d] all threads launched\n", __func__, run);
+@@ -132,7 +132,7 @@ int main(int argc, char **argv)
+ 
+ 	kvm_sched_getaffinity(0, sizeof(cpu_set_t), &allowed_cpu_set);
+ 
+-	for (i = 0; i < VCPU_NUM && CPU_COUNT(&allowed_cpu_set); i++) {
++	for (i = 0; i < NR_VCPUS && CPU_COUNT(&allowed_cpu_set); i++) {
+ 		cpu = kvm_pick_random_cpu(&allowed_cpu_set);
+ 		CPU_CLR(cpu, &allowed_cpu_set);
+ 		CPU_SET(cpu, &threads_cpu_set);
+@@ -141,7 +141,7 @@ int main(int argc, char **argv)
+ 	sem = sem_open("vm_sem", O_CREAT | O_EXCL, 0644, 0);
+ 	sem_unlink("vm_sem");
+ 
+-	for (i = 0; i < FORK_NUM; ++i) {
++	for (i = 0; i < NR_ITERATIONS; ++i) {
+ 		pid = fork();
+ 		TEST_ASSERT(pid >= 0, "%s: unable to fork", __func__);
+ 		if (pid == 0)
 -- 
 2.55.0.508.g3f0d502094-goog
 
