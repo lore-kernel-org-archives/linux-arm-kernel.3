@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DEAC5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8F5C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 10:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=POLTv/dSyD6twt28Ah7GVbTOpw4mdCruwE8K2OjsAjk=; b=Lo4RYSEGRd+4xryKfqDhiL/Azn
-	T/2NHaOuqOBgS9j4M7g06aIfl2Mid7jvfqaPf+475YQ9IQaG9jsWTiyHliU+JWy8IF9pEmqSyHRcE
-	AtvTMhVOrcVf+GlCtP7UtMD2vUPgw1stIXjwc3dLEV4i8so4/cpceOEObromK1MlS5zVY8CokSKU3
-	b7fYBHLvRiviRxb+bWlwyi5071ktaaVl+PhRt8DntQfRfHkfyQ6X515YXVwD5L+XLkaj2b6jxRriY
-	EGrA/Emd6lbH9yxcs9kuRv5l/xCEap//4J36T+O3HQJRLNginmH7mYJ1FAZ/clClBppyKE9200RM+
-	okudOXZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oSwy52wPE+n9CbxU0Afr3cSq8DpmnySrLvPQBrinhvc=; b=N+MNpqtd1M0uUzWJqJ0SwGVjME
+	bX/IKENGoS4k++Y7k1fLYRYP9EjJ0FnuPEgvBxR87fHBPgjnZbrF/DZ/hXtpbPN1HeUdfIs14CPX0
+	Z8u+hMS2qEBxxtKr3jgLU1BKmKUk3dEarjJo5r3Ow8do/IA9v8kzb1wPUEkXtj7rNYNnIg7t8aoQE
+	FFAW5U+P7sW6ExpkZNlc4MohC77Q5A0GZUK+UtS2+odi9WkKs2fa2wYYZ+PY475FeVMn4Tc1Jo+uy
+	9l/UA0baLuTyP56edaaiGyYF4KeVVVXgNKLjWUh4dDxoS+PKMtBzM4PuMjnrbzHcPxfetgL++qAjY
+	VX3oVBjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5xX-0000000E8PP-3I8Z;
-	Sat, 01 Aug 2026 09:24:47 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wq6p7-0000000EAEt-0ifV;
+	Sat, 01 Aug 2026 10:20:09 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5xU-0000000E8NU-1KSF
+	id 1wq6p3-0000000EADe-1Efv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 09:24:46 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=POLTv/dSyD6twt28Ah7GVbTOpw4mdCruwE8K2OjsAjk=;
-	b=KnR0cgimq8mz/8eni2Ztl7+tofLt9gMAAssWaGhzrk+B9QRwGuwbaSdRaUEX0sKH5vAdPnJQN
-	R4J7b3rgWthhheme1l/71yklrd3mY8Bsd70wKE7xISHjX5gtN4ZCvGgvxJLv10zTvJnFDJVPfcM
-	xHszFCBFv4S3fWF0eJPr4JU=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hBy2G65mJzLlTg;
-	Sat,  1 Aug 2026 17:15:02 +0800 (CST)
-Received: from kwepemo100012.china.huawei.com (unknown [7.202.195.139])
-	by mail.maildlp.com (Postfix) with ESMTPS id B003F402AB;
-	Sat,  1 Aug 2026 17:24:31 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemo100012.china.huawei.com
- (7.202.195.139) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Sat, 1 Aug
- 2026 17:24:30 +0800
-From: Yifan Wu <wuyifan50@huawei.com>
-To: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <Dave.Martin@arm.com>,
-	<james.morse@arm.com>, <babu.moger@amd.com>, <shuah@kernel.org>,
-	<tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>, <ben.horgan@arm.com>,
-	<zengheng4@huawei.com>, <wuyifan50@huawei.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
-CC: <prime.zeng@hisilicon.com>, <wangyushan12@huawei.com>,
-	<xuwei5@huawei.com>, <wangzhou1@hisilicon.com>, <xiaqinxin@huawei.com>
-Subject: [PATCH v4 1/3] selftests/resctrl: Introduce linked list management for IMC counters
-Date: Sat, 1 Aug 2026 17:24:27 +0800
-Message-ID: <20260801092429.533956-2-wuyifan50@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260801092429.533956-1-wuyifan50@huawei.com>
-References: <20260801092429.533956-1-wuyifan50@huawei.com>
+	Sat, 01 Aug 2026 10:20:07 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4954d29264cso2630665e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 03:20:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785579603; x=1786184403; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=oSwy52wPE+n9CbxU0Afr3cSq8DpmnySrLvPQBrinhvc=;
+        b=A53kNSi7HSywRuA7XNtBdxh1ml9W75ax+kwaA1TBDy45Jtb0ldRRVSqxmF+vTj1fz+
+         +S1RbEgzenz8By8qULQAun3mMPUgi1rJ7cbM75DzEUSUeULJZjufIYiX5oGueeTvYAg8
+         ghD/gxfavIl7ix2cQmBL98KMscSEamf2iUS9AZsBspIV4LOh67vejw2MRLHK4UpICJL8
+         RE2hVXpdUcZDTdg9ZQqnFUHGXELnnB8F0SJoe5KG/h/k9luAJbWaXlnwc/JH/ORWXgc1
+         FowIwe3vk1fFSTlk4deiglJbYFS15yuXbQrOVdeimJJTKuVeciO5UpR0gYAq8eBbHCku
+         qFSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785579603; x=1786184403;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=oSwy52wPE+n9CbxU0Afr3cSq8DpmnySrLvPQBrinhvc=;
+        b=h8CL7W0ztZjnGIaHfiVzpuRjZBcuL9XnDZiqhcywmJHhPaD7IgUBhrk1+atd6hAvnZ
+         6vFHnDk+4nWzoNmeU8H0p+OTO+4r7uiSwLe4l9/4f/cdAUaPyGNYmjmsPWZsNg3Hn0Cd
+         pH3YsOtwYRQkkODNu0BpBvo4xInkJBmdmymQwwaiMnn/SGFsBTmMbd2xwCwX58NesVv8
+         Zo5jR2HL4LzrHJQreoCLIQJWgTKIeW2xcMDS/MOsxd5KEgQDuAFMJcWfWehkpFO2WkPo
+         04L3+XaCcJ6HyD0DXZEs/RQZnglW7WpqEg3Fvfvw5J7W4QpRd9QCB9xRJswtHGbcgFig
+         DHzQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqPXmqY8tx1zPvK3rWT8JFsfCjUSJ552ZMvkkrJdP/UHlVc60RLOWz2A2evb6pQQsvIjrPLCBHAq9jobKTyk8AK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+Lon0o49MqmPIlnKKRuE8CCZ7wvLSd4WIF2NhHVX0N4t+kTzz
+	zm43REDdsZh9y4QiSjdx4mJr7ddMjSBrzlq7mlmr/m/wLkOeT5qrCVvA
+X-Gm-Gg: AR+sD11P9ZN1SEtsSuNTLZ9yoC10g9Q3EeWsg0R/0suTUDrQCQZE2OgLogfsAYwbsKT
+	sKs4v5tFYIxCZOr4N2TCJNvVlXDscgDRyTkL1esuMaPNvrINg0FixErorGYwEoY2CggJra9Sw7R
+	2sUsFog+iJLpAwz1A7Kmo0HoX69RjqobEAu29SL3A9oflE9LmSdF3iaoBY8mkGy/sOF1kmbDBiH
+	hOB9ZsVd42Ba+AnnOBkERaSIEw38xgIb+4bJMVIZ+/hO+WanGCmbSgNSzcjQaOnOiL4w1cVY5I3
+	ouRz98W5JG25THJ00SIjKCOqVtE0vxV7Dr0rtHBKvOWwBPujuwkymFz9T9TVYsL9bYhlNj2gKPf
+	M53ZJw7XI6wu9JCY5MPs3xSt2cqCJhNYHgNtA0YPsCWFkqlnnkRzxt3QzulLXpsr4pC8XOmE4Ja
+	Wfc3Fd2ExZhmJga6l5FVkU+bFTId9jlHY/BdSUqLgJeb0AV3ftUehOfPxjsS6pbwHt8SSaly4Ph
+	Pe2ZYLX9Z8M0Cc9LBqohP4bZbbqnuG51y5O0hHeiAN+ka3YK2qiD1SmSRscqnA5f3WxdvOwOg7w
+	weBMLL4yZqDstmudUvFC3zXzvsxohQI9T1BZjZUJmhnB0qChiHTXhp6iqlXbtx+KE817r79m2Wx
+	FBBtrvWxR/0h0ELKuiMTK70rnVmYo5Kz5NgCtyZC+ZNRN14nV28AYGLLblFoB
+X-Received: by 2002:a05:600c:c490:b0:494:596e:e8c4 with SMTP id 5b1f17b1804b1-4980c67d1cbmr29142895e9.17.1785579603235;
+        Sat, 01 Aug 2026 03:20:03 -0700 (PDT)
+Received: from cypher.home.roving-it.com (1.e.2.e.9.4.4.d.0.e.6.8.9.8.8.3.0.0.0.0.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:0:3889:86e0:d449:e2e1])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-47fd456a5a4sm14804509f8f.20.2026.08.01.03.20.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 01 Aug 2026 03:20:02 -0700 (PDT)
+From: Peter Robinson <pbrobinson@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Phil Elwell <phil@raspberrypi.com>,
+	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Peter Robinson <pbrobinson@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Andrea della Porta <andrea.porta@suse.com>
+Subject: [PATCH v2] arm64: dts: broadcom: bcm2712: adjust display status
+Date: Sat,  1 Aug 2026 11:19:53 +0100
+Message-ID: <20260801102000.551644-1-pbrobinson@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemo100012.china.huawei.com (7.202.195.139)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_022444_670814_1FCA57F4 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20260801_032005_360898_3506907F 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,157 +108,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The static array approach to managing IMC counters has fixed size
-constraints and limited compatibility and scalability. Introduce
-a linked list-based dynamic management infrastructure to address
-these limitations. Add the core data structure definitions and
-memory allocation and cleanup functions for dynamic counter
-configurations.
+Typically non critical IP in a SoC are disabled by
+default in the SoC .dtsi and enabled on board specific
+configs. There are usecases, such as some CM5 carrier
+boards, where display output may not be desired or
+connected. So disable them on the SoC .dtsi and enable
+them on the RPi5 board.
 
-Reviewed-by: Reinette Chatre <reinette.chatre@intel.com>
-Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
+Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>
+Fixes: 25d77bdd7df2 ("arm64: dts: broadcom: Add display pipeline support to BCM2712")
 ---
- tools/testing/selftests/resctrl/mba_test.c    |  1 +
- tools/testing/selftests/resctrl/mbm_test.c    |  1 +
- tools/testing/selftests/resctrl/resctrl.h     |  2 ++
- tools/testing/selftests/resctrl/resctrl_val.c | 27 +++++++++++++++++--
- 4 files changed, 29 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/resctrl/mba_test.c b/tools/testing/selftests/resctrl/mba_test.c
-index 39cee9898359..4bb1a82eb195 100644
---- a/tools/testing/selftests/resctrl/mba_test.c
-+++ b/tools/testing/selftests/resctrl/mba_test.c
-@@ -166,6 +166,7 @@ static int check_results(void)
- 
- static void mba_test_cleanup(void)
- {
-+	cleanup_read_mem_bw_imc();
- 	remove(RESULT_FILE_NAME);
- }
- 
-diff --git a/tools/testing/selftests/resctrl/mbm_test.c b/tools/testing/selftests/resctrl/mbm_test.c
-index 6dbbc3b76003..68c89f50a34a 100644
---- a/tools/testing/selftests/resctrl/mbm_test.c
-+++ b/tools/testing/selftests/resctrl/mbm_test.c
-@@ -125,6 +125,7 @@ static int mbm_measure(const struct user_params *uparams,
- 
- static void mbm_test_cleanup(void)
- {
-+	cleanup_read_mem_bw_imc();
- 	remove(RESULT_FILE_NAME);
- }
- 
-diff --git a/tools/testing/selftests/resctrl/resctrl.h b/tools/testing/selftests/resctrl/resctrl.h
-index 175101022bf3..a7556cdae0de 100644
---- a/tools/testing/selftests/resctrl/resctrl.h
-+++ b/tools/testing/selftests/resctrl/resctrl.h
-@@ -24,6 +24,7 @@
- #include <linux/perf_event.h>
- #include <linux/compiler.h>
- #include <linux/bits.h>
-+#include <linux/list.h>
- #include "kselftest.h"
- 
- #define MB			(1024 * 1024)
-@@ -183,6 +184,7 @@ void mem_flush(unsigned char *buf, size_t buf_size);
- void fill_cache_read(unsigned char *buf, size_t buf_size, bool once);
- ssize_t get_fill_buf_size(int cpu_no, const char *cache_type);
- int initialize_read_mem_bw_imc(void);
-+void cleanup_read_mem_bw_imc(void);
- int measure_read_mem_bw(const struct user_params *uparams,
- 			struct resctrl_val_param *param, pid_t bm_pid);
- void initialize_mem_bw_resctrl(const struct resctrl_val_param *param,
-diff --git a/tools/testing/selftests/resctrl/resctrl_val.c b/tools/testing/selftests/resctrl/resctrl_val.c
-index f20d2194c35f..a72dc4ae61fe 100644
---- a/tools/testing/selftests/resctrl/resctrl_val.c
-+++ b/tools/testing/selftests/resctrl/resctrl_val.c
-@@ -28,6 +28,7 @@ struct membw_read_format {
+v2: rebase to align with upstream changes
+
+ .../dts/broadcom/bcm2712-rpi-5-b-base.dtsi    | 31 +++++++++++++++++++
+ arch/arm64/boot/dts/broadcom/bcm2712.dtsi     | 11 +++++++
+ 2 files changed, 42 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+index b7a6bc34ae1ab..51c8533f31812 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
+@@ -104,6 +104,18 @@ wl_on_reg: wl-on-reg {
+ 	};
  };
  
- struct imc_counter_config {
-+	struct list_head entry;
- 	__u32 type;
- 	__u64 event;
- 	__u64 umask;
-@@ -38,6 +39,7 @@ struct imc_counter_config {
- static char mbm_total_path[1024];
- static int imcs;
- static struct imc_counter_config imc_counters_config[MAX_IMCS];
-+LIST_HEAD(imc_counters_list);
- static const struct resctrl_test *current_test;
- 
- static void read_mem_bw_initialize_perf_event_attr(int i)
-@@ -113,6 +115,7 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
- 				    unsigned int *count)
- {
- 	char imc_events_dir[PATH_MAX], imc_counter_cfg[PATH_MAX];
-+	struct imc_counter_config *imc_counter;
- 	unsigned int orig_count = *count;
- 	char cas_count_cfg[1024];
- 	struct dirent *ep;
-@@ -126,13 +129,13 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
- 			    imc_dir);
- 	if (path_len >= sizeof(imc_events_dir)) {
- 		ksft_print_msg("Unable to create path to %sevents\n", imc_dir);
--		return -1;
-+		goto out;
- 	}
- 
- 	dp = opendir(imc_events_dir);
- 	if (!dp) {
- 		ksft_perror("Unable to open PMU events directory");
--		return -1;
-+		goto out;
- 	}
- 
- 	while ((ep = readdir(dp))) {
-@@ -167,11 +170,17 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
- 			ksft_print_msg("Maximum iMC count exceeded\n");
- 			goto out_close;
- 		}
-+		imc_counter = calloc(1, sizeof(*imc_counter));
-+		if (!imc_counter) {
-+			ksft_perror("Unable to allocate memory for iMC counters");
-+			goto out_close;
-+		}
- 
- 		imc_counters_config[*count].type = type;
- 		get_read_event_and_umask(cas_count_cfg, *count);
- 		/* Do not fail after incrementing *count. */
- 		*count += 1;
-+		list_add(&imc_counter->entry, &imc_counters_list);
- 	}
- 	if (*count == orig_count) {
- 		ksft_print_msg("Unable to find events in %s\n", imc_events_dir);
-@@ -180,6 +189,10 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
- 	ret = 0;
- out_close:
- 	closedir(dp);
-+out:
-+	if (ret)
-+		cleanup_read_mem_bw_imc();
++&ddc0 {
++	status = "okay";
++};
 +
- 	return ret;
- }
- 
-@@ -303,6 +316,16 @@ int initialize_read_mem_bw_imc(void)
- 	return 0;
- }
- 
-+void cleanup_read_mem_bw_imc(void)
-+{
-+	struct imc_counter_config *imc_counter, *tmp;
++&ddc1 {
++	status = "okay";
++};
 +
-+	list_for_each_entry_safe(imc_counter, tmp, &imc_counters_list, entry) {
-+		list_del(&imc_counter->entry);
-+		free(imc_counter);
-+	}
-+}
++&disp_intr {
++	status = "okay";
++};
 +
- static void perf_close_imc_read_mem_bw(void)
- {
- 	int mc;
+ &pinctrl {
+ 	bt_shutdown_default: bt-shutdown-default-state {
+ 		function = "gpio";
+@@ -230,16 +242,27 @@ bluetooth: bluetooth {
+ &hvs {
+ 	clocks = <&firmware_clocks 4>, <&firmware_clocks 16>;
+ 	clock-names = "core", "disp";
++	status = "okay";
+ };
+ 
+ &hdmi0 {
+ 	clocks = <&firmware_clocks 13>, <&firmware_clocks 14>, <&dvp 0>, <&clk_27MHz>;
+ 	clock-names = "hdmi", "bvb", "audio", "cec";
++	status = "okay";
+ };
+ 
+ &hdmi1 {
+ 	clocks = <&firmware_clocks 13>, <&firmware_clocks 14>, <&dvp 1>, <&clk_27MHz>;
+ 	clock-names = "hdmi", "bvb", "audio", "cec";
++	status = "okay";
++};
++
++&mop {
++	status = "okay";
++};
++
++&moplet {
++	status = "okay";
+ };
+ 
+ &pcie1 {
+@@ -250,6 +273,14 @@ &pcie2 {
+ 	status = "okay";
+ };
+ 
++&pixelvalve0 {
++	status = "okay";
++};
++
++&pixelvalve1 {
++	status = "okay";
++};
++
+ &v3d {
+ 	clocks = <&firmware_clocks 5>;
+ };
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+index 761c59d90ffc9..9b36ecd7bba54 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
++++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
+@@ -359,12 +359,14 @@ pixelvalve0: pixelvalve@7c410000 {
+ 			compatible = "brcm,bcm2712-pixelvalve0";
+ 			reg = <0x7c410000 0x100>;
+ 			interrupts = <GIC_SPI 101 IRQ_TYPE_LEVEL_HIGH>;
++			status = "disabled";
+ 		};
+ 
+ 		pixelvalve1: pixelvalve@7c411000 {
+ 			compatible = "brcm,bcm2712-pixelvalve1";
+ 			reg = <0x7c411000 0x100>;
+ 			interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
++			status = "disabled";
+ 		};
+ 
+ 		mop: mop@7c500000 {
+@@ -372,6 +374,7 @@ mop: mop@7c500000 {
+ 			reg = <0x7c500000 0x28>;
+ 			interrupt-parent = <&disp_intr>;
+ 			interrupts = <1>;
++			status = "disabled";
+ 		};
+ 
+ 		moplet: moplet@7c501000 {
+@@ -379,6 +382,7 @@ moplet: moplet@7c501000 {
+ 			reg = <0x7c501000 0x20>;
+ 			interrupt-parent = <&disp_intr>;
+ 			interrupts = <0>;
++			status = "disabled";
+ 		};
+ 
+ 		disp_intr: interrupt-controller@7c502000 {
+@@ -387,6 +391,7 @@ disp_intr: interrupt-controller@7c502000 {
+ 			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <1>;
++			status = "disabled";
+ 		};
+ 
+ 		dvp: clock@7c700000 {
+@@ -405,6 +410,7 @@ ddc0: i2c@7d508200 {
+ 			clock-frequency = <97500>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
++			status = "disabled";
+ 		};
+ 
+ 		ddc1: i2c@7d508280 {
+@@ -415,6 +421,7 @@ ddc1: i2c@7d508280 {
+ 			clock-frequency = <97500>;
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
++			status = "disabled";
+ 		};
+ 
+ 		bsc_irq: interrupt-controller@7d508380 {
+@@ -460,6 +467,7 @@ hdmi0: hdmi@7c701400 {
+ 			interrupt-names = "cec-tx", "cec-rx", "cec-low",
+ 					  "hpd-connected", "hpd-removed";
+ 			ddc = <&ddc0>;
++			status = "disabled";
+ 		};
+ 
+ 		hdmi1: hdmi@7c706400 {
+@@ -489,6 +497,7 @@ hdmi1: hdmi@7c706400 {
+ 			interrupt-names = "cec-tx", "cec-rx", "cec-low",
+ 					  "hpd-connected", "hpd-removed";
+ 			ddc = <&ddc1>;
++			status = "disabled";
+ 		};
+ 	};
+ 
+@@ -667,6 +676,7 @@ v3d: gpu@1002000000 {
+ 
+ 	vc4: gpu {
+ 		compatible = "brcm,bcm2712-vc6";
++		status = "disabled";
+ 	};
+ 
+ 	timer {
+@@ -703,5 +713,6 @@ hvs: hvs@107c580000 {
+ 		interrupt-parent = <&disp_intr>;
+ 		interrupts = <2>, <9>, <16>;
+ 		interrupt-names = "ch0-eof", "ch1-eof", "ch2-eof";
++		status = "disabled";
+ 	};
+ };
 -- 
-2.33.0
+2.55.0
 
 
