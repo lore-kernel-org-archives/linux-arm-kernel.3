@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3140C55173
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 16:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA2D5C55173
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 16:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V06eygovF9pqY3vHyXKEpDH3PhLpNuC5Yjsi32fVPNY=; b=yK/9k841ULEkQxXs3oli6UWz6p
-	0/B/Hk7U146obhXbjMxJ7D1/2ZpMtwk/d0y7hDUYt7I0zOrcW7wG0eqjjV0eSmjQM1VRTH9kW+APL
-	TSg913xi4WgJ18dBv78/9o9VMgcIJFeyFrnJKAMQSdAWESMrpEpMOxe3nGzZAtl5cIwMTtYIi7bZ7
-	V35GT5exF8votoaPmJmDXdaWLjUwcRLvOhh93elsHJxbGQwhhaltljAro688wXgnP6lC2XMKfCmso
-	Uo15cXWR16KjcoVRz0OPP5oUC3b3PR8Pd2Z+MedfJ6cypf3BCsUCsQ9JvsKt/ZjEQpL7ossdvs5gZ
-	XipbwN5Q==;
+	bh=cIxQo1lwuRObPNtRG3pl2vqbuRxkzNAJrAeSuo6abuo=; b=Kp4WVMpP4Ig7qNw0xWt1bufF0v
+	Rz/DTq4SaeYi6o8DCCBn8cuZ5dK3SsgfTvOMm7ppfcTm8DN+x29zQDkuZE9bINzFXYhGjtfKvwh+R
+	wayq423M2HJM2YVNsQWslvxtqLe2iJQLfKH78fvH2ojGIbrlQNfYgp6owgmn1wt/2pJQHZ3oS9GbZ
+	/SHXhoJKyC2/0TSkN1euhqIB3D6c4K9evliv3SCjihdI8dv9q0A1HALxqA4/EG+E7huBs6pwzrxrq
+	2besZijBzJl6BI6iD/jqPG6fIUDiMpcKKivrRdnPQFpZGutgG73r7M1QcTyTeIGTLAvT6NYhMKoQd
+	NUJrKG0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqCZm-0000000ErSl-0tKB;
-	Sat, 01 Aug 2026 16:28:42 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wqCa8-0000000ErWg-1iBG;
+	Sat, 01 Aug 2026 16:29:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqCZj-0000000ErS1-0bSp;
-	Sat, 01 Aug 2026 16:28:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=V06eygovF9pqY3vHyXKEpDH3PhLpNuC5Yjsi32fVPNY=; b=GkspQDxIH8XQuNGEPi3OaHsWVb
-	MWqmQLy8kUKXVbYdQCn+ie/STVzV3V1s7aPOK5PK5RjrA5Wiyz8hXdbdIEgc6WcPFfAa21KBC40+n
-	tiyw0Mn+j6oxgkEwMCeuve4BVeBfqLtB2EPeZ7wTyUU4mSmU1sLPii9wSHsjQ5BuPbhAuQtRTEjA5
-	n8pZMtkAH/FxaT++U1I8L6londMFmfOBCEtEEp2HcNsc6P3S1esk+oUHFDqac/TtiB/qTngEgeWVx
-	vxh6+0AgQRrVMtC7TkoRzlWwcomWycXXPeveXnhe6HMtGaMMJNgHU/uwXIYS2D1qggPlKOWmYdUmd
-	HqiZeHug==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, Coia Prant <coiaprant@gmail.com>,
- Coia Prant <coiaprant@gmail.com>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
- Russell King <linux@armlinux.org.uk>, Shawn Lin <shawn.lin@rock-chips.com>,
- David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 05/10] arm64: dts: rockchip: rk3568: add XPCS and fixed-clock
- nodes
-Date: Sat, 01 Aug 2026 18:28:11 +0200
-Message-ID: <2847036.GUH7pLUipS@diego>
-In-Reply-To: <20260801142244.679437-7-coiaprant@gmail.com>
-References: <20260801142244.679437-2-coiaprant@gmail.com>
- <20260801142244.679437-7-coiaprant@gmail.com>
+	id 1wqCa6-0000000ErWR-433T
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Aug 2026 16:29:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BBE9408B0;
+	Sat,  1 Aug 2026 16:29:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC54E1F00AC4;
+	Sat,  1 Aug 2026 16:29:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785601742;
+	bh=cIxQo1lwuRObPNtRG3pl2vqbuRxkzNAJrAeSuo6abuo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fDmr00/Z6DZO1Gucn7BdNU9xHWsTUnxAds/CIc9rPQ7jV6+qXyp9p0ZgJDDYXfqui
+	 3EeYsG6/9pZz3MngkjJ6ZXiNwFnptKQ637gPc0Hjgtvd9nySeTWEirxdOoKf0iqdwe
+	 C8jlzCiiJ4LNc5imE/ZOjoPcPAchgVuGcYI/btpVooLnbolHCQLh+xL2leRm0QW3Ih
+	 jACJnwd0PU5buXbHKlx5wdTa280vBY/LEsLWWJGzr7gpmB9IcvoIBuIF5opwim8Pde
+	 1gmFZK/m1AwMuRCGUJQ23qY/kr5Z3LB1nYgOLgV7beVAvKy10aMW56AiUZIs7Eg73Q
+	 gHCHgajqvFNvg==
+Date: Sat, 1 Aug 2026 09:29:00 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Demi Marie Obenour <demiobenour@gmail.com>,
+	linux-crypto@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
+	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH] crypto: qce - Replace with stub driver
+Message-ID: <20260801162900.GA2021@quark>
+References: <20260731050838.158825-1-ebiggers@kernel.org>
+ <a28c2903-0976-4559-b870-4de5553ba9ab@kernel.org>
+ <3ba57269-3305-4d80-b3f2-aa82fa59b59d@gmail.com>
+ <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_092839_215141_5A762A9C 
-X-CRM114-Status: GOOD (  18.07  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,101 +78,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Samstag, 1. August 2026, 16:22:29 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Coia Prant:
-> The RK3568 SoC integrates a Synopsys DesignWare XPCS that provides
-> the Physical Coding Sublayer for 1000BASE-X, SGMII, and QSGMII
-> interfaces via its four MII ports.  Add the XPCS device node and
-> its pcs-mii sub-nodes to the SoC device tree.
->=20
-> The XPCS device is accessed via the APB3 bus at 0xfda00000 and
-> requires the CSR clock (PCLK_XPCS) for register access and the EEE
-> clock (CLK_XPCS_EEE) for Energy Efficient Ethernet operation.  The
-> PD_PIPE power domain must be enabled before any register access.
->=20
-> Also add two fixed-clock nodes (xpcs_gmac0_clk and xpcs_gmac1_clk)
-> providing the 125 MHz reference clock for the GMACs when operating
-> with XPCS.  These clocks are used as the assigned-clock-parents
-> for the respective GMAC nodes in board-level device trees.
->=20
-> The XPCS node and its pcs-mii sub-nodes are disabled by default and
-> must be enabled at the board level when 1000BASE-X/SGMII/QSGMII is
-> in use.  The fixed-clock nodes are always present and do not have a
-> status property, as they are static clock sources.
->=20
-> The XPCS node also requires a reference to the appropriate Naneng
-> Combo PHY via the phys property at the board level.
->=20
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3568.dtsi | 45 ++++++++++++++++++++++++
->  1 file changed, 45 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3568.dtsi b/arch/arm64/boot/d=
-ts/rockchip/rk3568.dtsi
-> index 3bc653f027f1f..989e164c0eb39 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3568.dtsi
-> @@ -110,6 +110,51 @@ sata0: sata@fc000000 {
->  		status =3D "disabled";
->  	};
-> =20
-> +	xpcs: pcs@fda00000 {
-> +		compatible =3D "rockchip,rk3568-xpcs";
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +		reg =3D <0x0 0xfda00000 0x0 0x200000>;
-> +		clocks =3D <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
-> +		clock-names =3D "csr", "eee";
-> +		power-domains =3D <&power RK3568_PD_PIPE>;
-> +		status =3D "disabled";
-> +
-> +		xpcs_mii0: pcs-mii@0 {
-> +			reg =3D <0>;
-> +			status =3D "disabled";
-> +		};
-> +
-> +		xpcs_mii1: pcs-mii@1 {
-> +			reg =3D <1>;
-> +			status =3D "disabled";
-> +		};
-> +
-> +		xpcs_mii2: pcs-mii@2 {
-> +			reg =3D <2>;
-> +			status =3D "disabled";
-> +		};
-> +
-> +		xpcs_mii3: pcs-mii@3 {
-> +			reg =3D <3>;
-> +			status =3D "disabled";
-> +		};
-> +	};
-> +
-> +	xpcs_gmac0_clk: xpcs-gmac0-clock {
-> +		compatible =3D "fixed-clock";
-> +		clock-frequency =3D <125000000>;
-> +		clock-output-names =3D "clk_gmac0_xpcs_mii";
-> +		#clock-cells =3D <0>;
-> +	};
-> +
-> +	xpcs_gmac1_clk: xpcs-gmac1-clock {
-> +		compatible =3D "fixed-clock";
-> +		clock-frequency =3D <125000000>;
-> +		clock-output-names =3D "clk_gmac1_xpcs_mii";
-> +		#clock-cells =3D <0>;
-> +	};
+On Sat, Aug 01, 2026 at 11:18:46AM +0200, Krzysztof Kozlowski wrote:
+> On 31/07/2026 20:31, Demi Marie Obenour wrote:
+> > On 7/31/26 05:06, Krzysztof Kozlowski wrote:
+> >> On 31/07/2026 07:08, Eric Biggers wrote:
+> >>> None of the algorithms the QCE driver registers with the crypto API are
+> >>> even close to being useful.  They're massively outperformed by the
+> >>
+> >> The amount of patches you send towards removal of QCE is really
+> >> stunning. Or rather worrying. This is like third approach or so.
+> >>
+> >> Your previous approaches received valid feedback, including even fixes
+> >> and committment of new maintainer.
+> >>
+> >> But you even complained that it does receive fixes! [1]
+> >>
+> >> We removed the driver temporarily from typical configurations, so no one
+> >> will be affected, by whatever is found now and not yet fixed. Still not
+> >> enough! For you this was reason to remove the driver (AGAIN!) [2]
+> > 
+> > A stub driver needs to be added for power management reasons.  It turns
+> > out that if there is no driver, power consumption is very high.
+> > 
+> >> This is beyond comprehension and very unpleasant, because you actively
+> >> work against the community with this approach.
+> > 
+> > I trust that Bartosz can fix the driver with enough work.  However,
+> > even if the QCE driver had never had a single bug, it would still not
+> > be worth using.  Its performance is so poor that one should always
+> > use CPU-based crypto instead.  In the default configuration, that is
+> > in fact what happens.
+> > 
+> > The QCE's algorithm implementations only provide a way people can
+> > misconfigure their systems and ruin their performance.  There are
+> > debug options that also severely harm performance, but they have
+> > legitimate uses during development.  The current QCE driver doesn't.
+> > 
+> > I have no problem with a driver for the QCE that does something actually
+> > useful.  While there are disagreements about whether restricted media
+> > processing is a feature or an anti-feature, my view is that it is
+> > better for it to be implemented upstream than in an out-of-tree driver.
+> > However, the driver as it currently exists does not implement this.
+> > 
+> > I expect that such a driver would not use the crypto API at all.
+> > Instead, I suspect it would use dmabufs for source and destination
+> > buffers and integrate with the secure world firmware in some way.
+> > That means that the driver doesn't belong under drivers/crypto.
+> > 
+> > These are the reasons I submitted a patch to mark the driver as BROKEN,
+> > which Herbert Xu has since accepted.
+> 
+> And Bartosz and other people committed to work on this by improving,
+> fixing and in the long term providing you with the actual important user
+> of this. All this was already said.
+> 
+> And then after having all these discussions Eric sends AGAIN patch to
+> remove the driver. How many times this will have to be discussed the
+> same way? If we now reach agreement the driver stays, next month again
+> there will be a patch to remove it? And then one more month again?
+> 
+> The driver is marked as BROKEN, thus absolutely NO ONE is affected by
+> any issues the driver has.
+> 
+> It's some personal vendetta to keep coming after that - unimportant now
+> - driver.
 
-I don't fully believe those clocks are "just there" inside the SoC.
-Instead I _assume_ they are generated by some oscillator on the
-individual boards?
+Well, there was also feedback that BROKEN drivers should not stay in the
+tree and instead just be removed.  So I was considering that feedback
+too, as well as the results of additional testing and review of this
+driver, including evidence that the driver performs even worse than
+thought and is actually getting even worse; the performance seems
+irredeemable.  As for proposing the stub driver, that is addressing the
+power management issue that was mentioned on the other thread.
 
-Because as described there, they would be just magically be there.
+Anyway, it sounds like you support it being BROKEN.  Okay, but again, as
+Greg mentioned
+(https://lore.kernel.org/linux-crypto/2026071312-uncover-refining-8cac@gregkh/)
+it is awkward to have BROKEN stuff in the tree since it cannot even be
+built.  I'm not sure we can have it both ways!
 
-So please aim for a real clock description (likely on a board-level)
-
-
-Heiko
-
-
-
+- Eric
 
