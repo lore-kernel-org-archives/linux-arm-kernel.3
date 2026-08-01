@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC8ABC55172
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 14:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79073C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 14:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6YxJTLfbFLaJQNrdCTWQsfkF0vgcKN1ElhQsDv7wQJw=; b=L9RHAd2pTButl3Sby71EhqUdGy
-	dDl7jqEjIlScJH5VGIiNhTfifzZ0+6t23Y9lSVasBBM+JVC6GYgCMS1Scl3dbfdQwpR0kQuw9SUK2
-	a4ql8yAXRwuFaU29xO8S7xpMDnfQ9kuxBpMm0OIKIGkM+C5QTMqM4RMrNQsJMq7VlfFYAT+p8qzjO
-	7nOeDb95gtcq3W1+GekFS0tNpv0qjAoMdho1EOw0ThC1sfE6Yo9Z1NzUvJqUr40NvNJtGyyeCywVQ
-	gj5tMCAYcQrojZlqsYXYfWpTUYpNoZvpT0Yfbjx/0ntdIc9SrpWte/wHrUhZIEal3iwJm86YrDPwe
-	eIqZKkzg==;
+	bh=v2tJApUzC1LEzp8M/eTL2SHChylQhCDDbwAQQxkGsv0=; b=qy2h+Fq0YzAfTyVy3v3RrI3yNj
+	j1Q8VrENoTOh0qPZKfby2iBLrlcRRBvq5KaTtMCIunKqaKXqUICw0BcBzjTLW23oTc+CeXhgWwn4S
+	NWVw5uqf6BC6nCV1+INAoes7Zvdt49w0ITOsrEpQi6V6pz7dUTOcGYQFxROzIdvlfyWH79srRvB/9
+	9l1yf/E2h3GgSU2EEQciGL4nV4VmzmEa67yi/uhhogXIzk1GO04I9yJvTCyAF+OIgRLOGZV9f861q
+	e/Dab+kWtCEQyLWQsUt+CEvmURp6WPG9my39g6sOqQq+f9DTJyxCgGIr9cAIdBD0g6E3aTtQjoTot
+	vbRi1NXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqAcW-0000000EiM4-113u;
-	Sat, 01 Aug 2026 14:23:24 +0000
-Received: from mail-pj2-x03.google.com ([2607:f8b0:4864:39::3])
+	id 1wqAcd-0000000EiQu-0iZG;
+	Sat, 01 Aug 2026 14:23:31 +0000
+Received: from mail-pj2-x04.google.com ([2607:f8b0:4864:39::4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqAcT-0000000EiJz-1PLl
+	id 1wqAcZ-0000000EiOQ-46zX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 14:23:22 +0000
-Received: by mail-pj2-x03.google.com with SMTP id d9443c01a7336-2ccb0e85312so11214875ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 07:23:20 -0700 (PDT)
+	Sat, 01 Aug 2026 14:23:29 +0000
+Received: by mail-pj2-x04.google.com with SMTP id d9443c01a7336-2ccc2e84048so11250335ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 07:23:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785594200; x=1786199000; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785594207; x=1786199007; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6YxJTLfbFLaJQNrdCTWQsfkF0vgcKN1ElhQsDv7wQJw=;
-        b=jxQB/pIUIMTXdFYcLWxmM9u6quX+dBDrGrw7xbQXRq5A3Ca3izifAPW9Ux9YGfnCPs
-         1S4Ria69kROBbADxLFL0PrQ7Ofynf105ZNwO3HQZJ1qI/n6NE7bMvvbQsU68bHPbLO9p
-         clb7L61lI32HdrTo7BQuy6gt38kDFwi0Tu8iXj9v35tZHscCLxaYeORUnYzHyM2nf4GU
-         bNb4Yru9RzNtUODrE8MljFvMARCsvIdaInW/WjyUOS7sRko0J902pBxZmVDxI2mZ3wW0
-         6KGOIniLOSaIhh7EzRPZgVFVUSxV95kLq6nn1uF9ZNctkpCIOX7aNF5htrNJ+5jc6nnL
-         7CdQ==
+        bh=v2tJApUzC1LEzp8M/eTL2SHChylQhCDDbwAQQxkGsv0=;
+        b=R14Vfh+uQ0GDS0HAgCXKR+B7G++p39WpQU0dEr9n4cA3jV+HI17AyPphkqokH+/FRX
+         4l+f7BzXXHGbqCyxv8HF6PcdNJtmZLSdPVdwTLd/Lh34WoLKToJUScmKt2m568XrLl6H
+         l10b+m8aCkm+iG2+BcGvIGR/pRTNVXP96CqC+elsZ5XP7Qs8nICHsx8cL0afsHbL0wMt
+         ebgo3jqtIzJPaK2uZzxjuA2aO4OERyIxor4VnVGPSRZfoSjZvF9cTizdXL9Bqp6hhZ9B
+         N+y8ysQA0HEbKSYgI0Hx8+dF671XZj8t8jVSTFFZR5epv5LGrQLJ5sksma7N4UP1I3Ob
+         Q7bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785594200; x=1786199000;
+        d=1e100.net; s=20251104; t=1785594207; x=1786199007;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6YxJTLfbFLaJQNrdCTWQsfkF0vgcKN1ElhQsDv7wQJw=;
-        b=J/p3cQ4L9gQAmqkllNBOwOvg7lMPz82nLGHM+IVomzeBDdF2ki8hBf+hzpL8AL3QVj
-         71CUGbiLIYuQJ623uVausCjZRM/1SHhzMeI5WFVvEUv8cn9cmPea4lYG6PdruOvcx0kw
-         0QO5CP/qwMHGlBSQMqqqxXgUgtOEJ+x+tQ4gQ7GHeCIyA+iIxtoHDERZzv5bRVfK7fgi
-         nnip3mp2c4Muhe/0Zi9jbM1w8BllPRWBIZ22hRpXpzCNglIRw18pVjGhHNxgD3YLQflU
-         BbSqi6Ix6wzkPSsa9Qb7P8K0FTVRHajjv1iUSqFJBLbeOBJU+bZCT3n7BI9H7Q7rRl7b
-         kaaQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrQnCZnEjsu0kBNofCOoPMon6D66KyN+rqsD9uFuW6pL/i8B081XkE3GsPme7oCl7GDT3QI73q5ATE7cbWmoM0K@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDTmXB+ivJ7lIGU9LSJ6spcbnzYUwfax61cje8MpYvGmxW1FvA
-	hISxCLenpP67IdfKGTfQ/rtixZL8BTni6hovrBL68TLOi7sHNR0nYmQf
-X-Gm-Gg: AR+sD109FUqcB1/ERpFQ1EhPmm5LlHSXEaHSwd9Zy3cwAn9g7X0uKraxUUVwVsM3wyk
-	aHY6wkTVQWsK6qAaWt6DS79GKal2gQiScKpkZJ/LA2V1Jx7eO68dbdIpILME/2tQxBvaRqqJbor
-	NIxGmmqa7BbTNMtciL+/TLLd4WjRsutQLotRKwgCjkiyvYmcipFvWUMB1gDsEDgZPksJay9Bbef
-	H8QKlKR/GgFiXMMRtlN8wlYAJTh5gWySW1NOky79bbmLgeOwV7NzxRI/x7fFNyjAkF0HNHG3Avq
-	Pn8snRZo2Qm0N5WxMZFxGIgjz72CkGIjUkMbx+gG8j3mOez/xfD/8LRTg5fWnwrOY2G2z5RRBKd
-	W28sSxPL+k+u5jn/idE8C0fgyUrggPuq/jnAG1LWJEBGggjP2o0CvoyWA9x+b6L/FGfnbgPEnld
-	kxklK7TsvfZc64Eg41IjRMxt0uvFsabdcSzj1oNAd5321rnobRwfbVW74=
-X-Received: by 2002:a17:903:22c3:b0:2cc:9473:97c8 with SMTP id d9443c01a7336-2d0521bc958mr36797725ad.15.1785594200194;
-        Sat, 01 Aug 2026 07:23:20 -0700 (PDT)
+        bh=v2tJApUzC1LEzp8M/eTL2SHChylQhCDDbwAQQxkGsv0=;
+        b=B+EDSaaKlE1UVx0aeCD1Wx8hFkKUJPCY7mDdR8veJnmeefIAxOkIonPF3Ib4yzTD7Z
+         pVCA0Hd3SBIjXPNZm7ZxMFHIcg3PUYe1DMi0d+VqfY/LjOYd+HP1WdKmXXXNBrTdSCoN
+         4FjOO51Q+ioUh3YZ+f3/0XBaWppwrED1kX4+5tpf9dMsWH45+YfSGC9zUo6d26/8/QTJ
+         WqRdYI6UzZWS2zt3QezxgJTEAmfqEU0AMoQ4XbCTQjwzNsrI7HMHBvBus1oIBSVCbcIz
+         j60EhGRQsBy8s3MMyTVIq5qmNc872s74sOuLI59gW2H4kJj4Om4VeZhSo+zBHa1IkxX6
+         hpRw==
+X-Forwarded-Encrypted: i=1; AHgh+RpN7rZAWNnLzDdSXU+pCHY0IkfWq3v2P9u7Buus9UdFYrq26+u310gfAGASFLzYW3VKODl78mf0x43sHDFmMPn9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1soq/BlMj31CYg2brdnNwmrObVadMQd6mTV7s1YX4IFa4HP9V
+	c0sZSp7Y/qKRq2csexW2dKs0rVxVgRJ8a9gylENre9afYirWMgCUYIX1
+X-Gm-Gg: AR+sD10vP5DpXwcWRc4EsZTmwrf0TeiIeNplhgJyzOWKfn/1zLT/wSlL0xtxVmC9hlA
+	gAh4LhDH5IvIEwtdyWqOLfU2K9kMxxpXUHZn7Qoh6K7nZtrRKJj1DmPIy0OJsoMXzfWfvmD33Ii
+	+nQDb3aakuXTpXzbk209Nmu7xIi45orln7x5vLiuIYldImd9c2P5Epj+TUyqEHIUhOfU3/Pixxr
+	X4t3uQnOWvBy+jedufCd9nnICtZAH242b0sE14s2oDv7aSN71/vCgJ5apmbolzAUZ7U3Q2DW6w1
+	OsSjACigG++wImspbd5wZ4AuODKvk9X/Mv+DTAkCJFw2Ve3t2PDB8qbBoRstuPhZYgUEVLXAG/W
+	ozeBdu3eUbHO77EHduqmup1lKEpKCEnCDEDwJwmo8XPlPn+FgT7O80fCOMCTJkDs7d96QQKxIoL
+	AE7tQidnYwdVxVcta+0pKP/RsxFoL73hAFvZwIh2UnVm+x9uquaNs7yjLm7L9rIbVCww==
+X-Received: by 2002:a17:903:2b07:b0:2cf:a5da:705e with SMTP id d9443c01a7336-2d052494227mr37113295ad.41.1785594206913;
+        Sat, 01 Aug 2026 07:23:26 -0700 (PDT)
 Received: from server.lan ([103.213.4.16])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04ae5ac3dsm18043845ad.23.2026.08.01.07.23.13
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04ae5ac3dsm18043845ad.23.2026.08.01.07.23.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Aug 2026 07:23:19 -0700 (PDT)
+        Sat, 01 Aug 2026 07:23:26 -0700 (PDT)
 From: Coia Prant <coiaprant@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S . Miller" <davem@davemloft.net>,
@@ -99,17 +99,17 @@ Cc: Neil Armstrong <neil.armstrong@linaro.org>,
 	linux-phy@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 01/10] net: stmmac: move XPCS lifetime management to platform drivers
-Date: Sat,  1 Aug 2026 22:22:25 +0800
-Message-ID: <20260801142244.679437-3-coiaprant@gmail.com>
+Subject: [PATCH v2 02/10] dt-bindings: phy: rockchip: naneng-combphy: add rockchip,sgmii-mac-sel property
+Date: Sat,  1 Aug 2026 22:22:26 +0800
+Message-ID: <20260801142244.679437-4-coiaprant@gmail.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260801142244.679437-2-coiaprant@gmail.com>
 References: <20260801142244.679437-2-coiaprant@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_072321_417218_E86722D9 
-X-CRM114-Status: GOOD (  27.03  )
+X-CRM114-CacheID: sfid-20260801_072328_029930_725D7BE0 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,242 +124,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current XPCS creation logic in stmmac_pcs_setup() is problematic
-for several reasons.
+On RK3568, the SGMII interface can be routed to either GMAC0 or
+GMAC1 via the pipe_sgmii_mac_sel bit in the pipe GRF registers.
 
-First, if a device tree specifies a "pcs-handle" but no select_pcs()
-callback is provided by the platform driver, the created XPCS is never
-used. The phylink framework requires select_pcs() to actually return
-the PCS to the core, so the pcs-handle property becomes effectively
-useless without the matching callback. This is confusing for developers
-who expect that specifying a pcs-handle in their device tree should be
-sufficient to enable the PCS.
+Add the optional "rockchip,sgmii-mac-sel" property to allow the
+device tree to select which GMAC controller is used for SGMII.
 
-Second, and more critically, when stmmac_pcs_setup() fails to create
-an XPCS (either because no pcs-handle is present and no pcs_mask is
-configured), it falls through to the else branch and leaves
-priv->hw->xpcs as NULL. This will silently override any XPCS that a
-platform driver may have already set up during its own initialization,
-for example in a pcs_init() callback or during probe. The platform
-driver has no way to prevent this override because the common code
-runs unconditionally after the platform-specific initialization.
+The property takes a value of 0 (GMAC0) or 1 (GMAC1). The hardware
+reset value is 1 (GMAC1), but this can be overridden by setting the
+property to 0 for boards where SGMII is connected to GMAC0.
 
-After commit 93f84152e4ae ("net: stmmac: clean up
-stmmac_mac_select_pcs()"), the common code no longer falls back to
-priv->hw->phylink_pcs if select_pcs() is not set. This change
-reinforces that each platform must manage its own PCS life cycle
-explicitly, but the XPCS creation code in stmmac_pcs_setup() was not
-updated to match this new expectation, leaving a gap where platform
-drivers have no clean way to take control of XPCS creation.
-
-Address all of these issues by introducing pcs_init() and pcs_exit()
-callbacks in plat_stmmacenet_data. These callbacks give platform
-drivers full control over when and how the XPCS is created, configured,
-and destroyed. The common stmmac_pcs_setup() and stmmac_pcs_clean()
-functions are simplified to just call these callbacks, removing the
-confusing and error-prone XPCS creation logic from the common code.
-
-Platforms that do not need an XPCS simply leave the callbacks as NULL
-and no change in behavior occurs. Platforms that do need an XPCS can
-now create it with the exact configuration they require, including
-wrapping it with custom phylink_pcs_ops when necessary.
-
-Existing platform drivers (intel, rzn1, socfpga) are updated to use
-the new callbacks by moving their XPCS creation and cleanup logic into
-pcs_init() and pcs_exit(). In their pcs_exit() implementations, the
-pointer to the destroyed PCS is explicitly set to NULL to avoid
-dangling pointer references.
+This is necessary for boards such as the Ariaboard Photonicat, where
+the SGMII interface is connected to GMAC0 and needs to be explicitly
+configured.
 
 Signed-off-by: Coia Prant <coiaprant@gmail.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-intel.c | 44 +++++++++++++++++--
- .../stmicro/stmmac/dwmac-renesas-gbeth.c      |  7 ++-
- .../net/ethernet/stmicro/stmmac/dwmac-rzn1.c  |  7 ++-
- .../ethernet/stmicro/stmmac/dwmac-socfpga.c   |  7 ++-
- .../net/ethernet/stmicro/stmmac/stmmac_mdio.c | 37 +++-------------
- 5 files changed, 61 insertions(+), 41 deletions(-)
+ .../bindings/phy/phy-rockchip-naneng-combphy.yaml   | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-index 4d207f41a43b3..221b3203a81ed 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-@@ -603,13 +603,47 @@ static void common_default_data(struct plat_stmmacenet_data *plat)
- 	plat->mdio_bus_data->needs_reset = true;
- }
+diff --git a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+index 379b08bd9e97a..8e898bce9af73 100644
+--- a/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
++++ b/Documentation/devicetree/bindings/phy/phy-rockchip-naneng-combphy.yaml
+@@ -80,6 +80,15 @@ properties:
+     description:
+       Some additional pipe settings are accessed through GRF regs.
  
-+static int intel_mgbe_pcs_init(struct stmmac_priv *priv)
-+{
-+	struct fwnode_handle *devnode, *pcsnode;
-+	struct dw_xpcs *xpcs = NULL;
-+	int addr;
++  rockchip,sgmii-mac-sel:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [0, 1]
++    default: 1
++    description:
++      Select gmac0 or gmac1 to be used as SGMII controller.
++      The hardware reset value is GMAC1 (1). Set this to 0 to route
++      SGMII to GMAC0.
 +
-+	devnode = dev_fwnode(priv->device);
-+
-+	if (fwnode_property_present(devnode, "pcs-handle")) {
-+		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
-+		xpcs = xpcs_create_fwnode(pcsnode);
-+		fwnode_handle_put(pcsnode);
-+	} else {
-+		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
-+		xpcs = xpcs_create_mdiodev(priv->mii, addr);
-+	}
-+
-+	if (IS_ERR(xpcs))
-+		return PTR_ERR(xpcs);
-+
-+	xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
-+
-+	priv->hw->xpcs = xpcs;
-+	return 0;
-+}
-+
-+static void intel_mgbe_pcs_exit(struct stmmac_priv *priv)
-+{
-+	if (!priv->hw->xpcs)
-+		return;
-+
-+	xpcs_destroy(priv->hw->xpcs);
-+	priv->hw->xpcs = NULL;
-+}
-+
- static struct phylink_pcs *intel_mgbe_select_pcs(struct stmmac_priv *priv,
- 						 phy_interface_t interface)
- {
--	/* plat->mdio_bus_data->has_xpcs has been set true, so there
--	 * should always be an XPCS. The original code would always
--	 * return this if present.
--	 */
-+	if (!priv->hw->xpcs)
-+		return NULL;
-+
- 	return xpcs_to_phylink_pcs(priv->hw->xpcs);
- }
+   "#phy-cells":
+     const: 1
  
-@@ -733,6 +767,8 @@ static int intel_mgbe_common_data(struct pci_dev *pdev,
- 	    plat->phy_interface == PHY_INTERFACE_MODE_1000BASEX) {
- 		plat->mdio_bus_data->pcs_mask = BIT_U32(INTEL_MGBE_XPCS_ADDR);
- 		plat->default_an_inband = true;
-+		plat->pcs_init = intel_mgbe_pcs_init;
-+		plat->pcs_exit = intel_mgbe_pcs_exit;
- 		plat->select_pcs = intel_mgbe_select_pcs;
- 	}
- 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-index 19f34e18bfef2..9af32c26f9c14 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-renesas-gbeth.c
-@@ -81,8 +81,11 @@ static int renesas_gmac_pcs_init(struct stmmac_priv *priv)
- 
- static void renesas_gmac_pcs_exit(struct stmmac_priv *priv)
- {
--	if (priv->hw->phylink_pcs)
--		miic_destroy(priv->hw->phylink_pcs);
-+	if (!priv->hw->phylink_pcs)
-+		return;
-+
-+	miic_destroy(priv->hw->phylink_pcs);
-+	priv->hw->phylink_pcs = NULL;
- }
- 
- static struct phylink_pcs *renesas_gmac_select_pcs(struct stmmac_priv *priv,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
-index 13634965bc19a..01df4776edb3f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rzn1.c
-@@ -35,8 +35,11 @@ static int rzn1_dwmac_pcs_init(struct stmmac_priv *priv)
- 
- static void rzn1_dwmac_pcs_exit(struct stmmac_priv *priv)
- {
--	if (priv->hw->phylink_pcs)
--		miic_destroy(priv->hw->phylink_pcs);
-+	if (!priv->hw->phylink_pcs)
-+		return;
-+
-+	miic_destroy(priv->hw->phylink_pcs);
-+	priv->hw->phylink_pcs = NULL;
- }
- 
- static struct phylink_pcs *rzn1_dwmac_select_pcs(struct stmmac_priv *priv,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 1d7f0a57d2889..6d4bc1fe8f751 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -539,8 +539,11 @@ static int socfpga_dwmac_pcs_init(struct stmmac_priv *priv)
- 
- static void socfpga_dwmac_pcs_exit(struct stmmac_priv *priv)
- {
--	if (priv->hw->phylink_pcs)
--		lynx_pcs_destroy(priv->hw->phylink_pcs);
-+	if (!priv->hw->phylink_pcs)
-+		return;
-+
-+	lynx_pcs_destroy(priv->hw->phylink_pcs);
-+	priv->hw->phylink_pcs = NULL;
- }
- 
- static struct phylink_pcs *socfpga_dwmac_select_pcs(struct stmmac_priv *priv,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-index afe98ff5bdcb0..d2f77f0c223a7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c
-@@ -426,36 +426,15 @@ int stmmac_mdio_reset(struct mii_bus *bus)
- int stmmac_pcs_setup(struct net_device *ndev)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
--	struct fwnode_handle *devnode, *pcsnode;
--	struct dw_xpcs *xpcs = NULL;
--	int addr, ret;
--
--	devnode = dev_fwnode(priv->device);
--
--	if (priv->plat->pcs_init) {
--		ret = priv->plat->pcs_init(priv);
--	} else if (fwnode_property_present(devnode, "pcs-handle")) {
--		pcsnode = fwnode_find_reference(devnode, "pcs-handle", 0);
--		xpcs = xpcs_create_fwnode(pcsnode);
--		fwnode_handle_put(pcsnode);
--		ret = PTR_ERR_OR_ZERO(xpcs);
--	} else if (priv->plat->mdio_bus_data &&
--		   priv->plat->mdio_bus_data->pcs_mask) {
--		addr = ffs(priv->plat->mdio_bus_data->pcs_mask) - 1;
--		xpcs = xpcs_create_mdiodev(priv->mii, addr);
--		ret = PTR_ERR_OR_ZERO(xpcs);
--	} else {
-+	int ret;
-+
-+	if (!priv->plat->pcs_init)
- 		return 0;
--	}
- 
-+	ret = priv->plat->pcs_init(priv);
- 	if (ret)
- 		return dev_err_probe(priv->device, ret, "No xPCS found\n");
- 
--	if (xpcs)
--		xpcs_config_eee_mult_fact(xpcs, priv->plat->mult_fact_100ns);
--
--	priv->hw->xpcs = xpcs;
--
- 	return 0;
- }
- 
-@@ -463,14 +442,10 @@ void stmmac_pcs_clean(struct net_device *ndev)
- {
- 	struct stmmac_priv *priv = netdev_priv(ndev);
- 
--	if (priv->plat->pcs_exit)
--		priv->plat->pcs_exit(priv);
--
--	if (!priv->hw->xpcs)
-+	if (!priv->plat->pcs_exit)
- 		return;
- 
--	xpcs_destroy(priv->hw->xpcs);
--	priv->hw->xpcs = NULL;
-+	priv->plat->pcs_exit(priv);
- }
- 
- struct stmmac_clk_rate {
+@@ -105,6 +114,10 @@ allOf:
+           maxItems: 1
+         reset-names:
+           maxItems: 1
++        rockchip,sgmii-mac-sel: true
++    else:
++      properties:
++        rockchip,sgmii-mac-sel: false
+   - if:
+       properties:
+         compatible:
 -- 
 2.47.3
 
