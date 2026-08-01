@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1BEDC55177
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 21:41:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66262C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 21:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bGqkzE9J7l8eega5eRBiLNQWdpKKNJCn7O+8KgX4WaU=; b=v2oio6oAk6B/ACq2d8Ud5KjdN+
-	GTHtf51Lcchupc1hX7utN7CXV1AAmsY1rmhCAdcQRhSr5jN3lNektKibOJia1wLjwBPos+rrNU+Ag
-	raY3LXeouLt2tDHSsAru0oU6sLjH5zP8bQATV+rbTWG5+HIeEBeeCU+RcGdIdEiCE2lgpI8h99fMO
-	S2ZlYwpgqyWj8g5/uZ9KFMq7PcUcuX5eztTfPUwelYE/CC1Z7W+x653QM0VzXJcBoiq07TnsH8+6h
-	vfK+g92AEvVI+icloyv0bD9SjTxZQrNjKBqRMq3wDTvzqAqh7QMTniHBQd+1l07gA45Y8CIpjtz+4
-	3PfREUug==;
+	bh=5wvhJvl8V/UCRIKi03HOG9kNnF6pjoj6mjPMcmy9q1U=; b=2Hi1ILoqs6EFgGZG4ypUK2WIex
+	n0BAeQjUR/RUov4BYQ9Zm7s2HIXZl0GYgb2FaLcMGM0VcWcXJ1dwsyGmGmEJ7qBFcIVrRQAs+aCL6
+	aRgo99u5DFulrZCjyricxgtCl3k69tdj8YLbyXBHh/P5/WhZ9r5PJBm93IBVasLtxUIcaBI/7e3co
+	13PlPeLtivHeAOhapVlv/1FVCQelykzntVbcr+qgOKpDg5hg1qgiGhQhhb7Q5HF8eCOrbJNfTFj1v
+	bAMc7edPwgyqmIB/fWHPZfJr/jDVqrMy7b6evxL857Oghnx06pmjRN3V7OcmaEgLPwS4aAPXtnD6I
+	ZfJ+wYtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqHSE-0000000F7sl-44sQ;
-	Sat, 01 Aug 2026 21:41:14 +0000
-Received: from mail.cyberchaos.dev ([195.39.247.168])
+	id 1wqHSM-0000000F7vI-0enL;
+	Sat, 01 Aug 2026 21:41:22 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqHSB-0000000F7rR-2xlT
+	id 1wqHSJ-0000000F7uD-3UXI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 21:41:13 +0000
+	Sat, 01 Aug 2026 21:41:21 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1785620469;
+	s=mail; t=1785620477;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bGqkzE9J7l8eega5eRBiLNQWdpKKNJCn7O+8KgX4WaU=;
-	b=h8NSCCQpwf+Pbc76gFxHGnC/2zorClI9nK1z8yeciR9o7ian3ecQi9KVZKyJ3gNr0PbQvj
-	djQ2wTE+ycBi7Z1DIBlGHrSxd5NSknbXqUWkTyDnW0jRzphKPI8Z9VDYblaDakkR9rrLsH
-	0g74k9eEKRx1qc9w3XzqmXwppCyQh+U=
-Date: Sat, 01 Aug 2026 23:40:32 +0200
-Subject: [PATCH v2 2/9] dt-bindings: interrupt-controller: apple,aic2: Add
- apple,t8132 compatible
+	bh=5wvhJvl8V/UCRIKi03HOG9kNnF6pjoj6mjPMcmy9q1U=;
+	b=FHakikYKl24BnaBBY8qcOVzpkpbt/Se1jvWiLZHD8o5/s9jZXKuFei1BRvs16Kr31tRJwv
+	xVwvJaNe4v2S9cnyLFoCZcQAC1CwHGGY51vd6l4JMVrsJf+dN/SPk2zdSc8OW2Rzvu95mT
+	hVcd3pDuZibLrl9sAqTnS0vBlg8wEhs=
+Date: Sat, 01 Aug 2026 23:40:33 +0200
+Subject: [PATCH v2 3/9] dt-bindings: arm: apple: apple,pmgr: Add t8132
+ compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260801-apple-m4-initial-devicetrees-v2-2-5cb07cc275da@cyberchaos.dev>
+Message-Id: <20260801-apple-m4-initial-devicetrees-v2-3-5cb07cc275da@cyberchaos.dev>
 References: <20260801-apple-m4-initial-devicetrees-v2-0-5cb07cc275da@cyberchaos.dev>
 In-Reply-To: <20260801-apple-m4-initial-devicetrees-v2-0-5cb07cc275da@cyberchaos.dev>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,8 +62,8 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-pwm@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_144111_908481_88556FA5 
-X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-CacheID: sfid-20260801_144120_038118_8CD34809 
+X-CRM114-Status: UNSURE (   7.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,27 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Apple t8132 (M4) SoC uses an AIC3 as interrupt controller, same as
-the M3 predecessor.
+The PMGR blocks on Apple silicon M4 SoCs (t8132) are compatible with the
+M1/M2/M3 predecessors. Add "apple,t8132-pmgr" as M4 specific compatible.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml | 1 +
+ Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-index 726a6720e05f..1cb886785173 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/apple,aic2.yaml
-@@ -45,6 +45,7 @@ properties:
-           - enum:
-               - apple,t6030-aic3
-               - apple,t6031-aic3
-+              - apple,t8132-aic3
-           - const: apple,t8122-aic3
-       - const: apple,t8122-aic3
- 
+diff --git a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
+index 1d2001836eb4..da660fa13f77 100644
+--- a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
++++ b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
+@@ -41,6 +41,7 @@ properties:
+               - apple,t6030-pmgr
+               - apple,t6031-pmgr
+               - apple,t8122-pmgr
++              - apple,t8132-pmgr
+           - const: apple,t8103-pmgr
+           - const: syscon
+           - const: simple-mfd
 
 -- 
 2.55.0
