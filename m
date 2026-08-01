@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66262C55172
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 21:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EADEAC55172
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 21:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5wvhJvl8V/UCRIKi03HOG9kNnF6pjoj6mjPMcmy9q1U=; b=2Hi1ILoqs6EFgGZG4ypUK2WIex
-	n0BAeQjUR/RUov4BYQ9Zm7s2HIXZl0GYgb2FaLcMGM0VcWcXJ1dwsyGmGmEJ7qBFcIVrRQAs+aCL6
-	aRgo99u5DFulrZCjyricxgtCl3k69tdj8YLbyXBHh/P5/WhZ9r5PJBm93IBVasLtxUIcaBI/7e3co
-	13PlPeLtivHeAOhapVlv/1FVCQelykzntVbcr+qgOKpDg5hg1qgiGhQhhb7Q5HF8eCOrbJNfTFj1v
-	bAMc7edPwgyqmIB/fWHPZfJr/jDVqrMy7b6evxL857Oghnx06pmjRN3V7OcmaEgLPwS4aAPXtnD6I
-	ZfJ+wYtA==;
+	bh=FVJSRmVkxCrG8V5mDry6u5L6zCqB/MC8kvPzNOG+CjU=; b=ypsoaUZskotsDVX5fQtWcIYNu7
+	ggCGz67M2oXf0Jqm7vGwjTMLbuOfJfXi/MvtOVHRhWvKZEX2FvgXAAoqcerh/pbf7dEbPhQiWOmzo
+	PChUbtOxaeh/oCuvCoeG5SlSPUAuwtYgeqjITtiRfCGjlJLc9fYnL5Vr4dZ350hqsq3q99AEvzJwW
+	Sm5/mFC2koi+cI2bTmzhP9bBLdeqVeC8qG1YIiyrIG/SpHfaIq4HyIXkKBmuVmve1d5HzqHnsJ7lE
+	NJJ8vSlZhhydccsRXvp5IUrwf9F2qzHUChzkhz9k3UC358qPLQ78JneB2RS2T1Ci2xLw0zSRJ0JiH
+	PkMXMSKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqHSM-0000000F7vI-0enL;
-	Sat, 01 Aug 2026 21:41:22 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1wqHSQ-0000000F7xM-13E3;
+	Sat, 01 Aug 2026 21:41:26 +0000
+Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqHSJ-0000000F7uD-3UXI
+	id 1wqHSO-0000000F7vf-1lb0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 21:41:21 +0000
+	Sat, 01 Aug 2026 21:41:25 +0000
 From: Yureka Lilian <yureka@cyberchaos.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1785620477;
+	s=mail; t=1785620482;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=5wvhJvl8V/UCRIKi03HOG9kNnF6pjoj6mjPMcmy9q1U=;
-	b=FHakikYKl24BnaBBY8qcOVzpkpbt/Se1jvWiLZHD8o5/s9jZXKuFei1BRvs16Kr31tRJwv
-	xVwvJaNe4v2S9cnyLFoCZcQAC1CwHGGY51vd6l4JMVrsJf+dN/SPk2zdSc8OW2Rzvu95mT
-	hVcd3pDuZibLrl9sAqTnS0vBlg8wEhs=
-Date: Sat, 01 Aug 2026 23:40:33 +0200
-Subject: [PATCH v2 3/9] dt-bindings: arm: apple: apple,pmgr: Add t8132
+	bh=FVJSRmVkxCrG8V5mDry6u5L6zCqB/MC8kvPzNOG+CjU=;
+	b=WIXEE4CoOIUAm+gzrjPBXCo5c2BzPW2wY2eaBUdzR6v6pkJNjj6l/uehlHasfdBGgpsQd5
+	ycfYUxKsNTRMu3JoP+GF8sDn/dmyIV+FQkIbNjjGViC1Cg+JZ4j4VRSxv9eik9Yg0X97qN
+	tAV1G73kx1tLAsva16vDd1jRTFKJxqo=
+Date: Sat, 01 Aug 2026 23:40:34 +0200
+Subject: [PATCH v2 4/9] dt-bindings: power: apple,pmgr-pwrstate: Add t8132
  compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260801-apple-m4-initial-devicetrees-v2-3-5cb07cc275da@cyberchaos.dev>
+Message-Id: <20260801-apple-m4-initial-devicetrees-v2-4-5cb07cc275da@cyberchaos.dev>
 References: <20260801-apple-m4-initial-devicetrees-v2-0-5cb07cc275da@cyberchaos.dev>
 In-Reply-To: <20260801-apple-m4-initial-devicetrees-v2-0-5cb07cc275da@cyberchaos.dev>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,8 +62,8 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-pwm@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_144120_038118_8CD34809 
-X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-CacheID: sfid-20260801_144124_627088_D6FA1109 
+X-CRM114-Status: UNSURE (   7.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,27 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PMGR blocks on Apple silicon M4 SoCs (t8132) are compatible with the
-M1/M2/M3 predecessors. Add "apple,t8132-pmgr" as M4 specific compatible.
+The device power state management of the PMGR blocks on Apple's t8132
+SoC (M4) is compatible with t8103.
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml | 1 +
+ Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
-index 1d2001836eb4..da660fa13f77 100644
---- a/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
-+++ b/Documentation/devicetree/bindings/arm/apple/apple,pmgr.yaml
-@@ -41,6 +41,7 @@ properties:
-               - apple,t6030-pmgr
-               - apple,t6031-pmgr
-               - apple,t8122-pmgr
-+              - apple,t8132-pmgr
-           - const: apple,t8103-pmgr
-           - const: syscon
-           - const: simple-mfd
+diff --git a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
+index e269f433524e..b24ea8e54e11 100644
+--- a/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
++++ b/Documentation/devicetree/bindings/power/apple,pmgr-pwrstate.yaml
+@@ -48,6 +48,7 @@ properties:
+               - apple,t6030-pmgr-pwrstate
+               - apple,t6031-pmgr-pwrstate
+               - apple,t8122-pmgr-pwrstate
++              - apple,t8132-pmgr-pwrstate
+           - const: apple,t8103-pmgr-pwrstate
+ 
+   reg:
 
 -- 
 2.55.0
