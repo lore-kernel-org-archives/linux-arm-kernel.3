@@ -4,109 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE29C54FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEDCC54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qM0g+Q2K6h6aHaOG1wsLoFO3LtuYZyID+ZN9FyJhfvA=; b=JF9NTljUObiPnIsWWA0nbk7EaQ
-	akPaFes0M28W0T2NSxgdiXbH89P+pBwnupQl1PJDwmb2Te//bk5leUVCRmZDujSqOjGOg1hH4Xm9O
-	Wm1YmWgkkPzdNrLaeDmZIkGjQffZVjViv24tRweQkM5YXu/JbMq+SW6ttz0wpufZyWrQ8gqzYO0dh
-	UCk/Zeb6YO28WE4pevRvqxeTRDUAPr1o8sEt6nymF37NPuLZk6GlXbrJfZrpegNEdYbmg5fFNEpfm
-	8Sz6gMpNfMTyxymQXr7qIVlRR7yVXQ3pu3uTvGdV1yINIXExs8nlz407WYbG8zY/3Njk5ZJj4Cv7k
-	X0ptacmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Cxt7Grz6TynoJOIeevIl0xSsRDWr0aoHmM0WTjYrIGc=; b=rVQ45U9rqBizQEo4MnYLto5mXa
+	jpqN8s8AQUXt9/ojwl5TGAjE5HkY21Yw8nBIDB+ZMEpESPazzWFNo5ytVn/mvd76oy25tg3LCdJVy
+	2mKZgPouF9uuxTcKFUfdScjxV6DDDlorVrkg1+n6h0BZDF12VzKX/5R3UYGaolApfJ2YMFccrBtUd
+	voyzZmlRZOtf/3CYcrpMQjljXuqDHdZFs/Ugm9ZRePD7ZoN2cDhsOdGkOv8G8ayo8y0XGnevHonqL
+	AghnHe63qU3kRQNE/21BIB30nfF3srqxZmZvakP3RZtrJ7AOirWodlY3PFnsAPzAmsMpD+rVHRBF2
+	4FL4Z9rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5rr-0000000E7zU-3UyQ;
-	Sat, 01 Aug 2026 09:18:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wq5xX-0000000E8P7-2USf;
+	Sat, 01 Aug 2026 09:24:47 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5rq-0000000E7z3-1e0W
+	id 1wq5xU-0000000E8NQ-1U4Z
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 09:18:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 65935600D8;
-	Sat,  1 Aug 2026 09:18:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8D7D1F00AC4;
-	Sat,  1 Aug 2026 09:18:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785575933;
-	bh=qM0g+Q2K6h6aHaOG1wsLoFO3LtuYZyID+ZN9FyJhfvA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=nW0Pt8rpzhV03beGKggZI7np5j7eiucyiqUP0tEbF75imxqbqNBZZmnFMhvSytZxA
-	 uE5hWNleIy29YhkVU9le+r0prWLpG5G8WYbYSqDblaum642Ej0jIQW5nUlTqzAEZHY
-	 NK257Ew/ENgcL7oHXdBCEHjwyVqhR3LKtbYK+Rq5rV/F2OHwA+UZlg9MkcfMqwBnSH
-	 WyhY7A11zDIqXbxR25R5sM9GkUOAhg2by4qrN5rfNxQ7j6QXQibQUF2Bk+3sfakHmZ
-	 M2i/iNkw/D8jz9ZXVbVNLLW7FPE2R+YPjx9/6c2ilH8xRm68nIE5UiMT2rP1BOe2ss
-	 LKJGkct1ZpXEA==
-Message-ID: <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
-Date: Sat, 1 Aug 2026 11:18:46 +0200
+	Sat, 01 Aug 2026 09:24:46 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Cxt7Grz6TynoJOIeevIl0xSsRDWr0aoHmM0WTjYrIGc=;
+	b=t9n6k9peZ1ns2ZZzIUG99Eq8X5ewjbfEEwbRromba6abBmToyVtWIvlE3uQP8ZJhFYOZMKxz9
+	5zQPGYDJRt73ff6R305YgE4r+nwv8jlC7zN7TkFt5K8K4fozCpofwFsMeCQZkRKeUUYKvDdCxGq
+	Wn8BBrNEQAErs7hgFCUETP0=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hBy2D0fxlz1prKd;
+	Sat,  1 Aug 2026 17:15:00 +0800 (CST)
+Received: from kwepemo100012.china.huawei.com (unknown [7.202.195.139])
+	by mail.maildlp.com (Postfix) with ESMTPS id EEC1B20333;
+	Sat,  1 Aug 2026 17:24:30 +0800 (CST)
+Received: from huawei.com (10.50.163.32) by kwepemo100012.china.huawei.com
+ (7.202.195.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Sat, 1 Aug
+ 2026 17:24:30 +0800
+From: Yifan Wu <wuyifan50@huawei.com>
+To: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <Dave.Martin@arm.com>,
+	<james.morse@arm.com>, <babu.moger@amd.com>, <shuah@kernel.org>,
+	<tan.shaopeng@fujitsu.com>, <fenghuay@nvidia.com>, <ben.horgan@arm.com>,
+	<zengheng4@huawei.com>, <wuyifan50@huawei.com>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
+CC: <prime.zeng@hisilicon.com>, <wangyushan12@huawei.com>,
+	<xuwei5@huawei.com>, <wangzhou1@hisilicon.com>, <xiaqinxin@huawei.com>
+Subject: [PATCH v4 0/3] selftests/resctrl: Add dynamic linked list management for IMC counters
+Date: Sat, 1 Aug 2026 17:24:26 +0800
+Message-ID: <20260801092429.533956-1-wuyifan50@huawei.com>
+X-Mailer: git-send-email 2.33.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] crypto: qce - Replace with stub driver
-To: Demi Marie Obenour <demiobenour@gmail.com>,
- Eric Biggers <ebiggers@kernel.org>, linux-crypto@vger.kernel.org,
- Herbert Xu <herbert@gondor.apana.org.au>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
- Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-References: <20260731050838.158825-1-ebiggers@kernel.org>
- <a28c2903-0976-4559-b870-4de5553ba9ab@kernel.org>
- <3ba57269-3305-4d80-b3f2-aa82fa59b59d@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <3ba57269-3305-4d80-b3f2-aa82fa59b59d@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.163.32]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemo100012.china.huawei.com (7.202.195.139)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260801_022444_568255_C74D857D 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,70 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/07/2026 20:31, Demi Marie Obenour wrote:
-> On 7/31/26 05:06, Krzysztof Kozlowski wrote:
->> On 31/07/2026 07:08, Eric Biggers wrote:
->>> None of the algorithms the QCE driver registers with the crypto API are
->>> even close to being useful.  They're massively outperformed by the
->>
->> The amount of patches you send towards removal of QCE is really
->> stunning. Or rather worrying. This is like third approach or so.
->>
->> Your previous approaches received valid feedback, including even fixes
->> and committment of new maintainer.
->>
->> But you even complained that it does receive fixes! [1]
->>
->> We removed the driver temporarily from typical configurations, so no one
->> will be affected, by whatever is found now and not yet fixed. Still not
->> enough! For you this was reason to remove the driver (AGAIN!) [2]
-> 
-> A stub driver needs to be added for power management reasons.  It turns
-> out that if there is no driver, power consumption is very high.
-> 
->> This is beyond comprehension and very unpleasant, because you actively
->> work against the community with this approach.
-> 
-> I trust that Bartosz can fix the driver with enough work.  However,
-> even if the QCE driver had never had a single bug, it would still not
-> be worth using.  Its performance is so poor that one should always
-> use CPU-based crypto instead.  In the default configuration, that is
-> in fact what happens.
-> 
-> The QCE's algorithm implementations only provide a way people can
-> misconfigure their systems and ruin their performance.  There are
-> debug options that also severely harm performance, but they have
-> legitimate uses during development.  The current QCE driver doesn't.
-> 
-> I have no problem with a driver for the QCE that does something actually
-> useful.  While there are disagreements about whether restricted media
-> processing is a feature or an anti-feature, my view is that it is
-> better for it to be implemented upstream than in an out-of-tree driver.
-> However, the driver as it currently exists does not implement this.
-> 
-> I expect that such a driver would not use the crypto API at all.
-> Instead, I suspect it would use dmabufs for source and destination
-> buffers and integrate with the secure world firmware in some way.
-> That means that the driver doesn't belong under drivers/crypto.
-> 
-> These are the reasons I submitted a patch to mark the driver as BROKEN,
-> which Herbert Xu has since accepted.
+Hi all,
 
-And Bartosz and other people committed to work on this by improving,
-fixing and in the long term providing you with the actual important user
-of this. All this was already said.
+This patch series introduces dynamic linked list management for IMC
+counters, enabling the tests to use all available counters detected by
+hardware instead of a fixed upper limit, without the need for array
+bounds checking.
 
-And then after having all these discussions Eric sends AGAIN patch to
-remove the driver. How many times this will have to be discussed the
-same way? If we now reach agreement the driver stays, next month again
-there will be a patch to remove it? And then one more month again?
+This series is based on Reinette's patch series aimed at fixing the
+resctrl tests, available at:
+https://lore.kernel.org/lkml/cover.1775266384.git.reinette.chatre@intel.com/
 
-The driver is marked as BROKEN, thus absolutely NO ONE is affected by
-any issues the driver has.
+Changes in v4:
+- Fix the style under Reinette's review and add Reviewed-by tags.
 
-It's some personal vendetta to keep coming after that - unimportant now
-- driver.
+Changes in v3:
+- Rename functions and update comments.
+- Split the patches into incremental changes.
+- Explicitly release memory after failing to parse the imc config.
 
-Best regards,
-Krzysztof
+Changes in v2:
+- Fix code style and variable names.
+- Integrate linked list initialization and cleanup into patch 1.
+- Split the conversion from arrays to linked list across the remaining
+  patches.
+- Remove the IMC count and the global imcs variable.
+
+v3: https://lore.kernel.org/all/20260522090540.444554-1-wuyifan50@huawei.com/
+v2: https://lore.kernel.org/all/20260410093352.3988125-1-wuyifan50@huawei.com/
+v1: https://lore.kernel.org/all/20260324125034.1509177-1-wuyifan50@huawei.com/
+
+Yifan Wu (3):
+  selftests/resctrl: Introduce linked list management for IMC counters
+  selftests/resctrl: Replace counter index references with pointers
+  selftests/resctrl: Enable dynamic management of IMC counters via
+    linked list
+
+ tools/testing/selftests/resctrl/mba_test.c    |   1 +
+ tools/testing/selftests/resctrl/mbm_test.c    |   1 +
+ tools/testing/selftests/resctrl/resctrl.h     |   2 +
+ tools/testing/selftests/resctrl/resctrl_val.c | 169 +++++++++---------
+ 4 files changed, 92 insertions(+), 81 deletions(-)
+
+-- 
+2.33.0
+
 
