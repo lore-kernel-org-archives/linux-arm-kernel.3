@@ -4,79 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D7FC54FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 06:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F278C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 06:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xJoh3FskZlMZXN0frCV7KCjMR5sn7IPdvl3P81QRqzo=; b=KRX9O18kf3sC5Ci7k0ZkGeg5T0
-	4I0d7Uszxi7FYc01agpGfTDdyZF24MOW4UPT8xlikvQO2GuXJW910dWiQJd5hG43r+/7olLlgF+rt
-	r/G8XdF/TLUWkKVPtnlVsVCAKQOilSiO95bKLh46ZkSqY0796iNaZ5F+quqtfd8jKoIDSqr1OPuZ8
-	tCnyZCyB3/opFo0n9MI4SUfqO8mSThAjJrj0tDxL6nzMPpr70zh+Tsk1jQWhhvLI41bCdKbMP9WYW
-	b64cJ3rkGM2XWHnJxFldNqA2mPsExfhz//oMK/PEbFTRtdlDsZIgjPzI3FQehCQ+NoG4cDf9W5N61
-	xgzr45Qw==;
+	bh=shXI5gTecK3XzXEfQhSt8Ph409l47ex30hjHXtZWBBA=; b=dp/C+G5k+czQNRfG0iycVUCHix
+	2OsAIhafZbif6jnghuS02wwTDRDFiBh92rB635ZOdp/s3suqlm+/8+/LhLYv/++VG0mRF9sfhCnKL
+	m4yQnZSGQX7gkQSztp0WKYUG0x6+mlgPbmRLmhVcn1dkfApqgJ95xFKJdVoNNJfaKqvR5Co7Z+Kt0
+	3jxVCw6J/Vez5ED2LJYPPV5ADhvVMD/hjrvMc6N6D4yjBUmoAvcBDUE3REzs63JoxSeoaEh+wGXA1
+	PLpGc5eDXA4nRmKt6KzhXNuzd6DhFSfzaFJIFbaDN2JPTkZHgB52IRsCQPtltfHyq/gK6nGM9trla
+	qLiqOJ0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq3JP-0000000Dwtw-1enW;
-	Sat, 01 Aug 2026 06:35:11 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+	id 1wq3TF-0000000DxGL-1VIK;
+	Sat, 01 Aug 2026 06:45:21 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq3JJ-0000000DwtM-44HL
+	id 1wq3TD-0000000DxFz-16k7
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 06:35:09 +0000
-Received: from [133.11.54.183] (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 6716YCSG018797
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Sat, 1 Aug 2026 15:34:12 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=xJoh3FskZlMZXN0frCV7KCjMR5sn7IPdvl3P81QRqzo=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-ID:To:Subject:Date;
-        s=rs20250326; t=1785566053; v=1;
-        b=K2XFECkA0Z9J1wXM376KVU1kqybglUVyvN9n43lQWKGqRyrvg+1wAHFpXKrsJyTv
-         7dO28hIdlCPUIKivvDpx66LiaWaMiUf1eMwX6HKnwGFy0BQRI/ZPqLF3hJ52UeoK
-         9AP8hhhgXc9PTpW4Zl0NUnJo17Epe0Or63UjaIvExn2v2BtXF+fsswayy25CM5r7
-         A6r0MtMXHSxU1bBIFTHXchDGmoYOLmKCHLdg5MhGoVcYXjwTa2rvghFY1qORzTYk
-         LMgUJyt3SOTNzfKJTvTGqH9iBdkizXE0bRzs4ZGh1kMGUExnDgbs3mZYI8tjnGuQ
-         I5KG078+99SmfBTRnx/1lg==
-Message-ID: <417908e2-c226-46a3-9dbe-a7a2432d1662@rsg.ci.i.u-tokyo.ac.jp>
-Date: Sat, 1 Aug 2026 15:34:11 +0900
+	Sat, 01 Aug 2026 06:45:20 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47f93b2fe4cso1126010f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 23:45:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785566717; x=1786171517; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=shXI5gTecK3XzXEfQhSt8Ph409l47ex30hjHXtZWBBA=;
+        b=DiKywel/6myZRkA5Mp/DvkvC165CvjgRhFZ+O5wB71RHYNokTItQSbusMac9xMnb5n
+         6asZMqkwjz7MlpEY4I0lsAyEgtFmnHWPXpFPdrdHmuItflBrKAFaUdscPeWgIvoBnFJh
+         sas7iHhwtyumVZ0knZ/3VqmJSYGWWGT+fbOYqqNtNyhCUYs1WH+nWy/fJSkcDrmK3mWR
+         cVsqQ0slu60lTg7AIWmMeYah8BYvPPUneN4LTXFWQW71dhjHamHlzVg6lVn9UInFBpTs
+         jkjGPj8UJtE4kcT/CfhidH6viM5eHlaMxIvYpwDCxxRZMhcxiAHUCjMEj2vXGi4AqgsX
+         ytfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785566717; x=1786171517;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=shXI5gTecK3XzXEfQhSt8Ph409l47ex30hjHXtZWBBA=;
+        b=qwx8DrVuWOkYMf6XlXTdRp4JnkusXwRPR9/XLYHEy4Mx3KrJXdG5a27ZNgPqT1ZgWg
+         izgWvFNAyoN5TDOJXFcs6a7CX/CoItydxZIcOlt2rj7xtCqtUNBGb4D/J5TLs9oLYVag
+         BmAnQEFq51+vVTmBqGfpoGWljFxzVEoDNxTVckIglcac/qCeeDjuoqX3eHHLP5H8NRHv
+         3WNa9Ox2QkYCm/8uB4rAHZkMDhxIwE4gEHds/4cztlqa+EF8cpcGNpKSE8MsoPZcVD5f
+         MCYuKAMgWTtFJBLzRh+tqW9mqIH7QDG9K9h3Goc3NOrwzu128Whvj4enSdbT4FUWEFqT
+         ft1g==
+X-Forwarded-Encrypted: i=1; AHgh+Ro4ygCao0O3qPd8xkbxcF34O+3BFVyJAgnFPS7UYeBTXomoxg9E3ariVTsfUUA60yJ/kk9Sh8LDxr6aDa3CMf/s@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywzma52FyVxtchQTANDndXug9WZjbBd+jEfuvrFE8dX+b78ZM6k
+	VVj868FCKW3d//otj7jOgYKHh1OTE1nJKEcLou9gBuQKs4YT8XSr5QAY
+X-Gm-Gg: AR+sD12lVGCNOLifLckvhPXrNevFQlZlaIdq4vxGi2k8WRyflt5GxdyIxFiXBku9Zv7
+	PeYzVVA2RTZLwdsMXuSbCNoEjZEdNZXCGAOv3+Pc1l4jgWM4iIjlAT2vXWLLm3me+ihTgxheKFm
+	V/OpgAvMMJgkh/fZ4z1LDV6wH/xrezaCOMi+C003sc6T+cCi1X1bvY2k4fED78AYvMrDn1MVpnr
+	HpJtGWdSDrXdnQ0IMaIjL7TyGJplI6HZScK6v8k1C82+4YMc2/hkgNAQxJpEpiQAD+yU7NdE7ET
+	6C6cMOQzKNtsMEaj22+2Uo4zs9U+KOcW13FD4IFskWH/n0omtlfF0zQyGsznUJJGI401ZIajf5s
+	Ux0fqGOgB/YCQsocA5Awe+lJatLhlajHzfG9BbHgvdY5M+glKoxsGcpMmjj2f+873mH2pUYteB7
+	lcJdqDxZj5HnRPXXIyENiGYlHxVsqqKD8Pn+laH/WM/VmW3gnRyZD1BuD8MUQO0HkvMbX3RD+x8
+	S0uK00fHvu3qxEg8LZCuNVxIM7K5XcDaNb/Izp9dCKTYHOmRmjkI/FnnHSEA61KcRJYASH9SBAu
+	turrwCX4tBWaVaUnwSpSinggD6unxKOeVOOrj6OsTOvdHhtZhWzF8auiGf/4cWf2eyyYMmenYS4
+	/I4KLHtFQWQlaAf5azZGCaPt1pMjorBARZr9O9fImhgypsytvhm/Jlzq/WMY=
+X-Received: by 2002:a05:6000:186e:b0:47f:aead:f81b with SMTP id ffacd0b85a97d-47fd72c48a0mr4568734f8f.21.1785566716620;
+        Fri, 31 Jul 2026 23:45:16 -0700 (PDT)
+Received: from systembl0wer (109-81-110-31.rct.o2.cz. [109.81.110.31])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd458ea4asm12408852f8f.31.2026.07.31.23.45.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jul 2026 23:45:16 -0700 (PDT)
+Date: Sat, 1 Aug 2026 08:45:11 +0200
+From: Joshua Crofts <joshua.crofts1@gmail.com>
+To: mdshahid03@gmail.com
+Cc: Jonathan Cameron <jic23@kernel.org>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, Joshua Crofts
+ <joshua.crofts@broadcom.com>, Broadcom internal kernel list
+ <bcm-kernel-feedback-list@broadcom.com>, David Lechner
+ <dlechner@baylibre.com>, linux-arm-kernel@lists.infradead.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Ray Jui <rjui@broadcom.com>, Scott
+ Branden <sbranden@broadcom.com>
+Subject: Re: [PATCH v3 3/3] iio: adc: bcm_iproc_adc: Convert probe error
+ handling to dev_err_probe()
+Message-ID: <20260801084511.795962ac@systembl0wer>
+In-Reply-To: <20260731182347.42888-4-mdshahid03@gmail.com>
+References: <20260731182347.42888-1-mdshahid03@gmail.com>
+	<20260731182347.42888-4-mdshahid03@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 04/11] arm64: errata: Require Apple IMPDEF PMUv3 traps
- on all CPUs
-To: Will Deacon <will@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>,
-        Yury Norov <yury.norov@gmail.com>,
-        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org
-References: <20260710-hybrid-v8-0-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
- <20260710-hybrid-v8-4-621409f3a592@rsg.ci.i.u-tokyo.ac.jp>
- <amzSTp3cUCMuwJKf@google.com>
-Content-Language: en-US
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <amzSTp3cUCMuwJKf@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_233507_036019_374911FA 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20260731_234519_370660_27E5CA62 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,48 +111,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/08/01 1:50, Will Deacon wrote:
-> On Fri, Jul 10, 2026 at 08:14:58PM +0900, Akihiko Odaki wrote:
->> KVM relies on ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS as a system-wide
->> precondition for PMUv3 emulation on affected Apple CPUs. A local CPU
->> erratum is too weak for that: once the workaround is enabled, a late CPU
->> that misses it may still be onlined.
->>
->> Make the workaround an all-early-CPU capability instead. The matcher is
->> still local because it depends on MIDR_EL1, but the capability is only
->> advertised if all early CPUs match, and late CPUs that miss it are
->> rejected once the capability is enabled.
->>
->> Assisted-by: Codex:gpt-5.5
->> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
->> ---
->>   arch/arm64/kernel/cpu_errata.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
->> index 476a37c82108..14ce49d693c4 100644
->> --- a/arch/arm64/kernel/cpu_errata.c
->> +++ b/arch/arm64/kernel/cpu_errata.c
->> @@ -964,7 +964,7 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->>   	{
->>   		.desc = "Apple IMPDEF PMUv3 Traps",
->>   		.capability = ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS,
->> -		.type = ARM64_CPUCAP_LOCAL_CPU_ERRATUM,
->> +		.type = ARM64_CPUCAP_EARLY_LOCAL_CPU_FEATURE,
+On Fri, 31 Jul 2026 23:53:47 +0530
+mdshahid03@gmail.com wrote:
+
+> From: Mohammad Shahid <mdshahid03@gmail.com>
 > 
-> I always get tangled in knots with this code, but does this correctly
-> handle the case where the boot/early CPUs don't have the impdef PMU
-> feature but late-onlined CPUs do? I'm not sure we configure the traps
-> correctly in that case but this is all gloriously undocumented.
-It's not only you but Fuad and Sashiko also had the same question:
-https://lore.kernel.org/qemu-devel/4cf2911c-610e-4cf1-9c42-cc5792265a89@rsg.ci.i.u-tokyo.ac.jp/
+> This simplifies the probe error handling by replacing open-coded
+> dev_err() and return sequences. Also remove the redundant
+> dev_err() after iproc_adc_enable(), as the helper already reports
+> the failure.
+> 
+> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+> ---
+>  drivers/iio/adc/bcm_iproc_adc.c | 43 +++++++++++++++------------------
+>  1 file changed, 19 insertions(+), 24 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
+> index 29ea35972a23..5fcd528eb88a 100644
+> --- a/drivers/iio/adc/bcm_iproc_adc.c
+> +++ b/drivers/iio/adc/bcm_iproc_adc.c
+> @@ -523,19 +523,16 @@ static int iproc_adc_probe(struct platform_device *pdev)
+>  
+>  	adc_priv->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+>  			   "adc-syscon");
+> -	if (IS_ERR(adc_priv->regmap)) {
+> -		dev_err(dev, "failed to get handle for tsc syscon\n");
+> -		ret = PTR_ERR(adc_priv->regmap);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(adc_priv->regmap))
+> +		return dev_err_probe(dev,
+> +				     PTR_ERR(adc_priv->regmap),
+> +				     "failed to get handle for tsc syscon\n");
+>  
+>  	adc_priv->adc_clk = devm_clk_get(dev, "tsc_clk");
+> -	if (IS_ERR(adc_priv->adc_clk)) {
+> -		dev_err(dev,
+> -			"failed getting clock tsc_clk\n");
+> -		ret = PTR_ERR(adc_priv->adc_clk);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(adc_priv->adc_clk))
+> +		return dev_err_probe(dev,
+> +				     PTR_ERR(adc_priv->adc_clk),
+> +				     "failed getting clock tsc_clk\n");
+>  
+>  	adc_priv->irqno = platform_get_irq(pdev, 0);
+>  	if (adc_priv->irqno < 0)
+> @@ -543,10 +540,10 @@ static int iproc_adc_probe(struct platform_device *pdev)
+>  
+>  	ret = regmap_clear_bits(adc_priv->regmap, IPROC_REGCTL2,
+>  				IPROC_ADC_AUXIN_SCAN_ENA);
+> -	if (ret) {
+> -		dev_err(dev, "failed to write IPROC_REGCTL2 %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev,
+> +				     ret,
+> +				     "failed to write IPROC_REGCTL2\n");
+>  
+>  	ret = devm_request_threaded_irq(dev, adc_priv->irqno,
+>  				iproc_adc_interrupt_handler,
+> @@ -556,17 +553,14 @@ static int iproc_adc_probe(struct platform_device *pdev)
+>  		return ret;
+>  
+>  	ret = clk_prepare_enable(adc_priv->adc_clk);
+> -	if (ret) {
+> -		dev_err(dev,
+> -			"clk_prepare_enable failed %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev,
+> +				     ret,
+> +				     "failed to enable clock\n");
+>  
+>  	ret = iproc_adc_enable(indio_dev);
+> -	if (ret) {
+> -		dev_err(dev, "failed to enable adc %d\n", ret);
+> +	if (ret)
 
-The answer is that we simply don't enable hypervisor traps. Accessing 
-PMUv3 registers will be UNDEFINED on all CPUs, enforcing the 
-architectural behavior system-wide.
+I'd say it would be better to move this change to the patch where
+you remove the dev_err() at devm_request_threaded_irq().
 
-I plan to change the patch message to clarify this in the next version.
-
-Regards,
-Akihiko Odaki
+-- 
+Kind regards,
+Joshua Crofts
 
