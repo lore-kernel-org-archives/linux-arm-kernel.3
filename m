@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1C2C55173
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 18:16:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F249C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 18:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PknnHsN6cYkEV2qshK7jMvnLf1tIvHLs47/Frwf5Bog=; b=Xb5SiSg04pwAtpD5xyUauPgE8K
-	FBik8UtEfcW9Gia12gnNwQssavUoFbXxl3TqwB4XansympRqt2/w6+17/2FnqDod9310jKv0PbhVU
-	ywpuHHgFh+jrbFO0+y9L/sz+7T+uBM6GnS5IY/+lTj4RWRMylmG92VfAnV7Co8TJV1Ig/RsuH6Fkl
-	vhtBhNcBFvCdE5o6C11cZf3cuY1NyTrJ7sIT1bbzMpoghVnHK2gm1g1SvBVBRkfn7a2eokolB6NRe
-	rLBId6Yq58B0x7GYCjUvBi597Qy3ghn9Sh0sUcBcMno9i4rTQa2e8SocnGnntXNNkIt2ohmyjf1T1
-	s6zI97Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4R3moVH9ncnJ3rddrTIL8VDc5qHenk1KY1QkKOOjgCI=; b=yf1k17STkAgMVQ+hHBz2EmF/9q
+	arzndlvWTVGDpY91v5lZePp2hnGcbmz2hzzWWvbPamWrpdm1W/aPucsSPG6L6f8EPA7/Gxs7U4OmM
+	aEHAFVryHrAHG6mTbwINIyElTfm0rDlTc5KrDOTocFPwIV7OKVxzLzcojveqdhnNDaezokpC1yTIj
+	j1VaZzPyPGdzOT03BbvHSexe9DYCeXazsI4iuc5mrO5hNMmbqS1BxVvw0d9mzmeHWj0QdIyvi39Qv
+	7TAVQeDv/6mp+id8ddcplcOxXmmtX0qCRGLzzf7eiwyP6jrrYZbbVY5+jGbOW8kzdM6mt8QGBQVUO
+	N4gnEMyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqEFW-0000000Ews3-2ILh;
-	Sat, 01 Aug 2026 18:15:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wqEMV-0000000Ex6j-3YmL;
+	Sat, 01 Aug 2026 18:23:07 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqEFV-0000000Ewrx-2z9F
+	id 1wqEMT-0000000Ex63-1eMl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 18:15:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25FA741239;
-	Sat,  1 Aug 2026 18:15:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85ADF1F00AC4;
-	Sat,  1 Aug 2026 18:15:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785608153;
-	bh=PknnHsN6cYkEV2qshK7jMvnLf1tIvHLs47/Frwf5Bog=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=QwP0T/OAFIfXj1w2mhnw1eQ1/59mXM1FqKZ9Eo4DkhFUwePJCID6otQ6dvbzbobC8
-	 Z/32MFsNQXqFSLM+7EZqPjojs/LzcWZtxouWuqQZvvkoWpcSNextYNinyFSvmYPnZs
-	 Jf55wfCKkYia7yHamXBicgJLdPmnEWqdgNc+A3KKgAM63vn/Ee+rcNmVqcPfzf0TzQ
-	 9ScoDEGXzSm1rhWCnZfv5n8vFAOVlgaZ6Pg64Zr5SqAm7hQUM+sPoBATTVrINXArxW
-	 v2wyzxWWTv4gXJZnPM4/zy56b6OTKbdaLidFh4inlAidn17HfleX0+riILkKy3Mhnr
-	 aPtI3ivAXoscw==
-From: Sven Peter <sven@kernel.org>
-To: Neal Gompa <neal@gompa.dev>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Sasha Finkelstein <k@chaosmail.tech>,
-	Janne Grunau <j@jannau.net>
-Cc: Sven Peter <sven@kernel.org>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v3 0/9] Initial Apple M3 Pro, Max and Ultra device trees
-Date: Sat,  1 Aug 2026 20:14:29 +0200
-Message-ID: <178560804761.33352.11895011679898131857.b4-ty@b4>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260724-apple-t603x-initial-devices-v3-0-bbeba0420603@jannau.net>
-References: <20260724-apple-t603x-initial-devices-v3-0-bbeba0420603@jannau.net>
+	Sat, 01 Aug 2026 18:23:06 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id D7A88CC47B;
+	Sat,  1 Aug 2026 21:22:52 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro D7A88CC47B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1785608573;
+	bh=4R3moVH9ncnJ3rddrTIL8VDc5qHenk1KY1QkKOOjgCI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=seg2X9LiJzuuot+sPVKSz5hw8JhXfXfD9PkjttwZzBG9BXSaSa44ECVkHe95SnD8p
+	 6ZdqtVHdCbHjyEjC5q+pBOhREBhLereNHk4pxrdmE43rTO/XmKCjgBHghcAORXcdvO
+	 CwxDFO99iOAPNSmM3wW7PmIRX9NbWsUrVOZQnExxUkdUHJGriWpVZjerhVIVbiCxKF
+	 HvVzT+y2nSdLlG4vxavV++rctj9uHyyuIbQY6rgiJ+EKn8fp6//FUNfTeYncB2Cldp
+	 jg3xcCHjwl4DVvrRfIZI/19BIe8vfbFH4wFj+QRbrx+i21AS3Rd1Z9BxKJXNNh6st8
+	 SkzEe/09V/FZg==
+Message-ID: <d04a7313b44a3d671024c2d15ad25acbce2ebc2e.camel@rendec.net>
+Subject: Re: [PATCH] irqchip/gic: Simplify Maintenance Interrupt ACPI parsing
+From: Radu Rendec <radu@rendec.net>
+To: Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Cc: Thomas Gleixner <tglx@kernel.org>, Sascha Bischoff
+ <sascha.bischoff@arm.com>
+Date: Sat, 01 Aug 2026 14:22:50 -0400
+In-Reply-To: <20260725155941.114322-1-maz@kernel.org>
+References: <20260725155941.114322-1-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260801_112305_748755_149A5164 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +72,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jul 2026 20:16:40 +0200, Janne Grunau wrote:
-> This series adds device trees for Apple silicon devices with M3 Pro, Max
-> and Ultra SoCs. The M3 generation has fewer devices than their M1 and M2
-> predecessors. The only non-laptop device is the M3 Ultra Mac Studio. The
-> Laptops are the known 14 and 16-inch Macbook Pros now with M3 Pro and
-> M3 Max SoCs. The M3 Max variant with fewer CPU and GPU cores has
-> additionally only a 384-bit wide memory bus instead of 512-bit of the
-> full M3 Max. It has a separate identifier (T6034) and so there are six
-> laptop device trees.
-> Another difference to M1 and M2 Pro/Max/Ultra is that the M3 Pro is
-> distinct SoC design and not a smaller M3 Max. For this reason both M3
-> Max variants and the M3 Ultra will use "apple,t6030" as compatible
-> prefix. In the M1 and M2 generations Pro, Max and Ultra SoCs shared
-> "apple,t6000" / "apple,t6020" as common prefix. There is currently no
-> known difference but M3 Pro and M3 Max are not as closely related as
-> previously.
-> 
-> [...]
+On Sat, 2026-07-25 at 16:59 +0100, Marc Zyngier wrote:
+> The ACPI spec describes the vgic Maintenance Interrupt with attributes
+> indicating whether the signalling is Level or Edge. While this
+> superficially looks like a sensible thing to do, it doesn't actually
+> make much sense.
+>=20
+> By construction, this interrupt is Level, and cannot be anything
+> else, as the hypervisor actively needs to interact with the vgic
+> for the level to drop. This indicates a state, and not an event.
+>=20
+> Get rid of this nonsense, always register the corresponding GSI as
+> Level, and let the user know that they run on quality FW should
+> the interrupt be advertised as Edge.
+>=20
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+> =C2=A0drivers/irqchip/irq-gic-v3.c | 10 +++-------
+> =C2=A0drivers/irqchip/irq-gic.c=C2=A0=C2=A0=C2=A0 |=C2=A0 8 ++++----
+> =C2=A02 files changed, 7 insertions(+), 11 deletions(-)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 99444a1b2ffa2..22ecd28a491a8 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -2279,7 +2279,6 @@ static struct
+> =C2=A0	bool single_redist;
+> =C2=A0	int enabled_rdists;
+> =C2=A0	u32 maint_irq;
+> -	int maint_irq_mode;
+> =C2=A0	phys_addr_t vcpu_base;
+> =C2=A0} acpi_data __initdata;
+> =C2=A0
+> @@ -2457,21 +2456,19 @@ static int __init gic_acpi_parse_virt_madt_gicc(u=
+nion acpi_subtable_headers *hea
+> =C2=A0{
+> =C2=A0	struct acpi_madt_generic_interrupt *gicc =3D
+> =C2=A0		(struct acpi_madt_generic_interrupt *)header;
+> -	int maint_irq_mode;
+> =C2=A0	static int first_madt =3D true;
+> =C2=A0
+> =C2=A0	if (!(gicc->flags &
+> =C2=A0	=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 (ACPI_MADT_ENABLED | ACPI_MADT_GICC=
+_ONLINE_CAPABLE)))
+> =C2=A0		return 0;
+> =C2=A0
+> -	maint_irq_mode =3D (gicc->flags & ACPI_MADT_VGIC_IRQ_MODE) ?
+> -		ACPI_EDGE_SENSITIVE : ACPI_LEVEL_SENSITIVE;
+> +	if (gicc->flags & ACPI_MADT_VGIC_IRQ_MODE)
+> +		pr_warn_once(FW_BUG "MI wrongly advertised as Edge-triggered\n");
+> =C2=A0
+> =C2=A0	if (first_madt) {
+> =C2=A0		first_madt =3D false;
+> =C2=A0
+> =C2=A0		acpi_data.maint_irq =3D gicc->vgic_interrupt;
+> -		acpi_data.maint_irq_mode =3D maint_irq_mode;
+> =C2=A0		acpi_data.vcpu_base =3D gicc->gicv_base_address;
+> =C2=A0
+> =C2=A0		return 0;
+> @@ -2481,7 +2478,6 @@ static int __init gic_acpi_parse_virt_madt_gicc(uni=
+on acpi_subtable_headers *hea
+> =C2=A0	 * The maintenance interrupt and GICV should be the same for every=
+ CPU
+> =C2=A0	 */
+> =C2=A0	if ((acpi_data.maint_irq !=3D gicc->vgic_interrupt) ||
+> -	=C2=A0=C2=A0=C2=A0 (acpi_data.maint_irq_mode !=3D maint_irq_mode) ||
+> =C2=A0	=C2=A0=C2=A0=C2=A0 (acpi_data.vcpu_base !=3D gicc->gicv_base_addre=
+ss))
+> =C2=A0		return -EINVAL;
+> =C2=A0
+> @@ -2514,7 +2510,7 @@ static void __init gic_acpi_setup_kvm_info(void)
+> =C2=A0	gic_v3_kvm_info.type =3D GIC_V3;
+> =C2=A0
+> =C2=A0	irq =3D acpi_register_gsi(NULL, acpi_data.maint_irq,
+> -				acpi_data.maint_irq_mode,
+> +				ACPI_LEVEL_SENSITIVE,
+> =C2=A0				ACPI_ACTIVE_HIGH);
+> =C2=A0	if (irq <=3D 0)
+> =C2=A0		return;
+> diff --git a/drivers/irqchip/irq-gic.c b/drivers/irqchip/irq-gic.c
+> index ec70c84e9f91d..74bda5e246345 100644
+> --- a/drivers/irqchip/irq-gic.c
+> +++ b/drivers/irqchip/irq-gic.c
+> @@ -1527,7 +1527,6 @@ static struct
+> =C2=A0{
+> =C2=A0	phys_addr_t cpu_phys_base;
+> =C2=A0	u32 maint_irq;
+> -	int maint_irq_mode;
+> =C2=A0	phys_addr_t vctrl_base;
+> =C2=A0	phys_addr_t vcpu_base;
+> =C2=A0} acpi_data __initdata;
+> @@ -1553,10 +1552,11 @@ gic_acpi_parse_madt_cpu(union acpi_subtable_heade=
+rs *header,
+> =C2=A0	if (cpu_base_assigned && gic_cpu_base !=3D acpi_data.cpu_phys_base=
+)
+> =C2=A0		return -EINVAL;
+> =C2=A0
+> +	if (processor->flags & ACPI_MADT_VGIC_IRQ_MODE)
+> +		pr_warn_once(FW_BUG "MI wrongly advertised as Edge-triggered\n");
+> +
+> =C2=A0	acpi_data.cpu_phys_base =3D gic_cpu_base;
+> =C2=A0	acpi_data.maint_irq =3D processor->vgic_interrupt;
+> -	acpi_data.maint_irq_mode =3D (processor->flags & ACPI_MADT_VGIC_IRQ_MOD=
+E) ?
+> -				=C2=A0=C2=A0=C2=A0 ACPI_EDGE_SENSITIVE : ACPI_LEVEL_SENSITIVE;
+> =C2=A0	acpi_data.vctrl_base =3D processor->gich_base_address;
+> =C2=A0	acpi_data.vcpu_base =3D processor->gicv_base_address;
+> =C2=A0
+> @@ -1616,7 +1616,7 @@ static void __init gic_acpi_setup_kvm_info(void)
+> =C2=A0	vcpu_res->end =3D vcpu_res->start + ACPI_GICV2_VCPU_MEM_SIZE - 1;
+> =C2=A0
+> =C2=A0	irq =3D acpi_register_gsi(NULL, acpi_data.maint_irq,
+> -				acpi_data.maint_irq_mode,
+> +				ACPI_LEVEL_SENSITIVE,
+> =C2=A0				ACPI_ACTIVE_HIGH);
+> =C2=A0	if (irq <=3D 0)
+> =C2=A0		return;
 
-Applied to sven/linux (apple-soc/dt-7.3), thanks!
-
-[1/9] dt-bindings: arm: apple: Add M3 Pro/Max/Ultra devices (T603x)
-      https://github.com/AsahiLinux/linux/commit/f3a01f769afd
-[2/9] dt-bindings: interrupt-controller: apple,aic2: Invert #interrupt-cells condition
-      https://github.com/AsahiLinux/linux/commit/6545de50dc94
-[3/9] dt-bindings: interrupt-controller: apple,aic2: Add apple,t6031-aic3 compatible
-      https://github.com/AsahiLinux/linux/commit/c3157833d661
-[4/9] dt-bindings: arm: apple: apple,pmgr: Add t6030 and t6031 compatibles
-      https://github.com/AsahiLinux/linux/commit/6fe9f80cca52
-[5/9] dt-bindings: power: apple,pmgr-pwrstate: Add t6030 and t6031 compatibles
-      https://github.com/AsahiLinux/linux/commit/5b4f03afdeaa
-[6/9] dt-bindings: i2c: apple,i2c: Add t6030 and t6031 compatibles
-      https://github.com/AsahiLinux/linux/commit/225d33916d95
-[7/9] dt-bindings: pwm: apple,s5l-fpwm: Add t6030 and t6031 compatibles
-      https://github.com/AsahiLinux/linux/commit/b7ccb1b0bc73
-[8/9] arm64: dts: apple: Initial T603[124] (M3 Max and Ultra) device trees
-      https://github.com/AsahiLinux/linux/commit/396331cc6447
-[9/9] arm64: dts: apple: Initial T6030 (M3 Pro) device trees
-      https://github.com/AsahiLinux/linux/commit/0f259b86d9f8
-
-Best regards,
--- 
-Sven Peter <sven@kernel.org>
-
+Reviewed-by: Radu Rendec <radu@rendec.net>
 
