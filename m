@@ -4,95 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC68CC5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C409BC54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PgxBTc/eAxhpXNXIIpPZ/eJLF5hZIUUNMPVKiLuD+Wo=; b=F00TPpY3F2I4Hq+Lgsy0XvsXa0
-	pywiHh9AGRmi0kI98FI/HF+Wby4ZtAyvEH7GT04umJUNgPhuq+fcXS/6BeaTB6Xt1U8FXAJ8GoqvI
-	syWw/QFwdRbT14VeXOr0H5ElDdEfWSXIl/cciU49DgMprax7pU5kQ7L3s+P8jDfz3/auSJIFg+kCZ
-	H8q/BgaFeUiYCnKcwhKmCWJFK8z1tVjy7j+Sq9eqhDS50PANxrfnIUtNLWdDUcIGaSWlyojiZijz1
-	Q0NbxkisPHsr85btqKf/lxs3iORMtpeSP9tUZYK6dx7wNFOhnL7Xi9UzMTNKuq/o3z1t+GoxTUdDe
-	+t8vl3VQ==;
+	bh=qL0KvT6fbFFpjOaD2pGDIh9KKgpsACQZ4AgSBffUuOk=; b=RSCeVG9CTKXKTL8Xiizc7SEOYF
+	vDLGeVzx+KmqVKAv2fCX6vIKo4ScBL3nU4l4hhayhSDNNweuF8dLtF5sCteZMad3wb+DXl7q+QRL0
+	1fZFUg0TU4+qwK8Qbh+G8UCaVxpsJYymgZqwwosZJAid6NDWPgzwacTR4gEEHPXy0UVNkINfxf4lc
+	EJM/IceB8SHFtH6HYukKfuFC/nJcPD/x10zz0C/iz9OpJPSdRAZGP345ay1/DZAuFt8aaWAtCfTf1
+	TXKr5Z/Pxk0Kun3j/tDL5pcXBjxpZ6C7bBHRC85I2yS5VnykOhP3phUJp5DD0vLOZEVcwPnvoP1xe
+	vAr5bUGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5k3-0000000E70W-1Skd;
-	Sat, 01 Aug 2026 09:10:51 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1wq5ot-0000000E7eY-02Gi;
+	Sat, 01 Aug 2026 09:15:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5k1-0000000E6zs-3NEP
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 09:10:51 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c9e607d81fcso1028849a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 02:10:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785575449; x=1786180249; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PgxBTc/eAxhpXNXIIpPZ/eJLF5hZIUUNMPVKiLuD+Wo=;
-        b=CDPFRzAd4m5o05lMMBHyTtF3Vfbdk9yng6ZAfQhyyqNyiuL3rDsNT6qh6vLMgqGkyj
-         fFsWj7knolDj7lL4BX50SugIt49IZrQnX4gJDm9xTSkmzeiIkjxnz4vrx+7uzpS89CR3
-         p+AtNNoTvhXurBjxoOaOwu3SLQOJ1zkAja94qChGFK15iDj7CVJtZL5uLaIyllmcVrLw
-         +Tx25iOSItchpwxNDLlMn6k9RSaGArZJ/p0ExVzn7As5kV3KfMe3snmhu5zRTQN2neRG
-         8U90i5eexN0NSe5aEmrLpAeuDfHqUj7TXvYhF+ogPEdACDUA0iJ9vLfysB7RDR4HlZfh
-         rSbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785575449; x=1786180249;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=PgxBTc/eAxhpXNXIIpPZ/eJLF5hZIUUNMPVKiLuD+Wo=;
-        b=SHA+DeQSQHSybw18OrH/xKmDMtPQauFYw2AkkSO6XyN8hw5CTYkzGcGD+7JtUZRk84
-         lOcBadp5lriU2y+9c/N+7VZHIhG1dSuVZqIgA9PVcJxZCU5hf6PrXrVXGdUA0ccZ94zd
-         pOquTd/K8PRur5FqFC0L6/j/Ti/oPz07OfKWYl5j8/Y6gicXaIoeG+HOi/KMkGR0H2Iz
-         3fI0UCFz8CeCqQWVS3oAf5YfgCEGsPxupxxNtFa9EX1kt0O+IjNfVvj0v4q2TLsYFbHv
-         Fzcmyird9Ij5uEEokYZSJ9vVZcbU2xwyxjkgWfYOgEyvN1k+kS7lNuhASeUJKcaAt68u
-         BwFA==
-X-Forwarded-Encrypted: i=1; AHgh+Rqbqz8lYvsw8geiad/xBo/RvUpVebLgIl5kMXpKc4aaqsy8/TLW+uzZv2YUIAcLvSPbo+GmUBwufWfBup61ZDuK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzV3suegXBIUSSP5Sms2ueKMctEf7GnKuEnTJszGUtYlmIcZrY
-	YqN3VxvQ7Vgzjssg9mBTlMUmm9p28AJkne7f8DUBLlKTkeIEbcGmEsXB
-X-Gm-Gg: AR+sD12WQ8V2fSP6CoAFLe+Tn/iIG96PQ+yXUSOCHjlXHQMSRjbFSCB8H76LlI166n9
-	qZoFFlsk4cXopZhv3N8YdZQ4ThsUP7zi7wbmIB4gYbXrqOLHvWrbJTVmRALjVDIJ4yWziMio4QF
-	lOMR/6KllTKGGlRQc+bkDP0wfBLLabdmidegwzVNAKteUFzWI+OWKWS2eQTrA8FV119MvhE9jAu
-	5J0sUJk5GlVKg9/sF2sbhztoqmYK0IJX5jU+SRl2IyyvIkMhkLZqxdgsg5sYQVRQmhJ4l37MGdr
-	jDZKiYpUumm/+FKLwoWNzkD5mG5y0w2V92cPVQfV1hhOEPNoFB0hjmtwqMdaim8LTmDQS85Yd3Z
-	etE+1UrPWCqV8cNRfxYWXF8+e135olHzyn+lOHrrBKYatu0KdRSROdPFENccKo9FBp/j8OhBwSr
-	ZfMucXb9CPtmglDC6+xqVvoHu931gYPbjOVxOm9QbF4YvHWBWztNsaVU9xSg==
-X-Received: by 2002:a05:6a21:2212:b0:3bf:9b61:f7ae with SMTP id adf61e73a8af0-3c92a75b245mr2888824637.14.1785575448667;
-        Sat, 01 Aug 2026 02:10:48 -0700 (PDT)
-Received: from ubuntu.. ([2405:201:8026:213e:36ae:7de2:5cca:938])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153dd9c96asm15432431eec.7.2026.08.01.02.10.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Aug 2026 02:10:48 -0700 (PDT)
-From: mdshahid03@gmail.com
-To: Jonathan Cameron <jic23@kernel.org>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Joshua Crofts <joshua.crofts@broadcom.com>,
-	Broadcom internal kernel list <bcm-kernel-feedback-list@broadcom.com>,
-	David Lechner <dlechner@baylibre.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v4 3/3] iio: adc: bcm_iproc_adc: Convert probe error handling to dev_err_probe()
-Date: Sat,  1 Aug 2026 14:39:53 +0530
-Message-ID: <20260801090953.61603-4-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260801090953.61603-1-mdshahid03@gmail.com>
-References: <20260801090953.61603-1-mdshahid03@gmail.com>
+	id 1wq5oq-0000000E7eE-2Dwj;
+	Sat, 01 Aug 2026 09:15:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B115C453DF;
+	Sat,  1 Aug 2026 09:15:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0CD81F00AC4;
+	Sat,  1 Aug 2026 09:15:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785575747;
+	bh=qL0KvT6fbFFpjOaD2pGDIh9KKgpsACQZ4AgSBffUuOk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=JCjrXHF/qPdYFDron/ySP3kKVRTkPb0I18WPTxbnebb9+AVeLvaquYaldcYbmz6ip
+	 ztOOpVpcvgn8So3sj2OtiLuzD9IHRw8PPGiPO/1Rp2VpyeqYKEXLSbq0CZm6CGpdX9
+	 07wrQkPEnzIkZ9tCrH+6UlW08OnoM1hVoNpUTMpOXGNMLM3Fi4CEyCGhpx4Lkmd2RV
+	 aC0rup/Gvqn/xsSNKlvBElgYeZGa02zzFi5pAvaAhi6Tpf/B8TFUTN92AtG+G7+i0T
+	 cFJdOrUBhgqUtacr8LKwIiuU01tNCnbW+x7ZhZ8Mlg/J5yAiLp8rfEtbgQ5Q/xddBB
+	 Os0QP2Kxytjag==
+Message-ID: <e4dece11-ef3d-42e1-b179-cb710c501622@kernel.org>
+Date: Sat, 1 Aug 2026 11:15:38 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_021049_854669_26C0AAB3 
-X-CRM114-Status: GOOD (  12.44  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] iommu: Add Broadcom BCM2712 IOMMU driver
+To: Daniel Drake <dan@reactivated.net>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ nick.hollinghurst@raspberrypi.com, Jason Gunthorpe <jgg@ziepe.ca>
+References: <20260727-bcm2712-iommu-submit-v2-0-0247b5c03de8@reactivated.net>
+ <20260727-bcm2712-iommu-submit-v2-4-0247b5c03de8@reactivated.net>
+ <20260730-small-solid-spoonbill-8a8bbd@quoll>
+ <6d9b28ec-0905-4cb0-9a62-980c7fa69572@reactivated.net>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <6d9b28ec-0905-4cb0-9a62-980c7fa69572@reactivated.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,91 +122,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+On 31/07/2026 22:34, Daniel Drake wrote:
+> On 30/07/2026 08:00, Krzysztof Kozlowski wrote:
+>> On Mon, Jul 27, 2026 at 09:43:59PM +0100, Daniel Drake wrote:
+>>> +static int bcm2712_iommu_init_cache(struct bcm2712_iommu *mmu,
+>>> +				    struct platform_device *pdev)
+>>> +{
+>>> +	struct device *dev = &pdev->dev;
+>>> +	struct platform_device *cache_pdev;
+>>> +	struct device_node *cache_np;
+>>> +
+>>> +	cache_np = of_parse_phandle(dev->of_node, "brcm,iommu-cache", 0);
+>>> +
+>>> +	/* Fall back on 'cache' property used in old/downstream firmware */
+>>> +	if (!cache_np)
+>>> +		cache_np = of_parse_phandle(dev->of_node, "cache", 0);
+>>
+>> NAK.
+>>
+>> You cannot have undocumented ABI. I asked you to drop this at v1.
+> Is there any approach I should consider here in order to support 
+> existing shipped firmware versions that use the 'cache' property, or 
+> should I simply break compatibility?
 
-This simplifies the probe error handling by replacing open-coded
-dev_err() and return sequences while preserving the existing
-messages.
+Kernel is being shipped with DTB for Rpi, because firmware is not
+embedded into some lower fixed storage, so there is no problem of
+compatibility with some out of tree, unsupported DTB.
 
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
----
- drivers/iio/adc/bcm_iproc_adc.c | 39 +++++++++++++++------------------
- 1 file changed, 18 insertions(+), 21 deletions(-)
+And no, you cannot use argument of undocumented, unreviewed ABI in
+downstream forks as reason to add such ABI. This defeats the very
+purpose of having upstream.
 
-diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-index 4acd9c3f089b..5fcd528eb88a 100644
---- a/drivers/iio/adc/bcm_iproc_adc.c
-+++ b/drivers/iio/adc/bcm_iproc_adc.c
-@@ -523,19 +523,16 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 
- 	adc_priv->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
- 			   "adc-syscon");
--	if (IS_ERR(adc_priv->regmap)) {
--		dev_err(dev, "failed to get handle for tsc syscon\n");
--		ret = PTR_ERR(adc_priv->regmap);
--		return ret;
--	}
-+	if (IS_ERR(adc_priv->regmap))
-+		return dev_err_probe(dev,
-+				     PTR_ERR(adc_priv->regmap),
-+				     "failed to get handle for tsc syscon\n");
- 
- 	adc_priv->adc_clk = devm_clk_get(dev, "tsc_clk");
--	if (IS_ERR(adc_priv->adc_clk)) {
--		dev_err(dev,
--			"failed getting clock tsc_clk\n");
--		ret = PTR_ERR(adc_priv->adc_clk);
--		return ret;
--	}
-+	if (IS_ERR(adc_priv->adc_clk))
-+		return dev_err_probe(dev,
-+				     PTR_ERR(adc_priv->adc_clk),
-+				     "failed getting clock tsc_clk\n");
- 
- 	adc_priv->irqno = platform_get_irq(pdev, 0);
- 	if (adc_priv->irqno < 0)
-@@ -543,10 +540,10 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 
- 	ret = regmap_clear_bits(adc_priv->regmap, IPROC_REGCTL2,
- 				IPROC_ADC_AUXIN_SCAN_ENA);
--	if (ret) {
--		dev_err(dev, "failed to write IPROC_REGCTL2 %d\n", ret);
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(dev,
-+				     ret,
-+				     "failed to write IPROC_REGCTL2\n");
- 
- 	ret = devm_request_threaded_irq(dev, adc_priv->irqno,
- 				iproc_adc_interrupt_handler,
-@@ -556,11 +553,10 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	ret = clk_prepare_enable(adc_priv->adc_clk);
--	if (ret) {
--		dev_err(dev,
--			"clk_prepare_enable failed %d\n", ret);
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(dev,
-+				     ret,
-+				     "failed to enable clock\n");
- 
- 	ret = iproc_adc_enable(indio_dev);
- 	if (ret)
-@@ -574,7 +570,8 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 
- 	ret = iio_device_register(indio_dev);
- 	if (ret) {
--		dev_err(dev, "iio_device_register failed:err %d\n", ret);
-+		dev_err_probe(dev, ret,
-+			      "failed to register IIO device\n");
- 		goto err_clk;
- 	}
- 
--- 
-2.43.0
+With this approach basically why even reviewing anything? Just accept
+everything anyone ever shipped downstream, right?
 
+Best regards,
+Krzysztof
 
