@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E18C55178
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 12:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACBCC55172
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 12:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cpv493sa16KH8YL2PWk4LIdC0PM0xoirWWDmOuxF0PQ=; b=Y/fmbT/GjKt888dygiNa6YAqLZ
-	YICC2NQ74AaLHxU1ZaXQq8pV/4Jxgiro8J6ZbdAKUeJC5oCOYbumEsB+H8pjzyMsW2djgqiY7N911
-	ADjCgMEbpY1y+fThsy0K1/AuOZlYv9qYhww8A6eWwKrvfTWBqBRl6NGeHCtLARtYFRnlcOgl449TY
-	mDb9ZJXwx0JL5hbhKQ1pw/040ZNZKVuTASuqfmiXAKGSBIi5cMU28CTzDw4/XdzMr38lp8ajbbSX7
-	Lr/P1JWpDNzzyshqNHlE3U6qlV6w+mXxWmGIe3TosveZFDMPRCubMjfl7CSPkKFtRUoYJ8hVzV/K+
-	QKOs3b8w==;
+	bh=xk1tj8UdOa+0rxIkU73il1OAVkAO8SsQO8ZeKapXV9c=; b=LBAWbNKHj6/BMooGF9TInDQ2Nc
+	IDfeW+KGbbs+NtcJgfqUDoAcV8tx5ovZd+yzGu86B6PHCt8V0HxfvzIBxlKFm+6XRiluzaJcJfxz0
+	Me/3Ig+wr/YlVHVV/C6TLEbVZ2MxwKZcD5ILELhS8GW00jyVeItY/Qu7WCWE3Q6/AOpaaJApB8dc8
+	tXk5r5qgFjTLG/AyUixEXiDYIV3GFHuXiIXqt9PncoWAfvFQwS4hrfivV1OjqqE5HUdUqKcua7dCm
+	s0M5Iv30vOMG+BQIhMIPI2uq66jE6IvM3MAjKnnK/9CngKNbTHjg0OIaOtPn8ylcLqU2RnS0MepvJ
+	y42EdvQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq98t-0000000EfB4-0FcL;
-	Sat, 01 Aug 2026 12:48:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wq98u-0000000EfCh-1yPh;
+	Sat, 01 Aug 2026 12:48:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq98s-0000000EfAY-2kqF
+	id 1wq98s-0000000EfAd-3hRI
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 01 Aug 2026 12:48:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B1D1860A83;
-	Sat,  1 Aug 2026 12:48:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 664771F00ACA;
-	Sat,  1 Aug 2026 12:48:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 211604397E;
+	Sat,  1 Aug 2026 12:48:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06CEC1F00AC4;
+	Sat,  1 Aug 2026 12:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785588521;
-	bh=Cpv493sa16KH8YL2PWk4LIdC0PM0xoirWWDmOuxF0PQ=;
+	s=k20260515; t=1785588522;
+	bh=xk1tj8UdOa+0rxIkU73il1OAVkAO8SsQO8ZeKapXV9c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DG6vBF6W9YFzCyxlz2Nmw8qHehNPtQrkWW6+pkZ9M2nS/RVXKlddApCTF1CYRxlYs
-	 1UqbtJEWDG9j8CgaVB2sGDcXVJHnoGImTSyh/t020GZOSbuOMXAHo5tVv7t1//6HbH
-	 gR+3+ZDUiEyur5+IsA4WpimjzbA4DBJ79R6fCtmoNMXCPkfRGzcaOReCLj75p+2exC
-	 DUwQCus1V+widV8O6iqiqCZmoMej2Q5TiGlW+ASkjBb1akK1maQ8xLe1k9zfc2epXq
-	 nt20XwSFybdDQcBKwA6Sbv++u8q0E+qQ9oJAtKlYPRz8fCGiVrEbZR8ZKofbbelYzu
-	 uEUe4VOGGaAiw==
+	b=SUG8zk/43e39gitA6FnAldx+K6KvyRBHfVLouk2VyZ1X+PNtsCuUSGphVXI/l9mHG
+	 FIkgNa4XP9fIkmhxMcKCiSIwHwu8+rKA84ymtBQuh9GnP6Fet9m3+g8qu/JvgMUQRs
+	 cWpKZ2jm+zpJHSjEF2HUDyY3rJt6rKIbOkE7ldpryr3YijByfaeZHdLSj0VpV+I9m0
+	 gDJozrqHyLRO7KYTXaalNHYapX8PU71QjFH0jMPtlJj1RzcV6TQq1Biwg2BLcnoHV8
+	 u+AUH/Ne4519+nzJ/skAaE4/+SHC8GgdewunPkCIF21AHNQj2L2cZlQY+loBxC9urE
+	 T/8ORtuIxXejQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wq98p-0000000BGK2-1p9M;
-	Sat, 01 Aug 2026 12:48:39 +0000
+	id 1wq98q-0000000BGK2-1Mca;
+	Sat, 01 Aug 2026 12:48:40 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -57,18 +57,17 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH 1/6] KVM: arm64: Remove VM-wide VNCR mapping counter
-Date: Sat,  1 Aug 2026 13:48:13 +0100
-Message-ID: <20260801124818.366274-2-maz@kernel.org>
+	Hyunwoo Kim <imv4bel@gmail.com>
+Subject: [PATCH 5/6] KVM: arm64: Couple VNCR fixmap clearing and CPU number invalidation
+Date: Sat,  1 Aug 2026 13:48:17 +0100
+Message-ID: <20260801124818.366274-6-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260801124818.366274-1-maz@kernel.org>
 References: <20260801124818.366274-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, imv4bel@gmail.com, stable@vger.kernel.org
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, imv4bel@gmail.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,91 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The global VNCR mapping counter is used to decide whether an L1
-provided VNCR page is mapped in L0 on any CPU at the point of
-dealing with a TLB invalidation. It is incremented when a mapping
-is made in the fixmap, and decremented when unmapped.
+A mapped VNCR translation must indicate which CPU it is resident.
+Unmapping such a translation must make this CPU number -1.
 
-As it turns out, this tracking has several flaws:
+Couple the unmap and the setting to -1 in a helper, so that we
+are always sure they are done together.
 
-- we are trying to invalidate TLBs, and the mapping is only an
-  opportunistic consequence of the TLB. Checking this counter to
-  decide whether a TLB needs to be invalidated may result in missed
-  invalidations.
-
-- an L1 vcpu invalidating its own TLB (a very likely case) will not
-  succeed in invalidating the VNCR pseudo TLB because that page is
-  not mapped in L0 at this stage.
-
-Given that this tracking fails at delivering the minimum guarantees
-that are required and is only a performance optimisation, remove it
-completely.
-
-Fixes: 4ffa72ad8f37e ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
 Signed-off-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
 ---
- arch/arm64/include/asm/kvm_host.h | 3 ---
- arch/arm64/kvm/hyp/vhe/switch.c   | 3 +--
- arch/arm64/kvm/nested.c           | 3 ---
- 3 files changed, 1 insertion(+), 8 deletions(-)
+ arch/arm64/kvm/nested.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index bae2c4f92ef5c..ac16f96c878d6 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -411,9 +411,6 @@ struct kvm_arch {
- 	/* Masks for VNCR-backed and general EL2 sysregs */
- 	struct kvm_sysreg_masks	*sysreg_masks;
- 
--	/* Count the number of VNCR_EL2 currently mapped */
--	atomic_t vncr_map_count;
--
- 	/*
- 	 * For an untrusted host VM, 'pkvm.handle' is used to lookup
- 	 * the associated pKVM instance in the hypervisor.
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index bbe9cebd3d9d5..c09b1d411c584 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -427,8 +427,7 @@ static bool kvm_hyp_handle_tlbi_el2(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	 * If we have to check for any VNCR mapping being invalidated,
- 	 * go back to the slow path for further processing.
- 	 */
--	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu) &&
--	    atomic_read(&vcpu->kvm->arch.vncr_map_count))
-+	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu))
- 		return false;
- 
- 	__kvm_skip_instr(vcpu);
 diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index dfb96edbdc43c..f3c75954cf36c 100644
+index 47d61d3cf053c..84915e2cff604 100644
 --- a/arch/arm64/kvm/nested.c
 +++ b/arch/arm64/kvm/nested.c
-@@ -48,7 +48,6 @@ void kvm_init_nested(struct kvm *kvm)
- {
- 	kvm->arch.nested_mmus = NULL;
- 	kvm->arch.nested_mmus_size = 0;
--	atomic_set(&kvm->arch.vncr_map_count, 0);
- }
- 
- static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
-@@ -890,7 +889,6 @@ static void this_cpu_reset_vncr_fixmap(struct kvm_vcpu *vcpu)
- 	clear_fixmap(vncr_fixmap(vcpu->arch.vncr_tlb->cpu));
- 	vcpu->arch.vncr_tlb->cpu = -1;
- 	host_data_clear_flag(L1_VNCR_MAPPED);
--	atomic_dec(&vcpu->kvm->arch.vncr_map_count);
- }
- 
- void kvm_vcpu_put_hw_mmu(struct kvm_vcpu *vcpu)
-@@ -1592,7 +1590,6 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
- 	if (pgprot_val(prot) != pgprot_val(PAGE_NONE)) {
- 		__set_fixmap(vncr_fixmap(vt->cpu), vt->hpa, prot);
- 		host_data_set_flag(L1_VNCR_MAPPED);
--		atomic_inc(&vcpu->kvm->arch.vncr_map_count);
+@@ -894,6 +894,12 @@ void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
  	}
  }
  
++static void unmap_l1_vncr(struct vncr_tlb *vt)
++{
++	clear_fixmap(vncr_fixmap(vt->cpu));
++	vt->cpu = -1;
++}
++
+ static void this_cpu_reset_vncr_fixmap(struct kvm_vcpu *vcpu)
+ {
+ 	if (!host_data_test_flag(L1_VNCR_MAPPED))
+@@ -902,8 +908,7 @@ static void this_cpu_reset_vncr_fixmap(struct kvm_vcpu *vcpu)
+ 	BUG_ON(vcpu->arch.vncr_tlb->cpu != smp_processor_id());
+ 	BUG_ON(is_hyp_ctxt(vcpu));
+ 
+-	clear_fixmap(vncr_fixmap(vcpu->arch.vncr_tlb->cpu));
+-	vcpu->arch.vncr_tlb->cpu = -1;
++	unmap_l1_vncr(vcpu->arch.vncr_tlb);
+ 	host_data_clear_flag(L1_VNCR_MAPPED);
+ }
+ 
+@@ -996,7 +1001,7 @@ static void invalidate_vncr(struct vncr_tlb *vt)
+ {
+ 	vt->valid = false;
+ 	if (vt->cpu != -1)
+-		clear_fixmap(vncr_fixmap(vt->cpu));
++		unmap_l1_vncr(vt);
+ }
+ 
+ static bool vncr_tlb_intersects(struct vncr_tlb *vt, u64 addr,
 -- 
 2.47.3
 
