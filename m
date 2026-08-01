@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806DDC55171
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 00:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE7A9C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 00:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kMABh0sp2CLAMvAaOZJ6Os12WEF9NHcunqGFfBVy2Xc=; b=2LgUAGiZvAhB3tvlowsHeeL/at
-	9OKmQufrHH9JsJu20MR8x/ksZC6k6zZwZrqk89wBO48wWX7G7NJZJxZb+AU9qRJ4SHxHLqKOHXSpF
-	6tLcO/J9Hs6BXb1kpZ3YuDln1G4lyC5ResYejs8acZeyPF7fcz14KqXHjiaR+3MP5lQk0OedqQZLn
-	gmAz6nVkjLgoFUqQfRCsruIlW2wYVt2lpq29nWAsxc0nd12LKathn5tfiXkPXNDRCsUQPc0LiXbhn
-	oYXZP7AIFlHbt+fLeODOA552alMjOZn8YDKxq6MDqtBKSzUcPRpHIpLPmG/unhzpsjU+thc8v6Nkk
-	9L3jRysA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zyvsI6uwawWAwqKjSXAVw9YoGBSiHEuDHThuZ+NSeOo=; b=wxF26/DejS03PLYQ5wUBrG9NEs
+	JNQxVKitnFNjhn7FtjKPam5yAl9oVWZ867SCz952QNo464Oxjdfcdrc3FRawUEmXzkNoGF/eApiia
+	5wqeTpyzGcr0IERkvbu7uxOHHKkhL41osm591nuZaS1x77gpows69WOJhQaygWctcDFaups8gqWXA
+	b5aRPVDYkrxIyVVaaZPdB9/xBROdDPBuZlYdFDvXJNNduMChDC0CGxSIMWdsdr4ctjZfgIBWGfmLn
+	3qKvejbtW0iNrBVhrRroOXoTJapRX48Klw26kUFWz0NkAdSFSH/b5cgrXY5XELso/6cKqVNXPMO69
+	DyEQJjPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpxWX-0000000Dl8V-25iJ;
-	Sat, 01 Aug 2026 00:24:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpxWS-0000000Dl87-2VZg
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 00:24:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 051451595;
-	Fri, 31 Jul 2026 17:24:10 -0700 (PDT)
-Received: from [10.211.55.3] (unknown [10.57.65.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 677313F66F;
-	Fri, 31 Jul 2026 17:24:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785543854; bh=eDQIXM1OVa//5nRVyjR/EED0Zzmr4Ifp8MMz5b+Y97c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ndvYob/B08rDgFN8UGLk9cCVxgEtIwerbLtVMtqpv8KMaSRifmxLeS4Hg+poraF5I
-	 s1gHU28NCtlOZPTNDmaYiRGVqMtBgo2zu49os5T0KXZY6vLQqKvRc0xz6kzyKZoSDC
-	 sh4jKjuZtSt0HJ5ERhigOeOMpfuq/56s8owJwFGQ=
-Message-ID: <0fca2908-e8eb-4842-9a9b-a876fa459e02@arm.com>
-Date: Sat, 1 Aug 2026 01:23:57 +0100
+	id 1wpxaA-0000000DlJS-44EP;
+	Sat, 01 Aug 2026 00:28:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wpxaA-0000000DlJF-1Xin;
+	Sat, 01 Aug 2026 00:28:06 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7D82043854;
+	Sat,  1 Aug 2026 00:28:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 581E71F00AC4;
+	Sat,  1 Aug 2026 00:28:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785544085;
+	bh=zyvsI6uwawWAwqKjSXAVw9YoGBSiHEuDHThuZ+NSeOo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Y+Vin6ByVZPLXW+GbCCZjaOjIVxI7ftgZf/STQv0b85G55jywIfBpD4/f030DG3Yc
+	 j1FxUnGqFQid+MUdFD/a0pOS/U+PctO+DMfZr8cLh4afbZn9CacShgSR3QwdnVlCm8
+	 R6rEFNNuALz7bxx3j+uBxKHOYeR2w7AkyTHkTFf1a3SxYsv1fPYBU1krj+fDWrnUrw
+	 poVIYxPUhscJLk+UgaGQeHJrRBAgydkQTvaarIcADBOltxKYTVXcMOlBhkv5TKM9W5
+	 LwNfLKuLdSAy2HRfBEB015uJUN6XTJ/aqvf1pqtrLB2YJ1h/sv8gu0IefRheZhtWd6
+	 2+zXe2aYg/fEA==
+Date: Sat, 1 Aug 2026 01:28:00 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Ruoyu Wang <ruoyuw560@gmail.com>
+Cc: linux-spi@vger.kernel.org, Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Beniamino Galvani <b.galvani@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] spi: meson-spifc: fix runtime PM leak on remove
+Message-ID: <ac668d52-044e-4773-a536-aee93951b408@sirena.org.uk>
+References: <20260609052647.5-1-ruoyuw560@gmail.com>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH 6/6] arm_mpam: Apply T241-MPAM-6 to 63-bit counters
-To: will@kernel.org
-Cc: james.morse@arm.com, fenghuay@nvidia.com,
- linux-arm-kernel@lists.infradead.org, andre.przywara@arm.com,
- gshan@redhat.com, tan.shaopeng@jp.fujitsu.com, sdonthineni@nvidia.com,
- jonathan.cameron@oss.qualcomm.com
-References: <20260731175243.904730-1-ben.horgan@arm.com>
- <20260731175243.904730-7-ben.horgan@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260731175243.904730-7-ben.horgan@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_172416_867070_6551BD87 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tX5RgUt+OYfDuz3t"
+Content-Disposition: inline
+In-Reply-To: <20260609052647.5-1-ruoyuw560@gmail.com>
+X-Cookie: No shirt, no shoes, no service.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +74,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
 
-On 7/31/26 18:52, Ben Horgan wrote:
-> From: Shanker Donthineni <sdonthineni@nvidia.com>
-> 
-> T241-MPAM-6 causes all MBWU counter formats to count 64-byte
-> requests instead of bytes. Commit dc48eb1ff27c excluded the 63-bit
-> MSMON_MBWU_LWD format while scaling the shorter counters. Systems
-> selecting the preferred 63-bit counter consequently report bandwidth
-> values that are 64 times too small.
-> 
-> Apply the scale to both the sampled value and overflow correction for
-> the 63-bit format. Unsigned arithmetic retains modulo-u64 behavior
-> when the scaled counter range exceeds u64.
-> 
-> Fixes: dc48eb1ff27c ("arm_mpam: Add workaround for T241-MPAM-6")
-> Link: https://lore.kernel.org/lkml/20240816131432.993859-1-sdonthineni@nvidia.com/
-> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> Tested-by: Fenghua Yu <fenghuay@nvidia.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-Should have put this before, sorry.
+--tX5RgUt+OYfDuz3t
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-For handling the patch,
+On Tue, Jun 09, 2026 at 01:26:47PM +0800, Ruoyu Wang wrote:
+> pm_runtime_get_sync() increments the runtime PM usage counter even when it
+> returns an error. meson_spifc_remove() uses it to resume the controller
+> before disabling runtime PM, but never drops the usage counter again.
 
-Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+This doesn't apply against current code, please check and resend.
+
+--tX5RgUt+OYfDuz3t
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmptPY8ACgkQJNaLcl1U
+h9BRqQf+IrpsnI42a2rWBAeJKiqWSImUiBcS6q83yoQRO3kOZvi5o8sbchcevVTq
+IvdhXV5EYlYNdzmRI24L8swk1FvKuX5ylFnd9W1D6uXzv7Ga0HqgWfn+El27e8e0
+/h1NtaF3f6bzwKSCi9EFw2nRsIddiYbJaPH27kqj2Jhb0YhhaFNCYb8vN4gL7qu5
+VYVfgJmroTAmLXVgdwcEkac89ixy4cH4sVELYw9c89kVTTnpv+MVEOQuggr9J5V5
+4JtnvaYkHo+0hIcjFNg6Z4YJokkABi0bEN8HLxxXRHGzzUwmCE310JIEJfd8AvpC
+k9F1tew+FhhK/RnvWm7nfSnWCu9HpQ==
+=Q2v/
+-----END PGP SIGNATURE-----
+
+--tX5RgUt+OYfDuz3t--
 
