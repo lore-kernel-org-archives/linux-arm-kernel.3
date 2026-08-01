@@ -4,106 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FA5C55175
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 12:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FD7C55173
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 12:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZXu4hUthVdVMyzR8sBV5EnxrSahb+P4A553ME38qa0=; b=5Bvuz0WRteohvIXUPhZt9IezCP
-	yoJpb7akocTfQwKugKjKulHHbstM0JHioOxNZY4OyY/eC0XHyn8zQbfwu7FXjOyUXzlx0mCfIxwR4
-	pMQbUbcVyEKhlxdQpNjR50FWobVh3xKVZENr+ihJbSGBXVhAZjDWMaBvUxpgaYnK+ngqze7eBnvVg
-	PVFvu4uLRkBGdLWLWO9eMFKXoRhicsIrFLyfRSaah4YmvzDQzVC5fBwv7ySThPlsnDrH/2Yz8Fq+W
-	MBNKFELgse60DXbv+KjftwowPMPHhc1uldjcx2UhPsJL8VxOU+iKL8a3gZfGCBcDzPzcTxx0k1WKk
-	5lFR8lcA==;
+	bh=tf5IyffjllS+708odQigshftMMlYY8RnVsHPMtEIX2U=; b=uZXdcsZ0Tgl5fHUvD92U8j4i4Q
+	1XU5sE+q22eemG1Qdu6lor0TFHnBZU0t4sAscgY/pyRMIqfyCmNN6Sj3P/DWJxamNW/w+1ad1M0Hg
+	i3cSToqTKAgeSueCrIMCpgOylEZbtKfEJocTv42E2B4x108+YnKT0aS8MbgsoD4tz5YoqroXmGfJM
+	5EFqfs/pyfwkgLGGQIqsuQ6itKOY1R0S72qbl6mXpQZ7nnx57sjD5QgkDR3dxDfcvBUnvaQaJ4xwD
+	Wl+WSzKUmOR6m8a7gECrSL601xxl8WWLtoTs3mbF/ID7XesHWXenEJZXe5AgmTwyqvxVuOPDZ7E7y
+	0BCBwLbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq8r6-0000000EeKf-2YWb;
-	Sat, 01 Aug 2026 12:30:20 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1wq975-0000000Ef4r-3ZLq;
+	Sat, 01 Aug 2026 12:46:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq8r3-0000000EeJO-3Lot
+	id 1wq974-0000000Ef4j-1Osz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 12:30:18 +0000
-Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-c99eaa1f020so1883733a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 05:30:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785587417; x=1786192217; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IZXu4hUthVdVMyzR8sBV5EnxrSahb+P4A553ME38qa0=;
-        b=sIlO6o+d0aZAVELkE3rnvcY8uRSFTSO1k3Jw1gcZ16SqSdJLaRyHiCMYkqoNkNvLW7
-         saga+5NvoMg//nYQT8gVWlQKTRY5Eg/IIitDxo7StfW4YAia3n67h3KvUQlzn5CV0Xeb
-         kKtCScEXOIpn8usHnX6RINl4wfICd5TgXGX7NHeu0DkZgFQrgCkUT03a0LQaJaonvcqh
-         tIxsOSOJ+7aMbsrf1gcArns5LxKYg5za+O2Pbq8GENVGYzZftV9ZUFncrrAVNC5JBiW2
-         v1oybR9UwlldLADE4HorxEQqydhQGmCvI/6s46Yhv+e7IdHfmbHhDH2SulDtlaIGDXGa
-         YRKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785587417; x=1786192217;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IZXu4hUthVdVMyzR8sBV5EnxrSahb+P4A553ME38qa0=;
-        b=nnCyTN1/Bwc9duStkg1Hj1AUCHgKAf4mKnMtVDqXu6IgD4qFU77Nf6J0LnQdtwcQrw
-         zal6CBQiPkPtqI3hXsm5x73NgBP32Cc4wYkaJ55n9Ytm0QPINoLfsSZYvvw00z38PADk
-         gHh9eoKU2EHzi7pe1d/C8qWEOtr1gHzs0e0MAiSF7xZGCGJUKUw2PcM4mz+snSEgppMI
-         sG/44TuMWG6Dg6wNOMYR3fJP+smikXdxSki4lhI4t+AljUltU4xd97ycza1nka1fYFsH
-         zp3jdIlLEJSxSqpolJUW970YInChWzJlHOvizu4kXafxOwLoSAnfkpXo0gXQkigjbsTd
-         UYFw==
-X-Forwarded-Encrypted: i=1; AHgh+Row0B+KpMOKRhPGbFX0G4Hkwr63uyjCjL2joBFF337G4Bxx89w9mPFiWSTRXZ93YSA22/UeuxkY68ZQRMeBDRYF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDEAlYr9TxeRWj3CFjn0g+lZHdaz1UJ4ffZSYALK/9fPvFOXH+
-	zUm45dWKFYPdcIBjMkHmJlV7v4qPBYqCui/DGcigCC4OPGtidvVKhf3J
-X-Gm-Gg: AR+sD125yqP8NWHgj4ZuYI4zxK6fulvyDHOs3U6wrws2wncTVccfpJkbAjo6DU53nDz
-	AJoegOyk0h7uI7+plQcN0bBC/VwnVPZRrlW1ECiV7waN7CL3hIz2mkZhbEuEVxjc+NmU5gpWEAc
-	pLUwhEyXBK6jIyTveloeQfde6d4WI/I/66KxgJmLD0EB8TTqWNW4PE7DV3mYxvNg9UQN9iVr2z7
-	HMmOHE9h9T5B4IqcE2m53llw3OrZz2qC9EpxKv+doIjO9k8DocTPbQ+8uDmaOSCkoE7srIUO7Fe
-	Sc1v/kQhgA7rWkHfLHXwaoNHikhLEVHjIIq55orj+q3CHPkThsYheeCD9MQrxPVHkwK6IeUEXRp
-	s+VqLWjfQWTSuu53Q9LRxSaOQcWzOVqL9kmb5guAiYprrezzkMCDQna/12GIeGvGR+5Vl64JGQd
-	AWnTF3WcvuYEzJQnaTN8ACAHuW84iH1naJv2A7V/JZLT2HW+KxC8oDMwkDX2B+Cqx/i3yF70uYL
-	xo=
-X-Received: by 2002:a05:6a20:d809:b0:3c4:2eb6:c3a0 with SMTP id adf61e73a8af0-3c92a63ad0bmr3140772637.30.1785587416840;
-        Sat, 01 Aug 2026 05:30:16 -0700 (PDT)
-Received: from [127.0.1.1] ([2404:f801:8028:3:9df5:1cd1:f108:c202])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153e045022sm16174086eec.18.2026.08.01.05.30.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Aug 2026 05:30:16 -0700 (PDT)
-From: Subasri S <subasris1210@gmail.com>
-Date: Sat, 01 Aug 2026 17:59:52 +0530
-Subject: [PATCH v2 3/3] usb: typec: Use %pe to print error pointers
+	Sat, 01 Aug 2026 12:46:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 143E260A83;
+	Sat,  1 Aug 2026 12:46:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 339FA1F00AC4;
+	Sat,  1 Aug 2026 12:46:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785588407;
+	bh=tf5IyffjllS+708odQigshftMMlYY8RnVsHPMtEIX2U=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=e2Jw3R2WANz9QjEbAH4ycqZxQxqFOAuMaBJlLUYWtjOf5BlAjRMvv/XDLsZHp2w7E
+	 EMpENVh+AWfCDSalkNTNjuLOAOZkJpzeAFbo4WouEhWCTdQse5QShSdrbHOgzelaCc
+	 Q6SDdr4VUCwPNlB3TMphDZmGKVDowBGQNCeEK2Pn2O6Ehep3qq7XptTqib46otluua
+	 Lq/WCbFQlwVIVw6RUJVOaTOa6rcMfA+gQlXae4XF+Lpa+Bb5QN+/mVeZ1nWQ+Ab/XM
+	 FLHnoCeUDHgs19JalLXs9VrTE91eP9V1KkpCtm4jMMvieI3/2dPE89LceJ38SVrwqN
+	 RuVmg2WoVnVJQ==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id 25ADDF40076;
+	Sat,  1 Aug 2026 08:46:46 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-01.internal (MEProxy); Sat, 01 Aug 2026 08:46:46 -0400
+X-ME-Sender: <xms:tuptajN77YWcQ1dxjvoS3jCgZ1LhypwCLgqmgwcIGGaLEUYKoJbCGw>
+    <xme:tuptaowaYAtunAeejFyeRzx2yqIqQ5bIf_qJjHiWWNZUtxwDSzVnU91IyGwqPDxEQ
+    9BYrG5Ac9XKVMoow7NHvwOB5dYqxES44qag1U-jJ533FhQaWtQWJugP>
+X-ME-Proxy-Cause: dmFkZTGa6PLZcs1LpqN4L73CsbcZGDLLhKz/BVsXFGl9g6gfOidm/t37MBGvliBaIf5YQD
+    UIRQh3AzdMy/0nj+IGAK8MZE2WO0R5tcQFg3zaTiJI1dlFkXWfUHAXzmQKe/7MllXKOgQV
+    w/iie8PhImQcaMFd8v5Ogn9MZV3vgF1O0NoTHI+/hCP9/wahJFHyvvogqeJJ87RE/ASdyi
+    nRyt78ZSwJqyoHCanLbq7Fzm2UmMydi1+Z0W1DyHPE0fUa9ibbI+nrdlWU1voRLDb8nlKx
+    LEjDyrxBS1FQyu3L7b4gI6moaCnK2RSzC8YBxbMqGdLWOIrfftFwJTJ8gr00s0jzslLvQD
+    7LaQVGYT9X+3Jp+dlzCZ2E9zcuDscOhPpB9lW77H6I0EbV/rMunu1tKTOa35db3nX8jwHT
+    87bGGLzfzajXtd/qi6VSt5YGckbRP9BJCZpH5BJPjUA/gTu4ZVUoEPr4tvSR7ovS6iZ2ul
+    4DIJdqa7rGUnIJ1ld/0ziKxzNGrkN+1/Z/TMnM9vzmvhzagnLFteg98Lf7N7esknqCTSaB
+    /nFbS5f5FZArIJlKgnj25RNzO8Z8eo52+heqWD9xp94t93SF21WYC3+j8TRf9jWP8yY0Yg
+    /12hawWiRdQr1jppjKmhIjHGmy/b8LjZ+GBbjGeRh/qpIbV2D+cChFwSGImA
+X-ME-Proxy: <xmx:tuptas74HbYmwrivJpbEZ3_0Lg90FEoxfQxDOvnTAm2S8j2Io3prWw>
+    <xmx:tuptanNzIV71YaVLodrKHiafPehIuTW325jKDTFDiAJa5fIJKo34Vw>
+    <xmx:tuptaitJcbBSSH11iwXDgzqsALq4ABAkU7i8ORrmP27OwrQPasNd0A>
+    <xmx:tuptaibozDTa_SzfgIOqMvL4twatGW9F_cJM84CA3RhLZlGTANysfw>
+    <xmx:tuptasxy4ZgSC-V9f6SCyb-EQTYL_e4zXS93x471gUXbMDwA_VSsb6r3>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 0D13A182007E; Sat,  1 Aug 2026 08:46:45 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Sat, 01 Aug 2026 14:46:25 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Karl Mehltretter" <kmehltretter@gmail.com>,
+ "Russell King" <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Message-Id: <21e446ee-4082-4a0f-8e73-694e3a569c43@app.fastmail.com>
+In-Reply-To: <20260718091600.92021-1-kmehltretter@gmail.com>
+References: <20260718091600.92021-1-kmehltretter@gmail.com>
+Subject: Re: [PATCH] ARM: smp: set current pointer in assembly before jumping into C
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260801-usb-ptr_err_patchset-v2-3-1698e298c1e3@gmail.com>
-References: <20260801-usb-ptr_err_patchset-v2-0-1698e298c1e3@gmail.com>
-In-Reply-To: <20260801-usb-ptr_err_patchset-v2-0-1698e298c1e3@gmail.com>
-To: Peter Chen <peter.chen@kernel.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Duncan Sands <duncan.sands@free.fr>, 
- Chas Williams <3chas3@gmail.com>, Minas Harutyunyan <hminas@synopsys.com>, 
- Hans de Goede <hansg@kernel.org>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
- Badhri Jagan Sridharan <badhri@google.com>
-Cc: linux-usb@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-atm-general@lists.sourceforge.net, netdev@vger.kernel.org, 
- Subasri S <subasris1210@gmail.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785587393; l=2871;
- i=subasris1210@gmail.com; s=20260709; h=from:subject:message-id;
- bh=EixTu8F/XmrqpGkUc1ZAKwt7Ik8fS3oCoez4NHHuAPA=;
- b=y9rlU0Bar73W/79icXHYY1Za1xqYHDFPlcRNAyzBdU9DLsdx5ZFdZAtAfdQnYCacrmDjy37bN
- 67dNNmpkRFUB7JSMQ26Hj03dv6oZIIwgFS5fqDwVdYCNRhAPyYsGqab
-X-Developer-Key: i=subasris1210@gmail.com; a=ed25519;
- pk=6C4wavGFy/OsR8yQQKNWuDXoYPHp2L3sfgNfyzTruTk=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_053017_848332_C83D478E 
-X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,78 +96,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the %pe format specifier instead of %ld with PTR_ERR() for printing
-error pointers in various typec drivers. This prints symbolic
-error names (e.g.-ENOMEM) instead of errno numbers (e.g. -12),
-making error logs more readable.
+Hi Karl,
 
-Fix coccinelle reported warning:
-WARNING: Consider using %pe to print PTR_ERR()
+On Sat, 18 Jul 2026, at 11:16, Karl Mehltretter wrote:
+> With CONFIG_KCOV_INSTRUMENT_ALL=y, secondary CPUs fail to come online
+> on ARMv6K/ARMv7 SMP:
+>
+>   CPU1: failed to boot: -38
+>
+> The compiler inserts a call to __sanitizer_cov_trace_pc() at the entry
+> of secondary_start_kernel(), before set_current(task). The KCOV hook
+> dereferences current while TPIDRURO is still uninitialized, causing a
+> data abort before cpu_init() has installed the exception stacks. The
+> secondary CPU consequently never completes startup.
+>
+> Initialize current in the secondary assembly handoff, as
+> __mmap_switched already does for the boot CPU.
+>
+> Fixes: 50596b7559bf ("ARM: smp: Store current pointer in TPIDRURO 
+> register if available")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> Tested on QEMU vexpress-a15 (mainline and v6.12) and
+> realview-eb-mpcore with and without CONFIG_KCOV_INSTRUMENT_ALL.
+>
+> The head-nommu.S change is untested because no currently reachable
+> Kconfig combination enables non-MMU SMP.
+>
+> The redundant set_current(task) is retained to keep the fix minimal.
+>
 
-Compile tested only.
+Please drop the call and the entire function: no need to keep around
+redundant code.
 
-Reviewed-by: Badhri Jagan Sridharan <badhri@google.com>
-Signed-off-by: Subasri S <subasris1210@gmail.com>
----
- drivers/usb/typec/mux/pi3usb30532.c | 6 ++----
- drivers/usb/typec/tcpm/tcpm.c       | 2 +-
- drivers/usb/typec/wusb3801.c        | 4 ++--
- 3 files changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/usb/typec/mux/pi3usb30532.c b/drivers/usb/typec/mux/pi3usb30532.c
-index 985683fe49e9..b32f4c433de9 100644
---- a/drivers/usb/typec/mux/pi3usb30532.c
-+++ b/drivers/usb/typec/mux/pi3usb30532.c
-@@ -139,8 +139,7 @@ static int pi3usb30532_probe(struct i2c_client *client)
- 
- 	pi->sw = typec_switch_register(dev, &sw_desc);
- 	if (IS_ERR(pi->sw)) {
--		dev_err(dev, "Error registering typec switch: %ld\n",
--			PTR_ERR(pi->sw));
-+		dev_err(dev, "Error registering typec switch: %pe\n", pi->sw);
- 		return PTR_ERR(pi->sw);
- 	}
- 
-@@ -151,8 +150,7 @@ static int pi3usb30532_probe(struct i2c_client *client)
- 	pi->mux = typec_mux_register(dev, &mux_desc);
- 	if (IS_ERR(pi->mux)) {
- 		typec_switch_unregister(pi->sw);
--		dev_err(dev, "Error registering typec mux: %ld\n",
--			PTR_ERR(pi->mux));
-+		dev_err(dev, "Error registering typec mux: %pe\n", pi->mux);
- 		return PTR_ERR(pi->mux);
- 	}
- 
-diff --git a/drivers/usb/typec/tcpm/tcpm.c b/drivers/usb/typec/tcpm/tcpm.c
-index 89eec20a2064..ad10470ea73b 100644
---- a/drivers/usb/typec/tcpm/tcpm.c
-+++ b/drivers/usb/typec/tcpm/tcpm.c
-@@ -4796,7 +4796,7 @@ static void tcpm_typec_connect(struct tcpm_port *port)
- 			port->partner_desc.accessory = TYPEC_ACCESSORY_NONE;
- 		partner = typec_register_partner(port->typec_port, &port->partner_desc);
- 		if (IS_ERR(partner)) {
--			dev_err(port->dev, "Failed to register partner (%ld)\n", PTR_ERR(partner));
-+			dev_err(port->dev, "Failed to register partner (%pe)\n", partner);
- 			return;
- 		}
- 
-diff --git a/drivers/usb/typec/wusb3801.c b/drivers/usb/typec/wusb3801.c
-index 6062875fb04a..86d13ab41670 100644
---- a/drivers/usb/typec/wusb3801.c
-+++ b/drivers/usb/typec/wusb3801.c
-@@ -277,8 +277,8 @@ static void wusb3801_hw_update(struct wusb3801 *wusb3801)
- 		if (partner_type != WUSB3801_STAT_PARTNER_STANDBY) {
- 			wusb3801->partner = typec_register_partner(port, &desc);
- 			if (IS_ERR(wusb3801->partner))
--				dev_err(dev, "Failed to register partner: %ld\n",
--					PTR_ERR(wusb3801->partner));
-+				dev_err(dev, "Failed to register partner: %pe\n",
-+					wusb3801->partner);
- 		}
- 
- 		data_role = pwr_role == TYPEC_SOURCE ? TYPEC_HOST : TYPEC_DEVICE;
-
--- 
-2.43.0
-
+>  arch/arm/kernel/head-nommu.S | 1 +
+>  arch/arm/kernel/head.S       | 1 +
+>  2 files changed, 2 insertions(+)
+>
+> diff --git a/arch/arm/kernel/head-nommu.S b/arch/arm/kernel/head-nommu.S
+> index b9d6818f1ee1..f80bbfbd3a6f 100644
+> --- a/arch/arm/kernel/head-nommu.S
+> +++ b/arch/arm/kernel/head-nommu.S
+> @@ -116,6 +116,7 @@ ENTRY(secondary_startup)
+>  	ldr	r7, __secondary_data		@ reload r7
+>  	ldr	sp, [r7, #12]			@ set up the stack pointer
+>  	ldr	r0, [r7, #16]			@ set up task pointer
+> +	set_current r0, r1
+>  	mov	fp, #0
+>  	b	secondary_start_kernel
+>  ENDPROC(secondary_startup)
+> diff --git a/arch/arm/kernel/head.S b/arch/arm/kernel/head.S
+> index f22c50d4bd41..a22403a629ef 100644
+> --- a/arch/arm/kernel/head.S
+> +++ b/arch/arm/kernel/head.S
+> @@ -442,6 +442,7 @@ ENTRY(__secondary_switched)
+>  	adr_l	r7, secondary_data + 12		@ get secondary_data.stack
+>  	ldr	sp, [r7]
+>  	ldr	r0, [r7, #4]			@ get secondary_data.task
+> +	set_current r0, r1
+>  	mov	fp, #0
+>  	b	secondary_start_kernel
+>  ENDPROC(__secondary_switched)
+> --
+> 2.43.0
 
