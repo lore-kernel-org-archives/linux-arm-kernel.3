@@ -4,163 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A8AC55172
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 19:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A38C55173
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 19:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TiW8vgqtZHJtHheUC/tBnlPWJcBmJvF9od0ImJYSDcg=; b=m0syDFH+HBHT4sfHyvrMydkInN
-	SI+lekNfQ178qg4HdsVzd5ldePkIv+eh2tMr8z+v5eeMjuR1UUzEHhigz4rzLAdN21fmWUy5dPkih
-	33v/lbJRahpShh9bFxGPUI82ZvN0TdmAqg3bjeYmm2ljFtj2sk35pvNvWUzQtkfta8EIStTGak4bK
-	1fOF/BiaJARl6XmzS/mtcpw2eefIhXQg7mjfzVTV8O2qwUXYA9+uu8wNXZ/fcYiQ44f+YHQpxL/Gx
-	pFGEKb2Tu/sl0XjfdfIAF1YCMl1FwXDIBY7R1EeqszQuYxiuKAANWh039wl5VcH8Fwx2fiCYBaMPx
-	d86fiUVw==;
+	bh=C5p2600pg+Z3tWajzP5jli4uFm4ZoIvDyv9DErP7pB8=; b=YCHobhpODlMJiC6bUTlhBxjm0U
+	rGUudu0qo35xrzLLM8g74ALRSi7WhTUylJrlNY5JE2I7MkIMoMsw7m7pe76Lls4xF7LRuBqoJaglr
+	FMCJYk0yB1Gaq5RbNmZ4fJzjBhwlyYA2Nrzsspz18IHV2kF0AwJIqk4c+07Kvtl8He9PHYQAV7J9I
+	wGs41Oq4Xd9bWsZgM16ZLFOdCbfyLM6QJS2XGHlIpAdNB1IUlNOran5ecugaFoyBI9wUHysXDqQhH
+	Lwl47AAGjX+icT8lFcECMBvN2L0vxMJVHGoQAn22JJoPASg7o445/5la9IfEC7e5B3UwA+m3opSi7
+	225NlAHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqFo5-0000000F0pB-2GEp;
-	Sat, 01 Aug 2026 19:55:42 +0000
+	id 1wqFoF-0000000F0x1-3UaQ;
+	Sat, 01 Aug 2026 19:55:51 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqFo1-0000000F0mV-1QHU
+	id 1wqFoC-0000000F0ti-2Mcu
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 19:55:40 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 671J0EeR3739305
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 1 Aug 2026 19:55:36 GMT
+	Sat, 01 Aug 2026 19:55:50 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 671JUKNA3778206
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 1 Aug 2026 19:55:47 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=TiW8vgqtZHJtHheUC/tBnlPWJcBmJvF9od0
-	ImJYSDcg=; b=oUFjra4m/6j+FmlMLlb109kEWh/+P7bND1VOrWsvpRbmInK76fP
-	x30+1KZkIBFTVb0hyTxKPAX3SlCYJHXWDjfiF5g8mqmgogJRDMBq34BhDhU0WVoJ
-	YTNP7lsikoDc8yCcY/J/l51EncTUKxERdQ6I1znQ0IXd1rHryrzZLQA4YV68LNHF
-	fVfopdZjEglNBFJinXGuNnfZQ8KIjwNhymDLrNoZx47nzyZXHOUvU16Ck8NTv94s
-	IQ5VnMIpdtJK+ij/XLrJ4iu+FeMgPKRXRL4dl/r29oDFcS0Yn5BR95uoWPdFHoPM
-	cu0CHG9+kYjcPH44x0OdjfYWOELO1I4ItFA==
+	:subject:to; s=qcppdkim1; bh=C5p2600pg+Z3tWajzP5jli4uFm4ZoIvDyv9
+	DErP7pB8=; b=ZNiojN4H2XHO7lIlDJIJmZbcqzPuJGpS1503/JgylnHWteNsDmV
+	hLGi41kk2Eeu54rLbSePkYdfJFHFVWMBKOfJFthESXEhEtzBbIcQuxdiyDyXOkow
+	p20ECEKVUjKLIaN6WcKQADuhXuIgD1FIoG0lvUcbzWRkn2vb7jgyKXdVoAqhk1St
+	ufPDhg6v6X+FSZ8VH398RTKsoz76JCDvH6p9rUA95ZDcPpoMlTnTykAGMWrs8XVU
+	K4pSiljr1BhTbRzir2K9GJy9ZC4Rh3ew4UQNq4x8Ya/hI+pSGcRgG2cJ1Rp/Ri3c
+	MEqw7NKHz4lCJcJAqSITAG8g2AEPAuaokIQ==
 Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fs8u99kk2-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fs8r6hmqd-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 19:55:35 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51bff5c7035so42581301cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 12:55:35 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 19:55:47 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c083f1818so20679581cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 12:55:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785614135; x=1786218935; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1785614147; x=1786218947; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TiW8vgqtZHJtHheUC/tBnlPWJcBmJvF9od0ImJYSDcg=;
-        b=RnltpuOMuJDwXIkyMfjtFfoMZlfZhXmyaz2cX1g0MEbD3726OCnP3Gprj54k2gKciV
-         hB99CbHQdJX5WOnPRTgvW1A5ehRoA+oOezxCeDPEXFNR+hB+1v0O+g6GjsXsT4SeG88q
-         FDYWa/q7zsyRRxEdAqkMAqZ4ePu7e64wAI2nLlSdRO1xu7T59UzI1Has3QOzute5icjJ
-         TJ4RV9Nkqf6B46Ash4RJq/enApxAgmuQxgPXSaiBtqBR2rL0WrQqcOXbceXJ8mp5SYSy
-         uCsezQz+veGv9QMGRJUc+4vah7EhEphN9A4q5uyeZnMPIITfpH4IwNcewYA/iyBJwozm
-         jwBw==
+        bh=C5p2600pg+Z3tWajzP5jli4uFm4ZoIvDyv9DErP7pB8=;
+        b=eW48r36L9PxOaGs6QlflAx7eLZSJC3uP+1Mu1WnNB4HWsz3TL6jN1bseI4/IuDegqI
+         nIlf/Qo9q+gIEl/fjq/reycW4/y7G9eSWrr5HbY4jJHwQnFN11UR/sIkXKL820QPoruN
+         M2uFKpcXp7qEAzoZde70hEM3FnIIABcZwVwBa5dGjU+GN4pePOWpnt31yeEtCPIUmTZt
+         KOE4qgimK/lyMXdFy7zOv2XhWN4UqdA4VE0E8oQ6M53f+At64J2NvJYbSGebPv0YxZ3/
+         FlChafWj+FOyDtiet2ETh9j7J4O09VFbDL5cO+XLtvxJ8f4K1f1uuDtbmE18o/3jDM9o
+         2AVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785614135; x=1786218935;
+        d=1e100.net; s=20251104; t=1785614147; x=1786218947;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=TiW8vgqtZHJtHheUC/tBnlPWJcBmJvF9od0ImJYSDcg=;
-        b=LJlypW8mjiOlzlkMcbIm6FNCqRZHxW4vqHBl3EWZ52b/5W6wDnKZ22OgmBt0dDCm+A
-         Bhka1/wU2gnmGCJ+w86Jgm2KkFZ2j8OQWeWC0U1U1TBPekTw8rB36eqig3JtmfubMW9V
-         CC4AfawQTXmSBbJGx2KtBT0bvgpRfsBDD8h9WCt9WNyFjWjrfAeIirX+dzoE2Lm0BS7M
-         4HDeKsGR68iIoubpWU9sh8/OAcO30HNf5mcq0XGSol3cNf0r5ISyAy4TqBrSuN7mOOrW
-         BqXnnmcAUQw3esvhx3ewaFR5tfDy57oGyFYgvJX2+D/jaoD40MgfZlJWkTlG5KW8kDh8
-         RyKw==
-X-Forwarded-Encrypted: i=1; AHgh+Rqi6CGk5SzYRpmzUDAEQO7XdfG+symRt5amNJ5uObtKffBXpUo8J2dP3SYWB0bhhnuh7JmcomGdkMk21dPSptH1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyp83pWAvbDYVjTyeEpNwJtBpx7H8eOYCusXZEAspuDhOY0AhxJ
-	u8RFEOI8CLcRckgROIkv8XHxjCvLTZ0i2YV9W90JeSy2PyJmynxWt5EUdFV535v1ycKu5kiCRpf
-	KIeoXrtLUTnKN1uTt1d7naYnJ5Pw8Z4r93f5F+Z7Jhn3EPHifmnE+EiCax6YLVjg9+ORO/rY/hX
-	gQCw==
-X-Gm-Gg: AR+sD13sHyqOnbVpfZnNGG95UG3vALb+0R2JNfczKkDpCK2hHA11PsW4jzpvvsTCrNi
-	kn9MG2aciOW5Nps4/d1Judm3vFXap896rtOZgEsksw/01y4hjV0jbwCsIgSBdcTQ1bQk2BdB79g
-	qmiiee0mbAqGkrO2MowCXIHEjtru0p5QVl5Hmm0S4Pwb1LWZ1pMgoj6JKEvTQakHPgq2RGrbOZZ
-	k46Cpa5vr+X5+GEzTfpUG2h8mmkWia+/tKKKxBb+M04To3AlkX0ldPDn45iAtJfkokFY+Aa1v0w
-	5MSRm2xrllt9k5XkPQnU/PlxxlB+hzBTC1y4v1XQPqLZYV3Rfm9BD2XqxSFi0fMBKg+apZRaXL/
-	263JskdluTv9Cd6eZ
-X-Received: by 2002:a05:622a:230a:b0:51c:8571:1ccc with SMTP id d75a77b69052e-52b567f2645mr104547671cf.41.1785614135283;
-        Sat, 01 Aug 2026 12:55:35 -0700 (PDT)
-X-Received: by 2002:a05:622a:230a:b0:51c:8571:1ccc with SMTP id d75a77b69052e-52b567f2645mr104547211cf.41.1785614134881;
-        Sat, 01 Aug 2026 12:55:34 -0700 (PDT)
+        bh=C5p2600pg+Z3tWajzP5jli4uFm4ZoIvDyv9DErP7pB8=;
+        b=br002xqzF0Kx7MQ/BBJnjZ/IptxwxZvHKGwYcBe0rUc63/ABpQJi57va6MSb+uzxY4
+         u10vJq3DI3d7PMLfXIaTUyJhjMReQFMOYRoWPmn47t2ahzvI7Z9l5KehhYQhmlgax5vu
+         khKyylyLFhYDHllQHX5dW8gk6bR6F4cAMv/QTfW7ZxnyACmGA91U0dlDdljsMBhROhgq
+         yVL/2iJNqoImSgJ0vUAzuvh39jzjGa7lR4+9PHVBSO1TgIMPhvTCKCgjCilI+OAzCtR7
+         lYKRPsKGpoP9s8q+53nUs5thtkzXEA7lviAX0TP7LvcssLvvIXcb5X0CtBD4C3QwbQAr
+         oTCQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rqk3O0xBr2xXX0RNM3vqOJ+SEKEhT4y+akcSpIfzGF8k7sQLjbyujTFnDcbJAV+CTYEp9qOXv9l3TMO9bgELUdz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsnqOFdoX6bY3BmckLkM9YDtVJcnrSd1wUVKuV+z1j7U2zXnT5
+	kHG97ABC9J2Y3qRuKKBTvnxRL+xAiNtYHQztEy8+/wbaH2AufN44WgXruNR49ul2nyaATOZmqg8
+	+qtP8F5Kb/7/EWD1+YocaGVAV0/a4cCkMZUbfkhGfWjHYTf2F8B/IUF1WBMypBrRe0S0CIgjFLW
+	rCdw==
+X-Gm-Gg: AR+sD11mY4GiRqYCHRoQrFuDQ2Hk9/dzJ4GXAngPS1Tgoo0axiabzf+5NBi4ZvFjF9X
+	XaLxBm2bomijKlwU7R7Df9BpFqounTlM2BJn31NS4l2RmXsxgNkeQitHx5UM4n60Aotb1V4EuE1
+	EzHCijAm0Fg5pa1E3OWLVe5v1IZ+Y2v0ypZKsgSjBEOTN945marm9JLyx/R5KW0iphzZseYnFuu
+	JDIQIYSZFzB5rdDoaZMGpdDLUvd4ER2ZBr7WWWaW+Vd3uymB1Q9tiovSbh8GmPm5R7pvIDgxSOd
+	XIAV8D07O5679+OaC0A8ZJGerAXr8GpqixHON+6P0K42DmZdjeQyCRusTSXeoVfZpFbnVhISe5u
+	yQ87WbuLJnYlhPXL0
+X-Received: by 2002:a05:622a:83:b0:51a:89db:95a4 with SMTP id d75a77b69052e-52b56673d6cmr78414861cf.6.1785614146886;
+        Sat, 01 Aug 2026 12:55:46 -0700 (PDT)
+X-Received: by 2002:a05:622a:83:b0:51a:89db:95a4 with SMTP id d75a77b69052e-52b56673d6cmr78414531cf.6.1785614146453;
+        Sat, 01 Aug 2026 12:55:46 -0700 (PDT)
 Received: from quoll ([178.197.223.174])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd458ea4asm17496417f8f.31.2026.08.01.12.55.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49808199a5csm111576985e9.4.2026.08.01.12.55.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Aug 2026 12:55:33 -0700 (PDT)
+        Sat, 01 Aug 2026 12:55:45 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+To: Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
         Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Zhi Mao <zhi.mao@mediatek.com>,
-        Tiffany Lin <tiffany.lin@mediatek.com>,
-        Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-        Yunfei Dong <yunfei.dong@mediatek.com>, Bin Liu <bin.liu@mediatek.com>,
-        Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-        Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
-        "Bryan O'Donoghue" <bod@kernel.org>,
-        Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
         Matthias Brugger <matthias.bgg@gmail.com>,
         AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Xia Jiang <xia.jiang@mediatek.com>,
-        Stanimir Varbanov <stanimir.varbanov@linaro.org>,
-        linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-rpi-kernel@lists.infradead.org,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Gabriel Fernandez <gabriel.fernandez@foss.st.com>,
+        Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+        linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
         linux-arm-kernel@lists.infradead.org,
         linux-mediatek@lists.infradead.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH] media: dt-bindings: Correct white-space style
-Date: Sat,  1 Aug 2026 21:55:29 +0200
-Message-ID: <20260801195528.235230-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH] dt-bindings: clock: Correct white-space style
+Date: Sat,  1 Aug 2026 21:55:41 +0200
+Message-ID: <20260801195540.235298-2-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7312; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=f1LZFXoTJBl1/AFu1OKBHhr7hP5lW3sbCItIQAZhxeA=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqbk8xEuIh8uDLGNQebu/2oaczx7f6aDF7SNe4g
- QqA/xBUaUCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCam5PMQAKCRDBN2bmhouD
- 1yFyD/40PrZJY9zLs1MqCz8QDJ/+7PJXg0TChXiqgK2wUEpoTfFVwEfXa6Kh70IyVLlgfTHBqTq
- n/1lOjE3lio2qM4yk4gcjbvyFs15AS+uJoBincJZgodWYvjIKuJtujfHLAFvuylv1z6nVsfFLnr
- 9drCJQldJHDmQgK2f/y7WgZMycyqujdDrLSB8GdFQEC2xdTRNZyN5X5BkJhnrLHA73leD70rInb
- 1nGmNcvJ/NaZZ5eIUjPfqNEZVoOQpUoc274BawefQ2Lcl04AdJBahDTvrwNBD89Hszi1G9YzCV4
- AQpJ8r0p5oZRhUAQLKW2vpFbsnKmYmRU5hxbz9M97AHlMzp6ZtyebKhMl4f4VDR6/xN71QoY5dg
- StbaMcygfZeWdM/mE2bHea6FzS/ev22z15mnBxORJAuswxpdEnLFSwEzysSS/cgkE/26pA5pyb2
- 0NkRHZnH/ZnL3y9mrhjFfHzh7v2hPkZ/5FpIJTiaeBnOUyiaFdy8U7M1JN/nfBVwxuRxYKwa/SG
- KdV4VOLykfzAJ3nC3CROtKww02ZDPZIrWfq1yjMYaOroVRq/wIUw6Jqe75vzF1fTcJTvf16AcBD
- jE3Z11La6Ch+QlD2o5IHI8wAYRbMlwDZzw07Rhjnd69kRmYfOPSckASZ/aQ478i/d2PAr5MpRri P+a2P5BeHxR0U7w==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=17894; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=YZ/Vv2zEU6mZyirx3TDiVm9nLZJrYi5Hr9L0/t9260M=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqbk88ksgxIhZHrFdphci55sYYXkZDI0qtofyjQ
+ VVkfva5YViJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCam5PPAAKCRDBN2bmhouD
+ 1wn5EACOIdGkcCdLATpYr5SfTKrLTqLr9zX/7zeeWkFpsmViJjxOrpk/+Z9sdc4mO6oD4Zq2b2J
+ y/d9ET/a2gXhuhAyUMO5e3wftvxgqs0pQe96sWdKeNq5dw/jlHfBf0MDQ1txqAm7qwAjmfY2KuH
+ om+zFRWiSQNIa/tQu+XUTq/lmriWkpqj9rGu3p1JmkW4BB20rzkp/x9nlc48QMhurivxfR78M/N
+ QwHZXc3CsHCPwFpwd6mwLh9ev9C76PhJX94pe/moOdw3fWJC5BrZvBlKKKzXd5iusrZsxDY6tsL
+ 5F+KA7OIIzZ2AZU7dGEfirdi20pdyvs3LFotVyxErofbpdpNHO4Avg0Lhsx9ETch+HIbJWw5E7/
+ EPckX2a/eYqXUTsbjI0UVi+CA5AERPoWc43ExfPpnkXnJDgX1TZ2/ee0zPWDoQpH43fu6sR9kEq
+ oM+fQALJs4HWbZ60xbfPewrP1bIf9L+NxwXgQU+6fuKMhj5yxngsAPEmFpGDiWkJDUGUQyFwwhf
+ ADbtYpL6LC/VcynI9IsPVg47h28gDLElmTeAWX4YA5Bwq3QsqDGIWzACh105SsoKQPVmv9aeELV
+ b/k89tfJWPGOcMMyV3/+EdcfYCMJXG/5rhPpmWNxIt9cL4tqTrksLO1HbPyCVAVkfUBV7iTsPE+ cwMNi9EqB6Eo3ew==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: yMZKaD-MgAKKLTE8xbzBTmVpDopArypr
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAxMDE2MCBTYWx0ZWRfX8Gr1q4S/fos4
- NXS0k+sb97Y4pUTrRqbXXx9LExbm+yXfigAyKR94tKurqPepedsDQBgpHn8DOJhw6KS+dJeowVE
- eEFkd6tg2HJm7Pax58l7NtPGBFHCIofkS6AcUitg5xjjxztg9Dc9AFMX8b1LKOllvuGDoVjwEFT
- +bV/NxpMvUWSW8kzch3WTsLw6DYSo68DbiQuR+6zV0V0PRYjsK1BfWUAOgRF0x72naAWO409qFX
- 10lZCOk8/6APvmTnLzGzMT1FDqNPrJxbdFPkut44LufKzdxqnUQ+LM9EnmoV0ESOzTRPkSTH40g
- yZXMktyEUTFR4xtBym7CyxppUb/IV5I8LdVX2mFZxqNwcn2oG+wjijyclA9n/JNHRUh9MEcx2GO
- G8nA15r2reCRhwZlk+pEHA2CIdTW4egXMc/+qEpeZTX7qVjJflr4kZRlk3MUfCt8iZkJSjqqJZO
- pkWp7BzsBoPs72tTNLw==
-X-Authority-Analysis: v=2.4 cv=LsCiDHdc c=1 sm=1 tr=0 ts=6a6e4f37 cx=c_pps
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODAxMDE2MCBTYWx0ZWRfX03heMlqimage
+ xSC5CR1SAQVMcKfRL8OMNcLtdG7me8igCW2btUh+qPgFvbWKYipOheletBfVsPtnNc0gLF7Bjee
+ idkIq7Xx0+RrE36bvV3wPY/OC8Fp54o=
+X-Proofpoint-GUID: A4MHaZ-Cz8I_Z5NYrRnGljmyqh4lpFkV
+X-Proofpoint-ORIG-GUID: A4MHaZ-Cz8I_Z5NYrRnGljmyqh4lpFkV
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAxMDE2MCBTYWx0ZWRfX3Gw7E+3zSXID
+ wL1YuCOM2g8FUy8kTMTi8vZP67y2KEAFdqSzOugBOjs1agV8VUydsJIC0sA2J8OWPIRczthS9oI
+ wI0EFdwubCbblwSx9ErZIhl4mnWcqXB5lnMEYq+1DDRiXVuQV/PEeBlENkq9r66Cipi/O0/GNth
+ lZsV3FLCvJ9ncs04zCbRZisIs10rteELEGWZ/tfvwsb9xLcQbBIlBeRYmHfhTySJsu5dDmCEYAU
+ BDbapZklyOtJ1jkgp86BDIfgR63Em/6O2l98ZtLZI/67ou0xb3+LEHCeGZKZ/KyfHs8FJGo/Fgh
+ 3gwyPnbUT0n1y07wkvSBiZmuTRmoGxUlwi3vzCHHEg9yXIAtUS/sbBY8062QizjFEMS2PmOrrb+
+ Gsx9lbxdfjEnhGIzJ9QC1fnI/wYRWaUbu9eV6Zds7cEE+Pb0V2BbVJ99g5mWfWMQELWoAPj3vjQ
+ EEvZmdLqFK+zF9apCTw==
+X-Authority-Analysis: v=2.4 cv=Q5ziJY2a c=1 sm=1 tr=0 ts=6a6e4f43 cx=c_pps
  a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
  a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=EUspDBNiAAAA:8
- a=-OYJPjWUVwCj3UUiuegA:9 a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODAxMDE2MCBTYWx0ZWRfX5Pikbiw/fkx9
- VaXUBqFXIOtgZLPPocVIUgQ4SxJUvI7nBdi1wfDsXoJjLGWffioC8Zue+3oyl7ECrQcImWHZYJr
- t5PBbqtGducVMn1NM3Dl5F8bZCKnmzk=
-X-Proofpoint-ORIG-GUID: yMZKaD-MgAKKLTE8xbzBTmVpDopArypr
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
+ a=iQL6gULKA_Fa5ViYYU0A:9 a=a_PwQJl-kcHnX1M80qC6:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-01_03,2026-07-30_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 impostorscore=0 phishscore=0 spamscore=0 adultscore=0
- clxscore=1015 malwarescore=0 priorityscore=1501 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608010160
+ lowpriorityscore=0 spamscore=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 suspectscore=0 adultscore=0 bulkscore=0 malwarescore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2608010160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_125539_299534_FBAA8FAE 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20260801_125548_740323_8A76631B 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,148 +175,358 @@ functional changes.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- .../bindings/media/amlogic,c3-mipi-csi2.yaml  |  4 +-
- .../bindings/media/i2c/galaxycore,gc05a2.yaml |  2 +-
- .../media/mediatek,vcodec-encoder.yaml        |  2 +-
- .../bindings/media/mediatek-jpeg-decoder.yaml |  4 +-
- .../bindings/media/mediatek-jpeg-encoder.yaml |  2 +-
- .../bindings/media/qcom,msm8996-venus.yaml    | 40 +++++++++----------
- .../bindings/media/raspberrypi,pispbe.yaml    |  2 +-
- 7 files changed, 28 insertions(+), 28 deletions(-)
+ .../bindings/clock/mediatek,pericfg.yaml      |   2 +-
+ .../bindings/clock/st,stm32mp21-rcc.yaml      | 140 +++++++--------
+ .../bindings/clock/st,stm32mp25-rcc.yaml      | 160 +++++++++---------
+ .../bindings/clock/xlnx,clocking-wizard.yaml  |   2 +-
+ 4 files changed, 152 insertions(+), 152 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/media/amlogic,c3-mipi-csi2.yaml b/Documentation/devicetree/bindings/media/amlogic,c3-mipi-csi2.yaml
-index b0129beab0c3..2f11e5f45839 100644
---- a/Documentation/devicetree/bindings/media/amlogic,c3-mipi-csi2.yaml
-+++ b/Documentation/devicetree/bindings/media/amlogic,c3-mipi-csi2.yaml
-@@ -96,8 +96,8 @@ examples:
-                   <0x0 0xff01a000 0x0 0x100>;
-             reg-names = "aphy", "dphy", "host";
-             power-domains = <&pwrc PWRC_C3_MIPI_ISP_WRAP_ID>;
--            clocks =  <&clkc_periphs CLKID_VAPB>,
--                      <&clkc_periphs CLKID_CSI_PHY0>;
-+            clocks = <&clkc_periphs CLKID_VAPB>,
-+                     <&clkc_periphs CLKID_CSI_PHY0>;
-             clock-names = "vapb", "phy0";
-             assigned-clocks = <&clkc_periphs CLKID_VAPB>,
-                               <&clkc_periphs CLKID_CSI_PHY0>;
-diff --git a/Documentation/devicetree/bindings/media/i2c/galaxycore,gc05a2.yaml b/Documentation/devicetree/bindings/media/i2c/galaxycore,gc05a2.yaml
-index 0e7a7b5ac89f..99d728c47cfb 100644
---- a/Documentation/devicetree/bindings/media/i2c/galaxycore,gc05a2.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/galaxycore,gc05a2.yaml
-@@ -88,7 +88,7 @@ examples:
-         #size-cells = <0>;
+diff --git a/Documentation/devicetree/bindings/clock/mediatek,pericfg.yaml b/Documentation/devicetree/bindings/clock/mediatek,pericfg.yaml
+index b98cf45efe2f..f0c8df4d10c8 100644
+--- a/Documentation/devicetree/bindings/clock/mediatek,pericfg.yaml
++++ b/Documentation/devicetree/bindings/clock/mediatek,pericfg.yaml
+@@ -65,7 +65,7 @@ examples:
  
-         sensor@37 {
--            compatible =  "galaxycore,gc05a2";
-+            compatible = "galaxycore,gc05a2";
-             reg = <0x37>;
+   - |
+     pericfg@10003000 {
+-        compatible =  "mediatek,mt7623-pericfg", "mediatek,mt2701-pericfg", "syscon";
++        compatible = "mediatek,mt7623-pericfg", "mediatek,mt2701-pericfg", "syscon";
+         reg = <0x10003000 0x1000>;
+         #clock-cells = <1>;
+         #reset-cells = <1>;
+diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yaml
+index 4368063c6709..e4d64d4b63c6 100644
+--- a/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yaml
++++ b/Documentation/devicetree/bindings/clock/st,stm32mp21-rcc.yaml
+@@ -125,75 +125,75 @@ examples:
+         reg = <0x44200000 0x10000>;
+         #clock-cells = <1>;
+         #reset-cells = <1>;
+-        clocks =  <&scmi_clk CK_SCMI_HSE>,
+-                  <&scmi_clk CK_SCMI_HSI>,
+-                  <&scmi_clk CK_SCMI_MSI>,
+-                  <&scmi_clk CK_SCMI_LSE>,
+-                  <&scmi_clk CK_SCMI_LSI>,
+-                  <&scmi_clk CK_SCMI_HSE_DIV2>,
+-                  <&scmi_clk CK_SCMI_ICN_HS_MCU>,
+-                  <&scmi_clk CK_SCMI_ICN_LS_MCU>,
+-                  <&scmi_clk CK_SCMI_ICN_SDMMC>,
+-                  <&scmi_clk CK_SCMI_ICN_DDR>,
+-                  <&scmi_clk CK_SCMI_ICN_DISPLAY>,
+-                  <&scmi_clk CK_SCMI_ICN_HSL>,
+-                  <&scmi_clk CK_SCMI_ICN_NIC>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_07>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_08>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_09>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_10>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_11>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_12>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_13>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_14>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_16>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_17>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_18>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_19>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_20>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_21>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_22>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_23>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_24>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_25>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_26>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_27>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_29>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_30>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_31>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_33>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_36>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_37>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_38>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_39>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_40>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_41>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_42>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_43>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_44>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_45>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_46>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_47>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_48>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_50>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_51>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_52>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_53>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_54>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_55>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_56>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_57>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_58>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_61>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_62>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_63>,
+-                  <&scmi_clk CK_SCMI_ICN_APB1>,
+-                  <&scmi_clk CK_SCMI_ICN_APB2>,
+-                  <&scmi_clk CK_SCMI_ICN_APB3>,
+-                  <&scmi_clk CK_SCMI_ICN_APB4>,
+-                  <&scmi_clk CK_SCMI_ICN_APB5>,
+-                  <&scmi_clk CK_SCMI_ICN_APBDBG>,
+-                  <&scmi_clk CK_SCMI_TIMG1>,
+-                  <&scmi_clk CK_SCMI_TIMG2>;
++        clocks = <&scmi_clk CK_SCMI_HSE>,
++                 <&scmi_clk CK_SCMI_HSI>,
++                 <&scmi_clk CK_SCMI_MSI>,
++                 <&scmi_clk CK_SCMI_LSE>,
++                 <&scmi_clk CK_SCMI_LSI>,
++                 <&scmi_clk CK_SCMI_HSE_DIV2>,
++                 <&scmi_clk CK_SCMI_ICN_HS_MCU>,
++                 <&scmi_clk CK_SCMI_ICN_LS_MCU>,
++                 <&scmi_clk CK_SCMI_ICN_SDMMC>,
++                 <&scmi_clk CK_SCMI_ICN_DDR>,
++                 <&scmi_clk CK_SCMI_ICN_DISPLAY>,
++                 <&scmi_clk CK_SCMI_ICN_HSL>,
++                 <&scmi_clk CK_SCMI_ICN_NIC>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_07>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_08>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_09>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_10>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_11>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_12>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_13>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_14>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_16>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_17>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_18>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_19>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_20>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_21>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_22>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_23>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_24>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_25>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_26>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_27>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_29>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_30>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_31>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_33>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_36>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_37>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_38>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_39>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_40>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_41>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_42>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_43>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_44>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_45>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_46>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_47>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_48>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_50>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_51>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_52>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_53>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_54>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_55>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_56>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_57>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_58>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_61>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_62>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_63>,
++                 <&scmi_clk CK_SCMI_ICN_APB1>,
++                 <&scmi_clk CK_SCMI_ICN_APB2>,
++                 <&scmi_clk CK_SCMI_ICN_APB3>,
++                 <&scmi_clk CK_SCMI_ICN_APB4>,
++                 <&scmi_clk CK_SCMI_ICN_APB5>,
++                 <&scmi_clk CK_SCMI_ICN_APBDBG>,
++                 <&scmi_clk CK_SCMI_TIMG1>,
++                 <&scmi_clk CK_SCMI_TIMG2>;
+     };
+ ...
+diff --git a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
+index 1e3b5d218bb0..3b7925d2c175 100644
+--- a/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
++++ b/Documentation/devicetree/bindings/clock/st,stm32mp25-rcc.yaml
+@@ -135,85 +135,85 @@ examples:
+         reg = <0x44200000 0x10000>;
+         #clock-cells = <1>;
+         #reset-cells = <1>;
+-        clocks =  <&scmi_clk CK_SCMI_HSE>,
+-                  <&scmi_clk CK_SCMI_HSI>,
+-                  <&scmi_clk CK_SCMI_MSI>,
+-                  <&scmi_clk CK_SCMI_LSE>,
+-                  <&scmi_clk CK_SCMI_LSI>,
+-                  <&scmi_clk CK_SCMI_HSE_DIV2>,
+-                  <&scmi_clk CK_SCMI_ICN_HS_MCU>,
+-                  <&scmi_clk CK_SCMI_ICN_LS_MCU>,
+-                  <&scmi_clk CK_SCMI_ICN_SDMMC>,
+-                  <&scmi_clk CK_SCMI_ICN_DDR>,
+-                  <&scmi_clk CK_SCMI_ICN_DISPLAY>,
+-                  <&scmi_clk CK_SCMI_ICN_HSL>,
+-                  <&scmi_clk CK_SCMI_ICN_NIC>,
+-                  <&scmi_clk CK_SCMI_ICN_VID>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_07>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_08>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_09>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_10>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_11>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_12>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_13>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_14>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_15>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_16>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_17>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_18>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_19>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_20>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_21>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_22>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_23>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_24>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_25>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_26>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_27>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_28>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_29>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_30>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_31>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_32>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_33>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_34>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_35>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_36>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_37>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_38>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_39>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_40>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_41>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_42>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_43>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_44>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_45>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_46>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_47>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_48>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_49>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_50>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_51>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_52>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_53>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_54>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_55>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_56>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_57>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_58>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_59>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_60>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_61>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_62>,
+-                  <&scmi_clk CK_SCMI_FLEXGEN_63>,
+-                  <&scmi_clk CK_SCMI_ICN_APB1>,
+-                  <&scmi_clk CK_SCMI_ICN_APB2>,
+-                  <&scmi_clk CK_SCMI_ICN_APB3>,
+-                  <&scmi_clk CK_SCMI_ICN_APB4>,
+-                  <&scmi_clk CK_SCMI_ICN_APBDBG>,
+-                  <&scmi_clk CK_SCMI_TIMG1>,
+-                  <&scmi_clk CK_SCMI_TIMG2>,
+-                  <&scmi_clk CK_SCMI_PLL3>,
+-                  <&clk_dsi_txbyte>;
++        clocks = <&scmi_clk CK_SCMI_HSE>,
++                 <&scmi_clk CK_SCMI_HSI>,
++                 <&scmi_clk CK_SCMI_MSI>,
++                 <&scmi_clk CK_SCMI_LSE>,
++                 <&scmi_clk CK_SCMI_LSI>,
++                 <&scmi_clk CK_SCMI_HSE_DIV2>,
++                 <&scmi_clk CK_SCMI_ICN_HS_MCU>,
++                 <&scmi_clk CK_SCMI_ICN_LS_MCU>,
++                 <&scmi_clk CK_SCMI_ICN_SDMMC>,
++                 <&scmi_clk CK_SCMI_ICN_DDR>,
++                 <&scmi_clk CK_SCMI_ICN_DISPLAY>,
++                 <&scmi_clk CK_SCMI_ICN_HSL>,
++                 <&scmi_clk CK_SCMI_ICN_NIC>,
++                 <&scmi_clk CK_SCMI_ICN_VID>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_07>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_08>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_09>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_10>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_11>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_12>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_13>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_14>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_15>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_16>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_17>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_18>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_19>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_20>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_21>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_22>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_23>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_24>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_25>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_26>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_27>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_28>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_29>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_30>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_31>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_32>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_33>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_34>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_35>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_36>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_37>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_38>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_39>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_40>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_41>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_42>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_43>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_44>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_45>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_46>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_47>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_48>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_49>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_50>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_51>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_52>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_53>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_54>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_55>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_56>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_57>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_58>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_59>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_60>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_61>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_62>,
++                 <&scmi_clk CK_SCMI_FLEXGEN_63>,
++                 <&scmi_clk CK_SCMI_ICN_APB1>,
++                 <&scmi_clk CK_SCMI_ICN_APB2>,
++                 <&scmi_clk CK_SCMI_ICN_APB3>,
++                 <&scmi_clk CK_SCMI_ICN_APB4>,
++                 <&scmi_clk CK_SCMI_ICN_APBDBG>,
++                 <&scmi_clk CK_SCMI_TIMG1>,
++                 <&scmi_clk CK_SCMI_TIMG2>,
++                 <&scmi_clk CK_SCMI_PLL3>,
++                 <&clk_dsi_txbyte>;
+     };
+ ...
+diff --git a/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml b/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
+index b497c28e8094..3f311f90294e 100644
+--- a/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
++++ b/Documentation/devicetree/bindings/clock/xlnx,clocking-wizard.yaml
+@@ -70,7 +70,7 @@ additionalProperties: false
  
-             clocks = <&gc05a2_clk>;
-diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-index 4505e66876a2..551e483f3e51 100644
---- a/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-encoder.yaml
-@@ -160,7 +160,7 @@ examples:
- 
-     vcodec_enc_vp8: vcodec@19002000 {
-       compatible = "mediatek,mt8173-vcodec-enc-vp8";
--      reg =  <0x19002000 0x1000>; /* VENC_LT_SYS */
-+      reg = <0x19002000 0x1000>; /* VENC_LT_SYS */
-       interrupts = <GIC_SPI 202 IRQ_TYPE_LEVEL_LOW>;
-       iommus = <&iommu M4U_PORT_VENC_RCPU_SET2>,
-              <&iommu M4U_PORT_VENC_REC_FRM_SET2>,
-diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
-index a4aacd3eb189..76878050cfd9 100644
---- a/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-decoder.yaml
-@@ -72,8 +72,8 @@ examples:
-       compatible = "mediatek,mt2701-jpgdec";
-       reg = <0x15004000 0x1000>;
-       interrupts = <GIC_SPI 143 IRQ_TYPE_LEVEL_LOW>;
--      clocks =  <&imgsys CLK_IMG_JPGDEC_SMI>,
--                <&imgsys CLK_IMG_JPGDEC>;
-+      clocks = <&imgsys CLK_IMG_JPGDEC_SMI>,
-+               <&imgsys CLK_IMG_JPGDEC>;
-       clock-names = "jpgdec-smi",
-                     "jpgdec";
-       power-domains = <&scpsys MT2701_POWER_DOMAIN_ISP>;
-diff --git a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-index 5b15f8977f67..3bc1ccb25893 100644
---- a/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-+++ b/Documentation/devicetree/bindings/media/mediatek-jpeg-encoder.yaml
-@@ -67,7 +67,7 @@ examples:
-                    "mediatek,mtk-jpgenc";
-       reg = <0x1500a000 0x1000>;
-       interrupts = <GIC_SPI 141 IRQ_TYPE_LEVEL_LOW>;
--      clocks =  <&imgsys CLK_IMG_VENC>;
-+      clocks = <&imgsys CLK_IMG_VENC>;
-       clock-names = "jpgenc";
-       power-domains = <&scpsys MT2701_POWER_DOMAIN_ISP>;
-       iommus = <&iommu MT2701_M4U_PORT_JPGENC_RDMA>,
-diff --git a/Documentation/devicetree/bindings/media/qcom,msm8996-venus.yaml b/Documentation/devicetree/bindings/media/qcom,msm8996-venus.yaml
-index 56c16458e3bb..389b545c9631 100644
---- a/Documentation/devicetree/bindings/media/qcom,msm8996-venus.yaml
-+++ b/Documentation/devicetree/bindings/media/qcom,msm8996-venus.yaml
-@@ -119,26 +119,26 @@ examples:
-                  <&mmcc VIDEO_MAXI_CLK>;
-         clock-names = "core", "iface", "bus", "mbus";
-         power-domains = <&mmcc VENUS_GDSC>;
--        iommus =  <&venus_smmu 0x00>,
--                  <&venus_smmu 0x01>,
--                  <&venus_smmu 0x0a>,
--                  <&venus_smmu 0x07>,
--                  <&venus_smmu 0x0e>,
--                  <&venus_smmu 0x0f>,
--                  <&venus_smmu 0x08>,
--                  <&venus_smmu 0x09>,
--                  <&venus_smmu 0x0b>,
--                  <&venus_smmu 0x0c>,
--                  <&venus_smmu 0x0d>,
--                  <&venus_smmu 0x10>,
--                  <&venus_smmu 0x11>,
--                  <&venus_smmu 0x21>,
--                  <&venus_smmu 0x28>,
--                  <&venus_smmu 0x29>,
--                  <&venus_smmu 0x2b>,
--                  <&venus_smmu 0x2c>,
--                  <&venus_smmu 0x2d>,
--                  <&venus_smmu 0x31>;
-+        iommus = <&venus_smmu 0x00>,
-+                 <&venus_smmu 0x01>,
-+                 <&venus_smmu 0x0a>,
-+                 <&venus_smmu 0x07>,
-+                 <&venus_smmu 0x0e>,
-+                 <&venus_smmu 0x0f>,
-+                 <&venus_smmu 0x08>,
-+                 <&venus_smmu 0x09>,
-+                 <&venus_smmu 0x0b>,
-+                 <&venus_smmu 0x0c>,
-+                 <&venus_smmu 0x0d>,
-+                 <&venus_smmu 0x10>,
-+                 <&venus_smmu 0x11>,
-+                 <&venus_smmu 0x21>,
-+                 <&venus_smmu 0x28>,
-+                 <&venus_smmu 0x29>,
-+                 <&venus_smmu 0x2b>,
-+                 <&venus_smmu 0x2c>,
-+                 <&venus_smmu 0x2d>,
-+                 <&venus_smmu 0x31>;
-         memory-region = <&venus_mem>;
- 
-         video-decoder {
-diff --git a/Documentation/devicetree/bindings/media/raspberrypi,pispbe.yaml b/Documentation/devicetree/bindings/media/raspberrypi,pispbe.yaml
-index 1fc62a1d8eda..5c0f2f7b1d95 100644
---- a/Documentation/devicetree/bindings/media/raspberrypi,pispbe.yaml
-+++ b/Documentation/devicetree/bindings/media/raspberrypi,pispbe.yaml
-@@ -53,7 +53,7 @@ examples:
-         #address-cells = <2>;
-         #size-cells = <2>;
- 
--        isp@880000  {
-+        isp@880000 {
-              compatible = "brcm,bcm2712-pispbe", "raspberrypi,pispbe";
-              reg = <0x10 0x00880000 0x0 0x4000>;
-              interrupts = <GIC_SPI 72 IRQ_TYPE_LEVEL_HIGH>;
+ examples:
+   - |
+-    clock-controller@b0000000  {
++    clock-controller@b0000000 {
+         compatible = "xlnx,clocking-wizard";
+         reg = <0xb0000000 0x10000>;
+         #clock-cells = <1>;
 -- 
 2.53.0
 
