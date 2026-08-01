@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACBCC55172
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A08AC55173
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 12:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xk1tj8UdOa+0rxIkU73il1OAVkAO8SsQO8ZeKapXV9c=; b=LBAWbNKHj6/BMooGF9TInDQ2Nc
-	IDfeW+KGbbs+NtcJgfqUDoAcV8tx5ovZd+yzGu86B6PHCt8V0HxfvzIBxlKFm+6XRiluzaJcJfxz0
-	Me/3Ig+wr/YlVHVV/C6TLEbVZ2MxwKZcD5ILELhS8GW00jyVeItY/Qu7WCWE3Q6/AOpaaJApB8dc8
-	tXk5r5qgFjTLG/AyUixEXiDYIV3GFHuXiIXqt9PncoWAfvFQwS4hrfivV1OjqqE5HUdUqKcua7dCm
-	s0M5Iv30vOMG+BQIhMIPI2uq66jE6IvM3MAjKnnK/9CngKNbTHjg0OIaOtPn8ylcLqU2RnS0MepvJ
-	y42EdvQg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SCuqMDpuQQzx9dcXw3N6jP0KkAKpom7E/b6/DDyvjNo=; b=jWEVczRa2ag0rEIiCDUoDOnar3
+	enXnDzQ7wK0jrEy76panDJPXG0zHlkBT0oDZBV3aQIdKC/NPlzwo+AeMYFYPXBbU0Nr+WGk07VcJ8
+	25e1nkLr84rFSf4tSXRjkYlpBE9O3LyQMPVw9zoQ5flIRWTkblsQREcpIcE/xe+kBuV2eoUvscygg
+	x6vWxV2mM6FznulIGGMhRgDoV39TUVdd5L9hlx2xSHur2AgFlezT6P+2VTSd8mFGiKa/zudnobYtz
+	TFGGb6FC9U87QymV83E72SPNOkDfViJPoaYF9Gq7YH1KKlTxy9QDRTH5vcULoW2PLZDJpRZ06by/n
+	Bo+qjT6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq98u-0000000EfCh-1yPh;
+	id 1wq98u-0000000EfBt-16BT;
 	Sat, 01 Aug 2026 12:48:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq98s-0000000EfAd-3hRI
+	id 1wq98s-0000000EfAa-3hRG
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 01 Aug 2026 12:48:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 211604397E;
-	Sat,  1 Aug 2026 12:48:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06CEC1F00AC4;
-	Sat,  1 Aug 2026 12:48:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F50642A5C;
+	Sat,  1 Aug 2026 12:48:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BA9C1F00ACF;
+	Sat,  1 Aug 2026 12:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785588522;
-	bh=xk1tj8UdOa+0rxIkU73il1OAVkAO8SsQO8ZeKapXV9c=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=SUG8zk/43e39gitA6FnAldx+K6KvyRBHfVLouk2VyZ1X+PNtsCuUSGphVXI/l9mHG
-	 FIkgNa4XP9fIkmhxMcKCiSIwHwu8+rKA84ymtBQuh9GnP6Fet9m3+g8qu/JvgMUQRs
-	 cWpKZ2jm+zpJHSjEF2HUDyY3rJt6rKIbOkE7ldpryr3YijByfaeZHdLSj0VpV+I9m0
-	 gDJozrqHyLRO7KYTXaalNHYapX8PU71QjFH0jMPtlJj1RzcV6TQq1Biwg2BLcnoHV8
-	 u+AUH/Ne4519+nzJ/skAaE4/+SHC8GgdewunPkCIF21AHNQj2L2cZlQY+loBxC9urE
-	 T/8ORtuIxXejQ==
+	s=k20260515; t=1785588521;
+	bh=SCuqMDpuQQzx9dcXw3N6jP0KkAKpom7E/b6/DDyvjNo=;
+	h=From:To:Cc:Subject:Date;
+	b=UO8sRV1cyWGFm1QWOzzy2YPayy1cdlEtK1rfTtHB0LAp6tHuqDATDebldH2Bgvg14
+	 8BfTrIoWuFOhs61EyoyB0h9DPaUNqFC+m6kpIlkari57vc3YdReKzLuHuJlo2sos38
+	 qOQtDDapFh63mx2zKQbUfT29LExDqf1XJ/z26OoVw2RMoQRIh9o/mtXc8B0V4bG979
+	 wy5pu2p8+j9KvAg/oL8jhxAGY5KXdd+o/FIFfhYm+P6uR8E1D7c3HEcOsDCfQaevAB
+	 LDmYKsf6jJernlKYsGKySqG005OvIXZITpGd4aoURFL0xJFnlqqti2kv/FNGlwWPwc
+	 6mzgdpK2St4sQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wq98q-0000000BGK2-1Mca;
-	Sat, 01 Aug 2026 12:48:40 +0000
+	id 1wq98p-0000000BGK2-0lGL;
+	Sat, 01 Aug 2026 12:48:39 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,12 +58,10 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Hyunwoo Kim <imv4bel@gmail.com>
-Subject: [PATCH 5/6] KVM: arm64: Couple VNCR fixmap clearing and CPU number invalidation
-Date: Sat,  1 Aug 2026 13:48:17 +0100
-Message-ID: <20260801124818.366274-6-maz@kernel.org>
+Subject: [PATCH 0/6] KVM: arm64: VNCR TLB invalidation fixes
+Date: Sat,  1 Aug 2026 13:48:12 +0100
+Message-ID: <20260801124818.366274-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260801124818.366274-1-maz@kernel.org>
-References: <20260801124818.366274-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -84,53 +82,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A mapped VNCR translation must indicate which CPU it is resident.
-Unmapping such a translation must make this CPU number -1.
+Prompted by a patch [0] from Hyunwoo Kim which was addressing a pretty
+annoying corner case, I spent some time looking at what was wrong in
+our VNCR TLBI code. And there was a few things to say about it...
 
-Couple the unmap and the setting to -1 in a helper, so that we
-are always sure they are done together.
+- The TLB tracking to get into the slow path is wrong. It tracks what
+  is mapped, but not the established TLBs. Kind of annoying.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/nested.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+- Handling IPA invalidation when the TLB was established with the S1
+  MMU disabled is failing for a number of reasons. This is the bug
+  that Hyunwoo Kim found, but I decided to address it at its root
+  rather than just fixing the symptoms.
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 47d61d3cf053c..84915e2cff604 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -894,6 +894,12 @@ void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
- 	}
- }
- 
-+static void unmap_l1_vncr(struct vncr_tlb *vt)
-+{
-+	clear_fixmap(vncr_fixmap(vt->cpu));
-+	vt->cpu = -1;
-+}
-+
- static void this_cpu_reset_vncr_fixmap(struct kvm_vcpu *vcpu)
- {
- 	if (!host_data_test_flag(L1_VNCR_MAPPED))
-@@ -902,8 +908,7 @@ static void this_cpu_reset_vncr_fixmap(struct kvm_vcpu *vcpu)
- 	BUG_ON(vcpu->arch.vncr_tlb->cpu != smp_processor_id());
- 	BUG_ON(is_hyp_ctxt(vcpu));
- 
--	clear_fixmap(vncr_fixmap(vcpu->arch.vncr_tlb->cpu));
--	vcpu->arch.vncr_tlb->cpu = -1;
-+	unmap_l1_vncr(vcpu->arch.vncr_tlb);
- 	host_data_clear_flag(L1_VNCR_MAPPED);
- }
- 
-@@ -996,7 +1001,7 @@ static void invalidate_vncr(struct vncr_tlb *vt)
- {
- 	vt->valid = false;
- 	if (vt->cpu != -1)
--		clear_fixmap(vncr_fixmap(vt->cpu));
-+		unmap_l1_vncr(vt);
- }
- 
- static bool vncr_tlb_intersects(struct vncr_tlb *vt, u64 addr,
+- Deciding to run with a VNCR TLB doesn't take the state of
+  SCTLR_EL2.M into account. Yes, this is a special sort of sport to
+  run a hypervisor with its MMU disabled...
+
+- TLB invalidation by VA targeting the last page/block of TTBR1_EL2 is
+  dropped on the floor, because I cannot count. This was amusing. Not.
+
+I have fixes for each of these issues, all stable candidates. On top
+of that, I have a couple of patches reintroducing the tracking that
+the first patch removes, this time in a way that is actually
+functional. Or at least I think it is...
+
+I'd like to thank Hyunwoo Kim for their initial patch and for
+providing a reproducer that helped me finding these issues by running
+it at multiple levels of nesting. It is most probably too late for
+7.2, so let's try to make this 7.3 material.
+
+[0] https://lore.kernel.org/r/ameGoxbn2wzBq2kL@v4bel
+
+Marc Zyngier (6):
+  KVM: arm64: Remove VM-wide VNCR mapping counter
+  KVM: arm64: Handle negative S1 walk levels in VNCR TLB size evaluation
+  KVM: arm64: Consider SCTLR_EL2.M when mapping the L1 VNCR page
+  KVM: arm64: Correctly handle end of VA space TLBI invalidation
+  KVM: arm64: Couple VNCR fixmap clearing and CPU number invalidation
+  KVM: arm64: Add VNCR TLB tracking again
+
+ arch/arm64/include/asm/kvm_host.h   |   4 +-
+ arch/arm64/include/asm/kvm_nested.h |   7 ++
+ arch/arm64/kvm/at.c                 |   2 -
+ arch/arm64/kvm/hyp/vhe/switch.c     |   4 +-
+ arch/arm64/kvm/nested.c             | 109 +++++++++++++++++-----------
+ 5 files changed, 78 insertions(+), 48 deletions(-)
+
 -- 
 2.47.3
 
