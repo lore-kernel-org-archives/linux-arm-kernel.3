@@ -4,150 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F77C55172
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 21:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2F2C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 21:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ibK6LqHgzG36kXmtKtvWY1wFxjnZQMKpesVapeRPi3A=; b=ML3lbk7vNDtzo8ynNR4T2gL3I6
-	Nf1wvKbdwfQWVrREXaUJ6ceQHAUEjZ5jT21OuFi1kFF9AQZMWlweWQntrL6L1n9dDr/4+JCtdScAq
-	q8T4eeaqhD6Q1/juFm5JvTzyWfqK2wCDBuCTOc7ciNLMlmDgfjuFQzMlsB9yC5S3V6bzF2uFnUHXJ
-	iKQGRPwGoDvZDmOCVk0JTckyCNLkFSNzOQsoymcJR4LbpeTfki+NTD69vlSltolrnN3xQq+8Uy5Gf
-	7ezpCWDXJtCqsnjuKrrTkNY9ntcVpmiVfRYJVe5KY8zrGCDgg8DkZyK6qLhIZnSQ1gEK+oMnvKhDO
-	T/lRpyUg==;
+	bh=IYU4p83/F7Wb0HbkIUcvVF1Yepq2STjSMJSwB3bRmCY=; b=15jsPN9nn+ib9XLy0lUQXn45y3
+	H4dx6nv4WKQhZa1/fU8GCDBDnDAgQMfUFkR9h3MmjLFq+Th9l9GkdTcyLxdytDjdTu93DIiaZi+LY
+	j3dvMpKNtglG4YhdgDyP7SW1t3xdw7zj9RuKCYdFU+nCVgnBW0c8A6IfLhcbhgoDPClldVKTdcyGy
+	yFIES0pwKC7gW+0pDEGNIAEXTwfAPNejE/2zzBtuqSliPdoBIZcKhJbsOSkpgcive/lWkecqsgWWD
+	DIgxXUbNk3yoVP1S65ienK6q5sCwE6PpuiUcn5sfzFVYmKzA+sOKF3zoBBty/DgYdIamYgIULCcux
+	TZ/F0EEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqGsH-0000000F4kY-3dlC;
-	Sat, 01 Aug 2026 21:04:05 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wqGsS-0000000F4nr-0IMu;
+	Sat, 01 Aug 2026 21:04:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqGsC-0000000F4j2-2VSO
+	id 1wqGsP-0000000F4n5-3skk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 21:04:04 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 671J0GhT4014711
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 1 Aug 2026 21:03:59 GMT
+	Sat, 01 Aug 2026 21:04:15 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 671IxO5V3907945
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 1 Aug 2026 21:04:13 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=ibK6LqHgzG36kXmtKtvWY1wFxjnZQMKpesV
-	apeRPi3A=; b=IxbSIwngJQb/kXU30FA31RPgbfVa2rRJqz44aUQNYRF0640TSeV
-	JCjRyhn2JHTZpEmgzkjA+af9xAUZKXBfAxlRbbp/gmjGBkpq4Ib3Ref2wswwFANm
-	pOLi6k6Flew6rAEJBylO4/6aZFhbYSt59KnKHsacBKLz7+ApByuJLFVF5VkEonLW
-	6NqXQFROJT8/N5a466ny87qbHHaXFfSsnPrhdSt8k1VtdRkukrRn/u5uqogAlit2
-	QK6z8BrLZpeS7K618X96/91nYKHcRmMtMibaAsj2hjPtxtWT2cfPtS/Pku2/RVQY
-	OOxSpr8uWW8Tx/NUSJixg6aydO/Ltv6Gh+A==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fs8tx1qj5-1
+	:subject:to; s=qcppdkim1; bh=IYU4p83/F7Wb0HbkIUcvVF1Yepq2STjSMJS
+	wB3bRmCY=; b=DRIkFRmRcQJXkUiHWaABqfEJuimGa4JqcJN/70kLPP9HZX9mxgo
+	2MUpjKdfMRPPVQC3BxwRNyqOE2gsm3OnEsTiIFhUvJdQKt3Z2ssH9+fZUbKmEKgT
+	O2kTglFwVlj8QJrLhYNOEkTcoyZgPnpSEHKV+tzrLH6X31VUupG4U6o6OuaNhMO7
+	1sz1hc1pDuhBvJyUrpsKyjvv7SGxaaKGvbVK4UalqbuZH/hRXVs2n2emcprswy6X
+	27H6t5ukYofiRsT0Yn7xL20TkfgwMTBImfGg5GuHOKX61TlCC/J1PGiI6l9Z4XZC
+	/1GyHPfi9GlgMbMUq1W/C0zSratP0AhTgrQ==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fs9119n8m-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 21:03:59 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-51ebdfceddcso23164411cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 14:03:59 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 21:04:13 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92ac0a54110so229362585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 14:04:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785618239; x=1786223039; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1785618252; x=1786223052; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ibK6LqHgzG36kXmtKtvWY1wFxjnZQMKpesVapeRPi3A=;
-        b=M9YzIhfTNI7WZ+mj3Ks8pabg3C5BTscDWBwDK+hBKzVFzn6wecy12ZVV4zE8Pu3fo/
-         nKyt9qQpUUByehHYhgMZgZ0EN7/DYiXOnsprd9Uslv2f4KkwxlYOtOJ1N9LkEspOqRQz
-         BoVIACNY7tpcmnat99/hpNV9clA/CzEfmVRKBAZG4mTcYeyC8tM8KIGtKvZZDJjGk4qU
-         5YrccudMVO3DDJ+CJm22+2+lRTOj3ZD3mk+CFvKpMm02orIQVxTMPV8cttfl9rL+JAPS
-         E38dvGKiX9hb74SPhpBLHdMp6rSddXJrf8w6NJieGUnqSv2sTr/mOOOIpo2F00H15dQ7
-         ZYMA==
+        bh=IYU4p83/F7Wb0HbkIUcvVF1Yepq2STjSMJSwB3bRmCY=;
+        b=fs87VzO5qeDNsefWpn7yhGRQ4GB2YHl47Qbd6snxMhaYRUpnF0WsSLNDLKIZUwzYx5
+         T1g+R7MSV2dCU+lnwS6TCwU1O3WqiiIbX8xfveLzNHWkPJjTizgXJUDO3C3NUuWhhadD
+         eDBbE2Q5gpNw0Y44AmgVWbJOPrChwUbpDH8qUB7QTnlkBot2KAiUeCT7nxrj8CAa55IE
+         WOFixaWpm+UEoUI/ipxda2OSoLTiJnlHy/bbJHGr6demsoj5ZoRYRg4S8Fl7XPVp3TS5
+         trWiltDlZjkZUkLsv/DCK1Nq07LgQCMhpQQbq0FogRK4n1Lsjnf6zBB1GaYlq0OPplCo
+         jNWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785618239; x=1786223039;
+        d=1e100.net; s=20251104; t=1785618252; x=1786223052;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ibK6LqHgzG36kXmtKtvWY1wFxjnZQMKpesVapeRPi3A=;
-        b=c6/yJgfqQ/Axt9H44EouziAZl0yT0PIWV9TZivJ+8KxO84SJICpLB2m1AXvVpK5RKX
-         JL7WtduzqAd8Nv8ni6SP2y1yFCFf/FZmxJFrO5PuwGmbCpoivhGOtejclfrKEPK+y0xC
-         9qUepKIYKMvoL9t85jv6bYnB7fWhAB2YKIaXuN6OZ85O2JADaFdM8cb2kMBzyCZKdpI3
-         TDvOD+xi+na5ElDS6rfLKByB2TkXB6+EKV+1kX7iZoZ9okRBujeiKpfEPHZjU7tI/uXb
-         cM5I0I6oIY3aeudOd/xYJdTt/M7rsqBlY0vAxdQJxbXh3jr43GUTXqjo86Ab22WSvOjG
-         vxZw==
-X-Forwarded-Encrypted: i=1; AHgh+RqXwxKQkA4nbeRnlJ2/10RmPBeeMezwOkQJo4GTw8iDzIMZJr8VmR4eP+MgrIfn/bhfLsa1M9Rz7jndzcJt8PbH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiHKPbQOBFb8G/9+fa83yIyD32f+M1n/qYOygslt0hm1TluiIy
-	zve4Exz45fLYmNLV2X2fAQaOj6aIdG40i1W1CtioOO5D9fLL/3mf0SQcvOtZqj89gEad31v7BD7
-	5B3KeACZ5LbgSW21X8JxN3nrD14S03XSiIQkD3YdPnlJ1mOa/6+/Fu1klbbUnuwVJTFpUmwZPww
-	Pk4g==
-X-Gm-Gg: AR+sD13oRvzjroq3QLhG+PkayWrQ1TzTjyJIrarslbVFSfr0G/GE+QIBb8GgS3vEx13
-	2VAGDjdWQ7CWj/F2qE1rT8iGt3UghPNP++XmZpALv9aIk0gJspE+jnMlP6H+XDzdv/bDDTmG879
-	ymHGTq4qru05Vcf1Cr6g20bP/Vg8S7G/Di0dTvNPM4iXpyFdUlXx1kTAFgJ4tqNgAy8u01+eH1s
-	AKAal75IiOo3NCD/mb2myU0WTDwstfIeum2r7Ou1TtiCAxLe9LyAxQL8F03wa08IZqUX7LoYmNv
-	J+qUkFGymJivHYd6vdScHAkO5deNBzAGnoDSSxL3z+UKBiQotDcYSCV0zFDz0QpC+ouu3Mn4XII
-	ULX1wSos36QshLK9W
-X-Received: by 2002:ac8:690e:0:b0:51b:fc67:c73c with SMTP id d75a77b69052e-52b566dbe08mr113236141cf.16.1785618238831;
-        Sat, 01 Aug 2026 14:03:58 -0700 (PDT)
-X-Received: by 2002:ac8:690e:0:b0:51b:fc67:c73c with SMTP id d75a77b69052e-52b566dbe08mr113235651cf.16.1785618238347;
-        Sat, 01 Aug 2026 14:03:58 -0700 (PDT)
+        bh=IYU4p83/F7Wb0HbkIUcvVF1Yepq2STjSMJSwB3bRmCY=;
+        b=YYrtTQxoON0wQETGnon8t8qrO5/rxlGP1NHY3ErzIbyND5A3qs05g8i1vhaAP3RDox
+         SzEmxN93S2QMgXDdOd7ZPQh6Dkvm8yriZQ/PbwwVHOLtlFCTizm0hU9p6OIZDKjz3w+s
+         jEGEdmrVvQ87jZC+bJXokc7N+Ka1iz1fprZ8ow0rE8CWPFdmrwTync4MKI8CMu/+KKa8
+         pofrZeVHMJwXyWHtKybLQVWvAR8o8CNGsat0Xd+XYMJJb88cwpi+k2h3xJMvx7CSrNNo
+         DUd3Su4p0v84nKdH64fDdclTBWpZCk0Pnb+WbYSRTjC2y+TcxcPWAcylTZIa1lAjfHIw
+         tM4w==
+X-Forwarded-Encrypted: i=1; AHgh+RpAbKAa179We1iKgQTQVXcfs9uoKgW4wv9sSccJ90mJr6khRp9akFs2v2nRh9epVYTG+BABqa6xg2h6CfhqYVJ8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1RcIIWUgZr2ro0e+bJGaGmt/P0UPT1GTAH5whhPg6MZH+Bket
+	ECYDlZ97iaPcPZrky5gTg0dPCrInKSoD24pzW5giu+5PsBJUSWHBaQbXxot8msiVfMEdy1H+L1T
+	3+yLAoyf35ltuW5aYNE3NYAhZ5A1sZkBqX6JzfHUUL5EZ5SaehyTFUk90M/WNlu/xOxrgfNWXuK
+	ZkYw==
+X-Gm-Gg: AR+sD129VUhmHRZf2XU+/qzwh/BpbHlPRQJjS5aP+tZRHjod+N7nAFtkAdXe2mdg14t
+	E3vnKDJYtPx+G1nJSUSlB143uv1SDOljTI9Ds4tU68h1KUz/7xJwJ9suWYHjpIH5C6FcMQQgRAL
+	49lYv3oufV0ny9IPEOSY6W8OObiL6FRN+muXrjDfh0UE2HJJXx3WQc3Sh8T0/UjZG7Nir0jN1Ba
+	0CyXY97rVHkRretqswzYpfALniM5RY7+++eYsI+fgtPx35IhYBqgCkcDSP45EWdZm3YM138ktvN
+	zAXwuL6v492N2u+G83ARKnZMadEpAC62FgCbmzVmnYn9MuFHxinJL/jWF+VlMe+6iCnHYVJurxf
+	Z4mhq1TnpDydRr4Af
+X-Received: by 2002:ac8:690e:0:b0:51b:fc67:c73c with SMTP id d75a77b69052e-52b566dbe08mr113251961cf.16.1785618252404;
+        Sat, 01 Aug 2026 14:04:12 -0700 (PDT)
+X-Received: by 2002:ac8:690e:0:b0:51b:fc67:c73c with SMTP id d75a77b69052e-52b566dbe08mr113251141cf.16.1785618251686;
+        Sat, 01 Aug 2026 14:04:11 -0700 (PDT)
 Received: from quoll ([178.197.223.174])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd41d1756sm17747602f8f.4.2026.08.01.14.03.55
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4980878dcb4sm133984275e9.13.2026.08.01.14.04.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Aug 2026 14:03:57 -0700 (PDT)
+        Sat, 01 Aug 2026 14:04:10 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
+To: Nishanth Menon <nm@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>,
+        Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
         Conor Dooley <conor+dt@kernel.org>,
-        Peter Griffin <peter.griffin@linaro.org>,
-        =?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-        Tudor Ambarus <tudor.ambarus@linaro.org>,
-        linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
+        Aaro Koskinen <aaro.koskinen@iki.fi>,
+        Andreas Kemnade <andreas@kemnade.info>,
+        Kevin Hilman <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>,
+        Tony Lindgren <tony@atomide.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH] arm64: dts: exynos: Correct white-space style
-Date: Sat,  1 Aug 2026 23:03:54 +0200
-Message-ID: <20260801210353.383880-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 1/2] ARM: dts: ti: Correct white-space style
+Date: Sat,  1 Aug 2026 23:04:05 +0200
+Message-ID: <20260801210404.383925-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2168; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=Bp4EO+bL5yc1jZYaDdyI0c+3Uqw4Url/keGMxlMQDoE=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqbl85QcY3F61GKXMXrQBwgS29n3nDyolMOVqQi
- 9VfkOIBeg6JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCam5fOQAKCRDBN2bmhouD
- 15O0EACONzDjqhT6o/NU5cl4R3+2VynfG1DDQAJkntazCotds81eIuZEUtYAbBHq9DwawiBJaAd
- yOwGnyyQ9iKam29ds0WkZcMYjCQJ7vefjfUdYb7BE5qaF45PHhavR+DQ3JZzZIFXqZM6aZRQYio
- a2DLv7C9RRI83+cFN809GC9a6sUpqfqqQhWxuCZrxQL71/dhAmCuR3YRm8fjBZGlG83pw+vIblg
- dNfAbf3uBgGhduhVjgMnti6dSKh6/DJI6Fp2uM0ctB77f/qzJFZE4ASxHpl+S+a0JBvnxc5LGUZ
- vzfK1sKG/l2C4WNzvkd0BMJCpuWmpShV+t76FFXdWqAJuPPz6vb3kvO1T2ZrTnF8B0m/T9RegyV
- WzRHIEBu9jeWQqTCVRp4xM3leq6jkLYBHi77YQ0/uM3TrhUM8T3IGrWT3ILdXNlCxOsVlw+gYqj
- KlrkjK5YAfx+Z72AxRXIvYyR0BZZHCOks49P7j4lqooCkdG4TV/vJ9ozFwjgRtrv//IP2tYIbHQ
- +8+gnDQBPBV5jFizxIjE6XrOCTVrxrTr1hGYs7VBvPISADyJie/70qqLsym05/Frr01IYt97+9w
- TPqVz2xNk1Jq2XLTcbhhtDV3AOfTzrz+xpq2uj08oBqpiX+7E4ofPrZnH8ZmHYQhikNNjioBsH5 0E2m2TAT0i9etyQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4951; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=vR24UIDfo/Bw6iKO4QYnVk6wQDa1uoWMTvq5cvEfc1o=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqbl9EpFsSCxraD0XV9IpYfa+i9uaLlrTz1EQmc
+ cSZVgXywFmJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCam5fRAAKCRDBN2bmhouD
+ 1wekD/wNtdAS+3WmBikDsQTLvfFniofxw6ZmTCNmSBEuW52fXMYJlNeoUbUxqHi0932yFjP6ZFW
+ o0WOyHfKoC1tQwk+eGRghCw0LDyyPmbPQivfaODH+39zFLmb4E3hVb+yQZAYS+vGnnrxM7zeA2V
+ oDR2oO4LFWTGKDeRZQGtpwTIe3vrHuxoJIco9dy8LUrzFWE6IBvomANMTtDfGig2pX9OVkwI5pZ
+ 5TWRpS2e8SQjyCzSJAAo2JR0OYOOdjQ30eSwe3cYRa1FrEMuzxQ7HRv3cMOWehUbzrDPOouMocN
+ svjqpSPLGFO5ltG7lRRGAT4VV+AdIlep6UwzOXTDwGezyiorGXuh1xAEvfSsvgB13CNPoolVex4
+ mHm/ZqB+R5QtY0fxKXZxs55heFIiOU5SLfK30ChRlCgB0FQ51DmB9dwjPuphPUuaJffJHOaxYCb
+ dIwSISFL0qc0uwE1y2hQclvVU5i2Xjr8NST3QQmWMe4qdLduQZVi4uqMKrAgt8ZZ2uppbF2ZQBb
+ gK7JlPKGCnJjuYu06vHGAigeEMbnVeT9j3+sjzAmncQXHLOpqR3l8v1+51SvgF8e2FDuuFtwsK+
+ iX6C5B/RBFYc3CWT5fqRjZtuMKo6qMfv+6QC88pjjUWiIfulhU+hRvQ0ZLw/xYkN5d7jGi5IPyo /C8/iuegvNP+kdQ==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAxMDE2OSBTYWx0ZWRfX8BM9+1IqnCO/
- ljskB1lpjTTAO7nTdQ6AJAbry2uAYQ92OIrrOe4kb2+iHjwfX9Fh5aG6Ls0GE4LWPuqCPpsyDTI
- fRnUc0xjyxqSw11PPNdP8mN6ig22nJaHM1Gl4F4CLXoVpCwSSs3fcbl/J+0irbiWRbYGB6t7dnr
- 2awlCpD/hoq8L26U588IFmhSxzxY8Zf9gn/2Q1x+qCZnWLx756XHDFe4g7b9gUkjEwUThgk6um8
- J5Pa+KjZCwDNeIOsBIsyC1A4F0PjCL9kyRIYWZIaAYubm9zYOFlQwNkKb6Nn6v8Wr9fw+FSSu9o
- lDFWa6txu2PvFb9nsrLd+ITsGagR80Pxoux1tRWEYnr2xwVUo07d95mrPXkL1cf5LK/+kyQWoKV
- XxuodhmnigxSVw6wGXv59QFy0QUkYOMVV9xZI3tGXf7pH8waV8D6u3bJ6ncf51oK1Jqdm+W25H9
- QVRt3L9zOrjigHru1Ww==
-X-Proofpoint-GUID: M0uXA0AwqKreNrgIwybJPvH8XECx3Bh7
-X-Authority-Analysis: v=2.4 cv=T9C8ifKQ c=1 sm=1 tr=0 ts=6a6e5f3f cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODAxMDE2OSBTYWx0ZWRfX2f6uIuOub8Fx
+ bu+5xSaGtCD63a0pdxyGTxypoIKgMYGzT6S4fwJ1Ds94DrqA6j4ajQzvfcvVHoYAWpU0U4OQpbW
+ JeDOg2bL6CBqqH6T61LErC5dU/45abE=
+X-Authority-Analysis: v=2.4 cv=PvGjqQM3 c=1 sm=1 tr=0 ts=6a6e5f4d cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
  a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=WAwJ1FRNEprDOCzB6JEA:9 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODAxMDE2OSBTYWx0ZWRfX1IOG5g9Tw09P
- iR1vl8xiDQ9VDuuUltrI+9ESOw3LOvUZn9FeUWWMvQDQp0/ABIhR355hhPN6kPCItvrcrsqBhBB
- tj1CKPkVdWNIHrh11hwwXrfKQt8RmxQ=
-X-Proofpoint-ORIG-GUID: M0uXA0AwqKreNrgIwybJPvH8XECx3Bh7
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
+ a=Hx2NUBF34izpMPi2HQAA:9 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-GUID: UJnlTayvi6mKB0LUSmvxEVxmcZFqUiDc
+X-Proofpoint-ORIG-GUID: UJnlTayvi6mKB0LUSmvxEVxmcZFqUiDc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAxMDE2OSBTYWx0ZWRfXwZo4KH8jyuzk
+ heq5WJBENW/GTjJwX3PkD/zgiTGyxXS/YGfa9J5wVOq2bTUltQw2Ez9iYxnRXnsgCePU2OOpwS5
+ VkUt56IFMOScN4BVDH3GOQeR64oQZwfdDnCTC9C5QHS9dPgSyiQlQFPgcPZ0WOJRoj4lrQsJOnE
+ IXCBKGdxrYE5ZsDm2/1/B3raWpfY7lWbBbNdCmQdhSCfd4Nh6/Nf7jib4y8yFD8ghTPCok1INXs
+ T0bpOEAuBt2Yx9FbJxjnDCwVH0u60njIdtddvqPNTdxyqyBaRkSyzPMCBkzwN/P0Vl0104pNvGH
+ pxCg2MkRiuDFVANbNEYJqol9oufN7mMOvWFWaKNDGANpsXtHU19/n9zXdKaiik+0+1+cG0B6+sF
+ ++DVG5PxjiwM0nLsqbq7GLFeICeaJlsyhyODvqyFNdbmGfTylKnZDIQjWWN9fdxYvj3cWyJklpg
+ /KzE9P8vneY9zLr3qSg==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-01_03,2026-07-30_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0
- priorityscore=1501 adultscore=0 suspectscore=0 spamscore=0 malwarescore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ malwarescore=0 clxscore=1015 lowpriorityscore=0 bulkscore=0
+ priorityscore=1501 adultscore=0 impostorscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
  definitions=main-2608010169
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_140400_756821_18565CD6 
-X-CRM114-Status: GOOD (  13.90  )
+X-CRM114-CacheID: sfid-20260801_140413_975250_4B4B3173 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,63 +170,124 @@ character or spurious space, which will be flagged by dt-check-style
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- arch/arm64/boot/dts/exynos/exynos8855-pinctrl.dtsi   | 2 +-
- arch/arm64/boot/dts/exynos/google/gs101-pinctrl.dtsi | 8 ++++----
- 2 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi             | 2 +-
+ arch/arm/boot/dts/ti/keystone/keystone.dtsi                 | 2 +-
+ arch/arm/boot/dts/ti/omap/am335x-boneblack-hdmi.dtsi        | 2 +-
+ arch/arm/boot/dts/ti/omap/am437x-l4.dtsi                    | 2 +-
+ .../arm/boot/dts/ti/omap/omap4-samsung-espresso-common.dtsi | 6 +++---
+ arch/arm/boot/dts/ti/omap/omap4.dtsi                        | 2 +-
+ arch/arm/boot/dts/ti/omap/omap5.dtsi                        | 2 +-
+ 7 files changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos8855-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/exynos8855-pinctrl.dtsi
-index b65f1698cd74..439d7d7e319b 100644
---- a/arch/arm64/boot/dts/exynos/exynos8855-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos8855-pinctrl.dtsi
-@@ -462,7 +462,7 @@ gpm21: gpm21-gpio-bank {
+diff --git a/arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi b/arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi
+index 330b437b667f..d91a23bbf6bf 100644
+--- a/arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi
++++ b/arch/arm/boot/dts/ti/keystone/keystone-k2l.dtsi
+@@ -51,7 +51,7 @@ uart2: serial@2348400 {
+ 			interrupts = <GIC_SPI 432 IRQ_TYPE_EDGE_RISING>;
+ 		};
+ 
+-		uart3:	serial@2348800 {
++		uart3: serial@2348800 {
+ 			compatible = "ti,da830-uart", "ns16550a";
+ 			current-speed = <115200>;
+ 			reg-shift = <2>;
+diff --git a/arch/arm/boot/dts/ti/keystone/keystone.dtsi b/arch/arm/boot/dts/ti/keystone/keystone.dtsi
+index ff16428860a9..22c8b8b04340 100644
+--- a/arch/arm/boot/dts/ti/keystone/keystone.dtsi
++++ b/arch/arm/boot/dts/ti/keystone/keystone.dtsi
+@@ -123,7 +123,7 @@ uart0: serial@2530c00 {
+ 			interrupts = <GIC_SPI 277 IRQ_TYPE_EDGE_RISING>;
+ 		};
+ 
+-		uart1:	serial@2531000 {
++		uart1:serial@2531000 {
+ 			compatible = "ti,da830-uart", "ns16550a";
+ 			current-speed = <115200>;
+ 			reg-shift = <2>;
+diff --git a/arch/arm/boot/dts/ti/omap/am335x-boneblack-hdmi.dtsi b/arch/arm/boot/dts/ti/omap/am335x-boneblack-hdmi.dtsi
+index 109f08fd174d..c52bc3324dea 100644
+--- a/arch/arm/boot/dts/ti/omap/am335x-boneblack-hdmi.dtsi
++++ b/arch/arm/boot/dts/ti/omap/am335x-boneblack-hdmi.dtsi
+@@ -99,7 +99,7 @@ hdmi_0: endpoint {
+ 	};
  };
  
- &pinctrl_hsi_ufs {
--	gpf3: gpf3-gpio-bank{
-+	gpf3: gpf3-gpio-bank {
- 		gpio-controller;
- 		#gpio-cells = <2>;
+-&mcasp0	{
++&mcasp0 {
+ 	#sound-dai-cells = <0>;
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&mcasp0_pins>;
+diff --git a/arch/arm/boot/dts/ti/omap/am437x-l4.dtsi b/arch/arm/boot/dts/ti/omap/am437x-l4.dtsi
+index 30fcce33f4b7..9745e0d420ff 100644
+--- a/arch/arm/boot/dts/ti/omap/am437x-l4.dtsi
++++ b/arch/arm/boot/dts/ti/omap/am437x-l4.dtsi
+@@ -902,7 +902,7 @@ timer2_target: target-module@40000 {	/* 0x48040000, ap 18 1e.0 */
+ 			#size-cells = <1>;
+ 			ranges = <0x0 0x40000 0x1000>;
  
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pinctrl.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pinctrl.dtsi
-index a675f822acec..646722da4e8c 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-pinctrl.dtsi
-@@ -77,7 +77,7 @@ gpa4: gpa4-gpio-bank {
- 			     <GIC_SPI 27 IRQ_TYPE_LEVEL_HIGH 0>;
+-			timer2: timer@0  {
++			timer2: timer@0 {
+ 				compatible = "ti,am4372-timer","ti,am335x-timer";
+ 				reg = <0x0 0x400>;
+ 				interrupts = <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
+diff --git a/arch/arm/boot/dts/ti/omap/omap4-samsung-espresso-common.dtsi b/arch/arm/boot/dts/ti/omap/omap4-samsung-espresso-common.dtsi
+index 06651072f000..07c76a80cfff 100644
+--- a/arch/arm/boot/dts/ti/omap/omap4-samsung-espresso-common.dtsi
++++ b/arch/arm/boot/dts/ti/omap/omap4-samsung-espresso-common.dtsi
+@@ -16,7 +16,7 @@ reserved-memory {
+ 		#size-cells = <1>;
+ 		ranges;
+ 
+-		continuous_splash: framebuffer@bef00000{
++		continuous_splash: framebuffer@bef00000 {
+ 			reg = <0xbef00000 (1024 * 600 * 4)>;
+ 			no-map;
+ 		};
+@@ -117,7 +117,7 @@ reg_espresso_external: regulator-espresso-external {
+ 		enable-active-high;
  	};
  
--	gpa5: gpa5-gpio-bank  {
-+	gpa5: gpa5-gpio-bank {
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 		interrupt-controller;
-@@ -91,7 +91,7 @@ gpa5: gpa5-gpio-bank  {
- 			     <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH 0>;
+-	reg_touch_ldo_en: regulator-touch-ldo-en  {
++	reg_touch_ldo_en: regulator-touch-ldo-en {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "touch_ldo_en";
+ 		regulator-max-microvolt = <2800000>;
+@@ -153,7 +153,7 @@ button-voldown {
+ 		};
  	};
  
--	gpa9: gpa9-gpio-bank  {
-+	gpa9: gpa9-gpio-bank {
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 		interrupt-controller;
-@@ -106,7 +106,7 @@ gpa9: gpa9-gpio-bank  {
- 			     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH 0>;
- 	};
+-	reg_lcd: regulator-lcd	{
++	reg_lcd: regulator-lcd {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "lcd_en";
+ 		gpios = <&gpio5 7 GPIO_ACTIVE_HIGH>; /* GPIO_135 */
+diff --git a/arch/arm/boot/dts/ti/omap/omap4.dtsi b/arch/arm/boot/dts/ti/omap/omap4.dtsi
+index 559b2bfe4ca7..c8eedd33b5d6 100644
+--- a/arch/arm/boot/dts/ti/omap/omap4.dtsi
++++ b/arch/arm/boot/dts/ti/omap/omap4.dtsi
+@@ -590,7 +590,7 @@ target-module@2000 {
+ 					#size-cells = <1>;
+ 					ranges = <0 0x2000 0x1000>;
  
--	gpa10: gpa10-gpio-bank  {
-+	gpa10: gpa10-gpio-bank {
- 		gpio-controller;
- 		#gpio-cells = <2>;
- 		interrupt-controller;
-@@ -1030,7 +1030,7 @@ gpp27: gpp27-gpio-bank {
- 		#interrupt-cells = <2>;
- 	};
+-					rfbi: encoder@0  {
++					rfbi: encoder@0 {
+ 						reg = <0 0x1000>;
+ 						status = "disabled";
+ 						clocks = <&l3_dss_clkctrl OMAP4_DSS_CORE_CLKCTRL 8>, <&l3_div_ck>;
+diff --git a/arch/arm/boot/dts/ti/omap/omap5.dtsi b/arch/arm/boot/dts/ti/omap/omap5.dtsi
+index 6a66214ad0e2..07159b97f504 100644
+--- a/arch/arm/boot/dts/ti/omap/omap5.dtsi
++++ b/arch/arm/boot/dts/ti/omap/omap5.dtsi
+@@ -536,7 +536,7 @@ target-module@2000 {
+ 					#size-cells = <1>;
+ 					ranges = <0 0x2000 0x1000>;
  
--	hsi2c13_bus: hsi2c13-bus-pins  {
-+	hsi2c13_bus: hsi2c13-bus-pins {
- 		samsung,pins = "gpp25-0", "gpp25-1";
- 		samsung,pin-function = <GS101_PIN_FUNC_2>;
- 		samsung,pin-pud = <GS101_PIN_PULL_NONE>;
+-					rfbi: encoder@0  {
++					rfbi: encoder@0 {
+ 						compatible = "ti,omap5-rfbi";
+ 						reg = <0 0x100>;
+ 						status = "disabled";
 -- 
 2.53.0
 
