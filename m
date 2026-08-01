@@ -4,57 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62748C54FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 08:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D3DC54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4Dgn1V9vM0M6aQ00+9pX/uh/pQKinj2cAyTgJnZI5w=; b=TQgK1B6vekps/1VSgV1xGOcd6j
-	c1yBevBAIUxq5peJ69RsD/J8UsF+c1T8f9pqwylscX83jyaL5JO5ifAk1AbMn8Iq2C3ivM6KkiHXz
-	ZxYQdwGD90FFXGbU6r36fZpX5owpSKGRtakshl7OejgqxhIwXITtXs0YkcqnAsBR8vy4mG+1I9ctN
-	8sb6b2Gy0+FBwHIELV9ZC8uFt4RW9/a0/pf5hJEuVz9ZYNR8TBW9X5d7w3C46GsKDn+hLsIC8HS6L
-	QofyvoV4d6GLnE/4wGqvIDASCCl7zqp5fcK6rSADYHBB0JI8DvUUtJO+qR6A4U8r79UXzLpLtQyEP
-	P8GsJyTw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bfyzMu9d0j7FgF4V0+W6tNCDJazCXFwoJSVzR2XoTJY=; b=m+D2SZefBIOviBGF0x9/IHa+AN
+	t6/lgqkN5G6HkFv131oaNUiumqP3u+ZP29OxX/wNIP7EbAbo+rwWCxFlqUGU3TQlUyRpFxvk8UPgc
+	fbTnGPXKZy/pj6FcKpJnQcexEwIjGKyZctFnBIaZgcOfoUKzAv93dHuW/qDMGU9gSHjezV5TbvdG+
+	WHvZHIR9NMFEFypJpg+U3J8ONwx/Rrn+VCDTkH2d2jCpQZlbt5y9MUar+RiAbiMLpzqmg0ZgDtdlU
+	H6HKD3owwZ4SuxiS2xehXrfJFJov0099MMvv+bj5nGVQlf85P0scM2yKwWjNhacv9GAVoRPAoh0U4
+	XrXlAxbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq4ey-0000000E1Zz-0EC1;
-	Sat, 01 Aug 2026 08:01:32 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1wq5jd-0000000E6sw-0AhH;
+	Sat, 01 Aug 2026 09:10:25 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq4eu-0000000E1Yb-1QHY;
-	Sat, 01 Aug 2026 08:01:29 +0000
-Received: from Vostro-3710.. (unknown [14.220.232.116])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4866afe8e;
-	Sat, 1 Aug 2026 16:01:15 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	id 1wq5jZ-0000000E6sU-4BBR
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Aug 2026 09:10:23 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-38deea72eebso1790637a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 02:10:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785575421; x=1786180221; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bfyzMu9d0j7FgF4V0+W6tNCDJazCXFwoJSVzR2XoTJY=;
+        b=pdMCZVTjDVIc8Je2wjaaAqXwCsxtkvtj8g91MWktYCnDXYXB0p2UNVsL/iFQ9e+rR5
+         D78qzMIIQClGylxAbLQq/ZsygVJ6D+Z2R6aJDguKqvVBf6fmMjnWv/MRvOBBf7paKNTp
+         XAM4sMPs82+Vtbtu/3Ph30AsnpokEcghtVHw6m9TVMSjeQ27tw02brT8FqxCux6aqmh4
+         WL7vShPVei/+mrhlpEURvmHNRmQqMdmIzB/iAK6efJ1+xIpD3M/XO2sTDBY/idjIPbSJ
+         uP086an0hb6B4V8iEoqNidn/kLBL+RYZ9xiyuBE/B6nwpCE8KKNyURinUxG1iX2EjOdl
+         w5xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785575421; x=1786180221;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bfyzMu9d0j7FgF4V0+W6tNCDJazCXFwoJSVzR2XoTJY=;
+        b=aQtrHW4Dhzg6gg4dVH/wadL8wVPleM7SJYy50IlyII5u2hLiboAJT/CXCnBuQbO7sA
+         Q1/xXYfWdNUk3EDIraDWLU2zEg14g8UyenywG6F2+Nyk5LxaDOzjH9GmdnccEFgkWaV2
+         6gqxSz0WoQsJ/81sbDhnPiKu3hC3NGnyYd6RE9WxUxaGDSARvKuStjEof8xMtzD3OtXq
+         584MTPOHhCq7nhf5SPcGBmgaEhNsvpvj0vntu+OmHgtxEtZa398WzLpJOuSD2LL/eQvc
+         9IOROrPGNNME9FkevMf7SolRWJFuXej4sdhGn4zn3hGQr5+fJGgjATu6xuTkPLRxTot6
+         ITbQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqeeYFUpHGDLNge8ANS8O8uU5yBbr/nl/Lu/FAIZVma0b3BW0aj7jiaG3VjbuT2ki5WfNtfV5yLfnRidHoQvXX8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXikbVxKtisMeacyb3h1Dx/Tg4/+LiExx5awcHn2f7FjZrIZDj
+	t+gg2S9rzPTIAaaEoCSOGyx22skpkvREIK1noqDwa0o+Suv8A/5ycjg2
+X-Gm-Gg: AR+sD13kSeHWVtMRO+r/n9WaQqBvp2UpLEUWp4jfUgR2rdqB9qtK9W/ZeMBVCw3LJ9B
+	oTtGvazLm57ZYlUVA2XH1KR8bDupMCyMKQDouDH93hbxwsmHnHMGLf1RdVgjsmlieq0XvZdeed4
+	eU5AsWp0AxTS7o7RR1jO7V0ZfFLP7lRIMeJjLYwyT8/b8yH+TWlco/cX30KvZ4viXMrR20s9+NC
+	lyP4dEn6jFMxCAAHq4Q0DbOE8rQmeTLl782/0V4GtmDJoSDeKqzNPhBApstvu5CbqolFRfoAtl1
+	Hnddeo3pQH0zwRqkPyq8CRqfcux9BpQjSvb8Md+d+kh/gy8rwkObq+O6A1JgFDij55xAnEyyaEe
+	4RDcOhKUQHxGFN+sC0Oi1+tLitiZobe6IC9JDAGio8VvwznfaDJkhpIk9ZaoMQtwmPb9WXafI6w
+	RWQ/TPyjCWpELyvqXg7e5jW3AKUP0I6KNexF3Oo79neo91GWg7dLIrEseh2Q==
+X-Received: by 2002:a17:90b:2dca:b0:38e:9045:bac0 with SMTP id 98e67ed59e1d1-38fbc408af7mr2717365a91.5.1785575421063;
+        Sat, 01 Aug 2026 02:10:21 -0700 (PDT)
+Received: from ubuntu.. ([2405:201:8026:213e:36ae:7de2:5cca:938])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153dd9c96asm15432431eec.7.2026.08.01.02.10.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 01 Aug 2026 02:10:20 -0700 (PDT)
+From: mdshahid03@gmail.com
+To: Jonathan Cameron <jic23@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Joshua Crofts <joshua.crofts@broadcom.com>,
+	Broadcom internal kernel list <bcm-kernel-feedback-list@broadcom.com>,
+	David Lechner <dlechner@baylibre.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
+	linux-iio@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add MangoPi M28K
-Date: Sat,  1 Aug 2026 16:00:17 +0800
-Message-Id: <20260801080018.3220034-2-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260801080018.3220034-1-amadeus@jmu.edu.cn>
-References: <20260801080018.3220034-1-amadeus@jmu.edu.cn>
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Mohammad Shahid <mdshahid03@gmail.com>
+Subject: [PATCH v4 0/3] iio: adc: bcm_iproc_adc: Simplify probe error handling
+Date: Sat,  1 Aug 2026 14:39:50 +0530
+Message-ID: <20260801090953.61603-1-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9fbc57710003a2kunmbde8614f2070e8
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUtXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSB9NVk9CSh5NGRhDSRoZTVYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKT1VJSUtVSUhJVUpKTVlXWRYaDxIVHRRZQVlLVUtVS1VLWQ
-	Y+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_010128_569166_AE443F2A 
+X-CRM114-CacheID: sfid-20260801_021022_079964_6F17B9C6 
 X-CRM114-Status: UNSURE (   7.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -71,31 +105,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MangoPi M28K is a dual-gigabit SBC developed by Widora based
-on the RK3528 SoC. Add devicetree binding documentation for it.
+From: Mohammad Shahid <mdshahid03@gmail.com>
 
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+Hi,
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index aa66a15be233..45fee0c5076a 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -803,6 +803,11 @@ properties:
-               - lunzn,fastrhino-r68s
-           - const: rockchip,rk3568
- 
-+      - description: MangoPi M28K
-+        items:
-+          - const: widora,mangopi-m28k
-+          - const: rockchip,rk3528
-+
-       - description: mqmaker MiQi
-         items:
-           - const: mqmaker,miqi
+This series simplifies the probe error handling in bcm_iproc_adc.
+
+Changes in v4:
+- Move the redundant iproc_adc_enable() error message removal into the
+  cleanup patch as suggested by Joshua Crofts.
+
+Mohammad Shahid (3):
+  iio: adc: bcm_iproc_adc: Remove redundant probe error messages
+  iio: adc: bcm_iproc_adc: Introduce local device pointer
+  iio: adc: bcm_iproc_adc: Convert probe error handling to
+    dev_err_probe()
+
+ drivers/iio/adc/bcm_iproc_adc.c | 54 +++++++++++++++------------------
+ 1 file changed, 24 insertions(+), 30 deletions(-)
+
 -- 
-2.34.1
+2.43.0
 
 
