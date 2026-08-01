@@ -4,76 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250C7C54FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 04:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B04C54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 05:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=No7Pu3tcjEAADdHGcFgLAj3F1mPvZDUYYqN+X5/IaJo=; b=ga6IeABhIgjiUe+zaYUPXqYPCs
-	jPBJbQ3ztbslALlYTmYLVWCKrOvTgtNNa5h7Qs4Psn4+GKvoSt9b+1Ww92KUy6grZQLyNCnlUHr1d
-	hdLfq7G/Aj4rh9Hr+P1rnVxTbgtPxIa+gZ+ARNgcIev0qpOC5gCYPPWxBW2U3Q72fgB3crtbcH21o
-	Te3YILkgmIM2MVErZ97d+8VYIOicesrP6Xb3XMsMZcJ81bwvVaSh2UzKFUE7EpE4ms+v2NeO/udxN
-	hQOneuHW+T/OK8i5N3WGEgP5jEVXIRsAB/REpBTZcEHfNLJJ5V1MZ6z/NjJ6+zx6ks7JU7Pc4eQpq
-	T+Yxtrxg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d0YoODerQIzEOVN20KJQiVnY06JcnNCgCt2bly7t1Fo=; b=wcdtA6L/RhIrhLcfop167ftM5j
+	sisgx7tsWwtec4/WTXFDqw7f4zg4whQejzy4TdtaWVROudyQCvcH5KCtnIBJhDI2+AUevpGBcw4a6
+	WtbWFT1XvyTBsyfpG4eCYEhTw9qM/R8F9Khz38qaVXMPV3IBNzk1Z3/wMIexbQT0yCofctS1tjuDt
+	916Ykk9aYjDoJncBVNMycSOeDsxsMSXjDUpX+7mmrixK6/yXxhDmoy8ssGCAMmQ4IbZ1jsaVEAfW8
+	E+r48LEUGDtAz1Ng+BaQY+pjeNvJNEx+A2cRRnjiIywTkh51kJgeXedl+MCHceRywQKXHoCSdYoXy
+	SmM5eMQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq1gj-0000000Dtjc-0SzI;
-	Sat, 01 Aug 2026 04:51:09 +0000
-Received: from out203-205-221-236.mail.qq.com ([203.205.221.236])
+	id 1wq2hB-0000000DvFC-1cXG;
+	Sat, 01 Aug 2026 05:55:41 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq1gQ-0000000Dtcr-3vQn;
-	Sat, 01 Aug 2026 04:50:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1785559846; bh=No7Pu3tcjEAADdHGcFgLAj3F1mPvZDUYYqN+X5/IaJo=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CZ9WhUoiZBbwq01Vg7QQ3WFEDUB0QEy/zIhdU7463zRcD26FZvmTd4LLzKPPa9tgR
-	 UnasAfg1vb9WOn5hRm+F61XBVYF++I1EQ0xAs3lUsn6CvMj6zKDBuyh5NzZ1p0TDtd
-	 S81mwW/tsefTezv7FJeUCPNEG3pdyPz12AiYmZ1Y=
-Received: from AERO17.taila7786d.ts.net ([112.43.117.189])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id C9E2EA5C; Sat, 01 Aug 2026 12:50:30 +0800
-X-QQ-mid: xmsmtpt1785559840te9blvcwc
-Message-ID: <tencent_1F34C8A722B644F01E486007EC91C9350605@qq.com>
-X-QQ-XMAILINFO: OGvxYKx7ShGEuAwaZM+a+SyCxk9ihAx5WfZKVDoZxR1Yf9a5csHiMEj3DzjJSd
-	 IpwxEqLjOltpGJndf7HbowTbiEoE9hoybMziI64NFS8hKrXhDH7yqA2RQAVdGJJWgtBAE0gLU9VW
-	 blXx+DuBnsBcy586vGq5QiXIgWf2FKQt4VSarAAqx+SdaKduJW+/7b/3OsGkQajC0VWkN70YeLzF
-	 0DFwVv56KnKf5Fit6hqCEWWIC0d71xaQCl4GIV5vWSmKWeaLtwiP970IfglFSvl97/f+bC4ZEhia
-	 HX5c6AcEmal34A1Rm2iXuQHBDdie0mSWp/12kr1YMA1s0kjZYKl+r4o8HTywADZnNEhIFTFjpGiX
-	 L+pQWeeSgRCQV7njzLJbYVDPvzGEXzDFTRZkJIFfSSCJup9i5Gi7pHLyVwAVxI2GtyX7P3C7SxWo
-	 JpKtfRR2DwB/CuqDLyjhmsnNDk3RYKlo4FslE0BDELjgX6bZ3VGE4qCfU8V/76+CbAGJ0uYE0Huz
-	 fDDvroxJiWPPHD8EQka6IqywQv9Dy0MjgdeaVk5McZRz9XTZk14pETF45Ck4r9Y+mjUVI0ko3naJ
-	 i27QeASuFuXfoFglenTKo3d2wmv0L4xz/awSj7NvwVlPDrgpjLmsNFTn51e0kANrSG5ejDQh9iZw
-	 Vc4+QJzg9lvb0tqMzweLyVstWb0TohSbCTXPI0xBreyVGs8JOTZ7gc/Fpo4+yv/+uEwXayrlD1IU
-	 Ugo23hxwUeOckhDFeb3+c5UA9Y9voVOUuo9Krc12+iqU7oUNyzvbgmv8dZ6GsNEZurxVqbbh35F+
-	 FDwgGa3ywVrfNIPfo9w4G1RKQhEBhK6PgpPlLzaJ8eQoxmAK5/wohHZeDLs7SCl3qVugwIP6crZW
-	 GL+mpr71XxBk66081khfqfLXgmqykNFpKwsI4IwnSUFfiUjbRdOQ/Cph64dY/ft15joAQ/rzKqt8
-	 xhOCYeOQ+IDCweQmWJ/cx23qYTJDZzR7mDd2UyDsQXuBcI4BwHjepkY4dk+AjrYm8eeMXtW53ezz
-	 9BGDaT92q8F18LT14xCtOFYO9h8mjVn+rwbrXvt41QiI68yObvr7goR+lmMhvhNQWaIyDQluWEoR
-	 hH/zzL8y6ZW38rpWmPyKrk3dRInf8gj+mQlQGS
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-From: Pufan Jin <2254650260@qq.com>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-rockchip@lists.infradead.org,
+	id 1wq2h7-0000000DvEk-3Ojs
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Aug 2026 05:55:40 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-ca00f126b7eso986181a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 31 Jul 2026 22:55:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cse-iitm-ac-in.20251104.gappssmtp.com; s=20251104; t=1785563735; x=1786168535; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=d0YoODerQIzEOVN20KJQiVnY06JcnNCgCt2bly7t1Fo=;
+        b=ij7RAYnqtS8cOSagiLp37FcNQMa8f+GuL0heBpo8GrvzC6m1RQEOzvD8d3k825KRuf
+         n0bzgFPWiKG251YDn300k15x78VAopBgShjVUqzVImJTMIxfh6ufysl3lGDZc2LohUE8
+         YRN2Oo8UN0ySSjloNDKmgbkl++ieJy2pMjhQqebtmh9UQ2nK4EChzbTDkdGvD9vyqLAQ
+         2sPjEJeOq8r2WbQ8ILTRR8fYYSNI11cRpoV/q79YLZkvFM/oEZHpJr14jbsREitu6AD9
+         ABT4ovsXnOIvn9TYvVlUaG1TOG+eR7il/JybeG042bPxmjKnit8+wgEZnh0gi8h+VBkS
+         wJ4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785563735; x=1786168535;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=d0YoODerQIzEOVN20KJQiVnY06JcnNCgCt2bly7t1Fo=;
+        b=Q3N9igWz6R9o8YB9ncXuqz+fANktB1uxYnnwI2oPQzqyLVuhE7TSRCoPh6AiKBL56C
+         YPnt9eWOcItgXL8naXgXe0iBen7doS9hfRHoJLHV8w+Q+RhM62Fmxx3GIFzY5OpRQDRy
+         L4HjXl06su/RXEPGxhYj7siuTZvNz+gXagm80y8DObYkjK6OFUZ2lYaFdQz3TxtXlalk
+         kNOvtG44hXLdfQJ674hXMMqYxzfGij+Gz2z83InIGd87irinUeb23hFua5oXsvQkvSBC
+         iXfMYpqdFrmjh+AkiuXzX+rKc2QZ5l+jyHmyk4bDq5I+YWltsOXehHDARagRtr3SiLY+
+         E5Kg==
+X-Forwarded-Encrypted: i=1; AHgh+Rpi+SzZNEm/sxxbm+1Dpi3swRdBYAGNA4sUTNX4Wy2hw4A2I+Spqs7NDZQ7lXmKNYBDBmg36Jz54OvAQQEX0GHP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+UPdchj+UjCiL+8codU75UuyNk0ETuQlmxh4YX866aKEzNrCf
+	8TfZR0A6k81cGjDO1CIxyF5A/Marqzf7VOCREOSJM454FX1D4v6s7qrZC50D2hJ4Ov4=
+X-Gm-Gg: AR+sD10jDnOtpzZIpVfnmDqoU7vZD9+kDo6SH11FUGL9+07p60c+Yl+UaJfhQCkTJ7d
+	S1DpNJE1legOq26KJTZ63VO4W8apP49feXgXURdN/J7a/m0Mmvv2yKTKAlear/oQzG2ZP8fpzYg
+	anKBzWPToW8XmkZUYDR5APn3up8ihf4qaitsAaFX1Lo8Vdi14SwAZ+iojFcLq6xwdp2wudK57t4
+	5TjmdsPGewymIHh0VUvDVPUNT1T8uCdnSlFnfFo1KfPRh2W1pVam6j6i3h/YmFXRlaObPdPPCN5
+	foqi3wuQbuqB5LDXC+30g+o63AascVLgPjZOVkBWE5c3nhyTpFzyCs0+Dvdp8CvQyd+BJgPRaYr
+	9sparuN9xnk9mi6MidO7y0m68+39hRNUArO8u7+v//9kjJCuSufKB/mXOcw8R7gQGP4fT2XcQD7
+	ULqOGNDLFAbA8LG+y//nWwTgCHK38Hsq4lnGqRFHs5kuekZwkh8eI3HgLbjZsM19qmMvhksgdvV
+	NuwGfvyPLt0Tu5coh+QygjX96cycNFmDSxmt3KR43pB3kmB03HfwXSxlvXyOU0PrhzeyMS1EyUD
+	/hoYYjz1xqIuLfQ=
+X-Received: by 2002:a05:6a21:9995:b0:3c3:b4e8:5565 with SMTP id adf61e73a8af0-3c92a8f301emr2512911637.61.1785563735027;
+        Fri, 31 Jul 2026 22:55:35 -0700 (PDT)
+Received: from Metius.iitm.ac.in ([103.158.43.43])
+        by smtp.googlemail.com with ESMTPSA id a92af1059eb24-13fab050d8csm16502537c88.0.2026.07.31.22.55.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 31 Jul 2026 22:55:34 -0700 (PDT)
+From: Abdun Nihaal <nihaal@cse.iitm.ac.in>
+To: Steen.Hegelund@microchip.com
+Cc: Abdun Nihaal <nihaal@cse.iitm.ac.in>,
+	daniel.machon@microchip.com,
+	UNGLinuxDriver@microchip.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	nathan@kernel.org,
+	ndesaulniers@google.com,
+	morbo@google.com,
+	justinstitt@google.com,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] arm64: dts: rockchip: Add fan cooling maps for LubanCat 4
-Date: Sat,  1 Aug 2026 12:50:24 +0800
-X-OQ-MSGID: <20260801045025.67512-3-2254650260@qq.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260801045025.67512-1-2254650260@qq.com>
-References: <20260801045025.67512-1-2254650260@qq.com>
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	joe@dama.to,
+	horatiu.vultur@microchip.com,
+	stable@vger.kernel.org
+Subject: [PATCH v3 net] net: microchip: vcap api: Fix possible memory leak in vcap_decode_rule()
+Date: Sat,  1 Aug 2026 11:25:05 +0530
+Message-ID: <20260801055507.47534-1-nihaal@cse.iitm.ac.in>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260731_215051_331370_2AE62FF1 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20260731_225538_119750_4D6B76BE 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,94 +114,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The fan node has no cooling maps, so nothing binds it to a thermal zone.
-The pwm-fan driver deliberately falls back to the highest cooling level
-when it probes without a thermal zone to drive it, which leaves the fan
-running at full speed regardless of temperature.
+The memory allocated for struct vcap_rule_internal, keyfields and
+actionfields inside vcap_dup_rule() are not freed in some of the error
+paths in vcap_decode_rule(). Fix that by calling vcap_free_rule().
 
-Bind the fan to the package thermal zone with one active trip per cooling
-level, reusing the trip temperatures from the vendor kernel. The lower
-bound of the first map and the upper bound of the last one are left
-unlimited so that the fan can stop below 42C and reach full speed above
-65C.
+Compile tested only. Issue found using a prototype static analysis tool
+built on top of the LLVM compiler infrastructure.
 
-Signed-off-by: Pufan Jin <2254650260@qq.com>
+Fixes: 610c32b2ce66 ("net: microchip: vcap: Add vcap_get_rule")
+Cc: stable@vger.kernel.org
+Reviewed-by: Joe Damato <joe@dama.to>
+Signed-off-by: Abdun Nihaal <nihaal@cse.iitm.ac.in>
 ---
- .../boot/dts/rockchip/rk3588s-lubancat-4.dts  | 53 +++++++++++++++++++
- 1 file changed, 53 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-lubancat-4.dts b/arch/arm64/boot/dts/rockchip/rk3588s-lubancat-4.dts
-index bf413de979cd..a0fc128ce6e1 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-lubancat-4.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-lubancat-4.dts
-@@ -11,6 +11,7 @@
- #include <dt-bindings/leds/common.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- #include <dt-bindings/soc/rockchip,vop2.h>
-+#include <dt-bindings/thermal/thermal.h>
- #include "rk3588s.dtsi"
+v2->v3:
+- Rename the error label to "err_free_rule" to denote the first action
+  being undone, as suggested by Jakub Kicinski
+- Move the information about compile tested only, and how the issue was
+  found to the commit message, as suggested by Jakub Kicinski.
+
+v1->v2:
+- Convert the error labels from "err" to "out_err" to avoid confusion
+  with the err variable, as suggested by Joe Damato.
+
+Link to v1: https://patchwork.kernel.org/project/netdevbpf/patch/20260727125757.134611-1-nihaal@cse.iitm.ac.in/
+Link to v2: https://patchwork.kernel.org/project/netdevbpf/patch/20260728114253.196398-1-nihaal@cse.iitm.ac.in/
+
+ drivers/net/ethernet/microchip/vcap/vcap_api.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/microchip/vcap/vcap_api.c b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+index ff86cde11a32..788c0728d763 100644
+--- a/drivers/net/ethernet/microchip/vcap/vcap_api.c
++++ b/drivers/net/ethernet/microchip/vcap/vcap_api.c
+@@ -2427,18 +2427,21 @@ struct vcap_rule *vcap_decode_rule(struct vcap_rule_internal *elem)
  
- / {
-@@ -300,6 +301,58 @@ rgmii_phy1: ethernet-phy@1 {
- 	};
- };
+ 	err = vcap_read_rule(ri);
+ 	if (err)
+-		return ERR_PTR(err);
++		goto err_free_rule;
  
-+&package_thermal {
-+	polling-delay = <1000>;
-+
-+	trips {
-+		package_fan0: package-fan0 {
-+			temperature = <42000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		package_fan1: package-fan1 {
-+			temperature = <55000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		package_fan2: package-fan2 {
-+			temperature = <60000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+
-+		package_fan3: package-fan3 {
-+			temperature = <65000>;
-+			hysteresis = <2000>;
-+			type = "active";
-+		};
-+	};
-+
-+	cooling-maps {
-+		map0 {
-+			trip = <&package_fan0>;
-+			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
-+		};
-+
-+		map1 {
-+			trip = <&package_fan1>;
-+			cooling-device = <&fan 2 2>;
-+		};
-+
-+		map2 {
-+			trip = <&package_fan2>;
-+			cooling-device = <&fan 3 3>;
-+		};
-+
-+		map3 {
-+			trip = <&package_fan3>;
-+			cooling-device = <&fan 4 THERMAL_NO_LIMIT>;
-+		};
-+	};
-+};
-+
- &pcie2x1l2 {
- 	pinctrl-0 = <&pcie2_reset>;
- 	pinctrl-names = "default";
+ 	err = vcap_decode_keyset(ri);
+ 	if (err)
+-		return ERR_PTR(err);
++		goto err_free_rule;
+ 
+ 	err = vcap_decode_actionset(ri);
+ 	if (err)
+-		return ERR_PTR(err);
++		goto err_free_rule;
+ 
+ out:
+ 	return &ri->data;
++err_free_rule:
++	vcap_free_rule(&ri->data);
++	return ERR_PTR(err);
+ }
+ 
+ struct vcap_rule *vcap_get_rule(struct vcap_control *vctrl, u32 id)
 -- 
-2.55.0
+2.43.0
 
 
