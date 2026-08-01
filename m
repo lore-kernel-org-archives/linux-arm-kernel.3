@@ -4,96 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8F5C55172
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 10:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1ADBC55175
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 10:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oSwy52wPE+n9CbxU0Afr3cSq8DpmnySrLvPQBrinhvc=; b=N+MNpqtd1M0uUzWJqJ0SwGVjME
-	bX/IKENGoS4k++Y7k1fLYRYP9EjJ0FnuPEgvBxR87fHBPgjnZbrF/DZ/hXtpbPN1HeUdfIs14CPX0
-	Z8u+hMS2qEBxxtKr3jgLU1BKmKUk3dEarjJo5r3Ow8do/IA9v8kzb1wPUEkXtj7rNYNnIg7t8aoQE
-	FFAW5U+P7sW6ExpkZNlc4MohC77Q5A0GZUK+UtS2+odi9WkKs2fa2wYYZ+PY475FeVMn4Tc1Jo+uy
-	9l/UA0baLuTyP56edaaiGyYF4KeVVVXgNKLjWUh4dDxoS+PKMtBzM4PuMjnrbzHcPxfetgL++qAjY
-	VX3oVBjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SRLHab5JHv6y5OVWGBkvI4XT8NjkDIUMOmG3BXMSKXc=; b=A1YZ9+eDtPYz3dX3mmyCRZqOC/
+	Ij9m4qz0omlxqhFs63V/8yX/0xf4d4X6/UQ/thM4qRFDpriLADv90b++YvXhTEBgZKfOZZMopEpcE
+	GW47/407VRrE5oCn0xoEp4CIIT4JCrNLavND2IjzRsD1MwWt9UNNGvNTEWtHItwMz6ls0s5rKXTMX
+	D0C+jU1u/1opNara8aLk8jX8ayYDmpyMR+IDY8klsMRr9vOTNEqYESDdle71Ab12A3oqLdHmtnhU8
+	cPueDG3ldiwy2J335SKQI6UQ+sEPrNy7GNWWWQWa2L2DrYQFkQgrYczkBs8sju4RjPPXXQbF35LAT
+	OuDMEIeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq6p7-0000000EAEt-0ifV;
-	Sat, 01 Aug 2026 10:20:09 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wq6qt-0000000EAXv-2E7q;
+	Sat, 01 Aug 2026 10:21:59 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq6p3-0000000EADe-1Efv
+	id 1wq6qr-0000000EAWi-1j2w
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 10:20:07 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4954d29264cso2630665e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 03:20:04 -0700 (PDT)
+	Sat, 01 Aug 2026 10:21:58 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-8f18d92172aso19377636d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 03:21:56 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785579716; cv=none;
+        d=google.com; s=arc-20260327;
+        b=obtXbVjqpz63DOp5ifEek0alsCSsuo+vcWHG8KBdSbsioHXzFVTPB+sARj30EETZqv
+         Zoe3pmSg9GnJAAm4QrwfxxAM2l/2yXZVisjd5hzj1oR7FFoH44xAKgNoayeyE40B15hh
+         i1qE6bYdU8LWS93sjca2y3/p5t19nLjgJMfgSwiwaQ2YiaM4dZFhRfnsPAnyEJGbIf9v
+         5vRyWPmfvqNMKUs+IoPZjdjWZFYq7u3/qlAsQ7JOT/+ZedPkqmJumapWRrUkhwXk0ycq
+         2kkTWEOvBvWCmIfS9/LLCrt0XAcFfSMzZO90DPom3VJigO9bNh7tvvi3G+w2jtG8I24V
+         Br1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=SRLHab5JHv6y5OVWGBkvI4XT8NjkDIUMOmG3BXMSKXc=;
+        fh=ucm4BtxKH3LGwRyb74zM+KN2WI/Y36WNEIaMaQYWBPk=;
+        b=KntQz8pey7p2iN1N783yi+thLzBEnALk2X7ehOKfv4mwbmicJPLDh/xF8PXjKkIvaQ
+         Yz2v6bj+k1hvc4ZRNWB1/1dpEhyKxoBWXaLdxSBWlCJqcnbgoa8xnQa1nOm4Hru5ZtyC
+         5JDX1tuyvRt7YLHR09Iy+iuuit1uG3irJCHrdntirGZGFZiFgpNCdOlqjiQZzqbTD1w+
+         e71bOnzapovkWz39cy+4h69UrFlujfUfQpZqAoIDhyKSq962JBSu+AzHG6yyLN+caVvD
+         +IrDaQBKPV/qy0mszjUeWwdwvccgS6vXJsXaIihZntp1BJ6mXQse/EbDcLEhR3ARSZXb
+         KNAA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785579603; x=1786184403; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oSwy52wPE+n9CbxU0Afr3cSq8DpmnySrLvPQBrinhvc=;
-        b=A53kNSi7HSywRuA7XNtBdxh1ml9W75ax+kwaA1TBDy45Jtb0ldRRVSqxmF+vTj1fz+
-         +S1RbEgzenz8By8qULQAun3mMPUgi1rJ7cbM75DzEUSUeULJZjufIYiX5oGueeTvYAg8
-         ghD/gxfavIl7ix2cQmBL98KMscSEamf2iUS9AZsBspIV4LOh67vejw2MRLHK4UpICJL8
-         RE2hVXpdUcZDTdg9ZQqnFUHGXELnnB8F0SJoe5KG/h/k9luAJbWaXlnwc/JH/ORWXgc1
-         FowIwe3vk1fFSTlk4deiglJbYFS15yuXbQrOVdeimJJTKuVeciO5UpR0gYAq8eBbHCku
-         qFSw==
+        d=gmail.com; s=20251104; t=1785579716; x=1786184516; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SRLHab5JHv6y5OVWGBkvI4XT8NjkDIUMOmG3BXMSKXc=;
+        b=o3KAB6WFRfNvSd6D01oRM5sKjr+WpbHqi3+BLWWzf8Wmof9FFKKf8K2McPBWeX8kQf
+         lvr5tFUQX1KsIsY+WZlSw15pS1C1VphgaW8+XMUA0YkSHZeWRkonL0AXZqEg+6KQMOSW
+         UdtsiEaFwfeI/GiFmJictgrgiX8Yyosw55uC/5uwxJp1yMcYxStmNbYRm/UvOp07Vwdn
+         DdQEQ50ls4fYDcSxCDfBWAVS2KWIVg0fkt2WdF++k+oHh9DeoHp5QllE695OQvf1BFS5
+         NaDfiJ8jXIGVmSaNc4W62Zs9gCxrsQnjMvNOEQRbu2owu3gosxFGc9mL0ADgBPqM2nC6
+         x1uQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785579603; x=1786184403;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oSwy52wPE+n9CbxU0Afr3cSq8DpmnySrLvPQBrinhvc=;
-        b=h8CL7W0ztZjnGIaHfiVzpuRjZBcuL9XnDZiqhcywmJHhPaD7IgUBhrk1+atd6hAvnZ
-         6vFHnDk+4nWzoNmeU8H0p+OTO+4r7uiSwLe4l9/4f/cdAUaPyGNYmjmsPWZsNg3Hn0Cd
-         pH3YsOtwYRQkkODNu0BpBvo4xInkJBmdmymQwwaiMnn/SGFsBTmMbd2xwCwX58NesVv8
-         Zo5jR2HL4LzrHJQreoCLIQJWgTKIeW2xcMDS/MOsxd5KEgQDuAFMJcWfWehkpFO2WkPo
-         04L3+XaCcJ6HyD0DXZEs/RQZnglW7WpqEg3Fvfvw5J7W4QpRd9QCB9xRJswtHGbcgFig
-         DHzQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqPXmqY8tx1zPvK3rWT8JFsfCjUSJ552ZMvkkrJdP/UHlVc60RLOWz2A2evb6pQQsvIjrPLCBHAq9jobKTyk8AK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+Lon0o49MqmPIlnKKRuE8CCZ7wvLSd4WIF2NhHVX0N4t+kTzz
-	zm43REDdsZh9y4QiSjdx4mJr7ddMjSBrzlq7mlmr/m/wLkOeT5qrCVvA
-X-Gm-Gg: AR+sD11P9ZN1SEtsSuNTLZ9yoC10g9Q3EeWsg0R/0suTUDrQCQZE2OgLogfsAYwbsKT
-	sKs4v5tFYIxCZOr4N2TCJNvVlXDscgDRyTkL1esuMaPNvrINg0FixErorGYwEoY2CggJra9Sw7R
-	2sUsFog+iJLpAwz1A7Kmo0HoX69RjqobEAu29SL3A9oflE9LmSdF3iaoBY8mkGy/sOF1kmbDBiH
-	hOB9ZsVd42Ba+AnnOBkERaSIEw38xgIb+4bJMVIZ+/hO+WanGCmbSgNSzcjQaOnOiL4w1cVY5I3
-	ouRz98W5JG25THJ00SIjKCOqVtE0vxV7Dr0rtHBKvOWwBPujuwkymFz9T9TVYsL9bYhlNj2gKPf
-	M53ZJw7XI6wu9JCY5MPs3xSt2cqCJhNYHgNtA0YPsCWFkqlnnkRzxt3QzulLXpsr4pC8XOmE4Ja
-	Wfc3Fd2ExZhmJga6l5FVkU+bFTId9jlHY/BdSUqLgJeb0AV3ftUehOfPxjsS6pbwHt8SSaly4Ph
-	Pe2ZYLX9Z8M0Cc9LBqohP4bZbbqnuG51y5O0hHeiAN+ka3YK2qiD1SmSRscqnA5f3WxdvOwOg7w
-	weBMLL4yZqDstmudUvFC3zXzvsxohQI9T1BZjZUJmhnB0qChiHTXhp6iqlXbtx+KE817r79m2Wx
-	FBBtrvWxR/0h0ELKuiMTK70rnVmYo5Kz5NgCtyZC+ZNRN14nV28AYGLLblFoB
-X-Received: by 2002:a05:600c:c490:b0:494:596e:e8c4 with SMTP id 5b1f17b1804b1-4980c67d1cbmr29142895e9.17.1785579603235;
-        Sat, 01 Aug 2026 03:20:03 -0700 (PDT)
-Received: from cypher.home.roving-it.com (1.e.2.e.9.4.4.d.0.e.6.8.9.8.8.3.0.0.0.0.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:0:3889:86e0:d449:e2e1])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-47fd456a5a4sm14804509f8f.20.2026.08.01.03.20.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 01 Aug 2026 03:20:02 -0700 (PDT)
-From: Peter Robinson <pbrobinson@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Phil Elwell <phil@raspberrypi.com>,
-	devicetree@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Peter Robinson <pbrobinson@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Andrea della Porta <andrea.porta@suse.com>
-Subject: [PATCH v2] arm64: dts: broadcom: bcm2712: adjust display status
-Date: Sat,  1 Aug 2026 11:19:53 +0100
-Message-ID: <20260801102000.551644-1-pbrobinson@gmail.com>
-X-Mailer: git-send-email 2.55.0
+        d=1e100.net; s=20251104; t=1785579716; x=1786184516;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=SRLHab5JHv6y5OVWGBkvI4XT8NjkDIUMOmG3BXMSKXc=;
+        b=ar+jiBtoUqWEaxFfc7rkJ9mHUh7FtsQJm674ElsOOj8yxPMtg/ScxezXYpVpgoRg4B
+         Dmp/I2oOrkHvdmsL8iLIWLEz+WDxxxORw+uzerjnI6nIyYj53JridC+Df59Vqm9Bm7li
+         vQnk/5kQsqoxImlx5jXHLrIYzEQFCeDcXqQrJeUEag8NWSMnHPYnQ+Yf7LwpUwpOEKZg
+         KQd80PGxHSIl0yqkhe+ID6mxwNwYZzQyZkferrEPwCseLzjoleQJPlEyISS/t/g2XMYO
+         2gWFhv1o6Cs8oODindHpBXcg0IR0NsxeYvQ47Zd3rxEWpXI9do9MefoPC0FrTdCeZcmG
+         jp2Q==
+X-Forwarded-Encrypted: i=1; AHgh+RogL8Sl+htKMQg5jtLjrgjyPzNY0fvVnt2qg0lWM7cwynXh+BXYVHGmhoTnavMHS2DMQZQK2L1ZoUMfFIFeEeCe@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJ/RAEXpXAGN6qLZmurbZD+K/3vqcrJwvRQZhbXbzZ52hYfeHP
+	IuYl9AYKUlkRu3U44Jt7vfdFbfiAwbhbQsITq/TAG18PGaoknE6gEyYDLuTeAngrThltfI7ca9v
+	M4JsxAwskcvUZIqBQZTCp+5jHV+6AfZQ=
+X-Gm-Gg: AR+sD12nZk5bQtBCCoWTCgrxqZOsAWg6X7SR/D0XPhN50ASWVjD+s/PDEc7szv6qSad
+	a+KF0YMb6LszgfhqEsaFxrvKDE74BE3usbNFtjmAjGK18IyR4TtEDLoSQ+LG+fpCvJwRJzHlU/F
+	rxBcfhE7UG0kRqhMjSLthd05DW9FA/WjpI3NEw72VE6LT/rNSuQAj0boJ0FwYbYSszeo/NujzrQ
+	FV5KZslHkDFALMz/8WXjdj3TAoWZQJDF9qrV0P3qfJX3n+kbAsohKUxAwWR9/OZZZ7b8lATNP3d
+	+fwHZBbGlUssDDTjMnDjgqA2w8HhzdlTGTD0FsorURCLb5yciaE62MZyqgOLt8KGbLToxHyzqj4
+	Rj4k3fKa69zMFTD7gM20J7QKxBbjpxZG7e0eJCHH2gqxFaqC8c0E+8SklrULp5IeV0O4vnaNIqg
+	LevzFKZGBoypzlCZ2FFxpJfi17Vpie54FZb1PPUP0e/5wEMPI/J8c=
+X-Received: by 2002:a05:6214:21cc:b0:8e0:7d6a:480d with SMTP id
+ 6a1803df08f44-9084963fd1bmr61334226d6.20.1785579715978; Sat, 01 Aug 2026
+ 03:21:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250924085712.1040284-1-pbrobinson@gmail.com>
+ <37220187-7369-4b20-8e00-0846ee0ee6fd@broadcom.com> <CALeDE9MfhU+hL-d1vruhCzN5vvb9LsR8YwDPOR1XmpLcygLbLQ@mail.gmail.com>
+ <d27d0ad7-687a-46f4-b6c6-f34f3232f1c3@broadcom.com>
+In-Reply-To: <d27d0ad7-687a-46f4-b6c6-f34f3232f1c3@broadcom.com>
+From: Peter Robinson <pbrobinson@gmail.com>
+Date: Sat, 1 Aug 2026 11:21:44 +0100
+X-Gm-Features: AUfX_mzDprPWyjzafLFHPRoNUXXUuAWXNY0wf_WYB9j4gWDemmLGUrxrU_ekU6Y
+Message-ID: <CALeDE9PH5BcoqwPhEcEf21u-_Tn72A0D9BuVM0xVQFjCHNyaHA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: broadcom: bcm2712: adjust display status
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>, 
+	Phil Elwell <phil@raspberrypi.com>, Andrea della Porta <andrea.porta@suse.com>, devicetree@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_032005_360898_3506907F 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20260801_032157_460335_B63815C1 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,183 +123,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Typically non critical IP in a SoC are disabled by
-default in the SoC .dtsi and enabled on board specific
-configs. There are usecases, such as some CM5 carrier
-boards, where display output may not be desired or
-connected. So disable them on the SoC .dtsi and enable
-them on the RPi5 board.
+On Fri, 31 Jul 2026 at 21:44, Florian Fainelli
+<florian.fainelli@broadcom.com> wrote:
+>
+> On 7/31/26 11:51, Peter Robinson wrote:
+> > Hey Florian,
+> >
+> > Not sure what happened to this, you said it was applied almost a year
+> > ago but now I dig I don't see it upstream.
+> >
+> > Was there a problem, or did it just fall through the cracks? Should I resend it?
+>
+> Looks like it fell through the cracks during a rebase, sorry about that.
+> Would you mind resending it since it no longer applies cleanly? Thanks!
 
-Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>
-Fixes: 25d77bdd7df2 ("arm64: dts: broadcom: Add display pipeline support to BCM2712")
----
+No issues, new rev on it's way.
 
-v2: rebase to align with upstream changes
-
- .../dts/broadcom/bcm2712-rpi-5-b-base.dtsi    | 31 +++++++++++++++++++
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi     | 11 +++++++
- 2 files changed, 42 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-index b7a6bc34ae1ab..51c8533f31812 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b-base.dtsi
-@@ -104,6 +104,18 @@ wl_on_reg: wl-on-reg {
- 	};
- };
- 
-+&ddc0 {
-+	status = "okay";
-+};
-+
-+&ddc1 {
-+	status = "okay";
-+};
-+
-+&disp_intr {
-+	status = "okay";
-+};
-+
- &pinctrl {
- 	bt_shutdown_default: bt-shutdown-default-state {
- 		function = "gpio";
-@@ -230,16 +242,27 @@ bluetooth: bluetooth {
- &hvs {
- 	clocks = <&firmware_clocks 4>, <&firmware_clocks 16>;
- 	clock-names = "core", "disp";
-+	status = "okay";
- };
- 
- &hdmi0 {
- 	clocks = <&firmware_clocks 13>, <&firmware_clocks 14>, <&dvp 0>, <&clk_27MHz>;
- 	clock-names = "hdmi", "bvb", "audio", "cec";
-+	status = "okay";
- };
- 
- &hdmi1 {
- 	clocks = <&firmware_clocks 13>, <&firmware_clocks 14>, <&dvp 1>, <&clk_27MHz>;
- 	clock-names = "hdmi", "bvb", "audio", "cec";
-+	status = "okay";
-+};
-+
-+&mop {
-+	status = "okay";
-+};
-+
-+&moplet {
-+	status = "okay";
- };
- 
- &pcie1 {
-@@ -250,6 +273,14 @@ &pcie2 {
- 	status = "okay";
- };
- 
-+&pixelvalve0 {
-+	status = "okay";
-+};
-+
-+&pixelvalve1 {
-+	status = "okay";
-+};
-+
- &v3d {
- 	clocks = <&firmware_clocks 5>;
- };
-diff --git a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-index 761c59d90ffc9..9b36ecd7bba54 100644
---- a/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-+++ b/arch/arm64/boot/dts/broadcom/bcm2712.dtsi
-@@ -359,12 +359,14 @@ pixelvalve0: pixelvalve@7c410000 {
- 			compatible = "brcm,bcm2712-pixelvalve0";
- 			reg = <0x7c410000 0x100>;
- 			interrupts = <GIC_SPI 101 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
- 		};
- 
- 		pixelvalve1: pixelvalve@7c411000 {
- 			compatible = "brcm,bcm2712-pixelvalve1";
- 			reg = <0x7c411000 0x100>;
- 			interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
- 		};
- 
- 		mop: mop@7c500000 {
-@@ -372,6 +374,7 @@ mop: mop@7c500000 {
- 			reg = <0x7c500000 0x28>;
- 			interrupt-parent = <&disp_intr>;
- 			interrupts = <1>;
-+			status = "disabled";
- 		};
- 
- 		moplet: moplet@7c501000 {
-@@ -379,6 +382,7 @@ moplet: moplet@7c501000 {
- 			reg = <0x7c501000 0x20>;
- 			interrupt-parent = <&disp_intr>;
- 			interrupts = <0>;
-+			status = "disabled";
- 		};
- 
- 		disp_intr: interrupt-controller@7c502000 {
-@@ -387,6 +391,7 @@ disp_intr: interrupt-controller@7c502000 {
- 			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-controller;
- 			#interrupt-cells = <1>;
-+			status = "disabled";
- 		};
- 
- 		dvp: clock@7c700000 {
-@@ -405,6 +410,7 @@ ddc0: i2c@7d508200 {
- 			clock-frequency = <97500>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-+			status = "disabled";
- 		};
- 
- 		ddc1: i2c@7d508280 {
-@@ -415,6 +421,7 @@ ddc1: i2c@7d508280 {
- 			clock-frequency = <97500>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-+			status = "disabled";
- 		};
- 
- 		bsc_irq: interrupt-controller@7d508380 {
-@@ -460,6 +467,7 @@ hdmi0: hdmi@7c701400 {
- 			interrupt-names = "cec-tx", "cec-rx", "cec-low",
- 					  "hpd-connected", "hpd-removed";
- 			ddc = <&ddc0>;
-+			status = "disabled";
- 		};
- 
- 		hdmi1: hdmi@7c706400 {
-@@ -489,6 +497,7 @@ hdmi1: hdmi@7c706400 {
- 			interrupt-names = "cec-tx", "cec-rx", "cec-low",
- 					  "hpd-connected", "hpd-removed";
- 			ddc = <&ddc1>;
-+			status = "disabled";
- 		};
- 	};
- 
-@@ -667,6 +676,7 @@ v3d: gpu@1002000000 {
- 
- 	vc4: gpu {
- 		compatible = "brcm,bcm2712-vc6";
-+		status = "disabled";
- 	};
- 
- 	timer {
-@@ -703,5 +713,6 @@ hvs: hvs@107c580000 {
- 		interrupt-parent = <&disp_intr>;
- 		interrupts = <2>, <9>, <16>;
- 		interrupt-names = "ch0-eof", "ch1-eof", "ch2-eof";
-+		status = "disabled";
- 	};
- };
--- 
-2.55.0
-
+Thanks,
+Peter
 
