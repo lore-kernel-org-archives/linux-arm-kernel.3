@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403C0C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 01:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3106C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 04:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vcL2MQ0L53z3f4PzFpgfMlNLyAs1xeASuNlN5kmxois=; b=u7a8BrEOZcpBYjB02Qfua7XpOS
-	7ihWes4nKGzsU60EW9KcQSGK5Dsh8+BhjlxtfJKjMWwf3xVsoavkTUnD9FmbjxUlkjSa5sFlDtYG3
-	+DBp3odkx8IiVRDnf2JghITIYGIJOotY9lpCONAJ3bkTCz9wUYIqnBr2PxtSuyBi0tRae7LltSysv
-	qfAkuJ2WiwNRJ2Pb0GqCfhTEuHF//TRRr3BiNmDDtTWwNg3tzhRQiCp4T7cZi1t1pHpPq9O7Xtecm
-	9ADC3CkVt5LAJTaPWn0bfLXrBi85KGUdALb3MENKb5SjI8MbMcwvabalYiGqGhKxPcweY7dzoSLbc
-	3ecR77YQ==;
+	Content-Type:MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+G1Afgfgm4VomeHyuZtbW2kKbV8N7tbkp7LK+TL/0q0=; b=s+ciBiaINiRVs06l+vLTLvGqMB
+	agxE/hNjdvVGCkjmW55IqlZPIdSW46b2UVDwaqZNaaCRsQcRbyvC6I3ONPHG856M4e+1PCJlkNrUN
+	ttkPcP9jfwQ16att7chlhb6TZhgoEoYPd0voierT3xez+66iASxjsrgciMaP+lbJvHdrM0Bw0vobv
+	0tNVDrHJ5XkCob28UVz4MtR4VXOsRyC8J2iRrtj9cOXRvRJ3wbgn2MQ797oCgytxj94BTczigsvRG
+	2xrhiXh/ReRxYoWlj0YqY1XDY6lU7dDuHfFhNqMZmOfsJ5gvIcCNvuA3VysIffLyKhY6EujaGHSzh
+	96YW+Pfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpymR-0000000DoPA-1XSJ;
-	Sat, 01 Aug 2026 01:44:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wq1gM-0000000Dtcn-2Ef9;
+	Sat, 01 Aug 2026 04:50:46 +0000
+Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wpymP-0000000DoP4-0NHV
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 01:44:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 625E243999;
-	Sat,  1 Aug 2026 01:44:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FBEF1F00AC4;
-	Sat,  1 Aug 2026 01:44:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785548688;
-	bh=vcL2MQ0L53z3f4PzFpgfMlNLyAs1xeASuNlN5kmxois=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=QuvVUmMVC7qfCurZ7pQA6Kr2AOCRvrRz+AIoNsyBtY+HZBCzD3SF/e0q7CfQ3F2j2
-	 /twEJPXNE6eXSkcp3Ooo7+LwAh/+hXf2mDhIQGQZXiQEKt8sy5Wyc3uHAUwhWm1ImF
-	 mz8fZquP208z15e2M59odTDJa3UQHhGeef7p/g0YPo/3XVy8ExIYqIO1jvxNyxP7sM
-	 U/cjYIM0/c01OK76lKFZDclxla5as3x8/va9NNBj+4TByazK7luLA+lLYVP6+h0DQZ
-	 3WC12Fduh2+ZiS/IUKweDa2MRSbHIhCB47DesDsftS69DFW8649DT+s7A0uaWSLWVS
-	 H6+X0hqTdhhwg==
-Date: Sat, 1 Aug 2026 02:44:42 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Varshini Rajendran <varshini.rajendran@microchip.com>
-Cc: <ehristev@kernel.org>, <dlechner@baylibre.com>, <nuno.sa@analog.com>,
- <andy@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
- <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
- <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
- <srini@kernel.org>, <marcelo.schmitt@analog.com>, <radu.sabau@analog.com>,
- <Jonathan.Santos@analog.com>, <jorge.marques@analog.com>,
- <joshua.crofts1@gmail.com>, <jishnu.prakash@oss.qualcomm.com>,
- <antoniu.miclaus@analog.com>, <mazziesaccount@gmail.com>,
- <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 06/16] iio: adc: at91-sama5d2_adc: adapt the driver
- for sama7d65
-Message-ID: <20260801024442.49bfad4e@jic23-huawei>
-In-Reply-To: <20260727122633.117435-7-varshini.rajendran@microchip.com>
-References: <20260727122633.117435-1-varshini.rajendran@microchip.com>
-	<20260727122633.117435-7-varshini.rajendran@microchip.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wq1gJ-0000000DtcG-1xIF;
+	Sat, 01 Aug 2026 04:50:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1785559833; bh=+G1Afgfgm4VomeHyuZtbW2kKbV8N7tbkp7LK+TL/0q0=;
+	h=From:To:Cc:Subject:Date;
+	b=VLDdCeQWVNy70A7P4y5sWt3bGgpQR9GBKWgGBsg8vn3X3/2yUlkaInUK4bMsnZTvP
+	 eR4qxgqDG/tS+JNUZ2gkNGr3CPu6asvPx9N8b62R5e3V4BQ02QIITWTL0fOQIUY2MR
+	 xTGZRctN7bnhLW0W9hpaeJ0mBvbcCF+lxcmgOfhI=
+Received: from AERO17.taila7786d.ts.net ([112.43.117.189])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id C9E2EA5C; Sat, 01 Aug 2026 12:50:30 +0800
+X-QQ-mid: xmsmtpt1785559830tqo0hg88f
+Message-ID: <tencent_4141B315242524F71B028860294CB1315E08@qq.com>
+X-QQ-XMAILINFO: NT7uTz3cNku2VA5qCdx/+vljb5DbZnndH2i5LtgxlE30kG+zEmdKivg1PTXAy8
+	 JKQgc11w1/7Z2dhUVYCIfsnsZNBpvCFRq9v2VurKgW2qIDYY+odxFv9TW9qY7almkKgpkhP2b9sa
+	 BeGOIcRqd1TEVNqZQhr6EytbcyfyO2l+Z/SFFq/jy9QSDHsX5K9KVbItCwrJzz73Jy9NnXSL5kKr
+	 WDxmZzHC254RppXLNDqFt1l+FpqRcm/uqymxLY4qq1FULEkoSAaHK5O20ZdLB3DzWvNnH0mZ6Ob4
+	 yud3iCg6VK5f7gn0IOEj4heeYISYCdnPWn7wwtMMECNhseQN3/KBLeirtyt6WBz/vOzna98vrDjp
+	 2z45ed2Gi5lZ9r/8LTtvcHLXa9pAtCV9h6jZEgIKiR0iuyXgGByQt6MWOuq+zoSlK3q8k4Z0JkZZ
+	 ZNULeHkEaYFnGS2OTaa0WOpG3Gg+9yNwMerOFK77bjx5T9tuCQeIOYm4It6pQII2H9Owl6ves7HS
+	 IJUy26c+FrTR1boQvCnNk9ObAPOZ1pLu1tLukdGyvRZrYvYj0mOfZVghm1lo4/g9TJT1KVUYUJp0
+	 vOs1YSz9Fo5evod6GDUrccrRoKGY/WRbWRSrzTjQh57tL6pkNgPAfOY5Ina/DZF08YDB9vkPYTNw
+	 VK5a8o/t0PEaQtH9CEpT4kdVbzNv4/mw7zKbd8zJPSBk/PYu+eB2UcO5iTehqZbcEkl5jE/XROwA
+	 aKHGy2DwsFkoV9oK8EmNM5T0nUCWRhXunTq74Zu7t324veLL9R18tsvlA3/eRzUH9r04f3vMK3G7
+	 VvXdiC9uM15ZNpKEn1oDvtNfkO+Sd4Sin1AcCnDg2pC0dTBUiq5GE74Kjk6TpptMENuEcOa+7c31
+	 HAkYGrYVxOmB7S7Pw6P5mlVMPdKEaXCrT1L7z8ioJqBOGLNw/J30ORiQfmGTDkkZ/XsRI0dgmR6W
+	 lLG9siP3hH4hNjeptr5FILpCykcW7Z4UxCIamYo8QtaVgREvGxb1G/Kgj2BmmojevZUZ2z+Jrdj+
+	 tviK1psbq+awt87VaUULamWEcEb3JzP+HsTv+lAJBqM2IrrbxN+wfEd+nOwdE=
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+From: Pufan Jin <2254650260@qq.com>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] arm64: dts: rockchip: Fix fan speed control on LubanCat 4
+Date: Sat,  1 Aug 2026 12:50:22 +0800
+X-OQ-MSGID: <20260801045025.67512-1-2254650260@qq.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260731_215043_848002_A23A19AF 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,19 +86,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Jul 2026 17:56:23 +0530
-Varshini Rajendran <varshini.rajendran@microchip.com> wrote:
+The EmbedFire LubanCat 4 drives a 2-wire fan by chopping its 5V supply
+through a MOSFET with pwm0. Two problems prevent the thermal framework
+from controlling the fan speed:
 
-> Add support for sama7d65 ADC. The differences are highlighted with the
-> compatible. The calibration data layout is the main difference.
-> 
-> Update Kconfig help text to mention SAMA7 SoC family support.
-> 
-> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
-Hi Varshini, 
+1) The PWM period of 5000 ns (200 kHz) is far too fast for the fan's
+   internal bulk capacitance to discharge during the off-time, so the
+   fan sees effectively continuous 5V and runs at full speed for any
+   non-zero duty cycle.
 
-I looked through the rest of the series and don't have any other comments or
-questions.  Thanks,
+2) No cooling maps bind the fan to a thermal zone, so the pwm-fan
+   driver falls back to the highest cooling level at probe time.
 
-Jonathan
+Patch 1 fixes the period: measurements on hardware show that 10 ms
+(100 Hz) is the lowest frequency that gives proportional control
+without audible coil whine.  At this period the rotor inertia averages
+the switched supply into smooth speed regulation.
+
+Patch 2 adds four active trips at the vendor kernel's original
+temperature thresholds (42/55/60/65 °C) and binds them to the fan's
+cooling levels.
+
+Tested on rev 20241026 hardware:
+  - idle 36 °C → cur_state=0, fan stopped (PWM disabled)
+  - stress-ng --cpu 8 → temp reaches 48 °C within seconds,
+    cur_state jumps to 1, PWM duty = 3921569/10000000 ns (39%),
+    fan audibly slower than the previous constant full speed
+  - all four cooling levels distinguishable by ear when driven
+    manually through the sysfs interface
+
+Based on Heiko's rockchip tree (v7.3-armsoc/dts64), on top of commit
+6d9430d58714 ("arm64: dts: rockchip: Add EmbedFire LubanCat 4 board").
+
+Pufan Jin (2):
+  arm64: dts: rockchip: Fix fan PWM period on LubanCat 4
+  arm64: dts: rockchip: Add fan cooling maps for LubanCat 4
+
+ .../boot/dts/rockchip/rk3588s-lubancat-4.dts  | 55 ++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+
+-- 
+2.55.0
+
 
