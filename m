@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C409BC54FCD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE29C54FCD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qL0KvT6fbFFpjOaD2pGDIh9KKgpsACQZ4AgSBffUuOk=; b=RSCeVG9CTKXKTL8Xiizc7SEOYF
-	vDLGeVzx+KmqVKAv2fCX6vIKo4ScBL3nU4l4hhayhSDNNweuF8dLtF5sCteZMad3wb+DXl7q+QRL0
-	1fZFUg0TU4+qwK8Qbh+G8UCaVxpsJYymgZqwwosZJAid6NDWPgzwacTR4gEEHPXy0UVNkINfxf4lc
-	EJM/IceB8SHFtH6HYukKfuFC/nJcPD/x10zz0C/iz9OpJPSdRAZGP345ay1/DZAuFt8aaWAtCfTf1
-	TXKr5Z/Pxk0Kun3j/tDL5pcXBjxpZ6C7bBHRC85I2yS5VnykOhP3phUJp5DD0vLOZEVcwPnvoP1xe
-	vAr5bUGA==;
+	bh=qM0g+Q2K6h6aHaOG1wsLoFO3LtuYZyID+ZN9FyJhfvA=; b=JF9NTljUObiPnIsWWA0nbk7EaQ
+	akPaFes0M28W0T2NSxgdiXbH89P+pBwnupQl1PJDwmb2Te//bk5leUVCRmZDujSqOjGOg1hH4Xm9O
+	Wm1YmWgkkPzdNrLaeDmZIkGjQffZVjViv24tRweQkM5YXu/JbMq+SW6ttz0wpufZyWrQ8gqzYO0dh
+	UCk/Zeb6YO28WE4pevRvqxeTRDUAPr1o8sEt6nymF37NPuLZk6GlXbrJfZrpegNEdYbmg5fFNEpfm
+	8Sz6gMpNfMTyxymQXr7qIVlRR7yVXQ3pu3uTvGdV1yINIXExs8nlz407WYbG8zY/3Njk5ZJj4Cv7k
+	X0ptacmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5ot-0000000E7eY-02Gi;
-	Sat, 01 Aug 2026 09:15:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wq5rr-0000000E7zU-3UyQ;
+	Sat, 01 Aug 2026 09:18:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5oq-0000000E7eE-2Dwj;
-	Sat, 01 Aug 2026 09:15:50 +0000
+	id 1wq5rq-0000000E7z3-1e0W
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 01 Aug 2026 09:18:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B115C453DF;
-	Sat,  1 Aug 2026 09:15:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0CD81F00AC4;
-	Sat,  1 Aug 2026 09:15:41 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 65935600D8;
+	Sat,  1 Aug 2026 09:18:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8D7D1F00AC4;
+	Sat,  1 Aug 2026 09:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785575747;
-	bh=qL0KvT6fbFFpjOaD2pGDIh9KKgpsACQZ4AgSBffUuOk=;
+	s=k20260515; t=1785575933;
+	bh=qM0g+Q2K6h6aHaOG1wsLoFO3LtuYZyID+ZN9FyJhfvA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=JCjrXHF/qPdYFDron/ySP3kKVRTkPb0I18WPTxbnebb9+AVeLvaquYaldcYbmz6ip
-	 ztOOpVpcvgn8So3sj2OtiLuzD9IHRw8PPGiPO/1Rp2VpyeqYKEXLSbq0CZm6CGpdX9
-	 07wrQkPEnzIkZ9tCrH+6UlW08OnoM1hVoNpUTMpOXGNMLM3Fi4CEyCGhpx4Lkmd2RV
-	 aC0rup/Gvqn/xsSNKlvBElgYeZGa02zzFi5pAvaAhi6Tpf/B8TFUTN92AtG+G7+i0T
-	 cFJdOrUBhgqUtacr8LKwIiuU01tNCnbW+x7ZhZ8Mlg/J5yAiLp8rfEtbgQ5Q/xddBB
-	 Os0QP2Kxytjag==
-Message-ID: <e4dece11-ef3d-42e1-b179-cb710c501622@kernel.org>
-Date: Sat, 1 Aug 2026 11:15:38 +0200
+	b=nW0Pt8rpzhV03beGKggZI7np5j7eiucyiqUP0tEbF75imxqbqNBZZmnFMhvSytZxA
+	 uE5hWNleIy29YhkVU9le+r0prWLpG5G8WYbYSqDblaum642Ej0jIQW5nUlTqzAEZHY
+	 NK257Ew/ENgcL7oHXdBCEHjwyVqhR3LKtbYK+Rq5rV/F2OHwA+UZlg9MkcfMqwBnSH
+	 WyhY7A11zDIqXbxR25R5sM9GkUOAhg2by4qrN5rfNxQ7j6QXQibQUF2Bk+3sfakHmZ
+	 M2i/iNkw/D8jz9ZXVbVNLLW7FPE2R+YPjx9/6c2ilH8xRm68nIE5UiMT2rP1BOe2ss
+	 LKJGkct1ZpXEA==
+Message-ID: <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
+Date: Sat, 1 Aug 2026 11:18:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] iommu: Add Broadcom BCM2712 IOMMU driver
-To: Daniel Drake <dan@reactivated.net>
-Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- nick.hollinghurst@raspberrypi.com, Jason Gunthorpe <jgg@ziepe.ca>
-References: <20260727-bcm2712-iommu-submit-v2-0-0247b5c03de8@reactivated.net>
- <20260727-bcm2712-iommu-submit-v2-4-0247b5c03de8@reactivated.net>
- <20260730-small-solid-spoonbill-8a8bbd@quoll>
- <6d9b28ec-0905-4cb0-9a62-980c7fa69572@reactivated.net>
+Subject: Re: [PATCH] crypto: qce - Replace with stub driver
+To: Demi Marie Obenour <demiobenour@gmail.com>,
+ Eric Biggers <ebiggers@kernel.org>, linux-crypto@vger.kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
+ Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+References: <20260731050838.158825-1-ebiggers@kernel.org>
+ <a28c2903-0976-4559-b870-4de5553ba9ab@kernel.org>
+ <3ba57269-3305-4d80-b3f2-aa82fa59b59d@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,7 +104,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <6d9b28ec-0905-4cb0-9a62-980c7fa69572@reactivated.net>
+In-Reply-To: <3ba57269-3305-4d80-b3f2-aa82fa59b59d@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -122,39 +121,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/07/2026 22:34, Daniel Drake wrote:
-> On 30/07/2026 08:00, Krzysztof Kozlowski wrote:
->> On Mon, Jul 27, 2026 at 09:43:59PM +0100, Daniel Drake wrote:
->>> +static int bcm2712_iommu_init_cache(struct bcm2712_iommu *mmu,
->>> +				    struct platform_device *pdev)
->>> +{
->>> +	struct device *dev = &pdev->dev;
->>> +	struct platform_device *cache_pdev;
->>> +	struct device_node *cache_np;
->>> +
->>> +	cache_np = of_parse_phandle(dev->of_node, "brcm,iommu-cache", 0);
->>> +
->>> +	/* Fall back on 'cache' property used in old/downstream firmware */
->>> +	if (!cache_np)
->>> +		cache_np = of_parse_phandle(dev->of_node, "cache", 0);
+On 31/07/2026 20:31, Demi Marie Obenour wrote:
+> On 7/31/26 05:06, Krzysztof Kozlowski wrote:
+>> On 31/07/2026 07:08, Eric Biggers wrote:
+>>> None of the algorithms the QCE driver registers with the crypto API are
+>>> even close to being useful.  They're massively outperformed by the
 >>
->> NAK.
+>> The amount of patches you send towards removal of QCE is really
+>> stunning. Or rather worrying. This is like third approach or so.
 >>
->> You cannot have undocumented ABI. I asked you to drop this at v1.
-> Is there any approach I should consider here in order to support 
-> existing shipped firmware versions that use the 'cache' property, or 
-> should I simply break compatibility?
+>> Your previous approaches received valid feedback, including even fixes
+>> and committment of new maintainer.
+>>
+>> But you even complained that it does receive fixes! [1]
+>>
+>> We removed the driver temporarily from typical configurations, so no one
+>> will be affected, by whatever is found now and not yet fixed. Still not
+>> enough! For you this was reason to remove the driver (AGAIN!) [2]
+> 
+> A stub driver needs to be added for power management reasons.  It turns
+> out that if there is no driver, power consumption is very high.
+> 
+>> This is beyond comprehension and very unpleasant, because you actively
+>> work against the community with this approach.
+> 
+> I trust that Bartosz can fix the driver with enough work.  However,
+> even if the QCE driver had never had a single bug, it would still not
+> be worth using.  Its performance is so poor that one should always
+> use CPU-based crypto instead.  In the default configuration, that is
+> in fact what happens.
+> 
+> The QCE's algorithm implementations only provide a way people can
+> misconfigure their systems and ruin their performance.  There are
+> debug options that also severely harm performance, but they have
+> legitimate uses during development.  The current QCE driver doesn't.
+> 
+> I have no problem with a driver for the QCE that does something actually
+> useful.  While there are disagreements about whether restricted media
+> processing is a feature or an anti-feature, my view is that it is
+> better for it to be implemented upstream than in an out-of-tree driver.
+> However, the driver as it currently exists does not implement this.
+> 
+> I expect that such a driver would not use the crypto API at all.
+> Instead, I suspect it would use dmabufs for source and destination
+> buffers and integrate with the secure world firmware in some way.
+> That means that the driver doesn't belong under drivers/crypto.
+> 
+> These are the reasons I submitted a patch to mark the driver as BROKEN,
+> which Herbert Xu has since accepted.
 
-Kernel is being shipped with DTB for Rpi, because firmware is not
-embedded into some lower fixed storage, so there is no problem of
-compatibility with some out of tree, unsupported DTB.
+And Bartosz and other people committed to work on this by improving,
+fixing and in the long term providing you with the actual important user
+of this. All this was already said.
 
-And no, you cannot use argument of undocumented, unreviewed ABI in
-downstream forks as reason to add such ABI. This defeats the very
-purpose of having upstream.
+And then after having all these discussions Eric sends AGAIN patch to
+remove the driver. How many times this will have to be discussed the
+same way? If we now reach agreement the driver stays, next month again
+there will be a patch to remove it? And then one more month again?
 
-With this approach basically why even reviewing anything? Just accept
-everything anyone ever shipped downstream, right?
+The driver is marked as BROKEN, thus absolutely NO ONE is affected by
+any issues the driver has.
+
+It's some personal vendetta to keep coming after that - unimportant now
+- driver.
 
 Best regards,
 Krzysztof
