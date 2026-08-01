@@ -4,68 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF37EC55173
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 17:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C1BAC55173
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 17:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rCPlU7hrQPc6vJ/hKYoczMIsWwECwKwXXqOPWCqBxt4=; b=E0+p7ugIFtTNdJB5P9flGLvP4P
-	1OXtYjGMxsAkp29OlyfHS+DmQRWexVHVoPJGr4LaqdK8Lk1/bRnE9iFCTH/Jg7VtpBg9fJYgAids0
-	B5flSzj5M0w+5w11AdmKdIt62UuajcwNmmng++369yVVjXKzq4Tkcbkuj7mhe4EwcRIWRyFaWYLlD
-	F4ChhNdMzwzeAMgXaUWL6uKdQEHf5pbYa5PnbUFpBcTO/FRyy73ZofdJR0Ne9J5bXpjfW1tlYVJ5A
-	nkzXPYNF72cHblkLqzuUmc6983WDQse4TfJwEa+S5DtTaYU1DqcN9NiwKRA2nGJlA6CXKa84lVTyp
-	1528GFXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s9EB+RS//J1LVLQYmJ1F9JsoVjN8nQoD7T3vVQUG2DI=; b=yFC0N/j9eQOdyjxzJK7T/8UbpH
+	Fo5yXqysXc+2SL8N7cN9CPkTCDKh+Q2OW7vNrYFnO9hNJhpS2SAxaTJX+k7O4bGKPz9FNn/mvvvWM
+	9TGyudWgw0wd7DUvq1Xn71un6wNPlwvJj1HBlWIEl2/U6yf3S+e4H32aWysYF8K8wJu9VO9d5JOb2
+	RnjitFo54Uo9Ih00yYAbORUBgSO6wtdqzfdDQFUusu8nu3zdQX8/yjK8S4ZgMN1YmxeOO3dA3ijWI
+	/rjokNZnb9q5IJXjlbOdAfnvR3bz9fBky7KciqY9r3PgHP7Hj6sMJV8P0O7Vg5a29krodBfVJHzXA
+	LMClkyBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqDGT-0000000EuUh-2P86;
-	Sat, 01 Aug 2026 17:12:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wqDs2-0000000Ew7K-29i5;
+	Sat, 01 Aug 2026 17:51:38 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqDGR-0000000EuUM-2jdD
+	id 1wqDrw-0000000Ew6S-31ue
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 01 Aug 2026 17:12:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22EFB6004E;
-	Sat,  1 Aug 2026 17:12:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 361451F00AC4;
-	Sat,  1 Aug 2026 17:12:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785604364;
-	bh=rCPlU7hrQPc6vJ/hKYoczMIsWwECwKwXXqOPWCqBxt4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bXLFDEU6nPr4rHtHRjfCv9SehnnYYX4LeSVUi/WEZQRPyn8Azq3JDxvAcFAtjOO7C
-	 XHhvyGQzBx3ruIqQm4iElOcrargZrOflp7EDhnLdHjXPkoegTZwsF7qJS7ocDuFqDP
-	 AIxgJHo9+5Gn8KHjGHxk25TsKuOugF1h66vPL3qLZ3g+fzqe3rtX2Dqy3sroG276Zh
-	 eB7CNnWE/DuiVk5+5fPTpzNPdgFO9ZJFbI5ArU5SR0WSv/R0Et/tqD0jZxIRlLyVFK
-	 +S6ThfIUuuqaXYUh3f01UiLr5uowTOD/BWkfcsD3DUUJPef8l15Qkp97EdCoomC14E
-	 iqI9FUMLZhd/A==
-Date: Sat, 1 Aug 2026 10:12:42 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Demi Marie Obenour <demiobenour@gmail.com>,
-	linux-crypto@vger.kernel.org,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
-	Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH] crypto: qce - Replace with stub driver
-Message-ID: <20260801171242.GA3567@quark>
-References: <20260731050838.158825-1-ebiggers@kernel.org>
- <a28c2903-0976-4559-b870-4de5553ba9ab@kernel.org>
- <3ba57269-3305-4d80-b3f2-aa82fa59b59d@gmail.com>
- <b9b655a9-c683-4c4e-ba0d-f98577dd2912@kernel.org>
- <20260801162900.GA2021@quark>
- <e7aeec9b-11aa-4635-bde9-fb8c7ca38260@kernel.org>
+	Sat, 01 Aug 2026 17:51:36 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-84a2dcede83so2969572b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 10:51:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785606691; x=1786211491; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=s9EB+RS//J1LVLQYmJ1F9JsoVjN8nQoD7T3vVQUG2DI=;
+        b=FPCQlo3YE7Whw8hplz5FjTtHCOb/Y17rK1JX1UdwlYdWMchz03GPZyoKmgkArofoZO
+         rnC6IAFQU1Te1wpObvaBDid/cDwMdaJ/6i7Yjk2zU2UoRRTnR8SfcKqhy4hPYmvIyj5i
+         e3mcZ4UI4LTBhvNSJLlUInIyOQZ2SsxIxjBHMekX73J5qTdH6MtckJITEoVb6OJQQ4Uh
+         7n0ye3KqvgLOzbToPcvIjxb5z+Ks9Y/TjhAyCiU3V7ZLr7N+LDMhLniKyZi2mwYuA6uZ
+         sg3m1aZXr83thGFJ0eUOh5e5rv8UEVnFpwHUp/ZtrfyZsOlaiX3Qlgt/KVdQH5h0C+FF
+         6Gig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785606691; x=1786211491;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=s9EB+RS//J1LVLQYmJ1F9JsoVjN8nQoD7T3vVQUG2DI=;
+        b=k6xt/rKUyIEmF3czNqLylTuD7EK1Tx77PKDOwGdXeR7Kjf4Nz+eIFsCC1xfhoi2m8m
+         Q/IdHJf79WG3qx7sdVClokMB8eanupaNGWvjZdmI3Bz7DgRb03+h+6vszup/AAIdbak1
+         rEgl+1i399b93UrtCLM3KuOqoqW0sDMNhiuB5QfDVynBQkPl+W65gUipbxG/CaurTPMZ
+         UJCjMREaf7kJBuO1CA0TI7XSVjSpiO+rPuuRtAMilabfUbQwbSg/12KHqm3oCbuzcQoR
+         0R5nABXnHB02MrH4d0G4AnTU3iTF1+RgNZu51OdO7kYwjI1z2ImUF8Ro6sLCzDCqbxUl
+         mtuA==
+X-Forwarded-Encrypted: i=1; AHgh+Rq/Z5CDZZoVpedS4nVaskCTI+PrRUp/FETloaOx+lX2prwF0jhTdgklviqVgjArYFYS1XpGVLS+5/WWAk0cWJ09@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxi7H5bojwKVibH1sObi3JivilDEbme7zdg/wHYt4obhkpg2dVk
+	Mi5yLIsXaAakq0y+tpS+tfCcAEao8fEfVRmneqdFIXwgWx9jL+iykim3
+X-Gm-Gg: AR+sD108XqSdnZ+KtbOWdpttY0lM+lsTbP0m6CJvBn31gme4T5BNY85QHAN5Jt3J6ll
+	oxfvt4+OhzHrnovZy/KVPq9puImmcseRelc8fs8/xGMZi1fW2hQoD3vrTsM3AhbLEjFuYH+R2ch
+	XqDzdCfgSVIyNLXtsBL9fnIhQ73N7EYsYzYoKEDElGjDG8+Y9lrTSGA2kTDE9PkygCm/btRzgBX
+	51YYnu2iJk0g66nIEYPRQXCad7jy5qGFtsOd9JDaJj+59j27vh9QVeqBM8OtbQDRTqCO+7vzdEr
+	7HAlCSlPVJ4kgQZhIoGLXNTqhBbFBtTyHwq4+00LC8B34si/wqsaTGaJ1ligRNtrSDTDqNup1NV
+	908Rxb5/GqvJ415/3/M+rRqpK1Pi69v+hBkDkw+gRTm/iRtF1KU321jwYVY/H8EX8FP2z957Eca
+	+CfN0ji5gw3Cwqr2vcUYWdr5DMbY2CgR3+bZEXv3iFZYGX9TIy5uXYkAQUEuCIwysvGAEOwV/j0
+	QGBGU2busCHKUFKtEQVO2KQXDtGNk+Q1Qzu/g==
+X-Received: by 2002:a05:6a00:4f81:b0:848:2f77:e2e2 with SMTP id d2e1a72fcca58-84ee49b4dfcmr3807979b3a.75.1785606690871;
+        Sat, 01 Aug 2026 10:51:30 -0700 (PDT)
+Received: from [127.0.0.1] ([103.17.98.26])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cbe3963da0asm1851610a12.4.2026.08.01.10.51.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 01 Aug 2026 10:51:30 -0700 (PDT)
+From: Felix Gu <ustc.gu@gmail.com>
+Date: Sun, 02 Aug 2026 01:51:24 +0800
+Subject: [PATCH v2] spi: meson-spifc: use
+ devm_pm_runtime_set_active_enabled
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e7aeec9b-11aa-4635-bde9-fb8c7ca38260@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260802-spifc-v2-1-46e9d06a3217@gmail.com>
+X-B4-Tracking: v=1; b=H4sIABsybmoC/12NwQ7CIBAFf6XZsxigiNGT/2F6ALpt19jSQCWah
+ n+X1pvHSebNWyFiIIxwrVYImCiSnwrIQwVuMFOPjNrCILnU/CwlizN1jtW17myLl5MQFoo7B+z
+ ovXfuzY/jyz7QLdt4MwaKiw+f/SiJzftvJsEEQ6W0NMppw/WtHw09j86P0OScv8eNlqKsAAAA
+X-Change-ID: 20260722-spifc-336fbde9511b
+To: Mark Brown <broonie@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Felix Gu <ustc.gu@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785606686; l=1987;
+ i=ustc.gu@gmail.com; h=from:subject:message-id;
+ bh=yMtI9BK0fNpSFzuJ+wAyM1BWD3SMOzrFcrsFwAmmawo=;
+ b=6VtTQY9UDzYuad/EIaTRPmGT2JECVibG+R/klKIvnybHeF+an/RrExy+5fAkpr9Oe+g01/wW8
+ UUVpgKTTUSeDht2aim/cUJxJiQ9JMVeQyIA2/Wk55yEu1mpxU2IROTf
+X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
+ pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260801_105132_771290_FFC1F8A8 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,115 +114,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 01, 2026 at 06:35:56PM +0200, Krzysztof Kozlowski wrote:
-> On 01/08/2026 18:29, Eric Biggers wrote:
-> > On Sat, Aug 01, 2026 at 11:18:46AM +0200, Krzysztof Kozlowski wrote:
-> >> On 31/07/2026 20:31, Demi Marie Obenour wrote:
-> >>> On 7/31/26 05:06, Krzysztof Kozlowski wrote:
-> >>>> On 31/07/2026 07:08, Eric Biggers wrote:
-> >>>>> None of the algorithms the QCE driver registers with the crypto API are
-> >>>>> even close to being useful.  They're massively outperformed by the
-> >>>>
-> >>>> The amount of patches you send towards removal of QCE is really
-> >>>> stunning. Or rather worrying. This is like third approach or so.
-> >>>>
-> >>>> Your previous approaches received valid feedback, including even fixes
-> >>>> and committment of new maintainer.
-> >>>>
-> >>>> But you even complained that it does receive fixes! [1]
-> >>>>
-> >>>> We removed the driver temporarily from typical configurations, so no one
-> >>>> will be affected, by whatever is found now and not yet fixed. Still not
-> >>>> enough! For you this was reason to remove the driver (AGAIN!) [2]
-> >>>
-> >>> A stub driver needs to be added for power management reasons.  It turns
-> >>> out that if there is no driver, power consumption is very high.
-> >>>
-> >>>> This is beyond comprehension and very unpleasant, because you actively
-> >>>> work against the community with this approach.
-> >>>
-> >>> I trust that Bartosz can fix the driver with enough work.  However,
-> >>> even if the QCE driver had never had a single bug, it would still not
-> >>> be worth using.  Its performance is so poor that one should always
-> >>> use CPU-based crypto instead.  In the default configuration, that is
-> >>> in fact what happens.
-> >>>
-> >>> The QCE's algorithm implementations only provide a way people can
-> >>> misconfigure their systems and ruin their performance.  There are
-> >>> debug options that also severely harm performance, but they have
-> >>> legitimate uses during development.  The current QCE driver doesn't.
-> >>>
-> >>> I have no problem with a driver for the QCE that does something actually
-> >>> useful.  While there are disagreements about whether restricted media
-> >>> processing is a feature or an anti-feature, my view is that it is
-> >>> better for it to be implemented upstream than in an out-of-tree driver.
-> >>> However, the driver as it currently exists does not implement this.
-> >>>
-> >>> I expect that such a driver would not use the crypto API at all.
-> >>> Instead, I suspect it would use dmabufs for source and destination
-> >>> buffers and integrate with the secure world firmware in some way.
-> >>> That means that the driver doesn't belong under drivers/crypto.
-> >>>
-> >>> These are the reasons I submitted a patch to mark the driver as BROKEN,
-> >>> which Herbert Xu has since accepted.
-> >>
-> >> And Bartosz and other people committed to work on this by improving,
-> >> fixing and in the long term providing you with the actual important user
-> >> of this. All this was already said.
-> >>
-> >> And then after having all these discussions Eric sends AGAIN patch to
-> >> remove the driver. How many times this will have to be discussed the
-> >> same way? If we now reach agreement the driver stays, next month again
-> >> there will be a patch to remove it? And then one more month again?
-> >>
-> >> The driver is marked as BROKEN, thus absolutely NO ONE is affected by
-> >> any issues the driver has.
-> >>
-> >> It's some personal vendetta to keep coming after that - unimportant now
-> >> - driver.
-> > 
-> > Well, there was also feedback that BROKEN drivers should not stay in the
-> > tree and instead just be removed.  So I was considering that feedback
-> > too, as well as the results of additional testing and review of this
-> > driver, including evidence that the driver performs even worse than
-> > thought and is actually getting even worse; the performance seems
-> > irredeemable.  As for proposing the stub driver, that is addressing the
-> > power management issue that was mentioned on the other thread.
-> > 
-> > Anyway, it sounds like you support it being BROKEN.  Okay, but again, as
-> > Greg mentioned
-> > (https://lore.kernel.org/linux-crypto/2026071312-uncover-refining-8cac@gregkh/)
-> > it is awkward to have BROKEN stuff in the tree since it cannot even be
-> > built.  I'm not sure we can have it both ways!
-> 
-> Which was I think pointed already a few times that it will not stay
-> BROKEN but will get fixed and get proper useful use cases.
+Use devm_pm_runtime_set_active_enabled to replace
+pm_runtime_set_active() + pm_runtime_enable() and drop the out_pm
+error label.
 
-Well, that again brings us back to the core issue which is the actual
-current functionality of the driver, which is to register crypto_ahash,
-crypto_skcipher, and crypto_aead algorithms with the crypto API.
+Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+---
+Changes in v2:
+- Fix Mark's comment.
+- Link to v1: https://patch.msgid.link/20260722-spifc-v1-1-e4462a4c6a06@gmail.com
 
-It isn't useful functionality, but rather just a footgun that allows
-users to misconfigure their systems, an issue I've seen happen multiple
-times.  CPU-based implementations of *every one* of those algorithms
-already exist.  On a typical SoC that has this hardware, the CPU-based
-implementations are ~50x faster as shown in tests.  Pending patches make
-the difference even greater at ~100x.  And the CPU-based implementations
-actually use significantly less CPU time, as well.  There seems to be no
-path forward for significantly fixing this issue, either.
+To: Mark Brown <broonie@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Kevin Hilman <khilman@baylibre.com>
+To: Jerome Brunet <jbrunet@baylibre.com>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-spi@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-amlogic@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/spi/spi-meson-spifc.c | 16 +++++-----------
+ 1 file changed, 5 insertions(+), 11 deletions(-)
 
-Then, if these algorithms are removed, the rest of the code in the
-driver (besides setting the interconnect bandwidth) becomes unused.  The
-policy in the kernel for dead code is that it should be removed.  So
-that is why it makes sense to drop that code as well, but really the
-core issue is the crypto algorithm registrations, not the supporting
-code per se.
+diff --git a/drivers/spi/spi-meson-spifc.c b/drivers/spi/spi-meson-spifc.c
+index e36aa94bbdae..82c1c3c0c84b 100644
+--- a/drivers/spi/spi-meson-spifc.c
++++ b/drivers/spi/spi-meson-spifc.c
+@@ -325,26 +325,20 @@ static int meson_spifc_probe(struct platform_device *pdev)
+ 
+ 	meson_spifc_hw_init(spifc);
+ 
+-	pm_runtime_set_active(spifc->dev);
+-	pm_runtime_enable(spifc->dev);
++	ret =  devm_pm_runtime_set_active_enabled(spifc->dev);
++	if (ret)
++		return dev_err_probe(spifc->dev, ret, "failed to set runtime PM\n");
+ 
+ 	ret = devm_spi_register_controller(spifc->dev, host);
+-	if (ret) {
+-		dev_err(spifc->dev, "failed to register spi host\n");
+-		goto out_pm;
+-	}
++	if (ret)
++		return dev_err_probe(spifc->dev, ret, "failed to register spi host\n");
+ 
+ 	return 0;
+-out_pm:
+-	pm_runtime_disable(spifc->dev);
+-
+-	return ret;
+ }
+ 
+ static void meson_spifc_remove(struct platform_device *pdev)
+ {
+ 	pm_runtime_get_sync(&pdev->dev);
+-	pm_runtime_disable(&pdev->dev);
+ 	pm_runtime_put_noidle(&pdev->dev);
+ }
+ 
 
-An alternative we could consider is dropping the cra_priority further,
-to further decrease the chance that these algorithms are used.  But I
-feel it's hard to justify why they're there at all, if the rationale for
-keeping them is "we made sure that no one can actually use them, so they
-can't be causing problems anymore"...
+---
+base-commit: 3fe08b9796f36ef437ab9328e7dd1e5ff2d66603
+change-id: 20260722-spifc-336fbde9511b
 
-- Eric
+Best regards,
+--  
+Felix Gu <ustc.gu@gmail.com>
+
 
