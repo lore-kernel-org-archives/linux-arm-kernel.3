@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDDCCC55175
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DEAC5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  1 Aug 2026 09:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sabZ//AtpzLb7TMq3zY3IlaXl11sk1zDxBbZBnwOTU4=; b=ukac8uq7oGHyQqOikeYAIR6ll8
-	wQtwe8MhChWH0ayKyjhkQ/irg08EgNCycUwBs3asB1YuJemK1kf7p/50vdnZi94wx9iPWdVAfjyIJ
-	sZ//GSSEB8tFdAAaI8G8OG1tHAopXwZtF8lQiAxZ4tbceVAFN11CcYBENuM5EthFYyhxuK2iweAt9
-	JdiAiVcooAZslva9zYgIr6pqL1r9JT5oEBuaOmaryXIM9hsv1Gn5y8nVKO9HQ3u0z8KuKqj1+lWYe
-	mcqVLsbbuZNYYy8QXNcIF1j1N9c8ZlXeyk1dMh+liHYq83sNG+ulUDya0EPonRlo9zGAgU4BuAQD/
-	igoiMxlw==;
+	bh=POLTv/dSyD6twt28Ah7GVbTOpw4mdCruwE8K2OjsAjk=; b=Lo4RYSEGRd+4xryKfqDhiL/Azn
+	T/2NHaOuqOBgS9j4M7g06aIfl2Mid7jvfqaPf+475YQ9IQaG9jsWTiyHliU+JWy8IF9pEmqSyHRcE
+	AtvTMhVOrcVf+GlCtP7UtMD2vUPgw1stIXjwc3dLEV4i8so4/cpceOEObromK1MlS5zVY8CokSKU3
+	b7fYBHLvRiviRxb+bWlwyi5071ktaaVl+PhRt8DntQfRfHkfyQ6X515YXVwD5L+XLkaj2b6jxRriY
+	EGrA/Emd6lbH9yxcs9kuRv5l/xCEap//4J36T+O3HQJRLNginmH7mYJ1FAZ/clClBppyKE9200RM+
+	okudOXZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5xZ-0000000E8Q2-0Z1A;
-	Sat, 01 Aug 2026 09:24:49 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wq5xX-0000000E8PP-3I8Z;
+	Sat, 01 Aug 2026 09:24:47 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wq5xU-0000000E8NP-1U0I
+	id 1wq5xU-0000000E8NU-1KSF
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 01 Aug 2026 09:24:46 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=sabZ//AtpzLb7TMq3zY3IlaXl11sk1zDxBbZBnwOTU4=;
-	b=TarxnRlK4WPRWM5o4U6EPdYYvDiAigoFHzQgzr41gmq4Xiz/jC43y8xCG4hegq86sTduPI61y
-	chus0gFoLn5SgSLxGePwFr+xmWsFANcGK/9SgTYNwZwP1sWl37RoCR3vJzX7kNl8mdgZQ+EzWwX
-	t254jpTZfGTKD0B/az9ig3c=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hBy2H2RJ0zmV8f;
-	Sat,  1 Aug 2026 17:15:03 +0800 (CST)
+	bh=POLTv/dSyD6twt28Ah7GVbTOpw4mdCruwE8K2OjsAjk=;
+	b=KnR0cgimq8mz/8eni2Ztl7+tofLt9gMAAssWaGhzrk+B9QRwGuwbaSdRaUEX0sKH5vAdPnJQN
+	R4J7b3rgWthhheme1l/71yklrd3mY8Bsd70wKE7xISHjX5gtN4ZCvGgvxJLv10zTvJnFDJVPfcM
+	xHszFCBFv4S3fWF0eJPr4JU=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hBy2G65mJzLlTg;
+	Sat,  1 Aug 2026 17:15:02 +0800 (CST)
 Received: from kwepemo100012.china.huawei.com (unknown [7.202.195.139])
-	by mail.maildlp.com (Postfix) with ESMTPS id 62C6440586;
-	Sat,  1 Aug 2026 17:24:32 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id B003F402AB;
+	Sat,  1 Aug 2026 17:24:31 +0800 (CST)
 Received: from huawei.com (10.50.163.32) by kwepemo100012.china.huawei.com
  (7.202.195.139) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Sat, 1 Aug
- 2026 17:24:31 +0800
+ 2026 17:24:30 +0800
 From: Yifan Wu <wuyifan50@huawei.com>
 To: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <Dave.Martin@arm.com>,
 	<james.morse@arm.com>, <babu.moger@amd.com>, <shuah@kernel.org>,
@@ -53,9 +53,9 @@ To: <tony.luck@intel.com>, <reinette.chatre@intel.com>, <Dave.Martin@arm.com>,
 	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
 CC: <prime.zeng@hisilicon.com>, <wangyushan12@huawei.com>,
 	<xuwei5@huawei.com>, <wangzhou1@hisilicon.com>, <xiaqinxin@huawei.com>
-Subject: [PATCH v4 2/3] selftests/resctrl: Replace counter index references with pointers
-Date: Sat, 1 Aug 2026 17:24:28 +0800
-Message-ID: <20260801092429.533956-3-wuyifan50@huawei.com>
+Subject: [PATCH v4 1/3] selftests/resctrl: Introduce linked list management for IMC counters
+Date: Sat, 1 Aug 2026 17:24:27 +0800
+Message-ID: <20260801092429.533956-2-wuyifan50@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260801092429.533956-1-wuyifan50@huawei.com>
 References: <20260801092429.533956-1-wuyifan50@huawei.com>
@@ -66,8 +66,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemo100012.china.huawei.com (7.202.195.139)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_022444_712336_9069027D 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260801_022444_670814_1FCA57F4 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,150 +82,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace direct counter number references with pointers to remove the
-dependency on fixed array indexing and enable the use of different
-data structures for counter management.
+The static array approach to managing IMC counters has fixed size
+constraints and limited compatibility and scalability. Introduce
+a linked list-based dynamic management infrastructure to address
+these limitations. Add the core data structure definitions and
+memory allocation and cleanup functions for dynamic counter
+configurations.
 
 Reviewed-by: Reinette Chatre <reinette.chatre@intel.com>
 Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
 ---
- tools/testing/selftests/resctrl/resctrl_val.c | 62 +++++++++----------
- 1 file changed, 29 insertions(+), 33 deletions(-)
+ tools/testing/selftests/resctrl/mba_test.c    |  1 +
+ tools/testing/selftests/resctrl/mbm_test.c    |  1 +
+ tools/testing/selftests/resctrl/resctrl.h     |  2 ++
+ tools/testing/selftests/resctrl/resctrl_val.c | 27 +++++++++++++++++--
+ 4 files changed, 29 insertions(+), 2 deletions(-)
 
+diff --git a/tools/testing/selftests/resctrl/mba_test.c b/tools/testing/selftests/resctrl/mba_test.c
+index 39cee9898359..4bb1a82eb195 100644
+--- a/tools/testing/selftests/resctrl/mba_test.c
++++ b/tools/testing/selftests/resctrl/mba_test.c
+@@ -166,6 +166,7 @@ static int check_results(void)
+ 
+ static void mba_test_cleanup(void)
+ {
++	cleanup_read_mem_bw_imc();
+ 	remove(RESULT_FILE_NAME);
+ }
+ 
+diff --git a/tools/testing/selftests/resctrl/mbm_test.c b/tools/testing/selftests/resctrl/mbm_test.c
+index 6dbbc3b76003..68c89f50a34a 100644
+--- a/tools/testing/selftests/resctrl/mbm_test.c
++++ b/tools/testing/selftests/resctrl/mbm_test.c
+@@ -125,6 +125,7 @@ static int mbm_measure(const struct user_params *uparams,
+ 
+ static void mbm_test_cleanup(void)
+ {
++	cleanup_read_mem_bw_imc();
+ 	remove(RESULT_FILE_NAME);
+ }
+ 
+diff --git a/tools/testing/selftests/resctrl/resctrl.h b/tools/testing/selftests/resctrl/resctrl.h
+index 175101022bf3..a7556cdae0de 100644
+--- a/tools/testing/selftests/resctrl/resctrl.h
++++ b/tools/testing/selftests/resctrl/resctrl.h
+@@ -24,6 +24,7 @@
+ #include <linux/perf_event.h>
+ #include <linux/compiler.h>
+ #include <linux/bits.h>
++#include <linux/list.h>
+ #include "kselftest.h"
+ 
+ #define MB			(1024 * 1024)
+@@ -183,6 +184,7 @@ void mem_flush(unsigned char *buf, size_t buf_size);
+ void fill_cache_read(unsigned char *buf, size_t buf_size, bool once);
+ ssize_t get_fill_buf_size(int cpu_no, const char *cache_type);
+ int initialize_read_mem_bw_imc(void);
++void cleanup_read_mem_bw_imc(void);
+ int measure_read_mem_bw(const struct user_params *uparams,
+ 			struct resctrl_val_param *param, pid_t bm_pid);
+ void initialize_mem_bw_resctrl(const struct resctrl_val_param *param,
 diff --git a/tools/testing/selftests/resctrl/resctrl_val.c b/tools/testing/selftests/resctrl/resctrl_val.c
-index a72dc4ae61fe..f4111da26fc2 100644
+index f20d2194c35f..a72dc4ae61fe 100644
 --- a/tools/testing/selftests/resctrl/resctrl_val.c
 +++ b/tools/testing/selftests/resctrl/resctrl_val.c
-@@ -42,40 +42,37 @@ static struct imc_counter_config imc_counters_config[MAX_IMCS];
- LIST_HEAD(imc_counters_list);
+@@ -28,6 +28,7 @@ struct membw_read_format {
+ };
+ 
+ struct imc_counter_config {
++	struct list_head entry;
+ 	__u32 type;
+ 	__u64 event;
+ 	__u64 umask;
+@@ -38,6 +39,7 @@ struct imc_counter_config {
+ static char mbm_total_path[1024];
+ static int imcs;
+ static struct imc_counter_config imc_counters_config[MAX_IMCS];
++LIST_HEAD(imc_counters_list);
  static const struct resctrl_test *current_test;
  
--static void read_mem_bw_initialize_perf_event_attr(int i)
-+static void read_mem_bw_initialize_perf_event_attr(struct imc_counter_config *imc_counter)
+ static void read_mem_bw_initialize_perf_event_attr(int i)
+@@ -113,6 +115,7 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
+ 				    unsigned int *count)
  {
--	memset(&imc_counters_config[i].pe, 0,
--	       sizeof(struct perf_event_attr));
--	imc_counters_config[i].pe.type = imc_counters_config[i].type;
--	imc_counters_config[i].pe.size = sizeof(struct perf_event_attr);
--	imc_counters_config[i].pe.disabled = 1;
--	imc_counters_config[i].pe.inherit = 1;
--	imc_counters_config[i].pe.exclude_guest = 0;
--	imc_counters_config[i].pe.config =
--		imc_counters_config[i].umask << 8 |
--		imc_counters_config[i].event;
--	imc_counters_config[i].pe.sample_type = PERF_SAMPLE_IDENTIFIER;
--	imc_counters_config[i].pe.read_format =
-+	memset(&imc_counter->pe, 0, sizeof(struct perf_event_attr));
-+	imc_counter->pe.type = imc_counter->type;
-+	imc_counter->pe.size = sizeof(struct perf_event_attr);
-+	imc_counter->pe.disabled = 1;
-+	imc_counter->pe.inherit = 1;
-+	imc_counter->pe.exclude_guest = 0;
-+	imc_counter->pe.config = imc_counter->umask << 8 | imc_counter->event;
-+	imc_counter->pe.sample_type = PERF_SAMPLE_IDENTIFIER;
-+	imc_counter->pe.read_format =
- 		PERF_FORMAT_TOTAL_TIME_ENABLED | PERF_FORMAT_TOTAL_TIME_RUNNING;
- }
- 
--static void read_mem_bw_ioctl_perf_event_ioc_reset_enable(int i)
-+static void read_mem_bw_ioctl_perf_event_ioc_reset_enable(struct imc_counter_config *imc_counter)
- {
--	ioctl(imc_counters_config[i].fd, PERF_EVENT_IOC_RESET, 0);
--	ioctl(imc_counters_config[i].fd, PERF_EVENT_IOC_ENABLE, 0);
-+	ioctl(imc_counter->fd, PERF_EVENT_IOC_RESET, 0);
-+	ioctl(imc_counter->fd, PERF_EVENT_IOC_ENABLE, 0);
- }
- 
--static void read_mem_bw_ioctl_perf_event_ioc_disable(int i)
-+static void read_mem_bw_ioctl_perf_event_ioc_disable(struct imc_counter_config *imc_counter)
- {
--	ioctl(imc_counters_config[i].fd, PERF_EVENT_IOC_DISABLE, 0);
-+	ioctl(imc_counter->fd, PERF_EVENT_IOC_DISABLE, 0);
- }
- 
- /*
-  * get_read_event_and_umask:	Parse config into event and umask
-  * @cas_count_cfg:	Config
-- * @count:		iMC number
-+ * @imc_counter:	iMC counter config
-  */
--static void get_read_event_and_umask(char *cas_count_cfg, unsigned int count)
-+static void get_read_event_and_umask(char *cas_count_cfg, struct imc_counter_config *imc_counter)
- {
- 	char *token[MAX_TOKENS];
- 	int i = 0;
-@@ -89,21 +86,20 @@ static void get_read_event_and_umask(char *cas_count_cfg, unsigned int count)
- 		if (!token[i])
- 			break;
- 		if (strcmp(token[i], "event") == 0)
--			imc_counters_config[count].event = strtol(token[i + 1], NULL, 16);
-+			imc_counter->event = strtol(token[i + 1], NULL, 16);
- 		if (strcmp(token[i], "umask") == 0)
--			imc_counters_config[count].umask = strtol(token[i + 1], NULL, 16);
-+			imc_counter->umask = strtol(token[i + 1], NULL, 16);
+ 	char imc_events_dir[PATH_MAX], imc_counter_cfg[PATH_MAX];
++	struct imc_counter_config *imc_counter;
+ 	unsigned int orig_count = *count;
+ 	char cas_count_cfg[1024];
+ 	struct dirent *ep;
+@@ -126,13 +129,13 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
+ 			    imc_dir);
+ 	if (path_len >= sizeof(imc_events_dir)) {
+ 		ksft_print_msg("Unable to create path to %sevents\n", imc_dir);
+-		return -1;
++		goto out;
  	}
- }
  
--static int open_perf_read_event(int i, int cpu_no)
-+static int open_perf_read_event(int cpu_no, struct imc_counter_config *imc_counter)
- {
--	imc_counters_config[i].fd =
--		perf_event_open(&imc_counters_config[i].pe, -1, cpu_no, -1,
--				PERF_FLAG_FD_CLOEXEC);
-+	imc_counter->fd = perf_event_open(&imc_counter->pe, -1, cpu_no, -1,
-+					  PERF_FLAG_FD_CLOEXEC);
- 
--	if (imc_counters_config[i].fd == -1) {
-+	if (imc_counter->fd == -1) {
- 		fprintf(stderr, "Error opening leader %llx\n",
--			imc_counters_config[i].pe.config);
-+			imc_counter->pe.config);
- 
- 		return -1;
+ 	dp = opendir(imc_events_dir);
+ 	if (!dp) {
+ 		ksft_perror("Unable to open PMU events directory");
+-		return -1;
++		goto out;
  	}
-@@ -177,7 +173,7 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
+ 
+ 	while ((ep = readdir(dp))) {
+@@ -167,11 +170,17 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
+ 			ksft_print_msg("Maximum iMC count exceeded\n");
+ 			goto out_close;
  		}
++		imc_counter = calloc(1, sizeof(*imc_counter));
++		if (!imc_counter) {
++			ksft_perror("Unable to allocate memory for iMC counters");
++			goto out_close;
++		}
  
  		imc_counters_config[*count].type = type;
--		get_read_event_and_umask(cas_count_cfg, *count);
-+		get_read_event_and_umask(cas_count_cfg, &imc_counters_config[*count]);
+ 		get_read_event_and_umask(cas_count_cfg, *count);
  		/* Do not fail after incrementing *count. */
  		*count += 1;
- 		list_add(&imc_counter->entry, &imc_counters_list);
-@@ -311,7 +307,7 @@ int initialize_read_mem_bw_imc(void)
++		list_add(&imc_counter->entry, &imc_counters_list);
+ 	}
+ 	if (*count == orig_count) {
+ 		ksft_print_msg("Unable to find events in %s\n", imc_events_dir);
+@@ -180,6 +189,10 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
+ 	ret = 0;
+ out_close:
+ 	closedir(dp);
++out:
++	if (ret)
++		cleanup_read_mem_bw_imc();
++
+ 	return ret;
+ }
  
- 	/* Initialize perf_event_attr structures for all iMC's */
- 	for (imc = 0; imc < imcs; imc++)
--		read_mem_bw_initialize_perf_event_attr(imc);
-+		read_mem_bw_initialize_perf_event_attr(&imc_counters_config[imc]);
- 
+@@ -303,6 +316,16 @@ int initialize_read_mem_bw_imc(void)
  	return 0;
  }
-@@ -350,7 +346,7 @@ static int perf_open_imc_read_mem_bw(int cpu_no)
- 		imc_counters_config[imc].fd = -1;
  
- 	for (imc = 0; imc < imcs; imc++) {
--		ret = open_perf_read_event(imc, cpu_no);
-+		ret = open_perf_read_event(cpu_no, &imc_counters_config[imc]);
- 		if (ret)
- 			goto close_fds;
- 	}
-@@ -373,13 +369,13 @@ static void do_imc_read_mem_bw_test(void)
- 	int imc;
- 
- 	for (imc = 0; imc < imcs; imc++)
--		read_mem_bw_ioctl_perf_event_ioc_reset_enable(imc);
-+		read_mem_bw_ioctl_perf_event_ioc_reset_enable(&imc_counters_config[imc]);
- 
- 	sleep(1);
- 
- 	/* Stop counters after a second to get results. */
- 	for (imc = 0; imc < imcs; imc++)
--		read_mem_bw_ioctl_perf_event_ioc_disable(imc);
-+		read_mem_bw_ioctl_perf_event_ioc_disable(&imc_counters_config[imc]);
- }
- 
- /*
++void cleanup_read_mem_bw_imc(void)
++{
++	struct imc_counter_config *imc_counter, *tmp;
++
++	list_for_each_entry_safe(imc_counter, tmp, &imc_counters_list, entry) {
++		list_del(&imc_counter->entry);
++		free(imc_counter);
++	}
++}
++
+ static void perf_close_imc_read_mem_bw(void)
+ {
+ 	int mc;
 -- 
 2.33.0
 
