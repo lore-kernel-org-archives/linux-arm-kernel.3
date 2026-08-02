@@ -4,95 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499E3C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 02:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302CEC5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 02:04:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAROnVhnAkeu5y0AEEbAdxluS7JzVCg5yWSFlsMM8jk=; b=L9Kd4LRgTo38EPS45F0Byv+TtW
-	F2yhyNTnMn5okCHXCcfxKw0Q2w2ez9mpnzmxJzgY6rT0KBVsvgY5VI3rm7fxYfnnXK543lJHF2y7V
-	mf4HgvHH+aSMgt8CKgT3IlZycbEmW/N1rg1aJS34QaYHrCmSDfs7x02W3Qn5yrqyfAsc5uBG2ajTj
-	s32JdsfUG+RAmeM5ZzRasssj8MqZErJtFp7aGm0v1n1p+VEALpenXlmwDkMSSqsdwawhKwPtxvcqS
-	eGgnUw8uSR7jeU+LXKFFwPEAnl1u0i4WMiwpkDnRDC/vUb5SkZGfCWU2Uaot7G/TSxjTIw1SoROMl
-	siR19oGA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wpl02wFSQUzfqIkSPliw06Gp8adNirX4z9LPQ52Pyoc=; b=GvMNRFGwvS7Pb0+hYZ44z3SN8m
+	+6L6nUNgZ4T1KZEbn5hwAp8xGbu3qVg7FDgGBEP6hJxZk+za/RxdGhQDV7O+qJc+0Gg+dfW3ekcHK
+	0U5KWrthUtyEfHVHKK1TeRB9LqEM1EaZ8vqucF4SBTxC5L8ZkkBqg21L8QH3IuEPGH0uhdi8ANGGh
+	N3MEKbq5WPNIe5i75mAs2bvWUfNWCPlPRla1VkSn3mYRX8nTygGV6rSmwRzoZVasyjgsPUvgWO5lt
+	FWLNZJk5LA/eq3SSapTTvRGQYkXB6mHrxQGaczP8H/ilTvbAp0fKGWd8p5OZ5IFAtz3AQtjUV+k1M
+	OtnwwwBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqLYh-0000000FGZo-22nj;
-	Sun, 02 Aug 2026 02:04:11 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1wqLZA-0000000FGdh-02Bu;
+	Sun, 02 Aug 2026 02:04:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqLYe-0000000FGZH-4C4N;
-	Sun, 02 Aug 2026 02:04:10 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4hCNQW6jbVzMlGX;
-	Sun, 02 Aug 2026 04:04:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1785636244;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GAROnVhnAkeu5y0AEEbAdxluS7JzVCg5yWSFlsMM8jk=;
-	b=n9i4I1vozJzGZcSPuIoPpLuypkiaRkI86dE+jgR4bL6ZvLQHNoHA4HObp5ayonRe1/a6Bb
-	vrBsYoR6rqAPIOH3V8Mo74XkOBAeQBe7kc6xqJ0Zb7kBZvue9dVuLv5pz9hTpgtdMH/dPK
-	BGRlAunqEnIAEyOL37lTTd3jLEx3uNTqIOymmg4w4uZqZzLe6Mh2PC2Va21XFoYeVbbzF7
-	DGGCaaSLVr6vbRCcfF6e5lebf/5CDA/n2TzuiD4v+q/NCt6g+AU2GCmfG5QDUhYvNKk0Sg
-	QLMs1EAJ6sjHntWS5lfdpoyTE+aUe4rQX4TZac7x6jSeMrfi/AfKQ5d9qc//wA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=RgItc+k+;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-Message-ID: <6108aa58-3595-4b43-82a4-6f94cb9cca31@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1785636242;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GAROnVhnAkeu5y0AEEbAdxluS7JzVCg5yWSFlsMM8jk=;
-	b=RgItc+k+jb3+1Q+UviTwgUyiZsOWh004DL/I0Fq9hJSZa03L6EFvNBxgXLFAoLOrpMTNAJ
-	znX3AHCgsCzbQHIKLZf93RGWF8degeOD94PzNCgSjkugPrpXCFYj4QCmmxpTxvPWAr9j1V
-	za7XCw/cNKoNZXZ8mLBLzccprC/EIKV9hA1HC5XNMH92zofG7ifjV9D3/WMt3CQX8rcT+T
-	EjcLS/gJW5KjJAUrnodiOg0bvi5UMHjlC+sn3aBdxzhpUNDFxi/MMHSHH947v7OP3yTRKd
-	tidnaSlx7wOGosz7pNULJIEQMGQgYY4P6bgqEtlXml3s3Lellaf68Nh6M+6Ffg==
-Date: Sun, 2 Aug 2026 04:03:56 +0200
+	id 1wqLZ8-0000000FGdT-3d0g
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 02 Aug 2026 02:04:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E55A06057A;
+	Sun,  2 Aug 2026 02:04:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64C761F00AC4;
+	Sun,  2 Aug 2026 02:04:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785636277;
+	bh=wpl02wFSQUzfqIkSPliw06Gp8adNirX4z9LPQ52Pyoc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=CMiGMS1jP6rl5SRFkGe1GyfGx+nkF27OZQoj2S2oyeuHlfyeUx6XwCWR0lGxUYvy+
+	 kskAM6uVTKhSKLOTW13V1zfMZ7qky2AkdB+uzjcqI0bE3c4A9HW0kJQ+b3okY1oZMY
+	 sRTjww7zazHYe61GKsjFuOaLvFWf5nr4MZw96i1vSezSqm8+IvjTRnPfO6y/9iqfeR
+	 SCWT3kxoI9lGyz69Ez8RaEan7h1P/FfnS6NRr59pPpEEn01914Wxobz4lKO9e5TXof
+	 EDGFZEgGj1AHG0C4GA23EXo0jQjIwCT57hBPvZ3KHEdyZ5lYfX/QbrfG1O8Bd4WfoJ
+	 ASPscnS7VEKQQ==
+Date: Sun, 2 Aug 2026 03:04:33 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: mdshahid03@gmail.com
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Joshua Crofts
+ <joshua.crofts@broadcom.com>, Broadcom internal kernel list
+ <bcm-kernel-feedback-list@broadcom.com>, David Lechner
+ <dlechner@baylibre.com>, linux-arm-kernel@lists.infradead.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Ray Jui <rjui@broadcom.com>, Scott
+ Branden <sbranden@broadcom.com>
+Subject: Re: [PATCH v3 3/3] iio: adc: bcm_iproc_adc: Convert probe error
+ handling to dev_err_probe()
+Message-ID: <20260802030433.696454fe@jic23-huawei>
+In-Reply-To: <20260731182347.42888-4-mdshahid03@gmail.com>
+References: <20260731182347.42888-1-mdshahid03@gmail.com>
+	<20260731182347.42888-4-mdshahid03@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Subject: Re: [PATCH] dt-bindings: PCI: Correct white-space style
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- Jim Quinlan <jim2101024@gmail.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Bjorn Helgaas
- <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Marek Vasut <marek.vasut+renesas@mailbox.org>,
- Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>,
- Kishon Vijay Abraham I <kishon@kernel.org>, linux-pci@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org
-References: <20260801195517.235161-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <20260801195517.235161-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: f80aa9cc35e8dfc77fe
-X-MBO-RS-META: 6mrrnyrfzi36q3b4htmaiygg34gqfjip
-X-Rspamd-Queue-Id: 4hCNQW6jbVzMlGX
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_190409_208506_17282783 
-X-CRM114-Status: UNSURE (   5.18  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,16 +76,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/1/26 9:55 PM, Krzysztof Kozlowski wrote:
+On Fri, 31 Jul 2026 23:53:47 +0530
+mdshahid03@gmail.com wrote:
 
-> +++ b/Documentation/devicetree/bindings/pci/renesas,pci-rcar-gen2.yaml
-> @@ -155,7 +155,7 @@ examples:
->       #include <dt-bindings/clock/r8a7790-cpg-mssr.h>
->       #include <dt-bindings/power/r8a7790-sysc.h>
->   
-> -    pci@ee090000  {
-> +    pci@ee090000 {
-Reviewed-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> From: Mohammad Shahid <mdshahid03@gmail.com>
+> 
+> This simplifies the probe error handling by replacing open-coded
+> dev_err() and return sequences. Also remove the redundant
+> dev_err() after iproc_adc_enable(), as the helper already reports
+> the failure.
+> 
+> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+> ---
+>  drivers/iio/adc/bcm_iproc_adc.c | 43 +++++++++++++++------------------
+>  1 file changed, 19 insertions(+), 24 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
+> index 29ea35972a23..5fcd528eb88a 100644
+> --- a/drivers/iio/adc/bcm_iproc_adc.c
+> +++ b/drivers/iio/adc/bcm_iproc_adc.c
+> @@ -523,19 +523,16 @@ static int iproc_adc_probe(struct platform_device *pdev)
+>  
+>  	adc_priv->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+>  			   "adc-syscon");
+> -	if (IS_ERR(adc_priv->regmap)) {
+> -		dev_err(dev, "failed to get handle for tsc syscon\n");
+> -		ret = PTR_ERR(adc_priv->regmap);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(adc_priv->regmap))
+> +		return dev_err_probe(dev,
+> +				     PTR_ERR(adc_priv->regmap),
+> +				     "failed to get handle for tsc syscon\n");
 
-Thank you !
+Look for places to wrap less as part of this change. E.g.
+		return dev_err_probe(dev, PTR_ERR(adc_priv->regmap),
+				     "failed to get handle for tsc syscon\n");
+
+>  
+>  	adc_priv->adc_clk = devm_clk_get(dev, "tsc_clk");
+> -	if (IS_ERR(adc_priv->adc_clk)) {
+> -		dev_err(dev,
+> -			"failed getting clock tsc_clk\n");
+> -		ret = PTR_ERR(adc_priv->adc_clk);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(adc_priv->adc_clk))
+> +		return dev_err_probe(dev,
+> +				     PTR_ERR(adc_priv->adc_clk),
+Same here.
+> +				     "failed getting clock tsc_clk\n");
+>  
+>  	adc_priv->irqno = platform_get_irq(pdev, 0);
+>  	if (adc_priv->irqno < 0)
+> @@ -543,10 +540,10 @@ static int iproc_adc_probe(struct platform_device *pdev)
+>  
+>  	ret = regmap_clear_bits(adc_priv->regmap, IPROC_REGCTL2,
+>  				IPROC_ADC_AUXIN_SCAN_ENA);
+> -	if (ret) {
+> -		dev_err(dev, "failed to write IPROC_REGCTL2 %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev,
+Definitely the same here!
+> +				     ret,
+> +				     "failed to write IPROC_REGCTL2\n");
+>  
+>  	ret = devm_request_threaded_irq(dev, adc_priv->irqno,
+>  				iproc_adc_interrupt_handler,
+> @@ -556,17 +553,14 @@ static int iproc_adc_probe(struct platform_device *pdev)
+>  		return ret;
+>  
+>  	ret = clk_prepare_enable(adc_priv->adc_clk);
+
+This should be combined with the get (be careful on ordering
+
+> -	if (ret) {
+> -		dev_err(dev,
+> -			"clk_prepare_enable failed %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev,
+and here.
+
+The local style before this patch was a bit odd. No need to keep it.
+
+> +				     ret,
+> +				     "failed to enable clock\n");
+>  
+>  	ret = iproc_adc_enable(indio_dev);
+> -	if (ret) {
+> -		dev_err(dev, "failed to enable adc %d\n", ret);
+> +	if (ret)
+>  		goto err_adc_enable;
+Look at converting the whole thing to devm managed cleanup.  You'll
+need one custom cleanup function and devm_add_action_or_reset()
+
+> -	}
+>  
+>  	indio_dev->name = "iproc-static-adc";
+>  	indio_dev->info = &iproc_adc_iio_info;
+> @@ -576,7 +570,8 @@ static int iproc_adc_probe(struct platform_device *pdev)
+>  
+>  	ret = iio_device_register(indio_dev);
+>  	if (ret) {
+> -		dev_err(dev, "iio_device_register failed:err %d\n", ret);
+> +		dev_err_probe(dev, ret,
+> +			      "failed to register IIO device\n");
+dev_err_probe() is as you see much less of an improvement when
+we aren't returning.  If we switch the whole thing to devm managed
+cleanup then we will be returning here.   If you make that change
+I don't mind if you flip to return dev_err_probe() directly in that
+patch to avoid unnecessary code churn.
+
+thanks
+
+Jonathan
+
+>  		goto err_clk;
+>  	}
+>  
+
 
