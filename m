@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00181C55175
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 15:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB65C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 15:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EJB14jEiokwyrjNSBVf3mN1an/zxGAUApRXoTaMn9VQ=; b=TIUI5LV97PjtOk7hriICLavHDp
-	YITFbFQl0i8+I47bKHyIQ7VikJ72C9dFZuxa+1495p5HSmczYEVdF7xVoQLUBgJ82i5GbJxiaTrTv
-	0zBy4u1rzFHYRosrenhkwMfwBRJ1oVPdcZKOoT6PpYRuFEjeOZgRfpqR/sC1SOjKtzsl1h/D/2m6o
-	vEPzO+DdWQGPtRpT640LSRMBDgrQR+nYiOvNR++XjRlsxCHRp/PNhNLsknEnyUluoqfJy5m5AyJQ0
-	O8ybYJvk1YlSj9hHOG77GUoXXDTsHXuZLvtPM9bt5hYdehMHCBM24v4oKpQDkjsC4H+b69qx4ZSk/
-	v8t+oPYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xLT0nYUZfgrQIfwgHzReTeSdEFhpRIhjhhekCFsbM6E=; b=iAZlPLxRSyhPd+EtLlQqyxIsWY
+	1/c49KedJk+yfqtkQ3UKyeVVwtgMVELGDt/ZO/31cp5hOoXuV4eRUxai6ZSxKtU60gonJLX63t8R/
+	yumE/x+OO1dbRkFkrTK7IGDn0nIxZhn7+I2pK/6Fb/bSqESLw3JMq/+Sz4TqI43wiQ5BUumm+EkJh
+	EMg6E0mCAnArI6Cd7D/VPtxv/wKSeyKlyr1SaDX9NYV343gxIlEhHIF8147RuEuasgSMDen6I7XuN
+	lvbJD/1np/MHRKtdJpv0J3ng3QOgATedP3GBxrKdUjZfNmY1jhNFsU9M0sSA0RwCv61Z9HrPEVsBf
+	8YawLMiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXhg-0000000Flrq-2457;
-	Sun, 02 Aug 2026 15:02:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wqXi0-0000000Fluq-2uNu;
+	Sun, 02 Aug 2026 15:02:36 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXhc-0000000Flr6-2kZ2
+	id 1wqXhy-0000000Fltw-2gPB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 15:02:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785682929;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=EJB14jEiokwyrjNSBVf3mN1an/zxGAUApRXoTaMn9VQ=;
-	b=RqDeJV+MIkHmYuAONWNlQclyAdceAJvml9iKfRW+98bQdAyrnXeT6bQW80B/WAPZXkuumm
-	rpIzt+oiXLm0QF1+GHmgqpdRPGAbVstcpfImRPp9tJ1yRBE9rgzgejPCwn2Ol6ftKCFxp8
-	thKNFiGcuddo6OwStZuPPzDczQYVc1o=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-145-wPdM32HPMQWZW3FCT8yFCA-1; Sun,
- 02 Aug 2026 11:02:08 -0400
-X-MC-Unique: wPdM32HPMQWZW3FCT8yFCA-1
-X-Mimecast-MFC-AGG-ID: wPdM32HPMQWZW3FCT8yFCA_1785682927
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3FC4C1956096;
-	Sun,  2 Aug 2026 15:02:07 +0000 (UTC)
-Received: from [172.20.35.218] (unknown [10.30.44.80])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 508D9423;
-	Sun,  2 Aug 2026 15:02:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (7.2.0-rc5,
- upstream-arm-next, 7235a3e7)
-Date: Sun, 02 Aug 2026 15:02:05 -0000
-To: linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- fs-test@redhat.com, will@kernel.org
+	Sun, 02 Aug 2026 15:02:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=xLT0nYUZfgrQIfwgHzReTeSdEFhpRIhjhhekCFsbM6E=; b=xmowSal7u0s+kzQGmyUMBwtMj4
+	IVWXC5+B4CyEczCVDAcIOuPU2BdnHDnRsl1Awfi3SIVhW3SVcfSCuhB14cl+C+s9Nm/pePX0jK6C9
+	rd94MGaTt9BhWFZXFdeXy6cPOH02VfstvYE9wRKCnhAloU/Av7AYTciYPUn3FUz93CoU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wqXhn-00FaJs-7O; Sun, 02 Aug 2026 17:02:23 +0200
+Date: Sun, 2 Aug 2026 17:02:23 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
+	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next 1/2] net: stmmac: ethtool: Comment the magic
+ numbers in RIWT computation
+Message-ID: <d82898bc-2d03-4701-8cdd-47716256c55a@lunn.ch>
+References: <20260802114015.214212-1-maxime.chevallier@bootlin.com>
+ <20260802114015.214212-2-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
-Message-Id: <55233.126080211020800743@us-mta-145.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: soYR_h3fdHKRqx83U9oBYc5YTvG2wxAtJKiAlSgpvYo_1785682927
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260802114015.214212-2-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_080212_767513_DFDD55CA 
-X-CRM114-Status: UNSURE (   6.50  )
+X-CRM114-CacheID: sfid-20260802_080234_678165_718DB389 
+X-CRM114-Status: UNSURE (   9.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,55 +78,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Sun, Aug 02, 2026 at 01:40:13PM +0200, Maxime Chevallier wrote:
+> Receive Interrupt Watchdog Timer is an RX interrupt coalescing mechanism
+> used by some variants of dwmac. It allows waiting a bit before
+> triggering the rx interrupts, allowing for batch processing.
+> 
+> The RIWT is configured with a granularity of 256 stmmac clk ticks. Let's
+> add a comment for that and wrap the raw "1000000" into USEC_PER_SEC, as
+> we're computing "how many clock cycles in one microsec" with that step.
+> 
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-    Overall result: FAILED
-             Merge: OK
-           Compile: OK
-              Test: FAILED
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2725132975
-
-One or more kernel tests failed:
-    Unrecognized or new issues:
-        xfstests - btrfs
-             aarch64
-                   Logs: https://datawarehouse.cki-project.org/kcidb/tests/=
-redhat:2725132975_aarch64_kernel_kcidb_tool_21782258_9
-                   Non-passing ran subtests:
-                       =E2=9D=8C FAIL generic/301
-
-    We also see the following known issues which are not related to your ch=
-anges:
-        Issue: [upstream] Hardware - Firmware test suite - auto-waive failu=
-res
-            URL: https://gitlab.com/cki-project/infrastructure/-/issues/779
-            Affected tests:
-                Hardware - Firmware test suite [aarch64]
-
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+    Andrew
 
