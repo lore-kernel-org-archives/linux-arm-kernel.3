@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D535CC55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 19:10:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97551C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 20:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ufUQjn+PxTv6w3gV6MnAQZ9oTh+dMozsmrwmo9yaIs=; b=ROMmwoyFUN85d0qllXYB8+ouEM
-	KVNrachZhfCll29BVOoEfedxlC7ipjzLepw66CBeY10CFekd31N/Xx4Xt8K6d0AHXoApG05DDv3Xk
-	nTDH14rSlO6q5wYmA1HwRzTT/uSMVA15oN4hvXxKi0rI80o39eRg4HtYJike9+WKGjYcKEkKwt7RO
-	daiGKcTxperKkb8Xa1UCc2tpTsggSHqiL1kJIK3oIUEeNS3KN1FQ5ATpVReJ+ctyte6h5kIgcJgLL
-	OiPMRXsLvQ3dQd+TIPJs3fctwV137j76lLbVaPrOPt4kPNLK346YJ2z4BdxwFWmW6gCCMFgDk2Toh
-	+oeM/Wcg==;
+	bh=ese7NYKIqP4YMH14PHh8lmNgkBXMS5Kp6vJnbvuy/80=; b=FgaIltFvRkCXHknfjT9AYUeusv
+	qo/55Mdr+Fju3LvmRmAffvJ/Heyp4QwB/4EDPAItmB2Hf+azTSceLTBl1pyXfDbQ81GZf+xUvcNFm
+	+sY3P4Mk+xYL2f0qvfd1UwUCZl+T0i5zTH68YAc5bU9SZP0zkxvZ4vttjpteWRuWMSAyg70jVzI7y
+	+qVoqdIaqjgMf2XSGaaivdDq6ud2tHDINjwLhZ26jzpviXF+to1CMeZv38dG70rs98b+VpDZ3yYvY
+	6BVdp5MIeejRdnaqrHxpI1rH91xkYv2auQVCanvIOzu3eArY4EK3OzAbj+9lEkPHqGR8jW6P6cWK5
+	kHaZ3ZuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqbZa-0000000FyNM-0dYJ;
-	Sun, 02 Aug 2026 19:10:10 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wqcoY-0000000G1Dk-49fa;
+	Sun, 02 Aug 2026 20:29:42 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqbZX-0000000FyMs-37mG;
-	Sun, 02 Aug 2026 19:10:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=6ufUQjn+PxTv6w3gV6MnAQZ9oTh+dMozsmrwmo9yaIs=; b=WKzqgHgVPQFmDWhC56etYt4NJw
-	ubR0xHH4U1L9st+OwTYSc4mX6wmZZXLg7vFG52yGPnoDH46SoVGMZxDvTro4+Yhi5HlRHfYIMUSAU
-	kkKO7ZxI+jeHnTUqIHmIWKmMXOIBQue8rwk6pfHcWbuPDZ6M/1JfO+HgNXA+Jtw73/tP7XSyoyL8a
-	gdcuRyShnnfnxV9BX6MtrI0WmUKMk+kKidV80AAPP7ZrL8ksxE9ENHI+oyMGSOBN4fG8tc5bj/3H7
-	A5dmuMwDRipJdCVScygacgr9D1KWVYC96Ulo/DzHSu4hw14rtleAHYz1kLWuxaI/ncxsh5yKdkiL3
-	P5LuShVg==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-leds@vger.kernel.org,
-	Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: (subset) [PATCH 0/4] Add devicetree for LincPlus LincStation E1
-Date: Sun,  2 Aug 2026 21:09:57 +0200
-Message-ID: <178569771627.1410444.7870860670350024666.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260711192842.845048-1-samuel@sholland.org>
-References: <20260711192842.845048-1-samuel@sholland.org>
+	id 1wqcoW-0000000G1DP-0oPG
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 02 Aug 2026 20:29:42 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 8D90D1A137F;
+	Sun,  2 Aug 2026 20:29:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 466906029B;
+	Sun,  2 Aug 2026 20:29:36 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0F5CB11C1786D;
+	Sun,  2 Aug 2026 22:29:23 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785702571; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=ese7NYKIqP4YMH14PHh8lmNgkBXMS5Kp6vJnbvuy/80=;
+	b=jOih4CbkXugJF6FC6RbTX5XB3kv6TO+ZxzBEzAb+mdJ3dJvGOBsZ1AHWNSmJn/W7Qn3tRG
+	eswvecQAkpQxkjgvFNRsfxWsCnKK12ohDFrsfobUp+eZeLz3ik5ymkDomBYO6aHvr3KGuS
+	IM0KzU9qCYkp+MDN89+xwfKTWS44KLTdqgNHoP6uH65FDZxCdxFPxbA6t0ehr8Cz6Wp+AT
+	+h3xPNyXcYmX5BTwceeLv3wOUTMA9Slr3PnGlenxfjXyTwqZ+CCyBkWF1ODqShPSD5YGEL
+	8absHHEBqga42R7Jm2pDx5/4e74/2X9W4LVHhcUFzE17aYx8frrKKrD4pA+klQ==
+Message-ID: <5f2f0e3c-cc4e-4110-ad4c-180abba5356d@bootlin.com>
+Date: Sun, 2 Aug 2026 22:29:22 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 2/2] net: stmmac: ethtool: Address off-by-one
+ when reading the coal rx-usecs
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
+ =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20260802114015.214212-1-maxime.chevallier@bootlin.com>
+ <20260802114015.214212-3-maxime.chevallier@bootlin.com>
+ <4e76d7c1-0052-4689-be7c-9c31dc24516a@lunn.ch>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <4e76d7c1-0052-4689-be7c-9c31dc24516a@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_121007_786067_6BC35C3F 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20260802_132940_418680_A51DDE4B 
+X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,39 +88,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
 
-On Sat, 11 Jul 2026 14:28:24 -0500, Samuel Holland wrote:
-> This series adds a binding and devicetree for the LincStation E1 NAS.
-> As described in the message for patch 3, it is not entirely clear what
-> the DTS file name and board compatible string should be, so for now I
-> went with the marketing name for the file and the OEM model number for
-> the compatible string. This mostly matches the vendor firmware.
+On 8/2/26 17:05, Andrew Lunn wrote:
+>> This does change the boundaries of accepted rx-usecs parameters, as the
+>> previously accepted values were in the 16-246 us range, and now fall
+>> into the 15-245 range on imx8mp.
 > 
-> The vendor software provides quite limited access, so the unit must be
-> disassembled and the board removed to access the UART test points
-> (opposite from the power button; Ctrl+C to interrupt the vendor U-Boot)
-> or the eMMC traces to force the SoC into maskrom mode. The vendor
-> firmware uses rk3568_ddr_1056MHz_v1.25.bin from rkbin for DRAM init.
-> Mainline U-Boot 2026.07 works with no code changes when configured with
-> this devicetree. It is recommended to enable the fan as early as
-> possible (e.g. `CONFIG_PREBOOT="pwm enable 0 0"`).
-> 
-> [...]
+> With this change in place, what happens when trying to set 246?
+> EINVAL?
 
-Applied, thanks!
+Yes indeed :
 
-[3/4] dt-bindings: arm: rockchip: Add LincStation E1
-      commit: 2b009df2afd0874080a1e2a893df5e4db39cc1c5
-[4/4] arm64: dts: rockchip: Add LincStation E1
-      commit: 0f4c49bb3e538d01bdec403052ba6c35858aa0cf
+# ethtool -C eth1 rx-usecs 246
+netlink error: Invalid argument
 
-Dropped the regulator-suspend-microvolt properties. They are deprecated [0]
-and also were the same value as the main voltages the regulators used.
-
-
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/regulator/regulator.yaml#n272
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+Maxime
 
