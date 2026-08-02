@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66293C55171
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F37C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HOsdimgk1hcuikqltrmpauaFiHs4qkbEXMgzVNkUqh8=; b=hugTC18k432iINKxoRcIdY3HFN
-	n0mHv+y3X/IpHqsWzAgCqWjwVQ538JA/9qCQpabiulRa6v+Yj31p9CkFI3QFRQhqXPOksP9cIM+KS
-	Y8mCUhOSJ05fS4kvNg93znCIQXjl5TIUb2WgoGTGkFTZ/YnSW21+ggf0cWOL7O8bqLclLye02tOYX
-	YKO3JQaXKoscOLnyCFwwvLybt2/muJ05XJ7wyWQX5oLiPGZmaKpMrAaUn2/hQE/1RbYIi4eNMG9qs
-	fh73+5cAXvnj07BiE5p/KXkzk448x5Se5aHSzOuP7gmr2OeIA/SbhWnBHOo1RvMh5RKPZcmma3cLc
-	EDZ+Ozsw==;
+	bh=8NzEz/L4MaCMQSAHBHYHb2gFB0rRQPncj/WkeDZonM4=; b=ZVfjeueqMy1y6jiMVLrAf5cJrb
+	u/nM56Lzz1d9QdNk9CG1eXuir8p4RaMkLRjreSszf231pYNCUHYjQJn8E7pmx5lO+IGkl3gkggp0q
+	TnIuMH/xY5ExsEpAfY4mWSyqEz6qNcaKIxboB+yy8Zw+0HjwyIyf/3eeFdHLvifHZWUfkPBVOaiCb
+	rPPVOJ1D6o1MxEd9P4CKjrnXqbI4zIisVAF8uxrrks9u5/goHMqa6i7H/KPNKWTffYTCebYb8h5FY
+	ehUbB6wVmA0oSoGjSQzKshxEQ6EwLbQsFuifq0p4mA3SGLaoUpWQ4HirHT2tbQyTGA4+0neRVcjKk
+	Cmbv9raw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV40-0000000FbmK-3VXX;
-	Sun, 02 Aug 2026 12:13:08 +0000
+	id 1wqV43-0000000Fbox-3tJ0;
+	Sun, 02 Aug 2026 12:13:11 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV3z-0000000FblK-3rTz
+	id 1wqV42-0000000Fbns-27gO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 12:13:07 +0000
+	Sun, 02 Aug 2026 12:13:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACC0643B6E;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4752A40695;
+	Sun,  2 Aug 2026 12:13:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24BC51F000E9;
 	Sun,  2 Aug 2026 12:13:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 062C01F00A3D;
-	Sun,  2 Aug 2026 12:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785672787;
-	bh=HOsdimgk1hcuikqltrmpauaFiHs4qkbEXMgzVNkUqh8=;
+	s=k20260515; t=1785672790;
+	bh=8NzEz/L4MaCMQSAHBHYHb2gFB0rRQPncj/WkeDZonM4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XegY3zryDTYzLZ0sDrgsP4O1R2SKJfswe4uKlJx/7cjZjSR0xCmopSl2xpSpf1xlZ
-	 eMyOCHGXhg7/JkMoM3zycz/9o0RA7ExW27aBHsrmL7bJ/bcOZJ+YN9ZDz8pVrBioo6
-	 dgHcf63OzfYQTputEaP3uRD8TCkkrUvDQ/3qEFkR4LpQRnPp4ovVgiw6gk8Z/FAL/g
-	 hsmHrdecW5pl5hV1VXlEfUSANolTBZABUh3sbw6AnPW2OaGxzmLsvrKYOKrYG0nrR9
-	 T19cJkf/OsMD5rcHxrVQskcx+Bj8BdSK1qjsvJZ4bCl+Sy/N4zgn1eBGKS/P5vcSK2
-	 dudCmwe3C+8XQ==
+	b=G/BIDdBhh0jGS83ufomQbqpih8WuyrfX9n7eXd3xEdA0uOxw//ZTMdapaH9k1LYIa
+	 Le0ZlCvDaRNtOpRbwTuemJeSKgKOgqNS5MjM431wZWRxFt4YDMOzvnVD1WjttqQN5W
+	 NPKsrYiUGkAK6Pui+WkOB7KdxEEOecISKGn30xse+6MrHqEaHBdB2yiBRpwv9YfYaF
+	 oeLmZVjlYsJmZSS1bq3P7AVVm2no0/Eu0JqM0kuUr4ZCa8sNUqpvNs1UXW0DlCQsQN
+	 +eIUrgon8lpdEjW9nd87x8qhzqBBkxUYYKfdxqSrILl6NInPJ22AXNYbJ810E/oB3l
+	 7UNhE9HNilGgQ==
 From: Will Deacon <will@kernel.org>
-To: iommu@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: mark.rutland@arm.com,
+	catalin.marinas@arm.com,
+	Robin Murphy <robin.murphy@arm.com>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Joerg Roedel <joro@8bytes.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Daniel Mentz <danielmentz@google.com>,
+	ilkka@os.amperecomputing.com,
+	bwicaksono@nvidia.com,
+	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Convert to use atomic poll timeout
-Date: Sun,  2 Aug 2026 13:12:28 +0100
-Message-ID: <178566514482.939612.15682351054124522231.b4-ty@kernel.org>
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] perf/arm_cspmu: Miscellaneous improvements
+Date: Sun,  2 Aug 2026 13:12:29 +0100
+Message-ID: <178566825175.1853083.11515494641516544186.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260728211123.1059708-1-praan@google.com>
-References: <20260728211123.1059708-1-praan@google.com>
+In-Reply-To: <cover.1784213435.git.robin.murphy@arm.com>
+References: <cover.1784213435.git.robin.murphy@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,23 +76,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Jul 2026 21:11:23 +0000, Pranjal Shrivastava wrote:
-> The arm_smmu_write_reg_sync() helper is currently implemented using
-> readl_relaxed_poll_timeout() (that relies on usleep_range() internally)
-> which becomes a critical issue when used in the gerror irq handler.
+On Thu, 16 Jul 2026 15:56:33 +0100, Robin Murphy wrote:
+> These are a few quality-of-life improvements for CoreSight PMU that
+> I've accumulated based on things which have come up in practical usage.
+> There's no real dependency between any of the individual patches, it
+> just felt right to send them as a series.
 > 
-> If the SMMU hits a gerror and enters Service Failure Mode
-> (GERROR_SFM_ERR), the gerror handler calls arm_smmu_device_disable() in
-> hard-irq context. This becomes a problem as arm_smmu_device_disable()
-> inevitably calls arm_smmu_write_reg_sync() which might attempt to sleep
-> inside a hard-irq context.
+> v1: https://lore.kernel.org/linux-perf-users/cover.1783605641.git.robin.murphy@arm.com/
+> v2: Fix valid nits from Sashiko review, add Ilkka's R-b.
 > 
 > [...]
 
-Applied to iommu (arm/smmu/updates), thanks!
+Applied to arm64 (for-next/perf), thanks!
 
-[1/1] iommu/arm-smmu-v3: Convert to use atomic poll timeout
-      https://git.kernel.org/iommu/c/eced8058c82a
+[1/4] ACPI/APMT: Use stable device ID
+      https://git.kernel.org/arm64/c/04aa909b38bf
+[2/4] perf/arm_cspmu: Improve APMT-based PMU naming
+      https://git.kernel.org/arm64/c/745a724f9c81
+[3/4] perf/arm_cspmu: Improve sub-module error reporting
+      https://git.kernel.org/arm64/c/60b234db6bf1
+[4/4] perf/arm_cspmu: Make IRQ more optional
+      https://git.kernel.org/arm64/c/36e200f01991
 
 Cheers,
 -- 
