@@ -4,69 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4D2C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52327C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 13:07:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OUxOKdVCoV/OvXn2db5tCOTNvZIU8mMbmKrWBDGbzHQ=; b=q+YRQ4g8OzIDpiZ9e4dkhyIjJy
-	q73yaOkDNHoKzggTuTQjIt+sHjtwMBZbZWe+pooIqnk/Jk9nb4WgTvDGaZ1Z4lzEJObAGe9idqp2b
-	oZpQBTWU5jd4Y6Kh0gLBRYqgIRfqEufXvJySiDAwuKLj5HMsqkzu035PRhMkI7+lgwPP4Zuojerxb
-	4Koh/UqdjsJel6oRtQwDkxK7KO6M6MgzG5gsknbYhq5ch7HoxyfBU9sQxfjQyNqt2aktf304bW6R0
-	dUWSIqgh8TTfcaq4P1uYHfJuyhPCdch75lmZ+W2AOCOhzwA1GSEgz5sPnL6pkQR/Z9eq0MaW/tI39
-	xX4nlNqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hahms3yldKOkWTFLp/+wKMoZn0atlREwoTWSL5YtU0g=; b=zMT44+YvEl+T6jg8S4tuYzyW3B
+	FsUHZt5GcVf0IqRze6bMf9+CxENCRhpPVcOxkDM6udpNnWoC3Z5vUIfe0dpwkkNYjeCwyiVsqJj1w
+	ZLxUJ4J71imBaUBmZzza1DSUGuIYMu3n2hTyx4OWblqm52wZl2JBRltqbbcUntg4wimoXWzahCWJb
+	k88BkTn2SKczdGukkxICpuERWSuGAalsddMkoXigXSJTHpe7xIuimxHL0q3tPTxUex/Q1ltVl87iW
+	48eyO60hlENAKaPL62z7xDfD4PZ+24lQCvZcOh0IYdF68aIWrGTVSw47k2EqqXMSpOImi6iIvmUht
+	rZ1PF6FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqVca-0000000Fdt9-39Rl;
-	Sun, 02 Aug 2026 12:48:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wqVur-0000000FeSH-0M2F;
+	Sun, 02 Aug 2026 13:07:45 +0000
+Received: from fout-b3-smtp.messagingengine.com ([202.12.124.146])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqVcZ-0000000Fdsy-3AVQ
+	id 1wqVuo-0000000FeRr-1MbQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 12:48:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2EE824381A;
-	Sun,  2 Aug 2026 12:48:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A20041F000E9;
-	Sun,  2 Aug 2026 12:48:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785674931;
-	bh=OUxOKdVCoV/OvXn2db5tCOTNvZIU8mMbmKrWBDGbzHQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=lY8O5WI3kuLJY4QqwBLkgkse5x0CcYbWFbGFbYGXxDaXtnNtVmXRBE51zRGr+5k/U
-	 tgVcIEEd31hOvgS1KIfZiRBb8lfWmCBcYfgi7ecOOg090r8EFjGLQGGQlYpdGWuEud
-	 TEYR5l0yasZFeGTgCmis96h8X4UC2LS4KSrF7AfP0Y0aMUshlX4UjQ4nedyxrMU2OW
-	 HPz0vmV+KLCBNnNbgAx2/BhtboPBOQRlYB2XGzZrBrjbwLVyM8sFtihtRcUuUwpnDN
-	 EpYWApucNoiG5IiinvFEMG2i434/0dtoRRNOYHJIeLJlCJgIkzJS4PrUWIG7UPkmxD
-	 GrpxNWBX2r0Pw==
-From: William Breathitt Gray <wbg@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Julien Panis <jpanis@baylibre.com>,
-	David Lechner <david@lechnology.com>,
-	linux-iio@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	Pan Chuang <panchuang@vivo.com>
-Cc: William Breathitt Gray <wbg@kernel.org>
-Subject: Re: [PATCH 0/3] counter: Remove redundant error messages on IRQ request failure
-Date: Sun,  2 Aug 2026 21:48:44 +0900
-Message-ID: <178567489466.1424502.9168659014739104167.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260715135030.326290-1-panchuang@vivo.com>
-References: <20260715135030.326290-1-panchuang@vivo.com>
+	Sun, 02 Aug 2026 13:07:43 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id C2FC41D000B6;
+	Sun,  2 Aug 2026 09:07:40 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Sun, 02 Aug 2026 09:07:41 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1785676060; x=1785762460; bh=Hahms3yldK
+	OkWTFLp/+wKMoZn0atlREwoTWSL5YtU0g=; b=GSPYKlDPQ/rALF+az/iKEZcb/P
+	nZlGWoUo3Skb3dF4cuS8F0lcLFFbdqNDB/Uje7kR8lT2Cejjfy2B0f2lfRi0fjt5
+	zHykUpeSsoS7ZRJ/TdaRy6CKBZuP0c2aJJ4s2OQm9v4RqnAm8od4aaM64pAHcpXv
+	nXQO6OVSQx6d6hHjFAzxKZdUEJ6J/xjd1TKpcagGfGW8nNlq+9WcKi3ep5d3mOnO
+	r5GT5MqT+AFxvX9nyIYKaPZZCIMV+ECiYXfv/lJHwZLHfZi5mbQ9ydACuZMsY26x
+	s6VsgAXmq+uuFCJRlA2ikZbH/ReUFfVPWSGNM0iT9ddow5QVOkIL8advhoXw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1785676060; x=1785762460; bh=Hahms3yldKOkWTFLp/+wKMoZn0atlREwoTW
+	SL5YtU0g=; b=OrJnOwc2XAY8Q4A+h7wN0do6SifUiN3GLg8S38RbzZLhT1Adeuy
+	2lRJaKTw1z6NhmyYOlkfLjfBrDZXrrO1pJIkH6z+ye2O1m7xxI/CNWn3VHoiNyFy
+	EPhrTBJSU5VBJn0D7pslpLHM+MWdG2zas5JLdm9PqD692lodSeY02OPVtADDcg7t
+	xrlKj3be8pLFKi62aL47kU9xny8kWZcWfg1RDLLimBsqsGceaxhK/FJ84Isyn4a6
+	1NmTSk825AbEErLkdd8gpLUy3I13jRCIzRTmgGw7awrOhJflrHdhWkNJq1n5PfLc
+	STLBRoBk6zJXhiA8AqqsoLCXbKjPHMY84uA==
+X-ME-Sender: <xms:G0FvaoSAMqyThlXg70RAYWuIk6FS9Vn5-woyrxrLF5q2vagaPqpoeg>
+    <xme:G0FvasLOEfVrh4NW8bxzU_SF-30H1e4SiB9TgkRWo4y8g3D_v25VyRfGTgGD-WsNS
+    rgYKdfje0Tu8cDE4SGzMSTwcxng7o_b-aM1DyOYKF086YZGxynhPDg>
+X-ME-Received: <xmr:G0FvaiF2H6wQCXW0MDuPijubhrEIarWzIkfuAGEb6btZDE8HmtaaU6mTrq6-C9mbIaLciJCmfcafkfPQ5N7DymVid23U5wAtNeg>
+X-ME-Proxy-Cause: dmFkZTGRptFzAe674taAifhe2SZpN3XqmCoEUW/CYHNtqMMFWpbCOWQ2Hu21zkhtN+Bl0V
+    A97rHeChrE4bk+9WfJBbqLsuVElNpY6I+EP04EYbnN3cuROOLkGqyD4bwodEUIq7ULqLBl
+    uCh2XSiyha0lPAaV4kIwQjP98E/OVRz4BYu+CeyWFzrdmspReHFfmZj+S+UfT9TBAU/WOb
+    AXfdpNRqXZcxr/NgKEz0NpD0C2Rt1lrCVUrdVuGFWldcGOCQbJ2Wxdw09h5cHqqhkbbpvy
+    wk1I2y9OU2bH07VFjeZxgB5zUfzy20R8aQRwHs498L00KSdAFff7bCzzVkOeH1nS/vYZMo
+    vcsTlrjZvUN+BMt8L7NVgGGwcpJQirOEpFVL8DQuwBXtObMZlHPCNjWsu+pRFYOmGZtQ5s
+    mqkdE7L5tjEdcvSQqWitLUkaUKem5GJPnJdjTcw0ENzxqz9QYJ8BKVlVd6TNwZVF0dYY6V
+    ia2+VotCSYtVL4p/looqV5KpGi1AIkhBLhPSY0++f/nk142TiuJanSKu+2gRoGtFopfz8/
+    6HOApvCpkzE2YAOiqTn3CNpvk8eGQeE20v4MSPsfPmTMyMqDZou6CFopkQ3QmELCfOjRrn
+    iBwvCNKDa5jEMSBAyLg893oFnv9nqhpfqcE5OVzyVF9toUmR9FZ7dcB26p9Q
+X-ME-Proxy: <xmx:G0Fvap2RYHe3WA6sB_BJgsTIXFANYzEGpSrbFagVj0lnEBMDBoGykg>
+    <xmx:G0FvaqIYl5IiTMZQdD_1Oc3MdD_IcL0U2jIhz5w4qnTrOukb3c3fIw>
+    <xmx:G0Fvau1UeWlcBbcHOwb0NVLH1Gm7MmHKVH0LNNSbbwwZBxSX5I2IBA>
+    <xmx:G0Fvaun5XzW1p52jaIGzq6Whh_rNB7XQAmYH_VpEjyKryEBSZZXGsw>
+    <xmx:HEFvan2BHlHVohB6skNxHW8iTiO14Clcrh8cJxPUIYTwyKYbjyRUk6Nn>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 2 Aug 2026 09:07:39 -0400 (EDT)
+Date: Sun, 2 Aug 2026 15:07:38 +0200
+From: Janne Grunau <j@jannau.net>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, Alba Mendez <me@alba.sh>
+Subject: Re: [PATCH v2 7/7] spmi: apple: interrupt controller functionality
+Message-ID: <20260802130738.GI806854@robin.jannau.net>
+References: <20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech>
+ <20260728-t603x-spmi-v2-7-f43e5f10e583@chaosmail.tech>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=971; i=wbg@kernel.org; h=from:subject:message-id; bh=Yp/nRD6Q9VnV2O9qfEnnLIcigA0aiAm8lDjh/eYL5MA=; b=owGbwMvMwCW21SPs1D4hZW3G02pJDFn5Nsuq3cRcvSdprNu8Xjz+5fb5UzmyuC0X37QVVGXJk 2RVzS3qKGVhEONikBVTZOk1P3v3wSVVjR8v5m+DmcPKBDKEgYtTACZSEcbI8KeEN2L5C66Tlw8r L5yoMVlEeqLa8/tT5fc073dZpWVW68jIcPvO2zO2iqtMLCU/zmk9rHZEjPVP1dlP7NZ3+LJnmCp 5MAEA
-X-Developer-Key: i=wbg@kernel.org; a=openpgp; fpr=8D37CDDDE0D22528F8E89FB6B54856CABE12232B
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260728-t603x-spmi-v2-7-f43e5f10e583@chaosmail.tech>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260802_060742_788626_9220D527 
+X-CRM114-Status: GOOD (  31.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +110,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 15 Jul 2026 21:50:27 +0800, Pan Chuang wrote:
-> Commit 55b48e23f5c4 ("genirq/devres: Add error handling in
-> devm_request_*_irq()") added automatic error logging to
-> devm_request_threaded_irq() and devm_request_any_context_irq()
-> via the new devm_request_result() helper, which prints device
-> name, IRQ number, handler functions, and error code on failure.
+On Tue, Jul 28, 2026 at 11:28:13AM +0200, Sasha Finkelstein wrote:
+> From: Alba Mendez <me@alba.sh>
 > 
-> Since devm_request_irq() is a static inline wrapper around
-> devm_request_threaded_irq(), it also benefits from this
-> automatic logging.
+> Add support for interrupts sent by slave devices.
 > 
-> [...]
+> Signed-off-by: Alba Mendez <me@alba.sh>
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> ---
+>  drivers/spmi/Kconfig                 |   3 ++-
+>  drivers/spmi/spmi-apple-controller.c | 149 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 150 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
+> index a80cf4047b86..7243863a09b4 100644
+> --- a/drivers/spmi/Kconfig
+> +++ b/drivers/spmi/Kconfig
+> @@ -13,7 +13,8 @@ if SPMI
+>  
+>  config SPMI_APPLE
+>  	tristate "Apple SoC SPMI Controller platform driver"
+> -	depends on ARCH_APPLE || COMPILE_TEST
+> +	select IRQ_DOMAIN_HIERARCHY
+> +	depends on ARCH_APPLE || (COMPILE_TEST && 64BIT)
+>  	help
+>  	  If you say yes to this option, support will be included for the
+>  	  SPMI controller present on many Apple SoCs, including the
+> diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
+> index 109c5d2c735d..8f6a0d560da8 100644
+> --- a/drivers/spmi/spmi-apple-controller.c
+> +++ b/drivers/spmi/spmi-apple-controller.c
+> @@ -15,9 +15,12 @@
+>  #include <linux/interrupt.h>
+>  #include <linux/io.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqdomain.h>
+>  #include <linux/module.h>
+>  #include <linux/mutex.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/spinlock.h>
+>  #include <linux/spmi.h>
+>  
+>  /* SPMI Controller Registers */
+> @@ -47,6 +50,9 @@ struct apple_spmi {
+>  	struct mutex fifo_lock;
+>  	bool fifo_rx_irq;
+>  	struct completion fifo_rx;
+> +	struct irq_domain *irqd;
+> +	raw_spinlock_t irq_mask_lock;
+> +	u64 irq_mask_cache[SPMI_IRQ_USER_SIZE / sizeof(u64)];
 
-Applied, thanks!
+this could be a bitmap to avoid the manual bit manipulations
 
-[1/3] counter: stm32-timer-cnt: Remove redundant dev_err()
-      commit: 505d48c93896948c9a430fa96a303af114566db9
-[2/3] counter: ti-ecap-capture: Remove redundant dev_err_probe()
-      commit: ccd73fc6fbd775b4981855717f85b769f0cf4f59
-[3/3] counter: ti-eqep: Remove redundant dev_err_probe()
-      commit: 353b2e09f44a91e64c6b8117df46b6999c52e465
+>  };
+>  
+>  #define poll_reg(spmi, reg, val, cond) \
+> @@ -226,11 +232,123 @@ static void apple_spmi_irq_unmask_raw(struct apple_spmi *spmi, u32 irq)
+>  	writel(readl(reg) | BIT(irq % 32), reg);
+>  }
+>  
+> +static void apple_spmi_irq_ack(struct irq_data *d)
+> +{
+> +	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
+> +
+> +	apple_spmi_irq_ack_raw(spmi, d->hwirq);
+> +}
+> +
+> +static void apple_spmi_irq_mask(struct irq_data *d)
+> +{
+> +	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
+> +	unsigned long flags;
+> +
+> +	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
+> +	apple_spmi_irq_mask_raw(spmi, d->hwirq);
+> +	spmi->irq_mask_cache[d->hwirq / 64] &= ~BIT_ULL(d->hwirq % 64);
+> +	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
+> +}
+> +
+> +static void apple_spmi_irq_unmask(struct irq_data *d)
+> +{
+> +	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
+> +	unsigned long flags;
+> +
+> +	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
+> +	apple_spmi_irq_unmask_raw(spmi, d->hwirq);
+> +	spmi->irq_mask_cache[d->hwirq / 64] |= BIT_ULL(d->hwirq % 64);
+> +	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
+> +}
+> +
+> +static int apple_spmi_irq_set_type(struct irq_data *d, unsigned int type)
+> +{
+> +	/* all interrupts have MSI semantics */
+> +	return type == IRQ_TYPE_EDGE_RISING ? 0 : -EINVAL;
+> +}
+> +
+> +static struct irq_chip apple_spmi_irq_chip = {
+> +	.name = "apple_spmi",
+> +	.irq_mask = apple_spmi_irq_mask,
+> +	.irq_unmask = apple_spmi_irq_unmask,
+> +	.irq_ack = apple_spmi_irq_ack,
+> +	.irq_set_type = apple_spmi_irq_set_type,
+> +	.flags = IRQCHIP_ONESHOT_SAFE,
+> +};
+> +
+> +static int apple_spmi_irq_domain_map(struct irq_domain *irqd,
+> +					unsigned int irq, irq_hw_number_t hw)
+> +{
+> +	irq_domain_set_info(irqd, irq, hw, &apple_spmi_irq_chip, irqd->host_data,
+> +				handle_edge_irq, NULL, NULL);
+> +	return 0;
+> +}
+> +
+> +static int apple_spmi_irq_domain_translate(struct irq_domain *irqd,
+> +					struct irq_fwspec *fwspec,
+> +					unsigned long *hwirq,
+> +					unsigned int *type)
+> +{
+> +	u32 *args = fwspec->param;
+> +
+> +	if (fwspec->param_count != 2)
+> +		return -EINVAL;
+> +
+> +	if (args[0] >= SPMI_IRQ_USER_SIZE * 8)
+> +		return -EINVAL;
+> +	*hwirq = args[0];
+> +	*type = args[1] & IRQ_TYPE_SENSE_MASK;
+> +	return 0;
+> +}
+> +
+> +static int apple_spmi_irq_domain_alloc(struct irq_domain *irqd, unsigned int virq,
+> +				unsigned int nr_irqs, void *arg)
+> +{
+> +	unsigned int type = IRQ_TYPE_NONE;
+> +	struct irq_fwspec *fwspec = arg;
+> +	irq_hw_number_t hwirq;
+> +	int i, ret;
+> +
+> +	ret = apple_spmi_irq_domain_translate(irqd, fwspec, &hwirq, &type);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (hwirq + nr_irqs > SPMI_IRQ_USER_SIZE * 8)
+> +		return -EINVAL;
+> +
+> +	for (i = 0; i < nr_irqs; i++) {
+> +		ret = apple_spmi_irq_domain_map(irqd, virq + i, hwirq + i);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void apple_spmi_irq_domain_free(struct irq_domain *irqd, unsigned int virq,
+> +				unsigned int nr_irqs)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < nr_irqs; i++) {
+> +		struct irq_data *d = irq_domain_get_irq_data(irqd, virq + i);
+> +
+> +		irq_set_handler(virq + i, NULL);
+> +		irq_domain_reset_irq_data(d);
+> +	}
+> +}
+> +
+> +static const struct irq_domain_ops apple_spmi_irq_domain_ops = {
+> +	.translate	= apple_spmi_irq_domain_translate,
+> +	.alloc		= apple_spmi_irq_domain_alloc,
+> +	.free		= apple_spmi_irq_domain_free,
+> +};
+> +
+>  static irqreturn_t apple_spmi_irq_handler(int irq, void *dev_id)
+>  {
+>  	struct apple_spmi *spmi = dev_id;
+>  	bool handled = false;
+> -	u32 val;
+> +	u64 val, offset, bit;
 
-Best regards,
--- 
-William Breathitt Gray <wbg@kernel.org>
+use unsigned long for bitmap compat, rest may remain as is since the
+driver now depends on 64BIT
+>  
+>  	val = readl(spmi->regs + SPMI_IRQ_ACK_BASE + SPMI_IRQ_USER_SIZE);
+>  	if (val & BIT(SPMI_IRQ_FIFO_RX)) {
+> @@ -239,6 +357,23 @@ static irqreturn_t apple_spmi_irq_handler(int irq, void *dev_id)
+>  		handled = true;
+>  	}
+>  
+> +	for (offset = 0; offset < SPMI_IRQ_USER_SIZE; offset += sizeof(val)) {
+> +		val = readq(spmi->regs + SPMI_IRQ_ACK_BASE + offset);
+> +		/**
+> +		 * because of other masters in the bus, we're going to get a multitude of
+> +		 * interrupts we're not interested in. irq_resolve_mapping isn't very
+> +		 * optimized for the nonexistent path, so instead we mask with (a locally
+> +		 * cached version of) the IRQ mask
+> +		 */
+
+I don't understand the comment. Interrupt bits in SPMI_IRQ_ACK_BASE..
+are set although the SPMI controller has masked them?
+
+> +		val &= spmi->irq_mask_cache[offset / sizeof(val)];
+> +		while (val) {
+> +			bit = __builtin_ctzll(val);
+
+this can be
+		for_each_set_bit(bit, val, 64) {
+
+> +			generic_handle_domain_irq(spmi->irqd, offset * 8 + bit);
+> +			handled = true;
+> +			val &= ~BIT(bit);
+> +		}
+> +	}
+
+I think this loops needs to be wrapped in chained_irq_enter() and chained_irq_exit()
+
+Janne
 
