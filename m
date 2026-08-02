@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4FFDC55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 11:41:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE03CC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 11:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I4Tgmpjf7Ilmqtz+aDL1dWKoCzuAU0Ep6wZi5PJ2Z1o=; b=h8xxdEOlpzUPLDfcll2229sfgB
-	OmD0M63bJZmMQ13UZF2CD3izFyM6FlH5Yd95jNR4K0SQ31x4y1+dWOevm0xf4RIjo3JK7bptXMBco
-	q9yAF8lRTN7KqAsbAyAQ7bMhx3iT0yJtmsxTYDL9pJoetOgSaavAc0Bs8iL4x1ko0ZmBCGDwbuT+m
-	sPrz4FxJI2yZPP5v5hoDENxkNx6euSwwAENGFgisp6dd2GMMbv9Tx1UdZQTjDmHbeRzQfXuvS0R9o
-	WfXxcQpP2QXN9t4eruJMGz70jAxpFZkzItnMEzDTNTZs2kzY9PnNG5VVv0aIc7whPecn2KLgYlbMR
-	99YD8G2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qG8el77ac5B/pcNIohLMU22cDEqP6jWhheMGhqwN4Fo=; b=pnBfoAB6aYjD+krklJcXOu3TKb
+	w9uXus7WUoHCK745JEPNnfFswFAp8PMTDc1x45/F1TQ5G3KpTZAlYAMZBSgJ4vDTPFouLnnwrfJZi
+	EiDOQyk3rYqt5erJoNiXcT2ns28/H/AmLTMt6SZrFhYgrhI7Xd/dQKTIgLhPD+BWOT1zKRNDqYXAQ
+	UM9xWaNgiIG51b7uvOXc3TW0btV8SrB9imA+r00sDGA/yy9lmEM4Z30N242rZhVeHnXlDD8XMCs5G
+	0uT0rjzVbesQT6hXH/9zk7ux0TqRw1fmftgh1igX6/PFoPZi0gJ7N70DYwa8Na1qwNk/KCaTjCFmM
+	3coPiRYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqUYa-0000000FaQ9-44J7;
-	Sun, 02 Aug 2026 11:40:40 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wqUkv-0000000Fb2A-32zk;
+	Sun, 02 Aug 2026 11:53:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqUYY-0000000FaPT-0XP5
+	id 1wqUku-0000000Fb22-2Dw8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 11:40:39 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id AE3BD1A13B2;
-	Sun,  2 Aug 2026 11:40:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7D51B6029B;
-	Sun,  2 Aug 2026 11:40:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BFF7311C17580;
-	Sun,  2 Aug 2026 13:40:29 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1785670831; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=I4Tgmpjf7Ilmqtz+aDL1dWKoCzuAU0Ep6wZi5PJ2Z1o=;
-	b=PAngdWN6Kzyy6RaS1SocProVrElUHk+7aR63UdtGX8aeUFj5FKxZA1GHiBktiFT6xEPsQC
-	4inKyi+YGs+ojuQOCYoU2piqRRPPWMx5BOAa8DCTlLgPaAnZWOpcCHB8kO/pHt2+CasYxa
-	lXbadogFobFi5rxEjWN/nXXRcwlnEOGTfWcEMM7oA9WLBbZqh4dpc6m4CfB1Ze7QQ0o03d
-	qEBVvuwvC/BfrQxq6+XESu/d+aRqFe7SqlErLTRyJQu9n+t7pbaK/2AJrYeeIxWl98s12h
-	8fRu7/+m5CczHDwrlK3ENeQN5qbVywY8qNlwwYP8xAT70l7gDELcsyA4ZOKxBw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Sun, 02 Aug 2026 11:53:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 00D9B4020C;
+	Sun,  2 Aug 2026 11:53:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBC271F000E9;
+	Sun,  2 Aug 2026 11:53:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785671603;
+	bh=qG8el77ac5B/pcNIohLMU22cDEqP6jWhheMGhqwN4Fo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=QsY+YTELaoPvjJFP2u0KZw7KP6sjEf2w5+gW00Iw6Pqa0KNtIShRdrdxLkWFLBpE+
+	 f1tjdIGCAfoM3OkQtds7QM7g+oYs/h9IuD0IT8rvhvgKERY2tRAadwPt4IEKQnf4Zt
+	 bVjReKadb/9TZTtaguEyuAlb+OtszlTRt7q3oOhsgT3LLyfFWM6UhzvJSqaezrv9ed
+	 T73yw8Ulqm1Xzls0qoG3JnM5AGuFaOzZTr3Mxt+ETvdq5ERn4voDbHv2A9U5tFVRlh
+	 9CpsSlN86gRtytwCBocizVKUk5Gszr34WdLpE5KFAnNL08UrEAsS70Z4ED8YM7YHsG
+	 OsxuigYZEugXA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wqUkr-0000000BRRN-1DNS;
+	Sun, 02 Aug 2026 11:53:21 +0000
+Date: Sun, 02 Aug 2026 12:53:22 +0100
+Message-ID: <87ldaopwlp.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andre Przywara <andre.przywara@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next 1/2] net: stmmac: ethtool: Comment the magic numbers in RIWT computation
-Date: Sun,  2 Aug 2026 13:40:13 +0200
-Message-ID: <20260802114015.214212-2-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260802114015.214212-1-maxime.chevallier@bootlin.com>
-References: <20260802114015.214212-1-maxime.chevallier@bootlin.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_044038_711770_F38A9B87 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Preserve AArch32 CP64 registers on rejected reads
+In-Reply-To: <20260801153616.71960-1-kmehltretter@gmail.com>
+References: <20260801153616.71960-1-kmehltretter@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, andre.przywara@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +86,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Receive Interrupt Watchdog Timer is an RX interrupt coalescing mechanism
-used by some variants of dwmac. It allows waiting a bit before
-triggering the rx interrupts, allowing for batch processing.
+On Sat, 01 Aug 2026 16:36:16 +0100,
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
+> 
+> kvm_handle_cp_64() only seeds params.regval for writes. If a CP64 read is
+> decoded but rejected, emulate_cp() still returns handled and the caller
 
-The RIWT is configured with a granularity of 256 stmmac clk ticks. Let's
-add a comment for that and wrap the raw "1000000" into USEC_PER_SEC, as
-we're computing "how many clock cycles in one microsec" with that step.
+s/rejected/UNDEFs/
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+> writes params.regval back to Rt/Rt2.
+> 
+> This can happen for write-only GIC SGI registers
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-index 92585d27ab88..eebfd6976aaa 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
-@@ -759,7 +759,10 @@ static u32 stmmac_usec2riwt(u32 usec, struct stmmac_priv *priv)
- 			return 0;
- 	}
- 
--	return (usec * (clk / 1000000)) / 256;
-+	/* Receive Interrupt Watchdog Timer (riwt) has a resolution of 256
-+	 * ticks.
-+	 */
-+	return (usec * (clk / USEC_PER_SEC)) / 256;
- }
- 
- static u32 stmmac_riwt2usec(u32 riwt, struct stmmac_priv *priv)
-@@ -772,7 +775,7 @@ static u32 stmmac_riwt2usec(u32 riwt, struct stmmac_priv *priv)
- 			return 0;
- 	}
- 
--	return (riwt * 256) / (clk / 1000000);
-+	return (riwt * 256) / (clk / USEC_PER_SEC);
- }
- 
- static int __stmmac_get_coalesce(struct net_device *dev,
+Can it? I know we have some code handling this case, but this was for
+a (long gone) userspace harness driving this code. On any HW, reading
+from WO registers directly results in an UNDEF, without SW
+involvement.  Same thing for RO vs writes.
+
+If you know of any case contradicting this statement, please let me
+know.
+
+> and for rejected PMU counter reads. In both cases KVM injects an
+
+s/rejected PMU counter reads/read accesses generating an UNDEF/
+
+> UNDEF into the guest, so the MRRC destination registers must remain
+> unchanged.
+
+s/destination registers/GPRs/
+
+>
+> Instead, the uninitialised regval is copied into the guest registers. With
+> stack auto-initialisation this is a deterministic zero or pattern value.
+> With CONFIG_INIT_STACK_NONE it may be stale host stack data.
+> 
+> Match kvm_handle_cp_32() and kvm_handle_sys_reg() by seeding regval from
+> the destination registers before emulation.
+> 
+> Fixes: 6d52f35af10c ("arm64: KVM: add SGI generation register emulation")
+
+This has nothing to do with the handling of a particular register, and
+it has *always* been wrong. The correct tag appears to be:
+
+Fixes: 62a89c44954f0 ("arm64: KVM: 32bit handling of coprocessor traps")
+
+> Assisted-by: Claude:claude-opus-5
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> Runtime tested on a Raspberry Pi 400 with a minimal KVM harness running
+> an AArch32 guest. On the unpatched 6.1.21-v8+ vendor kernel, the PMCCNTR
+> MRRC test took UNDEF with r0=0x00000001/r1=0x00000000 instead of the
+> guest's sentinel values. With this patch on v7.2-rc3-278-g38436106b2f5,
+> the same test preserved r0=0x12345678/r1=0x9abcdef0.
+> 
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -4860,11 +4860,11 @@
+>  	/*
+>  	 * Make a 64-bit value out of Rt and Rt2. As we use the same trap
+>  	 * backends between AArch32 and AArch64, we get away with it.
+> +	 *
+> +	 * This also makes rejected reads preserve Rt/Rt2.
+
+There is no such thing as "rejected reads" in the architecture (we
+only use this word for userspace accesses, not guests). Also, I don't
+think this deserves a comment as it aligns the logic with the rest of
+the sysreg handling code.
+
+>  	 */
+> -	if (params.is_write) {
+> -		params.regval = vcpu_get_reg(vcpu, Rt) & 0xffffffff;
+> -		params.regval |= vcpu_get_reg(vcpu, Rt2) << 32;
+> -	}
+> +	params.regval = vcpu_get_reg(vcpu, Rt) & 0xffffffff;
+> +	params.regval |= vcpu_get_reg(vcpu, Rt2) << 32;
+>  
+>  	/*
+>  	 * If the table contains a handler, handle the
+
+Other than the nitpicks above, this looks OK to me.
+
+Thanks,
+
+	M.
+
 -- 
-2.55.0
-
+Jazz isn't dead. It just smells funny.
 
