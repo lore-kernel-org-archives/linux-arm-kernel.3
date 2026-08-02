@@ -4,121 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00E6C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 10:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82923C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 11:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O8d4MflChzYxgs+16eeEucZVBN7Rozihw4bYXT1KIOE=; b=pUYQQX8FknZPDFcuw3O/30okpo
-	DuSNzM8seRY4UkDFEdidnycULQbEd4TEMFsWOlkN+6JZf2msVWhfqkpxOm9OzM6vvlzeYrIgt54NU
-	3aC3JYjB3G8pnMbNNPTq0qWc55QL5fNkbV+eB3IkPrD2nV0dX7YrCi/WzKv8Q7twXEb5Caz6t8SfG
-	2UftpdjB+6VP6wg4pcSPZpac4W6nC2a3rdHkV4LipWjwduXG6P/XqTolT3XrnC9N5VF/1ZsPwhmr7
-	rFKewyCjH0eZFVXwrvgrdcvByPiGVP72D2jIUFjgtL5rRsWCDmVV89hOOOaJba7j5e8J2uZRCeNhU
-	HGb7pTCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N4T6zPehO+hI7YbHINYC2+U0zW4QCef9+KZUmysYs/8=; b=FnBDIADFrgWKl3Cjmefslq5Pz3
+	QGGfk+uhOqeTFPDY0Wld6LtlHrp7iBlUiBTen3d+JBWzc3vLgHjceT/zYzQB1H6sOiW7Mna8NWb/w
+	6BXU512MDjYKamUvbTZ1D78IvMky7M6IsuQjQ8jXEN8GHaVp9v7Oo4ZrhCmhWpXNxwXynJbyucNHM
+	GtZYxD7Ol67OguYP1nG7D+ygrz/rEULzSAu1P031IhZf5mR4XCG5yT2wh27HBWxLYUIcZm57XJRs1
+	Qb4lDN/eKAGGy9p5fiLFe/PO6gdGb3qjugegTyV5F5VZSWsg6VC3GsLXp0SV43s4oqjhtM5NdUg3o
+	7Ichu1YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqTr5-0000000FYWW-14Jk;
-	Sun, 02 Aug 2026 10:55:43 +0000
-Received: from mail-australiaeastazon11021140.outbound.protection.outlook.com ([40.107.39.140] helo=SY2PR01CU004.outbound.protection.outlook.com)
+	id 1wqUDc-0000000FZ6j-47qd;
+	Sun, 02 Aug 2026 11:19:00 +0000
+Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqTr2-0000000FYVx-1f2J
+	id 1wqUDZ-0000000FZ61-1O7z
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 10:55:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tF0moSV093jkLs0C+5os2/Qar8izlHZjs80WW2GRgiWNfAIhDt4veE1v3vvNyTIXMJO0/pGBELOG0qFsoCf9qJvCU/hvUZ9Jns92JedcPfAMh+AMFeA7WJ+TodIYQr2+7MPC1O0nKuBpMv+KrZ8HiuHYhztxdGe0pefEsYXJk/4aw+3KPtJ6YtZrTAGRR2rpkNqsP/MBTjOUyZJuzTY1QyTmZK3hnwHrhq1q/kOcxtqshMBGqM16n8vgStuAVHlAYqY0ULnq9uOA4U0GzJCydcJ0byxvsjXvo4MJDvs6cnRjk3vV1fzzpRfjfUgCWTD2CXVCRlDu/eMc5+nC7o2vcQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O8d4MflChzYxgs+16eeEucZVBN7Rozihw4bYXT1KIOE=;
- b=aGUgxstWQf4pyCcg5dhgu0h3neYv0Wk3vA2U5kdJb8uWW9+wfkSuWPVE3IIE9nhtoE+X4HPAaUNGALIVkGKj2arazXnVEkrolUoHIxzPhXmzvBhKk3JS4lhzIPS8S2FYK4RsE7BWaqwrmIH3ERj2T64GcK4MKTo8YL56cf7sm9TxmnXqCWZBgCJIHSjXfWL0UUO3OO+D3J4Fi1SurkCbRuU8J2k4AyMJePqihnzjMqzC0IEtuB4HsdMKipVMjx0LOxhDEW0Cww2iE7gi3kz+WNTkVliO/d8EfZz4a0RLUHtHr0uft4dJhOELMA/ji7DsPX1+FyTzYdZA+us92aR6Ww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=heitbaum.com; dmarc=pass action=none header.from=heitbaum.com;
- dkim=pass header.d=heitbaum.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=heitbaum.com;
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:279::22)
- by SY3PPF7288964DF.AUSP282.PROD.OUTLOOK.COM (2603:10c6:18::31a) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Sun, 2 Aug
- 2026 10:55:23 +0000
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd]) by SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd%4]) with mapi id 15.21.0270.016; Sun, 2 Aug 2026
- 10:55:22 +0000
-Date: Sun, 2 Aug 2026 10:55:03 +0000
-From: Rudi Heitbaum <rudi@heitbaum.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, rudi@heitbaum.com
-Subject: [PATCH] PCI: imx6: Avoid dereferencing a NULL clock name
-Message-ID: <am8iBwJSEhYhWTqk@6cfee64030a6>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-ClientProxiedBy: MEWPR01CA0178.ausprd01.prod.outlook.com
- (2603:10c6:220:1f2::14) To SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:279::22)
+	Sun, 02 Aug 2026 11:18:59 +0000
+Received: from phl-compute-12.internal (phl-compute-12.internal [10.202.2.52])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id CB92D1400146;
+	Sun,  2 Aug 2026 07:18:55 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-12.internal (MEProxy); Sun, 02 Aug 2026 07:18:55 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1785669535; x=1785755935; bh=N4T6zPehO+
+	hI7YbHINYC2+U0zW4QCef9+KZUmysYs/8=; b=NpEMCYdZ3TwLII8uIWNO3NVF66
+	v93X+iyxv/foIC9YU9OpHPk5MvpIbhqYJ6sKNSvevP+dVz1OA8OVBWEpW4NASOVK
+	L0WluxiNBUuVnpe0Hlv5tkKXZHjxuJbk6QvG+vddKnkYuHie+DrxIrg9JjtYv7C9
+	jfFQOIcyb1tpkBDCsTIyGJvlCf1MYfgTknKfYCixIExneM09beIlLSY4hwX+Vp7v
+	B7Wdi9hyPn4frLhIhrxRoNWOfFMdQDH23Q9Q5GXCkD1IiiebgXX5Wk3WGse1brQw
+	vl5NvnFSWypr2LoU0e8x17IVBJKbEj2TByav84JLCIDUUtTwPI32IWexG/qg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1785669535; x=1785755935; bh=N4T6zPehO+hI7YbHINYC2+U0zW4QCef9+KZ
+	UmysYs/8=; b=lioA2m/bKb5+GjOZSDN9Rv2zU3a8t+UrEkm/3RmATDeROtjdHjw
+	kIrY4oBzUyWi9YqBu7BpwXIGLuwMt72DmkGYzZoS0JKqaO6x65MQhKROiYvmDjHa
+	qHOGPgeLHpEl0YwzHlUBmhPi8XdmwDfqAy69oQRiIIWcci+pAsT154ywLOL1ZY1n
+	sYW/ukkOzmGGgt7HNqGKEsZJ6hOQmA6WXg8fudXDGjUV5eQeZyzL4Ag/DHPkAiLy
+	Fnjioj2aUtsTz2OhElF3qY94XP8eJMN0xT5rOvRr59YGRRNdNygELx8Z0JiGKsu0
+	+XnufqXQVrVqzwgC7j0x0mQikNgCy2MLXUw==
+X-ME-Sender: <xms:nydvaiQ5XJtzIoM9aJPUAogQuO5cAHpBpNEdwYSKg5y6MpmIbBE68g>
+    <xme:nydvauIqNTmvfipe7juMBWCDSREuWWp1viIxtDPdsw7foyA_zrkxccD9Fi0w3uNok
+    5QnU-pnX0LwpSm8trwem_lLPzD7X3VkHuk7c4jbZ3Jyl4qux0ZRl6tX>
+X-ME-Received: <xmr:nydvasFvciE3mysf7ol8vAARDH-SXjwnDj7JykX24mn7GqZRyn4phKPCQDfniwH9DVS5YbDWwrOsWa4O_npUkrOUcZFRaMiJ_4g>
+X-ME-Proxy-Cause: dmFkZTEIJqUgXfrT4dZfY/1nXl2Cq2Tg8N0SAszZYsNsi6GiUd4/g++Jzh0qgz53mD7Rcx
+    WNKEAcUDCRAy+XdLBH27TnEUyNog2Xgk1/XTMThjE6+ZJ2taccpk3BXF9AbVOOtE7uJD2n
+    qqUU+8F5iK0Orgq3k6WyZREq+ZnaStzQOVhQyOHzdcSpB+Aj1/M4o96/9Ej45kRv1JQRHS
+    vPc//RUrZpMqt2txL/kq47OZkQITVYwOr7EvllAoWn3bk4FUxbbkYMA15zmShzz+ora1dr
+    ow7v8J604Njl8UDZzrWm8Tt/4kDG7O27E5m9PCMvN2N2fqbqiRJeERhZgsg9vH0qZ5HbK4
+    1nN9fK4fnxB1EOoggd5mf1AvawFey4ZT9RYuKNXLnQ3G8jTM9nubqz1TKOxKYvq1ga8wR7
+    Ca3r4bKnLM70KSUKo7JL5JYjC8b8t82+fEBpGm8CNzyecM5sHQpVvvaRuMpMmVzyUqE2dx
+    28Uoz6SQyEKLUIYSlhqFEjnzfZC5Hm0ob1Wj/bD8zPteV3QxzBIcePgChn1fbcws1dQvce
+    Z/Dqerh8cAexUE+8K2JV3aX7DLUq7MlwKY3+3hyoz2B0fET5ic85OQ3EfWk1wD8IJ+PRte
+    qG+qMBVaFJAOVCzrE01W8orCg+dCeHIzutEnQF7gdWvtrXezj/Kt6G6CRE6g
+X-ME-Proxy: <xmx:nydvar2aetf5jBkfMKFJnmDn-PH-oDcmcNqhUDhdYTrA5JcHd-FN9A>
+    <xmx:nydvakK7XwspzVrck6oORFYyhS9Cu-VQ_biibNLfQ153OF7kFg2USA>
+    <xmx:nydvag1TgsQxdCaaXD6WTvIRhvkDSONlPkIYKAJ0Af_Pd0GKa99D3g>
+    <xmx:nydvaontBBKTUToN-iX3rUyX4_WQQmbUEbV2UZ3tejRB6n5atYTy5w>
+    <xmx:nydvah3_GG9DeYOMQMCjhHW9qDnkMaEjBHJ8XJ8VQzkPjzgjssnfPUSP>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 2 Aug 2026 07:18:54 -0400 (EDT)
+Date: Sun, 2 Aug 2026 13:18:53 +0200
+From: Janne Grunau <j@jannau.net>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, Alba Mendez <me@alba.sh>
+Subject: Re: [PATCH v2 4/7] spmi: apple: Implement remaining commands
+Message-ID: <20260802111853.GF806854@robin.jannau.net>
+References: <20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech>
+ <20260728-t603x-spmi-v2-4-f43e5f10e583@chaosmail.tech>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SY7P282MB4909:EE_|SY3PPF7288964DF:EE_
-X-MS-Office365-Filtering-Correlation-Id: 027eb8da-24d1-4bd0-4778-08def0848d1b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|23010399003|366016|18002099003|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info: AYw4At57J9no0rNxxrGEcoevQ4UEkyXbQ/iYm/tFEoec319icJJ2WwULlq8SekPcO8zO6D2iAW/F0uXyE/Y2LWCGQERKNSe6ghOiHk+myj7eegMnaMUv1gQrMIO7Q4DL3BhXAPK5wzIxRD/z3LCUPW9LkF59Gfd+AMmCdQWRv2s2CqgRE5Ai2tRgHqW5hFCwO5uGytIRqjVDqhLeSn/G2WgePwYyQnb28Ko3/8C5pC1a6s1Orw/lYOUtiOeDGTWUPvdbdu1wHGEzwc7o8aSwTiWOsbCxrZGuzUzoRj5NOBAPhbsKbgHGwF41Nz0T0hWigm7OTYYOC9dAB9gdmkQp2vqB3m8g8xPAiK0wHTCzVOZ78nbeHFCSRlEtUrSspbdbT4TKc+hlPrkuyfafmgtXV3EIWA8sasw5ZOEZXbQIMRG9FPrHiYI6YSbsAiR3NACfg9OzEmzSbCt7jQG59HxzFAR047eCnWYhkN07QvZrfGTcKyf4V77isaNDqtBjf59xLwkAOirSlJKB4J9YDB7ZUqQDEVjVRwJS6ILIkoD8y3jA7fH3Rv9b1Jc5AcvuR/N/jF2pTbRR9ldeXEyZU3mU3JTdPqbE+cFg2kEfOn9LVjBqCC26nvOthF3mdIBV3CSMluFpZbJ2ao7D5c1bVbfZNcZxR/1XuMBUHeNboeO/gaw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(23010399003)(366016)(18002099003)(56012099006)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5/3bnuCgIb7QERcFjxdnQFytsMG+egmGAaNqhfVpzg3j9WCRNwIbALZ/DumC?=
- =?us-ascii?Q?ONs9PT5yZYklrupPSL5UiYOztthoKA0s+qpftEdZD1ZdUV9SlTBe5Mbq7LnZ?=
- =?us-ascii?Q?5THzDcX4x6uG+Qjm1V0u0SA2cR7PS9jdlofrVE3tPIsee8Ylf53WleovGxgj?=
- =?us-ascii?Q?dY1Xl3Z5nzJm86o4ZcPBTRxJ4hf09sbCtZ5In8UwnWF+zsVqVsd+JuGELoth?=
- =?us-ascii?Q?wRpL6pFUc/FWypD9cYFYgZwmFt653o6Qaq6kQz08Kl7RpFWjb3DfxVhprQzL?=
- =?us-ascii?Q?mVlv61R6R9TNWA/jYClgVri9f7ofR3sAx8nYoDX3ANPq1aIW+YGZ5HrMtViy?=
- =?us-ascii?Q?O/LKdPSibfXZDXzy1sDUpSiKhsJ4gDgcNHgQMhviuke8+33bBsmjI6Z+4uCw?=
- =?us-ascii?Q?Yc4r4dR3TxKZykLAcwDCWV3RTGRdAsH720qHTmKPcBVKAghlLmf9ec77ESI2?=
- =?us-ascii?Q?xD+uFsixJVe8Jwk1sD8XWDdHYHxyKidDI1cVQo8MykETQZBc4nGR9RIyPI4P?=
- =?us-ascii?Q?mpyCL/mNNW8i8evEgao4DuaJeq0QGvuRwHONzIZDxI43d+WEz+QxAdWKDAjS?=
- =?us-ascii?Q?WZ0RKBgHspEtst5i7h0nV0ssjbjeAZ3uSjBkSbKn38hp+3wP78cr3sHFL4Rp?=
- =?us-ascii?Q?YITuyE4mSIGR3T0JGvefhbHa3z3h7iAvK72MBE7oEhbPRyaQTt7t17HmjXAn?=
- =?us-ascii?Q?kunsNmL1tlQAHhMZdI8bWSKvQe1kNINiXyNdsuZO/SLEqYjdxNfGZNfPaJmN?=
- =?us-ascii?Q?Cw4ZZvBvTakpSgmhKtlLhyPxKtMNAq9IQTh5Md+C/XY83/IiQXFU+yxbd+8C?=
- =?us-ascii?Q?xWSC8mNRk+YnhvtPa3X5lrYhsAfhjrA2dqK9Eg23bO5mb/DF0weJ5lKm2C3m?=
- =?us-ascii?Q?e6csGsvTUBd9JWjaapmfVNvPmMj/BCip5EgJvwHb6QgxadZ8NkPVqTNjHYsw?=
- =?us-ascii?Q?5YNsDWYtg3zlEUwcZ3+ebZzAJgjGUZA8QDqYnbygMX8At1admGEKUd8DHi5n?=
- =?us-ascii?Q?AK5EatQglGGZpsYTSKSMXpsqe4GEIcI3d02nS56QwnOfIHgq288m2yFgopVW?=
- =?us-ascii?Q?kEs9xz3pXigJT3xwHBJeBUUmA3+M07ShYBRtvVo+bDpWu5yTmMvdAtsd/Nm1?=
- =?us-ascii?Q?nz/C62pTTV6A++TsRRfOsUtfMpJr7nuqSM8i64EjYELoLmoOws9MbWbLYYMu?=
- =?us-ascii?Q?oPT1E+hp9T3cgWxQ4z+dUgda1L/+rz1gtGbldPy2srb1FptG6WupYsAlu4Xc?=
- =?us-ascii?Q?+IQ3/IXl234pKWWeav3jDpE+DMS5MPmulRz/LoBKuxPiCR7Uel4pwb88MQbf?=
- =?us-ascii?Q?w0YndYePmB2AW9EZfZ+J3Z6as3K3iZN5XcP9ygqW/T++ehGHtEScyIoUCdd0?=
- =?us-ascii?Q?h/pvbZGA7kbn4vxE66LVMH0DAIKIaAOX0wMq9rWNuGOEJWNwYV/pKmL4KgLx?=
- =?us-ascii?Q?DM81RSEk18pvWHYMgRJuWNd6moUZdqaZgzVDjp8GbGvQIU+EBSi1CCprYLqL?=
- =?us-ascii?Q?YMcHUeq9fkXJaAFlmt7KKF06K8cMs4hI2muyY+8YBcRuSLpZjoxccCZBJUuD?=
- =?us-ascii?Q?SPcYbqnhn8W56JxWGVF+WrKXxAoW5Szb1cYwfmjUnuw/RoQMz1ONsck7ye+2?=
- =?us-ascii?Q?Ma4gswVh6ivsBqNrwQG6vLWZ8CY3Z5mzt+57qPzZRooo8HspUCoQp7/XG08S?=
- =?us-ascii?Q?tLzZGd19rSp9NGf1nVB3CfJSNnKr/gY0PpUTOPtHW5SSj9Ej?=
-X-OriginatorOrg: heitbaum.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 027eb8da-24d1-4bd0-4778-08def0848d1b
-X-MS-Exchange-CrossTenant-AuthSource: SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Aug 2026 10:55:22.8306
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 35ffebb5-7282-4da6-8519-efab29b0108e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 73TsI54idim1caS3KWJPAYYsEy5Hxq6SWvGws85AMKFWFppEq1Vis0VYjnt5M07lIWChZfLxImUB0MzTjY7GlQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SY3PPF7288964DF
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260728-t603x-spmi-v2-4-f43e5f10e583@chaosmail.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_035540_440040_EAB570F3 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20260802_041857_859398_DD8503EB 
+X-CRM114-Status: GOOD (  26.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,35 +110,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_clk_bulk_get() leaves clk_bulk_data::id as NULL for every clock that
-has no matching entry in "clock-names", which is legal: a node may list
-more "clocks" phandles than it names. The extref scan dereferences that
-id unconditionally, so such a node oopses during probe.
+On Tue, Jul 28, 2026 at 11:28:10AM +0200, Sasha Finkelstein wrote:
+> From: Alba Mendez <me@alba.sh>
+> 
+> Add support for zero write and power management commands
+> 
+> Signed-off-by: Alba Mendez <me@alba.sh>
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> ---
+>  drivers/spmi/spmi-apple-controller.c | 106 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--------------------------------------
+>  1 file changed, 68 insertions(+), 38 deletions(-)
+> 
+> diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
+> index 4678a9e5270a..aed18b7df15c 100644
+> --- a/drivers/spmi/spmi-apple-controller.c
+> +++ b/drivers/spmi/spmi-apple-controller.c
+> @@ -41,9 +41,9 @@ struct apple_spmi {
+>  	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
+>  			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
+>  
+> -static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 saddr, size_t len)
+> +static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 param)
+>  {
+> -	return opc | sid << 8 | saddr << 16 | (len - 1) | (1 << 15);
+> +	return opc | sid << 8 | (u32)param << 16 | (1 << 15);
+>  }
+>  
+>  /* Wait for Rx FIFO to have something */
+> @@ -63,18 +63,27 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
+>  	return 0;
+>  }
+>  
+> -static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+> -			 u16 saddr, u8 *buf, size_t len)
+> +static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+> +			 u16 param, const u8 *buf, size_t len, u8 *ibuf, size_t ilen)
+>  {
+>  	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
+> -	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
+> +	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, param);
+>  	u32 reply, rsp;
+>  	size_t len_read = 0;
+> -	u8 i;
+> +	size_t i = 0, j;
+>  	int ret;
+>  
+>  	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
+>  
+> +	while (i < len) {
+> +		j = 0;
+> +		spmi_cmd = 0;
+> +		while ((j < 4) & (i < len))
+> +			spmi_cmd |= buf[i++] << (j++ * 8);
 
-Check clk_bulk_data::id before dereferencing it.
+		spmi_cmd = 0;
+		size_t bytes = min_t(size_t, 4, len - i);
+		memcpy(&spmi_cmd, buf + i, bytes);
+		i += bytes;
 
-Fixes: d8574ce57d76 ("PCI: imx6: Add external reference clock input mode support")
-Cc: stable@vger.kernel.org
-Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Is easier to read and it's extremely unlikely that this driver will ever
+be used on big-endian system.
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index f7389b5437df..dcdeba1856f7 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1831,7 +1831,8 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, imx_pcie->num_clks,
- 				     "failed to get clocks\n");
- 	for (i = 0; i < imx_pcie->num_clks; i++)
--		if (strncmp(imx_pcie->clks[i].id, "extref", 6) == 0)
-+		if (imx_pcie->clks[i].id &&
-+		    strncmp(imx_pcie->clks[i].id, "extref", 6) == 0)
- 			imx_pcie->enable_ext_refclk = true;
- 
- 	if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_PHYDRV)) {
--- 
-2.53.0
+> +
+> +		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
+> +	}
+> +
+>  	ret = apple_spmi_wait_rx_not_empty(ctrl);
+>  	if (ret)
+>  		return ret;
+> @@ -82,15 +91,15 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+>  	reply = readl(spmi->regs + SPMI_RSP_REG);
+>  
+>  	/* Read SPMI data reply */
+> -	while (len_read < len) {
+> +	while (len_read < ilen) {
+>  		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
+>  			dev_err(&ctrl->dev, "FIFO lacks reply data, controller stuck?\n");
+>  			return -EIO;
+>  		}
+>  		rsp = readl(spmi->regs + SPMI_RSP_REG);
+>  		i = 0;
+> -		while ((len_read < len) && (i < 4)) {
+> -			buf[len_read++] = ((0xff << (8 * i)) & rsp) >> (8 * i);
+> +		while ((len_read < ilen) && (i < 4)) {
+> +			ibuf[len_read++] = ((0xffU << (8 * i)) & rsp) >> (8 * i);
 
+This could be rewritten with memcpy as well
+
+>  			i += 1;
+>  		}
+>  	}
+> @@ -98,47 +107,67 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+
+>  	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY))
+>  		dev_warn(&ctrl->dev, "FIFO has extra data\n");
+>  
+> -	if ((~reply >> SPMI_REPLY_FRAME_PARITY_OFFSET) & ((1 << len) - 1)) {
+> +	if (!ilen && !(reply & SPMI_REPLY_ACK)) {
+> +		dev_err(&ctrl->dev, "command not acknowledged\n");
+> +		return -EIO;
+> +	}
+> +	if ((~reply >> SPMI_REPLY_FRAME_PARITY_OFFSET) & ((1 << ilen) - 1)) {
+
+Is the parity check useful for write commands? I'm not sure if packing
+all command processing into a single function is a good idea for code
+readability. The diff is annoying to read.
+
+>  		dev_err(&ctrl->dev, "some frames failed parity check\n");
+>  		return -EIO;
+>  	}
+>  	return 0;
+>  }
+>  
+> -static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+> -			  u16 saddr, const u8 *buf, size_t len)
+> +/* Send a raw command with 1..16 input data frames */
+> +static int spmi_raw_cmd_input(struct spmi_controller *ctrl, u8 opc, u8 sid,
+> +			 u16 param, u8 *buf, size_t len)
+>  {
+> -	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
+> -	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
+> -	u32 reply;
+> -	size_t i = 0, j;
+> -	int ret;
+> -
+> -	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
+> +	return spmi_raw_cmd(ctrl, opc, sid, param, NULL, 0, buf, len);
+> +}
+>  
+> -	while (i < len) {
+> -		j = 0;
+> -		spmi_cmd = 0;
+> -		while ((j < 4) & (i < len))
+> -			spmi_cmd |= buf[i++] << (j++ * 8);
+> +/* Send a raw command with (optional) body and an input ACK */
+> +static int spmi_raw_cmd_ack(struct spmi_controller *ctrl, u8 opc, u8 sid,
+> +			  u16 param, const u8 *buf, size_t len)
+> +{
+> +	return spmi_raw_cmd(ctrl, opc, sid, param, buf, len, NULL, 0);
+> +}
+>  
+> -		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
+> +static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+> +			 u16 saddr, u8 *buf, size_t len)
+> +{
+> +	switch (opc) {
+> +	case SPMI_CMD_EXT_READ:
+> +	case SPMI_CMD_EXT_READL:
+> +		return spmi_raw_cmd_input(ctrl, opc | (len - 1), sid, saddr, buf, len);
+> +	case SPMI_CMD_READ:
+> +		return spmi_raw_cmd_input(ctrl, opc | saddr, sid, saddr, buf, len);
+>  	}
+> +	return -EINVAL;
+> +}
+>  
+> -	ret = apple_spmi_wait_rx_not_empty(ctrl);
+> -	if (ret)
+> -		return ret;
+> -
+> -	reply = readl(spmi->regs + SPMI_RSP_REG);
+> -
+> -	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY))
+> -		dev_warn(&ctrl->dev, "FIFO has extra data\n");
+> -
+> -	if (!(reply & SPMI_REPLY_ACK)) {
+> -		dev_err(&ctrl->dev, "command not acknowledged\n");
+> -		return -EIO;
+> +static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
+> +			  u16 saddr, const u8 *buf, size_t len)
+> +{
+> +	switch (opc) {
+> +	case SPMI_CMD_WRITE:
+> +		return spmi_raw_cmd_ack(ctrl, opc | saddr, sid, buf[0] << 8 | saddr, NULL, 0);
+> +	case SPMI_CMD_ZERO_WRITE:
+> +		return spmi_raw_cmd_ack(ctrl, opc | buf[0], sid, buf[0] << 8 | saddr, NULL, 0);
+> +	case SPMI_CMD_EXT_WRITE:
+> +	case SPMI_CMD_EXT_WRITEL:
+> +		return spmi_raw_cmd_ack(ctrl, opc | (len - 1), sid, saddr, buf, len);
+>  	}
+> -	return 0;
+> +	return -EINVAL;
+> +}
+> +
+> +static int spmi_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
+> +{
+> +	if (
+> +		opc == SPMI_CMD_RESET || opc == SPMI_CMD_SLEEP ||
+> +		opc == SPMI_CMD_SHUTDOWN || opc == SPMI_CMD_WAKEUP
+> +	)
+
+no! a switch like for read/write would be nicer to read but this
+formatting is just no.
+
+> +		return spmi_raw_cmd_ack(ctrl, opc, sid, 0, NULL, 0);
+> +	return -EINVAL;
+>  }
+>  
+>  static int apple_spmi_probe(struct platform_device *pdev)
+> @@ -161,6 +190,7 @@ static int apple_spmi_probe(struct platform_device *pdev)
+>  
+>  	ctrl->read_cmd = spmi_read_cmd;
+>  	ctrl->write_cmd = spmi_write_cmd;
+> +	ctrl->cmd = spmi_cmd;
+>  
+>  	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
+>  	if (ret)
+
+Janne
 
