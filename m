@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E93C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 16:52:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68BDC55177
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 16:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xg5YiNvc+9iDAWqaWtg2ClRCsBlk2Sx5Fu/cDc87liA=; b=rw52t2cNTKHKi7+XCYa5Jvskmy
-	L6uhCyGEHV9Uk8CMf75jPyIbxWb8eyXcOtt0Grb1tSQVmxFBU3TO5CO1XjzJEzn3IImshbmPiU188
-	JHFQBQVRgOCx0f0YRwGaoyua6V9FgC78HGqpzwqPZ6qdnmYaww1rUQbJBLPC6VJtXTC2T5EJESt3e
-	Q8ko0HqzORLO8ZniXQyJOrIiJudLtma9PyvoJ0yurF604Z4crKE/cKuG+05eBpvGTp6/Sfl38VZ7O
-	XGjxOzf2IIc6icXJBW0EhRvg3gxIIZTGJv81d7vrfk9rqpp9dBorW7q/2Zy9+Oc+dFaeBEyid+2IK
-	VrBU2/Zg==;
+	bh=DebX7evhEtlgthyyjGu18FUeYtqUAeNC8V77aBBdbns=; b=qyrwrX4isgDEB0EtoU6pqnQO8D
+	aojR8zqg+qIhCVDOKC4tCN7LKIX+IkxkEHi7Y6d3MZtQHChzVKBOnuVldD9Nqi539yEC/vV54MHRB
+	ldxocHzmiFJUB6a8tfpQLsowJjMpMwoCbVLQ0MvvWn4qNpOfwY8p1FEb2FKDJvn4nrxvgTwcaQF7M
+	RfRXGMRqL1hs9kzaGBrRDz6/DxPcZ6EWcLXu1YHZt4K/iXaY4vCDjGwIYAJ82vP5LWLDfzbOo1h0a
+	N2n313bE+Rb9mgW5QiWJSMOzKNSjyB4sm1RbEOWijvIsgkVDZoM5OthV/mjAthzXbBrs5TrkItbe1
+	3eX8QTTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZPw-0000000FqMK-2GNh;
-	Sun, 02 Aug 2026 16:52:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wqZRX-0000000FqmZ-45jr;
+	Sun, 02 Aug 2026 16:53:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZPv-0000000FqMD-2t2g
+	id 1wqZRW-0000000Fql9-294O
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 16:52:03 +0000
+	Sun, 02 Aug 2026 16:53:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B79B42DD0;
-	Sun,  2 Aug 2026 16:52:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD25D1F00A3D;
-	Sun,  2 Aug 2026 16:52:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A18F660DFE;
+	Sun,  2 Aug 2026 16:53:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 512C21F00A3A;
+	Sun,  2 Aug 2026 16:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785689523;
-	bh=xg5YiNvc+9iDAWqaWtg2ClRCsBlk2Sx5Fu/cDc87liA=;
+	s=k20260515; t=1785689621;
+	bh=DebX7evhEtlgthyyjGu18FUeYtqUAeNC8V77aBBdbns=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JxTYIh/D+Wt/Iil606xlmNdKS3bPm+U1rutxpG5M2KYdsVrFV2lwihRzeB9cF1sFq
-	 ur1ye8IQFlKDw3VwawI/TB41IXbzPmpT2OR2BfDvDYknRLMXJTcf3SzkWsFtErCUvo
-	 f6iXiEFUuexY1SAVDViDJNEBUQpIjXpvEgw2EE2y4dDxkQyhqzVPdZYlNiiUaFCt8L
-	 tQPgtTsVFJxooYGQC3/AQ1IW3gbTJvRnvJeHU8oADV03fVm/tTWg635CDEe9dVYExp
-	 c3rEREWv1pYeJsleavNkMpjYYXj60NO2HjwqmrKjv4V+nWiOwhcx9gWvqcX3gQoG8+
-	 Jdvpi0wvWwtvw==
-From: Thierry Reding <thierry.reding@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: Thierry Reding <thierry.reding@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL 4/4] arm64: tegra: Device tree changes for v7.3-rc1
-Date: Sun,  2 Aug 2026 18:51:47 +0200
-Message-ID: <20260802165148.1259649-4-thierry.reding@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260802165148.1259649-1-thierry.reding@kernel.org>
-References: <20260802165148.1259649-1-thierry.reding@kernel.org>
-Content-Type: text/plain; charset="utf-8"
+	b=ma03lMFjEIGpCCK44yCD73/RZdEU9x93nIEs2F3en0qOqsY0FmfYB3vaNfwB+Ltxl
+	 wL+bii+DHKGgsy2WfccmrkYxZeg4hW6q+hrl8W4DYjitINoxZSDus4nsmMPNJmCyYx
+	 naZzIQgzp+D4UwvnQGHeWHVhIMsSeZ5rfCjPATc+2SDLX0c0ulpHmhuHwsgSW2sNXz
+	 KzK64QI9AA3L1ciSS3yVze7La95ayIWUhVOQQtXgdJp8m7WLy3ynD7FJHyMKONfPmV
+	 BcmoPM44zc0wlYBry3D+sikoWFM9+EYRl0HGoSqXMJ73jfJZpYf9YT84PVWU9HgjUn
+	 lGMfvgdUzYCdA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wqZRT-0000000BVIZ-10vj;
+	Sun, 02 Aug 2026 16:53:39 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	stable@vger.kernel.org
+Subject: [PATCH v3 1/8] clocksource/drivers/arm_arch_timer: Add read_sched_clock_is_arch_counter() predicate
+Date: Sun,  2 Aug 2026 17:53:20 +0100
+Message-ID: <20260802165327.385217-2-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260802165327.385217-1-maz@kernel.org>
+References: <20260802165327.385217-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, tglx@kernel.org, ben.horgan@arm.com, daniel.lezcano@linaro.org, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,86 +84,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <thierry.reding@gmail.com>
+The PMUv3 driver really wants to know whether sched_clock() is
+backed by the architected timer. However, updates to the timer driver
+have broken the check, as there is more than a single accessor
+for the counters, depending on the level of brokenness of the HW.
 
-Hi ARM SoC maintainers,
+Add a predicate that checks for those accessors, and update the PMUv3
+driver to DTRT.
 
-The following changes since commit f5098b6bae761e346ebcd9da7f95622c04733cff:
+Fixes: 24ee7607b286b ("arm64/arch_timer: Provide noinstr sched_clock_read() functions")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ drivers/clocksource/arm_arch_timer.c | 10 ++++++++++
+ drivers/perf/arm_pmuv3.c             |  2 +-
+ include/clocksource/arm_arch_timer.h |  8 +++++++-
+ 3 files changed, 18 insertions(+), 2 deletions(-)
 
-  Linux 7.2-rc5 (2026-07-26 14:45:48 -0700)
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 4adf756423de9..c02e97f9b7af5 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -951,6 +951,16 @@ static void __init arch_counter_register(void)
+ 	sched_clock_register(scr, width, arch_timer_rate);
+ }
+ 
++bool read_sched_clock_is_arch_counter(const struct clock_read_data *crd)
++{
++	u64 (*rd)(void) = crd->read_sched_clock;
++
++	return (rd == raw_counter_get_cntvct_stable	||
++		rd == raw_counter_get_cntpct_stable	||
++		rd == arch_counter_get_cntvct		||
++		rd == arch_counter_get_cntpct);
++}
++
+ static void arch_timer_stop(struct clock_event_device *clk)
+ {
+ 	pr_debug("disable IRQ%d cpu #%d\n", clk->irq, smp_processor_id());
+diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+index 8014ff766cff5..ed880145d41b3 100644
+--- a/drivers/perf/arm_pmuv3.c
++++ b/drivers/perf/arm_pmuv3.c
+@@ -1624,7 +1624,7 @@ void arch_perf_update_userpage(struct perf_event *event,
+ 	do {
+ 		rd = sched_clock_read_begin(&seq);
+ 
+-		if (rd->read_sched_clock != arch_timer_read_counter)
++		if (!read_sched_clock_is_arch_counter(rd))
+ 			return;
+ 
+ 		userpg->time_mult = rd->mult;
+diff --git a/include/clocksource/arm_arch_timer.h b/include/clocksource/arm_arch_timer.h
+index 2eda895f19f54..84cdbaffcfb5e 100644
+--- a/include/clocksource/arm_arch_timer.h
++++ b/include/clocksource/arm_arch_timer.h
+@@ -84,13 +84,15 @@ struct arch_timer_mem {
+ 	struct arch_timer_mem_frame frame[ARCH_TIMER_MEM_MAX_FRAMES];
+ };
+ 
++struct clock_read_data;
++
+ #ifdef CONFIG_ARM_ARCH_TIMER
+ 
+ extern u32 arch_timer_get_rate(void);
+ extern u64 (*arch_timer_read_counter)(void);
+ extern struct arch_timer_kvm_info *arch_timer_get_kvm_info(void);
+ extern bool arch_timer_evtstrm_available(void);
+-
++extern bool read_sched_clock_is_arch_counter(const struct clock_read_data *);
+ #else
+ 
+ static inline u32 arch_timer_get_rate(void)
+@@ -108,6 +110,10 @@ static inline bool arch_timer_evtstrm_available(void)
+ 	return false;
+ }
+ 
++static bool read_sched_clock_is_arch_counter(const struct clock_read_data *crd)
++{
++	return false;
++}
+ #endif
+ 
+ #endif
+-- 
+2.47.3
 
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.3-arm64-dt
-
-for you to fetch changes up to 2aedc7afffc61449ddd44bf2a4b3195729cb46ac:
-
-  arm64: tegra: Correct Tegra234 p3740 interrupt flags (2026-07-31 17:55:32 +0200)
-
-Note that this is based on v7.2-rc5 to resolve a conflict in the base
-Tegra264 device tree include.
-
-Thanks,
-Thierry
-
-----------------------------------------------------------------
-arm64: tegra: Device tree changes for v7.3-rc1
-
-This contains a new device tree for the Lenove ThinkEdge SE70 Edge
-Client device as well as a number of fixes and cleanups for Tegra234 and
-Tegra194. Tegra264 sees a number of additions to enable more features.
-
-----------------------------------------------------------------
-Akhil R (1):
-      arm64: tegra: Enable GPCDMA in Tegra264 and add iommu-map
-
-Ashish Mhetre (2):
-      dt-bindings: iommu: Fix interrupt type in example
-      arm64: tegra: Fix CMDQV interrupt type on Tegra264
-
-Geert Uytterhoeven (1):
-      arm64: tegra: Drop CPU masks from GICv3 PPI interrupts
-
-Jiqi Li (2):
-      dt-bindings: arm: tegra: Add lenovo,thinkedge-se70 compatible string
-      arm64: tegra: Add Lenovo ThinkEdge SE70 device tree
-
-Krzysztof Kozlowski (3):
-      arm64: tegra: Correct Tegra194 p2972 interrupt flags
-      arm64: tegra: Correct Tegra234 p3737 interrupt flags
-      arm64: tegra: Correct Tegra234 p3740 interrupt flags
-
-Mikko Perttunen (1):
-      arm64: tegra: Add Host1x and VIC on Tegra264
-
-Prathamesh Shete (1):
-      arm64: tegra: Add pinctrl nodes for Tegra264
-
-Sumit Gupta (1):
-      arm64: tegra: Populate CPU and L2 cache nodes on Tegra264
-
-Suneel Garapati (1):
-      arm64: tegra: Add GTE nodes for Tegra264
-
-Thierry Reding (3):
-      dt-bindings: gpu: host1x: Fix email address
-      Merge branch 'for-7.3/dt-bindings' into for-7.3/arm64/dt
-      arm64: tegra: Properly sort devices on Tegra264
-
- Documentation/devicetree/bindings/arm/tegra.yaml   |   5 +
- .../bindings/gpu/host1x/nvidia,tegra210-nvdec.yaml |   2 +-
- .../bindings/gpu/host1x/nvidia,tegra210-nvenc.yaml |   2 +-
- .../bindings/gpu/host1x/nvidia,tegra210-nvjpg.yaml |   2 +-
- .../bindings/gpu/host1x/nvidia,tegra234-nvdec.yaml |   2 +-
- .../bindings/iommu/nvidia,tegra264-cmdqv.yaml      |   2 +-
- arch/arm64/boot/dts/nvidia/Makefile                |   1 +
- .../dts/nvidia/tegra194-lenovo-thinkedge-se70.dts  | 111 ++++
- arch/arm64/boot/dts/nvidia/tegra194-p2972-0000.dts |   2 +-
- .../boot/dts/nvidia/tegra234-p3737-0000+p3701.dtsi |   2 +-
- .../dts/nvidia/tegra234-p3740-0002+p3701-0008.dts  |   2 +-
- arch/arm64/boot/dts/nvidia/tegra234.dtsi           |  10 +-
- arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi     |   4 +
- arch/arm64/boot/dts/nvidia/tegra264.dtsi           | 577 ++++++++++++++++++---
- 14 files changed, 632 insertions(+), 92 deletions(-)
- create mode 100644 arch/arm64/boot/dts/nvidia/tegra194-lenovo-thinkedge-se70.dts
 
