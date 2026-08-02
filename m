@@ -4,80 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C325C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 15:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4702DC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 16:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZ5H4eB7tZXCdSU5j4A/pThsIBip2dyKmzd/naErbyA=; b=ck/cpJ1uE+3tSXsGmDExcScXxn
-	TarhG6ATCzR1pf/JZ36DRwg1l7N0KOWtUBJgtRsVYruhXNakIKriYzyGUlNGsa3ALhWzodYqg91jG
-	0fdDpq+VYe9JDIPldxLPrS+8Gny0YdTMcn8xdEeUuIR2wAawTHxiPvLpYTfbxrgdzhHG2hRaI84q8
-	phyda1BDw8D3eD2/zYXGaOJ+I1FbmMFYmIadN6fB6IQPmi+PWQEVLc2wgN4/lVlTRt2n5BooC4KIJ
-	TtR//3b+ofJTmRvNxVv2W8BxB3kLiUHsED+nu4Y+fnwF+gouKhjru9SY3vXqe9iHayB53i2+R2Qs5
-	f1Z18u4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VjSayV/sJlc3KNTb3fMX3RwzhLQRHzSBn4xsieBjaMg=; b=VVPUTuw+8byQxuBJAcJvAl0U57
+	xWIccglrG0mQ/zTmCgb9qBhLL7CaNNT3s1GYTMQyYqTG341iM5ebeKGVQ7zECNvNMy7QAcy+8uf7n
+	RevRbZWhGLPVzwtePROFjgfemuNZ9tcSXF2zsp5p88SyBWJNaMSWa6jTM2Wh6uPojWMW50EkHumsB
+	28rZKwctc/PjHGly+nlvduzIGJPg26IwOA21I3TjPmyBWQ5ysSlUZx5L4TIcXteHIeQ+BNOOsLmGo
+	KzeVs9Cv6tt3TebFN6ZibZ9tfon5YxymC9rUQ+j7yuHkmFIQBPO/ty6gRq+jBKfZ/xoyS27Q5ekhD
+	9iNPD0Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqYX7-0000000FoDp-2LFx;
-	Sun, 02 Aug 2026 15:55:25 +0000
+	id 1wqZDx-0000000FppB-0Z5q;
+	Sun, 02 Aug 2026 16:39:41 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqYX5-0000000FoDj-1Mxg
+	id 1wqZDv-0000000Fpp3-400w
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 15:55:23 +0000
+	Sun, 02 Aug 2026 16:39:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 451E241988;
-	Sun,  2 Aug 2026 15:55:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CA671F000E9;
-	Sun,  2 Aug 2026 15:55:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 54A72437BC;
+	Sun,  2 Aug 2026 16:39:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A546D1F000E9;
+	Sun,  2 Aug 2026 16:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785686122;
-	bh=zZ5H4eB7tZXCdSU5j4A/pThsIBip2dyKmzd/naErbyA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=QTJSGIHmp7t1+XbvOwcW5t/LX7ZO577yRk3bxj7ro25XuEmNLeqdShjaajNmowTUB
-	 SJ/Mj3qy5G1PCtbsrw51ofWncwpwCfCqcFIxdHYQ3SXCwPo9CFuYptPQxhzcpRh64I
-	 zYjWVgFXhIPf6aR0Wwr/t+NqQUwji5YlP1gmfKCUa8uyKlKn+/qXpa+HTkXUSDG3kk
-	 e1rFZtj4Sh6oOHUqxl1RhGuy7wxH0PIhGA3IFaxLXvVpQBPZCpPhNBF7NPdXUW9xzc
-	 OP+1+iLrzaJMmo7k66kGl6knzV16Atdt2884VS3RQYSK4wQUwcGxQdNY2yuekRJeIc
-	 q6q6iSFUaEIPA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wqYX1-0000000BUNX-2Ni4;
-	Sun, 02 Aug 2026 15:55:19 +0000
-Date: Sun, 02 Aug 2026 16:55:20 +0100
-Message-ID: <87jyq8plef.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	stable@vger.kernel.org,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] KVM: arm64: vgic: Reset in_kernel on private IRQ allocation failure
-In-Reply-To: <20260802150845.3485757-1-fuad.tabba@linux.dev>
-References: <20260802150845.3485757-1-fuad.tabba@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, kvmarm@lists.linux.dev, stable@vger.kernel.org, Sascha.Bischoff@arm.com, jic23@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, seiden@linux.ibm.com, catalin.marinas@arm.com, will@kernel.org, tabba@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1785688779;
+	bh=VjSayV/sJlc3KNTb3fMX3RwzhLQRHzSBn4xsieBjaMg=;
+	h=From:To:Cc:Subject:Date;
+	b=GTzDUMcOi0HIaAgBOvcoh1pnhBh51/HQ812MNtZ6w31c/CoctTee1fxFdK4DYfAfX
+	 YBPnww/cEUl85c/4RacqmPnYfixjYnmn0W2/SBksUnT163OiFR/5R3Rj4jdHa6BNxO
+	 E1eDj54fYFKB2iyEybMKFxnSmJPJnXT6lgW4CVAbaqZXDOxt56HfJTSB6ly1G1eQRt
+	 9Rn+0qwoQEW6gQqldDzc5zy5GLmEKznrgVbSwXAX6ucJphU4aEp+qdfP+Z825FePGE
+	 plev8wAwJiSDJILQMPCG8ztLUFvCbKUcjVGAPmTuzgFk7NH1+UpqT+fcVm4NSQsPTX
+	 WHlci5SrGvAxw==
+From: Thierry Reding <thierry.reding@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: Thierry Reding <thierry.reding@kernel.org>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL v2] arm64: tegra: Device tree fixes for v7.2
+Date: Sun,  2 Aug 2026 18:39:34 +0200
+Message-ID: <20260802163936.1257450-1-thierry.reding@kernel.org>
+X-Mailer: git-send-email 2.54.0
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,43 +70,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 02 Aug 2026 16:08:45 +0100,
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
-> 
-> kvm_vgic_create() sets vgic.in_kernel before allocating the per-vCPU
-> private IRQs, but the allocation-failure path resets only vgic_model and
-> leaves in_kernel set. As irqchip_in_kernel() is !!in_kernel, the VM is
-> left with an in-kernel irqchip but no model, and the -EEXIST guard at the
-> top of kvm_vgic_create() rejects every retry, so userspace cannot recover
-> from a transient -ENOMEM.
-> 
-> Reset in_kernel alongside vgic_model on the failure path.
-> 
-> Fixes: 9435c1e1431003 ("KVM: arm64: gic: Set vgic_model before initing private IRQs")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
-> ---
->  arch/arm64/kvm/vgic/vgic-init.c | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-> index 907057881b26a..fdac6e24762da 100644
-> --- a/arch/arm64/kvm/vgic/vgic-init.c
-> +++ b/arch/arm64/kvm/vgic/vgic-init.c
-> @@ -176,6 +176,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
->  		}
->  
->  		kvm->arch.vgic.vgic_model = 0;
-> +		kvm->arch.vgic.in_kernel = false;
->  		goto out_unlock;
->  	}
->  
-> 
+From: Thierry Reding <thierry.reding@gmail.com>
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+Hi ARM SoC maintainers,
 
-	M.
+The following changes since commit f5098b6bae761e346ebcd9da7f95622c04733cff:
 
--- 
-Jazz isn't dead. It just smells funny.
+  Linux 7.2-rc5 (2026-07-26 14:45:48 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.2-arm64-dt-fixes-v2
+
+for you to fetch changes up to a7c28483fd57dd0e1487024af70622315320774b:
+
+  arm64: tegra: Add EL2 virtual timer interrupt for Tegra194 (2026-07-29 18:05:46 +0200)
+
+Thanks,
+Thierry
+
+----------------------------------------------------------------
+arm64: tegra: Device tree fixes for v7.2
+
+This contains a single fix adding an interrupt to the architected
+timer's device tree node for the EL2 virtual timer. This prevents
+a warning from the driver at boot time.
+
+----------------------------------------------------------------
+Jon Hunter (1):
+      arm64: tegra: Add EL2 virtual timer interrupt for Tegra194
+
+ arch/arm64/boot/dts/nvidia/tegra194.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
