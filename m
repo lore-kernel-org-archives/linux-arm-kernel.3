@@ -4,108 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87820C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 17:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 433FEC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 17:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ayuvivxfWK6wLmGHo3e/3r7UFNU/ARSNtwtuFILdC94=; b=YQ3HGOwPbT1KJtMzFmIbbKI6Z+
-	gTqOc9x/sSb81YPp4EqAlcsUkY5lgArKDbO/j8OW3upUkBBQbSvKTTKCMmSFqsVEnfd+8Ix1RFWPp
-	tOE38szP0pXLPDdknEOOeCEhJXEjAO3pUgiqrmgCUXHvV2w9i8stMOcPlqOCo232Q5Tg0kvVoGGNV
-	Kn1GQG5n1REfC9jQVNRK8WWdYc4Iis3FdhJdMEvzUAXXrMozL8cpLb15jvNORG7bhmeJ34E9WlaqT
-	duJ/vqf5a37LiBAXnSqd+DwO5GXro7wbUwDUA8hHzy2+A9mbwxpzNu6Y+GngLTMNMAxkZkHVvqlVl
-	ZEhGchNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YQIE8XgKYt/EUINULOT/JC5r+V7wX1jbi6M/ucAZS60=; b=ijmhk+agCJe9pYrPWVEroqT5ZS
+	niInAEYgN9UTDKO94f5yuSh0CQiZWZfbdTogegPVa3TznyeaqEOtDot5YjCwdm7EkDZwhPBMVYgMM
+	mRu61y/99NT2EYSoXk+ZfSsv1BJsLjqxRSW9KP5OQsd5NQ1H8uWbrbubG1H/PTF9uA+Xjo1UMJqtq
+	rdvUq2iBXDDHz55gP553L+qMypnLHHKEAs/kClxLKqxMwxvQAx+v1o0YmN865z5Wxrq4hCC1a5d12
+	dNuTsEu2BDsHcuMNW9utYPD8KHEu9yeyZ03O+ZrydIcmUJaocdAePdLgJYprTMLm+7s2cpHxZCpe5
+	w/7jJrhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZlU-0000000FsZk-2eP8;
-	Sun, 02 Aug 2026 17:14:20 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1wqZxp-0000000Ft7x-2sw3;
+	Sun, 02 Aug 2026 17:27:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZlS-0000000FsZN-0iYN
+	id 1wqZxn-0000000Ft7k-3KbC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 17:14:19 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-51c15a5b265so242151cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 10:14:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785690856; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MA8/nGXZWIxBEPnbQamxr2lGI1I3VOndBvDeJmkqglEi9FwfrBk4HNc9Yk3mUZcOVV
-         ZC6hVHcn2f0x59K3otRg+87PcruNuB7gEr41/xsIkFpss4a25uRgnVVQC8GUV5+HEZxS
-         Gxd2fmxt7aqKcea1nlNnySxjbLb1cVyvsCWwQycMQawj3nLwpue4RNODnruf2WIj6QjJ
-         CpMmu9ZGOU/Tm4ZFcpG9tcWVsyiUISiP+KyAZ94Js11HXKRZdBYXzTpEUrXgnMnH7Omt
-         v82bqTnw1i/akqhC8i6hewIslnK4yD0YOpJa6hKCTYk6f0KtreFg9btMvCgY3LnYVRw0
-         +DlA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ayuvivxfWK6wLmGHo3e/3r7UFNU/ARSNtwtuFILdC94=;
-        fh=z2U75upJ0KdpllDnjQuQJx1YoHAGUXyjagsy7i/Zh4A=;
-        b=GgTdgcr4wStd1ZZ2mJipy7sAU4G9BhB4HN7rFeYDm71Gs7UCjXta02YTKvwS3WPQLx
-         +vjIW53jDNK+IFaV+2/JjzjWR5sAV0dSbaXcXBcPe0UnJm2b+Ws0IvYJfykWiP/1Jide
-         GP5W9C9V2QFVuj0wm0aKxSflmLQVAYnbLgKGUJbMm0ta7o4NpREgr/pkY9gN+U1oCjpm
-         CVg6zldMN7GoFblwa3viu8aX5ttl593ewvI6DPjcYTiFXDuQ/JhASSycYSGrgEuHP148
-         7gJ3+XBvTMEOFBjWgMN4/CD+d1+GNI2lZie4zCpAEB9rtpEyXfqnIsVTiSHUlKD050bk
-         TwMg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785690856; x=1786295656; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ayuvivxfWK6wLmGHo3e/3r7UFNU/ARSNtwtuFILdC94=;
-        b=m+hF63qVzxf/kTEIcUvnoMTs09DWIFybFUbxY7K5vSMej7x4PZ3dw+yiWp6gsbNWHB
-         Ccn0eXoAnMe5/71c8wTbVjmLJv9HXe2ANyec3TR/TvDTKwPXKmLy329/6DGpP41cL1LT
-         5YujH8XE2IJ6T9jB1Q0fY5ESLR4MtvdhuUOlqKXAoYk2kEKNtthE1hocebZWz16SpEIf
-         36Hjl0YlTUfaQhypvR2b1jdQormtJETHnVMI9DJnugLnuD5nGKdlymFBl7d6TdoVmlHB
-         1OWOMIrxpGmnEYQUazAeD+M+nuPK+Tj2+rtUXzWV6CAKDJdHl8kUFIat8XEmJODHXlWL
-         4l6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785690856; x=1786295656;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ayuvivxfWK6wLmGHo3e/3r7UFNU/ARSNtwtuFILdC94=;
-        b=owmD5Y3IbOPeYGpp/hju4dtpxXCWbzMuwQRcnrYxBRO/Wl6pRGnvCVnKDephusUzTP
-         AP/QopOM/tu7Nwr3jXLxvViKzHLppFQSKPF+RquNEaxhmw+HUMcGAaIgEtEp3ZPoxIK6
-         nxZBf22D2bm1cW2sJpkGRuglaf+Lc+lNTImJYPUeqxKQVxfGX7SnM+wekST87TbDxCH3
-         fW37ydfa9UBcfu54RVzIAm3l4tkBoTDL8NE1btFbkGjvDK5U2i59VFUNCyQeQgeM+aA2
-         nb09hmHm79PepMAqWuXcvzvamY1K3c9PMOzTgn52GbjIHJGu4KWystK4O1j43xZYUu2p
-         S1EQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrdF2uRfnmFG1sS8wJ9tic7EQc/iiA7KiuBZc+D37aTYzlZPk7fGbQ+UqVVdjNdOEzSLO1hrEESHNejBSIYuX3y@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOO+4NMEtFS1oJFaHkqf15159MbLlidD98/3c5G+ebr5KpDwxQ
-	AzLyQPXWxlioGPzJWP3YhFzJTJsL/mBbsiM6AOP68UQWZui2lMIMwgd6j/jArje67iJSpOPy5Kv
-	lYSfbV/Gdp5THa3G2jg8YUYfjnI4fj1NE4yy3BZl1
-X-Gm-Gg: AR+sD11xkRTRGqRUO/SG00+7fRUwvSz5gBLNozU/3KGlgezMDmVmBAOpJucseYBtsyw
-	rXjlclZEwp5wG24L281vOZwpg+1wH0utYhi6z0aHXalsu1xeume/OmVovq6NS46RxRp/KfGHMrS
-	tMFhNpPkddiI91IW6giQD1PuQ2If1dDlMv+GNw/mQ001AF+CE3E8eOb05qaAzcmtqbVz3lFExc+
-	I7/MmTcl8qrPQheMnpsjAOA15AeOjdAx6ESDsnDeojSpRxqsJpJUpum4JsPVx/qGAd0ITI1tF9r
-	I2YET+lpm01Z6i+Sdtmzt6XWaRep1oWiFi/hEa3ehcez
-X-Received: by 2002:a05:622a:306:b0:50e:5eba:cadd with SMTP id
- d75a77b69052e-52b598d2377mr25182951cf.2.1785690855240; Sun, 02 Aug 2026
- 10:14:15 -0700 (PDT)
+	Sun, 02 Aug 2026 17:27:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 347476001A;
+	Sun,  2 Aug 2026 17:27:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D9C91F00A3A;
+	Sun,  2 Aug 2026 17:27:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785691621;
+	bh=YQIE8XgKYt/EUINULOT/JC5r+V7wX1jbi6M/ucAZS60=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=kdgOrd1gSiqTPL+atSoKrTrrQNdxHnVW3zeXTYGN0bZ0IJt+tn32WLspNIF4GpFUo
+	 wlWn+kttl0ZfBnn6EWmiwJE4IaGwzwZ7tlYhN0z62Sde5LfTyLH5fOGdojkssJoaVV
+	 0ebz2uTZr2QjAnNvFSACZzMdH7ZEuUzeWz4ewLUPbsUH0gvFSp8VU6VelC2+BZzmCM
+	 oylCdz8nLuyeeZTjm3Rx/xfzOwlcnFLP2rgSI26tZ2m330+pPhfJC/o7Tj0zFl7hIM
+	 DxiJVCY5w20PT0sr69VcS6SWzYxyQQTYe+k04rurnfyZd24g7ioAEuJhTh2MQzVj/z
+	 YKZ3Y97yMp4LA==
+Date: Sun, 2 Aug 2026 18:26:57 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: mdshahid03@gmail.com
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Joshua Crofts
+ <joshua.crofts@broadcom.com>, Broadcom internal kernel list
+ <bcm-kernel-feedback-list@broadcom.com>, David Lechner
+ <dlechner@baylibre.com>, linux-arm-kernel@lists.infradead.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Ray Jui <rjui@broadcom.com>, Scott
+ Branden <sbranden@broadcom.com>
+Subject: Re: [PATCH v3 3/3] iio: adc: bcm_iproc_adc: Convert probe error
+ handling to dev_err_probe()
+Message-ID: <20260802182657.65d459e0@jic23-huawei>
+In-Reply-To: <20260802103520.114582-1-mdshahid03@gmail.com>
+References: <20260802030433.696454fe@jic23-huawei>
+	<20260802103520.114582-1-mdshahid03@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20260731-kvm-arm64-idreg-final-v1-0-3de2a5616dc6@kernel.org> <20260731-kvm-arm64-idreg-final-v1-2-3de2a5616dc6@kernel.org>
-In-Reply-To: <20260731-kvm-arm64-idreg-final-v1-2-3de2a5616dc6@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Sun, 2 Aug 2026 18:13:38 +0100
-X-Gm-Features: AUfX_mwoTQF8U_Aj2r-8-_EcZtVNirbPZIAEGO6l1nd6I3aMRbsfn0JxvhrYexY
-Message-ID: <CA+EHjTxoAwkUJ1Tyu5700hZBFtc1HpCt14-8Gh2O5qA_NpnaFQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] KVM: arm64: Block ID register changes after we rely
- on the values
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Peter Maydell <peter.maydell@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_101418_248020_88F9A7A9 
-X-CRM114-Status: GOOD (  17.85  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,51 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On Sun,  2 Aug 2026 16:05:20 +0530
+mdshahid03@gmail.com wrote:
 
-On Fri, 31 Jul 2026 at 21:46, Mark Brown <broonie@kernel.org> wrote:
-...
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 958d7ef78785..3b423db56d3c 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2427,9 +2427,10 @@ static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
->
->         /*
->          * Once the VM has started the ID registers are immutable. Reject any
-> -        * write that does not match the final register value.
-> +        * write that does not match the final register value once we have
-> +        * got far enough into first running the VM to use the values.
->          */
-> -       if (kvm_vm_has_ran_once(vcpu->kvm)) {
-> +       if (vcpu_id_regs_final(vcpu)) {
->                 if (val != read_id_reg(vcpu, rd))
->                         ret = -EBUSY;
-...
-> @@ -5811,6 +5812,8 @@ static int kvm_vm_finalize_sys_regs(struct kvm *kvm)
->                 kvm_vgic_finalize_idregs(kvm);
->         }
->
-> +       set_bit(KVM_ARCH_FLAG_ID_REGS_FINAL, &kvm->arch.flags);
-> +
->         return 0;
->  }
->
+> From: Mohammad Shahid <mdshahid03@gmail.com>
+> 
+> Hi Jonathan,
+> 
+> Thanks for the detailed review and suggestions.
+> 
+> I'll address the formatting comments in patch 3 and also reduce the
+> unnecessary churn in patch 2 as you suggested.
+> 
+> Regarding the suggestion to convert the probe cleanup to
+> devm_add_action_or_reset(), my intention was to keep this series focused
+> on the dev_err_probe() conversion and submit the devm-managed cleanup as
+> a separate follow-up series, since it is a larger refactoring.
+> 
+> Would that approach be acceptable, or would you prefer that the cleanup
+> be included in this series?
 
-The flag fixes this. One consistency point: set_id_reg() and
-set_imp_id_reg() now gate on the new flag, but
-kvm_vm_finalize_sys_regs() still returns early on
-kvm_vm_has_ran_once(), and so does the KVM_BUG_ON() in
-kvm_set_vm_id_reg(). Could both move to kvm_id_regs_final(), so one
-predicate expresses the invariant? If so I think they would need to
-move together, since on a retried first run kvm_vm_finalize_sys_regs()
-re-runs and re-writes the ID regs via kvm_set_vm_id_reg(), so
-switching only the BUG_ON would trip it.
+I'd leave the dev_err() prints where there is a goto alone
+and do them as part of the devm_ change so as to reduce churn on
+the code and shorter the eventual set of patches.
 
-Separately, would a selftest for that failed-run path be worth adding,
-checking that KVM_SET_ONE_REG on an ID reg and KVM_CREATE_DEVICE both
-return -EBUSY?
+Just add a note to the dev_err_probe() patch to say you are doing
+that and then they can be separate series.
 
-Cheers,
-/fuad
+Or if you prefer just do the lot in one series.
+
+Thanks
+
+Jonathan
+
+> 
+> Thanks,
+> Shahid
+
 
