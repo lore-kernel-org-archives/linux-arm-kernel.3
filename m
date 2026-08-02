@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97177C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 11:40:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECD6C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 11:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VxVdnKc+/FhAvBYsYt2BDF3N409QLaiV2tmViDCNuLY=; b=RAtIsO7JEtmc6qGPDVcPnSqSaF
-	YkA91LJXdvHkjVwq4f4/u3CKfHxyphpC7h1JgB8JJ7Gghg8GjtKLiSB3EhgoOr5AyfLxDW1AnY9y1
-	wL50y0ISqYXxoUBGAWzcEgXrpYJjLB7jjxx6WQt3lnFp6sszwHJZ4zFRatvHANfb/+QOI1pEaSrBw
-	QKK+vu6WKbo/IcLRxr6zK/8h3xObgSm7pgYvDczyxTqbsWEiMdTDUCCCKknDLNzAFqCpXBXiequ8v
-	7cIGx9riuMZCjomYdX8KKU47Mp9hBW7ytyPoxCF0ozABv9lnIfrH6e22FhxBtltqHHGDKNfeDkHyH
-	dxrtIRZQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r4QXIQCdFZb4CzT4aVD2qApaTNEzh2KXvqhEKJ0aoFA=; b=UnGvCH0gsJNrsppsibKLEArV9F
+	kVhKFsyrbmwYQIa99axJibbsjxocEAXj6vxkzhWbcciYHd9xCEbT9ixtZwWZyKySkRfHYpDMhCSRG
+	Q/KsBhVSuKCY4FcVxF6BBwqB9yeDhBf58leuRaU2QTNuXlDo/4wS7xn+A1l3TZG0GMnYvBMqMZ7GS
+	sQzPibvPimOqGk6l+K9Nqu56KdW7iq+N1LeOK3fdIHhsitMa3CmBTOIYrOiXRi+OVszktDCPEdvJ2
+	Z3U8UTetcFdqjj1dDCRWoFuNT215etDMJZfAlwWoAX46o4kEAuBw3pJ/27HTvsVi31tnJvM1flB1+
+	jq1CzOPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqUYa-0000000FaQ5-3dI0;
-	Sun, 02 Aug 2026 11:40:40 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wqUYh-0000000FaRp-0c86;
+	Sun, 02 Aug 2026 11:40:47 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqUYX-0000000FaPK-27S9
+	id 1wqUYf-0000000FaQx-00VM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 11:40:39 +0000
+	Sun, 02 Aug 2026 11:40:46 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id BB8951A13B0;
-	Sun,  2 Aug 2026 11:40:30 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 72C0E4E410A1;
+	Sun,  2 Aug 2026 11:40:42 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 73C526029B;
-	Sun,  2 Aug 2026 11:40:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 71A1311C1757D;
-	Sun,  2 Aug 2026 13:40:17 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3FDA96029B;
+	Sun,  2 Aug 2026 11:40:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 009DF11C1757F;
+	Sun,  2 Aug 2026 13:40:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1785670825; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=VxVdnKc+/FhAvBYsYt2BDF3N409QLaiV2tmViDCNuLY=;
-	b=JaqMTTBDcaKTn/CzASTnwfG/jYpGkbF/IzGwgYv7uZOk7FDd8hwdoly7MQFTI+rZ/gM46B
-	2Af2aKmlqwDp7jVFpFMXQ3TQGCjG9iazVMW/Kwc2QsEVwHQgAafKlV9OxeHzQFjf+fNzPI
-	HKywCTO814Ka+P5rw5JbrxHikVI2N8bgzVpwy4IHvIsXaZSJJXLRoLnWZ4+eNvDoOdVXt4
-	yjDiNddKZ57mBUGH6sTSRs4errjxeYl+fmW3eNKOc1lo4L3VmkMntTIvNsTpHhGdltgMaJ
-	sGl/2tbfcBgETDq9GdPnzMRGy8ltOGI7gbiaHM00zpmL7H/FFQ+b/mH5zc/jrQ==
+	t=1785670837; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=r4QXIQCdFZb4CzT4aVD2qApaTNEzh2KXvqhEKJ0aoFA=;
+	b=Q6v6jRA/qLormalEK99NvV0UHWZVCUQOouW2uqL7p6onWkt5R/ER9DoKWBPCsCnvF5pC1K
+	iK+1yfjTHKe6s8ZlIrO2uaa9AsHQddf2w+khDWy6mU3g2k4cF7jkkoS13HDB6iQD8T/l5B
+	5CKqDRaK/DYX6CYvUF6gnUKedp3kRnE/0eKplg/RBylucgx9r95rRVh1v/f4Ka0zgH3ZPm
+	1wWn4E4b9BaMsTtgX4eIccZAP7sYCcihEkD6b56+2xgzfFqIHmLi27sLiuoqgE6FfqqPYS
+	c7CQxxRbGqEBUd1pM+ayk6xEL7lsL2JRu+vE0ixkSULQi9vY3WYPXcaz8AkYlA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -60,17 +61,18 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH net-next 0/2] net: stmmac: Cleanup rx coalescing computation when using RIWT
-Date: Sun,  2 Aug 2026 13:40:12 +0200
-Message-ID: <20260802114015.214212-1-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 2/2] net: stmmac: ethtool: Address off-by-one when reading the coal rx-usecs
+Date: Sun,  2 Aug 2026 13:40:14 +0200
+Message-ID: <20260802114015.214212-3-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260802114015.214212-1-maxime.chevallier@bootlin.com>
+References: <20260802114015.214212-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_044037_724462_80616101 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260802_044045_184570_63F5B5F7 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,44 +87,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently when configuring interrupt coalescing on devices that relies
-on the Receive Interrupt Watchdog Timer feature of dwmac, the
-computation of the RIWT timings leads to off-by-one values when
-reporting the timings back to userspace.
+When reading the rx-usecs coalescing parameters on a dwmac variant that
+uses the RIWT for RX interrupt coalescing, we convert the riwt value to
+usecs :
+ - One riwt cycle is 256 clock ticks, we compute how many ticks in $riwt
+   cycles
+ - divide that by how many ticks in a microsecond, and we get the
+   rx-usecs.
 
-RIWT works by arming a watchdog timer upon receiving frames with the RI
-bit not set in the descriptor. The timer duration is expressed in units
-of 256 stmmac clock ticks, and therefore requires a bit of computation
-to derive it :
+The opposite computation is done when setting the rx-usecs param.
 
-riwt = (rx_usecs * n_clk_ticks_per_usec) / 256
+Because of the 256 ratio, we're subjected to off-by-one errors in the
+value read-back, which can be reliably measured on i.mx8MP :
 
-and conversely
+$ ethtool -C eth1 rx-usecs 102
 
-rx_usecs = (riwt * 256) / n_clk_ticks_per_usec
+$ ethtool -c eth1
+  Coalesce parameters for eth1:
+  [...]
+  rx-usecs: 101
 
-This computation as-is leads to a consistent off-by-one when setting
-then getting back the rx-usecs value due to rounding errors (by truncation):
+Let's be more explicit about the rounding for the riwt to usec
+computations by using DIV_ROUND_CLOSEST, which solves the off-by-one.
 
-ethtool -C eth1 rx-usecs 42
-ethtool -c eth1
- -> reports rx-usecs: 41
+This does change the boundaries of accepted rx-usecs parameters, as the
+previously accepted values were in the 16-246 us range, and now fall
+into the 15-245 range on imx8mp.
 
-Let's use DIV_ROUND_CLOSEST instead for the computations. It does have
-one side effect, the accepted boundaries for rx-usecs also shifts by one
-now, going from [16us, 246us] to [15us, 245us]. For that reason, I'm not
-targeting the net tree here, and it's overall a very small issue.
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Maxime
-
-Maxime Chevallier (2):
-  net: stmmac: ethtool: Comment the magic numbers in RIWT computation
-  net: stmmac: ethtool: Address off-by-one when reading the coal
-    rx-usecs
-
- drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+index eebfd6976aaa..154cc0c7623d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+@@ -762,7 +762,7 @@ static u32 stmmac_usec2riwt(u32 usec, struct stmmac_priv *priv)
+ 	/* Receive Interrupt Watchdog Timer (riwt) has a resolution of 256
+ 	 * ticks.
+ 	 */
+-	return (usec * (clk / USEC_PER_SEC)) / 256;
++	return DIV_ROUND_CLOSEST(usec * (clk / USEC_PER_SEC), 256);
+ }
+ 
+ static u32 stmmac_riwt2usec(u32 riwt, struct stmmac_priv *priv)
+@@ -775,7 +775,7 @@ static u32 stmmac_riwt2usec(u32 riwt, struct stmmac_priv *priv)
+ 			return 0;
+ 	}
+ 
+-	return (riwt * 256) / (clk / USEC_PER_SEC);
++	return DIV_ROUND_CLOSEST(riwt * 256, clk / USEC_PER_SEC);
+ }
+ 
+ static int __stmmac_get_coalesce(struct net_device *dev,
 -- 
 2.55.0
 
