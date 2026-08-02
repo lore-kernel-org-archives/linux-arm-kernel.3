@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE1EC55177
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A36DC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/P9Yr3NyPl5CWWf1cvkXE/7u9qKEVbSvfgRtfoX3WMA=; b=u2dlPCtOCvnL8ONLoBJlNVSaGd
-	xOB0XmcMyQZNXt1XAUkJMN5e7PzUm0ykTqTeE8robg7mTxDtvcmAq1s6nRZWWOI1y2Cz4SrjObS0g
-	xEIUZ7hXL8vth7QF6p4gJBfOUXUMeeYK62w/yZ6E/KysKD+MV42eTfUioDoi5om5BW262qVKmzOtj
-	SpPOwSxphelUrfhiHhh/kz1XDUw6BEqcs7nYr5qpK3Sk56UUusIGWUM/s+b0VU7W80VGdLcJkQYaD
-	4jhO/IwVq9UAXucK/v65z1PP7W97BJAx9oP8V7MQI35z8UrGdFG96IATyxjlbgohGsN0BUJAiwm11
-	OXklzRdg==;
+	bh=gLmff9u5nyhTuQ6q2fk8/LobDnQcJw60OqqnmaHOfJI=; b=YKFDNBxgoTIcvVJ86Tj6V7WJ34
+	CV1OEtVHg8D9OWzldkxqfExlRfU2qrG+KkQ859d6bfHOaMcyfZoUXuNzeuHeTe+QphsRbJOLV6c+E
+	aYkS9mjTrIYgyeFq2t3U6IYNv2pKJeMxTzCQeGrubIrPr6mrm+vMcd0CpKQtFPfGTqoCsu5lnTSmY
+	Lx5ftnNRs11bH2AKzRGDTdFfUCmEhx+0WnGk2/twWbyDQTRJEd7A3Gqfnb2AGimHp8bZAC3w5uyIe
+	htKGNV6lIV7F1wjPOlDwn0AtwS5uigD0f2UzeYMElZXwF/7c1dw/o2mr2g1QO+OQCoj7FFivKyH6B
+	aLGxtdQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV4E-0000000Fc1T-27K6;
-	Sun, 02 Aug 2026 12:13:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wqV4H-0000000Fc5P-2W1X;
+	Sun, 02 Aug 2026 12:13:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV4E-0000000Fc0G-0HuS
+	id 1wqV4G-0000000Fc3L-1KYV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 12:13:22 +0000
+	Sun, 02 Aug 2026 12:13:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8248A60A87;
+	by tor.source.kernel.org (Postfix) with ESMTP id BB78460A85;
+	Sun,  2 Aug 2026 12:13:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF2B71F000E9;
 	Sun,  2 Aug 2026 12:13:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AECF01F00A3F;
-	Sun,  2 Aug 2026 12:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785672801;
-	bh=/P9Yr3NyPl5CWWf1cvkXE/7u9qKEVbSvfgRtfoX3WMA=;
+	s=k20260515; t=1785672803;
+	bh=gLmff9u5nyhTuQ6q2fk8/LobDnQcJw60OqqnmaHOfJI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Y6Cl3yjMioOhVYPcDD+uzWXqT4fjDdyg9payanzrNsq2M5JWpQRJrv1jd5FqSnMxQ
-	 14PhY9TWB3KRAOZhul3PDXDOvICXLHLxtCwAQU3Cy8Xe0IK8Q2p1wn8felyR+7nGMJ
-	 n/9A62YJ8AcJ8lQAL+dJNggPP1+Z5JmBnOgBvozmgbK35wF6DCKPSuqUe0I8UgZBvZ
-	 aMtwt4E4CWk6V8zPfHEO5mFXvZ1RDnWN9jBAM63+TSCgll48uDbs5onkoC7ILX/GEW
-	 H/+nJ5AmbD4QjKDj8fSM2qKtfSSkpfL5Vt/krqwpp2hLkB+V9XhWcWW975jDwuSSUW
-	 WQOp/GqBUhUbg==
+	b=Bv0AkaL1yuukqMTeJcoLq6d9VJQy21IXYs5LQnaQwAzSEwU4fP7DYU5kZE6ueqoT3
+	 2aH7RULPK41ReMn2DpPCewT1eRW8K/Yia/VYyit1Ek1rMH4HSyjkE6Xm2zhW7rfIwb
+	 lPyVqZjHo56kZo+sVdaQkXqgwb+kYZ65u7KN6eD4PKfGuBIdzePlb9cpOenT69a8HX
+	 XL6GpGDmH6BH3bJg/Td7DYLRkmyC4fEue5iAM76fZnVqU2UvZ1TUNZhOvJ5rXNjkoO
+	 VJ+BeQKfd4ZXfahcjrB9xVFe3BjE/0Wd5mD1imT12tZPfmXLQmdO+bcYJjObseQF1u
+	 +/orF+YmJfbqw==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	Will Deacon <will@kernel.org>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
-	Mark Rutland <mark.rutland@arm.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH v2] arm64: cpucaps: Remove stale comment about keeping capabilities sorted
-Date: Sun,  2 Aug 2026 13:12:34 +0100
-Message-ID: <178566240020.4128780.5660795893318109343.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Kees Cook <kees@kernel.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v4 0/2] arm64: Fix handling of tracer updates to x0 on syscall entry
+Date: Sun,  2 Aug 2026 13:12:35 +0100
+Message-ID: <178566435675.4143863.9174179007442722052.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260730132758.26039-1-will@kernel.org>
-References: <20260730132758.26039-1-will@kernel.org>
+In-Reply-To: <20260730132651.25993-1-will@kernel.org>
+References: <20260730132651.25993-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,20 +74,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jul 2026 14:27:57 +0100, Will Deacon wrote:
-> There is no functional requirement to keep the entries in arm64's
-> tools/cpucaps file sorted alphabetically and, in fact, they have fallen
-> out of order over time. Given that only the arm64 tree touches this file
-> and the perceived benefit of sorting was to help with conflicts, just
-> remove the stale comment and accept that we're collectively not very
-> good at the alphabet.
+On Thu, 30 Jul 2026 14:26:49 +0100, Will Deacon wrote:
+> This is version 4 of the patch previously posted here:
+> 
+> v1: https://lore.kernel.org/r/20260714143600.23853-1-will@kernel.org
+> v2: https://lore.kernel.org/r/20260716120640.6590-1-will@kernel.org
+> v3: https://lore.kernel.org/r/20260717182758.17111-1-will@kernel.org
+> 
+> Changes since v3 include:
 > 
 > [...]
 
-Applied to arm64 (for-next/cpufeature), thanks!
+I decided against applying these for v7.2 this late in the cycle, so
+I've queued them up for v7.3 for some more exposure.
 
-[1/1] arm64: cpucaps: Remove stale comment about keeping capabilities sorted
-      https://git.kernel.org/arm64/c/6c74dcb1e1b7
+Applied to arm64 (for-next/ptrace), thanks!
+
+[1/2] arm64: ptrace: Keep 'orig_x0' in-sync with x0 on syscall entry
+      https://git.kernel.org/arm64/c/88b839ce497c
+[2/2] arm64: syscall: Pass 'orig_x0' as first argument to native system call
+      https://git.kernel.org/arm64/c/5a87e8c7f370
 
 Cheers,
 -- 
