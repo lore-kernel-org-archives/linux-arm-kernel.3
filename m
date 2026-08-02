@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4291C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 23:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CF5C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 23:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWg4/vazTsGxm7MjgMLKjfveUvNnWZH6aqxiwnp7eGk=; b=3K0Njw/hMAPIAZelPq4ycSCFZc
-	i8wWgXXUIikRGVefM8aeOskW7VEOJtXis1Nv/Meqarr5FdUZ2XcFnOd8HLdAX3wVnu008DyoABc07
-	1UEAXl+t+ODU/vfSoaCksiQitgDfoEq4pvfydPN3BpYoJ/FJg0N+iF4UYE/OJoNCDYNajjq+fTEia
-	GfDNc4ZwaM8ckmy1zwM0LTK5AEua3kEzyPSEh3CfkbGjaKUgywlCLlxga/3l8nPRA54ejjesu7qqI
-	IJP7YQQW485J8qG6KCdv6uLFAm2BGTvtKsnaJnYOoLtaCNtz00TWA4qLn4Gx1KKaTzG19Ad/3ulY4
-	0415Z5yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b2siebzQwyclmXl9OQ0U38WMcozmoMwIPul2McG6A9c=; b=wbTEkhQgQ7BxSB0m0xqoqife3z
+	7R55+4zA+/hubhI85Udn7ZJo6eOpCyS2FuQAqyu0FPrtoFXCzvGeyrMmjNLnvm+Y8OFpEsr23UJDu
+	zP5+Tgj/Sr8EavDCfqF4u28kkvtCYT4uJVdRTGvuz2mEM3LRj5QCeiVbkXqGK56pBNfDQnXbACrnO
+	jvukBtZQ5fy5wU8ljR53QoWfYtDsL7cxYE/KZojiwpDB60Q08JKhjSdeWv3i/lYWFHq11S0+Ag401
+	8LnPz9MWv+1bNG80unBLT03UILj0VhxCT1Ka83M8NgFR5lcXlJzdNwiD3KK9Tj4NmFIySOF4Wvcy0
+	rqr46Szw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqfPz-0000000G779-18SK;
-	Sun, 02 Aug 2026 23:16:31 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wqfZF-0000000G7UU-3rBY;
+	Sun, 02 Aug 2026 23:26:05 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqfPv-0000000G76W-3t4w
+	id 1wqfZC-0000000G7U3-0NXF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 23:16:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=aWg4/vazTsGxm7MjgMLKjfveUvNnWZH6aqxiwnp7eGk=; b=Lzfh8r0a6LlxU/U2aPQug+b7m2
-	iTJnmEJNDi2kQiMVPI88eu8xpLbqOKdBdpgjcCWA+xSkBfHpYGOPKZIEtE2QwcahmWekuP9zrVx3o
-	qTI805nazCo7JlVNBcgWPjdel4pHxY9gFixZXWbD/RXsWt304s9BQInXI+5OBr/FWxpc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wqfPZ-00FcrB-EB; Mon, 03 Aug 2026 01:16:05 +0200
-Date: Mon, 3 Aug 2026 01:16:05 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>, thomas.petazzoni@bootlin.com,
-	Alexis =?iso-8859-1?Q?Lothor=E9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Sun, 02 Aug 2026 23:26:03 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-8f032b47e3cso18829226d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 16:26:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785713160; x=1786317960; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=b2siebzQwyclmXl9OQ0U38WMcozmoMwIPul2McG6A9c=;
+        b=AyWezUHD7cIs0Yzwo56IGN7btho2V112r8eueSeFEeFAvFmfNcTtfdtXEfKKyS+DV1
+         LYC4psIc3JQmnUIxJ5fKyiLy888RXRCUcsYC5+5leQ/L53n82V/onm+gBn1dHnDVxdAk
+         vEqmtmtb5MOOUw4fjQ59OhMSN1P6qYQ6NP/lzRcI463wTDmVZdjCMZZ7YvN/Ku6Z+GJr
+         Bl/UUkQ5ILAK/gzmT1mUnG7Avjn2jGWO5nO0RRJ26HK2SEtbVrovhYLmwVHMfdoN752m
+         xCBewFmRxSTKjw5oUeselQmEBLc2se5wyzenYdd8Cc2OK92LlJ5MubMCLh9cPSlOLXdQ
+         V/8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785713160; x=1786317960;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=b2siebzQwyclmXl9OQ0U38WMcozmoMwIPul2McG6A9c=;
+        b=OhLSj9lCViI/oN1fAAEmUeBLfVNFRiRR6eGxvXBcGIsXDGv+drQe60od4SAgdMeQ0A
+         F8vMACBXZVzNLwXopO6ctIYP1Xy6/A+ZrtmHBnYavP3NCHCRu1KzbzpTe4165prl7AC2
+         JMLTU/CyyOG+vID5c4GC7BbP8BcWpiuGCdjuqoWNNcBuT/ylBhlBJdqRuCn7RK8k5Btb
+         /qwfiXZ6aIfFBNnjLmN32ZWHFLduzVaObWUyVZiijPxJp3pljVCl2XhluHT+lBBy88WB
+         hHTBDJ1SaEhnSWV+eeIgqPpZJm0jgbmXUua2E9OpElL26wdJ4+Lyvq0ziUa6DZRggbAd
+         sHdA==
+X-Forwarded-Encrypted: i=1; AHgh+Rouf5r7w5HScRGjdS82BDSehLdWG1AsdNUlosX3yieH3A1AyMHva7DcaBFdiU8JV2MlPasGewvR/FOhBQBL8v4A@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzhEj2D7xUf+rxyG/PXlenfwCxP9nLns3PGeHw8qYcIFm1bMFO
+	6lnSoO794sNCiq4lOAmlRQagO7zPtUNliKw2i+G7MfOMMjbL0hmTMcuc
+X-Gm-Gg: AR+sD1352MNDGbuq2I1KtN8EvOgRVrj0ZuMcv7Slk540lJz08q6Y5zVSLsGAKtjSwh+
+	LsxWh1kepGM4IRZOUhexC7KgJOF/g3b2gWHq6pQm9t3N4EBFbkXjzyATo8IHzp29aMBa+KPqARv
+	dK/srxYhtyURtWL6ycQDw3CYXAk++1OHTbsyPBAP7tpufZcjO4XotIndPUoHbXlseS/tfEiaDEj
+	8QKzCkWPx9v8A0FijQNf1H5Q8Oou+Vi+A7lgeUI/k4RFRmMXFp31XOq2eFSyji/FKm2jx7fh0JK
+	YuXyZQKXi5KTXHSYy+8cfuIsuJZhtgS+hO0EAhQK2UHFnWKSm6l33gQd9tXziMO4FZ8zvQ80HiF
+	kfKIhs+RX6dP0qEzZaJoOTG0tOr2HLeLr0HStQFQdBgRhvsNcXRPW9ieQIinrScKxVi9ROcB8ud
+	WK3bnTL7DbML4M05fZdJSkeHzzJelpKaL4FeX2cBygo2XhOD6ixpyQC2eY4M6n4j7H30Hw4hO+u
+	rE7iT4wnGdj/U7HFBtSHN952BxXqGgslQbKWF7SnjW6p0X6wjXZ7Up8lW9VNUA=
+X-Received: by 2002:a05:620a:4549:b0:927:59bf:46ca with SMTP id af79cd13be357-934a0aa676emr1508739185a.40.1785713159973;
+        Sun, 02 Aug 2026 16:25:59 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9349c1ee678sm540076585a.44.2026.08.02.16.25.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 02 Aug 2026 16:25:58 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: suzuki.poulose@arm.com
+Cc: mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	alexander.shishkin@linux.intel.com,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next 2/2] net: stmmac: ethtool: Address off-by-one
- when reading the coal rx-usecs
-Message-ID: <1a4b6a74-de10-4d77-aa84-b32bae36daef@lunn.ch>
-References: <20260802114015.214212-1-maxime.chevallier@bootlin.com>
- <20260802114015.214212-3-maxime.chevallier@bootlin.com>
- <4e76d7c1-0052-4689-be7c-9c31dc24516a@lunn.ch>
- <5f2f0e3c-cc4e-4110-ad4c-180abba5356d@bootlin.com>
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] coresight: Check runtime PM resume result
+Date: Sun,  2 Aug 2026 19:25:52 -0400
+Message-ID: <20260802232552.593435-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5f2f0e3c-cc4e-4110-ad4c-180abba5356d@bootlin.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_161627_963816_DBAF3BDA 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260802_162602_154145_059DFF48 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,26 +102,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 02, 2026 at 10:29:22PM +0200, Maxime Chevallier wrote:
-> Hi Andrew,
-> 
-> On 8/2/26 17:05, Andrew Lunn wrote:
-> >> This does change the boundaries of accepted rx-usecs parameters, as the
-> >> previously accepted values were in the 16-246 us range, and now fall
-> >> into the 15-245 range on imx8mp.
-> > 
-> > With this change in place, what happens when trying to set 246?
-> > EINVAL?
-> 
-> Yes indeed :
-> 
-> # ethtool -C eth1 rx-usecs 246
-> netlink error: Invalid argument
+coresight_get_ref() ignores the return value of pm_runtime_get_sync()
+and reports success even when runtime resume fails. A path is then built
+and the CoreSight device may be accessed while it remains powered off.
 
-I guess nobody will report a regression, but if they do, we can map
-246 to 245. But until somebody does report it:
+Use pm_runtime_resume_and_get() so a failed resume is reported and its
+runtime PM usage reference is rolled back. Drop the module and device
+references acquired before the resume attempt when it fails.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Fixes: 5da5325fa856 ("coresight: moving PM runtime operations to core framework")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+ drivers/hwtracing/coresight/coresight-core.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-    Andrew
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index 6d65c43d574f..77d05b360484 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -843,7 +843,11 @@ static bool coresight_get_ref(struct coresight_device *csdev)
+ 		goto err_module;
+ 
+ 	/* Make sure the device is powered on */
+-	pm_runtime_get_sync(parent);
++	if (pm_runtime_resume_and_get(parent) < 0) {
++		module_put(drv->owner);
++		goto err_module;
++	}
++
+ 	return true;
+ 
+ err_module:
+-- 
+2.43.0
+
 
