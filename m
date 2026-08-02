@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CDCC55171
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC69FC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ERI1gHu1ms36w+mxgUEFv8xH+Yv4k3d6pfZyWzwl/B0=; b=1+9fvTWLkKTKYGV+p5VcWvylSD
-	OR11iiBTZW4QUh6vfee6P1o1BWkbwpTMeMvWaXpXk1/C9+UYC4UDKXwUFtsWvSdAv4jUiIyvvIksQ
-	Qj0TUokUHkYEuxeTF9d2whaKOVpXYlFtYyQbw9HdM8nt+jZXJEMehj4knx0uBY65OxfD2T2YVT2qq
-	ZctSO0/GeKWqBepW3idFwSjuOn1oOyyq6KP1Iqrwqjt/mJT2XkbwX71DZvxY8lU0CtoTeAvIcP4ZU
-	RrfDpeKIHXgCS+AJnVbidc/IVY4IbxjV9cFe/NulQ87k+mkK+Wu6G/o1llE1KoGgKrs4p7xlBTtGF
-	mRA8cfNw==;
+	bh=0ButMBPMYnmY+Ls5CyIA3CamKNvK6o2HH6itw67GRi8=; b=r63MQB1P6VW3hrBk7/CNR8jCgf
+	3OUVlHAiDjWQ1Mel+58r6PjxfN9wLXbrhDcLhpx4gsDyacmZnkpnIiMU5vcOdB2UH2sndV5D7JkRT
+	LBlI9YWeyFUyCQY0Nvvzr6GGSWFazItfDFbPekijGWfidugAqZ3o/nd0GGvJU6GYCV2LoVUF7ivK5
+	LWQAWDva3TogqkdEl3pJl8f0U2/wv6lX70ox9wUqlJVZdCRdVz0bl0Bja9lHW0HRpbRdPK6u81/s7
+	mm+FllAYbpMUbJCAxcwiI+j8W6416QdFZIx7Ie3hN/VP4bpOv+eumgi9tFmDexsSvDSzUtTRBYwlb
+	vktjr5AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV3n-0000000FbbZ-3rQw;
-	Sun, 02 Aug 2026 12:12:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wqV3r-0000000Fbdw-09KE;
+	Sun, 02 Aug 2026 12:12:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV3m-0000000Fbam-3Arg;
-	Sun, 02 Aug 2026 12:12:54 +0000
+	id 1wqV3p-0000000FbcL-0Kmy
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 02 Aug 2026 12:12:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD75760A79;
-	Sun,  2 Aug 2026 12:12:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CB231F00A3A;
-	Sun,  2 Aug 2026 12:12:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 767F541709;
+	Sun,  2 Aug 2026 12:12:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 294A31F000E9;
+	Sun,  2 Aug 2026 12:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785672773;
-	bh=ERI1gHu1ms36w+mxgUEFv8xH+Yv4k3d6pfZyWzwl/B0=;
+	s=k20260515; t=1785672776;
+	bh=0ButMBPMYnmY+Ls5CyIA3CamKNvK6o2HH6itw67GRi8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=moL1kbL1EjVC+4aV1tYljS+vat4yBxBOLPZWMHIOGvwb9X11ezTHTNry1462MjzMX
-	 u1qtB+oB1TRXkLQ3jJnRh21xZ2GsmM5Qjah2jG5qVhXCUsm3ZcRVRAYBed4xdbTyIq
-	 Wz5ejFLh5ONo0jaacrWEQE/NZIrbqAsavRlAg4i1aP5s9bsVRb0f6Fs3icy5d8hsUK
-	 9J5/GmSKTgvwNClS4lbdUS7fMcKgYEVr/n0KeXgTKKQ9aGGH/kFn6hDCT0ZATplh7o
-	 pB4RtQhvE9sA/7jOsKnHiBO17ic/xEt6WzVvsPoOxeK2OTIMtl+oEqbMwXYUXi6pH9
-	 qxQm5QwThfQxQ==
+	b=fts/H2R4VzKIIDoPW5c3M+BH2MkX8SGM3HdVLebm302yY0ZDdu03fipvw54QazpXU
+	 X3QCWSNna9VBoyhCxB5UWo6yXvRZuB8UsZFEDv8Q+4icz6sCwbJ4UWmVKXS/U8DG2o
+	 5qKVSYSUvYM2/R1A5WYz8fTavuL/479fcrUeJfLiPbhlc1/R7L9j7zOwFURSp0eOG7
+	 XBrr0UirC/xrWgz+eCNS81yU+4PxPJQ0IJVrdaZ7SJ1rS5oQmbsLvJEAUjk3xR7/iS
+	 X7RXqDOyt44Bik82SlW1rE8zso3K25Jr51QX3TiMu9VeLhkFm4fNdB1XYm7KzFhS8m
+	 SDiUAv5D4adKQ==
 From: Will Deacon <will@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Kiryl Shutsemau <kirill@shutemov.name>
+	Karl Mehltretter <kmehltretter@gmail.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Doug Anderson <dianders@chromium.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Usama Arif <usama.arif@linux.dev>,
-	Breno Leitao <leitao@debian.org>,
-	Julien Thierry <julien.thierry.kdev@gmail.com>,
-	Lecopzer Chen <lecopzer@gmail.com>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	kernel-team@meta.com,
-	kexec@lists.infradead.org,
+	Mark Brown <broonie@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Kiryl Shutsemau (Meta)" <kas@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Baoquan He <baoquan.he@linux.dev>
-Subject: Re: [PATCH v5 0/4] arm64: cross-CPU NMI via SDEI
-Date: Sun,  2 Aug 2026 13:12:23 +0100
-Message-ID: <178566246667.4129492.14709532740498428415.b4-ty@kernel.org>
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64/fpsimd: ptrace: Fix inactive SVE and SSVE regsets
+Date: Sun,  2 Aug 2026 13:12:24 +0100
+Message-ID: <178566413306.4141663.7146790540592743319.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1782744912.git.kas@kernel.org>
-References: <cover.1782744912.git.kas@kernel.org>
+In-Reply-To: <20260729004255.15630-1-kmehltretter@gmail.com>
+References: <20260729004255.15630-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -88,26 +77,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Jun 2026 16:07:14 +0100, Kiryl Shutsemau wrote:
-> A class of debug/observability features needs to interrupt a CPU that has
-> its interrupts locally masked: the all-CPU backtrace behind sysrq-l /
-> RCU-stall / hung-task / hard-lockup dumps, and crash_smp_send_stop()
-> capturing a stuck CPU's state into the vmcore. On arm64 these need a
-> mechanism that reaches a CPU spinning with DAIF masked, which a normal IPI
-> cannot.
+On Wed, 29 Jul 2026 02:42:54 +0200, Karl Mehltretter wrote:
+> sve_init_header_from_task() takes header as a pointer, so for the
+> inactive mode
+> 
+> 	header->size = sizeof(header);
+> 
+> stores 8 rather than sizeof(struct user_sve_header), which is 16.
+> Userspace sees an impossible size smaller than the header it
+> describes.
 > 
 > [...]
 
-Applied to arm64 (for-next/sdei), thanks!
+Applied selftest update to arm64 (for-next/selftests), thanks!
 
-[1/4] firmware: arm_sdei: add sdei_is_present()
-      https://git.kernel.org/arm64/c/5686f2bed02d
-[2/4] firmware: arm_sdei: add SDEI_EVENT_SIGNAL support
-      https://git.kernel.org/arm64/c/9141eda9eec7
-[3/4] drivers/firmware: add SDEI cross-CPU NMI service for arm64
-      https://git.kernel.org/arm64/c/0c2c56598cc1
-[4/4] arm64: escalate smp_send_stop() to an SDEI NMI as a last resort
-      https://git.kernel.org/arm64/c/d639f7626292
+[2/2] kselftest/arm64: fp-ptrace: Fix checks for inactive SVE and SSVE regsets
+      https://git.kernel.org/arm64/c/bd290e7fc245
 
 Cheers,
 -- 
