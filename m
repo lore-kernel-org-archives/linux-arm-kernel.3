@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 075FEC55179
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 16:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACB3C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 16:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KbS6tAMDWYU94iLSiqDXxb03HkeRPSt0gzD9443d824=; b=RvVY0OHX4osJFdbkrzwu7GWe/D
-	ICcJ0+ObiTH66V1N7a3Aenh3h69GSEH6iGWc51EoCZNC8Hf6AT5TvnHEk5sIOeHgouh6XUCaeN8Rw
-	1jfakOk32pO7hEQ7jNiyJBbHMimAl1R6Nc33II+4A8mSHWHYgkFo+MxxKRXAp+7v+VVXdP7lRWhJc
-	wX70cPzRA3rrEuJdWbB8w5EKkw6UtxMV3AEoq8oktjFuKzcYnt4m/4KHnasgWSH4x2VKMIuihv0x4
-	4/bEtayCAAhGcc9fDT576U5N5yRNgIwuICFbR5wZ61rVc0RwkUaMb9X/VlbippF/ptAZReM/zckJk
-	btY6etlA==;
+	bh=frSe+XQnis0Oph5HgKHmJyD+L45rNWS6tMBKUWzAmJQ=; b=XfYrj5rpjknxscvozBK5/y3Tnf
+	YelfN2GDViu/dXfSXSfQ+I1dIDX/W7blv0P0EqLJNy/YeoZ0a+wEfGpgbF9b704hrsPEZyZTf+1/Q
+	1sTh2treS6yLg155zbXvDRbQbhVmsF2SkO92nltCqG7BoOP4xfC/PJLP0pDZso3R3cryT/rzbT0b3
+	t6cuj36Nio3blhEJBcXC6zVoqkJnN4nGJ545vR/xNwBBEl1gx2BqOmva7Ze//KoGm/wtsrZWx5lsU
+	eJ/prli28QADLA2R39K0C26RQgFZEQd0JERY+CWoxS70DNtSETXstd3payhbKACOGI8PGSVjuOjtx
+	mmU/HGDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZRa-0000000Fqr6-3Vtq;
-	Sun, 02 Aug 2026 16:53:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wqZRX-0000000FqmG-3bDJ;
+	Sun, 02 Aug 2026 16:53:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZRY-0000000Fqm8-0dJS
+	id 1wqZRW-0000000FqlA-1T9a
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 16:53:44 +0000
+	Sun, 02 Aug 2026 16:53:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 608384506E;
-	Sun,  2 Aug 2026 16:53:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 402DC1F00ADE;
-	Sun,  2 Aug 2026 16:53:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C123760E00;
+	Sun,  2 Aug 2026 16:53:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 933B71F000E9;
+	Sun,  2 Aug 2026 16:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785689623;
-	bh=KbS6tAMDWYU94iLSiqDXxb03HkeRPSt0gzD9443d824=;
+	s=k20260515; t=1785689621;
+	bh=frSe+XQnis0Oph5HgKHmJyD+L45rNWS6tMBKUWzAmJQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jd1MSEcN/ND/t2vB7gQSkN/B2k2z8ChAMwJrvoVaABc/BZrrWZBMNRnYJ7SW1Gi7O
-	 DizMAR3jJqLHVyKn1rc16gE08VuEWeBMuTq3a2Jb+i89BC5rjvzJSAl9ugKUuxE3Uc
-	 WelHoACDYW8QFPLMuq4LF1sGpY3pbun0AtFtkJlUl8UIQ7jmEWatEdKMtc6zZcgfrn
-	 GgDIkrSemPXw2h993BMcKdRnEwbjxtsERjfL3dYRvpJGvZ24EBdwA4btAxtejsMuDc
-	 vUqRp4tQIBOwrS9MUhW1BSwib2bLPZEJ91o7ldyxEWFPOYLyMD6yPShwdmlXEB8ubF
-	 fTJ+Jm+gZZEjQ==
+	b=ISHKPQefFHyKqP5/QFFo9F67iZ0sZK66AprGjw418KGtjlaKVlM5wdei2qxX/uqVJ
+	 YRa7DOoj5rJn07bHI+ZPcxyE6/tvX19vwxJN2vqw7Jgz8TxuVziWsy1i0Cuae8Qs+W
+	 tfelHDB8YILzsNBqVcshQAAuWJgGTQGfI3M/mxoG727MwGkTNnE+5KfhelkMv7eWg3
+	 PyidwIziSMPkCVx7LrAcqbfiqJktVAHU3/EmlGjU6o041S4GGEn6yQdQYApYSLA5SH
+	 y2oi8gOHVD+bvUT7ZOBMMpjgLMFPutWMhpRnhZpumhmDVPrjXdRm6yPvTAm2SD6SVw
+	 MbpoLdlhQkwbA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wqZRV-0000000BVIZ-16iI;
-	Sun, 02 Aug 2026 16:53:41 +0000
+	id 1wqZRT-0000000BVIZ-312t;
+	Sun, 02 Aug 2026 16:53:39 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -57,9 +57,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: [PATCH v3 6/8] clocksource/drivers/arm_arch_timer: Add command-line control over the counter errata management
-Date: Sun,  2 Aug 2026 17:53:25 +0100
-Message-ID: <20260802165327.385217-7-maz@kernel.org>
+Subject: [PATCH v3 2/8] clocksource/drivers/arm_arch_timer: Add a static key indicating the need for a runtime workaround
+Date: Sun,  2 Aug 2026 17:53:21 +0100
+Message-ID: <20260802165327.385217-3-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260802165327.385217-1-maz@kernel.org>
 References: <20260802165327.385217-1-maz@kernel.org>
@@ -83,97 +83,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While we now have a safe way to use "fast" accessors once all CPUs
-have booted, this leaves people booting with maxcpus= on non-broken
-hardware stuck with the "slow" counter accessors.
+In order to decide whether we can read the architected counter without
+disabling preemption to look up a workaround, introduce a static key
+that denotes whether a workaround is required at all.
 
-Give these people a way out by adding a new command-line parameter
-aptly named clocksource.arm_arch_timer.cnt_errata, which allows
-the user to promise that no erratum handling is required for the
-counters by setting this value to 0.
+The behaviour of this new static key is a bit unusual:
 
-Warnings will be emitted if the user has over-promised.
+- it starts as 'true', indicating that workarounds are required
 
-Suggested-by; Will Deacon <will@kernel.org>
+- when all possible CPUs have booted at least once, and that it
+  has been established that none of them require a workaround,
+  the key flips to 'false'
+
+Of course, as long as not all the CPUs have booted once, you
+are stuck with slow accessors, but that's what you get for not
+sharing your toys.
+
+Things are made a bit complicated because static keys cannot be
+flipped from a CPUHP callback. Instead, schedule a deferred work
+from there. Yes, this is fun.
+
+Nothing is making use of this stuff yet, but watch this space.
+
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- Documentation/admin-guide/kernel-parameters.txt | 13 +++++++++++++
- drivers/clocksource/arm_arch_timer.c            | 17 ++++++++++++++++-
- 2 files changed, 29 insertions(+), 1 deletion(-)
+ drivers/clocksource/arm_arch_timer.c | 35 ++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index b5493a7f8f228..f0e6534269c2b 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -830,6 +830,19 @@ Kernel parameters
- 			loops can be debugged more effectively on production
- 			systems.
- 
-+	clocksource.arm_arch_timer.cnt_errata=
-+			[ARM64,EARLY]
-+			Format: <bool>
-+			Enable/disable the counter errata management.
-+			Enabling it switches over to fast accessors once it is
-+			known that no CPU requires any workaround while reading
-+			the counters.
-+			Disabling it will bypass workarounds when reading the
-+			counters, even if not all the CPUs have been probed.
-+			Warnings will be produced if the need for a workaround
-+			is detected.
-+			Default is enabled.
-+
- 	clocksource.verify_n_cpus= [KNL]
- 			Limit the number of CPUs checked for clocksources
- 			marked with CLOCK_SOURCE_VERIFY_PERCPU that
 diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
-index 747f51d9225c2..b3b31d4f4815f 100644
+index c02e97f9b7af5..8ee317e33c864 100644
 --- a/drivers/clocksource/arm_arch_timer.c
 +++ b/drivers/clocksource/arm_arch_timer.c
-@@ -500,8 +500,10 @@ void arch_timer_enable_workaround(const struct arch_timer_erratum_workaround *wa
- 			per_cpu(timer_unstable_counter_workaround, i) = wa;
- 	}
- 
--	if (wa->read_cntvct_el0 || wa->read_cntpct_el0)
-+	if (wa->read_cntvct_el0 || wa->read_cntpct_el0) {
-+		WARN_ON_ONCE(!arch_counter_broken_accessors());
- 		atomic_set(&timer_unstable_counter_workaround_in_use, 1);
-+	}
- 
- 	/*
- 	 * Don't use the vdso fastpath if errata require using the
-@@ -597,12 +599,22 @@ static void arch_timer_set_direct_accessors(void)
- 	if (!arch_timer_counter_has_wa())
- 		schedule_work(&enable_accessors_wk);
+@@ -90,6 +90,8 @@ static int arch_counter_get_width(void)
+ /*
+  * Architected system timer support.
+  */
++static inline bool arch_counter_broken_accessors(void);
++
+ static noinstr u64 raw_counter_get_cntpct_stable(void)
+ {
+ 	return __arch_counter_get_cntpct_stable();
+@@ -555,10 +557,42 @@ static bool arch_timer_counter_has_wa(void)
+ {
+ 	return atomic_read(&timer_unstable_counter_workaround_in_use);
  }
 +
-+static bool cnt_errata_config __initdata = true;
++static DEFINE_STATIC_KEY_TRUE(broken_cnt_accessors);
 +
-+static int __init early_cnt_errata(char *buf)
++static inline bool arch_counter_broken_accessors(void)
 +{
-+	return kstrtobool(buf, &cnt_errata_config);
++	return static_branch_unlikely(&broken_cnt_accessors);
 +}
-+early_param("clocksource.arm_arch_timer.cnt_errata", early_cnt_errata);
++
++static void enable_direct_accessors(struct work_struct *wk)
++{
++	pr_info("Enabling direct accessors\n");
++	static_branch_disable(&broken_cnt_accessors);
++}
++
++static void arch_timer_set_direct_accessors(void)
++{
++	static DECLARE_WORK(enable_accessors_wk, enable_direct_accessors);
++	int cpu;
++
++	if (!arch_counter_broken_accessors())
++		return;
++
++	/* Each CPU with non-zero IRQ has booted at least once */
++	for_each_cpu(cpu, cpu_possible_mask)
++		if (!per_cpu_ptr(arch_timer_evt, cpu)->irq)
++			return;
++
++	if (!arch_timer_counter_has_wa())
++		schedule_work(&enable_accessors_wk);
++}
  #else
  #define arch_timer_check_ool_workaround(t,a)		do { } while(0)
  #define arch_timer_this_cpu_has_cntvct_wa()		({false;})
  #define arch_timer_counter_has_wa()			({false;})
- static inline bool arch_counter_broken_accessors(void)	{ return false ; }
- #define arch_timer_set_direct_accessors()		do { } while(0)
-+#define enable_direct_accessors(w)			do { } while(0)
-+#define cnt_errata_config				false
++static inline bool arch_counter_broken_accessors(void)	{ return false ; }
++#define arch_timer_set_direct_accessors()		do { } while(0)
  #endif /* CONFIG_ARM_ARCH_TIMER_OOL_WORKAROUND */
  
  static __always_inline irqreturn_t timer_handler(const int access,
-@@ -955,6 +967,9 @@ static void __init arch_counter_register(void)
- 	u64 start_count;
- 	int width;
+@@ -841,6 +875,7 @@ static int arch_timer_starting_cpu(unsigned int cpu)
+ 	}
  
-+	if (!cnt_errata_config)
-+		enable_direct_accessors(NULL);
-+
- 	switch (arch_timer_uses_ppi) {
- 	case ARCH_TIMER_PHYS_SECURE_PPI:
- 	case ARCH_TIMER_PHYS_NONSECURE_PPI:
+ 	arch_counter_set_user_access();
++	arch_timer_set_direct_accessors();
+ 
+ 	return 0;
+ }
 -- 
 2.47.3
 
