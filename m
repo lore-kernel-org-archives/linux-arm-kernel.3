@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACB3C55184
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57947C55182
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 16:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=frSe+XQnis0Oph5HgKHmJyD+L45rNWS6tMBKUWzAmJQ=; b=XfYrj5rpjknxscvozBK5/y3Tnf
-	YelfN2GDViu/dXfSXSfQ+I1dIDX/W7blv0P0EqLJNy/YeoZ0a+wEfGpgbF9b704hrsPEZyZTf+1/Q
-	1sTh2treS6yLg155zbXvDRbQbhVmsF2SkO92nltCqG7BoOP4xfC/PJLP0pDZso3R3cryT/rzbT0b3
-	t6cuj36Nio3blhEJBcXC6zVoqkJnN4nGJ545vR/xNwBBEl1gx2BqOmva7Ze//KoGm/wtsrZWx5lsU
-	eJ/prli28QADLA2R39K0C26RQgFZEQd0JERY+CWoxS70DNtSETXstd3payhbKACOGI8PGSVjuOjtx
-	mmU/HGDw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j+cZ37TDJBMZ9L167vXN8x67B74o3YUUPAA7LEgjGp0=; b=myFkfIrMcg4meTmgZeXHPcf/s5
+	wLzQoMayOuFVAecuLOsP/ecASIhNc7n/00xZG7/V07k+O2a3j0zS9pi7ws+97/BJ61r3fKXSvDRe2
+	wOHQ38YcJjN3EozJ+yFyTirbnbL2IxfiuZrJQ5yMrLW0/ChM+9FWwR0LBqgbHA8BUZkwI3m0dOWGi
+	Z+D0RXEY0De/ADBtNISw7CP32STSHtIr4qDHhopMR6mOWTdS4+3XQINY8okKk7LEKDveYJKAneVOx
+	EFF8c1g7ODL33TpFLi0zGrbKxHa8i6BffB0nTV+wK1t+u3v3iW+ReL43OheCpGMXq4RUQzDZW9hQU
+	GTAXeEmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZRX-0000000FqmG-3bDJ;
-	Sun, 02 Aug 2026 16:53:43 +0000
+	id 1wqZRW-0000000FqlT-37v9;
+	Sun, 02 Aug 2026 16:53:42 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZRW-0000000FqlA-1T9a
+	id 1wqZRV-0000000Fqkv-3yBI
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 02 Aug 2026 16:53:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C123760E00;
+	by tor.source.kernel.org (Postfix) with ESMTP id 687B360DF8;
 	Sun,  2 Aug 2026 16:53:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 933B71F000E9;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AACA1F00A3D;
 	Sun,  2 Aug 2026 16:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1785689621;
-	bh=frSe+XQnis0Oph5HgKHmJyD+L45rNWS6tMBKUWzAmJQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ISHKPQefFHyKqP5/QFFo9F67iZ0sZK66AprGjw418KGtjlaKVlM5wdei2qxX/uqVJ
-	 YRa7DOoj5rJn07bHI+ZPcxyE6/tvX19vwxJN2vqw7Jgz8TxuVziWsy1i0Cuae8Qs+W
-	 tfelHDB8YILzsNBqVcshQAAuWJgGTQGfI3M/mxoG727MwGkTNnE+5KfhelkMv7eWg3
-	 PyidwIziSMPkCVx7LrAcqbfiqJktVAHU3/EmlGjU6o041S4GGEn6yQdQYApYSLA5SH
-	 y2oi8gOHVD+bvUT7ZOBMMpjgLMFPutWMhpRnhZpumhmDVPrjXdRm6yPvTAm2SD6SVw
-	 MbpoLdlhQkwbA==
+	bh=j+cZ37TDJBMZ9L167vXN8x67B74o3YUUPAA7LEgjGp0=;
+	h=From:To:Cc:Subject:Date;
+	b=bm/rX2FeQ8cnaJx/sM6cwOuREMnd3mBcGuLu7xUnvxAq2ia/ZmZWDRXJcRswHZn5W
+	 erJFxBZ0k+U7wJlqfTMTvDvYslyMUe0JQQHUow929tkYK8X9272cfErHRyiZ6A0v+U
+	 bberUa2JiLdBibcO5FqrbjFaTMlKW3kyWVzdMDQxNzxcj18pFaBMxsQofy3ZLft/7w
+	 ZMLeqiSrcMcJnnwUIMpgzO7QAzD0c0iyoI77+loQgEThLZUizITUOkUVOKM76jfoSU
+	 BPks4YbMYKfkfFWsDLnI2RCCZRqR1K8tCgLruEtNBxQ8pJwMbW4D0zrCz4kMEfmR3f
+	 LYk8LwyX3wO1g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wqZRT-0000000BVIZ-312t;
-	Sun, 02 Aug 2026 16:53:39 +0000
+	id 1wqZRS-0000000BVIZ-2wd1;
+	Sun, 02 Aug 2026 16:53:38 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
@@ -57,12 +57,10 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: [PATCH v3 2/8] clocksource/drivers/arm_arch_timer: Add a static key indicating the need for a runtime workaround
-Date: Sun,  2 Aug 2026 17:53:21 +0100
-Message-ID: <20260802165327.385217-3-maz@kernel.org>
+Subject: [PATCH v3 0/8] arm64: arch_timer: Improve errata handling
+Date: Sun,  2 Aug 2026 17:53:19 +0100
+Message-ID: <20260802165327.385217-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260802165327.385217-1-maz@kernel.org>
-References: <20260802165327.385217-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -83,97 +81,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to decide whether we can read the architected counter without
-disabling preemption to look up a workaround, introduce a static key
-that denotes whether a workaround is required at all.
+This is the third version of this series addressing a couple of
+embarrassing bugs in the prolific arm64 timer errata handling
+department. See below for the changes since v2.
 
-The behaviour of this new static key is a bit unusual:
+Time is hard. Timers are harder. As a consequence, we have plenty of
+broken counter/timer implementations in the wild, and an
+infrastructure to deal with them.
 
-- it starts as 'true', indicating that workarounds are required
+However, what we have today suffers from a number of issues:
 
-- when all possible CPUs have booted at least once, and that it
-  has been established that none of them require a workaround,
-  the key flips to 'false'
+- if, on an heterogeneous system, affected CPUs are secondaries, we do
+  record their broken state but don't correct anything
 
-Of course, as long as not all the CPUs have booted once, you
-are stuck with slow accessors, but that's what you get for not
-sharing your toys.
+- we always play games with preemption in order to access per-CPU
+  state, irrespective of the presence of broken CPUs
 
-Things are made a bit complicated because static keys cannot be
-flipped from a CPUHP callback. Instead, schedule a deferred work
-from there. Yes, this is fun.
+I hear someone saying "just use a static key to enable the errata and
+be done with it". Good call, except that we need to do that from a
+CPUHP callback, and that's deadlock central. We can't do it later,
+because this could affect the CPU before the workaround is enabled.
 
-Nothing is making use of this stuff yet, but watch this space.
+However, not everything is lost if we turn the logic on its head:
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/clocksource/arm_arch_timer.c | 35 ++++++++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+- always start with the mitigations enabled, even if we don't know of
+  any affected CPU
 
-diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
-index c02e97f9b7af5..8ee317e33c864 100644
---- a/drivers/clocksource/arm_arch_timer.c
-+++ b/drivers/clocksource/arm_arch_timer.c
-@@ -90,6 +90,8 @@ static int arch_counter_get_width(void)
- /*
-  * Architected system timer support.
-  */
-+static inline bool arch_counter_broken_accessors(void);
-+
- static noinstr u64 raw_counter_get_cntpct_stable(void)
- {
- 	return __arch_counter_get_cntpct_stable();
-@@ -555,10 +557,42 @@ static bool arch_timer_counter_has_wa(void)
- {
- 	return atomic_read(&timer_unstable_counter_workaround_in_use);
- }
-+
-+static DEFINE_STATIC_KEY_TRUE(broken_cnt_accessors);
-+
-+static inline bool arch_counter_broken_accessors(void)
-+{
-+	return static_branch_unlikely(&broken_cnt_accessors);
-+}
-+
-+static void enable_direct_accessors(struct work_struct *wk)
-+{
-+	pr_info("Enabling direct accessors\n");
-+	static_branch_disable(&broken_cnt_accessors);
-+}
-+
-+static void arch_timer_set_direct_accessors(void)
-+{
-+	static DECLARE_WORK(enable_accessors_wk, enable_direct_accessors);
-+	int cpu;
-+
-+	if (!arch_counter_broken_accessors())
-+		return;
-+
-+	/* Each CPU with non-zero IRQ has booted at least once */
-+	for_each_cpu(cpu, cpu_possible_mask)
-+		if (!per_cpu_ptr(arch_timer_evt, cpu)->irq)
-+			return;
-+
-+	if (!arch_timer_counter_has_wa())
-+		schedule_work(&enable_accessors_wk);
-+}
- #else
- #define arch_timer_check_ool_workaround(t,a)		do { } while(0)
- #define arch_timer_this_cpu_has_cntvct_wa()		({false;})
- #define arch_timer_counter_has_wa()			({false;})
-+static inline bool arch_counter_broken_accessors(void)	{ return false ; }
-+#define arch_timer_set_direct_accessors()		do { } while(0)
- #endif /* CONFIG_ARM_ARCH_TIMER_OOL_WORKAROUND */
- 
- static __always_inline irqreturn_t timer_handler(const int access,
-@@ -841,6 +875,7 @@ static int arch_timer_starting_cpu(unsigned int cpu)
- 	}
- 
- 	arch_counter_set_user_access();
-+	arch_timer_set_direct_accessors();
- 
- 	return 0;
- }
+- once all CPUs have been seen once, and that we still haven't
+  enabled any workaround, disable the mitigations globally.
+
+With that, a normal kernel boot with all CPUs will quickly switch to
+no mitigation on decent HW. If you're booting with CPUs disabled, this
+will only kick in once you have booted them all.
+
+Patches on top of 7.2-rc4.
+
+* From v2 [1]:
+
+  - Added a fix for the PMUv3 driver that really wants to know whether
+    it is operating with the architected timer. This has been broken
+    for some time (since 24ee7607b286b ("arm64/arch_timer: Provide
+    noinstr sched_clock_read() functions"))
+
+  - Make arch_timer_read_counter a function, and not just a function pointer
+
+  - Added a command-line option to allow the user to promise that no
+    erratum is required (Will)
+
+  - Dropped the internal CPU mask and iterate over the existing
+    per-cpu variable (Will)
+
+  - Picked Catalin's Ack, with thanks
+
+[1] https://lore.kernel.org/all/20260508094203.2913880-1-maz@kernel.org/
+
+Marc Zyngier (8):
+  clocksource/drivers/arm_arch_timer: Add
+    read_sched_clock_is_arch_counter() predicate
+  clocksource/drivers/arm_arch_timer: Add a static key indicating the
+    need for a runtime workaround
+  clocksource/drivers/arm_arch_timer: Convert counter accessors to a
+    static key alternative
+  clocksource/drivers/arm_arch_timer: Drop the
+    arch_counter_get_cnt{p,v}ct_stable() accessors
+  clocksource/drivers/arm_arch_timer: Turn arch_timer_read_counter into
+    a function
+  clocksource/drivers/arm_arch_timer: Add command-line control over the
+    counter errata management
+  clocksource/drivers/arm_arch_timer: Expose a direct accessor for the
+    virtual counter
+  arm64: Convert __delay_cycles() to arch_timer_read_vcounter()
+
+ .../admin-guide/kernel-parameters.txt         |  13 ++
+ arch/arm64/lib/delay.c                        |   5 +-
+ drivers/clocksource/arm_arch_timer.c          | 156 ++++++++++++------
+ drivers/perf/arm_pmuv3.c                      |   2 +-
+ include/clocksource/arm_arch_timer.h          |  11 +-
+ 5 files changed, 131 insertions(+), 56 deletions(-)
+
 -- 
 2.47.3
 
