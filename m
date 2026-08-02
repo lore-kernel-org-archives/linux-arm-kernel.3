@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32814C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 22:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE54C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 22:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EhU0lksOjQ0TR3P146OV1hVStSVy2GPBLJL11UWPwxI=; b=fMs5lAdCK6YNbP6226GLIk9TRq
-	xnL1pUyvvkRdWzMIYI91Kp3YgV74k1TXIgo0UEDCvQdcXVHmy1wuAigRiUgVTRduUVxiM8mfqa9wz
-	O4g0UQOUj37aPHJLG2GonF4CTtffHq7zAOhLrc74pjWcH3s6mhsn3KFJ9u9nMK9VP92ZNgyagVZ0j
-	jZeV77+UbERsrNBt3/DWQzULhqbMimehS1EVWoaIWpkFH5kG600p2ZovW+/HwdoPJrcn7CDCUMrLE
-	/XeLwWpOGLReMyMk+kfivDm6BfXuP6tElhunR90Ou52UQx1mvwp6lizkjhcrfD+2lchkqQ6ul4Oj0
-	Yx3f2VXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i9RUjiVyXXCN2eHfX1I53hQWCYFwzgd7w4b5P9lpT/E=; b=tPKhg3wSl8S5shg7F0c0FvqWB/
+	Pj8geerqQogaY+wNiFwCF3NX+qz90NOZxLWZgO0v3TGHUUJxwDeXcOVr+BBb+ricceZKP11O1VPyR
+	0PqIDQBwen8f/0U8iJgk7RCdhiKSsZcwt7sYXvuZGSc66F5MGpCQM5bcWkaY3KG+TWohuJXF92i3q
+	RVxKjLAEZ9ti7SUyPitwtdEsZyowC2XLeXPTZsoDVE5UnIBaVcrxx1u3uWPRSzYUyYn5YGNkAXqTo
+	uc3/5DdvGnatthkBsXb0H62RdZYEDXOTkLMWrAsI5Id7vwL9mLQMPcHBuG6YwF+EAMuw3F3ZonFqB
+	bpG5RNaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqePU-0000000G5Jg-11v9;
-	Sun, 02 Aug 2026 22:11:56 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1wqeY5-0000000G5fA-0DnI;
+	Sun, 02 Aug 2026 22:20:49 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqePR-0000000G5JJ-1Fzy
+	id 1wqeY2-0000000G5eo-1Q7T
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 22:11:54 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-51c2a76536bso25595761cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 15:11:52 -0700 (PDT)
+	Sun, 02 Aug 2026 22:20:47 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49558ce01afso11318095e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 15:20:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785708712; x=1786313512; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EhU0lksOjQ0TR3P146OV1hVStSVy2GPBLJL11UWPwxI=;
-        b=feGQ2WpVIcFc/KcPQ9xub95AmGQXmLCgmnCSSixrqPjjhoYeXaCZjA7yhaLblKkLxi
-         klTIAfbq72Q9NSH571dO0dxHeX5UzEIEXEJzQh/llznyXRo+kHMZy12MYZ0WgMnUrPjG
-         amWua/Aoj0F2srT2SXwBkIECX+Ceaq6QxicArZFJbIwwGrqrrKt64ll3W7vXXQIq33e7
-         nmMB/EuPD9sh9npw8VIKln8XMvb80DwUJCsqAr8Z7D9yJ7BmlpEpH/K04KDT9zsxAfZx
-         RFXivudcat9oletIW9TAo6W2fC2VqT+7aj6oZvWlmpYUP30BV98n8p5dHbWnW0oGN6Ha
-         P8yQ==
+        d=baylibre.com; s=google; t=1785709244; x=1786314044; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=i9RUjiVyXXCN2eHfX1I53hQWCYFwzgd7w4b5P9lpT/E=;
+        b=E/upWg0LpLFH56ySpywVF0fzwX+8SnACJOEOtZtMY6HnW74srfoCpw1FdokzS5N0Fg
+         yo/ypxfMy9eIJ+Lz0XyitiNAEF0zrj8O6U0U362DAiKJtQZ1BRLDBdi9pGDiRXP28/NO
+         JsjUmKt+7nhSTWGRolDA2TJH7rIHJTj9VBhel5ka06JpjuTviyME99gnbEtKsBGwzFoe
+         GH0RKL/qQOBALYUPpdsU09ovLvY6DKyjN9hvzX40vc2YjKYlpeV3SCu0ekyV2gGYd8SY
+         a3Y1+BAipbvuXpTJgZUyvdQW+kg/dIV4yu++/Gv0shN9HzB4z+aPblHjXfBqwqPb7iEo
+         DOdA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785708712; x=1786313512;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EhU0lksOjQ0TR3P146OV1hVStSVy2GPBLJL11UWPwxI=;
-        b=k/C37i64AJj9W+vtbB/skTXED9cm7/FzAolhl3TjA0Ppd+1OKKfb5WP/PhQerFYYfi
-         xYUZi3yXS4obv2rSmneCbDncgEe7XQlJhOA16xqPDbfO7E2mYXFDTOJBnhNidfo7zaMR
-         YwW51CG5/4ETcZuqCkBPjsMfORVRIWE8GOuJ42Bu75JMIf9ALyAy6xJJXFLomh7LAMW+
-         uLVrL4FqsbDV5ausBZfjgtOhqtlmhBXnqajCGKaK3LMe+3dorvQyliMx1sxgxeSQ62Bs
-         mzP4szQCDaJumzX7+lJxUufCL6st3p8flvEylIA0YPR7uMz9kY+8yJzvMx8Ht9wuT0OK
-         KGhA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro+PtzGk9BlC4ULC+kIUuMbfXaRCKJg23z/mUNDjOGZpASpIMbS04IeAruB7QX7ut6HW28NUZj6blRlvSS4cF3L@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhqxAABY+6TKyXfgyXe1VyoXfWpCSZSb7pFbw3KNBAAL/Ka2OM
-	laHEc8bHPL9GRdXDuK0oQvIVSJmURi6mhOuIeHy3ng3cSx9Rm5YNsMdL
-X-Gm-Gg: AR+sD13xPqQkgL52Q+gjUA09GA+QvwPrTe0sAxJrCHUamsOHIYGw97wTowhWtjF3Jc4
-	f/9qOulSA7BS0wenaXmU0qOoStJq2QhNA1gKdxKI3LwxoAF4llqdLZX2H5NivbpAwUUqdeCoF3S
-	HNS27Sr9oYYsNCb4KBaT4U5AwQNG0Lut9JNYw6TvOY4s6qDEGrKCladsmYUSdl0jjWMBg2ksHJB
-	QFO2eBvped/3MsyvERHFyhUGlfOd8xSCDxiRQABv4xW3LzeXImmx49Ql6C4CW0tHRNaWAu373ej
-	o8qP7GJYLrCxIDD/HM8LxCJ6daPd44m6OEiL/NFIGAj/76iMfJUOHQVHxMH00hF2JROOQjG/W36
-	+OaS0oIZjoNG2WGXRYsMqp1Dq0Isv6g7JZmNY1u8fNu3u4nQRlMJHS7HdsR95UcEXIQGQ1SuYA4
-	Rm2+BDc6WyuxwwrzMuMqj/talGWxHyqrbqoR6vK/7TKGb0uo+uyzTX7e5wdCtpBWF5YJSnwIt4p
-	fYTYZwpIa4+u+7jgzI4MkQhWpNFF03tvLNBd27bm7f0xifKWEaLnd60SoLlwDM=
-X-Received: by 2002:a05:622a:1f95:b0:528:3142:d466 with SMTP id d75a77b69052e-52b567cdee3mr154874811cf.41.1785708711652;
-        Sun, 02 Aug 2026 15:11:51 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-52b4e7edb3fsm49573231cf.4.2026.08.02.15.11.49
+        d=1e100.net; s=20251104; t=1785709244; x=1786314044;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i9RUjiVyXXCN2eHfX1I53hQWCYFwzgd7w4b5P9lpT/E=;
+        b=hB2p796oIbeoT9FBcwBOOKCLRgCzxLekrbtoX+lQcqGdBunKtTKfQTvGn87T42IZH+
+         JtyVFr0VhHcz87kuvwKKmin2DmwMmy8WvC8aM+goLyjsbS4CPJ3P/rO4D5tUrDmmqSuu
+         2zq8LBqv+PiX++mEFQxS1fAz7KZLbAUMHx06N+ur8vUFfFyW21RSkrhhn+gMVYPsy8Tq
+         orws4eLrrBMa8KWrAk7NoRg7k1tfhEbBFwvEQmbYsRUhBj7MnibJHAVqF+hZXdDoOw8y
+         YlC0UxkO45odV5CoC5loQnRf1JdxqUVCN2/3Q7+28UHGigscGEFN3mmCe1FXrW7TPZnT
+         y0Pw==
+X-Forwarded-Encrypted: i=1; AHgh+RryQwwWj+9sy7kQsasrcILD+g4a0/njfJ1hkFnRHitiI7nQRwjnAuFMt427siJpkYw3Jfz1FhGkI0N4r3BbNVWP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHPhHdTYW5jn3AZRX81sxZ6IOM8MpJsTGs93sjYxaP9nl5Irre
+	39NWcS5+PhGQzLUNUDzwRq+hIcQMXmYulR6Y/R88nB1IfhKo+TostJIO0Xhv10BBImsquxt8s8k
+	1+KKA
+X-Gm-Gg: AR+sD10flujAgHrEX2Q8banvF8TpRdcNH2vUN/38hN/SngugeDgqLf1H9R5SgWg4+g4
+	xD+LA1O1YFJ9+Aq21TvWXEpQtX2DCzvOz+vbEVX/5gme1gzJd4E3XtAa4XhV5exYgMBjyh6pedc
+	/CWa+oqUWw6f2HHAs2rj9EYclXVi3nlRlxLzaVXjaVFgSSIVjbSS17tGKepGj4uhWqDDZHxUslC
+	h7Yf8LVUIFkPx8OXLr9YLOr5OUq216NGePzNj6iLNe25BOtBnMEiAL3dqPuRMZNL+9+NpK7avsk
+	VvIEdTSZEuXzoN45ZgE4aRPkEBX9IWsBPJ1BA/cGclDexmwgqIcQIeUIGaswfqhmsxuvmeiN4/X
+	DIFcNLyuqXNa58cP4indDOm1X4tq895GYLvZ9IUYvkcnxvTiZj/xxhxVd6BeyP1cH0KEdOjXPHv
+	VHwoD30jRu0I4NhM0z8RG0haUXz5MLXP3fLA5ujPTirXP4o9wo9MIQdMDFkuEpelasAw==
+X-Received: by 2002:a05:600c:564b:b0:495:52dc:73a9 with SMTP id 5b1f17b1804b1-4980c675370mr125127215e9.11.1785709243887;
+        Sun, 02 Aug 2026 15:20:43 -0700 (PDT)
+Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47fd456a6besm25058203f8f.22.2026.08.02.15.20.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Aug 2026 15:11:50 -0700 (PDT)
-From: Yuho Choi <dbgh9129@gmail.com>
-To: toan@os.amperecomputing.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com
-Cc: robh@kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yuho Choi <dbgh9129@gmail.com>
-Subject: [PATCH v1] PCI: xgene: Use managed clock for PCIe controller
-Date: Sun,  2 Aug 2026 18:11:46 -0400
-Message-ID: <20260802221146.573233-1-dbgh9129@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Sun, 02 Aug 2026 15:20:41 -0700 (PDT)
+Date: Mon, 3 Aug 2026 00:20:39 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, Herbert Xu <herbert@gondor.apana.org.au>, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Demi Marie Obenour <demiobenour@gmail.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Subject: Re: [PATCH] crypto: qce - Replace with stub driver
+Message-ID: <am_CG_kR24lpos6D@monoceros>
+References: <20260731050838.158825-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ll56pjw5fggcc5xl"
+Content-Disposition: inline
+In-Reply-To: <20260731050838.158825-1-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_151153_366677_A81BA721 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260802_152046_394414_5D00C692 
+X-CRM114-Status: GOOD (  20.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,46 +105,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-xgene_pcie_init_port() obtains and enables the controller clock manually.
-When xgene_pcie_setup() or pci_host_probe() fails, probe returns without
-disabling, unpreparing, or releasing the clock. A failed enable also leaves
-the clk_get() reference unreleased.
 
-Use devm_clk_get_enabled() so the clock is unwound automatically on probe
-failure and device removal.
+--ll56pjw5fggcc5xl
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH] crypto: qce - Replace with stub driver
+MIME-Version: 1.0
 
-Fixes: 5f6b6ccdbe1c ("PCI: xgene: Add APM X-Gene PCIe driver")
-Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
----
- drivers/pci/controller/pci-xgene.c | 11 ++---------
- 1 file changed, 2 insertions(+), 9 deletions(-)
+Hello,
 
-diff --git a/drivers/pci/controller/pci-xgene.c b/drivers/pci/controller/pci-xgene.c
-index b95afa35201d..4fe3581b9372 100644
---- a/drivers/pci/controller/pci-xgene.c
-+++ b/drivers/pci/controller/pci-xgene.c
-@@ -321,18 +321,11 @@ static void xgene_pcie_linkup(struct xgene_pcie *port,
- static int xgene_pcie_init_port(struct xgene_pcie *port)
- {
- 	struct device *dev = port->dev;
--	int rc;
- 
--	port->clk = clk_get(dev, NULL);
-+	port->clk = devm_clk_get_enabled(dev, NULL);
- 	if (IS_ERR(port->clk)) {
- 		dev_err(dev, "clock not available\n");
--		return -ENODEV;
--	}
--
--	rc = clk_prepare_enable(port->clk);
--	if (rc) {
--		dev_err(dev, "clock enable failed\n");
--		return rc;
-+		return PTR_ERR(port->clk);
- 	}
- 
- 	return 0;
--- 
-2.43.0
+On Thu, Jul 30, 2026 at 10:08:38PM -0700, Eric Biggers wrote:
+> diff --git a/drivers/crypto/qce/qcrypto.c b/drivers/crypto/qce/qcrypto.c
+> new file mode 100644
+> index 000000000000..d526902b3060
+> --- /dev/null
+> +++ b/drivers/crypto/qce/qcrypto.c
+> @@ -0,0 +1,43 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (c) 2010-2014, The Linux Foundation. All rights reserved.
+> + */
+> +
+> +#include <linux/device.h>
+> +#include <linux/interconnect.h>
+> +#include <linux/module.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/platform_device.h>
 
+<linux/platform_device.h> already makes sure that of_device_id is
+available, so don't include <linux/mod_devicetable.h> which will go away
+soon.
+
+Also I wonder why/if you need <linux/device.h> here.
+
+> +static int qce_crypto_probe(struct platform_device *pdev)
+> +{
+> +	struct icc_path *mem_path;
+> +
+> +	mem_path = devm_of_icc_get(&pdev->dev, "memory");
+> +	if (IS_ERR(mem_path))
+> +		return PTR_ERR(mem_path);
+> +
+> +	return icc_set_bw(mem_path, 0, 0);
+> +}
+> +
+> +static const struct of_device_id qce_crypto_of_match[] = {
+> +	{ .compatible = "qcom,crypto-v5.1", },
+
+No , before a closing } please
+
+> +	{ .compatible = "qcom,crypto-v5.4", },
+> +	{ .compatible = "qcom,qce", },
+> +	{}
+
+A single space between { and } is the most usual form, please stick to
+that.
+
+> +};
+> +MODULE_DEVICE_TABLE(of, qce_crypto_of_match);
+> +
+> +static struct platform_driver qce_crypto_driver = {
+> +	.probe = qce_crypto_probe,
+> +	.driver = {
+> +		.name = KBUILD_MODNAME,
+> +		.of_match_table = qce_crypto_of_match,
+> +	},
+> +};
+> +module_platform_driver(qce_crypto_driver);
+> +
+> +MODULE_LICENSE("GPL v2");
+> +MODULE_DESCRIPTION("Qualcomm crypto engine stub driver");
+> +MODULE_ALIAS("platform:" KBUILD_MODNAME);
+> +MODULE_AUTHOR("The Linux Foundation");
+
+Best regards
+Uwe
+
+--ll56pjw5fggcc5xl
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpvwrUACgkQj4D7WH0S
+/k67nQf+OehFcZIDtgFxkyFvQZvZvj8xuSmIv0XdUJH05uJUlrPzdkpGEIhFcanz
+X8NT6EKrJBiBvrf3pUe00j0mjuhrKvSlNwD/OIOfIyKO/vqCUA7I9I7Z2rytufiF
+ctDEwPQm1DhHjgqODVsHjkhxh8GL/DJRZfJI5rlD/owrDhjUVV23+9el/AnKy9Pa
+rbNI92rAQ0E6Oqn6PzhUz7szbSaZwNOIHHwEDSKza6Nz2ReOBoqmNzb+wtiSV0Zw
+ZU88/nUiGRYBZohrjw28Vog4+tLMFK5yqZunqMgevvJNdVSkJCt/6DSH0F5uI4py
+p1VS4MphWJzPY13zmlS5FUlxowzcFQ==
+=dBQw
+-----END PGP SIGNATURE-----
+
+--ll56pjw5fggcc5xl--
 
