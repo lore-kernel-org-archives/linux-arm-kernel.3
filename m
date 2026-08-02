@@ -4,66 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FEAC55177
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 11:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C0B3C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 11:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=563oNXUIkeVMeBvn7KJOWvs/zhYBpCRLhQXu0aHBhw8=; b=CTBDxVY90FoaoiZh1iA3ddneBP
-	7HbZ1ul6EYuo/bhYfbo1fC8dYpaEbNMoHRuNQL6r6nAkXpUnsjHKIJDJOrHsegngMZDDXLzdfOrgP
-	XGBt1avnpmLxFCzgV4Uabj5RgU/haj6IYr9XNt534ybbDBQ7KYyPkEPB/0Ww4VoQdJ7/vKeb1A6+H
-	FkT2UoCZtV1Rb9ScnFU/588cUZt1KXqPopwiW+of3EwIx9F0uwmZf9GACZNr0x/k0EDTQE1SRj720
-	T19Zqjlrjnr4iK9jq/WRjCHSqmM8sj83dlTEmlEDVoBgV1IbZl4O+WuPEXRdw7ifZX6g+JtEC4PKz
-	fFOW+B9w==;
+	bh=SKitOyWlILbisqzXDu4zJ6NnI8kGFQdW6d+iEn1lD6A=; b=fJ5gVIAoRdQRnCF753+EAed0AB
+	2uDqEFBn3yCFU8DIyqil8j2L5IdGNUAnrQZSMN9p43seqxwHKk9vMKWH5Mo+pk3A5wdM69c9IE1g4
+	93vYYxpOFup3gNtjMeQWLHJQzo/BSHURBhQ/nfTmmMlBmWBtEQXXVgLutUdD8JYwi5k/dcxGLmJZa
+	038i+9v9Y/yiBqZCryYszwPZi6SVaf0f8LsJ331dlqza6sXK28KtWfCFEdU0/mBGGerjSMT4qXUyo
+	Hqz11XSZ21o7rsqbrUs+JQiobRC6zUIFyNq01nqA1MgcAo96pzeDSRI/4FFU/3HPhWO3CiozE4Jgn
+	AwWLJHcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqUR9-0000000FZwe-0H6A;
-	Sun, 02 Aug 2026 11:32:59 +0000
-Received: from out-173.mta1.migadu.com ([95.215.58.173])
+	id 1wqUR8-0000000FZwL-44uy;
+	Sun, 02 Aug 2026 11:32:58 +0000
+Received: from mail-australiaeastazon11022123.outbound.protection.outlook.com ([40.107.40.123] helo=SY5PR01CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqUR5-0000000FZuj-2Jtj
+	id 1wqUR6-0000000FZvA-10pv
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 02 Aug 2026 11:32:57 +0000
-X-Forwarded-Encrypted: i=1; AHgh+Rra39bNlhDJGxFbY43QRV3c031gNj6B9n5k84ixVXR+vzZ0C19fW5p+SuZTKHRAZ1foBc1sb88F4qEOtPOD63L8@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785670370;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=563oNXUIkeVMeBvn7KJOWvs/zhYBpCRLhQXu0aHBhw8=;
-	b=kQPlOZ1JQ4qbF+i4cvbTozoQx1/EveGT8FEOf8iw72OKr+Ln4oKTZ9I0lUX0Llj+pYQGzf
-	qn7EQiAUCuDuO/eQXvLHt/nN+wvco2FlXcabDbNRIMOWDrm4ySZ/a0vR5P7wTfDkyXGeIB
-	nbrqtJrOc03FV8pfXIAly3FZgVZtQkA=
-X-Gm-Message-State: AOJu0Yw3MzPFe6yMVpHHAbkPdly40GXZl88mAu/RZ61TbCUXDWa6DhGd
-	wqW5pAFDArj8aZptMaGwyGdMp1iOaajLNIzqC3tWHmH5Aa5gVsZZZ5f5gYXrYVdN5ftkWzsWBNa
-	dMH5M0MTI5lb+0kbK6hFQ7CQA93tAm+TzyJpyIOx/
-X-Received: by 2002:ac8:580e:0:b0:517:5d71:84e5 with SMTP id
- d75a77b69052e-52b5b0b0160mr17986791cf.5.1785670353005; Sun, 02 Aug 2026
- 04:32:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=f6apiqP80aB8EING6/KCjTW264I7Ku+vYFCMeUjtTvqLmcSXKylmZ629Rn6oxSH4b4niBaVh5JAaK+XZt/ACS4vSFd3Sgi0dJdWLajU+2eeYaJlK3/KdPdgzpTEBjPRxjttt8938ohO+C+5v0rjKQI4T8cLESaaJf+JEa6oLfzfAdzYqTyv/eTFiOTqK1aACWVqYhtKdKQJujtVqiX21c6ObnRSOsFnN2QoFohxwa9v7sYrBzPqkVA3bmfOV460SCzBGgtFbaeOBMqiE6ZmVMVV6MBrVWMzIvxGItdEX2JU9ABJk/kLxs2i3TnL3NNrcXWerDNXZRQ5cqa1Eszr+Nw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SKitOyWlILbisqzXDu4zJ6NnI8kGFQdW6d+iEn1lD6A=;
+ b=GesE7cHrRYqls4AJqE9bHmjYZDwz5/v+UzR9eRLzFnV65fjCqeU2gdGY3xTDXzfRGKWp3bmkBaReXv0ykkeDFQLNoar0rg8OyOheCRV/RRzGU/BuHZfCl8XtxdBhTIoEtHhzbBUgw/Mx5ifU9l5JCDjvbG69fMKgxmhD1/MJDYzdzrkM+WElGrNAr06lA6UQgNJynZQpsRSCLhL6bmlbU+4igP+HkzM6gWlJKjmT2giezNeY//oSiEw9fcOXtJTEewBRYdcjHLISP1UHKhE7K7iLEB1u+E5TwanoQuNxlzNKcLoHAoS3o9fn5bOITzsqG8Ua5kn3QOjDQBlUCVP39w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=heitbaum.com; dmarc=pass action=none header.from=heitbaum.com;
+ dkim=pass header.d=heitbaum.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=heitbaum.com;
+Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:279::22)
+ by SY4P282MB3986.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:197::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Sun, 2 Aug
+ 2026 11:32:43 +0000
+Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
+ ([fe80::21b6:91f8:614d:1fdd]) by SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
+ ([fe80::21b6:91f8:614d:1fdd%4]) with mapi id 15.21.0270.016; Sun, 2 Aug 2026
+ 11:32:43 +0000
+Date: Sun, 2 Aug 2026 11:32:30 +0000
+From: Rudi Heitbaum <rudi@heitbaum.com>
+To: Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	rudi@heitbaum.com
+Subject: [PATCH 3/3] arm64: dts: imx8mq: Declare the PCIe extref clock
+Message-ID: <3436ea65303090e435a24ba04416425f0380bd90.1785669457.git.rudi@heitbaum.com>
+References: <cover.1785669457.git.rudi@heitbaum.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1785669457.git.rudi@heitbaum.com>
+X-ClientProxiedBy: ME0P282CA0095.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:220:213::12) To SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:279::22)
 MIME-Version: 1.0
-References: <20260731182231.1277064-1-vdonnefort@google.com>
-In-Reply-To: <20260731182231.1277064-1-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Sun, 2 Aug 2026 12:31:55 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxwJ+e4nOuVE3nuMJxRk62fDhY-GVDjO6HLGzGmUVj5Qg@mail.gmail.com>
-X-Gm-Features: AUfX_mzYz28lGkU5fFeVKuoX3O7CJ-5QBWq0Fe673Jb9b-5t2OiaUr7qhE-dcTs
-Message-ID: <CA+EHjTxwJ+e4nOuVE3nuMJxRk62fDhY-GVDjO6HLGzGmUVj5Qg@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Drop %pB on nVHE panic when stage-2 is active
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
-	qperret@google.com
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SY7P282MB4909:EE_|SY4P282MB3986:EE_
+X-MS-Office365-Filtering-Correlation-Id: 96258ad0-f989-4bc7-6ceb-08def089c4ec
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|10067099003|5023799004|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 0foQ85qI4fw9mKzKbXI+qXTYE3a/PPjAZFel6qCEnBDehEjb6M7xCGmZG+6Mauympkahrbe3TXpSzh4VLI/X9LHKPl7X/ho6uBScTT9aT2RkV4bHueiEIZmogKnciuSzjbuVyzEPWAQ4mqM7eFrodtmYQALVRBS3lHp7xKbbOrZBDBdujyyyyHVtkC/iYw6kUfyQhnez7CTwFgRjKKZwbTeAXMTUaizBR2zxu/88D/UPBKWKRGFcSEoMFot5TQIQkhkvggYBOqDYz04uFwX0fZCdiQO/18GhYbHjY+NAmrPbKuLdOUTZtmakeYrTcwZqFk2cHtEAQPES9CME6WiEJ44fVJXFQhY96o0LJiSdJeTeOHrWDj6K6N4+1yyuFn/PeldBHI/5qrYmQfigPToRqJyhjrP49wmqi6jdqDNwWEL9+rFLNuVMVSS9qiNZKU7H+/m7Ugj+W7Z/MIQ0/Oo8WUaUbY9dIgi+FtqArCjw7p5P/ZSGul6voW0sdmu4LJ6o0Ur7EiPHucO3hEfvmEmRe+7UUfoQb9BGhK8fE9NN0D1qka8FAo4e/Zq+JCeG79o+ZJEsN61/n+hD2dyKwUPUm7F5qyBvcZM3DWl4wmjaNm1npkswc9kE7vfJfgQXWo5UyGjAwbR5OuaU8v0K2ElO1y6ILOb9Z337r6WqsrBScrs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(10067099003)(5023799004)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EVcwkzEXxQMfYNaMnEnkXg0Pp5t45TdijjiGjZgloP6hVz6pjINlqLgh580/?=
+ =?us-ascii?Q?ANiRk+GYnamprPZNaYMx6oZ7noqA/5bhdbUd+04PpBu4l9vT7wp65i9leqin?=
+ =?us-ascii?Q?2g8SrujhNBhUQYFfzVoUmXrJ+QMGrc/6XFa4REIzBwhKMVZih+znhOFnLzg0?=
+ =?us-ascii?Q?TkryfHdTlshI7nViQx/oCD0rpEup+ox4hx8yjZl7CW67XI8vpg/Hv0e5HDTJ?=
+ =?us-ascii?Q?pF6KOyZckPQ2f32URItLjpUY/zOQzx+1YAaIZ+yVGqzeg/MsI8GJex9gw9Rt?=
+ =?us-ascii?Q?m7LO6JxTwXwoiOWJtQ/DFZYa9k/Z7nqvpk7isK8BEqE+uh2rWMS3czq+dIa/?=
+ =?us-ascii?Q?/2HSv0I9H6E/kEW00FTwKnnSx5dzJLSR+ePGOuCdMx439iOzw7Qw+v3gTj1U?=
+ =?us-ascii?Q?oiiQZhG/m/8TtYEawAABWtkCdNWo2CJ02Yy3Fb4m4NUsuCAdq1IVTCuclfWm?=
+ =?us-ascii?Q?++vCqeWbp4e/NNkqcucnkElmnM3bnGHSogOnmlFKps528Gpd2rEBEWk8sCg4?=
+ =?us-ascii?Q?rflnZzEhgSzsQVZAPmAkpukhXJ7W2bF59RLf3C6Kyb9vcFIyOk56YoEr05o9?=
+ =?us-ascii?Q?2PglHUo7pmZQufMXmRgqMUCxIh1KBWDbbKb0Ht51dV4lxN//DBOQrQc3HI4G?=
+ =?us-ascii?Q?w8rXg+tFNj5LhFhSBm2YgifwUcPHhOvWEPVgxOHtp4iD+DGBReEH0tzA/WK7?=
+ =?us-ascii?Q?ZfVzN7PukuV3JD5kSAobdAWmKwh9tg7QxXf4/QUWhfgtre8iFyFG00yyQCf3?=
+ =?us-ascii?Q?9G247Ly0im7/rGNykucxhO2+JRKIGh0u+LO/7C/D1MiL8v1zGfx8NweTqnrk?=
+ =?us-ascii?Q?hY0dZl1A0qyQFNpzBV938WP6gYkgKVwVlp3oChya7ibS5qnkfrZ7vArgc1Mk?=
+ =?us-ascii?Q?eai/cqq9+yTmL93V7F7hEUFS9Pl4PBnSlqPfIb95POdTI7HEOVLXENNjyfGn?=
+ =?us-ascii?Q?K5T9oOQ51WQ6B5AimCsx5ZbSsVCWgNL2XRnrn1jOzg3dAM88tq+M1HkVbkuZ?=
+ =?us-ascii?Q?lxmNaqrYCjAaRMGHjXHu4LHQKgIH6miYH6+czVytQdGo9zkI+DfIP0YfPT6t?=
+ =?us-ascii?Q?uuVehpKBPkP37gttYpFL9TQ1MEaL2VIi6ElEIqKo1AdsfRDnA7UKpOjCc645?=
+ =?us-ascii?Q?rR/URqYxGOIts1A5xOQ2NYBWpJXnhVTK9O60hyz1RBh/lXrxcIAAlBqDJVI9?=
+ =?us-ascii?Q?PkmCD3/M8H+6+doOzLsoDhw/PseE42xpqPp/OJXQ/VDfOBULr3OEwXUhJ6iM?=
+ =?us-ascii?Q?z69CA4vJp2ykzWC5JnqqVWiNJTGYBXrz88Fco2ULcSdcmfMOduuVK5W3l+NO?=
+ =?us-ascii?Q?iQ9oVyw8lMT78cVdL77lElyCAOqeAJEOsmTdBUu6iyEMD2WZXSzDemDSpUei?=
+ =?us-ascii?Q?UZVJKhHSiQ90rbjWE/zoBrIThdbEmMyQcAbxtyfZ5QBszVcZYWlHlZEMFFNk?=
+ =?us-ascii?Q?BToNar13NXMyMndlAnpzJDdWScbEOaV84StIQWMgLVv3Km16Tak2g/6pf2vN?=
+ =?us-ascii?Q?aPCz7wbVie6lAcBW87Gnpv/fQbSh5y+EH4oABn4lyZmrr+LZUpPGmb8ThLqk?=
+ =?us-ascii?Q?jdVtDJAyCG8S0jYExW1l1QT50H9zAxzD3xn0kUCBMYxwINhex4lCQQIznsp5?=
+ =?us-ascii?Q?IyJwN2Ak1n1mXsrCWMU4L8oLUZqiearL4eUmdYH7u/TOLeB0+RG1igIBLB/y?=
+ =?us-ascii?Q?yzgnzE5UIVAy/PvjfQSnnAZ56H1Q2wO0YAnI8Y6bsqKl9KxX?=
+X-OriginatorOrg: heitbaum.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 96258ad0-f989-4bc7-6ceb-08def089c4ec
+X-MS-Exchange-CrossTenant-AuthSource: SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Aug 2026 11:32:43.8881
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 35ffebb5-7282-4da6-8519-efab29b0108e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tG9G7X7JCe0yTz6Px/NDjcMscdErxcbrW8N5i3Bl4PIyX0dRpukP+bE+qTRH74dr6bOOCrisVQlRdJZZX5/J3w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SY4P282MB3986
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_043256_365766_6BF6AC55 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260802_043256_281755_6CF8BC37 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,53 +139,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 at 19:22, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> Currently, the host stage-2 is lazily mapped. kallsyms, accessed with
-> the modifier %pB is therefore potentially unmapped. If the hyp panic
-> occured with the host stage-2 lock taken, a dead lock will occur.
->
-> Fixes: 6ccf9cb557bd ("KVM: arm64: Symbolize the nVHE HYP addresses")
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
->
-> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-> index 54aedf93c78b..2e1951c215ae 100644
-> --- a/arch/arm64/kvm/handle_exit.c
-> +++ b/arch/arm64/kvm/handle_exit.c
-> @@ -509,8 +509,12 @@ void handle_exit_early(struct kvm_vcpu *vcpu, int exception_index)
->
->  static void print_nvhe_hyp_panic(const char *name, u64 panic_addr)
->  {
-> -       kvm_err("nVHE hyp %s at: [<%016llx>] %pB!\n", name, panic_addr,
-> -               (void *)(panic_addr + kaslr_offset()));
-> +       /* Kallsyms might not be mapped in the host stage-2 */
-> +       if (is_protected_kvm_enabled() && !IS_ENABLED(CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC))
+Boards feeding PCIe REF_CLK from an off-chip oscillator described it as
+the "pcie_bus" clock, which the driver never looks up by name and which
+therefore selects nothing. The oscillator was used only because the
+driver forced IMX8MQ_GPR_PCIE_REF_USE_PAD unconditionally.
 
-nit: this is the negation of the find_bug() guard a few lines up (not
-visible here), so could the two could share a helper?
+Now that the selection follows the "extref" clock, name the oscillator
+explicitly on every board that depends on it so the behaviour is
+unchanged. The "pcie_bus" entries are left alone.
 
-> +               kvm_err("nVHE hyp %s at: %016llx!\n", name, panic_addr);
-> +       else
-> +               kvm_err("nVHE hyp %s at: [<%016llx>] %pB!\n", name, panic_addr,
-> +                       (void *)(panic_addr + kaslr_offset()));
->  }
+Endpoint nodes are not touched: they are all disabled and use a separate
+binding.
 
-Tested on a pKVM host with CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC=n:
-triggered an nVHE hyp panic and confirmed the new branch is taken and
-the panic reports cleanly. The later dump_kernel_instr() is fine too,
-it reads hyp text, which stays RO-mapped in the host stage-2 for
-inspection, so no fault.
+Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mq-evk.dts              | 8 ++++++--
+ .../boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts      | 8 ++++++--
+ arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts      | 4 +++-
+ arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts   | 8 ++++++--
+ arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi       | 8 ++++++--
+ 5 files changed, 27 insertions(+), 9 deletions(-)
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
+index e7d87ea81b69..3dc0047cd1de 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
+@@ -374,7 +374,9 @@ &pcie0 {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE1_ROOT>,
+ 		 <&pcie0_refclk>,
+ 		 <&clk IMX8MQ_CLK_PCIE1_PHY>,
+-		 <&clk IMX8MQ_CLK_PCIE1_AUX>;
++		 <&clk IMX8MQ_CLK_PCIE1_AUX>,
++		 <&pcie0_refclk>;
++	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "extref";
+ 	vph-supply = <&vgen5_reg>;
+ 	supports-clkreq;
+ 	status = "okay";
+@@ -402,7 +404,9 @@ &pcie1 {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE2_ROOT>,
+ 		 <&pcie0_refclk>,
+ 		 <&clk IMX8MQ_CLK_PCIE2_PHY>,
+-		 <&clk IMX8MQ_CLK_PCIE2_AUX>;
++		 <&clk IMX8MQ_CLK_PCIE2_AUX>,
++		 <&pcie0_refclk>;
++	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "extref";
+ 	vpcie-supply = <&reg_pcie1>;
+ 	vpcie3v3aux-supply = <&reg_pcie1>;
+ 	vph-supply = <&vgen5_reg>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts b/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts
+index d8cf1f27c3ec..8cf6a64db1a7 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts
+@@ -247,7 +247,9 @@ &pcie0 {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE1_ROOT>,
+ 		 <&pcie0_refclk>,
+ 		 <&clk IMX8MQ_CLK_PCIE1_PHY>,
+-		 <&clk IMX8MQ_CLK_PCIE1_AUX>;
++		 <&clk IMX8MQ_CLK_PCIE1_AUX>,
++		 <&pcie0_refclk>;
++	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "extref";
+ 	status = "okay";
+ };
+ 
+@@ -256,7 +258,9 @@ &pcie1 {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE2_ROOT>,
+ 		 <&pcie1_refclk>,
+ 		 <&clk IMX8MQ_CLK_PCIE2_PHY>,
+-		 <&clk IMX8MQ_CLK_PCIE2_AUX>;
++		 <&clk IMX8MQ_CLK_PCIE2_AUX>,
++		 <&pcie1_refclk>;
++	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "extref";
+ 	fsl,max-link-speed = <1>;
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts b/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts
+index 3ae3824be027..bf931d2f3a87 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts
+@@ -199,7 +199,9 @@ &pcie1 {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE2_ROOT>,
+ 		 <&pcie1_refclk>,
+ 		 <&clk IMX8MQ_CLK_PCIE2_PHY>,
+-		 <&clk IMX8MQ_CLK_PCIE2_AUX>;
++		 <&clk IMX8MQ_CLK_PCIE2_AUX>,
++		 <&pcie1_refclk>;
++	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "extref";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts b/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts
+index 0165f3a25985..761c43db3026 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mq-tqma8mq-mba8mx.dts
+@@ -97,7 +97,9 @@ &pcie0 {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE1_ROOT>,
+ 		 <&pcieclk 3>,
+ 		 <&pcieclk 2>,
+-		 <&clk IMX8MQ_CLK_PCIE1_AUX>;
++		 <&clk IMX8MQ_CLK_PCIE1_AUX>,
++		 <&pcieclk 3>;
++	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "extref";
+ 	status = "okay";
+ };
+ 
+@@ -109,7 +111,9 @@ &pcie1 {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE2_ROOT>,
+ 		 <&pcieclk 1>,
+ 		 <&pcieclk 0>,
+-		 <&clk IMX8MQ_CLK_PCIE2_AUX>;
++		 <&clk IMX8MQ_CLK_PCIE2_AUX>,
++		 <&pcieclk 1>;
++	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "extref";
+ 	status = "okay";
+ };
+ 
+diff --git a/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi
+index c7bbba45f368..31db96adb237 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi
+@@ -551,7 +551,9 @@ &pcie0 {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE1_ROOT>,
+ 	         <&pcie0_refclk>,
+ 	         <&clk IMX8MQ_CLK_PCIE1_PHY>,
+-	         <&clk IMX8MQ_CLK_PCIE1_AUX>;
++	         <&clk IMX8MQ_CLK_PCIE1_AUX>,
++	         <&pcie0_refclk>;
++	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "extref";
+ 	vph-supply = <&vgen5_reg>;
+ 	status = "okay";
+ };
+@@ -563,7 +565,9 @@ &pcie1 {
+ 	clocks = <&clk IMX8MQ_CLK_PCIE2_ROOT>,
+ 	         <&pcie1_refclk>,
+ 	         <&clk IMX8MQ_CLK_PCIE2_PHY>,
+-	         <&clk IMX8MQ_CLK_PCIE2_AUX>;
++	         <&clk IMX8MQ_CLK_PCIE2_AUX>,
++	         <&pcie1_refclk>;
++	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "extref";
+ 	vph-supply = <&vgen5_reg>;
+ 	status = "okay";
+ };
+-- 
+2.53.0
 
-Cheers,
-/fuad
->
->  static void kvm_nvhe_report_cfi_failure(u64 panic_addr)
->
-> base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
-> --
-> 2.55.0.508.g3f0d502094-goog
->
 
