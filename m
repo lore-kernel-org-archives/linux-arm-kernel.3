@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46888C55171
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 18:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9130C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 18:50:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oS63NQlYDX3UkgpwTZTp0r+Evq8Hp+633HbhULQ7qtE=; b=KIjj1Yje+ITQxETfj2yFfbQNqS
-	hTea81Y2Pj7FdPlhcJ/HMxjgqPFCiEtPtOp08v0u6UNZE4lZeRimQ1z+DN0H3WRto87nz8HD031Ql
-	IwOCeG8nr3TsnMoM9XM10hR/WndybCcuRLkm9GmdQqcA3h5kGW8oXKeZEbxGej/F4UP6rYdhkcAnt
-	GV9TBo2Xau4OJ/Zov0xefVTOTTg1/nCI+42XMqUfJJYfUbjfGGfSlvZCUHPYVVlINMWjdDck4AC/0
-	FIZdzgeEAL9QmVASSSVajQFNUJtn1CYc4u0OTf41pYIuWz4ViZZtzL1zrvdErntw9RaDtNk5O5bjP
-	06K2I+2g==;
+	bh=pqx6OvTXdU0f9pU2nJLaZn6w5mtSJ6LW0/pV++t6mtY=; b=w37BThtr6qsriVV9C8Lq2bSPPd
+	eyb3nS1dDfAe5QdWc2iMTPWbk/AXGIhpR7SJjML5R6k8R0g+SK0wBqSQWs5Z2fjPxlzcjfbuCBD8B
+	8OPcRjerbApVahAFl3KGWxc043sOylFfZGULY9SySXfaA5p+tx7avn3Kpcym4L+exJVhG811Ri0qa
+	zjbHVe3gMhbi3Bv7shroLBFBiGSUI875sRnb4np36/H4fYbDyCzmabvtrNCrmU2qZsoiWmvNWIrz5
+	IHtTybBDLWusi8N5tKQy4ODq4ezpDR/rfRdOZTw830NDkPECsN/TAcqBAR0nmJ4DUOGIKsV/fSVGx
+	HswKOnQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqb8o-0000000Fwv1-3Ila;
-	Sun, 02 Aug 2026 18:42:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wqbFu-0000000FxFQ-26Tm;
+	Sun, 02 Aug 2026 18:49:50 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqb8n-0000000Fwuv-2PSW
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 18:42:29 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93E8543957;
-	Sun,  2 Aug 2026 18:42:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 815C11F000E9;
-	Sun,  2 Aug 2026 18:42:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785696148;
-	bh=oS63NQlYDX3UkgpwTZTp0r+Evq8Hp+633HbhULQ7qtE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Bh9HDnZMWR+fJPzAEZ1xUVocFpcMoa88bHHyFvH42apzT4DpvgmqYvwUpKniTdJK8
-	 4Ehh5GlHvhDkzE0mv5uJOSSPMEczSiSjyQwzYsFxTK0OC7x9BqabBnqwc/uZebizIy
-	 DeeXaG5aThrX60f1qzCuf3oUfwPOgKohvYGyKOSncXnuCVRLOvHZHswaE09Nu4uGeG
-	 tiPGACKXlU/d8gLlWIZMdl0sGSKDvQJta3sZX2NuUyVHdIaG3Z4DeTtx+yKS68tAC4
-	 NjOmCwQYV1Fm8zXCbRJh2LBxUDJ9dKRbAAt3ICYCyJiFxQkMcqBPbe7ImpBNTe4e9j
-	 yVGZW1nNceBlA==
-Date: Sun, 2 Aug 2026 19:42:23 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Fan Wu <fanwu01@zju.edu.cn>, nuno.sa@analog.com, michal.simek@amd.com,
- bgolaszewski@baylibre.com, DileepKumar.Nagavarapu@amd.com,
- linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, Conall O'Griofa
- <conall.ogriofa@amd.com>
-Subject: Re: [PATCH] iio: adc: xilinx-xadc: free IRQ before cancelling the
- unmask worker on unbind
-Message-ID: <20260802194133.467ae096@jic23-huawei>
-In-Reply-To: <750f615a-c00f-4e98-9bcf-8fa8704acfba@baylibre.com>
-References: <20260802082851.433476-1-fanwu01@zju.edu.cn>
-	<750f615a-c00f-4e98-9bcf-8fa8704acfba@baylibre.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wqbFs-0000000FxEQ-21lI;
+	Sun, 02 Aug 2026 18:49:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=pqx6OvTXdU0f9pU2nJLaZn6w5mtSJ6LW0/pV++t6mtY=; b=qXH0XFF7kupYbVbAa44dTR3mGv
+	s6jajJK0z15KaxMFV/lnA3KbmpaV3a7B2SlLb5Vn0WfTvswg1lRZv3hWHMEe5z1hGoCTqiJZ6Ozhb
+	1KXW3EgImXjKExczg00gwXTNxXXBfUqxNifQWjAv3j5NzymSXBFtCNp7rgrqX9ACEmR4QTzm/KYCa
+	1ZySyqmMwn3BwWwJ8LGOCbK2yEuen0JVTWV681emNDdDpNjzTzyEe1jaKy2wWqRnK3PBgDW56W+yB
+	tL99UcUQn5rdvgWV8H/DQjU7yPqPVbiz2kcywz9DsZzoRsEbBKgrYTOZ69KhdSnGnS9N5gNNtGmSA
+	K34xLpvw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH 1/2] ARM: dts: rockchip: Correct white-space style
+Date: Sun,  2 Aug 2026 20:49:38 +0200
+Message-ID: <178569657651.1403346.13086086653286299708.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260801210247.383632-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260801210247.383632-3-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260802_114948_602126_65D3BA60 
+X-CRM114-Status: UNSURE (   7.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,93 +72,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 2 Aug 2026 10:39:58 -0500
-David Lechner <dlechner@baylibre.com> wrote:
 
-> On 8/2/26 3:28 AM, Fan Wu wrote:
-> > The ZYNQ XADC interrupt handler xadc_zynq_interrupt_handler() arms the
-> > zynq_unmask_work delayed work via schedule_delayed_work() every time an
-> > alarm condition is observed, and that worker re-arms itself for as long
-> > as the alarm stays asserted.
-> > 
-> > In xadc_probe() the IRQ is requested with devm_request_irq() before the
-> > devm_add_action_or_reset() that registers xadc_cancel_delayed_work().
-> > Because devres release runs in LIFO order, on unbind the delayed work is
-> > cancelled before the IRQ is freed. The IRQ is still live at that point,
-> > so a pending alarm can make the handler run once more and re-arm
-> > zynq_unmask_work after it has been cancelled; that instance then runs
-> > after the xadc structure that embeds zynq_unmask_work has been freed, a
-> > use-after-free in xadc_zynq_unmask_worker().
-> > 
-> > Register the cancel-work devm action before requesting the IRQ so devres
-> > LIFO teardown frees (and synchronizes) the IRQ first, then cancels the
-> > delayed work. After free_irq() the handler can no longer re-arm the
-> > work, and the subsequent cancel_delayed_work_sync() drains any instance
-> > armed just before the IRQ was torn down.
-> > 
-
-This seems a bit too verbose to me.  A simpler explanation might get to the
-key detail faster. Something like:
-
-The driver clears outstanding work using a devm callback. That work is
-queued up by schedule_delayed_work() in the alarm irq handler.
-Reorder the work clear to occur after the devm cleanup for the irq
-ensuring no additional work can be queued after the workqueue is
-cleared. In practice this means registering the devm callback earlier
-than the call to devm_irq_request_threaded().
-
-If this was AI generated description (which I do as well sometimes)
-it is useful to tell the AI to be brief.
-
-> > This issue was found by an in-house static analysis tool.
-> > 
-> > Fixes: 2a9685d1a3b7 ("iio: adc: xilinx: use more devres helpers and remove remove()")
-> > Cc: stable@vger.kernel.org
-> > Assisted-by: Codex:gpt-5.6
-> > Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
-> > ---
-> > 
-> >  drivers/iio/adc/xilinx-xadc-core.c | 11 +++++++----
-> >  1 file changed, 7 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
-> > --- a/drivers/iio/adc/xilinx-xadc-core.c
-> > +++ b/drivers/iio/adc/xilinx-xadc-core.c
-> > @@ -1395,13 +1395,16 @@ static int xadc_probe(struct platform_device *pdev)
-> >  	}
-> > 
-> >  	if (irq > 0) {
-> > -		ret = devm_request_irq(dev, irq, xadc->ops->interrupt_handler,
-> > -				       0, dev_name(dev), indio_dev);
-> > +		/* devm LIFO: register the cancel-work action before the IRQ,
-> > +		 * so unbind frees the IRQ first, then drains the work.
-> > +		 */
-
-Wrong comment style.  Otherwise this seems correct to me but I'd like the
-AMD / Xilinx folk to take a look.  Added a couple more +CC.
-
-Not sure we need the comment, or perhaps the comment should just be
-/* Clear out an work queued by the interrupt */
-
-> > +		ret = devm_add_action_or_reset(dev, xadc_cancel_delayed_work,
-> > +					       &xadc->zynq_unmask_work);
-> >  		if (ret)
-> >  			return ret;
-> > 
-> > -		ret = devm_add_action_or_reset(dev, xadc_cancel_delayed_work,
-> > -					       &xadc->zynq_unmask_work);
-> > +		ret = devm_request_irq(dev, irq, xadc->ops->interrupt_handler,
-> > +				       0, dev_name(dev), indio_dev);
-> >  		if (ret)
-> >  			return ret;
-> >  	}
-> > --
-> > 2.43.0
-> >   
+On Sat, 01 Aug 2026 23:02:48 +0200, Krzysztof Kozlowski wrote:
+> Correct a few white-space issues, like missing space before bracket '{'
+> character or spurious space, which will be flagged by dt-check-style
+> ("redundant-whitespace" warning).  No functional changes.
 > 
-> Makes sense.
-> 
-> Reviewed-by: David Lechner <dlechner@baylibre.com>
 > 
 
+Applied, thanks!
+
+[1/2] ARM: dts: rockchip: Correct white-space style
+      commit: 1a17f391c139567e2fac6894c6b43f5978e915c8
+[2/2] arm64: dts: rockchip: Correct white-space style
+      commit: 49ee9e9a51b85113b741bf97d9131d0416316f04
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
