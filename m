@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2171C55162
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A540FC55177
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 16:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1ddJMjzmSVlj3ZFAumHWC0fEgCC+ifQjE0giD0DMzI8=; b=k0PL0h8RHMaTPhL8klFggE2oEr
-	wekir04g3PAhv0uyzn9fpi29iNTaz7TarGSJBT9X3AiQpOugWhchGRHRSgyvcboLNKaRWKav5WDLV
-	QdafdHyb5myhSTSBCjIkeEDPrKQXsdZIZ3odtyUoFbnF89wEDYasODjP5kXlCfpnAfgqZ6Us+/7Nj
-	V0VSl3lAK6blZKiwjgAewy9KIxEhVu2XigzGcBdV4K8WA1lKecAtRSJF02i7swNpqlTbeccm5QGL+
-	txFqSxjpy0c3X3277ntGxRoYUlvfmXSAkcN18LVumBap/B0Zye6OA3lSfgo9JGCKoXgEaicPUjxy5
-	iHsMouHg==;
+	bh=IPrlliaNT6d54S3Oz/pAE+1e1wLs+2Mvnn7Uhn7fUaM=; b=wsDs/hs6Kgxo+Wfd548G2JbuBq
+	iEO+byMRk9LDxKA6J6LzPNbPhjA5zGN10TGuju0mQ8uLwiZkZqkv9PzjknoDzCMJGo04QimiN4Zah
+	n79Z2dfcwDOYJpMGd8GlrTBK1jtdaupSWmQobJoyUazbmCdrb7IIO/DACuLj3lkuKG0WGOJI3Ghes
+	Sv1AarZFW0bKuhAV2s3vq/yJ/M+xYKymTHJ78ZLAr5kNi/+nykwUEyRIk5SopCMsQkeELMiIg71sl
+	iAqbkTJ+Mcl2RYnoYnZpBkFDYk89B5RMKyliexaUNITiDU8AZu0SIRHnJdhOzmJOD9UEn6WZRrYWK
+	YZphL4FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZRa-0000000FqrY-3zb9;
+	id 1wqZRa-0000000Fqqm-37fR;
 	Sun, 02 Aug 2026 16:53:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZRZ-0000000FqpG-23zg
+	id 1wqZRY-0000000FqmT-0foA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 16:53:45 +0000
+	Sun, 02 Aug 2026 16:53:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E978F601DE;
-	Sun,  2 Aug 2026 16:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 977831F00ACF;
-	Sun,  2 Aug 2026 16:53:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D1FD044FFF;
+	Sun,  2 Aug 2026 16:53:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3B461F01559;
+	Sun,  2 Aug 2026 16:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785689624;
-	bh=1ddJMjzmSVlj3ZFAumHWC0fEgCC+ifQjE0giD0DMzI8=;
+	s=k20260515; t=1785689623;
+	bh=IPrlliaNT6d54S3Oz/pAE+1e1wLs+2Mvnn7Uhn7fUaM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=EnxcngrdrxYgrQ68dHejrhk3OZR5ULOTHf7u56rU1kxV5VCoRKQ/RGs6wwfSR5aB6
-	 lzDrdsH5yw1nYoqv5Mo7QVB0YSPBEBVS7dJSv2R0vAiKy+Tkco/0ZBEjTsdX5GzKvC
-	 QYBRK/a39+WiSCQ64jri1S9014b8v01NR4J6iSeBCBYWMg6gAU0XofFScnrCIHwuWO
-	 JKEU7c0w5LD5/kiz0a1xgiazTeJqiuYafE4P3RnCc0Pxn/k9fudyRXi/+8NNXAnPpG
-	 3J7GDNaEQfuBQsWU4jVlj+P5iNoAJO1qD62pgXCwE0yzw4jfz7GnKPMpvw4pSnjFPS
-	 in7fUY5C4xkcA==
+	b=HWqIds1JtqxoC+GXg+J61Hb/rl+q23KepnybmBwzwlbJW9acaz/wb0XEcS1Tmz7Ul
+	 Sw6zLP7QaMh53864joQB3Tk+CLRt+l+qa3d4mqwaNt9QK7OYaQLDH/Hlwa59wXSOh4
+	 qQ8XAocO5+86eR3C7qHx7O8XsbOtZvgJ2AEfpWvFwF5HxCCo9Vfsn+gdmh+Vf3fADg
+	 bz3BPlgm5YbLrkJZ3H0M1f6OeN8yr7e8PnO0Y8ZE62T44TS3g2i7RAt2w3+r0mp8bo
+	 WTQJpfIGyvIaRbF7P8swq164KxT6zVmPq73/rdXigAmcK0FWRBovF+a4o1WlKEfeJv
+	 22yp6tbStDCgQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wqZRW-0000000BVIZ-1GnL;
+	id 1wqZRV-0000000BVIZ-3G7g;
 	Sun, 02 Aug 2026 16:53:42 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Daniel Lezcano <daniel.lezcano@linaro.org>
-Subject: [PATCH v3 8/8] arm64: Convert __delay_cycles() to arch_timer_read_vcounter()
-Date: Sun,  2 Aug 2026 17:53:27 +0100
-Message-ID: <20260802165327.385217-9-maz@kernel.org>
+Subject: [PATCH v3 7/8] clocksource/drivers/arm_arch_timer: Expose a direct accessor for the virtual counter
+Date: Sun,  2 Aug 2026 17:53:26 +0100
+Message-ID: <20260802165327.385217-8-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260802165327.385217-1-maz@kernel.org>
 References: <20260802165327.385217-1-maz@kernel.org>
@@ -83,33 +83,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Relax the need for disabling preemption in __delay_cycles() by
-using arch_timer_read_vcounter(), which will disable preemption
-only when this is actually required.
+We allow access to the architected counter via arch_timer_read_counter().
+However, this accessor can either be the virtual or the physical
+view of the counter, depending on how the kernel has been booted.
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+At the same time, we have some architectural features (such as WFIT,
+WFET) that rely on the virtual counter, and nothing else.
+
+If implementations were perfect, we'd rely on reading CNTVCT_EL0,
+and be done with it. However, we have a bunch of broken implementations
+in the wild, which rely on preemption being disabled and other
+costly workarounds.
+
+In order to provide decent performance on non-broken HW while still
+supporting the legacy horrors, expose arch_timer_read_vcounter() as
+a new helper that hides this complexity. Obviously, this is simply
+a global alias of arch_counter_get_cntvct().
+
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/lib/delay.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/clocksource/arm_arch_timer.c | 2 ++
+ include/clocksource/arm_arch_timer.h | 1 +
+ 2 files changed, 3 insertions(+)
 
-diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-index e278e060e78a9..a667df920697d 100644
---- a/arch/arm64/lib/delay.c
-+++ b/arch/arm64/lib/delay.c
-@@ -32,10 +32,9 @@ static inline unsigned long xloops_to_cycles(unsigned long xloops)
-  * Note that userspace cannot change the offset behind our back either,
-  * as the vcpu mutex is held as long as KVM_RUN is in progress.
-  */
--static cycles_t notrace __delay_cycles(void)
-+static cycles_t __delay_cycles(void)
- {
--	guard(preempt_notrace)();
--	return __arch_counter_get_cntvct_stable();
-+	return arch_timer_read_vcounter();
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index b3b31d4f4815f..9c7501ce57073 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -128,6 +128,8 @@ static notrace u64 arch_counter_get_cntvct(void)
+ 	return __arch_counter_get_cntvct();
  }
  
- void __delay(unsigned long cycles)
++u64 arch_timer_read_vcounter(void) __attribute__((alias("arch_counter_get_cntvct")));
++
+ /*
+  * Default to cp15 based access because arm64 uses this function for
+  * sched_clock() before DT is probed and the cp15 method is guaranteed
+diff --git a/include/clocksource/arm_arch_timer.h b/include/clocksource/arm_arch_timer.h
+index 8deb815ed0a08..32fd531ac009f 100644
+--- a/include/clocksource/arm_arch_timer.h
++++ b/include/clocksource/arm_arch_timer.h
+@@ -90,6 +90,7 @@ struct clock_read_data;
+ 
+ extern u32 arch_timer_get_rate(void);
+ extern u64 arch_timer_read_counter(void);
++extern u64 arch_timer_read_vcounter(void);
+ extern struct arch_timer_kvm_info *arch_timer_get_kvm_info(void);
+ extern bool arch_timer_evtstrm_available(void);
+ extern bool read_sched_clock_is_arch_counter(const struct clock_read_data *);
 -- 
 2.47.3
 
