@@ -4,77 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59267C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 15:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E53C55175
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 15:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SDaPF/Vna7ObkJjwTKT0FY1tgaaCljXAx0ztHXBF4bE=; b=vW70NDIkknMcMUDBfC+DptzBgr
-	Z73wIKQOhD7eRN0dgyu5+tHI/0DQo4pguDd4na5pKYVnDAxYIaw/S8+oT0LaLCwSuTC9vC8MY8j4f
-	1rRyjL8WFyeBZxGjzguYyiIGPG89hby+jw+O+CQ7NCwAJzR0kGmTZHoiSE9puh2WIOoGP04spQVmV
-	dAZYJ0AJt4PHCjUGageQymndLjpmyUnoW+QqYcLN0K8AX6m9MBSPqkw/ata9KGYZrHP5+YmsnSXPW
-	LAWzRpw7liHzcJJfcfmZMerAcPEu5NqJTRD5/oUw2KiaGh+t7Z9JdjsMkWCr/0l6nKZOujqJzfNVI
-	IahjJXmw==;
+	bh=TVSsAwcRy1uonwMzmFb3HAht5GF4K+y7gUHhjcWsEHU=; b=Vm47zgP/TVJMRUyL4rIY/me1jv
+	4x5ObLUAS+6cmC+MtxFfuBsy8feuPaIZKY9A2xEf+5tMQBY+GY44SmUDwoW/S3CCOO/mdsDSzVLYI
+	G2VqOIubF8Ct6gXBS6J7lp5yIcK0PK1OaGQCwhUp6C2uOZuJa4twet+rG4wC+x8AaSUl/KpiDJ2qn
+	c9YaBD94QPgU4wDO4WZvKzorDuuGErthD51PtKeQ6BUQinNw4C5Bu4TnFyo1YjqF3UdceQBzMqt76
+	/+JRuA+8V3p3kOchzSevukrek1eg0NwGRgXLL7ZYc3+upce+zVPviJFMM2PgYF7WG17RCCxERooO+
+	GNz0Kt7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXdC-0000000Fjqd-3PTY;
-	Sun, 02 Aug 2026 14:57:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXd9-0000000FjpL-3Sr2
+	id 1wqYIH-0000000Fngq-0MQN;
+	Sun, 02 Aug 2026 15:40:05 +0000
+Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqYIE-0000000Fnfz-1SGO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 14:57:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 569FE1476;
-	Sun,  2 Aug 2026 07:57:29 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B504C3F632;
-	Sun,  2 Aug 2026 07:57:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785682653; bh=30J+uupH/OH53k25JuCADenLnhKSLAsXqdTxMiJdNEc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=evUQjiq4dcXpCZZ4oviVTf7Hx6FSUV6WlCv56864xFVf9oO6aAB+1iNn+gpAfutXD
-	 O9dQ96NNWpMdd1MR3DOxSO1VAaVJRDtMkEqYseuoulWWuuss9ur7Ie5yopdDsGeSRN
-	 Da1zOPJ8UVeuXp/+a9DSn8y3y7i6nbUY/QhT4SHk=
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Cc: sudeep.holla@kernel.org,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	d-gole@ti.com,
-	jic23@kernel.org,
-	elif.topuz@arm.com,
-	lukasz.luba@arm.com,
-	philip.radford@arm.com,
-	david@kernel.org,
-	souvik.chakravarty@arm.com,
-	leitao@kernel.org,
-	kas@kernel.org,
-	puranjay@kernel.org,
-	usama.arif@linux.dev,
-	kernel-team@meta.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v7 03/23] firmware: arm_scmi: Introduce protocol instance notifiers
-Date: Sun,  2 Aug 2026 15:55:58 +0100
-Message-ID: <20260802145618.1952804-4-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260802145618.1952804-1-cristian.marussi@arm.com>
-References: <20260802145618.1952804-1-cristian.marussi@arm.com>
+	Sun, 02 Aug 2026 15:40:04 +0000
+Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7eb5bdb50fcso1707709a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 08:40:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1785685201; x=1786290001; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TVSsAwcRy1uonwMzmFb3HAht5GF4K+y7gUHhjcWsEHU=;
+        b=S9vWlBoc5cUFQcf1okUZ3R9ESvRBBG25dyZ9AUeXONoxTwzv1GV6A9vzC02vJOOvF7
+         e7URBGo+g6sNg2H+WEFp2xd3twe3ODpaGQvIsRPhjmDY0j12jaa+qf2remDpK6eeWwW5
+         2LtHenkmXIaXiVz5ruTQGSZzYW6AezItHYA11KuVXkkwNj8mJCRYI6qusqtyFeZr2bxV
+         GS0AxOoEr/HRBDE3Jxv/mWvfpOmE5aHNuxhhC9IQmD8d5W4ob95o0rIpE/hwtfcxG8sF
+         nNGmPGcOS04sH9FDlUCpWWyPQbcmw3pOqVt0rDBJSABnp8lJpo3a/xWzKlG/D012qXSq
+         9u1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785685201; x=1786290001;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TVSsAwcRy1uonwMzmFb3HAht5GF4K+y7gUHhjcWsEHU=;
+        b=E53ijssAfN0E5y0/DfZkXJHHOKfXo+OORz6OrNjsP4vM4yN+FVNHow1y05ycDFqS6v
+         pxz3TBbwPfSNlz9nBJRXy4+zQ3Kmwm5RUKIRCACZ+zv+MZwD+a91KtIIUTqY4Yr5BBsw
+         FP0Nyqr+qlQWy8fVwmjJvLykJM7k7ge9KeZuHWMxjQp1kDsuaT9m2fjb+JVJZqIobv32
+         0xckrGNnmg8AV+LeJwYhvfY3SBp8ys1cYz9b02LBZfgyyPTWI8w0qcTo6CkK+m+O0ILs
+         4Oe1Hlv6gaS7/nqmDz35ej3WnA/vBO+a/CZLJePTWQw4TgNdIuxjnyvdXq27H9v/p/hi
+         9XlA==
+X-Forwarded-Encrypted: i=1; AHgh+Rp3X+sJVNhIEgzbtWpJQ6l9vTEaMG3E5W80g3cpaTZ9AutXjWxQ+fH78eH2epc8CnE2DioU7b6cL0FsjOBBhWDH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSFqenokBsJHYNczMpoHZFDDR+0N0ph3IpGcxt0zQxeYBQsYn8
+	Q+f/tDiJrJRg9/aOkHpmsBquLuyE1CtP8ykPXVvHMsQSzTn/f/YoDYNLf/XSmG5y2jA=
+X-Gm-Gg: AR+sD10t5r4zjAv6gpeRApa6LREeKqsbgMB5WMuf0RJuE3FmnCWMEaukiQG3+6KeEe3
+	S3Sp3A/+DkRgQ53SZd03tSkrZ3oIDsYFnCQv8uBFi01EbB+py/cHke6hvtlhmp/+AHBgdWmBEKp
+	Ue5pPI9jlH6g0SjXzhlfoSFVTtERin9GJursGEaDzwi3lnraiYqHeKsJT9bvuOFOt686oxaHKVq
+	IKaxXU/WoZa8/5tiVMjA8/dTJ9Oz8nHwT3rBvDRoVxoMMb/kA7z0zVKVJaTltBW7ZBhzXI/kiiY
+	QYzSisU3gESmI2GALopXqTxC30pkHUf4hYnFSx3MuWac0iuWfW1Y+vZwKFfbfdsCqFeSNg7Gz8F
+	5uTWRyirZe5luZeRayDt+M6rRCmhZOzXB60TAzZIX8UTdcKQOk0N9jVkK70iyJPXzEZmZsu5uy8
+	4SU6DTnra3mDnLrGIwcJF/nPHn4Bg1CDNmGgkAlLGLXPaS5Cs3s0W1uNj4F/+mGXCQjYm4OKu7s
+	bug8QemmEIJDxT00mPAbw+bH4/Ep1KyoiK/TvA=
+X-Received: by 2002:a05:6830:700c:b0:7df:5fc:3fd5 with SMTP id 46e09a7af769-7f196b97f19mr12557105a34.1.1785685200962;
+        Sun, 02 Aug 2026 08:40:00 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:5487:2b6e:1057:d3d3? ([2600:8803:e7e4:500:5487:2b6e:1057:d3d3])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18ed3c81fsm5342440a34.5.2026.08.02.08.39.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 02 Aug 2026 08:39:59 -0700 (PDT)
+Message-ID: <750f615a-c00f-4e98-9bcf-8fa8704acfba@baylibre.com>
+Date: Sun, 2 Aug 2026 10:39:58 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iio: adc: xilinx-xadc: free IRQ before cancelling the
+ unmask worker on unbind
+To: Fan Wu <fanwu01@zju.edu.cn>, jic23@kernel.org
+Cc: nuno.sa@analog.com, michal.simek@amd.com, bgolaszewski@baylibre.com,
+ DileepKumar.Nagavarapu@amd.com, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20260802082851.433476-1-fanwu01@zju.edu.cn>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <20260802082851.433476-1-fanwu01@zju.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_075736_239041_85E32032 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20260802_084002_396421_EF7FC294 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,268 +106,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow protocols themselves to register for their own notifications and
-provide their own notifier callbacks. Each protocol can now register one
-unique per-protocol instance notifier block whose callback will be
-registered on the proper notification chain as usual: such notifier will
-be automatically removed during the protocol de-initialiazation phase.
+On 8/2/26 3:28 AM, Fan Wu wrote:
+> The ZYNQ XADC interrupt handler xadc_zynq_interrupt_handler() arms the
+> zynq_unmask_work delayed work via schedule_delayed_work() every time an
+> alarm condition is observed, and that worker re-arms itself for as long
+> as the alarm stays asserted.
+> 
+> In xadc_probe() the IRQ is requested with devm_request_irq() before the
+> devm_add_action_or_reset() that registers xadc_cancel_delayed_work().
+> Because devres release runs in LIFO order, on unbind the delayed work is
+> cancelled before the IRQ is freed. The IRQ is still live at that point,
+> so a pending alarm can make the handler run once more and re-arm
+> zynq_unmask_work after it has been cancelled; that instance then runs
+> after the xadc structure that embeds zynq_unmask_work has been freed, a
+> use-after-free in xadc_zynq_unmask_worker().
+> 
+> Register the cancel-work devm action before requesting the IRQ so devres
+> LIFO teardown frees (and synchronizes) the IRQ first, then cancels the
+> delayed work. After free_irq() the handler can no longer re-arm the
+> work, and the subsequent cancel_delayed_work_sync() drains any instance
+> armed just before the IRQ was torn down.
+> 
+> This issue was found by an in-house static analysis tool.
+> 
+> Fixes: 2a9685d1a3b7 ("iio: adc: xilinx: use more devres helpers and remove remove()")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Codex:gpt-5.6
+> Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
+> ---
+> 
+>  drivers/iio/adc/xilinx-xadc-core.c | 11 +++++++----
+>  1 file changed, 7 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/xilinx-xadc-core.c b/drivers/iio/adc/xilinx-xadc-core.c
+> --- a/drivers/iio/adc/xilinx-xadc-core.c
+> +++ b/drivers/iio/adc/xilinx-xadc-core.c
+> @@ -1395,13 +1395,16 @@ static int xadc_probe(struct platform_device *pdev)
+>  	}
+> 
+>  	if (irq > 0) {
+> -		ret = devm_request_irq(dev, irq, xadc->ops->interrupt_handler,
+> -				       0, dev_name(dev), indio_dev);
+> +		/* devm LIFO: register the cancel-work action before the IRQ,
+> +		 * so unbind frees the IRQ first, then drains the work.
+> +		 */
+> +		ret = devm_add_action_or_reset(dev, xadc_cancel_delayed_work,
+> +					       &xadc->zynq_unmask_work);
+>  		if (ret)
+>  			return ret;
+> 
+> -		ret = devm_add_action_or_reset(dev, xadc_cancel_delayed_work,
+> -					       &xadc->zynq_unmask_work);
+> +		ret = devm_request_irq(dev, irq, xadc->ops->interrupt_handler,
+> +				       0, dev_name(dev), indio_dev);
+>  		if (ret)
+>  			return ret;
+>  	}
+> --
+> 2.43.0
+> 
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
-v5 -->v6
- - move protocol notifier registration out of proto_init
-v2-->v3
- - split out unrelated changes on event sizing
-v1-->v2
- - Fixed multiline comment format
----
- drivers/firmware/arm_scmi/common.h    | 12 ++++
- drivers/firmware/arm_scmi/driver.c    | 86 +++++++++++++++++++++------
- drivers/firmware/arm_scmi/notify.c    | 14 +++++
- drivers/firmware/arm_scmi/protocols.h | 10 ++++
- 4 files changed, 103 insertions(+), 19 deletions(-)
+Makes sense.
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 767f08be416c..f8fbb1a46482 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -18,6 +18,7 @@
- #include <linux/list.h>
- #include <linux/module.h>
- #include <linux/property.h>
-+#include <linux/notifier.h>
- #include <linux/refcount.h>
- #include <linux/scmi_protocol.h>
- #include <linux/spinlock.h>
-@@ -708,8 +709,19 @@ static struct platform_driver __drv = {					       \
- 	.probe = __tag##_probe,						       \
- }
- 
-+struct scmi_protocol_notifier {
-+	u8 proto_id;
-+	u8 evt_id;
-+	const u32 *src_id;
-+	struct notifier_block *nb;
-+};
-+
- void scmi_notification_instance_data_set(const struct scmi_handle *handle,
- 					 void *priv);
- void *scmi_notification_instance_data_get(const struct scmi_handle *handle);
-+int scmi_protocol_notifier_register(const struct scmi_handle *handle,
-+				    struct scmi_protocol_notifier *pno);
-+int scmi_protocol_notifier_unregister(const struct scmi_handle *handle,
-+				      struct scmi_protocol_notifier *pno);
- int scmi_inflight_count(const struct scmi_handle *handle);
- #endif /* _SCMI_COMMON_H */
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 8e06e40d1a11..0f9e8dfc6137 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -90,6 +90,8 @@ struct scmi_xfers_info {
-  * @gid: A reference for per-protocol devres management.
-  * @users: A refcount to track effective users of this protocol.
-  * @priv: Reference for optional protocol private data.
-+ * @pno: A protocol instance notifier descriptor: active only when the
-+ *	 included notifier block @nb is non-NULL.
-  * @version: Protocol version supported by the platform as detected at runtime.
-  * @negotiated_version: When the platform supports a newer protocol version,
-  *			the agent will try to negotiate with the platform the
-@@ -109,6 +111,7 @@ struct scmi_protocol_instance {
- 	void				*gid;
- 	refcount_t			users;
- 	void				*priv;
-+	struct scmi_protocol_notifier   pno;
- 	unsigned int			version;
- 	unsigned int			negotiated_version;
- 	struct scmi_protocol_handle	ph;
-@@ -1657,6 +1660,24 @@ static void *scmi_get_protocol_priv(const struct scmi_protocol_handle *ph)
- 	return pi->priv;
- }
- 
-+static int
-+scmi_register_instance_notifier(const struct scmi_protocol_handle *ph, u8 evt_id,
-+				const u32 *src_id, struct notifier_block *nb)
-+{
-+	struct scmi_protocol_instance *pi = ph_to_pi(ph);
-+
-+	pi->pno.proto_id = pi->proto->id;
-+	pi->pno.evt_id = evt_id;
-+	pi->pno.src_id = src_id;
-+	/*
-+	 * Ensure the descriptor fields are visibile when the notifier block is
-+	 * made available
-+	 */
-+	smp_store_mb(pi->pno.nb, nb);
-+
-+	return 0;
-+}
-+
- static const struct scmi_xfer_ops xfer_ops = {
- 	.xfer_get_init = xfer_get_init,
- 	.reset_rx_to_maxsz = reset_rx_to_maxsz,
-@@ -2257,6 +2278,7 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
- 	pi->ph.hops = &helpers_ops;
- 	pi->ph.set_priv = scmi_set_protocol_priv;
- 	pi->ph.get_priv = scmi_get_protocol_priv;
-+	pi->ph.instance_notifier_register = scmi_register_instance_notifier;
- 	refcount_set(&pi->users, 1);
- 
- 	/*
-@@ -2319,24 +2341,37 @@ static struct scmi_protocol_instance * __must_check
- scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
- {
- 	struct scmi_protocol_instance *pi;
-+	struct notifier_block *proto_notifier_nb = NULL;
- 	struct scmi_info *info = handle_to_scmi_info(handle);
- 
--	mutex_lock(&info->protocols_mtx);
--	pi = idr_find(&info->protocols, protocol_id);
-+	scoped_guard(mutex, &info->protocols_mtx) {
-+		pi = idr_find(&info->protocols, protocol_id);
-+		if (pi) {
-+			refcount_inc(&pi->users);
-+		} else {
-+			const struct scmi_protocol *proto;
- 
--	if (pi) {
--		refcount_inc(&pi->users);
--	} else {
--		const struct scmi_protocol *proto;
-+			/* Fails if protocol not registered on bus */
-+			proto = scmi_protocol_get(protocol_id, &info->version);
-+			if (!proto)
-+				return ERR_PTR(-EPROBE_DEFER);
- 
--		/* Fails if protocol not registered on bus */
--		proto = scmi_protocol_get(protocol_id, &info->version);
--		if (proto)
- 			pi = scmi_alloc_init_protocol_instance(info, proto);
--		else
--			pi = ERR_PTR(-EPROBE_DEFER);
-+			if (IS_ERR(pi))
-+				return pi;
-+
-+			proto_notifier_nb = READ_ONCE(pi->pno.nb);
-+		}
-+	}
-+
-+	if (proto_notifier_nb) {
-+		int ret;
-+
-+		ret = scmi_protocol_notifier_register(pi->handle, &pi->pno);
-+		if (ret)
-+			dev_warn(handle->dev,
-+				 "Failed to register protocol notifier\n");
- 	}
--	mutex_unlock(&info->protocols_mtx);
- 
- 	return pi;
- }
-@@ -2367,13 +2402,29 @@ int scmi_protocol_acquire(const struct scmi_handle *handle, u8 protocol_id)
- void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
- {
- 	struct scmi_info *info = handle_to_scmi_info(handle);
-+	struct notifier_block *proto_notifier_nb = NULL;
- 	struct scmi_protocol_instance *pi;
- 
--	mutex_lock(&info->protocols_mtx);
--	pi = idr_find(&info->protocols, protocol_id);
--	if (WARN_ON(!pi))
--		goto out;
-+	scoped_guard(mutex, &info->protocols_mtx) {
-+		pi = idr_find(&info->protocols, protocol_id);
-+		if (WARN_ON(!pi))
-+			return;
-+
-+		proto_notifier_nb = pi->pno.nb;
-+		/* Ensure NULL is visible */
-+		smp_store_mb(pi->pno.nb, NULL);
-+	}
- 
-+	if (proto_notifier_nb) {
-+		int ret;
-+
-+		ret = scmi_protocol_notifier_unregister(pi->handle, &pi->pno);
-+		if (ret)
-+			dev_err(handle->dev,
-+				"Failed to release protocol notifier\n");
-+	}
-+
-+	guard(mutex)(&info->protocols_mtx);
- 	if (refcount_dec_and_test(&pi->users)) {
- 		void *gid = pi->gid;
- 
-@@ -2391,9 +2442,6 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
- 		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
- 			protocol_id);
- 	}
--
--out:
--	mutex_unlock(&info->protocols_mtx);
- }
- 
- void scmi_setup_protocol_implemented(const struct scmi_protocol_handle *ph,
-diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
-index 8995dd1b12aa..938d575e22fe 100644
---- a/drivers/firmware/arm_scmi/notify.c
-+++ b/drivers/firmware/arm_scmi/notify.c
-@@ -1420,6 +1420,13 @@ static int scmi_notifier_register(const struct scmi_handle *handle,
- 	return ret;
- }
- 
-+int scmi_protocol_notifier_register(const struct scmi_handle *handle,
-+				    struct scmi_protocol_notifier *pno)
-+{
-+	return scmi_notifier_register(handle, pno->proto_id, pno->evt_id,
-+				      pno->src_id, pno->nb);
-+}
-+
- /**
-  * scmi_notifier_unregister()  - Unregister a notifier_block for an event
-  * @handle: The handle identifying the platform instance against which the
-@@ -1477,6 +1484,13 @@ static int scmi_notifier_unregister(const struct scmi_handle *handle,
- 	return 0;
- }
- 
-+int scmi_protocol_notifier_unregister(const struct scmi_handle *handle,
-+				      struct scmi_protocol_notifier *pno)
-+{
-+	return scmi_notifier_unregister(handle, pno->proto_id, pno->evt_id,
-+					pno->src_id, pno->nb);
-+}
-+
- struct scmi_notifier_devres {
- 	const struct scmi_handle *handle;
- 	u8 proto_id;
-diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
-index 15ad5162e37a..b7f29003a7dc 100644
---- a/drivers/firmware/arm_scmi/protocols.h
-+++ b/drivers/firmware/arm_scmi/protocols.h
-@@ -166,6 +166,13 @@ struct scmi_proto_helpers_ops;
-  *	  can be used by the protocol implementation to generate SCMI messages.
-  * @set_priv: A method to set protocol private data for this instance.
-  * @get_priv: A method to get protocol private data previously set.
-+ * @instance_notifier_register: A method to register interest for specific
-+ *				notifications from within a protocol
-+ *				implementation unit: ONLY one instance notifier
-+ *				can be registered per-protocol.
-+ *				The related notifier block will be registered
-+ *				right after the protocol is initialized and
-+ *				automatically removed on protocol release.
-  *
-  * This structure represents a protocol initialized against specific SCMI
-  * instance and it will be used as follows:
-@@ -185,6 +192,9 @@ struct scmi_protocol_handle {
- 	const struct scmi_proto_helpers_ops *hops;
- 	int (*set_priv)(const struct scmi_protocol_handle *ph, void *priv);
- 	void *(*get_priv)(const struct scmi_protocol_handle *ph);
-+	int (*instance_notifier_register)(const struct scmi_protocol_handle *ph,
-+					  u8 evt_id, const u32 *src_id,
-+					  struct notifier_block *nb);
- };
- 
- /**
--- 
-2.54.0
+Reviewed-by: David Lechner <dlechner@baylibre.com>
 
 
