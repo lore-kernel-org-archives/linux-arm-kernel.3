@@ -4,128 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6ABC55171
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 11:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FEAC55177
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 11:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXbNeU0lmDMNmK8jt3N/+pQUXs44kVtcYSH1F6H6qkQ=; b=gbTcplGefqXJ3irPIdaUG3jOJj
-	DlZK/zjH4LbBu7Cfv1Dt5BrPOR/NZ4Sv7AsnAbzy0Aqj1O0je1IG7+jnbSXPuXbu3HvhteUw4/V/p
-	5MtCtUl/IhEyB1IsyO2s8Yb/a8j/3gYcRkBxt/9HGASfW0U/7zAJ+XbDTKdxmwnXu1DT5JJ9m2djT
-	0bOucuC1bay7IsWLIsvtA+tW53vSIDgE3C2Vm2Fa4KVpUTmSmTAnF43vl7pfsK4UVxWSe17biSND6
-	JTGjaZYP9Ns58sjoem6KB6JDTnBRTRQsGu44LfoY/mChS+Mzp8Gte4NghyoRhBNQzzrpTcKlmAhTY
-	NsQQPEQQ==;
+	bh=563oNXUIkeVMeBvn7KJOWvs/zhYBpCRLhQXu0aHBhw8=; b=CTBDxVY90FoaoiZh1iA3ddneBP
+	7HbZ1ul6EYuo/bhYfbo1fC8dYpaEbNMoHRuNQL6r6nAkXpUnsjHKIJDJOrHsegngMZDDXLzdfOrgP
+	XGBt1avnpmLxFCzgV4Uabj5RgU/haj6IYr9XNt534ybbDBQ7KYyPkEPB/0Ww4VoQdJ7/vKeb1A6+H
+	FkT2UoCZtV1Rb9ScnFU/588cUZt1KXqPopwiW+of3EwIx9F0uwmZf9GACZNr0x/k0EDTQE1SRj720
+	T19Zqjlrjnr4iK9jq/WRjCHSqmM8sj83dlTEmlEDVoBgV1IbZl4O+WuPEXRdw7ifZX6g+JtEC4PKz
+	fFOW+B9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqUQh-0000000FZpg-3I3P;
-	Sun, 02 Aug 2026 11:32:31 +0000
-Received: from mail-australiasoutheastazon11020125.outbound.protection.outlook.com ([52.101.152.125] helo=MEUPR01CU001.outbound.protection.outlook.com)
+	id 1wqUR9-0000000FZwe-0H6A;
+	Sun, 02 Aug 2026 11:32:59 +0000
+Received: from out-173.mta1.migadu.com ([95.215.58.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqUQf-0000000FZou-160O
+	id 1wqUR5-0000000FZuj-2Jtj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 11:32:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vKbygtbyjWOF+XvZ9dIFrPRlK8MF7V5jHD3rc/K0ODUSZyUv9ce+sdudcVg+B6E8JTpus1x9xe+Mrj6oO5aBiFq3MDDMUw/VlUhgX5XVUuQh+gOKE2essb0JhyMDXEOKhUhCLyEKXra3ZApUb8jMAoWGD+gjWP+d0fXpBTKTuTfAPYvjg56wGP0pgOET6+GhuVAYKhC405LGTYhQVwPut2tVah3vubeXzqj/PaAJ6x1Ed8pPjatxajdtKh4Kh1BhZvVWfcUBN/t57r9PwV67mH4rY6GymtnF8eVBVABR2PTZrWXiNvukB5DW3D9TjS0Cbua2kD3+mAdSGkx3W8V6Tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qXbNeU0lmDMNmK8jt3N/+pQUXs44kVtcYSH1F6H6qkQ=;
- b=t1arEa9Hhs5aPBCJesio8QN6zJpGBtkgDFcfaxYV83OPMv0DgPvlnMqH1oVkIEaEkAxCxHu7MikwQB9BxeoPZphaO7NovNnM5V23cURXFc4r6V6ctMcDgDDqL/2qv3Br6Rr2X35WMhh3V1BAHOvcSgiIaiXa843jdA1Y/luGnOU/Zt4kI3tPNrrN14yq/cX3JD0W0Kkxpf5mXJTLjVd4Wip4jNujcCR6dp5ENKriTqhHIxbmg9qOOU88zMW/VO++l0egaaMLLZ97SNdeVnPE6t8SfEbC/Vq3HbThv1A4EvAfp6s5sZeqLnC+unkxi/I/3C+x3zqOrXyLx3YyR6Cljg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=heitbaum.com; dmarc=pass action=none header.from=heitbaum.com;
- dkim=pass header.d=heitbaum.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=heitbaum.com;
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:279::22)
- by SY4P282MB3986.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:197::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Sun, 2 Aug
- 2026 11:32:14 +0000
-Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd]) by SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- ([fe80::21b6:91f8:614d:1fdd%4]) with mapi id 15.21.0270.016; Sun, 2 Aug 2026
- 11:32:14 +0000
-Date: Sun, 2 Aug 2026 11:32:00 +0000
-From: Rudi Heitbaum <rudi@heitbaum.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	rudi@heitbaum.com
-Subject: [PATCH 2/3] PCI: imx6: Use the external clock as REF_CLK when needed
- for i.MX8MQ
-Message-ID: <563f057f26b1147a79392509b35dcb7f18113ba9.1785669457.git.rudi@heitbaum.com>
-References: <cover.1785669457.git.rudi@heitbaum.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1785669457.git.rudi@heitbaum.com>
-X-ClientProxiedBy: MEWP282CA0106.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:220:1d4::16) To SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:279::22)
+	Sun, 02 Aug 2026 11:32:57 +0000
+X-Forwarded-Encrypted: i=1; AHgh+Rra39bNlhDJGxFbY43QRV3c031gNj6B9n5k84ixVXR+vzZ0C19fW5p+SuZTKHRAZ1foBc1sb88F4qEOtPOD63L8@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785670370;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=563oNXUIkeVMeBvn7KJOWvs/zhYBpCRLhQXu0aHBhw8=;
+	b=kQPlOZ1JQ4qbF+i4cvbTozoQx1/EveGT8FEOf8iw72OKr+Ln4oKTZ9I0lUX0Llj+pYQGzf
+	qn7EQiAUCuDuO/eQXvLHt/nN+wvco2FlXcabDbNRIMOWDrm4ySZ/a0vR5P7wTfDkyXGeIB
+	nbrqtJrOc03FV8pfXIAly3FZgVZtQkA=
+X-Gm-Message-State: AOJu0Yw3MzPFe6yMVpHHAbkPdly40GXZl88mAu/RZ61TbCUXDWa6DhGd
+	wqW5pAFDArj8aZptMaGwyGdMp1iOaajLNIzqC3tWHmH5Aa5gVsZZZ5f5gYXrYVdN5ftkWzsWBNa
+	dMH5M0MTI5lb+0kbK6hFQ7CQA93tAm+TzyJpyIOx/
+X-Received: by 2002:ac8:580e:0:b0:517:5d71:84e5 with SMTP id
+ d75a77b69052e-52b5b0b0160mr17986791cf.5.1785670353005; Sun, 02 Aug 2026
+ 04:32:33 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SY7P282MB4909:EE_|SY4P282MB3986:EE_
-X-MS-Office365-Filtering-Correlation-Id: b720945c-2ada-4b7e-a491-08def089b334
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|10067099003|5023799004|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: OisZAVJGkXVMJ/mOPIshjggejD9HwPRxZMEn4gO5yN7I3vy5edELpLFyxdbxgQwfmUMkGVZPfKV94EaALNXWB3hqCJSIT5R+1qVRePfPHSYEOWECC/dsj6eWvAycSo1/7FlpCeNw/10KsbD9JUlcUb0XTtP6S3fdID7NdHXHPRcWrNuSne19va0Mu97fGlbRIZyBBEhQYZ03jEkvp4buEx1KXjkfY3ml4rQm5o5t96Hg4PzdB9Anj9y7ksRC5pK8CgJKP1LIeaBJRvTIPYTC7e5LNhTqujJidVTKz0qFFepHw+IOvFGsnoZeF7Nwc7FXiHGTYDksVHHlbtiD9Q4N3R05b34sxORkjqzgO2g5DXEBFxhLRS0q1RiwiyojRslDywjUBQUEhTWu5TxJw+arA0NzBdGWx/z0DphSpsTEcihppxyHrOAPusMn5BeTnjJekVUvwXZc3+i4rm0n5pOoFDue7ZxZZhXgbO43kW4NYe2/o6KMeIyuHiNK4rQ2jL0EGR/HMR8bTz0HorgtZmyECtgPF7DY2rO9WAcsk6b4gwBRyV6EBJU7dH/B8cuHLoWIEOus5E/Cr/EDIcr1PF0mrnMgmJC8WFBiugqjEdJ1AEJczZgc4uLU/6/VQQZ6yRZ5sse2nVymcWWlCwRyheaQRMr1TIYxJmq/ykPZrulC/S8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(10067099003)(5023799004)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cDyFNLnDXYB5xNcjP5IrGizbiQTxpX2PrNBSapfseTDeuEgiCU6XmU52m+OT?=
- =?us-ascii?Q?V1iGxjX83xjsQV2d0tgfpemUsjWrcQlrb4OUDstvhzs9t6Ux6TKVKoiJv8Pg?=
- =?us-ascii?Q?17Ltp5s9+cDHkuxNU4HO/WkhOijfliBgOXKWC+qFm1N/OefrRi6oOwxqrBfk?=
- =?us-ascii?Q?rGXMdbk7yPFhc+ibr913XP1eT4oTMgrPJzNzUqsOhJFUT9GoggQYcrp3agTL?=
- =?us-ascii?Q?tJsottwkrto/N9aPBu4Eq9l7Nz87RdTGpUvCfiso+NKnsFRcjUde485BCH3y?=
- =?us-ascii?Q?mRRW8Ub2TOw4is4v1LYFu2Zve+i7S+V+4IgSZ/6oVucCiw2O+98a7OO9Xx3f?=
- =?us-ascii?Q?HUbs/LEp9CxWAUpzcMm2Z6WJakaMM7PdYb8iIYwobQHywiuopFPEl3FBH29x?=
- =?us-ascii?Q?dLqqDeQ2aSRMplT0/xzoKPrPKZyj31rsdiEM2i6hSNHQFFFHsA61xlyvw9vt?=
- =?us-ascii?Q?XznlkM2SvnrivH+Dj2Us2xDLegAJRPmC/J7bAifc7gxtV3BoJIhD9A+Akx9G?=
- =?us-ascii?Q?hU3hQ9ArGuEIIGpP60+RhdrhOLTObqaDj9yMCo2Q2G/ih5j8OaLlT6PKn5Lv?=
- =?us-ascii?Q?4kw19MuBzBMluY7FjPnmmUOxKcDpOTc1ENJzSNp5XsXLRuTQDSWD2F+0NmnP?=
- =?us-ascii?Q?ibwH6eV+dWmB1ygRpyXLPjBAoZgwL2OIuDwVoG2QSsWdBJl3LfakhrnzI8yX?=
- =?us-ascii?Q?DE8s/fHSDJQi6Hj0DpsbZlujU+4RYMscJA4Wo99JS7eYQQ9HZahFNFd9QMe7?=
- =?us-ascii?Q?KFFRpUiFCCXVXpU595myrQ6LfiQESbC+SibEjvz1b6vv0o2cI7bt8tgUIuiU?=
- =?us-ascii?Q?494y7/XI7QqXzV+UraGYSpzDM8/gZ5E0UbGOCdJY8WBStGyPhdHkgvpTDGHn?=
- =?us-ascii?Q?b4LNA2W7jNEGZMbJKusA3quCqnRurBiJKySgsDjeWAby07zrwLxtYsGa6NZI?=
- =?us-ascii?Q?Y6DI4mylAVhLfg5YlKt4Vv+whLOPl3H4ROTIhmxwtVx7JCiKI+81wzYaHoUy?=
- =?us-ascii?Q?7bZiukgdBmC6po8MWWkKEiB9Qzi/J/fpEnYb5XqrWV3ht7P4UBqTSqINdGK2?=
- =?us-ascii?Q?WIqt7+qSj8anebYQZ8wTq4bFidDMzvIJEUEE4xC6Imb1fD/UHRiVfU2fWOuk?=
- =?us-ascii?Q?m9NYfbo3d37557WMWwWy5psumjCh4yhy5jn5P1SGsF19kaPCY71ZzS3Nzb3S?=
- =?us-ascii?Q?8GoDusssfBAe67ORtT4cXJBwQJMzOg/FgdBKmxayKGyh/IFEMItcAipDz8Aw?=
- =?us-ascii?Q?/97imzOYRQiMXIYmSA+acp39oH09tEKAetKY9lVz4rgDaEv0R3TwVT6GluSJ?=
- =?us-ascii?Q?pt1VPybogOSZUVYvTPd6Ru2FXlwVcuyAm4rABz7Vms6ZWGaHyzch42+rQfZF?=
- =?us-ascii?Q?/2Cul8R7vP8FigJIQ+mWTdIZw4PC+AzX8BHa4IdbhmGEObtwroKcFtJ8phBT?=
- =?us-ascii?Q?jmSqnMcdaVYTtRLG0OLvvAZ/ffMoyqyPdq+eZPKWxnWX0kIyCPmWyrzZP/IV?=
- =?us-ascii?Q?iYKaHZD04fgxPJ+1HcyJnOFJ1WycK3W8rRfmXNU+DGfqyDALZea7SGu5DrxM?=
- =?us-ascii?Q?qWL5mfPh5F1qlID4Unlo4GVVxmzO5vDdLdHQtR/EGehuyZFjWNGxpGzCbkDf?=
- =?us-ascii?Q?shsOnEUg199yeLxc63Nk5U0Z0HP6SFUQJz1XNXw8SNM0eLZcemW8nwBzrqGj?=
- =?us-ascii?Q?wxtnZga6PZHmS5h5jFDGvq1+fRMMYy3aqIXb2Al693qrQ/H/?=
-X-OriginatorOrg: heitbaum.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b720945c-2ada-4b7e-a491-08def089b334
-X-MS-Exchange-CrossTenant-AuthSource: SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Aug 2026 11:32:14.1796
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 35ffebb5-7282-4da6-8519-efab29b0108e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YTQcyKRowrpkLVdL0LlwkyBmTQtSGKafQnqtcoceatmo9IRRFQ19BhmCdgAx8UKHHk0k/jFtDDoxm7mVYntWuQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SY4P282MB3986
+References: <20260731182231.1277064-1-vdonnefort@google.com>
+In-Reply-To: <20260731182231.1277064-1-vdonnefort@google.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Sun, 2 Aug 2026 12:31:55 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTxwJ+e4nOuVE3nuMJxRk62fDhY-GVDjO6HLGzGmUVj5Qg@mail.gmail.com>
+X-Gm-Features: AUfX_mzYz28lGkU5fFeVKuoX3O7CJ-5QBWq0Fe673Jb9b-5t2OiaUr7qhE-dcTs
+Message-ID: <CA+EHjTxwJ+e4nOuVE3nuMJxRk62fDhY-GVDjO6HLGzGmUVj5Qg@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Drop %pB on nVHE panic when stage-2 is active
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, 
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, kernel-team@android.com, 
+	qperret@google.com
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_043229_300581_1B8B5FAF 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20260802_043256_365766_6BF6AC55 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,50 +78,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX8MQ has two PCIe REF_CLK sources: an off-chip oscillator and the
-internal PLL. The driver unconditionally selected the oscillator, which
-is what the
+On Fri, 31 Jul 2026 at 19:22, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> Currently, the host stage-2 is lazily mapped. kallsyms, accessed with
+> the modifier %pB is therefore potentially unmapped. If the hyp panic
+> occured with the host stage-2 lock taken, a dead lock will occur.
+>
+> Fixes: 6ccf9cb557bd ("KVM: arm64: Symbolize the nVHE HYP addresses")
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+>
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index 54aedf93c78b..2e1951c215ae 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
+> @@ -509,8 +509,12 @@ void handle_exit_early(struct kvm_vcpu *vcpu, int exception_index)
+>
+>  static void print_nvhe_hyp_panic(const char *name, u64 panic_addr)
+>  {
+> -       kvm_err("nVHE hyp %s at: [<%016llx>] %pB!\n", name, panic_addr,
+> -               (void *)(panic_addr + kaslr_offset()));
+> +       /* Kallsyms might not be mapped in the host stage-2 */
+> +       if (is_protected_kvm_enabled() && !IS_ENABLED(CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC))
 
-	/* TODO: This code assumes external oscillator is being used */
+nit: this is the negation of the find_bug() guard a few lines up (not
+visible here), so could the two could share a helper?
 
-comment refers to. Boards wiring an oscillator to the pad describe it as
-the "pcie_bus" clock, but nothing in the driver looks that clock up by
-name, so it does not select anything.
+> +               kvm_err("nVHE hyp %s at: %016llx!\n", name, panic_addr);
+> +       else
+> +               kvm_err("nVHE hyp %s at: [<%016llx>] %pB!\n", name, panic_addr,
+> +                       (void *)(panic_addr + kaslr_offset()));
+>  }
 
-Reuse the generic enable_ext_refclk flag, set when an "extref" clock is
-supplied, to select between the two, as is already done for i.MX95 in
-commit d8574ce57d76 ("PCI: imx6: Add external reference clock input mode
-support").
+Tested on a pKVM host with CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC=n:
+triggered an nVHE hyp panic and confirmed the new branch is taken and
+the panic reports cleanly. The later dump_kernel_instr() is fine too,
+it reads hyp text, which stays RO-mapped in the host stage-2 for
+inspection, so no fault.
 
-Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
----
- drivers/pci/controller/dwc/pci-imx6.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index dcdeba1856f7..5a350b458782 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -445,11 +445,16 @@ static int pcie_phy_write(struct imx_pcie *imx_pcie, int addr, u16 data)
- 
- static int imx8mq_pcie_init_phy(struct imx_pcie *imx_pcie)
- {
--	/* TODO: This code assumes external oscillator is being used */
-+	bool ext = imx_pcie->enable_ext_refclk;
-+
-+	/*
-+	 * Select the off-chip oscillator as REF_CLK when an "extref" clock is
-+	 * supplied, otherwise fall back to the internal PLL.
-+	 */
- 	regmap_update_bits(imx_pcie->iomuxc_gpr,
- 			   imx_pcie_grp_offset(imx_pcie),
- 			   IMX8MQ_GPR_PCIE_REF_USE_PAD,
--			   IMX8MQ_GPR_PCIE_REF_USE_PAD);
-+			   ext ? IMX8MQ_GPR_PCIE_REF_USE_PAD : 0);
- 	/*
- 	 * Per the datasheet, the PCIE_VPH is suggested to be 1.8V.  If the
- 	 * PCIE_VPH is supplied by 3.3V, the VREG_BYPASS should be cleared
--- 
-2.53.0
-
+Cheers,
+/fuad
+>
+>  static void kvm_nvhe_report_cfi_failure(u64 panic_addr)
+>
+> base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
+> --
+> 2.55.0.508.g3f0d502094-goog
+>
 
