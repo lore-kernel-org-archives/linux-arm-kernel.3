@@ -4,108 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28740C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 20:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C664C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 21:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J0Po6SXhfV2vXQAkV6y/NPCPoeX6dz+V1IoPOu929LY=; b=whPkWb8Jr2eKo18JMdaUDNg5Fm
-	vGpJ/mElxU5yCD9qPaPBHDhnpEaiYhi8eJtv9+hLThZG9zMeSV9j/UvdcNTD3ST1MXe9px5rLY4xe
-	qoIeoj+lsswy6CAJIErVjsb22GRdBHM9mzJ7V7lGYVp1yD6iIZNPJ9B9AT+kKd2e5nHTRBQjOft63
-	MNWmOtWdEhoXXZFje6fZ7DuZitQGvLKz3g6KPt0mU5YH2y7rFQmfzNv9I0LgdqS+dz8yOMXHSmxAh
-	RP6krGCDfafMB6qkK6m2NnRcjWfpt2puw7rVTfU82rBYqrFVUzS0Drip4iHOua/ZAmvWMZNlsKSxX
-	+b8HbDGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fuXEqimyffgC3r6i7frZWabp2CjAJ6czkCeh1u+cNBo=; b=RrgTcH2HwBrOP1CB4NS8q+s5TB
+	X5Mrf07TBaj2Y6dmCveVhtwHMmGN09+CwERvevKYraa5r1q7EQM/5vHRWNCttapjYsRdM6+PHQdpF
+	xjm0WRLQuEzjHejEvq50ic6spYgh3IEmjS+bOT+CUz1LlISt+5ynfW7uY+ewsJ8f2EkjxB2AYuXCE
+	11P2J20GkhA+lFLNuWwYV5wIrPyDv8qYlcCcRWat2IW6vtggEASp7C/Ek7d8mR1yNrkYv28X49j/5
+	0JgAUU17uCd6RFbshW56jGKu0MDwIrGGqdBVI8TIKAwKJaLF4l89f0uG2rRWGUPLFBD5oEx+goo/o
+	VFa41y9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqd2x-0000000G2zd-1nq2;
-	Sun, 02 Aug 2026 20:44:35 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wqdyV-0000000G4U5-40BE;
+	Sun, 02 Aug 2026 21:44:03 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqd2v-0000000G2yv-05sJ
+	id 1wqdyT-0000000G4TO-1vmx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 20:44:34 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-47f71156e1aso1345546f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 13:44:32 -0700 (PDT)
+	Sun, 02 Aug 2026 21:44:02 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-8efec2c28f8so18200696d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 14:44:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785703471; x=1786308271; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=J0Po6SXhfV2vXQAkV6y/NPCPoeX6dz+V1IoPOu929LY=;
-        b=PtV3/Kdic9gcLDxmlTWm+Y0NWOTFZu8fu3Kbjy0cORdRmfa1K393yhrKlPdy4WqEmv
-         EJv8n6qmGa6Ou8uCz0DjjmuburT9IOcIQ6SfkWoCgp58ieb4wGI4OZDturzlPAgReU1l
-         281oyMy3WWtEG6uh6Q119wpBplGEl3j4cwB94/GlcZd+cqGA0KGrlv5U5wyB4D2bicwp
-         k9wv2RmhCPA3PfCCi5TAkRrd2DTP9u1WBxCufGjA8whmRlszKMQa29/H09zg7Z9I0WO3
-         LaVtdx6t6iJ2y05xveJ3MoAghuxYZAnxhHz/psfTOuMcxiYuV3PAiJBP1aYQuuINKBNV
-         sx9g==
+        d=gmail.com; s=20251104; t=1785707039; x=1786311839; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fuXEqimyffgC3r6i7frZWabp2CjAJ6czkCeh1u+cNBo=;
+        b=McKcFFCIzdQtsgWQUJi8CWFlYKPOXI48gLD0PgIPmwIk4SyiH0FTlGPzd0otq3WbE5
+         AqB4BYECUn6r3U89VZOngXvcc+qMWxer9f/hfpJLmD1nYRxcAJ1XPVnm39j9MBfPrem0
+         JFEL0E88DKWv9FhV55psTUsZFbE4GSX5F05EmjkASD9ciFJo8Fnpstu8vERLGkD+iDJQ
+         L5XVfyHm4M1jSTncIx2J8WVE5z+D73WQ3/bPcjuv0wu+s8Wovoji/kYPXvzgFPajotwL
+         T4QURF1IIvCtIs9gyE8rqoGOWn6y01hn6aDKHc/f8DFEg4VYFjPIrpXgxPkKLUvIx/Wi
+         RPoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785703471; x=1786308271;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=J0Po6SXhfV2vXQAkV6y/NPCPoeX6dz+V1IoPOu929LY=;
-        b=WDS0lb7Nsk/b3wgX2JTrHQuPcoZVvjYLCUeeyVfaR9DBWceKfZ/wYdUghuSIv6FiR8
-         jhsH624av/SOHWn4Oi17bA6+cDfrFUx07cMwZxx5Nvcm5qCrGYWzZroYe5HugN6y8vsd
-         K/G5lsovW3uHxewW/EGud8q3FXrX/keTicXbjnLjkdxdHO+/ZtJmSBN98aiTSwCkjqKD
-         uGlGemeXKFzd68tfUGqkFRzzugBclb08FAXpdoIqq7PJVTygCeuxaKCUWZYa4MmOJgSs
-         wwmd9i+d7hMZkm2u4YuDrNSjni1zGB7COdtTllezKFf8noqASFwD9TjSl6Nu2EEsM97D
-         H0Hg==
-X-Forwarded-Encrypted: i=1; AHgh+RpySlCxDl0Lueb/3C/tEazph5RvxJmN140a08pnDTAp/+rSdLF4wk3hzJYEd75UdbVfXQ7Sbg8Z6Zao1T+0FcYl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0DRX3+9ZqUHbN1v4l6tvuRFLo0tBWCKosQeshPnJgit+WenMK
-	kzP463J3Gc/q0cRixrV4vXNoZP3KZ2LTh+MNfQz47ZPIVjoWs2F2ctOb
-X-Gm-Gg: AR+sD10kE8r71FeICyQcxWGkA3IxpeWarA1GQdge/jH+JpbqcykLXFoWgVCyoMMpas0
-	/Ho5Hw4U2EEXvEyOZjiQtJ8ukGEcT28QRIS4SfoUQeRVJQhOoNDvGYG4pnPMt7uvfpYnxMG9mjs
-	4Tlv2IxWeEkl9QIFXH13t6KgD5KkVzA65bXRSqIk0e7drfrXjbT1NVFvVohId9s10+lMPrnGpzo
-	ShNftR+yXutTm4nm7b8aG3H45I78lHLEUagorUnSCJHVijM70iOJWMzN25Pb5wPxM6QMIqEYwJT
-	rXrPI536H1aWEnXuWqCRduiI7y5oT8QL81ozkvBtRLmMZg5iKoBhqBmAiiRJzXi4viTgJGEvGRR
-	H7gG0TpGVv622olV9de9hK90kuGKWJc8TTkOZzWbFK0vTUfel1cqve0drtgYm1y3dU4xpm9Ui6X
-	EgZuDYPCkS0SyramXp4u9EzEFpl4l4MKIOQmMkALg/7/PFSdko
-X-Received: by 2002:a05:600c:a4d:b0:493:e46e:157d with SMTP id 5b1f17b1804b1-4980c693eaemr164544645e9.19.1785703470644;
-        Sun, 02 Aug 2026 13:44:30 -0700 (PDT)
-Received: from krava ([176.74.159.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49807b8d04fsm218215135e9.3.2026.08.02.13.44.28
+        d=1e100.net; s=20251104; t=1785707039; x=1786311839;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fuXEqimyffgC3r6i7frZWabp2CjAJ6czkCeh1u+cNBo=;
+        b=Y7jJ0Qf+3TOdXkU3epzAJyFg3mxBfIHoe+bZhbo1V1JEHa3c/SkzjB5rOjdV6hkVVM
+         oQsWE9UCIRgQn58l1H3u+kywiJ0JDB9V6mpzWY/7Wh+gYXympL6Of7w21wGN9wDzG11S
+         ROBP9d0CIn2i4wc/LXiakBEi7eABgzuGH+vBOQHyb5Tgj1sJRpbOZIGaHaQLTdgL+1Te
+         SmkstZUufn6sEVpo5c6OBuBKbwFS0VxduOe4/ZL4/Y25DzdpgglVUWRpMFnLoZeFGu6D
+         ZiA1B8xjwoqHO3naWiDffbD9zE/Zkoc+rI8uTOdJQPotvCo2RSkXC64lVm3zZP4WDhzJ
+         a69A==
+X-Forwarded-Encrypted: i=1; AHgh+Rq6QXyLiZ0a+1Kzh5llcdmnAbZiQrgzremcgSvSU+0gAmtuOvesu0+R8SDD2HJ1qm2rDmYBAkDtXD2zentcPDDR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRtuB5KWyLnH1wmWWPP0utELnqWtbcEVy4RIc7NVkO0zmi2ex2
+	FSy4TSh86ue7ObI9OPtX9aAMnnI04+dxvmjAyBCa9IchzCoJx/Bf7qak
+X-Gm-Gg: AR+sD11EO7HBt986vCa6wjoGl2baFsnJD9/OrYTYRKUNMOXLXho47oUKy+1/FUS8CXq
+	oumBgmIBgj/9m8AuWmlR87PMkpxdsINZVRleZeCJ+9pHpNkxC+jzKT640oWprCMx4IAFJ9aP/l3
+	wSN9DcWuH51p8PUHHZjfBvergGqtHeIU4F7NNSfZ2GJuqErDM/rUCJRaWJjcPa+3ej0XNeqdnHi
+	8/QAL+wcV5XcfCVXF0j9MOwLywzHYbpIA4yue+Q17Z6MhZVUpOlFbMw+g5r6mho/SrtvNYoCoV2
+	tblWOitc2OD62UYpU7bWMU2ctn2ElH5V650H9e7qoKedC3jdHLIBsvUfqjysTgBQ1rwK5Q49mxe
+	d26bNhDX2TotO26N+z4No04wiuT/KB9L7DK8/godSKuoj1MgD/fFxKj18CM4+iZTo7lZVACEAGA
+	vuNLtj8LH5ZQlv9n5y7qO8kwhoDoeR7mLJlGbuWoMH2lcNSpUy9hB7i/QiYXzlVNGztpXYkfz3w
+	maO0EBOb4SpQOK7iYpRMeCLvXIqxkWY92EncDasfd8lv84gLJJVLKTw9NY0XY1Mv2TBuAZeAVNK
+	FEjX59RVi59TL3UFra7rdmCMV4ajh2F/omMxDa5ZUv1/s3vB
+X-Received: by 2002:a05:6214:5403:b0:8b3:f911:c1df with SMTP id 6a1803df08f44-9084966585bmr185128876d6.21.1785707039288;
+        Sun, 02 Aug 2026 14:43:59 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-908435b6778sm60683266d6.30.2026.08.02.14.43.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Aug 2026 13:44:29 -0700 (PDT)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Sun, 2 Aug 2026 22:44:27 +0200
-To: Leon Hwang <leon.hwang@linux.dev>
-Cc: Jiri Olsa <olsajiri@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Shuah Khan <shuah@kernel.org>, bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 1/2] arm64: ftrace: enable single ftrace_ops for direct
- calls
-Message-ID: <am-sK_buCVI3khJv@krava>
-References: <20260727142844.21212-1-leon.hwang@linux.dev>
- <20260727142844.21212-2-leon.hwang@linux.dev>
- <amnqXeC6D4mjcAe_@krava>
- <d745ca80-6516-4c61-8107-88c6a2d9cea4@linux.dev>
- <amsuU7eXuoziObdh@krava>
- <3f8e64b4-e60a-4eba-afb6-5af668ac1f85@linux.dev>
+        Sun, 02 Aug 2026 14:43:58 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Mailing List <devicetree-spec@vger.kernel.org>,
+	netdev@vger.kernel.org (open list:NETWORKING DRIVERS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support:Keyword:mediatek)
+Subject: [PATCH] dt-bindings: net: add nvmem-consumer reference to network-class
+Date: Sun,  2 Aug 2026 14:43:54 -0700
+Message-ID: <20260802214354.490074-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3f8e64b4-e60a-4eba-afb6-5af668ac1f85@linux.dev>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_134433_075486_1396199D 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20260802_144401_516947_B795A22C 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,62 +110,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 31, 2026 at 10:30:37AM +0800, Leon Hwang wrote:
-> On 30/7/26 18:58, Jiri Olsa wrote:
-> > On Thu, Jul 30, 2026 at 11:05:42AM +0800, Leon Hwang wrote:
-> >> On 29/7/26 19:56, Jiri Olsa wrote:
-> >>> On Mon, Jul 27, 2026 at 10:28:43PM +0800, Leon Hwang wrote:
-> >>>> The BPF tracing multi link updates several direct-call sites through one
-> >>>> ftrace_ops. Its implementation is therefore gated by
-> >>>> HAVE_SINGLE_FTRACE_DIRECT_OPS in addition to
-> >>>> DYNAMIC_FTRACE_WITH_DIRECT_CALLS.
-> >>>>
-> >>>> Select HAVE_SINGLE_FTRACE_DIRECT_OPS whenever arm64 enables dynamic ftrace
-> >>>> direct calls. This enables BPF tracing multi links on arm64. Also
-> >>>> generalize the unreachable-trampoline comment because the single-ops path
-> >>>> does not use ops->direct_call.
-> >>>
-> >>> hi,
-> >>> iirc arm needs ops->direct_call for trampolines to work properly,
-> >>> that's the reason we enabled single ftrace_ops on x86 only:
-> >>>
-> >>>   424f6a361096 bpf,x86: Use single ftrace_ops for direct calls
-> >>>
-> >>> I don't understand the arm usage of op->direct_call, but it looks like
-> >>> (codex thinks) that the fast path won't always work without op->direct_call
-> >>> being set
-> >>
-> >>
-> >> In theory, op->direct_call is the fallback for the case:
-> >> HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS=y, out-of-range target, and non-BPF
-> >> direct ops. This is what Codex thinks about.
-> >>
-> >> However, after searching the call sites of
-> >> register_ftrace_direct()/__modify_ftrace_direct() in kernel, which would
-> >> set ops->direct_call, the actual callers are in bpf/trampoline.c, which
-> >> have been gated with HAVE_SINGLE_FTRACE_DIRECT_OPS. That said, for
-> >> normal usage of HAVE_SINGLE_FTRACE_DIRECT_OPS=y, op->direct_call is unused.
-> >>
-> >> If someone uses register_ftrace_direct() or
-> >> modify_ftrace_direct/_nolock() outside BPF in the future,
-> >> op->direct_call will be used.
-> > 
-> > so any 2nd user on the same function triggers the slow path,
-> > and that's fine, the single_ops handles slow path correctly
-> > 
-> > but IIUC the out-of-range target will now always go through slow path,
-> > which in current code it doesn't, right?
-> > 
-> 
-> Right.
-> 
-> Pls see the sibling thread with Ihor. With in-range BPF trampoline
-> allocation, the slow-path regression should mostly disappear.
-> 
-> Let's continue the discussion in that thread.
+The nvmem-cells and nvmem-cell-names properties are used to supply MAC
+addresses to both wired and wireless network controllers. The wired
+hierarchy already allows them through ethernet-controller.yaml, but the
+wireless hierarchy (wireless-controller.yaml -> network-class.yaml)
+does not. As a result, brcm,bcm4329-fmac nodes using nvmem (e.g.
+bcm4709-linksys-ea9200.dts) failed dtbs_check with:
 
-please paste the link/subject for that thread
+    Unevaluated properties are not allowed ('nvmem-cell-names',
+    'nvmem-cells' were unexpected)
 
-thanks,
-jirka
+Each wireless driver otherwise has to add the nvmem-consumer reference
+individually (qca,ath9k and mediatek,mt76 already declare their own
+nvmem-cells/nvmem-cell-names).
+
+Add the nvmem-consumer reference to network-class.yaml so all network
+nodes inherit the properties at once. Wired controllers keep the tighter
+single-cell, mac-address-only constraints via ethernet-controller.yaml,
+which still apply alongside the relaxed class-level properties.
+
+Assisted-by: opencode:big-pickle
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ Documentation/devicetree/bindings/net/network-class.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/net/network-class.yaml b/Documentation/devicetree/bindings/net/network-class.yaml
+index 06461fb92eb8..f7c8e24016f7 100644
+--- a/Documentation/devicetree/bindings/net/network-class.yaml
++++ b/Documentation/devicetree/bindings/net/network-class.yaml
+@@ -43,4 +43,7 @@ properties:
+       maximum frame size (there\'s contradiction in the Devicetree
+       Specification).
+ 
++allOf:
++  - $ref: /schemas/nvmem/nvmem-consumer.yaml#
++
+ additionalProperties: true
+-- 
+2.55.0
+
 
