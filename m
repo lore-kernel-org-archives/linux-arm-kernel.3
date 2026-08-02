@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A36DC55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2125C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLmff9u5nyhTuQ6q2fk8/LobDnQcJw60OqqnmaHOfJI=; b=YKFDNBxgoTIcvVJ86Tj6V7WJ34
-	CV1OEtVHg8D9OWzldkxqfExlRfU2qrG+KkQ859d6bfHOaMcyfZoUXuNzeuHeTe+QphsRbJOLV6c+E
-	aYkS9mjTrIYgyeFq2t3U6IYNv2pKJeMxTzCQeGrubIrPr6mrm+vMcd0CpKQtFPfGTqoCsu5lnTSmY
-	Lx5ftnNRs11bH2AKzRGDTdFfUCmEhx+0WnGk2/twWbyDQTRJEd7A3Gqfnb2AGimHp8bZAC3w5uyIe
-	htKGNV6lIV7F1wjPOlDwn0AtwS5uigD0f2UzeYMElZXwF/7c1dw/o2mr2g1QO+OQCoj7FFivKyH6B
-	aLGxtdQg==;
+	bh=wIgY+IMYJBLWoIJQunkjMT26i2eXWjAiHggq3CCm8wo=; b=wu9CjeT77dkn3mjh+UWHWaYhtW
+	FJTVjgN+l50M2oY6t6h8u80FVZvnDV9Bk86YfdXvJ+Zl8QAzDJJAjX4GI9tXpDibT5iO88+OO/y0s
+	amhNYOu1Tux3rRphviiwimm0VmL7KOlKnTW522wsBvo+YW0B1SNFVJxMNarym/rxYAg1I1uarJ/uY
+	dmWpikckYq5Vls9a08eZqbZTeZgPefcPS2qg4e6bFHv+4hy+omhptsW1kRzCaSxYHAEL8CeooGc77
+	z4YXmsYqLcy2gwGrnOp8iMFPY9dniLwWikegMIGDM2ZRBOMxA7Up2csXouvT4bfp1dyVrGn/8vOS9
+	3GxjCcuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV4H-0000000Fc5P-2W1X;
-	Sun, 02 Aug 2026 12:13:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wqVYi-0000000Fdie-1Rn3;
+	Sun, 02 Aug 2026 12:44:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV4G-0000000Fc3L-1KYV
+	id 1wqVYg-0000000FdiY-36b7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 12:13:24 +0000
+	Sun, 02 Aug 2026 12:44:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB78460A85;
-	Sun,  2 Aug 2026 12:13:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF2B71F000E9;
-	Sun,  2 Aug 2026 12:13:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E8F343287;
+	Sun,  2 Aug 2026 12:44:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A15DF1F000E9;
+	Sun,  2 Aug 2026 12:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785672803;
-	bh=gLmff9u5nyhTuQ6q2fk8/LobDnQcJw60OqqnmaHOfJI=;
+	s=k20260515; t=1785674690;
+	bh=wIgY+IMYJBLWoIJQunkjMT26i2eXWjAiHggq3CCm8wo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Bv0AkaL1yuukqMTeJcoLq6d9VJQy21IXYs5LQnaQwAzSEwU4fP7DYU5kZE6ueqoT3
-	 2aH7RULPK41ReMn2DpPCewT1eRW8K/Yia/VYyit1Ek1rMH4HSyjkE6Xm2zhW7rfIwb
-	 lPyVqZjHo56kZo+sVdaQkXqgwb+kYZ65u7KN6eD4PKfGuBIdzePlb9cpOenT69a8HX
-	 XL6GpGDmH6BH3bJg/Td7DYLRkmyC4fEue5iAM76fZnVqU2UvZ1TUNZhOvJ5rXNjkoO
-	 VJ+BeQKfd4ZXfahcjrB9xVFe3BjE/0Wd5mD1imT12tZPfmXLQmdO+bcYJjObseQF1u
-	 +/orF+YmJfbqw==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+	b=lFZMu0QQXsZFP2E4DZe/wDPcZTBokID55KNR65R3vOUvSrvETjuZiGbPX3KKu5H+2
+	 s6J2RQXRO0cafFKdaLMByN0oKj+LeOJTv36L8cQFl+hMYgD+P/e1tGQjwFtX36o12I
+	 NMu9a/kkCgU6HViPhjoReM1r7B5l7Wo8XiNTlF8wN+YAo9OuA6XTCNmdiLd6dEAWkN
+	 wfqm/YvcckDXj4YO6GlqeAG7YrFo677KnOUi+v+40oDYP07ZdGGt86x91mLNl8sqw6
+	 kqBN9QMaGLTM96e9iOZ7/wko4SXaL30DlExU0G1bJHD6yKqwta4kmNrzxLQpP0f7e3
+	 dHypnth62L99w==
+From: William Breathitt Gray <wbg@kernel.org>
+To: Babanpreet Singh <bbnpreetsingh@gmail.com>
+Cc: William Breathitt Gray <wbg@kernel.org>,
+	Kamel Bouhara <kamel.bouhara@bootlin.com>,
+	linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Kees Cook <kees@kernel.org>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v4 0/2] arm64: Fix handling of tracer updates to x0 on syscall entry
-Date: Sun,  2 Aug 2026 13:12:35 +0100
-Message-ID: <178566435675.4143863.9174179007442722052.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260730132651.25993-1-will@kernel.org>
-References: <20260730132651.25993-1-will@kernel.org>
+	Jonathan Cameron <jic23@kernel.org>
+Subject: Re: [PATCH] counter: microchip-tcb-capture: Fix DT channel validation
+Date: Sun,  2 Aug 2026 21:44:40 +0900
+Message-ID: <178567458124.1423913.11797126534465463278.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260714042910.7-1-bbnpreetsingh@gmail.com>
+References: <20260714042910.7-1-bbnpreetsingh@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=904; i=wbg@kernel.org; h=from:subject:message-id; bh=0S4lXB13dHTIa2w5VuqTQh0fZHhgzlprGNYaCmPYFMk=; b=owGbwMvMwCW21SPs1D4hZW3G02pJDFn51pvu//3FqvhQdUJKMlvevmmza9+usUpd/qW4N/BQ8 IVNVR8Wd5SyMIhxMciKKbL0mp+9++CSqsaPF/O3wcxhZQIZwsDFKQATEVzK8Fe4/d+JZQzFLRf3 qKod+13Rulxu3sK/zkkxa6O+fu2bk2vC8E/rTp7cGlUN5qUfHFXWNc5N/T75FJPnmh2F+RLXJe6 HZPEBAA==
+X-Developer-Key: i=wbg@kernel.org; a=openpgp; fpr=8D37CDDDE0D22528F8E89FB6B54856CABE12232B
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,32 +75,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Jul 2026 14:26:49 +0100, Will Deacon wrote:
-> This is version 4 of the patch previously posted here:
+
+On Tue, 14 Jul 2026 04:29:10 +0000, Babanpreet Singh wrote:
+> mchp_tc_probe() reads the devicetree "reg" cell - a u32, per the API
+> contract of of_property_read_u32_index() - into a signed int, so the
+> bounds check "channel > 2" fails to reject cell values at or above
+> 0x80000000: reinterpreted as a negative int, they compare below 2 and
+> pass validation.
 > 
-> v1: https://lore.kernel.org/r/20260714143600.23853-1-will@kernel.org
-> v2: https://lore.kernel.org/r/20260716120640.6590-1-will@kernel.org
-> v3: https://lore.kernel.org/r/20260717182758.17111-1-will@kernel.org
-> 
-> Changes since v3 include:
+> A malformed devicetree can therefore drive a negative channel into the
+> ATMEL_TC_REG() offset arithmetic, making the driver access syscon
+> regmap offsets outside the TC block's register window, and into the
+> "t%d_clk" clock-name formatting, where it truncates clk_name (sized
+> for "t0_clk".."t2_clk").
 > 
 > [...]
 
-I decided against applying these for v7.2 this late in the cycle, so
-I've queued them up for v7.3 for some more exposure.
+Applied, thanks!
 
-Applied to arm64 (for-next/ptrace), thanks!
+[1/1] counter: microchip-tcb-capture: Fix DT channel validation
+      commit: f1a3a9946aab611dd2200c01ff122f64b033dad2
 
-[1/2] arm64: ptrace: Keep 'orig_x0' in-sync with x0 on syscall entry
-      https://git.kernel.org/arm64/c/88b839ce497c
-[2/2] arm64: syscall: Pass 'orig_x0' as first argument to native system call
-      https://git.kernel.org/arm64/c/5a87e8c7f370
-
-Cheers,
+Best regards,
 -- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+William Breathitt Gray <wbg@kernel.org>
 
