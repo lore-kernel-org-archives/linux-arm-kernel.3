@@ -4,106 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFF2C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 03:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B25EC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 03:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TpANIRIXCFEaCO+NoYgeEquheHUazRAsrSjmXdnDLkw=; b=EvRDU1ii6LjcfTP/uAaXmhJWk8
-	p+QhL3W/saUQ566wgp6+AfWAREvHmnzXPtGrDnnvb18TFuoxdSAy2ShkcC8R4euxFrr2iwCGMpCQN
-	OS74NfwcMGIIf91h7/5fIa4A1XPMd8Nzl84mntnTYvaq927mS7IjYWGNRaWQa8+BzS9z6lfebAQ5W
-	Z/P5vajhaUjS+Kzkhxjx+mmZ5jaq4T41G6GMeELqcgCugFkvt87pjucOV2zCBc5VLGG+pphd/cH4N
-	kEdzoNimusK5tDPjFHkAn4DEbbeVsHjPTxGgRDgpAwMMoBBC2yNPaoXfiO6zTwKve8eZzF1acUKRD
-	hW6GUyDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zT/ZqDsPgYHGke/D7GmpQMsslvQKBzbQsXJCmcrK93g=; b=zysa5g9elrX9U5j1/AUhEYu545
+	6di0AanFE/k+PJMFS3YeZGVrFAQh/zI2bBtP7irbMm0uJPdMPZIKfz1uNKURH2I8gVoQvM6SNuRqx
+	Z5cc9azJdKSSA9GAbz4Bdj/XdQRCvIfB54rZcxV+MxQG9kn3iXZ9/bajnWv+P+lw608qoQHHm0OWc
+	jpCxJ/hB/LIvBcylhRfs54dLkv5/hJTMB/9JJxOhXj1l4SJntHtTZuKYB8GaZtfqPQkgVXjyGldyI
+	McNj7MMDyZf3dTIWexxipXGLSwj/67cQzuY8EkltyXS/4oC5kF5tVdaJqSGChcV1EAp8d6fF/0Ned
+	E+COlk1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqMsG-0000000FJCz-1Sh7;
-	Sun, 02 Aug 2026 03:28:28 +0000
-Received: from mail-pj2-x02.google.com ([2607:f8b0:4864:39::2])
+	id 1wqNCi-0000000FK9S-2Nmt;
+	Sun, 02 Aug 2026 03:49:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqMsD-0000000FJAS-3uX5
+	id 1wqNCh-0000000FK9G-1LvN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 03:28:27 +0000
-Received: by mail-pj2-x02.google.com with SMTP id d9443c01a7336-2cb3f5bb19aso6575375ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 01 Aug 2026 20:28:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785641305; x=1786246105; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id
-         :references:in-reply-to:user-agent:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=TpANIRIXCFEaCO+NoYgeEquheHUazRAsrSjmXdnDLkw=;
-        b=H5mpKUwexT3Hx8L4CBH6b1rTFkoaJt1/ARPEcQ3lcjQvxWTz7CLC7qtPs2vtuunSJ6
-         LU2YttO9t8lQFHHealSWgrR4Lks2Eo1m5gNU62goFIqiPJ4C/Y97n7rdpJbM2fcnJsiP
-         SgM3V4ZP3+UTedukIoHxMwzt3s0FLtYcuNJAka6sV+N9S/LLssuETYqolbbF8Hws3gDx
-         gzkAN/zJYEdgKf3i3Le8UJhhjJ+CE2ViZx9tauLluT1wg6UUxLBeLSCcrlPTAEPqkQGp
-         hYHTWbrNs473YEQK4SFs5/2G/r005+AsnETWMSd3nUS8FHssEnbFGcOYw0B7TS45jtiZ
-         +YRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785641305; x=1786246105;
-        h=content-transfer-encoding:content-type:mime-version:message-id
-         :references:in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TpANIRIXCFEaCO+NoYgeEquheHUazRAsrSjmXdnDLkw=;
-        b=MfvU2M65lN+HcOPbvoaPB0quzToS/PXc8NUNrlT56tw865HTVGrL2pJBKpZKhaXNY2
-         nnZEHufuYYvFVn3s8OqZUGMpSSaACLzu73ZPuFGr/xoI5dTXrUEZcTMCmFPXwuMB1B0u
-         ZHfMEzsgsFy5FHfymjrIDtQhAnd5Vg6/9u+AMXfDZ9V553xhrp2wDLZmDw/JXzzuPkmr
-         T5iDJnvcsA7Yj39egdkkh1vIMD4tXZ7rXQRRwfJKI5u5AJTQMcRG0nicAqeG1+41N9c+
-         NkoIgLAw+jxbcaxdLQO/8lvbpK3b+K4YYHR1yyivq1nG+wH27n9SbAfSk3gU9vUDZArC
-         5xhw==
-X-Forwarded-Encrypted: i=1; AHgh+RplzM1JOZEyTLBfsR/95XZGQQO229sOqvtoYpXAqaqKibbOVSFI6hW84+99HzxmZLjP5lq+/4IBH0c13QOU3yOv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrV0QGXenCbK5feGzcegzFnmqk2pGaWsbkGI34nrEqvpZ0ycwj
-	RWDZ9ar54ayV3T+OyOJPZ5s9LXFlyoi7rESHDYaIEZMf8qtieTrZOWtr
-X-Gm-Gg: AR+sD11t62GZ7CCII7h/N4k5fESDfYyDQl3LOnEunB/Mwkuewso9D6hNowM9VB19bRo
-	M3p/RO+cJPKO+IKCZC9ZQemvQ5BfWlX61qp2nvBpc3gQKxHI6hRUSivYlsPUujMeBjHv5KUdfGB
-	w7/hvbM1Cff1wZXrdYfqKqUuV2slMler3i2Xv8/UizBUGbxUXOsSCL29w3jjwfBIhOJy/W5z+Ky
-	bEed4ZvBnAsfI8gsRCDMm028ZDkbEOGUpqQoy87OynLk8umR8VeoVmv+gawmM0yZd+E+Lx7GbcL
-	49r3zvZtWiNLMm8a6oL+TFVFbrpC4s3uSJ6QI6QErQpmY/rP8Tci7EIgi8o7eqDoWLTzi0HriiT
-	Kylgzo+09jxvm2XHqGFaxYEdScWGVBea4V0mFKe3UvRaXBIdwwatdWKp+7DyBU6SOaWn4hls4IN
-	nw5QMTQI8FU1/nxKyoyHediJx9MNP7rNF6Fe2TZo5dtG9kJeRUmk7wZdyi52XgO8y7qxA=
-X-Received: by 2002:a17:902:ea0c:b0:2cf:6f7f:55d8 with SMTP id d9443c01a7336-2d0523f76edmr54404665ad.37.1785641304908;
-        Sat, 01 Aug 2026 20:28:24 -0700 (PDT)
-Received: from ehlo.thunderbird.net ([103.213.4.16])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04ae19ba5sm23124875ad.17.2026.08.01.20.28.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 01 Aug 2026 20:28:24 -0700 (PDT)
-Date: Sun, 02 Aug 2026 10:51:37 +0800
-From: Coia Prant <coiaprant@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Russell King <linux@armlinux.org.uk>, Shawn Lin <shawn.lin@rock-chips.com>,
- David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-renesas-soc@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_03/10=5D_phy=3A_rockchip=3A_naneng-?=
- =?US-ASCII?Q?combphy=3A_add_SGMII_MAC_selection_for_RK3568?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <0cf1f734-69d4-471f-aa22-e1a2e7d0341b@lunn.ch>
-References: <20260801142244.679437-2-coiaprant@gmail.com> <20260801142244.679437-5-coiaprant@gmail.com> <0cf1f734-69d4-471f-aa22-e1a2e7d0341b@lunn.ch>
-Message-ID: <7F609DE6-F3C6-487E-9113-449F5BE05D94@gmail.com>
+	Sun, 02 Aug 2026 03:49:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 481D76057A;
+	Sun,  2 Aug 2026 03:49:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB5D21F00AC4;
+	Sun,  2 Aug 2026 03:49:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785642574;
+	bh=zT/ZqDsPgYHGke/D7GmpQMsslvQKBzbQsXJCmcrK93g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FYTEJxj3LJN/b4Us9Qr8bZNPRF0LMQd1xcAcDQiNcgzWLh/Brw5/eoxnZFCsLdhP8
+	 4NqfXmsWqvsS/kWdmp2F/OZIKtsDhQl329L7kAszW+tz+HvTnh2xjprZMHaH8swCFE
+	 f1BVcfWSThRVqB5SAB2NhtFn+gGTWDd4x19X4UZCj9ivjvVTJ5Lf6OjVUbRwzXJrsw
+	 hrfOwG5d73mfA9SXMbl6jKDME29Sm9w3TLC9Vg3SXGEcdRjZuTA7SMms0t04xdQyT4
+	 YF0bqo2Zd9q1Q5g7ShqcLkN7Zi/MJ4mqEK5wkx9KmdDh+CWoPzFAmckgkSdo0oICeC
+	 twEGDBTRun8VQ==
+Date: Sat, 1 Aug 2026 22:49:30 -0500
+From: Bjorn Andersson <andersson@kernel.org>
+To: Umang Chheda <umang.chheda@oss.qualcomm.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Ruidong Tian <tianruidong@linux.alibaba.com>, 
+	Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org, faruque.ansari@oss.qualcomm.com, 
+	avaneesh.dwivedi@oss.qualcomm.com
+Subject: Re: [PATCH v2 3/4] arm64: dts: qcom: monaco: add RAS error source
+ nodes
+Message-ID: <am69fjQNTv2xJonT@baldur>
+References: <20260720081954.1858180-1-umang.chheda@oss.qualcomm.com>
+ <20260720081954.1858180-4-umang.chheda@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260801_202825_992017_062E75F5 
-X-CRM114-Status: GOOD (  16.63  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260720081954.1858180-4-umang.chheda@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,51 +75,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On August 2, 2026 4:58:39 AM GMT+08:00, Andrew Lunn <andrew@lunn=2Ech> wrot=
-e:
->On Sat, Aug 01, 2026 at 10:22:27PM +0800, Coia Prant wrote:
->> On RK3568, the SGMII interface can be routed to either GMAC0 or
->> GMAC1 via the GRF register pipe_sgmii_mac_sel=2E
->>=20
->> Add support for this selection by introducing
->> the "rockchip,sgmii-mac-sel" DT property=2E
->>=20
->> The hardware reset value is GMAC1 (1)=2E If the property is set to 0,
->> the driver routes SGMII to GMAC0; if set to 1 (or omitted), it
->> remains at GMAC1=2E
->>=20
->> This is necessary for boards such as the Ariaboard Photonicat, which
->> uses the SGMII interface connected to GMAC0=2E
->
->If SGMII is not selected, what MII is used? RGMII?
->
->Can this setting be implied from phy-mode?
->
->	Andrew
+On Mon, Jul 20, 2026 at 01:49:53PM +0530, Umang Chheda wrote:
+> Add RAS error source nodes for the Monaco SoC.
 
-Hi Andrew,
+Why is the subject "repeated" here?
 
-If phy-mode is not "sgmii" (e=2Eg=2E, "rgmii" or "rmii"), the GMAC works i=
-n
-the corresponding mode and this register is not touched=2E The reset
-default (GMAC1) remains, but it has no effect in non-SGMII modes because
-the register only controls SGMII signal routing=2E
+> 
+> Two processor error sources are described: a per-PE node covering the
+> L1/L2 cache hierarchy using a PPI, and two shared L3 cache nodes for
+> the two CPU clusters using SPIs.
 
-Regarding inference from phy-mode: phy-mode =3D "sgmii" only tells the MAC
-driver that the interface is SGMII=2E It does not specify whether the
-SGMII signals are physically routed to GMAC0 or GMAC1 on the board=2E
-That routing is a board-level decision and cannot be derived from any
-other DT property=2E
+Please read
+https://docs.kernel.org/process/submitting-patches.html#describe-your-changes
+and don't assume the reader know what this is and why it might be
+useful.
 
-Also, the PHY (Naneng Combo PHY) is initialized by the XPCS glue driver
-(pcs-xpcs-rk), not by the GMAC driver=2E The PHY driver has no way to know
-which GMAC is using it=2E Making the PHY aware of the MAC ID would require
-significant changes to the PHY layer, which is out of scope
-for this series=2E
+> 
+> Co-developed-by: Faruque Ansari <faruque.ansari@oss.qualcomm.com>
+> Signed-off-by: Faruque Ansari <faruque.ansari@oss.qualcomm.com>
+> Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/qcom/monaco.dtsi | 30 ++++++++++++++++++++++++++++
+>  1 file changed, 30 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/monaco.dtsi b/arch/arm64/boot/dts/qcom/monaco.dtsi
+> index 64fc0d592282..4fbd1dc9a147 100644
+> --- a/arch/arm64/boot/dts/qcom/monaco.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/monaco.dtsi
+> @@ -724,6 +724,36 @@ system_pd: power-domain-system {
+>  		};
+>  	};
+> 
+> +	ras-l1l2-0 {
 
-Therefore, an explicit DT property is the cleanest and most maintainable
-way to describe this hardware routing=2E
+Why is there a -0 suffix on this node?
 
-Thanks,
-Coia
+Regards,
+Bjorn
+
+> +		compatible = "arm,ras-processor";
+> +		arm,num-records = <1>;
+> +		arm,record-impl = /bits/ 64 <0x1>;
+> +		arm,status-reporting = /bits/ 64 <0x1>;
+> +		cache = <&l2_0>;
+> +		interrupts = <GIC_PPI 0 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-names = "fhi";
+> +	};
+> +
+> +	ras-l3-cluster0 {
+> +		compatible = "arm,ras-processor";
+> +		arm,num-records = <2>;
+> +		arm,record-impl = /bits/ 64 <0x2>;
+> +		arm,status-reporting = /bits/ 64 <0x2>;
+> +		cache = <&l3_0>;
+> +		interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-names = "fhi";
+> +	};
+> +
+> +	ras-l3-cluster1 {
+> +		compatible = "arm,ras-processor";
+> +		arm,num-records = <2>;
+> +		arm,record-impl = /bits/ 64 <0x2>;
+> +		arm,status-reporting = /bits/ 64 <0x2>;
+> +		cache = <&l3_1>;
+> +		interrupts = <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-names = "fhi";
+> +	};
+> +
+>  	reserved-memory {
+>  		#address-cells = <2>;
+>  		#size-cells = <2>;
+> --
+> 2.34.1
+> 
 
