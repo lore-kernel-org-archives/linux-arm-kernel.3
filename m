@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A10BC55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66293C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QCHf+BICxa7EuaPVaTzlpXTab1HmVNR8CLRR09b05kw=; b=4BoXIaCBtsdxi8xPtJ8UUKn7vL
-	VfGjEQP0IlB8TySXUbMi9AevP5oFs/ZeTdkAVFMht7x8BvGO1ahE/U3XUSk+lsOczAjU4QEnGHrDn
-	ytABN7zOBam3XuS4Rn9VCGqymMwLWZ4OOY8lqgrpJLMxEhhR1a8ms06IUePuNMkYqd87DRTOzXWbr
-	3a8b803lDbYRPTzPNybY6IClRQ5KocdosZv7DNagZjKDDbcDU5ufQnEZ0aRj0p0266RHrRgCHmNXm
-	9sGFp8pziEyEG7Uyx59kSMdAMGx1AvQPe55oUzqHjkDjlMItrsw8BbO192iuRoUgScK1XHOic/OtZ
-	f38J1qyA==;
+	bh=HOsdimgk1hcuikqltrmpauaFiHs4qkbEXMgzVNkUqh8=; b=hugTC18k432iINKxoRcIdY3HFN
+	n0mHv+y3X/IpHqsWzAgCqWjwVQ538JA/9qCQpabiulRa6v+Yj31p9CkFI3QFRQhqXPOksP9cIM+KS
+	Y8mCUhOSJ05fS4kvNg93znCIQXjl5TIUb2WgoGTGkFTZ/YnSW21+ggf0cWOL7O8bqLclLye02tOYX
+	YKO3JQaXKoscOLnyCFwwvLybt2/muJ05XJ7wyWQX5oLiPGZmaKpMrAaUn2/hQE/1RbYIi4eNMG9qs
+	fh73+5cAXvnj07BiE5p/KXkzk448x5Se5aHSzOuP7gmr2OeIA/SbhWnBHOo1RvMh5RKPZcmma3cLc
+	EDZ+Ozsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV3x-0000000FbjP-341E;
-	Sun, 02 Aug 2026 12:13:05 +0000
+	id 1wqV40-0000000FbmK-3VXX;
+	Sun, 02 Aug 2026 12:13:08 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV3w-0000000FbiP-3Zqx
+	id 1wqV3z-0000000FblK-3rTz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 12:13:04 +0000
+	Sun, 02 Aug 2026 12:13:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 89A3743B76;
+	by sea.source.kernel.org (Postfix) with ESMTP id ACC0643B6E;
+	Sun,  2 Aug 2026 12:13:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 062C01F00A3D;
 	Sun,  2 Aug 2026 12:13:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B62081F000E9;
-	Sun,  2 Aug 2026 12:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785672784;
-	bh=QCHf+BICxa7EuaPVaTzlpXTab1HmVNR8CLRR09b05kw=;
+	s=k20260515; t=1785672787;
+	bh=HOsdimgk1hcuikqltrmpauaFiHs4qkbEXMgzVNkUqh8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=WzpNSuYJ7wuarLciqjaZ1phi1fcfjZRNR4oTj/S6dyijpC0cIFrWkUalaju4zpd+x
-	 kvfsJqh/7RXuZD045pQFw/GRm6pem2gYv29KshCfSGUxFfMrMp2bBXka8mIXrHg/ib
-	 X56oynNj8cVgrJKBPohV/kTZcC1NTgLpe/mbTkqlTCFPfaEYLrXltUz3y5xQZ/J1+7
-	 rkf+GyY9kRvPpVaMFw4utzH4kdf96CP/bQCDUH5J8Mt4h/T1osMWqhtKV6G2cix7h0
-	 ETwSgXcHMSXFZ2da1BOzDmgNxYLVuZGxV/tIASmZZlkTjXlCJti3ZSxycuvPrC3e6K
-	 jXfRJLPtQgWUA==
+	b=XegY3zryDTYzLZ0sDrgsP4O1R2SKJfswe4uKlJx/7cjZjSR0xCmopSl2xpSpf1xlZ
+	 eMyOCHGXhg7/JkMoM3zycz/9o0RA7ExW27aBHsrmL7bJ/bcOZJ+YN9ZDz8pVrBioo6
+	 dgHcf63OzfYQTputEaP3uRD8TCkkrUvDQ/3qEFkR4LpQRnPp4ovVgiw6gk8Z/FAL/g
+	 hsmHrdecW5pl5hV1VXlEfUSANolTBZABUh3sbw6AnPW2OaGxzmLsvrKYOKrYG0nrR9
+	 T19cJkf/OsMD5rcHxrVQskcx+Bj8BdSK1qjsvJZ4bCl+Sy/N4zgn1eBGKS/P5vcSK2
+	 dudCmwe3C+8XQ==
 From: Will Deacon <will@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>,
-	Nicolin Chen <nicolinc@nvidia.com>
+To: iommu@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
+	Joerg Roedel <joro@8bytes.org>,
 	Robin Murphy <robin.murphy@arm.com>,
-	joro@8bytes.org,
-	Kevin Tian <kevin.tian@intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Daniel Mentz <danielmentz@google.com>,
 	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Pranjal Shrivastava <praan@google.com>
-Subject: Re: [PATCH v5 0/6] iommufd: Iterate the cache invalidation array in the core
-Date: Sun,  2 Aug 2026 13:12:27 +0100
-Message-ID: <178566589744.1710802.15577357267722332966.b4-ty@kernel.org>
+	Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Convert to use atomic poll timeout
+Date: Sun,  2 Aug 2026 13:12:28 +0100
+Message-ID: <178566514482.939612.15682351054124522231.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1785258826.git.nicolinc@nvidia.com>
-References: <cover.1785258826.git.nicolinc@nvidia.com>
+In-Reply-To: <20260728211123.1059708-1-praan@google.com>
+References: <20260728211123.1059708-1-praan@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -80,29 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 28 Jul 2026 10:33:32 -0700, Nicolin Chen wrote:
-> The vIOMMU cache_invalidate() and the nested-HWPT cache_invalidate_user()
-> ops are each handed the full user invalidation array and must report, via
-> array->entry_num, how many of its entries they handled. That makes every
-> driver open-code the same array walk, with real downsides:
+On Tue, 28 Jul 2026 21:11:23 +0000, Pranjal Shrivastava wrote:
+> The arm_smmu_write_reg_sync() helper is currently implemented using
+> readl_relaxed_poll_timeout() (that relies on usleep_range() internally)
+> which becomes a critical issue when used in the gerror irq handler.
 > 
->  - each driver carries its own loop and sub-array bookkeeping;
->  - the ARM SMMUv3 driver allocates a buffer sized to the whole array just
->    to iterate over it;
->  - hand-rolling the loop left the ARM SMMUv3 driver with two long-standing
->    bugs:
->     1) on a conversion failure it counts commands that it converted but
->        never issued, so user space skips invalidations that never reached
->        the cmdq;
->     2) it rejects a zero-length array, which the uAPI documents as a valid
->        request that only probes the data type.
+> If the SMMU hits a gerror and enters Service Failure Mode
+> (GERROR_SFM_ERR), the gerror handler calls arm_smmu_device_disable() in
+> hard-irq context. This becomes a problem as arm_smmu_device_disable()
+> inevitably calls arm_smmu_write_reg_sync() which might attempt to sleep
+> inside a hard-irq context.
 > 
 > [...]
 
-Applied first patch to iommu (arm/smmu/updates), thanks!
+Applied to iommu (arm/smmu/updates), thanks!
 
-[1/6] iommu/arm-smmu-v3: Support IDR5.DS and widen the TLBI SCALE field
-      https://git.kernel.org/iommu/c/773f2b9e3670
+[1/1] iommu/arm-smmu-v3: Convert to use atomic poll timeout
+      https://git.kernel.org/iommu/c/eced8058c82a
 
 Cheers,
 -- 
