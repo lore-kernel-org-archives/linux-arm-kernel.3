@@ -4,58 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4702DC55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 16:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED09C55177
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 16:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VjSayV/sJlc3KNTb3fMX3RwzhLQRHzSBn4xsieBjaMg=; b=VVPUTuw+8byQxuBJAcJvAl0U57
-	xWIccglrG0mQ/zTmCgb9qBhLL7CaNNT3s1GYTMQyYqTG341iM5ebeKGVQ7zECNvNMy7QAcy+8uf7n
-	RevRbZWhGLPVzwtePROFjgfemuNZ9tcSXF2zsp5p88SyBWJNaMSWa6jTM2Wh6uPojWMW50EkHumsB
-	28rZKwctc/PjHGly+nlvduzIGJPg26IwOA21I3TjPmyBWQ5ysSlUZx5L4TIcXteHIeQ+BNOOsLmGo
-	KzeVs9Cv6tt3TebFN6ZibZ9tfon5YxymC9rUQ+j7yuHkmFIQBPO/ty6gRq+jBKfZ/xoyS27Q5ekhD
-	9iNPD0Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z0iZTbjCu+gfJgRQt1mMeYmu8eVDQV+4fRYL8uwZYK4=; b=hkUKwVCbfqrBcF7s/XS7gr4PVx
+	CfDLdnE66sHf3g17b8LQBXEh2lVvYxgV3buc5VyAFG0HOSdJTplG8CTRC5N/2lZUIhylF2lNlorR9
+	MuLXSe/rnmhOvvUGVzlyw5zHpqum+fWqnCGY5wiLCwP4I7Rz76TQuraMKwwT5dd1vlWHrHUlKbe3A
+	RU2F2pWq3ziDeKoSl0wbY2SyXvDffFCRMlhuvWzYUS62qvAUsxhLySrLGYxADst1OczJI3n392OR+
+	S8uDv2qFznr4flUCRsINVMTXst8GnQsqskh9uVgpQw9AasVw5kXTKSrXQRhEYdI4NQzPzGoCE6ixS
+	7focZbsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZDx-0000000FppB-0Z5q;
-	Sun, 02 Aug 2026 16:39:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wqXym-0000000FmpV-1ZfI;
+	Sun, 02 Aug 2026 15:19:56 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqZDv-0000000Fpp3-400w
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 16:39:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 54A72437BC;
-	Sun,  2 Aug 2026 16:39:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A546D1F000E9;
-	Sun,  2 Aug 2026 16:39:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785688779;
-	bh=VjSayV/sJlc3KNTb3fMX3RwzhLQRHzSBn4xsieBjaMg=;
-	h=From:To:Cc:Subject:Date;
-	b=GTzDUMcOi0HIaAgBOvcoh1pnhBh51/HQ812MNtZ6w31c/CoctTee1fxFdK4DYfAfX
-	 YBPnww/cEUl85c/4RacqmPnYfixjYnmn0W2/SBksUnT163OiFR/5R3Rj4jdHa6BNxO
-	 E1eDj54fYFKB2iyEybMKFxnSmJPJnXT6lgW4CVAbaqZXDOxt56HfJTSB6ly1G1eQRt
-	 9Rn+0qwoQEW6gQqldDzc5zy5GLmEKznrgVbSwXAX6ucJphU4aEp+qdfP+Z825FePGE
-	 plev8wAwJiSDJILQMPCG8ztLUFvCbKUcjVGAPmTuzgFk7NH1+UpqT+fcVm4NSQsPTX
-	 WHlci5SrGvAxw==
-From: Thierry Reding <thierry.reding@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: Thierry Reding <thierry.reding@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL v2] arm64: tegra: Device tree fixes for v7.2
-Date: Sun,  2 Aug 2026 18:39:34 +0200
-Message-ID: <20260802163936.1257450-1-thierry.reding@kernel.org>
-X-Mailer: git-send-email 2.54.0
-Content-Type: text/plain; charset="utf-8"
+	id 1wqXyk-0000000Fmox-09eN;
+	Sun, 02 Aug 2026 15:19:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Z0iZTbjCu+gfJgRQt1mMeYmu8eVDQV+4fRYL8uwZYK4=; b=u/0i0lfybCTJSYExtr1Uw0vxtn
+	Nx7C6sUcYSujLOoYXNwABTyDo1VUA5n7QDbPAnLqCRLrVGi6SQzBP2DhJAZBVAlmf7yVG7FUFcfgJ
+	jevye1Vhb3DEE4iNL7RwlkajiQRndE69KmejwyJaSEYkBs56K0bBbitBBzCNhsqTUkrc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wqXyT-00FaSJ-CD; Sun, 02 Aug 2026 17:19:37 +0200
+Date: Sun, 2 Aug 2026 17:19:37 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Coia Prant <coiaprant@gmail.com>
+Cc: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 05/10] arm64: dts: rockchip: rk3568: add XPCS and
+ fixed-clock nodes
+Message-ID: <4106e359-aec0-4f38-b74f-e9757a48eebb@lunn.ch>
+References: <20260801142244.679437-2-coiaprant@gmail.com>
+ <20260801142244.679437-7-coiaprant@gmail.com>
+ <2847036.GUH7pLUipS@diego>
+ <CALj3r0gqvFZPb2SKRMPwf9chCx076rwCnXEoOMFch_V-fOKV6w@mail.gmail.com>
+ <0e9d16df-7332-446b-9321-ce3de3111ffa@lunn.ch>
+ <CALj3r0guMmNRN4EBbKz7stPNMSqkLBvms643YXBEDMzqHHM=FA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CALj3r0guMmNRN4EBbKz7stPNMSqkLBvms643YXBEDMzqHHM=FA@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260802_081954_097672_44C62774 
+X-CRM114-Status: GOOD (  21.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,36 +93,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <thierry.reding@gmail.com>
+On Sun, Aug 02, 2026 at 11:28:12AM +0800, Coia Prant wrote:
+> Hi Andrew,
+> 
+> Thanks for the detailed questions. I've looked into the clock tree
+> more carefully.
+> 
+> > Do you have documentation for these Combo PHYs?
+> 
+> Yes, the information is available in the Rockchip RK3568 TRM
+> (Technical Reference Manual).
+> The relevant clock tree details are also mentioned in upstream
+> discussions and patches.
+> 
+> > Can these clocks be enabled/disabled?
+> 
+> The 100 MHz input clock to the Combo PHY is a prerequisite for its operation.
+> It is generated by the SoC's internal PPLL and fed to the PHY through
+> a fixed divider.
+> It is not a gate that can be individually enabled or disabled by
+> software; it is part of the
+> PHY's fundamental operating conditions.
+> 
+> > And how is the Combo PHY fed with a clock? Does it have an external oscillator/crystal?
+> 
+> The Combo PHY is fed by an internal 100 MHz clock derived from the PPLL.
+> Specifically, the PPLL runs at 200 MHz, and this is divided by 2 to provide the
+>  100 MHz clock input to the Combo PHY.
+> So, it does not use an external oscillator or crystal for its main
+> reference clock;
+> it's generated internally by the SoC.
+> 
+> To summarize:
+> - The 125 MHz clocks (xpcs_gmac0_clk / xpcs_gmac1_clk) are outputs
+> from the Combo PHY.
+> - The Combo PHY itself is clocked by an internal 100 MHz clock from the PPLL.
+> - This is all internal to the SoC and does not involve a board-level oscillator.
+> 
+> I hope this clarifies the clock architecture.
 
-Hi ARM SoC maintainers,
+So what is the purpose of the fixed-clock DT nodes?
 
-The following changes since commit f5098b6bae761e346ebcd9da7f95622c04733cff:
+If you want to describe the hardware, is the PPLL in DT? Should you
+then add a fixed divider to give 100MHz? And then a fixed multiplier
+to give 125MHz?
 
-  Linux 7.2-rc5 (2026-07-26 14:45:48 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.2-arm64-dt-fixes-v2
-
-for you to fetch changes up to a7c28483fd57dd0e1487024af70622315320774b:
-
-  arm64: tegra: Add EL2 virtual timer interrupt for Tegra194 (2026-07-29 18:05:46 +0200)
-
-Thanks,
-Thierry
-
-----------------------------------------------------------------
-arm64: tegra: Device tree fixes for v7.2
-
-This contains a single fix adding an interrupt to the architected
-timer's device tree node for the EL2 virtual timer. This prevents
-a warning from the driver at boot time.
-
-----------------------------------------------------------------
-Jon Hunter (1):
-      arm64: tegra: Add EL2 virtual timer interrupt for Tegra194
-
- arch/arm64/boot/dts/nvidia/tegra194.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+   Andrew
 
