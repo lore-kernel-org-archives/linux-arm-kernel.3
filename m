@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD7CAC55175
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 14:58:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A11CC55175
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 14:59:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uKKVEfzej5t7VHzsctsTEaWiZarfFaC8uEMC+XmC0ug=; b=SC09WPJ7eOztgMNJcYSIELg4QV
-	+Cp1hDXWW6feMspMENupn8ScLk9ksCUBz3p8o5Di4bvPTc+Yw8gUo1zX004W3r8st2TDb8h6jLfMi
-	CyfsJop96m5m96e9T5no8NTvIa/NnrK+pdwduKXNmiWAkgadwCytJYKo2j7zyFI6dEE7kWh4XqfOi
-	jzSePBTpYCcwd8uxNqWlNOwbYr+Otp5sAyzm7XOziEnYhxlZxExN/9kJbR+ocsW7SdCzf2YAo6sEW
-	pPYfp2Bi2sgdc2xKEOWO9927NAE7Cr3xiY97Y4VJxwV+TZaWmlMPLasVq+6JQGXWu/e8v0LlWukIc
-	Q9dbE1pQ==;
+	bh=maj4cxgrxG8umuWzfYyFVVK756WYWLp0aUJuqTUvfaA=; b=G63386xK5eZhQB3DdtUXrWpfx9
+	hH7sJtzWZD4WHCzRJxzJkbadIIn+xGE3eL+aENe/U/wI45Tb1VArqARp00P740L8912PNpXTb1Odu
+	egcCjH4n34T/xIJtLAa4pOubEWUO75vrCbLXe28hHUx/4Tv1nuILp/009dyAyAGOaJov8gByzDBs/
+	DeNBHa8jS9m4ZyWBfdkXaY0jAuIqZ4O29+Be0arxU9+v7EdghoYKOneuYFn0MbOjBFix9/n3ijDf9
+	X+SeH+eJAL0MQ2AJNVJ4UdOtKWhU4OozuqeZ2jCyxXy5nIgKyzE6bOnyIcapkfQoeCgyp8mw9kS9W
+	0AwCw67A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXeJ-0000000FkiL-3jwl;
-	Sun, 02 Aug 2026 14:58:47 +0000
+	id 1wqXeT-0000000Fkpl-0ezB;
+	Sun, 02 Aug 2026 14:58:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXeH-0000000FkgL-19lk
+	id 1wqXeR-0000000FknY-0Gy3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 14:58:46 +0000
+	Sun, 02 Aug 2026 14:58:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 10D92143D;
-	Sun,  2 Aug 2026 07:58:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9412D143D;
+	Sun,  2 Aug 2026 07:58:49 -0700 (PDT)
 Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 59EF83F632;
-	Sun,  2 Aug 2026 07:58:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C2843F632;
+	Sun,  2 Aug 2026 07:58:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785682723; bh=w7L8DbnoCEuyvO8JUAes+aM9b0PjMj4j60HnlNcmEQg=;
+	t=1785682733; bh=/H0blp6TvwNxRJHhRDT6ihWt5BYTzTHZIi5A9cS5S6I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uwDvNZrHJzF5d1Jf6gIu40rzmgvRGMa66F427865aVoRfv9Q+QFH2vuNk9fcZSjVR
-	 dS1sD6y1pl+0dgn+cl2kAkb7sgkzMZHG8hHr0wip6mleZIvLCW35J0XJfljLxM4nZe
-	 V8Wh8bDXJf4mF+Qqm+VYFKzqGQyzjZtoIUG4nwEU=
+	b=ZwNIh1t0gR4HO9Kyj5/CMNod/4XSixPcMwYHXvBH1VllAD2hvttQBntN+LJD2XzUn
+	 UmASivVGyqD8ULswpb6c462u/6U4N2leq3Hp4saJQOb9OTy0HhztEoPriG07ggXpJv
+	 Vz8JfzwUddkPUwtGmCXS2KN8lKPKzQroZRKZClC0=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -64,18 +64,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v7 17/23] firmware: arm_scmi: Add Telemetry debugfs ABI documentation
-Date: Sun,  2 Aug 2026 15:56:12 +0100
-Message-ID: <20260802145618.1952804-18-cristian.marussi@arm.com>
+Subject: [PATCH v7 19/23] uapi: Add ARM SCMI Telemetry definitions
+Date: Sun,  2 Aug 2026 15:56:14 +0100
+Message-ID: <20260802145618.1952804-20-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260802145618.1952804-1-cristian.marussi@arm.com>
 References: <20260802145618.1952804-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_075845_356406_C3DF6993 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260802_075855_205005_905978D6 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,46 +89,583 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add description of the debugfs SCMI Telemetry protocol ABI.
+Add a number of structures and ioctls definitions used by the ARM
+SCMI Telemetry protocol.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
+v6 --> v7
+ - added per-DE UUID/SID/OFFS
+ - IOCTL EVENTS: generation counter
+ - generic BATCH support (scmi_tlm_batch)
+ - BATCH READ with perf-DE status
+ - BATCH DE GET/SET CONFIG
+ - added reserved fields for grow
+ - added more ABI features flags
+ - better Doxygen desciption for IN/OUT params
 v5 --> v6
- - fixed typos
+ - Fixed interval exp to be __s32 as documented
+ - Using a more unique name for IOCTL MAGIC define
+ - Renamed a few IOCTLs to be consistent
+ - redefine primary UUID as an array of u8
+ - add GET_ABI_INFO to gather ABI version and instance info
+ - add RESET support
+ - fixed typos in kdoc
+v4 --> v5
+ - Added more structure padding
+ - Removed frowned upon flexible array in favour of u64 pointers to external
+   userspace provided buffer
+ - Added UAPI support to access SHMTIs from userspace
+ - Cleaned up Doxygen
+v2 --> v3
+ - Change tstamp_exp tp ts_rate
+ - renamed num -> num_intervals in scmi_tlm_interval
+ - added padding in scmi_tlm_de_sample to avoid packing issues on 32bit
+v1 --> v2
+ - Added proper __counted_by marks
+ - Fixed a few dox comments
+ - Renamed reserved[] fields to pad[]
 ---
- Documentation/ABI/testing/debugfs-scmi | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ MAINTAINERS               |   1 +
+ include/uapi/linux/scmi.h | 517 ++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 518 insertions(+)
+ create mode 100644 include/uapi/linux/scmi.h
 
-diff --git a/Documentation/ABI/testing/debugfs-scmi b/Documentation/ABI/testing/debugfs-scmi
-index ee7179ab2edf..edbbe360321d 100644
---- a/Documentation/ABI/testing/debugfs-scmi
-+++ b/Documentation/ABI/testing/debugfs-scmi
-@@ -68,3 +68,25 @@ Description:	Max number of concurrently allowed in-flight SCMI messages for
- 		the currently configured SCMI transport for instance <n> on the
- 		RX channels.
- Users:		Debugging, any userspace test suite
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a674e36529f7..6587cba09aae 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -26305,6 +26305,7 @@ F:	drivers/regulator/scmi-regulator.c
+ F:	drivers/reset/reset-scmi.c
+ F:	include/linux/sc[mp]i_protocol.h
+ F:	include/trace/events/scmi.h
++F:	include/uapi/linux/scmi.h
+ F:	include/uapi/linux/virtio_scmi.h
+ 
+ SYSTEM CONTROL MANAGEMENT INTERFACE (SCMI) i.MX Extension Message Protocol drivers
+diff --git a/include/uapi/linux/scmi.h b/include/uapi/linux/scmi.h
+new file mode 100644
+index 000000000000..e00f647b6ace
+--- /dev/null
++++ b/include/uapi/linux/scmi.h
+@@ -0,0 +1,517 @@
++/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
++/*
++ * Copyright (C) 2026 ARM Ltd.
++ */
++#ifndef _UAPI_LINUX_SCMI_H
++#define _UAPI_LINUX_SCMI_H
 +
-+What:		/sys/kernel/debug/scmi/<n>/protocols/0x<m>/
-+Date:		Nov 2026
-+KernelVersion:	7.3
-+Contact:	cristian.marussi@arm.com
-+Description:	A subdirectory grouping debug entries related to protocol <m>
-+		for instance <n>. Each protocol owns and defines the subtree
-+		of entries rooted under this directory.
-+Users:		Debugging, any userspace test suite
++/*
++ * Userspace interface SCMI Telemetry
++ */
 +
-+What:		/sys/kernel/debug/scmi/<n>/protocols/0x1B/shmtis/<m>
-+Date:		Nov 2026
-+KernelVersion:	7.3
-+Contact:	cristian.marussi@arm.com
-+Description:	A set of RO files exposed by the Telemetry protocol (0x1B) in
-+		order to dump the latest snapshot of each SHMTI memory area in
-+		binary format: each file is named by its SHMTI id.
-+		File is seekable and a seek to position zero on an open file
-+		causes the SHMTI snapshot to be refreshed; file timestamps are
-+		updated after each snapshot.
-+		This directory reports SHMTIs for instance <n>.
-+Users:		Debugging, any userspace test suite
++#include <linux/ioctl.h>
++#include <linux/types.h>
++
++#define SCMI_TLM_ABI_VERSION_V1			1
++#define SCMI_TLM_CURRENT_ABI_VERSION		SCMI_TLM_ABI_VERSION_V1
++#define SCMI_TLM_DE_IMPL_UUID_SZ		16
++
++#define SCMI_TLM_SHMTI_ID_INVALID		0xFFFFFFFF
++
++/**
++ * struct scmi_tlm_abi_info - Basic information on the ABI/instance
++ *
++ * SCMI Telemetry characteristics like number of DEs, Groups, Intervals and
++ * SHMTIs are statically determined by the platform and do not change within
++ * one boot/session; they are reported here so that they can be used to properly
++ * size the requests on other IOCTLs, without having to discover dynamically
++ * those sizes by issuing a zero-sized IOCTL request at first.
++ *
++ * @size: sizeof this structure - IN
++ * @abi_version: ABI Version - OUT
++ * @abi_features: ABI capabilities bitmap - OUT
++ * @de_impl_version: SCMI Telemetry DE implementation revision - OUT
++ * @num_des: Number of defined DEs - OUT
++ * @num_groups: Number of defined DEs groups - OUT
++ * @num_intervals: Number of available update intervals (instance-level) - OUT
++ * @num_shmtis: Number of discovered SHMTI areas - OUT
++ * @features: Instance specific SCMI feature-support bitmap - OUT
++ * @reserved: Some room for future expansion without the need to resize.
++ *	      Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_ABI_INFO
++ */
++struct scmi_tlm_abi_info {
++	__u32 size;
++	__u32 abi_version;
++	__u32 abi_features;
++#define SCMI_TLM_ABI_FEAT_RESET				(1 << 0)
++#define SCMI_TLM_ABI_FEAT_EVENT				(1 << 1)
++#define SCMI_TLM_ABI_FEAT_UUID_LIST			(1 << 2)
++#define SCMI_TLM_ABI_FEAT_BATCH_STATE			(1 << 3)
++#define SCMI_TLM_ABI_FEAT_BATCHED_CFG			(1 << 4)
++#define SCMI_TLM_ABI_FEAT_DE_TRACKING			(1 << 5)
++	__u8 primary_de_impl_version[SCMI_TLM_DE_IMPL_UUID_SZ];
++	__u32 num_des;
++	__u32 num_groups;
++	__u32 num_intervals;
++	__u32 num_shmtis;
++	__u32 features;
++#define SCMI_TLM_SCMI_SUPPORT_RESET			(1 << 0)
++#define SCMI_TLM_SCMI_SUPPORT_SINGLE_SAMPLE		(1 << 1)
++#define SCMI_TLM_SCMI_SUPPORT_GROUP_CONFIG		(1 << 2)
++#define SCMI_TLM_SCMI_SUPPORT_UPDATE_NOTIFICATION	(1 << 3)
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_update_interval  - Update interval descriptor
++ *
++ * @secs: integer representing seconds - OUT
++ * @exp: signed integer representing the base 10 exponent used as a multiplier
++ *	 with @secs to represent the interval - OUT
++ *
++ * The resulting update interval is calculated as: <secs> * 10 ^ <exp>
++ */
++struct scmi_tlm_update_interval {
++	__u32 secs;
++	__s32 exp;
++};
++
++/**
++ * struct scmi_tlm_config  - Whole instance or group configuration
++ *
++ * @enable: Get/Set Telemetry enabled state for the whole instance or the
++ *	    group specified in @grp_id - IN/OUT
++ * @t_enable: Get/Set timestamp state for the group specified in @grp_id - IN/OUT
++ * @flags: Bitmask to represent special characteristics - IN
++ * @pad: Padding fields to enforce alignment
++ * @grp_id: Identifier of the target group upon which this configuration will
++ *	    be applied: ignored if not marked as a group in @flags - IN/OUT
++ * @active: Get/Set currently active update interval for the whole instance
++ *	    or the group specified in @grp_id - IN/OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_CFG
++ *	WO - SCMI_TLM_SET_CFG
++ */
++struct scmi_tlm_config {
++	__u8 enable;
++	__u8 t_enable;
++	__u8 flags;
++#define SCMI_TLM_CONFIG_GROUP		(1 << 0)
++#define SCMI_TLM_CONFIG_FLAGS		(SCMI_TLM_CONFIG_GROUP)
++#define SCMI_TLM_CONFIG_IS_GROUP(f)	((f) & SCMI_TLM_CONFIG_GROUP)
++	__u8 pad;
++	__u32 grp_id;
++	struct scmi_tlm_update_interval active;
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_intervals  - Update intervals descriptor
++ *
++ * @grp_id: Identifier of the target group upon which this configuration
++ *	    will be applied: ignored if not marked as a group in @flags - IN
++ * @flags: Bitmask to represent special characteristics. When the interval
++ *	   is NOT marked as SCMI_TLM_INTERV_DISCRETE, @intervals will
++ *	   contain a triplet: min/max/step - OUT
++ * @pad: Padding fields to enforce alignment
++ * @num_intervals: Number of entries of @intervals. On input this represents the
++ *		   size of @intervals, while on output carries the effective
++ *		   number of entries filled-in - IN/OUT
++ * @pad2: Padding fields to enforce alignment
++ * @reserved: Some room for future expansion. Must be zero.
++ * @intervals: A pointer to an array of struct scmi_tlm_update_interval - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_INTRVS
++ */
++struct scmi_tlm_intervals {
++	__u32 grp_id;
++	__u8 flags;
++#define SCMI_TLM_INTERV_GROUP		(1 << 0)
++#define SCMI_TLM_INTERV_DISCRETE	(1 << 1)
++#define SCMI_TLM_INTERV_FLAGS					\
++	(SCMI_TLM_INTERV_GROUP | SCMI_TLM_INTERV_DISCRETE)
++#define SCMI_TLM_INTERV_IS_GROUP(f)	((f) & SCMI_TLM_INTERV_GROUP)
++	__u8 pad[3];
++	__u32 num_intervals;
++	__u32 pad2;
++	__u64 reserved;
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_LOW	0
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_HIGH	1
++#define SCMI_TLM_UPDATE_INTVL_SEGMENT_STEP	2
++	__u64 intervals;
++};
++
++/**
++ * struct scmi_tlm_de_config  - DE configuration
++ *
++ * This descriptor is used directly by the aggregate SCMI_TLM_GET_ALL_CFG and
++ * SCMI_TLM_SET_ALL_CFG IOCTLs, or embedded into an @scmi_tlm_batch request for
++ * SCMI_TLM_GET_DE_CFG and SCMI_TLM_GET_DE_CFG IOCTLs.
++ *
++ * @id: Identifier of the DE, ignored by SCMI_TLM_GET/SET_ALL_CFG - IN
++ * @enable: Get/Set the enabled state of this single DE or the cumulative ALL
++ *	    state - IN/OUT
++ * @t_enable: Get/Set the timestamp state of this single DE (if supported) or
++ *	      the cumulative ALL state - IN/OUT
++ * @sid: An integer representing the SHMTI ID that contains this DE. Valid
++ *	 ONLY when the related DE is enabled - OUT
++ * @oofset: An integer representing the offset in the SHMTI @sid that identifies
++ *	    the start of the TDCF DataLine containing this DE.
++ *	    Valid ONLY when the related DE is enabled - OUT
++ * @pad: Padding fields to enforce alignment
++ * @uuid: An arrray containing the UUID, in BigEndian format, associated to
++ *	  this DE. Valid ONLY when the related DE is enabled: this UUID can
++ *	  be the primary UUID or one of the secondary UUIDs if any exist.
++ *	  Note that this UUID/DE association is permanent within the same
++ *	  boot/session - OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_ALL_CFG
++ *	RW - SCMI_TLM_SET_ALL_CFG
++ *	RW - SCMI_TLM_GET_DE_CFG (within a BATCH)
++ *	RW - SCMI_TLM_SET_DE_CFG (within a BATCH)
++ */
++struct scmi_tlm_de_config {
++	__u32 id;
++	__u32 enable;
++	__u32 t_enable;
++	__u32 sid;
++	__u32 offset;
++	__u32 pad;
++	__u8 uuid[SCMI_TLM_DE_IMPL_UUID_SZ];
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_de_info  - DataEvent Descriptor
++ *
++ * @id: DE identifier - IN/OUT
++ * @grp_id: Identifier of the group which this DE belongs to; valid only if
++ *	    this DE is marked as belonging to a group in @flags - IN/OUT
++ * @data_sz: DE data size in bytes - OUT
++ * @type: DE type - OUT
++ * @unit: DE unit of measurements - OUT
++ * @unit_exp: Power-of-10 multiplier for DE unit - OUT
++ * @ts_rate: Clock rate in kHz used to generate the DE timestamp - OUT
++ * @instance_id: DE instance ID - OUT
++ * @compo_instance_id: DE component instance ID - OUT
++ * @compo_type: Type of component which is associated to this DE - OUT
++ * @persistent: Data value for this DE survives reboot (non-cold ones) - OUT
++ * @flags: Bitmask to represent special characteristics - IN
++ * @pad: Padding fields to enforce alignment
++ * @pad2: Padding fields to enforce alignment
++ * @name: Name of this DE - OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used to get the full description of a DE: it reflects DE Descriptors
++ * definitions in SCMI V4.0 specification at 3.12.4.6.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_INFO
++ */
++struct scmi_tlm_de_info {
++	__u32 id;
++	__u32 grp_id;
++	__u32 data_sz;
++	__u32 type;
++	__u32 unit;
++	__s32 unit_exp;
++	__u32 ts_rate;
++	__u32 instance_id;
++	__u32 compo_instance_id;
++	__u32 compo_type;
++	__u8 persistent;
++	__u8 flags;
++#define SCMI_TLM_DEINFO_GROUP		(1 << 0)
++#define SCMI_TLM_DEINFO_FLAGS		(SCMI_TLM_DEINFO_GROUP)
++#define SCMI_TLM_DEINFO_HAS_GROUP(f)	((f) & SCMI_TLM_DEINFO_GROUP)
++	__u8 pad[2];
++	__u32 pad2;
++	__u8 name[16];
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_des_list  - List of all defined DEs
++ *
++ * @num_des: Number of entries in @des. In input represents the size of
++ *	     @des, while in output carries the effective number of items
++ *	     filled-in - IN/OUT
++ * @pad: Padding fields to enforce alignment
++ * @des: A reference to an array containing struct scmi_tlm_de_info
++ *	 descriptors for all the existent DEs - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_DE_LIST
++ */
++struct scmi_tlm_des_list {
++	__u32 num_des;
++	__u32 pad;
++	__u64 des;
++};
++
++/**
++ * struct scmi_tlm_de_sample - A DataEvent reading
++ *
++ * @id: DE identifier - IN
++ * @pad: Padding fields to enforce alignment.
++ * @tstamp: DE reading timestamp (0 if timestamp NOT supported) - OUT
++ * @val: Reading of the DE data value - OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_DE_READ
++ */
++struct scmi_tlm_de_sample {
++	__u32 id;
++	__u32 pad;
++	__u64 tstamp;
++	__u64 val;
++};
++
++/**
++ * struct scmi_tlm_data_read - Bulk read of a number of DataEvents
++ *
++ * @grp_id: Optional group ID number, ignored if not marked as a group request
++ *	    in @flags and not supported by SCMI_TLM_BATCH_READ - IN
++ * @flags: Bitmask to represent special characteristics - IN
++ * @pad: Padding fields to enforce alignment
++ * @pad2: Padding fields to enforce alignment
++ * @num_samples: Number of entries in @samples. In input represents the size of
++ *		 @samples, while in output carries the effective number of items
++ *		 filled-in  - IN/OUT
++ * @samples: A reference to an array of struct scmi_tlm_de_sample containing
++ *	     an entry for each DE - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_SINGLE_READ
++ *	RW - SCMI_TLM_BULK_READ
++ */
++struct scmi_tlm_data_read {
++	__u32 grp_id;
++	__u8 flags;
++#define SCMI_TLM_READ_GROUP		(1 << 0)
++#define SCMI_TLM_READ_FLAGS		(SCMI_TLM_READ_GROUP)
++#define SCMI_TLM_READ_IS_GROUP(f)	((f) & SCMI_TLM_READ_GROUP)
++	__u8 pad[3];
++	__u32 pad2;
++	__u32 num_samples;
++	__u64 samples;
++};
++
++/**
++ * struct scmi_tlm_batch  - A wrapper structure for BATCH operations
++ *
++ * @num_items: Number of items in @items and @states - IN
++ * @items_sz: Size of a single item contained in @items - IN
++ * @reserved: Some room for future expansion. Must be zero.
++ * @states: A reference to an arrays of u32 items representing the outcome of
++ *	    the requests for each single item in @items: these are ordered in
++ *	    the same order as the @items. - OUT
++ * @items: A reference to an array of batched requests - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_BATCH_READ
++ *	RW - SCMI_TLM_GET_DE_CFG
++ *	RW - SCMI_TLM_SET_DE_CFG
++ *
++ */
++struct scmi_tlm_batch {
++	__u32 num_items;
++	__u32 item_sz;
++	__u64 reserved;
++	__u64 states;
++	__u64 items;
++};
++
++/**
++ * struct scmi_tlm_grp_info  - Group info descriptor
++ *
++ * @grp_id: Group ID number - IN
++ * @num_des: Number of DEs part of this group - OUT
++ * @num_intervals: Number of update intervals supported. Zero if group does not
++ *		   support per-group update interval configuration. - OUT
++ * @pad: Padding fields to enforce alignment
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_GRP_INFO
++ */
++struct scmi_tlm_grp_info {
++	__u32 grp_id;
++	__u32 num_des;
++	__u32 num_intervals;
++	__u32 pad;
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_grps_list  - Group info descriptor list
++ *
++ * @num_grps: Number of entries returned in @grps. In input represents the size
++ *	      of @grps, while in output carries the effective number of items
++ *	     filled-in - IN/OUT
++ * @pad: Padding fields to enforce alignment
++ * @grps: A reference to an array of struct scmi_tlm_grp_info containing an
++ *	  entry for each defined group - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_GRP_LIST
++ */
++struct scmi_tlm_grps_list {
++	__u32 num_grps;
++	__u32 pad;
++	__u64 grps;
++};
++
++/**
++ * struct scmi_tlm_grp_desc  - Group descriptor
++ *
++ * @grp_id: Group ID number - IN
++ * @num_des: Number of DEs composing this group. In input represents the size
++ *	      of @composing_des, while in output carries the effective number
++ *	      of items filled-in - IN/OUT
++ * @composing_des: A reference to an array of __u32 elements containing the
++ *		   DataEvent IDs composing this group. - IN/OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_GRP_DESC
++ */
++struct scmi_tlm_grp_desc {
++	__u32 grp_id;
++	__u32 num_des;
++	__u64 composing_des;
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_shmti_info  - SHMTI descriptor
++ *
++ * @sid: SHMTI ID - IN
++ * @fd: Associated opened file descriptor to use for mmap - OUT
++ * @len: Size of the SHMTI to be used with mmap on this SHMTI - OUT
++ * @offset: Offset in the mmap where the specified SHMTI start - OUT
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_SHMTI_LIST
++ */
++struct scmi_tlm_shmti_info {
++	__u32 sid;
++	__u32 fd;
++	__u32 len;
++	__u32 offset;
++	__u64 reserved;
++};
++
++/**
++ * struct scmi_tlm_shmtis_list  - SHMTIs List
++ *
++ * @num_shmtis: Number of SHMTIs. In input represents the size of @shmtis, while
++ *		in output carries the effective number of items filled-in - IN/OUT
++ * @pad: Padding fields to enforce alignment
++ * @shmtis: A reference to an array of struct scmi_tlm_shmti_info containing
++ *	    an entry for each defined SHMTI - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_SHMTI_LIST
++ */
++struct scmi_tlm_shmtis_list {
++	__u32 num_shmtis;
++	__u32 pad;
++	__u64 shmtis;
++};
++
++/**
++ * struct scmi_tlm_uuid  - UUID descriptor
++ *
++ * @byte: An array of bytes containing the UUDI in BigEndian order as
++ *	  per RFC 9562. - OUT
++ */
++struct scmi_tlm_uuid {
++	__u8 bytes[SCMI_TLM_DE_IMPL_UUID_SZ];
++};
++
++/**
++ * struct scmi_tlm_uuid_list  - UUIDs List
++ *
++ * @num_uuids: Number of UUIDs. If set to zero on input it will contain the
++ *	       number of existing UUIDs on output; otherwise, in input it
++ *	       represents the number of entries in @uuids, while  in output
++ *	       will carries the effective number of items filled-in. - IN/OUT
++ * @pad: Padding fields to enforce alignment
++ * @uuids: A reference to an array of struct scmi_tlm_uuid containing an entry
++ *	   for each defined UUID - IN/OUT
++ *
++ * Used by:
++ *	RW - SCMI_TLM_GET_UUID_LIST
++ */
++struct scmi_tlm_uuid_list {
++	__u32 num_uuids;
++	__u32 pad;
++	__u64 uuids;
++};
++
++/**
++ * struct scmi_tlm_event  - Event descriptor
++ *
++ * @type: Type of Telemetry event to subscribe/unsubscribe - IN
++ * @efd: An integer representing an open eventfd file descriptor, which will
++ *	 be used to signal the subscribed event. - IN
++ * @cookie: An integer used to represent a subscrition request: ONLY positive
++ *          values represents valid subscription.
++ *          On a new subscription this must be set to zero in input, to signify
++ *          that a new request is being made: if the subscription was
++ *          successful a positive integer is returned.
++ *          When, instead, @cookie is set to a positive integer in input, it
++ *          is interpreted as a reference to an existing subscription to be
++ *          cancelled.
++ * @pad: Padding fields to enforce alignment
++ * @reserved: Some room for future expansion. Must be zero.
++ *
++ * Used by:
++ *	SCMI_TLM_EVENT_SUBSCRIBE
++ */
++struct scmi_tlm_event {
++#define SCMI_TLM_EVT_GENERATION		0x0U
++#define SCMI_TLM_EVT_LAST		(SCMI_TLM_EVT_GENERATION)
++	__u32 type;
++	__u32 efd;
++	__u32 cookie;
++	__u32 pad;
++	__u64 reserved;
++};
++
++#define SCMI_TLM_IOCTL_MAGIC 0xF1
++
++#define SCMI_TLM_GET_ABI_INFO	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x00, struct scmi_tlm_abi_info)
++#define SCMI_TLM_GET_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x01, struct scmi_tlm_config)
++#define SCMI_TLM_SET_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x02, struct scmi_tlm_config)
++#define SCMI_TLM_GET_INTRVS	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x03, struct scmi_tlm_intervals)
++#define SCMI_TLM_GET_DE_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x04, struct scmi_tlm_batch)
++#define SCMI_TLM_SET_DE_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x05, struct scmi_tlm_batch)
++#define SCMI_TLM_GET_DE_INFO	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x06, struct scmi_tlm_de_info)
++#define SCMI_TLM_GET_DE_LIST	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x07, struct scmi_tlm_des_list)
++#define SCMI_TLM_DE_READ	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x08, struct scmi_tlm_de_sample)
++#define SCMI_TLM_GET_ALL_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x09, struct scmi_tlm_de_config)
++#define SCMI_TLM_SET_ALL_CFG	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0A, struct scmi_tlm_de_config)
++#define SCMI_TLM_GET_GRP_LIST	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0B, struct scmi_tlm_grps_list)
++#define SCMI_TLM_GET_GRP_INFO	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0C, struct scmi_tlm_grp_info)
++#define SCMI_TLM_GET_GRP_DESC	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0D, struct scmi_tlm_grp_desc)
++#define SCMI_TLM_SINGLE_READ	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0E, struct scmi_tlm_data_read)
++#define SCMI_TLM_BULK_READ	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x0F, struct scmi_tlm_data_read)
++#define SCMI_TLM_BATCH_READ	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x10, struct scmi_tlm_data_read)
++#define SCMI_TLM_GET_SHMTI_LIST	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x11, struct scmi_tlm_shmtis_list)
++#define SCMI_TLM_RESET		_IO(SCMI_TLM_IOCTL_MAGIC,   0x12)
++#define SCMI_TLM_GET_UUID_LIST	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x13, struct scmi_tlm_uuid_list)
++#define SCMI_TLM_EVENT_SUBSCRIBE	\
++	_IOWR(SCMI_TLM_IOCTL_MAGIC, 0x14, struct scmi_tlm_event)
++
++#endif /* _UAPI_LINUX_SCMI_H */
 -- 
 2.54.0
 
