@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 110CBC55171
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 261C0C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 12:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dPyXOMdUGR0tSguKqqAMQGFkRYshTiCGx6I8JgO6WQw=; b=JCrCV2rE8Ec+muwGGx5DmOL+3V
-	9lHDLYN9syY2B2Oiqpkh+4abdrXRuJUCWcp/1lFetTlBNMN1CoIY7LddyV7MhY4h4P5YDIRj1tWVu
-	8+dxIvjTCQh65wlfw2gdVtEy2DRupuAH9O0vPPDtxBEKN7zNOihmDjtsI/b8fWCiAPq8hA8GTg+1Y
-	QJUPHDZOvPJCf+8+8M/LMme1inbhnpWto4EX2Gcp5q+MHic7zQOfKl9YCD51xBKKKZCJZ2gX9IQEY
-	/xnCd6yn10+hMoVlfJRD8URX5s5InMc34bjrJakQaNqsyBLf8zOZJ9ZU2+PS6KhJPminESPAnn7Np
-	8V9q8LGg==;
+	bh=Qsc4Zo5L3mZYLrR22r5vklXk172DOT+oMtWHGKxRgdg=; b=AXSg+yMytbB4zTarrLmLpUgMK7
+	cDZFcSVRH+DZlm0oP0lbyhlQ7ZfbRclnJj+aPz8v1AjgrY+NkRWac2YqIxfx8MQRp/e23vcQaV0ck
+	ZsJP+5vdsVFbPh8erMS5K0HHZhyY3THBEA4nEzQF5KuvYcr8YqLjr8Z5yUQpf8PG3X4CzFthPHDG0
+	dgwWyo9/sWZQUPfEdXRt68Yib+Nf/mZGz7tJD4UgnDPpmge7LBohtNNWvRZtzXCkiP0qCsz1iEqbA
+	3XcW3SCm6EwTdJOIX8FKzP0Uh9DTkBcHKQYpYBMlhRB1WOG24UyWlM8+gVlgH1H6Uix6lPtu9+KJc
+	PxT2Dt4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV4B-0000000Fbx1-1Jwj;
-	Sun, 02 Aug 2026 12:13:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wqV4C-0000000Fbyg-1iQi;
+	Sun, 02 Aug 2026 12:13:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqV49-0000000Fbv0-3H9E
+	id 1wqV4B-0000000Fbxa-4Bf2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 12:13:17 +0000
+	Sun, 02 Aug 2026 12:13:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3AF9F60AA1;
+	by tor.source.kernel.org (Postfix) with ESMTP id 7238660A85;
+	Sun,  2 Aug 2026 12:13:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 759E31F000E9;
 	Sun,  2 Aug 2026 12:13:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BEDA1F00A3A;
-	Sun,  2 Aug 2026 12:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785672796;
-	bh=dPyXOMdUGR0tSguKqqAMQGFkRYshTiCGx6I8JgO6WQw=;
+	s=k20260515; t=1785672799;
+	bh=Qsc4Zo5L3mZYLrR22r5vklXk172DOT+oMtWHGKxRgdg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=esK5WBV3+g0ditICZyjMe40JHpdENeWbhdWp84FgXFW1DQaAtdnKExMfmmliOaDVK
-	 yEWCjLjRK/neazj933iqequaKBi39UhPd1R1jtBIIeZMAWQxUEDN/AJCH7O+KdjXtO
-	 VJ3AAYiLVWZRENeOJVhVjbmhYGIsLjsMW78jyh0dWyA8gCigOD3dEnCBLsNQbCdYia
-	 B1j3Eko2syloLeGABh7RhB6gIvfbRnbfjoRxAaVxhKr4Rfgi7IvrCcN1E1ifhHQ3Tc
-	 accxdsJYj2XtTYw9GLpo9ICnr08WxwgnRMUSKLY/227dRs2tPhUBVAQeVCqLg2ctwW
-	 rlgY9EkoHE/Gw==
+	b=ffQC1JMS3vcX0TUvo8a69tH1QjN4OBaTs0Q4LE9NZqS4bcz1oWIBESSfR/+c2o5SF
+	 /+33zVE2SVYdBM9mVwc/GJksUAH4KpuGTsfOm7hJU3jprcLYPWfe+tLv8vwCTOoKY4
+	 23QLacMIMQ1M/q2bAmfIf1B0aNHw6y8qleU1Tsx46YTQnUSqHJ0Hwqz8yjvl9MLnzm
+	 f8SMn/f1awjJDohUYvBTT2EnYHaIdb51Arv57tVSs0c/WtL1j9bVHC5nrYFiONeLnm
+	 lmINIoik3jF5QlHsX6d8LxngkTx3vEL13CBWIqbRwowt3vLb16QYXFe1Tg+3xDcXch
+	 cJgdl7EjCbLtA==
 From: Will Deacon <will@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
-	Vladimir Murzin <vladimir.murzin@arm.com>
+	Will Deacon <will@kernel.org>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	mark.rutland@arm.com,
-	maz@kernel.org
-Subject: Re: [PATCH] arm64: smp: Fix IPI teardown for GICv5 flow
-Date: Sun,  2 Aug 2026 13:12:32 +0100
-Message-ID: <178566277333.4131735.6580633448439910841.b4-ty@kernel.org>
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] arm64: mm: Treat all devices as dma-coherent when CLIDR_EL1.LoC == 0
+Date: Sun,  2 Aug 2026 13:12:33 +0100
+Message-ID: <178566220031.4127382.9712875539182363741.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260731122646.84682-1-vladimir.murzin@arm.com>
-References: <20260731122646.84682-1-vladimir.murzin@arm.com>
+In-Reply-To: <20260723130322.3179-1-will@kernel.org>
+References: <20260723130322.3179-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,22 +74,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 13:26:46 +0100, Vladimir Murzin wrote:
-> Sashiko reported that during CPU offlining, __cpu_disable() is
-> executed by the stopper thread via take_cpu_down() with local
-> interrupts disabled. __cpu_disable() calls ipi_teardown(), which
-> invokes ipi_lpi_disable(). For the GICv5 flow, this eventually calls
-> the sleepable disable_irq().
+On Thu, 23 Jul 2026 14:03:21 +0100, Will Deacon wrote:
+> On systems where CLIDR_EL1.LoC == 0, no cache maintenance is required
+> when cleaning or invalidating to the Point of Coherency and therefore
+> all DMA agents can be treated as coherent.
 > 
-> This can be reproduced easily with CONFIG_DEBUG_ATOMIC_SLEEP=y by
-> offlining a CPU:
+> Extend arch_setup_dma_ops() to take CLIDR_EL1.LoC into account when
+> setting the DMA ops for a device, emitting a warning message if the
+> firmware advertises a non-coherent device on a fully coherent system.
 > 
 > [...]
 
-Applied to arm64 (for-next/misc), thanks!
+Applied to arm64 (for-next/mm), thanks!
 
-[1/1] arm64: smp: Fix IPI teardown for GICv5 flow
-      https://git.kernel.org/arm64/c/4c9c81a08604
+[1/1] arm64: mm: Treat all devices as dma-coherent when CLIDR_EL1.LoC == 0
+      https://git.kernel.org/arm64/c/233b5554e07b
 
 Cheers,
 -- 
