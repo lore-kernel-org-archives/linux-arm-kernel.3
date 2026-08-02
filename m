@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C942BC55171
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 14:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE764C55175
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 14:57:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QiLdUe8O+yY79AlZkpO89k0KkOVTQ2O3gbv24IXS64M=; b=HfPUB/6BGzb+rEnkrjb4kPRLn2
-	Ds+xg42jf0n1P5pA6ErsNhlst8/du+QVk3A29U65ciSIkGduDI0ysvo3XEbdFytp6dnK+8SkfAdty
-	863Vw2f2+cArzSgtOaDbF5v0MWibaMmxpl3IJDnGs6HLYbl6qioF9rshLGr83v7oxgt8ZK7aM3kXP
-	fM+57WhW483ugPvTnaZJ3/dqQL8KByoL5wC4fuEcnHcBDmJpdjQHCaWe5u2LqqIoTaM0bti+EqJDe
-	ahS4gR1LXS9CkpQUKsT7jus7SwT6hJ+O1K6ooWW//M0RfbAxmNZYEO/MzT7Ak0J+jQjqWtYBoLOeE
-	TNfLIQlQ==;
+	bh=mS7Fsq/iJChdO1hpwr/l2Vg7F3ujEn9sQyPNvayGzFE=; b=IxzCMOyb7oHzAK7hhObPuY+hZp
+	UVCzFbe1QmzlHc/pNCTD/2yQhNvAtIa66FKkw6pNScRa1GboGY6vHVAAGxGBSoLuxSA/aZZBX++dq
+	8Rl/eV8QNVhCSmnXmZbIlBcwejsLiKMlSunFvF8RhfF6g3pYTeHUEJUhPM/neqRwYGFP9DyK00XWc
+	evNN1LK1ScK4Pa9G4D6r2iK3gGfbQLdhRCePCSO70NvdWdVVhWVb9CqJDAtkz1oE0+tOkAEayFloU
+	5qyi0yPuzWRMOcI5GqV0p4MojS5wswgfiphrqd906b4n3EDdJXH5eY3fQ/Irpe6lwPTzW9zZbw2OM
+	lkQvCsig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXd6-0000000Fjnj-1jEg;
-	Sun, 02 Aug 2026 14:57:32 +0000
+	id 1wqXdF-0000000FjsM-3oJG;
+	Sun, 02 Aug 2026 14:57:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXd4-0000000Fjn9-1uW1
+	id 1wqXdD-0000000Fjr5-2qe2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 14:57:31 +0000
+	Sun, 02 Aug 2026 14:57:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 45188143D;
-	Sun,  2 Aug 2026 07:57:24 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C6A1143D;
+	Sun,  2 Aug 2026 07:57:35 -0700 (PDT)
 Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C71B23F632;
-	Sun,  2 Aug 2026 07:57:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C27053F632;
+	Sun,  2 Aug 2026 07:57:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785682648; bh=GxkdI0cQnjsDY8mKb+SV5LhLZ2F3qgscDqUrJETK/PQ=;
+	t=1785682659; bh=9vZoBgzFE2THNFE8s+a0rg1bPJg4MV54NAwQFcIi1xY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IiIyxgRYiRcIgXb9xFOIWIEjvSon2OT1zyzXggB/LLhFoWHWGu8WcShO50+kiNEkQ
-	 otguiPKK57qGAluxlggj6TI27hx8gl/uPjnmPe7mE2ObZCoCLgGHZ+onQvPT07R5v2
-	 fDY3CQFyuoOXJAQpUu/ntnHG0HwWhAElv+Fgdl2k=
+	b=iYL4y/j5ORHJzlc+xS312E/V+qHSA07A02PkxU/CDlx7EOwFl3nzC0Bqv9Gz6ttHB
+	 zMHUwuQib5wm8YY+PosdcTkG+/b16fR09G+YcY2TIX6EHRlnSAvQI5U8dcY6JybWyN
+	 GI8jRo/fX4bfWDfo85EY+nfwsWNpmHbjDlk3oUcE=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -63,18 +63,23 @@ Cc: sudeep.holla@kernel.org,
 	puranjay@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v7 02/23] firmware: arm_scmi: Allow registration of unknown-size events/reports
-Date: Sun,  2 Aug 2026 15:55:57 +0100
-Message-ID: <20260802145618.1952804-3-cristian.marussi@arm.com>
+	Cristian Marussi <cristian.marussi@arm.com>,
+	"Rob Herring (Arm)" <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org
+Subject: [PATCH v7 04/23] dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
+Date: Sun,  2 Aug 2026 15:55:59 +0100
+Message-ID: <20260802145618.1952804-5-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260802145618.1952804-1-cristian.marussi@arm.com>
 References: <20260802145618.1952804-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_075730_586986_48F5530E 
-X-CRM114-Status: GOOD (  17.02  )
+X-CRM114-CacheID: sfid-20260802_075739_759530_1C439302 
+X-CRM114-Status: UNSURE (   7.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,102 +94,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow protocols to register events with build-time unknown sizes: such
-events can be declared zero-sized and let the core SCMI stack perform the
-needed safe-net boundary checks based on the configured transport size.
+Add new SCMI v4.0 Telemetry protocol bindings definitions.
 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v2 --> v3
- - split out of previous patch on protocol notifier
- - use max() instead of max_t()
----
- drivers/firmware/arm_scmi/notify.c | 24 +++++++++++++++++++-----
- drivers/firmware/arm_scmi/notify.h |  8 ++++++--
- 2 files changed, 25 insertions(+), 7 deletions(-)
+v3 --> v4
+ - changed protocol number to lowercase 1b
+ - fixed misplaced block for protocol 0x1b
 
-diff --git a/drivers/firmware/arm_scmi/notify.c b/drivers/firmware/arm_scmi/notify.c
-index 0a192cf2deab..8995dd1b12aa 100644
---- a/drivers/firmware/arm_scmi/notify.c
-+++ b/drivers/firmware/arm_scmi/notify.c
-@@ -595,7 +595,13 @@ int scmi_notify(const struct scmi_handle *handle, u8 proto_id, u8 evt_id,
- 	if (!r_evt)
- 		return -EINVAL;
+Cc: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org
+---
+ Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+index d06cca9273c4..be733f8d60a0 100644
+--- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
++++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
+@@ -324,6 +324,14 @@ properties:
+     required:
+       - reg
  
--	if (len > r_evt->evt->max_payld_sz) {
-+	/*
-+	 * Events with a zero max_payld_sz are sized to be of the maximum
-+	 * size allowed by the transport: no need to be size-checked here
-+	 * since the transport layer would have already dropped such
-+	 * over-sized messages.
-+	 */
-+	if (r_evt->evt->max_payld_sz && len > r_evt->evt->max_payld_sz) {
- 		dev_err(handle->dev, "discard badly sized message\n");
- 		return -EINVAL;
- 	}
-@@ -754,7 +760,7 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 				  const struct scmi_protocol_handle *ph,
- 				  const struct scmi_protocol_events *ee)
- {
--	int i;
-+	int i, max_msg_sz;
- 	unsigned int num_sources;
- 	size_t payld_sz = 0;
- 	struct scmi_registered_events_desc *pd;
-@@ -769,6 +775,8 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 	if (!ni)
- 		return -ENOMEM;
- 
-+	max_msg_sz = ph->hops->get_max_msg_size(ph);
++  protocol@1b:
++    $ref: '#/$defs/protocol-node'
++    unevaluatedProperties: false
 +
- 	/* num_sources cannot be <= 0 */
- 	if (ee->num_sources) {
- 		num_sources = ee->num_sources;
-@@ -781,8 +789,13 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 	}
++    properties:
++      reg:
++        const: 0x1b
++
+ unevaluatedProperties: false
  
- 	evt = ee->evts;
--	for (i = 0; i < ee->num_events; i++)
--		payld_sz = max_t(size_t, payld_sz, evt[i].max_payld_sz);
-+	for (i = 0; i < ee->num_events; i++) {
-+		if (evt[i].max_payld_sz == 0) {
-+			payld_sz = max_msg_sz;
-+			break;
-+		}
-+		payld_sz = max(payld_sz, evt[i].max_payld_sz);
-+	}
- 	payld_sz += sizeof(struct scmi_event_header);
- 
- 	pd = scmi_allocate_registered_events_desc(ni, proto_id, ee->queue_sz,
-@@ -811,7 +824,8 @@ int scmi_register_protocol_events(const struct scmi_handle *handle, u8 proto_id,
- 		mutex_init(&r_evt->sources_mtx);
- 
- 		r_evt->report = devm_kzalloc(ni->handle->dev,
--					     evt->max_report_sz, GFP_KERNEL);
-+					     evt->max_report_sz ?: max_msg_sz,
-+					     GFP_KERNEL);
- 		if (!r_evt->report)
- 			return -ENOMEM;
- 
-diff --git a/drivers/firmware/arm_scmi/notify.h b/drivers/firmware/arm_scmi/notify.h
-index 76758a736cf4..ecfa4b746487 100644
---- a/drivers/firmware/arm_scmi/notify.h
-+++ b/drivers/firmware/arm_scmi/notify.h
-@@ -18,8 +18,12 @@
- /**
-  * struct scmi_event  - Describes an event to be supported
-  * @id: Event ID
-- * @max_payld_sz: Max possible size for the payload of a notification message
-- * @max_report_sz: Max possible size for the report of a notification message
-+ * @max_payld_sz: Max possible size for the payload of a notification message.
-+ *		  Set to zero to use the maximum payload size allowed by the
-+ *		  transport.
-+ * @max_report_sz: Max possible size for the report of a notification message.
-+ *		  Set to zero to use the maximum payload size allowed by the
-+ *		  transport.
-  *
-  * Each SCMI protocol, during its initialization phase, can describe the events
-  * it wishes to support in a few struct scmi_event and pass them to the core
+ $defs:
 -- 
 2.54.0
 
