@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F131C55171
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 15:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19B04C55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 15:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UHMm2Z1OTcyZHwDxnaYxeN3t4Vh1LnM+EKpoEcU3r9c=; b=JAWQFjpHyrKyW7fF6DhIp8ATvB
-	yN3tfOGm227tCOpl7S/Ji2IEe5DzQUj3/zNEdGkr6EUNm0AQu6D2Sifv1wubP2yiAQrv7q94z0QkB
-	b2nQjJp4rnQcqJHM0DKSm05kYjDn89X8nMFffkLf2FJVsXDl2K2kqh9gJMGU/lKotxb3U1NpRe6Z9
-	I1RN+3aqlfDL+UvvVEMiGg6biKJFtr+KILRZRmiDNSNMsQBB+Y19MXdOEkWs39evYTshbIbTqLbzz
-	yqP9Ps4j8Oy2+bVt9lm+63oJT2asRed2BBoBgAbon/9plSqkIXALXfHR+6C1WcWYoRivv+1a0vXHF
-	BUR+vx1g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gQfLb9lsIJ+qyoSKUXEHRjEJwFwpTieVbS9Sx+BlkQI=; b=0WUtGd60Tj6BFlRSr7OmD8XWQj
+	Vlt++aqaaO38PhoA9YMpxnmoIRUKnT40a74npp6svcTYSkezjX4u5Ra/3hZKn/gsLvm+ESAGLAVKP
+	f/6jChgA8RYwpm55rXoEF96X9mxPmvs3HGn5q/JQTxmGWexVxjcOhvib56UWkfMuC7jr2KbuYJAj3
+	F0YrLMp8SsSHN2zW0Pxr6KGxAcYpOxd0mnhoSSnK3mUC/kQb1tB7D5NwpfScOdpHxq+GJuhWhufpR
+	Zovy9E07/4g3UxLKbKYcZEtODdhNQZjCNv2EOLw+rNtduIMMl2EHC9QlBqxioUe9BVMbjuF3R1x64
+	RCUi995w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXo8-0000000FmP1-1yEJ;
-	Sun, 02 Aug 2026 15:08:56 +0000
-Received: from out-184.mta0.migadu.com ([91.218.175.184])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqXo5-0000000FmOe-0zDE
+	id 1wqXeP-0000000FkmM-0Fk6;
+	Sun, 02 Aug 2026 14:58:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqXeL-0000000Fkk3-2ArL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 15:08:54 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785683329;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=UHMm2Z1OTcyZHwDxnaYxeN3t4Vh1LnM+EKpoEcU3r9c=;
-	b=gMKSneXPJFyeWLDYzxirNzasdTlr+W9DcufRPbjyJf1BfLd/u1/KeSM/pbKdNb3SA9gXYe
-	W7NNh/2uQ4M0PsIYWE4gfoHErIm4C8IDArTrzSgAjN8YSdQEPOULsPYYpKeZjSlemCpj5N
-	/TwGZzBRaAYdkao9EDGLC+gG/Cb04aQ=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev
-Cc: stable@vger.kernel.org,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
+	Sun, 02 Aug 2026 14:58:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B20C3143D;
+	Sun,  2 Aug 2026 07:58:44 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 437393FB3E;
+	Sun,  2 Aug 2026 07:58:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785682728; bh=SE9i3/tTu5pAP6GiKh0wKiCLy7dkcpp7/uGlOfBJfxE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SDRSg/jOquP2eHxP6llvhKYgUhsJcXY6cWzhAJW+zrl5laCKtKYVDawVfyKxJP7Zq
+	 zWRsO3x/MTFSxZ43MJU5f3o5er0J4YchpkmjEUbtcSQY42WIL54YXIuAvrSi/Ot7D7
+	 DJxKJ/duWO8HoQq1/nALuZnfhPnG7/s/efk6II2k=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] KVM: arm64: vgic: Reset in_kernel on private IRQ allocation failure
-Date: Sun,  2 Aug 2026 16:08:45 +0100
-Message-Id: <20260802150845.3485757-1-fuad.tabba@linux.dev>
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jic23@kernel.org,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v7 18/23] firmware: arm_scmi: Expose per-instance identifier
+Date: Sun,  2 Aug 2026 15:56:13 +0100
+Message-ID: <20260802145618.1952804-19-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260802145618.1952804-1-cristian.marussi@arm.com>
+References: <20260802145618.1952804-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_080853_407983_729D7A0C 
-X-CRM114-Status: UNSURE (   7.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260802_075849_596868_2C16D33D 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +89,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kvm_vgic_create() sets vgic.in_kernel before allocating the per-vCPU
-private IRQs, but the allocation-failure path resets only vgic_model and
-leaves in_kernel set. As irqchip_in_kernel() is !!in_kernel, the VM is
-left with an in-kernel irqchip but no model, and the -EEXIST guard at the
-top of kvm_vgic_create() rejects every retry, so userspace cannot recover
-from a transient -ENOMEM.
+When multiple SCMI instances are configured, the SCMI stack probes and
+it is initialized multiple times: one core stack for each defined instance.
 
-Reset in_kernel alongside vgic_model on the failure path.
+Each istance is simply identified internally with a number and such number
+is already exposed to the user to name the root of the per-instance debugfs
+subtree, if enabled.
 
-Fixes: 9435c1e1431003 ("KVM: arm64: gic: Set vgic_model before initing private IRQs")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+Expose such unique identifier to the SCMI drivers so that they can use
+that same identifier when in need to name their per-instance resources.
+
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- arch/arm64/kvm/vgic/vgic-init.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/firmware/arm_scmi/driver.c | 1 +
+ include/linux/scmi_protocol.h      | 5 +++++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 907057881b26a..fdac6e24762da 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -176,6 +176,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 		}
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index d209b3ca0174..87489bc075c2 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -3337,6 +3337,7 @@ static int scmi_probe(struct platform_device *pdev)
+ 	idr_init(&info->rx_idr);
  
- 		kvm->arch.vgic.vgic_model = 0;
-+		kvm->arch.vgic.in_kernel = false;
- 		goto out_unlock;
- 	}
+ 	handle = &info->handle;
++	handle->id = info->id;
+ 	handle->dev = info->dev;
+ 	handle->version = &info->version;
+ 	handle->devm_protocol_acquire = scmi_devm_protocol_acquire;
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 5ca8513385a3..198768752168 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -1127,6 +1127,10 @@ struct scmi_notify_ops {
+ /**
+  * struct scmi_handle - Handle returned to ARM SCMI clients for usage.
+  *
++ * @id: A unique positive natural integer identifying the SCMI Instance
++ *	associated with this handle to be used across all drivers for
++ *	naming purposes: same identifier used internally as the root for
++ *	the debugfs per-instance tree.
+  * @dev: pointer to the SCMI device
+  * @version: pointer to the structure containing SCMI version information
+  * @devm_protocol_acquire: devres managed method to get hold of a protocol,
+@@ -1147,6 +1151,7 @@ struct scmi_notify_ops {
+  * @notify_ops: pointer to set of notifications related operations
+  */
+ struct scmi_handle {
++	unsigned int id;
+ 	struct device *dev;
+ 	struct scmi_base_info *version;
  
-
-base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
 -- 
-2.39.5
+2.54.0
 
 
