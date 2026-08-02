@@ -4,64 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0795EC55172
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 01:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 499E3C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 02:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMDkAxGJ7v6butpvK/e/zpY2uB39Qiw/5WZgRWn7aMY=; b=WOtuqkX7Tx5DZbCQw3umv2G98f
-	F7N+NXc0Lhv2EBX9Zpl9RHy/sREs9nOnX6C25KeyOG3S3TX8SXlydQX5uS6ZJAyISMWZdy/Ql679i
-	uakm8Uh7KLl5T72mxa4H99Ra43D4HpJ2LHSn492KW1zdnf4/ZT2E/ZCxufn1iH6ojTR0Fl7+CNsMk
-	IUsfSdsL66DqHoK3Kze4SqouI3gg9b33q7cXI/sEPQwUmVeEAQKP9DfOEWmeHuMRErSl6REbzCbnB
-	+RE/3qkAUE7vu/D16nQLabDd6trME1CtmTXaaUoPkVyZFFuEvNFDb6yyvcDc9BiUaBgaMidTiotCL
-	O+T4EvLQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GAROnVhnAkeu5y0AEEbAdxluS7JzVCg5yWSFlsMM8jk=; b=L9Kd4LRgTo38EPS45F0Byv+TtW
+	F2yhyNTnMn5okCHXCcfxKw0Q2w2ez9mpnzmxJzgY6rT0KBVsvgY5VI3rm7fxYfnnXK543lJHF2y7V
+	mf4HgvHH+aSMgt8CKgT3IlZycbEmW/N1rg1aJS34QaYHrCmSDfs7x02W3Qn5yrqyfAsc5uBG2ajTj
+	s32JdsfUG+RAmeM5ZzRasssj8MqZErJtFp7aGm0v1n1p+VEALpenXlmwDkMSSqsdwawhKwPtxvcqS
+	eGgnUw8uSR7jeU+LXKFFwPEAnl1u0i4WMiwpkDnRDC/vUb5SkZGfCWU2Uaot7G/TSxjTIw1SoROMl
+	siR19oGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqLTd-0000000FGNe-3kFW;
-	Sun, 02 Aug 2026 01:58:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wqLYh-0000000FGZo-22nj;
+	Sun, 02 Aug 2026 02:04:11 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqLTc-0000000FGNY-0fGA
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 01:58:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 19D8540493;
-	Sun,  2 Aug 2026 01:58:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6EC01F00AC4;
-	Sun,  2 Aug 2026 01:58:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785635932;
-	bh=IMDkAxGJ7v6butpvK/e/zpY2uB39Qiw/5WZgRWn7aMY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WXEcyX/tVOkg2UaK5pyxi7cgWnrudYBSzymSi8U9Q/hjFdwgepir0q7eaNgRiBSab
-	 9jjhlBVeUQR1dGsCQKJoi7apBNSgt3DrivBK2YZwrgMgFaQnDL3zNBHiwM3W55aAv6
-	 BTUCoEGFmalP2Ku6X/aUgIK4ySD6+3fLj67SCOzLPqF9uplICY81XyKcfU5cgICgts
-	 OpAb7b7Xx5rNxVUIlmu9yYNi5lvbARJzNqoRuQhcw5L/7yvXAysngxXR7TYofFkizy
-	 PwOKdC/f5S/Y5BYpi/sSINvt9PNyl0YyGjEEs8UXlhpmCrpmf+tNaZD1qREaECsyb6
-	 1E27EBLEggpcg==
-Date: Sun, 2 Aug 2026 02:58:47 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: mdshahid03@gmail.com
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Joshua Crofts
- <joshua.crofts@broadcom.com>, Broadcom internal kernel list
- <bcm-kernel-feedback-list@broadcom.com>, David Lechner
- <dlechner@baylibre.com>, linux-arm-kernel@lists.infradead.org,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, Nuno
- =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Ray Jui <rjui@broadcom.com>, Scott
- Branden <sbranden@broadcom.com>
-Subject: Re: [PATCH v3 2/3] iio: adc: bcm_iproc_adc: Introduce local device
- pointer
-Message-ID: <20260802025847.08aed96b@jic23-huawei>
-In-Reply-To: <20260731182347.42888-3-mdshahid03@gmail.com>
-References: <20260731182347.42888-1-mdshahid03@gmail.com>
-	<20260731182347.42888-3-mdshahid03@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wqLYe-0000000FGZH-4C4N;
+	Sun, 02 Aug 2026 02:04:10 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4hCNQW6jbVzMlGX;
+	Sun, 02 Aug 2026 04:04:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1785636244;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GAROnVhnAkeu5y0AEEbAdxluS7JzVCg5yWSFlsMM8jk=;
+	b=n9i4I1vozJzGZcSPuIoPpLuypkiaRkI86dE+jgR4bL6ZvLQHNoHA4HObp5ayonRe1/a6Bb
+	vrBsYoR6rqAPIOH3V8Mo74XkOBAeQBe7kc6xqJ0Zb7kBZvue9dVuLv5pz9hTpgtdMH/dPK
+	BGRlAunqEnIAEyOL37lTTd3jLEx3uNTqIOymmg4w4uZqZzLe6Mh2PC2Va21XFoYeVbbzF7
+	DGGCaaSLVr6vbRCcfF6e5lebf/5CDA/n2TzuiD4v+q/NCt6g+AU2GCmfG5QDUhYvNKk0Sg
+	QLMs1EAJ6sjHntWS5lfdpoyTE+aUe4rQX4TZac7x6jSeMrfi/AfKQ5d9qc//wA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=RgItc+k+;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+Message-ID: <6108aa58-3595-4b43-82a4-6f94cb9cca31@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1785636242;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GAROnVhnAkeu5y0AEEbAdxluS7JzVCg5yWSFlsMM8jk=;
+	b=RgItc+k+jb3+1Q+UviTwgUyiZsOWh004DL/I0Fq9hJSZa03L6EFvNBxgXLFAoLOrpMTNAJ
+	znX3AHCgsCzbQHIKLZf93RGWF8degeOD94PzNCgSjkugPrpXCFYj4QCmmxpTxvPWAr9j1V
+	za7XCw/cNKoNZXZ8mLBLzccprC/EIKV9hA1HC5XNMH92zofG7ifjV9D3/WMt3CQX8rcT+T
+	EjcLS/gJW5KjJAUrnodiOg0bvi5UMHjlC+sn3aBdxzhpUNDFxi/MMHSHH947v7OP3yTRKd
+	tidnaSlx7wOGosz7pNULJIEQMGQgYY4P6bgqEtlXml3s3Lellaf68Nh6M+6Ffg==
+Date: Sun, 2 Aug 2026 04:03:56 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Subject: Re: [PATCH] dt-bindings: PCI: Correct white-space style
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ Jim Quinlan <jim2101024@gmail.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Bjorn Helgaas
+ <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Marek Vasut <marek.vasut+renesas@mailbox.org>,
+ Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, linux-pci@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20260801195517.235161-2-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20260801195517.235161-2-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: f80aa9cc35e8dfc77fe
+X-MBO-RS-META: 6mrrnyrfzi36q3b4htmaiygg34gqfjip
+X-Rspamd-Queue-Id: 4hCNQW6jbVzMlGX
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260801_190409_208506_17282783 
+X-CRM114-Status: UNSURE (   5.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,120 +107,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 23:53:46 +0530
-mdshahid03@gmail.com wrote:
+On 8/1/26 9:55 PM, Krzysztof Kozlowski wrote:
 
-> From: Mohammad Shahid <mdshahid03@gmail.com>
-> 
-> Introduce a local 'struct device *dev' variable in iproc_adc_probe()
-> and use it instead of repeatedly referencing '&pdev->dev'.
-> 
-> This simplifies the code and makes subsequent error handling changes
-> less verbose.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
-> ---
->  drivers/iio/adc/bcm_iproc_adc.c | 19 ++++++++++---------
->  1 file changed, 10 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-> index 1b0dd654402f..29ea35972a23 100644
-> --- a/drivers/iio/adc/bcm_iproc_adc.c
-> +++ b/drivers/iio/adc/bcm_iproc_adc.c
-> @@ -506,9 +506,10 @@ static int iproc_adc_probe(struct platform_device *pdev)
->  {
->  	struct iproc_adc_priv *adc_priv;
->  	struct iio_dev *indio_dev = NULL;
-> +	struct device *dev = &pdev->dev;
->  	int ret;
->  
-> -	indio_dev = devm_iio_device_alloc(&pdev->dev,
-> +	indio_dev = devm_iio_device_alloc(dev,
->  					sizeof(*adc_priv));
+> +++ b/Documentation/devicetree/bindings/pci/renesas,pci-rcar-gen2.yaml
+> @@ -155,7 +155,7 @@ examples:
+>       #include <dt-bindings/clock/r8a7790-cpg-mssr.h>
+>       #include <dt-bindings/power/r8a7790-sysc.h>
+>   
+> -    pci@ee090000  {
+> +    pci@ee090000 {
+Reviewed-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-	indio_dev = devm_iio_device_alloc(dev, sizeof(*adc_priv));
-
-It fit on one line under 80 chars even before the change but it is even
-shorter now so let us tidy this up whilst we are here.
-
-
-
->  	if (!indio_dev)
->  		return -ENOMEM;
-> @@ -523,14 +524,14 @@ static int iproc_adc_probe(struct platform_device *pdev)
->  	adc_priv->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
->  			   "adc-syscon");
->  	if (IS_ERR(adc_priv->regmap)) {
-> -		dev_err(&pdev->dev, "failed to get handle for tsc syscon\n");
-> +		dev_err(dev, "failed to get handle for tsc syscon\n");
-This is creating churn we don't need.
-
-Generally I'd suggest only applying the newly available dev where you
-aren't going to refactor the line later in the series.  Then just
-add a note there to say that alongside using dev_err_probe() you are taking
-advantage of the now available dev local variable.
-
->  		ret = PTR_ERR(adc_priv->regmap);
->  		return ret;
->  	}
->  
-> -	adc_priv->adc_clk = devm_clk_get(&pdev->dev, "tsc_clk");
-> +	adc_priv->adc_clk = devm_clk_get(dev, "tsc_clk");
->  	if (IS_ERR(adc_priv->adc_clk)) {
-> -		dev_err(&pdev->dev,
-> +		dev_err(dev,
->  			"failed getting clock tsc_clk\n");
-
-Similar on this one.
-
->  		ret = PTR_ERR(adc_priv->adc_clk);
->  		return ret;
-> @@ -543,11 +544,11 @@ static int iproc_adc_probe(struct platform_device *pdev)
->  	ret = regmap_clear_bits(adc_priv->regmap, IPROC_REGCTL2,
->  				IPROC_ADC_AUXIN_SCAN_ENA);
->  	if (ret) {
-> -		dev_err(&pdev->dev, "failed to write IPROC_REGCTL2 %d\n", ret);
-> +		dev_err(dev, "failed to write IPROC_REGCTL2 %d\n", ret);
-and this one.
->  		return ret;
->  	}
->  
-> -	ret = devm_request_threaded_irq(&pdev->dev, adc_priv->irqno,
-> +	ret = devm_request_threaded_irq(dev, adc_priv->irqno,
->  				iproc_adc_interrupt_handler,
->  				iproc_adc_interrupt_thread,
->  				IRQF_SHARED, "iproc-adc", indio_dev);
-> @@ -556,14 +557,14 @@ static int iproc_adc_probe(struct platform_device *pdev)
->  
->  	ret = clk_prepare_enable(adc_priv->adc_clk);
->  	if (ret) {
-> -		dev_err(&pdev->dev,
-> +		dev_err(dev,
->  			"clk_prepare_enable failed %d\n", ret);
-And here.
-
->  		return ret;
->  	}
->  
->  	ret = iproc_adc_enable(indio_dev);
->  	if (ret) {
-> -		dev_err(&pdev->dev, "failed to enable adc %d\n", ret);
-> +		dev_err(dev, "failed to enable adc %d\n", ret);
-you probably get the idea by this point!
-
->  		goto err_adc_enable;
->  	}
->  
-> @@ -575,7 +576,7 @@ static int iproc_adc_probe(struct platform_device *pdev)
->  
->  	ret = iio_device_register(indio_dev);
->  	if (ret) {
-> -		dev_err(&pdev->dev, "iio_device_register failed:err %d\n", ret);
-> +		dev_err(dev, "iio_device_register failed:err %d\n", ret);
->  		goto err_clk;
->  	}
->  
-
+Thank you !
 
