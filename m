@@ -4,98 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FE06C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 09:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E9CCC55171
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  2 Aug 2026 09:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ko76THsfnXZ043OG9zh/F8AdTxAYTWWKZfq1z6rekAY=; b=blMoOIGtTHEyzJi9/c5hqVUZ6f
-	ycHG7lqy/39ZkVQmmHYLc1PN9zMzTwD05X7f1eYvGBY0zwkZgU/oBKO3uQT13KgDtKyu1d3w7DWU4
-	F9gQwPtIliOuk/ZEAgBfm1QlLeTX0fN73m/2UXEXh3Aix+iz4SSTzwiC6qohfzQBOG0ZhCMRED8Kd
-	9RAvponEYcA0sdRIzCAZjMxDRHCE7LeB54IPVxnRHLwy1mP31LuahKBti0WASq1Vhy8nCgARqNPPW
-	AP/E9fzELfR/RCn3QqQuQegWknqa1fOYrpsclxuteHySyHQLcA5nNiOaDajQW3hs67lfgAxhrHLin
-	3NVHcmBw==;
+	bh=DiXxJ7FfxIMWhg+QWHNrDA/BR14L2eXTYivLTU47jAQ=; b=c2RB2knsJ1KQyPRTDW0V+9/Ru2
+	/WnZqQraOQMqK6jyjUH/oz+7zYA0YlMa7Z19alkYGU9u5i3V5ybRUHL3S7IZjJG9tke+mU4ko7/UV
+	mZZUCB0+ndG45kSTV+snW5QuO0r0dpOzpsU09DFZQAma4bBOIdAwnErpd25WJkas4eddXa6XgqJfq
+	ez6/HWVSJTAcEYnK7l3rOdXAX+vEuWtsynjgGfwZLGo5huhCW/qfnnhDugjCEZeu1Dz28bxypo75P
+	y506j7bTTAZQOzmP18Wucb4MFxFAKyrZPfVTqY5PaBcCkpgNWKY1E8+CTFDGCAsew+g/ln45qu5Th
+	SaptH6Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqSLe-0000000FVqj-3SJD;
-	Sun, 02 Aug 2026 09:19:10 +0000
-Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
+	id 1wqSQI-0000000FVyg-1aiR;
+	Sun, 02 Aug 2026 09:23:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqSLc-0000000FVqL-16Y4
+	id 1wqSQH-0000000FVyZ-27Mo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 02 Aug 2026 09:19:09 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 6905B1400155;
-	Sun,  2 Aug 2026 05:19:07 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-06.internal (MEProxy); Sun, 02 Aug 2026 05:19:07 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1785662347; x=1785748747; bh=Ko76THsfnX
-	Z043OG9zh/F8AdTxAYTWWKZfq1z6rekAY=; b=VvUxUaY724cssEc/xuev07u9L0
-	Xs0MjyrQSrzaxdz2mhPLEe8doVKtUX8OKQ7IFYSRduiYBVyOhFcWoNYeiADM7099
-	HdDKUpzZNWNzs3WghBPUl6EKSiRqU/Klv8QkNoWB6BpfQtTP/eNXfLv13bURM2e9
-	y10Tclqb8YBJgSfDT3Q5s7eaZxS/jTAa6lic9upPFb3QYsKziDhriTiPYiFl8lfo
-	EGoShX9KU+8LkH/E5Lan0/SbNFUPTxKaAclv/KwzgX4tyMSkWcdYDhJ5o7sCnlRj
-	pWVjEPuToGj53BjYo0jBeqIevVikGYTiJodtrSfHRVWki/w1GM6Kj17ZYnbg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1785662347; x=1785748747; bh=Ko76THsfnXZ043OG9zh/F8AdTxAYTWWKZfq
-	1z6rekAY=; b=ALErArKORJUpxgnYIQpxQJwFuHBp8WBubOJYhvwxJcivE096fIV
-	2VneqUvYjJTao6gy8TBOJ45TW5sE4Clq/CLrzjCEsktDQDR/O7i2MYFDARqQ7/Mo
-	VIG5pzqsUN86hMBACfRg+QyQ1EQ8ZymZgJPlfApblTlIR8G2aGEsdo5NsStn0oT1
-	IePvjUFmgxYrpNPMgliYrsZqV5HqTx4CyyNYjcFQ7i5YWRtJqusxvCUFCm6I96UK
-	oYs3qwK4Ha6XJuVwss7D1Zx7oo3+SqQGUCaLua1+KxDUT8L7fszgCo98ZEqb0Azn
-	pF8ObsNHMPSIJer9ydeaaJYEafrNtaWMipQ==
-X-ME-Sender: <xms:igtvak5biAlTSpUvtzLPZU0O1OJpucMbiCw3DfRB0Jy68g5woSZlhA>
-    <xme:igtvasRyabOKD86Mz-1Vtm3BnLy2DvRPe9FvOUGNx2UkU7QSexKRpJZM8MB6TgUlb
-    5jSJOXCs8QoWEWR0x2sgtPvW-tWTNEAw5UK8SC7A6bhFg3kJnHQNn4>
-X-ME-Received: <xmr:igtvavsWomI7M2dJruCkBlYusOOlwrH8GYl9CB8plyMlHe-lkZX56-YwV_p5SLfq0ychjlre2sXaE70fQZedLgHkrHEETA-eM-Q>
-X-ME-Proxy-Cause: dmFkZTEr8HrNx3Cr5ni6UAa7SmNpYhsyawGdrEF8NEKNgj/AOO9YDh3BTzAEdJ7Jch1tnW
-    Qp4K4U3EN0sA/l40npR75Xu2RxqowGvJy08sH0BiJy1S3MBM8gsm/pJmrPtuyrFxSSEvtD
-    wwashyBPQ/kP8+Z5TrmoQqsMLmFT2oOI1AYZ59KOxQv432TtjAh7QhK0BoKrNhUM/jyWOu
-    TsyOfXGKPXaC9gfJLyauN0sR+3prLnDoPVx/rXeJ1Mq43MR7E4Grdzr6No7SuXb+jkwRAz
-    JIxQJvVh+MRaUGm/ZLJpF8or/p/OxLYBDOAGd6YPag0MN+ZHTmP3vnXOSUAjzeg0sjqjon
-    BDLeCF6JN0Jtd4GmdBS0kmeWNFqPzclsQaNVmLr4GU3lxD3+N+0+xtjiXmTUg6ErQ/cg4g
-    ARAXdztQUihmTfGQ0pi0VqQSioFSEbDlixQNkpZ8O82p9+qpqy3wmAqo87vvr0c1Pwvu44
-    fD+YsDxGrWjFgbBPXmJT1cBatyhbAt3OoIjjuyuuuxTl9UWDA3CSdiAdnIiMK5/MPyRSJT
-    NTe6hDVvHXOfwqgMRy7+zMj6myo03mejOzAu0hBH+7XbRwmyVdAwGDKjWBU1y1ZrALoQNt
-    xoRlD3nbkbRQJz8G8fDdjq0tOxH7HPBPKE0S5PH3lOk3REBR6RDH+kOMxpLA
-X-ME-Proxy: <xmx:igtvam_qet7EeQoQzhjG3hM11t7o5lqh9nN8fNfD5-mGunsqkbtxpg>
-    <xmx:igtvagyWMyJ7sDkP16FnbUMknMvS7yVcz747MrwIaNGVnBNdvsx5pg>
-    <xmx:igtvag_3f7FWSpJuimNZvvvF96eDWBkXtFws8G874znD01R680ovdg>
-    <xmx:igtvamOONclzGS6P_V-7opz2Fig2FK6Hbt4EXiP2LgNlplXy5E0pXg>
-    <xmx:iwtvapdikZr1oYW0x6nULWS0Q77Y9-tBuuxXsQY7exJtL2eRLmAbEe-b>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 2 Aug 2026 05:19:06 -0400 (EDT)
-Date: Sun, 2 Aug 2026 11:19:05 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Alba Mendez <me@alba.sh>
-Subject: Re: [PATCH v2 2/7] spmi: apple: Validate FIFO state
-Message-ID: <20260802091905.GD806854@robin.jannau.net>
-References: <20260728-t603x-spmi-v2-0-f43e5f10e583@chaosmail.tech>
- <20260728-t603x-spmi-v2-2-f43e5f10e583@chaosmail.tech>
+	Sun, 02 Aug 2026 09:23:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id DD3F96013A;
+	Sun,  2 Aug 2026 09:23:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB62D1F000E9;
+	Sun,  2 Aug 2026 09:23:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785662634;
+	bh=DiXxJ7FfxIMWhg+QWHNrDA/BR14L2eXTYivLTU47jAQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kBdnCxCzKEyzCd72YuQeTcXLzo/D5xWX8++RW5ux61t4DNRa0+qQfBrwxatVx92rp
+	 J9nGEJp1+cpcNSU9Xq5hHbuo9FYyT/B6Bg975Lrg93ecwafYvOYRf0X2pDoeySHu4f
+	 HDaTqpW8or0bLwDw47kL5Uyx6wpSLLaSC3uwlHe8gGIflLSIJyFKVLyX4ST7EzRCjQ
+	 CwyyicjWwy/6DRS/O9DOKYNDZTPLd81BQ5ccVuRClHyLsX1PMM6Au5dJLT0X1cQIoU
+	 5QoZyeC6KMi7SYk1j0kF5EZqO5nea+1FpFDztxzoSZ3OYwhqufjZGZ9RE5eqW7sFkw
+	 jdLEEdDMMenFQ==
+Date: Sun, 2 Aug 2026 10:23:48 +0100
+From: Will Deacon <will@kernel.org>
+To: Kuan-Wei Chiu <visitorckw@gmail.com>, nicolinc@nvidia.com
+Cc: joro@8bytes.org, akpm@linux-foundation.org, robin.murphy@arm.com,
+	cychu@google.com, hhchung@google.com, amitamishra@google.com,
+	marscheng@google.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	jserv@ccns.ncku.edu.tw, eleanor15x@gmail.com
+Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Replace sort_nonatomic() with
+ sort()
+Message-ID: <am8MpGR14HAg58Gd@willie-the-truck>
+References: <20260730181216.2709088-1-visitorckw@gmail.com>
+ <20260730181216.2709088-2-visitorckw@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260728-t603x-spmi-v2-2-f43e5f10e583@chaosmail.tech>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_021908_389713_1DA8C441 
-X-CRM114-Status: GOOD (  17.19  )
+In-Reply-To: <20260730181216.2709088-2-visitorckw@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,63 +73,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 11:28:08AM +0200, Sasha Finkelstein wrote:
-> From: Alba Mendez <me@alba.sh>
+On Thu, Jul 30, 2026 at 06:12:15PM +0000, Kuan-Wei Chiu wrote:
+> The number of master->num_streams per master device is typically very
+> small in practice. Sorting this array takes a very small amount of
+> time, so there is no practical risk of triggering a soft lockup that
+> would necessitate calling cond_resched() during the sort.
 > 
-> Check for data before reading the body of a reply, and check for
-> end of data afterwards.
+> Replace sort_nonatomic() with the standard sort(). Since this is the
+> only remaining in-tree caller of sort_nonatomic(), this change paves
+> the way to eventually remove the unused sort_nonatomic() API from the
+> core library.
 > 
-> Signed-off-by: Alba Mendez <me@alba.sh>
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
 > ---
->  drivers/spmi/spmi-apple-controller.c | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+> Build-tested only.
 > 
-> diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-> index 376cf682c43e..b4f442d0b4ad 100644
-> --- a/drivers/spmi/spmi-apple-controller.c
-> +++ b/drivers/spmi/spmi-apple-controller.c
-> @@ -78,6 +78,10 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  
->  	/* Read SPMI data reply */
->  	while (len_read < len) {
-> +		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
-> +			dev_err(&ctrl->dev, "FIFO lacks reply data, controller stuck?\n");
-
-this looks like it maybe should use dev_err_ratelimited()
-
-> +			return -EIO;
-> +		}
->  		rsp = readl(spmi->regs + SPMI_RSP_REG);
->  		i = 0;
->  		while ((len_read < len) && (i < 4)) {
-> @@ -86,6 +90,9 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  		}
+> I'm not really familiar with this driver or smmu internals.
+> Based on my limited knowledge, master->num_streams should be small
+> enough to safely switch from sort_nonatomic() to sort(), but I could be
+> wrong. 
+> 
+> Please review carefully and let me know if there are any cases where
+> num_streams could actually be large enough to cause issues.
+> 
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index a10affb483a4..dcb6be2df95e 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4047,9 +4047,9 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
 >  	}
 >  
-> +	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY))
-> +		dev_warn(&ctrl->dev, "FIFO has extra data\n");
+>  	/* Put the ids into order for sorted to_merge/to_unref arrays */
+> -	sort_nonatomic(master->streams, master->num_streams,
+> -		       sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
+> -		       NULL);
+> +	sort(master->streams, master->num_streams,
+> +	     sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
+> +	     NULL);
 
-would it make sense to flush the fifo here to avoid issues on the next
-command? I would assume if we don't flush this condition will trigger
-for every following command.
+Makes sense to me. Nicolin, did you choose the nonatomic version
+specifically?
 
-> +
->  	return 0;
->  }
->  
-> @@ -115,6 +122,9 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  	/* Discard */
->  	readl(spmi->regs + SPMI_RSP_REG);
->  
-> +	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY))
-> +		dev_warn(&ctrl->dev, "FIFO has extra data\n");
-
-same here
-
-> +
->  	return 0;
->  }
-
-Janne
+Will
 
