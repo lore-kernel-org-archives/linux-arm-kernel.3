@@ -4,135 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 850FCC55175
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 08:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E585EC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 08:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=10XOIXOWNp9y4DxsjXyZqT4Kv+AKJ+NZ2FXRcTGwml0=; b=vKiuCB/iuXGptz/ZDjCsfkbbLj
-	HVxi6tsV+meOR2fe8XOuvmWpTFDRO9GNe4vSBXCJgewIAhalGCGBJAUBtzcHPFbeoe4PMRGGvfnz1
-	1D8CZzAgXB7g5TGVAoJzkOYlU+okrDJnlPnuwhp1irrqRwl+8byPITav7QGyasfAupoKo58Ychq7o
-	h36EmY6uwKvGAWtIvMtefC4a+ENzf9CSjK8O9Lt1zAJ+WGMqfU239N4vbw2znVsfjqH+aIStbzdRR
-	G+jgLmokNe7M8Zd053ftBD3uq1s8MPrAB16qZgLgu9fYPBrw/xJkAwocyGPuGkfHHEG3ZYcq2QMSU
-	E2nE6S4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/eZUBkk1T00iC+9KmZeAgMUJ03Mz0SzGEaMCdRgDvZM=; b=HV9fBPJCizXSHRtYpmIY5Ury7h
+	NwiaWshYjo2sWGlJV7G4ylZnB8GFP3C3doXGsRnhmWhRYPPJ79hYqjzG8hUo1IXYSMoAXEq0FpH6F
+	olJACRPa7gQpneCCYs2Vendz4D2XnAYg22d1daNK1EeqXFd3zlIJb9Z0/kURqV04kgMZuq5/J6Xwm
+	peXmfVQzcQ58Jj7HB8imi6Lytlz6/YbhBVDp97qNY4uJfvhLKC3F4zA6tyQrond1w9wjgXXl28OOE
+	iwtnpaZ/wi3W8paeMBDyrgTNrtiPANUqL4ijrixAF/MElfEpvk7mfF5mQpQmyHvs3Sz0OHR+kNsJi
+	s/SFDWpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnoY-0000000Gaga-1ovu;
-	Mon, 03 Aug 2026 08:14:26 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wqnqv-0000000Gao7-3EHh;
+	Mon, 03 Aug 2026 08:16:53 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnoV-0000000Gag7-3gkF
+	id 1wqnqt-0000000Gano-03vV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 08:14:25 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 672Mpp8I281400;
-	Mon, 3 Aug 2026 08:14:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=10XOIX
-	OWNp9y4DxsjXyZqT4Kv+AKJ+NZ2FXRcTGwml0=; b=lQpdWURwyc0brA61CmD1FD
-	LvZnLOmHPmjN3k6IKI8uQEQIXdn+ZvoQAiWfvtzqM6anDxn0QRYe2cDZKq/igqKm
-	KMFryQ1H0GSrQAWq++wLRWdCsbwrojPAYlzHYB4WoR8P8hBpzOQc2cBgDsOSJatI
-	F3s77Cj1B8qJ6LfBUA5PPxWPn3xkO5UbP+NN0VsZ3uftyatIiobFWBxrhg2xTrkC
-	HV+rQjl43FzYatTK95qqbmu1oE50JxvXTRVCXaxcM0vv9Lsa48yWNqw8F8rKOLu0
-	6GnBO6SRTkHpad1QpogVg/847n7sYHGpBNOBQQn/vwcCQYqV9K4aWsdLa+aFoS4A
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fs67hfmk8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Aug 2026 08:14:10 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6738BOAd013898;
-	Mon, 3 Aug 2026 08:14:09 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fsu4qck0g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 03 Aug 2026 08:14:09 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6738E5bb27591148
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 3 Aug 2026 08:14:05 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8757120040;
-	Mon,  3 Aug 2026 08:14:05 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 1DE6F20043;
-	Mon,  3 Aug 2026 08:14:05 +0000 (GMT)
-Received: from [9.224.77.173] (unknown [9.224.77.173])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  3 Aug 2026 08:14:04 +0000 (GMT)
-Message-ID: <143e8639-9936-4925-ad23-4e9a0aac9629@linux.ibm.com>
-Date: Mon, 3 Aug 2026 10:14:04 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 13/31] KVM: s390: Prepare moving KVM/s390 to
- arch/s390/kvm/s390
-To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter
- <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik
- <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-References: <20260731130902.654679-1-seiden@linux.ibm.com>
- <20260731130902.654679-14-seiden@linux.ibm.com>
-Content-Language: en-US
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <20260731130902.654679-14-seiden@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDA2OCBTYWx0ZWRfX30hDQTpH8BzN
- Mz7ZiHbo5J6caYaBQ4SFjdDXZ4T1C6Tylc8FsYeJvSYQF7AIrV0N8QGjVPy/ggzyqQA2uZ9QNgB
- WQBXGqIIE0CYJUVQnWqFvdy05z3A+Ec=
-X-Authority-Analysis: v=2.4 cv=I7VVgtgg c=1 sm=1 tr=0 ts=6a704dd2 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=DErWZNkAGuNjIuNGA6IA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDA2OCBTYWx0ZWRfXzdAhX5kEZcaZ
- O5+yZV3p8eVBFZ58IKEGh8MaO1J9apG1jTFEQbMJHeq40RfacAwGTqRteUJWP9224HxJrGAdNt6
- SCy3tCWqN2kisaSIwKJd3MVLLx90YJHqww6TuT+5DV0S6GFMsNm5gWmR6kI5hs3625LaQI7ujfO
- VAVXrPg9Fr6pH8VgjadrwWOtVVTmGvOcXPu9d9e1IHt++kfBpRUtplLmcV4uyZ4fgGsk18meTvM
- FbLM0KmyiKOmomJDNRkvUggKD9JPoCHPVz/7rGHpe/r9CxrcGNWN1MIDL0aEBsKe0Dmo/NEM22A
- Ja/g9VkZbxW9r6s+eAoM5Em3XsMW90IpNE0on3eQaTF7WyO5n5RzzYNAjZWcIeKBVMRI62LEsEr
- vGu+BgUGr9xnoHSd3OUQLf3ONWu3+Eut2udo4npnSG58bXhgVN1E8D7mTadcp1ZGmO70taFV92R
- CnXZMA1kcUlbTl6eSJQ==
-X-Proofpoint-ORIG-GUID: QMk5RO98HClPNqqpLrqibkj0W0rVBisV
-X-Proofpoint-GUID: Y1q7vD3lGqq1y6v7WS7yp9zeGfAx617K
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-02_06,2026-07-30_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 impostorscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- malwarescore=0 adultscore=0 lowpriorityscore=0 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608030068
+	Mon, 03 Aug 2026 08:16:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785745011; x=1817281011;
+  h=date:from:to:cc:subject:message-id;
+  bh=CdrM/fN6t9hFnIsPNs/T8LrSyXZChHteYj4d5HOG+68=;
+  b=eAtJkKyZ4gDyR5Jjmnii8AhM34V71ZHPX/C7MvcGLylFYUbT4ipfhWFL
+   ytBWGW3p0UNOqbGqq/OpducPXWQNOY9KhrWwEaKoKYKJIkF4gUYGalODi
+   F3q1yS32bZ2fHv7O77ZMESX8qaORxaJmfHUGPV65RFxPzXyLbb/EgqA5U
+   d+AG0kF0TnjAvTXg7ezLrnIBLxmrNT5GB2CP6W8ybqgivGvBt8IlSS/pT
+   FCEfRlBa85kkDakKbZ65upo977vcBtdhvU93USSpW7EdTnAquKwxQIpsJ
+   JA0KVz0eBV/nazHoYZXCh/RGZu7rkApzrDGEDDTHKi1xXpONyjXNDJgag
+   w==;
+X-CSE-ConnectionGUID: KNBS27brT92mV1LZRzF/4Q==
+X-CSE-MsgGUID: Xt6l/NHKTz2uwieblCpQag==
+X-IronPort-AV: E=McAfee;i="6800,10657,11863"; a="86045785"
+X-IronPort-AV: E=Sophos;i="6.25,202,1779174000"; 
+   d="scan'208";a="86045785"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Aug 2026 01:16:50 -0700
+X-CSE-ConnectionGUID: rYsE6+8ISfWCluA6jTn0AA==
+X-CSE-MsgGUID: fidOHhkHSYiGgMJ7TuwE8A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,202,1779174000"; 
+   d="scan'208";a="264987247"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 03 Aug 2026 01:16:48 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wqnqo-000000006VB-0ynG;
+	Mon, 03 Aug 2026 08:16:46 +0000
+Date: Mon, 03 Aug 2026 16:16:06 +0800
+From: kernel test robot <lkp@intel.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:timers/arm64-arch-timer-errata-sk 1/8]
+ include/clocksource/arm_arch_timer.h:113:13: warning:
+ 'read_sched_clock_is_arch_counter' defined but not used
+Message-ID: <202608031502.QbZfDhXn-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_011424_076240_FADF7D17 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20260803_011651_148572_58E3C178 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,26 +84,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 31.07.26 um 15:08 schrieb Steffen Eiden:
-> Lay the groundwork for moving the native KVM/s390 to s390/kvm/s390 to
-> allow for a second KVM module. Move all the kvm_host definitions to
-> _s390 postfixed headers. Prepare local header include guards for a new
-> location. Move gamp related tracing into a separate file. While at it,
-> rename the main KVM/s390 files from s390-kvm.{c,h} to just s390.{c,h} to
-> match the naming scheme of other architectures. Cleanup the KVM/s390
-> makefile.
-> 
-> No functional change.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git timers/arm64-arch-timer-errata-sk
+head:   93953a96f1d16c9f07597b46642d3e61581a6c85
+commit: 0e8b09c97ac7de82054327e5d29eae6dedc6002e [1/8] clocksource/drivers/arm_arch_timer: Add read_sched_clock_is_arch_counter() predicate
+config: xtensa-randconfig-002-20260803 (https://download.01.org/0day-ci/archive/20260803/202608031502.QbZfDhXn-lkp@intel.com/config)
+compiler: xtensa-linux-gcc (GCC) 8.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260803/202608031502.QbZfDhXn-lkp@intel.com/reproduce)
 
-Would it be possible to split every single semantic change into one a separate patch?
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608031502.QbZfDhXn-lkp@intel.com/
 
-1. kvm-s390.[ch] -> s390.[ch]
-2. kvm_host definitions
+All warnings (new ones prefixed by >>):
 
-maybe also
-3. gmap-trace change
+   In file included from drivers/soc/qcom/rpmh-rsc.c:30:
+>> include/clocksource/arm_arch_timer.h:113:13: warning: 'read_sched_clock_is_arch_counter' defined but not used [-Wunused-function]
+    static bool read_sched_clock_is_arch_counter(const struct clock_read_data *crd)
+                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-That would make the patch easier to consume.
-We can also handle that in a separate patch series (with the other s390only changes).
 
+vim +/read_sched_clock_is_arch_counter +113 include/clocksource/arm_arch_timer.h
+
+   112	
+ > 113	static bool read_sched_clock_is_arch_counter(const struct clock_read_data *crd)
+   114	{
+   115		return false;
+   116	}
+   117	#endif
+   118	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
