@@ -4,143 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B34C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 23:31:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00DA6C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 23:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0cXqWSk8dqPHs0b52b6EmMH/d/T1PPtU8jj/3AAA/CU=; b=1WPSjHmD6MtKvHWWGK/7791HJJ
-	gm03TjXSRzrPhCWzyyQxy3Uv6SokyN0ytlBSxUwqSK+Y/+qMaxpM0+CA98qSxspWH2WIEXvsoqtwk
-	YwAnYmv39ZuL+EIhnIkqzq6WunthZ9srJgCgvm2Z/QLWXBiQhT7hmNDhPqwFV6vlsV8uljUkGRBPL
-	lOTEUQ44eyp9Xx2CBgspDKLmMqlYkrQ/Ne+ZJvlr66UF7bZUKAtPY7tXUHS3Y1//+qozdcAHjE/89
-	9dFwopk+rb44Uxv8H+LgajpuJswHRr3yuv4KEsEBKUVJ+i2hf3KDmPg0/jolJ0rL1FZck+/H3gmxl
-	rGKAkkzQ==;
+	bh=djDWVU6bQAvhKCDIzhiM30Qn0CZVzFT8gIIPI8qW+xo=; b=iZq8sy/T8T3f8xfuQGvZHSqN8W
+	MPljZBfqxuI+7bQdO6Jlv66Q/qmjaCtM/U+6jwTIiur5WNyVHo5+WfIbieXaNHezOfjSqgS++2kKk
+	r1YJA2IgPHkm7/dr5JMbY28L4JzhF+gQdGrzbhBHL2QZKArifOxzHqwtwAZIcg5afxDL5u4gY9pV2
+	SV+Dy16Z8eC/02KBfkcYg0oEBpnJgNkz5qrMHeQNz5KzDKnubrMqVDYl4ptzfCj1AtAOheA9Csapi
+	0YjDPEv7xLmRVYL/M7nWhj32olqGFBY1byOlw8CY9BmuKXA7lPzLLkscY8h9duh9cPoiOAMXTehuw
+	dXBsM8pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr28A-00000000hTg-2tDo;
-	Mon, 03 Aug 2026 23:31:38 +0000
-Received: from mail-westus3azon11020080.outbound.protection.outlook.com ([52.101.201.80] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wr29k-00000000hkf-1P3c;
+	Mon, 03 Aug 2026 23:33:16 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr288-00000000hTB-3QUG
+	id 1wr29h-00000000hjh-0eoW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 23:31:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oG4xdjMeFVJv+/xePttj/TAiuL1xCljzFS4omdOA/29Sr5D3OPhZ43FSLtV34tce2eotePtfMFfy7YnsxWeBDDuDZbDWYfV1W3CFe27E1UHnbPUIvA0xwKKPS0V1eJsN4WRjHrbHqY5ILTFod6Yhud/Zf9RCoyAJpTcp7ZYwXHOkykW6keB0S8ueqEWZV2uq2dD7M08+wsDGosIH2ghvxc/beraBV5uhKY/7v5ZNirDDAc1FkREi4kL/otU5G4bm5qSXQ0l6wBXwxICWV2z6bUkiAoKcuqhWG8LHvPUo0kn9W3TLrZN/l3H69OtER0xU3EoQFwF+EfNjoZjzERlsYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0cXqWSk8dqPHs0b52b6EmMH/d/T1PPtU8jj/3AAA/CU=;
- b=IYejpl7s8rnR/F7YfBuzph3ujX697p0a/82md8jlVg9h+W0JiKiupvaAvLcV5ndhOvPvEDrRaj8PSWlZWEDWpU8hE9qOA4rPaAGGoXiRf9LZVyk0lQct0ZBCY2ZBHlMmDaDFNXkZ0BIBDSHva9d3FwWuaUULKipactEXBD2iQnDNWsDZSoU//q9mCwR+7y32UeeHhOIMqNTtYlISQ58sxtqdo7ozShW4a/nVey4Uwz2qvUGH1gZ+qQUEDSLbRvzNhPkL56h29/DDaT70TisyHl5U8hOp6AtskXFd5ZufQ79wo3kypC78xo9D5jeFWnYtJqCdbKpsp2qs5uA9qExIAw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0cXqWSk8dqPHs0b52b6EmMH/d/T1PPtU8jj/3AAA/CU=;
- b=WWzs9jMotYWHivumcvHiq+Az/OdUNZGOeRdC8jwhVxqQNLLEnh69pEUv7sT2WTPLTQ3J8p0aXmmzYjepBKDga1oOWMRfX3abZlkh3PzF8GXeAJKZszX4mDQCtnxi5Mb8FCdkPpAklIoXGc6fpTaJTxwqTf5en6nv//aC0XoGbtMgyAcTd4XJxAYuDMTySc9XpAGbFSzv1950JMswc/64Xb+3EtwdOzM14Ok0dbAgyipTQAvvBLC2x51HOpPdSP+/n/fxoL+37K5JHw/Hkq9w+Zd3sFrMTAhwOK6pWsWK2GRjG8UT3jRH0xEPW840fUZvoNvXzOnj55A8lkGOW3x26w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
- by DM6PR18MB3570.namprd18.prod.outlook.com (2603:10b6:5:2ab::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Mon, 3 Aug
- 2026 23:31:29 +0000
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::ba9:422:da8:b963]) by PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::ba9:422:da8:b963%6]) with mapi id 15.21.0270.016; Mon, 3 Aug 2026
- 23:31:29 +0000
-Message-ID: <b585130e-710a-434d-bf06-cc06f9bffc33@axiado.com>
-Date: Tue, 4 Aug 2026 07:31:25 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: media: add axiado,ax3000-video
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Shubhangini G <shubhangini@axiado.com>,
- Prasad Bolisetty <pbolisetty@axiado.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Karthikeyan Mitran <kmitran@axiado.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org
-References: <20260730-ax3000-display-driver-v1-0-4fbd4d0c85d3@axiado.com>
- <20260730-ax3000-display-driver-v1-1-4fbd4d0c85d3@axiado.com>
- <ed8ca066-bb8b-4476-be96-37a2b6e022ab@kernel.org>
- <a8383bd7-802b-41b0-897b-812b4a8fca33@axiado.com>
- <9f689436-04c6-48d6-8342-7fac998f3910@kernel.org>
-Content-Language: en-US
-From: Tzu-Hao Wei <twei@axiado.com>
-In-Reply-To: <9f689436-04c6-48d6-8342-7fac998f3910@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TPYP295CA0023.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:a::7)
- To PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
+	Mon, 03 Aug 2026 23:33:14 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id 34473240104
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 01:33:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1785799986;
+	bh=djDWVU6bQAvhKCDIzhiM30Qn0CZVzFT8gIIPI8qW+xo=;
+	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP:From;
+	b=Qxm2eIFRj1/wDqfhFzM9PR/Neemd2Bvgy4sbEnXRKOVyslE+0R/Np2Q3KioeIc1WZ
+	 cg/r7rEE/xDd76TUWMLpywhsQPGgRyzZoTy4KKGVeMfygb76jlV/5ZclKhiIE12AZL
+	 U2DBFsiKlzPJVhSPb+/N0b4CQ656JR0hnBZCz+QoV56AEb/FSBKY6G2zRKEXl57M0Q
+	 8krpa/59gWpV+svZhNVbzLRXAz9KQtjaT96nPhtWV41tIlvcuqtve0cqkyPOthgpV2
+	 5Oik/LM6/umdOtnu5ngjyaZDB12XEU1qTINYUcBu9VcU8/cTvgGeeJ/drbQin0nIN2
+	 ELO8t/xKhNBHQ==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4hDXzM1jLnz9rxB;
+	Tue,  4 Aug 2026 01:33:03 +0200 (CEST)
+Message-ID: <7af047ae0fae27e8bef3d8decdc97a21ee9bf520.camel@posteo.de>
+Subject: Re: [PATCH v2 1/5] dt-bindings: rtc: Add pinctrl for S35390A
+From: Markus Probst <markus.probst@posteo.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring
+	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
+	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+	 <sebastian.hesselbarth@gmail.com>, Michael Langer
+	 <michael.brainbug.langer@googlemail.com>, Andrew Morton
+	 <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Mon, 03 Aug 2026 23:33:05 +0000
+In-Reply-To: <20260803-mottled-pretty-sloth-bf7dbd@quoll>
+References: <20260801-rtc_s35390a_int1-v2-0-f10c99ad1d6c@posteo.de>
+	 <20260801-rtc_s35390a_int1-v2-1-f10c99ad1d6c@posteo.de>
+	 <20260803-mottled-pretty-sloth-bf7dbd@quoll>
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+ keydata=mQINBGiDvXgBEADAXUceKafpl46S35UmDh2wRvvx+UfZbcTjeQOlSwKP7YVJ4JOZrVs93
+ qReNLkOWguIqPBxR9blQ4nyYrqSCV+MMw/3ifyXIm6Pw2YRUDg+WTEOjTixRCoWDgUj1nOsvJ9tVA
+ m76Ww+/pAnepVRafMID0rqEfD9oGv1YrfpeFJhyE2zUw3SyyNLIKWD6QeLRhKQRbSnsXhGLFBXCqt
+ 9k5JARhgQof9zvztcCVlT5KVvuyfC4H+HzeGmu9201BVyihJwKdcKPq+n/aY5FUVxNTgtI9f8wIbm
+ fAjaoT1pjXSp+dszakA98fhONM98pOq723o/1ZGMZukyXFfsDGtA3BB79HoopHKujLGWAGskzClwT
+ jRQxBqxh/U/lL1pc+0xPWikTNCmtziCOvv0KA0arDOMQlyFvImzX6oGVgE4ksKQYbMZ3Ikw6L1Rv1
+ J+FvN0aNwOKgL2ztBRYscUGcQvA0Zo1fGCAn/BLEJvQYShWKeKqjyncVGoXFsz2AcuFKe1pwETSsN
+ 6OZncjy32e4ktgs07cWBfx0v62b8md36jau+B6RVnnodaA8++oXl3FRwiEW8XfXWIjy4umIv93tb8
+ 8ekYsfOfWkTSewZYXGoqe4RtK80ulMHb/dh2FZQIFyRdN4HOmB4FYO5sEYFr9YjHLmDkrUgNodJCX
+ CeMe4BO4iaxUQARAQABtCdNYXJrdXMgUHJvYnN0IDxtYXJrdXMucHJvYnN0QHBvc3Rlby5kZT6JAl
+ QEEwEIAD4CGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AWIQSCdBjE9KxY53IwxHM0dh/4561
+ D0gUCaIZ9HQIZAQAKCRA0dh/4561D0pKmD/92zsCfbD+SrvBpNWtbit7J9wFBNr9qSFFm2n/65qen
+ NNWKDrCzDsjRbALMHSO8nigMWzjofbVjj8Nf7SDcdapRjrMCnidS0DuW3pZBo6W0sZqV/fLx+AzgQ
+ 7PAr6jtBbUoKW/GCGHLLtb6Hv+zjL17KGVO0DdQeoHEXMa48mJh8rS7VlUzVtpbxsWbb1wRZJTD88
+ ALDOLTWGqMbCTFDKFfGcqBLdUT13vx706Q29wrDiogmQhLGYKc6fQzpHhCLNhHTl8ZVLuKVY3wTT+
+ f9TzW1BDzFTAe3ZXsKhrzF+ud7vr6ff9p1Zl+Nujz94EDYHi/5Yrtp//+N/ZjDGDmqZOEA86/Gybu
+ 6XE/v4S85ls0cAe37WTqsMCJjVRMP52r7Y1AuOONJDe3sIsDge++XFhwfGPbZwBnwd4gEVcdrKhnO
+ ntuP9TvBMFWeTvtLqlWJUt7n8f/ELCcGoO5acai1iZ59GC81GLl2izObOLNjyv3G6hia/w50Mw9MU
+ dAdZQ2MxM6k+x4L5XeysdcR/2AydVLtu2LGFOrKyEe0M9XmlE6OvziWXvVVwomvTN3LaNUmaINhr7
+ pHTFwDiZCSWKnwnvD2+jA1trKq1xKUQY1uGW9XgSj98pKyixHWoeEpydr+alSTB43c3m0351/9rYT
+ TTi4KSk73wtapPKtaoIR3rOFHLQXbWFya3VzLnByb2JzdEBwb3N0ZW8uZGWJAlEEEwEIADsWIQSCd
+ BjE9KxY53IwxHM0dh/4561D0gUCaIO9eAIbAwULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAKCR
+ A0dh/4561D0oHZEACEmk5Ng9+OXoVxJJ+c9slBI2lYxyBO84qkWjoJ/0GpwoHk1IpyL+i+kF1Bb7y
+ Hx9Tiz8ENYX7xIPTZzS8hXs1ksuo76FQUyD6onA/69xZIrYZ0NSA5HUo62qzzMSZL7od5e12R6OPR
+ lR0PIuc4ecOGCEq3BLRPfZSYrL54tiase8HubXsvb6EBQ8jPI8ZUlr96ZqFEwrQZF/3ihyV6LILLk
+ geExgwlTzo5Wv3piOXPTITBuzuFhBJqEnT25q2j8OumGQ+ri8oVeAzx24g1kc11pwpR0sowfa5MvZ
+ WrrBcaIL7uJfR/ig7FyGnTQ1nS3btf3p0v8A3fc4eUu/K2No3l2huJp3+LHhCmpmeykOhSB63Mj3s
+ 3Q87LD0HE0HBkTEMwp+sD97ZRpO67H5shzJRanUaDTb/mREfzpJmRT1uuec0X2zItL7a6itgMJvYI
+ KG29aJLX3fTzzVzFGPgzVZYEdhu4y53p0qEGrrC1JtKR6DRPE1hb/OdWOkjmJ75+PPLD9U5IuRd6y
+ sHJWsEBR1F0wkMPkEofWsvMYJzWXx/rvTWO8N4D6HigTgBXAXNgbc3IHpHlkvKoBJptv6DRVRtIrz
+ 0G0cfBY0Sm7he4N2IYDWWdGnPBZ3rlLSdj5EiBU2YWgIgtLrb8ZNJ3ZlhYluGnBJDGRqy2jC9s1jY
+ 66sLA9rQZMHhJTzMyIDwweGlvMzJAcG9zdGVvLmV1PokCbQQTAQgAVxYhBIJ0GMT0rFjncjDEczR2
+ H/jnrUPSBQJpa71VGxSAAAAAAAQADm1hbnUyLDIuNSsxLjExLDIsMgIbAwULCQgHAgIiAgYVCgkIC
+ wIEFgIDAQIeBwIXgAAKCRA0dh/4561D0gKJD/9uOQKYlsDoQX65Gd0LiMT0C+5vXgr3VI0PHDOwcv
+ 51fJ3A1vNyPZRFPGrz8+mDEXUQOF/INfnz5Tu1QHwf+iYcWcTGAN/FHgVR6ET6VBNU2hJaKhu+Ggo
+ kjYyJTOvyX+3yNRUfSny0GjTjIPuPTErjqmHF+BtjXslpgwqnNMznf3lRIuUjRORupos6p3k1DndE
+ 5vzUTmXSvMyXyOD2KhBl/kL76k0bHYyAQytZPag12pltrtFbA/r2phDGN2si8PooDT99bSTJjaM45
+ MTAAHbHKJfvgfK41bNFD5mMtpWpL195XRtS0Nrxdg3PaYBxN5gtTG0RyZfpYRlkdEhm+jj/8RxuSG
+ i/qdhRdbiI7K2IELWeQVHSNDi9JabR/UzlR4NSnhfAjRIVlRM+eFbUl8XwxwVrAkojF5IraH2qRvg
+ VCmuFsHUW07FUlrDrzpjXsD73cKppoFGDCdDR0BHJepXbFLS9+AqkT+guRJlnCTg2p+TQtnbwPgKp
+ Vj98JixovCl99zRYTsL2bRNU5+q8iET65VMJ1ydyNanvLd5vI/NqDkXhlXLsGmdaDTtu4R21PkToX
+ dQNGrZ91M9nlIBKw8Y7c7xZ4098qX2b8JX/CxD+gC1r4C8vuA3GkhFLx+KlkON7LyiJPkrePp6Qky
+ jfGillcaQOqFZ3WwVqyzG1BUfTow==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-WE5p0wNFoNN4V4RC6yVN"
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|DM6PR18MB3570:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd9acd85-d61b-4087-fbed-08def1b75845
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|42112799006|23010399003|376014|1800799024|7416014|56012099006|10067099003|4143699003|3023799007|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: /Hica3yyzTtRFwllEkIZ7XFN+VRNp3pt/DTbM3OjcJ4bD1vIKhYnCWGM7fx8/OW7zRzREg3nH/CyTa9LNm7fYh65kCkKXpmuR4nDkAIfWHWG0M4rraMdbnyN8E3yidDUyi9Ib6gdv/Nlb4pVtgF8b/8yF9+gP+rPxi0Oz05xZt6+w9ZLFpbXws9/cpkjEDyei4ZdlyuSy5hLQ83aLg+iITeogpVD8V511yLU9US7/kon1YwmJJWBfYP8Yr252HbK/DddE3eJXM0CefZoeQhAxMFfRkm4/HaqERC1fLgYrj6pNMoRfmRo9++cAJuLCMFUjSOi7z6fZidrCB4En5QOFMO+YpZ4cY6YbeL7UCXNJKB0hhPFgHjxskrA+GtozeXAMGagruJnU9rMD9zK0cgRIrhpfUsVQHZpTj82drP1zLAdllin8o1aA9EklbGBGN3wm/JkeVIEpbeez9PLNBJcmnGSLpoPcaz+fzpIIJakFez5W5JBsuEw0MMXvIixXwVmbGY9M0ohrsgHvK1Me/XfR0Aoy4exTkyKX9hLjVdlwWvkX3KGUHyciouluL4Tlxxt2ctuksPterLoixEq9oE5nZFZ+7RF0yPfCMWqW/KVWUMcQGpL8IY0R+sEp7ba+2ol
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(42112799006)(23010399003)(376014)(1800799024)(7416014)(56012099006)(10067099003)(4143699003)(3023799007)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2o1NjN1eE82eE1sYUJZR1A2UWU0RzR4Z0R3SXdSR0V5cHFHVzVpZjJ2L1M0?=
- =?utf-8?B?Ym05aFF3dWtTVzBGR3BaYjNvV3FGa1lIbEw0V2Z6RE5TcFFVZkxnUmVBcmUz?=
- =?utf-8?B?aDhpMURqRE52dktBRE0vYWFOMnlub2FHOWRKNHo1TTFBUmxXTGVYb3paWHBn?=
- =?utf-8?B?aHl2SWtzS21Jd3I0TlBxbitBeFBiWWhXdEtlZUNLeHRpU1FLcmhWSy9LdS9M?=
- =?utf-8?B?NDFZYTFpUUpzbjErRUcvd3g2TUVQNmQ1eUFnRlQxWC8wTWZyRTFMRGdJVEE1?=
- =?utf-8?B?Y1BIVi85ckx0ajRTV2c5eTJxUlFQM3U2bGJsdExNOExCYkVMMFNzOWwwVVVQ?=
- =?utf-8?B?NlhHZFkxd0xVeWQvd0hsTDlFT3pXUTZjYjcxZXBzTzAvY0hGYjd2OEVRN0JX?=
- =?utf-8?B?SFdUMjFzNVhodTVLQXZIUUE0ck1RUHNkRkFPeFRMZ1c1OVo1ampPY1p1Q0sv?=
- =?utf-8?B?aFhkeUdVRndXeWlRS29oQnBhQWdlYnJBNFdza1lFcURKN0JBWmlCdCsyZ3RN?=
- =?utf-8?B?SDVSd1VGYXYvL3J3YlF4bWhTRXFJckYrZXJXdWh5MTNvYzE1SnVJKy9mMWMr?=
- =?utf-8?B?ZnNBZHFVTTIzekRNUVJRQ2VkaFVDam9SYVBwNWVoeGVkUm9JOTB6T1hwMEFT?=
- =?utf-8?B?bFRxdWdHSEJGaGROb3lzSUhvYUx3SEEzby8zTVVGNjhlcDR3NEZOZSszdHA3?=
- =?utf-8?B?US9ZVzVJWUQwcTNZeFZaZGlucEVhVFNiQ2U1VXprMStYY3FCMFc1cm1weXRK?=
- =?utf-8?B?cUVGYncwT21tcGMzOHJuTlUrdU55RzVoYUt3L1RIRUpzU3kvdXdBdHIrSFZx?=
- =?utf-8?B?Y3BNd2x4ejQyc2orbXhUWkFXWDFIV3B4ZWlhR09TRzJ3a0R1cHFqSU16YzdB?=
- =?utf-8?B?Z0p0YXg3OXBTTDJQeFMrNGMrS2N2QTkreDRZMTZKaGhOSEhNeGNJSVZSQzVB?=
- =?utf-8?B?SENwWlBKdjBPNjBpMmdIUTJHeVl5c1hTbXQ4dmNTUklBWDNEL1h3anAyWjAw?=
- =?utf-8?B?WkZ5NjRKMzNmZURaTFVpV3NqaURrYXFxUGgyM1R2dzh3cFQyZFdiOE5GcVAv?=
- =?utf-8?B?VTB1VlBxYWREbDZYRmp1M1pSMjdSSUdtTWJ4QTJ5R1c5TlBGUzk1SDdBc1Ax?=
- =?utf-8?B?RTI3WFVkakRQME1LT0k4SWRKUVZMcUE1QTdnN0YvaTNLZER5aEJIc2V3L0sr?=
- =?utf-8?B?UVkzWHpUSkpuYVRvQTJkVnFBWjJCcHh5M09Pb3VpdGxwYXBhZ1lBczN4blc1?=
- =?utf-8?B?M210Nnc5cG1YK1BoWUt3aitrT1dwR1c0aFdQR1RvNWNBbHBDTzZSMXVSUk1O?=
- =?utf-8?B?c0x6QkhlbjduVHFLcVl2amhtZFZHM2lQcUF3cWFUVDlwL0lISzRtZVVsRWpt?=
- =?utf-8?B?WVNRcEoxWjFLMkdkalg1S3NpeHA0ZFZNaEZzSVZUbmkzSU11S0hNNWdnd2hM?=
- =?utf-8?B?UEZ3VFM0S0ZZZitLY3phVzFHYVFWR3ZDRmZOV2pkUVlYYVFLZlNZeW5tSHRa?=
- =?utf-8?B?Q0NPem9vanduNTZtZnZRNklaS25MVVZYbHJ1ajE3QW8xYlR2WHpkZVg0V2JZ?=
- =?utf-8?B?bmYyVk1SQ0IvTGdoaHQwekNnTjFUR2E0Uk55NTJhNVVReE85eXVBdUNBQjFy?=
- =?utf-8?B?MWFWbytyNXEwYkRyQXZkNkpQRStQWGlQbWJQNGlqTDNTbkV3YzBxWjFWL242?=
- =?utf-8?B?YjdzMHNaa3VKWTg0UDBGSVhQYzA0cnlaeTY0TjJ2YTVFTTMvWDZTRVpxZGZy?=
- =?utf-8?B?dzZDVnZyYnpjY2VJR2pOYkZVZlU4Qk90Ykd2TitZa2srOEtodTFpOERhcjV1?=
- =?utf-8?B?NDd0QWZIbDBHalI3dWZpb2l2VzhQL0dmYmdsOFF5M0o3Rm5BZ2w5b3d1eTJp?=
- =?utf-8?B?Z0ExNUg2YnF6ZnFyTnZJQzhsZWFlOHdldmdMRGVlT0lKT2RIZmZ1TDB1NlJ3?=
- =?utf-8?B?cTJ3VXhHVWhPakZLZ3hXQUhkUU4rdlpaQUtPTWFiR2lJYlR5dnR6NGJNVEVv?=
- =?utf-8?B?ZllkY0dHaWVBMUhkK0hjT3k2VlhPVEZMMExpY0ordDk3Nyt0UzE4aHBpcjlo?=
- =?utf-8?B?NTNXYjdPd2NrOUE1b3JQRjZVbTdVVnoxaGNDQ0RQd3E4bWhaRUhkeGl5UzAz?=
- =?utf-8?B?RFE3VzBxbEsrVjI1QmQ4dW85Mi91TStHdG85MldUV2REamYvaGlpaGZkalhP?=
- =?utf-8?B?QnNYNE52b0V3ZTJkUGxjMHUwOGlqUTlUOWUxRk4wZ2dBS0tEbDR4WlJKM0Vn?=
- =?utf-8?B?RW9ZMno0VEQ1Smw5cWNFRGZJczhPL2ZvRXYvbGZ0V0JIU0tHblhiT1FUMHF5?=
- =?utf-8?Q?8fd1LzlBWjXvVoX8V3?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd9acd85-d61b-4087-fbed-08def1b75845
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 23:31:29.7251
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: sQWNJLGLzsMHxr77ZjXpsU9x0ROBULsQ8FXj1nzLgnJT3DYtQ73PlP/EWzHmVPFj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR18MB3570
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_163136_896234_F70C59C5 
-X-CRM114-Status: GOOD (  25.57  )
+X-CRM114-CacheID: sfid-20260803_163313_514556_79B08122 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,141 +128,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026/8/3 2:28 PM, Krzysztof Kozlowski wrote:
-> On 03/08/2026 07:29, Tzu-Hao Wei wrote:
->> On 7/30/2026 4:12 PM, Krzysztof Kozlowski wrote:
->>> On 30/07/2026 09:26, Tzu-Hao Wei wrote:
->>>> Add a Device Tree binding for the Axiado AX3000 and AX3005 video
->>>> capture path. There is no local register interface to describe: frames
->>>> arrive asynchronously into a reserved memory region written by the
->>>> host's display engine over PCIe, and this node only identifies that
->>>> region.
->>>>
->>>> memory-region accepts an optional second entry for a host-written
->>>> control mailbox, letting the driver detect the mode the host is
->>>> actually driving instead of only echoing back the configured capture
->>>> format.
->>>>
->>>> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
->>>> ---
->>>>   .../bindings/media/axiado,ax3000-video.yaml        | 44 ++++++++++++++++++++++
->>>>   MAINTAINERS                                        |  8 ++++
->>>>   2 files changed, 52 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/media/axiado,ax3000-video.yaml b/Documentation/devicetree/bindings/media/axiado,ax3000-video.yaml
->>>> new file mode 100644
->>>> index 0000000000000000000000000000000000000000..c6d8d1843aac9f42869ff90a550b92d0bed7c16f
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/media/axiado,ax3000-video.yaml
->>>> @@ -0,0 +1,44 @@
->>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>> +%YAML 1.2
->>>> +---
->>>> +$id: http://devicetree.org/schemas/media/axiado,ax3000-video.yaml#
->>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>> +
->>>> +title: Axiado AX3000 Video Controller
->>>> +
->>>> +maintainers:
->>>> +  - Shubhangini G <shubhangini@axiado.com>
->>>> +  - Tzu-Hao Wei <twei@axiado.com>
->>>> +  - Prasad Bolisetty <pbolisetty@axiado.com>
->>>> +
->>>> +description:
->>>> +  Axiado AX3000 video capture controller. Reads frames written by the
->>>> +  display engine into a shared reserved memory region and exposes them
->>>> +  as a V4L2 capture device.
->>>
->>> This is really incomplete. You need at least way to power things on,
->>> reset them, provide clocks, sensors, data paths. Or at the very minimal:
->>> START capturing the frames after configuring the resolution.
->>>
->>> It seems you described driver or just a piece of entire video pipeline.
->>>
->>
->> Thanks for your feedback.
->>
->> The Axiado AX3000 and AX3005 SoCs expose a display capture path that
->> delivers frames into a shared reserved memory region and exposes them
->> as a standard V4L2 capture device via the videobuf2 framework.
->>
->> There is no local register interface for this driver to program: frame
->> delivery is controlled entirely by the host-side display engine and
->> the PCIe endpoint mapping that feeds the shared region, both external
->> to this driver. A software polling timer schedules a workqueue item at
->> the configured framerate, which copies frames from the WC-mapped
->> shared region into vmalloc-backed vb2 buffers. Running the copy in a
->> work item rather than directly in the timer callback keeps potentially
->> multi-megabyte memcpy and per-pixel conversion work out of softirq
->> context.
-> 
-> Then this is not a separate device. You just described a Linux driver.
-> 
-> I still wait for answers of my question above. You described getting
-> buffers only.
-> 
 
-Thank you for the continued review.
+--=-WE5p0wNFoNN4V4RC6yVN
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-To correctly represent this in device tree without describing a
-software driver as a hardware device, would moving the schema into
-/reserved-memory be the preferred approach for v2?
+On Mon, 2026-08-03 at 11:56 +0200, Krzysztof Kozlowski wrote:
+> On Sat, Aug 01, 2026 at 06:43:00PM +0000, Markus Probst wrote:
+> > +  wakeup-parent: true
+> > +
+> > +  wakeup-source: true
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +
+> > +patternProperties:
+>=20
+> This goes after "properties:" block.
+>=20
+>=20
+> > +  "^pins":
+> > +    type: object
+> > +    patternProperties:
+> > +      "-pins$":
+> > +        type: object
+> > +        properties:
+> > +          pins:
+> > +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
+> > +
+> > +          sii,mode:
+> > +            $ref: /schemas/types.yaml#/definitions/uint32
+>=20
+> Use simple string. See pinmux bindings.
+>=20
+> > +            description: |
+> > +              Modes for the specific pin:
+> > +              - S35390A_MODE_IGNORE: Preserve the previous state.
+> > +              - S35390A_MODE_DISABLE: Disable all interrupts.
+> > +              - S35390A_MODE_WAKEUP: Used for waking up the system.
+> > +              - S35390A_MODE_ALARM: Userspace defined alarm.
+> > +              - S35390A_MODE_FREQ: Periodical at configurable frequenc=
+y.
+> > +              - S35390A_MODE_PMIN1: Minute periodical output with 50% =
+duty.
+> > +              - S35390A_MODE_PMIN2: Minute periodical output L for 7.8=
+1 ms.
+> > +                                    Can only be used with pin INT1.
+> > +              - S35390A_MODE_32768KHZ: Raw 32.768 kHz output.
+> > +                                       Can only be used with pin INT1.
+> > +            minimum: 0
+> > +            maximum: 7
+> > +
+> > +          sii,frequency:
+>=20
+> Frequency needs -hz, but anyway if this is becoming a clock, then you
+> must have clocks property and this is simply not needed... unless this
+> is some periodical wakeup call, not a clock? Then simply -hz and
+> property must be more descriptive (frequency of what? pulse?).
+Yes, it would become a clock if configured. But in this case, the
+"clocks" property seems to be a clock consumer property. It would be
+providing the clock signal.
 
-Specifically, we are considering moving it to:
-Documentation/devicetree/bindings/reserved-memory/axiado,ax3000-video-mem.yaml
+Anyway, it was added since it was only ~10 lines of code. Looking
+through documentation, using the clock subsystem might be a bit more
+driver work.
+Since I don't have a specific use for it, I will drop it in the next
+revision.
 
-This would follow the same Devicetree architectural pattern as
-qcom,rmtfs-mem:
-Documentation/devicetree/bindings/reserved-memory/qcom,rmtfs-mem.yaml
+Thanks
+- Markus Probst
+>=20
+>=20
+> > +            $ref: /schemas/types.yaml#/definitions/uint32
+> > +            description: Frequency in Hz to be used with mode S35390A_=
+MODE_FREQ.
+> > +            minimum: 1
+> > +            maximum: 31
+> > +
+> > +        required:
+> > +          - sii,mode
+> > +
+> > +        if:
+> > +          properties:
+> > +            sii,mode:
+> > +              const: 4
+> > +        then:
+> > +          required:
+> > +            - sii,frequency
+> > +        else:
+> > +          properties:
+> > +            sii,frequency: false
+> > +
+> > +        additionalProperties: false
+> > +
+> > +    additionalProperties: false
+> > +
+> > +unevaluatedProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/rtc/s35390a.h>
+> > +
+> > +    i2c {
+> > +        #address-cells =3D <1>;
+> > +        #size-cells =3D <0>;
+> > +
+> > +        rtc: rtc@30 {
+>=20
+> Drop unused label
+>=20
+> > +            compatible =3D "sii,s35390a";
+> > +            reg =3D <0x30>;
+> > +            pinctrl-0 =3D <&rtc_pins_default>;
+> > +            pinctrl-names =3D "default";
+> > +
+> > +            wakeup-parent =3D <&int>;
+> > +
+> > +            rtc_pins_default: pins {
+> > +              int1-pins {
+> > +                pins =3D S35390A_PIN_INT1;
+> > +                sii,mode =3D <S35390A_MODE_WAKEUP>;
+> > +              };
+> > +              int2-pins {
+> > +                pins =3D S35390A_PIN_INT2;
+> > +                sii,mode =3D <S35390A_MODE_DISABLE>;
+> > +              };
+> > +            };
+> > +        };
+> > +    };
+> > diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/D=
+ocumentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> > index f4d0eed98a08..7b3f682ef4d5 100644
+> > --- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> > +++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> > @@ -81,8 +81,6 @@ properties:
+> >        - ricoh,rv5c386
+> >        # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
+> >        - ricoh,rv5c387a
+> > -      # 2-wire CMOS real-time clock
+> > -      - sii,s35390a
+> >        # ST SPEAr Real-time Clock
+> >        - st,spear600-rtc
+> >        # VIA/Wondermedia VT8500 Real-time Clock
+> > @@ -105,5 +103,4 @@ required:
+> >    - reg
+> > =20
+> >  additionalProperties: false
+> > -
+> >  ...
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index 716acfc3d7c1..c85be1eefdb1 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -22696,6 +22696,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kerne=
+l/git/abelloni/linux.git
+> >  F:	Documentation/admin-guide/rtc.rst
+> >  F:	Documentation/devicetree/bindings/rtc/
+> >  F:	drivers/rtc/
+> > +F:	include/dt-bindings/rtc/
+> >  F:	include/linux/rtc.h
+> >  F:	include/linux/rtc/
+> >  F:	include/uapi/linux/rtc.h
+> > diff --git a/include/dt-bindings/rtc/s35390a.h b/include/dt-bindings/rt=
+c/s35390a.h
+> > new file mode 100644
+> > index 000000000000..dcd0ca15f9e9
+> > --- /dev/null
+> > +++ b/include/dt-bindings/rtc/s35390a.h
+> > @@ -0,0 +1,23 @@
+> > +/* SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause) */
+> > +
+> > +#ifndef __DT_BINDINGS_RTC_S35390A_H
+> > +#define __DT_BINDINGS_RTC_S35390A_H
+> > +
+> > +#define S35390A_MODE_IGNORE		0x0
+> > +#define S35390A_MODE_DISABLE		0x1
+> > +#define S35390A_MODE_WAKEUP		0x2
+> > +#define S35390A_MODE_ALARM		0x3
+> > +#define S35390A_MODE_FREQ		0x4
+> > +#define S35390A_MODE_PMIN1		0x5
+> > +#define S35390A_MODE_PMIN2		0x6
+> > +#define S35390A_MODE_32768KHZ		0x7
+> > +
+> > +#define S35390A_MODE_INT1_MAX		0x7
+> > +#define S35390A_MODE_INT2_MAX		0x5
+> > +
+> > +#define S35390A_FREQ_MASK		0x1F
+>=20
+>  don't get why this grew. None of these look like bindings.
+>=20
+>=20
+> > +
+> > +#define S35390A_PIN_INT1		"int1"
+> > +#define S35390A_PIN_INT2		"int2"
+>=20
+> Drop entire header.
+>=20
+> > +
+> > +#endif /* __DT_BINDINGS_RTC_S35390A_H */
+> >=20
+> > --=20
+> > 2.54.0
+> >=20
 
-Just as qcom,rmtfs-mem describes a reserved memory buffer used by
-remote processors and exports /dev/rmtfs_mem%d without hardware MMIO
-registers, clocks, or resets, axiado,ax3000-video describes the
-reserved memory buffer used by the AX3000 display pipeline and exports
-/dev/video0.
 
-Does representing axiado,ax3000-video as a reserved-memory node look
-like the appropriate way to model this in v2?
+--=-WE5p0wNFoNN4V4RC6yVN
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
-Best regards,
-TH 
+-----BEGIN PGP SIGNATURE-----
 
->>
->> To provide more context, this hardware path is designed for BMC iKVM
->> applications. The physical data flow is:
->> Host Display Engine -> PCIe -> BMC Shared Memory -> v4l2 (video0).
-> 
-> Great, not a device. Linux driver.
-> 
->>
->>>> +
->>>> +properties:
->>>> +  compatible:
->>>> +    oneOf:
->>>> +      - const: axiado,ax3000-video
->>>> +      - items:
->>>> +          - const: axiado,ax3005-video
->>>> +          - const: axiado,ax3000-video
->>>> +
->>>> +  memory-region:
->>>> +    minItems: 1
->>>> +    items:
->>>> +      - description: video frame buffer, shared with the display engine
->>>> +      - description: optional control mailbox, shared with the host
->>>
->>> Why is it optional?
->>>
->>
->> The second memory region is optional because it is not available on all
->> supported hardware configurations or use cases.
->>
->> For instance, another supported use case has the following data flow:
->> vtconsole -> framebuffer -> Shared Memory -> v4l2 (video0).
-> 
-> Use case is irrelevant to actual hardware.
-> 
-> 
-> Best regards,
-> Krzysztof
+iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmpxJSEbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSeeQQAJiJHHqdtepYKqV8bn1f
+7GnPjLKXPm4ovd1ERvFtZssRegwaHA3BUiBGqcelTWyIqofLv9v8TjBli4xrxwd2
+cKW6jOC/Xzbx37Cl90E+iSKQyxT1Bu6HS5Mk9+FC+ep8pL4a8EH9NyIdFDG17gc+
+eS45B0WM20oEH/udzt6qk6UJNVjkEJmkMs09mzq1QOCTj7vJyCTYB3adlwOui47n
+h1r1I5e9ZisU1WGfKgBBk9Gm+lX/uDOfDlYG6BaH7Mb7gOcrYqCuLGysGQJVridO
+uf17IzliwtLic1kHBAU4NFlNSMMhncyjqrZkHHvXPxgul6CEYhj3V0uF/x9uFcra
+Zw/wvhA+WSg/tW35LEhEocq+jArhuL0h/vePrp5JvPIgvm5wSGeccKlEHyKjx7Eq
+scdZxvQLbIGj5peZfcwAiDN+u/2oyLFiD6sk2j7SMqIR7E94kYL0D3o0UZ0dZVLA
+UTxw9J7M1kgcwzPZn8E7OAN1nWNmfECANidMH6aZ+rFdlxY4PNBFuDjzCipChCNd
+arfl9ZLEUYQ5R1nBHaXQrdBYBHt8Hbdup+E0oAOLQUSqKwlFeZ1/8Z32aB3qVNBf
+zudZq2CVMiT5rrATyZXjqh+qoITD5+ULhmAz+h6VpHYfirsa27asRaOeigBo3CsO
+XEozlYZAQZK39Mxrfg471VLA
+=q6sH
+-----END PGP SIGNATURE-----
 
+--=-WE5p0wNFoNN4V4RC6yVN--
 
