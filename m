@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D9B5C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32597C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:17:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wwjgtRb3Tj4kbI2i//w6Ka0+luCbAxG+sRZKCn0g9Uw=; b=w8RJ8uK1EZZpwU1fMo7tQm73Ea
-	O4uDtI/VenpoSv5RJAba4F24d+wPQUgc8R44DPqJv8ySdWen0nWv91THomvFtzHCdHgKpYoQmMGW/
-	Rb56DMO8fWxjXwMG2kCt+hS5+YnKkpNysh/tXmICKGGfoZThSbSLx2sJD8bh8dimrAOIiyD5hnjso
-	9CJbJI+XY/QrWR9yEZc+cd0MU352KvdtYmVGusBLmzMkKiGX2nVlGkr/klfFIE3cmD7ZBl+/qnmQf
-	ohTXqnOWlSTxH08alntHTongVVwMhNXRKB4ugkohOV7xtcvfNe73p7OMybhOqtx94zf4ZJeBa/A9D
-	rPoxlCpw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YIV+HU50AEtRbtVbE/kWRl5gYNOX4lr3tpB0iIeyarg=; b=JqN9/M1/XjYc8Jh8592jgsVM9U
+	yojkIF079ZfOGlqLvSFQzfsAf7+fE91HjcE7VdK3UKEVF5i+KP6TnOo1iFr3JM9SgD7HNWRanM2Fm
+	i2VTxi7qy6eD96m7kB7tNHTXZM/i019VFR9ajX5he1dajCqfPC+HS9miNKHv8+3glMmz0kB+Cf4Rf
+	2A6Xt+itT8YzcwqBN84R4uAEg10ApN+UEiP/bYfIc9EswT0NraTRkJAWdjLBjFpzH+cqKVENyj0yM
+	g81QjuBaJ0axcTCmP9yf24Qeru1u12fLmihrUvqjIpe2mLjN70cXoWlL/S8qlfkU1qx03oHwIbNbs
+	bsTyqTgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtTv-0000000HJcF-0l8R;
-	Mon, 03 Aug 2026 14:17:31 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wqtU2-0000000HJie-2aeL;
+	Mon, 03 Aug 2026 14:17:38 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtTs-0000000HJb4-0eYM
+	id 1wqtU0-0000000HJgu-1SVp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 14:17:29 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2cc61541f8cso47447895ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 07:17:27 -0700 (PDT)
+	Mon, 03 Aug 2026 14:17:37 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-38a0c7e841fso4208624a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 07:17:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785766647; x=1786371447; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wwjgtRb3Tj4kbI2i//w6Ka0+luCbAxG+sRZKCn0g9Uw=;
-        b=sDJsMLLKqKeIgZXthZXVJj4qZxXKZeyfIs8BZS7lCqikbWyOfys6G9oeP6DammD+n0
-         Zde/hZRYvEnyOJ1AxYWsYLLzmoCZg4AYe3WmBrqz2AgXmF22ro7bo7cLwBDr37twIi2n
-         MLlzysL3vbxDwQP6pKtJpT7+a6xFcwaxkLnxj44i87HQVsL21NyR/CaHZAoPAaoFc0uu
-         6Qf4nSAYNkVzpvqUA0AyDxKGDnrjMGwSz18MeSfB7RzYzCXY8IFqznVWT/Sq3it35rvL
-         GJGITnfpr8o+bBhOQqSDVNQp7LloF449LtJ2WDUFt6ddRTFrNtFri/MTitpxbnjPPREL
-         Eraw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785766647; x=1786371447;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1785766656; x=1786371456; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=wwjgtRb3Tj4kbI2i//w6Ka0+luCbAxG+sRZKCn0g9Uw=;
-        b=tRt258I+0tZw0npb8Dw+hPixUykPSnuMY2KQP/MbJzDAGqbc9D3RLI3VGMbznaEFHL
-         IJJYl5dtb4sEm+cXOnLoNACCLQEt3JfO2Czyi9sTnMGBManwkjF8O/Ah0S826MRMOJJ9
-         2rIwTWPQLd67GhiGAvH5kmmU4kQr+HETe4UjGmj4hrp7884faQwyYfvv0FXCcAG37EJ1
-         HSt4VnYkxX0cSePf9jjtXvxI3CjALDD8RfDdsL5reS5ZIMZNKO8cNLGiApjw5H9Z5vhf
-         DS5BGXklN8N3PUitYWm47nZda4BnJWcZHpdQsB8Kf1cQaOEmW64oeQAs8BpGs+PBDYNl
-         UVlw==
-X-Forwarded-Encrypted: i=1; AHgh+RqM7YbH4CthEBEzc5g6s0Cd1ZiXI7rWGxiBa1pSspZSYZqfsY47Ai09cOEXXscC4sRh1V31YjgTZ/+MFeIhig5L@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwLsdtiwB1nFUS09ICHSvQg5TBskHsPpN3h7an+4gCRKSgrnU1
-	i18F0Ez3SsOEbnwn3Z8eiXyI3lnNXGIfCBoGa4ftEG+KH+/wPMkPwocG
-X-Gm-Gg: AR+sD123i6QIR4N1/4X8HWBf+WHaR5Siyvo125qaw2sG82W8ywht1w+lSol0LOUXHf9
-	1FZRk42HazygKOHFffaW1pmbHaL/+AwGxgBEdh8jTPf4juZUjwgBGaQj1BGgjzCGJzhTrfZHNT3
-	ufzNTRCy5buL4d3Cx4wXzO02pwe6MlMp+l1ycjC2ChSV8O8spi1SGYMCe/5w6VMdKoYVtGhKUtQ
-	d/SyFc9cYJndfQLGa5iVTJs8Uj/3G9fqaG0Ql6yIsDjS7tueNKTmJr++A3ya96fbhWh0RSimfp3
-	a2Ain4txzx4yuQuWl95KL0Ml31qp5vJesBo8B+MY4Pd2HjKSR3VglzdLLkT7voOl3LNz1gKgXEC
-	g53PRHMCEVBh1Ik3bb751NkYEkyHtl9rbRpyH3QB1GZS5qSZ6RrCO424Y0eTUAY1UtFXcxRbCnY
-	6rexvPcbUWN3qpnPAt0Fw1JyhoFf8Hndu+ZxGptndYpm3l+5tQmFolyajueRTVkvk/QW4jy5aBJ
-	OCqYIBNAk+qUoi26d/h
-X-Received: by 2002:a17:90b:57ed:b0:385:3ab:fecb with SMTP id 98e67ed59e1d1-38fbc9f3ebemr7249914a91.4.1785766646430;
-        Mon, 03 Aug 2026 07:17:26 -0700 (PDT)
+        bh=YIV+HU50AEtRbtVbE/kWRl5gYNOX4lr3tpB0iIeyarg=;
+        b=jSgeKq7hnF+W/FROMFZTEac8jSOT4Z4P5/ceIZs6+DbBVNx9nQVJWiwZSkyI8PWLZ/
+         RMFH028909zsEk6kZGT7snxnJBsPs0SBIh1dafnSz6L9eQHGWf2Kln77zhcYvzSX7fED
+         0zC7YbI7i/Yp71NC4P8rSrqhMZLxpeGYyyMevQu9JTZjnJ7B48aKVBEkRHNnttnJ9phl
+         XoEpGN5Eo2CUvhXHkApAVJKBR8H9ahI1OozqgrRTrK7HZ3a1E7Kn9qI4E5La8CKs0Gdo
+         JXrVVgsagSs6o42A1Y2e96ov/lpH5ftXQmpMl0IyzjPWsCeN0pTtAGJlAZw10gNn6W2I
+         pHMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785766656; x=1786371456;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YIV+HU50AEtRbtVbE/kWRl5gYNOX4lr3tpB0iIeyarg=;
+        b=aVJJIBDBZz0etEYKAnmLg5UZC5ZMSKFJnbZwFUd3UyC25ezoWhpc7B3xOGx8vSwOQl
+         VDgRt+hciU5VAi+2rRpQ1lhaKTVDSRJP7PecMXBy5J44GLwUDFLI4kELkx4KSEpn7hmD
+         pFJPKpBSk7hO1EWgpFaJnqm1/qbdLxqwv6LShW6o2+mkBuVa4Qg2YIT7uQ/eoTbnQjyg
+         LIWOQStt+sBk9kL5INsg590k+s3bXHGPQ72jutY3uXF9VwUvQ0/bTVmncTOWD/3mLZho
+         ueTvrDVLO5RpgqnSf1jVWfuggSD2XoYeaHdILxJ7VAzAqBS1yCsJ77NmtmvGmUk2IXP3
+         0WOA==
+X-Forwarded-Encrypted: i=1; AHgh+Rqi8TCWphpeD8m7CWKRhI4W/j19wQ2APShzOyK5vLv4gRgeimA642wlP8SCcFZQIVMfKvdK3MZNOEdHyqjP6B0W@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXSiPYpALL9WA1nNGwOy+UECGpAwwmSYycZOyDyJOS0hOuCxQY
+	Zf/CF0PPm1xCbZvmNpIzLLr+eptf57NbXdnBAQWIsbBD6VA/GzzqmNxT
+X-Gm-Gg: AR+sD13+jN1xW/VFIkwyFco5T5m96GvIrVQRKbK+9dE6xs3k3dsYl1co49KP12TLdcx
+	zJP00L0Ned6COkyk2cFRvvouGAPE1lQLhy9hXpPiSf7rimqT4q2KvN1f+iPumuSz/6OeJNw4HyE
+	JPL1iAQza/g4BGWGE/gGQXFE3kYMndlUAlfLk0qe/HWhhsQrA0JWnk+Sk5jJ7ZStz3SZjq95ykM
+	aGIC7bd9/D2/ycCnJG/jLv2/VLtN9ghzxVenWU5x8fvh5xhrQHnSpdsdSlP/RTrgeLVW8IyAywQ
+	9++iqxp7OzQcGml+ergBYqwCxqOYisSj37fEIhd69+Lse1aJxDw3kiTqY1Nx6JBK7JRxbplSQlH
+	x8KEpHn3+MZbtw0Cx/ixx9yFLutVM01OKhlOO1TXivl6RcXNkeDQlBxnTrvotHxn/fws2qdTLxt
+	SXVctiita8j7LzHEAFFBDT9cYhhGkEFi7wjNfRYEp3Q6GomuxIQtEmbsV+GfY62VdWeqeW6Pg8k
+	ebe8SrHD4oceVLm0Cer
+X-Received: by 2002:a17:90b:5690:b0:38d:a8be:a597 with SMTP id 98e67ed59e1d1-38fbc56732bmr9286831a91.37.1785766655662;
+        Mon, 03 Aug 2026 07:17:35 -0700 (PDT)
 Received: from buffalo-ssd (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38fb30dff2esm4078462a91.13.2026.08.03.07.17.21
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38fb30dff2esm4078462a91.13.2026.08.03.07.17.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 07:17:26 -0700 (PDT)
+        Mon, 03 Aug 2026 07:17:35 -0700 (PDT)
 From: Akari Tsuyukusa <akkun11.open@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -98,15 +99,17 @@ Cc: Laura Nao <laura.nao@collabora.com>,
 	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
 	netdev@vger.kernel.org (open list:PTP HARDWARE CLOCK SUPPORT:Keyword:(?:\b|_)ptp(?:\b|_)),
 	stable@vger.kernel.org
-Subject: [PATCH 00/32] clk: mediatek: Migrate to common probe/remove helpers and fix memory leaks
-Date: Mon,  3 Aug 2026 23:16:27 +0900
-Message-ID: <20260803141659.559129-1-akkun11.open@gmail.com>
+Subject: [PATCH 02/32] clk: mediatek: mt6795: fix memory leak on module removal
+Date: Mon,  3 Aug 2026 23:16:29 +0900
+Message-ID: <20260803141659.559129-3-akkun11.open@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260803141659.559129-1-akkun11.open@gmail.com>
+References: <20260803141659.559129-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_071728_190153_0C53F7DE 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20260803_071736_394200_E7BB3190 
+X-CRM114-Status: GOOD (  12.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,124 +124,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series migrates most MediaTek clock drivers to the common
-probe/remove helpers provided by the MTK clock framework.
+clk-mt6795-apmixedsys.c, clk-mt6795-infracfg.c and clk-mt6795-pericfg.c
+do not call platform_set_drvdata() during their driver probe callback,
+but their remove callback calls platform_get_drvdata().
+This results in platform_get_drvdata() returning NULL, which leads to
+calling kfree(NULL) in mtk_free_clk_data(NULL).
+This leaves clk_data unreleased, causing a memory leak.
 
-Key changes:
-- Fix memory leaks on module removal caused by missing
-  platform_set_drvdata() calls (patches 1-6).
-- Add missing MODULE_DEVICE_TABLE() (patches 7, 8).
-- Add missing support for cpumux, PLL, pllfh, and sub-device
-  auto-population to the common helpers (patches 9-12).
-- Convert all compatible clock drivers to use struct mtk_clk_desc
-  and mtk_clk_simple_probe/remove (patches 13-32).
+Fix this by calling platform_set_drvdata() during probe.
 
-The memory leak and MODULE_DEVICE_TABLE() fixes are split from the
-migration patches to allow backporting to stable.
+Fixes: 0d363282bb0c ("clk: mediatek: Add MediaTek Helio X10 MT6795 clock drivers")
+Cc: stable@vger.kernel.org
+Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+Reviewed-by: Brian Masney <bmasney@redhat.com>
+---
+ drivers/clk/mediatek/clk-mt6795-apmixedsys.c | 2 ++
+ drivers/clk/mediatek/clk-mt6795-infracfg.c   | 2 ++
+ drivers/clk/mediatek/clk-mt6795-pericfg.c    | 2 ++
+ 3 files changed, 6 insertions(+)
 
-Drivers not converted:
-- MT6765 apmixedsys: requires direct register init.
-- MT6795 apmixedsys: uses mtk_clk_register_ref2usb_tx().
-- MT7629 eth/sgmiisys: uses a hacked probe sequence (multi-instance
-  sgmii gates).
-- MT8173 apmixedsys: uses mtk_clk_register_ref2usb_tx() and custom
-  divider registration.
-- MT8188/MT8195 topckgen: call devm_clk_hw_register_mux() and register
-  a notifier.
-- MT8196 vlpckgen: requires direct register init.
-- MT8365 apmixedsys: uses devm_clk_hw_register_gate().
-
-Patches 1-6 are based on
-"[PATCH v2 0/6] clk: mediatek: fix memory leak on module removal"
-(In addition fixed a compilation error in mt8173-infracfg)
-https://lore.kernel.org/linux-mediatek/20260707074839.240676-1-akkun11.open@gmail.com/
-
-Patch 9 is based on
-"[PATCH 1/3] clk: mediatek: clk-mtk: Add cpumux support to common probe/remove helpers"
-https://lore.kernel.org/lkml/20260304181024.738391-1-akkun11.open@gmail.com/
-
-Akari Tsuyukusa (32):
-  clk: mediatek: mt2712: fix memory leak on module removal
-  clk: mediatek: mt6795: fix memory leak on module removal
-  clk: mediatek: mt7622: fix memory leak on module removal
-  clk: mediatek: mt8135: fix memory leak on module removal
-  clk: mediatek: mt8173: fix memory leak on module removal
-  clk: mediatek: mt8192: fix memory leak on module removal
-  clk: mediatek: mt6735: Add missing MODULE_DEVICE_TABLE()
-  clk: mediatek: mt7988-apmixed: Add missing MODULE_DEVICE_TABLE()
-  clk: mediatek: Add cpumux support to common probe/remove helpers
-  clk: mediatek: Add PLL support to common probe/remove helpers
-  clk: mediatek: Add auto-population of sub-devices support in simple
-    probe
-  clk: mediatek: Add pllfh support to common probe/remove helpers
-  clk: mediatek: mt2701: Switch to common probe/remove helpers
-  clk: mediatek: mt2712-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt6735-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt6779: Switch to common probe/remove helpers
-  clk: mediatek: mt6795: Switch to common probe/remove helpers
-  clk: mediatek: mt6797: Switch to common probe/remove helpers
-  clk: mediatek: mt7622: Switch to common probe/remove helpers
-  clk: mediatek: mt7981-apmixed: Switch to common probe/remove helpers
-  clk: mediatek: mt7986-apmixed: Switch to common probe/remove helpers
-  clk: mediatek: mt7988-apmixed: Switch to common probe/remove helpers
-  clk: mediatek: mt8135-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt8167-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt8173-infracfg: Switch to common probe/remove helpers
-  clk: mediatek: mt8183: Switch to common probe/remove helpers
-  clk: mediatek: mt8186-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt8188-apmixedsys: Switch to common probe/remove
-    helpers
-  clk: mediatek: mt8192: Switch to common probe/remove helpers
-  clk: mediatek: mt8195: Switch to common probe/remove helpers
-  clk: mediatek: mt8196: Switch to common probe/remove helpers
-  clk: mediatek: mt8516-apmixedsys: Switch to common probe/remove
-    helpers
-
- drivers/clk/mediatek/Kconfig                 |  34 +--
- drivers/clk/mediatek/clk-mt2701-aud.c        |  35 +--
- drivers/clk/mediatek/clk-mt2701.c            | 233 +++++--------------
- drivers/clk/mediatek/clk-mt2712-apmixedsys.c |  48 +---
- drivers/clk/mediatek/clk-mt6735-apmixedsys.c |  48 +---
- drivers/clk/mediatek/clk-mt6735-imgsys.c     |   1 +
- drivers/clk/mediatek/clk-mt6735-mfgcfg.c     |   1 +
- drivers/clk/mediatek/clk-mt6735-vdecsys.c    |   1 +
- drivers/clk/mediatek/clk-mt6735-vencsys.c    |   1 +
- drivers/clk/mediatek/clk-mt6779.c            | 124 ++--------
- drivers/clk/mediatek/clk-mt6795-apmixedsys.c |   2 +
- drivers/clk/mediatek/clk-mt6795-infracfg.c   |  70 +-----
- drivers/clk/mediatek/clk-mt6795-pericfg.c    |  71 +-----
- drivers/clk/mediatek/clk-mt6797.c            | 140 ++---------
- drivers/clk/mediatek/clk-mt7622-apmixedsys.c |  60 +----
- drivers/clk/mediatek/clk-mt7622-aud.c        |  35 +--
- drivers/clk/mediatek/clk-mt7622-infracfg.c   |  70 +-----
- drivers/clk/mediatek/clk-mt7981-apmixed.c    |  37 +--
- drivers/clk/mediatek/clk-mt7986-apmixed.c    |  37 +--
- drivers/clk/mediatek/clk-mt7988-apmixed.c    |  40 +---
- drivers/clk/mediatek/clk-mt8135-apmixedsys.c |  48 +---
- drivers/clk/mediatek/clk-mt8167-apmixedsys.c |  50 +---
- drivers/clk/mediatek/clk-mt8173-apmixedsys.c |   2 +
- drivers/clk/mediatek/clk-mt8173-infracfg.c   |  98 ++------
- drivers/clk/mediatek/clk-mt8183-apmixedsys.c |  51 +---
- drivers/clk/mediatek/clk-mt8183-audio.c      |  26 +--
- drivers/clk/mediatek/clk-mt8186-apmixedsys.c |  59 +----
- drivers/clk/mediatek/clk-mt8188-apmixedsys.c |  60 +----
- drivers/clk/mediatek/clk-mt8192-apmixedsys.c |  67 ++----
- drivers/clk/mediatek/clk-mt8192-aud.c        |  26 +--
- drivers/clk/mediatek/clk-mt8195-apmixedsys.c |  67 +-----
- drivers/clk/mediatek/clk-mt8195-apusys_pll.c |  49 +---
- drivers/clk/mediatek/clk-mt8196-apmixedsys.c |  67 +-----
- drivers/clk/mediatek/clk-mt8196-mcu.c        |  96 +++-----
- drivers/clk/mediatek/clk-mt8196-mfg.c        |  84 ++-----
- drivers/clk/mediatek/clk-mt8516-apmixedsys.c |  42 +---
- drivers/clk/mediatek/clk-mtk.c               |  76 +++++-
- drivers/clk/mediatek/clk-mtk.h               |  12 +
- 38 files changed, 472 insertions(+), 1596 deletions(-)
-
+diff --git a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
+index 123d5d7fea85..239a3f5e1760 100644
+--- a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
+@@ -175,6 +175,8 @@ static int clk_mt6795_apmixed_probe(struct platform_device *pdev)
+ 	dev_dbg(dev, "Performing initial setup for MD1\n");
+ 	clk_mt6795_apmixed_setup_md1(base);
+ 
++	platform_set_drvdata(pdev, clk_data);
++
+ 	return 0;
+ 
+ unregister_ref2usb:
+diff --git a/drivers/clk/mediatek/clk-mt6795-infracfg.c b/drivers/clk/mediatek/clk-mt6795-infracfg.c
+index e4559569f5b0..914bb069aa85 100644
+--- a/drivers/clk/mediatek/clk-mt6795-infracfg.c
++++ b/drivers/clk/mediatek/clk-mt6795-infracfg.c
+@@ -116,6 +116,8 @@ static int clk_mt6795_infracfg_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto unregister_cpumuxes;
+ 
++	platform_set_drvdata(pdev, clk_data);
++
+ 	return 0;
+ 
+ unregister_cpumuxes:
+diff --git a/drivers/clk/mediatek/clk-mt6795-pericfg.c b/drivers/clk/mediatek/clk-mt6795-pericfg.c
+index d48240eb2a67..27d0ef7d7b2f 100644
+--- a/drivers/clk/mediatek/clk-mt6795-pericfg.c
++++ b/drivers/clk/mediatek/clk-mt6795-pericfg.c
+@@ -125,6 +125,8 @@ static int clk_mt6795_pericfg_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto unregister_composites;
+ 
++	platform_set_drvdata(pdev, clk_data);
++
+ 	return 0;
+ 
+ unregister_composites:
 -- 
 2.55.0
 
