@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBCBC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CCEEC55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:33:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=plnJ8BbmlRPMSZORSJnXKsHzbaveK/NmnGipN6gocjg=; b=qY8ga5xIoKPjyGhFssMo+d9nzD
-	V0HsoYwHuxktNgoZ/tpHfdkCvRfK4BvB4JF8y5g3Fs+QkkR0K21uqbEkbJSNZG9dx74IHPEH1d2ZQ
-	kdC3rvBxBUN46SRIkFN+e3GuiaNOEalCQXK7KXlTZrUnYS1lSyMUmq2pUCGUCPR8e5fPuQhm4/npH
-	JcVWHhrxjcJ4RrHprQBmJjqCxbtuziPOTC8L4sx7tgmk+5ol3v9I4uX4log4QTa2hfUkV5EbzTQy+
-	xk5VbSsu4BKdUxwXy+xMzjiZy/ww679PJXeqsr9wI1cC3JEaeVgAl9710ZhengTwjYypsk51g3OSy
-	ELBa0nKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6pBge9jNymP1cfY1B4zQpIqkABJQaI2TRrQQikF3h88=; b=tZUpYqbbitUIe2rM0mifjG9ZL5
+	XBqtzKDN52WKrSkOX+uNxEEwRfSVWETYImFBihLLfGLs6aMQgCyTq4rYlzuUE5cBkLsGuxOBvtxsN
+	E98oe6t2sOmk+T96CpQ6RI3b5qlofSAm93c7wmngczyUX3aeAc2GXx1hYNVBxhKUkjtiWFeSf28um
+	mwGEJaMGvAFdw+c/049n/BGlB21mnY16XFkiHoisjoTNzLm8ycHzx/mS+eDXIi+Z59SUgZYBaDaf0
+	dnG+NWM7go/FPFkvkkY4zTRCXk9jUNmm42CLLMu6B9OhYtCix92TbMvn4ScxQKJCC5B7geasFYRXS
+	R96bYI7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqrop-0000000H1v0-109L;
-	Mon, 03 Aug 2026 12:30:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqron-0000000H1uq-303Z
+	id 1wqrrI-0000000H2FO-2rYp;
+	Mon, 03 Aug 2026 12:33:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqrrF-0000000H2F2-3jvO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 12:30:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D89A560A78;
-	Mon,  3 Aug 2026 12:30:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3E831F000E9;
-	Mon,  3 Aug 2026 12:30:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785760256;
-	bh=plnJ8BbmlRPMSZORSJnXKsHzbaveK/NmnGipN6gocjg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=j07AiIBRwfplAF4+BPjD9ptcTBXIzqzezrLohUlp67oAQaBkOaIRjlKIRCS/zxpWT
-	 BpXxXj5JEF5phQz7IQ2YBHgB+L9YN7j829JdWj3k7n9HkLbuws59SKndPDsMcF1WMB
-	 xj76aDasV70Bf7ShniB9S5lri5p+Ly9SaluPd3lQ8PR3DD3PicHI4NmEAYiLs4H7yf
-	 ThNHXVFm0YIgrfKs4eDOOOmwoZ5hAMOgl6e6USjCcp9wbn+tRbiPzn34MH7Obe7oNf
-	 ALX8vCQ21nsaRxKqtlUUmi+vVhYH/rX5JE7yp962X7UZTiPUuqoAlqVCWP4nwkIp+W
-	 9DtnRBzVgntiQ==
-Date: Mon, 3 Aug 2026 13:30:52 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	cwweng@nuvoton.com
-Subject: Re: [PATCH v3 0/2] spi: ma35d1-qspi: Enable GPIO chip-select support
-Message-ID: <edabced4-b7b1-4b2c-a358-d47e4b7e8e9c@sirena.org.uk>
-References: <5769eae0-1b40-419f-8311-0d919bf619fa@sirena.org.uk>
- <20260803074913.1656675-1-cwweng.linux@gmail.com>
+	Mon, 03 Aug 2026 12:33:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAD46143D;
+	Mon,  3 Aug 2026 05:33:23 -0700 (PDT)
+Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 805C43F66F;
+	Mon,  3 Aug 2026 05:33:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785760407; bh=s3juHwRUrkZssk/ozMQpmsM6uPogbmE2d/PRMpal7cY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=DtDyT23AC4/7KX+42TR2SSiNxeFraVPknriLM/GwEK3IpRrUt+mn23nrxw9MzklRK
+	 s6yCse85pCBq46s4+H3K0DAZEHf00hMpf37z28QURRD+WFs74SqT6jzHXMBmEP5VfH
+	 3+z9N7a2H1YbzJi08O4NDv+i+A/42yhnCK9QAaPQ=
+Message-ID: <73f0c621-44ff-403f-9cae-d94095accf6c@arm.com>
+Date: Mon, 3 Aug 2026 13:33:24 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="AWRhvsoPupBsFgwE"
-Content-Disposition: inline
-In-Reply-To: <20260803074913.1656675-1-cwweng.linux@gmail.com>
-X-Cookie: Prunes give you a run for your money.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 34/45] arm64: nmi: Add handling of superpriority
+ interrupts as NMIs
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
+ catalin.marinas@arm.com, liaochang1@huawei.com
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-35-vladimir.murzin@arm.com>
+ <f54fb8f7-2bf0-4fdb-bfc3-b11ccb924e64@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <f54fb8f7-2bf0-4fdb-bfc3-b11ccb924e64@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_053330_254823_3550D533 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,38 +74,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 7/28/26 13:25, Jinjie Ruan wrote:
+>> @@ -924,6 +967,20 @@ static void noinstr el0_interrupt(struct pt_regs *regs,
+>>  	 */
+>>  	arm64_debug_exc_context(NOIRQ_CONTEXT);
+>>  	arm64_exit_to_user_mode(regs, arm64_exc_hwstate_of_context(NOIRQ_CONTEXT));
+>> +}
+>> +
+>> +static void noinstr el0_interrupt(struct pt_regs *regs,
+>> +				  void (*handler)(struct pt_regs *))
+>> +{
+>> +	if (regs->pc & BIT(55))
+>> +		arm64_apply_bp_hardening();
+> It seems only after enter_from_user_mode() or irqentry_nmi_enter(), it
+> is safe to call normal kernel code.
 
---AWRhvsoPupBsFgwE
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I do not think there is issue with that. Here is call chain:
 
-On Mon, Aug 03, 2026 at 03:49:11PM +0800, Chi-Wen Weng wrote:
-> From: Chi-Wen Weng <cwweng@nuvoton.com>
->=20
-> The generic SPI controller binding allows GPIO-based chip selects, but
-> the MA35D1 QSPI driver currently supports only the controller's two
-> native chip selects.
+arm64_apply_bp_hardening()           // always_inline
+  -> alternative_has_cap_unlikely()  // always_inline
+     -> cpucap_is_possible()         // always_inline
+  -> fn()
+      - qcom_link_stack_sanitisation // noinstr
+      - call_hvc_arch_workaround_1   // noinstr
+      - call_smc_arch_workaround_1   // noinstr
 
-Please don't send new patches in reply to old patches or serieses, this
-makes it harder for both people and tools to understand what is going
-on - it can bury things in mailboxes and make it difficult to keep track
-of what current patches are, both for the new patches and the old ones.
+That's also in line with el0_ia(), el0_pc() and el0_softstp()
+which call arm64_apply_bp_hardening() before enter_from_user_mode()
 
---AWRhvsoPupBsFgwE
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpwifsACgkQJNaLcl1U
-h9Dn9Qf/bSsUzn62duJGPpvb13LHWgFo49vaM5o/K2aqsWO18YnTykBSgks0ISbL
-lgn7sVTDvY63/hLe01Yl//Gj4Rjwqmy4hIBBMubhvvKO9XFDg5jMWMnsetEYISAu
-FPwaVGwL75kXjIN80AZ/wJdDjbL7M30wT5/+PDSfsaC1aejh0zeQcob2R4Udjte9
-AGl1Bq+z0F90LlY2rwGX6I6vNRx7vmIxvdIedaRImF1U157TbD0YBlu4dQ3lIRTz
-WDoDFCYFseMGZuYz5g423OtVJyoFAX1RtesMEYt3CMxOyh8+mP4YR9OJXM5EV5WU
-pawRqimuEHXWBo8OmLkDVrwjvnzupg==
-=SfVA
------END PGP SIGNATURE-----
-
---AWRhvsoPupBsFgwE--
+Cheers
+Vladimir
 
