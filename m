@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 888AEC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 23:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FCD5C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 23:14:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zoyq8Inen+VAWRiWz/um6XRtPFDfayF6DG7fxVMTx/o=; b=Z9jw7IybdinYxlsKCy4aydPwpK
-	Ugz/hi1AovZaT7kbIH7krzEHXltQy36IqNhU/9hEhFOkySqk3HrKV2cfTax91OokDYLH9hwDxm8ML
-	T7s7b+iKcZ7eYLlKTCzjuTCz3k8bfJ7SC0T6PVn1gQRORpcFa70/ZZqmC51PGVUg702mg44dAIodW
-	VAbm+bfy73G9xdExmfYkH68PO19fpH4iyK2NbA20QZDQ32bVDJjHcvgfe/bwPGhZALK+wrk26aPBN
-	wV5n2krSJ+ONIaxxFpfaMStkyX/fcsftPRPGZVFQZftVzOrnuhN4oSKRl9J2YBgM1T44rraQd4l7S
-	OSg0q13Q==;
+	bh=7mM87d/BoLbN1zST8PJ6yEoztt2FRLeT4zLZWlzYzGU=; b=4MPAo/bDvl5MN9ND2AFd+zx6eb
+	2NNUQ4KSBi7ivi5UZ+k9KMM59c/4GAfF7wfMcyyAlTrwSfldXgyFfN5mb4RKyoogZCldY4FoGivFI
+	MKPEDQ/0Zt04rC1NS/oJbonj8vwm6BMReEtltksVcBma69C1eqo/35S849FI054RsPry75sFtuCv0
+	Fs47vJPB8bEGNCqG5S2YfCBSLnHJ6ph6eJHJ95bBiRQVmNrh9ZiATg56ApNln08xTkAxEePuq1F7p
+	aa6Slyo/Smxm6lfTEA524j5rN0JMnH+eeCQxc8JGQm4X7q8FveCiE+tVg07D+yEG3ocgnoBNBi0eM
+	+L/KZqtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr1rI-00000000f6c-2Bgp;
-	Mon, 03 Aug 2026 23:14:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wr1rL-00000000fAQ-3i7B;
+	Mon, 03 Aug 2026 23:14:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr1rH-00000000f58-1BvU
+	id 1wr1rK-00000000f8F-03sk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 23:14:11 +0000
+	Mon, 03 Aug 2026 23:14:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B81B960A59;
+	by sea.source.kernel.org (Postfix) with ESMTP id B998141398;
+	Mon,  3 Aug 2026 23:14:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9C8D1F00A3F;
 	Mon,  3 Aug 2026 23:14:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8CD21F000E9;
-	Mon,  3 Aug 2026 23:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785798850;
-	bh=zoyq8Inen+VAWRiWz/um6XRtPFDfayF6DG7fxVMTx/o=;
+	s=k20260515; t=1785798853;
+	bh=7mM87d/BoLbN1zST8PJ6yEoztt2FRLeT4zLZWlzYzGU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ioiICQYpyvdsUZNRXOM2rAHl31xYTBontCQMRP1yN9JruPVThooXeBQk7z8eIUCAI
-	 7/+jEOxzE4Fz1RBngaY78EZAzTSRnVFRHt8h8duZ9OhXvb0iwP7914dmcKcSYGoEMc
-	 ERLskkc+RJZ806KHNeYi8WG7PMayK8YN3nxg7CnT9Q6P3qy7C4gsdjPskFFjLH2vw9
-	 SJdHRAWKa44LSpkBAZ5AQ1hD3ts88rsye4nSHns8KDhbWYudKSmw7SauajTQNcpMJL
-	 Y9O7/RKVv5WA6hjY43EaVJAN9zsIvJ3jsxoiRx2w/Xpa4BejHSAdAy13lYhhIa8T7B
-	 my83Ioy9JtFiQ==
+	b=GAUzCKQjZ5MZGK/l0iGJgyz/COLP5hl7OLokCPCjZje6VV26oRlQNKiauP9IlDft4
+	 5t5zdvYReDngCQMXm1t1eNkjYTUQBOS75/4y04/rPlrTh8qHDMokrkBx780Wb8kuV6
+	 hUNHGB/ZfUlosla48JLUzboGnST7g7Sxs1EV2iNZetCfS5nfGHW79VS5pMeT6XoMb/
+	 CEcXQK0JcLSuFk7mYkNNKTJSRDBYXO4donlFKe0e4AZRPYFnKXCTFjz5+Xe1ishRj+
+	 y/EYZt8CnpcNK+NLGoWx45gX/vxLaXqNQvidut1isr2gBs2bsUDR3Dq+cpFNkqhpNH
+	 6n5wcnc+bmqng==
 From: Mark Brown <broonie@kernel.org>
-Date: Mon, 03 Aug 2026 23:56:53 +0100
-Subject: [PATCH v18 08/14] KVM: arm64: Enforce EXLOCK for SPSR and ELR
+Date: Mon, 03 Aug 2026 23:56:54 +0100
+Subject: [PATCH v18 09/14] KVM: arm64: Allow GCS to be enabled for guests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260803-arm64-gcs-v18-8-fd8c40f5ad88@kernel.org>
+Message-Id: <20260803-arm64-gcs-v18-9-fd8c40f5ad88@kernel.org>
 References: <20260803-arm64-gcs-v18-0-fd8c40f5ad88@kernel.org>
 In-Reply-To: <20260803-arm64-gcs-v18-0-fd8c40f5ad88@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>, 
@@ -61,15 +61,15 @@ Cc: Peter Maydell <peter.maydell@linaro.org>,
  kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, 
  linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3010; i=broonie@kernel.org;
- h=from:subject:message-id; bh=dYXTcrQgfnk8FxnmgXg6ADstB4n1DYUswquMHXPAUUY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqcSCgZxL3vnMN/fdXvvlTWz7G2jUymHEbk80nG
- VGlBh/oOo6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCanEgoAAKCRAk1otyXVSH
- 0AfCB/994WaXrj0FxhuZLpXWKMkoWnuJzBwOu2c5GkJcdKi3+WqEe94KqUqJGMq4L5LsrGGmj66
- rmOQoLZ7n/Zfe2AHNiEi6BLNDwlRcMm94pcaJmWXD7wjOVlyrGm3aLKmXQNNwpaP9CmkQ/ePZM7
- VHJaLWib1K/WYDMhmycFJW041eFXVFYEnOzTWKycKJYb9gXPleLX8LOv4XMSsfTy835sOftUaa4
- OIItrP8OYOANc6y7xMDxiL9rtH7CcaF7NOAqfmu9OEpnxBHJkq9KwqRkSEy37covX0WebB/PZUV
- eOaePDOxENwfTA5E+MxHnJm/hlh+mVzEV7/XSBItTbxYJLvB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1947; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=dGLgMnL9rflDIiQQE2mOvvL9pjSbxiXR3AQhq+zRFdw=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqcSCgVvZNHyYxP4KJ4G+VRTHyOsbEWGi733jeZ
+ tApPHusGYiJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCanEgoAAKCRAk1otyXVSH
+ 0BIXB/4g8Ff7bixNT03EVmFn3AcdNaHHjiNBBBkQDDwNvAYtlNyOWyhdqt/mfXOt2qrjx/pIqiT
+ DFtC/GRGSIdQaAIwu7Ye9O+mYYb7rM09du+nqaJz7milCp0tRJK02XzHzXgn7rJzq1/VnTG/bxr
+ nKICnMHW88MKZnUb1R7CKcYQ/aB+CoS0fZO0YNNW0zbadzcM4mlrxdbE1NHPmXpg8Z0MAPdaj9E
+ Th0al2S1FF7yqJSk1TpOgFc7WbNq5+tpqdz9aSETTyqAG8a9ZOATjnDpxQ7VBDnQ5Nj+zb2Qzai
+ DKYI/VbhUcPfc+vwAoek1veecPrthAh8398wF7N0GWwPnWaT
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -86,105 +86,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per I_CFFNS and the pseudocode for the SPSR_ELx and ELR_ELx registers
-a GCS exception with ExType 1 is generated for attempts to write to
-those registers when both GCSCR_ELx.EXLOCKEN and PSTATE.EXLOCK are set.
-Ensure that this is enforced for guests if access to these registers
-from the guest is handled by the hypervisor.
+Now that required functionality for GCS is in place expose
+ID_AA64PFR1_EL1.GCS, allowing guests to be given the feature.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_emulate.h |  8 +++++++
- arch/arm64/kvm/sys_regs.c            | 42 ++++++++++++++++++++++++++++++++----
- 2 files changed, 46 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/nested.c   | 3 +--
+ arch/arm64/kvm/sys_regs.c | 5 +++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index ee774c3b8dcd..bc012c86fcd6 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -81,6 +81,14 @@ int kvm_inject_nested_irq(struct kvm_vcpu *vcpu);
- int kvm_inject_nested_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
- int kvm_inject_nested_serror(struct kvm_vcpu *vcpu, u64 esr);
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index dfb96edbdc43..e588820b1be7 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1632,11 +1632,10 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		break;
  
-+static inline void kvm_inject_exlock(struct kvm_vcpu *vcpu)
-+{
-+	u64 esr = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_GCS) | ESR_ELx_IL |
-+		  FIELD_PREP(ESR_ELx_ExType_MASK, ESR_ELx_ExType_EXLOCK);
-+
-+	kvm_inject_sync(vcpu, esr);
-+}
-+
- static inline void kvm_inject_nested_sve_trap(struct kvm_vcpu *vcpu)
- {
- 	u64 esr = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SVE) |
+ 	case SYS_ID_AA64PFR1_EL1:
+-		/* Only support BTI, SSBS, CSV2_frac */
++		/* Only support GCS, BTI, SSBS, CSV2_frac */
+ 		val &= ~(ID_AA64PFR1_EL1_PFAR		|
+ 			 ID_AA64PFR1_EL1_MTEX		|
+ 			 ID_AA64PFR1_EL1_THE		|
+-			 ID_AA64PFR1_EL1_GCS		|
+ 			 ID_AA64PFR1_EL1_MTE_frac	|
+ 			 ID_AA64PFR1_EL1_NMI		|
+ 			 ID_AA64PFR1_EL1_SME		|
 diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index d18ada283809..387c14a33524 100644
+index 387c14a33524..7105f42a63ae 100644
 --- a/arch/arm64/kvm/sys_regs.c
 +++ b/arch/arm64/kvm/sys_regs.c
-@@ -2782,14 +2782,42 @@ static bool access_sp_el1(struct kvm_vcpu *vcpu,
- 	return true;
- }
+@@ -2109,10 +2109,12 @@ static u64 sanitise_id_aa64pfr1_el1(const struct kvm_vcpu *vcpu, u64 val)
+ 	      SYS_FIELD_GET(ID_AA64PFR0_EL1, RAS, pfr0) == ID_AA64PFR0_EL1_RAS_IMP))
+ 		val &= ~ID_AA64PFR1_EL1_RAS_frac;
  
-+static inline bool sysregs_exlocked(struct kvm_vcpu *vcpu)
-+{
-+	u64 gcscr;
++	if (!system_supports_gcs())
++		val &= ~ID_AA64PFR1_EL1_GCS;
 +
-+	if (!kvm_has_gcs(vcpu->kvm))
-+		return false;
-+
-+	if (!(vcpu->arch.ctxt.regs.pstate & PSR_EXLOCK_BIT))
-+		return false;
-+
-+	/*
-+	 * Note that the EXLOCKEN for the running EL is checked
-+	 * regardless of the register written to.
-+	 */
-+	if (is_hyp_ctxt(vcpu))
-+		gcscr = vcpu_read_sys_reg(vcpu, GCSCR_EL2);
-+	else
-+		gcscr = vcpu_read_sys_reg(vcpu, GCSCR_EL1);
-+
-+	return gcscr & GCSCR_ELx_EXLOCKEN;
-+}
-+
- static bool access_elr(struct kvm_vcpu *vcpu,
- 		       struct sys_reg_params *p,
- 		       const struct sys_reg_desc *r)
- {
--	if (p->is_write)
-+	if (p->is_write) {
-+		if (sysregs_exlocked(vcpu)) {
-+			kvm_inject_exlock(vcpu);
-+			return false;
-+		}
-+
- 		vcpu_write_sys_reg(vcpu, p->regval, ELR_EL1);
--	else
-+	} else {
- 		p->regval = vcpu_read_sys_reg(vcpu, ELR_EL1);
-+	}
- 
- 	return true;
- }
-@@ -2798,10 +2826,16 @@ static bool access_spsr(struct kvm_vcpu *vcpu,
- 			struct sys_reg_params *p,
- 			const struct sys_reg_desc *r)
- {
--	if (p->is_write)
-+	if (p->is_write) {
-+		if (sysregs_exlocked(vcpu)) {
-+			kvm_inject_exlock(vcpu);
-+			return false;
-+		}
-+
- 		__vcpu_assign_sys_reg(vcpu, SPSR_EL1, p->regval);
--	else
-+	} else {
- 		p->regval = __vcpu_sys_reg(vcpu, SPSR_EL1);
-+	}
- 
- 	return true;
- }
+ 	val &= ~ID_AA64PFR1_EL1_SME;
+ 	val &= ~ID_AA64PFR1_EL1_RNDR_trap;
+ 	val &= ~ID_AA64PFR1_EL1_NMI;
+-	val &= ~ID_AA64PFR1_EL1_GCS;
+ 	val &= ~ID_AA64PFR1_EL1_THE;
+ 	val &= ~ID_AA64PFR1_EL1_MTEX;
+ 	val &= ~ID_AA64PFR1_EL1_PFAR;
+@@ -3350,7 +3352,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 				     ~(ID_AA64PFR1_EL1_PFAR |
+ 				       ID_AA64PFR1_EL1_MTEX |
+ 				       ID_AA64PFR1_EL1_THE |
+-				       ID_AA64PFR1_EL1_GCS |
+ 				       ID_AA64PFR1_EL1_MTE_frac |
+ 				       ID_AA64PFR1_EL1_NMI |
+ 				       ID_AA64PFR1_EL1_RNDR_trap |
 
 -- 
 2.47.3
