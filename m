@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33B9C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:32:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBAAC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtAprwl9YVKSgx2qkgDkJIY4Tilcw0HSTK5NvGoGEC4=; b=yddBc5ro5vy+6ePWFevex8dZNa
-	8DuiYdiqcr0JrXBf4dPVKAdGVfM5CknGdAUSGUmy2d+UMBf5sZ5mPDvZGJkDSJKwp1hVFBsbpp+Gc
-	yg7rwxJTdgyhAP6YBzfluZ+nPzK8g8Pz35W5V68YGeesj13ZC+TR+porGSs/Y3tA9HCcTFrBZdbTw
-	Den/jvQnNpF+g8Sh4WrX9S5y9pZ+JsXH9PXU8WenpGa3rZvRBVJ3Saun5yRfRwbsrGdWdSX5lsEqe
-	FjwA9KlD3qs1J5Mr6T3//qUdRexkA1cnxHQhpW7U+Yz1Bl0iYP++Pf+rtEcqDX1vK6WDSv42UvXZk
-	cAFrsxUA==;
+	bh=rwxqF12EdtFJ1hgKVE6whS2NwIy/fDvPhGCr1gt49gs=; b=uZIXKvJQfBQFGEH22OrmOxz5tF
+	n5V/Xgj6CQhEicFkrjEm9J/OUmvavStBlYxLm0kFpgk54zbCs3Qv15L9ClUI/CXb2HqDOOQYB+7AC
+	IwxwYEfdTl3mqCSBrk2YaSR7a/Bk5oQuh5sSsdEV4NSamJztSxwHmrRW0PK3FFBJHphCuXXmKLacg
+	Rb5W4uKVrDtZKZenLgbq9zyYQlObV6NRwwdNVh7gf64X3zmRFmO9GnoVv1JCfWFsDPiQxfAVsUwG0
+	2YNuBLLgY8ckrvp4ramvLpSKIUayIB/BWnJrXWlUx3HM7Xmvq0UioHvgU0vxx5+1cr0nXFdxz8va4
+	mCGWyTsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquem-0000000HXTI-1Xk4;
-	Mon, 03 Aug 2026 15:32:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wqsgm-0000000H9t5-1MBw;
+	Mon, 03 Aug 2026 13:26:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquek-0000000HXTA-3k12
+	id 1wqsgl-0000000H9so-0JtD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 15:32:47 +0000
+	Mon, 03 Aug 2026 13:26:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C52060A81;
-	Mon,  3 Aug 2026 15:32:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BD9F1F00A3A;
-	Mon,  3 Aug 2026 15:32:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E6B960AA3;
+	Mon,  3 Aug 2026 13:26:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F7FB1F000E9;
+	Mon,  3 Aug 2026 13:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785771164;
-	bh=dtAprwl9YVKSgx2qkgDkJIY4Tilcw0HSTK5NvGoGEC4=;
+	s=k20260515; t=1785763601;
+	bh=rwxqF12EdtFJ1hgKVE6whS2NwIy/fDvPhGCr1gt49gs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WYg7oONsuX2Brvgwjitwk77p506v8el7XNP2buJRtdOxkH5PrcmxYad/4+siEEvi+
-	 ngSsM83nqgyT19k3ROzH+GFDDT5o/PdfUBmLFewVJst0NyLUX/qVomM71taDAJmPaq
-	 qLRAesXU7j0fYjZpY71Ek+ECQFOynvtixDxkRJcrajEscwc/yi09TElybQ69+x6HlN
-	 eeBXN5dBQHJ4QARAv6jl96Oomj3R74GNuK59qp+vsBFi2/iL+5lahu1rYeQGYcZ77W
-	 n28Lu+D73MJvHHClLynmaxonmzIfYJ3AFSgBZ1uJOFvvzH5gExH+hhngKNOB5+JwHv
-	 7MXXCtl99O6IA==
-Date: Mon, 3 Aug 2026 16:32:27 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Barry Song <baohua@kernel.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, surenb@google.com, liam@infradead.org, vbabka@kernel.org, 
-	shakeel.butt@linux.dev, david@kernel.org, linux-kernel@vger.kernel.org, 
-	zhanghongru@xiaomi.com, willy@infradead.org, zhangbo56@xiaomi.com
-Subject: Re: [RFC PATCH v1 2/2] arm64/mm: use VMA lock for kernel faults on
- user addresses
-Message-ID: <anCxz6JqVtebHxg7@lucifer>
-References: <20260802074018.73887-1-baohua@kernel.org>
- <20260802074018.73887-3-baohua@kernel.org>
- <CAGsJ_4wLG77Y5r9Dy6QOqgmjNM5W1E5aGqKyJb7Bp3WGemNFmg@mail.gmail.com>
+	b=KkQ1Qzs36sE4gOoPHlllE0w4+vJcEBreSC5U279VHES97zsTmWS8S3fAotOTfZtCR
+	 1HslMw2C+3asb5utyAwdwq0J7zeJBvvITVuAYgQyIKWiy1AtzzBEOL1dFXSLETDHLx
+	 L5ou0/JMDAbZ7aYIr/lMXxTqrUqOx2mP3Wb44TCgmmI9VXxbgx2oHbP4r3rKgd1sW5
+	 NC2b7YU9gV+cr6QGtF6aMe6IIpPKOKn6DvmtZZCKJLyhFEJWH6QviCfNMY8AxMbP2g
+	 YZIQ6TQec7oUXSvjxsdnC6mrThyi3GltC/YjuBSU6haBk3a6/aZZERwief4g2PRsTR
+	 3MR1twifq00ug==
+Date: Mon, 3 Aug 2026 14:26:37 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Chi-Wen Weng <cwweng.linux@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	cwweng@nuvoton.com
+Subject: Re: [PATCH] dt-bindings: spi: nuvoton,ma35d1-qspi: Disallow GPIO
+ chip selects
+Message-ID: <060af0c2-c3bf-45d4-9f73-8f761fe1d88c@sirena.org.uk>
+References: <20260803024048.1641756-1-cwweng.linux@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SnYGXlnakQ0g76Up"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4wLG77Y5r9Dy6QOqgmjNM5W1E5aGqKyJb7Bp3WGemNFmg@mail.gmail.com>
+In-Reply-To: <20260803024048.1641756-1-cwweng.linux@gmail.com>
+X-Cookie: Natural laws have no pity.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,89 +73,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 02, 2026 at 04:49:04PM +0800, Barry Song wrote:
-> On Sun, Aug 2, 2026 at 3:40 PM Barry Song (Xiaomi) <baohua@kernel.org> wrote:
-> >
-> > Use the VMA lock for kernel faults on user addresses. This also
-> > makes the existing code below meaningful:
-> >
-> > /* Quick path to respond to signals */
-> > if (fault_signal_pending(fault, regs)) {
-> >         if (!user_mode(regs))
-> >                 goto no_context;
-> >         return 0;
-> > }
-> >
-> > Right now, the code above is dead because !user_mode always
-> > takes the mmap_lock path.
-> >
-> > Co-developed-by: Bo Zhang <zhangbo56@xiaomi.com>
-> > Signed-off-by: Bo Zhang <zhangbo56@xiaomi.com>
-> > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> > ---
-> >  arch/arm64/mm/fault.c | 4 +++-
-> >  1 file changed, 3 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> > index 85e23388f9bb..241f1ab07ab3 100644
-> > --- a/arch/arm64/mm/fault.c
-> > +++ b/arch/arm64/mm/fault.c
-> > @@ -607,6 +607,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
-> >         unsigned int mm_flags = FAULT_FLAG_DEFAULT;
-> >         unsigned long addr = untagged_addr(far);
-> >         struct vm_area_struct *vma;
-> > +       bool uaccess = false;
-> >         int si_code;
-> >         int pkey = -1;
-> >
-> > @@ -663,6 +664,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
-> >                 if (!insn_may_access_user(regs->pc, esr))
-> >                         die_kernel_fault("access to user memory outside uaccess routines",
-> >                                          addr, esr, regs);
-> > +               uaccess = true;
->
-> https://sashiko.dev/#/patchset/20260802074018.73887-1-baohua%40kernel.org
->
-> "Does this conditional bypass translation faults? Because this block is
-> guarded by:
-> if (is_ttbr0_addr(addr) && is_el1_permission_fault(addr, esr, regs)) {
-> it appears uaccess is only set for permission faults like CoW or PAN
-> violations.
-> If a kernel uaccess routine accesses an unmapped user address, a translation
-> fault occurs, making is_el1_permission_fault() evaluate to false.
-> Would this cause demand paging in uaccess routines to fall back to the slow
-> lock_mmap path, missing the intended optimization?"
->
-> Good catch! I should have only modified a single line. Then
-> unmapped PTEs would also benefit from the VMA lock:
->
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index 85e23388f9bb..e1b406d667aa 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -674,7 +674,7 @@ static int __kprobes do_page_fault(unsigned long
-> far, unsigned long esr,
->
->         perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
->
-> -       if (!(mm_flags & FAULT_FLAG_USER))
-> +       if (!(mm_flags & FAULT_FLAG_USER) && !is_ttbr0_addr(addr))
->                 goto lock_mmap;
 
-I mean honestly it feels like, with the permanent VMA flags change, that maybe
-this really needs to wait for Matthew's series?
+--SnYGXlnakQ0g76Up
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-There's duplication here too of course :)
+On Mon, Aug 03, 2026 at 10:40:48AM +0800, Chi-Wen Weng wrote:
+> From: Chi-Wen Weng <cwweng@nuvoton.com>
+>=20
+> The generic SPI controller binding allows GPIO-based chip selects, but
+> the MA35D1 QSPI driver currently supports only the controller's native
+> chip selects.
 
-But it begs the question of every other arch that does VMA page faulting.
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
 
-So feels better suited as part of that change I think?
+--SnYGXlnakQ0g76Up
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Maybe Matthew has thoughts.
+-----BEGIN PGP SIGNATURE-----
 
->
->         vma = lock_vma_under_rcu(mm, addr);
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpwlwwACgkQJNaLcl1U
+h9Ay0Qf+PpX3MDUJS5bXRe5CiOhf9NSZgwwEgG6RR35x6m67C42l32HNHAk9gMzB
+RbVVXLQZnA4Oqa7VOQ49FKHRQHDQ40OAkHEG6Jy2LUu7aqm5TSlExqMsYd+BCcR/
+vGFgpbqKO4mfUgOTqGsajAvH2ADC0ySXU+l83QkCwb6h+zBJ9cmmZF1kwbcBI07y
+rS6zMg96apTi8qmMY+jGj4mLndk2Nwmw9Xwa5qWkRLKTb4/4esir7+Ln9qAzcgJK
+oQZiGccEiEmvBMzOypgPpnZuDod/pNfcWWJcnMTyTgqvlMisP0Y8hW3doGCe6cCM
+Po4S35plWtE7bDNzNDLmzkFzlCvOUQ==
+=2Bqe
+-----END PGP SIGNATURE-----
 
---
-Cheers, Lorenzo
+--SnYGXlnakQ0g76Up--
 
