@@ -4,92 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 485A1C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 04:09:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF73EC5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 04:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EDVVXgDFGwdwAJNFq0Lnv/4zVTHHlmavZdUyT2s7HFQ=; b=wTG995gncNc2k7XNnUt0OIfUjM
-	onuu35OclrEtov7kBin5K19bSmFz0NIyW3eyT6mjRDeNK88hN8kqaHnUemyxsYB/QMi6w4oSvllNx
-	RPWSxOZ/ez1XXbvEuQs3IIprtJWH2Q6YQZ7k+U0M7To3ogiqNADtH8qnRKhwiM4De67a182JrPXDX
-	di8xwzMPu/3R6+OR6Rai30r8BdRkKdpv467lHCstQD2aKDku0DYTcT4VrIMi94FgbTAPFouVMw/64
-	Jk/0jCG+MZ270QLaiqGcKe1eOH5NoPf7KYZh9VlR4Upq49otWap8Ai1RrK38i2/dEgPzgI8eRQbS0
-	kACu9hOw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vG9tROAw0z8rbg2qYSkm3leK+7lk633kVXdOhlAGKdI=; b=e0txih3OkskKnRn3eku+z90TWX
+	t6FjtyWWTplc6pmkOxS4/EXJqTuUBVFKx/Rh2rSqZ/jm7jjY1wM/+lC23+L/0F+xnCeEXxdQk1fk5
+	ej0oNhiL5g4JMqpdr/5ZjxXrZCagByfloxOonY/X1cwwr4HOryPcRJkjdG8A8B24FjJGxrJUrem2q
+	iDsTp2Bkx2EqfynxDhs0o/gP4ZdOz8l7V16BmMoVzTjin71s61BVQdb/t2ngYutrwA9GydGFWiYov
+	3g4O8fxLtV33iglDeOmQKrn1PbG01lDGfgmyx3HBvxcXxV4de3i3gvGY1dmYMFMZsHf2OtkcQejo8
+	8TH3damA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjzi-0000000GHYY-3kCD;
-	Mon, 03 Aug 2026 04:09:42 +0000
-Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjzf-0000000GHXo-2emU
+	id 1wqk9f-0000000GIzD-2V0B;
+	Mon, 03 Aug 2026 04:19:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqk9c-0000000GIy6-3PmR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 04:09:40 +0000
-Received: by mail-ua1-x936.google.com with SMTP id a1e0cc1a2514c-969524c1aefso944921241.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 21:09:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785730178; x=1786334978; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EDVVXgDFGwdwAJNFq0Lnv/4zVTHHlmavZdUyT2s7HFQ=;
-        b=sXmbioUvQ14HRHfeV6smBEEnoY2GG9EzRgB7xLgSWHFGDXOy8TfM1DwT29y5wHcJIM
-         /NXC/1h1fx7Kq/4bo23+XGeHNRC1Ap7bn1axFowIc4lU/ogAiJJh+QSK8Yec18hDnc/r
-         WuGaN5w4Ji2WdwfPKj76mnT7VS5poULZC4HG88SW3mdPeSwBRlDbHnbUVnh05dpnxZR9
-         UqHzPc3me5ZI1vI6tgATyqlkufS77/KAOXFxnBo5SwzTBbOTagTwRyLtu5O3w+UJNujL
-         Is7nQZRd6ceeN5RAREaCvfCDwIb3UB/UyCQ+ztJ04ftMHUvkbJtdhSejUah7WSdJiCuS
-         M4fA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785730178; x=1786334978;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EDVVXgDFGwdwAJNFq0Lnv/4zVTHHlmavZdUyT2s7HFQ=;
-        b=AVfESBngzRKlIefB7W1fYRPzgveS/7ofwyZBSqZ7eJFKyw3sR0Jq1u2oL8/Osghw1g
-         G7zUg5pb1RCAI/JOfyXaDHKR1MLiQ2FwhCq2F+HkmmBxd9j5tcrUKqw9kfiSTIv0jG4B
-         j7H0ay0kvZ1CeMJOWFA56bs8fDKRseoLYN5yEu2abU1n8y952w9tIotMbKqkZkgBSMmv
-         +gX15Q0T4I70GOUsIMV5NzSauxC0rcuxxonmg1fNqLABhg0+X3yq8tz/YB5C6kA2RB3j
-         G/k8tzCvCI4fotq23dpw+lUF+rbYXu/3pW3TETtzNmkqX33fYBLu2JXljT61cGSz9CJT
-         EChw==
-X-Forwarded-Encrypted: i=1; AHgh+Rr5MvGQNsmot/s2o4z4qb6khNfTw3yZ6k3hydA6zlSmRf7DQM3LpRuApHFKhxzzSX9Dqw37CL7jHoXk5q5uo2Gl@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywpw+CjNCdgKyPt4iH75zTifRBrnqV3KRGKsPG4kyccVjeRUMkz
-	9jm0Ruc8ZEG0Ty4zGi88xnLJBNu2bw0ZVdWw6J78HnUj6DQhiz7pURZ4
-X-Gm-Gg: AR+sD13vmICqIpXB7PNUKqSqHjWta+9AyjgxHLKZvr8SOpOo5gOi86JFb6+/T6xRwLh
-	RgloGbPZ3U1xJUbxFlT2+tQmtjWT/O0ckaj508ZOQZ6t1YSiua7T0wwquM9Y+muaRwNnClmfoyK
-	Hkemlf31tUWACEiHT1jA/TpqUrq8Aqv4nknYGET+touMFvHsT44wWuHcza5K3tWsTv9mFtQBKBi
-	1Hat6byCRN73TBdaCbTdJn97KOTFnfK28DyuEUkWmUAt+8MAwppfLFzWDgDPKknrb+Iln0QL4m2
-	1rquf9NmLAo8fRxCzopr35PHPvAD1bW1ANqpOt9kIXpSpyrLy1TmuX0bPIFxLrVQ9O/Ok6N309J
-	OijJW9LwH59OADA9JzpQPJTJd5f43QiN33Io0vqsPj4ijiZNSjSgznZD5Hbb0fFEBIJuAx+mwhP
-	IJizZSiXoDKMqz72ZkD40KM6x6K9Kr/gWwp6wQIaZD9CvhqknpwdOdi5CdVe6evZ5GVhspihtN4
-	L+wTfQ4Uia0S6TerXgd8qvClZ8FT4JWalojS7t+2ZE=
-X-Received: by 2002:a05:6102:3e82:b0:747:4dcf:189e with SMTP id ada2fe7eead31-75b2225f8bcmr5708135137.5.1785730177794;
-        Sun, 02 Aug 2026 21:09:37 -0700 (PDT)
-Received: from lucas-inspiron153525.. (host110.181-12-179.telecom.net.ar. [181.12.179.110])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-759b8e1e8d5sm5366413137.6.2026.08.02.21.09.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Aug 2026 21:09:37 -0700 (PDT)
-From: Lucas Jeffrey <luquijeffrey@gmail.com>
-To: gregkh@linuxfoundation.org
-Cc: florian.fainelli@broadcom.com,
-	rjui@broadcom.com,
-	sbranden@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-staging@lists.linux.dev,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Lucas Jeffrey <luquijeffrey@gmail.com>
-Subject: [PATCH] staging: vc04_services: preserve bcm2835_audio_write errors
-Date: Mon,  3 Aug 2026 01:09:28 -0300
-Message-ID: <20260803040928.12453-1-luquijeffrey@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 03 Aug 2026 04:19:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49150143D;
+	Sun,  2 Aug 2026 21:19:49 -0700 (PDT)
+Received: from [10.163.134.188] (unknown [10.163.134.188])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 765663F632;
+	Sun,  2 Aug 2026 21:19:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785730793; bh=am1kmDa9klxMcftBn5wQAjzb7HUsZgJkRhSPJ+KX0eg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=bmneqHGhD8VM1pX4IvdlLOgbfUuS+3v/qTzWsvUAshIELNillzdR/IzJnW6goJHPG
+	 6YVafigCN7Vo4Pm/5+aLox/F0hjjsnVZfD58xvQDY7taY4+ntHw/84VyR5OPXYSSzU
+	 sL92dgRnZu3A9MJV3VhVSAsZBTq46KLm7HjbruaA=
+Message-ID: <e035b2a8-9e32-4d5f-ba37-f3622e621c3f@arm.com>
+Date: Mon, 3 Aug 2026 09:49:46 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/6] arm64: cpufeature: Detect BBML3 based on
+ ID_AA64MMFR2_EL1.BBM
+To: Linu Cherian <linu.cherian@arm.com>, Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Gavin Shan <gshan@redhat.com>
+References: <20260723044034.2983651-1-linu.cherian@arm.com>
+ <20260723044034.2983651-7-linu.cherian@arm.com> <amy7kPXnaPHmWMwc@google.com>
+ <anAQYj0ZJkrjZSn2@a079125.arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <anAQYj0ZJkrjZSn2@a079125.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_210939_677156_24CC308F 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260802_211956_906188_49D7F003 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,32 +76,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When sending audio data in multiple packets, a successful later packet
-could overwrite an earlier failure in status. This caused the function
-to report success even if one packet was not queued.
 
-Stop sending packets after the first failure to preserve the error.
 
-Signed-off-by: Lucas Jeffrey <luquijeffrey@gmail.com>
----
- drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c b/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c
-index 3156cb8392f4..5ac23cfa7983 100644
---- a/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c
-+++ b/drivers/staging/vc04_services/bcm2835-audio/bcm2835-vchiq.c
-@@ -365,6 +365,9 @@ int bcm2835_audio_write(struct bcm2835_alsa_stream *alsa_stream,
- 
- 			status = vchiq_queue_kernel_message(vchiq_instance,
- 							    instance->service_handle, src, bytes);
-+			if (status)
-+				break;
-+
- 			src += bytes;
- 			count -= bytes;
- 		}
--- 
-2.43.0
-
+On 03/08/26 9:22 AM, Linu Cherian wrote:
+> Hi Will,
+> 
+> On Fri, Jul 31, 2026 at 04:13:20PM +0100, Will Deacon wrote:
+>> On Thu, Jul 23, 2026 at 10:10:33AM +0530, Linu Cherian wrote:
+>>> Add ID_AA64MMFR2_EL1.BBM based BBML3 feature detection in
+>>> cpu_supports_bbml3() so that cpus with the feature would
+>>> not have to be added into MIDR based supports_bbml3_list.
+>>>
+>>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>>> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+>>> ---
+>>>  arch/arm64/kernel/cpufeature.c | 17 +++++++++--------
+>>>  1 file changed, 9 insertions(+), 8 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>>> index 896bafdb00b1..dbd7d187520c 100644
+>>> --- a/arch/arm64/kernel/cpufeature.c
+>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>> @@ -2133,6 +2133,12 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+>>>  
+>>>  bool cpu_supports_bbml3(void)
+>>>  {
+>>> +	u64 mmfr2;
+>>> +
+>>> +	mmfr2 = __read_sysreg_by_encoding(SYS_ID_AA64MMFR2_EL1);
+>>> +	if (SYS_FIELD_GET(ID_AA64MMFR2_EL1, BBM, mmfr2) >= ID_AA64MMFR2_EL1_BBM_3)
+>>> +		return true;
+>>
+>> This is a bit of a nit, but I think it would be more consistent to use
+>> has_cpuid_feature() here instead of __read_sysreg_by_encoding(), similarly
+>> to how we handle kpti in unmap_kernel_at_el0() (which also has both an
+>> ID register field and a list of MIDRs).
+> 
+> force_pte_mapping required by map_mem(during early boot) needs
+> cpu_supports_bbml3 check and cpu features/capabilities are not 
+> initialized by that time. Should i add a comment there to clarify this ?
+Right - that would be useful here while also providing some
+context why has_cpuid_feature() could not have been used.
 
