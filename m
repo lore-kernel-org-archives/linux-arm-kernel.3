@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6432C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:53:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32E0C55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r/7n4SNxTkqkH78kPSMomTbUiPYie5Orsph39RyQ0Kw=; b=Q1kgFj5FqYpy6Z/ZBirQ7gSDxa
-	ixwS6SYvt9qfsWlK6gz/Wh20rufUSNNBE0+r7lvHQST1txu0zpDROxBfDZnZpsaRrbOc6ZXW4aKqD
-	IuZPYQMO+4C+OQSQlCRnOaTBzYYc5y3uvXaPHLIFqXpgOQ5Yrdiz5VStfBee37CN0PRYJRlw7uhai
-	aGaVesqgC/PT54l4hwlBZfWS56g2Q89FIR9IF7m/A+Ehl1YHnFx+Kra1Xxkz2f02R15x7MIgFG47W
-	XHv/1ofO7rw6YA4DEVUP6U6k0q4B+T/wGX9GHfn1JdEYn4U55THWixo2opj41ooAS7M2WEL4dMvDq
-	V+019Wog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LWWMyiRyHQgnIeqT2FsVGOyXULdTvyWYrbxiNMTKbzc=; b=hmavNPM/aQ1npkto7O3GTK94Iz
+	HxYy9uMXl/i2ty9rbI4+ULzeTA3ku2hsaA3p0krXRNFP53SmvnsDYJntNSGKwx8zXCFxH0eghVI34
+	aebTAIhhLy7GUiHWrHXsL+X0kyGq/pMCDOMhoSU62JmjL8MIQ/DWD7ZfNAlmkEGLZMSU8G8q8uhNL
+	LfGimv7w9qZ0iy3W+eBGzZIvhkq28Pp1sV9VpcduJ6p1/T6+g7RqgIsg1p1hLERaCgVPayUzz8GGw
+	WP1SYC8e2xsOixAqmurv/9BilJsoqBA22QQsYk42/ZkahPP0VPZlTf2Tw73GNJsTwzvGjE0i6/0y3
+	kfpuV5fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqu35-0000000HRAd-1gbh;
-	Mon, 03 Aug 2026 14:53:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqu32-0000000HRA2-1i3J
+	id 1wqu3U-0000000HRGG-2cVv;
+	Mon, 03 Aug 2026 14:54:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqu3U-0000000HRFj-03JB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 14:53:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A702D143D;
-	Mon,  3 Aug 2026 07:53:42 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B95EF3F632;
-	Mon,  3 Aug 2026 07:53:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785768826; bh=22b24nKVspIIerMyJPhz4Lk+/zJYhUSjkwYys92cSQM=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=lIRqUf+bRhghUJq+UNbfYsV6sy8wAfOUrtNwwmcHyowc0tWFr2zJpNqBNTxrVlRTR
-	 /LifKsbx1oc1UceaSso5mGQqkFZguD143ddzqogbOQef4pqOwAWqog+UQfxIuVzeTz
-	 oFUEgmviRB1fOovP0rTMsMh/zqnrp+89Z7D+1Lp4=
-Message-ID: <e9b506d4-9461-4cf8-9331-83698093ca90@arm.com>
-Date: Mon, 3 Aug 2026 16:53:40 +0200
+	Mon, 03 Aug 2026 14:54:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D9965403F3;
+	Mon,  3 Aug 2026 14:54:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45A471F000E9;
+	Mon,  3 Aug 2026 14:54:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1785768854;
+	bh=LWWMyiRyHQgnIeqT2FsVGOyXULdTvyWYrbxiNMTKbzc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fNMCSboL3Q4QfowHWSTQl4JGBKt7K2MpilPyyL7bcEHAJ9Nj8N/OlLUXPRngp3m9w
+	 e5ZCPSNNOmvz2UDmhRh7vDfrEaBgLlJVOr472RvCkZocJKhbOAHnLjJTXPhwpAeJDd
+	 mUggtZjIrCuWKohhfIobaJuy6Cuv1c3MMYitaG2s=
+Date: Mon, 3 Aug 2026 16:53:59 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v4 5/5] serial: imx: serialize imx_uart_ports[] lifetime
+Message-ID: <2026080341-agreeing-context-ca78@gregkh>
+References: <20260731181844.11330-1-kmehltretter@gmail.com>
+ <20260731181844.11330-6-kmehltretter@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 11/11] arm_mpam: detect and enable MPAM-Fb PCC support
-From: Andre Przywara <andre.przywara@arm.com>
-To: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260731170324.2927758-1-andre.przywara@arm.com>
- <20260731170324.2927758-12-andre.przywara@arm.com>
- <dd4d5ddc-e198-4747-85ce-aef4c569c593@oss.qualcomm.com>
- <21d9c35b-58e8-4b99-a764-58fe45160cf6@arm.com>
-Content-Language: en-GB
-In-Reply-To: <21d9c35b-58e8-4b99-a764-58fe45160cf6@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_075348_545205_8918355C 
-X-CRM114-Status: GOOD (  42.72  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260731181844.11330-6-kmehltretter@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,339 +71,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, Jul 31, 2026 at 08:18:44PM +0200, Karl Mehltretter wrote:
+> imx_uart_probe() publishes its devm-allocated port in imx_uart_ports[]
+> before uart_add_one_port() because console setup uses the table. The entry
+> is not cleared when adding the port fails or after removal, leaving a
+> dangling pointer.
+> 
+> A sibling probe can register the shared console through that stale entry.
+> This was reproduced under KASAN on QEMU mcimx6ul-evk by unbinding a
+> sibling UART, unbinding the console UART and rebinding the sibling.
+> 
+> Keep the entry valid through uart_remove_one_port(), then clear it. Protect
+> port addition and removal together with their table updates so sibling
+> operations cannot interleave. Reject an occupied slot rather than
+> clobbering an active port during a duplicate-line probe.
+> 
+> Fixes: dbff4e9ea2e8 ("IMX UART: remove statically initialized tables")
+> Fixes: 9f322ad064f9 ("imx: serial: handle initialisation failure correctly")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Link: https://lore.kernel.org/all/20260719162850.043B41F000E9@smtp.kernel.org
+> Link: https://lore.kernel.org/all/20260719222501.CB4CB1F000E9@smtp.kernel.org
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> Backport note: the removal fix is self-contained. Complete probe-failure
+> coverage also requires patch 1. With patch 1, all fallible allocations
+> precede console registration, so rollback can safely clear the table.
+> Without it, a late allocation failure (only reachable with fault
+> injection) can leave the console registered after imx_uart_ports[] is
+> cleared, turning the pre-existing use-after-free into a NULL
+> dereference.
 
-On 8/3/26 15:37, Andre Przywara wrote:
-> Hi Srivathsa,
-> 
-> On 8/3/26 12:49, Srivathsa L Rao wrote:
->> Hi Andre,
->>
->> On 7/31/2026 10:33 PM, Andre Przywara wrote:
->>> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
->>> registers through a firmware interface. This requires a shared memory
->>> region to hold the message, and a mailbox to trigger the access.
->>> For ACPI this is wrapped as a PCC channel, described using existing
->>> ACPI abstractions.
->>>
->>> Add code to parse those PCC table descriptions associated with an MSC,
->>> and store the parsed information in the MSC struct.
->>> There can be multiple PCC channels, and each channel can serve multiple
->>> MSCs, so we need to keep track of the channel usage, using a list and
->>> a refcount.
->>>
->>> This will be used by the MPAM-Fb access wrapper code.
->>>
->>> [1] https://developer.arm.com/documentation/den0144/latest
->>>
->>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
->>> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com>
->>> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
->>> ---
->>>   drivers/resctrl/mpam_devices.c  | 113 +++++++++++++++++++++++++++++++-
->>>   drivers/resctrl/mpam_fb.c       |  41 ++++++++++++
->>>   drivers/resctrl/mpam_internal.h |   2 +
->>>   3 files changed, 154 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/ 
->>> mpam_devices.c
->>> index b238feb559d4..40b247a89f8e 100644
->>> --- a/drivers/resctrl/mpam_devices.c
->>> +++ b/drivers/resctrl/mpam_devices.c
->>> @@ -19,14 +19,19 @@
->>>   #include <linux/irqdesc.h>
->>>   #include <linux/list.h>
->>>   #include <linux/lockdep.h>
->>> +#include <linux/mailbox_client.h>
->>>   #include <linux/mutex.h>
->>>   #include <linux/platform_device.h>
->>>   #include <linux/printk.h>
->>> +#include <linux/property.h>
->>>   #include <linux/srcu.h>
->>>   #include <linux/spinlock.h>
->>>   #include <linux/types.h>
->>>   #include <linux/workqueue.h>
->>> +#include <acpi/pcc.h>
->>> +#include <acpi/acpi_io.h>
->>> +
->>>   #include "mpam_internal.h"
->>>   /* Values for the T241 errata workaround */
->>> @@ -49,6 +54,88 @@ static LIST_HEAD(mpam_all_msc);
->>>   struct srcu_struct mpam_srcu;
->>> +/* PCC channels might be serving multiple MSCs, so keep a refcounted 
->>> list. */
->>> +static DEFINE_MUTEX(pcc_chan_list_lock);
->>> +static LIST_HEAD(pcc_chan_list);
->>> +
->>> +static void mpam_pcc_chan_release(struct kref *ref)
->>> +{
->>> +    struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
->>> +                         refcount);
->>> +
->>> +    pcc_mbox_free_channel(cur->pcc_chan);
->>> +    list_del(&cur->pcc_chans);
->>> +    mutex_destroy(&cur->pcc_chan_lock);
->>> +    kfree(cur);
->>> +}
->>> +
->>> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
->>> +                           int subspace_id)
->>> +{
->>> +    struct mpam_pcc_chan *cur;
->>> +
->>> +    guard(mutex)(&pcc_chan_list_lock);
->>> +
->>> +    list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
->>> +        if (cur->subspace_id == subspace_id) {
->>> +            kref_get(&cur->refcount);
->>> +
->>> +            return cur;
->>> +        }
->>> +    }
->>> +
->>> +    cur = kzalloc_obj(*cur);
->>> +    if (!cur)
->>> +        return ERR_PTR(-ENOMEM);
->>> +
->>> +    cur->pcc_cl.dev = dev;
->>
->> While testing v7 with multiple PCC MSCs sharing a single PCC channel, I
->> noticed that pcc_cl.dev is set once at channel creation time (from the
->> first MSC's device) and never updated when subsequent MSCs reuse the
->> channel.In mpam_pcc_chan_get(), the first call sets:
->>   cur->pcc_cl.dev = dev;
->>
->> Subsequent calls return the existing channel without updating 
->> pcc_cl.dev. Here dev_err() calls through the channel report errors 
->> against the first MSC's device, even when a different MSC triggered them.
-> 
-> Mmh, that's true, but I don't think there is much we can do about it? 
-> Ultimately it's a channel shared between multiple devices.
-> And I am less concerned about our own dev_err() (we can easily - and 
-> actually should - replace this with pr_err()), but more about the mbox 
-> uses of the dev pointer. Did you by any chance find more critical users 
-> of the dev pointer other than dev_err() prints, in the mailbox code?
+None of these should probably be backported, so this should be ok :)
 
-To answer my own question: I could only find code using the dev pointer 
-during initialisation, to attribute the error messages to the right 
-device. Which means when we drop the single usage in mpam_fb.c, there 
-should be no more problems.
-Fixed that accordingly.
+thanks,
 
-Cheers,
-Andre
-
-> I don't know if the correct MSC attribution really matters, or if we can 
-> live with just a valid reference to some "related" device, but ...
-> 
->> I reproduced this with four PCC MSCs sharing subspace 0. After unbinding
->> the first MSC (kref 4→3), triggering dev_err() via a test hook showed 
->> the device prefix change from "mpam_msc mpam_msc.1:" to "platform 
->> mpam_msc.1:"
-> 
-> Mmmh, interesting, where does the change come from? I would think that 
-> would result in a use after free?
-> Which means we should make sure that some other MSC donates their dev 
-> pointer if the first MSC goes away? I will have a look into that 
-> direction, though it still feels a bit odd.
-> 
->> A simple fix maybe to use the MSC's own device for error messages in
->> mpam_fb_send_request() instead of pcc_chan->pcc_cl.dev
-> 
-> But we don't have that pointer at this time, do we?  But as mentioned, 
-> we could just revert to a simple pr_err() instead.
-> 
-> Thanks for the heads up anyway!
-> Cheers,
-> Andre
-> 
-> 
->>
->>> +    cur->pcc_cl.tx_block = true;
->>> +
->>> +    cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, 
->>> subspace_id);
->>> +    if (IS_ERR(cur->pcc_chan)) {
->>> +        long err = PTR_ERR(cur->pcc_chan);
->>> +
->>> +        kfree(cur);
->>> +        return ERR_PTR(err);
->>> +    }
->>> +
->>> +    /*
->>> +     * Timeout based on the "nominal latency" in us, from the
->>> +     * PCC ACPI table. tx_tout is in ms.
->>> +     * Add some margin here to be on the safe side.
->>> +     */
->>> +    cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 
->>> 1000);
->>> +
->>> +    mutex_init(&cur->pcc_chan_lock);
->>> +
->>> +    cur->subspace_id = subspace_id;
->>> +    kref_init(&cur->refcount);
->>> +
->>> +    list_add_tail(&cur->pcc_chans, &pcc_chan_list);
->>> +
->>> +    return cur;
->>> +}
->>> +
->>> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
->>> +{
->>> +    struct mpam_pcc_chan *cur, *tmp;
->>> +
->>> +    if (!pcc_chan)
->>> +        return 0;
->>> +
->>> +    guard(mutex)(&pcc_chan_list_lock);
->>> +
->>> +    list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
->>> +        if (cur == pcc_chan) {
->>> +            kref_put(&cur->refcount, mpam_pcc_chan_release);
->>> +
->>> +            return 0;
->>> +        }
->>> +    }
->>> +
->>> +    return -ENOENT;
->>> +}
->>> +
->>>   /*
->>>    * Number of MSCs that have been probed. Once all MSCs have been 
->>> probed MPAM
->>>    * can be enabled.
->>> @@ -2274,6 +2361,8 @@ static void mpam_msc_drv_remove(struct 
->>> platform_device *pdev)
->>>   {
->>>       struct mpam_msc *msc = platform_get_drvdata(pdev);
->>> +    mpam_pcc_chan_put(msc->pcc_chan);
->>> +
->>>       mutex_lock(&mpam_list_lock);
->>>       mpam_msc_destroy(msc);
->>>       mutex_unlock(&mpam_list_lock);
->>> @@ -2284,7 +2373,7 @@ static void mpam_msc_drv_remove(struct 
->>> platform_device *pdev)
->>>   static struct mpam_msc *do_mpam_msc_drv_probe(struct 
->>> platform_device *pdev)
->>>   {
->>>       int err;
->>> -    u32 tmp;
->>> +    u32 pcc_subspace_id;
->>>       struct mpam_msc *msc;
->>>       struct resource *msc_res;
->>>       struct device *dev = &pdev->dev;
->>> @@ -2328,7 +2417,7 @@ static struct mpam_msc 
->>> *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>>       if (err)
->>>           return ERR_PTR(err);
->>> -    if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
->>> +    if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
->>>           msc->iface = MPAM_IFACE_MMIO;
->>>       else
->>>           msc->iface = MPAM_IFACE_PCC;
->>> @@ -2349,6 +2438,26 @@ static struct mpam_msc 
->>> *do_mpam_msc_drv_probe(struct platform_device *pdev)
->>>           }
->>>           msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->>>           msc->mapped_hwpage = io;
->>> +    } else if (msc->iface == MPAM_IFACE_PCC) {
->>> +        msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
->>> +        if (IS_ERR(msc->pcc_chan)) {
->>> +            pr_err("Failed to request MSC PCC channel\n");
->>> +            return ERR_CAST(msc->pcc_chan);
->>> +        }
->>> +
->>> +        err = mpam_fb_check_shared_buffer_size(msc);
->>> +        if (err) {
->>> +            mpam_pcc_chan_put(msc->pcc_chan);
->>> +
->>> +            return ERR_PTR(err);
->>> +        }
->>> +
->>> +        err = mpam_fb_check_protocol_version(msc);
->>> +        if (err) {
->>> +            mpam_pcc_chan_put(msc->pcc_chan);
->>> +
->>> +            return ERR_PTR(err);
->>> +        }
->>>       } else {
->>>           return ERR_PTR(-EINVAL);
->>>       }
->>> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
->>> index 61a91c6cec0a..7a7fb6d067ba 100644
->>> --- a/drivers/resctrl/mpam_fb.c
->>> +++ b/drivers/resctrl/mpam_fb.c
->>> @@ -37,6 +37,11 @@
->>>   #define MPAM_MSC_TOKEN_MASK        GENMASK(27, 18)
->>>   #define MPAM_FB_PROT_HEADER_LEN        sizeof(u32)
->>> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
->>> +#define MPAM_FB_MAX_MSG_SIZE        (4 * sizeof(u32))
->>> +
->>> +#define MPAM_FB_VERSION_MAJOR_MASK    GENMASK(31, 16)
->>> +#define MPAM_FB_VERSION_MINOR_MASK    GENMASK(15, 0)
->>>   static atomic_t mpam_fb_token = ATOMIC_INIT(0);
->>> @@ -207,3 +212,39 @@ int mpam_fb_send_write_request(struct mpam_msc 
->>> *msc, u16 reg, u32 value)
->>>       return mpam_fb_send_request(msc->pcc_chan, msc->id, reg, &value,
->>>                       MPAM_MSC_WRITE_CMD);
->>>   }
->>> +
->>> +/* We only support MPAM-Fb protocol version 1.x */
->>> +int mpam_fb_check_protocol_version(struct mpam_msc *msc)
->>> +{
->>> +    u32 version;
->>> +    int ret;
->>> +
->>> +    ret = mpam_fb_send_request(msc->pcc_chan, 0,
->>> +                   0, &version, MPAM_PROTOCOL_VERSION_CMD);
->>> +    if (ret)
->>> +        return ret;
->>> +
->>> +    if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
->>> +        pr_err("Incompatible MPAM-Fb protocol version %ld.%ld\n",
->>> +               FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
->>> +               FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
->>> +
->>> +        return -EINVAL;
->>> +    }
->>> +
->>> +    return 0;
->>> +}
->>> +
->>> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
->>> +{
->>> +    int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
->>> +                  sizeof(struct acpi_pcct_ext_pcc_shared_memory);
->>> +
->>> +    if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
->>> +        pr_err("MPAM-Fb PCC channel size too small.\n");
->>> +
->>> +        return -ENOMEM;
->>> +    }
->>> +
->>> +    return 0;
->>> +}
->>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/ 
->>> mpam_internal.h
->>> index f13a79a84c58..8859189088f3 100644
->>> --- a/drivers/resctrl/mpam_internal.h
->>> +++ b/drivers/resctrl/mpam_internal.h
->>> @@ -528,6 +528,8 @@ static inline void 
->>> mpam_resctrl_teardown_class(struct mpam_class *class) { }
->>>   /* MPAM-Fb Firmware-backed protocol wrappers */
->>>   int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 
->>> *result);
->>>   int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 
->>> value);
->>> +int mpam_fb_check_protocol_version(struct mpam_msc *msc);
->>> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
->>>   /*
->>>    * MPAM MSCs have the following register layout. See:
->>
->> -- 
->> Best Regards,
->> Srivathsa
->>
-> 
-
+greg k-h
 
