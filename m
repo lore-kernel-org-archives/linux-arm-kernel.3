@@ -4,109 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67643C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FE2C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:06:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R1vOM/+20o3TMKvY0hJ6CpvJxctkLVGrkvrEwrllBi0=; b=co5tGL6dCUiEXaEJA//U3CoXMj
-	Y6ROBevxTqBDPJX87YqXjOgQwXqaNj81OG2VRmgmVsPtIRfEnUQUy4vrhDR8v9jyOHbKpGd2PADfW
-	yOgKFS7oOek3eTgfEEyPvhofb6mkaGvjLG8l6QWltMLyelMwSD/udDIsOu1QFLfpCXw59NSraTTbX
-	Qsf8/bzMWIn0q5wI6QOJ7PiDD3DbWFOsjCLaJaqZPUZZiP4ko10u39hcewrkvfnmTBtJAmUqpsizr
-	wE5olBViAVBZrpgakaetEY8WvUXKi7jaxd/jFQYU6th8hp8uL2ZCCKPOhWOEcxylQrgV8HhrVcT1E
-	NDJV11Eg==;
+	bh=8zh2N3DGtJ2GD6KAwDIkT597ToDimyE3LkUGAAa+eDg=; b=U1EpQFLPejg8cYd4oHtGj5Hgvv
+	Q6az6RhkkaU3QRGVX83aQKISBtT4CqbkxhkTEgeUcfEFVk9EzpBNZtmNPjEx2pHOro2J7pxYPUzI/
+	KLgD/2d3Vf35xlg/+F2lNJXowCy8TWa+sba9J8wHgMSBqlUO4VlodgO74k6GG4kBNXP+hH8p0U3po
+	GAZJKvTBG2NHvQywm42WeqHaFKBnfzO4Fz+sHMkDe+A8NZvOzyC4yIzBAbKAsj12dw3280ep2RsaN
+	x0dwtpJwEhNm5hAeXnB0tQTt16Pu4DieG0g4v99sFJUhc6GThyLz8BcbDYKac7s3jSYnqaP42xkKo
+	N/lHP4xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquD3-0000000HT15-13Ib;
-	Mon, 03 Aug 2026 15:04:09 +0000
-Received: from m101-out-mua-6.websupport.se ([109.235.175.106])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquD0-0000000HSd8-3Amc
+	id 1wquFS-0000000HTGv-3EoL;
+	Mon, 03 Aug 2026 15:06:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wquFQ-0000000HTGa-1LHl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 15:04:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=palvencia.se;
-	s=mail; t=1785769181;
-	bh=R1vOM/+20o3TMKvY0hJ6CpvJxctkLVGrkvrEwrllBi0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sElV9+Ff5U+DkJvNLLH5uuIwQEo0WczVLH2dcT2MNhqdYclOsIcC7NvkZa/qQcvcz
-	 xefN9yvVNdfXaNUF01XbuRB2SkVRC252vvJ1zCEKdESUX8zhgSaJxwaxq5do3NXHeE
-	 cX37p41bMeB09BVaVh9+HxKp80Osp7z61OxvpxCPzwOYG3JsfgWyTb02ED6KSgf6tb
-	 9A6y3bI1X8Pdgu9yfyICV55h0UAd6Lwez9UYO3hn0xWQP+fDRQH25i43qWEVayQghg
-	 QNJDvNJiM3L4YRKAL+uJ08Ab6ACK7UhFGgUvv+SkEFQML22Fe+FUIB6hrSYyROYrSi
-	 y15dTjkUUx6wA==
-Received: from m101-u7-ing.websupport.se (unknown [10.30.7.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	by m101-out-mua-6.websupport.se (Postfix) with ESMTPS id 4hDKb12YX3z1xN7;
-	Mon,  3 Aug 2026 16:59:41 +0200 (CEST)
-X-Authenticated-Sender: per@palvencia.se
-Authentication-Results: m101-u7-ing.websupport.se;
-	auth=pass smtp.auth=per@palvencia.se smtp.mailfrom=per@palvencia.se
-Received: from rpi (unknown [213.204.219.169])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: per@palvencia.se)
-	by m101-u7-ing.websupport.se (Postfix) with ESMTPSA id 4hDKZx39MJz306w;
-	Mon,  3 Aug 2026 16:59:37 +0200 (CEST)
-Date: Mon, 3 Aug 2026 16:59:32 +0200
-From: Per Larsson <per@palvencia.se>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Heiner
- Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, Liu
- Changjie <liucj1228@outlook.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/6] net: phy: maxio: extend PHY ID matching
-Message-ID: <20260803165932.725dd669@rpi>
-In-Reply-To: <20260803101452.2993721-5-andre.przywara@arm.com>
-References: <20260803101452.2993721-1-andre.przywara@arm.com>
-	<20260803101452.2993721-5-andre.przywara@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Mon, 03 Aug 2026 15:06:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A164143D;
+	Mon,  3 Aug 2026 08:06:30 -0700 (PDT)
+Received: from [10.1.25.28] (e122027.cambridge.arm.com [10.1.25.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E09E3F66F;
+	Mon,  3 Aug 2026 08:06:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785769594; bh=AKHk4mlXMEmidkB6mplFPKFhKVxhdwJ+1dQAEJAtyyY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BNQDBx3nISccFEihc91rkcvYVRSDUBe855HEni/Md3KgHmB0IcddGK1GnAbb/YQzG
+	 LC+n0k7cgO8GvGUmlv5JUbQ+ygUMmMUFvBKVlL7+rNiWOlx3HOAy/qxy9y7e2IryaV
+	 3E4AOCSx5ZHoMYwI6fYIZ99a5Rc2CBlcf1PbOxS4=
+Message-ID: <57225daf-4319-406a-8328-e32835e8a980@arm.com>
+Date: Mon, 3 Aug 2026 16:06:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v16 00/45] arm64: Support for Arm CCA in KVM
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260803134403.80630-1-steven.price@arm.com>
+ <86y0enb64s.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <86y0enb64s.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Out-Spamd-Result: default: False [1.90 / 1000.00];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_RHS_NOT_FQDN(0.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,outlook.com];
-	ARC_NA(0.00)[];
-	ASN(0.00)[asn:35790, ipnet:213.204.219.0/24, country:SE];
-	TO_DN_SOME(0.00)[];
-	TAGGED_RCPT(0.00)[netdev,dt];
-	RCPT_COUNT_TWELVE(0.00)[19];
-	RCVD_COUNT_ZERO(0.00)[0];
-	ALIAS_RESOLVED(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FROM_HAS_DN(0.00)[];
-	HAS_X_AS(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	LOCAL_OUTBOUND(0.00)[];
-	FREEMAIL_CC(0.00)[lunn.ch,davemloft.net,google.com,kernel.org,redhat.com,gmail.com,sholland.org,armlinux.org.uk,outlook.com,vger.kernel.org,lists.linux.dev,lists.infradead.org]
-X-Out-Rspamd-Queue-Id: 4hDKZx39MJz306w
-X-Out-Rspamd-Server: m101-rspamd-out-4
-X-Rspamd-Action: no action
-X-purgate-type: clean
-X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-purgate-size: 506
-X-purgate-ID: 155908::1785769181-3CF061C6-6612C796/0/0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_080407_082122_DDD33F1C 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260803_080636_423040_1131B9F2 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,15 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon,  3 Aug 2026 12:14:50 +0200
-Andre Przywara <andre.przywara@arm.com> wrote:
+On 03/08/2026 16:01, Marc Zyngier wrote:
+> On Mon, 03 Aug 2026 14:43:16 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> This series is based on the guest_memfd in-place conversion v9 tree[1],
+>> which is itself based on kvm-x86/next. It is also available as a git
+>> repository:
+> 
+> Well done. Series on top of another random series, based on a random
+> tree. Unusable. Have you realised there are reasons why we (KVM/arm64)
+> ask people to base their series on a *released* tag from Linus' tree?
+> This means that Sashiko cannot, once again, provide any feedback on
+> this series, as it fails to apply.
+> 
+> Just to avoid any ambiguity: Sashiko reviews, as annoying as they are,
+> are not optional. They are very much mandatory, and I wish I could
+> turn back the clocks to run it on my own code...
+> 
+> Running it on your own is not enough, because *I* want to see what the
+> tool finds. Not to mention that non-Gemini runs of sashiko are much
+> less interesting (unsurprisingly).
 
-> Currently the maxio Ethernet PHY driver expects a PHY matching
-> exactly the one ID provided: 0x7b744412. The Maxio MAE0621A-Q3C model
-> used on the Allwinner based X96QPro+ TV box uses a slightly different
-> PHY ID: 0x7b744411.
+Sorry, but I'm not sure what you expect me to do - clearly I want to
+base my changes on top of the guest_memfd series which is being worked
+on and not just ignore that work. So I've based my changes on top of the
+tree that Ackerley published.
 
-A somewhat unfortunate typo here claims that the TV box has the -Q3C
-variant when it in reality has the -Q2C variant (Cover letter and other
-pathches in the series gets it right).
+I'm certainly not trying to avoid the Sashiko reviews - it's a rather
+unfortunate limitation of the public tool that it doesn't seem to be
+able to deal with these dependencies. Or is there some magic that I can
+do to fix this?
+
+Thanks,
+Steve
+
 
