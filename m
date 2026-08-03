@@ -4,95 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B09FC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB06DC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnDKjAsExIlIO6cGLAGlNzQp1IiRGZFjDF5mAKUFBPE=; b=BnCoad2x6u8igCXOHlyxmRuSRp
-	Sj7DpkmGPofBVvbECU1GMx97RyM/oeiUeA5pGu01AKZkzd78HDdo7v1pSp79eS4hO5NjswOGt4XWM
-	H7Fhewvs7P8Q/BB/RxLidh1iAAtNQ2nja7N0w1cDZ1RcXA9HtnJXxa6cMPWmCOdLVrmth3a4364Pl
-	ptUTS9tcUPzYiRStlQHQYgiW0zLnhpt+dhXHt7S7fOBYMHqtq/+S/TIH0kJjIZcZqeM/5OIuxbTZc
-	JeemlYo4U2vSd0E+hms0r2CcwbJpOaWSIdAS3l3xC4Ooo74OPcpiD8HDrr7prPbMD+5jKzfPX1+1V
-	dN2fbJOA==;
+	bh=BV5ARipMZ0fxYgQsE3hsHDcIk7xqN75uzyq1d4ulR9E=; b=O6PkfPKR3XJb536JIkHuq/HKUa
+	TAfI7CxZWnZxEJII4EkRj+vYpbKwSmS6hS1e16LM7pziLrYUbibGX7ryO/3X30FADyQVHsU40V7Na
+	bSNCvaP1Nkq991klW+sTn9Gsv4kNh4vGGZO0hw2/Nj0ZPr4TJA50KDSBfwHbCZMjhpok0OqB8xFxh
+	amnL+rAEhy0dAamHzN0DgOJGMQPtRzeytBuZWt+AgHgjyqYegdZgoYkBaE7x8vOWm4deT1Usufwzl
+	Tp+1q9yFn5oVT/q0KPN/4dp8cvcBRCP40thqEpdnpcp6fB3ikBULLPekiBj5tT7hA8zTAiSfreKti
+	wD/lWr1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwmH-00000000GVy-3zOD;
-	Mon, 03 Aug 2026 17:48:41 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wqwwq-00000000HP1-2Wmh;
+	Mon, 03 Aug 2026 17:59:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwmC-00000000GTs-43Qt
+	id 1wqwwp-00000000HOt-1qgZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 17:48:40 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-49554ebb87dso20210895e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 10:48:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785779315; x=1786384115; darn=lists.infradead.org;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HnDKjAsExIlIO6cGLAGlNzQp1IiRGZFjDF5mAKUFBPE=;
-        b=B7yf0dcy2Kf7AMYjkWntq0vP7h3M5z3tJzb+5OI33CbnJYHg+Xtan+zDjzUCPSTglN
-         R3ep3m2D863yj6MHbJaYuwcD0JWVfDScCuDfbB1uBZ+r1PTm5hkTfebsr2nK8Gg7901j
-         WA8JXhq8oUkmKVHcqCA4qqaGoh2ffI2ez23KO8mu+Pj8iNFJI2saQVxlTAG+YUsX4pu5
-         On1VzezJXkokr5voefXF/aMyP94yRFv4mHM299wCTiF5sqiWL3xxlgibDHgHjhh+7USX
-         di8mVRnsMZDBfuHUq4ZNkvQxrO8agQHG+HA0W3RJXqfCstkL2E6uEXAQ5a9ox+xhU9ya
-         qCPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785779315; x=1786384115;
-        h=content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HnDKjAsExIlIO6cGLAGlNzQp1IiRGZFjDF5mAKUFBPE=;
-        b=RyFOin3AZA0HujfP5RvLC/SY3fogOXR4aN9Guui4Vkd0VRkAGQuoClxgoECA83PrBu
-         ntokg7NDpWnolRyU0LBGdAYYY7ySb37IFrQoX0LEUlSO4TPexBWPPqKjB3Cowk/7b1eb
-         PMrHctnU6LN+nJ1hU/w5oiy39Xu/JJnNXFPyaIdGKFWlYaxfHKGrHz6ZzQ6J/Cm2IyTi
-         2WYuHf8s+cv6D9T7ipIOAoya1BpeRqi+osWyuzMlcO2dPgewgiWrmij7/up8AzF0EVUK
-         FmK7BkRw+jqX40rDW3n6Dq3ux9nn0hdaBneiUVzuAOoqyXZRaqbP7yRn9UGu7kOmGVyP
-         QdNg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro69PLswA4WSBA0IKnJTYaypvNNuvQ0XQQr52EaHvR+PRCMjnrCOf80Lj5TPZAJ/o90mRdBw6fnAsSmD405tBAw@lists.infradead.org
-X-Gm-Message-State: AOJu0YywWLL9XvnQtsP1Tm7nxupn3ck4nhiz9cUSlDD3cKxoNKTHqTHP
-	QfSQHtWioeFkq5zPHAKRoCYYjKyTKzyRnq8FTJtMqg4ucPkxe5bNwbK0
-X-Gm-Gg: AR+sD13or6psM7d0MSjHtvCoIHN9LfGiyBtxoOqN7QoKKVX+zift8DgaNgxAQreT0AA
-	vq7ozba3gKJaKPD9O+jqMAzj9qOdyIy7hIgxVhfPR5lBdyMV1v6u9Eo7ZCo9ZMuTw2rQtPh942j
-	He8sr6mqA/X9QuK73rcjtGXjhG5t6RtOUtZcPHhg4Cajv0swZHbmhMsi4GoJvJacNFLh7BKaOeJ
-	xi8mcBVaZfaacych6u2vR/CwKk9AG7hJefptv4SXEMct6uT35Kg4DsMS7vpqBtLsePMBuEawE+y
-	gw9gCLajlx8JgqKjvurM1vByevJ3cEXZPGwwiZGabLwII/6QnDY729800Xl2P6zZkYui2uTVuww
-	KoJ+NiME05k9LujjxgUfBBz1/K2MLsrO7HNKFUC/Hu4FIIYidVy6l7+aNy/+QY+HnufQL8xa0mM
-	6WLk5fZssjpcjPLQJbew+HZLLA4ykgybv9bppFav94zXe9BYKdbCkeOQ3Oag7vi+FJDmoMBvYvb
-	Q==
-X-Received: by 2002:a05:600c:314f:b0:495:4572:21af with SMTP id 5b1f17b1804b1-4980c673252mr206970055e9.9.1785779314611;
-        Mon, 03 Aug 2026 10:48:34 -0700 (PDT)
-Received: from strix.localnet ([197.250.226.155])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49807b5b4a2sm295532795e9.1.2026.08.03.10.48.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 10:48:33 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Brian Masney <bmasney@redhat.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-phy@lists.infradead.org, mfd@lists.linux.dev
-Subject: Re: [PATCH v9 05/12] clk: zte: Add Clock registration infrastructure
-Date: Mon, 03 Aug 2026 20:48:18 +0300
-Message-ID: <ky2t5IqOTfWMdfZsXE91Gg@gmail.com>
-In-Reply-To: <anC72Cf1zKcLYWlC@redhat.com>
-References: <20260802-zx29clk-v9-0-d05530d85d28@gmail.com>
- <20260802-zx29clk-v9-5-d05530d85d28@gmail.com> <anC72Cf1zKcLYWlC@redhat.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartnWZPMUIwR7W-Gw2dYxPvgg";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_104837_083906_9E87BBAB 
-X-CRM114-Status: GOOD (  26.18  )
+	Mon, 03 Aug 2026 17:59:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DF4EA43BCA;
+	Mon,  3 Aug 2026 17:59:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A22E41F000E9;
+	Mon,  3 Aug 2026 17:59:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785779974;
+	bh=BV5ARipMZ0fxYgQsE3hsHDcIk7xqN75uzyq1d4ulR9E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=XmItevvPkf2UwN8Tf5R/uRHfEqcN5YdvjiYbOx19jZ6EYbnk9IUySXPSJtGjv8k8F
+	 cLvoMI8YdGCdn6Gy6I5c3L38ja3vF0PTK8gJqH+0xpdxfcB5cOAgZD9OjXzc3BCHkO
+	 XMJxW6yJgzldz8oH8jy3iJ5OCgHk/DQIrxAnqYyff1p3pszcvSODuwsGGRG7AnkLb0
+	 DP8h/xP/mHEBU0Ye07AltDcAtHAvd1nVbolQCxse0TJdjjytPlbi5kMJlBCLuWeRsa
+	 7tvwz696Lzb6EN/zONSrlUX2dCVZMKBapm7o09JW2arI9DxRPS+76aVRyg2N65mAHY
+	 yGKGNqyw0IgJw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wqwwm-0000000Btf9-2E1q;
+	Mon, 03 Aug 2026 17:59:32 +0000
+Date: Mon, 03 Aug 2026 18:59:32 +0100
+Message-ID: <86se4vaxvf.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: oupton@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	alexandru.elisei@arm.com,
+	vdonnefort@google.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	qperret@google.com,
+	ardb@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	tabba@google.com
+Subject: Re: [PATCH v2 09/11] KVM: arm64: Type-check hypercall arguments at the caller
+In-Reply-To: <20260803124220.332248-10-fuad.tabba@linux.dev>
+References: <20260803124220.332248-1-fuad.tabba@linux.dev>
+	<20260803124220.332248-10-fuad.tabba@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: fuad.tabba@linux.dev, oupton@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, rostedt@goodmis.org, mhiramat@kernel.org, alexandru.elisei@arm.com, vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org, linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,101 +97,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartnWZPMUIwR7W-Gw2dYxPvgg
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: Brian Masney <bmasney@redhat.com>
-Subject: Re: [PATCH v9 05/12] clk: zte: Add Clock registration infrastructure
-Date: Mon, 03 Aug 2026 20:48:18 +0300
-Message-ID: <ky2t5IqOTfWMdfZsXE91Gg@gmail.com>
-In-Reply-To: <anC72Cf1zKcLYWlC@redhat.com>
-MIME-Version: 1.0
-
-Hi Brian,
-
-Thanks again for the review!
-
-Am Montag, 3. August 2026, 19:03:36 Ostafrikanische Zeit schrieb Brian Masney:
-> > +	/*
-> > +	 * Sanity check: Make sure all parents are there and write a clear
-> > message rather than +	 * leave potential orphans.
-> > +	 */
+On Mon, 03 Aug 2026 13:42:18 +0100,
+Fuad Tabba <fuad.tabba@linux.dev> wrote:
 > 
-> It's not common for clk drivers to have a validate function like this.
-> That said, I know you are reverse engineering what's in the downstream
-> BSP without documentation, and there is value in having this. I think
-> it'd be useful to clarify that in the comments because code usually gets
-> copied and pasted between drivers over time.
->
-> That said, once it's verified that the clock tree is correct, can these
-> checks be eventually dropped so that this validation logic isn't ran on
-> every boot?
-
-Yes, I plan to remove it eventually when support for the SoC is more mature. 
-It has saved me some head-scratching as I have been working and re-working the 
-clock tree. I'll clarify its driver specific role in the next submission.
-
-Another option I contemplated is wrapping it in #ifdef DEBUG. What do you 
-think about that?
-
-> > +struct zx_clk_export {
-> > +	unsigned int priv;
-> > +	unsigned int binding;
-> > +};
+> kvm_call_hyp_nvhe() reduces its target to an SMCCC function number, so
+> the compiler never sees a callable: arguments that are wrong in number,
+> type or order are silently marshalled into registers. The kvm_call_hyp()
+> wrappers only catch this on the VHE branch, and the pKVM-only hypercalls
+> have no such branch.
 > 
-> Sashiko flagged this as unused.
+> Declare each hypercall's signature once in kvm_hcall.h and generate a
+> typed stub from it, in the mold of the syscall wrappers. Make
+> kvm_call_hyp_nvhe() resolve to the stub so every caller is checked
+> against the declared signature; a stale or mistyped call now fails to
+> compile. The stubs inline to the same SMCCC call the untyped macro used
+> to make: the compiled callers are unchanged, apart from hypercall
+> returns now being tested at their declared width.
+> 
+> The stage-2 protection arguments are declared u64 rather than
+> enum kvm_pgtable_prot, as kvm_pgtable.h includes linux/kvm_host.h and
+> the enum cannot be completed here.
+> 
+> Assisted-by: Antigravity:gemini-3.1-pro
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+> ---
+>  arch/arm64/include/asm/kvm_hcall.h | 168 ++++++++++++++++++++++++++++-
+>  arch/arm64/kvm/hyp_trace.c         |   2 +-
+>  2 files changed, 168 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
+> index d925b2c28a3d8..1c9c182ddcd1b 100644
+> --- a/arch/arm64/include/asm/kvm_hcall.h
+> +++ b/arch/arm64/include/asm/kvm_hcall.h
+> @@ -9,6 +9,7 @@
+>  #ifndef __ARM64_KVM_HCALL_H__
+>  #define __ARM64_KVM_HCALL_H__
+>  
+> +#include <linux/args.h>
+>  #include <linux/arm-smccc.h>
+>  #include <linux/bug.h>
+>  #include <linux/errno.h>
+> @@ -16,12 +17,37 @@
+>  
+>  #include <asm/barrier.h>
+>  #include <asm/kvm_asm.h>
+> +#include <asm/spectre.h>
+>  #include <asm/virt.h>
+>  
+>  typedef u16 pkvm_handle_t;
+>  
+> +struct kvm;
+> +struct kvm_s2_mmu;
+> +struct kvm_vcpu;
+> +struct vgic_v3_cpu_if;
+> +struct vgic_v5_cpu_if;
+> +
+> +/*
+> + * Hypercall signatures are declared as (type, name) argument pairs.
+> + * __KVM_HCALL_MAP() applies a macro to each pair, in the mold of __MAP()
+> + * in <linux/syscalls.h>. The ladder is indexed by list entries, two per
+> + * argument; __KVM_HCALL_MAP_N() takes that count explicitly.
+> + */
+> +#define __KVM_HCALL_MAP2(m, t, a, ...) m(t, a)
+> +#define __KVM_HCALL_MAP4(m, t, a, ...) m(t, a), __KVM_HCALL_MAP2(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP6(m, t, a, ...) m(t, a), __KVM_HCALL_MAP4(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP8(m, t, a, ...) m(t, a), __KVM_HCALL_MAP6(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP10(m, t, a, ...) m(t, a), __KVM_HCALL_MAP8(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP12(m, t, a, ...) m(t, a), __KVM_HCALL_MAP10(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP_N(n, m, ...) CONCATENATE(__KVM_HCALL_MAP, n)(m, __VA_ARGS__)
+> +#define __KVM_HCALL_MAP(m, ...) __KVM_HCALL_MAP_N(COUNT_ARGS(__VA_ARGS__), m, __VA_ARGS__)
+> +
+> +#define __KVM_HCALL_DECL(t, a)	t a
+> +#define __KVM_HCALL_ARGS(t, a)	a
+> +
+>  #ifndef __KVM_NVHE_HYPERVISOR__
+> -#define kvm_call_hyp_nvhe(f, ...)					\
+> +#define __kvm_call_hyp_nvhe(f, ...)					\
+>  	({								\
+>  		struct arm_smccc_res res;				\
+>  									\
+> @@ -33,6 +59,43 @@ typedef u16 pkvm_handle_t;
+>  		res.a1;							\
+>  	})
+>  
+> +/*
+> + * Generate a typed stub for each declared hypercall. kvm_call_hyp_nvhe()
+> + * resolves to the stub, so a call with the wrong argument count or types
+> + * fails to compile instead of being silently truncated to an SMCCC function
+> + * number and a pile of registers. The stub inlines to the same SMCCC call
+> + * the untyped macro used to make.
+> + */
+> +#define DECLARE_KVM_HOST_HCALL(ret, name, ...)				\
+> +	static __always_inline						\
+> +	ret nvhe_hvc_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__)) \
+> +	{								\
+> +		return (ret)__kvm_call_hyp_nvhe(name,			\
+> +			__KVM_HCALL_MAP(__KVM_HCALL_ARGS, __VA_ARGS__));\
+> +	}
+> +
+> +#define DECLARE_KVM_HOST_HCALL_VOID(name, ...)				\
+> +	static __always_inline						\
+> +	void nvhe_hvc_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__)) \
+> +	{								\
+> +		__kvm_call_hyp_nvhe(name,				\
+> +			__KVM_HCALL_MAP(__KVM_HCALL_ARGS, __VA_ARGS__));\
+> +	}
 
-Indeed, that is a leftover from earlier - before I realized a simple unsigned 
-int[] does the job fine.
+I'll bite! ;-) void is a type, not the absence of a type. And
+returning void is perfectly valid.
 
----
+So with this in mind, I got rid of the *_VOID() helpers altogether,
+see below.
 
-I have a long-standing question about tristate/module support for drivers like 
-this: I don't think the driver can realistically be unloaded. I have been 
-testing driver unloading by removing the UART clocks from the DT (otherwise 
-the clock driver is busy) and marking all clocks critical (otherwise 
-unloading/unbinding will shut down the UART (and more) and lock me out of the 
-system).
+Thanks,
 
-I have made it tristate because from early research into clock driver state of 
-the art I gathered it was desired, even for drivers necessary for fundamental 
-operation [0]. Did I understand this correctly? It also uncovered some linking 
-errors that weren't obvious when compiling the driver into the kernel.
+	M.
 
-That said, I'd prefer to mark my init tables discardable with __initdata and 
-think the module load support is going to go untested and bitrot over time.
+diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
+index 3958396a83345..0b1b10d4212da 100644
+--- a/arch/arm64/include/asm/kvm_hcall.h
++++ b/arch/arm64/include/asm/kvm_hcall.h
+@@ -88,26 +88,12 @@ struct vgic_v5_cpu_if;
+ 			__KVM_HCALL_MAP(__KVM_HCALL_ARGS, __VA_ARGS__));\
+ 	}
+ 
+-#define DECLARE_KVM_HOST_HCALL_VOID(name, ...)				\
+-	static __always_inline						\
+-	void nvhe_hvc_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__)) \
+-	{								\
+-		__kvm_call_hyp_nvhe(name,				\
+-			__KVM_HCALL_MAP(__KVM_HCALL_ARGS, __VA_ARGS__));\
+-	}
+-
+ #define DECLARE_KVM_HOST_HCALL0(ret, name)				\
+ 	static __always_inline ret nvhe_hvc_##name(void)		\
+ 	{								\
+ 		return (ret)__kvm_call_hyp_nvhe(name);			\
+ 	}
+ 
+-#define DECLARE_KVM_HOST_HCALL0_VOID(name)				\
+-	static __always_inline void nvhe_hvc_##name(void)		\
+-	{								\
+-		__kvm_call_hyp_nvhe(name);				\
+-	}
+-
+ #define kvm_call_hyp_nvhe(f, ...)	nvhe_hvc_##f(__VA_ARGS__)
+ 
+ /*
+@@ -148,12 +134,8 @@ struct vgic_v5_cpu_if;
+  */
+ #define DECLARE_KVM_HOST_HCALL(ret, name, ...)				\
+ 	typedef ret kvm_host_hcall_sig_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__));
+-#define DECLARE_KVM_HOST_HCALL_VOID(name, ...)				\
+-	typedef void kvm_host_hcall_sig_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__));
+ #define DECLARE_KVM_HOST_HCALL0(ret, name)				\
+ 	typedef ret kvm_host_hcall_sig_##name(void);
+-#define DECLARE_KVM_HOST_HCALL0_VOID(name)				\
+-	typedef void kvm_host_hcall_sig_##name(void);
+ #endif /* __KVM_NVHE_HYPERVISOR__ */
+ 
+ /* Hypercalls that are unavailable once pKVM has finalised. */
+@@ -164,52 +146,52 @@ DECLARE_KVM_HOST_HCALL(unsigned long, __pkvm_create_private_mapping,
+ 	phys_addr_t, phys, size_t, size, u64, prot)
+ DECLARE_KVM_HOST_HCALL(int, __pkvm_cpu_set_vector,
+ 	enum arm64_hyp_spectre_vector, slot)
+-DECLARE_KVM_HOST_HCALL0_VOID(__kvm_enable_ssbs)
+-DECLARE_KVM_HOST_HCALL0_VOID(__vgic_v3_init_lrs)
++DECLARE_KVM_HOST_HCALL0(void, __kvm_enable_ssbs)
++DECLARE_KVM_HOST_HCALL0(void, __vgic_v3_init_lrs)
+ DECLARE_KVM_HOST_HCALL0(u64, __vgic_v3_get_gic_config)
+ 
+ DECLARE_KVM_HOST_HCALL0(int, __pkvm_prot_finalize)
+ 
+ /* Hypercalls that are always available and common to [nh]VHE/pKVM. */
+-DECLARE_KVM_HOST_HCALL_VOID(__kvm_adjust_pc,
++DECLARE_KVM_HOST_HCALL(void, __kvm_adjust_pc,
+ 	struct kvm_vcpu __kern *, vcpu)
+ DECLARE_KVM_HOST_HCALL(int, __kvm_vcpu_run,
+ 	struct kvm_vcpu __kern *, vcpu)
+-DECLARE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
+-DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa,
++DECLARE_KVM_HOST_HCALL0(void, __kvm_flush_vm_context)
++DECLARE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_ipa,
+ 	struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
+-DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa_nsh,
++DECLARE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_ipa_nsh,
+ 	struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
+-DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid,
++DECLARE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid,
+ 	struct kvm_s2_mmu __kern *, mmu)
+-DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_range,
++DECLARE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_range,
+ 	struct kvm_s2_mmu __kern *, mmu, phys_addr_t, start, unsigned long, pages)
+-DECLARE_KVM_HOST_HCALL_VOID(__kvm_flush_cpu_context,
++DECLARE_KVM_HOST_HCALL(void, __kvm_flush_cpu_context,
+ 	struct kvm_s2_mmu __kern *, mmu)
+-DECLARE_KVM_HOST_HCALL_VOID(__kvm_timer_set_cntvoff,
++DECLARE_KVM_HOST_HCALL(void, __kvm_timer_set_cntvoff,
+ 	u64, cntvoff)
+ DECLARE_KVM_HOST_HCALL(int, __tracing_load,
+ 	void __kern *, desc_hva, size_t, desc_size)
+-DECLARE_KVM_HOST_HCALL0_VOID(__tracing_unload)
++DECLARE_KVM_HOST_HCALL0(void, __tracing_unload)
+ DECLARE_KVM_HOST_HCALL(int, __tracing_enable,
+ 	bool, enable)
+ DECLARE_KVM_HOST_HCALL(int, __tracing_swap_reader,
+ 	unsigned int, cpu)
+-DECLARE_KVM_HOST_HCALL_VOID(__tracing_update_clock,
++DECLARE_KVM_HOST_HCALL(void, __tracing_update_clock,
+ 	u32, mult, u32, shift, u64, epoch_ns, u64, epoch_cyc)
+ DECLARE_KVM_HOST_HCALL(int, __tracing_reset,
+ 	unsigned int, cpu)
+ DECLARE_KVM_HOST_HCALL(int, __tracing_enable_event,
+ 	unsigned short, id, bool, enable)
+-DECLARE_KVM_HOST_HCALL_VOID(__tracing_write_event,
++DECLARE_KVM_HOST_HCALL(void, __tracing_write_event,
+ 	u64, id)
+-DECLARE_KVM_HOST_HCALL_VOID(__vgic_v3_save_aprs,
++DECLARE_KVM_HOST_HCALL(void, __vgic_v3_save_aprs,
+ 	struct vgic_v3_cpu_if __kern *, cpu_if)
+-DECLARE_KVM_HOST_HCALL_VOID(__vgic_v3_restore_vmcr_aprs,
++DECLARE_KVM_HOST_HCALL(void, __vgic_v3_restore_vmcr_aprs,
+ 	struct vgic_v3_cpu_if __kern *, cpu_if)
+-DECLARE_KVM_HOST_HCALL_VOID(__vgic_v5_save_apr,
++DECLARE_KVM_HOST_HCALL(void, __vgic_v5_save_apr,
+ 	struct vgic_v5_cpu_if __kern *, cpu_if)
+-DECLARE_KVM_HOST_HCALL_VOID(__vgic_v5_restore_vmcr_apr,
++DECLARE_KVM_HOST_HCALL(void, __vgic_v5_restore_vmcr_apr,
+ 	struct vgic_v5_cpu_if __kern *, cpu_if)
+ 
+ /* Hypercalls that are available only when pKVM has finalised. */
+@@ -232,7 +214,7 @@ DECLARE_KVM_HOST_HCALL(int, __pkvm_host_test_clear_young_guest,
+ DECLARE_KVM_HOST_HCALL(int, __pkvm_host_mkyoung_guest,
+ 	u64, gfn)
+ DECLARE_KVM_HOST_HCALL0(int, __pkvm_reserve_vm)
+-DECLARE_KVM_HOST_HCALL_VOID(__pkvm_unreserve_vm,
++DECLARE_KVM_HOST_HCALL(void, __pkvm_unreserve_vm,
+ 	pkvm_handle_t, handle)
+ DECLARE_KVM_HOST_HCALL(int, __pkvm_init_vm,
+ 	struct kvm __kern *, host_kvm, void __kern *, vm_hva,
+@@ -249,10 +231,10 @@ DECLARE_KVM_HOST_HCALL(int, __pkvm_start_teardown_vm,
+ 	pkvm_handle_t, handle)
+ DECLARE_KVM_HOST_HCALL(int, __pkvm_finalize_teardown_vm,
+ 	pkvm_handle_t, handle)
+-DECLARE_KVM_HOST_HCALL_VOID(__pkvm_vcpu_load,
++DECLARE_KVM_HOST_HCALL(void, __pkvm_vcpu_load,
+ 	pkvm_handle_t, handle, unsigned int, vcpu_idx, u64, hcr_el2)
+-DECLARE_KVM_HOST_HCALL0_VOID(__pkvm_vcpu_put)
+-DECLARE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid,
++DECLARE_KVM_HOST_HCALL0(void, __pkvm_vcpu_put)
++DECLARE_KVM_HOST_HCALL(void, __pkvm_tlb_flush_vmid,
+ 	pkvm_handle_t, handle)
+ 
+ #endif /* __ARM64_KVM_HCALL_H__ */
 
-Cheers,
-Stefan
-
-0: Chen-Yu Tsai's tak here mostly: https://www.youtube.com/watch?v=d1VIAnVb3hI
-
---nextPartnWZPMUIwR7W-Gw2dYxPvgg
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmpw1GIbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoi7TkP/05WuGUn0opY7QQ8sZB6
-OuKTG5SinWEzjuroAKgG/nD8WOveL+GRtp0cJ8+CUdvw0WpzZQeuRnSX/zDbSvXa
-2G3pIBOvMcd0MOBBaEHUAtOHArZybsIuoFTVTzsaAYyHf2B7cc7KVbJZWRztmYSH
-Z/OUYaxPHYoD6cHC4FlSNHyJplDqLj0LpgZOwY4zP0jaWLbEJpkCTK9Izl+ZIB4N
-Q15I4WFfnyUi+J+3/mM3Rl4UYrS0U55ydarl5Io0PUsY/ORocxQY7jhXTvFyVmGV
-xEythQnLVsvYici8F6d1tA/VcdG5jbo/JxRgrG53yGGuZX7x31CampUCrUOJRJ7t
-bMsQwZz/VwpxL11Pg92G9bI3mzCHb+CZDRLT5zh+DN8cOkF5u4GBnI0CPKaqFAdw
-deFt0WVnrrosFn0Vf0p17OrTiycj+f72S3L97DLCiH+0A02LR5XC6rxe5ia0xsFj
-zXVl/z67OSLLN+g00eH/Gm7t6wSmRHdNY8QYBxaoIfY7NSPC4sfAm0BPcRfOtHEe
-aN2QkZlUqy6LOPzLMKJXsVo1oXp94QXx5YgJpObLC1OH2GasPwX+teqCVXGyJZpt
-we0fT64SnRaq5A4TfIcEcb2QJZUmH6znzcgROxCXZIJ1Dla1nW0ASQlNw2z5btj/
-bbygfsidb6/n+WxVmEd5JJI+
-=Lf/s
------END PGP SIGNATURE-----
-
---nextPartnWZPMUIwR7W-Gw2dYxPvgg--
-
-
-
+-- 
+Without deviation from the norm, progress is not possible.
 
