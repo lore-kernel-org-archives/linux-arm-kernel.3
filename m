@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E5EC55162
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAAFBC55182
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 05:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,89 +12,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1CvTLJea6zWTpGRaWOgZzRKuhjdqcAVM/Zr8VD5aTmI=; b=r/dzIC4yAa2U6M8YQYUMypqosZ
-	UmI7jw9AHZYNRhAWrZFNOqFwLd1Evgjf6Cl8H0sOo1PDAL4rIQCkt9qupUvxbUTXanN/c9TN5tbCh
-	f3HEIU4fAVTY+PWuVlMIO4PsDqANQ3yCoZlR8XOmjO+BBIFMmfnY7S0mfbOgZErRQU55m9BQL8YKg
-	aWkGnAMl4gbIa0OFpu0mZPJLtvzBAx0XCy9G2eCB8dj78IXv96SUng08MevRxrJkKwdkGWoIRXwbZ
-	Cf9ImzGj0PQaOgLmp2teqU68vVsI1dnZrp2FmWfLaUEW/19ZnHpO8OqLai/9/igqCiF4V61C2kEKf
-	Jxr5tyAg==;
+	bh=V3THAfFmoIZwxbw2uyAABLxKH+fs/K6w42J64CA1198=; b=HQeA5BiQkJGnXotDiRgpCknY49
+	WDDyqyqJ3s5SIlvAfHpKFkX0E960EfXQUTKu6e6CxZcHdGI6qAJYEnYbSg+3R2fbqRJd9NPCme57R
+	ZiNZJno48WBpSAaZ9WpyfRAQ3G1JKcrYgZCZyPRtTP+l5oxrD2ZXS6mO5l0MjQmdp710ulLLR5N3N
+	gPuR3NhZUvqCTXzIZj+vRTQPUBvK+ZjYa7gQRA+6PH/8rfo3ti5UxFVflAV3ePZac05z0UOs82Dnq
+	ajshtU1PJwsVEIENKsBA/q7Ugva8pB+LDIlHoVIT6s3qb0fQiseLPuLLPcufaHMcwLxGK2/Nh2/p2
+	Q4WKSZ0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wql1z-0000000GLqI-0k8x;
-	Mon, 03 Aug 2026 05:16:07 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wql1v-0000000GLg3-3wXT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 03 Aug 2026 05:16:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=1CvTLJea6zWTpGRaWOgZzRKuhjdqcAVM/Zr8VD5aTmI=; b=UibCkEzhw0NLJfTiOqRMzrGkKC
-	QAtFPTV5nFEKJ50WWzjX5l+JZItGkcfuLnrNeYRISSjDxhu4V0E/uvnBpYNXYrAhmaWIOh1gbqoa7
-	YLY2HIlIzqzZ51qrM796Qnt1k//59gyxXDKWH8smPC9k61OP1XV/CiROfxfv3o9E8n+dDx5RVd1+g
-	OVrcGCMOuG93XrN4DwOo7mxIhJBpxUAHaANsEyPTzlMws3hzvDbxlZ88Le/Tv/tNGULz9jrQ5DmNX
-	+QrDAZ+BYJRAleO68LWh2wvfUj7SPcF5pQQSU8hbBWuQqXWXz/Y/acjA6RCvyM1b8tYkc87yWdgOO
-	k0xxQokA==;
-Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wql1r-00000004v2l-1B2C
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wql1u-0000000GLfH-2xPd;
 	Mon, 03 Aug 2026 05:16:02 +0000
-Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-7eb1dc6bd53so1828722a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 22:15:58 -0700 (PDT)
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wql1o-0000000GLPW-3Nae
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 05:15:58 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7eb6573bd52so2068264a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 22:15:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785734153; x=1786338953; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785734156; x=1786338956; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1CvTLJea6zWTpGRaWOgZzRKuhjdqcAVM/Zr8VD5aTmI=;
-        b=Rky9C7t+nCwKIsNXV3+ewp5KxdOjLuITNdk+dY9/EwBEdWJqtSAzZIVIcIGjXiieWE
-         2OYhUcxFeeAUuxzjzIWpOyRi8dr7GpsWrMhZBMKTP98qOxhEyvzHjtszs67Hdl9H5QRD
-         uuHPkhgeIpso/Iy2Iy2lt/bHEXKPEVN7TB81OTI7VZe8c7thP2TC4mk+E1q5CA7+0oZF
-         4wmHdggrY5MI5WQH3J4Pv9mL0vlN0deCvmvbdYtU00JPZ04OEqDWlOhOeDSKoJz6Gcam
-         L7XQnKywXwR/bUy4hHdVTHT9csjzGOCWgSU8fpG03EZvkXDp1NC1Ow4ICxtYMsvOTzXn
-         Og0g==
+        bh=V3THAfFmoIZwxbw2uyAABLxKH+fs/K6w42J64CA1198=;
+        b=NQmXnGZUKb2d2udequqdFayxvHIYglBtZgEYHng/CyYci9ATiTCbEdr84CKt+N4uKO
+         tyokkREWoe2mjqva1qaKmyjyBK6jsj1E93rcTILd0vlkba4BAIzVtJpoZaK6wCohHxW7
+         CSITUcyNTncV6vmoQrV+IPLBUDG7T4P7yUjkuHDMONTOMZSz8nLeVS1r4cRt5s7cpSOe
+         dDzSsvX3VE8PJEBQ4wT7uM7MBOboqx8ISFNqLoFxmfWgqedSCHZnyEl4fFQzArbYqtMo
+         G8xItnupb3YUe8fv/+AXER7xpGOSvYznr0SWfzbCIWZHbP2z91zBsqGG+U78KawMlor9
+         V9yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785734153; x=1786338953;
+        d=1e100.net; s=20251104; t=1785734156; x=1786338956;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1CvTLJea6zWTpGRaWOgZzRKuhjdqcAVM/Zr8VD5aTmI=;
-        b=JRmE7obUxw3qiOaMaAu6FoBidGefRtH6XXT2gyGpAa7fogApcaUrkBMdecv0jkQi5o
-         smhQi5D11UF8Y7QsfsG8F1smIVrz2iF5WebqFX5RGhMtlWNvaC/9UtqDrYJqM286h8HP
-         jZk+ZtaUYGh5mjX0S5ncvZZ53shsvJIbkeJX8ISvtpKWXIonE9NRljz55PkcvYlYuyVY
-         udB4HrD0qzDesnMSx0kLlJjUcWKnOiJ6hlKtBsdyXooDZhqw9IsRiMQVtTBzzb5LLZbs
-         TGuE3CheSvJLiH5onS3mveIj/d0amT1lYVRHSMkLouVZfa6VWoCBREnhHG9bYikpl4wz
-         eTjA==
-X-Forwarded-Encrypted: i=1; AHgh+RrlV1SiJeityTcuUjsW1c7MsyvHn5/H10Y1vz/IHLp6DhFjED/jMk3jiUUXbn6yE85hcQuvvvWigYyo0lvmG1r8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxM5ApikbXvmGJSWhhVaFarWdThfY9xJoA25w1w5hEUFIiPHyPA
-	GBsoCqmjKPheJItQKsz+dL4KvRR4YZjkX+SxlLxTWatRidcdYjHkMELQ1abaXNGK
-X-Gm-Gg: AR+sD12aOXH3MhtLyC8hUD6FDmsAUVTqu3bmXxm84KH0fPb1JtL4V0rUM1/Zc+FGGwf
-	PN3mFICx8EX5QJCGYGYHzxYCjtY1Mx49USDqPdphjkUsefQ/3uEP/Ib0CcxTJvbiy1ZFB8tC1rN
-	LXzY6S66DLXkQEk8RSsJxIRZs3UZSFdb4x4BxMObhmIdZqeWElRukeVLyMYoAlY+hvAsj7L1DzG
-	1psGSehgZvW8GCZJ9VUNrjUC1aetErIDjy2j66kKEBXuCFvZsDUqzlQjqLlF14LjHyEVBSKHj73
-	uppWMgQObp3xZ36xNXq6XzlM4uiOcpGZTRKKEmaoZcijC/TeyjFkbovFE3J4eaHJaIJFjdPqBDz
-	9oU8YFtPSKsntn18/j/VuzULkvQ7NbbSBTiXW1Xnz/hus6SAwHzs600765qPiUrnvxEWrtO4AGR
-	ErFs7u2tZROF3oJdX3/GXKRvWwU2qQL3hpYcckkce5ju9IrKa2ebul7D2hBvxp1DLgqVPe04QDw
-	4MBy2/WaIhuOs2Yf2uWUaGvgM3fZvpnygAhddyL9Vyg6uaD9bOCeNUwC5YzdXo+Xmy/4WChUge/
-	irPxzteeawBoWqCB3Vvpq0I/Azl2Cd1cSfH9UvTeF4KFdv1DjcXZFYwsxBiM/yo0v8E3bGMrPnL
-	MMO/Xoa/ufZgO4Ip1
-X-Received: by 2002:a05:6830:398d:b0:7dc:e090:68a with SMTP id 46e09a7af769-7f1969181f7mr14873339a34.0.1785734152850;
-        Sun, 02 Aug 2026 22:15:52 -0700 (PDT)
+        bh=V3THAfFmoIZwxbw2uyAABLxKH+fs/K6w42J64CA1198=;
+        b=qpXXK40XxdSox1pgJ5Ci1z1YD20uo9EdxCkT5vxSu9/425a4f6SJiSsiWyk2FZk8dQ
+         gbK99+XY9mpJMbgcL11XozE5bMZnXscmsHcCw7iWJsPyXXlEZvr7xi2l+xUkp6byI95v
+         k5vOsW0dl1/o0WTlM6IhvBkPpnjxApItmeehJ5Y1U362MAsXWxLeO6fmi78oBcCQ+2oo
+         6g02U1N1p66+2C/NNE/QWTNRsONT2/ZZUEupWOSPpeuFAhqJB1A8MEPSrCS5T/ry4O7o
+         WVhxpACH9DtTAi9CgFlO2oD0q0jggHL+60LL1MVE8V0LKA3gMSrBzGExZu/mpwLL7ede
+         X+/A==
+X-Forwarded-Encrypted: i=1; AHgh+Rp2SpMMyAse481Nys4E+yoqdX7PCrZQfZ7p7zp6wOVr2BhWTEBUkItVSFw+RLy2tbc4bjLWWUBR7mwf9sElOfHD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaSkUbP761OU0+Oliba8OrDF1hmM9ieRhya5N2lHByRpxTRKch
+	pgOJAdlfXkF2oXwVoVPq41mgUGgf5fiVSSSUtMH3QMbWddtOtr054BC4CjqsPFzC
+X-Gm-Gg: AR+sD10PO7nuNZXU0DdEo0+Zk64TF63DppLsRQi1qzNw5ongpPFbO7ndq1sD9eytEPj
+	KQWxz6XybCxLx6JA2OStyHvnXu3FoSFrOdn3pYwq9Z1gtxozN/KTSlsTr7IxW0DbCZfmOe7cPe0
+	+z17ZNjZklmCm0Emum+w1X+4WQJcgsd1tDtF+HKf+Br/K8n/PfWpAQpz3IiAjsguNJR5HRQ+7kX
+	rqvvqvapgieFi6K/y6bwbm31XgCtAvxTwUryt6MW8w5tJtg+YoPKlxxPpKCNM0bKgVH0D7fxQE6
+	lFFBz7t6LvNaG41Y0kGqbRuFI0wzTeCLaBMBPEZg+HdsQKi9bGyBFsDbOEwCji9eicaDw1fBAB9
+	B5xlWWUgwwDkFyHVzOxdnF9JwV7MOCuTqfyMWwKADD9GjgL0t6W8rrQMlwW2viqPDpCQwJwzB6q
+	+i1Qz4e18MgDhx5ferY/qMgqwygTYOv3J6TbWimJ9mFAB7d1kvZuDiN3XEovxxNA2kYgbOwoSzQ
+	Ct/q+4YItV2q0jr0DH6x/VmzMZ2nXRpGLvkPDg+znct+oLcz5jN4B3eVkT+ojByf5uYbubAYuOh
+	ASpC1GzGpCFMxUQvC5e4zJEVFwf0PMDw4/wmQDAPU/4tAOECulBNFY38c4vLRePNmypmjvkxnD+
+	2jUO4OMFr6nwf6bTglbV8nZ8qh51KBHWIoz19
+X-Received: by 2002:a05:6830:2a8b:b0:7e6:f7fb:9678 with SMTP id 46e09a7af769-7f196cb65a7mr14526881a34.1.1785734154482;
+        Sun, 02 Aug 2026 22:15:54 -0700 (PDT)
 Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18f07a5e3sm6787108a34.15.2026.08.02.22.15.51
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18f07a5e3sm6787108a34.15.2026.08.02.22.15.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Aug 2026 22:15:52 -0700 (PDT)
+        Sun, 02 Aug 2026 22:15:54 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sun, 02 Aug 2026 23:14:30 -0600
-Subject: [PATCH 20/21] arm64: dts: allwinner: h6: tanix: enable AC200 EPHY
+Date: Sun, 02 Aug 2026 23:14:31 -0600
+Subject: [PATCH 21/21] arm64: defconfig: enable X-Powers ACx00 Ethernet
+ support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260802-submit-acx00-of-dynamic-v1-v1-20-0a53cd9e21cc@gmail.com>
+Message-Id: <20260802-submit-acx00-of-dynamic-v1-v1-21-0a53cd9e21cc@gmail.com>
 References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
 In-Reply-To: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -123,8 +109,8 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_061559_562549_FF33D575 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20260802_221556_918385_DA518A97 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,104 +125,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the AC200 control path and RMII Ethernet link on the Tanix TX6
-family, and provide the board's 3.3 V rail to the AC200 function supplies.
-
-Route the PHY interrupt through the AC200 interrupt controller and mark
-it as a wakeup source for link interrupts and magic-packet wake.
+Build the H616 PWM clock provider, AC200 MFD, both variant-specific
+EPHY control drivers and the shared link-PHY driver as modules. Enable the
+netdev LED trigger as a module so DT-described PHY LEDs can use hardware
+offload.
 
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi | 45 ++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+ arch/arm64/configs/defconfig | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi
-index bb7de37c0d58..6cd75961e3cc 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-tanix.dtsi
-@@ -7,9 +7,11 @@
- #include "sun50i-h6-cpu-opp.dtsi"
- 
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/mfd/x-powers,ac200.h>
- 
- / {
- 	aliases {
-+		ethernet0 = &emac;
- 		serial0 = &uart0;
- 	};
- 
-@@ -84,6 +86,22 @@ wifi_pwrseq: wifi-pwrseq {
- 	};
- };
- 
-+&ac200 {
-+	ac-ldoin-supply = <&reg_vcc3v3>;
-+	ephy-vcc-supply = <&reg_vcc3v3>;
-+	rtc-vcc-supply = <&reg_vcc3v3>;
-+	tv-vcc-supply = <&reg_vcc3v3>;
-+	status = "okay";
-+};
-+
-+&ac200_ephy_ctl {
-+	status = "okay";
-+};
-+
-+&ac200_pwm_clk {
-+	status = "okay";
-+};
-+
- &cpu0 {
- 	cpu-supply = <&reg_vdd_cpu_gpu>;
- };
-@@ -104,6 +122,14 @@ &ehci3 {
- 	status = "okay";
- };
- 
-+&emac {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&ext_rmii_pins>;
-+	phy-mode = "rmii";
-+	phy-handle = <&ac200_ephy>;
-+	status = "okay";
-+};
-+
- &gpu {
- 	mali-supply = <&reg_vdd_cpu_gpu>;
- 	status = "okay";
-@@ -119,6 +145,21 @@ hdmi_out_con: endpoint {
- 	};
- };
- 
-+&i2c3 {
-+	status = "okay";
-+};
-+
-+&mdio {
-+	ac200_ephy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-id0044.1400";
-+		reg = <1>;
-+		interrupts-extended = <&ac200 AC200_IRQ_EPHY>;
-+		wakeup-source;
-+		x-powers,ac200-control = <&ac200_ephy_ctl>;
-+		x-powers,xmii-rx-clock-inverted;
-+	};
-+};
-+
- &mmc0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&mmc0_pins>;
-@@ -162,6 +203,10 @@ &pio {
- 	vcc-pg-supply = <&reg_vcc1v8>;
- };
- 
-+&pwm {
-+	status = "okay";
-+};
-+
- &r_ir {
- 	status = "okay";
- };
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 654a102cb5bc..53f6b8edaf33 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -475,6 +475,9 @@ CONFIG_DP83869_PHY=m
+ CONFIG_DP83TD510_PHY=y
+ CONFIG_DP83TG720_PHY=m
+ CONFIG_VITESSE_PHY=y
++CONFIG_XPOWERS_AC200_PHY_CTL=m
++CONFIG_XPOWERS_AC300_PHY_CTL=m
++CONFIG_XPOWERS_ACX00_PHY=m
+ CONFIG_XILINX_GMII2RGMII=m
+ CONFIG_CAN_FLEXCAN=m
+ CONFIG_CAN_XILINXCAN=m
+@@ -828,6 +831,7 @@ CONFIG_BCM7038_WDT=m
+ CONFIG_MFD_ADP5585=m
+ CONFIG_MFD_ALTERA_SYSMGR=y
+ CONFIG_MFD_BD9571MWV=y
++CONFIG_MFD_AC200=m
+ CONFIG_MFD_AXP20X_I2C=y
+ CONFIG_MFD_AXP20X_RSB=y
+ CONFIG_MFD_MACSMC=m
+@@ -1325,6 +1329,7 @@ CONFIG_LEDS_TRIGGER_HEARTBEAT=y
+ CONFIG_LEDS_TRIGGER_CPU=y
+ CONFIG_LEDS_TRIGGER_DEFAULT_ON=y
+ CONFIG_LEDS_TRIGGER_PANIC=y
++CONFIG_LEDS_TRIGGER_NETDEV=m
+ CONFIG_EDAC=y
+ CONFIG_EDAC_GHES=y
+ CONFIG_EDAC_LAYERSCAPE=m
+@@ -1726,6 +1731,7 @@ CONFIG_PWM_SAMSUNG=y
+ CONFIG_PWM_SL28CPLD=m
+ CONFIG_PWM_STM32=m
+ CONFIG_PWM_SUN4I=m
++CONFIG_PWM_SUN8I=m
+ CONFIG_PWM_TEGRA=m
+ CONFIG_PWM_TIECAP=m
+ CONFIG_PWM_TIEHRPWM=m
 
 -- 
 2.53.0
