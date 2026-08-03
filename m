@@ -4,135 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E5DDC55196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 19:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4042C55196
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 20:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qNkEgZtE9MyrRrLinjI/1vsPROGFxoSujraxlInN0iw=; b=dvcocYBPkovxXXrDfYPwlsM9IG
-	e75NoKlg8beTS0D47utomv5A2CgFKvLDcmHBo3taQ3VjwKDHi7bUS3tmHENsuBvU6jjnbpVGfeL5O
-	by11EKjYlmIxhOk/pxjl1CgJ09bNvZO4CY86bv38l+h10IyTqdT+74Mrw6djFubn64PChOraGjHDJ
-	huzHDXCkdLi91wpDStovnPHjf4enZIl2yzJHxDJQiZ3A53wbNxPlpW67CWHiCPE93MC+LyGCCQqGA
-	pCBBe7Q9dRMZKJ6O6BOs59tot7GbZTB90zBgYU8VF3HuHqpCXcGiZSGmP0w4GbgNLsAhnloFnb2Cs
-	zClGIyWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QdZMIDHMOjSGOgwrTV/dWewojulE6JZ0cwCgQK7kvr0=; b=tdv+903B0qudzguL6yqGSCa74L
+	kigvm2jb87C88w5WeL9kgz7b6l9CCugmefmUVe+w1+vjJV/uGGlHpZByTNmbbgcBj3+aAS7HSaA7p
+	fmY156PEe3DH7Adtbtfb3Q3swJ9cgdY7uHbV2TJvfzPWhq9XTmX6Y8yqdNdoPDYX+dBUz3jI3LFEb
+	yJqEXHpvzMkfeH9DnupjuxyD2ui8brnBj6yAC++a5yhBUnwcmQf9nQNSW3jog+pvx1Vfgv+cPKvEi
+	PvVzpsM1wEseVBacYXKWyuQk5/VQT3d80yOaaCKoI9fyucKtmb7B9c/eYYfBLvT0kjaAVd4AnIePP
+	1YyVA3mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqyjw-00000000T6P-3Exp;
-	Mon, 03 Aug 2026 19:54:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wqyua-00000000TmG-3EwF;
+	Mon, 03 Aug 2026 20:05:24 +0000
+Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqyjs-00000000T6C-42KQ;
-	Mon, 03 Aug 2026 19:54:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qNkEgZtE9MyrRrLinjI/1vsPROGFxoSujraxlInN0iw=; b=lLmY11O4g2pIqSWooliYhlAw3h
-	kBlCwiLqUoJvefeWiOMaLHnv3ecNro69r8LrasamqHfLLwNeoFdKKcws7V4ps9kA7tSYao6xcHMTb
-	GeSVZQoaJtLTHd4XusNzIh3roSrgGfPmx0PTN0vnvwWjimj/JfdT7e6VmfuR92U5zLdX8GbcN4Mi3
-	rdz1prPUDomcT6N9NjJj7NUIl2lsfXU80E2DUVXgFhdixqL66wPJ2uIjAfGb8CVmpKH5HtbzazYxS
-	Xpr/8o0x91ftRM3/8L9BO75Cpsu7CO4a/R6fZTJcQJv4K3684eb0QxF7g7YNBHaHhUvDddBhXZfHM
-	vMA9BLcw==;
-Received: from ixit.cz ([84.42.129.46])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wqyjp-00000009J6R-0Yqz;
-	Mon, 03 Aug 2026 19:54:19 +0000
-Received: from [10.0.0.182] (unknown [10.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id AA37E5340321;
-	Mon, 03 Aug 2026 21:35:19 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1785785719;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=qNkEgZtE9MyrRrLinjI/1vsPROGFxoSujraxlInN0iw=;
-	b=CCKoQ1CVpmqp8XoxyeAiSn1Wke25wcx+oIwCGSfaJkvDrezNwe9fgfOWhY+y71UhUhRLO1
-	/0HfWAFcTOX46qQ75eNsOvZ5YmwCY8Y3PquVUqU/ltOdR0QYunrLxXDFgX2P9EQ6eC4a18
-	mEZ8erCjUnmSdpDymfaUC0GKg00N/j4=
-Message-ID: <58da7454-e539-4e2b-b658-829cece52205@ixit.cz>
-Date: Mon, 3 Aug 2026 21:35:19 +0200
+	id 1wqyuX-00000000TlO-0dze
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 20:05:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DMPXd/bfSftc5cpS30ge59WtwspJxhWNqlpMJCo0rc3mp3ZHbIdfJdLMx1LV734oAidGnRCfcsZkEFu5MhrFLTnmbnUgSc2IeD9xW1Ne8kS8its3P48F8IlNC+X+CBzAqClKImLRdYZ6KOuKpUdMvzLYxp2U4DTBBzU75yxqkWOSHapwhBMUX5tPf9KbPb6SqN8D3MJWIwC2uZSUlhtPI4yKdI47LPHv/j2Q637o3Z7BPb7oVoo39BQzyowrbK+9ID5A5eHzHWWV3sSqdHGFHdVFLz2s2sa/RL7oUQP+VICb1yaL66r8lBVTNaxhd0HEApeeKeg0fsHIFyZPrL+WtA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QdZMIDHMOjSGOgwrTV/dWewojulE6JZ0cwCgQK7kvr0=;
+ b=i+m91+UZBSe9z5TQG/cSDoX0iZnj13c9UJOpOUkGNDOumTLLBnN2FL6ITtz9V66rYEKFL5tcHjPOtf+X+sO0pRIl8E83bfNFkg8BK3T8bF1II3bSg5BCrnPFRVnV0iDf0B7+pFszV/xEtGauB+BbS/vKEop77eVen7XXEdZRycL3inQvfFpBGUCiuQmyWYkPgId/cLh5tCRxFYUlXpHKm0BDahf2rNNkIFh/IPrknXpSlyiVIp5VqQB8nH8pEBu1vVxtgS6wRlL0JbLdiVJ5ONZjy2nzwVYkGCwVvTh0r2Lv08Lprw/3uOgGl0aE5cLt5/D4Ks1WlzJ24xzzVdRq7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QdZMIDHMOjSGOgwrTV/dWewojulE6JZ0cwCgQK7kvr0=;
+ b=SIYUhqdjdF7MZ1G1f4rPihLSiy542gjDB+qQy5D3xSxxfQvwbD26B3tEeCu7V+rpH68vQzzBiN5T1NMU4KGXeHYpCCv88VKYc05XhugiNcP92UIniLrBF464yLj37rGunlSrs6/P+3qQ/2l/5/hExES3CmQTGi4RVB8YWkkLg4I=
+Received: from DM6PR21CA0011.namprd21.prod.outlook.com (2603:10b6:5:174::21)
+ by CH2PR12MB4054.namprd12.prod.outlook.com (2603:10b6:610:a6::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Mon, 3 Aug
+ 2026 20:05:13 +0000
+Received: from SA2PEPF000015CD.namprd03.prod.outlook.com
+ (2603:10b6:5:174:cafe::4b) by DM6PR21CA0011.outlook.office365.com
+ (2603:10b6:5:174::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.3 via Frontend Transport; Mon, 3
+ Aug 2026 20:05:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SA2PEPF000015CD.mail.protection.outlook.com (10.167.241.203) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.8 via Frontend Transport; Mon, 3 Aug 2026 20:05:11 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 3 Aug
+ 2026 15:05:11 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 3 Aug
+ 2026 13:05:11 -0700
+Received: from xsjpmteamserver50.xilinx.com (10.180.168.240) by
+ satlexmb07.amd.com (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41
+ via Frontend Transport; Mon, 3 Aug 2026 15:05:10 -0500
+From: Tanmay Shah <tanmay.shah@amd.com>
+To: <michal.simek@amd.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Tanmay Shah <tanmay.shah@amd.com>
+Subject: [PATCH] firmware: xilinx: support RPU boot from DDR
+Date: Mon, 3 Aug 2026 13:05:02 -0700
+Message-ID: <20260803200502.209361-1-tanmay.shah@amd.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] arm64: dts: imx8mq-librem5: Dongwoon DW9714 coil
- requires higher voltage
-To: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Ondrej Jirman <megi@xff.cz>, Olivier Benjamin
- <olivier.benjamin@bootlin.com>, Manuel Traut <manut@mecka.net>,
- Alexander Warnecke <awarnecke002@hotmail.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Martin Kepplinger <martin.kepplinger@puri.sm>,
- Shawn Guo <shawnguo@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- phone-devel@vger.kernel.org, imx@lists.linux.dev, stable@vger.kernel.org
-References: <20260801-pp-pro-camera-v1-0-7b4d90788f9f@ixit.cz>
- <20260801-pp-pro-camera-v1-4-7b4d90788f9f@ixit.cz>
- <yJywMSNTQGGZm3rbxd56Yw@puri.sm>
-Content-Language: en-US
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <yJywMSNTQGGZm3rbxd56Yw@puri.sm>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CD:EE_|CH2PR12MB4054:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6ebec811-43a1-4666-4aa7-08def19a8696
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|36860700016|1800799024|82310400026|6133799003|10067099003|56012099006|11063799006|5023799004|18002099003;
+X-Microsoft-Antispam-Message-Info: lrozLL2DFGd4/JWj9b74bkjb3rgWMZzC/CowWxX0Sre6qKj5fPFgPT7KxQdFrAszqtR7Fb2G1KYDhCYS7NYFqfyzxmoKkcoOYQIZShMgtylutiHG1pl5ojPuov9ybL4ANimDZHT37oA2X+oZ8dWJ74Hasn/8iP+6S7vOSujYKaohl/ZHuTCEuxNvC7CNEiyZ2tEaaRzQnmTHfmw5glYvX4CIzSlGO0wCHYelHZcAI9MJcIz1CDlT2MjBTaqqO6o79WHR1cQHMPhdVt7OMWYZJ4RM7KgPgzQcwL/YU4FWIrfSjznlGbOKMg1s6RgZ0XP6yQTOKEQOzyOe7VkZTRzAGkcHbTLGyGqQFfiCvZG1PnWyTdSjdtRMkk2e0HIvpGY2y+FupLStJIDSjZD3c48rbpW8sJsP+IJtySM7Q3f2N4dK62hTXq89wTOrGiLYhOhOrnhn4RmkX8PoM0isY2QJPX8qbtUr8SFAjeFg6kQq6Lth7guU1qSSP+qh1gTFw9RoLadshUAyyGaDteJNA2/2RI0m8j9UsKsVKjrz7Iw1LhtDUONXXjFkkoAi+K1AnZXQyL742jo/yVGQyMmnUq3JSYNkl0hGEgDqYjuU56Sd9P09tq8BHuxnJdygZYBVg/WE7GEO2BiLJGcj0e20Gmj2ellq4W/c550CXNmh2vMSrnmkaE+5wpn8H+Y6tQG0JwB7iZLisKatqH+YWL+9BYaEdw==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(1800799024)(82310400026)(6133799003)(10067099003)(56012099006)(11063799006)(5023799004)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: QsHKnfmPM4M73VER87yMRBg/qWRtfd0tRzd/G1oEa6k5i3BbxICRovwtO/gtndPoqjLhmRrOqEJQCWvb/aXq7/Zkw0CdOcCncJ3SQYn1c0cYMvN6SIJhxBKyFMzP4ZIe1QlZQZbBBvJiUA0Bhqdd6mvhR0lJFrCf4+8x2a9qmuWxzI2cF4Erbwgh9uyODxv+8fj7QBZrm6OXwJi1QKA7y1tttoGmtKsrtfVlz8GrDw89Gyt8OEkGcvs3jqJVYFMMfOC7G/GI1RDD5zGCNIsbUhenaqORxu42BErzPDTwWFvYhjBJltZA0o8ueh0WiCpnfHcQbXG7BZoQjNismTmGU/Bd6HgmQoVM+TmjMDEwPCmC/+7nYH1QhONrFMHFtydVlKVgkvYIgGU97fLSu7cJ+z4ZX4AmM/aforgCJPo8nDy3xho649ayTpHQ3cYuqDry
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 20:05:11.8020
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ebec811-43a1-4666-4aa7-08def19a8696
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CD.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_205417_320983_C102E6AA 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20260803_130521_193249_F1E4D6E0 
+X-CRM114-Status: GOOD (  22.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,78 +122,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/08/2026 20:12, Sebastian Krzyszkowiak wrote:
-> On sobota, 1 sierpnia 2026 02:35:23 czas środkowoeuropejski letni David
-> Heidelberg via B4 Relay wrote:
->> From: David Heidelberg <david@ixit.cz>
->>
->> By datasheet the VDD (in-kernel named vcc) range is between 2.3 to 4.3 V.
->> Usually it's around 2.8 V. Here it matches the reg_vcam_2v8.
-> 
-> It doesn't - VCAM_2V8 isn't connected to DW9714 (and neither is CSI_1V8);
-> VCAM_AFVDD is.
+Cortex-R52 cores can boot from DDR. In such case, elf's boot address
+will be in the ddr, and it should be passed to the PLM via EEMI call.
+Add ddr boot config EEMI call before starting RPU to configure the boot
+address. Also make sure TCM-Boot is support for old platforms as well.
+Remove HIVEC & LOVEC enum, as now PLM supports boot address directly.
 
-I didn't realized we have datasheet here :)
+Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+---
+ drivers/firmware/xilinx/zynqmp.c     | 44 ++++++++++++++++++++++++----
+ include/linux/firmware/xlnx-zynqmp.h |  5 ----
+ 2 files changed, 38 insertions(+), 11 deletions(-)
 
-> 
->> 1.8 V here is likely used for i2c level shifter.
-> 
-> I'm not sure where you've got an I2C level shifter from, there's none involved
+diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+index f9a3a95b0638..bc3e407dbac3 100644
+--- a/drivers/firmware/xilinx/zynqmp.c
++++ b/drivers/firmware/xilinx/zynqmp.c
+@@ -1523,7 +1523,6 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_request_wake);
+  */
+ int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
+ {
+-	enum rpu_boot_mem bootmem;
+ 	int ret;
+ 
+ 	/*
+@@ -1532,22 +1531,55 @@ int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
+ 	 * starts at the base-address and subsequent vectors are on 4-byte
+ 	 * boundaries.
+ 	 *
++	 * The Cortex-R5 cores can boot from TCM and OCM memories.
+ 	 * Exception vectors can start either from 0x0000_0000 (LOVEC) or
+ 	 * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip Memory)
+ 	 *
+ 	 * Usually firmware will put Exception vectors at LOVEC.
+ 	 *
++	 * The Cortex-R52 cores can boot from DDR and TCM.
++	 * That means vector table can be at address 0x0 or at any DDR address
++	 * that is in the 32-bit address range. Note that booting from DDR
++	 * address 0x0 is not supported and the user must always assume that if
++	 * 0x0 address is passed, then it will be TCM boot.
++	 *
+ 	 * It is not recommend that you change the exception vector.
+ 	 * Changing the EVP to HIVEC will result in increased interrupt latency
+ 	 * and jitter. Also, if the OCM is secured and the Cortex-R5F processor
+ 	 * is non-secured, then the Cortex-R5F processor cannot access the
+ 	 * HIVEC exception vectors in the OCM.
+ 	 */
+-	bootmem = (bootaddr >= 0xFFFC0000) ?
+-		   PM_RPU_BOOTMEM_HIVEC : PM_RPU_BOOTMEM_LOVEC;
++	if (upper_32_bits(bootaddr)) {
++		pr_err("invalid bootaddr = 0x%llx\n", bootaddr);
++		return -EINVAL;
++	}
+ 
+-	pr_debug("RPU boot addr 0x%llx from %s.", bootaddr,
+-		 bootmem == PM_RPU_BOOTMEM_HIVEC ? "OCM" : "TCM");
++	/*
++	 * New platforms can boot from DDR and require the DDR address
++	 * to be configured explicitly. If the correct version of the
++	 * IOCTL_RPU_BOOT_ADDR_CONFIG ioctl is not supported, do not
++	 * treat it as a failure. If a DDR address is passed on other
++	 * platforms, the PM request wake EEMI call will still fail and
++	 * the RPU won't boot.
++	 */
++	ret = zynqmp_pm_is_function_supported(PM_IOCTL,
++					      IOCTL_RPU_BOOT_ADDR_CONFIG);
++	if (!ret) {
++		/* config ddr boot address */
++		ret = zynqmp_pm_invoke_fn(PM_IOCTL, NULL, 3,
++					  node,
++					  IOCTL_RPU_BOOT_ADDR_CONFIG,
++					  bootaddr);
++		if (ret < 0) {
++			pr_err("failed to set RPU Boot address 0x%llx\n",
++			       bootaddr);
++			return ret;
++		}
++	} else if (ret != -EOPNOTSUPP && ret != -ENODATA) {
++		pr_err("ioctl rpu boot addr config ver check failed %d\n",
++		       ret);
++		return ret;
++	}
+ 
+ 	/* Request node before starting RPU core if new version of API is supported */
+ 	if (zynqmp_pm_feature(PM_REQUEST_NODE) > PM_API_VERSION_1) {
+@@ -1561,7 +1593,7 @@ int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
+ 	}
+ 
+ 	ret = zynqmp_pm_request_wake(node, true,
+-				     bootmem, ZYNQMP_PM_REQUEST_ACK_NO);
++				     bootaddr, ZYNQMP_PM_REQUEST_ACK_NO);
+ 	if (ret)
+ 		pr_err("failed to start RPU = 0x%x\n", node);
+ 	return ret;
+diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
+index 347df66ee176..577a762e624b 100644
+--- a/include/linux/firmware/xlnx-zynqmp.h
++++ b/include/linux/firmware/xlnx-zynqmp.h
+@@ -269,11 +269,6 @@ enum rpu_oper_mode {
+ 	PM_RPU_MODE_SPLIT = 1,
+ };
+ 
+-enum rpu_boot_mem {
+-	PM_RPU_BOOTMEM_LOVEC = 0,
+-	PM_RPU_BOOTMEM_HIVEC = 1,
+-};
+-
+ enum rpu_tcm_comb {
+ 	PM_RPU_TCM_SPLIT = 0,
+ 	PM_RPU_TCM_COMB = 1,
 
-it's copy-paste from previous commits.
-
-> there. CSI_1V8 is passed to the rear camera module as DOVDD and is consumed by
-> S5K3L6 as VDDIO, and both S5K3L6 and DW9714 are connected to I2C4_SDA/
-> I2C4_SCL, operating at the 1.8V level, only though an EMI filter (F7 in the
-> schematic).
-
-I don't see the AFVDD in the [1], do you have it somewhere defined?
-
-Thanks
-David
-
-[1] 
-https://source.puri.sm/Librem5/linux/-/tree/pureos/latest/arch/arm64/boot/dts/freescale?ref_type=heads
-
-> 
->>
->> Fixes: f00df2bdb512 ("arm64: dts: imx8mq-librem5: describe the voice coil
->> motor for focus control") Cc: stable@vger.kernel.org
->> Signed-off-by: David Heidelberg <david@ixit.cz>
->> ---
->>   arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
->> b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi index
->> f5d529c5baf3e..583cba2d3bebf 100644
->> --- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
->> +++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
->> @@ -1167,17 +1167,17 @@ &i2c4 {
->>   	pinctrl-1 = <&pinctrl_i2c4_gpio>;
->>   	scl-gpios = <&gpio5 20 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
->>   	sda-gpios = <&gpio5 21 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
->>   	status = "okay";
->>
->>   	vcm@c {
->>   		compatible = "dongwoon,dw9714";
->>   		reg = <0x0c>;
->> -		vcc-supply = <&reg_csi_1v8>;
->> +		vcc-supply = <&reg_vcam_2v8>;
->>   	};
->>
->>   	bat: fuel-gauge@36 {
->>   		compatible = "maxim,max17055";
->>   		reg = <0x36>;
->>   		interrupt-parent = <&gpio3>;
->>   		interrupts = <20 IRQ_TYPE_LEVEL_LOW>;
->>   		pinctrl-names = "default";
-> 
-> 
-> 
-> 
-
+base-commit: 9a4cdc958dd79fc6c3b20b51a10debec6ca09fec
 -- 
-David Heidelberg
+2.34.1
 
 
