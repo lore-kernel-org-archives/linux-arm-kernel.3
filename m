@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31547C55175
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 07:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE8AC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 07:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LX9tJPPybQG23QnWol+WkuZghQpoeotorNVxrLWGsFg=; b=gqTWa//enCOh8NwN4x6mrqgbe+
-	uyijV2Ka8Ehppe+MvKO5wcxw13SbfmZdOo2b2w1RAP9Cnj8UD1sZp5F7NphcpvehojE8eddFltXKt
-	XWTi+bDnGsyeSpggTedPFSE9FfAe3nBk25apyoMB8G1EGfkF2DrEC6dBzh95R4fKnNNxRkXA/qdUG
-	zgu1si93hAYUHESRN8/UWaAQ+kjRgcjKB00oBmm50cCPdGueuDywuDY3J+t3Ac5rrXh1GPVDhZKT5
-	D5U3MWFtvQyDmDFP4UWCg+Be8UkQZNst8qf7uh8OHpH6n2d5Wi5GBRljqEBxmfObaaJKhGZHDpp5S
-	2kRUgDCw==;
+	bh=Mh0zq1YTh3UJhLL40JBJykkOmBY5F9aAuS/qMZKEofk=; b=Qe6gLZu9FHGrDEJbqQeie3KJNm
+	d12lROtPFIo19V7cQ5dF9CHX9aS+bQ/4E25DjC/4f4PRgxxIVtkHd5BTD4/0IPway4NwvNF5DCaRM
+	4VFQsWAuEQKRtfiG2hc6p570amkiv3PoNJv2UirUqaoKzFFE+x3mmKEvV2DE7tqtDQHE6XDYKQVk/
+	6TxSAlLSgDmeh4eB0lGR/9moz76DtsrwAOmeQlWOuoj7AXq22lfj4UDMoKmyU81fxuwxNvjYZIOYu
+	mwICZRdyBPHcM5Z092NY+B7zaiSCEERNcFsIACrbZaIrSG76ardDfesTxskBU/wuOa0GHwKUXddPk
+	T6XWlzaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnQb-0000000GYnv-3IAC;
-	Mon, 03 Aug 2026 07:49:41 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wqnQh-0000000GYqZ-43oD;
+	Mon, 03 Aug 2026 07:49:47 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnQZ-0000000GYn3-1Oza
+	id 1wqnQf-0000000GYpP-1jWZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 07:49:40 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ced3386430so30502175ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 00:49:39 -0700 (PDT)
+	Mon, 03 Aug 2026 07:49:46 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ced3386430so30502995ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 00:49:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785743378; x=1786348178; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785743384; x=1786348184; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=LX9tJPPybQG23QnWol+WkuZghQpoeotorNVxrLWGsFg=;
-        b=lH2wC7rIWVx1WWOx2lKqmvCXRviiRxHdpke25POjyXR/d0epYZ8QewC2nvHHM0o9qz
-         gdJ9/YWICEHpsEfOP5y6jVhSRIfcS9ECgyLx5iHiCNILVAMOkoFSf2gHahHsYkCeMmuz
-         ikPqpJ5b1z+H2EJoiZNYZHbRFFNxoJC5TeCVS/yEbwRsxkTQH8QhyeB2cQEvAmaA68PT
-         DG+GO4xdRkjtBO4YbFbbEH9G7DghI6OdDpmhTHoO1VTScLph1ZbrN6jMEyW6o4JcJLUl
-         lv58D6nA0zzI9Iw+LCHTRPmjaNUpJykFVdkdxlTZmv2zAzrB4Q4ZEh6XDynhFIY+wBre
-         90OQ==
+        bh=Mh0zq1YTh3UJhLL40JBJykkOmBY5F9aAuS/qMZKEofk=;
+        b=m1P56F7kqH0pYnqoTk74RnkqYEZvlQxq7SCcMPfLK8NJgYZfPelJL3C6jnVye3eGdK
+         FerjSyQDhRjbcKppHALcehNAwSLXyTMYoPPTFPm4n9xk/9OgPQGkcvuL5PGU3z3A7hdU
+         1EuRLBDSqcIt+IyUK6pBO3DYoMawTfXcHighqYw38V6ECXF4UI4r6DgOhnuFnI6To/Iy
+         dLDDaR8ybrX799OQja9Xrf3EPG/HPMyXM9z1pIn2SuuQSA3Q0YIzbEiUg3JUUYwIWSte
+         dh3PelcqME2IKYFK6IwKfB9Dt0XMWcIwJQzIHvb1crqc7j7Dwfa0gljt7Bi/WYWmJKN0
+         kCWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785743378; x=1786348178;
+        d=1e100.net; s=20251104; t=1785743384; x=1786348184;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LX9tJPPybQG23QnWol+WkuZghQpoeotorNVxrLWGsFg=;
-        b=aSMUstNknt/TFV8Hd82b1pIrZ/HLBWVzJkvAG3Om4quPobk980u2qon4/KQYIrywje
-         T/ssYzCePunU1Tjz/nzY/UY8soNauHkhp41izZnwFqf8Fplf1YlAHHukLIy4tfY8c5kt
-         BtSehq0362A9wxtWIQ1jOFT232YlG//nz6do5Yq8SeE9rt8SObngaOK6gcNjK8Mp3BV8
-         BQZo7Dn8R4N2P5CxeLD01zHBePqJgLYOk6Fjm8GETkfhyQKYwq82AcwJuXEuSIaTy7lL
-         hsAqoUDw4PND8P02YIcK4g3rdOW2M9RZTMisyJc3Cedsb7Si/XlOU55hLC2FwwKIhUoE
-         4wYA==
-X-Gm-Message-State: AOJu0YzWiohY7RN+uNykKIi8Bb1j5nMaO0lhJY1fj7xCaL04sWVkAs+p
-	CvKKQamt7y+JqT+FjUZoTNUxIyjowOQv62Td7n7+Dva2xA3UV5fjJKNI
-X-Gm-Gg: AR+sD12dNrIyl51u7TEzQsK0yYSq8YIbIM6NiF2gcntUMj3zXkPmIcn2a6emxhOn+2t
-	SgVT0r4bzhEhDf8X5UGtb1JfZCBG1sqVKBKBUOjq8mBzdliSw0W0kRGoqpgPQqUNO/p1L194VHY
-	/vU9uAPNWW9IxYLaVrFSsm0KUkYiqgbioVXNlUoHrjFSS4XA5Hc9WPCE/hiq0m5wdaMAb7Kq7mK
-	Yjt2WV5s9y/ugeFNZ+5oSLBJ4ehUHEtoTrzNwema3SX2/aVYejKSLK/9OLbrYMFVDSrhtQjRMRm
-	GjdBOurRKGBYKHzkUM20dOBDuzDbDtXRLVIBTdr5Oj2CmDpCCnrunO6TKtLnha0jNrYmeaOYt/e
-	3iwuzxwM+276q7d2ar1GbN0XC9DgYUTLFSWnhftuABt98it3It1bJ5/QeayIeo8czxyDcnn3CBl
-	iEBN36j1rJKgZt0ubHgQitfFcWef5ooHpbcWhEjQHAcVoWs6ae76aPErzlC1mIkAhpoh0Gy660H
-	LoNUL9VwCMy+OsVGcI6y6fvyaCZY5m/SgdAPT4cuDI3NsggDpPnok3IPsBWjQ==
-X-Received: by 2002:a17:902:e5cd:b0:2c9:97a9:2098 with SMTP id d9443c01a7336-2d052421484mr95275985ad.44.1785743378231;
-        Mon, 03 Aug 2026 00:49:38 -0700 (PDT)
+        bh=Mh0zq1YTh3UJhLL40JBJykkOmBY5F9aAuS/qMZKEofk=;
+        b=JgQGSsy1pVnzYKTKFf3AXGysSydCEBLbRas8dI1Gkp8eAi71DCa5CE3zOgTPahuZm8
+         IIH9zGDfWxygQS4/vGC8ITGLxDxhNRtDPOTT2a9REPZT/UCkVQo8YlXAMkTJcrBe3T/L
+         t3+FIH5WORyh8r0tIaraGxBbw2CAj1IDlrANXA0Lt1cb+4/vz3TD5pWQbC/iTvhxaFdx
+         KEy29LMxMxQ5RD9F4MA0UmqvPlSOM8YELJRnL9r0KIjnOK1vW8cSkzBdqN8mPRFoRBdl
+         lGMbQuD6XDAFDhDe4LmRrc3yvxCBTX1BVC2n8itqj48xHDjUK/+mfvCNv0iYQqw3Um1i
+         ioKw==
+X-Gm-Message-State: AOJu0YyPrYMTwWNV4yz8JqfZ0lpEVs4LJrA94P8WrcobW6n58c/9ypVS
+	AFmFnGv0mkNESeb4npAvLu0mayZOyptD2sRVVCSoYDy8GnZKQ30HzND1
+X-Gm-Gg: AR+sD11YU8lx6nUUNF7/05IsPIIST5seKkxChWZ32CbzF0QDquQ3MHhmQBMCW1JxXHy
+	mSAPjh4SdnNCW6mbkuvXxh+E1yyKblBHXWLl70LIffcQNHO6k2gO2aQW+RHCxQxZWO6Aa3t3uoL
+	y8euROoLdHy/jIf4wWo86Fik58ibf5gjUEJdx0/0GBDalzs3wAJhCKdGVbQTlyysYjB7pjqPoSo
+	zwLaCBNB3U0Cz8TZK23rzwOYouvbI3esMYyxTzyvoAqpzbi+zb3hJhUVthlsKzRck1XkKTScxhN
+	CTxmopgunat6nrT3174HvsuhgNNhN3WKZ/yCGcfIbEWQyxGDBjHpoJeb9N4Ce5ahSkEsm3O0FFK
+	aNepMP5ZewMDhCKh7MR0bJxt12bPw05Ym7o5bz8QrSlbW5IbAPffgCPgMQ/x+W69z41tMuKduzD
+	viSPq7SzO6FdARU0eVYrY7wktlhwVajJur9J8tEyGjx//37Q8hYdK6dsF+Gs0IsOT8RUq1PbQPH
+	nDufmpuN7EsY06xWsFhbw1zaCjvuMXC1lHEAY5YufLZobHHl+I=
+X-Received: by 2002:a17:902:e84d:b0:2cf:84bb:1ebc with SMTP id d9443c01a7336-2d0521e9e05mr90498015ad.15.1785743384392;
+        Mon, 03 Aug 2026 00:49:44 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04b120f2fsm33679845ad.64.2026.08.03.00.49.35
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04b120f2fsm33679845ad.64.2026.08.03.00.49.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 00:49:37 -0700 (PDT)
+        Mon, 03 Aug 2026 00:49:43 -0700 (PDT)
 From: Chi-Wen Weng <cwweng.linux@gmail.com>
 To: broonie@kernel.org,
 	robh@kernel.org,
@@ -80,9 +80,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	cwweng@nuvoton.com,
 	cwweng.linux@gmail.com
-Subject: [PATCH v3 1/2] dt-bindings: spi: nuvoton,ma35d1-qspi: Allow additional GPIO chip selects
-Date: Mon,  3 Aug 2026 15:49:12 +0800
-Message-Id: <20260803074913.1656675-2-cwweng.linux@gmail.com>
+Subject: [PATCH v3 2/2] spi: ma35d1-qspi: Enable GPIO chip selects
+Date: Mon,  3 Aug 2026 15:49:13 +0800
+Message-Id: <20260803074913.1656675-3-cwweng.linux@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260803074913.1656675-1-cwweng.linux@gmail.com>
 References: <5769eae0-1b40-419f-8311-0d919bf619fa@sirena.org.uk>
@@ -90,8 +90,8 @@ References: <5769eae0-1b40-419f-8311-0d919bf619fa@sirena.org.uk>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_004939_377797_222931EF 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20260803_004945_457665_93C1E6EB 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,31 +108,95 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chi-Wen Weng <cwweng@nuvoton.com>
 
-The MA35D1 QSPI controller provides two native chip selects, but the
-generic SPI controller binding defines num-cs as the total number of
-native and GPIO-based chip selects.
+The generic SPI controller binding allows GPIO-based chip selects, but
+the MA35D1 QSPI driver does not currently enable the SPI core's GPIO
+descriptor handling.
 
-Remove the maximum value of two from num-cs so that board device trees
-can describe additional GPIO chip selects while retaining two as the
-default chip-select count.
+Enable GPIO chip-select support and distinguish the total number of chip
+selects from the controller's two native chip selects. Allow num-cs to
+include additional GPIO chip selects and set max_native_cs to the native
+hardware limit.
+
+Add a setup callback that rejects chip-select indices beyond the native
+limit when no GPIO descriptor is present. Also reject active-high
+polarity only for native chip selects, while allowing GPIO chip-select
+polarity to be handled by the GPIO subsystem.
 
 Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
 ---
- Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/spi/spi-ma35d1-qspi.c | 32 ++++++++++++++++++++++++++++----
+ 1 file changed, 28 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
-index 377ccf4fb224..f837367e6d5f 100644
---- a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
-+++ b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
-@@ -30,7 +30,6 @@ properties:
+diff --git a/drivers/spi/spi-ma35d1-qspi.c b/drivers/spi/spi-ma35d1-qspi.c
+index 541d5d72484c..f893a4160528 100644
+--- a/drivers/spi/spi-ma35d1-qspi.c
++++ b/drivers/spi/spi-ma35d1-qspi.c
+@@ -61,7 +61,7 @@
+ #define NUVOTON_QSPI_STATUS_RXEMPTY_MASK	BIT(8) /* Receive FIFO Empty */
+ #define NUVOTON_QSPI_STATUS_BUSY_MASK	BIT(0) /* Busy Status */
  
-   num-cs:
-     minimum: 1
--    maximum: 2
-     default: 2
+-#define NUVOTON_QSPI_MAX_NUM_CS		2
++#define NUVOTON_QSPI_MAX_NATIVE_CS	2
+ #define NUVOTON_QSPI_DEFAULT_NUM_CS	2
+ #define NUVOTON_QSPI_DEFAULT_BPW	8
+ /* Bound PIO operations to avoid long atomic polling loops. */
+@@ -430,13 +430,34 @@ static void nuvoton_qspi_set_cs_level(struct nuvoton_qspi *qspi,
+ 	spin_unlock_irqrestore(&qspi->ssctl_lock, flags);
+ }
  
- required:
++static int nuvoton_qspi_setup(struct spi_device *spi)
++{
++	unsigned int cs = spi_get_chipselect(spi, 0);
++
++	if (spi_get_csgpiod(spi, 0))
++		return 0;
++
++	if (cs >= NUVOTON_QSPI_MAX_NATIVE_CS) {
++		dev_err(&spi->dev, "invalid native chip select %u\n", cs);
++		return -EINVAL;
++	}
++
++	if (spi->mode & SPI_CS_HIGH) {
++		dev_err(&spi->dev,
++			"active-high native chip select is not supported\n");
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
+ static void nuvoton_qspi_set_cs(struct spi_device *spi, bool level)
+ {
+ 	struct nuvoton_qspi *qspi = spi_controller_get_devdata(spi->controller);
+ 
+ 	/*
+-	 * The SPI core passes the physical CS level to ->set_cs(). This
+-	 * initial driver only supports active-low native chip selects.
++	 * The SPI core passes the physical CS level to ->set_cs(). Native
++	 * chip selects are active low.
+ 	 */
+ 	nuvoton_qspi_set_cs_level(qspi, spi_get_chipselect(spi, 0), !level);
+ }
+@@ -608,15 +629,18 @@ static int nuvoton_qspi_probe(struct platform_device *pdev)
+ 	if (ret && ret != -EINVAL)
+ 		return dev_err_probe(dev, ret, "failed to read num-cs\n");
+ 
+-	if (!num_cs || num_cs > NUVOTON_QSPI_MAX_NUM_CS)
++	if (!num_cs)
+ 		return dev_err_probe(dev, -EINVAL, "invalid num-cs %u\n",
+ 				     num_cs);
+ 
+ 	ctlr->num_chipselect = num_cs;
++	ctlr->max_native_cs = NUVOTON_QSPI_MAX_NATIVE_CS;
++	ctlr->use_gpio_descriptors = true;
+ 	ctlr->max_transfer_size = nuvoton_qspi_max_transfer_size;
+ 	ctlr->max_message_size = nuvoton_qspi_max_message_size;
+ 	ctlr->mem_ops = &nuvoton_qspi_mem_ops;
+ 	ctlr->mem_caps = &nuvoton_qspi_mem_caps;
++	ctlr->setup = nuvoton_qspi_setup;
+ 	ctlr->set_cs = nuvoton_qspi_set_cs;
+ 	ctlr->transfer_one = nuvoton_qspi_transfer_one;
+ 	ctlr->bits_per_word_mask = SPI_BPW_MASK(8);
 -- 
 2.25.1
 
