@@ -4,123 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980CEC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 08:22:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C2AC55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 08:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e5uwIV2Y4sYN43Sv15YtOuNlkl0578hRCHETri1JqXY=; b=XA9CvIRJWAzufqpEa7R99xiWRo
-	1wgAfQnk786GNux7+nA25bdrmHGuKNVa1DB6ud63pajPJyKNQ/hz0snT9NIbw7OSFFyvooptZiCdl
-	JCcbNzXGTOVwxXJXyNP5KQ6DRGVQFLh5tGplz0tCtqNdHfp9f5JE/Q8DO0HfZnAgzK+K7inE9+kCh
-	GgunIN+7ZrzjXzYmPcx4U3dyZCGisQeMSVaWfOdYif9mkUskiZjczySVCYFsDzYeawT4JGYen9z2y
-	KzRgYntI0sI/vWlt8o3LOj9m29Xyb/RySotBh9DpWnDQAorQ8Cl65P1JD+ES5E9QEw0HQOqqNDRkF
-	IKGC9KMg==;
+	bh=SYHuIFK87+5bUM6LOB0nDq7a01LeHhJww1yZ5580vMY=; b=0NAZfkGVmQUfhRY3fk0CyJwX8N
+	h7KG6TeR7adJ1z4g0l+UCnuw009Naa70WaXMLYAajxCx+jKNAfoMzdaSBZkLNs5tD556DHGm7tCwj
+	Lfg+rq2w++uExJtOX3h9hYHdB9+dOMZACGcjdqwe/qlcuHID7L1AEczbjtYGTNcS8OO0/bR5jVtKJ
+	pk2PCL2ZKlvgq0EBc6sSCIXV2OwpaWHzyDO+y5rXaapHWaIx/B1W4CwbrumHA0RD1aEdNzkq1JqwM
+	nbkHJWCLZjplkq2eTKkn4J7ITQJ9aONEFlu2uLCCnJ9NYrz9ssL095oT30XYDw5ogSy5rDvYGpM+/
+	i8b3GAdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnvk-0000000GbIp-203g;
-	Mon, 03 Aug 2026 08:21:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wqoN2-0000000Gcoj-2Y2B;
+	Mon, 03 Aug 2026 08:50:04 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnvi-0000000GbIV-2imP;
-	Mon, 03 Aug 2026 08:21:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CF7BA600FF;
-	Mon,  3 Aug 2026 08:21:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 532B21F000E9;
-	Mon,  3 Aug 2026 08:21:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785745309;
-	bh=e5uwIV2Y4sYN43Sv15YtOuNlkl0578hRCHETri1JqXY=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=IucJlZnTzfbxH/e0Qk+Z9/AYn5jhp3/hetueeRO6zyjqCEHUwvFT/5690oo0ate+w
-	 rOVwoHcXPW2yYowgVEy2+IdW/gr2lYlQd1s+E4CHMpe3bUNFXR7S0tt9xmOyW6kFWZ
-	 AUSgoUbfrZeyU7/K+cPQHKATQQVNyvDvn1GoMo6f3c9sk+OR4CzLhj9yoMGiKrZXS5
-	 h4sOOrtlaucdEFiTddVsXNLh4cgMiSCpNFlbwM9lq3T5KFzsGbNdHpJcm4GujGtx1U
-	 IZ1ShWsfIfYP3J2fVee9eQuRpyXsEkRJffX8z7wpJ1DGbaNxw8TcYMUBF7sJ3kcZYm
-	 ngmdJrLYaEbTQ==
-Message-ID: <cd177647-827c-481a-9ac6-5f5a1882f14e@kernel.org>
-Date: Mon, 3 Aug 2026 10:21:35 +0200
+	id 1wqoMz-0000000Gco6-2uRL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 08:50:02 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 672LmWK5161470;
+	Mon, 3 Aug 2026 08:49:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=SYHuIF
+	K87+5bUM6LOB0nDq7a01LeHhJww1yZ5580vMY=; b=qpw+8qZ94BQ54RmmX28ywc
+	vS8xD2zuxNbdn7SLzcfB25iZRoOStEakFKLmxVv+zrRIRTJCr29XnedrNTCaK7oc
+	Z0qjhIg/FZGB6ujCIsCkPMQdavZOMcM5Ebj/7ILL8PKZ+/GZ/17DVE3gTtTqBgiz
+	Es+p8XdhXTKLUhiU77aUkiAoa3eJWnwk2OpyMDOnYYTwElBCOMz7RosnlCXrMAjD
+	KLmUgEwLfjKsRc1oOnDoimG9we5vMu1ECnKOOlCjgWFoXxOQgOT/EhSL7TdJ4hXi
+	SdfakQ3kS6n/nxvdXZcaZJ1ICFWbobm3w7yAdERFNUrtisGv0WZqO+CC4Egr52jA
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fs67hft10-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Aug 2026 08:49:46 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6738fFXc016246;
+	Mon, 3 Aug 2026 08:49:46 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4fswbg4c9v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Aug 2026 08:49:45 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6738ngie31392058
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 3 Aug 2026 08:49:42 GMT
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 45AEF2004B;
+	Mon,  3 Aug 2026 08:49:42 +0000 (GMT)
+Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id D06C520040;
+	Mon,  3 Aug 2026 08:49:41 +0000 (GMT)
+Received: from [9.224.77.173] (unknown [9.224.77.173])
+	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  3 Aug 2026 08:49:41 +0000 (GMT)
+Message-ID: <7a19835d-a493-40cf-8416-5436f344611d@linux.ibm.com>
+Date: Mon, 3 Aug 2026 10:49:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/21] dt-bindings: mfd: x-powers: add AC200
+Subject: Re: [PATCH v5 15/31] KVM: s390: Guard KVM/s390 behind CONFIG_KVM_S390
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260731130902.654679-1-seiden@linux.ibm.com>
+ <20260731130902.654679-16-seiden@linux.ibm.com>
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Andre Przywara
- <andre.przywara@arm.com>, Richard Genoud <richard.genoud@bootlin.com>,
- Maxime Ripard <mripard@kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>,
- Jose Abreu <joabreu@synopsys.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Saravana Kannan <saravanak@kernel.org>,
- Lee Jones <lee@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
-References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <20260802-submit-acx00-of-dynamic-v1-v1-8-0a53cd9e21cc@gmail.com>
- <f2cc3c90-060f-40c1-a55e-e2ed91e65487@kernel.org>
- <CADvTj4q7HnOYJZE-M070-1npEdne__Ct5D9FeUNVVXa8Bsm7qQ@mail.gmail.com>
- <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20260731130902.654679-16-seiden@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDA3NyBTYWx0ZWRfX57tLYQgkkRWz
+ 12Qy8y/Zt+mGZCkOzyBt20mrcj3AUlW3Oli7EEWKt6KlniS/ggjum+tcvjWkjP5RaYQq5LGeWyN
+ AMKWppKIWkRdRkTa5fiGrSRun++/0E4=
+X-Authority-Analysis: v=2.4 cv=I7VVgtgg c=1 sm=1 tr=0 ts=6a70562b cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=czFjW9aI7Efqtg61VzAA:9
+ a=QEXdDO2ut3YA:10 a=xqTU_8yi0XoA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDA3NyBTYWx0ZWRfX3zTZnnv9Pywa
+ pTRb9OSMR6XFttCaXYmJop98LNY4CHAAUqoQImhYds8HEvUt+S8v3eG4g56MYe2YYjtq5OG4+e2
+ FFmNBF6WrWy/83MdFbjWVzRtFeketRAnoxJ2KjlMJ4IyS8rudDrB4XSJXic0+6QyXDBOnsE/icz
+ Bl9nhJk9yv1HQQ+EE09788/fYMNIhsjuYFbrHLF/7tSS0dyZsnnmD1r7716nqR9LL2FO/+ugYGU
+ HqfSKUvUzrXdWFCh5iw9uHF559QUioOFWSuuuEBeaeYGlSWKm8UpNdwg/WYt7iDFT/q0bQX/hyL
+ v9EdXypJls8c8awkzO7bRfqDSEDXPp5uAO8VPM+G55wEr2NiVmbimgww9tVSzrxIStoUi3X3Wej
+ aX6lNMDhCiW84dazzy73mWkaD+j+4WVM+8/XSx3c0EQUwmBYCofxY6guuOnlTAq6533H1BbZq0q
+ Ujl+1FeKlVV6w2KZ49w==
+X-Proofpoint-ORIG-GUID: 9rChTfUTMl7LT4kLYAZmQbOv70rgDKS5
+X-Proofpoint-GUID: Oi2AAZRr1QF0MT55QSloMY7zhTc9OsKF
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-02_06,2026-07-30_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
+ malwarescore=0 adultscore=0 lowpriorityscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608030077
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_015001_867930_885F4AB7 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,34 +147,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/08/2026 10:20, Krzysztof Kozlowski wrote:
->>>> --- /dev/null
->>>> +++ b/include/dt-bindings/mfd/x-powers,ac200.h
->>>> @@ -0,0 +1,13 @@
->>>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
->>>> +/*
->>>> + * Interrupt numbers of the X-Powers AC200 interrupt controller.
->>>> + */
->>>> +
->>>> +#ifndef _DT_BINDINGS_MFD_X_POWERS_AC200_H
->>>> +#define _DT_BINDINGS_MFD_X_POWERS_AC200_H
->>>> +
->>>> +#define AC200_IRQ_TVE                        0
->>>> +#define AC200_IRQ_EPHY                       1
->>>> +#define AC200_IRQ_RTC                        2
->>>
->>> Hardware constants are not really bindings, even though you use them in
->>> the driver.
->>
->> Should I do something different for this?
-> 
-> I would just drop the defines and the header, because these are fixed
-> hardware numbers.
-> 
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -1541,7 +1541,7 @@ void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu);
+>   void kvm_arch_vcpu_unblocking(struct kvm_vcpu *vcpu);
+>   bool kvm_vcpu_wake_up(struct kvm_vcpu *vcpu);
+>   
+> -#ifndef CONFIG_S390
+> +#ifndef CONFIG_KVM_S390
 
-Hm, unless they are not and you added abstract ID numbers for both DTS
-and drivers? Then this would be fine.
+CONFIG_KVM_S390 is a tristate, ifndef is wrong.
 
-Best regards,
-Krzysztof
 
