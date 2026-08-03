@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF5EC5518E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9202C55197
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 10:11:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HiJzzJADjveCPh12e/Ztx0Pt2Ia4qulsBujpLhp70Zo=; b=mXcZdvJt3f41/Drpnp2BckV8E6
-	V63gOQzEMr9Jlne3Xt6Ih0VAHfjr5fU57aUZcNyCdPr6KuDRqX7m6CF3WsNUQAVcZc2wW7BnPrQ+B
-	4mwIFB6llmHO+4TbmMbkhY4jOAhrkWaL4hrFd+pTjmTMEtDRzyuFIJw3U+GFINQ9Du8/UknPYFDEs
-	PjebD9FtEjeqV6qbfpe59/WAytllOgYp3NHuxn6krsaiaHqygq5f0rYljvDSJYJ7hecI69qNNnCe1
-	NILE+p8o0rNpdAS1qUoMnjAiAPCM2tIt785o0r5Dujq7y4TLBl/3Nn+T+Jm0YNIxbcUKZRCWjZ6KJ
-	7UaEoYig==;
+	bh=+iEAKLbto2A4V8SjNltJfT6Zw37CtGlO8SJPT3maqDw=; b=MhdTugTLri9roUpGI+GxBXQshE
+	l/pqYgrfwwe8pzIkURW8mylZB+1KIFp//mYPwTwJvwtFU88HUg/FAi+N0wHaPXE3WiSh71eGVbDXp
+	drHMe+SwAik91aI1MOyFDTP9QeMOiO4ODOeNLbk7NAScszu95UN68ZRy1hEPSDxn6evYyFRA/h7iJ
+	Qq1fBuYHB+dAtCSek8mmatnflbFgz6M8PNM8bZbjOGA+vlncsq4jPDvVIAs8uwY3EqdDCpmcuZzwI
+	ccWJCyLRGiPfeTmRNRRSwcFElavXpQhAV76QN7SkMg1NA4G64/vLjnO/tjnZMATdpTFAsDLpXF2q7
+	NB9H044Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpdM-0000000Gmou-2gxr;
-	Mon, 03 Aug 2026 10:11:00 +0000
-Received: from mail-lf1-x148.google.com ([2a00:1450:4864:20::148])
+	id 1wqpdN-0000000GmpW-0YDL;
+	Mon, 03 Aug 2026 10:11:01 +0000
+Received: from mail-wm1-x346.google.com ([2a00:1450:4864:20::346])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpdK-0000000GmmW-1Nr3
+	id 1wqpdL-0000000Gmmw-059m
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 10:10:59 +0000
-Received: by mail-lf1-x148.google.com with SMTP id 2adb3069b0e04-5b29e7e8ab6so1929057e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 03:10:56 -0700 (PDT)
+	Mon, 03 Aug 2026 10:11:00 +0000
+Received: by mail-wm1-x346.google.com with SMTP id 5b1f17b1804b1-4955843c6cdso18395325e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 03:10:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785751855; x=1786356655; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1785751856; x=1786356656; darn=lists.infradead.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=HiJzzJADjveCPh12e/Ztx0Pt2Ia4qulsBujpLhp70Zo=;
-        b=n/HXXhAqmA+edeEZR4zFEealrG9bXVxz9KsXooR1Le5GfTVjDEs0MxYpyWNG/hTA1q
-         8oo0S65sRfTotSeVBF1OaAO27To/brGrYrg/cihEo1jEL2IFk1uHftPHshdkVTq7G2OO
-         hW9lXB3Pl82TJSulgOTTJj6qwX1DvqmnJ52cMSdW4A9ueQ7x6XSuimtcu1OKOJqNYcOv
-         MuU3G34UpPMDczrQdzSK9ounlNV5SPV9s5w/ke58/EvrrfVPne9t1yFsmd2CEIBqanqy
-         1l5W6OmB+Iu+xrZXjbiOLKKrABn3eNGa+H3g1onHnxAG/YQsUNsBunO6osfxml7lBZ8U
-         RxLw==
+        bh=+iEAKLbto2A4V8SjNltJfT6Zw37CtGlO8SJPT3maqDw=;
+        b=iYc3uPYPcbB0tiAYUD2XiulKldpl+tCvGJSD8H1fE2iNkZ024zf/1nbbq/IUY+O7gP
+         1HmJ/bwgqosMMj3O/XE5qdbNKaFsqStbbqFI66JiUxk0IlUz9xCPTrDkZiJYK5pn2dZR
+         EGc8Qeee+etSTh3PVHGnAaFFiFAzexMu9cmWth3ENuooNG3lgTqLd6bxUiaAFKus/O4k
+         mVlNXi0wvAMroaqYUJeKREe4UBpUiR+JeHeQ6Hdf6Fwv5H+IoKNaqKNuT3nytVj6jEAZ
+         GxJANZeltOnLeJTOioCQkrM6evDzjskTYbVhzaqvBfv6ykLrNOhgpvcqxXST6MpmP3a3
+         aSNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785751855; x=1786356655;
+        d=1e100.net; s=20251104; t=1785751856; x=1786356656;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=HiJzzJADjveCPh12e/Ztx0Pt2Ia4qulsBujpLhp70Zo=;
-        b=Bm4YwTB6kHeopR2AZ2tV2OLYTADt8QZbfTpLE3cj6/TAQg28cnHetv8IUw2V1TeG+U
-         oxWFKKoWHMQcf2e8rOoFMRds3GPw6PfMA7DOeJVgfXmQotsQgOUMIuud8QEqYgF2NWzB
-         fvWLLEj5N28wOBZGA3uGV4dpVg+pSissK8chfYF/fbuOZ2YiQSefrdPnWSkwx8Uy1d2U
-         Gygsq2UFYZGXPFxbHdUAXu7gwlT3OGVv5dZQzAzR6M0DhLLkJBA/URyRE8s58xC4FcS+
-         sJv0XJf08H4BqVhprF8JXysrDxLInBrRVydxxa2vr7TfjpEsXodJyKDm46kwLNGv5XBX
-         AmzQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpobUV9qmWAn/t6w0OexiHoGNN5ZAD97c8HuYAM2gTiF7wNa+W3dxxDVOT+uuOT3rw52DHOJwkEIeawW3QMinjQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2atjDQxdaOXhWeZEOWRlbss4CyRi6s0gcJT/BDZyy/QcgvU7t
-	qu3aFRLZQDtKShJHGS6ksLKWpeiuuvNVLs47AKfd7rwguyeNAHTIEHF7HkTrgEaZyaA5amS8RYW
-	sYMPSQCoVsH6JYTIpmqsZgA==
-X-Received: from lfbbp27.prod.google.com ([2002:a05:6512:159b:b0:5b1:5972:ebc4])
+        bh=+iEAKLbto2A4V8SjNltJfT6Zw37CtGlO8SJPT3maqDw=;
+        b=Jmvdwchr6Pm9fhZkmymgbJ3rLbQMnx0xxYEpexVm8mGx+VKxzF3AjGz9Cyv5iaLdSd
+         1YTx0HXYE9m55nQOHxUfsICjtJ/CDxlHPA4XrDRL83TLmS415V/mwi2O3g1cl2xdtOvT
+         CRX3SHwQ7Xpm7JUDjPlCbVHgEhQspa6NoO6bfUHpbzGxJJarZR1thAWJIOfzMIeqQPMY
+         eDL/WwM498ksYzHPxUMfKUCmiBsAFIeRliEfI1SARAMHMGoZNN53okKVM6KEpqvt7ELO
+         gim2/xl5+3YXBUa9+F5/Vw0dVs1HctDhU6lNp8C83cgENyGxeFM98ACI+u92NtwNX/JX
+         Fs8A==
+X-Forwarded-Encrypted: i=1; AHgh+RqI4tFgazYnWJqeurRXbvvUXcRzchNTG4+xS08fNkbZQwvENexpftOWY8PcseLpze63aprhRZAcjQvnXPWlVd9T@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxdE6MHJ7znxRp0880ryq40MLeRTS4HSXXWCnUxDGyoZcnZzLH
+	+MaqvDiaf/aN2+sVKaFQSDX0EX955gd5yjOLDjr/duYcrA7eDwzUtABjkPHS5StQYEWJIMEk+2e
+	yeeWNqFNTH5Qx5MgfPtK+KA==
+X-Received: from wmga12.prod.google.com ([2002:a05:600c:2d4c:b0:493:bba5:775a])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6512:1083:b0:5ae:a4a4:b6ca with SMTP id 2adb3069b0e04-5b2e4f16ddamr1441640e87.14.1785751854334;
- Mon, 03 Aug 2026 03:10:54 -0700 (PDT)
-Date: Mon,  3 Aug 2026 11:08:46 +0100
+ 2002:a05:600c:1f92:b0:495:7293:4fe2 with SMTP id 5b1f17b1804b1-4980c67af48mr151317035e9.17.1785751856061;
+ Mon, 03 Aug 2026 03:10:56 -0700 (PDT)
+Date: Mon,  3 Aug 2026 11:08:47 +0100
 In-Reply-To: <20260803100904.3563942-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260803100904.3563942-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
-Message-ID: <20260803100904.3563942-3-vdonnefort@google.com>
-Subject: [PATCH 02/20] KVM: arm64: Propagate host stage-2 annotated entries on
- block split
+Message-ID: <20260803100904.3563942-4-vdonnefort@google.com>
+Subject: [PATCH 03/20] KVM: arm64: Allow block-level stage-2 annotation
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -78,8 +77,9 @@ Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
 	keirf@google.com, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_031058_388942_0891BA47 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20260803_031059_074084_1002F462 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,60 +94,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Propagate ownership refcounts for invalid stage-2 entries mapped on
-block split. This intends to allow splitting host stage-2 blocks while
-keeping existing page ownership and metadata annotations.
+On host to guest donation, pKVM annotates the host stage-2 invalid
+entries with the GFN. Now that the host stage-2 preserves annotations on
+block split, we can allow these annotations at block-level. This enables
+safe support for guest stage-2 huge mappings.
+
+Allowing block-level annotations also reduces stage-2 fragmentation when
+unmapping a huge region, and reduces host stage-2 memory usage by
+avoiding the allocation of intermediate page tables.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
 diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 34f78a58cded..0ca157ecee64 100644
+index 0ca157ecee64..c4ebae0544d4 100644
 --- a/arch/arm64/kvm/hyp/pgtable.c
 +++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -1033,15 +1033,28 @@ static int stage2_map_walk_table_pre(const struct kvm_pgtable_visit_ctx *ctx,
- static void stage2_map_prefault_idmap(const struct kvm_pgtable_visit_ctx *ctx, kvm_pte_t *ptep)
- {
- 	kvm_pte_t block_pte = ctx->old;
-+	bool counted, valid;
- 	u64 pa;
- 	int i;
+@@ -947,9 +947,6 @@ static bool stage2_leaf_mapping_allowed(const struct kvm_pgtable_visit_ctx *ctx,
+ 	if (data->force_pte && ctx->level < KVM_PGTABLE_LAST_LEVEL)
+ 		return false;
  
--	if (!kvm_pte_valid(block_pte))
-+	counted = stage2_pte_is_counted(block_pte);
-+	valid = kvm_pte_valid(block_pte);
-+
-+	if (!valid && !counted)
-+		return;
-+
-+	/*
-+	 * Shared walks not supported: cannot rollback refcounts on break
-+	 * failure.
-+	 */
-+	if (counted && WARN_ON_ONCE(kvm_pgtable_walk_shared(ctx)))
- 		return;
- 
- 	pa = ALIGN_DOWN(ctx->addr, kvm_granule_size(ctx->level));
- 	for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep, pa += kvm_granule_size(ctx->level + 1)) {
--		kvm_pte_t pte = kvm_init_valid_leaf_pte(pa, block_pte, ctx->level + 1);
-+		kvm_pte_t pte = valid ?
-+			kvm_init_valid_leaf_pte(pa, block_pte, ctx->level + 1) :
-+			block_pte;
- 
- 		/*
- 		 * Skip ptes in the range being modified by the caller if we're
-@@ -1053,8 +1066,11 @@ static void stage2_map_prefault_idmap(const struct kvm_pgtable_visit_ctx *ctx, k
- 		 * that should happen very infrequently.
- 		 */
- 		if ((ctx->level < (KVM_PGTABLE_LAST_LEVEL - 1)) ||
--		    (pa < ctx->addr) || (pa >= ctx->end))
-+		    (pa < ctx->addr) || (pa >= ctx->end)) {
- 			*ptep = pte;
-+			if (counted)
-+				ctx->mm_ops->get_page(ptep);
-+		}
- 	}
+-	if (data->annotation)
+-		return true;
+-
+ 	return kvm_block_mapping_supported(ctx, phys);
  }
  
+@@ -1178,7 +1175,6 @@ int kvm_pgtable_stage2_annotate(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	struct stage2_map_data map_data = {
+ 		.mmu		= pgt->mmu,
+ 		.memcache	= mc,
+-		.force_pte	= true,
+ 		.annotation	= true,
+ 		.pte_annot	= pte_annot |
+ 				  FIELD_PREP(KVM_INVALID_PTE_TYPE_MASK, type),
 -- 
 2.55.0.508.g3f0d502094-goog
 
