@@ -4,74 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE6FC55162
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 03:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB35C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 03:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1VF3rSJQm12kqGGHiDeGNuTAOGjDmvP08pZJHw58mJY=; b=tJtlmXCV2tP30q3XmIDEbog+eG
-	6NdyJWmoTHA641M62OmxsOKdjyRxsx0lie8c/2riMH0XbGghZVN4EOjbV9UmZkMaIdgS7c43e3517
-	9EPkeiQtOVneknGIjI+RfZ/GmmPiyB6b8RUi0s8M04ODi7oO53aZ2fUNHgcgn2y25RRYTNkC9yL3f
-	Yey0LwXxHJ7BLJTn0f8XwHAwWTbUkCs6vDA3cxM+gIwmikXby+mGz72CcqW8gG0spPjb8Rl9uP5Hs
-	jYuLVpnKcv8jMD65X8wAN5I4+6L2KEdQhEEXm2sdbGXv5X7eD42upi/WVQ3zYLQWCUyfMIP7uUwy1
-	3rhZCuVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FEiwEuL4+GN4IRv7M5hZmeQdKXFVv2aifz7RscTTYpU=; b=2fpAF2u3ifHPtP0Iu8jn5HI1vE
+	stwteQ+G0QPS3hu2YM03h9kU9d9swhOMtEQCrmHY3JhEYOZRwtsGjsFDk7vosq9gpAfJrQOYPjv6O
+	7dAqB9h3kZJqdEocoZkub+IkXBU+ktPB4fvMeqbsWMJtolDPLvDuI6yF6eOswMdJRktGS++KjpBgN
+	cBJxgjBGDkIRMPeRrf6cfcLnewaNSUgsBZ9jSGA5jqJviitYNTEGxqDqwlv39/EjQP5zYv1wbL7dv
+	r5ga+FqCRtEzNOrgvdCU1geMAzZ0+CIe1I/O8HsvVBMYecXqgk7sLhU31HH3oPEtOqc/kyAJIM8/j
+	lM9gdqFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjHs-0000000GESt-237z;
-	Mon, 03 Aug 2026 03:24:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wqjIp-0000000GErI-3POR;
+	Mon, 03 Aug 2026 03:25:23 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjHq-0000000GERr-38bl;
-	Mon, 03 Aug 2026 03:24:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CCEFB43C47;
-	Mon,  3 Aug 2026 03:24:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 596AD1F00A3A;
-	Mon,  3 Aug 2026 03:24:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785727461;
-	bh=1VF3rSJQm12kqGGHiDeGNuTAOGjDmvP08pZJHw58mJY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=V/SGy//29lzafn44QnvWv0AfUr95ec4GVuf3r7r4CeL4arb6a62DZJOwJF/Gl2tlr
-	 UamD9ImnOcSydXNxsMHoAVPAG2/Fwc6sCafHYQVjBhazCc9/LR6qLsX9bpEm7N67tQ
-	 dNr23j0aDMcmVrjGv/GWVCJqbWZjj8M88qr59HlzrY5zGp6M/5IlD5kOhItdI8NY8j
-	 NsPgNvO2aSShJg9fE1Z+LRLkwOkCsYf6gCYNep/ZWk46mN7otrVs0dwjwjmuNKIpVt
-	 3AIC1h5/UNfLp0UrMzhRizirBSsDyufhR4hp+PgnRjtFVnZL/B2mEj370AEB/T9Jl3
-	 m+MlScpmZUzBQ==
-From: Bjorn Andersson <andersson@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Prashant Gaikwad <pgaikwad@nvidia.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Jerome Brunet <jbrunet@baylibre.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	linux-omap@vger.kernel.org
-Subject: Re: (subset) [PATCH v2 0/7] clk: clean-up simple provider misuse of the consumer API
-Date: Sun,  2 Aug 2026 22:23:59 -0500
-Message-ID: <178572744545.408250.6189990473373785394.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
-References: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	id 1wqjIn-0000000GEqu-2fvb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 03:25:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IL6ec8nxBlJ+ObpGviriJRG65yDgXsOvx/QK0KM4Kgbpi+ITz/hE3Bsm/HOJBP00X9OmIwClsnYr1pC79ybji+xTYTptrq1Mjbd4ZtouBGqyfNxNn9YxsiIW/f9b2Lz71ENiuJeRfj5rfQx1PBqLxNP2egG7oFY97fvdu3g/iSoQ9ca8v3QlU0w04Dvkkz7BiUMuXpOe4we6Ow045B0zUS0oFMaui+SEboHZxttSjHdTY9m0RvYVwQlG3bePwJnxkb6ScR9q3ztkWNswc2lxM0hqd+pL76Enm1HYxDBFo5M1YGALW5gTrzdNQk+pWRiHhi8JjHZMnHbgLIB+TGy/cA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FEiwEuL4+GN4IRv7M5hZmeQdKXFVv2aifz7RscTTYpU=;
+ b=ZvPcM6arH/G+T9gnXRTZ/obbwprUbaEeGXde5Hey3uG8QGtRIFFAB8UQmdaqjiNZjUS9g70uz26lPOuo5G8kec44pPtqMQ1s9V4L82X/yicSX9fzXLwCWjHrpI97TjjWOCbVMw3vObqy+0Pqu6l0IAZeHSNouKVkFRrsR8sjt+5lDkUADmAa3iT2C8R4pwRhCNQjzDMjgB9jj2i0p5r5pi0okCufAsTqW7++zYkpAwOOPPkMAMFWSFPQI0qJ5uWWnYXPvVaR4XhP7DRSSzTXm9hvK+/m3mlC7Y8Yjod98KzlvqDoSACye+5FGwYqmLMmZvdFbwvyo+MRXvPmmxq0tQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FEiwEuL4+GN4IRv7M5hZmeQdKXFVv2aifz7RscTTYpU=;
+ b=N5R7IcA8CQLFSq4WQALoyyuYBq/Ki1BMCb0ZvrMBlRBaDJJaQT/D0S987RK3WIu6hQsJGuKtj1XUd2sTrLtzQ5VydsD/aPqUQ5ogeEskPYwn6g6A33UXRRemZ8ZHFIBFTpN+LfqHGmbux6TXhMflBCZzJyN84selBSu2vjGSmU2Z9Jdrd8JZz35iuaweIkyfh7byFWB0JLJEoAhThM26CU7eQOa8EcSQzBiFEbR1/ZiZtuuPm2Td1GPjNyuqP0QYIPcWJuZL1vOFaXPcmaXrzzK46IJwDj5ZNMO4B6UjESHmpVWZ4dPSQODFK6w8GUvuqlD1NJgvE56UTA5nruPKDA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA4PR04MB9462.eurprd04.prod.outlook.com (2603:10a6:102:2aa::9)
+ by GVXPR04MB10850.eurprd04.prod.outlook.com (2603:10a6:150:216::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Mon, 3 Aug
+ 2026 03:25:05 +0000
+Received: from PA4PR04MB9462.eurprd04.prod.outlook.com
+ ([fe80::9feb:f56:a1df:51fa]) by PA4PR04MB9462.eurprd04.prod.outlook.com
+ ([fe80::9feb:f56:a1df:51fa%6]) with mapi id 15.21.0270.016; Mon, 3 Aug 2026
+ 03:25:05 +0000
+From: carlos.song@oss.nxp.com
+To: aisheng.dong@nxp.com,
+	andi.shyti@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	carlos.song@nxp.com
+Cc: linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] i2c: imx-lpi2c: avoid accessing target registers on master-only controllers
+Date: Mon,  3 Aug 2026 11:27:05 +0800
+Message-ID: <20260803032705.2250373-1-carlos.song@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P192CA0028.EURP192.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5e1::13) To PA4PR04MB9462.eurprd04.prod.outlook.com
+ (2603:10a6:102:2aa::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9462:EE_|GVXPR04MB10850:EE_
+X-MS-Office365-Filtering-Correlation-Id: cbf00c2e-5cc2-4687-b69d-08def10ecfd2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|376014|1800799024|6133799003|56012099006|10067099003|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: vtV5z0wH1GgB2/gV8Bn8aa59xp9knp+e1s+46ajdh58NOwjSSWZZAl1dqSjaIZzZV6JeMucIf8PoB3hevns3uMcbTzQYLpLM4ZbxwVnyzKQOZmyAZezUuQbKd/xUauKkmWk+u4N1YIdAL9C51A9aETBmB1wkwS9lXVgdPUZN+N4IecOT3jW+hdlHIfpbbRvQJQ0MAfU24cv8dLJWxZOLw3W4Ku98LvNCVBq+SKe5+p525YY8vZYxrTVsI5zaf3aHyeJxbK7/ZuZk0hZ95XuuIGxCkUx8bok5afvIteOIc0hVDZdDyVR+dAtPcPA2+aRZY53f0F+C3pkXfvgBxry7p7QDLC3CCBEJg3PJD0iSGpdZGIvbxEwBQiHSvkY6XJjBYTV4tk1lALI5ystdkjJpFozzfSmaxfW7w8s4xzabXKGa/RFc+CfoN/z5dOOmW7tMQqVk/4/coxb8wC4aluMGYuVmvMgQGJH/257RSlTwcGw1/Wjp2VR7aL+B/hxOWI1rOlmId9/yk2rys5KTvFY3MMC91ewAqEKfoweetWTyqxrlYfPnEAeO2nrKMxI4u5AdzOf4PzhDuI3RTR2/i2jsBw+vGrj3yz6YC+dNzBYsGaUXbaWTbF26biEZXNvINr68o1T6pTY93GVMLWEEAvg53aOvBRHI/tPmkRm50BihZwU=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9462.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(376014)(1800799024)(6133799003)(56012099006)(10067099003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NLzmpilqIQF674flrCMQHPcwydSnkUUtJRC5qJtEA9rvYmPnJvcjPPp3Yn7j?=
+ =?us-ascii?Q?NayqoFnnqtzp2o0zUzrvFD6ORJWx6VzDFUeIydckKLUocjk+xYpCFMs7l8Ca?=
+ =?us-ascii?Q?Ai0SFavW0xhLWI1VDpEsuChS6x0rA2Ju8FFlAlGbj4wxOfy0Ei5OE+cD2o5/?=
+ =?us-ascii?Q?LCrnUaKavV2oP2N6Fh25wD1dTlsakXoF86NEizjrVm/pj1l83WO1ltHYklS0?=
+ =?us-ascii?Q?TV9MESjD6pWEPPMsJLIsHJ7BqKVla9Wy1qc7PL0MfQy+382X2x6xtQ1ndRZh?=
+ =?us-ascii?Q?u8CIQ0LC8KEnl/Tiw/PGCC2z0h/cUumMg0J1ivRh47oJpMIJauF3X5En63e0?=
+ =?us-ascii?Q?bB7evdwikPQwkmNc4Soe57UyFCJIM+cPC+PxuP6W+SzJr4djOU8LQiMVlxQy?=
+ =?us-ascii?Q?uFaagA7J82xanR9I+osMosOlSXviJgHc0mHzR86GgZhGvhGHRUMxxZC5kqwB?=
+ =?us-ascii?Q?+nYjOKfFr6SbfHbUDoyKglsDJoe4dcSZu9WJXkJePINEOmx3F01laER3P/Wq?=
+ =?us-ascii?Q?XcrR9f5aEjKRmdMj7zDpkG1sPAGDwwJ6N4GTGtzyQbvyfWaOpEcNATkNiK3V?=
+ =?us-ascii?Q?aJw+Ju4uPFHDS+QE4ollJgM+uPbqfyws0R9VfNuAaJRFxc3XUpKMxMR7nDBd?=
+ =?us-ascii?Q?GXoYO52YxLkgaa3X5DLfcmt4735tfUZ6+q2o0Gqvg+45tRmqiyvQSJT1Uuti?=
+ =?us-ascii?Q?bEjPTgNriIrbjlUvK1QPIjMnWRshdWvlKMxVce3DBYNAORJe1MrRZ1/m/cOh?=
+ =?us-ascii?Q?/xPHdC1zHXbtIhRbIK6srIqMdwI3EOq9nQv0xTnuhUOcmps7M5mL6oTeNh7Q?=
+ =?us-ascii?Q?w6xeAqjkCR77FcvwnSN+MM+AR40VPX1FOmzhuSJODW456gRPVTynmEXL953K?=
+ =?us-ascii?Q?LOxswRBMicd0q0dSfWmVDoNtL/MwqNmWlvuKvyNNASTSxxq28IC5VLGUC+ik?=
+ =?us-ascii?Q?8V4dPlU/KWS7NATi1gGqvWWWhayr2j1rZp1Q8fegiQVFI0+pel3j58fimnDF?=
+ =?us-ascii?Q?UhxjnM/FJliCONqowas7JchNsXq95tvuw1YIFx/sC+D9X9kRxBfBOe4/2Muw?=
+ =?us-ascii?Q?cY6FgEdVz1ZppDBa1BReKPmOVmRjd+VnIWSb0aEesG3vpOaltttgPe2AHVH8?=
+ =?us-ascii?Q?7iN1DhgkYYFTZPyICXf6k+gsDPN9QZ92cS1jmTZKh9YuDVvkkVyXLB4101Dc?=
+ =?us-ascii?Q?IW+TS0bRzqQ6KL/5TF6Yk6OrC1ATCSjDZCnAkzn4QSPEMPF1tVRuPhha7Y+V?=
+ =?us-ascii?Q?LWnJYT2ikXmevtAApkVBCrXK+HLhNmHrtSWfxJXYR4w9ng1lZAgnQTkj1QjY?=
+ =?us-ascii?Q?1mWHeAAyY1IWfdgtj7YDgpsxzFy8daZZH1MqkDMHq/MiKxayGJnL41jcspxM?=
+ =?us-ascii?Q?Rjvzs+hVon+DGO5HgpKSggisXTfySmGNM04bp59hJbUMoDx6t2B5SHlAuJj3?=
+ =?us-ascii?Q?8/4jS9LOxcitbl/FWqEMXh35z3pgRpmPfLsJFcNk5YUcRD+Ygieq3PgEv4yf?=
+ =?us-ascii?Q?iaUsayMBNBARAT2hfIT5exeD2fHuEAWfzQNql5TlNbAFQYvXw8ETgJnpGHWR?=
+ =?us-ascii?Q?VD5ukrA/tJu+EkRsPJuQdjRGhq1lcizzFVWCfti4ZFlMPLO1PcanyMAf2Zlf?=
+ =?us-ascii?Q?C5zwIfVqu6w14JesKoYTVGt895qIQC3y0uovFDv6cVUDoGbzv0MoiUgTpygU?=
+ =?us-ascii?Q?qgs2VMkFPrDdE8+XgFGzfRFmG7trWGuMf8jjNjD4Fi1nTKD13775AdAnGX9b?=
+ =?us-ascii?Q?Lk6naudjSNO/e5BoCWTCXFRYqkV2dGWdLnoXXabZ/TJpKeHb3okW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cbf00c2e-5cc2-4687-b69d-08def10ecfd2
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9462.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 03:25:05.7507
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: U7oNFZidbNj4GlaUMgdE4C7WAtW3zgduDfofK9AMOXk8YAwqNI7tHntAMnBYRnIi1PwwF/sRLb/RmzkSaMEtrlyEpUgWCgj2MzQTJC/6CJtZsbiffuN9XGrlqz3xaF31
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10850
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260802_202521_702071_5D645BFF 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,25 +142,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Carlos Song <carlos.song@nxp.com>
 
-On Fri, 24 Jul 2026 11:03:51 +0200, Jerome Brunet wrote:
-> Clock provider should not be using the consumer interface.
-> In other words, a provider should not be dealing with struct clk.
-> 
-> This change targets occurrences for which the provider uses the
-> consumer interface and corresponding clk_hw interface exist:
-> * __clk_get_name() -> clk_hw_get_name()
-> * __clk_is_enabled() -> clk_hw_is_enabled()
-> * clk_get_rate() -> clk_hw_get_rate()
-> 
-> [...]
+Not all LPI2C controller instances implement the Target block.
+Since commit 90311787f483 ("i2c: imx-lpi2c: reset controller in
+probe stage"), the driver unconditionally resets both the Master
+and Target blocks during probe.
 
-Applied, thanks!
+On controllers that do not support target mode, accessing the
+Target registers triggers an asynchronous SError and prevents the
+driver from probing successfully. For example on i.MX8QM:
 
-[2/7] clk: qcom: clean-up simple provider misuse of the consumer API
-      commit: 470bd66370ecbf22c2dc27249315b9d39914c479
+  SError Interrupt on CPU2, code 0x00000000bf000002 -- SError
+  Hardware name: Freescale i.MX8QM MEK (DT)
+  pc : lpi2c_imx_probe+0x280/0x594
+  lr : lpi2c_imx_probe+0x224/0x594
+  Kernel panic - not syncing: Asynchronous SError Interrupt
 
-Best regards,
+The VERID register is implemented in the Master block and can be
+safely accessed on all controller variants. Its FEATURE field
+indicates whether target mode is supported.
+
+Read VERID during probe and use it to determine whether the
+Target block is present. Only access Target registers when target
+mode is supported and reject target registration requests with
+-EOPNOTSUPP otherwise.
+
+Fixes: 90311787f483 ("i2c: imx-lpi2c: reset controller in probe stage")
+Signed-off-by: Carlos Song <carlos.song@nxp.com>
+---
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 27 +++++++++++++++++++++++----
+ 1 file changed, 23 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+index e1a4338bc51e..1cfd7a4c8237 100644
+--- a/drivers/i2c/busses/i2c-imx-lpi2c.c
++++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+@@ -29,6 +29,7 @@
+ 
+ #define DRIVER_NAME "imx-lpi2c"
+ 
++#define LPI2C_VERID	0x00	/* i2c version ID */
+ #define LPI2C_PARAM	0x04	/* i2c RX/TX FIFO size */
+ #define LPI2C_MCR	0x10	/* i2c contrl register */
+ #define LPI2C_MSR	0x14	/* i2c status register */
+@@ -136,6 +137,9 @@
+ #define I2C_PM_LONG_TIMEOUT_MS	1000 /* Avoid dead lock caused by big clock prepare lock */
+ #define I2C_DMA_THRESHOLD	8 /* bytes */
+ 
++/* Bit 0 indicates the presence of the target feature */
++#define VERID_FEATURE_TARGET_PRESENT	BIT(0)
++
+ enum lpi2c_imx_mode {
+ 	STANDARD,	/* 100+Kbps */
+ 	FAST,		/* 400+Kbps */
+@@ -194,6 +198,7 @@ struct lpi2c_imx_struct {
+ 	bool			can_use_dma;
+ 	struct lpi2c_imx_dma	*dma;
+ 	struct i2c_client	*target;
++	bool			target_supported;
+ 	int			irq;
+ 	const struct imx_lpi2c_hwdata *hwdata;
+ };
+@@ -1330,6 +1335,10 @@ static int lpi2c_imx_register_target(struct i2c_client *client)
+ 	struct lpi2c_imx_struct *lpi2c_imx = i2c_get_adapdata(client->adapter);
+ 	int ret;
+ 
++	/* Reject target-mode registration on controllers that don't support it. */
++	if (!lpi2c_imx->target_supported)
++		return -EOPNOTSUPP;
++
+ 	if (lpi2c_imx->target)
+ 		return -EBUSY;
+ 
+@@ -1546,13 +1555,23 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
+ 	pm_runtime_enable(&pdev->dev);
+ 
+ 	/*
+-	 * Reset all internal controller registers of both Master and Target
+-	 * to avoid effects of previous status.
++	 * Reset all internal controller registers to avoid effects of any
++	 * state left over from a previous stage (e.g. the bootloader).
++	 *
++	 * The Master block (MCR) is present on every controller, so reset it
++	 * unconditionally. VERID shows whether the target feature is supported.
++	 * Do not touch the Target block (SCR) on a master-only controller to
++	 * avoid an asynchronous SError.
+ 	 */
+ 	writel(MCR_RST, lpi2c_imx->base + LPI2C_MCR);
+-	writel(SCR_RST, lpi2c_imx->base + LPI2C_SCR);
+ 	writel(0, lpi2c_imx->base + LPI2C_MCR);
+-	writel(0, lpi2c_imx->base + LPI2C_SCR);
++
++	lpi2c_imx->target_supported = !!(readl(lpi2c_imx->base + LPI2C_VERID) &
++					 VERID_FEATURE_TARGET_PRESENT);
++	if (lpi2c_imx->target_supported) {
++		writel(SCR_RST, lpi2c_imx->base + LPI2C_SCR);
++		writel(0, lpi2c_imx->base + LPI2C_SCR);
++	}
+ 
+ 	ret = devm_request_irq(&pdev->dev, lpi2c_imx->irq, lpi2c_imx_isr, IRQF_NO_SUSPEND,
+ 			       pdev->name, lpi2c_imx);
 -- 
-Bjorn Andersson <andersson@kernel.org>
+2.43.0
+
 
