@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC5D3C55838
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF733C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uFOnNWAwBMdOK8OW70P9KLrxQt1+6RVAPCYpQmaZ5gI=; b=HJUkGCos1lLHeYccr7OiMtJf0V
-	fd3kDRqN3AzZVAu2TKPefJSIPKbdwYrqGT3TFo2D3s6AHOU/hwLnr1xDARBCbeG6erhy2l7qxOXgj
-	xOba/ckbmAbL7ypURtkRyh9kH8UB6aQslFVcO41mh4tR2PNecj1r4ae9e16/f8A4oC3nEwestAgP5
-	pc5eEHIq/nQR6A9bSEGLYjO/7tu+hlZSvxO973lf19vKmMQUz982XuSgsx/+ZEqQhfIOP0FLlKA2b
-	PGuuKHsExwsP2/QO95QL0hBHIAToSzGvRyUvQrIzOmlewxBNAEcTO7s9z4Zw5c8NJjUtwBqAy7Snt
-	gdRzl01A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uqpuCmGbDC7MQgqg4rNwLa59ffLN5tM7+k6xoxCEPxg=; b=H5YMyTd642ptDVR1kt6lAGB+kt
+	suf5uSsKuAi/EnPxasgCN3myp8pV4C4pfgDoIopI8iScgyGs2DX7OQ8nEo4v+aN80LykS6FNDbfGD
+	i4/+dJ4LSa9TH1SlpWQmwFpvTmF2As60SfatExPQzoY99NF+c4qZ8+cdVZXeXSAs52HsAbprx4pPQ
+	b28FH40iTjV7+QMhoj3wCthHt/MWWZub2li0wD4Jo32Oe7Q+eGSCN6D5KhLhhnLKd0AzcGWovA9UA
+	Qhk5T8K2A3C+rvu6Am5A201DQljSkAopKQgZH5IreiUGyKvPcII0LxC/GGJR5VhnEt3tVdh1574vT
+	c1TDHj7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqt1H-0000000HF3r-2azG;
-	Mon, 03 Aug 2026 13:47:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqt1E-0000000HEzt-2Vf9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 13:47:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C59B91476;
-	Mon,  3 Aug 2026 06:47:47 -0700 (PDT)
-Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED9273F66F;
-	Mon,  3 Aug 2026 06:47:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785764871; bh=QnE3jwjHNmpdPreZ13KHzHAPGae+2/Nd+IwbjiYeo94=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Cf9Ke1bagJBW0N8q+wEcwjaspUtxNKe+/HsAhtisu5RMDOw2ZUFrvOQLNS/Bhu5My
-	 Z7vabVyu/g5HFt88pDKF+y9uk8xMYmHx8UjononARJkoZfwedm+mHbKeKld8quc6WZ
-	 PsbeRh759wKxW22DoIhydh7YB7pqO2Or8O++qP8Q=
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: [PATCH v16 45/45] KVM: arm64: CCA: Enable realms to be created
-Date: Mon,  3 Aug 2026 14:44:01 +0100
-Message-ID: <20260803134403.80630-46-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260803134403.80630-1-steven.price@arm.com>
-References: <20260803134403.80630-1-steven.price@arm.com>
+	id 1wqt4Y-0000000HGB9-2m67;
+	Mon, 03 Aug 2026 13:51:18 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqt4W-0000000HGA4-2RGp;
+	Mon, 03 Aug 2026 13:51:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=uqpuCmGbDC7MQgqg4rNwLa59ffLN5tM7+k6xoxCEPxg=; b=M1H1iu/pjR8kYw7PfRwEcrhdUG
+	Mmpf5DE9eGVvhtIB6rk06xkB1BWps31tCUziHtFIcdGiQHcjdPICgwrIDeT7j82klQNqStFTs3Khx
+	gokx13xO1aev3e48O2pDastt4vTy37tA5ANceoV4o3b7dHqudb6h8H6N8brmXzWgq65o=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wqt46-00FjZz-CF; Mon, 03 Aug 2026 15:50:50 +0200
+Date: Mon, 3 Aug 2026 15:50:50 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Richard Genoud <richard.genoud@bootlin.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, mfd@lists.linux.dev,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 10/21] net: phy: add X-Powers AC200 EPHY control driver
+Message-ID: <05b1e6a2-725e-4b8e-8629-249637bbcb81@lunn.ch>
+References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
+ <20260802-submit-acx00-of-dynamic-v1-v1-10-0a53cd9e21cc@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260802-submit-acx00-of-dynamic-v1-v1-10-0a53cd9e21cc@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_064752_680829_E17AFA3F 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260803_065116_620267_7E08798A 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,27 +90,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All the pieces are now in place, so enable kvm_rmi_is_available when the
-RMM is detected.
+> +static int
+> +ac200_ephy_ctl_set_led_outputs(struct acx00_ephy_control *control,
+> +			       unsigned long outputs)
+> +{
+> +}
 
-Signed-off-by: Steven Price <steven.price@arm.com>
----
- arch/arm64/kvm/rmi.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+> +static int
+> +ac200_ephy_ctl_set_led_polarity(struct acx00_ephy_control *control,
+> +				bool active_low)
+> +{
+> +}
 
-diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-index 0f66a0e970cd..c242dfc2c7a6 100644
---- a/arch/arm64/kvm/rmi.c
-+++ b/arch/arm64/kvm/rmi.c
-@@ -1556,5 +1556,6 @@ void kvm_init_rmi(void)
- 	if (rmm_check_features())
- 		return;
- 
--	/* Future patch will enable static branch kvm_rmi_is_available */
-+	kvm_info("Realm guests supported\n");
-+	static_branch_enable(&kvm_rmi_is_available);
- }
--- 
-2.43.0
+I've not looked into the details, but these look like pinmux. Does
+this I2C device have a GPIO controller? Can these pins be used for
+other things than LEDs? Maybe you should be implementing a GPIO and
+pinmux driver. The Ethernet PHY driver can then just select the
+correct pinmux configuration.
 
+> +static int ac200_ephy_ctl_power_off_locked(struct ac200_ephy_ctl *priv)
+> +{
+> +}
+> +
+> +static int ac200_ephy_ctl_power_off(struct acx00_ephy_control *control)
+> +{
+
+> +}
+> +
+> +static int ac200_ephy_ctl_power_on(struct acx00_ephy_control *control,
+> +				   unsigned int phy_addr)
+> +{
+> +}
+
+These look like a regulator? The phylib core has support for
+regulators.
+
+Maybe take a step back and look at the overall architecture, and how
+Linux can represent these blocks.
+
+	Andrew
 
