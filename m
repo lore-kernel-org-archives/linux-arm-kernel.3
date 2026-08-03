@@ -4,100 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DCACC55838
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:05:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 924A1C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:08:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZ7bZ3hwgdxxn3o5mJRqFFmTCbG8QZWrA/MRxiaZBE8=; b=3q9nNYOQQnPkvWEpDe1zvMjnMq
-	LpekoPsM75d94agcU3gP4ZoB6UT+Yr4okRG/Vr3HE0j5N3dWNanYQGNDO3ejXEjrgMwT46po3BtUz
-	yViRjPfh0Vft3DHb7xuA6MelENxbtDS04eBvjd06+Mxqw7I3eF5J8dKi1q0dd7g6KjhWosQk+N//h
-	1USDdHCU+MNlD41oeAP3an42JtOX2e71SlSkcjiUTsg0DsdHzcNJr+/RZE1Wg9vtVG1r6MNLYZ/fk
-	g0GR8AspU/F9aVXByPjvrRojm/HNmmYoH05fhHfXSfjZY8qnPxBJU0o8mMD1Tdw1b6vYnJe87aWwt
-	++6EUcQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0FlevvmCUo3pvNfguYi3e7oT4YWOah6gzuJqciMeBMs=; b=NCz142IpYFrkPBJh9Xxlzdqb9W
+	EPUI1eF+n3F63+vIKGkUXY0nOES4ohc/ukZ7RKpePMrjqbX7Kh4GZ/RauBtua1BbLkg+/LEzcnDpO
+	yxymB1yxKqh5Fv+KW1zZ0yU9rXBO8+bveWta8E7fCqQ96bkCiGudU5gut3D+YwCBrFVR8bX0fUJqF
+	UbzxAC/wCembqXgPFmfO2qEmJAwA9FVuwwYgzvELyrn9f8LYfT/zyA8kcJZdHhI7ZZo7wPPliyM1v
+	B8EB7GX9bRXDDRDAE2cTX+KlZ2d0uIHZ0wsGMzvcJ03L65y+zBJkLb8nv1kPqZVhfQ56I5wgZDern
+	/3wCmIug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2j-00000000J6N-0gfS;
-	Mon, 03 Aug 2026 18:05:41 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wqx52-00000000KLD-0Luc;
+	Mon, 03 Aug 2026 18:08:04 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2L-00000000I98-1jLn;
-	Mon, 03 Aug 2026 18:05:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785780304;
-	bh=UZcqrNKsjBQlMpMlDsv9U742mbV7pUWdVK538ZAWK+8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gDjEx4Dyc0RMF/uA/v+WjryvAbuRCnACbo9/jc9k7co2bWI8FHtXL4Fx96/vRAjK1
-	 +6a1Wtx0cvox5Z/2qUZP3hJGXFtO0pLWpIB4OxxfqJNDZWbrZVNLuBlf+j0cDko6Qy
-	 G8n9bjdqKXPOLX2gO4vlUq/Yeeo2Aim4EinT1Ok3w8VtNy0qZwPgRHQwKBikhynM7r
-	 S9b05vlWjMgDJRFQ27HVoibCidWdiIA0Nr5TslkjZCK9vTmvSMPKnOVBq7TSfaWiCW
-	 CQW/ssnqz/0703how41LYtVRsBUQpfFV+NhNy6EDUZ5uQlNJhT93zJAQbPIDw29mF2
-	 znZP3vYgA6a5g==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 82C0817E1249;
-	Mon, 03 Aug 2026 20:05:04 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 7AF34480064; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Mon, 03 Aug 2026 20:05:19 +0200
-Subject: [PATCH v9 18/22] drm/bridge: synopsys: dw-dp: Drop useless
- reservation of first slot
+	id 1wqx4z-00000000KKF-2fSK
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 18:08:03 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-496bb7cdf51so24977495e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 11:08:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785780480; x=1786385280; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0FlevvmCUo3pvNfguYi3e7oT4YWOah6gzuJqciMeBMs=;
+        b=gVdMNFakjsgb61gY4mg8en7VwMfP1xzu/Lg8wo0Fw54q4s6BE6ckYU6/WXjnWJptvR
+         sqHfl1kC/WF1HGJMEVm9SH4T8L6SFh7Oq3FWUEjFwes7xHP2026aoI5d9xamGYg0y0Xx
+         WGOPuqozNIHzX36jllxcmwvTbIsFtxCU3xNnBIoSkeK9Sk72V5ybw68raLlpL1OmYs4e
+         jfzXgP21qRpj2NLVoShDcdnSX1JLRgr3sf3P0NkIRBZ3ujChpiVyXC7bEVS9m/5Q9+2Q
+         FgC0eMsaWjOxjHxJUPplLypAnkKwoD+sB1Wc3H+wAm+Zkxk17ctWO4ix5LkmsI7GyeYC
+         r6Bw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785780480; x=1786385280;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0FlevvmCUo3pvNfguYi3e7oT4YWOah6gzuJqciMeBMs=;
+        b=eYxDJBF8a9uiqUAVHJ1ZLpw5TlgQZo/yZTMVtJuPpYKYRX19QWGhYpwhkoYKjdtAz2
+         ZOvzmXv3gvNO00fw/EzNagiePG6Qyir9EMK69WRZcDUUTtpuCxR7VTV9loFXUtk4PN7G
+         lOohrlSh5FUhpDQquuLsmMHV0qRzDQDcKn0dfGJEAMxAwON35bI+Qe4uag+weW1exR01
+         QIbDkbx3MBCKYbXxHZb8jiZUGmz/Sa2K2IqJkf3aqn6JuY3u8kZKSctZq3gSiLdlibJu
+         Q5ghH1aElM/YHsy0vs3BFpfjbwWwUfYW4sArNqhH8ljRZI0fsAuEflcCxJLUstM5PWM0
+         i4EQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoklqP0luf5ihKVKEXFSSLur1O2C5pBkITN1SMQFqmp4NchTVrg/FVm0aX9zneC2lBysmNZimcLlN4HQkFcIOK2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxme7cJK+fA/znUOl/lwn53+f77oB1Vgzhj517IsGuzx2NortJl
+	nhFk/giJrKCncKoHInDDqHtLhE4QUs3g1YADgVYNtXbxAv84GMDNXMGw
+X-Gm-Gg: AR+sD11jYLjW4X9XK8as4ynj5CNR27yOqjHiYHzQroNFTc6WsfEzBNgJUVpcOkicMNM
+	gLy83zVmr2sMpx3U0oXqz8GbbhLQMU9NxZvYH1iydaqLwuj4z2c9x7kyrUV6SCals/1OqdB2Hk+
+	M8B8nE+O6UK5S9yzlYcElioZ0tfHLjTQY4JYIHieKeRCnYw6Cz2N3H5mDeQh07Ypaz70hZ0WwDe
+	MPJGf097Z430JKnS4geEgSychLKy2S26h/TMsC9Xn90VQqpBdb8KlNAVuJ9UxzGRaVO27z6LuzY
+	18b1ZjVFU9BvTeQheqOZluzbE5PuADLX7JbAHNXRjkFyXB8CMg018HLxGj+8J95Fwp/molHjbwT
+	lBYTVQvIr43My0sPuCv+XS1o/pnhM8m6FZ3uqi1eradjz9oYsX3jjrmcBJgzibxrjahTV6vhP7D
+	2gl5Vi7RP8SLIeRlyAfTuHTW0VmgPGDLVjltevui3shXW6me5PHuUnn9Ol5Sef3+iL96+1wSmpx
+	S5UHu4THNG/KeJlw1cLuio=
+X-Received: by 2002:a05:600c:6209:b0:495:6396:8b67 with SMTP id 5b1f17b1804b1-4980c649f67mr273458325e9.4.1785780479424;
+        Mon, 03 Aug 2026 11:07:59 -0700 (PDT)
+Received: from localhost.localdomain ([2a0d:3344:2841:7708:a101:2b8a:f76:a00f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd42d91b3sm37950955f8f.14.2026.08.03.11.07.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 11:07:58 -0700 (PDT)
+From: =?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: andre.przywara@arm.com,
+	bmasney@redhat.com,
+	linux-clk@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>
+Subject: [PATCH v2 0/3] clk: sunxi-ng: fix the A523/T527 GPU clock model, enable GPU DVFS
+Date: Mon,  3 Aug 2026 20:07:52 +0200
+Message-ID: <20260803180755.288793-1-juanmanuellopezcarrillo@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260803-synopsys-dw-dp-improvements-v9-18-2e6e46135312@collabora.com>
-References: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
-In-Reply-To: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1300;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=UZcqrNKsjBQlMpMlDsv9U742mbV7pUWdVK538ZAWK+8=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E8dd5JkKutzGxCcJHMtoE48rpgglTY14
- V8gZBr8n5mGkokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhPAAoJENju1/PI
- O/qaNQUP/3zZ6GwcxV/wZqkxZuqU826U5aORfooZroHqJzPY9U6nkpXZgLN5XPYpKh0c5wdIqWE
- JzhRpPSAs3hlg2JfhuvUG5N9PThC4sp9I+4BsxvjH9vnR3vij9E5ItfqqVLY0kfn5EWrEle5t0e
- k/yeS29l8Cim/Pk8iDvl4feisZ1aN3nfb02blb05sI7pcwydLNPJDzviVVd/nKTSXkT4U+t19zi
- FRMJg699V3QTIy15Xp+kDIfiap/P3WBBd5A5flE5ZdPpYucfgFKoNekkbZtSB9JlJBo3wbZ4faL
- MxHUT7+XEqYdTa2CM0o81Tel0ZB1XKpcjljr5Y/o8YuPLty1Mnd5LtVzkz1jE0mawXkpo05vGYU
- Lc+fZl3uJlZ1ooRSe7/K0jHu5K8yFNUad8XefLsIjDNKc8EN1lWWxU94a8+MsKAWTJA/8+leG44
- bP8oM0OFp92fJ2iNYFadamrho9E3MLi3Z/20o7NbEK3PIiiv7Hz0Bu0R27JvO00UiBcAxHfCGRr
- 6dXdV+z4DEn4xKB18V0mEYnBoA0ebTZqo4jK4FQNoLfcn3C628iueDnNbrOi7YmYq4Ud2T+1oqO
- H1cX5j+0aQYSKOTofql9znCnsufZOzpR3SFNx0dlbhONmPraPsQBj5T0CWRuysaSV6S7lvMS73S
- C6sinmmQKN0H15WBohSs5+A==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_110517_698013_BDCF993E 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20260803_110801_701649_DBAD696C 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,38 +111,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The origin of this reservation is unclear, but it is a problem in the
-atomic_enable code since it potentially races with the audio SDP
-reservation once that feature is added. I suppose it was either meant to
-be bitmap_zero(), but that is obviously not needed (and would also be a
-problem for audio support) or some left-over development code before the
-VSC SDP slot was allocated automatically.
+Hi,
 
-From my tests SDP slot 0 works fine and can be used. If SDP slot 0
-really needs to be reserved for some reason, the bit should be set in
-the probe function to ensure there are no race conditions.
+v2 of the A523/T527 GPU clock series.  v1 is here:
+https://lore.kernel.org/linux-sunxi/20260719211319.982285-1-juanmanuellopezcarrillo@gmail.com/
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 3 ---
- 1 file changed, 3 deletions(-)
+The GPU mod clock is not a linear M+1 divider: the M factor masks M pulses
+out of every 16 parent cycles, so rate = parent * (16 - M) / 16 (T527 user
+manual v0.92, section 2.7.6.58).  Modelling it with ccu_div programs a faster
+clock than requested for every M > 0, which is what mainline does today.
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 19b6c11f672f..05d3485a4d8d 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1706,9 +1706,6 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 		return;
- 	}
- 
--	scoped_guard(mutex, &dp->sdp_lock)
--		set_bit(0, dp->sdp_reg_bank);
--
- 	ret = dw_dp_link_enable(dp);
- 	if (ret < 0) {
- 		dev_err(dp->dev, "failed to enable link: %d\n", ret);
+Measured on an Orange Pi 4A with the Mali cycle counter, the OPPs labelled
+150/200/300/400 MHz were really running at 487/648/560/750 MHz, and thermal
+throttling to "400" actually raised the clock to 750.  With this series the
+same measurement gives 149/199/300/399/597 MHz.
 
+Changes since v1:
+
+ - Dropped the pll-gpu reparenting notifier (patch 3/4 in v1).  I wrote it
+   when the plan for the higher speed-bin points was to retune pll-gpu at
+   runtime: it parked the GPU on the fixed pll-periph0-600M output while the
+   PLL was being reprogrammed, so the GPU would never see it relocking.  That
+   plan has been superseded.  The maskdiv in patch 1 can divide any parent
+   down, and the speed-bin work on top of it (first follow-up below) pins
+   pll-gpu once via assigned-clock-rates and reaches every operating point by
+   moving only the mux and the divider.  The PLL therefore never changes rate
+   at runtime, the notifier can never fire, and gpu_clk deliberately does not
+   set CLK_SET_RATE_PARENT either.  That is how the 696 MHz point runs here
+   today, with no notifier.  It would only be needed again if a future series
+   reprograms the PLL instead of pinning it.  Chen-Yu, you asked for this
+   notifier in the v1 discussion: tell me if you would rather have it now
+   anyway and I will put it back.
+
+ - maskdiv: honour CCU_FEATURE_UPDATE_BIT and CCU_FEATURE_KEY_FIELD in
+   set_rate, clamp determine_rate() to the request bounds, and document that
+   CLK_SET_RATE_PARENT is not supported.  These were folded into patch 1 so
+   the new type is correct as introduced, rather than introduced and then
+   fixed.  They also address the two issues the CI bot reported on v1.
+
+ - The GPU OPP table moved from the board .dts to sun55i-a523.dtsi, and the
+   operating-points-v2 reference now lives in the SoC's GPU node (Chen-Yu).
+
+ - opp-microvolt now uses the <target min max> form, <900000 900000 920000>:
+   900 mV is what the BSP universal table specifies, and the 920 mV ceiling
+   covers boards whose GPU rail is a fixed 920 mV supply (Chen-Yu).
+
+ - Rebased from v7.2-rc4 onto sunxi/for-next.
+
+Tested on an Orange Pi 4A (T527, 2 GB): rates verified with the Mali cycle
+counter under load, thermal-emulation throttling exercised, no job faults.
+
+Two follow-ups are already working on the board and I can send them next.
+Tell me which one is more useful to you first, or if you would rather they
+waited:
+
+ - GPU operating points above 600 MHz, gated on the SoC speed bin read from
+   the SID.  This chip is bin 1, where the vendor table sanctions 696 MHz at
+   the same 900 mV; it has been running games here without job faults.
+
+ - The A523/T527 CPU clock unit (ccu-sun55i-a523-cpu.c) and the generic
+   sunxi-ng fix it depends on, which is what cpufreq needs on this SoC.  The
+   DSU/L3 clock lives in the same unit.
+
+Juan Manuel López Carrillo (3):
+  clk: sunxi-ng: add cycle-masking divider (maskdiv) clock type
+  clk: sunxi-ng: sun55i-a523: GPU clock divider is fractional, not
+    linear
+  arm64: dts: allwinner: a523: add GPU OPP table
+
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi |  30 +++
+ drivers/clk/sunxi-ng/Makefile                 |   1 +
+ drivers/clk/sunxi-ng/ccu-sun55i-a523.c        |  32 ++-
+ drivers/clk/sunxi-ng/ccu_common.h             |   3 +
+ drivers/clk/sunxi-ng/ccu_maskdiv.c            | 213 ++++++++++++++++++
+ drivers/clk/sunxi-ng/ccu_maskdiv.h            |  76 +++++++
+ drivers/clk/sunxi-ng/ccu_mux.c                |   2 -
+ 7 files changed, 349 insertions(+), 8 deletions(-)
+ create mode 100644 drivers/clk/sunxi-ng/ccu_maskdiv.c
+ create mode 100644 drivers/clk/sunxi-ng/ccu_maskdiv.h
+
+
+base-commit: 859c0e1925332d413ca8f9159c8ca5d04eea32a2
 -- 
-2.53.0
+2.47.3
 
 
