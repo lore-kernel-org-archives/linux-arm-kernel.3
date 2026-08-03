@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CDEC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:31:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6517FC55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GW6llnCU5d1ZTzWBXwvJSl4a0dky1vOxwjNiMt4GZjw=; b=irWBMDsfUCmLylaoxsLVrGbJUM
-	64cp99GwQqm75RdEEI/yLxBQ6O2zTmzWSqDAmIwAz4LqqmrKuXj6ECgY/6OlPiu9Vvcl3iNiLVhIk
-	aNVS6IL0Obn3ZSwT5OCtAg9Vpwofi580OWQtj/c1eOh16qLLcY8f7PaOC6yOHY1Tut/P8C91btjaW
-	GN1JbX+7p6RkOIY6x7jYz9LZaoFpOJayTELDWsGfgqU9jfAfDzVH6A+63Gcbs58ZhHd8znJwGt4fV
-	J7UKsixjtI6S4jsb018mn/sVXHWjmV13QIF7PnY7SpjQbdwvTuP6Qr+gS2GNsUcOc0mIig5gc4D58
-	8t51Bd9g==;
+	bh=53gfRXi1gAQzfOY/gAzQ6qJoVXPhw/w0nq69bgbPOyU=; b=LV27Vv8gGwRMDAHW3rnNK7BVmJ
+	OfJu177EVgb07ebBuf4hkPHPO8ybAdoyUkXvMfe0MVX84MrW62E/cKzFFux6o7Pu/150V8/RGDIrJ
+	sSh+OY/lLWIGwmKzo7pXRFOKKkbOuJcnFuE5Zxv53bbTm0KPUU1sAbCwdvjyEw/wlcav9FEwf+18y
+	wSszJlZk5pgO25a2SpBnzSwO8Bm0DFDWhISx3jGxPcLy1ABaOAZbub6FlP+Y3FI+fbXIilbElR7TY
+	CtahrWrPtvTrK43oVzcza8N/ABb+OIZYHNxOkwDHjNuB96NA2tPYa6v7reuCnz/x9udHmT7b609sA
+	HeO6OJDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqp0a-0000000Ggw8-3zFQ;
-	Mon, 03 Aug 2026 09:30:56 +0000
+	id 1wqp2D-0000000Gh65-0bPL;
+	Mon, 03 Aug 2026 09:32:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqp0Y-0000000GgvU-1Ax4
+	id 1wqp2B-0000000Gh5i-1B2y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 09:30:55 +0000
+	Mon, 03 Aug 2026 09:32:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 145C1143D;
-	Mon,  3 Aug 2026 02:30:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 921D61476;
+	Mon,  3 Aug 2026 02:32:30 -0700 (PDT)
 Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B8A2C3F66F;
-	Mon,  3 Aug 2026 02:30:48 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 063B13F66F;
+	Mon,  3 Aug 2026 02:32:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785749450; bh=t9vmpN00wXMdtPPVQUqyNd8jRY5+MqtYZz/sUJ2oClY=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=j7MflOmgZjK+1LlT9k9XvNAb5V69K0+oxCMOhAr3b+6a/5B9UWThMp3mcsxYp3NYJ
-	 dgFXoErS86SN0B5h2yGE0cAVoIEFft1/fYC61E02F88t3XGb4VdhL8pWeq5l9kmK5u
-	 Jf7vmWvkAlHBqKDbjYpm26/gWlo+1gDp4UoYvADA=
-Message-ID: <768ad583-beea-45d6-bad9-fe5a152b8498@arm.com>
-Date: Mon, 3 Aug 2026 10:30:46 +0100
+	t=1785749554; bh=3MPU05x/eTgZTHBGi6uXAVQKbSgp9Z42Ei1aGnEw4bA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vJ3/JINNtKWb9/g4N6UEXWCIlJee3vSwYCX8y6vcdKxWrDfUj/TYzrlidbT2vFrNL
+	 B1r1kLN0jEvMkeb9v5BvG528drpLRVC2dOfmtppD1QQ59Hw4CseGVdrpfO1IgQvqID
+	 oQqDa78fcSwFMkvteMaMFedon++q7MtMXKkyWX1Y=
+Message-ID: <4a383f79-6b78-4c03-b8fb-6f0a0c9858f2@arm.com>
+Date: Mon, 3 Aug 2026 10:32:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 10/45] arm64: irqflags: Introduce arm64-specific
- irqflags type
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-To: linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC PATCH v2 09/45] arm64: entry: Avoid unnecessary
+ local_irq_disable() on kernel exit
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
 Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com, ruanjinjie@huawei.com, liaochang1@huawei.com
+ catalin.marinas@arm.com, liaochang1@huawei.com
 References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-11-vladimir.murzin@arm.com>
+ <20260727163453.7969-10-vladimir.murzin@arm.com>
+ <7a54d1c8-bf0d-4940-8d3f-28c48fc5c18f@huawei.com>
 Content-Language: en-GB
-In-Reply-To: <20260727163453.7969-11-vladimir.murzin@arm.com>
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <7a54d1c8-bf0d-4940-8d3f-28c48fc5c18f@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_023054_373734_5CE4EDEA 
-X-CRM114-Status: UNSURE (   8.27  )
+X-CRM114-CacheID: sfid-20260803_023235_385907_CAC8BF5F 
+X-CRM114-Status: UNSURE (   7.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,29 +74,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/27/26 17:34, Vladimir Murzin wrote:
->  
-> + /*
-> +  * Internally, we want to independently manipulate and track the different
-> +  * interrupt masking mechanisms.
-> +  * Externally, the generic irqflags API expects unsgined longs to represent
-> +  * the state of interrupts, which are treated as obscure arch-specific data.
-> +  */
-> +typedef union arm64_exc_hwstate {
-> +	struct {
-> +		u16 daif;
-> +		u8 pmr;
-> +		u8 __padding[5];
+On 7/28/26 04:18, Jinjie Ruan wrote:
+>> +/*
+>> + * We are returning from the context which allows involuntary kernel preemption
+> Should we add the irq disabled status for preemption?
+> 
+> We are returning from the context which allows involuntary kernel
+> preemption "with irq disabled" ?
+> 
 
-This padding hurts code generation. It is better expressed as:
+Make sense. I'll add it in the next version.
 
- u8 __pad0;
- u32 __pad1;
+> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-
-> +	};
-> +	unsigned long flags;
-> +} arm64_exc_hwstate_t;
-> +
-
+Cheers
+Vladimir
 
