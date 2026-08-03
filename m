@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 788C8C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:27:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD947C55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:34:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/i3CPF5W25MD9Vez/azH6CCKyA9iHKYO0QYhYx2P/Sk=; b=a00zwsPBwIyvucn2nt2ubWjJr7
-	kx2brUpHPIGTqbMuEd+/7Lrpp/Sx2lYo8rNdzhQNmp+Rp5QNJUQs9ZbgFU0iURh4Aa8y1CH8I3saO
-	rGkxA6F++w+cuQelkgrAFhPjV/abcIJ3WT2bPKjO+ldcX5CHPmJVs27vZWWnhFEPiD60tmEUk93Zn
-	6Rxy705Wy0j5qU7IMFkRQKnjWRczzyTpDYTyjKmsdY9I+4Wq41nSes6k8C/Pp0+/98JIo0J87c6HC
-	IJ3Dzu7ec78bCR8I9ztt0f9etIdTxw/4VbzJ+tsnQveKN+LT3vH99ceo897DHR2dSpVQm0A0ABXMd
-	qc9DjzzQ==;
+	bh=2wni3Q+wShyY65f0uKlTNx2h4S9tj48PjL0JpbjcW/Q=; b=UxvRz/6ofhRuSbHaNAV+zAONsi
+	pzohUfmLr/LkkwgjUp9QpR2s3ruu1VTEtJcTtM7F0SHRdyMYdIEBoczK9Eru8utI6GrYdNmDvy8wp
+	VSaHs9lPE6mK7dycWo+oDHzgDAdtyMCndKoBFZc0NM0+AFpGP91+FOIBYigvn2DXz4VL0Sj9SxrUa
+	Aqztg7yipuwercN36GIt+GUwxRI2eoBrgu4W18r3VrJXcm8706WPqZHbRi1zWxbOfThcI6RFtPVzO
+	AW4txDkrsTmVLTz+uyVeJcB1wjtEpKLnz4ogVfxvGn9spUcK1nr+/Gjp7fZ64lMCJcqKN83zWrMBk
+	Tq0nSr8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqpZ-0000000GwLx-0OlZ;
-	Mon, 03 Aug 2026 11:27:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wqqwP-0000000Gx4E-0C6N;
+	Mon, 03 Aug 2026 11:34:45 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqpX-0000000GwLq-23m0
+	id 1wqqwM-0000000Gx3u-25b4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 11:27:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D965860AA3;
-	Mon,  3 Aug 2026 11:27:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AD5C1F00A3A;
-	Mon,  3 Aug 2026 11:27:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785756458;
-	bh=/i3CPF5W25MD9Vez/azH6CCKyA9iHKYO0QYhYx2P/Sk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=LD+9R/xv3NSQsat4RjeNlGLbJ1uKDtgjUp+Y/VOu4UnzZ2ojY1qwtPJGndSzD7x8K
-	 lJO2raJWfeqkFwlIIirZsXoc4yVV8HGN3aru11ybyaQETHdaNFkrpzObjJ8hpleKRR
-	 sLqkS/prEff9LFafonsANPFwmLCSyBgOUxrwJbNlQGXGBn51zNPsMJQTinGYEwGW3w
-	 /M93kGzHttMFUxc6+H1QENcytzFLQ+5Mo4ZVzD4rS/i2/X5Zh/0utKRzqfD602lPD9
-	 IYpaPZ3j+Fkp6szxuj6hRSuUaYcWkZH7oLVnzA28McYZZ9gcJeyKVPafXl23m/pmIx
-	 fL6aooRlu+2Eg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wqqpU-0000000BjIT-1j2Y;
-	Mon, 03 Aug 2026 11:27:36 +0000
-Date: Mon, 03 Aug 2026 12:27:35 +0100
-Message-ID: <864ihbcul4.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
+	Mon, 03 Aug 2026 11:34:43 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2cacef7d299so116555ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 04:34:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785756881; x=1786361681; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=2wni3Q+wShyY65f0uKlTNx2h4S9tj48PjL0JpbjcW/Q=;
+        b=YVVv4N1kLqVrTdb8i7XarNx1A66+Y7GLEsrezeMcCGe7rEnEIZJcq/4TsvBxaorn+5
+         yLkL2d2J/D86ApVbf9B6D7wUZbcpHdDIgWy4rQBTn4mzbO7fKHzPUlSRNAS8EwiC7DmQ
+         vSNtJHyHUQQYPbuA/F5oOcSYTPfaq5ZLEUjahQAY2if2I4MEeYLaEXjcwtYQGc9yX2JN
+         1BTcDn3sADOQji5XxyEiSHNoRtMeAvXaWl3koh3bY3PyAfGA3Dy9i+6lhOKbf2j3BEdf
+         dPtCW6XBTKdNkKrme6EI1UBLJI6ZI+d7QEjwnyuRnXYHvIbBrp66SSBWQ4htTQtNScJk
+         hSPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785756881; x=1786361681;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=2wni3Q+wShyY65f0uKlTNx2h4S9tj48PjL0JpbjcW/Q=;
+        b=HrCWJi2DrdWK/39L2freJerIKNe6vGsOMejyTMXMqMCvDy2e9Jjq68kQblLc54LK6N
+         xf5qLpzyQMybfZRh5IlOaK/dRuBrrUOiKFcB3OF8qykF9FofEe9sWWZnZx94/yMFTHtm
+         BlAoudDBmS3vKGFpq+4KuiyTYJ+TivQ2GwRPKgHBOZfYifbfojVV1pb0uBTpvWWWeFpJ
+         cXNtR3EkpGgd3S6BsoqCudqc5w3nnso/rCiY21u2wF7AMJndKOsRXe1Cjq3kD4H7V9a7
+         SmTjq/pA8xHOLc33KCwoAqck0k4cI2M/bl37yEirAd7LwV++WbFijWU5l2qzmtPZIoPz
+         i4JQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rpas/aSmJs7dgqsPN5RB1zet2MSMBl//Z2VJq1wcNnkBWwEVYHR7SFcRoyaO6e/sxBoybazwdjXG4DtTbIFVVEP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvGxsHGorPXz4okoXjPehq9NYyAuI2rzQp2a9wsn3Kmj1KlZ4Z
+	w3lbYKHS6dRZ0uoSTa2w1VJ2HNUKNiIOKvCmTiMfidorrko1miRbaCFZPtSZPfc3YA==
+X-Gm-Gg: AR+sD13wz+3AmDA2dGcUsLLz3YFl0N3zaEJH5eArGpXsm/EodNVMCrt8gor7BYqZ3AE
+	iZRJ/XafdohdPv+pq1AvfZB0ADrKT24b4P39q36A1T7c3JHmQ+KJnOTe2H63Uo01IQyKblYJy+K
+	gKMzTW6hI8Pr4RGYuSMJ5voUWEtDimhyXnjEuwcJBr20sgvq7xf1VJjce4MBHZdyD0NLhjvxhWF
+	YBDJllIAgBkQkI6VidiMPZZrMvZCpDU+JL1YCotxCsphfUJr0xuyodDlIfVvhrGOUHRlnpcXkUG
+	Ny5CphcofKboLOtNCjfOkNM14TxOOKlsCUO8laN5SMFP2JZ01J6/Wejh2QZ7KIZLYJ/4bBPup/4
+	xIf+bT1lN/k/TWVFOwWURoOoAylo7Ndf+d+kD+uE4NNJV60tnPj7qIpL6bbHQSSYKlJyWbN/BAo
+	VY52Y3rUZNP850Nqo1KE27AWI1DebXmOd580uxt78BYMzQCLZtihZh0BVA1xuKztTUYspS2dNS3
+	NMG3gsFK60VOXT+4tW79YI=
+X-Received: by 2002:a17:903:1aec:b0:2ca:cbe5:c3af with SMTP id d9443c01a7336-2d056f884a0mr11365075ad.7.1785756880556;
+        Mon, 03 Aug 2026 04:34:40 -0700 (PDT)
+Received: from google.com (21.168.124.34.bc.googleusercontent.com. [34.124.168.21])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04ae67d0esm36522585ad.30.2026.08.03.04.34.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 04:34:40 -0700 (PDT)
+Date: Mon, 3 Aug 2026 11:34:33 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Connor Abbott <cwabbott0@gmail.com>, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 16/37] KVM: arm64: CCA: Handle realm MMIO emulation
-In-Reply-To: <20260715142841.80544-17-steven.price@arm.com>
-References: <20260715142841.80544-1-steven.price@arm.com>
-	<20260715142841.80544-17-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+	Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+Subject: Re: [PATCH v3] iommu/arm-smmu: Use pm_runtime in fault handlers
+Message-ID: <anB8ydWLQw0KZxqT@google.com>
+References: <20260630-smmu-rpm-v3-1-f69874a580fa@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260630-smmu-rpm-v3-1-f69874a580fa@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_043442_541792_89FFECA7 
+X-CRM114-Status: GOOD (  27.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,107 +106,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 15:28:18 +0100,
-Steven Price <steven.price@arm.com> wrote:
+On Tue, Jun 30, 2026 at 02:32:46PM +0530, Prakash Gupta wrote:
+
+Hi Prakash, 
+
+On a second thought, I'd like to discuss one more thing
+
+> Commit d4a44f0750bb ("iommu/arm-smmu: Invoke pm_runtime across the driver")
+> enabled pm_runtime for the arm-smmu device. On systems where the SMMU
+> sits in a power domain, all register accesses must be done while the
+> device is runtime active to avoid unclocked register reads and
+> potential NoC errors.
 > 
-> MMIO emulation for a realm cannot be done directly with the VM's
-> registers as they are protected from the host. However, for emulatable
-> data aborts, the RMM uses GPRS[0] to provide the read/written value.
-> We can transfer this from/to the equivalent VCPU's register entry and
-> then depend on the generic MMIO handling code in KVM.
+> So far, this has not been an issue for most SMMU clients because
+> stall-on-fault is enabled by default. While a translation fault is
+> being handled, the SMMU stalls further translations for that context
+> bank, so the fault handler would not race with a powered-down SMMU.
 > 
-> For a MMIO read, the value is placed in the shared RecExit structure
-> during kvm_handle_mmio_return() rather than in the VCPU's register
-> entry.
+> Adreno SMMU now disables stall-on-fault in the presence of fault
+> storms to avoid saturating SMMU resources and hanging the GMU. With
+> stall-on-fault disabled, the SMMU can generate faults while its power
+> domain may no longer be enabled, which makes unclocked accesses to
+> fault-status registers in the SMMU fault handlers possible.
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
-> Changes since v7:
->  * New comment for rec_exit_sync_dabt() explaining the call to
->    vcpu_set_reg().
-> Changes since v5:
->  * Inject SEA to the guest is an emulatable MMIO access triggers a data
->    abort.
->  * kvm_handle_mmio_return() - disable kvm_incr_pc() for a REC (as the PC
->    isn't under the host's control) and move the REC_ENTER_EMULATED_MMIO
->    flag setting to this location (as that tells the RMM to skip the
->    instruction).
-> ---
->  arch/arm64/kvm/inject_fault.c |  4 +++-
->  arch/arm64/kvm/mmio.c         | 16 ++++++++++++----
->  arch/arm64/kvm/rmi-exit.c     | 15 +++++++++++++++
->  3 files changed, 30 insertions(+), 5 deletions(-)
+> Guard the context and global fault handlers with
+> arm_smmu_rpm_get_if_active() and arm_smmu_rpm_put() so that all SMMU
+> fault register accesses are done with the SMMU powered. If the SMMU is
+> not runtime active, the fault can be safely ignored as
+> arm_smmu_device_reset() clears fault registers on resume.
 > 
-> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-> index 89982bd3345f..6492397b73d7 100644
-> --- a/arch/arm64/kvm/inject_fault.c
-> +++ b/arch/arm64/kvm/inject_fault.c
-> @@ -228,7 +228,9 @@ static void inject_abt32(struct kvm_vcpu *vcpu, bool is_pabt, u32 addr)
->  
->  static void __kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
+> Additionally, disable fault reporting in arm_smmu_runtime_suspend()
+> before powering down. pm_runtime_get_if_active() returns 0 during
+> RPM_SUSPENDING, so without this, level-triggered fault interrupts would
+> cause an interrupt storm while the device is being suspended.
+> arm_smmu_device_reset() re-enables fault reporting on resume.
+> 
+> Fixes: b13044092c1e ("drm/msm: Temporarily disable stall-on-fault after a page fault")
+> Co-developed-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+> Signed-off-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+> Signed-off-by: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+> @@ -2306,6 +2329,25 @@ static int __maybe_unused arm_smmu_runtime_resume(struct device *dev)
+
+[...]
+
+I believe, there is a small race condition in the suspend path that can
+lead to unclocked register access crashes. (Something similar to what
+I've attempted to handle in arm-smmu-v3 [1])
+
+In arm_smmu_runtime_suspend(), we disable interrupt reporting in sCR0 and
+SCTLR, and then immediately call clk_bulk_disable(). This disables the
+interrupt generation but what about the interrupt handlers running
+*during* suspend? I believe we could have this race:
+
+CPU 0 (Suspend Context)                    CPU 1 (Interrupt/ISR Context)
+-----------------------                    -----------------------------
+                                        1. arm_smmu_context_fault() starts.
+                                        2. rpm_get_if_active() returns 1.
+                                           (Clocks are ON)
+3. arm_smmu_runtime_suspend()
+   - Clears CFIE/GFIE in registers
+     (stops new IRQs from firing)
+4. clk_bulk_disable()
+   (Clocks are CUT)
+                                        5. Attempts MMIO access (e.g, to
+                                           clear CB_FSR or CB_RESUME).
+                                           --> [CRASH] Unclocked MMIO access
+
+I believe similar to arm-smmu-v3 [1], we must call synchronize_irq()
+on context interrupts after disabling them in the SCTLR but before
+we cut the clocks. This forces CPU 0's suspend thread to sleep and wait
+for any active ISRs to safely drain while the SMMU still has clocks.
+
+We can simply add this loop to arm_smmu_runtime_suspend():
+
+>  static int __maybe_unused arm_smmu_runtime_suspend(struct device *dev)
 >  {
-> -	if (vcpu_el1_is_32bit(vcpu))
-> +	if (unlikely(vcpu_is_rec(vcpu)))
-> +		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_INJECT_SEA;
-> +	else if (vcpu_el1_is_32bit(vcpu))
->  		inject_abt32(vcpu, iabt, addr);
->  	else
->  		inject_abt64(vcpu, iabt, addr);
-
-Why don't you let inject_dabt64() do its job and reconcile the REC
-stuff at run time?
-
-> diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
-> index e2285ed8c91d..a8c125205695 100644
-> --- a/arch/arm64/kvm/mmio.c
-> +++ b/arch/arm64/kvm/mmio.c
-> @@ -6,6 +6,7 @@
->  
->  #include <linux/kvm_host.h>
->  #include <asm/kvm_emulate.h>
-> +#include <linux/arm-smccc-rmi.h>
->  #include <trace/events/kvm.h>
->  
->  #include "trace.h"
-> @@ -138,14 +139,21 @@ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu)
->  		trace_kvm_mmio(KVM_TRACE_MMIO_READ, len, run->mmio.phys_addr,
->  			       &data);
->  		data = vcpu_data_host_to_guest(vcpu, data, len);
-> -		vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
+>  	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
+> +	int i;
+> +	u32 reg;
 > +
-> +		if (vcpu_is_rec(vcpu))
-> +			vcpu->arch.rec.run->enter.gprs[0] = data;
-> +		else
-> +			vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
+> +	/*
+> +	 * Disable fault reporting before powering down to prevent unclocked
+> +	 * register accesses in the fault handlers if an interrupt races with
+> +	 * the suspend callback (e.g. device in RPM_SUSPENDING state).
+> +	 * arm_smmu_device_reset() re-enables fault reporting on resume.
+> +	 */
+> +	reg = arm_smmu_gr0_read(smmu, ARM_SMMU_GR0_sCR0);
+> +	reg &= ~(ARM_SMMU_sCR0_GFRE | ARM_SMMU_sCR0_GFIE |
+> +		 ARM_SMMU_sCR0_GCFGFRE | ARM_SMMU_sCR0_GCFGFIE);
+> +	arm_smmu_gr0_write(smmu, ARM_SMMU_GR0_sCR0, reg);
+> +
+> +	for (i = 0; i < smmu->num_context_banks; i++) {
+> +		reg = arm_smmu_cb_read(smmu, i, ARM_SMMU_CB_SCTLR);
+> +		reg &= ~(ARM_SMMU_SCTLR_CFIE | ARM_SMMU_SCTLR_CFRE);
+> +		arm_smmu_cb_write(smmu, i, ARM_SMMU_CB_SCTLR, reg);
+> +	}
 
-This is yet another example of things I do not want to see. KVM works
-on the GPRs described in the vcpu structure. And that's it.
+    for (i = 0; i < smmu->num_context_irqs; i++)
+        synchronize_irq(smmu->irqs[i]);
 
-So let the ESR information be correct for CCA, the data being written
-back to x0, and once you're ready to enter the guest again, copy
-whatever you need into the CCA data structure.
-
-But not any of this stuff.
-
->  	}
 >  
->  	/*
->  	 * The MMIO instruction is emulated and should not be re-executed
->  	 * in the guest.
->  	 */
-> -	kvm_incr_pc(vcpu);
-> +	if (vcpu_is_rec(vcpu))
-> +		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_EMULATED_MMIO;
-> +	else
-> +		kvm_incr_pc(vcpu);
+>  	clk_bulk_disable(smmu->num_clks, smmu->clks);
+>  
 
-Same thing. kvm_incr_pc() sets a flag. Use that to reconcile the state
-with CCA.
+Since we're disabling those interrupts and fixing concurrency, 
+this seems like the perfect opportunity to add the sync_irq too..
 
-	M.
+What do you think?
 
--- 
-Without deviation from the norm, progress is not possible.
+With that loop added:
+
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+
+Thanks,
+Praan
+
+[1] https://lore.kernel.org/all/20260728210928.1050849-10-praan@google.com/
+
 
