@@ -4,94 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A126C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:11:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB663C55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:13:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n762/MxYtv1d3KOPSEF5oTaF+noAfHsJGw6J2wXrY+s=; b=QTyyKaLo9ZSoBzGShYxXGwM41t
-	Ap+AXNierlrXcpyJHEAVhWVKsdlSue6gGVq+i/Pr9lnRvs/rl89xLD+n1BrPdz67CV12PeewdxYix
-	kS0yVYahCTaYhYaAiaV/0rgnCc9xcxcgr1JWWe1py7tYG6gfub5DPj99ISXlTJEYirHQz2pE9H9s7
-	rEdNaNdU7LsgkSrS5wwdZpTfvCTFwNch4Q/1voXulLrOEwGbghRJaitkkIeaxG0lklOtFmynchze1
-	qHLQkQibw5NPzAI0oDNTQ8DPD7yvYBkFEjdc/fyrOGKistNrM2VpKoypOHsCvGDLwa/uoR8NVB7Ww
-	Li0wSEhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I6Kz68yYAXo6+FxgCcZ8xt2d27kzI8ELfLUFCtIDH5c=; b=SOsRyrqDbW485Ky8mzcZov1/8q
+	UTqtDPGhmSSA6ro7qodPlXwsiLAbA9AGoXO12pRWiz/J5vHC1xoEYfcAgRoIjmWLRGO/HZn6OZSsu
+	xlwP4tijyWMFw9wqHStAN2EgOWaxF3F9naz6C8oasa0UR34R0XZ7EZ0xFfN48qaTsL7VdukF1eneh
+	0dhCo6NqtL2pZsggZdpYWAWxegz9IfUILsvZcs6e7ZliWTEQUiLPQFlQa5W5lJbX46V7E8lEutZX7
+	HL41UaqIsQdvgRgP++SuNUO74bW6Y7AnSsw6sWWIN6mfHilt+s8vqWaM/IlHhxpOYpDaTo+RT2QQ/
+	Uurnw/ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqZr-0000000GvFO-05Be;
-	Mon, 03 Aug 2026 11:11:27 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wqqbw-0000000GvPN-0zjd;
+	Mon, 03 Aug 2026 11:13:36 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqZo-0000000GvEw-2YD7
+	id 1wqqbt-0000000GvOl-0WjF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 11:11:25 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2ccdf36f63dso128885ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 04:11:23 -0700 (PDT)
+	Mon, 03 Aug 2026 11:13:34 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2cc97653887so34139915ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 04:13:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785755483; x=1786360283; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=n762/MxYtv1d3KOPSEF5oTaF+noAfHsJGw6J2wXrY+s=;
-        b=mGP1u7vy1HsY3uDL3JJdbINQyqHMzyhbPzmrYdTEzcHNlTl49f38zpnLPPLX75Hjc4
-         322Hie7Qx+Nsk7WVW5bp7mVazMo07uWb58cqtpNHcQhy4xU99zYsq26sgdqiUvkYqhFs
-         bXwljBh8UBc8IoWH5gYFsOCsrCrTtuF3fZih+vLgRcizZc9HXA9fyuKiyF5InyMH2u8Y
-         teTwnH6jXu8VUijf4geqTef9ca0P3NVHOZ+EpnAivrJ/MUB/WikCtRh2GjknnwOfCQqs
-         NyQ0rxYS67sf0kdC5fZtSJmjiujcopMLyCAuyrCDBqeW+YNB0miiTEK5OwwLGIwBxvnf
-         kOzg==
+        d=chromium.org; s=google; t=1785755611; x=1786360411; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=I6Kz68yYAXo6+FxgCcZ8xt2d27kzI8ELfLUFCtIDH5c=;
+        b=ms1PpdbV7a+H8kltfDHzgQ4hTf6SajED2TJLtRJGnhQLbePbX18aY8IlN3Aw+c+z5g
+         2XVXq7/6aZbqK6Ld9IQM8Aq2X5CTrliRl6hZkMGM6zOGnkUB6lhPT1QpCnXU8XkaX2gB
+         MKnqH2kWBMBZhRwzqzWLKM99/V+3zwTj+Ac4g=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785755483; x=1786360283;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=n762/MxYtv1d3KOPSEF5oTaF+noAfHsJGw6J2wXrY+s=;
-        b=PvrgtAPVh0ibkOQQCzrO62/umDm/PCZpMrJageLMBDG2dfBx7mI3eWeJp5T+73Uq3/
-         F1MGnmkH6R2DNB6Tki6zd5PshKw8QupTKva1GEglYaJd+5dUE6CLEz5gYJG6XoC+r14A
-         9dhfNOZ0dF6/cH9QUkU4f/3k6klkooO6mByXdLND8tLY5EwCu3+niuzsFAC9DcTlhy5E
-         pIgMKTmNiA8LxUiYTq2qM9rVWkee17C2HSO5jbDTBSEH3hOVrExUUowv5N41H33piGP1
-         R0lCe4dXrooO1+a2+j/Z1vVV0W1VYis+Mn0rdneZhHsxW7qKXgZeWOaQ2Y4gh4hla743
-         bmEg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro0dLbjb5EkI+TeiQxJW8gNNYONCj9dg8PBwfdlcn2Dk4btRfZpNXDFxuLXm4LCvQNWfblPxePVR9QZ4KhRg0r3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxsrf/s8Q7lFyJx6+wiB2KNo4XLibidYFVy8527hu5dB6KTNIP/
-	bKUcuHRU4mORnxrrSHIxOKyqLZrFsE8XvaHrbdpnE2xbP4/Z6lvjKJrdYi5ZZV+gzQ==
-X-Gm-Gg: AR+sD12UeKMx6ZdBpY/vEMquvkRitBPeGgbP1vG7JLAWWa6UM/glObk3rng2waOtOhU
-	iQBB4RhN+qznH+IjUp4yoAAaljtsRnmAnOeP1dg2JEkCp3OOvFPMHDQQI8Kif57TKx7PqDV2AKG
-	FaAQWLzRGjyKYrno2O95cnevVz7da7yklYP/Nk9+tjO0J+OXjA+3w00PVnFcBsKbMiuUHjSoPZ5
-	x4pfL6AnZc9QB1IXDeSN86m3QHg4BwdErQBmuB3+OdNpfij2K4B/JQSX0caknhiy9bC3XN99yOC
-	6hCQbB1YRG9AKEw7MJn46J1kL1UQkdFETvG2GWqpoL+8EHYLfdtSq/LbwiJ3JvwcvcWDMaQmHtx
-	vc8qdJeRpuFmr+JVMx1ddFhYgzF5egdjLvgsb8M2J3LkHsP6PP3wEywdLuizVHsmQAuy/WTuMBC
-	Zmi3zieAkuRC1Tbzbj06rGbPDMJ3U7hSCNsoUMW6SOUNJMbquqqIHjZSIxhzsDJelP8KeMG+nxX
-	/0add1B0r0WlI3ftIHKdEI=
-X-Received: by 2002:a17:902:ce0a:b0:2ca:4bb4:4bd with SMTP id d9443c01a7336-2d056f86736mr14315255ad.5.1785755481934;
-        Mon, 03 Aug 2026 04:11:21 -0700 (PDT)
-Received: from google.com (21.168.124.34.bc.googleusercontent.com. [34.124.168.21])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38fb30a43a6sm3840095a91.12.2026.08.03.04.11.17
+        d=1e100.net; s=20251104; t=1785755611; x=1786360411;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=I6Kz68yYAXo6+FxgCcZ8xt2d27kzI8ELfLUFCtIDH5c=;
+        b=QF5h8dNCb5bxgOBfY4Od17szGOwRydTP7kWYgeolsno66gfXOwp0qgZ3xSkKZAnoUO
+         kzJtZhUPTLrdJ0mwoqAt9wgt0HhblwUwNDT+UwMcCRtMOVHZ1O88c6sxNGsG8T1tfysS
+         dAbpkyw40XqloDzp9yfMaDl+Jaj6EpObuQF4porETOPUThE2xJ206LoRXC4bZjzp0Fsu
+         K4vclHkBdWws1DXP7EKp8iGE5D94oAsGXLS0MfFfQYEK/3F1eApa96x/ypvXPUuWu4GA
+         qvS95rkXSX75Dd8mmxYY0UbaAcDafy+nkabrBd3XsLXZ5F66x4JZT0zPn4oeNfe6julp
+         w2Uw==
+X-Forwarded-Encrypted: i=1; AHgh+RoBfPj0Xjy9q/JIBri9CI3p3Rcw4iHBqO7a4V1W1zL8+1kdidTmSuvJRJyn2q70JbFo3FVyDtLbdtYhZsF0x6Cs@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIgt1QtdGYBYeVem276DXBzzaN/e5iTd4rR9qmHRNPnq7Ys0vV
+	CiUm6/FlzX3hGP07PhI6MOK10ZcDSs0FyintPCSGvRN31FNbfDU/dU6/7tRstXlePQ==
+X-Gm-Gg: AR+sD13mqXLBwGzydQcCZDC/AWRop6BmFnxPtG3CxH9l1GBd+P1f4GxtJGhW3P6Ukyn
+	htFkIERMJF0dnsKKfSUdGlwxU43I/FwMMnbfGU651XQNTQvAgKt19smyGCklK6t5hgQR2RfAMf0
+	++ZGPFm2FWUENa+6Vvk6qntAA/q1cOAbY6CErEnXG2U/fPhyRbhkeJuKZ6xBzbLUn0rgps2PjZB
+	ZiYHyEoh5z7yE1uCKlnLqmeyw0EpNkmV04UfCN80XzbasWLXbLYtCediGEyaYKvjkKFZh37WDmo
+	EAedYZkK/dTeFhY+zkqDanTYKqpwyZ6i0g6rSnsJJ4Fw7G2ug1RdnI3ej/qrKGOJ/G04XFGQ+r/
+	T8gHDUkzO1vVcS0/KuZ5LiZ9tiFqfypnk4jLMnF49DPFL2ZyGpx2En1RGkDxHu2mT0O1wk4uPHK
+	Qk4onK9TbyOGdkNL8vrmLTH4DIo2XCN9DoAD8ns1ELevH41MjHPQo7Nfeek/+yNgIx7q5vvDrOE
+	BJkwsoyibwBlUPEiZwZuMJZEoMGVdvtuZvBOz48IQXIzw==
+X-Received: by 2002:a17:903:1b50:b0:2ca:17e2:2acc with SMTP id d9443c01a7336-2d052297a68mr94429995ad.21.1785755611549;
+        Mon, 03 Aug 2026 04:13:31 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:1c0b:57ba:92e2:e178])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04b11e69asm36171805ad.56.2026.08.03.04.13.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 04:11:20 -0700 (PDT)
-Date: Mon, 3 Aug 2026 11:11:14 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Connor Abbott <cwabbott0@gmail.com>, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-	Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
-Subject: Re: [PATCH v3] iommu/arm-smmu: Use pm_runtime in fault handlers
-Message-ID: <anB3Ukk7JM42Wgpp@google.com>
-References: <20260630-smmu-rpm-v3-1-f69874a580fa@oss.qualcomm.com>
+        Mon, 03 Aug 2026 04:13:30 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-sunxi@lists.linux.dev,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] drm/sun4i: framebuffer: Set mode_config.normalize_zpos
+Date: Mon,  3 Aug 2026 19:13:18 +0800
+Message-ID: <20260803111319.2836240-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.55.0.571.g244d577d93-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260630-smmu-rpm-v3-1-f69874a580fa@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_041124_679290_F7369447 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20260803_041333_200955_8F0207CD 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,70 +101,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 02:32:46PM +0530, Prakash Gupta wrote:
+Back when support for zpos was added in commit 47a05f4a68f9 ("drm/sun4i:
+backend: Add support for zpos"), a custom atomic_check callback was also
+added in commit b8f1230dd3bf ("drm/sun4i: framebuffer: Add a custom
+atomic_check") to have a place to call drm_atomic_normalize_zpos().
 
-Hi Prakash,
+Commit 49efffc7fbd4 ("drm: Add drm_mode_config->normalize_zpos boolean")
+added drm_atomic_normalize_zpos() to the standard atomic_check function.
 
-> Commit d4a44f0750bb ("iommu/arm-smmu: Invoke pm_runtime across the driver")
-> enabled pm_runtime for the arm-smmu device. On systems where the SMMU
-> sits in a power domain, all register accesses must be done while the
-> device is runtime active to avoid unclocked register reads and
-> potential NoC errors.
-> 
-> So far, this has not been an issue for most SMMU clients because
-> stall-on-fault is enabled by default. While a translation fault is
-> being handled, the SMMU stalls further translations for that context
-> bank, so the fault handler would not race with a powered-down SMMU.
-> 
-> Adreno SMMU now disables stall-on-fault in the presence of fault
-> storms to avoid saturating SMMU resources and hanging the GMU. With
-> stall-on-fault disabled, the SMMU can generate faults while its power
-> domain may no longer be enabled, which makes unclocked accesses to
-> fault-status registers in the SMMU fault handlers possible.
-> 
-> Guard the context and global fault handlers with
-> arm_smmu_rpm_get_if_active() and arm_smmu_rpm_put() so that all SMMU
-> fault register accesses are done with the SMMU powered. If the SMMU is
-> not runtime active, the fault can be safely ignored as
-> arm_smmu_device_reset() clears fault registers on resume.
-> 
-> Additionally, disable fault reporting in arm_smmu_runtime_suspend()
-> before powering down. pm_runtime_get_if_active() returns 0 during
-> RPM_SUSPENDING, so without this, level-triggered fault interrupts would
-> cause an interrupt storm while the device is being suspended.
-> arm_smmu_device_reset() re-enables fault reporting on resume.
-> 
-> Fixes: b13044092c1e ("drm/msm: Temporarily disable stall-on-fault after a page fault")
-> Co-developed-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
-> Signed-off-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
-> Signed-off-by: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
-> ---
-> Changes in v3:
-> - Add arm_smmu_rpm_get_if_active() wrapper that returns 1 when pm_runtime
->   is disabled, ensuring fault handlers work on non-pm_runtime systems
-> - Disable fault reporting in arm_smmu_runtime_suspend() before powering
->   down to prevent interrupt storms during RPM_SUSPENDING state
-> - Use pm_runtime_put_autosuspend() in arm_smmu_rpm_put() instead of
->   private __pm_runtime_put_autosuspend()
-> - Link to v2: https://patch.msgid.link/20260313-smmu-rpm-v2-1-8c2236b402b0@oss.qualcomm.com
-> 
-> Changes in v2:
-> - Switched from arm_smmu_rpm_get()/arm_smmu_rpm_put() wrappers to
->   pm_runtime_get_if_active()/pm_runtime_put_autosuspend() APIs
-> - Added support for smmu->impl->global_fault callback in global fault handler
-> - Remove threaded irq context fault restriction to allow modifying stall
->   mode for adreno smmu
-> - Link to v1: https://patch.msgid.link/20260127-smmu-rpm-v1-1-2ef2f4c85305@oss.qualcomm.com
-> ---
->  drivers/iommu/arm/arm-smmu/arm-smmu.c | 92 +++++++++++++++++++++++++----------
->  1 file changed, 67 insertions(+), 25 deletions(-)
-> 
+Set mode_config.normalize_zpos and drop the custom atomic_check
+implementation, which at this point is just a simplified copy of the
+standard one. The standard one also checks whether async updates are
+valid and updates the self refresh state, but neither feature is
+supported by this driver.
 
-[...]
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+---
+ drivers/gpu/drm/sun4i/sun4i_framebuffer.c | 19 ++-----------------
+ 1 file changed, 2 insertions(+), 17 deletions(-)
 
-This version looks fine to me, 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+diff --git a/drivers/gpu/drm/sun4i/sun4i_framebuffer.c b/drivers/gpu/drm/sun4i/sun4i_framebuffer.c
+index 9c8ef927d929..fc822bc2c62b 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_framebuffer.c
++++ b/drivers/gpu/drm/sun4i/sun4i_framebuffer.c
+@@ -14,24 +14,8 @@
+ #include "sun4i_drv.h"
+ #include "sun4i_framebuffer.h"
+ 
+-static int sun4i_de_atomic_check(struct drm_device *dev,
+-				 struct drm_atomic_commit *state)
+-{
+-	int ret;
+-
+-	ret = drm_atomic_helper_check_modeset(dev, state);
+-	if (ret)
+-		return ret;
+-
+-	ret = drm_atomic_normalize_zpos(dev, state);
+-	if (ret)
+-		return ret;
+-
+-	return drm_atomic_helper_check_planes(dev, state);
+-}
+-
+ static const struct drm_mode_config_funcs sun4i_de_mode_config_funcs = {
+-	.atomic_check		= sun4i_de_atomic_check,
++	.atomic_check		= drm_atomic_helper_check,
+ 	.atomic_commit		= drm_atomic_helper_commit,
+ 	.fb_create		= drm_gem_fb_create,
+ };
+@@ -46,6 +30,7 @@ void sun4i_framebuffer_init(struct drm_device *drm)
+ 
+ 	drm->mode_config.max_width = 8192;
+ 	drm->mode_config.max_height = 8192;
++	drm->mode_config.normalize_zpos = true;
+ 
+ 	drm->mode_config.funcs = &sun4i_de_mode_config_funcs;
+ 	drm->mode_config.helper_private = &sun4i_de_mode_config_helpers;
+-- 
+2.55.0.571.g244d577d93-goog
 
-Thanks,
-Praan
 
