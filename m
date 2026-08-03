@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858DEC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:53:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A745BC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KP2LOm/b1vDApC79L7HU3Q+z5sMfbtyywYlbaxYaS3U=; b=weoUV+rckrw72W3s5/knYd+73l
-	I7oS6R6UeksEM140RfV63E0H+MdMdlGZGX2eD5l6a3B7QYMunQowS+4IVFCm+jOvag0tfqIYq+upK
-	CpXUxTIGoVy2RPMXAvMgleWaTeC3jjGki/drwuMzPvcAKFcMNXEtkbaD1gRiaKI7zRc4KmNKgUdhN
-	8eFpCH65KFMiKdKVNZLdvn4r4/gbwyDKnGDSB+9zoDove2mfhOPXLtwUZcvR7LVr3bbd02BU/+9KX
-	U8n2pZ4hB2KFk2haNJpJNz4mp6uGKaWCTqdUOJDdrxNgGTQmoT0vUgintvsKIv5LB6KKVhUALVFds
-	2Vf8fKTw==;
+	bh=5Gx76VJyX4gBn4VLPhypngQoj/jr3IBftVHMJXbc1Po=; b=bPDFzDluNrRvLAj9p17Rxq5Rfd
+	Uukv7qfoqUEC9ieI5D4zJjgxzohpqzHdfo0Ozr0ScZHzAqyXiPprrRmJCOWoIcbXERSBDxhi+y6mW
+	356eCNNo67NaIxkXQEC8MuOxVgqIOnT48x2+8qygHkRDGktsnPWo3NvQf4ZG3+bSsZFKu3RerYB+9
+	jkvA3crJSfzTGZMcXmzm6DkoKJNN8Zk7y+oX6be4IaxbfvHO6hh+RnY7OFrqH++2PJC4jjBQSUib9
+	5pNFRmJhAMq0OhPB6iWEIeXTRpcAIBybbcTlRasR9UzHk1ijSWex7wFmErhU0gg6pVJ6aI3QXqBKP
+	ZAnLMJyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqt6E-0000000HGbP-1Rm5;
-	Mon, 03 Aug 2026 13:53:02 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1wqt6i-0000000HGjq-24LW;
+	Mon, 03 Aug 2026 13:53:32 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqt6A-0000000HGa6-2GOX
+	id 1wqt6f-0000000HGij-2vvt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 13:53:00 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2cc7ef7ec27so37699935ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 06:52:57 -0700 (PDT)
+	Mon, 03 Aug 2026 13:53:30 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-848743155bcso1267347b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 06:53:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1785765177; x=1786369977; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1785765208; x=1786370008; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=KP2LOm/b1vDApC79L7HU3Q+z5sMfbtyywYlbaxYaS3U=;
-        b=GNhr7E6wkawvOgQaTENdcCpjtKF3wNYnApIvBDRfqWiJS6+M/fXXQpnmEoElZFn8Ge
-         6LOt1aust1K7oiAd2+8Qxe+ZxmXb+2pc+srWyCwyP0B/s/Ly1uv9BtI1EhfFjgv5daLS
-         m123LaOULy1rqWbdar1nFRThdLV9q/byRt2C0=
+        bh=5Gx76VJyX4gBn4VLPhypngQoj/jr3IBftVHMJXbc1Po=;
+        b=mSTe4OUaA9J1b2d3Ew7ygoIvx80QpeTjH4dQ/Q9IpFYgOlOfbd5+PsN8DuKbMQhxbF
+         PeQF0oBWe63PkQxn9gelf6ZMILQYfhkNBTSldOTRI5XUzNUTU0f1atcRrutokKvT906T
+         id1SL8vBji02uAnxv8cILg6Vo9Go9lEPADUJo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785765177; x=1786369977;
+        d=1e100.net; s=20251104; t=1785765208; x=1786370008;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KP2LOm/b1vDApC79L7HU3Q+z5sMfbtyywYlbaxYaS3U=;
-        b=IpIw/v8Va8QAM0WKiWFlNjmHvv9bE54sN+yG2XhNcBqwiU0jg+OAKsZvgE9kPnA4GS
-         jPxcRWw3GM6HOfWsj8YDFCFuImaTVsAf7U0nAT/D+4TZRs+xw8sNNQJwa5XEK7rOsQCx
-         YKQKU4y5WoxY7tGro2C6fQfEl0jV8qIgZ2HTcUONRXkQBeMXbj8Mfyqm7nPBwtt7n0wk
-         6q3bZ/1QXNk7Zc4NmGIja2uSkc3KBF8qWIFSt9/RwI+d4Du+LE6GooB88PPpy2Gxtv4Z
-         GHDvCGeZAdzbQIujvB0oQoeTL2jcBAZblVoKSUBMdub6hPO1H5biRxIXooiUW1iTRrHq
-         yexg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq/BVfdiuqj90XMQud/VouGPHmaUG2/0uETFLk53Di/c2uNXZtZTgbs/x0XbxqoA7DbdAFlwQIWCJAEPFHJPIEK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMA1MPoLt+FfSXgnFfQge76mWbwZQSXzXhjgvcsfcAcSJYqNfu
-	HqAmcmje3G+hD/SfWCiD1/ity+CzWPfcLRg+0UEVou+cLKE4RjuS0+PUcOLDMJm1+w==
-X-Gm-Gg: AR+sD1046W+8KN/5rKvgQ09ouTcCTsd/5NgY73re0cSy7sEkp/eB1TVecxBu6sI5Apm
-	8NsKjqc/c/sXkblS3d0vRRVVLfLe5gKUMLewQ7w4T3ZdRRyHEuTRkt62DNbUEm0sruybLQKwi8y
-	nwd03NpVn1LFOv9McW4HUFyhgDyEWO2HD+ujuEW8H4MKDhbRVNBDHdrFe/I8DYkglRWXtgYaZj7
-	az+PibyF1fUCWj2R/hXb26tEjvQY8CuFRjinFe1nv1NO48xI0OU20mOg2vJZQIYJmKUSOisDd78
-	L+/rvW+PiFsHImdrF4R9+rqbp3aNxh+BxFT+ANsSL/fOLKB/u9733XcWsjcW8K4pe9CUjRbXaa8
-	znrcjzKpoQt/9qLxf8haGzd4plwVxZ4rFRcXKOp48hDE3KlvK+NitwZWOmuhhkLWkLv0Ikwr/F0
-	HAznwiQc4VEEg1BayiEKKpjQdhC/aGoEJuG3oKWRgWnk/gNRF3W6ZCGt0DojU5qDrsLOrKmbMX7
-	M8Sf9g4R4PPkFOvPxJV1BwLv1IJe1lu8pIynF8k/aNaDRHxVLWXhLup
-X-Received: by 2002:a17:902:ce0b:b0:2cc:f4d4:299f with SMTP id d9443c01a7336-2d05229b34fmr106179645ad.27.1785765177126;
-        Mon, 03 Aug 2026 06:52:57 -0700 (PDT)
+        bh=5Gx76VJyX4gBn4VLPhypngQoj/jr3IBftVHMJXbc1Po=;
+        b=r68ukkenBXwLpjmh/HeF0MipV6plZL+9PdxfypGto4UyKbWj/2y7ybeVYmawGrmO7p
+         6LIJd0cXJjr9GI6SK7VeMKPTPWIx52jU8YKmHBheTxrlDdDERqj/lOsYIqxL4Z/t1k62
+         tHiGCvivNUCmDLsQ9tePEDdwZBI7EVFWJam374L++8AauvQ+EdCGcrUghFzKeFCsV3Zv
+         /vR80L+Bh14vQWqLvIPuI0L1eQUO01yw9eDs8mZoT2Bzn4fE1Am34HMQGsfqRvmSSyLc
+         eAHiwBMjLY/IyGIjU47ngMeZlpxw6H9ksVStGM6/YEqJVRIBO+hh79GefTFCAquEhNKu
+         R7HQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrlEtKzFPgVr1/HjPUjebrIUYKvqFmBM68R9p8WR9LY0udYJ/lLfUPjPf9wFuE7Zj1LbF3f7dTkXrieWHrTmHAS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0dQ7NplLDPS7FHDjCTqfsgTCnSFrnvN/3C9E/v8EtZ04B8YbW
+	xrc6uYDOTBPAF26/kcvJXgd/fqBNq3zrCm9Gg7GTsLai128OeBc1wGVxskQ6Vw6J6tWNtGOPtxK
+	WIz5NzA==
+X-Gm-Gg: AR+sD136WhydFX+HUCt/Vqko5Tcs5wA4WhMFhJsS3o5Es9ssJycf+hJmvXbeNI+daHw
+	4ZBfpk51MUEPuZGryYiIiYoeTNI4Vd5v06buZ4Yd2g4e3URtC1JuKyAWnIX46Ktpq5l/fj490LH
+	ZNLpkNiwiHl64nygdtR77FM/0DvgEnd8n5O0/DuvrY5M8gJp5gpm2cIyQ+GfjJDagUhcdP7uHSG
+	A87qArVhOTMouTVgIT0xw/R6CrTdBRwNkMTcTbgm5h3W/Uf+5w8otqN+Tmtdn+yyLqrDlQ7Kxo3
+	LZ/EyaOTDC1on4FiqV8z90kaxis8neo54DKQkn8YBoisGdxpz1e8TIUzzz12g+7EW/pQHU4bPFb
+	q25q3ep26QM6HGSfuKvLjdRTFWSIB54dmpgNI7wPL4KIoCsPlaBSh+nfMWc3mTGl6ZO95X5xMlY
+	F5l8rCEUNT5gflgVmv/zMOZwy/g/hmvb6fR17Jz1JtoMdXob90z3Q5UbzWh+KAr0eX/hHV9Wykc
+	KtUMKeEEzkrVwDj6dG/FelKFWr43yuNDbfqilcCjDkB5w==
+X-Received: by 2002:a05:6a00:399b:b0:848:4ff5:5316 with SMTP id d2e1a72fcca58-84ee480a3c8mr9142674b3a.19.1785765208605;
+        Mon, 03 Aug 2026 06:53:28 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:1c0b:57ba:92e2:e178])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04b12066fsm38791965ad.60.2026.08.03.06.52.53
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84edbe7a243sm3757511b3a.24.2026.08.03.06.53.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 06:52:56 -0700 (PDT)
+        Mon, 03 Aug 2026 06:53:28 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Inki Dae <inki.dae@samsung.com>,
 	Seung-Woo Kim <sw0312.kim@samsung.com>,
@@ -79,15 +80,15 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/exynos: Set supported modifiers during plane init
-Date: Mon,  3 Aug 2026 21:52:47 +0800
-Message-ID: <20260803135249.2898083-1-wenst@chromium.org>
+Subject: [PATCH] drm/exynos/gem: Drop extra "0x" prefix in front of "%pad" format
+Date: Mon,  3 Aug 2026 21:53:21 +0800
+Message-ID: <20260803135322.2898247-1-wenst@chromium.org>
 X-Mailer: git-send-email 2.55.0.571.g244d577d93-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_065258_720223_5A6EB3A0 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20260803_065329_737017_BB6B1C1E 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,132 +103,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The exynos driver currently checks the modifier in a helper called by
-the plane atomic check helper callback. This check only concerns whether
-the selected plane supports the tiled format or not. This is tied to
-the plane's hardware capability.
+The recent size_t format string fix for exynos DRM driver left the "0x"
+prefix in front of "%pad" format around. Since the pointer format output
+already provides "0x" prefix, this ends up adding an extra prefix.
 
-Turns out the tiled support was added around the same time modifiers
-were being plumbed through DRM planes. The latter provided a way to
-describe per-plane modifier support.
+Drop the redundant "0x" prefix".
 
-Add a field to the hardware plane capability struct to allow adding
-an optional list of supported modifiers. This is passed to
-drm_universal_plane_init(). This also allows the core to generate
-and pass to userspace a list of supported modifiers for each plane.
-
-EXYNOS_DRM_PLANE_CAP_TILE and the existing helper are removed, as the
-check is now down by the DRM atomic check.
-
+Fixes: 3470274dca48 ("drm/exynos: fix size_t format string")
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- drivers/gpu/drm/exynos/exynos_drm_drv.h   |  2 +-
- drivers/gpu/drm/exynos/exynos_drm_plane.c | 30 +----------------------
- drivers/gpu/drm/exynos/exynos_mixer.c     |  8 +++++-
- 3 files changed, 9 insertions(+), 31 deletions(-)
+ drivers/gpu/drm/exynos/exynos_drm_gem.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.h b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-index b126cd129944..ab0edb826261 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.h
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.h
-@@ -92,7 +92,6 @@ struct exynos_drm_plane {
- #define EXYNOS_DRM_PLANE_CAP_DOUBLE	(1 << 0)
- #define EXYNOS_DRM_PLANE_CAP_SCALE	(1 << 1)
- #define EXYNOS_DRM_PLANE_CAP_ZPOS	(1 << 2)
--#define EXYNOS_DRM_PLANE_CAP_TILE	(1 << 3)
- #define EXYNOS_DRM_PLANE_CAP_PIX_BLEND	(1 << 4)
- #define EXYNOS_DRM_PLANE_CAP_WIN_BLEND	(1 << 5)
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_gem.c b/drivers/gpu/drm/exynos/exynos_drm_gem.c
+index 0208c9259572..acb8def747de 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_gem.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_gem.c
+@@ -80,7 +80,7 @@ static void exynos_drm_free_buf(struct exynos_drm_gem *exynos_gem)
+ 		return;
+ 	}
  
-@@ -112,6 +111,7 @@ struct exynos_drm_plane_config {
- 	const uint32_t *pixel_formats;
- 	unsigned int num_pixel_formats;
- 	unsigned int capabilities;
-+	const uint64_t *modifiers;
- };
+-	DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%pad), size(0x%zx)\n",
++	DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(%pad), size(0x%zx)\n",
+ 			  &exynos_gem->dma_addr, exynos_gem->base.size);
  
- /*
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_plane.c b/drivers/gpu/drm/exynos/exynos_drm_plane.c
-index 5c04ef87e400..31f5f0941154 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_plane.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_plane.c
-@@ -174,30 +174,6 @@ static struct drm_plane_funcs exynos_plane_funcs = {
- 	.atomic_destroy_state = exynos_drm_plane_destroy_state,
- };
- 
--static int
--exynos_drm_plane_check_format(const struct exynos_drm_plane_config *config,
--			      struct exynos_drm_plane_state *state)
--{
--	struct drm_framebuffer *fb = state->base.fb;
--	struct drm_device *dev = fb->dev;
--
--	switch (fb->modifier) {
--	case DRM_FORMAT_MOD_SAMSUNG_64_32_TILE:
--		if (!(config->capabilities & EXYNOS_DRM_PLANE_CAP_TILE))
--			return -ENOTSUPP;
--		break;
--
--	case DRM_FORMAT_MOD_LINEAR:
--		break;
--
--	default:
--		DRM_DEV_ERROR(dev->dev, "unsupported pixel format modifier");
--		return -ENOTSUPP;
--	}
--
--	return 0;
--}
--
- static int
- exynos_drm_plane_check_size(const struct exynos_drm_plane_config *config,
- 			    struct exynos_drm_plane_state *state)
-@@ -245,10 +221,6 @@ static int exynos_plane_atomic_check(struct drm_plane *plane,
- 	/* translate state into exynos_state */
- 	exynos_plane_mode_set(exynos_state);
- 
--	ret = exynos_drm_plane_check_format(exynos_plane->config, exynos_state);
--	if (ret)
--		return ret;
--
- 	ret = exynos_drm_plane_check_size(exynos_plane->config, exynos_state);
- 	return ret;
- }
-@@ -312,7 +284,7 @@ int exynos_plane_init(struct drm_device *dev,
- 				       &exynos_plane_funcs,
- 				       config->pixel_formats,
- 				       config->num_pixel_formats,
--				       NULL, config->type, NULL);
-+				       config->modifiers, config->type, NULL);
- 	if (err) {
- 		DRM_DEV_ERROR(dev->dev, "failed to initialize plane\n");
- 		return err;
-diff --git a/drivers/gpu/drm/exynos/exynos_mixer.c b/drivers/gpu/drm/exynos/exynos_mixer.c
-index 69dea5049309..d74e605a452b 100644
---- a/drivers/gpu/drm/exynos/exynos_mixer.c
-+++ b/drivers/gpu/drm/exynos/exynos_mixer.c
-@@ -93,6 +93,12 @@ static const uint32_t vp_formats[] = {
- 	DRM_FORMAT_NV21,
- };
- 
-+static const uint64_t vp_modifiers[] = {
-+	DRM_FORMAT_MOD_LINEAR,
-+	DRM_FORMAT_MOD_SAMSUNG_64_32_TILE,
-+	DRM_FORMAT_MOD_INVALID
-+};
-+
- struct mixer_context {
- 	struct platform_device *pdev;
- 	struct device		*dev;
-@@ -148,8 +154,8 @@ static const struct exynos_drm_plane_config plane_configs[MIXER_WIN_NR] = {
- 		.num_pixel_formats = ARRAY_SIZE(vp_formats),
- 		.capabilities = EXYNOS_DRM_PLANE_CAP_SCALE |
- 				EXYNOS_DRM_PLANE_CAP_ZPOS |
--				EXYNOS_DRM_PLANE_CAP_TILE |
- 				EXYNOS_DRM_PLANE_CAP_WIN_BLEND,
-+		.modifiers = vp_modifiers,
- 	},
- };
- 
+ 	dma_free_attrs(drm_dev_dma_dev(dev), exynos_gem->base.size, exynos_gem->cookie,
 -- 
 2.55.0.571.g244d577d93-goog
 
