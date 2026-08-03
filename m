@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C22ADC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:35:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00049C55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eDfo9eKyzT0l+RmH5CjS8vrTJvuTqzIw9lkamyHG674=; b=pVBM8PH0DCdQPfWoiQbvYDvyQ5
-	hUiF6uVv5LEnL9aNVaiPuHmfdWOe8+CJlsWs5UrztrN4kIyAV7Z4DEknnQKmTLumKUNFLUsCQ8V1A
-	EyBJLAu7K3USyZ7kOzii/Yu4jl+XaY+7BuuA3WWog9pXZoaWqgj31BUWaUiw9130Y1ePt/t0uWrva
-	muZNJiYN8GmpuV2tBmUKCeKwFWlvNKd71Uui/9wnqp9mWNm7UXISNmNS1vr5II+BEjzafCrOC/ldz
-	tIY2TtsfiABA75N2OQlwyoE1zDDt97pCUsmSrJXpG/PLqQIzbjPKmduJpRZ179aAkE2YY39bEtJ7A
-	g6cagRCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l/mcshskARNIpHGJ26P82gHPGmI0Z/0XAuy9eLd5Z3c=; b=EL4xjV+t6/aznX2HAh9QuqVIW9
+	N0UjglNsPtsdVMonEZRKbqSyevKyEYo5KAkhgvJJC907WqP/xvmlgaylKAHP4Y61Rqm/gcWNTFhWT
+	0wgXd1VeAWQWjbZB3xhF5yC4eNT3gbV2OOEx9r6Dyg7UK3jbA8b178sIwUmHegbheW1C33Q/qis0g
+	wmkJFmr5oYJNapC9Cug57KP/ILrYCdwTSpLwq5E6p1OXEQhBoXsX6EFIn2nk1BQvKUrv1zIPTpodU
+	UfwJ3mvQEAk9oH3zWgSsfntnXNeqzJAmVFyreYhV6Hvc2LUDnKQuCS5z70uDT5s/Hb01//jG9T+2x
+	EnDXuj5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqp4b-0000000GhMb-09sR;
-	Mon, 03 Aug 2026 09:35:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqp4Z-0000000GhMN-0DlB;
-	Mon, 03 Aug 2026 09:35:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1D79360A64;
-	Mon,  3 Aug 2026 09:35:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED8C11F000E9;
-	Mon,  3 Aug 2026 09:35:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785749701;
-	bh=eDfo9eKyzT0l+RmH5CjS8vrTJvuTqzIw9lkamyHG674=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kALLZ06UVNda9t0bDcd6uyMs7lEZh8yy04oW5oYTXAi/jJXliuy8VPkQf3sTPe2I5
-	 KTBNJ/ffKMafuE938wVcQlPB8c/rylf5I4MVy519VsajqFxLS75Cj9ySe1pYGOXyYA
-	 TErg+o08hB13kA7aF+srogvZIxD4UIG+GHt1vm8EeKyRbO2TTudacRdj1eRUOyCuZg
-	 9xVzYAMXBawN8qynz57qsLff4Hmk7YK30nfm0ISaH7KewEzewg4BJpoX/eE1q6S9vl
-	 FoYK1zHxgWRw+tvKjwaTvLhLiLBurmt+PJbK3yFD6glUCEZT9Njip2hghUMxpbODcL
-	 +GSM4qrzoPITw==
-Date: Mon, 3 Aug 2026 11:34:56 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add MangoPi M28K
-Message-ID: <20260803-fractal-sly-earthworm-2fe241@quoll>
-References: <20260801080018.3220034-1-amadeus@jmu.edu.cn>
- <20260801080018.3220034-2-amadeus@jmu.edu.cn>
+	id 1wqp5o-0000000GhXR-1Sn3;
+	Mon, 03 Aug 2026 09:36:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqp5l-0000000GhX3-4Bpm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 09:36:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE22E143D;
+	Mon,  3 Aug 2026 02:36:12 -0700 (PDT)
+Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EF093F66F;
+	Mon,  3 Aug 2026 02:36:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785749776; bh=VZ4Xa5/EKPJsS92yBrdHIczDDuHqowvN+VQUoxps2q8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eeQD6z5CR/E7rwK43XaeNdtAV3SSK26Z5IxwHxyHzp3PXkJMor3/jdCwXENDxqIfu
+	 pIWTD8IY5uX6wVPssh3vlwLyEBFohSIoBk1xeEudYjgMYDl2ad4u11zltvhXn8+iV7
+	 sltAAbvIEpFj45ICP/CFF+OUbs5lIZV5phfICDMc=
+Message-ID: <b65980e5-8db2-4346-898d-fd6fce87e6cc@arm.com>
+Date: Mon, 3 Aug 2026 10:36:13 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260801080018.3220034-2-amadeus@jmu.edu.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 40/45] arm64: nmi: Add Kconfig for NMI
+To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
+ catalin.marinas@arm.com, liaochang1@huawei.com
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+ <20260727163453.7969-41-vladimir.murzin@arm.com>
+ <c46ccf44-7414-42bf-9760-79200ac247ba@huawei.com>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <c46ccf44-7414-42bf-9760-79200ac247ba@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_023618_081966_92A0D891 
+X-CRM114-Status: UNSURE (   7.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,16 +73,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 01, 2026 at 04:00:17PM +0800, Chukun Pan wrote:
-> The MangoPi M28K is a dual-gigabit SBC developed by Widora based
-> on the RK3528 SoC. Add devicetree binding documentation for it.
+On 7/28/26 07:24, Jinjie Ruan wrote:
+>> +config ARM64_NMI
+>> +	bool "Enable support for Non-maskable Interrupts (NMI)"
+>> +	default y
+> I think we should select ARM_GIC_V3 here, as FEAT_GICv3_NMI need GICv3
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+>> +	help
+>> +	  Non-maskable interrupts are an architecture and GIC feature
+> GICv3 feature
 
-How did you resolve my comments from v1? You split patches instead of
-squashing and removed any explanation I asked for.
+Not really, GICv5 also supports NMI.
 
-Best regards,
-Krzysztof
-
+Thanks
+Vladimir
 
