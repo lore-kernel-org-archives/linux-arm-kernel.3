@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1BDC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C898C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:48:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ANCJ090YSljPVuosjhGz2DsCnXK8OPLoRjSiDiI3kN8=; b=WPA9v3jT8l3chsz4O5KyV2GtkM
-	thq5eA8oRaFHq8KQeoVsEj/Q6Fy+wlJjWkGUr8zTFfi9X774cRN0IF1rNBpovTyBkWLkS3WesntWt
-	ExMHSLFRX4++4MxCe9e76VRfZ3sEkiATu+793AJeNuk/Rh/RsFoSgNOh/wAijmwicQbrzWz7afr4X
-	xYpEp8WGybi2D6Owo8b1H75ijWKrVNrcjkAGInEGGcS8ogahKxRCUb2QRdsD8VMKwkZvsUoqWZ2PZ
-	U9IFyeoikp2GKvkjQt1EOE3HvHeI7W7bZPVMs8u8LM8aTSJQlB5ijwjittghTTAs5tIEZASQdQUzx
-	RngTGdfg==;
+	bh=cSyyM7BUXIDF3kJhgyCmgOwoW98OlpC1I9i3DPZMz2s=; b=BoVhOqu71x/La+IonyFg7TDp9y
+	eARJZbzmUl+PnEWJiMEJLa/z4WQx1t9AHT8GalrZcSksa4837j4C6Napi7H4biZ9GXk8AC9AKxq+8
+	BIdYGFCQjY+lXekL6lyRJKAYSP0gOvKWV6A/w0xuNqW+dqcD6vvMGos5Mh2KdgQr6muhnXA651IhZ
+	ZgrS2IZitMaiEbhB/T5oMX3MesniqWiGwC242Wyf4RedEk8we3Z9K+lYBien/BGV5BRNHbNnK5NcA
+	5R5V21FgsjzZGTL9JH/PyS5LM45jzzNvM5LKl+s2u08fOdzZHwk+9gfNfr6joCRLDZyaZGdnbtnZ+
+	hWjOXojA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwdl-00000000FpZ-3LIb;
-	Mon, 03 Aug 2026 17:39:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wqwm7-00000000GS5-30cd;
+	Mon, 03 Aug 2026 17:48:31 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwdk-00000000FpS-1NtM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 17:39:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F9DB41B50;
-	Mon,  3 Aug 2026 17:39:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB10F1F000E9;
-	Mon,  3 Aug 2026 17:39:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785778791;
-	bh=ANCJ090YSljPVuosjhGz2DsCnXK8OPLoRjSiDiI3kN8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=awVCjJ+KyUB+NFUezo/gqQocKqiE/KbengTUFkfH8zcpr33swm5ytGItr/0UnCjTS
-	 934c0Ab5WRblr698r3bCSIJDTv0DreO4ZA6smBwLlnjIBNFAdotOUJmwhMkeUQZG0f
-	 6abeSZARVg+54wLdhSE2wpahdcNEjeuA29KrW+m8c0QIOGwoDNTFWL5ZTMjmvunUwB
-	 IZNYboc/RSCKOXO7lkKx+0D9Dq0G5c2odnA11Gl8QbL2WvmCVh1HugtPBNHilbzoQF
-	 JdaamWHpTF46CVjFoLmag9ffmSsSY5GGBDJzgb3vyS/0bCJxC5SSR+Z3dRP+DK77CN
-	 On37/0pgj+jwQ==
-Date: Mon, 3 Aug 2026 18:39:46 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] KVM: arm64: Block ID register changes after we rely
- on the values
-Message-ID: <5d80e90f-179f-4b36-8a54-9e777f8b7aa8@sirena.org.uk>
-References: <20260731-kvm-arm64-idreg-final-v1-0-3de2a5616dc6@kernel.org>
- <20260731-kvm-arm64-idreg-final-v1-2-3de2a5616dc6@kernel.org>
- <CA+EHjTxoAwkUJ1Tyu5700hZBFtc1HpCt14-8Gh2O5qA_NpnaFQ@mail.gmail.com>
+	id 1wqwm5-00000000GRG-1mFu;
+	Mon, 03 Aug 2026 17:48:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=cSyyM7BUXIDF3kJhgyCmgOwoW98OlpC1I9i3DPZMz2s=; b=u1
+	kXI2+R12w43beaPSCbM1HCJtvorD9d3Ebq53sQZR3ik4voCij2lPlW5oXM+0wRshrRMCr87mcUHo7
+	XN23BeKdWZNVXSS4v3jExOreZBR9tOxH6d4xKQfMcUyCUx/18N/JTdJBnEYVUqcMnpK/q5TYssUsX
+	zXFXTFEDjez0ehA=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wqwlg-00Fn1q-LQ; Mon, 03 Aug 2026 19:48:04 +0200
+Date: Mon, 3 Aug 2026 19:48:04 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Richard Genoud <richard.genoud@bootlin.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com, mfd@lists.linux.dev,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 10/21] net: phy: add X-Powers AC200 EPHY control driver
+Message-ID: <9b8be475-1fde-409c-a82e-be4b2e402650@lunn.ch>
+References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
+ <20260802-submit-acx00-of-dynamic-v1-v1-10-0a53cd9e21cc@gmail.com>
+ <05b1e6a2-725e-4b8e-8629-249637bbcb81@lunn.ch>
+ <CADvTj4o0JdjoO+FC4pO=qnjEQ8MRyzQdKp2Hxy9NsPU-gym5OQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="36SEx+wND90T2F85"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CA+EHjTxoAwkUJ1Tyu5700hZBFtc1HpCt14-8Gh2O5qA_NpnaFQ@mail.gmail.com>
-X-Cookie: Prunes give you a run for your money.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CADvTj4o0JdjoO+FC4pO=qnjEQ8MRyzQdKp2Hxy9NsPU-gym5OQ@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_104829_462135_A684812E 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +94,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Aug 03, 2026 at 10:09:01AM -0600, James Hilliard wrote:
+> On Mon, Aug 3, 2026 at 7:51 AM Andrew Lunn <andrew@lunn.ch> wrote:
+> >
+> > > +static int
+> > > +ac200_ephy_ctl_set_led_outputs(struct acx00_ephy_control *control,
+> > > +                            unsigned long outputs)
+> > > +{
+> > > +}
+> >
+> > > +static int
+> > > +ac200_ephy_ctl_set_led_polarity(struct acx00_ephy_control *control,
+> > > +                             bool active_low)
+> > > +{
+> > > +}
+> >
+> > I've not looked into the details, but these look like pinmux. Does
+> > this I2C device have a GPIO controller? Can these pins be used for
+> > other things than LEDs? Maybe you should be implementing a GPIO and
+> > pinmux driver. The Ethernet PHY driver can then just select the
+> > correct pinmux configuration.
+> 
+> These do not appear to be GPIO or muxable pins. The AC200
+> documentation describes them as three dedicated EPHY LED
+> outputs: link/activity, speed, and duplex. The bits in SYS_EPHY_CTL1
+> enable those output pads, while EPHY_CTL provides their shared
+> polarity setting. I have not found any documented GPIO data
+> registers or alternative functions for these pins.
 
---36SEx+wND90T2F85
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+So what i'm trying to do with both of these is make it look more like
+standard Linux building blocks.
 
-On Sun, Aug 02, 2026 at 06:13:38PM +0100, Fuad Tabba wrote:
-> On Fri, 31 Jul 2026 at 21:46, Mark Brown <broonie@kernel.org> wrote:
+If that is not possible, i would actually put all this code into the
+PHY driver. You then have a regmap property to gain access to the I2C
+registers.
 
-> The flag fixes this. One consistency point: set_id_reg() and
-> set_imp_id_reg() now gate on the new flag, but
-> kvm_vm_finalize_sys_regs() still returns early on
-> kvm_vm_has_ran_once(), and so does the KVM_BUG_ON() in
-> kvm_set_vm_id_reg(). Could both move to kvm_id_regs_final(), so one
-> predicate expresses the invariant? If so I think they would need to
-> move together, since on a retried first run kvm_vm_finalize_sys_regs()
-> re-runs and re-writes the ID regs via kvm_set_vm_id_reg(), so
-> switching only the BUG_ON would trip it.
+       Andrew
 
-Yeah, I think that's sensible.  I think I was thinking we might want to
-add non-ID register stuff at some point, but we don't currently have any
-of that and the ID register stuff that is there ought to be joined up.
-
-> Separately, would a selftest for that failed-run path be worth adding,
-> checking that KVM_SET_ONE_REG on an ID reg and KVM_CREATE_DEVICE both
-> return -EBUSY?
-
-It feels like there's a general gap here with ordering and interactions
-during VM setup, both with the API calls and ideally also with
-combinations of features.  Covering that is probably much more
-beneficial than a focused test for the specific issue, that'd catch
-recurrences of the specific mechanism but it'd be easy for it to miss
-something else that causes the ID registers to change.
-
---36SEx+wND90T2F85
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpw0mEACgkQJNaLcl1U
-h9B7ZQf+M5zCfT7i75HdE3i14+l66LGOQqS+9Uv/BpcCJinHD+GCrG5npWWtMbAw
-D+O5Xlqh4CvW5q+TglHUqpQPiL/aU8cnmcSsxVPxIXYLAqT4hNCfY4jtmC8malde
-BwMBoMJPrs+UVqL6b16LDn94ug373LNeVYk3F4NfzA5Ehlkd2fjt8rk6Z8/45/6Y
-x/tUrnZmER1BZxm8SUWIh5GiSYPnJaBVNaSo2wSNu1/2/NeaoyXHRQz/o0bCN4HL
-+e2m90wwjetFwk9UFDo3OEaUDUTR+DEjvi7AyCkxtXXnebXwV7d5Klay1bcsFGzf
-s2HFAyifLePXHTTrMHpZ/7pgABMB4g==
-=iC0q
------END PGP SIGNATURE-----
-
---36SEx+wND90T2F85--
 
