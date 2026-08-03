@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128A4C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 05:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1F6C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 05:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jidbxiox7dX03nOKASiwvW/wC69oSzUN52btxDpp97E=; b=BudBSq3t17Q29Tk9HGs5ZuL7IQ
-	t6FZc0tVGcO9OTlhSC4vwoSmS/cO8Zj36t41LmLBLJBPairem9UTeNq/dnOcBnFyVHIQuEaAeR5P6
-	h5FyqE9LDvMY4cGYMIUEU1aj34hZsIcy31W5lkKy+geBrtCxydMDm8wc9RXxheWaSXBx/uCbSZMYk
-	h/gZJ/OAm9TFXQz1enAmP4fXd9pMneGyp/MTTS501V+ltTwGk4cfeSnqcLDBVjC6i0gMugV7lafIH
-	LNq0lMyrxYu9EMa8RdMXoWRAb2r70+PXha3w8Th+8chleXXlrnhskc+FmhW/jks7NUKXl5XbPuBhW
-	vxLrtQYw==;
+	bh=OJn8bgDlexj3pTLFD/TVKu44xwgcekcV50vMMBDdgSo=; b=OINvMvXd52fJj814RELn5PLwcr
+	rNN7UgoHxKVvcfKJlASn1LRQPC9S3wgcaFmkQH0tvMP0RqSU3nP0lvHO/wLvJiyQpEkIgjD13e+ch
+	leDoG98TClEE2XmvYf4E8UJYrKdqcncFIavBIzU8GklBWhTMJWy/tNxo/6VIJ4plpHHkl3mwwwX1m
+	uLDquqUprRlah0rPzTimWdwJEd5G7WEWFMd8Z0UhNGtgqs4bROO5MFe0H8DNAoje4uHbvxTDWPIkd
+	Cpb62P/72cDrf33+o8csnXZnOcfTbUxNlv8BLxVFP3+NpeGa9ieQ7sfhGbI+c6VZgW+OZCRNB/pXR
+	GRQy8RBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wql1e-0000000GL5G-3Eyw;
-	Mon, 03 Aug 2026 05:15:46 +0000
-Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
+	id 1wql1q-0000000GLTu-0G31;
+	Mon, 03 Aug 2026 05:15:58 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wql1a-0000000GKva-2zhx
+	id 1wql1j-0000000GLDj-0X4g
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 05:15:45 +0000
-Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-7eb5bdb50fcso1945160a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 22:15:42 -0700 (PDT)
+	Mon, 03 Aug 2026 05:15:55 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-7eb42a2f5feso1476474a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 22:15:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785734142; x=1786338942; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785734150; x=1786338950; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Jidbxiox7dX03nOKASiwvW/wC69oSzUN52btxDpp97E=;
-        b=d/ZNNkTdjBn6nblrP7NtkPHpEdDyjnH22n8Om2FgFMOMnAPg408fcUmddeNvNDgqrf
-         Nn1Kda0AXbcxb6Om8lhuCpvk7Wx9IRdTOzGke+UZIX3W7r81KKpmskK+VuJap6aPhbdP
-         nS4IECnCM0Jnn8UApy0RCAnPTvj2PPiR0zAAqwpm9yTZuIslWokN1ppnDa2s8m8WjPdK
-         Uij0NKb2TBhDW03Y4kglXmiLmJOZcmxXKBkjc6ivsW+o0R40n/THWcxmF8LK8p85URvj
-         V8go+EN61qpviCOwFObr7tNLgN5YmXeOISajPH+pY2Dgjq+hb3cDbmMg8Xdr3co5aESU
-         mNYw==
+        bh=OJn8bgDlexj3pTLFD/TVKu44xwgcekcV50vMMBDdgSo=;
+        b=L/T7NRSHs5FdMVA08ZNXX2ihmhWF0qWhCsqMLtTDWG60opEv5V9Lb/s3D9b5Cfmgkq
+         P6aO7Rgw/0Qj9P4F8Vnnp1GJlVfg2DXfSEUw7B+wvTvFUmL2o1qVWYt/E0DiMVrIhQCk
+         9Ol3PvglbPyVCo4u7GmjXeN0kdI3zPOCigOKZ7K8ZBlss/WPiW6nWLSqSwSTwzpk7NQm
+         0+JFevnLoTejR27Rl4h9JLTPzveF8NF7Z6SrwLB1Dtoj2b9eUsXIJAi1H5Q3s9JDukr4
+         xe01tquB/1wFmwMZH1bclcpEFKD2Ifcg5jER16e2mxGGhocFkL4XBlckN7G+f6P6CPTJ
+         VMvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785734142; x=1786338942;
+        d=1e100.net; s=20251104; t=1785734150; x=1786338950;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Jidbxiox7dX03nOKASiwvW/wC69oSzUN52btxDpp97E=;
-        b=GiN1R7TcE66L+G35da+St742WoqO4omvOaFQVngLsg5yg0/DBajeYiu00E16CnREYm
-         gWF431fDOuMBOWvmMjMEEm++NJmhL/3Q4FbcPOakxGyT90Q546w8tcDv4aiGwvtnEOaP
-         AYDWpaaireZ8zeHqpXx+Fd74X91cZHu+RWhr5nH65+ynNql3iwoUzWcVo8DIloUZkRd+
-         yNKLGKYrByWzl/O9Y+8ZtKwGo+haNo7L0vknxRd2Z6RaxOPeBU+RLYq0m46tmFr4S8ey
-         Oe6OBaHI7vevlRugCn+4EEttjD6jHJCbCoATfE7CGx/U+FBx9N+gyNaLkmb+AQMIY4Zu
-         xVmA==
-X-Forwarded-Encrypted: i=1; AHgh+Rpvc4M+C2KOdWeAXtVy0ZmX4ntDAsgeZe/iSYmyGrRLUl5RFIHG8nSmFznJCbVbBKvg24fpnrBsLU5s1nBr06pe@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsdGzNTdqnxxqLrR34sEZyXZTqX4KPt1e2jfsklb88yDDzbNGk
-	+cdImxFy+RvDEMr81IBM26QefECguHxMMdxMx/EIw3kMJkl6ZoVou8bz8TDXu9Oh
-X-Gm-Gg: AR+sD10SJPRenxIYn3kSqxpACRkaXa9RxLn/4sgtfkTxi+D05n/jWl5HYc1nz3dSNEU
-	mP9aQOFvyQvc9FUXFV1a38gOkqppiQP4SzrEVEtvsvfu/9EkN/0OEXFRZa7su0v5qthPs+b3/K7
-	h5/CsmC+vJcAoyCiQ41fZ4gOK+TjV3nfnDibK1VoaaI0WUbpuPX1SgMiEc5nCpz8ZlV7JOYaKCb
-	ny1+utb0OI5ZPYT1PDqa9bU6Iv1wO4GO8r/KXUwAO+ykGqOpC7noD1TPm1TphEoeh24ah+IhWMS
-	InKnCvKayKl9LiVlymgF01cmJPAPPKJUhxZtawqGP84HaEIHugebjgIizNAFBdidyYklMJyhpiO
-	OOWqn7qtBv8u3gdaQQTGKVcvFjvlihW2FsjL+bpyVmQ5gg9t/XjhU+0URpVRbFiH5QSCG8YkD3M
-	FNp4o/CoW/OLN70QcQBHBUxl7M415NFc+gKX9+ztwMwHcF+f1LbCcx+Q8gMipXdegLh7nluH+4D
-	0NxirZq6JZapVqND6/C7u5QPKa4JnF5j4DcwTV1L0Qwlb+FgcWrdnjk1NfLsfoEXOpkcNQXmQWh
-	b33/RgzdSmazSE0lxTuPgTi7kkBqdOPduGtiHnuzYEcZFTnVufiDX3t/pV45/gtp7QUNBQ8VW1S
-	4FepwVOCt2hAFtky4
-X-Received: by 2002:a05:6830:411d:b0:7d9:f50f:9691 with SMTP id 46e09a7af769-7f1968c88e1mr15370101a34.0.1785734141726;
-        Sun, 02 Aug 2026 22:15:41 -0700 (PDT)
+        bh=OJn8bgDlexj3pTLFD/TVKu44xwgcekcV50vMMBDdgSo=;
+        b=A7ACNKzmOfZyi6dWlewqh/9ztEKFx7c4MfWIZrJwznpSJD/rJzldpxX2XdQ29Q7jyF
+         hOP8TaE+g4jcOH1wsg1oMT955CiSIIpFRRGDhFF9+r/ZHJLKiDfq0zJ+fJL6IirTwFrx
+         hm9WE9svvFxUGQGYgVoMFbTJe/9E1xzijFg1TfomqEyq8c3pHoCVWilgkaW/xXebZlay
+         gRixGjglux76TfYKMWWBPSqH9PmQXmca7Dp6zKlBYmVDE1Y+SDa/W6gVGD4qD6GcJXe5
+         kpkHmurAGAEa9KdAEIwUalh+UyFp3mMFZZJhXGCA3fczvCbC9yBLAMPjr8TCWp5xTXRg
+         JruA==
+X-Forwarded-Encrypted: i=1; AHgh+RpvJQ9Q7i27saG6WA8qvY1kBPgcMGWNNiwvhbLdwM6GF+smQs5jLkC0GDzgS4fuI32ZtF9MojmLwQyAV04YoLQa@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywdf3e5CaUpxe6A5QwTlYkTSUJ328KoilEx0QjKuR7h9AuBEF2S
+	pBaz90JyXenRipOuCb3hem+fa2nIVuxKH0kwAie1MBVmbYXYZ47fXuwWBUmjQDtZ
+X-Gm-Gg: AR+sD10PVOz53B+Dmr3pJ3TtDlmDiZJKaEGaPZPLSOW7HpM7vZWJ/A9K5wboqrmKreZ
+	G7dmEpqRRpT9ofK7Ltrm3DHmf2Le6MfWDVLd0NPDc5CtXzjBcFuNG1jARXXz3FpZF+7A6rDBJGP
+	T7y/qhiyA5E3umEfaAi7fxOgkGXfqXX2KB33yo94vMXum6sh0S72xaGx4XeLC696Z4z4f617mBx
+	LO3k02ys1Ga+ux+nUdrccALxUs83WI3SNFDhh8FEA8bcYYxNhYvP83jsuqMXSevLSOM/IqHI4mA
+	OlUp0oz4Pn8B7VOGE++bH5jbEYKB1jc9hAeBAOT/sVPm+E0FOLbVuzXRcVYjUvapqdOM1fYE7sl
+	hbb7tKbCTbqAPQQMcHpZ+IOu7Z7TcGPmVOffk3uZXuOdim1/Lb+MjpaFAHW8rYn+clV5FlOAO9K
+	C6qTB2gGD9YTOqSH0eSfxAWTB9Md05s01K6cbqASyaaWmIf6eS0Z2ceU4U9JTOZ0aUhxy178SA+
+	TpwVLKMnK3LVdSv++m18t1GmA7OM7QROh9IRqxv6yd678wVX4KULpeBGT972vUmoGUwcxt4r/ff
+	zq0qbgzELnGA9dYvZvopEWIQDhzQu5fux5f4+ahjDlMg8ZkACAm9gz2TnR+UL9LwgZxJFMds3Mn
+	BTLqswolwjXPAyP4U
+X-Received: by 2002:a05:6830:82eb:b0:7eb:c933:eff7 with SMTP id 46e09a7af769-7f196f0d0e1mr13285248a34.9.1785734150243;
+        Sun, 02 Aug 2026 22:15:50 -0700 (PDT)
 Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18f07a5e3sm6787108a34.15.2026.08.02.22.15.40
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18f07a5e3sm6787108a34.15.2026.08.02.22.15.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Aug 2026 22:15:40 -0700 (PDT)
+        Sun, 02 Aug 2026 22:15:49 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sun, 02 Aug 2026 23:14:23 -0600
-Subject: [PATCH 13/21] dt-bindings: net: x-powers: add AC200/AC300 EPHY
+Date: Sun, 02 Aug 2026 23:14:28 -0600
+Subject: [PATCH 18/21] arm64: dts: allwinner: orangepi-zero2w: enable
+ Ethernet expansion
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260802-submit-acx00-of-dynamic-v1-v1-13-0a53cd9e21cc@gmail.com>
+Message-Id: <20260802-submit-acx00-of-dynamic-v1-v1-18-0a53cd9e21cc@gmail.com>
 References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
 In-Reply-To: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -108,8 +109,8 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_221542_893481_0FE2C8AF 
-X-CRM114-Status: GOOD (  20.69  )
+X-CRM114-CacheID: sfid-20260802_221551_215114_B3FC4B62 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,262 +125,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AC200 and AC300 companion ICs contain compatible Fast Ethernet
-link-PHY implementations which report the same PHY ID but use
-different control interfaces.
+The optional Orange Pi Zero 2W expansion board exposes H618 EMAC1 through
+a 100 Mbit Ethernet jack.
 
-Describe the forced-ID link PHY and its control-device references.
-Fixed systems reference one already enabled control interface. A fixed
-AC300 system may optionally provide the configuration field for its
-calibration-range bit; omitting it selects the normal range. Systems which
-can contain either companion reference both candidates and require a
-logical two-bit NVMEM field for variant selection and AC300 calibration-
-range tuning.
+Add a reusable H616-family description of the AC200/AC300 EPHY wiring
+alongside its first board user. The forced-ID link PHY selects the
+populated control path and AC300 tuning range from the logical SID
+configuration field. Keep the AC200 I2C controller and AC300 MDIO control
+node at status fail-needs-probe so only the selected path claims its pins.
 
-The link node reg value is programmed through the AC200 control
-interface, while AC300 requires it to match the package-strapped
-address. A control reference is required to distinguish this
-integration from other PHYs which report the same ID. Also describe
-the optional xMII receive-clock inversion required by some integrations.
-
-Describe the three fixed-function package LED outputs using standard
-PHY LED children. Their functions are link/activity, 100 Mbps speed
-and duplex, and their polarity is shared. Omitting the container
-retains the vendor fallback with all outputs active-low; an explicit
-container enables only the outputs it describes and may select the
-shared polarity.
-
-Allow a PHY with a routed interrupt to be marked as a wakeup source
-for magic-packet and link-change Wake-on-LAN.
+Enable EMAC1 and its PWM clock provider through the common include,
+provide the board's 3.3 V rail to either companion variant, and make EMAC1
+the board Ethernet alias.
 
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- .../bindings/net/x-powers,acx00-ephy.yaml          | 217 +++++++++++++++++++++
- 1 file changed, 217 insertions(+)
+ .../boot/dts/allwinner/sun50i-h616-acx00-ephy.dtsi | 61 ++++++++++++++++++++++
+ .../dts/allwinner/sun50i-h618-orangepi-zero2w.dts  | 13 +++++
+ 2 files changed, 74 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/x-powers,acx00-ephy.yaml b/Documentation/devicetree/bindings/net/x-powers,acx00-ephy.yaml
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616-acx00-ephy.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616-acx00-ephy.dtsi
 new file mode 100644
-index 000000000000..3e01f6b44006
+index 000000000000..26521429957a
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/net/x-powers,acx00-ephy.yaml
-@@ -0,0 +1,217 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/x-powers,acx00-ephy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616-acx00-ephy.dtsi
+@@ -0,0 +1,61 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Common X-Powers AC200/AC300 Ethernet PHY support for H616-family SoCs
++ *
++ * Copyright (C) 2026 James Hilliard <james.hilliard1@gmail.com>
++ */
 +
-+title: X-Powers AC200 and AC300 Ethernet PHY
++&emac1 {
++	phy-handle = <&acx00_ephy>;
++	status = "okay";
++};
 +
-+maintainers:
-+  - James Hilliard <james.hilliard1@gmail.com>
++&i2c3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c3_pa_pins>;
++	status = "fail-needs-probe";
 +
-+description:
-+  The AC200 and AC300 contain compatible Fast Ethernet link-PHY
-+  implementations which report the same PHY ID, but use different control
-+  interfaces. Systems with a fixed companion IC describe one control
-+  interface, which must already be enabled. A fixed AC300 system may provide
-+  an NVMEM configuration field to select its calibration range; omitting the
-+  field selects the normal range. Systems that can contain either companion IC
-+  describe both control interfaces and require the field to select the
-+  matching one before the PHY identification registers are accessible. In
-+  that dual-control topology, the AC200 I2C controller and AC300 control
-+  device may use status "fail-needs-probe" so the selected one can be enabled
-+  dynamically. The PHY node's reg value is programmed through the AC200
-+  control interface. For AC300, it must match the address selected by the
-+  package straps.
++	ac200: mixed-signal@10 {
++		compatible = "x-powers,ac200";
++		reg = <0x10>;
++		clocks = <&pwm 5>;
++		nvmem-cells = <&ac200_bandgap>;
++		nvmem-cell-names = "bandgap";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pwm5_pin>;
 +
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        const: ethernet-phy-id0044.1400
-+  required:
-+    - compatible
-+  anyOf:
-+    - required:
-+        - x-powers,ac200-control
-+    - required:
-+        - x-powers,ac300-control
++		ac200_ephy_ctl: ethernet-phy-control {
++			compatible = "x-powers,ac200-ephy-ctl";
++			nvmem-cells = <&ephy_calibration>;
++			nvmem-cell-names = "calibration";
++			phy-mode = "rmii";
++		};
++	};
++};
 +
-+properties:
-+  compatible:
-+    const: ethernet-phy-id0044.1400
++&mdio1 {
++	ac300_ephy_ctl: ethernet-phy-control@10 {
++		compatible = "x-powers,ac300-ephy-ctl";
++		reg = <0x10>;
++		clocks = <&pwm 5>;
++		nvmem-cells = <&ephy_calibration>;
++		nvmem-cell-names = "calibration";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pwm5_pin>;
++		phy-mode = "rmii";
++		status = "fail-needs-probe";
++	};
 +
-+  nvmem-cells:
-+    maxItems: 1
-+    description:
-+      Logical SoC SID field whose bit 0 selects the AC300 control interface in
-+      a dual-control topology and whose bit 1 selects its low-calibration
-+      tuning sequence.
++	acx00_ephy: ethernet-phy@0 {
++		compatible = "ethernet-phy-id0044.1400";
++		reg = <0>;
++		nvmem-cells = <&ephy_config>;
++		nvmem-cell-names = "configuration";
++		x-powers,ac200-control = <&ac200_ephy_ctl>;
++		x-powers,ac300-control = <&ac300_ephy_ctl>;
++	};
++};
 +
-+  nvmem-cell-names:
-+    description:
-+      In a dual-control topology the configuration field uses bit 0 to select
-+      AC200 (zero) or AC300 (one). Bit 1 selects the AC300 vendor sequence for
-+      a low-level calibration value in both dual and fixed AC300 topologies.
-+    const: configuration
++&pwm {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
+index b340bbcb710d..e833ee267c83 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-orangepi-zero2w.dts
+@@ -6,6 +6,7 @@
+ /dts-v1/;
+ 
+ #include "sun50i-h616.dtsi"
++#include "sun50i-h616-acx00-ephy.dtsi"
+ #include "sun50i-h616-cpu-opp.dtsi"
+ 
+ #include <dt-bindings/gpio/gpio.h>
+@@ -17,6 +18,7 @@ / {
+ 	compatible = "xunlong,orangepi-zero2w", "allwinner,sun50i-h618";
+ 
+ 	aliases {
++		ethernet0 = &emac1;
+ 		serial0 = &uart0;
+ 	};
+ 
+@@ -54,6 +56,17 @@ reg_vcc3v3: vcc3v3 {
+ 	};
+ };
+ 
++&ac200 {
++	ac-ldoin-supply = <&reg_vcc3v3>;
++	ephy-vcc-supply = <&reg_vcc3v3>;
++	rtc-vcc-supply = <&reg_vcc3v3>;
++	tv-vcc-supply = <&reg_vcc3v3>;
++};
 +
-+  x-powers,ac200-control:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Reference to the AC200 Ethernet PHY control function
++&ac300_ephy_ctl {
++	vcc1-supply = <&reg_vcc3v3>;
++};
 +
-+  x-powers,ac300-control:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description: Reference to the AC300 MDIO Ethernet PHY control device
-+
-+  x-powers,xmii-rx-clock-inverted:
-+    type: boolean
-+    description:
-+      Invert the xMII receive clock inside the PHY. This is required by some
-+      SoC integrations, including the Allwinner H6 AC200 connection.
-+
-+  wakeup-source:
-+    $ref: /schemas/types.yaml#/definitions/flag
-+    description:
-+      Indicates that the PHY interrupt is routed to a wake-capable interrupt
-+      controller and may be used for magic-packet or link-change Wake-on-LAN.
-+
-+  leds:
-+    type: object
-+    description: |
-+      Package LED outputs. Output 0 indicates link and flashes for transmit or
-+      receive activity, output 1 indicates a 100 Mbps link, and output 2
-+      indicates full duplex and flashes on a half-duplex collision. The
-+      polarity setting is shared by all outputs, so active-high or active-low
-+      declarations on different children must agree. Without an leds
-+      container, all three outputs are enabled active-low to match the vendor
-+      initialization. An explicit container replaces that fallback: only
-+      outputs described by available child nodes are enabled, with active-low
-+      used when no child specifies a polarity.
-+
-+    properties:
-+      '#address-cells':
-+        const: 1
-+
-+      '#size-cells':
-+        const: 0
-+
-+    patternProperties:
-+      '^led@[0-2]$':
-+        type: object
-+        $ref: /schemas/leds/common.yaml#
-+
-+        properties:
-+          reg:
-+            enum: [0, 1, 2]
-+
-+          inactive-high-impedance: false
-+
-+        required:
-+          - reg
-+
-+        unevaluatedProperties: false
-+
-+    additionalProperties: false
-+
-+required:
-+  - compatible
-+
-+oneOf:
-+  - properties:
-+      nvmem-cells: false
-+      nvmem-cell-names: false
-+      x-powers,ac300-control: false
-+    required:
-+      - x-powers,ac200-control
-+  - properties:
-+      x-powers,ac200-control: false
-+    required:
-+      - x-powers,ac300-control
-+  - required:
-+      - nvmem-cells
-+      - nvmem-cell-names
-+      - x-powers,ac200-control
-+      - x-powers,ac300-control
-+
-+dependentRequired:
-+  nvmem-cells: [ nvmem-cell-names ]
-+  nvmem-cell-names: [ nvmem-cells ]
-+
-+allOf:
-+  - $ref: ethernet-phy.yaml#
-+  - if:
-+      required:
-+        - x-powers,ac300-control
-+    then:
-+      properties:
-+        reg:
-+          maximum: 7
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/leds/common.h>
-+
-+    mdio {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        ethernet-phy@0 {
-+            compatible = "ethernet-phy-id0044.1400";
-+            reg = <0>;
-+            nvmem-cells = <&ephy_config>;
-+            nvmem-cell-names = "configuration";
-+            x-powers,ac300-control = <&ac300_ephy_ctl>;
-+
-+            leds {
-+                #address-cells = <1>;
-+                #size-cells = <0>;
-+
-+                led@0 {
-+                    reg = <0>;
-+                    color = <LED_COLOR_ID_GREEN>;
-+                    function = LED_FUNCTION_LAN;
-+                    active-low;
-+                    default-state = "keep";
-+                };
-+
-+                led@1 {
-+                    reg = <1>;
-+                    color = <LED_COLOR_ID_YELLOW>;
-+                    function = LED_FUNCTION_LAN;
-+                    function-enumerator = <1>;
-+                    active-low;
-+                    default-state = "keep";
-+                };
-+            };
-+        };
-+    };
-+
-+  - |
-+    mdio {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        ethernet-phy@0 {
-+            compatible = "ethernet-phy-id0044.1400";
-+            reg = <0>;
-+            x-powers,ac200-control = <&ac200_ephy_ctl>;
-+        };
-+    };
-+
-+  - |
-+    mdio {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        ethernet-phy@0 {
-+            compatible = "ethernet-phy-id0044.1400";
-+            reg = <0>;
-+            nvmem-cells = <&ephy_config>;
-+            nvmem-cell-names = "configuration";
-+            x-powers,ac200-control = <&ac200_ephy_ctl>;
-+            x-powers,ac300-control = <&ac300_ephy_ctl>;
-+        };
-+    };
-+...
+ &codec {
+ 	allwinner,audio-routing = "Line Out", "LINEOUT";
+ 	status = "okay";
 
 -- 
 2.53.0
