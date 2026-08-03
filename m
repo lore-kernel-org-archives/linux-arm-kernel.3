@@ -4,104 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D53FC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BAC2C55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:04:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+UUe0PyDK6tuicC2KrGKRi9zSihQwNnXSE/D8m2YEXU=; b=Rlb5PY9CBooOqNM2a2ypqcpSbA
-	kPpXt359S0HY6PRaCyNNTGgmpcX+juCTgKIgOxUueOA0/aY8Nv9O8nHVMlrh/F2kLOy2WTPHZZ4I/
-	tAKPIMGpHENtRV+oXSfK6gdxanFviQ2LTZpTrniH9Zmwcc+2sAcEh48BSEjFrFV05APVCKm+hQiVQ
-	JGSRToIMLg2EDXp/C6mPMTNcCJRKhQ/do1rpxtWcnDQr9FfPYsKVPxguhei8Nw4e61XFv+fiUbIe7
-	8d2+sFkH5aqwozzMIGHZe8rEdviPx/BZ4Q0SdEh/uhFxHddxqyPqzntCQRvJYtr/zyHe7I9EOscwa
-	2InrDPKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MH7wcmOcXZFOwcUqWWheUbrwOLEH4SEcvKWawIZfkFI=; b=d/q0enygtxy5svESYHo0n8ocY7
+	nTeUzjlqLNjpLoeRdN+/1Ja2t18mO8a0A6IE9ZMMuxjRWkaJ4qzGvz/wj2K40NbuIKTjgisfi6guW
+	S35CNykUZuMRlbsypOWQHDSUpGwn+DECKRqXPOp+8NECF6BPwS3subbxoUIkrt4yNviQsCvKP5aHj
+	LeIjV5SLNZNoUJWtBWdjwIDN7bArDAXDCeGgJpkgg1UwDp4TDSOm5ZL0W2zt8/Zycplu69tx3NfKp
+	ePrrKPbFCB3mfHqDazFDMB6o1omwyovjt6w0X2+aA9ll8c0MwdHa0ctyjX+JCJlKESNcA4kU6LXuC
+	0iw2W4tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqoZA-0000000GdiA-1QWx;
-	Mon, 03 Aug 2026 09:02:36 +0000
-Received: from mx0b-00082601.pphosted.com ([67.231.153.30] helo=mx0a-00082601.pphosted.com)
+	id 1wqoad-0000000Gdpr-2aVQ;
+	Mon, 03 Aug 2026 09:04:07 +0000
+Received: from mail-northeuropeazon11012070.outbound.protection.outlook.com ([52.101.66.70] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqoZ7-0000000Gdhn-2Uga
+	id 1wqoaa-0000000GdpM-3zb0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 09:02:35 +0000
-Received: from pps.filterd (m0089730.ppops.net [127.0.0.1])
-	by m0089730.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6735Rrc6027890;
-	Mon, 3 Aug 2026 02:02:09 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pps82601-s2048-2026-q3; bh=+UUe0PyDK
-	6tuicC2KrGKRi9zSihQwNnXSE/D8m2YEXU=; b=qXRqHd+iKHEN8GAIKcn4lsHdv
-	zXRU87DZS59mKYW79Ti4id0Pex8lKcQvo9xLQuY5JtjoIIssJRQqeJsUlKHF9HPp
-	SRJDuD0E5bnhXVlMsPwuv79sP/eRnlsX43AJsHWeqPSa3Y3Jt8aSrYSlWES5zjzH
-	Ll8Yuh7hFmsME8yWsYHt9NzZzwd4tfSgrX62EBDdqENbY0MKiE8tCHY8M721L7qA
-	bp3kDrcArwnU49hqvhoktw9zGBz++nE7ZlBTVTZ7bxYmeNcJ0WgVsCxEkOB2wpm/
-	RFSd6HWXK2Vy3EmjpwjzcK8Yj+Hbg3XMoDgzMxPnZBwDfa1w24uw06vPKu2bw==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by m0089730.ppops.net (PPS) with ESMTPS id 4fsc9q8mdx-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 03 Aug 2026 02:02:08 -0700 (PDT)
-Received: from localhost (2620:10d:c085:108::150d) by mail.thefacebook.com
- (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.45; Mon, 3 Aug
- 2026 09:02:07 +0000
-From: Amir Ayupov <aaupov@fb.com>
-To: <linux-perf-users@vger.kernel.org>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Suzuki K Poulose
-	<suzuki.poulose@arm.com>,
-        James Clark <james.clark@linaro.org>, Leo Yan
-	<leo.yan@arm.com>,
-        Peter Zijlstra <peterz@infradead.org>, Ingo Molnar
-	<mingo@redhat.com>,
-        Arnaldo Carvalho de Melo <acme@kernel.org>,
-        Namhyung Kim
-	<namhyung@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Alexander
- Shishkin <alexander.shishkin@linux.intel.com>,
-        Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-        Adrian Hunter <adrian.hunter@intel.com>,
-        John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>
-CC: <linux-doc@vger.kernel.org>, Mike Leach <mike.leach@arm.com>,
-        Jonathan
- Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Swapnil
- Sapkal <swapnil.sapkal@amd.com>
-Subject: [PATCH 0/9] perf cs-etm: Add branch history to existing samples
-Date: Mon, 3 Aug 2026 02:01:53 -0700
-Message-ID: <20260803090202.2324641-1-aaupov@fb.com>
-X-Mailer: git-send-email 2.52.0
+	Mon, 03 Aug 2026 09:04:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DBWcuy7EtgyARK0Ome/ufUld7nMY0YUWY2Syr8h9K7KysMSPnZRRS0ueNf3OZwBkgsswUdGTV+94BDeSNg5x+nrHARnJx3gZsBVeRqhZGszskNyaYduUqp3LS2gVjxWeNqJxtR/qQ+yICdDNMyoWo309A0GYDdECHyEAI1BgQIfcrx7H7mXx9NYjDZk0aARH5XWo7Ops3yhXmxVWiylmqv5/zGeysQnZtpyyisiFaAnJAIVStne+oyzLs8ZWDNOlBf0oHlhUiPAzryIWsFValK/ZAwn8waGSASnZS3xyXBJsgiqdyjYDzcJutJGrVKpZcjBEJeMFcCq1s91Z02b8Lg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MH7wcmOcXZFOwcUqWWheUbrwOLEH4SEcvKWawIZfkFI=;
+ b=uj1QC4Uxy8OAvR0Cg7HKGVpQpmK9J//4JZ24KM7uLH1JjhfF92sWT0cIWe52pf5l4R4pZDfXegafvyt/3NKgbpZKCutlqTlUFKXghuOoJK7rHXRbR2OjhayfZQVAaEceR3Kwt8BGqYMv+y90mKyPX/GjrlKW5nmpT3V/p+3BmwFnKwCfe5/1FRMt1b1b7ZGQTR0VmMf6zn3Ka8pdgHSy++anNTPGNn42WmPQiUnb8fdcDgR+NvjbSUWFXpeqBejg+Ty+i/Reh69Osc11UOByy+MCJu24QHjgBcZ3oRbxgstLR1jMerS3krxEYo/2fhOjltT5GxcHXmPXW7v13O2crQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MH7wcmOcXZFOwcUqWWheUbrwOLEH4SEcvKWawIZfkFI=;
+ b=iZMgtb4CklQPAQbrs0OuRcxsPRKbF1y0vtGL089+EaR9EQqVQ6foI8d0dB8IeBsdz7AP6E0CoXOMYoYsPtdHJUs5svOucwKneURmPv4MxwLbvqskXiOI6uMNwGg+sey3O0MKCuf7TKJvJCX9DlDoAxo4FkGUdvUwaBK//e0y6D2Rs+6r1iO1E4roAb8BSHENo0FelRhZB9wSyrfTXkCfnSfft0xNXH7YS8R5gVOCizgh3ljzNfskgHNsIw70IhDyTfOjYZnp4bjZp2236SqkdPitA2hTvCLK0pV2CohToxa7O2QxAeoccQG53OYIzABJYfmOEcI11qgWKWG47HbEXg==
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
+ by VE1PR04MB7360.eurprd04.prod.outlook.com (2603:10a6:800:1a3::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Mon, 3 Aug
+ 2026 09:03:58 +0000
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889]) by MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889%6]) with mapi id 15.21.0270.016; Mon, 3 Aug 2026
+ 09:03:58 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: "Frank Li (OSS)" <frank.li@oss.nxp.com>, Laurentiu Mihalcea
+	<laurentiumihalcea111@gmail.com>
+CC: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Frank Li <frank.li@nxp.com>, Fabio Estevam
+	<festevam@gmail.com>, "Daniel Baluta (OSS)" <daniel.baluta@oss.nxp.com>,
+	Francesco Dolcini <francesco@dolcini.it>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v3 1/4] dt-bindings: remoteproc: imx_rproc: document
+ optional "memory-region-names"
+Thread-Topic: [PATCH v3 1/4] dt-bindings: remoteproc: imx_rproc: document
+ optional "memory-region-names"
+Thread-Index: AQHdIEFsa8xSeqygz0mMXpUhGv5EHLaGXecAgAWvMJA=
+Date: Mon, 3 Aug 2026 09:03:58 +0000
+Message-ID: <MRWPR04MB123301AA9F074FA2976AC36C288D52@MRWPR04MB12330.eurprd04.prod.outlook.com>
+References: <20260730163412.1145-1-laurentiumihalcea111@gmail.com>
+ <20260730163412.1145-2-laurentiumihalcea111@gmail.com>
+ <amuUbkDM60eFzvJo@lizhi-Precision-Tower-5810>
+In-Reply-To: <amuUbkDM60eFzvJo@lizhi-Precision-Tower-5810>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MRWPR04MB12330:EE_|VE1PR04MB7360:EE_
+x-ms-office365-filtering-correlation-id: faf0e0a2-a3f4-459d-c638-08def13e273d
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|19092799006|366016|1800799024|38070700021|56012099006|10067099003|11063799006|4143699003|18002099003|22082099003;
+x-microsoft-antispam-message-info: pkoxdGZZ0TLD2P36Qs9Z5cwPZ2WsFKjEPT2XTKJnnT17N8j/Pe9YPAYia7dP31EjrYXCQelyZ9L5MlsiTo5EjadCo3jsu7c1pesuaHXSUasGwpoZTHyDlXeJZJLk7AGsHqH9gKsJkyRH8zHfLC15m5FztSDGFlZV+yiGK6Dxu0ybFs44Y/t9EXG8Je7tbIPFmPqXdwU5KyL+ji1bl+E8gWPnxVj3UeSrao6O400lrODBy5O8sdrjTG8W6QINinZhVjXSvZy4zN0MpM2fMdjtool2nOK7hJ1gS5j+qlOwtFwqCZtB+z/l7LCPthgToHcUu8EStl1T8fNVTnl7mcRAVoZCtr9CzS0AqgRJWnzwd5INC9wyICjaDCgdXd+ijjnF9FaETM95MZufpLXsEGJ9LsYqGjMocRyEdWqGaO0qBN2EzNJd3mnRXNJ5X+qoW56Hab78ef2NGmQETspxxMawwF3J41YH2FsVTRWbl/CMQQRWqkCfG6aRKE+3/bopBzb1WT5TJYCH4DYNf8to8EV5P3H9lzOyfP/ceVXt3WXLturnyANaMTeMOlAtudU07S+VFEuPtx7ONbiYvUz19+ga8VZCyvj9/Ev8XxcBfyixpTL+XDIvX8QPm3eU+W25aOme0F9sItowOHDrXmo24aZ7HxQ9jWo6geR/WzrmhZtsHY0=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12330.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(19092799006)(366016)(1800799024)(38070700021)(56012099006)(10067099003)(11063799006)(4143699003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?JGB9IlPrxZsTEcCR2Czd596nuTuM1WwUXXdz6E6uL9ZvCMidTmrVDwQ8PlrT?=
+ =?us-ascii?Q?Nvubri/rWUPMVM+i5crZkC7TRVMx3TqcDQlcu8e10oW4vuhRwPg5QNz3LH6V?=
+ =?us-ascii?Q?hbjyfLnlDY/CaoBkSFMikcdseaSmu6l9+UKnbdA4W8lGYsA2+SXY59duoOBr?=
+ =?us-ascii?Q?8wbZpg8ia7MCLrjxmwQ0LTQGl981v/ANC1FHFrm3rxFeUlE+QrkGPLPvnBBW?=
+ =?us-ascii?Q?s1acCMdeXiy2jinRyb9sQ6XmCXo6jRNICTTlhnj598LtV1kt97p1+3Q6Fp/w?=
+ =?us-ascii?Q?hMiJbBjQIXeVYrZLP965nC8XUNMyk3iucRmM7AOU8WlNtkyGP/a9je8LkHSs?=
+ =?us-ascii?Q?LnX9/X4mg/OJw8u7rSC50MmirYWA65KHoHzIBHgG72X9CKzqQDmDLnvPhDXs?=
+ =?us-ascii?Q?6Q1zLl/O9xK7u8CnlqDfb2m4rvkAeblF5D/tktQPpdUBm0+fUD/mGm22nNhB?=
+ =?us-ascii?Q?ZL1iEh9//UoydBlYFIAbQcfGy+ud75rTwPhErq9us4XBx8XFYTUOmW0BSxRg?=
+ =?us-ascii?Q?yQiQ7VH2CvXNIZKnnnsuX9eqDmkG0bC7w8RD+FZPuUVObkV4ne2w0BZTDqhq?=
+ =?us-ascii?Q?K49y8vVYTjltKYr26hrCvU03zjVuFCoVNNqhMbTSuZvhmWXSJ+hzJvOhCkpO?=
+ =?us-ascii?Q?9vU5eUYmv70rtqzE9OX0oQ6RJCnrQTJxLSP680wUFn2bzvDWvmMbBPGnZzXP?=
+ =?us-ascii?Q?feIgbO9GCN8pzxP+m2WY9CSAPXPenIW2Nu+MEpQoomU4Q0WIdhFsN6XlHh4l?=
+ =?us-ascii?Q?Fg1/ewjnMPdN/Re+4NZlvSetBo0ztBw18CNKuKBabJiWha8jlEI5KYQXtS7i?=
+ =?us-ascii?Q?lgPSIsk7j5sQ4mmdiFq1/1mQUYupf3PyEWFDvpTAaKncGNQlZBzsVhxuw4MV?=
+ =?us-ascii?Q?IelzgBKgN48+cLfxGUV2zOGuRX/UNRiQMLQ24uJ5i8q07++P+l5OfJclTmHz?=
+ =?us-ascii?Q?alc1/wYuRVYSggudwyoW4fcEGXPI6pkeDLFLqyJESc3qg+wRNi6rh57HeYHE?=
+ =?us-ascii?Q?gm1t9RRrIptDpw3G5iMXyZi04uYpu2UapWLJoikbGI+T0P+MxRelvZiS51Be?=
+ =?us-ascii?Q?+KriVOSEaU4jK9k4170y2y3DL8OF0/1GZd55zMxDL1Ah4De1oLxHtgka+BrY?=
+ =?us-ascii?Q?oQCurirqQ/XMOgvprTcX5qoWWQtZUQMrHu1mQWy4c17BD6WFdDxq8Dzttbw/?=
+ =?us-ascii?Q?FDoCfxaGyLZY3S+EZQTKaw8Fkoo6e6GBt9V+j9FoYUdo5ZYTSRKr+89ZOhRh?=
+ =?us-ascii?Q?tAN6ZKEwev9gPBXl4liJvXLiKVUDEKHoGJcfkpd9yTR5Tt8pCBRbbUvnWkAW?=
+ =?us-ascii?Q?uaNfm8Cs1ZkNbMxXO+CtHR01Fv2r39c7JbZl6vgIDZbLRIptz9ynv5rV3xH7?=
+ =?us-ascii?Q?wyr7h3HndnBoxwLZmmCc21frPjlgTZ+CDMiDU2WWbLXTVXfryQwSgXJyir8O?=
+ =?us-ascii?Q?opXABZ67YJzNswgA+Gje4b22Sh+Jx+fD1ce6VjJvvDEXkgWlgyjlI2xL2W80?=
+ =?us-ascii?Q?W/CD6UdPYW9i/e4mX8s8ZCgptg+/vRux0JOX0rKE8U3+X1ChBz5cBzjEkXoR?=
+ =?us-ascii?Q?BoaI4ni+/+AK6hdb4duRTnEhWuvINHgQM3k0LuLngo5+lu3rpIGM0JM6SO5h?=
+ =?us-ascii?Q?siRXL5eLeNFZZZ1agFpV4Gzj0OS5MoqitsDg1i80j8+eNuelR3NY3wASnHoy?=
+ =?us-ascii?Q?yiKQ4PTKQ8ZGplVMAhX/RowZNxWqfmPtlnBPVxYNPEUOt0xz?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [2620:10d:c085:108::150d]
-X-Authority-Analysis: v=2.4 cv=DtpmPm/+ c=1 sm=1 tr=0 ts=6a705910 cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
- a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=855S8uPTkML1Oy45N9_h:22 a=axNnc2LJDcEVcFH0QQkA:9
-X-Proofpoint-GUID: yDUsO4gfDXBGr2c08-1MdmnfzIQYnF4O
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDA4MCBTYWx0ZWRfX22+EUbsmVN9b
- 5tTSfYz1BUtkaSwARUFU32/C9VNbI7+S2hsphm1elzMv2gjtlhhHibb3XSgW1lR4CA7h6Q7TQQK
- W2GQG7QBzQSYk+/t6YM1XN6RztE6pL0=
-X-Proofpoint-ORIG-GUID: yDUsO4gfDXBGr2c08-1MdmnfzIQYnF4O
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDA4MCBTYWx0ZWRfX4kYTgkUiP3L1
- ZoPehi/7Qpu8bediNfHWCyeBX+jyEWuhyEf3VHKJybPS1Prej8Y5HEoaI5Fhrdty6/58DnuFLX1
- KE8QbtrlCu06T5TGiOOV1DxAVz8zIDoZesHsCkZKf4TbK0bvhZiTO8ps6+Fzg88SH7cC36x66re
- n/HO2ukcxYAsZxXRbK4iWYpMkd2y3H/Whk8Mk9j4etxdKjxwiNcF/mPu3fX8Rxj8aQY1C8rFDfo
- 5iJVtZU+tUd83ViMcGiQl+bEFv/iVKm5XCJUpJ/XTf6KICqBKy6/9t5QwTYofVWls+naAPvu2HS
- PCPqsgxaBRaSgaJSE2p8UWMg6G8ZSmcauN6yNKxJoh+Qa+YMwMFRSQGamygOsRyKQyjrJoKanJq
- JyMM9UPqhkSqOjim3reRXllT1+pGh8XowHs7UezhNniwtbnqJqFymqgw1XvIAcVpB91Dz+zE44s
- w1FNY4IUu/KcKNZaQbw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-02_06,2026-07-30_01,2025-10-01_01
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12330.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: faf0e0a2-a3f4-459d-c638-08def13e273d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Aug 2026 09:03:58.1759
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ZKTST33YluY+f2gvVtmBwqQ5bE95ygueo1pi+iJJyZtDGm6JBWKJuCWrAcFSOVEi2IYua4/OMy0uTiZjpb8Vug==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7360
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_020233_776029_392E77F5 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20260803_020404_997888_EA8310B6 
+X-CRM114-Status: GOOD (  25.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,125 +153,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series implements --itrace=L for Arm CoreSight ETM: decoded branch
-history is attached to the PMU samples already present in the recording,
-rather than to synthesised instruction samples.
+> Subject: Re: [PATCH v3 1/4] dt-bindings: remoteproc: imx_rproc:
+> document optional "memory-region-names"
+>=20
+> On Thu, Jul 30, 2026 at 09:34:09AM -0700, Laurentiu Mihalcea wrote:
+> > From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >
+> > The carveout region names are derived based on the DT node names.
+> > Because of this, the DT node names are ABI, which is not supposed to
+> happen.
+> >
+> > Fix this by documenting an additional, optional property:
+> > "memory-region-names". This way, the software will have a way to
+> build
+> > the carveout region names without relying on the DT node names.
+>=20
+> "After update all existing DT tree, this will be required.
+>=20
+> >
+> > Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> > ---
+>=20
+> Additional information to help understand why it is important.
+>=20
+> 1. at thread wrong use vdevbuffer insteand vdev0buffer as node name
+> https://lore.kernel.org/imx/20260705202439.3F5771F000E9@smtp.k
+> ernel.org/
+> 2. similar case happen at
+> https://lore.kernel.org/imx/20260715071741.79CA81F000E9@smtp.k
+> ernel.org/
+>=20
+> Suppose these problem should be detected by dt binding check instead
+> of sashkio ai.
+>=20
+>=20
+> >  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml         | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/remoteproc/fsl,imx-
+> rproc.yaml
+> > b/Documentation/devicetree/bindings/remoteproc/fsl,imx-
+> rproc.yaml
+> > index c18f71b64889..8e3e6676a95e 100644
+> > --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-
+> rproc.yaml
+> > +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-
+> rproc.yaml
+> > @@ -62,6 +62,10 @@ properties:
+> >      minItems: 1
+> >      maxItems: 32
+> >
+> > +  memory-region-names:
+> > +    minItems: 1
+> > +    maxItems: 32
+> > +
+>=20
+> Need restrict names
+>=20
+>   memory-region-names:
+>     description:
+>       Names for the memory-region phandles. Each entry must be one of
+> the
+>       following recognized names. "vdev0buffer" is the shared buffer for
+>       virtio device 0, handled automatically by the rproc virtio framewor=
+k.
+>       "vdev<n>ring<n>" (e.g. "vdev0vring0", "vdev0vring1") are the virtio
+>       vring buffers for device N, also managed by the virtio framework.
+>       "rsc-table" is the resource table region used to share the resource
+>       table between Linux and the remote processor when it is pre-
+> loaded in
+>       memory. All other entries are treated as generic carveout regions
+> that
+>       are mapped and made available to the remote processor.
+>     minItems: 1
+>     maxItems: 32
+>     items:
+>       anyOf:
+>         - const: rsc-table
+>         - pattern: "^vdev[0-9]+buffer$"
+>         - pattern: "^vdev[0-9]+vring[0-9]+$"
 
-The motivating use case is context-sensitive PGO, which wants a callchain
-and a branch stack describing the same point in time. Recording a cycles
-event with call-graph=fp and aux-action=pause supplies the callchain, and
-the ETM trace leading up to that sample supplies the branch stack, without
-having to trace a long-running process continuously.
+There might be other entries such as m4_reserved or m7_reserved
 
-Intel PT has had this since commit f0a0251cee80 ("perf intel-pt: Add
-support for synthesizing branch stacks for regular events"), so this
-deliberately follows intel-pt: the same --itrace=L option and the same
-thread_stack__br_sample_late() call.
+Regards
+Peng.
 
-Patches 1 to 4 are independent fixes and infrastructure the feature needs:
-
-  1  makes an inconsistent HEADER_GROUP_DESC non-fatal. AUX recordings
-     using aux-action pause/resume produce a group descriptor the strict
-     reader rejects, which makes an otherwise readable perf.data
-     unreadable, so without this the recipe in patch 9 cannot be decoded
-     at all. Useful on its own.
-  2  reports hw_idx as -1 rather than 0 in reconstructed branch stacks,
-     since they have no hardware index.
-  3  bounds a wrapped memcpy in thread_stack__br_sample(). Latent today,
-     reachable once a caller keeps a ring larger than the requested output
-     depth.
-  4  adds a dlfilter that drops samples with an empty branch stack.
-
-Patch 5 is a no-functional-change refactor splitting
-cs_etm__process_timestamped_queues() into its three parts. Heap seeding
-moves to cs_etm__update_queues(), gated on queues.new_data and mirroring
-intel_pt_update_queues(); the end-of-session flush moves to
-cs_etm__flush_timestamped_queues(); and the decode loop is left on its own
-so patch 6 can drive it once per sample. Neither seeding nor flushing can
-be repeated, which is why they have to come out first. The moved code is
-unchanged, so both loops appear as context in the diff.
-
-Patch 6 is the feature and patch 7 adds a shell test.
-
-Patch 8 is where review attention is most useful. --itrace=L attaches
-whatever the thread stack holds when a sample is processed. With a duty
-cycled trace most samples fire while the trace is off; they have nothing
-newly decoded, but the thread stack still holds the previous window, so
-they were being given branches that ran an arbitrary amount of time
-earlier. On a 12 s capture with pause period 100003 and resume period
-8350251, of 335291 samples that received branch history only 3371 were
-backed by trace decoded for that sample.
-
-A trace window belongs to exactly one sample, and with AUX pause and
-resume the sample is what stops the trace, so the pairing is one to one by
-construction. Patch 8 therefore takes the branch history when attaching it
-instead of copying it, and a later sample with nothing newly decoded finds
-an empty branch stack, which the dlfilter removes.
-thread_stack__br_sample() is unchanged, so lowercase --itrace=l keeps the
-overlapping branch stacks it produces today.
-
-Patch 9 documents the workflow.
-
-Because the sample is what stops the trace, the history attached to it
-lines up well with the callchain: on a brstack capture the leaf of the
-callchain matched the function containing the newest branch stack entry's
-target for 93.5% of attached samples. The residual comes from the decode
-loop stopping on interpolated timestamps, so a few branches that ran just
-after the sample can still be included. Trimming those with the sample ip
-raises it to 96.8%, but that matters far more for free-running ETM
-strobing than for pause and resume, so I have left it out of this series
-and will send it separately.
-
-Patch 8 could be squashed into patch 6, since patch 6 on its own produces
-mostly stale history. I kept them apart so the decode mechanism and the
-attachment policy can be reviewed separately, but I am happy to fold them.
-
-Testing
--------
-
-Built with:
-
-  make -C tools/perf NO_LIBELF=1 NO_LIBTRACEEVENT=1 CORESIGHT=1
-
-Every patch builds individually. checkpatch reports only "does MAINTAINERS
-need updating?" for the two new files and "quoted string split across
-lines" for the dlfilter description string, which matches how
-dlfilter-show-cycles.c already writes it.
-
-Tested on Arm Neoverse V2 with CoreSight ETM:
-
-  - perf test "CoreSight branch history on existing samples": Ok, 3 for 3
-  - captures from 5 MiB to 2.5 GiB decoded with --itrace=L64, no decode
-    errors
-  - the other CoreSight tests are unchanged by this series; four of them
-    fail identically at the base commit on this machine
-
-Amir Ayupov (9):
-  perf header: Tolerate inconsistent HEADER_GROUP_DESC
-  perf thread-stack: Report branch stack hw_idx as not available
-  perf thread-stack: Bound wrapped branch stack copy
-  perf dlfilter: Add non-empty branch stack filter
-  perf cs-etm: Split up cs_etm__process_timestamped_queues()
-  perf cs-etm: Add branch history to existing samples
-  perf test cs-etm: Test branch history on existing samples
-  perf cs-etm: Consume branch history when attaching it to a sample
-  Documentation: coresight: Document context-sensitive PGO workflow
-
- .../trace/coresight/coresight-perf.rst        |  62 +++++
- tools/perf/Makefile.perf                      |   1 +
- .../dlfilters/dlfilter-nonempty-brstack.c     |  26 ++
- .../tests/shell/coresight/add_last_branch.sh  | 175 +++++++++++++
- tools/perf/util/cs-etm.c                      | 242 ++++++++++++++++--
- tools/perf/util/header.c                      |  42 ++-
- tools/perf/util/thread-stack.c                |  21 +-
- tools/perf/util/thread-stack.h                |   1 +
- 8 files changed, 544 insertions(+), 26 deletions(-)
- create mode 100644 tools/perf/dlfilters/dlfilter-nonempty-brstack.c
- create mode 100755 tools/perf/tests/shell/coresight/add_last_branch.sh
-
-
-base-commit: da85966dfd23a3b03e00ee3bce6ad301f0a2b229
--- 
-2.52.0
-
+>=20
+> Frank
+>=20
+> >    power-domains:
+> >      minItems: 2
+> >      maxItems: 8
+> > --
+> > 2.53.0
+> >
 
