@@ -4,163 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886FEC55196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 22:17:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4FFC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 22:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U/aBEbyITsGpQyxAY6tp7ki8lSr5wOgar9R8n9o6Jkg=; b=BKWSsc28oPF46WlHSvEEuuWMa5
-	gswtwsfn1T4RlxA8WSFfFrEPnn7f7WBFIPFVSU5DDUwa2UfRdUYqN6GQjmeILe4s07vM+Hf8b374F
-	2kY0zxEI2pSZT2ta1dZu5w+REtaxqbLNf9/gs/XdjntWLelLj/879eykK2fS3fazCKnLSfD19PITS
-	/NwSsOmbThMyS1jdVfURIUJrWwlO7r0/AqB/midQ80qXzfy1xhSuCXwyxl4FRHuZj6l4QyY+3RPeG
-	KG+egtv8TRvVixWcAWJLMkxfnJZ+64wQG8ScKWnaydF9eKwD7Y3CiOse8n3B7SvdCC6DAX+s40/v0
-	cjXuSYxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=NzqBUkUuPUSSxOc0UQtDlqdgKn9f1XFPYeVeP6ULshk=; b=4QxAQE9wTPL7ly
+	tVGmfFvhB1vCYBuGk2JwiaMwA0oztqpXYaYx0AQnJXJJOK+Ndc6TrSrhMTrKiNBOLzSt7TPSQeAe9
+	jD4oMV1pRSx1I6Kfbji6WdTdYtBxPZcYyibI/p0hPQQD+nzkamQOXMrM45SYB+WhSVxlvF/9B5EFA
+	z1lWmmIq4PfU60tpa/35tWc3b6TNDliAtkQUUFY+PRumk/75tdZY8f4R+iX0jdbfAlH36z8lV6VrG
+	bnUTlx52/L60Srg7JddXdzutw/6xEnNxbtXOSDzmoIdFQOTZvCkT9BT95W/Je3SIPw5hP/SyUp9wK
+	uPscx3Y6VHOj+XLj6Z5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr0yC-00000000aCa-0f3p;
-	Mon, 03 Aug 2026 22:17:16 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wr12z-00000000adm-2qLV;
+	Mon, 03 Aug 2026 22:22:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr0y9-00000000aCD-0j3G
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 22:17:14 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 673K2orO1708104
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 3 Aug 2026 22:17:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	U/aBEbyITsGpQyxAY6tp7ki8lSr5wOgar9R8n9o6Jkg=; b=ARY0490U81Yk+gJM
-	EN4Ga8z3S3iHGpqDYUrdQ+OmU16PQ+cvdXOy5pTD7kSVRRfEj0rwdkMpYePBxpgu
-	7gMsK9eTTY44CrxYvFXHFmZwjoreckigJWCe381vOWV4cQ/mKW+gMMIh4Rabi9W+
-	n+JXSqCbrbOhb0zOrVEpiEK/R8ECuBzW36EDGhqhIO+Tkn38kS/hWZ3T1YBMoP6p
-	LpLq0CTeCZHT4+ZC33I2LIE4LjKBLmfTEraT8pVS/B9QXlgH1aHFPRMdRtGthOd4
-	L0/tFKVIEnohYlWnvL5Hrtzf97lkAtktxJc+ZmfDXFWeKGvSFvOeOT7O0torGN0G
-	v7SEug==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fu1p88gfv-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 22:17:11 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-ca6bd8a190cso4924486a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 15:17:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785795431; x=1786400231; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=U/aBEbyITsGpQyxAY6tp7ki8lSr5wOgar9R8n9o6Jkg=;
-        b=eTayZ1isgtsIMWKYIOj8D3NW95wWNcamHL3MAV0UW6iGltrjDqoT17o4BUSaoj7CJ5
-         zZ0GrquiBLhPMC1UEpnRhCJSd2bq3GaldJhD8PIz7EZjy800hI7sMYHUGkwmvCbVGGr4
-         ByAwgdnI38QDJ6fC+nnyJQhYMMIbE4VHFvdkeG3eTY/b0ty+4AM+pvtewjDgvUhB5+a1
-         K2IPd0oE9yXuNZCrEexgYhblCuMEHhw76+iPH5Av17+8OWHz9OqgQk8PnVWhNa2mj9FR
-         vyj6Ep4JufbK1PvyIXy6FCOAF+fJNdbe30Ti40ZfRTxzazIEYL7+6lKGaBG/WabQGCQ6
-         6NiA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785795431; x=1786400231;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=U/aBEbyITsGpQyxAY6tp7ki8lSr5wOgar9R8n9o6Jkg=;
-        b=ZUsxv4yItTalS4GIR1b9DR7qK3iweC8acsFOHn8ErMnuhl8ospQAD/n9LfElBwRxOq
-         1ijbCRrfQVfB10JOzn9JxiOW0ViD34kQ80O0Qw0IwqjietyI8Hckvtkjr7mmpWcvioo7
-         mNpWSr2MPnlDdEXLXcHS4hqIAQjEeHu8xuDJT/ZtBWkgmEptcka8F3RRhLsrQJxwZyO8
-         sDBWjdF41Iq1mq5UD77WXJ/eO65CZHyJG1jNMoTpK4p2IxkjhR/vKZG9YyOSrQN5moXg
-         Nog+hPYnGdyfB0q/HOOmWx+LNDGqC/L41u+a+Gyg3B5UkcTOYd14yA5VUOG5TQs4tdPL
-         zbjA==
-X-Forwarded-Encrypted: i=1; AHgh+RquCF8Wa9BY1tYdFtELrEG+PLftZTWev3hfPLmsse+OKqYUfrbVgpAPwOnwfFINnZWSNkv9RKheqYc4/eoTPtnT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8NeyjdMv3z19S4rA85hHxRZpvgw28U+Xi1+54PFRKBE/Y8YIn
-	5oT0MX6Zbb7cq6S2pu/LH5o3hMfCluKWZ1tnEOAFayQhR9tA5/+85HdrotA7rf6rJCPuebtIiwf
-	41ic5ndKnUgPy2nuxVMUu58RVzu1QJgldkbcOm7x1pyPBOQNJVArAieH39h0AAkJdQVzklgkGvd
-	pocg==
-X-Gm-Gg: AR+sD10YZwttGxhYZXKzvZzN04EZcpdHL1CAFaMQZJKrBPJKeqYrOZV5S6u6B7xt13U
-	pk9G3ujF8iTMbyKDO5K2mbmGArCJ7wKz0z7TEhW20qtfJZQn2N9bUCluaFr5RXIRykcGjYJL95N
-	HBIRxL3cVUmP+dkXVCBsB4cawLw1UDk8euaq0RZbBo1T50fpUeFSdp8sa7C3o1GAgEukZYi1yTM
-	DUV0zd+vpZvE8IQr4Tfusj236P93PYIY+fWzm8LGetZWhqimGpqZ6kWYh4hLGYH9oF0taohZIq/
-	JwDgRytmd9JBOSODF/N3azFQK9ppIoDbY0K16yQumM1ftw4X7/Ectkouo0DiRr0o+BXfB5xltl9
-	674xaodSp8FurQPCf/6zRCx0/6g==
-X-Received: by 2002:a05:6a20:2d09:b0:3b1:cce5:9140 with SMTP id adf61e73a8af0-3c92a75ec8fmr11363103637.33.1785795430850;
-        Mon, 03 Aug 2026 15:17:10 -0700 (PDT)
-X-Received: by 2002:a05:6a20:2d09:b0:3b1:cce5:9140 with SMTP id adf61e73a8af0-3c92a75ec8fmr11363071637.33.1785795430445;
-        Mon, 03 Aug 2026 15:17:10 -0700 (PDT)
-Received: from localhost ([50.35.46.84])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153dd4f197sm43287766eec.6.2026.08.03.15.17.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 15:17:10 -0700 (PDT)
-Date: Mon, 3 Aug 2026 15:17:06 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Hanjun Guo
- <guohanjun@huawei.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        "Rafael J
- . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-        James Morse
- <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-        Reinette Chatre
- <reinette.chatre@intel.com>,
-        Fenghua Yu <fenghuay@nvidia.com>, Jonathan
- Cameron <jic23@kernel.org>,
-        Srivathsa L Rao
- <srivathsa.rao@oss.qualcomm.com>,
-        Ganapatrao Kulkarni
- <ganapatrao.kulkarni@oss.qualcomm.com>,
-        Trilok Soni <tsoni@quicinc.com>,
-        Srinivas Ramana <sramana@qti.qualcomm.com>,
-        Niyas Sait
- <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
-        Ritwick Sharma
- <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 06/11] arm_mpam: propagate MSC access errors for
- state saving function
-Message-ID: <20260803151706.000027e6@oss.qualcomm.com>
-In-Reply-To: <20260731170324.2927758-7-andre.przywara@arm.com>
-References: <20260731170324.2927758-1-andre.przywara@arm.com>
-	<20260731170324.2927758-7-andre.przywara@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+	id 1wr12y-00000000adc-3Srk;
+	Mon, 03 Aug 2026 22:22:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 294A5405E9;
+	Mon,  3 Aug 2026 22:22:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D12C41F000E9;
+	Mon,  3 Aug 2026 22:22:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785795732;
+	bh=NzqBUkUuPUSSxOc0UQtDlqdgKn9f1XFPYeVeP6ULshk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=Yxs0JackqidroKiBTsQw0a6aKHYM5sHkUglO0D5wq//b+JopEqC23meSCWke9mAnm
+	 0XF7SkYHw8enfeLF66Irvx6mAeEIgdSO4uAMQ7ztk5PfdvWLWJ4MpiudXlEIAksMU5
+	 +EFh2fTHQjGQJxaDCxGcWNKFkTD/L0vj9K7RXH7ZeZqHEx45256dSjotnZHUbD6eiB
+	 +WT4HUCItINluODmxK+d6k5/qFwffpcOhx8W/j1mGDQtL7NvJb6zY+pkYAbWcNi7WS
+	 wIRFzNrZ5mU5oUd05WePDK9DIBknkC0NIMAHP7pXqX3S9skm5jp7HpheyDxmUMFUxD
+	 dlunoWY6FNyKQ==
+Date: Mon, 3 Aug 2026 17:22:10 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Sangwoo Han <sangwoo.han@nearthlab.com>
+Cc: jim2101024@gmail.com, florian.fainelli@broadcom.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	bhelgaas@google.com, bcm-kernel-feedback-list@broadcom.com,
+	robh@kernel.org, linux-pci@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are
+ handed out
+Message-ID: <20260803222210.GA1804081@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=A5xc+aWG c=1 sm=1 tr=0 ts=6a711367 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=CJK1izrmERu_2sfnVPYA:9 a=CjuIK1q_8ugA:10
- a=3WC7DwWrALyhR5TkjVHa:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDE5NSBTYWx0ZWRfX3RpUXUF3jdyh
- /xK1ZmyztdWrANtKyBUup3gs76gdtUMiCVdVLJee/Dw4BAgaTh+TakQ/OWU++OFXdgS/UGqCAtn
- WDprewxr68kWj37wMQfOU6GmNN5J+PeFCNSw8ohEbW3vCotHc84XssH1uzfn+t3Vx7HWVms4+u6
- E8DJx4usTn7tl0Y7FHShQAsHXbgSS9icQXuYez/T8tjPEv5UO5N7OAnYBFfGbJ7m8j+rvtpTUAk
- ca+dzkP1nGR1KQKlVv66udtOOCG0QHOsKG8AbKLXp52aMB73broTjwJwJR7W0RYz4n+qQ5IW3Ig
- EqMPJ+1AqwxrfRDGbjJy1Pto747EomyQMzl75FZ9f1ir2x0qnBpM7FAI43SBbR+jqJwrgmdQUMk
- s/QWnUBFSOlsHkmOk7IiG8KPTqiT/F0Kol/tTvEc2+N0inMvl08bWqjcu4DZMIDKp6biQW3opUk
- l0ec5NUL2bPO8eJD3jQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDE5NSBTYWx0ZWRfXxCZNwCj7WKch
- T9QMiIBjaNquQJRpetkPV7qPU/QYOekMhsujBNkWcaR4kBRv5HiEzO9kYIoUwVdUJ2yW8NI5Dgj
- UmFwO/JVuodevkxzKDMvuVVDI2eOu/k=
-X-Proofpoint-ORIG-GUID: 1kMUtfNjo56tw_ewSvAJ3ruJhNXZOvmT
-X-Proofpoint-GUID: 1kMUtfNjo56tw_ewSvAJ3ruJhNXZOvmT
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-03_05,2026-08-03_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 malwarescore=0 priorityscore=1501 clxscore=1015
- suspectscore=0 adultscore=0 bulkscore=0 spamscore=0 impostorscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608030195
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_151713_334690_C103D9AD 
-X-CRM114-Status: GOOD (  22.28  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260730072215.2090974-1-sangwoo.han@nearthlab.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,94 +71,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 19:03:19 +0200
-Andre Przywara <andre.przywara@arm.com> wrote:
-
-> Allow the mpam_save_mbwu_state() function to return an error, and
-> propagate read and write errors from the lower level up.
+On Thu, Jul 30, 2026 at 04:22:15PM +0900, Sangwoo Han wrote:
+> brcm_msi_alloc() reserves a naturally aligned power-of-two region with
+> bitmap_find_free_region(order_base_2(nr_irqs)), but the irqdomain core
+> releases the vectors of a block one at a time:
 > 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+>   /* irq_domain_free_irqs_hierarchy() */
+>   for (i = 0; i < nr_irqs; i++)
+>           if (irq_domain_get_irq_data(domain, irq_base + i))
+>                   domain->ops->free(domain, irq_base + i, 1);
+> 
+> That loop is the only caller of an irq_domain's ops->free(), so
+> brcm_irq_domain_free() always sees nr_irqs == 1 and
+> bitmap_release_region() clears exactly one bit per call. A request whose
+> vector count is not a power of two therefore reserves
+> roundup_pow_of_two(nr_irqs) bits but releases only nr_irqs of them, and
+> the difference stays set for the lifetime of the controller.
+> 
+> Multi-MSI regions are order-aligned and the controller has at most 32
+> MSIs, so the pool is quickly exhausted. Observed on a BCM2712 with a
+> 5-vector endpoint behind a 4-port PCIe switch: the switch ports take
+> hwirq 0x0-0x3 and the endpoint's block walks 0x8 -> 0x10 -> 0x18 across
+> three driver reloads until no aligned order-3 region is left.
+> pci_alloc_irq_vectors() then falls back to a single vector for the rest
+> of the boot, silently multiplexing the endpoint's four completion
+> interrupts onto one hwirq.
+> 
+> Devices that ask for a non-power-of-two vector count are not exotic:
+> wil6210 asks for 3, the MHI modems for 5 (Quectel EM1xx, Foxconn SDX55,
+> Telit FN990, MediaTek MV3x) or 7 (Qualcomm v1), ath11k WCN6750 for 28
+> and ptp_ocp for 17. MSI-X is unaffected because it allocates one
+> descriptor per vector with nvec_used == 1, so the order is always zero.
+> 
+> Reserve exactly the vectors that are handed out, at a base found with
+> bitmap_find_next_zero_area(), and clear exactly the vectors that are
+> freed. The number of reserved bits then matches the number the core
+> releases, whatever arity it uses.
+> 
+> The base still has to be aligned: PCI Local Bus Specification 3.0
+> (section 6.8.1.6) lets the endpoint encode the vector number in the low
+> order_base_2(nr_irqs) bits of the Message Data register, and in this
+> controller those bits are the hwirq itself. The alignment mask has to be
+> roundup_pow_of_two(nr_irqs) - 1 rather than nr_irqs - 1:
+> bitmap_find_next_zero_area() requires a mask of the form 2^k - 1. No
+> align_offset is needed because the bitmap index is the value the
+> endpoint ORs in, see brcm_msi_compose_msi_msg().
+> 
+> For a power-of-two nr_irqs the alignment and the region length are both
+> nr_irqs, so the base returned is the same as before and those
+> allocations are unaffected.
 
-If you happen to be respinning i think the code grouping vs white
-space in here could be slightly improved.
+Several other PCI controller drivers have similar code.
 
+I think we should fix them all at once (or explain why they don't need
+similar fixes).  Might be worth a little helper so they all work the
+same way (e.g., some use order_base_2(), others use get_count_order(),
+which seems like a pointless difference).
+
+> Fixes: 198acab1772f ("PCI: brcmstb: Enable Multi-MSI")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Sangwoo Han <sangwoo.han@nearthlab.com>
 > ---
->  drivers/resctrl/mpam_devices.c | 29 ++++++++++++++++++++++-------
->  1 file changed, 22 insertions(+), 7 deletions(-)
 > 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index fa8ed20a6740..38450c55e45e 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -1838,22 +1838,37 @@ static int mpam_save_mbwu_state(void *arg)
+> Notes:
+>     Tested on a BCM2712 (Raspberry Pi 5) with a 5-vector endpoint behind a
+>     4-port PCIe switch, running 6.12.25 where brcm_msi_alloc() and
+>     brcm_msi_free() are byte-identical to mainline. Without the patch the
+>     endpoint's block walks 0x8 -> 0x10 -> 0x18 over three driver reloads and
+>     then falls back to a single vector for the rest of the boot; with it the
+>     block returns to 0x8 on all of eight reload cycles and the inner
+>     domain's mapped count round-trips cleanly.
+>     
+>     Compile-tested on mainline for arm64 with W=1 and C=1 (sparse); no new
+>     warnings.
+> 
+>  drivers/pci/controller/pcie-brcmstb.c | 17 ++++++++++++++---
+>  1 file changed, 14 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> index 8a0c353d2a..6c5166666d 100644
+> --- a/drivers/pci/controller/pcie-brcmstb.c
+> +++ b/drivers/pci/controller/pcie-brcmstb.c
+> @@ -595,11 +595,22 @@ static struct irq_chip brcm_msi_bottom_irq_chip = {
 >  
->  		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
->  			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
-> -		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> -		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-> -		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
-> -		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-> +		ret = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-> +		if (ret)
-> +			return ret;
-> +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-> +		if (ret)
-> +			return ret;
-> +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
-> +		if (ret)
-> +			return ret;
-> +		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-> +		if (ret)
-> +			return ret;
+>  static int brcm_msi_alloc(struct brcm_msi *msi, unsigned int nr_irqs)
+>  {
+> +	/*
+> +	 * brcm_msi_compose_msi_msg() puts hwirq in the low order bits of the
+> +	 * message data, which a Multi-MSI endpoint rewrites per vector, so a
+> +	 * block's base must be aligned to the Multiple Message Enable count.
+> +	 */
+> +	unsigned long align_mask = roundup_pow_of_two(nr_irqs) - 1;
+>  	int hwirq;
 >  
->  		if (mpam_ris_has_mbwu_long_counter(ris)) {
->  			ret = mpam_msc_read_mbwu_l(msc, &val);
->  			if (ret)
->  				return ret;
-> -			mpam_msc_zero_mbwu_l(msc);
-> +			ret = mpam_msc_zero_mbwu_l(msc);
-> +			if (ret)
-> +				return ret;
->  		} else {
->  			u32 val32;
+>  	mutex_lock(&msi->lock);
+> -	hwirq = bitmap_find_free_region(msi->used, msi->nr,
+> -					order_base_2(nr_irqs));
+> +	hwirq = bitmap_find_next_zero_area(msi->used, msi->nr, 0, nr_irqs,
+> +					   align_mask);
+> +	if (hwirq >= msi->nr) {
+> +		mutex_unlock(&msi->lock);
+> +		return -ENOSPC;
+> +	}
+> +	bitmap_set(msi->used, hwirq, nr_irqs);
+>  	mutex_unlock(&msi->lock);
 >  
-> -			mpam_read_monsel_reg(msc, MBWU, &val32);
-> +			ret = mpam_read_monsel_reg(msc, MBWU, &val32);
-> +			if (ret)
-> +				return ret;
-> +
->  			val = val32;
-> -			mpam_write_monsel_reg(msc, MBWU, 0);
-> +			ret = mpam_write_monsel_reg(msc, MBWU, 0);
-> +			if (ret)
-> +				return ret;
-The grouping via white space usage here seems less than ideal.
-You have:
-			ret = mpam_read_monsel_reg(msc, MBWU, &val32);
-			if (ret)
-				return ret;
-
-  			val = val32; // this looks to be part of block below not above.
-			ret = mpam_write_monsel_reg(msc, MBWU, 0);
-			if (ret)
-				return ret;
-
-Probably:
-			ret = mpam_read_monsel_reg(msc, MBWU, &val32);
-			if (ret)
-				return ret;
-  			val = val32; // Now it is in groups with related code.
-
-			ret = mpam_write_monsel_reg(msc, MBWU, 0);
-			if (ret)
-				return ret;
-
-Or don't have a blank line in there at all.
-
->  		}
+>  	return hwirq;
+> @@ -609,7 +620,7 @@ static void brcm_msi_free(struct brcm_msi *msi, unsigned long hwirq,
+>  			  unsigned int nr_irqs)
+>  {
+>  	mutex_lock(&msi->lock);
+> -	bitmap_release_region(msi->used, hwirq, order_base_2(nr_irqs));
+> +	bitmap_clear(msi->used, hwirq, nr_irqs);
+>  	mutex_unlock(&msi->lock);
+>  }
 >  
->  		cfg->mon = i;
-
+> -- 
+> 2.53.0
+> 
 
