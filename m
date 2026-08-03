@@ -4,79 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B31C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:30:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C37C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s0Nn8hdIgXmWzmhcG99Oh2fhpDgLrw7IOOOOFJwYqeY=; b=Q1Q6PO0l5/5BLbn6qSVa3vOY4n
-	yOXDjClxAzsxTN5tykBXYxht/wyhRjMu9keEaj6jAnEt52ORVdb44Ittjx9nuZFBLRUaSYi6xVgV4
-	glxa51S4kJ9c/UrVOakziOtM+/30pK72GKK1rARdzniNNcdQHAvq7zbAUZDSBT+BOUJkhD4d7qGUI
-	i6E9E9rDDXFajlyyRPUt2ri132+7dlELjajVXXQ88MqZIbOLdw7qptcWCTg7sLTeJrUBElUTm5Haf
-	lVbbfmMxDrDMqKQQNN0rTelLoaffZhwTBetWos90LQ7DQz8qeVsvUe9CTOVGMOKX0NUVJyIPbn0VF
-	ssDbtFzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vBVOCszs17sNVvCWerYuN3XW9+QBWp+ZW7e+3XNz5rA=; b=mIAiPNeIJAcuWcFm3xTESc+mPr
+	BCTeHXyyqnaXUX3HZ0psA1kE5zOLIsJuEkE+50cGz/sBdONfD55NeMnga2X0nvF6JPMO0e4VeZLJp
+	hu9s0VIILZGssw4C8EL0+J8dVl78laOMCHEVS0nm68iTFS8VZx0PIufh0yEgPgiSkhK/CWSY+cHGM
+	dqP1ZecP4QLhCFvInNatEglZtqa+epE1MH0eLAQvFXkEZQz9ZiY04R1VkLCtgUG0BifMwlm+tWgg5
+	6gMd2TbDPSkOPqUe0K2ZkswhvoUNpjsPRGrCtZTVj+SteH9fEB4Ssm3EIEzn8+rhFkqtzukVYCt2m
+	UM4104PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqskf-0000000HAJw-2y6u;
-	Mon, 03 Aug 2026 13:30:45 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wqsmp-0000000HAbB-1BUQ;
+	Mon, 03 Aug 2026 13:32:59 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqske-0000000HAJK-18C8;
-	Mon, 03 Aug 2026 13:30:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=s0Nn8hdIgXmWzmhcG99Oh2fhpDgLrw7IOOOOFJwYqeY=; b=DFsKnY+gVEOvTe+do19wn9YHgk
-	jRtADcklHMwQYphjMhoDQN3im0vzjhJqZ+cZcdQM2GvtsYAPRMsh0XeCmjR+RO9EVWjPvFEyPxI3L
-	mV4GVOWX7lPAQ81k17dC9bRNcl+WjRpzx1/y0tvhwiSHxj9sDpNY3vCz1EMcEb8ZaSwc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wqskO-00FjGe-HJ; Mon, 03 Aug 2026 15:30:28 +0200
-Date: Mon, 3 Aug 2026 15:30:28 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: James Hilliard <james.hilliard1@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, mfd@lists.linux.dev,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 00/21] net: phy: add X-Powers AC200/AC300 EPHY support
-Message-ID: <19241d58-1a69-4776-8d91-012de9fc421c@lunn.ch>
-References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <aaec8809-8218-4412-a60d-931406dbf287@arm.com>
+	id 1wqsmm-0000000HAac-3YLA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 13:32:58 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 673CHvFT1938136;
+	Mon, 3 Aug 2026 13:32:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=vBVOCs
+	zs17sNVvCWerYuN3XW9+QBWp+ZW7e+3XNz5rA=; b=Q48/7xChOjDiNXTHxlyc/R
+	qUBvznBL8zi89tmvxBjUH6u9UH1m9HcJVm+usk96T8e1L03J3oXbjsQsz8C5Q99B
+	p+OjgakZUAMODnxCgYcLf1Ezv98ae7qAWjc9Lj3JqMTRulFc/kkWC9YgPYxpnhaV
+	yF9ap1tmP/AljjgCgd/LnpJYQDGvYZCn2k0VEMJaMMltDpUMTCFDfuG2Ivbbrguo
+	kY0BNygyKVHqwaE5CX8ZOIgQUdrJhqYUkTA3OOyCXow7NoNS/QD6lHYgHVzGBryL
+	8G2W2vh02ZvvM8eEt7sPRtogrVKe+cX6bkMHgr2pL2C+tkt/ncPTOYv/3ZkutkIg
+	==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4fs67hgy19-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Aug 2026 13:32:40 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 673DT3gO013018;
+	Mon, 3 Aug 2026 13:32:40 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4fsugvwmue-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 03 Aug 2026 13:32:39 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 673DWZ4R15860118
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 3 Aug 2026 13:32:35 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CB50F2004F;
+	Mon,  3 Aug 2026 13:32:35 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 649C42005A;
+	Mon,  3 Aug 2026 13:32:35 +0000 (GMT)
+Received: from [9.224.77.173] (unknown [9.224.77.173])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  3 Aug 2026 13:32:35 +0000 (GMT)
+Message-ID: <4a86eeaa-d98e-49f5-ba73-e9e5ce08537a@linux.ibm.com>
+Date: Mon, 3 Aug 2026 15:32:34 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aaec8809-8218-4412-a60d-931406dbf287@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 14/31] KVM: s390: Move s390 kvm code into a
+ subdirectory
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>, Fuad Tabba <tabba@google.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260731130902.654679-1-seiden@linux.ibm.com>
+ <20260731130902.654679-15-seiden@linux.ibm.com>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20260731130902.654679-15-seiden@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDExOSBTYWx0ZWRfX+j8qegV4qjMM
+ xYlyTIqzaIO6x78iHrlsCuWTKvHWXnZS/rJYU6YBC3QovDbOC1kiCRCvukSRiVb4QMeaT+auK3i
+ yK69FddGaiXru2oxiQYx64Nempa2TYg=
+X-Authority-Analysis: v=2.4 cv=I7VVgtgg c=1 sm=1 tr=0 ts=6a709879 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=hThuo8U3hQNg24NIM8QA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDExOSBTYWx0ZWRfX4Pf/ru7Kw2VP
+ xz/RTDct+UwFZXBCTkYE48VrSgQ3SEcm6VHMbPEPnySQTQOzvVCaas7YoGSI0FwOaEFyb/h6Cl6
+ LiFI4RatQutAJSDemR+eig6/thkWDWyf1TZURRpcfzKNGCIDWx1s3mIVOuPamjvQNzUXLxoSQ1O
+ a0vI3tMGZfS3wluwxO1efa3zFUQZnz7pTOZHqXN0Aqex5WxeoU/Bc36wPlmq7akvVr3jtEN+Xyc
+ amMazytRDZD5ZUvJICkj8rydFPiXzdwvFKZ69qLj1L7a3eV/FkyvsfhL1PkW3xcA0ofjl83/Tgc
+ LwNu8Dy57atacSv2b+bim218QUpGUF8c8Rx8MVH+dXhIwMmXE8i7xdOnJXO1uc8AMyAx4lN09zg
+ Ois7cabgH794RmCejhzDitDeW6Y52D/9z7i4mofvak8s7DPKY4bEM7QRj0ALAimoen1beKuOJ0w
+ vowYTmk7vWLxuygOjzw==
+X-Proofpoint-ORIG-GUID: q8AI2RP4HgIDMmjG9eGtYT2Bg22EPBXZ
+X-Proofpoint-GUID: M1SibF4bDBtMrIF7hzWznmxtKgmi1OQ_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-03_03,2026-07-30_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
+ malwarescore=0 adultscore=0 lowpriorityscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608030119
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_063044_312141_F8E5506E 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260803_063257_007478_AAC397FD 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,14 +147,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Just to bring that shallow discussion we had on IRC to the list: I wonder if
-> this is the right solution? Alternatively I was wondering if just patching
-> the DT in U-Boot would simplify things, and also help other DT users like
-> *BSD or U-Boot (proper) itself, to not boil the ocean, but just allowing
-> them to follow a standard DT description.
 
-I've not looked into the MDIO bus probing changes in detail yet, but
-that was also what i was thinking.
+> --- a/arch/s390/kvm/Makefile
+> +++ b/arch/s390/kvm/s390/Makefile
+> @@ -1,15 +1,14 @@
+>   # SPDX-License-Identifier: GPL-2.0
+> -# Makefile for kernel virtual machines on s390
+> -#
+> -# Copyright IBM Corp. 2008
+>   
+> +KVM := ../../../../virt/kvm
+>   include $(srctree)/virt/kvm/Makefile.kvm
+> +include $(srctree)/arch/s390/kvm/gmap/Makefile
+>   
+> -ccflags-y := -I$(src)
+> +ccflags-y := -I$(src) -I$(srctree)/arch/s390/kvm/gmap
+>   
+>   kvm-y += s390.o intercept.o interrupt.o priv.o sigp.o
+>   kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o
+> -kvm-y += dat.o gmap.o faultin.o
+>   
+>   kvm-$(CONFIG_VFIO_PCI_ZDEV_KVM) += pci.o
+> +
+unrelated whitespace change.
+>   obj-$(CONFIG_KVM) += kvm.o
 
-     Andrew
 
