@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B96C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C500C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:22:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FUo1LO52BYWcoiJd1dWpDlLgNt48xObBzCM2IkzYHyY=; b=dZ71ELzXFIHNdV
-	bI4Hx6Czds+ElK6SfCQl6KlX52wWbkfFRJbRKEOuAzWXqR5XH1M7fptfQNTrY57WcSEK/ILPy+31x
-	fT6jUx/oUiL60g/d4zKRjzo8DW14DAEvDBDhVi2Yzmw2xu02PP1Qi7DMt/abRjZTHWVw+eoZGCWuI
-	StTj8uZ9RehGlYufcWTWHCVyePtDh6NI1SdpVVXVTNOjSPOsFwgLFa3YHrmEcgZPSEHtd9BBKOW9C
-	+B/q6QUsWDQOPoSm6A5R5DXzVYCeY0cO8pRYDoYwuOADkG8JSWsNjhABxmfi1gBIOmNMUX1b/bVj7
-	PBhvu8qrC8QNTBRSEWqw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z1zRcLGnzAM5PJkPOXA2qyaRpTz+/CGqMusyJdx/8qg=; b=vQN5nhzcohMFAq1+bLDmyp+E7p
+	O+oes14jGDmHYUVcuyuIFzyzxiHD/PH6YMhypt36WtnDj0Jayf3QSwy04REO3x82yJ5rpiW1bUNLg
+	LWigYX1fJzg9F3wcG4LWQ2n6oLF+TPnZUb88x78pnLqPrtUmeAM9cUDfV8QljIB00Ar3xDaNl6qd0
+	KkSobJ84+Dk/FuFNKIDgO7KQ/hKlGteqa6624BNFhMRUtCRVFnp1f+A3XbYAle6w615AbDEhb7W8z
+	L2ZCm8i8xRcH0W/z7YqZonTUNP/Obh/XH7aad7WvJd24U20S53SzTSv+QcmCdRUNV+3SA2iGRV3ld
+	wbMhVDag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwC5-00000000Bw1-0ZBU;
-	Mon, 03 Aug 2026 17:11:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwC3-00000000Bvo-19sQ
+	id 1wqwMn-00000000DLI-0AlU;
+	Mon, 03 Aug 2026 17:22:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqwMl-00000000DK8-0hab
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 17:11:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9FA1D40B06
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:11:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B1441F00ACF
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:11:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785777074;
-	bh=FUo1LO52BYWcoiJd1dWpDlLgNt48xObBzCM2IkzYHyY=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=NfGftYnBfCQtA4iYivRTo6vxQG6mxmsK57/zIQ4cXNsMMGJJcKE6+iXd8OIBRG2JU
-	 zURXcsGGpsRSmGIHsTSzoed9DilauVTCNRrKpiW6AtPEN5/QrQeJJGEjSFCFOZHxvs
-	 VCZcKwG2fJwkvnjPy6PrktY0J+5BuG8ek44duC9ZbdWTv3wgetM/JDOmt2ddwp8mde
-	 ngxktLJ117g8ktHUsZrFvng0s8r5K6R+PivfWE1hMZAy7r8rgeBIquOc79AKr8V0l1
-	 QgMLkkkCnavtufeNnHO6djpj8e7C9AMRD7pHNBIuhbJNXTGJlwugsn3KZX2LeaL3Qh
-	 RcQJNHDWugB4w==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-39c953950dfso30339901fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 10:11:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrlayHQvq4di1EvK60xVST8jGvDFK0v1Fy12TSgzk1y2FWFtrChqGaECh/US1B4JIeqnRm8LxKDojFQETmq7qPI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsD2zDZ6QFdqLdX0rZrBmCUAj+BzdIo1abbD0jI0XmkBIbv87J
-	OJeeRmrZiiToor0BDZU+wG5hvQ2pHc34R0RJodMLoz3FUUxZnG8e+ilcqvX5uqkqMX09uobR9cU
-	qlnPzwo9jPW7d7eSYLvEzeRBTpam06jM=
-X-Received: by 2002:a05:651c:1993:b0:39b:2757:c1d3 with SMTP id
- 38308e7fff4ca-39f86123ea9mr23096581fa.9.1785777072773; Mon, 03 Aug 2026
- 10:11:12 -0700 (PDT)
+	Mon, 03 Aug 2026 17:22:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31B51143D;
+	Mon,  3 Aug 2026 10:22:13 -0700 (PDT)
+Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54AE93F632;
+	Mon,  3 Aug 2026 10:22:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785777737; bh=270DIz9UlFUEplKjpbOfvTNB6/KH66EKTiY4acDrCsk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Dvt90swTb12jtxgZqJdx5XZK5shxx6M56TklQ7OaF+gMSpmJR7tgPHL0JxY6YOtcs
+	 woilsiKJ2qDY/A6hznqV0hRnmitcznw1J0y40+5xptuvd5ALOgadE6AnbyvMKhCtky
+	 M002Of/uy/BHNeM7YKo28K8va0ff9Ppg/zL4p/z4=
+Message-ID: <9176e56f-5f08-47c8-93ee-e4e1aebda37d@arm.com>
+Date: Mon, 3 Aug 2026 18:22:12 +0100
 MIME-Version: 1.0
-References: <cover.1785772659.git.jernej.skrabec@gmail.com> <aec9060209473b8176eb43bc7c63c20b21306adf.1785772659.git.jernej.skrabec@gmail.com>
-In-Reply-To: <aec9060209473b8176eb43bc7c63c20b21306adf.1785772659.git.jernej.skrabec@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 4 Aug 2026 01:10:59 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66dgpoMwpackOsKGb7JFUMP-1Vc667xFE54j5odCdpv+w@mail.gmail.com>
-X-Gm-Features: AUfX_myw6C25eVU1rBodfF_fAck2j4rXU1pTMBlvs-af7cQRwy-_-acRDgCMMzA
-Message-ID: <CAGb2v66dgpoMwpackOsKGb7JFUMP-1Vc667xFE54j5odCdpv+w@mail.gmail.com>
-Subject: Re: [PATCH 12/13] drm/sun4i: hdmi-phy: Fix H6 8-bit MPLL config at
- 594 MHz
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v7 07/11] arm_mpam: propagate MSC access errors for
+ mpam_reprogram_ris_partid()
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260731170324.2927758-1-andre.przywara@arm.com>
+ <20260731170324.2927758-8-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260731170324.2927758-8-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_102219_496495_58ACB1CA 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +81,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 4, 2026 at 12:11=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
-l.com> wrote:
->
-> The 8-bit entry of the last MPLL row (594 MHz) doesn't lock reliably on
-> H6. 4K@60 RGB/YUV444, which is the mode that reaches this entry, doesn't
-> come up.
->
-> Align the value with the vendor driver. Other entries are left alone,
-> they are used by lower pixel clocks which work fine.
->
-> Tested with 4K@60 on a LG TV.
->
-> Fixes: 0fb4b858b102 ("drm/sun4i: Add support for H6 HDMI PHY")
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Hi Andre,
 
-Acked-by: Chen-Yu Tsai <wens@kernel.org>
+On 7/31/26 18:03, Andre Przywara wrote:
+> Allow the mpam_reprogram_ris_partid() function check for and return
+> errors, and propagate MSC read and write errors from the lower level up.
+> This also covers the callers of this function: mpam_reset_ris() and
+> apply_config().
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Review-by: Ben Horgan <ben.horgan@arm.com>
 
-> ---
->  drivers/gpu/drm/sun4i/sun8i_hdmi_phy.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_hdmi_phy.c b/drivers/gpu/drm/sun=
-4i/sun8i_hdmi_phy.c
-> index 4fa69c463dc4..489ea94693ff 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_hdmi_phy.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_hdmi_phy.c
-> @@ -91,7 +91,7 @@ static const struct dw_hdmi_mpll_config sun50i_h6_mpll_=
-cfg[] =3D {
->                 },
->         },  {
->                 594000000, {
-> -                       { 0x1a40, 0x0003 },
-> +                       { 0x1a7c, 0x0003 },
->                         { 0x3b4c, 0x0003 },
->                         { 0x5a64, 0x0003 },
->                 },
-> --
-> 2.43.0
->
+Thanks,
+
+Ben
 
