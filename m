@@ -4,111 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43A6C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6AFCC55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VF0Hp4wXirEtYNRHmmEHQLkJjRzPvWFm3EoPuJFZJNc=; b=2XbOC0ib5n7/mCs8F+kVRI3XXU
-	uoOafguRMlIemNClwfvWp27AvQ3PF4mOJex2RhUf08hFKrYrlvoX9KUPUmZtL4gJL9G5JkW+I132c
-	lCzm+6KQxiie8w4aItAW5CQpyO/S09f59HZ7VP5cjHMQpZJGQBZhdv5y+WUPDROfmFU7gTVMBXtGD
-	6aY5z/JP035XjL9ju8MlFq8XkgcOcVPa6R6+hyoA37DpUh2DeBgSgPTwlTbhZqXUsaNFmYZMARDd0
-	wnFMuN18e6rTHBLOkdeeGeBuxl8fnOWJVd55T+qNhqM7i29IZhf3CXyojtFiSW4MCjlX4T+LSo7bM
-	1g+cBIHg==;
+	bh=Kq5l565Dwi296JY9Fa9Ji2rSuwhMOP6H6yOPp/Lf1VU=; b=cmfJ1ESl1J1Qn3ZaiSx73Dn5BX
+	/zjl8waJ4c47vifYxtKmVqyeeaJGC4gAOEaOKA5RqpTBTElidW7GACuifBKdB/RRzR7KMfJJ9LOU+
+	ItzIMpKfa51ECg+nu2X3KqFieG7geRfzlz4MHFUSnwrkJgal+eoAxr/sDy9Xam9MgzsKqHazNk7Vz
+	bnNNjmhrO9KJYyZRQ0JQPFNModcrYg+riagPgIbaPkTjB9/7UZfpJs3bBXHfrhZ+fuYEFo46VcJOb
+	apE2D6w87s4wXlVupHl7gTKNyZ8qPJpQbWHe/P1k0b/DLJ8wZhUyM+RPJETt7HqyUWNKwXBFcDxB4
+	x7ZvS4Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtvy-0000000HQNj-2105;
-	Mon, 03 Aug 2026 14:46:30 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wqty0-0000000HQi7-3V8p;
+	Mon, 03 Aug 2026 14:48:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtvv-0000000HQMy-3Znk
+	id 1wqtxz-0000000HQhm-2qMD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 14:46:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785768387;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VF0Hp4wXirEtYNRHmmEHQLkJjRzPvWFm3EoPuJFZJNc=;
-	b=ip26US/zZsv9DGP2rxdXWhy1LlS+gGaWgm9n0tkDocKBU6LGCQKjEfqdOezcai3bvBhRv4
-	D1s+Jizp0a9vhP0yGcQsH54PXGMNURr3/sLSs9caRAEsVwIJ8HuN2vQUeawltVyFIvfT4p
-	aRxjUjDtNSDRfEKCPY6SregIGiAgnTM=
-Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com
- [209.85.128.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-170-WPUc08W_PqSv6sKPnnBGyw-1; Mon, 03 Aug 2026 10:46:25 -0400
-X-MC-Unique: WPUc08W_PqSv6sKPnnBGyw-1
-X-Mimecast-MFC-AGG-ID: WPUc08W_PqSv6sKPnnBGyw_1785768385
-Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-81ec0eb032aso114649367b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 07:46:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785768385; x=1786373185;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=VF0Hp4wXirEtYNRHmmEHQLkJjRzPvWFm3EoPuJFZJNc=;
-        b=VBmPVoPvD8WQLgOAhSBsW0OikJ3eogajkNjtLwkxCyupCXh2WrnLPMA7iO7jCGdDjg
-         zGKqoqGXu3+vsoQCUNb0G6dROk16leN9Ruk0y5v4GjHU0qVmFnGMd9WifGbW+Eaacw/w
-         IOhHdywXbKaMaM8CGDjnha3lRcNSjKDt00338F4fg1VZb9oV/oYLXVqqR9IR/Eme6CRt
-         ipV0+eXnYFF7sq8Y0GVqv7NKgbk6LMvnTCSEbxyh1LCr/ZJHqxMDiQtPZH9oFIXJ4nB3
-         ZmdjDFWIjzJ/rvdweBAaDrjda5ne/lFTigfsPBqkteYO6oWnLRXCJVqL65Q4O2kGJc4F
-         HXpQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq6O0O2fO4C/Gf/HfEiOPc1avmNiv6o6TD/G3l04TWB0FnyJyEhAzq40CbaZaTSSVARSsnViWFmAY7PdN83+4Dz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUerHSt5W/a3R9TcovmDBL7OqlMJV+8bJyQFZMTWoqMrlMduiS
-	lb+4KWULZ7FccYZwn3n1kkbcAi7LRW20dEdiL5PgTFyW227Xj3dYdMrFRMpJF/9chdiwPO06QPM
-	2VG967JfG/VjEhsSnH8tEs5fXojC5U6cpu+3SOvF+vI+wDkFEJ7pcegJg+BgijQepGx5iJwp9Tk
-	vt
-X-Gm-Gg: AR+sD13JdxzSCIcadw9isYDCJfNGeGalXZIi4hSXBJ2oBF0PWARRtVq5uuPVeCzveT4
-	qHlGe734ZZbLFERH0F5ChozVECWF7bH85tg4QAzSFHLC7Moe9utF+eyN97UF4edmPKnb4l21GkE
-	yEoc3wPcYPw+crNm0dlFbJ7KtZOY0xZIATW8iFxj2VydOw9qhaNbylnB6axdqkxDjZvKCV+nOT5
-	E3kJ+Ye6nwWb2m4GwrvQAVq2y7U2o9hZGDARQ+Uf6O1/OhjJz+yuZCqjaRne8o2oEBdIy+5tZCp
-	3t/ettOJmyjEW4/5cOy9kn9h+HYDlhVcpo759dwQqf0/Q/+vGAGQehD91eF9rONiyA2pJXFqhW3
-	FYXOhwUmY4p/QZ7tCTDFw7OF5wYE46lW8Fv8=
-X-Received: by 2002:a05:690c:a9a:b0:80b:9114:3b7e with SMTP id 00721157ae682-81fd4a2d85amr133508277b3.12.1785768384892;
-        Mon, 03 Aug 2026 07:46:24 -0700 (PDT)
-X-Received: by 2002:a05:690c:a9a:b0:80b:9114:3b7e with SMTP id 00721157ae682-81fd4a2d85amr133507827b3.12.1785768384377;
-        Mon, 03 Aug 2026 07:46:24 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81fccf2e2bbsm55709907b3.9.2026.08.03.07.46.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 07:46:23 -0700 (PDT)
-Date: Mon, 3 Aug 2026 10:46:21 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chun-Jie Chen <chun-jie.chen@mediatek.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Edward-JW Yang <edward-jw.yang@mediatek.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v5 15/25] clk: mediatek: pllfh: Add ops for PLLs using
- set/clr regs
-Message-ID: <anCpvYJJf2FChBHE@redhat.com>
-References: <20260801-mt8189-clocks-system-base-v5-0-ac4410697cc2@collabora.com>
- <20260801-mt8189-clocks-system-base-v5-15-ac4410697cc2@collabora.com>
-MIME-Version: 1.0
-In-Reply-To: <20260801-mt8189-clocks-system-base-v5-15-ac4410697cc2@collabora.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: E_wzWHLeF7cWssjagX5TX4NAHa3hAvYUj5kKDCCZkHo_1785768385
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_074627_964321_9A8D3796 
-X-CRM114-Status: GOOD (  11.76  )
+	Mon, 03 Aug 2026 14:48:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id ABEE760AAB;
+	Mon,  3 Aug 2026 14:48:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E55A1F000E9;
+	Mon,  3 Aug 2026 14:48:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785768514;
+	bh=Kq5l565Dwi296JY9Fa9Ji2rSuwhMOP6H6yOPp/Lf1VU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Bh5yaNiHPFB5JAttuw2jQ6Dibm8V084Di/Np+P8e7ycgHG1H6nGapySTDygHT9MqS
+	 o6tyllJZxkzSneEjGn23EZ0f5pxaiUB06U8wzcxn3tb/qjRsJhpygFnEkVEFJMe8Iv
+	 yIPuwOarJhfiZLTpPmYvargQ24iJVfuVJUmRy7G3k4yDHSazSJ3iVVLljHoJWkfdRn
+	 vpQEptTZrblC8dnFIpszGfXRiJdnTb9/6FtTFBJpVrIff/Fq6vPwvK4x8CtH8p3Wd7
+	 qVzhuWWOBfRoX2EitxTO1cNTZSya/uFpvWFFiOOyP4MWwUWmcmboXlO63GP5rylaox
+	 tAaW2NMrVag9A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wqtxw-0000000BoSi-0OUb;
+	Mon, 03 Aug 2026 14:48:32 +0000
+Date: Mon, 03 Aug 2026 15:48:31 +0100
+Message-ID: <86zez3b6ps.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v15 15/37] KVM: arm64: CCA: Handle RMI_EXIT_RIPAS_CHANGE
+In-Reply-To: <f971d029-84d9-4c66-9875-36fa8f1a2a1b@arm.com>
+References: <20260715142841.80544-1-steven.price@arm.com>
+	<20260715142841.80544-16-steven.price@arm.com>
+	<865x1rcvfw.wl-maz@kernel.org>
+	<f971d029-84d9-4c66-9875-36fa8f1a2a1b@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,13 +107,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 01, 2026 at 01:21:01PM +0200, Louis-Alexis Eyraud wrote:
-> Add new set of PLL FHCTL clock operations, that uses the new prepare
-> and unprepare methods, added in PLL for MT8189 SoC to support this
-> logic.
+On Mon, 03 Aug 2026 15:04:32 +0100,
+Steven Price <steven.price@arm.com> wrote:
+
+[...]
+
+> >> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> >> index cd06881c1497..dcc2ab08d0e4 100644
+> >> --- a/arch/arm64/kvm/mmu.c
+> >> +++ b/arch/arm64/kvm/mmu.c
+> >> @@ -319,6 +319,7 @@ static void invalidate_icache_guest_page(void *va, size_t size)
+> >>   * @start: The intermediate physical base address of the range to unmap
+> >>   * @size:  The size of the area to unmap
+> >>   * @may_block: Whether or not we are permitted to block
+> >> + * @only_shared: If true then protected mappings should not be unmapped
+> >>   *
+> > 
+> > I don't understand the need for this additional argument. Given that
+> > CCA imposes that shared and private are in non-overlapping ranges, why
+> > is it necessary to introduce this at the core of the S2 management
+> > code?
+> > 
+> > I'd expect that the CCA code could simply work out what range it needs
+> > to run on and keep the API intact.
+> > 
+> >>   * Clear a range of stage-2 mappings, lowering the various ref-counts.  Must
+> >>   * be called while holding mmu_lock (unless for freeing the stage2 pgd before
+> >> @@ -326,7 +327,7 @@ static void invalidate_icache_guest_page(void *va, size_t size)
+> >>   * with things behind our backs.
+> >>   */
+> >>  static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64 size,
+> >> -				 bool may_block)
+> >> +				 bool may_block, bool only_shared)
+> >>  {
+> >>  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+> >>  	phys_addr_t end = start + size;
+> > 
+> > So what is the *actual* change?
 > 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> It looks like I've screwed up what goes in which patch. The real change
+> is in patch 22 where this 'only_shared' property gets passed down to
+> kvm_realm_unmap_range(). There it's used to decide whether the private
+> range should be unmapped or not.
+> 
+> The reason for this is kvm_unmap_gfn_range() which has a 'attr_filter'
+> member of 'kvm_gfn_range' which can specify KVM_FILTER_PRIVATE. Which is
+> used in __kvm_gmem_set_attributes() so choose whether to invalidate the
+> private or shared part of a gmem range.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+But you can readily distinguish the private/shared part of the address
+range by looking at the top IPA bit, right? And from there, you should
+be in a position to decide whether to call __unmap_stage2_range() on a
+per IPA range, rather than making this information trickle all over
+the place.
 
+I.e don't hack into the API. Use the information you already have to
+decide whether you need to use the existing API at all.
+
+If that cannot be done for whatever reason, then you need to indirect
+the call with a set of operations that leave the existing code
+untouched.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
