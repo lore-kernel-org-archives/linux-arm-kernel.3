@@ -4,141 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB063C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 05:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A809FC5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 05:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgwUny/O53z2MDiekhBL2KoC65jPpvHmSOD5LlJh77w=; b=Db1vCAcOQKMqKBZZX6pncWjsC/
-	pFDkdDCAxUpjzKmJ6/05fz2SnxswR2dVf46fOQSUBKUmsHwpJwsD5d9Bpj40ip1yj+XxIdYyzKXDE
-	lzP4dghGfwY1DkaI/jdzPgfZkz/jo4d84M3hzEpRtU9XC5nFjLy7qMWPkwp95O7uW+o/lq+yVTMwF
-	XcPnOH3OEW4MzBxFVZilAEe7wtO5QVCZQGc4dSppaiO6/GdiNn28sxpa1zNHYULpEqolpK5006vV4
-	qk0b6/mBZJanTwJvL0uC3FOkzqtmwaLMzM7Xm6xoNdw8BA/AlhiWhe3My8/SviU5UtP51b67IAAPY
-	33MYAvTQ==;
+	bh=udqf3X6JJaoOhkTJcbPrJRHiS3GSyYRNj03JMFkQof4=; b=Pd4If/iN0XzEjGJ8ra1TneEvGG
+	q77yQrChp+dXmuh/iaW6kIFD/AGROP7O387lhcibeObIq2uBx0pL0HCUCHBNkqfKEC2tIBDfp6jtc
+	xg8+K+F4NmqHsVrP31UhImuyOC4wzMlMrBHlnfoE2r4P3Ee6Tl3rXKs34vu19C8ryILREq1gt98NA
+	JEXXt9rN3HHhFEwZCosbzqB0w6HLZt7+R39qGiBUtFuVFyIBpwrS3W1jrZG3b4WWJhJIa3h2W1bUh
+	wWeQLBv2Vnbzddej0t6AlHBa84jEHevwxBCcD/K7UYvFTh0oN8T1cVUx83643Sh10fM89XBY+jb2P
+	1w4xKdmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqlFG-0000000GNuH-0sxN;
-	Mon, 03 Aug 2026 05:29:50 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wqlTv-0000000GOMa-2QRq;
+	Mon, 03 Aug 2026 05:44:59 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqlFD-0000000GNtv-2gcd
+	id 1wqlTs-0000000GOLi-04Ze
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 05:29:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oK1qj0XQxOiWuHollQ0KuBWSbHZ7sMKic0ssPamw2DhcVmZJ12F+1h3T+xrQAZBqLRGaOb5wJfiowxgV6+LnvaJgyUlg9b/rkkFTf5Q30juzd7lZXNO+vbMjbKTeqfXcgURjj+4Z18p4Pj4LxTyLXqGV6uMHUGrtgu9kCA1pzQIGU9lT4vd4EwhjnAykgr1NO3RnbmlxI/zZ6yaVJnitPRpnJ7Xjzj6SKHiVp9o39BckPA/6/mOzUDTaFwOx6mQZVxVEf+wrFmUoBKAmwpK/nPD6Or/5lQc/OT1KQ4e6Gdc2HPwVY2fqGjJqmMnpLQB56XDXT4GWI5WLz4E9nWAb2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bgwUny/O53z2MDiekhBL2KoC65jPpvHmSOD5LlJh77w=;
- b=POQ3sz7RO83k5y0KttJzOKUr8DwF6EL5/Z3dSrJ4+7rad2dV4zmjP9jWdLnrHRXKYmHXCLNORCjEjwbGa5odn13YE2bV75ivhsiuKw8onPE0pz3bvvvnzWSazd84ceacVfdX9B3gFxtFph+4kOQmZRCGjav5IFWE5UKfjXzniigm+BRCG8pv9Ea7v1U9gryYO+nXK9Roq/zRVSC6/aZKRPep0qXpnyqFopMNUZgAa/IG6/Zf9u+miteOd0TLGdNjMtMLHqxaE0B+3WwuZu4ZnV6iT9A9b52JC8iHmBmGur1F0c1OzYzj+4PNatZWj7HcoFU6tmcVGUnjNaz7PobGyg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bgwUny/O53z2MDiekhBL2KoC65jPpvHmSOD5LlJh77w=;
- b=O5IgL2M2tELmtuFbeFOr5w5OUhKf2XCUSAcid3qQ7R+yFJTavHIarlglkXjgL1ZSRR3PNVxc95Zzn3n51rjjPC08JUeaT0Qn42CLqSx8T38R/Lng/wNZWeG5Rf9rFKD5e6aWKr9zUcAZZ7IBNAHKQOh5VtMWE5H3qvB/0+EY4TJQ90E68JBLlwKrFh1iS54fqruV3QbYKjpUw31pJFmhx6Tsy7bECokc4N9m+6EnT5G8C39WyWAUKrDSloXbE/lqQqe5O7158fUCl0ch8yUX+2zuxOOnB1wBFbsRzxQtfUjp7q8ALgn3mmOHghsBW8w0JJstVqh1kmif2uJu1Gq+mw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
- by MN6PR18MB5466.namprd18.prod.outlook.com (2603:10b6:208:470::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Mon, 3 Aug
- 2026 05:29:41 +0000
-Received: from PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::ba9:422:da8:b963]) by PH0PR18MB4558.namprd18.prod.outlook.com
- ([fe80::ba9:422:da8:b963%6]) with mapi id 15.21.0270.016; Mon, 3 Aug 2026
- 05:29:40 +0000
-Message-ID: <a8383bd7-802b-41b0-897b-812b4a8fca33@axiado.com>
-Date: Mon, 3 Aug 2026 13:29:35 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: media: add axiado,ax3000-video
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Shubhangini G <shubhangini@axiado.com>,
- Prasad Bolisetty <pbolisetty@axiado.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Karthikeyan Mitran <kmitran@axiado.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org
-References: <20260730-ax3000-display-driver-v1-0-4fbd4d0c85d3@axiado.com>
- <20260730-ax3000-display-driver-v1-1-4fbd4d0c85d3@axiado.com>
- <ed8ca066-bb8b-4476-be96-37a2b6e022ab@kernel.org>
-Content-Language: en-US
-From: Tzu-Hao Wei <twei@axiado.com>
-In-Reply-To: <ed8ca066-bb8b-4476-be96-37a2b6e022ab@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TP0P295CA0050.TWNP295.PROD.OUTLOOK.COM (2603:1096:910:3::6)
- To PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
+	Mon, 03 Aug 2026 05:44:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=udqf3X6JJaoOhkTJcbPrJRHiS3GSyYRNj03JMFkQof4=; b=DYGyR6qla2cnaP+CK+tXVjPx6S
+	NYG1lULP+/Pb5B/3+I2PlN3Pxpr23hGuHq9BJHP7xn2knc+XuEX3JNIbENp0yIDq0E6EtVACvryv4
+	9ptYtBEE0okdyao3JFdbRPgxQkHq/JJlI3pwsXYTutzF91PKKbUKu+cvI60/VsyMl7FU2q6pvWLUB
+	xVgglktt3a6wx/WpA89+bCkx3jYkiGqwoKu5SyhiWtdyWMLee/Nbft4LVRQHyvVFaOYYZDkS2zy+Z
+	aHCMsErcj7VI9SJJo27rrJFWzRht6lZQSYx897wGRcT9gpbuGUTRjzvCU9oKPhOLS5Adyl1cG4Q/n
+	mypAU7oQ==;
+Received: from sslproxy07.your-server.de ([78.47.199.104])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wqlTh-0005zp-1i;
+	Mon, 03 Aug 2026 07:44:45 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wqlTg-000BX7-0l;
+	Mon, 03 Aug 2026 07:44:44 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Chester Lin <chester62515@gmail.com>,
+ Matthias Brugger <mbrugger@suse.com>,
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+ NXP S32 Linux Team <s32@nxp.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux@ew.tq-group.com,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: Correct white-space style
+Date: Mon, 03 Aug 2026 07:44:43 +0200
+Message-ID: <2845758.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20260801210420.383984-4-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260801210420.383984-3-krzysztof.kozlowski@oss.qualcomm.com>
+ <20260801210420.383984-4-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|MN6PR18MB5466:EE_
-X-MS-Office365-Filtering-Correlation-Id: a30a7b70-05ea-4070-a6e1-08def1203786
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|7416014|42112799006|1800799024|4143699003|56012099006|3023799007|10067099003|6133799003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 1T1lS4FBgSU311u1ERevDCtLnrSK5aGOdOazoEAm38S2oBwxnIoQNAvE6+mE5/tpKNGo2CBvqFI0d9FIvjm4dWDMbvRg+jaGe7+GkYgZyndpvDhIxaDT/1Q5bANF+AR91OP9qOMR0JjF7Al1S6/nzrS0VjzwEw8QE+Cp4QK+8TOJRd2Xh+ZDX7bLilaKAtDbxezLHzoiJp1o1yNKQrwkgaoywZ2sS7n7TfEpGmBPTGCnYBsN/jLMgFWXZuJJ3LW2sTnmmamvuOwDWemP3FWmqCOWc0WS1k64+uI2JNK+elsIN9ebm0BGBwNQwwB0mnhCMKDxHJrvo8QAVmbCNx8B7jViwWAbFZhcys6mvSa4WPfDfzhmRyukM9yuf3WUlrPB51CrwjxmEbN5ZLCEqZ/5dNcHvs5Hy5gGgEBDqUm7OEwSGLp4ULq6Q3v5zO2TZx0bg2ug/J40WH4QiqyHE2lwquY5wQo21GHptPn04fcq9fonw8EqM/H8WGqN3XGW2sSKad7x6STIJCS3j1mcdCDh+OD0qqeVDa0s/BHgNUOZuGbCzXj3yLyUBEmiRon16+/M8dgzJdiOwuMzVofyxBweQyBE264CM4p6ZsvzSQw6AlL74WHSh4C2WOKfRagUhvuo
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(7416014)(42112799006)(1800799024)(4143699003)(56012099006)(3023799007)(10067099003)(6133799003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RHdGM0dvaHVFR2JkTEk3ZHBidmdvWWRhaXUvR3VaazB0Vk92SE9XYkRFOUx0?=
- =?utf-8?B?WFkxeEw1bDYzVWdzcklUNTdzT2lFQjB3VEFUNndUeXdWYUw5RWY2a1V1YW43?=
- =?utf-8?B?TXlNNjROMUJCZ3FWTzZJZEVZVjVMUUF2WWgyM1dIQis5V0NhZERjNDE3TU1D?=
- =?utf-8?B?SDkyOGp1akl5QnJkZWJ3blc1RUJ2R3Z2Y3V3dm9uOTJSUndLUkNpdDRhRUE2?=
- =?utf-8?B?Z2wvbnJ1TG5Ea3dja2V0cXFXb1BJY0lRRTQweTNCZ0hTTWg5bEYrQTkzYUt2?=
- =?utf-8?B?OUhqU0F4cjYvRGJINHlTVURqNlh6aTFiSUtjVUxCSG9jUklPazVORmRpcHhq?=
- =?utf-8?B?MnJ3WGlLVEd6YjVBMmcxbGR4bWJZNkFuaGdqSGZxMmVpQ2Fvc2NiUnAvekZV?=
- =?utf-8?B?UEQvcE14Q2VrLzg1S2Q0bzc5UVk0bTdyWU9lQTlQMGhIdEdmQTNhWExYZkVz?=
- =?utf-8?B?SVFDcEZOQWlqS21OcUx2WmlodlY1TnNyQ0N6dnZRZ1kxTWo5UUdRRHErTFF6?=
- =?utf-8?B?anpjZThzOFRCU1I3ak8zamtPYlZyeGpVVGx1VkF0UjdPZHFvYVV3S0w4NDQ5?=
- =?utf-8?B?Y2Q0SUlIeGpwS1l6Nm5LZWdtV2dvUVdJSUp4SVBwSnFJYmY3QmFKRUNoZlpV?=
- =?utf-8?B?bHJ6UHVwNUdmY1A3SllrbzFzTmYwcytyamY5ekh1dEhBUnFEWTlpWWpCMi90?=
- =?utf-8?B?M3VKaUdkNERDdlkxY0IxeUFlaDZEb1ZhN0xGVWowNHRzUDR1bjkvNmpha2N3?=
- =?utf-8?B?bFgwVHdaUXhaQ3hibkNMWmQvSjZQUEJaeFNzOHN3aE5jOVJ2SnFjNkJZUGtH?=
- =?utf-8?B?NWpRSUJLb2lxcUtKbE82UW4rcC9RS3l1emVjb1FOT1RWb0wrOTYwblpUbWk2?=
- =?utf-8?B?cXVkSmh6NWc2YlVrcUUzWldBZDNmTm45WEhZbUZqVWxEMUZKd0VVcWh4TC83?=
- =?utf-8?B?NVJRRjRmYWZBVnFwcStkS1RWY1I0QWl5Tjh0cllQbjdJY2ptdi9wWktVamhl?=
- =?utf-8?B?ZWdIZE9UNzRZb2dDRFA2QndUd3NjdG9QTy96Z3YxVlZUVUpIR2VVNmxQbXJk?=
- =?utf-8?B?L3JPQkVqZnR4NVNZV0dKZlhJSzlORXJEenIzN04wbHpPQUxsN0lQMWppU25B?=
- =?utf-8?B?ZEVUbWtIaWZrb1RTUzJZQ3hvNCtpNjVVcXZxRVNHYlVEVmZIMEVnMk5MUFFs?=
- =?utf-8?B?U3lYMWlpcC9qbUFLbERYajZEbXBUL0UxbHFkb2NtaXI2RlV0OWVRTURvd3Zx?=
- =?utf-8?B?TXkvZUUrWlQzQUJndlJKM1dkMzBGTE4rVHZobGhaUlF5b0k2bjZKN1BKMlFw?=
- =?utf-8?B?TDh1SjBYakcwUGZTMGtIQUJ1eDAzcnRsSW56YmVsWjhCRU1MRUR2aE14YTlR?=
- =?utf-8?B?dkNSQU1PSlp0MWtFTmdlUkZ1N3JkYjlEK1VRZEdVQWxSb1owdUxrelQvZEJj?=
- =?utf-8?B?bVRXcnVYWm0zYWVvQXU2akpJbWFmalZabW1PcjA4TnROTWwzZnhXMFJXczQ4?=
- =?utf-8?B?L2EwT29ZZWo3VklzbDQ2b2l2MFBuYVJSM1I5dDE2b1B2eVpWUkJWb3ZzMHM2?=
- =?utf-8?B?aFF0b1pwdURpSWNhbEIvZnVNcmlCdWxoa2tCa0NGWVF6YmdJeTVRbHNkYmJP?=
- =?utf-8?B?Q3RIcWU1aDcyUXp6dkkwL0ZPdW52Ly9ySDN2dTJUSnJWbjJvR0IybUFqVmp0?=
- =?utf-8?B?SW14SXo1VU5ULzNzYWNUUXVoRlRuUHdzMk8rVDJYUVIraXZVSEVaNEJRYytM?=
- =?utf-8?B?UFRLOXMySExiNmNDbXhzY0haSkljb0VWK1cxSldJWmRQdDVhMGVaRFBTU2Vn?=
- =?utf-8?B?bUdOSEFkeEJCelk2MHVXWXk3RXJIbUhTQ2FmU2NTRFhLWVVrK2gxMzk2TUtY?=
- =?utf-8?B?c0pFaWVsQzZtb2QxclhQTVRaMUltNk14Y3VieExpZG9yR3piOTZvbjZQYnUy?=
- =?utf-8?B?VGZibFhzUnNyUTE4OUMzVVJDY2w4cEdHZnVNQU5ZRkkrUWVVUUgvekdxdzdh?=
- =?utf-8?B?dzdZMDJycTlwYmJMNGI3NW83MklKNTBCSE1VejdPa0xRb3FtUjhiZEw1ejRr?=
- =?utf-8?B?Mml1cXVteVM3TWhhTVRwVUZsWTlXaGY1eWhYZlVlWXpWVGEzSXNVWEZJYkx5?=
- =?utf-8?B?V1g2akdsbmp1clhIbStmWnc5a2RzYUdBTDdoZ0Y5RktNZXBhRytCWXZmK2ZT?=
- =?utf-8?B?S3BHUUVHRVk0ZHJRQXdCLzBjZTNNWTJjY3dqemV1dFVKMnd0dVo4Zk5xZ2hP?=
- =?utf-8?B?Q2taZjFzYmx1QnAzMjVJU3VOVCtQZU44cEVDMzFpQldjWUQ5THVIV2JZc0dh?=
- =?utf-8?Q?DVbn15V0khp7xb3v4M?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a30a7b70-05ea-4070-a6e1-08def1203786
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 05:29:40.7453
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: D2eLE1IrFMrCwvMmAGGV5Oa6gQDXXWbuiFAX+JBfyy416ev6OCompb8zqfWcV5FQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR18MB5466
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28080/Sun Aug  2 08:24:19 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_222947_732111_E8BE3113 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20260802_224456_352251_CAD0EB88 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,112 +91,339 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/30/2026 4:12 PM, Krzysztof Kozlowski wrote:
-> On 30/07/2026 09:26, Tzu-Hao Wei wrote:
->> Add a Device Tree binding for the Axiado AX3000 and AX3005 video
->> capture path. There is no local register interface to describe: frames
->> arrive asynchronously into a reserved memory region written by the
->> host's display engine over PCIe, and this node only identifies that
->> region.
->>
->> memory-region accepts an optional second entry for a host-written
->> control mailbox, letting the driver detect the mode the host is
->> actually driving instead of only echoing back the configured capture
->> format.
->>
->> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
->> ---
->>   .../bindings/media/axiado,ax3000-video.yaml        | 44 ++++++++++++++++++++++
->>   MAINTAINERS                                        |  8 ++++
->>   2 files changed, 52 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/media/axiado,ax3000-video.yaml b/Documentation/devicetree/bindings/media/axiado,ax3000-video.yaml
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..c6d8d1843aac9f42869ff90a550b92d0bed7c16f
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/media/axiado,ax3000-video.yaml
->> @@ -0,0 +1,44 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/media/axiado,ax3000-video.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Axiado AX3000 Video Controller
->> +
->> +maintainers:
->> +  - Shubhangini G <shubhangini@axiado.com>
->> +  - Tzu-Hao Wei <twei@axiado.com>
->> +  - Prasad Bolisetty <pbolisetty@axiado.com>
->> +
->> +description:
->> +  Axiado AX3000 video capture controller. Reads frames written by the
->> +  display engine into a shared reserved memory region and exposes them
->> +  as a V4L2 capture device.
-> 
-> This is really incomplete. You need at least way to power things on,
-> reset them, provide clocks, sensors, data paths. Or at the very minimal:
-> START capturing the frames after configuring the resolution.
-> 
-> It seems you described driver or just a piece of entire video pipeline.
-> 
+Am Samstag, 1. August 2026, 23:04:22 CEST schrieb Krzysztof Kozlowski:
+> Correct a few white-space issues, like missing space before bracket '{'
+> character or spurious space, which will be flagged by dt-check-style
+> ("redundant-whitespace" warning).  No functional changes.
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Thanks for your feedback.
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-The Axiado AX3000 and AX3005 SoCs expose a display capture path that
-delivers frames into a shared reserved memory region and exposes them
-as a standard V4L2 capture device via the videobuf2 framework.
+> ---
+>  arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi            | 2 +-
+>  .../arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi | 2 +-
+>  .../boot/dts/freescale/imx8mp-icore-mx8mp-edimm2.2.dts    | 2 +-
+>  arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp.dtsi     | 2 +-
+>  .../imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm070jvhg33.dtso    | 2 +-
+>  .../imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm070jvhg33.dtso    | 2 +-
+>  arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts   | 4 ++--
+>  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi         | 4 ++--
+>  arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts         | 2 +-
+>  arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts | 2 +-
+>  arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi         | 6 +++---
+>  arch/arm64/boot/dts/freescale/imx95.dtsi                  | 8 ++++----
+>  arch/arm64/boot/dts/freescale/imx952.dtsi                 | 8 ++++----
+>  arch/arm64/boot/dts/freescale/s32g2.dtsi                  | 2 +-
+>  arch/arm64/boot/dts/freescale/s32g3.dtsi                  | 2 +-
+>  15 files changed, 25 insertions(+), 25 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi b/arch/arm64/=
+boot/dts/freescale/fsl-ls1028a.dtsi
+> index f4ba3d16ab86..aeb5000fffdf 100644
+> --- a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
+> @@ -105,7 +105,7 @@ osc_27m: clock-osc-27m {
+>  	};
+> =20
+>  	firmware {
+> -		optee: optee  {
+> +		optee: optee {
+>  			compatible =3D "linaro,optee-tz";
+>  			method =3D "smc";
+>  			status =3D "disabled";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi b=
+/arch/arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi
+> index ea1d5b9c6bae..94e18357e37f 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-beacon-baseboard.dtsi
+> @@ -49,7 +49,7 @@ pcie0_refclk: pcie0-refclk {
+>  		clock-frequency =3D <100000000>;
+>  	};
+> =20
+> -	pcie0_refclk_gated:  pcie0-refclk-gated {
+> +	pcie0_refclk_gated: pcie0-refclk-gated {
+>  		compatible =3D "gpio-gate-clock";
+>  		clocks =3D <&pcie0_refclk>;
+>  		#clock-cells =3D <0>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-edimm2.2.dt=
+s b/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-edimm2.2.dts
+> index a02b31c42db4..299d81a18c06 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-edimm2.2.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp-edimm2.2.dts
+> @@ -101,7 +101,7 @@ &usb_dwc3_1 {
+>  &usdhc2 {
+>  	cd-gpios =3D <&gpio2 12 GPIO_ACTIVE_LOW>;
+>  	bus-width =3D <4>;
+> -	pinctrl-names =3D "default" ;
+> +	pinctrl-names =3D "default";
+>  	pinctrl-0 =3D <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+>  	vmmc-supply =3D <&reg_usdhc2_vmmc>;
+>  	status =3D "okay";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp.dtsi b/arch=
+/arm64/boot/dts/freescale/imx8mp-icore-mx8mp.dtsi
+> index 69558ffefa9a..affcc20b20c7 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-icore-mx8mp.dtsi
+> @@ -49,7 +49,7 @@ buck1: BUCK1 {
+>  				regulator-ramp-delay =3D <3125>;
+>  			};
+> =20
+> -			buck2: BUCK2  {
+> +			buck2: BUCK2 {
+>  				nxp,dvs-run-voltage =3D <950000>;
+>  				nxp,dvs-standby-voltage =3D <850000>;
+>  				regulator-always-on;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lv=
+ds0-tm070jvhg33.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-sm=
+arc-2-lvds0-tm070jvhg33.dtso
+> index 2cf1de8c05b4..9ce0744c88a8 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm0=
+70jvhg33.dtso
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds0-tm0=
+70jvhg33.dtso
+> @@ -12,7 +12,7 @@ &backlight_lvds0 {
+>  	status =3D "okay";
+>  };
+> =20
+> -&panel_lvds0{
+> +&panel_lvds0 {
+>  	compatible =3D "tianma,tm070jvhg33";
+>  	status =3D "okay";
+> =20
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lv=
+ds1-tm070jvhg33.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-sm=
+arc-2-lvds1-tm070jvhg33.dtso
+> index cbad0cfab292..24f5f932231f 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm0=
+70jvhg33.dtso
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2-lvds1-tm0=
+70jvhg33.dtso
+> @@ -12,7 +12,7 @@ &backlight_lvds1 {
+>  	status =3D "okay";
+>  };
+> =20
+> -&panel_lvds1{
+> +&panel_lvds1 {
+>  	compatible =3D "tianma,tm070jvhg33";
+>  	status =3D "okay";
+> =20
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts b/ar=
+ch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts
+> index 0c3f1b20b3d7..a82af92d6085 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts
+> @@ -119,7 +119,7 @@ regulator-state-mem {
+>  		};
+>  	};
+> =20
+> -	reg_22v4_p: regulator-22v4-p  {
+> +	reg_22v4_p: regulator-22v4-p {
+>  		compatible =3D "regulator-fixed";
+>  		regulator-name =3D "22v4_P";
+>  		regulator-min-microvolt =3D <22400000>;
+> @@ -507,7 +507,7 @@ &i2c3 {
+>  	pinctrl-0 =3D <&pinctrl_i2c3>;
+>  	status =3D "okay";
+> =20
+> -	magnetometer@1e	{
+> +	magnetometer@1e {
+>  		compatible =3D "st,lsm9ds1-magn";
+>  		reg =3D <0x1e>;
+>  		pinctrl-names =3D "default";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm=
+64/boot/dts/freescale/imx8mq-librem5.dtsi
+> index f5d529c5baf3..ad7c0e7422ca 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
+> @@ -1025,7 +1025,7 @@ &i2c2 {
+>  	sda-gpios =3D <&gpio5 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>  	status =3D "okay";
+> =20
+> -	magnetometer: magnetometer@1e	{
+> +	magnetometer: magnetometer@1e {
+>  		compatible =3D "st,lsm9ds1-magn";
+>  		reg =3D <0x1e>;
+>  		pinctrl-names =3D "default";
+> @@ -1060,7 +1060,7 @@ proximity: prox@60 {
+>  		interrupts =3D <7 IRQ_TYPE_LEVEL_LOW>;
+>  	};
+> =20
+> -	accel_gyro: accel-gyro@6a	{
+> +	accel_gyro: accel-gyro@6a {
+>  		compatible =3D "st,lsm9ds1-imu";
+>  		reg =3D <0x6a>;
+>  		vdd-supply =3D <&reg_vdd_sen>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts b/arch/arm=
+64/boot/dts/freescale/imx8mq-nitrogen.dts
+> index 767819cce886..b91509bfc9c0 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts
+> @@ -230,7 +230,7 @@ i2c@0 {
+> =20
+>  			hdmi-bridge@48 {
+>  				compatible =3D "lontium,lt8912b";
+> -				reg =3D <0x48> ;
+> +				reg =3D <0x48>;
+>  				reset-gpios =3D <&max7323 0 GPIO_ACTIVE_LOW>;
+> =20
+>  				ports {
+> diff --git a/arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts b/=
+arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
+> index c7d3073b4041..169811b5049c 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8qm-var-som-symphony.dts
+> @@ -296,7 +296,7 @@ usb3-signal-route-hog {
+>  	};
+>  };
+> =20
+> -&pciea{
+> +&pciea {
+>  	phys =3D <&hsio_phy 0 PHY_TYPE_PCIE 0>;
+>  	phy-names =3D "pcie-phy";
+>  	status =3D "okay";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi b/arch/arm=
+64/boot/dts/freescale/imx8qm-var-som.dtsi
+> index b11da10c5ae3..a44351133428 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
+> @@ -275,15 +275,15 @@ &lpuart1 {
+>  	status =3D "okay";
+>  };
+> =20
+> -&mu_m0{
+> +&mu_m0 {
+>  	status =3D "okay";
+>  };
+> =20
+> -&mu1_m0{
+> +&mu1_m0 {
+>  	status =3D "okay";
+>  };
+> =20
+> -&mu2_m0{
+> +&mu2_m0 {
+>  	status =3D "okay";
+>  };
+> =20
+> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/d=
+ts/freescale/imx95.dtsi
+> index 305751046d66..5f8ab994fb34 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> @@ -1458,7 +1458,7 @@ lpi2c1: i2c@44340000 {
+>  				clock-names =3D "per", "ipg";
+>  				#address-cells =3D <1>;
+>  				#size-cells =3D <0>;
+> -				dmas =3D <&edma1 12 0 0>, <&edma1 13 0 FSL_EDMA_RX> ;
+> +				dmas =3D <&edma1 12 0 0>, <&edma1 13 0 FSL_EDMA_RX>;
+>  				dma-names =3D "tx", "rx";
+>  				status =3D "disabled";
+>  			};
+> @@ -1472,7 +1472,7 @@ lpi2c2: i2c@44350000 {
+>  				clock-names =3D "per", "ipg";
+>  				#address-cells =3D <1>;
+>  				#size-cells =3D <0>;
+> -				dmas =3D <&edma1 14 0 0>, <&edma1 15 0 FSL_EDMA_RX> ;
+> +				dmas =3D <&edma1 14 0 0>, <&edma1 15 0 FSL_EDMA_RX>;
+>  				dma-names =3D "tx", "rx";
+>  				status =3D "disabled";
+>  			};
+> @@ -1486,7 +1486,7 @@ lpspi1: spi@44360000 {
+>  				clocks =3D <&scmi_clk IMX95_CLK_LPSPI1>,
+>  					 <&scmi_clk IMX95_CLK_BUSAON>;
+>  				clock-names =3D "per", "ipg";
+> -				dmas =3D <&edma1 16 0 FSL_EDMA_RX>, <&edma1 17 0 0> ;
+> +				dmas =3D <&edma1 16 0 FSL_EDMA_RX>, <&edma1 17 0 0>;
+>  				dma-names =3D "tx", "rx";
+>  				status =3D "disabled";
+>  			};
+> @@ -1500,7 +1500,7 @@ lpspi2: spi@44370000 {
+>  				clocks =3D <&scmi_clk IMX95_CLK_LPSPI2>,
+>  					 <&scmi_clk IMX95_CLK_BUSAON>;
+>  				clock-names =3D "per", "ipg";
+> -				dmas =3D <&edma1 18 0 FSL_EDMA_RX>, <&edma1 19 0 0> ;
+> +				dmas =3D <&edma1 18 0 FSL_EDMA_RX>, <&edma1 19 0 0>;
+>  				dma-names =3D "tx", "rx";
+>  				status =3D "disabled";
+>  			};
+> diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/=
+dts/freescale/imx952.dtsi
+> index 020de00e8285..887abb1c4784 100644
+> --- a/arch/arm64/boot/dts/freescale/imx952.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
+> @@ -1164,7 +1164,7 @@ lpi2c1: i2c@44340000 {
+>  				clock-names =3D "per", "ipg";
+>  				#address-cells =3D <1>;
+>  				#size-cells =3D <0>;
+> -				dmas =3D <&edma1 12 0 0>, <&edma1 13 0 FSL_EDMA_RX> ;
+> +				dmas =3D <&edma1 12 0 0>, <&edma1 13 0 FSL_EDMA_RX>;
+>  				dma-names =3D "tx", "rx";
+>  				status =3D "disabled";
+>  			};
+> @@ -1178,7 +1178,7 @@ lpi2c2: i2c@44350000 {
+>  				clock-names =3D "per", "ipg";
+>  				#address-cells =3D <1>;
+>  				#size-cells =3D <0>;
+> -				dmas =3D <&edma1 14 0 0>, <&edma1 15 0 FSL_EDMA_RX> ;
+> +				dmas =3D <&edma1 14 0 0>, <&edma1 15 0 FSL_EDMA_RX>;
+>  				dma-names =3D "tx", "rx";
+>  				status =3D "disabled";
+>  			};
+> @@ -1192,7 +1192,7 @@ lpspi1: spi@44360000 {
+>  				clock-names =3D "per", "ipg";
+>  				#address-cells =3D <1>;
+>  				#size-cells =3D <0>;
+> -				dmas =3D <&edma1 16 0 FSL_EDMA_RX>, <&edma1 17 0 0> ;
+> +				dmas =3D <&edma1 16 0 FSL_EDMA_RX>, <&edma1 17 0 0>;
+>  				dma-names =3D "tx", "rx";
+>  				status =3D "disabled";
+>  			};
+> @@ -1206,7 +1206,7 @@ lpspi2: spi@44370000 {
+>  				clock-names =3D "per", "ipg";
+>  				#address-cells =3D <1>;
+>  				#size-cells =3D <0>;
+> -				dmas =3D <&edma1 18 0 FSL_EDMA_RX>, <&edma1 19 0 0> ;
+> +				dmas =3D <&edma1 18 0 FSL_EDMA_RX>, <&edma1 19 0 0>;
+>  				dma-names =3D "tx", "rx";
+>  				status =3D "disabled";
+>  			};
+> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/d=
+ts/freescale/s32g2.dtsi
+> index 8dc0c5d9f368..7a846c143ae8 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> @@ -14,7 +14,7 @@ / {
+>  	#address-cells =3D <2>;
+>  	#size-cells =3D <2>;
+> =20
+> -	reserved-memory  {
+> +	reserved-memory {
+>  		#address-cells =3D <2>;
+>  		#size-cells =3D <2>;
+>  		ranges;
+> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/d=
+ts/freescale/s32g3.dtsi
+> index 24fa3057e929..771c03caafe9 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> @@ -153,7 +153,7 @@ pmu {
+>  		interrupts =3D <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
+>  	};
+> =20
+> -	reserved-memory  {
+> +	reserved-memory {
+>  		#address-cells =3D <2>;
+>  		#size-cells =3D <2>;
+>  		ranges;
+>=20
 
-There is no local register interface for this driver to program: frame
-delivery is controlled entirely by the host-side display engine and
-the PCIe endpoint mapping that feeds the shared region, both external
-to this driver. A software polling timer schedules a workqueue item at
-the configured framerate, which copies frames from the WC-mapped
-shared region into vmalloc-backed vb2 buffers. Running the copy in a
-work item rather than directly in the timer callback keeps potentially
-multi-megabyte memcpy and per-pixel conversion work out of softirq
-context.
 
-To provide more context, this hardware path is designed for BMC iKVM
-applications. The physical data flow is:
-Host Display Engine -> PCIe -> BMC Shared Memory -> v4l2 (video0).
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
->> +
->> +properties:
->> +  compatible:
->> +    oneOf:
->> +      - const: axiado,ax3000-video
->> +      - items:
->> +          - const: axiado,ax3005-video
->> +          - const: axiado,ax3000-video
->> +
->> +  memory-region:
->> +    minItems: 1
->> +    items:
->> +      - description: video frame buffer, shared with the display engine
->> +      - description: optional control mailbox, shared with the host
-> 
-> Why is it optional?
-> 
-
-The second memory region is optional because it is not available on all
-supported hardware configurations or use cases.
-
-For instance, another supported use case has the following data flow:
-vtconsole -> framebuffer -> Shared Memory -> v4l2 (video0).
-
-The first region handles the raw video frame data (which is sufficient
-for capture if configured by userspace). The second region provides
-host control info for automatic resolution detection.
-
-In the vtconsole scenario, this second control region is not present.
-Making it required would incorrectly exclude systems that can capture
-frames but lack auto-detection. I will clarify this variance in v2.
-
-Best regards,
-TH
-
-> Best regards,
-> Krzysztof
 
 
