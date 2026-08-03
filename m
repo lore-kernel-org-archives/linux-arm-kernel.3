@@ -4,162 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4475C55196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 22:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE10C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 22:30:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sZ80AOwZ+2hx6l5a4gRP6Wc1xQDrMzv5eF1oL8ozawI=; b=3j685kHScS0PwkrSrfE4I5eoAt
-	nGN2IIXSevHZ3wbtWn1bcrxKpmcQvBviEguafsywn0SO7OYXuBiIZakh87sx4EQ1SqkNETun4I9sw
-	uUpWz6aZYGS3trHaGmIPENQbbJ0ChWx+Chi2rr3Rdpjq11uA6j/3U/WmmNaQTvo/B1sMgHJAwe5Cl
-	byE0yjj3GGa3jxmnKGHWDaI/LVNs21WEfdoIZ/dOsm1fC9h/mGcotlOcqptPoxWbRorzfvyMJ2rTE
-	f1hF0NdU0mMr4vQsOQfjOxINyastROj4Xjw43Dd6OcVdptKo6KQFqbda2/KAk/hld0Z5GWuJs6C/o
-	TlX/2E5w==;
+	bh=3yTl9Y/o436Zlv2Vup2MQ3FRSTw8xGxoHxInk9rGis4=; b=bFkQVLB8DQ34qlezKaWFQMNBK4
+	ucv4JAX5rozXCMOzuZYKwOFMaGAkdfRV00TBJCsMvq96/cpNuTOOE2dDFkHzEovVhsG8i/G2JsMJ8
+	ml3jfYMy+XE+GMQPYUpxipxTkmGQp7hD/Jgnp8rrsP/Ucc+0iZd9PAIwBQhHJmvsKFa8KlxZrthXk
+	bfl5ltO/vcghddsPQuCMJy8pbYU+Z/wcLOYGdN4aQN1mDMA/lyiS/H4dUzGNN/AND1So3G2p/GYIs
+	HFRgHKs7EpmpIvVh8GZM4F9Wp0QnM+zANA5AGr209c/47imDLX3XTJXXNwqO78LmPDn6tF9uOWsFl
+	6Nbd6Ghw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr19h-00000000b9L-3ysL;
-	Mon, 03 Aug 2026 22:29:09 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wr1Ah-00000000bVa-2Z6X;
+	Mon, 03 Aug 2026 22:30:11 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr19e-00000000b8t-41UV
+	id 1wr1Ae-00000000bTS-1dTX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 22:29:08 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 673K2ao32165672
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 3 Aug 2026 22:29:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	sZ80AOwZ+2hx6l5a4gRP6Wc1xQDrMzv5eF1oL8ozawI=; b=PxjIBm1Yq1f01leh
-	2aY5HGi0wy6fti4bkHOHYHc5whd32Qf4IKp+R23FwjXaS3dTvagqRLFY9ypn8Do+
-	NTopKjNr015QQx6Az9Wix03c2VNUGn85L4s3TGSi6wUpbnSx8nxBKdOntcUgRp4M
-	03rNOw6Ao/REOzbBB+7CXbUiotLQzdPWFOBWT/R6kDZbO3tGad7Q2jBFbpbzbNwS
-	kdHyIYZdWdrMFOISv8eXMxVwpglN2IHRjmtHpUogXP+EP/exMk6KfIhCyobE5JsC
-	Zo/H9rp2oILcAHu/dUxhWRPocFcYT1ZFma99wrJbba6ISyNouGiiO81LqCbBeCqo
-	01dXTg==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fu1p4rh3q-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 22:29:06 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-385d2703b64so314377a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 15:29:06 -0700 (PDT)
+	Mon, 03 Aug 2026 22:30:10 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-92e50979c71so354985285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 15:30:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785796206; cv=none;
+        d=google.com; s=arc-20260327;
+        b=W20pDPdwBoU+glLMMeTybre8xuSBcQ9mO0fiNk3uDRZR1PphOhjvGb/kWWn4S5Ztc8
+         OQGHcmRprTXxLSvEA/ggkfIZIkLkg0pTMHalnneET0m0V4Z7lWeUAf+YSyF31QVW65Dy
+         MajkxQJNUZ+L91SmfgDiGZLqYRNU8Oz+EoTT0i5oT9Q0z093gR0AzJgkUGTXqlOpbJs2
+         J0yaGHJIUSAIfTrzDaEjbBwuQiNSVi0leKOv0GR5gfzPoNF9U3v6UIcFhnlcPSx/oxxx
+         QqA1MaD64anoWuGegf2iMrAr5fYmYm8YSz0qX5K1ucAraYa+V2GLAIG8D1NGR8iSwumb
+         Vy3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=3yTl9Y/o436Zlv2Vup2MQ3FRSTw8xGxoHxInk9rGis4=;
+        fh=gUvJb5Y0OYzay82Xa6J/zE8AeaiJh6ZiRjbd92rAN+U=;
+        b=luOKUuTuzbHhYDsYdKk8ZUUGlmAclyGkKWRRQthV8waKswWYy4npvJ5Fs/dhLcL9Oa
+         RLmSfoZWGmo4/u2aI+SfvwqKtQs9lsbbSdKVAnG5nmlEVPlCCaYrquN8cx8kCHtxAX40
+         OnTC+EQsq4rRQk8J9AUPKyfA2Qw2nhxRdL6D8FVd3fqQi+g05gw3Et5lg31C47BKd5Kt
+         eeEdTAx7E0n5kw8d53R4zhBNcceYHY98+G1yK0F5mPofnsm6fUCVKMzcucom/Q5xY/H4
+         FYmjLD2mIbUSfev/ndK+wlLOm9ra3JW4J25lVCs2hMuyesOPPM+poEBN/fFyatiC3zTP
+         wgxQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785796145; x=1786400945; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=sZ80AOwZ+2hx6l5a4gRP6Wc1xQDrMzv5eF1oL8ozawI=;
-        b=YGC19EwDtwKERCWM/I1TlM3Vo2Yjpcu9ayqYSJdeGXjYf8xc7Uoegqfe5JDXJFfV5q
-         jTlvHhjuhOQ9KWUMsn6NAaca60lqcD5kxS+PTyaEYFV4fAVvdc/lFV7w1zfw1mFXQFEN
-         69xKfTrtpA3z3N11NVVyWScywVdS0mIZ5EVu54v42HXv98DMAUE1HIWgQHontbOJ/17D
-         ViOC4AWQb6WUJ1WmOQYJmpAjo1jOMsAA5D2KrVb77zRWYdA71Q2+mEGhtBgSaI8rEBru
-         LJQ874RxfPXk45WYlCXmCBIBkVDIOFpofmY0w9CgMsnBCMv6bMd19BbFOHRQ9YQ7fwPk
-         MN5A==
+        d=google.com; s=20251104; t=1785796206; x=1786401006; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=3yTl9Y/o436Zlv2Vup2MQ3FRSTw8xGxoHxInk9rGis4=;
+        b=GxRMRNBc/aE9qoG6anQ2VP6nnru7g0GJCCdK41DyTdXVBqxOtq0if2eCsNj2f3bqha
+         UyO4n9oiHACyoHTtmGvlcVvjjryKRUIhO8netePbaqUZMcTlUmwqVDm/fzIgua7tyjV+
+         VbXM7ArzQE0vYoAj85BAVmMiLpauc/3RTaKj1023HvnkLLIGqSYH4yMphtSnAzPQCDB2
+         Z4Qx4coXvFLLk7DkN6I7SEj1xsyzXI49vJbKkXaGQrJ5zyWYBfsalyIXOE5W496HaVt9
+         Czh24Uvw1QA0SShnRXcxK/oLnkdprLuCOvA+qhFJFJondP3GmRrhXMPcnIMh7+PjsjdY
+         9FDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785796145; x=1786400945;
-        h=content-transfer-encoding:content-type:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1785796206; x=1786401006;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=sZ80AOwZ+2hx6l5a4gRP6Wc1xQDrMzv5eF1oL8ozawI=;
-        b=fAxINkpLQ2ajFGKDJspRvnAKsje0hd5vhSDQH4Yv/Q1pMwCAGwG9Yhw3nDaYkpGJzT
-         QnmzO4EOJoVC50RIxR3SubzVsGTgQY50qSX1R+f9fMvPKor7HTDEajM55QY57KvynBWM
-         pGWhsyCEbnsmYVMWV78eaEG4nMpY6Fwks1Je3y2VxASuBWCjzyAK+NteoBEJ+JM6QPHn
-         rWkU743dKK68McTaKbUvJJT9LMfUpVvPIjwMBbT/mwI5m3djjx/1+lMCNdAKknXpWeYP
-         SszKYV+iUcnb21knk7iqUJNvNeF/ZYQorj9jl1qNOfaQI6njuR00LwiiFc3JXr2INq4l
-         TLwg==
-X-Forwarded-Encrypted: i=1; AHgh+Ro2AAaKonvgBOp0iNziD4VNEbMFS0bApGoN/vCkTNLwc6AlSkTltgnsRRg/3UVo0j4xVJxdd/XAWkGR5aeUnuqA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxs/2YtTmcsgbEkp0sPy+gjleCcCzqkAgb7w8pQPEvUfUhqMnH5
-	RpyWaDkYGHw5I0D2oW3NB4OrYabSS8yDmy+KoUYS2ryHxoQ8wqiB/Lw36kQswNBnSN/OVVWsE+v
-	dt9TXy5Clt0QE4AmkKbS0yXvSRC2wuiTrrzsvWIOVkOOZmAhiKySldmw52NqxiRjdaRGUI5M9KD
-	yr4g==
-X-Gm-Gg: AR+sD11zSKZgRnyZpFj+VyuhPppg+Ujl51lLXfdtkW6J0TlCUhZxFpe6xZhgeZrHPVI
-	Wg7h01dv1NwxaCoMYWKhjAUU7D4KB0lNjg61TDXQxUqw9kqVjO6xZY9UAIZ8zYa5pzfPkfueDec
-	7p6pW9gUbxcsINmVal00rf4LRoRt5SqVC91A9bVMliiSHpQ0wxtymqHtyWVXPtMFFbeF8khCEAN
-	Bsbqm/L3mQAZjwZuNb+jGgs19BtcU7y0mTAC/EI4IDCpI0y/PbRo6yi94FnLJDnJJaNbWHBiO/o
-	6+C9c6dj8t3EpnTW5Phd244iB+CT/6G+77r6mmTQ0YUbMUNWLMR3N7kY6lkR+9LmpU9r/HdEV9C
-	13h/AF5dVg8RfOADCSMzJjRUWMg==
-X-Received: by 2002:a17:90b:4d05:b0:38e:4f31:8412 with SMTP id 98e67ed59e1d1-38fecc2f007mr1071162a91.11.1785796144761;
-        Mon, 03 Aug 2026 15:29:04 -0700 (PDT)
-X-Received: by 2002:a17:90b:4d05:b0:38e:4f31:8412 with SMTP id 98e67ed59e1d1-38fecc2f007mr1071121a91.11.1785796144318;
-        Mon, 03 Aug 2026 15:29:04 -0700 (PDT)
-Received: from localhost ([50.35.46.84])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13fab4e44bcsm49863604c88.12.2026.08.03.15.29.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 15:29:04 -0700 (PDT)
-Date: Mon, 3 Aug 2026 15:28:59 -0700
-From: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Hanjun Guo
- <guohanjun@huawei.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Catalin
- Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        "Rafael J
- . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-        James Morse
- <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-        Reinette Chatre
- <reinette.chatre@intel.com>,
-        Fenghua Yu <fenghuay@nvidia.com>, Jonathan
- Cameron <jic23@kernel.org>,
-        Srivathsa L Rao
- <srivathsa.rao@oss.qualcomm.com>,
-        Ganapatrao Kulkarni
- <ganapatrao.kulkarni@oss.qualcomm.com>,
-        Trilok Soni <tsoni@quicinc.com>,
-        Srinivas Ramana <sramana@qti.qualcomm.com>,
-        Niyas Sait
- <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
-        Ritwick Sharma
- <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 07/11] arm_mpam: propagate MSC access errors for
- mpam_reprogram_ris_partid()
-Message-ID: <20260803152859.00006590@oss.qualcomm.com>
-In-Reply-To: <20260731170324.2927758-8-andre.przywara@arm.com>
-References: <20260731170324.2927758-1-andre.przywara@arm.com>
-	<20260731170324.2927758-8-andre.przywara@arm.com>
-Organization: Qualcomm
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.51; x86_64-w64-mingw32)
+        bh=3yTl9Y/o436Zlv2Vup2MQ3FRSTw8xGxoHxInk9rGis4=;
+        b=dox9Th+4SWW2qDfHd4tnOBQzU8WwyrtKQ2M5lszbkyFZ0HCNBD2OpoCfdBvT/tCJzu
+         GcjMNt+7VA0uvx8yAlKsPhHDomjjVHOOTu7i+RzOZCCKxBHx60T0u9D3YqjiCFrxXM0X
+         7AIAdZaIJK2nzxCNTBphwmGILJFeGt6/ksw/WA8Z+ZfwTUIXQ+pSNHOCGKkY9QNQ9Lop
+         8mSsMT4FZcPLQwdKN5pUm0+kvnw9/0b6J5vSpNlgBMBcWMA4RE+/N34koBQ1SDTQkLu5
+         egdinrENvN8cmE/qNmUI/eGRDdiJR5ZeWqEGhi0hMVVHndo/VC8K3etw37uVUyiSOEH8
+         audw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr8Su8HUj/QIUuQcQryG2OOD8RgKZNXLRkCPjNQw8qRei3RIfKDaX5yJCQCTX21l88Bu+OWjUB0qrmeeBbQ8MmN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCP2/sOnVTH36/hxOUQfn7KmwsiHy6cCgVQVDlTCLE9FS7jSN4
+	Ttj0B9pv26dzA3yFwfdFde0Q6ZXr0ql8kTQHIuIC5Bq8gwWESh2FedsLWE892XJk/cfdZ8BCEk7
+	SJMuIuLRLrd/Cax9xLbTp20WQ7QzoOHCyfmte956S
+X-Gm-Gg: AR+sD10WrMJ+mFpu9kWmR8cljn5K7AuubRCNc4HrbDAJ10g48awGIHWUzdZ3Ga1MXPr
+	k84Nkk075hJky7Au5lgsOu1CntpM7ir97UAxJt/oGi5VNHEZypgzv8ivKFzAV1cwbkpLhgeS6dp
+	Tz6YOXKLmdNw2yInSCsX78ySLYih5cizrbO9i3zGpnQf+rZFAxeJS5m+UsOroiCHmMUHXybmXC+
+	B04krEBFVlvEDL3G59ImKAzvMRnyitol1FXfhBzdPHQ+kLVSH+C8OGkhktU5wxpjNOIMV6H6M24
+	+rh+DNyo6U9ePWgwQJflRI5Fob9pLkrr92CfC0VI7KZUPkKc2eO9SqhuyYfSy5tmo2aL0mmE/TL
+	Dmg==
+X-Received: by 2002:a05:620a:1788:b0:932:d92c:1604 with SMTP id
+ af79cd13be357-934a093ee41mr1858091985a.23.1785796205213; Mon, 03 Aug 2026
+ 15:30:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=auOCzyZV c=1 sm=1 tr=0 ts=6a711632 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=qC1CW/w66vtJz1P9yTJxNA==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=_W4zCIwx36R_oyA-FJgA:9 a=CjuIK1q_8ugA:10
- a=iS9zxrgQBfv6-_F4QbHw:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: rIoJ4XBgnuXNzA514LFi9LczLKe1yjDJ
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDE5NyBTYWx0ZWRfXxIp4MyCdPTAT
- VAC7Ztvtfr/nqSNRlx79J27HZQvtejzXM9QSknK+mIWSCYuHFhs21avTWdClkuzzhbRDBOte8ke
- WGZoKVJiUM7bpnDjLbAATlDwss8A5Wg=
-X-Proofpoint-GUID: rIoJ4XBgnuXNzA514LFi9LczLKe1yjDJ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDE5NyBTYWx0ZWRfX6iFe4gdZQ7wX
- eMvcgMrFOzUQdDvUQeRbjdVEaXyoqW/8Mrmf8xnCZP8MAXvia+4OiEvDb+BsGh55zwzxczr9D2T
- CHWGw+xYtvP7EOwk9lXE5x9h33WEpXBlw0kySn9IePwRwJNzxw0uM1C1ByS54Egv29gTHyBmMEN
- 248K7nkz++BThZJwXI7/XoGQ9U8SmYvL5AyJFubEdotjQr8T65ViS9W4gkxNHA4kAp4op1ZtTJn
- RHlb8P1uVUoMg2kUfbc3Munmgh7xLD9wOg62pPjWaVwmnIgA4IRHwScIqYzXG8UkiZMjgqTJKL2
- TyuQ1o0LmTfxEGg6gwcv8RlmN0TwhLAeedac58HPBOysTuyFI7gutDW4FnwRyUAsESoBF8VLvKd
- ZGM2OzW5MfaLK+Xm5/BVSF3QTf9wW8+UyA4YYYOqyALUQ9WeKw6xnMIqE4Yf18RZXAjGd8Gr1sl
- UUTiq78Yndr992tzrcg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-03_05,2026-08-03_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0 malwarescore=0
- lowpriorityscore=0 clxscore=1015 phishscore=0 adultscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608030197
+References: <20260803134403.80630-1-steven.price@arm.com> <20260803134403.80630-18-steven.price@arm.com>
+In-Reply-To: <20260803134403.80630-18-steven.price@arm.com>
+From: Alper Gun <alpergun@google.com>
+Date: Mon, 3 Aug 2026 15:29:53 -0700
+X-Gm-Features: AUfX_mzgu7kD5xmIyUYZ_YnVZsQj0adTFpMJoMddiEH4UKglz6_2Lo8CDB6wxAY
+Message-ID: <CABpDEun3NPr7Na85pmOvdfYQ1DB-2nCcocsyDESXM15bzJU1og@mail.gmail.com>
+Subject: Re: [PATCH v16 17/45] KVM: arm64: CCA: Tear down RTTs
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, 
+	Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_152907_010727_5FF40DD2 
-X-CRM114-Status: GOOD (  28.45  )
+X-CRM114-CacheID: sfid-20260803_153008_452938_9AA2F4BF 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,77 +127,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 19:03:20 +0200
-Andre Przywara <andre.przywara@arm.com> wrote:
-
-> Allow the mpam_reprogram_ris_partid() function check for and return
-
-function to check
-
-> errors, and propagate MSC read and write errors from the lower level up.
-> This also covers the callers of this function: mpam_reset_ris() and
-> apply_config().
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-One thing below to perhaps modify if you are respinning
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-
-> ---
->  drivers/resctrl/mpam_devices.c | 136 ++++++++++++++++++++++-----------
->  1 file changed, 93 insertions(+), 43 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 38450c55e45e..32088ad1d67e 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -1601,7 +1601,7 @@ void mpam_msmon_reset_mbwu(struct mpam_component *comp, struct mon_cfg *ctx)
->  	}
->  }
->  
-> -static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
-> +static int mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
->  {
->  	u32 num_words, msb;
->  	u32 bm = ~0;
-> @@ -1610,15 +1610,19 @@ static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
->  	lockdep_assert_held(&msc->part_sel_lock);
->  
->  	if (wd == 0)
-> -		return;
-> +		return 0;
->  
->  	/*
->  	 * Write all ~0 to all but the last 32bit-word, which may
->  	 * have fewer bits...
->  	 */
->  	num_words = DIV_ROUND_UP(wd, 32);
-> -	for (i = 0; i < num_words - 1; i++, reg += sizeof(bm))
-> -		__mpam_write_reg(msc, reg, bm);
-> +	for (i = 0; i < num_words - 1; i++, reg += sizeof(bm)) {
-
-Not really related to what you are doing here, but if you like you could
-reduce the scope of i via
-
-	for (int i = 0;...
-
-as it isn't used outside of this loop.
-
-> +		int ret = __mpam_write_reg(msc, reg, bm);
+On Mon, Aug 3, 2026 at 6:45=E2=80=AFAM Steven Price <steven.price@arm.com> =
+wrote:
+> [...]
+> +static void realm_unmap_stage2(struct kvm *kvm)
+> +{
+> +       struct realm *realm =3D &kvm->arch.realm;
 > +
-> +		if (ret)
-> +			return ret;
-Personally I don't like this style but feel free to ignore as this is
-very much a personal taste thing. I'd do
-		int ret;
+> +       lockdep_assert_held(&kvm->arch.config_lock);
+> +
+> +       if (realm->stage2_unmapped)
+> +               return;
+> +
+> +       write_lock(&kvm->mmu_lock);
+> +       kvm_stage2_unmap_range(&kvm->arch.mmu, 0,
+> +                              BIT(realm->ia_bits - 1), true);
+> +       write_unlock(&kvm->mmu_lock);
+> +
+> +       realm->stage2_unmapped =3D true;
+> +}
+> +
+> +int kvm_realm_teardown_stage2(struct kvm *kvm)
+> +{
+> +       lockdep_assert_held(&kvm->arch.config_lock);
+> +
+> +       realm_unmap_stage2(kvm);
+> +       return realm_destroy_rtts(kvm);
+> +}
 
-		ret = __mpam_write_reg(msc, reg, bm);
-		if (ret)
-			return ret;
-	}
-just to keep the source of error and check for error next to each other.
+Hi Steven,
 
-> +	}
+I noticed a warning in dmesg when destroying a realm:
 
+  [  158.533495] Call trace:
+  [  158.535927]  kvm_destroy_realm+0x208/0x218
+  [  158.540356]  kvm_arch_destroy_vm+0xc8/0xd8
+  [  158.544439]  kvm_put_kvm+0x324/0x4b0
+  [  158.548002]  kvm_vm_stats_release+0x1c/0x38
 
+I traced this and found the following:
+
+At this point, calling realm_destroy_rtts() may fail destroying the RTTs
+because RECs are still active and the Realm is not terminated, but the
+walk finishes and still sets realm->rtts_destroyed =3D true.
+
+Later, kvm_destroy_realm() calls rmi_realm_terminate() and then calls
+realm_destroy_rtts(kvm) again. But because realm->rtts_destroyed is already
+set to true, it exits early without tearing down the RTTs.
+
+Consequently, rmi_realm_destroy() is invoked while the RTT tables still
+exist in RMM, which fails and triggers WARN_ON(rmi_realm_destroy).
+
+The fix I used was to remove realm_destroy_rtts() from
+kvm_realm_teardown_stage2():
+--- a/arch/arm64/kvm/rmi.c
++++ b/arch/arm64/kvm/rmi.c
+@@ -434,7 +434,7 @@ int kvm_realm_teardown_stage2(struct kvm *kvm)
+  lockdep_assert_held(&kvm->arch.config_lock);
+
+  realm_unmap_stage2(kvm);
+- return realm_destroy_rtts(kvm);
++ return 0;
+ }
+
+I think we don't need RTT destruction here as it will be handled cleanly in
+kvm_destroy_realm() later.
+
+Thanks,
+Alper
 
