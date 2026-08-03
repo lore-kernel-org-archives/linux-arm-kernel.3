@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32E0C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5EC7C55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LWWMyiRyHQgnIeqT2FsVGOyXULdTvyWYrbxiNMTKbzc=; b=hmavNPM/aQ1npkto7O3GTK94Iz
-	HxYy9uMXl/i2ty9rbI4+ULzeTA3ku2hsaA3p0krXRNFP53SmvnsDYJntNSGKwx8zXCFxH0eghVI34
-	aebTAIhhLy7GUiHWrHXsL+X0kyGq/pMCDOMhoSU62JmjL8MIQ/DWD7ZfNAlmkEGLZMSU8G8q8uhNL
-	LfGimv7w9qZ0iy3W+eBGzZIvhkq28Pp1sV9VpcduJ6p1/T6+g7RqgIsg1p1hLERaCgVPayUzz8GGw
-	WP1SYC8e2xsOixAqmurv/9BilJsoqBA22QQsYk42/ZkahPP0VPZlTf2Tw73GNJsTwzvGjE0i6/0y3
-	kfpuV5fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zjEC2L7MofLAlzx04Y8aEC8e9b7Oxnd79XKNmVtUSfU=; b=iAuE3LFggryFkjkkMtvuGXLOz8
+	+ye+S0NdIdtA67K+7ZG2U8ZUnX05sRAp9IbPuKJqubwsFEtIIPQpnPKw3xBhH+dZhyZuuRRJ0Ohdx
+	jGkPgMcdziWp7CvfKgsIaPnfzGvE0LeRlkkEwK6v/pa3Z4a1C7qMsx/64u8gmNfU5gMukxcXKDXhS
+	dDma9trYQfDUSad52CbkLOiYJlaX+Ls+FpyJPzJ0oqUj1qQA8/X71mpPB+Gk+sqroSZuw91vI5U0F
+	zgp7PaGuK05CkOUNOruRPg3Tr9mypBLPclnsNte1PJDI9A3q3iU8TyeCotV9i/lv8Y44OABMAn6G2
+	y0wOcg7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqu3U-0000000HRGG-2cVv;
-	Mon, 03 Aug 2026 14:54:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqu3U-0000000HRFj-03JB
+	id 1wqu6d-0000000HRqj-0KDg;
+	Mon, 03 Aug 2026 14:57:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqu6Y-0000000HRoS-2IBc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 14:54:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D9965403F3;
-	Mon,  3 Aug 2026 14:54:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45A471F000E9;
-	Mon,  3 Aug 2026 14:54:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1785768854;
-	bh=LWWMyiRyHQgnIeqT2FsVGOyXULdTvyWYrbxiNMTKbzc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fNMCSboL3Q4QfowHWSTQl4JGBKt7K2MpilPyyL7bcEHAJ9Nj8N/OlLUXPRngp3m9w
-	 e5ZCPSNNOmvz2UDmhRh7vDfrEaBgLlJVOr472RvCkZocJKhbOAHnLjJTXPhwpAeJDd
-	 mUggtZjIrCuWKohhfIobaJuy6Cuv1c3MMYitaG2s=
-Date: Mon, 3 Aug 2026 16:53:59 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Jiri Slaby <jirislaby@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-serial@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Sashiko <sashiko-bot@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v4 5/5] serial: imx: serialize imx_uart_ports[] lifetime
-Message-ID: <2026080341-agreeing-context-ca78@gregkh>
-References: <20260731181844.11330-1-kmehltretter@gmail.com>
- <20260731181844.11330-6-kmehltretter@gmail.com>
+	Mon, 03 Aug 2026 14:57:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82EFE1476;
+	Mon,  3 Aug 2026 07:57:20 -0700 (PDT)
+Received: from [10.1.25.28] (e122027.cambridge.arm.com [10.1.25.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 61D353F632;
+	Mon,  3 Aug 2026 07:57:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785769044; bh=rH7c4BNoFxNF7N2pE0+MsTz5GUCjv5A99uatFeYJsoY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UkPQsTy7F4F7Sw+PcgXQWmJgS0Y0c4+Uc7ju4gI7wygzXEJ9KKWx61VdArwRpiq3Q
+	 5Oy5gbKIDGgRFvvigvX0ICD4BlxWVXXF2AahOCix3X13zUFsjPr3LRIsVNC2pucRCO
+	 mCmv832n0KwGGim8EhxcgDX3QDdr2eIgKqsQt0Rk=
+Message-ID: <babcdee7-3180-4c36-8822-f9d027f432b9@arm.com>
+Date: Mon, 3 Aug 2026 15:57:17 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260731181844.11330-6-kmehltretter@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 16/37] KVM: arm64: CCA: Handle realm MMIO emulation
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-17-steven.price@arm.com> <864ihbcul4.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <864ihbcul4.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_075726_681612_DDF50D12 
+X-CRM114-Status: GOOD (  26.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,41 +84,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 31, 2026 at 08:18:44PM +0200, Karl Mehltretter wrote:
-> imx_uart_probe() publishes its devm-allocated port in imx_uart_ports[]
-> before uart_add_one_port() because console setup uses the table. The entry
-> is not cleared when adding the port fails or after removal, leaving a
-> dangling pointer.
+On 03/08/2026 12:27, Marc Zyngier wrote:
+> On Wed, 15 Jul 2026 15:28:18 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> MMIO emulation for a realm cannot be done directly with the VM's
+>> registers as they are protected from the host. However, for emulatable
+>> data aborts, the RMM uses GPRS[0] to provide the read/written value.
+>> We can transfer this from/to the equivalent VCPU's register entry and
+>> then depend on the generic MMIO handling code in KVM.
+>>
+>> For a MMIO read, the value is placed in the shared RecExit structure
+>> during kvm_handle_mmio_return() rather than in the VCPU's register
+>> entry.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> ---
+>> Changes since v7:
+>>  * New comment for rec_exit_sync_dabt() explaining the call to
+>>    vcpu_set_reg().
+>> Changes since v5:
+>>  * Inject SEA to the guest is an emulatable MMIO access triggers a data
+>>    abort.
+>>  * kvm_handle_mmio_return() - disable kvm_incr_pc() for a REC (as the PC
+>>    isn't under the host's control) and move the REC_ENTER_EMULATED_MMIO
+>>    flag setting to this location (as that tells the RMM to skip the
+>>    instruction).
+>> ---
+>>  arch/arm64/kvm/inject_fault.c |  4 +++-
+>>  arch/arm64/kvm/mmio.c         | 16 ++++++++++++----
+>>  arch/arm64/kvm/rmi-exit.c     | 15 +++++++++++++++
+>>  3 files changed, 30 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+>> index 89982bd3345f..6492397b73d7 100644
+>> --- a/arch/arm64/kvm/inject_fault.c
+>> +++ b/arch/arm64/kvm/inject_fault.c
+>> @@ -228,7 +228,9 @@ static void inject_abt32(struct kvm_vcpu *vcpu, bool is_pabt, u32 addr)
+>>  
+>>  static void __kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
+>>  {
+>> -	if (vcpu_el1_is_32bit(vcpu))
+>> +	if (unlikely(vcpu_is_rec(vcpu)))
+>> +		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_INJECT_SEA;
+>> +	else if (vcpu_el1_is_32bit(vcpu))
+>>  		inject_abt32(vcpu, iabt, addr);
+>>  	else
+>>  		inject_abt64(vcpu, iabt, addr);
 > 
-> A sibling probe can register the shared console through that stale entry.
-> This was reproduced under KASAN on QEMU mcimx6ul-evk by unbinding a
-> sibling UART, unbinding the console UART and rebinding the sibling.
+> Why don't you let inject_dabt64() do its job and reconcile the REC
+> stuff at run time?
+
+Ok, one wrinkle is the __kvm_adjust_pc() path. But I can skip that and
+leave the PENDING_EXCEPTION flag set on return to user space. That way
+the flag is still set for the next entry and we can handle the RMM
+specific parts there.
+
+>> diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
+>> index e2285ed8c91d..a8c125205695 100644
+>> --- a/arch/arm64/kvm/mmio.c
+>> +++ b/arch/arm64/kvm/mmio.c
+>> @@ -6,6 +6,7 @@
+>>  
+>>  #include <linux/kvm_host.h>
+>>  #include <asm/kvm_emulate.h>
+>> +#include <linux/arm-smccc-rmi.h>
+>>  #include <trace/events/kvm.h>
+>>  
+>>  #include "trace.h"
+>> @@ -138,14 +139,21 @@ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu)
+>>  		trace_kvm_mmio(KVM_TRACE_MMIO_READ, len, run->mmio.phys_addr,
+>>  			       &data);
+>>  		data = vcpu_data_host_to_guest(vcpu, data, len);
+>> -		vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
+>> +
+>> +		if (vcpu_is_rec(vcpu))
+>> +			vcpu->arch.rec.run->enter.gprs[0] = data;
+>> +		else
+>> +			vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
 > 
-> Keep the entry valid through uart_remove_one_port(), then clear it. Protect
-> port addition and removal together with their table updates so sibling
-> operations cannot interleave. Reject an occupied slot rather than
-> clobbering an active port during a duplicate-line probe.
+> This is yet another example of things I do not want to see. KVM works
+> on the GPRs described in the vcpu structure. And that's it.
 > 
-> Fixes: dbff4e9ea2e8 ("IMX UART: remove statically initialized tables")
-> Fixes: 9f322ad064f9 ("imx: serial: handle initialisation failure correctly")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Link: https://lore.kernel.org/all/20260719162850.043B41F000E9@smtp.kernel.org
-> Link: https://lore.kernel.org/all/20260719222501.CB4CB1F000E9@smtp.kernel.org
-> Cc: stable@vger.kernel.org
-> Assisted-by: Claude:claude-fable-5
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
-> ---
-> Backport note: the removal fix is self-contained. Complete probe-failure
-> coverage also requires patch 1. With patch 1, all fallible allocations
-> precede console registration, so rollback can safely clear the table.
-> Without it, a late allocation failure (only reachable with fault
-> injection) can leave the console registered after imx_uart_ports[] is
-> cleared, turning the pre-existing use-after-free into a NULL
-> dereference.
+> So let the ESR information be correct for CCA, the data being written
+> back to x0, and once you're ready to enter the guest again, copy
+> whatever you need into the CCA data structure.
+> 
+> But not any of this stuff.
 
-None of these should probably be backported, so this should be ok :)
+Yes this is a bit silly. A while ago the RMM wasn't populating the ESR
+information correctly which is where all these gprs[0] hacks came from.
+That's been fixed and it should be possible to do this on entry.
 
-thanks,
+>>  	}
+>>  
+>>  	/*
+>>  	 * The MMIO instruction is emulated and should not be re-executed
+>>  	 * in the guest.
+>>  	 */
+>> -	kvm_incr_pc(vcpu);
+>> +	if (vcpu_is_rec(vcpu))
+>> +		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_EMULATED_MMIO;
+>> +	else
+>> +		kvm_incr_pc(vcpu);
+> 
+> Same thing. kvm_incr_pc() sets a flag. Use that to reconcile the state
+> with CCA.
 
-greg k-h
+It's not an ideal flag for this use (it's set in other places). But I
+think it should be sufficient along with checking other state to
+identify this condition.
+
+Thanks,
+Steve
 
