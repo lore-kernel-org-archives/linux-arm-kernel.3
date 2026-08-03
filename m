@@ -4,135 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D11C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 03:24:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE6FC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 03:24:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ff/cTBS5N7GqKFGMFP8eklIy3i1FhGsuKzXvx2K54Bk=; b=s21Qv9U9WVoU1qzl5IazpyODpy
-	9+6JG7BhIgHiKjuMz4Ylgs0RQ+8qJHZolbcsVc0Mp0Cu+Xpih87T1NHC6a8z6v/ugfjMwD1aNsa7S
-	CZH9lVNE6ZEpv+FrCk1ABjCkkZ7sGNxzmvhfyLorkfiojGf3uiCn/LupHHRby32q8tInbl/x727zk
-	Wyd5NZJkrGYUAxN6JoWO5eZDpJFuQGzqP4SAn5j9MuZGKlKjDFRrMPnJT8YbZvSFpZLqpdypvsyWj
-	xIhsklaBGdVVe5aegxnB2TRcH3iJvuGCFf/w5O9nZ0EE27Z13SvX5gEaNnwYfVCK6ByDrdKCAmp/i
-	T3GbRAFA==;
+	bh=1VF3rSJQm12kqGGHiDeGNuTAOGjDmvP08pZJHw58mJY=; b=tJtlmXCV2tP30q3XmIDEbog+eG
+	6NdyJWmoTHA641M62OmxsOKdjyRxsx0lie8c/2riMH0XbGghZVN4EOjbV9UmZkMaIdgS7c43e3517
+	9EPkeiQtOVneknGIjI+RfZ/GmmPiyB6b8RUi0s8M04ODi7oO53aZ2fUNHgcgn2y25RRYTNkC9yL3f
+	Yey0LwXxHJ7BLJTn0f8XwHAwWTbUkCs6vDA3cxM+gIwmikXby+mGz72CcqW8gG0spPjb8Rl9uP5Hs
+	jYuLVpnKcv8jMD65X8wAN5I4+6L2KEdQhEEXm2sdbGXv5X7eD42upi/WVQ3zYLQWCUyfMIP7uUwy1
+	3rhZCuVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjHi-0000000GEO6-1B4C;
-	Mon, 03 Aug 2026 03:24:14 +0000
-Received: from mail-westus3azon11012021.outbound.protection.outlook.com ([40.107.209.21] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wqjHs-0000000GESt-237z;
+	Mon, 03 Aug 2026 03:24:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjHf-0000000GELU-1gSF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 03:24:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Pk+1ZOWf5dGjpwabc3fEWNz7TtUOwEDbMli4RsbETXHZiU/HUIR8qbKqeuJ0ltxUQ/Y8SRqyQHZI9ICggPzSryKF06IqjsrlQe9sTIPOQ2z7r70MQQKmSSi6P08C+qqjobWfxcU9qGC4AwE7s0FRGjjtaqiobLHN7+ygds9pTMMFGCaygomqdZO8+WN4sorO25MHxd8KrNsEeLrKx7QcgUs4Z63K24OmsTLhgBTaVmnlduHQ1Tb0JR3JMCCTuqz53fjz9v5mLMJewsPOYpncIsr2z4p4ZtDVbzqtDGoYC6txk0Xiipve1sj0uEQ58uAPfnsZVWoUqA/oXv9gq9yleg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ff/cTBS5N7GqKFGMFP8eklIy3i1FhGsuKzXvx2K54Bk=;
- b=SONZZmytfBwpV5FovJ1aXNVD+IlLQkrtNrokwwO4bU60XHjPVueCe5FFB09A/4qh/mGLJw0V6jrA3wHQAahZFr/Mz3XbnhzhD+O56CbzH2PcIxICo4VMO9ja46Qm/zx2moWs+5Mz+NdQ3z1aFxSJ17FgJruV3r5PTrAzJTzwe1o/NwXuf6MAM/M2d4qLVCFukJ08WYzdMjyn/BClCcPNt+ug/nwaqsrHkff1nldpnTGpNeqjbZAjBnDleyeMDSwKiW/FB6+u3nJ89jWPqP8sEVyERyp7QGK7Z9Vxu11LU4yDcqcc6iiWgSo+FhnLf4jVvIQ4DL3uyUsvoEPWqm8EFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ff/cTBS5N7GqKFGMFP8eklIy3i1FhGsuKzXvx2K54Bk=;
- b=KohgnDWbkOYPsmMbLdQlmEI4a5/iKTk5n9kikyAtX0Uf49cOTM0bCmTLhYCesm0w0Q87XV38+ELOakUG4vXgJRTH5k+FzQWGAcfcf4aRr7m68s8j/biwqYTKe98fv8EXY/zKv1iz9K1feKkfZULT/10zzrYwAFRMTtMNnoouekCiymEkcrn/sTSuA/4t4ZB6+xWSMlJ1f28aNbTIU3xhrfnkJjhcIP5FQ3fby4L+lsXsMyxCNWrDy5hRaIsslvWAupQyxicJpZ2pGxMWlQkjuV1rfxkZzIpQfa94088kvy0ISICvZJAfKpwEZv3ZAw1aAcZzliNRVZtLRk6VwyDrfw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
- by CH2PR03MB5335.namprd03.prod.outlook.com (2603:10b6:610:91::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.12; Mon, 3 Aug
- 2026 03:24:02 +0000
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0270.016; Mon, 3 Aug 2026
- 03:24:02 +0000
-From: muhammad.nazim.amirul.nazle.asmade@altera.com
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 3/3] net: stmmac: fpe: Move fprq configuration to stmmac_fpe_configure_pmac()
-Date: Sun,  2 Aug 2026 20:23:58 -0700
-Message-ID: <20260803032358.16282-4-muhammad.nazim.amirul.nazle.asmade@altera.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260803032358.16282-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-References: <20260803032358.16282-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR03CA0388.namprd03.prod.outlook.com
- (2603:10b6:a03:3a1::33) To SJ0PR03MB6964.namprd03.prod.outlook.com
- (2603:10b6:a03:432::18)
+	id 1wqjHq-0000000GERr-38bl;
+	Mon, 03 Aug 2026 03:24:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CCEFB43C47;
+	Mon,  3 Aug 2026 03:24:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 596AD1F00A3A;
+	Mon,  3 Aug 2026 03:24:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785727461;
+	bh=1VF3rSJQm12kqGGHiDeGNuTAOGjDmvP08pZJHw58mJY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=V/SGy//29lzafn44QnvWv0AfUr95ec4GVuf3r7r4CeL4arb6a62DZJOwJF/Gl2tlr
+	 UamD9ImnOcSydXNxsMHoAVPAG2/Fwc6sCafHYQVjBhazCc9/LR6qLsX9bpEm7N67tQ
+	 dNr23j0aDMcmVrjGv/GWVCJqbWZjj8M88qr59HlzrY5zGp6M/5IlD5kOhItdI8NY8j
+	 NsPgNvO2aSShJg9fE1Z+LRLkwOkCsYf6gCYNep/ZWk46mN7otrVs0dwjwjmuNKIpVt
+	 3AIC1h5/UNfLp0UrMzhRizirBSsDyufhR4hp+PgnRjtFVnZL/B2mEj370AEB/T9Jl3
+	 m+MlScpmZUzBQ==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Prashant Gaikwad <pgaikwad@nvidia.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Jerome Brunet <jbrunet@baylibre.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-tegra@vger.kernel.org,
+	linux-omap@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 0/7] clk: clean-up simple provider misuse of the consumer API
+Date: Sun,  2 Aug 2026 22:23:59 -0500
+Message-ID: <178572744545.408250.6189990473373785394.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
+References: <20260724-clk-provider-simple-clean-v2-0-56f306156d25@baylibre.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|CH2PR03MB5335:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5f9f3a77-80e3-498a-e7dd-08def10ea9bd
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|11063799006|56012099006|6133799003|10067099003|55112099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: JCvZAs64DhkCZAnYCEm3BTtvKbw23x1C0/LgNnRQsQr6TJf6gig9np4Wx45jbgmRmSdVh5Zh1Ly874J2R5U8Mw8OjK3pBNnbVlcQ/DSjFCUqZ5ulvBz+1V3e9OP8oXXT2o5MXvSalZI+KfV5rCySCM7BHa26OjjOCAG2NPCl5xGnv8lNF/7AIotA9Wmz7FgzQY7LZqJXzIAdCZ4zudiIfN8d0H9BzLjPpdBxtGTi0hx8XNBqG4b5QIhNpeWgdn46mIp5Xda/xjkUk1458qRwa5LQ8iMq9GUdY9CA48/ObIi8W/Fd4IcUAV8RdEw0VSYyQwNEq9QGI7ZKdsDfqWHNKUGcz1BQ27ozuMLfbgQ+pr6w39eZoD+MVP2m1SuBhZtzrDidrceOe9rJaeD1DrItXR0R+PFXB8tT2bZYORPpwZN8y98C7lPb7zpTi7qJH1R3ug0RL6Z2R/QIyPAs1VdR6PkYXJOKLNJphOyEteABojoYPym09XxjlKKusd7qZ04/gGHeEoZQtrmB4mIkePZ9TTkqPgWLH2pXp4z6RT+1ezhVVkcXj+1xVB9haL8LfFha7yutZZnp7jZb+1z5IkOoJl+jjf8Wp1/MWkWnZvzw4NS8Y9GbRH7pXjl5/0QjTkjPwwnjw+mW/jbEbVi3pfb95vgiP16eQk+xrnJyYgXO2Dc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(11063799006)(56012099006)(6133799003)(10067099003)(55112099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?apyt9p3bIkZe9AMaXEIpf6rFJqU1liBvUOg52dFYV7vs1Ff17KxXlp/AiOzX?=
- =?us-ascii?Q?swNt4GpKhChPvJRv3nNvGwCR4/HeNS+ZegaXLZrurjVK1rV7g7htaXW+JleF?=
- =?us-ascii?Q?11ts+cgADIkW8/CbwMx5ojAuwDf7gqIJLlH/pPXTr2ZX0haY9TPwSjLTdPVl?=
- =?us-ascii?Q?uQmSvohLNdbsEuhvOQ2hvPk/BKpTMTsXj2w/m6MxGvNOliLwNNjwhpWN+Z19?=
- =?us-ascii?Q?jbIYEm5tsM6sdfv9BwUQ81AA9fLuHPoi9U9Z3MG0R7kYVToxD+B3HBMVS1ej?=
- =?us-ascii?Q?nBylb84ZAXBS4kIRLTYZqI5GAlWvbzYp2fVrCcA7ye91LZGyw3doJbMwM/QG?=
- =?us-ascii?Q?xUCwZrMsKSIOmcaRnsnYmGlKR6+6bI5Jh7y9ntLGX3POAXNzVS0IRK0PnSFd?=
- =?us-ascii?Q?YHmBUvZuKcHDKS9pnc6Kt04DMdrmdMSF3hSdg17FKcpTUdVjy4yvuJyESM+P?=
- =?us-ascii?Q?pKrTTl//M0NhC8HMwLWGTwy0xFjL4xWuvwo7hcQyiH2Nv/t9R47LguHkifMR?=
- =?us-ascii?Q?8zXWXEMbSLp4tVfXFFGINfdFe0/e4kt3fMAOvj5e/frc4OebsZHVEOMggjEQ?=
- =?us-ascii?Q?xb7kFrXvY5TITUZql18Xc90hwx1W17PCpALeKbICFxmgn8Q581I5CPBiGPSh?=
- =?us-ascii?Q?UIcjLFmGq6EvWCuYyb/Osg3+zyT76D+tm5fHtuB2mvKJlhS2B4S99UaTUCmU?=
- =?us-ascii?Q?YsVuLhFHYSUDReDg0+jiRKlIiWgNF4vgoQNzdOeQ4l3no1P4HE9pv6ZFUINs?=
- =?us-ascii?Q?mtBbq1/rAuqs7zDWx05SAZr7WSNMe9t/Qm+iPaPowOe2JMB+Somisl053cOo?=
- =?us-ascii?Q?lIeyNd3Zcx9ggFcX8E933dcbe6z8EKzvOXicKOJAn+1iL6U4s8/dSvlLi0Xz?=
- =?us-ascii?Q?EnuMFJlKWmy7pg/czYkkKb5cTW/D/04Bl0Ss5gkmDr+DyU3frrpqNYGrIvfg?=
- =?us-ascii?Q?SM6jJ9+Ybh8RfBfLVUf12VnHkd0FZAeRe0Cboduk96jEpe/FbEJov73yFBVr?=
- =?us-ascii?Q?tsuX1eF641wDpv4vOhcB9HJGwq8sm4cwSFHn84TP/Z4XcU1rTgCPMq5FWvx4?=
- =?us-ascii?Q?+damsxiQ7ofUx0KlFt1+9NquCOT0d2wndrVyeK8liiRoNhUK4eN8Oh9HkyRm?=
- =?us-ascii?Q?zaOB3R4y0nL+gsnxZISMBZdtEEWv7MN2ewLol4BEqQX7yyUtjTFmMZ4kMZDr?=
- =?us-ascii?Q?BOIekWwoPlFatGuErtVNvxlbG//rWxSxk0V1PyaawfK2GTCYZusfibuwLT0Y?=
- =?us-ascii?Q?dPKhO34hq65RlsJpmcjF8SDZhxZCqy+YKQYlJepodEoYrBb7DP1QvV57JYtG?=
- =?us-ascii?Q?sh0yTKCWzR1wVHO46GwV6v4OX37inVQgoPC20nzzUjbiWIPgoNIZKf9rxIdQ?=
- =?us-ascii?Q?9/gF4DcCejWHVcJgTlFrKf/X4zkY6mrstlw/HH6st9z6SyAyoMTPAq2TwJgd?=
- =?us-ascii?Q?Qu9WEJJKvDrIPCWBP1ZC5fJ3XFwXQCoinnBh5kXEhqCM827mhyTP3Ngl9ELn?=
- =?us-ascii?Q?Bz8gHCtfZJED9wvTVzfXRhDXUIzFuJSvd4FShtnsbdNQuvV898844Km+ijGB?=
- =?us-ascii?Q?KxI1843HocVX1v/i99NiFtnSAVGoPROshBJUvfaVDR8+nUV0dJ4+vaJzhO86?=
- =?us-ascii?Q?y5VTX8DGyxrRG4YZsUAc4/kJ6pMxTWsSDkLqm7M2X8x2D/exOfZbHeWvzG4L?=
- =?us-ascii?Q?kBe61Jknewng3inrc85DRjMfWCopuHA4Lxn2h0URHqPyou9ZAuRad8gJ3p3m?=
- =?us-ascii?Q?CaCsIfaM9r1ZAP94iBj/WQ+5yHlKoowvS7b26xK4rEtG282pINsenMq6b/B7?=
-X-MS-Exchange-AntiSpam-MessageData-1: GcGib2/ncnIqpQ==
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f9f3a77-80e3-498a-e7dd-08def10ea9bd
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 03:24:01.4837
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4SK77WDNGt1Fy33ydXprCsqtQ0e38INzu9igbpZx1SdBGXWxwqasiKZxOQrKOGFhgO9Q4XNQO4artyVmHOLiBwEeHJ3pzX5eDsAdIUYrFk0q5OTyp5uT5Wr5COZVnXR9bru3n36mlYhfSGf0SFN4xg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR03MB5335
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_202411_800079_F9C6F10D 
-X-CRM114-Status: GOOD (  13.60  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,85 +86,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
-The Frame Preemption Residue Queue (fprq) controls which Rx queue
-receives residual preemptive mPackets from the pmac. This is a pmac
-concern, not a TX concern, so move its configuration from
-stmmac_fpe_configure_tx() to stmmac_fpe_configure_pmac() where it
-logically belongs.
+On Fri, 24 Jul 2026 11:03:51 +0200, Jerome Brunet wrote:
+> Clock provider should not be using the consumer interface.
+> In other words, a provider should not be dealing with struct clk.
+> 
+> This change targets occurrences for which the provider uses the
+> consumer interface and corresponding clk_hw interface exist:
+> * __clk_get_name() -> clk_hw_get_name()
+> * __clk_is_enabled() -> clk_hw_is_enabled()
+> * clk_get_rate() -> clk_hw_get_rate()
+> 
+> [...]
 
-Keep the open-coded mask/shift update rather than u32_replace_bits(),
-since fprq_mask is not a compile-time constant.
+Applied, thanks!
 
-Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-v2: Drop u32_replace_bits(); fprq_mask is not a compile-time constant
-    and triggered __bad_mask on x86. Keep open-coded mask/shift.
-    Collect Reviewed-by from Maxime Chevallier.
+[2/7] clk: qcom: clean-up simple provider misuse of the consumer API
+      commit: 470bd66370ecbf22c2dc27249315b9d39914c479
 
- .../net/ethernet/stmicro/stmmac/stmmac_fpe.c  | 24 ++++++++++---------
- 1 file changed, 13 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-index 3436e962a238..55b4df3c677b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-@@ -47,20 +47,13 @@ static void stmmac_fpe_configure_tx(struct ethtool_mmsv *mmsv, bool tx_enable)
- 	struct stmmac_fpe_cfg *cfg = container_of(mmsv, struct stmmac_fpe_cfg, mmsv);
- 	struct stmmac_priv *priv = container_of(cfg, struct stmmac_priv, fpe_cfg);
- 	const struct stmmac_fpe_reg *reg = cfg->reg;
--	u32 num_rxq = priv->plat->rx_queues_to_use;
- 	void __iomem *ioaddr = priv->ioaddr;
--	u32 value;
- 
--	if (tx_enable) {
-+	if (tx_enable)
- 		cfg->fpe_csr = STMMAC_MAC_FPE_CTRL_STS_EFPE;
--		value = readl(ioaddr + reg->rxq_ctrl1_reg);
--		value &= ~reg->fprq_mask;
--		/* Keep this SHIFT, FIELD_PREP() expects a constant mask :-/ */
--		value |= (num_rxq - 1) << __ffs(reg->fprq_mask);
--		writel(value, ioaddr + reg->rxq_ctrl1_reg);
--	} else {
-+	else
- 		cfg->fpe_csr = 0;
--	}
-+
- 	writel(cfg->fpe_csr, ioaddr + reg->mac_fpe_reg);
- }
- 
-@@ -68,10 +61,11 @@ static void stmmac_fpe_configure_pmac(struct ethtool_mmsv *mmsv, bool pmac_enabl
- {
- 	struct stmmac_fpe_cfg *cfg = container_of(mmsv, struct stmmac_fpe_cfg, mmsv);
- 	struct stmmac_priv *priv = container_of(cfg, struct stmmac_priv, fpe_cfg);
-+	u32 num_rxq = priv->plat->rx_queues_to_use;
- 	const struct stmmac_fpe_reg *reg = cfg->reg;
- 	void __iomem *ioaddr = priv->ioaddr;
- 	unsigned long flags;
--	u32 value;
-+	u32 value, value_2;
- 
- 	spin_lock_irqsave(&priv->hw->irq_ctrl_lock, flags);
- 	value = readl(ioaddr + reg->int_en_reg);
-@@ -83,6 +77,14 @@ static void stmmac_fpe_configure_pmac(struct ethtool_mmsv *mmsv, bool pmac_enabl
- 
- 			value |= reg->int_en_bit;
- 		}
-+		/* Frame Preemption Residue Queue is the Rx Queue to which
-+		 * residual preemptive mPackets must be forwarded from the pmac.
-+		 */
-+		value_2 = readl(ioaddr + reg->rxq_ctrl1_reg);
-+		value_2 &= ~reg->fprq_mask;
-+		/* Keep this SHIFT, FIELD_PREP() expects a constant mask :-/ */
-+		value_2 |= (num_rxq - 1) << __ffs(reg->fprq_mask);
-+		writel(value_2, ioaddr + reg->rxq_ctrl1_reg);
- 	} else {
- 		value &= ~reg->int_en_bit;
- 	}
+Best regards,
 -- 
-2.43.7
-
+Bjorn Andersson <andersson@kernel.org>
 
