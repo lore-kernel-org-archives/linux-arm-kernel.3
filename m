@@ -4,72 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E585EC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 08:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8858C55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 08:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/eZUBkk1T00iC+9KmZeAgMUJ03Mz0SzGEaMCdRgDvZM=; b=HV9fBPJCizXSHRtYpmIY5Ury7h
-	NwiaWshYjo2sWGlJV7G4ylZnB8GFP3C3doXGsRnhmWhRYPPJ79hYqjzG8hUo1IXYSMoAXEq0FpH6F
-	olJACRPa7gQpneCCYs2Vendz4D2XnAYg22d1daNK1EeqXFd3zlIJb9Z0/kURqV04kgMZuq5/J6Xwm
-	peXmfVQzcQ58Jj7HB8imi6Lytlz6/YbhBVDp97qNY4uJfvhLKC3F4zA6tyQrond1w9wjgXXl28OOE
-	iwtnpaZ/wi3W8paeMBDyrgTNrtiPANUqL4ijrixAF/MElfEpvk7mfF5mQpQmyHvs3Sz0OHR+kNsJi
-	s/SFDWpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oL77ikjGFVW7QH8ozMC74CWfxuPdNOXGLUeFKsMycB8=; b=Uigz0IdAYlFSJEJZ/F2axv7XpG
+	7nxr4F+7nE1/Z9yK3kIUVn9V0o3bv5GL3gp1g3pEvXoPojBfn1+OfqMNI70duBuFhtZJ7YCYE712s
+	PIqdDpJL903ZeikRZYrkOoWryyciTVHwNtzYcTpqLW9o4NH0Hk7nuPu/xk0EpI68zM+thsL1+LPHV
+	P50JEMs1lKaG7lzIqV9sww3BWyFgaEjd6Aj3/iWol+43de7UwmJpG/qc1CuxVdlR+ql9MsczIAa+1
+	x/MCEvmy5O/vRHYUDiAF6DPRtfB/EACjhgz1IU4bvP70a5LjHz13Wbh6FGwraRP99mE6W9lqrcOxp
+	50Fv1ElQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnqv-0000000Gao7-3EHh;
-	Mon, 03 Aug 2026 08:16:53 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1wqnuh-0000000Gb6x-19eM;
+	Mon, 03 Aug 2026 08:20:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnqt-0000000Gano-03vV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 08:16:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785745011; x=1817281011;
-  h=date:from:to:cc:subject:message-id;
-  bh=CdrM/fN6t9hFnIsPNs/T8LrSyXZChHteYj4d5HOG+68=;
-  b=eAtJkKyZ4gDyR5Jjmnii8AhM34V71ZHPX/C7MvcGLylFYUbT4ipfhWFL
-   ytBWGW3p0UNOqbGqq/OpducPXWQNOY9KhrWwEaKoKYKJIkF4gUYGalODi
-   F3q1yS32bZ2fHv7O77ZMESX8qaORxaJmfHUGPV65RFxPzXyLbb/EgqA5U
-   d+AG0kF0TnjAvTXg7ezLrnIBLxmrNT5GB2CP6W8ybqgivGvBt8IlSS/pT
-   FCEfRlBa85kkDakKbZ65upo977vcBtdhvU93USSpW7EdTnAquKwxQIpsJ
-   JA0KVz0eBV/nazHoYZXCh/RGZu7rkApzrDGEDDTHKi1xXpONyjXNDJgag
-   w==;
-X-CSE-ConnectionGUID: KNBS27brT92mV1LZRzF/4Q==
-X-CSE-MsgGUID: Xt6l/NHKTz2uwieblCpQag==
-X-IronPort-AV: E=McAfee;i="6800,10657,11863"; a="86045785"
-X-IronPort-AV: E=Sophos;i="6.25,202,1779174000"; 
-   d="scan'208";a="86045785"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Aug 2026 01:16:50 -0700
-X-CSE-ConnectionGUID: rYsE6+8ISfWCluA6jTn0AA==
-X-CSE-MsgGUID: fidOHhkHSYiGgMJ7TuwE8A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,202,1779174000"; 
-   d="scan'208";a="264987247"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 03 Aug 2026 01:16:48 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wqnqo-000000006VB-0ynG;
-	Mon, 03 Aug 2026 08:16:46 +0000
-Date: Mon, 03 Aug 2026 16:16:06 +0800
-From: kernel test robot <lkp@intel.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:timers/arm64-arch-timer-errata-sk 1/8]
- include/clocksource/arm_arch_timer.h:113:13: warning:
- 'read_sched_clock_is_arch_counter' defined but not used
-Message-ID: <202608031502.QbZfDhXn-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_011651_148572_58E3C178 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+	id 1wqnuf-0000000Gb6o-38fT;
+	Mon, 03 Aug 2026 08:20:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 87F9A43726;
+	Mon,  3 Aug 2026 08:20:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBDA81F000E9;
+	Mon,  3 Aug 2026 08:20:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785745244;
+	bh=oL77ikjGFVW7QH8ozMC74CWfxuPdNOXGLUeFKsMycB8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=V/BStKSGhLspBCfJaAyL/O1UrXPMY+cIrEN87pQ4cFZRFUCkbLwpEucGYZibMqVUt
+	 rKKPxVnP+n5lL5+QJBLYnF+MpSPAAGezZoKLMJvhMp4OLpqwLpztg/FQYzZ4H8GwMh
+	 GOALuLZvqqoAMl7nXGjm5sameAlhvDcgs/wH+OjxV3QiFTrTF/9kYsvLGDtkOpU+6c
+	 SCg+kUQuMhTZJUEp1v2kzIWMJWknuU8nUcZQQeYCNN9B6D2EyCrsQJ5sESITvN3QG8
+	 eJNr0lxm1BPCHAzj9aB1hycB4I//WCPwH3r6mAvQcxxUppMfIXhy2msFbxRPgwV/n7
+	 kqW0dHeBirljA==
+Message-ID: <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org>
+Date: Mon, 3 Aug 2026 10:20:30 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/21] dt-bindings: mfd: x-powers: add AC200
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Andre Przywara
+ <andre.przywara@arm.com>, Richard Genoud <richard.genoud@bootlin.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+ Jose Abreu <joabreu@synopsys.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Saravana Kannan <saravanak@kernel.org>,
+ Lee Jones <lee@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
+References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
+ <20260802-submit-acx00-of-dynamic-v1-v1-8-0a53cd9e21cc@gmail.com>
+ <f2cc3c90-060f-40c1-a55e-e2ed91e65487@kernel.org>
+ <CADvTj4q7HnOYJZE-M070-1npEdne__Ct5D9FeUNVVXa8Bsm7qQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CADvTj4q7HnOYJZE-M070-1npEdne__Ct5D9FeUNVVXa8Bsm7qQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +134,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git timers/arm64-arch-timer-errata-sk
-head:   93953a96f1d16c9f07597b46642d3e61581a6c85
-commit: 0e8b09c97ac7de82054327e5d29eae6dedc6002e [1/8] clocksource/drivers/arm_arch_timer: Add read_sched_clock_is_arch_counter() predicate
-config: xtensa-randconfig-002-20260803 (https://download.01.org/0day-ci/archive/20260803/202608031502.QbZfDhXn-lkp@intel.com/config)
-compiler: xtensa-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260803/202608031502.QbZfDhXn-lkp@intel.com/reproduce)
+On 03/08/2026 09:54, James Hilliard wrote:
+> On Mon, Aug 3, 2026 at 1:07 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On 03/08/2026 07:14, James Hilliard wrote:
+>>> The AC200 is an I2C-controlled mixed-signal companion IC containing
+>>> audio, video, RTC and Fast Ethernet PHY functions.
+>>
+>> This fails when applied, because you did not explain the
+>> dependencies/merging of this patchset.
+>>
+>> This is THE MOST important information of cover letter. The first thing
+>> to explain.
+> 
+> I did mention in the cover letter that the pwm series is a dependency:
+> https://lore.kernel.org/all/20260703152215.192859-1-richard.genoud@bootlin.com/
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608031502.QbZfDhXn-lkp@intel.com/
+Apply this patch and test.
 
-All warnings (new ones prefixed by >>):
+> 
+> With the pwm series first this should apply on top of master. Should
+> I just mention that it applies on master or should I reference a specific
+> commit hash or something?
+> 
+>>>
+>>> Describe the parent device, its input clock, required function supplies,
+>>> the optional SID bandgap calibration cell used by the vendor initialization
+>>> sequence, and its optional Ethernet PHY control child. Document the 24 and
+>>> 27 MHz rates encoded by the public EPHY clock selector.
+>>>
+>>
+>> ...
+>>
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +  - clocks
+>>> +  - ac-ldoin-supply
+>>> +  - ephy-vcc-supply
+>>> +  - rtc-vcc-supply
+>>> +  - tv-vcc-supply
+>>> +
+>>> +dependencies:
+>>> +  interrupts: [ interrupt-controller ]
+>>> +  interrupt-controller: [ '#interrupt-cells', interrupts ]
+>>> +  '#interrupt-cells': [ interrupt-controller ]
+>>> +  nvmem-cells: [ nvmem-cell-names ]
+>>> +  nvmem-cell-names: [ nvmem-cells ]
+>>
+>> Why do you need all these dependencies? What are you trying to express?
+> 
+> Looks like we probably can get rid of all except these:
+> interrupt-controller: [ interrupts ]
+> nvmem-cells: [ nvmem-cell-names ]
+> 
+> I was just trying to express the MFD controller dependencies.
+> 
+>>> +
+>>> +additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>>> +
+>>> +    i2c {
+>>> +        #address-cells = <1>;
+>>> +        #size-cells = <0>;
+>>> +
+>>> +        mixed-signal@10 {
+>>
+>> ...
+>>
+>>> +...
+>>> diff --git a/include/dt-bindings/mfd/x-powers,ac200.h b/include/dt-bindings/mfd/x-powers,ac200.h
+>>> new file mode 100644
+>>> index 000000000000..cc59e2ab4912
+>>> --- /dev/null
+>>> +++ b/include/dt-bindings/mfd/x-powers,ac200.h
+>>> @@ -0,0 +1,13 @@
+>>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+>>> +/*
+>>> + * Interrupt numbers of the X-Powers AC200 interrupt controller.
+>>> + */
+>>> +
+>>> +#ifndef _DT_BINDINGS_MFD_X_POWERS_AC200_H
+>>> +#define _DT_BINDINGS_MFD_X_POWERS_AC200_H
+>>> +
+>>> +#define AC200_IRQ_TVE                        0
+>>> +#define AC200_IRQ_EPHY                       1
+>>> +#define AC200_IRQ_RTC                        2
+>>
+>> Hardware constants are not really bindings, even though you use them in
+>> the driver.
+> 
+> Should I do something different for this?
 
-   In file included from drivers/soc/qcom/rpmh-rsc.c:30:
->> include/clocksource/arm_arch_timer.h:113:13: warning: 'read_sched_clock_is_arch_counter' defined but not used [-Wunused-function]
-    static bool read_sched_clock_is_arch_counter(const struct clock_read_data *crd)
-                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+I would just drop the defines and the header, because these are fixed
+hardware numbers.
 
 
-vim +/read_sched_clock_is_arch_counter +113 include/clocksource/arm_arch_timer.h
-
-   112	
- > 113	static bool read_sched_clock_is_arch_counter(const struct clock_read_data *crd)
-   114	{
-   115		return false;
-   116	}
-   117	#endif
-   118	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Krzysztof
 
