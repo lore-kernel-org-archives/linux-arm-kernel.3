@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBBAAC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B7A6C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rwxqF12EdtFJ1hgKVE6whS2NwIy/fDvPhGCr1gt49gs=; b=uZIXKvJQfBQFGEH22OrmOxz5tF
-	n5V/Xgj6CQhEicFkrjEm9J/OUmvavStBlYxLm0kFpgk54zbCs3Qv15L9ClUI/CXb2HqDOOQYB+7AC
-	IwxwYEfdTl3mqCSBrk2YaSR7a/Bk5oQuh5sSsdEV4NSamJztSxwHmrRW0PK3FFBJHphCuXXmKLacg
-	Rb5W4uKVrDtZKZenLgbq9zyYQlObV6NRwwdNVh7gf64X3zmRFmO9GnoVv1JCfWFsDPiQxfAVsUwG0
-	2YNuBLLgY8ckrvp4ramvLpSKIUayIB/BWnJrXWlUx3HM7Xmvq0UioHvgU0vxx5+1cr0nXFdxz8va4
-	mCGWyTsw==;
+	bh=Vg0PctaQtBQrf+tl8AD8zggSqyHRuQxDtAbyWu+DxcE=; b=EUd42PSNwBLTJavsRBiocpDRn1
+	zbI+/zqwGCdjeqvoe2Wn4/QzbTBmXwiDatVZETGdRtcHsgwZRs7sqFndnvM5dSpPGKjlvT6R3IhSs
+	wET6coGK+UhU0/2WjRSWbvw6zRS4AGivSNPoK43n0x5HqQto7ghn7G5tJwAXDeK83ohGLhrJtegbz
+	LLMTR9O2NRaL3HxJJzP0ivXU/SPVbA2kI9CxctFYJYIw+T9Pno8QwsgNNkMLVZ4NGZK1JfzV7wGuk
+	A+pFt7AyIs+y/Uqb7SqEeyFc7iAZzcpmqcETY2gJ2e5nnndxjco9Xvnl3B5CzWz0VdjYOme1klHxi
+	wwnvV7Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqsgm-0000000H9t5-1MBw;
-	Mon, 03 Aug 2026 13:26:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wqufN-0000000HXXw-29o3;
+	Mon, 03 Aug 2026 15:33:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqsgl-0000000H9so-0JtD
+	id 1wqufL-0000000HXXV-413h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 13:26:43 +0000
+	Mon, 03 Aug 2026 15:33:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E6B960AA3;
-	Mon,  3 Aug 2026 13:26:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F7FB1F000E9;
-	Mon,  3 Aug 2026 13:26:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 68F4F60A81;
+	Mon,  3 Aug 2026 15:33:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE1651F00A3D;
+	Mon,  3 Aug 2026 15:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785763601;
-	bh=rwxqF12EdtFJ1hgKVE6whS2NwIy/fDvPhGCr1gt49gs=;
+	s=k20260515; t=1785771203;
+	bh=Vg0PctaQtBQrf+tl8AD8zggSqyHRuQxDtAbyWu+DxcE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KkQ1Qzs36sE4gOoPHlllE0w4+vJcEBreSC5U279VHES97zsTmWS8S3fAotOTfZtCR
-	 1HslMw2C+3asb5utyAwdwq0J7zeJBvvITVuAYgQyIKWiy1AtzzBEOL1dFXSLETDHLx
-	 L5ou0/JMDAbZ7aYIr/lMXxTqrUqOx2mP3Wb44TCgmmI9VXxbgx2oHbP4r3rKgd1sW5
-	 NC2b7YU9gV+cr6QGtF6aMe6IIpPKOKn6DvmtZZCKJLyhFEJWH6QviCfNMY8AxMbP2g
-	 YZIQ6TQec7oUXSvjxsdnC6mrThyi3GltC/YjuBSU6haBk3a6/aZZERwief4g2PRsTR
-	 3MR1twifq00ug==
-Date: Mon, 3 Aug 2026 14:26:37 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	cwweng@nuvoton.com
-Subject: Re: [PATCH] dt-bindings: spi: nuvoton,ma35d1-qspi: Disallow GPIO
- chip selects
-Message-ID: <060af0c2-c3bf-45d4-9f73-8f761fe1d88c@sirena.org.uk>
-References: <20260803024048.1641756-1-cwweng.linux@gmail.com>
+	b=FyFB74lh75/iAlB/t5+krj7Omm8rH1vuVjxw1+YCRpRHUMKmXPL4EcwtWcV2wR9O0
+	 YF3lBtpPhs4cUGThZcEDwxQbeP3i5LvflOLC8CYQdNVSEmO590GT7Eh6e6P3oUKO+s
+	 PpeGBnCblW+YF85sSCi5gI+qElYNNMoU64rsldqWdPZ59BIo3Fv8NRVt5elR0tS12N
+	 R6ZCgkhZ5xWugaNq22hNVX4FIOMqKyWaKETl9sZBAw00t7qiS4wsgM7GL6rFFuUxFR
+	 lfHHyfRJPMT5GtZW/rwXOew3eohNRd3eG6xA3dj5/VANw8MVUakNDnfDfCtpz4gChT
+	 vi5lVejnRBhqQ==
+Date: Mon, 3 Aug 2026 17:33:12 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>, 
+	Frank Li <frank.li@nxp.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>, 
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>, 
+	"robh@kernel.org" <robh@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, 
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
+	"festevam@gmail.com" <festevam@gmail.com>, "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Hongxing Zhu <hongxing.zhu@nxp.com>
+Subject: Re: [PATCH v2] PCI: dwc: Add suspend_poweroff flag for platforms
+ with RC power loss
+Message-ID: <hyfto5fjcda4aaknwxxxx6wn6ej3tmbhzxaqykakubahw7xxjj@zxixpkhs7khh>
+References: <GV2PR04MB12019096F2A9E8337F2A1BF9F8CC92@GV2PR04MB12019.eurprd04.prod.outlook.com>
+ <20260730120913.GA1497203@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SnYGXlnakQ0g76Up"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260803024048.1641756-1-cwweng.linux@gmail.com>
-X-Cookie: Natural laws have no pity.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260730120913.GA1497203@bhelgaas>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,39 +77,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jul 30, 2026 at 07:09:13AM -0500, Bjorn Helgaas wrote:
+> On Thu, Jul 30, 2026 at 08:16:36AM +0000, Hongxing Zhu (OSS) wrote:
+> > > -----Original Message-----
+> > > From: Bjorn Helgaas <helgaas@kernel.org>
+> > > Sent: Thursday, July 30, 2026 6:30 AM
+> > ...
+> 
+> > > On Fri, Jul 17, 2026 at 03:41:21PM +0800, hongxing.zhu@oss.nxp.com wrote:
+> > > > From: Richard Zhu <hongxing.zhu@nxp.com>
+> > > >
+> > > > Some platforms like i.MX power off their PCIe RC controllers during
+> > > > system suspend, requiring full re-initialization on resume. These
+> > > > platforms need to enter L2 state to properly notify endpoints before
+> > > > power loss.
+> > > >
+> > > > According to PCIe base spec r7.0, sec 5.2, the system software should
+> > > > transition the device into D3Hot before broadcasting the PME_Turn_Off
+> > > > message to initiate L2 entry. However, some endpoint devices fail the
+> > > > D3cold capability check in pci_host_common_d3cold_possible(), which
+> > > > would normally prevent L2 entry.
+> > > 
+> > > Wakeup devices that don't support PME from D3cold will fail the
+> > > D3cold capability check, but I don't think those are the problem
+> > > you're solving.
+> > > 
+> > You're right.
+> > 
+> > > This appears to handle devices that are not in D3hot, and that's
+> > > not a property of the endpoint; it's a property of its driver.  Is
+> > > the problem here that some driver didn't put its device in D3hot?
+> > > 
+> > I observed some endpoint devices failing the D3cold capability
+> > check, but I haven't identified the root cause.
+> 
+> Seems like some instrumentation in pci_host_common_d3cold_possible()
+> could tell us which devices/drivers are relevant.
+> 
+> > > > For platforms where the RC loses power during suspend, L2 entry
+> > > > is essential regardless of D3cold support, as the link will be
+> > > > lost anyway.  Add a suspend_poweroff flag to force L2 entry in
+> > > > such cases, and enable it for i.MX PCIe controllers.
+> > > >
+> > > > Note: This violates the spec requirement that devices be in
+> > > > D3Hot before PME_Turn_Off, but is necessary for proper operation
+> > > > on platforms with RC power loss during suspend.
+> > > 
+> > > If the device isn't in D3hot, it may still be active, and I think
+> > > the PME_Turn_Off will abort any DMAs in progress, which doesn't
+> > > sound like proper operation of the endpoint.
+> >
+> > You're correct - this isn't ideal for endpoint operation. However,
+> > on i.MX platforms, the RC controller will lose power during system
+> > suspend regardless. Without sending PME_Turn_Off, endpoints would
+> > have no notification before the link abruptly goes down.
+> 
+> The PME_Turn_Off is some notification, but I don't think the endpoint
+> can do DMA or MSI, so its driver won't be involved.  It may be able to
+> do things internally, e.g., write caches to an SSD or transmit packets
+> from its internal buffers.  But I think it might still lose power in
+> the middle of operations like that, so it doesn't sound reliable.
+> 
+> > This patch adds a flag to force L2 entry for such platforms,
+> > choosing to notify endpoints (even if not ideal) rather than having
+> > the link drop unexpectedly. I'm appreciated for suggestions if
+> > there's a better approach to handle this scenario.
+> 
+> Mani recently added pci_suspend_retains_context(), and I think it
+> returns "true" on i.MX.  But if the RC is powered off and all the
+> devices need full re-initialization on resume, it sounds like it
+> *should* return "false".
 
---SnYGXlnakQ0g76Up
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Right. pci_suspend_retains_context() was added just for that purpose of telling
+client drivers to prepare for context loss. So if this API returns 'false', then
+they should not hold the device in D0.
 
-On Mon, Aug 03, 2026 at 10:40:48AM +0800, Chi-Wen Weng wrote:
-> From: Chi-Wen Weng <cwweng@nuvoton.com>
->=20
-> The generic SPI controller binding allows GPIO-based chip selects, but
-> the MA35D1 QSPI driver currently supports only the controller's native
-> chip selects.
+- Mani
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
-
---SnYGXlnakQ0g76Up
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpwlwwACgkQJNaLcl1U
-h9Ay0Qf+PpX3MDUJS5bXRe5CiOhf9NSZgwwEgG6RR35x6m67C42l32HNHAk9gMzB
-RbVVXLQZnA4Oqa7VOQ49FKHRQHDQ40OAkHEG6Jy2LUu7aqm5TSlExqMsYd+BCcR/
-vGFgpbqKO4mfUgOTqGsajAvH2ADC0ySXU+l83QkCwb6h+zBJ9cmmZF1kwbcBI07y
-rS6zMg96apTi8qmMY+jGj4mLndk2Nwmw9Xwa5qWkRLKTb4/4esir7+Ln9qAzcgJK
-oQZiGccEiEmvBMzOypgPpnZuDod/pNfcWWJcnMTyTgqvlMisP0Y8hW3doGCe6cCM
-Po4S35plWtE7bDNzNDLmzkFzlCvOUQ==
-=2Bqe
------END PGP SIGNATURE-----
-
---SnYGXlnakQ0g76Up--
+-- 
+மணிவண்ணன் சதாசிவம்
 
