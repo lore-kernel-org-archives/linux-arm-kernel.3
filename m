@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E72B4C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 16:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64A22C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 16:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJied/NCvCUFE+IQUhK+yQP2p5RSrkfD/yyARyStIXU=; b=OLwYZ721En5a3s62tVSMZilxDD
-	jxq9I3YNbSZIVnWY4XK+yiBMb51UmX23WOMKJtBWb0UXwBLNDOnbMdbN8h0RP6zfMvY7c1rgurUTq
-	L174wpPTX3mXGP/qwEokW3Oo87gxWN6n0U0JT7JVMhnDVdb8XayRuffRVt9GYr6miG+1NVoebzF5S
-	MGgmup6kC7C39ntSjwQwZVOAl4DR23O1IMqiblfLfJ9SPYyhvjRMcpRDqaSaP7yUIvwo5DtbrmTbm
-	UIMNhaF8tFmVj0SdTqeZ5cgatPbCHb62o+fKiosCkCFc/fZ7yipYYN1KIDmIpCMihvPNAWUcw0vjA
-	HMMFZ3eA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FzYIensEehg4AqZ63zYidEpWKUCxiiUHEFuqj6KSwoQ=; b=gehry0my2gGeXP
+	w+DqGNbH0nt/nqZTcYMcWFWVwcI3PSQXHtyJHuWx0mNshQC4wWT+/yamuCepRIuilFDulLD3QTHl5
+	U8NdYLUbzAI0dKuh4aqOORRx3Rb3P0OyYJB7iKeQAvypyMUV6cG+LxAqpD5BdcK+n4tHN9m+yLDXn
+	pAghYZy3nf8jlkC5kXWZbGJ7muLXxXSIWpIocwGvr2Be+FUYbFyiomcaUW27/IcHwJsmStSbUlcDu
+	Yugpah93dO992cSNclkLfJMiL6S9NuGGk0mXgMVr42TMDqi+yzD917dg7lvrJjCCUlyR6Zey+9Vw9
+	O8aSzc1yKKWU1cxThg4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqvd3-00000000613-3hP4;
-	Mon, 03 Aug 2026 16:35:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqvd1-0000000060I-3XDz
+	id 1wqvdv-000000006Cb-0WyX;
+	Mon, 03 Aug 2026 16:35:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqvdt-000000006Bw-3WtP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 16:35:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B4DF0143D;
-	Mon,  3 Aug 2026 09:34:58 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 590CD3F86F;
-	Mon,  3 Aug 2026 09:35:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785774902; bh=ecDpO0EC0DhEv8k8eO4w99EUiapz8pVlfOswK2HsBfM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eH5X/AwzmnWDAVoTRxt7bzqYab9aPkGvEjat7lb4PmnMc3DE9oEdB6ccric/toElF
-	 nVKu4eZ9c8wMMRpH8eKXimwzzzwXg/eU0Yhmddx6pmbclmkU4yaCzlZtfogMExcGVm
-	 9MwTYY18FYzqO7KKj7baQFQJfG/0BJ8rBuTpDdmE=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	maz@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	yangjinqian1@huawei.com,
-	caijian11@h-partners.com,
-	liuyonglong@huawei.com,
-	yezhenyu2@huawei.com,
-	yubihong@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware dirty tracking
-Date: Mon,  3 Aug 2026 17:34:58 +0100
-Message-ID: <anDDMh4exsZB-3NS@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <anDCno9HdVI5UAls@LeoBrasDK>
-References: <0943eb14-9ffb-4dbb-9219-060e97bca2a7@huawei.com> <alpIfIOFfrudBzD5@LeoBrasDK> <al4bYajWE-v6wofu@LeoBrasDK> <96516762-f004-4c2a-a9c6-6fbad49ad6ae@huawei.com> <amoZY8uGLf1PEpjK@LeoBrasDK> <8e36e2c8-587f-4228-ab13-d6783927a281@huawei.com> <45d76d0d-48e9-46a6-b1f9-691f840eba46@huawei.com> <anBrvILpcSFhW7Wg@LeoBrasDK> <95f1ebd4-be04-4684-be68-388f752a1379@huawei.com> <anDCno9HdVI5UAls@LeoBrasDK>
+	Mon, 03 Aug 2026 16:35:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 582DD43CEE
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 16:35:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 380B11F00ACA
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 16:35:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785774955;
+	bh=FzYIensEehg4AqZ63zYidEpWKUCxiiUHEFuqj6KSwoQ=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=TLMm4TsSV3ywjoKPjQMCMskB5/3cN3u0ES2TuqR9lzQ40DCL4ct7oq+MAdRFTJIwb
+	 CixM+flP07q0hi1TOAcGGEf21lE2ImOvNUjHGgBJQ7F8JIV4mn3n5BWhDX9WQ0aElA
+	 ntjXgLqkub+fuDwJviyi4WJwonjbf1QFB0IWqi7NK74JFtQVGz0U/l0TUuTsZSUUKw
+	 J8pSXB4xID4reTlQfLYno68AtS0M8mfz20uDBQhJnJblL/QrdBgpqt3XhVIpzKZtWu
+	 LOe9wE1hZTluV7lXQ40sbhrDV8bQrUtaL1IyRcDFE2156SrQOM6+QG26ig6nThTcZV
+	 q3x9VoHsQUHUg==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39f75e1e9d9so26093551fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 09:35:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrrErMeJusocqd4lGU2ZaTdFZrKDuT3i5FFyMnBm4OU+9PmAvJ1N0RHPqxyYMEFZDYx9eNenJARg4ihLgERhA+j@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHJJtEiKLRTYIRHsXXQSNvzkp1Z2k23nCCLyG6BTSbm9eb/mEy
+	xmKIb4ZzN906LJG1L7PqfIqEE0seNNN5yCD3L7tnyIamhyQA/xHpM4HhHO3IZTYy2YMlxiMpFnH
+	Tz64GP7DY0WkMsXy9iMVOctm02erTARY=
+X-Received: by 2002:a05:651c:a348:b0:39f:7feb:a07 with SMTP id
+ 38308e7fff4ca-39f863fde4cmr19415821fa.24.1785774953645; Mon, 03 Aug 2026
+ 09:35:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_093503_999321_C84D2938 
-X-CRM114-Status: GOOD (  64.54  )
+References: <cover.1785772659.git.jernej.skrabec@gmail.com> <c48ba85b9e4478d51afde4f36839fd1c1d363b23.1785772659.git.jernej.skrabec@gmail.com>
+In-Reply-To: <c48ba85b9e4478d51afde4f36839fd1c1d363b23.1785772659.git.jernej.skrabec@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 4 Aug 2026 00:35:41 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67S+ZzKKg8uuMa2hwOV5Sd62vKCwUFFgZY6j5yAy6adfQ@mail.gmail.com>
+X-Gm-Features: AUfX_mzh5MHTOP_BoCG6ZOvMRIrsBiiV2OmKYqiAQb1qTkbYX3vB0mzChVE8uZA
+Message-ID: <CAGb2v67S+ZzKKg8uuMa2hwOV5Sd62vKCwUFFgZY6j5yAy6adfQ@mail.gmail.com>
+Subject: Re: [PATCH 03/13] drm/sun4i: vi scaler: Restore opaque alpha in video modes
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,206 +78,62 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 05:32:30PM +0100, Leonardo Bras wrote:
-> On Mon, Aug 03, 2026 at 09:57:46PM +0800, Tian Zheng wrote:
-> > 
-> > 
-> > On 8/3/2026 6:21 PM, Leonardo Bras wrote:
-> > > On Mon, Aug 03, 2026 at 12:04:24PM +0800, Tian Zheng wrote:
-> > > > 
-> > > > 
-> > > > On 8/3/2026 9:33 AM, Tian Zheng wrote:
-> > > > > > > > > > > 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
-> > > > > > > > > > > > -    if (prot & KVM_PGTABLE_PROT_W)
-> > > > > > > > > > > > +    if (prot & KVM_PGTABLE_PROT_W) {
-> > > > > > > > > > > >              set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> > > > > > > > > > > > 
-> > > > > > > > > > > > +        /*
-> > > > > > > > > > > > +         * No DEVICE filter needed here:
-> > > > > > > > > > > > relax_perms is only called
-> > > > > > > > > > > > +         * on FSC_PERM faults. Device pages
-> > > > > > > > > > > > always get full RW from
-> > > > > > > > > > > > +         * initial mapping and are never write-protected during
-> > > > > > > > > > > > +         * migration, so they never trigger a permission fault.
-> > > > > > > > > > > > +         */
-> > > > > > > > > > > > +        if (pgt->flags & KVM_PGTABLE_S2_DBM)
-> > > > > > > > > > > > +            set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
-> > > > > > > > > > > > +    } else {
-> > > > > > > > > > > > +        /*
-> > > > > > > > > > > > +         * Clear DBM on W→RO downgrade to prevent hardware from
-> > > > > > > > > > > > +         * silently upgrading RO+DBM back to W+dirty, which would
-> > > > > > > > > > > > +         * bypass KVM's write tracking and cause data corruption.
-> > > > > > > > > > > > +         */
-> > > > > > > > > > > > +        clr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
-> > > > > > > > > > > > +    }
-> > > > > > > > > > > > +
-> > > > > > > > > > > This block makes it pretty evident that the DBM bit really *is* the
-> > > > > > > > > > > write permission bit. I'd much rather we
-> > > > > > > > > > > introduce the concept of dirty
-> > > > > > > > > > > state to the page table library and migrate the abstract write
-> > > > > > > > > > > permission to the DBM field, even if we don't have FEAT_HAFDBS.
-> > > > > > > > > > > 
-> > > > > > > > > 
-> > > > > > > > > Ohh, that's an amazing idea!
-> > > > > > > > 
-> > > > > > > > Thinking about that again...
-> > > > > > > > If we adopt the encoding with DBM being the write-permission
-> > > > > > > > bit, and all
-> > > > > > > > PTEs have it since the start, how can we have lazy-splitting happening?
-> > > > > > > > 
-> > > > > > > > Only way I think of is removing both DBM and S2_S2AP_W bit
-> > > > > > > > from writable
-> > > > > > > > PTEs during dirty-track enable, and re-adding them during
-> > > > > > > > the first write
-> > > > > > > > fault. If we don't remove the DBM bit, systems with HDBSS
-> > > > > > > > would just dirty
-> > > > > > > > it by hardware, without causing a fault.
-> > > > > > > > 
-> > > > > > > > DBM=0 would need to happen only in the first write-protect (only on
-> > > > > > > > lazy-splitting). All other write-protecting would just clean
-> > > > > > > > the S2_S2AP_W
-> > > > > > > > bit, as everything is already split.
-> > > > > > > > 
-> > > > > > > > Is that what was intended?
-> > > > > > > > 
-> > > > > > > > Thanks!
-> > > > > > > > Leo
-> > > > > > > > 
-> > > > > > > Hi Leo,
-> > > > > > > 
-> > > > > > > I think the cleanest way to handle this is to simply avoid setting DBM
-> > > > > > > on block mappings. If we only set DBM on page-level PTEs, then block
-> > > > > > > mappings will naturally stay DBM=0 and trigger a write fault on first
-> > > > > > > access — exactly what we need for lazy splitting.
-> > > > > > > 
-> > > > > > > When the fault occurs, the block gets split into page-level PTEs, and at
-> > > > > > > that point we can set DBM=1 on the resulting leaf entries. This way:
-> > > > > > > 
-> > > > > > > 1. Lazy split works naturally (fault -> split -> set DBM=1)
-> > > > > > > 
-> > > > > > > 2. No need to clear DBM globally at dirty-track enable
-> > > > > > > 
-> > > > > > > 3. No special handling for block mappings
-> > > > > > > 
-> > > > > > > So I think global DBM is still viable — we just need to filter out block
-> > > > > > > mappings when setting the DBM bit. That way the lazy split path
-> > > > > > > is preserved
-> > > > > > > without extra complexity.
-> > > > > > 
-> > > > > > Hi Tian,
-> > > > > > 
-> > > > > > Humm, but would not that be contrary to what Oliver suggested:
-> > > > > > changing the
-> > > > > > encoding from the PTE for all entries?
-> > > > > > 
-> > > > > > (Like, if the PTE is writable, it has to have DBM set)
-> > > > > > 
-> > > > > > IIUC what you said, on first faulting of the page in the VM:
-> > > > > > - If the entry is a page (level-3 leaf) and writable, add DBM
-> > > > > > - If it's a block entry (leaf but not a level-3), don't add DBM
-> > > > > > 
-> > > > > > So after we enable dirty-logging:
-> > > > > > - a level-3 entry would not fault, using HDBSS, and
-> > > > > > - a block entry would fault, do the splitting, and add DBM to level-3
-> > > > > >     entries during the split.
-> > > > > > 
-> > > > > > If I got that correct, that would be clean indeed.
-> > > > > > 
-> > > > > > But then we would have a different encoding for block entries and page
-> > > > > > entries. In page entries, DBM could be used to say if the page is
-> > > > > > writable,
-> > > > > > but on block entries one would have to look at the 'dirty-bit'.
-> > > > > > 
-> > > > > > Would that be ok?
-> > > > > > 
-> > > > > > Thanks!
-> > > > > > Leo
-> > > > > > 
-> > > > > Hi Leo,
-> > > > > 
-> > > > > My initial concern was that clearing all DBM bits at the start of
-> > > > > migration would be too expensive, so I thought distinguishing between
-> > > > > level-3 entries and block entries would be better.
-> > > > > 
-> > > 
-> > > I think we expect it to be expensive, but since we already clean the
-> > > dirty-bit (ro/rw) bit, we can have both happening in the same write :)
-> > > 
-> > > (since we only mark the DBM bit when we fault the memory on lazy-splitting,
-> > > we are expecting to have the same amount of writes to pagetable as we have
-> > > before HDBSS, both on faulting and 1st iteration cleaning)
-> > > 
-> > Hi, Leo
-> > 
-> > Actually, I have thought about this approach too, but if we clear DBM in
-> > kvm_pgtable_stage2_wrprotect(), then during the first round of
-> > migration, we will fault and release RO -> W, and then add DBM.
-> 
-> Yeah, that's only for lazy-splitting, though.
-> 
-> >
-> > But next time, when we migrate the dirty pages in round two, we will run
-> > kvm_pgtable_stage2_wrprotect() again, which will clear DBM again. And
-> > finally, HDBSS will be useless during migration.
-> 
-> Right, on lazy splitting, we have to clean the DBM bit on the  
-> write-protect only if it's a block entry (hugepage). 
-> 
-> Once it faults for the first time, it will lazy-split, and we don't need to 
-> clean the DBM bit.
-> 
-> > 
-> > > 
-> > > > > However, I ran a quick test on a 400GB VM (4 vCPUs), and the overhead
-> > > > > turned out to be around 30ns — which I think is acceptable.
-> > > > 
-> > > > Just a quick correction — I misstated the unit in my previous email. The
-> > > > overhead for clearing DBM on the 400GB VM (4 vCPUs) was around 32 µs, not 30
-> > > > ns.
-> > > > 
-> > > 
-> > > Oh, that seems more likely :)
-> > > 
-> > > Question: is tha above amount of memory initially in Level-1 blocks,
-> > > level-2 blocks or level-3 pages? (aka: were you using explicit/transparent
-> > > hugepages?)
-> > > 
-> > 
-> > I'm using transparent hugepages. However, if we were to use level-3 stage-2
-> > pages with -mem-prealloc enabled in QEMU, I believe the time cost would be
-> > extremely high — potentially out of our control.
-> > 
-> 
-> Yeah, that's the issue.
-> For this not to explode like this, we need to mark as RO only when the 
-> entries are blocks AND we are doing lazy splitting.
-> 
-> We have:
-> Mode	DBM	Dirty bit
-> RO	0	X
-> WC	1	0
-> WD	1	1
-> 
-> On write-protect:
-> - Lazy splitting + block entry (hugepage, level 2-) -> RO
-> - Otherwise					    -> WC
-> 
-> On first fault, the block entry will be lazy-splitten, and we can set DBM=1 
-> in every new page.
+On Tue, Aug 4, 2026 at 12:11=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
+l.com> wrote:
+>
+> The DE3 mixer initialization clears the entire mixer register space. This
+> also clears VSU_GLOBAL_ALPHA, despite its hardware reset value being 0xff=
+.
+>
+> The VI scaler uses Video Normal mode for subsampled YUV formats. In this
+> mode, VSU_GLOBAL_ALPHA provides the scaler output alpha. Leaving the
+> register at zero causes the scaler to produce fully transparent output.
+>
+> Set VSU_GLOBAL_ALPHA to 0xff whenever configuring a DE3 or newer VI
+> scaler. The register is ignored in UI scaling mode.
+>
+> Fixes: c50519e6db4d ("drm/sun4i: Add basic support for DE3")
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-Meaning we set WD on the page that got actually written to, and register it 
-in the dirty log (bitmap or ring), and the remaining pages are set to WC.
+Acked-by: Chen-Yu Tsai <wens@kernel.org>
 
- 
-> That way we guarantee that we are not faulting level-3 pages unecessarily, 
-> nor need to go through the whole tree setting DBM=1 or DBM=0 on level-3 
-> pages.
-> 
-> How does that sound?
-> 
-> Thanks!
-> Leo
+> ---
+>  drivers/gpu/drm/sun4i/sun8i_vi_scaler.c | 2 ++
+>  drivers/gpu/drm/sun4i/sun8i_vi_scaler.h | 1 +
+>  2 files changed, 3 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_scaler.c b/drivers/gpu/drm/su=
+n4i/sun8i_vi_scaler.c
+> index d4412a62c2f0..a5cc99981006 100644
+> --- a/drivers/gpu/drm/sun4i/sun8i_vi_scaler.c
+> +++ b/drivers/gpu/drm/sun4i/sun8i_vi_scaler.c
+> @@ -975,6 +975,8 @@ void sun8i_vi_scaler_setup(struct sun8i_layer *layer,
+>
+>                 regmap_write(layer->regs,
+>                              SUN50I_SCALER_VSU_SCALE_MODE(base), val);
+> +               regmap_write(layer->regs,
+> +                            SUN50I_SCALER_VSU_GLB_ALPHA(base), 0xff);
+>         }
+>
+>         regmap_write(layer->regs,
+> diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_scaler.h b/drivers/gpu/drm/su=
+n4i/sun8i_vi_scaler.h
+> index 245fe2f431c3..d89c0cbe188d 100644
+> --- a/drivers/gpu/drm/sun4i/sun8i_vi_scaler.h
+> +++ b/drivers/gpu/drm/sun4i/sun8i_vi_scaler.h
+> @@ -36,6 +36,7 @@
+>  #define SUN50I_SCALER_VSU_EDSCL_CTRL(base)             ((base) + 0x28)
+>  #define SUN50I_SCALER_VSU_ANGLE_THR(base)              ((base) + 0x2c)
+>  #define SUN8I_SCALER_VSU_OUTSIZE(base)         ((base) + 0x40)
+> +#define SUN50I_SCALER_VSU_GLB_ALPHA(base)      ((base) + 0x44)
+>  #define SUN8I_SCALER_VSU_YINSIZE(base)         ((base) + 0x80)
+>  #define SUN8I_SCALER_VSU_YHSTEP(base)          ((base) + 0x88)
+>  #define SUN8I_SCALER_VSU_YVSTEP(base)          ((base) + 0x8c)
+> --
+> 2.43.0
+>
 
