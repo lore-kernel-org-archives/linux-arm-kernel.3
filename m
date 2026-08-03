@@ -4,61 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00049C55175
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D096C55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l/mcshskARNIpHGJ26P82gHPGmI0Z/0XAuy9eLd5Z3c=; b=EL4xjV+t6/aznX2HAh9QuqVIW9
-	N0UjglNsPtsdVMonEZRKbqSyevKyEYo5KAkhgvJJC907WqP/xvmlgaylKAHP4Y61Rqm/gcWNTFhWT
-	0wgXd1VeAWQWjbZB3xhF5yC4eNT3gbV2OOEx9r6Dyg7UK3jbA8b178sIwUmHegbheW1C33Q/qis0g
-	wmkJFmr5oYJNapC9Cug57KP/ILrYCdwTSpLwq5E6p1OXEQhBoXsX6EFIn2nk1BQvKUrv1zIPTpodU
-	UfwJ3mvQEAk9oH3zWgSsfntnXNeqzJAmVFyreYhV6Hvc2LUDnKQuCS5z70uDT5s/Hb01//jG9T+2x
-	EnDXuj5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i7nVKeMcCmrPSAlaMzrZkMXb8FR+2oHKNn3SPXNfhnQ=; b=aLndrcw38cYMyTyEiQ4F6IVEQO
+	bOWzUOhO3YHZyGF2Jm7d1hUhAfapBe5RqmsMHCGR5FSEZUrqAkmgwARfDAcMr2naXuXPdolcPLAVt
+	joHWC16YSMnnGjL4DGUllDSZGhwczDw0+3+2+jMYJozeF6fszpIpm6wu+9QtFv66s7CoPSdy0Sjkd
+	jFF72O1QgFR7LS+Xa0zg7LHQa1O+LFNGKSVoW5S1bJjNkQlcsDd5GVnW6koRn0qCpSP9BXrglpIVI
+	D/a9zWlLoodVcsX+j1eUJEHdgur9psbB9QDM56cGEC5gJmGfdQXtZfhv6qSl15H1wUvjuAHT9Gj3r
+	EdaHahNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqp5o-0000000GhXR-1Sn3;
-	Mon, 03 Aug 2026 09:36:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqp5l-0000000GhX3-4Bpm
+	id 1wqp8d-0000000GhoZ-39zU;
+	Mon, 03 Aug 2026 09:39:15 +0000
+Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqp8b-0000000Ghnn-0eQU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 09:36:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE22E143D;
-	Mon,  3 Aug 2026 02:36:12 -0700 (PDT)
-Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EF093F66F;
-	Mon,  3 Aug 2026 02:36:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785749776; bh=VZ4Xa5/EKPJsS92yBrdHIczDDuHqowvN+VQUoxps2q8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eeQD6z5CR/E7rwK43XaeNdtAV3SSK26Z5IxwHxyHzp3PXkJMor3/jdCwXENDxqIfu
-	 pIWTD8IY5uX6wVPssh3vlwLyEBFohSIoBk1xeEudYjgMYDl2ad4u11zltvhXn8+iV7
-	 sltAAbvIEpFj45ICP/CFF+OUbs5lIZV5phfICDMc=
-Message-ID: <b65980e5-8db2-4346-898d-fd6fce87e6cc@arm.com>
-Date: Mon, 3 Aug 2026 10:36:13 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 40/45] arm64: nmi: Add Kconfig for NMI
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com, liaochang1@huawei.com
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-41-vladimir.murzin@arm.com>
- <c46ccf44-7414-42bf-9760-79200ac247ba@huawei.com>
-Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <c46ccf44-7414-42bf-9760-79200ac247ba@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Mon, 03 Aug 2026 09:39:14 +0000
+Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-493fa6e28a7so22385555e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 02:39:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785749950; x=1786354750; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=i7nVKeMcCmrPSAlaMzrZkMXb8FR+2oHKNn3SPXNfhnQ=;
+        b=UpCI3hW7D1I699/hWcWcLMuauG22wHpTqVNr54wbPhGu2SNCBu7z3vvrxilCHQOOtu
+         Y1PdOcXNt5+soz+M/mmAn2BSRcpq5fIhtJpEBWQjq2ywAE0nAkJzy3hl9n8dxmQS/BN4
+         i6RHQwOZGMwfkTmKdY9L56Azi3AvQv+AoxoYQ7iyx953J3TaHflLWCSHtV0nch5/IMQ1
+         BCmFZE29BbCKMP+Y9cmWFhIuIQGrwZs/mogf20RMNp38bChXd7/AOB6S7LH3rr0tIf3Z
+         V4t9hVrkHbxeQLC5TXq+wC2VmMBfJ/05i3U9xjWwhEA8rmaY82t+7IUgAPhlZScrZwcv
+         wucA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785749950; x=1786354750;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i7nVKeMcCmrPSAlaMzrZkMXb8FR+2oHKNn3SPXNfhnQ=;
+        b=iu9MeKMeyL/i6wgbKSkJQmZLQbHnpwtqz7ZAlgtnIW7JJnLVGFHhHO5dIrGrClMBjU
+         YnOZ6DRJ69zXbmzTnlAoc0l5worvca6S3x7wXrhD6C635w55LtRw/OiCaeCyqKv3tmLG
+         2kdMktggg0SOX+3nsmk4CJrs1TbvqknSaCKizsmc54yxOUyJFLWwM8z+DVdJ4fAM60p6
+         voboOphLTydOnxl0tQxE72xbrUfZqtea7eWXxLDsTgx4w63AxQDcwv71hCMjBZjydpN2
+         YEfT/05p867eIANQntCp7PPS+mexAZGKNEslwwHfAeOdwrgHhxEu5fNfFCr6hdGTu1XL
+         fzKQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpAKADq9T/tcRUcA3ac9oT1IQsttwv4X8vZb099VVAtlTzvV+AkjFUo/6CiC4cTufcsX0VKTkRe0wke3bq27Cvr@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzUZLeE6YHWJOlUfkJNw4pa418P1m98ZMFZWgQwq+oUIh8jFYs
+	JjigEDz9O0QNOvJz+J+qGI66BLQxRsPZF4KHoDEcb7l211g8S9gJl8Tmtj/nD1kZlF0jzX/1ZTf
+	0GNG57iY+7Py5Sy77zcYqUA==
+X-Received: from wmbe4.prod.google.com ([2002:a05:600c:5904:b0:488:9b69:9379])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:c113:b0:495:4689:1e98 with SMTP id 5b1f17b1804b1-4980c674e1dmr159181765e9.10.1785749949727;
+ Mon, 03 Aug 2026 02:39:09 -0700 (PDT)
+Date: Mon,  3 Aug 2026 10:39:06 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
+Message-ID: <20260803093906.3531699-1-vdonnefort@google.com>
+Subject: [PATCH v2] KVM: arm64: Drop %pB on nVHE panic when stage-2 is active
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_023618_081966_92A0D891 
-X-CRM114-Status: UNSURE (   7.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260803_023913_213075_EF606FFF 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +90,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/28/26 07:24, Jinjie Ruan wrote:
->> +config ARM64_NMI
->> +	bool "Enable support for Non-maskable Interrupts (NMI)"
->> +	default y
-> I think we should select ARM_GIC_V3 here, as FEAT_GICv3_NMI need GICv3
-> 
->> +	help
->> +	  Non-maskable interrupts are an architecture and GIC feature
-> GICv3 feature
+With pKVM, the host stage-2 is lazily mapped. kallsyms, accessed via
+the modifier %pB is therefore potentially unmapped. If the hyp panic
+occurred while the host stage-2 lock was held, handling this fault
+deadlocks.
 
-Not really, GICv5 also supports NMI.
+Skip %pB formatting unless the host stage-2 is disabled.
 
-Thanks
-Vladimir
+Fixes: 6ccf9cb557bd ("KVM: arm64: Symbolize the nVHE HYP addresses")
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
+
+---
+v1 -> v2:
+ - Introduce nvhe_hyp_panic_host_s2_disabled()
+ - Collect Fuad's tags
+ - v1: https://lore.kernel.org/all/20260731182231.1277064-1-vdonnefort@google.com/
+
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index 54aedf93c78b..88dcb8cb36f3 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -507,10 +507,20 @@ void handle_exit_early(struct kvm_vcpu *vcpu, int exception_index)
+ 		kvm_handle_guest_serror(vcpu, kvm_vcpu_get_esr(vcpu));
+ }
+ 
++static bool nvhe_hyp_panic_host_s2_disabled(void)
++{
++	return !is_protected_kvm_enabled() ||
++	       IS_ENABLED(CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC);
++}
++
+ static void print_nvhe_hyp_panic(const char *name, u64 panic_addr)
+ {
+-	kvm_err("nVHE hyp %s at: [<%016llx>] %pB!\n", name, panic_addr,
+-		(void *)(panic_addr + kaslr_offset()));
++	/* Kallsyms might not be mapped in the host stage-2 */
++	if (nvhe_hyp_panic_host_s2_disabled())
++		kvm_err("nVHE hyp %s at: [<%016llx>] %pB!\n", name, panic_addr,
++			(void *)(panic_addr + kaslr_offset()));
++	else
++		kvm_err("nVHE hyp %s at: %016llx!\n", name, panic_addr);
+ }
+ 
+ static void kvm_nvhe_report_cfi_failure(u64 panic_addr)
+@@ -538,8 +548,7 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr,
+ 		unsigned int line = 0;
+ 
+ 		/* All hyp bugs, including warnings, are treated as fatal. */
+-		if (!is_protected_kvm_enabled() ||
+-		    IS_ENABLED(CONFIG_PKVM_DISABLE_STAGE2_ON_PANIC)) {
++		if (nvhe_hyp_panic_host_s2_disabled()) {
+ 			struct bug_entry *bug = find_bug(elr_in_kimg);
+ 
+ 			if (bug)
+
+base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
+-- 
+2.55.0.508.g3f0d502094-goog
+
 
