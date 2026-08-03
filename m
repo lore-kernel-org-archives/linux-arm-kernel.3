@@ -4,58 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 230CCC55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:39:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5905EC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xf4/wbfnbhPo6b7R5dWEe48U/hI2PDkqjc4rlK2/RLI=; b=G1qz3uvBOkitKRib0lmbMiRi7B
-	TjBlRyWeOqAtvVwb8Kehkt4jrZ3gIyUprcNMFypxue/8/hGNaqr4+/H1DnlgoF83eux7ceqo2TejG
-	x9CSUzqye1DiI+EOek8uLI9azv5OhO4L16HpLmrMV1C2G2u0FZ+0sPC3jSEwApWWwvhNeAlq4Agzq
-	uTGhgqrP8V907bh0yG47QnOySbO+04Y46rdeU3FgtrIjPN7swGsIOEFGTqV89yL5YdOGCu/wWf/DJ
-	jLCTsFJbxtpxulf+BhmmyeUlayJhh4XqdhP9wnlXLFQrkWsjOqopWqUHHcfBULSOFu/P5RYmsEc4N
-	cakcM+3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VmoRzRSGaYrgmLSXQHd8nxnywAiGDAxo7QcVjOS8Dtk=; b=bIxc41/hzB/HYBId5+ImEZmvZJ
+	6+bY96GGLJ3NysJ6owL7TEyBLSphPkBG0eDM3EMOlfXj+KnAKx1+0mEJp5qWusNZwx6aUSJmoXhZu
+	QhBzFvxpVtsKE61eqsAn+o8fM1T10KGSNftRn0P8S8/e6qqj4HhI1x/ERSb0/ImhPwi9vHKLSeYMa
+	0BPM7dsZM0bYFwctVJbI5/eCfiGDTa2i1xW8jpwEbnKdKoJ4lJXQFyx4vJgKXmK5Jj+s4AEgAaSxV
+	qtS8CuRBLEUE6bBNDTG213Akl26DPAS7v6VtiDysfgeTgZIkBV+J7LNRShF21bQxkFEnkHqjq6L6T
+	+EqdBEtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtpU-0000000HPX6-3pdy;
-	Mon, 03 Aug 2026 14:39:48 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wqtpw-0000000HPfC-0ATx;
+	Mon, 03 Aug 2026 14:40:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtpS-0000000HPVe-1fzk
+	id 1wqtpt-0000000HPe4-28Vo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 14:39:47 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 69ECC5B3;
-	Mon,  3 Aug 2026 16:38:34 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1785767914;
-	bh=TnyB/lE62Vgv0XTcDZMRiCAeP+lIpfxoxN39z6lueKE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aLvbaW7+8hS7GdDEXnxKqZKAW0LR2Ggpf4gUlFDFsbx6m15yYrZHzZDZwVnh5yt4a
-	 nw/7UKMIyruyqLqBX7mylRUDGwkCmp1GBiV8zaiy8eakfsCO9VPc3meMrJifqH/HqQ
-	 8pk2ZgEQlJ7wr2gZfDhZfhKZtqcHKXg2OnNfWOBc=
-Message-ID: <a976b47c-164b-4d6b-ba88-169b401c1c93@ideasonboard.com>
-Date: Mon, 3 Aug 2026 17:39:40 +0300
+	Mon, 03 Aug 2026 14:40:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785768012;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VmoRzRSGaYrgmLSXQHd8nxnywAiGDAxo7QcVjOS8Dtk=;
+	b=Vd59kCVyh9AMk2fWhFJQPRZ6jnzTsVfI4pUeRdrPUxZbcl6VeSpKZIz+gOW6InDIcfL/5p
+	laolMSpCF3+19kMI6Qaym32IraMqW2TcaKmQUPYR3PsvyDT5RAWGS3FvtVtubgFHdA+KVT
+	+LSjid9lo38/JCnYWsLzI9ndt4XfsoM=
+Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com
+ [209.85.128.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-653-a4idiVy6NeCk3ofO-Wi55w-1; Mon, 03 Aug 2026 10:40:05 -0400
+X-MC-Unique: a4idiVy6NeCk3ofO-Wi55w-1
+X-Mimecast-MFC-AGG-ID: a4idiVy6NeCk3ofO-Wi55w_1785768005
+Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-81e735bcceaso53765837b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 07:40:05 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785768005; x=1786372805;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VmoRzRSGaYrgmLSXQHd8nxnywAiGDAxo7QcVjOS8Dtk=;
+        b=kBsbAkjhYNPXy3W88aVqM3LnClDnTv7EES7KyuMi8tV31XYgvW3ktwtDfvU49LxCVV
+         GK7/c8CheZHHUs+Z0Oicj2r0D2nG3/mayYLRznKG7l3rKTzPnQe7JXBU3Vlk3qRdVyo/
+         MlrvtSydaj/6fv9rBblwUE5pIRBxBu9xqhdKBmh52XknPPZ9lTWVxDI18N/X/EJ2tXX+
+         WNdVnsQ1NPSkLEEJH8OwemNAvMFRCKlqPMtU5RmYHTJckpb730GHuAy35mvlCsRdmiKq
+         Ma76L2WRG3LMQ0OTrdtGTjGGJxMlU/hKFuNLASYJrWqBvm5VsMR3FdVD/v3+HoLGYjRX
+         TyOw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr41qQGOGhWr0WrpnFcmIR3lJWXnJ/dhn6de4nMDzcmbNY+xbEacdIGkiZipCD3phNJDn5+yQqCg49CD6ltYaP5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw2GrIdC5KiDMzgd2tNHqOoVnXEcR11NKNDe0MVuvdu/ll4f3D
+	tc2otUGqrnNHLJTH5ZReH0No89BGt3b25lE/O//yxWv16AOMFU2yb+ldV/3AwMH9UxdkSb1U/7x
+	wYjUf/T76lfPfxEHvw71RWkddOxHgeZzkHgu6eeqLoa6euf8Cw7ifNQ7mRPbiQ/+fbIEgdJuR27
+	wu
+X-Gm-Gg: AR+sD12JJyUBLMllgJqRmODXvl4e77AkHv9Uz9If8Rvfp2eIn9dPkg/XJP5iqFK6QPk
+	E0v9kvT/UGB/EHZXEE3bNlqHAUBOhsyCK6sJYt8XHDMsSskf7xP4QstXg+4Dx22vjbVsTS0fv78
+	eSVEOmNIvoX0GJ1eEA4RhXoYwzXdLy3haUnC8H2yY0YMkNKWb++eiMOhFaD/FL6i5XZe2DbcApg
+	vx5xYCHPDfE2YW918Wrg0bixd87/Eqbo8vdPmwe1ZzDpbZbb2/DZdy1+NiavuxaKzcdBzJjFEz/
+	yz5grXv6Q7eDdf1UEUm1asGsE61yPD4aBWTIW5+aPYI9l210rYeVP/C/WqYTJjdwuEmo0O1ICaB
+	1+WXLm0YI5TDra0boLt+6A5Pe2m2pkSOJbf4=
+X-Received: by 2002:a05:690c:6b0b:b0:81e:5a57:b8ad with SMTP id 00721157ae682-81fd4b51df0mr122408167b3.21.1785768005008;
+        Mon, 03 Aug 2026 07:40:05 -0700 (PDT)
+X-Received: by 2002:a05:690c:6b0b:b0:81e:5a57:b8ad with SMTP id 00721157ae682-81fd4b51df0mr122407797b3.21.1785768004486;
+        Mon, 03 Aug 2026 07:40:04 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81fcd0d6fbbsm55781147b3.25.2026.08.03.07.40.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 07:40:03 -0700 (PDT)
+Date: Mon, 3 Aug 2026 10:40:01 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chun-Jie Chen <chun-jie.chen@mediatek.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Edward-JW Yang <edward-jw.yang@mediatek.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v5 12/25] clk: mediatek: pll: Add PLL stabilization delay
+ definition
+Message-ID: <anCoQeS2OoucB0mO@redhat.com>
+References: <20260801-mt8189-clocks-system-base-v5-0-ac4410697cc2@collabora.com>
+ <20260801-mt8189-clocks-system-base-v5-12-ac4410697cc2@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: xilinx_dma: Use readl_poll_timeout() instead
- of atomic variant
-To: Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>,
- Michal Simek <michal.simek@amd.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Vishal Sagar <vishal.sagar@amd.com>
-References: <20260803-xilinx-dma-poll-fix-v1-1-892302c4847d@ideasonboard.com>
-Content-Language: en-US
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-In-Reply-To: <20260803-xilinx-dma-poll-fix-v1-1-892302c4847d@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <20260801-mt8189-clocks-system-base-v5-12-ac4410697cc2@collabora.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: _BSodV-pe13hkRzHJn8tOcl93cm6cGhvvOIPwTn0HlE_1785768005
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_073946_599023_A4F98B8E 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20260803_074013_620648_1682A37F 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,51 +123,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Sat, Aug 01, 2026 at 01:20:58PM +0200, Louis-Alexis Eyraud wrote:
+> Several functions uses a hardcoded value (20), to represent the
+> needed delay to stabilize a PLL.
+> Add a common define for this value.
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-On 03/08/2026 16:20, Tomi Valkeinen wrote:
-> All callers of xilinx_dma_poll_timeout() pass a zero delay and a 1
-> second timeout (XILINX_DMA_LOOP_COUNT). With a zero delay,
-> readl_poll_timeout_atomic() does not measure wall clock time, and the
-> actual timeout can be much more than 1 second.
-> 
-> This is very visible when a channel reset never completes, e.g. with a
-> VDMA whose stream-side clock isn't running. Probe appears to hang, and
-> only minutes later fails with:
-> 
->    xilinx-vdma a0050000.dma: reset timeout, cr 4, sr 0
->    xilinx-vdma a0050000.dma: Reset channel failed
-> 
-> Switch to readl_poll_timeout(), which checks the deadline against
-> ktime_get().
-> 
-> Calling xilinx_dma_poll_timeout() from atomic context is still safe even
-> after this change, as readl_poll_timeout() with zero delay never sleeps.
-> 
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
->   drivers/dma/xilinx/xilinx_dma.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
-> index 404235c17353..6e8c786147f7 100644
-> --- a/drivers/dma/xilinx/xilinx_dma.c
-> +++ b/drivers/dma/xilinx/xilinx_dma.c
-> @@ -530,7 +530,7 @@ struct xilinx_dma_device {
->   #define to_dma_tx_descriptor(tx) \
->   	container_of(tx, struct xilinx_dma_tx_descriptor, async_tx)
->   #define xilinx_dma_poll_timeout(chan, reg, val, cond, delay_us, timeout_us) \
-> -	readl_poll_timeout_atomic(chan->xdev->regs + chan->ctrl_offset + reg, \
-> +	readl_poll_timeout(chan->xdev->regs + chan->ctrl_offset + reg, \
->   				  val, cond, delay_us, timeout_us)
-As commented by Sashiko, readl_poll_timeout API doc says "Must not be 
-called from atomic context if sleep_us or timeout_us are used".
-
-Maybe a better fix is to continue using readl_poll_timeout_atomic, but 
-use a small (non-zero) delay_us, and decrease the timeout_us. Using a 
-one second timeout when calling from atomic context doesn't sound very 
-good in any case.
-
-  Tomi
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
 
