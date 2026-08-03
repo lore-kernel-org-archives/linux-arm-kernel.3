@@ -4,70 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74318C55196
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:35:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03DE2C55196
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:39:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Cc:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XR++r527W94xfQdEsxvKm6tGy0wq5RNvP/m4bM8F0Ww=; b=niFEkTggdFJ+Y77WnozRfK9nnC
-	b0qwQtSoJOT2NrkGo7VG2tnB7fM0+OkkhkW10DnLTXJID0w03jftFCSfvUjQa8wL7Y6pH+W+X/uVS
-	0VKT00NByVTJaqw7DqzWyfNYtO+nTWDnVC02UZs++PQQDnwzgBR38z7isPWhSxAp5S2iDvw1368DF
-	XeaKelmM3tgSegr57SOOJEEzvL34wpg4EAtYZTWmNOEwbNuc4841WfwgrqKmBFNhj3hP0la+KKbdH
-	H+LYA9k+6Uf9WuCwZUkgjYCHaBNQiEYvRVjGycxUO/B5e47hBYDx4yCFh4lHWiVosLd6WiCBRyejo
-	EAGz9mAw==;
+	bh=DS219i8vZ2gEEaKoWVF+TZdPx34WAJSccLR7gpUpijU=; b=0ELeMUervpONZ7GlmAUQi29eMb
+	BSbPqMir4sOuBAuhajqhwY+WJo2x6B2VWyiktSbfYpfHhAFKG8yAWrur/8s/zO9TTr7FNIRyAWVwu
+	h9+EVLaM7hfJYnhp3NRjkCys26cQoI1YBzM+Qitf4t9h9tPg63NTb6VacWyu/imm0FzH0O12MqtXm
+	qRs4RLB5mPuU2zCallxuJjIxxUeAHrmEFW8Li+qMbxKi7YV4qfWnAVlAJmNXXUQQPE8dprf61smjy
+	d6O6tZrVlaouu4SZ8Ah1pkbDEnU3D+DTstrxa5RI9DXdWw9Sw+3EpkOLcnxpbMfMmIYuEpfIzC3fc
+	QqQPSKZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqxUu-00000000NTM-0qX3;
-	Mon, 03 Aug 2026 18:34:48 +0000
-Received: from out-188.mta1.migadu.com ([95.215.58.188])
+	id 1wqxZ6-00000000Nix-31nH;
+	Mon, 03 Aug 2026 18:39:08 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqxUq-00000000NSy-2IbJ
+	id 1wqxZ3-00000000NiB-2aqp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 18:34:46 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RrJMPh+D0jdowdA4XJ4CPXunDrNvfvLG8Ea5y3bDLgEbRssiT37QMVqmCdJlQf7/HpsHmfnDElHQYOogUBM770w@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785782079;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XR++r527W94xfQdEsxvKm6tGy0wq5RNvP/m4bM8F0Ww=;
-	b=TLcfibXteu8BIULimjvRFXQhSfUJ3X5jMTYeQfAlGFZyrVaU0q3ESknkjeVApWzGjyilU1
-	ryeiM8Hihf1HvTeIowravIwq3IWHme8JFf8tPvECs1HypoLR5L4tI/hmcTvhbobF19wxKJ
-	PPLfWPdVCa8WQKzty7cuZ+T50IK5ZYQ=
-X-Gm-Message-State: AOJu0Yy0JKymvazRubUBxsW+2B91AEVFNvkSdDC/j/WVYigHJgRYNrAe
-	HGzD4RRL0BNqh1kzF7ZBjrB6rQwn3jLycBDernbx2fHsXkOsOsTEw7dwnqrTq5z373KRiRbZoVY
-	Z0BQ49+jbDKq5ifdduK+MsAb7nbt8plP8WEIWNz6V
-X-Received: by 2002:ac8:6f1b:0:b0:52c:d3a1:358a with SMTP id
- d75a77b69052e-52cd4fc8ac0mr1363411cf.14.1785782050144; Mon, 03 Aug 2026
- 11:34:10 -0700 (PDT)
+	Mon, 03 Aug 2026 18:39:08 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=prBMJgTmrOa6UMUzKY1LtOixnvZrq+o7+hsi+DwlVsyYzMCH3xEqMQajukaVx/nQTHj2X0UMrANtLOpm3YJ4QdzsdR+Kli96zTqbMOECmI0WX5IgUpabjfPMCbaRvfDSnYXqxS+mWPbpplQorpT8lJHWWIzWSQ3R4yRac6xdRNykpMCSkh4ZBYv6QgpwCTCmoas9iB3wXkTtyzfOXPIcMIb8t0JRQFH8b5VpjG3JouMMEvcX+gOLqep2GbqA9CuIixBh4F2V57jf+9g0lfHAXVnwR8AHbOtYvs5AdHyor6qlWBvGDG+ItHSIaCXDaPUouD2CEyBSGS8yWz/b9zxkDQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DS219i8vZ2gEEaKoWVF+TZdPx34WAJSccLR7gpUpijU=;
+ b=fabJLG/WxvLonH0fU6LHbFg1BXiDdDBLXsjTYPZJ4FyBXIskmMePl/vGpZ8+vg7/MTL8WFqvO8ben1yCX3M/o6RlGGmUfQk1HgbZAC9jmVnYtgTVT33+4yn6+Os+bKq8pWoxqEq3PJDRurRnjmPIClb2gHX+qb1r4/htzQo/4M0id/ZpkvRLc9qYntsmeEn8oetVqfXGf6xzMFyG9QzvSxqb2M6oQH6mHP0M5Zz+bO8sLTghsFQBG+vZoARRAs8JXOYhePCI7ePVgAUotqcxk3xjQaFQxal5iT1MRnezaoOc+2tw7dUedsphCzSLq1FcbBJejhc7VDN0NTjrG1QnEg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=suse.de smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DS219i8vZ2gEEaKoWVF+TZdPx34WAJSccLR7gpUpijU=;
+ b=HM0sdJhYecJCfUy9+jB6u8DCftwSpKWJa3geObD7WsrZTFMdp+zNZo0J1X5oOCTtVzriqJH54w2bzHbqExo5l1PV3OZFGzXlCX1bG2PQRBQAxiedLMEt4XiHt3woAKUQue5emBbSXMjSkxgFau7dBme6PwwQPMgZ33obYZ0fdwA=
+Received: from AS4P189CA0005.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5d7::20)
+ by DB4PR08MB9357.eurprd08.prod.outlook.com (2603:10a6:10:3f3::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Mon, 3 Aug
+ 2026 18:38:56 +0000
+Received: from DB5PEPF00014B88.eurprd02.prod.outlook.com
+ (2603:10a6:20b:5d7:cafe::63) by AS4P189CA0005.outlook.office365.com
+ (2603:10a6:20b:5d7::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.18 via Frontend Transport; Mon, 3
+ Aug 2026 18:38:56 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB5PEPF00014B88.mail.protection.outlook.com (10.167.8.196) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.8
+ via Frontend Transport; Mon, 3 Aug 2026 18:38:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NXI+RTGyQJWVbRbmJN+BN+kDc6e6v7PaPnMQMeTKeWsLEQp3JmFNZ/S41cQ1oDNrMiOj9VxWf0FWK9HLfRGP31C5uSvUz3YV0i8Z8en50KqdU897LLL/kDTWGwFHXf0RIbeO21DM9rovD30G8vb+McCGKZE2R4i1oPaidWNiLlLaITIcErrxrvOS3giS9O3/EWYlX8ILEEiPRGr9ukuXJ+CUyeMAQGhWE5b76fqLsTLv3tbjG8ukttfWuh5CujyS8egs6BpKmQjxwkS9G+dvKl2DMWukDhO11qsoP+GBZ82ud8zzBRKZASh75JU+tApQsnAMhg52e+2grJ0Q38Xqow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DS219i8vZ2gEEaKoWVF+TZdPx34WAJSccLR7gpUpijU=;
+ b=UyyJ8A+vFVL1KhMr4tC7SFnWoUtLHp03c86r7AQ95GtKWHNAJy+C8hup3+DohmKhJVEOW2MLIZW9nV9PHabW1SThKOtd2UhF9Tkwxa2soCnWBBYjZSvwRAElmdPgFjvVKYD2d6Xa7k3J+gVhIoRsPMDxl9vnTkia27hXBLT5qneGlYFrhnnMoBQYfJsmm1++m3XdgM8AutOHGVT9VvVyBZtSBflK/96YUhwSSwjVSnuqvlUNrYq+S8IsunNx3jclJIBYzYcNSOrnFx47sYtU91iIvtE5qk5OO6nfd59XSvcBJqJuy+nq/nyscPSGsICnBq2dkNQbjjzi2vTjh4JnUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DS219i8vZ2gEEaKoWVF+TZdPx34WAJSccLR7gpUpijU=;
+ b=HM0sdJhYecJCfUy9+jB6u8DCftwSpKWJa3geObD7WsrZTFMdp+zNZo0J1X5oOCTtVzriqJH54w2bzHbqExo5l1PV3OZFGzXlCX1bG2PQRBQAxiedLMEt4XiHt3woAKUQue5emBbSXMjSkxgFau7dBme6PwwQPMgZ33obYZ0fdwA=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from VI1PR08MB3421.eurprd08.prod.outlook.com (2603:10a6:803:80::16)
+ by AM9PR08MB5938.eurprd08.prod.outlook.com (2603:10a6:20b:2da::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Mon, 3 Aug
+ 2026 18:38:22 +0000
+Received: from VI1PR08MB3421.eurprd08.prod.outlook.com
+ ([fe80::e079:6bd:fbe0:89b4]) by VI1PR08MB3421.eurprd08.prod.outlook.com
+ ([fe80::e079:6bd:fbe0:89b4%3]) with mapi id 15.21.0270.012; Mon, 3 Aug 2026
+ 18:38:21 +0000
+Message-ID: <70c5d9de-0f04-4ddb-af53-16599c8c0988@arm.com>
+Date: Mon, 3 Aug 2026 19:38:19 +0100
+User-Agent: Mozilla Thunderbird
+Cc: usama.anjum@arm.com, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Lorenzo Stoakes <ljs@kernel.org>,
+ "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, "Matthew Wilcox (Oracle)"
+ <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
+ Usama Arif <usama.arif@linux.dev>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH v2 0/6] mm: add basic PTE const type-safety
+To: Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>
+References: <20260803164400.531199-1-pfalcato@suse.de>
+From: Muhammad Usama Anjum <usama.anjum@arm.com>
+Content-Language: en-US
+In-Reply-To: <20260803164400.531199-1-pfalcato@suse.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0445.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1a9::18) To VI1PR08MB3421.eurprd08.prod.outlook.com
+ (2603:10a6:803:80::16)
 MIME-Version: 1.0
-References: <20260803124220.332248-1-fuad.tabba@linux.dev> <20260803124220.332248-10-fuad.tabba@linux.dev>
- <86se4vaxvf.wl-maz@kernel.org>
-In-Reply-To: <86se4vaxvf.wl-maz@kernel.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 3 Aug 2026 19:33:33 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxZt8cUdUnfaO+RKxirgwSQe9rM1hqgOMrTq+DqC2t8CA@mail.gmail.com>
-X-Gm-Features: AUfX_mxi4ObuHGTk_sJo4xYYR_UKv6xK4IG_KWJSzkKX7KyI0YYHqs_yapMU1CA
-Message-ID: <CA+EHjTxZt8cUdUnfaO+RKxirgwSQe9rM1hqgOMrTq+DqC2t8CA@mail.gmail.com>
-Subject: Re: [PATCH v2 09/11] KVM: arm64: Type-check hypercall arguments at
- the caller
-To: Marc Zyngier <maz@kernel.org>
-Cc: oupton@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, 
-	rostedt@goodmis.org, mhiramat@kernel.org, alexandru.elisei@arm.com, 
-	vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, 
-	ardb@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+X-MS-TrafficTypeDiagnostic: VI1PR08MB3421:EE_|AM9PR08MB5938:EE_|DB5PEPF00014B88:EE_|DB4PR08MB9357:EE_
+X-MS-Office365-Filtering-Correlation-Id: a9cd9005-6e52-420f-e8c0-08def18e7987
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|23010399003|1800799024|366016|6133799003|18002099003|22082099003|11063799006|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info-Original: +jvJl+aVMq1P5LJz03q71WnOA8m61GPLxkMMwzV+oa9+pamGS02Q9KvC1YOC7cKdCT2RSk4dVfkmzi7mKTcJHPKHvUiV3dgkTBDu0kDN1uJbrAiP7Lzqcj6DGME8X1SCc3VRhBIjgemdEW1EKVaYAtVl9N86UjFFZjrgFZJs1ihWE0awRRvZXJic+40tdjC2FqpBFuWYcap8yNiw3u9RZnMoXjZem9cMjaReqZIwEiLVLl+uRMI6AaYEtwEryjFiI3RChyfWfJ9dbBSRuu65YUhZEZ1fTWmsdIr1ISCuE3QkL/Pe1hZPrkQL4ffiISF53QT06BejAAB1AmXhV42uii2XBitVcHn4BmzyUYcZahS4jPwbkNiYw1RkFb4ctuDZiNcg5RuAkum0cz8jLUcVMAa8vZ77/B5UkjDCRupME/l/ZbciGIkgYK3IYMk+A+vxm5J3SdpYZdyq9KecNoPWtKpyGNZB/O2mFXgYF9NCSm/lb9mkUeHFg8H/mkQHYNWFYxNGywmwReZgeHm7tkmiehzl381CWLZlPKHn6w6RyjWqW2VEEwpvIgvIIsl7hObj8Jy6HKxjQnpOP43l+Q+YOvpSPrYbdi0BzJb+m0Ptk3+FxzEtn16Z+rqh32I6Vyn5knMTDqoQl+hQVZGWR9Bo0JuyCFwwRhXm+H2JY3Nc6m8=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR08MB3421.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(1800799024)(366016)(6133799003)(18002099003)(22082099003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: sDj3CWXosvv8WNcb74My1jl9jX25o12bEcuWn09C6btseYFINc07nf67c1SWPuuM5ZUdk83BTi1AtQVPNIeBRJpX88+xnod/JqnQRUN8VptUGwt7fzlwYKMqY0r8bVY+7YM8qHZBOH+J2kFtyHxXSc0HWmH+Nfeu7tLcGE+/FnebQWKv38l0rROY/1i3cy8z5OslUs4L7jkaWRNLUXclnhQ69AwMzIZdqksoIyxCGXsU4qnf99yEilYrGtN0fiyhLFg4sHUUN2/PPgtc4VoEdANFC+YXR680J0iVe7hZCIsBl6HgXnz6BLSq+2F8Cz0ET/CSSyqeNZ2fISb0cCjCEw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR08MB5938
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B88.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 0d4e808b-00d0-4431-4015-08def18e64dc
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|35042699022|376014|7416014|14060799003|36860700016|82310400026|1800799024|6133799003|56012099006|10067099003|11063799006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: FjkiJH4tlI/X/z0xahFMH9tfPE21Hmfh9E2nS+/iFBGFq/sNrMZPuwb/uZownsw28nhZThIcvn6UpCpAbY83P0MLWnUOHDatLAvOn9HSbqFCGfJe/AMjPNIQRY5YG7JYEEPBKbBLjzUnCwUK3oYRmS1kKbBwPwbCrot8W0b2I34X8p77ng+ewBbw7THjbSTRM8Ij2LlU3GCztPyR5f4NSo+dUFDBuKVqsIJWOl74ZC+IdAiVYTYW0HiJnzPRpk5A/i7sFhRLtx9SpDl/RoE2Umv1oe85mKdyJsHqU6dMqwmNMku5884UW5P05a2HVYYVe290PODkURzJ5zK5GULEixer7Mg65iqMizV2ZoNu+akdXAhGOzz4foAS7GhUVFI77g6ckxJMP24DX1LesQZ3N2B84ltXDvJGY4zugwjzZd8JRTh9k/g3cQr91q47X7F7qfy/0Ff121fP3oaAP6K6ne4saO/bqT+Rcd1gkao/YqUfucaEwCEZLK8+lNwDSZs6k1VE8c6k+CrmAd2lYkRG9eBPhNcTOPKcTDECdkv8V6b6+pOGEKfMDy4yIIF5Ak5V3+B7WDYQWjLfCfdCj5pXjxnqVcC39CSdFW62oo6tqNarvTVXtniOrE9YEmkQHaFMqNiS4DTtp8WZQb70QJQSP6KqqpZHvE5LcfDwg6jhYwW3jaaGP6EOY7tpFqa1HKvMTb6Qq3JHo3r7Qi1+GkvFRA==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(35042699022)(376014)(7416014)(14060799003)(36860700016)(82310400026)(1800799024)(6133799003)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: OrutTkQ7F1TUY6sIpdJLIv9bJcG6L6DJd/qpcnhRZJKoL+2bd8oP37dOhIuSiPzni3612a8Drr9uEH+NNrYjozxIa1VIC1DZBSjyufH11sXERYTd4wxLd4LTFzzkGkjfk8BKQaOwxeE+k+BG8IoU8CEp4AkSXQX15Lr10zp7cviVo08pqzbz91sZhrTPpEOmlKXyrbT7gRwEsTu/jakIEX5/LKXUNiSq2wYunPIf+t97d1exyJBmiJJal+p19IOroktD5/dEgMbx/YXcR30+R9mCcKQDz/WKanUEE3cPEldN1FAYXU4gSFCdXMrDNgNmNikZuaVzd8+pWQzJNLxRHPO+rMA3Mku8SLj/FLmdLdevzEyVh9/8msfFrKfRNOKKvvZelvbICFNy/slAyGqAai5W6TXlNgZi/cWLA/GPg527oBfnzycxxjVl8TEQ1n/l
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 18:38:55.8772
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a9cd9005-6e52-420f-e8c0-08def18e7987
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B88.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR08MB9357
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_113444_817821_962F86B0 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20260803_113905_805914_5B34E003 
+X-CRM114-Status: GOOD (  16.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,192 +168,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Aug 2026 at 18:59, Marc Zyngier <maz@kernel.org> wrote:
-...
-> > +/*
-> > + * Generate a typed stub for each declared hypercall. kvm_call_hyp_nvhe()
-> > + * resolves to the stub, so a call with the wrong argument count or types
-> > + * fails to compile instead of being silently truncated to an SMCCC function
-> > + * number and a pile of registers. The stub inlines to the same SMCCC call
-> > + * the untyped macro used to make.
-> > + */
-> > +#define DECLARE_KVM_HOST_HCALL(ret, name, ...)                               \
-> > +     static __always_inline                                          \
-> > +     ret nvhe_hvc_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__)) \
-> > +     {                                                               \
-> > +             return (ret)__kvm_call_hyp_nvhe(name,                   \
-> > +                     __KVM_HCALL_MAP(__KVM_HCALL_ARGS, __VA_ARGS__));\
-> > +     }
-> > +
-> > +#define DECLARE_KVM_HOST_HCALL_VOID(name, ...)                               \
-> > +     static __always_inline                                          \
-> > +     void nvhe_hvc_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__)) \
-> > +     {                                                               \
-> > +             __kvm_call_hyp_nvhe(name,                               \
-> > +                     __KVM_HCALL_MAP(__KVM_HCALL_ARGS, __VA_ARGS__));\
-> > +     }
->
-> I'll bite! ;-) void is a type, not the absence of a type. And
-> returning void is perfectly valid.
->
-> So with this in mind, I got rid of the *_VOID() helpers altogether,
-> see below.
+On 03/08/2026 5:43 pm, Pedro Falcato wrote:
+> Since forever, MM code has thrown pte_t * around with no concern for const
+> safety, or typesafety of any kind. This is confusing. Attempt to address it
+> by:
+> 1) Making sure pte_get*() helpers can cope with const pte_t * arguments
+> 2) Constifying the pte_offset_map_ro_nolock() return type, which by definition
+> already pledges that users will not write to it.
+> 
+> These two simple steps were already able to uncover code smell from
+> khugepaged + do_swap_page().
+> 
+> Separate steps could include introducing pte_offset_map_ro_lock() for more
+> widespread usage of this.
+> 
+> Benefits of this include less confusion and better type-safety. It could also
+> futurely aid in efforts such as [0] which may want semantic annotation of these
+> accesses.
+> 
+> Based on mm-unstable and compile-tested on a handful of architectures.
+> 
+> No functional changes intended.
+I've reviewed the entire series. Hence:
 
-This looks better. I've built and boot tested it, and the generated
-code is identical.
+Reviewed-by: Muhammad Usama Anjum <usama.anjum@arm.com>
 
-I noticed is that gcc and clang complain about "return (void)expr"
-under -Wpedantic, since ISO C only allows it from C23. We never build
-with that, right? So it doesn't bite ;)
+> 
+> [CC list editorially trimmed for brevity reasons; apologies if you're not on it]
+> 
+> Link: https://lore.kernel.org/linux-mm/20260526-kpkeys-v8-0-eaaacdacc67c@arm.com/#t [0]
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
+> Cc: Helge Deller <deller@gmx.de>
+> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Lorenzo Stoakes <ljs@kernel.org>
+> Cc: "Liam R. Howlett" <liam@infradead.org>
+> Cc: Vlastimil Babka <vbabka@kernel.org>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Cc: Suren Baghdasaryan <surenb@google.com>
+> Cc: Michal Hocko <mhocko@suse.com>
+> Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
+> Cc: Jan Kara <jack@suse.cz>
+> Cc: Zi Yan <ziy@nvidia.com>
+> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
+> Cc: Nico Pache <npache@redhat.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Dev Jain <dev.jain@arm.com>
+> Cc: Barry Song <baohua@kernel.org>
+> Cc: Lance Yang <lance.yang@linux.dev>
+> Cc: Usama Arif <usama.arif@linux.dev>
+> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
+> Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-parisc@vger.kernel.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-mm@kvack.org
+> Cc: linux-fsdevel@vger.kernel.org
+> 
+> v2:
+>  - Small fixups on the arm64 side
+>  - Re-order patches in a way such that bisection is preserved
+>  - Pick up Helge's patch dropping parisc ptep_get()
+>  - Constify s390's ptep_get() as well
+> 
+> Helge Deller (1):
+>   parisc: Drop own implementations for ptep_get() and
+>     ptep_test_and_clear_young()
+> 
+> Pedro Falcato (5):
+>   mm/arm64: constify pte_get*() and contpte get logic
+>   mm/powerpc/8xx: constify ptep_get() argument
+>   mm/s390: constify ptep_get() argument
+>   mm: constify generic pte_get*()
+>   mm: constify the pte_offset_map_ro_nolock() return value
+> 
+>  arch/arm64/include/asm/pgtable.h             | 10 +++++-----
+>  arch/arm64/mm/contpte.c                      | 11 ++++++++---
+>  arch/parisc/include/asm/pgtable.h            | 20 --------------------
+>  arch/powerpc/include/asm/nohash/32/pte-8xx.h |  2 +-
+>  arch/powerpc/mm/pgtable.c                    |  2 +-
+>  arch/s390/include/asm/pgtable.h              |  2 +-
+>  include/linux/mm.h                           |  4 ++--
+>  include/linux/pgtable.h                      |  8 ++++----
+>  mm/filemap.c                                 |  2 +-
+>  mm/khugepaged.c                              |  2 +-
+>  mm/pgtable-generic.c                         |  4 ++--
+>  11 files changed, 26 insertions(+), 41 deletions(-)
+> 
 
-Cheers,
-/fuad
+-- 
+Thanks,
+Usama
 
-
-
->
-> Thanks,
->
->         M.
->
-> diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
-> index 3958396a83345..0b1b10d4212da 100644
-> --- a/arch/arm64/include/asm/kvm_hcall.h
-> +++ b/arch/arm64/include/asm/kvm_hcall.h
-> @@ -88,26 +88,12 @@ struct vgic_v5_cpu_if;
->                         __KVM_HCALL_MAP(__KVM_HCALL_ARGS, __VA_ARGS__));\
->         }
->
-> -#define DECLARE_KVM_HOST_HCALL_VOID(name, ...)                         \
-> -       static __always_inline                                          \
-> -       void nvhe_hvc_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__)) \
-> -       {                                                               \
-> -               __kvm_call_hyp_nvhe(name,                               \
-> -                       __KVM_HCALL_MAP(__KVM_HCALL_ARGS, __VA_ARGS__));\
-> -       }
-> -
->  #define DECLARE_KVM_HOST_HCALL0(ret, name)                             \
->         static __always_inline ret nvhe_hvc_##name(void)                \
->         {                                                               \
->                 return (ret)__kvm_call_hyp_nvhe(name);                  \
->         }
->
-> -#define DECLARE_KVM_HOST_HCALL0_VOID(name)                             \
-> -       static __always_inline void nvhe_hvc_##name(void)               \
-> -       {                                                               \
-> -               __kvm_call_hyp_nvhe(name);                              \
-> -       }
-> -
->  #define kvm_call_hyp_nvhe(f, ...)      nvhe_hvc_##f(__VA_ARGS__)
->
->  /*
-> @@ -148,12 +134,8 @@ struct vgic_v5_cpu_if;
->   */
->  #define DECLARE_KVM_HOST_HCALL(ret, name, ...)                         \
->         typedef ret kvm_host_hcall_sig_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__));
-> -#define DECLARE_KVM_HOST_HCALL_VOID(name, ...)                         \
-> -       typedef void kvm_host_hcall_sig_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__));
->  #define DECLARE_KVM_HOST_HCALL0(ret, name)                             \
->         typedef ret kvm_host_hcall_sig_##name(void);
-> -#define DECLARE_KVM_HOST_HCALL0_VOID(name)                             \
-> -       typedef void kvm_host_hcall_sig_##name(void);
->  #endif /* __KVM_NVHE_HYPERVISOR__ */
->
->  /* Hypercalls that are unavailable once pKVM has finalised. */
-> @@ -164,52 +146,52 @@ DECLARE_KVM_HOST_HCALL(unsigned long, __pkvm_create_private_mapping,
->         phys_addr_t, phys, size_t, size, u64, prot)
->  DECLARE_KVM_HOST_HCALL(int, __pkvm_cpu_set_vector,
->         enum arm64_hyp_spectre_vector, slot)
-> -DECLARE_KVM_HOST_HCALL0_VOID(__kvm_enable_ssbs)
-> -DECLARE_KVM_HOST_HCALL0_VOID(__vgic_v3_init_lrs)
-> +DECLARE_KVM_HOST_HCALL0(void, __kvm_enable_ssbs)
-> +DECLARE_KVM_HOST_HCALL0(void, __vgic_v3_init_lrs)
->  DECLARE_KVM_HOST_HCALL0(u64, __vgic_v3_get_gic_config)
->
->  DECLARE_KVM_HOST_HCALL0(int, __pkvm_prot_finalize)
->
->  /* Hypercalls that are always available and common to [nh]VHE/pKVM. */
-> -DECLARE_KVM_HOST_HCALL_VOID(__kvm_adjust_pc,
-> +DECLARE_KVM_HOST_HCALL(void, __kvm_adjust_pc,
->         struct kvm_vcpu __kern *, vcpu)
->  DECLARE_KVM_HOST_HCALL(int, __kvm_vcpu_run,
->         struct kvm_vcpu __kern *, vcpu)
-> -DECLARE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
-> -DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa,
-> +DECLARE_KVM_HOST_HCALL0(void, __kvm_flush_vm_context)
-> +DECLARE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_ipa,
->         struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
-> -DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa_nsh,
-> +DECLARE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_ipa_nsh,
->         struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
-> -DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid,
-> +DECLARE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid,
->         struct kvm_s2_mmu __kern *, mmu)
-> -DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_range,
-> +DECLARE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_range,
->         struct kvm_s2_mmu __kern *, mmu, phys_addr_t, start, unsigned long, pages)
-> -DECLARE_KVM_HOST_HCALL_VOID(__kvm_flush_cpu_context,
-> +DECLARE_KVM_HOST_HCALL(void, __kvm_flush_cpu_context,
->         struct kvm_s2_mmu __kern *, mmu)
-> -DECLARE_KVM_HOST_HCALL_VOID(__kvm_timer_set_cntvoff,
-> +DECLARE_KVM_HOST_HCALL(void, __kvm_timer_set_cntvoff,
->         u64, cntvoff)
->  DECLARE_KVM_HOST_HCALL(int, __tracing_load,
->         void __kern *, desc_hva, size_t, desc_size)
-> -DECLARE_KVM_HOST_HCALL0_VOID(__tracing_unload)
-> +DECLARE_KVM_HOST_HCALL0(void, __tracing_unload)
->  DECLARE_KVM_HOST_HCALL(int, __tracing_enable,
->         bool, enable)
->  DECLARE_KVM_HOST_HCALL(int, __tracing_swap_reader,
->         unsigned int, cpu)
-> -DECLARE_KVM_HOST_HCALL_VOID(__tracing_update_clock,
-> +DECLARE_KVM_HOST_HCALL(void, __tracing_update_clock,
->         u32, mult, u32, shift, u64, epoch_ns, u64, epoch_cyc)
->  DECLARE_KVM_HOST_HCALL(int, __tracing_reset,
->         unsigned int, cpu)
->  DECLARE_KVM_HOST_HCALL(int, __tracing_enable_event,
->         unsigned short, id, bool, enable)
-> -DECLARE_KVM_HOST_HCALL_VOID(__tracing_write_event,
-> +DECLARE_KVM_HOST_HCALL(void, __tracing_write_event,
->         u64, id)
-> -DECLARE_KVM_HOST_HCALL_VOID(__vgic_v3_save_aprs,
-> +DECLARE_KVM_HOST_HCALL(void, __vgic_v3_save_aprs,
->         struct vgic_v3_cpu_if __kern *, cpu_if)
-> -DECLARE_KVM_HOST_HCALL_VOID(__vgic_v3_restore_vmcr_aprs,
-> +DECLARE_KVM_HOST_HCALL(void, __vgic_v3_restore_vmcr_aprs,
->         struct vgic_v3_cpu_if __kern *, cpu_if)
-> -DECLARE_KVM_HOST_HCALL_VOID(__vgic_v5_save_apr,
-> +DECLARE_KVM_HOST_HCALL(void, __vgic_v5_save_apr,
->         struct vgic_v5_cpu_if __kern *, cpu_if)
-> -DECLARE_KVM_HOST_HCALL_VOID(__vgic_v5_restore_vmcr_apr,
-> +DECLARE_KVM_HOST_HCALL(void, __vgic_v5_restore_vmcr_apr,
->         struct vgic_v5_cpu_if __kern *, cpu_if)
->
->  /* Hypercalls that are available only when pKVM has finalised. */
-> @@ -232,7 +214,7 @@ DECLARE_KVM_HOST_HCALL(int, __pkvm_host_test_clear_young_guest,
->  DECLARE_KVM_HOST_HCALL(int, __pkvm_host_mkyoung_guest,
->         u64, gfn)
->  DECLARE_KVM_HOST_HCALL0(int, __pkvm_reserve_vm)
-> -DECLARE_KVM_HOST_HCALL_VOID(__pkvm_unreserve_vm,
-> +DECLARE_KVM_HOST_HCALL(void, __pkvm_unreserve_vm,
->         pkvm_handle_t, handle)
->  DECLARE_KVM_HOST_HCALL(int, __pkvm_init_vm,
->         struct kvm __kern *, host_kvm, void __kern *, vm_hva,
-> @@ -249,10 +231,10 @@ DECLARE_KVM_HOST_HCALL(int, __pkvm_start_teardown_vm,
->         pkvm_handle_t, handle)
->  DECLARE_KVM_HOST_HCALL(int, __pkvm_finalize_teardown_vm,
->         pkvm_handle_t, handle)
-> -DECLARE_KVM_HOST_HCALL_VOID(__pkvm_vcpu_load,
-> +DECLARE_KVM_HOST_HCALL(void, __pkvm_vcpu_load,
->         pkvm_handle_t, handle, unsigned int, vcpu_idx, u64, hcr_el2)
-> -DECLARE_KVM_HOST_HCALL0_VOID(__pkvm_vcpu_put)
-> -DECLARE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid,
-> +DECLARE_KVM_HOST_HCALL0(void, __pkvm_vcpu_put)
-> +DECLARE_KVM_HOST_HCALL(void, __pkvm_tlb_flush_vmid,
->         pkvm_handle_t, handle)
->
->  #endif /* __ARM64_KVM_HCALL_H__ */
->
-> --
-> Without deviation from the norm, progress is not possible.
 
