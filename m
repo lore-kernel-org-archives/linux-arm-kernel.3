@@ -4,83 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847CFC55162
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 06:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D83C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 06:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CQ3FXkdxeKWpPhELkqzv7K35M4eBOFi0oyoT0bpmWbM=; b=xlbr+6aQW+VB8NLXXddnuiwX+E
-	OI+HDmNr34Wrz/U2L/GDyMg3f98zKinKpG21rvu8IAW0jj+hb68Wirjt54V3NsOWh8xHdnJlmgBvW
-	HOUOIUSBhajjzQ6ybBQu7wcB4l3v4f0J4i/Svd24iz1cVVhU6n20AmbqMlZ6U95d1wUiyVRhGCZvX
-	4rJ0IjOFGO1n0rSDEWrrivVADyt//CuLaAnFTaoe1vPrPkxzyb5EIzR+7lPdIGWysFMzSWNacROPy
-	ykHKjiVueKtmWrtO34q3NW5IP5zHvNsYSTW2iLUcy34qJ+ilfQZ6nnrF30/fssDp9NKhQEKcgYim+
-	gHJkKnsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8z/Ja8msCQyhEkE0uXSWUZRUIHxD/U1gQXqjPG00wU0=; b=bRtSvKT+M9dRagyoyN/7pAb0pL
+	9aFXeEQc59dXj7ZfvXfCve+UjpW0IBT5ZQfIFjdZ9hdQFT7BeAfDIFjlJ62GZfkvR+9dZp5Xw230J
+	5HQJ+o+FMLS4ntFX97TfWIj2PEdlu9WeiF+4IjDp+mbvqyZOMMi/WYcjrIF4Lsdzd1z6lCkK5DuTS
+	FJwbRZIkrURBAuLeV7Mu2IepcroRdIpCd6ZBzaz1v7Z+cCUFY3K7tZ9bpTMi+NemIUrW9WPef5Iki
+	BjETucmeNyM8huZD76y4zPTNaRdtWTNqexmizGKZOInAo00mMEh5rQ7cg6IdtSq3IzYrB1uob7zmP
+	HUGw6erQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqlzl-0000000GQo5-45T5;
-	Mon, 03 Aug 2026 06:17:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqlzj-0000000GQnm-00pv
+	id 1wqm0e-0000000GQsw-0aJD;
+	Mon, 03 Aug 2026 06:18:48 +0000
+Received: from m16.mail.163.com ([220.197.31.3])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqm0a-0000000GQrS-3uUf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 06:17:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 359C6143D;
-	Sun,  2 Aug 2026 23:17:45 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A88E3F66F;
-	Sun,  2 Aug 2026 23:17:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785737869; bh=CQ3FXkdxeKWpPhELkqzv7K35M4eBOFi0oyoT0bpmWbM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GR7C01RpF8anclulhv3lLdm+7g/UgSg5w56GRavq+rJ3vzytJVeGOQX3l1ViAxpkW
-	 8TCVCQn79y931nRk4K9w1IzCFgIYkI4kUaHR0y4KMrr8fIWLiKrejS4NpQuGec9DOp
-	 ss1cYF/ScRq4fYco1qNBoJA7lj86cgD196NfSXXQ=
-Date: Mon, 3 Aug 2026 07:17:39 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Fayssal Benmlih <Fayssal.Benmlih@arm.com>
-Cc: Cristian Marussi <Cristian.Marussi@arm.com>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"brauner@kernel.org" <brauner@kernel.org>,
-	"d-gole@ti.com" <d-gole@ti.com>,
-	"david@kernel.org" <david@kernel.org>,
-	Elif Topuz <Elif.Topuz@arm.com>,
-	"etienne.carriere@st.com" <etienne.carriere@st.com>,
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>,
-	"james.quinlan@broadcom.com" <james.quinlan@broadcom.com>,
-	"jic23@kernel.org" <jic23@kernel.org>,
-	"kas@kernel.org" <kas@kernel.org>,
-	"kernel-team@meta.com" <kernel-team@meta.com>,
-	"leitao@kernel.org" <leitao@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"linux-fsdevel@vger.kernel.org" <linux-fsdevel@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	Lukasz Luba <Lukasz.Luba@arm.com>,
-	"michal.simek@amd.com" <michal.simek@amd.com>,
-	"peng.fan@oss.nxp.com" <peng.fan@oss.nxp.com>,
-	Philip Radford <Philip.Radford@arm.com>,
-	"puranjay@kernel.org" <puranjay@kernel.org>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	"subrahmanya.lingappa@oss.qualcomm.com" <subrahmanya.lingappa@oss.qualcomm.com>,
-	"sudeep.holla@kernel.org" <sudeep.holla@kernel.org>,
-	"usama.arif@linux.dev" <usama.arif@linux.dev>,
-	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>
-Subject: Re: [PATCH v6 00/22] Introduce SCMI Telemetry support
-Message-ID: <anAyg0hr3S6mfIYX@pluto>
-References: <DB9PR08MB86510C934D2EF25F625A5F38FFCC2@DB9PR08MB8651.eurprd08.prod.outlook.com>
+	Mon, 03 Aug 2026 06:18:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
+	Content-Type; bh=8z/Ja8msCQyhEkE0uXSWUZRUIHxD/U1gQXqjPG00wU0=;
+	b=h7YI8M12Jzaz5cy9Cm5Pn22nsI6GiSamaOgo96RjU2yxsydKU2MISMaZyW1JBI
+	ObiLtpXiM/nE95ktCgP1dHEU7nqD65ujWOMJnyq32AykuXkHx4WStV8le+9EjwYl
+	ot790ANHolh1/E02xQlP6QmkhESoMy4K4kNHEqvnUHH7w=
+Received: from fedora (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wD3T9pzMnBqkykzMg--.4961S2;
+	Mon, 03 Aug 2026 14:17:25 +0800 (CST)
+From: Ju Nan <junan76@163.com>
+To: Antonio Borneo <antonio.borneo@foss.st.com>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Lee Jones <lee@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	linux-gpio@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev,
+	mfd@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] pinctrl: stm32: use a raw spinlock regmap to program the EXTI mux
+Date: Mon,  3 Aug 2026 14:17:14 +0800
+Message-ID: <20260803061718.43210-1-junan76@163.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <DB9PR08MB86510C934D2EF25F625A5F38FFCC2@DB9PR08MB8651.eurprd08.prod.outlook.com>
+X-CM-TRANSID: _____wD3T9pzMnBqkykzMg--.4961S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3Jw4xJFyUCF1UXFW5Cry7trb_yoW7XFy8pF
+	W3XFWYyrs7Jr4rZrW0y3y0vFW5Kan7t3y5CwnxK3y2vrn0va45K3W3KFyUAFsFkr4kXFZ0
+	yr15AFy8uF1DAFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UKzuZUUUUU=
+X-Originating-IP: [2409:8a62:3ed:a880:3e85:31b:6bd4:5013]
+X-CM-SenderInfo: pmxqt0ixw6il2tof0z/xtbC1BZgEmpwMnZTtAAA3J
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_231751_080274_E52740C9 
-X-CRM114-Status: UNSURE (   6.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260802_231845_385559_E9AF966D 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,17 +84,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 02:53:45PM +0100, Fayssal Benmlih wrote:
-> Hi Cristian,
+stm32_gpio_domain_activate() programs the EXTI interrupt multiplexer
+with regmap_field_write(), on a regmap the driver obtains from the generic
+syscon driver via syscon_regmap_lookup_by_phandle(np, "st,syscfg").
 
-Hi Fay�al,
+An irq_domain .activate callback is by contract called from raw atomic
+context: __setup_irq() takes the raw desc->lock and calls
+irq_activate() while holding it.
 
-just a quick one to say that the latest v7 just revolved around making
-ABI feature complete, so closing most of my pending TODO list...I have
-NOT addressed, if NOT minimally, these outstading issues or most of
-Sashiko reports....I will take care of all of these starting v8
-tomorrow..
+That regmap is created by syscon with regmap_init_mmio(). The regmap-mmio
+bus sets .fast_io = true, and syscon does not set use_raw_spinlock, so
+__regmap_init() protects the regmap with a spinlock_t.
 
-Thanks,
-Cristian
+On !RT a spinlock_t only ever spins and nothing bad happens at runtime,
+which is why this has gone unnoticed. On PREEMPT_RT spinlock_t is a
+sleeping lock, and taking it under the raw desc->lock is a sleep in atomic
+context. lockdep's wait-context checker catches this ahead of time — with
+CONFIG_PROVE_RAW_LOCK_NESTING=y the driver splats on boot as soon as
+anything requests a GPIO interrupt (here: an sii902x HDMI bridge):
+
+BUG: Invalid wait context
+...
+(&syscon_config)->lock){....}-{3:3}, at: regmap_lock_spinlock
+other info that might help us debug this:
+... 6 locks held by kworker/u8:0/12:
+ #5: (&irq_desc_lock_class){-...}-{2:2}, at: __setup_irq
+
+i.e. a wait type 3 (LD_WAIT_CONFIG, sleeping-on-RT) lock is acquired while
+the raw desc->lock has already limited the context to wait type 2
+(LD_WAIT_SPIN).
+
+Note the driver is already aware that it runs in atomic context here: it uses
+the _in_atomic() hwspinlock primitives around this very same register
+access. The syscon lock is the one lock in that section it does not control.
+
+The fix:
+
+Register a regmap with use_raw_spinlock = true for the node through
+of_syscon_register_regmap() before looking it up, so the syscon layer hands
+out that one instead of instantiating its default. It has to go through the
+syscon layer rather than staying private to the driver, because both pinctrl
+instances of an STM32MP1 (pinctrl and pinctrl_z) reference the same node —
+private regmaps would give them one lock each and no mutual exclusion on the
+mux registers. Same pattern as drivers/soc/samsung/exynos-pmu.c.
+
+Reported-by: "Uwe Kleine-König" <u.kleine-koenig@pengutronix.de>
+Closes: https://lore.kernel.org/all/20220202174430.pf37tt6lua2op3gc@pengutronix.de/
+Signed-off-by: Ju Nan <junan76@163.com>
+---
+ drivers/pinctrl/stm32/pinctrl-stm32.c | 64 +++++++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
+
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+index 6a99708a5a23..39df117489d1 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.c
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+@@ -1757,6 +1757,68 @@ static struct irq_domain *stm32_pctrl_get_irq_domain(struct platform_device *pde
+ 	return domain;
+ }
+ 
++/*
++ * The interrupt mux registers are written from stm32_gpio_domain_activate(),
++ * which the irq core calls with the raw desc->lock held. The regmap the
++ * generic syscon driver hands out is protected by a spinlock_t, which may
++ * sleep on PREEMPT_RT and therefore must not be taken from there.
++ *
++ * Publish a raw spinlock regmap for the node before looking it up, so that
++ * all of its users keep sharing one regmap, and one lock.
++ */
++static const struct regmap_config stm32_pctrl_syscfg_regmap_config = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++	.use_raw_spinlock = true,
++};
++
++static void stm32_pctrl_publish_syscfg_regmap(struct device_node *np)
++{
++	struct regmap_config config = stm32_pctrl_syscfg_regmap_config;
++	struct device_node *syscfg_np;
++	struct regmap *regmap;
++	void __iomem *base;
++	struct resource res;
++
++	syscfg_np = of_parse_phandle(np, "st,syscfg", 0);
++	if (!syscfg_np)
++		return;
++
++	if (of_address_to_resource(syscfg_np, 0, &res) ||
++	    resource_size(&res) < config.reg_stride)
++		goto out_put;
++
++	config.max_register = resource_size(&res) - config.reg_stride;
++
++	base = of_iomap(syscfg_np, 0);
++	if (!base)
++		goto out_put;
++
++	/*
++	 * The regmap is handed over to the syscon layer, which never releases
++	 * it, so it must outlive this driver: no device managed allocation
++	 * here, and no device to attach it to either.
++	 */
++	regmap = regmap_init_mmio(NULL, base, &config);
++	if (IS_ERR(regmap)) {
++		iounmap(base);
++		goto out_put;
++	}
++
++	/*
++	 * A regmap is already registered for that node, most likely by the
++	 * other pinctrl instance sharing it. Drop ours and use that one.
++	 */
++	if (of_syscon_register_regmap(syscfg_np, regmap)) {
++		regmap_exit(regmap);
++		iounmap(base);
++	}
++
++out_put:
++	of_node_put(syscfg_np);
++}
++
+ static int stm32_pctrl_dt_setup_irq(struct platform_device *pdev,
+ 			   struct stm32_pinctrl *pctl)
+ {
+@@ -1766,6 +1828,8 @@ static int stm32_pctrl_dt_setup_irq(struct platform_device *pdev,
+ 	int offset, ret, i;
+ 	int mask, mask_width;
+ 
++	stm32_pctrl_publish_syscfg_regmap(np);
++
+ 	pctl->regmap = syscon_regmap_lookup_by_phandle(np, "st,syscfg");
+ 	if (IS_ERR(pctl->regmap))
+ 		return PTR_ERR(pctl->regmap);
+-- 
+2.55.0
+
 
