@@ -4,81 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F4AC55175
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 10:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E9FC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 10:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rqEfGWhU7R8NUUfSOVHZHyp4onru3PNEM/Cx10yVXlY=; b=nRtHlXM5FNd/UYYFPq0lh4/Qw3
-	vUPKrjKsRWnZJrDQfc0GwwMKXmpxQRH3YwCwuNQeuHdQHP0+6DNOBcotcsJimXMfuxeDKmCTrpVsZ
-	2KIAJAc9wYu9d2E6GU5QY+961MwdB32P3fQMQGUQwErQUTKaicL+oIt6fYYgwxaNW3TNcoDiONrA1
-	sVdO/gYJTrxp+EjIQ6MkRthUeHYvaTLwQpthhF6v2Few2V2QlfQ78rk6h/DnK+O6HvsZptqbUS879
-	LguxKE0r27boz3VyqZO+H6OAiK/5URrKYhbCLKms30Gkf9qFaXal3BwaHhEIor+ri+JfVeQzk+UCq
-	OilcXqlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P2Ek+l3Tjatt0lvNTcS2kRthcX6o2BA+Q3MtQ+brSac=; b=Q+JWnKlt2fPhH4n0AGjTbjVqaj
+	305siadNC3BQMJYrMCuKKaIys37WVr3nbHlQXTZU9JSG9xafEQz/QoD4SRmmRl3MhEY/zy1+OI2lb
+	VHTpRBGEaINeGwkNRnLkRkjxPoTY318xEBkoU28E7spxCy7VAmanplP99JE0pwJmDHVUrc+Pfd97K
+	Ybyxnymno2w7Ndsqv9NYKmbdeF4x2pKbfBHuEa3W8MgCxkEkXom5+c2YHGEkHX7WmvllG1Qr5TXgi
+	nsW6nGr8H2+t/gOL5+W3XTJe87Pwt9PcQ1XJnwALJ4CcFG9QEVbVWkaum+6A6u5kDhKfQOyYhLmED
+	7QOx0AOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpdW-0000000Gn20-2L1V;
-	Mon, 03 Aug 2026 10:11:10 +0000
-Received: from mail-wm1-x345.google.com ([2a00:1450:4864:20::345])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpdU-0000000Gmwh-3aQB
+	id 1wqphL-0000000Gotw-3IrQ;
+	Mon, 03 Aug 2026 10:15:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqphK-0000000GotC-0L10
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 10:11:10 +0000
-Received: by mail-wm1-x345.google.com with SMTP id 5b1f17b1804b1-493bfc3b84aso10146835e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 03:11:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785751866; x=1786356666; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rqEfGWhU7R8NUUfSOVHZHyp4onru3PNEM/Cx10yVXlY=;
-        b=s2Qj9WkGU8WqyY9G4+eydnLxdBeyJX67HIPPDToDp4ry//oPerVcqGQBRQhUaBK8Wx
-         aa6m8OkRAb9ABkJPD9j53moZEpieGMGSmixRJvCj/8qfP2M6qET//ikpqEe8VgBmT5H3
-         8M8Ln40qZWcFiQknAdCpdOnf2ndRAVgDFhqkLWiSk9vlAwVb+rhADfszrXSBTq+v/axD
-         fGZj2zZvY15Pxa/4O81c5Y7y3KKYlwfPIrRvhTpcr6qLjNsxDERB4Hh5v+mewV3ap7nt
-         eEDJalIFyKP5h5K67ZnCdjR2ip2f4hPkrgmgYF4KeRbcXyJ+rnCicW62N4vd++uPjXYw
-         lbbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785751866; x=1786356666;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rqEfGWhU7R8NUUfSOVHZHyp4onru3PNEM/Cx10yVXlY=;
-        b=F+Q/ZbR/+n16VtOUiVhDr2GWTpDTeJnBt43zEGFgxA1GemcuZ3zekruJ2vBkqrGptB
-         UIcUjMvBVHa8fFKI7VAnL0qEnPbLwEY5Gqz5CJDrfgzID00veeekglCgPFFO34aThBkc
-         lTfcDw841D+Ps8dulg9cSM23WlUFrf2NgDoDbExQHDD3sVaBZcKNjRjaBrNYz9ZCIxVo
-         VNEUJDSufblyKiv2BW4uXwoODl7PTiV0I2J+VW2UWsXy6Z3q4aFmYN5jOKZ5C2ejQaJI
-         9ubWHV9CjZYI8MJJvOERjZxMjuu+9ZB0z86sNm9Rj7PEBYQpezHrD36Lr4oEaiCORsJU
-         EGVA==
-X-Forwarded-Encrypted: i=1; AHgh+Rqno2StBWBUYNEW2b1QeAyyGJhc2UBnq8mY2D6cgXhv44jmLUG6qkQd8xilcR03q3OECI4oMyphh3rO7go+ij50@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6pMZ22HAr+0eUEWNnZJn6wTEHXMEL7GocYfJ64VcUtctzn8AK
-	oOUy6xtIP4tXrdUe9nBjZ1SCkb9N0FWTYgr2I2YfyToP0COEpfR7Z70VPgVuZpRZ3P8RSbH8g56
-	uCsoJRWLEe0fdyGFOe0H7PQ==
-X-Received: from wmph34.prod.google.com ([2002:a05:600c:49a2:b0:495:5890:8f69])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:468e:b0:495:4b42:8677 with SMTP id 5b1f17b1804b1-4980c6a2268mr187471275e9.18.1785751866342;
- Mon, 03 Aug 2026 03:11:06 -0700 (PDT)
-Date: Mon,  3 Aug 2026 11:08:54 +0100
-In-Reply-To: <20260803100904.3563942-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20260803100904.3563942-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.55.0.508.g3f0d502094-goog
-Message-ID: <20260803100904.3563942-11-vdonnefort@google.com>
-Subject: [PATCH 10/20] KVM: arm64: Add a range to __pkvm_guest_unshare_host()
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oupton@kernel.org, kvmarm@lists.linux.dev, 
+	Mon, 03 Aug 2026 10:15:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AD61F143D;
+	Mon,  3 Aug 2026 03:14:58 -0700 (PDT)
+Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E9793F632;
+	Mon,  3 Aug 2026 03:14:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785752102; bh=Nqis0AhewKay1mWAEqC0vpbdPsm8FDS2/zO5ZoQx0sA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OjMlDi8JHKJvNrw1Ik34MDmGLWNRT8F76LVrZmVRN2K7vekVXN7TLR36it838n1Dv
+	 Gd/kjdGQrNqbdlnOm3SRGA+1ZJMtKxa7ymt+v4ppvWbd36NQ/E3mnxDZHREaRfyfDM
+	 OSSiRbQrJp9tg0jndOFgk6iZPt3BP6P3UU4aY6Mk=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Liu Changjie <liucj1228@outlook.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Cc: joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	kernel-team@android.com, fuad.tabba@linux.dev, qperret@google.com, 
-	keirf@google.com, Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Subject: [PATCH 0/6] sunxi: net: add Ethernet support for X96QPro+
+Date: Mon,  3 Aug 2026 12:14:46 +0200
+Message-ID: <20260803101452.2993721-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_031108_929690_E16FA33D 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20260803_031506_215268_4CD40D64 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,106 +81,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for supporting stage-2 huge mappings for protected VMs, add a
-nr_pages argument to the __pkvm_guest_unshare_host() hypercall. This
-range supports only two values: 1 or PMD_SIZE / PAGE_SIZE (that is 512
-on a 4K-pages system).
+The X96QPro+ is a TV box with an Allwinner H728 SoC (the same die as the
+Allwinner A523). The Ethernet connection is using the secondary GMAC,
+connected to a MAXIO MAE0621A-Q2C PHY. The setup is a bit special, as it's
+not using a crystal oscillator to clock the PHY, but instead a clock
+fanout pin from the SoC.
+To make Ethernet work on this device, we need this clock, we need to
+adjust the PHY-ID, and we need the devicetree bits:
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+- To make the PHY operational, the PHY driver needs to enable the fanout
+clock. The generic PHY DT binding describes such a clock already, so
+the binding needs no addition in this respect, but it's in each PHY
+driver's responsibility to take care of that clock enablement, which
+is done in the first two patches.
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index 7fdfe3f22c5a..3426fbb25a4c 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -33,7 +33,7 @@ enum pkvm_component_id {
- int __pkvm_prot_finalize(void);
- int __pkvm_host_share_hyp(u64 pfn, u64 nr_pages);
- int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn, u64 nr_pages);
--int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
-+int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn, u64 nr_pages);
- int __pkvm_host_unshare_hyp(u64 pfn, u64 nr_pages);
- int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
- int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index 53c48cea5f0e..a53600c853d4 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -1042,31 +1042,35 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn, u64 nr_pages)
- 	return ret;
- }
- 
--int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
-+int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn, u64 nr_pages)
- {
- 	struct pkvm_hyp_vm *vm = pkvm_hyp_vcpu_to_hyp_vm(vcpu);
--	u64 meta, phys, ipa = hyp_pfn_to_phys(gfn);
-+	u64 size, meta, phys, ipa = hyp_pfn_to_phys(gfn);
- 	kvm_pte_t pte;
- 	int ret;
- 
-+	ret = __guest_check_transition_size(0, ipa, nr_pages, &size);
-+	if (ret)
-+		return ret;
-+
- 	host_lock_component();
- 	guest_lock_component(vm);
- 
--	ret = get_valid_guest_pte(vm, ipa, PAGE_SIZE, &pte, &phys);
-+	ret = get_valid_guest_pte(vm, ipa, size, &pte, &phys);
- 	if (ret)
- 		goto unlock;
- 
- 	ret = -EPERM;
- 	if (pkvm_getstate(kvm_pgtable_stage2_pte_prot(pte)) != PKVM_PAGE_SHARED_OWNED)
- 		goto unlock;
--	if (__host_check_page_state_range(phys, PAGE_SIZE, PKVM_PAGE_SHARED_BORROWED))
-+	if (__host_check_page_state_range(phys, size, PKVM_PAGE_SHARED_BORROWED))
- 		goto unlock;
- 
- 	ret = 0;
- 	meta = host_stage2_encode_gfn_meta(vm, gfn);
--	WARN_ON(host_stage2_set_owner_metadata_locked(phys, PAGE_SIZE,
-+	WARN_ON(host_stage2_set_owner_metadata_locked(phys, size,
- 						      PKVM_ID_GUEST, meta));
--	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, PAGE_SIZE, phys,
-+	WARN_ON(kvm_pgtable_stage2_map(&vm->pgt, ipa, size, phys,
- 				       pkvm_mkstate(KVM_PGTABLE_PROT_RWX, PKVM_PAGE_OWNED),
- 				       &vcpu->vcpu.arch.pkvm_memcache, 0));
- unlock:
-@@ -1937,8 +1941,8 @@ int __pkvm_ownership_selftest(u64 pfn, u64 pgtable_pfn, unsigned long pgtable_nr
- 
- 	selftest_state.host = PKVM_NOPAGE;
- 	selftest_state.guest[0] = PKVM_PAGE_OWNED;
--	assert_transition_res(0,	__pkvm_guest_unshare_host, vcpu, gfn);
--	assert_transition_res(-EPERM,	__pkvm_guest_unshare_host, vcpu, gfn);
-+	assert_transition_res(0,	__pkvm_guest_unshare_host, vcpu, gfn, 1);
-+	assert_transition_res(-EPERM,	__pkvm_guest_unshare_host, vcpu, gfn, 1);
- 	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, 1, vcpu);
- 	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn + 1, 1, vcpu);
- 	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
-@@ -1955,7 +1959,7 @@ int __pkvm_ownership_selftest(u64 pfn, u64 pgtable_pfn, unsigned long pgtable_nr
- 	assert_transition_res(-EPERM,	__pkvm_host_donate_guest, pfn, gfn, 1, vcpu);
- 	assert_transition_res(-EPERM,	__pkvm_host_share_guest, pfn, gfn, 1, vcpu, prot);
- 	assert_transition_res(-EHWPOISON, __pkvm_guest_share_host, vcpu, gfn, 1);
--	assert_transition_res(-EHWPOISON, __pkvm_guest_unshare_host, vcpu, gfn);
-+	assert_transition_res(-EHWPOISON, __pkvm_guest_unshare_host, vcpu, gfn, 1);
- 
- 	selftest_state.host = PKVM_NOPAGE;
- 	selftest_state.guest[1] = PKVM_PAGE_OWNED;
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index f8e2618c78e3..3b8e95b83bf4 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -1119,7 +1119,7 @@ static void pkvm_memunshare_call(u64 *ret, struct kvm_vcpu *vcpu)
- 		return;
- 
- 	hyp_vcpu = container_of(vcpu, struct pkvm_hyp_vcpu, vcpu);
--	if (!__pkvm_guest_unshare_host(hyp_vcpu, hyp_phys_to_pfn(ipa)))
-+	if (!__pkvm_guest_unshare_host(hyp_vcpu, hyp_phys_to_pfn(ipa), 1))
- 		ret[0] = SMCCC_RET_SUCCESS;
- }
- 
+- Also the MAXIO PHY used on the board is the -Q2C variant, which uses a
+slightly different PHY-ID than the Q3C variant described in the current
+version of the driver. Add this new PHY-ID to the driver, but also
+allow it in the DT binding, since we need to use that PHY-ID compatible
+string version, to skip the MDIO probing process, which wouldn't work
+without the clock. This is done in patches 3 and 4.
+
+- Lastly we need to describe the config in the board's devicetree. Patch
+5 adds clock fanout pins to the .dtsi, which the final patch 6 enables
+the MAC and PHY nodes and connects them together.
+
+This enables the box' Ethernet functionality, made possible by the new
+MAXIO PHY driver. The MAC part is already supported for a few releases.
+
+This is based on v7.2-rc1, plus version 2 of the MAXIO PHY driver as
+sent by Liu Changjie. Since those two patches have been reviewed already
+some weeks back, I assume they are ready to go. Please let me know if
+that is not the case and if I can help with anything there.
+
+Cheers,
+Andre
+
+
+Andre Przywara (6):
+  net: phy: maxio: prepare for more DT properties
+  net: phy: maxio: parse and enable PHY clock from generic DT binding
+  dt-bindings: net: Maxio PHY: add PHY-ID for -Q2C variant
+  net: phy: maxio: extend PHY ID matching
+  arm64: dts: allwinner: a523: add EPHY 25MHz clock fanout pins
+  arm64: dts: allwinner: a523: x96qpro+: enable Ethernet support
+
+ .../bindings/net/maxio,mae0621a.yaml          |  4 ++-
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 14 ++++++++++
+ .../dts/allwinner/sun55i-h728-x96qpro+.dts    | 28 +++++++++++++++++++
+ drivers/net/phy/maxio.c                       | 27 +++++++++++-------
+ 4 files changed, 62 insertions(+), 11 deletions(-)
+
+
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+prerequisite-patch-id: aa3058cd68d68f361088b39cac0b12fb96be8b55
+prerequisite-patch-id: 90f19ec9993e373e39efda42984c88d7b51151e5
 -- 
-2.55.0.508.g3f0d502094-goog
+2.43.0
 
 
