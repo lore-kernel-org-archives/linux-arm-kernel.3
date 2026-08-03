@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D32C55838
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C19C55843
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bB3Mjcax3tBKt7JKgn9PZzeuUNP6ITVHdTZvwcqZ2hk=; b=15Vqy8JXmj53xXJISXB03mY3er
-	x0mZYKqMmPPA66/C6Z5w2r4UNLJ0W2EXsQjxI1n+KmoJ6rvv4awiEydUu3rSF0IrVRalkmKvRLfoi
-	CwTNi9Nl/pQz4zhj0EB6Nksx13jQ0pQPIR+UmXC2hoLn5w+Y9Vwq4Hz8up0wiDk8Tq9yV1FeGi0Qx
-	C1t5aIEqZKb0ZbqhBlnIkzaimdE0ho7oqSY+393dZMi+0iBEOUp2Ic5A15GPp1WGGVTder250RqqW
-	E07iARR9dP3Ou7aJp8rpdbFhV7VfbSETQXIf3FYc3Mx85UAf1YUYEgbbltm8UNbeDmpaB/zVVcR6+
-	ABwM7z6Q==;
+	bh=dnqbqiBcwzpBIhqNjirHvsgbc+xRb57zmu8bsC1BP9g=; b=nkPrfXrKPaub0VyXAylUvp8NUI
+	MKm2/+hXCDDSuB31TSfr5ExbXqZSG7rCld4NQfYOTBO/HqlzQfpauVM6eYovkhYgnM2HGDicdPprJ
+	gG0BCV6cl9qosrGt6CFW3eir/I75IhIP4Xv5rNSwE3Sx01ugv3dcv5brppvgyojrV26HvBpMKdhNg
+	EVdVKO0WOdvhDf3J+WS9Q6yZHGxCoVLC49SsSHBfd+VqbCnmw9ukb9WC7gDejxLNDPjdQUsdHRTkY
+	pNfYyJvXblDQ2gnxx34OX7XOsUob/sam9a4AdmIEfhSUgDvXdR5kFswiMrZEo+nb/W+HKBONoho3H
+	Ib6LTiXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2E-00000000Hxl-18L6;
-	Mon, 03 Aug 2026 18:05:10 +0000
+	id 1wqx2K-00000000IAN-2xGz;
+	Mon, 03 Aug 2026 18:05:16 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2B-00000000HwA-3Spk;
-	Mon, 03 Aug 2026 18:05:09 +0000
+	id 1wqx2F-00000000Hxh-1ENi;
+	Mon, 03 Aug 2026 18:05:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785780303;
-	bh=gsnLkYdJot6Z1ais3o8Gn5zKRKRHUmR6IXkylWaPyJE=;
+	s=mail; t=1785780304;
+	bh=GcGQu+BFm9oPmZHzAujBqT6aIdDXQL2Hqtb6N/i0x7s=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XqBELNTGDIR6Kn23VzSalnNY3N0Z3qALuVcDDGA6lM9LDt/j/3HNV2v0zLTipDjX6
-	 q0AYBWNEKOfwhFAzqXjhPesBO5fNHOv/n1beAEJcjNLFRwy7Aqu6OIYZEHAcmtqcPP
-	 WYpUpvIddA2q1Cwzp0Rf6uL1eGd9qgbIDfvAuQjE4ifdUy3tFLOPXab/vKZ9RlaaBi
-	 rAhSZ/24s/YMjYUP5kZb/GkU73ojhT3bNZ+8Qzw+Q6nFdwmQGS6MG8VgDZEIpoNWvQ
-	 mo2g0k7y0dXx3UJE2iXHM81XEjSN8QXRoPqoz8+rr3zi1tlAYCU3aL8bVyBitqMGUD
-	 zjBwy82rAivWQ==
+	b=EIl2wwhTJFInLF67eshJeFf4D5f2bGGjBhuP2tzdaKPQSKgNxIRO/uqv8H7AJUmCt
+	 R82EVIaeSOdwcgJj7OsJEzbSVQN0IBmeFP7aS6hISlUrmgXjtm9MTTpruoYtqwzSiK
+	 KhIZ0x/um63TfcG/BVcYhoUTVohhZpHtrRv+JcWy9QE3hKPLJeXcX4NoAUKunqhOUU
+	 u+JDZxO5U5AeBbj1kd+2BQGNMTw+JRkLLf3ztNKoiN4dUIcqFJOz+INH9zLKNCHQCo
+	 OihEEfsEz62XxahVs8HF+QDGls9hCieoChy7Z3N6s7rbNh47rSAYw5U6AhvJHjn6JI
+	 Z8h4gH6NOHxxQ==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BA6D117E08E1;
-	Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3276617E1104;
+	Mon, 03 Aug 2026 20:05:04 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 6473048002F; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
+	id 6D66848003D; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Mon, 03 Aug 2026 20:05:04 +0200
-Subject: [PATCH v9 03/22] drm/bridge: synopsys: dw-dp: Fix error handling
- in dw_dp_link_enable()
+Date: Mon, 03 Aug 2026 20:05:10 +0200
+Subject: [PATCH v9 09/22] drm/bridge: synopsys: dw-dp: Free output_fmts
+ when none are valid
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260803-synopsys-dw-dp-improvements-v9-3-2e6e46135312@collabora.com>
+Message-Id: <20260803-synopsys-dw-dp-improvements-v9-9-2e6e46135312@collabora.com>
 References: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
 In-Reply-To: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -79,26 +79,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  Sebastian Reichel <sebastian.reichel@collabora.com>, 
  Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1144;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1057;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=gsnLkYdJot6Z1ais3o8Gn5zKRKRHUmR6IXkylWaPyJE=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E5RW8CHJOFx/ap2kREctC+xp44RGQRb9
- 3YHU9jsZxop0IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhOAAoJENju1/PI
- O/qazc0P/jmxNEHDRPWvJ9vOHzDo2Pnelys/zqgKGjCVWSuCzKv6BxJ19dXi8Ur+m+P5h62Z6Ke
- BTz8r+dgEKl3BN7BEk4umBJlFxniNmFfqGP6zOB8VG+mNzzmIpKpcuKb15yGGEx4fERiSB1H9rf
- qGE+66Bd2fu7ISUTiIkEBKbEsB1t8n8KDoNhK+wwz4Ms8AJficCUawYDCfMVyWqJFaIMM3M6I7S
- EcW8x5X1Il+GXJLEX/LrnzuGjpLjSsHlIqaeKSv300Av59NUf2yf2qsU2YqPrvHd+S7oxvo/Jew
- y5i2XGnWADjUf7jZG1p6N2rQduwATvnYZRux+prwxRKA6Pb3IGrW8K/modMdK9BNfMLY9FTC8El
- Fz1rpzBQIyR8rWgNIQhSL4OYah2ISfz4JuzM+H+7XOroJZNDGXdrb3fictmOfhoiWV1oJ52hqV2
- ckB5t7e/zAtCi8IbAZG//UvCHZJH3tFh0MISnNplviqnxKrMR2elY7aeLoNskE8VkYE3Euyt6Ge
- xoQHUF6Ijyf/4dTdq/VCgntDzX4zKNlyQz8DUQO2xOaUJEr32kNoiJVqi67DOgeHSN6scPn4Pah
- UkyKms2F6uzgS8qCD+F8hnux1uLyJ1QD5qrp5z2fTb//kTIEO2CMcWnxuwapx17r3HWfIIjKwij
- qSSuKrrsTm+r2A+xCK0swvA==
+ bh=GcGQu+BFm9oPmZHzAujBqT6aIdDXQL2Hqtb6N/i0x7s=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E7yZyKT1Iv3rcOC2ucMejbG03+Qo3qdB
+ TiKuy/dUbY314kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhOAAoJENju1/PI
+ O/qabioP/2eHyDr5D6AtCEohMUlI7OWcgWD52MCFamJhFA+GnQUakQaBeIVvXGS05JVk9GSrRfP
+ QXbYseD6JrAn+x8LnAJ2pIocmMf0KgldXpBtOItdehi4VB5hp4ZfnPuacIQ5WxYSD69oeIxlN6W
+ Tu2PrsbgHY8BsNXzO8XriNocxRnnTGHZYQTSU+5aiGj2GNSHyHBpbYGw1KvkHgcUyPoY55d/jEt
+ d3ud/jjWBMdwQdp1m0lk437BAnewmudgiUzk/BppE7E7hHC2R0M24JQmKxR1oM5myTnFb+24NmH
+ M6heUed/v3ay0gjLvLKU4xexxfiY5laQrIk9i6C5ce0RcJKBZAjJ7gvbAi/fLhBleaX+hCRv+Ud
+ hAahQClpR0iZxWOakqnRkv7vb9tdwJESXKQ0/ZpddW25P55EPff21MjDicIX7n+WcC3KdXTxA7/
+ PF62AiWP0AXpF8Dh51lYpAuTALvwg43retHD1zPLpiDoEhJKWpVab3nAoTzMBqjULC+Uiyjt7PT
+ rL4gIA87eUTHj2cHMysZnClraOztkjoJG4XgKCPFk+CTtXQL9EidUdlRq25oeiX5uJKEgEF7qHV
+ ar73mQqpBIenJoJXzvgly4uoIhfA0ljtsTePYa5SWlQC3wGqYZefTn1mKwmFgpb4JHEGoMY00Fb
+ h1iflOrl3ocpMuwhCq/Au+A==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_110508_027190_A0111B14 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260803_110511_526334_DA9E7FBB 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,41 +113,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing error handling in dw_dp_link_enable(), which failed to
-release resources it already requested before hitting an error.
+If dw_dp_bandwidth_ok() returns false for all formats, *num_output_fmts
+might end up becoming 0. In this case functions calling it assume that
+nothing needs to be free'd, so free output_fmts within the function to
+avoid leaking memory.
 
 Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 06997208945e..e332d66b8057 100644
+index 22a244de08aa..bde938b0d116 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1636,10 +1636,19 @@ static int dw_dp_link_enable(struct dw_dp *dp)
+@@ -1813,6 +1813,11 @@ static u32 *dw_dp_bridge_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
+ 		output_fmts[j++] = fmt->bus_format;
+ 	}
  
- 	ret = drm_dp_link_power_up(&dp->aux, dp->link.revision);
- 	if (ret < 0)
--		return ret;
-+		goto err_phy_power_off;
- 
- 	ret = dw_dp_link_train(dp);
-+	if (ret < 0)
-+		goto err_link_power_down;
++	if (j == 0) {
++		kfree(output_fmts);
++		output_fmts = NULL;
++	}
 +
-+	return 0;
-+
-+err_link_power_down:
-+	drm_dp_link_power_down(&dp->aux, dp->link.revision);
+ 	*num_output_fmts = j;
  
-+err_phy_power_off:
-+	phy_power_off(dp->phy);
- 	return ret;
- }
- 
+ 	return output_fmts;
 
 -- 
 2.53.0
