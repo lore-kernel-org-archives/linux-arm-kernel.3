@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71D86C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 05:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB96BC5518C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 05:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SlcJviNfe1A7bPODjwx5akEOsNAeWr5kscTUhAqnE8U=; b=wwppb6Ndsd/O3eXsFmZR7wMw97
-	OXtZ8flep7ZXj9yF6IVigq9aQcPZlQrdgOR9I4nagAss0jk3/pxNZuC6hgw0CiTKVPMuVT38HFA46
-	xjfdDFOzROwc22HWtx8NR2iUVY4eKfHCtGkHywG5u2LqnyjgvSGzdXlPKVTACDvM1Uqo0bwClO3IB
-	aIC9YUfjjsXbghdATXIGVMqa6isDQgmYfx73Y14UzlxLeMOHeHgmSP0yP2qzgSJeKVoX0Zmg09Okg
-	Ey2lXLbsa4xbV2z1b2DsZh6msxJ6uNerEFaq6qjQupJEP2zCJ3pSeP6xkquSFSB6Mk30+cj0jJVef
-	s6baZuiQ==;
+	bh=ufELgsZA/AuhdmDVFD2N+JzOSgNytpSBYv7TBEiLCKU=; b=iz5hDtMsrMtWiCoeaZ/vQHnxkm
+	SZ9JgkklWz2BV3yo/CCwIz+B8aZTK05hMGGhxYUwhOojCdHhOECaCbq0S8Wk2KeT5yyrWfmM2HV+i
+	HE7/huzATvkwAM1iQ3efF4uGNOxjIwK9RHNYJ7iDzu1pdy3D/nfF/KMt+5wy6459FeOL/q2DkmTZs
+	0fqcew4JeBnmDtHdtobeOrr1SOAGQWjXUeZ85mB//xm3C+RsEZqsBA+iBhpCGQsFAD4tO9DKmZEd4
+	hfgavY5lZv1BTJiE+skshnEHqHYrCiVcWxsgnM93fwSGnorMuC05qYMVRuCVBYvgaYJ2MDFbLGl4z
+	LCQHbJMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wql1P-0000000GKYz-18wU;
-	Mon, 03 Aug 2026 05:15:31 +0000
-Received: from mail-ot1-x336.google.com ([2607:f8b0:4864:20::336])
+	id 1wql1T-0000000GKgg-3Ae2;
+	Mon, 03 Aug 2026 05:15:35 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wql1M-0000000GKUY-12GL
+	id 1wql1P-0000000GKXz-2ZmF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 05:15:29 +0000
-Received: by mail-ot1-x336.google.com with SMTP id 46e09a7af769-7e6b554044fso2627237a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 22:15:28 -0700 (PDT)
+	Mon, 03 Aug 2026 05:15:33 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7ee37dc91f5so1801335a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 22:15:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785734127; x=1786338927; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785734130; x=1786338930; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=SlcJviNfe1A7bPODjwx5akEOsNAeWr5kscTUhAqnE8U=;
-        b=JftnwSh0vTgryg3sz+MQ80VWhNqAjo5rGGOFgh2crtD0hI1TDgThCznfTuGheW87Y8
-         k/1iTWbXsFbk1DNTQO0FXCmgxb8/V0+e4OIZz8EteyyV35GFL62VIWmEWrAX/Up/nydA
-         sn9ig41y9QA6D99vaSa1m2psBZBrfXvLh8kgcpEz468ln8R7rFUo14nH20OafsuB72k+
-         xkPcOs6oYrQKsE0XieB0Yj/qjVurJjFHDDMVeYgGA2M410Jq+CqjjFeV3fNfuIFn8vtv
-         1FwDrqSRppaXqzq456VuD9Dj+XPtCmr0wuJpv9FtGOqlzHQoQVxJvkmcmNnQSrQMaD8B
-         fz1g==
+        bh=ufELgsZA/AuhdmDVFD2N+JzOSgNytpSBYv7TBEiLCKU=;
+        b=NFxHxg9xwCwTOJPJ9Dm+9C6q/m22GtY8RjcQxMMl3Jka0VftJ1SJKbUnry6PDBdWGL
+         R9ru4dcyWXPczYA4F+RKuqQIN8iPi+krNdUg2G5LtoOcHuAFYKSTdPYsGDRVA50OZaPr
+         olVNGAR7mtHAQpu6X+HY5CA94oYT09teJhcHsQXqKoxQJRr76nclIMwbBz3qBpMpJNT0
+         LQOPIimQLWOtJ/S+KLRIDjqt4anmn0gfdZQTj7cx8hBC9xVAHjarQQhEyVA0IayAQ5GW
+         l9Aq8/h/A1hgN/MdQG4Ai5JOPJkZjEHbeIwTnt7sYb26w412zLGA8bfUSAtaLsYSt3bf
+         7+zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785734127; x=1786338927;
+        d=1e100.net; s=20251104; t=1785734130; x=1786338930;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=SlcJviNfe1A7bPODjwx5akEOsNAeWr5kscTUhAqnE8U=;
-        b=XFuG+PQ46Wr2XuPCKlf+gYeEC52th4SdTIDWOb/YDJ4Dc1GhAwl8j16mGwJAdYW8aB
-         54auAALOo7yxs6RUwlvWhnVHsJonSsKcfTLnsc6L3Tbk/lGe0lNeoC69kb8HIq8WYpwB
-         IA6IAUD3zId9i5CnneOHeGCkOJTJlqP/u2dLHVrbAHXYfrle8HCpxOSDmw/nw2oDXYYS
-         anLN5LFAGzJmoo4rw1lpyNXFOWfCrYhAqFlBIPWcXrBNC03NCk3uQux3esEdKDCled22
-         PA/eetcQE2FdxJi3RmeCOr9wgltzHgCR7Bff2c4qn/g3SFuY1dnBdLqfT8Ev0jBv7Sd8
-         jcnA==
-X-Forwarded-Encrypted: i=1; AHgh+RoIWcwAajv7i82kM/AYcwqXl9EohcxdY012VH9RWi1TsqfGyXI8Sb1LaCdONIqsVpvfSDh5dz5bdhNxZ/TKaBAw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyD0RvGTBh8v1DWPrrB2vT7mRUsM+04pndntRb7lagwPuHFa9gN
-	QYbLz104RjTMEbF/9dtaHSBTlsi3tHCVyiB58iNIrqlz/py2UN2eRecuBU6GFKDu
-X-Gm-Gg: AR+sD116U2Qc+S0WURuXvSCOtYellh4OBj1bk+1+Sm+0RtpT5i6r8hodCH0SlheyhDR
-	684vVp5q/CgjnxujXZBAk8LudTXlrF4VlvY29sHogWqKA1QzB/zdaO924k5ALkV+IXOBprzk+7u
-	ab8JIBXDivX5hzcfFnyuaAoohj1hQgGdHGzyeXbw9YSqYuFpDl1x2NQHGVdUI7F7ZxV/4jIoOnL
-	2o1AijpZYeCkJadfh8EUtTn0o0PEOfk49moQFtGJu0Nj7NQUCKCI54ocLkYuLPIdV0qjbX/rRrV
-	ckzP03OLsoFMJ2+iZql35yWVjgARXrQUBar0tbHuhFsfuk1ixOCX/UVm+kfUz6gYlfxVh5NXP4u
-	pmH8v0EaBkgdXrEcX1DJOhcEVvVA0FuOk6dPDZcnbGG8qqvSHj2wvhx8klCIqa/AYrbuLxqauem
-	BKT7n1ojMhHu39ajyNQ8Pl9I1pj+ciZgHsR7nOwbmwPCENZXEzcWMCpq/JQftujnufW7YSvOycm
-	3eA9cUD4DjM8qzoyIEkHLDBDTHoGnOGpaTNk9jDcKDDPiW9ciqGt+njl36avnZRaVPp/yvwzX8K
-	17Ph+Kj737m86A5DmUPev8w56d4Alg6lYMLhByrbZwnaSc6zUzsPJdAB+M2soNWigmKa8ClUzml
-	2dbx8LH/EMisDEYpN
-X-Received: by 2002:a05:6830:211b:b0:7e9:c102:333d with SMTP id 46e09a7af769-7f196f8ad8cmr14493591a34.9.1785734122667;
-        Sun, 02 Aug 2026 22:15:22 -0700 (PDT)
+        bh=ufELgsZA/AuhdmDVFD2N+JzOSgNytpSBYv7TBEiLCKU=;
+        b=K/Y484lgnntB33LTfUsC7+JrwrKiullBmPFXmfBSb5u9z6uV2FGMlrEp+GD30Mb/AB
+         DGfEaHZ+pbPX3XKc+wZDkLhM2AztU38EkS0doJ0Pco9F5ms/PtDAC5Onjt5+EpGGDa9O
+         j5I8Vr5fbls05cnu8IGo+VYLLsJaedFqpY+I3IuiJI2s+ZuTaGOQepJlj1ZMa4U+mjCL
+         hMPgy6xfA/5W4C5EZnzyE3xAh9GdBQ++MjGawVfow9i6ruXAfBicqyzG/0r3xSxCv7Xd
+         NbaxnC+VPrQkk6SjhLOEGFu0DIlU4sG5YLDBypACrFUoUe5n4cliPwaC7eeQDjHJgS/q
+         uZKw==
+X-Forwarded-Encrypted: i=1; AHgh+RqzmlFOMbyuK9RRmjbG3nKfImYQQ66FSbEqwG6HchbkGVsxGQuWnUyQ+kFCXnyrxoXiDVRId1Qx9q0F/XZ8J1kj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwujacRoYCxTYvKJx192iTlDLtrIyK0jxeKloW46xlIlK9tnwV9
+	HrlWpzRqyI6IhQj5woG/n+bJxtN5YKTvHFslIDJ7rvhPeaHB12hUQQ/yNOqwbfFX
+X-Gm-Gg: AR+sD10cOSx6or0DzjJBC3TcCciOX2eSgnLuceW5tPs0By5hNiwM85OJ5V+23CqLmaY
+	SysHj3ga4GrpQHNB248cPz9Ug0u1IRyNoBldEma9q22dasiUQZYKMuPHUX9Pe25ZasFvdN3zKze
+	3T5M3021HuJ5cpE4iCUmJn5BtLtNrQEsmVgzom0ZcQZjC/Qv1jr0PJ7sCBoZaKVdbAhefimk5uz
+	0MyeRr+GY9KBxqjHLlV9FVOwTs3V29eRhQiAJQSMVGLsM3KQpWtIJ62FHR5XFTpwT7Jq6krfNlZ
+	lTxXCmmqONV21dUmhvRNPRwqHIPiQLL35Afvax+/0t5DBtXPGF2iSbLE+NVHVr65a1yvX/2oHci
+	orix63VQaUDeYtk4GeqYIX9OvsyIhaY87Gp8mZizjLyzaXj1nzb6WBhWKcLHGP/8NpHn14fKXdg
+	5NVj6RPb7Y3ETMJzRg6VghoKZQlm5JP+KLhyML8DGhea9jdq76Yyxyv3UY9MJ7pSwEPShw6BM/B
+	SNOpPKIlr0jrJ/BXXkxV0yGCdZZMbpsnh8xDdnEqdsu+E8jkI/ypIfATkbs0UUZO8rhvGvxyEAG
+	SZpPW6eJqT8ck9ImAgWMfmyzZwHR+MomPNstg4x/onQPjZw2eJdEMmPD1IVfQkIVUXGgT76qTxI
+	JREy7tjbf0uVFXW/MDmfKnBAnh4OP
+X-Received: by 2002:a05:6830:81f0:b0:7e9:cad9:4bd0 with SMTP id 46e09a7af769-7f196b1550cmr14686937a34.3.1785734130353;
+        Sun, 02 Aug 2026 22:15:30 -0700 (PDT)
 Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18f07a5e3sm6787108a34.15.2026.08.02.22.15.21
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18f07a5e3sm6787108a34.15.2026.08.02.22.15.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Aug 2026 22:15:22 -0700 (PDT)
+        Sun, 02 Aug 2026 22:15:29 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sun, 02 Aug 2026 23:14:12 -0600
-Subject: [PATCH 02/21] net: stmmac: sun8i: add support for Allwinner H616
- EMAC1
+Date: Sun, 02 Aug 2026 23:14:17 -0600
+Subject: [PATCH 07/21] dt-bindings: net: x-powers: add AC200 EPHY control
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260802-submit-acx00-of-dynamic-v1-v1-2-0a53cd9e21cc@gmail.com>
+Message-Id: <20260802-submit-acx00-of-dynamic-v1-v1-7-0a53cd9e21cc@gmail.com>
 References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
 In-Reply-To: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -109,8 +108,8 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_221528_341468_288C2FEB 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260802_221531_696960_273D87A9 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,69 +124,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Genoud <richard.genoud@bootlin.com>
+The AC200 companion IC contains a Fast Ethernet PHY controlled through
+the parent AC200 I2C regmap.
 
-The H616 secondary EMAC uses a separate system-control clock register
-and supports only RMII at 10/100 Mbps. Its EPHY is provided by a
-companion AC200 or AC300 package rather than an internal PHY block.
+Describe its control function, including the interface mode and optional
+SoC SID calibration cell. The vendor sequence adds three to the calibration
+value modulo 16 before writing the BPS_EFFUSE field. If the SID cell is
+omitted, the driver can use the AC200's internal copy of the calibration
+eFuse. The link-PHY driver supplies its Clause 22 address when enabling the
+control function.
 
-Add an EMAC1 variant using the dedicated register and mark the PHY as
-external. The register retains the standard five-bit RX and three-bit TX
-clock delay chains, so expose their supported ranges to the shared
-syscon setup.
-
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ .../bindings/net/x-powers,ac200-ephy-ctl.yaml      | 46 ++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-index 48c52eb96233..fdc0c3384af8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-@@ -81,6 +81,13 @@ static const struct reg_field sun8i_syscon_reg_field = {
- 	.msb = 31,
- };
- 
-+/* EMAC1 clock register @ 0x34 in the "system control" address range */
-+static const struct reg_field sun8i_syscon_reg_field_emac1 = {
-+	.reg = 0x34,
-+	.lsb = 0,
-+	.msb = 31,
-+};
+diff --git a/Documentation/devicetree/bindings/net/x-powers,ac200-ephy-ctl.yaml b/Documentation/devicetree/bindings/net/x-powers,ac200-ephy-ctl.yaml
+new file mode 100644
+index 000000000000..b3337c3aa62a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/x-powers,ac200-ephy-ctl.yaml
+@@ -0,0 +1,46 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/x-powers,ac200-ephy-ctl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- /* EMAC clock register @ 0x164 in the CCU address range */
- static const struct reg_field sun8i_ccu_reg_field = {
- 	.reg = 0x164,
-@@ -143,6 +150,18 @@ static const struct emac_variant emac_variant_h6 = {
- 	.tx_delay_max = 7,
- };
- 
-+static const struct emac_variant emac_variant_h616_emac1 = {
-+	.syscon_field = &sun8i_syscon_reg_field_emac1,
-+	/*
-+	 * The "internal PHY" is in a companion AC200 or AC300 package,
-+	 * rather than on the H616 die.
-+	 */
-+	.soc_has_internal_phy = false,
-+	.support_rmii = true,
-+	.rx_delay_max = 31,
-+	.tx_delay_max = 7,
-+};
++title: X-Powers AC200 Ethernet PHY control
 +
- #define EMAC_BASIC_CTL0 0x00
- #define EMAC_BASIC_CTL1 0x04
- #define EMAC_INT_STA    0x08
-@@ -1278,6 +1297,8 @@ static const struct of_device_id sun8i_dwmac_match[] = {
- 		.data = &emac_variant_a64 },
- 	{ .compatible = "allwinner,sun50i-h6-emac",
- 		.data = &emac_variant_h6 },
-+	{ .compatible = "allwinner,sun50i-h616-emac1",
-+		.data = &emac_variant_h616_emac1 },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sun8i_dwmac_match);
++maintainers:
++  - James Hilliard <james.hilliard1@gmail.com>
++
++description:
++  The AC200 Ethernet PHY control function configures and powers the Fast
++  Ethernet PHY in the AC200. Its registers are accessed through the parent
++  AC200 I2C regmap.
++
++properties:
++  compatible:
++    const: x-powers,ac200-ephy-ctl
++
++  nvmem-cells:
++    maxItems: 1
++    description:
++      Optional SoC SID cell containing the Ethernet PHY calibration value
++      written to the AC200 BPS_EFFUSE field after adding 3 modulo 16, as
++      prescribed by the vendor initialization sequence. If omitted, the
++      driver reads the AC200's internal copy of the calibration eFuse.
++
++  nvmem-cell-names:
++    const: calibration
++
++  phy-mode:
++    enum:
++      - mii
++      - rmii
++
++required:
++  - compatible
++  - phy-mode
++
++dependentRequired:
++  nvmem-cells: [ nvmem-cell-names ]
++  nvmem-cell-names: [ nvmem-cells ]
++
++additionalProperties: false
++...
 
 -- 
 2.53.0
