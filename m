@@ -4,120 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9385AC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 16:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A82EC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 16:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=niqvePJlDSQd28Qyc7y5gE/vwAYMmaOcsvRZCG9PwY8=; b=hxlZDVZE73BgDvw5LSBvYDfkJx
-	ch2Qhd8Ab0VsGCHEJhQK5bocTtmFX+xU3KaTp32MOC+YIRkU7w//R+G9Sl4d+Qw69E6mU04/qEdvP
-	SvY5P7GLsLERFf6NtPt2fGmvT0QtYIadajobIIo8JH/BsRq41KsDe5J/eIqKm2zHRJ8vzsF0+k23y
-	UHoghTG1jFGGttcRDDtI1BKWfyTJLl3oTItSdqvEmMZI1+VrWt7FlAm9M4ADfGEskPDtfxDvklEz4
-	WgTgF5++M13k8OEDxstgH+w8IexA7KMMQ20mLqu0q5qfruhc88JNt2+G9+hH0XCaaTUrPfejqSrAo
-	Sjm+mM+g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SXxFPuDCxz3Aji6z4V5I94Ca9I9A0J3OETny9fcwk9g=; b=bAEtqFoPkXQocw
+	yyC1WVep67JGQwXIHxrpJwBr+HJlwB5WvJCtTDJoUw/2kZ3+SQe2L0GKtZ8HDg6OSp1HKPRjmh3Lh
+	l8bGipPz+HtP+EQBAnMvQ6SN8Iw1f2cC2ekTcwJ30/tQ2dmayaA3Xe/Xxq+vaABEdrFWCrXmfAJKS
+	C72PFgXOrscSa97NDgAwxUKMm4dYpupAXv8fF+VAA9PgEF9uoS95eQjQs2Fo4RUDBz1oYFnV903Da
+	koRHBN3QfZ9RxF3ScLRqIMNb/imdEPHnYBYrO8sTVXAK8BrDJKO8ad4yuidr53RnD/yYckISnvIf1
+	JCbL3nq0y8HuVLW0XH5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqvnH-000000008B4-2L5c;
-	Mon, 03 Aug 2026 16:45:39 +0000
-Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
+	id 1wqvnT-000000008Ho-3BcH;
+	Mon, 03 Aug 2026 16:45:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqvnF-0000000089j-06HG
+	id 1wqvnS-000000008HG-2mft
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 16:45:38 +0000
-Received: by mail-ua1-x936.google.com with SMTP id a1e0cc1a2514c-96723c7151eso891180241.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 09:45:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785775535; cv=none;
-        d=google.com; s=arc-20260327;
-        b=QZRZSuzwkK3RtTvS0xeiKkDnbdS2FMSFoYn7EnaHpqOSurdGQAUn3GxEpcbPIy3Qpu
-         D9OAOqKZ43vSv9jn5fDBry7Rf/kS6+vpUvaXrL0GO1uwSI24khpJB5tI7yxN4bFd9TO0
-         X7co/Gg4qdVK2Qrd9sylJxvSzA7lFggef10u96O2gNXC4HAvahxysCrooPZkPsd8MVs1
-         rmOVd34grHNB4a0deTExVR+cZ74oXbf1V+iHnMSSAXH8e+9/nxeQIhM4Yt9Q7vC73XDF
-         tga0YuMsLIH84gfKY+61SjkTH/3fYEzMPB6shf+oKhqjI0KCAv51U9zIGMvW7cA4K6Px
-         uFsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=niqvePJlDSQd28Qyc7y5gE/vwAYMmaOcsvRZCG9PwY8=;
-        fh=0JrOyvHPizOMYF8APdriyTkdIaN3nRwvYkZDfk9TSJY=;
-        b=U78GastreaUv+ec0/W12kkqGXiifV6FYt7ykcqtqUO9FaqPhpVWhUzF3sjwWnIIHcZ
-         UlkturLWS2zIAL2FuLS+po9Avdg6wAL8saZaut23AoatHJqPnuXkGhyRMwS7UpVTOOad
-         4UIS8YqHF9O1KsBeY/CPWp+soLOBSMkFVYRxSuQM+9Uz24qe6Kt1EKj1Jl8rdhAAt4Sf
-         /EwY3DAOUKvDesbDQooevOHVvfSs3vf+ku5X8WgdvY+UIPJmumnwO+DXCrKHZ3Nrw3UA
-         DKk+M5Z+I5vGU8nD0R3FnxVXjNMeydwUbTCic05LStCk5ghKb7KAFZ7ANeINIHI91KXm
-         7ICw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785775535; x=1786380335; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=niqvePJlDSQd28Qyc7y5gE/vwAYMmaOcsvRZCG9PwY8=;
-        b=oqUJbiEExevkByzM2cZ3YuQQSEM1oWgWj1wy+XjyuP3jWpdoHKU1a3sA/J4gutpJbT
-         9BekyGiuOC8P01sooMoP2NQt4qyTGEl7Q3E24xCSazeDQCCNUKFoLkdV4WSnXXQR3bY6
-         sHajmhL38XauKxIVzsRI+Cojhhhx4FpvflnxS901InpDSVTBwBB53qO4RhC+wxB46P+7
-         Ys0jJbgNJKK6BFKVcT4WXnirXTU+k2wjmxnk2Qpc0mW6px2xnDrdSbi9G8drF4ffm80F
-         bOkQJTiMU4VtsVE1MP9kF1NfGUl18sb+pNwZBJAQXgLeYZIlkrDsMWpsONDK2zxZTQHc
-         4q1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785775535; x=1786380335;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=niqvePJlDSQd28Qyc7y5gE/vwAYMmaOcsvRZCG9PwY8=;
-        b=lSepz8aBnn5wON6Rg7MD/f+DFgR4JErs7rpkCp+SJfuKKbCA4DS/AIRHdzTNC5FrCC
-         Togo10X/tKhqsKd716jRuuoyiwgWAdcMdGsN0x9GhaWMIm2fRgAvC6mR1YUQzlSe1DF+
-         LN9ObBNsUCQskom7OLzlspx3MNHxmoJvfQVHZSSS6CmVeF/Kf00EIhUSNakf142wYmTg
-         Bf0j7BuQ8/LsC/vSjn/RLbtIPjygAwnqVjv6SNXpSjPOH4EHp23hn4SgyJ4OeTuicghP
-         aGXGmbtjcCujL9/VvSPS/Yo5jJ0J5E7ym0sd7nnnAGGtbuKu9I88I1WN/G2eqAI3+JjB
-         ic+w==
-X-Forwarded-Encrypted: i=1; AHgh+Rpkm0RbAinFAJ0e78CkHCpzg75ML9cOgweOM5Q0JfiQbAdgpHFyx5/AzgbyZJ+kAit1iDd3OsCfAQTYuItsp6a4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfHPVd3fnTYkXrx16qPYFeOZQYEYVkHxxXHjw6E5sg2iqdmzMc
-	iHJiSE/0HWgdNQRAzk162/W9iW/GdyeYEPbhYnstGiDtNiXI1C6kh23Kx40rCG+nYvX/QJa0exs
-	B+Z7ExXJVn7DhJlRM5F14qPR6b0tEgcY=
-X-Gm-Gg: AR+sD12NuZ41tc1Od+JJ2YdKy1BwOpsHbGjkgQDxSyMKZVdWSLZbE8Q9i1KF1mUa748
-	iQXaPYLdidquKvFzaMBQad9Kx7UfCQXQ5KnO2rufdwM+8MCRBMVQJWFdUUh4Bgt2ntOeuzXBG7e
-	XoVCj4ezXMWJUaqpIjT8QLqaaDvsQhlKcX39d6kZS3nwKTg6eSMi+tsBslLYy5y+J2wIpB8WewF
-	q2BRHvCMjelCCsNVyme8Ebnhf4Yub795TJGbErH1m6FXbn9cEWL7ulXgwG88h1Nk45QDGXBJ7wV
-	U5cEU3XmcoX/uRPZLvicaCEAC7eS4pJv+uIJ0qDcCjETMBMTRJ1m8z9/8FmmTsQC4oeWwwgm4TK
-	V4URdT9iw6ORfID0r5JalCQeK0uH0yNTVaj1e9q+bTABDjBeBKO0mXqrr2df4SiNu2CXPVV9zh2
-	4Z8i4rFNopCTIIvBvlmVPIf+OIv1qyVFdwC+7R
-X-Received: by 2002:a05:6102:5e82:b0:73a:128c:4e3d with SMTP id
- ada2fe7eead31-75b22b6375cmr7983333137.8.1785775535469; Mon, 03 Aug 2026
- 09:45:35 -0700 (PDT)
+	Mon, 03 Aug 2026 16:45:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1179660AA8
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 16:45:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B45D01F00ADE
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 16:45:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785775549;
+	bh=SXxFPuDCxz3Aji6z4V5I94Ca9I9A0J3OETny9fcwk9g=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=P7Y32Wwu5CLcyaG4uHJwQw/yPwMDH8PRwLZoe8YqxPZjHQ52LTeR9XnqX2Iv407og
+	 1E0m0JDC58qFlh/g78Yq5DDM4PFeUOA8eF8JybeQq/jxx4Tj4PdQAfCrLQmnfHO/oM
+	 RiY1HbG00m7mBpr12/n0JgS5UFeln7WWtH1tXC2uFlZ78GqbJzkJfb7Ba573dJBm0q
+	 uAIfwKNoYyvQ+rteuURYqIIzkBzh2cRpJJDD/PBE5pd15CdJvVqXhGtWdePk7bwhP6
+	 PuHK+gn2EnFx6jxIOT5eFGNtb8QE5Zs0l6ET60LWCvQpfy0j8x1/ufcLewW1QJXmcM
+	 M/UT+WZ7zzo7g==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-39c8ee87f7eso31806521fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 09:45:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqQrTOCK1qlGwlmeyuVYxtxYKG0ZSnsIdWdtl6nITFNw3grdoqPKz3Z78TJWoXVdbDTwbyLGjV+U9Cc5YwCZH+H@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDv0g9Zunyw3c9+0HdJlKrMNBHIeUVkGBL4SivAZHNQX9w0lCC
+	6Ld7JeA9rm8GEkLoEfh5z1M738h2u8cbCbrr9TtPILbLn0AxnsnBDYy6SYtjOnDuOoSnlhp0a38
+	Lt/sRbs8cRzNiChRO6F/9H55ODWxf2fU=
+X-Received: by 2002:a2e:bcc6:0:b0:39f:fbd:69e4 with SMTP id
+ 38308e7fff4ca-39f8647da2emr21946901fa.41.1785775548162; Mon, 03 Aug 2026
+ 09:45:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <20260802-submit-acx00-of-dynamic-v1-v1-8-0a53cd9e21cc@gmail.com> <2c0210b3-2c68-41f1-aa33-3f1693454849@lunn.ch>
-In-Reply-To: <2c0210b3-2c68-41f1-aa33-3f1693454849@lunn.ch>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 3 Aug 2026 10:45:23 -0600
-X-Gm-Features: AUfX_myHhqSCOlS18NU3-rnIJB_yJDCs5Z0LNUdIv6o7tNasY8YkhUjPJd2Ilvs
-Message-ID: <CADvTj4pfNFVGrQV86T7X+nZQYUamxEYLLWuxVXk=av0da_XocQ@mail.gmail.com>
-Subject: Re: [PATCH 08/21] dt-bindings: mfd: x-powers: add AC200
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>, 
-	Richard Genoud <richard.genoud@bootlin.com>, Maxime Ripard <mripard@kernel.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Russell King <linux@armlinux.org.uk>, Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
+References: <cover.1785772659.git.jernej.skrabec@gmail.com> <7e9dad9eed2e91a79c4e1202caa8fed7c2427531.1785772659.git.jernej.skrabec@gmail.com>
+In-Reply-To: <7e9dad9eed2e91a79c4e1202caa8fed7c2427531.1785772659.git.jernej.skrabec@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 4 Aug 2026 00:45:33 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64MMcUQW-6X3Hb=ifO87VhEDicjXtpHvq+pBYczyLECrA@mail.gmail.com>
+X-Gm-Features: AUfX_mwZCPbOCHuxVBeBJfg0hkv1k_HMStH-Sat9nWvpFIL9sOzUuH6ZR1uJGfk
+Message-ID: <CAGb2v64MMcUQW-6X3Hb=ifO87VhEDicjXtpHvq+pBYczyLECrA@mail.gmail.com>
+Subject: Re: [PATCH 05/13] drm/sun4i: tcon: Set output mux for DSI and LVDS
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_094537_069891_3AAA8902 
-X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,39 +78,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 3, 2026 at 7:18=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote:
+On Tue, Aug 4, 2026 at 12:11=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
+l.com> wrote:
 >
-> > +            ethernet-phy-control {
-> > +                compatible =3D "x-powers,ac200-ephy-ctl";
-> > +                nvmem-cells =3D <&ephy_calibration>;
-> > +                nvmem-cell-names =3D "calibration";
-> > +                phy-mode =3D "rmii";
-> > +            };
+> DSI and LVDS skip output mux setup, so TCON TOP cannot route the selected
+> mixer. Configure them like other channel 0 outputs.
 >
-> What do you mean by an ethernet PHY control?
+> In practice this matters for D1, where channel 0 TCONs are fed through
+> TCON TOP. The remaining set_mux implementations only handle TMDS and
+> return an error for other encoder types, as before.
 >
-> I assume this is not an actual Ethernet PHY, but some control logic
-> around it? Where is the ethernet PHY itself?
+> Fixes: b9b52d2f4aaf ("drm/sun4i: Add support for D1 TCONs")
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-Correct, this is not the Ethernet PHY itself. It is the package-specific
-sideband control block that must be configured before the normal Clause 22
-PHY registers become usable. For AC200, this control block is accessed
-through the parent AC200 I2C regmap. For AC300, the equivalent control bloc=
-k
-is accessed through a separate non-PHY Clause 22 address.
+Acked-by: Chen-Yu Tsai <wens@kernel.org>
 
-The actual Ethernet PHY is a separate device on the MAC's MDIO bus. The
-shared PHY driver for that device is added in patch 16:
-
-https://lore.kernel.org/linux-sunxi/20260802-submit-acx00-of-dynamic-v1-v1-=
-16-0a53cd9e21cc@gmail.com/
-
-The later board DTS patches instantiate it as an ethernet-phy node beneath
-the MAC's MDIO bus and reference the appropriate sideband control provider.
-
+> ---
+>  drivers/gpu/drm/sun4i/sun4i_tcon.c | 2 ++
+>  1 file changed, 2 insertions(+)
 >
->        Andrew
+> diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.c b/drivers/gpu/drm/sun4i/s=
+un4i_tcon.c
+> index 960e83c8291d..ea7c90fef316 100644
+> --- a/drivers/gpu/drm/sun4i/sun4i_tcon.c
+> +++ b/drivers/gpu/drm/sun4i/sun4i_tcon.c
+> @@ -717,9 +717,11 @@ void sun4i_tcon_mode_set(struct sun4i_tcon *tcon,
+>         case DRM_MODE_ENCODER_DSI:
+>                 /* DSI is tied to special case of CPU interface */
+>                 sun4i_tcon0_mode_set_cpu(tcon, encoder, mode);
+> +               sun4i_tcon_set_mux(tcon, 0, encoder);
+>                 break;
+>         case DRM_MODE_ENCODER_LVDS:
+>                 sun4i_tcon0_mode_set_lvds(tcon, encoder, mode);
+> +               sun4i_tcon_set_mux(tcon, 0, encoder);
+>                 break;
+>         case DRM_MODE_ENCODER_NONE:
+>                 sun4i_tcon0_mode_set_rgb(tcon, encoder, mode);
+> --
+> 2.43.0
+>
+>
 
