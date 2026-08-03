@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801CCC55175
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B708BC55184
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 07:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7oUEPB4rJ19ry2ffYzMEEFC7kNls3yAJStjl+lVDAw0=; b=AWMXIxHNsYuwMmkmErk+aMLSta
-	pHKUCUyg0ZJtnzhcr2Ng2sdSgNuvCb9wpa/6IeEX+tq4HZm2hmr/sv9AnDBWLpE+/A+B/rrszh7kE
-	ICdUcKnuJ5s4787ikypk+oCHZAUYjmnvTOrlZTPTrBCA8smOLbrU1kPOhHBitgCZNgYE3mSyZFogf
-	7LThrBfZ/70/IfTDDvSf++hJWFfWkdwhjqYQhMeQwmTWapbVXI5D4SCvg3xFChXYCwV7RpQImyyQn
-	K5pTYLucQGd/v5pPR15xTlfhQiuTQepc93WhogwqX0GWmXNlkVLV+p8zSqBOihIOn6QGzygFdZau6
-	fP0Xqp9g==;
+	bh=Q8e2F85Jk42cknJBTKAisusI5iJFywDQWX2RRkkLus4=; b=bghsFZVXvzlnwmkkSfxVLcYoLa
+	MG4s8xW+R7YlRWSayyZAqXdQ95pv8nx4LVrC66W73iig4jdNWY8FpsFxJ9Zvh5vmcl0xMJhDpp7ZP
+	+IAhXTBXxj1QR5S4wwQoXeBTfMrYV9I4C7YC9MCbSYynhR+rgasWO65YklpvImHDUyjH2WM3u7Csi
+	Ah4hV1Ev2op3cmLgkCMGOPVcFLckLMmzzJHW27AB4WSjkr+F6dlBOYIt9++dV7JOgBMjkm1QTTLWv
+	BwzuazmTvTMBLEVrfJ5Y+3ZBNtEkEYruIPTmEUB/EVPF46P7NnxKppBxTSsrbJ40DrgfMysiTFhFH
+	TqLtC3UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnKJ-0000000GXg4-3z0q;
-	Mon, 03 Aug 2026 07:43:11 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1wqnKK-0000000GXgN-0NzB;
+	Mon, 03 Aug 2026 07:43:12 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnKG-0000000GXao-42w1
+	id 1wqnKI-0000000GXc0-0zsF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 07:43:10 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47f7027ca11so1868680f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 00:43:08 -0700 (PDT)
+	Mon, 03 Aug 2026 07:43:11 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47fd4ee0b01so1861225f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 00:43:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1785742987; x=1786347787; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1785742989; x=1786347789; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7oUEPB4rJ19ry2ffYzMEEFC7kNls3yAJStjl+lVDAw0=;
-        b=BNzmRmF8//mK0NQZC5UgbO6fpKtDZALD+P6FDXl6xzLtT7DVbGshahQylQ1Rwh2Abl
-         7M8Ver12XfZjFemIoeG2qbNUH4XL32UaAF9sdWE6Sh1kx4lovTOcqSc8y1RpuA0u6t3M
-         350TpS+nCOrF3zAjBQQaIwpKDAa5lVr1kzBc4=
+        bh=Q8e2F85Jk42cknJBTKAisusI5iJFywDQWX2RRkkLus4=;
+        b=D9gTwz3rb4MZIRK47c4gUBiKBTCp8Y5GAjXZXkxsU8dfibf3bOE9GZNF3oiKTInjKu
+         Fy2ghxBL9yMIkd3WJGZtzz0UIsHKPKjTjed6EAD8tP6wUZE/YmFiFT7p15Xr2QwLd5yT
+         CyOQbPRjPI8V6k68myFamYTPafKEpZdfek1PU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785742987; x=1786347787;
+        d=1e100.net; s=20251104; t=1785742989; x=1786347789;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7oUEPB4rJ19ry2ffYzMEEFC7kNls3yAJStjl+lVDAw0=;
-        b=pWUZC6ZQnRMgfQeKGCjNfIzxzme3aLK9DZdylPo4HFlHvdTXPatHnMkJxWZ6z3KdgE
-         BewlbjU8v8OSsXNAT3wAL6L82PJCG3XzYUUUZNPZ/KYvoDYJ4WO2sltupTcxD5W9cYHU
-         JrbmL1VN8T/Q9NUn6I+96jNkPvx7DSlbp8bWiQPjCU56JRzZoefXMkmRob4zU/rax5i6
-         kM1hKE3chgObmJtNlqYeeMFxNhV31IcLaUF1aUUBoVb+wtDu9GydVxe/ysulTMhf1pL0
-         7GSABiGP/RY0jeYt+7qFpaoDk93lUuEXaioFVpBjTTaNudc0Jkvcnkio3fqzJW93QAlx
-         YGeg==
-X-Forwarded-Encrypted: i=1; AHgh+RrD/x6Q5UhuCZPPmJAn92ji3IswfVQXmmIfA1WHgXwZ02dsDGMz0LuFZCUr4N34LR69Tkx9+WJetWT72PCuO9Sv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrzFNrEt4iX5XOlClo8i6arsIYok4N3GLXY38/jx7dwDmZCB8e
-	pv31cPEXSwpozz2Og3oigls0laWjb8P33ZlVQPM9u8JEHfceM5FLWRo40Fb5+i6tHhw=
-X-Gm-Gg: AR+sD122VNGh6E/JDqAkfRq4YzCuZfLGFKqdZmHPr86n7kZuENMh4g3tBXgShBnhWHS
-	EQ0DhVuWeH7dYFMSElMDQUmwlBNvu+zi1XihDBpOiHMN4Dk7Z1O0U6nOU12h/frUYFM+FDWM8uo
-	ssxIUNkZi9KkSBLNE1+XoNKuxiK2MhumGVGyyLc3BQyPWwY8rvpPBK762Y6Am7EJvdwBEUEt9lR
-	TlBgEOALY8xo61ua0tMlamEoU8xAs/fY7/AIB5DqlvhPvJYp083gr28nfOA8bJXcsWraHZ3akoH
-	Eb7s0VrtZ7PY2ahv7CKknxqJ/xfTQqnHiHw9uJ/HYZEIclnhYE29yBOHfhlsL9bcHRK33OJ79uN
-	VFZ6ux3eVwzzvJzeq4thlMTZOdzFqAvqn72BwZrHmLZCmwFNVCJjbm83B4Wn/QETKIavuyB5MR0
-	EWd4rCujjuQ7HRvRYnKO/ZXSKuVwdWdx7zgobxPU6f62K458oWs6NZj2EIUx9gKwTPzTmqfqjwP
-	dPbPTOxlCrxZ8jE9EAHOZUR4KYqZpS6lBH8HPdAqGPcP/UPTXC3n/mf1A6yd5UWjFqZLGa/+EiU
-	ZBghQYAN+gN/JQIBiHa1ZztDbVfK1ZGFzk2LHFPVxOhfiT0rBqbOjOntmPZBXeVg
-X-Received: by 2002:a05:6000:2203:b0:47f:cb39:10c4 with SMTP id ffacd0b85a97d-47fd72c75d5mr19759957f8f.12.1785742987097;
-        Mon, 03 Aug 2026 00:43:07 -0700 (PDT)
+        bh=Q8e2F85Jk42cknJBTKAisusI5iJFywDQWX2RRkkLus4=;
+        b=Vgw3tQH3qLICx4ao46aJljYd/JJdxRgZTWOn2c48mBqy3xvKm61LguRVB2mGl/MLMH
+         fYQKw8sbpvi4i6sUxxGyWZaaEP+TL5VX+PFDpubQc3P6Tntunrn2AymxmaD2ZrR2mzwA
+         40iuh5FRzSNRkY6DtyplLGlK0Ihdb2B2OPz0dBl7pmY2HvWtR8DCmZVQ4M29XMEP3K+v
+         tCkV/LjonnFDrCidkCxKXc29lovvtQFlAC+GPBiGmCJlWRfzppsZa9GB61deTmNpVMXV
+         4cOPsfu+baoPWUSVgHw7JPwfmclEO2TA87UBfcTh8w/sJVDZ9THJda9+7w6ooQXg2u/I
+         JN8w==
+X-Forwarded-Encrypted: i=1; AHgh+RrPL7M5fqXbwFpIX+1BnD4Xsnyhmww3x6zmKRf8ieoBhK/C54pkFyI5ARGTcESzWwojuJfutPStFFTD8X4Q9rLG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3xnfsthCvKJ7P9oDvBBnS5x1VE4x1PHsjzuPhVKOarBCAqz+H
+	/ZbVYVUGlASaFoXVhyjgVZiX7uGlMArVS3xwaamh7LLU4u9DDuHcYAKuZy50mJljNMq22CYWAu8
+	zq/Ji
+X-Gm-Gg: AR+sD10P+MP+fd1csoCr9zKoqBe+MiM+gSij+ZFapxO48Io5pC0K6EfECgKT3ifujeU
+	WfyCt7IO1MGIn/5Hs9h+fONA2jcGu+4B43qkhcV+6nMNdGAkymM9+M8+Jxk4m7jWeB0pHU+ZNw+
+	tClXVn/gHbzG4l85+f9OvKEvcjQax2hdb+Zr5nJCjkIPLoIgOBQzNjFzdyfphEItgcxe5JHCBEy
+	10U6gDhTFZ3mQ+dYKa0O8o2vIgNshhArbyJMerIrkbP+KwadUQU19YlTvaOH+3+f6wMPBdrfTeF
+	hjgUtttDt9+4b5cJgfDtrYpf6xNz+neqd/C37nlvXHKql4zIWF3A2miRw2lHTcVZxA0TIboJwrW
+	wM5IjX+OjEOJE/ma4eSZuAYqta2XlWOkHy7cjboS71RFV/+FruKvf7ClGAKtCkbf3IkYO6gD0jF
+	qTEliyVsMj/9bB7KJG6LU+S+DPinstiV6gE/1EpnwTKdVrAFC/veMqfsi9piLMJjVY86S+c0lOV
+	VSISZit4vCil/d43bGe7mLfxO2py6UJLBrRID6ZJgtZniEnSQEQE3QaQZ1UhGsT7Sf6OAgKDJh+
+	6WWDs04ZKnhMJrcgfLK9eUtXUsQVUyn03LbF/nsadQKzQN/RHOW1RoNOw4RLBkOk
+X-Received: by 2002:a05:6000:46c4:b0:47f:6f6a:6a7f with SMTP id ffacd0b85a97d-47fd72ab2f2mr17824879f8f.8.1785742988685;
+        Mon, 03 Aug 2026 00:43:08 -0700 (PDT)
 Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-79-17-119-233.retail.telecomitalia.it. [79.17.119.233])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd41d1a58sm30370503f8f.7.2026.08.03.00.43.05
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd41d1a58sm30370503f8f.7.2026.08.03.00.43.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 00:43:06 -0700 (PDT)
+        Mon, 03 Aug 2026 00:43:08 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: domenico.acri@engicam.com,
@@ -83,17 +84,17 @@ Cc: domenico.acri@engicam.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [RESEND PATCH v7 11/16] arm64: dts: st: add sdmmc2 pins for stm32mp25
-Date: Mon,  3 Aug 2026 09:26:06 +0200
-Message-ID: <20260803074224.3821911-12-dario.binacchi@amarulasolutions.com>
+Subject: [RESEND PATCH v7 12/16] arm64: dts: st: add spi1 pins for stm32mp25
+Date: Mon,  3 Aug 2026 09:26:07 +0200
+Message-ID: <20260803074224.3821911-13-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260803074224.3821911-1-dario.binacchi@amarulasolutions.com>
 References: <20260803074224.3821911-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_004309_019275_9B2A3B1D 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20260803_004310_289755_7FAD859B 
+X-CRM114-Status: GOOD (  10.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,106 +109,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the sdmmc2 pins used on MicroGEA-STM32MP257-RMM board.
+Add the spi1 pins used on MicroGEA-STM32MP257-RMM board.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-
 ---
 
-(no changes since v5)
+(no changes since v1)
 
-Changes in v5:
-- Change SDMMC2_CK pin bias from pull-up to bias-disable to
-  avoid signal integrity issues on the clock line. Suggested by Sashiko
-
- arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 80 +++++++++++++++++++
- 1 file changed, 80 insertions(+)
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 24 +++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-index 002fbc724b9d..c816a6aece47 100644
+index c816a6aece47..4e570e2e5157 100644
 --- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
 +++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-@@ -622,6 +622,86 @@ pins {
+@@ -702,6 +702,30 @@ pins {
  		};
  	};
  
 +	/omit-if-no-ref/
-+	sdmmc2_b4_pins_a: sdmmc2-b4-0 {
++	spi1_pins_a: spi1-0 {
 +		pins1 {
-+			pinmux = <STM32_PINMUX('E', 13, AF12)>, /* SDMMC2_D0 */
-+				 <STM32_PINMUX('E', 11, AF12)>, /* SDMMC2_D1 */
-+				 <STM32_PINMUX('E', 8, AF12)>, /* SDMMC2_D2 */
-+				 <STM32_PINMUX('E', 12, AF12)>, /* SDMMC2_D3 */
-+				 <STM32_PINMUX('E', 15, AF12)>; /* SDMMC2_CMD */
-+			slew-rate = <1>;
++			pinmux = <STM32_PINMUX('G', 6, AF3)>, /* SPI1_SCK */
++				 <STM32_PINMUX('I', 5, AF3)>; /* SPI1_MOSI */
 +			drive-push-pull;
-+			bias-pull-up;
++			bias-disable;
++			slew-rate = <1>;
 +		};
 +		pins2 {
-+			pinmux = <STM32_PINMUX('E', 14, AF12)>; /* SDMMC2_CK */
-+			slew-rate = <2>;
-+			drive-push-pull;
++			pinmux = <STM32_PINMUX('F', 12, AF3)>; /* SPI1_MISO */
 +			bias-disable;
 +		};
 +	};
 +
 +	/omit-if-no-ref/
-+	sdmmc2_b4_od_pins_a: sdmmc2-b4-od-0 {
++	spi1_sleep_pins_a: spi1-sleep-0 {
 +		pins1 {
-+			pinmux = <STM32_PINMUX('E', 13, AF12)>, /* SDMMC2_D0 */
-+				 <STM32_PINMUX('E', 11, AF12)>, /* SDMMC2_D1 */
-+				 <STM32_PINMUX('E', 8, AF12)>, /* SDMMC2_D2 */
-+				 <STM32_PINMUX('E', 12, AF12)>; /* SDMMC2_D3 */
-+			slew-rate = <1>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('E', 14, AF12)>; /* SDMMC2_CK */
-+			slew-rate = <2>;
-+			drive-push-pull;
-+			bias-disable;
-+		};
-+		pins3 {
-+			pinmux = <STM32_PINMUX('E', 15, AF12)>; /* SDMMC2_CMD */
-+			slew-rate = <1>;
-+			drive-open-drain;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	sdmmc2_b4_sleep_pins_a: sdmmc2-b4-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('E', 13, ANALOG)>, /* SDMMC2_D0 */
-+				 <STM32_PINMUX('E', 11, ANALOG)>, /* SDMMC2_D1 */
-+				 <STM32_PINMUX('E', 8, ANALOG)>, /* SDMMC2_D2 */
-+				 <STM32_PINMUX('E', 12, ANALOG)>, /* SDMMC2_D3 */
-+				 <STM32_PINMUX('E', 14, ANALOG)>, /* SDMMC2_CK */
-+				 <STM32_PINMUX('E', 15, ANALOG)>; /* SDMMC2_CMD */
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	sdmmc2_d47_pins_a: sdmmc2-d47-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('E', 10, AF12)>, /* SDMMC2_D4 */
-+				 <STM32_PINMUX('E', 9, AF12)>, /* SDMMC2_D5 */
-+				 <STM32_PINMUX('E', 6, AF12)>, /* SDMMC2_D6 */
-+				 <STM32_PINMUX('E', 7, AF12)>; /* SDMMC2_D7 */
-+			slew-rate = <1>;
-+			drive-push-pull;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	sdmmc2_d47_sleep_pins_a: sdmmc2-d47-sleep-0 {
-+		pins {
-+			pinmux = <STM32_PINMUX('E', 10, ANALOG)>, /* SDMMC2_D4 */
-+				 <STM32_PINMUX('E', 9, ANALOG)>, /* SDMMC2_D5 */
-+				 <STM32_PINMUX('E', 6, ANALOG)>, /* SDMMC2_D6 */
-+				 <STM32_PINMUX('E', 7, ANALOG)>; /* SDMMC2_D7 */
++			pinmux = <STM32_PINMUX('G', 6, ANALOG)>, /* SPI1_SCK */
++				 <STM32_PINMUX('I', 5, ANALOG)>, /* SPI1_MOSI */
++				 <STM32_PINMUX('F', 12, ANALOG)>; /* SPI1_MISO */
 +		};
 +	};
 +
