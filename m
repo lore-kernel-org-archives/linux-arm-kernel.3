@@ -4,111 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DADAFC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB0BC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mfrwFppqeJr324Y3CbSyZQEjIv8H0QwZoY4+hT00zdY=; b=Hh8IO0r+sPc1ysBZ3kJGAka3Oq
-	owDP3bOmBqK5qI/svboV+XcYGMyFd48vpV6aUWIgAoOY6YzW3zylY2Ynlo9pGsSDXXsjoR0L8vGZ9
-	kJX+yy4wl+i+0/NAOSLwJGiMXfhJAv6lqzjLz+F0m0Le4sBFWwtuCv8Y9pRXIfexDTAVwje2sz1PT
-	oGK9m7AtK7e3AXEnPtcOvNhZTnoKViy0V59tCfZMIqGJj/pA0dWE2J2LARyr+TdzL1eO/VQOTgGkn
-	4fvPT5uuw92Go2dqWjtN4KlMsZXf1EksZYfbYCMXAxDXFPi448EvwqeV5wWlUS/EV0v38LNey91y+
-	Ea3bWdjA==;
+	bh=fwfYVcIPxmzhgd0/KBM26G5bKxixOKmeRXSWWaWtDFM=; b=3H8Oz0R4yzp/ipBP30AmBrIS+i
+	702Fs59gm+xwkfReuczQOmXQV+bpoXSZNBxHGx/Qzila86KSRrGkZzIRm7DTxVZecAO/06vgxZYCD
+	HlQp5I2FtoF6htjr0YVjlqdMo/v+lZHD9aLrkZn9MpP4+kSK2iPIECQj4jKhnfb4dvJ0/gyRnnfJF
+	RMWkaaBMGpkJ6DPk7i3DfLDUrqPFFSL6p/F839GP61lXM349/Ep4c2ZtCaN4a3vkg/m8bHlwfEL8g
+	wjhPKEv9+zBmir2xkNkj7pNh1j9l82hhIANrLcGGDFWELsme/ecFFz77C/2atnubv8bZPL54xqYY6
+	R2yjRMWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquS6-0000000HVQ2-1FF5;
-	Mon, 03 Aug 2026 15:19:42 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wquSf-0000000HVfE-37jd;
+	Mon, 03 Aug 2026 15:20:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquS3-0000000HVO9-1u0t
+	id 1wquSe-0000000HVei-1q9E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 15:19:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785770378;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mfrwFppqeJr324Y3CbSyZQEjIv8H0QwZoY4+hT00zdY=;
-	b=CZd8vrT1OW76+k8W/aAdKbpAxy90VbE/IAqs6DN/LZXg65RmnGTxDruoiauk7i2pqIm6U9
-	fRslYLtpfxTJOfrcvYFk7+qf94FoRcObMojnKLDZ1W5eFYZjj+YiWSsAFV69Fs96VXA4+r
-	4XOamNY2zVifo+gyhWcv/4VzYIJfhwQ=
-Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
- [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-575-LiCz18EWNuCk6xH9NaCwnQ-1; Mon, 03 Aug 2026 11:19:37 -0400
-X-MC-Unique: LiCz18EWNuCk6xH9NaCwnQ-1
-X-Mimecast-MFC-AGG-ID: LiCz18EWNuCk6xH9NaCwnQ_1785770377
-Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-81f0e988059so133386877b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 08:19:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785770376; x=1786375176;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mfrwFppqeJr324Y3CbSyZQEjIv8H0QwZoY4+hT00zdY=;
-        b=krWXAndFzFR8361qBGPXMzKIOMZSpEM1rowmyaHIHOpzR6PHBlekfPjjq9GYTIUhxX
-         Y+Ne4+LjSzfZg6AWD/NmH44YAvsMJV1cU9zGYtq/V9x0F+MqlFLzvZgivy5f3p/zXdI2
-         2fozH52DK6OB7AzYlTcFbdTqXRdE1/Y0INqHJgbeFSCPBskK5/7A1eNZDypSvPp9EkdT
-         WVvo5zY5zaHuP0m7BaG0V723ytg/C4hCCsd2vYEIe7AuXHAYC2pvUE1XgVQAgVm1bnN7
-         rTVw3DkJQqNlnIynhjj08YOcifLmzfoo0EQhJGtsVbNWPXFaSMESH6I28ieSOS9ZSQpc
-         fcPw==
-X-Forwarded-Encrypted: i=1; AHgh+RowMWzgLr7m0TaZxO/DrrHhHQCrBFZAVDF2R6xqve1E9iMdFMg2kFrHXWXVV8g39J/8aCcbX0quVX0VbnQsyrWI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwG/Bkk7nBQnMhrgpLjS3aNV3j8TQFIURvKxUyFkmF7I3mFPjAm
-	cdp5JSXdRwTU+s6p//f61MVe0xN4wen2rAPpbFkUaJIdH3ftav5pO0hlef7GWHAkqDbtwucu0mX
-	X7b9I40DxPIiAbQ3XbToRGhOb0CVkPTHxUUE2+PHPx+M82dmYOqAHEB+pChPcbEASsOkvHwBk0k
-	8E
-X-Gm-Gg: AR+sD11JxqpkB7+D0vh7mDuae/3E9VdwJfxmlco6Bl1tieddPeBIfe3ndZPzwJ+AKT4
-	Dw3R7hsn/EZlNkhXy+1siZ0+b3fyInOusg0qL3L4NlaMzEbEPwLKw2kT+/a2uoT6+0uutohP5D+
-	UVNcVjDkBHBwtprPwgEoSAe/nEz67O+y5L6KlltRUG7AwMUGH/ZU8Kli7SB155C9E4gF9knd+9h
-	zIdFPCYyelluTVGAqwP9KEcwGt7wF4R09wD/TKKQnkRnDH/0KdhN70c9cpmIuSM3Kwv4DN3JVr7
-	pVdAR+Dbp68JKwOFXs281r7CafQY4nL4bwaOzzuA5OrsfWOgdM/X3N9Zeluu+S67YiYlfm39MCX
-	lIsWSfVDo6us7uiZTA7OBs2ZZ0LBOdfB9ywk=
-X-Received: by 2002:a05:690c:278a:b0:81c:a61e:6309 with SMTP id 00721157ae682-81fd4bee7cfmr133566877b3.32.1785770376550;
-        Mon, 03 Aug 2026 08:19:36 -0700 (PDT)
-X-Received: by 2002:a05:690c:278a:b0:81c:a61e:6309 with SMTP id 00721157ae682-81fd4bee7cfmr133566557b3.32.1785770376131;
-        Mon, 03 Aug 2026 08:19:36 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81fccf2e2b0sm55932967b3.8.2026.08.03.08.19.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 08:19:35 -0700 (PDT)
-Date: Mon, 3 Aug 2026 11:19:33 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chun-Jie Chen <chun-jie.chen@mediatek.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Edward-JW Yang <edward-jw.yang@mediatek.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Irving-CH Lin <irving-ch.lin@mediatek.com>
-Subject: Re: [PATCH v5 19/25] clk: mediatek: Add MT8189 vlpcfg clock support
-Message-ID: <anCxhZEK9Rh1H4U9@redhat.com>
-References: <20260801-mt8189-clocks-system-base-v5-0-ac4410697cc2@collabora.com>
- <20260801-mt8189-clocks-system-base-v5-19-ac4410697cc2@collabora.com>
-MIME-Version: 1.0
-In-Reply-To: <20260801-mt8189-clocks-system-base-v5-19-ac4410697cc2@collabora.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: kifOTrQKrbkGWPYSwQq8j_6Vdu-Bw2ssrjH20Hdl298_1785770377
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_081939_587755_4B81EC16 
-X-CRM114-Status: GOOD (  19.51  )
+	Mon, 03 Aug 2026 15:20:16 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 88EE860A78;
+	Mon,  3 Aug 2026 15:20:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AB511F000E9;
+	Mon,  3 Aug 2026 15:20:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785770415;
+	bh=fwfYVcIPxmzhgd0/KBM26G5bKxixOKmeRXSWWaWtDFM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WmQLveCm5dfZ/zJ44l+0lGdVy2U4xZlccyuCkMC6imFtJ2N+N3uSRdq5byTF/PsCy
+	 um0f5CrMXpGXyC+A4j1ekce9dtCgVs+jqwZksIcZoAdZIT5aL0MWyY1vHqaOnKLt9Z
+	 hD7fxNY0VJ/9cbCZEQK2NL8wgIYX3Vnd/PLfwqH+GN0OymI8U5qmDNHqPPy6VApAjd
+	 jFqxknqV19kQtr1wkjZLz4/sXwAlZvzURzf5yNobfca2lrgwPFtuuXapy20Gn7noJr
+	 OyPseKQjoyivyio4M8SpFYamj1LoQT6uaWDVYR18fKMB4mA8fDP+yUe6YmdQMy42MI
+	 hBdrF7vyLIwjQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wquSb-0000000BpPL-01n2;
+	Mon, 03 Aug 2026 15:20:13 +0000
+Date: Mon, 03 Aug 2026 16:20:12 +0100
+Message-ID: <86wlu7b58z.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v16 00/45] arm64: Support for Arm CCA in KVM
+In-Reply-To: <57225daf-4319-406a-8328-e32835e8a980@arm.com>
+References: <20260803134403.80630-1-steven.price@arm.com>
+	<86y0enb64s.wl-maz@kernel.org>
+	<57225daf-4319-406a-8328-e32835e8a980@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,58 +106,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 01, 2026 at 01:21:05PM +0200, Louis-Alexis Eyraud wrote:
-> Add support for the MT8189 vlpcfg clock controller,
-> which provides clock gate control for vlp domain IPs.
+On Mon, 03 Aug 2026 16:06:24 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
->  drivers/clk/mediatek/Makefile            |   2 +-
->  drivers/clk/mediatek/clk-mt8189-vlpcfg.c | 116 +++++++++++++++++++++++++++++++
->  2 files changed, 117 insertions(+), 1 deletion(-)
+> On 03/08/2026 16:01, Marc Zyngier wrote:
+> > On Mon, 03 Aug 2026 14:43:16 +0100,
+> > Steven Price <steven.price@arm.com> wrote:
+> >>
+> >> This series is based on the guest_memfd in-place conversion v9 tree[1],
+> >> which is itself based on kvm-x86/next. It is also available as a git
+> >> repository:
+> > 
+> > Well done. Series on top of another random series, based on a random
+> > tree. Unusable. Have you realised there are reasons why we (KVM/arm64)
+> > ask people to base their series on a *released* tag from Linus' tree?
+> > This means that Sashiko cannot, once again, provide any feedback on
+> > this series, as it fails to apply.
+> > 
+> > Just to avoid any ambiguity: Sashiko reviews, as annoying as they are,
+> > are not optional. They are very much mandatory, and I wish I could
+> > turn back the clocks to run it on my own code...
+> > 
+> > Running it on your own is not enough, because *I* want to see what the
+> > tool finds. Not to mention that non-Gemini runs of sashiko are much
+> > less interesting (unsurprisingly).
 > 
-> diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-> index 3b25df9e7b50..d9279b237b7b 100644
-> --- a/drivers/clk/mediatek/Makefile
-> +++ b/drivers/clk/mediatek/Makefile
-> @@ -124,7 +124,7 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VENCSYS) += clk-mt8188-venc.o
->  obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) += clk-mt8188-vpp0.o clk-mt8188-vpp1.o
->  obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
->  obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
-> -				   clk-mt8189-vlpckgen.o
-> +				   clk-mt8189-vlpckgen.o clk-mt8189-vlpcfg.o
->  obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
->  obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
->  obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-> diff --git a/drivers/clk/mediatek/clk-mt8189-vlpcfg.c b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
-> new file mode 100644
-> index 000000000000..cc4ebfd46a6f
-> --- /dev/null
-> +++ b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
-> @@ -0,0 +1,116 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2025-2026 MediaTek Inc.
-> + *                    Qiqi Wang <qiqi.wang@mediatek.com>
-> + *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
-> + * Copyright (C) 2026 Collabora Ltd.
-> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> + *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> + */
-> +
-> +#include <linux/clk-provider.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
+> Sorry, but I'm not sure what you expect me to do - clearly I want to
+> base my changes on top of the guest_memfd series which is being worked
+> on and not just ignore that work. So I've based my changes on top of the
+> tree that Ackerley published.
 
-of_device.h is deprecated. You can drop this one since what you need
-will be provided by platform_device.h.
+But that completely ignores the way the KVM/arm64 tree is managed. If
+you base a series on a bunch of unmerged patches, how do you expect
+people to do a sensible job at reviewing it? Now I need to ingest
+another pile of random patches just to review this set?
 
-With that fixed:
+Not happening, sorry.
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+	M.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
