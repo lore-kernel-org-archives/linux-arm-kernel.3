@@ -4,142 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F11AC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 19:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B598BC55196
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 19:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kiZzOLH+N8WaI9WcBLqbjm+eyWCM6fibXzHT7cyGIY8=; b=bJM7436HT4I+3MF+Iu57UYuNC3
-	jecA2rvxA/7IXObfnRe2u+l1/I9nwL5LJ1Z9O8088GnKdpYgewcize3Ip2NHx/TGvOplgHQ+uf2Ng
-	kW9RDNvRZ/NWdQVgkv/wpEP0HZtO99LAn3sbIDhfh54WPMcOwRGgfuHjW5taQFR6OgmaCpA/S27Bk
-	ea+qBYWAAbozmK3hbSA5Af2va6ZMqG9NtBdTGwlJw9FVTezvbsFNMi4WWkvH4Ytmlwp9v2KUwpzFX
-	mew5M/zs+FK0mGUjFDFxA18b4/UQkEIyQgKBJPcQ5LDH1pLXMMA7UPBlwDmNZeAvwBJuzCeKtOSyW
-	dWX/GdLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yWhNVuNUeWmdXxG9AxDJ/JJjMmObR+VfZMlaxit4KDY=; b=Gl/IuK2Ndu2fmzLra+qbVSh8NC
+	p2YSN0XViXK1Bfjoc71D1iraWnWldWw/AeCKn5rM2itSu46TCfAhotKnNy33NrHn+t51XmfnVlGCz
+	V/T/uN8U8TWkTyywnThrZqIEqY4usRpRaQ1vWuPbsnCOkbs6XJ1QfFZlR9+m4bij81pOCpXYvp5qd
+	hNnCYeR+VCuqVGupDLxsSR2GN/nsOFBTIMzNhx37O3zOjc7SH+rFIY9XEo7cfTc+Tm/jqDufKd3Vj
+	QAKSVFhiU/rmgf9U7RVNu9KL9oTIZBF+7YDwCI8KYtkyZGtX90YYF7+Ra7bsIuyxJfD/JbWh+VKiD
+	a67FHVuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqy5A-00000000QHM-2G3d;
-	Mon, 03 Aug 2026 19:12:16 +0000
-Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wqyBn-00000000Qa7-0ZQf;
+	Mon, 03 Aug 2026 19:19:07 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqy58-00000000QGp-1LCF
+	id 1wqyBi-00000000QZn-3r3u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 19:12:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vc0VS8ISIkD/NvSZFfs2jdSar0DIsdW6nUa5nlbKX+/RwersXunCm2eumnmfSOIy+bpP/pRSGTk+xTovYQMt5pMEZ5fFeem6YASjz9SDGyATSadWiL7WqX5Od3pXXgxEhKwJBbs7kc3hZlin1a0NYWexELuHY243unGnJJLgas2Hm7O5R7t82o3AxCFbpA4VwxF8LQDqPwuUsMq+uXv3P0CCQbvV9wv4Z3OvoXFBMhjlj6rpyYx0tV3FifDCfiAsATiguDz9fVEtOPeNrpCiulIUqjHynwDZKv8oUJ/KCinjsJHZOuYjeSIdffgnpb/Fn+/rb1f+BMlk3pSG05saXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kiZzOLH+N8WaI9WcBLqbjm+eyWCM6fibXzHT7cyGIY8=;
- b=aTLZ6nLxozAZ3GOTNecu9tXbKEf818e08bru+Kx2C0rGL4Ne+To6UEEyci/PGhOZIjsjQ1UPl/A6gKxc2mepaLcVQ780M6x4Nb6aIkrgJDsZVeq8iJnH9N8CH2LmDG4AWxudXkJBzyaBXT6ebZjTUY9Cg4+fCAuZAgbOXHOeJUPArsHJhY9iQxrTWSoX372Z44w1udVQ7LXUuIkDn1R824azbPku5sbSPJixT9u2wYh3qBR3qGSoy8QlG7AYVU/2i717eq6GpG8+CaRHjp4tMeVsN33GIkXsgpB8YqQFBP42Cu5Gy+5A2TujeBqMoPUDQrdDWcvHG9Dfe6NcH48qgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Mon, 03 Aug 2026 19:19:05 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7e9ecb1e13cso4243558a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 12:19:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kiZzOLH+N8WaI9WcBLqbjm+eyWCM6fibXzHT7cyGIY8=;
- b=u1xa3hFbJYGYLiS7Jo9sdRl0oHN+pz2U3n5qRxX9104LGfv0PeYnP9LYBOgbhanKeIk+ehXyV0AEv9+RTvJcW5NMpWI/IBHcLCU4f7BqRONPZTdyMAQe64/5V9hDigvJEsUK6ByrlJ9lmEfuJjRiI5HuhrUBEJP7Twmpf27qeKs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- EA2PR01MB994459.prod.exchangelabs.com (2603:10b6:303:2bc::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.270.18; Mon, 3 Aug 2026 19:12:07 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0270.017; Mon, 3 Aug 2026
- 19:12:06 +0000
-Message-ID: <64d83bb0-b19c-47cd-94db-34ac99686ed0@os.amperecomputing.com>
-Date: Mon, 3 Aug 2026 12:12:03 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/16] vmalloc: pass in pgd pointer for
- vmap{__vunmap}_range_noflush()
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: cl@gentwo.org, dennis@kernel.org, tj@kernel.org, urezki@gmail.com,
- catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com,
- david@kernel.org, akpm@linux-foundation.org, hca@linux.ibm.com,
- gor@linux.ibm.com, agordeev@linux.ibm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260715180455.515692-1-yang@os.amperecomputing.com>
- <20260715180455.515692-5-yang@os.amperecomputing.com>
- <amnIBsFnkt5Q2UUw@lucifer>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <amnIBsFnkt5Q2UUw@lucifer>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR13CA0004.namprd13.prod.outlook.com
- (2603:10b6:a03:2c0::9) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+        d=baylibre.com; s=google; t=1785784741; x=1786389541; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yWhNVuNUeWmdXxG9AxDJ/JJjMmObR+VfZMlaxit4KDY=;
+        b=Z13wK+bO9lpf/Nc9TawBNVbEDqvGBHIfm78GLaQktVaj9qqbV/rHpjCIACBSKZhxHr
+         1IDUEobmA7X7TTFEMCo5hNdmtaqd3tIqJb8q3Hqn2Uj/Y3EWhmIShpDN45bn9PhUA73L
+         2TvTD7vpSF80QV2aDrbqa1oLSxpL2y2sTG4OnxsC9QQpKdXPaQVs2DS07gW5l3L3bt2N
+         sSMNOtqfg77P5Qspw+OVztF7AGGjXpLI2hjolKN1EwlpLIiSETXnSbH9omYl3M4ndXD+
+         Vr31+khfh1QBM/Ywe0GMwoSBLJuk9DEtsZ41A+OWWgJNmWLxbLCvD/RMsvsaimd+dXO3
+         vVmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785784741; x=1786389541;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yWhNVuNUeWmdXxG9AxDJ/JJjMmObR+VfZMlaxit4KDY=;
+        b=DJm6MAQZNJIT6+6bprPIgWBvdvkKGu8NWLHqjNbE8e5uhi/LC55zYHx25dFObyJVv9
+         QysHNMAb0IvSZ0IfK7xYxENdCTzywbZMSFkK0APXr0zTSkTmMpA1ib/ohBCFPDY3WONk
+         TisTQlc0rX2h0JNWiq6sBamaMMmLMNhVEn3/IoFhRdI45tV/+/+Vsm3PuRmK31hEX6M7
+         ZB4tnIE6mhaYk4evz7LNLQ9v83fqrKbUHjspVHE1ggpSHxdAjPHPBp0puCms4vOWTKMG
+         uhygbHRj7TIk1wWO4XDgWw1FBD1h+InxvwQNrvqS+qotb+zyeUjzia6ZVvs/EqZGBc5k
+         DqTw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqaboj3qsfh/cWU46VhTDiJclGQTtajvhZQFzzxVgeTENPGraFbQ48ioq8J92aFYrqhIy7GRXS0vKwHZ/zrrqxR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsVPdBpa0UaJFyfXSAWTZyDwDhm1fV/6+XYiXf3GNpiYVkb22f
+	ggAh9iLVK16AlXr2i4rHFe8FTmTAsAbMwUkCgNeJ9ow6d6/ZBwKGH9cBckOK0WhRMKg=
+X-Gm-Gg: AR+sD10Uf9BipZ4/mC4vM8LbigmFeD/qPy7xtlPkndsSd1xUvLhFqeyWs70z41OAFOz
+	SUiyjqX2DWCiJUIYQo761tzFZG/Tgek9yVBpOuiRv5B88qsKVR15XSFrDitAHzvVGtR8mJJ0WhW
+	o2+pS6TuzRDZBn5LvUomqECToYwdFCn1/cCdMsSwjtzq+aD0PYAps/hGx5/cCaslc+FbPPyEXbU
+	ihbtng4rzrXOx8WveUAJkS5vVUCvqnXlBikz/MqsoyqEBzhrvrl7HJesaH/ejXD97aDbRTMZRwR
+	DUi9dLtQTPT/nYuxUGEVSlr2z45Ku2qjtVqLlzgW9SJ8Voya5fz2xidCn8M4SuCZ2EgKSW+G1bB
+	DJ83pNnDCy2ekhQ67LOzAhSmduBWmeDUqyBvTZ2S3jUjZcADPxFzA1PFDZs0YgXpo6w875Vo8H+
+	W4RgNvacC6TQ6p4PUnn0kcK/Qu0IyYOpEHTyz7OXxFnyYg/WysmzKSMDg4KFRFoBTWIgNCerLtH
+	UCd+e+43jHEKGRmrmp6vpVHaDIbj1FR7w==
+X-Received: by 2002:a05:6830:6413:b0:7e9:d082:3b87 with SMTP id 46e09a7af769-7f196b61346mr16269729a34.1.1785784741332;
+        Mon, 03 Aug 2026 12:19:01 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:b8f7:1f5e:7c:a7d1? ([2600:8803:e7e4:500:b8f7:1f5e:7c:a7d1])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18f11e522sm8029109a34.25.2026.08.03.12.19.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Aug 2026 12:19:00 -0700 (PDT)
+Message-ID: <43059ed9-2ff8-4bf3-846a-53a4c7cd72bd@baylibre.com>
+Date: Mon, 3 Aug 2026 14:18:59 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|EA2PR01MB994459:EE_
-X-MS-Office365-Filtering-Correlation-Id: a09b4f79-57f3-473e-8712-08def1931bed
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|7416014|56012099006|10067099003|11063799006|4143699003|6133799003|22082099003|55112099003|18002099003;
-X-Microsoft-Antispam-Message-Info: vI0hziprTcEhuPz1hK5Jy+dFwecDMLKLDjFjPUCart0QN8dI966mNLj0Xvqyd5U+pnnqFAD3kgI5p3FkKsBLJj3Kg/QzhFITUBwbrILnrelJFh4d8SPRTfP4nqxXoC+PXqAWlQZjeNIb5niF0MqxyDbTvzgby7lhok6LfmnXp1rvp6CHiGrTlDnPHiz4JAzJqFhGQjtcZSOhTL4Vlb9J2C8nagoBNx125/XkqpB7QI9/FgOWayjXS+DmZSXtPg7/nRJAx9CDxxw8VDor0foszmO9omdB6UlnRPhr295ylYFSCupxUpDk+D+aG3AL75r9UC+cfck4eRlCRxH+Z9fTVbsIxivY4aoj/QIe2otJYpKj2gPjBKO6jTyLvfDHDuf286+csnAKFSco0rmG3IJUFVkewuikR7YPSg5MWkx6AWP/BmltT1cyBR0F/Og8g1ry4MSLSfoRv0KIEsFnWtsrAz/pmCc6Oh9RT9oN7hOSSJz4Ov9Jh8w3uWnCodcAeyp9qJHyJDGCpkwMxHJknzFZuXfRvGUu/EnoVvizT9D2TnWCfoRF3GWsvGJT8iweo1Gp9S7ujOOROY/JgtZbdIO8zbow5c02mXeM/DqsHsIekop4twYh5+g75erpXTqp2DBmA0FvYGq8znZY9G6BjdPDIv2m3+23HL0z7OB5E+qWNC0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(7416014)(56012099006)(10067099003)(11063799006)(4143699003)(6133799003)(22082099003)(55112099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WmFWWm1FRDlSVUtuNytsQXo5ZzZuYWQySm9rOTF5ZXhHWmdrRW00VHBNZm5s?=
- =?utf-8?B?bldtaGFLdVEyblFBWENqMzZjcDloVFRUME1HNUdKN2FlN0R4U0RiQ1BiaU9E?=
- =?utf-8?B?TzU1N0lGMUUrV0xwVW5DMWhPMWh1U21wdFhncXZ4T3lDQ1YvUGYwVmZRVmk4?=
- =?utf-8?B?UnhTQkRHWjEvOFNHd1hnRVJ3NGlkT2dSZjh0N1RCTmtqQzZRdGhXQzZpN0Nt?=
- =?utf-8?B?VWVTMXBaendIR01reGhMYjQ3emc3SFF4eHJ1SExpcURTeGt3anhvNk5hSWRu?=
- =?utf-8?B?S3N1TjBRa1RSMVpKcDZXbzg3TEphZWhiV2JxTHJWamgxTmJhRWhmK3Y4NUI5?=
- =?utf-8?B?MUd0RjVtR2tIbDQya3AxOHlvMWIrbVB6YUNhbk5OaTF6STlhZHJzSFp5a1pz?=
- =?utf-8?B?Z3JDQTJoNmJwY2VzWWdBU3hXT05CY2hLUnpQNEs2emw2MG1qeUo2UG1TOHFs?=
- =?utf-8?B?M011VGJBclU0UUhvbkRURGo3c3Q4QlB2Z1J2UXNPRkV6U3pwS2RtMjN3Mjgw?=
- =?utf-8?B?TWh6dGc3b2NiWDFVZTg4L1dpOUQ4cHpBTjJZZjNVVnFrb0doOVd3NXdYMGsz?=
- =?utf-8?B?WnB4K2tmdVdhTXlTUU9SblF6aFgrUHlBZDQ1MWJKVlNNWVJjZlRuakVycVhZ?=
- =?utf-8?B?RVc1TytOa3hKczh4QmVyQ1BZQjNkdW9uN3o4ckV6eERIL3pBSmVxd3NDczUy?=
- =?utf-8?B?SGg2aUtWcndTMCtzUS9XN0JoaitEeHd0RzVwakZnQ2h3Z1dkeVRsckQwRjJj?=
- =?utf-8?B?K1ZEMklpR0Vtd0ZzWHpLVDgwQnkvZUpWREw1clJYN2lDcWNsNXh0TldZcW82?=
- =?utf-8?B?TC8zTFErSWcxMzdRYVFnZFVvOVV4WFJYcURnN0NXbTV3U1pEcWZicTlZbzZY?=
- =?utf-8?B?NUlrT1FHUFBJYmUwM3d0dXFsVFFpeHF3Tmx2bmp1WDV6dEEvU3VCWUwwb1Vu?=
- =?utf-8?B?cnM5dmtSOThnWXRCRXV5SW81TVA3YWl0Mk1qLzJuNGUxUTJlU0ZpMUFSUGRk?=
- =?utf-8?B?c2E2L0hLK20rcVV6MzlBRmdFVDhIUkcwMXpTK3IvYXBNZC9uU1cwK21yTDJ0?=
- =?utf-8?B?YjhVQmc5Mk9GaVdBNWVQT1NnZHQvTHJFRkF6VFgvT0hhRUUraGRWNVUwM21Z?=
- =?utf-8?B?NjhLZTdIMzRBcmMrU1FvYUs0ZGZpaWJxR3M0ZThVMnIrNnQwWU4vaVNTTXlH?=
- =?utf-8?B?Q201OTc3bUpMSDNXRFpNeG5zLzR5T2NqV1RvaTUvTGhyVlZkMFdqZEdKR1hG?=
- =?utf-8?B?aERySmVneVdiZzVWeDRCL0Q1L2l1bnZ5UUM4OHRYUGJjWi9rRldIdlRETUhp?=
- =?utf-8?B?NDh3V25CN3ZtMlM1S3BYTUZhT2VUc1pTTXJkSklnWDk3Zm5EZmJWZldMbnhh?=
- =?utf-8?B?WkVuR2ZlY3JJaE5idnFZM1hQM2lENUV5RTZxbkh4MXI1bW81ay95YUZ6TDhY?=
- =?utf-8?B?SHpMaXcyRGFySVBXTHZQaFRqVFhOVElhRDhXdXZZS09TajVBQlpHWFl5VnZu?=
- =?utf-8?B?SGJNaGtSd29saVMvYnhCWGd2NXI0TEpyTy9EV1BSQmxZTHVza2ZLZ1NsS1JU?=
- =?utf-8?B?RFBPTHV6ZkdodkgvV2dVbmFBQ2lBcG40Ym53eGh0cGVQY1p3M0xVYU9URFRx?=
- =?utf-8?B?VDZmNG5GclFmRW9aK0FtSyt3L051aCtIRzhmdlNoSEJPdzV0cTd2emhWZE9u?=
- =?utf-8?B?QjZBYUhoYktZMUNRT28wMXVoNEMveE5yQ0I1amF4ajcwM0R1c0xrc3lFdzBE?=
- =?utf-8?B?dnZxUzRtZVJNUDhrQ2pxSlNyb29Jc2ZFb3BhZjk1T1F3WUorTng1V05lYmlZ?=
- =?utf-8?B?d2pXZlVyeUtRUzJhbHFXYWJGOXNodUpNMDVwdStKZXpiZnA5cE8rZTdkaUtO?=
- =?utf-8?B?OVpicDVWYm13c2U0SkJReGUzbWFGKytaY1p6cDFKTjJPZ1hpdnhENGR4ejdl?=
- =?utf-8?B?bUVCdkNsMjNMalJQekRqL3lyUkZEMEVtZ1hVc05SeXM1TkNLeHFXV1hEKytm?=
- =?utf-8?B?WGVYTXBiQVphN3FZRnBYY0MvTm5BZTVqUmsrbnZ0ejJKdlYrSVMyR2owZ2Rn?=
- =?utf-8?B?dEh0cGhkYTczSHA5dXp0VTM4OUVuMWdCNWtvTkZNVHhlYnhYY1ZmeXFEQmh0?=
- =?utf-8?B?cVFTYVhZSENDM1RkSGdQMzFKSVIxRHk1UXgzVENFRHYwbGs5KzdDQUQ4NURX?=
- =?utf-8?B?dXkwUUw3WFB3VFoyNkJiRkhtNk5jUDFGS1E4MW9wTy9yekEyK29pdnpoaW5I?=
- =?utf-8?B?TnFuK1hYTmk1RkpaNHk2Q3NaL0ZMdHVGSkV6Smx3TldUWlFOMEpLSGZYajJu?=
- =?utf-8?B?dkdqU2laWUJjbERTS3hpaUkzNzRvbFdDTnJuL1NwWUtzOG0xVTg4QmhZeHJB?=
- =?utf-8?Q?Xm6cpQJNybqM3NmE=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a09b4f79-57f3-473e-8712-08def1931bed
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 19:12:06.6555
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: X4AKvl1XWoNHm90pIA4iBqI+322keMmEqGMva1X0PD0CNoPehDejz2gVkoZXEAvFHNz9b94uqgOxulY0aHdzNgIzQXfthI6Sg3gHJ31K2vw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: EA2PR01MB994459
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] iio: proximity: add driver for Sharp GP2AP070S
+ proximity sensor
+To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+ Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20260731-gp2ap070s-v3-0-d1f5cecf9fe7@disroot.org>
+ <20260731-gp2ap070s-v3-2-d1f5cecf9fe7@disroot.org>
+ <380b864f-6266-40fb-87a4-027afb422885@baylibre.com>
+ <DKFHI80E1741.3L5TMU6D3P9OC@disroot.org>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <DKFHI80E1741.3L5TMU6D3P9OC@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_121214_404036_8680F6D9 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20260803_121902_964753_857A6E41 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,212 +113,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 8/3/26 12:28 PM, Kaustabh Chakraborty wrote:
+> On 2026-08-01 11:41 -05:00, David Lechner wrote:
+>> On 7/30/26 3:07 PM, Kaustabh Chakraborty wrote:
+>>> The GP2AP070S is a proximity sensor designed and manufactured by Sharp
+>>> Corporation. This sensor is used in mobile devices, including, but not
+>>> limited to - the Samsung Galaxy J6.
+>>>
+>>> The driver has been adopted from Samsung's downstream kernel
+>>> implementation [1]. Due to the lack of public documentation about the
+>>> schematics of this device. The downstream driver acts as the secondary
+>>> source of information. Driver clarity has also been improved with the
+>>> help of the GP2AP* drivers in iio/light.
+>>>
+>>> Link: https://github.com/Exynos7870/android_kernel_samsung_universal7870/blob/lineage-16.0/drivers/sensors/gp2ap070s.c [1]
+>>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>>> ---
+> 
+> [...]
+> 
+>>> +static void gp2ap070s_reset_action(void *private)
+>>> +{
+>>> +	struct gp2ap070s_drvdata *drvdata = private;
+>>
+>> Usually, we don't bother with a cast/local variable in these.
+>> The void* can be passed directly as an arg.
+> 
+> Yeah, but CFI will not be happy about that.
 
-
-On 7/29/26 2:32 AM, Lorenzo Stoakes (ARM) wrote:
-> On Wed, Jul 15, 2026 at 11:04:06AM -0700, Yang Shi wrote:
->> vmap{__vunmap}_range_noflush() assume manipulate init_mm pgd.  The
-> It's not an assumption, it's a requirement.
->
-> There is now (and really should have always been) strictly a locking requirement
-> that the mm being manipulated is init_mm.
->
->> following patch will map percpu local mapping into percpu page table by
->> calling them, so the assumption will no longer stand.  Make them take
->> pgd pointer as an parameter.
-> No, this isn't OK.
->
-> vmalloc is expressly for manipulating kernel mappings in init_mm.
-
-This commit message may be a little bit misleading. vmalloc still 
-manipulates init_mm all the time. The percpu allocator uses some vmalloc 
-APIs to map memory. So the APIs used by percpu allocator needs to 
-manipulate percpu page table when mapping memory for the new percpu area 
-added by the following patches. So percpu pgd is just used when mapping 
-the specific percpu area by percpu allocator.
-
->
->> Also make vmap_range_noflush() non static, it will be called outside
->> vmalloc in the following patch.
-> Hmm not loving the exposure of an internal function ehre.
-
-The RFC reused and extended the vmalloc APIs. We don't have to do so if 
-it is not preferred. I think I can create some percpu allocator specific 
-APIs to manipulate percpu area mapping with percpu pgd.
-
->
->> There is no functional change.
->>
->> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> You're fundamentally changing something here, conceptually. I'm not sure why you
-> specifically need vmalloc to do it but it doesn't strike me as worthwhile for
-> what you're doing.
-
-The percpu allocator uses vmalloc APIs to map percpu variables 
-currently. So the patch extended it to take pgd pointer as an extra 
-parameter. This helped to reduce duplicate code. I can add percpu 
-specific APIs if extending the APIs doesn't make too much sense.
-
-Thanks,
-Yang
-
->
->> ---
->>   mm/internal.h    |  5 ++++-
->>   mm/kmsan/hooks.c | 14 +++++++-------
->>   mm/vmalloc.c     | 25 +++++++++++++------------
->>   3 files changed, 24 insertions(+), 20 deletions(-)
->>
->> diff --git a/mm/internal.h b/mm/internal.h
->> index 181e79f1d6a2..9d9f08cb26a1 100644
->> --- a/mm/internal.h
->> +++ b/mm/internal.h
->> @@ -1552,10 +1552,13 @@ void clear_vm_uninitialized_flag(struct vm_struct *vm);
->>   int __must_check __vmap_pages_range_noflush(unsigned long addr,
->>   			       unsigned long end, pgprot_t prot,
->>   			       struct page **pages, unsigned int page_shift);
->> +int __must_check vmap_range_noflush(pgd_t *pgdir, unsigned long addr,
->> +			unsigned long end, phys_addr_t phys_addr,
->> +			pgprot_t prot, unsigned int max_page_shift);
->>
->>   void vunmap_range_noflush(unsigned long start, unsigned long end);
->>
->> -void __vunmap_range_noflush(unsigned long start, unsigned long end);
->> +void __vunmap_range_noflush(pgd_t *pgdir, unsigned long start, unsigned long end);
->>
->>   static inline bool vma_is_single_threaded_private(struct vm_area_struct *vma)
->>   {
->> diff --git a/mm/kmsan/hooks.c b/mm/kmsan/hooks.c
->> index 8f22d1f22981..e2a0faf344b9 100644
->> --- a/mm/kmsan/hooks.c
->> +++ b/mm/kmsan/hooks.c
->> @@ -135,8 +135,8 @@ static unsigned long vmalloc_origin(unsigned long addr)
->>
->>   void kmsan_vunmap_range_noflush(unsigned long start, unsigned long end)
->>   {
->> -	__vunmap_range_noflush(vmalloc_shadow(start), vmalloc_shadow(end));
->> -	__vunmap_range_noflush(vmalloc_origin(start), vmalloc_origin(end));
->> +	__vunmap_range_noflush(init_mm.pgd, vmalloc_shadow(start), vmalloc_shadow(end));
->> +	__vunmap_range_noflush(init_mm.pgd, vmalloc_origin(start), vmalloc_origin(end));
->>   	flush_cache_vmap(vmalloc_shadow(start), vmalloc_shadow(end));
->>   	flush_cache_vmap(vmalloc_origin(start), vmalloc_origin(end));
->>   }
->> @@ -181,7 +181,7 @@ int kmsan_ioremap_page_range(unsigned long start, unsigned long end,
->>   			vmalloc_origin(start + off + PAGE_SIZE), prot, &origin,
->>   			PAGE_SHIFT);
->>   		if (mapped) {
->> -			__vunmap_range_noflush(
->> +			__vunmap_range_noflush(init_mm.pgd,
->>   				vmalloc_shadow(start + off),
->>   				vmalloc_shadow(start + off + PAGE_SIZE));
->>   			err = mapped;
->> @@ -203,10 +203,10 @@ int kmsan_ioremap_page_range(unsigned long start, unsigned long end,
->>   			__free_pages(shadow, 1);
->>   		if (origin)
->>   			__free_pages(origin, 1);
->> -		__vunmap_range_noflush(
->> +		__vunmap_range_noflush(init_mm.pgd,
->>   			vmalloc_shadow(start),
->>   			vmalloc_shadow(start + clean * PAGE_SIZE));
->> -		__vunmap_range_noflush(
->> +		__vunmap_range_noflush(init_mm.pgd,
->>   			vmalloc_origin(start),
->>   			vmalloc_origin(start + clean * PAGE_SIZE));
->>   	}
->> @@ -233,8 +233,8 @@ void kmsan_iounmap_page_range(unsigned long start, unsigned long end)
->>   	     i++, v_shadow += PAGE_SIZE, v_origin += PAGE_SIZE) {
->>   		shadow = kmsan_vmalloc_to_page_or_null((void *)v_shadow);
->>   		origin = kmsan_vmalloc_to_page_or_null((void *)v_origin);
->> -		__vunmap_range_noflush(v_shadow, vmalloc_shadow(end));
->> -		__vunmap_range_noflush(v_origin, vmalloc_origin(end));
->> +		__vunmap_range_noflush(init_mm.pgd, v_shadow, vmalloc_shadow(end));
->> +		__vunmap_range_noflush(init_mm.pgd, v_origin, vmalloc_origin(end));
->>   		if (shadow)
->>   			__free_pages(shadow, 1);
->>   		if (origin)
->> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->> index 1afca3568b9b..17c26e9796b2 100644
->> --- a/mm/vmalloc.c
->> +++ b/mm/vmalloc.c
->> @@ -295,9 +295,9 @@ static int vmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
->>   	return err;
->>   }
->>
->> -static int vmap_range_noflush(unsigned long addr, unsigned long end,
->> -			phys_addr_t phys_addr, pgprot_t prot,
->> -			unsigned int max_page_shift)
->> +int vmap_range_noflush(pgd_t *pgdir, unsigned long addr, unsigned long end,
->> +		       phys_addr_t phys_addr, pgprot_t prot,
->> +		       unsigned int max_page_shift)
->>   {
->>   	pgd_t *pgd;
->>   	unsigned long start;
->> @@ -314,7 +314,7 @@ static int vmap_range_noflush(unsigned long addr, unsigned long end,
->>   	BUG_ON(addr >= end);
->>
->>   	start = addr;
->> -	pgd = pgd_offset_k(addr);
->> +	pgd = pgd_offset_pgd(pgdir, addr);
->>   	do {
->>   		next = pgd_addr_end(addr, end);
->>   		err = vmap_p4d_range(pgd, addr, next, phys_addr, prot,
->> @@ -334,8 +334,8 @@ int vmap_page_range(unsigned long addr, unsigned long end,
->>   {
->>   	int err;
->>
->> -	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
->> -				 ioremap_max_page_shift);
->> +	err = vmap_range_noflush(init_mm.pgd, addr, end, phys_addr,
->> +				 pgprot_nx(prot), ioremap_max_page_shift);
->>   	flush_cache_vmap(addr, end);
->>   	if (!err)
->>   		err = kmsan_ioremap_page_range(addr, end, phys_addr, prot,
->> @@ -478,7 +478,7 @@ static void vunmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
->>    *
->>    * This is an internal function only. Do not use outside mm/.
->>    */
->> -void __vunmap_range_noflush(unsigned long start, unsigned long end)
->> +void __vunmap_range_noflush(pgd_t *pgdir, unsigned long start, unsigned long end)
->>   {
->>   	unsigned long next;
->>   	pgd_t *pgd;
->> @@ -486,7 +486,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
->>   	pgtbl_mod_mask mask = 0;
->>
->>   	BUG_ON(addr >= end);
->> -	pgd = pgd_offset_k(addr);
->> +	pgd = pgd_offset_pgd(pgdir, addr);
->>   	do {
->>   		next = pgd_addr_end(addr, end);
->>   		if (pgd_bad(*pgd))
->> @@ -503,7 +503,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
->>   void vunmap_range_noflush(unsigned long start, unsigned long end)
->>   {
->>   	kmsan_vunmap_range_noflush(start, end);
->> -	__vunmap_range_noflush(start, end);
->> +	__vunmap_range_noflush(init_mm.pgd, start, end);
->>   }
->>
->>   /**
->> @@ -670,9 +670,10 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->>   	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
->>   		int err;
->>
->> -		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
->> -					page_to_phys(pages[i]), prot,
->> -					page_shift);
->> +		err = vmap_range_noflush(init_mm.pgd, addr,
->> +					 addr + (1UL << page_shift),
->> +					 page_to_phys(pages[i]), prot,
->> +					 page_shift);
->>   		if (err)
->>   			return err;
->>
->> --
->> 2.47.0
->>
->>
->>
-> Cheers, Lorenzo
-
+How so? We do this all the time and no one has reported any
+issues with it.
 
