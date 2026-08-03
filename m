@@ -4,123 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D46E5C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 21:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E2FC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 21:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jrCpdiSBc0sqoht3jRVlLKndiJ6qMGmFxu9cVzHBY9o=; b=RYsI3rM/vaF3cGOuOqmrgTIRW4
-	aI0JPy6p+UJGWrd6n5CXAuDJx+3L1Yn01LCm6xv1vCeuvqFGvZ7+jj1Us00d9dw0WRdKQKg62ciL4
-	J3OS7pIitASdjc05StMyju/IH+0KwsjMgHQDIzW/joi9ED9r+Kky2VS4qhktq4Q0zDA19mNNA+SDQ
-	JoOJAzTl1NDMTwmbyWziU3N/zBVegW23x15SaoAD0kZpzVISVt6JZUxXgE7mhgYR7URPL+eCJ36l/
-	WFfKtcufvEdwpWC4+EygI5Pkpc98ogdOFw6eY07i2rQ+JWinPJ5hrN5rcnhDkKvcaMR1/OR3GGla4
-	iEjzfIOA==;
+	bh=KJsH3atiMvuqZlBdNBMGMLmGM8erxFtkd8bNSMbxCKg=; b=NPPqsgiH+65IO3xZDwsl/QD5+h
+	BS+d34rIiQo2/9TNLmxlLB2Uw3R9zUwtja2d7kItJZPreziGyazxxek73L2Fbm3YrCIKqvoxvR58i
+	niF6qNfLHogJBlotsRed9yAd4fPWfg0en+Bz9SSNRhFw6CQrDJGfnKaTAelSWI1SaFXer8X3za7sL
+	6b4XN8H3luUb9r7XKuvBrEnyAaV5OoL81FuKQwTXJtKW0AlNRZDtXLTPhUJPJz0eWpe6aad6NZUCU
+	m1+k5oYrxky3+M3SAkj2rZCZfWkeovmel3yRYwyy2WLbnvSjfYdl7W1MaMZWzFD6ms/9zsN1f1gdC
+	HMtWtQew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr0Ix-00000000YDf-3wY8;
-	Mon, 03 Aug 2026 21:34:39 +0000
-Received: from mail-ua1-x936.google.com ([2607:f8b0:4864:20::936])
+	id 1wr0cC-00000000ZDe-1Zer;
+	Mon, 03 Aug 2026 21:54:32 +0000
+Received: from out-176.mta1.migadu.com ([95.215.58.176])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr0Iv-00000000YCt-0W0Z
+	id 1wr0c9-00000000ZCO-1grl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 21:34:38 +0000
-Received: by mail-ua1-x936.google.com with SMTP id a1e0cc1a2514c-966e7380109so2017427241.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 14:34:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785792876; cv=none;
-        d=google.com; s=arc-20260327;
-        b=RO7IG2Y/UG+mE6ZWjZHMvZdyyb+czDY8RagWXjX7HxfliN30QwopL1kpGJ4SG88/v1
-         Ej1X05OXTpg/+2EwGi62d2vm1lmF2uW7uNdUz3D8Em9DCSFg2TztcLH5u+fiJp57BZxs
-         KGVThIA4NeI7ohRSuXWwsbTq6I0YmzH0MsdHzUUjQHurMOHggxjtVIB/NgONOyLNG4sq
-         QyKiE7x3+ZVMbhruxO8bZYIV8/sDGLDH3O1S38ik81IQeQMrL9fX/RvinqXMCWNO0+TC
-         oxqD0SDfWY14YC+IMjGehhkcPpDegoZgkpUb0JvAepKPacq0EqHBy/h3X4sn6YuvWtvv
-         0qmQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jrCpdiSBc0sqoht3jRVlLKndiJ6qMGmFxu9cVzHBY9o=;
-        fh=4uSo6oUBsDAdgxaPbg1OxEusv2wdIsBaqlPd7vJuIQI=;
-        b=ZnRbk03kHukG1wA0W4oI8pzz8OAmzmS0ik5Oar7oNdm+SKQbXY+qLuyMloe8VBjdJf
-         pBIF6VhdezgdIJ0LVS1lk7+hbznJc8iqEjgpvLlNyWTFIm7uWPg6ZBO20C5ENyFXqkrK
-         o9Ln0HLzhGshmBT2DHxRbwDgOLWJOyHM3FQt+u9qSEDjVg2B9PvxirwFDHiB6K7FGiHv
-         IEbzsh55HBDOj+PjGWKzV5soxiA5X7C0qy5OKtoyjWJjfV5dF7BshmL3knVqXbiJCo/S
-         Vh50BzVtSl7RdyiI8ryB+Umj3yQtJhRQB52OOQY9FbEbtELuZPnInAQrY+8S66BlBbPV
-         0+xQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785792876; x=1786397676; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=jrCpdiSBc0sqoht3jRVlLKndiJ6qMGmFxu9cVzHBY9o=;
-        b=Uwv0dOgH6JtLXftr6XTMdfrrtzdSLFpZPHVC51afVywOcrUTsymUdHMlFRhMmLRGV4
-         hoIJRlz1ZX60L7qMc9h/hY7//DU4rFoVOafhwf0As6USpK3ACDFMMh9lfb8FGg1AEK+t
-         NWRYVy3Ym/kJ1LBfcymj6E1jydMP5j4ZY1HeJVsdJazCAz4bruqa3J4W1VU9UsN19FTs
-         Rv3gWgacW57l45Yz5xc2a0/QA9mqVO4UGyM4NvygcJ9BT7yj/lMjrpp5QSAsZbrwlJGB
-         Yzb21XHoVLyvyqeGt0FJbG0zWvqQchM8W8k1/TiQbcMmNQ6qP0T7QUt9Y7iCGnP8z49G
-         UtHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785792876; x=1786397676;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jrCpdiSBc0sqoht3jRVlLKndiJ6qMGmFxu9cVzHBY9o=;
-        b=KYobG/Z0oiLDF5sckNzjexfeJBKI1LLiYcIH0lzvOBZczb4dwXBEyfN31UXqCdZwQR
-         XDzjq+wxg8uvqpE31iKypzORRkBoVbzu+dPklfB+qXXfHefpIYPTMEogcb3dsv6y+a76
-         Rd/WgbifIVnjBV8rBqiwV7ZRwm5up9BmFBlEURn64QFmMRGLaEwoAtcIZNb+9TdAhopA
-         FTipGqkv2tAq4ySoq2l9auYT6SUCx1a8O/VBLrLHWhVVA1q2EOluUjRK42PU3SImUSFh
-         DNdTxvY/OpN4z8XIoVSoyKf2z68XYk+8FoyhrWxpdR001mdwSvNwkOaL3ziACgMJqIA5
-         gyog==
-X-Forwarded-Encrypted: i=1; AHgh+Rp/IpZyPZctMbkTMdkixPV7m5gc4kAw++JeFWMZLJpC5fFiAX4T+32JY2qvqKibroWNhp+oX4R4V5maZahC+CLn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrFmF+YNGdOBBlk8hYT4hnI4tG8lm4TIyOSTgJR+R+4m04Kclb
-	bbnE71bO9kKZKR9Dfk8HIxw8XRcxCGWBQC3H/sub52cNh7wtMAZA7/zKvQrYk+SqCUPnEl3rF1M
-	nNNQipbk6t+b/bsU290FEufGkjGXX+5A=
-X-Gm-Gg: AR+sD13i8jHB/qpMiISFnnKEQQXjkeNSmuZ0bz0/441sNUI2Y9u0lMyvegMRRm5BmeO
-	8bNoiQc8yFrlUhvAMYoGid85kvmmZgmnN+qEhjvZgvzE9X8i2seKHvEzKMjXlHadpSvF74om28p
-	KEg7f8gt19xm2io7V1m4VMgBfwUzDgVRaMelVGViQkDNqZ93hA/+SGym46Fkwk6Dl/rvYLeem6s
-	V/oK0tAxm4ipoZDYlCzLw2Qwh+xVAJi3+JAl6Kddcw9VWfgLHKdJ65bv0LcM4JMH23bcunLWPyk
-	SNPoRAWlTDKdKiLlS8OIq/buqPVYdVlM8qsoQqEeZ7FTd9dlyfqeILVRmJiitcsoUqQK86966rz
-	lGCnUwHNG6vA6OT3GwbuSYtPFgZLiVzJpDvD/5IB0UvXHFfgg/VFbUVwoJ7A3sJi/IVDvJdeWUl
-	lHLtf1OMNSbHo2GQPHZPXXnDz9jIwUxapScl0goE3ObjSyojc=
-X-Received: by 2002:a05:6102:c08:b0:74c:7fd8:73eb with SMTP id
- ada2fe7eead31-75b2196451emr9291357137.1.1785792875669; Mon, 03 Aug 2026
- 14:34:35 -0700 (PDT)
+	Mon, 03 Aug 2026 21:54:30 +0000
+Message-ID: <437bcc6d-2c4c-4c4d-b5fc-885e92db8975@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785794056;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KJsH3atiMvuqZlBdNBMGMLmGM8erxFtkd8bNSMbxCKg=;
+	b=mufWI0bg7WUM3d7yyKdwTIZ+NlgDza6LCWtFbzMW1ZSuLobWL6PwE3Hm4zHgBvMt9cCeuQ
+	l4Z9aJG5sTyt9ukTVOnobGpTJxtQFx0DJb/M/N+BNWyulfLSgSqO28du56efN+YqzvU3td
+	tjy8GDwSm2LdYrnPZGDgXT9x52vomTM=
+Date: Mon, 3 Aug 2026 14:53:58 -0700
 MIME-Version: 1.0
-References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <20260802-submit-acx00-of-dynamic-v1-v1-8-0a53cd9e21cc@gmail.com>
- <f2cc3c90-060f-40c1-a55e-e2ed91e65487@kernel.org> <CADvTj4q7HnOYJZE-M070-1npEdne__Ct5D9FeUNVVXa8Bsm7qQ@mail.gmail.com>
- <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org>
-In-Reply-To: <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 3 Aug 2026 15:34:23 -0600
-X-Gm-Features: AUfX_mz0nFlKIv_Mdqu5KdrEqoS_kIvG6t--sSCBfp69bBMk1YT6VypHPp03QP4
-Message-ID: <CADvTj4rjXGgF2d9Xm6TmeS2LwaM+O2wFFH=rGLA32y+aMk2KOg@mail.gmail.com>
-Subject: Re: [PATCH 08/21] dt-bindings: mfd: x-powers: add AC200
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>, 
-	Richard Genoud <richard.genoud@bootlin.com>, Maxime Ripard <mripard@kernel.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v8 13/22] RISC-V: perf: Add a mechanism to defined legacy
+ event encoding
+To: Yicong Yang <yang.yicong@picoheart.com>
+Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
+ Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>,
+ Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+ <20260701-counter_delegation-v8-13-7909f863a645@meta.com>
+ <37db8fc7-4702-4af6-878a-b46572d6f2f4@picoheart.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <37db8fc7-4702-4af6-878a-b46572d6f2f4@picoheart.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_143437_213866_1AEB6B33 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20260803_145429_735308_D7BAD8AC 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,38 +79,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 3, 2026 at 2:20=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
->
-> On 03/08/2026 09:54, James Hilliard wrote:
-> > On Mon, Aug 3, 2026 at 1:07=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel=
-.org> wrote:
-> >>
-> >> On 03/08/2026 07:14, James Hilliard wrote:
-> >>> The AC200 is an I2C-controlled mixed-signal companion IC containing
-> >>> audio, video, RTC and Fast Ethernet PHY functions.
-> >>
-> >> This fails when applied, because you did not explain the
-> >> dependencies/merging of this patchset.
-> >>
-> >> This is THE MOST important information of cover letter. The first thin=
-g
-> >> to explain.
-> >
-> > I did mention in the cover letter that the pwm series is a dependency:
-> > https://lore.kernel.org/all/20260703152215.192859-1-richard.genoud@boot=
-lin.com/
->
-> Apply this patch and test.
->
 
-How were you applying the series?
+On 7/7/26 12:51 AM, Yicong Yang wrote:
+> On 7/1/26 4:47 PM, Atish Patra wrote:
+>> From: Atish Patra <atishp@rivosinc.com>
+>>
+>> RISC-V ISA doesn't define any standard event encodings or specify
+>> any event to counter mapping. Thus, event encoding information
+>> and corresponding counter mapping fot those events needs to be
+>> provided in the driver for each vendor.
+>>
+>> Add a framework to support that. The individual platform events
+>> will be added later.
+>>
+>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+>> ---
+>>   drivers/perf/riscv_pmu_sbi.c | 70 +++++++++++++++++++++++++++++++++++++++++++-
+>>   1 file changed, 69 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+>> index c20f1e33c65d..2568c6808f5d 100644
+>> --- a/drivers/perf/riscv_pmu_sbi.c
+>> +++ b/drivers/perf/riscv_pmu_sbi.c
+>> @@ -10,6 +10,7 @@
+>>   
+>>   #define pr_fmt(fmt) "riscv-pmu-sbi: " fmt
+>>   
+>> +#include <linux/limits.h>
+>>   #include <linux/mod_devicetable.h>
+>>   #include <linux/perf/riscv_pmu.h>
+>>   #include <linux/platform_device.h>
+>> @@ -379,6 +380,71 @@ static int pmu_sbi_check_event_info(void)
+>>   	return result;
+>>   }
+>>   
+>> +/*
+>> + * Vendor specific PMU events.
+>> + */
+>> +struct riscv_pmu_event {
+>> +	u64 event_id;
+>> +	u32 counter_mask;
+> could we name it as counterid_mask to match to the PMU format
+> name (introduced in patch 16/22)?
 
-I noticed sashiko was also failing to apply the series:
-https://sashiko.dev/#/patchset/20260802-submit-acx00-of-dynamic-v1-v1-0-0a5=
-3cd9e21cc%40gmail.com
+Sure. I will change it.
 
-But that appeared to be due to sashiko missing dependency resolution,
-I went ahead and created a PR that should hopefully fix that:
-https://github.com/sashiko-dev/sashiko/pull/389
+> thanks.
+>
+>> +};
+>> +
+>> +#define HW_OP_UNSUPPORTED		U64_MAX
+>> +#define CACHE_OP_UNSUPPORTED		U64_MAX
+>> +
+>> +#define PERF_MAP_ALL_UNSUPPORTED					\
+>> +	[0 ... PERF_COUNT_HW_MAX - 1] = {HW_OP_UNSUPPORTED, 0x0}
+>> +
+>> +#define PERF_CACHE_MAP_ALL_UNSUPPORTED					\
+>> +[0 ... PERF_COUNT_HW_CACHE_MAX - 1] = {					\
+>> +	[0 ... PERF_COUNT_HW_CACHE_OP_MAX - 1] = {			\
+>> +		[0 ... PERF_COUNT_HW_CACHE_RESULT_MAX - 1] = {		\
+>> +			CACHE_OP_UNSUPPORTED, 0x0			\
+>> +		},							\
+>> +	},								\
+>> +}
+>> +
+>> +struct riscv_vendor_pmu_events {
+>> +	unsigned long vendorid;
+>> +	unsigned long archid;
+>> +	unsigned long implid;
+>> +	const struct riscv_pmu_event *hw_event_map;
+>> +	const struct riscv_pmu_event (*cache_event_map)[PERF_COUNT_HW_CACHE_OP_MAX]
+>> +						       [PERF_COUNT_HW_CACHE_RESULT_MAX];
+>> +};
+>> +
+>> +#define RISCV_VENDOR_PMU_EVENTS(_vendorid, _archid, _implid, _hw_event_map, _cache_event_map) \
+>> +	{ .vendorid = _vendorid, .archid = _archid, .implid = _implid, \
+>> +	  .hw_event_map = _hw_event_map, .cache_event_map = _cache_event_map },
+>> +
+>> +static struct riscv_vendor_pmu_events pmu_vendor_events_table[] = {
+>> +};
+>> +
+>> +static const struct riscv_pmu_event *current_pmu_hw_event_map;
+>> +static const struct riscv_pmu_event (*current_pmu_cache_event_map)[PERF_COUNT_HW_CACHE_OP_MAX]
+>> +							   [PERF_COUNT_HW_CACHE_RESULT_MAX];
+>> +
+>> +static void __init rvpmu_vendor_register_events(void)
+>> +{
+>> +	int cpu = raw_smp_processor_id();
+>> +	unsigned long vendor_id = riscv_cached_mvendorid(cpu);
+>> +	unsigned long impl_id = riscv_cached_mimpid(cpu);
+>> +	unsigned long arch_id = riscv_cached_marchid(cpu);
+>> +
+>> +	for (int i = 0; i < ARRAY_SIZE(pmu_vendor_events_table); i++) {
+>> +		if (pmu_vendor_events_table[i].vendorid == vendor_id &&
+>> +		    pmu_vendor_events_table[i].implid == impl_id &&
+>> +		    pmu_vendor_events_table[i].archid == arch_id) {
+>> +			current_pmu_hw_event_map = pmu_vendor_events_table[i].hw_event_map;
+>> +			current_pmu_cache_event_map = pmu_vendor_events_table[i].cache_event_map;
+>> +			break;
+>> +		}
+>> +	}
+>> +
+>> +	if (!current_pmu_hw_event_map || !current_pmu_cache_event_map) {
+>> +		pr_info("No default PMU events found\n");
+>> +	}
+>> +}
+>> +
+>>   static void rvpmu_sbi_check_event(struct sbi_pmu_event_data *edata)
+>>   {
+>>   	struct sbiret ret;
+>> @@ -1670,8 +1736,10 @@ static int __init rvpmu_devinit(void)
+>>   	 */
+>>   	if (riscv_isa_extension_available(NULL, SSCCFG) &&
+>>   	    riscv_isa_extension_available(NULL, SMCDELEG) &&
+>> -	    riscv_isa_extension_available(NULL, SSCSRIND))
+>> +	    riscv_isa_extension_available(NULL, SSCSRIND)) {
+>>   		static_branch_enable(&riscv_pmu_cdeleg_available);
+>> +		rvpmu_vendor_register_events();
+>> +	}
+>>   
+>>   	if (!(riscv_pmu_sbi_available_boot() || riscv_pmu_cdeleg_available_boot()))
+>>   		return 0;
 
