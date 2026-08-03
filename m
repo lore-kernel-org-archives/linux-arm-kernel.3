@@ -4,94 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F77C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:36:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF7DC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:37:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6NEy/PUFP4IYziRxlFsuxGJ+UKXD+3O9hbIQf+7B02s=; b=CUuusFXlVphDhIIq6vTZrFjkIy
-	XzIc5fHo8kryq1zfvMtsGM9nmyq33uYQ3E2kjyNcutNseUYm88u2nv74PJuC0+9wVa+N0cIErOPRM
-	cFYPFsVJMu4krvlVMsM9km6cfa+ME8SYMXaKvmDEE5ZD8/WS+VaxoPF9z+Pu6BvPr1bOpBaXovlvP
-	xHn42TWsMlYLzjgA7WxY3fOGudbuUYp8AuqaRj4OKm34fI85ddxXM679PMyWE0qn34wTpBmgg9EVR
-	vF+gQLfiYzHByx3yFpGSF11MQj6r0OoxAm0HHEbvR6nncf+kV9XBLHAYGixVuOH/icVBK+KdvAis/
-	0a8D/9Hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oz+46xoU5Ps+EiowJN5fDiWs3w3cNh/2x67ul7cY68U=; b=glgS60XJg5jbw/Bn6n+/JlOYPU
+	6yVVmXiVAhNhVBH9EQ8hAxjQlLZvnHYBxpVbuY1Ca0V+X94jehZWiX7JF2FK2SSwfI8ZAEg5ljkoh
+	Qt02m50qZJaJEQNXwN0Wrt5F+uVx476SVXtLZjLlNtOJspzb5wfhtWMf+JXchodg11f439SQbSxL1
+	oV3IhwGzC3TMdu73H7i8PD7fYYicxH6PnREXPxL+G6n3OLbRYpuCd0Fq+ueVQ3CTRoRFiGC74epgq
+	dtbzMbuygETOy+LRCX9jWAXlqO1xnBebATxHYTatMJ51PYFF/yeaNRip2SUV4cY22sR1u/F7eEuNT
+	LmsB1XJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtmD-0000000HP0Q-2aCg;
-	Mon, 03 Aug 2026 14:36:25 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wqtmv-0000000HP9G-3ck7;
+	Mon, 03 Aug 2026 14:37:09 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtmB-0000000HOzF-22a9
+	id 1wqtmt-0000000HP8E-1rpY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 14:36:24 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47f6981d244so172894f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 07:36:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785767781; x=1786372581; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6NEy/PUFP4IYziRxlFsuxGJ+UKXD+3O9hbIQf+7B02s=;
-        b=B5130qzJEeFNzEvUVJYNolexYepCcEl0ygk+LUq/EDe9v1qSHktG0psfLI65wbEzHE
-         TBber54ICv8rcRLrHFCrpKj/owtu7uVng3u0WyVHWN0ExKR8JY9vTxjwi8XrZbuUtdAD
-         6zQMMcfuUjZ2zRUVm6KlhkNcjIx0OiyG3eozCRVXtjuswq7J2C5a/AZSD1YG8hIC83KE
-         eCHsAWvYa+RtyDauQdCs8IB5RjIkOmBwQxO68/2s7IF05A4e9nkhimjeAn2hVZ+m7n8G
-         NUXEKqTTNu+iNPDn7bN4d3rDh0OvUBhPr/LMfBw1FOie3qwcaudu+dUNsU96uIGpUKb/
-         /L6A==
+	Mon, 03 Aug 2026 14:37:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785767826;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Oz+46xoU5Ps+EiowJN5fDiWs3w3cNh/2x67ul7cY68U=;
+	b=GWPTgQza/FGzpBYrl55xvJCgfkAQJYJLHQxLioH/iqGZ/QymGKUFzz4Ypknz7hjv61Qgay
+	8/gTTqNCg20WZT6/hqlcmu0sAtJ6Kwlya1BZLq0e/fErLppi76WGc1dWnN4ks/C0DI6xU2
+	wJtt+PI8glyEooB0NXdFGxDygZiHVg0=
+Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com
+ [209.85.128.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-556-nnEQzfnON2Km15oAep_ZYw-1; Mon, 03 Aug 2026 10:37:04 -0400
+X-MC-Unique: nnEQzfnON2Km15oAep_ZYw-1
+X-Mimecast-MFC-AGG-ID: nnEQzfnON2Km15oAep_ZYw_1785767824
+Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-81e92ddc199so118107457b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 07:37:04 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785767781; x=1786372581;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6NEy/PUFP4IYziRxlFsuxGJ+UKXD+3O9hbIQf+7B02s=;
-        b=U3bPF5sEIJUNmkECtF/3lotqPPlbENl3hdVZxQAwm4DJdYEEdNkEjsJFwqiKiQh1ZS
-         7TnwuUH3iY0GtAbhn9fihSlmyGMsNibpO712jBEH2xAh7w6Qq3FHTqQhZgqObv64WBQT
-         d6PypBnmG9GM2Wio4J1lan8Sre09GUFvXROBIgxJxGFvwiAFOxAfxH1vkpn6VfjoGkSF
-         mydyAAUBo3tDueyrhGyne4DOOQS3QSjRjmcIZzHfRhtVrEJf9A4GD8O4SBpgGq9rti3p
-         7EmLkbeNoqJbdG7fSx0fDfmo1d+hhFJW6fUfrxyYmBF+WYoRRmG9JGy/Z+3RlIbvm6rl
-         H0IQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpYWCI4S4gVfcnErQHqqrlFzT8Bra4iddSQZDRomX89J456bWK/rv5S65440esEC71DwH9vZvtYrUdXjwhUxtqQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzc5gKi/gcOgH3eUXcSH6pwz6K2Q104fDLO/21LagjWbTBrrPrB
-	PC4Fivc+O0XqdPcSHjMv7DaKxRBJ+q0e1SO75svUPqcycCFa3t6hRcdiLAOzpJdc
-X-Gm-Gg: AR+sD13dJ/2r5/U6CjRHimopE3dU2pR2jo7+Nzld9h1DD8sQ267ixBB4w8k9JeOrnfo
-	hq+T9wOsiNUf+ZkYWXgK6ieY3JgEItf4bU/IrlQRRUU2rb2aWbKCMtYHpMT5fgPm2/XnIDMMLG7
-	SLrTPVqlz+462cQWZ690BgCtH3gWrEi4j35ETBeiADXDvNvjhwdxGx9uI/JyAm4+enBf/VkLRWs
-	DR0SZejZ1npNc5hDqRa9hCGaPbI4AWTWtZGfbSSl6mJKL/tdu+hJTjmPfn2eeVfuGRLvUh4VXPP
-	qULDruOpN98ORhtEiE7e+q9rYitcdGitP2xgx//cm+m5rMzYrSP798OJKNB9uU4rtVsMOOdxuFB
-	lL4XwdC8IPsKYXtExFamcph5F/zH1SZPQTe4H6HsvjuEed85ih7rHfMzUZwpcEWQsgph2SEgWvA
-	I61H0WeDAgNT+pfG37qfO6HoKBTqcqQ0HrXr1Z5rejCpM4F2RUqHXTr5W+SbTx899o6x3XkYL37
-	O8SnaCa8W7utw==
-X-Received: by 2002:a05:6000:382:b0:47f:946b:d3fc with SMTP id ffacd0b85a97d-47fd72e31eemr14371381f8f.2.1785767780705;
-        Mon, 03 Aug 2026 07:36:20 -0700 (PDT)
-Received: from thomas-precision3591.. ([2a04:cec0:101e:c128:c461:1b2d:86b8:e437])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-47fd41cfdc6sm32663260f8f.8.2026.08.03.07.36.18
+        d=1e100.net; s=20251104; t=1785767824; x=1786372624;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Oz+46xoU5Ps+EiowJN5fDiWs3w3cNh/2x67ul7cY68U=;
+        b=HjK/UOih2/bMvvOxMyT74KJ4MPO0FOrsK51ppfiJXqPPY8Lp5UtEsXLFwVTpb1LzI4
+         StKVwNQuBbc24gJG+oewqW68L+f1++snDfoLiHsrv8K1Y2LnhT5gNZZ+6K4rp+HZGwKS
+         +7g/G+pIHWvJzFb47SZ5Ii1ON0E+sbSvVr//PyA+gTbTeDIa3vxlUw+S7CoD4uSc0GL4
+         QzfRivQYE9V/XSQbFJJH36Y9tvl17xFJven7PN30TWS8agbgiL7w7HRgLorQT6Az1wiA
+         miBUUyZ5qgwEvBfHpErR3bNCiKlqMZdGkqs32CHz+trq2O4MinzTcgLNHPEM1W4Sbh9n
+         j/fQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp/493A4Na06iWmox+F6UdIT3b6EsrFkTA27DpqSiAe5BPmUlQ9xTLu7eic0Al+BvjTrAPtuswMOuZROeHOSw8r@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaA8EPmh0WWbUMfSPvshfSRVLlyO9ijAQSFem859uSeGUqBKCc
+	YS0ns9615RaCOFhxwjlNVyhAhnW4+K/DXUal7eLVkPbYfutKvevigKOK34hiNtXKExoB9W8jTQL
+	qkFzwKNeRlfJ1+MLfyfW56Qu2+sch4Fa89O2v41t1NO0KSoi4UkLgbxiCRgL57UpiFFALVf5rqg
+	/g
+X-Gm-Gg: AR+sD13RthOWg5VqvYSQGTkXxkdUW0E/F+sP1nrJ0YusduVyn0GrmidyclK2wlXsUy1
+	J6r2ZjVW+jT+fTw7/9zGg3fHiVe5/0Fx5uTB2K0Blgi7+wU400Vy5DPe0Ruxp6iByQxfvLckAD5
+	00rAbJRqu7ELvY84vjGZUT+Dz4HS5Hgun5DlV2blAxHM+suABsjTLHzdenLls0TVpLUcZMZtGRV
+	8HxhZoaJgbPJvuF1q5xZDvwuAqynq5sw2yP7/SBfEPa/Dj41zq0TOhoJUyo3hbPDhg8eYDTPjte
+	tieO3A836MiEyIAhAlxK5lSH9BjI6l+A+psUjnKoOX/CojbfYQkmBkCygA9LkGnZcisy+LRxY/d
+	suuQgbWI3Yvps/jvGi/ASvMCevFcbAzmNAB0=
+X-Received: by 2002:a05:690c:4d83:b0:80b:9f4e:a70 with SMTP id 00721157ae682-81fd4ba6936mr134850387b3.26.1785767824034;
+        Mon, 03 Aug 2026 07:37:04 -0700 (PDT)
+X-Received: by 2002:a05:690c:4d83:b0:80b:9f4e:a70 with SMTP id 00721157ae682-81fd4ba6936mr134850157b3.26.1785767823526;
+        Mon, 03 Aug 2026 07:37:03 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-81fcd0d70besm54676927b3.31.2026.08.03.07.37.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 07:36:19 -0700 (PDT)
-From: Thomas Fourier <fourier.thomas@gmail.com>
-To: 
-Cc: Thomas Fourier <fourier.thomas@gmail.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
+        Mon, 03 Aug 2026 07:37:02 -0700 (PDT)
+Date: Mon, 3 Aug 2026 10:37:00 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-wireless@vger.kernel.org (open list:MEDIATEK MT76 WIRELESS LAN DRIVER),
-	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCH net] wifi: mt76: sdio: Fix possible data race when dequeuing skb
-Date: Mon,  3 Aug 2026 16:35:08 +0200
-Message-ID: <20260803143510.49558-2-fourier.thomas@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Chun-Jie Chen <chun-jie.chen@mediatek.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Edward-JW Yang <edward-jw.yang@mediatek.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v5 10/25] clk: mediatek: pll: Add BAR reset register
+ offsets
+Message-ID: <anCnjHectpXOqQku@redhat.com>
+References: <20260801-mt8189-clocks-system-base-v5-0-ac4410697cc2@collabora.com>
+ <20260801-mt8189-clocks-system-base-v5-10-ac4410697cc2@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260801-mt8189-clocks-system-base-v5-10-ac4410697cc2@collabora.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 641YN-Ol7uN7Y1f0NYjqmbEyrVjl0vfvSMFbu9Lwaag_1785767824
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_073623_544302_29A0DCA1 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20260803_073707_558973_910FE06D 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,63 +123,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The next entry of the queue is saved as a refenrence and immediately
-removed from the list, before processing the skb. It can thus be
-overwritten by the queuing function at the same time as .rx_skb() is
-called.
+On Sat, Aug 01, 2026 at 01:20:56PM +0200, Louis-Alexis Eyraud wrote:
+> Currently, the register offset to handle BAR reset, for PLLs that
+> support it, is hardcoded to CON0.
+> On MT8189 SoC, there are separate status, set and clr registers to
+> handle this, so differents offsets are needed.
+> 
+> Add the new fields for offsets and addresses to the MTK PLL data
+> structure and modify mtk_clk_register_pll_ops function to compute the
+> new register addresses so they are available for clock operation usage.
+> 
+> Also, replace reset BAR address computing by its computed address
+> from MTK PLL data structure in prepare/unprepare callbacks.
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-Split mt76s_get_next_rx_entry() to get the tail, and once it is
-processed, pop the element.
-
-This patch was compile-tested only.
-
-This patch depends on commit 16254fc51f7d ("mt76: sdio: fix use of q->head and q->tail").
-
-Fixes: d39b52e31aa6 ("mt76: introduce mt76_sdio module")
-Signed-off-by: Thomas Fourier <fourier.thomas@gmail.com>
----
- drivers/net/wireless/mediatek/mt76/sdio.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/sdio.c b/drivers/net/wireless/mediatek/mt76/sdio.c
-index 8bae77c761be..12ee781a62f4 100644
---- a/drivers/net/wireless/mediatek/mt76/sdio.c
-+++ b/drivers/net/wireless/mediatek/mt76/sdio.c
-@@ -371,14 +371,21 @@ mt76s_get_next_rx_entry(struct mt76_queue *q)
- 	spin_lock_bh(&q->lock);
- 	if (q->queued > 0) {
- 		e = &q->entry[q->tail];
--		q->tail = (q->tail + 1) % q->ndesc;
--		q->queued--;
- 	}
- 	spin_unlock_bh(&q->lock);
- 
- 	return e;
- }
- 
-+static void
-+mt76s_clear_next_rx_entry(struct mt76_queue *q)
-+{
-+	spin_lock_bh(&q->lock);
-+	q->tail = (q->tail + 1) % q->ndesc;
-+	q->queued--;
-+	spin_unlock_bh(&q->lock);
-+}
-+
- static int
- mt76s_process_rx_queue(struct mt76_dev *dev, struct mt76_queue *q)
- {
-@@ -397,6 +404,9 @@ mt76s_process_rx_queue(struct mt76_dev *dev, struct mt76_queue *q)
- 
- 		dev->drv->rx_skb(dev, MT_RXQ_MAIN, e->skb, NULL);
- 		e->skb = NULL;
-+
-+		mt76s_clear_next_rx_entry(q);
-+
- 		nframes++;
- 	}
- 	if (qid == MT_RXQ_MAIN)
--- 
-2.43.0
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
 
