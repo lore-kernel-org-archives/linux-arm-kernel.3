@@ -4,48 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8858C55175
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 08:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980CEC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 08:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oL77ikjGFVW7QH8ozMC74CWfxuPdNOXGLUeFKsMycB8=; b=Uigz0IdAYlFSJEJZ/F2axv7XpG
-	7nxr4F+7nE1/Z9yK3kIUVn9V0o3bv5GL3gp1g3pEvXoPojBfn1+OfqMNI70duBuFhtZJ7YCYE712s
-	PIqdDpJL903ZeikRZYrkOoWryyciTVHwNtzYcTpqLW9o4NH0Hk7nuPu/xk0EpI68zM+thsL1+LPHV
-	P50JEMs1lKaG7lzIqV9sww3BWyFgaEjd6Aj3/iWol+43de7UwmJpG/qc1CuxVdlR+ql9MsczIAa+1
-	x/MCEvmy5O/vRHYUDiAF6DPRtfB/EACjhgz1IU4bvP70a5LjHz13Wbh6FGwraRP99mE6W9lqrcOxp
-	50Fv1ElQ==;
+	bh=e5uwIV2Y4sYN43Sv15YtOuNlkl0578hRCHETri1JqXY=; b=XA9CvIRJWAzufqpEa7R99xiWRo
+	1wgAfQnk786GNux7+nA25bdrmHGuKNVa1DB6ud63pajPJyKNQ/hz0snT9NIbw7OSFFyvooptZiCdl
+	JCcbNzXGTOVwxXJXyNP5KQ6DRGVQFLh5tGplz0tCtqNdHfp9f5JE/Q8DO0HfZnAgzK+K7inE9+kCh
+	GgunIN+7ZrzjXzYmPcx4U3dyZCGisQeMSVaWfOdYif9mkUskiZjczySVCYFsDzYeawT4JGYen9z2y
+	KzRgYntI0sI/vWlt8o3LOj9m29Xyb/RySotBh9DpWnDQAorQ8Cl65P1JD+ES5E9QEw0HQOqqNDRkF
+	IKGC9KMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnuh-0000000Gb6x-19eM;
-	Mon, 03 Aug 2026 08:20:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wqnvk-0000000GbIp-203g;
+	Mon, 03 Aug 2026 08:21:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqnuf-0000000Gb6o-38fT;
-	Mon, 03 Aug 2026 08:20:45 +0000
+	id 1wqnvi-0000000GbIV-2imP;
+	Mon, 03 Aug 2026 08:21:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 87F9A43726;
-	Mon,  3 Aug 2026 08:20:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBDA81F000E9;
-	Mon,  3 Aug 2026 08:20:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CF7BA600FF;
+	Mon,  3 Aug 2026 08:21:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 532B21F000E9;
+	Mon,  3 Aug 2026 08:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785745244;
-	bh=oL77ikjGFVW7QH8ozMC74CWfxuPdNOXGLUeFKsMycB8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=V/BStKSGhLspBCfJaAyL/O1UrXPMY+cIrEN87pQ4cFZRFUCkbLwpEucGYZibMqVUt
-	 rKKPxVnP+n5lL5+QJBLYnF+MpSPAAGezZoKLMJvhMp4OLpqwLpztg/FQYzZ4H8GwMh
-	 GOALuLZvqqoAMl7nXGjm5sameAlhvDcgs/wH+OjxV3QiFTrTF/9kYsvLGDtkOpU+6c
-	 SCg+kUQuMhTZJUEp1v2kzIWMJWknuU8nUcZQQeYCNN9B6D2EyCrsQJ5sESITvN3QG8
-	 eJNr0lxm1BPCHAzj9aB1hycB4I//WCPwH3r6mAvQcxxUppMfIXhy2msFbxRPgwV/n7
-	 kqW0dHeBirljA==
-Message-ID: <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org>
-Date: Mon, 3 Aug 2026 10:20:30 +0200
+	s=k20260515; t=1785745309;
+	bh=e5uwIV2Y4sYN43Sv15YtOuNlkl0578hRCHETri1JqXY=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=IucJlZnTzfbxH/e0Qk+Z9/AYn5jhp3/hetueeRO6zyjqCEHUwvFT/5690oo0ate+w
+	 rOVwoHcXPW2yYowgVEy2+IdW/gr2lYlQd1s+E4CHMpe3bUNFXR7S0tt9xmOyW6kFWZ
+	 AUSgoUbfrZeyU7/K+cPQHKATQQVNyvDvn1GoMo6f3c9sk+OR4CzLhj9yoMGiKrZXS5
+	 h4sOOrtlaucdEFiTddVsXNLh4cgMiSCpNFlbwM9lq3T5KFzsGbNdHpJcm4GujGtx1U
+	 IZ1ShWsfIfYP3J2fVee9eQuRpyXsEkRJffX8z7wpJ1DGbaNxw8TcYMUBF7sJ3kcZYm
+	 ngmdJrLYaEbTQ==
+Message-ID: <cd177647-827c-481a-9ac6-5f5a1882f14e@kernel.org>
+Date: Mon, 3 Aug 2026 10:21:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 08/21] dt-bindings: mfd: x-powers: add AC200
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: James Hilliard <james.hilliard1@gmail.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
  <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
@@ -72,8 +74,7 @@ References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
  <20260802-submit-acx00-of-dynamic-v1-v1-8-0a53cd9e21cc@gmail.com>
  <f2cc3c90-060f-40c1-a55e-e2ed91e65487@kernel.org>
  <CADvTj4q7HnOYJZE-M070-1npEdne__Ct5D9FeUNVVXa8Bsm7qQ@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
+ <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -117,9 +118,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <CADvTj4q7HnOYJZE-M070-1npEdne__Ct5D9FeUNVVXa8Bsm7qQ@mail.gmail.com>
+In-Reply-To: <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,104 +135,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/08/2026 09:54, James Hilliard wrote:
-> On Mon, Aug 3, 2026 at 1:07 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 03/08/2026 07:14, James Hilliard wrote:
->>> The AC200 is an I2C-controlled mixed-signal companion IC containing
->>> audio, video, RTC and Fast Ethernet PHY functions.
->>
->> This fails when applied, because you did not explain the
->> dependencies/merging of this patchset.
->>
->> This is THE MOST important information of cover letter. The first thing
->> to explain.
-> 
-> I did mention in the cover letter that the pwm series is a dependency:
-> https://lore.kernel.org/all/20260703152215.192859-1-richard.genoud@bootlin.com/
-
-Apply this patch and test.
-
-> 
-> With the pwm series first this should apply on top of master. Should
-> I just mention that it applies on master or should I reference a specific
-> commit hash or something?
-> 
+On 03/08/2026 10:20, Krzysztof Kozlowski wrote:
+>>>> --- /dev/null
+>>>> +++ b/include/dt-bindings/mfd/x-powers,ac200.h
+>>>> @@ -0,0 +1,13 @@
+>>>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+>>>> +/*
+>>>> + * Interrupt numbers of the X-Powers AC200 interrupt controller.
+>>>> + */
+>>>> +
+>>>> +#ifndef _DT_BINDINGS_MFD_X_POWERS_AC200_H
+>>>> +#define _DT_BINDINGS_MFD_X_POWERS_AC200_H
+>>>> +
+>>>> +#define AC200_IRQ_TVE                        0
+>>>> +#define AC200_IRQ_EPHY                       1
+>>>> +#define AC200_IRQ_RTC                        2
 >>>
->>> Describe the parent device, its input clock, required function supplies,
->>> the optional SID bandgap calibration cell used by the vendor initialization
->>> sequence, and its optional Ethernet PHY control child. Document the 24 and
->>> 27 MHz rates encoded by the public EPHY clock selector.
->>>
+>>> Hardware constants are not really bindings, even though you use them in
+>>> the driver.
 >>
->> ...
->>
->>> +required:
->>> +  - compatible
->>> +  - reg
->>> +  - clocks
->>> +  - ac-ldoin-supply
->>> +  - ephy-vcc-supply
->>> +  - rtc-vcc-supply
->>> +  - tv-vcc-supply
->>> +
->>> +dependencies:
->>> +  interrupts: [ interrupt-controller ]
->>> +  interrupt-controller: [ '#interrupt-cells', interrupts ]
->>> +  '#interrupt-cells': [ interrupt-controller ]
->>> +  nvmem-cells: [ nvmem-cell-names ]
->>> +  nvmem-cell-names: [ nvmem-cells ]
->>
->> Why do you need all these dependencies? What are you trying to express?
+>> Should I do something different for this?
 > 
-> Looks like we probably can get rid of all except these:
-> interrupt-controller: [ interrupts ]
-> nvmem-cells: [ nvmem-cell-names ]
+> I would just drop the defines and the header, because these are fixed
+> hardware numbers.
 > 
-> I was just trying to express the MFD controller dependencies.
-> 
->>> +
->>> +additionalProperties: false
->>> +
->>> +examples:
->>> +  - |
->>> +    #include <dt-bindings/interrupt-controller/irq.h>
->>> +
->>> +    i2c {
->>> +        #address-cells = <1>;
->>> +        #size-cells = <0>;
->>> +
->>> +        mixed-signal@10 {
->>
->> ...
->>
->>> +...
->>> diff --git a/include/dt-bindings/mfd/x-powers,ac200.h b/include/dt-bindings/mfd/x-powers,ac200.h
->>> new file mode 100644
->>> index 000000000000..cc59e2ab4912
->>> --- /dev/null
->>> +++ b/include/dt-bindings/mfd/x-powers,ac200.h
->>> @@ -0,0 +1,13 @@
->>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
->>> +/*
->>> + * Interrupt numbers of the X-Powers AC200 interrupt controller.
->>> + */
->>> +
->>> +#ifndef _DT_BINDINGS_MFD_X_POWERS_AC200_H
->>> +#define _DT_BINDINGS_MFD_X_POWERS_AC200_H
->>> +
->>> +#define AC200_IRQ_TVE                        0
->>> +#define AC200_IRQ_EPHY                       1
->>> +#define AC200_IRQ_RTC                        2
->>
->> Hardware constants are not really bindings, even though you use them in
->> the driver.
-> 
-> Should I do something different for this?
 
-I would just drop the defines and the header, because these are fixed
-hardware numbers.
-
+Hm, unless they are not and you added abstract ID numbers for both DTS
+and drivers? Then this would be fine.
 
 Best regards,
 Krzysztof
