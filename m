@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CBDC55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1518C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4J2yZN9RLQpf6h7bpbWoN1csDKPyXxPnXa7EiHGDkdA=; b=VPMYiCJws8Xa4j0rlBIaDOrrh2
-	bhTDf9TOtqTCTep1eQSXJvN23cFlyoz+6PSniVlDdxeXP/SqEltDSkM6gjcvMRGU+IARgcTTlVtO4
-	rlxskbzkDfVAJ9DTRjiFC12l3vLd3v8HQ7uQwhMzVfxLI2jhHaOejHPOjRNyeJfmrdWAkm334EWKt
-	pvp6Rchcct0FkBnIBptjbbAcomNxawteLcBvAmXtfGyc8yeGS3Gr7dT6MMfX2kQdYzv/nXbykgRV5
-	52q5LD61HXpBZFlOb/g8l2dvdk3pfDFOXqgHxI7cyXw1djbaIadb67NfWQ6lwPseQmYtSRWqZrcrJ
-	AgErfkPg==;
+	bh=VJ5CeDNwYxugxPQ1HUm/D+bBt5odpzYgq3pywTHiLxs=; b=vPHNXjYaOj/VM/VA/Mbd2eFYIk
+	WeTmBG1WNQ6+pVVscpLJqtyVi82s7DJRVnzlLaPTqHM0+znEaeMZy83KwccY8Wzce5JJL3BZK+oQC
+	vEhwCekrrnYKXTzTBx6ZfrW6DygnAU1XRZICmmKiOxsUdTI5yYlV1qiR0vDkqaP9d0VbrcGj+NDPC
+	vlt8rbsYOhvZsWSf7TH5jC/nqqrEdXsLBTUBLPIanWUaphgLague3YTkC5vKcc6w1nOpB3z8S6FfY
+	sd9A7WfIvc9H6IEdMTL3rG51C82Sd4CIsxStA0Vty01LrTuIbzV0PxMFawCfjklzmf0hthe6BKlIj
+	kJlUNMrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqsyL-0000000HC1L-0dxb;
-	Mon, 03 Aug 2026 13:44:53 +0000
+	id 1wqsyW-0000000HCBr-1Xt3;
+	Mon, 03 Aug 2026 13:45:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqsyJ-0000000HC07-1HEk
+	id 1wqsyT-0000000HC9J-1mwc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 13:44:52 +0000
+	Mon, 03 Aug 2026 13:45:02 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8F759165C;
-	Mon,  3 Aug 2026 06:44:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D447143D;
+	Mon,  3 Aug 2026 06:44:56 -0700 (PDT)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ECAA43F66F;
-	Mon,  3 Aug 2026 06:44:45 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9F383F66F;
+	Mon,  3 Aug 2026 06:44:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785764690; bh=atB3+AUi+d6UB2ANLJFnJ3D22hkMovBf+VHS20wL0+U=;
+	t=1785764700; bh=LXyCzvFruOCuPoP9WYAH053wu6GqC2lVthabhKFJsbs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=h3PkWGNXVDNuddBOjUSAnEFkpuP/5w/cj7Cibu6fl/arIuAfR43QNFsFCpB1sQlwV
-	 Lsaf3cs1Q19MTkWdimIrgDHbOqRxtPSyR6jeH0ZdY7jlDB4FHia6jAitCYOKyPN4C0
-	 U2F8bzY7FmqvpRK1amSD620+Wb717jd6pV29T3lc=
+	b=vYl0ASJ9r+3uuN/SPpZC3hvV+z30+bHDb08xp8msAw9hzsFAwBMB7Sjq+CXfCH3Gb
+	 IbNW+k4z87Lkpuz3F+mvJDPmsIyRSyB99sessXNzfvtYE/V1VQEj6umgyORO5GakWF
+	 8yPQDDZiqq6zvGrdPAQQbo9qNtJHIU+15DQYY11w=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -66,17 +66,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	WeiLin.Chang@arm.com,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: [PATCH v16 07/45] arm64: mm: Handle Granule Protection Faults (GPFs)
-Date: Mon,  3 Aug 2026 14:43:23 +0100
-Message-ID: <20260803134403.80630-8-steven.price@arm.com>
+Subject: [PATCH v16 09/45] KVM: arm64: Avoid including linux/kvm_host.h in kvm_pgtable.h
+Date: Mon,  3 Aug 2026 14:43:25 +0100
+Message-ID: <20260803134403.80630-10-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260803134403.80630-1-steven.price@arm.com>
 References: <20260803134403.80630-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_064451_421223_40BE9513 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20260803_064501_564789_FEDEFE18 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,74 +91,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the host attempts to access granules that have been delegated for use
-in a realm these accesses will be caught and will trigger a Granule
-Protection Fault (GPF).
+To avoid future include cycles, drop the linux/kvm_host.h include in
+kvm_pgtable.h and include the lightweight headers required for the types
+and inline helpers used there. Additionally provide a forward
+declaration for struct kvm_s2_mmu as it's only used as a pointer in this
+file.
 
-A fault during a page walk signals a bug in the kernel and is handled by
-oopsing the kernel. A non-page walk fault could be caused by user space
-having access to a page which has been delegated to the kernel and will
-trigger a SIGBUS to allow debugging why user space is trying to access a
-delegated page.
+Both pgtable.c and kvm_pkvm.h relied on the indirect inclusion of
+kvm_host.h, so make that explicit.
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-Changes since v10:
- * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-Changes since v2:
- * Include missing "Granule Protection Fault at level -1"
+New patch in v13
 ---
- arch/arm64/mm/fault.c | 28 ++++++++++++++++++++++------
- 1 file changed, 22 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/kvm_pgtable.h | 6 +++++-
+ arch/arm64/include/asm/kvm_pkvm.h    | 2 +-
+ arch/arm64/kvm/hyp/pgtable.c         | 1 +
+ 3 files changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index 85e23388f9bb..ea3ae0ca7dba 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -909,6 +909,22 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
- 	return 0;
- }
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 41a8687938eb..c2e4b29e605f 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -8,9 +8,13 @@
+ #define __ARM64_KVM_PGTABLE_H__
  
-+static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
-+{
-+	const struct fault_info *inf = esr_to_fault_info(esr);
+ #include <linux/bits.h>
+-#include <linux/kvm_host.h>
++#include <linux/kvm_types.h>
++#include <linux/rbtree_types.h>
++#include <linux/rcupdate.h>
+ #include <linux/types.h>
+ 
++struct kvm_s2_mmu;
 +
-+	die_kernel_fault(inf->name, far, esr, regs);
-+	return 0;
-+}
-+
-+static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
-+{
-+	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
-+		return 0;
-+
-+	return 1;
-+}
-+
- static const struct fault_info fault_info[] = {
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"ttbr address size fault"	},
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"level 1 address size fault"	},
-@@ -945,12 +961,12 @@ static const struct fault_info fault_info[] = {
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 32"			},
- 	{ do_alignment_fault,	SIGBUS,  BUS_ADRALN,	"alignment fault"		},
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 34"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 35"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 36"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 37"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 38"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 39"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 40"			},
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level -1 granule protection fault (translation table walk)" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level 0 granule protection fault (translation table walk)" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level 1 granule protection fault (translation table walk)" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level 2 granule protection fault (translation table walk)" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"level 3 granule protection fault (translation table walk)" },
-+	{ do_gpf,		SIGBUS,  SI_KERNEL,	"granule protection fault" },
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"level -1 address size fault"	},
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 42"			},
- 	{ do_translation_fault,	SIGSEGV, SEGV_MAPERR,	"level -1 translation fault"	},
+ #define KVM_PGTABLE_FIRST_LEVEL		-1
+ #define KVM_PGTABLE_LAST_LEVEL		3
+ 
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 74fedd9c5ff0..0afe742d1f3f 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -7,9 +7,9 @@
+ #define __ARM64_KVM_PKVM_H__
+ 
+ #include <linux/arm_ffa.h>
++#include <linux/kvm_host.h>
+ #include <linux/memblock.h>
+ #include <linux/scatterlist.h>
+-#include <asm/kvm_host.h>
+ #include <asm/kvm_pgtable.h>
+ 
+ /* Maximum number of VMs that can co-exist under pKVM. */
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 91a7dfad6686..3d608b7e0cf0 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -8,6 +8,7 @@
+  */
+ 
+ #include <linux/bitfield.h>
++#include <linux/kvm_host.h>
+ #include <asm/kvm_pgtable.h>
+ #include <asm/stage2_pgtable.h>
+ 
 -- 
 2.43.0
 
