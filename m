@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65AD6C5620A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745C1C56201
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Caridhfg5lHxxXcAMCe2jega7mt5OmOmtlBjBnDTHA=; b=cB2RclnUdK0f+iBzIFn+nbTSQo
-	uuzinoOMRa8NTsLU6lmMEOprhLZHUVP1638iOk47lu7ecOTbTvfeRB4E0paktw6T6huwj/eLaPpID
-	kitCm1WVQUE8fWl6onN2kUpaBfAWzlRS21Gi3iQgQ97coBh+VXALk7rbo3VwfB9CjFwJjUgaur/Qt
-	QBlU6nPKnehpwcUmyso9kQ9+d87GS/4I/uk23TYaPeiSblv7ezB8SvO1AZxhY70fH2poM+4r4bcDm
-	RaBe+i8XlidOHRdOU0bpQTDiWpBI/UpRMSrJuOleFCftVyiJMueCXtq0bsDriMVzoNZIvkbn9FuI7
-	J/YUJpfA==;
+	bh=yDcHkSjvrDJtNDrPNvnS9BLthHL6+Nc/8KzTbPfLhnk=; b=h9MuCW9OA04ngtEM+Clxduosta
+	GOtz1xfDcviIy2VsY9+W/arScHPbQ39vml0+wMjEVmb0fN2Fg/56VwDYAQfKvQgHF/stU8+TAl5Bj
+	SSQeMhXH4N04gumxLwZaBKE8d5FvUoS5nS+Fe3UHvJAEyyzmE/ZLL5qlPUsMPU7fSUT7cuN6ptEZE
+	ye4b+1Lfj7bh39u1dFDtgK8sOPpLQl0lL+lgXiA9cCWRvWq8bDKml2w+WIKLpN6FjwR8i0WCEWRpL
+	/BkrMWtnhIoHHggmwimLSA6EXUtae/64GW3iF574H1aYwKvEHNJgUsOWtbqkG02V2LtPxv2k0hvOL
+	tP6fxIrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2O-00000000IHy-0sqg;
-	Mon, 03 Aug 2026 18:05:20 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wqx2K-00000000I9z-2KSY;
+	Mon, 03 Aug 2026 18:05:16 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2F-00000000Hxk-2WYM;
-	Mon, 03 Aug 2026 18:05:15 +0000
+	id 1wqx2F-00000000Hxg-0soC;
+	Mon, 03 Aug 2026 18:05:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1785780304;
-	bh=aj9xP0W371VTIzU9gNhnUVMhyeHDU8fdXzCypYpwkGw=;
+	bh=+hvcTuzTih5vFZbymQZbCa4pv4dlmw/yOyTygYkYfXw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IbqY1GQbCns+vnR9slEACzRSCW7+JqeWt8FBinIUeMMc2uINkfJfa+ARKXmMhyxd7
-	 GGcKIdu2dnn985lpVfTekaKqHN1geF+ztxnye8SQCsaUpuv5Ig/5P/6iQw3T8fm8Y1
-	 CVYRoq8Fx1BaAxzTlfT7EFWPIP60U3eN0HOBoJByx7sPVfszmJmB59pdIr6sZr9b1j
-	 KYMc/5XyZLcYJygStkjgiJFCxbmhRv4NWgmIhbYpugvSCLChe4LTUPd3itebpjmNt4
-	 3cIknqWSx7B8p9GDz2a90D7naBzrtIchvgJg8xqzEJbFNdNE++tCgfHBw/9MErT5cw
-	 nE9UiYVLLk5BQ==
+	b=Rnnvvk+y3ZEPNKGORxSUGqsg+mNaM9ua+oPmZXjTDX25nKW4ZrgKL8Id44CQgPeHd
+	 dgf1MDIyR5EeSgciebeVwtJcOAYxVp1bPzQdMLnZZpf+e6dxk2rjTJzmQDVKP6fexk
+	 ZzX4rtp67mur4VMN8fbrVlCnyKqeHLZwH6JYxiVr7N3cggCCFyqgX827oO5smSpPzs
+	 5IEyqySgMeukcoOhnLsD2CsDwvqo79mkqUSKRuPNvDqatHOi7kQD54fN7YFYf8F9oF
+	 qrVuydhCTdkZac/DDPPeYCPgrwiWT+XOStGalRkexz7pDm0CDIHUewQOOqVkP+4WeO
+	 6K2XG9c9MD1qg==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 23F0A17E10BE;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 26D2117E10C0;
 	Mon, 03 Aug 2026 20:05:04 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 6A5C0480038; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
+	id 6BE5748003A; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Mon, 03 Aug 2026 20:05:08 +0200
-Subject: [PATCH v9 07/22] drm/bridge: synopsys: dw-dp: Fix AUX transfer
- timeout race condition
+Date: Mon, 03 Aug 2026 20:05:09 +0200
+Subject: [PATCH v9 08/22] drm/bridge: synopsys: dw-dp: Fix support for
+ short I2C reads
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260803-synopsys-dw-dp-improvements-v9-7-2e6e46135312@collabora.com>
+Message-Id: <20260803-synopsys-dw-dp-improvements-v9-8-2e6e46135312@collabora.com>
 References: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
 In-Reply-To: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -79,26 +79,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  Sebastian Reichel <sebastian.reichel@collabora.com>, 
  Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2162;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1481;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=aj9xP0W371VTIzU9gNhnUVMhyeHDU8fdXzCypYpwkGw=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E54x3JL76iX+9q4bbSf0SnUU3yQk470g
- bUgir9qGbb4fYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhOAAoJENju1/PI
- O/qavVAP/AkRZCWTWxGm2TIkh7QqZ6ZuPzGdq02N4mxf0mNHVBNTSxmXIJ2YipqiCqmVX+2/+qt
- SeRw4ctumoMspU5szxs9vx9PhcFTgxo/RdvqxaUj72+IE2o2a3sEBSx2ST6J1UIT3NrQKbzq8pE
- JaI3fmIl4qSpSqkYZNxK/8KgXFJ7Qv7mIofvyAlevEXosBj/QOJltpxjafOsT/ALLdj8+phNTYj
- 2GjjFfwC3EM6DKPHIXMI6O+6kHPQFEX+caMS6JjE3ZLlE2OzIw/KALrpFtDxC1ZCvbj3CD3lI3r
- QSzrzOzDxx2KW6l57m+QL0fnYeotTGetdF9YGJkPdhvJBEwcLaLUSI7rlYSRYyXRkGECc8ebSSY
- b3JJasGww5d+i+ZIGk/eoslgY2+9tB1qh4FvT55Qxl4N/HDIxGvtnhiUrLewpQuPjsirKLHUIFK
- 3mKNKnW+ljdyhgzpIB6a64Bfp6LiYd9H64OXPfQjYpw6IpkqRuKBUU80JmJvwFSf5ZnRwO6CwgU
- 428gkCE3lmdYjUMhVH5Fi9dcAUY0nUEkDQ0KUExzvsul++2mQja3bKVcBpkGH4HGMyKyeDHBBTd
- C0TNph83bz7WOxZyOenIwteba2pXSIKD/rjCSr7HOyI0HKgGI+DDS5d8GtWri8x6EQnXg/K8ZUg
- calKwoWZSRHt8Pn2LBrspOg==
+ bh=+hvcTuzTih5vFZbymQZbCa4pv4dlmw/yOyTygYkYfXw=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E4HoUBLboib/7pf45ZjmJMYsf9lGaA5k
+ MEBu37ptA23aYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhOAAoJENju1/PI
+ O/qafVIP/i0EYv84rNRDGB2pCStUpY6g7dRwEFWxpysmcS5LJT9JlNgdro7n9hnfkPfb9s6d9xq
+ u578ReQLD9ALqlP3eZJ40BNhpsttHkGd5JwdrReFpagivYXj/YUqBuyLB9BHK6/cqvRgQj7hAmO
+ /Mj1NnRh0OYaUNxXb6r1yB2HkCNgcRThYTJDQ/30RxxaJOk4FcuIwKUg+yu9xpxO7pRrWGai9/B
+ NX8azki7+v7KaSz5I8IFx3cbGEfbTR2dN/050CvJK1Ke+F/eUTXgRoMriDQSjPhs8XyFb/LL5h2
+ 0AOO4ZJrqgYc2WOOfUgQAlhJfSeAvQQCktQB6paFggZ31CwslyAl+4rl+96a6ge3GFQ3HOdhqHq
+ o9F67I6RhzGfmf/EQyuelWysXOw+04DOybo+riXGxjAduL9dQR19HkDlOd+iUTXFbLBWnveFavt
+ PVPJ+1nuXV45uMJ2iWbOQdn1Ky9XTHLN0/ljyq+e8yIMaZIkc8B7LAyh6HenY5oFgrTG41Z/1ST
+ XhooYxMaL6cqsU//gYkROd70I4AYvk6Xx/hpDtmtQQ+dtUKvpZRg4als8LJZ5EF8CR3cxv0CoC5
+ JIsymxjN/uxQC0+I3dR1GgxR2TUCxyXByzAfrvXZe9WkRV5r2g1ynmQJ13n5HeFHvBX8W4WX2yP
+ +OOk8YazaXyw2nqh+mHsq1g==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_110511_835881_52CE13AB 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20260803_110511_411859_246A1CC4 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,57 +113,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DP AUX transfer method uses a completion triggered by an interrupt,
-which can timeout. If the function runs into the timeout and the
-interrupt fires afterwards, the following DP aux transfer completion
-would trigger immediately without waiting for the interrupt. This in
-turn means the next one would also be broken and so on.
+The transfer functions returns the amount of bytes read for
+DP_AUX_I2C_READ. By returning -EBUSY for short reads, the caller has
+less information available what is going wrong and possibly simply
+resends the read request. On sinks not supporting long reads, this will
+simply run into the same issue again.
 
-Fix this potential issue by re-initializing the completion directly
-before sending the AUX command.
+Instead it makes more sense to return the data from the short read with
+the length information, which allows drm_dp_i2c_do_msg() to read data in
+smaller chunks and succeed in the end.
 
-As this is racy (the interrupt might arrive between the completion
-re-init and the new command being programmed), also reset the AUX
-controller on timeouts and synchronize pending interrupts to gurantee
-that there are no pending AUX transfers when the dw_dp_aux_transfer()
-returns.
-
-Due to lack of a sink, which generates AUX timeouts, this change is
+Due to lack of a sink, which only supports short reads, this change is
 effectively untested.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
 Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index af3fa7886429..8b587a4c5e93 100644
+index 8b587a4c5e93..22a244de08aa 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1466,6 +1466,8 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
- 	if (WARN_ON(msg->size > 16))
- 		return -E2BIG;
+@@ -1513,7 +1513,7 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
+ 		if (msg->request & DP_AUX_I2C_READ) {
+ 			size_t count = FIELD_GET(AUX_BYTES_READ, value) - 1;
  
-+	reinit_completion(&dp->complete);
-+
- 	switch (msg->request & ~DP_AUX_I2C_MOT) {
- 	case DP_AUX_NATIVE_WRITE:
- 	case DP_AUX_I2C_WRITE:
-@@ -1492,6 +1494,12 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
- 	status = wait_for_completion_timeout(&dp->complete, timeout);
- 	if (!status) {
- 		dev_err(dp->dev, "timeout waiting for AUX reply\n");
-+		regmap_update_bits(dp->regmap, DW_DP_SOFT_RESET_CTRL,
-+				   AUX_RESET, FIELD_PREP(AUX_RESET, 1));
-+		usleep_range(10, 20);
-+		regmap_update_bits(dp->regmap, DW_DP_SOFT_RESET_CTRL,
-+				   AUX_RESET, FIELD_PREP(AUX_RESET, 0));
-+		synchronize_irq(dp->irq);
- 		return -ETIMEDOUT;
- 	}
+-			if (count != msg->size)
++			if (!count || count > msg->size)
+ 				return -EBUSY;
  
+ 			ret = dw_dp_aux_read_data(dp, msg->buffer, count);
 
 -- 
 2.53.0
