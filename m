@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24EDFC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 07:01:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76FCC55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 07:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i9qxjczYBRKPFMbdEg2F+nl3jGUbygT/ra3t8nb+SDE=; b=ZW3sRXNq9B2CxLui1Uia/RSKxc
-	7beOFNP3+mvJe+Y6+mDRkOZvM+/DOrGbB3087aoypIHFBPkQNuwb5EounsE1qnB2fHDURmjBBDhFe
-	xiE0AuPqL+sK+Tfz6oNVwScpRQuWiIkrWVsURKnwnj0pJGsp1iCkYE/ND6BEnC3CaGBd/QVpmBeOY
-	lrUkfBvcd9nKixda12YguRlwcwjeF4RhIAnju5FKnHD/kJ6+KyEfHBytiX33MFbK5/FJjwLtcrLQ5
-	QI44Gyz36QldKP2QMUOAWXb2CQ1YJFi4KEOkzSpnEF2h+tpvpsuIuxLH+ZCVn8Ibx2e1Tq5pN0z3E
-	8ODSbxkg==;
+	bh=mXNkCmOUo1oKrupKXDyg7SQqpOCYFMJaA9C9xGO5N/0=; b=BgvnSu7jUMQVDC0K1Al4qfpaE+
+	r8P2Oe3tXTDXSfRUcBhrenj9PFhY8eO3PI13ruj8HtMGm/VVmqv8kg03Aj2HonzZrDxzEt/b685iF
+	NsN4Tef3lij4D1Lxg0Nrz5Y1zigrcIR1fiStZsL+nQL16L5sFAmWGlNAkY8/Oza9hFuw8gTZdGL3J
+	r4H3OSAR4QM32eWi3KagvQo2wiGJsr2p5wlWNbgb6DM8L+CURd2NwIQgD71aDXn7c4dxFh7s0N5Kw
+	vKcgIJPNQRcNnY4g/8HrPp/0z+fJXDjgzfcRrjJguYowUEyD0fUCBI7r1pFayI45rrpTYF5TumBiK
+	xDTCP//A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqmfO-0000000GTom-1OiP;
-	Mon, 03 Aug 2026 07:00:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wqmgW-0000000GU1z-2M4U;
+	Mon, 03 Aug 2026 07:02:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqmfN-0000000GToY-0Vna;
-	Mon, 03 Aug 2026 07:00:53 +0000
+	id 1wqmgU-0000000GU1W-2YJY;
+	Mon, 03 Aug 2026 07:02:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1713660A62;
-	Mon,  3 Aug 2026 07:00:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6ACB21F000E9;
-	Mon,  3 Aug 2026 07:00:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E7B8160A62;
+	Mon,  3 Aug 2026 07:02:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 180691F000E9;
+	Mon,  3 Aug 2026 07:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785740451;
-	bh=i9qxjczYBRKPFMbdEg2F+nl3jGUbygT/ra3t8nb+SDE=;
+	s=k20260515; t=1785740520;
+	bh=mXNkCmOUo1oKrupKXDyg7SQqpOCYFMJaA9C9xGO5N/0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Vc3KiDz+kOPho8ipDObQbJnd+sfhPt1yM4VAlgpMkh4am7UlnaTS/ns4G0Fxey4eX
-	 cUWpmvh10hEJQUG9dRZiG9qtsDQp5IXibuGF2MB4tGzx2CBodAHqFG9NY6aETr/njE
-	 JO1NahwCREFXXuEDBUHIVbpo0RXNG0KBk4beakpx2KRQocsVv5hrYbGi6Jh+zqGbXk
-	 PpjoVxCbgikTM0F3ZlVnbE3a5aixvU75hgilC+xjUztDT+0ByCS7hrUXJNI573iTB/
-	 UNH5lJ95eeHoQ83VLruPpmSUqxA37imuZ/30QeiC2yHZ8VsAPbbeZZpXVCHa8gBAld
-	 BCwzzg+IO2ueQ==
-Message-ID: <c3171c59-bc83-4be5-beb4-e93bfb4d05a2@kernel.org>
-Date: Mon, 3 Aug 2026 09:00:37 +0200
+	b=h3lJwpv3br2UpB/4mMn2G4DE3xFXYtrZj4Wgw+WpJZJYSpWkkZUxX3HVi2TQUZdC9
+	 3b7tenh8+5g2f3RSFteeCXagHz9EqL1re/bXc33MNEmyQpxAMFDf/ZZ8IY8VVBKOXe
+	 HtiMsxA6aH/R6qXl3mvIaDI8JaBF5biqTjvncEv/d8lmSMtmLKLAFhGf0am701h6ud
+	 m8eZYnaKfN/qjVaLOdxI3Qvy7qHPaVZhc2Vjzq0eGF/BER2HQa/h6R9WJB3v6IMEro
+	 4TVLYhPyogV8POeobe02Vdww3e8QqnTQPIc2oWJGilSjYEaFJZJC2lqXcSWJphxU1V
+	 4W7CUG88WDO2Q==
+Message-ID: <fe4572df-98d2-44a6-818c-1c2d6ca2bba7@kernel.org>
+Date: Mon, 3 Aug 2026 09:01:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 21/21] arm64: defconfig: enable X-Powers ACx00 Ethernet
- support
+Subject: Re: [PATCH 03/21] arm64: dts: allwinner: h616: add EMAC1 controller
 To: James Hilliard <james.hilliard1@gmail.com>,
  Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
  <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
@@ -70,7 +69,7 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
  mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
 References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <20260802-submit-acx00-of-dynamic-v1-v1-21-0a53cd9e21cc@gmail.com>
+ <20260802-submit-acx00-of-dynamic-v1-v1-3-0a53cd9e21cc@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -116,7 +115,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <20260802-submit-acx00-of-dynamic-v1-v1-21-0a53cd9e21cc@gmail.com>
+In-Reply-To: <20260802-submit-acx00-of-dynamic-v1-v1-3-0a53cd9e21cc@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -134,16 +133,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/08/2026 07:14, James Hilliard wrote:
-> Build the H616 PWM clock provider, AC200 MFD, both variant-specific
+> From: Richard Genoud <richard.genoud@bootlin.com>
+> 
+> The H616 has a secondary EMAC controller that supports only RMII at
+> 10/100 Mbps. It connects through PA0-PA9 to an EPHY in a companion
+> AC200 or AC300 package.
+> 
+> Add the EMAC1 controller and RMII pin group. Leave the controller
+> disabled for boards to enable when the companion Ethernet hardware
+> is present.
+> 
+> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> ---
 
-Use full names. Is it Samsung H616 PWM clock controller?
+You order patches quite odd. DTS cannot be in the middle of drivers,
+because it suggests dependency.
 
-> EPHY control drivers and the shared link-PHY driver as modules. Enable the
-> netdev LED trigger as a module so DT-described PHY LEDs can use hardware
-> offload.
+You cannot have such dependency.
 
-Why? IOW, which upstream board needs all of these?
-
+Please read submitting patches in DT dir.
 
 Best regards,
 Krzysztof
