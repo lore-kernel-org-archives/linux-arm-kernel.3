@@ -4,71 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACD5C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 16:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FF5C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 16:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nd2ifHSiM1qaD2ssnuKMguz6zhVPu1nWG7zA9tEK3LY=; b=BAwoj/YExBER8JSVMiwEstpbkF
-	oVqL3jZ8dxyF/DWnhwO7KbidjM7+dIRatI/3x7wyQa8OFiYDTgOq8YdH5ZM8W16hKw2agCRndxjZo
-	tnIblNPjYeoG8cx0f0KeLYHJ0fcKLxtLyOtRVl/3w7XLJpmsk7pdybSKmN/27HRbJ2HPUuvc53vqc
-	MoLXaUrgIHH/KNIZc6b0NB8YntarccOr3ian1wEz5Jq1ErJq/LpLf+k5TplrIgj/e4c7v9A5s7BYc
-	JlX/LRCRVGwEikRsceIIewbVHwH+J04SDYkAxLJ1l/2naltDzTkX5cTjGznoyPgkBnW8OH229ecN+
-	VrTBAY4Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ktJ1TUfqLx16vP/MAvZ075WUJwVncZtbcK2MP7W0fJA=; b=dwEReG5ZaV9b1i
+	3GlPO4j33uN+YVE5+bvsQey7Txi0Aokq0TvYsiKFjJ3YLcXXBmKp7r8piXkb1ErvE3zN0Bw72g1Ak
+	t6BZUV+Mr31hOrsCVaIkQMVF0vsovi9RGG9MjhD7O529EfhyYT6PdIIcRvIG5PcCOUOidDTWpgE4H
+	WC+2NJXWeXryN8gUmrHUKnWOOxTrEGV0WjBaHzgehZ7S1Bz5g2XThqPw3/xg3PQwEklUWWgCfocJl
+	BT/zkQgWJpt7Hf0Hw5i6PGCeCgJbdw2O4zmb7b96o2wXwN7IJoFb6W4LMd1m6KHeyGi7HgrPW29iM
+	S6XLEaPReT5reVKoVpVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqvsI-00000000967-2AnJ;
-	Mon, 03 Aug 2026 16:50:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wqvtd-000000009Pj-47yr;
+	Mon, 03 Aug 2026 16:52:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqvsH-0000000095V-1iZB
+	id 1wqvtd-000000009PI-2Ycn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 16:50:49 +0000
+	Mon, 03 Aug 2026 16:52:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E4C16419E9;
-	Mon,  3 Aug 2026 16:50:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C751A1F000E9;
-	Mon,  3 Aug 2026 16:50:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1430660AA3
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 16:52:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B99F91F00A3D
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 16:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785775848;
-	bh=nd2ifHSiM1qaD2ssnuKMguz6zhVPu1nWG7zA9tEK3LY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=kvHB2NtmHJFJzrz0ekAijzt1/emg2IKU3ypWDi5HlN8Ul5ny85Mz5JyEk6Usdu7yB
-	 yiUFa1j2hmFdAcxSNwdvYaJQdcgzKcw1vIUCpRmx4TcijBP7/78nt7bPUu4Z9ypfUK
-	 TTTdeP7ybMM+PaGAGqIwYELTgFNW7Mdvu+uRWM/qwTUYrs1TPj8icqz4bApYf9IRPC
-	 qI7YvTd+6l/FRZSQ9TDKmP9B5iuH4uPldzG4Doub1/sbFBgS6YRhcsJkRQFYg8A6px
-	 kFUQTUkmWoFiNrm1Wj+8TWNlAYjYvKqSFYU9WBBPtk2IW0SpdIuFOh++FTJspBqw8S
-	 zpfhyc92QHkLw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wqvsE-0000000Bs4m-4AlR;
-	Mon, 03 Aug 2026 16:50:47 +0000
-Date: Mon, 03 Aug 2026 17:50:46 +0100
-Message-ID: <86tspbb121.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH] MAINTAINERS: arm64: Add Mark Rutland as an official Reviewer
-In-Reply-To: <20260803164230.25172-1-will@kernel.org>
-References: <20260803164230.25172-1-will@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, ardb@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1785775932;
+	bh=ktJ1TUfqLx16vP/MAvZ075WUJwVncZtbcK2MP7W0fJA=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=W4ObqZm1721yih5Cc72KTg1SNORcLauLEAeTR/pQvfulljFV1MY786WAqOG+xn40r
+	 Nm6krj9Zt3xk+1UjcfnwqMXNgD5eKdkTOopLe6stmk4hDhhDo+pnbC9woAg+LNhCEU
+	 rfOXG8bFLRNqvzlg52wWAsCZKeZXzzsFdGKuftIB4RdoErFBA6IpAs8GvfEfVtD0yT
+	 DhNz6Rmwo19vJ3v461khXi2B3D+UUxZ8Sr0FXMUTiYY9fXY8So5/RbjYmIoC3rlDmt
+	 zeYYhcpO9uCkfPhrdg0r6h8cpqA0QbjEIp0DoSaTgZbDBaLOxjRM7OGX/eWpQiklrP
+	 fO7+/JOLtU5hA==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aeb59d54b1so3416772e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 09:52:12 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rq9TdsrgPbpQU4L+YeIIOWw1KXvvn4IzYOaEzscEj4qfQVC6hlDWPaLRx0T0wIJIuMroxI28KbBbC7A1PNUCDMU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU0onXxtGjrYCdzoUQx0dWCeFDwMNqRmqJ7olBtMHveAwHPXD7
+	ogbETx1ooyBd3ztAOdnb4wFkxNlY0FnMNJZ5tKfRcIPWi/LcFR+h9lzzIAjuChvBR4Em3knGWWz
+	UTwCZmhdw7nhNYynihEk1fTB0hWLF61U=
+X-Received: by 2002:ac2:5218:0:b0:5b2:9c0e:a2d9 with SMTP id
+ 2adb3069b0e04-5b2e4f9dd16mr1400790e87.65.1785775931139; Mon, 03 Aug 2026
+ 09:52:11 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
+ <20260802-submit-acx00-of-dynamic-v1-v1-8-0a53cd9e21cc@gmail.com>
+ <2c0210b3-2c68-41f1-aa33-3f1693454849@lunn.ch> <CADvTj4pfNFVGrQV86T7X+nZQYUamxEYLLWuxVXk=av0da_XocQ@mail.gmail.com>
+In-Reply-To: <CADvTj4pfNFVGrQV86T7X+nZQYUamxEYLLWuxVXk=av0da_XocQ@mail.gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 4 Aug 2026 00:51:57 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67Wo+WG47jF_vBUOwv0Vw1SDygXMdBgpsy3R1AQ_LLfHw@mail.gmail.com>
+X-Gm-Features: AUfX_my4aoD19Jk3-8CcfeDfaoI0T_9zWEBW-1SE8UXOLwMz9Yfo_iLW9hIPcwI
+Message-ID: <CAGb2v67Wo+WG47jF_vBUOwv0Vw1SDygXMdBgpsy3R1AQ_LLfHw@mail.gmail.com>
+Subject: Re: [PATCH 08/21] dt-bindings: mfd: x-powers: add AC200
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Andre Przywara <andre.przywara@arm.com>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Maxime Ripard <mripard@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +91,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 03 Aug 2026 17:42:30 +0100,
-Will Deacon <will@kernel.org> wrote:
-> 
-> Mark has been part of the arm64 furniture for as long as the code has
-> existed in mainline and is consistently one of the most active and
-> knowledgeable reviewers that we have.
-> 
-> Make it official.
-> 
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Will Deacon <will@kernel.org>
+On Tue, Aug 4, 2026 at 12:45=E2=80=AFAM James Hilliard
+<james.hilliard1@gmail.com> wrote:
+>
+> On Mon, Aug 3, 2026 at 7:18=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote=
+:
+> >
+> > > +            ethernet-phy-control {
+> > > +                compatible =3D "x-powers,ac200-ephy-ctl";
+> > > +                nvmem-cells =3D <&ephy_calibration>;
+> > > +                nvmem-cell-names =3D "calibration";
+> > > +                phy-mode =3D "rmii";
+> > > +            };
+> >
+> > What do you mean by an ethernet PHY control?
+> >
+> > I assume this is not an actual Ethernet PHY, but some control logic
+> > around it? Where is the ethernet PHY itself?
+>
+> Correct, this is not the Ethernet PHY itself. It is the package-specific
+> sideband control block that must be configured before the normal Clause 2=
+2
+> PHY registers become usable. For AC200, this control block is accessed
+> through the parent AC200 I2C regmap. For AC300, the equivalent control bl=
+ock
+> is accessed through a separate non-PHY Clause 22 address.
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+Basically, all the PHY behavior that is normally configured using strapping
+pins on a discrete PHY is done over this I2C channel.
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+> The actual Ethernet PHY is a separate device on the MAC's MDIO bus. The
+> shared PHY driver for that device is added in patch 16:
+>
+> https://lore.kernel.org/linux-sunxi/20260802-submit-acx00-of-dynamic-v1-v=
+1-16-0a53cd9e21cc@gmail.com/
+>
+> The later board DTS patches instantiate it as an ethernet-phy node beneat=
+h
+> the MAC's MDIO bus and reference the appropriate sideband control provide=
+r.
+>
+> >
+> >        Andrew
 
