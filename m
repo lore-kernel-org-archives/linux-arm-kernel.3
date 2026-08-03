@@ -4,121 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C67FCC55175
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 07:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD54C55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 07:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A8u5ujOdUQWybgJKMqWZVqAeP8c+v+cuw6pgGBdqcGA=; b=R6r0/jcb03Bn8bFWCZ3vJ3qXyl
-	1BcxYORw4zPn9W7KZQ+F68QeXJzo6IcKTN6sFKTdUBswQPmF0fGGGOltEqQJGVcoBFi6yFqoKD+nK
-	MjbRfiNCmDg/I+HJcMfWXBZXCqKBMmtQYcsR4D+v4XRLnaKVi4AnsPtbKHdLTs0nZgiBJt3XPuckU
-	bhV6AqDWkrhmjf/F6WYCP7laCcwEdHgH2HSj8RVmQei+wlJWmH7m4xikmekfl8OTNddBaywp3U9aK
-	zY/BnixT13x5q/uuxPdsU5ZRyVva6Ck8IuIIFRZqv8vt7L+keVrLCn2VL0jjd01p5p6LyuLIFkEl0
-	Ii25p8Cw==;
+	bh=XAn+sgOJ//YpFHFCj3wQ7fJwCRmUnKUhDxx0gbmShJo=; b=2ITLhoRmLbDgk1ZbFTDuuAj1BF
+	ooVQ8XG+7v1KTgOWaCyVBZb+aMONgJEzattTcl0wMvUyLcOCzwQS2eWsduZBB68Q4G7yTLLoiS5nF
+	Lqcpqc4bWrcepObvHQNUxnr8I9Kcu/qK0AZDlPhM/KpzmSxbJ7ZScd+rYH63XoyrTEmoN1QHvTEsn
+	Z4cq+Chs9VSbRn5PHsww8BBuN8XUf4yZyZiyBoAEuVJGtCbGwWHtSxALMjCdz4inslo0opxcdqV5l
+	K78wYLE3bObuxrS62TDmwwfXFHbvQUKEcehMaBcvrAuABr8agG2hwxmw8ZUtq74Fs4h19mkhZdrGg
+	lRg1FI2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqn0X-0000000GW7N-1Ef5;
-	Mon, 03 Aug 2026 07:22:45 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	id 1wqnJl-0000000GXDw-1Y12;
+	Mon, 03 Aug 2026 07:42:37 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqn0U-0000000GW6T-19DD
+	id 1wqnJi-0000000GXCo-2xO6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 07:22:43 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-74ad03fa605so1747484137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 00:22:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785741761; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Z7BsRZR9lqV3fFtmCXXzJzgfnfhtebU5gIsEt3dEHqN7HyAgh8V2duG6H9edTV8DeY
-         u7S+dDWw2LYL8OH18enryrOmZl21BibNRPGRTWX9+LR1LC0XxgGnggBWFtuY4qgHU+jL
-         Xq4B2N0ZA64Ycz05WPop1LaNzFigu6M4vV7k8/P69iD/K2IksTk6UDw/0B+MKy+SZqyE
-         Y3FoWISfr/HnNzwi1CR17LI5QTlMv8+pl5x1mTxm88gCxJ2sO3z75yOMGgzrcBbf7MvO
-         wqxQZS5gLPc5oLBULvnldBeQOxOkgTrYKNBmGW/JllbmWk/y/3hbbUZyS6Oih56h9L+w
-         jpaQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=A8u5ujOdUQWybgJKMqWZVqAeP8c+v+cuw6pgGBdqcGA=;
-        fh=NzNmtBJZE5AHiapMaAngy8VNLehe+CHy58his8HzPoc=;
-        b=eAaJbdGphsKsDb5FHRM79BsvxU3gDplMZYI48JQTgC5NFS5MveOC3+e/lrI6jn/R2O
-         FjYQ+BMai7Y/xdCy/Rc4vHGXo+g3WM6Act3+KR3h2vZybE38LGQmnHVArn+W/EWFqti6
-         W0R1+QenyQQ3d9jZVptu3mnTP6+bbgfqL+L9SJgpAYZw2AxV9QU0DtKMkDcRC4xDbNVw
-         pH10tSej6bNqOKyVl2AtEGQPvdOkfiX+bBJh3DBvFsAmOjOI8/63vxotV21Xl9f7a1E2
-         33kPOe6rbMOUU+O+YzwuFS81+kKfE3uOP7vC26lgUp3JH5f4H37vf6Q2TKQhc4cBXehB
-         cLhQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 03 Aug 2026 07:42:35 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47f904e80eeso2811891f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 00:42:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785741761; x=1786346561; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=A8u5ujOdUQWybgJKMqWZVqAeP8c+v+cuw6pgGBdqcGA=;
-        b=hkiHYJdDVzGjaqFwjkd/vbfHl6OQSs5HZb0TgaH1DlOUOwPn1onnN0RT0VYACYJaBY
-         FWF8Z0sZSsDa8lLTjSK++Wu4aKA13vJLjpPdsv216ho9DBuwNNTCUZUraSU0Epv95X69
-         TZTKNGsXlckdqpml+vxM4eIEv2OBFxPUQgPIkdmQnwCfMyx8odJVrwbXPRSY2PzC9N82
-         B0VnCzKIEeeSy1Ntdd6HeFncwOYs0uB0sEGsLISt4rS5Pp21XTvlz+aNU1MoTEG9u+3+
-         trzc9A8Cfl3lil5jm3/kAEcRAzdOlLIU1Ago+msrN8NTmAqKXKk3k2f5DquehiPkoJWd
-         kmIw==
+        d=amarulasolutions.com; s=google; t=1785742953; x=1786347753; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XAn+sgOJ//YpFHFCj3wQ7fJwCRmUnKUhDxx0gbmShJo=;
+        b=CMznL1JnEU411MYJwCqmNMKC4mFL356rDBnpBes9seycqGBc29HAOQMbJocY5kaii8
+         gPg+wKZuH2r2tlYOXLzjHuG2JBfsJXpQFQoQGYsK2ZVvVyzvzy6Y0+1612YSZUTQner5
+         FpQVWs0k5ss4cNwRHfww1O62KDPSe9wWxDOaw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785741761; x=1786346561;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=A8u5ujOdUQWybgJKMqWZVqAeP8c+v+cuw6pgGBdqcGA=;
-        b=JIlEp3Tf068kweY1OTrNIWGo+X3kvqGNs4w6ek4n5+qZCnA2uILAUgcYSPwUSWYsfQ
-         3wGHalzrxnlY8rYkYfDVGwImRimKZ8kbc46cxQ8osUuTYEvcdp+8RTGGS9iJ0kTAGqGw
-         1AHGk4ZfatJtxfL/iB8ys13xQhVfRKR73tXwg8hxcVW9WGA+Q4LTtJpRfSVLfRchTTXF
-         4zZ9CnaFxBt+iICYdU6vsLJ+a6dnjTctf7zOsE1UqZlnaYQWpkw+D2ZdYbzp+bBALdXd
-         tJbhETwi1GEeYXGybD/SPwKh2H9W/nChV8m91qO1Qtj7U81VX2pXJjIvwY7kXYXmiumW
-         zI7g==
-X-Forwarded-Encrypted: i=1; AHgh+RrCPwcoFH6aRh71MKhbF28NJZaH8FAfjLYkkK5Kbjkzz7r56M4nRIZvaY6Dp0kH8SDyYB4MNU5iiHQ2ORR2R+P5@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdJ9Tzn9spi3cxhkxM4P8ItvudhNf+UCyi7SwQE3zUwTXbqEG6
-	rrGPKXcu8JR1lUpy5Mbw4X2DA56+IMenDG048Gl31tDv89aCtjexkgD6cJhgwsM8+Qe6TbuOGUm
-	fhJW0nIesq0o1oAYX4tLwB8IY0mJIuzE=
-X-Gm-Gg: AR+sD13vUQBhfthmwdglKtiUQGYtCTnHD1Jy1bCt6Bg/MHNrMZ9jg+9xzwslHe97lp0
-	2ll9huM7u8y4urkb50N4XtIf396RHaLD9jsPggIL/6AUaKcP/Jw2qMU7K3ea9t8Y3s68dy0fRda
-	QmN5bUYVjrkAMN7IKp83Itzk4Sgy5jHub1H1pqTqrKa8c7d0fComGpp9SEReyVVfcmiTKSj/a9y
-	CpeIdZpVUlFsDrnVwWjr585pEQl7OL35AR5K9Cuh27vqR3iOvfwWmCXB2UrdtKhep/wNiQiCjln
-	gPC5A+W87wnRCzDvScNjqGHvn752ztJJj7YpE8hMezqQY+gRawDymdOupzfDgV9KxLi+V4kFe5G
-	VR4W9SGfeQ/3dgmnDkbMAM/1L2MHsQHSpf0IocAUHWbxVP7OK42DaS0H1dp8Cl7ig6xb1FOe7C3
-	Hldrn+spxS3qPj2WhDZjRa6u7zlXg8+7nWxuxy
-X-Received: by 2002:a05:6102:441a:b0:738:1ef6:51b9 with SMTP id
- ada2fe7eead31-75b22260dffmr6459811137.5.1785741760783; Mon, 03 Aug 2026
- 00:22:40 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785742953; x=1786347753;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XAn+sgOJ//YpFHFCj3wQ7fJwCRmUnKUhDxx0gbmShJo=;
+        b=AumdZwItf2E9cdvpHvd29peujFCl3HBZyvwDXlgLcfrvxY6yKq/+cbHnoFnQ3k5WSE
+         csETq8hCnzg/xAL5NZlsCJQvAbwG+sbZDgGUVolJDfjJHrK71AcvqgArcUbkpCA/f3mJ
+         AdHzSs0v3EEEwUlg7kV2dVS+3iqyrjdoV2PVRQG0P2Qh/2zinFRU5Q6aQWrjbLcWjlMs
+         7tfOIMGkcWuZkpO+MUFCM0je28zJofptyiN7sVHOVf99qlUBoCgX2g5HcI0pGFBPoiMb
+         +J36ZSxd0HwvKz4X5KeBafEAe90cMsC7KQH0JoJplxGlNlSqurpbpzykYMEHE6iznsBn
+         fXbg==
+X-Forwarded-Encrypted: i=1; AHgh+Rqi2AuQ0xSx+Xono8R5YS82Dk3SfjTJdlQOEzWH8FmopRZCNBqKD7Shivtuyye16ilYA9x7rMq7zVZeRPH4BDbq@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywg2sMagQ5uq3Rty55WGPJyW1UYH4o1TyNWuNVJVC6b/1CDA/rp
+	9M13gUxizsWf+TzZRUnPPSraeDXHq09R16GovLWaFjN4djpeuv6QuswkwNa/fpQCtDU=
+X-Gm-Gg: AR+sD11+q4gAwp23CD63Nfl18/t4q/ha29zV5sITeK4AoYeVlAY2sLJ+8g+Ioy9CndZ
+	cLIQlMqUq4QA/O3st7R8LIfve0OhwxWfllVH8ZLv3Jc7cvi8Tp5TnrUoNTIMYE5iffIAaqYr3Vf
+	5reWZEgJvOkL+6mI/GHAirzuOrMEcFc4d+6FqGDQOu8xpH5OWE6bYHPs1IYALPLuHDcJRQW4drK
+	7xThbf38DWD1EdVsZLAQdQ9Gmy28K8ZoDNYYnjfTyB7MLUrD5X+kK0xovKrmwqhz6OqCZdqMufa
+	46M+TveP1rI2S9g0wBQIVior5WrD7eqYGPAMMb9S26ZF+3AsAqbBERTd9x8rEFULYJVkEmUWV/L
+	NKrzaeVHsERPjVmQFYiDFqKLAauAhpd1J4352vaBWhz9C0mqq1KWSzsVbSwQuKpv1P5mf2N4Ko2
+	sgALMumQxSP9RVQHsgCIpKgbbAdzNzpiOLtaj1r+e1e1PJfUAS3nWZQtQ/L9fX2ZCKJYHUifEvc
+	EKc0WZOLKhyrg75ikJDaj7ymSEiEdpvCYk7pWWvC/uZm6n7+nY7QLLO1KvvvUru6tlTuyERVrq2
+	gR2Ah85cz3G4c5lD5AjQ9GritLnBTYEZISaD3r5s5au0FGqtDsywr9Od1sFyPOtg
+X-Received: by 2002:a5d:5a04:0:b0:47f:6fe0:294a with SMTP id ffacd0b85a97d-47fd72dbb97mr15447164f8f.23.1785742952786;
+        Mon, 03 Aug 2026 00:42:32 -0700 (PDT)
+Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-79-17-119-233.retail.telecomitalia.it. [79.17.119.233])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd41d1a58sm30370503f8f.7.2026.08.03.00.42.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 00:42:32 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: domenico.acri@engicam.com,
+	linux-amarula@amarulasolutions.com,
+	michael@amarulasolutions.com,
+	francesco.utel@engicam.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Christophe Parant <c.parant@phytec.fr>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [RESEND PATCH v7 01/16] dt-bindings: arm: stm32: support Engicam MicroGEA-STM32MP257-RMM board
+Date: Mon,  3 Aug 2026 09:25:56 +0200
+Message-ID: <20260803074224.3821911-2-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260803074224.3821911-1-dario.binacchi@amarulasolutions.com>
+References: <20260803074224.3821911-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <20260802-submit-acx00-of-dynamic-v1-v1-21-0a53cd9e21cc@gmail.com> <c3171c59-bc83-4be5-beb4-e93bfb4d05a2@kernel.org>
-In-Reply-To: <c3171c59-bc83-4be5-beb4-e93bfb4d05a2@kernel.org>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 3 Aug 2026 01:22:29 -0600
-X-Gm-Features: AUfX_my5qRz2h8yblU9_NUKeJ1t5ekFC9VrjQ-ysDEg0WGg4G6m5XNTvE_CWbqw
-Message-ID: <CADvTj4qg8Yjwr=6KVO_J+r+tEC=6TDrU3o_8YG7vuEdDA0ZpTQ@mail.gmail.com>
-Subject: Re: [PATCH 21/21] arm64: defconfig: enable X-Powers ACx00 Ethernet support
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>, 
-	Richard Genoud <richard.genoud@bootlin.com>, Maxime Ripard <mripard@kernel.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_002242_330971_CFD9CF9D 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20260803_004234_763844_B677696D 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,30 +110,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 3, 2026 at 1:00=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
->
-> On 03/08/2026 07:14, James Hilliard wrote:
-> > Build the H616 PWM clock provider, AC200 MFD, both variant-specific
->
-> Use full names. Is it Samsung H616 PWM clock controller?
+Add devicetree bindings for Engicam MicroGEA-STM32MP257-RMM board based
+on the Engicam MicroGEA-STM32MP257 SoM (System-on-Module).
 
-It's the Allwinner H616 PWM.
+The use of an enum for a single element is justified by the future
+addition of other boards based on the same SoM.
 
->
-> > EPHY control drivers and the shared link-PHY driver as modules. Enable =
-the
-> > netdev LED trigger as a module so DT-described PHY LEDs can use hardwar=
-e
-> > offload.
->
-> Why? IOW, which upstream board needs all of these?
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-The Orange Pi Zero 2W for example would use this along with
-any other boards using this copackaged x-powers ephy.
+---
 
->
->
-> Best regards,
-> Krzysztof
+(no changes since v2)
+
+Changes in v2:
+- Add Acked-by of Conor Dooley for patch 0/1 "dt-bindings: arm: stm32:
+  support Engicam MicroGEA-STM32MP257-RMM board"
+
+ Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+index c6af3a46364f..c5ce81e3ce45 100644
+--- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
++++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+@@ -203,6 +203,13 @@ properties:
+               - st,stm32mp257f-ev1
+           - const: st,stm32mp257
+ 
++      - description: Engicam MicroGEA STM32MP257 SoM based Boards
++        items:
++          - enum:
++              - engicam,microgea-stm32mp257-rmm
++          - const: engicam,microgea-stm32mp257
++          - const: st,stm32mp257
++
+       - description: ST STM32MP235 based Boards
+         items:
+           - enum:
+-- 
+2.43.0
+
 
