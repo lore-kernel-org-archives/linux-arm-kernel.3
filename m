@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60C6C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AA5C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pfO704+Uxn2jjx3W5p0vCsqsRbGBalSUmwkXNVuP7nc=; b=Y+DiDTzyiqt8q2
-	uhzKKFE4l42Z7oMY3SJ4iHy3BPxle4I9xan9OLo6nDojF3xiCJ3Eym3MknmHaHjqHnVs0Fct7Co0k
-	Q2tNLDXtDAb8GO4/t4xrndW9rsEzR2rxShpvm/EkkFE1+VZ0Mp4Kz9SMm9epqaZWh8kG8hslOSSj0
-	J5fi9sB9/aIykp6EIyJcKYITz/y904lsHxX+HkEqaiNLy6uEReZNCJBDufNNX/8H/q7/BCt7K0x2p
-	BYhukSQPvY7fHsDJ+zri0KE83uiyTiJVYg4VYKgbnU6mEibFbMSZopIukdDQbmYGnPCW9A/IzqNqn
-	4em6rQybmdOnXgAiN1FA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C2QcaSW8eE8D7RoBuOICkCFr3KzY/Y5G0pSnKbTuZfY=; b=keRJ8JdxGJ8jny9lRMNYfjlV3w
+	uEFf7b/260FNfMmYaJLVdRJrRHxd6mGXKEUCK2IEUnMcWi/dSWyn6vjk6fcbqrruMp/gyGbhRMCx8
+	T3bEL3l0dWt5ght+DihS1YykRoViF0zZY67++DKjJZWkLUEMXOsBX3oyupVZNMhiuaLEFsYYluv7r
+	CBG8uzURQIK5x8/vC+9wWn3CsSs0RqSIp/3IRbzEoyRUeZg+oM7BJbwLj7sK0NMWIJvATDt2b7vyj
+	GbMiDgUmMYby2If4pjt3iT6iSoddER1qq15j26VlcBjvzt5Pm7wTOI9ZDxyjlmHWfIagT7HsivcwU
+	2vNB5gzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquxJ-0000000HaCF-1d2o;
+	id 1wquxJ-0000000HaCc-2dcd;
 	Mon, 03 Aug 2026 15:51:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquxI-0000000HaBf-1V2y
+	id 1wquxH-0000000HaBS-1v6z
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 03 Aug 2026 15:51:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 672D960A7D
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 15:51:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EB201F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 15:51:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785772315;
-	bh=pfO704+Uxn2jjx3W5p0vCsqsRbGBalSUmwkXNVuP7nc=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=MmmGQtCDi88OiGk7cNb2i7TUkWLe/ohQQoB7x7Mdcp+XZRuiGLot+OdzxwUy6YMPB
-	 7VNTjGiERdSzjUZ2QkvNuE/ccGVGDIKzvUI5XQQuo65X4Rroe0UX7UvT5Xof5UPD3h
-	 o0mJBGxaUBxeXO1wlC3yRsWf+i7ZSEQxuUuiGg92muEyXh3fhRPBujezl3wAmJw0eU
-	 shv76An3t8qE8Z2IEuj0CxVESq5/xtdXoZ57Ag180492dVCBRP+loKSnpZIF6SflCq
-	 FvJGLj6pSW/ok7xQ7DiMlVp81/FluTJyMRLRbzdML0IAHww88UzeCVBehXKIsYPOrZ
-	 +MDwu+mPSMn3w==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-39c7ce122c7so31295211fa.2
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-384930ca5e2so2997392a91.3
         for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 08:51:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rq0CV6pt4j+jg8lRxJp+5YzXEjTBGZB7TQwLLeNh4FfVT4GLFKOd14xJu3rY14BHAbJEOJ4nEGWXUlOrBWHy6rO@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn8dzwH9rqpHuK9cNG8yAbcyegw6eVlYELcD0Gv8c0WC1TliMu
-	4ZJ/8pvJRPU1iXqazqRnRGWbxsXd5KKuslv473ZfO403w/6EWhXycDGxDOi307XHl93Kpr2XST6
-	ovOP3hvnImvMIkkZiHz25OAfBZHgdzmw=
-X-Received: by 2002:a05:651c:993:b0:39b:2757:c1d6 with SMTP id
- 38308e7fff4ca-39f86471060mr21707501fa.38.1785772313505; Mon, 03 Aug 2026
- 08:51:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1785772314; x=1786377114; darn=lists.infradead.org;
+        h=content-type:mime-version:message-id:date:subject:cc:to:from:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=C2QcaSW8eE8D7RoBuOICkCFr3KzY/Y5G0pSnKbTuZfY=;
+        b=ISv0MBfj7QgUa0ZTAbmtGQTXVFUGLFBROlPfB+v8BdVIWPNLj4V50IUCSSQFy41aM1
+         LIkv1Fn6OXz9yrcyKeapeTFGHwHrC05KjzyqR1imkA5KgveXvEzV4s3R85sgAtORZ8VH
+         m6mxGDbyh5HD7RiHyVgrSwPociSxvzGA9ey3EUlw3tjd9Y40EppNgud1Myrnhdc3fWFS
+         hBccKQKivrIUWkwHF5avk1i83QlXRIV8HlHnB7Tu9EtbmOlfaiFF0Ur2GzoBoWULPnSy
+         qn3xVDNeSEO128shZuwLwn1gKVXy83Uj1njeWfDHkd1ota6wZrli7y17TUR2T2SywSWn
+         LGqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785772314; x=1786377114;
+        h=content-type:mime-version:message-id:date:subject:cc:to:from
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=C2QcaSW8eE8D7RoBuOICkCFr3KzY/Y5G0pSnKbTuZfY=;
+        b=KDger+mLYSa03DxqfX41OnyLxtKm3E2tWT8rjVctneXD0bB6bWlRwA1BvjAgLOaIfe
+         Au+WdR/uITrkqDdFb8lffScr2Wjuh17duut0/cCWyJox0w7t4XWL0V9pmwPoPSqMmDIE
+         EiftfWw9JWSVV2sYT9mkklgxHtqri0k7HfcOyd1m4GGT2WOE8DsNMVJ573ST+zJZgWQZ
+         QpU4tkhsfE3F8QTYz/GGEIi2vuDLrWhp6H1oxTXFJCEin2bFUaBqurmUNrSziRFtwNRt
+         GcNVMTslol0IridZCkSq6F+DvyjSOx3AX5AyPas2n0Y6Np1Dob+OoA8iS9J9skP/j0mQ
+         Zl6g==
+X-Forwarded-Encrypted: i=1; AHgh+Rrt8QdQk/wpt3PrEEy6d8pwMTZh4F/P+XXELUxwgtGd5Lh0oMs9aYI7m3naMTbBaBMLuPe2d5TP3Iu6cW3HC/fU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqBAX3OBjP1F7P6sCjRaQHE/yJdkTAN+tjCFuZ/a0ftY2gFkvR
+	zKp0DJhMK+HelpD6W9Ts3uWC683riQfFaeePFqZADv7pHZ5iUt1wG+MGwNI5q+G2XE0Z4fNTCtU
+	I4RfC93xaQg==
+X-Gm-Gg: AR+sD11Dy4S9mzzOMNzpd45ybi8wD6Ks+NCHeRIMk3woUzubRp4905FPGniH+Aa7z/3
+	iqLFTEVhU1+J9RSIKNYR68d+hBGo/bS9ABq2AbNBaO5rbnHzkXHO9sUvTC1RCzGLpjwN4oTmxWA
+	8SMEWa3YxpfRkYlPpucHvTXEqD8gXUZSYOKfx/raKal4G5+zrnJh2JGTWHlCNybZubdaEa5Wajp
+	9t2T8s6kOXiUw3Otvs2FmMpftveZnY9qzcv0q82HUNt50c5SqQKb/gx20wo2LPbEDBlR4NMTIX8
+	DHuLg3078d7e2RW6CHbqAYe0xRhqnB8ow68aB+H3V3WG6euuUS29spOHhfnGg5f0qmBH03qPMQt
+	5P8YdIidAtNCdVSVz9wlbsUeTq4KELemhy5G4qGndl+mKgrGQT4RVi+X4e6sIWdG/x6U5YFHbrW
+	puSDzxFjfQwVm3fxFv8jw2zZDW6qvIa2AK5mfX41T1mJTG6/4ccBdhzQtvHA==
+X-Received: by 2002:a17:90b:4b85:b0:381:5bd6:eb19 with SMTP id 98e67ed59e1d1-38fbc4a1328mr9585476a91.18.1785772314020;
+        Mon, 03 Aug 2026 08:51:54 -0700 (PDT)
+Received: from localhost ([71.212.202.210])
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-38febe2daeesm42905a91.0.2026.08.03.08.51.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 08:51:53 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: soc@lists.linux.dev
+Cc: linux-omap@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] soc: OMAP2 updates for v7.3
+Date: Mon, 03 Aug 2026 08:51:53 -0700
+Message-ID: <7h5x1rjj6u.fsf@baylibre.com>
 MIME-Version: 1.0
-References: <20260721223956.13665-1-andre.przywara@arm.com>
- <c539e5c4-f21e-49a1-b0e3-d35f42893fc4@arm.com> <CAGb2v67CGcaQmSz_tTbSTQ7dzfCV2+7i5t_34iHKmyU05h-yRQ@mail.gmail.com>
- <20260803153519.262827-1-juanmanuellopezcarrillo@gmail.com>
-In-Reply-To: <20260803153519.262827-1-juanmanuellopezcarrillo@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Mon, 3 Aug 2026 23:51:39 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64Ty3HkBbb5A=ZL6QUAVD6bugG0hcYykCmh-KUsVwzwRw@mail.gmail.com>
-X-Gm-Features: AUfX_mykiCofOgbK_TVpQ-xxmMo27pprJnOYMLjcLPvAuKFRrLLpFUAz2YflKOA
-Message-ID: <CAGb2v64Ty3HkBbb5A=ZL6QUAVD6bugG0hcYykCmh-KUsVwzwRw@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: sunxi: A523: fix voltage withstand encoding
-To: =?UTF-8?Q?Juan_Manuel_L=C3=B3pez_Carrillo?= <juanmanuellopezcarrillo@gmail.com>
-Cc: andre.przywara@arm.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_085155_523954_7AB0AE37 
+X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,92 +92,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 3, 2026 at 11:37=E2=80=AFPM Juan Manuel L=C3=B3pez Carrillo
-<juanmanuellopezcarrillo@gmail.com> wrote:
->
-> Hi Andre, Chen-Yu,
->
-> > So can you please double check this?
->
-> Checked on my Orange Pi 4A (T527, GMAC1, Motorcomm YT8531 PHY). You are r=
-ight:
-> PJ10 is not needed on this board.
->
-> PJ10 function 5 is RGMII1-EPHY-25M, "25 MHz Output for GMAC PHY" in the A=
-523
-> manual v1.4. The RGMII1 bus itself is the other 15 pins (PJ0-PJ9, PJ11-PJ=
-15),
-> which mainline already has. My claim came from a stale comment in my tree=
-, from
-> when I was chasing the dead RX. It is gone now and my rgmii1 group matche=
-s
-> sunxi/for-next. The Tested-by I sent on 22 July was already measured on p=
-lain
-> mainline without PJ10, so what revived RX here was your withstand fix alo=
-ne.
->
-> > Those settings differ from what's in mainline. What are the results wit=
-h
-> > those delays?
->
-> Measured on the same board, DTB-only changes, TCP for 10 s per direction:
->
->   A  mine (rgmii-rxid, MAC tx 100 / rx 0, PHY rx 1900 ps)
->         TX 0.938-0.940   RX 0.929-0.930 Gbit/s
->   B  mainline delays (rgmii-id, MAC tx 0 / rx 300, none on the PHY)
->         TX 0.941   RX 0.929 Gbit/s
->   C  the Ethernet path exactly as mainline has it
->      (B, minus motorcomm,auto-sleep-disabled, minus PJ10)
->         TX 0.941   RX 0.929 Gbit/s
->
-> All three saturate the link, with rx_errs, rx_drop, tx_errs and tx_drop a=
-t 0
-> over roughly 1.6 million packets each. So mine are just other values that
-> work, and I am dropping them in favour of mainline's.
->
-> > ethernet on the A523 has other problems. The performance is really bad
-> > (even RX), and there are errors or packet drops.
->
-> I do not see that on this board, not even with C, which is mainline's Eth=
-ernet
-> DT unmodified. I also checked the YT8531 auto-sleep: the first packet aft=
-er 5,
-> 10, 20, 30 and 45 s of silence came back in 0.21-0.24 ms, no losses.
->
-> The kernel is my own 6.18-based tree, although stmmac and motorcomm.c are
-> stock, and this is one board with one PHY. Chen-Yu, which board and which=
- MAC
-> are you seeing it on, and how do you measure it? If it is another board o=
-r
-> GMAC0, I can try to reproduce it here.
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-On my Orange Pi 4A, running iperf3 between it and another Orange Pi 5 Plus
-(which has Intel PCIe NICs) as the server:
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-  - 4A as client: ~180 Mbps
-  - 4A as client but with reverse transfer (-R): ~520 Mbps
+are available in the Git repository at:
 
-Now if I do the same test between the Orange Pi 5 Plus and my virtual machi=
-ne
-on an AMD AI 370 Pro based NAS, I can saturate the link up close to 2.5 Gbp=
-s.
+  git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap.git tags/omap-for-v7.3/soc-signed
 
-If I use a H618-based Orange Pi Zero 3 as the client and the Orange Pi 5 Pl=
-us
-as the server:
+for you to fetch changes up to 76103814279724e5c98b1c16a730f56ebede9f74:
 
-  - Zero 3: ~920 Mbps
-  - Zero 3 with reverse: ~280 Mbps
+  ARM: OMAP2+: Fix OF node reference leaks in omap_hwmod (2026-06-29 13:13:52 -0700)
 
-And I think my Cubie A5E and Avaota A1 fared even worse.
+----------------------------------------------------------------
+soc: OMAP2 updates for v7.3
+- minor fixes
 
+----------------------------------------------------------------
+Mithil Bavishi (1):
+      ARM: OMAP2+: Add CFI type for omap4_finish_suspend
 
-Something is definitely off. I don't know what though.
+Yuho Choi (1):
+      ARM: OMAP2+: Fix OF node reference leaks in omap_hwmod
 
-
-ChenYu
+ arch/arm/mach-omap2/omap_hwmod.c | 26 ++++++++++++++++++--------
+ arch/arm/mach-omap2/sleep44xx.S  |  5 +++--
+ 2 files changed, 21 insertions(+), 10 deletions(-)
 
