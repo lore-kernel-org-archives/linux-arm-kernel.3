@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B56DC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F3A6C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QdLI7i6NmXhs3e/8wzfrAbBJfvcATmR4O7TZTLdEEwc=; b=4841ge4xHwNzwzQhYQQKR7mHCS
-	olqrGDkbvWehrjH+5NbFIG1zqIEkFmbSBmGybN15zzIkJeIR/36kcv4AhWz/bwLeXk9b59/lCfDNS
-	ViAYF8QprobYUF9wPp/9431WfIxF6Oa9b+2NUnnCKKvw9nqJ8gh217ObOor5wgAEUy3HJIWui0k8/
-	KTNhB+gHV++g0JUB6WMEWCwTK7AawCjjkx71vEET+R+igXiicanlQ1FCEsMMw3WTMZXSjTDDzQ6Ub
-	m4qu3BBIlCPGyXePXB7XS+kLQRljQpa3hgCkUHM89E+NtBZRDo7yGMjghMmDKulkXVNCOJopUE0gd
-	nNyTnsEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XbHEAjhgdk47Fg/IYzBSaArKCMq7NmitKMbqJjM2xCU=; b=x9wj1K3Fwi93TuHVvb1y9QnB2L
+	szoBbN5oB6ied1xW0wG5KDW4uR2z+4LmFoAhcOI+rjf2ctBJ9a2evEvn+zjvwFE1L59MISL4DtDBt
+	/rZmbNeca/2eA1J/S0RNFDf5D+T79a9GRqegygqDDLTj/xrd3kib71Eteg6lsHLw0voaWvVkV0bAs
+	+faG+dpFxJywW6Yqqe/WxZSpqvTGdEg6ywSt4X6b9BUjToA/Sm3U2IfDH6SjIBczFQkREIgKeW4hQ
+	6OelN37eDWjwqhrPZykM0AZuLlnQGMhxOCI+0aqIVACOnVO/AwBWNINnS76LFlBK9RmPU6qG3TuNO
+	Iqg9kKzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquan-0000000HWzk-2VZB;
-	Mon, 03 Aug 2026 15:28:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquam-0000000HWzd-3SNq
+	id 1wqucG-0000000HXB9-3eRi;
+	Mon, 03 Aug 2026 15:30:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqucE-0000000HXAc-3wU5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 15:28:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 103B4419FC;
-	Mon,  3 Aug 2026 15:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F0601F000E9;
-	Mon,  3 Aug 2026 15:28:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785770919;
-	bh=QdLI7i6NmXhs3e/8wzfrAbBJfvcATmR4O7TZTLdEEwc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PGOUOCC1neYO3Pj4JiiJrbKXQu7xg5ou/DxwOvC8Li/WTLMVSPngejogWVDXh4lZR
-	 o5bW3UOxG/IuF+QF2qPsY1LW1K/zfd0SoXyYuF8X+0ulzNhMHv7ExardoOJHlTtPWt
-	 RqJS7X4CqBlc/ahI3b4A2sDHu0dLS2mJSvBrR1c5HyGFHhxa/sq31KhQgr4yyRDRUi
-	 3JEjnWx/ror6y1x+T9wqMB84v5zRvBSMnxDiGHa6cUSuG7ioq/mdJ6F8sm7Thn6VUF
-	 icNrO/9xTovcpfPudJjTQ8kBQvpl3Oj0AV4pEh7s6RHuymMKvKU3oAnQfLtW/oO9bu
-	 MEpXY9FrW9VRA==
-Date: Mon, 3 Aug 2026 17:28:30 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-pci@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Michal Simek <michal.simek@amd.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
-	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
-Subject: Re: [PATCHv2] PCI: xilinx: use fwnode_irq_get() for INTx IRQ lookup
-Message-ID: <ducc6fhoe6t3bivbpdanmojgtnntwykzwfog7vasps7tj6mp5t@vifnuyn4fjtn>
-References: <20260716205811.800920-1-rosenp@gmail.com>
- <g3gtckpqgacw44jqqb5hb3oejpelxvbba47tdwsvksxbbskygp@mcwtsbypoyar>
- <CAKxU2N_f1nN4Oo94V9MY6Q-wp66j=3kodfMs0BeXVGB9XivvNA@mail.gmail.com>
- <5ea47pp3ctiieqahn3mkcg3dqrlmwdgdjyv6pa65qmjuqop4lb@tbax2lojuwkr>
- <CAKxU2N-2Vj1pugC_L=jhMS06CA34_-a-txZCrAoUtrRwFQ1Stg@mail.gmail.com>
+	Mon, 03 Aug 2026 15:30:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE7F0143D;
+	Mon,  3 Aug 2026 08:30:03 -0700 (PDT)
+Received: from [10.2.197.99] (ewhatever.cambridge.arm.com [10.2.197.99])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0BC643F66F;
+	Mon,  3 Aug 2026 08:30:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785771007; bh=PBiq1BJGOyxAnrDb4iLnJzH9V5hipyTxzZgMUSlKBws=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ISlaxO69AKS+iL1eqL42p5aCnEVhBsvBUMQS7cxndVDTvEhVptluyOBzMnDUKAZBN
+	 Ge3PibxaqDSMMl2h9qSV6mpdSuQRPw/gWTnFTjh1/lss3w9cIm1g4qM6lSakSLSUOm
+	 p4YZujFysuZyumIOjBiird/EE64/49BSmwfpJPMA=
+Message-ID: <7beafe29-0c5e-418b-8797-190f1850b18a@arm.com>
+Date: Mon, 3 Aug 2026 16:30:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKxU2N-2Vj1pugC_L=jhMS06CA34_-a-txZCrAoUtrRwFQ1Stg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 15/37] KVM: arm64: CCA: Handle RMI_EXIT_RIPAS_CHANGE
+To: Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-16-steven.price@arm.com> <865x1rcvfw.wl-maz@kernel.org>
+ <f971d029-84d9-4c66-9875-36fa8f1a2a1b@arm.com> <86zez3b6ps.wl-maz@kernel.org>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <86zez3b6ps.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_083011_085087_962A3B56 
+X-CRM114-Status: GOOD (  26.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +84,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 11:54:29AM -0700, Rosen Penev wrote:
-> On Wed, Jul 29, 2026 at 8:48 PM Manivannan Sadhasivam <mani@kernel.org> wrote:
-> >
-> > On Wed, Jul 29, 2026 at 11:18:15AM -0700, Rosen Penev wrote:
-> > > On Wed, Jul 29, 2026 at 9:00 AM Manivannan Sadhasivam <mani@kernel.org> wrote:
-> > > >
-> > > > On Thu, Jul 16, 2026 at 01:58:11PM -0700, Rosen Penev wrote:
-> > > > > Replace irq_of_parse_and_map() with fwnode_irq_get(dev_fwnode(dev), 0)
-> > > > > in xilinx_pcie_parse_dt(). For an OF-backed device this is equivalent to
-> > > > > the previous call, but uses the generic firmware-node API.
-> > > > >
-> > > >
-> > > > What is the benefit of using fwnode API for OF only driver?
-> > > I get conflicting information. Apparently of_irq_get needs a call to
-> > > irq_dispose_mapping but fwnode_irq_get does not.
-> >
-> > That's not true. fwnode_irq_get() becomes a wrapper to of_irq_get() if OF is
-> > used. So both needs a call to irq_dispose_mapping() in the error path.
-> I don't see  irq_dispose_mapping() for fwnode_irq_get() in the codebase.
+On 03/08/2026 15:48, Marc Zyngier wrote:
+> On Mon, 03 Aug 2026 15:04:32 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+> 
+> [...]
+> 
+>>>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>>>> index cd06881c1497..dcc2ab08d0e4 100644
+>>>> --- a/arch/arm64/kvm/mmu.c
+>>>> +++ b/arch/arm64/kvm/mmu.c
+>>>> @@ -319,6 +319,7 @@ static void invalidate_icache_guest_page(void *va, size_t size)
+>>>>    * @start: The intermediate physical base address of the range to unmap
+>>>>    * @size:  The size of the area to unmap
+>>>>    * @may_block: Whether or not we are permitted to block
+>>>> + * @only_shared: If true then protected mappings should not be unmapped
+>>>>    *
+>>>
+>>> I don't understand the need for this additional argument. Given that
+>>> CCA imposes that shared and private are in non-overlapping ranges, why
+>>> is it necessary to introduce this at the core of the S2 management
+>>> code?
+>>>
+>>> I'd expect that the CCA code could simply work out what range it needs
+>>> to run on and keep the API intact.
+>>>
+>>>>    * Clear a range of stage-2 mappings, lowering the various ref-counts.  Must
+>>>>    * be called while holding mmu_lock (unless for freeing the stage2 pgd before
+>>>> @@ -326,7 +327,7 @@ static void invalidate_icache_guest_page(void *va, size_t size)
+>>>>    * with things behind our backs.
+>>>>    */
+>>>>   static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64 size,
+>>>> -				 bool may_block)
+>>>> +				 bool may_block, bool only_shared)
+>>>>   {
+>>>>   	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+>>>>   	phys_addr_t end = start + size;
+>>>
+>>> So what is the *actual* change?
+>>
+>> It looks like I've screwed up what goes in which patch. The real change
+>> is in patch 22 where this 'only_shared' property gets passed down to
+>> kvm_realm_unmap_range(). There it's used to decide whether the private
+>> range should be unmapped or not.
+>>
+>> The reason for this is kvm_unmap_gfn_range() which has a 'attr_filter'
+>> member of 'kvm_gfn_range' which can specify KVM_FILTER_PRIVATE. Which is
+>> used in __kvm_gmem_set_attributes() so choose whether to invalidate the
+>> private or shared part of a gmem range.
+> 
+> But you can readily distinguish the private/shared part of the address
+> range by looking at the top IPA bit, right? And from there, you should
+> be in a position to decide whether to call __unmap_stage2_range() on a
+> per IPA range, rather than making this information trickle all over
+> the place.
 
-That doesn't matter. You need to check with irqchip maintainers and see if those
-drivers need fix or not.
+Yes, we can for an "IPA". However there are two different things
+at play here. There is KVM generic "GPA" (as manitained by the slot)
+and where the backend maps it in stage2 "IPA". For Arm CCA, for shared
+GPAs, the "IPA" is an alias of the GPA. But, here we get the GPA from
+the core layer.
 
-- Mani
+There is a shared/private state associated with each "GPA" (GFN) as
+maintained by the Guest_memfd for each GPA in a memslot backed by it.
+When a change occurs in the backing store (e.g. set GPA to private,
+punch a hole in GPA, destroy a given range of GPAs), an invalidation
+needs to be triggered in the Stage2. Now, given different architectures
+have different ways to deal with private vs shared GPAs, (e.g.,
+on CCA, shared GPAs are mapped in an aliased IPA) and the private GPAs
+are special, Guest_memfd tells you which ones need invalidation, using
+the filter. This filter then gets handled by the backends (CCA unmaps
+aliased address for Shared filter). Ideally this filter should be passed
+down to the core routine, so that it can be handled by the backends
+appropriately (similar to the range->mayblock).
 
--- 
-மணிவண்ணன் சதாசிவம்
+> 
+> I.e don't hack into the API. Use the information you already have to
+> decide whether you need to use the existing API at all.
+> 
+> If that cannot be done for whatever reason, then you need to indirect
+> the call with a set of operations that leave the existing code
+> untouched.
+
+Please let us know if you think we need to explore this ^ ?
+
+Cheers
+Suzuki
+
+> 
+> 	M.
+> 
+
 
