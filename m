@@ -4,80 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F05E4C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 03:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C930C55162
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 03:24:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IVOtvebpJZ9+1UyvchThzvdehQtk9LAkqcBECJRFEU8=; b=hTOT13AEKvYxQX06ryEg7C2CcE
-	cWH2Lv7vvsNnmtdg0iHm7tp5BePwZbmnLcdh0JbEsOgoVlwqpjEWv85WBtIYdLzcVTJgjuac7Jh2b
-	38BwPWPgikm1uYMR87QQD1tkkgLWobp6Qjf96Oc9OQ1uOsgp8KSgGZrQXKAJYxzy4Dw14lZZRNa7+
-	vwc60Bsd5b83UErKxqzWDYZVW5T6NVfYwkhYjxAaSvul7pYgd0mZXF5hU1KSCaxdYAe4VKW5qrtd3
-	ywxLJet5v5r/hWXBrgluoDD7HBI4puXgmF3wpi2C2kC0pGy5jHBiK8maTpNIK/IrOiBIcetwNzCmJ
-	xctkqRfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ujnk5wlepFe54qG7baPRbU3tIkHa3V1zNVQeZG6u4Tg=; b=e+FjShP200YpVgVW6malZW0rgD
+	euGXCwvQAyd7v4cv6hXhuQFrHqUSpazPWH0LICegN5OZN6AqIQq+K/a5DnWjNZkAbNbz17de2crjc
+	kElj/7kyQh3h+BgDKRfYnGi5z3I9zy4LuIXw+GrQ8DIYiKTy7Qzn9ZNGKjR41sK6sRSYXUYYK3BbG
+	Ad9VEys/2l2GT840f968y7qjuKnVC8Ra2nVEy4WYBMwF1rghz98CqP/WXjWAndNFbn856Z6xQjJvP
+	HrLvjAmRDWp3cJ/Lcic2//zDxEYKf/579jeWNmanAFcVtUpgbbGJmpOYcDmdu5ZHNhiR2sDuaNMS8
+	i2/4CswA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjGV-0000000GEFc-39fe;
-	Mon, 03 Aug 2026 03:22:59 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wqjHe-0000000GEM3-3sBQ;
+	Mon, 03 Aug 2026 03:24:10 +0000
+Received: from mail-westus3azon11012021.outbound.protection.outlook.com ([40.107.209.21] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqjGS-0000000GEF9-2cN5
+	id 1wqjHc-0000000GELU-35zc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 03:22:58 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=IVOtvebpJZ9+1UyvchThzvdehQtk9LAkqcBECJRFEU8=;
-	b=Egd1RtSnGBWdotyOOFU9g2hNz685dR1X34SLmQP+GKhTVo90PbUcwiiGiPf0XyV3SDWgYRu57
-	cGMSoWJbhB++w3aCGjhzBGCqfFWrmkLRq3WhJrB3aB23RP64RzBvXotILxZTyZY/F/oII7NzJkj
-	dvDXP3+8YCjy8r6G9RlzqYY=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hD1vw6rV4zmV7C;
-	Mon,  3 Aug 2026 11:13:16 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 18A1F4048B;
-	Mon,  3 Aug 2026 11:22:47 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Mon, 3 Aug 2026 11:22:46 +0800
-Message-ID: <e561c281-4926-4b72-86c6-8da66297cd4b@huawei.com>
-Date: Mon, 3 Aug 2026 11:22:45 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/6] KVM: arm64: Add HDBSS fault handling and buffer
- flush
-To: Leonardo Bras <leo.bras@arm.com>
-CC: <maz@kernel.org>, <oupton@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>,
-	<yangjinqian1@huawei.com>, <caijian11@h-partners.com>,
-	<liuyonglong@huawei.com>, <yezhenyu2@huawei.com>, <yubihong@huawei.com>,
-	<linuxarm@huawei.com>, <joey.gouly@arm.com>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <20260709104026.2612599-6-zhengtian10@huawei.com>
- <alTw0nwiBDWoFrjB@LeoBrasDK>
- <9340fa94-6f26-4053-a4ca-0803af725936@huawei.com>
- <alYUXkub43YxkeH1@LeoBrasDK>
- <fa0839f9-7d83-4ad1-80e2-7e7dd0280222@huawei.com>
- <alZFVPkS3lgGdruc@LeoBrasDK>
- <3fb4b33e-4618-4523-b140-955e15fd9a8c@huawei.com>
- <alpN16Q3MgVHJzsN@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <alpN16Q3MgVHJzsN@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+	Mon, 03 Aug 2026 03:24:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kA/QEcE9JjDf5WJTaAi63FKf36/Z0W8l6nTMz0bAIxX1QeRADiVQxx17xrXpSK7nqoV8dkHmtn0wxsWoEwEdVbFq3BoZMQ7oxelEHfOWyw82OXiscxENWfjgE3dLXZ+sa/zT62488oxirzGZYhX2woZ2gCQSukS2rcYOglOjq8hrkREYBsGocEvzKLDIliS11j8PFeRDOVdOo7TVWyrFjahbjCLnACCHAFpMdPmNwdpCf5WcmsoVi6lCBBU4pHE4hgVV8yEJYnbcY36tOGpwv6elepJX5wrtsCo8NJNHzlGfdSWDSKal083Nx5O1V7fzHsiA3xgE67pS3SzjRNkOOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ujnk5wlepFe54qG7baPRbU3tIkHa3V1zNVQeZG6u4Tg=;
+ b=IBsBWUpNEA72RPEhPiZeZ+HvyepIvHyeIPJsfzbx3+FEArIL5beB5pleZnN3TY55DglcoP6sZAYNrJ3JU1QkfRFa/5GYT6LBXPZ66ZwjUB0v+2geHRCzuTOE/egEvp5g9Gucuiq+t6mctkWapPZTlSKCBYMmQhHNfTRJ14MWBPKxXAOM3IztYWyfJaKNyLZDcG2aF6SLke7lHnEgyzSr2KQlY9Pkrs2FwLl6GFBm5mxZQLgFbVe0OmF14M0YQKLYQY9NibLsI7gioNpwKhkZ0F6VlZgo9OCRLCk/FkUkTfjZkYIFu18XDdiM/9grChyuimYWeKngtHH1Bz+PTZpElw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ujnk5wlepFe54qG7baPRbU3tIkHa3V1zNVQeZG6u4Tg=;
+ b=IDKqrEiDF0WWq/aMApPkehV+EgRKyqa3ekP3TEzB+fvAnIXYyQHNmvVcTYQPmmmJh7qD75EaW4026XDYDo2wxJg2a9nfzswwm+faHRf1GpKtyFoPrC0u4WlFw3Yiml5WH6rt9WUVmvT4OWSsl0XWUlHDhfCghysQU3/cXAeNZtIT+a/sFHeZ8cT1MrhpBVfLaOglFQ8kjOv6A36jvPT7tIbgLW6KFx2WQIEcJXsLQExYhTYzD2BWcYDwoxAohMdR2XxMTTBQGmJgp3pxjuqc0l79DO3ejnXgYCRTT1JypTiAqCSIOdVNnVtytKOJ2bStlGhoCoFrstdoZS/WAMONSA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by CH2PR03MB5335.namprd03.prod.outlook.com (2603:10b6:610:91::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.12; Mon, 3 Aug
+ 2026 03:24:01 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0270.016; Mon, 3 Aug 2026
+ 03:24:00 +0000
+From: muhammad.nazim.amirul.nazle.asmade@altera.com
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v2 0/3] net: stmmac: fpe: pmac and fprq fixes
+Date: Sun,  2 Aug 2026 20:23:55 -0700
+Message-ID: <20260803032358.16282-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-Mailer: git-send-email 2.43.7
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR03CA0388.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a1::33) To SJ0PR03MB6964.namprd03.prod.outlook.com
+ (2603:10b6:a03:432::18)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|CH2PR03MB5335:EE_
+X-MS-Office365-Filtering-Correlation-Id: 80d73c03-1835-48ba-9c97-08def10ea8d1
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|11063799006|56012099006|6133799003|10067099003|55112099003|18002099003;
+X-Microsoft-Antispam-Message-Info: zYIev1PqmrHO887L+Ie7DlIgZLr0edB5FCZNjoM9wJgqyhDCcflDYJPIKhPOsZMl6GnGewcpTOQ4bPpnSNqnV4AOi9uosycERy56z3rlo5/ssbvUfUPuHxlQpgn/dnNdped7DLhsBBSvJC8iGowqSiBYp4Y/dyQXY+VAnHQ7PevaJns6aZbzhEj1uaHs1+0DPDuyamPw0h62X2MdMTzl2CPxLqA9GCK4EmZjRiUJdvr6h1yDVtxbVY7FaVK6gm7FNsV6QOW1eCZzDjvnqPqqrpjwx0Xa/y8VC2ssTQAr5JRC/fqJvUe/K+ApiXGZFmn/F/GqKd4HO95dytuJmtOsHcd5cRVzGnCHFWImmX26JlzYVstF39FciDtFiE3/RLjGPT6aL3d3P7x6AJbeWUVv/HHIWLYJXw5KOTP51Gyd7FY/WEN6zFc6DO/hHneqDF8vp2G1UGGMdK02Ef+EBr8d3EDdslr39+SQYZHd5XIKXBfHE3nyIzKNdUWTa+gsfBTXNWuWBF++yeKJb4g2si2dDBp5pmTn2PNxqZA7HSetCw8TILhChN1q+4yP8GyXgz1Kz+8OpxPznHtpDCnJNshnhdP9pVeAQAVzX+p3G2jMEpiOL2PILutoyPXUExaiYZXsIFVVmf8dNiBlJnrkcSk26YKyFT9jbomWtmv90hFCvek=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(11063799006)(56012099006)(6133799003)(10067099003)(55112099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?R3Eh0A3aqtTe3GrnEHhH+Gz23ANq9F7EnFB2K3GbC23sGq2hfQ9j4kAKLFGB?=
+ =?us-ascii?Q?+9c7027K9meYBg6JkTJfWlFiejsR7OquPCUPZw47rU4OVBMQHkypnBZnFO/p?=
+ =?us-ascii?Q?MrFjDG4jY3qiUNsKZCKFW5CHpM3G7yhflbjrVEyqAVMjcwtLiTJ4PiG+te9o?=
+ =?us-ascii?Q?0bKEHW44Q3ASKVOwAPpqjiLf1GqJ02ym3XyzKkggic3/GqQwuaOuGJnYaxQX?=
+ =?us-ascii?Q?DBjyCDCYzZCC1BBgPKljmyICuJoy2MXQnnOX7PHp74KBSExEnFAxFx1Y9ZB+?=
+ =?us-ascii?Q?YRqEJKIlPzNM0GJEACsa2+whng8Ml9KyVHVbMYW3PibZUBZ57DJUa2ATeI+d?=
+ =?us-ascii?Q?jJIEDrm0rRf4X1vHrzuppubUkBwP7/45R+J5UPilwva0VuhYQyLLU9GrvxM9?=
+ =?us-ascii?Q?0SIoU+Ssy4n1SufBWxzGpQYdGO5ky6f/ffFE3CGLRT1URTx4s7fpY7DaEg4X?=
+ =?us-ascii?Q?+8fvXcWqPKT9KA8iCJhC/MbEg8tv2UPG0PxU6aYvQpQvMo/5Dn6mlkWAbYEG?=
+ =?us-ascii?Q?ye4NVL+ECH9qIhcIcYIqVkAK07GTjWBsVWm4TAMgHXvEvfUponz3CAXEyj1J?=
+ =?us-ascii?Q?OnUIMkRxJXMb/G0Eqg3Xb2R0XzTmQYWJt0aXRtpQP8v2i4DH+lM6wAff81OV?=
+ =?us-ascii?Q?Ji37d20A5JNbePab0bOcKzEy/6z9oeSrgdLt8ll+5576cAzAlso68sWjbiMy?=
+ =?us-ascii?Q?cNF2hEI1LQ2zJVT6bc4Jj8m252lGDZXd9fWHuNNuBOo6Gq9kUh900LbzQJlL?=
+ =?us-ascii?Q?Ssyn+ymrdhsEu9vjRdB9miYJreVgz7p9U3V8Yl0K9ijXQ7I2LhdBaQa2aiQ/?=
+ =?us-ascii?Q?fG/WF7UT0cwnVNASEoohkfAyYTAQmoLcKRDqHzOYVepwedMwnqe9PGt5HUcq?=
+ =?us-ascii?Q?Y2Z2iaUc1m3YD2Uh2sW0CrfETNodga9BWKfI0Sdali1Xut6kWEV87OrZ7TsE?=
+ =?us-ascii?Q?TjalJ6Y65W8q0MpJgGUA9s9jP6joHHG6nAIxjbMYQ+f1PegQ90teIUh7kQTN?=
+ =?us-ascii?Q?8RZIxKWAT3EiK7ZWpnUmdJVv7ptYlaerG4CPCvWQ/mOglSwZJ+Li9RsuvoYI?=
+ =?us-ascii?Q?3bSmXCl7ZpSrZ3C4TgI7oAHv1gZOBi1F8MSy+xdg1dO9dz8JVoA6RA1oFFcM?=
+ =?us-ascii?Q?KuBVhtYalEOqXGrJxmOvZhRkQZ0qo3nQFNOziEdDSMzyMVp5T8ig6DsTIwZ7?=
+ =?us-ascii?Q?o/tq0L0efBP8JaaqXe/2dk5KWElBLwp99NcE3dIaZbmXoN7DDJDJQdXE8q5a?=
+ =?us-ascii?Q?nW8bwZyemKrZO9MDfZcPFRf0q25WGUasqwSw6zrb1wqvt7bpO2bpDtDx7BBB?=
+ =?us-ascii?Q?aJ/2gti1eM7eonPWBCdoGEdCOulGVwD+hUFdzMQPuT/7jALt2PcwB6GmfQOM?=
+ =?us-ascii?Q?dqQN0RJcW5ZSaKfklwuR/jHM4K3J8De9bY2Hfffd0OdfzYXY8WYUvstNWB+W?=
+ =?us-ascii?Q?9WVufbwDUV6cWoItCWtb2cgNDgGDrKy0CkOxy8QGIf1QUIcQwZUEL4qfnYjI?=
+ =?us-ascii?Q?OgGBfJetgKJ+WNodtmnbZZeUAwohbFyqiCwsMp6PopSX9A/4wtzNJP0xUS3A?=
+ =?us-ascii?Q?IvbrnIqijWUnDLHfQ4lg9+eXkekUS433Xtu+sDAvKc9iXxZUABWIHBeBRaov?=
+ =?us-ascii?Q?FhxfyLjggeOk0c8q0jUblChhPdZUyVeo6gTVVCfaxibS9P0Sf2TSC/AYkAa3?=
+ =?us-ascii?Q?24AUc26ZfP5r1C2HTVEu7rXO/zO7RgivSkhrfJAaAjdYgYN12BkiliIQHbaO?=
+ =?us-ascii?Q?ODNkh0DnBMqxka+1J0yuUWX+6t37Eee0b7qMf9xnSVccU5acmBHJmsSZtnGt?=
+X-MS-Exchange-AntiSpam-MessageData-1: AvEgzm6Haw6PFw==
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 80d73c03-1835-48ba-9c97-08def10ea8d1
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 03:23:59.9425
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ejNLrusW4jDvJVflLirIG6SgwQ2sJdSQvqMRs6oTS1H03tUNCLEO9nQsuhk6OupGj1xwLXVEdAxikvWJAZ6bjW0PP4cNZujTFDM7iXQC4gAdRUViLJ5kXV1nSY61RTSbWS0VkkBJs0tQhWZHgQWDEA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR03MB5335
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_202256_992955_F13E5E9A 
-X-CRM114-Status: GOOD (  46.26  )
+X-CRM114-CacheID: sfid-20260802_202408_789116_C6C3634B 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,355 +146,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
+Three fixes for the stmmac FPE implementation:
 
-On 7/17/2026 11:44 PM, Leonardo Bras wrote:
-> On Fri, Jul 17, 2026 at 02:51:12PM +0800, Tian Zheng wrote:
->>
->> On 7/14/2026 10:19 PM, Leonardo Bras wrote:
->>> On Tue, Jul 14, 2026 at 09:27:15PM +0800, Tian Zheng wrote:
->>>> On 7/14/2026 6:50 PM, Leonardo Bras wrote:
->>>>> On Tue, Jul 14, 2026 at 03:38:39PM +0800, Tian Zheng wrote:
->>>>>> On 7/13/2026 10:06 PM, Leonardo Bras wrote:
->>>>>>> On Thu, Jul 09, 2026 at 06:40:25PM +0800, Tian Zheng wrote:
->>>>>>>> From: eillon <yezhenyu2@huawei.com>
->>>>>>>>
->>>>>>>> Add HDBSS fault handling for buffer full, external abort, and general
->>>>>>>> protection fault (GPF) events. When the HDBSS buffer becomes full,
->>>>>>>> the hardware traps to EL2 with an HDBSSF event, which is handled by
->>>>>>>> setting a flush request.
->>>>>>>>
->>>>>>>> Add kvm_flush_hdbss_buffer() to consume HDBSS buffer entries and
->>>>>>>> propagate dirty information into the userspace-visible dirty bitmap.
->>>>>>>> Flush is triggered on vcpu_put, check_vcpu_requests, and
->>>>>>>> sync_dirty_log.
->>>>>>>>
->>>>>>>> Add esr_iss2_is_hdbssf() helper for HDBSS fault detection in guest
->>>>>>>> abort handling.
->>>>>>>>
->>>>>>>> Signed-off-by: Eillon <yezhenyu2@huawei.com>
->>>>>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->>>>>>>> ---
->>>>>>>>      arch/arm64/include/asm/esr.h           |  5 +++
->>>>>>>>      arch/arm64/include/asm/kvm_dirty_bit.h | 11 +++++
->>>>>>>>      arch/arm64/include/asm/kvm_host.h      |  1 +
->>>>>>>>      arch/arm64/kvm/arm.c                   | 14 ++++++
->>>>>>>>      arch/arm64/kvm/dirty_bit.c             | 62 ++++++++++++++++++++++++++
->>>>>>>>      arch/arm64/kvm/mmu.c                   |  4 ++
->>>>>>>>      6 files changed, 97 insertions(+)
->>>>>>>>
->>>>>>>> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
->>>>>>>> index 81c17320a588..2e6b679b5908 100644
->>>>>>>> --- a/arch/arm64/include/asm/esr.h
->>>>>>>> +++ b/arch/arm64/include/asm/esr.h
->>>>>>>> @@ -437,6 +437,11 @@
->>>>>>>>      #ifndef __ASSEMBLER__
->>>>>>>>      #include <asm/types.h>
->>>>>>>>
->>>>>>>> +static inline bool esr_iss2_is_hdbssf(unsigned long esr)
->>>>>>>> +{
->>>>>>>> +	return ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF;
->>>>>>> This will return a long, which will be casted as bool.
->>>>>>> In general, what I see in the kernel is something like:
->>>>>>>
->>>>>>> 	return !!(ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF)
->>>>>> ok!
->>>>>>
->>>>>>
->>>>>>>> +}
->>>>>>>> +
->>>>>>>>      static inline unsigned long esr_brk_comment(unsigned long esr)
->>>>>>>>      {
->>>>>>>>      	return esr & ESR_ELx_BRK64_ISS_COMMENT_MASK;
->>>>>>>> diff --git a/arch/arm64/include/asm/kvm_dirty_bit.h b/arch/arm64/include/asm/kvm_dirty_bit.h
->>>>>>>> index 84b12f0a10af..4b28000e972f 100644
->>>>>>>> --- a/arch/arm64/include/asm/kvm_dirty_bit.h
->>>>>>>> +++ b/arch/arm64/include/asm/kvm_dirty_bit.h
->>>>>>>> @@ -10,7 +10,18 @@
->>>>>>>>      #include <asm/kvm_pgtable.h>
->>>>>>>>      #include <asm/sysreg.h>
->>>>>>>>
->>>>>>>> +/* HDBSS entry field definitions */
->>>>>>>> +#define HDBSS_ENTRY_VALID	BIT(0)
->>>>>>>> +#define HDBSS_ENTRY_TTWL_SHIFT (1)
->>>>>>>> +#define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
->>>>>>>> +#define HDBSS_ENTRY_TTWL(x) \
->>>>>>>> +	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
->>>>>>>> +#define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
->>>>>>>> +#define HDBSS_ENTRY_IPA	GENMASK_ULL(55, 12)
->>>>>>>> +
->>>>>>>>      int kvm_arm_vcpu_alloc_hdbss(struct kvm_vcpu *vcpu, unsigned int order);
->>>>>>>>      void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
->>>>>>>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu);
->>>>>>>> +int kvm_handle_hdbss_fault(struct kvm_vcpu *vcpu);
->>>>>>>>
->>>>>>>>      #endif /* __ARM64_KVM_DIRTY_BIT_H__ */
->>>>>>>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->>>>>>>> index c41ec6d9c45a..cecfb884a64f 100644
->>>>>>>> --- a/arch/arm64/include/asm/kvm_host.h
->>>>>>>> +++ b/arch/arm64/include/asm/kvm_host.h
->>>>>>>> @@ -55,6 +55,7 @@
->>>>>>>>      #define KVM_REQ_GUEST_HYP_IRQ_PENDING	KVM_ARCH_REQ(9)
->>>>>>>>      #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
->>>>>>>>      #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
->>>>>>>> +#define KVM_REQ_FLUSH_HDBSS			KVM_ARCH_REQ(12)
->>>>>>>>
->>>>>>>>      #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
->>>>>>>>      				     KVM_DIRTY_LOG_INITIALLY_SET)
->>>>>>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->>>>>>>> index bf6688245d83..566953a4e23a 100644
->>>>>>>> --- a/arch/arm64/kvm/arm.c
->>>>>>>> +++ b/arch/arm64/kvm/arm.c
->>>>>>>> @@ -755,6 +755,9 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
->>>>>>>>      		kvm_vcpu_put_hw_mmu(vcpu);
->>>>>>>>      	kvm_arm_vmid_clear_active();
->>>>>>>>
->>>>>>>> +	if (vcpu->kvm->arch.enable_hdbss)
->>>>>>>> +		kvm_flush_hdbss_buffer(vcpu);
->>>>>>>> +
->>>>>>>>      	vcpu_clear_on_unsupported_cpu(vcpu);
->>>>>>>>      	vcpu->cpu = -1;
->>>>>>>>      }
->>>>>>>> @@ -1157,6 +1160,9 @@ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
->>>>>>>>      		if (kvm_dirty_ring_check_request(vcpu))
->>>>>>>>      			return 0;
->>>>>>>>
->>>>>>>> +		if (kvm_check_request(KVM_REQ_FLUSH_HDBSS, vcpu))
->>>>>>>> +			kvm_flush_hdbss_buffer(vcpu);
->>>>>>>> +
->>>>>>>>      		check_nested_vcpu_requests(vcpu);
->>>>>>>>      	}
->>>>>>>>
->>>>>>>> @@ -1971,7 +1977,15 @@ long kvm_arch_vcpu_unlocked_ioctl(struct file *filp, unsigned int ioctl,
->>>>>>>>
->>>>>>>>      void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
->>>>>>>>      {
->>>>>>>> +	/*
->>>>>>>> +	 * Flush all CPUs' dirty log buffers to the dirty_bitmap.  Called
->>>>>>>> +	 * before reporting dirty_bitmap to userspace. Send a request with
->>>>>>>> +	 * KVM_REQUEST_WAIT to flush buffer synchronously.
->>>>>>>> +	 */
->>>>>>>> +	if (!kvm->arch.enable_hdbss)
->>>>>>>> +		return;
->>>>>>>>
->>>>>>>> +	kvm_make_all_cpus_request(kvm, KVM_REQ_FLUSH_HDBSS | KVM_REQUEST_WAIT);
->>>>>>>>      }
->>>>>>>>
->>>>>>>>      static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
->>>>>>>> diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
->>>>>>>> index 6c7a6ef66b5a..002366337637 100644
->>>>>>>> --- a/arch/arm64/kvm/dirty_bit.c
->>>>>>>> +++ b/arch/arm64/kvm/dirty_bit.c
->>>>>>>> @@ -50,3 +50,65 @@ void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
->>>>>>>>
->>>>>>>>      	vcpu->arch.hdbss.hdbssbr_el2 = 0;
->>>>>>>>      }
->>>>>>>> +
->>>>>>>> +void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
->>>>>>>> +{
->>>>>>>> +	int idx, curr_idx;
->>>>>>>> +	u64 *hdbss_buf;
->>>>>>>> +	struct kvm *kvm = vcpu->kvm;
->>>>>>>> +
->>>>>>>> +	if (!kvm->arch.enable_hdbss)
->>>>>>>> +		return;
->>>>>>>> +
->>>>>>>> +	curr_idx = HDBSSPROD_IDX(read_sysreg_s(SYS_HDBSSPROD_EL2));
->>>>>>>> +
->>>>>>>> +	/* Do nothing if HDBSS buffer is empty or br_el2 is NULL */
->>>>>>>> +	if (curr_idx == 0 || vcpu->arch.hdbss.hdbssbr_el2 == 0)
->>>>>>>> +		return;
->>>>>>>> +
->>>>>>>> +	hdbss_buf = page_address(phys_to_page(vcpu->arch.hdbss.base_phys));
->>>>>>>> +	if (!hdbss_buf)
->>>>>>>> +		return;
->>>>>>>> +
->>>>>>>> +	guard(write_lock_irqsave)(&vcpu->kvm->mmu_lock);
->>>>>>>> +	for (idx = 0; idx < curr_idx; idx++) {
->>>>>>>> +		u64 gpa;
->>>>>>>> +
->>>>>>>> +		gpa = hdbss_buf[idx];
->>>>>>>> +		if (!(gpa & HDBSS_ENTRY_VALID))
->>>>>>>> +			continue;
->>>>>>>> +
->>>>>>>> +		gpa &= HDBSS_ENTRY_IPA;
->>>>>>>> +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
->>>>>>> You mention that it does not support dirty-ring, but above function will
->>>>>>> mark the page as dirty in the dirty-ring :/
->>>>>>>
->>>>>> In kvm_arm_enable_hdbss_global(), we explicitly check and reject HDBSS
->>>>>> enablement if dirty-ring is active:
->>>>>>
->>>>>> ```
->>>>>> if (kvm->dirty_ring_size)
->>>>>>        return 0;
->>>>>> ```
->>>>>>
->>>>>> So when kvm_flush_hdbss_buffer() runs (which requires enable_hdbss = true),
->>>>>> we know for certain that
->>>>>>
->>>>>> kvm->dirty_ring_size == 0. Therefore, kvm_vcpu_mark_page_dirty() will always
->>>>>> take the dirty_bitmap path,
->>>>>>
->>>>>> never the dirty-ring path.
->>>>>>
->>>>>> That said, I'll add a comment in kvm_flush_hdbss_buffer() before dirty ring
->>>>>> mode is supported, to make this explicit:
->>>>>>
->>>>>> ```
->>>>>> /*
->>>>>>     * HDBSS is mutually exclusive with dirty-ring mode (see
->>>>>>     * kvm_arm_enable_hdbss_global()), so kvm_vcpu_mark_page_dirty()
->>>>>>     * will update the dirty_bitmap, not the dirty-ring.
->>>>>>     */
->>>>>> ```
->>>>>>
->>>>> Got it :)
->>>>>
->>>>> Out of curiosity: which issues have you found on supporting dirty-ring at
->>>>> this point?
->>>>>
->>>>> Thanks!
->>>>> Leo
->>>>
->>>> I haven't looked deeply into dirty-ring yet — my main concern is that if
->>>> both the dirty
->>>>
->>>> ring and HDBSS buffer fill up, the flush path might get blocked or
->>>> complicated.
->>>>
->>>> For now, I'm planning to match the HDBSS buffer size to the dirty ring size
->>>> in v5 and test it.
->>>>
->>>> Ideally, the two buffers would be the same size, and the entire dirty
->>>> tracking path would use
->>>>
->>> Ah, I see the point.
->>>
->>> IIRC, when dirty-ring gets full, the kernel returns to userspace with
->>> run->exit_reason == KVM_EXIT_DIRTY_RING_FULL, which will warn the VMM to
->>> drain the dirty-ring, and that makes space for us draining HDBSS to the
->>> dirty-ring again.
->>>
->>> The best way to achieve that, as I remember, is to always drain
->>> HDBSS as much as possible at guest_exitting. That will make more space to
->>> newer HDBSS entries, and we can get userspace to drain the dirty-ring
->>> earlier.
->>>
->>> I would say to even make HDBSS buffer half (entries) the dirty-ring. Then
->>> we can generally fully drain to the dirty-ring and even report ring full
->>> if the ring is above a given threshold percentage full.
->>>> HDBSS exclusively — no fallback to the legacy dirty bitmap path. If that
->>>> works, I think this approach should be fine.
->>>>
->>>> Let me know if you have any insights on dirty ring's full-buffer behavior —
->>>> that would be helpful.
->>>>
->>>>
->>> Will do!
->>>
->>> Thanks!
->>> Leo
->>
->>
->> Thanks for the insights — reusing PML's reservation mechanism makes sense.
->>
->> I think we can*keep the HDBSS buffer at 512 entries* (matching
-> 
-> I recommend using a PAGESIZE (512 in 4k, but bigger in other sizes)
-> 
->> PML_LOG_NR_ENTRIES)
->>
->> for now, and *not expose any ioctl for userspace to configure it*. Since the
->> kernel
->>
->> auto-enables HDBSS, a userspace size knob would be confusing.
->>
-> 
-> Humm, I am in favor of letting the user change it according to it's
-> workload. Why would that be confusing?
-> 
-> (Having a default size is useful just for enabling it to work without any
-> change in current VMs)
-> 
->>
->> The reservation logic would be:
->>
->> - Implement kvm_cpu_dirty_log_size() on arm64 to return the HDBSS buffer
->> entry
->>
->> count (512, or 0 if HDBSS is not enabled)
-> 
-> Why a get to log_size? does userspace need to know it's using HDBSS?
-> 
-> Just a set should do, as VMMs can just try to set a value, and if it fails
-> (IOCTL does not exist, or invalid value), then it can just go forward.
-> 
->>
->> - Reuse kvm_dirty_ring_get_rsvd_entries() to reserve space for one full
->> flush:
->>
->> KVM_DIRTY_RING_RSVD_ENTRIES + hdbss_entries
->>
->> - So soft_limit = dirty_ring_size - (KVM_DIRTY_RING_RSVD_ENTRIES +
->> hdbss_entries),
->>
->> guaranteeing a full flush always fits
->>
->> kvm_flush_hdbss_buffer() at guest_exit pushes via mark_page_dirty_in_slot()
->> ->
->>
-> 
-> I think I get the point here: since we can have sw dirtying as well as
-> HDBSS tracking, we may get to the point that we don't have enough space to
-> flush hdbss -> dirty-ring, right?
-> 
->> kvm_dirty_ring_push() -> kvm_dirty_ring_soft_full, which triggers
->>
->> KVM_EXIT_DIRTY_RING_FULL when needed.
->>
->> If soft_limit is hit, KVM_REQ_DIRTY_RING_FULL is set and the next vcpu_run
->> exits
->>
->> to userspace for QEMU to drain the ring.
-> 
-> So the software dirtying routine would be affected by the soft limit, but
-> HADBSS exit would not. It means the dirty-ring would be effectively smaller
-> than specified if we are having mostly sw dirtying.
-> 
-> Did I get that right?
-> 
+- Keep pmac_enabled true in DWMAC since the preemptive MAC is always
+  on, enforce this in set_mm(), and guard set_mm() with fpesel check
+- Fix missing return in stmmac_fpe_init() when FPE is unsupported
+- Move fprq configuration to stmmac_fpe_configure_pmac() where it
+  belongs
 
-Yep. And about why not expose an ioctl to userspace, and how the kernel 
-should size the HDBSS buffer for both dirty-bitmap and dirty-ring modes 
-— please see the discussion below:
+v2:
+  - Drop u32_replace_bits() in patch 3; fprq_mask is not a compile-time
+    constant and triggered __bad_mask on x86 builds. Keep the open-coded
+    mask/shift update instead.
+  - Collect Reviewed-by from Maxime Chevallier.
 
-https://lore.kernel.org/linux-arm-kernel/2d8f90dd-ed43-4663-8256-6c3eeb51d480@huawei.com/
+Nazim Amirul (3):
+  net: stmmac: fpe: Enforce pmac_enabled in set_mm and keep it on at
+    init
+  net: stmmac: fpe: Add missing return in stmmac_fpe_init()
+  net: stmmac: fpe: Move fprq configuration to
+    stmmac_fpe_configure_pmac()
 
->>
->> *One more thing: *when userspace sets the dirty ring size via
->>
->> KVM_VM_IOCTL_ENABLE_DIRTY_LOG_RING, we already enforce that
->>
->> size >= kvm_dirty_ring_get_rsvd_entries(kvm) * sizeof(struct kvm_dirty_gfn)
->>
->> or size < PAGE_SIZE. With HDBSS, kvm_dirty_ring_get_rsvd_entries() will
->> include the
->>
->> HDBSS entries via kvm_cpu_dirty_log_size(), so the same check will
->> automatically guarantee
->>
->> the ring is large enough to accommodate the HDBSS buffer. No additional
->> validation is needed.
->>
-> 
-> An alternative is moving the remaining array entries to the beginning of
-> the array, and setting the registers accordingly. The tradeoff is an
-> overhead here vs having the full size of the array available later.
-> 
-> Thanks!
-> Leo
-> 
-> 
+ .../ethernet/stmicro/stmmac/stmmac_ethtool.c  |  7 +++++
+ .../net/ethernet/stmicro/stmmac/stmmac_fpe.c  | 34 +++++++++++++-------
+ 2 files changed, 29 insertions(+), 12 deletions(-)
 
+-- 
+2.43.7
 
