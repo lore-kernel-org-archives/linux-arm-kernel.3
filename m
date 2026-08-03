@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B42C55AB9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C220C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JoqwZRVw88M/jChrvMG6oIHOxkUrFVheXEnmqUVviwk=; b=ha6I7ewl3MOEoGVa4FWkF9FhdK
-	GokDtg7n3AjEyBFTW5RMyU7O4dAngyx6l73Fee/dak9nRS16AKsYm7SbJzw/BDFnsPGyDL4xVER4Q
-	Ee7b4dWDkPgQNb8XZqGVVucMcHQ4Eq1fhIXoNJuPbURkvZir2cg0HQZVr3vITwAVg79SeGto8yRLn
-	VQ0mV1w7EDMvyqdLx8xapb02pTQci48U8NKJjywPIUqgq560eGmykpJggrcnd0j4AWS7yRvjFeM2/
-	/pjZTJXLtiC3XUqKoWYopmS1WtWFqtJijaZDBpqiFdNohu5fEMtnb3UX5Uousr0rk8LMd8i5+sveh
-	HX1BkqOw==;
+	bh=QJisyOURDs6+MYusdGohuyrWnFW95iKxPGMUUp4aU34=; b=sMxtnYclsZSYaxGQhG4JlT1yU6
+	660l35z6OUNWRh+o17zTTtOrKfxwUxdtpzZ8T20PFMdGfjP1to4B9b6rQi+0kfuAEogL9Q0v3EUDq
+	aA3x3ANguNv3UeLL/cMJIx1T3amvNF+UvmByBVRFq6LpQN/UqRU13XBswiI2QH7clCUHCsVE1WY2N
+	A3fsnhVZF5IfjG8dtncHYMDYID3WleQpP1uHtGvXVYyJAetHTeBK4l9Jm2Bic4bA2tSzx7dMWMh2t
+	beSaozVbM8G7tyP3ejXCNh/J/UdAM6O+f7E9ncykKlZ4WXS2XORLQ3HZfkSSrmx7guBszRCu+eJXJ
+	dNUtW/FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2W-00000000IdT-0gFB;
-	Mon, 03 Aug 2026 18:05:28 +0000
+	id 1wqx2X-00000000Ih6-2YT0;
+	Mon, 03 Aug 2026 18:05:29 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2F-00000000Hxj-24mg;
+	id 1wqx2J-00000000I5J-1CcE;
 	Mon, 03 Aug 2026 18:05:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1785780304;
-	bh=vWHtus49X0hw1sn+NkpE62a91N52LNCAbMBD695LMik=;
+	bh=yZLykTAN6AQqRCp/IEz9fXVJbOyScQBTvpn7mrG0ZFs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QgldZm3HZ596a7+ZAgIJJ3KGQ39ltqVuo+XHbifbcaGT30m5Bp3AgcNFzBG5UjjzW
-	 A3t5xQCsD7SC+XykgOXN2s2WxGhpisxx8e3RdF9Uo/JmKqtoAyIAo1uXf9mZ0tC1qj
-	 oHaJqGt/BzsFQPDeUDiqVAEN2z57vKnZpKjBswUvqCHEpxISe5K+IJo76jXLC31R47
-	 vGG5LCePCudaPLUQy1DrwxpIFeMUHv/hkHIKgc090EqTwBVQ5y4PepnoeJnBZDvCGp
-	 yIYZ+UwxKRLgpWCdTlPOOhOOjGfzYpTxyAlcIIuv8B2OfcOR17JxuKJHRMv9QevLv1
-	 fR6F4YNVzr8lA==
+	b=b7otiZjW6OVVvIWlYupsS/VkYvRIFI5GbKPasX3hsNhenBpvZqes/4HaUUptyCwXd
+	 AZkdP5QSVtUYhluNgV6p0m/MBOFnFAJKRy2NJmKDC8Hlg++3zuvznNCYj6CSbXirb/
+	 EOOEzh30mm14dcNDv2dBqf3aGXY2sz5GNB+5Pn6ocrmuSvEekTouBLK1buhq9aQlO/
+	 TyE8rxnGsxmgMNx7qn6XvHFvw5qaGpWfAhq/DlaZeCgcvT4Wa0RPTXaB/fpSsPg7lK
+	 XvBNwl4DwXofFGktDmH82+nJmO7EwTqWMBr5vfJ1uj0L18TjSQ8HDsKbXB/Vw4d8Dc
+	 DHBFMFq1/7zLw==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BD6517E11E4;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 971E417E125C;
 	Mon, 03 Aug 2026 20:05:04 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 707A5480048; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
+	id 7DF34480066; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Mon, 03 Aug 2026 20:05:12 +0200
-Subject: [PATCH v9 11/22] drm/bridge: synopsys: dw-dp: Add follow-up bridge
- support
+Date: Mon, 03 Aug 2026 20:05:21 +0200
+Subject: [PATCH v9 20/22] drm/bridge: synopsys: dw-dp: Use regmap_set_bits
+ in dw_dp_send_sdp
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260803-synopsys-dw-dp-improvements-v9-11-2e6e46135312@collabora.com>
+Message-Id: <20260803-synopsys-dw-dp-improvements-v9-20-2e6e46135312@collabora.com>
 References: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
 In-Reply-To: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -78,26 +78,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-arm-kernel@lists.infradead.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2515;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1255;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=vWHtus49X0hw1sn+NkpE62a91N52LNCAbMBD695LMik=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E6snqkjQpQJoi0luDT4tnhQYhv3lMHaf
- msTkh3eVHWWIIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhOAAoJENju1/PI
- O/qaWfYQAI87lpMK3uwNe3zeQu6zC4e7IS7Ze6gpM3Sb0wAdWcSpxAHBGioyqZwT5c4rip0EYnM
- SfUP4Ll7zdO/n48x/BhlZ2r5w+GSKgk5jNc1XmHpDSYvg1DnD4kPcT5wiYTSsURRlvXFnBpEa5M
- JtxB8BytquQfx8PZsEsUjlZ73Kt2l/A+ydrNya3flif2DOe2SEoGDXVkihxUSi4iinjvC7xx4FM
- ffVOnDx4wjluznyMQmOwJyW/RERNSLIJ/GACJfmhnsddcAUbjk+lRonghpOe4oqZR4pEP23yr3H
- FHdvwLJ61BlRQ0h4O+uNz9pFXsgU9XML9/8uRiJNlaEsJf5nAAbDF9qFWBcuQHK4BXXRIEhwY/5
- iOa/NFBB945//Z13Uddz+0V8QEMBPzkLLFy/dI+uPe26Sl7XxUlhW0qwGOqGw+/4jjqXS+tnLIL
- 2/c5Q/lsBm02Y4hYoMXsU/h/KMQ8lPmt6y+gKK8YnL8XRS3I7L8sHJP+4Vs3WU208VVDBP3ror0
- ZkY2v3kDG1JIOpOwaMSmxzOpeMlDOzxQ5ftRwXtSeymWjJE0CdTZO+u10CHjY/tOfH8CBKwL2N/
- Lhm8z9GIjT8V7H7EoA4rXi76rmimaIGYLBBZpmjzu5+pJ2VOcbUVDEtkKufuQzAWLigCjUdUFMc
- ZPmbz3BuUD86I1JTEzz4tIw==
+ bh=yZLykTAN6AQqRCp/IEz9fXVJbOyScQBTvpn7mrG0ZFs=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E838xnyCpPYs/lfqW9PfzxPmMY4dTE6A
+ PFN994EeZty2IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhPAAoJENju1/PI
+ O/qaQcwP+gPYook4xajED5bjNUiWuN7DK92L0yebsvXMlJvDhENy0lowzQaQSJnww+0IDpLCOz8
+ 7b4SY/+BXBR4NXeA/AW1cbOw4YvY09MtGb7dEf3aFCgDjq5i9b3GyytqDRltf0dW0YniCAV2yg6
+ JJmrn2COdeE/0P3nyqn+yw7WV66YZZ4wF/Vdbj+inu6pZAuKQzkMDH0UMLmo1zMmxctT4BPve/I
+ JbYNPDkeH/VcifPuAdhFXpW4P8JK4XQNVNE9JqAZufjkY3x5SqCles2Q54axkbKIxqxLsSu2Zyg
+ Fj/qeuNXO6U2FH93zpgHo/+zpnqCXg1OyKnHnV54lX2tw+WnWltBobQeyNlMpNKBVN/fFOBbk4z
+ /BfW6mOo10Q11Rvgx0KnR54iSIOENl4kiofc+z6m7lcDr4dFkF2f4pQW2xBkicQDuyvTliNktaM
+ UkxWpaMMiZ8mVKBrI/toLD6gW88iN+Tgv2SPT06X3oQp44nV+vKlQXdQ7krfTvsSvpTQkl+o1R4
+ DjG1ld96J998Ri/okStcvkQfvwjZ9caM3f6Y6Ynw0xrk+46rbWu/2uwi7zF5kGu7StuYzDEO2ZA
+ DIx5X9OYuNnOE59gfuGeSUkk0pLIxNFq9XUgfqgNN32kFVAVqU+8zILlfSpCzmo7la6w0Aksq0u
+ 9c4yrPNNVcjeDJGSVlJk+vQ==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_110511_757813_493687FA 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20260803_110515_537352_BD9CD2F6 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,84 +112,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support to use USB-C connectors with the DP altmode helper code on
-devicetree based platforms. To get this working there must be a DRM
-bridge chain from the DisplayPort controller to the USB-C connector.
-E.g. on Rockchip RK3576:
+Simplify dw_dp_send_sdp() a little bit by making use of
+regmap_set_bits.
 
-root@rk3576 # cat /sys/kernel/debug/dri/0/encoder-0/bridges
-bridge[0]: dw_dp_bridge_funcs
-        refcount: 7
-        type: [10] DP
-        OF: /soc/dp@27e40000:rockchip,rk3576-dp
-        ops: [0x47] detect edid hpd
-bridge[1]: drm_aux_bridge_funcs
-        refcount: 4
-        type: [0] Unknown
-        OF: /soc/phy@2b010000:rockchip,rk3576-usbdp-phy
-        ops: [0x0]
-bridge[2]: drm_aux_hpd_bridge_funcs
-        refcount: 5
-        type: [10] DP
-        OF: /soc/i2c@2ac50000/typec-portc@22/connector:usb-c-connector
-        ops: [0x4] hpd
-
-It's fine to fatally error out when there is no follow-up bridge
-as the Rockchip Designware Displayport controller is the only
-user of the bridge helper and has the port marked as required
-in its binding.
+No functional change intended.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 22 +++++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index e60dab0d3b9d..577ec42c94a4 100644
+index d8c6a99e93b8..5d10a60d265d 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -330,6 +330,8 @@ struct dw_dp {
- 	struct dw_dp_plat_data plat_data;
- 	u8 pixel_mode;
+@@ -1070,14 +1070,12 @@ static int dw_dp_send_sdp(struct dw_dp *dp, struct dw_dp_sdp *sdp)
+ 			     FIELD_PREP(SDP_REGS, get_unaligned_le32(payload)));
  
-+	struct drm_bridge *next_bridge;
-+
- 	DECLARE_BITMAP(sdp_reg_bank, SDP_REG_BANK_SIZE);
- };
+ 	if (sdp->flags & DW_DP_SDP_VERTICAL_INTERVAL)
+-		regmap_update_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
+-				   EN_VERTICAL_SDP << nr,
+-				   EN_VERTICAL_SDP << nr);
++		regmap_set_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
++				EN_VERTICAL_SDP << nr);
  
-@@ -2049,13 +2051,31 @@ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder)
- 	if (ret)
- 		return dev_err_probe(dev, ret, "Failed to attach bridge\n");
+ 	if (sdp->flags & DW_DP_SDP_HORIZONTAL_INTERVAL)
+-		regmap_update_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
+-				   EN_HORIZONTAL_SDP << nr,
+-				   EN_HORIZONTAL_SDP << nr);
++		regmap_set_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
++				EN_HORIZONTAL_SDP << nr);
  
-+	dp->next_bridge = of_drm_get_bridge_by_endpoint(dev->of_node, 1, 0);
-+	if (IS_ERR(dp->next_bridge)) {
-+		ret = PTR_ERR(dp->next_bridge);
-+		return dev_err_probe(dev, ret, "failed to get follow-up bridge.\n");
-+	}
-+
-+	ret = drm_bridge_attach(encoder, dp->next_bridge, bridge,
-+				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to attach next bridge\n");
-+		goto put_next_bridge;
-+	}
-+
- 	return 0;
-+
-+put_next_bridge:
-+	drm_bridge_put(dp->next_bridge);
-+
-+	return ret;
+ 	return nr;
  }
- EXPORT_SYMBOL_GPL(dw_dp_bind);
- 
- void dw_dp_unbind(struct dw_dp *dp)
- {
--	/* nothing to do */
-+	drm_bridge_put(dp->next_bridge);
- }
- EXPORT_SYMBOL_GPL(dw_dp_unbind);
- 
 
 -- 
 2.53.0
