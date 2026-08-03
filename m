@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86A7C55190
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5C0C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:07:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+SO+R/V6Ge89ssABva1yLlWc8p9DcPOdPCnLnTBJE8=; b=godJ2rEz2xiWfnREtj2/IUXiox
-	ASFKKB5tp8zGK7Oo88LCJyuxUiuxYj7EPq9i+f9d6Aip7/dHQMmwGpFITvVAWoURtUTE22G22msv8
-	fUvMnJWorTeAz53UkccEOnu9X2LgHDSz+c5lXjkLdYu6Ns6vH8KMLYTxLxLBLGLzAkcbm2iW5VDP+
-	vBweTiEx3uRFd01QQm6n0h+hQXOSDWBBQ3VesuW/aJqZg/1PPcXh3mHiDrA+cawjK11Mtu2mLvzZq
-	YyQeeLmDKRAEsXnxfhDJQ4BN35Yu5baqiFOVbaW1CoC6sxqu+kSnPy6NLqZAcdg8a/wdL4Xoi+/i3
-	WwM0ygww==;
+	bh=jOiASshXSGNOrQbG7iUlsXOHA6KnTV+FugoXN4etdkY=; b=3CxkSpYUnfxHGcHaytHAEe3XgN
+	2BJ/u7NaZyx4dLiNgE2BwrThLzkrbrh8GQcoje60Tgg6leFIDm6JTgW+FMTfgkOcnNaCbqFlGj+wA
+	GdOYeVSfsj+bUB3vmC+sXqKMgKaFAjAugJi/nDRTa3NhPM0BewWkx1yBZqQBIqhuoCAhUS3pDGcoH
+	Rh6DVhTx18F1CTq7NvgHQd/9s9wZAkH/UdQF+bhuZDfDaxuUbLYiOa2j/TR/vCbCEcgwcJVlU4TVE
+	co9dfiByenVVWC69asCINMib16HRqxagp2ijHvXMISNoVjB3FlD9rpspBirKKAAft8LDuV4sGBYSd
+	7oJp/1Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqodX-0000000GeEU-0qay;
-	Mon, 03 Aug 2026 09:07:07 +0000
+	id 1wqodc-0000000GeLG-1RCp;
+	Mon, 03 Aug 2026 09:07:12 +0000
 Received: from mx0a-00082601.pphosted.com ([67.231.145.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqodS-0000000Ge9l-22K5
+	id 1wqoda-0000000GeIp-1Vjy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 09:07:03 +0000
-Received: from pps.filterd (m0044010.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6735RIfb4132303;
-	Mon, 3 Aug 2026 02:06:49 -0700
+	Mon, 03 Aug 2026 09:07:11 +0000
+Received: from pps.filterd (m0528007.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6733rHUQ163426;
+	Mon, 3 Aug 2026 02:06:55 -0700
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fb.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=c+SO+R/V6Ge89ssABva1yLlWc8p9DcPOdPCnL
-	nTBJE8=; b=EinxRZfejF6rKOW0m/JwinbQmt1LlTLGXgcZ62OHtuO52jAMZt5/T
-	p8j2toJF7ENvMoZFqLkPeBFgLFX8OPTZoeUQ+8IpP6B71eWOiAXxttC7jLmpACFb
-	Y6UmME7rkKyJUyATct47urtM2xOnTHP6ODPm53VbPKI65tVMI4oMvAcU7YYwVrqV
-	WmUD9hPd0mw9DMRadPZtOz5sl+CVYjS9bl3+JGu+PRv40rRPuNrOo6wNHOlTi78p
-	IeeBJdrny81nCqheYibvwsb86dtI87rHOmnJI9X22FeXQOFfI3ZNElhg5r1ZSCKl
-	n/qWYQv7Jkv4j/ysiSiYnLVig3xPISncg==
+	pps82601-s2048-2026-q3; bh=jOiASshXSGNOrQbG7iUlsXOHA6KnTV+FugoXN
+	4etdkY=; b=SWLcAKd0Y14AdMrKmXDMRgnLo6R5XimLqlf/tS6ac+g9tsD6WePQF
+	c0TyaLP3J9iEYws50rlWUtLOIKTe340asZsN5Wr923sZ2Rz98MHtgn7QoE8zOdtd
+	M/RaZwolEqM4xmy6oDcPY1ECvChcZfJSwgeiOvtUztGgddG6W0DOE23Av0UEgmKZ
+	vxWrVS7kfAAQRifE8RaIEFHwF9pvPTq10H+aCX8l2q0SgUKyOGjTlD1bpW1TI497
+	H5SM3S9sr+zFg8xRifHjoo8xSYwIuikrcU4I/CJiyEn+LaHqdWC/yvWhzvd3OQmC
+	DsT8VFJa5BDGNc2LVRvoAD+78Xa5L00cw==
 Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4fsc41rnwb-2
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4ft4tsv1nj-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 03 Aug 2026 02:06:49 -0700 (PDT)
-Received: from localhost (2620:10d:c0a8:1c::1b) by mail.thefacebook.com
- (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 03 Aug 2026 02:06:55 -0700 (PDT)
+Received: from localhost (2620:10d:c0a8:fe::f072) by mail.thefacebook.com
+ (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.45; Mon, 3 Aug
- 2026 09:06:47 +0000
+ 2026 09:06:54 +0000
 From: Amir Ayupov <aaupov@fb.com>
 To: <linux-perf-users@vger.kernel.org>, <coresight@lists.linaro.org>,
         <linux-arm-kernel@lists.infradead.org>,
@@ -72,39 +72,39 @@ CC: <linux-doc@vger.kernel.org>, Mike Leach <mike.leach@arm.com>,
         Shuah Khan <skhan@linuxfoundation.org>,
         Swapnil
  Sapkal <swapnil.sapkal@amd.com>
-Subject: [PATCH 7/9] perf test cs-etm: Test branch history on existing samples
-Date: Mon, 3 Aug 2026 02:06:38 -0700
-Message-ID: <20260803090640.2412336-7-aaupov@fb.com>
+Subject: [PATCH 9/9] Documentation: coresight: Document context-sensitive PGO workflow
+Date: Mon, 3 Aug 2026 02:06:40 -0700
+Message-ID: <20260803090640.2412336-9-aaupov@fb.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260803090640.2412336-1-aaupov@fb.com>
 References: <20260803090640.2412336-1-aaupov@fb.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [2620:10d:c0a8:1c::1b]
-X-Proofpoint-GUID: Uwx-xw5nabgVRgdm1-hy5amTsiWNpHKK
-X-Proofpoint-ORIG-GUID: Uwx-xw5nabgVRgdm1-hy5amTsiWNpHKK
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDA4MSBTYWx0ZWRfX+yO3pMt5q5LQ
- /7Lq+Vu/CGENMXAzWxgA+Ptls1goIc3FAjoV9xeKKewzWWg5wBeAAl2D7hbTU7T86HRNonWwg9J
- b5xnpdFAQEf0Bq8Gg4J1Cyr3nTRP8pmSOR2yecG4FwBRfQoDknJLqW6/+wxNM+Ric5WC2PB33IG
- dUrml8JTw/AQvUe3Mipp92NR2ntUVoqOY2yAt9hBK+OXVqrgKFAopNYsxn3mR5E7YYdPOCho74X
- sLvmEGcxZpjBM2gozo1c/oBmh0lbklMzrmcbT+1bpmDi3biOshWF5NhgdKxrnjOA+QwkJ/Jbvwo
- rw/i5uC74xCjIySR0XttsvbsW4PKrANTdcuwHfZW0lcBku7lveoiCQBkK6p1YLfXsk2RZBg2o2I
- 0CgA3SRhb3cBn4jaN6QF60rh/5i6Sdp58stv8f/0pFaiFsyPp3JVy0s4ZLmwMmEfKfk1/xQ6gOY
- uPuTnSqlRI1UMDt7u1w==
-X-Authority-Analysis: v=2.4 cv=A7Fc+aWG c=1 sm=1 tr=0 ts=6a705a29 cx=c_pps
+X-Originating-IP: [2620:10d:c0a8:fe::f072]
+X-Proofpoint-ORIG-GUID: o7oN519_Altz3M3Gh8SCSWSS8yO-rHmj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDA4MSBTYWx0ZWRfXwK31pUOZLfci
+ Kq/eRub8HKPtvx/ipqjat5jv2WqtswBDm1Z8YklCGKsBlPUxr2lrEujqCi1O9bWaaMZgheNPHXG
+ FVmKie8rjAB+naKUSpxCpuh44oDL56y8tNSnZfU0aWc2m8ONfzq0W4tFUB1M93EKh+wVfyPTJJa
+ XvndH0fnUvfdrfTYkFtRQKOEAWpiyaUsqrkSlQaSFyNLViW6wZiVV3dxipn0mzRuQfmEtud2+GA
+ nv7tl/YEPl2f9EgFaEuqvupWlFswDRY7MQ76+stX8gk+ZyUxCWAHd433r4O3RqaSM1lxvKbAUD9
+ kn0O4B2uK1ll7vJuWy3wCH3gqLotINhxAnZzJxiz4UbCTmqVBRNGg1vWRKs8J5rcFKoPSQgJSOQ
+ N9BZAoeZyJdm2gSQOmmMV9QwOJjWK4onHqOPA7bGU2JyQC/0fEBHbW2hJjD7lXCP6JuPap1Je5L
+ 4YMqleqHAZAGnwxNvsg==
+X-Authority-Analysis: v=2.4 cv=fYidDUQF c=1 sm=1 tr=0 ts=6a705a2f cx=c_pps
  a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
  a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=8elwO82fXORLTBIkMd32:22 a=FOH2dFAWAAAA:8 a=HirZfp3U6wNsbMr5dk0A:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDA4MSBTYWx0ZWRfX+bl3j/AbHVhi
- vGg5ypA2/aeaVdlY7wxfDcQg5KaNL5NE0bp+vR2OISMSikQTG1tjh+32H7475udN3S/ejzYwoJK
- RU0yTdFv5EJLNhjKKBtOXGfg33g0cG4=
+ a=4h92JMTCafKA-fb_NiOh:22 a=FOH2dFAWAAAA:8 a=QDGUGMRHXpoeSueRYaEA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDA4MSBTYWx0ZWRfXwyTI5tCyGdcg
+ 0v/F63zt8mZNaY886S+U5BRI/BxEMebMQdll5mdR0JTJTIimLXfPvyyfNDQF+w6QZdxY78GT6Al
+ v/OvglASeOX+sOFdWIjAK7AMuQV3GnQ=
+X-Proofpoint-GUID: o7oN519_Altz3M3Gh8SCSWSS8yO-rHmj
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-02_06,2026-07-30_01,2025-10-01_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_020702_546278_F3286B7E 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20260803_020710_413863_31F3DB13 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,206 +119,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a CoreSight shell test for --itrace=L. Record timestamped ETM trace
-with explicit -T sample timestamps and AUX pause/resume events, then
-check that the pause samples carry both a multi-frame callchain and a
-non-empty branch stack for each of the workload's two processes.
-
-Decode the same recording with L4 and L64 and reject any branch stack
-deeper than the requested depth.
-
-The test skips when cs_etm is absent, when not run as root, or when the
-recording turns out to lack virtual timestamps. It exercises the
-timestamp-gated path and the requested-depth bound; it does not attempt
-to verify that the attached history is correlated to the sample.
+Document combining callchain-bearing AUX pause samples with the ETM
+branch history that precedes them, which is the pairing that
+context-sensitive PGO tools consume, and the --itrace=L64 decode with the
+non-empty branch-stack dlfilter.
 
 Signed-off-by: Amir Ayupov <aaupov@fb.com>
 ---
- .../tests/shell/coresight/add_last_branch.sh  | 175 ++++++++++++++++++
- 1 file changed, 175 insertions(+)
- create mode 100755 tools/perf/tests/shell/coresight/add_last_branch.sh
+ .../trace/coresight/coresight-perf.rst        | 62 +++++++++++++++++++
+ 1 file changed, 62 insertions(+)
 
-diff --git a/tools/perf/tests/shell/coresight/add_last_branch.sh b/tools/perf/tests/shell/coresight/add_last_branch.sh
-new file mode 100755
-index 0000000000000..4654069ad651f
---- /dev/null
-+++ b/tools/perf/tests/shell/coresight/add_last_branch.sh
-@@ -0,0 +1,175 @@
-+#!/bin/bash -e
-+# SPDX-License-Identifier: GPL-2.0
-+# CoreSight branch history on existing samples (exclusive)
+diff --git a/Documentation/trace/coresight/coresight-perf.rst b/Documentation/trace/coresight/coresight-perf.rst
+index 0a77741a431ef..c0c82b3d26ea8 100644
+--- a/Documentation/trace/coresight/coresight-perf.rst
++++ b/Documentation/trace/coresight/coresight-perf.rst
+@@ -109,6 +109,68 @@ Example for triggering AUX pause and resume with PMU event::
+         -e cycles/aux-action=pause,period=10000000/ \
+         -e cycles/aux-action=resume,period=1050000/ -- sleep 1
+ 
++Context-sensitive sampled PGO (CSSPGO) profiling
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 +
-+perf list pmu | grep -q 'cs_etm//' || exit 2
++A callchain-bearing pause event can be combined with the branch history from
++its preceding ETM trace window. This provides the synchronized callchain and
++branch stack consumed by context-sensitive PGO tools without continuously
++recording ETM trace for a long-running process.
 +
-+if [ "$(id -u)" != 0 ]; then
-+	echo "[Skip] No root permission"
-+	exit 2
-+fi
++For example, record user-space ETM trace, resume it periodically, and pause it
++with a cycle event that also captures a frame-pointer callchain::
 +
-+tmpdir=$(mktemp -d /tmp/perf-cs-add-last-branch.XXXXX)
++  perf record -T \
++        -e cs_etm/aux-action=start-paused,timestamp/u \
++        -e cycles/aux-action=resume,period=8350251/u \
++        -e cycles/aux-action=pause,period=100003,call-graph=fp/u \
++        -- ./workload
 +
-+cleanup()
-+{
-+	rm -rf "$tmpdir"
-+	trap - EXIT TERM INT
-+}
++The two cycle events count independently. With pause period ``P`` and resume
++period ``R``, each trace window is approximately 0 to ``P`` cycles long, so the
++average duty cycle is ``P / (2 * R)``. The periods above give about 0.6% duty.
 +
-+# shellcheck disable=SC2317 # Called through trap.
-+trap_cleanup()
-+{
-+	cleanup
-+	exit 1
-+}
-+trap trap_cleanup EXIT TERM INT
++Do not make ``R`` an integer multiple of ``P``: coincident pause and resume
++interrupts can produce zero-length windows. Choosing ``R`` near
++``(k + 1/2) * P``, as above, moves the resume phase across the pause interval.
++Pause events that fire while ETM is already paused have no branch history; the
++dlfilter below removes those samples.
 +
-+record_data()
-+{
-+	if perf record -T -o "$tmpdir/data" -C 0 \
-+		-e cs_etm/aux-action=start-paused,timestamp/u \
-+		-e cycles/aux-action=resume,period=550019/u \
-+		-e cycles/aux-action=pause,period=100003,call-graph=fp/u -- \
-+		taskset --cpu-list 0 perf test -w context_switch_loop 100000 \
-+		>/dev/null 2>"$tmpdir/stderr"; then
-+		return 0
-+	fi
++The ``-T`` option timestamps the pause samples, while ``timestamp`` enables
++ETM timestamp packets. Both are required to correlate the sample with ETM
++trace. This mode also requires virtual ETM timestamps correlated to perf time
++and a callchain on the pause event. Use ``call-graph=dwarf`` instead of
++``call-graph=fp`` when the workload does not preserve frame pointers.
 +
-+	echo "Failed to record ETM trace with AUX pause/resume" >&2
-+	cat "$tmpdir/stderr" >&2
-+	return 1
-+}
++Tuning duty cycle
++^^^^^^^^^^^^^^^^^
 +
-+decode()
-+{
-+	local size=$1
-+	local output=$2
++The example above favors low recording overhead for fleet collection. With
++independent counters, ``P / R`` is the nominal window ratio while
++``P / (2 * R)`` is the expected average ETM-on duty. For ``P = 100003``, two
++measured Neoverse V2 operating points are:
 +
-+	if perf script -i "$tmpdir/data" --itrace="L$size" \
-+		-F comm,pid,tid,event,ip,brstack >"$output" \
-+		2>"$tmpdir/stderr"; then
-+		return 0
-+	fi
++- Fleet collection: ``R = 8350251``, 1.2% nominal ratio and 0.6% average duty.
++- Targeted profiling: ``R = 1050031``, 9.5% nominal ratio and 4.8% average duty.
 +
-+	if grep -q "itrace=L requires virtual timestamped trace" \
-+		"$tmpdir/stderr"; then
-+		echo "[Skip] Virtual CoreSight timestamps are not available"
-+		cleanup
-+		exit 2
-+	fi
++AUX buffer size must also scale with trace volume. A 128 KiB AUX buffer worked
++at 0.6% duty but was unstable at some higher-duty points, where it increased
++output size or overran and reduced useful-sample yield. Use 4 MiB as a
++conservative starting point around ``R/P = 6.7`` to ``12.5``. These values are
++workload and platform dependent; verify useful samples per MiB and lost AUX
++records when tuning another system.
 +
-+	cat "$tmpdir/stderr" >&2
-+	return 1
-+}
++Add up to 64 decoded ETM branches to each existing pause sample and emit the
++hybrid samples in the regular perf-script format::
 +
-+check_process_samples()
-+{
-+	local output=$1
-+	local comm
++  perf script -i perf.data --itrace=L64 \
++        --dlfilter=dlfilter-nonempty-brstack.so > perf.script
 +
-+	for comm in proc1 proc2; do
-+		awk -v comm="$comm" '
-+			$1 == comm && /cycles\/aux-action=pause/ {
-+				in_sample = 1
-+				next
-+			}
-+			!NF {
-+				in_sample = 0
-+				next
-+			}
-+			in_sample && /0x[[:xdigit:]]+\/0x[[:xdigit:]]+\// {
-+				found = 1
-+			}
-+			END { exit !found }
-+		' "$output" || {
-+			echo "No pause-event branch stack found for $comm" >&2
-+			return 1
-+		}
-+	done
-+}
++The ``dlfilter-nonempty-brstack.so`` filter drops samples that ended up with
++no branch history at all, for example samples from a thread that was never
++traced, or samples recorded before the first or after the last trace window.
++It is built and installed with perf's other dlfilters.
 +
-+check_callchains()
-+{
-+	local output="$tmpdir/script-callchain"
-+
-+	perf script -i "$tmpdir/data" -F comm,event,ip >"$output" 2>/dev/null
-+
-+	awk '
-+		/cycles\/aux-action=pause/ {
-+			in_sample = 1
-+			frames = 0
-+			next
-+		}
-+		!NF {
-+			if (in_sample && frames >= 2)
-+				found = 1
-+			in_sample = 0
-+			next
-+		}
-+		in_sample && /^[[:space:]]+[[:xdigit:]]+([[:space:]]|$)/ {
-+			frames++
-+		}
-+		END {
-+			if (in_sample && frames >= 2)
-+				found = 1
-+			exit !found
-+		}
-+	' "$output" || {
-+		echo "No multi-frame pause-event callchain found" >&2
-+		return 1
-+	}
-+}
-+
-+check_branch_stacks()
-+{
-+	local output=$1
-+	local max_entries=$2
-+
-+	local ret
-+
-+	if awk -v max="$max_entries" '
-+		/0x[[:xdigit:]]+\/0x[[:xdigit:]]+\// {
-+			entries = 0
-+			for (i = 1; i <= NF; i++)
-+				if ($i ~ /^0x[[:xdigit:]]+\/0x[[:xdigit:]]+\//)
-+					entries++
-+			if (entries)
-+				found = 1
-+			if (entries > max) {
-+				status = 2
-+				exit
-+			}
-+		}
-+		END {
-+			if (status)
-+				exit status
-+			if (!found)
-+				exit 1
-+		}
-+	' "$output"; then
-+		return 0
-+	else
-+		ret=$?
-+	fi
-+
-+	case $ret in
-+	1) echo "No ETM branch stacks found" >&2 ;;
-+	2) echo "Branch stack exceeds requested L$max_entries depth" >&2 ;;
-+	esac
-+	return 1
-+}
-+
-+record_data
-+check_callchains
-+
-+decode 4 "$tmpdir/script-l4"
-+check_process_samples "$tmpdir/script-l4"
-+check_branch_stacks "$tmpdir/script-l4" 4
-+
-+decode 64 "$tmpdir/script-l64"
-+check_process_samples "$tmpdir/script-l64"
-+check_branch_stacks "$tmpdir/script-l64" 64
-+
-+cleanup
-+exit 0
+ Perf test - Verify kernel and userspace perf CoreSight work
+ -----------------------------------------------------------
+ 
 -- 
 2.52.0
 
