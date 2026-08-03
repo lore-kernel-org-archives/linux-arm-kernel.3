@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E96C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F1D2C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=48pATyxGPcKiHdKzUijPovZ+zH3w+9sc05TXmUj+Rdw=; b=Z37IwOoFS4KPC1Gte52QhlsCJ0
-	Qt9dbj7Rez//mwd2MFEZUtfxdZfpLJV1P3BpFA+YqfM3qGpETc7xy7SrmCpEIcGlCr/A2SQuWf2k3
-	oL7LQQa8Nadiwi5MRKPTOtqrjq5STDVQy/zfY+UYYJLLjTX4RBaSNCdUz6kHqp04c+mj1dpngWzZT
-	XNN1COmRC9AUfp+9lowzoVeCuKv4DptQr84rbuHw0TgAJkZuNkMl4Xx0AuhwKW9hSfh85TKuIJ4PT
-	HhFBybjXRmr64nuERtUvj+vypPuGcNbsBwZeRZASYT6U/crbH50wVvX83P50UyC9HdqHDeVuL6qah
-	vJxZqu3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MpH62FMFtWUxRfc3axL/EWkSaCRGMx2miOZKjiP1hxo=; b=w2mKsA511CV9ex3suexLeF31gk
+	e5EsVGnQ+Tnl3PQHrpFY4Cy1g0IaJXqrFhUvY9WbN53bb2D68KUCGQSs+U1rFy9FAY+P1ObqeCASX
+	TcLfOx1zoKYGEysHepGXUciBM09BOYEaQsVWuAdEzn7hsN1Kvfr0Quzij/yH/WPpC75yka9jbw+HM
+	s1zMnJRbTq5pJtN0dT9AgJJ6nnG7ueULk5mFc261Mc43NHQzDWLrI/Db07qMIGVRWAgStSeIP+dml
+	+APlcgqHEgd4Nm4caDZT+v/W5xsADk0VaYniGVtuFZ8ZFDyyGdbTi03nAkT15uuf+h82bAUmXG3JM
+	W68N/q7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqxD5-00000000MKW-0eou;
-	Mon, 03 Aug 2026 18:16:23 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1wqxJW-00000000Ml0-0njw;
+	Mon, 03 Aug 2026 18:23:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqxD2-00000000MJj-2Sv7
+	id 1wqxJU-00000000Mkg-3yFC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 18:16:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1785780978;
- bh=48pATyxGPcKiHdKzUijPovZ+zH3w+9sc05TXmUj+Rdw=;
- b=zx5wiBTYpLAx6gOGXGq+4rLbOFe7MOr6VYHA6xYI5s0Q8ul2Lf936aRiq+AQeTuKKIrHDsih/
- lP1uv3aZLAICidhtUDkvaxfShcIeJMqA4PezuMi+bALh6VsgkcFlesawrf4uMwTMTMaiFriw6YX
- S4KTlhrHSHbS7WW5FP2O35pscWL+m2wdXOXEjUTKXqSdiFD2NYA4P7UOuTPqQqfM7Hmx1+RiXqq
- 5LoYPqsCtunqjMCAg6rn//t6+LsILxoZbSCrmJTgTWesW7qTevbqWLPsHdmIdfJyK35CUsI2kLI
- DTEntGVsbHMoV1O6TLQety/TFy2OOVd1FJPOQXRdvC1Q==
-X-Forward-Email-ID: 6a70daef13b6196e87497e5f
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.13.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <1e8da54f-ef87-4d31-9a0a-17c0ff66bee0@kwiboo.se>
-Date: Mon, 3 Aug 2026 20:16:11 +0200
+	Mon, 03 Aug 2026 18:23:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2E98560AA9;
+	Mon,  3 Aug 2026 18:23:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 946B11F000E9;
+	Mon,  3 Aug 2026 18:22:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785781379;
+	bh=MpH62FMFtWUxRfc3axL/EWkSaCRGMx2miOZKjiP1hxo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=k7Zee/MxHzLWUTss9GKG+pbzKLIwtX8fAkHQ7bqeOrhMLjo9PR3khRQJ/tXXr+UHC
+	 2z6O8JtxCh8EkUK62MyK10oQbaoVWi+Jduul4P4nzBS1osrbduvjWm22FwsJZxnNnh
+	 +gSL1ucabzOLZTU6e18UG2d/Lq0oxKebJN1/znoVMczAMHmbJF0TSiYNixS2fz4Qdd
+	 AVhm859dRTDKksUgxx9qa9FwaCceL6qUQa41jb8/gFT+4rYqFDy4jmcMcGTqGYf7YR
+	 1wGiO3E/pXEjDeYy3eB7Iw8a86yY05o+FfCQfADdm5Jps3aOjn/edbNir5I1rKqnoZ
+	 i7LN/twwZtpLQ==
+Date: Mon, 3 Aug 2026 11:22:55 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Maninder Singh <maninder1.s@samsung.com>
+Cc: "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"nick.desaulniers+lkml@gmail.com" <nick.desaulniers+lkml@gmail.com>,
+	"morbo@google.com" <morbo@google.com>,
+	"justinstitt@google.com" <justinstitt@google.com>,
+	Onkarnath <onkarnath.1@samsung.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"llvm@lists.linux.dev" <llvm@lists.linux.dev>,
+	Rohit Thapliyal <r.thapliyal@samsung.com>, ndesaulniers@google.com,
+	ardb@kernel.org
+Subject: Re: [PATCH 1/1] arm: backtrace-clang: fix wrong sp usage for
+ unwinding
+Message-ID: <20260803182255.GC1067866@ax162>
+References: <CGME20260729034101epcms5p4ac85b52aef78052cbc03d5913a7300b5@epcms5p4>
+ <20260729034101epcms5p4ac85b52aef78052cbc03d5913a7300b5@epcms5p4>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2] arm64: dts: rockchip: H28K: release RTL8211F reset
- before MDIO probing
-To: Zhyi <zyheihei_123@163.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
- "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Chukun Pan <amadeus@jmu.edu.cn>
-References: <20260803104646.26836-1-zyheihei_123@163.com>
- <178577533421.26919.15449256732994709630.h28k-rfc-v2@163.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <178577533421.26919.15449256732994709630.h28k-rfc-v2@163.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_111620_680699_B6990867 
-X-CRM114-Status: GOOD (  26.85  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260729034101epcms5p4ac85b52aef78052cbc03d5913a7300b5@epcms5p4>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,97 +79,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zhyi,
+Hi Maninder,
 
-On 8/3/2026 6:42 PM, Zhyi wrote:
-> arm64: dts: rockchip: H28K: release RTL8211F reset before MDIO probing
-> 
-> On the HINLINK H28K (RK3528), the RTL8211F reset line (gpio4 RK_PC2,
-> pin 146) is left unconfigured at power-on and reads low, holding the
-> PHY in reset. The PHY node's reset-gpios are only acted upon after the
-> PHY has been found on MDIO (fwnode_mdiobus_register_phy() reads the
-> PHY ID before it requests and toggles the reset GPIO), so the first
-> probe deadlocks and eth0 never gets a link:
-> 
->     mdio_bus stmmac-0: MDIO device at address 1 is missing.
->     rk_gmac-dwmac ffbe0000.ethernet eth0: cannot attach to PHY
->     (error: -ENODEV)
-> 
-> Move the reset to the MDIO bus level: mdiobus_register() asserts and
-> releases the bus reset-gpios before scanning the bus, so the PHY is
-> out of reset when its ID is read. The PHY node no longer declares
-> reset-gpios for the same GPIO (a second consumer would be rejected
-> with -EBUSY).
-> 
-> Fixes: 145d4af4b204 ("arm64: dts: rockchip: Add HINLINK H28K")
-> Signed-off-by: Zhyi <zyheihei_123@163.com>
-> Assisted-by: Codex:gpt-5
-> ---
-> Changes in v2:
-> - The root-cause analysis and this fix were developed with the
->   assistance of an AI coding assistant (Codex, GPT-5). The resulting
->   DTS change is minimal and the hardware validation was done by a
->   human on a stock HINLINK H28K board.
-> - This v2 supersedes the accidental duplicate of my v1 RFC sent from
->   my Outlook address (Message-ID:
->   SJ2PR04MB851017E50140354C2F5B3FF3B5D52@SJ2PR04MB8510.namprd04.prod.outlook.com);
->   apologies for the duplicate.
-> - Use the standard MDIO bus reset properties (mdio.yaml reset-gpios,
->   reset-delay-us, reset-post-delay-us) instead of the deprecated
->   snps,reset-gpios on the MAC node, as suggested by Andrew Lunn.
-> - The PHY ID is not hardcoded, so boards populated with either the
->   RTL8211F or the YT8531 work unchanged (as noted by Chukun Pan).
-> - Thanks to Andrew Lunn and Chukun Pan for the review feedback.
-> - Validated on the stock HINLINK H28K board with Linux 7.1.5:
->   eth0 shows "PHY [stmmac-0:01] driver [RTL8211F Gigabit Ethernet]"
->   and phy_id 0x001cc916; both eth0 (GMAC) and eth1 (PCIe RTL8111H)
->   work.
-> - The U-Boot side (generic RK3528 DT does not configure the reset
->   line) is out of scope for this DTS fix and may be addressed
->   separately.
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-hinlink-h28k.dts b/arch/arm64/boot/dts/rockchip/rk3528-hinlink-h28k.dts
-> index 0ec50e9..7ba3fa4 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528-hinlink-h28k.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528-hinlink-h28k.dts
-> @@ -200,14 +200,14 @@
->  };
->  
->  &mdio1 {
-> +	reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-> +	reset-delay-us = <20000>;
-> +	reset-post-delay-us = <100000>;
+On Wed, Jul 29, 2026 at 09:11:01AM +0530, Maninder Singh wrote:
+> Ping! Any comments?
 
-This is not really a correct description of the hardware. The GPIO4_C2
-pin is used for PHY reset, not to reset the MDIO bus. The device tree
-should describe hardware, not be used to workaround issues in software.
-Please see [1] for my prior analysis of this software issue.
+I am not that familiar with this code but maybe Nick (whose address I
+have now updated to point to a better one) or Ard could help take a
+look? Original patch is at
 
-Please add the rk3528-hinlink-h28k board as a target in mainline U-Boot
-using the board specific device tree. That should help reset the
-Ethernet PHY before Linux is started and solve your issue, as Chukun Pan
-already suggested.
+  https://lore.kernel.org/20260624054916.1571701-1-maninder1.s@samsung.com/
 
-[1] https://lore.kernel.org/linux-rockchip/47d55aca-bee6-810f-379f-9431649fefa6@kwiboo.se/
+but I have left it inline as well.
 
-Regards,
-Jonas
-
->  	rgmii_phy: ethernet-phy@1 {
->  		compatible = "ethernet-phy-ieee802.3-c22";
->  		reg = <0x1>;
->  		pinctrl-names = "default";
->  		pinctrl-0 = <&gmac1_rstn_l>;
-> -		reset-assert-us = <20000>;
-> -		reset-deassert-us = <100000>;
-> -		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
->  	};
->  };
->  
+> > show_stack() can be called for any task, however c_backtrace always unwinds
+> > frames based on the "sp" register. This results in printing the backtrace of
+> > the current task instead of the target task.
+> > 
+> > Try with normal TC:
+> > ==================
+> >        for_each_process(p) {
+> >                sched_show_task(p);
+> >        }
+> > 
+> > [7.433271] task:kthreadd        state:S stack:0     pid:2     tgid:2     ppid:0      task_flags:0x208040 flags:0x00000000
+> > [7.433633] Call trace:
+> > [7.433640] [<80113418>] (dump_backtrace) from [<80113510>] (show_stack+0x14/0x18)
+> > ..
+> > [7.433676] [<8016749c>] (sched_show_task) from [<803cb324>] (meminfo_proc_show+0x6c/0x930)
+> > [7.434019]  r5:8158e300 r4:8b4882d0
+> > [7.434024] [<803cb324>] (meminfo_proc_show) from [<80365788>] (seq_read_iter+0x148/0x4bc)
+> > [7.434045] [<80365788>] (seq_read_iter) from [<803c044c>] (proc_reg_read_iter+0xb8/0xc4)
+> > [7.434060] [<803c044c>] (proc_reg_read_iter) from [<80377104>] (copy_splice_read+0x228/0x308)
+> > 
+> > It should unwind frame based on passed "fp".
+> > (CONFIG_UNWINDER_FRAME_POINTER=y)
+> > 
+> > With fix:
+> > =========
+> > [13.933732] task:kthreadd        state:S stack:0     pid:2     tgid:2     ppid:0      task_flags:0x208040 flags:0x00000000
+> > [13.934165] Call trace:
+> > [13.934604] [<80afa1a8>] (schedule) from [<8015426c>] (kthreadd+0x124/0x208)
+> > [13.934654]  r10:8100bbf0 r4:8116f440
+> > [13.934664] [<8015426c>] (kthreadd) from [<8010010c>] (ret_from_fork+0x14/0x28)
+> > [13.934691] Exception stack(0xf081df9c to 0xf081dfe4)
+> > 
+> > Additionally, the extra manipulation of "sp" register appears unnecessary in the "current"
+> > task also since the "fp" register is already provided.
+> > 
+> > Signed-off-by: Onkarnath 
+> > Signed-off-by: Maninder Singh 
+> > ---
+> >  arch/arm/lib/backtrace-clang.S | 4 ----
+> >  1 file changed, 4 deletions(-)
+> > 
+> > diff --git a/arch/arm/lib/backtrace-clang.S b/arch/arm/lib/backtrace-clang.S
+> > index 290c52a60fc6..993410a6afd1 100644
+> > --- a/arch/arm/lib/backtrace-clang.S
+> > +++ b/arch/arm/lib/backtrace-clang.S
+> > @@ -105,10 +105,6 @@ ENDPROC(c_backtrace)
+> >  		moveq	mask, #0xfc000003
+> >  		movne	mask, #0		@ mask for 32-bit
+> >  
+> > -/*
+> > - * Switches the current frame to be the frame for dump_stack.
+> > - */
+> > -		add	frame, sp, #24		@ switch to false frame
+> >  for_each_frame:	tst	frame, mask		@ Check for address exceptions
+> >  		bne	no_frame
+> >  
+> > -- 
+> > 2.34.1
 > 
 > 
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+> 
 
+-- 
+Cheers,
+Nathan
 
