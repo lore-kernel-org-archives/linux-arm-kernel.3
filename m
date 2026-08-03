@@ -4,90 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF568C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67643C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qql+Sn0so9VH3FDlsm4xQxQlvxZLHhNzg0nkC68+mhg=; b=GW0qXqmBmYaXxKeaz20c2SsAn7
-	nRZRZ9dPhPkarK6nmIKT7qLOT6ou1+rfAI8ijo7Y5yoU0ohdXVozdZNTCCHYOgO5x5Z5m7EAlN+hR
-	acmqQJPMS7RYY5LC7Gmg+nEZ70eLYzRv/fKmRsYyuFnwvcVCgA9MgqWDBkc6fKzfbv9nCDDOi5Ts8
-	czsPO224tdYbp1rTlmtrfBLVYKdiNSUGzKFImEejKsGd0/VWcL/q64RLqJVp7AUPc2D2zB6HSQ2Tq
-	FeF+x2eIcCHxcVsDsjr80xJiCBSdUJRyhxUXxu/oVAkLqWCohPSGPCrhNuGsdBoBFD8EMmN9BvDIX
-	bVaQ6SxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R1vOM/+20o3TMKvY0hJ6CpvJxctkLVGrkvrEwrllBi0=; b=co5tGL6dCUiEXaEJA//U3CoXMj
+	Y6ROBevxTqBDPJX87YqXjOgQwXqaNj81OG2VRmgmVsPtIRfEnUQUy4vrhDR8v9jyOHbKpGd2PADfW
+	yOgKFS7oOek3eTgfEEyPvhofb6mkaGvjLG8l6QWltMLyelMwSD/udDIsOu1QFLfpCXw59NSraTTbX
+	Qsf8/bzMWIn0q5wI6QOJ7PiDD3DbWFOsjCLaJaqZPUZZiP4ko10u39hcewrkvfnmTBtJAmUqpsizr
+	wE5olBViAVBZrpgakaetEY8WvUXKi7jaxd/jFQYU6th8hp8uL2ZCCKPOhWOEcxylQrgV8HhrVcT1E
+	NDJV11Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquAC-0000000HSYt-2tuG;
-	Mon, 03 Aug 2026 15:01:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wquD3-0000000HT15-13Ib;
+	Mon, 03 Aug 2026 15:04:09 +0000
+Received: from m101-out-mua-6.websupport.se ([109.235.175.106])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquAB-0000000HSYJ-3ODL
+	id 1wquD0-0000000HSd8-3Amc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 15:01:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 59851407C9;
-	Mon,  3 Aug 2026 15:01:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 393A31F000E9;
-	Mon,  3 Aug 2026 15:01:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785769270;
-	bh=Qql+Sn0so9VH3FDlsm4xQxQlvxZLHhNzg0nkC68+mhg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=N+m1MKC0pP7b1NtYcGQkMMcOEGB6h8cWxBRkGaLic7ZigSUEph5FS9NB7uY9ehgoR
-	 M0IdlLhywEPm54kVG5/Adm9Q8zQT0DE/RAYN4yZda8bTbTW4iSrWV60he+ZuRD6C/D
-	 lR7HJCVpAZIho+zGqDv8D8AffkKw+ALZJ85ebyaNqK5mabePEpoiaREji0nUNqshZS
-	 y+ljOEOGK9dCHGXaN+SkQkSXmbEcSVHVdVN8/Ngnjy+V/b0ELFKy757VTSFCjj5BV/
-	 71FK83ypryw9z4f0V9ft82Y+dzw0BV2y2JF1klCGNElOf380Mgg98aleqS5i+NSh9r
-	 wZCJdBK1xzkCw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wquA8-0000000Bows-0OK3;
-	Mon, 03 Aug 2026 15:01:08 +0000
-Date: Mon, 03 Aug 2026 16:01:07 +0100
-Message-ID: <86y0enb64s.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v16 00/45] arm64: Support for Arm CCA in KVM
-In-Reply-To: <20260803134403.80630-1-steven.price@arm.com>
-References: <20260803134403.80630-1-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	Mon, 03 Aug 2026 15:04:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=palvencia.se;
+	s=mail; t=1785769181;
+	bh=R1vOM/+20o3TMKvY0hJ6CpvJxctkLVGrkvrEwrllBi0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=sElV9+Ff5U+DkJvNLLH5uuIwQEo0WczVLH2dcT2MNhqdYclOsIcC7NvkZa/qQcvcz
+	 xefN9yvVNdfXaNUF01XbuRB2SkVRC252vvJ1zCEKdESUX8zhgSaJxwaxq5do3NXHeE
+	 cX37p41bMeB09BVaVh9+HxKp80Osp7z61OxvpxCPzwOYG3JsfgWyTb02ED6KSgf6tb
+	 9A6y3bI1X8Pdgu9yfyICV55h0UAd6Lwez9UYO3hn0xWQP+fDRQH25i43qWEVayQghg
+	 QNJDvNJiM3L4YRKAL+uJ08Ab6ACK7UhFGgUvv+SkEFQML22Fe+FUIB6hrSYyROYrSi
+	 y15dTjkUUx6wA==
+Received: from m101-u7-ing.websupport.se (unknown [10.30.7.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	by m101-out-mua-6.websupport.se (Postfix) with ESMTPS id 4hDKb12YX3z1xN7;
+	Mon,  3 Aug 2026 16:59:41 +0200 (CEST)
+X-Authenticated-Sender: per@palvencia.se
+Authentication-Results: m101-u7-ing.websupport.se;
+	auth=pass smtp.auth=per@palvencia.se smtp.mailfrom=per@palvencia.se
+Received: from rpi (unknown [213.204.219.169])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: per@palvencia.se)
+	by m101-u7-ing.websupport.se (Postfix) with ESMTPSA id 4hDKZx39MJz306w;
+	Mon,  3 Aug 2026 16:59:37 +0200 (CEST)
+Date: Mon, 3 Aug 2026 16:59:32 +0200
+From: Per Larsson <per@palvencia.se>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Heiner
+ Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, Liu
+ Changjie <liucj1228@outlook.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 4/6] net: phy: maxio: extend PHY ID matching
+Message-ID: <20260803165932.725dd669@rpi>
+In-Reply-To: <20260803101452.2993721-5-andre.przywara@arm.com>
+References: <20260803101452.2993721-1-andre.przywara@arm.com>
+	<20260803101452.2993721-5-andre.przywara@arm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
+X-Out-Spamd-Result: default: False [1.90 / 1000.00];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_RHS_NOT_FQDN(0.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,outlook.com];
+	ARC_NA(0.00)[];
+	ASN(0.00)[asn:35790, ipnet:213.204.219.0/24, country:SE];
+	TO_DN_SOME(0.00)[];
+	TAGGED_RCPT(0.00)[netdev,dt];
+	RCPT_COUNT_TWELVE(0.00)[19];
+	RCVD_COUNT_ZERO(0.00)[0];
+	ALIAS_RESOLVED(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FROM_HAS_DN(0.00)[];
+	HAS_X_AS(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	LOCAL_OUTBOUND(0.00)[];
+	FREEMAIL_CC(0.00)[lunn.ch,davemloft.net,google.com,kernel.org,redhat.com,gmail.com,sholland.org,armlinux.org.uk,outlook.com,vger.kernel.org,lists.linux.dev,lists.infradead.org]
+X-Out-Rspamd-Queue-Id: 4hDKZx39MJz306w
+X-Out-Rspamd-Server: m101-rspamd-out-4
+X-Rspamd-Action: no action
+X-purgate-type: clean
+X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
+X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
+X-purgate: clean
+X-purgate-size: 506
+X-purgate-ID: 155908::1785769181-3CF061C6-6612C796/0/0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_080407_082122_DDD33F1C 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +121,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 03 Aug 2026 14:43:16 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> This series is based on the guest_memfd in-place conversion v9 tree[1],
-> which is itself based on kvm-x86/next. It is also available as a git
-> repository:
+On Mon,  3 Aug 2026 12:14:50 +0200
+Andre Przywara <andre.przywara@arm.com> wrote:
 
-Well done. Series on top of another random series, based on a random
-tree. Unusable. Have you realised there are reasons why we (KVM/arm64)
-ask people to base their series on a *released* tag from Linus' tree?
-This means that Sashiko cannot, once again, provide any feedback on
-this series, as it fails to apply.
+> Currently the maxio Ethernet PHY driver expects a PHY matching
+> exactly the one ID provided: 0x7b744412. The Maxio MAE0621A-Q3C model
+> used on the Allwinner based X96QPro+ TV box uses a slightly different
+> PHY ID: 0x7b744411.
 
-Just to avoid any ambiguity: Sashiko reviews, as annoying as they are,
-are not optional. They are very much mandatory, and I wish I could
-turn back the clocks to run it on my own code...
-
-Running it on your own is not enough, because *I* want to see what the
-tool finds. Not to mention that non-Gemini runs of sashiko are much
-less interesting (unsurprisingly).
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+A somewhat unfortunate typo here claims that the TV box has the -Q3C
+variant when it in reality has the -Q2C variant (Cover letter and other
+pathches in the series gets it right).
 
