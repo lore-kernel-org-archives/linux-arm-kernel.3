@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D082C55162
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 01:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7AEC55162
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 01:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ly5FuncggLhXbMUbhUGfi8iZRSSYI9Jm5KjBg8D2bi0=; b=o71nayeOsP06hpGcN+Bj+ioX0F
-	/Zo190urK22a8m+i3vTTG9qPMCTKfojcJJ3mZwU4i82xBPeVOGhDlKWrbKn5vCW3xTNam4LTCGdYy
-	hoayx/O+IRTBGsSatnzIa+udiD2BECqq0gpQCjaKuY7XJsp0p1KyCGfeZDXAm0vW8qtBz6VtxJjN5
-	pPgLnzy4h7CT9UQdGOIyUTmYkGd0AMIiF2xBzr89xEAKxTerTgvh7l1eTi9B6FMTylIv4ixf1hZSa
-	QSKwNR+H8P3QsSxU91dFiydnnCVWW85IvRVw0wwdq3Ftj5LJMfvrXIczEsvG/UBCkhiGxJcIftL6i
-	C7v/XNWQ==;
+	bh=/ElVnH6G4rldSzqvkWtQlDELwbWC65DsBa935CdX90I=; b=CDOvN2Hr+w2iaQjoX3dRq4/gL+
+	TW6D6gzEHotkeJFlZk9EZTUooE6PsXhOVXly0a+UfsmvJcL1JQz8QoJI5ekZRADb0EjB2qGSC38an
+	vGTEiMhaAdKvXED/hCZPqis0obUCbMF4qRyw5Q6MF8jsKpBxN50tm1fvEG1fSRGZp0o3+mpqDye8E
+	hJ9C8Uc/L8tKMQ6PZKt0EEJ3iixzg/NMkutmb+48hdY+9yLV4LOiKN2DtAwl2+JGKzw7agtAs5AtW
+	uFIg+gDlGW2d9YOcf6xEEr8lPcTXT96ii96epZ6nEDvqHhMsz4m+ozZ/b6ERS9w5/HXuIVT29fxhu
+	mOjWOoSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqhXw-0000000GA24-04RI;
-	Mon, 03 Aug 2026 01:32:52 +0000
-Received: from out-177.mta1.migadu.com ([95.215.58.177])
+	id 1wqhYY-0000000GA4r-0fyf;
+	Mon, 03 Aug 2026 01:33:30 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqhXs-0000000GA1h-1WCj
+	id 1wqhYU-0000000GA3t-1UU7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 01:32:50 +0000
-Message-ID: <6af761df-9abc-4854-971d-ca6e4ed7a2b7@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785720762;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ly5FuncggLhXbMUbhUGfi8iZRSSYI9Jm5KjBg8D2bi0=;
-	b=PdBfkCdXX4c2Ob0V4n7XAwF5okf8087+nlLd/Z6DdOK5NsvxNWr43oDh7owS/wZKYuyKQK
-	Zgx0dMHJI3r6YiGIlTiiTwJXPdVfTRaQOGI7BPULl2H3nF8TvPxrk/zUFhu9Yww40URGyk
-	TsYvYHhQJEziQ9EZY2h2dDaN3Ui15Jw=
-Date: Mon, 3 Aug 2026 09:32:14 +0800
+	Mon, 03 Aug 2026 01:33:28 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=/ElVnH6G4rldSzqvkWtQlDELwbWC65DsBa935CdX90I=;
+	b=IrrNy1TeSFzMHgGn9EBDEGTdvrty/p2VhYuJSLdQZGHZKddYXkGof4FikGF8IcK8nEb4wdtKN
+	yAcNIeYBNDmxy3DDxVUnkRoGyy7oJ6KcDPxTODucoYwgjRis7JCpNwmElk+qUauaONBCP7zc/TA
+	CVeEzIK+gdzX7DfN0Xh0FH0=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hCzTR23LSz1prN4;
+	Mon,  3 Aug 2026 09:23:39 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1E48640575;
+	Mon,  3 Aug 2026 09:33:11 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Mon, 3 Aug 2026 09:33:02 +0800
+Message-ID: <8e36e2c8-587f-4228-ab13-d6783927a281@huawei.com>
+Date: Mon, 3 Aug 2026 09:33:02 +0800
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] arm64: ftrace: enable single ftrace_ops for direct
- calls
-To: Jiri Olsa <olsajiri@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
- <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>,
- Emil Tsalapatis <emil@etsalapatis.com>, Shuah Khan <shuah@kernel.org>,
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20260727142844.21212-1-leon.hwang@linux.dev>
- <20260727142844.21212-2-leon.hwang@linux.dev> <amnqXeC6D4mjcAe_@krava>
- <d745ca80-6516-4c61-8107-88c6a2d9cea4@linux.dev> <amsuU7eXuoziObdh@krava>
- <3f8e64b4-e60a-4eba-afb6-5af668ac1f85@linux.dev> <am-sK_buCVI3khJv@krava>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <am-sK_buCVI3khJv@krava>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware
+ dirty tracking
+To: Leonardo Bras <leo.bras@arm.com>
+CC: Oliver Upton <oupton@kernel.org>, <maz@kernel.org>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <yuzenghui@huawei.com>,
+	<wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
+	<caijian11@h-partners.com>, <liuyonglong@huawei.com>, <yezhenyu2@huawei.com>,
+	<yubihong@huawei.com>, <linuxarm@huawei.com>, <joey.gouly@arm.com>,
+	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>
+References: <20260709104026.2612599-1-zhengtian10@huawei.com>
+ <20260709104026.2612599-4-zhengtian10@huawei.com>
+ <aliKo7dTZzKcWHzI@kernel.org>
+ <0943eb14-9ffb-4dbb-9219-060e97bca2a7@huawei.com>
+ <alpIfIOFfrudBzD5@LeoBrasDK> <al4bYajWE-v6wofu@LeoBrasDK>
+ <96516762-f004-4c2a-a9c6-6fbad49ad6ae@huawei.com>
+ <amoZY8uGLf1PEpjK@LeoBrasDK>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <amoZY8uGLf1PEpjK@LeoBrasDK>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_183249_383976_77B458D6 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260802_183327_046344_F3AAA750 
+X-CRM114-Status: GOOD (  34.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,27 +90,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/8/26 04:44, Jiri Olsa wrote:
-> On Fri, Jul 31, 2026 at 10:30:37AM +0800, Leon Hwang wrote:
->> On 30/7/26 18:58, Jiri Olsa wrote:
 
-[...]
 
+On 7/29/2026 11:16 PM, Leonardo Bras wrote:
+> On Wed, Jul 29, 2026 at 04:51:59PM +0800, Tian Zheng wrote:
 >>
->> Right.
 >>
->> Pls see the sibling thread with Ihor. With in-range BPF trampoline
->> allocation, the slow-path regression should mostly disappear.
+>> On 7/20/2026 8:58 PM, Leonardo Bras wrote:
+>>> On Fri, Jul 17, 2026 at 04:21:32PM +0100, Leonardo Bras wrote:
+>>>> On Fri, Jul 17, 2026 at 11:58:06AM +0800, Tian Zheng wrote:
+>>>>>
+>>>>> On 7/16/2026 3:39 PM, Oliver Upton wrote:
+>>>>>> Hi Tian,
+>>>>>>
+>>>>>> On Thu, Jul 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
+>>>>>>> -	if (prot & KVM_PGTABLE_PROT_W)
+>>>>>>> +	if (prot & KVM_PGTABLE_PROT_W) {
+>>>>>>>     		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+>>>>>>>
+>>>>>>> +		/*
+>>>>>>> +		 * No DEVICE filter needed here: relax_perms is only called
+>>>>>>> +		 * on FSC_PERM faults. Device pages always get full RW from
+>>>>>>> +		 * initial mapping and are never write-protected during
+>>>>>>> +		 * migration, so they never trigger a permission fault.
+>>>>>>> +		 */
+>>>>>>> +		if (pgt->flags & KVM_PGTABLE_S2_DBM)
+>>>>>>> +			set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
+>>>>>>> +	} else {
+>>>>>>> +		/*
+>>>>>>> +		 * Clear DBM on W→RO downgrade to prevent hardware from
+>>>>>>> +		 * silently upgrading RO+DBM back to W+dirty, which would
+>>>>>>> +		 * bypass KVM's write tracking and cause data corruption.
+>>>>>>> +		 */
+>>>>>>> +		clr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
+>>>>>>> +	}
+>>>>>>> +
+>>>>>> This block makes it pretty evident that the DBM bit really *is* the
+>>>>>> write permission bit. I'd much rather we introduce the concept of dirty
+>>>>>> state to the page table library and migrate the abstract write
+>>>>>> permission to the DBM field, even if we don't have FEAT_HAFDBS.
+>>>>>>
+>>>>
+>>>> Ohh, that's an amazing idea!
+>>>
+>>> Thinking about that again...
+>>> If we adopt the encoding with DBM being the write-permission bit, and all
+>>> PTEs have it since the start, how can we have lazy-splitting happening?
+>>>
+>>> Only way I think of is removing both DBM and S2_S2AP_W bit from writable
+>>> PTEs during dirty-track enable, and re-adding them during the first write
+>>> fault. If we don't remove the DBM bit, systems with HDBSS would just dirty
+>>> it by hardware, without causing a fault.
+>>>
+>>> DBM=0 would need to happen only in the first write-protect (only on
+>>> lazy-splitting). All other write-protecting would just clean the S2_S2AP_W
+>>> bit, as everything is already split.
+>>>
+>>> Is that what was intended?
+>>>
+>>> Thanks!
+>>> Leo
+>>>
+>> Hi Leo,
 >>
->> Let's continue the discussion in that thread.
+>> I think the cleanest way to handle this is to simply avoid setting DBM
+>> on block mappings. If we only set DBM on page-level PTEs, then block
+>> mappings will naturally stay DBM=0 and trigger a write fault on first
+>> access — exactly what we need for lazy splitting.
+>>
+>> When the fault occurs, the block gets split into page-level PTEs, and at
+>> that point we can set DBM=1 on the resulting leaf entries. This way:
+>>
+>> 1. Lazy split works naturally (fault -> split -> set DBM=1)
+>>
+>> 2. No need to clear DBM globally at dirty-track enable
+>>
+>> 3. No special handling for block mappings
+>>
+>> So I think global DBM is still viable — we just need to filter out block
+>> mappings when setting the DBM bit. That way the lazy split path is preserved
+>> without extra complexity.
 > 
-> please paste the link/subject for that thread
+> Hi Tian,
 > 
+> Humm, but would not that be contrary to what Oliver suggested: changing the
+> encoding from the PTE for all entries?
+> 
+> (Like, if the PTE is writable, it has to have DBM set)
+> 
+> IIUC what you said, on first faulting of the page in the VM:
+> - If the entry is a page (level-3 leaf) and writable, add DBM
+> - If it's a block entry (leaf but not a level-3), don't add DBM
+> 
+> So after we enable dirty-logging:
+> - a level-3 entry would not fault, using HDBSS, and
+> - a block entry would fault, do the splitting, and add DBM to level-3
+>    entries during the split.
+> 
+> If I got that correct, that would be clean indeed.
+> 
+> But then we would have a different encoding for block entries and page
+> entries. In page entries, DBM could be used to say if the page is writable,
+> but on block entries one would have to look at the 'dirty-bit'.
+> 
+> Would that be ok?
+> 
+> Thanks!
+> Leo
+> 
+Hi Leo,
 
-The link is
-https://lore.kernel.org/all/77edc25d-a521-4f65-84ed-dbb016593902@linux.dev/.
+My initial concern was that clearing all DBM bits at the start of
+migration would be too expensive, so I thought distinguishing between
+level-3 entries and block entries would be better.
 
-Thanks,
-Leon
+However, I ran a quick test on a 400GB VM (4 vCPUs), and the overhead
+turned out to be around 30ns — which I think is acceptable.
 
+So I think we can go with your approach: simply clear DBM globally in
+kvm_arch_commit_memory_region() when dirty logging starts, before write-
+protecting the memslot.
+
+```
+void kvm_arch_commit_memory_region(...)
+{
+     // ...
+     if (log_dirty_pages) {
+         if (change == KVM_MR_DELETE)
+             return;
+
+         kvm_mmu_clear_dbm_memory_region(kvm, new->id);
+         // ...
+     }
+     // ...
+}
+```
+
+Thanks!
+Tian
 
