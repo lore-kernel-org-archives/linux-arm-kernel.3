@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907C0C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF91C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f8Wl8glcfw9dwbeP1JywUt3GNYgmfkhCQveycZVpS4Y=; b=xpB41Dnzm+j8ZP
-	yg8niWaIz0zOt+xe0RYI4sRT2F+KTRUhzuqANZQVYOyZ69M5sdhYIUyIjXONp6OqxKSBfOWaaEkTO
-	fDe9qeQ7ARB8CZ/gvVUnyUJN+9C2z1dpkklbcXiY0aDuYIklMYRK+hJ7mRfHjZFYUYZPvUeq3bil/
-	QNgpbygZpv+a7eWF16WrdGNB7Ratyp+Zu0txI67bzRGsFdmawdJSC6hWcAubEYsdT/1YRAtCkQdP1
-	wSjCBPJ56cp33YRF+dVnJ2Es3F6BNnQIOGqzvkfz+h/5tFoBw0VRSmljxOJ9G9CvxgU2eWsAwVAjk
-	efcMwOBF0TIfvWYU6AlQ==;
+	List-Owner; bh=2BOhkhN+nD6eTFoBG4yVgCP6CfGcQEWxk1diIr5TtuM=; b=YiyBJI8oQTpcZt
+	N15uqoYBk6yYRN5+d2jCEXGc7gacw55IBTO/4GOpM5xLnDSuQzVV/ubXVdP8iwQqv1F0tWJVMZWPC
+	uE8NWYQhIyCY0dOaHT7EkLnt4R5WAvePKWeOsazHL8PMVmaSlfQKGpnX5lUM/+k+z0BwuBJra77h8
+	QloWXSkfnRrvtoPERWVC15xqSXVwSHwWkUR3nPugUQbwplckwF3Vyq3GE1jzwg4JXzTZnBtydYFhu
+	IKN0O/biArdyBqIlbwvNYlyrHBfekNcoPD8xoAt0jzDG6CvkuD1w9fjaGjejwbNNX4/EZjMrGfK1n
+	5Jaw1WAiWmZ8gxR+7H0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwPm-00000000EGB-2WHU;
-	Mon, 03 Aug 2026 17:25:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wqwQm-00000000EPS-3M67;
+	Mon, 03 Aug 2026 17:26:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwPl-00000000EG0-0vR2
+	id 1wqwQl-00000000EPA-1qAx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 17:25:25 +0000
+	Mon, 03 Aug 2026 17:26:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 95C4960A64
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B3221F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:25:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DB10D416B1
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:26:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFEC91F00A3D
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785777924;
-	bh=f8Wl8glcfw9dwbeP1JywUt3GNYgmfkhCQveycZVpS4Y=;
+	s=k20260515; t=1785777986;
+	bh=2BOhkhN+nD6eTFoBG4yVgCP6CfGcQEWxk1diIr5TtuM=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=GFTEUWkmu2NCm4po3VjBMuGvVHYDGUBNmMaXilf0mY7UiI11PCXNoSowwKYofYwuG
-	 a94uOifcgZdGu4a8vv7o/Cl86Eiyf+4BdVRXzdwratD0+v1CZ8dDIIZmmYPUiHlXCA
-	 rpXFLEDhUdpVbg9W6F2dyCd7bbnM4dYvkIeSulNt4QJEPd+U92q/2f8fwiRHpaAfU+
-	 j/NbMgtA5vXrIuVdGBYH4Me0aHnfGqmk6QmNluqfzByvNi42EN8SqYej3sR6iTBE1S
-	 f6OoD5z62DgI7yTUygaubHXGcNTf9W0u8oYL5TdZiwbfOE6KJZf4rsJeudLtWCVPbm
-	 KAWasP5FyLHkw==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-39c83acb86eso32723981fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 10:25:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpvsliPKZPCINqLaLDo5qc+TfylgkKBsws+eba38MJ3BQtf5QTCXX8AcndK/tsncNvr84mBAkegTePrpFkrhjMm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9qD8Cgqje1qj4HZRwv717Q23yOD9GcEyLa4RQ4IsLaTNS5RDT
-	agyxa6YkYlyvzUgzdjarqK7jN22I3myd7rGYjLc7T9MPDYKd24xOfMoaPobUt/lJPVK9MagAnX8
-	Xu3j1+tV5Wmirj5wsry9aU+GtUrjtCzY=
-X-Received: by 2002:a2e:bc23:0:b0:39c:99e9:da37 with SMTP id
- 38308e7fff4ca-39f86105917mr20611141fa.1.1785777922694; Mon, 03 Aug 2026
- 10:25:22 -0700 (PDT)
+	b=TOdmjbZ2iH/jgLMW0euKcOBac7p7mK/rCN9x9HW4PIcef93PUhmSxnheRPA3JFkOL
+	 9RqriVpqHlLfXJn/2feJu8WCCg6FwIzTHTm3w0ASuRlh5pPmyy63f326l4+2WMJ7dC
+	 P2BeNZuCEcB7di6VqJ9X7rOIeS1v5oJDFqw5mmSrLlo1RjYm7DyPvsQAsey6kX9BnB
+	 5JVuSrMtiLRAyHNuTuaFG8nl8cjjCdil//IPqwCARyciuaXdNbDoN0pUammbZOFZGd
+	 lPiezk4Q0QoYjQ8WH4b8KCJwtSFoP9gvwWILXaFGgaXIwngqo+6HiSnDYgHf4sSs+Q
+	 pMrduqxSp+/Dg==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39f75e1e9d9so26568401fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 10:26:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rr4qiLclO09MlOWPtxXeV9pKR9X3ZKJaaNCw8O2UHde1xncnk41/SdORp09WCPelGkRJmiBVqVh43kV3aUYQ/ss@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrqQO5shOVN0CzZrJqSI8N8aoLivLnOTaGSnx2sonqF5Y6es5d
+	a/wDM3FVDGQcZvos3W5JMFpdvPka3J6eFX+2H+bsKC2+GKGTj1YEdGJAQf2li+eEJWLZB32Bt2H
+	FUK9PoQda3iEBwvHD0vNfW2VkllQ/3as=
+X-Received: by 2002:a2e:be05:0:b0:39c:6fad:2bc4 with SMTP id
+ 38308e7fff4ca-39f861a8b58mr22384021fa.16.1785777985252; Mon, 03 Aug 2026
+ 10:26:25 -0700 (PDT)
 MIME-Version: 1.0
-References: <cover.1785772659.git.jernej.skrabec@gmail.com> <3980ea1aeb3f7fe8b4700e36560deeba3d050664.1785772659.git.jernej.skrabec@gmail.com>
-In-Reply-To: <3980ea1aeb3f7fe8b4700e36560deeba3d050664.1785772659.git.jernej.skrabec@gmail.com>
+References: <cover.1785772659.git.jernej.skrabec@gmail.com> <51ba0918ce016a4b45313d5df1b6ce31b8c8731e.1785772659.git.jernej.skrabec@gmail.com>
+In-Reply-To: <51ba0918ce016a4b45313d5df1b6ce31b8c8731e.1785772659.git.jernej.skrabec@gmail.com>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 4 Aug 2026 01:25:09 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66E95PwYhdPC4mkX1htF2VXECiGwUHfzLHV2ydOMiwxrg@mail.gmail.com>
-X-Gm-Features: AUfX_my_BxERgV_M62Gj1-mbWsAsqDTo5FE1B6VdIoWAAMqmFyEPjHTvoGE-COI
-Message-ID: <CAGb2v66E95PwYhdPC4mkX1htF2VXECiGwUHfzLHV2ydOMiwxrg@mail.gmail.com>
-Subject: Re: [PATCH 13/13] drm/sun4i: Align VI buffer addresses for subsampled formats
+Date: Tue, 4 Aug 2026 01:26:12 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67j7nGbnCCG_2XCuFOzYkBJzyqu-YJ-w6QgLY2idndhwA@mail.gmail.com>
+X-Gm-Features: AUfX_mwuI2xct4yNs35NtVK4bvQPSjfvQWC7fMdYbuzLo9QKn0Un44VUoQL0gtU
+Message-ID: <CAGb2v67j7nGbnCCG_2XCuFOzYkBJzyqu-YJ-w6QgLY2idndhwA@mail.gmail.com>
+Subject: Re: [PATCH 07/13] drm/sun4i: hdmi: Don't leak sync polarity bits into
+ packet control
 To: Jernej Skrabec <jernej.skrabec@gmail.com>
 Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
 	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
@@ -85,89 +86,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Tue, Aug 4, 2026 at 12:11=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
 l.com> wrote:
 >
-> This is a partial revert of commit 79ac1c945ab8 ("drm/sun4i: layers:
-> Use drm_fb_dma_get_gem_addr() to get display memory").
+> sun4i_hdmi_enable() keeps using the same variable after it programmed
+> the video timing polarity register with it. The leftover TX_CLK, HSYNC
+> and VSYNC bits are then ORed into the packet control register, where
+> each nibble selects the packet type sent in one slot.
 >
-> Chroma must start at the beginning of a subsampling block, for example
-> chroma start address for NV12 must be aligned to 2 pixels.
-> drm_fb_dma_get_gem_addr() offsets luma by the exact source coordinates
-> and chroma by the coordinates divided by the subsampling factor, so for
-> odd offsets both planes no longer describe the same pixel, which the
-> Display Engine scaler can't handle.
+> As a result, slot 0 selects packet type 3 instead of the AVI infoframe
+> whenever the mode has positive HSYNC polarity, and the TX_CLK bits set
+> nibbles which the driver never programs.
 >
-> Align source coordinates down for all planes instead. Remaining shift
-> of one pixel is already compensated with scaler phase shift in
-> sun8i_vi_layer_update_coord().
-
-Well I think this applies to the format in general, and probably should
-be fixed in drm_fb_dma_get_gem_addr() instead?
-
-> Fixes: 79ac1c945ab8 ("drm/sun4i: layers: Use drm_fb_dma_get_gem_addr() to=
- get display memory")
+> Assign the packet types instead of ORing them into the stale value.
+>
+> Fixes: 9ca6bc246035 ("drm/sun4i: hdmi: Move mode_set into enable")
 > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+
+Acked-by: Chen-Yu Tsai <wens@kernel.org>
+
 > ---
->  drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 20 ++++++++++++++++++--
->  1 file changed, 18 insertions(+), 2 deletions(-)
+>  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun=
-4i/sun8i_vi_layer.c
-> index 09f668c8af24..ad036cb9d88e 100644
-> --- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> +++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> @@ -197,15 +197,31 @@ static void sun8i_vi_layer_update_buffer(struct sun=
-8i_layer *layer,
->         struct drm_plane_state *state =3D plane->state;
->         struct drm_framebuffer *fb =3D state->fb;
->         const struct drm_format_info *format =3D fb->format;
-> +       struct drm_gem_dma_object *gem;
-> +       u32 dx, dy, src_x, src_y;
->         dma_addr_t dma_addr;
->         u32 ch_base;
->         int i;
+> diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun=
+4i/sun4i_hdmi_enc.c
+> index 74c7c3720ba8..a27d394d0570 100644
+> --- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+> +++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+> @@ -161,7 +161,7 @@ static void sun4i_hdmi_enable(struct drm_encoder *enc=
+oder,
 >
->         ch_base =3D sun8i_channel_base(layer);
+>         drm_atomic_helper_connector_hdmi_update_infoframes(connector, sta=
+te);
 >
-> +       /* Adjust x and y to be divisible by subsampling factor */
-> +       src_x =3D (state->src.x1 >> 16) & ~(format->hsub - 1);
-> +       src_y =3D (state->src.y1 >> 16) & ~(format->vsub - 1);
-
-AFAICT the only difference compared to drm_fb_dma_get_gem_addr()
-is the masking here, i.e. round_down().
-
-> +
->         for (i =3D 0; i < format->num_planes; i++) {
-> -               /* Get the start of the displayed memory */
-> -               dma_addr =3D drm_fb_dma_get_gem_addr(fb, state, i);
-> +               gem =3D drm_fb_dma_get_gem_obj(fb, i);
-> +               dma_addr =3D gem->dma_addr + fb->offsets[i];
-> +
-> +               dx =3D src_x;
-> +               dy =3D src_y;
-> +               if (i > 0) {
-> +                       dx /=3D format->hsub;
-> +                       dy /=3D format->vsub;
-> +               }
-> +
-> +               dma_addr +=3D dx * format->cpp[i];
-> +               dma_addr +=3D dy * fb->pitches[i];
-
-
-Where as the helper has (or used to have before the blocksize stuff):
-
-    paddr +=3D (format->cpp[plane] * (state->src_x >> 16)) / fb->format->hs=
-ub;
-    paddr +=3D (fb->pitches[plane] * (state->src_y >> 16)) / fb->format->vs=
-ub;
-
-Am I missing something?
-
-
-ChenYu
-
+> -       val |=3D SUN4I_HDMI_PKT_CTRL_TYPE(0, SUN4I_HDMI_PKT_AVI);
+> +       val =3D SUN4I_HDMI_PKT_CTRL_TYPE(0, SUN4I_HDMI_PKT_AVI);
+>         val |=3D SUN4I_HDMI_PKT_CTRL_TYPE(1, SUN4I_HDMI_PKT_END);
+>         writel(val, hdmi->base + SUN4I_HDMI_PKT_CTRL_REG(0));
 >
->                 /* Set the line width */
->                 DRM_DEBUG_DRIVER("Layer %d. line width: %d bytes\n",
 > --
 > 2.43.0
+>
 >
 
