@@ -4,102 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB93C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A916C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6BWR8dmRaEKQHkFK66ev0gVEIwNsNYFwR9W/SfWvzP8=; b=rHEcaMFYer4v1smnqN/AkW9ZOu
-	yf9zhSMA23He+f7+EnbEbIPby/O47RQexnpISHvYQmv7we+ATwYMlgDlF0jwh3I3+owqaQsa85xtk
-	mRdrrIWax4HPsb/eEKmLM+htt+i5m8waJSHSTWT7dZD7+IQTjyrR7KBQuWn9oukGMDSJopPiPN52/
-	C7XvlvM7RkXJCbRa6flkX/8cazoeAxx3vPGAlA5WAXALwKx6t6rpYImwvdAhxTWy1kN2RJYrLM+GP
-	qB2hEEe2E8alImwf7sRBAzmSxE6d1ywRYNT97+yknmcYLmubdUkRF0nFmwgTosDNqbPTz0RxKTtX2
-	vGUrJxcw==;
+	bh=dinXkqAWFSwOM5XgkRc5b4ZHXh1PiVN6eM6Zp9Z0hDI=; b=S68uFZKRwDrWjGIUdscUQ6jXGc
+	73L194SSzwh/c1ayzyzw7sjc/KjeACXkklQ0o++H31csa4sKAU3duYZkyi8h2LOBamiArNRa08VhW
+	WyC2j1zINUr/IS0aGV9jn1sznG0GUare0lNG77i+RkW5EUYrP869aiWtAR/aYzyxoOLY+vAF+h+Ck
+	gxlbc00f6wOShO5eDxq5tYJj0REqEEu9XUt1Dwkw+jCIPSbKjkz+HIaw++ZYO0payKXsS1wYuZ4N0
+	kg3uVMysBksn1FqcbCWrBvP99jiereQ1TkgHIBxqXoJJaROYhPyaxWIi/Y9f8PXEsB0WauBzu0Mf3
+	yRwtjT8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx58-00000000KPd-3V70;
-	Mon, 03 Aug 2026 18:08:13 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wqx7q-00000000Kzk-3hwB;
+	Mon, 03 Aug 2026 18:10:58 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx55-00000000KN3-2b27
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 18:08:08 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47fe377a217so731945f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 11:08:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785780486; x=1786385286; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6BWR8dmRaEKQHkFK66ev0gVEIwNsNYFwR9W/SfWvzP8=;
-        b=CGXkINfUT4QoMNdvW1ej5/AA1KHonuOVjsu9GAuiNvm9WnCduOr6B7K6tXibdEZW3p
-         14jb8hRX4K1KFQ1rWhLRkEok+F7nVF7r/i7xsAxw6MnrlHJUjDG1AH01pfeqi3lZSqDK
-         Ndw9qjX/wcs/yi+K+vuWSl8esagdOtbSppqtsJ+Aw68GizA4vle2yS0d7OgCPAYGdDJf
-         QUxrYptlHfqy8lGrBh4s2NWVp87ARLVYBRSPT4P95iH8goCWjh2H084dDPRejRZky/tZ
-         Sc00LDJ2+Hw1ZnQt06D97lD9SKbBjDOpQaY8tj0seZneKEckjhxdJvHSLcfhqD40o5J7
-         Qx3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785780486; x=1786385286;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=6BWR8dmRaEKQHkFK66ev0gVEIwNsNYFwR9W/SfWvzP8=;
-        b=r1yYi6x22S83V4bGDUDcVVgMzgLB0t/GRC6uG5PDlCuNb9vc0v+l+9gUevbg6LO3LA
-         rhYVDHu28b7ynHhSho+O0AUMn+so8aOq4SPc7wu1wjPfnkZuCq0ikyfLbzycqSid5rOT
-         lWcNXvUNgbIHkJrTEdx3kB1wa0o1LrVgMOmyGT8/GUpm2Q8D7jy5h970ZLQvTdu9fbXs
-         58iGvN6KK4esavm9d7d3ykuJtWU0GKe9xIT0PPC0VGRcxwV88z7JEdrxl8jv9dAVVaMH
-         3P1h8kZcZUsovJrFSHo/ngZl+N5CivwqY20fVyOq4chiREcvW0/djSMul7Y6cC8njG18
-         cy4A==
-X-Forwarded-Encrypted: i=1; AHgh+RqJA6Ncyvie2gLQEpsQxec/bIWP5inLpZUxBh0r13NEsSwqpFM9n9zNCqnnBTeHRr/vKh3t73l0vLYRu5me0yW9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgErD4jlO7At507f++I0yPHK8MeV7uinv2TGa7U+BO/vaAmZ7Y
-	XKwiGyimypQDflI8yVcJljJRV5ls+VhoHS6RFzf/cNrpA/YrdQTxdpSO
-X-Gm-Gg: AR+sD12AXH/mCprpxAqBu6xgZ0iAt/3qGNQdEuzVweA0XiycPsSTauC8u/kQNIwA8OZ
-	pg8YOKC/Dj0zb2eW36udIsmdVP9jEV6aZLaPLdfk5KL2tH41jf6jeA5WYWlLvBHAk2QJdF/5k64
-	iNRsqWcs72ovt8EndLq7WMpJU1jXj+De8LcQvf3q6z209GhOEEytKnfTLjfuWd0CCjAZA7WfdHu
-	ZIctq7DNnGc6YR+eIdYNjFfWaa7S6FW/Q062sqD1RXnLOno0NdyIGb2MFSM0OQ9LFzNgHnq6Byo
-	8mj/H9xYTJFbmmFd3kvX9KfTpaEMABXJJkIQOngeDb41J7BDeBD90EYMaqfAyet5RGXAuSEJ4AK
-	rFWdQcHBivIkAt/YNhsHjvuhUAs4Ms6u4YLGvBytewJoBU1oA5UObTsFCXt5P1fw4FEAYMeergq
-	uabTaErTU7JaRNfrwbZPlHgEC5TlKNR6aLHpHWI1jUby+w11b+1h5E6pM9nKTljdOA3b5kStfiw
-	kHbKSrdTBkF8U4p7ahTBt2D
-X-Received: by 2002:a5d:59c8:0:b0:47f:9404:5185 with SMTP id ffacd0b85a97d-47fd72c78ebmr26973780f8f.24.1785780485932;
-        Mon, 03 Aug 2026 11:08:05 -0700 (PDT)
-Received: from localhost.localdomain ([2a0d:3344:2841:7708:a101:2b8a:f76:a00f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd42d91b3sm37950955f8f.14.2026.08.03.11.08.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 11:08:05 -0700 (PDT)
-From: =?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>
-To: mturquette@baylibre.com,
-	sboyd@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: andre.przywara@arm.com,
-	bmasney@redhat.com,
-	linux-clk@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	=?UTF-8?q?Juan=20Manuel=20L=C3=B3pez=20Carrillo?= <juanmanuellopezcarrillo@gmail.com>
-Subject: [PATCH v2 3/3] arm64: dts: allwinner: a523: add GPU OPP table
-Date: Mon,  3 Aug 2026 20:07:55 +0200
-Message-ID: <20260803180755.288793-4-juanmanuellopezcarrillo@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260803180755.288793-1-juanmanuellopezcarrillo@gmail.com>
-References: <20260803180755.288793-1-juanmanuellopezcarrillo@gmail.com>
+	id 1wqx7n-00000000Kxo-1pWC;
+	Mon, 03 Aug 2026 18:10:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785780653;
+	bh=Aruh5826b4wtnxe+k2RSV4tTeWw4FEiWIslPr3Y+k4Y=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=mSJ0pTHHWVV8zTxw2HDA7G2WZ2FmevEUbcTX+haILU+Be7mpnV6tqNr6n1PMDE2Tz
+	 AlHH+WwgCPFmf1lYn+5Q4ThKWGXEWaRYvQh2BfnCD8yWx/hTmMK5h70Nilm++ZY6R1
+	 fInBfBtGV95r/NIY2kdnABvdm9c8k5lwkBlZHg/LDBzs0uvRzZ6p6emEhGCZUVDlrn
+	 aLwiVs9xyLWf/v6ZGCZdAnErEHBBqcbZCjp1zFxc7MLREO4QD47FtW5z/Wejuh1gB7
+	 w5mKtL1KePGwEm77lwpVgDnfVKitDYXwatM9jAnbtuC+vuaenDJrOZHp7cpDr7vQFD
+	 vQ0LLS+AFt8Rg==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 489AC17E0235;
+	Mon, 03 Aug 2026 20:10:53 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 79750480062; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Mon, 03 Aug 2026 20:05:18 +0200
+Subject: [PATCH v9 17/22] drm/bridge: synopsys: dw-dp: Protect sdp_reg_bank
+ from concurrent access
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260803-synopsys-dw-dp-improvements-v9-17-2e6e46135312@collabora.com>
+References: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
+In-Reply-To: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2378;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=Aruh5826b4wtnxe+k2RSV4tTeWw4FEiWIslPr3Y+k4Y=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E8yhIO8BZ7FGnbgyT2xSBAKvjm6mFpTL
+ BuKe2JvfIqWLokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhPAAoJENju1/PI
+ O/qalewP/3Aqct1OjEEN3uR0AqUaagiH4nkmlfmNLkdgMATAie4QKABebBRbo9LqcQexWr3KOUc
+ 0vzosJEJgcOJ48kzuC6DqKwRBYtzrlXKJGkw2ofyQ0S7EQ1sNYzLgT/SomleK0qwHGaK178Gh/O
+ TERFAKISEWmXm+9KLIMGkTryeeyRPl5pouhHI40nU3WzZvtcpYXZtgoenM7yr1BctmTd7W5hhYi
+ C6ZDT/kgMcV/RGj534lrsEEIs8t5mMMB/sAZTMKcaa6XMR4VjCngEJhkjHBRtE8u8UqwYWXYoFm
+ yLOJtKm7qCo1yoYcQ2fpp+Ek/st5O0HdUAHF0OxZAd6S2GjK9yIJGa/M7J9Jdc7lTlnKDL5HuBJ
+ TcRTVjDGVxuQ4OEj7hKInq4AqVfMx6fRWWBDQQKVE3EasqZixFimO25Fsn6vMySl1MxZ/FqAlnP
+ FtzGloXy28cTA3bEF+4JgvvQyfCf4V2YBfNUjV5yJt9j70geblLWQ5VR7mJHvHJo6E0XVvw4mSd
+ 2acNR5QaY5I1bn5lyECe4UfQDRStrPy/wn8ON8Rflmm90qbv2Dj0aVhYBDYrSJjbyDUhg9Ye/Aa
+ TxQ/2VubkmdyYGHytMNC7n7hSJIxfbChiSxhLfHk5MyU4ay9yrUK978Ekk0qmA3v2vEz0/0lkr9
+ H6VXUCdllBVLhDpRkrFwrcg==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_110807_673762_F8E2B1BD 
-X-CRM114-Status: GOOD (  13.01  )
+X-CRM114-CacheID: sfid-20260803_111055_630818_984A166B 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,82 +112,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the Mali-G57 operating points from the vendor BSP universal table
-(150/200/300/400/600 MHz) so panfrost devfreq can scale the GPU instead
-of running at the boot clock.
+Right now sdp_reg_bank is only used during atomic enable/disable and
+thus there is no risk of two threads accidently claiming the same bit.
 
-The table describes the SoC rather than any particular board, so it
-lives in the .dtsi and is referenced from the GPU node there; every
-A523/T527 board in tree already provides mali-supply.
+This changes once more SDP users (like audio support) are added, so
+introduce a mutex to protect concurrent access to the bitmap.
 
-The BSP universal table specifies 900 mV for all of these operating
-points, so that is the target and minimum voltage.  The maximum is set
-to 920 mV to also cover boards whose GPU rail is a fixed 920 mV supply
-(the Orange Pi 4A drives it from AXP717 DCDC2, fixed at 920 mV), where
-the voltage transitions are then no-ops.
-
-The higher speed-bin points of the BSP (648-792 MHz) are not included:
-they are gated by a SID efuse bin and need pll-gpu as a live parent.
-
-Depends on the sun55i-a523 GPU clock divider fix: the OPP rates are only
-produced correctly with the cycle-masking divider model.  Validated on
-hardware with the Mali cycle counter: 149/199/300/399/597 MHz measured
-under load, thermal-emulation throttling included.
-
-Signed-off-by: Juan Manuel López Carrillo <juanmanuellopezcarrillo@gmail.com>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 30 +++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 24 +++++++++++++++++-------
+ 1 file changed, 17 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 85ef492ffeae..a3164b5dd609 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -85,6 +85,35 @@ osc24M: osc24M-clk {
- 		clock-output-names = "osc24M";
- 	};
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index 501b28abeca2..19b6c11f672f 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -323,6 +323,8 @@ struct dw_dp {
+ 	struct dw_dp_hotplug hotplug;
+ 	/* Serialize hpd status access */
+ 	struct mutex irq_lock;
++	/* Serialize sdp_reg_bank access */
++	struct mutex sdp_lock;
  
-+	gpu_opp_table: opp-table-gpu {
-+		compatible = "operating-points-v2";
+ 	struct drm_dp_aux aux;
+ 
+@@ -1048,11 +1050,13 @@ static int dw_dp_send_sdp(struct dw_dp *dp, struct dw_dp_sdp *sdp)
+ 	u32 reg;
+ 	int i, nr;
+ 
+-	nr = find_first_zero_bit(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
+-	if (nr < SDP_REG_BANK_SIZE)
+-		set_bit(nr, dp->sdp_reg_bank);
+-	else
+-		return -EBUSY;
++	scoped_guard(mutex, &dp->sdp_lock) {
++		nr = find_first_zero_bit(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
++		if (nr < SDP_REG_BANK_SIZE)
++			set_bit(nr, dp->sdp_reg_bank);
++		else
++			return -EBUSY;
++	}
+ 
+ 	reg = DW_DP_SDP_REGISTER_BANK + nr * 9 * 4;
+ 
+@@ -1702,7 +1706,8 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
+ 		return;
+ 	}
+ 
+-	set_bit(0, dp->sdp_reg_bank);
++	scoped_guard(mutex, &dp->sdp_lock)
++		set_bit(0, dp->sdp_reg_bank);
+ 
+ 	ret = dw_dp_link_enable(dp);
+ 	if (ret < 0) {
+@@ -1746,7 +1751,8 @@ static void dw_dp_bridge_atomic_disable(struct drm_bridge *bridge,
+ 
+ 	dw_dp_video_disable(dp);
+ 	dw_dp_link_disable(dp);
+-	bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
++	scoped_guard(mutex, &dp->sdp_lock)
++		bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
+ 	dw_dp_reset(dp);
+ 	pm_runtime_put_autosuspend(dp->dev);
+ }
+@@ -2249,6 +2255,10 @@ int dw_dp_probe(struct dw_dp *dp)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = devm_mutex_init(dev, &dp->sdp_lock);
++	if (ret)
++		return ret;
 +
-+		opp-150000000 {
-+			opp-hz = /bits/ 64 <150000000>;
-+			opp-microvolt = <900000 900000 920000>;
-+		};
-+
-+		opp-200000000 {
-+			opp-hz = /bits/ 64 <200000000>;
-+			opp-microvolt = <900000 900000 920000>;
-+		};
-+
-+		opp-300000000 {
-+			opp-hz = /bits/ 64 <300000000>;
-+			opp-microvolt = <900000 900000 920000>;
-+		};
-+
-+		opp-400000000 {
-+			opp-hz = /bits/ 64 <400000000>;
-+			opp-microvolt = <900000 900000 920000>;
-+		};
-+
-+		opp-600000000 {
-+			opp-hz = /bits/ 64 <600000000>;
-+			opp-microvolt = <900000 900000 920000>;
-+		};
-+	};
-+
- 	pmu {
- 		compatible = "arm,cortex-a55-pmu";
- 		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH>;
-@@ -121,6 +150,7 @@ gpu: gpu@1800000 {
- 			interrupt-names = "job", "mmu", "gpu";
- 			clocks = <&ccu CLK_GPU>, <&ccu CLK_BUS_GPU>;
- 			clock-names = "core", "bus";
-+			operating-points-v2 = <&gpu_opp_table>;
- 			power-domains = <&pck600 PD_GPU>;
- 			resets = <&ccu RST_BUS_GPU>;
- 			status = "disabled";
+ 	res = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(res))
+ 		return PTR_ERR(res);
+
 -- 
-2.47.3
+2.53.0
 
 
