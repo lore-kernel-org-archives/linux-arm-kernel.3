@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34C9C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39D4C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W2Yhs3HC5lLnpwSlVNxBzFcusBn8vMvgb9H7dfd9e9w=; b=X8Td4iWUmA0UsDyx7Cae84dMgF
-	N1Pp+9wFQHR5PPSNsZfTFVXchPo03f327lqfj8Val3rGfnH7nmlXZFnfJvyDjgMtFiCxnYIFJtBRu
-	KXeKLGbujfBC9N4e3mj042h5ne4l9Z5bwZnLb67+MlBXaGg3sfgZG0MbnWwDdRTB9TQHY7rmT+6sW
-	pGWoRvun+9ZsynCbsgY9CDdb2J4BwYY3kIFw4o2jfk2XDd0a4pWHN2moJgcNXo6kYEjJAUuoDjEzf
-	LrJPpr2r3k3hpoa/X4s1g6HozrGVNSQ4VxPN2gIjCzjA8S7WF5SZxGKCkSNSOnjW+2WrXohyKsn27
-	I6NmrzhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8MQ8T7NdvAwpzxaCZ1+v7WJCcrO5pFRdCLXlVF1VhRk=; b=T2y4OxT4u0f+O6fSb1Tsf1l1cS
+	xd7k5kejeIyIGACvJ4MIGHTTvSPv2NtiYNhkrn68K1HHf3x/dQV8H3q1p+dhS3IA8tiT1YLzmYpIV
+	oDDPVizFf81mGKweL8GGoTbyJ4xztgS9Dfb50FVkk/kVpIrSy25wX6FEJwkbT6SJI7A+KHZVlXKKH
+	r7HF0FLh0ZsFwEv92din3UUV8ahf2W2/TddeqeQs/usKFuDnVwRf8lcP/jfP+TrYU2FfeggTimR1b
+	Yx57N/+mSnKiKKsTGAEgQ+5oToykLCEph8ZVrGhCOQ24demlxrl7NTCzuaiAHazvBxXojjtymDsiH
+	g3aW4/9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtB6-0000000HHUB-2kye;
-	Mon, 03 Aug 2026 13:58:04 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wqtFJ-0000000HI1w-31tV;
+	Mon, 03 Aug 2026 14:02:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtB2-0000000HHT1-3syR
+	id 1wqtFI-0000000HI1q-0jgb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 13:58:03 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=W2Yhs3HC5lLnpwSlVNxBzFcusBn8vMvgb9H7dfd9e9w=;
-	b=HzU5LTy6Wqkr1hqW17jR7hg06Vi/fQ53VlPxHNMX8Uj4cmQRf1P9nS986t0gtG8BLmbDZt+N6
-	xjiz8ucghtF89gyPP4BRlkkyw/60j/a9P9xm3dBi/XRd9+Py9cL8QaTbzd+YGaNhIVR84maDzn9
-	BQwMZQq8er0/eL9aBcqopJo=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hDJ0d1ZsxzLlTm;
-	Mon,  3 Aug 2026 21:48:17 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7030140572;
-	Mon,  3 Aug 2026 21:57:47 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Mon, 3 Aug 2026 21:57:46 +0800
-Message-ID: <95f1ebd4-be04-4684-be68-388f752a1379@huawei.com>
-Date: Mon, 3 Aug 2026 21:57:46 +0800
+	Mon, 03 Aug 2026 14:02:24 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B0AC60A79;
+	Mon,  3 Aug 2026 14:02:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 112ED1F000E9;
+	Mon,  3 Aug 2026 14:02:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785765743;
+	bh=8MQ8T7NdvAwpzxaCZ1+v7WJCcrO5pFRdCLXlVF1VhRk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dzngFhPCD8XmmP7MUsAOv0G7EzXOnMwETJWSUldS5GWOpWZnu5FQ5OBt6Tk1GhkWY
+	 sL8QLYACy9jYmtNx+rqZfhjhaec8bqDrTylFd7PAS3cYSj3d0S7LypEYaHuj19/sSz
+	 ixpHt7poJV7vHiTmKODx3r2187gK//eJU/RG2WCgXlrbGz966iFHzbz7MmMgkq21nq
+	 XQdC7MT3PtEhr9/D8AmBgHD+fUQ6hYwADW+3rFiG+G96meo1RsRGUKwXEoYHFqluFK
+	 Z1GSDfEDc0A5fwAHN4VaDzyDUtlophV8GKRctLd2NBNTcg88Nc6gTM+/g3HT9E6Pl9
+	 OPLXGzdvVKqmQ==
+Date: Mon, 3 Aug 2026 09:02:22 -0500
+From: Rob Herring <robh@kernel.org>
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	John Stultz <john.stultz@linaro.org>,
+	Moritz Fischer <moritz.fischer@ettus.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
+	Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Andre Draszik <andre.draszik@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	devicetree@vger.kernel.org, mfd@lists.linux.dev,
+	Srinivas Kandagatla <srini@kernel.org>
+Subject: Re: [PATCH v24 05/12] dt-bindings: arm: Document reboot mode magic
+Message-ID: <20260803140222.GA3188037-robh@kernel.org>
+References: <20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com>
+ <20260803-arm-psci-system_reset2-vendor-reboots-v24-5-889281373870@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware
- dirty tracking
-To: Leonardo Bras <leo.bras@arm.com>
-CC: Oliver Upton <oupton@kernel.org>, <maz@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <yuzenghui@huawei.com>,
-	<wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
-	<caijian11@h-partners.com>, <liuyonglong@huawei.com>, <yezhenyu2@huawei.com>,
-	<yubihong@huawei.com>, <linuxarm@huawei.com>, <joey.gouly@arm.com>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>
-References: <20260709104026.2612599-1-zhengtian10@huawei.com>
- <20260709104026.2612599-4-zhengtian10@huawei.com>
- <aliKo7dTZzKcWHzI@kernel.org>
- <0943eb14-9ffb-4dbb-9219-060e97bca2a7@huawei.com>
- <alpIfIOFfrudBzD5@LeoBrasDK> <al4bYajWE-v6wofu@LeoBrasDK>
- <96516762-f004-4c2a-a9c6-6fbad49ad6ae@huawei.com>
- <amoZY8uGLf1PEpjK@LeoBrasDK>
- <8e36e2c8-587f-4228-ab13-d6783927a281@huawei.com>
- <45d76d0d-48e9-46a6-b1f9-691f840eba46@huawei.com>
- <anBrvILpcSFhW7Wg@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <anBrvILpcSFhW7Wg@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr100010.china.huawei.com (7.202.195.125)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_065801_588973_76783744 
-X-CRM114-Status: GOOD (  34.83  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260803-arm-psci-system_reset2-vendor-reboots-v24-5-889281373870@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,189 +98,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8/3/2026 6:21 PM, Leonardo Bras wrote:
-> On Mon, Aug 03, 2026 at 12:04:24PM +0800, Tian Zheng wrote:
->>
->>
->> On 8/3/2026 9:33 AM, Tian Zheng wrote:
->>>>>>>>> 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
->>>>>>>>>> -    if (prot & KVM_PGTABLE_PROT_W)
->>>>>>>>>> +    if (prot & KVM_PGTABLE_PROT_W) {
->>>>>>>>>>              set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
->>>>>>>>>>
->>>>>>>>>> +        /*
->>>>>>>>>> +         * No DEVICE filter needed here:
->>>>>>>>>> relax_perms is only called
->>>>>>>>>> +         * on FSC_PERM faults. Device pages
->>>>>>>>>> always get full RW from
->>>>>>>>>> +         * initial mapping and are never write-protected during
->>>>>>>>>> +         * migration, so they never trigger a permission fault.
->>>>>>>>>> +         */
->>>>>>>>>> +        if (pgt->flags & KVM_PGTABLE_S2_DBM)
->>>>>>>>>> +            set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->>>>>>>>>> +    } else {
->>>>>>>>>> +        /*
->>>>>>>>>> +         * Clear DBM on W→RO downgrade to prevent hardware from
->>>>>>>>>> +         * silently upgrading RO+DBM back to W+dirty, which would
->>>>>>>>>> +         * bypass KVM's write tracking and cause data corruption.
->>>>>>>>>> +         */
->>>>>>>>>> +        clr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->>>>>>>>>> +    }
->>>>>>>>>> +
->>>>>>>>> This block makes it pretty evident that the DBM bit really *is* the
->>>>>>>>> write permission bit. I'd much rather we
->>>>>>>>> introduce the concept of dirty
->>>>>>>>> state to the page table library and migrate the abstract write
->>>>>>>>> permission to the DBM field, even if we don't have FEAT_HAFDBS.
->>>>>>>>>
->>>>>>>
->>>>>>> Ohh, that's an amazing idea!
->>>>>>
->>>>>> Thinking about that again...
->>>>>> If we adopt the encoding with DBM being the write-permission
->>>>>> bit, and all
->>>>>> PTEs have it since the start, how can we have lazy-splitting happening?
->>>>>>
->>>>>> Only way I think of is removing both DBM and S2_S2AP_W bit
->>>>>> from writable
->>>>>> PTEs during dirty-track enable, and re-adding them during
->>>>>> the first write
->>>>>> fault. If we don't remove the DBM bit, systems with HDBSS
->>>>>> would just dirty
->>>>>> it by hardware, without causing a fault.
->>>>>>
->>>>>> DBM=0 would need to happen only in the first write-protect (only on
->>>>>> lazy-splitting). All other write-protecting would just clean
->>>>>> the S2_S2AP_W
->>>>>> bit, as everything is already split.
->>>>>>
->>>>>> Is that what was intended?
->>>>>>
->>>>>> Thanks!
->>>>>> Leo
->>>>>>
->>>>> Hi Leo,
->>>>>
->>>>> I think the cleanest way to handle this is to simply avoid setting DBM
->>>>> on block mappings. If we only set DBM on page-level PTEs, then block
->>>>> mappings will naturally stay DBM=0 and trigger a write fault on first
->>>>> access — exactly what we need for lazy splitting.
->>>>>
->>>>> When the fault occurs, the block gets split into page-level PTEs, and at
->>>>> that point we can set DBM=1 on the resulting leaf entries. This way:
->>>>>
->>>>> 1. Lazy split works naturally (fault -> split -> set DBM=1)
->>>>>
->>>>> 2. No need to clear DBM globally at dirty-track enable
->>>>>
->>>>> 3. No special handling for block mappings
->>>>>
->>>>> So I think global DBM is still viable — we just need to filter out block
->>>>> mappings when setting the DBM bit. That way the lazy split path
->>>>> is preserved
->>>>> without extra complexity.
->>>>
->>>> Hi Tian,
->>>>
->>>> Humm, but would not that be contrary to what Oliver suggested:
->>>> changing the
->>>> encoding from the PTE for all entries?
->>>>
->>>> (Like, if the PTE is writable, it has to have DBM set)
->>>>
->>>> IIUC what you said, on first faulting of the page in the VM:
->>>> - If the entry is a page (level-3 leaf) and writable, add DBM
->>>> - If it's a block entry (leaf but not a level-3), don't add DBM
->>>>
->>>> So after we enable dirty-logging:
->>>> - a level-3 entry would not fault, using HDBSS, and
->>>> - a block entry would fault, do the splitting, and add DBM to level-3
->>>>     entries during the split.
->>>>
->>>> If I got that correct, that would be clean indeed.
->>>>
->>>> But then we would have a different encoding for block entries and page
->>>> entries. In page entries, DBM could be used to say if the page is
->>>> writable,
->>>> but on block entries one would have to look at the 'dirty-bit'.
->>>>
->>>> Would that be ok?
->>>>
->>>> Thanks!
->>>> Leo
->>>>
->>> Hi Leo,
->>>
->>> My initial concern was that clearing all DBM bits at the start of
->>> migration would be too expensive, so I thought distinguishing between
->>> level-3 entries and block entries would be better.
->>>
+On Mon, Aug 03, 2026 at 03:13:36PM +0530, Shivendra Pratap wrote:
+> Add bindings to describe vendor-specific reboot modes. Values here
+> correspond to valid parameters to vendor-specific reset types in PSCI
+> SYSTEM_RESET2 call.
 > 
-> I think we expect it to be expensive, but since we already clean the
-> dirty-bit (ro/rw) bit, we can have both happening in the same write :)
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>  Documentation/devicetree/bindings/arm/psci.yaml | 58 +++++++++++++++++++++++++
+>  1 file changed, 58 insertions(+)
 > 
-> (since we only mark the DBM bit when we fault the memory on lazy-splitting,
-> we are expecting to have the same amount of writes to pagetable as we have
-> before HDBSS, both on faulting and 1st iteration cleaning)
-> 
-Hi, Leo
+> diff --git a/Documentation/devicetree/bindings/arm/psci.yaml b/Documentation/devicetree/bindings/arm/psci.yaml
+> index 6e2e0c551841..7d6a86690a2e 100644
+> --- a/Documentation/devicetree/bindings/arm/psci.yaml
+> +++ b/Documentation/devicetree/bindings/arm/psci.yaml
+> @@ -98,6 +98,41 @@ properties:
+>        [1] Kernel documentation - ARM idle states bindings
+>          Documentation/devicetree/bindings/cpu/idle-states.yaml
+>  
+> +  reboot-mode:
+> +    type: object
+> +    $ref: /schemas/power/reset/reboot-mode.yaml#
+> +    unevaluatedProperties: false
+> +    properties:
+> +      # "mode-normal" is just SYSTEM_RESET
+> +      mode-normal: false
+> +    patternProperties:
+> +      "^mode-.*$":
+> +        minItems: 1
+> +        maxItems: 3
+> +        items:
+> +          - description: arg1 (vendor-specific SYSTEM_RESET2 reset_type)
+> +            allOf:
 
-Actually, I have thought about this approach too, but if we clear DBM in
-kvm_pgtable_stage2_wrprotect(), then during the first round of
-migration, we will fault and release RO -> W, and then add DBM.
+Don't need allOf here.
 
-But next time, when we migrate the dirty pages in round two, we will run
-kvm_pgtable_stage2_wrprotect() again, which will clear DBM again. And
-finally, HDBSS will be useless during migration.
+> +              - $ref: /schemas/types.yaml#/definitions/uint32
+> +              - minimum: 0x80000000
+> +          - description: arg2 (cookie_lo in 2-cell form, cookie_hi in 3-cell form)
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +          - description: arg3 (cookie_lo in 3-cell form)
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +        description: |
+> +          Describes a PSCI SYSTEM_RESET2 vendor-specific reset type. The string
+> +          after "mode-" maps a reboot mode to a vendor-specific reset.
 
-> 
->>> However, I ran a quick test on a 400GB VM (4 vCPUs), and the overhead
->>> turned out to be around 30ns — which I think is acceptable.
->>
->> Just a quick correction — I misstated the unit in my previous email. The
->> overhead for clearing DBM on the 400GB VM (4 vCPUs) was around 32 µs, not 30
->> ns.
->>
-> 
-> Oh, that seems more likely :)
-> 
-> Question: is tha above amount of memory initially in Level-1 blocks,
-> level-2 blocks or level-3 pages? (aka: were you using explicit/transparent
-> hugepages?)
-> 
+Blank line if this is a paragraph.
 
-I'm using transparent hugepages. However, if we were to use level-3 
-stage-2 pages with -mem-prealloc enabled in QEMU, I believe the time 
-cost would be extremely high — potentially out of our control.
+> +          A vendor-specific reset takes two arguments, a 32-bit reset_type and a
+> +          64-bit cookie. The arguments are encoded as up to three 32-bit cells.
+> +          Each mode property is encoded as mode-xxx = <arg1[, arg2[, arg3]]>,
+> +          where:
 
->>>
->>> So I think we can go with your approach: simply clear DBM globally in
->>> kvm_arch_commit_memory_region() when dirty logging starts, before write-
->>> protecting the memslot.
->>>
->>> ```
->>> void kvm_arch_commit_memory_region(...)
->>> {
->>>       // ...
->>>       if (log_dirty_pages) {
->>>           if (change == KVM_MR_DELETE)
->>>               return;
->>>
->>>           kvm_mmu_clear_dbm_memory_region(kvm, new->id);
-> 
-> Agree, but see the comment above about using the same write that already
-> exists, then we are not supposed to see much of a change.
+blank line
 
-Please see the discussion above.
+> +          - arg1 is reset_type and must be >= 0x80000000.
+> +          - In 2-cell form, arg2 is lower 32 bits of cookie.
+> +          - In 3-cell form, arg2 is high 32 bits of cookie
+> +            and arg3 is low 32 bits of cookie.
 
-> 
-> Thanks!
-> Leo
-> 
+Indent the list by 2 more spaces.
 
-Thanks!
-Tian
+> +
+> +          All values should be provided as per the PSCI SYSTEM_RESET2
+> +          specification.
+> +
+>  patternProperties:
+>    "^power-domain-":
+>      $ref: /schemas/power/power-domain.yaml#
+> @@ -137,6 +172,15 @@ allOf:
+>        required:
+>          - cpu_off
+>          - cpu_on
+> +  - if:
+> +      not:
+> +        properties:
+> +          compatible:
+> +            contains:
+> +              const: arm,psci-1.0
 
+SYSTEM_RESET2 was introduced in PSCI 1.1...
+
+> +    then:
+> +      properties:
+> +        reboot-mode: false
 
