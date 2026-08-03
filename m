@@ -4,173 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88555C5518E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3622DC55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/+3/8QxNTkVS2/4tc3nfViSHcapFtRLbeTLF1zxXN4=; b=4G/SC6AxouzO1Yze+GPZr2ZM+k
-	F0j2OXgwOf36nfefWfnf60JncqMY3qeP6AeFq9jFMeRnGc31AxYOZzk9BHPnnKuf7I59Ecjrs6i3q
-	CLC3R7VlA3SLwwBq1pwW61VY4jQreSJWn/JLBVK9qmjdjw5iWggUg6WqXvEIvpOTfwu5X+vo56pJ+
-	RdfrjrQtL+DNkrRFqW4F0/o8vORyjcVTeeIQcESzd4g8+AgTIdrDYtsfwELkRiU4KCt/sHEC+yygE
-	lzNtDL9hmFi06aBhcEzNjKT2VcVA9iIvMjmQRRLVhXlT3+GRdrF5MV/qhyupjmitYyAgyB7a7IB4Z
-	IwVCnnNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z/s71yf/xbMLaACx3//RVPK21sA9eWV1kaPskwgCZQM=; b=W9cQOho3D+Q7FfQPLjtIYWt4B5
+	gTgF5OyWzWrPE+1+KJhWug/S+lADODuB3H2dx0c3p8pEykwDVi5LZsF9mIV20ZopItPwagtUZ6Ep3
+	gv5zOv/HXJ9icFI95nc95wHvuNeqtO3MGr9ioVObbZcGkJ9ZoHopI3Jfda+CDbyvo7LJUyCzPYkV7
+	f7HYDpn0c40ieb4FGBsTeGVbG4WduWbDKgq7tlBfYArgSiVhwun6QLalWv64gkaFO6BswV7v2Y6Gh
+	kOlgGjHbPq3+izCaK9lhB+Rtfwvrqp54zIi1WysHq5cGJ6wYHnbF5llFVQ2ToAF15FtbovJn6HFIm
+	gYdzW5GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpFy-0000000GkGq-1Aos;
-	Mon, 03 Aug 2026 09:46:50 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wqpG2-0000000GkIl-1dwA;
+	Mon, 03 Aug 2026 09:46:54 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpFw-0000000GkFh-02eV
+	id 1wqpFz-0000000Gk6r-0UbY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 09:46:49 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6736sVXX3790731
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 3 Aug 2026 09:46:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	o/+3/8QxNTkVS2/4tc3nfViSHcapFtRLbeTLF1zxXN4=; b=QrS8cyTeGtmmLJpw
-	VZ7FRl0hxHBX+kaoNrTzcTE6OBufJsUH5AVMNCJExi2+0kpen8ylUY+VcIoc+IYU
-	hX/uh5ma9MggKifQCrcpyP185ySGaVIGtz0XxmvecLbD0Bh5/LMftrGyYGZuwQH7
-	4g0uC+4PsN5AA7+jRVVnxkLxL0gENilXwGaaf/8UqVBTc2pAiYxzfmN5El4LS/Mb
-	hsa4A73b/GE6bRunzA75dSlcr0iZSdheaykODVXs0+mrTQHuUaQiM6NSbyb5ut+5
-	fDEd+YgXjAaINpxdoVef/ZbfOHO5Y+4PmZU3RLWF08D5ai+FBR0/G5CFaxWSTVbU
-	QcW1zA==
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ftp4r0spt-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 09:46:46 +0000 (GMT)
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-38e667368f0so5904560a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 02:46:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785750406; x=1786355206; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=o/+3/8QxNTkVS2/4tc3nfViSHcapFtRLbeTLF1zxXN4=;
-        b=iM+1kCwoRkJkSmRuzCs9vwsWGlnGlEMEsJUCC5+aWEnpACu5DoIrOoGILIJfyzmbAM
-         cs2Y7rAC8ToxIVTx2hVNYde4Y2DUb14RWBdwSW1xN46s7u+0hLyWpGVzBwKrUgpaWX27
-         ZWmG1sKRitaUgSZ+j/LvZ4tkwjxSO93xSF4PjX7CifJzyeVdPvR/uzdeDCOdLCotB6bO
-         XfCC/SGYmEtP8kBOGtb5n/MUs/m8FqhyR0KAcKXCcbaq6GXLRnE8L/WM/cNDiENfWv1N
-         ZjOgmcpcKGZrGqUKLuNRVuUgonlFc/EMIKxo1yq2QD1RhNQ64sizvho/PgloN/qkm6rP
-         2qCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785750406; x=1786355206;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=o/+3/8QxNTkVS2/4tc3nfViSHcapFtRLbeTLF1zxXN4=;
-        b=rHQKXeLqR9OPaCZK6vRu0dl9EUru6yH/T3QtUfG7X3FXvGNorw37/CvfgM0e06/AmE
-         Sb7X2yiAZWwWw0ma1Fh96vTpQexRto718gVbqqzyc1TqULq3gohWgOl830wCAQN7sqz1
-         QeIeIwq7uKx5jm5R84bkFvLR1ty2ckhCloE1BndG4GW1MipsNtO59Lb/Kg5RickAw68T
-         5gzsKbCBc66e9fPolozPNBJ4/Kf8Fd0mkKINPYDH/fvFGeCxWNvq4hPLDCpNrPdI6CDS
-         6IFuCa2ePmu1gGGb/wMLCF1OHenCl8WvMRK0areLqCwgftP4wnHGYd5o4zoEdSVXZT2B
-         hfvA==
-X-Forwarded-Encrypted: i=1; AHgh+RpSrfKETwVjv7zz+digYDPZzjzH+r3XEKaLbAlV0s+Nw55tdteq+8kSlSJMSN2DfA0EAYyrnp+mXw0VU8EmUZT0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yylr7DDEtU/ZEMCFG16WpcAjElhKraJbUt+FG/4aAa2T7KESkwq
-	LWOw1qddhWhBQLBBG/apTFT5VJfbQx1eCuCy+kjrTInYiU5XzD7fMFK38BgXTvsQyri18DbjGyU
-	40W39BVCCbXoP/ARlRpLc3vCQ72MQWsfax8FGgWdsz4gGzSEohRXIYsEYOk9YufisX+YLbXfApX
-	X46Q==
-X-Gm-Gg: AR+sD11Ph2ftxiM1R985O7t+wGpjm1/N6KLb4bS+pM86kQ36aJEoSkk7+Vc0LZZ1Dd7
-	gO/i8RY2KQOAioe7QURBL/FF3NhbZrhCY5isgqgks2LM45Nl6czfGnARwT/gtTuXAkFJ5hrRoMl
-	rMW5sqaoim+djbRmEkIZpTOlmHVlRmoBqz79X6WheSGSSjW6ktdMOjznnaf9tZDW4OxsvCuoXfK
-	NsgnVY30M31Gza4qT6VgaLL0MSjHMrD5zoD/Pw+/3AQZKAtBbmgznnVQ9K7M87JKFpIk34CHAW0
-	41JtPjpP0eg2lTZN9tYzWcTMJMzLRAeQrpJhlxq0ASVSCCWIEr7+vgn5pMDJlynUaIfG0H5HiRy
-	/U9vkSuy/okpgiFKzVUekA6UUvwq7/61h25Me
-X-Received: by 2002:a17:90b:2750:b0:38e:2c8f:a01a with SMTP id 98e67ed59e1d1-38fbc42c3a1mr7728823a91.11.1785750405843;
-        Mon, 03 Aug 2026 02:46:45 -0700 (PDT)
-X-Received: by 2002:a17:90b:2750:b0:38e:2c8f:a01a with SMTP id 98e67ed59e1d1-38fbc42c3a1mr7728767a91.11.1785750405386;
-        Mon, 03 Aug 2026 02:46:45 -0700 (PDT)
-Received: from hu-spratap-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38fb2be6c8csm3660671a91.13.2026.08.03.02.46.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 02:46:45 -0700 (PDT)
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Date: Mon, 03 Aug 2026 15:13:43 +0530
-Subject: [PATCH v24 12/12] arm64: dts: qcom: Add psci reboot-modes for
- talos boards
+	Mon, 03 Aug 2026 09:46:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785750391;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z/s71yf/xbMLaACx3//RVPK21sA9eWV1kaPskwgCZQM=;
+	b=Wqva068n6KZF/PTZgyZKgmxXiOkRJJla58t8YmMBVLwmQddLX1ufkpbfxozsZWXMlCFP7t
+	KQUN669uD5QFVKOLa57lur+ScjmO/wn3hgUGvmycfXioSqAEAw/LxGJX1z5w9IXMKP10a4
+	iRewS/VHccQoRsaZOYij83aIL595BD4=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-15-7KxwcOU9NS2jR-v4kKKdKg-1; Mon,
+ 03 Aug 2026 05:44:53 -0400
+X-MC-Unique: 7KxwcOU9NS2jR-v4kKKdKg-1
+X-Mimecast-MFC-AGG-ID: 7KxwcOU9NS2jR-v4kKKdKg_1785750291
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 56001195605E;
+	Mon,  3 Aug 2026 09:44:50 +0000 (UTC)
+Received: from thuth-p1g4.redhat.com (unknown [10.44.48.213])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 810F51956088;
+	Mon,  3 Aug 2026 09:44:42 +0000 (UTC)
+From: Thomas Huth <thuth@redhat.com>
+To: Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	Neal Liu <neal_liu@aspeedtech.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Simo Sorce <simo@redhat.com>
+Subject: [PATCH v2 2/9] crypto: aspeed - clear the crypto_aes_ctx when done
+Date: Mon,  3 Aug 2026 11:44:21 +0200
+Message-ID: <20260803094432.70505-3-thuth@redhat.com>
+In-Reply-To: <20260803094432.70505-1-thuth@redhat.com>
+References: <20260803094432.70505-1-thuth@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260803-arm-psci-system_reset2-vendor-reboots-v24-12-889281373870@oss.qualcomm.com>
-References: <20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com>
-In-Reply-To: <20260803-arm-psci-system_reset2-vendor-reboots-v24-0-889281373870@oss.qualcomm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Lee Jones <lee@kernel.org>, Ulf Hansson <ulfh@kernel.org>,
-        Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Sudeep Holla <sudeep.holla@kernel.org>, Ulf Hansson <ulfh@kernel.org>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, mfd@lists.linux.dev,
-        Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Song Xue <quic_songxue@quicinc.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785750274; l=1558;
- i=shivendra.pratap@oss.qualcomm.com; s=20250710; h=from:subject:message-id;
- bh=OJwAm/Vozmf+aVTmHqCY4oum1OVPcZBckomX6WcElq8=;
- b=JT9H0YmF5yLeWr/AEcg8+MJ7UyCAiqsbYnspRpD92XUQxxYXUDNXtMj4+2agXuu437sW8T4nT
- RMamNuCOjdDAy6VL5p10AWng8umeH3A/HICOVzaWNLeNSbuCV0twLTi
-X-Developer-Key: i=shivendra.pratap@oss.qualcomm.com; a=ed25519;
- pk=CpsuL7yZ8NReDPhGgq6Xn/SRoa59mAvzWOW0QZoo4gw=
-X-Authority-Analysis: v=2.4 cv=X9Ri7mTe c=1 sm=1 tr=0 ts=6a706387 cx=c_pps
- a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=bjH5yOvFM8yfI_BY5k4A:9 a=QEXdDO2ut3YA:10
- a=uKXjsCUrEbL0IQVhDsJ9:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: vYMm_RZpi-bXsg0-4CqOBfAtFnNe-iGd
-X-Proofpoint-GUID: vYMm_RZpi-bXsg0-4CqOBfAtFnNe-iGd
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDA4NyBTYWx0ZWRfX+KCs14x7E5J3
- H7ZhiB3Izqm2fFVscTdmlgWe/WSaFaENPteWZ9cnsnKwjBD3gX3KI/EBytR91VDfSy85KavazKk
- JOu4fDYUuoxXezpxF5TTuSL31MqWruo=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDA4NyBTYWx0ZWRfX4uW6sUStFD/o
- 6RZrf4o7M2HiME56TRnwYg6Ob7uoS4IL2mjIE3K2eBVDM1AhtRslzz5bNnmmGg1+awkhu7E6h9v
- ofQl0arqOzXLoc1EVnzwWDkxwJkGNvKtEeL/RogjGrxBECCbD8iFiVjRu0kpaao7xluedGatuqU
- xKLS5Dm+mGn0xdo0dYW98/3hjKirr9mfpkNsV2WtRvgGZRU/Leqj2k0hOaWJClJgNwK66IKzLDv
- I8l8ssEiNykSpuNyuvlLrE535mI64oKo4j/8pWdZg25opKKNggNq8qTFu/Yf5CV5XJTQxRLRmf6
- sRcpl9Yii8oJ+WOFEnfzb2m391dotLlM5AmArE3hnn6JNmrdqBNZtjm137yACRNkN8L+Cqdq+75
- 5pSU+86HQOJf0HBpUGHEecYPwvDnaNJcvGg71BJNwzUQMdEIq9vtIgVfITfQjR/+xf8T8E4oBrZ
- muZakC54eundV3Hzlbg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-02_06,2026-07-30_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 bulkscore=0 malwarescore=0 priorityscore=1501
- phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608030087
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Mimecast-MFC-PROC-ID: gZ9V8pMn4TPH-VgObUyc9JsYcVGS2v9808T1DHSPFSo_1785750291
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_024648_173516_0DA115AD 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20260803_024651_232402_06D5FBD3 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,57 +92,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PSCI SYSTEM_RESET2 reboot-modes for qcs615-ride, for use by the
-psci-reboot-mode driver.
+From: Thomas Huth <thuth@redhat.com>
 
-The following modes are defined:
-- bootloader: reboot into fastboot mode for fastboot flashing.
-- edl: reboot into emergency download mode for image loading via the
-  Firehose protocol.
+Declare the gen_aes_key with __cleanup(aes_clear_ctx) to avoid that
+its contents could be leaking via the stack when the function returns.
+And since it is only required in one branch of the if-statement there,
+move it to that block, too.
 
-  Support for these modes is firmware dependent.
-
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Song Xue <quic_songxue@quicinc.com>
-Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Signed-off-by: Thomas Huth <thuth@redhat.com>
 ---
- arch/arm64/boot/dts/qcom/qcs615-ride.dts | 7 +++++++
- arch/arm64/boot/dts/qcom/talos.dtsi      | 2 +-
- 2 files changed, 8 insertions(+), 1 deletion(-)
+ drivers/crypto/aspeed/aspeed-hace-crypto.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/qcs615-ride.dts b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-index 047b4efb04b9..48d3519f50ff 100644
---- a/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-+++ b/arch/arm64/boot/dts/qcom/qcs615-ride.dts
-@@ -498,6 +498,13 @@ &pon_resin {
- 	status = "okay";
- };
+diff --git a/drivers/crypto/aspeed/aspeed-hace-crypto.c b/drivers/crypto/aspeed/aspeed-hace-crypto.c
+index fa201dae1f81b..74a4ce62fcd93 100644
+--- a/drivers/crypto/aspeed/aspeed-hace-crypto.c
++++ b/drivers/crypto/aspeed/aspeed-hace-crypto.c
+@@ -576,7 +576,6 @@ static int aspeed_aes_setkey(struct crypto_skcipher *cipher, const u8 *key,
+ {
+ 	struct aspeed_cipher_ctx *ctx = crypto_skcipher_ctx(cipher);
+ 	struct aspeed_hace_dev *hace_dev = ctx->hace_dev;
+-	struct crypto_aes_ctx gen_aes_key;
  
-+&psci {
-+	reboot-mode {
-+		mode-bootloader = <0x80010001 0x2>;
-+		mode-edl = <0x80000000 0x1>;
-+	};
-+};
-+
- &qspi {
- 	status = "okay";
+ 	CIPHER_DBG(hace_dev, "keylen: %d bits\n", (keylen * 8));
  
-diff --git a/arch/arm64/boot/dts/qcom/talos.dtsi b/arch/arm64/boot/dts/qcom/talos.dtsi
-index 07ba5733ca92..113f10775991 100644
---- a/arch/arm64/boot/dts/qcom/talos.dtsi
-+++ b/arch/arm64/boot/dts/qcom/talos.dtsi
-@@ -581,7 +581,7 @@ pmu-a76 {
- 		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_HIGH &ppi_cluster1>;
- 	};
+@@ -585,9 +584,9 @@ static int aspeed_aes_setkey(struct crypto_skcipher *cipher, const u8 *key,
+ 		return -EINVAL;
  
--	psci {
-+	psci: psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
- 
-
+ 	if (ctx->hace_dev->version == AST2500_VERSION) {
++		struct crypto_aes_ctx gen_aes_key __cleanup(aes_clear_ctx);
+ 		aes_expandkey(&gen_aes_key, key, keylen);
+ 		memcpy(ctx->key, gen_aes_key.key_enc, AES_MAX_KEYLENGTH);
+-
+ 	} else {
+ 		memcpy(ctx->key, key, keylen);
+ 	}
 -- 
-2.34.1
+2.55.0
 
 
