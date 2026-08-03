@@ -4,111 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E1AC55172
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 03:59:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A69EEC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 04:18:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hWuE3aPXJBBk1sgCezb0nxhHgt0/Tjj+1abOM/7n6xE=; b=qi+Lhuamc5oYu9qx86oZ31z1Gw
-	5F5FcFUusOQbJUmgMRBZPkPNVkftO7/Na+DIPR1zs9NHCEQVvLfi1zfGBOmTmdtA5x1o0soCZQXU/
-	7BUN/dUMlnDXb/H5Lqssnivy5kA/Iy8vaMCNcBD0lZPFnu2CDPKDMYcUsFMruOOfCwe1X5BbHo4Og
-	mRhzYghbmIgg6gzFV02ek+cqJ12xwW3dnq8sKHOi0C8y1bpJBae83HH0g+yc9Yeq8xMJg/7hRbzF5
-	ffUmKH6AjpiHSWcRAkcluJrZwgFOm2wBZdYzLi/zBuZjoZ8rYKBhMoQJHmbQyCl3sp1Z0LO1fOTGV
-	R5+YfoTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TverFBSwY7MtpYT35sNPQk4g4Kr+oiSA90dPP0U4w/M=; b=3dH0yPbBsk2yTG6S/38wzyHd5A
+	iHcCr5DZlqo73+Uk5xOwhuNt43mQFBWV+lETnH7du08HUVJR/uR+jBsB1MadTQhx02nDYFwjW0kn4
+	AO4NAyzDzTi/XtA+6fGntZ9rdUGGvpo69ft/vXAUhf5b1fjs+zBAa0YN0vHERDMTgi5GB+hbqWbEk
+	Ho7mydtW8I4nHJSurbn5q7aEvlgifhcGfckjlDWJxojNAe0e78tP3Fev1am6GPUVfUfb8HMhi/S5E
+	Mzmr5fLRxsd07vpVFwwUMVCeY0Agn/Bf8MDmy4WviXlfKHEF9IBnD+nrjcSzbejROfJ9o7jqe8rQ2
+	Aep2f+TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr6Iu-00000000xsQ-3i0h;
-	Tue, 04 Aug 2026 03:59:00 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wr6bn-00000000yT4-1FP1;
+	Tue, 04 Aug 2026 04:18:31 +0000
+Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr6Is-00000000xs0-0Qef
+	id 1wr6bj-00000000ySY-3m2Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 03:58:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785815937;
+	Tue, 04 Aug 2026 04:18:29 +0000
+X-Forwarded-Encrypted: i=1; AHgh+Rri2IAjUPeOBPwun8ssKHJxArpvbzT3iniOGDmHAq/7tRuQbktbe7U4fsudYqw46Xrii6hOaqwz1mNcOL6bGMy2@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785782134;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=hWuE3aPXJBBk1sgCezb0nxhHgt0/Tjj+1abOM/7n6xE=;
-	b=b1RjuQOhKq15BSD0qxfBNCCtiALo+7oTeFgRNSTywGFfUB/C/yE0qC9qCMpuEd5IOCnB8s
-	gqdMYKrnqXk9uTkRALKSMagxU58xiReMW3XsKD+cYicLrLhu4aYiROcplrygHUHHDR3BHd
-	N/8Mm7/HuOU7SL7rMvfRzW//+uu3UjE=
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
- [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-266-82qYY5r0MKCzcanGkyx1HA-1; Mon, 03 Aug 2026 23:58:51 -0400
-X-MC-Unique: 82qYY5r0MKCzcanGkyx1HA-1
-X-Mimecast-MFC-AGG-ID: 82qYY5r0MKCzcanGkyx1HA_1785815930
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-848860def2cso4903269b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 20:58:50 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785815930; x=1786420730;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hWuE3aPXJBBk1sgCezb0nxhHgt0/Tjj+1abOM/7n6xE=;
-        b=NLilzST/vphfBIlpUXekomsfW3pnAADlgEGo8Tzzd1DcrzWfh7TB6ytgwN/0PPC4PW
-         ElrrVzkzcnnbXWV4S/bnsvkahdv/vfNvJ4Q6kSpgvth7H+Qlk0YsbtSuuXryvdRTEQeV
-         U2eyI5DhQDLrtXWWE98tglrEg+U34bvRMtj5C9RPfAAqgmePwHf/g5fnA5PRraiM9i15
-         s/d1rxhaOY20YmWTukPuSf4ZefLoHt988E/WToVjoqXguRuv+u65q9nnt7oA43e/iU+h
-         upOAL14LBH9UsivLK4tKv/2qg1uqKWjku8hlwjpZBX9Q0yp1Xt1u3TRc2JNmZklZqiQt
-         pxHQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpYrsx5dYHuwOXKfirk6Tdm5zVLDFHRKktPU5v2Hm4Gz5Djikq3CH3UAjcFBSr7OkIoCOyljCnTZYLNEY6Uu0qh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1any39kt9+5khu7s79wn68oL4wKZ12rAbik3qjp2ts1pnqmAP
-	Uk2U0lakqcjFuRgZ7/nwQ38vhqSOgw8L19b9u9JQ2/tscqTm5psFhHJiM4x2KOZ2u2fvfM+j/zc
-	9JAqUILEASgi/N1xx8ypW7cz/3Xh9x4nkxp2G62g9vkI4O37/FGlFHkOnrMRadwhocf08SA1CTE
-	uzXi8O3HEb
-X-Gm-Gg: AR+sD12przD3Dp6B0KaAqld0Wm6NaJTAdKyT58YPCIKO+pNB/YFPvpFQNYj+woiSZqM
-	CuMTTSGMhSYDr7mezBdomBN0Io1OeOosiUa13+n8VHs08kea8QERGL+OqJX8AQQ+bA53Q/MOvVt
-	B9L1fxN8sIui2NbSeVcY0juIOowC9gDLkW+ODkeFv82i1KRerxYKrhH94MMvQMxtFLNvccXYvMc
-	2arXqsHF2+uLrBY4py1XEUz+jwTAUQNzHwl5DXoMHzpJgmWysZswgpE1RNX/MMFmN1y4r43YvvF
-	Ni+0shP1aB7jyjW18hEmDbFT5WpBlMfJYQlLBROTxvLhwv5LvtGHhN/lmX52uWbHqjezZsnUsU+
-	8ejwo3dHLdXze9werzEo/AsFER7ZzsdXKv9rTbSvw1bc=
-X-Received: by 2002:a05:6a00:3a14:b0:845:eb88:3d74 with SMTP id d2e1a72fcca58-84ee486504amr11053443b3a.29.1785815930005;
-        Mon, 03 Aug 2026 20:58:50 -0700 (PDT)
-X-Received: by 2002:a05:6a00:3a14:b0:845:eb88:3d74 with SMTP id d2e1a72fcca58-84ee486504amr11053411b3a.29.1785815929416;
-        Mon, 03 Aug 2026 20:58:49 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84edc29c73bsm4431143b3a.29.2026.08.03.20.58.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Aug 2026 20:58:48 -0700 (PDT)
-Message-ID: <e7ff32a5-6fd9-45c9-807d-363c645d937b@redhat.com>
-Date: Tue, 4 Aug 2026 13:58:37 +1000
+	bh=TverFBSwY7MtpYT35sNPQk4g4Kr+oiSA90dPP0U4w/M=;
+	b=LPUfmN72pO+SYcRUGTAvyMDGUW9Cv65I9rgIFLX6XF2CXB21aqlM4fZbmHUvZVO825Sf6i
+	bF/MYCXiRRBSJxsFdVhfo5WrIEgGIAmREij2Y4cNsE3df+2Puk4RoEngXRy1kh2cOTMueS
+	rYXviRLZFkvPccevw73/d9I/jd4S+Gw=
+X-Gm-Message-State: AOJu0YwTWknx1HQoRkVmzvNqFbn24PPWtK9S7RoFgUEQHXrlsTgnHEZk
+	7y8XHA/TOGZckT62q53kBUoaaZ+LL/mjWrgxcZrhzjyj4w/h33VzdicQUT0MhnGlvaqsirXlHB1
+	hLbFdh1bMAZKtE9pzJazTd/ZAJZIVA39nyBoxvLxu
+X-Received: by 2002:a05:622a:5914:b0:517:5e32:2d14 with SMTP id
+ d75a77b69052e-52cd4fbbf92mr1330831cf.10.1785782130203; Mon, 03 Aug 2026
+ 11:35:30 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 08/11] arm_mpam: prepare mon_sel locking for MPAM-Fb
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260731170324.2927758-1-andre.przywara@arm.com>
- <20260731170324.2927758-9-andre.przywara@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260731170324.2927758-9-andre.przywara@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: im7aZXNSkFVzOjlrj2dkAKKgvDhcavtAEfVdUEwCtao_1785815930
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260803124220.332248-1-fuad.tabba@linux.dev> <20260803124220.332248-11-fuad.tabba@linux.dev>
+ <86qzkfaxp9.wl-maz@kernel.org>
+In-Reply-To: <86qzkfaxp9.wl-maz@kernel.org>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Mon, 3 Aug 2026 19:34:52 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTw1=xCPugZrmQ3nj1ddvCZ=vcZT3=KO_FMHB1USUTu7kA@mail.gmail.com>
+X-Gm-Features: AUfX_mzt1I-nWoB71I22HAPLuIRo3_4lIfQ2cr-FZF11IecwevWTzcB4PKY0l4U
+Message-ID: <CA+EHjTw1=xCPugZrmQ3nj1ddvCZ=vcZT3=KO_FMHB1USUTu7kA@mail.gmail.com>
+Subject: Re: [PATCH v2 10/11] KVM: arm64: nVHE: Check hypercall handlers
+ against the declared ABI
+To: Marc Zyngier <maz@kernel.org>
+Cc: oupton@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, 
+	rostedt@goodmis.org, mhiramat@kernel.org, alexandru.elisei@arm.com, 
+	vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, 
+	ardb@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_205858_521467_AA727769 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20260803_211828_082884_9D9B70F5 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,33 +82,275 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/1/26 3:03 AM, Andre Przywara wrote:
-> The MSC MON_SEL register needs to be accessed from hardirq for the overflow
-> interrupt, and when taking an IPI to access these registers on platforms
-> where MSCs are not accesible from every CPU. This makes an irqsave
-> spinlock the obvious lock to protect these registers. On systems with
-> MPAM-Fb mailbox MSC access it must be able to sleep, meaning a mutex must
-> be used. So MPAM-Fb platforms cannot support an overflow interrupt easily.
-> Clearly these two methods can't exist for one MSC at the same time.
-> 
-> Change the mon_sel locking wrapper function to only use a spinlock when
-> the MSC is accessed directly via MMIO. In case of MPAM-Fb, we use a
-> mutex, but only if we are in a sleepable context. If that's not the
-> case, we return an error. This should not happen, as MPAM-Fb by design
-> does not require an MSC access to happen from a specific CPU, so there
-> is no need for any IPIs or preemption disabling to satisfy CPU
-> constraints. And since overflow interrupts are not supported at the moment
-> anyway, we also wouldn't meet the other case.
-> Bailing out early is already happening in rare occasions today.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> ---
->   drivers/resctrl/mpam_devices.c  |  6 +++++-
->   drivers/resctrl/mpam_internal.h | 38 +++++++++++++++++++++++++++------
->   2 files changed, 36 insertions(+), 8 deletions(-)
-> 
+On Mon, 3 Aug 2026 at 19:03, Marc Zyngier <maz@kernel.org> wrote:
+...
+>
+> I've also dropped this with the following hacks. The set_cpu_reg()
+> stuff isn't brilliant, and requires a single word type. But I find the
+> overall scheme less invasive.
+>
+> WDYT?
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Works, and hyp-main.nvhe.o comes out byte identical. I did look for a
+way to dispatch on void without the type table, but _Generic doesn't
+take an incomplete type and __builtin_choose_expr type-checks both
+arms on gcc and clang, so I don't think there's a better option.
 
+One nit: the declaration in kvm_hcall.h still says "unsigned long"
+while the definition now says "ulong". Could we make both ulong?
+
+I'm happy to respin with both of these, or would you like to fold them in?
+
+Cheers,
+/fuad
+
+
+
+
+>
+>         M.
+>
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index f8ea1661b3166..0d5fa6432461d 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -39,6 +39,12 @@ DEFINE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
+>                 ,, cpu_reg(host_ctxt, 3),, cpu_reg(host_ctxt, 4)        \
+>                 ,, cpu_reg(host_ctxt, 5),, cpu_reg(host_ctxt, 6))
+>
+> +#define set_cpu_reg_ulong(ctxt, r, v)  { cpu_reg(ctxt, r) = v; }
+> +#define set_cpu_reg_u64(ctxt, r, v)    { cpu_reg(ctxt, r) = v; }
+> +#define set_cpu_reg_int(ctxt, r, v)    { cpu_reg(ctxt, r) = v; }
+> +#define set_cpu_reg_void(ctxt, r, v)   { v; }
+> +#define set_cpu_reg(ctxt, r, t, v)     set_cpu_reg_##t(ctxt, r, v)
+> +
+>  #define DEFINE_KVM_HOST_HCALL(ret, name, ...)                          \
+>         static kvm_host_hcall_sig_##name __do_##name;                   \
+>         static __always_inline                                          \
+> @@ -48,39 +54,18 @@ DEFINE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
+>         }                                                               \
+>         static void handle_##name(struct kvm_cpu_context *host_ctxt)    \
+>         {                                                               \
+> -               cpu_reg(host_ctxt, 1) = __se_##name(KVM_HOST_HCALL_REGS(__VA_ARGS__)); \
+> +               set_cpu_reg(host_ctxt, 1, ret, __se_##name(KVM_HOST_HCALL_REGS(__VA_ARGS__))); \
+>         }                                                               \
+>         static ret __do_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__))
+>
+> -#define DEFINE_KVM_HOST_HCALL_VOID(name, ...)                          \
+> -       static kvm_host_hcall_sig_##name __do_##name;                   \
+> -       static __always_inline                                          \
+> -       void __se_##name(__KVM_HCALL_MAP(__KVM_HCALL_LONG, __VA_ARGS__)) \
+> -       {                                                               \
+> -               __do_##name(__KVM_HCALL_MAP(__KVM_HCALL_CAST, __VA_ARGS__)); \
+> -       }                                                               \
+> -       static void handle_##name(struct kvm_cpu_context *host_ctxt)    \
+> -       {                                                               \
+> -               __se_##name(KVM_HOST_HCALL_REGS(__VA_ARGS__));          \
+> -       }                                                               \
+> -       static void __do_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__))
+> -
+>  #define DEFINE_KVM_HOST_HCALL0(ret, name)                              \
+>         static kvm_host_hcall_sig_##name __do_##name;                   \
+>         static void handle_##name(struct kvm_cpu_context *host_ctxt)    \
+>         {                                                               \
+> -               cpu_reg(host_ctxt, 1) = __do_##name();                  \
+> +               set_cpu_reg(host_ctxt, 1, ret, __do_##name());          \
+>         }                                                               \
+>         static ret __do_##name(void)
+>
+> -#define DEFINE_KVM_HOST_HCALL0_VOID(name)                              \
+> -       static kvm_host_hcall_sig_##name __do_##name;                   \
+> -       static void handle_##name(struct kvm_cpu_context *host_ctxt)    \
+> -       {                                                               \
+> -               __do_##name();                                          \
+> -       }                                                               \
+> -       static void __do_##name(void)
+> -
+>  /* Number of implemented GICv3 LRs. Used by flush_hyp_vcpu(). */
+>  unsigned int hyp_gicv3_nr_lr;
+>
+> @@ -242,7 +227,7 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
+>                 host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__pkvm_vcpu_load,
+> +DEFINE_KVM_HOST_HCALL(void, __pkvm_vcpu_load,
+>         pkvm_handle_t, handle, unsigned int, vcpu_idx, u64, hcr_el2)
+>  {
+>         struct pkvm_hyp_vcpu *hyp_vcpu;
+> @@ -261,7 +246,7 @@ DEFINE_KVM_HOST_HCALL_VOID(__pkvm_vcpu_load,
+>         }
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL0_VOID(__pkvm_vcpu_put)
+> +DEFINE_KVM_HOST_HCALL0(void, __pkvm_vcpu_put)
+>  {
+>         struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+>
+> @@ -421,42 +406,42 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_host_mkyoung_guest,
+>         return __pkvm_host_mkyoung_guest(gfn, hyp_vcpu);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_adjust_pc,
+> +DEFINE_KVM_HOST_HCALL(void, __kvm_adjust_pc,
+>         struct kvm_vcpu __kern *, vcpu)
+>  {
+>         __kvm_adjust_pc(kern_hyp_va_host(vcpu));
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
+> +DEFINE_KVM_HOST_HCALL0(void, __kvm_flush_vm_context)
+>  {
+>         __kvm_flush_vm_context();
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa,
+> +DEFINE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_ipa,
+>         struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
+>  {
+>         __kvm_tlb_flush_vmid_ipa(kern_hyp_va_host(mmu), ipa, level);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa_nsh,
+> +DEFINE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_ipa_nsh,
+>         struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
+>  {
+>         __kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va_host(mmu), ipa, level);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_range,
+> +DEFINE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_range,
+>         struct kvm_s2_mmu __kern *, mmu, phys_addr_t, start, unsigned long, pages)
+>  {
+>         __kvm_tlb_flush_vmid_range(kern_hyp_va_host(mmu), start, pages);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid,
+> +DEFINE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid,
+>         struct kvm_s2_mmu __kern *, mmu)
+>  {
+>         __kvm_tlb_flush_vmid(kern_hyp_va_host(mmu));
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid,
+> +DEFINE_KVM_HOST_HCALL(void, __pkvm_tlb_flush_vmid,
+>         pkvm_handle_t, handle)
+>  {
+>         struct pkvm_hyp_vm *hyp_vm = get_np_pkvm_hyp_vm(handle);
+> @@ -468,19 +453,19 @@ DEFINE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid,
+>         put_pkvm_hyp_vm(hyp_vm);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_flush_cpu_context,
+> +DEFINE_KVM_HOST_HCALL(void, __kvm_flush_cpu_context,
+>         struct kvm_s2_mmu __kern *, mmu)
+>  {
+>         __kvm_flush_cpu_context(kern_hyp_va_host(mmu));
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_timer_set_cntvoff,
+> +DEFINE_KVM_HOST_HCALL(void, __kvm_timer_set_cntvoff,
+>         u64, cntvoff)
+>  {
+>         __kvm_timer_set_cntvoff(cntvoff);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL0_VOID(__kvm_enable_ssbs)
+> +DEFINE_KVM_HOST_HCALL0(void, __kvm_enable_ssbs)
+>  {
+>         u64 tmp;
+>
+> @@ -494,18 +479,18 @@ DEFINE_KVM_HOST_HCALL0(u64, __vgic_v3_get_gic_config)
+>         return __vgic_v3_get_gic_config();
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL0_VOID(__vgic_v3_init_lrs)
+> +DEFINE_KVM_HOST_HCALL0(void, __vgic_v3_init_lrs)
+>  {
+>         __vgic_v3_init_lrs();
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_save_aprs,
+> +DEFINE_KVM_HOST_HCALL(void, __vgic_v3_save_aprs,
+>         struct vgic_v3_cpu_if __kern *, cpu_if)
+>  {
+>         __vgic_v3_save_aprs(kern_hyp_va_host(cpu_if));
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_restore_vmcr_aprs,
+> +DEFINE_KVM_HOST_HCALL(void, __vgic_v3_restore_vmcr_aprs,
+>         struct vgic_v3_cpu_if __kern *, cpu_if)
+>  {
+>         __vgic_v3_restore_vmcr_aprs(kern_hyp_va_host(cpu_if));
+> @@ -541,7 +526,7 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_host_unshare_hyp,
+>         return __pkvm_host_unshare_hyp(pfn);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL(unsigned long, __pkvm_create_private_mapping,
+> +DEFINE_KVM_HOST_HCALL(ulong, __pkvm_create_private_mapping,
+>         phys_addr_t, phys, size_t, size, u64, prot)
+>  {
+>         /*
+> @@ -554,7 +539,7 @@ DEFINE_KVM_HOST_HCALL(unsigned long, __pkvm_create_private_mapping,
+>          * Instead pass the allocation address as the return value (or return
+>          * ERR_PTR() on failure).
+>          */
+> -       unsigned long haddr;
+> +       ulong haddr;
+>         int err = __pkvm_create_private_mapping(phys, size, prot, &haddr);
+>
+>         if (err)
+> @@ -573,7 +558,7 @@ DEFINE_KVM_HOST_HCALL0(int, __pkvm_reserve_vm)
+>         return __pkvm_reserve_vm();
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__pkvm_unreserve_vm,
+> +DEFINE_KVM_HOST_HCALL(void, __pkvm_unreserve_vm,
+>         pkvm_handle_t, handle)
+>  {
+>         __pkvm_unreserve_vm(handle);
+> @@ -630,7 +615,7 @@ DEFINE_KVM_HOST_HCALL(int, __tracing_load,
+>         return __tracing_load(desc_hva, desc_size);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL0_VOID(__tracing_unload)
+> +DEFINE_KVM_HOST_HCALL0(void, __tracing_unload)
+>  {
+>         __tracing_unload();
+>  }
+> @@ -647,7 +632,7 @@ DEFINE_KVM_HOST_HCALL(int, __tracing_swap_reader,
+>         return __tracing_swap_reader(cpu);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__tracing_update_clock,
+> +DEFINE_KVM_HOST_HCALL(void, __tracing_update_clock,
+>         u32, mult, u32, shift, u64, epoch_ns, u64, epoch_cyc)
+>  {
+>         __tracing_update_clock(mult, shift, epoch_ns, epoch_cyc);
+> @@ -665,19 +650,19 @@ DEFINE_KVM_HOST_HCALL(int, __tracing_enable_event,
+>         return __tracing_enable_event(id, enable);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__tracing_write_event,
+> +DEFINE_KVM_HOST_HCALL(void, __tracing_write_event,
+>         u64, id)
+>  {
+>         trace_selftest(id);
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_save_apr,
+> +DEFINE_KVM_HOST_HCALL(void, __vgic_v5_save_apr,
+>         struct vgic_v5_cpu_if __kern *, cpu_if)
+>  {
+>         __vgic_v5_save_apr(kern_hyp_va_host(cpu_if));
+>  }
+>
+> -DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_restore_vmcr_apr,
+> +DEFINE_KVM_HOST_HCALL(void, __vgic_v5_restore_vmcr_apr,
+>         struct vgic_v5_cpu_if __kern *, cpu_if)
+>  {
+>         __vgic_v5_restore_vmcr_apr(kern_hyp_va_host(cpu_if));
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
