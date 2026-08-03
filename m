@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34121C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B547C55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=50ccKvJbE8E2q8/VtQYZSANjSkm7KV3enAX7k9Bs5ug=; b=oFUQcZbqN6PnlCPNizKsfBx1oa
-	7R6T+wfklq/hRESgHO3nDRVgeWMIpJyOrSMxh826yc78jwTRXJ7MZ2SJEaA/cUWG2TLbOyNN3jUW6
-	UHeqqdELXLc2DI6vvuwBr9eOaQ8c6Vcw5fGnD+q1bQmTI43X7P2cqUXhCbBIuGV8QsB4GbBuUuQ8e
-	MElwYLaDsapzhxB0GLwdKW06l+1p0aJGsQQVYjUL+Ss9Ohn/dl/6bdSRf8s/TZyYZ7SBJDUEUmcB/
-	eFdOcBSaIc5k1QE2O9b4DrOmniK/Q6QbEDJ5IqI65RYv0E2JSM6lR7SFXJMKi7oh8e13cRszF3Wv5
-	N3lCL5Xg==;
+	bh=Z1DdxlBwrHhow3M3zV5emyY7loKO7p/X/7X6nqt7mAI=; b=vPtTKguUnrA4RJ5TGlVQpyLJcI
+	AVEtVbNCw70EaFc5/UcOy7y5QbOQ64J7REJyJqyuKqH/+Kn+Jcr0tMm+GbgVsULIU3m0AxrLG3335
+	Qwzr0oytmFR8oT1DGN07KFqlfe+DZt/y4PIXoRbowVdzsernrFL7w4+2fLMkvbebTGIYebvxC1hes
+	JF8wX4uBUYarlyCyPJuo9HCO7EOMMf2ImStGFkbj+DaB+bK4M8xbiFW5QJyskIHrpggPyqBzR2XZP
+	Dra3JIgzHmC0Z0cBqp76lJyRDuTbFIXEubgOG1FW9H48nA7ImgBViaZqlekHGeNtqLV/khPpMa1rN
+	/3Shk7JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqzd-0000000GxHX-212e;
-	Mon, 03 Aug 2026 11:38:05 +0000
-Received: from [113.46.200.224] (helo=canpmsgout09.his.huawei.com)
+	id 1wqr45-0000000Gxk6-0sB3;
+	Mon, 03 Aug 2026 11:42:41 +0000
+Received: from mail.kmu-office.ch ([2a02:418:6a02::a2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqzZ-0000000GxGq-3GuM
+	id 1wqr41-0000000GxjQ-2rAL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 11:38:04 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=50ccKvJbE8E2q8/VtQYZSANjSkm7KV3enAX7k9Bs5ug=;
-	b=ZZUFS3Xc/+LfR2nGSgliKhOmQoycCSE5doMoaU7wW8huWa25tay/rH1PkyKnxIrxEriRptTxk
-	ekByilyNOlDXPDVcQ6+LSAsMuXjq8ZUKrGHtJnXGZ4pJwhD53LPLIbyjEClRtoCjxHrJFZQNKbN
-	26kOtVb2p5gcPcNQnWvUejw=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4hDDtw4xJzz1cyPG;
-	Mon,  3 Aug 2026 19:28:08 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7055040572;
-	Mon,  3 Aug 2026 19:37:37 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 3 Aug 2026 19:37:36 +0800
-Message-ID: <2cd68320-ef89-4833-8960-05b826c26160@huawei.com>
-Date: Mon, 3 Aug 2026 19:37:35 +0800
+	Mon, 03 Aug 2026 11:42:39 +0000
+Received: from webmail.kmu-office.ch (unknown [IPv6:2a02:418:6a02::a3])
+	by mail.kmu-office.ch (Postfix) with ESMTPSA id 965055C2478;
+	Mon,  3 Aug 2026 13:42:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=agner.ch; s=dkim;
+	t=1785757353;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Z1DdxlBwrHhow3M3zV5emyY7loKO7p/X/7X6nqt7mAI=;
+	b=ONd7aAcB6Urqy1LY7slTlTyEmPDB/b9NLqK0THmD5GYDWNT6fZ4IP1xPuq1dFQ2vaYVIo5
+	zdjkLHFBzW3L8TPWq2Gxc03OfnbP7X2gX5JF9hkunRuVeTOm1DWmBNHuwl/UnjCclpbigx
+	0fYOxKgBNggJlDja79HWuyplyyWkhh0=
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 40/45] arm64: nmi: Add Kconfig for NMI
-To: Vladimir Murzin <vladimir.murzin@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <mark.rutland@arm.com>, <maz@kernel.org>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <liaochang1@huawei.com>
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-41-vladimir.murzin@arm.com>
- <c46ccf44-7414-42bf-9760-79200ac247ba@huawei.com>
- <b65980e5-8db2-4346-898d-fd6fce87e6cc@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <b65980e5-8db2-4346-898d-fd6fce87e6cc@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Date: Mon, 03 Aug 2026 13:42:31 +0200
+From: Stefan Agner <stefan@agner.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "Russell King
+ (Oracle)" <rmk+kernel@armlinux.org.uk>, Jakub Raczynski
+ <j.raczynski@samsung.com>, Alexander Stein
+ <alexander.stein@ew.tq-group.com>, Ovidiu Panait
+ <ovidiu.panait.rb@renesas.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev
+Subject: Re: [PATCH net v3] net: stmmac: resume PHY before hardware setup when
+ opening the interface
+In-Reply-To: <2d2cdcea-4ae2-41e2-afcf-713c569da0d8@bootlin.com>
+References: <20260803095156.132827-1-stefan@agner.ch>
+ <2d2cdcea-4ae2-41e2-afcf-713c569da0d8@bootlin.com>
+Message-ID: <4031d44e9ae41bd8be845538d27f41bd@agner.ch>
+X-Sender: stefan@agner.ch
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_043802_313084_AD7B33BA 
-X-CRM114-Status: UNSURE (   6.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260803_044237_873827_C8C120C2 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +80,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Maxime,
 
-
-在 2026/8/3 17:36, Vladimir Murzin 写道:
-> On 7/28/26 07:24, Jinjie Ruan wrote:
->>> +config ARM64_NMI
->>> +	bool "Enable support for Non-maskable Interrupts (NMI)"
->>> +	default y
->> I think we should select ARM_GIC_V3 here, as FEAT_GICv3_NMI need GICv3
->>
->>> +	help
->>> +	  Non-maskable interrupts are an architecture and GIC feature
->> GICv3 feature
+On 2026-08-03 12:36, Maxime Chevallier wrote:
+> Hi Stefan,
 > 
-> Not really, GICv5 also supports NMI.
+> On 8/3/26 11:51, Stefan Agner wrote:
+>> Since the referenced commit, changing the MTU on a running interface no
+>> longer disconnects and reconnects the PHY; __stmmac_release() merely
+>> stops phylink, which also suspends the PHY (BMCR power-down) when WoL
+>> is not enabled. __stmmac_open() then performs the DMA software reset in
+>> stmmac_hw_setup() before phylink_start() resumes the PHY again.
+>> 
+>> IEEE 802.3 22.2.4.1.5 allows a PHY to stop its receive clock while
+>> powered down, and stmmac requires a running receive clock for the DMA
+>> software reset to complete (the phylink config sets mac_requires_rxc).
+>> On such setups, e.g. the RK3566-based Home Assistant Green with an
+>> RTL8211F-VD PHY in RGMII mode, any runtime MTU change now times out and
+>> leaves the interface dead:
+>> 
+>>   rk_gmac-dwmac fe010000.ethernet end0: Failed to reset the dma
+>>   rk_gmac-dwmac fe010000.ethernet end0: stmmac_hw_setup: DMA engine initialization failed
+>>   rk_gmac-dwmac fe010000.ethernet end0: __stmmac_open: Hw setup failed
+>>   rk_gmac-dwmac fe010000.ethernet end0: failed reopening the interface after MTU change
+>> 
+>> In the field this is triggered by NetworkManager applying an MTU while
+>> activating the connection, breaking networking entirely. The same
+>> regression has also been reported on i.MX8MP and reproduced on SoCFPGA
+>> based systems.
+>> 
+>> Resume the PHY in __stmmac_open() before the hardware setup, making it
+>> the counterpart of the phylink_stop() in __stmmac_release(), like
+>> stmmac_resume() already does for the same reason. phylink_start() also
+>> resumes the PHY, but only after stmmac_hw_setup(), and it cannot be
+>> moved before the hardware setup since it may bring the link up
+>> immediately from a workqueue, racing with the initialization (see the
+>> comment in stmmac_resume()). For the regular ndo_open path the PHY has
+>> just been attached and is not suspended, in which case
+>> phylink_prepare_resume() does nothing.
+>> 
+>> Fixes: db299a0c09e9 ("net: stmmac: move PHY handling out of __stmmac_open()/release()")
+>> Link: https://github.com/home-assistant/operating-system/issues/4858
+>> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+>> Assisted-by: Claude:claude-fable-5
+>> Signed-off-by: Stefan Agner <stefan@agner.ch>
+> 
+> Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-Oh, I forgot about this newest interrupt controller.
+Thanks for reviewing and testing!
 
 > 
-> Thanks
-> Vladimir
-> 
+> Do you feel confident following-up with the phylink renames, or should
+> I add that to my todolist ?
 
+It takes me quite a bit of time since I am not much into kernel
+development (anymore). I'd appreciate if you can do it.
+
+--
+Stefan
 
