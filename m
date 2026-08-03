@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B2E0C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:30:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33B9C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:32:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NtNqg/4CA3hrXmQICsgo3L9YCqAtgxWmTRKFsd6MWpg=; b=A6xWMugFuUK9+X0LKLJAjmAG9H
-	QgkfKLWg6aP4wb5Q20BFWOSzkUKRz83oU87Efjw8pGzKP6sqvWeXJsgL26tmobVSWHC0d0X8L/8B/
-	31pVVNMA0m2BWqQmLdqa3RbODTBPsr1sGuuw1tUwAmGJaBaam2NlG0QOjnIfg740IIsP88nokEAnc
-	8XT0r6evAiyi8/evKI/2MXznHAmYjWu5vhxe2RtMYVWcbLbthkMXXC6Qv22Hl8TqYmuurK+LRM4Qk
-	ihJjChVMiQJ/gW+q9osNk/dH+0jaU932xIE+TOQsBMzCQ/lEojrA3YOkEkStSsNlBVxUW8qpEgzCz
-	dcnsMG/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dtAprwl9YVKSgx2qkgDkJIY4Tilcw0HSTK5NvGoGEC4=; b=yddBc5ro5vy+6ePWFevex8dZNa
+	8DuiYdiqcr0JrXBf4dPVKAdGVfM5CknGdAUSGUmy2d+UMBf5sZ5mPDvZGJkDSJKwp1hVFBsbpp+Gc
+	yg7rwxJTdgyhAP6YBzfluZ+nPzK8g8Pz35W5V68YGeesj13ZC+TR+porGSs/Y3tA9HCcTFrBZdbTw
+	Den/jvQnNpF+g8Sh4WrX9S5y9pZ+JsXH9PXU8WenpGa3rZvRBVJ3Saun5yRfRwbsrGdWdSX5lsEqe
+	FjwA9KlD3qs1J5Mr6T3//qUdRexkA1cnxHQhpW7U+Yz1Bl0iYP++Pf+rtEcqDX1vK6WDSv42UvXZk
+	cAFrsxUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquck-0000000HXFk-03i1;
-	Mon, 03 Aug 2026 15:30:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquch-0000000HXEn-3o5y
+	id 1wquem-0000000HXTI-1Xk4;
+	Mon, 03 Aug 2026 15:32:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wquek-0000000HXTA-3k12
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 15:30:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 141C3143D;
-	Mon,  3 Aug 2026 08:30:34 -0700 (PDT)
-Received: from [10.1.25.28] (e122027.cambridge.arm.com [10.1.25.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5953A3F66F;
-	Mon,  3 Aug 2026 08:30:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785771038; bh=djnR4L7T9Nrisx8TzEeW+nhNQswnUw3QiSMp/xK96/g=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=D0rI3FMPyWOky0yFms0kfx2ss+EaVr5wLg2O/5kAG/n87Q0MbZvLlSVb7/Gu4DaZF
-	 YAdr0X4BHABq0TJrTe9iT2ojEd6RvB2PmgiAo4JUxJtn5yt3PAvHAiQxHropqWA4jm
-	 AWZ2+hcBgaeLnr2Ydjs7KxIPZeGtNzvadL2Zn/yc=
-Message-ID: <5cbbcb2d-54d4-446d-8690-ab51a62b8ff5@arm.com>
-Date: Mon, 3 Aug 2026 16:30:30 +0100
+	Mon, 03 Aug 2026 15:32:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C52060A81;
+	Mon,  3 Aug 2026 15:32:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BD9F1F00A3A;
+	Mon,  3 Aug 2026 15:32:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785771164;
+	bh=dtAprwl9YVKSgx2qkgDkJIY4Tilcw0HSTK5NvGoGEC4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WYg7oONsuX2Brvgwjitwk77p506v8el7XNP2buJRtdOxkH5PrcmxYad/4+siEEvi+
+	 ngSsM83nqgyT19k3ROzH+GFDDT5o/PdfUBmLFewVJst0NyLUX/qVomM71taDAJmPaq
+	 qLRAesXU7j0fYjZpY71Ek+ECQFOynvtixDxkRJcrajEscwc/yi09TElybQ69+x6HlN
+	 eeBXN5dBQHJ4QARAv6jl96Oomj3R74GNuK59qp+vsBFi2/iL+5lahu1rYeQGYcZ77W
+	 n28Lu+D73MJvHHClLynmaxonmzIfYJ3AFSgBZ1uJOFvvzH5gExH+hhngKNOB5+JwHv
+	 7MXXCtl99O6IA==
+Date: Mon, 3 Aug 2026 16:32:27 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Barry Song <baohua@kernel.org>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, surenb@google.com, liam@infradead.org, vbabka@kernel.org, 
+	shakeel.butt@linux.dev, david@kernel.org, linux-kernel@vger.kernel.org, 
+	zhanghongru@xiaomi.com, willy@infradead.org, zhangbo56@xiaomi.com
+Subject: Re: [RFC PATCH v1 2/2] arm64/mm: use VMA lock for kernel faults on
+ user addresses
+Message-ID: <anCxz6JqVtebHxg7@lucifer>
+References: <20260802074018.73887-1-baohua@kernel.org>
+ <20260802074018.73887-3-baohua@kernel.org>
+ <CAGsJ_4wLG77Y5r9Dy6QOqgmjNM5W1E5aGqKyJb7Bp3WGemNFmg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 20/37] KVM: arm64: CCA: Allow populating initial
- contents
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-References: <20260715142841.80544-1-steven.price@arm.com>
- <20260715142841.80544-21-steven.price@arm.com> <861pcfcr2m.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <861pcfcr2m.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_083040_033841_91BF1A20 
-X-CRM114-Status: GOOD (  28.72  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGsJ_4wLG77Y5r9Dy6QOqgmjNM5W1E5aGqKyJb7Bp3WGemNFmg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,264 +74,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/08/2026 13:43, Marc Zyngier wrote:
-> On Wed, 15 Jul 2026 15:28:22 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> The VMM needs to populate the realm with some data before starting (e.g.
->> a kernel and initrd). This is measured by the RMM and used as part of
->> the attestation later on.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v14:
->>  * Holding of locks slots_lock and config_lock have been moved up the
->>    callstack with lockdesp assertions placed in the lower functions.
->>  * Add overflow check into kvm_arm_rmi_populate().
->> Changes since v13:
->>  * Rename realm_create_protected_data_page() to realm_data_map_init().
->> Changes since v12:
->>  * The ioctl now updates the structure with the amount populated rather
->>    than returning this through the ioctl return code.
->>  * Use the new RMM v2.0 range based RMI calls.
->>  * Adapt to upstream changes in kvm_gmem_populate().
->> Changes since v11:
->>  * The multiplex CAP is gone and there's a new ioctl which makes use of
->>    the generic kvm_gmem_populate() functionality.
->> Changes since v7:
->>  * Improve the error codes.
->>  * Other minor changes from review.
->> Changes since v6:
->>  * Handle host potentially having a larger page size than the RMM
->>    granule.
->>  * Drop historic "par" (protected address range) from
->>    populate_par_region() - it doesn't exist within the current
->>    architecture.
->>  * Add a cond_resched() call in kvm_populate_realm().
->> Changes since v5:
->>  * Refactor to use PFNs rather than tracking struct page in
->>    realm_create_protected_data_page().
->>  * Pull changes from a later patch (in the v5 series) for accessing
->>    pages from a guest memfd.
->>  * Do the populate in chunks to avoid holding locks for too long and
->>    triggering RCU stall warnings.
->> ---
->>  arch/arm64/include/asm/kvm_rmi.h |   4 ++
->>  arch/arm64/kvm/Kconfig           |   1 +
->>  arch/arm64/kvm/arm.c             |  13 ++++
->>  arch/arm64/kvm/rmi.c             | 119 +++++++++++++++++++++++++++++++
->>  4 files changed, 137 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
->> index 5cb99c187202..fd0c57594a22 100644
->> --- a/arch/arm64/include/asm/kvm_rmi.h
->> +++ b/arch/arm64/include/asm/kvm_rmi.h
->> @@ -105,6 +105,10 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
->>  int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
->>  int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
->>  
->> +struct kvm_arm_rmi_populate;
->> +
->> +int kvm_arm_rmi_populate(struct kvm *kvm,
->> +			 struct kvm_arm_rmi_populate *arg);
->>  void kvm_realm_unmap_range(struct kvm *kvm,
->>  			   unsigned long ipa,
->>  			   unsigned long size,
->> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
->> index 189e8ad78b22..83b95e836b4d 100644
->> --- a/arch/arm64/kvm/Kconfig
->> +++ b/arch/arm64/kvm/Kconfig
->> @@ -37,6 +37,7 @@ menuconfig KVM
->>  	select SCHED_INFO
->>  	select GUEST_PERF_EVENTS if PERF_EVENTS
->>  	select KVM_GUEST_MEMFD
->> +	select HAVE_KVM_ARCH_GMEM_POPULATE
->>  	select ARM_RMM
->>  	help
->>  	  Support hosting virtualized guest machines.
->> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->> index df33322b8fea..1558bb12b1b1 100644
->> --- a/arch/arm64/kvm/arm.c
->> +++ b/arch/arm64/kvm/arm.c
->> @@ -2153,6 +2153,19 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
->>  			return -EFAULT;
->>  		return kvm_vm_ioctl_get_reg_writable_masks(kvm, &range);
->>  	}
->> +	case KVM_ARM_RMI_POPULATE: {
->> +		struct kvm_arm_rmi_populate req;
->> +		int ret;
->> +
->> +		if (!kvm_is_realm(kvm))
->> +			return -ENXIO;
->> +		if (copy_from_user(&req, argp, sizeof(req)))
->> +			return -EFAULT;
->> +		ret = kvm_arm_rmi_populate(kvm, &req);
->> +		if (copy_to_user(argp, &req, sizeof(req)))
->> +			return -EFAULT;
->> +		return ret;
->> +	}
->>  	default:
->>  		return -EINVAL;
->>  	}
->> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
->> index 53b5b18f2275..e2b4c64e982d 100644
->> --- a/arch/arm64/kvm/rmi.c
->> +++ b/arch/arm64/kvm/rmi.c
->> @@ -590,6 +590,76 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
->>  		realm_unmap_private_range(kvm, start, end, may_block);
->>  }
->>  
->> +static int realm_data_map_init(struct kvm *kvm, unsigned long ipa,
->> +			       kvm_pfn_t dst_pfn, kvm_pfn_t src_pfn,
->> +			       unsigned long flags)
->> +{
->> +	struct realm *realm = &kvm->arch.realm;
->> +	phys_addr_t rd = virt_to_phys(realm->rd);
->> +	phys_addr_t dst_phys, src_phys;
->> +	int ret;
->> +
->> +	lockdep_assert_held(&kvm->slots_lock);
->> +	lockdep_assert_held(&kvm->arch.config_lock);
->> +
->> +	dst_phys = __pfn_to_phys(dst_pfn);
->> +	src_phys = __pfn_to_phys(src_pfn);
->> +
->> +	if (rmi_delegate_page(dst_phys))
->> +		return -ENXIO;
->> +
->> +retry:
->> +	ret = rmi_rtt_data_map_init(rd, dst_phys, ipa, src_phys, flags);
->> +	if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
->> +		/* Create missing RTTs and retry */
->> +		int level = RMI_RETURN_INDEX(ret);
->> +
->> +		KVM_BUG_ON(level >= KVM_PGTABLE_LAST_LEVEL, kvm);
-> 
-> Surely you should break here and make it stop, right? The VM is bugged
-> anyway, so what's the point in continuing?
+On Sun, Aug 02, 2026 at 04:49:04PM +0800, Barry Song wrote:
+> On Sun, Aug 2, 2026 at 3:40 PM Barry Song (Xiaomi) <baohua@kernel.org> wrote:
+> >
+> > Use the VMA lock for kernel faults on user addresses. This also
+> > makes the existing code below meaningful:
+> >
+> > /* Quick path to respond to signals */
+> > if (fault_signal_pending(fault, regs)) {
+> >         if (!user_mode(regs))
+> >                 goto no_context;
+> >         return 0;
+> > }
+> >
+> > Right now, the code above is dead because !user_mode always
+> > takes the mmap_lock path.
+> >
+> > Co-developed-by: Bo Zhang <zhangbo56@xiaomi.com>
+> > Signed-off-by: Bo Zhang <zhangbo56@xiaomi.com>
+> > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> > ---
+> >  arch/arm64/mm/fault.c | 4 +++-
+> >  1 file changed, 3 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> > index 85e23388f9bb..241f1ab07ab3 100644
+> > --- a/arch/arm64/mm/fault.c
+> > +++ b/arch/arm64/mm/fault.c
+> > @@ -607,6 +607,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+> >         unsigned int mm_flags = FAULT_FLAG_DEFAULT;
+> >         unsigned long addr = untagged_addr(far);
+> >         struct vm_area_struct *vma;
+> > +       bool uaccess = false;
+> >         int si_code;
+> >         int pkey = -1;
+> >
+> > @@ -663,6 +664,7 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
+> >                 if (!insn_may_access_user(regs->pc, esr))
+> >                         die_kernel_fault("access to user memory outside uaccess routines",
+> >                                          addr, esr, regs);
+> > +               uaccess = true;
+>
+> https://sashiko.dev/#/patchset/20260802074018.73887-1-baohua%40kernel.org
+>
+> "Does this conditional bypass translation faults? Because this block is
+> guarded by:
+> if (is_ttbr0_addr(addr) && is_el1_permission_fault(addr, esr, regs)) {
+> it appears uaccess is only set for permission faults like CoW or PAN
+> violations.
+> If a kernel uaccess routine accesses an unmapped user address, a translation
+> fault occurs, making is_el1_permission_fault() evaluate to false.
+> Would this cause demand paging in uaccess routines to fall back to the slow
+> lock_mmap path, missing the intended optimization?"
+>
+> Good catch! I should have only modified a single line. Then
+> unmapped PTEs would also benefit from the VMA lock:
+>
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 85e23388f9bb..e1b406d667aa 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -674,7 +674,7 @@ static int __kprobes do_page_fault(unsigned long
+> far, unsigned long esr,
+>
+>         perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
+>
+> -       if (!(mm_flags & FAULT_FLAG_USER))
+> +       if (!(mm_flags & FAULT_FLAG_USER) && !is_ttbr0_addr(addr))
+>                 goto lock_mmap;
 
-True, this should have an early error return.
+I mean honestly it feels like, with the permanent VMA flags change, that maybe
+this really needs to wait for Matthew's series?
 
->> +
->> +		ret = realm_create_rtt_levels(realm, ipa, level,
->> +					      level + 1, NULL);
->> +		if (!ret)
->> +			goto retry;
->> +	}
->> +
->> +	if (ret && WARN_ON(rmi_undelegate_page(dst_phys))) {
->> +		/* Leak the page if the undelegate fails */
->> +		get_page(pfn_to_page(dst_pfn));
-> 
-> Same here. The VM should be dead.
+There's duplication here too of course :)
 
-Ack.
+But it begs the question of every other arch that does VMA page faulting.
 
->> +	}
->> +
->> +	return ret <= 0 ? ret : -ENXIO;
->> +}
->> +
->> +static int populate_region_cb(struct kvm *kvm, gfn_t gfn, kvm_pfn_t pfn,
->> +			      struct page *src_page, void *opaque)
->> +{
->> +	unsigned long data_flags = *(unsigned long *)opaque;
->> +	phys_addr_t ipa = gfn_to_gpa(gfn);
->> +
->> +	return realm_data_map_init(kvm, ipa, pfn, page_to_pfn(src_page),
->> +				   data_flags);
->> +}
->> +
->> +static long populate_region(struct kvm *kvm,
->> +			    gfn_t base_gfn,
->> +			    unsigned long pages,
->> +			    u64 uaddr,
->> +			    unsigned long data_flags)
->> +{
->> +	long ret = 0;
->> +
->> +	lockdep_assert_held(&kvm->slots_lock);
->> +	lockdep_assert_held(&kvm->arch.config_lock);
->> +
->> +	if (!uaddr)
->> +		return -EINVAL;
->> +
->> +	ret = kvm_gmem_populate(kvm, base_gfn, u64_to_user_ptr(uaddr), pages,
->> +				false, populate_region_cb, &data_flags);
->> +
->> +	return ret;
->> +}
->> +
->>  enum ripas_action {
->>  	RIPAS_INIT,
->>  	RIPAS_SET,
->> @@ -705,6 +775,55 @@ static int realm_ensure_created(struct kvm *kvm)
->>  	return realm_create_rd(kvm);
->>  }
->>  
->> +int kvm_arm_rmi_populate(struct kvm *kvm,
->> +			 struct kvm_arm_rmi_populate *args)
->> +{
->> +	unsigned long data_flags = 0;
->> +	unsigned long ipa_start = args->base;
->> +	unsigned long ipa_end = ipa_start + args->size;
->> +	long pages_populated;
->> +	int ret;
->> +
->> +	if (args->reserved ||
->> +	    (args->flags & ~KVM_ARM_RMI_POPULATE_FLAGS_MEASURE) ||
->> +	    args->base + args->size < args->base ||
-> 
-> More importantly, what checks that this is within the IPA range?
+So feels better suited as part of that change I think?
 
-So I think this should fail gracefully when we fail to find the memslot.
-But I agree an explicit check here would be easier to reason about.
+Maybe Matthew has thoughts.
 
-Thanks,
-Steve
+>
+>         vma = lock_vma_under_rcu(mm, addr);
 
->> +	    !IS_ALIGNED(ipa_start, PAGE_SIZE) ||
->> +	    !IS_ALIGNED(ipa_end, PAGE_SIZE) ||
->> +	    !IS_ALIGNED(args->source_uaddr, PAGE_SIZE))
->> +		return -EINVAL;
->> +
->> +	if (args->flags & KVM_ARM_RMI_POPULATE_FLAGS_MEASURE)
->> +		data_flags |= RMI_MEASURE_CONTENT;
->> +
->> +	mutex_lock(&kvm->slots_lock);
->> +	mutex_lock(&kvm->arch.config_lock);
->> +
->> +	ret = realm_ensure_created(kvm);
->> +	if (ret)
->> +		goto out_unlock;
->> +
->> +	if (args->size == 0)
->> +		goto out_unlock;
->> +
->> +	pages_populated = populate_region(kvm, gpa_to_gfn(ipa_start),
->> +					  args->size >> PAGE_SHIFT,
->> +					  args->source_uaddr, data_flags);
->> +
->> +	if (pages_populated < 0) {
->> +		ret = pages_populated;
->> +		goto out_unlock;
->> +	}
->> +
->> +	args->size -= pages_populated << PAGE_SHIFT;
->> +	args->source_uaddr += pages_populated << PAGE_SHIFT;
->> +	args->base += pages_populated << PAGE_SHIFT;
->> +
->> +out_unlock:
->> +	mutex_unlock(&kvm->arch.config_lock);
->> +	mutex_unlock(&kvm->slots_lock);
->> +	return ret;
->> +}
->> +
->>  static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
->>  {
->>  	struct kvm *kvm = vcpu->kvm;
-> 
-> 	M.
-> 
-
+--
+Cheers, Lorenzo
 
