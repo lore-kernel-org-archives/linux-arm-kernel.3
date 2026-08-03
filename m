@@ -4,111 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF87C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D050C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 15:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CISqUyNrQHnuig4NG6zWObmoUM7qsn/M6rO8iF8GMa0=; b=bB5CUkNnWbe+ymgRNa3oxRLwRY
-	63CSJclMxqbaUPmRt4ltOOGbae8/GBjEqaabJPIMYs5Fdnq+Z+xLyeAYcCJP7gL9zs0y8q0UhqsSo
-	1oB6RViKhli4ecC6fl4DV7MMmcLz9jJltfKRCJeZnYgJrP0qy0Kh23IeLTe7iQFvndKXID3FXrll9
-	F+hOtso4XT9480gGvsFn0kqcy0BV48FV/yBoqqM95fd46eqoH5mflRk8fKEEl7pprL9h/EZrcXi4V
-	gUUxz/T2iS5MqjCNHUwKmz0k1HAWNEeW8fjzvd16XSO1Sszj9pzx7GdM23dEfFpMDm9E+ZxB9GpZ2
-	XdawM7EQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WZjH76UHpmDstUPipU1jxx0J7jtyxEHdRgZMTUCEI6Y=; b=NmfHd7Kfb/STN/81OluXek7jm7
+	hfi8mbI8EAmnhhq7GFKs+TRnkd5L45D2SuXSdBdb0ZJ2lxo/wU4x8tUIE7xacYiNQ74xP7+5ExKZR
+	DhX3b55s5ST2FwawnXdbdV7OfheOR6k7Ifk4MnMNuWVdVLdxABVxjznjZvPBIzPBdBa6Cvww4X5+3
+	qqCEaa04dyVJM9Vp3W4rQNnRv8lGiqyNb8bteyvu4BxQxZWoQooFFsY5oiQm+6yUVxGxYkyIYMFIE
+	Uv+Ykd9KTCW07Ru7LxVC5Vo9WTJaB7MMxApQ/2Wps+SLn+XHyDX9oa7HLDQzdicnXSPKJCUwqjEqj
+	KES1TvHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquPx-0000000HUpW-1FhD;
-	Mon, 03 Aug 2026 15:17:29 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wquPu-0000000HUow-1xBM
+	id 1wquQt-0000000HV2a-2fNp;
+	Mon, 03 Aug 2026 15:18:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wquQq-0000000HV1w-48uk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 15:17:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785770245;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CISqUyNrQHnuig4NG6zWObmoUM7qsn/M6rO8iF8GMa0=;
-	b=Zz4SWlT/Ho4Ro80EfMM4dWEGc0lLq3zukxv/YKRmvp+3sAoZ4LE/Nyb3zEd29BJnLZz5Bz
-	vlh9+PXYkzFQQzmHQf/nAZpH0iH/GiLhdTCDvuep6uHJgPB9MqIZGlZRybSxW2bODA19RY
-	+vnftvrkM5QMdSa+xkEr82IT/CMs/GM=
-Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com
- [209.85.128.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-648-V9tRS_x_O8-CBfc5rcRuBw-1; Mon, 03 Aug 2026 11:17:19 -0400
-X-MC-Unique: V9tRS_x_O8-CBfc5rcRuBw-1
-X-Mimecast-MFC-AGG-ID: V9tRS_x_O8-CBfc5rcRuBw_1785770238
-Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-81eedabbefcso118012717b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 08:17:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785770238; x=1786375038;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CISqUyNrQHnuig4NG6zWObmoUM7qsn/M6rO8iF8GMa0=;
-        b=qzJMOzthg+wJfhNGhsCVjI2GvUsAJy5BU6TGakFHYf2sPjgloLr+jVBuFejVd/Ebzv
-         Wu4/9Alk/OSWDRN4yEFg32RMwjHMRMvUIBqy6mm0XthHoD62tU1gNweBR34xK5zDNg+V
-         Myspv22Kc6VXP0z8G51pN3hDj5G0s4mMvbOXzqKwGi+S8nQ5kFmZvugEv6hxbNvfHJwL
-         F0g58Q3+ln7V0MxD4YzhYLy03lsCiHFObnOQhyNhjH3Y/QNc3D3jimexqsudFah7HjiH
-         0HldtGOZNXhBWFjLySgVcKYYnjgNKpWPI7QfUXRO/1+F61tGnrki783K4ILifAUKABr2
-         DnEQ==
-X-Forwarded-Encrypted: i=1; AHgh+Ro5fbflpRxLNJ6xSo7o/Um2LWEJMsK4qPbSB9modC6Wkhb1QLb4cUSidjLkwymQabSiweXHcsPqahW1FEAmyEsi@lists.infradead.org
-X-Gm-Message-State: AOJu0YynSGCIBYq8O7VxQCVMr42lHXWXXZl6VqU1wMsqyuDl00B9X0t9
-	LrYaihoyK3rmaAsAsbxaF7KfDFoOZ6/bbcggYMagf8Y/lyAqajK67EXH69+M97OfptiKy+EmvBw
-	zp7pP26tfkEdJospRheu5uyIQtk92YzdE8KmXyX5PxLkYimVP802M/sZlN59kxqq6ANUn4oY/I/
-	ij
-X-Gm-Gg: AR+sD12wgAtqDKyYHMu3K9qUR/MT5Vg8C5IiffcApdrHh6FrSLyA7Mhf1Os816jcfh0
-	p9vbexhKAtvMNciUd2bBk/7jQx0XuVgqzCqgX+BQaO4HX4ltWXPWNMpayb7LdB8Q3MdW4WAvbQg
-	QC9qk2PHVufSvZlgWI/SNLdxuD/gCvjJnUJyU5v+aoVlhtBEcHEi0Qz2klnMVGfghytzctylX5k
-	bmX+7HugJbImgqP7z3WT2SKrgaN7XvlG1KVzMbC759bcCXLrjWPdV9GfSZiYwR2UxbaTPDMwGtR
-	SbD4x1prAcwhULD1OquGZFxNkx0tsEYKYS1s+koWl5VtY5f/KUg+KGh8yZMNQfwifq/Jl4VY5wy
-	/Sb5amo7GIPy7TRGPf9AV881cowVNznGo2OE=
-X-Received: by 2002:a05:690c:450d:b0:7d1:dd7b:b734 with SMTP id 00721157ae682-81fd4b5a2c8mr136703417b3.23.1785770238455;
-        Mon, 03 Aug 2026 08:17:18 -0700 (PDT)
-X-Received: by 2002:a05:690c:450d:b0:7d1:dd7b:b734 with SMTP id 00721157ae682-81fd4b5a2c8mr136702797b3.23.1785770237899;
-        Mon, 03 Aug 2026 08:17:17 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-81fccf2e239sm57358447b3.5.2026.08.03.08.17.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 08:17:17 -0700 (PDT)
-Date: Mon, 3 Aug 2026 11:17:14 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chun-Jie Chen <chun-jie.chen@mediatek.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Edward-JW Yang <edward-jw.yang@mediatek.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Irving-CH Lin <irving-ch.lin@mediatek.com>
-Subject: Re: [PATCH v5 18/25] clk: mediatek: Add MT8189 vlpckgen clock support
-Message-ID: <anCw-ozpIjYfan5O@redhat.com>
-References: <20260801-mt8189-clocks-system-base-v5-0-ac4410697cc2@collabora.com>
- <20260801-mt8189-clocks-system-base-v5-18-ac4410697cc2@collabora.com>
+	Mon, 03 Aug 2026 15:18:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42554143D;
+	Mon,  3 Aug 2026 08:18:19 -0700 (PDT)
+Received: from [10.1.25.28] (e122027.cambridge.arm.com [10.1.25.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F7343F66F;
+	Mon,  3 Aug 2026 08:18:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785770303; bh=a5G5LMPPyNBg/dAf4FAYnm9izzvFgYrpS6qSIas4tHA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=P/EjJyabE9lK32euTx1Wi9058FfNuSTH0MKFDFNkN+UG8A8xu4flKej/XWEImcgKK
+	 gUmWZDMAAlZyiQqrXlUaBmnNnsFkclTihe0Qx9fOzWmpPYsPFeOYYcsmMBJPuq5Q3E
+	 YxIzxM++5YQhYrS+i1gT99OSEKDffNCIVgT7C+dk=
+Message-ID: <bb5ed17a-532f-4b05-8e8c-cbda3cb0433f@arm.com>
+Date: Mon, 3 Aug 2026 16:18:14 +0100
 MIME-Version: 1.0
-In-Reply-To: <20260801-mt8189-clocks-system-base-v5-18-ac4410697cc2@collabora.com>
-User-Agent: Mutt/2.4.0 (2026-06-19)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: BoNwj3npSWwKzYoGUXVE20PiyBL68fMVdoIL9sttYd0_1785770238
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 19/37] KVM: arm64: CCA: Activate realms on first vCPU
+ run
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-20-steven.price@arm.com> <8633wvcrqr.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <8633wvcrqr.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_081726_650201_D71431CB 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20260803_081825_122165_E731FD80 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,66 +85,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Louis-Alexis,
-
-On Sat, Aug 01, 2026 at 01:21:04PM +0200, Louis-Alexis Eyraud wrote:
-> Add support for the MT8189 vlpckgen clock controller, which provides
-> muxes and dividers for clock selection in vlp domain for other IP blocks.
+On 03/08/2026 13:29, Marc Zyngier wrote:
+> On Wed, 15 Jul 2026 15:28:21 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> Use kvm_arch_vcpu_run_pid_change() to check if this is the first time
+>> the realm guest has run. If this is the first run then activate the
+>> realm.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>
+>> ---
+>> Changes since v12:
+>>  * Fix commit message
+>>  * Change realm_state checks to be >= REALM_STATE_ACTIVE to avoid a dead
+>>    guest being revived by kvm_activate_realm().
+>> ---
+>>  arch/arm64/include/asm/kvm_rmi.h |  1 +
+>>  arch/arm64/kvm/arm.c             |  6 +++++
+>>  arch/arm64/kvm/rmi.c             | 45 ++++++++++++++++++++++++++++++--
+>>  3 files changed, 50 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+>> index 5461c49bea4d..5cb99c187202 100644
+>> --- a/arch/arm64/include/asm/kvm_rmi.h
+>> +++ b/arch/arm64/include/asm/kvm_rmi.h
+>> @@ -96,6 +96,7 @@ void kvm_init_rmi(void);
+>>  u32 kvm_rmm_ipa_limit(void);
+>>  
+>>  int kvm_init_realm(struct kvm *kvm);
+>> +int kvm_activate_realm(struct kvm *kvm);
+>>  void kvm_destroy_realm(struct kvm *kvm);
+>>  int kvm_realm_teardown_stage2(struct kvm *kvm);
+>>  void kvm_destroy_rec(struct kvm_vcpu *vcpu);
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 534d33b7c67a..df33322b8fea 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -1034,6 +1034,12 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
+>>  			return ret;
+>>  	}
+>>  
+>> +	if (kvm_is_realm(vcpu->kvm)) {
+>> +		ret = kvm_activate_realm(kvm);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>> +
+>>  	mutex_lock(&kvm->arch.config_lock);
+>>  	set_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &kvm->arch.flags);
+>>  	mutex_unlock(&kvm->arch.config_lock);
+>> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+>> index 94776a9262c9..53b5b18f2275 100644
+>> --- a/arch/arm64/kvm/rmi.c
+>> +++ b/arch/arm64/kvm/rmi.c
+>> @@ -687,7 +687,7 @@ static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
+>>  	return ret;
+>>  }
+>>  
+>> -static int __maybe_unused realm_ensure_created(struct kvm *kvm)
+>> +static int realm_ensure_created(struct kvm *kvm)
+>>  {
+>>  	lockdep_assert_held(&kvm->arch.config_lock);
+>>  
+>> @@ -793,7 +793,7 @@ int noinstr kvm_rec_enter(struct kvm_vcpu *vcpu)
+>>  	return ret;
+>>  }
+>>  
+>> -static int __maybe_unused kvm_create_rec(struct kvm_vcpu *vcpu)
+>> +static int kvm_create_rec(struct kvm_vcpu *vcpu)
+>>  {
+>>  	struct user_pt_regs *vcpu_regs = vcpu_gp_regs(vcpu);
+>>  	unsigned long mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
+>> @@ -893,6 +893,47 @@ void kvm_destroy_rec(struct kvm_vcpu *vcpu)
+>>  	rec->rec_page = NULL;
+>>  }
+>>  
+>> +int kvm_activate_realm(struct kvm *kvm)
+>> +{
+>> +	struct realm *realm = &kvm->arch.realm;
+>> +	struct kvm_vcpu *vcpu;
+>> +	unsigned long i;
+>> +	int ret;
+>> +
+>> +	if (kvm_realm_state(kvm) >= REALM_STATE_ACTIVE)
+>> +		return 0;
+>> +
+>> +	if (!irqchip_in_kernel(kvm)) {
+>> +		/* Userspace irqchip not yet supported with realms */
+>> +		return -EOPNOTSUPP;
+>> +	}
 > 
-> Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
->  drivers/clk/mediatek/Makefile              |   3 +-
->  drivers/clk/mediatek/clk-mt8189-vlpckgen.c | 285 +++++++++++++++++++++++++++++
->  2 files changed, 287 insertions(+), 1 deletion(-)
+> This could race with the irqchip being created on another CPU. Also,
+> an irqchip being in kernel doesn't mean it is ready, and I suspect
+> you also need to check that it has been initialised.
+
+Good point - moving the config_lock up and checking vgic_initialized()
+makes sense.
+
+>> +
+>> +	guard(mutex)(&kvm->arch.config_lock);
+>> +	/* Check again with the lock held */
+>> +	if (kvm_realm_state(kvm) >= REALM_STATE_ACTIVE)
+>> +		return 0;
+>> +
+>> +	ret = realm_ensure_created(kvm);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* Mark state as dead in case we fail */
+>> +	kvm_set_realm_state(kvm, REALM_STATE_DEAD);
+>> +
+>> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+>> +		ret = kvm_create_rec(vcpu);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
 > 
-> diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-> index 9d3d2983bfb2..3b25df9e7b50 100644
-> --- a/drivers/clk/mediatek/Makefile
-> +++ b/drivers/clk/mediatek/Makefile
-> @@ -123,7 +123,8 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VDOSYS) += clk-mt8188-vdo0.o clk-mt8188-vdo1.o
->  obj-$(CONFIG_COMMON_CLK_MT8188_VENCSYS) += clk-mt8188-venc.o
->  obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) += clk-mt8188-vpp0.o clk-mt8188-vpp1.o
->  obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
-> -obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o
-> +obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
-> +				   clk-mt8189-vlpckgen.o
->  obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
->  obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
->  obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-> diff --git a/drivers/clk/mediatek/clk-mt8189-vlpckgen.c b/drivers/clk/mediatek/clk-mt8189-vlpckgen.c
-> new file mode 100644
-> index 000000000000..8eda5331972e
-> --- /dev/null
-> +++ b/drivers/clk/mediatek/clk-mt8189-vlpckgen.c
-> @@ -0,0 +1,285 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2025-2026 MediaTek Inc.
-> + *                    Qiqi Wang <qiqi.wang@mediatek.com>
-> + *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
-> + * Copyright (C) 2026 Collabora Ltd.
-> + *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> + *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/slab.h>
+> If the realm is dead, shouldn't the KVM view of death apply as well?
 
-There are also some headers that can likely be dropped here as well. I'm
-not going to comment on this on any other patches. I'll just list any
-new issues I see.
+Indeed that would be a good improvement. I'll change these error paths
+to include a kvm_vm_dead() call.
 
-Brian
+Thanks,
+Steve
+
+>> +
+>> +	ret = rmi_realm_activate(virt_to_phys(realm->rd));
+>> +	if (ret)
+>> +		return -ENXIO;
+>> +
+>> +	kvm_set_realm_state(kvm, REALM_STATE_ACTIVE);
+>> +	return 0;
+>> +}
+>> +
+>>  void kvm_destroy_realm(struct kvm *kvm)
+>>  {
+>>  	struct realm *realm = &kvm->arch.realm;
+> 
+> Thanks,
+> 
+> 	M.
+> 
 
 
