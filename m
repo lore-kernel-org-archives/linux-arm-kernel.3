@@ -4,74 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09CA6C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FD91C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xSDgbFaMy9AXsq0EBdVcXih7ZqDA4mjZqd2Srs2jSzs=; b=vfpYAk7jDGcybHSi8nJQFBQ1HR
-	7ZAZ0HSRxw5fmAKkHBbNHP/mQN4WDAisfbM8CBoj5M2sSEIu6mNUaDcYe0DN6XvMgzsOBgxG6gZ6Q
-	Tn+wJO9ZmfVWQTNOfsEbzgrRqsPq63mdg6abUJHo7mc7PyWXr+IZIh8t80IHnrP4EIoNZyqx5m8+v
-	3wDDoDHcCkYPHNmkQ1JPfwwekhbn7E7k/As7GPovteRIn6i3BkkxCOMfZRGtTsaqD+qHEYcF67Yyf
-	wCnZXa4oCqv+cEIfbdFqy9psPtr+zzlP/hXXNe8Yo8XUfAkbVu42YMp9qKF6aDMdHEOEnXqxDp8Rx
-	/4vrhsVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8/Ozc4f3YVybAl3Vo4+gMdf7fy0KjXpzjxraXVa+6cU=; b=JbBdpI7BLl3wO2bfgYRzc9Rq4B
+	fmDg6GKPf4hM41JeUPNdFHNG7R+7Nzfr8CiC5LhFjX3ZaqgGAcio79LzmqpwaYTF4oiJy4RfPm16B
+	LAOgvtycRNqDs5HdJgac6Qmd2Cyq1RasnV0OCi9URs5lvzXP769BHztFgbWm/pwD0j1czhZ/iAe2r
+	uYGpAtS8YeIFQWs19P3wvk0sY68RswmdKXYm45OsLPRJMb8QGtmb9LFXg6amTLVl/IIqBDxOClsUs
+	nQUGVyTIUXOQ1o9+EA1uJYOIWTr2L/FCrJniUh2twg3jFpL8rJRcZ4GCTsKaxZXcxNXMMxWmrfJgN
+	qR3XV+3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqrQT-0000000GzIB-1rb5;
-	Mon, 03 Aug 2026 12:05:49 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wqrTo-0000000GzYk-0Cbj;
+	Mon, 03 Aug 2026 12:09:16 +0000
+Received: from mail-northeuropeazon11012032.outbound.protection.outlook.com ([52.101.66.32] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqrQP-0000000GzHT-2SEB;
-	Mon, 03 Aug 2026 12:05:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1785758736; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=e4Dg17uHVsTyri3KDQmTiF35rQEIwhN/SObt8mjMLC/qBj/2oQHwYaifQESbQno9BU6v8CzA+cPHNe/abqdCMlaUL0zktLduavpoJlZlt9qKTGFEfBC7pt8ez1JnI4E6I7mGVfT9LFeWYOVCbfq1ysbFGmHreVDsudpGrGNId50=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1785758736; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=xSDgbFaMy9AXsq0EBdVcXih7ZqDA4mjZqd2Srs2jSzs=; 
-	b=QDuv/4zbvpdP/Tff9Cio3sMLgPONsSTbKzFh2qdtwENVREZYc8VfdUsirlCxuwiCxy39MBZE5IuVkHt4eJ5Myhol3Xcaih0QcqqceXYV6NUbKv1qX1MCKTp1w5wIJCT9oTyVes/ZvAY+8xBLv89DsQxkK/xgIWlneFtDEJKXkRA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785758736;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=xSDgbFaMy9AXsq0EBdVcXih7ZqDA4mjZqd2Srs2jSzs=;
-	b=CS/CcCy4wG7nTYQZadcHHzZbxr14Z2aQuuuuGD8aPjufCphH2I+RBRJLXVQ5h6UM
-	+8kOrjiJmIz4EukmjS6hzsb5nK44jzTemZy03ngbbp7t/45jfJt4eaSvXG2hPChrGJ+
-	hYmNHa4zdxCAlIHCkLGucv3vZ5ws1jhWPhL4cUhY=
-Received: by mx.zohomail.com with SMTPS id 1785758734039169.63352621996466;
-	Mon, 3 Aug 2026 05:05:34 -0700 (PDT)
-Message-ID: <7e55b8bc-d11d-4b25-99ee-d5d181be158f@collabora.com>
-Date: Mon, 3 Aug 2026 14:05:29 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] phy: rockchip-samsung-dcphy: model TX and RX as
- separate PHYs
-To: jason98166@gmail.com, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260726-dcphy-rx-v1-v2-0-cf9cc34a412a@gmail.com>
- <20260726-dcphy-rx-v1-v2-3-cf9cc34a412a@gmail.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260726-dcphy-rx-v1-v2-3-cf9cc34a412a@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+	id 1wqrTk-0000000GzY3-0pFB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 12:09:14 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=xyFQUdpghxE6z8vw7WTIExxoVxaL4hTbZRYSWdFiGwewOHNRUZiyhikZMsPtAz8jKsUu7xPfhTF6YLvgpSZXTGiz/nmSZuC6k7QgZo51nEpdGliFQVIINC2LESrPnAaw7oqBUbjF/9lSuQTvihx06eS/TGCY8nMT5sgy/GUvSo6Op2+gBjNpOk9z1nEo6/D2URork1+z2a97tDxptpvltCkULoKfdMjzwBwmPfvikdawWZM4KjMBXU0GImPJACs+VGG2rtaG7jtL96m97Z4AZs+RkhZhR9qzQshsCKWzKdQ/JTehlSj25VQkEvgZKUXxuI535giNvJl038hHVUQ2gQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8/Ozc4f3YVybAl3Vo4+gMdf7fy0KjXpzjxraXVa+6cU=;
+ b=cfv6je8ulQ4sv9ZchEhPTVpn0HCLCiErsGd1OWPlKdnjuy7+UDtYO5pA7DyDsrLWhl65hPkvOqQqY/GxMm6VV5JNylMOKvZcwuCk+001INJkh8viq2+d4SDOXGqxgGihgaAAgvav3qFFoL0Xvw34d31bSxgTccw1QAhpKrJlOgdseNGYiAA/uXoI4d8/N/FTpVwa1HQLLKKxDEj4byUBi8Al05gE8zDpGQGbtcylrIvcCcPGYDc0K0f1p1U8ODTwPdnAOwYLIFiZoA5zCHYwKLuYIbIGfKz9IelcH0zir/+D/8uBuqV6ofpYCK08bJQlERKWlCPzvEC2D66CNuwNuw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=broadcom.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8/Ozc4f3YVybAl3Vo4+gMdf7fy0KjXpzjxraXVa+6cU=;
+ b=P4bnPB7rB5RD7Ihq9zTfieG6QR0uUWEcLUPr+w7Gy9O0XknlhTF+nVKnwT1/LbJYc+v8NHb0GyJvV7piLL2LlAWiu5V6IfBQQ6AF1Yo6Xd8hMlyEqcdy3tJHFBpH6otFPEyuqM6dCTsM4aOh5UAqsfldK8Zq01tKQRVRNR42O84=
+Received: from DB9PR01CA0029.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:1d8::34) by AS4PR08MB8165.eurprd08.prod.outlook.com
+ (2603:10a6:20b:58c::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Mon, 3 Aug
+ 2026 12:09:00 +0000
+Received: from DB5PEPF00014B95.eurprd02.prod.outlook.com
+ (2603:10a6:10:1d8:cafe::46) by DB9PR01CA0029.outlook.office365.com
+ (2603:10a6:10:1d8::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.17 via Frontend Transport; Mon, 3
+ Aug 2026 12:09:00 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB5PEPF00014B95.mail.protection.outlook.com (10.167.8.233) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.8
+ via Frontend Transport; Mon, 3 Aug 2026 12:09:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tbBCiUsBf4xy8Rt3clixtQXjZb1GR8dgot9zaIbaEGkJbJGiTEDW/b+YzKosB3kWNENLbZ2Iqhnzx8euqCj9QAhHlq6r1GjRHNZYVlBfB8znhyx655c3qXKRxPu775725Xu8+9pnvdu30/ZEKYQXxp4vXvl3eXFNsBJ+NtutLKXjAPblsoAKmSqAoMOMNYCjtCeNbe9IQrPL7QBMUfHIU/JAkgqqGPd4+Xpxnt3/so1Dv6Y3YUB5ATLQe4R1JP8OH8zlwOdJ62Nk5qX9hpzkBjXjMlTXrXSDqfRzvCB60zytVfg2t23uFJGQmFoBap1rgnS+VU93wuPxo4hhVhQTLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8/Ozc4f3YVybAl3Vo4+gMdf7fy0KjXpzjxraXVa+6cU=;
+ b=jPnID/UIrBIrRhhMaucHo7/x8iaZp3xFdpZY73lEq/3KYzdwnCcsXROlRaAIz5gxhioKs5xqlD/+1KzzZ24NxoKKnPhh35vblMsDOg8s2SJiTjUwv9tu6Z6WnDeiVHc3ndXNvkJlAPj0sYcHlyAI1CI0ATLe+or4ZzNYM4glogOzTlQNMKjfh83+jDqJOf38Zfd407wc+ycTxilWd71JLIjV6+PISVhEfYpm7kjszj8O2TMY7L/2vU/x10iJGFhHgEEUrzf6CAqA245XAFUn+6I5PjHOLDueB0wK0i3mgjHk3Ug7HNm4FGpAYpcY2MmVZppxyLDRIs/e6uCyLVM2jQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8/Ozc4f3YVybAl3Vo4+gMdf7fy0KjXpzjxraXVa+6cU=;
+ b=P4bnPB7rB5RD7Ihq9zTfieG6QR0uUWEcLUPr+w7Gy9O0XknlhTF+nVKnwT1/LbJYc+v8NHb0GyJvV7piLL2LlAWiu5V6IfBQQ6AF1Yo6Xd8hMlyEqcdy3tJHFBpH6otFPEyuqM6dCTsM4aOh5UAqsfldK8Zq01tKQRVRNR42O84=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
+ (2603:10a6:150:16f::10) by AM0PR08MB11281.eurprd08.prod.outlook.com
+ (2603:10a6:20b:701::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Mon, 3 Aug
+ 2026 12:08:27 +0000
+Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
+ ([fe80::af66:6019:a08:d04]) by GV1PR08MB10455.eurprd08.prod.outlook.com
+ ([fe80::af66:6019:a08:d04%4]) with mapi id 15.21.0270.017; Mon, 3 Aug 2026
+ 12:08:27 +0000
+From: Bence Csokas <bence.csokas@arm.com>
+Date: Mon, 03 Aug 2026 14:08:14 +0200
+Subject: [PATCH resend v5] drm: uapi: Add macro for chipset specific event
+ ID region
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Message-Id: <20260803-drm-uapi-vnd-v5-1-1a715a6842c1@arm.com>
+X-B4-Tracking: v=1; b=H4sIAK2EcGoC/52NQQ7CIBREr2JYS0Oh0saV9zAufuHXEgM0/Eo0T
+ e8u5QjuZiZ5bzZGmBwSu542ljA7cjGUcjmfmJkhPJE7WzqTQmrRiYHb5PkbFsdzsNyqCYceezk
+ pYAVZEk7uU3X3oiMMlj3KPgIhHxMEMx8yD7RiOoDZ0RrTt97ntmL1Sbe6Vd0gZKNVyZpLPmIw2
+ BiKL6AbJN+Y6Ks8d39w+77/ABPmqWz8AAAA
+X-Change-ID: 20260408-drm-uapi-vnd-d3fe87e72f3a
+To: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
+ Kyungmin Park <kyungmin.park@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Zack Rusin <zack.rusin@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, Lyude Paul <lyude@redhat.com>, 
+ Danilo Krummrich <dakr@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ nouveau@lists.freedesktop.org, 
+ Maaz Mombasawala <maaz.mombasawala@broadcom.com>, 
+ Daniel Kiss <Daniel.Kiss@arm.com>, Bence Csokas <bence.csokas@arm.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: LO4P123CA0209.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1a5::16) To GV1PR08MB10455.eurprd08.prod.outlook.com
+ (2603:10a6:150:16f::10)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10455:EE_|AM0PR08MB11281:EE_|DB5PEPF00014B95:EE_|AS4PR08MB8165:EE_
+X-MS-Office365-Filtering-Correlation-Id: e7cf5d99-5fde-4568-2a9e-08def15800b3
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|23010399003|376014|1800799024|366016|18002099003|56012099006|11063799006|10067099003|921020;
+X-Microsoft-Antispam-Message-Info-Original: u6VS+Mn6BgTbcSNLmfcDqINMZQ8AlEGdKfnVvss9AjFMYxb091wyAh1n0eeecQddC8VxDpSMQRcZR3G9sqEbJQOilZr/LmQk3zo5rYaY5OqXloIR7NrnDOacWaMuAMclF+1APLY5G70anZo8wAtD4UAQNj5HOyoj84LlOQPbKlxVoOib+SFx9YflklOAm1CMpePJ4mGW5QgTUkQ7SG+0HJXfpT7rxAu6cdyZKcwa9Yhij1MpXiI6c3lDMJnfjWvL2/svsRl1U8Cyhf6iPchvR+RzWQvq/rrIgwdXJCcw/4Mv5clpKClDBIQo2zew8weAv+H9+Hro34Krty5PoGWnugWMcTJU4MhabwLKEmmMfAl7eBy9kKTml3w79GvDQIYQn6hw6sV+G2qQBzSOG+h9K6N9NcrZVMIUFe7aVDBtxaFYUCnqd4Uk05iCSo2MI1+9ReEDcyQxcH1pxA2Ok55SATtzQqrdIXt7fAIN/R1GzYoHqAxp304f38+YN8kjU2dx42l4TfYu7zFZp6t5FlafjAo9Y1L/fFkhBSEC2pseIoiJBHdCI/fdeJsYq2TWDEwQWuuekyp+xU+eYCTxwpIJgqq4E9dzfrHkKNpE8X5pY1UKpf2IcTF0uEH31nic7D+8RwBHgwRZ9eh7jcegJa7DvMkPvS4Uhc9CtIeRlDDFgFk=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10455.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(1800799024)(366016)(18002099003)(56012099006)(11063799006)(10067099003)(921020);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: L0d33xTxmeo7j1WHvQbuQllmN3VRaeKU5SX4vku53UPovZ/e5JOliN3Eo2W04Jrv0xSqQ4Of5NMqpEo9XUYAwGIWX/AwwDq4ESBRUspyzhfWSp2WtUF99ctQw5IEw6jP2EwUjQaWypOxwkTgg3FgA5CDeH2qpKUzCyiBJRU3NcGAkpsb6UD07fWxfK5zC1wSj1c989SVaFLPNxj8L+XMEzvmmvR4Bn7sGhctTGRje3NzoaO+p6ZAYUrUKtqRZxQYe8avG0Rk4G7lW+PFbzs5sLhnmAUzFlSLyuaIowoR/0EwUa9UNOhy51v3rgIYheTSi/b6QiCpnzx/MEMLZza3Sg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR08MB11281
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB5PEPF00014B95.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 68b788ec-f6a5-4bed-da59-08def157ece5
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|14060799003|35042699022|36860700016|23010399003|1800799024|7416014|376014|56012099006|10067099003|11063799006|18002099003|13003099007|921020;
+X-Microsoft-Antispam-Message-Info: RjlyU5sK7gqU/arzt5GUq7CFHkjmwX2258zCGsQOMDaqmrZXg0K7LEXhTpymMMeGY9gsYp8hrCOO1Pezng5DhjjoONg9WmAvf5c8rbZ8sXVXxHY+ho944MyWVw3NDdmNDnG0g4bNIJmC8RtmEUeXQmt+Izhbjp/S+4cI+9TxYKFaXtMeWmexBE5q5s7nreDMuQuK/03vpdwsTAQMM31+5lnU+8c4uon21sW0Lsw0pwhNl881XbTzXVvn0B04eSQKNg4oTNyceHnaN4pPZKoRIBMOCbb8bEGQahyB3fyX39vRs+FSaoAlZbhimXIiHaaj3gEyQDeLcC9VmATulVcT0DBtujb8vXFvNyWyhSZH1TgLjH1scJMkBVSOMjC+WITswnb8V09o8FWwlEPJ/a2dpMn20qtNdfLen877Tk559AAUeAfrP6T3+bUqdS9MJ9xTSmZ+/U267F79RiTSWBnsf2L7HUtmQYi60LfkMwrg6yaLngX8M2ljKaWjiGQwtegRli7uZ9fLplBTlW/v//OczVx+E0HzXArzqr/Skp2PQOS3PfqSAGv8QCglL7GEsH+FluuuEsCHcbBZ4H/aCrgoK1wJsROXgaoW78dc5oGgFrYjreiQgiajKFCznbDPllrJBF5r2jFANvm3st0R9DVkp3B/mLxWyXE2gUp3r7+UwXDPE+vxH802DS8gn+SbiBoLBsExaklYyr0/dJatE+Bmtw==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(14060799003)(35042699022)(36860700016)(23010399003)(1800799024)(7416014)(376014)(56012099006)(10067099003)(11063799006)(18002099003)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: ZFJ9bA8EVuDOXwcPiRQRmtVCGOjXW7USlVJt+fhu8j+58OkuEtrmLf1nU3guuY0CxC2M7PRhR2gNM390oFlvtWJuL0sLpqfPQ8N3yKzuJWGrrChNFbJxdbbGCJ/wiGUKKJS5GLXXdSDVpf8uDFZQ8KzEoJ748kZowlkMG75hz1iOBs0uAmie9NfUne7OHp38rFG1bA04DEEQf0Yx1mJe7BjhFZaNRWZEidnxAgGTgI2HROHp3ks3SL9IHOMOUNkm0dgNcNOHeWgQrE2QZja7Dm4X5kGMOVOV8KazxBcIf282WvUJkamQps2lx/wS+K1R7rNtvq9FbM74a+GpiP0oCDSSIbQDKJfmP5jWV1XQGmSXNKED1j48YByM+cfKr//t3BN1brozYy/87TOKmPNyQTLDmoZEUwXNAQn7uMxyJNDb9aLC9Lkh5jQB6wtfTz6n
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 12:09:00.3263
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e7cf5d99-5fde-4568-2a9e-08def15800b3
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B95.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB8165
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_050545_687235_7AF14C46 
-X-CRM114-Status: GOOD (  35.92  )
+X-CRM114-CacheID: sfid-20260803_050912_420249_C8ADC0F5 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,355 +168,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jason,
+uapi/drm/drm.h states:
 
-Thanks for the patch!
+    Event types 0 - 0x7fffffff are generic DRM events, 0x80000000 and
+    up are chipset specific.
 
-On 7/26/26 16:55, Jason Yang via B4 Relay wrote:
-> From: Jason Yang <jason98166@gmail.com>
-> 
-> The DC-PHY drives a MIPI DSI transmitter and a MIPI CSI receiver, and on
-> RK3588 both can be wired to the same PHY as independent consumers. The
-> PHY core reference-counts power_on() per struct phy, so a single struct
-> phy cannot bring the two directions up independently.
-> 
-> Register one struct phy per direction and move the per-direction state
-> (direction, PHY type, lane count and powered flag) into its own driver
-> data. of_xlate() accepts the legacy single cell as the transmitter and
-> an optional second cell that selects the direction, so existing
-> single-cell DSI device trees keep resolving to the transmitter.
-> configure() rejects the not yet supported receiver before touching any
-> state, and each direction keeps its own lane count.
-> 
-> The PHY's common block contains a single BIAS block shared by both
-> directions (RK3588 TRM section 22.2), so it must be programmed only
-> once. Whichever direction powers on first enables it; each direction
-> records its powered state under the per-provider mutex so that powering
-> one direction on does not disturb an already running one. The APB reset
-> is issued on the transmitter bring-up path.
-> The receiver bring-up itself is added in a later change.
-> 
-> Signed-off-by: Jason Yang <jason98166@gmail.com>
-> Assisted-by: Claude:claude-opus-4-8
-> ---
->  drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c | 143 +++++++++++++++-------
->  1 file changed, 102 insertions(+), 41 deletions(-)
-> 
-> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-> index d0d77421bd4b..95eb1200cab4 100644
-> --- a/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-dcphy.c
-> @@ -5,6 +5,7 @@
->   *      Guochun Huang <hero.huang@rock-chips.com>
->   */
->  
-> +#include <dt-bindings/phy/rockchip,rk3588-mipi-dcphy.h>
->  #include <dt-bindings/phy/phy.h>
->  #include <linux/bitfield.h>
->  #include <linux/clk.h>
-> @@ -13,6 +14,7 @@
->  #include <linux/kernel.h>
->  #include <linux/mfd/syscon.h>
->  #include <linux/module.h>
-> +#include <linux/mutex.h>
->  #include <linux/of.h>
->  #include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
-> @@ -280,6 +282,19 @@ struct samsung_mipi_dcphy_plat_data {
->  	u32 dphy_tx_max_lane_kbps;
->  };
->  
-> +struct samsung_mipi_dcphy;
-> +
-> +/* One PHY per direction: transmitter (DSI) and receiver (CSI). */
-> +struct samsung_mipi_dcphy_dir {
+However, this distinction was not put in the code. To elevate the contract
+between the generic DRM framework and the driver from the comment to code,
+put this in a macro for clarity and convenience.
 
-This may be bike-shedding, but I am not a big fan of the notion of
-"direction". This is a combo PHY that in essence contains different
-PHYs, so why not call this "samsung_mipi_phy" or something?
+Reviewed-by: Maaz Mombasawala <maaz.mombasawala@broadcom.com>
+Link: https://lore.kernel.org/lkml/d37a738d-f316-42cf-8dbc-99a732a33240@broadcom.com/
+Cc: Daniel Kiss <Daniel.Kiss@arm.com>
+Signed-off-by: Bence Csokas <bence.csokas@arm.com>
+---
+Changes in v5:
+- Rebase to master
+- Collect Maaz's tag
+- Link to v4: https://patch.msgid.link/20260616134802.636166-2-bence.csokas@arm.com
 
-> +	struct phy *phy;
-> +	struct samsung_mipi_dcphy *parent;
-> +	u8 dir;
-> +	u8 type;
-> +	unsigned int lanes;
-> +	/* Written under the parent's lock. */
-> +	bool powered;
-> +};
-> +
->  struct samsung_mipi_dcphy {
->  	struct device *dev;
->  	struct clk *ref_clk;
-> @@ -290,9 +305,9 @@ struct samsung_mipi_dcphy {
->  	struct reset_control *s_phy_rst;
->  	struct reset_control *apb_rst;
->  	struct reset_control *grf_apb_rst;
-> -	unsigned int lanes;
-> -	struct phy *phy;
-> -	u8 type;
-> +	struct samsung_mipi_dcphy_dir phys[2];
+Changes in v4:
+- Document `_v` parameter
+- Also convert DRM_NOUVEAU_EVENT_NVIF
 
-This would look like this then:
+Changes in v2, v3:
+- Rebase to master
+- Link to v1: https://lore.kernel.org/lkml/20260408163608.361826-2-bence.csokas@arm.com/T/#u
+---
+ include/uapi/drm/drm.h         | 9 +++++++++
+ include/uapi/drm/exynos_drm.h  | 4 ++--
+ include/uapi/drm/nouveau_drm.h | 2 +-
+ include/uapi/drm/virtgpu_drm.h | 2 +-
+ include/uapi/drm/vmwgfx_drm.h  | 2 +-
+ 5 files changed, 14 insertions(+), 5 deletions(-)
 
-	struct samsung_mipi_phy phys[2];
+diff --git a/include/uapi/drm/drm.h b/include/uapi/drm/drm.h
+index bc7ef7684099..c703e106d750 100644
+--- a/include/uapi/drm/drm.h
++++ b/include/uapi/drm/drm.h
+@@ -1408,6 +1408,15 @@ struct drm_event {
+  * The event payload is a struct drm_event_crtc_sequence.
+  */
+ #define DRM_EVENT_CRTC_SEQUENCE	0x03
++/**
++ * DRM_EVENT_VENDOR_SPECIFIC - vendor/chipset specific event
++ * @_v: vendor-specific ID
++ *
++ * These event IDs are reserved for chipset and driver specific events.
++ *
++ * Refer to the chipset driver's header for details and payload struct.
++ */
++#define DRM_EVENT_VENDOR_SPECIFIC(_v) ((_v) | 0x80000000)
+ 
+ struct drm_event_vblank {
+ 	struct drm_event base;
+diff --git a/include/uapi/drm/exynos_drm.h b/include/uapi/drm/exynos_drm.h
+index a51aa1c618c1..8d3156fb129c 100644
+--- a/include/uapi/drm/exynos_drm.h
++++ b/include/uapi/drm/exynos_drm.h
+@@ -395,8 +395,8 @@ struct drm_exynos_ioctl_ipp_commit {
+ 		DRM_EXYNOS_IPP_COMMIT, struct drm_exynos_ioctl_ipp_commit)
+ 
+ /* Exynos specific events */
+-#define DRM_EXYNOS_G2D_EVENT		0x80000000
+-#define DRM_EXYNOS_IPP_EVENT		0x80000002
++#define DRM_EXYNOS_G2D_EVENT		DRM_EVENT_VENDOR_SPECIFIC(0x0)
++#define DRM_EXYNOS_IPP_EVENT		DRM_EVENT_VENDOR_SPECIFIC(0x2)
+ 
+ struct drm_exynos_g2d_event {
+ 	struct drm_event	base;
+diff --git a/include/uapi/drm/nouveau_drm.h b/include/uapi/drm/nouveau_drm.h
+index 1fa82fa6af38..6d9d7ed52d28 100644
+--- a/include/uapi/drm/nouveau_drm.h
++++ b/include/uapi/drm/nouveau_drm.h
+@@ -25,7 +25,7 @@
+ #ifndef __NOUVEAU_DRM_H__
+ #define __NOUVEAU_DRM_H__
+ 
+-#define DRM_NOUVEAU_EVENT_NVIF                                       0x80000000
++#define DRM_NOUVEAU_EVENT_NVIF DRM_EVENT_VENDOR_SPECIFIC(0x0)
+ 
+ #include "drm.h"
+ 
+diff --git a/include/uapi/drm/virtgpu_drm.h b/include/uapi/drm/virtgpu_drm.h
+index 95587e12aed5..4a2f8b1e9225 100644
+--- a/include/uapi/drm/virtgpu_drm.h
++++ b/include/uapi/drm/virtgpu_drm.h
+@@ -229,7 +229,7 @@ struct drm_virtgpu_context_init {
+  * effect.  The event size is sizeof(drm_event), since there is no additional
+  * payload.
+  */
+-#define VIRTGPU_EVENT_FENCE_SIGNALED 0x90000000
++#define VIRTGPU_EVENT_FENCE_SIGNALED DRM_EVENT_VENDOR_SPECIFIC(0x10000000)
+ 
+ #define DRM_IOCTL_VIRTGPU_MAP \
+ 	DRM_IOWR(DRM_COMMAND_BASE + DRM_VIRTGPU_MAP, struct drm_virtgpu_map)
+diff --git a/include/uapi/drm/vmwgfx_drm.h b/include/uapi/drm/vmwgfx_drm.h
+index 7d786a0cc835..5e5878384e60 100644
+--- a/include/uapi/drm/vmwgfx_drm.h
++++ b/include/uapi/drm/vmwgfx_drm.h
+@@ -715,7 +715,7 @@ struct drm_vmw_fence_arg {
+ /*
+  * The event type
+  */
+-#define DRM_VMW_EVENT_FENCE_SIGNALED 0x80000000
++#define DRM_VMW_EVENT_FENCE_SIGNALED DRM_EVENT_VENDOR_SPECIFIC(0x0)
+ 
+ struct drm_vmw_event_fence {
+ 	struct drm_event base;
 
-which seems clean and simple to me.
-
-> +	/* Serialises the two directions' access to the shared PHY state. */
-> +	struct mutex lock;
->  
->  	const struct samsung_mipi_dcphy_plat_data *pdata;
->  	struct {
-> @@ -995,7 +1010,7 @@ static void samsung_mipi_dphy_lane_enable(struct samsung_mipi_dcphy *samsung)
->  	regmap_update_bits(samsung->regmap, DPHY_MC_GNR_CON0,
->  			   PHY_ENABLE, PHY_ENABLE);
->  
-> -	switch (samsung->lanes) {
-> +	switch (samsung->phys[RK_DCPHY_DIR_TX].lanes) {
->  	case 4:
->  		regmap_write(samsung->regmap, DPHY_MD3_GNR_CON1,
->  			     T_PHY_READY(0x2000));
-> @@ -1026,7 +1041,7 @@ static void samsung_mipi_dphy_lane_enable(struct samsung_mipi_dcphy *samsung)
->  
->  static void samsung_mipi_dphy_lane_disable(struct samsung_mipi_dcphy *samsung)
->  {
-> -	switch (samsung->lanes) {
-> +	switch (samsung->phys[RK_DCPHY_DIR_TX].lanes) {
->  	case 4:
->  		regmap_update_bits(samsung->regmap, DPHY_MD3_GNR_CON0,
->  				   PHY_ENABLE, 0);
-> @@ -1334,11 +1349,23 @@ samsung_mipi_dphy_data_lane_timing_init(struct samsung_mipi_dcphy *samsung)
->  
->  static int samsung_mipi_dphy_tx_power_on(struct samsung_mipi_dcphy *samsung)
->  {
-> +	bool first = !samsung->phys[RK_DCPHY_DIR_RX].powered;
-
-Note to myself: the lock is acquired in the calling method, all is well.
-
->  	int ret;
->  
-> +	/*
-> +	 * The shared BIAS block is brought up by whichever direction powers
-> +	 * on first, leaving an already active peer undisturbed.
-> +	 */
-> +	if (first) {
-> +		reset_control_assert(samsung->apb_rst);
-> +		udelay(1);
-> +		reset_control_deassert(samsung->apb_rst);
-> +	}
-> +
->  	reset_control_assert(samsung->m_phy_rst);
->  
-> -	samsung_mipi_dcphy_bias_block_enable(samsung);
-> +	if (first)
-> +		samsung_mipi_dcphy_bias_block_enable(samsung);
-
-This approach with the "first" variable seems unintuitive. If you need
-reference counting on the BIAS block, then use a state variable
-"bias_powered", use a mutex that protects it, and call
-samsung_mipi_dcphy_bias_block_{en,dis}able (from
-samsung_mipi_dcphy_power{on, off}) unconditionally. Those methods shall
-acquire the mutex, check the state variable, {en,dis}able the BIAS
-block, set the state variable accordingly, release the mutex.
-
-
->  	samsung_mipi_dcphy_pll_configure(samsung);
->  	samsung_mipi_dphy_clk_lane_timing_init(samsung);
->  	samsung_mipi_dphy_data_lane_timing_init(samsung);
-> @@ -1368,34 +1395,44 @@ static int samsung_mipi_dphy_tx_power_off(struct samsung_mipi_dcphy *samsung)
->  
->  static int samsung_mipi_dcphy_power_on(struct phy *phy)
->  {
-> -	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-> -
-> -	reset_control_assert(samsung->apb_rst);
-> -	udelay(1);
-> -	reset_control_deassert(samsung->apb_rst);
-> +	struct samsung_mipi_dcphy_dir *pd = phy_get_drvdata(phy);
-
-Again, this may be bike-shedding, but "pd" seems misleading to me.
-Please reconsider the naming. Maybe "samsung_phy" for the individual PHY
-and "samsung" for the complete combo PHY? Or "phy_data" and
-"dcphy_data"? ...?
-
-> +	struct samsung_mipi_dcphy *samsung = pd->parent;
-> +	int ret;
->  
-> -	switch (samsung->type) {
-> -	case PHY_TYPE_DPHY:
-> -		return samsung_mipi_dphy_tx_power_on(samsung);
-> -	default:
-> -		/* CPHY part to be implemented later */
-> +	if (pd->type != PHY_TYPE_DPHY)
->  		return -EOPNOTSUPP;
-> -	}
->  
-> -	return 0;
-> +	mutex_lock(&samsung->lock);
-> +	if (pd->dir == RK_DCPHY_DIR_RX)
-> +		ret = -EOPNOTSUPP;
-> +	else
-> +		ret = samsung_mipi_dphy_tx_power_on(samsung);
-> +	if (!ret)
-> +		pd->powered = true;
-
-Not sure whether you actually need to track the power status of the
-individual PHYs (maybe you actually need to track the BIAS block status
-alone) but anyway I would appreciate if
-"samsung_mipi_dphy_tx_power_{on,off}" would set the "pd->powered" variable.
+---
+base-commit: 075b74841bd0065a3bda3440873c747938e69b68
+change-id: 20260408-drm-uapi-vnd-d3fe87e72f3a
 
 Best regards,
-Michael
-
-
-> +	mutex_unlock(&samsung->lock);
-> +
-> +	return ret;
->  }
->  
->  static int samsung_mipi_dcphy_power_off(struct phy *phy)
->  {
-> -	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-> +	struct samsung_mipi_dcphy_dir *pd = phy_get_drvdata(phy);
-> +	struct samsung_mipi_dcphy *samsung = pd->parent;
-> +	int ret;
->  
-> -	switch (samsung->type) {
-> -	case PHY_TYPE_DPHY:
-> -		return samsung_mipi_dphy_tx_power_off(samsung);
-> -	default:
-> -		/* CPHY part to be implemented later */
-> +	if (pd->type != PHY_TYPE_DPHY)
->  		return -EOPNOTSUPP;
-> -	}
-> +
-> +	if (pd->dir == RK_DCPHY_DIR_RX)
-> +		return -EOPNOTSUPP;
-> +
-> +	mutex_lock(&samsung->lock);
-> +	ret = samsung_mipi_dphy_tx_power_off(samsung);
-> +	if (!ret)
-> +		pd->powered = false;
-> +	mutex_unlock(&samsung->lock);
-> +
-> +	return ret;
->  }
->  
->  static int
-> @@ -1488,10 +1525,14 @@ samsung_mipi_dcphy_pll_calc_rate(struct samsung_mipi_dcphy *samsung,
->  static int samsung_mipi_dcphy_configure(struct phy *phy,
->  					union phy_configure_opts *opts)
->  {
-> -	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-> +	struct samsung_mipi_dcphy_dir *pd = phy_get_drvdata(phy);
-> +	struct samsung_mipi_dcphy *samsung = pd->parent;
->  	unsigned long long target_rate = opts->mipi_dphy.hs_clk_rate;
->  
-> -	samsung->lanes = opts->mipi_dphy.lanes > 4 ? 4 : opts->mipi_dphy.lanes;
-> +	if (pd->dir == RK_DCPHY_DIR_RX)
-> +		return -EOPNOTSUPP;
-> +
-> +	pd->lanes = opts->mipi_dphy.lanes > 4 ? 4 : opts->mipi_dphy.lanes;
->  
->  	samsung_mipi_dcphy_pll_calc_rate(samsung, target_rate);
->  	opts->mipi_dphy.hs_clk_rate = samsung->pll.rate;
-> @@ -1501,16 +1542,16 @@ static int samsung_mipi_dcphy_configure(struct phy *phy,
->  
->  static int samsung_mipi_dcphy_init(struct phy *phy)
->  {
-> -	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-> +	struct samsung_mipi_dcphy_dir *pd = phy_get_drvdata(phy);
->  
-> -	return pm_runtime_resume_and_get(samsung->dev);
-> +	return pm_runtime_resume_and_get(pd->parent->dev);
->  }
->  
->  static int samsung_mipi_dcphy_exit(struct phy *phy)
->  {
-> -	struct samsung_mipi_dcphy *samsung = phy_get_drvdata(phy);
-> +	struct samsung_mipi_dcphy_dir *pd = phy_get_drvdata(phy);
->  
-> -	pm_runtime_put(samsung->dev);
-> +	pm_runtime_put(pd->parent->dev);
->  
->  	return 0;
->  }
-> @@ -1536,19 +1577,29 @@ static struct phy *samsung_mipi_dcphy_xlate(struct device *dev,
->  					    const struct of_phandle_args *args)
->  {
->  	struct samsung_mipi_dcphy *samsung = dev_get_drvdata(dev);
-> +	struct samsung_mipi_dcphy_dir *pd;
-> +	u8 dir = RK_DCPHY_DIR_TX;
->  
-> -	if (args->args_count != 1) {
-> +	if (args->args_count < 1 || args->args_count > 2) {
->  		dev_err(dev, "invalid number of arguments\n");
->  		return ERR_PTR(-EINVAL);
->  	}
->  
-> -	if (samsung->type != PHY_NONE && samsung->type != args->args[0])
-> -		dev_warn(dev, "phy type select %d overwriting type %d\n",
-> -			 args->args[0], samsung->type);
-> +	if (args->args_count == 2) {
-> +		if (args->args[1] > RK_DCPHY_DIR_RX) {
-> +			dev_err(dev, "invalid direction %u\n", args->args[1]);
-> +			return ERR_PTR(-EINVAL);
-> +		}
-> +		dir = args->args[1];
-> +	}
->  
-> -	samsung->type = args->args[0];
-> +	pd = &samsung->phys[dir];
-> +	if (pd->type != PHY_NONE && pd->type != args->args[0])
-> +		dev_warn(dev, "phy type select %u overwriting type %u\n",
-> +			 args->args[0], pd->type);
-> +	pd->type = args->args[0];
->  
-> -	return samsung->phy;
-> +	return pd->phy;
->  }
->  
->  static int samsung_mipi_dcphy_probe(struct platform_device *pdev)
-> @@ -1559,6 +1610,7 @@ static int samsung_mipi_dcphy_probe(struct platform_device *pdev)
->  	struct phy_provider *phy_provider;
->  	struct resource *res;
->  	void __iomem *regs;
-> +	unsigned int i;
->  	int ret;
->  
->  	samsung = devm_kzalloc(dev, sizeof(*samsung), GFP_KERNEL);
-> @@ -1568,6 +1620,7 @@ static int samsung_mipi_dcphy_probe(struct platform_device *pdev)
->  	samsung->dev = dev;
->  	samsung->pdata = device_get_match_data(dev);
->  	platform_set_drvdata(pdev, samsung);
-> +	mutex_init(&samsung->lock);
->  
->  	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
->  	regs = devm_ioremap_resource(dev, res);
-> @@ -1613,11 +1666,19 @@ static int samsung_mipi_dcphy_probe(struct platform_device *pdev)
->  		return dev_err_probe(dev, PTR_ERR(samsung->grf_apb_rst),
->  				     "Failed to get system grf_apb_rst control\n");
->  
-> -	samsung->phy = devm_phy_create(dev, NULL, &samsung_mipi_dcphy_ops);
-> -	if (IS_ERR(samsung->phy))
-> -		return dev_err_probe(dev, PTR_ERR(samsung->phy), "Failed to create MIPI DC-PHY\n");
-> +	for (i = 0; i < ARRAY_SIZE(samsung->phys); i++) {
-> +		struct phy *phy = devm_phy_create(dev, NULL,
-> +						  &samsung_mipi_dcphy_ops);
->  
-> -	phy_set_drvdata(samsung->phy, samsung);
-> +		if (IS_ERR(phy))
-> +			return dev_err_probe(dev, PTR_ERR(phy),
-> +					     "Failed to create MIPI DC-PHY\n");
-> +
-> +		samsung->phys[i].phy = phy;
-> +		samsung->phys[i].parent = samsung;
-> +		samsung->phys[i].dir = i;
-> +		phy_set_drvdata(phy, &samsung->phys[i]);
-> +	}
->  
->  	ret = devm_pm_runtime_enable(dev);
->  	if (ret)
-> 
+--  
+Bence Csokas <bence.csokas@arm.com>
 
 
