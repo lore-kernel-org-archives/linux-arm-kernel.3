@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43D5CC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A126C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mMVTN/10T8H4LBQ9FAgnWWBLcKEifKWIV8qlFsXTsEQ=; b=KkenJUCrlZN0sZoAV56COxKAjM
-	lLMpArCr7YPcyAjq1FlX/FD2gYUb87WwezOm3j78b2aOwe73dvFmX2fs7yJYWvsCwv7NqJExTAcSh
-	K6Dwl2VnMPNiweKqA3+M94rlaKcf8LANxkbXR41fO3yAIGXDUFkvKWmkPgyk4f/tZLVJfX7FYnV77
-	ZbNG8xsqqsUghrMNS9CmFcnTiaXHopt3de/PFgb8GppX5E4qV42xHUg+MlRPVKgnNFnK2J1ZZdi6s
-	g74B1Eudi49vxQFz/+nCHFzYHaL3XeudV/IA13dvnAe8g1iKfvibYWaE2AZ3ZHm+ajuj3Fod/zi2s
-	i7qbYQbA==;
+	bh=n762/MxYtv1d3KOPSEF5oTaF+noAfHsJGw6J2wXrY+s=; b=QTyyKaLo9ZSoBzGShYxXGwM41t
+	Ap+AXNierlrXcpyJHEAVhWVKsdlSue6gGVq+i/Pr9lnRvs/rl89xLD+n1BrPdz67CV12PeewdxYix
+	kS0yVYahCTaYhYaAiaV/0rgnCc9xcxcgr1JWWe1py7tYG6gfub5DPj99ISXlTJEYirHQz2pE9H9s7
+	rEdNaNdU7LsgkSrS5wwdZpTfvCTFwNch4Q/1voXulLrOEwGbghRJaitkkIeaxG0lklOtFmynchze1
+	qHLQkQibw5NPzAI0oDNTQ8DPD7yvYBkFEjdc/fyrOGKistNrM2VpKoypOHsCvGDLwa/uoR8NVB7Ww
+	Li0wSEhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqXg-0000000Gv3G-2Zby;
-	Mon, 03 Aug 2026 11:09:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wqqZr-0000000GvFO-05Be;
+	Mon, 03 Aug 2026 11:11:27 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqXf-0000000Gv3A-2RNT
+	id 1wqqZo-0000000GvEw-2YD7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 11:09:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E04354038F;
-	Mon,  3 Aug 2026 11:09:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDC241F000E9;
-	Mon,  3 Aug 2026 11:09:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785755350;
-	bh=mMVTN/10T8H4LBQ9FAgnWWBLcKEifKWIV8qlFsXTsEQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=o1mbL4eideF0EuPtv8xjBjmNnnNf6QudqwYH+T+Oc7TrLiZytw4FyrSayHSYBt/Pc
-	 F6OfVaiHEvf29w1U4+NLfxQnXfSbooCXYU6IAz+qfDrPxE3GaH/YaSPzzC5jU1Jp22
-	 oeW/l4LQdfnXF/LE/qHJcrKm9pJEjQovjNpflv6YkrtCqurA3fX7j2A7zoLturznk/
-	 rgHc33JX3PlsXsvrPWB5IdOzcIUD06YB0HBf/phur4AOwLCwQ4khoiPyo+17lYHjRQ
-	 9RrDWSVIMvXx1KjymdLVpzbtMj8EXwISoNzsuLbmIeMfhZQP4VKn2+q1NSiJBzjH9a
-	 hsOdAup7l+R6w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wqqXc-0000000Bj1I-0wpa;
-	Mon, 03 Aug 2026 11:09:08 +0000
-Date: Mon, 03 Aug 2026 12:09:07 +0100
-Message-ID: <865x1rcvfw.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
+	Mon, 03 Aug 2026 11:11:25 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2ccdf36f63dso128885ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 04:11:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785755483; x=1786360283; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=n762/MxYtv1d3KOPSEF5oTaF+noAfHsJGw6J2wXrY+s=;
+        b=mGP1u7vy1HsY3uDL3JJdbINQyqHMzyhbPzmrYdTEzcHNlTl49f38zpnLPPLX75Hjc4
+         322Hie7Qx+Nsk7WVW5bp7mVazMo07uWb58cqtpNHcQhy4xU99zYsq26sgdqiUvkYqhFs
+         bXwljBh8UBc8IoWH5gYFsOCsrCrTtuF3fZih+vLgRcizZc9HXA9fyuKiyF5InyMH2u8Y
+         teTwnH6jXu8VUijf4geqTef9ca0P3NVHOZ+EpnAivrJ/MUB/WikCtRh2GjknnwOfCQqs
+         NyQ0rxYS67sf0kdC5fZtSJmjiujcopMLyCAuyrCDBqeW+YNB0miiTEK5OwwLGIwBxvnf
+         kOzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785755483; x=1786360283;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=n762/MxYtv1d3KOPSEF5oTaF+noAfHsJGw6J2wXrY+s=;
+        b=PvrgtAPVh0ibkOQQCzrO62/umDm/PCZpMrJageLMBDG2dfBx7mI3eWeJp5T+73Uq3/
+         F1MGnmkH6R2DNB6Tki6zd5PshKw8QupTKva1GEglYaJd+5dUE6CLEz5gYJG6XoC+r14A
+         9dhfNOZ0dF6/cH9QUkU4f/3k6klkooO6mByXdLND8tLY5EwCu3+niuzsFAC9DcTlhy5E
+         pIgMKTmNiA8LxUiYTq2qM9rVWkee17C2HSO5jbDTBSEH3hOVrExUUowv5N41H33piGP1
+         R0lCe4dXrooO1+a2+j/Z1vVV0W1VYis+Mn0rdneZhHsxW7qKXgZeWOaQ2Y4gh4hla743
+         bmEg==
+X-Forwarded-Encrypted: i=1; AHgh+Ro0dLbjb5EkI+TeiQxJW8gNNYONCj9dg8PBwfdlcn2Dk4btRfZpNXDFxuLXm4LCvQNWfblPxePVR9QZ4KhRg0r3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxsrf/s8Q7lFyJx6+wiB2KNo4XLibidYFVy8527hu5dB6KTNIP/
+	bKUcuHRU4mORnxrrSHIxOKyqLZrFsE8XvaHrbdpnE2xbP4/Z6lvjKJrdYi5ZZV+gzQ==
+X-Gm-Gg: AR+sD12UeKMx6ZdBpY/vEMquvkRitBPeGgbP1vG7JLAWWa6UM/glObk3rng2waOtOhU
+	iQBB4RhN+qznH+IjUp4yoAAaljtsRnmAnOeP1dg2JEkCp3OOvFPMHDQQI8Kif57TKx7PqDV2AKG
+	FaAQWLzRGjyKYrno2O95cnevVz7da7yklYP/Nk9+tjO0J+OXjA+3w00PVnFcBsKbMiuUHjSoPZ5
+	x4pfL6AnZc9QB1IXDeSN86m3QHg4BwdErQBmuB3+OdNpfij2K4B/JQSX0caknhiy9bC3XN99yOC
+	6hCQbB1YRG9AKEw7MJn46J1kL1UQkdFETvG2GWqpoL+8EHYLfdtSq/LbwiJ3JvwcvcWDMaQmHtx
+	vc8qdJeRpuFmr+JVMx1ddFhYgzF5egdjLvgsb8M2J3LkHsP6PP3wEywdLuizVHsmQAuy/WTuMBC
+	Zmi3zieAkuRC1Tbzbj06rGbPDMJ3U7hSCNsoUMW6SOUNJMbquqqIHjZSIxhzsDJelP8KeMG+nxX
+	/0add1B0r0WlI3ftIHKdEI=
+X-Received: by 2002:a17:902:ce0a:b0:2ca:4bb4:4bd with SMTP id d9443c01a7336-2d056f86736mr14315255ad.5.1785755481934;
+        Mon, 03 Aug 2026 04:11:21 -0700 (PDT)
+Received: from google.com (21.168.124.34.bc.googleusercontent.com. [34.124.168.21])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38fb30a43a6sm3840095a91.12.2026.08.03.04.11.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 04:11:20 -0700 (PDT)
+Date: Mon, 3 Aug 2026 11:11:14 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Connor Abbott <cwabbott0@gmail.com>, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: Re: [PATCH v15 15/37] KVM: arm64: CCA: Handle RMI_EXIT_RIPAS_CHANGE
-In-Reply-To: <20260715142841.80544-16-steven.price@arm.com>
-References: <20260715142841.80544-1-steven.price@arm.com>
-	<20260715142841.80544-16-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, lpieralisi@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+	Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+Subject: Re: [PATCH v3] iommu/arm-smmu: Use pm_runtime in fault handlers
+Message-ID: <anB3Ukk7JM42Wgpp@google.com>
+References: <20260630-smmu-rpm-v3-1-f69874a580fa@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260630-smmu-rpm-v3-1-f69874a580fa@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_041124_679290_F7369447 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,115 +106,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jul 2026 15:28:17 +0100,
-Steven Price <steven.price@arm.com> wrote:
+On Tue, Jun 30, 2026 at 02:32:46PM +0530, Prakash Gupta wrote:
+
+Hi Prakash,
+
+> Commit d4a44f0750bb ("iommu/arm-smmu: Invoke pm_runtime across the driver")
+> enabled pm_runtime for the arm-smmu device. On systems where the SMMU
+> sits in a power domain, all register accesses must be done while the
+> device is runtime active to avoid unclocked register reads and
+> potential NoC errors.
 > 
-> The guest can request that a region of its protected address space is
-> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
-> RSI_IPA_STATE_SET. This causes a guest exit with the
-> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
-> protected region to unprotected (or back), exiting to the VMM to make
-> the necessary changes to the guest_memfd and memslot mappings. On the
-> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
-> calls.
+> So far, this has not been an issue for most SMMU clients because
+> stall-on-fault is enabled by default. While a translation fault is
+> being handled, the SMMU stalls further translations for that context
+> bank, so the fault handler would not race with a powered-down SMMU.
 > 
-> The VMM may wish to reject the RIPAS change requested by the guest. For
-> now it can only do this by no longer scheduling the VCPU as we don't
-> currently have a usecase for returning that rejection to the guest, but
-> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
-> open for adding a new ioctl in the future for this purpose.
+> Adreno SMMU now disables stall-on-fault in the presence of fault
+> storms to avoid saturating SMMU resources and hanging the GMU. With
+> stall-on-fault disabled, the SMMU can generate faults while its power
+> domain may no longer be enabled, which makes unclocked accesses to
+> fault-status registers in the SMMU fault handlers possible.
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
+> Guard the context and global fault handlers with
+> arm_smmu_rpm_get_if_active() and arm_smmu_rpm_put() so that all SMMU
+> fault register accesses are done with the SMMU powered. If the SMMU is
+> not runtime active, the fault can be safely ignored as
+> arm_smmu_device_reset() clears fault registers on resume.
+> 
+> Additionally, disable fault reporting in arm_smmu_runtime_suspend()
+> before powering down. pm_runtime_get_if_active() returns 0 during
+> RPM_SUSPENDING, so without this, level-triggered fault interrupts would
+> cause an interrupt storm while the device is being suspended.
+> arm_smmu_device_reset() re-enables fault reporting on resume.
+> 
+> Fixes: b13044092c1e ("drm/msm: Temporarily disable stall-on-fault after a page fault")
+> Co-developed-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+> Signed-off-by: Pratyush Brahma <pratyush.brahma@oss.qualcomm.com>
+> Signed-off-by: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
 > ---
-> Changes since v14:
->  * Use addition rather than bitwise OR for adding the shared_bit in
->    realm_unmap_shared_range(), this handles the case where the region
->    includes the last address (which means 'end' already has the bit
->    set).
-> Changes since v13:
->  * Switch to the new RMI_RTT_UNPROT_UNMAP range-based API.
->  * Drop ugly hack for RMM bug which errored when the RIPAS was already
->    set to the desired value.
-> Changes since v12:
->  * Switch to the new RMM v2.0 RMI_RTT_DATA_UNMAP which can unmap an
->    address range.
-> Changes since v11:
->  * Combine the "Allow VMM to set RIPAS" patch into this one to avoid
->    adding functions before they are used.
->  * Drop the CAP for setting RIPAS and adapt to changes from previous
->    patches.
-> Changes since v10:
->  * Add comment explaining the assignment of rec->run->exit.ripas_base in
->    kvm_complete_ripas_change().
-> Changes since v8:
->  * Make use of ripas_change() from a previous patch to implement
->    realm_set_ipa_state().
->  * Update exit.ripas_base after a RIPAS change so that, if instead of
->    entering the guest we exit to user space, we don't attempt to repeat
->    the RIPAS change (triggering an error from the RMM).
-> Changes since v7:
->  * Rework the loop in realm_set_ipa_state() to make it clear when the
->    'next' output value of rmi_rtt_set_ripas() is used.
-> New patch for v7: The code was previously split awkwardly between two
-> other patches.
-> ---
->  arch/arm64/include/asm/kvm_rmi.h |   6 +
->  arch/arm64/kvm/mmu.c             |   8 +-
->  arch/arm64/kvm/rmi.c             | 457 +++++++++++++++++++++++++++++++
->  3 files changed, 468 insertions(+), 3 deletions(-)
+> Changes in v3:
+> - Add arm_smmu_rpm_get_if_active() wrapper that returns 1 when pm_runtime
+>   is disabled, ensuring fault handlers work on non-pm_runtime systems
+> - Disable fault reporting in arm_smmu_runtime_suspend() before powering
+>   down to prevent interrupt storms during RPM_SUSPENDING state
+> - Use pm_runtime_put_autosuspend() in arm_smmu_rpm_put() instead of
+>   private __pm_runtime_put_autosuspend()
+> - Link to v2: https://patch.msgid.link/20260313-smmu-rpm-v2-1-8c2236b402b0@oss.qualcomm.com
 > 
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> index b1e4cf0f6803..5461c49bea4d 100644
-> --- a/arch/arm64/include/asm/kvm_rmi.h
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -104,6 +104,12 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
->  int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
->  int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
->  
-> +void kvm_realm_unmap_range(struct kvm *kvm,
-> +			   unsigned long ipa,
-> +			   unsigned long size,
-> +			   bool unmap_private,
-> +			   bool may_block);
-> +
->  static inline bool kvm_realm_is_private_address(struct realm *realm,
->  						unsigned long addr)
->  {
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index cd06881c1497..dcc2ab08d0e4 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -319,6 +319,7 @@ static void invalidate_icache_guest_page(void *va, size_t size)
->   * @start: The intermediate physical base address of the range to unmap
->   * @size:  The size of the area to unmap
->   * @may_block: Whether or not we are permitted to block
-> + * @only_shared: If true then protected mappings should not be unmapped
->   *
+> Changes in v2:
+> - Switched from arm_smmu_rpm_get()/arm_smmu_rpm_put() wrappers to
+>   pm_runtime_get_if_active()/pm_runtime_put_autosuspend() APIs
+> - Added support for smmu->impl->global_fault callback in global fault handler
+> - Remove threaded irq context fault restriction to allow modifying stall
+>   mode for adreno smmu
+> - Link to v1: https://patch.msgid.link/20260127-smmu-rpm-v1-1-2ef2f4c85305@oss.qualcomm.com
+> ---
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c | 92 +++++++++++++++++++++++++----------
+>  1 file changed, 67 insertions(+), 25 deletions(-)
+> 
 
-I don't understand the need for this additional argument. Given that
-CCA imposes that shared and private are in non-overlapping ranges, why
-is it necessary to introduce this at the core of the S2 management
-code?
+[...]
 
-I'd expect that the CCA code could simply work out what range it needs
-to run on and keep the API intact.
+This version looks fine to me, 
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
->   * Clear a range of stage-2 mappings, lowering the various ref-counts.  Must
->   * be called while holding mmu_lock (unless for freeing the stage2 pgd before
-> @@ -326,7 +327,7 @@ static void invalidate_icache_guest_page(void *va, size_t size)
->   * with things behind our backs.
->   */
->  static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64 size,
-> -				 bool may_block)
-> +				 bool may_block, bool only_shared)
->  {
->  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
->  	phys_addr_t end = start + size;
-
-So what is the *actual* change?
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Thanks,
+Praan
 
