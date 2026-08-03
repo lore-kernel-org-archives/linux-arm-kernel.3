@@ -4,47 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7912C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:23:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2088AC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JF2BUvrAG6Jmb0Euic7TFPNOBj/sX0XMEvJiL2BgMm8=; b=zw1zUxxzNocgDdqsTiMbiD0ePF
-	ilRmHCDdTbmvNirEHFTYr4IBB+eOjuxzbK+D2GCt9Uh7CWDif8f9YYpUdO0euRQoGAfc4cKxeVgTr
-	qklyxfghJIlbNnk7L21C2Ch9Udo9rcFEPDDwKK6EwchNFj2IbRzkqxMjwPFPU1i6LeW6D9Pjo1gvZ
-	noJ6l4Esq0GOrxW66kqThFV36CSYHhmlYhJQzuVRVTRSxgWfZLewRF0CIls7AIPG+AFJ+1bQm+55p
-	F9QkoajdFuySyuwM6+msbqDSl5RDyZyQyf1/p3w/m4YMNCZMB4AZdyxKqGsHA2rvjjXH3c/yO8VHb
-	syhm9ZFA==;
+	bh=OkDdr8Rx3MHXwHnZduN1jd5sxsoq6k4fmB5c/Ske2xs=; b=wobKS2D62VTZPi7DD2qm/azEP5
+	xuWnAg1RjVQWgcns83EKZxuac97sGYblhVRWR62QIRILRDk8YQpnGJu8rDZoQntmCgf0nF2d8k71f
+	h6LHt9Ff/1Nr6R/TPKUKW5QyeM0TW4YMbZRdx4xCo/RBmnSZ1Lu+XkjO8ES08AaItJi7e/gNsdGdg
+	iMMEReuRNX6U4tzCTuCaiNGzZNpAkQ+uHSGnoKMijfckhdZVYc7t6MN75fkYye67SfGe8OPQHCEri
+	9nD5sGv/K0RQYUmxmCJCgnYYiM7rUE9mlUR8sbPdN5t8Rb9bpjvKY3rPgz2BYiojhcJ7BYEyFaiQg
+	q8k7GKcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwNi-00000000Dda-0md3;
-	Mon, 03 Aug 2026 17:23:18 +0000
+	id 1wqwOu-00000000E4j-1U9M;
+	Mon, 03 Aug 2026 17:24:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwNg-00000000Dcw-2ugm
+	id 1wqwOs-00000000E4J-0zw3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 17:23:17 +0000
+	Mon, 03 Aug 2026 17:24:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF5E9143D;
-	Mon,  3 Aug 2026 10:23:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE3AA143D;
+	Mon,  3 Aug 2026 10:24:23 -0700 (PDT)
 Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2607F3F632;
-	Mon,  3 Aug 2026 10:23:13 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 007423F632;
+	Mon,  3 Aug 2026 10:24:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785777796; bh=QXdbYhODgNCoMjuMI7rdU8rtGREIL8W7KMH0uM/frs8=;
+	t=1785777867; bh=f6bpgv69S18gRY4BSwh25O4n1LJwXyI+7lswDU9KAx0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hwcoKEA4gDomXvwry76t8b6kHyEWSf5XGAB5rkLQ291RoxdvJLA531KCJmhVX2tRo
-	 Aee9Y40uk9JHS4GZSIBK3iPD2xqCdgvatEJaB4QKUxdh8iJS45lyOpBgY0NRZKA6mC
-	 Ea58Z1YwQMyKl7yLj5gce4PcJ6xinidZP/WlOMPI=
-Message-ID: <b3fb8ba7-f85f-4312-8c40-99320b55e866@arm.com>
-Date: Mon, 3 Aug 2026 18:23:11 +0100
+	b=nQMMI12H45CZtRsM3jkFuuL93/8Tk/lnebaXOTk8Cgxxyhva63Z6+b61jc41ATzJn
+	 Z0jf7RIOMpECPir1eLUnUtL7wW46RLl8YHq6S3hFOD9fIWjP9uE55JIaUGRDatYosL
+	 Ria63P4FrbbrZHfzOsOc5GhBrddskkKmXSHz1X9U=
+Message-ID: <c078297a-c68b-44e8-a80c-c57f066f023a@arm.com>
+Date: Mon, 3 Aug 2026 18:24:23 +0100
 MIME-Version: 1.0
 User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v7 05/11] arm_mpam: propagate MSC access errors for
- __ris_msmon_read()
+Subject: Re: [PATCH v7 08/11] arm_mpam: prepare mon_sel locking for MPAM-Fb
 To: Andre Przywara <andre.przywara@arm.com>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
  <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
@@ -60,16 +59,15 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
  Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260731170324.2927758-1-andre.przywara@arm.com>
- <20260731170324.2927758-6-andre.przywara@arm.com>
+ <20260731170324.2927758-9-andre.przywara@arm.com>
 Content-Language: en-US
 From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260731170324.2927758-6-andre.przywara@arm.com>
+In-Reply-To: <20260731170324.2927758-9-andre.przywara@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_102316_794254_448BCDAD 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260803_102430_316487_80B59C83 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,12 +85,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Andre,
 
 On 7/31/26 18:03, Andre Przywara wrote:
-> Allow the function for RIS accesses to return an error, and propagate
-> read and write errors from the lower level up.
-> This function is a bit special, since it can be called via an SMP
-> helper, so the prototype must stay as void. So propagate any errors
-> using the "err" field in the struct passed in as the sole argument to
-> that function.
+> The MSC MON_SEL register needs to be accessed from hardirq for the overflow
+> interrupt, and when taking an IPI to access these registers on platforms
+> where MSCs are not accesible from every CPU. This makes an irqsave
+> spinlock the obvious lock to protect these registers. On systems with
+> MPAM-Fb mailbox MSC access it must be able to sleep, meaning a mutex must
+> be used. So MPAM-Fb platforms cannot support an overflow interrupt easily.
+> Clearly these two methods can't exist for one MSC at the same time.
+> 
+> Change the mon_sel locking wrapper function to only use a spinlock when
+> the MSC is accessed directly via MMIO. In case of MPAM-Fb, we use a
+> mutex, but only if we are in a sleepable context. If that's not the
+> case, we return an error. This should not happen, as MPAM-Fb by design
+> does not require an MSC access to happen from a specific CPU, so there
+> is no need for any IPIs or preemption disabling to satisfy CPU
+> constraints. And since overflow interrupts are not supported at the moment
+> anyway, we also wouldn't meet the other case.
+> Bailing out early is already happening in rare occasions today.
 > 
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 > Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
