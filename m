@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD51C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7728AC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:36:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D7ptxlbVknmNW7F+K3VHZoTIu+6logC+Y1ggbSuL5ms=; b=aNuWfBrUlyQOb8dPAnKd4tEJyF
-	TKT0V/LY1KDVOoMa92ZEZe2C5O6NLbmzajkj1pdm9PN7cQzDbv1x5pChoTQ+OR2EhaT5ATnUZtksq
-	ZJLUkd3huWw51l1aEgIFS0SBFdpieVhcASfO51O5DZQSWBlMYTW4YYIQZxdyWxXM8KB92yKzGqWJs
-	FNzOmQQFf2y0BJ/4uEkGHSqrnO00tHLyc6Uk4ge5sTfMG7all9jbXD/wLieDd1p4LovY/iJ5vosIf
-	Hd4HFtOiahtKVGUIXGRhMmaDci2GULZn66wJICq5vlO+Mh5R4chx/NiuD5oK7TWDSjllXcUQ5ak0X
-	4ebcwLzg==;
+	bh=YLwVMSmGYv83qQMDHymCgLJLan5WW0FRdVakjEqzBYA=; b=nyS7GWZjUwX8oyUwa0Owu16XPF
+	gO/49QYFuXB3MQXLge2I81SPZwOvesaX9HoZM164ZeEepqNLzAc62ODq3dqlcrdmpdM83YpsMqhVr
+	jLhtyZWdHiQlbnOEOiJNyr65tSbuawsItKQ8cKktwxD3z9IQYGzvnbDu/9nA+2jLBzpFCGkCBlE0P
+	OroqTsTr9h5HRboXmy9W5LvGyp1BBn/yyv0dt5Zo3b93gKuvVFPk5wsraDtDl4Lk1OJA4XOQwvrzy
+	zf2j0Eyjo5t5I+j/kKtW12IGemmixByOSCQbf3eqSA4mB+axjMqwMZDsP4nlgkvhC1lFsVghSxIWY
+	HCtCvFQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqrsA-0000000H2LP-3QcT;
-	Mon, 03 Aug 2026 12:34:26 +0000
+	id 1wqrth-0000000H2VQ-0AIG;
+	Mon, 03 Aug 2026 12:36:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqrs8-0000000H2Kp-1PSx
+	id 1wqrtf-0000000H2V2-0mZp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 12:34:25 +0000
+	Mon, 03 Aug 2026 12:36:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A4F8143D;
-	Mon,  3 Aug 2026 05:34:19 -0700 (PDT)
-Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 383213F66F;
-	Mon,  3 Aug 2026 05:34:22 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A843E143D;
+	Mon,  3 Aug 2026 05:35:52 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB1FD3F66F;
+	Mon,  3 Aug 2026 05:35:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785760463; bh=2+8flskoFARB8nuzjiAmo0VgI43p+eHd0pHgYF0ugNw=;
+	t=1785760556; bh=ZMjJJGjLX5qhiZfYr2Tg/ZhY4THZbGnUayhvkoYQLNk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fsggf3sjTOd8QEtip5kjwavOj0QrCSJEGFJMvQXKZdTybThEGhr9qiHvDmKkSOUCA
-	 uBH9oQfKHcD4KrdQxmVfE0Mx9B0fXlLLkLsU4WrW01zEECYsvwH0SJ9YCUCdzZsmRb
-	 B/l+XNqy/jL8PKxD91xkdk8fsSTg66FzI44j4YcE=
-Message-ID: <560521d0-7ae5-465e-9a3f-8178804c93ee@arm.com>
-Date: Mon, 3 Aug 2026 13:34:20 +0100
+	b=gDnxl5xZCWP68FDWod6cKugXD7iQIhJj0mR82DmuQ9EeKCll0DdtT5w8qrPQDVHWY
+	 nHMkNIuD5zM/pC/tJ7PTq3Qwa4RzaTpSgvpfkb7zkM7tThKfu9FYohLaynqTzKEDEX
+	 mfGw3NeUO7/nBjRUl2XFRc0dl7brIgmUk4Ub81aM=
+Message-ID: <00dae86e-cbc3-4d6e-966f-39afd4b8c2ec@arm.com>
+Date: Mon, 3 Aug 2026 13:35:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v2 41/45] irqchip/gic-v3: Prepare for FEAT_GICv3_NMI
- support
-To: Jinjie Ruan <ruanjinjie@huawei.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, maz@kernel.org, will@kernel.org,
- catalin.marinas@arm.com, liaochang1@huawei.com
-References: <20260727163453.7969-1-vladimir.murzin@arm.com>
- <20260727163453.7969-42-vladimir.murzin@arm.com>
- <a61ab3b2-eacb-4988-9f35-4ade98fa9489@huawei.com>
+Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Replace sort_nonatomic() with
+ sort()
+To: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>
+Cc: Kuan-Wei Chiu <visitorckw@gmail.com>, joro@8bytes.org,
+ akpm@linux-foundation.org, cychu@google.com, hhchung@google.com,
+ amitamishra@google.com, marscheng@google.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, jserv@ccns.ncku.edu.tw, eleanor15x@gmail.com
+References: <20260730181216.2709088-1-visitorckw@gmail.com>
+ <20260730181216.2709088-2-visitorckw@gmail.com>
+ <am8MpGR14HAg58Gd@willie-the-truck> <am+CPy4+gcGPtR3G@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
 Content-Language: en-GB
-From: Vladimir Murzin <vladimir.murzin@arm.com>
-In-Reply-To: <a61ab3b2-eacb-4988-9f35-4ade98fa9489@huawei.com>
-Content-Type: text/plain; charset=UTF-8
+In-Reply-To: <am+CPy4+gcGPtR3G@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_053424_415142_05EF42A7 
-X-CRM114-Status: UNSURE (   6.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260803_053559_294592_FAEF2BDB 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,15 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/28/26 13:29, Jinjie Ruan wrote:
-> The title "irqchip/gic-v3: Rename *nmi* to *pseudo_nmi*" will be more clear
+On 02/08/2026 6:45 pm, Nicolin Chen wrote:
+> On Sun, Aug 02, 2026 at 10:23:48AM +0100, Will Deacon wrote:
+>> On Thu, Jul 30, 2026 at 06:12:15PM +0000, Kuan-Wei Chiu wrote:
+>>> @@ -4047,9 +4047,9 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
+>>>   	}
+>>>   
+>>>   	/* Put the ids into order for sorted to_merge/to_unref arrays */
+>>> -	sort_nonatomic(master->streams, master->num_streams,
+>>> -		       sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
+>>> -		       NULL);
+>>> +	sort(master->streams, master->num_streams,
+>>> +	     sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
+>>> +	     NULL);
+>>
+>> Makes sense to me. Nicolin, did you choose the nonatomic version
+>> specifically?
 > 
+> It's probably rare to have a large multi-stream array, so I think
+> sort() would be fine.
 
-Fair enough. I'll update in the next version.
+Yeah, probably 99% of the time the size of this array will be 1. An 
+exceptional value of "large" might be something like 64 for a massive 
+(non-PCI) DMA engine with separate read and write IDs per channel for no 
+good reason.
 
-> otherwise LGTM
-> Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+If and when someone ever were to report RCU stalls here then we can 
+first ask them what the heck their client device is... and unless and 
+until then I wouldn't think it's worth worrying about.
 
-Thanks
-Vladimir
+Thanks,
+Robin.
 
