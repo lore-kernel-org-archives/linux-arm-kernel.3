@@ -4,59 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF4FFC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 22:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 683AAC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 22:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=NzqBUkUuPUSSxOc0UQtDlqdgKn9f1XFPYeVeP6ULshk=; b=4QxAQE9wTPL7ly
-	tVGmfFvhB1vCYBuGk2JwiaMwA0oztqpXYaYx0AQnJXJJOK+Ndc6TrSrhMTrKiNBOLzSt7TPSQeAe9
-	jD4oMV1pRSx1I6Kfbji6WdTdYtBxPZcYyibI/p0hPQQD+nzkamQOXMrM45SYB+WhSVxlvF/9B5EFA
-	z1lWmmIq4PfU60tpa/35tWc3b6TNDliAtkQUUFY+PRumk/75tdZY8f4R+iX0jdbfAlH36z8lV6VrG
-	bnUTlx52/L60Srg7JddXdzutw/6xEnNxbtXOSDzmoIdFQOTZvCkT9BT95W/Je3SIPw5hP/SyUp9wK
-	uPscx3Y6VHOj+XLj6Z5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=KlTs32Wu/cRBuE9vNJzT2pf+IpRmsakfs9uA+NszcVY=; b=k3hl212mbkLpwxtzguR8e1tgZE
+	02zfwA2+Ml9dz+T+JGauWxvtmynWtdwfzhYglEvKUwXExoVOk4/kbTwMtUB9wotBnZCCmvBWNRPYj
+	aEPULjGSTzdBwCE9mJ78kYCzodIz0jkarUa2XEJEF2KVfmsd2GQBH0TkFLhE7oyWYQnIrh4U1YBqk
+	14qOt2B3DKvJAiNHRcnkC+PTDI6yrzIu6ZpEVQfIxe0BEnF62z8rzv06XJ2HtGubeeUR98OtCRDBr
+	MYM1drmrCv6Zh5AkD9XPalTqhbokOUPSzpeBUQl3vrInJpIJDpuN+AyLXDlAALltDuSAa83IUKDE3
+	3NFTmdow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr12z-00000000adm-2qLV;
-	Mon, 03 Aug 2026 22:22:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wr16k-00000000axi-1rBv;
+	Mon, 03 Aug 2026 22:26:06 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr12y-00000000adc-3Srk;
-	Mon, 03 Aug 2026 22:22:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 294A5405E9;
-	Mon,  3 Aug 2026 22:22:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D12C41F000E9;
-	Mon,  3 Aug 2026 22:22:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785795732;
-	bh=NzqBUkUuPUSSxOc0UQtDlqdgKn9f1XFPYeVeP6ULshk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=Yxs0JackqidroKiBTsQw0a6aKHYM5sHkUglO0D5wq//b+JopEqC23meSCWke9mAnm
-	 0XF7SkYHw8enfeLF66Irvx6mAeEIgdSO4uAMQ7ztk5PfdvWLWJ4MpiudXlEIAksMU5
-	 +EFh2fTHQjGQJxaDCxGcWNKFkTD/L0vj9K7RXH7ZeZqHEx45256dSjotnZHUbD6eiB
-	 +WT4HUCItINluODmxK+d6k5/qFwffpcOhx8W/j1mGDQtL7NvJb6zY+pkYAbWcNi7WS
-	 wIRFzNrZ5mU5oUd05WePDK9DIBknkC0NIMAHP7pXqX3S9skm5jp7HpheyDxmUMFUxD
-	 dlunoWY6FNyKQ==
-Date: Mon, 3 Aug 2026 17:22:10 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Sangwoo Han <sangwoo.han@nearthlab.com>
-Cc: jim2101024@gmail.com, florian.fainelli@broadcom.com,
-	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	bhelgaas@google.com, bcm-kernel-feedback-list@broadcom.com,
-	robh@kernel.org, linux-pci@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] PCI: brcmstb: Reserve only the MSI vectors that are
- handed out
-Message-ID: <20260803222210.GA1804081@bhelgaas>
+	id 1wr16h-00000000axK-0Ems
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 22:26:05 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=kcDyIm8e8nqALv4RzRAguiiiaih+18gWCtY2yAPjCrbANV/GgBSlWTQec7qdQAKvEEC+NIgDA/O1l5hXQcpP9omN7bdwHEdDZX1NuX946tUWZPRcsJ+0B1jcrAiV8M4ylPwhEMTGtzvOWN6hKJ8vc0Y+rY7NzVspEsPZJ7KtG2TnYwddgPYe0ZvdeCblN3BpD+IGX2lagf4vVW4hhnq+1o9QM7PND4sU9KJ9cg7mneE/u+DCm+U74VDHnM5JSEk+8cD1aVr2WASNXelOsgQPgLZbFsAYDJCrn/pyu1ahnY0Wa725O+Cp2yuyBikGp7pY8sWksRVFkfLGKUnrMwBt9g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KlTs32Wu/cRBuE9vNJzT2pf+IpRmsakfs9uA+NszcVY=;
+ b=vYvCjikWL/OWklZG4+ke4BeeUA28krXfVWtzpaw0lpyUxk3kK76Kvcsysy80DB/pxmvYWjzMnTgaPIWY/uYvksJrsLQxyCmrHz3xs5GnCXMhZeFUqiYzvnBK9CdR36YK10zgD6rk7i4k7bGBUwz273yIpM8FS67cJDOJDLN5NuUMPtTULErnULfSjXmJdmprgnchXaiBiNIa4O7RMYv8QesCCa0n4n1h8SuxDTuHpNimIUkD96fMCDD5S82nBUABlqOImN9prfeER4V66AApn/0dPXqPVZV3g7oKi/ohUl3iB++2WoxNStgd/Exn9zE4vQO8ouX30Rlf1nX7PY1UUw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KlTs32Wu/cRBuE9vNJzT2pf+IpRmsakfs9uA+NszcVY=;
+ b=ODghUZCUDzgDuk4lMZJRWR96GdNxwx3Hno0Gd3bhwSAum3ZphziPZskiSmPhWPqm0aKV+FnP2QXpPmd6f4f3DWNzew6TdzNUCyPm8+7yvVDbvmLI/PW+5PlmmQwYZDAkr3FwA4bfIski4mVIZ1BCBBQWwwANMcnRv/bg0zBV0u0=
+Received: from AS4P250CA0010.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:5df::7)
+ by AS2PR08MB9389.eurprd08.prod.outlook.com (2603:10a6:20b:597::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Mon, 3 Aug
+ 2026 22:25:54 +0000
+Received: from AMS0EPF000001B7.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5df:cafe::59) by AS4P250CA0010.outlook.office365.com
+ (2603:10a6:20b:5df::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.18 via Frontend Transport; Mon, 3
+ Aug 2026 22:25:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF000001B7.mail.protection.outlook.com (10.167.16.171) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.8
+ via Frontend Transport; Mon, 3 Aug 2026 22:25:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VL1P7us3TUzZBH5E7WxUb7Xr2Y2o6GnmxUO1ZafPEwb48njqRFPsc2kCVwyci0vEjfhIXJAyVNyxFfYtJul0Kpn8rjIO/9Od3bYD2XCtnOnltFRTl37+0u9Kz5opoEVUcgzwN+cjCj0g1hEKChElxqHu8A41Y0FuexcBmG2/+/uv2Mxq0lTLCnvRROCcYsUaz1ZndzBJKKT14cN8MChpMWaDYQ9TES3VbpUmMfcbWjMLl3QutpziQA1QlYFNS98BrWnYxDUtaogHOw95M/1Fr2HQYPC7NjNoRTXVNqM17GtcxdqMjMTxd/Bu3hR1EySjYuwvX+SMXpYFcIDSaE1/Zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KlTs32Wu/cRBuE9vNJzT2pf+IpRmsakfs9uA+NszcVY=;
+ b=J5TgstB69bYx/p/Q8a+Jjvt+vR9Sfy7YJzh7ROYr6lNS0UpmHxo5ypsBQMP+9An8rUkDG7E2PlzzAuYvnxbn6uDzaU6ll/GYiq/FI/gN7L4+al4ROAFCwXMqRdWfmaFkNV7AHDDNbeJcazKQflR1TwRSHAMeQMhRHycxT50MDLcD5KbrIsrnvE0LOMnDTFuYKRAO7gspHh0fm969huEBLjEt7axjS/ZflNvoXV2KCSAFXGLUfLF14y+wP8TzHc3F4Hoa1RXLKr2F3w7a3dgDOCaOUmnz78WDv5XdMb/QlGaytLmMS4KZ0Qz5TGpcmBcHIvJ82dxui6WD53+2WZX9Hw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KlTs32Wu/cRBuE9vNJzT2pf+IpRmsakfs9uA+NszcVY=;
+ b=ODghUZCUDzgDuk4lMZJRWR96GdNxwx3Hno0Gd3bhwSAum3ZphziPZskiSmPhWPqm0aKV+FnP2QXpPmd6f4f3DWNzew6TdzNUCyPm8+7yvVDbvmLI/PW+5PlmmQwYZDAkr3FwA4bfIski4mVIZ1BCBBQWwwANMcnRv/bg0zBV0u0=
+Received: from DB9PR08MB8651.eurprd08.prod.outlook.com (2603:10a6:10:3d1::9)
+ by DUYPR08MB12014.eurprd08.prod.outlook.com (2603:10a6:10:65f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Mon, 3 Aug
+ 2026 22:25:21 +0000
+Received: from DB9PR08MB8651.eurprd08.prod.outlook.com
+ ([fe80::8fb8:7cf9:49c4:6f90]) by DB9PR08MB8651.eurprd08.prod.outlook.com
+ ([fe80::8fb8:7cf9:49c4:6f90%4]) with mapi id 15.21.0270.016; Mon, 3 Aug 2026
+ 22:25:21 +0000
+From: Fayssal Benmlih <Fayssal.Benmlih@arm.com>
+To: Cristian Marussi <Cristian.Marussi@arm.com>
+CC: "arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>, "d-gole@ti.com"
+	<d-gole@ti.com>, "david@kernel.org" <david@kernel.org>, Elif Topuz
+	<Elif.Topuz@arm.com>, "etienne.carriere@st.com" <etienne.carriere@st.com>,
+	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, "james.quinlan@broadcom.com"
+	<james.quinlan@broadcom.com>, "jic23@kernel.org" <jic23@kernel.org>,
+	"kas@kernel.org" <kas@kernel.org>, "kernel-team@meta.com"
+	<kernel-team@meta.com>, "leitao@kernel.org" <leitao@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Lukasz Luba <Lukasz.Luba@arm.com>,
+	"michal.simek@amd.com" <michal.simek@amd.com>, "peng.fan@oss.nxp.com"
+	<peng.fan@oss.nxp.com>, Philip Radford <Philip.Radford@arm.com>,
+	"puranjay@kernel.org" <puranjay@kernel.org>, Souvik Chakravarty
+	<Souvik.Chakravarty@arm.com>, "sudeep.holla@kernel.org"
+	<sudeep.holla@kernel.org>, "usama.arif@linux.dev" <usama.arif@linux.dev>,
+	"vincent.guittot@linaro.org" <vincent.guittot@linaro.org>
+Subject: Re: [PATCH v7 19/23] uapi: Add ARM SCMI Telemetry definitions
+Thread-Topic: [PATCH v7 19/23] uapi: Add ARM SCMI Telemetry definitions
+Thread-Index: AQHdI5b4JAud/7Zlb0e+zfkSVFQFMA==
+Date: Mon, 3 Aug 2026 22:25:20 +0000
+Message-ID: <A113D0AA-C4C5-4694-B3AD-731D6D39666B@contoso.com>
+In-Reply-To: <<20260802145618.1952804-20-cristian.marussi@arm.com>>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: DB9PR08MB8651:EE_|DUYPR08MB12014:EE_|AMS0EPF000001B7:EE_|AS2PR08MB9389:EE_
+X-MS-Office365-Filtering-Correlation-Id: 73fcf055-5f86-416e-6264-08def1ae2ef0
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|38070700021|6133799003|10067099003|56012099006|11063799006|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info-Original: LifmvXkn51Axez0yTTJcTNF2UQrLgsKbM5LrSVPclr9pjEaGkTw3uPXrRqx6EVThpRU+Ti34sr00WC2jHO6AKEv2zwHfhYCjL7a+sBaY+bIyaVI1p3EBaUpuQ6uHQez/h5korV3p3GUAcGpEf7gLOAQKhaiAYvM5tCMr69W8Oiif4gOVAmFY3WbjMEBY1xcLJxwne48vWquVM9qGHfRjRB+idIG1C7zdZRSA0T+hjroGVCtpR1xOX/Iv+MQCJZHZMGtCn589RaZorG67ZMdBy6Ib6YZvx0adlJzMtTgOD+vpF4dIBX8V0Yyorsa4X2xj1lswuF3QjtPyQVilqEmBCCzFB7zWQ+fgF4YEsHY746MJu599OLsEMKX2CDSeVIF/OadiLE4T4bdlPi7N5cZOfpRBP8gHhDuV+4Esli0XFtQ84v9AFfJvzMbCf1legs7QvBm5t4aHTn7aYM+Gd/OTJIQc4oeJjQ7OBMX/6qgNXDr7FDhN+eRXTH7fnGtcr4LgN5K0kXUaHh7W9LCD4QA0+nUCm6lvA5RpuqH5r2n01GMPos6oA23D1aFicWF2KFxlvfC0q7YoJtgPGWiDuqYg0WeMbvLBh0soeVfQqxM2RNTnUnFz1BoEcUmG7J+YEr/s0/nE1JyrCn0sW/0galWK/KCYOQipv5Lt+wk+EPMTBvsNFOc0CXrGxlygUtE3gkH7NgWu6lVMzxKPfOfwmX3Iol+DDXeNtwR2UrQk4zHuZQo=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB8651.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(38070700021)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <4066F5BD469F5B45B0004500BB1884E6@eurprd08.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260730072215.2090974-1-sangwoo.han@nearthlab.com>
+X-Exchange-RoutingPolicyChecked: aHltID/e3BbIl1g7YRtHsS2tTm47frPuUCuSZ3gUZs1qihV/+EwaUR93GQ8JESEP3IxgMqddqkS3HPjs+oQNu3wT1HaTSq/Bz5DbQbQnUEP4QpId4EJUJZk+oaSQxcwUhyJnrZuagFr1SXDjEvzz7EWp+5ELVvhUdntsH27OJhTvk2II014ZwNm//pa2inUQqqrGLLLvJRdyN2g18vbgn5fhbizamxzpItqVa/wBVtBLOteUJiDcSVUs79Ch7ZajHZhJZP8k4NjAd/L5UYUDfJ47nVNhWgfEBqGvK/eGOpN09FvuQV0cUdwcxr7iyU0SnQbamfauQnrGEy+42mvZjQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUYPR08MB12014
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001B7.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 3d072d95-7f22-49e1-68e2-08def1ae1b06
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|14060799003|23010399003|36860700016|35042699022|1800799024|82310400026|6133799003|10067099003|56012099006|11063799006|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: qLJI23AAtIFR8kQSygVOISYnqX7QQuMbYWrS2UoeO87bKsnlTu5qpsBikZlbi24yIxUDjavldea9vbk0MQjRCLkOjPIgeRV8nFTqyfJBY94nqtKRWvwHzTnarlWCDj673KYM7tZT3Af0WbZZn5yO5wW8EwgfQQ7pJ2T6tQbX4j9D7S87h4ZEb9SKd1xtG6zfCv/ZFRj8tlm7eK7nbaOgOPTtS851HplSXjjz25Jc9xkI4bj1EGtWbgualbBqrWxAQ/+2SgrEakYhh5mS6mP0kWzz75R1k3CyOHagEoKs5AsROZM9KAb5iEnq9jZxzvkFvT9C75MNYZa0dhjfUHiXu+7r0FdEQ2RRyMzoIUmKmz6v5hDddXicuVZVZfnnDEkR9mct22nipTSi/rgzfN3Oe2u27RtZsQpyN5lU1Fr40lXx8BsDumUVXWGVnctYZpW6O/oLStkt0Q9ZkRXSVnO8v01cj1e6KeAlijFwbv4+X7+2oFGzHMwdFPIXQmjtl34Oz4oLMqnBOCERcT7FYTnS4c+s9f1W2doVL84EWSO8aJpbZ7apA+NglBCCklWYlteTRiQ01npYovV26dzPkamLJ2vaBZwo6b06MhNqtD4KvTIX5Z7zUn2YYX3WPoyPiWl3Sv3GSEcuXaJJFeaU+fP6B3zqmW+rn1FYxQxjh8LkQOesU0Db/DzpAoH76A7iOhiOYSnwB71q41X85v2UKXEh9g==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(14060799003)(23010399003)(36860700016)(35042699022)(1800799024)(82310400026)(6133799003)(10067099003)(56012099006)(11063799006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: PGbtROYL6+XA7K/aVpNTQTD7ro1/Bw6IVyrUtHaKJ+6nhW3QcTVlt0yDr0EEOUKY2lgtOYi1b+8J5ujjbWgBSAZwCnKjFmJlNFCoeUq6USisD85WQGd3mJBQl+4Fu5HsWHnf9/X3fW23OMYsBEHyg993iKXlpRs4ohgrOmzz/2SdgSvKtTZujXmrHZyyTFZRXY8FqVMemnnuwoMyHFr5MH6lo7SOKXL0gZUQaCNSxHuKeAHlpqR+l7psm4MH1dsPtqDUzLSQezgkaBvmEiUiH5bOx4eL0UWs4u8QVEg5BFYiPgAZZuXdt4O0vDIYiSanwI4bErjRqOayDRiu99CFpk9B1Re8fzwknpMtapeaX6lNpN8UsrjdVYhgHifNkv3VO2X39J14b78WSvGrFHX1QdFCam5k9q+UK7s4EdimaiSpCyAEQSBwTMkDoYLko1pt
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Aug 2026 22:25:54.6402
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 73fcf055-5f86-416e-6264-08def1ae2ef0
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B7.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9389
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_152603_424399_38115F88 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,122 +169,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 30, 2026 at 04:22:15PM +0900, Sangwoo Han wrote:
-> brcm_msi_alloc() reserves a naturally aligned power-of-two region with
-> bitmap_find_free_region(order_base_2(nr_irqs)), but the irqdomain core
-> releases the vectors of a block one at a time:
-> 
->   /* irq_domain_free_irqs_hierarchy() */
->   for (i = 0; i < nr_irqs; i++)
->           if (irq_domain_get_irq_data(domain, irq_base + i))
->                   domain->ops->free(domain, irq_base + i, 1);
-> 
-> That loop is the only caller of an irq_domain's ops->free(), so
-> brcm_irq_domain_free() always sees nr_irqs == 1 and
-> bitmap_release_region() clears exactly one bit per call. A request whose
-> vector count is not a power of two therefore reserves
-> roundup_pow_of_two(nr_irqs) bits but releases only nr_irqs of them, and
-> the difference stays set for the lifetime of the controller.
-> 
-> Multi-MSI regions are order-aligned and the controller has at most 32
-> MSIs, so the pool is quickly exhausted. Observed on a BCM2712 with a
-> 5-vector endpoint behind a 4-port PCIe switch: the switch ports take
-> hwirq 0x0-0x3 and the endpoint's block walks 0x8 -> 0x10 -> 0x18 across
-> three driver reloads until no aligned order-3 region is left.
-> pci_alloc_irq_vectors() then falls back to a single vector for the rest
-> of the boot, silently multiplexing the endpoint's four completion
-> interrupts onto one hwirq.
-> 
-> Devices that ask for a non-power-of-two vector count are not exotic:
-> wil6210 asks for 3, the MHI modems for 5 (Quectel EM1xx, Foxconn SDX55,
-> Telit FN990, MediaTek MV3x) or 7 (Qualcomm v1), ath11k WCN6750 for 28
-> and ptp_ocp for 17. MSI-X is unaffected because it allocates one
-> descriptor per vector with nvec_used == 1, so the order is always zero.
-> 
-> Reserve exactly the vectors that are handed out, at a base found with
-> bitmap_find_next_zero_area(), and clear exactly the vectors that are
-> freed. The number of reserved bits then matches the number the core
-> releases, whatever arity it uses.
-> 
-> The base still has to be aligned: PCI Local Bus Specification 3.0
-> (section 6.8.1.6) lets the endpoint encode the vector number in the low
-> order_base_2(nr_irqs) bits of the Message Data register, and in this
-> controller those bits are the hwirq itself. The alignment mask has to be
-> roundup_pow_of_two(nr_irqs) - 1 rather than nr_irqs - 1:
-> bitmap_find_next_zero_area() requires a mask of the form 2^k - 1. No
-> align_offset is needed because the bitmap index is the value the
-> endpoint ORs in, see brcm_msi_compose_msi_msg().
-> 
-> For a power-of-two nr_irqs the alignment and the region length are both
-> nr_irqs, so the base returned is the same as before and those
-> allocations are unaffected.
-
-Several other PCI controller drivers have similar code.
-
-I think we should fix them all at once (or explain why they don't need
-similar fixes).  Might be worth a little helper so they all work the
-same way (e.g., some use order_base_2(), others use get_count_order(),
-which seems like a pointless difference).
-
-> Fixes: 198acab1772f ("PCI: brcmstb: Enable Multi-MSI")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Sangwoo Han <sangwoo.han@nearthlab.com>
-> ---
-> 
-> Notes:
->     Tested on a BCM2712 (Raspberry Pi 5) with a 5-vector endpoint behind a
->     4-port PCIe switch, running 6.12.25 where brcm_msi_alloc() and
->     brcm_msi_free() are byte-identical to mainline. Without the patch the
->     endpoint's block walks 0x8 -> 0x10 -> 0x18 over three driver reloads and
->     then falls back to a single vector for the rest of the boot; with it the
->     block returns to 0x8 on all of eight reload cycles and the inner
->     domain's mapped count round-trips cleanly.
->     
->     Compile-tested on mainline for arm64 with W=1 and C=1 (sparse); no new
->     warnings.
-> 
->  drivers/pci/controller/pcie-brcmstb.c | 17 ++++++++++++++---
->  1 file changed, 14 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index 8a0c353d2a..6c5166666d 100644
-> --- a/drivers/pci/controller/pcie-brcmstb.c
-> +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -595,11 +595,22 @@ static struct irq_chip brcm_msi_bottom_irq_chip = {
->  
->  static int brcm_msi_alloc(struct brcm_msi *msi, unsigned int nr_irqs)
->  {
-> +	/*
-> +	 * brcm_msi_compose_msi_msg() puts hwirq in the low order bits of the
-> +	 * message data, which a Multi-MSI endpoint rewrites per vector, so a
-> +	 * block's base must be aligned to the Multiple Message Enable count.
-> +	 */
-> +	unsigned long align_mask = roundup_pow_of_two(nr_irqs) - 1;
->  	int hwirq;
->  
->  	mutex_lock(&msi->lock);
-> -	hwirq = bitmap_find_free_region(msi->used, msi->nr,
-> -					order_base_2(nr_irqs));
-> +	hwirq = bitmap_find_next_zero_area(msi->used, msi->nr, 0, nr_irqs,
-> +					   align_mask);
-> +	if (hwirq >= msi->nr) {
-> +		mutex_unlock(&msi->lock);
-> +		return -ENOSPC;
-> +	}
-> +	bitmap_set(msi->used, hwirq, nr_irqs);
->  	mutex_unlock(&msi->lock);
->  
->  	return hwirq;
-> @@ -609,7 +620,7 @@ static void brcm_msi_free(struct brcm_msi *msi, unsigned long hwirq,
->  			  unsigned int nr_irqs)
->  {
->  	mutex_lock(&msi->lock);
-> -	bitmap_release_region(msi->used, hwirq, order_base_2(nr_irqs));
-> +	bitmap_clear(msi->used, hwirq, nr_irqs);
->  	mutex_unlock(&msi->lock);
->  }
->  
-> -- 
-> 2.53.0
-> 
+SGkgQ3Jpc3RpYW4sDQoNCkEgZmV3IGNvbW1lbnRzIG9uIHRoZSB1cGRhdGVkIFVBUEkgaW5saW5l
+Lg0KDQo+IHN0cnVjdCBzY21pX3RsbV9iYXRjaCB7DQo+IAlfX3UzMiBudW1faXRlbXM7DQo+IAlf
+X3UzMiBpdGVtX3N6Ow0KPiAJX191NjQgcmVzZXJ2ZWQ7DQo+IAlfX3U2NCBzdGF0ZXM7DQo+IAlf
+X3U2NCBpdGVtczsNCj4gfTsNCg0KUGxlYXNlIGRlZmluZSBhbiB1cHBlciBib3VuZCBmb3IgbnVt
+X2l0ZW1zLiBXaXRob3V0IGEgY29tbW9uIEFCSSBsaW1pdCwNCmNhbGxlcnMgY2FuIHJlcXVlc3Qg
+ZWZmZWN0aXZlbHkgdW5ib3VuZGVkIGFsbG9jYXRpb24gYW5kIGl0ZXJhdGlvbiwgYW5kDQp1c2Vy
+c3BhY2UgZG9lcyBub3Qga25vdyB3aGljaCBzaXplcyB0aGUga2VybmVsIGlzIGV4cGVjdGVkIHRv
+IHN1cHBvcnQuDQoNCj4gICogQHN0YXRlczogQSByZWZlcmVuY2UgdG8gYW4gYXJyYXlzIG9mIHUz
+MiBpdGVtcyByZXByZXNlbnRpbmcgdGhlDQo+ICAqCSAgICBvdXRjb21lIG9mIHRoZSByZXF1ZXN0
+cyBmb3IgZWFjaCBzaW5nbGUgaXRlbSBpbiBAaXRlbXM6IHRoZXNlIGFyZQ0KPiAgKgkgICAgb3Jk
+ZXJlZCBpbiB0aGUgc2FtZSBvcmRlciBhcyB0aGUgQGl0ZW1zLiAtIE9VVA0KDQpUaGVzZSBzdGF0
+dXNlcyBjb250YWluIHplcm8gb3IgYSBuZWdhdGl2ZSBMaW51eCBlcnJubywgYnV0IHRoZSBhcnJh
+eSBpcw0KZGVzY3JpYmVkIGFzIHUzMiB3aGlsZSB0aGUgaW1wbGVtZW50YXRpb24gdXNlcyBpbnQg
+Ki4gQ291bGQgdGhpcyBiZQ0Kc3BlY2lmaWVkIGFzIGFuIGFycmF5IG9mIF9fczMyIHNvIHRoZSBz
+aWduZWQgZXJyb3ItdmFsdWUgQUJJIGlzIGV4cGxpY2l0Pw0KDQpJcyBzdGF0ZXMgPT0gMCBleHBs
+aWNpdGx5IHN1cHBvcnRlZD8gVGhlIGRyaXZlciB0cmVhdHMgaXQgYXMgb3B0aW9uYWwgYW5kDQpz
+dG9wcyBhdCB0aGUgZmlyc3QgZXJyb3Igd2hlbiBpdCBpcyBhYnNlbnQsIHBvdGVudGlhbGx5IGFm
+dGVyIHByZWNlZGluZw0KY29uZmlndXJhdGlvbiBjaGFuZ2VzIGhhdmUgc3VjY2VlZGVkLiBQbGVh
+c2UgZG9jdW1lbnQgYm90aCB0aGUgb3B0aW9uYWwNCnBvaW50ZXIgYW5kIHRoZSByZXN1bHRpbmcg
+cGFydGlhbC1jb21wbGV0aW9uIHNlbWFudGljcy4NCg0KPiAjZGVmaW5lIFNDTUlfVExNX1NFVF9D
+RkcJX0lPV1IoU0NNSV9UTE1fSU9DVExfTUFHSUMsIDB4MDIsIHN0cnVjdCBzY21pX3RsbV9jb25m
+aWcpDQo+IFsuLi5dDQo+ICNkZWZpbmUgU0NNSV9UTE1fU0VUX0RFX0NGRwlfSU9XUihTQ01JX1RM
+TV9JT0NUTF9NQUdJQywgMHgwNSwgc3RydWN0IHNjbWlfdGxtX2JhdGNoKQ0KPiBbLi4uXQ0KPiAj
+ZGVmaW5lIFNDTUlfVExNX1NFVF9BTExfQ0ZHCV9JT1dSKFNDTUlfVExNX0lPQ1RMX01BR0lDLCAw
+eDBBLCBzdHJ1Y3Qgc2NtaV90bG1fZGVfY29uZmlnKQ0KDQpTRVRfREVfQ0ZHIG5vdyByZXR1cm5z
+IHBlci1ERSB0cmFja2luZyBpbmZvcm1hdGlvbiwgc28gX0lPV1IgbWFrZXMgc2Vuc2UNCmZvciB0
+aGF0IGNvbW1hbmQuDQoNClNFVF9DRkcgYW5kIFNFVF9BTExfQ0ZHLCBob3dldmVyLCBzdGlsbCBv
+bmx5IGNvbnN1bWUgdGhlaXIgYXJndW1lbnRzIGFuZA0KZG8gbm90IGNvcHkgYSByZXN1bHQgYmFj
+ay4gVW5sZXNzIG91dHB1dCBpcyBwbGFubmVkLCBzaG91bGQgdGhlc2UgdHdvDQpjb21tYW5kcyBi
+ZSBfSU9XIGJlZm9yZSB0aGUgaW9jdGwgbnVtYmVycyBiZWNvbWUgQUJJPw0KDQo+ICNkZWZpbmUg
+U0NNSV9UTE1fQkFUQ0hfUkVBRAlfSU9XUihTQ01JX1RMTV9JT0NUTF9NQUdJQywgMHgxMCwgc3Ry
+dWN0IHNjbWlfdGxtX2RhdGFfcmVhZCkNCg0KU0NNSV9UTE1fQkFUQ0hfUkVBRCBpcyBlbmNvZGVk
+IHdpdGggc3RydWN0IHNjbWlfdGxtX2RhdGFfcmVhZCwgYnV0DQpzY21pX3RsbV9kZXNfYmF0Y2hf
+cmVhZF9pb2N0bCgpIGNvcGllcyBhbmQgaW50ZXJwcmV0cyBzdHJ1Y3QNCnNjbWlfdGxtX2JhdGNo
+LiBUaGVzZSBzdHJ1Y3R1cmVzIGFyZSBkaWZmZXJlbnQgc2l6ZXMsIHNvIF9JT0NfU0laRShjbWQp
+DQpkb2VzIG5vdCBkZXNjcmliZSB3aGF0IHRoZSBoYW5kbGVyIGFjY2Vzc2VzLg0KDQpQbGVhc2Ug
+dXNlIHN0cnVjdCBzY21pX3RsbV9iYXRjaCBoZXJlIGFuZCB1cGRhdGUgdGhlIGRvY3VtZW50YXRp
+b24gZXhhbXBsZQ0KYWNjb3JkaW5nbHkuDQoNCkEgZmV3IGtlcm5lbGRvYyBuaXRzOg0KDQotIHNj
+bWlfdGxtX2FiaV9pbmZvIGRvY3VtZW50cyBAZGVfaW1wbF92ZXJzaW9uLCBidXQgdGhlIG1lbWJl
+ciBpcyBuYW1lZA0KICBwcmltYXJ5X2RlX2ltcGxfdmVyc2lvbi4NCi0gc2NtaV90bG1fYmF0Y2gg
+ZG9jdW1lbnRzIEBpdGVtc19zeiwgYnV0IHRoZSBtZW1iZXIgaXMgaXRlbV9zei4NCi0gc2NtaV90
+bG1fZ3JwX2luZm8gZG9jdW1lbnRzIGEgcmVzZXJ2ZWQgbWVtYmVyIHRoYXQgaXMgbm90IHByZXNl
+bnQgaW4gdGhlDQogIHN0cnVjdHVyZS4NCg0KVGhhbmtzLA0KRmF5w6dhbA0KDQo=
 
