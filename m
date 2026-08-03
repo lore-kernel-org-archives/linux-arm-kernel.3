@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF91C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959DAC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2BOhkhN+nD6eTFoBG4yVgCP6CfGcQEWxk1diIr5TtuM=; b=YiyBJI8oQTpcZt
-	N15uqoYBk6yYRN5+d2jCEXGc7gacw55IBTO/4GOpM5xLnDSuQzVV/ubXVdP8iwQqv1F0tWJVMZWPC
-	uE8NWYQhIyCY0dOaHT7EkLnt4R5WAvePKWeOsazHL8PMVmaSlfQKGpnX5lUM/+k+z0BwuBJra77h8
-	QloWXSkfnRrvtoPERWVC15xqSXVwSHwWkUR3nPugUQbwplckwF3Vyq3GE1jzwg4JXzTZnBtydYFhu
-	IKN0O/biArdyBqIlbwvNYlyrHBfekNcoPD8xoAt0jzDG6CvkuD1w9fjaGjejwbNNX4/EZjMrGfK1n
-	5Jaw1WAiWmZ8gxR+7H0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dEXExfanbitCxpSpt/vJSYBg/fzzx9uuMHQQps2p0mk=; b=Iqo6NhdLWKsfn38KZRcr7Wprqn
+	rEGpmNXRnlUBfTvWufVjORqCmra4pKdpQx0bAZWwqTAFhC/WUreEP2GOnE79Dgybtn4VxT8e4aPtR
+	vOaf17kNJL/P7+wrm6BVL9FLKAr/VlwSnVetfwTnl70JVseqFEctg//YXPcY32OWpiL2eKFFUl7wM
+	iYL+kNsLYQBEyWOaRSnfc4kHJKcdvsjpJd2K0fsGgZlr/n2ea7rzWSyHmdhcoEuSTS90skA9ZN2+Z
+	GP1oFhQCWxub4GaTkBaKE4ntHmgltp9QIX9Mv7m9WqWTs3GEX1O5oD0yKyTflud/VE5mfsmW4B7VC
+	69RuKqHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwQm-00000000EPS-3M67;
-	Mon, 03 Aug 2026 17:26:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wqwSz-00000000EbB-0GNP;
+	Mon, 03 Aug 2026 17:28:45 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqwQl-00000000EPA-1qAx
+	id 1wqwSv-00000000Eao-3D7F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 17:26:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DB10D416B1
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:26:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFEC91F00A3D
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:26:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785777986;
-	bh=2BOhkhN+nD6eTFoBG4yVgCP6CfGcQEWxk1diIr5TtuM=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=TOdmjbZ2iH/jgLMW0euKcOBac7p7mK/rCN9x9HW4PIcef93PUhmSxnheRPA3JFkOL
-	 9RqriVpqHlLfXJn/2feJu8WCCg6FwIzTHTm3w0ASuRlh5pPmyy63f326l4+2WMJ7dC
-	 P2BeNZuCEcB7di6VqJ9X7rOIeS1v5oJDFqw5mmSrLlo1RjYm7DyPvsQAsey6kX9BnB
-	 5JVuSrMtiLRAyHNuTuaFG8nl8cjjCdil//IPqwCARyciuaXdNbDoN0pUammbZOFZGd
-	 lPiezk4Q0QoYjQ8WH4b8KCJwtSFoP9gvwWILXaFGgaXIwngqo+6HiSnDYgHf4sSs+Q
-	 pMrduqxSp+/Dg==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39f75e1e9d9so26568401fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 10:26:26 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rr4qiLclO09MlOWPtxXeV9pKR9X3ZKJaaNCw8O2UHde1xncnk41/SdORp09WCPelGkRJmiBVqVh43kV3aUYQ/ss@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrqQO5shOVN0CzZrJqSI8N8aoLivLnOTaGSnx2sonqF5Y6es5d
-	a/wDM3FVDGQcZvos3W5JMFpdvPka3J6eFX+2H+bsKC2+GKGTj1YEdGJAQf2li+eEJWLZB32Bt2H
-	FUK9PoQda3iEBwvHD0vNfW2VkllQ/3as=
-X-Received: by 2002:a2e:be05:0:b0:39c:6fad:2bc4 with SMTP id
- 38308e7fff4ca-39f861a8b58mr22384021fa.16.1785777985252; Mon, 03 Aug 2026
- 10:26:25 -0700 (PDT)
-MIME-Version: 1.0
-References: <cover.1785772659.git.jernej.skrabec@gmail.com> <51ba0918ce016a4b45313d5df1b6ce31b8c8731e.1785772659.git.jernej.skrabec@gmail.com>
-In-Reply-To: <51ba0918ce016a4b45313d5df1b6ce31b8c8731e.1785772659.git.jernej.skrabec@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 4 Aug 2026 01:26:12 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67j7nGbnCCG_2XCuFOzYkBJzyqu-YJ-w6QgLY2idndhwA@mail.gmail.com>
-X-Gm-Features: AUfX_mwuI2xct4yNs35NtVK4bvQPSjfvQWC7fMdYbuzLo9QKn0Un44VUoQL0gtU
-Message-ID: <CAGb2v67j7nGbnCCG_2XCuFOzYkBJzyqu-YJ-w6QgLY2idndhwA@mail.gmail.com>
-Subject: Re: [PATCH 07/13] drm/sun4i: hdmi: Don't leak sync polarity bits into
- packet control
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 03 Aug 2026 17:28:43 +0000
+Received: from mail01.layka.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 9C99B887E9;
+	Mon, 03 Aug 2026 19:28:36 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id zej7F0WdACzl; Mon,  3 Aug 2026 19:28:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1785778115; bh=GT+yfWLFAPExdbDJ5COk1PTpR3MMG3NsRmwyhEWOYjM=;
+	h=Date:Cc:Subject:From:To:References:In-Reply-To;
+	b=gdDyn7aUsb6UsGC1GJ4OsW/ceiz5FmLDYl2c/KmfW8Xbe4PCxxHdkgMvjUbH3YyFA
+	 hUgm0T9hqnYCAv72T6bvA50SjREcrWPqpx0KNi5YA820ywxUnsN3w3Ud3G+wDeIBxt
+	 9jY/kxH4M9rvh9e7F/s8yys83uiKzBfMpacBr4KVe2QSujvzBmkBXcVY3xlbzW1nwX
+	 6jz9F0Ypy8S90x7publ6Ybu/7e9KsKw9VjpS3DnPSgg12UkjsdSOdCPLF1XMjBJksd
+	 BGtBWAQ1B5Esv13XCjIN0jMS9066jAHGFNP72QakW45VanwWLmqDTHw82Y4dvQjDUF
+	 knZnmHY2I4Sug==
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 03 Aug 2026 22:58:24 +0530
+Message-Id: <DKFHI80E1741.3L5TMU6D3P9OC@disroot.org>
+Cc: <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-samsung-soc@vger.kernel.org>
+Subject: Re: [PATCH v3 2/3] iio: proximity: add driver for Sharp GP2AP070S
+ proximity sensor
+From: "Kaustabh Chakraborty" <kauschluss@disroot.org>
+To: "David Lechner" <dlechner@baylibre.com>, "Kaustabh Chakraborty"
+ <kauschluss@disroot.org>, "Jonathan Cameron" <jic23@kernel.org>,
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Andy Shevchenko"
+ <andy@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Peter Griffin"
+ <peter.griffin@linaro.org>, "Alim Akhtar" <alim.akhtar@samsung.com>
+References: <20260731-gp2ap070s-v3-0-d1f5cecf9fe7@disroot.org>
+ <20260731-gp2ap070s-v3-2-d1f5cecf9fe7@disroot.org>
+ <380b864f-6266-40fb-87a4-027afb422885@baylibre.com>
+In-Reply-To: <380b864f-6266-40fb-87a4-027afb422885@baylibre.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_102842_244161_4E0D82F7 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +78,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 4, 2026 at 12:11=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
-l.com> wrote:
->
-> sun4i_hdmi_enable() keeps using the same variable after it programmed
-> the video timing polarity register with it. The leftover TX_CLK, HSYNC
-> and VSYNC bits are then ORed into the packet control register, where
-> each nibble selects the packet type sent in one slot.
->
-> As a result, slot 0 selects packet type 3 instead of the AVI infoframe
-> whenever the mode has positive HSYNC polarity, and the TX_CLK bits set
-> nibbles which the driver never programs.
->
-> Assign the packet types instead of ORing them into the stale value.
->
-> Fixes: 9ca6bc246035 ("drm/sun4i: hdmi: Move mode_set into enable")
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+On 2026-08-01 11:41 -05:00, David Lechner wrote:
+> On 7/30/26 3:07 PM, Kaustabh Chakraborty wrote:
+>> The GP2AP070S is a proximity sensor designed and manufactured by Sharp
+>> Corporation. This sensor is used in mobile devices, including, but not
+>> limited to - the Samsung Galaxy J6.
+>>=20
+>> The driver has been adopted from Samsung's downstream kernel
+>> implementation [1]. Due to the lack of public documentation about the
+>> schematics of this device. The downstream driver acts as the secondary
+>> source of information. Driver clarity has also been improved with the
+>> help of the GP2AP* drivers in iio/light.
+>>=20
+>> Link: https://github.com/Exynos7870/android_kernel_samsung_universal7870=
+/blob/lineage-16.0/drivers/sensors/gp2ap070s.c [1]
+>> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+>> ---
 
-Acked-by: Chen-Yu Tsai <wens@kernel.org>
+[...]
 
-> ---
->  drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>> +static void gp2ap070s_reset_action(void *private)
+>> +{
+>> +	struct gp2ap070s_drvdata *drvdata =3D private;
 >
-> diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun=
-4i/sun4i_hdmi_enc.c
-> index 74c7c3720ba8..a27d394d0570 100644
-> --- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-> +++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
-> @@ -161,7 +161,7 @@ static void sun4i_hdmi_enable(struct drm_encoder *enc=
-oder,
->
->         drm_atomic_helper_connector_hdmi_update_infoframes(connector, sta=
-te);
->
-> -       val |=3D SUN4I_HDMI_PKT_CTRL_TYPE(0, SUN4I_HDMI_PKT_AVI);
-> +       val =3D SUN4I_HDMI_PKT_CTRL_TYPE(0, SUN4I_HDMI_PKT_AVI);
->         val |=3D SUN4I_HDMI_PKT_CTRL_TYPE(1, SUN4I_HDMI_PKT_END);
->         writel(val, hdmi->base + SUN4I_HDMI_PKT_CTRL_REG(0));
->
-> --
-> 2.43.0
->
->
+> Usually, we don't bother with a cast/local variable in these.
+> The void* can be passed directly as an arg.
+
+Yeah, but CFI will not be happy about that.
 
