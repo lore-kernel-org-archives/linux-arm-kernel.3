@@ -4,123 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49977C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 16:37:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B7F4C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 16:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y2mO7QnlyPovrqJ9WwdH4iPAu4v/YWoM0OB9E5eGsqI=; b=QZvNRdjgflk3RcBzeHZUS7iY/G
-	TTeg3TzL19uywfyKzTif6JK9jo0nwnc9+7Di0fH6NtAR3LtYosQasmnSOhLfKKgJem7Gu0CUS9ZRx
-	ESi1yvZy6g/WqFhysoOjNZtPM5yjh3QqCck73lxanZw+AYwzY6Lo0k0DnD62fZsvP+3oGSXFW+rTc
-	e/KG/Qbvs+h5pxjMBncZuDH2/9cLKwBkb/VPf6aEVqrmfL53oxEOsH0DBN3SDVYlUcIjJrQgvXCAO
-	i9meYl0xl2YfPtd8dCkghtMXlzS5P1V+Cx61sMi6majj3zHHnWSoOIo4Lkp/NMRnb4nb6/K7aQPYQ
-	9bBERkmA==;
+	bh=O7t2IG/bjYzTOtWYdkDb/FYlzP9IlRZpnBpyzw8LyRI=; b=jychUPA3lf6QXYco+XeZqWkzTD
+	BMBUiTSbYQcCnAcgH+3tr+ySqtwvZabZeum8by7YXsaOIRACtmtW8JTDpGRpAVM+ZuiOTRjdGEdSV
+	syaQNtLE7nKlRAasJwJYtVbH3gO3JHiuhuFnqnH+w2XBFxVJQr3GFf+3c5/s0MEixuO7a7eyXXvsK
+	aY8AEBrYw4ZRQm9Ro/qMokzr02pS+/09unlfckQIk/LLCdkPue89/8dxjSDQ66iNtqPwP1irmH8QM
+	nW0OZTlwCp7S8vmjg7r7XkUOEejYO6b1ECkcjv/1HH1bXF18vwHSUEJozGlshjVDWReI0Xt4mQ/m8
+	s8imKD0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqves-000000006QZ-1EDU;
-	Mon, 03 Aug 2026 16:36:58 +0000
-Received: from mail-ua1-x92c.google.com ([2607:f8b0:4864:20::92c])
+	id 1wqvG7-000000001iz-1HQH;
+	Mon, 03 Aug 2026 16:11:23 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqvep-000000006PO-1K4E
+	id 1wqvG1-000000001e4-3cwx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 16:36:56 +0000
-Received: by mail-ua1-x92c.google.com with SMTP id a1e0cc1a2514c-97723f98735so2195606241.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 09:36:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785775014; cv=none;
-        d=google.com; s=arc-20260327;
-        b=RIlivMa1xOcOMo9c2ezfRY7tmhEQufG72zHys0qOvi5599Adc3c9IqfAf0SWFUkUmO
-         hP1pOja7J6RQBivAebgrhsejx8zClnANH+Qgo3KER2S9ifvxqSZP00+BSQl/nZ6FfyE0
-         a6rcVS5pF0FTHmCT9YupoBstqMfDm9e4nxXWfwsks0toItV135ZctizZ3R1lffqpsBru
-         6tl8uo3/IQ1IVeUJxo8anZibwTKgrd4yUF5JEnrep2jCwRJe17/+fNJkZdz8CxpbTsFn
-         Cxr6ArqFyM1j5mWmiTzSkE5Bz5MKQdNfqNXoYV/PKMv9NuOaIR0yf72582LdDbDw2klB
-         R+PA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=y2mO7QnlyPovrqJ9WwdH4iPAu4v/YWoM0OB9E5eGsqI=;
-        fh=zWqE5mAFduDC6DpivsVmONYZ7Pmg3jXF/Xh4TWU2Lfg=;
-        b=pjPAzjHLZr3hgDPObKjYl+Zej/D8MPzYKwV4A4FMX1EXF4s+Ma3hyyshwy+cXgHGdx
-         bMMTY7TFT6U6M9u8UPbo8U348QhdSC7LIrVKe4Ekat7gRnrMwAl5enYEUrzADLQtLqEu
-         hp/21UeVdyKNrJckB0bFtZGrajReGJKWTYK2o8FihqRhPYjsSdLtBXojb6L7U2q4IyDq
-         8W+bUbDjH8wYaCY30PejGeYn0Z0eUqJ/Kl8VoW+qVg1NCD6T7aG8JO/BX2/+bt0JrW05
-         y89iJ+ns4FysCgRl7lg9GLJHhG9U5l4v/aWXBH4ion4v64iJk/gc6VEs/Ts2f/cwnd6n
-         eVSA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 03 Aug 2026 16:11:20 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-495590dde14so23149055e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 09:11:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785775014; x=1786379814; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=y2mO7QnlyPovrqJ9WwdH4iPAu4v/YWoM0OB9E5eGsqI=;
-        b=r43wsFedo26IFN1Oxld01ncWTnbTfJXkiZvkMi7GW0VyoXsYxrsC9tHSvJd62Psiyh
-         EJCYb31NtHd5eVWj3Q43m/cGLB8Gj4Q5BWflNHT7apdst3xJ+LIBdes6OrDXshY+ptFO
-         Eb0SdFt5LIImZgihOeej4/i4xFfdaZpAJzDMLZNujY26mzIheuYmsOJ+Cw3gB+D+UmkF
-         IhUug/kx0sczCGO0JaS1ilxDKxAOW8pngnrN8eNL8y3NaDEJ2QWhBO7SVKk+FU0T8ob1
-         pHw5Hhr3U8xGy/eYm9wmBO1fktvp2zkKlmpvVMbPG0U0xMSLCVgCRKRm/pPyfp4ucKUL
-         MESQ==
+        d=gmail.com; s=20251104; t=1785773476; x=1786378276; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=O7t2IG/bjYzTOtWYdkDb/FYlzP9IlRZpnBpyzw8LyRI=;
+        b=Uw/EV6DfMsXsQPwTgLSJvD03wxt0e6i5e/808AmkcBrtRn9WWYGssjYQrV/ZI8e0MN
+         aaj1bKaZh9yHznLsSl1DwTnwNJyazseaFsSZdZS2LLugQDanlCe9qAAqAajiiJSLit6w
+         BNcBlVDWjzJCuvveiNeUNELrsEGlGi1eGzVZD74hWax2xUxvKPgxIBToNG9GOo4HoVPB
+         9ppLwQNOS80WsdUhvoz2qemMU/5o/5W9X6O8BmWHc8n17f99khlhwQsN/ixnwmbQ0ZBj
+         Dt+nnMdaarTOHlvAZ0xSHud5D6KT2is6IbArvO4YbCjxEWFx6OhT7UlfRO8QbYM/Nfrd
+         RSbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785775014; x=1786379814;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=y2mO7QnlyPovrqJ9WwdH4iPAu4v/YWoM0OB9E5eGsqI=;
-        b=TXaMoZY3RUyO62pGF+OsqmYBjyybQEv/hWZPdCcT5JLnZJlN/n4mNxdPbEdWW7KMJK
-         2qp4/A5Nw6YlK/DVzPUm2sDZbwJ9FULLw3NusDzzvey46vCgyhQNbGlsEtwSi/fZkEbP
-         +MDPWOjnH5C5wKH0zAVmmN9XwqDbhiOuxmNF4hTNP85YBZCuJ++bslraDDxBGBHPeucn
-         AawotIjyThL7QOCfgY4tOQJ8UBkbsPHVQ1EtFLKl18v6XBZLZ1EZZGF2ZVXnj7J28327
-         qEajAbJrrUT2mBSiIfpvLqnYWYSlA/SJlPDxUMe4VvB+ULnUmeojUiqkkpUF+H5Xx+YE
-         SE8A==
-X-Forwarded-Encrypted: i=1; AHgh+RqqJ2RBX5JxFxZYkcKymE9NjAhquY1Ral6ZFpiX5rzP6LqN1Kl8v1zJL/9K36t062pNfIQbIr+D3Uxa7K9nJm8T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsCtp5fzyV2SrxlO2+F2T1KDSpKHd8uTwaW7hejicEzOhecSLc
-	XHI77HTk81IsV/QL6jevsfTDP3Q3e86p0wJ0PC3weF9XkWycV28pm3w1VY9dTtPQ/QxP99+yl7L
-	sEFsgkNpmE6OZZdPXZfIQcCrHr+FX4AU=
-X-Gm-Gg: AR+sD13UixEQZjrFwJipLyxmEUjoBjiNZwUYcrtXjRiid9fOzc70o0hxtoTDqjb49Mj
-	hAg8jv5a+4UB/pUprUyCuuTkHePOnNohytP8ZZoHfiYDXfckK5Db0/MHYiTQ3KnpFo5qfRuNYcg
-	+z1zR9aOgrALnLgJaE+lUjy/kBWtTDlw/VUtD1VjcYTxrdlJO5zSWaHwjsiqhLcIKyyc+LFa9ly
-	0kYPx1WA2lcWnv0tBdenZAGxhivVge7t8MJ2PqBJArXWvGjMJI2efTBoZtfZYOX/1lPTNTQHVlS
-	KNDKT5qwP1TtvAcDV30QpReQkyG8tqDHvAK2s+9ZRXLJiPp130iF+9Iq/4h7GgK6nmcMv5vb610
-	NpQ2QRcoWl8lBYzC3w4GXkBSoBuw4lJwb1DM4UxQ/QhtGOkaOBID4en56WX5y+bIdwSjqGyP2Am
-	lB0hQmEy5g2QfQLVMPWdx/7Isy9XNBMXZSC8wIDwdNDO9Avlo=
-X-Received: by 2002:a05:6102:41a9:b0:740:2bcd:24d2 with SMTP id
- ada2fe7eead31-75b2245a880mr8777953137.5.1785775013743; Mon, 03 Aug 2026
- 09:36:53 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785773476; x=1786378276;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=O7t2IG/bjYzTOtWYdkDb/FYlzP9IlRZpnBpyzw8LyRI=;
+        b=ZXUOkCM32ID+HWUGhKJndhLPaz6n4DlSMJ2QMJrpwohWbVg7T9JVkywT2fULp0Lxy6
+         i2NeMHo0+TUpN7FziO9wTuDSYk6G6uH+EoxrtsZQX9rvFm89yFG/eBICGNVj6N1iJzUr
+         Zj51R3KEI3w0U3n0vaU7vX+e7xVRMNIktDdtvszCH5DCHfKVV/ykZ9BceddZkbtYMWY/
+         8nuf49vwHJTGVcjZS0grLJemj0g6WreK6YAVyegU2+LwG1uNDh+iF01EWzdwYjVDaZI9
+         N5MDyi0QBQokWpfw18JHPukLXhGe3TVEsBbyJJmlNXu9+mORDsFuq3Pwbct6WcJxdEC5
+         8ccQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqaAJNnmuDB8bliGJSSPWlMKevRnmxJRkDNBMNab/AK2cXSJtIWE1Gd1Egrpr/wuFQhuuh+p+Y2bSd2WzDJnSZI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxELUjSBEaAuOxiSa4/A0Ce4HVc+EiwsBJcrqi7jmOJ44/0Xmt0
+	Y2ErQ2z3SHEu/ZGWMfznzHqJsc52s0uYPVTJbiwMpfiW+rTZNaujuPKt
+X-Gm-Gg: AR+sD12KsCfH54crzpwQ/APc4wLatLGNmSQEOT8174AYKBU+8VzZRVtjPV0gCEspBFQ
+	PoR/T14SEG+HkjqgEiyhLqGvCXmDIsjii6y5C+vSmHV+8ofDNDhQzwqYNsWBfDoNtZU7ptfWhg9
+	cIQpyuAXxKOBDjqhJkysYjMJvnihlKpSdUOedKHshoBSl8u8vY/w5RSt+4clJUcEibzRTmkbD9b
+	A7jLsv67+CzGB8RXNOddtd7dT4GFo6Apajakn1aWVZ8j3Xx8PAL6G75MtndMiLQj0x86BDeZCxd
+	dRKQocWpW5unq6N/cF1MrazsD5PkCKHH2O6DcWhV2OUcH863wHv/wmiejrgmOWho91FHhPYx0hT
+	/2hacoipCqDbKSzgzTydyd8m+pqomow/fFEcpT7CgEfO0KxGCq/X4MqlATd/rvGyi0AsybvoWdv
+	VVnqaCtFjWa7Jer6op0qZaFYNo7wO1OXWi8m33wBetL/3weXrjvpEoGDzzxx2LW2ZFIxZfI+92S
+	9weZSlljgKFu+saCiDJ88ADTTh/sSMYXNvnupI7o5wHiXzDqgNkf50r3HXu/v00f5cTIOEwYFMw
+	cMCsNfSThBtl8CDfD4/yKEEhrsl1sqQK6np3ebN051X+YMTQrz9OMbOzdx+F45ysWyasjyxS3xq
+	5uU+0kYguN0Z1V31c6SGK7XVKp+UfAj/Z2jFKcIozln+GXz5bbQ4emhT4Oq3jcHyMj4ZqCg4eJn
+	HP1Q==
+X-Received: by 2002:a05:600c:6d03:b0:495:7a23:1eee with SMTP id 5b1f17b1804b1-4980c674f32mr180465495e9.12.1785773475697;
+        Mon, 03 Aug 2026 09:11:15 -0700 (PDT)
+Received: from jernej-laptop (APN-122-100-117-gprs.simobil.net. [46.122.100.117])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49949fc2da2sm3363735e9.3.2026.08.03.09.11.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 09:11:15 -0700 (PDT)
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: wens@kernel.org
+Cc: maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	samuel@sholland.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH 02/13] drm/sun4i: vi scaler: Fix coefficient selection
+Date: Mon,  3 Aug 2026 18:10:40 +0200
+Message-ID: <263a4a41442a3c8b072b170256b72658f1b90802.1785772659.git.jernej.skrabec@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <cover.1785772659.git.jernej.skrabec@gmail.com>
+References: <cover.1785772659.git.jernej.skrabec@gmail.com>
 MIME-Version: 1.0
-References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <20260802-submit-acx00-of-dynamic-v1-v1-8-0a53cd9e21cc@gmail.com>
- <f2cc3c90-060f-40c1-a55e-e2ed91e65487@kernel.org> <CADvTj4q7HnOYJZE-M070-1npEdne__Ct5D9FeUNVVXa8Bsm7qQ@mail.gmail.com>
- <e198e8fa-6c5e-4c8d-a4de-d8bb25aab0bd@kernel.org> <cd177647-827c-481a-9ac6-5f5a1882f14e@kernel.org>
-In-Reply-To: <cd177647-827c-481a-9ac6-5f5a1882f14e@kernel.org>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 3 Aug 2026 10:36:39 -0600
-X-Gm-Features: AUfX_mxf143l7ltuwFHdM8jtybu0jFAqTogB47kH9lIVgz-FaKgqQGV-oPrZGYA
-Message-ID: <CADvTj4qby5jow6BkvumZFK6cF8aLCTeQZz39VKEdm59jEtRp8w@mail.gmail.com>
-Subject: Re: [PATCH 08/21] dt-bindings: mfd: x-powers: add AC200
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>, 
-	Richard Genoud <richard.genoud@bootlin.com>, Maxime Ripard <mripard@kernel.org>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_093655_365647_2BDBC31B 
-X-CRM114-Status: GOOD (  16.97  )
+X-CRM114-CacheID: sfid-20260803_091117_982039_0B4B318E 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,42 +111,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 3, 2026 at 2:21=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
->
-> On 03/08/2026 10:20, Krzysztof Kozlowski wrote:
-> >>>> --- /dev/null
-> >>>> +++ b/include/dt-bindings/mfd/x-powers,ac200.h
-> >>>> @@ -0,0 +1,13 @@
-> >>>> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> >>>> +/*
-> >>>> + * Interrupt numbers of the X-Powers AC200 interrupt controller.
-> >>>> + */
-> >>>> +
-> >>>> +#ifndef _DT_BINDINGS_MFD_X_POWERS_AC200_H
-> >>>> +#define _DT_BINDINGS_MFD_X_POWERS_AC200_H
-> >>>> +
-> >>>> +#define AC200_IRQ_TVE                        0
-> >>>> +#define AC200_IRQ_EPHY                       1
-> >>>> +#define AC200_IRQ_RTC                        2
-> >>>
-> >>> Hardware constants are not really bindings, even though you use them =
-in
-> >>> the driver.
-> >>
-> >> Should I do something different for this?
-> >
-> > I would just drop the defines and the header, because these are fixed
-> > hardware numbers.
-> >
->
-> Hm, unless they are not and you added abstract ID numbers for both DTS
-> and drivers? Then this would be fine.
+Currently, vertical coefficients are selected based on horizontal
+scaling, which is wrong. Additionally, chroma coefficients should be
+selected based on format subsampling.
 
-Yeah, these are more abstract ID numbers, they aren't really hardware
-constants as the driver translates them.
+Fix all that.
 
->
-> Best regards,
-> Krzysztof
+Fixes: b862a648de3b ("drm/sun4i: Add support for HW scaling to DE2")
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+---
+ drivers/gpu/drm/sun4i/sun8i_vi_scaler.c | 18 ++++++++++++------
+ 1 file changed, 12 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_scaler.c b/drivers/gpu/drm/sun4i/sun8i_vi_scaler.c
+index 3dec4eeb1ba2..d4412a62c2f0 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_vi_scaler.c
++++ b/drivers/gpu/drm/sun4i/sun8i_vi_scaler.c
+@@ -894,20 +894,26 @@ static void sun8i_vi_scaler_set_coeff(struct regmap *map, u32 base,
+ 			     lan3coefftab32_left[offset + i]);
+ 		regmap_write(map, SUN8I_SCALER_VSU_YHCOEFF1(base, i),
+ 			     lan3coefftab32_right[offset + i]);
++	}
++	offset = sun8i_vi_scaler_coef_index(vstep) *
++			SUN8I_VI_SCALER_COEFF_COUNT;
++	for (i = 0; i < SUN8I_VI_SCALER_COEFF_COUNT; i++)
++		regmap_write(map, SUN8I_SCALER_VSU_YVCOEFF(base, i),
++			     lan2coefftab32[offset + i]);
++
++	offset = sun8i_vi_scaler_coef_index(hstep / format->hsub) *
++			SUN8I_VI_SCALER_COEFF_COUNT;
++	for (i = 0; i < SUN8I_VI_SCALER_COEFF_COUNT; i++) {
+ 		regmap_write(map, SUN8I_SCALER_VSU_CHCOEFF0(base, i),
+ 			     ch_left[offset + i]);
+ 		regmap_write(map, SUN8I_SCALER_VSU_CHCOEFF1(base, i),
+ 			     ch_right[offset + i]);
+ 	}
+-
+-	offset = sun8i_vi_scaler_coef_index(hstep) *
++	offset = sun8i_vi_scaler_coef_index(vstep / format->vsub) *
+ 			SUN8I_VI_SCALER_COEFF_COUNT;
+-	for (i = 0; i < SUN8I_VI_SCALER_COEFF_COUNT; i++) {
+-		regmap_write(map, SUN8I_SCALER_VSU_YVCOEFF(base, i),
+-			     lan2coefftab32[offset + i]);
++	for (i = 0; i < SUN8I_VI_SCALER_COEFF_COUNT; i++)
+ 		regmap_write(map, SUN8I_SCALER_VSU_CVCOEFF(base, i),
+ 			     cy[offset + i]);
+-	}
+ }
+ 
+ void sun8i_vi_scaler_enable(struct sun8i_layer *layer, bool enable)
+-- 
+2.43.0
+
 
