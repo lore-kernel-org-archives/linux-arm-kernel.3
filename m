@@ -4,62 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDBAC55175
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87BE0C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0aB7qGBLZyAd1fXd3wTUVGSroPtec55ZWHXPynR+mg=; b=maj4TMhqdjcEe6YtPie+cxcYxx
-	psKrZv0X3rINc675o3xn9QUj2ET/wZLAy1rkv7asQncdT9w+Bbmh6RPjaSNQ2I3klFMzvfgy1jYaJ
-	XL19AfCKhFx8blPNUvryqBN6u+E9dHmNyJyxuYGoGYJirxriAqET1qMgey6yjIBGTq3POXquo/VL9
-	nY6m0yjFkUcSVmIq7oGBQf2sVk74A6Yzdso4cP8Xmy7Z+WEsM6TNpnSErIQl6undbEd3Z7JOIpwx8
-	pm2uEDgwwYwgYI8iWGKWWrx+smDFBioAXtPhVMZbFLRb2IT+jpGzko1AoBINCuN/dCV+D6nRQysk7
-	7OkY44PQ==;
+	bh=L7lHqJ/Hl5Sm73+oTCqDi4vn8wXD99IJUxH9/6loJzU=; b=X0M/I10tUw1kUUxLv5kK/VVyeR
+	6L4cp1Jr6KRs5jwZ8URIe3V1wyKZkzGd7ERobZZKvmdh3YM9gp30ifD0Gwq138DT9r4zsxPDsE5tp
+	W/01cGrKBYKNeO/aRwk8obmaJpszZR+4yY32rEGmkx10hQSWPXmMbxN4smPuOci421YcQYMe20mOb
+	kdr6PUoDptOzgDHEDm6QyeC1GLIeX8+WakxPkZrIUQg0xi37NbBt181tFVzOIr1O8Kxam4+YDULVI
+	iEiNkHOf+/kLufMgiacgjEC9xzgYZpzqq6FUfCBZByri51plUGLHUrzbXO5SN4YyBcNIGGK1O7mxP
+	8rbgDbIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpP3-0000000GlJt-3AdC;
-	Mon, 03 Aug 2026 09:56:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wqpPj-0000000GlQ3-3t80;
+	Mon, 03 Aug 2026 09:56:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpP2-0000000GlJk-3Hbu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 09:56:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 09A1C43856;
-	Mon,  3 Aug 2026 09:56:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2C491F000E9;
-	Mon,  3 Aug 2026 09:56:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785750971;
-	bh=n0aB7qGBLZyAd1fXd3wTUVGSroPtec55ZWHXPynR+mg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=g9TJgROjkZFESO6T8yl5X6xkRwQmBwdIoX748rbmcVPRlawHMV/F2UO11mBC/e9TU
-	 Pr0vbB5es1YS11qONg8QWpT5WnTq1oVjPUqBULbZoK08477uJjbN2VMfQy3BnVi5Fe
-	 sSqbhPqf3CGO6u6nC4h2HmTB2S3ynRgFua+RMIRhIq3j3+lWlagvSliEM1eYzLf5G/
-	 BC7vXII39Oz8ucBxOp1FGwdt9EwuNvR6a97O38tYp38rp4iF1ohnZ7JlxSgMnGGPPn
-	 ftU8r3QAzJINM5RqbuydnlR2g0yntS29vo/2fe2VCLXoLjFDrtb0JCKFPXvIJHB2se
-	 rfeVWu9PDon9A==
-Date: Mon, 3 Aug 2026 11:56:07 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Markus Probst <markus.probst@posteo.de>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
-	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Michael Langer <michael.brainbug.langer@googlemail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: rtc: Add pinctrl for S35390A
-Message-ID: <20260803-mottled-pretty-sloth-bf7dbd@quoll>
-References: <20260801-rtc_s35390a_int1-v2-0-f10c99ad1d6c@posteo.de>
- <20260801-rtc_s35390a_int1-v2-1-f10c99ad1d6c@posteo.de>
+	id 1wqpPi-0000000GlPe-2sYZ;
+	Mon, 03 Aug 2026 09:56:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=L7lHqJ/Hl5Sm73+oTCqDi4vn8wXD99IJUxH9/6loJzU=; b=QcNTZeL/g7ZqoYEFRStuREm5kA
+	vRZU6venUK8ANnPHuapbeuGP0AAYsC/N/Nol1VhyOexfSIlhDoElSCF/E6z2ykbPYexBFvSRrZ16c
+	Z/aKSi2PazbyI5dUAoBAKCZxqq2ss74BMqOChVYgcQ3fDk0kTC8f1tx0ObOiQ0bOtHwKSZrfG2itQ
+	SsdMsYUyQ1zx7sCi8NijWTO3Uq5CmxBr6t2IEClpplmsnx77pH4Y/GXDxOgEwZYSTmYkVd7PAsXao
+	5TYfribKWAO8DqPwPR/Z/FlcunZszvahCWgUrqL/hM90K15iZOe/yq27huGp14QkU1z5a8ujBFhvb
+	thRqUs8g==;
+Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wqpPe-00000008s0M-01kT;
+	Mon, 03 Aug 2026 09:56:52 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6739u1ohD232142, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1785750962; bh=L7lHqJ/Hl5Sm73+oTCqDi4vn8wXD99IJUxH9/6loJzU=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=e4LY5R9Xvamz7+byx8pe5ih1kqftXm3r3vcjgzHMDV7XOf7F+6Bc57gMs9Wu663Ya
+	 Wt0AKinO3uoaLOCsIdFqujrrnhSxSCEVmHXfikJP+a2jG2T/GzkXP8oAPtS0RReLuG
+	 KP7lEvDsAv23V+2uX/yKFF8E57RyD1qDTJ1fML4SIyehUt+A3OlDhsPESBjMJvaC49
+	 7RytFYq9G0DRWdsEqdWbtPfQD0RZC8sc4fC/bjVuScS8GkWRjvEl3MYSsSiFC97FGY
+	 uJQO+Q5ch8yF2cIXv1iV0YVnFf7iwsOmlfyPCjP/p5exTq5P2+2QLkFJGRJBW4+8Db
+	 49OMinQTYswzw==
+Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6739u1ohD232142
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 3 Aug 2026 17:56:01 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Mon, 3 Aug 2026 17:56:02 +0800
+Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
+ RTKEXHMBS06.realtek.com.tw ([fe80::e6fd:5a3f:8946:92c4%10]) with mapi id
+ 15.02.2562.017; Mon, 3 Aug 2026 17:56:02 +0800
+From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
+To: Brian Masney <bmasney@redhat.com>
+CC: "mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
+	<sboyd@kernel.org>, "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	=?utf-8?B?RWRnYXIgTGVlIFvmnY7mib/oq61d?= <cylee12@realtek.com>,
+	=?utf-8?B?SnlhbiBDaG91IFvlkajoirflrold?= <jyanchou@realtek.com>,
+	"afaerber@suse.com" <afaerber@suse.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"linux-realtek-soc@lists.infradead.org"
+	<linux-realtek-soc@lists.infradead.org>,
+	=?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>,
+	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
+	=?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>
+Subject: RE: [PATCH v11 09/11] clk: realtek: Add RTD1625-CRT clock controller
+ driver
+Thread-Topic: [PATCH v11 09/11] clk: realtek: Add RTD1625-CRT clock controller
+ driver
+Thread-Index: AQHdHp1PRrydlNtj20y7WRFW4A3UiraFxLQAgAGIGQD//+r2AIAE5x2Q
+Date: Mon, 3 Aug 2026 09:56:01 +0000
+Message-ID: <a216b77c125544c0871b40f31c021ef7@realtek.com>
+References: <20260728142806.1954638-1-eleanor.lin@realtek.com>
+ <20260728142806.1954638-10-eleanor.lin@realtek.com>
+ <amuBqi43ce9bYbir@redhat.com> <577a6882b25e457fa94fa199e66f3197@realtek.com>
+ <amy47how40BJnHsn@redhat.com>
+In-Reply-To: <amy47how40BJnHsn@redhat.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+x-originating-ip: [172.21.6.42]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260801-rtc_s35390a_int1-v2-1-f10c99ad1d6c@posteo.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_105650_796637_4E2C99C2 
+X-CRM114-Status: GOOD (  21.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,182 +115,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 01, 2026 at 06:43:00PM +0000, Markus Probst wrote:
-> +  wakeup-parent: true
-> +
-> +  wakeup-source: true
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +patternProperties:
-
-This goes after "properties:" block.
-
-
-> +  "^pins":
-> +    type: object
-> +    patternProperties:
-> +      "-pins$":
-> +        type: object
-> +        properties:
-> +          pins:
-> +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
-> +
-> +          sii,mode:
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-
-Use simple string. See pinmux bindings.
-
-> +            description: |
-> +              Modes for the specific pin:
-> +              - S35390A_MODE_IGNORE: Preserve the previous state.
-> +              - S35390A_MODE_DISABLE: Disable all interrupts.
-> +              - S35390A_MODE_WAKEUP: Used for waking up the system.
-> +              - S35390A_MODE_ALARM: Userspace defined alarm.
-> +              - S35390A_MODE_FREQ: Periodical at configurable frequency.
-> +              - S35390A_MODE_PMIN1: Minute periodical output with 50% duty.
-> +              - S35390A_MODE_PMIN2: Minute periodical output L for 7.81 ms.
-> +                                    Can only be used with pin INT1.
-> +              - S35390A_MODE_32768KHZ: Raw 32.768 kHz output.
-> +                                       Can only be used with pin INT1.
-> +            minimum: 0
-> +            maximum: 7
-> +
-> +          sii,frequency:
-
-Frequency needs -hz, but anyway if this is becoming a clock, then you
-must have clocks property and this is simply not needed... unless this
-is some periodical wakeup call, not a clock? Then simply -hz and
-property must be more descriptive (frequency of what? pulse?).
-
-
-> +            $ref: /schemas/types.yaml#/definitions/uint32
-> +            description: Frequency in Hz to be used with mode S35390A_MODE_FREQ.
-> +            minimum: 1
-> +            maximum: 31
-> +
-> +        required:
-> +          - sii,mode
-> +
-> +        if:
-> +          properties:
-> +            sii,mode:
-> +              const: 4
-> +        then:
-> +          required:
-> +            - sii,frequency
-> +        else:
-> +          properties:
-> +            sii,frequency: false
-> +
-> +        additionalProperties: false
-> +
-> +    additionalProperties: false
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/rtc/s35390a.h>
-> +
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        rtc: rtc@30 {
-
-Drop unused label
-
-> +            compatible = "sii,s35390a";
-> +            reg = <0x30>;
-> +            pinctrl-0 = <&rtc_pins_default>;
-> +            pinctrl-names = "default";
-> +
-> +            wakeup-parent = <&int>;
-> +
-> +            rtc_pins_default: pins {
-> +              int1-pins {
-> +                pins = S35390A_PIN_INT1;
-> +                sii,mode = <S35390A_MODE_WAKEUP>;
-> +              };
-> +              int2-pins {
-> +                pins = S35390A_PIN_INT2;
-> +                sii,mode = <S35390A_MODE_DISABLE>;
-> +              };
-> +            };
-> +        };
-> +    };
-> diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-> index f4d0eed98a08..7b3f682ef4d5 100644
-> --- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-> +++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
-> @@ -81,8 +81,6 @@ properties:
->        - ricoh,rv5c386
->        # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
->        - ricoh,rv5c387a
-> -      # 2-wire CMOS real-time clock
-> -      - sii,s35390a
->        # ST SPEAr Real-time Clock
->        - st,spear600-rtc
->        # VIA/Wondermedia VT8500 Real-time Clock
-> @@ -105,5 +103,4 @@ required:
->    - reg
->  
->  additionalProperties: false
-> -
->  ...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 716acfc3d7c1..c85be1eefdb1 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22696,6 +22696,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/abelloni/linux.git
->  F:	Documentation/admin-guide/rtc.rst
->  F:	Documentation/devicetree/bindings/rtc/
->  F:	drivers/rtc/
-> +F:	include/dt-bindings/rtc/
->  F:	include/linux/rtc.h
->  F:	include/linux/rtc/
->  F:	include/uapi/linux/rtc.h
-> diff --git a/include/dt-bindings/rtc/s35390a.h b/include/dt-bindings/rtc/s35390a.h
-> new file mode 100644
-> index 000000000000..dcd0ca15f9e9
-> --- /dev/null
-> +++ b/include/dt-bindings/rtc/s35390a.h
-> @@ -0,0 +1,23 @@
-> +/* SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause) */
-> +
-> +#ifndef __DT_BINDINGS_RTC_S35390A_H
-> +#define __DT_BINDINGS_RTC_S35390A_H
-> +
-> +#define S35390A_MODE_IGNORE		0x0
-> +#define S35390A_MODE_DISABLE		0x1
-> +#define S35390A_MODE_WAKEUP		0x2
-> +#define S35390A_MODE_ALARM		0x3
-> +#define S35390A_MODE_FREQ		0x4
-> +#define S35390A_MODE_PMIN1		0x5
-> +#define S35390A_MODE_PMIN2		0x6
-> +#define S35390A_MODE_32768KHZ		0x7
-> +
-> +#define S35390A_MODE_INT1_MAX		0x7
-> +#define S35390A_MODE_INT2_MAX		0x5
-> +
-> +#define S35390A_FREQ_MASK		0x1F
-
- don't get why this grew. None of these look like bindings.
-
-
-> +
-> +#define S35390A_PIN_INT1		"int1"
-> +#define S35390A_PIN_INT2		"int2"
-
-Drop entire header.
-
-> +
-> +#endif /* __DT_BINDINGS_RTC_S35390A_H */
-> 
-> -- 
-> 2.54.0
-> 
+SGkgQnJpYW4sDQoNCj4gT24gRnJpLCBKdWwgMzEsIDIwMjYgYXQgMDg6MTc6NDRBTSArMDAwMCwg
+WXUtQ2h1biBMaW4gW+ael+elkOWQm10gd3JvdGU6DQo+ID4gPiBPbiBUdWUsIEp1bCAyOCwgMjAy
+NiBhdCAxMDoyODowNFBNICswODAwLCBZdS1DaHVuIExpbiB3cm90ZToNCj4gPiA+ID4gRnJvbTog
+Q2hlbmctWXUgTGVlIDxjeWxlZTEyQHJlYWx0ZWsuY29tPg0KPiA+ID4gPg0KPiA+DQo+ID4gKC4u
+LikNCj4gPg0KPiA+ID4gPiArICAgICB7IC8qIHNlbnRpbmVsICovIH0NCj4gPiA+ID4gK307DQo+
+ID4gPiA+ICtNT0RVTEVfREVWSUNFX1RBQkxFKG9mLCBydGQxNjI1X2NydF9tYXRjaCk7DQo+ID4g
+PiA+ICsNCj4gPiA+ID4gK3N0YXRpYyBzdHJ1Y3QgcGxhdGZvcm1fZHJpdmVyIHJ0ZDE2MjVfY3J0
+X2RyaXZlciA9IHsNCj4gPiA+ID4gKyAgICAgLnByb2JlID0gcnRkMTYyNV9jcnRfcHJvYmUsDQo+
+ID4gPiA+ICsgICAgIC5kcml2ZXIgPSB7DQo+ID4gPiA+ICsgICAgICAgICAgICAgLm5hbWUgPSAi
+cnRrLXJ0ZDE2MjUtY3J0LWNsayIsDQo+ID4gPiA+ICsgICAgICAgICAgICAgLm9mX21hdGNoX3Rh
+YmxlID0gcnRkMTYyNV9jcnRfbWF0Y2gsDQo+ID4gPiA+ICsgICAgICAgICAgICAgLnN1cHByZXNz
+X2JpbmRfYXR0cnMgPSB0cnVlLA0KPiA+ID4NCj4gPiA+IFRoaXMgZHJpdmVyIGlzIGxpc3RlZCBh
+cyBhIHRyaXN0YXRlIGluIHRoZSBLY29uZmlnIGJ1dCB0aGVuIHlvdSBoYXZlDQo+ID4gPiB0aGlz
+LiBJcyB0aGUgaW50ZW50aW9uIG9mIHRoaXMgZHJpdmVyIHRvIGJlIGJ1aWx0IGluIG9ubHk/DQo+
+ID4gPg0KPiA+DQo+ID4gSSB3aWxsIGNoYW5nZSB0aGUgS2NvbmZpZyBvcHRpb25zIGZvciB0aGlz
+IGRyaXZlciwgYXMgd2VsbCBhcyB0aGUNCj4gPiByZWxhdGVkIGNvbmZpZywgZnJvbSB0cmlzdGF0
+ZSB0byBib29sLg0KPiANCj4gS2VlcCBpdCBhcyBhIHRyaXN0YXRlIGlmIHlvdSBhcmUgZ29pbmcg
+dG8gdXNlIG1vZHVsZV9wbGF0Zm9ybV9kcml2ZXIoKS4NCj4gWW91IGNhbiBhbHNvIGRyb3Agc3Vw
+cHJlc3NfYmluZF9hdHRycyB1bmxlc3MgeW91IGhhdmUgYSBzcGVjaWZpYyBuZWVkIHdoeS4NCj4g
+DQo+IEJyaWFuDQoNCllvdSBhcmUgcmlnaHQuIEtlZXBpbmcgaXQgdHJpc3RhdGUgaXMgYmVuZWZp
+Y2lhbCwgZXNwZWNpYWxseSBmb3IgYWxpZ25pbmcNCndpdGggdGhlIEFuZHJvaWQgR0tJIGRlc2ln
+bi4NCg0KVG8gcHJvcGVybHkgc3VwcG9ydCBtb2R1bGUgdW5sb2FkaW5nIGFuZCBkcml2ZXIgdW5i
+aW5kaW5nLCBJIHdpbGwgYWRkDQp0aGUgLnJlbW92ZSBjYWxsYmFjayBhbmQgZHJvcCBzdXBwcmVz
+c19iaW5kX2F0dHJzLg0KDQpUaGFuayB5b3UgdmVyeSBtdWNoIGZvciB0aGUgdGhvcm91Z2ggcmV2
+aWV3IGFuZCBzdWdnZXN0aW9ucyENCg0KQmVzdCByZWdhcmRzLA0KWXUgQ2h1bg0K
 
