@@ -4,96 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34449C5518E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 10:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EC1C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 10:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FRWZR/aXzNRtlaANjzO2S5r0yF9L37fVJhN+JbqqSaQ=; b=QEj/SxFqU86+vq58B47W/KIYN2
-	2zZyC4u0zOpiO1M+FBs9nkX/wkIljtLD9ZrnSiAQ7nhAiruQw0e2qy5Ol28s5kVPbmYIo00n2BFNS
-	wE5d5NnzX4mIxi2U0Rr9PHQ0R8z7kboNk6vaiDm+tWB6clmlADrTXqblfWEEIKv5sdUr4/o82pvew
-	pNrnnkBDTDCE86noomwyQ2Esx84Pxs2mlQYrIMaaaH3xqsnDYcDedxU+j/GTrxO34o1x1MC03zhaY
-	kNF+RRxJK/s37hLnx4gwWrWTBxUipPLyPoRVj5CTMwqibOtByj8tTKNGPAWysHGNxfKoEquxs3kQr
-	WEr9iz7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+pdokkPVzgPFBzVdRB85NfTsXK5/pNBC/XNgzhJoYlo=; b=p96vda2gyr1HBd5Fl9Hqqj6age
+	D5+hNp0bw6g+6UiX2JbxDcZ6dYqpzGotqr1qyhn4OimjIBP0pMg4TdMYvV1q9fX/905yvws2AnJR9
+	BhEwg/JmpugaTCRLW4/eWebdt6kfLLN+tTN9cJVv0Z62uFfUK8XEplVgbyHLXx5tGJpmAB/L23Llf
+	8CMr4gDBqcGMH01k5eNYqIXhRb1j5uucBAubiG895gSrf3TWwZf9AbNcxuh63jn49PPHPr+P0CLmI
+	O0Qdtib+4zzQYhBU067DOdpDjmdPsP1uEnim/eHCdbsFwwY2vzslF5OjoT0OAt7dLFSpisHj44dmB
+	fUNaqElQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqq10-0000000Gs4R-0VEM;
-	Mon, 03 Aug 2026 10:35:26 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wqq2J-0000000GsKn-1eRU;
+	Mon, 03 Aug 2026 10:36:47 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqq0x-0000000Gs3U-1qvE
+	id 1wqq2G-0000000GsJv-07Ve
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 10:35:24 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47f633e6058so3043716f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 03:35:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785753321; x=1786358121; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=FRWZR/aXzNRtlaANjzO2S5r0yF9L37fVJhN+JbqqSaQ=;
-        b=M2Me9lSl5Rbp3pOIgsQEpPPdsnfHQwVqzpG9Tmc2KDLmYx3PGkaIIuylVBGiTDsj89
-         hWZl81MRWa8GFNl5iKr34/u4GT7KlQH2KZ1/c9f95k6HUYejY7TgIv8XShZqqTy3kS7u
-         quAfQXe9JVguxUDf/lKbF59jm3+4qwIic2CkSb4HiwoB4QQQeNe8Y7t8sXUESzcH7Peh
-         IAQZ2UoSW+8WIv4YeZkts8pge06TOPT9lc5c99faTVRdQM81XfgKRz8G4bAZSufqQEsc
-         RDPYWFucuVqUPB5s3rjFZR55Z6YtX4DPj4Zh+nkwlgLIYlX/F60zT3Ro44WFEYiiYgzQ
-         9/bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785753321; x=1786358121;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FRWZR/aXzNRtlaANjzO2S5r0yF9L37fVJhN+JbqqSaQ=;
-        b=DUclK3hOzfpNBz7bKDspsQYZX1Eg7kE78D6pSRzKvJPRp7/MJDH6aVQn5JxAQvQVVn
-         6vhRESHDZX5ubCE92jBhbk9aERybmYhpSl3c90P1pvu/8mmP2u9h1skv9qaI2yXYxVl2
-         J4pFsFv0j4fKNsjDAreyXpcNAtww2de3btYsY4HTz8NZsn2GpRFV+IPUIv2hr+KzTbXx
-         RfUn8uB2N8aLrws/2jfKEjvZbTQPB/qSM2u2Odv3cDxCivOS0a4lG5N02X0GgeTqjzat
-         NT2rm5oT0uZ/4oCl/TCDwOrKjLM2CEWS/GZLHluYswFTGab5RtRVZls2IIgdMT08XfJB
-         Q+oQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr34Auo3RlBIZi2dHwYfWA2ebClHmSGegYb7hNR83klMWc8vse0vVrjxNwDoEwYxiTDP04XjCkciQLARptY5E7I@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHAgNMpNvsz44khXLMOXKKYfjxf8OhrhPW2/uxKylGGXNS1PAz
-	vqw+zxTllRaAemoOK8BzqciFJ+E8P6zSztHhyoSj3nuwRNAakPghV5JGIZipckFWOZ2VKtiHPSk
-	7wFQ0Ww==
-X-Gm-Gg: AR+sD10edCTFoEhRcPXYXLKAV2givs9D9nTF0QWvBUo1dzdhNwilZkoeu+obqYZm9vM
-	TgCqV82yZ6Ll+bwBtuW/gZmmxdk8Rbd4A+WWVMXpm7Kadj3K5PHehSJ+VhswWJGwZnUacGoErqW
-	kZ3iJfzdL07f/BaSvV9rjPyBTGfGt6BFwmIEz8fjOyDNgg4O2KXod7EXVz3daQ43DPn4bpPn58N
-	uvL1n3xkA71Z8uSQQLITu9VmE0CPzfZPN+OOXSjaHH42xvHUnKxBJEgoKfodvHNrxvIg0urfrTn
-	AuR3oczX2mXz0QFQZosPh6DMLUzoHiGjc5RksDbE5xFd1736bJsNHHIazmJPyBXp2Ama7b3mLk3
-	ojCmPuwxlIwfZFSHIXQ2+rn9gVMZxvcxo0gG8rHkrosQOaSH+9TodDElrfQhckXw8EzrlM5n4yx
-	28TZitpfZDGt5bhARVglN1yZ2p14MYLWw2ZYexrb4ijODmCpthSdfZza1R9ejvH/6g85Tp5adnZ
-	cZEA9p9N+ba+5qXs2pRbVZw3vpWaWYi
-X-Received: by 2002:a05:6000:471a:b0:47f:ddc0:602a with SMTP id ffacd0b85a97d-47fddc06087mr15422708f8f.18.1785753299369;
-        Mon, 03 Aug 2026 03:34:59 -0700 (PDT)
-Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fd41d1a58sm31650490f8f.7.2026.08.03.03.34.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 03:34:58 -0700 (PDT)
-Date: Mon, 3 Aug 2026 11:34:55 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: maz@kernel.org, oupton@kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org,
-	rostedt@goodmis.org, mhiramat@kernel.org, alexandru.elisei@arm.com,
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	tabba@google.com
-Subject: Re: [PATCH v1 04/11] KVM: arm64: nVHE: Use NULL to reset the trace
- buffer backing pointer
-Message-ID: <anBuzx3c2MJgLF8c@google.com>
-References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
- <20260720161343.1367007-5-fuad.tabba@linux.dev>
+	Mon, 03 Aug 2026 10:36:46 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id CDC971A13C0;
+	Mon,  3 Aug 2026 10:36:39 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 90A816029B;
+	Mon,  3 Aug 2026 10:36:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A6A9911C17E07;
+	Mon,  3 Aug 2026 12:36:27 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785753394; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=+pdokkPVzgPFBzVdRB85NfTsXK5/pNBC/XNgzhJoYlo=;
+	b=HMueVvALhJHd5ndRo/XSDiXdonqgg5k98nlCnQacw04wIeUmHw1X6yB9AuFmFIVTfGkde6
+	WdGRRZOXZ2W57wU+enL62tPzG7IB/CxopJSGvhh/I6mLpRd/oc2ko9eJhM8ahLUCV4cmxl
+	CH59sXV3sdNO4ADx4Tw6xRq/cuB2OFU7CvLlfg9bTRV168TII8VJtoKNRviis9Q2ZywtHT
+	n8vLmD1de1EYltdHXVSrxwJDANJ5aXNfhoU7U/hy6fKreaQF+4ntLk1TryWIhVKT3vMN1A
+	x64VphkxJI7uuf7ZPbcY/hfQxWKkbYEEoltuwmuiGz58gVIS3HEtc+fb5hIwcg==
+Message-ID: <2d2cdcea-4ae2-41e2-afcf-713c569da0d8@bootlin.com>
+Date: Mon, 3 Aug 2026 12:36:26 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260720161343.1367007-5-fuad.tabba@linux.dev>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] net: stmmac: resume PHY before hardware setup when
+ opening the interface
+To: Stefan Agner <stefan@agner.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Jakub Raczynski <j.raczynski@samsung.com>,
+ Alexander Stein <alexander.stein@ew.tq-group.com>,
+ Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev
+References: <20260803095156.132827-1-stefan@agner.ch>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260803095156.132827-1-stefan@agner.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_033523_492858_800541CC 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260803_033644_213615_F0FAA75A 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +85,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 20, 2026 at 05:13:36PM +0100, Fuad Tabba wrote:
-> bpages_backing_start is a pointer; resetting it to plain 0 triggers a
-> sparse warning.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+Hi Stefan,
 
-Probably missed this when modifying the type for bpages_backing_start.
-
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-
-> ---
->  arch/arm64/kvm/hyp/nvhe/trace.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+On 8/3/26 11:51, Stefan Agner wrote:
+> Since the referenced commit, changing the MTU on a running interface no
+> longer disconnects and reconnects the PHY; __stmmac_release() merely
+> stops phylink, which also suspends the PHY (BMCR power-down) when WoL
+> is not enabled. __stmmac_open() then performs the DMA software reset in
+> stmmac_hw_setup() before phylink_start() resumes the PHY again.
 > 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
-> index e7e150ab265ff..177fe3d8fbb13 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/trace.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
-> @@ -93,7 +93,7 @@ static void hyp_trace_buffer_unload_bpage_backing(struct hyp_trace_buffer *trace
->  
->  	__release_host_mem(start, size);
->  
-> -	trace_buffer->bpages_backing_start = 0;
-> +	trace_buffer->bpages_backing_start = NULL;
->  	trace_buffer->bpages_backing_size = 0;
->  }
->  
-> -- 
-> 2.39.5
+> IEEE 802.3 22.2.4.1.5 allows a PHY to stop its receive clock while
+> powered down, and stmmac requires a running receive clock for the DMA
+> software reset to complete (the phylink config sets mac_requires_rxc).
+> On such setups, e.g. the RK3566-based Home Assistant Green with an
+> RTL8211F-VD PHY in RGMII mode, any runtime MTU change now times out and
+> leaves the interface dead:
 > 
+>   rk_gmac-dwmac fe010000.ethernet end0: Failed to reset the dma
+>   rk_gmac-dwmac fe010000.ethernet end0: stmmac_hw_setup: DMA engine initialization failed
+>   rk_gmac-dwmac fe010000.ethernet end0: __stmmac_open: Hw setup failed
+>   rk_gmac-dwmac fe010000.ethernet end0: failed reopening the interface after MTU change
+> 
+> In the field this is triggered by NetworkManager applying an MTU while
+> activating the connection, breaking networking entirely. The same
+> regression has also been reported on i.MX8MP and reproduced on SoCFPGA
+> based systems.
+> 
+> Resume the PHY in __stmmac_open() before the hardware setup, making it
+> the counterpart of the phylink_stop() in __stmmac_release(), like
+> stmmac_resume() already does for the same reason. phylink_start() also
+> resumes the PHY, but only after stmmac_hw_setup(), and it cannot be
+> moved before the hardware setup since it may bring the link up
+> immediately from a workqueue, racing with the initialization (see the
+> comment in stmmac_resume()). For the regular ndo_open path the PHY has
+> just been attached and is not suspended, in which case
+> phylink_prepare_resume() does nothing.
+> 
+> Fixes: db299a0c09e9 ("net: stmmac: move PHY handling out of __stmmac_open()/release()")
+> Link: https://github.com/home-assistant/operating-system/issues/4858
+> Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Stefan Agner <stefan@agner.ch>
 
--- 
-Vincent
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+
+Do you feel confident following-up with the phylink renames, or should
+I add that to my todolist ?
+
+Thanks
+
+Maxime
 
