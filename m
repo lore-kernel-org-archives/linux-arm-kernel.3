@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745C1C56201
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AAFC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yDcHkSjvrDJtNDrPNvnS9BLthHL6+Nc/8KzTbPfLhnk=; b=h9MuCW9OA04ngtEM+Clxduosta
-	GOtz1xfDcviIy2VsY9+W/arScHPbQ39vml0+wMjEVmb0fN2Fg/56VwDYAQfKvQgHF/stU8+TAl5Bj
-	SSQeMhXH4N04gumxLwZaBKE8d5FvUoS5nS+Fe3UHvJAEyyzmE/ZLL5qlPUsMPU7fSUT7cuN6ptEZE
-	ye4b+1Lfj7bh39u1dFDtgK8sOPpLQl0lL+lgXiA9cCWRvWq8bDKml2w+WIKLpN6FjwR8i0WCEWRpL
-	/BkrMWtnhIoHHggmwimLSA6EXUtae/64GW3iF574H1aYwKvEHNJgUsOWtbqkG02V2LtPxv2k0hvOL
-	tP6fxIrQ==;
+	bh=BWFrFrjVtfbKBBjs4r4K1bZlmTng9wcO1QH/xLCh+dY=; b=I/SK657aCPS8hZNZpV3HyOgF6S
+	9XHvTZr79OjNCIV73VDoKeYDSTlwbUoD97UQJbFg14PsBp6NH+OyIOag7WzukyRDK+n28CHerAZSz
+	Ch5j8D5NE7l5ENye+2tJVxSmvMk9JYpsynzMQdOGRJ80oUpjHRZolCJd2pmyCbjSC6FVh0Jbp4ob+
+	ocTwnskehyGBNi5DeGdG7SYA8iDHGuBcVCTHOgLH4b4ZiFeuxW5MSNh7l+hVLj4kIoqs1ngXhImeO
+	VAsoEIyj9K6wVC0jMIcdKZn5aj8R3uepQPI+jUsn+p+D+1jeju2dqCvf44EBmzOauG9D5Uoy+v6aG
+	5fvs/WbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2K-00000000I9z-2KSY;
-	Mon, 03 Aug 2026 18:05:16 +0000
+	id 1wqx2P-00000000IMG-3JZV;
+	Mon, 03 Aug 2026 18:05:21 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx2F-00000000Hxg-0soC;
-	Mon, 03 Aug 2026 18:05:12 +0000
+	id 1wqx2G-00000000HyU-1DrX;
+	Mon, 03 Aug 2026 18:05:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1785780304;
-	bh=+hvcTuzTih5vFZbymQZbCa4pv4dlmw/yOyTygYkYfXw=;
+	bh=rAX8Gkdd0l2SvPThxGwSATdesygL1W5j4bmXRGpe4TM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Rnnvvk+y3ZEPNKGORxSUGqsg+mNaM9ua+oPmZXjTDX25nKW4ZrgKL8Id44CQgPeHd
-	 dgf1MDIyR5EeSgciebeVwtJcOAYxVp1bPzQdMLnZZpf+e6dxk2rjTJzmQDVKP6fexk
-	 ZzX4rtp67mur4VMN8fbrVlCnyKqeHLZwH6JYxiVr7N3cggCCFyqgX827oO5smSpPzs
-	 5IEyqySgMeukcoOhnLsD2CsDwvqo79mkqUSKRuPNvDqatHOi7kQD54fN7YFYf8F9oF
-	 qrVuydhCTdkZac/DDPPeYCPgrwiWT+XOStGalRkexz7pDm0CDIHUewQOOqVkP+4WeO
-	 6K2XG9c9MD1qg==
+	b=S2vhX5pPJZ6qsJ3dRVOK5hHZgtJzfoKxDf5BaktPx2ggykjXmaL66AcvrVoKB63We
+	 V74kytV/MNiI1fVkLbMobZbk2xKst3bkS3YvqQ2wVP2CCyhUvIMyKxDHy2bN2qAl6e
+	 jJrlxvsShbTYa4bsyYe/FUqA5zBlXHBzO90YRwPh3ej66Ow5X+d8+uUSbQp07UduLF
+	 HXhU/7QPt9Rxbm0T7QZas+TUUhaZDcJo5XK4hr57MPjlK6KGgwcNZtuBa6U01aSXEc
+	 4Jc4hON6b0jJtnI+SU2NhR8xxC0EJkrwYZ4m/Sz3OD2Z+4T66QLDZHQDMwU/qaDjgE
+	 kVze0ae2K2Auw==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 26D2117E10C0;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3D42D17E11E6;
 	Mon, 03 Aug 2026 20:05:04 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 6BE5748003A; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
+	id 720A448004C; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Mon, 03 Aug 2026 20:05:09 +0200
-Subject: [PATCH v9 08/22] drm/bridge: synopsys: dw-dp: Fix support for
- short I2C reads
+Date: Mon, 03 Aug 2026 20:05:13 +0200
+Subject: [PATCH v9 12/22] drm/bridge: Add out-of-band HPD notify handler
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260803-synopsys-dw-dp-improvements-v9-8-2e6e46135312@collabora.com>
+Message-Id: <20260803-synopsys-dw-dp-improvements-v9-12-2e6e46135312@collabora.com>
 References: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
 In-Reply-To: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -76,29 +75,28 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@collabora.com, 
  linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sashiko <sashiko-bot@kernel.org>
+ Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1481;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2377;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=+hvcTuzTih5vFZbymQZbCa4pv4dlmw/yOyTygYkYfXw=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E4HoUBLboib/7pf45ZjmJMYsf9lGaA5k
- MEBu37ptA23aYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhOAAoJENju1/PI
- O/qafVIP/i0EYv84rNRDGB2pCStUpY6g7dRwEFWxpysmcS5LJT9JlNgdro7n9hnfkPfb9s6d9xq
- u578ReQLD9ALqlP3eZJ40BNhpsttHkGd5JwdrReFpagivYXj/YUqBuyLB9BHK6/cqvRgQj7hAmO
- /Mj1NnRh0OYaUNxXb6r1yB2HkCNgcRThYTJDQ/30RxxaJOk4FcuIwKUg+yu9xpxO7pRrWGai9/B
- NX8azki7+v7KaSz5I8IFx3cbGEfbTR2dN/050CvJK1Ke+F/eUTXgRoMriDQSjPhs8XyFb/LL5h2
- 0AOO4ZJrqgYc2WOOfUgQAlhJfSeAvQQCktQB6paFggZ31CwslyAl+4rl+96a6ge3GFQ3HOdhqHq
- o9F67I6RhzGfmf/EQyuelWysXOw+04DOybo+riXGxjAduL9dQR19HkDlOd+iUTXFbLBWnveFavt
- PVPJ+1nuXV45uMJ2iWbOQdn1Ky9XTHLN0/ljyq+e8yIMaZIkc8B7LAyh6HenY5oFgrTG41Z/1ST
- XhooYxMaL6cqsU//gYkROd70I4AYvk6Xx/hpDtmtQQ+dtUKvpZRg4als8LJZ5EF8CR3cxv0CoC5
- JIsymxjN/uxQC0+I3dR1GgxR2TUCxyXByzAfrvXZe9WkRV5r2g1ynmQJ13n5HeFHvBX8W4WX2yP
- +OOk8YazaXyw2nqh+mHsq1g==
+ bh=rAX8Gkdd0l2SvPThxGwSATdesygL1W5j4bmXRGpe4TM=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E7TGTFviK0mQ23q8a18/F3gqxVuSqW3b
+ VzN92r3UZUYD4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhOAAoJENju1/PI
+ O/qaDa4P/2lxII8SdFU+mCdan/NuG2rcTag+x2tacHOZ9vZQKrhFPYEZuSa1X/LSDFUVDuxadIe
+ 3IyGY24aYpnBFfwcIJ8jNfVraCwWvF0EDZs3jjzWoBs5kjJ7myZJmu9zBvbck14pjCYVH7NkoZb
+ 47qoYc1CCNR01Xyrh6RN+tAYQACR474rNbms8XROXTPRYu+or2AX0YQ/bb5KtmdWEx0B0zn8d/U
+ 2hFG9xahJYx2yuvBPUhoZ/6Ig7lSsJT7ePdqh5fIXVv5EWZarX4kgyTXOHJQmvSDLW32iTzIw3P
+ 356qWIE9mkgep+uwCed0210Nt/3kI/ZtISc6L2Nc2j8ksixK3FDbS+Xybva2nDD9rxMa8a255TQ
+ ga0dQIfd1nvQZALi/ZPH2Qor3XnSJ8yxSpqBX7cwbCsciXdHTVlxGnZq59XXR3arbYiIuqhpfCX
+ v5p9dXe2O0yc+tM5VR8NWHwxgfO1LjGjpU4ZDQDg7soVxjuL6bi3wyVDoxUYZ2c/JcGObvrTgXo
+ +9Q2OObCT0Kqrp38fuG68MEh96MyZ04n1uLSeeK4IryBlWK1LNWPmcrLIf/Ity6E3FUkYx1WcjA
+ rOAu+AmaFmAEBdCyjNKAqt7ZZvOoN3xSCQ19FixGc1AnNrfJQq/KU4GMhbJ5Pl6Q/DbsBBST7OO
+ ILQceB+kaAS8ut0wAtwosig==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_110511_411859_246A1CC4 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20260803_110512_705505_41B8E5B1 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,39 +111,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The transfer functions returns the amount of bytes read for
-DP_AUX_I2C_READ. By returning -EBUSY for short reads, the caller has
-less information available what is going wrong and possibly simply
-resends the read request. On sinks not supporting long reads, this will
-simply run into the same issue again.
+For DP bridges, that can be used for DP AltMode, it might be necessary
+to enforce HPD status. There is an existing ->oob_hotplug_event() on
+the DRM connector, but it currently just calls into hpd_notify().
 
-Instead it makes more sense to return the data from the short read with
-the length information, which allows drm_dp_i2c_do_msg() to read data in
-smaller chunks and succeed in the end.
+As DP bridge drivers usually also implement .detect and that also
+generates calls into hpd_notify, this is a bad place to force the
+HPD status as the follow-up detect call might force it off again
+resulting in all follow-up calls to the detection routine also
+failing.
 
-Due to lack of a sink, which only supports short reads, this change is
-effectively untested.
+Avoid this by having a dedicated function for OOB events.
 
-Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/display/drm_bridge_connector.c |  6 ++++++
+ include/drm/drm_bridge.h                       | 14 ++++++++++++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 8b587a4c5e93..22a244de08aa 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1513,7 +1513,7 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
- 		if (msg->request & DP_AUX_I2C_READ) {
- 			size_t count = FIELD_GET(AUX_BYTES_READ, value) - 1;
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 8b54069fa53a..632cc3ae3b54 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -180,6 +180,12 @@ static void drm_bridge_connector_oob_hotplug_event(struct drm_connector *connect
+ 	struct drm_bridge_connector *bridge_connector =
+ 		to_drm_bridge_connector(connector);
  
--			if (count != msg->size)
-+			if (!count || count > msg->size)
- 				return -EBUSY;
++	/* Notify all bridges in the pipeline of hotplug events. */
++	drm_for_each_bridge_in_chain(bridge_connector->encoder, bridge) {
++		if (bridge->funcs->oob_notify)
++			bridge->funcs->oob_notify(bridge, connector, status);
++	}
++
+ 	drm_bridge_connector_handle_hpd(bridge_connector, status);
+ }
  
- 			ret = dw_dp_aux_read_data(dp, msg->buffer, count);
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index 58fff047f43b..713652fca033 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -540,6 +540,20 @@ struct drm_bridge_funcs {
+ 	 */
+ 	void (*hpd_disable)(struct drm_bridge *bridge);
+ 
++	/**
++	 * @oob_notify:
++	 *
++	 * Notify the bridge of out of band hot plug detection.
++	 *
++	 * This callback is optional, it may be implemented by bridges that
++	 * need to be notified of display connection or disconnection for
++	 * internal reasons. One use case is to force the DP controllers HPD
++	 * signal for USB-C DP AltMode.
++	 */
++	void (*oob_notify)(struct drm_bridge *bridge,
++			   struct drm_connector *connector,
++			   enum drm_connector_status status);
++
+ 	/**
+ 	 * @hdmi_tmds_char_rate_valid:
+ 	 *
 
 -- 
 2.53.0
