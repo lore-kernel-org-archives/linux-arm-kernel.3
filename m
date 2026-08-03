@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1625C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA34EC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=n/iOnG2AgOH05ZK960YynpPzVU3vp84xiLR+imEY/xU=; b=fXVp9BpWe2fs+u
-	MNmBQAcz6vZS6OsMQINZji8JyC0VhH6Z/c044v9fRrFWVRrKYh2Pi9o6Dw+Eh13cltgNMCiUJm58f
-	6/AD7kNkK8zc12Ap14slZv8mpZfGtJPchUP41fpGyrS/NPGAzuvfnIvMxrQIJEIS+ZYKhJGeUL7h4
-	V5LHeRx8ql6TcCjTNCc1c1JmLolE81bKwWuiD87hoYla+Z/iIgR+A39afJFyOV6sJfGWikb6m8SMl
-	Mm7RkBJDXHyoG2HheI3fNr7wS35/0y9zhWITx3ugC9hfUpbGeHxk18urgbCC2eBT8LgYhnDvOzrdw
-	kNMG7EIVG7YwSIMqUjBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H/wpqLr9YeI2oYg6jHsHjQn+OvxRClxAZx1VlegZnic=; b=t3tC82TDtppPqsihD83cJzuORJ
+	mLSrhKfEGQeLRnw9pO6gSgaWa23HygCZ5AwOoDeZIpn0WaY/ztylBiO4Lzr9nRRKpXjpGdOHs0nI7
+	luSKp1uCLI9ew6nxtH2iQ8GbzoV5ktp0vt2/Ght7dQ/zLoqjT59CxCyW0niL8x2i3oiA3A5gda8Xr
+	tCGv98x5D4tbyf0tZ7GdrBl6qGF1G7cHwCObfPJVEIe+8VOI3x1GKE0GQ8m3gZNpJtzwx1Eek6yeI
+	EYLUJjHS9IkUzGvARaN6Q60XSJ9z+JTkXRz6txBwoSLBZIri0fbqoaiEr3vglNaeaM4pXrn4JxtsA
+	skryLTHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqw5i-00000000Ape-1VeI;
-	Mon, 03 Aug 2026 17:04:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqw5g-00000000ApU-2Sdv
+	id 1wqw6F-00000000Axe-26H9;
+	Mon, 03 Aug 2026 17:05:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqw6C-00000000Awb-0i76
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 17:04:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4B90842B00
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:04:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30A1A1F00AC4
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:04:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785776680;
-	bh=n/iOnG2AgOH05ZK960YynpPzVU3vp84xiLR+imEY/xU=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=ilTz7EDFtHNfXmhP/huN5N3HdbumDZlyjG48BjpB0rHnz+2bHocp9RaYN5/k0mvv+
-	 /RpCo6h94xPzJDdW6dsL0/F7v6ZlGg071Adj9WrXCLBjHEerHHzGMqXOR6RymX4CLA
-	 MVZ2ixLXG97fZHiSD4BgmMAHviwcSrpBGPjwGss1YwXOCHpOs5T5kfHU7crMrS8Jsb
-	 zK5NqGgx1jDRnhh8xWeaq0w7eJVPpJNNj0qY8Db70C5K8jF6KYtGGUFSNgBf83J1nn
-	 B/cudKs2WY5dMxxrqQ/Mu8Gvt3MtRlb91sv+3kzur2ZtGcdmBWuzVTDrIrHlw8nlKN
-	 30fx4qTuaQ6bQ==
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-39c9bb9d2fbso31656881fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 10:04:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpH1tg6kglgt7p02uhVqfHKkl6T+7HQZSGtVc2C/GHFY+HdUR6NyAyCBQ5JMNCQ0JkJv2a5CTqGeHM+PIv+5SH+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yykrlgd3Kg7WUokumiqotRlyrNg5CvnZ1QpZ2BFR2R86VRIb/qH
-	OJ01IKeornJeYL0tGVxxxFCA95j+ol1n8+mlL5nWTiZZH1JvE9wXqhMMo/+JmIpBDQTpr9IhXfX
-	dtYHnvPnioI5pdpVnfjzyJ7cfhCj+3X8=
-X-Received: by 2002:a2e:a593:0:b0:39b:4371:dbe6 with SMTP id
- 38308e7fff4ca-39f8616c4d5mr23211641fa.16.1785776678644; Mon, 03 Aug 2026
- 10:04:38 -0700 (PDT)
+	Mon, 03 Aug 2026 17:05:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 805F21476;
+	Mon,  3 Aug 2026 10:05:04 -0700 (PDT)
+Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72A9A3F632;
+	Mon,  3 Aug 2026 10:05:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785776708; bh=8ylZj4mCSSNDkUIDMUbdM6OiX2Xn4Kwb5/xvgqqQr5k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=spKlICXVnziC366fHmXzRD1CHs7aF0l8ZStMuynkfx2uSHGO3pX2tJpqmLC5TJm96
+	 azLtJD9DNHhTrVSdylvlp7+c3SpmPSRhtjF99H9L7JgS4dGaAuTKYH9SOw3yIXq6Cl
+	 gfuXZlScO+YZevJgurf+ed9zxrpqwy4Zv0uAeaw4=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+	Trilok Soni <tsoni@quicinc.com>,
+	Srinivas Ramana <sramana@qti.qualcomm.com>,
+	Niyas Sait <niyas.sait@arm.com>,
+	Lee Trager <lee@trager.us>,
+	Ritwick Sharma <ritwick.sharma@arm.com>,
+	linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] FIX: avoid using mailbox client dev pointer for error prints
+Date: Mon,  3 Aug 2026 19:04:58 +0200
+Message-ID: <20260803170458.3135976-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260731170324.2927758-12-andre.przywara@arm.com>
+References: <20260731170324.2927758-12-andre.przywara@arm.com>
 MIME-Version: 1.0
-References: <cover.1785772659.git.jernej.skrabec@gmail.com> <3f5ec952ad80cb51efebf2fe230df50259041a23.1785772659.git.jernej.skrabec@gmail.com>
-In-Reply-To: <3f5ec952ad80cb51efebf2fe230df50259041a23.1785772659.git.jernej.skrabec@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 4 Aug 2026 01:04:24 +0800
-X-Gmail-Original-Message-ID: <CAGb2v672PXcS7zLtGLrVQs0D00Pvh97pUo=tgPMCswJMbg7=Rg@mail.gmail.com>
-X-Gm-Features: AUfX_mx02KEK-kEu0E0pYT9Oatt7b9Hz1g3PJFr357J8Y3_fc2ljcAF3lcI4DE0
-Message-ID: <CAGb2v672PXcS7zLtGLrVQs0D00Pvh97pUo=tgPMCswJMbg7=Rg@mail.gmail.com>
-Subject: Re: [PATCH 09/13] drm/sun4i: tcon: Drop remote endpoint reference
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_100512_306664_5DBB169C 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,44 +84,103 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 4, 2026 at 12:11=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
-l.com> wrote:
->
-> sun4i_tcon_of_get_id_from_port() never drops the reference taken by
-> of_graph_get_remote_endpoint(). The function is not only called during
-> bind, but also on every mode set through sun8i_r40_tcon_tv_set_mux(),
-> so the leak accumulates.
->
-> Fixes: e8d5bbf7f4c4 ("drm/sun4i: tcon: get TCON ID and matching engine wi=
-th remote endpoint ID")
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+When a PCC channel is shared among several MSCs, all use the same
+mailbox client struct, which contains the device pointer of the very
+first MSC created. If that MSC goes away, the dev pointer becomes stale.
+We use that pointer only for error printing, so drop that usage. We can
+use the dev pointer from the MSC instead, which the callers of
+mpam_fb_send_request() know.
+The mailbox client code also seems to use this pointer only for error
+prints, and only during initialisation, so it becoming stale afterwards
+does not cause problems.
 
-Acked-by: Chen-Yu Tsai <wens@kernel.org>
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+Hi,
 
-> ---
->  drivers/gpu/drm/sun4i/sun4i_tcon.c | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/drivers/gpu/drm/sun4i/sun4i_tcon.c b/drivers/gpu/drm/sun4i/s=
-un4i_tcon.c
-> index de2d66623f7a..67047e3b657f 100644
-> --- a/drivers/gpu/drm/sun4i/sun4i_tcon.c
-> +++ b/drivers/gpu/drm/sun4i/sun4i_tcon.c
-> @@ -972,6 +972,7 @@ static int sun4i_tcon_of_get_id_from_port(struct devi=
-ce_node *port)
->                         continue;
->
->                 ret =3D of_property_read_u32(remote, "reg", &reg);
-> +               of_node_put(remote);
->                 if (ret)
->                         continue;
->
-> --
-> 2.43.0
->
->
+so this is the fix for the issue that Srivathsa described. This applies
+on top of the v7 series posted. I put up a branch with the patch
+squashed here:
+https://gitlab.arm.com/linux-arm/linux-ap/-/commits/mpam-fb-v7-fixed?ref_type=heads
+If I shall post a v8, please let me know.
+
+Cheers,
+Andre
+
+ drivers/resctrl/mpam_fb.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+index 7a7fb6d067ba..79e0229b77c1 100644
+--- a/drivers/resctrl/mpam_fb.c
++++ b/drivers/resctrl/mpam_fb.c
+@@ -6,6 +6,7 @@
+ #include <linux/errno.h>
+ #include <linux/mailbox_client.h>
+ #include <linux/mutex.h>
++#include <linux/platform_device.h>
+ #include <linux/types.h>
+ 
+ #include <acpi/pcc.h>
+@@ -128,17 +129,19 @@ static int mpam_fb_translate_error_code(int mpam_fb_code)
+ 	}
+ }
+ 
+-static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 msc_id,
++static int mpam_fb_send_request(struct mpam_msc *msc, u32 msc_id,
+ 				u16 reg, u32 *result, int mpam_fb_command)
+ {
+ 	unsigned int token = atomic_inc_return(&mpam_fb_token);
+ 	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem;
++	struct mpam_pcc_chan *pcc_chan;
+ 	struct pcc_mbox_chan *chan;
+ 	void __iomem *payload_ofs;
+ 	int mpam_fb_err = 0;
+ 	u32 status;
+ 	int ret;
+ 
++	pcc_chan = msc->pcc_chan;
+ 	if (!pcc_chan)
+ 		return -ENODEV;
+ 
+@@ -162,7 +165,7 @@ static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 msc_id,
+ 		mpam_fb_build_version_message(token, chan->shmem);
+ 		break;
+ 	default:
+-		dev_err(pcc_chan->pcc_cl.dev, "unsupported MPAM-Fb command %d\n",
++		dev_err(&msc->pdev->dev, "unsupported MPAM-Fb command %d\n",
+ 			mpam_fb_command);
+ 		ret = -EINVAL;
+ 		goto out_err;
+@@ -203,13 +206,13 @@ static int mpam_fb_send_request(struct mpam_pcc_chan *pcc_chan, u32 msc_id,
+ 
+ int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result)
+ {
+-	return mpam_fb_send_request(msc->pcc_chan, msc->id, reg, result,
++	return mpam_fb_send_request(msc, msc->id, reg, result,
+ 				    MPAM_MSC_READ_CMD);
+ }
+ 
+ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
+ {
+-	return mpam_fb_send_request(msc->pcc_chan, msc->id, reg, &value,
++	return mpam_fb_send_request(msc, msc->id, reg, &value,
+ 				    MPAM_MSC_WRITE_CMD);
+ }
+ 
+@@ -219,7 +222,7 @@ int mpam_fb_check_protocol_version(struct mpam_msc *msc)
+ 	u32 version;
+ 	int ret;
+ 
+-	ret = mpam_fb_send_request(msc->pcc_chan, 0,
++	ret = mpam_fb_send_request(msc, 0,
+ 				   0, &version, MPAM_PROTOCOL_VERSION_CMD);
+ 	if (ret)
+ 		return ret;
+-- 
+2.43.0
+
 
