@@ -4,153 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E60C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 10:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC77C55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 10:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9hkRJdHHeh4LvGjciwvxGygdU4Rqbcvkupv7IYudRX4=; b=A+zFvnn6uXYMrXmFJrFMbyIgBp
-	idoD0Dm2AWqemAdnVdFA7jGHkVxT2ND/0jnG/mFuuYVpiQxbon/YDJf9sYNGddPvRsyyN2Jg7IA5R
-	DSME7IoueE/5m3zCPG+NGheGUmEtc85lObckuPr434VyO5Gyz2GSTub7ZYtyEy9f8NxwMlhAVkO4U
-	GHrZmCHXKIA4mThQJEiCEhXkhMbx3q3U1pMIeUuO1bBy5kVaCrVqnqQ2Wg47CH0NI3PqA3OpLsu2A
-	Ze9kyDu2kI5xLeq6QfyLk/XVD2lYP9p9fOY7ABuERYD62QX/52m0aYaX6iiShagdEez2Z3o5TntDO
-	5mpxHewg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SrfiqAbkUXqCvf27Ok5o3KIsVichjIDlSrqK3qQT0e8=; b=MRa8SR60zR5zn+d5c4DWxzJiab
+	9U1pZ6hWjf4w0ON9POczyFlg009jBL/ODN5ev5x4OW2XXFvXMwCjJrKrYrGQ/QeEMtZbZy303xxjR
+	ZdwW6FRtazX9aRP2JP0fpV/0QFJggXpbtqGG9zr6bIpGORzvaeq16At6f/U9ODDUL6Bv9IvYQZOup
+	mICAaWla7BfkA+8d8jkPXDaPGdGvDurd9KQCrJ25pe/v5T56hEJKWF0EDUd4C1bID90qDS97Mbolr
+	qg4lekH5+vZWASBEPrsBVM0MklMyAMyptNLp0F4u8xnTniK1Rc3xH9g2OOqpqXGFdVIWMwqQRhJWU
+	YeKz5zfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqFK-0000000Gtey-3Mk5;
-	Mon, 03 Aug 2026 10:50:14 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wqqFt-0000000Gtjx-42sg;
+	Mon, 03 Aug 2026 10:50:49 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqFF-0000000GtdZ-3tNJ
+	id 1wqqFq-0000000GtjS-3YYL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 10:50:13 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 673AkXmb005475
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 3 Aug 2026 10:50:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9hkRJdHHeh4LvGjciwvxGygdU4Rqbcvkupv7IYudRX4=; b=Pbe/KUvdhObQu9Kd
-	yBAUFYkyh9ubMnvIaz52rDPd64UTKuhaP94V/AsmSzr8QlIwqxXBqelkIskbr1qn
-	LzdFymYQXZo+gN7HfQRwazb5aUIXmHp873SoxCfytMa0Pr+7TdQSxGELY5CkI8h7
-	hBWg1B/VTqwDKe/F3auiU8QueAwCJ7eWVaOdFA2ZZjm/ZmLyhiXkLTNi/3EgDMT9
-	eiukH+Esvg9rwPb8NzYgAcX3oQSIiAj0TUQips44gVG0elSTu3vsrcuteDHk+d/X
-	Fe5luCkB4RKeIcOJM+jglq1eUWlOohOtquCSmuyCNJajb4RVvSDtvEr1ze5YMlEI
-	6/xrpA==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ftnj794pr-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 10:50:05 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-ca860baea9fso8401376a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 03:50:03 -0700 (PDT)
+	Mon, 03 Aug 2026 10:50:48 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-c197eaaab00so521783266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 03:50:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785754202; x=1786359002; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9hkRJdHHeh4LvGjciwvxGygdU4Rqbcvkupv7IYudRX4=;
-        b=Z9srrufFDX8UtuVBAcIQY8sxWEDuepBfmoaiGXpTBd22QDxJDGW8EJs6MpNJNbwIB9
-         8j4BR+1zgoEr/Xe37sFXHwQ+UNEuD5ckinmZd/ZcdXUwcWS6Xai0gpk0NG5E+FL41OK9
-         hGakLxThwfTPyulf5UeONKRCqy79l8lhWCFr4m7afGwNIG75cluy3vRe9YZcoAVORZaz
-         UibBeQWeqsljEtdaU5op/y1ydc2+xo4F35xSTF7VLEMJ0tSGvV8naKbPXH1B1kNOZPLe
-         MZnAUHfOqxt+UVUoMkOfwQr+9Dx5QOYuRIWYVzV8Rb54kbxK7pNd5gL4qsYDJ/WjI2L0
-         uxSQ==
+        d=google.com; s=20251104; t=1785754245; x=1786359045; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SrfiqAbkUXqCvf27Ok5o3KIsVichjIDlSrqK3qQT0e8=;
+        b=I/s/lg/6UBSWPBcnwP/NrVQwI/xWDHcOTeK63MFMCTdr1dsS28Wp/4SqR+GHWyveyy
+         SEciWcDRXzH6wLoKjKo2apNygd3J1QQAbVk6Btjq7JeqjaY6+ckZhEwCWSLDX/qzD5RN
+         lYmSAhIPpV9XhU4mzBOZfqpiGDu5wTN4vbXdgc8zfBn4HSs2ekkViJKumI8ZjG7DwQkH
+         Fatz1I/WaieH0RkUjULaKfb00ZX9zYDVvT8G//N6G0u5NlKuSR7EuNxmrlmQ/EF4DVS2
+         4XGlcLCdnzSIYDIf140dFasRJ6fXpkPy/iQ3tq9mxnKkpIMw+GT6WNJQqzd6DjBS9LLB
+         mNfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785754202; x=1786359002;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9hkRJdHHeh4LvGjciwvxGygdU4Rqbcvkupv7IYudRX4=;
-        b=FOrzACXRHGVMVK/80b3dHdmgiIjkwlGrZgN5DEEVmnjE9ruvLyXbr5PeycPXIlipLT
-         O/3gobAA7FOgWNb6RVnTr9mHN1Yn0dN7wgZSy+R2J5mQq85Q1Mc6dkR8dhisFmi3cuR6
-         4aefF8f3iufP65NeI/LD30xrrVOrdp1LHde3uOil+EFqMvGlvX9y15v4SHC3F4Z8RzfY
-         il59FYDvc1UzRqhUwVIhufSwPN/cBulOpuNeyNYVdFWjVsfSwTbzmjOq1N5pjdjTdoX7
-         7kuQSanKnCwNxOMP+igtmonCjALBvP7JVvD2LJQzwg1sOAEGZfw7VOXEXoS7rCU0r2SK
-         tisw==
-X-Forwarded-Encrypted: i=1; AHgh+Rrz5CFDUYK9kGEvxhVC7+e1NVDQseD56hudYhrrfENNQgZUPfyseVwxszOx3Mp/KBJibE2G64aw3YsbK1ouWIAD@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/05qkFVWo3XGx7zxeKusZByVBeNPF/WIVK4gH+hcPAUtTYNfT
-	Dw9RDym9GgA3XJf6Ct57gkPgPDP4h3gUt6Z96ZbHmWL0RmosHogVR0cDgnyx0ToxNU0V0aqbroh
-	BtTd3m2WGhZq8pY/LlCp9jBKnSeWJrDgYl31PC7olsJKa5Jpdncu72oxSM4v0Vp0FbykdQbN0gC
-	hEjQ==
-X-Gm-Gg: AR+sD12F9nLX2goI1UQhWA8B5iOHTLvJZIi+P/V34XgDXOQJsdnmtHGBTzXrex2Bk2A
-	mLrtu0dTkdd/WakOwup8BAjf8pBW7JIlqeXMlzY7vpTY/BUPtZshwKSpcQ6l6kFXGZr4QYsxrim
-	vW0uYhgALAZl0rGh+URfd/D3LDHbCXu5lfl2FhUUYScAwXfpUpx/TNJXAK85JTt5+XZWRDWAeiF
-	/JT+WpHmWltxhlbvLFt/a0tswMBjcGiz6vjtygD6SasnPjoBxvXjEs4FdXi0GB/GEkBdfr8KVKd
-	rZIu1ZGWLQRAZJW8wq7qb0nEgG755uAne+t8sCzMdRRqwEsFHD7BhFm2+U+b2jG9cQfIDqYyatB
-	6tQVvfPibfIHFl0XyGgtxDsYRc/2E5+N9KQ==
-X-Received: by 2002:a05:6a21:e082:b0:3c3:7d12:a98c with SMTP id adf61e73a8af0-3c92a8b424amr9581885637.52.1785754202384;
-        Mon, 03 Aug 2026 03:50:02 -0700 (PDT)
-X-Received: by 2002:a05:6a21:e082:b0:3c3:7d12:a98c with SMTP id adf61e73a8af0-3c92a8b424amr9581847637.52.1785754201875;
-        Mon, 03 Aug 2026 03:50:01 -0700 (PDT)
-Received: from [192.168.1.106] ([106.51.196.242])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153db2f911sm41210280eec.0.2026.08.03.03.49.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Aug 2026 03:50:01 -0700 (PDT)
-Message-ID: <dd4d5ddc-e198-4747-85ce-aef4c569c593@oss.qualcomm.com>
-Date: Mon, 3 Aug 2026 16:19:53 +0530
+        d=1e100.net; s=20251104; t=1785754245; x=1786359045;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SrfiqAbkUXqCvf27Ok5o3KIsVichjIDlSrqK3qQT0e8=;
+        b=Ine5IlbFq0MynmJuBcQSJo5LsGsUrUi+7nxw2rigchs1c5GI5+wyELCu1jvo8OCSiI
+         cDZYsbx5dp3E74rvUwdUjmdzfc+2r2GduETMPw1sVp78pfXWjMLpIt42S90kD+/fuDkW
+         baEmRyMPPwt6AgL9l143SyQtnCmy/gZTj1ppErUQ4VWiJFhtuX1oGe0zQS/pIGgYFwVo
+         a1Kr8iE/tlGWIrNW20JVnkIENNMBB++VXC0ddavxGLGW3V5LTo7WSjiEb1Xb+yxBP+Wi
+         DVn8JHuMOi7SjS5FMrCUAJjrVE4QUpoO/1TdIWPMWQnY+HGF2RVJREbXwBqm55M7THCJ
+         P0ZQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoBWsd0bzy1XxWo1N4DPw0/OVKMC8eGu5nfyViAJy3C9HVZ+gjIynTX8fFqLM0oHR/wV3Z8o8QYOM3huub7YUyI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZdIMiuCog2iufZsoP7nejb6ziusvziFsAwi637Wr6h8lNE+kY
+	3OzZWO/mf/j2wlpUZRZ5K7lJ8sQLtFanc1zZ+K3khsOI17php5rXrSUXaHspRl3h0A==
+X-Gm-Gg: AR+sD11sFqZAgT6zj82BIaOLw7DY2I5nhaoBs5lW4Kijni/Fc5RRUyYFD+r8hdUAZ2P
+	PKGT9ztlKHyvVT1Va4nD9EDdNoa6Yg5e1S2MhwxXBZAsKcmrWYnkO3LbwufMQWZHQO9y5YTFM9G
+	kQ2gqsuBZKYbyRYAm2EwooOw3TDWJJJORn7zE2i0a69Dbkr1WNxWyi9eQie8kFq6MAgRil0LrKk
+	L8wNzB4dnM7iDkrnhApmdUPwhXL8c4xOgb8Gd78MftIb6o4RRArJMZV76hCBfjqcVrTug0dA7kL
+	lylmc1cN6mNm426/4hRgYXw20Q9RIW2jKCJbt8LZoNDEVOBMPsg9r3b2t3lbreKoFyW88nKrEIk
+	UAa12GxNlIeyTGlcok+nGkbHUkJ20Uja7lsh1WdIj6rHlmT8mmxK5FfFCapLWYCBpMGh5CzgpWu
+	euUV2ydwrFkEQOVU1pI9oAUcp8Ryq1lyDQkJyZAZ1Nk70hWOEoAO5RHurKMUFFIhWJoi087+Hg9
+	79tu2wBwoxS6RmsnFWUVA9EKCB7+CWk
+X-Received: by 2002:a17:906:c40a:b0:c15:d6c8:2816 with SMTP id a640c23a62f3a-c1fe8230c0bmr497154566b.27.1785754244148;
+        Mon, 03 Aug 2026 03:50:44 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c201265eb75sm81014766b.3.2026.08.03.03.50.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 03:50:42 -0700 (PDT)
+Date: Mon, 3 Aug 2026 11:50:38 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: maz@kernel.org, oupton@kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org,
+	rostedt@goodmis.org, mhiramat@kernel.org, alexandru.elisei@arm.com,
+	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	tabba@google.com
+Subject: Re: [PATCH v1 11/11] KVM: arm64: Tag host-VA hypercall parameters
+ __hostva
+Message-ID: <anByfvv9scyNuHrJ@google.com>
+References: <20260720161343.1367007-1-fuad.tabba@linux.dev>
+ <20260720162412.1401272-1-fuad.tabba@linux.dev>
+ <20260720162412.1401272-2-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 11/11] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Andre Przywara <andre.przywara@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Hanjun Guo
- <guohanjun@huawei.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-        James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
-        Reinette Chatre <reinette.chatre@intel.com>,
-        Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-        Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
-        Trilok Soni <tsoni@quicinc.com>,
-        Srinivas Ramana <sramana@qti.qualcomm.com>,
-        Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
-        Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260731170324.2927758-1-andre.przywara@arm.com>
- <20260731170324.2927758-12-andre.przywara@arm.com>
-Content-Language: en-US
-From: Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>
-In-Reply-To: <20260731170324.2927758-12-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: 8dHniZfSgydmLqVHGQKIgFsWHqxVpKSc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODAzMDA5NiBTYWx0ZWRfX/A2iFprrDFJv
- /BbaUa3YqxeJaT4vAy0fVR6mYjvz+tEzfMUzQBB+JIUxYO1Xh54MgUMHJ5u7LGpb3HchposF/Fj
- hDn1iXJ5ROzWLlhNCJmcCXBacb88Q895HsnKebLAByyvAr1xE8udWitkGJCq23c8TXh18FPvx0K
- P5TqLHdk6SGiV8Rf9173bTL3tNoIpnBKvCzZSjVQSoaym51w4B1O6nWU2uDw83epZhFTK3MWl04
- A0X0K6RkMk2BijVY06ZjghT9bs3BkACQoRRo9q7MkOhBbL4iNPeyxt+rSuXfquifUoX8zb2jc8X
- gtohZDHxZZJwdlLqF/8sT8mYRr12hKklYQSVaX1RhCE2uVRU0kqBVjYNJw4tpO+pcyIu25huRnK
- Q3HmuWm8sQlOdDyjMsOandL6ULAK+qEXVZu48OcfA6nvV9ssXuuqAyXdYLfr8n47yD3yfHTn+EQ
- F3clKOBzD/vxLqb60Tg==
-X-Proofpoint-GUID: 8dHniZfSgydmLqVHGQKIgFsWHqxVpKSc
-X-Authority-Analysis: v=2.4 cv=PqSjqQM3 c=1 sm=1 tr=0 ts=6a70725f cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=eeZ6Vdm3skWBw8YHU2i37Q==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=7CQSdrXTAAAA:8 a=EUspDBNiAAAA:8 a=PHT_-lC4Pkg6agqfKfUA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODAzMDA5NiBTYWx0ZWRfX056RLlaUrlLP
- jHTDUOuKE1560ySN5e+2XsjxyONnAkEJzHwNKhXgGsELeGGwHFUh7kGG9KM9z03wLqHi2T4iJP5
- VutmP80GBLOEA+fP0v0lLg5z/InZ+Kc=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-02_06,2026-07-30_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 phishscore=0 spamscore=0 priorityscore=1501 adultscore=0
- clxscore=1015 impostorscore=0 suspectscore=0 bulkscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608030096
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260720162412.1401272-2-fuad.tabba@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_035010_086221_DABCBDCB 
-X-CRM114-Status: GOOD (  39.73  )
+X-CRM114-CacheID: sfid-20260803_035047_036659_BA1303B0 
+X-CRM114-Status: GOOD (  31.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,292 +108,435 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
-
-On 7/31/2026 10:33 PM, Andre Przywara wrote:
-> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
-> registers through a firmware interface. This requires a shared memory
-> region to hold the message, and a mailbox to trigger the access.
-> For ACPI this is wrapped as a PCC channel, described using existing
-> ACPI abstractions.
+On Mon, Jul 20, 2026 at 05:24:12PM +0100, Fuad Tabba wrote:
+> The nVHE hypervisor takes host virtual addresses as hypercall arguments
+> and translates each with kern_hyp_va() before use. Nothing marks them as
+> host-owned, so dereferencing one untranslated at EL2 - a recurring bug
+> class - is invisible to the compiler.
 > 
-> Add code to parse those PCC table descriptions associated with an MSC,
-> and store the parsed information in the MSC struct.
-> There can be multiple PCC channels, and each channel can serve multiple
-> MSCs, so we need to keep track of the channel usage, using a list and
-> a refcount.
+> Add a __hostva sparse address space, active only for EL2 code, and tag
+> the host-VA parameters in the hypercall declarations. kern_hyp_va_host()
+> is the only sanctioned unwrap: it translates the address, preserves the
+> pointee type (stripped of qualifiers, as with the percpu accessors) and
+> drops the tag with a __force cast, so an untranslated host VA fails
+> sparse. The tag flows from the shared declaration into the generated
+> handler and on into the donated-memory and tracing-descriptor helpers,
+> so a handler cannot extract a host VA without it. Host code sees plain
+> pointers, and the tag is checker-only: no code is generated.
 > 
-> This will be used by the MPAM-Fb access wrapper code.
-> 
-> [1] https://developer.arm.com/documentation/den0144/latest
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 > ---
->   drivers/resctrl/mpam_devices.c  | 113 +++++++++++++++++++++++++++++++-
->   drivers/resctrl/mpam_fb.c       |  41 ++++++++++++
->   drivers/resctrl/mpam_internal.h |   2 +
->   3 files changed, 154 insertions(+), 2 deletions(-)
+>  arch/arm64/include/asm/kvm_hcall.h      | 43 ++++++++++++-------
+>  arch/arm64/include/asm/kvm_mmu.h        | 10 +++++
+>  arch/arm64/kvm/hyp/include/nvhe/pkvm.h  |  6 ++-
+>  arch/arm64/kvm/hyp/include/nvhe/trace.h |  5 ++-
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 57 +++++++++++++------------
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c          | 11 ++---
+>  arch/arm64/kvm/hyp/nvhe/trace.c         |  4 +-
+>  7 files changed, 82 insertions(+), 54 deletions(-)
 > 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index b238feb559d4..40b247a89f8e 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -19,14 +19,19 @@
->   #include <linux/irqdesc.h>
->   #include <linux/list.h>
->   #include <linux/lockdep.h>
-> +#include <linux/mailbox_client.h>
->   #include <linux/mutex.h>
->   #include <linux/platform_device.h>
->   #include <linux/printk.h>
-> +#include <linux/property.h>
->   #include <linux/srcu.h>
->   #include <linux/spinlock.h>
->   #include <linux/types.h>
->   #include <linux/workqueue.h>
->   
-> +#include <acpi/pcc.h>
-> +#include <acpi/acpi_io.h>
-> +
->   #include "mpam_internal.h"
->   
->   /* Values for the T241 errata workaround */
-> @@ -49,6 +54,88 @@ static LIST_HEAD(mpam_all_msc);
->   
->   struct srcu_struct mpam_srcu;
->   
-> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
-> +static DEFINE_MUTEX(pcc_chan_list_lock);
-> +static LIST_HEAD(pcc_chan_list);
-> +
-> +static void mpam_pcc_chan_release(struct kref *ref)
-> +{
-> +	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
-> +						 refcount);
-> +
-> +	pcc_mbox_free_channel(cur->pcc_chan);
-> +	list_del(&cur->pcc_chans);
-> +	mutex_destroy(&cur->pcc_chan_lock);
-> +	kfree(cur);
-> +}
-> +
-> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
-> +					       int subspace_id)
-> +{
-> +	struct mpam_pcc_chan *cur;
-> +
-> +	guard(mutex)(&pcc_chan_list_lock);
-> +
-> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
-> +		if (cur->subspace_id == subspace_id) {
-> +			kref_get(&cur->refcount);
-> +
-> +			return cur;
-> +		}
-> +	}
-> +
-> +	cur = kzalloc_obj(*cur);
-> +	if (!cur)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	cur->pcc_cl.dev = dev;
+> diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
+> index 6aa2df90a14a4..3033a6ba1462a 100644
+> --- a/arch/arm64/include/asm/kvm_hcall.h
+> +++ b/arch/arm64/include/asm/kvm_hcall.h
+> @@ -27,6 +27,18 @@ struct kvm_vcpu;
+>  struct vgic_v3_cpu_if;
+>  struct vgic_v5_cpu_if;
+>  
+> +/*
+> + * A host VA carried by a hypercall argument. At EL2 such a pointer must not
+> + * be dereferenced until it is translated with kern_hyp_va_host(); sparse
+> + * flags any use that skips the translation. The tag describes the EL2 view
+> + * only: the host dereferences its own VAs freely.
+> + */
+> +#if defined(__KVM_NVHE_HYPERVISOR__) && defined(__CHECKER__)
+> +#define __hostva	__attribute__((noderef, address_space(__hostva)))
+> +#else
+> +#define __hostva
+> +#endif
 
-While testing v7 with multiple PCC MSCs sharing a single PCC channel, I
-noticed that pcc_cl.dev is set once at channel creation time (from the
-first MSC's device) and never updated when subsequent MSCs reuse the
-channel.In mpam_pcc_chan_get(), the first call sets:
-  cur->pcc_cl.dev = dev;
+Could we have __kern, just like we have __user. 
 
-Subsequent calls return the existing channel without updating 
-pcc_cl.dev. Here dev_err() calls through the channel report errors 
-against the first MSC's device, even when a different MSC triggered them.
+Ideally this could be used later to mark the values we don't trust, so not only
+VAs but also nr_pages. In mem_protect.c e.g.
 
-I reproduced this with four PCC MSCs sharing subspace 0. After unbinding
-the first MSC (kref 4→3), triggering dev_err() via a test hook showed 
-the device prefix change from "mpam_msc mpam_msc.1:" to "platform 
-mpam_msc.1:"
+size_t pfn_range_is_valid(u64 __kern pfn, u64 __kern nr_pages) 
 
-A simple fix maybe to use the MSC's own device for error messages in
-mpam_fb_send_request() instead of pcc_chan->pcc_cl.dev
+so that size is only trusted once pfn_range_is_valid() has run.
 
-> +	cur->pcc_cl.tx_block = true;
-> +
-> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
-> +	if (IS_ERR(cur->pcc_chan)) {
-> +		long err = PTR_ERR(cur->pcc_chan);
-> +
-> +		kfree(cur);
-> +		return ERR_PTR(err);
-> +	}
-> +
-> +	/*
-> +	 * Timeout based on the "nominal latency" in us, from the
-> +	 * PCC ACPI table. tx_tout is in ms.
-> +	 * Add some margin here to be on the safe side.
-> +	 */
-> +	cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
-> +
-> +	mutex_init(&cur->pcc_chan_lock);
-> +
-> +	cur->subspace_id = subspace_id;
-> +	kref_init(&cur->refcount);
-> +
-> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
-> +
-> +	return cur;
-> +}
-> +
-> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
-> +{
-> +	struct mpam_pcc_chan *cur, *tmp;
-> +
-> +	if (!pcc_chan)
-> +		return 0;
-> +
-> +	guard(mutex)(&pcc_chan_list_lock);
-> +
-> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
-> +		if (cur == pcc_chan) {
-> +			kref_put(&cur->refcount, mpam_pcc_chan_release);
-> +
-> +			return 0;
-> +		}
-> +	}
-> +
-> +	return -ENOENT;
-> +}
-> +
->   /*
->    * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
->    * can be enabled.
-> @@ -2274,6 +2361,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->   {
->   	struct mpam_msc *msc = platform_get_drvdata(pdev);
->   
-> +	mpam_pcc_chan_put(msc->pcc_chan);
-> +
->   	mutex_lock(&mpam_list_lock);
->   	mpam_msc_destroy(msc);
->   	mutex_unlock(&mpam_list_lock);
-> @@ -2284,7 +2373,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->   static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->   {
->   	int err;
-> -	u32 tmp;
-> +	u32 pcc_subspace_id;
->   	struct mpam_msc *msc;
->   	struct resource *msc_res;
->   	struct device *dev = &pdev->dev;
-> @@ -2328,7 +2417,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->   	if (err)
->   		return ERR_PTR(err);
->   
-> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
-> +	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
->   		msc->iface = MPAM_IFACE_MMIO;
->   	else
->   		msc->iface = MPAM_IFACE_PCC;
-> @@ -2349,6 +2438,26 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->   		}
->   		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->   		msc->mapped_hwpage = io;
-> +	} else if (msc->iface == MPAM_IFACE_PCC) {
-> +		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
-> +		if (IS_ERR(msc->pcc_chan)) {
-> +			pr_err("Failed to request MSC PCC channel\n");
-> +			return ERR_CAST(msc->pcc_chan);
-> +		}
-> +
-> +		err = mpam_fb_check_shared_buffer_size(msc);
-> +		if (err) {
-> +			mpam_pcc_chan_put(msc->pcc_chan);
-> +
-> +			return ERR_PTR(err);
-> +		}
-> +
-> +		err = mpam_fb_check_protocol_version(msc);
-> +		if (err) {
-> +			mpam_pcc_chan_put(msc->pcc_chan);
-> +
-> +			return ERR_PTR(err);
-> +		}
->   	} else {
->   		return ERR_PTR(-EINVAL);
->   	}
-> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
-> index 61a91c6cec0a..7a7fb6d067ba 100644
-> --- a/drivers/resctrl/mpam_fb.c
-> +++ b/drivers/resctrl/mpam_fb.c
-> @@ -37,6 +37,11 @@
->   #define MPAM_MSC_TOKEN_MASK		GENMASK(27, 18)
->   
->   #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
-> +/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
-> +#define MPAM_FB_MAX_MSG_SIZE		(4 * sizeof(u32))
-> +
-> +#define MPAM_FB_VERSION_MAJOR_MASK	GENMASK(31, 16)
-> +#define MPAM_FB_VERSION_MINOR_MASK	GENMASK(15, 0)
->   
->   static atomic_t mpam_fb_token = ATOMIC_INIT(0);
->   
-> @@ -207,3 +212,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
->   	return mpam_fb_send_request(msc->pcc_chan, msc->id, reg, &value,
->   				    MPAM_MSC_WRITE_CMD);
->   }
-> +
-> +/* We only support MPAM-Fb protocol version 1.x */
-> +int mpam_fb_check_protocol_version(struct mpam_msc *msc)
-> +{
-> +	u32 version;
-> +	int ret;
-> +
-> +	ret = mpam_fb_send_request(msc->pcc_chan, 0,
-> +				   0, &version, MPAM_PROTOCOL_VERSION_CMD);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
-> +		pr_err("Incompatible MPAM-Fb protocol version %ld.%ld\n",
-> +		       FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
-> +		       FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
-> +
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
-> +{
-> +	int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
-> +			      sizeof(struct acpi_pcct_ext_pcc_shared_memory);
-> +
-> +	if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
-> +		pr_err("MPAM-Fb PCC channel size too small.\n");
-> +
-> +		return -ENOMEM;
-> +	}
-> +
-> +	return 0;
-> +}
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index f13a79a84c58..8859189088f3 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -528,6 +528,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
->   /* MPAM-Fb Firmware-backed protocol wrappers */
->   int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
->   int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
-> +int mpam_fb_check_protocol_version(struct mpam_msc *msc);
-> +int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
->   
->   /*
->    * MPAM MSCs have the following register layout. See:
+And beside, that matches "kern_hyp_va" 
 
---
-Best Regards,
-Srivathsa
+> +
+>  /*
+>   * Hypercall signatures are declared as (type, name) argument pairs.
+>   * __KVM_HCALL_MAP() applies a macro to each pair, in the mold of __MAP()
+> @@ -157,24 +169,24 @@ DECLARE_KVM_HOST_HCALL0(int, __pkvm_prot_finalize)
+>  
+>  /* Hypercalls that are always available and common to [nh]VHE/pKVM. */
+>  DECLARE_KVM_HOST_HCALL_VOID(__kvm_adjust_pc, 1,
+> -	struct kvm_vcpu *, vcpu)
+> +	struct kvm_vcpu __hostva *, vcpu)
+>  DECLARE_KVM_HOST_HCALL(int, __kvm_vcpu_run, 1,
+> -	struct kvm_vcpu *, vcpu)
+> +	struct kvm_vcpu __hostva *, vcpu)
+>  DECLARE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
+>  DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa, 3,
+> -	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
+> +	struct kvm_s2_mmu __hostva *, mmu, phys_addr_t, ipa, int, level)
+>  DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa_nsh, 3,
+> -	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
+> +	struct kvm_s2_mmu __hostva *, mmu, phys_addr_t, ipa, int, level)
+>  DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid, 1,
+> -	struct kvm_s2_mmu *, mmu)
+> +	struct kvm_s2_mmu __hostva *, mmu)
+>  DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_range, 3,
+> -	struct kvm_s2_mmu *, mmu, phys_addr_t, start, unsigned long, pages)
+> +	struct kvm_s2_mmu __hostva *, mmu, phys_addr_t, start, unsigned long, pages)
+>  DECLARE_KVM_HOST_HCALL_VOID(__kvm_flush_cpu_context, 1,
+> -	struct kvm_s2_mmu *, mmu)
+> +	struct kvm_s2_mmu __hostva *, mmu)
+>  DECLARE_KVM_HOST_HCALL_VOID(__kvm_timer_set_cntvoff, 1,
+>  	u64, cntvoff)
+>  DECLARE_KVM_HOST_HCALL(int, __tracing_load, 2,
+> -	void *, desc_hva, size_t, desc_size)
+> +	void __hostva *, desc_hva, size_t, desc_size)
+>  DECLARE_KVM_HOST_HCALL0_VOID(__tracing_unload)
+>  DECLARE_KVM_HOST_HCALL(int, __tracing_enable, 1,
+>  	bool, enable)
+> @@ -189,13 +201,13 @@ DECLARE_KVM_HOST_HCALL(int, __tracing_enable_event, 2,
+>  DECLARE_KVM_HOST_HCALL_VOID(__tracing_write_event, 1,
+>  	u64, id)
+>  DECLARE_KVM_HOST_HCALL_VOID(__vgic_v3_save_aprs, 1,
+> -	struct vgic_v3_cpu_if *, cpu_if)
+> +	struct vgic_v3_cpu_if __hostva *, cpu_if)
+>  DECLARE_KVM_HOST_HCALL_VOID(__vgic_v3_restore_vmcr_aprs, 1,
+> -	struct vgic_v3_cpu_if *, cpu_if)
+> +	struct vgic_v3_cpu_if __hostva *, cpu_if)
+>  DECLARE_KVM_HOST_HCALL_VOID(__vgic_v5_save_apr, 1,
+> -	struct vgic_v5_cpu_if *, cpu_if)
+> +	struct vgic_v5_cpu_if __hostva *, cpu_if)
+>  DECLARE_KVM_HOST_HCALL_VOID(__vgic_v5_restore_vmcr_apr, 1,
+> -	struct vgic_v5_cpu_if *, cpu_if)
+> +	struct vgic_v5_cpu_if __hostva *, cpu_if)
+>  
+>  /* Hypercalls that are available only when pKVM has finalised. */
+>  DECLARE_KVM_HOST_HCALL(int, __pkvm_host_share_hyp, 1,
+> @@ -220,10 +232,11 @@ DECLARE_KVM_HOST_HCALL0(int, __pkvm_reserve_vm)
+>  DECLARE_KVM_HOST_HCALL_VOID(__pkvm_unreserve_vm, 1,
+>  	pkvm_handle_t, handle)
+>  DECLARE_KVM_HOST_HCALL(int, __pkvm_init_vm, 3,
+> -	struct kvm *, host_kvm, void *, vm_hva, void *, pgd_hva)
+> +	struct kvm __hostva *, host_kvm, void __hostva *, vm_hva,
+> +	void __hostva *, pgd_hva)
+>  DECLARE_KVM_HOST_HCALL(int, __pkvm_init_vcpu, 3,
+> -	pkvm_handle_t, handle, struct kvm_vcpu *, host_vcpu,
+> -	void *, vcpu_hva)
+> +	pkvm_handle_t, handle, struct kvm_vcpu __hostva *, host_vcpu,
+> +	void __hostva *, vcpu_hva)
+>  DECLARE_KVM_HOST_HCALL0(int, __pkvm_vcpu_in_poison_fault)
+>  DECLARE_KVM_HOST_HCALL(int, __pkvm_force_reclaim_guest_page, 1,
+>  	phys_addr_t, phys)
+> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> index 6eae7e7e2a684..55fac40377c03 100644
+> --- a/arch/arm64/include/asm/kvm_mmu.h
+> +++ b/arch/arm64/include/asm/kvm_mmu.h
+> @@ -7,6 +7,8 @@
+>  #ifndef __ARM64_KVM_MMU_H__
+>  #define __ARM64_KVM_MMU_H__
+>  
+> +#include <linux/compiler.h>
+> +
+>  #include <asm/page.h>
+>  #include <asm/memory.h>
+>  #include <asm/mmu.h>
+> @@ -140,6 +142,14 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
+>  
+>  #define kern_hyp_va(v) 	((typeof(v))(__kern_hyp_va((unsigned long)(v))))
+>  
+> +/*
+> + * Translate a __hostva-tagged host VA, dropping the tag: the only sanctioned
+> + * unwrap. Translation only, no ownership or bounds validation; the result
+> + * carries the pointee type stripped of the tag and of any cv-qualifiers.
+> + */
+> +#define kern_hyp_va_host(v)						\
+> +	((TYPEOF_UNQUAL(*(v)) *)__kern_hyp_va((unsigned long)(__force void *)(v)))
+> +
+>  extern u32 __hyp_va_bits;
+>  
+>  /*
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> index 2643a1a819668..dcbe8b8913270 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
+> @@ -7,6 +7,7 @@
+>  #ifndef __ARM64_KVM_NVHE_PKVM_H__
+>  #define __ARM64_KVM_NVHE_PKVM_H__
+>  
+> +#include <asm/kvm_hcall.h>
+>  #include <asm/kvm_pkvm.h>
+>  
+>  #include <nvhe/gfp.h>
+> @@ -69,9 +70,10 @@ void pkvm_hyp_vm_table_init(void *tbl);
+>  
+>  int __pkvm_reserve_vm(void);
+>  void __pkvm_unreserve_vm(pkvm_handle_t handle);
+> -int __pkvm_init_vm(struct kvm *host_kvm, void *vm_hva, void *pgd_hva);
+> +int __pkvm_init_vm(struct kvm *host_kvm, void __hostva *vm_hva,
+> +		   void __hostva *pgd_hva);
+>  int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
+> -		     void *vcpu_hva);
+> +		     void __hostva *vcpu_hva);
+>  
+>  int __pkvm_reclaim_dying_guest_page(pkvm_handle_t handle, u64 gfn);
+>  int __pkvm_start_teardown_vm(pkvm_handle_t handle);
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/trace.h b/arch/arm64/kvm/hyp/include/nvhe/trace.h
+> index 4aa36fd76b9e2..58e0ad3329034 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/trace.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/trace.h
+> @@ -4,6 +4,7 @@
+>  
+>  #include <linux/trace_remote_event.h>
+>  
+> +#include <asm/kvm_hcall.h>
+>  #include <asm/kvm_hyptrace.h>
+>  
+>  static inline pid_t __tracing_get_vcpu_pid(struct kvm_cpu_context *host_ctxt)
+> @@ -46,7 +47,7 @@ static inline pid_t __tracing_get_vcpu_pid(struct kvm_cpu_context *host_ctxt)
+>  void *tracing_reserve_entry(unsigned long length);
+>  void tracing_commit_entry(void);
+>  
+> -int __tracing_load(void *desc_va, size_t desc_size);
+> +int __tracing_load(void __hostva *desc_va, size_t desc_size);
+>  void __tracing_unload(void);
+>  int __tracing_enable(bool enable);
+>  int __tracing_swap_reader(unsigned int cpu);
+> @@ -59,7 +60,7 @@ static inline void tracing_commit_entry(void) { }
+>  #define HYP_EVENT(__name, __proto, __struct, __assign, __printk)      \
+>  	static inline void trace_##__name(__proto) {}
+>  
+> -static inline int __tracing_load(void *desc_va, size_t desc_size) { return -ENODEV; }
+> +static inline int __tracing_load(void __hostva *desc_va, size_t desc_size) { return -ENODEV; }
+>  static inline void __tracing_unload(void) { }
+>  static inline int __tracing_enable(bool enable) { return -ENODEV; }
+>  static inline int __tracing_swap_reader(unsigned int cpu) { return -ENODEV; }
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index f2501249f4391..679b6df9c998d 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -269,7 +269,7 @@ DEFINE_KVM_HOST_HCALL0_VOID(__pkvm_vcpu_put)
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL(int, __kvm_vcpu_run, 1,
+> -	struct kvm_vcpu *, host_vcpu)
+> +	struct kvm_vcpu __hostva *, host_vcpu)
+>  {
+>  	int ret;
+>  
+> @@ -294,7 +294,7 @@ DEFINE_KVM_HOST_HCALL(int, __kvm_vcpu_run, 1,
+>  
+>  		sync_hyp_vcpu(hyp_vcpu);
+>  	} else {
+> -		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
+> +		struct kvm_vcpu *vcpu = kern_hyp_va_host(host_vcpu);
+>  
+>  		/* The host is fully trusted, run its vCPU directly. */
+>  		fpsimd_lazy_switch_to_guest(vcpu);
+> @@ -421,9 +421,9 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_host_mkyoung_guest, 1,
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__kvm_adjust_pc, 1,
+> -	struct kvm_vcpu *, vcpu)
+> +	struct kvm_vcpu __hostva *, vcpu)
+>  {
+> -	__kvm_adjust_pc(kern_hyp_va(vcpu));
+> +	__kvm_adjust_pc(kern_hyp_va_host(vcpu));
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
+> @@ -432,27 +432,27 @@ DEFINE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa, 3,
+> -	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
+> +	struct kvm_s2_mmu __hostva *, mmu, phys_addr_t, ipa, int, level)
+>  {
+> -	__kvm_tlb_flush_vmid_ipa(kern_hyp_va(mmu), ipa, level);
+> +	__kvm_tlb_flush_vmid_ipa(kern_hyp_va_host(mmu), ipa, level);
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa_nsh, 3,
+> -	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
+> +	struct kvm_s2_mmu __hostva *, mmu, phys_addr_t, ipa, int, level)
+>  {
+> -	__kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va(mmu), ipa, level);
+> +	__kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va_host(mmu), ipa, level);
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_range, 3,
+> -	struct kvm_s2_mmu *, mmu, phys_addr_t, start, unsigned long, pages)
+> +	struct kvm_s2_mmu __hostva *, mmu, phys_addr_t, start, unsigned long, pages)
+>  {
+> -	__kvm_tlb_flush_vmid_range(kern_hyp_va(mmu), start, pages);
+> +	__kvm_tlb_flush_vmid_range(kern_hyp_va_host(mmu), start, pages);
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid, 1,
+> -	struct kvm_s2_mmu *, mmu)
+> +	struct kvm_s2_mmu __hostva *, mmu)
+>  {
+> -	__kvm_tlb_flush_vmid(kern_hyp_va(mmu));
+> +	__kvm_tlb_flush_vmid(kern_hyp_va_host(mmu));
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid, 1,
+> @@ -468,9 +468,9 @@ DEFINE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid, 1,
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__kvm_flush_cpu_context, 1,
+> -	struct kvm_s2_mmu *, mmu)
+> +	struct kvm_s2_mmu __hostva *, mmu)
+>  {
+> -	__kvm_flush_cpu_context(kern_hyp_va(mmu));
+> +	__kvm_flush_cpu_context(kern_hyp_va_host(mmu));
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__kvm_timer_set_cntvoff, 1,
+> @@ -499,15 +499,15 @@ DEFINE_KVM_HOST_HCALL0_VOID(__vgic_v3_init_lrs)
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_save_aprs, 1,
+> -	struct vgic_v3_cpu_if *, cpu_if)
+> +	struct vgic_v3_cpu_if __hostva *, cpu_if)
+>  {
+> -	__vgic_v3_save_aprs(kern_hyp_va(cpu_if));
+> +	__vgic_v3_save_aprs(kern_hyp_va_host(cpu_if));
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_restore_vmcr_aprs, 1,
+> -	struct vgic_v3_cpu_if *, cpu_if)
+> +	struct vgic_v3_cpu_if __hostva *, cpu_if)
+>  {
+> -	__vgic_v3_restore_vmcr_aprs(kern_hyp_va(cpu_if));
+> +	__vgic_v3_restore_vmcr_aprs(kern_hyp_va_host(cpu_if));
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL(int, __pkvm_init, 4,
+> @@ -579,16 +579,17 @@ DEFINE_KVM_HOST_HCALL_VOID(__pkvm_unreserve_vm, 1,
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL(int, __pkvm_init_vm, 3,
+> -	struct kvm *, host_kvm, void *, vm_hva, void *, pgd_hva)
+> +	struct kvm __hostva *, host_kvm, void __hostva *, vm_hva,
+> +	void __hostva *, pgd_hva)
+>  {
+> -	return __pkvm_init_vm(kern_hyp_va(host_kvm), vm_hva, pgd_hva);
+> +	return __pkvm_init_vm(kern_hyp_va_host(host_kvm), vm_hva, pgd_hva);
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL(int, __pkvm_init_vcpu, 3,
+> -	pkvm_handle_t, handle, struct kvm_vcpu *, host_vcpu,
+> -	void *, vcpu_hva)
+> +	pkvm_handle_t, handle, struct kvm_vcpu __hostva *, host_vcpu,
+> +	void __hostva *, vcpu_hva)
+>  {
+> -	return __pkvm_init_vcpu(handle, kern_hyp_va(host_vcpu), vcpu_hva);
+> +	return __pkvm_init_vcpu(handle, kern_hyp_va_host(host_vcpu), vcpu_hva);
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL0(int, __pkvm_vcpu_in_poison_fault)
+> @@ -623,7 +624,7 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_finalize_teardown_vm, 1,
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL(int, __tracing_load, 2,
+> -	void *, desc_hva, size_t, desc_size)
+> +	void __hostva *, desc_hva, size_t, desc_size)
+>  {
+>  	return __tracing_load(desc_hva, desc_size);
+>  }
+> @@ -670,15 +671,15 @@ DEFINE_KVM_HOST_HCALL_VOID(__tracing_write_event, 1,
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_save_apr, 1,
+> -	struct vgic_v5_cpu_if *, cpu_if)
+> +	struct vgic_v5_cpu_if __hostva *, cpu_if)
+>  {
+> -	__vgic_v5_save_apr(kern_hyp_va(cpu_if));
+> +	__vgic_v5_save_apr(kern_hyp_va_host(cpu_if));
+>  }
+>  
+>  DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_restore_vmcr_apr, 1,
+> -	struct vgic_v5_cpu_if *, cpu_if)
+> +	struct vgic_v5_cpu_if __hostva *, cpu_if)
+>  {
+> -	__vgic_v5_restore_vmcr_apr(kern_hyp_va(cpu_if));
+> +	__vgic_v5_restore_vmcr_apr(kern_hyp_va_host(cpu_if));
+>  }
+>  
+>  typedef void (*hcall_t)(struct kvm_cpu_context *);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> index 205c52535c887..bfc9f07f336a1 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> @@ -644,9 +644,9 @@ static size_t pkvm_get_hyp_vm_size(unsigned int nr_vcpus)
+>  		size_mul(sizeof(struct pkvm_hyp_vcpu *), nr_vcpus));
+>  }
+>  
+> -static void *map_donated_memory_noclear(void *host_va, size_t size)
+> +static void *map_donated_memory_noclear(void __hostva *host_va, size_t size)
+>  {
+> -	void *va = kern_hyp_va(host_va);
+> +	void *va = kern_hyp_va_host(host_va);
+>  
+>  	if (!PAGE_ALIGNED(va))
+>  		return NULL;
+> @@ -658,7 +658,7 @@ static void *map_donated_memory_noclear(void *host_va, size_t size)
+>  	return va;
+>  }
+>  
+> -static void *map_donated_memory(void *host_va, size_t size)
+> +static void *map_donated_memory(void __hostva *host_va, size_t size)
+>  {
+>  	void *va = map_donated_memory_noclear(host_va, size);
+>  
+> @@ -805,7 +805,8 @@ void teardown_selftest_vm(void)
+>   *
+>   * Return 0 success, negative error code on failure.
+>   */
+> -int __pkvm_init_vm(struct kvm *host_kvm, void *vm_hva, void *pgd_hva)
+> +int __pkvm_init_vm(struct kvm *host_kvm, void __hostva *vm_hva,
+> +		   void __hostva *pgd_hva)
+>  {
+>  	struct pkvm_hyp_vm *hyp_vm = NULL;
+>  	size_t vm_size, pgd_size;
+> @@ -896,7 +897,7 @@ static int register_hyp_vcpu(struct pkvm_hyp_vm *hyp_vm,
+>  }
+>  
+>  int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
+> -		     void *vcpu_hva)
+> +		     void __hostva *vcpu_hva)
+>  {
+>  	struct pkvm_hyp_vcpu *hyp_vcpu;
+>  	struct pkvm_hyp_vm *hyp_vm;
+> diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
+> index 97203ddd3cf45..5d0fcdce9507d 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/trace.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/trace.c
+> @@ -206,9 +206,9 @@ static bool hyp_trace_desc_is_valid(struct hyp_trace_desc *desc, size_t desc_siz
+>  	return true;
+>  }
+>  
+> -int __tracing_load(void *desc_hva, size_t desc_size)
+> +int __tracing_load(void __hostva *desc_hva, size_t desc_size)
+>  {
+> -	struct hyp_trace_desc *desc = kern_hyp_va(desc_hva);
+> +	struct hyp_trace_desc *desc = kern_hyp_va_host(desc_hva);
+>  	int ret;
+>  
+>  	ret = __admit_host_mem(desc, desc_size);
+> -- 
+> 2.39.5
+> 
 
+-- 
+Vincent
 
