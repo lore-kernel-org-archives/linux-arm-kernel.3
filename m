@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA30C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1760C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fPHYSPWlpVGJCK9eX/ujdFr83qCBTf/PIroRGp2Nmo=; b=GruDDoUUUAJB0xkWmygsymm0mg
-	cf/nBhZruFMhbL6ne7U4529K/9kTDSC/Hsbc/pq0T7op1ZMbB9hoZk6F+1p0KS2t8JFEXE9/mKvgT
-	RhxMGUCc4U9yhFA3XNQ5Yfdql9IpZ4jJzRf3wm2mehhj+jYivGSOhq7Iomgbi5cRdT+0EpvEPaDCy
-	Myv7zCy0Xsqb77+TqL4KVmaSkfpos1K9zBemGOi3YmMb+WtUzfrzqvjAEURytAvCgtjw8X1YG7ZY6
-	HjLk1klVaZXyahhUrUP2dRWUxp+g/Os4EMf0DnZ7YxHX2ziuUGb3lqR6cRE1FQTtwzAKHgjSGr+e3
-	cIhvorDA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=s2C/t+LCEjcqSfWUCGjWxx3LOQas+/HlzStTuTp4oLk=; b=e+1EslrVWVq2/IXaf2+BkrO9kb
+	ufsmG0D1eh85yeafIXiIFqQl1VylUpg3xlwxWeDc2a5QR+jXO/AuPeWEdwELuIz7vz/86OrRgDstk
+	eA4QyrORsbs9+wTcJHCXUVlTm4eBjOHkWIC9XFRo+eIA19j+0W0hlRwNWH/poI+vaqKvp3Ys7u+Aj
+	9WRZWIsYHHAZA8unlPZy2TD6ajIhsfdf3upaJyu08lURrCDk+FmVUIECXjB3lUmkQkqO0s+qzqaQi
+	eEt33Uxrrnx6kP8K/AUABhQPhOXYzS0Pd6YZLlG00gIEdmcqPVd29vvtuoUlOHnWd94sHITC+6vO0
+	fjK6n0Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqrxx-0000000H30g-3Bkq;
-	Mon, 03 Aug 2026 12:40:25 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1wqs05-0000000H3Qp-0jcu;
+	Mon, 03 Aug 2026 12:42:37 +0000
+Received: from out-181.mta0.migadu.com ([2001:41d0:1004:224b::b5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqrxt-0000000H2xv-07u8;
-	Mon, 03 Aug 2026 12:40:24 +0000
-Received: from Vostro-3710.. (unknown [14.220.232.116])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4895a4bee;
-	Mon, 3 Aug 2026 20:40:09 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: zyheihei_123@163.com
-Cc: amadeus@jmu.edu.cn,
-	andrew@lunn.ch,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
+	id 1wqs02-0000000H3PJ-01Eu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 03 Aug 2026 12:42:35 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785760949;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=s2C/t+LCEjcqSfWUCGjWxx3LOQas+/HlzStTuTp4oLk=;
+	b=a8Lwm1MLwSZsJfe8o93yECgNngMizembpSilKwQjxAAmEd66ERWCK5454jBeHwlJr3sJq2
+	i8DWbVAQP6iS8oWHPv2jAF5IyUlEVjvGmtckSc/jspPNy3ph5fn31Zae4vtHkZMxhfydK8
+	xlhXiXm2xDZtlQFlZDRvtS2wSDg9DAU=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	alexandru.elisei@arm.com,
+	vdonnefort@google.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	qperret@google.com,
+	ardb@kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [RFC PATCH] arm64: dts: rockchip: H28K: release RTL8211F reset before MDIO probing
-Date: Mon,  3 Aug 2026 20:40:00 +0800
-Message-Id: <20260803124000.840861-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260803104646.26836-1-zyheihei_123@163.com>
-References: <20260803104646.26836-1-zyheihei_123@163.com>
+	linux-trace-kernel@vger.kernel.org,
+	tabba@google.com,
+	fuad.tabba@linux.dev
+Subject: [PATCH v2 00/11] KVM: arm64: Restore type-checking across the host/hyp hypercall boundary
+Date: Mon,  3 Aug 2026 13:42:09 +0100
+Message-Id: <20260803124220.332248-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9fc7a3819d03a2kunm7af09f8f2859a5
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZTE1CVkhLHkxLQkJOGklIH1YeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKT1VJSUtVSUhJVUpKTVlXWRYaDxIVHRRZQVlPS0hVSktIS0
-	pMS1VKS0tVS1kG
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_054021_254252_997C4EDA 
-X-CRM114-Status: UNSURE (   5.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260803_054234_244579_75591FAC 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,18 +81,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi folks,
 
-> Release the reset from the MAC node via snps,reset-gpios so it is
-> deasserted before MDIO scanning, and drop the PHY-node reset-gpios (a
-> second consumer on the same GPIO is rejected with -EBUSY).
+Changes since v1 [1]:
+  - Dropped the explicit argument-count parameter from the hypercall
+    declarations and the handler definitions. The macro ladder derives it
+    from COUNT_ARGS() instead. (Marc, Will)
+  - Renamed the __hostva address space to __kern. (Vincent)
+  - Rebased onto 7.2-rc6.
 
-This is incorrect. Has your uboot's DT been synchronized with the kernel?
-Normally, U-Boot will reset this GPIO. Another way to solve your problem
-is to hardcode the PHY ID here. However, considering that manufacturers
-might use either RTL8211F or YT8531, it's best to let U-Boot handle it.
+The SMCCC conversion of the host/hyp interface reduced every hypercall
+to a function number and a pile of registers: kvm_call_hyp_nvhe() never
+shows the compiler a callable, so the caller's arguments and the
+handler's DECLARE_REG() casts can disagree in type, count or order
+without a diagnostic. Reviewing a fix for exactly that class of bug,
+Marc wrote [2]:
 
-For reference: https://github.com/openwrt/openwrt/commit/384127320e0b
+  "we lost all form of type-checking when everything was hastily
+   converted to SMCCC to avoid function pointers. Somehow, I feel that
+   the cure was worse than the disease.
 
-By the way, you sent this patch twice within two hours...
+   I wish we'd reintroduce some form of compile-time checks, maybe by
+   having generated stubs?"
+
+and sketched the shape he preferred [3]: a generated nvhe_hvc_##f()
+stub that does the type-checking, driven by "some form of declarative
+IDL", with "both the caller and callee stubs ... totally generated".
+
+This series implements that, in plain preprocessor macros rather
+than an external generator, in the mold of the syscall wrappers.
+Each hypercall's signature is declared once, in kvm_hcall.h:
+kvm_call_hyp_nvhe() resolves to a typed nvhe_hvc_##f() stub
+generated from the declaration, and the hyp-main.c handlers
+unmarshal their arguments through glue that is type-checked
+against the same declaration. A mistyped or stale call, or a
+handler that drifts from its caller, now fails to compile. On top
+of that shared declaration, host-VA parameters gain a __kern
+sparse address space, so dereferencing one at EL2 without
+kern_hyp_va_host() translation is flagged by sparse. The address
+space is KVM-private and lives with the interface it annotates
+rather than in compiler_types.h, like x86's __seg_gs in asm/percpu.h.
+The deeper instances of that bug class, host VAs reached through
+struct fields after the boundary, are follow-up work.
+
+The declarations do not also generate the function-number enum or the
+dispatch table. The enum carries the availability-band markers that
+decide when each hypercall becomes reachable, and its base entry is
+consumed from assembly, so generating it would hide the banding. The
+remaining duplication cannot drift silently: a name mismatch between
+declaration, caller and handler fails to compile, and a missing
+dispatch-table entry is rejected at run time as
+SMCCC_RET_NOT_SUPPORTED.
+
+Along the way it turned out "make C=2" has never checked the nVHE
+objects at all: the custom %.nvhe.o rule reuses rule_cc_o_c, which
+only hooks the checker for C=1, and that only on a rebuild. Patches
+2-5 fix the hook and the handful of pre-existing sparse warnings it
+flushes out, so the checker lands clean. The libfdt objects under
+arch/arm64/kernel/pi/ have the same gap through the same rule, so
+patch 6 gives them the same one-line fix; it touches arm64 core
+rather than KVM, so it can go through either tree. Patch 1 is
+adjacent: trace_remote_event.h is not self-contained (it uses bool
+without including linux/types.h), which the nVHE include order had
+been silently working around; it can go through the tracing tree
+instead if preferred.
+
+The first six patches do not depend on the type-checking work (the
+tracing-header fix, the sparse cleanups, and the two C=2 hook fixes),
+so they could be taken on their own, ahead of the rest of the series
+if that is easier.
+
+The series is structured as follows:
+
+  01:     Make trace_remote_event.h self-contained.
+  02-04:  Fix the pre-existing sparse warnings in the nVHE code.
+  05:     Run the source checker on nVHE objects under C=2.
+  06:     Same for the libfdt objects under arch/arm64/kernel/pi/.
+  07:     Pass the host-VA hypercall arguments as pointers at EL2.
+  08:     Move the dispatch macros to a new kvm_hcall.h.
+  09:     Declare the hypercall signatures, type-check the callers.
+  10:     Generate the handler unmarshalling, type-check the handlers.
+  11:     Tag host-VA parameters __kern for sparse.
+
+The generated code is unchanged, checked by comparing the disassembly
+of every KVM object, function by function, against the base: the
+callers are identical apart from hypercall returns now being tested at
+their declared width and the stage-2 TLB-flush level argument now
+being sign-extended as it is loaded (an s8 passed as an int), and the
+handlers are instruction-for-instruction identical apart from
+flush_hyp_vcpu()/sync_hyp_vcpu() being inlined into their only
+caller. The extra argument that prompted the thread, a
+mistyped or reordered argument, and a handler that disagrees with its
+declaration all now fail to compile. checkpatch complains about the
+__KVM_HCALL_MAP() machinery, the (type, name) pair syntax and the
+generated signature typedefs, as it does about __MAP() in the syscall
+wrappers; the idiom cannot be parenthesized, and the typedef is what
+checks the handler against the declaration. Enforcing the
+__kern tag needs sparse v0.6.5-rc1 or later for __typeof_unqual__,
+as all sparse checking on current kernels does; no stable sparse
+release has it yet, so build from sparse.git (checker-valid.sh skips
+the check, with a warning, on anything older).
+
+Based on Linux 7.2-rc6 (075b74841bd00).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260720161343.1367007-1-fuad.tabba@linux.dev/
+[2] https://lore.kernel.org/all/86zf7po2n3.wl-maz@kernel.org/
+[3] https://lore.kernel.org/all/86wm2tnsd8.wl-maz@kernel.org/
+
+Fuad Tabba (11):
+  tracing: Include linux/types.h in trace_remote_event.h
+  KVM: arm64: nVHE: Share the stacktrace per-CPU declarations with EL2
+  KVM: arm64: nVHE: Declare the hyp event IDs before defining them
+  KVM: arm64: nVHE: Use NULL to reset the trace buffer backing pointer
+  KVM: arm64: nVHE: Run the source checker under C=2
+  arm64: pi: Run the source checker on the libfdt objects under C=2
+  KVM: arm64: nVHE: Pass host VA arguments as pointers
+  KVM: arm64: Move the host hypercall interface to its own header
+  KVM: arm64: Type-check hypercall arguments at the caller
+  KVM: arm64: nVHE: Check hypercall handlers against the declared ABI
+  KVM: arm64: Tag host-VA hypercall parameters __kern
+
+ arch/arm64/include/asm/kvm_hcall.h       | 258 +++++++++++++
+ arch/arm64/include/asm/kvm_host.h        |  48 +--
+ arch/arm64/include/asm/kvm_mmu.h         |  10 +
+ arch/arm64/include/asm/stacktrace/nvhe.h |  10 +-
+ arch/arm64/kernel/pi/Makefile            |   1 +
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h   |   7 +-
+ arch/arm64/kvm/hyp/include/nvhe/trace.h  |   5 +-
+ arch/arm64/kvm/hyp/nvhe/Makefile         |   1 +
+ arch/arm64/kvm/hyp/nvhe/events.c         |   2 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c       | 444 +++++++++++------------
+ arch/arm64/kvm/hyp/nvhe/pkvm.c           |  12 +-
+ arch/arm64/kvm/hyp/nvhe/stacktrace.c     |   3 +-
+ arch/arm64/kvm/hyp/nvhe/trace.c          |   6 +-
+ arch/arm64/kvm/hyp_trace.c               |   2 +-
+ arch/arm64/kvm/stacktrace.c              |   3 -
+ include/linux/trace_remote_event.h       |   2 +
+ 16 files changed, 512 insertions(+), 302 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_hcall.h
+
+
+base-commit: 075b74841bd0065a3bda3440873c747938e69b68
+-- 
+2.39.5
+
 
