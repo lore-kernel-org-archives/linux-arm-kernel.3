@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1958C5518E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 835A6C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:52:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kqzqzXsKLyD/JykJa41z6gjBOK5AcAPVYWltBpH9JdQ=; b=PjvE7/Ff7RsX+PAp0/Z4ZFsIsw
-	TrcdukmnXofV/9zDZBrM8r5mEg7KTodqmLgxZBI++IPKumkKC+vJAfMsZWO1/BIIOMswEdHVwiR4v
-	z54OIXuio5nDewlQyW3wG7kyJdch1XF8A4HaD94tZfGjs8akAzjyl287uGW67qqDc6eMckNsd8xEu
-	sRZNI7xeM8q0GJ75tLY9NOo2uo6LrDg9huJkKOayMuptd+Si9OpZfI1//xgWkHH6/xRZ/aLHk0Kev
-	7o6Gn91SJyj9XyWJThU0UNKsNAmYv0nU8FYX4ggLMdfg700psZqlMqAboESn+mxBx49ZGYiDX1gfX
-	r1z/Db9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Pkz2zCxLtGFcg99tV8GAj/pB8FhVnzp+yC3RwsgvvYk=; b=e2v3Zoh6FtehDFCOGUD5MjxSjT
+	H6bIbuEli1VTiAYjipCiYfuMHtCgqD9xe/LnL3ScU0pUSGaBNXv+Tq2Pys30Jt4nsn0cgK14PDFhi
+	csDDKGfF0oOj/I71HaZuVTLGRexe5tCKoakO3c+7RwO+InF6H9NXp2SBgZIRtjpU2b1fTa3RyK+vz
+	lXqb91wdNYze0XgRvJ7C/i9niLcn2y3zTJJ45a4BlkutPvbxZz3mQzgZq9ofMtcRzRbw4p93T3F9u
+	u3S/jhjple8iMNBWXaTK61MPxBm2N4WxvwfizDIxxxrNsXECxPsLNjWyxYoDfm6NvukYW/ZJuBwo0
+	6nMKfoJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpGO-0000000GkVd-2dQ9;
-	Mon, 03 Aug 2026 09:47:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wqpL4-0000000Gl0N-1D3W;
+	Mon, 03 Aug 2026 09:52:06 +0000
+Received: from mail.kmu-office.ch ([2a02:418:6a02::a2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpGM-0000000GkTH-0UCw
+	id 1wqpL1-0000000Gkzk-1VDO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 09:47:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785750433;
+	Mon, 03 Aug 2026 09:52:05 +0000
+Received: from allenwind.lan (unknown [IPv6:2a02:169:3c38:10::3a0])
+	by mail.kmu-office.ch (Postfix) with ESMTPSA id 28C055CD304;
+	Mon,  3 Aug 2026 11:51:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=agner.ch; s=dkim;
+	t=1785750718;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kqzqzXsKLyD/JykJa41z6gjBOK5AcAPVYWltBpH9JdQ=;
-	b=fClZvlEm8emcPRq5YMQH67yBKOL9oQP3o2/5ZS8Pl9H/3MS0DvDDC/h9xZh+bE2u2IcSG9
-	U57ws2Ib8qh8my/0tKvfnOc+UzccwfIepmZmotsB0FRY9D+l1d2aOBQN+yq9BQPs/iR5BR
-	K6W7nzQAPVKfF7kP+c/wsAMStBG48MU=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-451-GnM8WsrJNJayiuqXF46ESw-1; Mon,
- 03 Aug 2026 05:45:15 -0400
-X-MC-Unique: GnM8WsrJNJayiuqXF46ESw-1
-X-Mimecast-MFC-AGG-ID: GnM8WsrJNJayiuqXF46ESw_1785750314
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E9A741800473;
-	Mon,  3 Aug 2026 09:45:13 +0000 (UTC)
-Received: from thuth-p1g4.redhat.com (unknown [10.44.48.213])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C07931956087;
-	Mon,  3 Aug 2026 09:45:09 +0000 (UTC)
-From: Thomas Huth <thuth@redhat.com>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Simo Sorce <simo@redhat.com>
-Subject: [PATCH v2 7/9] crypto: arm64/aes-neonbs - clear the crypto_aes_ctx when done
-Date: Mon,  3 Aug 2026 11:44:26 +0200
-Message-ID: <20260803094432.70505-8-thuth@redhat.com>
-In-Reply-To: <20260803094432.70505-1-thuth@redhat.com>
-References: <20260803094432.70505-1-thuth@redhat.com>
+	 to:to:cc:cc:mime-version:mime-version:content-type:
+	 content-transfer-encoding:content-transfer-encoding:in-reply-to:
+	 references; bh=Pkz2zCxLtGFcg99tV8GAj/pB8FhVnzp+yC3RwsgvvYk=;
+	b=TGP871zrL3zr/iYve/sZJpijY/WH2BAdts77fOQrkeNdThN7pCb3Qwsg8V5PzVA0XZiYml
+	8lN7OvNVs7qSavXdonDFt1D1VIh7UGB8Gjij0PZbtJ0Vh2Ytcwww5JwEQNYyQC7Bye+zoF
+	rC5iY3lk88I4T093l55d0xlbIN55QdA=
+From: Stefan Agner <stefan@agner.ch>
+To: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Jakub Raczynski <j.raczynski@samsung.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	regressions@lists.linux.dev,
+	Stefan Agner <stefan@agner.ch>
+Subject: [PATCH net v3] net: stmmac: resume PHY before hardware setup when opening the interface
+Date: Mon,  3 Aug 2026 11:51:56 +0200
+Message-ID: <20260803095156.132827-1-stefan@agner.ch>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-X-Mimecast-MFC-PROC-ID: PQe0aU_95AcTS9FtcaFigMuuisU-CBoMDNVVpSHngDA_1785750314
-X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_024714_227346_7230854C 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260803_025203_839945_CE559DE5 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,30 +80,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Huth <thuth@redhat.com>
+Since the referenced commit, changing the MTU on a running interface no
+longer disconnects and reconnects the PHY; __stmmac_release() merely
+stops phylink, which also suspends the PHY (BMCR power-down) when WoL
+is not enabled. __stmmac_open() then performs the DMA software reset in
+stmmac_hw_setup() before phylink_start() resumes the PHY again.
 
-Clear the crypto_aes_ctx structure via __cleanup(aes_clear_ctx) when
-we're done with it to avoid that key data could leak on the stack.
+IEEE 802.3 22.2.4.1.5 allows a PHY to stop its receive clock while
+powered down, and stmmac requires a running receive clock for the DMA
+software reset to complete (the phylink config sets mac_requires_rxc).
+On such setups, e.g. the RK3566-based Home Assistant Green with an
+RTL8211F-VD PHY in RGMII mode, any runtime MTU change now times out and
+leaves the interface dead:
 
-Signed-off-by: Thomas Huth <thuth@redhat.com>
+  rk_gmac-dwmac fe010000.ethernet end0: Failed to reset the dma
+  rk_gmac-dwmac fe010000.ethernet end0: stmmac_hw_setup: DMA engine initialization failed
+  rk_gmac-dwmac fe010000.ethernet end0: __stmmac_open: Hw setup failed
+  rk_gmac-dwmac fe010000.ethernet end0: failed reopening the interface after MTU change
+
+In the field this is triggered by NetworkManager applying an MTU while
+activating the connection, breaking networking entirely. The same
+regression has also been reported on i.MX8MP and reproduced on SoCFPGA
+based systems.
+
+Resume the PHY in __stmmac_open() before the hardware setup, making it
+the counterpart of the phylink_stop() in __stmmac_release(), like
+stmmac_resume() already does for the same reason. phylink_start() also
+resumes the PHY, but only after stmmac_hw_setup(), and it cannot be
+moved before the hardware setup since it may bring the link up
+immediately from a workqueue, racing with the initialization (see the
+comment in stmmac_resume()). For the regular ndo_open path the PHY has
+just been attached and is not suspended, in which case
+phylink_prepare_resume() does nothing.
+
+Fixes: db299a0c09e9 ("net: stmmac: move PHY handling out of __stmmac_open()/release()")
+Link: https://github.com/home-assistant/operating-system/issues/4858
+Tested-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Assisted-by: Claude:claude-fable-5
+Signed-off-by: Stefan Agner <stefan@agner.ch>
 ---
- arch/arm64/crypto/aes-neonbs-glue.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v3:
+- Repost with no code changes after the patch aged out of patchwork
+- Collect Tested-by from Alexander Stein
+- Mention that i.MX8MP and SoCFPGA based systems are affected as well
+- Defer the suggested renaming of phylink_prepare_resume() to a
+  follow-up in net-next
+- Add missing Assisted-by tag
 
-diff --git a/arch/arm64/crypto/aes-neonbs-glue.c b/arch/arm64/crypto/aes-neonbs-glue.c
-index 5bcbac9798931..4c0f1bbd03fee 100644
---- a/arch/arm64/crypto/aes-neonbs-glue.c
-+++ b/arch/arm64/crypto/aes-neonbs-glue.c
-@@ -247,7 +247,7 @@ static int aesbs_xts_setkey(struct crypto_skcipher *tfm, const u8 *in_key,
- 			    unsigned int key_len)
- {
- 	struct aesbs_xts_ctx *ctx = crypto_skcipher_ctx(tfm);
--	struct crypto_aes_ctx rk;
-+	struct crypto_aes_ctx rk __cleanup(aes_clear_ctx);
- 	int err;
+Changes in v2:
+- Move the PHY resume from stmmac_change_mtu() into __stmmac_open() so
+  that it also counters the PHY suspend caused by __stmmac_release()
+  (suggested by Andrew Lunn), placed before stmmac_reset_queues_param()
+  to match the ordering used in stmmac_resume()
+
+v2: https://lore.kernel.org/netdev/20260707195425.405989-1-stefan@agner.ch/
+v1: https://lore.kernel.org/netdev/20260707162146.73823-1-stefan@agner.ch/
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4134,6 +4134,15 @@
+ 			dma_conf->tx_queue[i].tbs = priv->dma_conf.tx_queue[i].tbs;
+ 	memcpy(&priv->dma_conf, dma_conf, sizeof(*dma_conf));
  
- 	err = xts_verify_key(tfm, in_key, key_len);
++	/* The PHY is suspended when the interface is reopened without
++	 * disconnecting the PHY, e.g. on MTU change. IEEE 802.3 allows PHYs
++	 * to stop their receive clock while powered down, but the DMA
++	 * software reset in stmmac_hw_setup() requires a running receive
++	 * clock, and phylink_start() below resumes the PHY only after the
++	 * hardware setup. Resume a suspended PHY here first.
++	 */
++	phylink_prepare_resume(priv->phylink);
++
+ 	stmmac_reset_queues_param(priv);
+ 
+ 	ret = stmmac_hw_setup(dev);
 -- 
-2.55.0
-
+2.49.0
 
