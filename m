@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D18AC55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF906C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dp+pNiPhTeOHjkfNB6nT6XDy6mBXNEkfHasNIXjlCTk=; b=hGdTGG3p6aDwLpHl1LE8GaIKJt
-	z09bfc9YeivAAf36e3XzXih5s9//CMjJqrRRvanYtLMcW6WWY72mDmAjwnCkVJ0YDLA0eTyi1ZNRr
-	u1VdbxtSbrwdskGJbX0SGirMXjShuAtJ6yhiVRzuP4jZJRj3vABRh9dS2NiolMlX9v8ndGeeKjRdr
-	+Nv3mkpkMmLDMqJD6fPTluQ0REdc9sI7YaQ2Xf5WW9BhPZl/vTD+sBzxuZETkRkC5X7LYxxMmwM5Y
-	khNn//+UxCHnGd5f/hzc0IYCVHZsK4hISN+qNJN/4ZzgqjLke4Aj+LpoEFGDr/2s9h24too+Etn62
-	Srfg6dhw==;
+	bh=XHQ/Pe7Y00pAmsP6/IDee4ImT/neh3NNZt5eWfUFulM=; b=e+C2wFYBtR171cl0Wtm+KKUKuy
+	nh4KV9Dqog4tBnBXh+w1aC6k4Wo5Mv5+4gbN1wN9gVZvvjodgs/jG6qrXkg5U+0xH582PZ3wqkKj1
+	jN7RJsqWOsNlBLnLBlGpOrBRFbcggLwatT7QEIAThE9100u8JwNWPN3ccit1ZDNdtnEY3oq51awKQ
+	z9+4kXNaq8Ufpx3ijTj0S+9RbHO+4QRnLFISbELRAtpgVcxtbbR/5OGAharEFaZ1lRRE+XQYmtssg
+	IGdrOK6DU4iAslKH2JC2N0VpkUSlebamqbQRUc0W0/RC1QhmI2+JUwu2O2SxNd2zqBdaTDcUZ9aZC
+	1A2Xvj8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqsxz-0000000HBlo-2XaT;
-	Mon, 03 Aug 2026 13:44:31 +0000
+	id 1wqsy8-0000000HBrA-16Ch;
+	Mon, 03 Aug 2026 13:44:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqsxw-0000000HBko-1uVm
+	id 1wqsy5-0000000HBpj-2nGQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 13:44:29 +0000
+	Mon, 03 Aug 2026 13:44:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF7BA1595;
-	Mon,  3 Aug 2026 06:44:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE762143D;
+	Mon,  3 Aug 2026 06:44:32 -0700 (PDT)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D43D3F66F;
-	Mon,  3 Aug 2026 06:44:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9965A3F66F;
+	Mon,  3 Aug 2026 06:44:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785764667; bh=tlsaj4m26Ey7o2A3mqrYe7pOBLDgXjDPJ5uCPqwZu6o=;
+	t=1785764676; bh=a87dBoIo+abuHgtTSNKpMeJOicdZeUlF8rukrl520eU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bfwe9ljphKHnk02i2bUdQNUSpa2cKpcBdHPsSm41T1SgYcGZl5gWJDf56A4T70vTx
-	 EjzpIsRCe1Yh4BZ6usPyGGOjKvwuzw4aVTweIk5KwWN4O6U5Fw5PD9h8JCYHvra8Be
-	 jy8oHnoSsJ+WNNB9DnDJoo9uZ3Qd1Z9c1vYM5DT4=
+	b=pMyjQBeBYwoZSI0DbSR2aZTg1nQpOqpGBko74lcraMj2do/JBVxlHmi9zICxzM7de
+	 iZEcEpqEky0c+AANwK9eXvydVOl2QjP1Ndgt52P0yU90vYc0XiNtTXKBLkf/sijbYw
+	 qQ/ALa0hCmvxwZtXPBgCjnL7vQDdrWON0zgltEN8=
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -66,17 +66,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	WeiLin.Chang@arm.com,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Subject: [PATCH v16 02/45] firmware: arm_rmm: Add wrappers for direct RMI calls
-Date: Mon,  3 Aug 2026 14:43:18 +0100
-Message-ID: <20260803134403.80630-3-steven.price@arm.com>
+Subject: [PATCH v16 04/45] firmware: arm_rmm: Configure the RMM with the host's page size
+Date: Mon,  3 Aug 2026 14:43:20 +0100
+Message-ID: <20260803134403.80630-5-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260803134403.80630-1-steven.price@arm.com>
 References: <20260803134403.80630-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_064428_576145_220487D8 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20260803_064437_781857_23BED0E9 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,131 +91,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The wrappers make the call sites easier to read and deal with the
-boilerplate of handling the error codes from the RMM.
+RMM v2.0 brings the ability to set the RMM's granule size. Check the
+feature registers and configure the RMM so that it matches the host's
+page size. This means that operations can be done with a granularity
+equal to PAGE_SIZE.
 
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-Changes from v15:
- * Split out wrappers for realms to a separate commit.
- * Wrappers that have output arguments now only write the output when
-   the command completes successfully.
-Changes from v14:
- * Update to RMM v2.0-bet2 spec.
- * Move SRO related wrappers to a later patch due to dependencies.
- * Common wrappers are split into include/linux/arm-rmi-cmds.h.
-Changes from v13:
- * Update to RMM v2.0-bet1 spec including some SRO support (there still
-   some FIXMEs where SRO support is incomplete).
-Changes from v12:
- * Update to RMM v2.0 specification
-Changes from v8:
- * Switch from arm_smccc_1_2_smc() to arm_smccc_1_2_invoke() in
-   rmi_rtt_read_entry() for consistency.
-Changes from v7:
- * Minor renaming of parameters and updated comments
-Changes from v5:
- * Further improve comments
-Changes from v4:
- * Improve comments
-Changes from v2:
- * Make output arguments optional.
- * Mask RIPAS value rmi_rtt_read_entry()
- * Drop unused rmi_rtt_get_phys()
+Changes since v15:
+ * Actually check the feature register for the host's page-size support.
+Changes since v14:
+ * Move the implementation into drivers/firmware/arm_rmm.
+Changes since v13:
+ * Moved out of KVM.
 ---
- include/linux/arm-rmi-cmds.h | 83 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 83 insertions(+)
- create mode 100644 include/linux/arm-rmi-cmds.h
+ drivers/firmware/arm_rmm/rmi.c | 61 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 61 insertions(+)
 
-diff --git a/include/linux/arm-rmi-cmds.h b/include/linux/arm-rmi-cmds.h
-new file mode 100644
-index 000000000000..5ee94da96e4a
---- /dev/null
-+++ b/include/linux/arm-rmi-cmds.h
-@@ -0,0 +1,83 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright (C) 2026 ARM Ltd.
-+ */
-+
-+#ifndef __LINUX_ARM_RMI_CMDS_H_
-+#define __LINUX_ARM_RMI_CMDS_H_
-+
-+#include <linux/arm-smccc-rmi.h>
-+#include <linux/bug.h>
-+#include <linux/types.h>
-+
-+#include <asm/page.h>
-+
-+/**
-+ * rmi_rmm_config_set() - Configure the RMM
-+ * @cfg_ptr: PA of a struct rmm_config
-+ *
-+ * Sets configuration options on the RMM.
-+ *
-+ * Return: RMI return code
-+ */
-+static inline int rmi_rmm_config_set(unsigned long cfg_ptr)
+diff --git a/drivers/firmware/arm_rmm/rmi.c b/drivers/firmware/arm_rmm/rmi.c
+index 008a783407b4..ff9f76cc199a 100644
+--- a/drivers/firmware/arm_rmm/rmi.c
++++ b/drivers/firmware/arm_rmm/rmi.c
+@@ -77,6 +77,63 @@ static int rmi_read_features(void)
+ 	return 0;
+ }
+ 
++static int rmi_configure(void)
 +{
-+	struct arm_smccc_res res;
++	unsigned long granule_feature;
++	unsigned long granule_size;
++	long rmi_ret;
++	int ret = 0;
++	struct rmm_config *config;
 +
-+	arm_smccc_1_1_invoke(SMC_RMI_RMM_CONFIG_SET, cfg_ptr, &res);
-+
-+	return res.a0;
-+}
-+
-+/**
-+ * rmi_granule_tracking_get() - Get configuration of a Granule tracking region
-+ * @start: Base PA of the tracking region
-+ * @end: End of the PA region
-+ * @out_category: Memory category
-+ * @out_state: Tracking region state
-+ * @out_top: Top of the memory region
-+ *
-+ * Return: RMI return code
-+ */
-+static inline int rmi_granule_tracking_get(unsigned long start,
-+					   unsigned long end,
-+					   unsigned long *out_category,
-+					   unsigned long *out_state,
-+					   unsigned long *out_top)
-+{
-+	struct arm_smccc_res res;
-+
-+	arm_smccc_1_1_invoke(SMC_RMI_GRANULE_TRACKING_GET, start, end, &res);
-+
-+	if (res.a0 == RMI_SUCCESS) {
-+		if (out_category)
-+			*out_category = res.a1;
-+		if (out_state)
-+			*out_state = res.a2;
-+		if (out_top)
-+			*out_top = res.a3;
++	switch (PAGE_SIZE) {
++	case SZ_4K:
++		granule_size = RMI_GRANULE_SIZE_4KB;
++		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB;
++		break;
++	case SZ_16K:
++		granule_size = RMI_GRANULE_SIZE_16KB;
++		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB;
++		break;
++	case SZ_64K:
++		granule_size = RMI_GRANULE_SIZE_64KB;
++		granule_feature = RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB;
++		break;
++	default:
++		BUILD_BUG();
 +	}
 +
-+	return res.a0;
++	if (!(rmi_feat_reg(1) & granule_feature)) {
++		pr_err("RMM does not support %luKB granules\n",
++		       PAGE_SIZE >> 10);
++		return -ENXIO;
++	}
++
++	config = (struct rmm_config *)get_zeroed_page(GFP_KERNEL);
++	if (!config)
++		return -ENOMEM;
++
++	config->rmi_granule_size = granule_size;
++
++	/*
++	 * For now we set the tracking_region_size to 0 which is the only option
++	 * for 4KB PAGE_SIZE (1GB for 4KB PAGE_SIZE, 32MB/512MB for 16KB/64KB).
++	 * TODO: Support other tracking sizes via Kconfig option for other
++	 * PAGE_SIZES
++	 */
++	config->tracking_region_size = 0;
++
++	rmi_ret = rmi_rmm_config_set(virt_to_phys(config));
++	if (rmi_ret) {
++		pr_err("RMM config set failed\n");
++		ret = -EINVAL;
++		goto out_free_config;
++	}
++
++out_free_config:
++	free_page((unsigned long)config);
++	return ret;
 +}
 +
-+/**
-+ * rmi_features() - Read feature register
-+ * @index: Feature register index
-+ * @out: Feature register value is written to this pointer
-+ *
-+ * Return: RMI return code
-+ */
-+static inline int rmi_features(unsigned long index, unsigned long *out)
-+{
-+	struct arm_smccc_res res;
+ static int __init arm64_init_rmi(void)
+ {
+ 	int ret;
+@@ -90,6 +147,10 @@ static int __init arm64_init_rmi(void)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = rmi_configure();
++	if (ret)
++		return ret;
 +
-+	arm_smccc_1_1_invoke(SMC_RMI_FEATURES, index, &res);
-+
-+	if (res.a0 == RMI_SUCCESS && out)
-+		*out = res.a1;
-+
-+	return res.a0;
-+}
-+
-+#endif
+ 	return 0;
+ }
+ 
 -- 
 2.43.0
 
