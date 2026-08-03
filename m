@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E72C55175
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51270C55184
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 10:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2fN6ntjrESShwh7QN9tna8NHQ9oGxG+wl6dsfHUeOEw=; b=0cn69Ozc88i5UZ
-	WN4Q04YI3TjKzghGvehdPZIkzRgEig7JgrPa8MIea7tL/KYCRslv/cKupDkaYQ1o/CADpXZh10r5X
-	ohi+cz0iI3AJaqT6NpxmwgX/UB4Ph+KPkuVuXMW4cKcDPvtVMyccLjsJTEo9yXSfZhvMkrFbuDp+L
-	LAECj7LQwISqCKR7lcV2PuLYbSW+D6sKoBYnP0zet3ca8P+OEEgZ8WYG+ILXHoM1AFXSse3ntdijy
-	Z9hlWyGlXYDGeIUu8X28QfEWkmJhl/4Gx6bStphLFqSUKi8sw4K3Fjwz6L/m3OR0ne5JAfJdbhZFa
-	/uTUxmgWKJXi0t0LAW8w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9P9bubSjejExvocqDDS92y3ppWHsNSy9m2WTpszexZM=; b=FomCa2O2YNWhY0hd/SZ2M2xpBT
+	ulh5D388ux+9oZ9pWqTt7DJUYBQp8HPVvZjtJAtaoPxSdaTSKzJzZC5IDWVlPnHU786I4PQ2iyAK4
+	Tlk3v2rhWf6hEs516ZeCQoxfu15D+JIzHriTx+AzSz2liYFPF50/yEQYlz7rnBdJANsJ1exR9GLmG
+	Vw/KmbYvhn9p4WXJ0aaeqg19m1g7CJD1+GdSfnKncZNgV1LZstqZywrN8qhBRmZxOYECCJufuJJOK
+	cW2j5Uo2/T+rHBjGplAw2HMEv9VUl7/gOVq5cPJ/sBCwTePYdNiJgbPNJt7yh5IeYxlgTqX0BhP7g
+	INDoqdXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpZO-0000000GmD1-1W59;
-	Mon, 03 Aug 2026 10:06:54 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wqpZQ-0000000GmES-2g8V;
+	Mon, 03 Aug 2026 10:06:56 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpZL-0000000GmBa-3ge0;
-	Mon, 03 Aug 2026 10:06:53 +0000
+	id 1wqpZM-0000000GmBi-02WO;
+	Mon, 03 Aug 2026 10:06:54 +0000
 From: Gregor Herburger <gregor.herburger@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1785751607;
+	s=2020; t=1785751608;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=2fN6ntjrESShwh7QN9tna8NHQ9oGxG+wl6dsfHUeOEw=;
-	b=EBzd9YJfRxnyN5mEdCw4Jzyo80PuCND9p3mD920nis8D24c3SiHNKCvi0tDm4JdpkXSMoD
-	8Gq/oFid5uOT1vZ2Pnzaby1F9cScFx1stvMaOlhS/wPSAG+ZoqReE3vsvdxaRH0lbUyvGh
-	R+5Tlne52F7Kpe0zPhY0+7AJHXZlJyBMr5ifkYyAiq1gyvp/pIRWPp08PPGWlWX4n82UJU
-	HF6O6skXNOe0mEhbyiWPgKiU+VqSyW+pyXHqPcNhZT6j30rkczJii4eZbkV0YEgxHmOVcd
-	gzzcxptg7Ovo4jLuysQfylmMMKHa55reDYHpvSr6tMRLVDdWJSPbjQXpzgxjTQ==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9P9bubSjejExvocqDDS92y3ppWHsNSy9m2WTpszexZM=;
+	b=tvMCjtePIo+htCYbYVLOO/gMz4x+hw/GmLVIBRimrXBzm2WWtTUCoClPp/yR2QgpoVzEOn
+	BtQS/ujqC3VUEoTGxB9Pl8R9aJXPJtFb08LFV7TgD+ZOcbcaNvZiFFWzqRzWr9qPJYWuxQ
+	EF5oub9GbDBgmIaeeFULf1dQP+a4hH+LnjscLF8L74cCnqEsUG4a2Qvq8OeSeWTKTi9xZl
+	iZvytM5QvS9A4dfQzNdrzSaUOkVVL+g3jG1qUGy2R04L8RV6pBs4vq9sLINgCit/yDVSnR
+	euJ5dccWom9KGtbL7wSUaN+RwpvNqA6V9cMVyyBh3SKlABNcUPEcx4oG4ki10g==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1785751607;
+	s=2020e; t=1785751608;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=2fN6ntjrESShwh7QN9tna8NHQ9oGxG+wl6dsfHUeOEw=;
-	b=Z1/Zq1i5EICbdDU11F5KL/SR2alYyp1rZZjwvrvhSHTlSbeSPhtJLvsYoIk7Ppkr+FjT/3
-	5BndHVLKJQ8fT2CA==
-Subject: [PATCH 0/2] arm64: dts: broadcom: bcm2712-d-rpi-5-b: add
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9P9bubSjejExvocqDDS92y3ppWHsNSy9m2WTpszexZM=;
+	b=cyGS1kDPsvBg+5P1O46UoU/N+o3u3VOMGfpEzXo7Koxbp3RdaMaVTiPM7L+8+EFonry4d7
+	/rrju/ysZxzzgaAg==
+Date: Mon, 03 Aug 2026 12:06:42 +0200
+Subject: [PATCH 2/2] arm64: dts: broadcom: bcm2712-d-rpi-5-b: add
  compatible
-Date: Mon, 03 Aug 2026 12:06:40 +0200
-Message-Id: <20260803-bcm2712-d-stepping-compatible-v1-0-401934357a44@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADBocGoC/yXMSwrCMBAA0KuUWTuQxGjBq4iLfKZ1xKYhk4pQe
- ndTu3ybt4JQYRK4dSsU+rDwnBr0qYPwdGkk5NgMRpmr6s8afZhMrw1GlEo5cxoxzFN2lf2b0Hq
- rBhWsj+4C7ciFBv7+//vjsCz+RaHuKWzbD46xMeeBAAAA
-X-Change-ID: 20260731-bcm2712-d-stepping-compatible-4b40f0c4bda5
+Message-Id: <20260803-bcm2712-d-stepping-compatible-v1-2-401934357a44@linutronix.de>
+References: <20260803-bcm2712-d-stepping-compatible-v1-0-401934357a44@linutronix.de>
+In-Reply-To: <20260803-bcm2712-d-stepping-compatible-v1-0-401934357a44@linutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Florian Fainelli <florian.fainelli@broadcom.com>, 
@@ -66,17 +66,16 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Gregor Herburger <gregor.herburger@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785751607; l=1082;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785751607; l=1240;
  i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=Z6bjOAc+VesJ09Rh3jKGmkudCEj95FEUNIdMg+ymMnM=;
- b=JqGd9SEdRpx8wmAytjUfYiV4RQ8yx+/xrP3HG2mMSbBp93i7YyBu1LfvzEBjqXCLGF16Bxsgt
- YB35wTnrB2xBu/A8Jljl33VSAEWy6mqfiRp/curybTW+RqDGMuNQIBG
+ bh=DSPSDoGviOFyo8k3qvSQl5w8Jy3UBcbhVpFibB9/rT0=;
+ b=VLpAZ7NDEZhh1OyXF/WX0FJjof4ksB++8EvPwHlUO/rzcttuBR9BZn9bllNAbQSYrc/DYe7lQ
+ BhwNbv8FY4YB0cXdTlWIHCu46B2VICjWgGcPkWLe8UWbVzTSfYYkjVh
 X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
  pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_030652_079206_A8AEEA5F 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260803_030652_195921_BFC52B4A 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,20 +102,29 @@ causes a crash at boot.
 Add a compatibles string "raspberrypi,5-model-b-d0" to allow us to
 distinguish between those two steppings.
 
+Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
 ---
-Gregor Herburger (2):
-      dt-bindings: arm: bcm2835: Add Raspberry Pi 5 d0 Stepping
-      arm64: dts: broadcom: bcm2712-d-rpi-5-b: add compatible
+ arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- Documentation/devicetree/bindings/arm/bcm/bcm2835.yaml | 11 +++++++++--
- arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts     |  5 +++++
- 2 files changed, 14 insertions(+), 2 deletions(-)
----
-base-commit: 8ba098e6b6ff0db8edf28528d1552be261af30d4
-change-id: 20260731-bcm2712-d-stepping-compatible-4b40f0c4bda5
+diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+index 127be0fc27c2..11a38cd53401 100644
+--- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
++++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+@@ -3,6 +3,11 @@
+ 
+ #include "bcm2712-rpi-5-b.dts"
+ 
++/ {
++	compatible = "raspberrypi,5-model-b-d0", "raspberrypi,5-model-b", "brcm,bcm2712";
++	model = "Raspberry Pi 5 d0 Stepping";
++};
++
+ &gio_aon {
+ 	brcm,gpio-bank-widths = <15 6>;
+ 
 
-Best regards,
---  
-Gregor Herburger <gregor.herburger@linutronix.de>
+-- 
+2.47.3
 
 
