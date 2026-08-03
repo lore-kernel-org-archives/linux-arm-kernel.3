@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9824C55838
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:42:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8714FC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a5F+MIK/Sq7LP625lI93wSHp0p+82BAhT+VDlBkJm/w=; b=hP5etMmSCGY41ZFZXH+/5q8J/a
-	co1srLE4fH2FDMyH0o5UUKS+9TgjEbV1nDGxwqW3AWla53umCvfsGy3l8I3x+NVSUtz9uLGPML2OV
-	mrvg0PSisOAz0jIpVClnAjUbe3N3BZfM7ZaYgf7DZcu3yoSPkxzOavj8pbe+OQAewEvvcR+cerHZq
-	tv3KVG/YqxIBhyGtQqeM32QoFh/s/cbe/iLCwujn3HNwHZPqGPhBbRtEbMxqq1d88LW4ENIW3EA+w
-	fU1wN6SMs3AydTdbmxhe3b7B5S/6e0XR+fX7h/FHhF7UXojifjlF++WC6+YE5DNiM+x94qmuXouHW
-	oBjI7RCQ==;
+	bh=/0h+UWlinGdaNRWQ3ePtD6vflPt+g0iOPa3K/aYZ+gU=; b=slCQgBny0Oy0urWo/0AmsWwEjw
+	9QhVgd8piIHiesI9x+r0a8t1iyQ7rKa2ompwL7ozSTiM+nTVLukaDlXoRVEVMSAJAywLnKtZXMjyE
+	a5EW8IIVBho9V3NmKraz85JVGVt2blogDRRRO0Q6PGJOgKEP/O9YSWzuaJaW2I6NvbeJ0iHNSb4Db
+	GDDbrFBksAoTPKxaeHHxe4eDtvVOFFrcQLP2YqLYD54S9mzVyX6D1GvrO27+WCOHPxggrH94be2X1
+	qWlBWGqggUvqev9Imuy87lCFcovzK/ofl42VXSQEz3ByNkChqE+yXFUVJeHly0X7og7CeYSh9eAdK
+	zGwB0CeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqs0B-0000000H3Vy-3G2S;
-	Mon, 03 Aug 2026 12:42:43 +0000
-Received: from out-173.mta0.migadu.com ([91.218.175.173])
+	id 1wqs0Z-0000000H3hw-3ltN;
+	Mon, 03 Aug 2026 12:43:07 +0000
+Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqs09-0000000H3SJ-1xlb
+	id 1wqs0Y-0000000H3ge-0Urh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 12:42:42 +0000
+	Mon, 03 Aug 2026 12:43:07 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785760958;
+	t=1785760983;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=a5F+MIK/Sq7LP625lI93wSHp0p+82BAhT+VDlBkJm/w=;
-	b=cbL730BddzEsmkX2O7vuBy2DSDMtr0VqHztnxtYXdppgMiARCQCZ/QSajI9GwyEVkG1cog
-	v6H0su53vSgi7L7dzYEHLPCmcVUqUxy/6gZuKktrjDqz2vjMtmbgsf2YF1L9pLD7rk5IV6
-	djHVSstSfFnbIseexSlb/QxsFAtleDM=
+	bh=/0h+UWlinGdaNRWQ3ePtD6vflPt+g0iOPa3K/aYZ+gU=;
+	b=ebv10M550xegZcKAjU41448qc3wUASeRpVTzK5M+vRWQQTholPHKOqF5TXMVZA3FzVxl/7
+	keKCBl5SzT98GNFFT2Nat3Kx01ua/TsCqFuJhQBuvzn9atx3Tbw73KD37mivrj3V+Fn3D0
+	+rzwlzD80L3EdxzLpfvotGFOALn3Avc=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: maz@kernel.org,
 	oupton@kernel.org,
@@ -59,17 +59,18 @@ Cc: catalin.marinas@arm.com,
 	linux-trace-kernel@vger.kernel.org,
 	tabba@google.com,
 	fuad.tabba@linux.dev
-Subject: [PATCH v2 04/11] KVM: arm64: nVHE: Use NULL to reset the trace buffer backing pointer
-Date: Mon,  3 Aug 2026 13:42:13 +0100
-Message-Id: <20260803124220.332248-5-fuad.tabba@linux.dev>
+Subject: [PATCH v2 05/11] KVM: arm64: nVHE: Run the source checker under C=2
+Date: Mon,  3 Aug 2026 13:42:14 +0100
+Message-Id: <20260803124220.332248-6-fuad.tabba@linux.dev>
 In-Reply-To: <20260803124220.332248-1-fuad.tabba@linux.dev>
 References: <20260803124220.332248-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_054241_653016_680E148D 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20260803_054306_294936_78F3A668 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,29 +85,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-bpages_backing_start is a pointer; resetting it to plain 0 triggers a
-sparse warning.
+The custom %.nvhe.o rule reuses rule_cc_o_c, which hooks the source
+checker only for C=1, and that only when the object is rebuilt. The
+C=2 hook, cmd_force_checksrc, hangs off the standard %.o rule that
+nVHE objects do not use, so "make C=2" silently skips every nVHE
+source file. Call cmd_force_checksrc after the compile rule, as the
+standard rule does.
 
-No functional change intended.
-
+Fixes: 7621712918ad4 ("KVM: arm64: Add build rules for separate VHE/nVHE object files")
 Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Tested-by: Vincent Donnefort <vdonnefort@google.com>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/hyp/nvhe/trace.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/nvhe/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
-index e7e150ab265ff..177fe3d8fbb13 100644
---- a/arch/arm64/kvm/hyp/nvhe/trace.c
-+++ b/arch/arm64/kvm/hyp/nvhe/trace.c
-@@ -93,7 +93,7 @@ static void hyp_trace_buffer_unload_bpage_backing(struct hyp_trace_buffer *trace
- 
- 	__release_host_mem(start, size);
- 
--	trace_buffer->bpages_backing_start = 0;
-+	trace_buffer->bpages_backing_start = NULL;
- 	trace_buffer->bpages_backing_size = 0;
- }
+diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
+index f57450ebcb498..ccc1fe8394094 100644
+--- a/arch/arm64/kvm/hyp/nvhe/Makefile
++++ b/arch/arm64/kvm/hyp/nvhe/Makefile
+@@ -49,6 +49,7 @@ targets += $(hyp-obj) kvm_nvhe.tmp.o kvm_nvhe.rel.o hyp.lds hyp-reloc.S hyp-relo
+ #    avoids file name clashes for files shared with VHE.
+ $(obj)/%.nvhe.o: $(src)/%.c FORCE
+ 	$(call if_changed_rule,cc_o_c)
++	$(call cmd,force_checksrc)
+ $(obj)/%.nvhe.o: $(src)/%.S FORCE
+ 	$(call if_changed_rule,as_o_S)
  
 -- 
 2.39.5
