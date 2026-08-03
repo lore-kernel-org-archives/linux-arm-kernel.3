@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6C5C5516F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 05:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89836C5516F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 05:15:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gb4LPnphqc1DtduXOsyl640sXOpfiOxS2LbjD6EtoY4=; b=BiILLKXXoUdZZghcBdP/+VYMKN
-	WccuOl6fYXRHMS0nRnCbmSlH3KO0ncjjzERB64o/pE7LekxtimwfqVwAea7VAtFXMtbvmNFMGh7tW
-	IpHZUn1lXrc4WQuJ9Qt+QWagc62YeWuV3IwNOYqeNv88ibmZ1KSpyaNL+/b/LhEsQQT+b7njJJuXj
-	jm3X/1FT29VMnJdYzPxygL5L9ncfeFNYfLpUOCEtiAwxvpO9OQ0t3GFzf3yJsAiW7UMKlXIT6dxJ1
-	+OvUB6yFYtlidFMKn6gJ7b4mEuVdlX9vZkepuQTHasmhXNp1FUhMWq1OHnrRoYx8kPEE5i17Ah4er
-	u1Zhdxog==;
+	bh=fkDHET87UFExhpdvkNx3ant78q307rzdUT3zfbIoItk=; b=nk7vsfnEuvCf/QxaskTbHyLw+f
+	0kPYVh4u+iresCPLR0VTVJECPUt0C31czKaLb7IvyKBJdH5H8B9MChJTEfReVpsc4bn7NiUy8ZDjV
+	PrkEEyiU29LfhqS1pgfUYBhwo6f6Ss76ffs5NJ+9YEsmzhly7/JClIIsZlQU+apJ8v1ewZiHOcVTk
+	08sL2wYeJMlXfi/8IqYxI1Nz2dtiZo5Iy56I6Gplqv5R1RI03Oi0wSVV4P4VT421d3JRw+D1zw0xg
+	PD+RQ56CIKUYBr6spNijJbNCZFLh7gNELhbgGjZzNT+8wWkEyvalTDs1uFqKukFpL/JMurmUFkw9N
+	D9WhKLzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wql1R-0000000GKdL-3l1U;
-	Mon, 03 Aug 2026 05:15:33 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1wql1T-0000000GKg2-1y1t;
+	Mon, 03 Aug 2026 05:15:35 +0000
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wql1O-0000000GKWW-12Ae
+	id 1wql1P-0000000GKXv-0dzH
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 03 Aug 2026 05:15:32 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7e9f1f24cbcso2864795a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 22:15:29 -0700 (PDT)
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-7e9ef94c0e2so1586111a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 02 Aug 2026 22:15:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785734129; x=1786338929; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785734130; x=1786338930; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gb4LPnphqc1DtduXOsyl640sXOpfiOxS2LbjD6EtoY4=;
-        b=jw7LL+oRZeP6BsmjpNHZuTmbRodlvbBF961PYBaC25tQc+clNtGUDuwBijjzeCx+sd
-         Z/gs4czLBUMRPbFYtDx1SC9FduhHJhFUI4EQmawp21KyySJ+c2uMR/TJypfuIxuyGBHT
-         YJhb/dDE9Dd58hPrWBnUCV2hljmIHOjzaUsPwznFch62Hz2gKCirXYIpJ9LlzAgNJClY
-         eHH5JrCPWJ6DXu1Dp/rZAJsIVn9IH+GqFx3sLPzo2SBVlL/OvLk0USXe9BcCSOIEogpq
-         MtCTi/dytsszkL0Pr0q413Jn2lFCL+ukmRGd5Jdi+s4OCp8XqdN9c9h086MkyWeiMsSw
-         S3qg==
+        bh=fkDHET87UFExhpdvkNx3ant78q307rzdUT3zfbIoItk=;
+        b=jNmjQ4F+0XIJqF5zD1DtRTdUDA8wYr7NQ3UKOMqGi4vza/BN7X6MEkazO2sKlx5JaD
+         xKP+428E2KLcSqyGKDCWWNLZ/Bb5CNgMOQa/D6ROLG1P9zVUxBAXYZcXukXiBHKSErgp
+         ncsO+02xSX2goe5MnyC5ySbag/UzcUTUUQGKo4gMAGTI+IZl3iZWF+SuM+qptAzOxvv+
+         hDjdMKZtYqNKSOfI21Q349wLuTmVr5xPll51MKDgOiHGeeUSp8k36/KUpHuzaUSxx2Q3
+         dL+IJxpfYvstiiQpX0MWrGA6s+nU5jxXsb+gnWx8fLyDuZ+bKpkHzcNc7em0jCvenZNx
+         fFFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785734129; x=1786338929;
+        d=1e100.net; s=20251104; t=1785734130; x=1786338930;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=gb4LPnphqc1DtduXOsyl640sXOpfiOxS2LbjD6EtoY4=;
-        b=fIXqtnpQGGeGk2e3D30T6VTqeg5dUuI/5Kbi4J+cTjVtk8EYIx6y45ATX7f1EqG8ln
-         98dzlHP/IiatZLqC6R96wtH+oXsJuJ2pv4gIROwkUzC3CU0tGhqinZ2pAK8HcihvyBOm
-         yjg8EM6osqNkLUsHfgll+ULoOdfX3FcUDPG4hxEwLOJAFxcoO3OtH8R/2botCHdi+adK
-         GIVvMD7SsScKyW3kjbxN/kGie6C8R9O0wPWAxO+IFaJWJydp9mO6kioStrub892J9xw1
-         GG6ceoLKq1GuI6gtW3pH3wL5VDSfkfHsRj3ruM75+y0NxsH1BwM7sECwbp2O024aPGpT
-         nC9w==
-X-Forwarded-Encrypted: i=1; AHgh+RqB/y2RBPfGQcXqfJCc+ZFT1zE68dYHjeS+EHAgbX7HmPS+vKCYPy5HLt/tYTRSNMCW6KmlcVeHCyldY15FxlEy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkTh8nRSq7NFOizxY2CafCZd8yEYoM+gOl8uErMJRIKYpG824r
-	9DDp81fL3K/gJXebn7YsoCKqufVGzoPZnoJ+fznQ6o65+ekThR0HiCw4WBEGdD3M
-X-Gm-Gg: AR+sD10SFpT2zBeRdvZXcx464MDhgk7aTU1JiDl+HrQWWqxnOv0071Mp2p0ZI+G5xjz
-	sKUawbA8IJN4XXQvk9Ttav5ykYUGOW4RLunNVC1CvicBHE9cgW0QRYJTh/OzaUEYCqO4nUGkg02
-	MNFFmb7XWfBV13LLZ7zx3roDOj3fSbHBKTVvEBLKdDiLg6yBQeH6EfhjssbqG+yZm/3MBUOLazK
-	YXLkVevDktcNy3/evlr88BjnBnyFJtaeeSdlVRUNWOH24u7IpDgIVnmoYEJQ8E56dLPwka37NGH
-	Y9b+HhJH0aQ9rnIkY6pUIbTB1qcULwhgz8WFdCJi8WGngOdSomAREvxBD/MjeTH0MzMEYQeO8Ha
-	p4qo4T7sgbGGuPHgwjcqx4r2Dj0QOGo4Kj0LgnIfD06gWH3KIO8/alDqWVhQvTV1cykRlyBFUd3
-	oLRZITI8BGwe6PGUtwwcg49qcgBA3E9VfeU6D57VhqJyKISKi3RHS7R0d5ZLORfUGRL4DeUCOB6
-	b2fQeAguv7wMokejAs/8EieLHPsVwONjNSAMyUqFgYqZBnYcpw9mWmXswfWcJSnUPEWlIdMPCOM
-	YBObkw9faiaNULXim+Ym8ej9Nn0P896fmHdL9V2aIiRXYXWaFRM3+OpVGupRS3O1pb6j6O1NqG7
-	aJVYqWs3n0j1MC0du3uOWmooS1w==
-X-Received: by 2002:a05:6830:7086:10b0:7db:a297:9e62 with SMTP id 46e09a7af769-7f1892c8017mr4283606a34.8.1785734124209;
-        Sun, 02 Aug 2026 22:15:24 -0700 (PDT)
+        bh=fkDHET87UFExhpdvkNx3ant78q307rzdUT3zfbIoItk=;
+        b=cw/t6/NRdi53fUAeffCIdeCDC0bMgJvAIsjgE8f5dpc1Lt8/X8abzoPi5sUf0RMcsf
+         lhjZQdvpsXTT/xBgkVFz66BxwvMWb0dBMLitSh20wgrRlul7NKJOKb7K3rPHbSefoVFY
+         xpXiRwVHte8NBLmmOgf3RYYuFyQYCASsH7MtJlPWBVYA6whYblqDvthiE9i2MhMmAqxX
+         GfBNFz07EYqpp3M5Z3Y+w0KV5kz/3KiDycTzdGHEatDFoY2gZ7HV82I15oLKqLe/ZhlA
+         msRFlZvXCBTOFISqdbNrGSPhSIsGoWkWPcXU0b8l8Se7EU9JhaodBO7oF/YgOnbm8gpe
+         mJjw==
+X-Forwarded-Encrypted: i=1; AHgh+RqdYyjLjT6Y9KPUIeXTXH4kzYleaiLz8v21Af08vb4AjboV+4xxSc2ibUoZ3SWc9m418dXkWbZR5iflKJpIAyrH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxfJxmyExX3QcVp18q7hPoX8Syz9FdAdIeJrU4aYiBhg2SwPMt
+	M/dsSXf4zGxhTIe/ho6wnDinhLR4PzHYtyGf5WoKyj2FtCqkkMZzHluAl/l/BPgT
+X-Gm-Gg: AR+sD122IXYAJkQMNmrTq10WlD3g6pJOtnJylbNziA6D9LROdW+KsWYhL6ZG01RtxQX
+	qVayLqg0OAvmxPN3pkVenyI0DYZX0F+NSRI+g9dzifc082xyGQbK9xwwFgLKNjmVagQ97U3UwUj
+	VXjUcyTBURKL8FpGlszk8xDwga+xs5ePwBUOhhOTiv4zWZT+jaFK6KkQ1EKdL85dzAA/ctrIBxm
+	YIGr78xybIK2DIWbRWGppuoyW6/N8VwSjfUVOCb7X5K/pt32fPR8fUUaXhvBBbfSEOtGT72IH4K
+	+AfU9jghWQxOFigpKNNgkr+hVwvkw7ThU/a1Uc7VdYy3Coy8a52gh68nh2E//DP2HJ4Xcsw36tC
+	7GXd61UtHN5x6eOQJ4y7ugVB/A3IApfzXDeVsqL55WzmJYSqaceG50HveJ0EKYcTUlYEBaTE+S8
+	tkQdH8ZxVNQYmyYOxST3zx54MFjnQdCTstPB6JVbIJ+YTu6jfj2kWHGbQ0L38/epT81QJoQOlmo
+	R06qDac96JXDaQ25uvULLLRprzbJVng8x61yZ3yHc+gH1j6gkLB2ZlTSZ0yqLdVXGpuw/d0cDZp
+	InU+2npexEK3QBLTxw1Fno37omT1hEXnx6bJ6f87nF4ApJyjQkN2BOuTNTx4HH3WIHazq1GaMqR
+	PnLmSYs4pKYHxo3VZaWZiyf6XdDorpf4AcLwHVQ==
+X-Received: by 2002:a05:6830:8389:b0:7e9:e709:44f6 with SMTP id 46e09a7af769-7f196ea3b40mr13694676a34.12.1785734125552;
+        Sun, 02 Aug 2026 22:15:25 -0700 (PDT)
 Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18f07a5e3sm6787108a34.15.2026.08.02.22.15.22
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f18f07a5e3sm6787108a34.15.2026.08.02.22.15.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 02 Aug 2026 22:15:23 -0700 (PDT)
+        Sun, 02 Aug 2026 22:15:25 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sun, 02 Aug 2026 23:14:13 -0600
-Subject: [PATCH 03/21] arm64: dts: allwinner: h616: add EMAC1 controller
+Date: Sun, 02 Aug 2026 23:14:14 -0600
+Subject: [PATCH 04/21] net: mdio: factor out OF child registration helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260802-submit-acx00-of-dynamic-v1-v1-3-0a53cd9e21cc@gmail.com>
+Message-Id: <20260802-submit-acx00-of-dynamic-v1-v1-4-0a53cd9e21cc@gmail.com>
 References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
 In-Reply-To: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -108,8 +108,8 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260802_221530_326743_D3C8143F 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20260802_221531_203851_B51676D5 
+X-CRM114-Status: GOOD (  19.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,70 +124,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Genoud <richard.genoud@bootlin.com>
+Live OF reconfiguration needs to create the same PHY and generic MDIO
+devices as initial bus population, including legacy PHY nodes that need
+address scanning.
 
-The H616 has a secondary EMAC controller that supports only RMII at
-10/100 Mbps. It connects through PA0-PA9 to an EPHY in a companion
-AC200 or AC300 package.
+Factor fixed-address child registration and PHY address scanning into
+helpers. The old scan loop also visited every free address for a child
+without a reg property even when the child was not a PHY. Reject that case
+before scanning while preserving enumeration of valid PHY and generic MDIO
+children.
 
-Add the EMAC1 controller and RMII pin group. Leave the controller
-disabled for boards to enable when the companion Ethernet hardware
-is present.
-
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi | 30 ++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ drivers/net/mdio/of_mdio.c | 66 ++++++++++++++++++++++++++++------------------
+ 1 file changed, 40 insertions(+), 26 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-index 90fe56a1d3cd..6879f27c2b2b 100644
---- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
-@@ -432,6 +432,14 @@ pwm5_pin: pwm5-pin {
- 				function = "pwm5";
- 			};
+diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
+index b8d298c04d3f..051e449bbe7c 100644
+--- a/drivers/net/mdio/of_mdio.c
++++ b/drivers/net/mdio/of_mdio.c
+@@ -77,6 +77,15 @@ static int of_mdiobus_register_device(struct mii_bus *mdio,
+ 	return 0;
+ }
  
-+			/omit-if-no-ref/
-+			rmii_emac1_pins: rmii-emac1-pins {
-+				pins = "PA0", "PA1", "PA2", "PA3", "PA4",
-+					"PA5", "PA6", "PA7", "PA8", "PA9";
-+				function = "emac1";
-+				drive-strength = <40>;
-+			};
++static int of_mdiobus_register_child(struct mii_bus *mdio,
++				     struct device_node *child, u32 addr)
++{
++	if (of_mdiobus_child_is_phy(child))
++		return of_mdiobus_register_phy(mdio, child, addr);
 +
- 			/omit-if-no-ref/
- 			spi0_pins: spi0-pins {
- 				pins = "PC0", "PC2", "PC4";
-@@ -789,6 +797,28 @@ mdio0: mdio {
- 			};
- 		};
++	return of_mdiobus_register_device(mdio, child, addr);
++}
++
+ /* The following is a list of PHY compatible strings which appear in
+  * some DTBs. The compatible string is never matched against a PHY
+  * driver, so is pointless. We only expect devices which are not PHYs
+@@ -136,6 +145,32 @@ bool of_mdiobus_child_is_phy(struct device_node *child)
+ }
+ EXPORT_SYMBOL(of_mdiobus_child_is_phy);
  
-+		emac1: ethernet@5030000 {
-+			compatible = "allwinner,sun50i-h616-emac1";
-+			reg = <0x05030000 0x10000>;
-+			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			clocks = <&ccu CLK_BUS_EMAC1>;
-+			clock-names = "stmmaceth";
-+			resets = <&ccu RST_BUS_EMAC1>;
-+			reset-names = "stmmaceth";
-+			syscon = <&syscon>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&rmii_emac1_pins>;
-+			phy-mode = "rmii";
-+			status = "disabled";
++static int of_mdiobus_scan_phy(struct mii_bus *mdio,
++			       struct device_node *child)
++{
++	int addr, rc;
 +
-+			mdio1: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+		};
++	if (!of_mdiobus_child_is_phy(child))
++		return -ENODEV;
 +
- 		gpadc: adc@5070000 {
- 			compatible = "allwinner,sun50i-h616-gpadc",
- 				     "allwinner,sun20i-d1-gpadc";
++	for (addr = 0; addr < PHY_MAX_ADDR; addr++) {
++		if (mdiobus_is_registered_device(mdio, addr))
++			continue;
++
++		dev_info(&mdio->dev, "scan phy %pOFn at address %i\n",
++			 child, addr);
++
++		/* -ENODEV means that scanning should continue. */
++		rc = of_mdiobus_register_child(mdio, child, addr);
++		if (!rc)
++			return 0;
++		if (rc != -ENODEV)
++			return rc;
++	}
++
++	return -ENODEV;
++}
++
+ static int __of_mdiobus_parse_phys(struct mii_bus *mdio, struct device_node *np,
+ 				   bool *scanphys)
+ {
+@@ -164,10 +199,7 @@ static int __of_mdiobus_parse_phys(struct mii_bus *mdio, struct device_node *np,
+ 			continue;
+ 		}
+ 
+-		if (of_mdiobus_child_is_phy(child))
+-			rc = of_mdiobus_register_phy(mdio, child, addr);
+-		else
+-			rc = of_mdiobus_register_device(mdio, child, addr);
++		rc = of_mdiobus_register_child(mdio, child, addr);
+ 
+ 		if (rc == -ENODEV)
+ 			dev_err(&mdio->dev,
+@@ -197,7 +229,7 @@ int __of_mdiobus_register(struct mii_bus *mdio, struct device_node *np,
+ {
+ 	struct device_node *child;
+ 	bool scanphys = false;
+-	int addr, rc;
++	int rc;
+ 
+ 	if (!np)
+ 		return __mdiobus_register(mdio, owner);
+@@ -238,27 +270,9 @@ int __of_mdiobus_register(struct mii_bus *mdio, struct device_node *np,
+ 		    of_node_name_eq(child, "ethernet-phy-package"))
+ 			continue;
+ 
+-		for (addr = 0; addr < PHY_MAX_ADDR; addr++) {
+-			/* skip already registered PHYs */
+-			if (mdiobus_is_registered_device(mdio, addr))
+-				continue;
+-
+-			/* be noisy to encourage people to set reg property */
+-			dev_info(&mdio->dev, "scan phy %pOFn at address %i\n",
+-				 child, addr);
+-
+-			if (of_mdiobus_child_is_phy(child)) {
+-				/* -ENODEV is the return code that PHYLIB has
+-				 * standardized on to indicate that bus
+-				 * scanning should continue.
+-				 */
+-				rc = of_mdiobus_register_phy(mdio, child, addr);
+-				if (!rc)
+-					break;
+-				if (rc != -ENODEV)
+-					goto put_unregister;
+-			}
+-		}
++		rc = of_mdiobus_scan_phy(mdio, child);
++		if (rc && rc != -ENODEV)
++			goto put_unregister;
+ 	}
+ 
+ 	return 0;
 
 -- 
 2.53.0
