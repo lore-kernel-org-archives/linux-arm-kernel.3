@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA60C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:10:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 631AFC55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 14:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Dkd3Vdy/c11kzXWk975o6VbE77tcIPNyghUoE1Wo9PI=; b=a+veS8ErTpbrkvl/2hY79k6KmP
-	Ai1XLSKVbSJrStiKzx+CFS2OL2vMLg4+qLn9w863g6vpHl3OR4/T0o1IQLb2Fi7uPT9uaNQwjsROV
-	kJ6ZonMnA3WUYkboVT0sXP4BdIjmUlI2pnkn50m7nhQQtoCt16nESFH2b/9NaNssa0pbUS4Q+78/E
-	2nFn0z8PBJ/sMYGvZaAQU1rZDnKzWzot0KCdKd60HB/snzOAmdy63vyOx5hW0bcL66tr+Jz7Csug9
-	+w60PIrTV0XOhm/qo2A798ILZJetU6St4EGbZ2yWTYGLENLwWeBQEL6KmRX2xfDN5OyFPpzJ0N8ml
-	21WskjgQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JVxxd59a0doljp4cj9wSApSMEwIu5WK0T7ewILpCQ84=; b=gNQ/GuuQnHp6bRp9MfRjGtTwbO
+	T0mYzMTDwenAZ+KAEbN16fkeLTGk8gqywlJEjoQP2xfWbd5rq2f/npJEFat6DgH2hE/8879fn+z69
+	aUNoBD16OTHhsQHdcwh7wA3HcO0J85x6A8Gz1groM7GB0ia1tknSqP4s3VCawkyK7LBu7xLrK7NC1
+	TIwFeOaTdFNSc+8rU/ANlXUildjQ9lgWmZzFoNc1MbuuveKgWV7ewvaYhubxFxe4BwzqeLywB3O9J
+	MmyFNGND14Lnc0opdxIZpzlSL3e6u4BvNlfLjnb4r7sPIh0Pa2olleXHaSTl5lTt+d7mXAg4dSQSq
+	+k+Gfmcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtNG-0000000HIhO-32Ss;
-	Mon, 03 Aug 2026 14:10:38 +0000
-Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	id 1wqtNN-0000000HIlB-04M8;
+	Mon, 03 Aug 2026 14:10:45 +0000
+Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqtNE-0000000HIgY-0KdX
+	id 1wqtNJ-0000000HIiZ-3pAC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 14:10:37 +0000
-Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-6ae4aff94c2so1207838eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 07:10:34 -0700 (PDT)
+	Mon, 03 Aug 2026 14:10:43 +0000
+Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-6ae534c2aadso943772eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 07:10:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1785766234; x=1786371034; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Dkd3Vdy/c11kzXWk975o6VbE77tcIPNyghUoE1Wo9PI=;
-        b=Rxookr7ixo4DALpuHjpc2vRcn6LMFkz18g/y1egC/S6VMjBKS/4tR895G0ISpo1T3x
-         MZ1d2PxESnM5ZehWYm+SeriF3ZoB1veQ3CoTOFtt1uZxYPjrBY3oCwiajfgKKvvd94Q5
-         nYiwwMvW4lANHURwNlUyu3iF00xDIEcxUkQfo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785766234; x=1786371034;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1785766240; x=1786371040; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Dkd3Vdy/c11kzXWk975o6VbE77tcIPNyghUoE1Wo9PI=;
-        b=S0PKn4PxUhPe2P9tbBO/FeAoj04c1WLMb/wuOf1/6dkPCupWPaxvr2lDJHeuJ30TEP
-         CBEIZuLEG+7hqZVWrs1UTIra7GaxAodeBQ5FvxLRCFuN8WXb01nAI3W45mQQg5PoJcU/
-         XG8q3n6t0UsUfsK5fhzhrllnzrniIOCpoBWj+8bXhXNTuJJu43sgbrenAjoqY3ja8q5B
-         y1lJyJ49DCOFNFRspWrmtVQks5a+L7eoqOAoxgDGczO/UzxX17UffStPESzDoAWnepnY
-         vuhkqk5ExshH/dR43ujBfW4XJN0QQBDhttksjE001zPFJo27WnMCh6y7kKkDY2/SRPEG
-         yl5w==
-X-Forwarded-Encrypted: i=1; AHgh+RpIYejyIQrlrpi4OFxoAT5Qx0PjJloiXv/MhGck9K9+tPyy3AAkHND1HFM+0i81p/TFeo6gP1tbpoN7STFOQpRv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzS4TgcPsWF5vrYfoE/UE2TZNfI0Pm4taLjFdWvntAv8+K9PICw
-	p6PZmiGvvjnITWtqQodkDs7IlAmKsVxJt1BCwDMtP2eOT41mqd7qtfSrg0wkEyz1kA==
-X-Gm-Gg: AR+sD11SU8XjLbrN/IcPGQAwLy2gPFum+K0wsIyKAi2h8TSB2YaqwBsQshCimDoMbfx
-	o0ltWem8yv59tfkczTvD2fprsZA2iClRLevP+abrbvSGWE053uErH5n6Bk/QZRlD1CUR9DXU4oy
-	X7W9+ITKVno5v0GJp1QKyp+LZkOemsQ+OCpdQUS0uHlrBDdjswd2OOgGZwkgXWncD4KDfK3+uvw
-	ydeyEosvp3XSMdYdRjLiy9PwmDi+Q1bjEkwyi6q1G075CyYg3fvTSMB2cnuZqjNr5ozrulkK9gq
-	HfvKgUp51sfocY66Re/ceuapAuWod2n9YfLLo9mZaRGsBkORnLmaFmrfwEpkC+zXZRqESlm2E7z
-	8woHB3BlzOl4vJnCHNIiYhxlke8Nrzyri9SSQDL3bkXRcHU/Z626PS4MCVtvHX/OmhcFSTI0nhq
-	UoR7KvOeKc6AP+0EwmQniO25bubbPDZOuqR3uNihsGfrZR1GytbAUfTJI=
-X-Received: by 2002:a05:6820:c3d5:b0:6a3:7895:7f30 with SMTP id 006d021491bc7-6ae4358f82cmr10811016eaf.29.1785766234232;
-        Mon, 03 Aug 2026 07:10:34 -0700 (PDT)
+        bh=JVxxd59a0doljp4cj9wSApSMEwIu5WK0T7ewILpCQ84=;
+        b=bt5AVngV14YZhsIc8EDFref/aryKO6rshGfYOBRD+SjVy1UpZpNRqM2VO/hQz5fCgc
+         7LOB2lGNvvgJ6Pi24NB0JUt4ge7VBzRRQ1eiUPwN8N7PVIOfpRTyARIyCRUECE3PN76M
+         h9b/NYyv3UePFVuS+piK2+3olPgCOSFu9kdx0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785766240; x=1786371040;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JVxxd59a0doljp4cj9wSApSMEwIu5WK0T7ewILpCQ84=;
+        b=ZlkU+dBg+qocv+bU/AiEJeq90Sl7Ffw8VgssDiHv1erFRIaq00TScI7yNo+3FEVjxm
+         cCv7PSHSyZQoGIaKvvAl09amDlJuDCMGbgq6fsnmc9YCabghjDrxqB4y9fOfEaTHiFym
+         QSQxweUaAj3mirrjEeVjvuLOfnpZipT314rcODV1FCeqlfvLdtrf35fM5n0pNQqp0SWK
+         ElYOz7P5rfjDi1GiOGpUc4HMryOIC0j/8JOlq4jXusyWC3mPk0LpS9HowtkH54dSWbXP
+         lvNMq9D7xzp/aNyxgmfLzW99ASbvdAEv0zo0eqoy7e/xUV7I/f4LTuuE2we83ZJnCU+J
+         s9CQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rri0tpN14OWAC0cyEfHaXqhjSeHdKCw1iiafiPUeOBFQ+MZMBrYxNPHq2Uxew9XX7vsxHQaLe2auTDBlL/Ds9oc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8k7Xpn/6TwCd5VNDsMCkHy/0s3PAIXlAIzw7xu7ZzktdGuKQ4
+	C9K2KrHHadoM9gOdcIALTn4P5fHR5dmnRaAKwuyPXpPgPZ6D16fLNeirhYOZrPefLpZfaBbwO/i
+	51rs=
+X-Gm-Gg: AR+sD13PJlTuw3iUKTUbFAJPRweSdChCOFCDIkAnZwVvDVxF8vjHDUs3rwKiiOThGtM
+	24TlAUQzP7TJAlFpXha/7Ngp3N7rUXnk6cx8Xr8nrZrutxA91Xh9oN7deKiJWG+rKvlve+yx+CS
+	lGdsTvpMB5mL7hcE0Bnn46af705hpKt5oczubhe/htSMnNNqJpDdED1BcUklbdEbzeCsmZvGTu9
+	Jg6/tgeEniOfqtqbhVbmwwAeog7dQZGVs5xOjtGAYIZKWJLs1L5lnwufIwk8gZ5OD7wlgfgmfIS
+	SGlqyVQDcBy2+ClEoO1c3ymIvtkm+ity1jtHRA602+fZsgTEiu7/f0gg6u1mJVe4skvJgZj+1Fn
+	RvYuTw91QdlxqfAME4fQmRp7G5qj53dtm0vTjLUsNIuIh3txT0jJhcehP8CbvBt7Q/JBZn0pfcT
+	TS5e4E4o623SUB8uw8341mORpHos06EytpeOTjpBQAOpaQm/YduepbiIA=
+X-Received: by 2002:a05:6820:811b:b0:6a3:7ee4:11c7 with SMTP id 006d021491bc7-6ae4336d8c5mr15037985eaf.29.1785766240682;
+        Mon, 03 Aug 2026 07:10:40 -0700 (PDT)
 Received: from chromium.org ([174.51.25.52])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6ae3a0c9162sm6526695eaf.11.2026.08.03.07.10.32
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-6ae3a0c9162sm6526695eaf.11.2026.08.03.07.10.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 07:10:33 -0700 (PDT)
+        Mon, 03 Aug 2026 07:10:39 -0700 (PDT)
 From: Simon Glass <sjg@chromium.org>
 To: Linus Walleij <linusw@kernel.org>
 Cc: Heiko Stuebner <heiko@sntech.de>,
@@ -78,15 +80,17 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	Jeffy Chen <jeffy.chen@rock-chips.com>,
 	huang lin <hl@rock-chips.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] pinctrl: rockchip: Two fixes for latent driver bugs
-Date: Mon,  3 Aug 2026 08:10:22 -0600
-Message-ID: <20260803141028.710706-1-sjg@chromium.org>
+Subject: [PATCH 2/2] pinctrl: rockchip: Restrict the RV1103B 2-bit drive type to bank 2
+Date: Mon,  3 Aug 2026 08:10:24 -0600
+Message-ID: <20260803081024.2.5ce19c438ee3bdfa91ee7d414bac5ff6b16eaba8@changeid>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260803141028.710706-1-sjg@chromium.org>
+References: <20260803141028.710706-1-sjg@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_071036_149025_997D0ED5 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20260803_071041_988876_970A2045 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +105,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series contains two small fixes for pre-existing issues in the
-Rockchip pinctrl driver, found by the sashiko AI review of my RV1106
-series.
+The RV1103B override in rockchip_get_drive_perpin() forces the 2-bit
+level drive type for every pin above 11, but only bank 2 has the
+2-bit fields; banks 0 and 1 use the 8-bit level type for all pins,
+as the corresponding check in rockchip_set_drive_perpin() shows.
 
-The first makes the SoC-data calculation safe when the probe runs
-more than once due to a probe deferral: the pin count currently
-accumulates across runs, shifting every bank's pin base. The second
-aligns the RV1103B drive-type override in the get path with the set
-path, which restricts it to bank 2.
+Today this is harmless, since neither level type is decoded in the
+get function and both paths fail with -EINVAL. It becomes an active
+problem once decoding is added, as the pins of banks 0 and 1 would
+be truncated to 2-bit values. Add the missing bank check, matching
+the set path.
 
-The first fix is tested on a Luckfox Pico Mini B by forcing the
-probe to defer once: without the fix the second probe doubles the
-pin count and no GPIO bank comes up, while with it the values are
-recalculated identically and all banks work. The second is a
-behavioural no-op until drive-strength decoding is added to the get
-path, so it is verified by inspection against the set path.
-
-
-Simon Glass (2):
-  pinctrl: rockchip: Reset the pin count when recalculating SoC data
-  pinctrl: rockchip: Restrict the RV1103B 2-bit drive type to bank 2
-
- drivers/pinctrl/pinctrl-rockchip.c | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+Fixes: 6d3ea3120eaa ("pinctrl: rockchip: Add RV1103B pinctrl support")
+Link: https://sashiko.dev/#/patchset/20260729132736.3807082-1-sjg@chromium.org?part=1
+Assisted-by: Claude:claude-opus-5
+Signed-off-by: Simon Glass <sjg@chromium.org>
 
 ---
-base-commit: fc02acf6ac0ccde0c805c2daa9148683cdd01ba8
-branch: rkpinfix
 
+ drivers/pinctrl/pinctrl-rockchip.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl-rockchip.c
+index 8bfc7ab5de15..08084ed2cf1b 100644
+--- a/drivers/pinctrl/pinctrl-rockchip.c
++++ b/drivers/pinctrl/pinctrl-rockchip.c
+@@ -3212,7 +3212,7 @@ static int rockchip_get_drive_perpin(struct rockchip_pin_bank *bank,
+ 	u8 bit;
+ 	int drv_type = bank->drv[pin_num / 8].drv_type;
+ 
+-	if (ctrl->type == RV1103B && pin_num >= 12)
++	if (ctrl->type == RV1103B && bank->bank_num == 2 && pin_num >= 12)
+ 		drv_type = DRV_TYPE_IO_LEVEL_2_BIT;
+ 
+ 	ret = ctrl->drv_calc_reg(bank, pin_num, &regmap, &reg, &bit);
 -- 
 2.43.0
 
