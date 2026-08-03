@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FF5C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 16:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8722C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 17:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ktJ1TUfqLx16vP/MAvZ075WUJwVncZtbcK2MP7W0fJA=; b=dwEReG5ZaV9b1i
-	3GlPO4j33uN+YVE5+bvsQey7Txi0Aokq0TvYsiKFjJ3YLcXXBmKp7r8piXkb1ErvE3zN0Bw72g1Ak
-	t6BZUV+Mr31hOrsCVaIkQMVF0vsovi9RGG9MjhD7O529EfhyYT6PdIIcRvIG5PcCOUOidDTWpgE4H
-	WC+2NJXWeXryN8gUmrHUKnWOOxTrEGV0WjBaHzgehZ7S1Bz5g2XThqPw3/xg3PQwEklUWWgCfocJl
-	BT/zkQgWJpt7Hf0Hw5i6PGCeCgJbdw2O4zmb7b96o2wXwN7IJoFb6W4LMd1m6KHeyGi7HgrPW29iM
-	S6XLEaPReT5reVKoVpVA==;
+	List-Owner; bh=1IenpiuM5JsmgqLGPzCFWXP8UT6+FeKulhYM9DPJHH0=; b=asGb/rDGPNWtvO
+	xtciGowRWlmBZGM6bpWNfB3OHWQqVvluffHqQNPSWaJikKYQMje5/6b/MIib1WYRiSlBNYeNr9Yht
+	4jIZT7KqgNd6fPcti++UctlTDzXYp8tvmpyVuAetAAdZhWaA9kZ4iWB/FOm+9V+5MUkegVMQnpsw2
+	wLjo7Ik9gqzeNY1w3A7+LaLLhCS29O1xHkfcbeQ1/IlVIF9apnCMbIL56hffPoiXQozWqc27miHlv
+	5yJbJ5FOIL1iWRQLsDd0+fv4PI8FMB6FCiHoiJJt09lJVqq2DQJP6JkQ1tbyeeE3vWnAxBl9SgA/Y
+	wFjkcTZOGSbUss3jXeNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqvtd-000000009Pj-47yr;
-	Mon, 03 Aug 2026 16:52:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wqw3z-00000000AeS-0jVj;
+	Mon, 03 Aug 2026 17:02:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqvtd-000000009PI-2Ycn
+	id 1wqw3y-00000000AeH-1SKQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 16:52:13 +0000
+	Mon, 03 Aug 2026 17:02:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1430660AA3
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 16:52:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B99F91F00A3D
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 16:52:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CE21D43B5E
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:02:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B39F91F00A3E
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  3 Aug 2026 17:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785775932;
-	bh=ktJ1TUfqLx16vP/MAvZ075WUJwVncZtbcK2MP7W0fJA=;
+	s=k20260515; t=1785776573;
+	bh=1IenpiuM5JsmgqLGPzCFWXP8UT6+FeKulhYM9DPJHH0=;
 	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=W4ObqZm1721yih5Cc72KTg1SNORcLauLEAeTR/pQvfulljFV1MY786WAqOG+xn40r
-	 Nm6krj9Zt3xk+1UjcfnwqMXNgD5eKdkTOopLe6stmk4hDhhDo+pnbC9woAg+LNhCEU
-	 rfOXG8bFLRNqvzlg52wWAsCZKeZXzzsFdGKuftIB4RdoErFBA6IpAs8GvfEfVtD0yT
-	 DhNz6Rmwo19vJ3v461khXi2B3D+UUxZ8Sr0FXMUTiYY9fXY8So5/RbjYmIoC3rlDmt
-	 zeYYhcpO9uCkfPhrdg0r6h8cpqA0QbjEIp0DoSaTgZbDBaLOxjRM7OGX/eWpQiklrP
-	 fO7+/JOLtU5hA==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aeb59d54b1so3416772e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 09:52:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rq9TdsrgPbpQU4L+YeIIOWw1KXvvn4IzYOaEzscEj4qfQVC6hlDWPaLRx0T0wIJIuMroxI28KbBbC7A1PNUCDMU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyU0onXxtGjrYCdzoUQx0dWCeFDwMNqRmqJ7olBtMHveAwHPXD7
-	ogbETx1ooyBd3ztAOdnb4wFkxNlY0FnMNJZ5tKfRcIPWi/LcFR+h9lzzIAjuChvBR4Em3knGWWz
-	UTwCZmhdw7nhNYynihEk1fTB0hWLF61U=
-X-Received: by 2002:ac2:5218:0:b0:5b2:9c0e:a2d9 with SMTP id
- 2adb3069b0e04-5b2e4f9dd16mr1400790e87.65.1785775931139; Mon, 03 Aug 2026
- 09:52:11 -0700 (PDT)
+	b=FTdXnF8GFLny3L584AQMMgX2xFs2nxONoFzoXYXqVfCFkjBOgeX8Mr/iTQ9uusC3r
+	 Zgj3u3iA940U7/5dptUgEJR63P/Yb+TVqM0phvTk3cTLIEbBs8bljGub28r+RCUbwV
+	 EkLQsjUHId9GqE8Ku9EU/+GjtYNYBPmPynBYLHs6WTRfmevunezT+XRbZ3MebOQf4D
+	 A1opir9RT91tIzWOrZQK3fkhpuO0gNdIyUr0JBq/dYWEi3HFFM6TFM6/OwO4DVKTz3
+	 mLsIEks8ez6oRODt/3GYbQ7+hrOxNVzwB6uV85OQDVjhcYsXBLauovRXM7ewba5Wcz
+	 qmp169nCj/83Q==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-39c7ed5410bso18202701fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 10:02:53 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpxQc81KskYbVyvVu6HIVq8qi0hY4l9L4clsq+K9Q/CkGyhATcTZPATpiGKH/WEBnc3ZLmswdWw4mCKkAcI4zR+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRc0Ij7XoPXlmhLlSecW6m6zpoQAg/JJ4AW6KepPLHNRYS1nLN
+	6Kf2SOAnKa3lqMw4Ng0MslOJyNkAjlz2p2cOXkzdctsLpZt4P3IaDISFwHWfzCvDUkapS6VLHpc
+	tGE02OysTIqbmQ9P2fSLxZVwMS23LyZc=
+X-Received: by 2002:a05:651c:a110:10b0:39d:9eac:8ec with SMTP id
+ 38308e7fff4ca-39f863feedamr15152501fa.25.1785776572170; Mon, 03 Aug 2026
+ 10:02:52 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <20260802-submit-acx00-of-dynamic-v1-v1-8-0a53cd9e21cc@gmail.com>
- <2c0210b3-2c68-41f1-aa33-3f1693454849@lunn.ch> <CADvTj4pfNFVGrQV86T7X+nZQYUamxEYLLWuxVXk=av0da_XocQ@mail.gmail.com>
-In-Reply-To: <CADvTj4pfNFVGrQV86T7X+nZQYUamxEYLLWuxVXk=av0da_XocQ@mail.gmail.com>
+References: <cover.1785772659.git.jernej.skrabec@gmail.com> <b26a0d427d9dfae9c82e3ca90a67d24d8ece5a28.1785772659.git.jernej.skrabec@gmail.com>
+In-Reply-To: <b26a0d427d9dfae9c82e3ca90a67d24d8ece5a28.1785772659.git.jernej.skrabec@gmail.com>
 From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 4 Aug 2026 00:51:57 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67Wo+WG47jF_vBUOwv0Vw1SDygXMdBgpsy3R1AQ_LLfHw@mail.gmail.com>
-X-Gm-Features: AUfX_my4aoD19Jk3-8CcfeDfaoI0T_9zWEBW-1SE8UXOLwMz9Yfo_iLW9hIPcwI
-Message-ID: <CAGb2v67Wo+WG47jF_vBUOwv0Vw1SDygXMdBgpsy3R1AQ_LLfHw@mail.gmail.com>
-Subject: Re: [PATCH 08/21] dt-bindings: mfd: x-powers: add AC200
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Andre Przywara <andre.przywara@arm.com>, Richard Genoud <richard.genoud@bootlin.com>, 
-	Maxime Ripard <mripard@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
+Date: Tue, 4 Aug 2026 01:02:39 +0800
+X-Gmail-Original-Message-ID: <CAGb2v66yVbzTSu6sb4ryuD-djcH+vaCtamuhtY=xnq93_ZvKog@mail.gmail.com>
+X-Gm-Features: AUfX_mxnJXn_HowfQijlCXTBUd6N7zXjEPoDoAqA1n9Cl_6r3aRntgABVyXhcqU
+Message-ID: <CAGb2v66yVbzTSu6sb4ryuD-djcH+vaCtamuhtY=xnq93_ZvKog@mail.gmail.com>
+Subject: Re: [PATCH 08/13] drm/sun4i: crtc: Propagate layer initialization error
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
+	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -95,46 +82,46 @@ Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 4, 2026 at 12:45=E2=80=AFAM James Hilliard
-<james.hilliard1@gmail.com> wrote:
+On Tue, Aug 4, 2026 at 12:11=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gmai=
+l.com> wrote:
 >
-> On Mon, Aug 3, 2026 at 7:18=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote=
-:
-> >
-> > > +            ethernet-phy-control {
-> > > +                compatible =3D "x-powers,ac200-ephy-ctl";
-> > > +                nvmem-cells =3D <&ephy_calibration>;
-> > > +                nvmem-cell-names =3D "calibration";
-> > > +                phy-mode =3D "rmii";
-> > > +            };
-> >
-> > What do you mean by an ethernet PHY control?
-> >
-> > I assume this is not an actual Ethernet PHY, but some control logic
-> > around it? Where is the ethernet PHY itself?
+> sun4i_crtc_init() returns plain NULL when layer initialization fails,
+> while all its other error paths return an error pointer. The only
+> caller, sun4i_tcon_bind(), checks the result with IS_ERR() and happily
+> continues with tcon->crtc set to NULL. sun4i_rgb_init() and
+> sun4i_lvds_init() then dereference it in drm_crtc_mask(), which
+> oopses.
 >
-> Correct, this is not the Ethernet PHY itself. It is the package-specific
-> sideband control block that must be configured before the normal Clause 2=
-2
-> PHY registers become usable. For AC200, this control block is accessed
-> through the parent AC200 I2C regmap. For AC300, the equivalent control bl=
-ock
-> is accessed through a separate non-PHY Clause 22 address.
+> Return the error pointer instead.
+>
+> Fixes: dcd215801b02 ("drm/sun4i: Drop primary layer pointer from sun4i_dr=
+v")
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-Basically, all the PHY behavior that is normally configured using strapping
-pins on a discrete PHY is done over this I2C channel.
+Acked-by: Chen-Yu Tsai <wens@kernel.org>
 
-> The actual Ethernet PHY is a separate device on the MAC's MDIO bus. The
-> shared PHY driver for that device is added in patch 16:
+> ---
+>  drivers/gpu/drm/sun4i/sun4i_crtc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> https://lore.kernel.org/linux-sunxi/20260802-submit-acx00-of-dynamic-v1-v=
-1-16-0a53cd9e21cc@gmail.com/
+> diff --git a/drivers/gpu/drm/sun4i/sun4i_crtc.c b/drivers/gpu/drm/sun4i/s=
+un4i_crtc.c
+> index c2f7f69baf75..3fa1f4fda0f0 100644
+> --- a/drivers/gpu/drm/sun4i/sun4i_crtc.c
+> +++ b/drivers/gpu/drm/sun4i/sun4i_crtc.c
+> @@ -208,7 +208,7 @@ struct sun4i_crtc *sun4i_crtc_init(struct drm_device =
+*drm,
+>         planes =3D sunxi_engine_layers_init(drm, engine);
+>         if (IS_ERR(planes)) {
+>                 dev_err(drm->dev, "Couldn't create the planes\n");
+> -               return NULL;
+> +               return ERR_CAST(planes);
+>         }
 >
-> The later board DTS patches instantiate it as an ethernet-phy node beneat=
-h
-> the MAC's MDIO bus and reference the appropriate sideband control provide=
-r.
+>         /* find primary and cursor planes for drm_crtc_init_with_planes *=
+/
+> --
+> 2.43.0
 >
-> >
-> >        Andrew
+>
 
