@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB663C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:13:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 561E4C55179
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 11:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I6Kz68yYAXo6+FxgCcZ8xt2d27kzI8ELfLUFCtIDH5c=; b=SOsRyrqDbW485Ky8mzcZov1/8q
-	UTqtDPGhmSSA6ro7qodPlXwsiLAbA9AGoXO12pRWiz/J5vHC1xoEYfcAgRoIjmWLRGO/HZn6OZSsu
-	xlwP4tijyWMFw9wqHStAN2EgOWaxF3F9naz6C8oasa0UR34R0XZ7EZ0xFfN48qaTsL7VdukF1eneh
-	0dhCo6NqtL2pZsggZdpYWAWxegz9IfUILsvZcs6e7ZliWTEQUiLPQFlQa5W5lJbX46V7E8lEutZX7
-	HL41UaqIsQdvgRgP++SuNUO74bW6Y7AnSsw6sWWIN6mfHilt+s8vqWaM/IlHhxpOYpDaTo+RT2QQ/
-	Uurnw/ug==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NuRyFBwN1SC24uRuk/3QyHtck+ihNVdASdTlKyM/F1U=; b=HO7JC6gtONjEc0c2QjJxMyxbAC
+	QYVEzDBgCjoweIBo2oCcYXI7fXiHB3ca1zNdBpEEkZ6rmX9R5cmjG1WUrSOxbfdAWRnxuLU9rUeMa
+	/eMi37szua+sRD7UrJusL3bSJEMUzQNO1Z8o+2ydJX3s2JpoZtHVH87uvPUXkKdbcfNjqpm58cVW9
+	i1WTnwnfHhbd5UH42+7n8ZpqGncUIXDfKpT9MbwJVxc4QazCBHlklnYLb6joDwoaYtQHqFqC1evGE
+	Dvquu3sDIgib14uykTmnH0umHt8a7LWDb/Bx8b3ggkQLy51iGpllqaEuYDblIQL13wqKQijJ/7rCc
+	w2LkvB3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqbw-0000000GvPN-0zjd;
-	Mon, 03 Aug 2026 11:13:36 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wqqfY-0000000Gvln-3W7q;
+	Mon, 03 Aug 2026 11:17:20 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqqbt-0000000GvOl-0WjF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 11:13:34 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2cc97653887so34139915ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 04:13:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1785755611; x=1786360411; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=I6Kz68yYAXo6+FxgCcZ8xt2d27kzI8ELfLUFCtIDH5c=;
-        b=ms1PpdbV7a+H8kltfDHzgQ4hTf6SajED2TJLtRJGnhQLbePbX18aY8IlN3Aw+c+z5g
-         2XVXq7/6aZbqK6Ld9IQM8Aq2X5CTrliRl6hZkMGM6zOGnkUB6lhPT1QpCnXU8XkaX2gB
-         MKnqH2kWBMBZhRwzqzWLKM99/V+3zwTj+Ac4g=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785755611; x=1786360411;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=I6Kz68yYAXo6+FxgCcZ8xt2d27kzI8ELfLUFCtIDH5c=;
-        b=QF5h8dNCb5bxgOBfY4Od17szGOwRydTP7kWYgeolsno66gfXOwp0qgZ3xSkKZAnoUO
-         kzJtZhUPTLrdJ0mwoqAt9wgt0HhblwUwNDT+UwMcCRtMOVHZ1O88c6sxNGsG8T1tfysS
-         dAbpkyw40XqloDzp9yfMaDl+Jaj6EpObuQF4porETOPUThE2xJ206LoRXC4bZjzp0Fsu
-         K4vclHkBdWws1DXP7EKp8iGE5D94oAsGXLS0MfFfQYEK/3F1eApa96x/ypvXPUuWu4GA
-         qvS95rkXSX75Dd8mmxYY0UbaAcDafy+nkabrBd3XsLXZ5F66x4JZT0zPn4oeNfe6julp
-         w2Uw==
-X-Forwarded-Encrypted: i=1; AHgh+RoBfPj0Xjy9q/JIBri9CI3p3Rcw4iHBqO7a4V1W1zL8+1kdidTmSuvJRJyn2q70JbFo3FVyDtLbdtYhZsF0x6Cs@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIgt1QtdGYBYeVem276DXBzzaN/e5iTd4rR9qmHRNPnq7Ys0vV
-	CiUm6/FlzX3hGP07PhI6MOK10ZcDSs0FyintPCSGvRN31FNbfDU/dU6/7tRstXlePQ==
-X-Gm-Gg: AR+sD13mqXLBwGzydQcCZDC/AWRop6BmFnxPtG3CxH9l1GBd+P1f4GxtJGhW3P6Ukyn
-	htFkIERMJF0dnsKKfSUdGlwxU43I/FwMMnbfGU651XQNTQvAgKt19smyGCklK6t5hgQR2RfAMf0
-	++ZGPFm2FWUENa+6Vvk6qntAA/q1cOAbY6CErEnXG2U/fPhyRbhkeJuKZ6xBzbLUn0rgps2PjZB
-	ZiYHyEoh5z7yE1uCKlnLqmeyw0EpNkmV04UfCN80XzbasWLXbLYtCediGEyaYKvjkKFZh37WDmo
-	EAedYZkK/dTeFhY+zkqDanTYKqpwyZ6i0g6rSnsJJ4Fw7G2ug1RdnI3ej/qrKGOJ/G04XFGQ+r/
-	T8gHDUkzO1vVcS0/KuZ5LiZ9tiFqfypnk4jLMnF49DPFL2ZyGpx2En1RGkDxHu2mT0O1wk4uPHK
-	Qk4onK9TbyOGdkNL8vrmLTH4DIo2XCN9DoAD8ns1ELevH41MjHPQo7Nfeek/+yNgIx7q5vvDrOE
-	BJkwsoyibwBlUPEiZwZuMJZEoMGVdvtuZvBOz48IQXIzw==
-X-Received: by 2002:a17:903:1b50:b0:2ca:17e2:2acc with SMTP id d9443c01a7336-2d052297a68mr94429995ad.21.1785755611549;
-        Mon, 03 Aug 2026 04:13:31 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:1c0b:57ba:92e2:e178])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04b11e69asm36171805ad.56.2026.08.03.04.13.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 04:13:30 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-sunxi@lists.linux.dev,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] drm/sun4i: framebuffer: Set mode_config.normalize_zpos
-Date: Mon,  3 Aug 2026 19:13:18 +0800
-Message-ID: <20260803111319.2836240-1-wenst@chromium.org>
-X-Mailer: git-send-email 2.55.0.571.g244d577d93-goog
+	id 1wqqfV-0000000GvlG-1ldC;
+	Mon, 03 Aug 2026 11:17:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1785755833; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=N6ywSwxLEFb9gG8oYttpQkVhScP+WvoU/6wJZ3gWbc+DXC20neefgnMbzCQW8brUjrXkB8iNGwYfJcSm1l6NmkbPKinyFVFAiM5JDw2D6C83GBGSZ+a6yIFWNcSVIqHPoCsKd16evyYoLO1m0/V0TLewUu/xE5gI7mO/CX0Marc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1785755833; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=NuRyFBwN1SC24uRuk/3QyHtck+ihNVdASdTlKyM/F1U=; 
+	b=oIn67671C5ZXQQdsJ3QoxBw4H1P2QyluVcIOuIDTe8485DMhxQBgt0d5y+F82eEpoxBoGuPEgYrpo1hwToBHgErN8j7yEq4S/zTLUBDtsG1dTAY9mfJBD5PDl0vEf9caTB06FYsSukNZzWnh99PfinDAX6q1YajfgyXwghJWtRA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
+	dmarc=pass header.from=<michael.riesch@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1785755833;
+	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=NuRyFBwN1SC24uRuk/3QyHtck+ihNVdASdTlKyM/F1U=;
+	b=fECO9WpQVTjWD/nDF1WL9T/MlLRiA+KHJyFV5E4f90l3hlfDNYrqkYqu4x0v3NkM
+	u6AHZRTycWtHTtWJ0pt/F5wgDp27Qt/vxRMhu2eSmj/ZpZkmc+j8h/MI22i6Sd4GG6x
+	IXH4QojZEtbaolLZVVwdHAcXaCgqd78daBEYnzJs=
+Received: by mx.zohomail.com with SMTPS id 1785755829967932.0627661158444;
+	Mon, 3 Aug 2026 04:17:09 -0700 (PDT)
+Message-ID: <82da3622-9c3a-454c-87bc-fb4ec7adb68d@collabora.com>
+Date: Mon, 3 Aug 2026 13:17:05 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
+ support per-direction phys
+To: jason98166@gmail.com, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Guochun Huang <hero.huang@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260726-dcphy-rx-v1-v2-0-cf9cc34a412a@gmail.com>
+ <20260726-dcphy-rx-v1-v2-1-cf9cc34a412a@gmail.com>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20260726-dcphy-rx-v1-v2-1-cf9cc34a412a@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_041333_200955_8F0207CD 
-X-CRM114-Status: GOOD (  13.20  )
+X-CRM114-CacheID: sfid-20260803_041717_492148_70A56FA1 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,64 +86,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Back when support for zpos was added in commit 47a05f4a68f9 ("drm/sun4i:
-backend: Add support for zpos"), a custom atomic_check callback was also
-added in commit b8f1230dd3bf ("drm/sun4i: framebuffer: Add a custom
-atomic_check") to have a place to call drm_atomic_normalize_zpos().
+Hi Jason,
 
-Commit 49efffc7fbd4 ("drm: Add drm_mode_config->normalize_zpos boolean")
-added drm_atomic_normalize_zpos() to the standard atomic_check function.
+Thanks for your patches!
 
-Set mode_config.normalize_zpos and drop the custom atomic_check
-implementation, which at this point is just a simplified copy of the
-standard one. The standard one also checks whether async updates are
-valid and updates the self refresh state, but neither feature is
-supported by this driver.
+On 7/26/26 16:55, Jason Yang via B4 Relay wrote:
+> From: Jason Yang <jason98166@gmail.com>
+> 
+> The Samsung MIPI D-/C-PHY block on RK3588 drives a MIPI DSI transmitter
+> and, on the same PHY, can receive a MIPI CSI camera. Describing both as
+> independent consumers of one PHY requires the direction to be expressed
+> in the devicetree.
+> 
+> Allow "#phy-cells" to be 1 or 2. The existing single-cell form still
+> selects the PHY type and refers to the transmitter, so shipped DSI
+> device trees stay valid; bumping the cell count unconditionally would
+> invalidate them. A second cell adds the direction, letting a DSI (TX)
+> and a CSI (RX) reference the same PHY node as separate consumers.
+> 
+> Add include/dt-bindings/phy/rockchip,rk3588-mipi-dcphy.h for the
+> RK_DCPHY_DIR_TX and RK_DCPHY_DIR_RX direction constants.
+> 
+> Signed-off-by: Jason Yang <jason98166@gmail.com>
+> Assisted-by: Claude:claude-opus-4-8
+> ---
+>  .../bindings/phy/rockchip,rk3588-mipi-dcphy.yaml   | 22 ++++++++++++++++------
+>  .../dt-bindings/phy/rockchip,rk3588-mipi-dcphy.h   | 13 +++++++++++++
+>  2 files changed, 29 insertions(+), 6 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
+> index c8ff5ba22a86..68a43db9c669 100644
+> --- a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
+> @@ -20,12 +20,22 @@ properties:
+>      maxItems: 1
+>  
+>    "#phy-cells":
+> -    const: 1
+> +    enum: [1, 2]
+>      description: |
+> -      Argument is mode to operate in. Supported modes are:
+> -        - PHY_TYPE_DPHY
+> -        - PHY_TYPE_CPHY
+> -      See include/dt-bindings/phy/phy.h for constants.
+> +      A single cell selects the PHY type and always refers to the
+> +      transmitter (DSI) direction. It is kept for backwards compatibility
+> +      with existing device trees:
+> +        - <PHY_TYPE_DPHY>
+> +        - <PHY_TYPE_CPHY>
+> +
+> +      Two cells select the PHY type and the direction, so that the
+> +      transmitter (DSI) and the receiver (CSI) can be described as
+> +      independent consumers of the same PHY:
+> +        - <PHY_TYPE_DPHY RK_DCPHY_DIR_TX>
+> +        - <PHY_TYPE_DPHY RK_DCPHY_DIR_RX>
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- drivers/gpu/drm/sun4i/sun4i_framebuffer.c | 19 ++-----------------
- 1 file changed, 2 insertions(+), 17 deletions(-)
+How is that Rockchip specific? As you state above this is either MIPI
+CSI or MIPI DSI, two perfectly standard protocols.
 
-diff --git a/drivers/gpu/drm/sun4i/sun4i_framebuffer.c b/drivers/gpu/drm/sun4i/sun4i_framebuffer.c
-index 9c8ef927d929..fc822bc2c62b 100644
---- a/drivers/gpu/drm/sun4i/sun4i_framebuffer.c
-+++ b/drivers/gpu/drm/sun4i/sun4i_framebuffer.c
-@@ -14,24 +14,8 @@
- #include "sun4i_drv.h"
- #include "sun4i_framebuffer.h"
- 
--static int sun4i_de_atomic_check(struct drm_device *dev,
--				 struct drm_atomic_commit *state)
--{
--	int ret;
--
--	ret = drm_atomic_helper_check_modeset(dev, state);
--	if (ret)
--		return ret;
--
--	ret = drm_atomic_normalize_zpos(dev, state);
--	if (ret)
--		return ret;
--
--	return drm_atomic_helper_check_planes(dev, state);
--}
--
- static const struct drm_mode_config_funcs sun4i_de_mode_config_funcs = {
--	.atomic_check		= sun4i_de_atomic_check,
-+	.atomic_check		= drm_atomic_helper_check,
- 	.atomic_commit		= drm_atomic_helper_commit,
- 	.fb_create		= drm_gem_fb_create,
- };
-@@ -46,6 +30,7 @@ void sun4i_framebuffer_init(struct drm_device *drm)
- 
- 	drm->mode_config.max_width = 8192;
- 	drm->mode_config.max_height = 8192;
-+	drm->mode_config.normalize_zpos = true;
- 
- 	drm->mode_config.funcs = &sun4i_de_mode_config_funcs;
- 	drm->mode_config.helper_private = &sun4i_de_mode_config_helpers;
--- 
-2.55.0.571.g244d577d93-goog
+@all Would it be reasonable to introduce PHY_TYPE_CSI and PHY_TYPE_DSI?
+
+The rest of the patch LGTM.
+
+Best regards,
+Michael
+
+> +
+> +      See include/dt-bindings/phy/phy.h and
+> +      include/dt-bindings/phy/rockchip,rk3588-mipi-dcphy.h for constants.
+>  
+>    clocks:
+>      maxItems: 2
+> @@ -82,6 +92,6 @@ examples:
+>                   <&cru SRST_S_MIPI_DCPHY0>;
+>          reset-names = "m_phy", "apb", "grf", "s_phy";
+>          rockchip,grf = <&mipidcphy0_grf>;
+> -        #phy-cells = <1>;
+> +        #phy-cells = <2>;
+>        };
+>      };
+> diff --git a/include/dt-bindings/phy/rockchip,rk3588-mipi-dcphy.h b/include/dt-bindings/phy/rockchip,rk3588-mipi-dcphy.h
+> new file mode 100644
+> index 000000000000..5029838fa275
+> --- /dev/null
+> +++ b/include/dt-bindings/phy/rockchip,rk3588-mipi-dcphy.h
+> @@ -0,0 +1,13 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (c) 2026 Jason Yang <jason98166@gmail.com>
+> + */
+> +
+> +#ifndef _DT_BINDINGS_PHY_ROCKCHIP_RK3588_MIPI_DCPHY_H
+> +#define _DT_BINDINGS_PHY_ROCKCHIP_RK3588_MIPI_DCPHY_H
+> +
+> +/* Direction of a Rockchip Samsung MIPI D-/C-PHY combo block */
+> +#define RK_DCPHY_DIR_TX		0
+> +#define RK_DCPHY_DIR_RX		1
+> +
+> +#endif /* _DT_BINDINGS_PHY_ROCKCHIP_RK3588_MIPI_DCPHY_H */
+> 
 
 
