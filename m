@@ -4,74 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B081AC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 23:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE06CC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 23:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0g4KetOtT1QniGH3lYu0d4Ii94UczTzbZTbGp4YhhKU=; b=B27xyOWt7WgHOnIdlpN0zC1DF5
-	2OvSlD93fydc4yNoFsYrqL4Bh56uwlBoGaR40FPKABGp4/xhj49zTVh2dqyECHFd1ZZ7S7wrNBLc8
-	aC6qf80QqEYG/RNZNyQwwsc85TuGaIQCWlKptkGIs7uy84uQn+DpshvGd6KNgxicKcuHi+eRqe0vk
-	GVnh5RMfJC/vzxIzRRtBJugqYwDo40M1JAiXEm/e8jVqPplZs1VG3najhOna2NfzkPRsUAW0Er8P4
-	L5g5ELWSZXjmvJJzIztsEV5QEX0RO89IG9FvSxLXb5nJ9q2YVPOmHjyxz98b73fn61FJJHQrslfUe
-	2zCkltzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pNy0UkHqJf4wD9Q7SUQtnbzuWP3YB4RBFtxq12jMuKE=; b=uEpLexFmaHwOZhuBFjqmdzpGZd
+	SgOaj7hes7rheNOqer4/DlpUmwV+fMhMVLudNCvppbXOgrAO1vuoLqbd/eKC/M5QNmDUvk9JmGH3k
+	teS+AqokwkxKwhnWmAZL3MRHlc/mZpmVFhnA15v+Bo2BCbiRUfTyiB++aBj/xp7VIZ5S+Mr8dQNbp
+	TuzB7KjKIO9ga9UwHPukrayT2fJIkFOg3YYu4u5CBJ0M+zr/mdyLnZj3EHnpUiNcYL0Jz4J1vi465
+	PVh77L6DoRYdSeuLYB1hUZXX5VFJ6Zk7n4N4JgCCVTt6y3Hg7o5Qc6BSjwQU823rl+/b8MiYt7+5j
+	G+xKNvNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr1rX-00000000fQA-1qM6;
-	Mon, 03 Aug 2026 23:14:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wr1vR-00000000gHf-10sB;
+	Mon, 03 Aug 2026 23:18:29 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr1rW-00000000fOh-3uxd
+	id 1wr1vP-00000000gHC-110u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 23:14:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A191940141;
-	Mon,  3 Aug 2026 23:14:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3AF21F00A3D;
-	Mon,  3 Aug 2026 23:14:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785798866;
-	bh=0g4KetOtT1QniGH3lYu0d4Ii94UczTzbZTbGp4YhhKU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=fOvlpMocHn1y0aanjbvVGXQNf/tJP1b7+DpCsPyyLZ1+RhIfXcUz+9AmLDWxlOCTf
-	 6MZ/yxNy9Y/eBSg+Z1gCn4R6J6RfeBPcdK7UMiJZjXsfpOYV/OMXNTae+s01emf5Ba
-	 +QWWLjTEHXRCAHZfH7zcK/6ljxBU68mHTQ/egHu8WX8XOE8nFFokVTUM1tEAfig6CZ
-	 9oJHSrGTGGyyerL9Psv458ie+FAq2vtvKrihj4GPpnWIY57VppvjbHDvOC5xggig/a
-	 OBJHCibh8YeGakff7Cix9GMXzkMcQmcHM71HTzAmC2g16Zh1qXr/vsiXwUsvYw7OqF
-	 g0ayeDyYo6Gcg==
-From: Mark Brown <broonie@kernel.org>
-Date: Mon, 03 Aug 2026 23:56:58 +0100
-Subject: [PATCH v18 13/14] tools: Synchronise the kernel esr.h
+	Mon, 03 Aug 2026 23:18:28 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2cea3004256so43879365ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 16:18:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785799106; x=1786403906; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pNy0UkHqJf4wD9Q7SUQtnbzuWP3YB4RBFtxq12jMuKE=;
+        b=JnAihTZ2KNa6QU3tdgATy23bVzOprMOpFfDbEtv2qNiCume5RhRPLcFfXfbzR3scuo
+         cLG7Jb/IXR8mlDNJOyVhZ6N5N+N2ITwiBfM7Nt5Dujur+MdGIFqFTW4EPScWBdvLkX4r
+         RKDmuW1FP1w/0Dexysl0BkkawJ8u9bddu2WoNDfZ1kmRdytqXOGj3qleKhd3UYvVjFQO
+         9XfMr2TwTNookH3tIkRsVIdpTPdun+3grWLOQOlxK0Q/q5BcXN4HEc0ynovmxC2iF/F2
+         016cj48cR5E8E2vNLRBUkav9BlQfs4T6IXjKIHS6Y8qD4/zHtdhGZ7YYNrlbFZaTTYwI
+         czTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785799106; x=1786403906;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pNy0UkHqJf4wD9Q7SUQtnbzuWP3YB4RBFtxq12jMuKE=;
+        b=QaYKllHboA7o91RfQ/FMUVld3au1JNaFycMokpJI8fD/vs5S5pFWDwozctiu4hu8HA
+         mlwu8BOhZmx8XidZCpWSs42XAmMi1omup0kWQKYBGWWZ3b2GkNF24NWhc31y8r5FPap/
+         Gd2MkyzIHyhl8TLhBv51H5dTCmt3dknpWoVmilEdtzHB0BqNksa7tcOkpN4h+3smLv8i
+         UsxCxjHB2tpK2/1VlUhfTaappl3Q97bnKtrb9vm3E43+nOWnRjRVVP1Ymz/KexRcfvfG
+         +3UlZfAY+WagI52muTVFbbsDRSj6+yAyBvMjSATm/OKe51vDpqIX3Dkm0vMYSnW64tR3
+         d2Pw==
+X-Forwarded-Encrypted: i=1; AHgh+RoH2Kd/g47mjnMGLn2iNXXuABIFqBVFycAS1MQxwRlIHM2h/GSmtYV9+xz29lBwkjzHYK2lx+qkFBEwW8rajnWH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrMdA7pzsUmJs0ekokpBaUpZ/PpCyJEYyosVTxQ6GZS6ICs1qt
+	dphIaTxuagwfwJS8qoz45i06KIF6k3on/uw2rfhrixz3OA7AI2Sdi7JP
+X-Gm-Gg: AR+sD11MyCwuP9OjYefsXKCaqLw8ncJztcUt12FDQukAXLExQB0HNqo/CXUCX5+1U50
+	bEr6Sc+Q+Vs0tw3Kmt7YGPBlpvLTItm83BriLXCONPwdVmL2ndWBw+Wueh3g+yu/McAvKOW0K4l
+	RC5JYDIAeMPmRUnXMkeeLBCdEd0p/tcEMCGE+dHVd0mlSVkfNAv3W/rjYMyWCDIYSPp22J8DQ0N
+	MCqNDGmPISBo2gkRfv0i7YOfh7lDVNvGEAE61hAaAbDeatYGRm7Sa3gNfqS+J+Y5wdYdcRP1MX7
+	Ye5Jd4gJCpZCZZprMCgeCpYb1Z8yyIbrosbx/DLYAuNF8EjBrC6eXM4Y/lEJq0k6yOr5mbnP2Na
+	WdEfuA1v0dKakF5bS88rjk63FijJ8cYdezus3LihYH75B79P6ok489ttOmKZZGHNT5Khv2Gz6Pf
+	w4rkoMC6uvlbfJ/ASzs6aDKHXZglyUHsxTYZzMAEqmH59FEaX2ECi9VVzgI/jfFAKhzyfv9qqCE
+	n9FxJzXPFdnFdYlKbeBV/H7amS2Jvl7XZMuDb436g6K02pA80sxSYK8sj7hxMp+RiU7yeqXP2Fz
+	2rAgMV/LLnys6wB0IZDNoYWYOvo6PW7kRAev2Q==
+X-Received: by 2002:a17:903:37ce:b0:2ca:1479:d9dc with SMTP id d9443c01a7336-2d05221d3bbmr113140515ad.12.1785799105666;
+        Mon, 03 Aug 2026 16:18:25 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04aea0f8asm43349705ad.35.2026.08.03.16.18.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 16:18:24 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-sound@vger.kernel.org
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] ASoC: xilinx: replace OF with device handlers
+Date: Mon,  3 Aug 2026 16:18:23 -0700
+Message-ID: <20260803231823.95147-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260803-arm64-gcs-v18-13-fd8c40f5ad88@kernel.org>
-References: <20260803-arm64-gcs-v18-0-fd8c40f5ad88@kernel.org>
-In-Reply-To: <20260803-arm64-gcs-v18-0-fd8c40f5ad88@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>, 
- Oliver Upton <oupton@kernel.org>
-Cc: Peter Maydell <peter.maydell@linaro.org>, 
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7181; i=broonie@kernel.org;
- h=from:subject:message-id; bh=sIWieTk4WURR6tewmd4CqdDOGodIh/nx0/zJZ1rNZT8=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqcSCkCRfaQjaD7jACQCeX5Lg3QpLZ8ULiT4HAg
- wmZf+J+T7+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCanEgpAAKCRAk1otyXVSH
- 0BqWB/9mCnrhmIefg8+FELVFYNUWdH+nf07j8iX0/2V63FW5DBLsSkumMQJxIgeg2n8ZnvcVLe1
- yfobn2xoDEdFPvgx3rGwbY005l+Gz9q/mbMBZW4a7i899FcsDtHHA/I/Q6rHl/Jx3bv1hF/2gn5
- jqKwaBH6qY3/3x+pegnOojuBbSwSlmCnhDGi7xSX0FXVsHjlhoKvMw3DHAxWj3ZChYFUTYiBqPw
- VxCfG/G40HpTEOxBUuVA+IfgEtDjE0sMOkSChDUnBosRFIXl5FGakMfM+ujY5C3pW6FJdZbO+d+
- wdJHE+gpA977+n658jD/RhvBAirzCm21ZrsU3hQRq+VIpIvr
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_161827_289160_648351C8 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,214 +103,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To pick up definitions for GCS.
+All of these usages of OF handlers use the node from the
+platform_device. Use the device member to simplify slightly.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- tools/arch/arm64/include/asm/esr.h | 113 +++++++++++++++++++++++++++++++++----
- 1 file changed, 102 insertions(+), 11 deletions(-)
+ sound/soc/xilinx/xlnx_formatter_pcm.c |  2 --
+ sound/soc/xilinx/xlnx_i2s.c           | 12 +++++-------
+ sound/soc/xilinx/xlnx_spdif.c         |  8 +++-----
+ 3 files changed, 8 insertions(+), 14 deletions(-)
 
-diff --git a/tools/arch/arm64/include/asm/esr.h b/tools/arch/arm64/include/asm/esr.h
-index f3c6403e5ef2..24c6ebe3fd41 100644
---- a/tools/arch/arm64/include/asm/esr.h
-+++ b/tools/arch/arm64/include/asm/esr.h
-@@ -19,7 +19,8 @@
- #define ESR_ELx_EC_FP_ASIMD	UL(0x07)
- #define ESR_ELx_EC_CP10_ID	UL(0x08)	/* EL2 only */
- #define ESR_ELx_EC_PAC		UL(0x09)	/* EL2 and above */
--/* Unallocated EC: 0x0A - 0x0B */
-+#define ESR_ELx_EC_OTHER	UL(0x0A)
-+/* Unallocated EC: 0x0B */
- #define ESR_ELx_EC_CP14_64	UL(0x0C)
- #define ESR_ELx_EC_BTI		UL(0x0D)
- #define ESR_ELx_EC_ILL		UL(0x0E)
-@@ -50,7 +51,8 @@
- #define ESR_ELx_EC_FP_EXC32	UL(0x28)
- /* Unallocated EC: 0x29 - 0x2B */
- #define ESR_ELx_EC_FP_EXC64	UL(0x2C)
--/* Unallocated EC: 0x2D - 0x2E */
-+#define ESR_ELx_EC_GCS		UL(0x2D)
-+/* Unallocated EC:  0x2E */
- #define ESR_ELx_EC_SERROR	UL(0x2F)
- #define ESR_ELx_EC_BREAKPT_LOW	UL(0x30)
- #define ESR_ELx_EC_BREAKPT_CUR	UL(0x31)
-@@ -97,6 +99,8 @@
- #define ESR_ELx_AET_CE		(UL(6) << ESR_ELx_AET_SHIFT)
+diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
+index 8f7a76758535..55b5b473d85f 100644
+--- a/sound/soc/xilinx/xlnx_formatter_pcm.c
++++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
+@@ -9,8 +9,6 @@
+ #include <linux/clk.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+-#include <linux/of_address.h>
+-#include <linux/of_irq.h>
+ #include <linux/sizes.h>
  
- /* Shared ISS field definitions for Data/Instruction aborts */
-+#define ESR_ELx_VNCR_SHIFT	(13)
-+#define ESR_ELx_VNCR		(UL(1) << ESR_ELx_VNCR_SHIFT)
- #define ESR_ELx_SET_SHIFT	(11)
- #define ESR_ELx_SET_MASK	(UL(3) << ESR_ELx_SET_SHIFT)
- #define ESR_ELx_FnV_SHIFT	(10)
-@@ -119,6 +123,16 @@
- #define ESR_ELx_FSC_SEA_TTW(n)	(0x14 + (n))
- #define ESR_ELx_FSC_SECC	(0x18)
- #define ESR_ELx_FSC_SECC_TTW(n)	(0x1c + (n))
-+#define ESR_ELx_FSC_EXCL_ATOMIC	(0x35)
-+#define ESR_ELx_FSC_ADDRSZ	(0x00)
-+
-+/*
-+ * Annoyingly, the negative levels for Address size faults aren't laid out
-+ * contiguously (or in the desired order)
-+ */
-+#define ESR_ELx_FSC_ADDRSZ_nL(n)	((n) == -1 ? 0x25 : 0x2C)
-+#define ESR_ELx_FSC_ADDRSZ_L(n)		((n) < 0 ? ESR_ELx_FSC_ADDRSZ_nL(n) : \
-+						   (ESR_ELx_FSC_ADDRSZ + (n)))
+ #include <sound/asoundef.h>
+diff --git a/sound/soc/xilinx/xlnx_i2s.c b/sound/soc/xilinx/xlnx_i2s.c
+index 0676da122edd..273258125497 100644
+--- a/sound/soc/xilinx/xlnx_i2s.c
++++ b/sound/soc/xilinx/xlnx_i2s.c
+@@ -9,9 +9,8 @@
  
- /* Status codes for individual page table levels */
- #define ESR_ELx_FSC_ACCESS_L(n)	(ESR_ELx_FSC_ACCESS + (n))
-@@ -141,12 +155,12 @@
- #define ESR_ELx_SF 		(UL(1) << ESR_ELx_SF_SHIFT)
- #define ESR_ELx_AR_SHIFT	(14)
- #define ESR_ELx_AR 		(UL(1) << ESR_ELx_AR_SHIFT)
--#define ESR_ELx_VNCR_SHIFT	(13)
--#define ESR_ELx_VNCR		(UL(1) << ESR_ELx_VNCR_SHIFT)
- #define ESR_ELx_CM_SHIFT	(8)
- #define ESR_ELx_CM 		(UL(1) << ESR_ELx_CM_SHIFT)
+ #include <linux/io.h>
+ #include <linux/module.h>
+-#include <linux/of.h>
+-#include <linux/of_platform.h>
+ #include <linux/platform_device.h>
++#include <linux/property.h>
+ #include <sound/pcm_params.h>
+ #include <sound/soc.h>
  
- /* ISS2 field definitions for Data Aborts */
-+#define ESR_ELx_HDBSSF_SHIFT	(11)
-+#define ESR_ELx_HDBSSF		(UL(1) << ESR_ELx_HDBSSF_SHIFT)
- #define ESR_ELx_TnD_SHIFT	(10)
- #define ESR_ELx_TnD 		(UL(1) << ESR_ELx_TnD_SHIFT)
- #define ESR_ELx_TagAccess_SHIFT	(9)
-@@ -161,8 +175,6 @@
- #define ESR_ELx_Xs_MASK		(GENMASK_ULL(4, 0))
+@@ -174,7 +173,6 @@ static int xlnx_i2s_probe(struct platform_device *pdev)
+ 	int ret;
+ 	u32 format;
+ 	struct device *dev = &pdev->dev;
+-	struct device_node *node = dev->of_node;
  
- /* ISS field definitions for exceptions taken in to Hyp */
--#define ESR_ELx_FSC_ADDRSZ	(0x00)
--#define ESR_ELx_FSC_ADDRSZ_L(n)	(ESR_ELx_FSC_ADDRSZ + (n))
- #define ESR_ELx_CV		(UL(1) << 24)
- #define ESR_ELx_COND_SHIFT	(20)
- #define ESR_ELx_COND_MASK	(UL(0xF) << ESR_ELx_COND_SHIFT)
-@@ -174,6 +186,13 @@
- #define ESR_ELx_WFx_ISS_WFE	(UL(1) << 0)
- #define ESR_ELx_xVC_IMM_MASK	((UL(1) << 16) - 1)
+ 	drv_data = devm_kzalloc(&pdev->dev, sizeof(*drv_data), GFP_KERNEL);
+ 	if (!drv_data)
+@@ -184,13 +182,13 @@ static int xlnx_i2s_probe(struct platform_device *pdev)
+ 	if (IS_ERR(drv_data->base))
+ 		return PTR_ERR(drv_data->base);
  
-+/* ISS definitions for LD64B/ST64B/{T,P}SBCSYNC instructions */
-+#define ESR_ELx_ISS_OTHER_ST64BV	(0)
-+#define ESR_ELx_ISS_OTHER_ST64BV0	(1)
-+#define ESR_ELx_ISS_OTHER_LDST64B	(2)
-+#define ESR_ELx_ISS_OTHER_TSBCSYNC	(3)
-+#define ESR_ELx_ISS_OTHER_PSBCSYNC	(4)
-+
- #define DISR_EL1_IDS		(UL(1) << 24)
- /*
-  * DISR_EL1 and ESR_ELx share the bottom 13 bits, but the RES0 bits may mean
-@@ -371,12 +390,14 @@
- /*
-  * ISS values for SME traps
-  */
-+#define ESR_ELx_SME_ISS_SMTC_MASK		GENMASK(2, 0)
-+#define ESR_ELx_SME_ISS_SMTC(esr)		((esr) & ESR_ELx_SME_ISS_SMTC_MASK)
+-	ret = of_property_read_u32(node, "xlnx,num-channels", &drv_data->channels);
++	ret = device_property_read_u32(dev, "xlnx,num-channels", &drv_data->channels);
+ 	if (ret < 0)
+ 		return dev_err_probe(dev, ret, "cannot get supported channels\n");
  
--#define ESR_ELx_SME_ISS_SME_DISABLED	0
--#define ESR_ELx_SME_ISS_ILL		1
--#define ESR_ELx_SME_ISS_SM_DISABLED	2
--#define ESR_ELx_SME_ISS_ZA_DISABLED	3
--#define ESR_ELx_SME_ISS_ZT_DISABLED	4
-+#define ESR_ELx_SME_ISS_SMTC_SME_DISABLED	0
-+#define ESR_ELx_SME_ISS_SMTC_ILL		1
-+#define ESR_ELx_SME_ISS_SMTC_SM_DISABLED	2
-+#define ESR_ELx_SME_ISS_SMTC_ZA_DISABLED	3
-+#define ESR_ELx_SME_ISS_SMTC_ZT_DISABLED	4
+ 	drv_data->channels *= 2;
  
- /* ISS field definitions for MOPS exceptions */
- #define ESR_ELx_MOPS_ISS_MEM_INST	(UL(1) << 24)
-@@ -387,6 +408,31 @@
- #define ESR_ELx_MOPS_ISS_SRCREG(esr)	(((esr) & (UL(0x1f) << 5)) >> 5)
- #define ESR_ELx_MOPS_ISS_SIZEREG(esr)	(((esr) & (UL(0x1f) << 0)) >> 0)
+-	ret = of_property_read_u32(node, "xlnx,dwidth", &drv_data->data_width);
++	ret = device_property_read_u32(dev, "xlnx,dwidth", &drv_data->data_width);
+ 	if (ret < 0)
+ 		return dev_err_probe(dev, ret, "cannot get data width\n");
  
-+/* ISS field definitions for GCS */
-+#define ESR_ELx_ExType_SHIFT	(20)
-+#define ESR_ELx_ExType_MASK		GENMASK(23, 20)
-+#define ESR_ELx_Raddr_SHIFT		(10)
-+#define ESR_ELx_Raddr_MASK		GENMASK(14, 10)
-+#define ESR_ELx_Rn_SHIFT		(5)
-+#define ESR_ELx_Rn_MASK			GENMASK(9, 5)
-+#define ESR_ELx_Rvalue_SHIFT		5
-+#define ESR_ELx_Rvalue_MASK		GENMASK(9, 5)
-+#define ESR_ELx_IT_SHIFT		(0)
-+#define ESR_ELx_IT_MASK			GENMASK(4, 0)
-+
-+#define ESR_ELx_ExType_DATA_CHECK	0
-+#define ESR_ELx_ExType_EXLOCK		1
-+#define ESR_ELx_ExType_STR		2
-+
-+#define ESR_ELx_IT_RET			0
-+#define ESR_ELx_IT_GCSPOPM		1
-+#define ESR_ELx_IT_RET_KEYA		2
-+#define ESR_ELx_IT_RET_KEYB		3
-+#define ESR_ELx_IT_GCSSS1		4
-+#define ESR_ELx_IT_GCSSS2		5
-+#define ESR_ELx_IT_GCSPOPCX		6
-+#define ESR_ELx_IT_GCSPOPX		7
-+
- #ifndef __ASSEMBLER__
- #include <asm/types.h>
+@@ -205,7 +203,7 @@ static int xlnx_i2s_probe(struct platform_device *pdev)
+ 		return -EINVAL;
+ 	}
  
-@@ -408,6 +454,11 @@ static inline bool esr_is_cfi_brk(unsigned long esr)
- 	       (esr_brk_comment(esr) & ~CFI_BRK_IMM_MASK) == CFI_BRK_IMM_BASE;
- }
+-	if (of_device_is_compatible(node, "xlnx,i2s-transmitter-1.0")) {
++	if (device_is_compatible(dev, "xlnx,i2s-transmitter-1.0")) {
+ 		drv_data->dai_drv.name = "xlnx_i2s_playback";
+ 		drv_data->dai_drv.playback.stream_name = "Playback";
+ 		drv_data->dai_drv.playback.formats = format;
+@@ -213,7 +211,7 @@ static int xlnx_i2s_probe(struct platform_device *pdev)
+ 		drv_data->dai_drv.playback.channels_max = drv_data->channels;
+ 		drv_data->dai_drv.playback.rates	= SNDRV_PCM_RATE_8000_192000;
+ 		drv_data->dai_drv.ops = &xlnx_i2s_dai_ops;
+-	} else if (of_device_is_compatible(node, "xlnx,i2s-receiver-1.0")) {
++	} else if (device_is_compatible(dev, "xlnx,i2s-receiver-1.0")) {
+ 		drv_data->dai_drv.name = "xlnx_i2s_capture";
+ 		drv_data->dai_drv.capture.stream_name = "Capture";
+ 		drv_data->dai_drv.capture.formats = format;
+diff --git a/sound/soc/xilinx/xlnx_spdif.c b/sound/soc/xilinx/xlnx_spdif.c
+index ae05818ba064..a70ca6beb646 100644
+--- a/sound/soc/xilinx/xlnx_spdif.c
++++ b/sound/soc/xilinx/xlnx_spdif.c
+@@ -10,8 +10,7 @@
+ #include <linux/clk.h>
+ #include <linux/io.h>
+ #include <linux/module.h>
+-#include <linux/of.h>
+-#include <linux/of_platform.h>
++#include <linux/property.h>
+ #include <linux/platform_device.h>
+ #include <sound/pcm_params.h>
+ #include <sound/soc.h>
+@@ -242,7 +241,6 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
+ 	struct spdif_dev_data *ctx;
  
-+static inline bool esr_is_ubsan_brk(unsigned long esr)
-+{
-+	return (esr_brk_comment(esr) & ~UBSAN_BRK_MASK) == UBSAN_BRK_IMM;
-+}
-+
- static inline bool esr_fsc_is_translation_fault(unsigned long esr)
- {
- 	esr = esr & ESR_ELx_FSC;
-@@ -439,6 +490,46 @@ static inline bool esr_fsc_is_access_flag_fault(unsigned long esr)
- 	       (esr == ESR_ELx_FSC_ACCESS_L(0));
- }
+ 	struct device *dev = &pdev->dev;
+-	struct device_node *node = dev->of_node;
  
-+static inline bool esr_fsc_is_excl_atomic_fault(unsigned long esr)
-+{
-+	esr = esr & ESR_ELx_FSC;
-+
-+	return esr == ESR_ELx_FSC_EXCL_ATOMIC;
-+}
-+
-+static inline bool esr_fsc_is_addr_sz_fault(unsigned long esr)
-+{
-+	esr &= ESR_ELx_FSC;
-+
-+	return (esr == ESR_ELx_FSC_ADDRSZ_L(3))	||
-+	       (esr == ESR_ELx_FSC_ADDRSZ_L(2))	||
-+	       (esr == ESR_ELx_FSC_ADDRSZ_L(1)) ||
-+	       (esr == ESR_ELx_FSC_ADDRSZ_L(0))	||
-+	       (esr == ESR_ELx_FSC_ADDRSZ_L(-1));
-+}
-+
-+static inline bool esr_fsc_is_sea_ttw(unsigned long esr)
-+{
-+	esr = esr & ESR_ELx_FSC;
-+
-+	return (esr == ESR_ELx_FSC_SEA_TTW(3)) ||
-+	       (esr == ESR_ELx_FSC_SEA_TTW(2)) ||
-+	       (esr == ESR_ELx_FSC_SEA_TTW(1)) ||
-+	       (esr == ESR_ELx_FSC_SEA_TTW(0)) ||
-+	       (esr == ESR_ELx_FSC_SEA_TTW(-1));
-+}
-+
-+static inline bool esr_fsc_is_secc_ttw(unsigned long esr)
-+{
-+	esr = esr & ESR_ELx_FSC;
-+
-+	return (esr == ESR_ELx_FSC_SECC_TTW(3)) ||
-+	       (esr == ESR_ELx_FSC_SECC_TTW(2)) ||
-+	       (esr == ESR_ELx_FSC_SECC_TTW(1)) ||
-+	       (esr == ESR_ELx_FSC_SECC_TTW(0)) ||
-+	       (esr == ESR_ELx_FSC_SECC_TTW(-1));
-+}
-+
- /* Indicate whether ESR.EC==0x1A is for an ERETAx instruction */
- static inline bool esr_iss_is_eretax(unsigned long esr)
- {
-
+ 	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
+ 	if (!ctx)
+@@ -257,7 +255,7 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
+ 	if (IS_ERR(ctx->base))
+ 		return PTR_ERR(ctx->base);
+ 
+-	ret = of_property_read_u32(node, "xlnx,spdif-mode", &ctx->mode);
++	ret = device_property_read_u32(dev, "xlnx,spdif-mode", &ctx->mode);
+ 	if (ret < 0)
+ 		return dev_err_probe(dev, ret, "cannot get SPDIF mode\n");
+ 
+@@ -278,7 +276,7 @@ static int xlnx_spdif_probe(struct platform_device *pdev)
+ 		dai_drv = &xlnx_spdif_rx_dai;
+ 	}
+ 
+-	ret = of_property_read_u32(node, "xlnx,aud_clk_i", &ctx->aclk);
++	ret = device_property_read_u32(dev, "xlnx,aud_clk_i", &ctx->aclk);
+ 	if (ret < 0)
+ 		return dev_err_probe(dev, ret, "cannot get aud_clk_i value\n");
+ 
 -- 
-2.47.3
+2.55.0
 
 
