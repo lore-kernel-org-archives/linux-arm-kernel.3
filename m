@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5965C55175
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDBAC55175
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 09:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HCqd0UJrzCM5crvc1pniEmsXBgHlB8Rf4n7osq7I+Lo=; b=mpEGw/Fy7HNKkaklJ7cM9t41f+
-	6lO28k9bdJ2cGw4tD9T+s6RKW5UV2vP7pHFHrpoLD3/wwNai4jWDaSSilaLDQoj8g3p32VQhTOtoM
-	O3Ys8CwbcRqUhQfVv4m8kg8PPQAhu4mUO3TWbHfHvBE4qQi+vP/KBwTHB7n4dYzaB+J88i1fUFPZb
-	OwmMhxLMF8boIP+Ahn5izSHaanTO5MJCzE1LA+H3CzBobCzgJ82LcCZ/c3Soa3E6i0ZzQU+g/rUfF
-	Rbj2vNL2+rHwdot0U172V1e4QozYhDJhV1tiHjMYAs6KAYQL6fGkiP3GcJuJ+oRvzeZOz1GVP74w0
-	fcHtoZzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n0aB7qGBLZyAd1fXd3wTUVGSroPtec55ZWHXPynR+mg=; b=maj4TMhqdjcEe6YtPie+cxcYxx
+	psKrZv0X3rINc675o3xn9QUj2ET/wZLAy1rkv7asQncdT9w+Bbmh6RPjaSNQ2I3klFMzvfgy1jYaJ
+	XL19AfCKhFx8blPNUvryqBN6u+E9dHmNyJyxuYGoGYJirxriAqET1qMgey6yjIBGTq3POXquo/VL9
+	nY6m0yjFkUcSVmIq7oGBQf2sVk74A6Yzdso4cP8Xmy7Z+WEsM6TNpnSErIQl6undbEd3Z7JOIpwx8
+	pm2uEDgwwYwgYI8iWGKWWrx+smDFBioAXtPhVMZbFLRb2IT+jpGzko1AoBINCuN/dCV+D6nRQysk7
+	7OkY44PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpMc-0000000Gl8I-1yAM;
-	Mon, 03 Aug 2026 09:53:42 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wqpP3-0000000GlJt-3AdC;
+	Mon, 03 Aug 2026 09:56:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqpMZ-0000000Gl7c-1s3O
+	id 1wqpP2-0000000GlJk-3Hbu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 09:53:41 +0000
-X-UUID: 78d6abb28f2011f1aa26b74ffac11d73-20260803
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:d7085bc5-1f0a-4d12-9126-0e2733e0f92d,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:8af9a1be2c825b0473c4a5a1f6d888e4,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
-	DM:5,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:
-	0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 78d6abb28f2011f1aa26b74ffac11d73-20260803
-X-User: xiaopei01@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <xiaopei01@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1670560160; Mon, 03 Aug 2026 17:48:25 +0800
-From: Pei Xiao <xiaopei01@kylinos.cn>
-To: aubin.constans@microchip.com,
-	ulfh@kernel.org,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	linux-mmc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Pei Xiao <xiaopei01@kylinos.cn>
-Subject: [PATCH] mmc: atmel-mci: Fix use-after-free in atmci_remove due to race condition
-Date: Mon,  3 Aug 2026 17:48:21 +0800
-Message-Id: <4389d5deff90b2b860bd07f17668270fda36bd26.1785750407.git.xiaopei01@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	Mon, 03 Aug 2026 09:56:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 09A1C43856;
+	Mon,  3 Aug 2026 09:56:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2C491F000E9;
+	Mon,  3 Aug 2026 09:56:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785750971;
+	bh=n0aB7qGBLZyAd1fXd3wTUVGSroPtec55ZWHXPynR+mg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=g9TJgROjkZFESO6T8yl5X6xkRwQmBwdIoX748rbmcVPRlawHMV/F2UO11mBC/e9TU
+	 Pr0vbB5es1YS11qONg8QWpT5WnTq1oVjPUqBULbZoK08477uJjbN2VMfQy3BnVi5Fe
+	 sSqbhPqf3CGO6u6nC4h2HmTB2S3ynRgFua+RMIRhIq3j3+lWlagvSliEM1eYzLf5G/
+	 BC7vXII39Oz8ucBxOp1FGwdt9EwuNvR6a97O38tYp38rp4iF1ohnZ7JlxSgMnGGPPn
+	 ftU8r3QAzJINM5RqbuydnlR2g0yntS29vo/2fe2VCLXoLjFDrtb0JCKFPXvIJHB2se
+	 rfeVWu9PDon9A==
+Date: Mon, 3 Aug 2026 11:56:07 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Markus Probst <markus.probst@posteo.de>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
+	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Michael Langer <michael.brainbug.langer@googlemail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: rtc: Add pinctrl for S35390A
+Message-ID: <20260803-mottled-pretty-sloth-bf7dbd@quoll>
+References: <20260801-rtc_s35390a_int1-v2-0-f10c99ad1d6c@posteo.de>
+ <20260801-rtc_s35390a_int1-v2-1-f10c99ad1d6c@posteo.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_025339_802934_BAE7BA42 
-X-CRM114-Status: GOOD (  10.15  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260801-rtc_s35390a_int1-v2-1-f10c99ad1d6c@posteo.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,59 +74,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In atmci_probe, &host->bh_work is bound with atmci_work_func, and
-atmci_interrupt, atmci_timeout_timer and atmci_dma_complete can all
-queue this work on system_bh_wq.
+On Sat, Aug 01, 2026 at 06:43:00PM +0000, Markus Probst wrote:
+> +  wakeup-parent: true
+> +
+> +  wakeup-source: true
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +patternProperties:
 
-If we remove the module, atmci_remove makes cleanup and the memory
-allocated for host with devm_kzalloc() is released after the remove
-callback returns, while the work mentioned above may still be pending
-or running. The sequence of operations that may lead to a UAF bug is
-as follows:
+This goes after "properties:" block.
 
-CPU0                                      CPU1
 
-                                          | atmci_interrupt
-                                          | queue_work(system_bh_wq,
-                                          |            &host->bh_work)
-atmci_remove                              |
-atmci_cleanup_slot(...)                   |
-atmci_writel(host, ATMCI_IDR, ~0UL)       |
-timer_delete_sync(&host->timer)           |
-dma_release_channel(host->dma.chan)       |
-free_irq(platform_get_irq(pdev, 0), host) |
-                                          | atmci_work_func
-                                          | // use host
-// devm resources released after          |
-// remove returns, host is freed          |
-                                          | // use host (use-after-free)
+> +  "^pins":
+> +    type: object
+> +    patternProperties:
+> +      "-pins$":
+> +        type: object
+> +        properties:
+> +          pins:
+> +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
+> +
+> +          sii,mode:
+> +            $ref: /schemas/types.yaml#/definitions/uint32
 
-Fix it by canceling the work after all the sources that can schedule
-it (IRQ handler, timeout timer and DMA completion callback) have been
-stopped, and before proceeding with the remaining cleanup in
-atmci_remove.
+Use simple string. See pinmux bindings.
 
-Fixes: 7d2be0749a59 ("atmel-mci: Driver for Atmel on-chip MMC controllers")
-Assisted-by: Codex:deepseek-v4-flash
-Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
----
- drivers/mmc/host/atmel-mci.c | 2 ++
- 1 file changed, 2 insertions(+)
+> +            description: |
+> +              Modes for the specific pin:
+> +              - S35390A_MODE_IGNORE: Preserve the previous state.
+> +              - S35390A_MODE_DISABLE: Disable all interrupts.
+> +              - S35390A_MODE_WAKEUP: Used for waking up the system.
+> +              - S35390A_MODE_ALARM: Userspace defined alarm.
+> +              - S35390A_MODE_FREQ: Periodical at configurable frequency.
+> +              - S35390A_MODE_PMIN1: Minute periodical output with 50% duty.
+> +              - S35390A_MODE_PMIN2: Minute periodical output L for 7.81 ms.
+> +                                    Can only be used with pin INT1.
+> +              - S35390A_MODE_32768KHZ: Raw 32.768 kHz output.
+> +                                       Can only be used with pin INT1.
+> +            minimum: 0
+> +            maximum: 7
+> +
+> +          sii,frequency:
 
-diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
-index 3b4928f5b9b2..8f4df250a77a 100644
---- a/drivers/mmc/host/atmel-mci.c
-+++ b/drivers/mmc/host/atmel-mci.c
-@@ -2610,6 +2610,8 @@ static void atmci_remove(struct platform_device *pdev)
- 
- 	free_irq(platform_get_irq(pdev, 0), host);
- 
-+	cancel_work_sync(&host->bh_work);
-+
- 	clk_disable_unprepare(host->mck);
- 
- 	pm_runtime_disable(dev);
--- 
-2.25.1
+Frequency needs -hz, but anyway if this is becoming a clock, then you
+must have clocks property and this is simply not needed... unless this
+is some periodical wakeup call, not a clock? Then simply -hz and
+property must be more descriptive (frequency of what? pulse?).
 
+
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            description: Frequency in Hz to be used with mode S35390A_MODE_FREQ.
+> +            minimum: 1
+> +            maximum: 31
+> +
+> +        required:
+> +          - sii,mode
+> +
+> +        if:
+> +          properties:
+> +            sii,mode:
+> +              const: 4
+> +        then:
+> +          required:
+> +            - sii,frequency
+> +        else:
+> +          properties:
+> +            sii,frequency: false
+> +
+> +        additionalProperties: false
+> +
+> +    additionalProperties: false
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/rtc/s35390a.h>
+> +
+> +    i2c {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        rtc: rtc@30 {
+
+Drop unused label
+
+> +            compatible = "sii,s35390a";
+> +            reg = <0x30>;
+> +            pinctrl-0 = <&rtc_pins_default>;
+> +            pinctrl-names = "default";
+> +
+> +            wakeup-parent = <&int>;
+> +
+> +            rtc_pins_default: pins {
+> +              int1-pins {
+> +                pins = S35390A_PIN_INT1;
+> +                sii,mode = <S35390A_MODE_WAKEUP>;
+> +              };
+> +              int2-pins {
+> +                pins = S35390A_PIN_INT2;
+> +                sii,mode = <S35390A_MODE_DISABLE>;
+> +              };
+> +            };
+> +        };
+> +    };
+> diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> index f4d0eed98a08..7b3f682ef4d5 100644
+> --- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> +++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> @@ -81,8 +81,6 @@ properties:
+>        - ricoh,rv5c386
+>        # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
+>        - ricoh,rv5c387a
+> -      # 2-wire CMOS real-time clock
+> -      - sii,s35390a
+>        # ST SPEAr Real-time Clock
+>        - st,spear600-rtc
+>        # VIA/Wondermedia VT8500 Real-time Clock
+> @@ -105,5 +103,4 @@ required:
+>    - reg
+>  
+>  additionalProperties: false
+> -
+>  ...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 716acfc3d7c1..c85be1eefdb1 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -22696,6 +22696,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/abelloni/linux.git
+>  F:	Documentation/admin-guide/rtc.rst
+>  F:	Documentation/devicetree/bindings/rtc/
+>  F:	drivers/rtc/
+> +F:	include/dt-bindings/rtc/
+>  F:	include/linux/rtc.h
+>  F:	include/linux/rtc/
+>  F:	include/uapi/linux/rtc.h
+> diff --git a/include/dt-bindings/rtc/s35390a.h b/include/dt-bindings/rtc/s35390a.h
+> new file mode 100644
+> index 000000000000..dcd0ca15f9e9
+> --- /dev/null
+> +++ b/include/dt-bindings/rtc/s35390a.h
+> @@ -0,0 +1,23 @@
+> +/* SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause) */
+> +
+> +#ifndef __DT_BINDINGS_RTC_S35390A_H
+> +#define __DT_BINDINGS_RTC_S35390A_H
+> +
+> +#define S35390A_MODE_IGNORE		0x0
+> +#define S35390A_MODE_DISABLE		0x1
+> +#define S35390A_MODE_WAKEUP		0x2
+> +#define S35390A_MODE_ALARM		0x3
+> +#define S35390A_MODE_FREQ		0x4
+> +#define S35390A_MODE_PMIN1		0x5
+> +#define S35390A_MODE_PMIN2		0x6
+> +#define S35390A_MODE_32768KHZ		0x7
+> +
+> +#define S35390A_MODE_INT1_MAX		0x7
+> +#define S35390A_MODE_INT2_MAX		0x5
+> +
+> +#define S35390A_FREQ_MASK		0x1F
+
+ don't get why this grew. None of these look like bindings.
+
+
+> +
+> +#define S35390A_PIN_INT1		"int1"
+> +#define S35390A_PIN_INT2		"int2"
+
+Drop entire header.
+
+> +
+> +#endif /* __DT_BINDINGS_RTC_S35390A_H */
+> 
+> -- 
+> 2.54.0
+> 
 
