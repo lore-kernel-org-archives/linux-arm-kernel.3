@@ -4,101 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8AECC55838
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC6EDC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 18:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k6aVM7ubP+FZEA269nwLXgM6JiG4zElE5w8pBOy3T60=; b=vaFbmr+VoveprdDssZXBMokkzA
-	vuuLcfxpvnp9yAnOPLZUn1vdO1EP4Iq8LaN6OAsBX3TainpNTdGNHHTyWj0Uj/mnE0jaxpnwYVK2X
-	5m4iu4hjhw8EYDNJiK0Mo0Wfb3vs0IRcKQY6dsNWNd30b0tikIT8O30XAdXA96WQBYo5Pn0CO2weY
-	Q7XqVSGz3VzxPc+CJw899pfy1Hp6cdYq9STTKXWgVLOa+/5dBTgR+6b+VQZbX/pjmbYFZTwp5GLRI
-	ZVN3+0y240hg69vTjNnnFpV6t4Y8JTuV3ydedzZcaSO5lOYxnbwidsshStFhruFMgdMZZ9rUisYMk
-	0FJ1jPRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+rNOCgic9Kg3tyw9O1nqGoQ5hjaojitt9FcWiBaYtU4=; b=dO/UaKH/91oOTVPxpig/0oajN1
+	lTwNA2Xfla9yILwjw1PL3wDqF+3xftBIKtooN3Idf8pdOcQs9FeNamGi7XELtbqYCDBXPvB2vaSgO
+	3OJwQPhM7ARjqNWDW5KQx6PoLct6d3fG27RkwICqtrCQRyr4paz2VUIzGZjZFZ8VNvBT7xgN3KHPC
+	MqjpLYy8e7ZU+6lj7Rrmg/fIyhGGIA0fppCpItwkJuO82CH13+nO+uGJnOLBaVDv1EpFaIApRtVns
+	q3/XlDJXzMePjosr3kc0CgoSx3emRLSKyujapSKPnANtv6xmpwf4GSmkcxVTj2CID5glgFEUHlDDg
+	pcNR+W6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx7t-00000000L1O-0PKX;
-	Mon, 03 Aug 2026 18:11:01 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wqx9o-00000000Ld0-2JN2;
+	Mon, 03 Aug 2026 18:13:00 +0000
+Received: from ms.puri.sm ([135.181.196.210])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqx7o-00000000Kxz-01ck;
-	Mon, 03 Aug 2026 18:10:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785780653;
-	bh=SwF3VHoRiI4Zsf33YHjX0UHR9rjLn/pkIELQ2nyar2c=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Mk6PlTa3pgWRgp6jXxlofN7jCJ+WTkNj4pU6H9aqm2BuXL+fk5mjcV7pzT3ugmmYC
-	 V1zWdLV2MlA2BVOHATBoY+oMC1+mPZWFPH8cOz8tkAjJE745Gxe6+mqYF9G3sJ4Lod
-	 tNmo5MhCKBgutgDniuXMeCZgiJCXSRmOc/0ddH5TgUmEXlLzQYrSq3ilrN4ni4tDEH
-	 G/53d7MsmWVPDK3iIQXJF0WfnIXC/CiLiuaLljf1QLz6fCMzdnf8QbCIGQeUoehbMj
-	 0a7DdmWnkYKr5cpAu8QLN1pgvx6SVfcTjkrYnc17BB3PpFQIrFGFBgUpw8v7T6pbPX
-	 /ahDPpP40tZTg==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 44AF217E0048;
-	Mon, 03 Aug 2026 20:10:53 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 7F634480067; Mon, 03 Aug 2026 20:05:03 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Mon, 03 Aug 2026 20:05:22 +0200
-Subject: [PATCH v9 21/22] dt-bindings: display: rockchip: dw-dp: Fix sound
- DAI cells
+	id 1wqx9k-00000000Lao-42Md;
+	Mon, 03 Aug 2026 18:12:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=puri.sm; s=smtp2;
+	t=1785780772; bh=HNTPaYDGutREzLTVPWESt82E01iFz+jQ39UPafEurv0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=J4qIa0M3q9Mja66JJpMWCm3Si2k+eQxKBPYsxWlsjhzfhFhyNWkHOce9T4N2rqDaA
+	 kEmxNLjWJMeQEHDhJ5UGXkpeibsTQ5FNwkQR0x7UnO77zXdxXGMA00/OFQkd/fCgSc
+	 6gZulAcTEPaP0/4e+WFabqGthdJvYdZUuaEdjBfYKwQQ3V4pyKcPDqIGq8SVIBvdNT
+	 XG4o2BAoNJclC5KD2v8WfgpNg7zAq0p3jURjCMHKPQ58y8ibkwVhykQHlXlncggeTq
+	 mDrVCDZBH3C/DsnWTYfXBbi4VpA/j86hwwBXQPHp1E0qCCB5XIeh536HehZjTFh+3v
+	 36zRINnOxbN2Q==
+Received: from pliszka.localnet (79.184.66.106.ipv4.supernova.orange.pl [79.184.66.106])
+	by ms.puri.sm (Postfix) with ESMTPSA id A9F351F617;
+	Mon, 03 Aug 2026 11:12:47 -0700 (PDT)
+From: Sebastian Krzyszkowiak <sebastian.krzyszkowiak@puri.sm>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, Ondrej Jirman <megi@xff.cz>,
+ Olivier Benjamin <olivier.benjamin@bootlin.com>,
+ Manuel Traut <manut@mecka.net>,
+ Alexander Warnecke <awarnecke002@hotmail.com>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Martin Kepplinger <martin.kepplinger@puri.sm>,
+ Shawn Guo <shawnguo@kernel.org>, david@ixit.cz
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ phone-devel@vger.kernel.org, imx@lists.linux.dev,
+ David Heidelberg <david@ixit.cz>, stable@vger.kernel.org
+Subject: Re: [PATCH 4/4] arm64: dts: imx8mq-librem5: Dongwoon DW9714 coil requires
+ higher voltage
+Date: Mon, 03 Aug 2026 20:12:44 +0200
+Message-ID: <yJywMSNTQGGZm3rbxd56Yw@puri.sm>
+In-Reply-To: <20260801-pp-pro-camera-v1-4-7b4d90788f9f@ixit.cz>
+References: <20260801-pp-pro-camera-v1-0-7b4d90788f9f@ixit.cz>
+ <20260801-pp-pro-camera-v1-4-7b4d90788f9f@ixit.cz>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260803-synopsys-dw-dp-improvements-v9-21-2e6e46135312@collabora.com>
-References: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
-In-Reply-To: <20260803-synopsys-dw-dp-improvements-v9-0-2e6e46135312@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3153;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=SwF3VHoRiI4Zsf33YHjX0UHR9rjLn/pkIELQ2nyar2c=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpw2E8X8/6ke5YGf2wLX23DQHWF7z3+T7N9U
- SvEmWNK9XTt7YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqcNhPAAoJENju1/PI
- O/qa7xAP/3pZJ+jglV4aS914Qd8fTI3HTRaYHMNJ4xdJAdLlRPH34gsOK0mFgaYNp1zUJ6XnONd
- fBbPwmwczsneWu002o9AqSvLh2GCPioBh0jcAF8eq/rHrz8g+Hg6J+NOLyiOg+234BBaIq+R2lU
- nGoEiVzjO2k8ljIfHhqNzqTwU5zpzPZ3nwQqozz4rNPBL8mQO084DGuUF2X/onFwuXEjGw8Vbwn
- YgNyYnjD8h7hl7rBx/SKc3O0qbKJb4MvqJRndMsWOQZ956DyyvprOOsbuxi+n/GpmYB+dtMgNCF
- MjEqgH9IYmZSq9zGY55dUFNOC0osANOYh8XFSgsDAmGtSof3Pjia8gcWXUM5pDUHtELHOt1CGhl
- eJkNRcOrvf4ZNxTASKQuwCzHx0pNYhjr+2aXK1+LvnhLy5zWx5Ieb6sUxvTVN82/NCPx6tyS3nn
- 6TBOZ+sPeow7OAOxlBlblG91a2Sfdr2MesmUd0A6Eh+Q/mqF3tCxDPq4qTHE1ZX7rvZqgV9KtZL
- eGWrB/UlkxkOCyYir5rTBpiPN31vz7CuwAHDXFcIMjRQgOZTAILyp9Nci2P7MWgNnA7xLKWzIgX
- MHco6sRm9NnaPOzmeleNzBNnuY4G/fES+xb04O5bc3nRG+YCDzpsqfUfNd4taaJlUCv1IH81Bv/
- Ig+AKejGtMvzRuvviVGU1YQ==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_111056_197753_0358F895 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20260803_111257_176366_49494137 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,88 +83,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3588 and RK3576 DesignWare DisplayPort controllers both have two
-possible DAI interfaces: I2S and S/PDIF. Thus an argument is needed to
-to select the right interface.
+On sobota, 1 sierpnia 2026 02:35:23 czas =C5=9Brodkowoeuropejski letni Davi=
+d=20
+Heidelberg via B4 Relay wrote:
+> From: David Heidelberg <david@ixit.cz>
+>=20
+> By datasheet the VDD (in-kernel named vcc) range is between 2.3 to 4.3 V.
+> Usually it's around 2.8 V. Here it matches the reg_vcam_2v8.
 
-In addition to that the RK3576 DisplayPort controller is configured
-with Multi Stream Transport (MST) enabled for up to 3 displays and
-thus has a total of 6 DAI interfaces (I2S and S/PDIF for each possible
-stream). Meanwhile the RK3588 does not support MST and thus has only 2
-DAI interfaces.
+It doesn't - VCAM_2V8 isn't connected to DW9714 (and neither is CSI_1V8);=20
+VCAM_AFVDD is.
 
-The binding update from this patch has only been tested with the simple
-single stream transport (SST) setup as the Linux driver does not yet
-support MST. Once MST support is added, the plan is to simply add more
-numbers to the argument, so that it looks like this for RK3576:
+> 1.8 V here is likely used for i2c level shifter.
 
-0 = I2S on stream 0,
-1 = S/PDIF on stream 0
-2 = I2S on stream 1,
-3 = S/PDIF on stream 1
-4 = I2S on stream 2,
-5 = S/PDIF on stream 2
+I'm not sure where you've got an I2C level shifter from, there's none invol=
+ved=20
+there. CSI_1V8 is passed to the rear camera module as DOVDD and is consumed=
+ by=20
+S5K3L6 as VDDIO, and both S5K3L6 and DW9714 are connected to I2C4_SDA/
+I2C4_SCL, operating at the 1.8V level, only though an EMI filter (F7 in the=
+=20
+schematic).
 
-As the arguments are not part of the binding itself the audio side
-is also ready for MST after this change.
+>=20
+> Fixes: f00df2bdb512 ("arm64: dts: imx8mq-librem5: describe the voice coil
+> motor for focus control") Cc: stable@vger.kernel.org
+> Signed-off-by: David Heidelberg <david@ixit.cz>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
+> b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi index
+> f5d529c5baf3e..583cba2d3bebf 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
+> @@ -1167,17 +1167,17 @@ &i2c4 {
+>  	pinctrl-1 =3D <&pinctrl_i2c4_gpio>;
+>  	scl-gpios =3D <&gpio5 20 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>  	sda-gpios =3D <&gpio5 21 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+>  	status =3D "okay";
+>=20
+>  	vcm@c {
+>  		compatible =3D "dongwoon,dw9714";
+>  		reg =3D <0x0c>;
+> -		vcc-supply =3D <&reg_csi_1v8>;
+> +		vcc-supply =3D <&reg_vcam_2v8>;
+>  	};
+>=20
+>  	bat: fuel-gauge@36 {
+>  		compatible =3D "maxim,max17055";
+>  		reg =3D <0x36>;
+>  		interrupt-parent =3D <&gpio3>;
+>  		interrupts =3D <20 IRQ_TYPE_LEVEL_LOW>;
+>  		pinctrl-names =3D "default";
 
-Switching '#sound-dai-cells' from 0 to 1 without keeping compatibility
-is an ABI break. The rationale for going that way is, that there is not
-a single known driver implementation for the current binding. It's also
-unclear how the current binding would be used (only support I2S or
-S/PDIF for stream 0?). The mainline rk3588 DTS include sets it to 0, but
-does not have any soundcard using the DAI. This will be fixed up
-separately. The RK3576 does not set it at all.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- .../devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml     | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-index 2b0d9e23e943..c4f8959dd65d 100644
---- a/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-+++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
-@@ -25,7 +25,7 @@ description: |
-   * Supports up to 8/10 bits per color component
-   * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
-   * Pixel clock up to 594MHz
--  * I2S, SPDIF audio interface
-+  * I2S, S/PDIF audio interface
- 
- properties:
-   compatible:
-@@ -46,7 +46,7 @@ properties:
-       - description: DisplayPort AUX clock
-       - description: HDCP clock
-       - description: I2S interface clock
--      - description: SPDIF interfce clock
-+      - description: S/PDIF interfce clock
- 
-   clock-names:
-     minItems: 3
-@@ -83,7 +83,8 @@ properties:
-     maxItems: 1
- 
-   "#sound-dai-cells":
--    const: 0
-+    const: 1
-+    description: 0 for I2S, 1 for S/PDIF
- 
- required:
-   - compatible
-@@ -144,7 +145,7 @@ examples:
-         resets = <&cru SRST_DP0>;
-         phys = <&usbdp_phy0 PHY_TYPE_DP>;
-         power-domains = <&power RK3588_PD_VO0>;
--        #sound-dai-cells = <0>;
-+        #sound-dai-cells = <1>;
- 
-         ports {
-           #address-cells = <1>;
-
--- 
-2.53.0
 
 
