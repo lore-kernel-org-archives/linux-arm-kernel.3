@@ -4,98 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33ED5C55179
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B56C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 13:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pzkJ11PcuZctbuKF6H3B97Fb0rqT9GRSf4tUaQ3n42o=; b=yGyspldEcPr/nZ+GTdOc8zHyz2
-	QUjoIYmKNID6n0vw1gE70onsHYznvHQrs7WNUSEGBehzAICJVHRwGD422YwY5waTPY1GkjPsTrKK3
-	drvvPRRQwn1v3OvSDDwTvx58e+HWpmNQoTIb8msRLNCxSjBdIhAOkVZS1rrFUnNDOHbtr11trtHFs
-	1oRBud8Rhom+dg96oTtn4UkrgpotUOX0j3fMNAyxsp/SgO5DdrISH3rAeGBcygBDtACBNsIaVaFp0
-	vGtwX7GbWCnlIR0G20AoCTvA7uTrX0AOfK6gtlC+uKPfl4gecgXwtY0Tl9aeSzruvoieWGAxYpmb1
-	Y9WiEWqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O/w9UIB0tK9eQPOEEpZRK1pK53xjfd1hTR0r0y6nXSM=; b=jb7ruqQjE7YNGN/XIaiqS8cugN
+	153HJgZdaOoBwBBMrB818W8B8rQGcv8cxFzHCF30Wp28tQmq/TYzr0gs568RDvmMknFnKWdkpSHKI
+	prFPP+4lrrJjC+2g5SJ5xSiPEeWrXHmR8R9uivEulfM40+VvVuEcIKEWrnRMI8iWvaxxMYMroOk3W
+	HxnUtmz41GNggLuJnu7pcIxNKJTfJzpQINREHR3HlNWuTT7jf6RXPwnTo4IQ/oNl1+m3aGht863u/
+	ICAnoQuur1pRya9cd6Lxjpd5BWneqTOT/+1mivUtX7mRSw1snsXuewDbtb3oWfIRSu0v9HRNQI+D4
+	9ePSvVqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqsr9-0000000HB0z-0Ms0;
-	Mon, 03 Aug 2026 13:37:27 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqsr7-0000000HB0Y-1h37
+	id 1wqsxs-0000000HBie-10cg;
+	Mon, 03 Aug 2026 13:44:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wqsxp-0000000HBhP-1QND
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 13:37:26 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2ccdf36f63dso145065ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 06:37:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785764244; x=1786369044; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pzkJ11PcuZctbuKF6H3B97Fb0rqT9GRSf4tUaQ3n42o=;
-        b=Kr6UxRvXZK8bq36T0pGEWTPCkIQui2yTHg3Qux2ZBopQaIElh3+H6ubNP5V4If6dMI
-         c4bwOFIZTZ71wD9rXb3HhCuP6rYz9SfjzZQMhjPyiCmZd7OkrVQCoNNLC+LqX2acLA1s
-         Aq3cHeXjRucLk2bF31W5Kqg22OIp2cCH8ZKP/Gqhxn0YdU12Ln7YFftAzWFZs2E0NLD1
-         syhqn4zVelx82DgvWp7AvSKR4s3HykP1pStIggzkxdyVMWWrW9SYjGFB/PQ8G+6711jr
-         MBVj/Xv5NdgXFBjUaQLxLg36sCNrxoKjiFVZz9yYvZXdm2/M2+SokSDK6o7RFoU8LAOm
-         uBzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785764244; x=1786369044;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pzkJ11PcuZctbuKF6H3B97Fb0rqT9GRSf4tUaQ3n42o=;
-        b=bcoUE4dbGEzmHLTD2FKhedEuAOhCImjAm3Ki7mnXX8MyUaphwXUwyo5ajbxU+Yfo0R
-         ZxC2Br7dIINg7PxRROJMWwTCePtWD48mepFeDMeM5Lyfmzg1qyERqIce7WT1LqkZKrls
-         5GBDxKyI8hFT/B3DkMVm/kqrm8l+YMuaNFWye6gaaq2cPm0i6ZaWabVait0URPJFKztf
-         4oZ5noTWw3kIn5PCbRI0BeMIKa6BQVuTlla6UQ89vYRbi6GKiqhQ8V5zAvtpE/lvrlmQ
-         uOcdXj8maJ921goaTadbw70JBKNOdARuq1lRby8ZV0k1xgJ5LErr7GFFQkxJf4vtnveP
-         PwRw==
-X-Forwarded-Encrypted: i=1; AHgh+RoARL4JzoS52+dMCAWNZV2eRiLw7nrXdRjIFYV3ViVbWToIuHKRqP2w12pR5Y0tt/OF/mb4opsVnvFuPCC4sDoz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZ3HbSdp1FkUDOudfT30PwLQu+AlUbwdyOWc3B6EHh1LUvNmrY
-	bbGbcXHCvJuVqnmveSHBmECfUofDcDj9MYznpoyyxzyJ+i+t2411QSN4m1HsrjC9fg==
-X-Gm-Gg: AR+sD11nbie1RfM7XINuHd8rMil2fO3Cg5AgyLMEd5eXuzVRt9HC3omuA4DCm+0Ot6R
-	vMM0bsR5wxz48nIeo6H+Y9fq0ji2h44W+5AqnJpK+myZ9U8R0RhSo4T/qHxFZB4rtZI9mVUliqw
-	O8icBEfT2VQy7SH/93kO9G/JtAptkqBP5SsEaqL9K1Azg3ykmgwKBXtwOrO5AgViEYofIsKRB6f
-	LiqI1a2wMi90WELwwLG5LquQGFPre4E+OykPrj2dRk+yx1CnAXRUHR8UGIZk3sBNuEFOqAagCjn
-	rKZavm43cLzJurjllBiszJ4jolqMrCMzsA3kG+vxuGOvABL873w+QuHS5Y8p0BxIolVlEbcTd/z
-	8EepxCX+DvvUP4aBNdl/Bl4j6H6xDVaG+725Js3AdekXS/tNtrpwI/TfSEQldwnVZg3F3nZVMkm
-	ZMBjcG4hkbBDaP7kspEQr5zw7upq6KvfWoC2rlPwM+L5XbIE4ziqio7nK5K3V5Wp3YOPsh1foOz
-	LjVFKNtyxWGoGtKFFgmA54=
-X-Received: by 2002:a17:902:d2c6:b0:2ca:be81:b469 with SMTP id d9443c01a7336-2d0545416f6mr12684095ad.0.1785764243858;
-        Mon, 03 Aug 2026 06:37:23 -0700 (PDT)
-Received: from google.com (21.168.124.34.bc.googleusercontent.com. [34.124.168.21])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38fb2e11478sm3955257a91.3.2026.08.03.06.37.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Aug 2026 06:37:23 -0700 (PDT)
-Date: Mon, 3 Aug 2026 13:37:16 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>,
-	Kuan-Wei Chiu <visitorckw@gmail.com>, joro@8bytes.org,
-	akpm@linux-foundation.org, cychu@google.com, hhchung@google.com,
-	amitamishra@google.com, marscheng@google.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, jserv@ccns.ncku.edu.tw,
-	eleanor15x@gmail.com
-Subject: Re: [PATCH 1/2] iommu/arm-smmu-v3: Replace sort_nonatomic() with
- sort()
-Message-ID: <anCZjMybqHA2n13e@google.com>
-References: <20260730181216.2709088-1-visitorckw@gmail.com>
- <20260730181216.2709088-2-visitorckw@gmail.com>
- <am8MpGR14HAg58Gd@willie-the-truck>
- <am+CPy4+gcGPtR3G@nvidia.com>
- <00dae86e-cbc3-4d6e-966f-39afd4b8c2ec@arm.com>
+	Mon, 03 Aug 2026 13:44:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1BC95143D;
+	Mon,  3 Aug 2026 06:44:14 -0700 (PDT)
+Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.25.28])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0FC3E3F66F;
+	Mon,  3 Aug 2026 06:44:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785764658; bh=7gDW+1efL7RasAqDrD/fMjJ3ytid+vo61xlhqQvvQxY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=JzYmqgjX4z3WBvr551f3ponsOq2UHT+MJAzIJbxuW9HArmH9jX63DI9MDTXt8+TSn
+	 B4UAqam71tvGl3zyKAkzuGjrWNxGBXgGxn0H9Bc6pP2ZJ7lsmUxPt0uzXsXciYaeUJ
+	 /IiKlSXoxqNGznnI6sZddBn7leHog3gPYcWDPESM=
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH v16 00/45] arm64: Support for Arm CCA in KVM
+Date: Mon,  3 Aug 2026 14:43:16 +0100
+Message-ID: <20260803134403.80630-1-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <00dae86e-cbc3-4d6e-966f-39afd4b8c2ec@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_063725_447740_1540049E 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20260803_064421_473268_076990A0 
+X-CRM114-Status: GOOD (  25.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,42 +90,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 01:35:52PM +0100, Robin Murphy wrote:
-> On 02/08/2026 6:45 pm, Nicolin Chen wrote:
-> > On Sun, Aug 02, 2026 at 10:23:48AM +0100, Will Deacon wrote:
-> > > On Thu, Jul 30, 2026 at 06:12:15PM +0000, Kuan-Wei Chiu wrote:
-> > > > @@ -4047,9 +4047,9 @@ static int arm_smmu_insert_master(struct arm_smmu_device *smmu,
-> > > >   	}
-> > > >   	/* Put the ids into order for sorted to_merge/to_unref arrays */
-> > > > -	sort_nonatomic(master->streams, master->num_streams,
-> > > > -		       sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
-> > > > -		       NULL);
-> > > > +	sort(master->streams, master->num_streams,
-> > > > +	     sizeof(master->streams[0]), arm_smmu_stream_id_cmp,
-> > > > +	     NULL);
-> > > 
-> > > Makes sense to me. Nicolin, did you choose the nonatomic version
-> > > specifically?
-> > 
-> > It's probably rare to have a large multi-stream array, so I think
-> > sort() would be fine.
-> 
-> Yeah, probably 99% of the time the size of this array will be 1. An
-> exceptional value of "large" might be something like 64 for a massive
-> (non-PCI) DMA engine with separate read and write IDs per channel for no
-> good reason.
-> 
-> If and when someone ever were to report RCU stalls here then we can first
-> ask them what the heck their client device is... and unless and until then I
-> wouldn't think it's worth worrying about.
-> 
+This series adds support for running protected VMs using KVM under the
+Arm Confidential Compute Architecture (CCA), including the firmware
+support needed to communicate with the Realm Management Monitor (RMM).
 
-+1. Agreed, it should be fine to use sort() here..
+For v15 the series was split into a 6-patch generic firmware/RMM series
+and a 37-patch KVM series. The two parts are combined again for v16, as
+requested to allow the complete stack to be tested by Sashiko as a
+single series.
 
-> Thanks,
-> Robin.
-> 
+The first six patches add the generic firmware layer for talking to the
+RMM, as specified by version 2.0-bet2 of the RMM specification[0]. They
+provide the RMI definitions and wrappers, discover and configure the
+RMM, implement Stateful RMI Operations (SROs), and ensure that the RMM
+has GPT entries for host memory. The remaining patches add the KVM
+support needed to create, populate and run Realm VMs.
 
-Thanks,
-Praan
+Note that RMM v2.0 Beta 3 specification should be published soon. The
+changes introduced in that are minor and I expect this series to be
+largely compatible with the new spec.
+
+The RMM v2.0 specification introduces SROs, which allow the RMM to
+complete an operation over several SMC calls while requesting or
+returning memory to the host. This allows interrupts to be handled in
+the middle of an operation and lets the RMM dynamically allocate memory
+for internal tracking purposes. For example, RMI_REC_CREATE no longer
+needs auxiliary granules to be provided up front, and can instead
+request memory during the operation.
+
+The main changes since v15 are:
+
+ * Recombine the firmware/RMM and KVM portions into one series. The
+   Realm-specific RMI wrappers remain separate from the generic
+   firmware wrappers, in a new KVM patch.
+
+ * Rewrite Realm entry and exit handling to fit into the generic KVM
+   run loop. Work which cannot be performed in the entry path is now
+   completed through KVM requests, and MMIO, PSCI, RIPAS changes and
+   host calls are adapted to the new flow.
+
+ * Rewrite Realm timer support to use KVM's IRQ-ops infrastructure and
+   software resampling.
+
+ * Improve SRO cancellation and error handling. Ensure a cancelled
+   operation isn't treated as successful, wrapper return values can carry
+   negative Linux errors as well as RMI return values, and those errors
+   are propagated through the KVM users.
+
+ * Check that the RMM supports the host page size before configuring it,
+   and exclude firmware-reserved NOMAP memory when creating GPT entries.
+
+ * Expand the KVM_ARM_RMI_POPULATE documentation to make clear that Arm
+   CCA cannot preserve memory contents during an in-place
+   shared-to-private conversion.
+
+ * Allocate Realm parameters only while creating the Realm descriptor.
+
+ * Document the encoding of the arm64 VM types and require
+   ICH_HCR_EL2.TDIR before advertising or creating Realm VMs.
+
+This series is based on the guest_memfd in-place conversion v9 tree[1],
+which is itself based on kvm-x86/next. It is also available as a git
+repository:
+
+https://gitlab.arm.com/linux-arm/linux-cca cca-host/v16
+
+Work in progress changes for kvmtool are available from the git
+repository below:
+
+https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v13
+
+The TF-RMM branch used for testing this series is available here:
+
+https://git.trustedfirmware.org/TF-RMM/tf-rmm.git topics/rmm-v2.0-poc_3
+
+There is a kvm-unit-test branch updated to support the attestation used
+in RMM v2.0 available here:
+
+https://gitlab.arm.com/linux-arm/kvm-unit-tests-cca cca/v4
+
+[0] https://developer.arm.com/documentation/den0137/2-0bet2/
+One bet2 change, which moves metadata out of the individual address
+range descriptors, has intentionally not been implemented because that
+part of the specification is expected to be reverted.
+
+[1] https://github.com/googleprodkernel/linux-cc/commits/guest_memfd-inplace-conversion-v9
+
+Jean-Philippe Brucker (6):
+  KVM: arm64: CCA: Propagate breakpoint and watchpoint counts to
+    userspace
+  KVM: arm64: CCA: Set breakpoint parameters through SET_ONE_REG
+  KVM: arm64: CCA: Propagate max SVE vector length from the RMM
+  KVM: arm64: CCA: Configure max SVE vector length for a Realm
+  KVM: arm64: CCA: Provide register list for unfinalized RECs
+  KVM: arm64: CCA: Provide an accurate register list
+
+Joey Gouly (2):
+  KVM: arm64: CCA: Allow userspace to inject aborts
+  KVM: arm64: CCA: Support RSI_HOST_CALL
+
+Steven Price (34):
+  firmware: arm_rmm: Add SMC definitions for calling the RMM
+  firmware: arm_rmm: Add wrappers for direct RMI calls
+  firmware: arm_rmm: Check for RMI support at init
+  firmware: arm_rmm: Configure the RMM with the host's page size
+  firmware: arm_rmm: Add support for SRO
+  firmware: arm_rmm: Ensure the RMM has GPT entries for memory
+  arm64: mm: Handle Granule Protection Faults (GPFs)
+  KVM: arm64: Avoid including linux/kvm_host.h in kvm_pgtable.h
+  KVM: arm64: CCA: Add wrappers for realm related RMIs
+  KVM: arm64: CCA: Check for RMI support at KVM init
+  KVM: arm64: CCA: Check for LPA2 support
+  KVM: arm64: CCA: Define the user ABI
+  KVM: arm64: CCA: Add basic infrastructure for creating a realm
+  KVM: arm64: CCA: Allow passing the machine type in KVM creation
+  KVM: arm64: CCA: Tear down RTTs
+  KVM: arm64: CCA: Allocate and free RECs to match vCPUs
+  KVM: arm64: CCA: Support the VGIC in realms
+  KVM: arm64: CCA: Support timers in realm RECs
+  KVM: arm64: CCA: Handle realm enter/exit
+  KVM: arm64: CCA: Handle RMI_EXIT_RIPAS_CHANGE
+  KVM: arm64: CCA: Handle realm MMIO emulation
+  KVM: arm64: Expose support for private memory
+  KVM: arm64: CCA: Create the realm descriptor
+  KVM: arm64: CCA: Activate realms on first vCPU run
+  KVM: arm64: CCA: Allow populating initial contents
+  KVM: arm64: CCA: Set RIPAS of initial memslots
+  KVM: arm64: CCA: Support runtime faulting of memory
+  KVM: arm64: CCA: Handle realm vCPU load
+  KVM: arm64: CCA: Validate register access for Realm VMs
+  KVM: arm64: CCA: Handle Realm PSCI requests
+  KVM: arm64: WARN on injected undef exceptions
+  KVM: arm64: CCA: Prevent Device mappings for realms
+  KVM: arm64: CCA: Require ICH_HCR_EL2.TDIR for realms
+  KVM: arm64: CCA: Enable realms to be created
+
+Suzuki K Poulose (3):
+  KVM: arm64: Include kvm_emulate.h in kvm/arm_psci.h
+  KVM: arm64: CCA: Don't expose unsupported capabilities for realm
+    guests
+  KVM: arm64: CCA: Allow checking SVE on VM instance
+
+ Documentation/virt/kvm/api.rst       |   70 +-
+ arch/arm64/Kconfig                   |    1 +
+ arch/arm64/include/asm/kvm_asm.h     |    2 +
+ arch/arm64/include/asm/kvm_emulate.h |   37 +
+ arch/arm64/include/asm/kvm_host.h    |   12 +-
+ arch/arm64/include/asm/kvm_pgtable.h |    6 +-
+ arch/arm64/include/asm/kvm_pkvm.h    |    2 +-
+ arch/arm64/include/asm/kvm_rmi.h     |  139 +++
+ arch/arm64/include/asm/rmi_cmds.h    |  465 ++++++++
+ arch/arm64/include/asm/virt.h        |    1 +
+ arch/arm64/kernel/cpufeature.c       |    1 +
+ arch/arm64/kvm/Kconfig               |    2 +
+ arch/arm64/kvm/Makefile              |    2 +-
+ arch/arm64/kvm/arch_timer.c          |   34 +-
+ arch/arm64/kvm/arm.c                 |  139 ++-
+ arch/arm64/kvm/guest.c               |   93 +-
+ arch/arm64/kvm/handle_exit.c         |   14 +
+ arch/arm64/kvm/hyp/pgtable.c         |    1 +
+ arch/arm64/kvm/hypercalls.c          |    4 +-
+ arch/arm64/kvm/inject_fault.c        |    5 +-
+ arch/arm64/kvm/mmio.c                |   16 +-
+ arch/arm64/kvm/mmu.c                 |  144 ++-
+ arch/arm64/kvm/reset.c               |   13 +-
+ arch/arm64/kvm/rmi-exit.c            |  178 +++
+ arch/arm64/kvm/rmi.c                 | 1561 ++++++++++++++++++++++++++
+ arch/arm64/kvm/sys_regs.c            |   47 +-
+ arch/arm64/kvm/vgic/vgic-init.c      |    2 +-
+ arch/arm64/mm/fault.c                |   28 +-
+ drivers/firmware/Kconfig             |    1 +
+ drivers/firmware/Makefile            |    1 +
+ drivers/firmware/arm_rmm/Kconfig     |   26 +
+ drivers/firmware/arm_rmm/Makefile    |    2 +
+ drivers/firmware/arm_rmm/rmi.c       |  776 +++++++++++++
+ include/kvm/arm_psci.h               |    2 +
+ include/linux/arm-rmi-cmds.h         |  201 ++++
+ include/linux/arm-smccc-rmi.h        |  493 ++++++++
+ include/uapi/linux/kvm.h             |   20 +-
+ 37 files changed, 4446 insertions(+), 95 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_rmi.h
+ create mode 100644 arch/arm64/include/asm/rmi_cmds.h
+ create mode 100644 arch/arm64/kvm/rmi-exit.c
+ create mode 100644 arch/arm64/kvm/rmi.c
+ create mode 100644 drivers/firmware/arm_rmm/Kconfig
+ create mode 100644 drivers/firmware/arm_rmm/Makefile
+ create mode 100644 drivers/firmware/arm_rmm/rmi.c
+ create mode 100644 include/linux/arm-rmi-cmds.h
+ create mode 100644 include/linux/arm-smccc-rmi.h
+
+-- 
+2.43.0
+
 
