@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1972FC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C9EDC55182
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  3 Aug 2026 12:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q0rqVXntntPGNtRhW7boCS4de5223r2PVD+Op+TiuUo=; b=tGQyztm3CQUCTIkM+doJSEixiL
-	/75agzpOOiiOL3AOkMI4LY6/9Jok9BNPDZSwvMK0WnTI/1Q6UD00rYyMmE3Y/fvZX0AXZoiFvRJ+D
-	DdP9PJjWbIQDrbzaAsv2r0kq9qVqXA/ilq3Hs9CnIGNK+iB8UC+SdPQzVKaO+fErWGshJqE4C4qGP
-	TGgCEX93OSHTB7JDiIRxV9I4+PsUFXxkNAU+beZbAxCP+w28eG362P1sfXYykq1dEB8Y9BATBIqhE
-	a+FMaYQ8/UAfYwa3+8HF7N3fjEbCSe94wu4HtDNH1J2XR7O/qEKO7CQC+rbXHT00/sytRZyHkC+p/
-	oXNt2Gug==;
+	bh=wXdnqxkVLre8xyhoz1MyjV2h+syz3JVof1/RR+MyPp0=; b=XuirAp+AnASNtIJWIzgb4wS3e+
+	oegz/LT1N0hbGE5OUhZ8PmoCFEPJSm/T0FhEgXUZ4GpDLjiJ//KVBRTI67z6VdIQ3x1i22wsaqMxw
+	scvGS6/eKbS69ZXM7JBUXBsseTOHs4dyF+RoeI52RNOf5aZJ0Zgtr/A2H7Mlq3jqqGconznWqXs7B
+	hweLAVfFCWUx2Soi+F9xpwF6n3pfK6UjdpuH1z4A1rrD5dRHbf0Sc6GWvnhOFl5UV/K9DibeuhKTc
+	6TqamGJKJ3FE2I3mX7mSef77OvPiG5Nn4jVouz0FpwXB+Jkhnzbels3ANjtEyLkJ9LdAbkhK+1poi
+	uzdz0aMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqs17-0000000H45x-25jP;
-	Mon, 03 Aug 2026 12:43:41 +0000
-Received: from out-171.mta0.migadu.com ([2001:41d0:1004:224b::ab])
+	id 1wqs2o-0000000H4ZU-2y6t;
+	Mon, 03 Aug 2026 12:45:26 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wqs14-0000000H41m-0jwb
+	id 1wqs2m-0000000H4Yh-1j7F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 03 Aug 2026 12:43:39 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785761016;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Q0rqVXntntPGNtRhW7boCS4de5223r2PVD+Op+TiuUo=;
-	b=IM2bJR3K2lCEgntYhrvI/GFbu+ZxQcmX8fQUb5XVT2+OfYOPwLzvaCtmnvyLCA+aPIekpy
-	m5w0llo4isyLaffnxmvFVhoIF+C+ydsEG8X/BnK59E9Y1oE9ssoT0qaZQDtGonQm8jNIHQ
-	X4ZvozcfaRmjHdA1CBUPj7+RrX/icH0=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	alexandru.elisei@arm.com,
-	vdonnefort@google.com,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	qperret@google.com,
-	ardb@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	tabba@google.com,
-	fuad.tabba@linux.dev
-Subject: [PATCH v2 11/11] KVM: arm64: Tag host-VA hypercall parameters __kern
-Date: Mon,  3 Aug 2026 13:42:20 +0100
-Message-Id: <20260803124220.332248-12-fuad.tabba@linux.dev>
-In-Reply-To: <20260803124220.332248-1-fuad.tabba@linux.dev>
-References: <20260803124220.332248-1-fuad.tabba@linux.dev>
+	Mon, 03 Aug 2026 12:45:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1785761089; x=1786365889; i=markus.elfring@web.de;
+	bh=wXdnqxkVLre8xyhoz1MyjV2h+syz3JVof1/RR+MyPp0=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Hewo0JmEWQUn4qh4teeEjmMMtoGU/FVNvDgA5StYCYlt6dsa2oEqoRBp1GKpWc0u
+	 327i6NEn7bW2uT1tO4wLBokSx4oBYruHijKSrAywPxHh/3Vf0zZE0pBxrmnj9IKns
+	 RyvkSNDNC0DSF/4PJjKDKEWfJCaLTa3dAEgRE/+Tz/w8wWFO7Tw6EIdqBPmd/OKg2
+	 J4H1dsoDahhj3lF4fAopkF/0boICrJcYkEEpTQFQ3pEAGaHYr3wGovUGqjVCxCNQs
+	 CSi4IRdFLqXuSNAuoWmtytmlqsKcyl7E0pFkvQW4LsCI9mDn62jeWNK3bhOcOX3ec
+	 6AIkkP8b9oW8K/4fiw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MCoku-1wi6bo45LM-00AVk0; Mon, 03
+ Aug 2026 14:44:49 +0200
+Message-ID: <9d56c8d2-67bb-4c04-94cd-7fd5c7ee940f@web.de>
+Date: Mon, 3 Aug 2026 14:44:37 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+To: Mohammad Shahid <mdshahid03@gmail.com>, linux-iio@vger.kernel.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-arm-kernel@lists.infradead.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Jonathan Cameron <jic23@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, David Lechner
+ <dlechner@baylibre.com>, Joshua Crofts <joshua.crofts@broadcom.com>,
+ =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>
+References: <20260801090953.61603-3-mdshahid03@gmail.com>
+Subject: Re: [PATCH v4 2/3] iio: adc: bcm_iproc_adc: Introduce local device
+ pointer
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20260801090953.61603-3-mdshahid03@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:PNflE5lriMcmjKpchPSOSGRQ5QK0Q8ceiwP6punGcQUtPq5fcii
+ 0RJDnonjR+8gMQ2wBIn6AZi1kWqnc3wKfN7yTPH10dfpwpMHP882n3O1paG/Y8+Nt4Rj2yQ
+ 7MCwsUGEGH/TWJD/cXOck1/yJv7dR96EFcx0jIzqcCFatDKxUcM0W+5dv4dvPFidxoxatwP
+ z+OT/2R2IDwvrpS/YvDVg==
+UI-OutboundReport: notjunk:1;M01:P0:fBeTI1pT05k=;Yj54u55zx3cpp5LqQ5RWtn/08Qc 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 AIA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_054338_501152_629D8F05 
-X-CRM114-Status: GOOD (  18.91  )
+X-CRM114-CacheID: sfid-20260803_054524_818454_E1765858 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,419 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The nVHE hypervisor takes host virtual addresses as hypercall arguments
-and translates each with kern_hyp_va() before use. Nothing marks them as
-host-owned, so dereferencing one untranslated at EL2 - a recurring bug
-class - is invisible to the compiler.
+=E2=80=A6
+> +++ b/drivers/iio/adc/bcm_iproc_adc.c
+> @@ -506,9 +506,10 @@ static int iproc_adc_probe(struct platform_device *=
+pdev)
+>  {
+>  	struct iproc_adc_priv *adc_priv;
+>  	struct iio_dev *indio_dev =3D NULL;
+> +	struct device *dev =3D &pdev->dev;
+>  	int ret;
+> =20
+> -	indio_dev =3D devm_iio_device_alloc(&pdev->dev,
+> +	indio_dev =3D devm_iio_device_alloc(dev,
+>  					sizeof(*adc_priv));
+=E2=80=A6
 
-Add a __kern sparse address space, active only for EL2 code, and tag the
-host-VA parameters in the hypercall declarations. kern_hyp_va_host() is
-the only sanctioned unwrap: it translates the address, preserves the
-pointee type (stripped of qualifiers, as with the percpu accessors) and
-drops the tag with a __force cast, so an untranslated host VA fails
-sparse. The tag flows from the shared declaration into the generated
-handler and on into the donated-memory and tracing-descriptor helpers,
-so a handler cannot extract a host VA without it. Host code sees plain
-pointers, and the tag is checker-only: no code is generated.
+Would an other adjustment be a bit nicer?
 
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/include/asm/kvm_hcall.h      | 43 ++++++++++++-------
- arch/arm64/include/asm/kvm_mmu.h        | 10 +++++
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h  |  6 ++-
- arch/arm64/kvm/hyp/include/nvhe/trace.h |  5 ++-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 57 +++++++++++++------------
- arch/arm64/kvm/hyp/nvhe/pkvm.c          | 11 ++---
- arch/arm64/kvm/hyp/nvhe/trace.c         |  4 +-
- 7 files changed, 82 insertions(+), 54 deletions(-)
++	indio_dev =3D devm_iio_device_alloc(dev, sizeof(*adc_priv));
 
-diff --git a/arch/arm64/include/asm/kvm_hcall.h b/arch/arm64/include/asm/kvm_hcall.h
-index 39374bae4bea4..3958396a83345 100644
---- a/arch/arm64/include/asm/kvm_hcall.h
-+++ b/arch/arm64/include/asm/kvm_hcall.h
-@@ -28,6 +28,18 @@ struct kvm_vcpu;
- struct vgic_v3_cpu_if;
- struct vgic_v5_cpu_if;
- 
-+/*
-+ * A host VA carried by a hypercall argument. At EL2 such a pointer must not
-+ * be dereferenced until it is translated with kern_hyp_va_host(); sparse
-+ * flags any use that skips the translation. The tag describes the EL2 view
-+ * only: the host dereferences its own VAs freely.
-+ */
-+#if defined(__KVM_NVHE_HYPERVISOR__) && defined(__CHECKER__)
-+#define __kern	__attribute__((noderef, address_space(__kern)))
-+#else
-+#define __kern
-+#endif
-+
- /*
-  * Hypercall signatures are declared as (type, name) argument pairs.
-  * __KVM_HCALL_MAP() applies a macro to each pair, in the mold of __MAP()
-@@ -160,24 +172,24 @@ DECLARE_KVM_HOST_HCALL0(int, __pkvm_prot_finalize)
- 
- /* Hypercalls that are always available and common to [nh]VHE/pKVM. */
- DECLARE_KVM_HOST_HCALL_VOID(__kvm_adjust_pc,
--	struct kvm_vcpu *, vcpu)
-+	struct kvm_vcpu __kern *, vcpu)
- DECLARE_KVM_HOST_HCALL(int, __kvm_vcpu_run,
--	struct kvm_vcpu *, vcpu)
-+	struct kvm_vcpu __kern *, vcpu)
- DECLARE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
- DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa,
--	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
-+	struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
- DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa_nsh,
--	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
-+	struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
- DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid,
--	struct kvm_s2_mmu *, mmu)
-+	struct kvm_s2_mmu __kern *, mmu)
- DECLARE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_range,
--	struct kvm_s2_mmu *, mmu, phys_addr_t, start, unsigned long, pages)
-+	struct kvm_s2_mmu __kern *, mmu, phys_addr_t, start, unsigned long, pages)
- DECLARE_KVM_HOST_HCALL_VOID(__kvm_flush_cpu_context,
--	struct kvm_s2_mmu *, mmu)
-+	struct kvm_s2_mmu __kern *, mmu)
- DECLARE_KVM_HOST_HCALL_VOID(__kvm_timer_set_cntvoff,
- 	u64, cntvoff)
- DECLARE_KVM_HOST_HCALL(int, __tracing_load,
--	void *, desc_hva, size_t, desc_size)
-+	void __kern *, desc_hva, size_t, desc_size)
- DECLARE_KVM_HOST_HCALL0_VOID(__tracing_unload)
- DECLARE_KVM_HOST_HCALL(int, __tracing_enable,
- 	bool, enable)
-@@ -192,13 +204,13 @@ DECLARE_KVM_HOST_HCALL(int, __tracing_enable_event,
- DECLARE_KVM_HOST_HCALL_VOID(__tracing_write_event,
- 	u64, id)
- DECLARE_KVM_HOST_HCALL_VOID(__vgic_v3_save_aprs,
--	struct vgic_v3_cpu_if *, cpu_if)
-+	struct vgic_v3_cpu_if __kern *, cpu_if)
- DECLARE_KVM_HOST_HCALL_VOID(__vgic_v3_restore_vmcr_aprs,
--	struct vgic_v3_cpu_if *, cpu_if)
-+	struct vgic_v3_cpu_if __kern *, cpu_if)
- DECLARE_KVM_HOST_HCALL_VOID(__vgic_v5_save_apr,
--	struct vgic_v5_cpu_if *, cpu_if)
-+	struct vgic_v5_cpu_if __kern *, cpu_if)
- DECLARE_KVM_HOST_HCALL_VOID(__vgic_v5_restore_vmcr_apr,
--	struct vgic_v5_cpu_if *, cpu_if)
-+	struct vgic_v5_cpu_if __kern *, cpu_if)
- 
- /* Hypercalls that are available only when pKVM has finalised. */
- DECLARE_KVM_HOST_HCALL(int, __pkvm_host_share_hyp,
-@@ -223,10 +235,11 @@ DECLARE_KVM_HOST_HCALL0(int, __pkvm_reserve_vm)
- DECLARE_KVM_HOST_HCALL_VOID(__pkvm_unreserve_vm,
- 	pkvm_handle_t, handle)
- DECLARE_KVM_HOST_HCALL(int, __pkvm_init_vm,
--	struct kvm *, host_kvm, void *, vm_hva, void *, pgd_hva)
-+	struct kvm __kern *, host_kvm, void __kern *, vm_hva,
-+	void __kern *, pgd_hva)
- DECLARE_KVM_HOST_HCALL(int, __pkvm_init_vcpu,
--	pkvm_handle_t, handle, struct kvm_vcpu *, host_vcpu,
--	void *, vcpu_hva)
-+	pkvm_handle_t, handle, struct kvm_vcpu __kern *, host_vcpu,
-+	void __kern *, vcpu_hva)
- DECLARE_KVM_HOST_HCALL0(int, __pkvm_vcpu_in_poison_fault)
- DECLARE_KVM_HOST_HCALL(int, __pkvm_force_reclaim_guest_page,
- 	phys_addr_t, phys)
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index 6eae7e7e2a684..57f65257bb56d 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -7,6 +7,8 @@
- #ifndef __ARM64_KVM_MMU_H__
- #define __ARM64_KVM_MMU_H__
- 
-+#include <linux/compiler.h>
-+
- #include <asm/page.h>
- #include <asm/memory.h>
- #include <asm/mmu.h>
-@@ -140,6 +142,14 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
- 
- #define kern_hyp_va(v) 	((typeof(v))(__kern_hyp_va((unsigned long)(v))))
- 
-+/*
-+ * Translate a __kern-tagged host VA, dropping the tag: the only sanctioned
-+ * unwrap. Translation only, no ownership or bounds validation; the result
-+ * carries the pointee type stripped of the tag and of any cv-qualifiers.
-+ */
-+#define kern_hyp_va_host(v)						\
-+	((TYPEOF_UNQUAL(*(v)) *)__kern_hyp_va((unsigned long)(__force void *)(v)))
-+
- extern u32 __hyp_va_bits;
- 
- /*
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-index 2643a1a819668..c1171451e1be7 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/pkvm.h
-@@ -7,6 +7,7 @@
- #ifndef __ARM64_KVM_NVHE_PKVM_H__
- #define __ARM64_KVM_NVHE_PKVM_H__
- 
-+#include <asm/kvm_hcall.h>
- #include <asm/kvm_pkvm.h>
- 
- #include <nvhe/gfp.h>
-@@ -69,9 +70,10 @@ void pkvm_hyp_vm_table_init(void *tbl);
- 
- int __pkvm_reserve_vm(void);
- void __pkvm_unreserve_vm(pkvm_handle_t handle);
--int __pkvm_init_vm(struct kvm *host_kvm, void *vm_hva, void *pgd_hva);
-+int __pkvm_init_vm(struct kvm *host_kvm, void __kern *vm_hva,
-+		   void __kern *pgd_hva);
- int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
--		     void *vcpu_hva);
-+		     void __kern *vcpu_hva);
- 
- int __pkvm_reclaim_dying_guest_page(pkvm_handle_t handle, u64 gfn);
- int __pkvm_start_teardown_vm(pkvm_handle_t handle);
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/trace.h b/arch/arm64/kvm/hyp/include/nvhe/trace.h
-index 4aa36fd76b9e2..c2db9f70ea265 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/trace.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/trace.h
-@@ -4,6 +4,7 @@
- 
- #include <linux/trace_remote_event.h>
- 
-+#include <asm/kvm_hcall.h>
- #include <asm/kvm_hyptrace.h>
- 
- static inline pid_t __tracing_get_vcpu_pid(struct kvm_cpu_context *host_ctxt)
-@@ -46,7 +47,7 @@ static inline pid_t __tracing_get_vcpu_pid(struct kvm_cpu_context *host_ctxt)
- void *tracing_reserve_entry(unsigned long length);
- void tracing_commit_entry(void);
- 
--int __tracing_load(void *desc_va, size_t desc_size);
-+int __tracing_load(void __kern *desc_va, size_t desc_size);
- void __tracing_unload(void);
- int __tracing_enable(bool enable);
- int __tracing_swap_reader(unsigned int cpu);
-@@ -59,7 +60,7 @@ static inline void tracing_commit_entry(void) { }
- #define HYP_EVENT(__name, __proto, __struct, __assign, __printk)      \
- 	static inline void trace_##__name(__proto) {}
- 
--static inline int __tracing_load(void *desc_va, size_t desc_size) { return -ENODEV; }
-+static inline int __tracing_load(void __kern *desc_va, size_t desc_size) { return -ENODEV; }
- static inline void __tracing_unload(void) { }
- static inline int __tracing_enable(bool enable) { return -ENODEV; }
- static inline int __tracing_swap_reader(unsigned int cpu) { return -ENODEV; }
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 6986ce55fd9ef..f8ea1661b3166 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -270,7 +270,7 @@ DEFINE_KVM_HOST_HCALL0_VOID(__pkvm_vcpu_put)
- }
- 
- DEFINE_KVM_HOST_HCALL(int, __kvm_vcpu_run,
--	struct kvm_vcpu *, host_vcpu)
-+	struct kvm_vcpu __kern *, host_vcpu)
- {
- 	int ret;
- 
-@@ -295,7 +295,7 @@ DEFINE_KVM_HOST_HCALL(int, __kvm_vcpu_run,
- 
- 		sync_hyp_vcpu(hyp_vcpu);
- 	} else {
--		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
-+		struct kvm_vcpu *vcpu = kern_hyp_va_host(host_vcpu);
- 
- 		/* The host is fully trusted, run its vCPU directly. */
- 		fpsimd_lazy_switch_to_guest(vcpu);
-@@ -422,9 +422,9 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_host_mkyoung_guest,
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__kvm_adjust_pc,
--	struct kvm_vcpu *, vcpu)
-+	struct kvm_vcpu __kern *, vcpu)
- {
--	__kvm_adjust_pc(kern_hyp_va(vcpu));
-+	__kvm_adjust_pc(kern_hyp_va_host(vcpu));
- }
- 
- DEFINE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
-@@ -433,27 +433,27 @@ DEFINE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa,
--	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
-+	struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
- {
--	__kvm_tlb_flush_vmid_ipa(kern_hyp_va(mmu), ipa, level);
-+	__kvm_tlb_flush_vmid_ipa(kern_hyp_va_host(mmu), ipa, level);
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa_nsh,
--	struct kvm_s2_mmu *, mmu, phys_addr_t, ipa, int, level)
-+	struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
- {
--	__kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va(mmu), ipa, level);
-+	__kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va_host(mmu), ipa, level);
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_range,
--	struct kvm_s2_mmu *, mmu, phys_addr_t, start, unsigned long, pages)
-+	struct kvm_s2_mmu __kern *, mmu, phys_addr_t, start, unsigned long, pages)
- {
--	__kvm_tlb_flush_vmid_range(kern_hyp_va(mmu), start, pages);
-+	__kvm_tlb_flush_vmid_range(kern_hyp_va_host(mmu), start, pages);
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid,
--	struct kvm_s2_mmu *, mmu)
-+	struct kvm_s2_mmu __kern *, mmu)
- {
--	__kvm_tlb_flush_vmid(kern_hyp_va(mmu));
-+	__kvm_tlb_flush_vmid(kern_hyp_va_host(mmu));
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid,
-@@ -469,9 +469,9 @@ DEFINE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid,
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__kvm_flush_cpu_context,
--	struct kvm_s2_mmu *, mmu)
-+	struct kvm_s2_mmu __kern *, mmu)
- {
--	__kvm_flush_cpu_context(kern_hyp_va(mmu));
-+	__kvm_flush_cpu_context(kern_hyp_va_host(mmu));
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__kvm_timer_set_cntvoff,
-@@ -500,15 +500,15 @@ DEFINE_KVM_HOST_HCALL0_VOID(__vgic_v3_init_lrs)
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_save_aprs,
--	struct vgic_v3_cpu_if *, cpu_if)
-+	struct vgic_v3_cpu_if __kern *, cpu_if)
- {
--	__vgic_v3_save_aprs(kern_hyp_va(cpu_if));
-+	__vgic_v3_save_aprs(kern_hyp_va_host(cpu_if));
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_restore_vmcr_aprs,
--	struct vgic_v3_cpu_if *, cpu_if)
-+	struct vgic_v3_cpu_if __kern *, cpu_if)
- {
--	__vgic_v3_restore_vmcr_aprs(kern_hyp_va(cpu_if));
-+	__vgic_v3_restore_vmcr_aprs(kern_hyp_va_host(cpu_if));
- }
- 
- DEFINE_KVM_HOST_HCALL(int, __pkvm_init,
-@@ -580,16 +580,17 @@ DEFINE_KVM_HOST_HCALL_VOID(__pkvm_unreserve_vm,
- }
- 
- DEFINE_KVM_HOST_HCALL(int, __pkvm_init_vm,
--	struct kvm *, host_kvm, void *, vm_hva, void *, pgd_hva)
-+	struct kvm __kern *, host_kvm, void __kern *, vm_hva,
-+	void __kern *, pgd_hva)
- {
--	return __pkvm_init_vm(kern_hyp_va(host_kvm), vm_hva, pgd_hva);
-+	return __pkvm_init_vm(kern_hyp_va_host(host_kvm), vm_hva, pgd_hva);
- }
- 
- DEFINE_KVM_HOST_HCALL(int, __pkvm_init_vcpu,
--	pkvm_handle_t, handle, struct kvm_vcpu *, host_vcpu,
--	void *, vcpu_hva)
-+	pkvm_handle_t, handle, struct kvm_vcpu __kern *, host_vcpu,
-+	void __kern *, vcpu_hva)
- {
--	return __pkvm_init_vcpu(handle, kern_hyp_va(host_vcpu), vcpu_hva);
-+	return __pkvm_init_vcpu(handle, kern_hyp_va_host(host_vcpu), vcpu_hva);
- }
- 
- DEFINE_KVM_HOST_HCALL0(int, __pkvm_vcpu_in_poison_fault)
-@@ -624,7 +625,7 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_finalize_teardown_vm,
- }
- 
- DEFINE_KVM_HOST_HCALL(int, __tracing_load,
--	void *, desc_hva, size_t, desc_size)
-+	void __kern *, desc_hva, size_t, desc_size)
- {
- 	return __tracing_load(desc_hva, desc_size);
- }
-@@ -671,15 +672,15 @@ DEFINE_KVM_HOST_HCALL_VOID(__tracing_write_event,
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_save_apr,
--	struct vgic_v5_cpu_if *, cpu_if)
-+	struct vgic_v5_cpu_if __kern *, cpu_if)
- {
--	__vgic_v5_save_apr(kern_hyp_va(cpu_if));
-+	__vgic_v5_save_apr(kern_hyp_va_host(cpu_if));
- }
- 
- DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_restore_vmcr_apr,
--	struct vgic_v5_cpu_if *, cpu_if)
-+	struct vgic_v5_cpu_if __kern *, cpu_if)
- {
--	__vgic_v5_restore_vmcr_apr(kern_hyp_va(cpu_if));
-+	__vgic_v5_restore_vmcr_apr(kern_hyp_va_host(cpu_if));
- }
- 
- typedef void (*hcall_t)(struct kvm_cpu_context *);
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 205c52535c887..9c33d983058a3 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -644,9 +644,9 @@ static size_t pkvm_get_hyp_vm_size(unsigned int nr_vcpus)
- 		size_mul(sizeof(struct pkvm_hyp_vcpu *), nr_vcpus));
- }
- 
--static void *map_donated_memory_noclear(void *host_va, size_t size)
-+static void *map_donated_memory_noclear(void __kern *host_va, size_t size)
- {
--	void *va = kern_hyp_va(host_va);
-+	void *va = kern_hyp_va_host(host_va);
- 
- 	if (!PAGE_ALIGNED(va))
- 		return NULL;
-@@ -658,7 +658,7 @@ static void *map_donated_memory_noclear(void *host_va, size_t size)
- 	return va;
- }
- 
--static void *map_donated_memory(void *host_va, size_t size)
-+static void *map_donated_memory(void __kern *host_va, size_t size)
- {
- 	void *va = map_donated_memory_noclear(host_va, size);
- 
-@@ -805,7 +805,8 @@ void teardown_selftest_vm(void)
-  *
-  * Return 0 success, negative error code on failure.
-  */
--int __pkvm_init_vm(struct kvm *host_kvm, void *vm_hva, void *pgd_hva)
-+int __pkvm_init_vm(struct kvm *host_kvm, void __kern *vm_hva,
-+		   void __kern *pgd_hva)
- {
- 	struct pkvm_hyp_vm *hyp_vm = NULL;
- 	size_t vm_size, pgd_size;
-@@ -896,7 +897,7 @@ static int register_hyp_vcpu(struct pkvm_hyp_vm *hyp_vm,
- }
- 
- int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
--		     void *vcpu_hva)
-+		     void __kern *vcpu_hva)
- {
- 	struct pkvm_hyp_vcpu *hyp_vcpu;
- 	struct pkvm_hyp_vm *hyp_vm;
-diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
-index 97203ddd3cf45..4410006321a99 100644
---- a/arch/arm64/kvm/hyp/nvhe/trace.c
-+++ b/arch/arm64/kvm/hyp/nvhe/trace.c
-@@ -206,9 +206,9 @@ static bool hyp_trace_desc_is_valid(struct hyp_trace_desc *desc, size_t desc_siz
- 	return true;
- }
- 
--int __tracing_load(void *desc_hva, size_t desc_size)
-+int __tracing_load(void __kern *desc_hva, size_t desc_size)
- {
--	struct hyp_trace_desc *desc = kern_hyp_va(desc_hva);
-+	struct hyp_trace_desc *desc = kern_hyp_va_host(desc_hva);
- 	int ret;
- 
- 	ret = __admit_host_mem(desc, desc_size);
--- 
-2.39.5
 
+=E2=80=A6
+> @@ -523,14 +524,14 @@ static int iproc_adc_probe(struct platform_device =
+*pdev)
+>  	adc_priv->regmap =3D syscon_regmap_lookup_by_phandle(pdev->dev.of_node=
+,
+>  			   "adc-syscon");
+>  	if (IS_ERR(adc_priv->regmap)) {
+> -		dev_err(&pdev->dev, "failed to get handle for tsc syscon\n");
+> +		dev_err(dev, "failed to get handle for tsc syscon\n");
+>  		ret =3D PTR_ERR(adc_priv->regmap);
+>  		return ret;
+>  	}
+=E2=80=A6
+
+Can further source code refinements become helpful here?
+
+Regards,
+Markus
 
