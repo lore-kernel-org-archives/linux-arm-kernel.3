@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F159EC5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 18:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB4DC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 18:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ln+CAvuRtS5oR8LHPuiaJ0WpvoDOfRfT/ABchjoNpM=; b=qnj1ynBmlGUas1AwlVxRZL9SMG
-	Jlrei+BNI6CHrhXCiHJXpwnm6d9JbtUFQMXGH/1JcFkmBKOJnYSU6XYblKfbXlHXhSvS04G4UA1Ex
-	BpqM8UK9QSXV5Zq/m5nXgLAUpk3erIY1KgUVsgkT9WMvhigatiwb068N4q4rkkY5mNRrHDLgmOBOs
-	L4K9es9UbmQwlis0NkHivtRQljPZt1DwC4XgVNXcmBAoAeuMVdiyYeduXoaiPKjqFQL0k13cL5rV8
-	naezhbYqh8zBzjo4j7Vl2FKpQ2F9UchWNJN5V0wlIfba0gEfCWd8rbOKsNhTMfwAT+FwqajzVerwd
-	zZqHH1TQ==;
+	bh=4pNvk/hVxan4X92LEuNLrhC26XmWg6H10cQTm3nYIy8=; b=Z8bRSiE2RZqrAvGzpwZ1IViszw
+	4dpaPkVbgp7Z/0p0z/QRGHFutZ7nvPfiT/NaYr29jNtJgovY3ZppBBSAV+/qMTYQ5STacAgy4DEll
+	oSlVHnXqpRwUHv2OUIze2PRqwjN0A4pm09XbdEzSHTsPaS7jx5AF6JnFtVZ6Cns+SZJnUl7pS3zvY
+	ljf5+Hn2hnvr5364Wnu06G7WGA9/rkVponaQnv4VenzdjrlLEy7SO8BqeNYOf8IEKFIR8WcaC3UeI
+	4/oPuxo0Fe+UISB/3ib3QAsCoGYdnGmBhaHMHSnGLfjLYaXLQVedsYt+vaJBZTWy4OO7pC6gCmTRs
+	KPrd5ieg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrJVK-00000002ZJH-1CR0;
-	Tue, 04 Aug 2026 18:04:42 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wrJXS-00000002ZYH-3Xx0;
+	Tue, 04 Aug 2026 18:06:54 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrJVH-00000002ZIW-0z0G;
-	Tue, 04 Aug 2026 18:04:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=6ln+CAvuRtS5oR8LHPuiaJ0WpvoDOfRfT/ABchjoNpM=; b=rDpIfwRla/EZd1ILBlwJNco4l4
-	WfJIK/HAgFAq5aphrTk40f+vvHDbygWv7o6Z7/8p18JwxCsd4QtQBJZVg+Rnl0bNsCpPhaUSIko+w
-	PNJecubs0awQArL1qJnq1JoKDLrt4q0JC6qril3QrQLMaSHRvwF9enPKiJ6onGEd4yYU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wrJUz-00G286-VC; Tue, 04 Aug 2026 20:04:21 +0200
-Date: Tue, 4 Aug 2026 20:04:21 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, mfd@lists.linux.dev,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 10/21] net: phy: add X-Powers AC200 EPHY control driver
-Message-ID: <fb6f8065-a655-4d53-acfb-8171b2e003dc@lunn.ch>
-References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <20260802-submit-acx00-of-dynamic-v1-v1-10-0a53cd9e21cc@gmail.com>
- <05b1e6a2-725e-4b8e-8629-249637bbcb81@lunn.ch>
- <CADvTj4o0JdjoO+FC4pO=qnjEQ8MRyzQdKp2Hxy9NsPU-gym5OQ@mail.gmail.com>
- <9b8be475-1fde-409c-a82e-be4b2e402650@lunn.ch>
- <CADvTj4pBovti19MXgQjFpxm=7aRm0sYQz9jxfo8bu3txH94THQ@mail.gmail.com>
- <a9ce53dd-0873-41c0-ad6a-fb42e6cc7aaa@lunn.ch>
- <CADvTj4qpHU3F0DrEmc0vFi+JiwTNERniiMHKo1LmBd8sg58wJA@mail.gmail.com>
- <205e9051-8e43-44bb-a4b5-4ec69a192fa3@lunn.ch>
- <CADvTj4qmXWbDsc-vigcSrF1N=zpxmZWGp3YaZ9PFcWK551h3mg@mail.gmail.com>
+	id 1wrJXR-00000002ZXf-3Hro
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 04 Aug 2026 18:06:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=4pNvk/hVxan4X92LEuNLrhC26XmWg6H10cQTm3nYIy8=; b=TpyaRaYZLg/n2BYtHJXErQH29W
+	6pY46PDbcU/PJH6PFMKJMixpiZtwudk778hqs51AMMiK/YZTaHHmwNyd5NQnvASuFayXom6gJ/viN
+	CBa9xLRHNV2SDR9WVxhUb9u1vohm90k5Vqbs4Kh+XAiMe28Xfa2rKTBBJzp7xy7LZ5N4maISrddCD
+	M7UQfCBzU4lu+qb3CLknfmWgfsJ0R31KepvHYgd3/fWwlH9ldg4ILGUOdWyEnfN9MxQDjwF0pv4q8
+	ZJeRe9Wqm1Ij/J4TxN4bPCrPtfEEv30uJE5Z2zqzfPZ7ZRjDlgfbTtm/YYGyDbgIERxzyby5g2tsA
+	ITpE0eFA==;
+Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrJXP-00000004SL5-3nTg;
+	Tue, 04 Aug 2026 18:06:51 +0000
+Date: Tue, 4 Aug 2026 19:06:51 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org,
+	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
+	will@kernel.org, akpm@linux-foundation.org, hca@linux.ibm.com,
+	gor@linux.ibm.com, agordeev@linux.ibm.com, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+Message-ID: <anIqO2AiVlLTEPOd@casper.infradead.org>
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+ <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+ <amCPBrdltFSE_fEf@J2N7QTR9R3>
+ <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+ <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
+ <anHuLy52o5S9Nlwp@lucifer>
+ <anH1CgpwS3PHeDRq@lucifer>
+ <20260804144054.GE27883@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CADvTj4qmXWbDsc-vigcSrF1N=zpxmZWGp3YaZ9PFcWK551h3mg@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_110439_277350_24FBB453 
-X-CRM114-Status: GOOD (  10.00  )
+In-Reply-To: <20260804144054.GE27883@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,27 +84,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > No they don't. There are extra registers in different address domains.
-> 
-> The block diagrams make the distinction clearer. Both diagrams depict
-> an EPHY block with the same internal organization: MII/RMII, auto
-> negotiation, auto-MDIX, 10/100 TX and RX PCS/PMA blocks, LED logic,
-> clock/reset, PLL and EPHY AFE.
+On Tue, Aug 04, 2026 at 11:40:54AM -0300, Jason Gunthorpe wrote:
+> That said there is still a merit for things like replicating .text, and
+> I think we will also have some multi-socket systems that would benefit
+> from this too..
 
-The block diagram is a vendor diagram, the vendor can draw whatever
-diagram they want. What does the Mainline Linux networking block
-diagram look like?
-
-O.K. I've somewhat had enough of this discussion.
-
-For the Networking parts: NACK
-
-To get that revoked, make the PHY driver drive the PHY.
-
-Hide away as much of this bad networking design in the bootloader.
-
-You are free to continue working on the MFD and other parts which are
-not networking, because i'm not a Maintainer there.
-
-    Andrew
+Are you referring to kernel text replication or userspace text
+replication?  If the latter, I don't think we need per-CPU page tables
+to do it.
 
