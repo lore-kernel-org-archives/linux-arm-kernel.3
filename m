@@ -4,93 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25B8C55838
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76771C55184
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:06:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LksaQirVyyRYvWZqZp8juYzuZLaLOR8yizwcni9laKI=; b=iAZj8S2m343sP+cuuHnWpr0JHY
-	TYD5T7oJwe4RBdHZZDMVH/9fKxS86m03SfdoTI1Aiif2p8mhw3M1UehINDuGbo79pTd6TU1phkS3i
-	LHNzdR12xERuybCf/cDfFUh97JA/B3IHm7CL5/f+rgje+aJFVtqZFgG6Y9U/voCSwQ5ZC3KmadYD6
-	s29qxuERWVmrBwpxwUJ1jq4wrTRl9frshhwM5kRwUnMabWbKCWGwuNwY++18/bIG8F8qw/N+v8Whc
-	OQSD0MV4xs2WU9MhaIJbCh1PcBI+Ms7haljUhEA5y6E6O7r7W6V99GAk2BDoLEUDOkIV3OqtzK+ES
-	fDysefBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=T+4lYyJcKTJOchk+se+lVEomgvpRiM8J/+K3xgMhvyo=; b=ER1jxwlTdKF4Bo
+	4hWlsXUd5dM2rN6HSHE63/kp0MBxSoZ8g5zqBDltn8HYzomFyExYfsbMDv5ZIt79TEuWW1CdzJO0+
+	u51a0/P4zxanrsKCTAvIpXdAfb+9a1pQoFXleXssHbM0br1ZagBesSFishjDGQ4OrLSFqE+bqE3pU
+	5VMFu4FGaxVH1njQFZSgFAmIAvTLbmqFYhTSkkctZHvO+qBTLcDsfqFPVS9HajpVvDA7/tHK+82RL
+	7F8oXSo1NhKkj0elogAE+IDYm0oLvNOY1C8nTLeX6JvzQxeeiPEQ7YJqJK+fcCk8l0akiz2CYXRmz
+	1Ybd3UocTMVwuP5wq38w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIaQ-00000002Q6v-1VCN;
-	Tue, 04 Aug 2026 17:05:54 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIaM-00000002Q1l-3F70
+	id 1wrIaL-00000002Q1M-1LFd;
+	Tue, 04 Aug 2026 17:05:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrIaJ-00000002PzO-119U
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 17:05:52 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-ca80d708489so101562a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 10:05:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785863149; x=1786467949; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LksaQirVyyRYvWZqZp8juYzuZLaLOR8yizwcni9laKI=;
-        b=gwSm5+zxwp/wysVNPzNmGts7E/Itpd2MjjOusk+siDQmf+6RrJGZDGiTdzU/iW6/zh
-         ne3u/DLSukrb9tszj2JG5QExHuUE/kvbKwXuUyM8gJmwriGwUAoO5SmkbawTQDPMOzpi
-         4+5B1103Ps94JWURi9jJhAQu8U2DcQJF/P7T/ZcbBZ9F4rds+pJuE5bDmli7ftYSFSdQ
-         2WF/4vnYUpfzUKkcJjNZyi3pxcgFr1lrscGnDU9EU5E61Au51Jy3vk+jctZCktJ6Siyq
-         nlC3fGmKGzNsB8KPbHhejDpbRxyPxFbHNseEWgZFE2fDMTLeLkYyjc7FZyh9ptF5/acs
-         pDWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785863149; x=1786467949;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LksaQirVyyRYvWZqZp8juYzuZLaLOR8yizwcni9laKI=;
-        b=LaqQb6PCcpK6SgOu69ahXLZFT2It+ZzK+jqiBz9UYqC6qYpAZ/m0oQN+8ZFceBP5UL
-         gRXum/P136V8Nni0gptJkipMY8lY/rpdn/23EJT4zIrPeYr1XUzmWofhmVHupckCrmJV
-         RCRM6qfq9pJOK5Z0tpyHkHBAE5JHvd+6S7ASgGOGMXDEym5JjLz4kNVfYBpLm7H1FzwR
-         P6QxEBgyrwHg2o+mhNLD1UwjQ8J0CbnkR8hE6evsb4LTCNyEI10xWyPet/dl5rDNOn2A
-         FzLtb3MIvrbasyWfI975nw7bUJztl4XAJDvCUfaQvdeEOpj4LvTakN6AGwDCIgW7verb
-         O+8A==
-X-Forwarded-Encrypted: i=1; AHgh+RrVLXKCzym3KykXC8Uz8gwHB3Oq/JtHb/JunSP5ZERedkvYRN3zPtLLlujHGF9fa4iHMErPcM5gqLhx5LYwE8tZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwL8l2C68j95FwpvWm+h8c5YJmqP1YC7k+O/p6Fzgna8K9HJPyb
-	+m4HVvPLE5WexKhwTaI6UnQWluKqX9ERHpAaIYobbiIrZnIgaBKLB+jXl4MEA3j+MXA=
-X-Gm-Gg: AR+sD12lZJegGpGNH/2cW9h++llW+tPsiqfr62HFFHDfWtT6OA60qGChAlBq6+3NYCZ
-	1a5uE5TLe4LLHDcYW40AxJucKqQZY9egdBFkfK7OLHhLq90TWt7gyR+HdIi+DV4ac5Dyd6rBnMB
-	fxZMuDEHxStOeIv/2WtOsdjYTvms1GXKY/CiiHoe/suv225YmTjthZkwwGxPGKRP2y1Qe983crY
-	MoDtsGGJJDbumMlrSAodGWDq8mmm0O4LJtUaxqbCF7J+AZkCBsZIlDVGvD+RZ8dyGuBTlSKrUhs
-	/8YSf1SsDqH0Mt4bLMvAIRmIT9NyhM72hfVsSYVaC6E0OdMqFSVe+LG9BHdPAZPc7MS2vqXrlPZ
-	eM+zXOGVR7e0zwy1AH4TnAOXmXACy57Ls7eBoFKQtbptZOoQ1nUf1cmLTHmPdG6wcsPWugnWZ8q
-	UvJXLlir9z8jqEYFyBCh7SwqRyoyQzbhoEBr4wfNxLQl6t3dZuBRxuuLqIVdQ=
-X-Received: by 2002:a05:6a20:9392:b0:3c3:75c5:48d5 with SMTP id adf61e73a8af0-3cb6c7536cdmr5854873637.4.1785863149251;
-        Tue, 04 Aug 2026 10:05:49 -0700 (PDT)
-Received: from ubuntu.. ([2405:201:8026:213e:1461:a94d:d559:948d])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31586162e80sm7230582eec.0.2026.08.04.10.05.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 10:05:48 -0700 (PDT)
-From: mdshahid03@gmail.com
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Markus Elfring <Markus.Elfring@web.de>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v5 0/3] iio: adc: bcm_iproc_adc: Simplify probe error handling
-Date: Tue,  4 Aug 2026 22:35:18 +0530
-Message-ID: <20260804170521.196393-1-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 04 Aug 2026 17:05:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62B3E1684;
+	Tue,  4 Aug 2026 10:05:40 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 701EA3F632;
+	Tue,  4 Aug 2026 10:05:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785863144; bh=qCT1jKAmGgSsjUkSBt87PeNx7fLkJ1u97Bx7EBNo5ig=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=AldYjHIZREaNdW3I478USfBmmV6zy7HwhSWsviRWmDn4FUWgSPnKHO6CUnQTWy7Mu
+	 2T4oCUzs+ttK9zwjJ/JKyizO+/v+0IMx3JFTpYDFwtGZIavG1OnLSrVareartAH2a3
+	 7hO2gj1N/mdbCMur3aEwBjP+AwWC0v4ZuQpYP4pI=
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 07/20] arm64: ptrace: Always inline pt_regs_[read,write}_reg()
+Date: Tue,  4 Aug 2026 18:04:50 +0100
+Message-Id: <20260804170503.3513916-8-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260804170503.3513916-1-mark.rutland@arm.com>
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_100550_832235_60D7EC77 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20260804_100547_419231_1D96199D 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +63,63 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+In subsequent patches we'll want to use pt_regs_read_reg() and
+pt_regs_write_reg() in noinstr code.
 
-This series simplifies probe error handling in bcm_iproc_adc.
+To ensure noinstr safety, both functions must be inlined into their
+caller. As both functions are marked as 'inline' rather than
+'__always_inline', that's not strictly guaranteed, and the compiler is
+permitted to generate out-of-line copies.
 
-Patch 1 removes redundant probe error messages after
-devm_request_threaded_irq(), where the helper already reports the error.
+Mark both functions as '__always_inline' to ensure this.
 
-Patch 2 introduces a local device pointer to reduce repetition and
-prepare for subsequent error handling cleanup.
+There should be no functional change as a result of this patch.
 
-Patch 3 converts immediate-return probe error paths to dev_err_probe()
-while leaving cleanup paths unchanged.
-
-Changes in v5:
-- Keep Patch 2 focused on introducing a local device pointer with
-  minimal code churn.
-- Convert only immediate-return probe error paths in Patch 3.
-- Leave cleanup (goto) error paths unchanged as suggested during
-  review. Those will be converted separately together with the planned
-  devm-managed cleanup using devm_add_action_or_reset().
-- Improve line wrapping and formatting based on review comments.
-
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
-Mohammad Shahid (3):
-  iio: adc: bcm_iproc_adc: Remove redundant probe error messages
-  iio: adc: bcm_iproc_adc: Introduce local device pointer
-  iio: adc: bcm_iproc_adc: Convert probe error handling to
-    dev_err_probe()
+ arch/arm64/include/asm/ptrace.h | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
- drivers/iio/adc/bcm_iproc_adc.c | 48 +++++++++++++--------------------
- 1 file changed, 18 insertions(+), 30 deletions(-)
-
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index 39582511ad72f..a1aa668aad50e 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -268,7 +268,8 @@ static inline u64 regs_get_register(struct pt_regs *regs, unsigned int offset)
+  * Read a register given an architectural register index r.
+  * This handles the common case where 31 means XZR, not SP.
+  */
+-static inline unsigned long pt_regs_read_reg(const struct pt_regs *regs, int r)
++static __always_inline unsigned long
++pt_regs_read_reg(const struct pt_regs *regs, int r)
+ {
+ 	return (r == 31) ? 0 : regs->regs[r];
+ }
+@@ -277,8 +278,8 @@ static inline unsigned long pt_regs_read_reg(const struct pt_regs *regs, int r)
+  * Write a register given an architectural register index r.
+  * This handles the common case where 31 means XZR, not SP.
+  */
+-static inline void pt_regs_write_reg(struct pt_regs *regs, int r,
+-				     unsigned long val)
++static __always_inline void
++pt_regs_write_reg(struct pt_regs *regs, int r, unsigned long val)
+ {
+ 	if (r != 31)
+ 		regs->regs[r] = val;
 -- 
-2.43.0
+2.30.2
 
 
