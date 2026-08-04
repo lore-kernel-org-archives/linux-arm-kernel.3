@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5FCC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 01:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0745EC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 01:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oic1r/RdJs0p25eYXITWGXQfTIlTGgREqOaY42+fH1s=; b=aStErL8w7b6lrdoLjKWVwFr2Sm
-	+TPctT2Tm6ekW3sULcD0mAl14iSkpC6l8PKOQVqRbZtKx5zLQUdZCXqEf0jO3a0VQt9ADzCMtrJMT
-	QCRiiUkc3QPA8onUU8GCOCbORHYTWKB2nji7est+RNKlCzhOtWrwIaEp++p9vVF61pnZfDqSVPqLh
-	H9Fo8QmeNmG2d8PyBa//PO7vxZqTzvuAX2+YjsPfbiPQKJAfqClKxoihHFHrXTmULXLljx1F3SLZY
-	fKTgGS/Q5e7tL5Zwg06MbkCLu0neOtMe0R9v8adkD8+/ZMWOdDKN4zDa04BxArDMiuGjAFGvORQ92
-	v8XHQugg==;
+	bh=DO7JjvLw7hnkPqHoC7TvmXBtgyEkXrMt3vhNNd4UZtY=; b=yHjVQp2VcX3ESpEvfPqRLKWx4S
+	Gt6GsFJrNVbtH3X/5VIqo7pqow38BSPakWTfe6T+ml5i9/LD7syTNIOC6Rqh7Fq0X/rfBUIFdovNW
+	ByZq6f8Tu7w8s/mC12OKxtyEXp09dzMJYyD7p2KuP8irdnwSWPZsdfBe5loUm8be6816TZTN1Ud5q
+	rNDq5FjJZRWLDUzZD5r/n3vyTWPqB6KBDgi5SSHzb/myg8Dts+5zL6DoNrILNfLTIS74+D1eh4q9B
+	MFKZ9cCglJDwxmEY+awRhCk5zD6W8DI6OZxvXEaCBGmJs6WNZ54QZ3o3ynaPmvw+Zb7GmBtFzM0Kj
+	T3kDd6AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr49G-00000000nQp-1zFo;
-	Tue, 04 Aug 2026 01:40:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wr4BP-00000000nfC-3qEe;
+	Tue, 04 Aug 2026 01:43:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr49E-00000000nQb-3jG3;
-	Tue, 04 Aug 2026 01:40:53 +0000
+	id 1wr4BM-00000000ney-23cD;
+	Tue, 04 Aug 2026 01:43:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B780760A59;
-	Tue,  4 Aug 2026 01:40:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C4031F00A3A;
-	Tue,  4 Aug 2026 01:40:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AD88E406EA;
+	Tue,  4 Aug 2026 01:43:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F37C71F000E9;
+	Tue,  4 Aug 2026 01:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785807651;
-	bh=Oic1r/RdJs0p25eYXITWGXQfTIlTGgREqOaY42+fH1s=;
+	s=k20260515; t=1785807783;
+	bh=DO7JjvLw7hnkPqHoC7TvmXBtgyEkXrMt3vhNNd4UZtY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hG/L8wKAeNwmgVRj+GI45ZUdZMnvGSE3EOLe6ya7z5Ixxo3CHf2b8ZgXsa7BbUzcS
-	 7co2spdP6CcXFrOSI/kBi6x+3iNMR1hljxbHS7VwJpUOsKi9R+rzt2SwGZC+pnCkiE
-	 TkZb2VVT+eiwwKTfVqAYiCz+azb6exQObopo8xQ2wbczVTw5K6X21DIhkItLnY4eon
-	 ZU//XShakHIQJcxxs7eMeGrS44Krc/Gu9Z1+RfB97+PsuFfncxfQYNMvx1u51LKQM5
-	 GVC8QOB9u/XHGNiq73al5iynUFtPC6Uvb1DnCCIWTBt/NhN+pElxQPkY+8fc5gO05R
-	 lXcuyMPPp82Fw==
-Date: Mon, 3 Aug 2026 18:40:47 -0700
+	b=mdryV+b/4inJrTTpR2WeVz0bsmaWlx281cGQ0MCds5qWkNGX5eOVQgHP/8RbmndM3
+	 PGxjtuNDhhSsWwAIwQQoODjVPTSqAZFihsbykGp0kD6J+E/CaUMicMiNdaKDdwlf7g
+	 j+z7oFzDEo5lCiNo86k+rz2clboOl2hN8KnUYxbMyCE97ZBERLwEF+bP5x+5ZuSg9N
+	 /yACL6gAFE1Jo7Xn2bMFOr8xKHDHfBnD7ThURiy/0bnETMvl6dCFGZwt3d0i5Fyn7F
+	 AQ35qxRxDCFsklqEXtLCw482xM4hQYw33Ex+eKlWvKpjUum2n8NNKRm2+9jsxTGDIV
+	 Zlky0p/NN5oEw==
+Date: Mon, 3 Aug 2026 18:43:02 -0700
 From: Jakub Kicinski <kuba@kernel.org>
-To: Brian Masney <bmasney@redhat.com>
-Cc: Akari Tsuyukusa <akkun11.open@gmail.com>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Yassine Oudjana
- <y.oudjana@protonmail.com>, Richard Cochran <richardcochran@gmail.com>,
- Laura Nao <laura.nao@collabora.com>, "=?UTF-8?B?TsOtY29sYXM=?= F. R. A.
- Prado" <nfraprado@collabora.com>, Chen-Yu Tsai <wenst@chromium.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Danilo
- Krummrich <dakr@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, "Uwe
- =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= (The Capable Hub)"
- <u.kleine-koenig@baylibre.com>, Nicolas Frattaroli
- <nicolas.frattaroli@collabora.com>, Takashi Sakamoto
- <o-takashi@sakamocchi.jp>, Haotian Zhang <vulab@iscas.ac.cn>, Kees Cook
- <kees@kernel.org>, Miles Chen <miles.chen@mediatek.com>, Daniel Golle
- <daniel@makrotopia.org>, Sam Shih <sam.shih@mediatek.com>, "open
- list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>, open list
- <linux-kernel@vger.kernel.org>, "moderated list:ARM/Mediatek SoC support"
- <linux-arm-kernel@lists.infradead.org>, "moderated list:ARM/Mediatek SoC
- support" <linux-mediatek@lists.infradead.org>, "open list:PTP HARDWARE
- CLOCK SUPPORT:Keyword:(?:b|_)ptp(?:b|_)" <netdev@vger.kernel.org>,
- stable@vger.kernel.org
-Subject: Re: [PATCH 00/32] clk: mediatek: Migrate to common probe/remove
- helpers and fix memory leaks
-Message-ID: <20260803184047.4a8ec29a@kernel.org>
-In-Reply-To: <anD518s51UBvJHj4@redhat.com>
-References: <20260803141659.559129-1-akkun11.open@gmail.com>
-	<20260803125034.49055f62@kernel.org>
-	<anD518s51UBvJHj4@redhat.com>
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: "Chester A. Unal" <chester.a.unal@arinc9.com>, Andrew Lunn
+ <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Alexander Couzens <lynxis@fe80.eu>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Russell King
+ <rmk+kernel@armlinux.org.uk>, Landen Chao <Landen.Chao@mediatek.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Sean Wang
+ <sean.wang@mediatek.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net 0/4] net: dsa: mt7530: fix remaining swallowed MDIO
+ access errors
+Message-ID: <20260803184302.0df91301@kernel.org>
+In-Reply-To: <cover.1785427248.git.daniel@makrotopia.org>
+References: <cover.1785427248.git.daniel@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
@@ -89,61 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Aug 2026 16:28:07 -0400 Brian Masney wrote:
-> Hi Jakub,
+On Thu, 30 Jul 2026 17:03:00 +0100 Daniel Golle wrote:
+> v1 of "net: dsa: mt7530: fix swallowed MDIO read errors" [1] was
+> applied to net just before v2 [2] went out. This series carries
+> everything from v2 which was not already applied with v1 and still
+> qualifies as a fix: the two standalone patches v2 had grown following
+> the Sashiko AI reviewers' findings on v1, and, as patches of their
+> own, the companion fixes v2 added inside the already applied patches:
+> the unchecked bus->read() in core_rmw() and the unchecked PHY_IAC
+> command writes in the MT7531 indirect PHY access functions.
 > 
-> On Mon, Aug 03, 2026 at 12:50:34PM -0700, Jakub Kicinski wrote:
-> > On Mon,  3 Aug 2026 23:16:27 +0900 Akari Tsuyukusa wrote:  
-> > > This series migrates most MediaTek clock drivers to the common
-> > > probe/remove helpers provided by the MTK clock framework.  
-> > 
-> > Why are you CCing netdev on this? None of it touches networking  
-> 
-> I saw that message from you about two different mediatek patch series
-> from different submitters. This series has 38 files, all under
-> drivers/clk/mediatek/. If I run get_maintainers.pl on each file path
-> individuall like this:
-> 
->   $ cat filelist | awk '{print $1}' | \
->   	xargs -iblah echo ./scripts/get_maintainer.pl blah
-> 
-> Then netdev list doesn't show up.
-> 
-> However, if I look at it as a whole, then it shows up:
-> 
->     $ b4 am 20260803141659.559129-1-akkun11.open@gmail.com
->     $ ./scripts/get_maintainer.pl \
->     	./20260803_akkun11_open_clk_mediatek_migrate_to_common_probe_remove_helpers_and_fix_memory_leaks.mbx
-> 
->     ...
->     netdev@vger.kernel.org (open list:PTP HARDWARE CLOCK SUPPORT:Keyword:(?:\b|_)ptp(?:\b|_))
-> 
-> I think it's matching on this entry in MAINTAINERS:
-> 
-> PTP HARDWARE CLOCK SUPPORT
-> M:      Richard Cochran <richardcochran@gmail.com>
-> L:      netdev@vger.kernel.org
-> S:      Maintained
-> W:      http://linuxptp.sourceforge.net/
-> F:      Documentation/ABI/testing/sysfs-ptp
-> F:      Documentation/driver-api/ptp.rst
-> F:      drivers/net/phy/dp83640*
-> F:      drivers/ptp/*
-> F:      include/linux/ptp_cl*
-> K:      (?:\b|_)ptp(?:\b|_)
-> 
-> I think it's the K: for the ptp that's matching.
-> 
-> $ grep ptp 20260803_akkun11_open_clk_mediatek_migrate_to_common_probe_remove_helpers_and_fix_memory_leaks.mbx
-> -static const struct mtk_pll_data ptp_plls[] = {
-> -	PLL(CLK_PTPPLL, "ptppll", PTPPLL_CON0, PTPPLL_CON0, 0, 0, PLL_AO,
-> +static const struct mtk_clk_desc ptp_plls = {
-> +		PLL(CLK_PTPPLL, "ptppll", PTPPLL_CON0, PTPPLL_CON0, 0, 0, PLL_AO,
-> 
+> The remaining non-fix changes from v2, dropping a redundant read-back
+> and improving the poll failure messages, will follow via net-next.
 
-I see, thanks for digging thru this!
+Let me ask explicitly this time -- are you planing to address any of
+the Clashiko nit picks and send a v2? :)
 
-Patchwork matching rules must be missing the PTP side because none of
-the patches end up assigned to netdev. No big deal but going forward
-I think you can drop this extra CC.
+https://netdev-ai.bots.linux.dev/sashiko/#/patchset/c41c256a5b4695bec24abc6baa4f990fca88f834.1785427248.git.daniel@makrotopia.org
 
