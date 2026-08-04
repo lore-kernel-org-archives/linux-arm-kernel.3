@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B398C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59E1C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YIiCPtAhi81qbfALD7WA1ef0Q0wxfGaqrZTAjkK0mjg=; b=i1f6YNnyKlwaGpuDgktBN05FXp
-	uuT6EFGfDlyUpBtqLWvhqOvkNtiw9+oD14WddVPG14pLwd3OElw3AQzNPSPzHJ6NL6k++XPctbQEq
-	PTHrj3p2zo+k+WuZImYoL0TMbaKXeiU7Runn35CmMPaDKkzU10oWV8QRU3Wf9mm8mnFdKsalEkds4
-	/4Ak2FnV8lU9uIY02VRVzwHWFpZbMJnLYmsmwdGsxBEC/1FXnJWYqCd9QXQ2GAduYFqwG2grkLl6h
-	Nw1/NFVWbo/8HS22xxcx9rwqxyuiztxHq+VTFddxZFcchOBZ5TWButMrV74elTYD4P3VDZ5pYvCGh
-	wFR3Nrfg==;
+	bh=4wyjvMKvhAcJreTXfeaRljIo44c1fS4JMWl0lopeTOU=; b=bFm8V+zwSFxNAhADf3o9D8OWRU
+	LJbY3Nxu/MtU4KV9U2XUG/IJaifpUCALzBXabyiO8hVBdASc6uDllctnYpQn9QBSLu+Qlg28p7Q5f
+	3q754O33PridfVAp05uwtSeTFXU8ejZvU5QePFK8cwKwiqQZTle6cYmOy/Uo/NxKN9gcpaXFa1cvq
+	QQIObB9QjFj4UhZuoMPrEPbn11zOw2+TzFIHkIlaFlt9Rx79RgvKYjbo4g1iwzNqd5tk+Onfprxuk
+	y/BbLnkWoB438W0kGurJxEmgJdX9xVrcM+QhaHes0e1LqJns7wCZzO7RRIJLCxPKyY9gBUOQXw7jz
+	IxYi2HrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrF6y-00000001utn-06Ol;
-	Tue, 04 Aug 2026 13:23:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrF6v-00000001ust-2wh7
+	id 1wrF9T-00000001vB9-1xTA;
+	Tue, 04 Aug 2026 13:25:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrF9S-00000001vAw-0JOk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 13:23:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEB301476;
-	Tue,  4 Aug 2026 06:23:05 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA32E3F66F;
-	Tue,  4 Aug 2026 06:23:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785849789; bh=Bpz4EOMhivfuILCNjK+1WCphsPbYAji7N/PHVQzUouk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dyrLH/zxaSvft5wkvkCm1C0Zzl1n4AWnxFrWeqitT402zZErU6t3t9TfXpKkW1kfz
-	 MLEs2gbX2flreE54g024UyS4fMMFR18pilGmj0dxSSvxaverNiIm0FAFlxrj3r0HHu
-	 p0i2KaswadZjKPFYsYAjyTqct9JyNUgHaLxswaLY=
-Date: Tue, 4 Aug 2026 14:23:02 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Subject: Re: [RFC PATCH 06/13] arm64: percpu: Add infrastructure for
- preemptible this_cpu_*() ops
-Message-ID: <anHntggSHNK28VYu@J2N7QTR9R3>
-References: <20260728123859.2911495-1-mark.rutland@arm.com>
- <20260728123859.2911495-7-mark.rutland@arm.com>
- <20260728141958.GV751831@noisy.programming.kicks-ass.net>
- <amjQkPyNAsFRJF9I@J2N7QTR9R3>
- <20260728164912.GK651302@noisy.programming.kicks-ass.net>
+	Tue, 04 Aug 2026 13:25:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B1A8404D2;
+	Tue,  4 Aug 2026 13:25:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 294781F000E9;
+	Tue,  4 Aug 2026 13:25:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785849949;
+	bh=4wyjvMKvhAcJreTXfeaRljIo44c1fS4JMWl0lopeTOU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FmqZl9Fol+ZLScWCrNFkjh56XTMy2ufbmJSsdKBe8HXMYmw4W/XP4gDcaraS3Fv7G
+	 usGqat3c/TjgPagCirQz4DeFr87nERBj4itU7pslemBxvRqyrpMPe6TmGZJI2ryYbo
+	 u9+s/rJV1wTDhj3ItK1GHaor0geHno0bouLKxgwOhZeCVdiDeTeN98Vu6zlXIoMyr3
+	 qElG0HcmBzxIsQyLDOwW5wt3XvrIzlRvGCyOoOL77+tffknud+j+i+bq7CYGOVO3ps
+	 jJMFKb209Vxipz+keGOXjrcbotLhHmdWO4NnSfyraIqWfruwDNaLxgCVpcD43KOg34
+	 8Hp4hCRzTe0fQ==
+Date: Tue, 4 Aug 2026 14:25:42 +0100
+From: Will Deacon <will@kernel.org>
+To: Kameron Carr <kameroncarr@linux.microsoft.com>, aneesh.kumar@kernel.org
+Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, longli@microsoft.com, mhklinux@outlook.com,
+	catalin.marinas@arm.com, mark.rutland@arm.com,
+	lpieralisi@kernel.org, sudeep.holla@kernel.org, arnd@arndb.de,
+	thuth@redhat.com, linux-hyperv@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org
+Subject: Re: [PATCH v3 1/6] arm64: rsi: Add RSI host call structure and
+ helper function
+Message-ID: <anHoVr_PRkBHRGu3@willie-the-truck>
+References: <20260721201148.1441143-1-kameroncarr@linux.microsoft.com>
+ <20260721201148.1441143-2-kameroncarr@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260728164912.GK651302@noisy.programming.kicks-ass.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_062313_778935_FE2DF3F3 
-X-CRM114-Status: GOOD (  16.34  )
+In-Reply-To: <20260721201148.1441143-2-kameroncarr@linux.microsoft.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,39 +72,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, catalin.marinas@arm.com, hca@linux.ibm.com, linux-kernel@vger.kernel.org, ruanjinjie@huawei.com, yang@os.amperecomputing.com, maz@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 06:49:12PM +0200, Peter Zijlstra wrote:
-> On Tue, Jul 28, 2026 at 04:53:52PM +0100, Mark Rutland wrote:
+On Tue, Jul 21, 2026 at 01:11:43PM -0700, Kameron Carr wrote:
+> Add struct rsi_host_call to rsi_smc.h, which represents the host call
+> data structure used by the Realm Management Monitor (RMM) for the
+> RSI_HOST_CALL interface. The structure contains a 16-bit immediate field
+> and 31 general-purpose register values, aligned to 256 bytes as required
+> by the CCA RMM specification.
 > 
-> > > > +#define ____PCPU_GPRS_BEGIN(gprs, pcp, off, addr)			\
-> > > > +	__DEFINE_ASM_GPR_NUMS						\
-> > > > +	__DEFINE_ASM_GPR_ALIASES					\
-> > > > +	"	mov w" off ", #" __VAL_PCPU_GPRS(pcp, off, addr) "\n"	\
-> > > > +	"	strh	w" off ", " gprs "\n"				\
-> > > > +	__KERN_ASM_CPU_OFFSET(off) "\n"
-> > > 
-> > > Can this macro also generate a readable comment for those few of us
-> > > building the .i file ?
-> > 
-> > Do you mean for __VAL_PCPU_GPRS, or ____PCPU_GPRS_BEGIN() ?
+> Add rsi_host_call() static inline wrapper in rsi_cmds.h that invokes
+> SMC_RSI_HOST_CALL with the physical address of the host call structure.
+> This will be used by Hyper-V guest code to route hypercalls through the
+> RSI interface when running inside an Arm CCA Realm.
 > 
-> I was thinking BEGIN, but whatever is easiest, the __VAL thing is only
-> ever used in BEGIN anyway.
+> Signed-off-by: Kameron Carr <kameroncarr@linux.microsoft.com>
+> ---
+>  arch/arm64/include/asm/rsi_cmds.h | 22 ++++++++++++++++++++++
+>  arch/arm64/include/asm/rsi_smc.h  |  7 +++++++
+>  2 files changed, 29 insertions(+)
 > 
-> > I can happily add comments for either (and the corresponding ENDs).
-> 
-> Not sure the comment makes sense for end, that's simply storing 0 and
-> seems clear enough.
+> diff --git a/arch/arm64/include/asm/rsi_cmds.h b/arch/arm64/include/asm/rsi_cmds.h
+> index 2c8763876dfb7..9daf8008e5da2 100644
+> --- a/arch/arm64/include/asm/rsi_cmds.h
+> +++ b/arch/arm64/include/asm/rsi_cmds.h
+> @@ -88,6 +88,28 @@ static inline long rsi_set_addr_range_state(phys_addr_t start,
+>  	return res.a0;
+>  }
+>  
+> +/**
+> + * rsi_host_call - Make a Host call.
+> + * @host_call_struct: IPA of host call structure
+> + *
+> + * This call will fail if the IPA of the host call structure:
+> + * * is not aligned to 256 bytes,
+> + * * is not protected / encrypted,
+> + * * is RIPAS_EMPTY
+> + *
+> + * Returns:
+> + *  On success, returns RSI_SUCCESS.
+> + *  Otherwise, returns an error code.
+> + */
+> +static inline unsigned long rsi_host_call(phys_addr_t host_call_struct)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_smc(SMC_RSI_HOST_CALL, host_call_struct, 0, 0, 0, 0, 0, 0,
+> +		      &res);
+> +	return res.a0;
+> +}
 
-FWIW, for v2 I've added the following to ____PCPU_GPRS_BEGIN():
+As I've mentioned to Aneesh on two occasions already [1][2], this code
+should be moved out of arch/arm64 before we add anything else to it.
 
-	"// ____PCPU_GPRS_BEGIN(" gprs ", " pcp ", " off ", " addr")\n"
+Thanks,
 
-... which should make that easy to spot, and surfaces the exact
-registers used.
+Will
 
-Mark.
+[1] https://lore.kernel.org/r/agsNO9cc7H-b0H8L@willie-the-truck
+[2] https://lore.kernel.org/r/al_svOwkb5SleTWg@willie-the-truck
 
