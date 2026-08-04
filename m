@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D15EC55838
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84201C55838
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMmXB3Hz2HVQkjI02T1LhdZYeO7c9DM5ga0yqzGQqk8=; b=QT91kNm/tdRhPzZzLxVPqfYhDW
-	MRySeubCJACGwpIYL+V1X7NM5oLp+ePF7RdX/zhQc/3rkPmQQpd+tj2CaIxfva7Ue+j+HC03hJ7Kl
-	5atyPh544YQrrwun5z74APetZe/6Ck/EGArNXjDrVyA84c3ncd/m23sa2SBhDK/lWgSVu9IQ60M4q
-	2X0xpcyLpDu9oGuq5ORS/8o+eKGsWfaeNVcNtIJtt6km4o9LP7OdIXZbKFZg2KHI1Y7UVKNNe85uH
-	hSMfGmNM8S42tZPplqH/EloCAte3qEyU9rhaTPJWwB/p8czV877HcaFsr91hanEz0NX8EsdRBOVwl
-	8FolcQPQ==;
+	bh=/R+BnuHl3CbLd02xumQxY30FBd0RIxFlYCqa2/zMOY4=; b=yoHtW+VVAK0dnaBdThugdO4dOY
+	YRD/PTo5b2FAu0l/6jIflVGc8U9w87xkQ7CiH3lhHXZfF82P2gW1VWTHHMFEsfuInUfnFiG99ufDn
+	druumeqVVcEIlfky27BfLDDswtPr8nLIWau0jScMLWY/uATqW3YDTJ3fjKSXnIAVpbEd0/M/rYWZy
+	u3o7nOzM+aPbZcp1K7nQaTrPvlWPlTnSDv30K3unk/BfXRJjg1TsCnA8HpI383xNXe/8bBgw/z0Sh
+	gSUsjrT0FEbTP276JjA8TvYMdIkQ/tRerpAG911gkPs/nC287fAPyMBJkF659mkTfliizePjQmV4W
+	zkmaMiEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDQu-00000001iYQ-0Rci;
-	Tue, 04 Aug 2026 11:35:44 +0000
+	id 1wrDR4-00000001igc-11Vt;
+	Tue, 04 Aug 2026 11:35:54 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDQs-00000001iVx-0X9n
+	id 1wrDR2-00000001if3-0nw6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:35:43 +0000
+	Tue, 04 Aug 2026 11:35:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1785843342; x=1817379342;
+  t=1785843352; x=1817379352;
   h=from:to:subject:date:message-id:in-reply-to:references:
    mime-version:content-transfer-encoding;
-  bh=Av6eeg2ekqj+HOs2zrQPFQA1RnGOcXg/+B9uTPlD7J8=;
-  b=Xg91NT6AyBAYlf0RVQN5Mr8pt/VAsA/24Hh34mLm5Llfq/xoD6tQy0qk
-   53Va7NQpakbUqnL89clH6fgxk2FnhWjyiBAAuGmIiSj4KlJwXhbhl3CBf
-   LG/Eox2uo7bRQR9ZFNZigwPQ4t74XwbkDPR2maP97mIQQ4S5j/JjEphD8
-   auKD7jVxbVXRU3oYpwGBwuAp7EP0m4CB8vsu0UH7toDInpOXrbR2k4Ngh
-   8/ja6p7SpqDtL9bDvBteX3mRl8KHEO5ndmXZCfMQ55P8rCofdJDDQjg/2
-   R3x29Mgk3AOa09udn074aM97AOAiB/YI3bjfMBBLiNy2PIUp7PpYG8ESp
+  bh=lDo397Z36GO5xj/mcw2tiDDKm6eDwSGNrKDHn0UvbBw=;
+  b=VYwf0DbaQbL1uxRxoxEHVcPoMqIsbe03rZlvJxj/7CtX2Sk7E6OvyTMQ
+   AqgsK9Az0Legk7VdSi5CnP3Evrf+lN3UAWqREK4025gwKr6JTx/W2R7fw
+   x//l0nWKuYulGuRvxL32eMpGZbz9foKhvdJMyPHi75ffxAI+z85iPt8EV
+   C/rt4HExnCdDr1Uu04FhdzZvrGW/qvXISOUqQ9BYUG41HrE/gOgDVyE1N
+   IGuts//OUfjgt6DG+KsLhcdoKIpOlwu0zNOFf4wWEEPJzpgA/gZuFr9Hr
+   Df0DONh4X/ef9IBB/X90ZLdwSwd3yhHowOiWyNiWWrdyG4h6mDaRSm3UI
    w==;
-X-CSE-ConnectionGUID: 9Xxrn/ddQv+JEDEp8rZysg==
-X-CSE-MsgGUID: d0CaX/zIS2mlZGcQFiIrqA==
+X-CSE-ConnectionGUID: X+sZNq9OTGeKdn8HtHvAfg==
+X-CSE-MsgGUID: YvRNkxoISDCzfAxE4XOFcg==
 X-IronPort-AV: E=Sophos;i="6.25,204,1779174000"; 
-   d="scan'208";a="228765807"
+   d="scan'208";a="60737197"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Aug 2026 04:35:41 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Aug 2026 04:35:51 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.45; Tue, 4 Aug 2026 04:35:40 -0700
+ 15.1.2507.58; Tue, 4 Aug 2026 04:35:50 -0700
 Received: from che-ll-i67070.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 4 Aug 2026 04:35:30 -0700
+ 15.1.2507.58 via Frontend Transport; Tue, 4 Aug 2026 04:35:41 -0700
 From: Varshini Rajendran <varshini.rajendran@microchip.com>
 To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
@@ -66,9 +66,9 @@ To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<mazziesaccount@gmail.com>, <varshini.rajendran@microchip.com>,
 	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 10/17] nvmem: microchip-otpc: nvmem: add emulation mode and OTP access validation
-Date: Tue, 4 Aug 2026 17:03:31 +0530
-Message-ID: <20260804113338.261782-11-varshini.rajendran@microchip.com>
+Subject: [PATCH v5 11/17] ARM: dts: microchip: sama7d65: add cpu opps
+Date: Tue, 4 Aug 2026 17:03:32 +0530
+Message-ID: <20260804113338.261782-12-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260804113338.261782-1-varshini.rajendran@microchip.com>
 References: <20260804113338.261782-1-varshini.rajendran@microchip.com>
@@ -76,8 +76,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_043542_227408_E11DE401 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260804_043552_307726_06DF7BA7 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +93,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add validation of OTP memory accessibility and emulation mode status
-during probe.
-
-When the boot packet is not configured, emulation mode allows access to
-the other packets. When both are not available an informational message
-is logged to help with debugging.
+Add CPU OPPs table for SAMA7D65.
 
 Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 ---
- drivers/nvmem/microchip-otpc.c | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 36 +++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
-index a17f82afdc37..6b0184423463 100644
---- a/drivers/nvmem/microchip-otpc.c
-+++ b/drivers/nvmem/microchip-otpc.c
-@@ -18,6 +18,7 @@
- #define MCHP_OTPC_CR_READ		BIT(6)
- #define MCHP_OTPC_MR			(0x4)
- #define MCHP_OTPC_MR_ADDR		GENMASK(31, 16)
-+#define MCHP_OTPC_MR_EMUL		BIT(7)
- #define MCHP_OTPC_AR			(0x8)
- #define MCHP_OTPC_SR			(0xc)
- #define MCHP_OTPC_SR_READ		BIT(6)
-@@ -343,7 +344,8 @@ static int mchp_otpc_probe(struct platform_device *pdev)
- {
- 	struct nvmem_device *nvmem;
- 	struct mchp_otpc *otpc;
--	u32 size;
-+	bool emul_enable;
-+	u32 size, mr_val;
- 	int ret;
+diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+index ec200848c153..dfac17e34e65 100644
+--- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+@@ -35,6 +35,7 @@ cpu0: cpu@0 {
+ 			d-cache-size = <0x8000>;	// L1, 32 KB
+ 			i-cache-size = <0x8000>;	// L1, 32 KB
+ 			next-level-cache = <&L2>;
++			operating-points-v2 = <&cpu_opp_table>;
  
- 	otpc = devm_kzalloc(&pdev->dev, sizeof(*otpc), GFP_KERNEL);
-@@ -355,10 +357,22 @@ static int mchp_otpc_probe(struct platform_device *pdev)
- 		return PTR_ERR(otpc->base);
+ 			L2: l2-cache {
+ 				compatible = "cache";
+@@ -45,6 +46,41 @@ L2: l2-cache {
+ 		};
+ 	};
  
- 	otpc->dev = &pdev->dev;
++	cpu_opp_table: opp-table {
++		compatible = "operating-points-v2";
 +
-+	mr_val = readl_relaxed(otpc->base + MCHP_OTPC_MR);
-+	emul_enable = mr_val & MCHP_OTPC_MR_EMUL;
-+	if (emul_enable)
-+		dev_info(otpc->dev, "Emulation mode enabled\n");
++		opp-90000000 {
++			opp-hz = /bits/ 64 <90000000>;
++			opp-microvolt = <1050000 1050000 1225000>;
++			clock-latency-ns = <320000>;
++		};
 +
- 	ret = mchp_otpc_init_packets_list(otpc, &size);
- 	if (ret)
- 		return ret;
- 
-+	if (!size) {
-+		dev_warn(otpc->dev, "Cannot access OTP memory\n");
-+		if (!emul_enable)
-+			dev_info(otpc->dev, "Boot packet not programmed and emulation mode disabled\n");
-+	}
++		opp-250000000 {
++			opp-hz = /bits/ 64 <250000000>;
++			opp-microvolt = <1050000 1050000 1225000>;
++			clock-latency-ns = <320000>;
++		};
 +
- 	mchp_nvmem_config.dev = otpc->dev;
- 	mchp_nvmem_config.add_legacy_fixed_of_cells = true;
- 	mchp_nvmem_config.size = size;
++		opp-600000000 {
++			opp-hz = /bits/ 64 <600000000>;
++			opp-microvolt = <1050000 1050000 1225000>;
++			clock-latency-ns = <320000>;
++			opp-suspend;
++		};
++
++		opp-800000000 {
++			opp-hz = /bits/ 64 <800000000>;
++			opp-microvolt = <1150000 1125000 1225000>;
++			clock-latency-ns = <320000>;
++		};
++
++		opp-1000000002 {
++			opp-hz = /bits/ 64 <1000000002>;
++			opp-microvolt = <1250000 1225000 1300000>;
++			clock-latency-ns = <320000>;
++		};
++	};
++
+ 	clocks {
+ 		main_xtal: clock-mainxtal {
+ 			compatible = "fixed-clock";
 -- 
 2.34.1
 
