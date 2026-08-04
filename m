@@ -4,69 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC6FC5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAE6C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1BnYhgvMr/FHPkS0bNJFQoIeIyjuwgqHxPYj6YvNKVc=; b=gKsViEkrbGT2QsrEu0Sjq6PSt1
-	mSUwcc2dQpMgqsASWkgE8HKspP9YVCjGY+mJqqIYrHbpYKJtHVOV7PkfkJ8gdpvihKQbLPMCrfGnO
-	M8VJLY8u/juZj/BF0hA4xyYhc4SsFp2rQ7n79siYWNncn3X7pVEuJZrFhS0h0PnWrvouzxPqXxzE+
-	U1ju3GrEjsyDReYjhgkZqXJWRH1Eis+D4iAxjXTb70DsfwlRO7dnnmf8lHMGMX9z+RNayLDlvWH5M
-	ndQAsgZqwrrPkbieGKOz2vJAMdsMQkkymEKFyo6UyxgDXh4yL1M4ALbi3Y8E6btbcq5zkunvN18N5
-	fangHOgQ==;
+	bh=w+iDWZwHoP4F6Gk/aQJutkUyb69JpPOzrtOraBt0YZM=; b=d/MPIV5khuZC/kL2FnmckhXc1m
+	cvPHSsn3E5UZ+ywSfRT1bs10YTX4SAN8F+1VYYKCZRzy6AbCMelSIDr5JAd8EYi8l44s93eqmpGE9
+	EauknRSVdGScgxOpXPtwimV0NW5knSIfm9gCEEDYeN1bSpBRpg1T+GUCi8bjj/nZeKqxU6KjmqqIA
+	yGAO6dm9MrkYHEsCJas/Y7tFvTEodncGOYaqXkoGA7o29HtnfTbmBI3wMZBTadUkq9H4XbzI9A4lo
+	QwOzdT3tPILUWi+2e97ghlWtOaXh7zSzrGgUvQOgltCpwkJGwPQpYHwgStn51yY3RCbtUipZF9tj4
+	Lo11zySA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrD7i-00000001epf-3vlG;
-	Tue, 04 Aug 2026 11:15:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrD7h-00000001epN-2XoE
+	id 1wrD9O-00000001f8u-106Z;
+	Tue, 04 Aug 2026 11:17:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrD9L-00000001f73-0k6N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:15:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 116CE60A73;
-	Tue,  4 Aug 2026 11:15:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 046C71F000E9;
-	Tue,  4 Aug 2026 11:15:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785842152;
-	bh=1BnYhgvMr/FHPkS0bNJFQoIeIyjuwgqHxPYj6YvNKVc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DCdqhtW0GuGx813a1jz15OF/gAOcKlGQQMgstOkscJnbZ80cNSpXodL8obchTcvvY
-	 KQN/nV7kGqJm+LgZAMxiWln9TvZ9vdXnXKBNn04G5L50+Jtsera2TdakLrWXQPjpRJ
-	 x8VVNbIUYTfqBCCHJia88Qyqm/NaABhvVg7mu4+1dGtQVeVDCeexi1Iy6rImYBMNfi
-	 yuvK2QUypp85rdG0Cu3jYFHIqsB3PJSA8ZplOmQs5oOP8mjC8gas04Nptnlq3h+Y8s
-	 Y9VUnlv4cYWu2FTlz34/ZW1CV/hhjFHJB7a6P2rmFU++gl2FT7ktYhKgMqjMNRVXzR
-	 yYKcYv6kfq3MQ==
-Date: Tue, 4 Aug 2026 12:15:31 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
-	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] mm: constify generic pte_get*()
-Message-ID: <anHJtpEpXWITllqk@lucifer>
-References: <20260803164400.531199-1-pfalcato@suse.de>
- <20260803164400.531199-6-pfalcato@suse.de>
+	Tue, 04 Aug 2026 11:17:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27FE21476;
+	Tue,  4 Aug 2026 04:17:28 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 676213F86F;
+	Tue,  4 Aug 2026 04:17:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785842252; bh=PuLVuA3EE7hhRSTRE5aJ3fJc8wvzv1KpsD48t2Cvtu8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YI3tXAjUWs3eUlwla6Vyx8b2j9EpWmRXeo0f5V6KOJSjyFfkXEJMMCvJMZRo+JkYL
+	 OXC25ShkTg+Vxrz3vBQRMaCEG1tr8uy2nTa1oh63KShrm4aHyWCTuevEKTsXixJ8L7
+	 keNJR9RrNcx4tZr1tPge1DqUbboypqpxfQApye3s=
+Date: Tue, 4 Aug 2026 12:17:28 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] arm: asid: Do not replace active_asids if already 0
+Message-ID: <anHKSN6bXkL37maU@arm.com>
+References: <20180104180405.37596-1-catalin.marinas@arm.com>
+ <amSFZixpR60Mrg7B@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260803164400.531199-6-pfalcato@suse.de>
+In-Reply-To: <amSFZixpR60Mrg7B@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_041735_264848_00DC6744 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,58 +69,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 05:43:59PM +0100, Pedro Falcato wrote:
-> None of the helpers need write access to the PTE. Constifying the param
-> allows for const typesafety.
+On Sat, Jul 25, 2026 at 12:12:16PM +0200, Karl Mehltretter wrote:
+> On Thu, Jan 04, 2018 at 06:04:05PM +0100, Catalin Marinas wrote:
+> > This patch changes the xchg to cmpxchg so that the active_asids is only
+> > updated if non-zero to avoid a race with an ASID roll-over on a
+> > different CPU.
+> > 
+> > Cc: Russell King <linux@armlinux.org.uk>
+> > Cc: Will Deacon <will.deacon@arm.com>
+> > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+> > ---
+> > 
+> > This is similar to the arm64 patch [1], with the difference that non-relaxed
+> > (cmp)xchg is used as per the existing code.
+> > 
+> > [1] http://lkml.kernel.org/r/20180104111721.33834-1-catalin.marinas at arm.com
+> 
+> While the arm64 patch was reviewed and merged, this patch never got any reply.
+> It needs a small rebase, but the change itself still applies today.
 
-constity?
+Oh, it's been a while. Not sure whether I missed cc'ing Russell at the
+time or the archive stripped the recipients (I no longer have the actual
+email sent).
 
->
-> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
+> Would you like to resend it ? 
 
-LGTM, so:
+If you have the setup to test, please do check and resend it to the
+list. After that you can send it to Russell's patch system:
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+  git send-email --add-header="KernelVersion: $(git describe --abbrev=0)" --to="patches@armlinux.org.uk"
 
-> ---
->  include/linux/pgtable.h | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 8c093c119e5a..dc418553e57a 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -490,7 +490,7 @@ static inline int pudp_set_access_flags(struct vm_area_struct *vma,
->  #endif
->
->  #ifndef ptep_get
-> -static inline pte_t ptep_get(pte_t *ptep)
-> +static inline pte_t ptep_get(const pte_t *ptep)
->  {
->  	return READ_ONCE(*ptep);
->  }
-> @@ -739,7 +739,7 @@ static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
->   * present bit set *unless* it is 'l'. Because get_user_pages_fast() only
->   * operates on present ptes we're safe.
->   */
-> -static inline pte_t ptep_get_lockless(pte_t *ptep)
-> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
->  {
->  	pte_t pte;
->
-> @@ -777,7 +777,7 @@ static inline pmd_t pmdp_get_lockless(pmd_t *pmdp)
->   * We require that the PTE can be read atomically.
->   */
->  #ifndef ptep_get_lockless
-> -static inline pte_t ptep_get_lockless(pte_t *ptep)
-> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
->  {
->  	return ptep_get(ptep);
->  }
-> --
-> 2.55.0
->
+The arm64 commit was a8ffaaa060b8 ("arm64: asid: Do not replace
+active_asids if already 0").
 
---
-Cheers, Lorenzo
+Thanks.
+
+-- 
+Catalin
 
