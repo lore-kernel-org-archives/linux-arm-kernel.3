@@ -4,54 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2445EC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72EF6C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qbp8l/2tSvToZc1+r6ipKGDHRbDUhaArC2dVdoXVdMY=; b=q31Jmco1hgnHfj
-	MwCXi4B0raoXCRCHjBKcc0NpR+8r7ZK9UOHlp0UG1Ym6E3K0yLKZw5r0OZ/DfiJhyW5JHQHPTQX7q
-	keAe6c44xdJ3e6TQRBDqannJROfJ8l/G7C5syO6urRaadSR5unWRgZfInrGhS0xSM+Ow/309pPmOO
-	quqPOVnX223ZnraG0kjGTHNBBhtvIX73pDONOc3sXef9jgcD6bGeB/scrujN7JnwbWibiGLvgAg6g
-	K77/61W6w2zzZa0vyE3JFHw4SYusQBZ78cuFc+bX1zPceA300l9728XgHVmPUBkFpzpPDOp6CTKCg
-	rhGXTvBMlR2L9HC9Vlqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/WxyWYexSwoS0Xhfap20Ecck/ANPlEcZKb1zpjgFsT0=; b=Sqrpy5fSAOMNA2sbONnXgxf1LC
+	xd3UJgVMCASuzTilMgXDWYNc4J0n16h5FOBh/H3nAguuQ/c5USfBtxcdakQvZs5HZ7085trtSSjCx
+	OepbUJJG1Wzr2WNf7IslARQ5kwcU9zv7L7g0ppG8esToicUs6zGfsIjMcjtMda19iefk5C1b2GRYX
+	coCUe9rlFeuqhpiRRLWQsHQuI233kOxEH9bKPcvpKdiNd/870am7Smptsjv9+DHhAssCco4msyDHs
+	XiEB7stsh0Bsv42XJ/QpR0r9XGFISH+nIRKWhd/IAhO48YoggQBixLeJ/jv7T/47KkIwEZAinNnY+
+	MVcWjJCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIat-00000002Qee-2RR9;
-	Tue, 04 Aug 2026 17:06:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIaq-00000002QaU-3E0x
+	id 1wrIau-00000002Qh6-3OjF;
+	Tue, 04 Aug 2026 17:06:24 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrIar-00000002Qam-0Gkr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 17:06:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B84A9165C;
-	Tue,  4 Aug 2026 10:06:15 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A21923F632;
-	Tue,  4 Aug 2026 10:06:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785863179; bh=SeiVEo1xT8j9kMtAH9m6doXyPF9bcq7jLl9HLRgB+C8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kOOlf8zNqPdTlheksjlrN0XL0BM6fYQrw8IupkVs8zegLeLWJnWZczz6L5+fAKcuA
-	 PIMBVp6RgC7csIMp5g3QEqHKea9K7yB7az0DauSpMQ1naTw/yi7hzqwf/RYCe8Bua1
-	 G8lIaRvuPwD3gi/JEcZd8ItPx26IhgKABy0SKgLU=
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 15/20] arm64: percpu: Implement preemptible void RMW ops
-Date: Tue,  4 Aug 2026 18:04:58 +0100
-Message-Id: <20260804170503.3513916-16-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260804170503.3513916-1-mark.rutland@arm.com>
-References: <20260804170503.3513916-1-mark.rutland@arm.com>
+	Tue, 04 Aug 2026 17:06:22 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2cc7ef7ec27so1273345ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 10:06:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785863180; x=1786467980; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=/WxyWYexSwoS0Xhfap20Ecck/ANPlEcZKb1zpjgFsT0=;
+        b=tC6LqXIdg3MbyrK6Uqxb0NNwanwtzq9tm2yHYvoQ0+Mth+UM5KcEiGj7CxlsRbfqvq
+         a64Hl9QLLc49zhqOt90I84ZmhXgNiBdod8k6aCCqBsN9hPRDkQq70qGFLn7dE+dETb7K
+         y2e9njetMo2Ol5jjUoDKJgXfuhlozP7JbDSYAozZJmiGsIqd9yfsiGR2DB8RKg2c/cGI
+         oB1NuqeY2cumYVea+fTv3Mo0oq8QrzWYXIAa8gL8dgWJex0B/F6SaclbIF6b19qQUTwV
+         x2DXpds/rdg4E8w3LPP8ruR2VbAsxY4S2i/7CQGKhsNWW+y4nnZkf44TZIy6FtYT8h/k
+         pEUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785863180; x=1786467980;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=/WxyWYexSwoS0Xhfap20Ecck/ANPlEcZKb1zpjgFsT0=;
+        b=BM//fVP2ozH5drqG8/loFuRxjGTblMrkrmgHVh8Q4LYqKgWnYvD0xoR9V6DN+oNe5A
+         xWeHVLYB/iCgF/kmP19rwVEkmy8NjDR7sFKy7ucqKH8y7K62rpF9U2b3PFsdCVNksiEr
+         ycSKL/snN8w0lTLdzzLq/ULb4RhmV907znjRPio67DJowMsGqKwcmFFxvGaudizfpdol
+         uB3NQkLtcssKmV9a5dRZyAou+bszCPke8Gb9NZobZUALMMO+LTZtvjGY8x3X0E7yPUTr
+         ZBek0f9d1oBT5jl/y6kbZkepiqlVj3y0yVlyyju5Lv41NYF0kjH9x0oWLwlSGs8yEWNF
+         CtHA==
+X-Forwarded-Encrypted: i=1; AHgh+RonAsc0ocj7kU/MBX2apCzdNHTXYgw05JLl7HtTdNv1DbajqRY4P549QxOjxTNRvvUZFIEqu+TuK/RANbUnwUd8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuH9TcquyVUuDl6WNltrOv0eekN6xr3bJjAdZn7I6J8VYppecc
+	vuTCwoQ4v3JIWbh349owy2VmdrfC0jVh5K1RkYmJHL0cJF822zHmvMXf
+X-Gm-Gg: AR+sD107+SzBsSv4OFTAfWSD6Bnefo0HykF/KZoT6+QP1rxY0Wei922bPoz4wNocXBJ
+	syq6ExZBdDCu7m/Lla85T78o1iB/pqX/FJjA+7A84zE9PWiMie+IxtRFTx8ZrWZcjfNP6fJmE9M
+	OEF2oMiTHKdOxUPzHIE6Dvzv6xunvAWVMoPLmQl+5kGuYtkHLfKagcRAlKGwZV3ClSQ3r3zAtzY
+	tDyC3yuYAKkufhlhUWWp1MK5DMHE140B8xEr9uerLwvIDtgSghdU27YgsicRTVR/efTfmQDzXo0
+	cp+9UjaT2td6eESMuv0hSLxAgIdMJllZ06AOA1Rp7hXFlbD2ZSIwLl8dxz5IDWYoHqUVh9LzxE8
+	kVRQqp2pMk0gHFURZLpDeUriUQPY8/hJiNck9p4+wzPH6jTAVJQ0XqzMrHz0U7oASO31mkNIl3X
+	kGn8o0R48KZUMH7jNLS6+5MTkgNkcohHtvNGdkldEtJ2MfVSHrw7ghVjSS1wR0MZWo8TvbRB74h
+	M6E9r1Bmw==
+X-Received: by 2002:a17:903:2b0d:b0:2ce:faa6:7cbb with SMTP id d9443c01a7336-2d0ca7afcc1mr2775625ad.4.1785863180300;
+        Tue, 04 Aug 2026 10:06:20 -0700 (PDT)
+Received: from ubuntu.. ([2405:201:8026:213e:1461:a94d:d559:948d])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31586162e80sm7230582eec.0.2026.08.04.10.06.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Aug 2026 10:06:19 -0700 (PDT)
+From: mdshahid03@gmail.com
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Andy Shevchenko <andy@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Markus Elfring <Markus.Elfring@web.de>,
+	Joshua Crofts <joshua.crofts1@gmail.com>,
+	linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mohammad Shahid <mdshahid03@gmail.com>
+Subject: [PATCH v5 3/3] iio: adc: bcm_iproc_adc: Convert probe error handling to dev_err_probe()
+Date: Tue,  4 Aug 2026 22:35:21 +0530
+Message-ID: <20260804170521.196393-4-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260804170521.196393-1-mdshahid03@gmail.com>
+References: <20260804170521.196393-1-mdshahid03@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_100620_888826_F93277E2 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20260804_100621_103338_2B29F3A1 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,175 +106,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the PCPU GPR infrastructure to implement all of the RMW ops which do
-not return a value.
+From: Mohammad Shahid <mdshahid03@gmail.com>
 
-Test case:
+Replace open-coded dev_err() followed by return with dev_err_probe()
+for probe failures that immediately return.
 
-| void outline_this_cpu_add_u64(u64 __percpu *p, u64 v)
-| {
-| 	this_cpu_add(*p, v);
-| }
+Leave error paths that jump to cleanup labels unchanged to reduce code
+churn. These paths will be converted separately together with the
+planned devm-managed cleanup using devm_add_action_or_reset().
 
-Generated code before this patch (v7.2-rc4):
-
-| <outline_this_cpu_add_u64>:
-|        paciasp
-|        stp     x29, x30, [sp, #-16]!
-|        mrs     x2, sp_el0
-|        mov     x29, sp
-|        ldr     w3, [x2, #8]
-|        add     w3, w3, #0x1
-|        str     w3, [x2, #8]
-|        mrs     x3, tpidr_el1
-|        add     x0, x0, x3
-| 1:     ldxr    x5, [x0]
-|        add     x5, x5, x1
-|        stxr    w4, x5, [x0]
-|        cbnz    w4, 1b
-|        ldr     x0, [x2, #8]
-|        sub     x0, x0, #0x1
-|        str     w0, [x2, #8]
-|        cbz     x0, 2f
-|        ldr     x0, [x2, #8]
-|        cbnz    x0, 3f
-| 2:     bl      preempt_schedule_notrace
-| 3:     ldp     x29, x30, [sp], #16
-|        autiasp
-|        ret
-
-Generated code after this patch:
-
-| <outline_this_cpu_add_u64>:
-|        mrs     x2, sp_el0
-|        mov     w4, #0xc80
-|        strh    w4, [x2, #20]
-|        mrs     x4, tpidr_el1
-|        add     x3, x0, x4
-| 1:     ldxr    x6, [x3]
-|        add     x6, x6, x1
-|        stxr    w5, x6, [x3]
-|        cbnz    w5, 1b
-|        strh    wzr, [x2, #20]
-|        ret
-
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Yang Shi <yang@os.amperecomputing.com>
+Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
 ---
- arch/arm64/include/asm/percpu.h | 52 ++++++++++++++++++++-------------
- 1 file changed, 32 insertions(+), 20 deletions(-)
+ drivers/iio/adc/bcm_iproc_adc.c | 31 ++++++++++++-------------------
+ 1 file changed, 12 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index a094c137d797f..505926363d754 100644
---- a/arch/arm64/include/asm/percpu.h
-+++ b/arch/arm64/include/asm/percpu.h
-@@ -168,23 +168,35 @@ static inline void __percpu_write_##sz(void __percpu *pcp, u##sz val)		\
+diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
+index 312be7c12e58..9238dc8c8873 100644
+--- a/drivers/iio/adc/bcm_iproc_adc.c
++++ b/drivers/iio/adc/bcm_iproc_adc.c
+@@ -522,18 +522,14 @@ static int iproc_adc_probe(struct platform_device *pdev)
  
- #define __PERCPU_OP_CASE(w, sfx, name, sz, op_llsc, op_lse)		\
- static inline void							\
--__percpu_##name##_case_##sz(void *ptr, unsigned long val)		\
-+__percpu_##name##_case_##sz(void __percpu *pcp, unsigned long val)	\
- {									\
-+	u16 *gprs = &current_thread_info()->pcpu_gprs;			\
-+	unsigned long addr;						\
-+	unsigned long off;						\
- 	unsigned int loop;						\
- 	u##sz tmp;							\
- 									\
--	asm volatile (ARM64_LSE_ATOMIC_INSN(				\
-+	asm volatile (							\
-+	__PCPU_GPRS_BEGIN("%[gprs]", "%[pcp]", "%[off]", "%[addr]")	\
-+	ARM64_LSE_ATOMIC_INSN(						\
- 	/* LL/SC */							\
--	"1:	ldxr" #sfx "\t%" #w "[tmp], %[ptr]\n"			\
-+	"1:	ldxr" #sfx "\t%" #w "[tmp], [%[addr]]\n"		\
- 		#op_llsc "\t%" #w "[tmp], %" #w "[tmp], %" #w "[val]\n"	\
--	"	stxr" #sfx "\t%w[loop], %" #w "[tmp], %[ptr]\n"		\
-+	"	stxr" #sfx "\t%w[loop], %" #w "[tmp], [%[addr]]\n"	\
- 	"	cbnz	%w[loop], 1b",					\
- 	/* LSE atomics */						\
--		#op_lse "\t%" #w "[val], %" #w "[tmp], %[ptr]\n"	\
-+		#op_lse "\t%" #w "[val], %" #w "[tmp], [%[addr]]\n"	\
- 		__nops(3))						\
--	: [loop] "=&r" (loop), [tmp] "=&r" (tmp),			\
--	  [ptr] "+Q"(*(u##sz *)ptr)					\
--	: [val] "r" ((u##sz)(val)));					\
-+	__PCPU_GPRS_END("%[gprs]")					\
-+	: [gprs] "=Qo" (*gprs),						\
-+	  [addr] "=&r" (addr),						\
-+	  [off] "=&r" (off),						\
-+	  [loop] "=&r" (loop),						\
-+	  [tmp] "=&r" (tmp)						\
-+	: [pcp] "r" (pcp),						\
-+	  [val] "r" ((u##sz)(val))					\
-+	: "memory"							\
-+	);								\
- }
+ 	adc_priv->regmap = syscon_regmap_lookup_by_phandle(pdev->dev.of_node,
+ 			   "adc-syscon");
+-	if (IS_ERR(adc_priv->regmap)) {
+-		dev_err(&pdev->dev, "failed to get handle for tsc syscon\n");
+-		ret = PTR_ERR(adc_priv->regmap);
+-		return ret;
+-	}
++	if (IS_ERR(adc_priv->regmap))
++		return dev_err_probe(dev, PTR_ERR(adc_priv->regmap),
++				     "failed to get handle for tsc syscon\n");
  
- #define __PERCPU_RET_OP_CASE(w, sfx, name, sz, op_llsc, op_lse)		\
-@@ -301,13 +313,13 @@ PERCPU_RET_OP(add, add, ldadd)
- 	_pcp_wrap(__percpu_write_64, pcp, (unsigned long)(val))
+ 	adc_priv->adc_clk = devm_clk_get(dev, "tsc_clk");
+-	if (IS_ERR(adc_priv->adc_clk)) {
+-		dev_err(&pdev->dev, "failed getting clock tsc_clk\n");
+-		ret = PTR_ERR(adc_priv->adc_clk);
+-		return ret;
+-	}
++	if (IS_ERR(adc_priv->adc_clk))
++		return dev_err_probe(dev, PTR_ERR(adc_priv->adc_clk),
++				     "failed getting clock tsc_clk\n");
  
- #define this_cpu_add_1(pcp, val)	\
--	_pcp_protect(__percpu_add_case_8, pcp, val)
-+	_pcp_wrap(__percpu_add_case_8, pcp, val)
- #define this_cpu_add_2(pcp, val)	\
--	_pcp_protect(__percpu_add_case_16, pcp, val)
-+	_pcp_wrap(__percpu_add_case_16, pcp, val)
- #define this_cpu_add_4(pcp, val)	\
--	_pcp_protect(__percpu_add_case_32, pcp, val)
-+	_pcp_wrap(__percpu_add_case_32, pcp, val)
- #define this_cpu_add_8(pcp, val)	\
--	_pcp_protect(__percpu_add_case_64, pcp, val)
-+	_pcp_wrap(__percpu_add_case_64, pcp, val)
+ 	adc_priv->irqno = platform_get_irq(pdev, 0);
+ 	if (adc_priv->irqno < 0)
+@@ -541,10 +537,9 @@ static int iproc_adc_probe(struct platform_device *pdev)
  
- #define this_cpu_add_return_1(pcp, val)	\
- 	_pcp_protect_return(__percpu_add_return_case_8, pcp, val)
-@@ -319,22 +331,22 @@ PERCPU_RET_OP(add, add, ldadd)
- 	_pcp_protect_return(__percpu_add_return_case_64, pcp, val)
+ 	ret = regmap_clear_bits(adc_priv->regmap, IPROC_REGCTL2,
+ 				IPROC_ADC_AUXIN_SCAN_ENA);
+-	if (ret) {
+-		dev_err(&pdev->dev, "failed to write IPROC_REGCTL2 %d\n", ret);
+-		return ret;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to write IPROC_REGCTL2\n");
  
- #define this_cpu_and_1(pcp, val)	\
--	_pcp_protect(__percpu_andnot_case_8, pcp, ~(u8)(val))
-+	_pcp_wrap(__percpu_andnot_case_8, pcp, ~(u8)(val))
- #define this_cpu_and_2(pcp, val)	\
--	_pcp_protect(__percpu_andnot_case_16, pcp, ~(u16)(val))
-+	_pcp_wrap(__percpu_andnot_case_16, pcp, ~(u16)(val))
- #define this_cpu_and_4(pcp, val)	\
--	_pcp_protect(__percpu_andnot_case_32, pcp, ~(u32)(val))
-+	_pcp_wrap(__percpu_andnot_case_32, pcp, ~(u32)(val))
- #define this_cpu_and_8(pcp, val)	\
--	_pcp_protect(__percpu_andnot_case_64, pcp, ~(u64)(val))
-+	_pcp_wrap(__percpu_andnot_case_64, pcp, ~(u64)(val))
+ 	ret = devm_request_threaded_irq(dev, adc_priv->irqno,
+ 				iproc_adc_interrupt_handler,
+@@ -554,11 +549,9 @@ static int iproc_adc_probe(struct platform_device *pdev)
+ 		return ret;
  
- #define this_cpu_or_1(pcp, val)		\
--	_pcp_protect(__percpu_or_case_8, pcp, val)
-+	_pcp_wrap(__percpu_or_case_8, pcp, val)
- #define this_cpu_or_2(pcp, val)		\
--	_pcp_protect(__percpu_or_case_16, pcp, val)
-+	_pcp_wrap(__percpu_or_case_16, pcp, val)
- #define this_cpu_or_4(pcp, val)		\
--	_pcp_protect(__percpu_or_case_32, pcp, val)
-+	_pcp_wrap(__percpu_or_case_32, pcp, val)
- #define this_cpu_or_8(pcp, val)		\
--	_pcp_protect(__percpu_or_case_64, pcp, val)
-+	_pcp_wrap(__percpu_or_case_64, pcp, val)
+ 	ret = clk_prepare_enable(adc_priv->adc_clk);
+-	if (ret) {
+-		dev_err(&pdev->dev,
+-			"clk_prepare_enable failed %d\n", ret);
+-		return ret;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to enable clock\n");
  
- #define this_cpu_xchg_1(pcp, val)	\
- 	_pcp_protect_return(xchg_relaxed, pcp, val)
+ 	ret = iproc_adc_enable(indio_dev);
+ 	if (ret)
 -- 
-2.30.2
+2.43.0
 
 
