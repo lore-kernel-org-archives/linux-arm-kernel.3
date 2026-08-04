@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E379C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:05:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D59C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ntd5kn3fUA8ure8aEFoqafVAxHoCkcRC1yxrm5GV+dE=; b=Ac7w3lEhLJpqmV
-	Xa9E9JRafc+KgIwRGBfdggyFCE592RxOB5NZd7IRCTVbVmercmy7t39QLAoNs2ys3F0gA4edbBUnK
-	OVPFTKtvccxu8oZZb3gKQxX0oMD0lWBNem32U8bMBvNR/QH+75ETfCzN7cuvpOUwnBE9BLOHsvmly
-	+2ImSeSNaRvoYTRO/lCl5F3ghItvEpAxulTwseYYp/s1coCMb8BYSc0wFQ9Ku3SQO+OXNHjqIgbjx
-	eYThwx/kYcSaO8Dc3THgJCNr1iDB4LYkEczSDifYcpmqHVQ+1z8DLJOFlj7jqhN5ERpcqq2/T9R7i
-	NRJ5rMuV+QtiRy6vr0VQ==;
+	List-Owner; bh=eKXBYs0WZAG+D5mYtr9dZicCiBzbTMwHfptf8h6ggn0=; b=XlwZQuBOXZbhQ0
+	vwvhOPBJqmACLgqsq8fYSh05DPwom/8uXMuSOCsLzTbSXWXocedkOo6OMBt5cPmSqFds0dD7vI1I5
+	Ya0DvaVLyxzcZBjGy++iq2AvThqw5xMyJsm69x3KGtsETn1+6GptLDOLrNKRoMC5reBh3gHdRpDEU
+	avHW02ZCsrvCZeWVHpOorvJJFqceJiG6BvFA7ZKX6Scf2IPjCec0K2Lp1wzNt+KcKhawWLqEms56a
+	3t3pM+u16he26egjXWm/hUyjfUGXgkJUtGe9c5DnW+nDdIkhOcO6q5J/OTv7jC5KRNTGBcOVUC0jT
+	6FTkyNSGB58LRR4exZRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIa6-00000002Prz-3jUL;
-	Tue, 04 Aug 2026 17:05:34 +0000
+	id 1wrIaA-00000002PuR-4BLD;
+	Tue, 04 Aug 2026 17:05:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIa4-00000002PqG-0h0S
+	id 1wrIa8-00000002Psr-2reb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 17:05:34 +0000
+	Tue, 04 Aug 2026 17:05:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E9B371688;
-	Tue,  4 Aug 2026 10:05:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6802D1476;
+	Tue,  4 Aug 2026 10:05:31 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DF4C43F632;
-	Tue,  4 Aug 2026 10:05:26 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6646F3F632;
+	Tue,  4 Aug 2026 10:05:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785863130; bh=8k5hBnAHH9TROqGZi0aadHIno9i8znQb2BJ48Gz6vXg=;
+	t=1785863135; bh=21PVmn6LAHcnQ7Sfbcg89fiDTMc6Vp04J8Z5lbHGo08=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lxg1m9SMnZxOToiPj5X+XyCOVESO7aheSHyf5GNrIvwkgHMjFN7FPZpcj3Q0jYjdX
-	 wFS5lzdIM0fLO7o3BFGCdZQPLGgfOSSA1R1xPPpwG71db+gcyG/IcaDqKTplA0pnmY
-	 h2ahGzx+6WGkfjdl3/jioLWQ0ODcaN4j2WTu2Gls=
+	b=IZsEmRFhyvdS3gJ4XUo2wfvKXnR5vy1A0v2j8SPGhwdzm8zmDwXnWR8vN8j6WjMLt
+	 BT4gYSt4EkrArhPwVVW9pgArq3Ceo+5rSAxlBE3hue+cq/ZDfzWayayKli6khA9euD
+	 ziPc1NPirgwqaQd/sPmZ/Y8eXMlhxFxA69ReRLEo=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 04/20] arm64: cmpxchg128: LSE: Remove redundant operands
-Date: Tue,  4 Aug 2026 18:04:47 +0100
-Message-Id: <20260804170503.3513916-5-mark.rutland@arm.com>
+Subject: [PATCH v2 05/20] arm64: preempt: Simplify and optimize __preempt_count_dec_and_test()
+Date: Tue,  4 Aug 2026 18:04:48 +0100
+Message-Id: <20260804170503.3513916-6-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260804170503.3513916-1-mark.rutland@arm.com>
 References: <20260804170503.3513916-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_100532_284560_E88DC6F1 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20260804_100537_004420_F6F1C4CE 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,127 +67,179 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The LSE assembly for cmpxhg128*() has redundant operands which cause
-unnecessary register pressure. These operands can be removed without
-adverse effects, as described below.
+In arm64's __preempt_count_dec_and_test(), the final conditional load of
+'ti->preempt_count' is always executed in the common case. The
+conditional load leads to unfortunate code generation for
+preempt_enable[_notrace](), and it would be better to unconditionally
+load 'ti->preempt_count', as described below.
 
-It is necessary to force specific registers for the 64-bit halves of
-'old' and 'new', as the encoding of CASP[A][L] requires that these
-halves are allocated into even/odd register pairs, and contemporary
-versions of LLVM don't support a mechanism to allocate a value into an
-even/odd register pair for inline assembly. We manually allocate these
-into x0/x1/x2/x3.
+On arm64, struct thread_info contains the following union:
 
-It is not necessary to force the address into a specific register, as
-the encoding of CASP[A][L] can accept this in any GPR or SP. Hence, it
-is not necessary to manually allocate the address into x4 for the
-'[ptr]' operand. The assembly uses the '[v]' operand, and contemporary
-compilers happen to allocate '[v]' into a separate register from
-'[ptr]', meaning that '[ptr]' only serves to create register pressure.
+| union {
+|         u64             preempt_count;
+|         struct {
+|                 u32     count;
+|                 u32     need_resched;
+|         } preempt;
+| };
 
-It is not necessary to allocate the '[oldval1]' and '[oldval2]'
-operands, as these are not used by the assembly. The assembly uses the
-'[old1]' and '[old2]' operands for both input and output. The
-'[oldval1]' and '[oldval2]' operands only serve to create register
-pressure.
+Note: 'need_resched' is encoded so that '0' means a reschedule is
+needed, and '1' means a reschedule is NOT needed.
 
-Remove the redundant operands. This saves on register pressure, as
-demonstrated by the test case below. There's still some unfortunate
-register shuffling due to the manual allocation of 'old' and 'new', but
-this should be less prominent within a larger function.
+The core logic of __preempt_count_dec_and_test() is:
 
-Test case:
-
-| u128 outline_cmpxchg128(u128 *p, u128 old, u128 new)
+| static inline bool __preempt_count_dec_and_test(void)
 | {
-| 	return cmpxchg128(p, old, new);
+|         struct thread_info *ti = current_thread_info();
+|         u64 pc = READ_ONCE(ti->preempt_count);
+|
+|         WRITE_ONCE(ti->preempt.count, --pc);
+|
+|         return !pc || !READ_ONCE(ti->preempt_count);
 | }
 
-Generated code before this patch:
+The '!pc' condition can only be true when both:
 
-| <outline_cmpxchg128>:
-|        mov     x6, x0
-|        mov     x1, x3
-|        mov     x0, x2
-|        b       1f
-|        mov     x2, x4
-|        mov     x3, x5
-|        mov     x4, x6
-|        mov     x5, x0
-|        mov     x7, x1
-|        caspal  x0, x1, x2, x3, [x6]
-|        ret
-| 1:     prfm    pstl1strm, [x6]
-| 2:     ldxp    x8, x7, [x6]
-|        cmp     x8, x0
-|        ccmp    x7, x3, #0x0, eq
-|        b.ne    3f
-|        stlxp   w2, x4, x5, [x6]
-|        cbnz    w2, 2b
-|        dmb     ish
-| 3:     mov     x0, x8
-|        mov     x1, x7
-|        ret
+* The initial value of 'need_resched' was 0, meaning that a reschedule
+  is needed. This should be rare.
 
-Generated code after this patch:
+* The initial value of 'count' was exactly 1. This cannot be true for a
+  nested preempt_disable() ... preempt_enable() sequence.
 
-| <outline_cmpxchg128>:
-|        mov     x6, x0
-|        mov     x0, x2
-|        b       1f
-|        mov     x1, x3
-|        mov     x2, x4
-|        mov     x3, x5
-|        caspal  x0, x1, x2, x3, [x6]
+Hence in common cases, '!pc' will be false, and it's necessary to
+execute the final READ_ONCE(ti->preempt_count).
+
+This results in a conditional branch in the common case, as can be seen
+when __preempt_count_dec_and_test() is outlined:
+
+| <outline___preempt_count_dec_and_test>:
+|        mrs     x2, sp_el0
+|        ldr     x1, [x2, #8]
+|        mov     w0, #0x1
+|        sub     x1, x1, #0x1
+|        str     w1, [x2, #8]
+|        cbz     x1, 1f
+|        ldr     x0, [x2, #8]
+|        cmp     x0, #0x0
+|        cset    w0, eq  // eq = none
+| 1:     ret
+
+It would be better to avoid the special case for 'pc == 0', and to
+always load 'ti->preempt_count' after decrementing 'ti->preempt.count'.
+For the common cases this will remove a conditional branch. For the rare
+cases where preemption is needed initially, this only adds a single
+load, whose cost should be dominated by other factors.
+
+Remove the special case for 'pc == 0', and always load the combined
+'ti->preempt_count' after decrementing 'ti->preempt.count'.
+
+The removal of the conditional branch helps with code generation, as the
+compiler can more easily move a dependent slow path out-of-line, as
+demonstrated with the following compiled with GCC 15.2.0:
+
+| void outline_preempt_enable_notrace(void)
+| {
+|        preempt_enable_notrace();
+| }
+
+Before this patch:
+
+| <outline_preempt_enable_notrace>:
+|        mrs     x1, sp_el0
+|        ldr     x0, [x1, #8]
+|        sub     x0, x0, #0x1
+|        str     w0, [x1, #8]
+|        cbz     x0, 1f
+|        ldr     x0, [x1, #8]
+|        cbnz    x0, 2f
+| 1:     paciasp
+|        stp     x29, x30, [sp, #-16]!
+|        mov     x29, sp
+|        bl      preempt_schedule_notrace
+|        ldp     x29, x30, [sp], #16
+|        autiasp
 |        ret
-| 1:     prfm    pstl1strm, [x6]
-| 2:     ldxp    x8, x7, [x6]
-|        cmp     x8, x0
-|        ccmp    x7, x3, #0x0, eq
-|        3f
-|        stlxp   w2, x4, x5, [x6]
-|        cbnz    w2, 2b
-|        dmb     ish
-| 3:     mov     x0, x8
-|        mov     x1, x7
+| 2:     ret
+
+After this patch:
+
+| <outline_preempt_enable_notrace>:
+|        mrs     x0, sp_el0
+|        ldr     w1, [x0, #8]
+|        sub     w1, w1, #0x1
+|        str     w1, [x0, #8]
+|        ldr     x0, [x0, #8]
+|        cbz     x0, 1f
+|        ret
+| 1:     paciasp
+|        stp     x29, x30, [sp, #-16]!
+|        mov     x29, sp
+|        bl      preempt_schedule_notrace
+|        ldp     x29, x30, [sp], #16
+|        autiasp
 |        ret
 
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Jinjie Ruan <ruanjinjie@huawei.com>
 Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Cc: Ard Biesheuvel <ardb@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: James Morse <james.morse@arm.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>
 Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- arch/arm64/include/asm/atomic_lse.h | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ arch/arm64/include/asm/preempt.h | 29 +++++++++++------------------
+ 1 file changed, 11 insertions(+), 18 deletions(-)
 
-diff --git a/arch/arm64/include/asm/atomic_lse.h b/arch/arm64/include/asm/atomic_lse.h
-index afad1849c4cf5..d588af0565331 100644
---- a/arch/arm64/include/asm/atomic_lse.h
-+++ b/arch/arm64/include/asm/atomic_lse.h
-@@ -291,15 +291,13 @@ __lse__cmpxchg128##name(volatile u128 *ptr, u128 old, u128 new)		\
- 	register unsigned long x1 asm ("x1") = o.high;			\
- 	register unsigned long x2 asm ("x2") = n.low;			\
- 	register unsigned long x3 asm ("x3") = n.high;			\
--	register unsigned long x4 asm ("x4") = (unsigned long)ptr;	\
- 									\
- 	asm volatile(							\
- 	__LSE_PREAMBLE							\
- 	"	casp" #mb "\t%[old1], %[old2], %[new1], %[new2], %[v]\n"\
- 	: [old1] "+&r" (x0), [old2] "+&r" (x1),				\
- 	  [v] "+Q" (*(u128 *)ptr)					\
--	: [new1] "r" (x2), [new2] "r" (x3), [ptr] "r" (x4),		\
--	  [oldval1] "r" (o.low), [oldval2] "r" (o.high)			\
-+	: [new1] "r" (x2), [new2] "r" (x3)				\
- 	: cl);								\
- 									\
- 	r.low = x0; r.high = x1;					\
+diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+index 932ea4b620428..ca2ad1a8db095 100644
+--- a/arch/arm64/include/asm/preempt.h
++++ b/arch/arm64/include/asm/preempt.h
+@@ -55,30 +55,23 @@ static inline void __preempt_count_sub(int val)
+ 	WRITE_ONCE(current_thread_info()->preempt.count, pc);
+ }
+ 
+-static inline bool __preempt_count_dec_and_test(void)
+-{
+-	struct thread_info *ti = current_thread_info();
+-	u64 pc = READ_ONCE(ti->preempt_count);
+-
+-	/* Update only the count field, leaving need_resched unchanged */
+-	WRITE_ONCE(ti->preempt.count, --pc);
+-
+-	/*
+-	 * If we wrote back all zeroes, then we're preemptible and in
+-	 * need of a reschedule. Otherwise, we need to reload the
+-	 * preempt_count in case the need_resched flag was cleared by an
+-	 * interrupt occurring between the non-atomic READ_ONCE/WRITE_ONCE
+-	 * pair.
+-	 */
+-	return !pc || !READ_ONCE(ti->preempt_count);
+-}
+-
+ static inline bool should_resched(int preempt_offset)
+ {
+ 	u64 pc = READ_ONCE(current_thread_info()->preempt_count);
+ 	return pc == preempt_offset;
+ }
+ 
++static inline bool __preempt_count_dec_and_test(void)
++{
++	/*
++	 * We must load the combined 'prempt_count' after decrementing
++	 * 'preempt.count' as an interrupt could modify 'need_resched' before
++	 * __preempt_count_sub() writes back to 'preempt.count'.
++	 */
++	__preempt_count_sub(1);
++	return should_resched(0);
++}
++
+ #ifdef CONFIG_PREEMPTION
+ 
+ void preempt_schedule(void);
 -- 
 2.30.2
 
