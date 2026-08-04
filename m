@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8ADC5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:44:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00CEDC5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZUW+r4FCY0U+LwKfUl0eF3OjFw9eBKouwZVjhFevUS0=; b=33vePEViAIKRm5CUzwBJte17sz
-	FXZ2l7rrtzCzJlcVI120PsRWHUdTLMSefYhUMSX+l8P85jCb2pBRoyiumN3/M2GlmFSySmSz5aYqk
-	1yxUeEAaMcycRw2sGX9f/U3COfFVJYMZIqIhr4tZYVLyZcYUGxCIp1Uuv/w4DdES7iB5L6aS5MQwe
-	t7YrpnRf9VwfLZwV5GYgOH5f8vO9SvmLQnXKsCn70E9goyt8pBip0YV9hWCw+Vbp1AgrEXOIruBta
-	N9gw5e72j9lp4PsyiK7qi1ianxyiCDkMwCjEBKUVeIMYd4SpkC2dzcUXiHcVKJKH0SMF9ARkuByGQ
-	VOPYRE6A==;
+	bh=uUvC+y0j8JFjtE+XMJ9UQGtCiCNbH3kOeZKEuG06DWw=; b=kkmbSh2DtOqYrUplFyNwSV9daA
+	KDmfmPpQ7HBd4oHI52Jwxg7fED0ga0+xMQ4gEPBzBBta+H4FgVqjKEdGFoudI2peKtFDY/pStLyiS
+	LF9GkZgdGxeyn+Ii3msElTxOsXv4RQ37PPSWMrIc389OwiGuDZ+h61Y3NW5gaLqXbxDOcYsvPY7zV
+	/apgJlloJoi7F4Qy98M8YnruCg7mf0IeVtTviaNA1HaU9xtij1slBja+Kcj/JpW8lsstDxSYMc1T+
+	2JKGbA79R4jZfJJmmgscLo4lTApYLvfRG/KDUw5dwnsNApIGkb/1InHW9nJ0WcbvThYROR8xT2Ikc
+	MV8H7Dbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGNr-000000026y2-2ZfN;
-	Tue, 04 Aug 2026 14:44:47 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wrGPX-000000027EU-2ELi;
+	Tue, 04 Aug 2026 14:46:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGNp-000000026wq-0yIK
+	id 1wrGPW-000000027Du-02sr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 14:44:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=ZUW+r4FCY0U+LwKfUl0eF3OjFw9eBKouwZVjhFevUS0=; b=SG
-	p5NuD0aiUnNJjW4FKOYvaYgoP4X/Ix960dvodpnmGbRjCai+YeB/TCF8XaaaudsWFgyHIpAiKTYrh
-	dK6kK5FMbbagl36kF8brz2qoAKbdkDLy24ADVx5bzSs99CAZ1YmIaTsrSEgOrVnOYYNJ4vpg2YGXU
-	l935Tc2gKon+n3k=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wrGNb-00G0KA-Ov; Tue, 04 Aug 2026 16:44:31 +0200
-Date: Tue, 4 Aug 2026 16:44:31 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Liu Changjie <liucj1228@outlook.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 6/6] arm64: dts: allwinner: a523: x96qpro+: enable
- Ethernet support
-Message-ID: <f2dc4bbb-ed90-4661-ad5c-f8c51075138e@lunn.ch>
-References: <20260803101452.2993721-1-andre.przywara@arm.com>
- <20260803101452.2993721-7-andre.przywara@arm.com>
- <ad2e46d5-53db-49b2-a128-7c54883e18eb@lunn.ch>
- <CAGb2v64yH+grXMbxg1te6XHt1PxhUc4Jzch_OdUW50tq2Eg1cw@mail.gmail.com>
+	Tue, 04 Aug 2026 14:46:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7611040BFE;
+	Tue,  4 Aug 2026 14:46:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2510B1F000E9;
+	Tue,  4 Aug 2026 14:46:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785854789;
+	bh=uUvC+y0j8JFjtE+XMJ9UQGtCiCNbH3kOeZKEuG06DWw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=RkxaN2ik9P4rS1+/q3KgKb/2D2Eh7uomzp+QNGTLlcFGiVoRdD2vuChwYpMjwFQp5
+	 ECUUHTxHFDlqwTii01KYRocgyxJj35A2kS9tX/ei31yWKYaIN9L9YFhsn2ZlSdxdyB
+	 gu0aWTswPsa/XnAveSiWQSG8fjaOZEZV1PuVweKw3vJk8stnyIOtCX8KUpkc7OCrsx
+	 n5diT9WhcnlnZyAygOsDSKKw9mkehqfM6GW24BR59cBzv+d7NN+rcYhlTya9qTqOqf
+	 dxbLbJyZSgtJtNT8G+GckekF/SFjztBDfoEeCQENfohv6Y+9YdnN1HvSiqsu4FzBxO
+	 kMbSJgWnIjbXQ==
+Date: Tue, 4 Aug 2026 15:46:11 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Barry Song <baohua@kernel.org>
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, surenb@google.com, liam@infradead.org, vbabka@kernel.org, 
+	shakeel.butt@linux.dev, david@kernel.org, linux-kernel@vger.kernel.org, 
+	zhanghongru@xiaomi.com, willy@infradead.org, zhangbo56@xiaomi.com
+Subject: Re: [RFC PATCH v1 1/2] x86/mm: use VMA lock for kernel faults on
+ user addresses
+Message-ID: <anH3jVrBlUMLd-28@lucifer>
+References: <20260802074018.73887-1-baohua@kernel.org>
+ <20260802074018.73887-2-baohua@kernel.org>
+ <anCu3DOrXDeMrwi5@lucifer>
+ <CAGsJ_4xM7mmv_Xa3g2mB_0gW0_VtYhMtwz0idgYLyoAYiHFmfg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v64yH+grXMbxg1te6XHt1PxhUc4Jzch_OdUW50tq2Eg1cw@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_074445_271014_18BEB332 
-X-CRM114-Status: GOOD (  10.94  )
+In-Reply-To: <CAGsJ_4xM7mmv_Xa3g2mB_0gW0_VtYhMtwz0idgYLyoAYiHFmfg@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +75,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 11:11:04AM +0800, Chen-Yu Tsai wrote:
-> On Tue, Aug 4, 2026 at 10:53 AM Andrew Lunn <andrew@lunn.ch> wrote:
+On Tue, Aug 04, 2026 at 06:37:31AM +0800, Barry Song wrote:
+> On Mon, Aug 3, 2026 at 11:18 PM Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
 > >
-> > > +&gmac1 {
-> > > +     clocks = <&ccu CLK_BUS_EMAC1>, <&ccu CLK_MBUS_EMAC1>;
-> > > +     pinctrl-names = "default";
-> > > +     pinctrl-0 = <&rgmii1_pins>;
-> > > +     phy-mode = "rgmii-id";
-> > > +     phy-handle = <&ext_rgmii_phy>;
-> > > +     phy-supply = <&reg_cldo3>;
-> > > +
-> > > +     tx-internal-delay-ps = <200>;
-> > > +     rx-internal-delay-ps = <500>;
+> > On Sun, Aug 02, 2026 at 03:40:17PM +0800, Barry Song (Xiaomi) wrote:
+> > > Use the VMA lock for kernel faults on user addresses. This also
+> > > makes the existing code below meaningful:
+> > >
+> > >   /* Quick path to respond to signals */
+> > >   if (fault_signal_pending(fault, regs)) {
+> > >           if (!user_mode(regs))
+> > >                   kernelmode_fixup_or_oops(regs, error_code, address,
+> > >                                            SIGBUS, BUS_ADRERR,
+> > >                                            ARCH_DEFAULT_PKEY);
+> > >           return;
+> > >   }
 > >
-> > 500ns is quite big. How did you come to this value? Do you have the
-> > schematic & gerber files? Does the lines look unbalanced?
-> 
-> Unit is ps, not ns.
+> > Hmm yeah :)
+> >
+> > Bit weird it uses user_mode(regs) and the early exit uses the just-set
+> > 'flags & FAULT_FLAG_USER' too.
+> >
+> > Some horrible duplication here too... the user_mod_regs() etc. code is just
+> > duplicated in the mmap lock path.
+> >
+> > I think you mentioned it on Suren/Dave's series but vma_start_read_unlocked()
+> > would avoid all this and could lead to a nicely red patch.
+>
+> vma_start_read_unlocked() could completely avoid falling back to
+> mmap_lock for binder. For page faults, however, there are still
+> paths that must retry under mmap_lock, such as
+> __vmf_anon_prepare() and swapcache_is_device_private().
+> So we may not end up with something as clean as binder, but I
+> think we can still achieve a cleaner design than what we have
+> today.
+>
 
-Yes, sorry, wrong units. But still 500ps is very big. You have the PHY
-adding 2ns, due to rgmii-id, and you add another 500ps?
+Right, and also fault retrying (though Hongru's series is looking at giving at
+least 1 more try under VMA lock there).
 
-       Andrew
+Let's maybe wait for that to settle first and see how that looks :)
+
+> >
+> > >
+> > > Right now, the code above is dead because !user_mode always
+> > > takes the mmap_lock path.
+> > >
+> > > Co-developed-by: Bo Zhang <zhangbo56@xiaomi.com>
+> > > Signed-off-by: Bo Zhang <zhangbo56@xiaomi.com>
+> > > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> > > ---
+> > >  arch/x86/mm/fault.c | 3 ---
+> > >  1 file changed, 3 deletions(-)
+> > >
+> > > diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
+> > > index 45b99c3b1442..c22b74e0eeaf 100644
+> > > --- a/arch/x86/mm/fault.c
+> > > +++ b/arch/x86/mm/fault.c
+> > > @@ -1328,9 +1328,6 @@ void do_user_addr_fault(struct pt_regs *regs,
+> > >       }
+> > >  #endif
+> > >
+> > > -     if (!(flags & FAULT_FLAG_USER))
+> > > -             goto lock_mmap;
+> > > -
+> >
+> > I'm not sure why kernel faults of userland memory were excluded initially
+> > (Suren?)
+> >
+> > Given that it's OK to take the mmap lock here and we're necessarily in process
+> > context anyway surely it's OK to take the VMA lock?
+> >
+> > It looks fine to me but want Suren's input.
+> >
+> > Also given vma_start_read_unlocked() is coming maybe that's better for a
+> > cleanup.
+> >
+> > And finally - Willy is working on a grand clean up of this stuff _I think_ so
+> > you probably should coordinate with him also?
+>
+> I have no problem waiting for Matthew's work. It is the right
+> thing to refactor the duplicated code across architectures for
+> the VMA lock page fault path.
+
+Seems sensible thanks!
+
+>
+> Thanks
+> Barry
+
+--
+Cheers, Lorenzo
 
