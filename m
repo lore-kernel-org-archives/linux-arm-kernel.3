@@ -4,115 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 797FCC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 22:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94FA8C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 22:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=90/Zpc+1pZjM+SsoWmbfz0zmvMaRbeUbFlKQojBOftY=; b=fufi/xEJiOVndb/8f3ibI8H5VX
-	Mk4urWctMRyvvdHqJ+4LwfSZ/MOLgoyGFzLLADSdurC7OTYBiKq1NSP/EXAA1MfbBoq6tBEm05Ckn
-	WMlEyudH45Yq5f1Uz2J8F8Ys0GOn6DSFt6HYmAxUz/lJMQQGGRUs0k1hcs4QZJEBDL38XrUoO9wlz
-	ZglA4afwyBng1M/ZQ1Xpdm9JpFJXq7OKVtHa1ZKxWXziS9ATld401PaqWkinGoVs5JJd8sE60bBrC
-	Gs8vUXKh/GrADf2qF8DFWFJxIc1pwlnhpwoTyznLp/apVGaAFk3LOhWLPOWVlxQCWUAWpbe5JwaNI
-	LXhlmCjg==;
+	bh=/j2uzAZhQxgwE4ZqlG1NwZ+n42HBZvLc30dmyOCIIDc=; b=g81Lu7xJfG7YD94Ai8Jrb3SPjx
+	tW3gu8PxtEoGoBjbG3MErK9reuIT96lAoscoLcph1EFcI2zEMeOUQTFjqhlDe8OzdHA12RYl+A9fj
+	YK39WxNMqc/9m2/THE+h+OGJSUnM5D3QqWgD0LCygp95cHKSqgVO4+ivIBTIE0SwO11+pHvpcXVdD
+	PeRreHJAP9crG6YIENIkcSG8zxU8APv2z5PxKs/mQ+NUN29QzPp2cGwK6NEtbYT8GXtCSG3KVU6cg
+	JGeeu0GTq8CwOE0YsPWusanf2i13PnEjsFFCFSRbY3BylgGIP/WtwQCqNi/F8iCflb1qpHHHpZrDo
+	5gHIy7Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrNgL-00000002sSe-0Bhi;
-	Tue, 04 Aug 2026 22:32:21 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1wrNnz-00000002stl-49Nw;
+	Tue, 04 Aug 2026 22:40:15 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrNgH-00000002sR2-3I3y
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 22:32:19 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id DABE124002A
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Aug 2026 00:32:12 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1785882732;
-	bh=90/Zpc+1pZjM+SsoWmbfz0zmvMaRbeUbFlKQojBOftY=;
-	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
-	 MIME-Version:OpenPGP:From;
-	b=REt4egoct876dOQK8/skwZj7O12uD7IxDvx5D51Hlzkphvya96pWWy/c1S8KCrWHP
-	 IlLlbQnN7rkfDBNpM0osgUJXsW82YXRuGcygXS7Th6IXzcRbRfL+sJUfh2zAkH3yKu
-	 tP0oOgi3nG48E/5FmqlA0x+7ZMRoDDR3w1FG/C1SeqA8ckfyBoSYKMF4seHvGPq3dL
-	 lfJ7kS1k+S5O0t3tSVvCR8tPKfX5cBYsZNakATy9ZusiyeML2IdNXaqkV2O+VvU3n9
-	 bpS++ZkRCXh1TrqWTd8WpyA8fLyC17wZX/cQm2WkutaXUomoqFv8N+bi0LGT+KiJ8e
-	 eX55+iQLNoGjw==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hF7Zf0Nmsz9rxB;
-	Wed,  5 Aug 2026 00:32:10 +0200 (CEST)
-Message-ID: <42763e1ed91d8d37b1ab914633f1e3525237e2d2.camel@posteo.de>
-Subject: Re: [PATCH v2 4/5] rtc: s35390a: Add pinctrl
-From: Markus Probst <markus.probst@posteo.de>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
- <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
- <gregory.clement@bootlin.com>, Sebastian Hesselbarth	
- <sebastian.hesselbarth@gmail.com>, Michael Langer	
- <michael.brainbug.langer@googlemail.com>, Andrew Morton	
- <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Tue, 04 Aug 2026 22:32:12 +0000
-In-Reply-To: <2026080422201232a44ff0@mail.local>
-References: <20260801-rtc_s35390a_int1-v2-0-f10c99ad1d6c@posteo.de>
-	 <20260801-rtc_s35390a_int1-v2-4-f10c99ad1d6c@posteo.de>
-	 <2026080422201232a44ff0@mail.local>
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
- keydata=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
- jfGillcaQOqFZ3WwVqyzG1BUfTow==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-EiC9+BFaK8j2Yw0xY8df"
+	id 1wrNnx-00000002ssu-0N13;
+	Tue, 04 Aug 2026 22:40:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=/j2uzAZhQxgwE4ZqlG1NwZ+n42HBZvLc30dmyOCIIDc=; b=tKlXMgpHpsKfcsFbugXKoX47cv
+	PWexKvcUfggrRpoY/SsA/6G9xeHzbqnbpboHOquImuE9MXMAb2LnR3g/RzS6fqgfFrv6bSjf/UR9Z
+	ZoOcrZz8feZlDAt33YaOdgey1P/Ps8Sq5XlyL5eFbTjOMyT8PmnXEonvtGU1JWm4L5NEP5wAnA7Tf
+	TKnNqqJdXifFlNNFw0R2T0+vWWkZQf3aHJPuDkfpmJfcHbS9OyQYKl0UvIxWEGknPjMD5Eda4oKCh
+	A0+ZzItV+XUyPgNIh4TRmNuGzKGNIEyMdc3W10ZrObeyCgpDHA+rHTdOMDkUoomrVCP2H5OPpGvS3
+	8LZmUPKw==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andy Yan <andy.yan@rock-chips.com>, Damon Ding <damon.ding@rock-chips.com>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Damon Ding <damon.ding@rock-chips.com>
+Subject: Re: [PATCH v2 00/10] Add HPD support for Rockchip Analogix DP
+Date: Wed, 05 Aug 2026 00:39:27 +0200
+Message-ID: <5609825.iZASKD2KPV@diego>
+In-Reply-To: <20260804081717.741404-1-damon.ding@rock-chips.com>
+References: <20260804081717.741404-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_153218_149357_47036723 
-X-CRM114-Status: GOOD (  35.17  )
+X-CRM114-CacheID: sfid-20260804_154013_338115_C87E3FCF 
+X-CRM114-Status: GOOD (  21.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,682 +76,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Damon,
 
---=-EiC9+BFaK8j2Yw0xY8df
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, 2026-08-05 at 00:20 +0200, Alexandre Belloni wrote:
-> On 01/08/2026 18:43:04+0000, Markus Probst wrote:
-> > Allow configuration of other output modes than wake alarm, including:
-> > - keeping the previous configured mode
-> > - disabling output
-> > - custom frequency
-> > - minute periodical interrupt (1: 50% duty, 2: 7.81 ms)
-> > - raw 32.768 kHz output
-> >=20
-> > Allow use of interrupt signal 1.
+Am Dienstag, 4. August 2026, 10:17:07 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Damon Ding:
+> Display-connector mode (DP connector without HPD GPIO):
 >=20
-> There are a lot of checkpatch --strict warnings taht can be fixed. This
-> patch also needs to be reviewed by the pinctrl maintainers.
-Sashiko found quite a lot of issues too.
-
-I also wrongfully used pinconf instead of pinmux, for the pin function
-assignment.
-
-I will try to create a new revision today/tomorrow (depending on the
-timezone).
-
-Thanks
-- Markus Probst
-
+>   &edp_out_conn {
+>       remote-endpoint =3D <&dp_con_in>;
+>   };
 >=20
-> >=20
-> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
-> > ---
-> >  drivers/rtc/Kconfig       |   3 +
-> >  drivers/rtc/rtc-s35390a.c | 403 ++++++++++++++++++++++++++++++++++++++=
-+-------
-> >  2 files changed, 349 insertions(+), 57 deletions(-)
-> >=20
-> > diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-> > index 01def8231873..054ff134d84e 100644
-> > --- a/drivers/rtc/Kconfig
-> > +++ b/drivers/rtc/Kconfig
-> > @@ -668,7 +668,10 @@ config RTC_DRV_RC5T619
-> > =20
-> >  config RTC_DRV_S35390A
-> >  	tristate "Seiko Instruments S-35390A"
-> > +	depends on OF
-> > +	depends on PINCTRL
-> >  	select BITREVERSE
-> > +	select GENERIC_PINCONF
-> >  	help
-> >  	  If you say yes here you will get support for the Seiko
-> >  	  Instruments S-35390A.
-> > diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
-> > index fbf5471eb3d0..fc0dbce0e8f4 100644
-> > --- a/drivers/rtc/rtc-s35390a.c
-> > +++ b/drivers/rtc/rtc-s35390a.c
-> > @@ -12,11 +12,18 @@
-> >  #include <linux/bcd.h>
-> >  #include <linux/slab.h>
-> >  #include <linux/delay.h>
-> > +#include <linux/pinctrl/pinctrl.h>
-> > +#include <linux/pinctrl/pinconf.h>
-> > +#include <linux/pinctrl/pinconf-generic.h>
-> > +#include <dt-bindings/rtc/s35390a.h>
-> > +
-> > +#define DRIVER_NAME "rtc-s35390a"
-> > =20
-> >  #define S35390A_CMD_STATUS1	0
-> >  #define S35390A_CMD_STATUS2	1
-> >  #define S35390A_CMD_TIME1	2
-> >  #define S35390A_CMD_TIME2	3
-> > +#define S35390A_CMD_INT1_REG1	4
-> >  #define S35390A_CMD_INT2_REG1	5
-> >  #define S35390A_CMD_FREE_REG    7
-> > =20
-> > @@ -36,19 +43,31 @@
-> >  #define S35390A_FLAG_POC	BIT(0)
-> >  #define S35390A_FLAG_BLD	BIT(1)
-> >  #define S35390A_FLAG_INT2	BIT(2)
-> > +#define S35390A_FLAG_INT1	BIT(3)
-> >  #define S35390A_FLAG_24H	BIT(6)
-> >  #define S35390A_FLAG_RESET	BIT(7)
-> > =20
-> >  /* flag for STATUS2 */
-> >  #define S35390A_FLAG_TEST	BIT(0)
-> > =20
-> > +
-> > +#define S35390A_INT_MODE_NOINTR	0x00
-> > +
-> >  /* INT2 pin output mode */
-> >  #define S35390A_INT2_MODE_MASK		0x0E
-> > -#define S35390A_INT2_MODE_NOINTR	0x00
-> >  #define S35390A_INT2_MODE_ALARM		BIT(1) /* INT2AE */
-> >  #define S35390A_INT2_MODE_PMIN_EDG	BIT(2) /* INT2ME */
-> >  #define S35390A_INT2_MODE_FREQ		BIT(3) /* INT2FE */
-> > -#define S35390A_INT2_MODE_PMIN		(BIT(3) | BIT(2)) /* INT2FE | INT2ME *=
-/
-> > +#define S35390A_INT2_MODE_PMIN1		(BIT(3) | BIT(2)) /* INT2FE | INT2ME =
-*/
-> > +
-> > +/* INT1 pin output mode */
-> > +#define S35390A_INT1_MODE_MASK		0xF0
-> > +#define S35390A_INT1_MODE_ALARM		BIT(5) /* INT1AE */
-> > +#define S35390A_INT1_MODE_PMIN_EDG	BIT(6) /* INT1ME */
-> > +#define S35390A_INT1_MODE_FREQ		BIT(7) /* INT1FE */
-> > +#define S35390A_INT1_MODE_PMIN1		(BIT(7) | BIT(6)) /* INT1FE | INT1ME =
-*/
-> > +#define S35390A_INT1_MODE_PMIN2		(BIT(7) | BIT(6) | BIT(5)) /* INT1FE =
-| INT1ME | INT1AE */
-> > +#define S35390A_INT1_MODE_32768KHZ	BIT(4) /* 32kE */
-> > =20
-> >  static const struct i2c_device_id s35390a_id[] =3D {
-> >  	{ .name =3D "s35390a" },
-> > @@ -64,8 +83,15 @@ MODULE_DEVICE_TABLE(of, s35390a_of_match);
-> > =20
-> >  struct s35390a {
-> >  	struct i2c_client *client[8];
-> > -	struct rtc_time tm_alarm;
-> > +	struct rtc_device *rtc;
-> > +	struct pinctrl_dev *pinctrl;
-> > +	struct rtc_wkalrm alarm;
-> >  	int twentyfourhour;
-> > +
-> > +	struct mutex mode_lock;
-> > +	bool mode_init;
-> > +	int mode[2];
-> > +	u8 freq[2];
-> >  };
-> > =20
-> >  static int s35390a_set_reg(struct s35390a *s35390a, int reg, u8  *buf,=
- int len)
-> > @@ -283,33 +309,33 @@ static int s35390a_rtc_set_alarm(struct device *d=
-ev, struct rtc_wkalrm *alm)
-> >  		alm->time.tm_min, alm->time.tm_hour, alm->time.tm_mday,
-> >  		alm->time.tm_mon, alm->time.tm_year, alm->time.tm_wday);
-> > =20
-> > -	/* disable interrupt (which deasserts the irq line) */
-> > -	err =3D s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(st=
-s));
-> > -	if (err < 0)
-> > -		return err;
-> > +	guard(mutex)(&s35390a->mode_lock);
-> > =20
-> > -	/* clear pending interrupt (in STATUS1 only), if any */
-> > -	err =3D s35390a_get_reg(s35390a, S35390A_CMD_STATUS1, &sts, sizeof(st=
-s));
-> > +	err =3D s35390a_get_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(st=
-s));
-> >  	if (err < 0)
-> >  		return err;
-> > =20
-> > -	if (alm->enabled)
-> > -		sts =3D S35390A_INT2_MODE_ALARM;
-> > -	else
-> > -		sts =3D S35390A_INT2_MODE_NOINTR;
-> > +	/* disable interrupt (which deasserts the irq line) */
-> > +	if (s35390a->mode[0] =3D=3D S35390A_MODE_WAKEUP)
-> > +		sts =3D (sts & ~S35390A_INT1_MODE_MASK) | S35390A_INT_MODE_NOINTR;
-> > +
-> > +	if (s35390a->mode[1] =3D=3D S35390A_MODE_WAKEUP)
-> > +		sts =3D (sts & ~S35390A_INT2_MODE_MASK) | S35390A_INT_MODE_NOINTR;
-> > =20
-> > -	/* set interrupt mode*/
-> >  	err =3D s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(st=
-s));
-> >  	if (err < 0)
-> >  		return err;
-> > =20
-> > +	if (!alm->enabled)
-> > +		goto end;
-> > +
-> >  	if (alm->time.tm_wday !=3D -1)
-> >  		buf[S35390A_ALRM_BYTE_WDAY] =3D bin2bcd(alm->time.tm_wday) | 0x80;
-> >  	else
-> >  		buf[S35390A_ALRM_BYTE_WDAY] =3D 0;
-> > =20
-> >  	buf[S35390A_ALRM_BYTE_HOURS] =3D s35390a_hr2reg(s35390a,
-> > -			alm->time.tm_hour) | 0x80;
-> > +						      alm->time.tm_hour) | 0x80;
-> >  	buf[S35390A_ALRM_BYTE_MINS] =3D bin2bcd(alm->time.tm_min) | 0x80;
-> > =20
-> >  	if (alm->time.tm_hour >=3D 12)
-> > @@ -318,13 +344,33 @@ static int s35390a_rtc_set_alarm(struct device *d=
-ev, struct rtc_wkalrm *alm)
-> >  	for (i =3D 0; i < 3; ++i)
-> >  		buf[i] =3D bitrev8(buf[i]);
-> > =20
-> > -	err =3D s35390a_set_reg(s35390a, S35390A_CMD_INT2_REG1, buf,
-> > -								sizeof(buf));
-> > +	/* set interrupt mode */
-> > +	if (s35390a->mode[0] =3D=3D S35390A_MODE_WAKEUP)
-> > +		sts =3D (sts & ~S35390A_INT1_MODE_MASK) | S35390A_INT1_MODE_ALARM;
-> > +
-> > +	if (s35390a->mode[1] =3D=3D S35390A_MODE_WAKEUP)
-> > +		sts =3D (sts & ~S35390A_INT2_MODE_MASK) | S35390A_INT2_MODE_ALARM;
-> > +
-> > +	err =3D s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(st=
-s));
-> > +	if (err < 0)
-> > +		return err;
-> > +
-> > +	if (s35390a->mode[0] =3D=3D S35390A_MODE_WAKEUP) {
-> > +		err =3D s35390a_set_reg(s35390a, S35390A_CMD_INT1_REG1, buf, sizeof(=
-buf));
-> > +		if (err)
-> > +			return err;
-> > +	}
-> > +
-> > +	if (s35390a->mode[1] =3D=3D S35390A_MODE_WAKEUP) {
-> > +		err =3D s35390a_set_reg(s35390a, S35390A_CMD_INT2_REG1, buf, sizeof(=
-buf));
-> > +		if (err)
-> > +			return err;
-> > +	}
-> > =20
-> > -	if (!err)
-> > -		s35390a->tm_alarm =3D alm->time;
-> > +end:
-> > +	s35390a->alarm =3D *alm;
-> > =20
-> > -	return err;
-> > +	return 0;
-> >  }
-> > =20
-> >  static int s35390a_rtc_read_alarm(struct device *dev, struct rtc_wkalr=
-m *alm)
-> > @@ -332,24 +378,35 @@ static int s35390a_rtc_read_alarm(struct device *=
-dev, struct rtc_wkalrm *alm)
-> >  	struct i2c_client *client =3D to_i2c_client(dev);
-> >  	struct s35390a *s35390a =3D i2c_get_clientdata(client);
-> >  	u8 buf[3], sts;
-> > -	int i, err;
-> > +	int i, err, reg;
-> > +
-> > +	guard(mutex)(&s35390a->mode_lock);
-> > =20
-> >  	err =3D s35390a_get_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(st=
-s));
-> >  	if (err < 0)
-> >  		return err;
-> > =20
-> > -	if ((sts & S35390A_INT2_MODE_MASK) !=3D S35390A_INT2_MODE_ALARM) {
-> > +	if (s35390a->mode[1] =3D=3D S35390A_MODE_WAKEUP
-> > +		&& (sts & S35390A_INT2_MODE_MASK) =3D=3D S35390A_INT2_MODE_ALARM) {
-> > +
-> > +		reg =3D S35390A_CMD_INT2_REG1;
-> > +	} else if (s35390a->mode[0] =3D=3D S35390A_MODE_WAKEUP
-> > +		&& (sts & S35390A_INT1_MODE_MASK) =3D=3D S35390A_INT1_MODE_ALARM) {
-> > +
-> > +		reg =3D S35390A_CMD_INT1_REG1;
-> > +	} else {
-> >  		/*
-> >  		 * When the alarm isn't enabled, the register to configure
-> >  		 * the alarm time isn't accessible.
-> >  		 */
-> >  		alm->enabled =3D 0;
-> > +		alm->time =3D s35390a->alarm.time;
-> >  		return 0;
-> > -	} else {
-> > -		alm->enabled =3D 1;
-> >  	}
-> > =20
-> > -	err =3D s35390a_get_reg(s35390a, S35390A_CMD_INT2_REG1, buf, sizeof(b=
-uf));
-> > +	alm->enabled =3D 1;
-> > +
-> > +	err =3D s35390a_get_reg(s35390a, reg, buf, sizeof(buf));
-> >  	if (err < 0)
-> >  		return err;
-> > =20
-> > @@ -358,7 +415,7 @@ static int s35390a_rtc_read_alarm(struct device *de=
-v, struct rtc_wkalrm *alm)
-> >  		buf[i] =3D bitrev8(buf[i]);
-> > =20
-> >  	/*
-> > -	 * B0 of the three matching registers is an enable flag. Iff it is se=
-t
-> > +	 * B0 of the three matching registers is an enable flag. If it is set
-> >  	 * the configured value is used for matching.
-> >  	 */
-> >  	if (buf[S35390A_ALRM_BYTE_WDAY] & 0x80)
-> > @@ -388,10 +445,10 @@ static int s35390a_rtc_alarm_irq_enable(struct de=
-vice *dev, unsigned int enabled
-> >  	struct s35390a *s35390a =3D dev_get_drvdata(dev);
-> >  	struct rtc_wkalrm alm;
-> > =20
-> > -	alm.enabled =3D enabled;
-> > -
-> >  	if (enabled)
-> > -		alm.time =3D s35390a->tm_alarm;
-> > +		alm =3D s35390a->alarm;
-> > +
-> > +	alm.enabled =3D enabled;
-> > =20
-> >  	return s35390a_rtc_set_alarm(dev, &alm);
-> >  }
-> > @@ -452,13 +509,241 @@ static int s35390a_nvmem_write(void *priv, unsig=
-ned int offset, void *val,
-> >  	return s35390a_set_reg(s35390a, S35390A_CMD_FREE_REG, val, bytes);
-> >  }
-> > =20
-> > +static int s35390a_pinctrl_get_groups_count(struct pinctrl_dev *pctlde=
-v)
-> > +{
-> > +	return 0;
-> > +}
-> > +
-> > +static const char *s35390a_pinctrl_get_group_name(struct pinctrl_dev *=
-pctldev,
-> > +						  unsigned int group)
-> > +{
-> > +	return NULL;
-> > +}
-> > +
-> > +static const struct pinctrl_pin_desc s35390a_pins_desc[] =3D {
-> > +	PINCTRL_PIN(0, "int1"),
-> > +	PINCTRL_PIN(1, "int2"),
-> > +};
-> > +
-> > +static const struct pinctrl_ops s35390a_pinctrl_ops =3D {
-> > +	.get_groups_count =3D s35390a_pinctrl_get_groups_count,
-> > +	.get_group_name =3D s35390a_pinctrl_get_group_name,
-> > +	.dt_node_to_map =3D pinconf_generic_dt_node_to_map_pin,
-> > +	.dt_free_map =3D pinconf_generic_dt_free_map,
-> > +};
-> > +
-> > +#define PIN_CONFIG_MODE		(PIN_CONFIG_END + 1)
-> > +#define PIN_CONFIG_FREQ		(PIN_CONFIG_END + 2)
-> > +
-> > +static const struct pinconf_generic_params s35390a_pinconf_params[] =
-=3D {
-> > +	{"sii,mode", PIN_CONFIG_MODE},
-> > +	{"sii,frequency", PIN_CONFIG_FREQ},
-> > +};
-> > +
-> > +static int s35390a_set_freq(struct s35390a *s35390a, int pin, int freq=
-)
-> > +{
-> > +	int err, reg;
-> > +	u8 buf;
-> > +
-> > +	reg =3D pin =3D=3D 0 ? S35390A_CMD_INT1_REG1 : S35390A_CMD_INT2_REG1;
-> > +
-> > +	buf =3D bitrev8(freq);
-> > +
-> > +	err =3D s35390a_set_reg(s35390a, reg, &buf, 1);
-> > +	if (err < 0)
-> > +		return err;
-> > +	return 0;
-> > +}
-> > +
-> > +static int s35390a_update_mode(struct s35390a *s35390a, int pin, int m=
-ode, int freq)
-> > +{
-> > +	int err;
-> > +	u8 buf, status1, flag, mask;
-> > +	bool update_irq =3D false;
-> > +
-> > +	mask =3D pin =3D=3D 0 ? S35390A_INT1_MODE_MASK : S35390A_INT2_MODE_MA=
-SK;
-> > +
-> > +	s35390a->mode_init =3D true;
-> > +
-> > +	guard(mutex)(&s35390a->mode_lock);
-> > +
-> > +	dev_dbg(&s35390a->client[0]->dev, "%s: pin=3D%d mode=3D%d\n",
-> > +			__func__, pin, mode);
-> > +
-> > +	if (mode =3D=3D S35390A_MODE_FREQ) {
-> > +		if (freq & ~S35390A_FREQ_MASK) {
-> > +			dev_err(&s35390a->client[0]->dev, "Unsupported frequency %u\n", fre=
-q);
-> > +			return -EINVAL;
-> > +		}
-> > +	} else
-> > +		freq =3D 0;
-> > +
-> > +	if (mode =3D=3D s35390a->mode[pin] && freq =3D=3D s35390a->freq[pin])
-> > +		return 0;
-> > +
-> > +	s35390a->mode[pin] =3D mode;
-> > +	s35390a->freq[pin] =3D freq;
-> > +
-> > +	if (mode =3D=3D S35390A_MODE_IGNORE)
-> > +		return 0;
-> > +
-> > +	err =3D s35390a_get_reg(s35390a, S35390A_CMD_STATUS2, &buf, 1);
-> > +	if (err < 0) {
-> > +		dev_err(&s35390a->client[0]->dev, "error reading status\n");
-> > +		return err;
-> > +	}
-> > +
-> > +	switch (mode) {
-> > +	case S35390A_MODE_DISABLE:
-> > +	case S35390A_MODE_ALARM: /* not implemented */
-> > +		buf =3D (buf & ~mask) | S35390A_INT_MODE_NOINTR;
-> > +		break;
-> > +	case S35390A_MODE_WAKEUP:
-> > +		flag =3D pin =3D=3D 0 ? S35390A_INT1_MODE_ALARM : S35390A_INT2_MODE_=
-ALARM;
-> > +		if ((buf & mask) !=3D flag) {
-> > +			buf =3D (buf & ~mask) | S35390A_INT_MODE_NOINTR;
-> > +			break;
-> > +		}
-> > +
-> > +		err =3D s35390a_read_status(s35390a, &status1);
-> > +		if (err < 0) {
-> > +			dev_err(&s35390a->client[0]->dev, "error reading status\n");
-> > +			return err;
-> > +		}
-> > +
-> > +		flag =3D pin =3D=3D 0 ? S35390A_FLAG_INT1 : S35390A_FLAG_INT2;
-> > +
-> > +		/* disable alarm */
-> > +		if (status1 & flag) {
-> > +			buf =3D (buf & ~mask) | S35390A_INT_MODE_NOINTR;
-> > +			update_irq =3D true;
-> > +		}
-> > +
-> > +		break;
-> > +	case S35390A_MODE_FREQ:
-> > +		flag =3D pin =3D=3D 0 ? S35390A_INT1_MODE_FREQ : S35390A_INT2_MODE_F=
-REQ;
-> > +		buf =3D (buf & ~mask) | flag;
-> > +		break;
-> > +	case S35390A_MODE_PMIN1:
-> > +		flag =3D pin =3D=3D 0 ? S35390A_INT1_MODE_PMIN1 : S35390A_INT2_MODE_=
-PMIN1;
-> > +		buf =3D (buf & ~mask) | flag;
-> > +		break;
-> > +
-> > +	/* INT1 only modes */
-> > +	case S35390A_MODE_PMIN2:
-> > +		buf =3D (buf & ~mask) | S35390A_INT1_MODE_PMIN2;
-> > +		break;
-> > +	case S35390A_MODE_32768KHZ:
-> > +		buf =3D (buf & ~mask) | S35390A_INT1_MODE_32768KHZ;
-> > +		break;
-> > +	}
-> > +
-> > +	err =3D s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &buf, 1);
-> > +	if (err < 0) {
-> > +		dev_err(&s35390a->client[0]->dev, "error setting interrupts\n");
-> > +		return err;
-> > +	}
-> > +
-> > +	if (freq) {
-> > +		err =3D s35390a_set_freq(s35390a, pin, freq);
-> > +		if (err < 0) {
-> > +			dev_err(&s35390a->client[0]->dev, "error setting frequency\n");
-> > +			return err;
-> > +		}
-> > +	}
-> > +
-> > +	if (update_irq)
-> > +		rtc_update_irq(s35390a->rtc, 1, RTC_AF);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int s35390a_pinconf_get(struct pinctrl_dev *pctldev,
-> > +			       unsigned int pin, unsigned long *config)
-> > +{
-> > +	struct s35390a *s35390a =3D pinctrl_dev_get_drvdata(pctldev);
-> > +	unsigned int param =3D pinconf_to_config_param(*config);
-> > +	u16 arg;
-> > +
-> > +	switch (param) {
-> > +	case PIN_CONFIG_MODE:
-> > +		arg =3D s35390a->mode[pin];
-> > +		break;
-> > +	case PIN_CONFIG_FREQ:
-> > +		arg =3D s35390a->freq[pin];
-> > +		break;
-> > +	default:
-> > +		return -EOPNOTSUPP;
-> > +	}
-> > +
-> > +	*config =3D pinconf_to_config_packed(param, arg);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int s35390a_pinconf_set(struct pinctrl_dev *pctldev,
-> > +			       unsigned int pin, unsigned long *configs,
-> > +			       unsigned int num_configs)
-> > +{
-> > +	struct s35390a *s35390a =3D pinctrl_dev_get_drvdata(pctldev);
-> > +	unsigned int param;
-> > +	u32 param_val;
-> > +	int i, mode, freq =3D 0;
-> > +
-> > +	mode =3D pin =3D=3D 0 ? S35390A_MODE_IGNORE : S35390A_MODE_WAKEUP;
-> > +
-> > +	for (i =3D 0; i < num_configs; i++) {
-> > +		param =3D pinconf_to_config_param(configs[0]);
-> > +		param_val =3D pinconf_to_config_argument(configs[0]);
-> > +
-> > +		switch (param) {
-> > +		case PIN_CONFIG_MODE:
-> > +			if (param_val <=3D (pin =3D=3D 0 ? S35390A_MODE_INT1_MAX : S35390A_=
-MODE_INT2_MAX))
-> > +				mode =3D param_val;
-> > +			else {
-> > +				dev_err(&s35390a->client[0]->dev, "Unsupported pin mode %u\n",
-> > +					param_val);
-> > +				return -EINVAL;
-> > +			}
-> > +			break;
-> > +		case PIN_CONFIG_FREQ:
-> > +			freq =3D param_val;
-> > +			break;
-> > +		default:
-> > +			dev_err(&s35390a->client[0]->dev, "Property %u not supported\n",
-> > +				param);
-> > +			return -EOPNOTSUPP;
-> > +		}
-> > +	}
-> > +
-> > +	return s35390a_update_mode(s35390a, pin, mode, freq);
-> > +}
-> > +
-> > +
-> > +static const struct pinconf_ops s35390a_pinconf_ops =3D {
-> > +	.is_generic =3D true,
-> > +	.pin_config_get =3D s35390a_pinconf_get,
-> > +	.pin_config_set =3D s35390a_pinconf_set,
-> > +};
-> > +
-> > +static struct pinctrl_desc s35390a_pinctrl_desc =3D {
-> > +	.name =3D DRIVER_NAME,
-> > +	.pins =3D s35390a_pins_desc,
-> > +	.npins =3D ARRAY_SIZE(s35390a_pins_desc),
-> > +	.pctlops =3D &s35390a_pinctrl_ops,
-> > +	.confops =3D &s35390a_pinconf_ops,
-> > +	.custom_params =3D s35390a_pinconf_params,
-> > +	.num_custom_params =3D ARRAY_SIZE(s35390a_pinconf_params),
-> > +	.owner =3D THIS_MODULE,
-> > +};
-> > +
-> >  static int s35390a_probe(struct i2c_client *client)
-> >  {
-> >  	int err, err_read;
-> >  	unsigned int i;
-> >  	struct s35390a *s35390a;
-> >  	struct rtc_device *rtc;
-> > -	u8 buf, status1;
-> > +	u8 status1;
-> >  	struct device *dev =3D &client->dev;
-> >  	struct nvmem_config nvmem_cfg =3D {
-> >  		.name =3D "s35390a_nvram",
-> > @@ -477,7 +762,10 @@ static int s35390a_probe(struct i2c_client *client=
-)
-> >  	if (!s35390a)
-> >  		return -ENOMEM;
-> > =20
-> > +	mutex_init(&s35390a->mode_lock);
-> > +
-> >  	s35390a->client[0] =3D client;
-> > +
-> >  	i2c_set_clientdata(client, s35390a);
-> > =20
-> >  	/* This chip uses multiple addresses, use dummy devices for them */
-> > @@ -492,10 +780,37 @@ static int s35390a_probe(struct i2c_client *clien=
-t)
-> >  		}
-> >  	}
-> > =20
-> > +	err =3D s35390a_disable_test_mode(s35390a);
-> > +	if (err < 0) {
-> > +		dev_err(dev, "error disabling test mode\n");
-> > +		return err;
-> > +	}
-> > +
-> >  	rtc =3D devm_rtc_allocate_device(dev);
-> >  	if (IS_ERR(rtc))
-> >  		return PTR_ERR(rtc);
-> > =20
-> > +	rtc->ops =3D &s35390a_rtc_ops;
-> > +	rtc->range_min =3D RTC_TIMESTAMP_BEGIN_2000;
-> > +	rtc->range_max =3D RTC_TIMESTAMP_END_2099;
-> > +
-> > +	set_bit(RTC_FEATURE_ALARM_RES_MINUTE, rtc->features);
-> > +	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->features);
-> > +
-> > +	s35390a->rtc =3D rtc;
-> > +
-> > +	err =3D devm_pinctrl_register_and_init(dev, &s35390a_pinctrl_desc, s3=
-5390a,
-> > +					     &s35390a->pinctrl);
-> > +	if (err)
-> > +		return err;
-> > +
-> > +	/* If no pinctrl config is defined in DT, fallback to previous behavi=
-our */
-> > +	if (!s35390a->mode_init) {
-> > +		err =3D s35390a_update_mode(s35390a, 1, S35390A_MODE_WAKEUP, 0);
-> > +		if (err)
-> > +			return err;
-> > +	}
-> > +
-> >  	err_read =3D s35390a_read_status(s35390a, &status1);
-> >  	if (err_read < 0) {
-> >  		dev_err(dev, "error resetting chip\n");
-> > @@ -507,34 +822,8 @@ static int s35390a_probe(struct i2c_client *client=
-)
-> >  	else
-> >  		s35390a->twentyfourhour =3D 0;
-> > =20
-> > -	if (status1 & S35390A_FLAG_INT2) {
-> > -		/* disable alarm (and maybe test mode) */
-> > -		buf =3D 0;
-> > -		err =3D s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &buf, 1);
-> > -		if (err < 0) {
-> > -			dev_err(dev, "error disabling alarm\n");
-> > -			return err;
-> > -		}
-> > -	} else {
-> > -		err =3D s35390a_disable_test_mode(s35390a);
-> > -		if (err < 0) {
-> > -			dev_err(dev, "error disabling test mode\n");
-> > -			return err;
-> > -		}
-> > -	}
-> > -
-> >  	device_set_wakeup_capable(dev, 1);
-> > =20
-> > -	rtc->ops =3D &s35390a_rtc_ops;
-> > -	rtc->range_min =3D RTC_TIMESTAMP_BEGIN_2000;
-> > -	rtc->range_max =3D RTC_TIMESTAMP_END_2099;
-> > -
-> > -	set_bit(RTC_FEATURE_ALARM_RES_MINUTE, rtc->features);
-> > -	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->features);
-> > -
-> > -	if (status1 & S35390A_FLAG_INT2)
-> > -		rtc_update_irq(rtc, 1, RTC_AF);
-> > -
-> >  	nvmem_cfg.priv =3D s35390a;
-> >  	err =3D devm_rtc_nvmem_register(rtc, &nvmem_cfg);
-> >  	if (err)
-> > @@ -545,7 +834,7 @@ static int s35390a_probe(struct i2c_client *client)
-> > =20
-> >  static struct i2c_driver s35390a_driver =3D {
-> >  	.driver		=3D {
-> > -		.name	=3D "rtc-s35390a",
-> > +		.name	=3D DRIVER_NAME,
-> >  		.of_match_table =3D of_match_ptr(s35390a_of_match),
-> >  	},
-> >  	.probe		=3D s35390a_probe,
-> >=20
-> > --=20
-> > 2.54.0
-> >=20
+>   dp-con {
+>       compatible =3D "dp-connector";
+>       label =3D "DP OUT";
+>       type =3D "full-size";
+>=20
+>       port {
+>           dp_con_in: endpoint {
+>               remote-endpoint =3D <&edp_out_conn>;
+>           };
+>       };
+>   };
+>=20
+> Display-connector mode (DP connector with HPD GPIO):
+>=20
+>   dp-con {
+>       compatible =3D "dp-connector";
+>       label =3D "DP OUT";
+>       type =3D "full-size";
+>       pinctrl-0 =3D <&edp0_hpd>;
+>       pinctrl-names =3D "default";
+>       hpd-gpios =3D <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
+>=20
+>       port {
+>           dp_con_in: endpoint {
+>               remote-endpoint =3D <&edp_out_conn>;
+>           };
+>       };
+>   };
+>=20
+> All four configurations detect cable plug/unplug events correctly.
 
---=-EiC9+BFaK8j2Yw0xY8df
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+hmm, it wasn't working entirely for me though and was still running into
+issues when the display was unplugged on boot.
 
------BEGIN PGP SIGNATURE-----
+I wiggled around a bit like in the diff below and am now getting correct
+plug and unplug events.
 
-iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmpyaFsbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSPSUP/i1sMVN8LXjlIo3cEML/
-F5L4EuM90g7rNgK4GlOxfvjtR6/0ftW4Svic0J+n3oi1JiBmBPfSe2cJhkf42Cac
-yRS4ONqoJw07GqwOQa1pG19i42ZTe7Oe2mXiVpgotoZ850L0YZ7ohQMQ3UE0SgDU
-p59Jxvi0kYudW61R55HWar0FnUKNA3xO17LjqKoAapKDGNBl9s0qvds68QZrDUsp
-jo1RFaG0FK4sRs3R7qLH6blpkxV9X+WdnBMM+TTDHH26i753EGHFMCB+KdBULBM4
-KDgk7kn+cds9J+Opo+PdC763qrxpzmjrKObVzHbY9kNB2GF1VoGkAV7glVQjEPev
-+wQNTmpra60nz24HSj1PNwzhPOeNTS9MSdvv3yYQvrq466s42kQaAFu0PdNxpyLI
-fHb7dQBVJ3M4+abVuA6rebBwSYt0ERvQGNm6UhHs2V+3pj15FELwNghRwbC+8jOw
-pRUvEE9+LeGnD2n1Sc3rRKqPtoj0i5o9JVNU4qnuGxsssHw1lhRCkT7OCAeH8mun
-RUOCxr3wnQkND5HyQXmc5kzq1psW8Z5fPnnH51YHLnthkhk4SkP8qwPEJIxe2eIF
-PUNTcnu6x427FV8NxHE+DromARKQdH9WsKjL3Vi+qEBKum9H6/w8KsZtn73spNVu
-Y0DU0nEbuv49onf1ZnQTPqTy
-=E267
------END PGP SIGNATURE-----
+But of course, as the dp-variant of the connector does not provide
+a "detect" and just the "hpd" functionality, it's missing the initial state.
 
---=-EiC9+BFaK8j2Yw0xY8df--
+I'm currently not sure how to find out _if_ a panel is connected on boot.
+
+
+In other review comments:
+=2D the bridge could use devm_drm_of_get_bridge() as suggested in
+  the documentation of drm_of_find_panel_or_bridge(), as that would
+  remove the separate panel_bridge creation
+=2D instead of using plat_data->next_bridge _inside_ the driver
+  struct drm_bridge has a field next_bridge already.
+
+
+Heiko
+
+
+=2D------ 8< -------
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/g=
+pu/drm/bridge/analogix/analogix_dp_core.c
+index 877e1b3ca7525..1388640a27de7 100644
+=2D-- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -43,7 +43,7 @@ static const bool verify_fast_training;
+ static bool analogix_dp_require_pm_for_hpd_irq(struct analogix_dp_device *=
+dp)
+ {
+ 	return analogix_dp_is_rockchip(dp->plat_data->dev_type) && !dp->hpd_gpiod=
+ &&
+=2D	       !dp->force_hpd;
++	       !dp->hpd_bridge && !dp->force_hpd;
+ }
+=20
+ static void analogix_dp_init_dp(struct analogix_dp_device *dp)
+@@ -72,7 +72,7 @@ static int analogix_dp_detect_hpd(struct analogix_dp_devi=
+ce *dp)
+ 	 * Trust connection status from downstream bridge (e.g.,
+ 	 * display-connector with hpd-gpios).
+ 	 */
+=2D	if (dp->plat_data->next_bridge && dp->connection_notified)
++	if (dp->hpd_bridge && dp->connection_notified)
+ 		return 0;
+=20
+ 	while (timeout_loop < DP_TIMEOUT_LOOP_COUNT) {
+@@ -926,10 +926,10 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, =
+struct drm_connector *conne
+ 	 */
+ 	if (dp->plat_data->next_bridge && dp->last_bridge_is_panel)
+ 		status =3D connector_status_connected;
+=2D
+=2D	if (!analogix_dp_detect_hpd(dp))
++	else if (!analogix_dp_detect_hpd(dp))
+ 		status =3D connector_status_connected;
+=20
++printk("---> %s status %d\n", __func__, status);
+ 	return status;
+ }
+=20
+@@ -1044,7 +1044,7 @@ static int analogix_dp_set_bridge(struct analogix_dp_=
+device *dp)
+ 		goto out_dp_init;
+ 	}
+=20
+=2D	if (!analogix_dp_require_pm_for_hpd_irq(dp))
++	if (!analogix_dp_require_pm_for_hpd_irq(dp) && !dp->hpd_bridge)
+ 		enable_irq(dp->irq);
+ 	return 0;
+=20
+@@ -1187,7 +1187,7 @@ static void analogix_dp_bridge_disable(struct drm_bri=
+dge *bridge)
+ 	if (dp->dpms_mode !=3D DRM_MODE_DPMS_ON)
+ 		return;
+=20
+=2D	if (!analogix_dp_require_pm_for_hpd_irq(dp))
++	if (!analogix_dp_require_pm_for_hpd_irq(dp) && !dp->hpd_bridge)
+ 		disable_irq(dp->irq);
+=20
+ 	analogix_dp_set_analog_power_down(dp, POWER_ALL, 1);
+@@ -1264,6 +1264,7 @@ static void analogix_dp_bridge_notify(struct drm_brid=
+ge *bridge, struct drm_conn
+ 	struct analogix_dp_device *dp =3D to_dp(bridge);
+=20
+ 	dp->connection_notified =3D (status =3D=3D connector_status_connected);
++printk("---> %s connection_notified %d\n", __func__, dp->connection_notifi=
+ed);
+ }
+=20
+ static const struct drm_bridge_funcs analogix_dp_bridge_funcs =3D {
+@@ -1641,6 +1642,13 @@ static int analogix_dp_aux_done_probing(struct drm_d=
+p_aux *aux)
+ 	if (ret && ret !=3D -ENODEV)
+ 		return ret;
+=20
++	/*
++	 * There is a next link in the chain which is not a panel, we should
++	 * expect hotplug-information coming from there.
++	 */
++	if (plat_data->next_bridge && !drm_bridge_is_panel(plat_data->next_bridge=
+))
++		dp->hpd_bridge =3D true;
++
+ 	return component_add(dp->dev, plat_data->ops);
+ }
+=20
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/g=
+pu/drm/bridge/analogix/analogix_dp_core.h
+index d0fb25e543ea0..ecca3b87b4456 100644
+=2D-- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
+@@ -169,6 +169,7 @@ struct analogix_dp_device {
+ 	bool			fast_train_enable;
+ 	bool			psr_supported;
+ 	bool			last_bridge_is_panel;
++	bool			hpd_bridge;
+ 	bool			connection_notified;
+=20
+ 	u8 dpcd[DP_RECEIVER_CAP_SIZE];
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gp=
+u/drm/bridge/analogix/analogix_dp_reg.c
+index ec5950066f838..6f0d642739ffd 100644
+=2D-- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+@@ -182,7 +182,7 @@ void analogix_dp_config_interrupt(struct analogix_dp_de=
+vice *dp)
+ 	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_2);
+ 	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_3);
+=20
+=2D	if (dp->hpd_gpiod) {
++	if (dp->hpd_gpiod || dp->hpd_bridge) {
+ 		analogix_dp_mute_hpd_interrupt(dp, HPD_IRQ);
+ 	} else {
+ 		/*
+@@ -438,7 +438,7 @@ void analogix_dp_init_hpd(struct analogix_dp_device *dp)
+ {
+ 	u32 reg;
+=20
+=2D	if (dp->hpd_gpiod)
++	if (dp->hpd_gpiod || dp->hpd_bridge)
+ 		return;
+=20
+ 	analogix_dp_clear_hotplug_interrupts(dp, HPD_IRQ);
+@@ -539,6 +539,9 @@ int analogix_dp_get_plug_in_status(struct analogix_dp_d=
+evice *dp)
+ 	if (dp->hpd_gpiod) {
+ 		if (gpiod_get_value(dp->hpd_gpiod))
+ 			return 0;
++	} else if (dp->hpd_bridge) {
++		if (dp->connection_notified)
++			return 0;
+ 	} else {
+ 		reg =3D readl(dp->reg_base + ANALOGIX_DP_SYS_CTL_3);
+ 		if (reg & HPD_STATUS)
+
+
+
 
