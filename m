@@ -4,97 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B992C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 08:52:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC97DC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 08:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6y8Hcxg9MXxS8AWcFY2VAmn1cCgVHpq4caMsrXoFzEI=; b=G+vApOHD5yWS0oUgALbsVi6I2m
-	zbok/A8zwVR4NCas94VG6955Qo6+figpWyrWUQs2u5lvbuQQ+tzQG7oF4xSTPhjyQw/K6CG9hidQ4
-	pJQkXv/8lt/E+LMTP+Rj4D9xTaSXsXWNiQHEV5VvdgZRZuFgW1dWMWAiHX3+TDzywrZ5AdSLmMrhJ
-	fbYrN+yxK7xRqUdZmERR0eCeoku8X2IHH2guD0SaxKm5TOfiImmkhaSVAY1YebV3cPZy0DzsB+ZfN
-	dL+erUiqpOSaafAxNEH1KVDL8lVBRd+jcGgUaFcP/6vfwjb1wgqrR7XZhklfoiT+a35ZM0e9zFpSG
-	XHQ8DPjQ==;
+	bh=nEBENcqedDnxmt752aISkLkRs24ob2CZAW+cz7DqcJw=; b=VJJVZ/4gZ4oyqiLiXa48VSlpkq
+	UO6lxlQxiXo9sjOxpAnRxdsubKm1JfVDforz0wpaFWPSD/ZZn9kq7JpZi0pVGIBsHuOZk2losz68V
+	8gYynGuIa8+7C8kVKKLkd1y87xbHMgdUrFNa9b8b/a7S+X7fz1x0T5u0qGc7O95W+aigEs4P92+SS
+	Kzq78l/jrrhH9/qTd/9eGhT9k9XxCATexh3lO6d3iTEeaa+XGVAbpLAm9cZUtngw4MhBKFs6fO5yN
+	W2nsSHH8er6SAnYP8vt3Ss6bOeVWWTSXojQqCWQFFJb5gl3+rnH0c5AT1GD0Jl0l/b3RVuaXqKBFY
+	XuIqQZ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAtC-00000001OBd-0Lm5;
-	Tue, 04 Aug 2026 08:52:46 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1wrAuk-00000001OZx-1wIE;
+	Tue, 04 Aug 2026 08:54:22 +0000
+Received: from courrier.aliel.fr ([65.21.61.41])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAt8-00000001O9W-46ve
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 08:52:44 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-38f620399a0so3461098a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 01:52:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785833562; x=1786438362; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6y8Hcxg9MXxS8AWcFY2VAmn1cCgVHpq4caMsrXoFzEI=;
-        b=C7IXFSwG0I0AmEGTKMJ9/BDOZLWsbHDbyqT7zFD47HMCGr/VnV1WIQyN3yYDh4bChJ
-         Ht/Qr0bFlr1zm2aIDGq7Ntf3SrJ7KE59aUu0U/QV0z1aIILWT7Qp/Z6VM2Y2Oo/E84ur
-         rUaj47K7+IADg9bIRCJic6EbKJxsWHx86C4NS9XHOjbJfeievAtj8MDGt+J79dsNVIlq
-         6mexef8+5P9hWOGqk2++G6FIK5LjwR6YMt98XmKXv+W/fggK/6Tu83lUmh+bxuB5p9Hv
-         LWHDgDmzzE15K1CAiBrwH0hzIF11HXN3TYTAFbNSCp2pHaoj9yo/0Dj8jqb/Sgo3/fMT
-         R4zQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785833562; x=1786438362;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6y8Hcxg9MXxS8AWcFY2VAmn1cCgVHpq4caMsrXoFzEI=;
-        b=idQW8TkP9Zgb0xgFSwHlUpeHdQRir3BeKyJoIBJ1ina/hlHQHSmZufKBIejOPJgjOk
-         lRzhI5S9Lt0ttDNCH6hn/rRMpjDIKtwvY9JK4+Ijll3XtCXxIXmHPqFaqBHB6jLNeCsM
-         83GkmBHPKqZ4aWxc2Z04jBHMAp51bb/2/G7aWnO8MUmgO0aA50m3WGxuhSdjzErsoKww
-         Xwpqhm2w0RLpwpbMxW/VUFZGDqy9hdo0iEqYqmSU1gGlsnpyWFWYD7REFcx3sxLCaJKi
-         Wppb1v9TggHgR/XE8uQc72ncZytCQd2i9qP08gL7Y5JWyeyf9NRu5FX22Wm9ouOKxuLZ
-         kHFg==
-X-Forwarded-Encrypted: i=1; AHgh+RomOl9l5lsb4xNkq1S/S/2syr3SgSZOIku+c2yQ5aCQ4UU1RJcw+Yem6DYEcrf2rMPwfkOHVf2eay+s7MZE6WHV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIN5DFzjsnk4veTboXq2kmU9W1uDmVgo4Gdi/dgR5rwg3YfhSZ
-	8Y5vYD8tosgJYF/XJqtmXFctMlKTOGmJtsHMiQglGH+3+Nb/735KZtbQ
-X-Gm-Gg: AR+sD11oPqbbZxlL4ObPVw5DOSu2jhT8hdQsPhkOFfV3tIvETi3aLOUVvW6vBh7DWul
-	5ORzpo5idD09WfT0nOgCMXeUaRIRulaxZtU3iNh98kmKvPeytyeLkn5sd1Ays5dKE/aVrD6r1P1
-	tUYtPQJZwA6p9+VVGfALb5ktmr+dh2UnlCILWEqr7RSchfJqsOYOiUXRirFLfgefbIQDVCh5LpP
-	DraigKfdow+29tvs5EFc024fu4AsYIv6rFGRZEsyiY2zAjRCBfOxODJtg4E8SkNLdJA7mHv3e9W
-	GAzHLntEskUZnzkqAxNlnYNwt3c80pJi4vRO64FkDTX64FaNV/CkPRJEmelHq/iPdc+QgYzr+M4
-	CwSPLOJ07DXix4fyTrlXoZU3zYFbXDfclg1rI2E1jNYKwuDewo+S5XdHec8rPF0bPu1NlGMkKyz
-	zPaSy61uCsurKwcy0N6s4nC/N3jhxANfVTJgv3jmafh/2FxPhjpt9qI+6VoGz3gNWFZnsjmP8k+
-	FhvVQPCiHNqzWHX5+5st229PW4JA+Y7K00lyFxJk9uBy8k=
-X-Received: by 2002:a17:90b:5867:b0:38e:bbe8:5be0 with SMTP id 98e67ed59e1d1-38fbc4adacbmr12546764a91.25.1785833562389;
-        Tue, 04 Aug 2026 01:52:42 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38febffb36dsm1012000a91.7.2026.08.04.01.52.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 01:52:41 -0700 (PDT)
-From: Zi-Yu Chen <zychennvt@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Zi-Yu Chen <zychennvt@gmail.com>
-Subject: [PATCH v8 3/3] arm64: dts: nuvoton: Add I2C nodes for MA35D1 SoC
-Date: Tue,  4 Aug 2026 16:48:06 +0800
-Message-Id: <20260804084806.1846570-4-zychennvt@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260804084806.1846570-1-zychennvt@gmail.com>
-References: <20260804084806.1846570-1-zychennvt@gmail.com>
+	id 1wrAue-00000001OYb-27Gl;
+	Tue, 04 Aug 2026 08:54:20 +0000
+Message-ID: <5d11fa8d-737b-48d5-b8e9-88eace8ec4d7@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1785833649;
+	bh=UDyLan8moulhm/gx9Qx6wNSmAi1qEIRCeyqKz0VXlBY=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=nZKCxyWwvfNBCcKsS9SeRIImqCG+gkGKBGxQtVUwOsn1f/RJKEc0544BMs0cz3YG+
+	 9fJw0UvMGksf9Tz6PMnSNVgeNTusrg6ARJ7hg2iIXuCOGokXYqYr0kxcEGBO3ZtKxw
+	 RAnJhlfGyLvaMAuIY3+XUkJQog4LCyT8zgyAutlM=
+Date: Tue, 4 Aug 2026 10:54:08 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird Beta
+From: linux-kernel-dev@aliel.fr
+Subject: Re: [PATCH v8 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
+To: Lee Jones <lee@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Beniamino Galvani <b.galvani@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org
+References: <20260702-add-mcu-fan-khadas-vim4-v8-0-244feee91a36@aliel.fr>
+ <20260702-add-mcu-fan-khadas-vim4-v8-4-244feee91a36@aliel.fr>
+ <20260723154847.GP3363113@google.com>
+Content-Language: en-US
+In-Reply-To: <20260723154847.GP3363113@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_015243_058952_4158C501 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260804_015417_462602_26F03452 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,139 +77,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add I2C controller nodes to the MA35D1 SoC dtsi file.
-Also, enable the I2C2 interface on the MA35D1 SOM board and
-configure its pinctrl to allow communication with the onboard
-NAU8822 audio codec
+On 7/23/26 5:48 PM, Lee Jones wrote:
+> /* Sashiko Automation: Reviewed (0 Findings) */
+> 
+> On Thu, 02 Jul 2026, Ronald Claveau via B4 Relay wrote:
+> 
+>> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>
+>> Refactor probe() to use per-variant values
+>> instead of hardcoded globals.
+>>
+>> Add dedicated regmap configuration for the VIM4 MCU,
+>> with its own volatile/writeable registers.
+>>
+>> Add the fan control register
+>> (0–100 levels vs 0–3 for previous supported boards).
+>>
+>> Add a new compatible string "khadas,vim4-mcu".
+>>
+>> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> ---
+>>
+>>  drivers/mfd/khadas-mcu.c | 118 ++++++++++++++++++++++++++++++++++++++++-------
+>>  1 file changed, 102 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
+>> index ba981a7886921..d2ca7deda45c6 100644
+>> --- a/drivers/mfd/khadas-mcu.c
+>> +++ b/drivers/mfd/khadas-mcu.c
+>> @@ -13,6 +13,9 @@
+>>  #include <linux/module.h>
+>>  #include <linux/regmap.h>
+>>  
+>> #define KHADAS_MCU_FAN_LEVEL_MAX 3
+>> #define KHADAS_MCU_VIM4_FAN_LEVEL_MAX 0x64
+>> +
+>>  static bool khadas_mcu_reg_volatile(struct device *dev, unsigned int reg)
+>>  {
+>>  	if (reg >= KHADAS_MCU_USER_DATA_0_REG &&
+>> @@ -75,47 +78,129 @@ static const struct regmap_config khadas_mcu_regmap_config = {
+>>  	.cache_type	= REGCACHE_MAPLE,
+>>  };
+>>  
+>> -static struct mfd_cell khadas_mcu_fan_cells[] = {
+>> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
+>> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
+>> +	.max_level	= KHADAS_MCU_FAN_LEVEL_MAX,
+>> +};
+>> +
+>> +static const struct mfd_cell khadas_mcu_fan_cells[] = {
+>>  	/* VIM1/2 Rev13+ and VIM3 only */
+>> -	{ .name = "khadas-mcu-fan-ctrl", },
+>> +	{
+>> +		.name = "khadas-mcu-fan-ctrl",
+>> +		.platform_data = &khadas_mcu_fan_pdata,
+>> +		.pdata_size = sizeof(khadas_mcu_fan_pdata),
+>> +	},
+>>  };
+> 
+> If you're tweaking, feel free to get more upstream creds by laying down
+> a prelim patch changing these to MFD_CELL_*().
+> 
 
-Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
----
- .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 20 ++++++
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 72 +++++++++++++++++++
- 2 files changed, 92 insertions(+)
+Thanks for the suggestion, will do that for the next version.
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index a029b660e8dc..422468dbc3bf 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -57,6 +57,18 @@ &clk {
- 			   "integer";
- };
- 
-+&i2c2 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+
-+	nau8822: audio-codec@1a {
-+		compatible = "nuvoton,nau8822";
-+		reg = <0x1a> ;
-+		nuvoton,spk-btl;
-+	};
-+};
-+
- &pinctrl {
- 	uart-grp {
- 		pinctrl_uart0: uart0-pins {
-@@ -100,6 +112,14 @@ pinctrl_uart16: uart16-pins {
- 			power-source = <1>;
- 		};
- 	};
-+
-+	i2c-grp {
-+		pinctrl_i2c2: i2c2-pins {
-+			nuvoton,pins = <1 8 4>,
-+				       <1 9 4>;
-+			bias-disable;
-+		};
-+	};
- };
- 
- &uart0 {
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index 7228ad4735b5..28488889f564 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -372,6 +372,78 @@ uart15: serial@407f0000 {
- 			status = "disabled";
- 		};
- 
-+		i2c0: i2c@40800000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40800000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C0_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C0>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c1: i2c@40810000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40810000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C1_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c2: i2c@40820000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40820000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C2_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C2>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c3: i2c@40830000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40830000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C3_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C3>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c4: i2c@40840000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40840000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C4_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C4>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c5: i2c@40850000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40850000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C5_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C5>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
- 		uart16: serial@40880000 {
- 			compatible = "nuvoton,ma35d1-uart";
- 			reg = <0x0 0x40880000 0x0 0x100>;
+>> -static struct mfd_cell khadas_mcu_cells[] = {
+>> +static const struct mfd_cell khadas_mcu_cells[] = {
+>>  	{ .name = "khadas-mcu-user-mem", },
+>>  };
+>>  
+>> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
+>> +{
+>> +	switch (reg) {
+>> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
+>> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
+>> +	case KHADAS_MCU_WOL_INIT_START_REG:
+>> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
+>> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
+>> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
+>> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
+>> +		return true;
+>> +	default:
+>> +		return false;
+>> +	}
+>> +}
+>> +
+>> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
+>> +{
+>> +	switch (reg) {
+>> +	case KHADAS_MCU_VERSION_0_REG:
+>> +	case KHADAS_MCU_VERSION_1_REG:
+>> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
+>> +		return false;
+>> +	default:
+>> +		return true;
+>> +	}
+>> +}
+>> +
+>> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
+>> +	.reg_bits	= 8,
+>> +	.reg_stride	= 1,
+>> +	.val_bits	= 8,
+>> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
+>> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
+>> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
+>> +	.cache_type	= REGCACHE_MAPLE,
+>> +};
+>> +
+>> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
+>> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
+>> +	.max_level	= KHADAS_MCU_VIM4_FAN_LEVEL_MAX,
+>> +};
+>> +
+>> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
+>> +	{
+>> +		.name		= "khadas-mcu-fan-ctrl",
+>> +		.platform_data	= &khadas_vim4_fan_pdata,
+>> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
+>> +	},
+>> +};
+>> +
+>>  static int khadas_mcu_probe(struct i2c_client *client)
+>>  {
+>> +	const struct mfd_cell *cells, *fan_cells;
+>> +	const struct regmap_config *regmap_cfg;
+>>  	struct device *dev = &client->dev;
+>> +	int ncells, nfan_cells, ret;
+>>  	struct khadas_mcu *ddata;
+>> -	int ret;
+>>  
+>>  	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
+>>  	if (!ddata)
+>>  		return -ENOMEM;
+>>  
+>> +	switch ((uintptr_t)i2c_get_match_data(client)) {
+> 
+> Let's pull this out of the switch():
+> 
+> 	const void *match;
+> 
+> 	match = i2c_get_match_data(client);
+> 	if (!match)
+> 		return -ENODEV;
+> 
+> This would separate the declaration from the potentially failing
+> function call and prevent implicitly matching 'KHADAS_MCU_GENERIC' (if
+> its value is 0) should the lookup fail.
+> 
+
+Thanks for that catch, I will change it.
+
+>> +	case KHADAS_MCU_GENERIC:
+>> +		regmap_cfg	= &khadas_mcu_regmap_config;
+>> +		cells		= khadas_mcu_cells;
+>> +		ncells		= ARRAY_SIZE(khadas_mcu_cells);
+>> +		fan_cells	= khadas_mcu_fan_cells;
+>> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells);
+>> +		break;
+>> +	case KHADAS_MCU_VIM4:
+>> +		regmap_cfg	= &khadas_mcu_vim4_regmap_config;
+>> +		cells		= NULL;
+>> +		ncells		= 0;
+>> +		fan_cells	= khadas_mcu_vim4_cells;
+>> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells);
+>> +		break;
+>> +	default:
+>> +		return -ENODEV;
+>> +	}
+>> +
+>>  	i2c_set_clientdata(client, ddata);
+>>  
+>>  	ddata->dev = dev;
+>>  
+>> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
+>> +	ddata->regmap = devm_regmap_init_i2c(client, regmap_cfg);
+>>  	if (IS_ERR(ddata->regmap)) {
+>>  		ret = PTR_ERR(ddata->regmap);
+>> -		dev_err(dev, "Failed to allocate register map: %d\n", ret);
+>> -		return ret;
+>> +		return dev_err_probe(dev, ret, "Failed to allocate register map\n");
+>>  	}
+>>  
+>> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+>> -				   khadas_mcu_cells,
+>> -				   ARRAY_SIZE(khadas_mcu_cells),
+>> -				   NULL, 0, NULL);
+>> -	if (ret)
+>> -		return ret;
+>> +	if (cells && ncells) {
+>> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+>> +					   cells,
+>> +					   ncells,
+>> +					   NULL, 0, NULL);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>>  
+>>  	if (of_property_present(dev->of_node, "#cooling-cells"))
+>>  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+>> -					    khadas_mcu_fan_cells,
+>> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
+>> +					    fan_cells,
+>> +					    nfan_cells,
+>>  					    NULL, 0, NULL);
+>>  
+>>  	return 0;
+>> @@ -123,7 +208,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>>  
+>>  #ifdef CONFIG_OF
+>>  static const struct of_device_id khadas_mcu_of_match[] = {
+>> -	{ .compatible = "khadas,mcu", },
+>> +	{ .compatible = "khadas,mcu", .data = (void *)KHADAS_MCU_GENERIC },
+>> +	{ .compatible = "khadas,vim4-mcu", .data = (void *)KHADAS_MCU_VIM4 },
+>>  	{},
+>>  };
+>>  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
+>>
+>> -- 
+>> 2.49.0
+>>
+>>
+> 
+
+
 -- 
-2.34.1
-
+Best regards,
+Ronald
 
