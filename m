@@ -4,69 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD09C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 12:29:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486A5C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 12:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BLY7OS/ASDYU9o2/g6vQ4tAyGsgJGy+STaW22+TEn6I=; b=XNnTGJqEXbJ7XJDz8U3cbV0Jel
-	KB4DeIZGq6ac1zFNBeT8N/RmrfsZE/cuvKAmDCYwNmf4fay2LeO7QPHuXGYbjAgFKHnjDfPEvEr3L
-	BixsjS7SQZA/ngesY5IFIuRxbU03yGi1aWaaP4Jwti9f3cAd0f9z+KIY78PerF2W5DZDKoxDS6bc9
-	Cny2pBXwgg11lbHowpWVmrYpI8GhuoBbSmxK2MFkIC01+aelOucTupl5C1gYdqLMBWsENy15RCfm1
-	BEgccZYCr7vlsULcudqPCh1uWYdftqvz7yQcronhWkJhV23BRio34LqwM4+xfAU+XtzhGcRsUXOqf
-	B84U6YNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CLBRymNfVFWu6X+j8MY/IjaNlkgGacJIUxb7cW/jNJA=; b=Qb7h6wRQFbx/pkYFUEA4kQLus6
+	OFEU2GslLzGDorxaraUx3i6tbpH5s4puqdKWIe/m70gBRmni5pZmskrYc1YOsOIqB2RsKCjihJGoU
+	MksSifNS6XLzoNxQv1bVnuyVYkIxexPl77eBjmbBC33cbO1AZ7KNHyFFYE3cfBIrDpTiIiKOGnCx6
+	LZ8gkvU01lj6YV57r3+wyNjch5zjFioW3tYhgVCP8SENmATTSNao9lZ93hVLwfDAMI4VAAPFVMNLj
+	clDZ3Kc9+MzfsYlkvvQ9OCKWxQ+zFMXhoLaX1dYFBS3qDPp/zLav/5TdGlkwBetlkvaotr/nsad+h
+	TcQHPjPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrEGX-00000001oRU-034E;
-	Tue, 04 Aug 2026 12:29:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrEGU-00000001oQm-1zfV
+	id 1wrEIj-00000001og3-19BT;
+	Tue, 04 Aug 2026 12:31:21 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrEIg-00000001ofM-2MdV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 12:29:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18DA81476;
-	Tue,  4 Aug 2026 05:28:55 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB89E3F66F;
-	Tue,  4 Aug 2026 05:28:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785846539; bh=RFjijuGBOfqMDDD06CRgUBWpe4Bi46Y+B4+xD23nhZM=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=EYcTj3XhGIKB/rY/kPSKyDdeqJjrUdGNBeB1eb8Dtwot7YUI0czWtmGoBkIfNM0+S
-	 NZ+gUxCl4S2HRLrFOpVjkyKkRjBcPqq9le59PGCQxbK+zyjryNBedfGKPqBk9KIIzQ
-	 azaTX6ZIdJRo+S8Jv7rUAbcoVD+roLjHyCmPt3hA=
-Message-ID: <5d7433ff-f6e4-42cc-bc8a-08179b3d136b@arm.com>
-Date: Tue, 4 Aug 2026 14:28:53 +0200
+	Tue, 04 Aug 2026 12:31:19 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 87484401B;
+	Tue,  4 Aug 2026 12:31:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1785846672; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CLBRymNfVFWu6X+j8MY/IjaNlkgGacJIUxb7cW/jNJA=;
+	b=INOo8Pi7o9J+7NSiyKnmooZGGAiILIdyyA1IZW74eJ87AIS2aj6S4rUaa+NiSs6KzgmFsw
+	2JhHsbVViOWZyumrkj31kKfmjn2zwRKVzAh0sycNKCdWVIKOYsOLKzulB+Pd8s9wpKz5Ds
+	/RipcHhlu+wP6kCMrF6i8hRG8gtDCEA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1785846672;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CLBRymNfVFWu6X+j8MY/IjaNlkgGacJIUxb7cW/jNJA=;
+	b=KjTIjm4l5Yb84upwgVb0oa05ddJforSKET8NJH6vs3hU0/bVfWoTA2jTORjsa73/BYUAsI
+	D23B0UWuq+XgDFCQ==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1785846668; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CLBRymNfVFWu6X+j8MY/IjaNlkgGacJIUxb7cW/jNJA=;
+	b=OiI/ovxml9BYqkGH3dllP2tLNwyqszuu9FeiJi6uw5gBrMvbDNbRAnsnbq9gZ9n7yFSoPF
+	dsO74IWril+tl3szzYarowGo2sA3abzXFIMQ5QZNViflqLOCn6KrZFt+d1fxfgnuGMRWxF
+	heMPgxCD0tK7Il4B3g3eW4zcclBh8VA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1785846668;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CLBRymNfVFWu6X+j8MY/IjaNlkgGacJIUxb7cW/jNJA=;
+	b=CyvccDZ4aue95TSNHIZm7CxNGL3IYi/oPQ49q1miOPXmZZ925WrLiI675v2w/ko4+3de5x
+	eEOo9/GqHjsYsRDA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id B0183779BB;
+	Tue,  4 Aug 2026 12:31:06 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id uBDfJ4rbcWpOTgAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Tue, 04 Aug 2026 12:31:06 +0000
+Date: Tue, 4 Aug 2026 13:31:04 +0100
+From: Pedro Falcato <pfalcato@suse.de>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH v2 1/6] mm/arm64: constify pte_get*() and contpte get
+ logic
+Message-ID: <anHYoPMRt8hr1l8m@pedro-suse>
+References: <20260803164400.531199-1-pfalcato@suse.de>
+ <20260803164400.531199-2-pfalcato@suse.de>
+ <anG2V7KpvIHjNyVq@lucifer>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 00/11] arm_mpam: Add MPAM-Fb firmware support
-From: Andre Przywara <andre.przywara@arm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260804100627.3217149-1-andre.przywara@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260804100627.3217149-1-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <anG2V7KpvIHjNyVq@lucifer>
+X-Spamd-Result: default: False [-2.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	URIBL_BLOCKED(0.00)[suse.de:email,imap1.dmz-prg2.suse.org:helo];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[32];
+	FREEMAIL_ENVRCPT(0.00)[gmx.de];
+	FREEMAIL_CC(0.00)[kernel.org,linux-foundation.org,arm.com,hansenpartnership.com,gmx.de,linux.ibm.com,ellerman.id.au,infradead.org,google.com,suse.com,suse.cz,nvidia.com,linux.alibaba.com,redhat.com,linux.dev,lists.infradead.org,vger.kernel.org,lists.ozlabs.org,kvack.org];
+	RCVD_TLS_ALL(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLxu57a9hfgn7tttf5jiwuqe5o)];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_052902_600191_945A8370 
-X-CRM114-Status: GOOD (  56.66  )
+X-CRM114-CacheID: sfid-20260804_053118_759790_523498A5 
+X-CRM114-Status: GOOD (  38.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,224 +145,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Aug 04, 2026 at 11:55:09AM +0100, Lorenzo Stoakes (ARM) wrote:
+> On Mon, Aug 03, 2026 at 05:43:55PM +0100, Pedro Falcato wrote:
+> > None of the contpte code needs write access to the PTEs.
+> 
+> This seems like a very broad statement? Is that actually true? I see a bunch of
+> ptep's that aren't const-ified, so you should explain why those couldn't be
+> converted.
 
-On 8/4/26 12:06, Andre Przywara wrote:
-> this is v8 of the MPAM-Fb code, for firmware based MSC accesses.
-> It fixes a potential use-after-free of the dev pointer on error
-> prints, and disables the IRQ on the irqchip side in case doing it on
-> the device side doesn't work. The rest are cosmetic fixes and adding
-> the tags from the diligent reviewers and testers, many thanks for that!
-> I dropped tags from the error IRQ patch (10/11) due to changes.
-> Find the changelog below. Based on v7.2-rc1.
-> 
-> =======================
-> The Arm MPAM specification defines Memory System Components (MSCs),
-> which are devices that are programmed through an MMIO register frame. In
-> some occasions this turned out to be too limiting: the MSC might be
-> located behind a separate bus system (for instance inside an on-board
-> controller), it might be mapped secure-only, or in a different processor
-> socket without direct MMIO mapping. Also the MMIO access might be too slow
-> or it would need to be filtered or otherwise access controlled. Finally
-> there might be bugs in the MSC integration, which require a mediating
-> firmware to be accessible.
+ACK. FTR, I think it would've been far clearer with "None of the contpte get
+code". There is of course contpte code that needs write access (e.g
+contpte_clear_full_ptes).
 
+> 
+> Also you add a new contpte_align_down() macro, you should mention that it the
+> commit message, explain why it was needed.
+> 
+> In general more needed here :) it'd be ok if it was a truly trivial change that
+> was all obvious but you're changing some pte_t *'s and not others so it's
+> clearly not.
+> 
+> >
+> > Signed-off-by: Pedro Falcato <pfalcato@suse.de>
+> > ---
+> >  arch/arm64/include/asm/pgtable.h | 10 +++++-----
+> >  arch/arm64/mm/contpte.c          | 11 ++++++++---
+> >  2 files changed, 13 insertions(+), 8 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> > index a2681d755358..043bc0649cee 100644
+> > --- a/arch/arm64/include/asm/pgtable.h
+> > +++ b/arch/arm64/include/asm/pgtable.h
+> > @@ -378,7 +378,7 @@ static inline void __set_pte(pte_t *ptep, pte_t pte)
+> >  	__set_pte_complete(pte);
+> >  }
+> >
+> > -static inline pte_t __ptep_get(pte_t *ptep)
+> > +static inline pte_t __ptep_get(const pte_t *ptep)
+> >  {
+> >  	return READ_ONCE(*ptep);
+> >  }
+> > @@ -1652,8 +1652,8 @@ extern void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
+> >  				pte_t *ptep, pte_t pte);
+> >  extern void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
+> >  				pte_t *ptep, pte_t pte);
+> > -extern pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte);
+> > -extern pte_t contpte_ptep_get_lockless(pte_t *orig_ptep);
+> > +extern pte_t contpte_ptep_get(const pte_t *ptep, pte_t orig_pte);
+> > +extern pte_t contpte_ptep_get_lockless(const pte_t *orig_ptep);
+> 
+> This is (very) nitty but - not sure on the policy on extern's (Will/Catalin?) -
+> but in mm we drop them when we touch the code since you don't need them these
+> days :)
 
-For the records, I looked at the sashiko complaints, by my analysis most 
-comments fall into one of those categories:
+*nods*. For what it's worth, this is new code that never needed extern.
 
-- Does this new early return / error return .... break MPAM logic?
-It's concerned about just bailing out from the middle of a sequence of 
-MPAM read or writes, leaving the MSC in a misconfigured state. This is 
-true, but doesn't apply, because we tear down MPAM completely upon an 
-MPAM-Fb access returning an error. And if the communication between the 
-kernel and an MSC breaks down completely, there isn't much we can do 
-anyway: attempts to recover would fail as well.
+> 
+> >  extern void contpte_set_ptes(struct mm_struct *mm, unsigned long addr,
+> >  				pte_t *ptep, pte_t pte, unsigned int nr);
+> >  extern void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
+> > @@ -1732,7 +1732,7 @@ static inline unsigned int pte_batch_hint(pte_t *ptep, pte_t pte)
+> >   */
+> >
+> >  #define ptep_get ptep_get
+> > -static inline pte_t ptep_get(pte_t *ptep)
+> > +static inline pte_t ptep_get(const pte_t *ptep)
+> >  {
+> >  	pte_t pte = __ptep_get(ptep);
+> >
+> > @@ -1743,7 +1743,7 @@ static inline pte_t ptep_get(pte_t *ptep)
+> >  }
+> >
+> >  #define ptep_get_lockless ptep_get_lockless
+> > -static inline pte_t ptep_get_lockless(pte_t *ptep)
+> > +static inline pte_t ptep_get_lockless(const pte_t *ptep)
+> >  {
+> >  	pte_t pte = __ptep_get(ptep);
+> >
+> > diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> > index 2de12656b4d8..3a5d6937fb51 100644
+> > --- a/arch/arm64/mm/contpte.c
+> > +++ b/arch/arm64/mm/contpte.c
+> > @@ -26,6 +26,11 @@ static inline pte_t *contpte_align_down(pte_t *ptep)
+> >  	return PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
+> >  }
+> >
+> > +#define contpte_align_down(ptep)                                                       \
+> > +	_Generic((ptep),                                                               \
+> > +		 const pte_t *: (const pte_t *) contpte_align_down((pte_t *) (ptep)),  \
+> > +		 pte_t *: contpte_align_down((pte_t *) ptep))
+> 
+> I really hate these _Generic() helper things. So ugly. And it's a pretty horrid
+> cast now :(
 
-- Since xxx() now returns an error code, do the callers need
-   to be updated to check it?
-- Are there missing error checks in xxx() related to the new error
-   return values?
-Yes, this is done in one of the following patches. The series is 
-constructed so that only the final patch enables MPAM-Fb, before that 
-there is no way MPAM-Fb could be instantiated, so only MMIO accesses are 
-happening. They always return 0, so no error could occur and error paths 
-are never exercised.
-This is used to construct the functionality gradually, and allow 
-multiple, but smaller patches. Mentioned in the cover letter.
+Me too!
 
-- This is a pre-existing issue, but ....
-I haven't checked in detail, but from previous rounds those concerns 
-were addressed by Ben's fixes, which IIUC are on its way already. This 
-series is based on v7.2-rc1, so those fixes are not applied here.
+> 
+> Was it not possible to const-ify further to just be able to constify
+> contpte_align_down itself?
+> 
 
-Hope that helps,
-Cheers,
-Andre
+You can't do that because some callers want a pte_t* out of align_down,
+others want a const pte_t* out of align_down, depending on the param.
 
-> To accommodate all those different use cases, the MPAM-Fb specification
-> [1] describes an alternative way to access MSCs. Accesses to an MSC
-> would be wrapped in a message and communicated to the system using a
-> shared-memory/mailbox system mostly mimicking the Arm SCMI spec.
-> For ACPI systems, this would be abstracted through an ACPI PCC channel,
-> which provides the shared-memory region and the mailbox trigger. We can
-> lean on existing ACPI parsing code to register with these two
-> subsystems, but cannot rely on the existing SCMI code in the kernel.
-> This means we somewhat need to open code a very simplified SCMI handler,
-> which just provides enough functionality for the very basic subset of
-> SCMI that the MPAM-Fb spec requires.
-> 
-> The first seven patches rework all MSC access wrappers to propagate error
-> information. Pure MMIO based MSC accesses would never fail, but the
-> MPAM-Fb access can go wrong in multiple ways. The patches have been split
-> up purely for reviewing reasons, if the number is a problem, we could as
-> well squash them. Please note that until the very last patch of this series
-> any MSC accesses would always only return 0, it's only the final enablement
-> of MPAM-Fb that could possibly introduce errors. Hence all former patches
-> can add error handling gradually, those code paths wouldn't be triggered
-> before patch 11/11.
-> Patch 8/11 solves a nasty problem: At the moment we protect stateful MSC
-> register accesses (mon_sel) through a spinlock. Unfortunately the mailbox
-> subsystem and the slow nature of the communication through this channel
-> forbid MPAM-Fb access in atomic context. So this patch keeps using a
-> spinlock for MMIO based accesses, but reverts to a mutex otherwise.
-> We just deny taking the lock for MPAM-Fb in atomic context, ideally we
-> wouldn't need that (no need to IPI another core when the MSC access does
-> not need to be local to one particular core), or we simply deny that part
-> of the functionality (access through perf).
-> Patch 9/11 adds the code to redirect MSC accesses through the
-> PCC shmem/mailbox system.
-> Patch 10/11 reworks the error interrupt handler to use a threaded IRQ for
-> MPAM-Fb, to be able to do MPAM-Fb MSC accesses inside (which might sleep).
-> The final patch 11/11 then adds the code to detect and store the PCC
-> channel information from the ACPI tables, and eventually enables
-> MPAM-Fb accesses.
-> 
-> This would enable systems where some MSCs are not accessible via MMIO to
-> use those components anyway.
-> 
-> Please have a look and test!
-> 
-> Cheers,
-> Andre
-> 
-> [1] https://developer.arm.com/documentation/den0144/latest
-> 
-> Changes in v8:
-> - disable error IRQ on irqchip level when device side fails
-> - use MSC dev pointer for dev_err() instead of mailbox one
-> - smaller white space and formatting fixes
-> - reorder MPAM-Fb definitions
-> - rename error translation function to mpam_fb_to_linux_errno()
-> - add review and test tags
-> 
-> Changes in v7:
-> - add tags
-> - add new patch to propagate errors in mpam_reprogram_ris_partid()
-> - prevent loop when mpam_diable() tries MSC accesses again
-> - register MMIO error IRQ handler without IRQF_ONESHOT
-> - re-use existing "err" variable instead of declaring "ret"
-> - initialise mon_sel_lock later, to wait for interface decision
-> - convert timeout units for nominal latency, between us and ms
->   
-> Changes in v6:
-> - keep using hard IRQ handler for MMIO based accesses
-> - move shmem buffer size and MPAM-Fb version check into mpam_fb.c
-> - drop mutex guard in mpam_fb_send_request(), we use gotos anyway
-> - factor out MPAM-Fb protocol error translation
-> - add MPAM_FB_ERR_BUSY error code to translation
-> - explicitly report also MPAM-Fb protocol error number when disabling MPAM
-> - remove unneeded MPAM-Fb details from mpam_internal.h
-> - drop leftover mpam_fb_msc_id usage
-> 
-> Changes in v5:
-> - do not initialise _high variables early
-> - fix whitespace issues
-> - add Jonathan's Reviewed-by: tags
-> - init only either the spinlock OR the mutex for the mon_sel_lock
-> - drop warning about mapped_hwpage_sz for MPAM-Fb in mpam_msc_zero_mbwu_l()
-> - change IRQ handler to threaded handler, to allow MPAM-Fb MSC accesses
-> - disallow per-CPU IRQs (PPIs) for MPAM-Fb
-> - trigger MPAM disabling on MPAM-Fb protocol errors
-> - fix MPAM_PROTOCOL_VERSION_CMD name
-> - use PCC driver defined symbol for PCC_CHAN_FLAGS_IRQ
-> - add comment about usage of PCC's .signature field
-> - check for illegal MPAM-Fb command before sending request
-> - drop CPU accessibility check for MPAM-Fb based MSC accesses
-> - move MPAM-Fb protocol message structs inside build functions
-> - add comment about largest message size
-> - drop extra msc->mpam_fb_msc_id, in favour using pdev->id
-> - use already defined local dev variable instead of &pdev->dev
-> - use FIELD_GET() macro for MPAM-Fb protocol check
-> - drop devm_mutex_init() for pcc_chan_lock
-> 
-> Changes in v4:
-> - unify error check patterns
-> - use scoped_guard(mutex) and ACQUIRE to simplify error handling
-> - use struct kref for PCC channel refcount
-> - drop unused mailbox rx_callback function
-> - increase size of props[] array to hold new msc_id property
-> - set mailbox TX timeout based on ACPI MPAM table field
-> - use devm_mutex_init() to allow automatic cleanup
-> - avoid overwriting error value for arm,not-ready-us property read
-> - prune MPAM-Fb protocol token to fit into bitmask inside register
-> - check return value for AIDR read
-> - use two separate MPAM-Fb protocol payload structs
-> - prune header list for mpam_fb.c
-> - drop "nrdy handled as an error" change
-> - fix message size field in MPAM-Fb protocol shmem area
-> - drop message size return from MPAM-Fb message build functions
-> - bring back IRQ flag in MPAM-Fb protocol header
-> 
-> Changes in v3:
-> - drop inner/outer mon_sel lock patch, replace with simpler version
-> - harmonise code patterns in error propagation changes
-> - drop mon_sel lock before erroring out in mpam_ris_hw_probe_csu_nrdy()
-> - refactor mpam_msc_read_mbwu_l() to return an error
-> - drop special NRDY handling in __ris_msmon_read()
-> - add IRQ numbers in error interrupt handler to help pinpoint failure
-> - refactor MPAM-Fb message generation to accommodate more than read/write
-> - check MPAM-Fb protocol version at probe time
-> - drop mpam_fb.h header, merge into mpam_internal.h
-> - translate MPAM-Fb error code in Linux codes where needed
-> - clear IRQ flag bit in MPAM-Fb protocol header
-> - drop unneeded endianness conversions when crafting MPAM-Fb message
-> - use C struct to model MPAM-Fb message payload
-> 
-> Changes in v2:
-> - add patches to add error propagation to MSC access wrappers
-> - drop former patch 1/5 (not needed)
-> - drop lock in mpam_reprogram_msc(), to avoid double lock
-> - add support for multiple MSCs per PCC channel
-> - adjust SCMI protocol code to use a PCC subtype 3 channel
-> - let PCC code handle the PCC channel negotiation (due to subtype 3)
-> - drop SCMI names in shmem offsets, and use existing PCC type 3 struct
-> - adjust shmem field offsets to match MPAM-Fb spec, not pure SCMI
-> - prevent MPAM-Fb calls inside atomic smp_call_function_any() payload
-> - skip all MSC accesses inside the IRQ handler when using MPAM-Fb
-> 
-> Andre Przywara (11):
->    arm_mpam: let low level MSC accessors return an error
->    arm_mpam: propagate MSC access errors for hw_probe functions
->    arm_mpam: propagate MSC access errors for MBWU counters
->    arm_mpam: propagate MSC access errors for msmon helpers
->    arm_mpam: propagate MSC access errors for __ris_msmon_read()
->    arm_mpam: propagate MSC access errors for state saving function
->    arm_mpam: propagate MSC access errors for mpam_reprogram_ris_partid()
->    arm_mpam: prepare mon_sel locking for MPAM-Fb
->    arm_mpam: add MPAM-Fb MSC firmware access support
->    arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler
->    arm_mpam: detect and enable MPAM-Fb PCC support
-> 
->   drivers/resctrl/Makefile        |   2 +-
->   drivers/resctrl/mpam_devices.c  | 825 ++++++++++++++++++++++++--------
->   drivers/resctrl/mpam_fb.c       | 252 ++++++++++
->   drivers/resctrl/mpam_internal.h |  62 ++-
->   include/linux/arm_mpam.h        |   2 +-
->   5 files changed, 926 insertions(+), 217 deletions(-)
->   create mode 100644 drivers/resctrl/mpam_fb.c
-> 
-> 
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+In A More Civilized Language(TM):
 
+template <typename T>
+T contpte_align_down(T ptr);
+
+:P
+
+> It also seems to contradict the claim that contpte doesn't need write-access to
+> pte's since you're going to lengths to allow non-const pte_t * here.
+
+Yep, I'll admit the commit message is confusing and crap. I'll flesh it out
+here.
+
+> 
+> You should cover off why this was necessary in the commit message as above.
+> 
+> Anyway PTR_ALIGN_DOWN() is already const-safe so couldn't you anyway just
+> collapse this to:
+> 
+> #define contpte_align_down(ptep) \
+> 	PTR_ALIGN_DOWN(ptep, sizeof(*(ptep)) * CONT_PTES)
+> 
+> Then describe in the commit message why you need to handle both cases?
+> 
+> > +
+> >  static inline pte_t *contpte_align_addr_ptep(unsigned long *start,
+> >  					     unsigned long *end, pte_t *ptep,
+> >  					     unsigned int nr)
+> > @@ -310,7 +315,7 @@ void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
+> >  }
+> >  EXPORT_SYMBOL_GPL(__contpte_try_unfold);
+> >
+> > -pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
+> > +pte_t contpte_ptep_get(const pte_t *ptep, pte_t orig_pte)
+> >  {
+> >  	/*
+> >  	 * Gather access/dirty bits, which may be populated in any of the ptes
+> > @@ -367,7 +372,7 @@ static inline bool contpte_is_consistent(pte_t pte, unsigned long pfn,
+> >  			pgprot_val(prot) == pgprot_val(orig_prot);
+> >  }
+> >
+> > -pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+> > +pte_t contpte_ptep_get_lockless(const pte_t *orig_ptep)
+> >  {
+> >  	/*
+> >  	 * The ptep_get_lockless() API requires us to read and return *orig_ptep
+> > @@ -386,10 +391,10 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
+> >  	 * because it is not part of a contpte range.
+> >  	 */
+> >
+> > +	const pte_t *ptep;
+> 
+> Nit but this is breaking the reverse xmas tree isn't it?
+
+Yep, seems like I mistakenly broke the coding style here and in the
+contpte_align_down macro above (the \ is misaligned). I'll fix it up.
+
+(I think Andrew isn't taking more material for next cycle, and while
+this should have no functional effect, it is very late and you have
+pushback, so probably no rush here...)
+
+-- 
+Pedro
 
