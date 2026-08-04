@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2CFC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 18:31:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF8FC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 18:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EKk2rwqNObSX29y7QODtlnhHJqRzSQBC3KX0AgTlwX0=; b=aR1JaYhK6NMCR3wpsx2eAORoKi
-	p6qCEKCPC2uEFZriDUkqCQ0ovZJEmNMfduseoQjUQeFIOb4b83cRk0NgOFCB131nrpS3rS9cl7141
-	CeyZIDQN4tD7GiZ+3iUWC+4lsHqSg4VqViRis7VnEt00+n/N9xO9oR86E83GxzDiz+ZVUqpFy4kNA
-	8FcR42XNh1Z/o2m+hoHLRt146fRXuvV5fXEb9Bei0lpltl3vKrkX+7qQJvemtztyUFqVKhUbeh5DG
-	bC5BgrPDLpyAHgkCxW7JZCcKFPw4VWxyShLejAFKhBhsP5WvE8aqq04bQiOD6X/sewZkRMdZZ9N05
-	cwok3LDA==;
+	bh=T46aT6b6jrcEqP7BKbyuJ+Dqx/tXTl32zZ60csvLnD8=; b=MrmLJ56zvc9E/CCoSGoJMojg2J
+	YpA0EhRpTT7b0TzN7NffpJsBsJVbF8rnEQel3d30iC9J4Dl9lOJDaT5IwJoEtTuacrQczGC2TSL+7
+	NR7EOiRRvQbAJ2GXLER4NFWVxshznGGLp+KJJv231Xmp2FXg34HCQDc83VhamA+kKyrEZEi/5bLRZ
+	qh9UdJKjIvRTK2+3zpesSki2RYqGnzl/ErUeblcIT+nqXaVE+Ejs9ANjeQvOjs4D+At2IP2EZsx6C
+	gZkcVvyUOedAZFZXUeG+DjmUXKYQpMKFFYJQZg1FRZWBdbIoQdcZLCYPI/V7D7FweNoX8ShpawpXQ
+	wpkna1HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrJvR-00000002cQt-1wOa;
-	Tue, 04 Aug 2026 18:31:41 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1wrJwY-00000002cZP-2ggi;
+	Tue, 04 Aug 2026 18:32:50 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrJvO-00000002cQR-2u61
+	id 1wrJwV-00000002cY4-3gHJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 18:31:40 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RoM/PyoH46a9pUc9fmCX/RqCrLhA33HJY0NyybWuptjWOO5BFy1I6d1zDVDNV5dHmGSTAICjkEqeBxjf3+v7xZc@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785868296;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EKk2rwqNObSX29y7QODtlnhHJqRzSQBC3KX0AgTlwX0=;
-	b=MJELh5RRQguo+y0wuPazSlztR9J505xCeSFIHX0dmhXQoXdeyo9CUnDwP5rEpkWNQ/a03v
-	ZbfEREgcBbDl3MroM4SVsPTvQmkhPkALr6BWAa7p9zYLkfNKr4hTSmxZIzZvP/L29XlLnn
-	jkltlKPyJp74+pDKohZX0hNIehdJkTo=
-X-Gm-Message-State: AOJu0YxXWfGfWhAykv0yfJHFKh/pZpoNKeLiY2l7lfoWkQjaOSkydE0n
-	RALbvTDqVxRO8HcLMMVn9lTZVHcO2Jz2nrlzKVkZOqnTTvMbZPMTy3+yFIvrBWi4ReRzdY5z26P
-	+fYjaXRRzYlWZBzgUVxZQbXQfo/RIDqYc8Ig5cvT2
-X-Received: by 2002:a05:622a:e09b:20b0:50e:5eba:cadd with SMTP id
- d75a77b69052e-52ce693a6famr1913531cf.2.1785868280864; Tue, 04 Aug 2026
- 11:31:20 -0700 (PDT)
+	Tue, 04 Aug 2026 18:32:49 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-38e42560ebcso117418a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 11:32:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785868367; x=1786473167; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=T46aT6b6jrcEqP7BKbyuJ+Dqx/tXTl32zZ60csvLnD8=;
+        b=tJtikfivZdEjbl1FKOzzrRR05iCy8BXieNThz9Bd+tLnbvtcDwzEH6SBJ1mHQxLKLT
+         gSycN83TD7ZdpnUBaFUBa+HCxDF/ehn24TxpFQzoP0j92NkCQ+yNS+7Lw5xsr9i7BR4e
+         liAfu0MnIQfhTAhnd4Z5gCCu5bFQ9NY545geKXDDKBuI6QZjG0QRavET23XMzRrgJsm+
+         mXVWoqNCk1IR0Psp8M/b2mvMrn3VhUEX8xOJmXmoFRKjjK0hKVVPWvSf1U3qH0ees7y7
+         9CfKU0eT5jRaMuB2WHkXJyq+h9+Vh8oN/ACwZrt3nfHZYsKe1RshQlB5QTYYm5qaakSr
+         vFXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785868367; x=1786473167;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=T46aT6b6jrcEqP7BKbyuJ+Dqx/tXTl32zZ60csvLnD8=;
+        b=JbhnMZjlKBholGLYYnTVNU3gLfw2RdpsgYUQ6Lal1RPZwYxNc0x+qqjGmVKHNu0r65
+         7z7KrZI4UHqekEfjvp9vqOKvW/It9PLn03OzrOXg/DubJHAadtXUlVoXibCXbv52djCr
+         P9wNsqogAUKPrqx2rHeUASlFwRFZeqQw9U/4j+pad/vxsxKhx8WsRjpx8ueGjc76JMQT
+         k4cBkG0Md3A+dBY2dC7LAm/E2c8xFMOAYWtXPuaR9Agqm6Leue4bedqv0fIMMGN1vp7q
+         gLKExFb1VALqbPGKs7Gt6CCy8iRc8S3BIKGgUG3IFlj2Ht6BZO+xKPe+1qZcgBHyMZCj
+         KOYA==
+X-Forwarded-Encrypted: i=1; AHgh+RqfMD7zzJ5E0ootcZboa1SG6kW5z0eHNiOKjwIuxGDY95/feWHolpEp2QXxuXA5Yuv6HPT8QD/MGn73EZyOT+Up@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRPYud49xbUsgTQOauCins54Ven9Jeuy46nNaaA4iQv02tBMre
+	sXrqDtzPaw/yBpIfo/lk00votwaGVRK20HOw93wEbmKSN3noW1kKkDtA
+X-Gm-Gg: AR+sD11K6xtPKXX9dgi+FRx2YX5lUWyYT0YQCG8EzKO6jwOMcXKhvV/3zRWs7Yz2YvX
+	VHkwexmFKGTwsq6QNxoMGU04ERITctfYzeii7jN1p5jcwkgQA3UerHKpjmhq82Q2chPEZQwg7pM
+	/gyoeNwcteumhzoHTowFHk/O3cI9XxV+j0ZmWaajsDyisMYIryFzgKWIeuujHGE1ae9H5QNADp5
+	Z9rLGHhfZFR6P3Z41FNewp83+QmJZanv47RsbdrSv9df+DNqtdgpxhm3+TLmIq6giociyxl4rFT
+	OU2R3V+uF7pqg5U7R9MIkCEZxBU2xIMxNx3SqpiIp2L2Dc04Tw2ZpT4bZPcI1UjfAIpyE3nVzj/
+	sBK48Cm1wzY5DG0QIF+SWlwdcJsvWeli4QsmFJPYU1Fkmf3Sl1dciwn8xNfwnapQm4ovh+maKWJ
+	mv3s4i4Da+R3+9xPyObDdL9ufX6UHKixlw1wZQwVzjFX4if4Mt4Sqim2dFaodx5QkGUMaMadIQt
+	MKs
+X-Received: by 2002:a17:90b:224e:b0:38e:9ef9:eb97 with SMTP id 98e67ed59e1d1-3903c5c443dmr636262a91.16.1785868366824;
+        Tue, 04 Aug 2026 11:32:46 -0700 (PDT)
+Received: from DESKTOP-TIT0J8O.localdomain ([49.47.198.15])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13fca926c0bsm5440864c88.14.2026.08.04.11.32.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Aug 2026 11:32:46 -0700 (PDT)
+Date: Tue, 4 Aug 2026 22:32:38 +0400
+From: Ahmed Naseef <naseefkm@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Ahmed Naseef <naseefkm@gmail.com>, netdev@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>, Qingfang Deng <dqfext@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net] net: phy: mediatek: fix TX blink masks using the RX
+ bits
+Message-ID: <anIwRrQT9qMD89v5@DESKTOP-TIT0J8O.localdomain>
+References: <20260804113511.3371248-1-naseefkm@gmail.com>
+ <ab2f7f4f-0f46-4c6e-b3b1-ea713dbd08c6@lunn.ch>
 MIME-Version: 1.0
-References: <20260804092421.1728880-1-fuad.tabba@linux.dev> <7e660a4c-af62-4751-a8cf-49151054f0df@sirena.org.uk>
-In-Reply-To: <7e660a4c-af62-4751-a8cf-49151054f0df@sirena.org.uk>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 4 Aug 2026 19:30:44 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTx9iLrnnaEVzV=3B+22bhh0DsPZRrBPvB6ZUT_CV5DvWA@mail.gmail.com>
-X-Gm-Features: AUfX_my_-8pjyJaz0sfztFQlFvVHxrkE_nbOMypqyMRvyIlCd3fGeHs44ANLYm4
-Message-ID: <CA+EHjTx9iLrnnaEVzV=3B+22bhh0DsPZRrBPvB6ZUT_CV5DvWA@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: selftests: Check ID regs are immutable after
- a failed run
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Peter Maydell <peter.maydell@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <ab2f7f4f-0f46-4c6e-b3b1-ea713dbd08c6@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_113138_934950_A4014C86 
-X-CRM114-Status: GOOD (  20.77  )
+X-CRM114-CacheID: sfid-20260804_113248_169931_2D7FD4C0 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,64 +113,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Aug 2026 at 19:14, Mark Brown <broonie@kernel.org> wrote:
-...
-> > +     if (!found) {
-> > +             ksft_test_result_skip("%s (no immutable ID reg field to test)\n",
-> > +                                   __func__);
-> > +             kvm_vm_free(vm);
-> > +             return;
-> > +     }
->
-> All test result reports for a given test should use the same string when
-> reporting so that automation can figure out that results for a given
-> test from different runs correspond to each other.  It's better to print
-> a diagnostic message, then the ksft_test_result_() with the result for
-> the framework.
+On Tue, Aug 04, 2026 at 08:11:21PM +0200, Andrew Lunn wrote:
+> On Tue, Aug 04, 2026 at 03:35:11PM +0400, Ahmed Naseef wrote:
+> > MTK_GPHY_LED_TX_BLINK_SET and MTK_2P5GPHY_LED_TX_BLINK_SET are built
+> > from the RX blink bits instead of the TX ones, so both TX masks are
+> > identical to their RX counterparts. The TX bits they should be using,
+> > MTK_PHY_LED_BLINK_{10,100,1000,2500}TX, are otherwise only referenced
+> > by the per-speed branch of mtk_phy_led_hw_ctrl_set().
+> > 
+> > A TX trigger selected without a link trigger therefore programs the RX
+> > blink bits, and the LED blinks on received traffic. The masks are also
+> > used to decode the blink register in mtk_phy_led_hw_ctrl_get(), which
+> > as a result cannot tell the two triggers apart: an RX-only
+> > configuration reads back as RX and TX, and a TX-only configuration
+> > reads back as neither.
+> > 
+> > Fixes: 7f9c320c98db ("net: phy: mediatek: Move LED helper functions into mtk phy lib")
+> 
+> Was this bug introduced in this commit, or did this commit just move
+> the code around and it was broken before? The Fixes should go back to
+> where the bug was added, which could be earlier.
 
-Thanks, will fix in v2: the skip will report under the same name, with
-the reason as a ksft_print_msg().
+It was introduced by that commit. Before it, mtk-ge-soc.c correctly had:
 
->
-> > +     TEST_ASSERT(r < 0 && errno == EBUSY,
-> > +                 "ID reg write after failed first run: r=%d errno=%d",
-> > +                 r, errno);
-> > +     TEST_ASSERT_EQ(vcpu_get_reg(vcpu, reg), val);
->
-> > +     kvm_vm_free(vm);
-> > +     ksft_test_result_pass("%s\n", __func__);
->
-> Mixing TEST_ASSERT() and ksft_test_result_ in the same test program also
-> interacts really poorly with automation, TEST_ASSERT() just kills the
+  #define   MTK_PHY_LED_BLINK_TX      (MTK_PHY_LED_BLINK_10TX |\
+                                       MTK_PHY_LED_BLINK_100TX |\
+                                       MTK_PHY_LED_BLINK_1000TX)
 
-Agreed, but it looks file-wide rather than specific to this test, so I
-would rather leave it to your series than convert one function. Happy
-to follow once that lands.
+which 7f9c320c98db removed, adding to mtk.h in the same commit:
 
-Cheers,
-/fuad
+  #define MTK_GPHY_LED_TX_BLINK_SET   (MTK_PHY_LED_BLINK_1000RX | \
+                                       MTK_PHY_LED_BLINK_100RX | \
+                                       MTK_PHY_LED_BLINK_10RX)
 
 
-> entire program so no result is reported for the actual failing test and
-> any tests the program would attempt to run afterwards also vanish from
-> the results.  If the test program is using the kselftest framework to
-> report tests as this one is it should report the results via kselftest
-> framework.  A better pattern would be something like:
->
->         if (r < 0 && errno == EBUSY) {
->                 ksft_print_msg("ID reg write after failed first run: r=%d errno=%d",
->                                 r, errno);
->                 pass = false;
->                 goto out;
->         }
->
-> ...
->
->  out:
->         kvm_vm_free(vm);
->         ksft_test_result(pass, "%s\n", __func__);
->
-> TEST_ASSERT() is a good fit for tests that are just one test case per
-> program, then it plays nicely with tooling since the tooling just
-> tracking the executable result and any output is diagnostic logging.
+Thanks,
+Ahmed
+
+> 
+> 	Andrew
 
