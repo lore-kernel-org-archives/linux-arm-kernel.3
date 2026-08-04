@@ -4,63 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00CEDC5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:46:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A5EC5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uUvC+y0j8JFjtE+XMJ9UQGtCiCNbH3kOeZKEuG06DWw=; b=kkmbSh2DtOqYrUplFyNwSV9daA
-	KDmfmPpQ7HBd4oHI52Jwxg7fED0ga0+xMQ4gEPBzBBta+H4FgVqjKEdGFoudI2peKtFDY/pStLyiS
-	LF9GkZgdGxeyn+Ii3msElTxOsXv4RQ37PPSWMrIc389OwiGuDZ+h61Y3NW5gaLqXbxDOcYsvPY7zV
-	/apgJlloJoi7F4Qy98M8YnruCg7mf0IeVtTviaNA1HaU9xtij1slBja+Kcj/JpW8lsstDxSYMc1T+
-	2JKGbA79R4jZfJJmmgscLo4lTApYLvfRG/KDUw5dwnsNApIGkb/1InHW9nJ0WcbvThYROR8xT2Ikc
-	MV8H7Dbw==;
+	bh=aoiYuPF6Lxrjv4D/1nx7DDBtlGVMorYZQ8pdqOx51TA=; b=xf5DcyFsZaOsSPt7EG6ex9sdsa
+	Zeht0XAs1Pb2dUVRldO5zsTDnSBtzuv8kOtZf5qc1HrV+RPk/lTIYtMCuyccEbZwGse1Mcl9i39to
+	NhLRSitb3ne0fWmeLa2EqGzWZvlBal53sXt9LMDkUDqvyM0hjitqljJvLMVI9TNGxqYKTyPAN8GYT
+	4Im7huVunn2gITmHgIRqpgAT4aEytsKV3ow/epOQIE0pHk/wUdwiXbDxV5wWF4Z6WZBQ+oUDutpmW
+	1QPweLA/BoU8ejyED14is8pRRSJs/06FP4XtHPhqSkIwx6hmscsgGa45tRz2ODPIrMmDEyxnNeqNW
+	XSVfm46Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGPX-000000027EU-2ELi;
-	Tue, 04 Aug 2026 14:46:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrGTF-000000027nN-42fV;
+	Tue, 04 Aug 2026 14:50:21 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGPW-000000027Du-02sr
+	id 1wrGTC-000000027lm-1btj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 14:46:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7611040BFE;
-	Tue,  4 Aug 2026 14:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2510B1F000E9;
-	Tue,  4 Aug 2026 14:46:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785854789;
-	bh=uUvC+y0j8JFjtE+XMJ9UQGtCiCNbH3kOeZKEuG06DWw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RkxaN2ik9P4rS1+/q3KgKb/2D2Eh7uomzp+QNGTLlcFGiVoRdD2vuChwYpMjwFQp5
-	 ECUUHTxHFDlqwTii01KYRocgyxJj35A2kS9tX/ei31yWKYaIN9L9YFhsn2ZlSdxdyB
-	 gu0aWTswPsa/XnAveSiWQSG8fjaOZEZV1PuVweKw3vJk8stnyIOtCX8KUpkc7OCrsx
-	 n5diT9WhcnlnZyAygOsDSKKw9mkehqfM6GW24BR59cBzv+d7NN+rcYhlTya9qTqOqf
-	 dxbLbJyZSgtJtNT8G+GckekF/SFjztBDfoEeCQENfohv6Y+9YdnN1HvSiqsu4FzBxO
-	 kMbSJgWnIjbXQ==
-Date: Tue, 4 Aug 2026 15:46:11 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Barry Song <baohua@kernel.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, surenb@google.com, liam@infradead.org, vbabka@kernel.org, 
-	shakeel.butt@linux.dev, david@kernel.org, linux-kernel@vger.kernel.org, 
-	zhanghongru@xiaomi.com, willy@infradead.org, zhangbo56@xiaomi.com
-Subject: Re: [RFC PATCH v1 1/2] x86/mm: use VMA lock for kernel faults on
- user addresses
-Message-ID: <anH3jVrBlUMLd-28@lucifer>
-References: <20260802074018.73887-1-baohua@kernel.org>
- <20260802074018.73887-2-baohua@kernel.org>
- <anCu3DOrXDeMrwi5@lucifer>
- <CAGsJ_4xM7mmv_Xa3g2mB_0gW0_VtYhMtwz0idgYLyoAYiHFmfg@mail.gmail.com>
+	Tue, 04 Aug 2026 14:50:21 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-495509b08ebso46925e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 07:50:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785855015; x=1786459815; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=aoiYuPF6Lxrjv4D/1nx7DDBtlGVMorYZQ8pdqOx51TA=;
+        b=aZSSRosWaTEnAMYC8dk3Azt2ndTOn80zsVnztx7mYc1b5rECsRHcnic+vaplopam2h
+         l+lGl1sk9DMQJVcor4APRFOT3isSyegUUVA5PGeUGB60qe1qCBlmjnYaY3FtsiP2P4hK
+         icRk/DUAIU93UHVm2hgvt9UakW/NHkQE/g1oqCXzh8HVySwWI5jvkumA3v/dav0yEWlY
+         BNSmxRsJUwGq22/jRzxXNmX+ZVi3dxL6L8KXh8yv8k6mgA2G42nN/c43ir8elRRNDtNC
+         yaKzftZT5tZD7enlQlswJIo3FzFb5iLGf0wg0c7G6GMOoBB68WFvjqz/4efRQH590h6J
+         co0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785855015; x=1786459815;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=aoiYuPF6Lxrjv4D/1nx7DDBtlGVMorYZQ8pdqOx51TA=;
+        b=ATR9LPZ33BwJ9Bmc/qPvRJyqDuQmlLOwpIyfOILYSJzz+FWeKiiaRwk8ME4xcWnm0c
+         WKpJTGxJ9RHJd6cDmRSXv8ncmCc7FlGenUsnuV2hFvJdkG7fqNwXi2PoTUc91R1YJ41H
+         V991jPgUeqSHnghpBIHPc4IeGueUeQy45tHUjU27px4OeoLrtAodPfC1s50oU90Q5tZs
+         xMr/uwRqbs0wHGGFiekuQtiz5cGxZ43KnKyzVZwW48sN3BloHMC9OYe8fp1ZRarKZfMa
+         IUMftPV5h5yBFoNSNb4G5hUWa6NyNUP77bypyYdqobsh7YNnGlm6b03hBGKNuddxZF8J
+         K62Q==
+X-Forwarded-Encrypted: i=1; AHgh+RpfqlIxbxxG7dtKnt/TMSSvEgQqQzvhZx0yT3SC5KNDFLn4BgaCQLDPbTGJvVlmrjklIJw6E0Xz3erFoUfpjcFc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzB9Nn5rXzH8iMOxHzBmWvaOAcCwKLZShvx/CIgNT64WxOvkSvZ
+	bRXaL+EJd62t5OZq/CTMzEWP/1zBdRdCYqAzZNOwC4A6dDJtK8BL14VcPX2md8WRig==
+X-Gm-Gg: AR+sD108ch+sHdQ5q8IHBwCPIkCeGdMQxqlCK2hqRija2og6vbm6xkm3m2SHyGxVaTM
+	m1WEBbdTSK9ILoEMQAM244NaDTI9ms6VlFjilpyadmzVW5qroYJ+HQi239IUEeC+7C2VnHFjvvJ
+	7iGqMzd3DyVgeEjxEnG59F7PV5n3nrhE2lmLotmQzGCKWORhqVHmKJV39Sd9Vq1Yw0dnikfC20q
+	+/a/E5sKQh267dSfbUcggsb8A6ZmNFuHJwJUT3Tzto8qmPA/3mg1hFfV0kDISQGTNpH4eYwr1xK
+	rS7V3E0FD37qEVlM0Fm/7jtD1Vu1BcHc5Q3/kw/B0/+LqdG4GmAiH6EpbLx1JD4kkdSbFWYLHMM
+	kOfWa/6mCO7aEXT1McEXYtvT8jkNo1SAoHld78l94pztStwC1lKQWBcrolTIlk4Mt4MEhP0TDqx
+	iH31Pcn27mE+X2hbZ76DPKeIKgNNlsnnK40q5Wf7MrKuRVyNkpT4hjKLMf22GtwLmz07aFujZY2
+	n4ysk4s3KTlK31vuko823D2uWxUnK1w
+X-Received: by 2002:a05:600c:230c:b0:495:3ffd:5e39 with SMTP id 5b1f17b1804b1-4994dc85254mr145915e9.3.1785855014652;
+        Tue, 04 Aug 2026 07:50:14 -0700 (PDT)
+Received: from google.com (63.235.189.35.bc.googleusercontent.com. [35.189.235.63])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fec232d74sm181843f8f.17.2026.08.04.07.50.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Aug 2026 07:50:14 -0700 (PDT)
+Date: Tue, 4 Aug 2026 14:50:10 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: alexandru.elisei@arm.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	android-kvm@google.com, catalin.marinas@arm.com,
+	dbrazdil@google.com, joey.gouly@arm.com, kees@kernel.org,
+	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org,
+	perlarsen@google.com, qperret@google.com, rananta@google.com,
+	smostafa@google.com, suzuki.poulose@arm.com, tabba@google.com,
+	tglx@kernel.org, bgrzesik@google.com, will@kernel.org,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH 02/14] KVM: arm64: Track host-unmapped MMIO regions in a
+ static array
+Message-ID: <anH8IuRrbQV67Q4C@google.com>
+References: <20260310124933.830025-1-sebastianene@google.com>
+ <20260310124933.830025-3-sebastianene@google.com>
+ <acJrldyUBXgbvWw4@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4xM7mmv_Xa3g2mB_0gW0_VtYhMtwz0idgYLyoAYiHFmfg@mail.gmail.com>
+In-Reply-To: <acJrldyUBXgbvWw4@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_075018_448706_FC196252 
+X-CRM114-Status: GOOD (  29.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,95 +110,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 06:37:31AM +0800, Barry Song wrote:
-> On Mon, Aug 3, 2026 at 11:18 PM Lorenzo Stoakes (ARM) <ljs@kernel.org> wrote:
-> >
-> > On Sun, Aug 02, 2026 at 03:40:17PM +0800, Barry Song (Xiaomi) wrote:
-> > > Use the VMA lock for kernel faults on user addresses. This also
-> > > makes the existing code below meaningful:
-> > >
-> > >   /* Quick path to respond to signals */
-> > >   if (fault_signal_pending(fault, regs)) {
-> > >           if (!user_mode(regs))
-> > >                   kernelmode_fixup_or_oops(regs, error_code, address,
-> > >                                            SIGBUS, BUS_ADRERR,
-> > >                                            ARCH_DEFAULT_PKEY);
-> > >           return;
-> > >   }
-> >
-> > Hmm yeah :)
-> >
-> > Bit weird it uses user_mode(regs) and the early exit uses the just-set
-> > 'flags & FAULT_FLAG_USER' too.
-> >
-> > Some horrible duplication here too... the user_mod_regs() etc. code is just
-> > duplicated in the mmap lock path.
-> >
-> > I think you mentioned it on Suren/Dave's series but vma_start_read_unlocked()
-> > would avoid all this and could lead to a nicely red patch.
->
-> vma_start_read_unlocked() could completely avoid falling back to
-> mmap_lock for binder. For page faults, however, there are still
-> paths that must retry under mmap_lock, such as
-> __vmf_anon_prepare() and swapcache_is_device_private().
-> So we may not end up with something as clean as binder, but I
-> think we can still achieve a cleaner design than what we have
-> today.
->
+On Tue, Mar 24, 2026 at 10:46:45AM +0000, Vincent Donnefort wrote:
+> On Tue, Mar 10, 2026 at 12:49:21PM +0000, Sebastian Ene wrote:
+> > Introduce a registry to track protected MMIO regions that are unmapped
+> > from the host stage-2 page tables. These regions are stored in a
+> > fixed-size array and their ownership is donated to the hypervisor during
+> > initialization to ensure host-exclusion and persistent tracking.
+> > 
+> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_pkvm.h     | 10 ++++++++++
+> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c |  3 +++
+> >  arch/arm64/kvm/hyp/nvhe/setup.c       | 25 +++++++++++++++++++++++++
+> >  3 files changed, 38 insertions(+)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+> > index 757076ad4ec9..48ec7d519399 100644
+> > --- a/arch/arm64/include/asm/kvm_pkvm.h
+> > +++ b/arch/arm64/include/asm/kvm_pkvm.h
+> > @@ -17,6 +17,16 @@
+> >  
+> >  #define HYP_MEMBLOCK_REGIONS 128
+> >  
+> > +#define PKVM_PROTECTED_REGS_NUM	8
+> > +
+> > +struct pkvm_protected_reg {
+> > +	u64 start_pfn; 
+> > +	size_t num_pages; 
+> 
+> nit: "u64 pfn, u64 nr_pages" to align with everywhere else.
 
-Right, and also fault retrying (though Hongru's series is looking at giving at
-least 1 more try under VMA lock there).
+Ack,
 
-Let's maybe wait for that to settle first and see how that looks :)
+> 
+> > +};
+> > +
+> > +extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
+> > +extern unsigned int kvm_nvhe_sym(num_protected_reg);
+> > +
+> >  int pkvm_init_host_vm(struct kvm *kvm);
+> >  int pkvm_create_hyp_vm(struct kvm *kvm);
+> >  bool pkvm_hyp_vm_is_created(struct kvm *kvm);
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > index 0808367c52e5..7c125836b533 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > @@ -23,6 +23,9 @@
+> >  
+> >  struct host_mmu host_mmu;
+> >  
+> > +struct pkvm_protected_reg pkvm_protected_regs[PKVM_PROTECTED_REGS_NUM];
+> > +unsigned int num_protected_reg;
+> > +
+> >  static struct hyp_pool host_s2_pool;
+> >  
+> >  static DEFINE_PER_CPU(struct pkvm_hyp_vm *, __current_vm);
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > index 90bd014e952f..ad5b96085e1b 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/setup.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/setup.c
+> > @@ -284,6 +284,27 @@ static int fix_hyp_pgtable_refcnt(void)
+> >  				&walker);
+> >  }
+> >  
+> > +static int unmap_protected_regions(void)
+> > +{
+> > +	struct pkvm_protected_reg *reg;
+> > +	int i, ret, j = 0;
+> > +
+> > +	for (i = 0; i < num_protected_reg; i++) {
+> > +		reg = &pkvm_protected_regs[i];
+> > +		for (j = 0; j < reg->num_pages; j++) {
+> > +			ret = __pkvm_host_donate_hyp_mmio(reg->start_pfn + j);
+> 
+> If this is to make this static at boot, we don't even need __pkvm_host_donate_hyp_mmio()
+> 
+> We can just map the region early enough in the hypervisor pkvm_create_mappings()
+> in recreate_hyp_mappings() and then let fix_host_ownership() do the host
+> stage2 unmapping.
 
-> >
-> > >
-> > > Right now, the code above is dead because !user_mode always
-> > > takes the mmap_lock path.
-> > >
-> > > Co-developed-by: Bo Zhang <zhangbo56@xiaomi.com>
-> > > Signed-off-by: Bo Zhang <zhangbo56@xiaomi.com>
-> > > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> > > ---
-> > >  arch/x86/mm/fault.c | 3 ---
-> > >  1 file changed, 3 deletions(-)
-> > >
-> > > diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
-> > > index 45b99c3b1442..c22b74e0eeaf 100644
-> > > --- a/arch/x86/mm/fault.c
-> > > +++ b/arch/x86/mm/fault.c
-> > > @@ -1328,9 +1328,6 @@ void do_user_addr_fault(struct pt_regs *regs,
-> > >       }
-> > >  #endif
-> > >
-> > > -     if (!(flags & FAULT_FLAG_USER))
-> > > -             goto lock_mmap;
-> > > -
-> >
-> > I'm not sure why kernel faults of userland memory were excluded initially
-> > (Suren?)
-> >
-> > Given that it's OK to take the mmap lock here and we're necessarily in process
-> > context anyway surely it's OK to take the VMA lock?
-> >
-> > It looks fine to me but want Suren's input.
-> >
-> > Also given vma_start_read_unlocked() is coming maybe that's better for a
-> > cleanup.
-> >
-> > And finally - Willy is working on a grand clean up of this stuff _I think_ so
-> > you probably should coordinate with him also?
->
-> I have no problem waiting for Matthew's work. It is the right
-> thing to refactor the duplicated code across architectures for
-> the VMA lock page fault path.
 
-Seems sensible thanks!
+I looked at this and tried to implement it this way as you suggest because it is more
+elegant but then I realized that `fix_host_ownership_walker` doesn't do
+well with MMIO (it returns -EINVAL).
 
->
-> Thanks
-> Barry
+> 
+> > +			if (ret)
+> > +				goto err_setup;
+> > +		}
+> > +	}
+> > +
+> > +	return 0;
+> > +err_setup:
+> > +	for (j = j - 1; j >= 0; j--)
+> > +		__pkvm_hyp_donate_host_mmio(reg->start_pfn + j);
+> > +	return ret;
+> > +}
+> > +
+> >  void __noreturn __pkvm_init_finalise(void)
+> >  {
+> >  	struct kvm_cpu_context *host_ctxt = host_data_ptr(host_ctxt);
+> > @@ -324,6 +345,10 @@ void __noreturn __pkvm_init_finalise(void)
+> >  	if (ret)
+> >  		goto out;
+> >  
+> > +	ret = unmap_protected_regions();
+> > +	if (ret)
+> > +		goto out;
+> > +
+> >  	ret = hyp_ffa_init(ffa_proxy_pages);
+> >  	if (ret)
+> >  		goto out;
+> > -- 
+> > 2.53.0.473.g4a7958ca14-goog
+> > 
 
---
-Cheers, Lorenzo
+Thanks Sebastian
 
