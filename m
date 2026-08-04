@@ -4,66 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC71C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 16:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05B3C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 16:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E95ReJy9DE9GiIJH0l+XVPQUMS7fnh6eJltHCKDpl+U=; b=Np63hJfkx37N4YIDe2JH9QhnGj
-	mhrr3QyltOfa/87h39cOdGBxXs6rhGaj0ds9nLQw65PeC0NRyru1L4jo2wa9WORVhNgU99XZNFNBJ
-	7shu83Pn4lK0v422ugrV5/Rs322c3BXugm8Qdv3L99Y6BiV9oR6UWj6p8SL5CjkhZfnW+bQIDpkY/
-	2RrNGorB3WNOwwLL3ywf51Ah7VzU3eUEMoUt172f1wODzeJxkVRGcmhM/zHQmnfwmlybiDAZudCmA
-	9XiREO4EpLOnzdroYXrv5wUMPrSyBuyySVHKIixa6lr+EcYm1EuSBOEacyy3Zt3Ngy+tq9Voffp/n
-	sSGU82ew==;
+	bh=AnoZSb6ieywlhJXub4m/rL0q3kbL+deHmZ5GhfgoWfs=; b=c8ShG2wTJ8adZMzQHnhWtn8z98
+	F67Pn6IQ/nwWyA8GndSEykU58OTwGqCwXU5B3LuXi5xfVnEp4kGNPh7ZZFS9ACAsqzrP/guByHCzq
+	uonW4sBpz9NuzEVX+lA+HY6mbfOV2xVwA+AI6zbYsGSds8bndub5rZS2vGeliM4vLITA921DehgMu
+	rk1h1FCmFkLl3zzKUITuYI+/3jGiajMVhM70lCxyCKDlz0NUo5uwlkW5RBLPlxnhCNpLm9TWjRsx5
+	aF2w1BapcgZVksvJQvdpbO0H7+sVa3nGWSMXhL4saVZ73XVyU7BdWjn6aDRWejbm+LQmhQpqirONM
+	nBd1UhJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIDr-00000002NIJ-0BB9;
-	Tue, 04 Aug 2026 16:42:35 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1wrIHP-00000002Nly-200T;
+	Tue, 04 Aug 2026 16:46:15 +0000
+Received: from mail-westus3azon11010066.outbound.protection.outlook.com ([52.101.201.66] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIDp-00000002NHz-1u3P
+	id 1wrIGn-00000002Nj1-2gBX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 16:42:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1785860368;
-	bh=E95ReJy9DE9GiIJH0l+XVPQUMS7fnh6eJltHCKDpl+U=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=sHtfao+PlU9mdbJDyFXTTnhzclUtn67IfHvtbkzcR7yPuktwdDdUkvM8gE9gtKzk0
-	 6OXCWy5Zu5lbkxQOuMb5sE0mAR7d2cLL89M9F3GEEjNGqIt5BWuBoVYQr+WrlzRTiJ
-	 V/pySj3LduZjB5Yp2N5ezaq7qyzlSC1Yekr2Pfyc=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id 928C7408CE; Tue, 04 Aug 2026 09:19:28 -0700 (PDT)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id 90FD040287;
-	Tue, 04 Aug 2026 09:19:28 -0700 (PDT)
-Date: Tue, 4 Aug 2026 09:19:28 -0700 (PDT)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
-    Mark Rutland <mark.rutland@arm.com>, 
-    Yang Shi <yang@os.amperecomputing.com>, 
-    Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, tj@kernel.org, 
-    urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-    akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com, 
-    agordeev@linux.ibm.com, linux-mm@kvack.org, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    Linus Torvalds <torvalds@linux-foundation.org>, 
-    Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-In-Reply-To: <anHuLy52o5S9Nlwp@lucifer>
-Message-ID: <63ea8156-a109-b2a2-6d35-1c17ad7f1a9d@gentwo.org>
-References: <20260715180455.515692-1-yang@os.amperecomputing.com> <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com> <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com> <amCPBrdltFSE_fEf@J2N7QTR9R3> <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
- <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org> <anHuLy52o5S9Nlwp@lucifer>
+	Tue, 04 Aug 2026 16:46:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tII/Akn1ddbW/u1ZD5A+ZcuNDac3/aEqUYdIu32amttRQJYXNPFfRXYuvSTgdqL3XGdWnOdWEAzR+eJ1yxW2hiYyve/KsJiSRn1Tny3AfKNmC/EQwUpk/29U/EO+wTCaLzXYvTWVs5IJIw1FA/uIIWhgEbplwNohdjBxJuP1q8cRea07cc99rSSDiBIL0O4wu5y6K2QRKtOh+v3G5nxxBi1m1MoUy8Sz+2tppFMAn54phmQAh4B6LAtxAHMiTp9Zuns0hfozZo28nbBj+y50hLuWMeoYUcFZ38k5Vu0n+AZHGbAVtOPJGWqQYCpGF45UfAD5LoDKlnUtfEKJXmymmg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AnoZSb6ieywlhJXub4m/rL0q3kbL+deHmZ5GhfgoWfs=;
+ b=gwWmOJGk/e6vYtenylU259V9NyzsUFxKMiQ+ubjFB/6ZFcuj20QvacXsAoDyXBuBlspHruz2osGT6z9vLRUuIN6355djsg1wrJhIBJDM7Gk63N26Js/Og8VIpyN84XuFj0KYOZRQC32gTU/+wdFFdyeZrXKmY9UuQ6m4saQRcfGAMdRL32vUs3hx1L/z/wO/ZU95Od2tNzrHQDRJ7h+Q8aGi9H4+GQ4GNfk7UfN404UZGMUCsYvfL9YhWwr1AyESTCpmPTvVwfWWrVD0fPl9VdfFH3H1gfZBH8jSu9E8j7+AWWLTUykHZmTmU3Oquq2/u8XIJpwK9bmb42mBbn2/qQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AnoZSb6ieywlhJXub4m/rL0q3kbL+deHmZ5GhfgoWfs=;
+ b=LKmPCLIntYYOzOt+fXDC7oedCAGQ1mXpg+bZ+5sgP/rfUyOKHcfG3BZhZQ2d5rNS1u+l7rPP73sXSrqFLqg/JifRErZXJq4ukY0kPhG3WSYsN49vlCmOZySprZdzz3uAb2ipKoBY3DCzfPMUjBE4xelBTQZJItVgmeIwTBqcrRL6dwSMYTtITjqOfaLmfS4jAmFgjDpC2k+hYDh0WV11KraQF+2V8Nh4A7nlOO1EuoDMh0JZ0Y2qxcty9bMGiEHPD6ezI3Cxq1gXCAOD176YuaF+kKeM2YDqWYC8yM/l/rvF+gofojmVyMumOm3cqihaHuK9hGcEY/9yM+41/XncjQ==
+Received: from PH7P221CA0078.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:328::9)
+ by CH3PR12MB9313.namprd12.prod.outlook.com (2603:10b6:610:1ca::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.15; Tue, 4 Aug
+ 2026 16:45:24 +0000
+Received: from SN1PEPF0002BA50.namprd03.prod.outlook.com
+ (2603:10b6:510:328:cafe::a) by PH7P221CA0078.outlook.office365.com
+ (2603:10b6:510:328::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.16 via Frontend Transport; Tue, 4
+ Aug 2026 16:45:23 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SN1PEPF0002BA50.mail.protection.outlook.com (10.167.242.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.8 via Frontend Transport; Tue, 4 Aug 2026 16:45:23 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 4 Aug
+ 2026 09:45:04 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 4 Aug
+ 2026 09:45:04 -0700
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 4 Aug 2026 09:45:02 -0700
+Date: Tue, 4 Aug 2026 09:45:01 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Will Deacon <will@kernel.org>, Kiryl Shutsemau <kas@kernel.org>, "Robin
+ Murphy" <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, "Pranjal
+ Shrivastava" <praan@google.com>, Breno Leitao <leitao@debian.org>, "Kyle
+ McMartin" <jkkm@meta.com>, Usama Arif <usama.arif@linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3] iommu/arm-smmu-v3: Shrink command/event/PRI queues in
+ kdump kernel
+Message-ID: <anIXDd839UC/M2n/@nvidia.com>
+References: <20260706084708.8072-1-kas@kernel.org>
+ <amiBagGKn-Aym1DK@willie-the-truck>
+ <amiz6GQZ-XGlH706@thinkstation>
+ <anHxBh-xGW9JXsa4@willie-the-truck>
+ <20260804141704.GB27883@nvidia.com>
+ <anINkO1l9Kz8lTVh@nvidia.com>
+ <20260804161918.GG27883@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260804161918.GG27883@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA50:EE_|CH3PR12MB9313:EE_
+X-MS-Office365-Filtering-Correlation-Id: 17ca485a-60bf-4d6b-8c3e-08def247c733
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700016|23010399003|22082099003|18002099003|4143699003|11063799006|56012099006|6133799003|10067099003;
+X-Microsoft-Antispam-Message-Info: Z4oRH3znbSaLVjVdZ/gYcWyFb/MOb51zopBa2zl6XdjCost4nB+CRh2k9ZUjnfNjreoquLadvKG/RfXV83kei501XWKSf93k03JJ2/J/hLz4PMByfXvZQXcDzRJY3jJAQHeRR85LjVXXGU33ZkKyYOHbR4m9mzJR9aBqAGrFlNWdNlbGtXoi3/WqV4D3/l+ETAoF2xeIJn2LrHyivgRrkN+gV60btxaLlcaoWpEEfy6m5rt997s4iBUhCQmd9ZJItOHBJyYYFKYbs1v8d/SnpOZXDMJza65hXnbEzS9OCjZMeUnitxHYJHaVwPjIrjdjv9fZ0KBree9wdp4tHRMIsF/bbPRrb6RYMl9V7mfo9PZDXNZoZJf5wHfAeYYrsYA/VK6Ct9PUpub3sd5IZo26BCC+39KbyZOqYdY4dVLDLQ1i0Hhggshc4g85Pds0e6p9xoRLITesbwEbdgjY3ug+WFjPDrt7uGboWbvdfx8F5vFT/IQ8E8z5QwDwCUs9jDs6EJ6FmFmD7EFxTI1Lg8sRdGV2HBwS8rbVPafxQY7hKPUALFiDOVIl9gP5KOvT4YCvrmYB/x8Uj9ORMTEU0foIw5g+2cdWMVboyUI9lb+5Lcw50/mMdXCjDRaNA5D/dMD8/o4kjughP81wwG2e8hW8gkug1Jr1ahMfjeSYkc0Ecg+yOlfQYpnpCpEquogZY4HuGvTo9y+sRKudd6cc2v5hMQ==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700016)(23010399003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006)(6133799003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: KGzOfcqXM3EPTx1Wf0+60BpWFpdUhE5mHBvRcCatEKqH6UCBsivUzitWF55Ji5/gGjZO14l3rACsXU9lLK56edUW69t+gLeXAeJ4h1kHQnSe/nJMU9BrQeEWYKzprlZXr1nb9OBw51xYwW1qdpC5tbg6yLk1Lf+/NpQ375L9qlmma3g1LE7U/IIuFlmTS8MBze4g+8i9RUvgO7VA9womP4/G1y8KAHHEuMdPhhl3WwZvUZVm5UYA9DK7KnnXVQhoSSRYh+Aspmw/fRzkMd+Yo5fZtQkZRTfTsBAacQfqRyQED/IZ40lmIaCiJ53F30U+ShVP9tLz/ROwpg16XFsVF3GO0Q4gDoehCySKkZZclsqC819L4ir8S7X+e1DSxGuHSmWPFYXFmKb5OIZOmo301CQzTIhxae6/jBef7TcqUp4EjhDm+SiHbDwGFgZ5nJTj
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2026 16:45:23.0145
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 17ca485a-60bf-4d6b-8c3e-08def247c733
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA50.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9313
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_094233_507468_8130C05F 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260804_094537_680515_885D221D 
+X-CRM114-Status: GOOD (  23.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,21 +137,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Aug 2026, Lorenzo Stoakes (ARM) wrote:
-
-> Since this work seems to be very much arm64-focused, perhaps it's therefore
-> worth looking at an alterative solution that's specific to the arch, like the
-> one suggested by Mark ([1])?
+On Tue, Aug 04, 2026 at 01:19:18PM -0300, Jason Gunthorpe wrote:
+> On Tue, Aug 04, 2026 at 09:04:32AM -0700, Nicolin Chen wrote:
+> > On Tue, Aug 04, 2026 at 11:17:04AM -0300, Jason Gunthorpe wrote:
+> > > On Tue, Aug 04, 2026 at 03:02:46PM +0100, Will Deacon wrote:
+> > > > > Would skipping their allocation when is_kdump_kernel() be acceptable on
+> > > > > its own, or would you rather see it done differently?
+> > > > 
+> > > > With Nicolin's patch, we can just avoid allocating the priq and the evtq
+> > > > entirely in the kdump case. We can then add a cmdline option to control
+> > > > the maximum size of the cmdq, which is useful regardless of kdump.
+> > > 
+> > > I would still prefer kdump do this re-sizing automatically, even if we
+> > > do add a commandline. It makes it easire to deploy than having to know
+> > > secret command lines :\
+> > > 
+> > > So functionally I still think this patch is fine, though yes it points
+> > > out more things in Nicolin's work too.
+> > 
+> > I will send a v10 of mine, to skip the EVTQ/PRIQ allocations.
+> 
+> I think Robin's point is to structure the v10 so you introduce a bunch
+> of tunables, including something like 0 size to disable a feature.
 >
-> [0]:https://lore.kernel.org/all/CAHk-=wire3dzhHx=KiL_f5Rj0=1u9ustsa33QoR-F9-v-NU9Ng@mail.gmail.com/
-> [1]:https://lore.kernel.org/linux-arm-kernel/al_DpFJFcmVhxpvW@J2N7QTR9R3/
+> Then have kdump default those tunables to the right thing
 
-Mark's solution does replace the preempt_enable/disable sections with a
-rather hacky restart logic. It relies on a long preemable and postscript
-to each per cpu operations.
+But in kdump, EVTQ/PRIQ are disabled, so my series should have
+skipped their allocations regardless of the tunables.
 
- It does not remove the code entirely like the proposed patchset here and
-cannot produce the same compact code as x86.
+So, I think the tunables can be done in a separate series. And
+its use case might not be confined to kdump?
 
-
+Nicolin
 
