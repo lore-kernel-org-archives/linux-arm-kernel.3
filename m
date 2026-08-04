@@ -4,124 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2634FC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 22:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB1EBC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 22:52:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=; b=FuE1k6/eu4zU6mBJ/x/jDgkY76
-	1aCwMnXg1gxY1Kqxk+0GN1P/Z3cSZCIHceDcAmwE3Xkfc36EI4syXMIKE7ED1z6lT0swG34TFtLlj
-	g7Qg3c+gpY2rO8YI5FQk96N1sgoRoXNmn9Mu9Md/1zskIjKKtJrmAu2DI89B1zv+70MIWNqiNJtYX
-	j4O9f84Y70BnN64+Y83IUt8ZtTOqMWYuGdK2GZbgqjyPR9COA8rz34KaL9g9AGw8tCiSiaWq2qWkq
-	Uwwy4T/2qganxsQ6RImvgcy8cszPYoV9BNCl/TzFrV0M8VhJ6zPSctH2qzHee62ns9ajreK+kQ3Qj
-	OZbGd1VA==;
+	bh=kMV7HR0/CnmihINLeNXxLTzPch53Pj6muqbezN11jys=; b=ZPHpclX6eWcD94S1PFBrYERddA
+	IQrZFhOM9GLth2tFYpTcbGF+RCI3Kd2eV7tXxKLHNaOSnD1RHY/cEwYTbCwx2qLZoagExv0Ruf3I4
+	y+zTbwSVsayc6p9C2/V0/4hCP8GyRxD1sOca8OFLUTSCxKN7MGNJqJLrGFeZFPURIfdncsmYjV5sJ
+	zcJt3gmN/TpYnWDtTdR8lmtVr2X8C9wsHPcwYTCmkLuw8wYR+AwF6/N4iARwMaXWhS2+WfOEo9DXY
+	LrWH1R5mY5nXPnYAEDGD3avUmyO8fNhx6AIyFMFpgetFXg9FVYiToWCZqyjuXE7c+kVLI166V/ynl
+	BCwCHsIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrNtj-00000002tMo-3LkD;
-	Tue, 04 Aug 2026 22:46:11 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1wrNzx-00000002tig-28m6;
+	Tue, 04 Aug 2026 22:52:37 +0000
+Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrNti-00000002tMU-0JrU
+	id 1wrNzu-00000002tiK-3F6w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 22:46:11 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id E92987DA4F;
-	Tue,  4 Aug 2026 22:45:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1785883564; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=;
-	b=x0AosRIKSR9RQJ/0WQ8ntveBL1Mp+/B/0UoRn56gF2/BYDyddU3PG0aYZ5GbpHz8FfIsmw
-	u5ZpsOIQOJCqi6b9ATauwZP6ZB4QuM+Noye5R6lNDN7OdW+cAZylwvFPyu8Wlzf831tJTk
-	VfQx6h36EOQOpoxOe/cGwoJwsUMbLfI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1785883564;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=;
-	b=gfOipscDfoJOE7qgp6Ul1T7E44NulKU8Mijn1B+M0YL4iU76CzP9ikWD6Q7Ka3oyM9stF8
-	aIQP/rRXZu36F2CQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=SzJl2brn;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=7UMEiAX6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1785883560; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=;
-	b=SzJl2brnfYHL8nVC9+JgU5y+vut0ewd3a5y5YmW5xx35FyavHNG/zGpb6ZPo9dFbgxlrUA
-	HzcE17ekovl1NeIpte6T5LvjbYP8EuuQ45kuivVQb2I+7c4xJ2m+aq/vKFcWudatw2gEoz
-	2COdbdzrnbkUwHnmkSj0YrqiVp9YSeM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1785883560;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=;
-	b=7UMEiAX6oxmjch/6I2znAsZu/lx4lIOyU4WooZVlhDul1cz9dV/R+bo3bo6chwgtwR7vJI
-	dCr4jJSEu9jbMIAQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AEF59779BB;
-	Tue,  4 Aug 2026 22:45:58 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id GhelJaZrcmrvJgAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Tue, 04 Aug 2026 22:45:58 +0000
-Date: Tue, 4 Aug 2026 23:45:56 +0100
-From: Pedro Falcato <pfalcato@suse.de>
-To: Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2 13/20] arm64: percpu: Add infrastructure for
- preemptible this_cpu_*() ops
-Message-ID: <anJm-EDndC8H6xMi@pedro-suse.lan>
-References: <20260804170503.3513916-1-mark.rutland@arm.com>
- <20260804170503.3513916-14-mark.rutland@arm.com>
+	Tue, 04 Aug 2026 22:52:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
+	s=default; t=1785879627;
+	bh=kMV7HR0/CnmihINLeNXxLTzPch53Pj6muqbezN11jys=;
+	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
+	b=c32dVb87oheYpHTCYBu4Zwtx7RyuIzDCmq5LWekWI3DHAiodHDoJcaJSA4i49L9MT
+	 lh2khhxfNJbD9DhJ7L++CgNtUeSN/JeH/sYalP7ThMS2Q5EbmyY38W8X4vTyGRuCAm
+	 7dN1Iy2GTazRY5X37jYr7i60KKXAPQXJKryy3NUQ=
+Received: by gentwo.org (Postfix, from userid 1003)
+	id 66A3E408AE; Tue, 04 Aug 2026 14:40:27 -0700 (PDT)
+Received: from localhost (localhost [127.0.0.1])
+	by gentwo.org (Postfix) with ESMTP id 64A5840287;
+	Tue, 04 Aug 2026 14:40:27 -0700 (PDT)
+Date: Tue, 4 Aug 2026 14:40:27 -0700 (PDT)
+From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+    "David Hildenbrand (Arm)" <david@kernel.org>, 
+    Mark Rutland <mark.rutland@arm.com>, 
+    Yang Shi <yang@os.amperecomputing.com>, 
+    Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, tj@kernel.org, 
+    urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
+    akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com, 
+    agordeev@linux.ibm.com, linux-mm@kvack.org, 
+    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+    Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+In-Reply-To: <anIhSGs70TTzymHM@lucifer>
+Message-ID: <8d6119c7-2216-fcdd-d0b9-cc60ccc8caf3@gentwo.org>
+References: <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com> <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com> <amCPBrdltFSE_fEf@J2N7QTR9R3> <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org> <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
+ <anHuLy52o5S9Nlwp@lucifer> <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com> <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org> <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com> <CAHk-=whjfRaeYsAVS9VfYO5uaSB43sT7zPOmNWR6gC8h=t60=g@mail.gmail.com>
+ <anIhSGs70TTzymHM@lucifer>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260804170503.3513916-14-mark.rutland@arm.com>
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[18];
-	MISSING_XM_UA(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	TAGGED_RCPT(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[lists.infradead.org,arm.com,kernel.org,gentwo.org,gmail.com,infradead.org,huawei.com,vger.kernel.org,os.amperecomputing.com];
-	TO_DN_SOME(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Queue-Id: E92987DA4F
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_154610_266203_C50D0AC5 
-X-CRM114-Status: GOOD (  28.88  )
+X-CRM114-CacheID: sfid-20260804_155234_833351_E2547BD1 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,154 +75,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 06:04:56PM +0100, Mark Rutland wrote:
-> Currently arm64's this_cpu_*() ops transiently disable preemption in
-> order to guarantee that the address generation and memory access(es)
-> occur on the same CPU.
-> 
-> Transiently disabling preemption can be  expensive. When re-enabling
-> preemption it is necessary to make a conditional function call to
-> preempt_schedule[_notrace]() in order to handle the rare case that the
-> task needs to be rescheduled. The potential function call has a number
-> of negative effects on code generation (e.g. due to the need to create a
-> stack frame and spill registers), and the conditionality can result in
-> poor code generation and/or poor branch prediction.
-> 
-> This patch adds infrastructure for a scheme where this_cpu_*() ops do
-> not need to transiently disable preemption, avoiding the negative
-> impacts described above. Individual operations will be converted in
-> subsequent patches.
-> 
-> Each operation registers a critical section during which the exception
-> return code will adjust the offset and addresses if preemption occurs
-> mid-sequence. The critical section is registered/unregistered with a
-> small prologue and epilogue which encodes three distinct GPRRs (<pcp>,
-> <off>, <addr>) into a new thread_info::pcp_gprs field:
-> 
->          // Prologue. Enable fixups for <off> and <addr>.
->          mrs	<tsk>, sp_el0
->          mov	<tmp>, #__VAL_PCPU_GPRS(<pcp>, <off>, <addr>)
->          strh	<tmp>, [<tsk>, #TSK_TI_PCPU_GPRS]
-> 
->          // Generate cpu-specific address
->          mrs	<off>, TPIDR_ELx
->          add	<addr>, <pcp>, <off>
-> 
->          // Perform access sequence
->          ldr	<val>, [<addr>]
-> 
->          // Epilogue. Disable fixups
->          strh	wzr, [<tsk>, #TSK_TI_PCPU_GPRS]
-> 
-> If an exception is taken from within the critical section, the exception
-> return code will adjust <off> to be the current CPU's offset, and will
-> adjust <addr> to be (<pcp> + <off>). Distinct registers are used for
-> <pcp>, <off>, and <addr>, so that the fixup can be applied safely at any
-> point during the critical section.
-> 
-> To ensure that this_cpu_*() operations within exception handlers work
-> correctly and do not corrupt state, thread_info::pcpu_gprs is saved
-> into a new pt_regs::pcpu_gprs field upon exception entry, and restored
-> upon exception return.
-> 
-> Looking at a simple this_cpu_operation:
-> 
-> | void outline_this_cpu_add_u64(u64 __percpu *p, u64 v)
-> | {
-> | 	this_cpu_add(*p, v);
-> | }
-> 
-> Atop v7.2-rc4, with GCC 15.2.0 and defconfig, this is compiled as:
-> 
-> | <outline_this_cpu_add_u64>:
-> |        paciasp
-> |        stp     x29, x30, [sp, #-16]!
-> |        mrs     x2, sp_el0
-> |        mov     x29, sp
-> |        ldr     w3, [x2, #8]
-> |        add     w3, w3, #0x1
-> |        str     w3, [x2, #8]
-> |        mrs     x3, tpidr_el1
-> |        add     x0, x0, x3
-> | 1:     ldxr    x5, [x0]
-> |        add     x5, x5, x1
-> |        stxr    w4, x5, [x0]
-> |        cbnz    w4, 1b
-> |        ldr     x0, [x2, #8]
-> |        sub     x0, x0, #0x1
-> |        str     w0, [x2, #8]
-> |        cbz     x0, 2f
-> |        ldr     x0, [x2, #8]
-> |        cbnz    x0, 3f
-> | 2:     bl      preempt_schedule_notrace
-> | 3:     ldp     x29, x30, [sp], #16
-> |        autiasp
-> |        ret
-> 
-> With the scheme added in this patch, this can be compiled as:
-> 
-> | <outline_this_cpu_add_u64>:
-> |        mrs     x2, sp_el0
-> |        mov     x4, #0xc80     // __VAL_PCPU_GPRS(x0, x4, x3)
-> |        strh    w4, [x2, #20]
-> |        mrs     x4, tpidr_el1
-> |        add     x3, x0, x4
-> | 1:     ldxr    x6, [x3]
-> |        add     x6, x6, x1
-> |        stxr    w5, x6, [x3]
-> |        cbnz    w5, 1b
-> |        strh    wzr, [x2, #20]
-> |        ret
+On Tue, 4 Aug 2026, Lorenzo Stoakes (ARM) wrote:
 
-I think I had an Interesting Idea(tm) while reading the per-cpu discussion
-in linux-mm. In case the 3 instruction preamble is too expensive:
+> On Tue, Aug 04, 2026 at 10:01:45AM -0700, Linus Torvalds wrote:
+> > So I'm just trying to clarify my stance - I don't hate percpu TLB
+> > contents per se. I hate the notion of codifying them.
+>
+> I do worry that changing per-CPU data structures to support this is exactly
+> codifying this (and will encourage other arches to follow suit).
+>
+> And I really don't think there's any way to implement this without
+> fundamentally changing core mm or assumptions that core mm can make.
 
-1) Pass -ffixed-x18 (this natively conflicts with SHADOW_CALL_STACK.
-SHADOW_CALL_STACK is already not-optimal codegen wise, so maybe not a big deal).
-2) arm64 kernel bits will use x18 as a cheap task flags register
-3) #define TASK_KRSEQ     (1 << 0)
-4) Switching into the krseq mode is just a matter of toggling the bit in x18, so
-	orr x18, x18, #TASK_KRSEQ
-a single instruction.
-5) Switching off is just a matter of clearing the bit in x18, so:
-	and x18, x18, #~TASK_KRSEQ
-6) On the preempt side we keep the krseq tables in memory, and do a sort of lookup
-(binary search sounds easiest?) on them. But _only_ if x18 TASK_KRSEQ is set.
-This penalises unlucky preempts but keeps fast paths maximally fast.
-7) entry points of course get to clear it after saving it
+Would it be possible to discuss the technical issues instead of throwing
+up this and that foggy objection? Lets not get into the complexities of
+restarting a critical section from an interrupt handler that you are
+proposing but lets just look at the code generated for this_cpu_*
+operations:
 
-The end result would look something like:
-| <outline_this_cpu_add_u64>:
-|	 orr x18, x18, #TASK_KRSEQ
-|        mrs     x4, tpidr_el1
-|        add     x3, x0, x4
-| 1:     ldxr    x6, [x3]
-|        add     x6, x6, x1
-|        stxr    w5, x6, [x3]
-|        cbnz    w5, 1b
-| 2:
-|	 and x18, x18, #~TASK_KRSEQ
-|        ret
-| .pushsection .data.krseq
-| .word 1b
-| .word 2b
-| .word whateverelse
-| .popsection
+The fundamental problem is that your patchset does
 
-This of course precludes the use of x18 for the compiler, so it would
-require careful benchmarking in case it negatively affects codegen too much.
-But it avoids any sort of extraneous stores in the fast path.
 
-Other architectures could do similar as long as they have interesting ways of
-signaling this using solely the register set.
+<preeamble establishing restart point>
+RMV per cpu op
+<post handling cleaning up setup of restart point>
 
-Anyway, just throwing it out there in case this can actually make a
-difference & rings some bells on people smarter than me :)
 
--- 
-Pedro
+What x86 does and what we can get ARM to do is:
+
+RMW per cpu op
+
+
+
+
+Why do you think that your solution that requires a complex restart
+mechanism is better?
+
+
+These are operations that are key to the performance in critical parts of
+memory management and this code is replicated by being inlined thousands
+of times in the kernel.
+
+
 
