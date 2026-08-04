@@ -4,133 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B0E1C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:01:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D51AC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wDTDVJNg3nFxCD1xzYBIHtyRmvqhBISNnhs9ob/+Hzw=; b=moOeHMrsCraed+5HmldBg1zpuW
-	vKvuQCtEw3Ip3HCjEF9dYkKh4IAZUIF8E4+Ud4UhU/FROxRcxJ+wgft7bq/ZmvMWZU0pWkRBXEBhC
-	LXDsATmLEPM5NRJtr7W6I4earfZVHhWPqew9U8abJ76U4cZAFt1Me8duJG7VOzTTlhTzV5B2HJIXm
-	NVsl6aC8YSlmSpKkSmxBfl77VODVYZ9asKmumMbOe+9wXqXYUTqnwVZ3/Zhh0tRaz0t/ED4f9OTfX
-	BW0o3P6VZv4SEQOmjYeVSzL59k/IiYdXmteDJy6ypyVhgSrIzq9tl6zWRWIHjIYq76KF8qbsh+5iD
-	iuFiFi5Q==;
+	bh=IGu5muqcCr88tQfqZkr67inThcl57N2cDhTNDNlRuFA=; b=xshxQSPsi/17whAIkzahRI+RUF
+	hKHX7NKtvpts1/Mmbux1GpwZNj4Jcq4gUtdSrOyueqUx4MyZHdz+QXAh5cvy0tS/bjOizdkVG6uxi
+	N1Giyu883XgzUisdDrFGseMbOysfK73T+LDiTwQnDhBnb3LigfHPHUQerYdEwee6tqfbLCQ8w4UBe
+	e3go8wkoP67Hi3+uc7/LVvL1K+CgmPmO5pj25SLUdpOYsjFfc7ZOn2qVEsh8JK8Mx8t38N4CydcHD
+	/UW/Kmu2xQObUHV3Z8+piet0cyobcDI7Bqtw4LbSa6DYtTnd1qVxoMKxXIQ2GBu8Zm3Ua6Eny2EPa
+	nmZs4Ydw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrEls-00000001s7N-3Bqn;
-	Tue, 04 Aug 2026 13:01:28 +0000
-Received: from mout.gmx.net ([212.227.15.19])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrElq-00000001s5e-0Sqm
+	id 1wrEmv-00000001sL9-2qbI;
+	Tue, 04 Aug 2026 13:02:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrEms-00000001sK4-3OAA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 13:01:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1785848458; x=1786453258; i=deller@gmx.de;
-	bh=wDTDVJNg3nFxCD1xzYBIHtyRmvqhBISNnhs9ob/+Hzw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=ccrlKDgtIs3lZ7+R2He9fjrrSGMQUJyql5ScZU3YdxjtXJMN5xqIR2mzW4hgSvtQ
-	 vKjW0Q0mFivfLKuIxEHVXmTZ31IMm07OoY2Doyp3DHE1f1nAxcjSicAhJ3fqGe8z5
-	 qzCuXoQDksTuErnFnAUQZGpU8WxdivG8XMQrY9cbiwiS3/fgVwbfp7FguHavgRn0p
-	 C3rjfvT2fRknPlPT7SXTvRr3GyA7vgnj3+MszBQMUMJwf6wWpnQcVgFI2z+mfiTnc
-	 2kNKaK4og5MLrUv+l7/96UasN0HDTYPikYdqPOx6rLILv0oAHamQ+stywfeqRBIog
-	 jCBSCfnfbLCe5BO0ag==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1N4hvR-1x1Aqb17Jv-00uxbB; Tue, 04
- Aug 2026 15:00:58 +0200
-Message-ID: <e7ac6f83-72ff-43c0-b67b-6b17caed995e@gmx.de>
-Date: Tue, 4 Aug 2026 15:00:43 +0200
+	Tue, 04 Aug 2026 13:02:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 049FD1476;
+	Tue,  4 Aug 2026 06:02:25 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C7F43F66F;
+	Tue,  4 Aug 2026 06:02:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785848549; bh=Z0aRBJxJ0GqLvCjTBvDh6KpTvTb76w8DXd1O+azuXzs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nYg1DZHah7HNR7Wv2ZsmLzbYqALLRENtIlvMJqwKMd+EuRhVYJygT8WuInwFZLtMn
+	 tsd/mlaDzng3n5Dl5/tlGzRcHq7HLX/+i4UkXw6il3J+F3w/JG8jq27xvH0QbdQcIq
+	 0AM5czpcgvqbPkHUQgo/9TV11zcbihGhZLsDcmKk=
+Message-ID: <4650a250-0422-432c-a1f2-0621e276d16e@arm.com>
+Date: Tue, 4 Aug 2026 15:02:23 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] parisc: Drop own implementations for ptep_get()
- and ptep_test_and_clear_young()
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Pedro Falcato <pfalcato@suse.de>
-Cc: David Hildenbrand <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
+Subject: Re: [PATCH v8 00/11] arm_mpam: Add MPAM-Fb firmware support
+To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
+ <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
+ Sudeep Holla <sudeep.holla@kernel.org>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett"
- <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, "Matthew Wilcox (Oracle)"
- <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Muhammad Usama Anjum <usama.anjum@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-mm@kvack.org, linux-fsdevel@vger.kernel.org,
- John David Anglin <dave.anglin@bell.net>
-References: <20260803164400.531199-1-pfalcato@suse.de>
- <20260803164400.531199-3-pfalcato@suse.de> <anHHyiHqYf3yLf2K@lucifer>
- <anHcJZYyz9Zrshdm@pedro-suse> <anHd7ho3daZFZ-4r@lucifer>
-Content-Language: en-US
-From: Helge Deller <deller@gmx.de>
-Autocrypt: addr=deller@gmx.de; keydata=
- xsFNBF3Ia3MBEAD3nmWzMgQByYAWnb9cNqspnkb2GLVKzhoH2QD4eRpyDLA/3smlClbeKkWT
- HLnjgkbPFDmcmCz5V0Wv1mKYRClAHPCIBIJgyICqqUZo2qGmKstUx3pFAiztlXBANpRECgwJ
- r+8w6mkccOM9GhoPU0vMaD/UVJcJQzvrxVHO8EHS36aUkjKd6cOpdVbCt3qx8cEhCmaFEO6u
- CL+k5AZQoABbFQEBocZE1/lSYzaHkcHrjn4cQjc3CffXnUVYwlo8EYOtAHgMDC39s9a7S90L
- 69l6G73lYBD/Br5lnDPlG6dKfGFZZpQ1h8/x+Qz366Ojfq9MuuRJg7ZQpe6foiOtqwKym/zV
- dVvSdOOc5sHSpfwu5+BVAAyBd6hw4NddlAQUjHSRs3zJ9OfrEx2d3mIfXZ7+pMhZ7qX0Axlq
- Lq+B5cfLpzkPAgKn11tfXFxP+hcPHIts0bnDz4EEp+HraW+oRCH2m57Y9zhcJTOJaLw4YpTY
- GRUlF076vZ2Hz/xMEvIJddRGId7UXZgH9a32NDf+BUjWEZvFt1wFSW1r7zb7oGCwZMy2LI/G
- aHQv/N0NeFMd28z+deyxd0k1CGefHJuJcOJDVtcE1rGQ43aDhWSpXvXKDj42vFD2We6uIo9D
- 1VNre2+uAxFzqqf026H6cH8hin9Vnx7p3uq3Dka/Y/qmRFnKVQARAQABzRxIZWxnZSBEZWxs
- ZXIgPGRlbGxlckBnbXguZGU+wsGRBBMBCAA7AhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheA
- FiEERUSCKCzZENvvPSX4Pl89BKeiRgMFAl3J1zsCGQEACgkQPl89BKeiRgNK7xAAg6kJTPje
- uBm9PJTUxXaoaLJFXbYdSPfXhqX/BI9Xi2VzhwC2nSmizdFbeobQBTtRIz5LPhjk95t11q0s
- uP5htzNISPpwxiYZGKrNnXfcPlziI2bUtlz4ke34cLK6MIl1kbS0/kJBxhiXyvyTWk2JmkMi
- REjR84lCMAoJd1OM9XGFOg94BT5aLlEKFcld9qj7B4UFpma8RbRUpUWdo0omAEgrnhaKJwV8
- qt0ULaF/kyP5qbI8iA2PAvIjq73dA4LNKdMFPG7Rw8yITQ1Vi0DlDgDT2RLvKxEQC0o3C6O4
- iQq7qamsThLK0JSDRdLDnq6Phv+Yahd7sDMYuk3gIdoyczRkXzncWAYq7XTWl7nZYBVXG1D8
- gkdclsnHzEKpTQIzn/rGyZshsjL4pxVUIpw/vdfx8oNRLKj7iduf11g2kFP71e9v2PP94ik3
- Xi9oszP+fP770J0B8QM8w745BrcQm41SsILjArK+5mMHrYhM4ZFN7aipK3UXDNs3vjN+t0zi
- qErzlrxXtsX4J6nqjs/mF9frVkpv7OTAzj7pjFHv0Bu8pRm4AyW6Y5/H6jOup6nkJdP/AFDu
- 5ImdlA0jhr3iLk9s9WnjBUHyMYu+HD7qR3yhX6uWxg2oB2FWVMRLXbPEt2hRGq09rVQS7DBy
- dbZgPwou7pD8MTfQhGmDJFKm2jvOwU0EXchrcwEQAOsDQjdtPeaRt8EP2pc8tG+g9eiiX9Sh
- rX87SLSeKF6uHpEJ3VbhafIU6A7hy7RcIJnQz0hEUdXjH774B8YD3JKnAtfAyuIU2/rOGa/v
- UN4BY6U6TVIOv9piVQByBthGQh4YHhePSKtPzK9Pv/6rd8H3IWnJK/dXiUDQllkedrENXrZp
- eLUjhyp94ooo9XqRl44YqlsrSUh+BzW7wqwfmu26UjmAzIZYVCPCq5IjD96QrhLf6naY6En3
- ++tqCAWPkqKvWfRdXPOz4GK08uhcBp3jZHTVkcbo5qahVpv8Y8mzOvSIAxnIjb+cklVxjyY9
- dVlrhfKiK5L+zA2fWUreVBqLs1SjfHm5OGuQ2qqzVcMYJGH/uisJn22VXB1c48yYyGv2HUN5
- lC1JHQUV9734I5cczA2Gfo27nTHy3zANj4hy+s/q1adzvn7hMokU7OehwKrNXafFfwWVK3OG
- 1dSjWtgIv5KJi1XZk5TV6JlPZSqj4D8pUwIx3KSp0cD7xTEZATRfc47Yc+cyKcXG034tNEAc
- xZNTR1kMi9njdxc1wzM9T6pspTtA0vuD3ee94Dg+nDrH1As24uwfFLguiILPzpl0kLaPYYgB
- wumlL2nGcB6RVRRFMiAS5uOTEk+sJ/tRiQwO3K8vmaECaNJRfJC7weH+jww1Dzo0f1TP6rUa
- fTBRABEBAAHCwXYEGAEIACAWIQRFRIIoLNkQ2+89Jfg+Xz0Ep6JGAwUCXchrcwIbDAAKCRA+
- Xz0Ep6JGAxtdEAC54NQMBwjUNqBNCMsh6WrwQwbg9tkJw718QHPw43gKFSxFIYzdBzD/YMPH
- l+2fFiefvmI4uNDjlyCITGSM+T6b8cA7YAKvZhzJyJSS7pRzsIKGjhk7zADL1+PJei9p9idy
- RbmFKo0dAL+ac0t/EZULHGPuIiavWLgwYLVoUEBwz86ZtEtVmDmEsj8ryWw75ZIarNDhV74s
- BdM2ffUJk3+vWe25BPcJiaZkTuFt+xt2CdbvpZv3IPrEkp9GAKof2hHdFCRKMtgxBo8Kao6p
- Ws/Vv68FusAi94ySuZT3fp1xGWWf5+1jX4ylC//w0Rj85QihTpA2MylORUNFvH0MRJx4mlFk
- XN6G+5jIIJhG46LUucQ28+VyEDNcGL3tarnkw8ngEhAbnvMJ2RTx8vGh7PssKaGzAUmNNZiG
- MB4mPKqvDZ02j1wp7vthQcOEg08z1+XHXb8ZZKST7yTVa5P89JymGE8CBGdQaAXnqYK3/yWf
- FwRDcGV6nxanxZGKEkSHHOm8jHwvQWvPP73pvuPBEPtKGLzbgd7OOcGZWtq2hNC6cRtsRdDx
- 4TAGMCz4j238m+2mdbdhRh3iBnWT5yPFfnv/2IjFAk+sdix1Mrr+LIDF++kiekeq0yUpDdc4
- ExBy2xf6dd+tuFFBp3/VDN4U0UfG4QJ2fg19zE5Z8dS4jGIbLg==
-In-Reply-To: <anHd7ho3daZFZ-4r@lucifer>
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260804100627.3217149-1-andre.przywara@arm.com>
+ <5d7433ff-f6e4-42cc-bc8a-08179b3d136b@arm.com>
+ <5b9dd9f6-8b7f-483b-8f72-68d26c581514@arm.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <5b9dd9f6-8b7f-483b-8f72-68d26c581514@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:9cwMUn/XZDmLowNzOiRqoxpFueZH3mGjWh5TO2nLsT+wDbg/A8m
- DpO3vGKHOWUPJfhL5VKuypcxLWK8wTXXSTq0sptMcZjoCPNUZUmpghqaD4KpjHXn59Imkgt
- SVZsL8zkLOfMYwofS/GDaudhA5AITnKORyfsA/13I/VJqUoZai5BOMn+TtsAr6Hiiipm+3n
- 7cskdnywo4qytcVXdZeWw==
-UI-OutboundReport: notjunk:1;M01:P0:yHazcXd0k5g=;GqK7lRZPjqdzGnJVS/puooI73Dz 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 G+9/QRVkasR/3hAtvX8EvhHpMVEQQ0y89C/wI=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_060126_447771_B7429555 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20260804_060230_935925_A7C05CEB 
+X-CRM114-Status: GOOD (  48.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,44 +84,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/4/26 14:42, Lorenzo Stoakes (ARM) wrote:
-> On Tue, Aug 04, 2026 at 01:34:41PM +0100, Pedro Falcato wrote:
->> On Tue, Aug 04, 2026 at 12:11:08PM +0100, Lorenzo Stoakes (ARM) wrote:
->>> On Mon, Aug 03, 2026 at 05:43:56PM +0100, Pedro Falcato wrote:
->>>> From: Helge Deller <deller@gmx.de>
->>>>
->>>> Switch to the generic implementations, which are identical.
->>>
->>> You sure do like succinct commit messages :)
+Hi,
+
+On 8/4/26 14:50, Ben Horgan wrote:
+> Hi Andre,
+> 
+> On 8/4/26 13:28, Andre Przywara wrote:
+>> Hi,
 >>
->> I didn't even write this one! See the From: :))
->=20
-> Lol well then feedback addressed to Helge ;)
+>> On 8/4/26 12:06, Andre Przywara wrote:
+>>> this is v8 of the MPAM-Fb code, for firmware based MSC accesses.
+>>> It fixes a potential use-after-free of the dev pointer on error
+>>> prints, and disables the IRQ on the irqchip side in case doing it on
+>>> the device side doesn't work. The rest are cosmetic fixes and adding
+>>> the tags from the diligent reviewers and testers, many thanks for that!
+>>> I dropped tags from the error IRQ patch (10/11) due to changes.
+>>> Find the changelog below. Based on v7.2-rc1.
+>>>
+>>> =======================
+>>> The Arm MPAM specification defines Memory System Components (MSCs),
+>>> which are devices that are programmed through an MMIO register frame. In
+>>> some occasions this turned out to be too limiting: the MSC might be
+>>> located behind a separate bus system (for instance inside an on-board
+>>> controller), it might be mapped secure-only, or in a different processor
+>>> socket without direct MMIO mapping. Also the MMIO access might be too slow
+>>> or it would need to be filtered or otherwise access controlled. Finally
+>>> there might be bugs in the MSC integration, which require a mediating
+>>> firmware to be accessible.
+>>
+>>
+>> For the records, I looked at the sashiko complaints, by my analysis most comments fall into one of
+>> those categories:
+>>
+>> - Does this new early return / error return .... break MPAM logic?
+>> It's concerned about just bailing out from the middle of a sequence of MPAM read or writes, leaving
+>> the MSC in a misconfigured state. This is true, but doesn't apply, because we tear down MPAM
+>> completely upon an MPAM-Fb access returning an error. And if the communication between the kernel
+>> and an MSC breaks down completely, there isn't much we can do anyway: attempts to recover would fail
+>> as well.
+>>
+>> - Since xxx() now returns an error code, do the callers need
+>>    to be updated to check it?
+>> - Are there missing error checks in xxx() related to the new error
+>>    return values?
+>> Yes, this is done in one of the following patches. The series is constructed so that only the final
+>> patch enables MPAM-Fb, before that there is no way MPAM-Fb could be instantiated, so only MMIO
+>> accesses are happening. They always return 0, so no error could occur and error paths are never
+>> exercised.
+>> This is used to construct the functionality gradually, and allow multiple, but smaller patches.
+>> Mentioned in the cover letter.
+> 
+> Just to add to this. The mpam_reset_component_locked() doesn't propagate the error, in
+> reset_arch_reset_all_ctrls() this is ok as this is only called when resctrl is being disabled. The
+> other place this is called from is the cpu hotplug handlers which aren't called by a user. So there
+> is no user to propagate the error up to.
+> 
+> The one valid concern as far as I can see is that mpam_disable_msc_ecr() always returns 0 and so the
+> disable_irq_nosync() can never be called.
 
-Noted :-)
+Yes, I just saw this as well, for some reason I missed that conversion. 
+It's a very simple fix, of course.
 
->>> Maybe worth saying by dropping the __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOU=
-NG and
->>> ptep_get defines you get the generic versions from include/pgtable.h w=
-hich are
->>> functionally identical.
+Cheers,
+Andre
 
-Isn't that basically the same as:
-"Switch to the generic implementations, which are identical."
-;-)
+> 
+> Thanks,
+> 
+> Ben
+> 
+>>
+>> - This is a pre-existing issue, but ....
+>> I haven't checked in detail, but from previous rounds those concerns were addressed by Ben's fixes,
+>> which IIUC are on its way already. This series is based on v7.2-rc1, so those fixes are not applied
+>> here.
+>>
+>> Hope that helps,
+>> Cheers,
+>> Andre
+>>
+>>> To accommodate all those different use cases, the MPAM-Fb specification
+>>> [1] describes an alternative way to access MSCs. Accesses to an MSC
+>>> would be wrapped in a message and communicated to the system using a
+>>> shared-memory/mailbox system mostly mimicking the Arm SCMI spec.
+>>> For ACPI systems, this would be abstracted through an ACPI PCC channel,
+>>> which provides the shared-memory region and the mailbox trigger. We can
+>>> lean on existing ACPI parsing code to register with these two
+>>> subsystems, but cannot rely on the existing SCMI code in the kernel.
+>>> This means we somewhat need to open code a very simplified SCMI handler,
+>>> which just provides enough functionality for the very basic subset of
+>>> SCMI that the MPAM-Fb spec requires.
+>>>
+>>> The first seven patches rework all MSC access wrappers to propagate error
+>>> information. Pure MMIO based MSC accesses would never fail, but the
+>>> MPAM-Fb access can go wrong in multiple ways. The patches have been split
+>>> up purely for reviewing reasons, if the number is a problem, we could as
+>>> well squash them. Please note that until the very last patch of this series
+>>> any MSC accesses would always only return 0, it's only the final enablement
+>>> of MPAM-Fb that could possibly introduce errors. Hence all former patches
+>>> can add error handling gradually, those code paths wouldn't be triggered
+>>> before patch 11/11.
+>>> Patch 8/11 solves a nasty problem: At the moment we protect stateful MSC
+>>> register accesses (mon_sel) through a spinlock. Unfortunately the mailbox
+>>> subsystem and the slow nature of the communication through this channel
+>>> forbid MPAM-Fb access in atomic context. So this patch keeps using a
+>>> spinlock for MMIO based accesses, but reverts to a mutex otherwise.
+>>> We just deny taking the lock for MPAM-Fb in atomic context, ideally we
+>>> wouldn't need that (no need to IPI another core when the MSC access does
+>>> not need to be local to one particular core), or we simply deny that part
+>>> of the functionality (access through perf).
+>>> Patch 9/11 adds the code to redirect MSC accesses through the
+>>> PCC shmem/mailbox system.
+>>> Patch 10/11 reworks the error interrupt handler to use a threaded IRQ for
+>>> MPAM-Fb, to be able to do MPAM-Fb MSC accesses inside (which might sleep).
+>>> The final patch 11/11 then adds the code to detect and store the PCC
+>>> channel information from the ACPI tables, and eventually enables
+>>> MPAM-Fb accesses.
+>>>
+>>> This would enable systems where some MSCs are not accessible via MMIO to
+>>> use those components anyway.
+>>>
+>>> Please have a look and test!
+>>>
+>>> Cheers,
+>>> Andre
+>>>
+>>> [1] https://developer.arm.com/documentation/den0144/latest
+>>>
+>>> Changes in v8:
+>>> - disable error IRQ on irqchip level when device side fails
+>>> - use MSC dev pointer for dev_err() instead of mailbox one
+>>> - smaller white space and formatting fixes
+>>> - reorder MPAM-Fb definitions
+>>> - rename error translation function to mpam_fb_to_linux_errno()
+>>> - add review and test tags
+>>>
+>>> Changes in v7:
+>>> - add tags
+>>> - add new patch to propagate errors in mpam_reprogram_ris_partid()
+>>> - prevent loop when mpam_diable() tries MSC accesses again
+>>> - register MMIO error IRQ handler without IRQF_ONESHOT
+>>> - re-use existing "err" variable instead of declaring "ret"
+>>> - initialise mon_sel_lock later, to wait for interface decision
+>>> - convert timeout units for nominal latency, between us and ms
+>>>    Changes in v6:
+>>> - keep using hard IRQ handler for MMIO based accesses
+>>> - move shmem buffer size and MPAM-Fb version check into mpam_fb.c
+>>> - drop mutex guard in mpam_fb_send_request(), we use gotos anyway
+>>> - factor out MPAM-Fb protocol error translation
+>>> - add MPAM_FB_ERR_BUSY error code to translation
+>>> - explicitly report also MPAM-Fb protocol error number when disabling MPAM
+>>> - remove unneeded MPAM-Fb details from mpam_internal.h
+>>> - drop leftover mpam_fb_msc_id usage
+>>>
+>>> Changes in v5:
+>>> - do not initialise _high variables early
+>>> - fix whitespace issues
+>>> - add Jonathan's Reviewed-by: tags
+>>> - init only either the spinlock OR the mutex for the mon_sel_lock
+>>> - drop warning about mapped_hwpage_sz for MPAM-Fb in mpam_msc_zero_mbwu_l()
+>>> - change IRQ handler to threaded handler, to allow MPAM-Fb MSC accesses
+>>> - disallow per-CPU IRQs (PPIs) for MPAM-Fb
+>>> - trigger MPAM disabling on MPAM-Fb protocol errors
+>>> - fix MPAM_PROTOCOL_VERSION_CMD name
+>>> - use PCC driver defined symbol for PCC_CHAN_FLAGS_IRQ
+>>> - add comment about usage of PCC's .signature field
+>>> - check for illegal MPAM-Fb command before sending request
+>>> - drop CPU accessibility check for MPAM-Fb based MSC accesses
+>>> - move MPAM-Fb protocol message structs inside build functions
+>>> - add comment about largest message size
+>>> - drop extra msc->mpam_fb_msc_id, in favour using pdev->id
+>>> - use already defined local dev variable instead of &pdev->dev
+>>> - use FIELD_GET() macro for MPAM-Fb protocol check
+>>> - drop devm_mutex_init() for pcc_chan_lock
+>>>
+>>> Changes in v4:
+>>> - unify error check patterns
+>>> - use scoped_guard(mutex) and ACQUIRE to simplify error handling
+>>> - use struct kref for PCC channel refcount
+>>> - drop unused mailbox rx_callback function
+>>> - increase size of props[] array to hold new msc_id property
+>>> - set mailbox TX timeout based on ACPI MPAM table field
+>>> - use devm_mutex_init() to allow automatic cleanup
+>>> - avoid overwriting error value for arm,not-ready-us property read
+>>> - prune MPAM-Fb protocol token to fit into bitmask inside register
+>>> - check return value for AIDR read
+>>> - use two separate MPAM-Fb protocol payload structs
+>>> - prune header list for mpam_fb.c
+>>> - drop "nrdy handled as an error" change
+>>> - fix message size field in MPAM-Fb protocol shmem area
+>>> - drop message size return from MPAM-Fb message build functions
+>>> - bring back IRQ flag in MPAM-Fb protocol header
+>>>
+>>> Changes in v3:
+>>> - drop inner/outer mon_sel lock patch, replace with simpler version
+>>> - harmonise code patterns in error propagation changes
+>>> - drop mon_sel lock before erroring out in mpam_ris_hw_probe_csu_nrdy()
+>>> - refactor mpam_msc_read_mbwu_l() to return an error
+>>> - drop special NRDY handling in __ris_msmon_read()
+>>> - add IRQ numbers in error interrupt handler to help pinpoint failure
+>>> - refactor MPAM-Fb message generation to accommodate more than read/write
+>>> - check MPAM-Fb protocol version at probe time
+>>> - drop mpam_fb.h header, merge into mpam_internal.h
+>>> - translate MPAM-Fb error code in Linux codes where needed
+>>> - clear IRQ flag bit in MPAM-Fb protocol header
+>>> - drop unneeded endianness conversions when crafting MPAM-Fb message
+>>> - use C struct to model MPAM-Fb message payload
+>>>
+>>> Changes in v2:
+>>> - add patches to add error propagation to MSC access wrappers
+>>> - drop former patch 1/5 (not needed)
+>>> - drop lock in mpam_reprogram_msc(), to avoid double lock
+>>> - add support for multiple MSCs per PCC channel
+>>> - adjust SCMI protocol code to use a PCC subtype 3 channel
+>>> - let PCC code handle the PCC channel negotiation (due to subtype 3)
+>>> - drop SCMI names in shmem offsets, and use existing PCC type 3 struct
+>>> - adjust shmem field offsets to match MPAM-Fb spec, not pure SCMI
+>>> - prevent MPAM-Fb calls inside atomic smp_call_function_any() payload
+>>> - skip all MSC accesses inside the IRQ handler when using MPAM-Fb
+>>>
+>>> Andre Przywara (11):
+>>>     arm_mpam: let low level MSC accessors return an error
+>>>     arm_mpam: propagate MSC access errors for hw_probe functions
+>>>     arm_mpam: propagate MSC access errors for MBWU counters
+>>>     arm_mpam: propagate MSC access errors for msmon helpers
+>>>     arm_mpam: propagate MSC access errors for __ris_msmon_read()
+>>>     arm_mpam: propagate MSC access errors for state saving function
+>>>     arm_mpam: propagate MSC access errors for mpam_reprogram_ris_partid()
+>>>     arm_mpam: prepare mon_sel locking for MPAM-Fb
+>>>     arm_mpam: add MPAM-Fb MSC firmware access support
+>>>     arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler
+>>>     arm_mpam: detect and enable MPAM-Fb PCC support
+>>>
+>>>    drivers/resctrl/Makefile        |   2 +-
+>>>    drivers/resctrl/mpam_devices.c  | 825 ++++++++++++++++++++++++--------
+>>>    drivers/resctrl/mpam_fb.c       | 252 ++++++++++
+>>>    drivers/resctrl/mpam_internal.h |  62 ++-
+>>>    include/linux/arm_mpam.h        |   2 +-
+>>>    5 files changed, 926 insertions(+), 217 deletions(-)
+>>>    create mode 100644 drivers/resctrl/mpam_fb.c
+>>>
+>>>
+>>> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+>>
+> 
 
->> I can touch it up though, if you insist.
->=20
-> Yeah, I'm being pedantic here it's not vital to have this change :) but =
-be nice
-> if you could, I'm sure Helge probably wouldn't mind too much? :)
-
-Yes, I'm fine with any cleanup/rephrasing of the commit message.
-Thanks!
-Helge
-
->>> (Being pedantic, they're not quite strictly identical as the
->>> ptep_test_and_clear_young() generic function does some weird unnecessa=
-ry
->>> indirection with a local variable and the single {} is dropped etc.)
 
