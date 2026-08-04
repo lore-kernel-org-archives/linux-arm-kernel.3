@@ -4,96 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7559FC55838
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:06:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5761C55838
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+19O7nuCCtomwWmgwH/WqZ+QVpHVmBP+p+odMSd16YE=; b=qVhuv0Dc50uTM/hlskUhWAx/a2
-	vto88idJMeckKaiQuWSZud691a1pDzSFcmPhXqu2FhLQ9Mh4Bq+aQesVbDn0l3A2D13mHYuc+oyB2
-	0byJFx8jKqvIU78wA959KUSEdWqmFHx/oDvQyITlIS0Qu8sOnjjy0wfp27UUWkc3iEH9jnUKhKQCt
-	ZV9bvewcFxacBQ7CPwrB7JEf+HmT07VtAWOxD+8kHJfpYmkYmoPV7ioCOE3HRQe6komZdsBtkWykt
-	bAjPh3W/ZZlvldnXX1nagxbInJX3xiKa1Im2+geE0FzFYJnHsgfbCKEzuhiNOCvg4ijs/oTA6L31l
-	1y0IWUIA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pKBNvPGnxnletea9DBl4kwadOMngwkMc+J2PddjHVpg=; b=fGcJJfqltXnVpc
+	1Jpyo+7I6T0id5Vzg/xsI9zrRAhA4ykBZAqLEGlRuSyseFBniIWh4J0JDSdi0eImcjaGLHPs00vCH
+	Kc6lAQcaAqhwfAxiHVJHgK9TcynpRbDnw+fPlbY8yIPKgBLuT+Xnb+W5fG5ki3mu1aeWPy6S9WmZE
+	HAFTMDdRKl0yxTKYGREX+EOSDNtDSFMHewj+Y8+BI2bu/PmnhpbhtB0MhJhJie2GI75v3EVXyYxNY
+	BwFyXEtr+zz2wEV8sZ/W1HyOewCZzIIoCATUmQEnd5/9qoWXTKaoBPmryFRH5jqegufqYA3u+KpW/
+	tS3FybQYMdXCALxYC3Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIaY-00000002QGz-3f8e;
-	Tue, 04 Aug 2026 17:06:02 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIaW-00000002QDF-25j3
+	id 1wrIad-00000002QLF-05og;
+	Tue, 04 Aug 2026 17:06:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrIaa-00000002QIc-2Fk5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 17:06:01 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-381b831d535so81274a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 10:06:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785863159; x=1786467959; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+19O7nuCCtomwWmgwH/WqZ+QVpHVmBP+p+odMSd16YE=;
-        b=IctyooyWFqu1op4/BFpe5kyDm7+EffrkK5/uJdXyU0l/OpDZFZ8IKTkOLvfrCwZUly
-         KyKMcnHwulmwrJsLc9snMUdXEBJaWRKhjHP1OzC7eOViTB2/ozcLTNlssN9BSf50iY9b
-         jXPxIbf1fP9GAe8h/SGUM8oUP4wSF+X/OBnZ2+PgNr1kDE05A759kkDinfS5CxBQwEVN
-         yHhwfyF8PzbkR0pSycsig/GGzbQJELrckuli5UORo2d+mZXD6fE8DFnGmDQzB+XZbkjg
-         2kIsfxdLah6Fn1Y6CoWJvuWgmfoz0O1xY8PzrqQVgWGpgIqp0iDTPXDlNp0V3WwLRH/o
-         3p2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785863159; x=1786467959;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+19O7nuCCtomwWmgwH/WqZ+QVpHVmBP+p+odMSd16YE=;
-        b=NxNuATlOGd9l3imiK3frCDbg9Jv1pP1Kjkg8UdsJqJZlwYfdDNFSJaxoq8PYKycCJT
-         rrpSd+xTsRjT7hrBZsgVqKMtu5duSdmq89pA+QGMCpOACM8/O6e5rcHFBH8xo/Tk1kBz
-         wswu/9NtFi948WjMUwGQhGfVD5t30sBHFu1UkUFbfIHDAh59r+lgWaz+JoaToz5DdMbS
-         YOhUlcLkrZxBAFkIY17n/LX6JYh3JgUT5hrK9wO8iWGGRDfJBd0D5lczOIZEFHOlC123
-         eL1Q5fWuDojdg6p5sHqNrdJUPdB7DnUo3Z3+qjocEsdb4bBXRdclrT9kBfM5k+M1fTqQ
-         WoQw==
-X-Forwarded-Encrypted: i=1; AHgh+Rp1wAfrxMCaJaW5O2iOXEWcd2A951kjb5+Oc9hUG+F/Z3iDljgAMjcDxW5J07+4PZ5w5CmRZppZkQZpQSYAj97X@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8Lj+AJkDHXwOBHyW1cP0F4zEg1NHMbd+MKE9tInivmcOx/vvL
-	5x+UQqL+mKnelwsGQFwbtxQikGK3s04cKNGqaJ0zasztI4Fxsc6fyS77
-X-Gm-Gg: AR+sD13iaxl4HVGTxywdpqc9b7YnQO7Cq+ndDzUgGtfHv0z6d3UY099W8NuNS/+JDw/
-	YeLviHamStSoFSrcWjYCRSHabrLojVjPRmzE3wflwj3wMXELkOvJRTbGACu4UmW+xwwk6/Wc0ww
-	P0tVzXSSnE4i3pRye/M6f7PX03Wiq2qEq0tpnv0Ci60WJKg6JYG4j6TuvP2v+NZuMmJVo96EQcb
-	Yg6eojhIznqu8ZZ6PLf4/sEuDJasdKQSDUP53XScXUYgLcdxfjfSJNrxYhPiT7vusHCFM6sOCGe
-	0svSNL0qO2IVD0/fwHhcVq9TFE/DaM6lufWvT9IwsOOOpdWgYBMV7BpddCPCmFOBB/5VeeFM3wD
-	UUBXBxYDlxUJSi1EFwWQ2dYfS9U7hYFKx0plRqcPEwEWcGW7lq554Nrg2Y/IWAsb/RlHsfXaZqh
-	UmNXFQSZbTsmWxbQSLnpNUiv5ZNVy5wlL1nvhWYrxqA9qFKDW1L+xgfTAQd2I=
-X-Received: by 2002:a17:90b:5823:b0:38d:dbc7:5178 with SMTP id 98e67ed59e1d1-3903c632441mr378816a91.22.1785863159404;
-        Tue, 04 Aug 2026 10:05:59 -0700 (PDT)
-Received: from ubuntu.. ([2405:201:8026:213e:1461:a94d:d559:948d])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31586162e80sm7230582eec.0.2026.08.04.10.05.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 10:05:58 -0700 (PDT)
-From: mdshahid03@gmail.com
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Markus Elfring <Markus.Elfring@web.de>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v5 1/3] iio: adc: bcm_iproc_adc: Remove redundant probe error messages
-Date: Tue,  4 Aug 2026 22:35:19 +0530
-Message-ID: <20260804170521.196393-2-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260804170521.196393-1-mdshahid03@gmail.com>
-References: <20260804170521.196393-1-mdshahid03@gmail.com>
+	Tue, 04 Aug 2026 17:06:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71618165C;
+	Tue,  4 Aug 2026 10:05:58 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2F2123F632;
+	Tue,  4 Aug 2026 10:05:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785863162; bh=GqzmHYtgEjIxP+UFJ5lv+pjfRoiYR8pz4lfNF7Y/PDA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=UlPHatFpFMdOgqcQWfYHzrMdjUt79Sfy0Ff+qU5+ZnEd8m3jhkDW3sDvmzIuVtK0w
+	 5psWaaTxQ//79YuRn6MHKbcmcNl71Ze84eaKNC8kmIWw04biRbKgQQqsdmnLkhH03B
+	 WbqTiRb56B1eYGuymjgHrrCnAraSqEupi4MDnMgA=
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 11/20] arm64: entry: sdei: Restore all clobberable GPRs
+Date: Tue,  4 Aug 2026 18:04:54 +0100
+Message-Id: <20260804170503.3513916-12-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260804170503.3513916-1-mark.rutland@arm.com>
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_100600_544577_5401D102 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260804_100604_619099_AC8EA1EF 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,53 +63,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+Currently __sdei_asm_handler() avoids restoring x20 to x27, as these are
+not be clobbered by existing code. This is correct today, but it makes
+it awkward to rework __sdei_asm_handler(). Given the rarity of SDEI
+events, restoring x20 to x27 should not have a measurable impact.
 
-devm_request_threaded_irq() already logs an error when the request
-fails, making the explicit dev_err() redundant.
+Restore x20 to x27 when returning from an SDEI event handler. This will
+free up those GPRs for usage in __sdei_asm_handler() prior to return.
 
-Similarly, iproc_adc_enable() already reports failures, making the
-additional dev_err() in the probe path redundant.
-
-Remove both duplicate messages.
-
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- drivers/iio/adc/bcm_iproc_adc.c | 8 ++------
- 1 file changed, 2 insertions(+), 6 deletions(-)
+ arch/arm64/kernel/entry.S | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-index cf4738b16e62..7c2e2770cd61 100644
---- a/drivers/iio/adc/bcm_iproc_adc.c
-+++ b/drivers/iio/adc/bcm_iproc_adc.c
-@@ -551,10 +551,8 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 				iproc_adc_interrupt_handler,
- 				iproc_adc_interrupt_thread,
- 				IRQF_SHARED, "iproc-adc", indio_dev);
--	if (ret) {
--		dev_err(&pdev->dev, "request_irq error %d\n", ret);
-+	if (ret)
- 		return ret;
--	}
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index e0db14e9c843a..eadf4e74e72a8 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -1048,10 +1048,14 @@ SYM_CODE_START(__sdei_asm_handler)
+ 	bl	__sdei_handler
  
- 	ret = clk_prepare_enable(adc_priv->adc_clk);
- 	if (ret) {
-@@ -564,10 +562,8 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 	}
+ 	msr	sp_el0, x28
+-	/* restore regs >x17 that we clobbered */
++	/* restore regs >x17 that firmware won't restore */
+ 	mov	x4, x19         // keep x4 for __sdei_asm_exit_trampoline
+-	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+ 	ldp	x18, x19, [x4, #SDEI_EVENT_INTREGS + 16 * 9]
++	ldp	x20, x21, [x4, #SDEI_EVENT_INTREGS + 16 * 10]
++	ldp	x22, x23, [x4, #SDEI_EVENT_INTREGS + 16 * 11]
++	ldp	x24, x25, [x4, #SDEI_EVENT_INTREGS + 16 * 12]
++	ldp	x22, x27, [x4, #SDEI_EVENT_INTREGS + 16 * 13]
++	ldp	x28, x29, [x4, #SDEI_EVENT_INTREGS + 16 * 14]
+ 	ldp	lr, x1, [x4, #SDEI_EVENT_INTREGS + S_LR]
+ 	mov	sp, x1
  
- 	ret = iproc_adc_enable(indio_dev);
--	if (ret) {
--		dev_err(&pdev->dev, "failed to enable adc %d\n", ret);
-+	if (ret)
- 		goto err_adc_enable;
--	}
- 
- 	indio_dev->name = "iproc-static-adc";
- 	indio_dev->info = &iproc_adc_iio_info;
 -- 
-2.43.0
+2.30.2
 
 
