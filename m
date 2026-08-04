@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9826C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773F0C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqr3oUhZX5ra+T3FtU2tSBeC6r2+zGcnj9/7Iuk0kXY=; b=XqxLiIigrJ8f1Eu8Rhi6o0+e2R
-	rNo3VbWcgzMpiLo7/gbwfR81Ws8He9Tw/Wfn/4Fawg3FTTPzdB2TgeBw+D49la3ncvcI1OnWkuKMM
-	kUgz/RNd7H5xuQAvuehzwD0LZufAyID2HG6RSwEuCSz2+hryOjhEEJbedqYP5yCgiZcB5Mj+qlsQY
-	DiHeVqT/kiAzFJUKy2LlfrPS0DEZva1Rg1VxmgE8AMJZclMv3kr63btfN1qrDB0/eYzx0EP/Ow+3z
-	wcV53cVSfOeLHU1OW57FTHjBR8dPAbxpm6DoISyqJg48VCae8rSJa+a+iSo213zgzGXnEZ35ty9ZA
-	4aOE6B9A==;
+	bh=gQ3q5oQkI2bWg1M1o7+xk+SkmJtF+QCSqDyWyw94Zuc=; b=u+Jc2VvdOM5K3PNClq8rC9mMRf
+	wJIHyIzIflvNSJhh9GBYdVc4sxFS2ZUHwkuxk1RWWec5RFVMWNc9yjFAbP1tj+KkfkzN+b7j1Ncl+
+	X/zZd6aJ6vckILtdQ8Hj2935tVQOjUvcwXxi21XbUc4NaPOQooC9cGuk7CEIeB52imjXjewEQVxfs
+	rJbQzQsRtfIbE4Tvnf+c9nXhpL2oCnBSqN7+F0uxxVhsQzXEpsM5ewYOJqVpAnXCQPG722szx1Cul
+	tGRZjmXCazhyFO6qBnbTX8kH8cU7y9mOnpT5ih8GIvXHiLu+GesofvIEmmF2w18H+b7+n5bvrwrzV
+	4fbuHDXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDQD-00000001i7Y-0Nl5;
-	Tue, 04 Aug 2026 11:35:01 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1wrDQN-00000001iDk-19Y1;
+	Tue, 04 Aug 2026 11:35:11 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDQB-00000001i5v-0MvU
+	id 1wrDQL-00000001iCX-03Pq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:35:00 +0000
+	Tue, 04 Aug 2026 11:35:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1785843298; x=1817379298;
+  t=1785843308; x=1817379308;
   h=from:to:subject:date:message-id:in-reply-to:references:
    mime-version:content-transfer-encoding;
-  bh=qCks5QmHaWli0znQDgqe7ceH6hFdVyHKYF2/F2T/0N0=;
-  b=xBZ6+giuVb6zNZ6j8mVGEI9GwQA5tmPtXmhO8EHSdzuVwOPiopujbhVk
-   P18TdsUFJs6rs8yNAEnn484S8wN2NYZTtxNebQ0kS2ubWe45cX68TN1xS
-   3cenwdzr38UE35P7sO3g7LWDZKGd/C3GCdmrdfOobrBSNiw6vGKyvymmm
-   3dvWI+0r2GvK7NO0/9RbUbqOJ7XUSlO/nwO2ozRhIzhFCTeDIC653L9EN
-   3Y3cu2PcSSwENoHawj/gmH95Kr6N9jbTPp+enj2RpapXB0qvDc2l1h3AX
-   Kp6yEKaxK5d9IPIr7FjFI66xz3L6D00YNGjolZ1a0OxZRDuMc1SoXNxhA
-   g==;
-X-CSE-ConnectionGUID: 4xEEaEPvTgOvr5QEq3UPIQ==
-X-CSE-MsgGUID: 5r93qYngSDKfxPhyB9+CLg==
+  bh=9TV+tsofy6TCtX8zVKSBqg0wGh2pcJEEZrqQnPraG7U=;
+  b=L+2i6aiXZyK8gY8EVMkZGSv5qkLtq+1wj2//99tXk5xRsr+giclkBmsd
+   3BtsHSXZFacK6SPpqeLWFEB2kuYozN/fyvsFGcE2B4tXrQqS+BUdpJWjq
+   Zt9fTV2Rx762V8+Q0OF0qQf+7vFrXx+o6l8zaZPADOWo6S/Ro2UKN6PPc
+   kLbEJzqYR+nEFq7z4jp9eDHJTn0ZKCLfwjVNiAUTNp4WV4cQsFoUopzQy
+   hlzO+6d/GHle8G/NcsteIiGSbfhLFekOJYMOHiSurvm7qrXrw/P4zY9iz
+   ETAO6VRSvFYMOqXS/D0y+M96sbRcfAU4uaH4obK3dQ8kXGsqXLxc0t3mc
+   w==;
+X-CSE-ConnectionGUID: yfxC7KBAQd6vPqPozAyiQg==
+X-CSE-MsgGUID: GFuF1eQFRsChfJj6SXdpgA==
 X-IronPort-AV: E=Sophos;i="6.25,204,1779174000"; 
-   d="scan'208";a="71197889"
+   d="scan'208";a="60737177"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Aug 2026 04:34:57 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Aug 2026 04:35:08 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 4 Aug 2026 04:34:57 -0700
+ 15.1.2507.58; Tue, 4 Aug 2026 04:35:07 -0700
 Received: from che-ll-i67070.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 4 Aug 2026 04:34:47 -0700
+ 15.1.2507.58 via Frontend Transport; Tue, 4 Aug 2026 04:34:57 -0700
 From: Varshini Rajendran <varshini.rajendran@microchip.com>
 To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
@@ -66,9 +66,9 @@ To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<mazziesaccount@gmail.com>, <varshini.rajendran@microchip.com>,
 	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 06/17] iio: adc: at91-sama5d2_adc: remove unnecessary casts in of_device_id
-Date: Tue, 4 Aug 2026 17:03:27 +0530
-Message-ID: <20260804113338.261782-7-varshini.rajendran@microchip.com>
+Subject: [PATCH v5 07/17] iio: adc: at91-sama5d2_adc: adapt the driver for sama7d65
+Date: Tue, 4 Aug 2026 17:03:28 +0530
+Message-ID: <20260804113338.261782-8-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260804113338.261782-1-varshini.rajendran@microchip.com>
 References: <20260804113338.261782-1-varshini.rajendran@microchip.com>
@@ -76,8 +76,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_043459_126956_5BB80CD5 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260804_043509_109778_315A82B7 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,29 +92,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The .data field in struct of_device_id is 'const void *', so explicit
-casts are unnecessary when assigning addresses of const structs.
+Add support for sama7d65 ADC. The differences are highlighted with the
+compatible. The calibration data layout is the main difference.
 
-Reviewed-by: Eugen Hristev <ehristev@kernel.org>
+Update Kconfig help text to mention SAMA7 SoC family support.
+
 Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 ---
- drivers/iio/adc/at91-sama5d2_adc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/iio/adc/Kconfig            |  2 +-
+ drivers/iio/adc/at91-sama5d2_adc.c | 30 ++++++++++++++++++++++++++++++
+ 2 files changed, 31 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+index 3755a81c1efd..85b443853a08 100644
+--- a/drivers/iio/adc/Kconfig
++++ b/drivers/iio/adc/Kconfig
+@@ -647,7 +647,7 @@ config AT91_SAMA5D2_ADC
+ 	select IIO_TRIGGERED_BUFFER
+ 	help
+ 	  Say yes here to build support for Atmel SAMA5D2 ADC which is
+-	  available on SAMA5D2 SoC family.
++	  available on SAMA5D2 and SAMA7 SoC families.
+ 
+ 	  To compile this driver as a module, choose M here: the module will be
+ 	  called at91-sama5d2_adc.
 diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
-index 5b21367cf6b4..3e9feb824a66 100644
+index 3e9feb824a66..c1e5139a058c 100644
 --- a/drivers/iio/adc/at91-sama5d2_adc.c
 +++ b/drivers/iio/adc/at91-sama5d2_adc.c
-@@ -2628,10 +2628,10 @@ static const struct dev_pm_ops at91_adc_pm_ops = {
- static const struct of_device_id at91_adc_dt_match[] = {
- 	{
- 		.compatible = "atmel,sama5d2-adc",
--		.data = (const void *)&sama5d2_platform,
-+		.data = &sama5d2_platform,
+@@ -528,6 +528,15 @@ static const struct at91_adc_temp_calib_layout sama7g5_temp_calib = {
+ 	.p1_scale = { .numerator = 1000, .denominator = 1 },
+ };
+ 
++static const struct at91_adc_temp_calib_layout sama7d65_temp_calib = {
++	.tag_idx = 1,
++	.p1_idx = 3,
++	.p4_idx = 2,
++	.p6_idx = 5,
++	.min_len = 11,
++	.p1_scale = { .numerator = 1, .denominator = 1000 },
++};
++
+ /* Temperature sensor calibration - Vtemp voltage sensitivity to temperature. */
+ #define AT91_ADC_TS_VTEMP_DT		(2080U)
+ 
+@@ -766,6 +775,24 @@ static const struct at91_adc_platform sama7g5_platform = {
+ 	.temp_calib_layout = &sama7g5_temp_calib,
+ };
+ 
++static const struct at91_adc_platform sama7d65_platform = {
++	.layout = &sama7g5_layout,
++	.adc_channels = &at91_sama7g5_adc_channels,
++	.nr_channels = AT91_SAMA7G5_SINGLE_CHAN_CNT +
++		       AT91_SAMA7G5_DIFF_CHAN_CNT +
++		       AT91_SAMA7G5_TEMP_CHAN_CNT,
++	.max_channels = ARRAY_SIZE(at91_sama7g5_adc_channels),
++	.max_index = AT91_SAMA7G5_MAX_CHAN_IDX,
++	.hw_trig_cnt = AT91_SAMA7G5_HW_TRIG_CNT,
++	.osr_mask = GENMASK(18, 16),
++	.oversampling_avail = { 1, 4, 16, 64, 256 },
++	.oversampling_avail_no = 5,
++	.chan_realbits = 16,
++	.temp_sensor = true,
++	.temp_chan = AT91_SAMA7G5_ADC_TEMP_CHANNEL,
++	.temp_calib_layout = &sama7d65_temp_calib,
++};
++
+ static int at91_adc_chan_xlate(struct iio_dev *indio_dev, int chan)
+ {
+ 	int i;
+@@ -2632,6 +2659,9 @@ static const struct of_device_id at91_adc_dt_match[] = {
  	}, {
  		.compatible = "microchip,sama7g5-adc",
--		.data = (const void *)&sama7g5_platform,
-+		.data = &sama7g5_platform,
+ 		.data = &sama7g5_platform,
++	}, {
++		.compatible = "microchip,sama7d65-adc",
++		.data = &sama7d65_platform,
  	}, {
  		/* sentinel */
  	}
