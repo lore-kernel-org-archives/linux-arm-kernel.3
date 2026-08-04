@@ -4,67 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42CCDC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 18:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F0BC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 18:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0lCZ7G6SNgZFbJUMgnsW3ETwHXQ8DNYKJ1VAQ7wa5jA=; b=myZiGqQp/LIC5Wk0T76h/uFy1e
-	zeMmasU+caEB5wH9YWzp5oJdYuoK0UQeOAyNgDkUTgBQlKCY2JKgNbxUXAE4vCo8zmm0gbq081ZvR
-	Pd1jxVMM/EN+gpSeO9GUUWnMhsuRcX+Su1i0KSIK69QbuVEwkulC2PNvKEZ/LYJOVeW6HNSe0DaAe
-	uLBTVDKj9AFncVjF1z8UTEbNGUyDV+bs1JclN6nZbZeA/2DyxQMLm8jZ/4F/OK+jnT9wwrxly0IDy
-	dvwYWXkKgrPFtCLZWTwyqze6YB+L59LqYDV4jAdCCJcAWKoLFNZP9bP3vv46oMuK28iolh/2A0JU5
-	+VTtveiQ==;
+	bh=kj7DMHIDrNT/06c7dzPGllQor6AFlNLSVU9wkDWp7Rc=; b=L/Daur/jfJtrPN1cnkgy+LA3kw
+	j6ySNwvdXMtuMg8TeKAtkC8q503CWaMSJKBeZIY5ExEYJtPzPah1IcG5Lsofq45//3q8pjvhTQG9o
+	vRyfvGo6Zu8ARqYmka5s8iaZ5tzxKOwvmshUJ7VNma7Dy8jY6fuUUpsMSzwwM8Dg3QJGikORWu6K1
+	Fgiwo/y2Hg4S8FSTT+/A1s86H6TkJTUaCt3Lzof4nsVzL55q3+WjfsRNOnKsEZVej6QlL/j4ZNNkI
+	mz+7X0YAe7z1Z+OyNJqQDZcu+vKqnAgMW4oxKzG2sBPG+TCTdKN11VBYP+UG+uXglWaL+P0XYF93l
+	XjydpARA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrJeW-00000002aZ8-1pqK;
-	Tue, 04 Aug 2026 18:14:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrJhB-00000002aqH-3Ejr;
+	Tue, 04 Aug 2026 18:16:57 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrJeV-00000002aYz-3n03
+	id 1wrJh9-00000002apv-0cdB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 18:14:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2380D404BC;
-	Tue,  4 Aug 2026 18:14:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EC901F000E9;
-	Tue,  4 Aug 2026 18:14:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785867249;
-	bh=0lCZ7G6SNgZFbJUMgnsW3ETwHXQ8DNYKJ1VAQ7wa5jA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GP9Jyq3ImlxUyG5PYNCsX/FdyquDUqNk1pngO/aod7TeAvCCFRAJewoSsxhDux2X5
-	 4HCBbcRJOWV0OOJEPztylPgD4K7AD2jcWRA1bmN8Xg5iv30oK/ycci2550YdctZS+/
-	 ISj/4x+YVRyV8sUFDBhHGqO9tTDn8tWBIu2lBd7wd2u6sZTmyakyFarei0drXYxtFU
-	 rhh79sTCrtpeih4TFD14i6oPOTPlYK9jB8mviph4j3sOSWVrH6Hupc0LLcv8H+7daL
-	 Iq8DNV7dYbIbWbyntGnw1fD/xVDh0tf2qOoFxsn6E0x6VPn3j9oVE/jWizoX+in5VT
-	 qe5RJHpat9bZQ==
-Date: Tue, 4 Aug 2026 19:14:03 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: selftests: Check ID regs are immutable after
- a failed run
-Message-ID: <7e660a4c-af62-4751-a8cf-49151054f0df@sirena.org.uk>
-References: <20260804092421.1728880-1-fuad.tabba@linux.dev>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UnkPqelfwiKSm0sl"
+	Tue, 04 Aug 2026 18:16:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Q0JHbCq6eH/ynEKngRwLycV+GBdbPxLc5bDRr9at9Sr3CLM8pXOPxQU8KO7UIHx3EuSsgX9KKLIhvq/jCbDYfxmzD6hACnR7XDkcYcVnEPt0PXFriPKlzH02GqnycVN2N+zHf3rPnFDSPr0egNWAkCPQagfA1odG2JNzizQea2a3sEi5CmBfsCZJB7Nny91y/vwlfpuNDTfL7NOZvTJCGv4OeiMuCzhh94VFVdgnklJ6TF9JSqFtfGSwn6nfGbo1s0TXQbNtyLoe5vTkjrrBgweQ+zmUhFtEzzKyp5OiyEm8vZQRjSHDk1yDreizSBISv+nBvc0LZPSLTjSr/z//fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kj7DMHIDrNT/06c7dzPGllQor6AFlNLSVU9wkDWp7Rc=;
+ b=kI5DPOQgOMEHPkWAxagdSoexKbb6Zv4mO1byhSx6T6yTOj+sLIbFoLU+P9rQKUhP184vDRy2CaqjfPaMbG3RcfEt/LAU/eWCm7AlrYtvE28aLNKNteB9PtYQ2VkYYABXrm0ROOo0SCesMI/qi9cmGaGGBt2AHazpTlUYetwq/JKb2rkM+ZMLIxcxai3YtOFrST2VaKJeQ3e+gIceCHIUlELsGjVgRfYUGX9+IKe08gUiPlJikBTaT+3q7NGTWkZGbhxehp3wRrsQWNTh20B+JeNAQyj89e9RSGidcdxrVAj+jWm8cswZcm0TA51rPGSoig61cqSoROtn8Iy6cQU5fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kj7DMHIDrNT/06c7dzPGllQor6AFlNLSVU9wkDWp7Rc=;
+ b=VBfV1x+g/IP+obnOYa9fcQIpTZxy0Rb3ZDkD5JskHtIy28LTlHZdLh3v4hrkjg0SmI7TSorXVeAstZ9xeLJT8960Bh9m45xl2D6n5fvyCUj3o5BM5IqNIZYoYqqhtQeUNAC57wUeSU8uWZSKCuyhi9cfWqe4V3023lQ+RDw8NDL4deZ4nDn7kn8t3vJE8zOxXO8PzqvX2UTlLHe/WAn2CMA7a/Mz1sBF1Y4QNRPK/KGdVGE2DYc2bCYvQYSL8YQbKhySWJ3Ohu1nAqUN2tjCLpfbLSBSVlNiBD3R0HfaReOq3MjfTYD8eWjR54dTd6ZeViGF9P6avM30AyvnetPVNQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DS0PR12MB7728.namprd12.prod.outlook.com (2603:10b6:8:13a::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Tue, 4 Aug
+ 2026 18:16:47 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0292.015; Tue, 4 Aug 2026
+ 18:16:47 +0000
+Date: Tue, 4 Aug 2026 15:16:46 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Matthew Wilcox <willy@infradead.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org,
+	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
+	will@kernel.org, akpm@linux-foundation.org, hca@linux.ibm.com,
+	gor@linux.ibm.com, agordeev@linux.ibm.com, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+Message-ID: <20260804181646.GI27883@nvidia.com>
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+ <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+ <amCPBrdltFSE_fEf@J2N7QTR9R3>
+ <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+ <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
+ <anHuLy52o5S9Nlwp@lucifer>
+ <anH1CgpwS3PHeDRq@lucifer>
+ <20260804144054.GE27883@nvidia.com>
+ <anIqO2AiVlLTEPOd@casper.infradead.org>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260804092421.1728880-1-fuad.tabba@linux.dev>
-X-Cookie: QOTD:
+In-Reply-To: <anIqO2AiVlLTEPOd@casper.infradead.org>
+X-ClientProxiedBy: BN9PR03CA0247.namprd03.prod.outlook.com
+ (2603:10b6:408:ff::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS0PR12MB7728:EE_
+X-MS-Office365-Filtering-Correlation-Id: 16b958ff-d6c3-488a-df90-08def2548c0a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|7416014|376014|366016|4143699003|56012099006|11063799006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: PmUwXPInLuiywzlN8DTmMobq8kEd9uMhkOWUCYmEZv4zl+RUbts+tvv3++suMIffLdQ8zFe5p8jonauCAiUsQ+DEVinmT4BoAN9dqaEutc38UZOP5R5AYANaI+1pDFbfvsSgG18Vo5SzcJHF71tZMmAhuCIGC2D8375qFduStPKXQ10JPiiKbrXfaxhkpNX2NwDP2I9+CPxEUh+n/awcZ47RZLphoDKWEGYZk9x+v4oWS5RzHm+J644LxkaZEb6zN5UF6MK0DH+0pgFMBI17FokZpzi45pjxu4RoEKZy1KkCoQoZe2xgrjqSK4y12eH54THj1LbPYuM6YtSVgyqaLekm9duMnnoLIJuuCSlfyRnkZWbxvpfSnQcf+aWq30Dk41vzrpQ3kEIn5wLVt9V2BtQPcqmwXV2McmJMRNuEtKxb4Y2VFIXIBUm07DRm0MvdvBOcP/h0WpBlM2m65oQec7wIDjEy/8cZb4ODdE8i5RwdiI0t3EihahFYR/2stPTk+B7onUv78kbbSabpjeLEOGM9KtSafMTXIqQgY5y83thg63aXPEiN9ZlJQiu+Lgo11Ku8RwaEIc7fwG1aMfrf9hBv0v10InU7TICE83InD8iHH8C6kn2fwb23RUrL5DeEeZFbF9ADOZHTFcnVrmzhmGPZySa450mIdZ6MitbxH+s=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(7416014)(376014)(366016)(4143699003)(56012099006)(11063799006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?T8twyPhAWeiWeFgIOznTevcWg6lfXvMJE9RZCOlZ3wHpihYJyWPkWT/4q83q?=
+ =?us-ascii?Q?2vH2cGeE7dHjNNJzX1qPO5ptDit0X6OgH8TvuxkLKtnIyYutk8VBm/OR0+p0?=
+ =?us-ascii?Q?YGcK8Q/NmvVtDBvwH2XT/4Pd+dHJtAirNb+kIUGctQvPaBATK/J9tHODWa2Z?=
+ =?us-ascii?Q?ZoBTdJDbb2a0ivDGDLl5pYrE0y2tSNcexcAgfSNQiCUC7zxd82VQERR0ZuOg?=
+ =?us-ascii?Q?WPczW6Mge5FV8uVGf+KSG2Iwh/8syY4NLUk+CvGbaCc4E4msTqWt79bjOvVu?=
+ =?us-ascii?Q?X9C6C0QZ0esm7FbQQPvX3K5ZvbQif1BDlT5jasnuObD4di89xFU3JjA/8S/F?=
+ =?us-ascii?Q?BOp7HZepYFJevRfRxfMYC7wDAR1Y0pAfXM0DergNNwLR74v+ABAugpebVcId?=
+ =?us-ascii?Q?RB4Ig9i0LlW590oXMUQtBiTrYkRhQFiu/s/toV/9htib6lgcNtzxyJMtpL8E?=
+ =?us-ascii?Q?OQMa3jbwJ21vL+UXBZPj7N2MVItHO1t3CLOhHT+D6Eot6KQF9quYyN/qAKCy?=
+ =?us-ascii?Q?ljo4Mkd3afIGqSiR6bKe5cKYjVemBCJp6DHmOMh30jQ/Z/znDUNS0YGJoIwz?=
+ =?us-ascii?Q?6MojbrVaI0cw46Sj5XZenWOXU+goyxrOBUhiSTGELyz6o351PGdOcnQrUbmy?=
+ =?us-ascii?Q?4hI+BtoOXSOQxApI3qI83+S+LN0MzwhJgiK+G4xBv5+KqihnBSP6MvUPhfJc?=
+ =?us-ascii?Q?EaAqPI3CYW9UxO/inu9Psr26y1vBptZYtQOKOcs/Iyb7ogtePb/mcAg5Wb4/?=
+ =?us-ascii?Q?YUj5NGeh0Ouq/lKmipqeNLA1/qu+9njCdEcjsND3SbsL5nC5Ucv9gK+PbUhO?=
+ =?us-ascii?Q?5dWjpQibzD/WWxw4+7RbHSOJljZRfAWxvaoOlqOKC/nMV8quTsbHy/OumQOd?=
+ =?us-ascii?Q?6/5wNfzvL1gGjPlUPswgzbcVSj7+/A6iXKJir5uSTZD6nNOs8mQ3qIWbwuZg?=
+ =?us-ascii?Q?LtMeDbO3XbDC4M4edp+u2LiPtfO5SH3APLSR3qeWVCzSBJu2sSTVvjBXk+K9?=
+ =?us-ascii?Q?xrB+zm+oLHVNjD+6SzcyH1iTxFXRGNU2yemd0GrwlYhZtMYB9Vi33XHqe1Ke?=
+ =?us-ascii?Q?+lANoj5FcvJA/SVZRSmL1SvhnvH053QWx+Kye73tTBZFzEQNl2gwLHsGeGi9?=
+ =?us-ascii?Q?N/GOJWWfnNPEzprTmtmUVtHHFgfDnftwPRYaQ2OCSFmHb1/iD7+27Jmd58FA?=
+ =?us-ascii?Q?Y8ZpB0BiD//0RSJp8kQ/8FZaPWj3kdXX8miTmMACvH/xM3uS1HShORWfKNHK?=
+ =?us-ascii?Q?FeJcJx6mk8Pg3vYFYLPkaFm9gm2NQ3/gxfwQcYzXWnuapjk9xJSVnRxvxARv?=
+ =?us-ascii?Q?dpHEhCq1MoAShcpyYhuVOd7sDow/DJWz0HWAYKFHj+ju6xOMpUGhDVfYGnk2?=
+ =?us-ascii?Q?mX4MiiiZhhcg9OxwfLVO9f6TagHIQBrmeYIOT9c0CVIbZv2bsIrowFFPog/r?=
+ =?us-ascii?Q?Su/xuCQuaqZoCGwk2+6AqnzPh8glSbKQ72w1HI/U9r3miFSzJICYjUUY88V4?=
+ =?us-ascii?Q?xxIXVD1Mefp8TJKszsfbrd40KPTthIx7OibmJd1JqWj6ZQyYruiqpKPrJOOB?=
+ =?us-ascii?Q?9p6HZnMxiCELF8qk71Ne5wcUAa+2vS72qwTqBGR2vEgYMNdFdQ3VroaoLzB3?=
+ =?us-ascii?Q?pMf0i+a4TR2B7GNYZfnlKstLT/Dv3KBwCYlreFkiH1k1eWPx5SF4WEuktLG2?=
+ =?us-ascii?Q?Lz0cyu9ERhszI1lfjA/kkK3VFpiw2I/lZdC4E1ToLQsolUHaJODgsSeUToyP?=
+ =?us-ascii?Q?SPW9cGoSBA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 16b958ff-d6c3-488a-df90-08def2548c0a
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2026 18:16:47.5577
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4EaM129/elEpDcJkD60NwtrnW0tvRPYviP5M9dga3SSEVhhwWzzJaTzyp1+/1+pX
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7728
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_111655_191197_3176D274 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,83 +154,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Aug 04, 2026 at 07:06:51PM +0100, Matthew Wilcox wrote:
+> On Tue, Aug 04, 2026 at 11:40:54AM -0300, Jason Gunthorpe wrote:
+> > That said there is still a merit for things like replicating .text, and
+> > I think we will also have some multi-socket systems that would benefit
+> > from this too..
+> 
+> Are you referring to kernel text replication or userspace text
+> replication?  If the latter, I don't think we need per-CPU page tables
+> to do it.
 
---UnkPqelfwiKSm0sl
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+In a sense both, if you build a system with poor cross-socket
+performance then there can be big wins to replicate .text.
 
-On Tue, Aug 04, 2026 at 10:24:21AM +0100, Fuad Tabba wrote:
-> Add a set_id_regs case covering ID register immutability when a vCPU's
-> first KVM_RUN fails after finalization but before
+I've thought kernel needs to do it with text replication, there are
+too many absolute relocations to make two .text VAs work?
 
-A couple of other things - there's plenty of other examples of these
-problems in set_id_regs, I've got a series which I think mostly cleans
-it up:
+Userspace can meaningfully work on a non-replicated basis where single
+processes are localized to sockets. I think people do things like this
+already, but AFAIK it is not ergonomic to setup.
 
-   https://patch.msgid.link/20260719-kvm-arm64-set-id-regs-aarch64-v6-0-724287f5f108@kernel.org
-
-but probably best not to make the issue worse.
-
-> +	if (!found) {
-> +		ksft_test_result_skip("%s (no immutable ID reg field to test)\n",
-> +				      __func__);
-> +		kvm_vm_free(vm);
-> +		return;
-> +	}
-
-All test result reports for a given test should use the same string when
-reporting so that automation can figure out that results for a given
-test from different runs correspond to each other.  It's better to print
-a diagnostic message, then the ksft_test_result_() with the result for
-the framework.
-
-> +	TEST_ASSERT(r < 0 && errno == EBUSY,
-> +		    "ID reg write after failed first run: r=%d errno=%d",
-> +		    r, errno);
-> +	TEST_ASSERT_EQ(vcpu_get_reg(vcpu, reg), val);
-
-> +	kvm_vm_free(vm);
-> +	ksft_test_result_pass("%s\n", __func__);
-
-Mixing TEST_ASSERT() and ksft_test_result_ in the same test program also
-interacts really poorly with automation, TEST_ASSERT() just kills the
-entire program so no result is reported for the actual failing test and
-any tests the program would attempt to run afterwards also vanish from
-the results.  If the test program is using the kselftest framework to
-report tests as this one is it should report the results via kselftest
-framework.  A better pattern would be something like:
-
-	if (r < 0 && errno == EBUSY) {
-		ksft_print_msg("ID reg write after failed first run: r=%d errno=%d",
-				r, errno);
-		pass = false;
-		goto out;
-	}
-
-...
-
- out:
-	kvm_vm_free(vm);
-	ksft_test_result(pass, "%s\n", __func__);
-
-TEST_ASSERT() is a good fit for tests that are just one test case per
-program, then it plays nicely with tooling since the tooling just
-tracking the executable result and any output is diagnostic logging.
-
---UnkPqelfwiKSm0sl
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpyK+sACgkQJNaLcl1U
-h9BLFQf+M2EJkmtPKxPvAE1jYWYzT7FBTecWzsvhmXOcvfDOFM3DC9Mx06mhp3Xf
-/8vRfb8xclnvXnepYxm43kzZCF8sfg7j7RHsumvyawkQe67rfgmKWr2XFuwgLIwi
-Bs8qUQKvwH+6oN0HdRpCY7N2WXkvjmOHQeOb5AAM6QVnHIqk8xBaR4OpwCWeLmlF
-IAk84krdI6Uns7W+2dhZwNFKNQGmV67595izCLGjPEZ79L1kNip1UfdaztYcgFPf
-LczVv4t11khhG/KxYBnDIQHx4Fj0ph+iur2sNXP/ZRgt/wqEbSzj3FBr4pYMXWZm
-pw+b7DT9DUuuBopgQmk/NbNAg096tA==
-=SVXk
------END PGP SIGNATURE-----
-
---UnkPqelfwiKSm0sl--
+Jason
 
