@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACBC8C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 12:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD6F4C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rkEir9uFm1qRBCXp0zpCOeuLTQKL4glDCYZRatT+50Y=; b=kUaNQlPbvJtI6ZpWmd00iYHPCb
-	D05EzUoKQORT++2rqu50NyqNOZiT534Dx8XzcEwWJx5tOUFjCTMWhaD14VXlLuPaBKSSSDU3ugLiM
-	PGAfo0iEtLetdqq7fHAgiRCkxrTkZojnskcQogB98xn9G3dGKFG2ZS8F9/hZq9gUmM/emCDbgUj0S
-	3Xa6BhmkvO/nn61q7PG93cvGa9KfIphMoLUVZ9E5814//KHDlOKcvKsCMbTp9LyVfoDcfCnGfUEyW
-	d/gyKrqlUXbt3RqqmtxNkoUE/AjgeA8MHX/Ttxz4Z6UCtEkTQ47aON0xqYmwSsdrhXzeAikx67dyR
-	SCQ5Vpag==;
+	bh=RHqOtFViWLom0UOkJ7evWITdjcrMvUN59L7Fwdq263g=; b=JWd0u2zMzWbKWPUt+XWmECiicn
+	N7PyXi3R7HisyrrgNltMB2j+zaxY8TseenpJdEpShN7e7ME84P4/h8M7l2wfM8Av66u+AdyHNAthH
+	3SKZsWVulCgcp3/2t0fwC+pGF04VK+4od7pJE/RKTs0La1Hx5dwZKWqoj1ZfHx52A7y1qVCtmqEfO
+	ZxkGJIqgl94JoR7dh0j0GTqi+7FV4wPI8I9ENCZmr8+Zwe56kYzYvJ/CII1GEOP2IqHHcCW0VvPJT
+	tomQpRrNxdgujZFmKUCW8v0TExwND3Uvyvcfxv8bEaQMEu21a2xtgSUKIUEfpPf8r46sv4/G/1Shy
+	EQgeXLdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrEjz-00000001rq8-2XHB;
-	Tue, 04 Aug 2026 12:59:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrElg-00000001s3K-3KM4;
+	Tue, 04 Aug 2026 13:01:16 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrEjy-00000001rpp-1v0N
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 12:59:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2551A41FC2;
-	Tue,  4 Aug 2026 12:59:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3B111F000E9;
-	Tue,  4 Aug 2026 12:59:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785848370;
-	bh=rkEir9uFm1qRBCXp0zpCOeuLTQKL4glDCYZRatT+50Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gVucjhvrdbhER92eS5xBHqYeZpRRPk+DMQSNxJPje3bAw5/f6Is/Nlxg+QiKYxfyL
-	 pGQoOaMN++o0pL9N4wS88gUthxS0LEzYZKJZYvjbiDx/YUuiHmFTpl65FF4Q9xwM0s
-	 a3HI42iOihbi5kLSp3FDAlBecuXQkaSEbziibdWB2HI43ExYZ5VxAwgNzL8NLKy4/V
-	 BvJA7uaB+cbSx42oZRA6c8/ULe0tqE31ITKSKG8p1/ldAswRXodrmvS/+E0is3fQsS
-	 w6b9GFu80tahoLmlwJ3y8g26YTuFV2gojiLnnLp6U02LXioHwZLgPZzUCMN88kobJv
-	 U6M2c8qhm7r5g==
-Date: Tue, 4 Aug 2026 13:59:08 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
-	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH v2 3/6] mm/powerpc/8xx: constify ptep_get() argument
-Message-ID: <anHgw2Z-d-OQk9qs@lucifer>
-References: <20260803164400.531199-1-pfalcato@suse.de>
- <20260803164400.531199-4-pfalcato@suse.de>
- <anHI4B-lMu6AJJfA@lucifer>
- <dcdb8cab-c18c-4995-ad1d-2f2d4700e7c1@kernel.org>
+	id 1wrElf-00000001s2M-0yUc;
+	Tue, 04 Aug 2026 13:01:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=RHqOtFViWLom0UOkJ7evWITdjcrMvUN59L7Fwdq263g=; b=zkhk2nuENDPn5x95KTAqfD262P
+	hntbLHyspiSQ9VCoSovjkU+mVq0X72P+V7u5HjQ8wB34FT1ewu442YEUzA2Izx/OhByY3RaZWw9zT
+	j8zJMhLn8cO8WW+Ih6hPSbeST+xBOGwWAISWeb39CbRdxtRoR/WmchrZ638yLXC0mbUM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wrElL-00FzOx-6C; Tue, 04 Aug 2026 15:00:55 +0200
+Date: Tue, 4 Aug 2026 15:00:55 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ahmed Naseef <naseefkm@gmail.com>
+Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Paolo Abeni <pabeni@redhat.com>, Qingfang Deng <dqfext@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next] net: phy: mediatek: add EcoNet EN7528 PHY
+ support
+Message-ID: <f176e285-bd19-4a17-8b79-d19c76ba9f81@lunn.ch>
+References: <20260804103321.3331802-1-naseefkm@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <dcdb8cab-c18c-4995-ad1d-2f2d4700e7c1@kernel.org>
+In-Reply-To: <20260804103321.3331802-1-naseefkm@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_060115_287566_2138D3FF 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,65 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 02:50:19PM +0200, Christophe Leroy (CS GROUP) wrote:
-> Hi Lorenzo,
->
-> Le 04/08/2026 à 13:13, Lorenzo Stoakes (ARM) a écrit :
-> > On Mon, Aug 03, 2026 at 05:43:57PM +0100, Pedro Falcato wrote:
-> > > There is no need for write access to the PTE.
-> > >
-> > > Signed-off-by: Pedro Falcato <pfalcato@suse.de>
-> >
-> > With below addressed LGTM so:
-> >
-> > Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-> >
-> > > ---
-> > >   arch/powerpc/include/asm/nohash/32/pte-8xx.h | 2 +-
-> > >   1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/arch/powerpc/include/asm/nohash/32/pte-8xx.h b/arch/powerpc/include/asm/nohash/32/pte-8xx.h
-> > > index e2ea8ba9f8ca..f2bab31040c7 100644
-> > > --- a/arch/powerpc/include/asm/nohash/32/pte-8xx.h
-> > > +++ b/arch/powerpc/include/asm/nohash/32/pte-8xx.h
-> > > @@ -226,7 +226,7 @@ static inline pte_basic_t pte_update(struct mm_struct *mm, unsigned long addr, p
-> > >
-> > >   #ifdef CONFIG_PPC_16K_PAGES
-> > >   #define ptep_get ptep_get
-> > > -static inline pte_t ptep_get(pte_t *ptep)
-> > > +static inline pte_t ptep_get(const pte_t *ptep)
-> > >   {
-> > >   	pte_basic_t val = READ_ONCE(ptep->pte);
-> > >   	pte_t pte = {val, val, val, val};
-> >
-> > Worth making these const too (that {val, val, val, val} horrifies me btw :)?
->
-> Any suggestion welcome.
+On Tue, Aug 04, 2026 at 02:33:21PM +0400, Ahmed Naseef wrote:
+> The EcoNet EN7528 MIPS SoC embeds four Gigabit Ethernet PHYs (PHY ID
+> 0x03a29491) behind its built-in MT7530 switch. They use the same LED
+> register layout as the other SoC PHYs handled by this driver, but their
+> LED controller powers up with its external control disabled, so the LED
+> pins stay dark regardless of what is programmed into the LED control
+> registers.
+> 
+> Add a phy_driver entry for it, modelled on the Airoha AN7583 one. Its
+> config_init callback enables the LED controller through the LED basic
+> control register, which this driver does not program for its other
+> PHYs, but which the air_en8811h driver already handles as
+> AIR_PHY_LED_BCR. LED behaviour is then controlled through the phylib
+> LED operations shared with the other PHYs of this driver.
+> 
+> The LED block is shared by the four PHYs of the EN7528: the LED
+> configuration programmed through any one of them applies to all four,
+> while each PHY still drives its own LED pin from its own link state.
+> 
+> The EN7528 PHYs need no efuse calibration data, so relax the
+> MEDIATEK_GE_SOC_PHY dependencies to allow building the driver on the
+> ECONET platform.
+> 
+> Signed-off-by: Ahmed Naseef <naseefkm@gmail.com>
 
-I'm being super nitty, all I mean is:
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
--   	pte_basic_t val = READ_ONCE(ptep->pte);
--  	pte_t pte = {val, val, val, val};
-+   	const pte_basic_t val = READ_ONCE(ptep->pte);
-+  	const pte_t pte = {val, val, val, val};
-
-:)
-
->
-> powerpc 8xx page table is independant on page size. When you use 16k pages,
-> depending on the address you hit the page for the first time, the HW assist
-> page table walk will fetch one of four 4k cells in page table that need to
-> be identical as they all four define the same 16k page. Not sure I'm clear.
-
-No that's clear, thanks!
-
-(I say 'horrifying' because I am looking into RCU page table freeing which this
-may complicate, though perhaps not in practice, to be continued :)
-
->
-> Christophe
->
-
---
-Cheers, Lorenzo
+    Andrew
 
