@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C82C8C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 22:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 694CDC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 22:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QRxCeGb+Adq7LiD+7lUvdxxJiJP+D9Kgl6PhZ4uJptg=; b=s95vewkMLmmYj/RTgSCMKaOVgU
-	vTYo7u907NUEfjocbFRCZ+g+1UxKi4RWnEcgmLv22Qg5IpySyD18BMTHxaZ6YW/4hGi+RX4V0Bpck
-	Jo0pMf0RflmPNACLP256uLNJFGLjt79TtESynqxZjovgAInNoBgj4w0VDMTJ11JqwAMCnm9DLVl3y
-	3Qp54I6ikANoXSr+dUhOCfDhaOZ8seb1u27aCae7ukIh4dZDUYdPdm9QDApPGT8F2NBpPe/em1W+0
-	nRznG8jwfZ0BWRxc1Aopox1uty6whsG9Zv4oxPuv60++5CEaSj/pD4wFP9AMsDHvPPewgE46kFXOo
-	H8dA/Q4Q==;
+	bh=b5nbb2wT0veFcsSJ3ebk5cldgs5P7RafDN+qnPOZdx8=; b=Dq8J1YWwNCnfHf3+ke4CgmmJMd
+	2NjjqHlteHDk8dgdKKP/Fwb4dW+Xn6aFUVA/TUQi0ZGSnOiNE0EpH4QkyPZaejBVce0dB565fonzF
+	t3kdd2hEyNhfsn7qr7F1/xOM1a/V+7OZkfWuOh74Mp5o+g5ZDA53NaS88htBE0rEGgnYBkJYjwEKI
+	lM77KFWS8RnEsvdSTco32Z7o5ZfCEofoB1BPgs/uLEMWhaYaaywwzaPohkQr8g9gLebRuYMJjjWFh
+	+M8Pe7mW6mJmt2rNUQsNTcVJNvohgqC1m924hX4OoQQ9+utx0PZhZBZPZIQILGhydoybipK6vXy2o
+	ZmFuD7qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrNIO-00000002rAC-43ud;
-	Tue, 04 Aug 2026 22:07:36 +0000
-Received: from gentwo.org ([62.72.0.81])
+	id 1wrNR2-00000002rPW-01WF;
+	Tue, 04 Aug 2026 22:16:32 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrNIN-00000002r9q-04nD
+	id 1wrNQy-00000002rP1-3K8c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 22:07:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
-	s=default; t=1785880617;
-	bh=QRxCeGb+Adq7LiD+7lUvdxxJiJP+D9Kgl6PhZ4uJptg=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=DAe+N2tmEXUl4l/i68CbM/BPesGL9wZ1sVf/tby8SgjxJsjizi9dHc5L7byqB2opF
-	 pTWvumsCikE9vevIMNTQZRbJcbKISuBgK3tLyCfw1UW64tZOOMALZAFC+WDaMNZlce
-	 WBXT52dg/Eov66DwE5mtH/6nta6O70Du5tdlJ40c=
-Received: by gentwo.org (Postfix, from userid 1003)
-	id CD19540FCF; Tue, 04 Aug 2026 14:56:57 -0700 (PDT)
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.org (Postfix) with ESMTP id CBBC040287;
-	Tue, 04 Aug 2026 14:56:57 -0700 (PDT)
-Date: Tue, 4 Aug 2026 14:56:57 -0700 (PDT)
-From: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, 
-    Linus Torvalds <torvalds@linux-foundation.org>, 
-    Mark Rutland <mark.rutland@arm.com>, 
-    Yang Shi <yang@os.amperecomputing.com>, 
-    Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, tj@kernel.org, 
-    urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-    akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com, 
-    agordeev@linux.ibm.com, linux-mm@kvack.org, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-In-Reply-To: <4baf6edb-c84b-4da9-b905-4d40d4bf5fdc@kernel.org>
-Message-ID: <7f2b2030-b912-70ee-5019-02dad2e87ca6@gentwo.org>
-References: <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com> <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com> <amCPBrdltFSE_fEf@J2N7QTR9R3> <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org> <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
- <anHuLy52o5S9Nlwp@lucifer> <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com> <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org> <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com> <CAHk-=whjfRaeYsAVS9VfYO5uaSB43sT7zPOmNWR6gC8h=t60=g@mail.gmail.com>
- <anIhSGs70TTzymHM@lucifer> <8d6119c7-2216-fcdd-d0b9-cc60ccc8caf3@gentwo.org> <4baf6edb-c84b-4da9-b905-4d40d4bf5fdc@kernel.org>
+	Tue, 04 Aug 2026 22:16:31 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id CB2511A1415;
+	Tue,  4 Aug 2026 22:16:22 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6A0626029E;
+	Tue,  4 Aug 2026 22:16:22 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 129F111C33B27;
+	Wed,  5 Aug 2026 00:16:13 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785881777; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=b5nbb2wT0veFcsSJ3ebk5cldgs5P7RafDN+qnPOZdx8=;
+	b=hl60HZvxSebbdFP8LFwxLnRTC+FS0DsaEnKLu7FcpeH1H54P8NxeNlp77Fs5cZhpl5v414
+	MAOgH54JjLL+Ytq8D3nKuQo8wFfkHXXPaa145xBueuh2lzzVU+flqfffZLd1x3gvh0PR0C
+	2FiCZRaFYvnNStLI3qid5KdKKNbExmNts4yoSiaq10GH/RPpjxRgYL8vxrDV6/pxG6fnt3
+	jigga/J7ZXX9ZaHAHyK1+Mg/OR9BeXALLyByBQLAPdzJ8/x8tU8wFUvIjJuGPNt7YBddUh
+	GL7u13YiAMBBcuqBQROuM4XPFj2QwqkVhd5N2dgycDfEOc3E/wGAwjFVrBHegw==
+Date: Wed, 5 Aug 2026 00:16:12 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Markus Probst <markus.probst@posteo.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Michael Langer <michael.brainbug.langer@googlemail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/5] dt-bindings: rtc: Add pinctrl for S35390A
+Message-ID: <20260804221612c7cc21ac@mail.local>
+References: <20260801-rtc_s35390a_int1-v2-0-f10c99ad1d6c@posteo.de>
+ <20260801-rtc_s35390a_int1-v2-1-f10c99ad1d6c@posteo.de>
+ <20260803-mottled-pretty-sloth-bf7dbd@quoll>
+ <7af047ae0fae27e8bef3d8decdc97a21ee9bf520.camel@posteo.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7af047ae0fae27e8bef3d8decdc97a21ee9bf520.camel@posteo.de>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_150735_095978_F3B09A60 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20260804_151628_993978_D6F8AF5A 
+X-CRM114-Status: GOOD (  28.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,14 +85,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 4 Aug 2026, David Hildenbrand (Arm) wrote:
+On 03/08/2026 23:33:05+0000, Markus Probst wrote:
+> > Frequency needs -hz, but anyway if this is becoming a clock, then you
+> > must have clocks property and this is simply not needed... unless this
+> > is some periodical wakeup call, not a clock? Then simply -hz and
+> > property must be more descriptive (frequency of what? pulse?).
+> Yes, it would become a clock if configured. But in this case, the
+> "clocks" property seems to be a clock consumer property. It would be
+> providing the clock signal.
+> 
+> Anyway, it was added since it was only ~10 lines of code. Looking
+> through documentation, using the clock subsystem might be a bit more
+> driver work.
+> Since I don't have a specific use for it, I will drop it in the next
+> revision.
 
-> > These are operations that are key to the performance in critical parts of
-> > memory management and this code is replicated by being inlined thousands
-> > of times in the kernel.
->
-> Cool, then it is easy to show the difference by running micro + macro benchmarks.
+Usually, the clock is registered in the CCF so it is disabled
+automatically when not used.
 
-And we have done so repeatedly. Look at Yang's posts.
+You can simply add #clock-cells in the bindings and leave out the
+implementation in the driver.
 
+> 
+> Thanks
+> - Markus Probst
+> > 
+> > 
+> > > +            $ref: /schemas/types.yaml#/definitions/uint32
+> > > +            description: Frequency in Hz to be used with mode S35390A_MODE_FREQ.
+> > > +            minimum: 1
+> > > +            maximum: 31
+> > > +
+> > > +        required:
+> > > +          - sii,mode
+> > > +
+> > > +        if:
+> > > +          properties:
+> > > +            sii,mode:
+> > > +              const: 4
+> > > +        then:
+> > > +          required:
+> > > +            - sii,frequency
+> > > +        else:
+> > > +          properties:
+> > > +            sii,frequency: false
+> > > +
+> > > +        additionalProperties: false
+> > > +
+> > > +    additionalProperties: false
+> > > +
+> > > +unevaluatedProperties: false
+> > > +
+> > > +examples:
+> > > +  - |
+> > > +    #include <dt-bindings/rtc/s35390a.h>
+> > > +
+> > > +    i2c {
+> > > +        #address-cells = <1>;
+> > > +        #size-cells = <0>;
+> > > +
+> > > +        rtc: rtc@30 {
+> > 
+> > Drop unused label
+> > 
+> > > +            compatible = "sii,s35390a";
+> > > +            reg = <0x30>;
+> > > +            pinctrl-0 = <&rtc_pins_default>;
+> > > +            pinctrl-names = "default";
+> > > +
+> > > +            wakeup-parent = <&int>;
+> > > +
+> > > +            rtc_pins_default: pins {
+> > > +              int1-pins {
+> > > +                pins = S35390A_PIN_INT1;
+> > > +                sii,mode = <S35390A_MODE_WAKEUP>;
+> > > +              };
+> > > +              int2-pins {
+> > > +                pins = S35390A_PIN_INT2;
+> > > +                sii,mode = <S35390A_MODE_DISABLE>;
+> > > +              };
+> > > +            };
+> > > +        };
+> > > +    };
+> > > diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> > > index f4d0eed98a08..7b3f682ef4d5 100644
+> > > --- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> > > +++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> > > @@ -81,8 +81,6 @@ properties:
+> > >        - ricoh,rv5c386
+> > >        # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
+> > >        - ricoh,rv5c387a
+> > > -      # 2-wire CMOS real-time clock
+> > > -      - sii,s35390a
+> > >        # ST SPEAr Real-time Clock
+> > >        - st,spear600-rtc
+> > >        # VIA/Wondermedia VT8500 Real-time Clock
+> > > @@ -105,5 +103,4 @@ required:
+> > >    - reg
+> > >  
+> > >  additionalProperties: false
+> > > -
+> > >  ...
+> > > diff --git a/MAINTAINERS b/MAINTAINERS
+> > > index 716acfc3d7c1..c85be1eefdb1 100644
+> > > --- a/MAINTAINERS
+> > > +++ b/MAINTAINERS
+> > > @@ -22696,6 +22696,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/abelloni/linux.git
+> > >  F:	Documentation/admin-guide/rtc.rst
+> > >  F:	Documentation/devicetree/bindings/rtc/
+> > >  F:	drivers/rtc/
+> > > +F:	include/dt-bindings/rtc/
+> > >  F:	include/linux/rtc.h
+> > >  F:	include/linux/rtc/
+> > >  F:	include/uapi/linux/rtc.h
+> > > diff --git a/include/dt-bindings/rtc/s35390a.h b/include/dt-bindings/rtc/s35390a.h
+> > > new file mode 100644
+> > > index 000000000000..dcd0ca15f9e9
+> > > --- /dev/null
+> > > +++ b/include/dt-bindings/rtc/s35390a.h
+> > > @@ -0,0 +1,23 @@
+> > > +/* SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause) */
+> > > +
+> > > +#ifndef __DT_BINDINGS_RTC_S35390A_H
+> > > +#define __DT_BINDINGS_RTC_S35390A_H
+> > > +
+> > > +#define S35390A_MODE_IGNORE		0x0
+> > > +#define S35390A_MODE_DISABLE		0x1
+> > > +#define S35390A_MODE_WAKEUP		0x2
+> > > +#define S35390A_MODE_ALARM		0x3
+> > > +#define S35390A_MODE_FREQ		0x4
+> > > +#define S35390A_MODE_PMIN1		0x5
+> > > +#define S35390A_MODE_PMIN2		0x6
+> > > +#define S35390A_MODE_32768KHZ		0x7
+> > > +
+> > > +#define S35390A_MODE_INT1_MAX		0x7
+> > > +#define S35390A_MODE_INT2_MAX		0x5
+> > > +
+> > > +#define S35390A_FREQ_MASK		0x1F
+> > 
+> >  don't get why this grew. None of these look like bindings.
+> > 
+> > 
+> > > +
+> > > +#define S35390A_PIN_INT1		"int1"
+> > > +#define S35390A_PIN_INT2		"int2"
+> > 
+> > Drop entire header.
+> > 
+> > > +
+> > > +#endif /* __DT_BINDINGS_RTC_S35390A_H */
+> > > 
+> > > -- 
+> > > 2.54.0
+> > > 
+> 
+
+
+
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
