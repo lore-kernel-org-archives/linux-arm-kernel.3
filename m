@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A4EC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 01:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8516C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 02:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQ2+AbYITnQpEf3G7kidcS8ENfHDZJS6JKPhQsc5Y/M=; b=X2d9YlmUmripqyEUER5MOdam7s
-	QaS0jZPLLAygTaJszPNT8OZrlBzq1XViZgEDYy4ieV2BTBcgScLWyWYE2XWqMqmC2eTA+368ZGs3u
-	jjw0Sz45LXrNeKCuSyzpHcG48mzHYSPe8Jx6XbnH8atBFTBiYoCa9serGTwaCeFICURojdCh9jxNj
-	ENcamd+jcr6P0HpJBajKu39vzouNzu2oSdV04ln3mXk+kGxqMeKuFeobKQ3Vqkb8z0C9O+RDb2n5/
-	/yaEpSQZ9YW+A0hBxrDI1byBk2vqbChMy/jWLTig/UmlVnBrdGDRdoy4TExVVtdDNZ3IUZuiHquv+
-	c4rejmsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mhqh3Nz3FO5T9fLfc4e6l+Yx57i8XvSVRlL8MU9+QdA=; b=RwsWXDsopWomCK
+	MmqFRaxancYsq5v0UVcWsoZu3Ms0KkGpjz92aFpP/8ToxhMvpUIVcEQqpJpMxW6wOL4pVyQPEKDVv
+	JsV0rxQrKSNYZNasTnOLm00OGtGvyUxwZ4U9l1CFU7YKG45IOLwJ7+sluQ6kal3lGCJpucgFzFnXQ
+	xfZ3ueutyHMpJ1Yz4Rz3+fyCntISfsMjJya0FNJ2eKS3YyKUX7BA/C/+XwqG7jpSlJSkOdOjZIr0S
+	V6Xt/FbfgesFk86Du2a1uMuTTIOUFw1o823sbxZsqDuxfmsnd2k3flks3dUNENz0VIWPexo84rere
+	AXc7dqNfjSjnDNjGjBUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr4Pe-00000000oEt-1whn;
-	Tue, 04 Aug 2026 01:57:50 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wr4ZO-00000000oTN-1H2q;
+	Tue, 04 Aug 2026 02:07:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr4Pb-00000000oEL-3wWi
+	id 1wr4ZM-00000000oT8-2jsi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 01:57:49 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2cf50c6f235so45404465ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 18:57:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785808667; x=1786413467; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=SQ2+AbYITnQpEf3G7kidcS8ENfHDZJS6JKPhQsc5Y/M=;
-        b=aBHojaNC5cvT/OYRyj+3fM/K0FEDAF54+Ym0rOz/8OrBliH3HaGI3vN729VejLaCD8
-         PxYr/XXeQVpBGGyA13Svym6w6WwgB2BVOd4/FBTxZU1HP/az0z5GUBbZ8rxLfxEI+qlZ
-         7aYOIxLMCYUQ4nof/3g4RzODcOyA9kNxx3GjGwGu6UsYYztKmWT/wdj0BV86GdPn2ySp
-         0Z2bhI96zk3t/v5aGkOw/TmUvpMAW3B6JNv7cMvCrXWxdFPu5CnkS+sad4F4RWTDNBFo
-         FLBMt7QTc1T0tTp9C3F8GTiWk+3cCaw9dHCeRdvnL4/OzbX0EFa6+XWrbCYu83IySKPf
-         N3+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785808667; x=1786413467;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SQ2+AbYITnQpEf3G7kidcS8ENfHDZJS6JKPhQsc5Y/M=;
-        b=klNSLyqeESlWK9NKnmPoZDk6e7aGValEYGUBD4zyVlbTuuu8A+zfc2RO52wPQ/Tv/0
-         VpA6HZJFV2E0EQaAJoChgYlTwjFLFnrSQ0OchbM6W81b9+NUtdKJOrBqYE+LU7g7E9qL
-         8lgKVdJaZ8/OWSFe8QbTflVsy61I0dzS3uxvihPyJwOr3hzSkpPeRhkBP8HicE/W3thJ
-         14sjhYPHCp5kcy4VpJPhaACvnZVRXzqMaZDsYI27mwQaL8SuTiv0kShu7YDZRd15QJ5g
-         E+U0ZO0PA/uUe/DmZyXlLyPo5BAqeNnpzRZP02xPIhmZZbuTou+gUJNWU/yGEce+7lbs
-         AHmg==
-X-Forwarded-Encrypted: i=1; AHgh+Rp1MC/TSejD5d+2mlaJJEXm8ktfMQfLbbSoGe65ALhupekpw4kGdF7Ftm17wKCdGalYEvIlxJ/fFkRly68vBkeW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkAasvzlLtr0UjPphRB2+nOMdimPBY5+EUxXfkE7XbChQjX6UC
-	zEF4UdID0cfER5Jegs/mCEDZvkk6MZ1e+ldwsIGSuD0KDWAkYAa6kwib
-X-Gm-Gg: AR+sD13lYZWr144AhSA0IqnIIDCPaElcjdvlD69p8ZCoc6VBIZLv4sRBagP4f0UVMnk
-	43e4ovGDe9dP4zFVCcHIsn3wtoDDvmF1IaZI56t1cNZYBR2p5LvKjSGGHKl4VqhUaEVp/RK7sXK
-	1vWPDWkiTqT93IQ2Z3m9VgDJ/IwHMB3vDSbY9NcJvnjq+2QEdtBv81HKiuVh4gV7eyyBS8n2EZ2
-	BsOhPGibZjkiOV8i2PCSn4e/x2f+7iqsQhy5MrZZ4QB3cJ2WS42lPiNL1HR7t3seT7pFwPW4kjd
-	bbEQk9sWlkvSEYTTAKogn4E+Wi1geat6+dk+2/vZVXSmMROTw1dKCMq/RvKo38PXG1MR59cu2hC
-	0ubUIqk1496O4RF5/XF7tzu63OdXPPLCwsidJmhxVhbHizPDZ7VyEoud+XvqNLP86GFuh1gGCER
-	ibk4aMn4wJRO16HXjhiKHNqVyneVzlwQQcg6RKPbszBscNI6EBggODpobcfabfgbq4Hg8IRuoFe
-	HxZYe9ovkAdQOFCjXA7dzIZ2aWplkbuwa46G/xv
-X-Received: by 2002:a17:902:c40b:b0:2ca:bb5b:3c92 with SMTP id d9443c01a7336-2d05244ce77mr116332265ad.35.1785808666874;
-        Mon, 03 Aug 2026 18:57:46 -0700 (PDT)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d04b15c1e4sm44632235ad.75.2026.08.03.18.57.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Aug 2026 18:57:46 -0700 (PDT)
-Message-ID: <90e97c2e-c288-4417-965c-04565d042261@gmail.com>
-Date: Tue, 4 Aug 2026 09:57:43 +0800
+	Tue, 04 Aug 2026 02:07:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 14D114505F
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 02:07:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECF9E1F0155D
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 02:07:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785809272;
+	bh=mhqh3Nz3FO5T9fLfc4e6l+Yx57i8XvSVRlL8MU9+QdA=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=ca16PMlxzRpA6Oq/fIE1y3VavJRKMJk11tEGYT4u8JfvW/lI1YhYc0iBHFai7yAlZ
+	 D1klSGP1VbJbevPvXuJ42EsiIW/znQk6Uw9wkENrtWGubwmrbqkPsAZibK//O6AMqg
+	 hJiSyka3RBYKxwU5TZaV6OYUUhdr3tvk+PDJSdD5cA+WYNhqMsAbUxjcST6+7M5umB
+	 ve0aQrpx6KQjQ8+iqcBIHEa8CTYwYJB8qx6v4G7XNZrrGWNUEScqmrwUsTqlHF8ARi
+	 0ndcsxkrxX3NjxD+u3G4cMJ5QfXF1pv2LsdVduYPNULmUQ5BZxoaa/jy+PIDHTZkuN
+	 OC6BQR3rzxQ6w==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-39c908d6cb6so45939461fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 19:07:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rq9TE56yZ65Fx1eZLSwygMvhD9PPnPum5GHZC6oJ40ZsO/QBbZCgxLc/rFfFY04phcKMJ53weeZ5OrFQ4K9pLxQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+fmJhKgEFddpDyc7uEl9nebqMkv/19qFkXDm/wDHW8H2xIkvI
+	2xRsu3OL9WjnJJoanwv7lVXlzqS22meTRuriEZePiL2fQdF7GJNnATpmNBh4hdordgfsdMGxqm/
+	El0elngcWJlBQWcJ1bnbD+YMPu/TDPKg=
+X-Received: by 2002:a2e:9fc6:0:b0:39b:14ba:a5da with SMTP id
+ 38308e7fff4ca-39f86175217mr27582561fa.13.1785809270230; Mon, 03 Aug 2026
+ 19:07:50 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] spi: ma35d1-qspi: Enable GPIO chip-select support
-To: Mark Brown <broonie@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cwweng@nuvoton.com
-References: <5769eae0-1b40-419f-8311-0d919bf619fa@sirena.org.uk>
- <20260803074913.1656675-1-cwweng.linux@gmail.com>
- <edabced4-b7b1-4b2c-a358-d47e4b7e8e9c@sirena.org.uk>
-Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <edabced4-b7b1-4b2c-a358-d47e4b7e8e9c@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_185748_004884_98970B23 
-X-CRM114-Status: GOOD (  13.36  )
+References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
+ <20260802-submit-acx00-of-dynamic-v1-v1-10-0a53cd9e21cc@gmail.com>
+ <05b1e6a2-725e-4b8e-8629-249637bbcb81@lunn.ch> <CADvTj4o0JdjoO+FC4pO=qnjEQ8MRyzQdKp2Hxy9NsPU-gym5OQ@mail.gmail.com>
+ <9b8be475-1fde-409c-a82e-be4b2e402650@lunn.ch> <CADvTj4pBovti19MXgQjFpxm=7aRm0sYQz9jxfo8bu3txH94THQ@mail.gmail.com>
+In-Reply-To: <CADvTj4pBovti19MXgQjFpxm=7aRm0sYQz9jxfo8bu3txH94THQ@mail.gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 4 Aug 2026 10:07:38 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64U9ZQxfb7M3VfoGH60iMHL01XDy6tjs8VbFPLfyaJWgw@mail.gmail.com>
+X-Gm-Features: AUfX_mwGp_0m2GBis6TyXtQmz_W7xdVls2yXgA2h06qYGgsxLQfwj2BxAwZBVtk
+Message-ID: <CAGb2v64U9ZQxfb7M3VfoGH60iMHL01XDy6tjs8VbFPLfyaJWgw@mail.gmail.com>
+Subject: Re: [PATCH 10/21] net: phy: add X-Powers AC200 EPHY control driver
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Andre Przywara <andre.przywara@arm.com>, Richard Genoud <richard.genoud@bootlin.com>, 
+	Maxime Ripard <mripard@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	mfd@lists.linux.dev, linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +92,106 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Aug 4, 2026 at 2:45=E2=80=AFAM James Hilliard <james.hilliard1@gmai=
+l.com> wrote:
+>
+> On Mon, Aug 3, 2026 at 11:57=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrot=
+e:
+> >
+> > On Mon, Aug 03, 2026 at 10:09:01AM -0600, James Hilliard wrote:
+> > > On Mon, Aug 3, 2026 at 7:51=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> w=
+rote:
+> > > >
+> > > > > +static int
+> > > > > +ac200_ephy_ctl_set_led_outputs(struct acx00_ephy_control *contro=
+l,
+> > > > > +                            unsigned long outputs)
+> > > > > +{
+> > > > > +}
+> > > >
+> > > > > +static int
+> > > > > +ac200_ephy_ctl_set_led_polarity(struct acx00_ephy_control *contr=
+ol,
+> > > > > +                             bool active_low)
+> > > > > +{
+> > > > > +}
+> > > >
+> > > > I've not looked into the details, but these look like pinmux. Does
+> > > > this I2C device have a GPIO controller? Can these pins be used for
+> > > > other things than LEDs? Maybe you should be implementing a GPIO and
+> > > > pinmux driver. The Ethernet PHY driver can then just select the
+> > > > correct pinmux configuration.
+> > >
+> > > These do not appear to be GPIO or muxable pins. The AC200
+> > > documentation describes them as three dedicated EPHY LED
+> > > outputs: link/activity, speed, and duplex. The bits in SYS_EPHY_CTL1
+> > > enable those output pads, while EPHY_CTL provides their shared
+> > > polarity setting. I have not found any documented GPIO data
+> > > registers or alternative functions for these pins.
+> >
+> > So what i'm trying to do with both of these is make it look more like
+> > standard Linux building blocks.
+> >
+> > If that is not possible, i would actually put all this code into the
+> > PHY driver. You then have a regmap property to gain access to the I2C
+> > registers.
+>
+> I understand the goal of using standard Linux building blocks where they
+> fit, but I do not think folding these control paths into the common PHY
+> driver gives the right device model here.
+>
+> The AC200 and AC300 expose the same Clause 22 PHY interface, but their
+> control functions are separate devices with different transports and
+> lifetimes. The AC200 control function is an MFD child accessed through
+> the parent I2C regmap. The AC300 control function is a separately
+> addressed non-PHY MDIO device. A regmap reference only describes the
+> AC200 transport; it does not represent the AC300 control device.
+>
+> Folding both implementations into the common PHY driver would make that
+> driver manage AC200 MFD registers and resources as well as an AC300 MDIO
+> control endpoint. That would mix the package-specific control transports
+> with the otherwise common Clause 22 implementation.
+>
+> The current split uses standard subsystems wherever they provide a
+> matching abstraction: MFD, regmap, MDIO devices, clocks, regulators,
+> NVMEM, device links, and the PHY LED framework. The narrow private
+> interface covers only the compound operation which those frameworks
+> cannot express: calibrating, addressing, configuring, and sequencing the
+> package control block before the Clause 22 interface becomes usable.
+>
+> The link address is an important example. It is defined once by
+> phydev->mdio.addr. AC200 must program that value through its I2C control
+> interface, while AC300 must validate it against the address of its MDIO
+> control endpoint. Generic PHY operations do not carry a consumer MDIO
+> address. Encoding it in a phys specifier or control-node property would
+> duplicate the PHY node's reg value. Giving the common PHY driver a raw
+> regmap avoids passing the address only by moving the provider-specific
+> implementation across the driver boundary.
+>
+> The LED pad-enable and polarity bits are similarly part of the package
+> control function. They control dedicated EPHY outputs rather than GPIOs
+> or muxable pins. The common PHY driver still owns the PHY LED semantics,
+> while the selected control driver performs the package-specific register
+> access.
+>
+> For those reasons, I think keeping the transport-specific control drivers
+> and the common Clause 22 PHY driver separate is the cleaner division.
 
-Mark Brown 於 2026/8/3 下午 08:30 寫道:
-> On Mon, Aug 03, 2026 at 03:49:11PM +0800, Chi-Wen Weng wrote:
->> From: Chi-Wen Weng <cwweng@nuvoton.com>
->>
->> The generic SPI controller binding allows GPIO-based chip selects, but
->> the MA35D1 QSPI driver currently supports only the controller's two
->> native chip selects.
-> Please don't send new patches in reply to old patches or serieses, this
-> makes it harder for both people and tools to understand what is going
-> on - it can bury things in mailboxes and make it difficult to keep track
-> of what current patches are, both for the new patches and the old ones.
+I think what Andrew is saying is that you can expose the regmap from the
+MFD node, which you then reference from the PHY node with a custom phandle.
 
-Hi Mark,
+In the PHY driver, the first thing to do is retrieve the syscon, and if it
+is not available yet, return -EPROBE_DEFER. Then you program all the bits
+you currently do, just without going through a layer of redirection.
+You can fetch the PHY address to program from the device tree. The downside
+to doing all the setup in the PHY driver is that the PHY node has to have
+the PHY ID in the compatible, as it is no longer generic. But you already
+have that.
 
-Understood. I will send future revisions and new patch series as new 
-top-level threads rather than replying to older patches or series.
 
-Sorry for the confusion, and thanks for the clarification.
-
-Best regards,
-Chi-Wen
-
+ChenYu
 
