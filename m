@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D6DC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7554C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M5UXze5ARMASnHW0DMs+U94NSouTokoB+K8E72tD5u8=; b=STxkqYPnYvjfUcnrgHbLZf85LW
-	9WrFEmFcdOLCqP74dEXEK1MF5U4AeE/+mqUYD8iX8dDqYe8I8bFEKFTSGT92OVe7Oq6g+H1mbWmQV
-	ZtA3RQMbahCi9e31DlH3Abmn0tD/ELE+AT3dp3m/mpMxNVMF9ydysFTzVaQgdCb4dTIA7S3JMD++R
-	dv9S0ccwJvxZSPgYwJGKNkcYR2nT1Qk5vNSpZ6PsP6mCaGsCPjL2acRLVpW/L15xDPP4XcS6rf09r
-	JG9bUz+NoNbWrg8JrDP7k4BUBMpdxSDzwmP2YGkimzz86MXqW9bWMaZBcYn2xCOPIzZr92haQkbTp
-	5RKUEVFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tdo0g0OzljhYp8D7Lk64Y0YwWCc5s5e0e2hV/SX6BIE=; b=pXlCnlx8Zmjh+jDRera85EmpRQ
+	odsaGVxJ62yklW+FzzpPhMrCvTTHCzugjzHx/dmwdloIswJhkiUGXNppQZ9rjqiicM3Cq1RSyh9wY
+	mgaS3ZGg4Fd9gfQntdQgPgIzQT2Taqk/EV7E26OGscO3dI270v1VtnmBfDXkqnTXHgmszW8BH3afc
+	F/dWeGoMusaPgIK0iOScDl4UhbhikqsV5hbw9XsJMkyoWBG3hp8E24/IdHV0IWOTxPJahj+gbQ2ce
+	5IV8iMUuqK+UMPWFXzK8nw06ZLc2058ogfVZkKvn0fSc0mQd6h4R312eJCJQCvcsgc+tZqxkNq3wj
+	Ad6ZyPhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIrq-00000002UBp-0zzY;
-	Tue, 04 Aug 2026 17:23:54 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1wrIs6-00000002UFv-1XLI;
+	Tue, 04 Aug 2026 17:24:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIrm-00000002UAH-2Poh
+	id 1wrIs4-00000002UFH-3xRg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 17:23:52 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1785864223;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=M5UXze5ARMASnHW0DMs+U94NSouTokoB+K8E72tD5u8=;
-	b=Q+AgpakCP/bdeBvONoVu3oyREQlYxGbbzUDk+8E+iqqDOABmC/+O0b2nz0m0VyKwqBb5WY
-	sT3gZDCPB6jMLNOrJauwTdD52BGoyE2J2+qJDTLm8NT91J3DteptZlPXjMYuWawrRFGf3W
-	EQNlCUG1UsdDvVS1omoKjWhXISNo6ZE=
-Date: Tue, 04 Aug 2026 19:23:15 +0200
-Subject: [PATCH v3] arch: arm64: add early_param idle=<wfi|yield|nop>
+	Tue, 04 Aug 2026 17:24:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 053D060A83;
+	Tue,  4 Aug 2026 17:24:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD2EA1F000E9;
+	Tue,  4 Aug 2026 17:24:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785864247;
+	bh=tdo0g0OzljhYp8D7Lk64Y0YwWCc5s5e0e2hV/SX6BIE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FYxC6jQHQoCG8KneX3WjShKc9ImEL+D6mwQ9pJ4Fum1n1E+DR0vkFF0VuzOhnMncP
+	 UTljgqnABgSWALppud8dEdIzp5SiDln9LtWdrr/rVNq7njEEP0GxtiVN0R5oIDJb2U
+	 XnIHGdreR/x+oGSbu0/tCGhc9JaK+I6u8p9sTcuooOUqhSe2qROtgvgazbhUm2wrIO
+	 LvCGtZoIpfCvZN2DiugJVKPNaapL8SdnnBSC+Mfk9BNLtUDlhhGne3ReNiXgdn3Sc6
+	 BvWwj5wNaqy7WkfldfQn6woSljyNqfmuyplDKZQV4LLVD7j7gSiOq3gMBYPAQ4dSGQ
+	 0wcV7RmRmpNbQ==
+Date: Tue, 4 Aug 2026 18:23:48 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>, 
+	"David Hildenbrand (Arm)" <david@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Yang Shi <yang@os.amperecomputing.com>, Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, 
+	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
+	akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
+	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+Message-ID: <anIXr4Kbn59Ac31Y@lucifer>
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+ <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+ <amCPBrdltFSE_fEf@J2N7QTR9R3>
+ <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+ <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
+ <anHuLy52o5S9Nlwp@lucifer>
+ <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com>
+ <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org>
+ <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260804-arm64-idle-param-v3-1-d10f8159062b@cyberchaos.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33OTQ7CIBAF4Ks0rMUA5Se68h7GBaWDxdjSQCU2T
- e8u1I2JxuWbvPlmFhQhOIjoWC0oQHLR+SGHelch0+nhCti1OSNGmCSKCKxDL3ke3gGPOugeG6a
- sIaBAE4Hy2hjAuudGni/vHB/NDcxUnNLoXJx8mLebiZbeHz5RTLHigjN+sFzV9mTmBkJ+zsd9C
- wmVG4l9KJT+UFhWiG6kkoJpXosvZV3XFxDJLlgNAQAA
-X-Change-ID: 20260705-arm64-idle-param-c27fc0e7ea05
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Yureka Lilian <yureka@cyberchaos.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_102350_865243_0147CCE1 
-X-CRM114-Status: GOOD (  20.20  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,128 +83,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Overriding the idle mechanism might be useful for debugging and performance
-testing. Add a cmdline parameter for it, similar to the existing idle=
-parameter already present for the x86 and ppc architectures.
+On Tue, Aug 04, 2026 at 09:30:08AM -0700, Linus Torvalds wrote:
+> On Tue, 4 Aug 2026 at 09:27, Christoph Lameter (Ampere) <cl@gentwo.org> wrote:
+> >
+> > We certainly do not want to replicate that approach. We are using the per
+> > cpu page tables to avoid address calculations in the VM that other
+> > platforms can do with a segment override.
+>
+> Right, and I said that that's ok as long as it's a internal
+> architecture thing. Not a "this is how the VM works".
+>
+> Because people really have wanted to make it a "this is how the VM
+> works" thing. And that is very much what I object to.
 
-It is also useful on platforms where the WFI instruction misbehaves,
-such as Apple Silicon SoCs. Generally, a misbehaving instruction should
-be treated as an erratum and patched using the alternatives framework.
-However, in the Apple Silicon case we need more flexibility because it is
-difficult to detect whether the erratum applies. For example, Linux VMs
-inside macOS have the same MIDR and may even seem like they're running
-in EL2 in the case of NV, but should continue using WFI (it's trapped and
-handled correctly by the hypervisor there). Thus, we prefer to
-let the m1n1 bootloader add the idle=nop parameter[1].
+Well :) it fundamentally changes how mm works - now we have a whole new set of
+kernel page tables and PGD's that we have to think about.
 
-Link[1]: https://lore.kernel.org/all/99b69262-e54b-424e-baa2-96ef7013b87a@kernel.org/
-Suggested-by: Will Deacon <will@kernel.org>
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
----
-Changes in v3:
-- Make the param only affect the default idle loop.
-  The changes to the delay function have been removed, and the idle.h header is no longer needed.
-- Link to v2: https://patch.msgid.link/20260711-arm64-idle-param-v2-1-0ab67652a435@cyberchaos.dev
+And the series either tries to hack changes that fundamentally alter how
+vmalloc works or will add its own duplicative kernel page table code to do the
+same kind of thing.
 
-Changes in v2:
-- Applied suggestions by Anshuman Khandual (Thanks!)
-- Link to v1: https://patch.msgid.link/20260705-arm64-idle-param-v1-1-7454249f473f@cyberchaos.dev
----
- Documentation/admin-guide/kernel-parameters.txt | 23 ++++++++++++++++++
- arch/arm64/kernel/idle.c                        | 32 +++++++++++++++++++++++--
- 2 files changed, 53 insertions(+), 2 deletions(-)
+So now core mm has to worry about TLB coherency and synchronisation, how this
+might interact with things like page table isolation, and a lot of other
+headaches (and I'm not really convinced they've been thought through here).
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index b2d7d3540ded..d7f5471edf8f 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -2239,6 +2239,29 @@ Kernel parameters
- 
- 			idle=nomwait: Disable mwait for CPU C-states
- 
-+			[ARM64,EARLY]
-+			Format: idle=wfi, idle=yield, idle=nop
-+
-+			idle=wfi: Use the WFI (Wait For Interrupt) hint
-+			instruction in the idle loop. This is the default and
-+			allows the CPU to enter a low-power state until an
-+			interrupt arrives.
-+
-+			idle=yield: Use the YIELD hint instruction instead of
-+			WFI. CPUs supporting simultaneous multi-threading (SMT),
-+			can continue executing another thread when the current
-+			thread reaches the idle loop. This will make the CPUs
-+			eat more power, but may be useful to get slightly better
-+			performance in some applications, since the CPUs will
-+			not enter a low-power state.
-+
-+			idle=nop: Do not execute any idle instruction in the
-+			idle loop. This is useful on platforms where WFI
-+			misbehaves, leading to system instability or loss of CPU
-+			state. This will make the CPUs eat more power, but may
-+			give slightly better performance in some applications,
-+			since the CPUs will not enter a low-power state.
-+
- 	idxd.sva=	[HW]
- 			Format: <bool>
- 			Allow force disabling of Shared Virtual Memory (SVA)
-diff --git a/arch/arm64/kernel/idle.c b/arch/arm64/kernel/idle.c
-index 05cfb347ec26..42c5543f9589 100644
---- a/arch/arm64/kernel/idle.c
-+++ b/arch/arm64/kernel/idle.c
-@@ -11,6 +11,29 @@
- #include <asm/cpufeature.h>
- #include <asm/sysreg.h>
- 
-+enum {
-+    ARM64_IDLE_WFI,
-+    ARM64_IDLE_YIELD,
-+    ARM64_IDLE_NOP,
-+} idle = ARM64_IDLE_WFI;
-+
-+static int __init setup_idle(char *arg)
-+{
-+	if (!arg)
-+		return -1;
-+	else if (!strcmp(arg, "wfi"))
-+		idle = ARM64_IDLE_WFI;
-+	else if (!strcmp(arg, "yield"))
-+		idle = ARM64_IDLE_YIELD;
-+	else if (!strcmp(arg, "nop"))
-+		idle = ARM64_IDLE_NOP;
-+	else
-+		return -1;
-+
-+	return 0;
-+}
-+early_param("idle", setup_idle);
-+
- /*
-  *	cpu_do_idle()
-  *
-@@ -26,8 +49,13 @@ void __cpuidle cpu_do_idle(void)
- 
- 	arm_cpuidle_save_irq_context(&context);
- 
--	dsb(sy);
--	wfi();
-+	if (likely(idle == ARM64_IDLE_WFI)) {
-+		dsb(sy);
-+		wfi();
-+	} else if (idle == ARM64_IDLE_YIELD) {
-+		dsb(sy);
-+		asm volatile("yield" ::: "memory");
-+	}
- 
- 	arm_cpuidle_restore_irq_context(&context);
- }
+IOW - breaking fundamental assumptions about kernel page tables is inherently a
+whole-VM change (See [0] for instance for an example of what can go wrong).
 
----
-base-commit: bee763d5f341b99cf472afeb508d4988f62a6ca1
-change-id: 20260705-arm64-idle-param-c27fc0e7ea05
+If Christoph + Yang can provide compelling data that advocates for this change
+AND the core mm and arm64 communities agree to move forward with this, then
+things are different.
 
-Best regards,
---  
-Yureka Lilian <yureka@cyberchaos.dev>
+However, I think the best approach here is to find the least invasive way of
+limiting the change to the architecture itself.
 
+Mark has put forward an approach that eliminates the exact overhead that this
+series aims to address but does so without having to fundamentally alter core
+mm assumptions (v2 posted at [1]).
+
+So that seems very clearly to be a better alternative to me.
+
+Ultimately we need mm and arm64 maintainer agreement on the way forwards (or in
+the case of a truly isolated arm64 solution, arm64 maintainer agreement).
+
+The LSF session was not encouraging ([2]) and as an mm maintainer I'm not at all
+happy with this myself, nor does the arm64 community seem all that enthused so I
+would against gently suggest to Christoph to be a little more open-minded about
+the the proposed alternative which he seems to have dismissed out of hand.
+
+>
+>               Linus
+
+--
+Cheers, Lorenzo
+
+[0]:https://lore.kernel.org/linux-mm/20260723-series-vmap-race-fix-v6-0-8cc77dcc0018@kernel.org/
+[1]:https://lore.kernel.org/linux-arm-kernel/20260804170503.3513916-1-mark.rutland@arm.com/
+[2]:https://lwn.net/Articles/1073395/
 
