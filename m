@@ -4,163 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0519CC55ABC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C516C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:17:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JeGckGAtU2mBLl8s4aGiYH7rSeNEpn0PkB09bYxAUWA=; b=IZeDAsy7y0m+5hdv+lnl9sM15Q
-	5V1YSR+/uOedDxLgaFJpH937Tr8p5Ldy53B7mNR+Tc0XL9mS22y77P65hDscktBEp+zc29IhzXofV
-	QDAMjsmPXnIUzkk9TCOmrHJqRoMcuajf20ZQ+JCCoCx1jqRw+zwYsvRO0lmAw42BjFdWIMBaR9q0J
-	IuxeLnhLXTz8vuPnVTyLxnsLXNO8Gj8lT0YSovKOPmjpDL4OJo2d8vtH/Tq/Wr/gfsPEz7kshQFY1
-	fyHhNqDhz2hhwQU5jF5MJrpMUSeIl1/+o992pz8CLZpj1cOkA3zAyf6H0yV5rDDKByfE8cIXKn0fI
-	fjQZZmew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cCH7wGS/DSGdpdibtHkqUSVfV1DZbBvdNwFnheuEGLk=; b=NEdz+EbpLd72Y5M1Po/y25q5tH
+	wnuZKEq7+Jg66+PbJ+xhVDwE5sLcJhtlZmLPRPYz9/wd2J2fSsCx4JODDp+LRNvXpQperNy424BJG
+	pfvwpLPG+IToyeEWkEQiJB8JSBUoGDGT/qXi9i5ZO8lFLvt2F2FhPUg31Eiar6VlAVoF6buAvvgda
+	nVB9Kl73qo2HpD1ycANy53LMBmR5uSW83u4hJsJ31uy5Hc5rYgRilFo1tboEQm4r5fyCFhVJlh5UL
+	iKFqZLERZ93zkyHSaeG6PyPRnp5IGAcXQpt3Nqk4xcBKAVWv76B10hH3PAZQ5ZmHEGhEdMgMDhJO6
+	4tzGhoSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9Oo-00000001Cow-0pEb;
-	Tue, 04 Aug 2026 07:17:18 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wr9Oq-00000001CtD-2EVU;
+	Tue, 04 Aug 2026 07:17:20 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9Ol-00000001Clf-3HqI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 07:17:17 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67417RZi1670140
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 4 Aug 2026 07:17:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	JeGckGAtU2mBLl8s4aGiYH7rSeNEpn0PkB09bYxAUWA=; b=CXiPuX2s/89AYhpy
-	2QSuJq5nmOgj/EecpJq4bb7CzZ5YNO29lTKakdlQryXtbYs6WxOiMtB16ghW0i9Q
-	PXDokzH9VN16EWq+efj3M8WK9Gb5cbzS8jwhGVak9ve4O0/p7RcPu5/buWrG3DaY
-	8uDb2oddpp5st9lt+fPjXyrLvK6yd7G/AqNd++TlPGA09JsF/B7UOetA+tkjITIA
-	vG3gOPAvzDCBiMbWcNjENkWQHn+VGw5U530obFJB95WGuY8/ANOgQHpdPOqnBkb1
-	wo2CS7cgfP9iY7Wricm1hczUxKEC1ni6HBOzSpXVLmMGW6jAUzptsdDTmeZZFoG4
-	U4Px0w==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ftx7m3cyp-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 07:17:15 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c1c7f135bso74688711cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 00:17:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785827834; x=1786432634; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JeGckGAtU2mBLl8s4aGiYH7rSeNEpn0PkB09bYxAUWA=;
-        b=LNALE5KU4a+SvqT5/2XtNnXFd7r7ApOhPockG4yO6zjwIPiZxV0/sanJPzwWmKD2TG
-         uwvCwgyat5zbCDwMENXOl5Vb11pQjrJiGEBP1WTAtuLgICx7FVum+v9U298hKQJjP5qz
-         XBEfy9jc31d+ILAAkfUItyyDf9rH3H9jec3z/Q+nvvCm1LRHlASbwINYgvKahMargGnc
-         3zb7fVk5t6RkgoUJW9+w+UXs85gBjhe1gcDiu3nqnMWZf3rfMBpzMtkjwvq5WG6msJtK
-         SlGI/n0zp2yBrUBFs/JICDu9pYJw3/Zvtv4dyHZ5xS+hXjW8t/Iu18n/UGjg2u12elAd
-         7KYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785827834; x=1786432634;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JeGckGAtU2mBLl8s4aGiYH7rSeNEpn0PkB09bYxAUWA=;
-        b=i7vxSzQA9czeVrhwRREa189ARdrC+OPLIVM8EURfZzj0tJWarCwcT74dcgEw8swUXf
-         R4oDTY00R6Yvm5+GQs4WEyOBwI+asI9mUH6E3aoemNvRIocipTdO6AEuiCyMbojvs20n
-         zv6k1K+tj+AUnGB8WMu0h0WE2tGpBNd0Z8RtSgWJHPLxQrRfdg1M3EdvhtZPQPbwpmZL
-         zoN6uHgtbPNo+I6AjJdZvuhPa+E6URw7PS74+qFO5nIrYeYgAp7SblQUkMoGNtR4vmsa
-         dFl4ClpgAnSzqeB4CyGlmC9q2CD62dOOklib7HGv9hnUxjK6QQTBsIfP6/WAtn1VMIWC
-         Qs9A==
-X-Forwarded-Encrypted: i=1; AHgh+RrunVgRwAtTglXpq1fp2+Fw0hN5zTdIjPWRBnz2YgT9AweBRlzR/PUGGsJQA5zZd45CtLHEAbcS/mEpRDiovBfe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFa4bBI2j2889+L0nguElQBa1rxT7bFi8CCScJAhu5hPgjtBNT
-	vJ4WDNBAJAC2ZHqPnAd9lfPmHEj5k7LsOZXmzNxc5MS1s/F0pTfihaf2rFAXYsmV05R8FLlNzr/
-	q/C8Wms9PTJ9WhOrOyGuFwfx43DzaUKidH3kBBkG/RdG01Iaqrc4pMKEx+zMNdZvX/RpQCPKqOB
-	PR2g==
-X-Gm-Gg: AR+sD13z3q4HikGNkT+hh5dTNSJ+7B6/eFTKzXG8ZtGI0L2dpB0XSDT/PmcrVgfedip
-	DLKTIDlKsdBbD7r24ldR7mIpn49L1UWJVD2NNtaeJeOkgQqrC+HEBttP4R4IU5e1gFDRgjYumDo
-	NXDbfRjvuCXKkoJqVYtOMJujz/2/kyexbmY2PQ+3NTzU4hpWPqdmcOXIKZSlzM3ytiTWQtgbGul
-	IpMmBq5kotrA4bKr4Ye4UKFx5FT3ILp3+Pre3QpAC9Dm3cKR0mGPVRssu7VljV50u+G5PtZPNLK
-	3ES3i7BY0Q7uV44N2eJwLonXbBb+KcevaErqB9ML4QNIHFTcZWttYHw4xb+CMqYxWQkYTO3pwdY
-	Yr4T1UYz8/OoWrA+AHIj+oUdh
-X-Received: by 2002:a05:622a:5595:b0:51b:fd82:22dd with SMTP id d75a77b69052e-52b566af237mr277720051cf.15.1785827834410;
-        Tue, 04 Aug 2026 00:17:14 -0700 (PDT)
-X-Received: by 2002:a05:622a:5595:b0:51b:fd82:22dd with SMTP id d75a77b69052e-52b566af237mr277719731cf.15.1785827833975;
-        Tue, 04 Aug 2026 00:17:13 -0700 (PDT)
-Received: from [127.0.1.1] ([178.197.219.214])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49807b8d04fsm420265975e9.3.2026.08.04.00.17.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 00:17:13 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Tue, 04 Aug 2026 09:16:59 +0200
-Subject: [PATCH 3/5] spi: dt-bindings: axiado,ax3000-spi: Drop duplicated
- type/ref
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260804-spi-num-cs-v1-3-4ccb13dcc7b0@oss.qualcomm.com>
-References: <20260804-spi-num-cs-v1-0-4ccb13dcc7b0@oss.qualcomm.com>
-In-Reply-To: <20260804-spi-num-cs-v1-0-4ccb13dcc7b0@oss.qualcomm.com>
-To: CL Wang <cl634@andestech.com>, Mark Brown <broonie@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Kousik Sanagavarapu <five231003@gmail.com>,
-        Vladimir Moravcevic <vmoravcevic@axiado.com>,
-        Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>,
-        Prasad Bolisetty <pbolisetty@axiado.com>,
-        Karthikeyan Mitran <kmitran@axiado.com>,
-        Michal Simek <michal.simek@amd.com>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=822;
- i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=WInEgTRazKi1bnlKIV6gud1U41TmUr3uidmStQ8pne4=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqcZHt4dXqcY7dKQHz9rLoIIymozNceaLW8siy4
- E3lkXhNbwOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCanGR7QAKCRDBN2bmhouD
- 1zYpD/9OR2DVZGOVqQbA0kbXFA13Ja511qlxI0xkmyZKhih3Sdzcab9fYmwvHcKeTck5PYZiu4E
- UyEaeWzO0sKRhrq42QK+q+a/LluO8UAHaPKAPXiXF4Bsnd2pyKqGvvBnNCle0UdFONEyp7pAkfs
- lRvBsG7ZRpki7brUZxt6SRCdY5Y60CQujodnsVhemcBLvHn1VgpkyoJnXhZYc399ANWWGet7ZRO
- p/wt1A5Ph6utv7FDcCrL4QMtBOvEtZUUOJpc8aCQT53l6HTiRK1uS1tgYr5/GvbbPkjF5aVK/+5
- 7XeGGu0DjHNuAI0Wfkuzusw48uLaKZ/eteo/9FLZ8eqmG6b2Luc7y/COUPGW3MtdoWEAIPVzz2o
- 3Kars9T1bUt4X7MFcPsC+/JcgSgE/KhQcB22gzfpiGuyNFPQ3Kdao38LeHjZmGLNOOZwn30Ll9K
- VjauAHQb7SeC83Hi7Z1ZwqIH+/xIALFCd2tivfsYNtMBeRiyMjqxuMmYNyIt3A+d6DE7eQ1RNqz
- Q9ZmBuN0u7ndFc+oX4UV9Hjq3mFJ0E8JV2K5lHiGq1RJyEVVccvNxXNAVbdrt5WwghliuV7rEZy
- uSAW6dWo/Pel0Xt5okibP4D0aZ8iDA99CcvMsCskDdufmO6J0TOTVcWNLsxggwB4ZsXaNL8TRs4
- DPbUNrRMxd3BviQ==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA0MDA1NiBTYWx0ZWRfXzGK5M301CSh4
- 6sEk9jeZw8ij1bBDpAG/CZjHJjSUktyOo5GpMhjz65ISaeTq+aPYfs8H7YuvOwZyJRZjTBDFLZ3
- 4S45fZECCw4CI6vaCLdKApRS0NHkMCb/xPNhMpP+SFbJIVZATGMaasBOiyFO7RL+yiUZAkHqBxH
- AHHaEeLyfBed3Dke90RbRcttlRgzvYTXUDYGIdTroJn6F+0WO3HFM9YKntXLgUV7WHJ3S9U34bH
- zaNKAfG41YWVqP6egtesOjbccmKA2M0X9AOoL0u2/kF0PPEwJasE2OAF1JqZewPLswGlZOl4s5t
- GDdC9ScCx1Hjpj2FVVogHp0pGP7i5LA+Y8IPaSDNFoCzqg3Tj93M32uFoKt4grDG5IR5PaDA1df
- uLKvYkqyBYA4irNPjQAPIEprjfywZhhALpgciwvXlMypKRIooSal5zjMtSN13CkZBozENlilzoI
- 54qSJeeQdtrwZpzTqQQ==
-X-Authority-Analysis: v=2.4 cv=TIt1jVla c=1 sm=1 tr=0 ts=6a7191fb cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
- a=EUspDBNiAAAA:8 a=tRHPAiqlqGnVGwjNgokA:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-ORIG-GUID: KymTIwCog3ZVtcaiZKlnGG-HxSRZucQH
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODA0MDA1NiBTYWx0ZWRfXyuDYr8a+f+YS
- mpOhrR5uNY7PFAn+hb3EMB+DfrBzvcJredcAtobZ5bGs+pHk58e8epeiBdCZFK/0EhDuhbGWSNf
- FjpDYbYZRDH8ZCdEGAmOAK4sHBdMHVw=
-X-Proofpoint-GUID: KymTIwCog3ZVtcaiZKlnGG-HxSRZucQH
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-04_01,2026-08-03_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 adultscore=0 phishscore=0 bulkscore=0 malwarescore=0
- priorityscore=1501 spamscore=0 suspectscore=0 impostorscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608040056
+	id 1wr9Om-00000001CY5-06lv;
+	Tue, 04 Aug 2026 07:17:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1785827293;
+	bh=cCH7wGS/DSGdpdibtHkqUSVfV1DZbBvdNwFnheuEGLk=;
+	h=From:To:Subject:Date:Message-Id;
+	b=KQZJ5Pmh0eSxyCjA9X/csEPDsMMPZTn6tr8++cHIbUj4gXUS7IkKSdN5dx3rEkChU
+	 XRUWUmUtlaMk7QIXJ3xlz30xuU3sadWdIDIWTY/rueNYJ6+Kn92oq13++TL1k0bGWR
+	 p2hTn0XdqrqzNV7MUEnivgokqIIYAzwJDXm5czDk=
+X-QQ-mid: esmtpsz19t1785827291t2f650366
+X-QQ-Originating-IP: lD7WTbZHcHLknq1JRmfmpGolqvDJokYAqkLsmcwlCn0=
+Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 04 Aug 2026 15:08:08 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11542142582255875228
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Cc: linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-phy@lists.infradead.org
+Subject: [PATCH v6 4/7] drm/bridge: aux: Add drm_aux_bridge_register_from_node()
+Date: Tue,  4 Aug 2026 15:07:27 +0800
+Message-Id: <20260804070730.68-5-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20260804070730.68-1-kernel@airkyi.com>
+References: <20260804070730.68-1-kernel@airkyi.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: MLQK/Qc97rZToCLy7YyvU2GUPmDEesZtlthLO/0cYoLEHiCsKmdvMzBu
+	0EA2UYDpA2NPezIk/rE2VEn5x/XkG6RoVMcS+CgHMDo/0zP9zFFQqojUGOMM0CXQVW6Kr/4
+	yQxr9N+ce86ldtQz15fz/awxwOrvcS+1gSmm6dgIrn3w/dozVvLMz9uWIdWY5SWsxxJzXE9
+	J0mR6jSyMiL1/5vaMDgJ+0JycrZFm5QWCPWwXv+0X+wi/E/MvOrGfNHNnb42OxSSjnVrID6
+	6l995JDGhUdZzdBnOYMrJ9HqKuPCPc8M3pkX82wT+2AZkpawj4y4zXYvWNFttTe9DIsJ/oo
+	SShN+lRTagwWV4HmGtOXRjHdtXgiMhgll00T4hQokZbqr5CH2xuq+0mcu8D6YgD8ugnPWV0
+	991415vR1SEF+aASP744gXaX2oI1i0r2CBkgEGUBETn3RQSkyhMiVqvwsmP9Qcv5iADo4sh
+	NCt3vl4BUogQfmoI7ESIZTyg1HE3gwUOGRqGVWEEMZPt301aubj4woRNbLHcLRDu3LzXYPq
+	/a1GDzU5i4iZK5nV+iJXvEidcXspbRX3FYSFO6u9KgxFV9mmG3hTuHwyExiXbtln3rEo+Wm
+	a4Cd88FCjI4gu3IgvRnDYwHTBe5JqHxkMZvQ2Xeib4F1xCPuGWJZw/vhAU+t4NlvEoduON0
+	xXqN/zZanbeKMB4Fzopn+g3Y7AUpcK1KqID9O3XI5j0IgTIMk7GIhb/yLXhXqUAA6bBaAzZ
+	rHmehOlvvxXHuIpvFw42sunSpiK5XyhtZJMe3Iyj/5Cxdt/1yLZcPy8eNfB5eBt9S8rmUyC
+	o4lbJOM5fA/Io25wbtaMm/MvPqXS49ACDYrGQsWWlTYGFjf1R5WKSllBN2PTXLGlf97udi0
+	2lqhUQWtnFyAkQuUjpEDqIW975jXJ63ifXro4YeyYldyQgha1Wpnu1LdjAlojTSi8EU8fNI
+	OmmbK2qYDh5+Pcacwjt0c56BibyZBwBKTvBn4Bf7D+IoQFkmucupgjzot0v97dDlF6SZdJ4
+	fvTFtf6Y8UCghLSsRn
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_001715_926385_CFD16FC2 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20260804_001717_338615_A267F435 
+X-CRM114-Status: GOOD (  13.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,27 +110,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-spi-controller.yaml schema already defines this $ref for this property,
-so binding does not have to.
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+The drm_aux_bridge_register() uses the device->of_node as the
+bridge->of_node.
+
+This patch adds drm_aux_bridge_register_from_node() to allow
+specifying the of_node corresponding to the bridge.
+
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- Documentation/devicetree/bindings/spi/axiado,ax3000-spi.yaml | 1 -
- 1 file changed, 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/spi/axiado,ax3000-spi.yaml b/Documentation/devicetree/bindings/spi/axiado,ax3000-spi.yaml
-index cd2aac66fca2..be258c1f36b1 100644
---- a/Documentation/devicetree/bindings/spi/axiado,ax3000-spi.yaml
-+++ b/Documentation/devicetree/bindings/spi/axiado,ax3000-spi.yaml
-@@ -37,7 +37,6 @@ properties:
-   num-cs:
-     description: |
-       Number of chip selects used.
--    $ref: /schemas/types.yaml#/definitions/uint32
-     minimum: 1
-     maximum: 4
-     default: 4
+(no changes since v3)
 
+Changes in v2:
+- Fix incorrect function names in the documentation comments.
+---
+ drivers/gpu/drm/bridge/aux-bridge.c | 26 +++++++++++++++++++++++---
+ include/drm/bridge/aux-bridge.h     |  6 ++++++
+ 2 files changed, 29 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/gpu/drm/bridge/aux-bridge.c b/drivers/gpu/drm/bridge/aux-bridge.c
+index 1ed21a8713bf..06a1466f49bd 100644
+--- a/drivers/gpu/drm/bridge/aux-bridge.c
++++ b/drivers/gpu/drm/bridge/aux-bridge.c
+@@ -33,8 +33,9 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
+ }
+ 
+ /**
+- * drm_aux_bridge_register - Create a simple bridge device to link the chain
++ * drm_aux_bridge_register_from_node - Create a simple bridge device to link the chain
+  * @parent: device instance providing this bridge
++ * @np: device node pointer corresponding to this bridge instance
+  *
+  * Creates a simple DRM bridge that doesn't implement any drm_bridge
+  * operations. Such bridges merely fill a place in the bridge chain linking
+@@ -42,7 +43,7 @@ static void drm_aux_bridge_unregister_adev(void *_adev)
+  *
+  * Return: zero on success, negative error code on failure
+  */
+-int drm_aux_bridge_register(struct device *parent)
++int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np)
+ {
+ 	struct auxiliary_device *adev;
+ 	int ret;
+@@ -62,7 +63,10 @@ int drm_aux_bridge_register(struct device *parent)
+ 	adev->dev.parent = parent;
+ 	adev->dev.release = drm_aux_bridge_release;
+ 
+-	device_set_of_node_from_dev(&adev->dev, parent);
++	if (np)
++		device_set_node(&adev->dev, of_fwnode_handle(np));
++	else
++		device_set_of_node_from_dev(&adev->dev, parent);
+ 
+ 	ret = auxiliary_device_init(adev);
+ 	if (ret) {
+@@ -80,6 +84,22 @@ int drm_aux_bridge_register(struct device *parent)
+ 
+ 	return devm_add_action_or_reset(parent, drm_aux_bridge_unregister_adev, adev);
+ }
++EXPORT_SYMBOL_GPL(drm_aux_bridge_register_from_node);
++
++/**
++ * drm_aux_bridge_register - Create a simple bridge device to link the chain
++ * @parent: device instance providing this bridge
++ *
++ * Creates a simple DRM bridge that doesn't implement any drm_bridge
++ * operations. Such bridges merely fill a place in the bridge chain linking
++ * surrounding DRM bridges.
++ *
++ * Return: zero on success, negative error code on failure
++ */
++int drm_aux_bridge_register(struct device *parent)
++{
++	return drm_aux_bridge_register_from_node(parent, NULL);
++}
+ EXPORT_SYMBOL_GPL(drm_aux_bridge_register);
+ 
+ struct drm_aux_bridge_data {
+diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bridge.h
+index cca07a8e2d45..67f74ed287d9 100644
+--- a/include/drm/bridge/aux-bridge.h
++++ b/include/drm/bridge/aux-bridge.h
+@@ -13,11 +13,17 @@ struct auxiliary_device;
+ 
+ #if IS_ENABLED(CONFIG_DRM_AUX_BRIDGE)
+ int drm_aux_bridge_register(struct device *parent);
++int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np);
+ #else
+ static inline int drm_aux_bridge_register(struct device *parent)
+ {
+ 	return 0;
+ }
++
++static inline int drm_aux_bridge_register_from_node(struct device *parent, struct device_node *np)
++{
++	return 0;
++}
+ #endif
+ 
+ #if IS_ENABLED(CONFIG_DRM_AUX_HPD_BRIDGE)
 -- 
 2.53.0
 
