@@ -4,55 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B36C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E969C55838
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zwuypOHj/Ii0XRBdXzwDpzD6vf01Tj0qT2kfSwm8UeY=; b=weibSJ5aMcfPVnk2KinPjaA6xR
-	8wJ7GtZlUxf/v7dUhFX7SODXpBJM2VtC7tku6iSONbNBzQ/vPL5GcUZvrvMYM1zbdd2YSvpGyVJ8y
-	9x4hiZhVaEb9OQsgzr4ljOHBrtR5GbHB4QgcBp2VCLGJpn5IOQRfEX1kRmKWivdM2CyjPbqtlL62M
-	u0RhedmzgzXvYCGVixoEYRfigSS0ue8Uh08V6Vdw/AlxYnPDqGXpkVPxR2ow+SSX+rYBqFfqbvvk4
-	CGTUCgMPUFkpdBOtEaJxs9rW4enVFBIE5IO5fxouOOdy0veBbLQe35rXJ+XtR+atypk+HVhzk1SoY
-	7dpoMBFg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RBSOug13prxCCT+BAqmbK4GJruJOjABAt4v/5onpB8g=; b=a7lx5UqDBySfFequTUPI+L6x/f
+	d9O5ECiq1qlaHtv9u+ONgjUzQ8JDsoZ4GW3dt7Eu/vAg+3but4bMxz5fG6NP5vfl35YWbiwil/xUS
+	nYWtd4Y9r80YkVx53b1G9YCKpcjgTy7HyWHloYFX1UHsTKhIfSjP0JXE0zvksj6df/stdsifAYLCQ
+	/FLYH46qfUc9qRhDfh64x+gmXtdbuuVx2fqpI34eawO6E9nP4efrtAUxq7aWrw23X3f11+CeRdGwJ
+	BF7/MMyoBzPMB1SBc57pGXpQxMngEeinRGp2dy45vQbFMaEJacmPzXV6UIuz1rXqLsB5tjh6VmbP+
+	WkkFEpkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGEo-000000025nd-02f0;
-	Tue, 04 Aug 2026 14:35:26 +0000
-Received: from confino.investici.org ([93.190.126.19])
+	id 1wrGHO-0000000263Q-2mSx;
+	Tue, 04 Aug 2026 14:38:06 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGEl-000000025nA-0BeJ
+	id 1wrGHM-0000000262p-3i7w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 14:35:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1785854117;
-	bh=zwuypOHj/Ii0XRBdXzwDpzD6vf01Tj0qT2kfSwm8UeY=;
-	h=From:To:Subject:Date:From;
-	b=YEEzrawwd0190siVUD+VAfflk4+sCnTZGP501DJarf8mFBAoaBaI4YTAgF/COYz0T
-	 y8iOgMB4FNDw1RYHXPG49WbcynAYFcvwRyUzotFlgbSbLX18XlR03sPfrGvZIeUjQr
-	 /DpB2nde/XLy6XsFlBFB08ZrHFjQjrYYQiYa0vrk=
-Received: from mx1.investici.org (unknown [127.0.0.1])
-	by confino.investici.org (Postfix) with UTF8SMTP id 4hDx0P60SGz12Rn;
-	Tue, 04 Aug 2026 14:35:17 +0000 (UTC)
-Received: by mx1.investici.org (Postfix) id 4hDx0P2q8Vz12Rl;
-	Tue, 04 Aug 2026 14:35:17 +0000 (UTC)
-From: Bradley Morgan <include@grrlz.net>
-To: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] arm64: sleep: factor sleep_save_stash slot lookup into a macro
-Date: Tue,  4 Aug 2026 14:35:17 +0000
-Message-ID: <20260804143517.17524-1-include@grrlz.net>
-X-Mailer: git-send-email 2.47.3
+	Tue, 04 Aug 2026 14:38:05 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 674CXLVu185362
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 4 Aug 2026 14:38:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	RBSOug13prxCCT+BAqmbK4GJruJOjABAt4v/5onpB8g=; b=of8sOQp9xUSfTu71
+	IHMwC4jMPpavp12E+ekTQze2YGL05ivig4ZfN52E1ZLalg5gz3McVISQCUYoa5R8
+	122GhAoYJvhNsWfxgBqKfKB46LEmC9gqrflOwl4QSG4j+bVHBIemZ+AquCwJ9oj3
+	HWJjwrlVjKveGsR3Y0mTvtHHYqY0VuSaZKoKei075ReWkK0deKUQzR3cg2+qbrDg
+	L2AHymVMoS43fM4uDIsOvMvq7BZ73Y37kzegg1uvEWooxdryIlgcn7WMwKCVyhPm
+	E8EY8dw0UKfYsQW9dMassyHPtfGMAaArB/IE3pWDce7FmooGveCBPXBqS1jQ39N6
+	QulxNQ==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fu1p4v2v4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 14:38:04 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-91931144870so478089085a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 07:38:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785854282; cv=none;
+        d=google.com; s=arc-20260327;
+        b=hDFeA2a/N2/OIs+5VhQca6NX0fUelVEPmfv1KgiTNz4hidDp7nX4SwA9qvT2sRLCPr
+         gEcQ0w9r8Rv/En+eWQyKOZ8xezSnAH+UdEPKa0Vg5xBw+Hef5gXdwzqcXhW1mkIrHR8a
+         6AT5VztlgCXKHgUzkFAY0WXA5Yv7G6kLHhtQoILMtneM1aKnNcnzNBYe81NnFl3PIEa5
+         s3KKfwWI++kZX5cTFP1k0izOi8/YMSP1KByOKToiF14PVkD5vX1XavtNMtpVnvBEqPnr
+         ySyoNGxSKM8RYJn9XEuqHAJeskeoW2YAAzoqUiO8NMMSqIhoxb/ZNHz7Oz++23unwX0C
+         luew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=RBSOug13prxCCT+BAqmbK4GJruJOjABAt4v/5onpB8g=;
+        fh=6OUWQUcFpWR9iP/tncWejZDpqypfs6fRq6R1VPXlvhg=;
+        b=m19R+6F7q20nasbikD35cfX+l0TO/aJlwDqZ1QdmAwo1W5Nr30ssgWLkz8SMyP0BhR
+         abpkyT2rO+ahE812GaYKLipdSmHQYqE9zyWRnEmxOOff6bfMnAtAsXwQmQBOki5Cw5Mo
+         /ZrpcCmoKJHRzqsrXJ5gRbR/pqxKQ74D6paU4ZOLD84Ago1Hwd3OARdmIjJJfrr+vgRw
+         SXd8RFAq2u8U/1VZbUeSe3Jrs6lZonimVeW1EiaJ4QoikvwioKVFtPpAb6+pl0crzDac
+         iji20YbBB0XJMGFmXsBG7qZ1AEseXgCwlza0repo1RslTvfkAkPuyHdQZcezGAE8PkY9
+         9GHg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785854282; x=1786459082; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RBSOug13prxCCT+BAqmbK4GJruJOjABAt4v/5onpB8g=;
+        b=cGEJlWngbZncYSKF3kc20BZ6vloDHtOw640mVE5g3ygopU6AdFeiYyAYL+Bius9yOR
+         hYb6ltYWYYTTW9Lqv+RokmCfS5VUDacjEWQIIPS4uW86XV3oW7HIBM69ewb4cdpNNyXI
+         PRfbLPvkXBK31t3UgMdhzz2DEimc7SLXEoBee2Qa9SqZTfvi7IFg5ny0I+6CGERVAg7p
+         SH0hwB4lHykInKrfLq3JTBnAG3RxZ7GEPzMw+22U333nYPeeakTEe8Cu4awWj+5uMmE+
+         op1OYoauSNhyCrzD440BtnYO1Hd+dBj8SFQW9eDijkDNdyHBd7L5oe/HMnuv57k47X9n
+         PElQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785854282; x=1786459082;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RBSOug13prxCCT+BAqmbK4GJruJOjABAt4v/5onpB8g=;
+        b=WRSbVK2qZ7FjteBnr1mNUWxObiKZwNCMmYB5Y52ObP+AWmSlZ/D/4/KosYryXh2d61
+         Q8vtHqWPcPsxVwuATRGbkZHCfRcf/6pYF7IZCrZdwD0Cu2zSNDN1z2ziYXtXa9yLIyJj
+         MJpPu8FUPO80P2OXgZL457TFLchqUVQEVthcpRfQnoLWWZBe3DgIaupi3JtGokGKPnr7
+         OmQ9zVGAfGNKDqkU0tI11sfRIwwMWdKQpjwIcrEYliyt78yHDuRcyJlIbMfKQDCKBOA6
+         +4oKIyYAnIDpu2BxM+iJ4mEJTKuYC74Kr7c3JnCOXHGMoDx0O8MIPWstA3lgJEYlt47d
+         g+wQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrulNG+bf++vS0BsOQgTbrqreOnJf/jZk/KPzgPNgY4oKRg3p5LE6h83qso+nz5y+qL97b3stcjqE0dwESlregc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf/gR2FMxS+FoSPcCTNi2Odg9oE5IDHFZbtPToC2U/tA2mKoww
+	JUiAC6h9TYKZPWsNWoUTGh7N8Aonna8U5Y3TLyHtDMcQMtz/d6joO80URqz940vbrvtSiC9UVx1
+	dFwvuwUEzeETj63QjjP8zKZ4IecE7sb7Cq0PGi5PWP3ghI8lzsEo4rha1wCzxWp/Ab3Aj37g2Ka
+	YrpnmfZNd3LSUw51d7NbIaAjVAgfus5qU0hHTqOp6Wt/U1I/CZwdav
+X-Gm-Gg: AR+sD13ADXOPR78qHZNVNQ2rvBktIXSzXUsaRuq/bc06+vEGHor8NUXdQFIvN/wRXu6
+	l7hfkFFGukiK4FrPYTdxTP7ACxJTpKF/ul5dTXBn/zMEbNkBQW4K78UlYwOrSUBkKchBzRleujb
+	p7X2TjDuKuCEhC/JNLekBBMrn23YtpUZKupvWGAYoxNh22UulwxormAxbjbw==
+X-Received: by 2002:a05:620a:a407:10b0:92e:bc28:5479 with SMTP id af79cd13be357-934a07523e6mr2091178385a.2.1785854282359;
+        Tue, 04 Aug 2026 07:38:02 -0700 (PDT)
+X-Received: by 2002:a05:620a:a407:10b0:92e:bc28:5479 with SMTP id
+ af79cd13be357-934a07523e6mr2091173285a.2.1785854281821; Tue, 04 Aug 2026
+ 07:38:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260722-a9-pm-v1-0-1fe20a44bf2d@amlogic.com>
+In-Reply-To: <20260722-a9-pm-v1-0-1fe20a44bf2d@amlogic.com>
+From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
+Date: Tue, 4 Aug 2026 16:37:51 +0200
+X-Gm-Features: AUfX_mxidf6ep2hrmZtMSZcppo4HDdyELeecQKKRS0CT2NESLqRaSdKaXo6bY6M
+Message-ID: <CAPx+jO9RBvDJHSoCT3QVUCfGK3bLduhV1W7T7VuHipOvas1v+g@mail.gmail.com>
+Subject: Re: [PATCH 0/3] Power: Add power domain for A9
+To: xianwei.zhao@amlogic.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Jianxin Pan <jianxin.pan@amlogic.com>, Ulf Hansson <ulfh@kernel.org>,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-pm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Authority-Analysis: v=2.4 cv=auOCzyZV c=1 sm=1 tr=0 ts=6a71f94c cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=Um2Pa8k9VHT-vaBCBUpS:22 a=VwQbUJbxAAAA:8 a=BY5PBP3jAAAA:8
+ a=stQ3y3mWCCOjWvy4rzMA:9 a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
+ a=gQW0MTutLl7eKD3OLfcZ:22
+X-Proofpoint-ORIG-GUID: Y1oSau6krTH1lWMrC7c3qrkz1e-XMiYg
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODA0MDExOCBTYWx0ZWRfX+aVb8ARvsH8Q
+ ROLtmylldgI/lsY5YePqRbY2/2n00HKskjm6c6m9Z+hEh5a1J4BgK+hOM6ADryYdZdCBR9EEjMz
+ 5yO63oMJ3QpOhLZ9ltpmamXV60Z2iTY=
+X-Proofpoint-GUID: Y1oSau6krTH1lWMrC7c3qrkz1e-XMiYg
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA0MDExOCBTYWx0ZWRfX88exBtfDuwuk
+ 78HlHMeT0h9QDy5xqEFkn5YXcl8US6ofWt9U1KX9y+/yOPKLDWDUVE4jgvZyPDhV++OShitq8sw
+ 6O63hJo6kBZ+0oRDpgZrs9TZX2RRM8Cngn+qGXKdKGqMlVG4q3Pob+TXL6lMQlhlo9DcAKYBU2d
+ ebiUg+uiTU4ru2RiPRKQR8Suwhz4tfzO9C6LafHQUk7hYBAEHSSsR4efI2vo7N1sozlgu/qVrKg
+ /5Hs6CCNNAZkZcS9X1yRIDXeHleNv+h+YLMTzVqaupZC7e16/fU+f38t4PItCjR+YHDkbeZKh9l
+ 2eeCVegyGUzHil8rAD79g+hZsDuS90x2GpjZA2Uem39385uAsS7zqzChp8hadWnbVhvJ/XjaUuh
+ w+/WOvwTA9OwndPsrhQrkquJ3CO1mday81VILpJLGzOqMLDNeskszvLOE5DpfcET/ngbXz8IPhV
+ xDP3b32unfg/di12U6Q==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-04_03,2026-08-03_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0 malwarescore=0
+ lowpriorityscore=0 clxscore=1015 phishscore=0 adultscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608040118
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_073523_240226_3CD1E2E7 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20260804_073804_941855_B9AEC397 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,166 +170,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both __cpu_suspend_enter() and _cpu_resume() open code the same
-MPIDR_EL1 hash lookup to find the current CPU's slot in
-sleep_save_stash. Factor it into a get_sleep_stash_slot
-macro.
+On Wed, Jul 22, 2026 at 10:39=E2=80=AFAM Xianwei Zhao via B4 Relay
+<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+>
+> Add power controller driver support for Amlogic A9 SoC.
+>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+> Xianwei Zhao (3):
+>       dt-bindings: power: Add Amlogic A9 power domains
+>       pmdomain: amlogic: Add support for A9 power domains controller
+>       arm64: dts: amlogic: a9: Add power domain controller node
+>
+>  .../bindings/power/amlogic,meson-sec-pwrc.yaml     |  1 +
+>  arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi        | 10 ++++
+>  drivers/pmdomain/amlogic/meson-secure-pwrc.c       | 69 ++++++++++++++++=
+++++++
+>  include/dt-bindings/power/amlogic,a9-pwrc.h        | 61 ++++++++++++++++=
++++
+>  4 files changed, 141 insertions(+)
+> ---
+> base-commit: 544455a3a844edd6107b15cd0ab0b657399f2d49
+> change-id: 20260722-a9-pm-3efb3f2a4d72
+>
+> Best regards,
+> --
+> Xianwei Zhao <xianwei.zhao@amlogic.com>
+>
+>
 
-Since that macro would be the only remaining user of
-compute_mpidr_hash, inline the hash computation into
-get_sleep_stash_slot and just remove compute_mpidr_hash
-altogether.
+Patch1 and patch2 applied for next, thanks!
 
-No functional change intended.
+Please note, patch1 (dt patch) is also available in the immutable dt
+branch, for SoC maintainers to pull in if needed for patch3.
 
-Signed-off-by: Bradley Morgan <include@grrlz.net>
----
-Changes since V2:
-- Drop the stale rs0-rs3 names from the comments, the shifts
-  now come from mpidr_hash.shift_aff. (Will)
-
-Changes since V1:
-- Inline the macro, there only is one user. (Will)
-- Also change the C pseudocode to be correct
-
- arch/arm64/kernel/sleep.S | 103 +++++++++++++++-----------------------
- 1 file changed, 41 insertions(+), 62 deletions(-)
-
-diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
-index f093cdf71be1..c1bec489ea76 100644
---- a/arch/arm64/kernel/sleep.S
-+++ b/arch/arm64/kernel/sleep.S
-@@ -7,48 +7,48 @@
- 
- 	.text
- /*
-- * Implementation of MPIDR_EL1 hash algorithm through shifting
-+ * Compute the address of the current CPU's entry in sleep_save_stash,
-+ * i.e. &sleep_save_stash[hash(MPIDR_EL1)], where the hash is an
-+ * implementation of the MPIDR_EL1 hash algorithm through shifting
-  * and OR'ing.
-  *
-- * @dst: register containing hash result
-- * @rs0: register containing affinity level 0 bit shift
-- * @rs1: register containing affinity level 1 bit shift
-- * @rs2: register containing affinity level 2 bit shift
-- * @rs3: register containing affinity level 3 bit shift
-- * @mpidr: register containing MPIDR_EL1 value
-- * @mask: register containing MPIDR mask
-- *
-  * Pseudo C-code:
-  *
-- *u32 dst;
-+ *	u64 mpidr = MPIDR_EL1 & mpidr_hash.mask;
-+ *	u32 hash = ((mpidr & 0xff) >> mpidr_hash.shift_aff[0]) |
-+ *		   ((mpidr & 0xff00) >> mpidr_hash.shift_aff[1]) |
-+ *		   ((mpidr & 0xff0000) >> mpidr_hash.shift_aff[2]) |
-+ *		   ((mpidr & 0xff00000000) >> mpidr_hash.shift_aff[3]);
-+ *	slot = &sleep_save_stash[hash];
-+ *
-+ * @slot: output register
-  *
-- *compute_mpidr_hash(u32 rs0, u32 rs1, u32 rs2, u32 rs3, u64 mpidr, u64 mask) {
-- *	u32 aff0, aff1, aff2, aff3;
-- *	u64 mpidr_masked = mpidr & mask;
-- *	aff0 = mpidr_masked & 0xff;
-- *	aff1 = mpidr_masked & 0xff00;
-- *	aff2 = mpidr_masked & 0xff0000;
-- *	aff3 = mpidr_masked & 0xff00000000;
-- *	dst = (aff0 >> rs0 | aff1 >> rs1 | aff2 >> rs2 | aff3 >> rs3);
-- *}
-- * Input registers: rs0, rs1, rs2, rs3, mpidr, mask
-- * Output register: dst
-- * Note: input and output registers must be disjoint register sets
--         (eg: a macro instance with mpidr = x1 and dst = x1 is invalid)
-+ * Clobbers: x2 - x8
-  */
--	.macro compute_mpidr_hash dst, rs0, rs1, rs2, rs3, mpidr, mask
--	and	\mpidr, \mpidr, \mask		// mask out MPIDR bits
--	and	\dst, \mpidr, #0xff		// mask=aff0
--	lsr	\dst ,\dst, \rs0		// dst=aff0>>rs0
--	and	\mask, \mpidr, #0xff00		// mask = aff1
--	lsr	\mask ,\mask, \rs1
--	orr	\dst, \dst, \mask		// dst|=(aff1>>rs1)
--	and	\mask, \mpidr, #0xff0000	// mask = aff2
--	lsr	\mask ,\mask, \rs2
--	orr	\dst, \dst, \mask		// dst|=(aff2>>rs2)
--	and	\mask, \mpidr, #0xff00000000	// mask = aff3
--	lsr	\mask ,\mask, \rs3
--	orr	\dst, \dst, \mask		// dst|=(aff3>>rs3)
-+	.macro get_sleep_stash_slot slot
-+	mrs	x3, mpidr_el1
-+	adr_l	x2, mpidr_hash
-+	ldr	x8, [x2, #MPIDR_HASH_MASK]
-+	/*
-+	 * Following code relies on the struct mpidr_hash
-+	 * members size.
-+	 */
-+	ldp	w4, w5, [x2, #MPIDR_HASH_SHIFTS]
-+	ldp	w6, w7, [x2, #(MPIDR_HASH_SHIFTS + 8)]
-+	and	x3, x3, x8			// mask out MPIDR bits
-+	and	x2, x3, #0xff			// aff0
-+	lsr	x2, x2, x4			// hash = aff0 >> shift_aff[0]
-+	and	x8, x3, #0xff00			// aff1
-+	lsr	x8, x8, x5
-+	orr	x2, x2, x8			// hash |= aff1 >> shift_aff[1]
-+	and	x8, x3, #0xff0000		// aff2
-+	lsr	x8, x8, x6
-+	orr	x2, x2, x8			// hash |= aff2 >> shift_aff[2]
-+	and	x8, x3, #0xff00000000		// aff3
-+	lsr	x8, x8, x7
-+	orr	x2, x2, x8			// hash |= aff3 >> shift_aff[3]
-+	ldr_l	\slot, sleep_save_stash
-+	add	\slot, \slot, x2, lsl #3	// slot = &sleep_save_stash[hash]
- 	.endm
- /*
-  * Save CPU state in the provided sleep_stack_data area, and publish its
-@@ -74,20 +74,8 @@ SYM_FUNC_START(__cpu_suspend_enter)
- 	mov	x2, sp
- 	str	x2, [x0, #SLEEP_STACK_DATA_SYSTEM_REGS + CPU_CTX_SP]
- 
--	/* find the mpidr_hash */
--	ldr_l	x1, sleep_save_stash
--	mrs	x7, mpidr_el1
--	adr_l	x9, mpidr_hash
--	ldr	x10, [x9, #MPIDR_HASH_MASK]
--	/*
--	 * Following code relies on the struct mpidr_hash
--	 * members size.
--	 */
--	ldp	w3, w4, [x9, #MPIDR_HASH_SHIFTS]
--	ldp	w5, w6, [x9, #(MPIDR_HASH_SHIFTS + 8)]
--	compute_mpidr_hash x8, x3, x4, x5, x6, x7, x10
--	add	x1, x1, x8, lsl #3
--
-+	/* publish this CPU's sleep_stack_data area in its stash slot */
-+	get_sleep_stash_slot x1
- 	str	x0, [x1]
- 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
- 	stp	x29, lr, [sp, #-16]!
-@@ -117,18 +105,9 @@ SYM_FUNC_START(_cpu_resume)
- 	mov	x0, x19
- 	bl	finalise_el2
- 
--	mrs	x1, mpidr_el1
--	adr_l	x8, mpidr_hash		// x8 = struct mpidr_hash virt address
--
--	/* retrieve mpidr_hash members to compute the hash */
--	ldr	x2, [x8, #MPIDR_HASH_MASK]
--	ldp	w3, w4, [x8, #MPIDR_HASH_SHIFTS]
--	ldp	w5, w6, [x8, #(MPIDR_HASH_SHIFTS + 8)]
--	compute_mpidr_hash x7, x3, x4, x5, x6, x1, x2
--
--	/* x7 contains hash index, let's use it to grab context pointer */
--	ldr_l	x0, sleep_save_stash
--	ldr	x0, [x0, x7, lsl #3]
-+	/* retrieve this CPU's context pointer from its stash slot */
-+	get_sleep_stash_slot x1
-+	ldr	x0, [x1]
- 	add	x29, x0, #SLEEP_STACK_DATA_CALLEE_REGS
- 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
- 	/* load sp from context */
--- 
-2.47.3
-
+Kind regards
+Uffe
 
