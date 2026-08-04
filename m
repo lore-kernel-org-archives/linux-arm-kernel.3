@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A52A4C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF724C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 15:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lalEdXHdmgSURccK4viUARTX5w7QtaU/aD2/B9TE7vM=; b=FesiZPU1OOf1peKCJukY2WYumM
-	9eDh8hIEJ7+NI/UtiM5ItzUeh/PLpat57j1IM3fO2SlO0nh9nh26EEuiibWyqFh+jv0c9GXouIe4i
-	PFKZQ/lNLmttQFh6R+t/jVaIihttMI9z0SDVmjMKwfxDoh9gv6IMZ74pIfswrK1+GyhRWtuun14HP
-	iZIyr9SewGZlJ8icoE7cdoJNLaiZceIedmi7MJWYOXy38/UYVpXu3YrKvb1L2MGeY/FzMB/YlQ9by
-	CfzAIgfPS3EJLaZxqvgDfSFlIeyvFfL2rRAI07EtR1cUmk/PUEwstHESYy+Bmjiyh6qg+PnJmifB2
-	zTfLXBeQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hINQgG2Cz5uHOWCMPGkyjpoYrQxkpuisCZW5bXMd38w=; b=PMDebrqCpkOKxODNNe1Ml8B6yI
+	KkSfABnN7FI3usNGkIjwoMEj/woZKyZukwRORM2gSXYGOP8XYt6i+gG6tV9hDM1SBDzOuqaXz2ZZu
+	EDkwURvoDW/3PGzbySK29ErGchZEnR9Bw4vSJ8jruQA089DSWIgrnBFcm/qPt/evUXG7v1er1/wor
+	V6uKdDYDIA0FWHPWTfBmEJepxem40GdEmZEDwu5xz9Q+mhHeA9b7crw87ThlQKynSkavbc20rLpze
+	/oO84qAUNJanHJRa1bDHpj6FWD11AXXvzBS1uNpHDZwmx7AI6PLc6js5Q97JizhZGVlaPWucGYvng
+	C8zVdXPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGbx-000000029Qm-3lkD;
-	Tue, 04 Aug 2026 14:59:21 +0000
+	id 1wrGd3-000000029nS-44pl;
+	Tue, 04 Aug 2026 15:00:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGbv-000000029QM-459H
+	id 1wrGd1-000000029n5-2Rjl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 14:59:21 +0000
+	Tue, 04 Aug 2026 15:00:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B3051476;
-	Tue,  4 Aug 2026 07:59:14 -0700 (PDT)
-Received: from [10.57.44.180] (unknown [10.57.44.180])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 06CB13F86F;
-	Tue,  4 Aug 2026 07:59:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7964D165C;
+	Tue,  4 Aug 2026 08:00:22 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5B7A3F86F;
+	Tue,  4 Aug 2026 08:00:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785855558; bh=jM2dy1jPgBL1qNkC+4PhadiOipaYVgTdH7ArBTEfwHI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nNVIav5DEDiR2UTAwZM5v9LaRsiCTiyK80xUupzMVosPgD9BCL2T19cYcc2SLIQkD
-	 F6G5qSTE3K+VwIaJKkkSRpA3BmRaw0+ntT60xn2CrJQKCdID7Jf37/T+d6cyelnsmX
-	 4Nn1Gl7QvaAe8Bt/JHbT+GCpb9GQOmJqQYeUPljA=
-Message-ID: <039f66ef-85bc-49e0-9843-4b102c94ba76@arm.com>
-Date: Tue, 4 Aug 2026 15:59:11 +0100
+	t=1785855626; bh=qod7nuIJK3LbjzJXK5Ak2BXjKVmEFuQMsxsXzJ/nVxk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZOPlBtqQHjwHO/AFGn3qfSS0j0Yjza8S4K2a6Qp12zk+20cuWBdgDfENP5zclhCll
+	 d04iVhJNyTxtv3jmmIoz8EFwWMCUE6+6sRQL61NC4vGF0rkLNn8MqCLdpaGNmrdNbN
+	 UUihAUfArHhPhIoDxC3iZ0Dw1TAo4u3PnvsOeVbQ=
+Date: Tue, 4 Aug 2026 16:00:22 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: David Laight <david.laight.linux@gmail.com>
+Subject: Re: [RFC PATCH 07/13] arm64: percpu: Implement preemptible
+ read/write ops
+Message-ID: <anH-hp7f_YpEkXeU@J2N7QTR9R3>
+References: <20260728123859.2911495-1-mark.rutland@arm.com>
+ <20260728123859.2911495-8-mark.rutland@arm.com>
+ <20260728224755.59cfd22d@pumpkin>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 11/45] KVM: arm64: CCA: Check for RMI support at KVM
- init
-Content-Language: en-GB
-To: Fuad Tabba <fuad.tabba@linux.dev>, Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-References: <20260803134403.80630-1-steven.price@arm.com>
- <20260803134403.80630-12-steven.price@arm.com>
- <CA+EHjTwoKj+c-ZS7W4fCAMYWSgrc+15QWBxu_sE-PMECr+8zpA@mail.gmail.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <CA+EHjTwoKj+c-ZS7W4fCAMYWSgrc+15QWBxu_sE-PMECr+8zpA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260728224755.59cfd22d@pumpkin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_075920_053362_710CF53A 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20260804_080027_661635_2266DD56 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +66,47 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, hca@linux.ibm.com, linux-kernel@vger.kernel.org, ruanjinjie@huawei.com, yang@os.amperecomputing.com, maz@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/08/2026 15:55, Fuad Tabba wrote:
-> Hi Steven,
+On Tue, Jul 28, 2026 at 10:47:55PM +0100, David Laight wrote:
+> On Tue, 28 Jul 2026 13:38:53 +0100
+> Mark Rutland <mark.rutland@arm.com> wrote:
 > 
-> On Mon, 3 Aug 2026 at 14:45, Steven Price <steven.price@arm.com> wrote:
+> > Use the PCPU GPR infrastructure to implement preemptible this_cpu_read()
+> > and this_cpu_write().
 > ...
->> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->> index bae2c4f92ef5..1a5e15040111 100644
->> --- a/arch/arm64/include/asm/kvm_host.h
->> +++ b/arch/arm64/include/asm/kvm_host.h
->> @@ -27,6 +27,7 @@
->>   #include <asm/fpsimd.h>
->>   #include <asm/kvm.h>
->>   #include <asm/kvm_asm.h>
->> +#include <asm/kvm_rmi.h>
->>   #include <asm/vncr_mapping.h>
->>
->>   #define __KVM_HAVE_ARCH_INTC_INITIALIZED
->> @@ -424,6 +425,9 @@ struct kvm_arch {
->>          /* Nested virtualization info */
->>          struct dentry *debugfs_nv_dentry;
->>   #endif
->> +
->> +       bool is_realm;
->> +       struct realm realm;
->>   };
+> >  #define this_cpu_write_1(pcp, val)	\
+> > -	_pcp_protect(__percpu_write_8, pcp, (unsigned long)val)
+> > +	_pcp_wrap(__percpu_write_8, pcp, (unsigned long)val)
 > 
-> Marc suggested at v10 making the pKVM and CCA state here a union,
-> given the two are exclusive, and I believe you acked it [1]. Was there
-> an issue with it, or did it just get lost across the respins?
+> Not new, but does that end up sign extending 'val' which is likely
+> to be more expensive than zero extending it?
+> Using '(val) + 0u + 0ul' might generate better code in some cases.
 
-Most likely lost in the respins. Will pick this up.
+For the existing code, there's no {zero,sign}-extension in practice due
+to our calling convention (AAPCS64) and inlining. AAPCS64 specifies that
+when an N-bit valiue is allocated into a register, bits[N-1:0] contain
+the value, and bits[63:N] contain unspecified values.
 
-Thanks for spotting.
+The existing __percpu_write_##sz() only consumes 'val' as a 'u##sz', so
+the compiler doesn't need to do anything with the upper bits (and in
+practice doesn't do anything), so long as __percpu_write_##sz() is
+inlined into its caller.
 
-Cheers
-Suzuki
+The new __percpu_write_##sz() in this series doesn't cast 'val' back
+down to a 'u##sz', so there is some unnecessary extension. I'll fix that
+by taking 'val' as a 'u##sz' in the function prototype, which'll avoid
+extension regardless of inlining.
 
+> Just noticed it should be (unsigned long)(val) as well.
+> Otherwise this_cpu_write_n(pcp, -7 / 4) isn't going to DTRT.
+
+Yes, that's a latent bug, and we have at least one other case
+(this_cpu_and()) where we miss brackets.
+
+I'll fix those up as a preparatory patches.
+
+Mark.
 
