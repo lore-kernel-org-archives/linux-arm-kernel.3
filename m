@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C67C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDA2EC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IBH/Dc/ZJz+4sJLW+ut9cuYtgG9NRpWhNfYqB994G2g=; b=wSIvVVNe9xLmbWwAalPw7t2gre
-	nW+vLdKFgYgyxC29+r3Dg/4c+N0DIffYawJcwr5V8lb6zfi8p49XMAJSIWlUwBeBAPzHi+IPlPiCq
-	UB6if7ai29V4oiWL5q6+osHZJkM6y9nBMsEXQHQON9Jq61SL1lZIJSmuyQLMvRe52XV6V5VtC7Xcd
-	bwUtCZo866r1tO8uRwiGpnAJdpivaQ0ft54C039zBti5Ya2YBrfUctJQv5LTj8JpZLkyONj/cQzGt
-	0YvAj2zroIVhwevw1JfBTki47HlQmTHzEFR8mQvnCDkV1qphetaScMKYF8hXLIGaMCwdyHQh/XmZH
-	POW125Hg==;
+	bh=vognF5l55JOOji8V/GS67CO1Sv/uRHSuKV9k/gZKTtc=; b=VwYb83bRncEOlvl1fUAFouLqe8
+	41hcxP6NsvBhQJABRNQG1+jLIQMDXxBYp47OXEBmheZomkmRncGH3jhK/sngDQhBSjhanuJSxzV2B
+	+YzL9IESozUkkXtAQGeoAPB74giyNVgSr9CswuE2oyk5de9XOCioKkFVpDIGKBFgP5i0RYvnFivwo
+	nSmm1JSF6GjEfba76bY+Xn6o6GtasAPb5jCKq6c9uDi6eP7h79g2Uvzoc7Ltg8+dQawQJNtAAqkmK
+	MZfawzMi3iw29fZFZMWmlwc8G3rSy4WlqSArMT1sOHjCDxEfeZGTI8UGYa/CWQk8kehPdjetEPyqq
+	dDKrecdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrFQl-00000001xT4-32jK;
-	Tue, 04 Aug 2026 13:43:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrFT3-00000001xpO-0VUZ;
+	Tue, 04 Aug 2026 13:46:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrFQk-00000001xSa-0GJW
+	id 1wrFT1-00000001xp4-3MUI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 13:43:42 +0000
+	Tue, 04 Aug 2026 13:46:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6C1C760A78;
-	Tue,  4 Aug 2026 13:43:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FD5B1F000E9;
-	Tue,  4 Aug 2026 13:43:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0823560A75;
+	Tue,  4 Aug 2026 13:46:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A4D51F000E9;
+	Tue,  4 Aug 2026 13:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785851021;
-	bh=IBH/Dc/ZJz+4sJLW+ut9cuYtgG9NRpWhNfYqB994G2g=;
+	s=k20260515; t=1785851162;
+	bh=vognF5l55JOOji8V/GS67CO1Sv/uRHSuKV9k/gZKTtc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AHtmCddswf2PGZfFcl62pyqqu04/E7F86tIAV9KM56Q5mQvysgWALmoW8qvGMEPtR
-	 HBMDSSXBJflPvUTOlLnjZsqOjrTFtum7s4cbYYKas1fQt27U2HnbRya71c0Wo6USc3
-	 Iv4IVqCrmNgfTlzkcOAnqGtaLsglgfasO9QF8P8MeugPQ4SYyGRlLckNrPHrBHswFE
-	 8GdjBCg3n3Bt/9axjacpHDRnn1VJ6UBN4RlVOPAy6ckT1FsVG/ZewYkSURKS1V8gjS
-	 6yjV+Fvo5mDBJZE/7cKa86Z5QntI9ieyTI2glVuRYHV7dePDLx/UtbUPoVx3UneCvh
-	 8W9330z+eNB1Q==
-Date: Tue, 4 Aug 2026 14:43:35 +0100
+	b=Jhl3rAljpkP8+TqRtsauYIu4Su1qGtLhkg4GbDxAkGVZbDfJ9lvkdhj5ZSg5JtIcq
+	 OxrCq1VTSscdAo+Fw2PSBArOdCuCjwnCQgaAcoXl4cbsvWigByrU6qakupshsBTrux
+	 UJXUcrMXCReiXh3VSIJeUzNM9NEsfplSzFGyIwJm7u/7W/c1lISQZcs345uNo47O12
+	 4Oe0LtHl8VTJxXHE7xCm7jvWFSYb2wU6m/glgWUhIz0uFVLrizi31ns22iZdWTXeWf
+	 DGFyu6P0fNciFrHq+rw4VBqNI9xf33y9HLQS4UCriOrV69SMIm3hV5VaSDz9impxP/
+	 v2CjkVJgD7QIA==
+Date: Tue, 4 Aug 2026 14:45:57 +0100
 From: Will Deacon <will@kernel.org>
-To: Naman Jain <namjain@linux.microsoft.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>, Thomas Huth <thuth@redhat.com>,
-	Fuad Tabba <fuad.tabba@linux.dev>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Pengjie Zhang <zhangpengjie2@huawei.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	Saurabh Sengar <ssengar@linux.microsoft.com>
-Subject: Re: [PATCH] arm64: smp: distinguish secondary CPUs that hang after
- reaching head.S
-Message-ID: <anHsh0SpRfSMIza7@willie-the-truck>
-References: <20260722113044.1835365-1-namjain@linux.microsoft.com>
- <6e13c10f-ccc2-48c3-bf8a-d65133a33e17@huawei.com>
- <70e8596f-7316-4cc9-90e8-ff06a94c4616@arm.com>
- <d52431ea-3166-459c-8f3d-988fdef63c32@linux.microsoft.com>
- <amYPss8PK9dgg2TD@willie-the-truck>
- <45ab9640-14b7-48d7-89e2-109aa3935539@linux.microsoft.com>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: catalin.marinas@arm.com, kernel-team@android.com, james.morse@arm.com,
+	fenghuay@nvidia.com, linux-arm-kernel@lists.infradead.org,
+	andre.przywara@arm.com, gshan@redhat.com,
+	tan.shaopeng@jp.fujitsu.com, sdonthineni@nvidia.com,
+	jonathan.cameron@oss.qualcomm.com
+Subject: Re: MPAM changes for v7.3
+Message-ID: <anHtFaXrC3rudt-H@willie-the-truck>
+References: <20260731175243.904730-1-ben.horgan@arm.com>
+ <178566322421.4135357.4986108386959858973.b4-ty@kernel.org>
+ <ea6ec065-9459-40d6-aefa-9f08e5281ce3@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <45ab9640-14b7-48d7-89e2-109aa3935539@linux.microsoft.com>
+In-Reply-To: <ea6ec065-9459-40d6-aefa-9f08e5281ce3@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +73,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 11:08:05AM +0530, Naman Jain wrote:
-> On 7/26/2026 7:16 PM, Will Deacon wrote:
-> > On Fri, Jul 24, 2026 at 10:16:03AM +0530, Naman Jain wrote:
-> > > On 7/23/2026 11:26 AM, Anshuman Khandual wrote:
-> > > > On 23/07/26 8:19 AM, Jinjie Ruan wrote:
-> > > > > 在 2026/7/22 19:30, Naman Jain 写道:
-> > > > > > When a secondary CPU fails to come online, __cpu_up() falls back to
-> > > > > > __early_cpu_boot_status, but boot status 0x0 is ambiguous: it cannot
-> > > > > > distinguish a CPU that never executed head.S (firmware/hypervisor never
-> > > > > > dispatched it, so it never ran a single instruction) from one that
-> > > > > > entered head.S, started executing, and then got stuck somewhere in kernel
-> > > > > > bring-up. Add a change to let us tell those two cases apart, which
-> > > > > > narrows down where to look when a CPU goes missing during boot.
-> > > > > I previously encountered this issue when debugging the parallel startup
-> > > > > of ARM64 secondary cores. It is difficult for the kernel to determine
-> > > > > whether the secondary core is hung in the firmware or whether it has not
-> > > > > executed a single instruction. So I think this motive is reasonable.
-> > > > 
-> > > > Why should kernel determine the difference here ? Would not the firmware
-> > > > know if it has started any secondary CPU for the kernel which must have
-> > > > come inside head.S ? If the cpu gets hung inside firmware while starting
-> > > > up then the debug responsibilities belong there instead.
-> > > > 
-> > > > Still wondering what's the rationale for this change.
-> > > 
-> > > Hello Anshuman,
-> > > This sounds fair to me. Let me elaborate the problem, beyond the scope of
-> > > this patch. In production, we occasionally see these crashes where one of
-> > > the CPU fails to bring up online, with 0x0 status code. Hypervisor may be
-> > > missing the telemetry, but the problem is that we don't know if the
-> > > secondary CPU ever started executing the instructions or is stuck somewhere
-> > > between the start of head.S and marking itself online at the end of
-> > > secondary_start_kernel().
-> > > There are couple of places, where we get those other status codes, but not
-> > > everywhere. If the issue is not easily reproducible, experiments on local
-> > > setups do not yield anything. That's where I am attempting to add some more
-> > > information in kernel to debug these issues.
-> > 
-> > I think this is a game of diminishing returns. There's a lot of stuff
-> > that the firmware/hypervisor can get wrong here and trying to detect or
-> > handle that in Linux is going to be a real mess. For example, if it
-> > enters the kernel at the wrong address, or in the wrong mode, or with
-> > the MMU enabled etc. It sounds like you don't have much idea about
-> > what happens in the failure case, so it might not even execute the code
-> > that you're adding correctly.
-> 
-> That is true. I agree. While we cannot and should not worry about adding
-> logs for each of these firmware failure points in kernel, do you see any
-> merit in adding any of this information to the kernel to at least narrow
-> down the problem?
+Hi Ben,
 
-Possibly, but I'd prefer to land the parallel bringup work first and then
-see whether this still makes sense.
+On Mon, Aug 03, 2026 at 11:29:50AM +0100, Ben Horgan wrote:
+> On 8/2/26 13:12, Will Deacon wrote:
+> > It looks like you've been keeping an eye on the Sashiko reviews, but
+> > please can you double-check the open-comments on this posting?
+> > 
+> >   https://sashiko.dev/#/patchset/20260731175243.904730-1-ben.horgan%40arm.com
+> 
+> Sashiko reports some real existing issues that I have already got patches on the list. Other than
+> this there is potential for one-off leaks of the abmc counters an an existing possible deadlock in
+> resctrl. At least one of the leaks is worth addressing, I'll look into that. I need to check further
+> for the existing resctrl deadlock, there have been similar problems in this area. See below for
+> notes on each of the Sashiko comments.
+
+Thanks. I wasn't expecting you to go through each Sashiko comment in turn
+in your reply, I just wanted to check that you'd seen them and checked
+there was nothing major!
+
+If you have additional fixes that you want to land for v7.3, there's still
+time for that so please feel free to send another batch of fixes on top
+of for-next/mpam. I'll switch to "regression fixes only" next week.
 
 Will
 
