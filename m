@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36CEC55172
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 06:38:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89412C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 06:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVV9ANkNdZSlIxQxx6G0UrPV7UdyTkbaOPTjRrwl8xo=; b=ybyL3nfk72HEN6wj2qfnTofl0G
-	jRC+WALbdUw9G6vVGoPv0JcemVZlh9VHVmDNhOyoIt4UsVnUWpNWJYkfooPpGh6O3lFzGq3MDQTIX
-	NUFtIOrBDMAB2mkhY3R5yfKO3Fwr6SC48QkYtlJCQKOPCZ8UflcgxGH4HZ8jVBm3UpZ32NePJ6QCD
-	l/uGNBJe/N4pfm3Z1L8Bi3bQPLLGdfRths2t7CDd1Otq5ZQYAIyrgv/CWAh/t4x2QG+OMOK/NyVAF
-	tJ9nCUj2VkW+99OFTsODBhgEUusxu139E1ogGFyWCUc4ICudVH+tIrw99Qfn/Nn9P8AbjPAwfl2pJ
-	PlOloj0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zq19xXoHf5uNAdn0tYddA7oZEvLFG46WEj0MtIKrUp8=; b=KaGvkBiGaPcYMllKbB/F562D7J
+	Vr82oV2fN+okWiYau5I0ovb3UtMKnYbffGDBnFvQRnjn/4cH6B4yaW/VC1YfVlXNNRadjhNnaobEM
+	yR1ML/bqbb4qREyAe4IyCeI7m4uSASQJK+w892zK9pTmD5PR6P9xs7EY99iZsHxFrr6EslvZWhdGx
+	Rq18qsaPSyVwHSMH6M68UShR91QjQqPpB1ti1dDOD7BmL9+5DGzkeSplk+UbbFvSlmTuc8xE/jLVP
+	1DkpKd8AkAeD1hLF5bm2ZMk0LdxBCmJ82oH398V+Hfkw8c5NDlQEyWFJTEmbFdwasNvhgk61jFzSQ
+	OODzCMtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr8mk-000000018EB-1MBR;
-	Tue, 04 Aug 2026 06:37:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wr8p3-000000018YI-38Zj;
+	Tue, 04 Aug 2026 06:40:21 +0000
+Received: from [101.71.155.101] (helo=mail-m155101.qiye.163.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr8mj-000000018Dm-0kyf;
-	Tue, 04 Aug 2026 06:37:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34FE060A59;
-	Tue,  4 Aug 2026 06:37:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E77811F000E9;
-	Tue,  4 Aug 2026 06:37:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785825475;
-	bh=sVV9ANkNdZSlIxQxx6G0UrPV7UdyTkbaOPTjRrwl8xo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=jaMly5HTZ3fqszrH4+9Avu8iT9Iu4USutKzAtFZXji71cQ/MKlmxt3iNMousKck4p
-	 0St6s/+igXJGmG6faNAYUPY2KnHGQNaTNxvaFz/nsL/yNENZCNy6pH7KrXDNkwPmRr
-	 qDfoC9OjF5pZE9wMZrpqXpk6ZHOMhFQplfeL4f3AX3WcJzdX41CxFDp+BCJFydpPpG
-	 7o+mt/Rb9Y1kROTR+MJ0oy1e9kAjGKOCWY7Qbk0Om+6ZdlJF6djsB5j9RFbw5R+et8
-	 hmQNo4y9OoTRY6/hLF7yux1HlWKKPvtB0ifjGju0YGkdr05SSK7YFCZF/f5ZN4gcgE
-	 eNa1VxO8oR8Hw==
-Date: Tue, 4 Aug 2026 08:37:52 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Stefan =?utf-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, mfd@lists.linux.dev
-Subject: Re: [PATCH v9 01/12] dt-bindings: clk: zte: Add zx297520v3 top clock
- and reset controller
-Message-ID: <20260804-tough-reindeer-of-zoology-6ccd59@quoll>
-References: <20260802-zx29clk-v9-0-d05530d85d28@gmail.com>
- <20260802-zx29clk-v9-1-d05530d85d28@gmail.com>
+	id 1wr8oz-000000018XZ-3oZv;
+	Tue, 04 Aug 2026 06:40:19 +0000
+Received: from Vostro-3710.. (unknown [14.220.232.116])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 48af19290;
+	Tue, 4 Aug 2026 14:40:07 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: krzk@kernel.org
+Cc: amadeus@jmu.edu.cn,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	robh@kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: rockchip: Add MangoPi M28K
+Date: Tue,  4 Aug 2026 14:40:00 +0800
+Message-Id: <20260804064000.1047278-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260803-fractal-sly-earthworm-2fe241@quoll>
+References: <20260803-fractal-sly-earthworm-2fe241@quoll>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260802-zx29clk-v9-1-d05530d85d28@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9fcb803d4c03a2kunm5209684c2b0cfd
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSR9PVk1LSEgYSE8YTEMfHVYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKT1VJSUtVSUhJVUpKTVlXWRYaDxIVHRRZQVlPS0hVQkJJTk
+	tVSktLVUpCS0JZBg++
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260803_234018_125698_0156DA00 
+X-CRM114-Status: UNSURE (   5.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,51 +72,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 02, 2026 at 11:33:33PM +0300, Stefan D=C3=B6singer wrote:
-> These SoCs have 3 clock and reset controllers: Top, Matrix and LSP.
-> Clocks go from oscillator -> top -> matrix -> LSP, with a register in
-> top controlling most clocks that get passed to matrix and a register in
-> matrix controlling all the clocks that get passed to LSP.
->=20
-> Generally every device has two clocks (one work clock, and one that
-> connects it to the bus, I call it PCLK), two reset bits (I don't know
-> what the difference is - sometimes asserting one is enough to reset the
-> device, sometimes both need to be asserted). PCLK and WCLK are
-> controlled by individual gates. Some devices have a mux and/or a
-> divider for their work clock. Some devices, like the GPIO controller,
-> only have reset bits and no clocks.
->=20
-> The top clock controller is fed by a 26 MHz external oscillator and has 4
-> PLLs to generate other clock rates. ZTE's kernel mostly relies on the
-> boot ROM to set up PLLs, but one LTE-related PLL is not configured
-> on some boards. Therefore my driver contains code to program PLLs. It
-> produces identical settings as the boot ROM for the pre-programmed
-> frequencies.
->=20
-> Not all clocks will have an explicit user in the end. I am defining a
-> lot of them simply to shut them off. The boot loader sets up a few of
-> the proprietary timers, which will send regular IRQs (although the
-> kernel of course doesn't need to listen to them). I don't plan to add a
-> driver for the proprietary timer as I see no use for them - the ARM arch
-> timer works just fine. I will add a driver for the very similar
-> proprietary watchdog though.
->=20
-> The clock list in this patch is pretty complete but not exhaustive.
-> There are other bits that are enabled, but I couldn't deduce what they
-> are controlling by trial and error. Some of them seem to do nothing.
-> Others cause an instant hang of the board when disabled. It is quite
-> likely that a handful more clocks will be added in the future, but not a
-> large number.
->=20
-> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
->=20
-> ---
->=20
-> Changes v8->v9:
+Hi,
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> How did you resolve my comments from v1? You split patches instead of
+> squashing and removed any explanation I asked for.
 
-Best regards,
-Krzysztof
+My idea is to add an official product link to differentiate them.
+HINLINK H28K has this link, which I added to the commit message.
+As for MangoPi, since it's discontinued, there's no product link
+available. I will include a link to an image of the board in the
+next patch to show that they are different boards.
 
+Does this solve your problem?
+
+Thanks,
+Chukun
 
