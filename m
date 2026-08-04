@@ -4,112 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27049C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 06:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36CEC55172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 06:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yP8yO/BRENtBx+IwrJFj34waJ33MmACcGPTviE5xVwE=; b=mNthlW7Ic7pItUitdQ5YHImCw0
-	VWvC6Ere/LwMdMgeN/Lbb8tHaR/U3E8l0sqqg0D4Jmp/BHNiCvHBRfBAHvuU4LpCBf0myhIcHYmII
-	aFajuo2lT2qLk+JaUuQwhERr1Yiumj6rNR7vrQjlrZ4O4p4vFBtYn7P2poI9GQfeRAr+3EDupeg4K
-	7vPgL7I91uRMVZRw1oZrg41owiijaa9KUPZXw7i68lB42y19Tj5//edH3snAc6WDMPnWyXPFOpkC6
-	Ijy80RoWhZsTZryP+GzRy9F56obWBCQHh2Bg5mRu5e6Hfj8v9vMiB7F7AZqfQaeZBSd5BbwVX9bQx
-	9hOMAXPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sVV9ANkNdZSlIxQxx6G0UrPV7UdyTkbaOPTjRrwl8xo=; b=ybyL3nfk72HEN6wj2qfnTofl0G
+	jRC+WALbdUw9G6vVGoPv0JcemVZlh9VHVmDNhOyoIt4UsVnUWpNWJYkfooPpGh6O3lFzGq3MDQTIX
+	NUFtIOrBDMAB2mkhY3R5yfKO3Fwr6SC48QkYtlJCQKOPCZ8UflcgxGH4HZ8jVBm3UpZ32NePJ6QCD
+	l/uGNBJe/N4pfm3Z1L8Bi3bQPLLGdfRths2t7CDd1Otq5ZQYAIyrgv/CWAh/t4x2QG+OMOK/NyVAF
+	tJ9nCUj2VkW+99OFTsODBhgEUusxu139E1ogGFyWCUc4ICudVH+tIrw99Qfn/Nn9P8AbjPAwfl2pJ
+	PlOloj0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr8lU-000000017rT-0GRe;
-	Tue, 04 Aug 2026 06:36:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wr8mk-000000018EB-1MBR;
+	Tue, 04 Aug 2026 06:37:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr8lQ-000000017q4-2aWw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 06:36:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785825395;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yP8yO/BRENtBx+IwrJFj34waJ33MmACcGPTviE5xVwE=;
-	b=XTPraDNzGSrZYnCIp1mXZ+PV3bITP46bIQihpPGWI17vR2MazR8Aer8B+UnD0l32YrOFxZ
-	n/DTLijju5JA/imd00KbWognutLlNQuCg2V+xuM0K3+zQe5C9ait5Tjmg8gbbNvDqJQnnG
-	3PB7OU6cJsE6oNFnqg0nYhw4sckgQk4=
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
- [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-213-x5ITU43XPjGyMsqa2toxZg-1; Tue, 04 Aug 2026 02:36:23 -0400
-X-MC-Unique: x5ITU43XPjGyMsqa2toxZg-1
-X-Mimecast-MFC-AGG-ID: x5ITU43XPjGyMsqa2toxZg_1785825382
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2cc5faecf01so82633675ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 23:36:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785825382; x=1786430182;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yP8yO/BRENtBx+IwrJFj34waJ33MmACcGPTviE5xVwE=;
-        b=tRGVU/4esVV/qDXD5k5W01VkAIt441st8BRbnW6CKB89lRpvvv+UbH/GcmeaCnzjlH
-         pfrx6eIXY8JUf1GN2aGEppQ5+jJ1IVD/7fN6PYNt33KZ7B/msDTJbXrJ2oNJikrSoZDE
-         5HPcTV18qLRcQaLohZjCRLSJ2xIBj7y1RLH8ayOqIEyxV0YBVeXYOZs5WnBJAP/0cuL2
-         D/Z5GANLGDuHDN9sQcXwmWa2OfHsRdelY4IWN0wpZMhFz12bSNx1PnSCgUsRdMZbHUB7
-         kleJWqlifoX/JZCp6K1vkBJuRaPSV1LxbF+dxowFeRlpasOQKgAfY7zOgDmmWN21oehy
-         S17A==
-X-Forwarded-Encrypted: i=1; AHgh+RrAUrr+DQt4ItjKFgFnsVMvOXRppg64uXN9TsQZClcmSsviqOikxQPdsz+uHWzVyGtfSaS6aaFGie5Uhjzv03Iu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3tdP2JpD48HHSAKMQWUZ8YD/wSC7WcHoHtIPE2dK2si/HHoSw
-	jtcXonDErOwxEZ2r2ytjZKLAj7MujkG4Wkui1ijRoypkXs0LC+ZVKcNvw5UY/nsBm2/LAGtvLh7
-	rKvje7EnIa01nuqACDfc6C3G4VjPdZ6j2gjkDK/KZgjyjivyAs5rvFjaWCKX7r53JQ0BYTB05WG
-	6a
-X-Gm-Gg: AR+sD13IlouA+tQtPHwC1PNLObxd/3P6kYL7fE7jhJyrxDXmHsvXeUVLbs3wVz/IIn4
-	qnjFSoOXI50mkm1dcgjewo76ODXDZODv8etV2C4SZqxtD2syrJnuojrXxyfdQiImSp3CTi2XN00
-	9nctwPZjSjpZebVxDNflS9vsXjdVCnwaa543nmdGkrOAkL/i2BjJJOLtd8lsZ/SG75+y07zpqbT
-	00PtxtEYa6IWRq6nPSlUplm6C0LbOf6uEC97eF2z7Q94W324xobGiImaLrPwVExTf1k39/sH2TX
-	X+TrJy/EUPtxTBhtVOBFj1jPa6bUtpbFWMoSi75loKuVNejISEVcW+nTKwDi0G0HUQScBBDkJs2
-	droDgr/ybqHuwieJjcgTuBRPcDY+h1BYZe1aktCDZWgM=
-X-Received: by 2002:a17:903:3810:b0:2cf:b23a:3e6e with SMTP id d9443c01a7336-2d0524740cfmr132333565ad.40.1785825382409;
-        Mon, 03 Aug 2026 23:36:22 -0700 (PDT)
-X-Received: by 2002:a17:903:3810:b0:2cf:b23a:3e6e with SMTP id d9443c01a7336-2d0524740cfmr132333335ad.40.1785825381970;
-        Mon, 03 Aug 2026 23:36:21 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d0aa4fb5f4sm503705ad.84.2026.08.03.23.36.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Aug 2026 23:36:21 -0700 (PDT)
-Message-ID: <ac199749-e90a-4077-9fef-c7b3adff71c9@redhat.com>
-Date: Tue, 4 Aug 2026 16:36:08 +1000
+	id 1wr8mj-000000018Dm-0kyf;
+	Tue, 04 Aug 2026 06:37:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 34FE060A59;
+	Tue,  4 Aug 2026 06:37:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E77811F000E9;
+	Tue,  4 Aug 2026 06:37:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785825475;
+	bh=sVV9ANkNdZSlIxQxx6G0UrPV7UdyTkbaOPTjRrwl8xo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=jaMly5HTZ3fqszrH4+9Avu8iT9Iu4USutKzAtFZXji71cQ/MKlmxt3iNMousKck4p
+	 0St6s/+igXJGmG6faNAYUPY2KnHGQNaTNxvaFz/nsL/yNENZCNy6pH7KrXDNkwPmRr
+	 qDfoC9OjF5pZE9wMZrpqXpk6ZHOMhFQplfeL4f3AX3WcJzdX41CxFDp+BCJFydpPpG
+	 7o+mt/Rb9Y1kROTR+MJ0oy1e9kAjGKOCWY7Qbk0Om+6ZdlJF6djsB5j9RFbw5R+et8
+	 hmQNo4y9OoTRY6/hLF7yux1HlWKKPvtB0ifjGju0YGkdr05SSK7YFCZF/f5ZN4gcgE
+	 eNa1VxO8oR8Hw==
+Date: Tue, 4 Aug 2026 08:37:52 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Stefan =?utf-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, Lee Jones <lee@kernel.org>, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, mfd@lists.linux.dev
+Subject: Re: [PATCH v9 01/12] dt-bindings: clk: zte: Add zx297520v3 top clock
+ and reset controller
+Message-ID: <20260804-tough-reindeer-of-zoology-6ccd59@quoll>
+References: <20260802-zx29clk-v9-0-d05530d85d28@gmail.com>
+ <20260802-zx29clk-v9-1-d05530d85d28@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 09/11] arm_mpam: add MPAM-Fb MSC firmware access
- support
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260731170324.2927758-1-andre.przywara@arm.com>
- <20260731170324.2927758-10-andre.przywara@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260731170324.2927758-10-andre.przywara@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 7oHZlIYA6pQT2FBBL3xVWlx1P173UyRk5Mk8UpFMHvs_1785825382
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_233636_758472_4C3626E7 
-X-CRM114-Status: GOOD (  25.29  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20260802-zx29clk-v9-1-d05530d85d28@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,116 +75,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
-
-On 8/1/26 3:03 AM, Andre Przywara wrote:
-> The Arm MPAM Firmware-backed (Fb) Profile document[1] describes an
-> alternative way of accessing the "Memory System Components" (MSC) in an
-> MPAM enabled system.
-> 
-> Normally the MSCs are MMIO mapped, but in some implementations this
-> might not be possible (MSC located outside of the local socket, MSC
-> mapped secure-only) or desirable (direct MMIO access too slow or needs
-> to be mediated through a control processor). MPAM-fb standardises a
-> protocol to abstract MSC accesses, building on the SCMI protocol.
-> 
-> Add functions that do an MSC read or write access by redirecting the
-> request through a firmware interface. For now this done via an ACPI
-> PCC shared memory and mailbox combination.
-> 
-> Since the protocol used is only a small subset of the full SCMI spec,
-> and the SCMI protocol has no full ACPI support anyway, open-code the
-> (simple) SCMI message generation, for just the fields we need.
-> 
-> [1] https://developer.arm.com/documentation/den0144/latest
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-> Tested-by: Ritwick Sharma <ritwick.sharma@arm.com>
+On Sun, Aug 02, 2026 at 11:33:33PM +0300, Stefan D=C3=B6singer wrote:
+> These SoCs have 3 clock and reset controllers: Top, Matrix and LSP.
+> Clocks go from oscillator -> top -> matrix -> LSP, with a register in
+> top controlling most clocks that get passed to matrix and a register in
+> matrix controlling all the clocks that get passed to LSP.
+>=20
+> Generally every device has two clocks (one work clock, and one that
+> connects it to the bus, I call it PCLK), two reset bits (I don't know
+> what the difference is - sometimes asserting one is enough to reset the
+> device, sometimes both need to be asserted). PCLK and WCLK are
+> controlled by individual gates. Some devices have a mux and/or a
+> divider for their work clock. Some devices, like the GPIO controller,
+> only have reset bits and no clocks.
+>=20
+> The top clock controller is fed by a 26 MHz external oscillator and has 4
+> PLLs to generate other clock rates. ZTE's kernel mostly relies on the
+> boot ROM to set up PLLs, but one LTE-related PLL is not configured
+> on some boards. Therefore my driver contains code to program PLLs. It
+> produces identical settings as the boot ROM for the pre-programmed
+> frequencies.
+>=20
+> Not all clocks will have an explicit user in the end. I am defining a
+> lot of them simply to shut them off. The boot loader sets up a few of
+> the proprietary timers, which will send regular IRQs (although the
+> kernel of course doesn't need to listen to them). I don't plan to add a
+> driver for the proprietary timer as I see no use for them - the ARM arch
+> timer works just fine. I will add a driver for the very similar
+> proprietary watchdog though.
+>=20
+> The clock list in this patch is pretty complete but not exhaustive.
+> There are other bits that are enabled, but I couldn't deduce what they
+> are controlling by trial and error. Some of them seem to do nothing.
+> Others cause an instant hang of the board when disabled. It is quite
+> likely that a handful more clocks will be added in the future, but not a
+> large number.
+>=20
+> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+>=20
 > ---
->   drivers/resctrl/Makefile        |   2 +-
->   drivers/resctrl/mpam_devices.c  |  57 +++++++--
->   drivers/resctrl/mpam_fb.c       | 209 ++++++++++++++++++++++++++++++++
->   drivers/resctrl/mpam_internal.h |  18 +++
->   include/linux/arm_mpam.h        |   2 +-
->   5 files changed, 275 insertions(+), 13 deletions(-)
->   create mode 100644 drivers/resctrl/mpam_fb.c
-> 
+>=20
+> Changes v8->v9:
 
-[...]
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
-> new file mode 100644
-> index 000000000000..61a91c6cec0a
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_fb.c
-> @@ -0,0 +1,209 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (C) 2024-2026 Arm Ltd.
-> +
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cleanup.h>
-> +#include <linux/errno.h>
-> +#include <linux/mailbox_client.h>
-> +#include <linux/mutex.h>
-> +#include <linux/types.h>
-> +
-> +#include <acpi/pcc.h>
-> +#include <asm/mpam.h>
-> +
-> +#include "mpam_internal.h"
-> +
-> +#define MPAM_FB_PROTOCOL_ID		0x1a
-> +
-> +#define MPAM_PROTOCOL_VERSION_CMD	0x0
-> +#define MPAM_MSC_ATTRIBUTES_CMD		0x3
-> +#define MPAM_MSC_READ_CMD		0x4
-> +#define MPAM_MSC_WRITE_CMD		0x5
-> +
-> +#define MPAM_FB_ERR_SUCCESS		 0
-> +#define MPAM_FB_ERR_NOT_SUPPORTED	-1
-> +#define MPAM_FB_ERR_INVALID_PARAMETERS	-2
-> +#define MPAM_FB_ERR_DENIED		-3
-> +#define MPAM_FB_ERR_NOT_FOUND		-4
-> +#define MPAM_FB_ERR_OUT_OF_RANGE	-5
-> +#define MPAM_FB_ERR_BUSY		-6
-> +#define MPAM_FB_ERR_COMMS_ERROR		-7
-> +#define MPAM_FB_ERR_GENERIC_ERROR	-8
-> +#define MPAM_FB_ERR_HW_ERROR		-9
-> +#define MPAM_FB_ERR_PROTOCOL_ERROR	-10
-> +#define MPAM_FB_ERR_IN_USE		-11
-> +
-> +#define MPAM_MSC_PROT_ID_MASK		GENMASK(17, 10)
-> +#define MPAM_MSC_TOKEN_MASK		GENMASK(27, 18)
-> +
-
-Why we're not using GENMASK_U32() since the operand the message is 32-bits dwords? :-)
-
-> +#define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
-> +
-> +static atomic_t mpam_fb_token = ATOMIC_INIT(0);
-> +
-> +static void mpam_fb_build_version_message(unsigned int token,
-> +					  void __iomem *msg_buf)
-> +{
-> +	struct acpi_pcct_ext_pcc_shared_memory __iomem *pcc_shmem = msg_buf;
-> +
-> +	/* .signature is filled by the platform */
-> +	writel_relaxed(PCC_CMD_COMPLETION_NOTIFY, &pcc_shmem->flags);
-> +	writel_relaxed(MPAM_FB_PROT_HEADER_LEN, &pcc_shmem->length);
-> +	writel_relaxed(MPAM_PROTOCOL_VERSION_CMD |
-> +		       FIELD_PREP(MPAM_MSC_TOKEN_MASK, token) |
-> +		       FIELD_PREP(MPAM_MSC_PROT_ID_MASK, MPAM_FB_PROTOCOL_ID),
-> +		       &pcc_shmem->command);
-> +}
-
-static inline void writel_relaxed(u32 value, volatile void __iomem *addr) { ...}
-
-The input value would be 'unsigned long', which is converted to 'u32'. If  GENMASK_U32()
-is used to define MPAM_MSC_TOKEN_MASK and MPAM_MSC_PROT_ID_MASK, the unexpected conversion
-can be avoided.
-
-Thanks,
-Gavin
+Best regards,
+Krzysztof
 
 
