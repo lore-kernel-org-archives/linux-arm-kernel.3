@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5913AC55838
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 12:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C47BC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 12:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=84QprRHwhrz+Nkiqha49/PA9CxYa6FBg6w6noEz86g8=; b=Gx51rEbt0go4j+Uwlgqnwk8Kai
-	pknmmmSboM7L68HTeurs591AgpOBKNT+z9hyo09oj2qyxW+2636fyEuun1uf2ySoYtGmnEQwfpqcY
-	F6IFdZi9sX7kas3jqkE9p3HSTktOEJsQAzqHO8NWVh8wEKsnknDJOmfHSXuMeQu+/NjLtRlWqNvLI
-	IX2dC7w8WOe1Eo+CSjawEK0N5loRCxmTcm37meHXColY86UKUmmqmUuUWHldHziqqBsPeJ5/cxwt8
-	Slb19nHPSmzc3kbuV+hQuGoV2nhoRyklpKRfefuOj5i/8PEN4L1YMdBYI6kMgxhdFynymRTO3A228
-	d2i8uoMA==;
+	bh=GKB4l2IZdbP/Q0kXwbUuYXowkK37syxnhhgXnRPRqN4=; b=irAGIhRKU5HY04Cu35gPcdgAkR
+	H9IR7EmOWA7gznMTTattmfx4rHIFXSGuTHowRXMIkUwzbfgWB4Q9r55dZDWoH8fqzdnTKzzOw1r7S
+	kL+y4Zx2i2iV2z/OvbTWkDdJHcyARkcC1kRxqqEdbBRi2ieOh5UK9uG7/1vsLV19EfDY0STH/jjnH
+	nK759Y93Mkogqg4iHJtfDlR/aaF0UdgaLcvSmNcIx3h1UdLR3WvxJwXAh24y6u0NPExDFH6KKtROO
+	8bsiPvKOiv28YFNLLO4UJrxuuNkc4NCghzJOTiU99jvytQSAbZIwfUsVRsAR2qzebIphsPkWqo5Cl
+	HiG67f2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrEUG-00000001qKd-1qPM;
-	Tue, 04 Aug 2026 12:43:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrEV7-00000001qSI-2RgX;
+	Tue, 04 Aug 2026 12:44:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrEUE-00000001qKS-1tg1
+	id 1wrEV6-00000001qS2-1TUH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 12:43:15 +0000
+	Tue, 04 Aug 2026 12:44:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2F5441B35;
-	Tue,  4 Aug 2026 12:43:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97F3F1F000E9;
-	Tue,  4 Aug 2026 12:43:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E3D9543A4A;
+	Tue,  4 Aug 2026 12:44:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 034D81F000E9;
+	Tue,  4 Aug 2026 12:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785847393;
-	bh=84QprRHwhrz+Nkiqha49/PA9CxYa6FBg6w6noEz86g8=;
+	s=k20260515; t=1785847447;
+	bh=GKB4l2IZdbP/Q0kXwbUuYXowkK37syxnhhgXnRPRqN4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UWOdWAkRkJHZkJxmRSHFZYlpGkORiS1kGH2fYisI2uada2AxRE+GeYyHciAVPQr30
-	 MNZd6q6kuVhstTX1GSsaMMzewptHToT1kUH0WuveZ7i5IRR9AZFh985L1e0HOxs32H
-	 wXbHaoX6vi/rrkSLGy0movwuGO/cWJNMbN6vwTmSwcxFllPwoOqPNM4CgVKNryMIWa
-	 OEW9DeHljNMC9Hvnie84zgLGzjIjuFDoip29CmY7iUbIDxnCzqtPygXPJBrUyyRV78
-	 YpoweashigOAa2jiQFa9l0ujqRtV9rDaln9png6xRNUr3jCjFaCfpjuh2tbsAOeuHv
-	 zbwT/VJNUydlA==
-Date: Tue, 4 Aug 2026 13:42:51 +0100
+	b=T+v+kmdgCi3T4UxR1mhAPlH3L3GeQtz+35K3qNK/vTqxJ2yOhaKoAVspBfOMxLtsn
+	 FIWPLNKujn5Olk6Z1+BnoEkDpCRSlRtCDxuydX1h9GeE6Eo2MOGwzDqGMneFaBwi/s
+	 k1oHBA1ZQ6LyPgdPLKQitX4rEDVnEILfBvI9RX+oJ2Ihm42LEJmI4EzjPJ+9HlvHfA
+	 kAMfGranFVW0VA+QEd5XUJV+yYuDvEayQq7xHv1OcCe6lMi7yMbcz8Nt00EWijb0Sc
+	 z41BRatoKPG4RoVOTuLaS2r3qLW8wT6a0YEEg0Aik0zKahizkE1Pp51jHOmksup38v
+	 HLAh1qHJ/KsIQ==
+Date: Tue, 4 Aug 2026 13:43:45 +0100
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 To: Pedro Falcato <pfalcato@suse.de>
 Cc: David Hildenbrand <david@kernel.org>, 
@@ -58,19 +58,17 @@ Cc: David Hildenbrand <david@kernel.org>,
 	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
 	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org, 
-	John David Anglin <dave.anglin@bell.net>
-Subject: Re: [PATCH v2 2/6] parisc: Drop own implementations for ptep_get()
- and ptep_test_and_clear_young()
-Message-ID: <anHd7ho3daZFZ-4r@lucifer>
+	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH v2 3/6] mm/powerpc/8xx: constify ptep_get() argument
+Message-ID: <anHeZx6Gg7waNWjL@lucifer>
 References: <20260803164400.531199-1-pfalcato@suse.de>
- <20260803164400.531199-3-pfalcato@suse.de>
- <anHHyiHqYf3yLf2K@lucifer>
- <anHcJZYyz9Zrshdm@pedro-suse>
+ <20260803164400.531199-4-pfalcato@suse.de>
+ <anHI4B-lMu6AJJfA@lucifer>
+ <anHc4aUbwxWx9YJF@pedro-suse>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <anHcJZYyz9Zrshdm@pedro-suse>
+In-Reply-To: <anHc4aUbwxWx9YJF@pedro-suse>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,47 +83,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 01:34:41PM +0100, Pedro Falcato wrote:
-> On Tue, Aug 04, 2026 at 12:11:08PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > On Mon, Aug 03, 2026 at 05:43:56PM +0100, Pedro Falcato wrote:
-> > > From: Helge Deller <deller@gmx.de>
+On Tue, Aug 04, 2026 at 01:38:52PM +0100, Pedro Falcato wrote:
+> On Tue, Aug 04, 2026 at 12:13:13PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > On Mon, Aug 03, 2026 at 05:43:57PM +0100, Pedro Falcato wrote:
+> > > There is no need for write access to the PTE.
 > > >
-> > > Switch to the generic implementations, which are identical.
-> >
-> > You sure do like succinct commit messages :)
->
-> I didn't even write this one! See the From: :))
-
-Lol well then feedback addressed to Helge ;)
-
->
-> >
-> > Maybe worth saying by dropping the __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG and
-> > ptep_get defines you get the generic versions from include/pgtable.h which are
-> > functionally identical.
-> >
->
-> I can touch it up though, if you insist.
-
-Yeah, I'm being pedantic here it's not vital to have this change :) but be nice
-if you could, I'm sure Helge probably wouldn't mind too much? :)
-
->
-> > (Being pedantic, they're not quite strictly identical as the
-> > ptep_test_and_clear_young() generic function does some weird unnecessary
-> > indirection with a local variable and the single {} is dropped etc.)
-> >
-> > >
-> > > Suggested-by: Usama Arif <usama.arif@linux.dev>
-> > > Suggested-by: John David Anglin <dave.anglin@bell.net>
-> > > Signed-off-by: Helge Deller <deller@gmx.de>
 > > > Signed-off-by: Pedro Falcato <pfalcato@suse.de>
 > >
-> > Nits above notwithstanding, LGTM so:
+> > With below addressed LGTM so:
 > >
 > > Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+> >
+> > > ---
+> > >  arch/powerpc/include/asm/nohash/32/pte-8xx.h | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > >
+> > > diff --git a/arch/powerpc/include/asm/nohash/32/pte-8xx.h b/arch/powerpc/include/asm/nohash/32/pte-8xx.h
+> > > index e2ea8ba9f8ca..f2bab31040c7 100644
+> > > --- a/arch/powerpc/include/asm/nohash/32/pte-8xx.h
+> > > +++ b/arch/powerpc/include/asm/nohash/32/pte-8xx.h
+> > > @@ -226,7 +226,7 @@ static inline pte_basic_t pte_update(struct mm_struct *mm, unsigned long addr, p
+> > >
+> > >  #ifdef CONFIG_PPC_16K_PAGES
+> > >  #define ptep_get ptep_get
+> > > -static inline pte_t ptep_get(pte_t *ptep)
+> > > +static inline pte_t ptep_get(const pte_t *ptep)
+> > >  {
+> > >  	pte_basic_t val = READ_ONCE(ptep->pte);
+> > >  	pte_t pte = {val, val, val, val};
+> >
+> > Worth making these const too (that {val, val, val, val} horrifies me btw :)?
 >
-> Thanks!
+> This is PPC code, so I don't know if they have any particular opinion here,
+> but I could definitely do this.
+>
+> (FWIW, it seems we're more aggressive in MM in doing this than other places
+> in the kernel?)
+
+I mean I can't see why there'd be any objection given you're already const-ing
+here :)
+
 >
 > --
 > Pedro
