@@ -4,97 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0556C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D15EC55838
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uNVTFfdfEZG90+jAE3BzNE+piQiVWzc95vgbhLXgILA=; b=OkyUXb1oLiPgKfVyHUd7Urji40
-	9yWtj0kGwsewaWt5SPIusQmW7gGSOlAlSzXRLv5fQ0hhI0aZ5lD8v6ruqRBcCJdvWj7FZ8l7UTAIx
-	Bwb9TLwwMNoNlVUVK0iMMQWXTH1Vnt99l70Fa89J1iICFrXAyUmQjxnrJkirDzHP+BKesZZh41l4w
-	31ZOCuC2H568PVOc9mhmmzYyfSDM7qBCIaZjUoUY5isZaxt3/SARfJHxJJJ8ksPzmcAsdG67HAdRz
-	1zHjivm+XZ+cIpG+VfKbyiGUSIpdkEqrmu5LXootVBMxX5R9TU1gfYX6AemshDd9sBGZwb66kSMan
-	6wnK+drg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KMmXB3Hz2HVQkjI02T1LhdZYeO7c9DM5ga0yqzGQqk8=; b=QT91kNm/tdRhPzZzLxVPqfYhDW
+	MRySeubCJACGwpIYL+V1X7NM5oLp+ePF7RdX/zhQc/3rkPmQQpd+tj2CaIxfva7Ue+j+HC03hJ7Kl
+	5atyPh544YQrrwun5z74APetZe/6Ck/EGArNXjDrVyA84c3ncd/m23sa2SBhDK/lWgSVu9IQ60M4q
+	2X0xpcyLpDu9oGuq5ORS/8o+eKGsWfaeNVcNtIJtt6km4o9LP7OdIXZbKFZg2KHI1Y7UVKNNe85uH
+	hSMfGmNM8S42tZPplqH/EloCAte3qEyU9rhaTPJWwB/p8czV877HcaFsr91hanEz0NX8EsdRBOVwl
+	8FolcQPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDQq-00000001iUw-3M53;
-	Tue, 04 Aug 2026 11:35:40 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1wrDQu-00000001iYQ-0Rci;
+	Tue, 04 Aug 2026 11:35:44 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDQo-00000001iS3-0tVw
+	id 1wrDQs-00000001iVx-0X9n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:35:39 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-cbb973e6749so4994843a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 04:35:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785843337; x=1786448137; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uNVTFfdfEZG90+jAE3BzNE+piQiVWzc95vgbhLXgILA=;
-        b=lJqO9jUD0QsGG32XOGzfuYq3yobUPEJNkmh4Q0Q2duGMpZfgXkU5KZ23h6n8YS1zwa
-         JFabZUNGCvECiATCzIy3hqK4i1dpqnHcAwWsFSsIlcIpGAl5f+e/hphIfKM9jwdXOLn4
-         drNA6OWXQbWydK4Atk9s0V/EX6hbQtj35FHZypZrTFRGU+6fqn3lJmMngr774yonisap
-         BPZxWicv5/0sDvEsqcEFM1/FB1CDKZ10tcqsUs4zRuzexJiAeyjTPAaWX5S0ayVMxp3C
-         RPCossCijJ1eEQmi92lSKqf5LrIXBRNfbendKUU2W8q5IF5nHb9f42Rf0az92FBc0Sgk
-         n0kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785843337; x=1786448137;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=uNVTFfdfEZG90+jAE3BzNE+piQiVWzc95vgbhLXgILA=;
-        b=KVS1XL8ScV1F7/CyADLfS3Pr41U8gTajg7EsKVjTWoW/PNoind+noTQ/o8cRGgzucc
-         qQph80lQlYfFB21/m9BjB1PFTnCbHeAlqjEfoFFSddV1fAD8IBSj2eHFm1a2242AFIF4
-         7m68IbRiCNBa+PFQlf8ZvB5imdxfNrkIs3vj519XvHIjlDLj4tNCrSxBswZO1DI/CNHH
-         olb9n3j7pCdfVLMRjqOndxgYNHePKxhHSRwk/xhN8tD6z4RQI5eNnJuP7gL2tVhLnqRY
-         /EAxgT//hh3XRjEpbVlIyx+zs/VOgisy7jY8zTIvcKTqX2uDmQplucNGebyeZxJo88H5
-         Co7A==
-X-Forwarded-Encrypted: i=1; AHgh+RqNuhw/rutNQ9fEtMkPdJzocM8lLYcEHeD7DJ2MCO8c4qwDumqHQ4M0SQBnlIGbeaUmyAYArzrJZN5AOS7DBVx5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwI6bpVFq/Fu4fQzG7VpZVtaTvPrLhEMtNYX/I7jdFutczC+fa
-	QXzyaUE1WrqiUZSyQx4Aia0BLfcC36zErSuSdhXV9DE2GPd1+eGbYzJq
-X-Gm-Gg: AR+sD128ISCW0OK9j4cqzEcDA2NvOezsGIVjQCJbmsYZmVJ69RYE5z7ynwIEqZMmkMp
-	8/Pj6i5AVhuuCqrun5ptk9AvHg8m6tETUJPVaIIVsl8Pao8uKfrcY9dtGy1xpGGtBbxlv1AuCy5
-	2Kf2quAR7WQGeCdXjbtGY3f7Y8tXD//xByIFozdPa0nAQAYJ/6CnyFqueTBUFATCbz3pc2Vcyif
-	LkZpkCz2h75PHRl5P9EZP+T+Veu/x83D7+zTp3lZxRqj8Z0+e3x3Z+yN2wucdwcm1t2D76yhIHE
-	zs0QKgDC4ZtkIn8c/9Dcq++Tw0AB5teHzqoNj4i3P6TzLt4cjgZR5V4D07hIuzpslNftkU9VpbE
-	ijwHsFxjF76A5nqzQyrCH9YzaIf/KJ98wmvA3h5Ia4LChg0DgvJ77ZFUr+1LhCGcRQZ1fFeZt2p
-	oNbcgPk4ioSe0y/60dPpqLWxCaRxVnlkEWCGOHU8xXRGWekMDDdMMndD/EJX05IpJMQ3tV
-X-Received: by 2002:a05:6a21:3a47:b0:3c0:278c:6a31 with SMTP id adf61e73a8af0-3c92a51df73mr13770829637.11.1785843337304;
-        Tue, 04 Aug 2026 04:35:37 -0700 (PDT)
-Received: from DESKTOP-TIT0J8O.dm.ae ([49.47.198.15])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13fca63ce12sm3569493c88.5.2026.08.04.04.35.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 04:35:36 -0700 (PDT)
-From: Ahmed Naseef <naseefkm@gmail.com>
-To: netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Andrew Lunn <andrew@lunn.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Qingfang Deng <dqfext@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	Ahmed Naseef <naseefkm@gmail.com>
-Subject: [PATCH net] net: phy: mediatek: fix TX blink masks using the RX bits
-Date: Tue,  4 Aug 2026 15:35:11 +0400
-Message-Id: <20260804113511.3371248-1-naseefkm@gmail.com>
+	Tue, 04 Aug 2026 11:35:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1785843342; x=1817379342;
+  h=from:to:subject:date:message-id:in-reply-to:references:
+   mime-version:content-transfer-encoding;
+  bh=Av6eeg2ekqj+HOs2zrQPFQA1RnGOcXg/+B9uTPlD7J8=;
+  b=Xg91NT6AyBAYlf0RVQN5Mr8pt/VAsA/24Hh34mLm5Llfq/xoD6tQy0qk
+   53Va7NQpakbUqnL89clH6fgxk2FnhWjyiBAAuGmIiSj4KlJwXhbhl3CBf
+   LG/Eox2uo7bRQR9ZFNZigwPQ4t74XwbkDPR2maP97mIQQ4S5j/JjEphD8
+   auKD7jVxbVXRU3oYpwGBwuAp7EP0m4CB8vsu0UH7toDInpOXrbR2k4Ngh
+   8/ja6p7SpqDtL9bDvBteX3mRl8KHEO5ndmXZCfMQ55P8rCofdJDDQjg/2
+   R3x29Mgk3AOa09udn074aM97AOAiB/YI3bjfMBBLiNy2PIUp7PpYG8ESp
+   w==;
+X-CSE-ConnectionGUID: 9Xxrn/ddQv+JEDEp8rZysg==
+X-CSE-MsgGUID: d0CaX/zIS2mlZGcQFiIrqA==
+X-IronPort-AV: E=Sophos;i="6.25,204,1779174000"; 
+   d="scan'208";a="228765807"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Aug 2026 04:35:41 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Tue, 4 Aug 2026 04:35:40 -0700
+Received: from che-ll-i67070.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 4 Aug 2026 04:35:30 -0700
+From: Varshini Rajendran <varshini.rajendran@microchip.com>
+To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
+	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<srini@kernel.org>, <marcelo.schmitt@analog.com>, <radu.sabau@analog.com>,
+	<joshua.crofts1@gmail.com>, <jorge.marques@analog.com>,
+	<Jonathan.Santos@analog.com>, <jishnu.prakash@oss.qualcomm.com>,
+	<antoniu.miclaus@analog.com>, <duje@dujemihanovic.xyz>,
+	<mazziesaccount@gmail.com>, <varshini.rajendran@microchip.com>,
+	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v5 10/17] nvmem: microchip-otpc: nvmem: add emulation mode and OTP access validation
+Date: Tue, 4 Aug 2026 17:03:31 +0530
+Message-ID: <20260804113338.261782-11-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260804113338.261782-1-varshini.rajendran@microchip.com>
+References: <20260804113338.261782-1-varshini.rajendran@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_043538_265427_E1DB1F09 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20260804_043542_227408_E11DE401 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,52 +92,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MTK_GPHY_LED_TX_BLINK_SET and MTK_2P5GPHY_LED_TX_BLINK_SET are built
-from the RX blink bits instead of the TX ones, so both TX masks are
-identical to their RX counterparts. The TX bits they should be using,
-MTK_PHY_LED_BLINK_{10,100,1000,2500}TX, are otherwise only referenced
-by the per-speed branch of mtk_phy_led_hw_ctrl_set().
+Add validation of OTP memory accessibility and emulation mode status
+during probe.
 
-A TX trigger selected without a link trigger therefore programs the RX
-blink bits, and the LED blinks on received traffic. The masks are also
-used to decode the blink register in mtk_phy_led_hw_ctrl_get(), which
-as a result cannot tell the two triggers apart: an RX-only
-configuration reads back as RX and TX, and a TX-only configuration
-reads back as neither.
+When the boot packet is not configured, emulation mode allows access to
+the other packets. When both are not available an informational message
+is logged to help with debugging.
 
-Fixes: 7f9c320c98db ("net: phy: mediatek: Move LED helper functions into mtk phy lib")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ahmed Naseef <naseefkm@gmail.com>
+Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 ---
- drivers/net/phy/mediatek/mtk.h | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/nvmem/microchip-otpc.c | 16 +++++++++++++++-
+ 1 file changed, 15 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/phy/mediatek/mtk.h b/drivers/net/phy/mediatek/mtk.h
-index 320f76ffa81f..79e09727b81b 100644
---- a/drivers/net/phy/mediatek/mtk.h
-+++ b/drivers/net/phy/mediatek/mtk.h
-@@ -53,15 +53,15 @@
- #define MTK_GPHY_LED_RX_BLINK_SET		(MTK_PHY_LED_BLINK_1000RX | \
- 						 MTK_PHY_LED_BLINK_100RX | \
- 						 MTK_PHY_LED_BLINK_10RX)
--#define MTK_GPHY_LED_TX_BLINK_SET		(MTK_PHY_LED_BLINK_1000RX | \
--						 MTK_PHY_LED_BLINK_100RX | \
--						 MTK_PHY_LED_BLINK_10RX)
-+#define MTK_GPHY_LED_TX_BLINK_SET		(MTK_PHY_LED_BLINK_1000TX | \
-+						 MTK_PHY_LED_BLINK_100TX | \
-+						 MTK_PHY_LED_BLINK_10TX)
+diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
+index a17f82afdc37..6b0184423463 100644
+--- a/drivers/nvmem/microchip-otpc.c
++++ b/drivers/nvmem/microchip-otpc.c
+@@ -18,6 +18,7 @@
+ #define MCHP_OTPC_CR_READ		BIT(6)
+ #define MCHP_OTPC_MR			(0x4)
+ #define MCHP_OTPC_MR_ADDR		GENMASK(31, 16)
++#define MCHP_OTPC_MR_EMUL		BIT(7)
+ #define MCHP_OTPC_AR			(0x8)
+ #define MCHP_OTPC_SR			(0xc)
+ #define MCHP_OTPC_SR_READ		BIT(6)
+@@ -343,7 +344,8 @@ static int mchp_otpc_probe(struct platform_device *pdev)
+ {
+ 	struct nvmem_device *nvmem;
+ 	struct mchp_otpc *otpc;
+-	u32 size;
++	bool emul_enable;
++	u32 size, mr_val;
+ 	int ret;
  
- #define MTK_2P5GPHY_LED_ON_SET			(MTK_PHY_LED_ON_LINK2500 | \
- 						 MTK_GPHY_LED_ON_SET)
- #define MTK_2P5GPHY_LED_RX_BLINK_SET		(MTK_PHY_LED_BLINK_2500RX | \
- 						 MTK_GPHY_LED_RX_BLINK_SET)
--#define MTK_2P5GPHY_LED_TX_BLINK_SET		(MTK_PHY_LED_BLINK_2500RX | \
-+#define MTK_2P5GPHY_LED_TX_BLINK_SET		(MTK_PHY_LED_BLINK_2500TX | \
- 						 MTK_GPHY_LED_TX_BLINK_SET)
+ 	otpc = devm_kzalloc(&pdev->dev, sizeof(*otpc), GFP_KERNEL);
+@@ -355,10 +357,22 @@ static int mchp_otpc_probe(struct platform_device *pdev)
+ 		return PTR_ERR(otpc->base);
  
- #define MTK_PHY_LED_STATE_FORCE_ON	0
-
-base-commit: 1a35da325cac4d5bcad76a2aa943408a6f1d9000
+ 	otpc->dev = &pdev->dev;
++
++	mr_val = readl_relaxed(otpc->base + MCHP_OTPC_MR);
++	emul_enable = mr_val & MCHP_OTPC_MR_EMUL;
++	if (emul_enable)
++		dev_info(otpc->dev, "Emulation mode enabled\n");
++
+ 	ret = mchp_otpc_init_packets_list(otpc, &size);
+ 	if (ret)
+ 		return ret;
+ 
++	if (!size) {
++		dev_warn(otpc->dev, "Cannot access OTP memory\n");
++		if (!emul_enable)
++			dev_info(otpc->dev, "Boot packet not programmed and emulation mode disabled\n");
++	}
++
+ 	mchp_nvmem_config.dev = otpc->dev;
+ 	mchp_nvmem_config.add_legacy_fixed_of_cells = true;
+ 	mchp_nvmem_config.size = size;
 -- 
 2.34.1
 
