@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C52CBC5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:24:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F56C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZHRwjPesqBoJn8UTIi0yl5fajUFgc9aYLcMXK0tV0Vg=; b=2CzTmvaFw9JR+9IAQFHtbigj3G
-	8oJTVPkN5tFeAL2rmbUoCwLft8lMHSdG3eKhFDOO0QH64NMp7ANGNbfKRLDdRTxyW8KxAv9zHDmDP
-	RUIMhTeW2A5P60lSWJrkoTmdAEvZBO2A+lvb3spBWO6BuZUA01bmWxCJx7j9Bnuj6iGJF5jpSrJOu
-	d49hU5Ni9QtpjxQ4JCoeQqVaXG+ytBV0i+Z7B4I1OAqYAtwTcmH+YX8MEk7fKaoxm/zRQE/kOTEzh
-	xBVCKlZQV2hi3DG352WOOpD9Q1jgzw3cvOML4wJZsncGgapI8iUe5Rp1Tl/eJL5DiaYLWwMl3kcwn
-	i3FYhfIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HIcOFle/zwz16Xg1hcnb8SPakGcZDbwDo5/3Sec2GL4=; b=Bwc3c0kEFw7G7RtvTzeeStwiDz
+	ECsDjYIcEbLFb1/v/hcLIEJdAg4b4JEaGTyQxYtQrKXueUx8Lqd042ctClB2EXGH/0CS8/3e2iL2G
+	phJZwPM8K9J+RNhhbIF8RI9gR8tbDaXpUe5gG0GncYwtDQo04vnjWiv9xaC/ilhJlX3JK3p1AIU2V
+	Vvg5qmPG1xpJqjulyccsnSKanQwKcBpuVhqpm59INp970D+/cSEaPiOC/5xgPzaW82xUQYcv3ihdo
+	ImG+AcoNbAC/6ivbncfl2agIuQjGPbGbZlBowhcGgJQte7PsaQS0LgvOxRva7Ke4CP3j2Q8aBdk3S
+	wtPvr6LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrG3l-000000024TQ-0hMm;
-	Tue, 04 Aug 2026 14:24:01 +0000
-Received: from [117.135.210.5] (helo=m16.mail.163.com)
+	id 1wrG4u-000000024fW-1lRx;
+	Tue, 04 Aug 2026 14:25:12 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrG3h-000000024Rp-1iFG
+	id 1wrG4r-000000024eS-2ZbO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 14:23:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
-	Content-Type; bh=ZHRwjPesqBoJn8UTIi0yl5fajUFgc9aYLcMXK0tV0Vg=;
-	b=Z62ahoVwsCSBegc2m9RttLVriZICqT4n2BC2tUNBeBzcgX6V7UnJA32qc5uhsi
-	PVC1wlEn/eCm/MiJWUbBaOvlU1AFONJjQjQw5aznsPV2QA6XkGvVoG8Q1ZFMPa+l
-	LdsErW9zcmOHxaciVZcKhBnkmZ8FgMVTS2UrTJDogf/hM=
-Received: from fedora (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3H4+v9XFqDtAgNQ--.21955S2;
-	Tue, 04 Aug 2026 22:22:41 +0800 (CST)
-From: Ju Nan <junan76@163.com>
-To: junan76@163.com,
-	antonio.borneo@foss.st.com,
-	linusw@kernel.org
-Cc: alexandre.torgue@foss.st.com,
-	arnd@arndb.de,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	lee@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	mcoquelin.stm32@gmail.com,
-	mfd@lists.linux.dev,
-	rostedt@goodmis.org,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-Subject: [PATCH v3] pinctrl: stm32: program the EXTI mux from .alloc instead of .activate
-Date: Tue,  4 Aug 2026 22:14:03 +0800
-Message-ID: <20260804141402.86911-2-junan76@163.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260803061718.43210-1-junan76@163.com>
-References: <20260803061718.43210-1-junan76@163.com>
+	Tue, 04 Aug 2026 14:25:11 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RpCK8izqTzhRZWIew/KhOcPifpm9bzLF5vLHUVkpbRfzEGmpPlcgTcn9Ww+Ax3XZSD5oRYBthc6F0vvebLqXUw2@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785853505;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=HIcOFle/zwz16Xg1hcnb8SPakGcZDbwDo5/3Sec2GL4=;
+	b=Nnxy4KTfQX6Vc+svmhtHKnywppXcO7/ZfdQRdROGDPXsH9PVRUxmIPo7wO5/lIS88I6tMv
+	cUlwLH9ae+1vJZwxmxIcRqljJWTtOITPfRYWK1AIN7yJIA0NaM/QDxpdOFdFwQSJUVfx3a
+	4Xfc8jKAtdbErusMq+qgf0SR6+PD0aw=
+X-Gm-Message-State: AOJu0YyEOipxD7Fhz/2c8Pvhgz9/41kUhYXjPb7wPf6iYNPWVHAF+B57
+	J1qok29XCCXnV9rXA3jfdAA451h+aTJM7faChd4vVBEwgN+0fQw7/tjMm/Y8WsGW8uzwxcyaL/w
+	lnFuxWIc7eKWWK+bHqhuAMgD7S0ZUg0ZW6sY4h44j
+X-Received: by 2002:a05:622a:550c:b0:50f:af60:3496 with SMTP id
+ d75a77b69052e-52ce3f651e3mr1750781cf.1.1785853486200; Tue, 04 Aug 2026
+ 07:24:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD3H4+v9XFqDtAgNQ--.21955S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3Ww4rJw4fKryrZry8ZF4fZrb_yoWxWFy3pF
-	WfXrsIyrsxX3WfZ3yDGF4jvF90ka92kasrKw1DKa4xZr1Yvwn5K3WSgFy8ZF4j9F97X3Z0
-	yr4jqry5u3WDAaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pina9fUUUUU=
-X-Originating-IP: [2409:8a62:3e6:1400:e93f:3d77:3322:beb7]
-X-CM-SenderInfo: pmxqt0ixw6il2tof0z/xtbC9hShU2px9bS6CAAA34
+References: <20260803134403.80630-1-steven.price@arm.com>
+In-Reply-To: <20260803134403.80630-1-steven.price@arm.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 4 Aug 2026 15:24:00 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTy4tpv+d7Q0H1Coe4PXAFrvHc8_fiOyv8GXdo7y7CNMdA@mail.gmail.com>
+X-Gm-Features: AUfX_mxdVEoiKGsOFqc7silG1XiAgRiraJnJQa_4blZVDkZkFRMAqMHa_QhDxGw
+Message-ID: <CA+EHjTy4tpv+d7Q0H1Coe4PXAFrvHc8_fiOyv8GXdo7y7CNMdA@mail.gmail.com>
+Subject: Re: [PATCH v16 00/45] arm64: Support for Arm CCA in KVM
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Christoffer Dall <christoffer.dall@arm.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_072358_115004_2F7B1B1F 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20260804_072509_936735_B5168065 
+X-CRM114-Status: GOOD (  27.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,172 +85,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stm32_gpio_domain_activate() writes the EXTI interrupt multiplexer
-through a regmap obtained from the generic syscon driver. The irq core
-calls .activate from __setup_irq() with the raw desc->lock held, so this
-happens in a raw atomic section. regmap-mmio sets fast_io, and syscon
-does not ask for a raw spinlock, so the regmap is protected by a
-spinlock_t. On PREEMPT_RT that is a sleeping lock, which must not be
-taken there. lockdep reports it as soon as a GPIO interrupt is
-requested:
+Hi Steven,
 
-  BUG: Invalid wait context
-  6.17.0 #4 Not tainted
-  -----------------------------
-  kworker/u8:0/12 is trying to lock:
-  (&syscon_config)->lock){....}-{3:3}, at: regmap_lock_spinlock
-  other info that might help us debug this:
-  6 locks held by kworker/u8:0/12:
-   #5: (&irq_desc_lock_class){-...}-{2:2}, at: __setup_irq
-  stack backtrace:
-   regmap_lock_spinlock
-   regmap_field_update_bits_base
-   stm32_gpio_domain_activate
-   irq_domain_activate_irq
-   __setup_irq
-   request_threaded_irq
+On Mon, 3 Aug 2026 at 14:44, Steven Price <steven.price@arm.com> wrote:
+...
+>  * Rewrite Realm entry and exit handling to fit into the generic KVM
+>    run loop. Work which cannot be performed in the entry path is now
+>    completed through KVM requests, and MMIO, PSCI, RIPAS changes and
+>    host calls are adapted to the new flow.
 
-The driver was already aware of running in atomic context there: it uses
-the _in_atomic() hwspinlock primitives around the very same access. The
-syscon lock is the one lock in that section it does not control.
+Reading v16 with pKVM in mind: this rework helps, but the series still
+adds a few kvm_is_realm()/vcpu_is_rec() checks to the core arm64 code,
+and several sit next to, or inside the same condition as, the existing
+pKVM checks (the nommu path in kvm_arch_vcpu_load(), the timer
+offsets, the NISV abort injection). Both checks answer the same
+question: is the guest's state owned by something other than KVM. It
+might be worth a common predicate covering both.
 
-Program the mux from .alloc instead, which runs in a sleepable context.
-That callback already owns this resource: it reserves the mux line in
-pctl->irqmux_map under irqmux_lock, so writing the value it just claimed
-is a natural fit, and the value only depends on the bank.
+Cheers,
+/fuad
 
-Nothing requires the mux to be reprogrammed at interrupt startup time:
-the domain has no .deactivate, .free() only releases the irqmux_map bit
-without touching the registers, and the resume path reprograms the mux
-itself in stm32_pinctrl_restore_gpio_regs().
 
-Keep the access inside the existing irqmux_lock section rather than
-after it. hwspin_lock_timeout_in_atomic() deliberately skips the local
-lock that the other hwspinlock modes take, so its caller is responsible
-for disabling preemption and for excluding other local contexts; every
-other hwspinlock user in this driver relies on bank->lock for that.
-irqmux_lock plays the same role here, and it also turns the mux
-reservation and the mux write into a single critical section. Nesting
-the regmap spinlock_t inside irqmux_lock, itself a spinlock_t, is what
-the wait-context checker expects.
 
-Note that this bounds the semaphore hold time on !PREEMPT_RT only. On
-PREEMPT_RT spinlock_t disables neither interrupts nor preemption, so the
-hardware semaphore can be held across a preemptible section and a
-coprocessor contending for it may poll for an unbounded time. That is
-not introduced here: bank->lock is a spinlock_t too, so every existing
-hwspinlock user in this driver behaves the same way on PREEMPT_RT.
-Removing that exposure requires the EXTI mux regmap to be raw-spinlock
-based, which the syscon core does not currently offer, and is left for a
-separate change.
-
-While moving the code, release the mux reservation when the hwspinlock
-cannot be taken, which the .activate callback had no way of doing.
-
-Reported-by: Uwe Kleine-König <u.kleine-koenig@pengutronix.de>
-Closes: https://lore.kernel.org/all/20220202174430.pf37tt6lua2op3gc@pengutronix.de/
-Signed-off-by: Ju Nan <junan76@163.com>
----
-Changes in v3:
-
-- Keep the mux write inside the existing irqmux_lock critical section
-rather than after it.
-
-v2: https://lore.kernel.org/all/20260804032227.35017-3-junan76@163.com/
-v1: https://lore.kernel.org/all/20260803061718.43210-1-junan76@163.com/
----
- drivers/pinctrl/stm32/pinctrl-stm32.c | 55 +++++++++++++--------------
- 1 file changed, 26 insertions(+), 29 deletions(-)
-
-diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
-index 6a99708a5a23..d97057ec28af 100644
---- a/drivers/pinctrl/stm32/pinctrl-stm32.c
-+++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
-@@ -600,30 +600,6 @@ static int stm32_gpio_domain_translate(struct irq_domain *d,
- 	return 0;
- }
- 
--static int stm32_gpio_domain_activate(struct irq_domain *d,
--				      struct irq_data *irq_data, bool reserve)
--{
--	struct stm32_gpio_bank *bank = d->host_data;
--	struct stm32_pinctrl *pctl = dev_get_drvdata(bank->gpio_chip.parent);
--	int ret = 0;
--
--	if (pctl->hwlock) {
--		ret = hwspin_lock_timeout_in_atomic(pctl->hwlock,
--						    HWSPNLCK_TIMEOUT);
--		if (ret) {
--			dev_err(pctl->dev, "Can't get hwspinlock\n");
--			return ret;
--		}
--	}
--
--	regmap_field_write(pctl->irqmux[irq_data->hwirq], bank->bank_ioport_nr);
--
--	if (pctl->hwlock)
--		hwspin_unlock_in_atomic(pctl->hwlock);
--
--	return ret;
--}
--
- static int stm32_gpio_domain_alloc(struct irq_domain *d,
- 				   unsigned int virq,
- 				   unsigned int nr_irqs, void *data)
-@@ -637,18 +613,40 @@ static int stm32_gpio_domain_alloc(struct irq_domain *d,
- 	int ret = 0;
- 
- 	/*
--	 * Check first that the IRQ MUX of that line is free.
--	 * gpio irq mux is shared between several banks, protect with a lock
-+	 * Check first that the IRQ MUX of that line is free, then point it at
-+	 * this bank. The mux is shared between several banks, and the register
-+	 * is shared with a coprocessor, so hold both irqmux_lock and the
-+	 * hwspinlock across the update. irqmux_lock also provides the local
-+	 * exclusion and the preemption disabling that the _in_atomic()
-+	 * hwspinlock primitives leave to their caller, as it does for the other
-+	 * hwspinlock users in this driver.
- 	 */
- 	spin_lock_irqsave(&pctl->irqmux_lock, flags);
- 
- 	if (pctl->irqmux_map & BIT(hwirq)) {
- 		dev_err(pctl->dev, "irq line %ld already requested.\n", hwirq);
- 		ret = -EBUSY;
--	} else {
--		pctl->irqmux_map |= BIT(hwirq);
-+		goto unlock;
-+	}
-+
-+	pctl->irqmux_map |= BIT(hwirq);
-+
-+	if (pctl->hwlock) {
-+		ret = hwspin_lock_timeout_in_atomic(pctl->hwlock,
-+						    HWSPNLCK_TIMEOUT);
-+		if (ret) {
-+			dev_err(pctl->dev, "Can't get hwspinlock\n");
-+			pctl->irqmux_map &= ~BIT(hwirq);
-+			goto unlock;
-+		}
- 	}
- 
-+	regmap_field_write(pctl->irqmux[hwirq], bank->bank_ioport_nr);
-+
-+	if (pctl->hwlock)
-+		hwspin_unlock_in_atomic(pctl->hwlock);
-+
-+unlock:
- 	spin_unlock_irqrestore(&pctl->irqmux_lock, flags);
- 	if (ret)
- 		return ret;
-@@ -683,7 +681,6 @@ static const struct irq_domain_ops stm32_gpio_domain_ops = {
- 	.translate	= stm32_gpio_domain_translate,
- 	.alloc		= stm32_gpio_domain_alloc,
- 	.free		= stm32_gpio_domain_free,
--	.activate	= stm32_gpio_domain_activate,
- };
- 
- /* Pinctrl functions */
--- 
-2.55.0
-
+>
+>  * Rewrite Realm timer support to use KVM's IRQ-ops infrastructure and
+>    software resampling.
+>
+>  * Improve SRO cancellation and error handling. Ensure a cancelled
+>    operation isn't treated as successful, wrapper return values can carry
+>    negative Linux errors as well as RMI return values, and those errors
+>    are propagated through the KVM users.
+>
+>  * Check that the RMM supports the host page size before configuring it,
+>    and exclude firmware-reserved NOMAP memory when creating GPT entries.
+>
+>  * Expand the KVM_ARM_RMI_POPULATE documentation to make clear that Arm
+>    CCA cannot preserve memory contents during an in-place
+>    shared-to-private conversion.
+>
+>  * Allocate Realm parameters only while creating the Realm descriptor.
+>
+>  * Document the encoding of the arm64 VM types and require
+>    ICH_HCR_EL2.TDIR before advertising or creating Realm VMs.
+>
+> This series is based on the guest_memfd in-place conversion v9 tree[1],
+> which is itself based on kvm-x86/next. It is also available as a git
+> repository:
+>
+> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v16
+>
+> Work in progress changes for kvmtool are available from the git
+> repository below:
+>
+> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v13
+>
+> The TF-RMM branch used for testing this series is available here:
+>
+> https://git.trustedfirmware.org/TF-RMM/tf-rmm.git topics/rmm-v2.0-poc_3
+>
+> There is a kvm-unit-test branch updated to support the attestation used
+> in RMM v2.0 available here:
+>
+> https://gitlab.arm.com/linux-arm/kvm-unit-tests-cca cca/v4
+>
+> [0] https://developer.arm.com/documentation/den0137/2-0bet2/
+> One bet2 change, which moves metadata out of the individual address
+> range descriptors, has intentionally not been implemented because that
+> part of the specification is expected to be reverted.
+>
+> [1] https://github.com/googleprodkernel/linux-cc/commits/guest_memfd-inplace-conversion-v9
+>
+> Jean-Philippe Brucker (6):
+>   KVM: arm64: CCA: Propagate breakpoint and watchpoint counts to
+>     userspace
+>   KVM: arm64: CCA: Set breakpoint parameters through SET_ONE_REG
+>   KVM: arm64: CCA: Propagate max SVE vector length from the RMM
+>   KVM: arm64: CCA: Configure max SVE vector length for a Realm
+>   KVM: arm64: CCA: Provide register list for unfinalized RECs
+>   KVM: arm64: CCA: Provide an accurate register list
+>
+> Joey Gouly (2):
+>   KVM: arm64: CCA: Allow userspace to inject aborts
+>   KVM: arm64: CCA: Support RSI_HOST_CALL
+>
+> Steven Price (34):
+>   firmware: arm_rmm: Add SMC definitions for calling the RMM
+>   firmware: arm_rmm: Add wrappers for direct RMI calls
+>   firmware: arm_rmm: Check for RMI support at init
+>   firmware: arm_rmm: Configure the RMM with the host's page size
+>   firmware: arm_rmm: Add support for SRO
+>   firmware: arm_rmm: Ensure the RMM has GPT entries for memory
+>   arm64: mm: Handle Granule Protection Faults (GPFs)
+>   KVM: arm64: Avoid including linux/kvm_host.h in kvm_pgtable.h
+>   KVM: arm64: CCA: Add wrappers for realm related RMIs
+>   KVM: arm64: CCA: Check for RMI support at KVM init
+>   KVM: arm64: CCA: Check for LPA2 support
+>   KVM: arm64: CCA: Define the user ABI
+>   KVM: arm64: CCA: Add basic infrastructure for creating a realm
+>   KVM: arm64: CCA: Allow passing the machine type in KVM creation
+>   KVM: arm64: CCA: Tear down RTTs
+>   KVM: arm64: CCA: Allocate and free RECs to match vCPUs
+>   KVM: arm64: CCA: Support the VGIC in realms
+>   KVM: arm64: CCA: Support timers in realm RECs
+>   KVM: arm64: CCA: Handle realm enter/exit
+>   KVM: arm64: CCA: Handle RMI_EXIT_RIPAS_CHANGE
+>   KVM: arm64: CCA: Handle realm MMIO emulation
+>   KVM: arm64: Expose support for private memory
+>   KVM: arm64: CCA: Create the realm descriptor
+>   KVM: arm64: CCA: Activate realms on first vCPU run
+>   KVM: arm64: CCA: Allow populating initial contents
+>   KVM: arm64: CCA: Set RIPAS of initial memslots
+>   KVM: arm64: CCA: Support runtime faulting of memory
+>   KVM: arm64: CCA: Handle realm vCPU load
+>   KVM: arm64: CCA: Validate register access for Realm VMs
+>   KVM: arm64: CCA: Handle Realm PSCI requests
+>   KVM: arm64: WARN on injected undef exceptions
+>   KVM: arm64: CCA: Prevent Device mappings for realms
+>   KVM: arm64: CCA: Require ICH_HCR_EL2.TDIR for realms
+>   KVM: arm64: CCA: Enable realms to be created
+>
+> Suzuki K Poulose (3):
+>   KVM: arm64: Include kvm_emulate.h in kvm/arm_psci.h
+>   KVM: arm64: CCA: Don't expose unsupported capabilities for realm
+>     guests
+>   KVM: arm64: CCA: Allow checking SVE on VM instance
+>
+>  Documentation/virt/kvm/api.rst       |   70 +-
+>  arch/arm64/Kconfig                   |    1 +
+>  arch/arm64/include/asm/kvm_asm.h     |    2 +
+>  arch/arm64/include/asm/kvm_emulate.h |   37 +
+>  arch/arm64/include/asm/kvm_host.h    |   12 +-
+>  arch/arm64/include/asm/kvm_pgtable.h |    6 +-
+>  arch/arm64/include/asm/kvm_pkvm.h    |    2 +-
+>  arch/arm64/include/asm/kvm_rmi.h     |  139 +++
+>  arch/arm64/include/asm/rmi_cmds.h    |  465 ++++++++
+>  arch/arm64/include/asm/virt.h        |    1 +
+>  arch/arm64/kernel/cpufeature.c       |    1 +
+>  arch/arm64/kvm/Kconfig               |    2 +
+>  arch/arm64/kvm/Makefile              |    2 +-
+>  arch/arm64/kvm/arch_timer.c          |   34 +-
+>  arch/arm64/kvm/arm.c                 |  139 ++-
+>  arch/arm64/kvm/guest.c               |   93 +-
+>  arch/arm64/kvm/handle_exit.c         |   14 +
+>  arch/arm64/kvm/hyp/pgtable.c         |    1 +
+>  arch/arm64/kvm/hypercalls.c          |    4 +-
+>  arch/arm64/kvm/inject_fault.c        |    5 +-
+>  arch/arm64/kvm/mmio.c                |   16 +-
+>  arch/arm64/kvm/mmu.c                 |  144 ++-
+>  arch/arm64/kvm/reset.c               |   13 +-
+>  arch/arm64/kvm/rmi-exit.c            |  178 +++
+>  arch/arm64/kvm/rmi.c                 | 1561 ++++++++++++++++++++++++++
+>  arch/arm64/kvm/sys_regs.c            |   47 +-
+>  arch/arm64/kvm/vgic/vgic-init.c      |    2 +-
+>  arch/arm64/mm/fault.c                |   28 +-
+>  drivers/firmware/Kconfig             |    1 +
+>  drivers/firmware/Makefile            |    1 +
+>  drivers/firmware/arm_rmm/Kconfig     |   26 +
+>  drivers/firmware/arm_rmm/Makefile    |    2 +
+>  drivers/firmware/arm_rmm/rmi.c       |  776 +++++++++++++
+>  include/kvm/arm_psci.h               |    2 +
+>  include/linux/arm-rmi-cmds.h         |  201 ++++
+>  include/linux/arm-smccc-rmi.h        |  493 ++++++++
+>  include/uapi/linux/kvm.h             |   20 +-
+>  37 files changed, 4446 insertions(+), 95 deletions(-)
+>  create mode 100644 arch/arm64/include/asm/kvm_rmi.h
+>  create mode 100644 arch/arm64/include/asm/rmi_cmds.h
+>  create mode 100644 arch/arm64/kvm/rmi-exit.c
+>  create mode 100644 arch/arm64/kvm/rmi.c
+>  create mode 100644 drivers/firmware/arm_rmm/Kconfig
+>  create mode 100644 drivers/firmware/arm_rmm/Makefile
+>  create mode 100644 drivers/firmware/arm_rmm/rmi.c
+>  create mode 100644 include/linux/arm-rmi-cmds.h
+>  create mode 100644 include/linux/arm-smccc-rmi.h
+>
+> --
+> 2.43.0
+>
 
