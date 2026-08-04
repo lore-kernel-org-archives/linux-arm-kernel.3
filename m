@@ -4,97 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07586C55172
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:34:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D05C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XIv9dUKWHm/aOpY5+JLW7X8HZjzTHsriJBw+UKX0NNU=; b=UFoCuyX1rKfjGqA0nbV4MZkAI+
-	aQHcD/qIWCULHVxeLB1hh71wNq7QvaVYbAGlkRovI70/jxrtZ4XoN2KPTgFIGUMm8+pjBS0yWFoid
-	YWbhPdDXEEPAs387t+hj5giM1KxHURFY10HasERQ9tdKAI2tg+3RcPitFChotuqNXEweInrq0wmGK
-	drwsRO03orCc6XlB/NNc3nqdW+XQw+LlSeV+uQ/g2q4tT1eYQSL0a9x1z0Ic0mkSmR1qSj3CT619t
-	nsq/eNhPhQTPO4gIuAz5DL8DbjDxJIilCITlXrRKTVr0rQ1Za1YwGL2ksC50y26xlXmETveh2PF03
-	a95wIwuw==;
+	bh=AFfzA1yEpz98WSrUzXTIRfHYsrqeBVjjHGrLZ3rUQuw=; b=CxTXaFcj5lH5wyfl1kuYwzyK9G
+	VRF8eoJGLLSQkkyY0aYHsdq3jQObQZbD1HaEA+OUg8QOOOV3eB5wxXmRAv+0qibop9HnDDDly84GD
+	/s9h3RHDn2tgjEDQBYjliJ9z59Df27/00xRcggcQ9X8RlQXvefug6+zDFhY8Q73NNbxrELrioAu1T
+	Ew1GMh1W+oEWzPTZ5PPFbFh5lgsUes9MXTfFd57b8IzVzrFEszppcLal3b5Bfhf5IQBYtaOMolL3G
+	ZC1ltV9y6M88iRNS7mGS6PsvXZXtf0sUDysi/10p7LFq2J//aSd479Ef68Mur4e40I3mh5I3yjrGV
+	4qofzywA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9er-00000001FGJ-2j0U;
-	Tue, 04 Aug 2026 07:33:53 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1wr9gK-00000001FUW-48Gn;
+	Tue, 04 Aug 2026 07:35:24 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9ep-00000001FFe-3JgM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 07:33:52 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-38e041ea211so4490349a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 00:33:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785828831; x=1786433631; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=XIv9dUKWHm/aOpY5+JLW7X8HZjzTHsriJBw+UKX0NNU=;
-        b=OR3ext4Cem3hmMtjYFj2SFy5V3fEI//FK7D9zMSfzBmHHim1cn9xO3FgCJhSmcafEr
-         3Py1CenXUtEz5EIL8eDN43CecG5ejRYHCTf4PzzjDinkznYTuLpijhYn47EQocICrayr
-         5xmIuFdQLlxO4kEnXdxqEes8IEGJlpdDd3R3DvXTxXQpl6JxgJKKPA8Xj+U/4S8hr64x
-         UwRAjr51+QW383oCRfRJ3Cr8MmUPF9wxtpUekByg5R3rrqPddhfsd15iag6IXFEL77Qr
-         6gMzYKM5+izqCS4+lWKVSXhHkL7fOIHcfcBq98RcrfsrnxvMXH5p1XIoVcx7O1wMFowg
-         m/tA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785828831; x=1786433631;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XIv9dUKWHm/aOpY5+JLW7X8HZjzTHsriJBw+UKX0NNU=;
-        b=ShrE7HqJ2W69Y6N3hiOEYgfZiuII1A+kwMdsGZ/bFuz8ewOAhTKUiHHagZ1PFsZ9CI
-         sv/qW07VReJ02lCs8FjRPEOEl3xCaBGKlhbLSfP9pwnFkXk4W1mLjb8o6e0Yhgh0KnDU
-         QMJv6VoXHnOJdYDdwc5GbIwAwPysRxZq5DEt8RN1cQlc6lXLbQPR48BsXY04Hi75nmrM
-         YjSjoSqZLRB/AEP2do9MOfSwlJZkx4THNiyP/s8v/YOya1caAkfOy30e6kxkpbMpmpV3
-         E/1wOtTC8AdznphZtDbp39hSN/s3H1D+22EAzjF0P9IiNBAAl2gKZ1Eba0H7/ECE2RcQ
-         RnKA==
-X-Forwarded-Encrypted: i=1; AHgh+RrXa1rVPc3hivoFE3YPHy2Z1d661Sw0gJc6klWoWJMetYXcKvTxqHxaW+Q6jYuwuYCvgklXmaNNxcLPmdkK9v0U@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxd9ZiYOp6y5nT4FUs9pjPKrz5rv3F0W/XaCY32ixqfzU7hicav
-	phyGtikBAfaQnAs+oY6k86WiFkjvXU3a9lm4L6QYP4ax+diWuvPEKhHI
-X-Gm-Gg: AR+sD12wfEXEgEUaDb7o8P40kSCvKSy02Wyx956/0QMA0BbLMDIzZj9VUiL+u9TZxtb
-	1wdPMDoYGAzs7XmLw62x/Kv08s74FiiiLvw4jTCJpCYjFcQpIdhZkJPrKmUuhIqZJv+ap/dh20m
-	RBRRlGb1gvRFa1HVdjdEZ7sYhAtJimjUT/2BZFj8aBTxgKUVx8DxtC27MhDeRCyt05yYSzKAxFU
-	WCyJfM5EPDDHkMEMiawfWjZ3a+N0SV0EmB1kXdPD/BYI/dmaS04AVRtcgL6UPLyuqLE+7McjMy0
-	tPIxPIcrCjdHylJ9bqA3UZD1Y6Nu6CNz9Qui7gcye6lH29jc+oNx/oZog0RCx4RhiIJl/Hq2Q87
-	cGE3EVaBNR2s9LsPuFitHxuSlnLGEFPMAk0MqPElVkLVReTcnWMpzHIHQmluR0sfjHV9c8oDCRQ
-	83BMbSLCwzMfXIB0xjiVrdqEFpGUm9UfqRn+68KXabghYQ5rqogu3ebPsX+t41oJA5uXJeDdeyI
-	wilfAQjGG3B4CqG/SO35wOu6b1oUJWAmVpcUcHwpWdpEJvQI9rY
-X-Received: by 2002:a17:90b:2dc4:b0:38e:e9b:ffa4 with SMTP id 98e67ed59e1d1-38fbc4067bcmr12402842a91.6.1785828830448;
-        Tue, 04 Aug 2026 00:33:50 -0700 (PDT)
-Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-38fede7ad70sm864284a91.15.2026.08.04.00.33.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Aug 2026 00:33:49 -0700 (PDT)
-Message-ID: <6acfb226-e63a-4c41-b67e-8d8e6bf93b2d@gmail.com>
-Date: Tue, 4 Aug 2026 15:33:46 +0800
+	id 1wr9gG-00000001FSe-46bu;
+	Tue, 04 Aug 2026 07:35:23 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 66CDF1A13F3;
+	Tue,  4 Aug 2026 07:35:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2F9F66029E;
+	Tue,  4 Aug 2026 07:35:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 87C3011C3243E;
+	Tue,  4 Aug 2026 09:35:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785828911; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=AFfzA1yEpz98WSrUzXTIRfHYsrqeBVjjHGrLZ3rUQuw=;
+	b=I2tZ+bNA0vzRFhmdyuin09lXj1zvdD7zwq/21TRtxvJAS28BdjiQqtpbzj/qkdu/zExPwL
+	oPHZkLSwWK7Dx2acBZLJ3QnuU/EDBoTZFMxbEjiFUTJ/yEmg+lalZTFlB80ZIQYnAl2rQn
+	dyJJccTFoqBivc6fofHC4q6t2/NO5siAIF7G79RfCow7oKPOhMOmFOaTNlaI2ARxjtMoWy
+	6rcQtZiaPuta6OTGCRVld6D3B/e+eV6zHVjG3tif4H2eVPfj+pvBHDo+unxSNXCTHmKpeN
+	VsQC+5ssJaQf9L7NrC/mZB4niI02oyvoAxeK7+OLrLr6hgKl9szAWq7bS0ZKZw==
+Message-ID: <28ca553c-59ce-4608-b63a-6e8c4dfb6020@bootlin.com>
+Date: Tue, 4 Aug 2026 09:35:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: spi: nuvoton,ma35d1-qspi: Allow
- additional GPIO chip selects
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cwweng@nuvoton.com
-References: <5769eae0-1b40-419f-8311-0d919bf619fa@sirena.org.uk>
- <20260803074913.1656675-1-cwweng.linux@gmail.com>
- <20260803074913.1656675-2-cwweng.linux@gmail.com>
- <20260804-smilodon-of-imminent-recreation-aa579b@quoll>
+Subject: Re: [PATCH v2 06/10] net: pcs: xpcs: add ANRESTART support for SGMII
+ link recovery
+To: Coia Prant <coiaprant@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Vinod Koul <vkoul@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Russell King <linux@armlinux.org.uk>, Shawn Lin <shawn.lin@rock-chips.com>,
+ David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-renesas-soc@vger.kernel.org, Jiawen Wu <jiawenwu@trustnetic.com>
+References: <20260801142244.679437-2-coiaprant@gmail.com>
+ <20260801142244.679437-8-coiaprant@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-From: Chi-Wen Weng <cwweng.linux@gmail.com>
-In-Reply-To: <20260804-smilodon-of-imminent-recreation-aa579b@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260801142244.679437-8-coiaprant@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_003351_831996_0C47FE77 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20260804_003521_152868_0D911253 
+X-CRM114-Status: GOOD (  19.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,55 +92,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Coia,
 
-Krzysztof Kozlowski 於 2026/8/4 下午 03:05 寫道:
-> On Mon, Aug 03, 2026 at 03:49:12PM +0800, Chi-Wen Weng wrote:
->> From: Chi-Wen Weng <cwweng@nuvoton.com>
->>
->> The MA35D1 QSPI controller provides two native chip selects, but the
->> generic SPI controller binding defines num-cs as the total number of
->> native and GPIO-based chip selects.
->>
->> Remove the maximum value of two from num-cs so that board device trees
->> can describe additional GPIO chip selects while retaining two as the
->> default chip-select count.
->>
->> Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
->> ---
->>   Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml | 1 -
->>   1 file changed, 1 deletion(-)
->>
->> diff --git a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
->> index 377ccf4fb224..f837367e6d5f 100644
->> --- a/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
->> +++ b/Documentation/devicetree/bindings/spi/nuvoton,ma35d1-qspi.yaml
->> @@ -30,7 +30,6 @@ properties:
->>   
->>     num-cs:
->>       minimum: 1
->> -    maximum: 2
->>       default: 2
-> Isn't num-cs the number of native chip selects?
->
-> Best regards,
-> Krzysztof
+On 8/1/26 16:22, Coia Prant wrote:
+> On some hardware using the DesignWare XPCS IP (e.g., RK3568 MAC side
+> SGMII), the PCS does not automatically restart auto-negotiation when the
+> link goes down and comes back up. Without an explicit ANRESTART, the link
+> stays down forever.
+> 
+> Add BMCR_ANRESTART in two places:
+> 1. In xpcs_config_aneg_c37_sgmii(), when starting AN, set ANRESTART
+>    alongside ANENABLE to initiate a fresh negotiation.
+> 2. In xpcs_get_state_c37_sgmii(), when link is down and AN completion is
+>    detected, clear the interrupt and trigger ANRESTART to restart the
+>    negotiation process.
+> 
+> This change has been verified on:
+> - RK3568 (Photonicat board)
+> - Wangxun NICs (no regression)
+> 
+> Tested-by: Jiawen Wu <jiawenwu@trustnetic.com>
+> Signed-off-by: Coia Prant <coiaprant@gmail.com>
 
-Hi Krzysztof,
+KSZ9477's old XPCS doesn't break with that code, tested in SGMII
+mode :)
 
-Yes, you are right.
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-I interpreted num-cs as the final number of native and GPIO chip
-selects based on the generic binding description. However, the native
-chip-select count should remain two here, and the SPI core will expand
-num_chipselect automatically when the cs-gpios array contains additional
-entries.
+Maxime
 
-Therefore, the maximum value of two should remain in the MA35D1 binding.
-I will drop this binding change.
-
-Thanks for the clarification.
-
-Best regards,
-Chi-Wen
+> ---
+>  drivers/net/pcs/pcs-xpcs.c | 17 +++++++++++++----
+>  1 file changed, 13 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+> index 0337e2bcc0125..28e98449e8ac2 100644
+> --- a/drivers/net/pcs/pcs-xpcs.c
+> +++ b/drivers/net/pcs/pcs-xpcs.c
+> @@ -816,9 +816,14 @@ static int xpcs_config_aneg_c37_sgmii(struct dw_xpcs *xpcs,
+>  	if (ret < 0)
+>  		return ret;
+>  
+> +	/* Clear CL37 AN complete status */
+> +	ret = xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0);
+> +	if (ret < 0)
+> +		return ret;
+> +
+>  	if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED)
+>  		ret = xpcs_write(xpcs, MDIO_MMD_VEND2, MII_BMCR,
+> -				 mdio_ctrl | BMCR_ANENABLE);
+> +				 mdio_ctrl | BMCR_ANENABLE | BMCR_ANRESTART);
+>  
+>  	return ret;
+>  }
+> @@ -1089,14 +1094,18 @@ static int xpcs_get_state_c37_sgmii(struct dw_xpcs *xpcs,
+>  			state->duplex = DUPLEX_FULL;
+>  		else
+>  			state->duplex = DUPLEX_HALF;
+> -
+>  		return 0;
+>  	}
+>  
+> -	/* Clear AN complete status or interrupt */
+> -	if (state->an_complete)
+> +	if (state->an_complete) {
+> +		/* Clear AN complete status or interrupt */
+>  		xpcs_write(xpcs, MDIO_MMD_VEND2, DW_VR_MII_AN_INTR_STS, 0);
+>  
+> +		/* Initiate the next round of AN */
+> +		xpcs_modify(xpcs, MDIO_MMD_VEND2, MII_BMCR, BMCR_ANRESTART,
+> +				    BMCR_ANRESTART);
+> +	}
+> +
+>  	return 0;
+>  }
+>  
 
 
