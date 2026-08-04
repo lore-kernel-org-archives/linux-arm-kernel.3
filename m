@@ -4,83 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A89C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 15:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE9D1C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 15:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6r1XUD+zcMbBMioGMZLAXYjDwYxQUe7uV3RFGy9lY+I=; b=Q4CFecM3DvKmN/QKCgQZgM3f9R
-	hua0dQ7/7avj7brURcijdus6s9fo7yGfhJ9R3cqQLO6dScIwZ5ss6t5mFQmMu+rD13I1vT8EGx1Wb
-	Aikd0DyZ9ZSgMjsIJHMjPBg9WCd9phYm0CHxDa0cDP7mxt8jCym61gnvU5syWy/Twe+Unubx1yTCl
-	Fk59AcrFOuSJP5m6Bq43eUJc1b25BOIBqAetSEt11HAtc1pgBx+zJ2DKM8oEtH4jGwJHgXdwnjfx8
-	PW3IMm1TylE1n9vzq9E5OqrEHJ6vSIXrg8tRRTen5UoxMXyxgekjp5PDcvAQ2pC+HqUoVBdsvbwz7
-	bw8Mn+3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sfeW3RKAu1XPqGZp/lG53sBx+hQo9+QeWVWYMewi7TU=; b=CEWLIhtbf85kbF1EEseqbeQWX5
+	/nEYn1o4DXMsgIr51wGfl1lQqeU52CkSJsfdz2JoPq/3cdNTp2sjJY9qFVogR1tWmTUv8e4vL1GpO
+	5WcZclgBQYJzzkTmJpXRL0GDUTstCPkDr9AtWm62ty2T8IDZPyhjB6qYxeCrtUmz7D/2xiy5CHdsk
+	tMNmLvkG4j5Z1FaVKvtC+2uWyihb4TUdysM3YdRFk4sFW/VcYHrCWwX6xLir0s2o9hmt3vV1LcOsy
+	1Bfdb3geIho27VxgWUyZvigrKGWBevDx0+aCYWSK9hyj+EP54XL9P3om5WIy7bK37Gkr4InS9+RVo
+	DH2vSbEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGej-000000029wy-13pY;
-	Tue, 04 Aug 2026 15:02:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrGfa-00000002A3y-1kGC;
+	Tue, 04 Aug 2026 15:03:06 +0000
+Received: from mail-westus3azon11011033.outbound.protection.outlook.com ([40.107.208.33] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGeh-000000029wn-31iu
+	id 1wrGfW-00000002A3N-3rkq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 15:02:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B71141AB1
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 15:02:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D91391F000E9;
-	Tue,  4 Aug 2026 15:02:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785855731;
-	bh=6r1XUD+zcMbBMioGMZLAXYjDwYxQUe7uV3RFGy9lY+I=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=PcupWXGb+WmrZL5O2aU425S8KTLyXNs/kEBDqAF5gegtX5hNL+ecpOtWsawgtFLRc
-	 sqKgmJXlEECA9CvJYZfOsMw6ZgqDMhTGzMj+e5qPWmmg5PGrML5Wk1vXGiqCz141sI
-	 GzNMqD/+vyZDpc7hZ/etxwPrG2m/Hhm9VAJNEEhN0ZHBbr1s423k7/EDkbJ33zrfQ2
-	 +aR+yzF8oLaajnYphS7CSNa2yehx6l9ES5qclV7J6ubSJnhVhXRO1rzoJaQdzavH9N
-	 0dnkHSKoOxyIIG9UOC8lU1M+l9vw6LvMJ4YknTNe1FULEtgabypdvkd5FMo7Pakh4j
-	 +pdRoq3H6C9Fg==
-Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 6B7A4198008E;
-	Tue,  4 Aug 2026 11:02:09 -0400 (EDT)
-Received: from ams-imap-11 ([10.64.2.31])
-  by ams-compute-02.internal (MEProxy); Tue, 04 Aug 2026 11:02:09 -0400
-X-ME-Sender: <xms:7_5xare-7YL9pMkqCzS67yqPCD7P-QRi78lPMDUMlXc1yga57IgOGA>
-    <xme:7_5xasBx1bYl1OTxhAYo1WRAssCpVJhLBEVJmts0aYkyTl2gm_UDHzDwio1Q2xEus
-    qM7xDOpAJTNyYWHvbAgUP64hxenoUUMiuCTadGPrZj2WYV3plC5LIQ>
-X-ME-Proxy-Cause: dmFkZTGH7NHF/4bU1m4gEXdnc5ycGfy1HcQpdQtOeW8oFxhq6JTmTd3E7yQtTAzwt9ip4n
-    N+XOaKih88UK0fd9Hidh4yQfkiBIk+6DkSZwchXROPhqtA5Aaww+Kq+fl6RR2qXYxM+v7d
-    7sKp+JnaEwRb3/lsjqd7wrP/9GumnQWOpb3knId+JLJhJj1FtMM8CkG9X6wHFiCQoDD6wf
-    n9luA9E253Wt6gcnAwN/V40vXyq1lk6ymuz13HilDq1ih2zqh1zhflr2bbeiLrybgsCHOP
-    YMsm8P/hqb39RPaFGkq3raQoo3q4SM/mB+mJb4SFwVyDdV02aF7gGUUaDC1jg3mRRyDkCq
-    yQ9RanwwFzSZjtLpZ5NPBP4VCNRqMBVfOu05+nw17unv5rjaEvd/LN0SlVMGDo0WQbVcfz
-    w/Uszd5hXS7M6nTipyvODcBL4WI+jWVKEiB/Z+D5gau2tl2sJW8QrV9V4wBwF+PwAdhls/
-    1PqHAL1XYvUAgUqfC+WQq3xX/us7GizCnji8bUkwVNuXWxykJw6nKwD9xJe08smydxgTj2
-    9VYin+Aid6jeIYBvx/+WTx996beL5mvZuZAfWbupiwe6Rd0UmHjo5/7QQNoKAZjBvxLkLF
-    9kXyNGtAWCHIpDNmGkRL1vRTJr/yrS3ftpGRaCDwSSk4r2mBpHjpAwZWKtpA
-X-ME-Proxy: <xmx:8f5xas9EHmbjkD-jYyu-28kFA-8d_Yh2-x63bAetTGg9SGpqsTrA4w>
-    <xmx:8f5xavpkuSwZEx9hUQoKevuGEzsMl2g0ItVzzZAlzS9yZ8GOQn84SQ>
-    <xmx:8f5xahARKYy3RdwjlLgARYnI2cEfCIi-iLP9RlwIo8DCbZv9SUzoGQ>
-    <xmx:8f5xahyoXiyDczi6-jlwI44CWtxsaVL2FZBL4DCmHbPQHQTNX_twfg>
-    <xmx:8f5xau2Xahw0Tdbyc5YoP717QJvzXhQ8qimENbYaCpYJENsGlKFJEuqR>
-Feedback-ID: ice86485a:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id B195AF80060; Tue,  4 Aug 2026 11:02:07 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 04 Aug 2026 15:03:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uWQzeDivpJ0sMgQyWuDhe5vnZxd6PAZ2dRTm1B15s7PnfZMjgAVeVKp33Vtm8KWOU6fwjCKg4XyUsxKZ40lSZQnwSYCaPug5TZAiUeueCDtna488fR/NvC+dY0c0IlLk3p/8L3+z9At0tEqEEREl4BqI/SOVrNQ3CDo24NhR5gpsUsTbFLKWyVdzJnpK832Qc6tucKARXysjT5lKLWQHY93C5hZnNfJDo61w2YnqoYMz8sd4F4b6nucqnI2fWZo2wm37ni9ikX+o7KTyyWRNMphc50yjScfOQCbIf+1HG7lkd0oBj9bJnpjIWylSKXYiig2cvZsp+EzpNLOTR2SdSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sfeW3RKAu1XPqGZp/lG53sBx+hQo9+QeWVWYMewi7TU=;
+ b=nCWYkbDdg6IxMuVJDshsfV1hKQ/ancAF0ihyBvxM157ueUy44Fj+FmVHigepdKBn9x5IjqSLmEOKhzaJG03gNlx5xVcaY/ed2gWTx7YpJwU6YG+ZeXlP/7rSUqe/1Wv6ZBiIEk6mVjLFBhk3IMU9WicaMpAgbolMbNY/QjM1qrlSp4z5z6lfoceCRvGlnZl7mzAEPpdG8XQeRpxAVwbbeiyUDQdHb+4tRWVC+qn5WabtbLwcsEDZXX5HlmZ3djfqUqyJWVJNSuprPJV+ZgzytjMxNkPSBrttyO5PBjDWf3Ng8fRwPxYJesu6nefDng51yPPKHg51FlTEi79+3CmLpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sfeW3RKAu1XPqGZp/lG53sBx+hQo9+QeWVWYMewi7TU=;
+ b=V2avdag+XluDt9fVh2JfFhRHJUuffqApk2b0RM5eHbktUztePnjiMbA+7GI92qMOuc1nOvzwP47NO9dOJdqu/y/kv84NKFivSuFW8/XtdvkdZb3geVT9L8KBH5BsWI8doDZ1Eaen0U+nKbwWoXt/h2zeIE9a+GtVdeupAH3WpGs=
+Received: from BN9PR03CA0545.namprd03.prod.outlook.com (2603:10b6:408:138::10)
+ by DM6PR12MB4482.namprd12.prod.outlook.com (2603:10b6:5:2a8::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.15; Tue, 4 Aug
+ 2026 15:02:52 +0000
+Received: from BL02EPF0001A102.namprd05.prod.outlook.com
+ (2603:10b6:408:138:cafe::a5) by BN9PR03CA0545.outlook.office365.com
+ (2603:10b6:408:138::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.15 via Frontend Transport; Tue, 4
+ Aug 2026 15:02:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BL02EPF0001A102.mail.protection.outlook.com (10.167.241.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.8 via Frontend Transport; Tue, 4 Aug 2026 15:02:52 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 4 Aug
+ 2026 10:02:37 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 4 Aug
+ 2026 08:02:36 -0700
+Received: from localhost (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41 via Frontend
+ Transport; Tue, 4 Aug 2026 10:02:36 -0500
+From: Michal Simek <michal.simek@amd.com>
+To: <linux-kernel@vger.kernel.org>, <monstr@monstr.eu>,
+	<michal.simek@amd.com>, <git@amd.com>
+CC: Ajay Neeli <ajay.neeli@amd.com>, "James E.J. Bottomley"
+	<James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
+	<martin.petersen@oracle.com>, Sai Krishna Potthuri
+	<sai.krishna.potthuri@amd.com>, "moderated list:ARM/ZYNQ ARCHITECTURE"
+	<linux-arm-kernel@lists.infradead.org>, "open list:SCSI SUBSYSTEM"
+	<linux-scsi@vger.kernel.org>
+Subject: [PATCH] firmware: xilinx: ufs: move PHY/SRAM ready polling into the firmware backend
+Date: Tue, 4 Aug 2026 17:02:31 +0200
+Message-ID: <eaeaaea8ed76069943e0706a0917139ff6569929.1785855749.git.michal.simek@amd.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Date: Tue, 04 Aug 2026 18:01:47 +0300
-From: "Ard Biesheuvel" <ardb@kernel.org>
-To: "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, "Catalin Marinas" <catalin.marinas@arm.com>,
- "Mark Rutland" <mark.rutland@arm.com>, "Marc Zyngier" <maz@kernel.org>
-Message-Id: <ae512d64-b56b-4032-bced-db69dacd3f68@app.fastmail.com>
-In-Reply-To: <20260803164230.25172-1-will@kernel.org>
-References: <20260803164230.25172-1-will@kernel.org>
-Subject: Re: [PATCH] MAINTAINERS: arm64: Add Mark Rutland as an official Reviewer
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7943; i=michal.simek@amd.com; h=from:subject:message-id; bh=6zDnNEre5LBgjK+8CqVYDLtb5TnTemOtK9A9yJwPaLA=; b=owGbwMvMwCG2mv3fB7+vgl8ZT6slMWQV/ue0b//ufMNjVqz2MYGSUleROs/pK8uV7tRXPz/ta X5dJfBoRykLgxgHg6yYIst0Jh2HNd+uLRVbHpkPM4eVCWQIAxenAExE8SnDX8EllZcMKj/PXVfv svJt4yHHyFj2N4LnnlTwF+g8Dtj8dy7DX/Gjt54fdlVzUPXZwyK7lteTL/7f13Qu3919kUf/rVo UwgwA
+X-Developer-Key: i=michal.simek@amd.com; a=openpgp; fpr=67350C9BF5CCEE9B5364356A377C7F21FE3D1F91
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A102:EE_|DM6PR12MB4482:EE_
+X-MS-Office365-Filtering-Correlation-Id: 30e8f6ad-a9d5-47bd-e204-08def23974d9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|23010399003|36860700016|11063799006|56012099006|6133799003|18002099003|10067099003;
+X-Microsoft-Antispam-Message-Info: H9MFYQGCJnCXbTiw34Ho0+Ka+RLj+aa0fHP0uj8j0QNe97dOwna8OzjRV11lMZNmwc06yD65w25F3J/aKjCWGTBKJcOw3ZVL/AZ5dqBSaXJQ/xGWlQRYmUOt72MeUvf1TVVxyODIKKoTJ3Q9okOXWZUvhI48hTkG/kR8AMLLstTkXz7Fo7APYJXMN2GP5p62M/th/HqvSIhck7eg/+fUoeVpR11k0xkc4rSR+0n6tzVgdrw45OChsqaMxsHWC/pcoskYd9vtlcShUdACIbdmjzX/N0Fb+tWerSARfa1ksy8p6s1Z2wUtJpodNN/sVqyzjNSDMWtFhC4yteaadtEwYtQV5YqVzZCrxIkHSOMqzVAhqVOprw+37LOLkUjOlS59lUGz0Pd8h7QQW5fOIWOj4tHyf7vxWYEwflnGL3wJFsyydSPJu7sKKivgS57jxyzKpllFlESQS9OvrjMSTyP2DCqnx/K4aK3PG94laErzRZhaHGlMTyNOUFtLK1869q062XhJ/aFHi1uFUmpgiBMjUQ4VQyEAFhKFDNOePcF9RX08jWG/BuQvaxUJtz9EC4fXcTZ/vYyP6FmnEt1dV/FGUA1sR78GR5TcgOWb7fUZrcLfQg93iIPVBFkbc7Tai28EK03620XnDjYNNXoWbuMTrJxt6+Q6hYGoyiFedsPwqSzYn5oSx1By+hkAYpJqxcP5cZh3YSyyaIXgPAQ2V3W9AQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(23010399003)(36860700016)(11063799006)(56012099006)(6133799003)(18002099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: uaxySCm1ABNswAZfbqVaxx56AZC1I1AqENqTusboUsUp2CarqMwj+rM8GohdH6BKZk9/mppr/RrURsamIy+9JG/x07xFHd3crxya+kUNb2LpNlkpIUfClUNi6b+tZ2hXYVbF7LNVxWbphhzGTgFnUai/rChmffEdB8F40aIk9FMFUxZJPQ2HKuad+dTYIVSKEPtQbEIXvPu145oqW0R6ArGeo6nY4phW4RYwceAIstVtZDzdVTULywpPbGNNPJPJRMLkg2bwO9xTzdvyBTc1ebb9tpmqJW5ZHczd3fOq6Jk6dbVYlgQgo5Qq0tps2AFDENinFYsoTnkKvOxqTU56sjnLTbwnVsgCF5uHck30vLH020QfC/qVcgeGxPEsEnbO3f+JVmwF73eRRNw41BKEQqHJdDRraJXSA0aY83rUmnt1ZOF9fAapvEMWJZO3s/c1
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2026 15:02:52.0242
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 30e8f6ad-a9d5-47bd-e204-08def23974d9
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A102.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4482
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_080302_985564_158FA90A 
+X-CRM114-Status: GOOD (  22.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,27 +130,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The Versal Gen 2 UFS driver polls the firmware for M-PHY TX/RX
+configuration readiness and SRAM initialisation completion with two
+open-coded do/while loops. Each iteration is a full firmware round-trip
+(PM_IOCTL/IOCTL_READ_REG of a protected PMC_IOU_SLCR register), so the
+loop can issue up to a million EEMI calls, and it hard-codes the wait
+policy inside the controller driver.
 
-On Mon, 3 Aug 2026, at 19:42, Will Deacon wrote:
-> Mark has been part of the arm64 furniture for as long as the code has
-> existed in mainline and is consistently one of the most active and
-> knowledgeable reviewers that we have.
->
-> Make it official.
->
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->
-> Mark's actually OoO atm, but I spoke to him about this offline and he
-> was keen to be listed. Honest!
->
->  MAINTAINERS | 1 +
->  1 file changed, 1 insertion(+)
->
+Introduce coarse blocking helpers, zynqmp_pm_wait_mphy_tx_rx_config_ready()
+and zynqmp_pm_wait_sram_init_done(), that take a caller-supplied timeout
+budget and contain the poll loop. The loop is EEMI-specific (legacy
+firmware only exposes the per-read status primitive) so it lives in the
+firmware driver, keeping the UFS driver backend-agnostic: a future
+backend can offload the wait to the platform in a single call without
+touching the controller driver again. The existing per-read primitives stay
+exported, so the current EEMI interface is unchanged.
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+The timeout budget remains owned by the UFS driver (the consumer that
+knows the hardware) and is passed down, so EEMI and any future backend
+stay consistent.
+
+Signed-off-by: Michal Simek <michal.simek@amd.com>
+---
+
+ drivers/firmware/xilinx/zynqmp-ufs.c     | 70 ++++++++++++++++++++++--
+ drivers/ufs/host/ufs-amd-versal2.c       | 46 ++++------------
+ include/linux/firmware/xlnx-zynqmp-ufs.h |  8 +--
+ 3 files changed, 82 insertions(+), 42 deletions(-)
+
+diff --git a/drivers/firmware/xilinx/zynqmp-ufs.c b/drivers/firmware/xilinx/zynqmp-ufs.c
+index 85da8a822f3a..81ccf61a037c 100644
+--- a/drivers/firmware/xilinx/zynqmp-ufs.c
++++ b/drivers/firmware/xilinx/zynqmp-ufs.c
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2025 Advanced Micro Devices, Inc.
+  */
+ 
++#include <linux/delay.h>
+ #include <linux/firmware/xlnx-zynqmp.h>
+ #include <linux/module.h>
+ 
+@@ -33,7 +34,7 @@
+  *
+  * Return:	Returns 0 on success or error value on failure.
+  */
+-int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready)
++static int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready)
+ {
+ 	u32 regval;
+ 	int ret;
+@@ -53,7 +54,6 @@ int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready)
+ 
+ 	return ret;
+ }
+-EXPORT_SYMBOL_GPL(zynqmp_pm_is_mphy_tx_rx_config_ready);
+ 
+ /**
+  * zynqmp_pm_is_sram_init_done - check SRAM initialization
+@@ -61,7 +61,7 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_is_mphy_tx_rx_config_ready);
+  *
+  * Return:	Returns 0 on success or error value on failure.
+  */
+-int zynqmp_pm_is_sram_init_done(bool *is_done)
++static int zynqmp_pm_is_sram_init_done(bool *is_done)
+ {
+ 	u32 regval;
+ 	int ret;
+@@ -81,7 +81,69 @@ int zynqmp_pm_is_sram_init_done(bool *is_done)
+ 
+ 	return ret;
+ }
+-EXPORT_SYMBOL_GPL(zynqmp_pm_is_sram_init_done);
++
++/**
++ * zynqmp_pm_wait_mphy_tx_rx_config_ready - wait for M-PHY TX-RX config ready
++ * @timeout_us:	Caller-supplied timeout budget in microseconds
++ *
++ * Poll the M-PHY TX-RX configuration-ready status until it settles or the
++ * timeout elapses. The poll loop is EEMI-specific (legacy firmware only offers
++ * the per-read status primitive), so it lives here in the firmware driver
++ * rather than in the UFS controller driver; an SCMI-based backend can instead
++ * offload the wait to the platform in a single call. The timeout budget is
++ * owned by the caller (UFS driver), keeping the policy with the consumer.
++ *
++ * Return:	Returns 0 once ready, -ETIMEDOUT on timeout, or error value.
++ */
++int zynqmp_pm_wait_mphy_tx_rx_config_ready(u32 timeout_us)
++{
++	bool is_ready;
++	int ret;
++
++	while (timeout_us--) {
++		ret = zynqmp_pm_is_mphy_tx_rx_config_ready(&is_ready);
++		if (ret)
++			return ret;
++
++		if (!is_ready)
++			return 0;
++
++		usleep_range(1, 5);
++	}
++
++	return -ETIMEDOUT;
++}
++EXPORT_SYMBOL_GPL(zynqmp_pm_wait_mphy_tx_rx_config_ready);
++
++/**
++ * zynqmp_pm_wait_sram_init_done - wait for SRAM initialization to complete
++ * @timeout_us:	Caller-supplied timeout budget in microseconds
++ *
++ * Poll the SRAM initialization-done status until it is set or the timeout
++ * elapses. As with the M-PHY wait, the poll loop is EEMI-specific and kept in
++ * the firmware driver so the UFS controller driver stays backend-agnostic.
++ *
++ * Return:	Returns 0 once done, -ETIMEDOUT on timeout, or error value.
++ */
++int zynqmp_pm_wait_sram_init_done(u32 timeout_us)
++{
++	bool is_done;
++	int ret;
++
++	while (timeout_us--) {
++		ret = zynqmp_pm_is_sram_init_done(&is_done);
++		if (ret)
++			return ret;
++
++		if (is_done)
++			return 0;
++
++		usleep_range(1, 5);
++	}
++
++	return -ETIMEDOUT;
++}
++EXPORT_SYMBOL_GPL(zynqmp_pm_wait_sram_init_done);
+ 
+ /**
+  * zynqmp_pm_set_sram_bypass - Set SRAM bypass Control
+diff --git a/drivers/ufs/host/ufs-amd-versal2.c b/drivers/ufs/host/ufs-amd-versal2.c
+index 2154d6286817..dff0c2c95486 100644
+--- a/drivers/ufs/host/ufs-amd-versal2.c
++++ b/drivers/ufs/host/ufs-amd-versal2.c
+@@ -225,8 +225,6 @@ static int ufs_versal2_setup_phy(struct ufs_hba *hba)
+ static int ufs_versal2_phy_init(struct ufs_hba *hba)
+ {
+ 	struct ufs_versal2_host *host = ufshcd_get_variant(hba);
+-	u32 time_left;
+-	bool is_ready;
+ 	int ret;
+ 	static const struct ufshcd_dme_attr_val rmmi_attrs[] = {
+ 		{ UIC_ARG_MIB(CBREFCLKCTRL2), CBREFREFCLK_GATE_OVR_EN, DME_LOCAL },
+@@ -235,23 +233,15 @@ static int ufs_versal2_phy_init(struct ufs_hba *hba)
+ 		{ UIC_ARG_MIB(VS_MPHYCFGUPDT), 1, DME_LOCAL }
+ 	};
+ 
+-	/* Wait for Tx/Rx config_rdy */
+-	time_left = TIMEOUT_MICROSEC;
+-	do {
+-		time_left--;
+-		ret = zynqmp_pm_is_mphy_tx_rx_config_ready(&is_ready);
+-		if (ret)
+-			return ret;
+-
+-		if (!is_ready)
+-			break;
+-
+-		usleep_range(1, 5);
+-	} while (time_left);
+-
+-	if (!time_left) {
++	/*
++	 * Wait for Tx/Rx config_rdy. The poll loop lives in the firmware
++	 * backend (EEMI today, SCMI in future) so this driver stays
++	 * backend-agnostic; the timeout budget stays here with the consumer.
++	 */
++	ret = zynqmp_pm_wait_mphy_tx_rx_config_ready(TIMEOUT_MICROSEC);
++	if (ret) {
+ 		dev_err(hba->dev, "Tx/Rx configuration signal busy.\n");
+-		return -ETIMEDOUT;
++		return ret;
+ 	}
+ 
+ 	ret = ufshcd_dwc_dme_set_attrs(hba, rmmi_attrs, ARRAY_SIZE(rmmi_attrs));
+@@ -264,23 +254,11 @@ static int ufs_versal2_phy_init(struct ufs_hba *hba)
+ 		return ret;
+ 	}
+ 
+-	/* Wait for SRAM init done */
+-	time_left = TIMEOUT_MICROSEC;
+-	do {
+-		time_left--;
+-		ret = zynqmp_pm_is_sram_init_done(&is_ready);
+-		if (ret)
+-			return ret;
+-
+-		if (is_ready)
+-			break;
+-
+-		usleep_range(1, 5);
+-	} while (time_left);
+-
+-	if (!time_left) {
++	/* Wait for SRAM init done (poll handled by the firmware backend). */
++	ret = zynqmp_pm_wait_sram_init_done(TIMEOUT_MICROSEC);
++	if (ret) {
+ 		dev_err(hba->dev, "SRAM initialization failed.\n");
+-		return -ETIMEDOUT;
++		return ret;
+ 	}
+ 
+ 	ret = ufs_versal2_setup_phy(hba);
+diff --git a/include/linux/firmware/xlnx-zynqmp-ufs.h b/include/linux/firmware/xlnx-zynqmp-ufs.h
+index d3538dd5822a..00383dd835f2 100644
+--- a/include/linux/firmware/xlnx-zynqmp-ufs.h
++++ b/include/linux/firmware/xlnx-zynqmp-ufs.h
+@@ -9,17 +9,17 @@
+ #define __FIRMWARE_XLNX_ZYNQMP_UFS_H__
+ 
+ #if IS_REACHABLE(CONFIG_ZYNQMP_FIRMWARE)
+-int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready);
+-int zynqmp_pm_is_sram_init_done(bool *is_done);
++int zynqmp_pm_wait_mphy_tx_rx_config_ready(u32 timeout_us);
++int zynqmp_pm_wait_sram_init_done(u32 timeout_us);
+ int zynqmp_pm_set_sram_bypass(void);
+ int zynqmp_pm_get_ufs_calibration_values(u32 *val);
+ #else
+-static inline int zynqmp_pm_is_mphy_tx_rx_config_ready(bool *is_ready)
++static inline int zynqmp_pm_wait_mphy_tx_rx_config_ready(u32 timeout_us)
+ {
+ 	return -ENODEV;
+ }
+ 
+-static inline int zynqmp_pm_is_sram_init_done(bool *is_done)
++static inline int zynqmp_pm_wait_sram_init_done(u32 timeout_us)
+ {
+ 	return -ENODEV;
+ }
+---
+base-commit: 848acc8ffe1b7cd5f1bf427b93069becfebc2c9d
+branch: xnext/ufs
+
+-- 
+2.43.0
+
 
