@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39475C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B147C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3pGynnPS1keOzhqeD9XAfjHqwD+Bldp7wgSexp7Gyho=; b=XxbHn+RZ8QobqI+4Bo31CJOfbE
-	p4V/4+DD7HdCOXUyxjoZB8FecqUDgxvzdhMQ2OSe0yvFFQ3XIiWwZpR8JzmKcUCbmQtndLdKXe7pu
-	6NSRTjBtgTXtDRcQ0Gf/rm4TaBESJQBGd/iekLHvKzQuzsM+n8bHjbf5UjenoGAGRibDxhGW2W2nx
-	k42Youk/NWxpDik7RDbGRtNOT+l74GpC8U1sNqsTtVnpi76t32jk7HxfzmVeHrL3vdiYBCxKG9X72
-	fDCZLicxvF3o/9OONoNhVf/rbDTnrK8C3Adqb68Y5wZX5D3EBahD59EPI591l5DpoVlMN1DEuM1TW
-	lbbVQmKg==;
+	bh=I+GaxzidZogxfQOf2BNMTZIqNz2cvmskT+zzhjMsHF8=; b=yfDPLfAGK8wPNqNSoetpZhFs9+
+	BOPeV19tRruU+Wu6Fkw5Fb8hQpkiyrjFxTdSerwmrHFwjXx7O4oeCd9OgsP6qbL857GOkqA7wYIsn
+	iimNt+GskSVPJwFYfkm2etBhR//GpRPQVRSpv9BTL1aqtlakdzPcFrDWOxCTN2BSDfQ2d8tFEC+zf
+	nuzvKDs7iGqpVB5+qlP0g8/tD2jqRQGm2jkk6CZuSFkuoyCFJV14NV8/BfpCwo5XrIJPF2HCNphzr
+	1fXG0p8oRohzeXy8XycHj96K+BAle+i6RMa2/0F3/LZNHjsZI75kimvoGoinpfHUxNTqO+pM0qXg7
+	acURZ4ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrCw1-00000001dXI-0O4D;
-	Tue, 04 Aug 2026 11:03:49 +0000
+	id 1wrD27-00000001dzb-3MM1;
+	Tue, 04 Aug 2026 11:10:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrCvy-00000001dWX-3TIM
+	id 1wrD24-00000001dz1-480P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:03:48 +0000
+	Tue, 04 Aug 2026 11:10:06 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F07FC1476;
-	Tue,  4 Aug 2026 04:03:33 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9174D1476;
+	Tue,  4 Aug 2026 04:09:57 -0700 (PDT)
 Received: from e143914.arm.com (e143914.arm.com [10.2.213.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B24D73F86F;
-	Tue,  4 Aug 2026 04:03:36 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 823313F86F;
+	Tue,  4 Aug 2026 04:09:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785841418; bh=SgwKNbrHwnJpm25FFSsLsZaT69eqYUN0KvJYoY0Fzy4=;
+	t=1785841801; bh=b6Ze859gC7l30dPLruPru3YqgKlfkIEHUkYWKtb4HJM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qRebEx96D8hhZCIoA1J28U6rLx5SB6DovYNS+PGVRnflpvzd65/a14xsPAviWomTg
-	 m+JySxGpMSekcX0g44GbqzPVSHg1CgkOwOUI5G019CiP0/HYCBSUyygMagnb+BsAu2
-	 +fInVuN8xI1q5hlpZ/nmcfU+AO4uXhTNpmmGD4lA=
-Date: Tue, 4 Aug 2026 12:03:31 +0100
+	b=TOMy610+Vqt6+m+Hvu3l+Z6VbEUC1b7NtZkN3G+hqPSqoLvZRkltTHX4M5VnQLzzU
+	 QPEjODrCqA6gjaCYBdGW4OAzmBx4bDVRL2EDYGVbHQNN5aFdqpC65aJ0aYQMi4MBdq
+	 pFOeqhLUkeCYG0HExALdBtwGVla6iYzJrvZuzvMQ=
+Date: Tue, 4 Aug 2026 12:09:56 +0100
 From: Joey Gouly <joey.gouly@arm.com>
 To: Marc Zyngier <maz@kernel.org>
 Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
@@ -50,7 +50,7 @@ Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
 	Hyunwoo Kim <imv4bel@gmail.com>, stable@vger.kernel.org
 Subject: Re: [PATCH 3/6] KVM: arm64: Consider SCTLR_EL2.M when mapping the L1
  VNCR page
-Message-ID: <anHHA9Fj3be5ndmB@e143914.arm.com>
+Message-ID: <anHIhHS6INKZLnrZ@e143914.arm.com>
 References: <20260801124818.366274-1-maz@kernel.org>
  <20260801124818.366274-4-maz@kernel.org>
 MIME-Version: 1.0
@@ -58,8 +58,8 @@ Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <20260801124818.366274-4-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_040346_941335_3AD3304B 
-X-CRM114-Status: GOOD (  27.98  )
+X-CRM114-CacheID: sfid-20260804_041005_256390_83FA6519 
+X-CRM114-Status: GOOD (  26.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,9 +74,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
-Two small comments/suggestions.
+Another thing I forgot..
 
 On Sat, Aug 01, 2026 at 01:48:15PM +0100, Marc Zyngier wrote:
 > We record a VNCR TLB even when SCTLR_EL2.M is 0 in order to make
@@ -95,13 +93,6 @@ On Sat, Aug 01, 2026 at 01:48:15PM +0100, Marc Zyngier wrote:
 > Instead, use the fact that the S1 MMU being off at the point of
 > translation is cached in our TLB, and simply ignore it if it
 > doesn't match the current MMU state.
-
-Could you expand/change this a little, something like:
-	
-	Instead, use the fact that the S1 MMU being off at the point of
-	translation is cached in our VNCR TLB, and if it doesn't match
-	the current MMU state, leave the VNCR unmapped.
-
 > 
 > Fixes: 2a359e072596f ("KVM: arm64: nv: Handle mapping of VNCR_EL2 at EL2")
 > Signed-off-by: Marc Zyngier <maz@kernel.org>
@@ -161,18 +152,8 @@ Could you expand/change this a little, something like:
 > +	if (!(vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_M) != s1_mmu_disabled(&vt->wr))
 > +		return;
 
-A comment here would also be useful for future archaeology (also current
-reading since the !( .. != ) code is confusing).
-
-Or maybe:
-
-	bool mmu_disabled_sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_M) == 0;
-	if (mmu_disabled_sctlr != s1_mmu_disabled(&vt->wr)) 
-
-> +
->  	if (read_vncr_el2(vcpu) != vt->gva)
->  		return;
->  
+Another thing, should we set valid=false? (Haven't really looked into
+what that implies..)
 
 Thanks,
 Joey
