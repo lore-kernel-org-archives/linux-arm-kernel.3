@@ -4,112 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 944CBC55172
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 08:57:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225D0C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 08:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oHMZ+hX0V0vr0a9Nft0AKjYbaEjQK6WSHNPIE5IxYn0=; b=PZNcBAdLu4OMCBI0YcgoVh2SLF
-	sVcs/TLkSylWuMl4V04JL5s0SfaRGIxtu6Nstn+WQMhnmyX4NM4TBfQNoIz1Fj6C7TKJJtCTB8mgW
-	H80l/uoCv7idUxfjKLIf5JEFkYQyB/UK8RBWO65Ah9UuZ3tP2LmbIJ4v7u1om1d/WR4EjkEGIO9+K
-	jHjSDc3EUBApS4Tnx/WgIiF2zirl2eh1/IXiX6SIjDaVTCjO/bYyztoeIVFEB0mEYeUBZDgy6LyBG
-	A6R08gB+44SdgR18XNa+jWE32TCrn4M0/thsMJWktCfhELJutUZZunaNI+1eKAzTtYCih/Rf7PyTD
-	0Af57kMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xxS0NRBY3i0kZcuHxe0V5BgtVYZZ3/0KR07GPgwzac4=; b=F0EkyWVWyOnOCPqzFZGFc7Jixl
+	olrCQD1/TDHcLvtyDOHBF+YhpI/hJ2BFeZvSlEhZ1b479W9b+bUoEnIfs/HSjjWxzCPt3QR2tHrVx
+	aHJljZX971tnAhhkdlwKlBB6HAtkOpp2X2nfO4oGYBFc5GZT+92J8BIePIRxEcepzKD+lus9FVxh/
+	QfAVV8lx6WuWTzwtrWxqpCzfS/2LQ1JBm5yW/7G4IW6vCaJPO1XHJISENykef3X5/JwVq7+uLUbBI
+	SI+W2QWVgeCp2hFKJ1L2hUgxMKMq5YIdz++s/mwkkqs/Afegcy1JmOjx4KFVT5Gu8oW8FZTbSm2Ku
+	6Mp7dTmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAxI-00000001Oq7-4AUU;
-	Tue, 04 Aug 2026 08:57:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wrAxX-00000001OsO-0nPc;
+	Tue, 04 Aug 2026 08:57:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAxF-00000001Oph-37Dt
+	id 1wrAxW-00000001Os9-0GAh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 08:57:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785833816;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oHMZ+hX0V0vr0a9Nft0AKjYbaEjQK6WSHNPIE5IxYn0=;
-	b=DOpS8RFoH8nLWmU92dPU8G/VIdNuOX525HKoIb3d/WwHsBmCRH5j8ElinE/KleI+aumWgV
-	Xyp1r38lyjMZSGtQLR3f4HzM7csfSxlvExU9K51hLV11gtAP6lX1HhavVmlZV5sm2k9j1d
-	FT5IPLDG+QQWYnr4xOaWYuUHKR748iw=
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
- [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-7-qasc6pOLNG6TgWwotHFncQ-1; Tue, 04 Aug 2026 04:56:51 -0400
-X-MC-Unique: qasc6pOLNG6TgWwotHFncQ-1
-X-Mimecast-MFC-AGG-ID: qasc6pOLNG6TgWwotHFncQ_1785833811
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2cfc52ddc55so58447275ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 01:56:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785833810; x=1786438610;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oHMZ+hX0V0vr0a9Nft0AKjYbaEjQK6WSHNPIE5IxYn0=;
-        b=O4DEnK5dYbEdKNu84GyHguTH2wpukb9KfTFLBNurbJTDwJmX22ic9o1QIAcFBipoCr
-         KH+i4ipiQM5teyaJVOV0lpLyYosNprQzzt0/5VCofWicDtmVbJsUWR7fOre4fcK2o6wq
-         FxR/7kgGoUaVpL3uGiKTAwAJVRReLYMnd6+x/XEXCXIyVFxDKhwwcMjlysgjnCCvsgGG
-         J/Dm9TZwRvBmVCf38GLIiUAPJLvZhICPIBpuqas+qx5z8scFOogeuOrFAcZrNZHgbk1B
-         B0tBJQN00Yuc509Mp81SnU3U4gpR6XXCzh4JdVBj7VOyZrqgpPrWwioDOgWzLgF8pQll
-         ONHw==
-X-Forwarded-Encrypted: i=1; AHgh+RpHVUYA5BADTqXk40nb3yE59nKCiUr4k1GX/35wQd2Twt470tgCeJmReW4niGQi9NBJUCShkvGdNE8iM9LeGi4r@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsnnrZludQDepWiOynlmUA7NfQhFr0A4V/m0CCDuWpgTPqRgJn
-	2GElJKSFp5KEh4DUsi2jeMgPZSE9aOfvupGcbbjHjag+JhegUHfzRm/rel6FS1ZVENVFCpQsCRG
-	PcW024mb48kad75DuLW21vE4VGTRu+4k8q9eKM0zEO8SPAKAJYQ4jt7XwzTWJUYfwoIJiyOe7CO
-	R0
-X-Gm-Gg: AR+sD109jrbSejMIixY/J29hOh3OwLtwwUsRbMD5ehnGe5SouhXN6n+et2WsB5E8OXM
-	S0ytGOs2HV5Mo9+UO+YW88etidkmS9PkDpF0akXKHz4ke1o04GzWmkYn/UmKb5RbZYoM9esibOD
-	dmnktaqfjKaKLbXg9eEKFqOYidsiY3UoIIbIIxlvTfhbADdd1ty5tWAPXyzUGPuZxy6U3Kn+/Ru
-	6AG0HKxSGKn4tO0XhrDOT6RlzG7ON/tOls7R8Ewz0Ttx4B0jJFAc+PBLj1VtSmo7RRNsUgmvEr2
-	nLGtQ8hYNgIoO10VIkmZJbmWR3cXxybe9JgSbVT/ZExFztO1sdUjr1XSIQsWZUwoUAVfXC/stGC
-	8LQ1ry9+cA1K2tlY9fdaEV0DswM53MlduRFnIglzrWZA=
-X-Received: by 2002:a17:902:d48f:b0:2ca:bf8e:35fe with SMTP id d9443c01a7336-2d0521e2704mr122370705ad.16.1785833810461;
-        Tue, 04 Aug 2026 01:56:50 -0700 (PDT)
-X-Received: by 2002:a17:902:d48f:b0:2ca:bf8e:35fe with SMTP id d9443c01a7336-2d0521e2704mr122370395ad.16.1785833809903;
-        Tue, 04 Aug 2026 01:56:49 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d0aa4d9b86sm2899145ad.76.2026.08.04.01.56.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Aug 2026 01:56:49 -0700 (PDT)
-Message-ID: <8a5e291f-f547-4dad-8a90-1ebb1511a280@redhat.com>
-Date: Tue, 4 Aug 2026 18:56:37 +1000
+	Tue, 04 Aug 2026 08:57:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 09203600AA;
+	Tue,  4 Aug 2026 08:57:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28E3A1F000E9;
+	Tue,  4 Aug 2026 08:57:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785833832;
+	bh=xxS0NRBY3i0kZcuHxe0V5BgtVYZZ3/0KR07GPgwzac4=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=UT90DsPzrSuia1XzFFet3nOueTooswWOFwwvIVVUp4i31U91QcZdNkPS7wDN44WfZ
+	 5SW8BtiDJsI6Fx9pak/IUmX5Z2J+CsBdP8wwjY3f2mQUM4eQIABFyJaXxGJhayR1gn
+	 U5R+0MEmOP50TZcTUR7p1eCgQVGCvP9a8smRHHuChY1zUBlFlrNOJSODIP4Z9/TPfi
+	 uBn3/pDxKsMyP6756Kk1ACB4f53ti49Pq6U7ezDbTVRR4O1TOTd6/BFPY6zByPR6tj
+	 IFWmH0hMFRtARMPxU/r8zriH6wy2JEQQcyViZK2NO2uukW7vthHJI/O6clzH5elLoU
+	 7Nyp9EMGnWMEA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: Re: [PATCH v16 21/45] KVM: arm64: CCA: Handle realm enter/exit
+In-Reply-To: <20260803134403.80630-22-steven.price@arm.com>
+References: <20260803134403.80630-1-steven.price@arm.com>
+ <20260803134403.80630-22-steven.price@arm.com>
+Date: Tue, 04 Aug 2026 14:27:03 +0530
+Message-ID: <yq5a5x1q461s.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 00/11] arm_mpam: Add MPAM-Fb firmware support
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260731170324.2927758-1-andre.przywara@arm.com>
- <6f8bc358-91a0-4c44-9110-c071e10df385@redhat.com>
- <afb75484-2739-4b75-a164-dd90433c7179@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <afb75484-2739-4b75-a164-dd90433c7179@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: sNPnyaR8vguxJ8ZWrhHbcc2N-km0S4BgBlpCYe-4RwI_1785833811
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_015657_855090_B272FBFA 
-X-CRM114-Status: GOOD (  30.91  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,142 +87,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Steven Price <steven.price@arm.com> writes:
 
-On 8/4/26 6:50 PM, Andre Przywara wrote:
-> Hi Gavin,
-> 
-> many thanks for the review and the testing!
-> 
-> ...
-> 
-> On 8/4/26 05:29, Gavin Shan wrote:
->> On 8/1/26 3:03 AM, Andre Przywara wrote:
->>> v7 is another quick respin of the MPAM-Fb code, for firmware based MSC
->>> accesses. This propagates MSC access errors in a function where it was
->>> missing before, covering more functions that pass their return value
->>> to userspace (new patch 07/11). Also some bug fixes, formatting
->>> adjustments and adding the accumulated tags - many thanks to the
->>> reviewers. Find the changelog below. Based on v7.2-rc1.
->>>
->>> =======================
->>> The Arm MPAM specification defines Memory System Components (MSCs),
->>> which are devices that are programmed through an MMIO register frame. In
->>> some occasions this turned out to be too limiting: the MSC might be
->>> located behind a separate bus system (for instance inside an on-board
->>> controller), it might be mapped secure-only, or in a different processor
->>> socket without direct MMIO mapping. Also the MMIO access might be too slow
->>> or it would need to be filtered or otherwise access controlled. Finally
->>> there might be bugs in the MSC integration, which require a mediating
->>> firmware to be accessible.
->>>
->>> To accommodate all those different use cases, the MPAM-Fb specification
->>> [1] describes an alternative way to access MSCs. Accesses to an MSC
->>> would be wrapped in a message and communicated to the system using a
->>> shared-memory/mailbox system mostly mimicking the Arm SCMI spec.
->>> For ACPI systems, this would be abstracted through an ACPI PCC channel,
->>> which provides the shared-memory region and the mailbox trigger. We can
->>> lean on existing ACPI parsing code to register with these two
->>> subsystems, but cannot rely on the existing SCMI code in the kernel.
->>> This means we somewhat need to open code a very simplified SCMI handler,
->>> which just provides enough functionality for the very basic subset of
->>> SCMI that the MPAM-Fb spec requires.
->>>
->>> The first seven patches rework all MSC access wrappers to propagate error
->>> information. Pure MMIO based MSC accesses would never fail, but the
->>> MPAM-Fb access can go wrong in multiple ways. The patches have been split
->>> up purely for reviewing reasons, if the number is a problem, we could as
->>> well squash them. Please note that until the very last patch of this series
->>> any MSC accesses would always only return 0, it's only the final enablement
->>> of MPAM-Fb that could possibly introduce errors. Hence all former patches
->>> can add error handling gradually, those code paths wouldn't be triggered
->>> before patch 11/11.
->>> Patch 8/11 solves a nasty problem: At the moment we protect stateful MSC
->>> register accesses (mon_sel) through a spinlock. Unfortunately the mailbox
->>> subsystem and the slow nature of the communication through this channel
->>> forbid MPAM-Fb access in atomic context. So this patch keeps using a
->>> spinlock for MMIO based accesses, but reverts to a mutex otherwise.
->>> We just deny taking the lock for MPAM-Fb in atomic context, ideally we
->>> wouldn't need that (no need to IPI another core when the MSC access does
->>> not need to be local to one particular core), or we simply deny that part
->>> of the functionality (access through perf).
->>> Patch 9/11 adds the code to redirect MSC accesses through the
->>> PCC shmem/mailbox system.
->>> Patch 10/11 reworks the error interrupt handler to use a threaded IRQ for
->>> MPAM-Fb, to be able to do MPAM-Fb MSC accesses inside (which might sleep).
->>> The final patch 11/11 then adds the code to detect and store the PCC
->>> channel information from the ACPI tables, and eventually enables
->>> MPAM-Fb accesses.
->>>
->>> This would enable systems where some MSCs are not accessible via MMIO to
->>> use those components anyway.
->>>
->>> Please have a look and test!
->>>
->>> Cheers,
->>> Andre
->>>
->>> [1] https://developer.arm.com/documentation/den0144/latest
->>>
->>> Changes in v7:
->>> - add tags
->>> - add new patch to propagate errors in mpam_reprogram_ris_partid()
->>> - prevent loop when mpam_diable() tries MSC accesses again
->>> - register MMIO error IRQ handler without IRQF_ONESHOT
->>> - re-use existing "err" variable instead of declaring "ret"
->>> - initialise mon_sel_lock later, to wait for interface decision
->>> - convert timeout units for nominal latency, between us and ms
->>
->> [...]
->>
->>>
->>> Andre Przywara (11):
->>>    arm_mpam: let low level MSC accessors return an error
->>>    arm_mpam: propagate MSC access errors for hw_probe functions
->>>    arm_mpam: propagate MSC access errors for MBWU counters
->>>    arm_mpam: propagate MSC access errors for msmon helpers
->>>    arm_mpam: propagate MSC access errors for __ris_msmon_read()
->>>    arm_mpam: propagate MSC access errors for state saving function
->>>    arm_mpam: propagate MSC access errors for mpam_reprogram_ris_partid()
->>>    arm_mpam: prepare mon_sel locking for MPAM-Fb
->>>    arm_mpam: add MPAM-Fb MSC firmware access support
->>>    arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler
->>>    arm_mpam: detect and enable MPAM-Fb PCC support
->>>
->>>   drivers/resctrl/Makefile        |   2 +-
->>>   drivers/resctrl/mpam_devices.c  | 820 +++++++++++++++++++++++---------
->>>   drivers/resctrl/mpam_fb.c       | 250 ++++++++++
->>>   drivers/resctrl/mpam_internal.h |  62 ++-
->>>   include/linux/arm_mpam.h        |   2 +-
->>>   5 files changed, 915 insertions(+), 221 deletions(-)
->>>   create mode 100644 drivers/resctrl/mpam_fb.c
->>>
->>
->> With this series (manually) applied to v7.2.rc6, the tests for the existing functions
->> like kunit-tests, L3 cache partitioning, MBW (soft) limiting, llc_occupancy monitor
->> look fine on NVidia's grace-hopper machine.
-> 
-> Awesome, many thanks for doing that!
-> 
+> +	switch (rec->run->exit.exit_reason) {
+> +	case RMI_EXIT_SYNC:
+> +		/*
+> +		 * HPFAR_EL2_NS is hijacked to indicate a valid HPFAR value,
+> +		 * see __get_fault_info()
+> +		 */
+> +		vcpu->arch.fault.hpfar_el2 = rec->run->exit.hpfar | HPFAR_EL2_NS;
+> +		rec_exit_sync(vcpu);
+> +		return ARM_EXCEPTION_TRAP;
+> +	case RMI_EXIT_IRQ:
+> +	case RMI_EXIT_FIQ:
+> +		return ARM_EXCEPTION_IRQ;
+> +	case RMI_EXIT_SERROR:
+> +		return ARM_EXCEPTION_EL1_SERROR;
+> +	case RMI_EXIT_PSCI:
+> +		rec_exit_hvc(vcpu);
+> +		kvm_make_request(KVM_REQ_RMI, vcpu);
+> +		return ARM_EXCEPTION_TRAP;
+> +	case RMI_EXIT_RIPAS_CHANGE:
+> +		rec_exit_hvc(vcpu);
+> +		return ARM_EXCEPTION_TRAP;
+> +	}
 
-Glad to give it a try :-)
+Should we handle RMI_EXIT_RIPAS_CHANGE differently? Currently, the call path is:
 
->> Tested-by: Gavin Shan <gshan@redhat.com>
-> 
-> I'd assume this is a regression test, as your machine uses the standard MMIO interface?
-> If you don't mind, I'd put this tag on the first refactoring patches, so 01/11 - 08/11, and leave out the remaining 3, as they are about MPAM-Fb, which wasn't really tested, I guess? Also patch 10/11 (the error IRQ changes) changed, so I would drop all tags from this anyway.
-> 
+kvm_rec_exit()
+-> RMI_EXIT_RIPAS_CHANGE
+-> handle_hvc()
+-> kvm_rec_handle_hvc()
+-> kvm_prepare_memory_fault_exit()
 
-Yes, it's a regression test. My Tested-by tag are only applied to 01/11 - 08/11.
-I don't have a machine where MPAM-fb is available to test 09/11 - 11/11.
-
-Thanks,
-Gavin
-
-> Cheers,
-> Andre
-> 
+Could we instead treat RMI_EXIT_RIPAS_CHANGE as a special case and avoid
+redirecting it through handle_hvc()? The completion part of the RIPAS
+change could still be handled by kvm_rec_handle_request().
 
 
+-bool kvm_rec_handle_hvc(struct kvm_vcpu *vcpu, int *ret)
++static int rec_exit_ripas_change(struct kvm_vcpu *vcpu)
+ {
+-	struct realm_rec *rec;
++	struct realm_rec *rec = &vcpu->arch.rec;
+ 	struct realm *realm;
+ 	unsigned long base;
+ 	unsigned long ripas;
+ 	unsigned long top;
+ 
+-	if (!vcpu_is_rec(vcpu))
+-		return false;
+-
+-	rec = &vcpu->arch.rec;
+-	if (rec->run->exit.exit_reason != RMI_EXIT_RIPAS_CHANGE)
+-		return false;
+-
+ 	realm = &vcpu->kvm->arch.realm;
+ 	base = rec->run->exit.ripas_base;
+ 	top = rec->run->exit.ripas_top;
+@@ -89,8 +83,7 @@ bool kvm_rec_handle_hvc(struct kvm_vcpu *vcpu, int *ret)
+ 			 base, top, ripas);
+ 		/* Set RMI_REJECT bit */
+ 		rec->run->enter.flags = REC_ENTER_FLAG_RIPAS_RESPONSE;
+-		*ret = -EINVAL;
+-		return true;
++		return -EINVAL;
+ 	}
+ 
+ 	/* Exit to VMM, the actual RIPAS change is done on next entry */
+@@ -102,8 +95,7 @@ bool kvm_rec_handle_hvc(struct kvm_vcpu *vcpu, int *ret)
+ 	 * KVM_EXIT_MEMORY_FAULT requires a return code of -EFAULT, see the
+ 	 * API documentation
+ 	 */
+-	*ret = -EFAULT;
+-	return true;
++	return -EFAULT;
+ }
+ 
+ int kvm_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
+@@ -169,8 +161,7 @@ int kvm_rec_exit(struct kvm_vcpu *vcpu, int rec_run_ret)
+ 		kvm_make_request(KVM_REQ_RMI, vcpu);
+ 		return ARM_EXCEPTION_TRAP;
+ 	case RMI_EXIT_RIPAS_CHANGE:
+-		rec_exit_hvc(vcpu);
+-		return ARM_EXCEPTION_TRAP;
++		return rec_exit_ripas_change(vcpu);
+ 	}
+ 
+ 	return rec_exit_fatal(vcpu, "Unsupported Realm exit reason",
 
+-aneesh
 
