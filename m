@@ -4,139 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74EBC5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3ECAC5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8erEfFvSbeDCIMfYRcsIGu36kvt3zwWMZC1Z4/yHsyA=; b=lPTM484zxnIhUyW8EOxYjLUVRS
-	spn8DTpx3eifceWlZuUuB6Tgvqlu7N9g33hLtDqDYCw5I4VhCdtCvSBb+cYQU3+m7s/D9OzW0x2ja
-	dZUN2ogcAt04MTBVrkXCrU65DNQnHAhf7PpI7b7GYJeLMWb+LVv71Rc/aYAgAV20A7KgTvIExRa2Y
-	rbbawxBvAEtC5VaS1m05GpXl4LEXFpy7rTEThwIg88wKhxwZbjfTyxry0AaDFczQFZ044sznEpj+c
-	Q4EhYYKb65sJ8B14QNUXkFhwsC0+V7jsgfwwVYlYG9c/xxJ4C8LvJ586WhVLHtcx01df8q19mELRj
-	N1L7ZOmg==;
+	bh=aZ8CvjTsE8imig+joKU5SQ3EWoaGRndjO4SfRE71EXM=; b=tOogTzYvWRRyEpI/E71E9ql6jZ
+	lMIcpCYCEM5DSBFlDLxWCGObb+q5y15wRVoCWvzqbzpA/KJp3Ychz7IhBrQ7MhXMQD3VR11kpu1bM
+	K2u/TfP8AqquFVdPhItRXVi2IFSyBHzLOFkm8QD5+rXhGWIZogEa3xys0ZpUHz2W38HkFdAtG6Z2d
+	Cv4vMVnTbtHWLCpW984mBPO/kK6GPkW/hTBOygYNKaXp/aymI1obFq3y1dSVU8FcWBARkJeLyGw3g
+	U4lPEtgxBj1ZwpPg4ubO6H6mWGjwcH682B/Je3sMYtWUjOfsW8lGSPn4dKhqcpNXTPfqhbONK+KOA
+	TwmPSd7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGKS-000000026gj-0VdZ;
-	Tue, 04 Aug 2026 14:41:16 +0000
-Received: from mail-westus3azon11012000.outbound.protection.outlook.com ([40.107.209.0] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wrGNl-000000026wG-233N;
+	Tue, 04 Aug 2026 14:44:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGKQ-000000026ff-0YCP
+	id 1wrGNk-000000026wA-11V7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 14:41:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M6FdoZ0i/shQXvP6Y9gVkqfVp+4QX/7ptfYGZMYQnRfStJ/7NWcBwrH+FjOyp+hYWCw/sLAadn00bF/Vvof1akpNfChdMn0gg7BGUXEVddR8hoAgrKcU9HHAkvcZwSMTDeirTaRl3dvmZvGQf+hNZEvUqLyOvxKruP9bfAtV2sr+2zRW/s+DH3co1d4fBrUO5Ik3u9jcoxh/W3jxWrveZMss6vljkM4MOcK3Yy53t/8p9gWFXJcla/Sp9nVO/UVDP4FfWrfApENqv5SuRgn2AFAj0AWO5qdugrZnYyGwanREON1LS+vgQmwA0q9fGVTPcmmXpJC0UGsbWxQQUC055A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8erEfFvSbeDCIMfYRcsIGu36kvt3zwWMZC1Z4/yHsyA=;
- b=HIy15dCaAjcOYzQdftjRn23Wd4S2otclHzFmcbGmDy+a4cwqhFXZf2Tu9uFcOLLV84fAMICxOMx9K2DTLWmncakfetgyIT5YguNqUdiumx6Z9/UvBVvW1/HA8l4iRTQa+wKNTGUaw0x27+sI3TX70WRKMivFYy6jS0n65UCBUBPgi1z05g/uOuwAJgf5BN8QXeKYuZNmrJbqspti32wW+qKRHOGH0Q9X22lZDWW+nV8AD6cob07nZ5UWROSrhnndnCwsEupYsdYB0zejcuDTEpd3HNS6LwIv0pPdEJL3FfZ4gV7iwRLUgF7usMUAqH8Oq2XuRz/XzgFS7lfLT8T12Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8erEfFvSbeDCIMfYRcsIGu36kvt3zwWMZC1Z4/yHsyA=;
- b=DDvziXqTiC60BY+8SZbaOu4yuwi3lddK5AaXxmNYs7l/iYIMu+gU/1MiRqePtIPscQM03mbOPDNFKPDld2QyZH1RkU8NCXDMDVJri3Tr3X4+g5JPnZmflw5KpYY19r/AZMPwySj/8t40GFwrYw6AhD5QioODUDSjB5GTedSiU/EN6UEvv6uNxE6QOPApUJDUFjlsVgqvVMqm+QrTvJr7y1xa0Mjv45DSYvX8FyuQj7EEcUFMG0tARG51GdpYL1P1IQkAndezVe7itixYV+L+djzRfNTwssXHFit2NbbVwv5pjV0thcddcJLSorjRA8YB4OFaducFY/PoyH5dsMTuPQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB5757.namprd12.prod.outlook.com (2603:10b6:510:1d0::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.245.13; Tue, 4 Aug
- 2026 14:40:56 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0292.015; Tue, 4 Aug 2026
- 14:40:56 +0000
-Date: Tue, 4 Aug 2026 11:40:54 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>,
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org,
-	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
-	will@kernel.org, akpm@linux-foundation.org, hca@linux.ibm.com,
-	gor@linux.ibm.com, agordeev@linux.ibm.com, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-Message-ID: <20260804144054.GE27883@nvidia.com>
-References: <20260715180455.515692-1-yang@os.amperecomputing.com>
- <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
- <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
- <amCPBrdltFSE_fEf@J2N7QTR9R3>
- <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
- <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
- <anHuLy52o5S9Nlwp@lucifer>
- <anH1CgpwS3PHeDRq@lucifer>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <anH1CgpwS3PHeDRq@lucifer>
-X-ClientProxiedBy: YT1PR01CA0123.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:2c::32) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB5757:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4fbe9a1f-c0d6-4a03-7af1-08def2366440
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|4143699003|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 6yK71dAzdlbcgQ0vQZjPVOLLtdp8OBXWIsiG/YuVvC3L0bsPHLro6PXhC0wFekMAxrSI1FScqOuGbthLSRw2p3dOvr7IWMbIwjk7DSo7tlXEw/AN5sx5/ZCIih0dkwer899V68yEijD1oqSaxO4U8c062fXfBVAyes6+8/1gbZHBdpMh3FMuLCP4NsEokTORvxSIBPVvlYXurVQO/2U5Ub34bPzV4mrmk38iH/xY55m5xBqb/F5O1+PEdFEN8M03qakWXSRt0SbD9UjAXc8GcMBf94ZqDnZ9Rfk1GNQrtPavBb1Fp6D6Az37zm9qQnrWnk1h9vnwFEYK04daZ4xvEQCthyE4+UslOmGOqyANnPZbf4qlt9YfCMdSejs5JtbdUDcI1DkQnxlOJzHMMCmD8Y5YEkItKk71abusz6Wfgk4Ze842nfAaDNlRUls8lHxNASFFPdvJcFvQbrI7b6XDVKzIkOe+zm3qf7eFpofyJGSZyBaIglwuo7d3CgeGM5088PIzjnSvCzB33kDnzQ7r6AJOe2Hb02yzaoBFyUHBlMLV+BLZBuQcYqGPjh0HX/3l0nK+3huTB7/icyjpWSAYq0UlNHnOGWfw3JMiSNxOMsqaD3CHABQuV7JYc7KOQ1j3Ys2ymsH3j5BgD1SKFIpHHoU1/6fcfblaan/BZx2u4Io=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(4143699003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Y8YfDVQaJ3Z60mSgK0vBLBKRnM2trzi/CNtrPXx8Pka2/TfHvDM7wFl8Rqe7?=
- =?us-ascii?Q?BcfyEchVKkRM0R8ujsj5KrkXXwJYcnBVv17zA5eSWNqPiOIpb7Dokheis5tH?=
- =?us-ascii?Q?jptFrZnlBbkmGqrZqbHN8ukENMOf3wphFrr+swmpeL+xaUt5IElXWv+wstKV?=
- =?us-ascii?Q?PudnlaAiWsAH8xE76/Dc37gWEEU6tUUBgt48B2v8/axDfcmCBNk9YTQQvcmR?=
- =?us-ascii?Q?W+COkIJKUhOh+pUZZ4tKc9hO+JkoSS8LdHgFQKmgEyRZv1f9o4o/BqLBvUba?=
- =?us-ascii?Q?QvepP0tOFphdZ3G248CQnQHyMp4QvASnA4ekr70bLtv8K4eKbjUmxF423vPx?=
- =?us-ascii?Q?NoklG+sZnyz0EdqIaDkxFb9cs/qeEXzwnabWWEVFY/99q6+cXtXZSreShVSO?=
- =?us-ascii?Q?CSipy+woCh7Vs8Q73a09zagBF66Vvp6x2k25yvxD+Huko8GuhjCr+P1WDxHY?=
- =?us-ascii?Q?0Kkriv2QkAHaaJYP0/6xcuN1AdeSutPMsBX41VNiTK/nO0B8RQDu64phP9Vd?=
- =?us-ascii?Q?FDM3qGKZfJf+bP4im+iw6zRvOCxrhMqf0d8Hce1a6XnR5rsGgOBcL//qMTqv?=
- =?us-ascii?Q?0aT2BhAzUUXj41Bsfnda8UaWusrHHTPAy8rd2+Lb0KcHIgBKS+IdlhSCWjj/?=
- =?us-ascii?Q?Pjp+AMrQV4sLKddKf5rlsLMydUWA60qtaNWY7f8asXeGwvwbKu6LRWl3rfZ4?=
- =?us-ascii?Q?AUJFLMeSB0GR/P+8bXIL2GJFjbiOSMUWPS8Ze1TQo+OkcWKmpMM7/fAzouX+?=
- =?us-ascii?Q?pMdpDVbOmARor26YBrHWG9GwCKMpckJpKBYSWhdq3Dfs4PPE8HQT2whr/T+0?=
- =?us-ascii?Q?We7xV7Zx5UR9akl4Ygb5hVzarSdfRNNI0WeXr8bRYV3MnOgFJLZPONT88GoH?=
- =?us-ascii?Q?vUjuUbKK9Cg5Q2+zr5PSTsAVqZ0BuT20fFrsVfxfTSQsyvA9zEN6Ufv8iti7?=
- =?us-ascii?Q?EKHZh/uqCV8p9cv+aKl9OKUGopu7u6u9EUUvCZKu6YI/x8yENCXUGoYvMRnw?=
- =?us-ascii?Q?yY1UN+5SJf8SKTFql4WxflrFiLLgG+iYgbhnTzpI1OFZJ87/d5pwELjxQMWI?=
- =?us-ascii?Q?End74D80i0ZOnd9iEb5UaYLpK1/cZAw4XmSPegEMATMRKPJ5TP/Z7JY4U8je?=
- =?us-ascii?Q?k0Fg2ob8VqP5hc6Ih4UVJCpbRBhr+khzHqAyAeu032bmamnLV04rw+eqq3ym?=
- =?us-ascii?Q?dPEZmW7G5fYa2v53EErrB8b4D6ppWVYbr3Fwz07ckwaWDZkbQubt/lWptaBn?=
- =?us-ascii?Q?PyMss/ba/etKfI7jlGRFtPWkebEtxRx/vhgoN24e+QBQ+GQodelq0FumXw1E?=
- =?us-ascii?Q?qY2H4P4AxnINn9+b/oHvG778rCgycfhA9uTG2KlXbqdjWFKtCGnWHAb/q7FF?=
- =?us-ascii?Q?DQLBBNcsmp/5Ce6Xcz1sGPYrM2EC5tGa03S8lfU2BTqmMGFlbVMtrOw0m7Nn?=
- =?us-ascii?Q?WgR1GSRilKL9W0IxgBwSKAktbDAtLW+lpgnP0KITdxAh6VOn7IoZ6cDrWBjB?=
- =?us-ascii?Q?nb9vG8Tmagyd6rS6M8W/sA+nDw6cabL1bJPFGyz9M5aj2/m+jnZ2U5Ce/G8i?=
- =?us-ascii?Q?Fuibbl930iW7pKM5NijLla7Uz8Exd+c8HDAHAXBUmN+pchAbD/iwHS6KJoUn?=
- =?us-ascii?Q?+guQmr3hpdnJsYcIyeNlF/MfyrfXmGx9HqopPogVOtO995LY5CbQZNIa9/CU?=
- =?us-ascii?Q?If74A0tGTZA1GoKJyq5/L0BBbFtObc0+puGo7Z/qM3aXI5kO5j8LD2SO0fWl?=
- =?us-ascii?Q?fF1pSVd04w=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4fbe9a1f-c0d6-4a03-7af1-08def2366440
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2026 14:40:55.9431
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aZSyuQ+HPN4ZgFYbesBP6cJHx6x1HJLIkQIPRJ/AP8bmXljRIxrXbgpNqMSxWQC5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5757
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_074114_169014_DAF1D578 
-X-CRM114-Status: GOOD (  11.03  )
+	Tue, 04 Aug 2026 14:44:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id ECE5E43C51;
+	Tue,  4 Aug 2026 14:44:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE5D41F000E9;
+	Tue,  4 Aug 2026 14:44:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785854679;
+	bh=aZ8CvjTsE8imig+joKU5SQ3EWoaGRndjO4SfRE71EXM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=aByPNJbbjlQ57OPBmEl8tJNjWE3LtGyGGF4aZBkdplun7csv9BKs4dRrYmdhKBYSe
+	 TggmkPB8+7WHmXzFr7Bg+vxLadqT/keWhiSLB72UTErsJe1SQzaS8OFc/40nSt+RJq
+	 7GO7Tdw7BEpH0cIdWugqErMXWn5aE2wtRr7ogLFkjq0wjY1qbCzwP45hf4GFE9SVri
+	 HNBz420P0E0eo7+v3hTrjywcmA3Mt88KUROBncPZiL2gGwznHgBpYpuqyryB16DFQh
+	 JkbkOoJByf+quO6BbHh196/3uAcjVbuKwQ8oGH7w+EBrZdkPUYPHPcm8BrWtU5EY3k
+	 JTIB9tLgGObFg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wrGNh-0000000CFYa-0bPg;
+	Tue, 04 Aug 2026 14:44:37 +0000
+Date: Tue, 04 Aug 2026 15:44:36 +0100
+Message-ID: <86ldamaqsr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 2/2] KVM: arm64: selftests: Add a nested S2 MMU realloc test
+In-Reply-To: <20260803224405.41468-2-kmehltretter@gmail.com>
+References: <20260803224405.41468-1-kmehltretter@gmail.com>
+	<20260803224405.41468-2-kmehltretter@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, pbonzini@redhat.com, shuah@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,25 +92,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 03:21:14PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Tue, Aug 04, 2026 at 03:15:03PM +0100, Lorenzo Stoakes (ARM) wrote:
-> > Since this work seems to be very much arm64-focused, perhaps it's therefore
-> > worth looking at an alterative solution that's specific to the arch, like the
-> > one suggested by Mark ([1])?
+On Mon, 03 Aug 2026 23:44:05 +0100,
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
 > 
-> Oh I hadn't realised Mark had already posted the series here:
+> Add a regression test for a stale vcpu->arch.hw_mmu reference when
+> initialising a vCPU grows the nested S2 MMU table.
 > 
-> https://lore.kernel.org/all/20260728123859.2911495-1-mark.rutland@arm.com/
+> The test drives vCPU0 into L2 through a minimal L1 stage-2 identity map,
+> pins it to a second pCPU where it spins in L2, and then initialises
+> vCPU1.  That initialisation grows the nested MMU table while vCPU0 still
+> holds one of its entries; keeping vCPU0 on a pCPU of its own means the
+> reference stays live without relying on hw_mmu being retained across a
+> schedule-out.  vCPU0 is then released and has to run to completion.
+> 
+> Creating vCPU1 up front is what allows the in-kernel VGIC to be used:
+> kvm_arch_vcpu_precreate() refuses KVM_CREATE_VCPU once the VGIC has been
+> initialised, which the test does before its first KVM_RUN.  Creation on
+> its own increments online_vcpus, so deferring vCPU1's KVM_ARM_VCPU_INIT
+> until vCPU0 is in L2 still grows the table.
+> 
+> With KASAN enabled, an unfixed kernel reports a slab-use-after-free in
+> kvm_handle_guest_abort(); with the fix it completes cleanly.
 
-It is a really neat approach for CPUs that lack the x86 like load from
-computed ea trick and should solve the original request.
+The problem is that we can't mandate selftests to rely on KASAN on the
+host. Selftests are there to verify that we match the architecture
+requirements.
 
-That said there is still a merit for things like replicating .text, and
-I think we will also have some multi-socket systems that would benefit
-from this too..
+If anything, this is a nice hack to demonstrate the problem (and yes,
+it fires here).
 
-So, I think the question you ask: if we should ever consider divergent
-per-cpu kernel page tables - is still interesting..
+> 
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> 
+> The test requires nested virtualization and two pCPUs.  Under QEMU TCG
+> it takes ~233s, exceeding the 120s timeout in
+> tools/testing/selftests/kvm/settings; psci_test takes ~167s in the same
+> boot, so emulating the second vCPU is the dominant cost.
 
-Jason
+# time /host/home/maz/nested_mmu_realloc_test 
+Random seed: 0x6b8b4567
+Running control thread on pCPU 0, vCPU thread on pCPU 1
+vCPU0 is running in L2; initializing vCPU1 to grow the table
+vCPU1 initialized; releasing vCPU0
+vCPU0 resumed after nested MMU resize
+
+real	0m0.161s
+user	0m0.007s
+sys	0m0.109s
+
+This is with KVM running as an L1 already...
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
