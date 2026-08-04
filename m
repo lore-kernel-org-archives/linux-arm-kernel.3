@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BABE6C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 08:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891EAC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 08:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+1e25DepZeRbvIwYwRbIXVPUAS5ZIcSEjcncQ0Lz1j0=; b=tFKCBhDgHpec34M8vE5LPfC8CG
-	eMr545jt1gPyEDZ1mGLDfslBRs1TjXic1JgtBUmfiYnHfaMwHiVwW7P8Ym6gVRhf+nJm7nHSnZ9Cv
-	g9T8d1VoxYweQY0jHDLQ0lzhzVT5BcsWDWDZjJzTVjn6VCEcDJOQfq6ljfPFCuFYIP5K2ukEh1P0+
-	L9k285vesgx2cOgn/G6ABS1qjplr8N2B5xGj8/dHKYnMppJVR0hfIzQsmesOaza+/B9+lbKdRmaRT
-	wcQP35ApWGncL1keS/ef5ljbkpYOSqEuFsBnlZLSIA+1i38bYp2EGpJOJqQx+gQ61PcAemKJHGiCp
-	tPAZcQcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7LGYalmhQwZrxOtGKmdSjC1WD7j0rRgBEPhRoGP+KSU=; b=anxD5SjU6gAzt+uy0GDF5+vocU
+	iSOxEv17v3CqUa4AOGi0uwphssHwXvEF6/w8psQiCBkXCDkE8LE4Hkv3UzVhVu8XZxT9R0eWbYVXp
+	9p/R0wQFhCNFr+udEWvk+fgQVc29GDTIoHTTJLqGKS+nLbED2Z5pHTyqv5ZtB/PKsDUCwA+vJwFyx
+	ZDhMeYZYsmUEV4mq5xnbf4DnASyl/jIweTsOEmRgkj2ZDR4l0M9JX/wAh+IaOkDom+qXT4cPmuhZr
+	5KNXuk/XKT3OFz2iX8aoJ9+aaaHnNZEwhFvOK4jLHI2nboeYH5HBKhJlUj0AxvJW6G9Zc4QY1ZJlR
+	qxv6Ht6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAfR-00000001MMO-289b;
-	Tue, 04 Aug 2026 08:38:33 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wrAgX-00000001MTy-30hT;
+	Tue, 04 Aug 2026 08:39:41 +0000
+Received: from mail.zlab.su ([109.73.193.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAfP-00000001MLo-2VRw;
-	Tue, 04 Aug 2026 08:38:33 +0000
-Date: Tue, 4 Aug 2026 10:38:25 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1785832708;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+1e25DepZeRbvIwYwRbIXVPUAS5ZIcSEjcncQ0Lz1j0=;
-	b=1q/hFnrAZKARngwsSSFG1fn+ERHWPeK/Q2PYhSEUIw+JBjXJMalKpB/IRpkA/FczwznZA5
-	00JnC7IybC+zT01et5FF52tsoxpr23aMm0GdTAN8XV0m6OCofsJg9jMKEh4gpf8jGmkv7a
-	MCN6eq5bqP17thiA2c32LsqI2ecbeBxMWvW6BRfRm/095xSGYHP9osD37v6ytY0T32WUQi
-	H9jJ/mARccK3HM2cerNjma2b6w67wRWE5DnhlroKxHoz73fjdXEg+IFFkKnYG7L/nqI2xG
-	/4c36vjIJs1ocrTb//ggW+xOv9+/QtR2uc43+/+qAk2WwoIi3f+AIEMHoScceg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1785832708;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+1e25DepZeRbvIwYwRbIXVPUAS5ZIcSEjcncQ0Lz1j0=;
-	b=zT4d68oFcXnLYbELnfcG/wL8TM4UP8eCkJ/ZXKy/ykvMWk/pP+KjIs77W+zu3gJH0O8IEA
-	ChFCSfBtI1FyVgDQ==
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: broadcom: bcm2712-d-rpi-5-b: add
- compatible
-Message-ID: <zl5z6owx4v5kg2ian7twpggekaosrenbhvgjq7fimm5j2ptz4i@ygvudatdkems>
-References: <20260803-bcm2712-d-stepping-compatible-v2-0-803017e4ba7a@linutronix.de>
- <20260803-bcm2712-d-stepping-compatible-v2-2-803017e4ba7a@linutronix.de>
- <20260804-unbeatable-fluffy-galago-bfe282@quoll>
+	id 1wrAgU-00000001MSa-3vxK;
+	Tue, 04 Aug 2026 08:39:40 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7EF21BFAEB;
+	Tue,  4 Aug 2026 11:39:14 +0300 (MSK)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zlab.su; s=dkim;
+	t=1785832766; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=7LGYalmhQwZrxOtGKmdSjC1WD7j0rRgBEPhRoGP+KSU=;
+	b=XA+D7KGCymenwT0xyMUSjJEQPPERpnUrMdXzeklq/D4KURrG8s8Jixzmcs2Jvk7Vn8xXgR
+	cQt+eV2EPMe5oIRfQD5jQqCBeJUXO4KHluGV62eRFvXPBewayj0KeSE+UOxgYwfufYlVNn
+	KEmNM3RSaSxjp/HVnAJRDxBwCKAxBSNIwEa+chdiKERBy4VPmyNJ8fr+3fVdE/0EdL87fU
+	80bJCYLBgg/D75n6RLRaf1fB48caXUq50Croscbl8I5LB7eSFNKs730GVx7hz7EjYvwENK
+	d3v8Yb0+wU/9Z7ZamYCqowwsHhp83r09HkikMfRX9oagTKpcL4Dr0xxOu07Nxw==
+From: Vladislav Leonov <vlad@zlab.su>
+To: sjg@chromium.org
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	festevam@nabladev.com,
+	heiko@sntech.de,
+	hl@rock-chips.com,
+	jeffy.chen@rock-chips.com,
+	jonas@kwiboo.se,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	michael.riesch@collabora.com,
+	robh@kernel.org,
+	vkoul@kernel.org,
+	ziyao@disroot.org,
+	Vladislav Leonov <vlad@zlab.su>
+Subject: Re: [PATCH v3 3/6] dt-bindings: soc: rockchip: grf: Add RV1106 compatibles
+Date: Tue,  4 Aug 2026 11:38:56 +0300
+Message-ID: <20260804083856.11447-1-vlad@zlab.su>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260729133609.3465563-4-sjg@chromium.org>
+References: <20260729133609.3465563-4-sjg@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260804-unbeatable-fluffy-galago-bfe282@quoll>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_013831_813984_FCCFFD7D 
-X-CRM114-Status: GOOD (  22.51  )
+X-CRM114-CacheID: sfid-20260804_013939_505804_EFAF320E 
+X-CRM114-Status: UNSURE (   3.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,60 +82,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 09:48:19AM +0200, Krzysztof Kozlowski wrote:
-> On Mon, Aug 03, 2026 at 02:09:25PM +0200, Gregor Herburger wrote:
-> > The bcm2712 found on the Raspberry Pi 5 is available in the d Stepping
-> > and in a c Stepping. There are two separate dts files. The
-> > bcm2712-rpi-5-b.dts for the c Stepping and the bcm2712-d-rpi-5-b.dts for
-> > the d Stepping. The d stepping does not set its own compatible/model
-> > string but uses "raspberrypi,5-model-b".
-> > 
-> > These two steppings are not compatible. Booting with the wrong dtb file
-> 
-> Not compatible but...
-> 
-> > causes a crash at boot.
-> > 
-> > Add a compatibles string "raspberrypi,5-model-b-d0" to allow us to
-> > distinguish between those two steppings.
-> > 
-> > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> > ---
-> >  arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 5 +++++
-> >  1 file changed, 5 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-> > index 127be0fc27c2..11a38cd53401 100644
-> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-> > @@ -3,6 +3,11 @@
-> >  
-> >  #include "bcm2712-rpi-5-b.dts"
-> >  
-> > +/ {
-> > +	compatible = "raspberrypi,5-model-b-d0", "raspberrypi,5-model-b", "brcm,bcm2712";
-> 
-> this tells they are compatible. If compatibility was wrong since the
-> beginning, you do not have to preserve the ABI.
-Ok understood. Will drop the fallback and make it either
-	compatible = "raspberrypi,5-model-b-d0", "brcm,bcm2712";
-or
-	compatible = "raspberrypi,5-model-b", "brcm,bcm2712";
-> 
-> Best regards,
-> Krzysztof
-> 
-Best regards,
--- 
-Gregor Herburger
-Linutronix GmbH | Bahnhofstrasse 3 | D-88690 Uhldingen-Mühlhofen
-Phone: +49 7556 25 999 35; Fax.: +49 7556 25 999 99
+Tested on custom PCB with RV1106G2.
+Comparing with the V2 series, GPIO now works without any issues.
 
-Hinweise zum Datenschutz finden Sie hier (Informations on data privacy 
-can be found here): https://linutronix.de/legal/data-protection.php
+Regards,
+Vladislav
 
-Linutronix GmbH | Firmensitz (Registered Office): Uhldingen-Mühlhofen | 
-Registergericht (Registration Court): Amtsgericht Freiburg i.Br., HRB700 
-806 | Geschäftsführer (Managing Directors): Dr. Wilfried Wessner, 
-Katharina Kopp, Alexander Gieringer
+Tested-by: Vladislav Leonov <vlad@zlab.su>
 
