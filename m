@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE2BC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39475C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pzVNG75jEMMbJL9B6jQVIbPoktae5dE9O/0HZigYuYQ=; b=hnN3+jhDeUEQFBbrxQwH8Tk1Rt
-	t15nzNnonREyQKSGegHW5oyxPpXdMdqq6P6s711C445lGu63lwx6W+chEWSfyK+UgfmKgb3EJnXvI
-	evL5BLdQuwlxTLFq3/5hEHronL4kHRW8t5WSFzca7EmLqFTFwQhScf4FFd4pKFyJdhgM3G+n7YsJd
-	prx1bkXJvoJFB9uxl9XLlV5xsg/GWJfUvnerTKyygjecaxvKDqX6PMTNTue3KvAuBDDPPRBu+K2X8
-	Y5M/7eT/up27CGoXoizrzJv2IjhzbsppivBtdA0u22jOQZCyCnlxBX2gI+oN/Loln7fImNFelMFHt
-	XJsB5XUQ==;
+	bh=3pGynnPS1keOzhqeD9XAfjHqwD+Bldp7wgSexp7Gyho=; b=XxbHn+RZ8QobqI+4Bo31CJOfbE
+	p4V/4+DD7HdCOXUyxjoZB8FecqUDgxvzdhMQ2OSe0yvFFQ3XIiWwZpR8JzmKcUCbmQtndLdKXe7pu
+	6NSRTjBtgTXtDRcQ0Gf/rm4TaBESJQBGd/iekLHvKzQuzsM+n8bHjbf5UjenoGAGRibDxhGW2W2nx
+	k42Youk/NWxpDik7RDbGRtNOT+l74GpC8U1sNqsTtVnpi76t32jk7HxfzmVeHrL3vdiYBCxKG9X72
+	fDCZLicxvF3o/9OONoNhVf/rbDTnrK8C3Adqb68Y5wZX5D3EBahD59EPI591l5DpoVlMN1DEuM1TW
+	lbbVQmKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrCv9-00000001dNx-3hFd;
-	Tue, 04 Aug 2026 11:02:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrCv9-00000001dNq-13nR
+	id 1wrCw1-00000001dXI-0O4D;
+	Tue, 04 Aug 2026 11:03:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrCvy-00000001dWX-3TIM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:02:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 92F7943EB8;
-	Tue,  4 Aug 2026 11:02:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DC11F00A3E;
-	Tue,  4 Aug 2026 11:02:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785841374;
-	bh=pzVNG75jEMMbJL9B6jQVIbPoktae5dE9O/0HZigYuYQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UFGQem5o1Jsij4bIFuEwLH+baDq9qDffNNDDjSz3q55QjVUda1ixf+1JtuFuPN1Se
-	 Fs4jTE2ir3jhW56PbXbXWKMxrikSXqdJI2bTJ94leE+KKdDf+d+CuUTBu7BzV3yMqd
-	 Lvd0oQF4qzWmEZWZogA8ULpf6yeUjX24l61llNS5OCsURvIudwlbhhSs0LngHSYFbB
-	 R2xTJT8RXGHMT0VossM2XFQ7W0c6ZArsbYXzYIeYmfCUT0nu0WfcVz5LfBncNcT+Rr
-	 YxzM12jqjckU4KHWXDR+bSla9Nk0nLRa1mAGAUD4iu7hGrwS5hlGgskaSD6xX9LL1O
-	 3vQAs2w3TguKQ==
-Date: Tue, 4 Aug 2026 12:03:13 +0100
-From: Jean-Philippe Brucker <jpb@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
-Subject: Re: [RFC PATCH v1 2/8] misc/arm-cla: Add launch operation helpers
-Message-ID: <20260804110313.GA733232@myrica>
-References: <20260717104759.123203-1-ryan.roberts@arm.com>
- <20260717104759.123203-3-ryan.roberts@arm.com>
- <5049af19-47c4-4ab5-bb4d-6b3cd54ad75c@app.fastmail.com>
+	Tue, 04 Aug 2026 11:03:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F07FC1476;
+	Tue,  4 Aug 2026 04:03:33 -0700 (PDT)
+Received: from e143914.arm.com (e143914.arm.com [10.2.213.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B24D73F86F;
+	Tue,  4 Aug 2026 04:03:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785841418; bh=SgwKNbrHwnJpm25FFSsLsZaT69eqYUN0KvJYoY0Fzy4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qRebEx96D8hhZCIoA1J28U6rLx5SB6DovYNS+PGVRnflpvzd65/a14xsPAviWomTg
+	 m+JySxGpMSekcX0g44GbqzPVSHg1CgkOwOUI5G019CiP0/HYCBSUyygMagnb+BsAu2
+	 +fInVuN8xI1q5hlpZ/nmcfU+AO4uXhTNpmmGD4lA=
+Date: Tue, 4 Aug 2026 12:03:31 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>, stable@vger.kernel.org
+Subject: Re: [PATCH 3/6] KVM: arm64: Consider SCTLR_EL2.M when mapping the L1
+ VNCR page
+Message-ID: <anHHA9Fj3be5ndmB@e143914.arm.com>
+References: <20260801124818.366274-1-maz@kernel.org>
+ <20260801124818.366274-4-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5049af19-47c4-4ab5-bb4d-6b3cd54ad75c@app.fastmail.com>
+In-Reply-To: <20260801124818.366274-4-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_040346_941335_3AD3304B 
+X-CRM114-Status: GOOD (  27.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,112 +74,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 02:16:36PM +0200, Arnd Bergmann wrote:
-> On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
-> > From: Jean-Philippe Brucker <jpb@kernel.org>
-> >
-> > CLA commands are issued by writing optional payload registers,
-> > programming the LAUNCH register and polling LRESP until the hardware
-> > accepts or rejects the operation.
-> >
-> > Add a common launch helper that performs this sequence on the CLA's
-> > local CPU, waits for LRESP completion and translates launch response
-> > codes into Linux errors.
-> >
-> > Build accelerator reset and register read and write support on top of
-> > it. The register read and write helpers split larger accesses into
-> > multiple launch operations when an access crosses an eight-register
-> > window.
-> 
-> I'm a bit confused by the MMIO register access ordering, if this is
-> not a normal AXI attached device with a DMA master, I think it
-> would make sense to better document what it is.
-> 
-> > +static inline u64 cla_reg_read(struct cla_dev *dev, off_t reg)
-> > +{
-> > +	return readq_relaxed(dev->regs + reg);
-> > +}
-> > +
-> > +static inline void cla_reg_write(struct cla_dev *dev, off_t reg, u64 
-> > val)
-> > +{
-> > +	return writeq_relaxed(val, dev->regs + reg);
-> > +}
-> 
-> For regular devices that have a DMA master, you cannot use
-> the relaxed operations by default since they do not serialize
-> against DMA transfers.
-> 
-> To do this properly, you'd have to define separate cla_reg_read()
-> and cla_reg_read_relaxed() helpers and then use them as needed,
-> ideally with a comment for each relaxed instance to explain why
-> that one is both performance critical and safe.
-> 
-> If for some reason this accelerator is not a DMA master (e.g.
-> because it is implemented through CPU microcode and accesses
-> the memory through the CPU's own load/store unit), that should
-> be documented here to explain that you are relying on
-> implementation defined behavior outside of the normal driver
-> and memory model.
+Hi Marc,
 
-Good point, this needs better comments. The kernel driver doesn't use any
-DMA so the accessors can all be _relaxed. The userspace library, which
-does use DMA and MMIO, needs to insert memory barriers when programming
-the device.
+Two small comments/suggestions.
 
-It's possible we are missing barriers in the context switching path, but
-I don't think we need any. The driver forces accelerators to idle which,
-in this hardware, guarantees that all DMA initiated by previous user is
-complete, and no DMA will be issued until we return to user after
-assigning a new context. We don't touch the user buffers but for the page
-table walker, the barriers in the arch mm code should be sufficient.
+On Sat, Aug 01, 2026 at 01:48:15PM +0100, Marc Zyngier wrote:
+> We record a VNCR TLB even when SCTLR_EL2.M is 0 in order to make
+> our life easier. But this is not something that the architecture
+> anticipate.
+> 
+> As a consequence, a hypervisor is free to set VNCR_EL2 to
+> some PA when SCTLR_EL2.M==0, use it to run a guest which indirectly
+> accesses the VNCR page, then eventually set SCTLR_EL2.M==1 with
+> the same VA. Yes, this is odd, but apparently legal.
+> 
+> A common trick in HW is to invalidate the TLBs on SCTLR_ELx.M being
+> flipped. But doing this is a not a good idea for us (we'd need to
+> trap SCTLR accesses), and wouldn't scale as we nest deeper.
+> 
+> Instead, use the fact that the S1 MMU being off at the point of
+> translation is cached in our TLB, and simply ignore it if it
+> doesn't match the current MMU state.
+
+Could you expand/change this a little, something like:
+	
+	Instead, use the fact that the S1 MMU being off at the point of
+	translation is cached in our VNCR TLB, and if it doesn't match
+	the current MMU state, leave the VNCR unmapped.
 
 > 
-> > +	/*
-> > +	 * No barrier needed because accesses use Device-nGnRE, within the 
-> > same
-> > +	 * memory-mapped peripheral, so accesses arrive at the endpoint in
-> > +	 * program order.
-> > +	 */
+> Fixes: 2a359e072596f ("KVM: arm64: nv: Handle mapping of VNCR_EL2 at EL2")
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: stable@vger.kernel.org
+> ---
+>  arch/arm64/include/asm/kvm_nested.h | 7 +++++++
+>  arch/arm64/kvm/at.c                 | 2 --
+>  arch/arm64/kvm/nested.c             | 3 +++
+>  3 files changed, 10 insertions(+), 2 deletions(-)
 > 
-> This comment in turn looks completely useless, as that is true
-> for any MMIO device. The only barriers that you'd normally need
-> here on sane architectures (not Alpha) are to serialize MMIO
-> against DMA.
-> 
-> > +
-> > +	if (launch->data_mode == CLA_DATA_OUT)
-> > +		for (i = 0; i < launch->ndata_m1 + 1; i++)
-> > +			launch->data[i] = cla_reg_read(dev, CLA_REG_DATA(i));
-> 
-> Instead of the open-coded loop, maybe this can be built
-> on top of __iowrite32_copy()
+> diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+> index 012d711034d17..cc48817a5bf7a 100644
+> --- a/arch/arm64/include/asm/kvm_nested.h
+> +++ b/arch/arm64/include/asm/kvm_nested.h
+> @@ -388,6 +388,8 @@ struct s1_walk_result {
+>  	bool	failed;
+>  };
+>  
+> +#define S1_MMU_DISABLED		(-127)
+> +
+>  static inline void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
+>  {
+>  	wr->fst		= fst;
+> @@ -396,6 +398,11 @@ static inline void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
+>  	wr->failed	= true;
+>  }
+>  
+> +static inline bool s1_mmu_disabled(struct s1_walk_result *wr)
+> +{
+> +	return wr->level == S1_MMU_DISABLED;
+> +}
+> +
+>  int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+>  		       struct s1_walk_result *wr, u64 va);
+>  int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u64 va, u64 ipa,
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index 640f2dc00a8ba..0926426b87989 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -11,8 +11,6 @@
+>  #include <asm/kvm_mmu.h>
+>  #include <asm/lsui.h>
+>  
+> -#define S1_MMU_DISABLED		(-127)
+> -
+>  static int get_ia_size(struct s1_walk_info *wi)
+>  {
+>  	return 64 - wi->txsz;
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 035cda256e2a5..d7dba02dc84fe 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -1578,6 +1578,9 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
+>  	if (!vt->valid)
+>  		return;
+>  
+> +	if (!(vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_M) != s1_mmu_disabled(&vt->wr))
+> +		return;
 
-Ah yes, __iowrite64_copy() should work here (reg accesses must be 64-bit).
+A comment here would also be useful for future archaeology (also current
+reading since the !( .. != ) code is confusing).
 
-> 
-> > +/**
-> > + * cla_op_wait_lresp - Wait for any LAUNCH op to complete.
-> > +int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp)
-> > +{
-> > +	return readq_relaxed_poll_timeout_atomic(dev->regs + CLA_REG_LRESP,
-> > +			*lresp, FIELD_GET(CLA_LRESP_PENDING, *lresp) == 0,
-> > +			CLA_LRESP_DELAY_US, CLA_LRESP_TIMEOUT_US);
-> 
-> Similarly, the readq_relaxed_poll_timeout_atomic() specifically
-> does not wait for DMA, so you may need separate helpers for
-> devices that can do DMA and readq_poll_timeout_atomic() vs devices
-> that never access memory and can use the relaxed version.
+Or maybe:
 
-This does not wait for DMA, only for the LAUNCH command issued with MMIO
-to complete.
+	bool mmu_disabled_sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_M) == 0;
+	if (mmu_disabled_sctlr != s1_mmu_disabled(&vt->wr)) 
 
-> 
-> You may also need a non-atomic version, as blocking the CPU
-> for 100µs is not great for realtime workloads.
-
-Agreed
+> +
+>  	if (read_vncr_el2(vcpu) != vt->gva)
+>  		return;
+>  
 
 Thanks,
-Jean
+Joey
 
