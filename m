@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D51AC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95DD3C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IGu5muqcCr88tQfqZkr67inThcl57N2cDhTNDNlRuFA=; b=xshxQSPsi/17whAIkzahRI+RUF
-	hKHX7NKtvpts1/Mmbux1GpwZNj4Jcq4gUtdSrOyueqUx4MyZHdz+QXAh5cvy0tS/bjOizdkVG6uxi
-	N1Giyu883XgzUisdDrFGseMbOysfK73T+LDiTwQnDhBnb3LigfHPHUQerYdEwee6tqfbLCQ8w4UBe
-	e3go8wkoP67Hi3+uc7/LVvL1K+CgmPmO5pj25SLUdpOYsjFfc7ZOn2qVEsh8JK8Mx8t38N4CydcHD
-	/UW/Kmu2xQObUHV3Z8+piet0cyobcDI7Bqtw4LbSa6DYtTnd1qVxoMKxXIQ2GBu8Zm3Ua6Eny2EPa
-	nmZs4Ydw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7WVi0zd6LcUoDLabZYLULWttoR4Wlz1WJNokp6HKtFM=; b=kfmGPiGZEdfl74szVMgXecD/cZ
+	qYdnAvxwBfpRbjBmdfaZ/40RmqAKKt+hx1rTyHd29t/zckzy3RDAkHVCvpJlVv5t3j1AxKuopUMq5
+	m/9uz32EILyydsX5lT+nZYCEB5fMDMBzrJXW3hEH5EPvCPFyYw9Ys2RnnGL9FfEtga+gy5Osxu3dX
+	aHL1makuwGmh+g8GzLXEXmOKFYtBaGHVC9MwMzmEfvY8PEbpoLY7pRG7kpFNrC/E9WYz9YBAKiZ3/
+	jzeBck4BIxOubG/9xNgog//Jbm9WExnjNVRyvUj9427qg0t1XLjuinT1vF9dKquPALsSzQkGuLOZG
+	m6iPyqVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrEmv-00000001sL9-2qbI;
-	Tue, 04 Aug 2026 13:02:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrEms-00000001sK4-3OAA
+	id 1wrEoV-00000001sdl-3hHr;
+	Tue, 04 Aug 2026 13:04:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrEoU-00000001sdc-2wx4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 13:02:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 049FD1476;
-	Tue,  4 Aug 2026 06:02:25 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C7F43F66F;
-	Tue,  4 Aug 2026 06:02:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785848549; bh=Z0aRBJxJ0GqLvCjTBvDh6KpTvTb76w8DXd1O+azuXzs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nYg1DZHah7HNR7Wv2ZsmLzbYqALLRENtIlvMJqwKMd+EuRhVYJygT8WuInwFZLtMn
-	 tsd/mlaDzng3n5Dl5/tlGzRcHq7HLX/+i4UkXw6il3J+F3w/JG8jq27xvH0QbdQcIq
-	 0AM5czpcgvqbPkHUQgo/9TV11zcbihGhZLsDcmKk=
-Message-ID: <4650a250-0422-432c-a1f2-0621e276d16e@arm.com>
-Date: Tue, 4 Aug 2026 15:02:23 +0200
+	Tue, 04 Aug 2026 13:04:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BD1460A7E;
+	Tue,  4 Aug 2026 13:04:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41DAB1F00A3D;
+	Tue,  4 Aug 2026 13:04:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785848649;
+	bh=7WVi0zd6LcUoDLabZYLULWttoR4Wlz1WJNokp6HKtFM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aZ8xZk5PzuGz/b2moWBb4VVtz0n3Ung2XSO7gIhRagGOIZjNIMkuzHy6jFMeVHTWF
+	 nA1BvJi/iE2VrsC4XD17lCgxplfi63Afoif31Yj2W0EGlxUQiKtKFRwnI+14Z77Zm/
+	 wyREeQLepUuHknwIHKHs5MtSxkyB6+MmQecXZ+aqfDSvp48OtiFS+A/zUg63hoVMix
+	 vyCQNYITywtcPJ3HpjO2neSJHyvnHkv687QC8xcOOIa/gki5DxBEwggQe/7XGb0akN
+	 nzWsq0j8rO5RTc990ehdmT0keE1zCMZ4cmTlxK1aOc4jA6KVyjsh2uKeL8OyzltUDm
+	 Jyzl0tvAyFYNw==
+Date: Tue, 4 Aug 2026 14:03:47 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Helge Deller <deller@gmx.de>
+Cc: Pedro Falcato <pfalcato@suse.de>, David Hildenbrand <david@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Michal Hocko <mhocko@suse.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org, 
+	John David Anglin <dave.anglin@bell.net>
+Subject: Re: [PATCH v2 2/6] parisc: Drop own implementations for ptep_get()
+ and ptep_test_and_clear_young()
+Message-ID: <anHi9n3_8bLjAsxy@lucifer>
+References: <20260803164400.531199-1-pfalcato@suse.de>
+ <20260803164400.531199-3-pfalcato@suse.de>
+ <anHHyiHqYf3yLf2K@lucifer>
+ <anHcJZYyz9Zrshdm@pedro-suse>
+ <anHd7ho3daZFZ-4r@lucifer>
+ <e7ac6f83-72ff-43c0-b67b-6b17caed995e@gmx.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 00/11] arm_mpam: Add MPAM-Fb firmware support
-To: Ben Horgan <ben.horgan@arm.com>, Lorenzo Pieralisi
- <lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>,
- Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
- Ritwick Sharma <ritwick.sharma@arm.com>, Gavin Shan <gshan@redhat.com>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260804100627.3217149-1-andre.przywara@arm.com>
- <5d7433ff-f6e4-42cc-bc8a-08179b3d136b@arm.com>
- <5b9dd9f6-8b7f-483b-8f72-68d26c581514@arm.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <5b9dd9f6-8b7f-483b-8f72-68d26c581514@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_060230_935925_A7C05CEB 
-X-CRM114-Status: GOOD (  48.99  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e7ac6f83-72ff-43c0-b67b-6b17caed995e@gmx.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,249 +87,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Aug 04, 2026 at 03:00:43PM +0200, Helge Deller wrote:
+> On 8/4/26 14:42, Lorenzo Stoakes (ARM) wrote:
+> > On Tue, Aug 04, 2026 at 01:34:41PM +0100, Pedro Falcato wrote:
+> > > On Tue, Aug 04, 2026 at 12:11:08PM +0100, Lorenzo Stoakes (ARM) wrote:
+> > > > On Mon, Aug 03, 2026 at 05:43:56PM +0100, Pedro Falcato wrote:
+> > > > > From: Helge Deller <deller@gmx.de>
+> > > > >
+> > > > > Switch to the generic implementations, which are identical.
+> > > >
+> > > > You sure do like succinct commit messages :)
+> > >
+> > > I didn't even write this one! See the From: :))
+> >
+> > Lol well then feedback addressed to Helge ;)
+>
+> Noted :-)
+>
+> > > > Maybe worth saying by dropping the __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG and
+> > > > ptep_get defines you get the generic versions from include/pgtable.h which are
+> > > > functionally identical.
+>
+> Isn't that basically the same as:
+> "Switch to the generic implementations, which are identical."
+> ;-)
 
-On 8/4/26 14:50, Ben Horgan wrote:
-> Hi Andre,
-> 
-> On 8/4/26 13:28, Andre Przywara wrote:
->> Hi,
->>
->> On 8/4/26 12:06, Andre Przywara wrote:
->>> this is v8 of the MPAM-Fb code, for firmware based MSC accesses.
->>> It fixes a potential use-after-free of the dev pointer on error
->>> prints, and disables the IRQ on the irqchip side in case doing it on
->>> the device side doesn't work. The rest are cosmetic fixes and adding
->>> the tags from the diligent reviewers and testers, many thanks for that!
->>> I dropped tags from the error IRQ patch (10/11) due to changes.
->>> Find the changelog below. Based on v7.2-rc1.
->>>
->>> =======================
->>> The Arm MPAM specification defines Memory System Components (MSCs),
->>> which are devices that are programmed through an MMIO register frame. In
->>> some occasions this turned out to be too limiting: the MSC might be
->>> located behind a separate bus system (for instance inside an on-board
->>> controller), it might be mapped secure-only, or in a different processor
->>> socket without direct MMIO mapping. Also the MMIO access might be too slow
->>> or it would need to be filtered or otherwise access controlled. Finally
->>> there might be bugs in the MSC integration, which require a mediating
->>> firmware to be accessible.
->>
->>
->> For the records, I looked at the sashiko complaints, by my analysis most comments fall into one of
->> those categories:
->>
->> - Does this new early return / error return .... break MPAM logic?
->> It's concerned about just bailing out from the middle of a sequence of MPAM read or writes, leaving
->> the MSC in a misconfigured state. This is true, but doesn't apply, because we tear down MPAM
->> completely upon an MPAM-Fb access returning an error. And if the communication between the kernel
->> and an MSC breaks down completely, there isn't much we can do anyway: attempts to recover would fail
->> as well.
->>
->> - Since xxx() now returns an error code, do the callers need
->>    to be updated to check it?
->> - Are there missing error checks in xxx() related to the new error
->>    return values?
->> Yes, this is done in one of the following patches. The series is constructed so that only the final
->> patch enables MPAM-Fb, before that there is no way MPAM-Fb could be instantiated, so only MMIO
->> accesses are happening. They always return 0, so no error could occur and error paths are never
->> exercised.
->> This is used to construct the functionality gradually, and allow multiple, but smaller patches.
->> Mentioned in the cover letter.
-> 
-> Just to add to this. The mpam_reset_component_locked() doesn't propagate the error, in
-> reset_arch_reset_all_ctrls() this is ok as this is only called when resctrl is being disabled. The
-> other place this is called from is the cpu hotplug handlers which aren't called by a user. So there
-> is no user to propagate the error up to.
-> 
-> The one valid concern as far as I can see is that mpam_disable_msc_ecr() always returns 0 and so the
-> disable_irq_nosync() can never be called.
+I am being _exceedingly_, possibly outrageously pedantic here :>)
 
-Yes, I just saw this as well, for some reason I missed that conversion. 
-It's a very simple fix, of course.
+>
+> > > I can touch it up though, if you insist.
+> >
+> > Yeah, I'm being pedantic here it's not vital to have this change :) but be nice
+> > if you could, I'm sure Helge probably wouldn't mind too much? :)
+>
+> Yes, I'm fine with any cleanup/rephrasing of the commit message.
 
-Cheers,
-Andre
+Thanks :)
 
-> 
-> Thanks,
-> 
-> Ben
-> 
->>
->> - This is a pre-existing issue, but ....
->> I haven't checked in detail, but from previous rounds those concerns were addressed by Ben's fixes,
->> which IIUC are on its way already. This series is based on v7.2-rc1, so those fixes are not applied
->> here.
->>
->> Hope that helps,
->> Cheers,
->> Andre
->>
->>> To accommodate all those different use cases, the MPAM-Fb specification
->>> [1] describes an alternative way to access MSCs. Accesses to an MSC
->>> would be wrapped in a message and communicated to the system using a
->>> shared-memory/mailbox system mostly mimicking the Arm SCMI spec.
->>> For ACPI systems, this would be abstracted through an ACPI PCC channel,
->>> which provides the shared-memory region and the mailbox trigger. We can
->>> lean on existing ACPI parsing code to register with these two
->>> subsystems, but cannot rely on the existing SCMI code in the kernel.
->>> This means we somewhat need to open code a very simplified SCMI handler,
->>> which just provides enough functionality for the very basic subset of
->>> SCMI that the MPAM-Fb spec requires.
->>>
->>> The first seven patches rework all MSC access wrappers to propagate error
->>> information. Pure MMIO based MSC accesses would never fail, but the
->>> MPAM-Fb access can go wrong in multiple ways. The patches have been split
->>> up purely for reviewing reasons, if the number is a problem, we could as
->>> well squash them. Please note that until the very last patch of this series
->>> any MSC accesses would always only return 0, it's only the final enablement
->>> of MPAM-Fb that could possibly introduce errors. Hence all former patches
->>> can add error handling gradually, those code paths wouldn't be triggered
->>> before patch 11/11.
->>> Patch 8/11 solves a nasty problem: At the moment we protect stateful MSC
->>> register accesses (mon_sel) through a spinlock. Unfortunately the mailbox
->>> subsystem and the slow nature of the communication through this channel
->>> forbid MPAM-Fb access in atomic context. So this patch keeps using a
->>> spinlock for MMIO based accesses, but reverts to a mutex otherwise.
->>> We just deny taking the lock for MPAM-Fb in atomic context, ideally we
->>> wouldn't need that (no need to IPI another core when the MSC access does
->>> not need to be local to one particular core), or we simply deny that part
->>> of the functionality (access through perf).
->>> Patch 9/11 adds the code to redirect MSC accesses through the
->>> PCC shmem/mailbox system.
->>> Patch 10/11 reworks the error interrupt handler to use a threaded IRQ for
->>> MPAM-Fb, to be able to do MPAM-Fb MSC accesses inside (which might sleep).
->>> The final patch 11/11 then adds the code to detect and store the PCC
->>> channel information from the ACPI tables, and eventually enables
->>> MPAM-Fb accesses.
->>>
->>> This would enable systems where some MSCs are not accessible via MMIO to
->>> use those components anyway.
->>>
->>> Please have a look and test!
->>>
->>> Cheers,
->>> Andre
->>>
->>> [1] https://developer.arm.com/documentation/den0144/latest
->>>
->>> Changes in v8:
->>> - disable error IRQ on irqchip level when device side fails
->>> - use MSC dev pointer for dev_err() instead of mailbox one
->>> - smaller white space and formatting fixes
->>> - reorder MPAM-Fb definitions
->>> - rename error translation function to mpam_fb_to_linux_errno()
->>> - add review and test tags
->>>
->>> Changes in v7:
->>> - add tags
->>> - add new patch to propagate errors in mpam_reprogram_ris_partid()
->>> - prevent loop when mpam_diable() tries MSC accesses again
->>> - register MMIO error IRQ handler without IRQF_ONESHOT
->>> - re-use existing "err" variable instead of declaring "ret"
->>> - initialise mon_sel_lock later, to wait for interface decision
->>> - convert timeout units for nominal latency, between us and ms
->>>    Changes in v6:
->>> - keep using hard IRQ handler for MMIO based accesses
->>> - move shmem buffer size and MPAM-Fb version check into mpam_fb.c
->>> - drop mutex guard in mpam_fb_send_request(), we use gotos anyway
->>> - factor out MPAM-Fb protocol error translation
->>> - add MPAM_FB_ERR_BUSY error code to translation
->>> - explicitly report also MPAM-Fb protocol error number when disabling MPAM
->>> - remove unneeded MPAM-Fb details from mpam_internal.h
->>> - drop leftover mpam_fb_msc_id usage
->>>
->>> Changes in v5:
->>> - do not initialise _high variables early
->>> - fix whitespace issues
->>> - add Jonathan's Reviewed-by: tags
->>> - init only either the spinlock OR the mutex for the mon_sel_lock
->>> - drop warning about mapped_hwpage_sz for MPAM-Fb in mpam_msc_zero_mbwu_l()
->>> - change IRQ handler to threaded handler, to allow MPAM-Fb MSC accesses
->>> - disallow per-CPU IRQs (PPIs) for MPAM-Fb
->>> - trigger MPAM disabling on MPAM-Fb protocol errors
->>> - fix MPAM_PROTOCOL_VERSION_CMD name
->>> - use PCC driver defined symbol for PCC_CHAN_FLAGS_IRQ
->>> - add comment about usage of PCC's .signature field
->>> - check for illegal MPAM-Fb command before sending request
->>> - drop CPU accessibility check for MPAM-Fb based MSC accesses
->>> - move MPAM-Fb protocol message structs inside build functions
->>> - add comment about largest message size
->>> - drop extra msc->mpam_fb_msc_id, in favour using pdev->id
->>> - use already defined local dev variable instead of &pdev->dev
->>> - use FIELD_GET() macro for MPAM-Fb protocol check
->>> - drop devm_mutex_init() for pcc_chan_lock
->>>
->>> Changes in v4:
->>> - unify error check patterns
->>> - use scoped_guard(mutex) and ACQUIRE to simplify error handling
->>> - use struct kref for PCC channel refcount
->>> - drop unused mailbox rx_callback function
->>> - increase size of props[] array to hold new msc_id property
->>> - set mailbox TX timeout based on ACPI MPAM table field
->>> - use devm_mutex_init() to allow automatic cleanup
->>> - avoid overwriting error value for arm,not-ready-us property read
->>> - prune MPAM-Fb protocol token to fit into bitmask inside register
->>> - check return value for AIDR read
->>> - use two separate MPAM-Fb protocol payload structs
->>> - prune header list for mpam_fb.c
->>> - drop "nrdy handled as an error" change
->>> - fix message size field in MPAM-Fb protocol shmem area
->>> - drop message size return from MPAM-Fb message build functions
->>> - bring back IRQ flag in MPAM-Fb protocol header
->>>
->>> Changes in v3:
->>> - drop inner/outer mon_sel lock patch, replace with simpler version
->>> - harmonise code patterns in error propagation changes
->>> - drop mon_sel lock before erroring out in mpam_ris_hw_probe_csu_nrdy()
->>> - refactor mpam_msc_read_mbwu_l() to return an error
->>> - drop special NRDY handling in __ris_msmon_read()
->>> - add IRQ numbers in error interrupt handler to help pinpoint failure
->>> - refactor MPAM-Fb message generation to accommodate more than read/write
->>> - check MPAM-Fb protocol version at probe time
->>> - drop mpam_fb.h header, merge into mpam_internal.h
->>> - translate MPAM-Fb error code in Linux codes where needed
->>> - clear IRQ flag bit in MPAM-Fb protocol header
->>> - drop unneeded endianness conversions when crafting MPAM-Fb message
->>> - use C struct to model MPAM-Fb message payload
->>>
->>> Changes in v2:
->>> - add patches to add error propagation to MSC access wrappers
->>> - drop former patch 1/5 (not needed)
->>> - drop lock in mpam_reprogram_msc(), to avoid double lock
->>> - add support for multiple MSCs per PCC channel
->>> - adjust SCMI protocol code to use a PCC subtype 3 channel
->>> - let PCC code handle the PCC channel negotiation (due to subtype 3)
->>> - drop SCMI names in shmem offsets, and use existing PCC type 3 struct
->>> - adjust shmem field offsets to match MPAM-Fb spec, not pure SCMI
->>> - prevent MPAM-Fb calls inside atomic smp_call_function_any() payload
->>> - skip all MSC accesses inside the IRQ handler when using MPAM-Fb
->>>
->>> Andre Przywara (11):
->>>     arm_mpam: let low level MSC accessors return an error
->>>     arm_mpam: propagate MSC access errors for hw_probe functions
->>>     arm_mpam: propagate MSC access errors for MBWU counters
->>>     arm_mpam: propagate MSC access errors for msmon helpers
->>>     arm_mpam: propagate MSC access errors for __ris_msmon_read()
->>>     arm_mpam: propagate MSC access errors for state saving function
->>>     arm_mpam: propagate MSC access errors for mpam_reprogram_ris_partid()
->>>     arm_mpam: prepare mon_sel locking for MPAM-Fb
->>>     arm_mpam: add MPAM-Fb MSC firmware access support
->>>     arm_mpam: change MPAM-Fb error IRQ to use a threaded IRQ handler
->>>     arm_mpam: detect and enable MPAM-Fb PCC support
->>>
->>>    drivers/resctrl/Makefile        |   2 +-
->>>    drivers/resctrl/mpam_devices.c  | 825 ++++++++++++++++++++++++--------
->>>    drivers/resctrl/mpam_fb.c       | 252 ++++++++++
->>>    drivers/resctrl/mpam_internal.h |  62 ++-
->>>    include/linux/arm_mpam.h        |   2 +-
->>>    5 files changed, 926 insertions(+), 217 deletions(-)
->>>    create mode 100644 drivers/resctrl/mpam_fb.c
->>>
->>>
->>> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
->>
-> 
+> Thanks!
+> Helge
+>
+> > > > (Being pedantic, they're not quite strictly identical as the
+> > > > ptep_test_and_clear_young() generic function does some weird unnecessary
+> > > > indirection with a local variable and the single {} is dropped etc.)
 
+--
+Cheers, Lorenzo
 
