@@ -4,82 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3950C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 22:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2634FC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 22:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8pebFSQusyBkQvtHcDlPWOfhwpnXbf7nlES/s738/X4=; b=2VFrwBctQQN7v9ryicuWJnlkSf
-	i7Jgu6oX5MDi12ai+uUezSFoMX3WJllqA8HqHKPof+VbcDjgmaVc2yxAgUqn2aRIwz02mF/NowK6X
-	zh6zhh4DdGt91is/+lSZONpuwWiYT5txn6XxRqVvP3M4vbEPQSofg1QXwHbJuJPvYClZ1ZyXpV5Sa
-	P90FLK9RRuyqQaod3mtyHAK3Csd9/1hog30z2U/hxFANB0A5rKFBNUJYnKm1GsaIbeQBFsc8rSWKo
-	wxFvrfjKNMbtO8nD9G7ECUsKRwmsJhv+nZtfQ1jo+tTQwNORdaO76imIM34FdpYhHYTpCahp7+bYQ
-	HBZhWZ+g==;
+	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=; b=FuE1k6/eu4zU6mBJ/x/jDgkY76
+	1aCwMnXg1gxY1Kqxk+0GN1P/Z3cSZCIHceDcAmwE3Xkfc36EI4syXMIKE7ED1z6lT0swG34TFtLlj
+	g7Qg3c+gpY2rO8YI5FQk96N1sgoRoXNmn9Mu9Md/1zskIjKKtJrmAu2DI89B1zv+70MIWNqiNJtYX
+	j4O9f84Y70BnN64+Y83IUt8ZtTOqMWYuGdK2GZbgqjyPR9COA8rz34KaL9g9AGw8tCiSiaWq2qWkq
+	Uwwy4T/2qganxsQ6RImvgcy8cszPYoV9BNCl/TzFrV0M8VhJ6zPSctH2qzHee62ns9ajreK+kQ3Qj
+	OZbGd1VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrNsQ-00000002tFh-2VPH;
-	Tue, 04 Aug 2026 22:44:50 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1wrNtj-00000002tMo-3LkD;
+	Tue, 04 Aug 2026 22:46:11 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrNsO-00000002tFN-1TRN
+	id 1wrNti-00000002tMU-0JrU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 22:44:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785883488; x=1817419488;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=r0IphEcOPyKhSzCbbNGFOF/2AOB7cy6Ae1oYJmaozMA=;
-  b=n0n1MqnxKFZ8CN2qf/KUtLesf0V1TQDmRTgv08+DXhwXdx9oS7LJRcJC
-   E84GsP47txRIvyQoY7NwDKhxXi69qHA5nRCJ+zfVMYVR0kA7F4rAeZT1k
-   R2RvLQdC7iDIdwXfCsZr98e7fBdvj4tIu0Ak7oeb+VH8y82g7mrsfhGqj
-   ztsMCh8CXSvF2s/kpWuEnoviZtiDAhZ1Nycl0wdCgALkNUsBYpGYescWx
-   3aiDDgSiqKnDadfuwnmPgdGtmK+XXRO5HsscDH8qdsocLeozRZKEt61Gd
-   txYilRUCZaQxEp36UVurr5WxLSRkcA26E2sudEmULAjbDuGaiADixgbYb
-   Q==;
-X-CSE-ConnectionGUID: odrBQxekQx2LWs5fsjjzSQ==
-X-CSE-MsgGUID: VhxeN420RR2HCOzma0LBiA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11865"; a="73984243"
-X-IronPort-AV: E=Sophos;i="6.25,205,1779174000"; 
-   d="scan'208";a="73984243"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Aug 2026 15:44:47 -0700
-X-CSE-ConnectionGUID: R4wZhYeLT1O44/n7kqKaRg==
-X-CSE-MsgGUID: J83z7p5MR3qt3Vv/yfTBHA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,205,1779174000"; 
-   d="scan'208";a="285004034"
-Received: from igk-lkp-server01.igk.intel.com (HELO 3cba2a188a06) ([10.211.93.152])
-  by fmviesa002.fm.intel.com with ESMTP; 04 Aug 2026 15:44:44 -0700
-Received: from kbuild by 3cba2a188a06 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wrNsH-000000004HK-3UxA;
-	Tue, 04 Aug 2026 22:44:41 +0000
-Date: Wed, 5 Aug 2026 00:44:27 +0200
-From: kernel test robot <lkp@intel.com>
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ACPI: IORT: validate RMR node array bounds
-Message-ID: <202608050045.wC3xEg9O-lkp@intel.com>
-References: <20260706094300.82618-1-pengpeng@iscas.ac.cn>
+	Tue, 04 Aug 2026 22:46:11 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id E92987DA4F;
+	Tue,  4 Aug 2026 22:45:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1785883564; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=;
+	b=x0AosRIKSR9RQJ/0WQ8ntveBL1Mp+/B/0UoRn56gF2/BYDyddU3PG0aYZ5GbpHz8FfIsmw
+	u5ZpsOIQOJCqi6b9ATauwZP6ZB4QuM+Noye5R6lNDN7OdW+cAZylwvFPyu8Wlzf831tJTk
+	VfQx6h36EOQOpoxOe/cGwoJwsUMbLfI=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1785883564;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=;
+	b=gfOipscDfoJOE7qgp6Ul1T7E44NulKU8Mijn1B+M0YL4iU76CzP9ikWD6Q7Ka3oyM9stF8
+	aIQP/rRXZu36F2CQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=SzJl2brn;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=7UMEiAX6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1785883560; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=;
+	b=SzJl2brnfYHL8nVC9+JgU5y+vut0ewd3a5y5YmW5xx35FyavHNG/zGpb6ZPo9dFbgxlrUA
+	HzcE17ekovl1NeIpte6T5LvjbYP8EuuQ45kuivVQb2I+7c4xJ2m+aq/vKFcWudatw2gEoz
+	2COdbdzrnbkUwHnmkSj0YrqiVp9YSeM=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1785883560;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nckDj9uSVJQNTLpL7gMUG7fWxQkNwuDaAqk1qZvF4j4=;
+	b=7UMEiAX6oxmjch/6I2znAsZu/lx4lIOyU4WooZVlhDul1cz9dV/R+bo3bo6chwgtwR7vJI
+	dCr4jJSEu9jbMIAQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AEF59779BB;
+	Tue,  4 Aug 2026 22:45:58 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id GhelJaZrcmrvJgAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Tue, 04 Aug 2026 22:45:58 +0000
+Date: Tue, 4 Aug 2026 23:45:56 +0100
+From: Pedro Falcato <pfalcato@suse.de>
+To: Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v2 13/20] arm64: percpu: Add infrastructure for
+ preemptible this_cpu_*() ops
+Message-ID: <anJm-EDndC8H6xMi@pedro-suse.lan>
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
+ <20260804170503.3513916-14-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260706094300.82618-1-pengpeng@iscas.ac.cn>
+In-Reply-To: <20260804170503.3513916-14-mark.rutland@arm.com>
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[18];
+	MISSING_XM_UA(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	TAGGED_RCPT(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FREEMAIL_CC(0.00)[lists.infradead.org,arm.com,kernel.org,gentwo.org,gmail.com,infradead.org,huawei.com,vger.kernel.org,os.amperecomputing.com];
+	TO_DN_SOME(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:dkim];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_TRACE(0.00)[suse.de:+]
+X-Rspamd-Queue-Id: E92987DA4F
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_154448_490828_AAEB757B 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20260804_154610_266203_C50D0AC5 
+X-CRM114-Status: GOOD (  28.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,60 +133,154 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pengpeng,
+On Tue, Aug 04, 2026 at 06:04:56PM +0100, Mark Rutland wrote:
+> Currently arm64's this_cpu_*() ops transiently disable preemption in
+> order to guarantee that the address generation and memory access(es)
+> occur on the same CPU.
+> 
+> Transiently disabling preemption can be  expensive. When re-enabling
+> preemption it is necessary to make a conditional function call to
+> preempt_schedule[_notrace]() in order to handle the rare case that the
+> task needs to be rescheduled. The potential function call has a number
+> of negative effects on code generation (e.g. due to the need to create a
+> stack frame and spill registers), and the conditionality can result in
+> poor code generation and/or poor branch prediction.
+> 
+> This patch adds infrastructure for a scheme where this_cpu_*() ops do
+> not need to transiently disable preemption, avoiding the negative
+> impacts described above. Individual operations will be converted in
+> subsequent patches.
+> 
+> Each operation registers a critical section during which the exception
+> return code will adjust the offset and addresses if preemption occurs
+> mid-sequence. The critical section is registered/unregistered with a
+> small prologue and epilogue which encodes three distinct GPRRs (<pcp>,
+> <off>, <addr>) into a new thread_info::pcp_gprs field:
+> 
+>          // Prologue. Enable fixups for <off> and <addr>.
+>          mrs	<tsk>, sp_el0
+>          mov	<tmp>, #__VAL_PCPU_GPRS(<pcp>, <off>, <addr>)
+>          strh	<tmp>, [<tsk>, #TSK_TI_PCPU_GPRS]
+> 
+>          // Generate cpu-specific address
+>          mrs	<off>, TPIDR_ELx
+>          add	<addr>, <pcp>, <off>
+> 
+>          // Perform access sequence
+>          ldr	<val>, [<addr>]
+> 
+>          // Epilogue. Disable fixups
+>          strh	wzr, [<tsk>, #TSK_TI_PCPU_GPRS]
+> 
+> If an exception is taken from within the critical section, the exception
+> return code will adjust <off> to be the current CPU's offset, and will
+> adjust <addr> to be (<pcp> + <off>). Distinct registers are used for
+> <pcp>, <off>, and <addr>, so that the fixup can be applied safely at any
+> point during the critical section.
+> 
+> To ensure that this_cpu_*() operations within exception handlers work
+> correctly and do not corrupt state, thread_info::pcpu_gprs is saved
+> into a new pt_regs::pcpu_gprs field upon exception entry, and restored
+> upon exception return.
+> 
+> Looking at a simple this_cpu_operation:
+> 
+> | void outline_this_cpu_add_u64(u64 __percpu *p, u64 v)
+> | {
+> | 	this_cpu_add(*p, v);
+> | }
+> 
+> Atop v7.2-rc4, with GCC 15.2.0 and defconfig, this is compiled as:
+> 
+> | <outline_this_cpu_add_u64>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x2, sp_el0
+> |        mov     x29, sp
+> |        ldr     w3, [x2, #8]
+> |        add     w3, w3, #0x1
+> |        str     w3, [x2, #8]
+> |        mrs     x3, tpidr_el1
+> |        add     x0, x0, x3
+> | 1:     ldxr    x5, [x0]
+> |        add     x5, x5, x1
+> |        stxr    w4, x5, [x0]
+> |        cbnz    w4, 1b
+> |        ldr     x0, [x2, #8]
+> |        sub     x0, x0, #0x1
+> |        str     w0, [x2, #8]
+> |        cbz     x0, 2f
+> |        ldr     x0, [x2, #8]
+> |        cbnz    x0, 3f
+> | 2:     bl      preempt_schedule_notrace
+> | 3:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
+> 
+> With the scheme added in this patch, this can be compiled as:
+> 
+> | <outline_this_cpu_add_u64>:
+> |        mrs     x2, sp_el0
+> |        mov     x4, #0xc80     // __VAL_PCPU_GPRS(x0, x4, x3)
+> |        strh    w4, [x2, #20]
+> |        mrs     x4, tpidr_el1
+> |        add     x3, x0, x4
+> | 1:     ldxr    x6, [x3]
+> |        add     x6, x6, x1
+> |        stxr    w5, x6, [x3]
+> |        cbnz    w5, 1b
+> |        strh    wzr, [x2, #20]
+> |        ret
 
-kernel test robot noticed the following build warnings:
+I think I had an Interesting Idea(tm) while reading the per-cpu discussion
+in linux-mm. In case the 3 instruction preamble is too expensive:
 
-[auto build test WARNING on rafael-pm/linux-next]
-[also build test WARNING on rafael-pm/bleeding-edge linus/master v7.2-rc6 next-20260804]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+1) Pass -ffixed-x18 (this natively conflicts with SHADOW_CALL_STACK.
+SHADOW_CALL_STACK is already not-optimal codegen wise, so maybe not a big deal).
+2) arm64 kernel bits will use x18 as a cheap task flags register
+3) #define TASK_KRSEQ     (1 << 0)
+4) Switching into the krseq mode is just a matter of toggling the bit in x18, so
+	orr x18, x18, #TASK_KRSEQ
+a single instruction.
+5) Switching off is just a matter of clearing the bit in x18, so:
+	and x18, x18, #~TASK_KRSEQ
+6) On the preempt side we keep the krseq tables in memory, and do a sort of lookup
+(binary search sounds easiest?) on them. But _only_ if x18 TASK_KRSEQ is set.
+This penalises unlucky preempts but keeps fast paths maximally fast.
+7) entry points of course get to clear it after saving it
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Pengpeng-Hou/ACPI-IORT-validate-RMR-node-array-bounds/20260804-123552
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
-patch link:    https://lore.kernel.org/r/20260706094300.82618-1-pengpeng%40iscas.ac.cn
-patch subject: [PATCH] ACPI: IORT: validate RMR node array bounds
-config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20260805/202608050045.wC3xEg9O-lkp@intel.com/config)
-compiler: aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260805/202608050045.wC3xEg9O-lkp@intel.com/reproduce)
+The end result would look something like:
+| <outline_this_cpu_add_u64>:
+|	 orr x18, x18, #TASK_KRSEQ
+|        mrs     x4, tpidr_el1
+|        add     x3, x0, x4
+| 1:     ldxr    x6, [x3]
+|        add     x6, x6, x1
+|        stxr    w5, x6, [x3]
+|        cbnz    w5, 1b
+| 2:
+|	 and x18, x18, #~TASK_KRSEQ
+|        ret
+| .pushsection .data.krseq
+| .word 1b
+| .word 2b
+| .word whateverelse
+| .popsection
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608050045.wC3xEg9O-lkp@intel.com/
+This of course precludes the use of x18 for the compiler, so it would
+require careful benchmarking in case it negatively affects codegen too much.
+But it avoids any sort of extraneous stores in the fast path.
 
-All warnings (new ones prefixed by >>):
+Other architectures could do similar as long as they have interesting ways of
+signaling this using solely the register set.
 
->> drivers/acpi/arm64/iort.c:199:13: warning: 'iort_rmr_node_valid' defined but not used [-Wunused-function]
-     199 | static bool iort_rmr_node_valid(struct acpi_iort_node *node)
-         |             ^~~~~~~~~~~~~~~~~~~
+Anyway, just throwing it out there in case this can actually make a
+difference & rings some bells on people smarter than me :)
 
-
-vim +/iort_rmr_node_valid +199 drivers/acpi/arm64/iort.c
-
-   198	
- > 199	static bool iort_rmr_node_valid(struct acpi_iort_node *node)
-   200	{
-   201		struct acpi_iort_rmr *rmr;
-   202	
-   203		if (node->length < sizeof(*node) + sizeof(*rmr)) {
-   204			pr_err(FW_BUG "Truncated RMR node in IORT table\n");
-   205			return false;
-   206		}
-   207	
-   208		rmr = (struct acpi_iort_rmr *)node->node_data;
-   209		return iort_node_array_valid(node, rmr->rmr_offset, rmr->rmr_count,
-   210					     sizeof(struct acpi_iort_rmr_desc),
-   211					     sizeof(*node) + sizeof(*rmr),
-   212					     "RMR descriptor");
-   213	}
-   214	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-- 
+Pedro
 
