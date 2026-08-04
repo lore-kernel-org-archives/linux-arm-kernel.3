@@ -4,109 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2DA9C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 21:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C73BC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 21:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=w+Q9frommDA1jxYT7PN66+gmpag0qJtc9CREHiU22eo=; b=FeES+SzFCGBdlC
-	uHiJVL52de8hzp//D/GKaqS6TA4klW/vaV7+oxLUNm1TUVSlNP2F8H22nv/X66E9k6zcnuPj8t9Zr
-	xfNvybWzpVPocMXhRL7hWWL+4QxKOh09X7WRmCAGQ+RNFH/1pweytfUb6tWC5A45jmsb7LO/uPO2l
-	+JKQRH3cUUSY/PahoSm7MTtftuq43rQWVnSkYZAs8E5r5cj/3664p+ELoYkFaLX4mwTeaZzuMwpUR
-	Wk4KCnAeviRKFj2dfvstv4YqsYS2AE19fXZXSVOD8Q+4icNkaGNQ92JsMA838H8S5dYwna9tgPDFa
-	loeoQ/CgAyJsgf7J+bzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rXuYCWpKz6o7vXZaJ2qy1cRAQw+2vbTJMOnPxlpYevI=; b=FMPFn5K55hmVUUzn0cQgz06Wkm
+	n5biQeOViQRrPSqTmmO3hCLUjaR80Q6orW0jDvfn27mEy25hbNdhzrys1ME6YqB7QTlA49T3f/NSX
+	PjYuZoZbMGiqncZaB1zSq6z9B3Hke9g2pTEoeHz/RgDcI4R3SbejEozQALmT9+h7yYHcpTqvBlDXF
+	yq+fEM6Op7k6Hrz+c2n+/nrGFT7sA0alBPa8ei0pumnDFUvl7T5B+v31QtkQOqqdA1BC/SqQo7CJt
+	/L8LE1vwwm2Fyahy6huJ6b0VZ1YZbPLUEAaf97c4eR1HBAFdhJ2MCfGI/+IBiDDSVlbhp+3It/xLP
+	FDx0j5UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrMfl-00000002ojH-0oNa;
-	Tue, 04 Aug 2026 21:27:41 +0000
-Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
+	id 1wrN3P-00000002qGN-3vxM;
+	Tue, 04 Aug 2026 21:52:07 +0000
+Received: from mail-northcentralusazon11022115.outbound.protection.outlook.com ([40.107.200.115] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrMfi-00000002oic-1Um7
+	id 1wrN3N-00000002qFp-2zZn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 21:27:40 +0000
-Received: by mail-oi1-x22d.google.com with SMTP id 5614622812f47-4a475409044so148143b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 14:27:37 -0700 (PDT)
+	Tue, 04 Aug 2026 21:52:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y7U9Znp425YqvJmV4ZIb4Xe1PwTBP57B1RikZcU2K6kDRfDhmhd6tIKNybZh5YdiH0wYpIM29pV+ObcFlY2GsbRRqsi/CafccewZfUeKCW6ISl9xCoJyqpFcjp4rG1OomK9gi2UeJm6asRWJFMDtfybHiS8EFSBwUnWH4wUg2fTJqTrkBwXGlFUwsoXcgLpBIQ1L1L8VoAnJrWIJTeIQMIrp660+1SqPm0RZ+3xTAhierfTuhzlo0/NPWdWwNY7/38ksKOK0rjBEVR9IJ4pYctK9E0O+6c/ezppw8KiNZHJalX7gZZKXRNlXiXCSdt907bhBsFAmhJhmG9Tem2OytA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rXuYCWpKz6o7vXZaJ2qy1cRAQw+2vbTJMOnPxlpYevI=;
+ b=vGhzQ6CgV7+w5h1MfuIqVtWjJrjGMz5lwpJa8p9fwL7xq4i6A49WGLN5z8Gv8amPCXvtdTDs0AwPnBAlaJLWQDdY4XmotzmmfvFbmcRczQ1eCq1HH+htwy8slXOpqX/xeGTNMvQCaC6DInwPQGKeDDVPZ/Q0ymwM0wFfbyxXaIu7GEFxB6OJX+WzpfxSZIOki2hjJztpT+EccwTFfvyotoFkJ4NqD5VNlAiyqUoaZ5OG7HwyeCdV9Z6oR7xHrioZ8mEyuIs5nu5czYL99mXcNi1qIwfQewdNXGoceuqtoJ9LjYTwLUaF67MHmlKPbIiMUSizzHNLBT+WA4098cA9mA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785878857; x=1786483657; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=w+Q9frommDA1jxYT7PN66+gmpag0qJtc9CREHiU22eo=;
-        b=IhgFERrboojyU3q3KaI/1EkVMtRxRqGyXi5TF1EsvFXfpcAuLw50PR5DAA7mQZkjGi
-         PsFDjF2YZwGLqFYly9OW0eXi8TSjyXoQWqYtB+iYlSwmIW/FI97nsbGyv7lUX06y8RRw
-         By0wAmZMxWrVaHqTW+P7+B+lm9+7FKoS9lgPecLcwGyza6ACDKgG7jUdsoyUfDqjNrVZ
-         p0UjDVg99a9fgaBeMv4bOKyu4dRD4H19P8OU/mjf8gysWK6i/dYy2Mz5D+BwT2A9OrXi
-         QS7pILYYA6q+sIpygU6Wz+rHiVa1B/+tpI30/OsxiG20wkBMlwSaXrCvYS10qXSpjbc7
-         ULYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785878857; x=1786483657;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=w+Q9frommDA1jxYT7PN66+gmpag0qJtc9CREHiU22eo=;
-        b=Vcj5VV8HTXHV3vHqK/F8Y5V7J30DTi5kC1HH8K8bmkoHIyS14/9DECey6YQG72uwLY
-         IBrgbaNJOKHIWmatGO5UqnRVpgOrd0HrQCpart8lMVm4aUe2OUqN/O122YUjZDDNBLDO
-         iIMTRE+swxU7Y9v4dHkwwCkEm572eHyg+IWV7YYSqwwhFA2n5f5Ke2DKhLUPC8w8OQLT
-         CEegnfSrmjfv6uEETq9xRHg9qD2gqk81piBy580+SGM2+UAQrW3z676ENi1gfqMcBo/Q
-         Wn5+WYk/8QX3dL6Govl8TN+Xqzhm9WjW57rfcgBvpI/3XZp+KdfjKIx9wCZUjZY1cue3
-         XYlA==
-X-Forwarded-Encrypted: i=1; AHgh+Rpo6L7rxg9w0PhNCsgUkIPJYMR5P7oYfxVSlJszVMRDKrLCNLk6WiJw6M8TeO68oQIN08psspxG+gooYJGfy3kX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpASb7KaR6nCGidc35xdn1CAEzxxacTIbRnsT9DV0Dv6Bo+owr
-	CeKNsRmnesDeeV87f7f3FYFo3i0tSH5rGMrzkeMEsBcP+5A06E88kpDz
-X-Gm-Gg: AR+sD119Gz4irr8GR1HSvMg8ixQaBWsSUtpNmFwL4n4YxIJAgzNroFN7SMoZodiuYAD
-	8grm/Sk3R257zlWeDIbbbN8n6/xMc/20+cfSsEkEf7je5u8PP3/v06GesfApZiKnbgdeFTtfJxC
-	rmHr1ssTSsZmyQjn7CLcPZXtvk7NFi4Gy2aNX9pj+dk/MT5qZCghzXm8TccjDo4RJI9C6daMuan
-	uobTWfwcUhu96iKD9B0/qNvQtHOJZo2dXXDLaXAeTei9iseRBed4zeLFfJ/cyTMkKxDeOIMbpRV
-	RRx5TgL5pzVnjVICmXdTTDsXGY7kpvu2nlMVcRxDdLjSgUFDQwQ4BrjetWTK0yDY5k7+80yIEbH
-	lb4mhN2hs7uUwpri+lCd+QNiE52K+uDbOYu2r1xogQkKOXvgZzo8d+gVseflBmmg/MGuA8BYD8V
-	spK9bQ76/BDjIr+1xl/aO+0DF3NOX98od/6qYdUpELM7CmJ83vt3iKtExO6Wzy4sVlhITZD9Pbj
-	vPndYJ82LG2X0cLHXI3iS9cgYOZUsxAmkFzZNJVSP10rrdkbYnVSclK4jYvIOFh5TcBAcAoQWvw
-	rQ5o8XFXPNvUN9bfwsdZaOw4mRwea7hjlUFch8/8EbEZsTnc3qk50RaAPKrTDmsolZBPKhFcCss
-	N6QKZx2PTzaj0GRTN
-X-Received: by 2002:a05:6808:3506:b0:496:3a1:e44f with SMTP id 5614622812f47-4afadf85227mr1137479b6e.6.1785878856956;
-        Tue, 04 Aug 2026 14:27:36 -0700 (PDT)
-Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4afae7c50e9sm451659b6e.17.2026.08.04.14.27.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 14:27:36 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Subject: [PATCH v8 0/4] Introduce Allwinner H616 PWM controller
-Date: Tue, 04 Aug 2026 15:27:23 -0600
-Message-Id: <20260804-h616-pwm-v8-v8-0-db37ab8624ae@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rXuYCWpKz6o7vXZaJ2qy1cRAQw+2vbTJMOnPxlpYevI=;
+ b=lOdisEvmDmTyn4ZndgqMkSkyG9b8wMVBxYV3XOcAnD0ajj23OzhBVZLUc80kYh9nP8hpqAEnEZAoYGc+4hiYyEu1m80l0GtBiVry7moZ1anMEgmmop4yVL4hQc7zI8AsBuuIwELMLdszn6UBKiRmC4JrKYhPrRALZpre5IZtNp8=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ LV5PR01MB9419.prod.exchangelabs.com (2603:10b6:408:301::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.15; Tue, 4 Aug 2026 21:51:58 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::46eb:64a3:667c:c1a0%3]) with mapi id 15.21.0270.017; Tue, 4 Aug 2026
+ 21:51:58 +0000
+Message-ID: <69f4cd9c-bd6c-4e5d-b8d1-a7be8408a57a@os.amperecomputing.com>
+Date: Tue, 4 Aug 2026 14:51:54 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>
+Cc: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
+ "David Hildenbrand (Arm)" <david@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ dennis@kernel.org, tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
+ will@kernel.org, akpm@linux-foundation.org, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+ <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+ <amCPBrdltFSE_fEf@J2N7QTR9R3>
+ <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+ <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org> <anHuLy52o5S9Nlwp@lucifer>
+ <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com>
+ <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org>
+ <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
+ <anIXr4Kbn59Ac31Y@lucifer>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <anIXr4Kbn59Ac31Y@lucifer>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5XRy07DMBAF0F+pssbWPPxkxX+gLtrEbYxoXDlpA
- FX9d+wiFMQChZV1JZ87I/vajCHHMDaPm2uTwxzHmIYS3MOmafvdcAwidiU3BGTAAYveoBHnt5O
- YnQiEO0/KgiduijjncIjv97bn7VceL/uX0E61ot445HQSU5/Dbmm1wKiJUEv05LQXKHIsw3Mnj
- 2FIl+5pn9L0GgfZplMt6eM4pfxx33nGOqwWaSTQCEDsJWrDrPnvprrhTD84WnCkQUkHRGYF5m9
- sAInBMxNJZLLs/AquFs6gwaPXXpJmYKtWcL1whQYZFXpZn7KcK7j5xVUZW7gBzXYFtwv/3wdub
- 7fbJ/VHjml3AgAA
-X-Change-ID: 20260803-h616-pwm-v8-e21a92470923
-To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Richard Genoud <richard.genoud@bootlin.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
-Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Paul Kocialkowski <paulk@sys-base.io>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- John Stultz <jstultz@google.com>, Joao Schim <joao@schimsalabim.eu>, 
- bigunclemax@gmail.com, linux-clk@vger.kernel.org, 
- James Hilliard <james.hilliard1@gmail.com>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.15.2
+X-ClientProxiedBy: PH7P221CA0050.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::13) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|LV5PR01MB9419:EE_
+X-MS-Office365-Filtering-Correlation-Id: d67f5c34-5e8d-4e06-3fdf-08def2729b45
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|10067099003|56012099006|55112099003|18002099003|22082099003|3023799007|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: pFIjMl8ubaYULAUtpBiv8MSkc8DgMAm79oazFWnE7KIKT+QrPADyEc/5WE5LVJJSX7meAS/Gb9aJ1EptUKI6Fomq3akIOtH66U0TjGxA9RDgCkUcJ3CWnJ6gIfYXKSwhQHalvWfEX8ppSCO3fKzZa3s8EL7eOeJ+COYSpA6gWsp7PJfd5ve1F0IyJazRREdINFsDJRaVq3W2A5tSt6kA0t5u7FkdvJxEk5RKsX0GdEEm5w7wY1DLGFKxtBPJ9OyqhW0qKYHmFr+tiYkO3no55nb1E6Yz+B+ZDyeHF9ac1m2+BXWaAfGhNb0wO6a7sjzc1tVCKsDiLrKhytd4FO75E6sD8jWGT29GSLkbmq5L4ytw5zmsqkGRG/jP1pO53eMZxPl2gFLI+oS0wVrcrBX4zt3+EH1W+TQETXsByUFMY000XEDXFlzF1IgXm1YPNVbzF5BsZCF3W0bp7XFah3DuTCV0d1VLGQoYYR8FoqROuJqbpWFBerV1jcv/IuNMLiGUHGdnjfOTUylpLi7QGJFZmXBKJ80Sz8t+TjnwhMm50frPKd4rVaIzm8xtc8ORRW1KlFbklkBixuirXBxSwxnWVPSg7j/Qlf+bTAAHXeZCXGJr8B+4EBFo1kVVcxkbvSqU6c/G5j6qQZvx0fxjW2GWRtj+p7D3EXnJ2wLoHqJXIts=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(10067099003)(56012099006)(55112099003)(18002099003)(22082099003)(3023799007)(11063799006)(4143699003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V05RM1FNOUcxK2ROeHh2cFd2aWp6MG5kcWsrc0d1MTdORFZ4NEJISjFpSTB3?=
+ =?utf-8?B?bVdHbnFPcXBnQU5WNHFsWGI5SWJrWjEyM2ZEdEVpY3FyR1BzeVRwWTRSR0Rk?=
+ =?utf-8?B?aFZHR1JjUlhrbGtaeW91Q2JiWit0b0JhZHRWclk0dEswQlA1QkMxaTNRQkkr?=
+ =?utf-8?B?M0JsWGZwSnhXM1lBQ2szK2pBZjF0UWMzU3NXUWF1eWVnNFRyZVJyT3JmbHo0?=
+ =?utf-8?B?MGg4QWduajdKYVl3bFJIWXJPKzU3OUNzR3pSTHBmS1lLRXRDdUpmUnJmc3M4?=
+ =?utf-8?B?cGM5amJkRUdlWHJ0V0FpRXhJZVQ4OTU3c0srYytLNS9TUDVLaXlYZGlaZTZ3?=
+ =?utf-8?B?NkdkWnI0R3c0TFRsWWRsR1VUbXlNeUE3d0RZOW8vNUpuSFBaRU5TdGxHYkRN?=
+ =?utf-8?B?SERDWDA4dnp2TWVzZlIyQkdtOHBEUExNenZFeU93a0dYNlQ1YS9GU3dIRXA4?=
+ =?utf-8?B?ZksvUTdiV29ocVVUaHN6OVovUFMzNTBrVlZQaG9HZHJwNmRFODBlajhPRkc0?=
+ =?utf-8?B?dlVHT05QaGY3R1NRM0QwRzdQRkFvTzNPOW9WT0VpUjR0S2gxZkRiM1czenF5?=
+ =?utf-8?B?ZmUvRmNTLzZFcUtJSWJLTFdWR1N3cXh1alpXY3JBSDA5NW5uSzE1SjNKVUV5?=
+ =?utf-8?B?ektWMnB2c0Z3OWtxT2xhWVA5RVVBMTlsdTl0bUxRbHgvOUlxbXd5Q2xqanR6?=
+ =?utf-8?B?c0FVdXg3Y2QyU1YvSW96UXVZd0JUTDErODUwVVlMaVJrbzBWeFBaRHhVekhl?=
+ =?utf-8?B?MTFUVGdJZ0Z4OUhWWEpkanRBa0diT1dRaFdPNmQxSEtXMUdGWlQwMUNDc0lI?=
+ =?utf-8?B?SmdySXEwNytzaHpCQVplN25Wa0JoY2R0Mm1ZOEhKU2VHeTdNdk5kN1Vib2NX?=
+ =?utf-8?B?ZHVmU2s4bDVnSmNGQk1Ld3pZUGQ4T0dlY3ZSOUJPN1BLMVUvT1dXbUt1SEtL?=
+ =?utf-8?B?Z1Mvd1h6dTR4ZTZZZVd6bGhMZjFyZzE0RXFTRVp4c1IzZGZrdkVPemRxdWlY?=
+ =?utf-8?B?UEg0OHdVNTJRTHdQMjdYU3hvdFFqK253MkR0NFBKMktDdUNWSkNNVU1raGsv?=
+ =?utf-8?B?WmtLaFU2dXFzRlNiVitPdm1wZUcxWUxydkJIU3NkcVZnemIrdmpPb3craHF0?=
+ =?utf-8?B?QVMrRUxXOEhjQjRpOFE1eVpxMVdsREVBMS9oSHRqVmFKb0VvN3kvS1VESmtK?=
+ =?utf-8?B?WGk0OTA0eUttczdoRzRMTVNtRVphUVRSNVdMZDVtZTc0cXFmRVNUaURsa2k3?=
+ =?utf-8?B?MWxJQW85YTFMdkhjdURDTk1NdDFxeEFJR3dHVGZjMDlBRXBlU3Z4aHRBeVpS?=
+ =?utf-8?B?VENqN2JTNEhXYWlyaFkwS25zRHpGQkVVOWNDUEZWeFFjTVhIckJQNm52QW5v?=
+ =?utf-8?B?ZmdsS0RsRnZBaVBkcURoTjlkSG1pbEZ2aUhUWmRoUjByN20vakMwaWV0NGxi?=
+ =?utf-8?B?b1VING9GZlJNTmszbXBWdEpqUVE5SldHUWNtWWdaYTFBb3E5QlZ2VFBqM2lW?=
+ =?utf-8?B?cXFCOVFUSU93VXpLd2VnSklUd2RGdytOU0hnaUxWR21nRHZycm5NOFhGRTEz?=
+ =?utf-8?B?SGxUSjZqT01qSHZzb2REZmtZUFI5d205cFhjZURCOERrRjNaNXd5VWxwOGhF?=
+ =?utf-8?B?UXpXcWlRcWgyVVJDTmZXWFFpSVNFeUN2dE9NV09uQ1JRdzZBMHR1clBvQ2Na?=
+ =?utf-8?B?TjEvbWhpOFdhOTVrZGZzeVpPNlV2STVLcW05YmkvM0UrVDZySXpGUDFSQ0U1?=
+ =?utf-8?B?WlVzejZNWmRySVFuMFB3MVNNRUFYb2RNZU5aU0c1Ky9yc0p6bitqb2xxOHZ1?=
+ =?utf-8?B?NFFHK1pOdFlSczV3R2JKc0ZtbVY1L0ZwNVNoLzY3Mm5GS3M3Q0ZvaEhsZGZy?=
+ =?utf-8?B?L3VaUnA5RDhpNzVxMWVVb0cwSkIwOFRGL1JvNUM4OXdicXVRVmlPeHpsWGdC?=
+ =?utf-8?B?NmVvL1FZbXVMU2xhSG9scFZoTmlmbG5WRTZhVDYwaXYvd0JLQytKRW5PeUlO?=
+ =?utf-8?B?T0JmTURpbnNTdGpCZUEwWCthUXZ3WVIzTU5ZM1dyQmwrTE1Fd0RpV0JQbmpH?=
+ =?utf-8?B?bWZSWnQvMElmSzY0cnllVnZrVzhMVWhybGdEamNBTEtJeVRlamNRMUpNVFVu?=
+ =?utf-8?B?RGJab2kwVkxlcVZGbEduODRlQ3ZXNW4rOVQ2a1ZJaEtSYloxNDVaUjZWUyti?=
+ =?utf-8?B?MzRwVk9RMkNpRW10aWh5OVNhVlpWYkhYdXZkSWt5OWdrOXRCOE02Q0k5eWh1?=
+ =?utf-8?B?UTV0R0lMbWdlRFdKblhlNTBrRDhCZE9KcUVXSytHLzNUV285S2tWYjJPY2RC?=
+ =?utf-8?B?OTZkaWtiR2pQSVVYWDNMNk5VZllMMFUzYjh0NThzRWxvV25NSkxmSDVGa3hy?=
+ =?utf-8?Q?QLoTJR/YNpIjI9zA=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d67f5c34-5e8d-4e06-3fdf-08def2729b45
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2026 21:51:57.9959
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: IzCFkBoHGC7+WQmSiT6H36Y0I/8JcLyUzP5c+HAWaME6uiloARfCFUJQWy22F1JNMseMBBKKrrNBiCHWEublOZGv0sU8drf5eylWuwJHFYY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV5PR01MB9419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_142738_485299_E6B55410 
-X-CRM114-Status: GOOD (  23.80  )
+X-CRM114-CacheID: sfid-20260804_145205_788646_7E3BCA13 
+X-CRM114-Status: GOOD (  35.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,279 +165,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Allwinner H616 PWM controller is quite different from the A10 one.
 
-It can drive six PWM channels and, like the A10 controller, each channel
-has a bypass that permits it to output a clock instead of a PWM waveform.
 
-The channels are paired two by two and share a first mux, prescaler and
-gate. Each channel then has another prescaler, which is bypassed when
-that channel's bypass output is enabled.
+On 8/4/26 10:23 AM, Lorenzo Stoakes (ARM) wrote:
+> On Tue, Aug 04, 2026 at 09:30:08AM -0700, Linus Torvalds wrote:
+>> On Tue, 4 Aug 2026 at 09:27, Christoph Lameter (Ampere) <cl@gentwo.org> wrote:
+>>> We certainly do not want to replicate that approach. We are using the per
+>>> cpu page tables to avoid address calculations in the VM that other
+>>> platforms can do with a segment override.
+>> Right, and I said that that's ok as long as it's a internal
+>> architecture thing. Not a "this is how the VM works".
+>>
+>> Because people really have wanted to make it a "this is how the VM
+>> works" thing. And that is very much what I object to.
+> Well :) it fundamentally changes how mm works - now we have a whole new set of
+> kernel page tables and PGD's that we have to think about.
+>
+> And the series either tries to hack changes that fundamentally alter how
+> vmalloc works or will add its own duplicative kernel page table code to do the
+> same kind of thing.
 
-The clock structure looks like this:
+I don't think this series fundamentally alter how vmalloc works IMHO. 
+vmalloc still works in the same way and the page tables share the same 
+contents (except local percpu area), it just needs to sync up kernel 
+page tables when the top level is changed. This is not new, x86 has been 
+doing so for years, see arch_sync_kernel_mappings(). The patch just 
+added the implementation for arm64.
 
-            _____      ______      ________
-OSC24M --->|     |    |      |    |        |
-APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
-           |_____|    |______|    |________|
-                          ________
-                         |        |
-                      +->| /div_k |---> PWM_clock_x
-                      |  |________|
-                      |    ______
-                      |   |      |
-                      +-->| Gate |----> PWM_bypass_clock_x
-                      |   |______|
-PWM_clock_src_xy -----+   ________
-                      |  |        |
-                      +->| /div_k |---> PWM_clock_y
-                      |  |________|
-                      |    ______
-                      |   |      |
-                      +-->| Gate |----> PWM_bypass_clock_y
-                          |______|
+>
+> So now core mm has to worry about TLB coherency and synchronisation, how this
+> might interact with things like page table isolation, and a lot of other
+> headaches (and I'm not really convinced they've been thought through here).
 
-Here, xy can be 0/1, 2/3 or 4/5.
+I don't think this series changed how TLB is sync'ed either. When we 
+invalidate TLB entries for kernel (i.e. vmalloc area), the TLBI is sent 
+to all CPUs, it is unchanged.
 
-Because this is unusually complex for a PWM controller, the driver uses
-the Common Clock Framework to manage the clocks.
+The series does change how percpu area is setup for ARM64, but this is 
+already sort of architecture dependent.
 
-PWM_clock_x/y serve the PWM function. PWM_bypass_clock_x/y serve the
-clock-provider function.
+>
+> IOW - breaking fundamental assumptions about kernel page tables is inherently a
+> whole-VM change (See [0] for instance for an example of what can go wrong).
+>
+> If Christoph + Yang can provide compelling data that advocates for this change
+> AND the core mm and arm64 communities agree to move forward with this, then
+> things are different.
 
-The PWM driver acts as a clock provider for the bypass clocks. This is
-needed, for example, by the integrated X-Powers AC200 or AC300 Ethernet
-PHY co-packaged with some H616-family SoCs, whose input clock comes from
-the PWM5 output.
+We shared some benchmark data in the cover letter. Kernel build is a 
+quite common benchmark used by kernel developers. Specjbb and MySQL 
+benchmark results are considered important benchmarks as well. I wish I 
+could run benchmark on more ARM64 cpus from other vendors, but I do have 
+limited access to other hardware.
 
-Normally a fixed clock can be built on a PWM through the pwm-clock
-driver. That interface, however, passes an integer-nanosecond period and
-50% duty waveform to the PWM provider. Its clock-frequency property is
-the rate advertised by pwm-clock; it is not an exact-frequency request
-made to the underlying PWM hardware.
+>
+> However, I think the best approach here is to find the least invasive way of
+> limiting the change to the architecture itself.
+>
+> Mark has put forward an approach that eliminates the exact overhead that this
+> series aims to address but does so without having to fundamentally alter core
+> mm assumptions (v2 posted at [1]).
+>
+> So that seems very clearly to be a better alternative to me.
+>
+> Ultimately we need mm and arm64 maintainer agreement on the way forwards (or in
+> the case of a truly isolated arm64 solution, arm64 maintainer agreement).
+>
+> The LSF session was not encouraging ([2]) and as an mm maintainer I'm not at all
+> happy with this myself, nor does the arm64 community seem all that enthused so I
+> would against gently suggest to Christoph to be a little more open-minded about
+> the the proposed alternative which he seems to have dismissed out of hand.
 
-For example, pwm-clock represents 24 MHz as a 42 ns period with a 21 ns
-duty time. The exhaustive v8 PWM rounding happens to select the H616
-bypass and produce 24 MHz for that waveform, but this is a consequence
-of the PWM rounding rules, not a contract that the hardware rate equals
-the rate advertised by pwm-clock. Exposing the bypass through CCF
-instead lets the consumer request an actual clock rate, conveys that
-duty-cycle and polarity control are not required, and makes the shared
-pair source visible to CCF's rate arbitration.
+Nobody disagreed Mark's approach also achieved good result, we just 
+thought the series can do better. I agree there is always trade off 
+between gain and cost, this is why we are seeking more usecases although 
+there are different opinions.
 
-The H616 block is therefore both a PWM controller and a clock provider
-when bypass is enabled.
+Thanks,
+Yang
 
-Why v8 substantially restructures v7
-------------------------------------
-
-The v7 driver registered a composite CCF clock for each channel even
-though the mux, div_m prescaler and gate belong to a channel pair. That
-model made the channels appear independent and allowed one channel's
-rate selection to reprogram the active sibling. V8 registers one CCF
-clock for each hardware pair and programs only the channel-local div_k
-prescaler in the PWM path. Each Linux-managed active output protects the
-pair rate, so an incompatible request fails instead of silently changing
-the sibling waveform.
-
-Firmware can leave a channel running before Linux has acquired either its
-PWM or bypass clock, so CCF reference counts alone cannot describe every
-active output. The pair gate and rate-change notifier therefore also
-inspect the hardware channel-enable bits. Generic unused-clock cleanup
-preserves inherited outputs long enough for declared consumers to claim
-them. At driver sync_state(), channels which remain unowned are stopped and
-empty shared gates are reconciled through CCF. This prevents both premature
-shutdown of a late-probing consumer and indefinite unclaimed outputs.
-
-The bypass clock remains a separate child of the pair clock. PWM request
-and clock prepare callbacks arbitrate ownership of the physical output,
-while CCF rate protection covers the complete prepared lifetime of a
-bypass clock. This models the actual shared resource and avoids encoding
-clock intent as a special PWM waveform.
-
-The waveform conversion was also rewritten rather than extending v7's
-single-source heuristic. It now enumerates every reachable parent,
-div_m, div_k and bypass setting and applies the PWM core's ordered
-period, duty and offset rounding rules. This is needed to handle
-inverted waveforms, constant levels, the 65536-tick period boundary and
-equivalent settings without overflow or an arbitrary parent choice.
-
-Hardware updates are now transactional. The driver waits for a pending
-period update to latch, uses live PPR updates only when the input clock,
-prescaler and polarity remain safe, and quiesces the channel for rate,
-polarity or bypass transitions. A failed pair-rate change is rolled back
-before the previous output is restored. This follows the documented
-period-ready and PCLK constraints and avoids disturbing an active
-sibling. The driver records the active and newly programmed periods to
-derive a tight timeout for its own updates. Only an unknown firmware update
-falls back to the maximum possible hardware period, and an adaptive sleep
-interval bounds the number of MMIO polls even in that case.
-
-Pulse and active dead-zone modes remain unsupported because the PWM API
-cannot represent them. A dead-zone enable left behind while both pair
-outputs are disabled is only dormant configuration, however, so v8 clears
-that state before programming a normal PWM instead of making the channel
-unusable until reset.
-
-Finally, all clock topology objects are allocated per device and
-registered with managed helpers after reset deassertion. This replaces
-v7's mutable static clock templates and manual unwind path, eliminating
-cross-device state, lifetime and probe-failure hazards reported during
-v7 review.
-
-Runtime validation was performed on an H616 system with a co-packaged
-AC300 Ethernet PHY. The PWM5 bypass supplied an exact 24 MHz PHY clock.
-PWM waveform tests covered normal and inverted polarity and the 65536-tick
-full-duty boundary. PWM4 was exercised concurrently without changing the
-active PWM5 clock or Ethernet link, while conflicting PWM5 ownership was
-rejected. An injected firmware-active PWM2 bypass remained intact through
-probe and unused-clock cleanup, then was stopped at sync_state() because no
-consumer claimed it; its now-empty shared pair gate was disabled as well.
-An injected firmware-active PWM4 bypass on the same pair was also removed
-without changing PWM5's shared gate, rate or Ethernet link. The
-firmware-enabled PWM5 bypass was claimed by the AC300 consumer and remained
-at exactly 24 MHz with a 100 Mbps link. A dormant dead-zone bit was cleared
-before programming and updating a 100 ms waveform, while an active
-dead-zone configuration rejected the update without disturbing the running
-output.
-Full PWM and MAC unbind/rebind recovered successfully, ten cold boots
-completed with the 24 MHz clock and 100 Mbps link, and more than 495 MB of
-receive traffic completed without RX errors or drops.
-
-This series is based on upstream commit 31996e14bd59.
-
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-Assisted-by: OpenAI Codex:gpt-5.6-sol
----
-Changes v7 -> v8:
-  - require both the module and bus input clocks for H616
-  - clear the complete two-bit clock-source selector field
-  - leave rate and period registers untouched when disabling a channel
-  - distinguish PWM-owned bypass signals from clock-owned bypass outputs
-  - round shortest-period requests using the fastest achievable clock
-  - encode constant levels without overflowing the 16-bit active-cycle field
-  - rebase on upstream commit 31996e14bd59
-  - require #clock-cells for the H616 clock provider  (reported by Sashiko)
-  - allocate clock topology state per device, use the fixed two-parent map,
-    and use managed clock registration
-    (reported by Sashiko and suggested by Philipp)
-  - deassert reset before registering clocks and keep the reset handle local
-    (reported by Sashiko and suggested by Philipp)
-  - arbitrate channel ownership in clock prepare/unprepare and select bypass
-    only while the clock output is enabled  (reported by Sashiko)
-  - roll back failed PWM requests and serialize channel release
-    (reported by Sashiko)
-  - protect the shared pair source while either sibling channel is active
-    (reported by Sashiko)
-  - preserve the 65536-tick duty intermediate before polarity conversion
-    (reported by Sashiko)
-  - keep the hardware-waveform state within the PWM core storage limit
-  - clarify that either co-packaged AC200 or AC300 PHY uses the bypass clock
-  - drop driver Tested-by tags after the clock implementation was reworked
-  - quantize inverted waveforms in hardware ticks and report their
-    physical offset
-  - force released channels off so stale waveforms cannot restart with a
-    sibling
-  - track the active and pending cycle for the period-update handshake,
-    adapt the sleep interval to bound MMIO polling on long periods, and
-    honor the PCLK rate constraint
-  - quiesce rate, polarity and bypass transitions before reprogramming the
-    output
-  - clear unsupported pulse mode when programming periodic waveforms
-  - describe the bypass clock cells and simplify the fixed parent topology
-  - avoid resetting active pair registers during probe
-  - model only shared pair clocks in CCF and program per-channel dividers
-    directly
-  - make pair-rate changes transactional and hold exclusivity only while
-    an output is active
-  - implement formal waveform rounding across all parent, divider and
-    bypass choices
-  - preserve firmware-active outputs through generic unused-clock cleanup,
-    stop any still-unclaimed channels at sync_state(), reconcile empty pair
-    gates through CCF, and reject pair retuning while either output is
-    active
-  - clear dormant dead-zone state when both pair outputs are disabled,
-    while rejecting active dead-zone and pulse modes which the PWM API
-    cannot represent
-  - correct the hardware topology to show the pair gate before div_m
-  - Link to v7:
-    https://patch.msgid.link/20260703152215.192859-1-richard.genoud@bootlin.com
-
-Changes v6 -> v7:
-  - rebase on v7.2-rc1
-  - Cc Common Clock Framework maintainers  (suggested by Uwe)
-  - add missing static before SUN8I_PWM_X_BYPASS_GATE
-  - reorder code in probe to fix potential lifecycle issues
-  - set pwmcc_data[i].parent_names to NULL in sun8i_pwm_unregister_clk
-
-Changes v5 -> v6:
-  - remove trailing junk after the patch 4 commit message
-  - remove Tested-by tags where they do not apply
-
-Changes v4 -> v5:
-  - fix bypass handling for channels greater than 1
-  - add colons to clarify two debug messages
-  - switch from H616 to sun8i prefixes in code, filenames and module names
-  - fix consistency issues in macro parameters
-  - rename confusing macros
-  - rebase on v7.0
-
-Changes v3 -> v4:
-  - gather Acked-by and Tested-by tags
-  - fix a pointer-to-integer cast size warning on ARC
-  - add a managed action for clk_hw_unregister_composite
-    (suggested by Philipp)
-  - remove the unused pwm_remove function  (suggested by Philipp)
-
-Changes v2 -> v3:
-  - use U32_MAX instead of defining UINT32_MAX
-  - document U32_MAX usage in clk_round_rate()
-  - define clk_table_div_m using macros
-  - fix formatting
-  - correct the parent clock order
-  - simplify code using scoped_guard()
-  - add a missing const qualifier and rename to_h616_pwm_chip() to
-    h616_pwm_from_chip()
-  - add missing error messages and remove redundant ones
-  - rename cnt to period_ticks and duty_cnt to duty_ticks
-  - fix PWM_PERIOD_MAX
-  - add the remove callback
-  - replace DIV_ROUND_CLOSEST_ULL with DIV_ROUND_UP_ULL
-  - add H616 prefixes
-  - protect _reg in macros
-  - switch from apply/get_state to waveforms
-  - shrink struct h616_pwm_channel
-  - rebase on v6.19-rc4
-
-Changes v1 -> v2:
-  - rebase on v6.19-rc1
-  - add missing headers
-  - remove MODULE_ALIAS  (suggested by Krzysztof)
-  - use the sun4i-pwm binding instead of adding a new one
-    (suggested by Krzysztof)
-  - retrieve parent clocks from the device tree
-  - change num_parents to unsigned int
-
----
-Richard Genoud (4):
-      dt-bindings: pwm: allwinner: add h616 pwm compatible
-      pwm: sun8i: Add H616 PWM support
-      arm64: dts: allwinner: h616: add PWM controller
-      MAINTAINERS: Add entry on Allwinner sun8i/H616 PWM driver
-
- .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml      |   33 +-
- MAINTAINERS                                        |    5 +
- arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi     |   47 +
- drivers/pwm/Kconfig                                |   12 +
- drivers/pwm/Makefile                               |    1 +
- drivers/pwm/pwm-sun8i.c                            | 1542 ++++++++++++++++++++
- 6 files changed, 1639 insertions(+), 1 deletion(-)
----
-base-commit: 31996e14bd59840692d6c1c6e41ef878b77a2967
-change-id: 20260803-h616-pwm-v8-e21a92470923
-
-Best regards,
---  
-James Hilliard <james.hilliard1@gmail.com>
+>
+>>                Linus
+> --
+> Cheers, Lorenzo
+>
+> [0]:https://lore.kernel.org/linux-mm/20260723-series-vmap-race-fix-v6-0-8cc77dcc0018@kernel.org/
+> [1]:https://lore.kernel.org/linux-arm-kernel/20260804170503.3513916-1-mark.rutland@arm.com/
+> [2]:https://lwn.net/Articles/1073395/
 
 
