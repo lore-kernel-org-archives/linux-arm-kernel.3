@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95151C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 08:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BABE6C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 08:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ANnNwuiKBF/aUFgJD9FvGP3u4zzcHHdF0EpQ0x5UgY=; b=gt8AYifCCzg8q/91sGFZsDJQmf
-	GHDYdQe8M+NC8kpi3RJ8gx4VBYq5YAxc4/Ef/kfbcPjTxJyXRI1053p6A3MJMgihjRrijWzLR10Vp
-	fgk0+wZm98q19pq3GGVaFR83yASxhR6oNt8+Hs2suo3bbEygtHgg6EAcUg8Od+ZOU2beH7wOWe7DW
-	lqaRTOJIEUX30k7Xx7IymBXwWT7VwiX/BWCLKey5hVavMDVbB9Mclpg6YF94ngBRxsFZCdML8H0WK
-	QIv7snVXNtirOy/nUatTji8gsY3XTEyNV2hZ/+tmtk/Y2iEzvryxA5yp08fRXOWqMTePh8ZlsQvgQ
-	5DjD2q4w==;
+	bh=+1e25DepZeRbvIwYwRbIXVPUAS5ZIcSEjcncQ0Lz1j0=; b=tFKCBhDgHpec34M8vE5LPfC8CG
+	eMr545jt1gPyEDZ1mGLDfslBRs1TjXic1JgtBUmfiYnHfaMwHiVwW7P8Ym6gVRhf+nJm7nHSnZ9Cv
+	g9T8d1VoxYweQY0jHDLQ0lzhzVT5BcsWDWDZjJzTVjn6VCEcDJOQfq6ljfPFCuFYIP5K2ukEh1P0+
+	L9k285vesgx2cOgn/G6ABS1qjplr8N2B5xGj8/dHKYnMppJVR0hfIzQsmesOaza+/B9+lbKdRmaRT
+	wcQP35ApWGncL1keS/ef5ljbkpYOSqEuFsBnlZLSIA+1i38bYp2EGpJOJqQx+gQ61PcAemKJHGiCp
+	tPAZcQcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAeV-00000001MFA-1RzJ;
-	Tue, 04 Aug 2026 08:37:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrAfR-00000001MMO-289b;
+	Tue, 04 Aug 2026 08:38:33 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrAeT-00000001MF1-37Ia
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 08:37:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1AF6F60A7E;
-	Tue,  4 Aug 2026 08:37:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C519D1F000E9;
-	Tue,  4 Aug 2026 08:37:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785832652;
-	bh=/ANnNwuiKBF/aUFgJD9FvGP3u4zzcHHdF0EpQ0x5UgY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Gtt2kBIhV3IyXP1DQGKF2N6rh6iIS22g9uuMsXVt7URhuA5T+0CpX2lrV5HuMDKqj
-	 Yxxj/tLJVdPywodJfjSp89XLs0ftGK4dnDH6Jo+kxPhvuLt7Oa8tdIYb2OxQA37TLx
-	 452MnF2bSu854nnBVJY40Gm7QEEEzku0u5DTVcqYR9qNElthY/bJPzMvCjjmwVR4Uh
-	 03bWlh70gQUHJ2nUTSKzoLlbYEQcbEgAHYgR993YYJ3RZ1yM9dLQwUKKgZzn+K7HUr
-	 m9zGQjx1o2O4lecj6dRSik2sVF9OjwbPakxv4+qWlrP3q7vYRntg7715QHX2mxWuBY
-	 zp5pNnlza8byA==
-Date: Tue, 4 Aug 2026 10:37:29 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: muhammad.nazim.amirul.nazle.asmade@altera.com
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	dinguyen@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, 
-	joabreu@synopsys.com, mcoquelin.stm32@gmail.com, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 1/3] dt-bindings: net: snps,dwmac: Add
- snps,pagepool-tx-buf-quirk
-Message-ID: <20260804-proficient-competent-wyvern-30ec60@quoll>
-References: <20260803070513.4657-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <20260803070513.4657-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+	id 1wrAfP-00000001MLo-2VRw;
+	Tue, 04 Aug 2026 08:38:33 +0000
+Date: Tue, 4 Aug 2026 10:38:25 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1785832708;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+1e25DepZeRbvIwYwRbIXVPUAS5ZIcSEjcncQ0Lz1j0=;
+	b=1q/hFnrAZKARngwsSSFG1fn+ERHWPeK/Q2PYhSEUIw+JBjXJMalKpB/IRpkA/FczwznZA5
+	00JnC7IybC+zT01et5FF52tsoxpr23aMm0GdTAN8XV0m6OCofsJg9jMKEh4gpf8jGmkv7a
+	MCN6eq5bqP17thiA2c32LsqI2ecbeBxMWvW6BRfRm/095xSGYHP9osD37v6ytY0T32WUQi
+	H9jJ/mARccK3HM2cerNjma2b6w67wRWE5DnhlroKxHoz73fjdXEg+IFFkKnYG7L/nqI2xG
+	/4c36vjIJs1ocrTb//ggW+xOv9+/QtR2uc43+/+qAk2WwoIi3f+AIEMHoScceg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1785832708;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+1e25DepZeRbvIwYwRbIXVPUAS5ZIcSEjcncQ0Lz1j0=;
+	b=zT4d68oFcXnLYbELnfcG/wL8TM4UP8eCkJ/ZXKy/ykvMWk/pP+KjIs77W+zu3gJH0O8IEA
+	ChFCSfBtI1FyVgDQ==
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] arm64: dts: broadcom: bcm2712-d-rpi-5-b: add
+ compatible
+Message-ID: <zl5z6owx4v5kg2ian7twpggekaosrenbhvgjq7fimm5j2ptz4i@ygvudatdkems>
+References: <20260803-bcm2712-d-stepping-compatible-v2-0-803017e4ba7a@linutronix.de>
+ <20260803-bcm2712-d-stepping-compatible-v2-2-803017e4ba7a@linutronix.de>
+ <20260804-unbeatable-fluffy-galago-bfe282@quoll>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260803070513.4657-2-muhammad.nazim.amirul.nazle.asmade@altera.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260804-unbeatable-fluffy-galago-bfe282@quoll>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_013831_813984_FCCFFD7D 
+X-CRM114-Status: GOOD (  22.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +85,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 12:05:11AM -0700, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
-> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+On Tue, Aug 04, 2026 at 09:48:19AM +0200, Krzysztof Kozlowski wrote:
+> On Mon, Aug 03, 2026 at 02:09:25PM +0200, Gregor Herburger wrote:
+> > The bcm2712 found on the Raspberry Pi 5 is available in the d Stepping
+> > and in a c Stepping. There are two separate dts files. The
+> > bcm2712-rpi-5-b.dts for the c Stepping and the bcm2712-d-rpi-5-b.dts for
+> > the d Stepping. The d stepping does not set its own compatible/model
+> > string but uses "raspberrypi,5-model-b".
+> > 
+> > These two steppings are not compatible. Booting with the wrong dtb file
 > 
-> Add a DT flag to enable use of page pool buffers instead of streaming
-> skb buffers for transmit. This avoids IOMMU invalidate wait time on
-> platforms where that cost is high, with the trade-off of copying data
-> from the skb into dma-mapped page pool buffers.
+> Not compatible but...
 > 
-> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> ---
->  Documentation/devicetree/bindings/net/snps,dwmac.yaml | 8 ++++++++
->  1 file changed, 8 insertions(+)
+> > causes a crash at boot.
+> > 
+> > Add a compatibles string "raspberrypi,5-model-b-d0" to allow us to
+> > distinguish between those two steppings.
+> > 
+> > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+> > ---
+> >  arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 5 +++++
+> >  1 file changed, 5 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+> > index 127be0fc27c2..11a38cd53401 100644
+> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+> > @@ -3,6 +3,11 @@
+> >  
+> >  #include "bcm2712-rpi-5-b.dts"
+> >  
+> > +/ {
+> > +	compatible = "raspberrypi,5-model-b-d0", "raspberrypi,5-model-b", "brcm,bcm2712";
 > 
-> diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> index 2449311c6d28..73045511446f 100644
-> --- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> +++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-> @@ -545,6 +545,14 @@ properties:
->        Enables the TSO feature otherwise it will be managed by MAC HW capability
->        register.
->  
-> +  snps,pagepool-tx-buf-quirk:
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +    description:
-
-You described the desired Linux feature or behavior, not the actual
-hardware. The bindings are about the latter, so instead you need to
-rephrase the property and its description to match actual hardware
-capabilities/features/configuration etc.
-
-> +      Enable use of page pool buffers instead of streaming buffers for transmit.
-> +      This avoids IOMMU invalidate wait time on platforms where that cost is
-> +      high, with the trade-off of copying data from the skb into dma-mapped
-
+> this tells they are compatible. If compatibility was wrong since the
+> beginning, you do not have to preserve the ABI.
+Ok understood. Will drop the fallback and make it either
+	compatible = "raspberrypi,5-model-b-d0", "brcm,bcm2712";
+or
+	compatible = "raspberrypi,5-model-b", "brcm,bcm2712";
+> 
+> Best regards,
+> Krzysztof
+> 
 Best regards,
-Krzysztof
+-- 
+Gregor Herburger
+Linutronix GmbH | Bahnhofstrasse 3 | D-88690 Uhldingen-Mühlhofen
+Phone: +49 7556 25 999 35; Fax.: +49 7556 25 999 99
 
+Hinweise zum Datenschutz finden Sie hier (Informations on data privacy 
+can be found here): https://linutronix.de/legal/data-protection.php
+
+Linutronix GmbH | Firmensitz (Registered Office): Uhldingen-Mühlhofen | 
+Registergericht (Registration Court): Amtsgericht Freiburg i.Br., HRB700 
+806 | Geschäftsführer (Managing Directors): Dr. Wilfried Wessner, 
+Katharina Kopp, Alexander Gieringer
 
