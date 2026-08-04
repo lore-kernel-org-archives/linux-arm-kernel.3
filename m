@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70050C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:51:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A027AC55172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UeaaGkfj+CmXQK3D7/sp1H2v+3bv6fIBMs0uAbi+VxE=; b=KQVh/GX5SS6EJ2w3x1THOWA9Hg
-	Ere4Dn/VaiHpC7/BF50Jsvbe6jIT0JkHRx5FJPKfx9F9NI83gDZbjorE3hQjuvr2NoY0/TRnFw8e5
-	k5SZ0QPHklx35bB/kVaceHtPKV+u5bgTRYuh95mKKgPn2+2jLUXUJb6oUVV6mnLs38SD4hsUjo+WT
-	80SyxgdwwYTbUgrzC5dtF80Re85t0TYygfiETV7uTuJWyfBZImvSR5wDpALq+KqhA6eHrsrY4h1Nq
-	wT5lMpmMRq5ksevGZ+PANwjwk9Wz4bG9OHc5lJOwdN1Qp+fXi7o+vTYgOLVqQtwwCJSfI4+b+W2ck
-	0szM5DFA==;
+	bh=dAlI38eiDu6eaVSXHMndTzRoYoxt7SivJ1LUIg7Ly9M=; b=CKucfqN/iN+yXtdNGYFUjYtGAq
+	//+9GCzXDuGWUc6Bok1rmrE/4n6T8RCKrGQOhmLU9aj7Br+QxKTgXlVPXngNrmuq4IQ9wfmd+dNcl
+	ayi5FfATzLudUDuaJi9m7RS7nNgD8uG08BaHpruokZo4DKXAVsrfhddt/xpKihfi6PZw3OpsYhXzu
+	oTyoNIAtA11OCtgrCOSUvd6S9zHF6HlJ5YYOVNqdCbp/r0Ga1AbUKH7it9AXcCPxkvGymhYVd9mrU
+	xE6zr6/4+dATkTpWcTpqfI1Xf8CkIJycs3pfSetHdCh9z5tFnX9+/qBqoQD0ayGTbaw8LJTtEzf7j
+	AJEtN0tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9va-00000001GYn-1pis;
-	Tue, 04 Aug 2026 07:51:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9vZ-00000001GYh-1mqW
+	id 1wr9xs-00000001Gi6-3Yob;
+	Tue, 04 Aug 2026 07:53:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wr9xm-00000001GhV-3xsK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 07:51:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD95343D25
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 07:51:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 914A71F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 07:51:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785829868;
-	bh=UeaaGkfj+CmXQK3D7/sp1H2v+3bv6fIBMs0uAbi+VxE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Lh//8K/BjNLfqPOULpksK3++stnAXFzDO7EQjE7RTS72eRu03/yiUQxcZSuM+L5np
-	 2PKIOyi37oW7GwEbPksUNbxSo142sphFkeF4sJQ1ori5DYjV9Pwmr0baYlAYiSHLPb
-	 eh1O0GhAMkgXyM37ZPWKVVmOe1ehK9H9TiSyBO5MntPmbqhkY1/Z58FKTvjoyb1hIQ
-	 VJU7ZAnZT3orLOwpdldiLYNuyZximnx/qx/wcY4RCithAZ67jozuXoDr3RiJruvih5
-	 39i1vgGKDKngp41aQZBCvccOATqvJWuK5911lTscvbF0OnTEza5c/+F0nqMXTDmJY2
-	 61T2CXr6Cke5w==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b0117d49dcso4870486e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 00:51:08 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoIjn7aDpCGPLqC53Gina9sdIu6SCvM+7BNE9ctIswBDZfiPD6tIO+iAO350cjb1hQSFf4xBJlrlO1Qmi6M1PXy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyINvsZH86NemBd3k5crrE3KNKqCcSOTfZhL8SlqPJ0WTypGX1V
-	iqO4gyQlouiPCe/bSHm8VlOIG0H5HGA5PtvjW8aM/5dFWLfh69c6bYx5qrmsD/z2IkAAkl5IhhZ
-	UxdunKL/wXWa8+sS96iWzX7dhCtY5xAw=
-X-Received: by 2002:a05:6512:10d5:b0:5b2:9c9d:6448 with SMTP id
- 2adb3069b0e04-5b2e4f11a0fmr2873674e87.12.1785829867354; Tue, 04 Aug 2026
- 00:51:07 -0700 (PDT)
+	Tue, 04 Aug 2026 07:53:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 16F64165C;
+	Tue,  4 Aug 2026 00:53:18 -0700 (PDT)
+Received: from [192.168.7.252] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ADA223FAF5;
+	Tue,  4 Aug 2026 00:53:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785830002; bh=slUQ58mogfgqKmnDl7RHm0NwJU6ljctiO293tuFmyUM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ndev4MCC/wSB0yKuTYdRjWC6ZZrALcq9XdVn/ZczUtcWnLoN7kcTmtrek24djVEga
+	 R3TN7iqzcVJGHeqcSYkxPSKlA53yFpXur+jcVJB7I3rFo0Uum2mBlScndUObMK7Y8N
+	 x+HT9WhaKmqy39FaSmEDgC6Y14diZctJ9hSusPB4=
+Message-ID: <6ddc4eab-1ec2-43f1-9fb1-310f5e8cba7b@arm.com>
+Date: Tue, 4 Aug 2026 08:53:19 +0100
 MIME-Version: 1.0
-References: <20260801-apple-m4-initial-devicetrees-v2-0-5cb07cc275da@cyberchaos.dev>
- <20260801-apple-m4-initial-devicetrees-v2-5-5cb07cc275da@cyberchaos.dev>
-In-Reply-To: <20260801-apple-m4-initial-devicetrees-v2-5-5cb07cc275da@cyberchaos.dev>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 4 Aug 2026 09:50:54 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkkvrHR9nqO3gTiyU0s=q2-7mr3FY_07JAG4sFyuCENQA@mail.gmail.com>
-X-Gm-Features: AUfX_mxbSJUYZ_-VvnAPg1iAT8y_V2wQkeDasemCN2JDNhyPEfoJfdRT5MtVKyg
-Message-ID: <CAD++jLkkvrHR9nqO3gTiyU0s=q2-7mr3FY_07JAG4sFyuCENQA@mail.gmail.com>
-Subject: Re: [PATCH v2 5/9] dt-bindings: pinctrl: apple,pinctrl: Add t8132 compatible
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
-	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Hector Martin <marcan@marcan.st>, 
-	Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>, 
-	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
-	Sasha Finkelstein <k@chaosmail.tech>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	linux-pwm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ASoC: xilinx: replace OF with device handlers
+To: Rosen Penev <rosenp@gmail.com>, linux-sound@vger.kernel.org
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Michal Simek <michal.simek@amd.com>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20260803231823.95147-1-rosenp@gmail.com>
+Content-Language: en-GB
+From: Vincenzo Frascino <vincenzo.frascino@arm.com>
+In-Reply-To: <20260803231823.95147-1-rosenp@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_005327_073691_A29ADB07 
+X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,17 +75,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 1, 2026 at 11:41=E2=80=AFPM Yureka Lilian <yureka@cyberchaos.de=
-v> wrote:
 
-> The pin controller on the Apple silicon t8132 (M4) SoC is compatible
-> with t8103. Add "apple,t8132-pinctrl" as SoC specific compatible under
-> "apple,t8103-pinctrl".
->
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+On 04/08/2026 00:18, Rosen Penev wrote:
+> All of these usages of OF handlers use the node from the
+> platform_device. Use the device member to simplify slightly.
+> 
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 
-Yours,
-Linus Walleij
+Thank you!
+
+Reviewed-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
+
+...
 
