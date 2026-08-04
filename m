@@ -4,52 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF833C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:05:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C72EC5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fxGf4N20ENAHXc20vgPpSRT53N0WrRSizYa53VOaEhg=; b=i/6oxEelOohZzo
-	C42pXSXGfK5pagPgpiyrFVFosNFXSTTqkPXdskZ+lSHJwv0xudiaDChs/eCUXqZ0qgNlFTxSqnFuN
-	4v47ULD934S8NrUI63hYzCao0xZsriVLD93byw3d7h7yTLz5dCsPXp+itvEaluGk2++HjmwEAE5Gc
-	S2YO1C/7otcZEBqPUMG03vbMBZ65shW7XjhYtqU6xnPttAB42rTT5prINzad9pbswlS9mHGhKqOun
-	L2W6FV5/upM/RW1m/kKY+X4rDE1wVlPd+lZd+uHi/IBnCO1ihLj2JvykoNEoayYbdDp2HOOjfUu8H
-	+Z1qAP0tS4+x6CtHjpyA==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jOJrFyZ5QAJ1G1jhx0f7R9JTBI5OBq+7Zhiui72HjXY=; b=HpTJqzfVRsymTi
+	7Fw4IzoirEcflflZ/USsOYtywrwKgIprbUtt78XwBV8qfCWsTbTbguzUMophiy671RzMIxuVzS2t3
+	ynSyuQoIfeoJn5pYwvQ3/zVOsr0W9toglTTWIc6itRM0eWSLytBrqnIimi7F4B1WJdiLzt1Zhj/aI
+	DWm6QB+7dpsV8FgyY7y8GL94rG1eva3jDSE2B7irNaj5TCQbEpZuG98DzDR+TSogHquy9gbxMATvU
+	rS3dqAjiYOXJL8JSowecee/j0MnG/HsA6EqN5lX4FVKgKQxXStxEH3hQxyHAfy0VvBZPrUpzdHozC
+	PeL90znMRuJEVl0GUVyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIZu-00000002Pku-1JXC;
-	Tue, 04 Aug 2026 17:05:22 +0000
+	id 1wrIZw-00000002PlW-1qRQ;
+	Tue, 04 Aug 2026 17:05:24 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIZr-00000002PkJ-2wQv
+	id 1wrIZt-00000002PkY-0Bzr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 17:05:21 +0000
+	Tue, 04 Aug 2026 17:05:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73FD91476;
-	Tue,  4 Aug 2026 10:05:13 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 533831684;
+	Tue,  4 Aug 2026 10:05:16 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id F1C533F632;
-	Tue,  4 Aug 2026 10:05:14 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CFE643F632;
+	Tue,  4 Aug 2026 10:05:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785863117; bh=gZNGC6ruDaoDqQPhAYuD/YBgVLMFoTaq8v5A+IfgFbw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=V8eYBIcikEYhavoeAUKznir8BZ2mPwPFbWmYql5O2CiYB6RWXs1WWMi8dksm7Q8I9
-	 FpvlYFPAtc+/hB1Tdd6vdkBtiwDBc5gYSK86vLWs1wcBS6nFbM8tj+vqqb5zQESxew
-	 auRH5BOfSgle63SeG5ixyx7JYDDPfdYfz509RO/w=
+	t=1785863120; bh=WVzy+CFQzZ9ki8AaGr2tZyokJVK18eIfmnCV3Kgx2R0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=sGehTrTUwMenQPYItLGFO9Vpv7W1HiuDEAatv/sjFrxlAx3wLHPoXTh4GY2NfFKSX
+	 BlUKhI5zrxRUz8aSlfnPPqzQRtlKyDECCx4QSn3HAsKzijYJm5luPkrCPgChQH/8O5
+	 o59yg178gbY80vIMcCK8WHGJbvw61cewmODJs6EQ=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 00/20] arm64: Preemptible this_cpu_*() operations
-Date: Tue,  4 Aug 2026 18:04:43 +0100
-Message-Id: <20260804170503.3513916-1-mark.rutland@arm.com>
+Subject: [PATCH v2 01/20] arm64: percpu: Fix this_cpu_write() casting
+Date: Tue,  4 Aug 2026 18:04:44 +0100
+Message-Id: <20260804170503.3513916-2-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260804170503.3513916-1-mark.rutland@arm.com>
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_100519_905301_A9E860E8 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20260804_100521_197779_CE31E8BF 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,124 +67,152 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series reworks arm64's this_cpu_*() operations such that they do
-not need to disable preemption, avoiding related overhead in the fast
-paths. Instead, the ops begin/end a "PCPU GPR" critical section using
-unconditional/posted stores, which should be very cheap on any
-reasonable micro-architecture. During a critical section, should a
-(preemptible) exception be taken, the entry code will apply a fixup to
-the GPRs containing the percpu offset and the generated percpu address.
+The arm64 implementation of this_cpu_write() casts 'val' to unsigned
+long. This is necessary to handle cases where 'val' is a pointer type,
+and to avoid spurious compiler warnings for the (unreachable!) cases
+where the pointer type would be cast to a smaller integer type.
 
-The scheme is described in detail in patch 13, and is similar to the
-approach Heiko Carstens applied to s390 [1], which inspired this series.
+Unfortunately, the cast is applied to 'val' rather than '(val)', which
+won't always generate the expected value when 'val' is an expression.
 
-Please note that the fixup IS NOT a restart. The GPR fixup in the
-exception entry code DOES NOT alter the PC, and there are no necessary
-branches within the PCPU GPR critical sections.
+For example, for this_cpu_write(pcp, zero - 1), where 'pcp' is a u64 and
+'zero' is a u32:
 
-This scheme should build and function in all kernel configurations (e.g.
-regardless of KPTI, SW PAN, CNP, VA BITS), and has no dependency on new
-architectural features. The fixup logic should "just work" with kprobes,
-etc, and I don't expect that this will need to become more complicated.
+* 'zero'                      ===> (u32) 0x00000000
+* 'zero - 1'                  ===> (u32) 0xffffffff
+* '(unsigned long)zero - 1'   ===> (u64) 0xffffffffffffffff
+* '(unsigned long)(zero - 1)' ===> (u64) 0x00000000ffffffff
 
-The patches are organised as follows:
+Fix this by adding brackets around 'val'
 
-* Patches 1 to 2 are preparatory fixes for latent issues which were
-  found by inspection. These will need to be backported to stable, and
-  have appropriate Fixes tags.
+The bug described above can be seen from the disassembly of the
+following test code:
 
-* Patches 3 to 6 are preparatory improvements to code generation issues
-  found by inspection during development. These aren't strictly related
-  to the PCPU GPR scheme, and it would make sense to queue these even if
-  we don't go ahead with the rest of the series.
+| void this_cpu_write_zero_minus_1(u64 __percpu *pcp)
+| {
+| 	u32 zero = 0;
+| 	this_cpu_write(*pcp, zero - 1);
+| }
+|
+| void this_cpu_write_zero_minus_1_brackets(u64 __percpu *pcp)
+| {
+| 	u32 zero = 0;
+| 	this_cpu_write(*pcp, (zero - 1));
+| }
 
-* Patches 7 to 12 are preparatory work for the PCPU GPR scheme.
+Generated code before this patch:
 
-* Patch 13 implements the core of the PCPU GPR scheme, with all the
-  necessary exception handling logic, and the addition of helpers to
-  begin/end a PCPU GPR critical section.
+| <this_cpu_write_zero_minus_1>:
+|        paciasp
+|        stp     x29, x30, [sp, #-16]!
+|        mrs     x1, sp_el0
+|        mov     x29, sp
+|        ldr     w2, [x1, #8]
+|        add     w2, w2, #0x1
+|        str     w2, [x1, #8]
+|        mov     x3, #0xffffffffffffffff
+|        mrs     x2, tpidr_el1
+|        str     x3, [x0, x2]
+|        ldr     x0, [x1, #8]
+|        add     x0, x0, x3
+|        str     w0, [x1, #8]
+|        cbz     x0, 1f
+|        ldr     x0, [x1, #8]
+|        cbnz    x0, 2f
+| 1:     bl      preempt_schedule_notrace
+| 2:     ldp     x29, x30, [sp], #16
+|        autiasp
+|        ret
+|
+| <this_cpu_write_zero_minus_1_brackets>:
+|        paciasp
+|        stp     x29, x30, [sp, #-16]!
+|        mrs     x1, sp_el0
+|        mov     x29, sp
+|        ldr     w2, [x1, #8]
+|        add     w2, w2, #0x1
+|        str     w2, [x1, #8]
+|        mov     x3, #0xffffffff
+|        mrs     x2, tpidr_el1
+|        str     x3, [x0, x2]
+|        ldr     x0, [x1, #8]
+|        sub     x0, x0, #0x1
+|        str     w0, [x1, #8]
+|        cbz     x0, 1f
+|        ldr     x0, [x1, #8]
+|        cbnz    x0, 2f
+| 1:     bl      preempt_schedule_notrace
+| 2:     ldp     x29, x30, [sp], #16
+|        autiasp
+|        ret
 
-* Patches 14 to 19 convert this_cpu_*() operations over to the PCPU GPR
-  scheme. These changes have been made over several patches to aid
-  review and bisection (if necessary).
+Generated code after this patch:
 
-* Patch 20 removes code made redundant by earlier patches.
+| <this_cpu_write_zero_minus_1>:
+|        paciasp
+|        stp     x29, x30, [sp, #-16]!
+|        mrs     x1, sp_el0
+|        mov     x29, sp
+|        ldr     w2, [x1, #8]
+|        add     w2, w2, #0x1
+|        str     w2, [x1, #8]
+|        mov     x3, #0xffffffff
+|        mrs     x2, tpidr_el1
+|        str     x3, [x0, x2]
+|        ldr     x0, [x1, #8]
+|        sub     x0, x0, #0x1
+|        str     w0, [x1, #8]
+|        cbz     x0, 1f
+|        ldr     x0, [x1, #8]
+|        cbnz    x0, 2f
+| 1:     bl      preempt_schedule_notrace
+| 2:     ldp     x29, x30, [sp], #16
+|        autiasp
+|        ret
+|
+| <this_cpu_write_zero_minus_1_brackets>:
+|        b       this_cpu_write_zero_minus_1
 
-I've given this build-testing (with GCC and clang) and some light boot
-testing, but this hasn't seen significant functional testing or
-benchmarking. From inspection of the generated code I expect this to
-have reasonable positive impact to performance where this_cpu*() ops are
-used heavily. I would be grateful if anyone could take this for a spin.
+Fixes: 959bf2fd03b5 ("arm64: percpu: Rewrite per-cpu ops to allow use of LSE atomics")
+Reported-by: David Laight <david.laight.linux@gmail.com>
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/include/asm/percpu.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-From looking at the generated code, there are some additional savings we
-could make with further changes, notably:
-
-* Patching the read of TPIDR_ELx using a callback. This would remove the
-  need for replacement instructions, saving ~12K for defconfig, and
-  meaning real instructions in .text would be packed more densely.
-  There's work underway to apply similar patching for
-  ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE.
-
-* Allowing {relocation,veneer}-free replacement sequences to be placed
-  in .altinstr_replacement again. This would allow real instructions in
-  .text to be packed more densely, with ~80K of .text moving into
-  .altinstr_replacement where it would be freed after init.
-
-  I've thrown together a prototype [2].
-
-Since v1 [3]
-* Implement necessary SDEI entry logic.
-* Drop RFC tag, as I believe this is now functionally complete.
-* Add patches to fix latent bugs and poor codegen (per David, and myself)
-* Make gpr-num handling consistent with asm-extable.h
-* Assert PCPU GPRs are distinct at compile time (per Vladimir)
-* Add comments to document PCPU GPR helpers.
-* Improve commit messages.
-* Add tags from v1.
-
-Thanks,
-Mark.
-
-[1] https://lore.kernel.org/linux-s390/20260526055702.1429061-1-hca@linux.ibm.com/
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/log/?h=arm64/alternatives/cleanup
-[3] https://lore.kernel.org/linux-arm-kernel/20260728123859.2911495-1-mark.rutland@arm.com/
-
-Mark Rutland (20):
-  arm64: percpu: Fix this_cpu_write() casting
-  arm64: percpu: Fix this_cpu_and() mask generation
-  arm64: cmpxchg: LL/SC: Avoid redundant extension
-  arm64: cmpxchg128: LSE: Remove redundant operands
-  arm64: preempt: Simplify and optimize __preempt_count_dec_and_test()
-  arm64: preempt: Treat should_resched() as unlikely
-  arm64: ptrace: Always inline pt_regs_[read,write}_reg()
-  arm64: percpu: Factor out percpu offset asm
-  arm64: gpr-num: Add wxN aliases for wN registers
-  arm64: gpr-num: add __GPR_NUM() helper
-  arm64: entry: sdei: Restore all clobberable GPRs
-  arm64: entry: sdei: Make 'tsk' available
-  arm64: percpu: Add infrastructure for preemptible this_cpu_*() ops
-  arm64: percpu: Implement preemptible read/write ops
-  arm64: percpu: Implement preemptible void RMW ops
-  arm64: percpu: Implement preemptible return RMW ops
-  arm64: percpu: Implement preemptible XCHG ops
-  arm64: percpu: Implement preemptible CMPXCHG ops
-  arm64: percpu: Implement preemptible CMPXCHG128 ops
-  arm64: percpu: Remove _pcp_protect*() wrappers
-
- arch/arm64/include/asm/atomic_ll_sc.h |  27 +-
- arch/arm64/include/asm/atomic_lse.h   |   4 +-
- arch/arm64/include/asm/gpr-num.h      |   9 +
- arch/arm64/include/asm/percpu.h       | 462 ++++++++++++++++++++------
- arch/arm64/include/asm/preempt.h      |  29 +-
- arch/arm64/include/asm/ptrace.h       |  12 +-
- arch/arm64/include/asm/thread_info.h  |   1 +
- arch/arm64/include/asm/xwreg.h        |  16 +
- arch/arm64/kernel/asm-offsets.c       |   2 +
- arch/arm64/kernel/entry-common.c      |  38 +++
- arch/arm64/kernel/entry.S             |  38 ++-
- 11 files changed, 494 insertions(+), 144 deletions(-)
- create mode 100644 arch/arm64/include/asm/xwreg.h
-
+diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+index b57b2bb009677..63bbfd4944a37 100644
+--- a/arch/arm64/include/asm/percpu.h
++++ b/arch/arm64/include/asm/percpu.h
+@@ -179,13 +179,13 @@ PERCPU_RET_OP(add, add, ldadd)
+ 	_pcp_protect_return(__percpu_read_64, pcp)
+ 
+ #define this_cpu_write_1(pcp, val)	\
+-	_pcp_protect(__percpu_write_8, pcp, (unsigned long)val)
++	_pcp_protect(__percpu_write_8, pcp, (unsigned long)(val))
+ #define this_cpu_write_2(pcp, val)	\
+-	_pcp_protect(__percpu_write_16, pcp, (unsigned long)val)
++	_pcp_protect(__percpu_write_16, pcp, (unsigned long)(val))
+ #define this_cpu_write_4(pcp, val)	\
+-	_pcp_protect(__percpu_write_32, pcp, (unsigned long)val)
++	_pcp_protect(__percpu_write_32, pcp, (unsigned long)(val))
+ #define this_cpu_write_8(pcp, val)	\
+-	_pcp_protect(__percpu_write_64, pcp, (unsigned long)val)
++	_pcp_protect(__percpu_write_64, pcp, (unsigned long)(val))
+ 
+ #define this_cpu_add_1(pcp, val)	\
+ 	_pcp_protect(__percpu_add_case_8, pcp, val)
 -- 
 2.30.2
 
