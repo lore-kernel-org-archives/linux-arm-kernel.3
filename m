@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6910EC5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E5DC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 14:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=msMgqHZX3Cpzlz49ZY5uD/h6mDTlWrDvHYB6tj0rLc8=; b=HkjlFejXS0p6maSEyAuizhFtws
-	T/RYkuShDbi45k0dGo4raNa9rfoqYEI9F1tB6c2gcfrkND/6ILcvIo/USN+bVnQMOBbDnj3tiQ66k
-	KwHicUrzkA5P4ZQuep8KjIiXCzHAHRq4RZTqlJ1OllXd/plLG2y95qCwSJSt2cERpIjUik49LGUDq
-	IbmYgGZDOEI8yyPPq4trWJ6UcRWst2eoV7S+2+IAf2NQa5DAPjXAjiiVUdOy06dQZPk6khIV0eWoi
-	OuXbhiPVCSqzYU3ULrSl5iW+4UZYg/DrkYxTj3m8se+lvB9tKAMKiTlaUxzPEL9xkQcuhBDXSXm0X
-	GIE4cbog==;
+	bh=C1q48fQrYL7bJsKSF0hEi2xAduvpJCaR3EYBVGWzrIY=; b=iwS1Rxe42p4FqYpHd3r90YKHL7
+	0nUZrj8zEvGPbd+X2zEMKYbM5YMQFDb5ZV/dWgV0CFlJwD6AKhgHC8p2N80bFK40NOzsc8OdQBe1m
+	PyiO8oK2THmbdAhdZ4swTy6hk7iUhgEYk2Vc27UE22sxWNs9ISMVewbsdyC/XMNTVEHNkZwD5on08
+	s+Sx03TIsmYtPIDqZJX9RR1G6H+LT8KmyDBClJkHs5/2ikWpAEEopKxsADSXrImAiKEpMnGrMSnBq
+	DasHPiAy3BfeML0iaKUPskQS3N8ISzx4XA/i6+IgtnpzqLH5W78FbzyL5CQtDsxjKQA9oxBkgGgv+
+	8ZvZwfDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGZ6-000000028uZ-2u4z;
-	Tue, 04 Aug 2026 14:56:24 +0000
+	id 1wrGZY-000000028xx-3UO9;
+	Tue, 04 Aug 2026 14:56:52 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGZ5-000000028u2-0Czy
+	id 1wrGZX-000000028xb-1X8S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 14:56:23 +0000
+	Tue, 04 Aug 2026 14:56:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5A6FB60AA1;
-	Tue,  4 Aug 2026 14:56:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB6B51F00A3F;
-	Tue,  4 Aug 2026 14:56:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B4A6260A83;
+	Tue,  4 Aug 2026 14:56:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D7461F000E9;
+	Tue,  4 Aug 2026 14:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785855382;
-	bh=msMgqHZX3Cpzlz49ZY5uD/h6mDTlWrDvHYB6tj0rLc8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GLJCs16bnOBXeMbwwfgHRRXEbz9KGNqyxVQnpsGdSi+XcHFpyStBYsWuwDA5uG75O
-	 /Kry99689RRLmSW5ApGSYhvtDde2LJLXba3zZovhd8FqPOVb0yzc2LBXe3BsyIYlQN
-	 Kty2G9QoVffdyEPyjZM57t+tifyRtISEnh+l5PBEj9KYhrv53aoQMbFtNZHVNuKfn+
-	 44MMMVATrgGzhIkmLasUbYJbz91AXQPKWIFnmoH3sF+CZ+X2yS6u66Jw99ZJWPiKwr
-	 OND+j9iMiupn28GTKvWWXKfU6EFbajZHOotqW1c1R/U1WMIgf+iJYBc+KA1Zs9zPdh
-	 d+Feyi4kKPGYg==
-Date: Tue, 4 Aug 2026 15:56:17 +0100
-From: Will Deacon <will@kernel.org>
-To: Aman Priyadarshi <amanp@apple.com>
-Cc: catalin.marinas@arm.com, Jason@zx2c4.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH] arm64: archrandom: avoid trapping ID register read in
- __cpu_has_rng()
-Message-ID: <anH9kVWFN_dqA0c1@willie-the-truck>
-References: <20260720140615.99343-1-amanp@apple.com>
- <amy0dVzgY-uPTTtU@google.com>
- <97FF53B9-993A-4E73-9C6B-0DA514AD0778@apple.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <97FF53B9-993A-4E73-9C6B-0DA514AD0778@apple.com>
+	s=k20260515; t=1785855410;
+	bh=C1q48fQrYL7bJsKSF0hEi2xAduvpJCaR3EYBVGWzrIY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=l9B+Z1Kz0XA3yc2Yd6vQp8S6JsbWgRYeyDE+5IDcQjpEtJ4/UEHvEvq8JX8TBtlfG
+	 gJaqolVMmsRHPYy8E2XOx7SmzEqvuruHUj13hIoRlFnyqnGVby9vBy86s+cnx9jizY
+	 T6UIwzgjLMiaAAN2WE3iamAOuOPPMeeayu14bxl9vBMde9j/bGrV9Po94MiC5GVljx
+	 Pj1bU7TAx8ra/3oBCMYsgLgJPX//6LNTlh6rMXPvVFqI8Wl43Jf0eG9gmWSLFC87td
+	 xVt2JksHULyYO4gngOB0+EaUAE3/fFoESUG0HTkHoLnCpE3ThG5QDFbJv0ib9j+5DD
+	 7UbRo6KK2znxg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wrGZU-0000000CFnx-0dok;
+	Tue, 04 Aug 2026 14:56:48 +0000
+Date: Tue, 04 Aug 2026 15:56:47 +0100
+Message-ID: <86jyq6aq8g.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, grayhat@foxmail.com
+Subject: Re: [PATCH 1/2] KVM: arm64: nv: Allocate the shadow S2 MMUs individually
+In-Reply-To: <86mrv2arf2.wl-maz@kernel.org>
+References: <20260803224405.41468-1-kmehltretter@gmail.com>
+	<86mrv2arf2.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org, grayhat@foxmail.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +91,366 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 31, 2026 at 06:26:44PM +0100, Aman Priyadarshi wrote:
-> > On 31 Jul 2026, at 15:43, Will Deacon <will@kernel.org> wrote:
-> > On Mon, Jul 20, 2026 at 03:06:15PM +0100, Aman Priyadarshi wrote:
-> >> diff --git a/arch/arm64/include/asm/archrandom.h b/arch/arm64/include/asm/archrandom.h
-> >> index 8babfbe31f95..8067e9a35641 100644
-> >> --- a/arch/arm64/include/asm/archrandom.h
-> >> +++ b/arch/arm64/include/asm/archrandom.h
-> >> @@ -61,8 +61,22 @@ static inline bool __arm64_rndrrs(unsigned long *v)
-> >> 
-> >> static __always_inline bool __cpu_has_rng(void)
-> >> {
-> >> - if (unlikely(!system_capabilities_finalized() && !preemptible()))
-> >> - return this_cpu_has_cap(ARM64_HAS_RNG);
-> >> + if (unlikely(!system_capabilities_finalized() && !preemptible())) {
-> >> + /*
-> >> + * Until the ARM64_HAS_RNG alternative is patched we can't use
-> >> + * the static-branch form, so consult the feature register
-> >> + * directly. Don't use this_cpu_has_cap() here: it reads
-> >> + * ID_AA64ISAR0_EL1 from hardware on every call, under
-> >> + * virtualization each ID register read traps to the hypervisor
-> >> + * (HCR_EL2.TID3) -- producing a storm of vmexits during boot.
-> >> + * The sanitised value is cached in memory.
-> >> + */
-> >> + u64 isar0 = read_sanitised_ftr_reg(SYS_ID_AA64ISAR0_EL1);
-> >> +
-> >> + return cpuid_feature_extract_unsigned_field(isar0,
-> >> + ID_AA64ISAR0_EL1_RNDR_SHIFT) >=
-> >> + ID_AA64ISAR0_EL1_RNDR_IMP;
-> >> + }
-> > 
-> > You can probably rewrite this a little more cleanly along the lines of
-> > the (not even compile-tested) diff below. I was about to do that, but
-> > then I got a bit confused by the whole thing. The preemptible() check is
-> > presumably not needed if we're accessing the in-memory feature registers
-> > rather than the per-CPU id registers, but then how do you handle races
-> > with concurrent updates to the "safe value" made by CPUs concurrently
-> > coming online?
+[+ Shen, who privately reported this with a 7 hour lead...]
+
+On Tue, 04 Aug 2026 15:31:13 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> I kept preemptible() check for this exact reason: the updates made by CPUs
-> concurrently coming online will always take the downgrade path (a secondary
-> CPU can clear RNDR, never set it), and therefore by taking the non-preemptible
-> branch I can guarantee that the pinned CPU supports the said feature.
-> I agree, this assumes that a secondary CPU folds its own ID registers into sys_val
-> before it can ever be a randomness consumer, but looking at the code that seems
-> the case, please feel free to correct me.
-> Besides, in my opinion, it's hard to argue correctness of this code without
-> preemptible() check.
+> On Mon, 03 Aug 2026 23:44:04 +0100,
+> Karl Mehltretter <kmehltretter@gmail.com> wrote:
+> > 
+> > A vCPU in L2 caches its shadow S2 MMU in vcpu->arch.hw_mmu.
+> > kvm_vcpu_init_nested() can grow kvm->arch.nested_mmus while initialising
+> > another vCPU: it copies the MMUs, publishes the new allocation, and frees
+> > the old one.  It updates pgt->mmu back-pointers, but not hw_mmu, leaving
+> > the first vCPU with a pointer to freed memory.  hw_mmu cannot be fixed up
+> > the same way: a running vCPU reads it without holding mmu_lock.  Copying
+> > also duplicates the MMU's refcount, leaving the live copy permanently
+> > elevated.
+> > 
+> > KASAN reports this as a slab-use-after-free in kvm_handle_guest_abort().
+> > 
+> > Make nested_mmus a pointer table and allocate each MMU separately.
+> > Growing the table now moves only pointer entries, preserving cached
+> > hw_mmu pointers, pgt->mmu back-pointers, and each MMU's refcount.  Fully
+> > initialise new MMUs before publishing the table and its size under
+> > mmu_lock.
+> > 
+> > The old failure path passed uninitialised entries to
+> > kvm_free_stage2_pgd(), which needs mmu->arch.  Use an allocation helper
+> > that returns only fully initialised MMUs, so error cleanup frees only
+> > completed objects; kvm_init_stage2_mmu() unwinds a failed initialisation.
+> 
+> I like the approach, but this is making things a bit more complicated
+> than they should really be IMO.
+> 
+> >
+> > Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> > Cc: stable@vger.kernel.org
+> > Assisted-by: Claude:claude-fable-5
+> > Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> > ---
+> > 
+> > Tested on an arm64 KASAN kernel under QEMU TCG with EL2 emulation
+> > (-machine virt,virtualization=on -cpu max, kvm-arm.mode=nested): the
+> > selftest in patch 2 reports the slab-use-after-free without this patch
+> > and passes with it.
+> > 
+> >  arch/arm64/include/asm/kvm_host.h |  6 +-
+> >  arch/arm64/kvm/nested.c           | 92 +++++++++++++++++++++----------
+> >  2 files changed, 67 insertions(+), 31 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index bae2c4f92ef5..f587b01039f9 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -319,10 +319,10 @@ struct kvm_arch {
+> >  	u64 fgu[__NR_FGT_GROUP_IDS__];
+> >  
+> >  	/*
+> > -	 * Stage 2 paging state for VMs with nested S2 using a virtual
+> > -	 * VMID.
+> > +	 * Stage 2 paging state for VMs with nested S2 using a virtual VMID.
+> > +	 * MMUs are individually allocated to keep their addresses stable.
+> >  	 */
+> > -	struct kvm_s2_mmu *nested_mmus;
+> > +	struct kvm_s2_mmu **nested_mmus;
+> >  	size_t nested_mmus_size;
+> >  	int nested_mmus_next;
+> >  
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index dfb96edbdc43..af804a5ddca7 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -5,6 +5,7 @@
+> >   */
+> >  
+> >  #include <linux/bitfield.h>
+> > +#include <linux/err.h>
+> >  #include <linux/kvm.h>
+> >  #include <linux/kvm_host.h>
+> >  
+> > @@ -66,11 +67,36 @@ static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+> >  	return kvm_init_stage2_mmu(kvm, mmu, kvm_get_pa_bits(kvm));
+> >  }
+> >  
+> > +static struct kvm_s2_mmu *alloc_nested_s2_mmu(struct kvm *kvm)
+> > +{
+> > +	struct kvm_s2_mmu *mmu;
+> > +	int ret;
+> > +
+> > +	mmu = kzalloc_obj(*mmu, GFP_KERNEL_ACCOUNT);
+> > +	if (!mmu)
+> > +		return ERR_PTR(-ENOMEM);
+> > +
+> > +	ret = init_nested_s2_mmu(kvm, mmu);
+> > +	if (ret) {
+> > +		/* kvm_init_stage2_mmu() frees its internal allocations on error */
+> > +		kfree(mmu);
+> > +		return ERR_PTR(ret);
+> > +	}
+> > +
+> > +	return mmu;
+> > +}
+> > +
+> > +static void free_nested_s2_mmu(struct kvm_s2_mmu *mmu)
+> > +{
+> > +	kvm_free_stage2_pgd(mmu);
+> > +	kfree(mmu);
+> > +}
+> > +
+> >  int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+> >  {
+> >  	struct kvm *kvm = vcpu->kvm;
+> > -	struct kvm_s2_mmu *tmp;
+> > -	int num_mmus, ret = 0;
+> > +	struct kvm_s2_mmu **tmp;
+> > +	int i, num_mmus, ret = 0;
+> >  
+> >  	if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features) &&
+> >  	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
+> > @@ -96,38 +122,48 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+> >  		if (!tmp)
+> >  			return -ENOMEM;
+> >  
+> > +		/*
+> > +		 * Populate new slots before publishing: table walkers hold
+> > +		 * mmu_lock and iterate up to nested_mmus_size.
+> > +		 */
+> > +		for (i = kvm->arch.nested_mmus_size; i < num_mmus; i++) {
+> > +			struct kvm_s2_mmu *mmu = alloc_nested_s2_mmu(kvm);
+> > +
+> > +			if (IS_ERR(mmu)) {
+> > +				ret = PTR_ERR(mmu);
+> > +				break;
+> > +			}
+> > +
+> > +			tmp[i] = mmu;
+> > +		}
+> 
+> You now are allocating each s2_mmu individually. But you know you want
+> at most S2_MMU_PER_VCPU structures, and not any extra ones. So you
+> could allocate one block for the current vcpu, and let the next guy
+> allocate its own quota.
+> 
+> The other thing is that reallocating the pointer array isn't great. It
+> adds complexity, and makes everything more fragile than it should be.
+> 
+> See the hack below that seems to work OK.
+> 
+> 	M.
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 81d359ac7af14..65a1305c4a749 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -321,7 +321,7 @@ struct kvm_arch {
+>  	 * Stage 2 paging state for VMs with nested S2 using a virtual
+>  	 * VMID.
+>  	 */
+> -	struct kvm_s2_mmu *nested_mmus;
+> +	struct kvm_s2_mmu **nested_mmus;
+>  	size_t nested_mmus_size;
+>  	int nested_mmus_next;
+>  
+> diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+> index 012d711034d17..d21be647ac571 100644
+> --- a/arch/arm64/include/asm/kvm_nested.h
+> +++ b/arch/arm64/include/asm/kvm_nested.h
+> @@ -66,7 +66,7 @@ static inline u64 translate_ttbr0_el2_to_ttbr0_el1(u64 ttbr0)
+>  
+>  extern bool forward_smc_trap(struct kvm_vcpu *vcpu);
+>  extern bool forward_debug_exception(struct kvm_vcpu *vcpu);
+> -extern void kvm_init_nested(struct kvm *kvm);
+> +extern int kvm_init_nested(struct kvm *kvm);
+>  extern int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu);
+>  extern void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu);
+>  extern struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu);
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 9a6c72a186727..ae27ccc37b330 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -236,7 +236,9 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>  	mutex_unlock(&kvm->lock);
+>  #endif
+>  
+> -	kvm_init_nested(kvm);
+> +	ret = kvm_init_nested(kvm);
+> +	if (ret)
+> +		return ret;
+>  
+>  	ret = kvm_share_hyp(kvm, kvm + 1);
+>  	if (ret)
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index dfb96edbdc43c..e7a066a41b552 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -44,11 +44,15 @@ struct vncr_tlb {
+>   */
+>  #define S2_MMU_PER_VCPU		2
+>  
+> -void kvm_init_nested(struct kvm *kvm)
+> +int kvm_init_nested(struct kvm *kvm)
+>  {
+> -	kvm->arch.nested_mmus = NULL;
+> +	kvm->arch.nested_mmus = kvmalloc_array(KVM_MAX_VCPUS * S2_MMU_PER_VCPU,
+> +					       sizeof(struct s2_mmu *),
+> +					       GFP_KERNEL_ACCOUNT);
+>  	kvm->arch.nested_mmus_size = 0;
+>  	atomic_set(&kvm->arch.vncr_map_count, 0);
+> +
+> +	return kvm->arch.nested_mmus ? 0 : -ENOMEM;
+>  }
+>  
+>  static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+> @@ -69,8 +73,7 @@ static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+>  int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+>  {
+>  	struct kvm *kvm = vcpu->kvm;
+> -	struct kvm_s2_mmu *tmp;
+> -	int num_mmus, ret = 0;
+> +	int num_mmus;
+>  
+>  	if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features) &&
+>  	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
+> @@ -92,42 +95,34 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+>  	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
+>  
+>  	if (num_mmus > kvm->arch.nested_mmus_size) {
+> -		tmp = kvcalloc(num_mmus, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
+> +		struct kvm_s2_mmu *tmp;
+> +		int ret = 0;
+> +
+> +		tmp = kvcalloc(S2_MMU_PER_VCPU, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
+>  		if (!tmp)
+>  			return -ENOMEM;
+>  
+> -		write_lock(&kvm->mmu_lock);
+> +		for (int i = 0; !ret && i < S2_MMU_PER_VCPU; i++)
+> +			ret = init_nested_s2_mmu(kvm, &tmp[i]);
+>  
+> -		if (kvm->arch.nested_mmus_size) {
+> -			memcpy(tmp, kvm->arch.nested_mmus,
+> -			       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
+> +		if (ret) {
+> +			for (int i = 0; i < S2_MMU_PER_VCPU; i++)
+> +				kvm_free_stage2_pgd(&tmp[i]);
+>  
+> -			for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
+> -				tmp[i].pgt->mmu = &tmp[i];
+> +			kvfree(tmp);
+> +			free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+> +			vcpu->arch.ctxt.vncr_array = NULL;
+> +			return ret;
+>  		}
+> +		
+> +		guard(write_lock)(&kvm->mmu_lock);
+>  
+> -		swap(kvm->arch.nested_mmus, tmp);
+> +		for (int i = 0; i < S2_MMU_PER_VCPU; i++)
+> +			kvm->arch.nested_mmus[i + kvm->arch.nested_mmus_size] = &tmp[i];
+>  
+> -		write_unlock(&kvm->mmu_lock);
+> -
+> -		kvfree(tmp);
+> +		kvm->arch.nested_mmus_size += S2_MMU_PER_VCPU;
+>  	}
+>  
+> -	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
+> -		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
+> -
+> -	if (ret) {
+> -		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
+> -			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
+> -
+> -		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+> -		vcpu->arch.ctxt.vncr_array = NULL;
+> -
+> -		return ret;
+> -	}
+> -
+> -	kvm->arch.nested_mmus_size = num_mmus;
+> -
+>  	return 0;
+>  }
+>  
+> @@ -725,7 +720,7 @@ void kvm_s2_mmu_iterate_by_vmid(struct kvm *kvm, u16 vmid,
+>  	write_lock(&kvm->mmu_lock);
+>  
+>  	for (int i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (!kvm_s2_mmu_valid(mmu))
+>  			continue;
+> @@ -767,7 +762,7 @@ struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu)
+>  	 *   if S2 translation is disabled.
+>  	 */
+>  	for (int i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (!kvm_s2_mmu_valid(mmu))
+>  			continue;
+> @@ -806,7 +801,7 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+>  	for (i = kvm->arch.nested_mmus_next;
+>  	     i < (kvm->arch.nested_mmus_size + kvm->arch.nested_mmus_next);
+>  	     i++) {
+> -		s2_mmu = &kvm->arch.nested_mmus[i % kvm->arch.nested_mmus_size];
+> +		s2_mmu = kvm->arch.nested_mmus[i % kvm->arch.nested_mmus_size];
+>  
+>  		if (atomic_read(&s2_mmu->refcnt) == 0)
+>  			break;
+> @@ -1223,7 +1218,7 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+>  		return;
+>  
+>  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (kvm_s2_mmu_valid(mmu))
+>  			kvm_stage2_wp_range(mmu, 0, kvm_phys_size(mmu));
+> @@ -1242,7 +1237,7 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+>  		return;
+>  
+>  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (kvm_s2_mmu_valid(mmu))
+>  			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> @@ -1261,7 +1256,7 @@ void kvm_nested_s2_flush(struct kvm *kvm)
+>  		return;
+>  
+>  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (kvm_s2_mmu_valid(mmu))
+>  			kvm_stage2_flush_range(mmu, 0, kvm_phys_size(mmu));
+> @@ -1270,13 +1265,14 @@ void kvm_nested_s2_flush(struct kvm *kvm)
+>  
+>  void kvm_arch_flush_shadow_all(struct kvm *kvm)
+>  {
+> -	int i;
+> -
+> -	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +	for (int i = kvm->arch.nested_mmus_size - 1; i >= 0; i--) {
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (!WARN_ON(atomic_read(&mmu->refcnt)))
+>  			kvm_free_stage2_pgd(mmu);
+> +
+> +		if ((i % S2_MMU_PER_VCPU) == 0)
+> +			kvfree(mmu);
+>  	}
+>  	kvfree(kvm->arch.nested_mmus);
+>  	kvm->arch.nested_mmus = NULL;
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
-My point is that this change introduces a data race on 'reg->sys_val' for
-the ID_AA64ISAR0_EL1 entry in the arm64_ftr_regs array.
-
-Will
+-- 
+Without deviation from the norm, progress is not possible.
 
