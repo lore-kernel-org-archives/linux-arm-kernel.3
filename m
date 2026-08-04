@@ -4,58 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8C4C55172
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 03:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508A0C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 03:49:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjSgLvpVkLAlpt0h3TqURSDDPzFkTT5uHnKOEmZFvx0=; b=aNxnJWVZDwHEjj7Wj9sAE1OmAP
-	+URj8S9kR6kxtWwnzICbLeTsrTiqTSP7/mOqYox0HMVREaXKoT3f/ifNs3OI5mKgay/Re8IVPL7QL
-	yVRZHaltvS+E8P0papAQxo6zl4ta/XOL9yYRpKuP353JcMt/1fuxx1hv5zh2gUn5xnE7vk900Pi4Q
-	WjAH1+C733dIAh5wc4GZMnITHyjrPQWhG2VvHj6y4E4+FZMq1CDTMYeSMqsYLSsM1PKHCkxNFq5kk
-	U2q+oIvvgpGU9s1OW/l7X3YBiw1fl2YvrG00sR6ZRp809W/GAj9J12yn4H2FvhSibAaHE2EYy1jO3
-	AW5l6LOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pwQro0XBY36lk0ceBUE0Egz81FQANnimgQHnfgGBQH4=; b=A5E9Fplxe2TVeqQFp9zwBoofS+
+	q6b8LOc0fXwlzz9YN4lSoJhpaCcKhDYMZOVfe0rpPJ2m7U6djySznFuuEN6EwOgNpzpjnaEZ1AwMj
+	mmaM9VKJc5/QXOVY3ImZRQme2Cp9QQ4ugxqQKshNeHOSAMgfPPhi3zS3TpfJxL1n74ueOKNKyfK9s
+	wneU9vTXMFzG1c9p6V+Zxb/FxqY19q1ay9wvV5OwI7nZ5p+wAKVKM6ZPh6YGaLItXzgiXdF5bLLcL
+	QdXNUhdzN3GABcOeFgftjCnjJqsAIi45nM5HYUb4ctDSxeba6ipZ1bdh9ZKu9Ty2HZArOBGDUyPCZ
+	LATzJU2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr67J-00000000x1f-1EBH;
-	Tue, 04 Aug 2026 03:47:01 +0000
-Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
+	id 1wr69M-00000000xBy-27PG;
+	Tue, 04 Aug 2026 03:49:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr67G-00000000x0v-2oiW
+	id 1wr69J-00000000xBW-2pa1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 03:47:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1785815215; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=VjSgLvpVkLAlpt0h3TqURSDDPzFkTT5uHnKOEmZFvx0=;
-	b=BveHJmsRyAwech8UWwWsPPySw3ynwY1Vy0+4I9YrwzEyIl2Bho7qMouX5tJtQHjY3MBzge9mQ5WepS7UrHAP3XTS6t8hUuwUUXVfu+1WbkrZmVb6EdRLWbBaVtSR15QfI/8wwhlu2QCZFDkl4KLKiwCOyRQ4KNNLhPZJ26N1HgM=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=11;SR=0;TI=SMTPD_---0X8MUVM._1785815214;
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X8MUVM._1785815214 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 04 Aug 2026 11:46:54 +0800
-Date: Tue, 4 Aug 2026 11:46:52 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Steffen Eiden <seiden@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Hyunwoo Kim <imv4bel@gmail.com>, stable@vger.kernel.org
-Subject: Re: [PATCH 4/6] KVM: arm64: Correctly handle end of VA space TLBI
- invalidation
-Message-ID: <bebthvofsp6rdtj7da7rtqgsdi6sjoq5dmodqzpi445r3msyoh@fd4pndoqqmix>
-References: <20260801124818.366274-1-maz@kernel.org>
- <20260801124818.366274-5-maz@kernel.org>
+	Tue, 04 Aug 2026 03:49:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785815344;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pwQro0XBY36lk0ceBUE0Egz81FQANnimgQHnfgGBQH4=;
+	b=O6VCvshUliZ9m28u8bM1OoV4r1KxoNw4i1qEAgiJz1jqpRFCvzVwkBE+ISwnCoCEM4VOqN
+	/gUMOc2GelLrEpEQB0eLhwHiSgibJQCon9FR5RJtfGTldX9SQkRBq9vIfgyE7CL9CqSNp4
+	S4p1+uiXnLzj5bZjnLoG0M0MMO3kTYM=
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
+ [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-56-dYIoJBzXM6SC3v4hKK6zSw-1; Mon, 03 Aug 2026 23:49:03 -0400
+X-MC-Unique: dYIoJBzXM6SC3v4hKK6zSw-1
+X-Mimecast-MFC-AGG-ID: dYIoJBzXM6SC3v4hKK6zSw_1785815342
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cbb20f82a0eso5755595a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 20:49:02 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785815342; x=1786420142;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pwQro0XBY36lk0ceBUE0Egz81FQANnimgQHnfgGBQH4=;
+        b=G3Vc/RohYXu4I+PQa1sXCUqxiEubeoyI2v91ER2wu16se4JfeWExZZY4jKGc935ffe
+         g3OM5FgMTkLi7zONPqrPrcdazN06eyAkjXmoKA/5uhnA8W9JJOLRnXXhardjXnGcMb5M
+         34DQRAb0mz1R4r9paTb4cbjpdqnP0T0/WD+EMJwnSG1qT5DoVKpELd/9oc6GL6EIyeOX
+         /Kh16StZVZDlpJnMsfwOs7H/3lwWK9BLKf9NYl6WMejEwb9cvG6A72Qpa6qFmzj2eBNn
+         5CDNizq6hipYjK2ZYT1qXhQkvAeoglejhNQ0MRbSnK8SMh5iPRN6+tsirzKAFV2AS+YF
+         ALRg==
+X-Forwarded-Encrypted: i=1; AHgh+RomymvjsGR1UmI2cPs9FaB4yPWxYGAlbnHDs/MKjDUUewJGjmqK51Yf1EY7m5xewzt8CDSf2wx8x6ykog63Nko7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeVl5mmA/ZHXjtezwGl2jJyO9hSF+k2nYsOPwB4es/cQ1lHtSz
+	3E8S7ogtk/cDDuhvgOd1tKMvkiaB+0plSO8to1K83Fl8b+AQ5CG/iqRA9rT4ePPhmq95vao87zt
+	eEIb610FroETMn4Yvpkyz8tBzJukOErkbVyXP4QMHe3a1qPQjrOvGaVDHT1R0jdMXtsVK0Ksvhx
+	mw
+X-Gm-Gg: AR+sD12HiNP+2YUFDX/BFZjr7EbmFHjv5lt1d1YZ4SEBI3hY3MdYKzPcHVVgo4UL4T5
+	VCTNoYJbK/IXqsKJ6iQiR/NQtgdfXMMn5BFG54EAobFzu3cTlEQl/qXEcweLMZ2fPxlfAzmnDyl
+	WypCMMpmChE60Mcdpvs4GCbtEHa0OQ3OUsBOb17xJ0fIPqEshXdhCiKaPWY0Cbxg3p+I3Llp+si
+	O3sD2TmloNRcLjI7agA4U3CCoOYfySGsHYagvYws3mfRXvpCWUpraU4/DYayKUIFhoW2xlMBFux
+	0/4A/KaNI21QDVhPNeAN+hYszFBu7ZJh8zMMHU26inRqOYSgPXlvvvjHXzXTATyuqwMEp4Tme1K
+	QECMbjQe4RV91x+GhwRLGaP/+dChWK+UImf93dXZHI3k=
+X-Received: by 2002:a05:6a21:7a4c:b0:3c3:834e:89bc with SMTP id adf61e73a8af0-3c92a864c8emr12489419637.50.1785815341987;
+        Mon, 03 Aug 2026 20:49:01 -0700 (PDT)
+X-Received: by 2002:a05:6a21:7a4c:b0:3c3:834e:89bc with SMTP id adf61e73a8af0-3c92a864c8emr12489378637.50.1785815341553;
+        Mon, 03 Aug 2026 20:49:01 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153dd4f197sm45501799eec.6.2026.08.03.20.48.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 03 Aug 2026 20:49:00 -0700 (PDT)
+Message-ID: <9feb5366-1955-411e-8a8c-278e201cd2eb@redhat.com>
+Date: Tue, 4 Aug 2026 13:48:50 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260801124818.366274-5-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 04/11] arm_mpam: propagate MSC access errors for msmon
+ helpers
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>, Ben Horgan <ben.horgan@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, Lee Trager <lee@trager.us>,
+ Ritwick Sharma <ritwick.sharma@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260731170324.2927758-1-andre.przywara@arm.com>
+ <20260731170324.2927758-5-andre.przywara@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20260731170324.2927758-5-andre.przywara@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: C4mOJ72W5gSqr9gh1ElbWBfT3dxhlHUdWZMKwcfWx3Y_1785815342
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_204658_884402_54AF753B 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20260803_204905_792090_0766F7F1 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,112 +124,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 01, 2026 at 01:48:16PM +0800, Marc Zyngier wrote:
-> Our TLB invalidation by VA code is based on comparing two ranges,
-> one defined by the TLB, and one defined by the TLBI instruction.
->
-> Each range is defined by a start and a size. However, the way the
-> comparison is done doesn't account for address rollover, as it
-> compares an address with (base + size). This works nicely until
-> this expression represent the last page/block in the TTBR1 VA space,
-> as the result is a big fat 0. And a failed TLB invalidation.
->
-> Rewrite the comparison in a way that is immune to the address
-> rollover (making the end address inclusive instead of exclusive),
-> and move this into a common helper that is used by both VA and IPA
-> invalidations, as suggested by Hyunwoo Kim (although the IPA version
-> didn't suffer from this particular problem, obviously).
->
-> Fixes: 4ffa72ad8f37e ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> Cc: stable@vger.kernel.org
+On 8/1/26 3:03 AM, Andre Przywara wrote:
+> Allow the helper functions for msmon accesses to return an error, and
+> propagate read and write errors from the lower level up.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 > ---
->  arch/arm64/kvm/nested.c | 43 ++++++++++++++++++-----------------------
->  1 file changed, 19 insertions(+), 24 deletions(-)
->
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index d7dba02dc84fe..47d61d3cf053c 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -999,6 +999,20 @@ static void invalidate_vncr(struct vncr_tlb *vt)
->  		clear_fixmap(vncr_fixmap(vt->cpu));
->  }
->
-> +static bool vncr_tlb_intersects(struct vncr_tlb *vt, u64 addr,
-> +				u64 scope_start, u64 scope_size)
-> +{
-> +	u64 tlb_size, tlb_start, tlb_end, scope_end;
-> +
-> +	tlb_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift, vt->wr.level));
-> +
-> +	tlb_start = addr & ~(tlb_size - 1);
-> +	tlb_end = tlb_start + tlb_size - 1;
-> +	scope_end = scope_start + scope_size - 1;
-> +
-> +	return !(tlb_end < scope_start || tlb_start > scope_end);
+>   drivers/resctrl/mpam_devices.c | 72 ++++++++++++++++++++++------------
+>   1 file changed, 47 insertions(+), 25 deletions(-)
+> 
 
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-> +}
-> +
->  /*
->   * VNCR TLB invalidation occurs from MMU notifiers or TLBI instructions, and
->   * either can race against a vcpu not being onlined yet (no pseudo-TLB
-> @@ -1021,19 +1035,9 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
->  	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
->  		return;
->
-> -	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
-> -		u64 ipa_start, ipa_end, ipa_size;
-> -
-> -		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
-> -							    vt->wr.level));
-> -		ipa_start = vt->wr.pa & ~(ipa_size - 1);
-> -		ipa_end = ipa_start + ipa_size;
-> -
-> -		if (ipa_end <= start || ipa_start >= end)
-> -			continue;
-> -
-> -		invalidate_vncr(vt);
-> -	}
-> +	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm)
-> +		if (vncr_tlb_intersects(vt, vt->wr.pa, start, end - start))
-> +			invalidate_vncr(vt);
->  }
->
->  struct s1e2_tlbi_scope {
-> @@ -1059,28 +1063,19 @@ static void invalidate_vncr_va(struct kvm *kvm,
->  	lockdep_assert_held_write(&kvm->mmu_lock);
->
->  	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
-> -		u64 va_start, va_end, va_size;
-> -
-> -		va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
-> -							   vt->wr.level));
-> -		va_start = vt->gva & ~(va_size - 1);
-> -		va_end = va_start + va_size;
-> -
->  		switch (scope->type) {
->  		case TLBI_ALL:
->  			break;
->
->  		case TLBI_VA:
-> -			if (va_end <= scope->va ||
-> -			    va_start >= (scope->va + scope->size))
-> +			if (!vncr_tlb_intersects(vt, vt->gva, scope->va, scope->size))
->  				continue;
->  			if (vt->wr.nG && vt->wr.asid != scope->asid)
->  				continue;
->  			break;
->
->  		case TLBI_VAA:
-> -			if (va_end <= scope->va ||
-> -			    va_start >= (scope->va + scope->size))
-> +			if (!vncr_tlb_intersects(vt, vt->gva, scope->va, scope->size))
->  				continue;
->  			break;
->
-> --
-> 2.47.3
->
 
