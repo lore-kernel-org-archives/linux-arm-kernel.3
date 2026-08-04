@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7627DC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 10:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE2BC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qfx/JXhnkvzzI2BW5XElJmPYBoq4OvslsVX7Sylc9YM=; b=wE7hmCTSHgFHWYNNqZiO2gsp0C
-	VzP45l0NoJg+gA7jKu9gDoZKEmc0p3dGJb2SsVBm67HrPypdCrAJuAX2kQOZYadW6O8kCu0bxnDC2
-	rGPCxBgUpPVSCx8XUotBKtu5SxrQCJf5GvJy0IfsUTzC/c3eYkOeInnIh7zmx9frhssBkgy9cvRWx
-	2vYqjDmX82IMr6j4dLOnOd35398rKu41rCeua+/LXj0KK+JvgphKAAjkn+AF3drkRgZkNphGMTr8D
-	hHctw024xLwfRO+B0YkYmiKcBm230v6giz4cFhDiWWn2wzXIB2KOGpnWTXTF2Z4yGKWG0oGpBVf0S
-	E+ieGOkg==;
+	bh=pzVNG75jEMMbJL9B6jQVIbPoktae5dE9O/0HZigYuYQ=; b=hnN3+jhDeUEQFBbrxQwH8Tk1Rt
+	t15nzNnonREyQKSGegHW5oyxPpXdMdqq6P6s711C445lGu63lwx6W+chEWSfyK+UgfmKgb3EJnXvI
+	evL5BLdQuwlxTLFq3/5hEHronL4kHRW8t5WSFzca7EmLqFTFwQhScf4FFd4pKFyJdhgM3G+n7YsJd
+	prx1bkXJvoJFB9uxl9XLlV5xsg/GWJfUvnerTKyygjecaxvKDqX6PMTNTue3KvAuBDDPPRBu+K2X8
+	Y5M/7eT/up27CGoXoizrzJv2IjhzbsppivBtdA0u22jOQZCyCnlxBX2gI+oN/Loln7fImNFelMFHt
+	XJsB5XUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrCo1-00000001bUQ-12bx;
-	Tue, 04 Aug 2026 10:55:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrCv9-00000001dNx-3hFd;
+	Tue, 04 Aug 2026 11:02:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrCnz-00000001bUC-2VmZ
+	id 1wrCv9-00000001dNq-13nR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 10:55:31 +0000
+	Tue, 04 Aug 2026 11:02:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC88860A73;
-	Tue,  4 Aug 2026 10:55:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBC461F000E9;
-	Tue,  4 Aug 2026 10:55:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 92F7943EB8;
+	Tue,  4 Aug 2026 11:02:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DC11F00A3E;
+	Tue,  4 Aug 2026 11:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785840930;
-	bh=qfx/JXhnkvzzI2BW5XElJmPYBoq4OvslsVX7Sylc9YM=;
+	s=k20260515; t=1785841374;
+	bh=pzVNG75jEMMbJL9B6jQVIbPoktae5dE9O/0HZigYuYQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JINp8CLcKyGxFVg0zs6zGF0WxOazH9C1viX2Av5FCxJcGkdot23Bx+NtDyXE2TQp4
-	 Qi3bmokWHojVYhyMZBuqMwJRF4w1phDddQxizqP8c0Jxpp6ogEj3K6ZJIiJHoq3Iqg
-	 8WTMfs25k/XwDxxK2l5Tz1ZseFoNgQkMCEqyDcVsy1CrnowkyETwrRYt/1UDrQTR7E
-	 aMP8LAnwxDw8gEAOC+4rF+1auX4ZxRMi38y3pI5mu9flrrzWnmndtcNJtMDWDY+qUD
-	 YT9R+5C948AydcYSJCE1zNoM7+FRoJlwlThzAqipqnTV1Mo7tWIozL8clLVYHK8VUU
-	 8VuMRm0UMorNg==
-Date: Tue, 4 Aug 2026 11:55:09 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
-	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH v2 1/6] mm/arm64: constify pte_get*() and contpte get
- logic
-Message-ID: <anG2V7KpvIHjNyVq@lucifer>
-References: <20260803164400.531199-1-pfalcato@suse.de>
- <20260803164400.531199-2-pfalcato@suse.de>
+	b=UFGQem5o1Jsij4bIFuEwLH+baDq9qDffNNDDjSz3q55QjVUda1ixf+1JtuFuPN1Se
+	 Fs4jTE2ir3jhW56PbXbXWKMxrikSXqdJI2bTJ94leE+KKdDf+d+CuUTBu7BzV3yMqd
+	 Lvd0oQF4qzWmEZWZogA8ULpf6yeUjX24l61llNS5OCsURvIudwlbhhSs0LngHSYFbB
+	 R2xTJT8RXGHMT0VossM2XFQ7W0c6ZArsbYXzYIeYmfCUT0nu0WfcVz5LfBncNcT+Rr
+	 YxzM12jqjckU4KHWXDR+bSla9Nk0nLRa1mAGAUD4iu7hGrwS5hlGgskaSD6xX9LL1O
+	 3vQAs2w3TguKQ==
+Date: Tue, 4 Aug 2026 12:03:13 +0100
+From: Jean-Philippe Brucker <jpb@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org
+Subject: Re: [RFC PATCH v1 2/8] misc/arm-cla: Add launch operation helpers
+Message-ID: <20260804110313.GA733232@myrica>
+References: <20260717104759.123203-1-ryan.roberts@arm.com>
+ <20260717104759.123203-3-ryan.roberts@arm.com>
+ <5049af19-47c4-4ab5-bb4d-6b3cd54ad75c@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260803164400.531199-2-pfalcato@suse.de>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5049af19-47c4-4ab5-bb4d-6b3cd54ad75c@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,147 +76,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 05:43:55PM +0100, Pedro Falcato wrote:
-> None of the contpte code needs write access to the PTEs.
+On Fri, Jul 17, 2026 at 02:16:36PM +0200, Arnd Bergmann wrote:
+> On Fri, Jul 17, 2026, at 12:47, Ryan Roberts wrote:
+> > From: Jean-Philippe Brucker <jpb@kernel.org>
+> >
+> > CLA commands are issued by writing optional payload registers,
+> > programming the LAUNCH register and polling LRESP until the hardware
+> > accepts or rejects the operation.
+> >
+> > Add a common launch helper that performs this sequence on the CLA's
+> > local CPU, waits for LRESP completion and translates launch response
+> > codes into Linux errors.
+> >
+> > Build accelerator reset and register read and write support on top of
+> > it. The register read and write helpers split larger accesses into
+> > multiple launch operations when an access crosses an eight-register
+> > window.
+> 
+> I'm a bit confused by the MMIO register access ordering, if this is
+> not a normal AXI attached device with a DMA master, I think it
+> would make sense to better document what it is.
+> 
+> > +static inline u64 cla_reg_read(struct cla_dev *dev, off_t reg)
+> > +{
+> > +	return readq_relaxed(dev->regs + reg);
+> > +}
+> > +
+> > +static inline void cla_reg_write(struct cla_dev *dev, off_t reg, u64 
+> > val)
+> > +{
+> > +	return writeq_relaxed(val, dev->regs + reg);
+> > +}
+> 
+> For regular devices that have a DMA master, you cannot use
+> the relaxed operations by default since they do not serialize
+> against DMA transfers.
+> 
+> To do this properly, you'd have to define separate cla_reg_read()
+> and cla_reg_read_relaxed() helpers and then use them as needed,
+> ideally with a comment for each relaxed instance to explain why
+> that one is both performance critical and safe.
+> 
+> If for some reason this accelerator is not a DMA master (e.g.
+> because it is implemented through CPU microcode and accesses
+> the memory through the CPU's own load/store unit), that should
+> be documented here to explain that you are relying on
+> implementation defined behavior outside of the normal driver
+> and memory model.
 
-This seems like a very broad statement? Is that actually true? I see a bunch of
-ptep's that aren't const-ified, so you should explain why those couldn't be
-converted.
+Good point, this needs better comments. The kernel driver doesn't use any
+DMA so the accessors can all be _relaxed. The userspace library, which
+does use DMA and MMIO, needs to insert memory barriers when programming
+the device.
 
-Also you add a new contpte_align_down() macro, you should mention that it the
-commit message, explain why it was needed.
+It's possible we are missing barriers in the context switching path, but
+I don't think we need any. The driver forces accelerators to idle which,
+in this hardware, guarantees that all DMA initiated by previous user is
+complete, and no DMA will be issued until we return to user after
+assigning a new context. We don't touch the user buffers but for the page
+table walker, the barriers in the arch mm code should be sufficient.
 
-In general more needed here :) it'd be ok if it was a truly trivial change that
-was all obvious but you're changing some pte_t *'s and not others so it's
-clearly not.
+> 
+> > +	/*
+> > +	 * No barrier needed because accesses use Device-nGnRE, within the 
+> > same
+> > +	 * memory-mapped peripheral, so accesses arrive at the endpoint in
+> > +	 * program order.
+> > +	 */
+> 
+> This comment in turn looks completely useless, as that is true
+> for any MMIO device. The only barriers that you'd normally need
+> here on sane architectures (not Alpha) are to serialize MMIO
+> against DMA.
+> 
+> > +
+> > +	if (launch->data_mode == CLA_DATA_OUT)
+> > +		for (i = 0; i < launch->ndata_m1 + 1; i++)
+> > +			launch->data[i] = cla_reg_read(dev, CLA_REG_DATA(i));
+> 
+> Instead of the open-coded loop, maybe this can be built
+> on top of __iowrite32_copy()
 
->
-> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
-> ---
->  arch/arm64/include/asm/pgtable.h | 10 +++++-----
->  arch/arm64/mm/contpte.c          | 11 ++++++++---
->  2 files changed, 13 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index a2681d755358..043bc0649cee 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -378,7 +378,7 @@ static inline void __set_pte(pte_t *ptep, pte_t pte)
->  	__set_pte_complete(pte);
->  }
->
-> -static inline pte_t __ptep_get(pte_t *ptep)
-> +static inline pte_t __ptep_get(const pte_t *ptep)
->  {
->  	return READ_ONCE(*ptep);
->  }
-> @@ -1652,8 +1652,8 @@ extern void __contpte_try_fold(struct mm_struct *mm, unsigned long addr,
->  				pte_t *ptep, pte_t pte);
->  extern void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
->  				pte_t *ptep, pte_t pte);
-> -extern pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte);
-> -extern pte_t contpte_ptep_get_lockless(pte_t *orig_ptep);
-> +extern pte_t contpte_ptep_get(const pte_t *ptep, pte_t orig_pte);
-> +extern pte_t contpte_ptep_get_lockless(const pte_t *orig_ptep);
+Ah yes, __iowrite64_copy() should work here (reg accesses must be 64-bit).
 
-This is (very) nitty but - not sure on the policy on extern's (Will/Catalin?) -
-but in mm we drop them when we touch the code since you don't need them these
-days :)
+> 
+> > +/**
+> > + * cla_op_wait_lresp - Wait for any LAUNCH op to complete.
+> > +int cla_op_wait_lresp(struct cla_dev *dev, u64 *lresp)
+> > +{
+> > +	return readq_relaxed_poll_timeout_atomic(dev->regs + CLA_REG_LRESP,
+> > +			*lresp, FIELD_GET(CLA_LRESP_PENDING, *lresp) == 0,
+> > +			CLA_LRESP_DELAY_US, CLA_LRESP_TIMEOUT_US);
+> 
+> Similarly, the readq_relaxed_poll_timeout_atomic() specifically
+> does not wait for DMA, so you may need separate helpers for
+> devices that can do DMA and readq_poll_timeout_atomic() vs devices
+> that never access memory and can use the relaxed version.
 
->  extern void contpte_set_ptes(struct mm_struct *mm, unsigned long addr,
->  				pte_t *ptep, pte_t pte, unsigned int nr);
->  extern void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
-> @@ -1732,7 +1732,7 @@ static inline unsigned int pte_batch_hint(pte_t *ptep, pte_t pte)
->   */
->
->  #define ptep_get ptep_get
-> -static inline pte_t ptep_get(pte_t *ptep)
-> +static inline pte_t ptep_get(const pte_t *ptep)
->  {
->  	pte_t pte = __ptep_get(ptep);
->
-> @@ -1743,7 +1743,7 @@ static inline pte_t ptep_get(pte_t *ptep)
->  }
->
->  #define ptep_get_lockless ptep_get_lockless
-> -static inline pte_t ptep_get_lockless(pte_t *ptep)
-> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
->  {
->  	pte_t pte = __ptep_get(ptep);
->
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index 2de12656b4d8..3a5d6937fb51 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -26,6 +26,11 @@ static inline pte_t *contpte_align_down(pte_t *ptep)
->  	return PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
->  }
->
-> +#define contpte_align_down(ptep)                                                       \
-> +	_Generic((ptep),                                                               \
-> +		 const pte_t *: (const pte_t *) contpte_align_down((pte_t *) (ptep)),  \
-> +		 pte_t *: contpte_align_down((pte_t *) ptep))
+This does not wait for DMA, only for the LAUNCH command issued with MMIO
+to complete.
 
-I really hate these _Generic() helper things. So ugly. And it's a pretty horrid
-cast now :(
+> 
+> You may also need a non-atomic version, as blocking the CPU
+> for 100µs is not great for realtime workloads.
 
-Was it not possible to const-ify further to just be able to constify
-contpte_align_down itself?
+Agreed
 
-It also seems to contradict the claim that contpte doesn't need write-access to
-pte's since you're going to lengths to allow non-const pte_t * here.
-
-You should cover off why this was necessary in the commit message as above.
-
-Anyway PTR_ALIGN_DOWN() is already const-safe so couldn't you anyway just
-collapse this to:
-
-#define contpte_align_down(ptep) \
-	PTR_ALIGN_DOWN(ptep, sizeof(*(ptep)) * CONT_PTES)
-
-Then describe in the commit message why you need to handle both cases?
-
-> +
->  static inline pte_t *contpte_align_addr_ptep(unsigned long *start,
->  					     unsigned long *end, pte_t *ptep,
->  					     unsigned int nr)
-> @@ -310,7 +315,7 @@ void __contpte_try_unfold(struct mm_struct *mm, unsigned long addr,
->  }
->  EXPORT_SYMBOL_GPL(__contpte_try_unfold);
->
-> -pte_t contpte_ptep_get(pte_t *ptep, pte_t orig_pte)
-> +pte_t contpte_ptep_get(const pte_t *ptep, pte_t orig_pte)
->  {
->  	/*
->  	 * Gather access/dirty bits, which may be populated in any of the ptes
-> @@ -367,7 +372,7 @@ static inline bool contpte_is_consistent(pte_t pte, unsigned long pfn,
->  			pgprot_val(prot) == pgprot_val(orig_prot);
->  }
->
-> -pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
-> +pte_t contpte_ptep_get_lockless(const pte_t *orig_ptep)
->  {
->  	/*
->  	 * The ptep_get_lockless() API requires us to read and return *orig_ptep
-> @@ -386,10 +391,10 @@ pte_t contpte_ptep_get_lockless(pte_t *orig_ptep)
->  	 * because it is not part of a contpte range.
->  	 */
->
-> +	const pte_t *ptep;
-
-Nit but this is breaking the reverse xmas tree isn't it?
-
->  	pgprot_t orig_prot;
->  	unsigned long pfn;
->  	pte_t orig_pte;
-> -	pte_t *ptep;
->  	pte_t pte;
->  	int i;
->
-> --
-> 2.55.0
->
-
---
-Cheers, Lorenzo
+Thanks,
+Jean
 
