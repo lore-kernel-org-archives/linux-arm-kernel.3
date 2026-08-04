@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAE6C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C059AC55838
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+iDWZwHoP4F6Gk/aQJutkUyb69JpPOzrtOraBt0YZM=; b=d/MPIV5khuZC/kL2FnmckhXc1m
-	cvPHSsn3E5UZ+ywSfRT1bs10YTX4SAN8F+1VYYKCZRzy6AbCMelSIDr5JAd8EYi8l44s93eqmpGE9
-	EauknRSVdGScgxOpXPtwimV0NW5knSIfm9gCEEDYeN1bSpBRpg1T+GUCi8bjj/nZeKqxU6KjmqqIA
-	yGAO6dm9MrkYHEsCJas/Y7tFvTEodncGOYaqXkoGA7o29HtnfTbmBI3wMZBTadUkq9H4XbzI9A4lo
-	QwOzdT3tPILUWi+2e97ghlWtOaXh7zSzrGgUvQOgltCpwkJGwPQpYHwgStn51yY3RCbtUipZF9tj4
-	Lo11zySA==;
+	bh=O04AjETwdkKDFMoFDRH7HNAUs5os4iVo89vC02nF1dA=; b=IJGtHiJCTStrBdsQXeO5cr6BB+
+	zHFO+ndiBjClq/5ZQVQrCMj6GOpSxM9u63ckINFmht60j2TG1X8WCUvRFyzTGXA0XrIc0rMI3nHYS
+	tf5/6aGeCoonbHMhnEnmnfvm0bLLEQ+2vlKCFQKpgVKeJ7Cy9w1oDK2ryfOMUiZP1Z5suh0KV7/Hk
+	BGx556Ualhj2D1ukbt97+1NsRIWTri33CLi2dHCeq5oPdsy41KQ7G9JThRLmGhtV4UsgaF/WU673Z
+	f49q0iSb1MzaAbGwaEDjb/ChU6XkZIRX9bjDqIyfNJlP44WjyQQP8POzS630zYsgsCnUIqfY2A5UQ
+	UhSKGhjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrD9O-00000001f8u-106Z;
-	Tue, 04 Aug 2026 11:17:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrD9L-00000001f73-0k6N
+	id 1wrDEI-00000001fYy-46ji;
+	Tue, 04 Aug 2026 11:22:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrDEH-00000001fYg-14Qj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:17:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27FE21476;
-	Tue,  4 Aug 2026 04:17:28 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 676213F86F;
-	Tue,  4 Aug 2026 04:17:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785842252; bh=PuLVuA3EE7hhRSTRE5aJ3fJc8wvzv1KpsD48t2Cvtu8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YI3tXAjUWs3eUlwla6Vyx8b2j9EpWmRXeo0f5V6KOJSjyFfkXEJMMCvJMZRo+JkYL
-	 OXC25ShkTg+Vxrz3vBQRMaCEG1tr8uy2nTa1oh63KShrm4aHyWCTuevEKTsXixJ8L7
-	 keNJR9RrNcx4tZr1tPge1DqUbboypqpxfQApye3s=
-Date: Tue, 4 Aug 2026 12:17:28 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] arm: asid: Do not replace active_asids if already 0
-Message-ID: <anHKSN6bXkL37maU@arm.com>
-References: <20180104180405.37596-1-catalin.marinas@arm.com>
- <amSFZixpR60Mrg7B@gmail.com>
+	Tue, 04 Aug 2026 11:22:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CE257433CB;
+	Tue,  4 Aug 2026 11:22:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 355F71F000E9;
+	Tue,  4 Aug 2026 11:22:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785842560;
+	bh=O04AjETwdkKDFMoFDRH7HNAUs5os4iVo89vC02nF1dA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=mETS7jtQ9xPeY0vCfNmg+ddX8fuc7SUbBvCjaH6OSIVCtgc43e2hUnlX4GQ8hVnLp
+	 6wlmwsuR15aWXkBkD3bqUj/JLgmtSQUiuVYLRHObbnTQtwRFxGwcIPHO6upxsRhNCF
+	 jUEuDv791XD4yslZfyX2uYtLSp1XjxI5cxjjPoKEzOuV65mhd8zYxK82NG56Fm7N89
+	 pbF71py3im6THBC+vOhEIjMCGSS1Bdv9a3qnU8xi2XXGG37cqRPZrOVpW7d9Jaxiaw
+	 fCO4hp38sQlygOaBiDhDSQ8C1Ut9rDn89dHfwdAGdMgsWlhRkekX4aGc5i1XCMjSPs
+	 4TId4Keo909Jw==
+Date: Tue, 4 Aug 2026 12:22:19 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Pedro Falcato <pfalcato@suse.de>
+Cc: David Hildenbrand <david@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH v2 6/6] mm: constify the pte_offset_map_ro_nolock()
+ return value
+Message-ID: <anHJ48Glq8EdHatd@lucifer>
+References: <20260803164400.531199-1-pfalcato@suse.de>
+ <20260803164400.531199-7-pfalcato@suse.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <amSFZixpR60Mrg7B@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_041735_264848_00DC6744 
-X-CRM114-Status: GOOD (  19.99  )
+In-Reply-To: <20260803164400.531199-7-pfalcato@suse.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,41 +82,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 25, 2026 at 12:12:16PM +0200, Karl Mehltretter wrote:
-> On Thu, Jan 04, 2018 at 06:04:05PM +0100, Catalin Marinas wrote:
-> > This patch changes the xchg to cmpxchg so that the active_asids is only
-> > updated if non-zero to avoid a race with an ASID roll-over on a
-> > different CPU.
-> > 
-> > Cc: Russell King <linux@armlinux.org.uk>
-> > Cc: Will Deacon <will.deacon@arm.com>
-> > Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
-> > ---
-> > 
-> > This is similar to the arm64 patch [1], with the difference that non-relaxed
-> > (cmp)xchg is used as per the existing code.
-> > 
-> > [1] http://lkml.kernel.org/r/20180104111721.33834-1-catalin.marinas at arm.com
-> 
-> While the arm64 patch was reviewed and merged, this patch never got any reply.
-> It needs a small rebase, but the change itself still applies today.
+On Mon, Aug 03, 2026 at 05:44:00PM +0100, Pedro Falcato wrote:
+> Constify the pte_t * retval from pte_offset_map_ro_nolock(), for which it is
+> already pledged that accesses must be read-only. With it, convert the three
+> treewide users to use const pte_t *.
+>
+> khugepaged passes the result right down to fault code (do_swap_page()). This
+> leads to a complicated set of conditions that, in order to be correct, must
+> not install anything into *vmf->pte. This is not trivial to work around in
+> fault code, and as such just trivially cast to non-const pte_t* in the
+> meantime.
+>
+> The other users are far more trivial and the conversion is equally
+> trivially simple.
 
-Oh, it's been a while. Not sure whether I missed cc'ing Russell at the
-time or the archive stripped the recipients (I no longer have the actual
-email sent).
+Ah finally more words! :)
 
-> Would you like to resend it ? 
+>
+> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
 
-If you have the setup to test, please do check and resend it to the
-list. After that you can send it to Russell's patch system:
+With comment updated as below and nits addressed, LGTM so:
 
-  git send-email --add-header="KernelVersion: $(git describe --abbrev=0)" --to="patches@armlinux.org.uk"
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-The arm64 commit was a8ffaaa060b8 ("arm64: asid: Do not replace
-active_asids if already 0").
+> ---
+>  arch/powerpc/mm/pgtable.c | 2 +-
+>  include/linux/mm.h        | 4 ++--
+>  include/linux/pgtable.h   | 2 +-
+>  mm/filemap.c              | 2 +-
+>  mm/khugepaged.c           | 2 +-
+>  mm/pgtable-generic.c      | 4 ++--
+>  6 files changed, 8 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
+> index a9be337be3e4..e29db41b6043 100644
+> --- a/arch/powerpc/mm/pgtable.c
+> +++ b/arch/powerpc/mm/pgtable.c
+> @@ -390,7 +390,7 @@ void assert_pte_locked(struct mm_struct *mm, unsigned long addr)
+>  	p4d_t *p4d;
+>  	pud_t *pud;
+>  	pmd_t *pmd;
+> -	pte_t *pte;
+> +	const pte_t *pte;
+>  	spinlock_t *ptl;
+>
+>  	if (mm == &init_mm)
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 7fabe6c66b4b..acf5a5e31d34 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -3885,8 +3885,8 @@ static inline pte_t *pte_offset_map(pmd_t *pmd, unsigned long addr)
+>  pte_t *pte_offset_map_lock(struct mm_struct *mm, pmd_t *pmd,
+>  			   unsigned long addr, spinlock_t **ptlp);
+>
+> -pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
+> -				unsigned long addr, spinlock_t **ptlp);
+> +const pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
+> +				      unsigned long addr, spinlock_t **ptlp);
+>  pte_t *pte_offset_map_rw_nolock(struct mm_struct *mm, pmd_t *pmd,
+>  				unsigned long addr, pmd_t *pmdvalp,
+>  				spinlock_t **ptlp);
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index dc418553e57a..dd51e722c535 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -112,7 +112,7 @@ static inline pte_t *__pte_map(pmd_t *pmd, unsigned long address)
+>  {
+>  	return pte_offset_kernel(pmd, address);
+>  }
+> -static inline void pte_unmap(pte_t *pte)
+> +static inline void pte_unmap(const pte_t *pte)
 
-Thanks.
+I was going to question this based on whether the contract holds for
+CONFIG_HIGHPTE but actually:
 
--- 
-Catalin
+#define pte_unmap(pte)	do {	\
+	kunmap_local((pte));	\
+	rcu_read_unlock();	\
+} while (0)
+
+#define kunmap_local(__addr)					\
+do {								\
+	BUILD_BUG_ON(__same_type((__addr), struct page *));	\
+	__kunmap_local(__addr);					\
+} while (0)
+
+static inline void __kunmap_local(const void *vaddr) <-- const!
+{
+	kunmap_local_indexed(vaddr);
+}
+
+So nice (CONFIG_HIGHPTE is going to go away at some point though, right? I
+hope... :)
+
+
+>  {
+>  	rcu_read_unlock();
+>  }
+> diff --git a/mm/filemap.c b/mm/filemap.c
+> index 6afec636881f..af5d3fcd1b05 100644
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -3490,7 +3490,7 @@ static vm_fault_t filemap_fault_recheck_pte_none(struct vm_fault *vmf)
+>  {
+>  	struct vm_area_struct *vma = vmf->vma;
+>  	vm_fault_t ret = 0;
+> -	pte_t *ptep;
+> +	const pte_t *ptep;
+>
+>  	/*
+>  	 * We might have COW'ed a pagecache folio and might now have an mlocked
+> diff --git a/mm/khugepaged.c b/mm/khugepaged.c
+> index b237f6e7662a..09efac93a8c6 100644
+> --- a/mm/khugepaged.c
+> +++ b/mm/khugepaged.c
+> @@ -1170,7 +1170,7 @@ static enum scan_result __collapse_huge_page_swapin(struct mm_struct *mm,
+>  			 * Here the ptl is only used to check pte_same() in
+>  			 * do_swap_page(), so readonly version is enough.
+>  			 */
+> -			pte = pte_offset_map_ro_nolock(mm, pmd, addr, &ptl);
+> +			pte = (pte_t *) pte_offset_map_ro_nolock(mm, pmd, addr, &ptl);
+
+Hmm yeah this is nasty, but you explain why in the commit message. Could you
+extend the comment to explain it?
+
+>  			if (!pte) {
+>  				mmap_read_unlock(mm);
+>  				result = SCAN_NO_PTE_TABLE;
+> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+> index b91b1a98029c..2cfc6e608ef4 100644
+> --- a/mm/pgtable-generic.c
+> +++ b/mm/pgtable-generic.c
+> @@ -308,8 +308,8 @@ pte_t *__pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp)
+>  	return NULL;
+>  }
+>
+> -pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
+> -				unsigned long addr, spinlock_t **ptlp)
+> +const pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
+
+Can pmd be const too?
+
+> +				      unsigned long addr, spinlock_t **ptlp)
+>  {
+>  	pmd_t pmdval;
+>  	pte_t *pte;
+> --
+> 2.55.0
+>
+
+--
+Cheers, Lorenzo
 
