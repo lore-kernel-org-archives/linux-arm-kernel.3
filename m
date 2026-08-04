@@ -4,76 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46194C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:40:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92B62C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dBaGjl0IQHFKpt/VALgYXTNkr4+dRBwB1CDDd0+ACNY=; b=znC0kX/M66XtY7fQ6BE/1dLKnK
-	gvnxKeGBwq1KVmGTWot44x2jCRxBOnAWA8ckuAbqKT6SJOoY3XIvFMIvZkGq2tZluIoIyq9Jbq5lM
-	750z4LLg7gMs/5jZDG9WevDRQr/srnlqTbkZDyJ7WbHClNOWdZRNgxCRbfJI7gLOezh31OQ2f/OPS
-	BUJ/RW9MZw3+fQ/5BA8SL8v9IjctanZboo3K1fcgm1onB8umWRpjcfRNqU1fzNbzLAPMxcl1eBbXv
-	+zrlhuCUNql4E6xmBmP1drkIzcxNuRuqBPqbstxUXtIC8nxugxm2dAKO0DFFR61YHRvMVW8/Uhhy/
-	VFiOXVNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EKpVVOy/vAF//iLEvNyTANx2jy7aUA2O60ZeWWvd0cI=; b=wuSpPegp4o103euNLgKwkbg99t
+	Mc+8F8MQLViw/EOlbtlAJWe7oguKpcmaYhNNsb90rjph2V8UUgEfjG1XB5s9aAKCFT9hFydAJSMTh
+	9xnMPgrO+yjmrOIe7O8mwlfqvrvoFVYvJO7GlFII8LdYuuhMKH9N5FyCoFL0CoOs9vwpalKN7fS2b
+	/2wBYRJKxiCwdcU5mO3Hqgh7DRYtl6iV0I/na85w9dKLavi+q7B4P/8+Xa//4U4L4lVw80O9IknAg
+	IoCgu/VyLIhNI2qD6Jco6W8L5tsVYOaWjLtHsU3bcXlhD3j3s2NWyLnBoaos0QEWZyzd09R1YYOTn
+	9YPRJlNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9kg-00000001Fpo-0EeG;
-	Tue, 04 Aug 2026 07:39:54 +0000
-Received: from vps.xff.cz ([195.181.215.36])
+	id 1wr9mw-00000001G31-1jcA;
+	Tue, 04 Aug 2026 07:42:14 +0000
+Received: from fout-b6-smtp.messagingengine.com ([202.12.124.149])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9kd-00000001Fom-0bHf;
-	Tue, 04 Aug 2026 07:39:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
-	t=1785829186; bh=NEF8spb5u7CiwNS+iTwEBVYL0bpl2VvikQOwHzvJeLU=;
-	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
-	b=kOZQ0H0n7b4gT77O6FBv02l9YBjBiXc3PjJevI3AcTpQiuCrJKoGdy8lThP1WN8O+
-	 LYL6yXozTGg6QoO71NQ2O/8HW2d6OcbzYlnWX7KEjrdZ8wve5TZzLAvlmV4VvdTMcx
-	 LQ77Q1yNMEjykXQO5teDSBR6JP/u93MDiL9nLKAU=
-Date: Tue, 4 Aug 2026 09:39:45 +0200
-From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
-To: david@ixit.cz
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Olivier Benjamin <olivier.benjamin@bootlin.com>, 
-	Manuel Traut <manut@mecka.net>, Alexander Warnecke <awarnecke002@hotmail.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Martin Kepplinger <martin.kepplinger@puri.sm>, Shawn Guo <shawnguo@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, phone-devel@vger.kernel.org, imx@lists.linux.dev, 
-	stable@vger.kernel.org
-Subject: Re: [PATCH 2/4] arm64: dts: rockchip: rk3399-pinephone-pro: DW9714
- coil requires higher voltage
-Message-ID: <2j7ogeqj565sftp5wzqvtzi2id76fof623bifbmyu6ckhf6vm6@ya7h4tp5i4qf>
-Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
-	david@ixit.cz, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Olivier Benjamin <olivier.benjamin@bootlin.com>, 
-	Manuel Traut <manut@mecka.net>, Alexander Warnecke <awarnecke002@hotmail.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Martin Kepplinger <martin.kepplinger@puri.sm>, Shawn Guo <shawnguo@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, phone-devel@vger.kernel.org, imx@lists.linux.dev, 
-	stable@vger.kernel.org
-X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
- <https://xff.cz/key.txt>
-References: <20260801-pp-pro-camera-v1-0-7b4d90788f9f@ixit.cz>
- <20260801-pp-pro-camera-v1-2-7b4d90788f9f@ixit.cz>
+	id 1wr9mu-00000001G2a-0pzh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Aug 2026 07:42:13 +0000
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfout.stl.internal (Postfix) with ESMTP id D61C51D0017E;
+	Tue,  4 Aug 2026 03:42:06 -0400 (EDT)
+Received: from ams-imap-03 ([10.64.2.23])
+  by ams-compute-02.internal (MEProxy); Tue, 04 Aug 2026 03:42:08 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1785829326;
+	 x=1785915726; bh=EKpVVOy/vAF//iLEvNyTANx2jy7aUA2O60ZeWWvd0cI=; b=
+	E3cUNDBeFEZJr5XV3ccwz3OQo4YOMV5Fu9Xl648bD/u9qENTzEeJRU2b7cf3GWjn
+	vvWvX665VDZv6uqm8VO2p1NJOMTEccHjU4nyfz4gaZAPQeicr8GMzc9iyjWxd3mB
+	uqzWCpoalPb/loA0/Uv/8RGrmtQcsK9erLNcrrQj3phn/ypEMOme9DGQqSlk4TOn
+	Nj4ddwJlgMZmJGRLjw/Tv201uFvMXyjKIAmQ+5q2qyIp5YtiUsfkfE03Xs9Isofx
+	XOL4pcsi+1O5Nzc/ynCUl0jNbZBuZTpgoc8FAXMJfScL1T+nuRjVNY2VOQ5HG175
+	+hu55k/qDhSrBj8BD+vUtA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1785829326; x=
+	1785915726; bh=EKpVVOy/vAF//iLEvNyTANx2jy7aUA2O60ZeWWvd0cI=; b=h
+	GAN1CBVgDGmxdvV+vmGhB630VE0hdiJ7m/TmMkq+20yZ4jOd8qrK+B6OmwnhGtLY
+	vCI2JZ2H6h10Uokd3WozGEBYuv/rlSccGG6ov/xKamlbaTLY1v9jZVRiKKIKk7fB
+	JkOj6Q8pV3q5ucs6jNMR4JAakZyPZ07/QfWj/eUa1WJQGxKT3PZP8uzLbe9QRbqi
+	BuZLWGnWqftU3n0ESZ6kZRHeXf1roypeDTxAPiKPRIP2ehEZUdieJVCp2jR1SzCl
+	uhKk0vM23KUOakUz0gQWYCfKw5/piVue4zT0P57d9d/F61a02ACAUPaV2W4GH7Zz
+	kboe7xS5jcCeeCMorL7ug==
+X-ME-Sender: <xms:yJdxahP_t8ETQrjfILkhbK48-JtAbMq73jgPjFMSuTRVZ9VDY8TDjw>
+    <xme:yJdxauyAlUVu3CCQdjEWbJ3oc-o0p6FsBE8IUXn-_BnXxoe5JrJ7QJFKA5_bWfOYz
+    YGKzuj_7rDjAcR_QXLiVycrtOCTrypBADFJD6a-a6hLuHXBMIB23Wur>
+X-ME-Proxy-Cause: dmFkZTGFCYPo2AGgkRnqUylk8j8MDUHYfufINqLmmmGhtrVudRIgPX3z8wRljbN9Mmir8Z
+    64D3e+TnyDNB97KNPSHMAiHeS+vfJps4AY4A3UG7sZax+6gc++uSDuIJ0EgJidxXH4Nsgf
+    z8/PpVCwLr0nsIt3a1eKaQ1eUEy/OmVVwjdckjWSb5GujX7PPoOsFBm8aFPGYLDJrniYq8
+    vTIp1OUvHPGtCwt8oG4RkCOagbIl3RI0Xh3Apu3+X2wug8gtCM+2bXGDN3HfDu0ND4gGYB
+    d/9W/6MVjtZduHbO4RDTTbqqfrEXpce03HIWbZQf+X/Qg9517uxzpcu92J4CCrqp5F30nN
+    fomcq3IcinHtAvCFC5d3OzIbLdwtdLFjiu/ZBbf+fAb0ZhgJAz3Wli7DyLVCvKa3y9DBHc
+    Gl6mH/vxR1a2AVj+LN16AZlU8VgEXWMWamLXH3n9gEi+IubVlCww631aVsbCNVUdNk7m3J
+    Xgd2kYaD4jLquadTCLxWWDDfIsd4WOKVeUjLnG58XNGgWGnDb0d6W+zUGTZxWHc/JU8MW/
+    PeffmGbL6KhOS1YCXJ43EOLoaDDVK/tI8AVFKVYuXvHqDNq5oLWc7VCwphe6gvlIxkef6r
+    /9hjD5ivsRxIZn8KCqyuCWt+olO2zhfwtn8BHRMH4TrfD9rdGUXj5/HCLXKw
+X-ME-Proxy: <xmx:ypdxahAJlverSBktLbs0rLAN_jwK9108VtXcF53G7IfTX79LjXcQ4Q>
+    <xmx:ypdxasOHcH_gK2azF_-MugQDNtLjQSoor3cro4-fF3aSIqmrnhWZUA>
+    <xmx:ypdxagfjlBhFzIjDOauEtHKbGiaDyBtU2lFk1VEK5aP0D-aYxd3npw>
+    <xmx:ypdxal7nljWsEXbuQuQNTLsvhTO9_cCu-58hMTuv_DAgAxk2g6NuLg>
+    <xmx:zpdxapy1AgxiUFR1PTPXcOfaJ42Vx-pMxOlso7F07eK8LTNtIU-d5AnN>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 2BE1732A0065; Tue,  4 Aug 2026 03:42:00 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260801-pp-pro-camera-v1-2-7b4d90788f9f@ixit.cz>
+X-ThreadId: AdFLe7-IZaaF
+Date: Tue, 04 Aug 2026 09:41:39 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Andrew Jeffery" <andrew@codeconstruct.com.au>,
+ "Jacky Huang" <ychuang570808@gmail.com>, "Zi-Yu Chen" <zychennvt@gmail.com>
+Cc: soc@lists.linux.dev, "Jacky Huang" <ychuang3@nuvoton.com>,
+ schung@nuvoton.com, "Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
+ "Conor Dooley" <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <fa1d3251-817d-4095-8fc0-dbee0f9cbafc@app.fastmail.com>
+In-Reply-To: <6da6d2fa5111e479aeefd62da70974601acccb96.camel@codeconstruct.com.au>
+References: <20260708082457.460710-1-zychennvt@gmail.com>
+ <5f2954e4-2e0c-40d0-b67f-933446c83cc1@app.fastmail.com>
+ <825a3a1b-8891-4172-afd6-8de6077fa129@gmail.com>
+ <6da6d2fa5111e479aeefd62da70974601acccb96.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v2 RESEND] arm64: dts: nuvoton: ma35d1: add CAN nodes
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_003951_641875_CE3B04E5 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20260804_004212_644562_51C86D70 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,55 +114,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, Aug 4, 2026, at 07:13, Andrew Jeffery wrote:
+> On Mon, 2026-07-13 at 10:57 +0800, Jacky Huang wrote:
+>> Hi Arnd,
+>> 
+>> Thanks for the clarification.
+>> 
+>> Shan-Chun and I are still maintaining the MA35 platform.
+>> 
+>> I have reviewed this patch and it looks good to me.
+>> 
+>> Reviewed-by: Jacky Huang <ychuang3@nuvoton.com>
+>> 
+>> We agree that the current maintenance path for MA35 could be clearer.
+>> We will work on making the MA35 maintenance flow more transparent.
+>
+> I discussed this with Jacky off-list. Going forward I'll take MA35
+> patches with R-b tags from Jacky and Zi-Yu through the BMC tree to keep
+> things simple.
+>
+> I'll pick up v2 for the next merge window if there are no other issues
+> with it.
 
-On Sat, Aug 01, 2026 at 02:35:21AM +0200, David Heidelberg via B4 Relay wrote:
-> From: David Heidelberg <david@ixit.cz>
-> 
-> By datasheet the VDD (in-kernel named vcc) range is between 2.3 to 4.3 V.
-> Usually it's around 2.8 V. Here it matches the avdd2v8_dvp.
-> 
-> Fixes: 9336eb829a18 ("arm64: dts: rockchip: describe I2c Bus 1 and IMX258 world camera on PinePhone Pro")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: David Heidelberg <david@ixit.cz>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> index d46cdfe3f7849..bde35d9b2263e 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-> @@ -473,17 +473,17 @@ wcam_out: endpoint {
->  			};
->  		};
->  	};
->  
->  	wcam_lens: camera-lens@c {
->  		compatible = "dongwoon,dw9714";
->  		reg = <0x0c>;
->  		/* Same I2c bus as both cameras, depends on vcca1v8_codec for power. */
-> -		vcc-supply = <&vcc1v8_dvp>;
-> +		vcc-supply = <&avdd2v8_dvp>;
+Sounds good, thanks!
 
-This does not match reality, schematic says it's VCC2V8_DVP:
-
-	https://xff.cz/dl/tmp/6253a0465329df41.png
-
-regards,
-	o.
-
->  	};
->  
->  	ucam: camera@36 {
->  		compatible = "ovti,ov8858";
->  		reg = <0x36>;
->  		clocks = <&cru SCLK_CIF_OUT>; /* MIPI_MCLK1, derived from CIF_CLK0 */
->  		clock-names = "xvclk";
->  		dovdd-supply = <&vcc1v8_dvp>;
-> 
-> -- 
-> 2.53.0
-> 
-> 
+      Arnd
 
