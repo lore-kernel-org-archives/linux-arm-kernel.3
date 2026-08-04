@@ -4,59 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A2E5C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 15:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFA6C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 15:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCVelR+o83XaVGvz4DQ50PNmF82q//7lSnhfstgWi30=; b=hGXhD/PIu563F/CiZ24ZB3+fiA
-	a2K4eY7D8zreDHp1Ax0gkLt77rO7lVQKHM11Ohq+QEtNTUq/QEu5Yr+EuU6aU0ozHXuu5H3XK5LCy
-	/S8Y/6hkI9fL6zajGA14ux4cOtoBuj1S4Nnydlo8TnK6LhL36pb/1Izu6rCdKSw48qCJu7wOqUrJx
-	g0M57N+AFNsKG7VnfwNfZSdmcoRI7BoWYqimh/JQNr47iPv7KGVgm/Dgj+F4CvZxP5I0xlvJAgGJx
-	6O5m4o4wDA3Jh0Plb18zOxim38f+GBLIKiMN91ZMjhWFS3975ktnMx6URI3T74ql5zB2U1x5Hfu1f
-	2LPR9cEw==;
+	bh=ftTsgcVpNbKCmx0FJnA+PSQP6EmU4JeV42lZlsrS4B0=; b=Tcrp+Ej/EMNjS5uxtTJGqFwgDq
+	KYpQYEo5BiPw81AtctyBbbYipDWkwhkeWekaVIz3p7CxrsFdKBbBoe/tfJkvPUzK3aBeEyeK+Xv4d
+	DE+1ClRkXWhEQzeD3M5p4A/u0f1mt14mjNAkWccJK4dvoOe1qMLvmybJnkXDAxyuVRkqctcZZ16lw
+	0YbGIfKWgIwYoS5oGjOYXyTk/zeNNxOSqsSuwgco/FFBxLc8lubDLe87EPvQscrO23kmrWUbNngUK
+	DRqokmRBZ1lBrWMnYAsyhVCLTE3vw0EzzcJPEJfkNWjfaCr1GjPA4TGl3mCJ8E9xdigRZAuAH7wdV
+	jeeVA7iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGl5-00000002Ai6-0xHW;
-	Tue, 04 Aug 2026 15:08:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGl2-00000002Ah8-3K4k
+	id 1wrGsA-00000002BYg-0ttE;
+	Tue, 04 Aug 2026 15:16:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrGs9-00000002BYW-0IRS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 15:08:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 214891476;
-	Tue,  4 Aug 2026 08:08:40 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 056C33F86F;
-	Tue,  4 Aug 2026 08:08:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785856124; bh=T+gr0rNOzE9LGWc5d5uRT2kUhvR6p3PnmzPwKOsvu2g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DJU++mhuUwR6iMKXURfVTWxSD1Tc030OkGUuLekeRKLAsCu50j3c5/7jXy/ncb91h
-	 tMQz7sCPe6TUtdIOUPj4M8JTmsQN8XGwSTQBYitQKe/nargeP9krOqMvUueRx7ts39
-	 jDv/hZ3oJlT3R72HScRL35lJQBKuAsY9P5jPWrD0=
-Date: Tue, 4 Aug 2026 16:08:40 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] MAINTAINERS: arm64: Add Mark Rutland as an official
- Reviewer
-Message-ID: <anIAeKI1MLp_rmNx@J2N7QTR9R3>
-References: <20260803164230.25172-1-will@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260803164230.25172-1-will@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_080844_870930_6A7C57E3 
-X-CRM114-Status: GOOD (  17.23  )
+	Tue, 04 Aug 2026 15:16:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A77F64018F;
+	Tue,  4 Aug 2026 15:16:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89E0B1F000E9;
+	Tue,  4 Aug 2026 15:16:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785856564;
+	bh=ftTsgcVpNbKCmx0FJnA+PSQP6EmU4JeV42lZlsrS4B0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=HRufI+Emv/LZbJmWN1om8HUrS3Vvz6U/9Y3SL83gqQvWGcxXXpzb6wSdZkqQXL5Lg
+	 bL1xUE/uyaKmnqYu2ifr9UFgMqW9fhGIUNR8nCst2kP+4eKzBYlbMOL1Tj0ZvoeXji
+	 RDRbjoP6/Iqa6Qw5kEAb90eihNF1YChONzouTFrEtMgGkpeqXEzZhTTidD1QOdAvKN
+	 hdhxCIJQTr2XBiU99pO0NfDOmSqNuOfEK5fGMEeffo57m/X8nNf8/ls8fEH4FqHUMF
+	 mLZTd34ThEHML72RnYQUEkp8VOMFqDQuYqRc84U0QWsz/kPfnKzpBJz++gl2hmbuLX
+	 cX+iKdUQas5/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wrGs6-0000000CGJt-1b0o;
+	Tue, 04 Aug 2026 15:16:02 +0000
+Date: Tue, 04 Aug 2026 16:16:02 +0100
+Message-ID: <86ik5pc3wt.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH 3/6] KVM: arm64: Consider SCTLR_EL2.M when mapping the L1 VNCR page
+In-Reply-To: <anHIhHS6INKZLnrZ@e143914.arm.com>
+References: <20260801124818.366274-1-maz@kernel.org>
+	<20260801124818.366274-4-maz@kernel.org>
+	<anHIhHS6INKZLnrZ@e143914.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, imv4bel@gmail.com, stable@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,48 +89,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 05:42:30PM +0100, Will Deacon wrote:
-> Mark has been part of the arm64 furniture for as long as the code has
-> existed in mainline and is consistently one of the most active and
-> knowledgeable reviewers that we have.
+On Tue, 04 Aug 2026 12:09:56 +0100,
+Joey Gouly <joey.gouly@arm.com> wrote:
 > 
-> Make it official.
+> Another thing I forgot..
 > 
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
+> On Sat, Aug 01, 2026 at 01:48:15PM +0100, Marc Zyngier wrote:
+> > We record a VNCR TLB even when SCTLR_EL2.M is 0 in order to make
+> > our life easier. But this is not something that the architecture
+> > anticipate.
+> > 
+> > As a consequence, a hypervisor is free to set VNCR_EL2 to
+> > some PA when SCTLR_EL2.M==0, use it to run a guest which indirectly
+> > accesses the VNCR page, then eventually set SCTLR_EL2.M==1 with
+> > the same VA. Yes, this is odd, but apparently legal.
+> > 
+> > A common trick in HW is to invalidate the TLBs on SCTLR_ELx.M being
+> > flipped. But doing this is a not a good idea for us (we'd need to
+> > trap SCTLR accesses), and wouldn't scale as we nest deeper.
+> > 
+> > Instead, use the fact that the S1 MMU being off at the point of
+> > translation is cached in our TLB, and simply ignore it if it
+> > doesn't match the current MMU state.
+> > 
+> > Fixes: 2a359e072596f ("KVM: arm64: nv: Handle mapping of VNCR_EL2 at EL2")
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > Cc: stable@vger.kernel.org
+> > ---
+> >  arch/arm64/include/asm/kvm_nested.h | 7 +++++++
+> >  arch/arm64/kvm/at.c                 | 2 --
+> >  arch/arm64/kvm/nested.c             | 3 +++
+> >  3 files changed, 10 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+> > index 012d711034d17..cc48817a5bf7a 100644
+> > --- a/arch/arm64/include/asm/kvm_nested.h
+> > +++ b/arch/arm64/include/asm/kvm_nested.h
+> > @@ -388,6 +388,8 @@ struct s1_walk_result {
+> >  	bool	failed;
+> >  };
+> >  
+> > +#define S1_MMU_DISABLED		(-127)
+> > +
+> >  static inline void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
+> >  {
+> >  	wr->fst		= fst;
+> > @@ -396,6 +398,11 @@ static inline void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
+> >  	wr->failed	= true;
+> >  }
+> >  
+> > +static inline bool s1_mmu_disabled(struct s1_walk_result *wr)
+> > +{
+> > +	return wr->level == S1_MMU_DISABLED;
+> > +}
+> > +
+> >  int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+> >  		       struct s1_walk_result *wr, u64 va);
+> >  int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u64 va, u64 ipa,
+> > diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> > index 640f2dc00a8ba..0926426b87989 100644
+> > --- a/arch/arm64/kvm/at.c
+> > +++ b/arch/arm64/kvm/at.c
+> > @@ -11,8 +11,6 @@
+> >  #include <asm/kvm_mmu.h>
+> >  #include <asm/lsui.h>
+> >  
+> > -#define S1_MMU_DISABLED		(-127)
+> > -
+> >  static int get_ia_size(struct s1_walk_info *wi)
+> >  {
+> >  	return 64 - wi->txsz;
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 035cda256e2a5..d7dba02dc84fe 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -1578,6 +1578,9 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
+> >  	if (!vt->valid)
+> >  		return;
+> >  
+> > +	if (!(vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_M) != s1_mmu_disabled(&vt->wr))
+> > +		return;
 > 
-> Mark's actually OoO atm, but I spoke to him about this offline and he
-> was keen to be listed. Honest!
+> Another thing, should we set valid=false? (Haven't really looked into
+> what that implies..)
 
-I'm OoO for the next few weeks, but as I'm just finishing off list stuff
-today:
+No. The TLB itself is still valid. We just haven't hit it. Which is
+why we don't map the page in the fixmap, and wait until we take the
+fault. When (and if) it happens, we can invalidate it, rewalk, and
+establish the new TLB.
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
+At this stage, this doesn't bring much. But if one day we need to
+cache multiple translations, we will want this exact flow.
 
-Thanks!
-Mark.
+HTH,
 
-> 
->  MAINTAINERS | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 806bd2d80d15..08328eb1064d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -3913,6 +3913,7 @@ F:	drivers/platform/arm64/
->  ARM64 PORT (AARCH64 ARCHITECTURE)
->  M:	Catalin Marinas <catalin.marinas@arm.com>
->  M:	Will Deacon <will@kernel.org>
-> +R:	Mark Rutland <mark.rutland@arm.com>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git
-> -- 
-> 2.55.0.508.g3f0d502094-goog
-> 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
