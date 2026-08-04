@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 063B8C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:17:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D60C4C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=amLbFrLgaWKdM6iuB7UHZh23ZJ9tGg/UXF/7lGM7lOI=; b=X24tvzKPUmcSftMJiPl3j2Ezvp
-	cd4KQRuSUClY5yjBto5P6QTQyh2ynpqWjA1jsdcWU7eO8LShl5Yg3jBlk1XDuW21vUxjkdI8AMUQc
-	NJ+KuEwBEGyr0SiQMPWe47q36pz2YggaMqMDsG4b2x1eyX05cErqVEtwyndScgbMqad34S7agyJEa
-	uLSPpeYzSFklGVH6gC37U6HTHRAwxrLgmX1z5MH+RyN9lhHPHoJDyomVeHIrWzcr3ksN0LHfRZFRe
-	NtsigdR2J/hys25UF31nQ+PEeIw5pxLnQjio8opqRtFVbYdPlpnHGJIyzm04h1HdUn1Fm/zOmVCil
-	P0CCQkLw==;
+	bh=hfSDcA/VFf5O36XZ1jIbDeiIvlPOe5N0iYnQa5D5SVg=; b=aNVb7RdD1kqLrA/r6RzCrP7c29
+	HTrX1pHnqixjEsez18TcWzf8ij98ZU3dxuVbOdw4PU8tChU8Y5W/VSwFyS88+lI++hyOa3eKZbDiX
+	K/ckIs+vozot1ywtA51rhtyDhwIxv1HYD8QNnx34wZjSImNnIjrlpGCoLDCKHWpVuM1ugGDnsSxl+
+	+mUFP0Tu8weawXmkwNLYQ49qkmwLXWb7M3oGq+Ip6Cvr7sulSWrBwRWRROFO7u/bBODmQTY9+gRth
+	8X5Aaozsf3zVtkDfHohCc6BWog5poYPAIg36yQ3UsqAGrJLywV/e8PmDjafxU/mEwFmlV8jIWsXU8
+	Fx+P8HoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9OR-00000001CPa-0Zah;
-	Tue, 04 Aug 2026 07:16:55 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+	id 1wr9OU-00000001CU0-2QgU;
+	Tue, 04 Aug 2026 07:16:58 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9ON-00000001CLN-0XZ9;
-	Tue, 04 Aug 2026 07:16:52 +0000
+	id 1wr9OR-00000001CLM-1XBM;
+	Tue, 04 Aug 2026 07:16:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1785827279;
-	bh=amLbFrLgaWKdM6iuB7UHZh23ZJ9tGg/UXF/7lGM7lOI=;
+	s=altu2504; t=1785827304;
+	bh=hfSDcA/VFf5O36XZ1jIbDeiIvlPOe5N0iYnQa5D5SVg=;
 	h=From:To:Subject:Date:Message-Id;
-	b=ajVNQUJsNYtpWpHibBj68O0ZfvEmjTRva5PYVPrtXWMNocWW5etM29Xlj50ZaqJe1
-	 aU/dY1xYvSwg1kwfguNlqkdnm4RSwCVQ/BhPY31wEC4dzTC/kUdiCqRhd6HWDXFKqf
-	 UIpVsnE4kqwmRVzZHyzggezHo6jWzvdk2HdbS0cI=
-X-QQ-mid: esmtpsz19t1785827277tf63c1686
-X-QQ-Originating-IP: n7cCnMgNG0f8iJN7ZfLIqZBWbzE4V65U0d+YdsMycP4=
+	b=gGBFqoBrLYjgIoQf93SB0LsFUNWmWzBa0WAeEL/CHcGgcyXOOUJJdKp6h2PjRTt7U
+	 TnNS74zYEUuYk7g+Qv4ewQwYmq60MX6DWWPFz7/6CcN5V0LEZwk85grZkMx60sbYj4
+	 kU1WD4obc4kW82hHefJGXY3+julCFOm2ql+LOYq0=
+X-QQ-mid: esmtpsz19t1785827303t5bf198e5
+X-QQ-Originating-IP: lvl2+FbaNh+rQwA9UiH/mIq1IbGfwWu7ceGOLF34ChE=
 Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 04 Aug 2026 15:07:54 +0800 (CST)
+	id ; Tue, 04 Aug 2026 15:08:17 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 13234408375334642489
+X-BIZMAIL-ID: 9591211564925430359
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -67,35 +67,35 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-phy@lists.infradead.org
-Subject: [PATCH v6 1/7] drm/bridge: aux-hpd-bridge: Add drm_dev_has_dp_hpd_bridge()
-Date: Tue,  4 Aug 2026 15:07:24 +0800
-Message-Id: <20260804070730.68-2-kernel@airkyi.com>
+Subject: [PATCH v6 6/7] drm/rockchip: cdn-dp: Support handle lane info without extcon
+Date: Tue,  4 Aug 2026 15:07:29 +0800
+Message-Id: <20260804070730.68-7-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20260804070730.68-1-kernel@airkyi.com>
 References: <20260804070730.68-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: NG7xP+P+sy64TtYG2Xj/Mfx8Hd53gpXDPG2J2B5YRPydySawGjFE4jmB
-	Tvrf/YoXwHMUA1Y1X6Ly+pFjy0VF98FDEFTv7333tZ5d84HPZpOr26hRIWA4xQd+hMsqiKw
-	vV1zPFjd9d7385GL/K/9NJQi5sIuS2PvNTNL+neg3JpN2qKqIOvTn4HoL7ORdL2CWCzWPXO
-	erDCnOzgKj0J70j+HOjBb+T5PJ53dRCdp4m1g9q7M5H6y/a2qshjl1tby8nyp3f52w5u+5q
-	5Lt2yF3KbeZ/noV5ZH8Qw6UEAsqwoRmE2pGM5DcbplkNXsuKzuugQAcL+Rov3kUKjySGpby
-	NoZ4x2jLIMK9mAvcgvbG5J3ZEWz11PtPu+60nub7oP5bC73+xyyBWyqA4CX2QqIqzxbuC3h
-	Gn4lrL81K3xaPTEL9/ZyG5iWwBXpshhdLZcjDwLmhRvNQcy+2VAomYz0Ocqx4xV/iPosIRj
-	IGdErbzhG3Xq3n3BoWyFj+/nPAnx41QulalkbmdcYs4s/pNUAa3hhSPqHA09VFHcaG6ehXj
-	vtEAGB6GwdNOAsLv5eCWYFN63lR2bCYjK2x21I4QrF2Vqat6pQIpa4EoYaDLb0QGvHgr0r4
-	9TAT+Ue6SlxJ1BNcAijrRtQ4HDPL3FLIeaJz1OLGSH/r+vQYt3aJXWet3xP4qBJjgFIMYqJ
-	oZBYT18BG+NrIH0UMVsZnG6sHoGXw/xuGDkWZ63/Qpy/TqY0NfG9qhvgltboSlvUTsWKxc5
-	TMMUa3O2GOr+SnbYTLRuJFJBRb5QBWFOVUV/i1OAV7h6R4Z0x/7sovgk9BTKVN5a9Mm32Lv
-	4VKmDigisaesStyqdz18dx81NO7HOSj6FMG2fhQzndsd0G9zG4l6Dwlv2nDlYN8rT8G1QV4
-	tc7T9u8glaUP2Igw8Tikb5FDh7QduV43SkR+ZJJLcJN3CvmOsM0V77AzysE1gp7yZECG4k9
-	UPURDc+h2UZEqXbjpd4j6ttAVvbzr9wiIvWzY9wKWqtfhCSXBOpaB58lsNYp4yaJrQ8yNSF
-	FYqjl1uxCprjsO6+F8vMBSURRQoPI=
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+X-QQ-XMAILINFO: NafziRg7Bx69Ky8gt3DQzRSfr0W8y7zq1y3IDxbbpadrIDh2+K0tUx9A
+	iqYjL9Y918jfku0q+E0xHOa8pmoUMPIRWfwYP8k2PsyPQbtVGQDuSk+Dz4Rfurr4x9OVmZo
+	pceR/dYE8DFYjfw+Q6G+V332kZOF8G5NveBEGfjKXANTcHQiWqwGjkbKpUwKdi4XNWaUQiB
+	HXW6EVQVs/tuE7AfAYqOYIcGqHn7LsqXXHA4nZATBo3pCVGjQl4Mk+cIUosnEL0P/w7/uRL
+	GWJy3mjC4nbK9Fx+NrVDAuBNDXAAPzELxXopL1R2caevXoU0OS8gm/0+G4PWN1e2NBW7BnE
+	O6q+ulMzhRKixq1B2MfJ4JCI0Avz4lp2gMlmbwlVCHKmvEBBsaNC7SIGyE0lpn42V9mpM+E
+	GbxlioOLE6nHAnxcPp+JPmLe+xqPcEtnR+HzLOhXQi37j0OJLu/ZigWqEsvZZ8lk/dui3Qw
+	OcjJSLZsuXn5c5a4GOlMiq0YJ2hqPNbkAZlBuHCpr32gTeMuAP4A+uNiL2r86Ay6G0NDkik
+	TFpdHOlF0OB65NVka9vf2d8oIkLw/c14aTj7NMnDjpXG/jGGzmYyzdViN073Vaq+0x4KMfi
+	0f8vRZ+TMHNQaN00U3utYY+2fYz3nIrHWRHxU1PxLYsLeTmLFDIAt4asTwKjJQIFsh9FUFU
+	oKuqNc++0F2SuHIlGc7noii+v30OkGZaw3ouJU1c49fSVlkby5OSbD6fB2ibOZRwYYuSMA8
+	e1zSchizhozKyGinc2mdaV40x+9oZIAhFjz95FI3NpodI0YS5g278TO/AMHm9W5pt20I4mm
+	iAF/gjaOjfq0lOnOMkCxbMlvKswPcX9zhB9XyovuWawj/WY1wru/y6ejPtQsxuKWTSkREBi
+	Ma1RTBTzsaftFi5BM7wcjxNC9myDvqJ+RPpJNjUf+UtGOm7+tiJzvk071YEbTKLrNiK2Ox9
+	IieH6bz5nxVxjyb0gr/fE54qU3biFuyVAnwZVFEO7h0PJeRB7C3XiysGAaY4xgCMJT4kONk
+	UKEcpE3A==
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_001651_654500_201593D4 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20260804_001655_905656_FF20A837 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,108 +112,94 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Add a new API to check whether a DisplayPort HPD bridge has already
-been registered. This helps avoid duplicate registration of the same
-HPD bridge, although the current framework allows doing so.
+This patch add support for get PHY lane info without help of extcon.
 
-Suggested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+There is no extcon needed if the Type-C controller is present. In this
+case, the lane info can be get from PHY instead of extcon.
+
+The extcon device should still be supported if Type-C controller is
+not present.
+
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 ---
- drivers/gpu/drm/bridge/aux-hpd-bridge.c | 42 ++++++++++++++++++++++++-
- include/drm/bridge/aux-bridge.h         |  6 ++++
- 2 files changed, 47 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/bridge/aux-hpd-bridge.c b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
-index f02a38a2638a..a56c88eba005 100644
---- a/drivers/gpu/drm/bridge/aux-hpd-bridge.c
-+++ b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
-@@ -12,6 +12,8 @@
- #include <drm/drm_bridge.h>
- #include <drm/bridge/aux-bridge.h>
+(no changes since v1)
+
+---
+ drivers/gpu/drm/rockchip/cdn-dp-core.c | 25 +++++++++++++++++--------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+index 190cce9530c8..74e1f5422a6e 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+@@ -157,6 +157,9 @@ static int cdn_dp_get_port_lanes(struct cdn_dp_port *port)
+ 	int dptx;
+ 	u8 lanes;
  
-+#define DRM_AUX_HPD_BRIDGE_NAME	"dp_hpd_bridge"
++	if (!edev)
++		return phy_get_bus_width(port->phy);
 +
- static DEFINE_IDA(drm_aux_hpd_bridge_ida);
+ 	dptx = extcon_get_state(edev, EXTCON_DISP_DP);
+ 	if (dptx > 0) {
+ 		extcon_get_property(edev, EXTCON_DISP_DP,
+@@ -220,7 +223,7 @@ static bool cdn_dp_check_sink_connection(struct cdn_dp_device *dp)
+ 	 * some docks need more time to power up.
+ 	 */
+ 	while (time_before(jiffies, timeout)) {
+-		if (!extcon_get_state(port->extcon, EXTCON_DISP_DP))
++		if (port->extcon && !extcon_get_state(port->extcon, EXTCON_DISP_DP))
+ 			return false;
  
- struct drm_aux_hpd_bridge_data {
-@@ -36,6 +38,44 @@ static void drm_aux_hpd_bridge_free_adev(void *_adev)
- 	auxiliary_device_uninit(_adev);
- }
- 
-+static int hpd_bridge_match(struct device *dev, const void *data)
-+{
-+	const struct device_node *np = data;
-+	struct auxiliary_device *adev;
-+
-+	if (!dev_is_auxiliary(dev))
-+		return 0;
-+
-+	adev = to_auxiliary_dev(dev);
-+	if (strcmp(adev->name, DRM_AUX_HPD_BRIDGE_NAME))
-+		return 0;
-+
-+	return adev->dev.platform_data == np;
-+}
-+
-+/**
-+ * drm_dev_has_dp_hpd_bridge - check whether a HPD DisplayPort bridge is registered
-+ * @parent: device instance providing this bridge
-+ * @np: device node pointer corresponding to this bridge instance
-+ *
-+ * Walk the children of @parent and check whether a HPD DisplayPort bridge for
-+ * the given @np has already been registered via devm_drm_dp_hpd_bridge_add().
-+ *
-+ * Return: true if a HPD bridge for @parent / @np already exists, false otherwise
-+ */
-+bool drm_dev_has_dp_hpd_bridge(struct device *parent, struct device_node *np)
-+{
-+	struct device *child;
-+
-+	child = device_find_child(parent, np, hpd_bridge_match);
-+	if (child) {
-+		put_device(child);
-+		return true;
-+	}
-+	return false;
-+}
-+EXPORT_SYMBOL_GPL(drm_dev_has_dp_hpd_bridge);
-+
- /**
-  * devm_drm_dp_hpd_bridge_alloc - allocate a HPD DisplayPort bridge
-  * @parent: device instance providing this bridge
-@@ -63,7 +103,7 @@ struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(struct device *parent, str
+ 		if (!cdn_dp_get_sink_count(dp, &sink_count))
+@@ -386,11 +389,14 @@ static int cdn_dp_enable_phy(struct cdn_dp_device *dp, struct cdn_dp_port *port)
+ 		goto err_power_on;
  	}
  
- 	adev->id = ret;
--	adev->name = "dp_hpd_bridge";
-+	adev->name = DRM_AUX_HPD_BRIDGE_NAME;
- 	adev->dev.parent = parent;
- 	adev->dev.release = drm_aux_hpd_bridge_release;
- 	adev->dev.platform_data = of_node_get(np);
-diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bridge.h
-index c2f5a855512f..cca07a8e2d45 100644
---- a/include/drm/bridge/aux-bridge.h
-+++ b/include/drm/bridge/aux-bridge.h
-@@ -25,6 +25,7 @@ struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(struct device *parent, str
- int devm_drm_dp_hpd_bridge_add(struct device *dev, struct auxiliary_device *adev);
- struct device *drm_dp_hpd_bridge_register(struct device *parent,
- 					  struct device_node *np);
-+bool drm_dev_has_dp_hpd_bridge(struct device *parent, struct device_node *np);
- void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_status status);
- #else
- static inline struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(struct device *parent,
-@@ -44,6 +45,11 @@ static inline struct device *drm_dp_hpd_bridge_register(struct device *parent,
- 	return NULL;
- }
+-	ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
+-				  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
+-	if (ret) {
+-		DRM_DEV_ERROR(dp->dev, "get property failed\n");
+-		goto err_power_on;
++	property.intval = 0;
++	if (port->extcon) {
++		ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
++					  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
++		if (ret) {
++			DRM_DEV_ERROR(dp->dev, "get property failed\n");
++			goto err_power_on;
++		}
+ 	}
  
-+static inline bool drm_dev_has_dp_hpd_bridge(struct device *parent, struct device_node *np)
-+{
-+	return false;
-+}
+ 	port->lanes = cdn_dp_get_port_lanes(port);
+@@ -1027,6 +1033,9 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 	for (i = 0; i < dp->ports; i++) {
+ 		port = dp->port[i];
+ 
++		if (!port->extcon)
++			continue;
 +
- static inline void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_status status)
- {
- }
+ 		port->event_nb.notifier_call = cdn_dp_pd_event;
+ 		ret = devm_extcon_register_notifier(dp->dev, port->extcon,
+ 						    EXTCON_DISP_DP,
+@@ -1119,14 +1128,14 @@ static int cdn_dp_probe(struct platform_device *pdev)
+ 		    PTR_ERR(phy) == -EPROBE_DEFER)
+ 			return -EPROBE_DEFER;
+ 
+-		if (IS_ERR(extcon) || IS_ERR(phy))
++		if (IS_ERR(phy) || PTR_ERR(extcon) != -ENODEV)
+ 			continue;
+ 
+ 		port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+ 		if (!port)
+ 			return -ENOMEM;
+ 
+-		port->extcon = extcon;
++		port->extcon = IS_ERR(extcon) ? NULL : extcon;
+ 		port->phy = phy;
+ 		port->dp = dp;
+ 		port->id = i;
 -- 
 2.53.0
 
