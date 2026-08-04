@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A81ABC55172
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 09:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD52C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 09:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OXQacLcIFwR7ZuYK6qsdnfsijiXHCug7tTEi1uY6KQk=; b=PRudEl9CxbKBKJ/kHfLO3vBo2A
-	T+Uzu97M3ErSbvEaBkLPt7OTebHOTwXokqsBIxwgyQzYynyZXXPg1WFlsi7KUn31AbsPR26CFg0G0
-	Fj9EN7pT4c9FxmO5OJuK00oYM6xhmQfveVVjelxTS+GorQkAzjbEZnRRxH6KweDBGf9A5ssr3sTHR
-	rECX1joYkQXtKbwItRgfuK5vv2m/sNB1ZTKeV02CsW7WYKlB6QPniQYv0vsr+ZFoocYhM8n2JlDbI
-	CWoWF60ciUWsfmYxepCJinNrU7oKp4gI+QgBfM4nwzfC5Oa2oU7GK9VJOUYOAiHMjLT8k8eli6uvn
-	7kFrhklg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i+ghQVwwIcBHPV3xBu7iUV/MUtzGz9ebQRM8ZIfeaVU=; b=A+5fvj/wTr/7xThQMbrPsh4jsq
+	aEC+sRsm5q0reknsHLdbUkO1kUmlDAqcQs44v2YKO9Ect995C/FuFRs6EYLdZpulk6KrFoD1Pyr98
+	TxD5QjwPjLo+ymSlMiuNybccp9uZ1kCvGYJJvglazeitDqGE4ihkZq0PE8fvh1qiGzCSpa/uLUX84
+	n1DAQDZ1hnnwV6UPBxY6nalbFIxXlKlIEMLjbT2hClPkiKlJD76vT9gcFTmQp1wOHlEj2Y1bZ5TPG
+	9fpEyS788S0JAerEXA/g/HqVzdxsDCzvhK9B0eJejyD07rfraZNfCtbQqD4QgSy/9rz8gUU81djmz
+	Vi3SCCTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrBUP-00000001Rmg-2ZNe;
-	Tue, 04 Aug 2026 09:31:13 +0000
-Received: from out-189.mta1.migadu.com ([95.215.58.189])
+	id 1wrBbW-00000001SFd-1u62;
+	Tue, 04 Aug 2026 09:38:34 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrBUM-00000001Rlt-39W5
+	id 1wrBbS-00000001SEy-1PhN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 09:31:12 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RqBKs4O6Czk0G9NptYY7ojw78Nd9qmPl0wattWqqlSYlqSbKlRxWUKJpBlvaYlknXL6FUjShSS5UjCxj6WrcraR@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785835869;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OXQacLcIFwR7ZuYK6qsdnfsijiXHCug7tTEi1uY6KQk=;
-	b=rZAK6b0q2248sam+VZIpSeUXUL8Ihn1H5yMOtCeAsgdYy09H0DP3+5Pm7MiCZ59Y0fh7ys
-	Z47ftzWIwqM8LR5TwmlBIn69Ery46lVDtrL24r4wVB+Sadq9xVbbhbxRhQsxFA6ZwqTRmm
-	BDghTV9PsNaoXscTSJdlBrMUgyNZSeM=
-X-Gm-Message-State: AOJu0YyCSkkeRAwpEF7AvVoH6NaNW7sWRehPYC//ezDH5DRvQUrs/Lu3
-	h/3sAjgcb5qxVy8VyZo92D0d0zS2iwsuysECMM0sYNu7cm2G5MsQzZDw9O+ElDx8xajhKA2KFJ5
-	d0xH4JtO+YBchzOYDDmd2zlKpMbrynrCImqQgC6mM
-X-Received: by 2002:ac8:6f1b:0:b0:52c:d3a1:358a with SMTP id
- d75a77b69052e-52cd4fc8ac0mr12704081cf.14.1785835856207; Tue, 04 Aug 2026
- 02:30:56 -0700 (PDT)
+	Tue, 04 Aug 2026 09:38:32 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=i+ghQVwwIcBHPV3xBu7iUV/MUtzGz9ebQRM8ZIfeaVU=;
+	b=GhZ5aLEhiFaCM3jklQpFSS7vF2SYu99iFO3h/0DiE9Kf1fOocwp5HQHZ8G4pyVbh5n91YEUbI
+	lx32I4z4RVPQeyqxtN6HYN2brFFxdwwrv6yWAt+M7o8ditZyD925MauCivtVi/IxiCF6b1E6RmY
+	WBb5YCrKatqS8jpX0YFv7jc=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4hDp9g537BznTVn;
+	Tue,  4 Aug 2026 17:27:51 +0800 (CST)
+Received: from kwepemf100001.china.huawei.com (unknown [7.202.181.215])
+	by mail.maildlp.com (Postfix) with ESMTPS id C180E40565;
+	Tue,  4 Aug 2026 17:38:18 +0800 (CST)
+Received: from [10.67.121.90] (10.67.121.90) by kwepemf100001.china.huawei.com
+ (7.202.181.215) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Tue, 4 Aug
+ 2026 17:38:18 +0800
+Message-ID: <fd3b6402-fd34-4b23-b5c7-69aae1adb5e5@huawei.com>
+Date: Tue, 4 Aug 2026 17:38:17 +0800
 MIME-Version: 1.0
-References: <20260803-kvm-arm64-idreg-final-v2-0-d7d7e4efc640@kernel.org>
-In-Reply-To: <20260803-kvm-arm64-idreg-final-v2-0-d7d7e4efc640@kernel.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 4 Aug 2026 10:30:19 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxNcZrS8vPrrymJq_FZHUenrvxOd3aJ+WB7Fn8qY0NkKA@mail.gmail.com>
-X-Gm-Features: AUfX_mwOsdi-QRZEA5-6WcEPzmFvIg_rwrA6SfmdszIDnIgH0ZZi1VAKN1yeckA
-Message-ID: <CA+EHjTxNcZrS8vPrrymJq_FZHUenrvxOd3aJ+WB7Fn8qY0NkKA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] KVM: arm64: ID register finalisation fixes
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Peter Maydell <peter.maydell@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/4] devfreq: Add refcounts for governor modules
+To: Jie Zhan <zhanjie9@hisilicon.com>, <cwchoi00@gmail.com>,
+	<cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>,
+	<zhangpengjie2@huawei.com>, <lihuisong@huawei.com>,
+	<prime.zeng@hisilicon.com>
+References: <20260729102348.3857779-1-zhanjie9@hisilicon.com>
+From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
+In-Reply-To: <20260729102348.3857779-1-zhanjie9@hisilicon.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.90]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemf100001.china.huawei.com (7.202.181.215)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_023110_928344_EB942EFF 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20260804_023830_698093_18605D9B 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +81,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On 7/29/2026 6:23 PM, Jie Zhan wrote:
+> A governor module can be dynamically inserted or removed if compiled as a
+> kernel module.  'devfreq->governor' would become NULL if the governor
+> module is removed when it's in use.
+> 
+> For user-friendliness, get and put the module refcount of a governor module
+> when it's in use.  As a result, unloading a governor module in use returns
+> an error, e.g.:
+> 
+> $ cat governor
+> performance
+> $ rmmod governor_performance
+> rmmod: ERROR: Module governor_performance is in use
+> 
+> Note that this can't stop force unload, so it's more of a
+> user-friendliness improvement rather than strict protection.  The
+> existing code that keeps devfreq working when 'devfreq->governor' is
+> NULL should still be there.
+> 
+> Patch 1-3 clean up mutex with guards and factor out a common governor
+> setting function, so as to prepare for implementing governor reference
+> counting.  They can be applied separately.
+> 
+> Patch 4 adds the reference counting mechanism for devfreq governor
+> modules.
+> 
+> This set is based on devfreq-next of 7.1-rc1.
+> 
+> Changelog
+> ---------
+> v4:
+> - Patch 3: Return an error if starting new governor fails and restoring
+>   old governor succeeds, such that the caller won't get misled.
+> 
+> v3:
+> - Link: https://lore.kernel.org/all/20260519113251.3745140-1-zhanjie9@hisilicon.com/
+> - Rework patch 4 to make the 'owner' field assignment optional in the
+>   governor code.  This prevents device-driver-bundled governors (such as
+>   those in hisi_uncore_freq and tegra30-devfreq) from causing
+>   self-reference issues that block module removal. Additionally, merge
+>   patches 4 and 5 to clearly present the new 'owner' member alongside
+>   its usage.
+> - Drop patch 6 because it's no longer needed since v2.
+> - Update commit logs of patch 3 and 4 to clarify background and
+>   motivation.
+> - Pick up 2 tags from Yaxiong (thanks!).
+> - Trivial cleanups.
+> 
+> v2:
+> - Link: https://lore.kernel.org/all/20260513093832.1645890-1-zhanjie9@hisilicon.com/
+> - Rebase on devfreq-next of 7.1-rc1.
+> - Drop the patches related to the NULL pointer deference issue of
+>   'devfreq->governor', which has been solved and merged recently.
+> - Remove the dedicated mutex for 'devfreq_governor_list' because the
+>   refcount changes don't depend on that.
+> - Some minor cleanups and fixes.
+> 
+> v1:
+> - Link: https://lore.kernel.org/all/20260326123428.800407-1-zhanjie9@hisilicon.com/
+> 
+> Jie Zhan (4):
+>   devfreq: Use mutex guard in governor_store()
+>   devfreq: Use mutex guard in devfreq_add/remove_governor()
+>   devfreq: Factor out devfreq_set_governor()
+>   devfreq: Refcount governor modules while in use
+> 
+>  drivers/devfreq/devfreq.c                 | 185 +++++++++++-----------
+>  drivers/devfreq/governor_passive.c        |   1 +
+>  drivers/devfreq/governor_performance.c    |   1 +
+>  drivers/devfreq/governor_powersave.c      |   1 +
+>  drivers/devfreq/governor_simpleondemand.c |   1 +
+>  drivers/devfreq/governor_userspace.c      |   1 +
+>  include/linux/devfreq-governor.h          |  11 ++
+>  7 files changed, 112 insertions(+), 89 deletions(-)
+> 
 
-On Mon, 3 Aug 2026 at 23:54, Mark Brown <broonie@kernel.org> wrote:
->
-> While looking at some feature enablement I noticed that there are some
-> scenarios where we can end up with an inconsistently configured vCPU due
-> to finalizing configuration based on ID registers before we have blocked
-> writes to the ID registers. This series aims to clean up these issues.
->
-> Signed-off-by: Mark Brown <broonie@kernel.org>
+LGTM.
 
-I didn't want to hold this for the broader coverage you suggested, so
-here is a focused test for the failed-first-run path [1]. It fails
-without this series.
+Reviewed-by: Lifeng Zheng <zhenglifeng1@huawei.com>
 
-Tested on top of v7.2-rc5 under QEMU: boot tests, plus the
-set_id_regs, vgic_init and get-reg-list selftests, the last also under
-nested virt (-M vhe, kvm-arm.mode=nested).
 
-For the series:
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba <fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/20260804092421.1728880-1-fuad.tabba@linux.dev/
-
-> ---
-> Changes in v2:
-> - Also replace the kvm_vm_has_ran_once() usage in kvm_set_vm_id_rg() and
->   kvm_vm_finalize_sys_regs() with kvm_id_regs_final().
-> - Link to v1: https://patch.msgid.link/20260731-kvm-arm64-idreg-final-v1-0-3de2a5616dc6@kernel.org
->
-> ---
-> Mark Brown (2):
->       KVM: arm64: Finalize guest-wide sysregs prior to per-vCPU sysregs
->       KVM: arm64: Block ID register changes after we rely on the values
->
->  arch/arm64/include/asm/kvm_host.h |  8 ++++++
->  arch/arm64/kvm/arm.c              |  2 +-
->  arch/arm64/kvm/sys_regs.c         | 57 ++++++++++++++++++++++++---------------
->  arch/arm64/kvm/sys_regs.h         |  2 +-
->  arch/arm64/kvm/vgic/vgic-init.c   |  6 ++---
->  5 files changed, 48 insertions(+), 27 deletions(-)
-> ---
-> base-commit: f5098b6bae761e346ebcd9da7f95622c04733cff
-> change-id: 20260729-kvm-arm64-idreg-final-77cbc46b558a
->
-> Best regards,
-> --
-> Mark Brown <broonie@kernel.org>
->
 
