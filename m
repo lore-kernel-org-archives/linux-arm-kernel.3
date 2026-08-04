@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DE1C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 16:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE80FC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 16:54:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/m4yAZ5mIsOFZEiU4veHFKr2AoqsHnJrC8u0FSLN/U8=; b=ENOoJNEiVpDZrz12WTZkvbVfkE
-	NFBo/0Rw6vNDaa8z3F7Gjw54Mzxe4N+ueqh1g6llShGlkFSL4pwQmrBWO1d+cx3GanKhyQ9losR9d
-	VgKz9d1kIVmBhqwExbeqyBFFYVFdUGbWIp3SpOgRE4/CfGmaVIDVkycgYn+uesxPMLpk3aLJr8k8Y
-	rb1s9HGgJcI09u0GrcrZ0O2+0Lh6TrqIZJvSDYS/cHe7ETJ1QNWwZQ660uqLG7UD5ZYEa+FtNZ7RC
-	/ZSSgRmPGmLB9eZLVetL/i3EmQvg8z+aKi00xAqjLCP4qmYdCh+lOv2vSLP9pdykXFggBIJlG6iWt
-	v4tGkbTQ==;
+	bh=TU4DUVULliKfyhAIZhJDDnI/AE8m4fPKvRa/vfVfg4I=; b=iI5fZl+VJxc1o1aB1K2WANFwGP
+	/8/1xP1eAI9UK5rn/6Lbgh90ArVXwqceNCotSzVJDhfhmz61Xc0e1eq7o3srulJDizJAfJ9S4IOdo
+	Y1zM18zZ5w6RJTPYC46Q94P1HgaqTbWBd0gJwSTJL1IXKTS7QH++z3jPMB8MfjWdaX83BQ0P4EvkS
+	v24Qz++qwzYRqFyzFwijVikw4p5kTuwm7dfSnFSGqQQJDTZUTjNJSIptjjW2Z2QBZfFOrKaJ01mGa
+	AK5QbRTPhXWzpdpEtiya8GLkjKQOO/rg3ZigtwVvE6mJQA2jnqiCjJSfFSYrDMi8/z/lpYBthYBzf
+	6yPVZrqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIIi-00000002Nwp-3KKI;
-	Tue, 04 Aug 2026 16:47:36 +0000
+	id 1wrIPk-00000002OzH-3SXX;
+	Tue, 04 Aug 2026 16:54:52 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIIh-00000002Nwh-16Yx
+	id 1wrIPj-00000002Oz2-2Pjn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 16:47:35 +0000
+	Tue, 04 Aug 2026 16:54:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E004643D11;
-	Tue,  4 Aug 2026 16:47:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C8661F000E9;
-	Tue,  4 Aug 2026 16:47:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 35D3542DF6;
+	Tue,  4 Aug 2026 16:54:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3256B1F00A3A;
+	Tue,  4 Aug 2026 16:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785862054;
-	bh=/m4yAZ5mIsOFZEiU4veHFKr2AoqsHnJrC8u0FSLN/U8=;
+	s=k20260515; t=1785862489;
+	bh=TU4DUVULliKfyhAIZhJDDnI/AE8m4fPKvRa/vfVfg4I=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=KAAuqSzDp0wplUBF9Fq0YxQTEF733hGX4xj4Y90DI8bZ9hL6VeW908wQGHnfPdsZu
-	 rrCzEKEjeah6szU+pl4/gkNRp/qVwmNa+ywme1I4lHz2SuIjJP5BWpFfGVgNYA9Eo4
-	 v9vjxuwD+2Hyaigth9wcOM+k8DBaj/CIgX7XW4LMIS9cw03FKnhczraAQ7g2I/cQrE
-	 bbnOGQeUiAJAqPJElj7deWCtVPBmTP81tXGPOIZaY1hjfVOreivQ/k5PuK/I13vFzF
-	 CRX3ouvSBJ635W/6cspzFiRlHWV0BzyJiBOZs8jir0u29LyxpLKQHNzprXKiaDAND6
-	 Np0mwa4lS6oug==
-Message-ID: <84b31836-1d10-4bec-a469-468b91fd4645@kernel.org>
-Date: Tue, 4 Aug 2026 18:47:26 +0200
+	b=Ye8RwW2d7GDmAxjfmzVlZXjSvre6TLxVpfc43JKhWXtLMpy6Ouma/DClWqRLIq5eB
+	 UAcW1HQZN5IfBulAPNrUM62ALzdQLG9ZWkUleO73vXGB8usXx2rFJO4wmD1Ui0QqwZ
+	 vvYvdclQMZpe06/RaSzWm+tFMBNzelACkigUIMf+77HATpuiPmmanE3Om4NsqVT1lW
+	 Lcaj+lFQ4r4HvwS8WnqU5EgkpQeIP4GEPJaupYnem4VKElMgbf9gWgrCvogPwCxC/2
+	 bmGmwALZknPaG7/HKniNQ/fs0+UolugZMREQgrD83VYaMk5vezvVmpbG4/t0Mv/Evw
+	 I1gcRDzynCfsA==
+Message-ID: <c049dbe1-3d17-4715-882c-ca68068bd00c@kernel.org>
+Date: Tue, 4 Aug 2026 18:54:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
  for this series)
-To: "Christoph Lameter (Ampere)" <cl@gentwo.org>,
- "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>, Ryan Roberts <ryan.roberts@arm.com>,
- dennis@kernel.org, tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
- will@kernel.org, akpm@linux-foundation.org, hca@linux.ibm.com,
- gor@linux.ibm.com, agordeev@linux.ibm.com, linux-mm@kvack.org,
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+ "Christoph Lameter (Ampere)" <cl@gentwo.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, tj@kernel.org,
+ urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org,
+ akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com,
+ agordeev@linux.ibm.com, linux-mm@kvack.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Linus Torvalds <torvalds@linux-foundation.org>,
  Jason Gunthorpe <jgg@nvidia.com>
 References: <20260715180455.515692-1-yang@os.amperecomputing.com>
  <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
@@ -64,7 +64,9 @@ References: <20260715180455.515692-1-yang@os.amperecomputing.com>
  <amCPBrdltFSE_fEf@J2N7QTR9R3>
  <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
  <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org> <anHuLy52o5S9Nlwp@lucifer>
- <63ea8156-a109-b2a2-6d35-1c17ad7f1a9d@gentwo.org>
+ <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com>
+ <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org>
+ <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -111,7 +113,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <63ea8156-a109-b2a2-6d35-1c17ad7f1a9d@gentwo.org>
+In-Reply-To: <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -128,35 +130,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/4/26 18:19, Christoph Lameter (Ampere) wrote:
-> On Tue, 4 Aug 2026, Lorenzo Stoakes (ARM) wrote:
-> 
->> Since this work seems to be very much arm64-focused, perhaps it's therefore
->> worth looking at an alterative solution that's specific to the arch, like the
->> one suggested by Mark ([1])?
+On 8/4/26 18:30, Linus Torvalds wrote:
+> On Tue, 4 Aug 2026 at 09:27, Christoph Lameter (Ampere) <cl@gentwo.org> wrote:
 >>
->> [0]:https://lore.kernel.org/all/CAHk-=wire3dzhHx=KiL_f5Rj0=1u9ustsa33QoR-F9-v-NU9Ng@mail.gmail.com/
->> [1]:https://lore.kernel.org/linux-arm-kernel/al_DpFJFcmVhxpvW@J2N7QTR9R3/
+>> We certainly do not want to replicate that approach. We are using the per
+>> cpu page tables to avoid address calculations in the VM that other
+>> platforms can do with a segment override.
 > 
-> Mark's solution does replace the preempt_enable/disable sections with a
-> rather hacky restart logic. It relies on a long preemable and postscript
-> to each per cpu operations.
+> Right, and I said that that's ok as long as it's a internal
+> architecture thing. Not a "this is how the VM works".
 
-Okay, so 3 simple instructions of preemable is "long preemable"? In which universe?
+Just for completeness: I claim that things like "kernel text replication" are a
+completely different beast that we should not even put into the same bag as what
+is being discussed here ("using the per  cpu page tables to avoid address
+calculations in the VM that other platforms can do with a segment override"), in
+some limited internal architecture-specific thing.
 
-But I am sure you did you homework and have data to back up your claims. Please
-share that data, because I am very curious.
-
-> 
->  It does not remove the code entirely like the proposed patchset here and
-> cannot produce the same compact code as x86.
-
-Mark's solution is the obvious improvement to the problem, doing it just like
-s390 already does.
-
-If the proposed solution has a significant benefit over Mark's solution it could
-be discussed as a next step; and it must be backed with sufficient data to
-warrant all this complexity here.
+(I assume some people here don't realize how tricky kernel text replication
+actually is)
 
 -- 
 Cheers,
