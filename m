@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6455AC55182
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 00:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF787C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 00:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QB4+0hrVE5CLViaBG7l1TtGnXdcyF+FMaF/t4P5YnK4=; b=x6TJeWvBbZho3kX97ZhFczTmv7
-	5cwkzofAtpWNgPtFmGXX/eEYQ9oDctEq0aVLr24+lhbWM7d488eRbw5LQaAtqLnqcLOdXLCoFwrN7
-	I7C6IjCuOa9XPab0t2ZZl0mL4AbRPQIzqtj7sbqThCEpfJPiqSqamrV3Vidilm9XWJn8Pw3JmZw6u
-	fLul1NnDBPAtz+AG7WaoweMsGgZisnE80wY0OtHUI/AGxtw3UlWWBpbrTIRoPa5X/nVe2z/+iVd5W
-	HkYTnLwTqsR5S6KOd+pXmjrm0OQqJwpcstUPmSoOm11WJQlVv/gPsFSFpOq6U3E1ouLaNIn0B+zp6
-	87QgZtNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qD/kTSIycb4D0zwgPTSDDqWXIMWN3dBO5Y/1O5wHyq0=; b=YRABLgzm964UjeqGXCRghuJBFR
+	iOmsVVltbbj9tiyGlXSeKC/GcjxVakU2bdrAuF4y+51GE8bfJMPw2bak93Ibn6K6z1eoQjLSSL6vL
+	fD34GRc7bpvBnVZvMU5nAF+ZS2miKZRNzAapDJjLm0NyepoZYnOXsuGbAdAWYps+R+Hczbyygr9O8
+	DHq+XVCLTgTYqBlpm6XgNIo5iE0InBpfAb9bDzRcBInclLiSQOW4Vj//SS8ANgU2AGfC4pmyquGYJ
+	DV5+VhuMpaTRAmXqloY5x1I33b0kbVILmX3d5OjQbHT0GQoyfVG+6mfWbm/Y08XXqjakmhm/AhbCL
+	mzgJhgig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr2PV-00000000izp-1FkK;
-	Mon, 03 Aug 2026 23:49:33 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1wr3DL-00000000kt6-1oB1;
+	Tue, 04 Aug 2026 00:41:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr2PR-00000000iz9-3OCn;
-	Mon, 03 Aug 2026 23:49:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:Content-Type:
-	MIME-Version; bh=QB4+0hrVE5CLViaBG7l1TtGnXdcyF+FMaF/t4P5YnK4=;
-	b=C+/jDnhpBlG3rJ6eHnHrXsiZYBRXkTnlCyXQR5tj1iQFAF2uLO/QbQijhaQQDg
-	TmafTQ/DVm2pQ3yjBs1rWaa6bMoIp03Cs6whKsUlpKOi9HS3ThIwXXhOQHgZFHkq
-	ypu6hRiKhuI3Kl1zZCSLN0KArjBr7MRDYwuBa6oAcBk0s=
-Received: from 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa (unknown [])
-	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wAnoEvyKHFqO7S+Ng--.58495S2;
-	Tue, 04 Aug 2026 07:49:07 +0800 (CST)
-From: Zhyi <zyheihei_123@163.com>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>, Chukun Pan <amadeus@jmu.edu.cn>
-Subject: Re: [RFC PATCH v2] arm64: dts: rockchip: H28K: release RTL8211F reset
- before MDIO probing
-Date: Tue, 04 Aug 2026 07:49:06 +0800
-Message-ID: <178580094649.8348.12264215435109995102.h28k-rfc-v2-withdraw@163.com>
-In-Reply-To: <1e8da54f-ef87-4d31-9a0a-17c0ff66bee0@kwiboo.se>
-References: <20260803104646.26836-1-zyheihei_123@163.com>
- <178577533421.26919.15449256732994709630.h28k-rfc-v2@163.com>
- <1e8da54f-ef87-4d31-9a0a-17c0ff66bee0@kwiboo.se>
+	id 1wr3DK-00000000ksw-0F60
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Aug 2026 00:41:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9B23960A6B;
+	Tue,  4 Aug 2026 00:41:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A11E1F00A3A;
+	Tue,  4 Aug 2026 00:41:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785804060;
+	bh=qD/kTSIycb4D0zwgPTSDDqWXIMWN3dBO5Y/1O5wHyq0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=kFQUBfmHS++WLFAJKGYgkyoaTcdYafYfeww/3HnI8VWa+InVYbcaKF52JAuFAoTlg
+	 hO+Raogh8fUf0AVizyisjlWY0xKNrcVbWc13dSSe9cn8sRPJJsb40JhJX6/KPmwwCM
+	 AkD4DMlJCHkk/qHDmxLBM1+HGjxS79IuxsfBxbd6qDCbTBQDbCTyUspa89UnrEdqw2
+	 VoDRtA2tCCj/LNQGvHrt4nZiJQaJaxkb3ICtS55UlJ8ATDjxsuGCfnQM2iaKg5GU8d
+	 qIfaIcnjfaMVm70gIjkkRDHT7kYscMaU8FuyfInZEhMOuGXmmc/F1+F/zbgyV1RM4x
+	 k5czMrK0BvmaQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5698E3924467;
+	Tue,  4 Aug 2026 00:40:22 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-CM-TRANSID: _____wAnoEvyKHFqO7S+Ng--.58495S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZF45ZrW3uFy8KrWDuryrtFb_yoW3Arb_Ka
-	s0kryDWayvyw4rC3WrtF17XrZFk398CryxtrW8Zan7W3sxXFZYqr9av3W0vw17JF4Ivry3
-	GF90yrn3CwsxujkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRE5Ef7UUUUU==
-X-Originating-IP: [240e:390:2ef3:c801:e498:7ace:78bd:b49f]
-X-CM-SenderInfo: 521kvx5khlsiist6il2tof0z/xtbC9xM912pxKPMxQgAA39
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_164930_252149_E300FB44 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v3 0/2] net: stmmac: Fix PHY attach when custom
+ PCS
+ is in use
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <178580402088.2893509.17745137125486197990.git-patchwork-notify@kernel.org>
+Date: Tue, 04 Aug 2026 00:40:20 +0000
+References: <20260729074237.2624940-1-zxyan0222@gmail.com>
+In-Reply-To: <20260729074237.2624940-1-zxyan0222@gmail.com>
+To: Zxyan Zhu <zxyan0222@gmail.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ linux@armlinux.org.uk, rmk+kernel@armlinux.org.uk,
+ maxime.chevallier@bootlin.com, fancer.lancer@gmail.com,
+ romain.gantois@bootlin.com, hkelam@marvell.com,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,26 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonas,
+Hello:
 
-Thanks for the analysis, and for the pointer to your earlier write-up
-on the rock-3a issue [1].
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-You are right: GPIO4_C2 is the RTL8211F reset line, so describing it on
-the PHY node is the accurate hardware description, and the MDIO bus
-reset in my RFC was a software workaround rather than a correct device
-tree. I withdraw the RFC v2 change; the kernel DTS stays as the
-accepted upstream commit 145d4af4b204 ("arm64: dts: rockchip: Add
-HINLINK H28K").
+On Wed, 29 Jul 2026 15:42:35 +0800 you wrote:
+> This series fixes the issue where stmmac platforms using a custom PCS
+> via the pcs_init callback fail to probe when no phy-handle is specified
+> in the device tree.
+> 
+> Patch 1 skips the PHY attach in stmmac when a custom PCS is already
+> configured via priv->hw->phylink_pcs and phy_addr is invalid, avoiding
+> the "no phy found" error for platforms that manage link state entirely
+> through the PCS.
+> 
+> [...]
 
-I will follow your suggestion and add the rk3528-hinlink-h28k board as
-a target in mainline U-Boot using the board-specific device tree, so
-the Ethernet PHY is reset before Linux starts.
+Here is the summary with links:
+  - [net-next,v3,1/2] net: stmmac: Skip PHY attach if custom PCS is in use
+    https://git.kernel.org/netdev/net-next/c/af4d93416445
+  - [net-next,v3,2/2] net: phylink: allow PHYs to be attached in 802.3z inband mode
+    https://git.kernel.org/netdev/net-next/c/e5db987f5d7f
 
-Thanks,
-Zhyi
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-[1] https://lore.kernel.org/linux-rockchip/47d55aca-bee6-810f-379f-9431649fef=
-a6@kwiboo.se/
 
 
