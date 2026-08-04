@@ -4,112 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8C8C55172
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 10:12:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4414AC5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 10:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fT0yy7k6aVn8xwuYBWmP3Y+ZHenzu63FaqBq4B3FSs=; b=mhX3teA2vFM1+/D3Syc1PLZIxi
-	1mDRofAxw4ptAP/y8nrXe48LaWMlaAHr7RXqEYsWzygPZD3JATt6HhPtz0tU6mBoorKBTVpDhzfqC
-	MySn169vvGp8UXYPyC75z7ZtnaZcRcxj9JZVLoBsLyrI24ipIxynbcpZLjm2u3U/VtNw7na/s9E40
-	OxZqXCVY4sSmrVJcyH6TLNFnAZdLST46eQEMx72+q515ej9PWeZsqfbP31Aq636+74eAWp0AYO/Yj
-	pRNSkmkw7EUzP5lIh4CRr6YX5m1SHHPfFyYi08VXbc5b/TOxqnYfHGiYNz8Bh1JU2nZwzlhxY7e5E
-	Rj8KOzGg==;
+	bh=AuNn4qTUqMr1VpDNy+J/5UZgJcuMXDV/32qWj8JTHUY=; b=VaXAz8fDZYfiiEYFq73zDiUB0M
+	WZo57xww8tN4l9whJ031Qkpxa9vE5dUuxgnw9gv+0snWKtcVUus72sS2JfMONMH5ttdGSGW5scvw9
+	djVumI3cKx8cKMDjeVpIPH4EPGyz2cgQZMzdbvtfb9hq86MODOGHH685pp1jieGiD07wQzHEgK1pc
+	PRC1eMbp/e1FddQktFiuBJPI7dIeXnUHa5SpW7xpAGRoa7toR8LdIlayfnJbCZqCCdFuHssRvRAti
+	8kSD9Tops9QNBg8othiZcsb0AB/WIG1oQlOQKaWwvF9/TEeHDzMX4S8RAkrJsL6kW72yfAKErTvDo
+	Jadvs7rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrC7x-00000001WU9-3guq;
-	Tue, 04 Aug 2026 10:12:05 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrC7v-00000001WTp-3uZ3
+	id 1wrCKp-00000001XaE-3X5a;
+	Tue, 04 Aug 2026 10:25:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrCKn-00000001XZq-0v6F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 10:12:05 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c1c52d920b8so626475066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 03:12:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785838321; cv=none;
-        d=google.com; s=arc-20260327;
-        b=f2jA7FYEBn1zW0QyX8LWNAtYDW1nAery8AehUGhrxCXK/zKX0lCpBhHX78vIIfr4+O
-         1C3Ty5bgpZSBJD/U3VrwPNwjaqNbCUFJjlbBmcNQSRQnEvWk/ZgaQjflC8mq1xMSCbRC
-         tk0IHOea2K/OKZ4np3jRL6577RasqubK8MqEItIT2aZt0v3NoJHkM5PUW0LD6XvOKAN5
-         BQ2iggKKbuJf92LxuzwxaGEPu5X/WocTQZC1b855a0ObRnKq4/Y2YCk4N4jus/bSNwbV
-         JifrdMi7wyIty3mEyCrIWb9QqP7cpkRrxZjfWsRt9fUWua5/JzXDWsW2ygQH1diLoFQS
-         zObA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=3fT0yy7k6aVn8xwuYBWmP3Y+ZHenzu63FaqBq4B3FSs=;
-        fh=El1qNuFE9CCiptZq2PUv3yOa7R+QKilu8f3vYCjrELc=;
-        b=PezAOVgcu21pfHPcXgC8zIGU623LunLvptGY19uNrEpzAueg06blPTLskQnnPI58YG
-         aslrCrEq5hUbG/314vxEpi1lY/+eFF9Y6RFWL45wVDnylZoVQe8o6wSPtMKas3g23FCP
-         pHkM0MA+F8H8IMKTVdOrRJP7mEERTQx+3dFoDcQg79J6CzezuvGBaJAGpPlDOLs7G5zq
-         VRf6ksmG9K/9sZWEtU1ii+x8QRWumqvNIjDRzGrDwT8uXL3Tj4j8yNMBpFd+b0uSV3jv
-         gorT49sFCnHtmEj+ivgOj2/UmTXCfI0ZiuuDWHW/8Ihg3BDi7Ksz+vbrwrZXT6E+SSTD
-         N6Fg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785838321; x=1786443121; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3fT0yy7k6aVn8xwuYBWmP3Y+ZHenzu63FaqBq4B3FSs=;
-        b=YLO7owXDOWwyQnlg08sMzcZE362eBMApoQyKiiseDCEOvoF0KuYpFUInKDqaVMfKiM
-         MHltTXJU8U6x/2PbYAnJT6M/Jg/sPGo/o23shBoqtG8Tw/JyG4/abQmLSR99SfnDSfAg
-         ozeEJaEA23LAHMUnd7KOSsUGS+RDYidtcUO8gKhTWubCCTYNWbjzaKyxRnFcSoXNZSGk
-         ZBJhC1Lv3QWtC4jFMDnEX04oOSLBe9YxkpcE979GnhUaAXTdEgPvhl8OrhHyX1d5BDRn
-         OcufwIhmPNI0i8UMERMt+g/hx7aHNAJnDRk2bZ8BDncDpCd0NFGY+km7tKOAs3GWtXl+
-         AsTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785838321; x=1786443121;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=3fT0yy7k6aVn8xwuYBWmP3Y+ZHenzu63FaqBq4B3FSs=;
-        b=p6YJz+3ZFy+c1Tph3wsOc05PjoWivXSMn9QcgJNfmfbQuymTv2FIxSoiZcgDstlOUS
-         jRbWWZV/Ai4r8vspQkHvtgQRpUercjyHrLvcvZrbLbOFJbdxsiH6uNr94SsdznuHtyh5
-         LRFz0G6dThxaWo/JRqVRmghtY8pGcPug1UmuoapegesJDuaNJvnm56qU/LC4yEvQTPkH
-         4jnm5v5Iko/C7c1soB39IlTu/9GOy7+vWPJPQ2R2DCVG7bFU2inNvoQZiZkg/NZZdWXn
-         EymrOXn64wS+/nrO/sEzcPSjrRLmfxnbX6lywKPZOaxt9Jo7t14w03FSTCyrRmWjvAEV
-         PNSA==
-X-Forwarded-Encrypted: i=1; AHgh+RrETDwVaSe10jZn6mMzrk4/k0/PuM9jCbSM0pVn6yd2dBX8hkRwJJaozN2RNDZoupQqzU7WXfDVpKeYeXSNAzOP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4M6zHplHCofaoLf4F26RxcqJjryhBVnWO6g2bUmpArdbThfeg
-	m2e0gv2vZPqhgKjWwva25XM6yG1qniqm7hdKfMHZOL9/4OZTAJYTG0R6dSEgds45SW/67M2FIpD
-	dxo/epa7IazCDNu+pAT2Ct3k+g5S1ygU78e6YYwaPLQ==
-X-Gm-Gg: AR+sD13AuLu2jB7MmYL4XvoVVT3dL1tKdN8GTpmixQhNn5Cg/yVhv9A464fKKeAiVPF
-	Szc02T5HUMNEzGlPvJZHqnEK/zCfIJB4EEYsCFwG00kwYbsKuCu71FWZiVvtCFvQfnaztcxtMT2
-	QpObFGWp/H6CnHUXaISXf3XRvVx74hG0vN/0pt82zXG0QqM5CJb0+V2YvfFWnYg58LVsmumSHvg
-	L/meVlp6mBXRKWv/a77xUdZ8MCrMVEjj0zlP1jra35uMx3i9EY0+ltDF6knNTrbwLmTOmm8xLHa
-	KcoGBCtJtt+FZQAa42L8Unx1uaJF0GJ/uZFT9s63DuizJwbou1luPsy33jbSbi6oo/oMDQPPjqM
-	xq44=
-X-Received: by 2002:a17:907:c007:b0:c15:dcc6:d06d with SMTP id
- a640c23a62f3a-c1fe7d11095mr1281460266b.0.1785838321130; Tue, 04 Aug 2026
- 03:12:01 -0700 (PDT)
+	Tue, 04 Aug 2026 10:25:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D70A1476;
+	Tue,  4 Aug 2026 03:25:14 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 00BB93F86F;
+	Tue,  4 Aug 2026 03:25:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785839118; bh=ypAXrYlU3284ZQhZ9clrIQrMOuh27KFxBPJSFxwpKPs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S/xwpGmePFvakgf8QMuF5FP0Il5C4azvj3bbFsPNiYLlqtClLeXcB3R0JH53isPdZ
+	 5+fdbTQqwrtOULwTFa+QqdLbWibAmhmaqd/MpmgFdGaMhxZSUOLqCobo/Zt/jVL76L
+	 vVeVu8ZVJPLZ7JERn48usH4pgK7HQI5oMsgVjf/c=
+Date: Tue, 4 Aug 2026 11:24:59 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Karl Mehltretter <kmehltretter@gmail.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 1/2] KVM: arm64: nv: Allocate the shadow S2 MMUs
+ individually
+Message-ID: <it25udexjmb33rrfnugdcjzzbe5a3zpwpwyp2s3rvjfpyy7moy@wjlokfxjqp3v>
+References: <20260803224405.41468-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
-References: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-0-0cd05c81a82d@linaro.org>
- <20260605-exynos-pmu-cpuhp-idle-fixes-v1-3-0cd05c81a82d@linaro.org>
- <CADrjBPq4fou5KWh4T=oNkUVPz5Jk-821OVe3j5sWrKnCtHYM6w@mail.gmail.com>
- <DJ5GP6VQJDHL.2V30K56ME95DO@linaro.org> <CADrjBPqF6GPRLNUZtzkGUHTUQ6NOPoaRvVvF1mUUj_DJ9As1dg@mail.gmail.com>
- <DJFT3TXC0OJA.1ZK17YA2RSQXK@linaro.org> <CADrjBPovA8Kpzjqwr5w0UvqYhpdGyBwpv=xkBLcGGuwZZoocPg@mail.gmail.com>
- <DK00H7RT3OUP.6XS03TKMIU34@linaro.org>
-In-Reply-To: <DK00H7RT3OUP.6XS03TKMIU34@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 4 Aug 2026 11:11:49 +0100
-X-Gm-Features: AUfX_mz5t_Pe04iy5Urjl5FLntfM2UaJUBsRQk-xp7uJxfwmN41IPr1rHKikzkY
-Message-ID: <CADrjBPpk1beXfAJ7uhKHwYKo1wDPg+qxwfc-PQgZL6dcAN1CDA@mail.gmail.com>
-Subject: Re: [PATCH 3/3] soc: samsung: exynos-pmu: fix error paths in
- cpuhotplug/idle states setup
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Sam Protsenko <semen.protsenko@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260803224405.41468-1-kmehltretter@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_031204_020993_67FF1FF4 
-X-CRM114-Status: GOOD (  48.03  )
+X-CRM114-CacheID: sfid-20260804_032521_356319_A7C3911E 
+X-CRM114-Status: GOOD (  34.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,132 +73,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexey,
+Hi Karl,
 
-Apologies, I've been on vacation 2 of the last 3 weeks, but I thought
-we had this all sorted.
+On Tue, Aug 04, 2026 at 12:44:04AM +0200, Karl Mehltretter wrote:
+> A vCPU in L2 caches its shadow S2 MMU in vcpu->arch.hw_mmu.
+> kvm_vcpu_init_nested() can grow kvm->arch.nested_mmus while initialising
+> another vCPU: it copies the MMUs, publishes the new allocation, and frees
+> the old one.  It updates pgt->mmu back-pointers, but not hw_mmu, leaving
+> the first vCPU with a pointer to freed memory.  hw_mmu cannot be fixed up
+> the same way: a running vCPU reads it without holding mmu_lock.  Copying
+> also duplicates the MMU's refcount, leaving the live copy permanently
+> elevated.
+> 
+> KASAN reports this as a slab-use-after-free in kvm_handle_guest_abort().
+> 
+> Make nested_mmus a pointer table and allocate each MMU separately.
+> Growing the table now moves only pointer entries, preserving cached
+> hw_mmu pointers, pgt->mmu back-pointers, and each MMU's refcount.  Fully
+> initialise new MMUs before publishing the table and its size under
+> mmu_lock.
+> 
+> The old failure path passed uninitialised entries to
+> kvm_free_stage2_pgd(), which needs mmu->arch.  Use an allocation helper
+> that returns only fully initialised MMUs, so error cleanup frees only
+> completed objects; kvm_init_stage2_mmu() unwinds a failed initialisation.
 
-On Thu, 16 Jul 2026 at 13:57, Alexey Klimov <alexey.klimov@linaro.org> wrote:
->
-> Hi Peter,
->
-> On Mon Jun 22, 2026 at 9:43 PM BST, Peter Griffin wrote:
-> > Hi Alexey,
-> >
-> > On Mon, 22 Jun 2026 at 19:57, Alexey Klimov <alexey.klimov@linaro.org> wrote:
-> > [..]
-> >> >> >
-> >> >> > I originally made the failure non-fatal because the system still boots
-> >> >> > without the notifiers registered (and all other Arm64 Exynos SoCs
-> >> >> > upstream don't register notifiers and AFAICT have broken cpu hotplug
-> >> >> > and cpu idle).
-> >> >> >
-> >> >> > In hindsight, that seems like a mistake. I think your patch to fully
-> >> >> > unwind everything in case of failure makes more sense.  See small
-> >> >> > comment below about destroy_cpuhp_and_cpuidle()
-> >> >>
-> >> >> Wait, setup_cpuhp_and_cpuidle() should be non-fatal and shouldn't
-> >> >> return any errors?
-> >> >
-> >> > I suggest you re-read my above comment above ^^
-> >>
-> >> Could you please clarify what specifically addresses my question about
-> >> notifiers?
-> >
-> > Sure, I was referring to this part of my previous reply:
-> >
-> >> >> > In hindsight, that seems like a mistake. I think your patch to fully
-> >> >> > unwind everything in case of failure makes more sense.
-> >
-> > [..]
-> >>
-> >> If c2 idles are used during reboot/shutdown then they fail or what?
-> >
-> > This followed similar logic to the Samsung downstream kernel drivers.
-> > I have no extra information about it beyond the downstream kernel
-> > source. It seemed reasonable though that CPU's will be hotplugged
-> > during suspend and reboot so you may wish to ignore these.
-> >
-> > The proper solution of course is a fully PSCI compliant firmware,
-> > which doesn't require these side channel hints.
->
-> It seems there is some misunderstanding, where we are not getting to the
-> point.
+Just a comment, instead of allocaing the nested mmus individually
+another option is to just fail VCPU_INIT if any of the nested mmus have
+refcnt > 0.
 
-From my point of view your proposed patch looks good, as I mentioned
-in my earlier replies. The only reason for not sending a reviewed-by
-tag was the outstanding piece of feedback regarding only calling
-destroy_cpuhp_and_cpuidle() for platforms that called
-setup_cpuhp_and_cpuidle(). Currently it is only gs101 that calls
-setup_cpuhp_and_cpuidle() but in your patch you call
-destroy_cpuhp_and_cpuidle() unconditionally. Will that cause issues
-for other SoCs?
+However, we probably want to return EBUSY in that case, but that's a
+uAPI change.
 
-> I think I still do not see any comment about failed notifiers
-> and question about c2 idle states is kinda misdirected.
-> I also don't see any answers that clarify this from previous emails:
+Thanks,
+Wei-Lin Chang
 
-As I understand it your proposed patch fixes all the issues you are
-asking questions about? Is there some outstanding point that your
-patch hasn't already addressed?
-
->
-> >Why do we need to have notifiers (say cpu_pm_register_notifier())
-> >registered if, for instance, cpuhp_setup_state() fails?
->
-> Let's jump to the details then to move it forward somewhere.
->
-> If one of the cpuhp_setup_state() fails and in the current sources
-> (without this patch) we don't check if it succeeds or not we may not
-> have properly working hotplug notifiers =>
-> {set,clear}_bit(cpu, pmu_context->in_cpuhp) may not be updated
-> correctly.
->
-> The if-check logic in cpuidle callback:
->
->         if (test_bit(cpu, pmu_context->in_cpuhp)) {
->                 raw_spin_unlock(&pmu_context->cpupm_lock);
->                 return NOTIFY_BAD;
->         }
->
-> relies on that and may not work reliably. As a result c2 idle states
-> may stop working or offlined CPU may be put into c2 idle state.
->
-> Going further, if register_reboot_notifier() fails and we don't
-> check its return value then
->
->         /* Ignore CPU_PM_ENTER event in reboot or suspend sequence. */
->         if (pmu_context->sys_insuspend || pmu_context->sys_inreboot) {
->                 raw_spin_unlock(&pmu_context->cpupm_lock);
->                 return NOTIFY_OK;
->         }
->
-> a CPU can be put or at least attempted to be put into c2 idle state.
-> That's why there was a question:
->
-> >> If c2 idles are used during reboot/shutdown then they fail or what?
->
-> If it is fine to use c2 idle states during power off or reboot,
-> then why the code blocks them during power off/reboot?
->
-> >> I am not saying that patch is correct and some rework is needed but I don't
-> >> get why we should completely ignore errors from hotplug states registration
-> >> and should not check registration of notifiers. At least warning should be
-> >> shown to user that pm functionality might be unreliable.
-> >
-> > As mentioned above, and in my previous reply, I think your proposed
-> > patch is a good idea.
->
-> You mentioned, so far as I understood your replies, that _only_
-> destroy_cpuhp_and_cpuidle() is useful and setup_cpuhp_and_cpuidle()
-> should be non-fatal.
-
-I don't know how you reached that conclusion from my replies, as I
-never said either of those things. The only outstanding point for me
-in your patch was about calling destroy_cpuhp_and_cpuidle()
-unconditionally for platforms that never called
-setup_cpuhp_and_cpuidle(). I was expecting either a new version or
-some justification as to why that's OK.
-
-Peter
+> 
+> Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> Cc: stable@vger.kernel.org
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+> ---
+> 
+> Tested on an arm64 KASAN kernel under QEMU TCG with EL2 emulation
+> (-machine virt,virtualization=on -cpu max, kvm-arm.mode=nested): the
+> selftest in patch 2 reports the slab-use-after-free without this patch
+> and passes with it.
+> 
+>  arch/arm64/include/asm/kvm_host.h |  6 +-
+>  arch/arm64/kvm/nested.c           | 92 +++++++++++++++++++++----------
+>  2 files changed, 67 insertions(+), 31 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index bae2c4f92ef5..f587b01039f9 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -319,10 +319,10 @@ struct kvm_arch {
+>  	u64 fgu[__NR_FGT_GROUP_IDS__];
+>  
+>  	/*
+> -	 * Stage 2 paging state for VMs with nested S2 using a virtual
+> -	 * VMID.
+> +	 * Stage 2 paging state for VMs with nested S2 using a virtual VMID.
+> +	 * MMUs are individually allocated to keep their addresses stable.
+>  	 */
+> -	struct kvm_s2_mmu *nested_mmus;
+> +	struct kvm_s2_mmu **nested_mmus;
+>  	size_t nested_mmus_size;
+>  	int nested_mmus_next;
+>  
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index dfb96edbdc43..af804a5ddca7 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -5,6 +5,7 @@
+>   */
+>  
+>  #include <linux/bitfield.h>
+> +#include <linux/err.h>
+>  #include <linux/kvm.h>
+>  #include <linux/kvm_host.h>
+>  
+> @@ -66,11 +67,36 @@ static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
+>  	return kvm_init_stage2_mmu(kvm, mmu, kvm_get_pa_bits(kvm));
+>  }
+>  
+> +static struct kvm_s2_mmu *alloc_nested_s2_mmu(struct kvm *kvm)
+> +{
+> +	struct kvm_s2_mmu *mmu;
+> +	int ret;
+> +
+> +	mmu = kzalloc_obj(*mmu, GFP_KERNEL_ACCOUNT);
+> +	if (!mmu)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	ret = init_nested_s2_mmu(kvm, mmu);
+> +	if (ret) {
+> +		/* kvm_init_stage2_mmu() frees its internal allocations on error */
+> +		kfree(mmu);
+> +		return ERR_PTR(ret);
+> +	}
+> +
+> +	return mmu;
+> +}
+> +
+> +static void free_nested_s2_mmu(struct kvm_s2_mmu *mmu)
+> +{
+> +	kvm_free_stage2_pgd(mmu);
+> +	kfree(mmu);
+> +}
+> +
+>  int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+>  {
+>  	struct kvm *kvm = vcpu->kvm;
+> -	struct kvm_s2_mmu *tmp;
+> -	int num_mmus, ret = 0;
+> +	struct kvm_s2_mmu **tmp;
+> +	int i, num_mmus, ret = 0;
+>  
+>  	if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features) &&
+>  	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
+> @@ -96,38 +122,48 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+>  		if (!tmp)
+>  			return -ENOMEM;
+>  
+> +		/*
+> +		 * Populate new slots before publishing: table walkers hold
+> +		 * mmu_lock and iterate up to nested_mmus_size.
+> +		 */
+> +		for (i = kvm->arch.nested_mmus_size; i < num_mmus; i++) {
+> +			struct kvm_s2_mmu *mmu = alloc_nested_s2_mmu(kvm);
+> +
+> +			if (IS_ERR(mmu)) {
+> +				ret = PTR_ERR(mmu);
+> +				break;
+> +			}
+> +
+> +			tmp[i] = mmu;
+> +		}
+> +
+> +		if (ret) {
+> +			while (i-- > kvm->arch.nested_mmus_size)
+> +				free_nested_s2_mmu(tmp[i]);
+> +
+> +			kvfree(tmp);
+> +
+> +			free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+> +			vcpu->arch.ctxt.vncr_array = NULL;
+> +
+> +			return ret;
+> +		}
+> +
+>  		write_lock(&kvm->mmu_lock);
+>  
+>  		if (kvm->arch.nested_mmus_size) {
+>  			memcpy(tmp, kvm->arch.nested_mmus,
+>  			       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
+> -
+> -			for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
+> -				tmp[i].pgt->mmu = &tmp[i];
+>  		}
+>  
+>  		swap(kvm->arch.nested_mmus, tmp);
+> +		kvm->arch.nested_mmus_size = num_mmus;
+>  
+>  		write_unlock(&kvm->mmu_lock);
+>  
+>  		kvfree(tmp);
+>  	}
+>  
+> -	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
+> -		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
+> -
+> -	if (ret) {
+> -		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
+> -			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
+> -
+> -		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+> -		vcpu->arch.ctxt.vncr_array = NULL;
+> -
+> -		return ret;
+> -	}
+> -
+> -	kvm->arch.nested_mmus_size = num_mmus;
+> -
+>  	return 0;
+>  }
+>  
+> @@ -725,7 +761,7 @@ void kvm_s2_mmu_iterate_by_vmid(struct kvm *kvm, u16 vmid,
+>  	write_lock(&kvm->mmu_lock);
+>  
+>  	for (int i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (!kvm_s2_mmu_valid(mmu))
+>  			continue;
+> @@ -767,7 +803,7 @@ struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu)
+>  	 *   if S2 translation is disabled.
+>  	 */
+>  	for (int i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (!kvm_s2_mmu_valid(mmu))
+>  			continue;
+> @@ -806,7 +842,7 @@ static struct kvm_s2_mmu *get_s2_mmu_nested(struct kvm_vcpu *vcpu)
+>  	for (i = kvm->arch.nested_mmus_next;
+>  	     i < (kvm->arch.nested_mmus_size + kvm->arch.nested_mmus_next);
+>  	     i++) {
+> -		s2_mmu = &kvm->arch.nested_mmus[i % kvm->arch.nested_mmus_size];
+> +		s2_mmu = kvm->arch.nested_mmus[i % kvm->arch.nested_mmus_size];
+>  
+>  		if (atomic_read(&s2_mmu->refcnt) == 0)
+>  			break;
+> @@ -1223,7 +1259,7 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+>  		return;
+>  
+>  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (kvm_s2_mmu_valid(mmu))
+>  			kvm_stage2_wp_range(mmu, 0, kvm_phys_size(mmu));
+> @@ -1242,7 +1278,7 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+>  		return;
+>  
+>  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (kvm_s2_mmu_valid(mmu))
+>  			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
+> @@ -1261,7 +1297,7 @@ void kvm_nested_s2_flush(struct kvm *kvm)
+>  		return;
+>  
+>  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (kvm_s2_mmu_valid(mmu))
+>  			kvm_stage2_flush_range(mmu, 0, kvm_phys_size(mmu));
+> @@ -1273,10 +1309,10 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+>  	int i;
+>  
+>  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (!WARN_ON(atomic_read(&mmu->refcnt)))
+> -			kvm_free_stage2_pgd(mmu);
+> +			free_nested_s2_mmu(mmu);
+>  	}
+>  	kvfree(kvm->arch.nested_mmus);
+>  	kvm->arch.nested_mmus = NULL;
+> 
+> base-commit: 38436106b2f5ceb55950a7098c1a5804de2bde62
+> -- 
+> 2.39.5 (Apple Git-154)
 
