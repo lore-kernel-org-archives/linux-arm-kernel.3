@@ -4,57 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF724C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 15:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A89C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 15:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hINQgG2Cz5uHOWCMPGkyjpoYrQxkpuisCZW5bXMd38w=; b=PMDebrqCpkOKxODNNe1Ml8B6yI
-	KkSfABnN7FI3usNGkIjwoMEj/woZKyZukwRORM2gSXYGOP8XYt6i+gG6tV9hDM1SBDzOuqaXz2ZZu
-	EDkwURvoDW/3PGzbySK29ErGchZEnR9Bw4vSJ8jruQA089DSWIgrnBFcm/qPt/evUXG7v1er1/wor
-	V6uKdDYDIA0FWHPWTfBmEJepxem40GdEmZEDwu5xz9Q+mhHeA9b7crw87ThlQKynSkavbc20rLpze
-	/oO84qAUNJanHJRa1bDHpj6FWD11AXXvzBS1uNpHDZwmx7AI6PLc6js5Q97JizhZGVlaPWucGYvng
-	C8zVdXPQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6r1XUD+zcMbBMioGMZLAXYjDwYxQUe7uV3RFGy9lY+I=; b=Q4CFecM3DvKmN/QKCgQZgM3f9R
+	hua0dQ7/7avj7brURcijdus6s9fo7yGfhJ9R3cqQLO6dScIwZ5ss6t5mFQmMu+rD13I1vT8EGx1Wb
+	Aikd0DyZ9ZSgMjsIJHMjPBg9WCd9phYm0CHxDa0cDP7mxt8jCym61gnvU5syWy/Twe+Unubx1yTCl
+	Fk59AcrFOuSJP5m6Bq43eUJc1b25BOIBqAetSEt11HAtc1pgBx+zJ2DKM8oEtH4jGwJHgXdwnjfx8
+	PW3IMm1TylE1n9vzq9E5OqrEHJ6vSIXrg8tRRTen5UoxMXyxgekjp5PDcvAQ2pC+HqUoVBdsvbwz7
+	bw8Mn+3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGd3-000000029nS-44pl;
-	Tue, 04 Aug 2026 15:00:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGd1-000000029n5-2Rjl
+	id 1wrGej-000000029wy-13pY;
+	Tue, 04 Aug 2026 15:02:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrGeh-000000029wn-31iu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 15:00:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7964D165C;
-	Tue,  4 Aug 2026 08:00:22 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5B7A3F86F;
-	Tue,  4 Aug 2026 08:00:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785855626; bh=qod7nuIJK3LbjzJXK5Ak2BXjKVmEFuQMsxsXzJ/nVxk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZOPlBtqQHjwHO/AFGn3qfSS0j0Yjza8S4K2a6Qp12zk+20cuWBdgDfENP5zclhCll
-	 d04iVhJNyTxtv3jmmIoz8EFwWMCUE6+6sRQL61NC4vGF0rkLNn8MqCLdpaGNmrdNbN
-	 UUihAUfArHhPhIoDxC3iZ0Dw1TAo4u3PnvsOeVbQ=
-Date: Tue, 4 Aug 2026 16:00:22 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: David Laight <david.laight.linux@gmail.com>
-Subject: Re: [RFC PATCH 07/13] arm64: percpu: Implement preemptible
- read/write ops
-Message-ID: <anH-hp7f_YpEkXeU@J2N7QTR9R3>
-References: <20260728123859.2911495-1-mark.rutland@arm.com>
- <20260728123859.2911495-8-mark.rutland@arm.com>
- <20260728224755.59cfd22d@pumpkin>
+	Tue, 04 Aug 2026 15:02:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B71141AB1
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 15:02:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D91391F000E9;
+	Tue,  4 Aug 2026 15:02:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785855731;
+	bh=6r1XUD+zcMbBMioGMZLAXYjDwYxQUe7uV3RFGy9lY+I=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=PcupWXGb+WmrZL5O2aU425S8KTLyXNs/kEBDqAF5gegtX5hNL+ecpOtWsawgtFLRc
+	 sqKgmJXlEECA9CvJYZfOsMw6ZgqDMhTGzMj+e5qPWmmg5PGrML5Wk1vXGiqCz141sI
+	 GzNMqD/+vyZDpc7hZ/etxwPrG2m/Hhm9VAJNEEhN0ZHBbr1s423k7/EDkbJ33zrfQ2
+	 +aR+yzF8oLaajnYphS7CSNa2yehx6l9ES5qclV7J6ubSJnhVhXRO1rzoJaQdzavH9N
+	 0dnkHSKoOxyIIG9UOC8lU1M+l9vw6LvMJ4YknTNe1FULEtgabypdvkd5FMo7Pakh4j
+	 +pdRoq3H6C9Fg==
+Received: from ams-compute-02.internal (ams-compute-02.internal [10.64.2.62])
+	by mailfauth.ams.internal (Postfix) with ESMTP id 6B7A4198008E;
+	Tue,  4 Aug 2026 11:02:09 -0400 (EDT)
+Received: from ams-imap-11 ([10.64.2.31])
+  by ams-compute-02.internal (MEProxy); Tue, 04 Aug 2026 11:02:09 -0400
+X-ME-Sender: <xms:7_5xare-7YL9pMkqCzS67yqPCD7P-QRi78lPMDUMlXc1yga57IgOGA>
+    <xme:7_5xasBx1bYl1OTxhAYo1WRAssCpVJhLBEVJmts0aYkyTl2gm_UDHzDwio1Q2xEus
+    qM7xDOpAJTNyYWHvbAgUP64hxenoUUMiuCTadGPrZj2WYV3plC5LIQ>
+X-ME-Proxy-Cause: dmFkZTGH7NHF/4bU1m4gEXdnc5ycGfy1HcQpdQtOeW8oFxhq6JTmTd3E7yQtTAzwt9ip4n
+    N+XOaKih88UK0fd9Hidh4yQfkiBIk+6DkSZwchXROPhqtA5Aaww+Kq+fl6RR2qXYxM+v7d
+    7sKp+JnaEwRb3/lsjqd7wrP/9GumnQWOpb3knId+JLJhJj1FtMM8CkG9X6wHFiCQoDD6wf
+    n9luA9E253Wt6gcnAwN/V40vXyq1lk6ymuz13HilDq1ih2zqh1zhflr2bbeiLrybgsCHOP
+    YMsm8P/hqb39RPaFGkq3raQoo3q4SM/mB+mJb4SFwVyDdV02aF7gGUUaDC1jg3mRRyDkCq
+    yQ9RanwwFzSZjtLpZ5NPBP4VCNRqMBVfOu05+nw17unv5rjaEvd/LN0SlVMGDo0WQbVcfz
+    w/Uszd5hXS7M6nTipyvODcBL4WI+jWVKEiB/Z+D5gau2tl2sJW8QrV9V4wBwF+PwAdhls/
+    1PqHAL1XYvUAgUqfC+WQq3xX/us7GizCnji8bUkwVNuXWxykJw6nKwD9xJe08smydxgTj2
+    9VYin+Aid6jeIYBvx/+WTx996beL5mvZuZAfWbupiwe6Rd0UmHjo5/7QQNoKAZjBvxLkLF
+    9kXyNGtAWCHIpDNmGkRL1vRTJr/yrS3ftpGRaCDwSSk4r2mBpHjpAwZWKtpA
+X-ME-Proxy: <xmx:8f5xas9EHmbjkD-jYyu-28kFA-8d_Yh2-x63bAetTGg9SGpqsTrA4w>
+    <xmx:8f5xavpkuSwZEx9hUQoKevuGEzsMl2g0ItVzzZAlzS9yZ8GOQn84SQ>
+    <xmx:8f5xahARKYy3RdwjlLgARYnI2cEfCIi-iLP9RlwIo8DCbZv9SUzoGQ>
+    <xmx:8f5xahyoXiyDczi6-jlwI44CWtxsaVL2FZBL4DCmHbPQHQTNX_twfg>
+    <xmx:8f5xau2Xahw0Tdbyc5YoP717QJvzXhQ8qimENbYaCpYJENsGlKFJEuqR>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id B195AF80060; Tue,  4 Aug 2026 11:02:07 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260728224755.59cfd22d@pumpkin>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_080027_661635_2266DD56 
-X-CRM114-Status: GOOD (  16.30  )
+Date: Tue, 04 Aug 2026 18:01:47 +0300
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: "Will Deacon" <will@kernel.org>, linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Marc Zyngier" <maz@kernel.org>
+Message-Id: <ae512d64-b56b-4032-bced-db69dacd3f68@app.fastmail.com>
+In-Reply-To: <20260803164230.25172-1-will@kernel.org>
+References: <20260803164230.25172-1-will@kernel.org>
+Subject: Re: [PATCH] MAINTAINERS: arm64: Add Mark Rutland as an official Reviewer
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,47 +92,30 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, hca@linux.ibm.com, linux-kernel@vger.kernel.org, ruanjinjie@huawei.com, yang@os.amperecomputing.com, maz@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 28, 2026 at 10:47:55PM +0100, David Laight wrote:
-> On Tue, 28 Jul 2026 13:38:53 +0100
-> Mark Rutland <mark.rutland@arm.com> wrote:
-> 
-> > Use the PCPU GPR infrastructure to implement preemptible this_cpu_read()
-> > and this_cpu_write().
-> ...
-> >  #define this_cpu_write_1(pcp, val)	\
-> > -	_pcp_protect(__percpu_write_8, pcp, (unsigned long)val)
-> > +	_pcp_wrap(__percpu_write_8, pcp, (unsigned long)val)
-> 
-> Not new, but does that end up sign extending 'val' which is likely
-> to be more expensive than zero extending it?
-> Using '(val) + 0u + 0ul' might generate better code in some cases.
 
-For the existing code, there's no {zero,sign}-extension in practice due
-to our calling convention (AAPCS64) and inlining. AAPCS64 specifies that
-when an N-bit valiue is allocated into a register, bits[N-1:0] contain
-the value, and bits[63:N] contain unspecified values.
+On Mon, 3 Aug 2026, at 19:42, Will Deacon wrote:
+> Mark has been part of the arm64 furniture for as long as the code has
+> existed in mainline and is consistently one of the most active and
+> knowledgeable reviewers that we have.
+>
+> Make it official.
+>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>
+> Mark's actually OoO atm, but I spoke to him about this offline and he
+> was keen to be listed. Honest!
+>
+>  MAINTAINERS | 1 +
+>  1 file changed, 1 insertion(+)
+>
 
-The existing __percpu_write_##sz() only consumes 'val' as a 'u##sz', so
-the compiler doesn't need to do anything with the upper bits (and in
-practice doesn't do anything), so long as __percpu_write_##sz() is
-inlined into its caller.
-
-The new __percpu_write_##sz() in this series doesn't cast 'val' back
-down to a 'u##sz', so there is some unnecessary extension. I'll fix that
-by taking 'val' as a 'u##sz' in the function prototype, which'll avoid
-extension regardless of inlining.
-
-> Just noticed it should be (unsigned long)(val) as well.
-> Otherwise this_cpu_write_n(pcp, -7 / 4) isn't going to DTRT.
-
-Yes, that's a latent bug, and we have at least one other case
-(this_cpu_and()) where we miss brackets.
-
-I'll fix those up as a preparatory patches.
-
-Mark.
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
