@@ -4,152 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6932C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C67C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HP0PounhvTOT7QM3qBV2FFDGxTR319Vd78MIDrgPsRY=; b=2WEb9i6F5ofXlg3xSINn7nDOcI
-	68elKKW4je0Fm8yF9VkcCpJEkcrTgwbd2FoTpt+tr05GQb8uodUdCBlCcuzzMhtolc6+O5tlblWh2
-	0o1tTEj/cIutOeJd9sigyZ5gLiLQEVbafk0vOo7zRVYA+HNlJVE8p0uGK2uRHDDzJVyFzBHu67rbI
-	JZLDSIPdcKfNJpVB3dLy5f0aZSzc/kaU77gO6eLZgFAgMKqKk4Gd6It+wstSBPKDY3UVZcw0LvF2R
-	NtSOF7U388flmz6TKYGKYrLl5dw+eRsjEoR4xHaN6YBXDX7mWNpDfo1Lqaohyqi7G1HcxjHKxmhz7
-	wKnHvStQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IBH/Dc/ZJz+4sJLW+ut9cuYtgG9NRpWhNfYqB994G2g=; b=wSIvVVNe9xLmbWwAalPw7t2gre
+	nW+vLdKFgYgyxC29+r3Dg/4c+N0DIffYawJcwr5V8lb6zfi8p49XMAJSIWlUwBeBAPzHi+IPlPiCq
+	UB6if7ai29V4oiWL5q6+osHZJkM6y9nBMsEXQHQON9Jq61SL1lZIJSmuyQLMvRe52XV6V5VtC7Xcd
+	bwUtCZo866r1tO8uRwiGpnAJdpivaQ0ft54C039zBti5Ya2YBrfUctJQv5LTj8JpZLkyONj/cQzGt
+	0YvAj2zroIVhwevw1JfBTki47HlQmTHzEFR8mQvnCDkV1qphetaScMKYF8hXLIGaMCwdyHQh/XmZH
+	POW125Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrFQO-00000001xKW-2HpL;
-	Tue, 04 Aug 2026 13:43:20 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wrFQl-00000001xT4-32jK;
+	Tue, 04 Aug 2026 13:43:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrFQL-00000001xIs-2QjC
+	id 1wrFQk-00000001xSa-0GJW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 13:43:19 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 674D33PF3693373
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 4 Aug 2026 13:43:17 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	HP0PounhvTOT7QM3qBV2FFDGxTR319Vd78MIDrgPsRY=; b=IqQf2b4FGejs2nR+
-	xCaO89bszLEgViAVstdoyjObZOHo9Q6KAuJMds07EbDiagts1JLhGNO3ehpkKDfs
-	txvP/OubxAvxsmP1lpDNO4GXLvE3v6mg3Hpctrjx9iDdLFCxBgr8AFlv9e3Q2NKy
-	MaI4IkZ0l4HInpJdJz9CbvzVFCal7cZITELDDWVnhrSTskzEo34xMiF9whvoNzZh
-	h8g+3U86nTxHYbIEQ2lIgJEYTZdvbCUy3LlilKLWGjP3w7WJDbmi0ltwKaGdkvaq
-	zDRzsMpkylts17Gi5H+/I60QhJPE4BCk3EpZikjX439PSdsI7LGk6OSztcRGqn0e
-	R1+kRw==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fugmgg5e8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 13:43:17 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-92e62e3459fso455163585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 06:43:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785850996; cv=none;
-        d=google.com; s=arc-20260327;
-        b=b+YU9ZjN2RJS/6OAV36msRKWibvo+a5HTiX4XH1WbiPUqP++xUPtY97eulJ6zSio8A
-         SEqFWrHxkkVv4AOWzDgSlMHSrSWdDpl9kjklXilcWHjkuVg7KZBUozuej6dSEHxR5Nyd
-         lrCecQWlvwWJNIcApzj+INodXxJnfpasOqXHWwN6HPcy/r5x5q/MtwXH/XpXg2xXfmw+
-         9uukR92gKlkhmsTwRt2Pq0GgGOlvG8o61G8zSJKYz+IeJ7aj6ILM16dBh35tKs1Hl/od
-         Fp2UCDAvsvbnUqnA4jPsn2BcUBdQBbr6xXPe7jqdvvPtSSfWjWNzqUAdHxLp3dBI3RqM
-         jIFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=HP0PounhvTOT7QM3qBV2FFDGxTR319Vd78MIDrgPsRY=;
-        fh=Ebtug8ew7z8HSKqdOjzmuSW52zPZtTqRm4ACh6+5dpo=;
-        b=skSKiPxB6/hs691ZE7EawQfUet2ZnF6mYoS3NmV2EmoDbJmtjEbTLA2LSB4UyT0FcM
-         ASnBPnjZXPu3b1lwh05TZ7W+VX791jtqsKTvsQHKr3zykRGV2LFQpePKLaJ8vSP8epnl
-         Fcq4R7DaKdRFncB9m5K3i68seWJ8R/f5HlQLTBmiasmNOs0v8P4AHR7iiQdkJ45qwTy/
-         v9DIWiA+mQU2+1NVYBQk5+ct7alkeRw+wVaz3M/ZzrxFL34G1IeVgviPRzL8KDF3MLnV
-         EcO+aLkf8Y3zeBLA/4DXK1DRHvC1Y7lWRpPWEWYYsJsyx/2hyDsEVQ6mUwOpFqOLn7fc
-         QGzQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785850996; x=1786455796; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=HP0PounhvTOT7QM3qBV2FFDGxTR319Vd78MIDrgPsRY=;
-        b=cZaqHCIEs4XDpmFdW2kyyXXVCCBTM6PUsYb8LUauQCMjmVM8ihIqUCEaVdBbs7gTdn
-         OPZbydgZAHTmkpK7+eKrkt5diWiqe5TmveZsGxnTT5OL01Fa3YL0am71TBguVEnQTIUm
-         DhFvc/DZCMjri3kD/tojZIS+ZlQA5WOW93xFMNf6cBQ4vco9W9mChV1VYlSMWnQDSaKM
-         oLwhd+UINJPO93NnMlCfPKo3bsoQtqxyKbmV9kBtTgyGo6HL3/vdX0rVyfsDUZJeoBhW
-         6FKx/C6e0NUgwz5WJ46HvoxXWrWAWnl1vv0Ddkwcd+6P19yIP+ZbwM6wzjjGeE0pTNss
-         bKtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785850996; x=1786455796;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HP0PounhvTOT7QM3qBV2FFDGxTR319Vd78MIDrgPsRY=;
-        b=B/3/pAlxs6ooNx3XqRJ+tsjaNOsmp2z70lz72GJBKD+m9Ya5x6nRjYEp0QKMfFlmi7
-         7L22SGzb5MuUpn07OZ4DMfXTUkmJ4NTJj+95P29ALRS+OR8EAOjcQIMaVt0Wthr6x5hp
-         KYn6Gooz54lcgAp12O2xvdU1cidFvr3zXAuggZSmHcQ7KxJ+3mNQhyReO6ONWcltjUrS
-         GxanSaJ/Vq1By4sTiVs89U17SSoMZLYeXxx/bWhm8k+ikB/DAxMkC9vfTJKUqVZ8wJ4x
-         WxhVXgP6sLP4VGMfzi5sfdAvXn1Okxfovt/jzoyrEA2m/YFe5VJkbrFK0OlWU5VWsvoE
-         Hf2w==
-X-Forwarded-Encrypted: i=1; AHgh+RphYPSMtuk/+4rOMxS5W5A5E/kycLY6Anygog/NixykRtWzlTAPKajeLRbRR1Gnc3WA+zjYY8f1JClo70Jewh8G@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMP9X8XlsfLnlMEe5V9ixc7AWjXAQN/n7hXQZs0mMRex6jVCz+
-	QYZoukltVUNaBG368KZiuVITNzhqj27RbIlthLn6Lt2eWfxTUFcBxRZjjs8fw4qVINzv1h4GDzz
-	Js5Y7jcPVIq/IBPioEJj4Ae+T3nnTJkqiQIrnZPEEfv1NrtZZhrHTzDAKvdGdQTqcTabnXjIxUe
-	QTUtLj4h/jMGtByWD9+d1ztQx+WJ0Xr631IB1VUrNLNRI6LqsHmxbT
-X-Gm-Gg: AR+sD10i4VuyaE4wKCGtb6MtsZEZ894uETJ2gQqHkh7l+KAXcqGZZAAlQNk6vPiVJIH
-	93/Wj30kn9m4OD3vM/jsa1prsQRtL4KnPkxmJW8bLfza5WpdeT5p7pe34QRMnlkVH23mslOLc3e
-	BHOWaJVvYqWaBadnvLMg6qOEIDfYUq90x4RikQedijblyBhs79zGiFljI4+g==
-X-Received: by 2002:a05:622a:1214:b0:516:e0eb:d7d with SMTP id d75a77b69052e-52b56777af4mr253152831cf.27.1785850996101;
-        Tue, 04 Aug 2026 06:43:16 -0700 (PDT)
-X-Received: by 2002:a05:622a:1214:b0:516:e0eb:d7d with SMTP id
- d75a77b69052e-52b56777af4mr253152271cf.27.1785850995665; Tue, 04 Aug 2026
- 06:43:15 -0700 (PDT)
+	Tue, 04 Aug 2026 13:43:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6C1C760A78;
+	Tue,  4 Aug 2026 13:43:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FD5B1F000E9;
+	Tue,  4 Aug 2026 13:43:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785851021;
+	bh=IBH/Dc/ZJz+4sJLW+ut9cuYtgG9NRpWhNfYqB994G2g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AHtmCddswf2PGZfFcl62pyqqu04/E7F86tIAV9KM56Q5mQvysgWALmoW8qvGMEPtR
+	 HBMDSSXBJflPvUTOlLnjZsqOjrTFtum7s4cbYYKas1fQt27U2HnbRya71c0Wo6USc3
+	 Iv4IVqCrmNgfTlzkcOAnqGtaLsglgfasO9QF8P8MeugPQ4SYyGRlLckNrPHrBHswFE
+	 8GdjBCg3n3Bt/9axjacpHDRnn1VJ6UBN4RlVOPAy6ckT1FsVG/ZewYkSURKS1V8gjS
+	 6yjV+Fvo5mDBJZE/7cKa86Z5QntI9ieyTI2glVuRYHV7dePDLx/UtbUPoVx3UneCvh
+	 8W9330z+eNB1Q==
+Date: Tue, 4 Aug 2026 14:43:35 +0100
+From: Will Deacon <will@kernel.org>
+To: Naman Jain <namjain@linux.microsoft.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>, Thomas Huth <thuth@redhat.com>,
+	Fuad Tabba <fuad.tabba@linux.dev>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Pengjie Zhang <zhangpengjie2@huawei.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Saurabh Sengar <ssengar@linux.microsoft.com>
+Subject: Re: [PATCH] arm64: smp: distinguish secondary CPUs that hang after
+ reaching head.S
+Message-ID: <anHsh0SpRfSMIza7@willie-the-truck>
+References: <20260722113044.1835365-1-namjain@linux.microsoft.com>
+ <6e13c10f-ccc2-48c3-bf8a-d65133a33e17@huawei.com>
+ <70e8596f-7316-4cc9-90e8-ff06a94c4616@arm.com>
+ <d52431ea-3166-459c-8f3d-988fdef63c32@linux.microsoft.com>
+ <amYPss8PK9dgg2TD@willie-the-truck>
+ <45ab9640-14b7-48d7-89e2-109aa3935539@linux.microsoft.com>
 MIME-Version: 1.0
-References: <4389d5deff90b2b860bd07f17668270fda36bd26.1785750407.git.xiaopei01@kylinos.cn>
-In-Reply-To: <4389d5deff90b2b860bd07f17668270fda36bd26.1785750407.git.xiaopei01@kylinos.cn>
-From: Ulf Hansson <ulf.hansson@oss.qualcomm.com>
-Date: Tue, 4 Aug 2026 15:43:04 +0200
-X-Gm-Features: AUfX_mxpZumxWFxMAuKE7eioaXJu4G1kpmXiqDCFMMd_83LH_LCczGYOGtylrhs
-Message-ID: <CAPx+jO8s+ANURyMRTbCa+EA54-q3wMS_hZtOJdxOucg5eRBk6Q@mail.gmail.com>
-Subject: Re: [PATCH] mmc: atmel-mci: Fix use-after-free in atmci_remove due to
- race condition
-To: Pei Xiao <xiaopei01@kylinos.cn>
-Cc: aubin.constans@microchip.com, ulfh@kernel.org, nicolas.ferre@microchip.com,
-        alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
-        linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA0MDExMCBTYWx0ZWRfX9jCy5Oyn9kkv
- fel70wY7q3oOD1I4CjlYgMWBJ7hkzWl4F9FPtQEUuW2uPWobOFypm0tqPkxbgResig8w53opAbJ
- Hpjcme16tkxVqC7ywQGUC/ubkwomSsr8AH/SGMtJPeGkzVMoUYM7zKsbeCefWFHP+zGWziEDfi9
- ZkVirOkT4eZHlcqqqmRTrHOIuen+yxrplewMqvwsLrFnjebjsayGHc5ZW0gTh8lKEO+XESF1BDq
- fQXAk0hg7UeyFt6jA+zflyV/Jt76WNIQno1oKjEoO8a+uoMAC5LWXDbYmSyzZP9ydCoyhPqdgvp
- 0HSUkD6AvSO3TnmKRprCITbAF31d/zOMqHn1xcbqnnmCswXkcI0XP3BmX3yBZU4Kcipoe38Bplo
- KIiNUmYdOv34SLvofMQkSIPqWngNZQfgPZTrqYpIIPMcJ7fu9m+CgK76vSU1Weo6LxxsmL0/tFP
- /LZVhsRkdc04LynJhzg==
-X-Proofpoint-GUID: _Usz8GoBV5ACdaZzHGvCHPYJH7tOYYNW
-X-Proofpoint-ORIG-GUID: _Usz8GoBV5ACdaZzHGvCHPYJH7tOYYNW
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODA0MDExMCBTYWx0ZWRfX6R9/+0MInqO+
- n9gTMeVUzLB5fkAMf5yhCOk0EnPXXlfj8U0N1ulxJDZBPQR8hDElj+YyXyQGK9u3He8m8N3HzlK
- YwK4/1BMSoGbWXOQIhTuoPQGpcCrAHM=
-X-Authority-Analysis: v=2.4 cv=XYC5Co55 c=1 sm=1 tr=0 ts=6a71ec75 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
- a=_K5XuSEh1TEqbUxoQ0s3:22 a=BBGR4qOFYMu73H6LvdUA:9 a=QEXdDO2ut3YA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-04_03,2026-08-03_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0 spamscore=0
- clxscore=1015 bulkscore=0 impostorscore=0 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608040110
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_064317_629257_56B3941E 
-X-CRM114-Status: GOOD (  24.69  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <45ab9640-14b7-48d7-89e2-109aa3935539@linux.microsoft.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,71 +83,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 3, 2026 at 11:48=E2=80=AFAM Pei Xiao <xiaopei01@kylinos.cn> wro=
-te:
->
-> In atmci_probe, &host->bh_work is bound with atmci_work_func, and
-> atmci_interrupt, atmci_timeout_timer and atmci_dma_complete can all
-> queue this work on system_bh_wq.
->
-> If we remove the module, atmci_remove makes cleanup and the memory
-> allocated for host with devm_kzalloc() is released after the remove
-> callback returns, while the work mentioned above may still be pending
-> or running. The sequence of operations that may lead to a UAF bug is
-> as follows:
->
-> CPU0                                      CPU1
->
->                                           | atmci_interrupt
->                                           | queue_work(system_bh_wq,
->                                           |            &host->bh_work)
-> atmci_remove                              |
-> atmci_cleanup_slot(...)                   |
-> atmci_writel(host, ATMCI_IDR, ~0UL)       |
-> timer_delete_sync(&host->timer)           |
-> dma_release_channel(host->dma.chan)       |
-> free_irq(platform_get_irq(pdev, 0), host) |
->                                           | atmci_work_func
->                                           | // use host
-> // devm resources released after          |
-> // remove returns, host is freed          |
->                                           | // use host (use-after-free)
->
-> Fix it by canceling the work after all the sources that can schedule
-> it (IRQ handler, timeout timer and DMA completion callback) have been
-> stopped, and before proceeding with the remaining cleanup in
-> atmci_remove.
->
-> Fixes: 7d2be0749a59 ("atmel-mci: Driver for Atmel on-chip MMC controllers=
-")
-> Assisted-by: Codex:deepseek-v4-flash
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
+On Mon, Jul 27, 2026 at 11:08:05AM +0530, Naman Jain wrote:
+> On 7/26/2026 7:16 PM, Will Deacon wrote:
+> > On Fri, Jul 24, 2026 at 10:16:03AM +0530, Naman Jain wrote:
+> > > On 7/23/2026 11:26 AM, Anshuman Khandual wrote:
+> > > > On 23/07/26 8:19 AM, Jinjie Ruan wrote:
+> > > > > 在 2026/7/22 19:30, Naman Jain 写道:
+> > > > > > When a secondary CPU fails to come online, __cpu_up() falls back to
+> > > > > > __early_cpu_boot_status, but boot status 0x0 is ambiguous: it cannot
+> > > > > > distinguish a CPU that never executed head.S (firmware/hypervisor never
+> > > > > > dispatched it, so it never ran a single instruction) from one that
+> > > > > > entered head.S, started executing, and then got stuck somewhere in kernel
+> > > > > > bring-up. Add a change to let us tell those two cases apart, which
+> > > > > > narrows down where to look when a CPU goes missing during boot.
+> > > > > I previously encountered this issue when debugging the parallel startup
+> > > > > of ARM64 secondary cores. It is difficult for the kernel to determine
+> > > > > whether the secondary core is hung in the firmware or whether it has not
+> > > > > executed a single instruction. So I think this motive is reasonable.
+> > > > 
+> > > > Why should kernel determine the difference here ? Would not the firmware
+> > > > know if it has started any secondary CPU for the kernel which must have
+> > > > come inside head.S ? If the cpu gets hung inside firmware while starting
+> > > > up then the debug responsibilities belong there instead.
+> > > > 
+> > > > Still wondering what's the rationale for this change.
+> > > 
+> > > Hello Anshuman,
+> > > This sounds fair to me. Let me elaborate the problem, beyond the scope of
+> > > this patch. In production, we occasionally see these crashes where one of
+> > > the CPU fails to bring up online, with 0x0 status code. Hypervisor may be
+> > > missing the telemetry, but the problem is that we don't know if the
+> > > secondary CPU ever started executing the instructions or is stuck somewhere
+> > > between the start of head.S and marking itself online at the end of
+> > > secondary_start_kernel().
+> > > There are couple of places, where we get those other status codes, but not
+> > > everywhere. If the issue is not easily reproducible, experiments on local
+> > > setups do not yield anything. That's where I am attempting to add some more
+> > > information in kernel to debug these issues.
+> > 
+> > I think this is a game of diminishing returns. There's a lot of stuff
+> > that the firmware/hypervisor can get wrong here and trying to detect or
+> > handle that in Linux is going to be a real mess. For example, if it
+> > enters the kernel at the wrong address, or in the wrong mode, or with
+> > the MMU enabled etc. It sounds like you don't have much idea about
+> > what happens in the failure case, so it might not even execute the code
+> > that you're adding correctly.
+> 
+> That is true. I agree. While we cannot and should not worry about adding
+> logs for each of these firmware failure points in kernel, do you see any
+> merit in adding any of this information to the kernel to at least narrow
+> down the problem?
 
-Applied for fixes and by adding a stable tag, thanks!
+Possibly, but I'd prefer to land the parallel bringup work first and then
+see whether this still makes sense.
 
-Kind regards
-Uffe
-
-
-> ---
->  drivers/mmc/host/atmel-mci.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
-> index 3b4928f5b9b2..8f4df250a77a 100644
-> --- a/drivers/mmc/host/atmel-mci.c
-> +++ b/drivers/mmc/host/atmel-mci.c
-> @@ -2610,6 +2610,8 @@ static void atmci_remove(struct platform_device *pd=
-ev)
->
->         free_irq(platform_get_irq(pdev, 0), host);
->
-> +       cancel_work_sync(&host->bh_work);
-> +
->         clk_disable_unprepare(host->mck);
->
->         pm_runtime_disable(dev);
-> --
-> 2.25.1
->
+Will
 
