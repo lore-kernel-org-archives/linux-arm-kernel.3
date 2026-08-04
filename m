@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D2C4C55838
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9408EC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WoJTb+3oMtlBGXFoyq7QIAMzphVtsDJaTXyZV9YL0Nc=; b=rIkkmOh08vJQB02HgUR+J/VFPQ
-	GZH7sZzBAYK5UYQuWIkvAL1bI1fVwVoYcgjWUaaDMUGzKrlpPnxxqAwCHZk7ru0lVVqpEdL7DdxjC
-	at4Urwx/bdqmGiA/4aB6VZ31pzLT9j6fwaVPun4LVt0+2WELGOMa7ICUpCWvG93xRBcFfP/GWQ1ed
-	cdsK47WX1X7fj2DqmJTN4WRDyal7eXAO+u8vHo7lEOyBIMOX4dWjs6xtcE5y9EEH2l1fxDm7KQWF/
-	gZI6cau6A2O7pcPZEsnOqW9TqMAGjlOxw1FGvJGOkHaowgKVdw5QpB/0su7/UHcAnoUIXPMF+V+eN
-	fnTq1UwQ==;
+	bh=oKR5EQZaAb5JzRjyGYBccfjPcYcwdvM+SxPKeULRWj0=; b=YnSbhfqDiyGlpybPCnzW9iy8Sh
+	LBAjUmfg6t2eyiIBOhPPUSgOKsMJMW9ckXP/+Ihj3TaYag3qbYl1c89KPnSJPxXaWYHMB95sVm42C
+	hLCQcLae9QPmhR9HBDfe8ltCp+LycMDbVmzBkfUtV2P8TtrMbPxOUJJWX9tOmGhihfuf/xNsNPwhU
+	WviTVAYIRYTr7QgkJI5oSi1tPYY6tFVMQ150k5KEaXPsh+EYTxoBcfJ8/qBM0tP7j5aUkazPh7JuX
+	5/o2/YFwAwAfUsY6IJ5gGwSy9VxI0XSel2hqdOs9g7vP3HSw1li8Ml6A1Hk2tcFtajFa0td2M5s17
+	gsHufp/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDRF-00000001inM-1TmP;
-	Tue, 04 Aug 2026 11:36:05 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1wrDRQ-00000001isn-1z5W;
+	Tue, 04 Aug 2026 11:36:16 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDRD-00000001im1-0oFR
+	id 1wrDRN-00000001irT-41Hz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:36:04 +0000
+	Tue, 04 Aug 2026 11:36:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1785843363; x=1817379363;
+  t=1785843374; x=1817379374;
   h=from:to:subject:date:message-id:in-reply-to:references:
    mime-version:content-transfer-encoding;
-  bh=/eM8hz28shrnbpDK7y2SGL0KHfDbbCGmq4bnAalgeqk=;
-  b=iR9PB9iG8TbmmzA9GLDcYkLhFC5kpk4ElVxD19w7ldqPUHVpC4nAeQrb
-   807SaUBpBzq3yo3yWIYBlmMU0JSSXtqMSMAhKTq1XflWpODepsbyXsBFU
-   ir7fGgPR+8WIY2Fq0FONHFpEx+1FHmoPDJqr35HOSBkiBWgzqgqxObefa
-   uqKAjeYGpoFqo1OLmDB19bvxM25l0PACrjiF6W4STJrCAyiHLBbhwjvfD
-   e58PTXqm62anNStFHHi2lXViH5lynIlePeyZpNFgZsvWPYK6bx8DvieeT
-   MJTeeecZUadN3+mhKrFe/COx0tVNU3+QOHSLZfrCsPzI3aF96hfCNxkEC
-   w==;
-X-CSE-ConnectionGUID: WvKHNvQfTtu0hBfcKdDUYg==
-X-CSE-MsgGUID: kYvugFlAShaxMDxIT/dauw==
+  bh=JkNlRyaOOV3pTgI7mHQS2o4Wmw7D4SylfoNccbioFoY=;
+  b=QfZDcwQ/SJ+6Mj+jAHlLZv0Qm9APHd2GIEaAidxUXBIpW/CphR1xucj/
+   6lL+4SSTlCQE3pJh8aL7leexrPrwhCeWvkr+8PvNNfY2Ab+Wm3mQuEyo1
+   IY+psr83nt2XrpcRv6fieIjiJyUV5VsA95aAmEs60OxPKQh4p4Mp/LJdB
+   IOSG9fS/hd2L890rXO2c6K5y4gSxnmohcVcM6ZevmVYLWM49Vdqt9yhL9
+   1TqZEQ7/HfUj+7ofNqTkXFplUshbr0RZ0Y8/PJmayYAFgrOvDCDbzuaJV
+   NRW5rR7xrOXudWYwYjGnbrz6C9VRiNY34kI5xyMvaDZWoKIGCZloaDK10
+   A==;
+X-CSE-ConnectionGUID: d6pJ2LigRCaMivhNoSVccw==
+X-CSE-MsgGUID: JmS95fgDQVmiYAYBFgMBGA==
 X-IronPort-AV: E=Sophos;i="6.25,204,1779174000"; 
-   d="scan'208";a="292994092"
+   d="scan'208";a="61934892"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Aug 2026 04:36:02 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 04 Aug 2026 04:36:13 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 4 Aug 2026 04:36:01 -0700
+ 15.1.2507.58; Tue, 4 Aug 2026 04:36:12 -0700
 Received: from che-ll-i67070.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 4 Aug 2026 04:35:51 -0700
+ 15.1.2507.58 via Frontend Transport; Tue, 4 Aug 2026 04:36:02 -0700
 From: Varshini Rajendran <varshini.rajendran@microchip.com>
 To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
@@ -66,9 +66,9 @@ To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<mazziesaccount@gmail.com>, <varshini.rajendran@microchip.com>,
 	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 12/17] ARM: dts: microchip: sama7d65: Add ADC node
-Date: Tue, 4 Aug 2026 17:03:33 +0530
-Message-ID: <20260804113338.261782-13-varshini.rajendran@microchip.com>
+Subject: [PATCH v5 13/17] ARM: dts: microchip: sama7d65_curiosity: Enable ADC, DVFS
+Date: Tue, 4 Aug 2026 17:03:34 +0530
+Message-ID: <20260804113338.261782-14-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260804113338.261782-1-varshini.rajendran@microchip.com>
 References: <20260804113338.261782-1-varshini.rajendran@microchip.com>
@@ -76,8 +76,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_043603_237234_CE9F60C0 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260804_043614_057282_18E37142 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,67 +93,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add node for the ADC controller in sama7d65 SoC. Add the vddout25 fixed
-regulator node which provides the 2.5V reference voltage for the ADC.
+Enable ADC and DVFS on SAMA7D65 Curiosity board. Configure the necessary
+power supply (vddana, vref) for the ADC, and enable cpu-supply for DVFS.
 
 Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 ---
- arch/arm/boot/dts/microchip/sama7d65.dtsi | 28 +++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+ .../dts/microchip/at91-sama7d65_curiosity.dts | 27 +++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index dfac17e34e65..c35f27615bc4 100644
---- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -11,6 +11,7 @@
- #include <dt-bindings/clock/at91.h>
- #include <dt-bindings/dma/at91.h>
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/iio/adc/at91-sama5d2_adc.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/mfd/at91-usart.h>
-@@ -95,6 +96,15 @@ slow_xtal: clock-slowxtal {
- 		};
+diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+index 927c27260b6c..c2d1e5308170 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
++++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+@@ -79,6 +79,14 @@ reg_5v: regulator-5v {
  	};
+ };
  
-+	vddout25: fixed-regulator-vddout25 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VDDOUT25";
-+		regulator-min-microvolt = <2500000>;
-+		regulator-max-microvolt = <2500000>;
-+		regulator-boot-on;
-+		status = "disabled";
++&adc {
++	vddana-supply = <&vddout25>;
++	vref-supply = <&vddout25>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_adc_default &pinctrl_adtrg_default>;
++	status = "okay";
++};
++
+ &can1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_can1_default>;
+@@ -97,6 +105,10 @@ &can3 {
+ 	status = "okay";
+ };
+ 
++&cpu0 {
++	cpu-supply = <&vddcpu>;
++};
++
+ &dma0 {
+ 	status = "okay";
+ };
+@@ -334,6 +346,16 @@ &main_xtal {
+ };
+ 
+ &pioa {
++	pinctrl_adc_default: adc-default {
++		pinmux = <PIN_PC5__GPIO>;
++		bias-disable;
 +	};
 +
- 	ns_sram: sram@100000 {
- 		compatible = "mmio-sram";
- 		reg = <0x100000 0x20000>;
-@@ -296,6 +306,24 @@ can4: can@e0838000 {
- 			status = "disabled";
- 		};
- 
-+		adc: adc@e1000000 {
-+			compatible = "microchip,sama7d65-adc";
-+			reg = <0xe1000000 0x200>;
-+			interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&pmc PMC_TYPE_GCK 25>;
-+			clock-names = "adc_clk";
-+			assigned-clocks = <&pmc PMC_TYPE_GCK 25>;
-+			assigned-clock-rates = <100000000>;
-+			dmas = <&dma0 AT91_XDMAC_DT_PERID(0)>;
-+			dma-names = "rx";
-+			#io-channel-cells = <1>;
-+			atmel,min-sample-rate-hz = <200000>;
-+			atmel,max-sample-rate-hz = <20000000>;
-+			atmel,trigger-edge-type = <IRQ_TYPE_EDGE_RISING>;
-+			atmel,startup-time-ms = <4>;
-+			status = "disabled";
-+		};
++	pinctrl_adtrg_default: adtrg-default {
++		pinmux = <PIN_PB7__ADTRG>;
++		bias-pull-up;
++	};
 +
- 		dma2: dma-controller@e1200000 {
- 			compatible = "microchip,sama7d65-dma", "microchip,sama7g5-dma";
- 			reg = <0xe1200000 0x1000>;
+ 	pinctrl_can1_default: can1-default {
+ 		pinmux = <PIN_PD10__CANTX1>,
+ 			 <PIN_PD11__CANRX1>;
+@@ -457,3 +479,8 @@ input@0 {
+ &slow_xtal {
+ 	clock-frequency = <32768>;
+ };
++
++&vddout25 {
++	vin-supply = <&vdd_3v3>;
++	status = "okay";
++};
 -- 
 2.34.1
 
