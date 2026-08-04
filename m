@@ -4,83 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE774C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 21:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0585C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 21:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=OoNJERa7N+ihiUvZZhE29iP6C+dCF84EVkVoe6Oj4kU=; b=zUmAcmicch951r
-	HxO8jH/9Qg4+UeLAGzij3hxboAuktE1gs5h1mr2avRXDf9FbnXJ12Xz8aGZcCrGxxEzXboiPSRjJE
-	LIMJAeFg4K/3kjabuE6VQDfshp0T0s1Nrtu1CRQIqX4f2+f7cOYoa+JTFfK7rRKQ0zg0zFfR7FpdY
-	RzhkHfIvqgSkhaDsrEWm1AL5pjMVcqdTNwxjOCzJdTT8yHcoGGAlFbwJVxBxwFBXHgOxe9TscV4nV
-	YgalV0oPv909U4d/CNxN/YVlc3xvmft/i5QdBTH6NeJ45lxzJuj5LkS3R+dK+rbK33VAl2HYPnNI7
-	NfdJ3D7hnD8lH6WoZIFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JzLX9GA0PMOy5TOxJvHxVnH9yoPV2TfmIgWpC5Rtigc=; b=mMUXN/R+JXiXOVOrrJ9iWkaFi0
+	p2wDDgGoP4yBnAiuANI3ULrwAmUMXy2TL+zQhRALCxtnT6YC6zt0tf3QsKR2rTH3bdZ6/3sweNuzw
+	F80i4NiFGuhJZt3Y8wmgsI5Wuz6N2xB/E/AjaE8GhIbesrf0uMHnsOTidqU5y7rXG3LNdHVhcL5iT
+	iwuB6XvwUY+NI0AbNhy2e9ta8QnJvJbM7G4TsJMW5GBtu5HEvGMbxTx6zx8CLvJvju9fO6hBQ1F9i
+	/DT8v53mEU+f4JF9GmELiwRt1EGrUIC5kcU6tvo3gtjrmpiMiUctfv/uwubj2sByxw2h6LCVKPL8h
+	htP/DEYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrMdg-00000002oWa-3e3w;
-	Tue, 04 Aug 2026 21:25:32 +0000
-Received: from mail-oi1-x246.google.com ([2607:f8b0:4864:20::246])
+	id 1wrMfn-00000002okL-1J8u;
+	Tue, 04 Aug 2026 21:27:43 +0000
+Received: from mail-oi1-x22a.google.com ([2607:f8b0:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrMdd-00000002oWB-2xPn
+	id 1wrMfj-00000002oir-2KmQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 21:25:31 +0000
-Received: by mail-oi1-x246.google.com with SMTP id 5614622812f47-49d4cb3ca23so345379b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 14:25:28 -0700 (PDT)
+	Tue, 04 Aug 2026 21:27:40 +0000
+Received: by mail-oi1-x22a.google.com with SMTP id 5614622812f47-497d6c2d000so226254b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 14:27:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785878728; x=1786483528; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=OoNJERa7N+ihiUvZZhE29iP6C+dCF84EVkVoe6Oj4kU=;
-        b=B/RV4UjlWwi+AUd3DUicJpc+YtgwwagYPWl6pxiMInx5b50PGU6WQoHXxY3tfED77t
-         pctLPkQ8v3wy14o1ATyHdJzlZ1ByMcmpvqCDX3i77S1q0xbtHtCN5XW47ipE0+lP45U0
-         N50C7LXN1W2NtHe69GB35ra7zTtp04pL2b41/yDSruaPmgNHABcRR/ax4hsph8I1J2/Y
-         aJNk8bCNFXCMJKsFlqayjpkZGkfRfQBK5Su8du/oxeIOQMMqnG0q2ZJPwpigqrSLIYQC
-         PQaU8be45WTgftuuOLb4HMQe83kRCjfxhEbAPi5KJ3mjUmnuE8hcpmy80BVes8XW0TrV
-         Tqfw==
+        d=gmail.com; s=20251104; t=1785878858; x=1786483658; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JzLX9GA0PMOy5TOxJvHxVnH9yoPV2TfmIgWpC5Rtigc=;
+        b=VjNuhR2PiRbkHboZqWdf0hcWc2zmg8BlGgDOANw3W6Nro3N0Hi31lLt/Kxt2LNyRJG
+         5MQGU0P/q8K/qUcEtVc1tozWU1ZrUuFIB29XE24Dm/PaWt2VzjxINbb/WpdRNrjIyAMK
+         0Szmith4rLZeyBDt/0MY+E3iJW5WzyJeCucToWqo9UYLMxuJAAFpzMkxmqt+Z2POxgoW
+         PsAHI9Ew7nohgAmzZiFEDuMxlvOl9//W00KfqtdM2UkXmOBQNCb5/ARU2hex3pTMUElt
+         pBGExhFqZg9XsV380NfQ0QusJwaLavFUzyWmozj60YWljV6W418hlRttqPprLIymJabj
+         gS6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785878728; x=1786483528;
-        h=content-type:cc:to:from:subject:message-id:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=1e100.net; s=20251104; t=1785878858; x=1786483658;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=OoNJERa7N+ihiUvZZhE29iP6C+dCF84EVkVoe6Oj4kU=;
-        b=At4wGzhV8uQVGqylejHa2V8NPPLjVzpSpgzdkjwy4ANa1/cXinXEPBgKtSGcsq4f+2
-         3etv0F1z2YwKiF/s6F23haNTXPJmTLwACfmzPBxs594C/ZcARBYy53ez/GoZhQ4MZtmb
-         HK1PTTeHcLTEzzIZglZRzdZ/9e3m6aCCtrxS/1V2lmRIAYSGbfBu/XqMsiGy6c9cffj9
-         BPXRFgWwDc1IYYEDIVtHFeGmeZ1n5gFx5vITKZAXV0C0QsxQf0m88TDH1Q3o23FtTwd4
-         ViHJwlA8Cwy0TgfseWuzQcVUoXKXnmcxGY1/4jVYKPjE0lLDtxw7sobDsano/8C1M3ls
-         PAjQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrwStW69btFiZQ7HsAdGxtEa7C5ZkNpoRf3utw0yIIyOGnCYF3VuP51V2ck808LZRh005y9ZYHYin1Kj5IC/Z10@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyx2MrzW4qYlThZ6GUsUKcUK1gXCn54yqdtAEe9MjrlhiSJqxww
-	AOoT+kJFOO3M+py9+BmFuosTmx+LeLmwVVTvOG/Z1rrYkc0Z4x2Jvo4+naicGR+9bNBRufq6/NZ
-	loCtlYhXuFOUK8nTLzKN/xU4O3Q==
-X-Received: from iobmp17-n2.prod.google.com ([2002:a05:6602:a2d1:20b0:9ab:7c1:c30a])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:3986:b0:495:f85b:d08f with SMTP id 5614622812f47-4afadfd7dc5mr1041308b6e.18.1785878727621;
- Tue, 04 Aug 2026 14:25:27 -0700 (PDT)
-Date: Tue, 04 Aug 2026 21:25:27 +0000
-In-Reply-To: <b8b1fbe4-fb73-418a-b43d-086894d31ce8@arm.com> (message from
- Robin Murphy on Tue, 28 Jul 2026 16:07:44 +0100)
-Mime-Version: 1.0
-Message-ID: <gsntpkzxvarc.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH 05/21] perf: arm_pmuv3: Check cntr_mask before using pmccntr
-From: Colton Lewis <coltonlewis@google.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: kvm@vger.kernel.org, alexandru.elisei@arm.com, pbonzini@redhat.com, 
-	corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
-	james.clark@linaro.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+        bh=JzLX9GA0PMOy5TOxJvHxVnH9yoPV2TfmIgWpC5Rtigc=;
+        b=mjWOrmotH/CR3+i9rehK2VCjaUubrg8zyZXpEmAGCypnqcjV3CXogr+wFC35GVS8Uk
+         OF8zZdA/hC961J9mRbhW9frs8urLiuH5EfwoyMFQLv0xLUSarSru4F0O3jGrkt2FzbOY
+         S+tVdRAaZmMKuxnA6it2d0U7eGx0CNhr5mtlWZJ9TWUHzyV6mxBzmGCbZI4eSJZsrzUR
+         O3JUpX4V55vkaRJ6I0ya3/9ePMk5sbuqk0VhSR0lI47zFjdNH0EcjmlxlWlj+WBFYLhi
+         NMo8c8w8iXvCMPZhxWBDgRzvhE1FTDHq+85HEIaDok5LRWNAHM51J56dp7yLS0FuwH4V
+         5A+g==
+X-Forwarded-Encrypted: i=1; AHgh+Ro/6XpjFrifbX0c2h6hKGH0ANY5+uFjih1drjKOA9/2p7zp3F8mtUNfZNa3fAx+uF6xubjWC+dQLFrbVhfJcVbE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZ/CWk9xLk4HFUk3zBTEpvHXnVSdECN7STwlU3iMgVHqP1smrW
+	EdN3RPZd0U+RZGF6wgwKy9RZr9gtf8mKS/rVgwxHfsHSEYiqsUNzqZis
+X-Gm-Gg: AR+sD13gaLCHyihlAjZzZc8QVOtiuY1ZkdXlQ5Afw3pS/h527fT5X68K9dGoWRhgun0
+	RdyzAo4q9Xv5dRFEs723gSwRkUrz6UmE1AgemI++9ic1oDAtIuRSq7MY5xwEirD+kcTEWYiG4Is
+	0iQt2Oa1xQcOMyZAvpcNA0uAFqBljgecSzPtSF82d/5EPKtGjHeOTKpryce/rZdhjQK8SoIMrMO
+	YbKSSBB90VobMKG/xotZxL3sHJyXh0Lm7gjwbGtx6rvut3zCqPB45/dt/C6jabIaaiCT17wEmFy
+	iKkVRkMCimT5ANUClOtQpVHQ4MbhVPbe9/A8ePdIAYjQJtut0ZSiIDCkxMpvbasi6j9WPGdpgFe
+	XrkW4gSp5NAGjNKooPsy+Ke5jn+K/EHDkT7SmKFv/2iv9aXI1U/LWYXNc5yWiw3kkuwFAf3gM3q
+	qvTTMGwJ9c/4y8c8TIaCML+qwroJ2/1K/pAEHWwW7iU0YDjTZxd7unwEHgdgfrbnLvNrguKsDn+
+	F8fA0SnW41Ek7I/GW+pmaA2RNo+90pCdm+0YPJZnu9iiXmwR9uOuV5F34jYqcdA/yLinQoGhzAn
+	LnLMyIhcU9TvxY0oHIFgSjsL1EVu8teTnzcYt8zqzj+0H+5jMbKbX/5xMWzsUfsoMPFqpjmyiZL
+	sZpw/wGailThTrhnAmRsVAp2+FX8Q
+X-Received: by 2002:a05:6808:524a:b0:496:11f1:f2ad with SMTP id 5614622812f47-4afadd7f963mr1120843b6e.6.1785878858060;
+        Tue, 04 Aug 2026 14:27:38 -0700 (PDT)
+Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4afae7c50e9sm451659b6e.17.2026.08.04.14.27.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Aug 2026 14:27:37 -0700 (PDT)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Tue, 04 Aug 2026 15:27:24 -0600
+Subject: [PATCH v8 1/4] dt-bindings: pwm: allwinner: add h616 pwm
+ compatible
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260804-h616-pwm-v8-v8-1-db37ab8624ae@gmail.com>
+References: <20260804-h616-pwm-v8-v8-0-db37ab8624ae@gmail.com>
+In-Reply-To: <20260804-h616-pwm-v8-v8-0-db37ab8624ae@gmail.com>
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Richard Genoud <richard.genoud@bootlin.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Paul Kocialkowski <paulk@sys-base.io>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ John Stultz <jstultz@google.com>, Joao Schim <joao@schimsalabim.eu>, 
+ bigunclemax@gmail.com, linux-clk@vger.kernel.org, 
+ James Hilliard <james.hilliard1@gmail.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_142529_753753_BEFC2DFE 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20260804_142739_607973_3ACF043C 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,57 +118,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin, thanks for the review
+From: Richard Genoud <richard.genoud@bootlin.com>
 
-Robin Murphy <robin.murphy@arm.com> writes:
+The Allwinner H616 PWM block differs from the A10 and H6 blocks, but it
+uses the same input clocks as H6, so extend the existing Allwinner PWM
+binding.
 
-> On 12/06/2026 8:28 pm, Colton Lewis wrote:
->> Check cntr_mask before using pmccntr to ensure it's available. With a
->> partitioned PMU, there may be instances where pmccntr is being used by
->> the guest and will be absent from cntr_mask.
+The block has six channels that can generate PWM waveforms. Each channel
+also has a bypass that turns its output into a clock suitable for consumers
+such as the integrated X-Powers AC200 or AC300 Ethernet PHY.
 
->> Signed-off-by: Colton Lewis <coltonlewis@google.com>
->> ---
->>    drivers/perf/arm_pmuv3.c | 3 ++-
->>    1 file changed, 2 insertions(+), 1 deletion(-)
+Require #clock-cells for H616 because the bypass clocks are part of its
+provider interface, while continuing to disallow the property for the older
+variants.
 
->> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
->> index 1cceb1f614515..17bb1cfdc271c 100644
->> --- a/drivers/perf/arm_pmuv3.c
->> +++ b/drivers/perf/arm_pmuv3.c
->> @@ -1028,7 +1028,8 @@ static int armv8pmu_get_event_idx(struct  
->> pmu_hw_events *cpuc,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+Changes v7 -> v8:
+  - require both the module and bus input clocks for H616
+  - require #clock-cells for the H616 clock provider  (reported by Sashiko)
+  - describe the channel-indexed hardware bypass clock cells
+---
+ .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml      | 33 +++++++++++++++++++++-
+ 1 file changed, 32 insertions(+), 1 deletion(-)
 
->>    	/* Always prefer to place a cycle counter into the cycle counter. */
->>    	if (armv8pmu_can_use_pmccntr(cpuc, event)) {
+diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
+index 1197858e431f..3b1819c8630c 100644
+--- a/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
+@@ -14,6 +14,13 @@ properties:
+   "#pwm-cells":
+     const: 3
+ 
++  "#clock-cells":
++    const: 1
++    description:
++      The cell selects the PWM channel whose hardware bypass path is exported
++      as a clock. Its rate follows the selected shared pair source and divider;
++      the PWM period, duty-cycle and polarity logic is bypassed.
++
+   compatible:
+     oneOf:
+       - const: allwinner,sun4i-a10-pwm
+@@ -36,6 +43,7 @@ properties:
+           - const: allwinner,sun50i-h5-pwm
+           - const: allwinner,sun5i-a13-pwm
+       - const: allwinner,sun50i-h6-pwm
++      - const: allwinner,sun50i-h616-pwm
+ 
+   reg:
+     maxItems: 1
+@@ -62,7 +70,9 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: allwinner,sun50i-h6-pwm
++            enum:
++              - allwinner,sun50i-h6-pwm
++              - allwinner,sun50i-h616-pwm
+ 
+     then:
+       properties:
+@@ -83,6 +93,27 @@ allOf:
+         clocks:
+           maxItems: 1
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: allwinner,sun50i-h616-pwm
++
++    then:
++      properties:
++        clocks:
++          minItems: 2
++
++        clock-names:
++          minItems: 2
++
++      required:
++        - "#clock-cells"
++
++    else:
++      properties:
++        "#clock-cells": false
++
+ required:
+   - compatible
+   - reg
 
-> Something smells wrong here - we can use PMCCNTR but we can't?
+-- 
+2.53.0
 
->> -		if (!test_and_set_bit(ARMV8_PMU_CYCLE_IDX, cpuc->used_mask))
->> +		if (test_bit(ARMV8_PMU_CYCLE_IDX, cpu_pmu->cntr_mask) &&
-
-> ...i.e. this test would seem to belong in the helper function.
->> +		    !test_and_set_bit(ARMV8_PMU_CYCLE_IDX, cpuc->used_mask))
->>    			return ARMV8_PMU_CYCLE_IDX;
->>    		else if (armv8pmu_event_is_64bit(event) &&
->>    			   armv8pmu_event_want_user_access(event) &&
-
-> Plus it also doesn't make much sense to fall through to the "we _could_
-> accommodate this event if only PMCCNTR was free" case here if we know
-> PMCCNTR can never be free because it's not even available.
-
-I agree it would be a good idea to refactor these if statements.
-
-Probably something like:
-
-/* tests moved to `armv8pmu_can_use_pmccntr` */
-if (armv8pmu_can_use_pmccntr()) {
-	set_bit(ARMV8_PMU_CYCLE_IDX, cpu_pmu->used_mask);
-         return ARMV8_PMU_CYCLE_IDX;
-}
-
-if (armv8pmu_event_is_64bit(event) &&
-     armv8pmu_event_want_user_access(event) &&
-     !armv8pmu_has_long_event(cpu_pmu))
-	return -EAGAIN;
 
