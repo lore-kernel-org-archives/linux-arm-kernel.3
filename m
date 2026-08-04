@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D97C55172
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 09:18:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD00AC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 09:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ukzJUrxVGism5T7q511qwl/xpNe86Uc9McPdwfBNVKg=; b=4mWyQCZHWKFJAro/bSkoa1gXUQ
-	ZAZ4t/Cxu/rlIve6uF/MvMN92GRRJvKHG5VvX8FVEs5uFOP3ytQTpXe1x4gvmhfINjuCz6/9OvGp3
-	qb/4asaMH+AN3GaXvAXjjefBn6aVtYmYFgdfVeEO7/viMgiZUrDutr72XgcKmSCo7j2xzR7z7gNuC
-	N9L4Nb9GSlz9h/9sm2ms7SXIfA9tLMthiKY2Y7iWM5xiF5Y9xX7MDaFLm5NMiRjsbEQLk7Y3JPVx6
-	p+l7ZkaTO3sNSm3CAkzaRjhtqXzT8e1qpsCBYwuBuk2I1dEna0wBRnRzUoVNcjTzrk/uG9DhXju0a
-	u8rAjBAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d6zoN+flJ4ZUzNrkimS+RY+Of6WNDF21txkvlime1Eg=; b=ZQ9vKGQQFoOfTK5rchAw9GL58a
+	zt1QIqyPb99KgRr2Ur3x50tCo1KRsnLpUI+//eXD4T8KYcAPdnzEIw73kZbyQCerODEUvzWgdspRO
+	l8OGlJ5z7i7K76rl4rgtsSa+EptnvXXFf4Qh6pTlQftrNqKvyx4DT1PpdkCxIaMSTRy5m47OQv3DR
+	mrgWoH71R0vY7++/mCtcfEi1oZ1yuVyzGA3EdFCF3CwXHMl5wqDoFGQerFCSqfRXX007Vmycn+jNN
+	AehegQdN6d5gG7WqiiD+olWWmM49Vun0GAsHT/0E2gsmZ+acZ6D+OFdBcdldd+CqbCIFT8w8Kyd37
+	hwA/pF1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrBHf-00000001Qqe-0TOh;
-	Tue, 04 Aug 2026 09:18:03 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1wrBO6-00000001RFT-3MhL;
+	Tue, 04 Aug 2026 09:24:42 +0000
+Received: from out-189.mta1.migadu.com ([95.215.58.189])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrBHb-00000001QpH-24UN;
-	Tue, 04 Aug 2026 09:18:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785835080; x=1817371080;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Xnc5KBLqfTrzf1YHz9XESgTn+NFwXtPtYwkXhanXaHU=;
-  b=cxF8yV/q77wxZbRdNrol/7aolw1WzuREMVez62m2LhnYDF70erJAH6nw
-   W8Fla4Hjsva2hiXNuEbLG7kqODYwvGHCcJYCeYzqFOjQ37eAGSSYy2M0P
-   pig6xIwUghH/RBajDrCSHmbAGI3HAFTXNbDHpJNm87hS2S0+Ym5GNSFx6
-   ROE7Y9WrUkyp/Zs5m/0ABgNrVM0m1zMyJ2omYkTMCeQcxaOe20/p9aaAc
-   Hd+6CH+eQa8OzDf0VoYbOoXiaD340d8zGY+Y/C3HWHwmQ6sPjd9/kljST
-   YoJn6Hmufk4720HJvB8/1VBiDEisRJ+wblPX04043/bSNvOcpo50RQXx/
-   g==;
-X-CSE-ConnectionGUID: ZGWLhwEKR4qH21GYjgSi/w==
-X-CSE-MsgGUID: kRSloIUTQjSygNLT5VTJFw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11864"; a="86150480"
-X-IronPort-AV: E=Sophos;i="6.25,204,1779174000"; 
-   d="scan'208";a="86150480"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Aug 2026 02:17:58 -0700
-X-CSE-ConnectionGUID: RwfehJXCRJaaQFErlCyujQ==
-X-CSE-MsgGUID: MDC7Lv8tT+iWScqToc/J2w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,204,1779174000"; 
-   d="scan'208";a="263448278"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by fmviesa004.fm.intel.com with ESMTP; 04 Aug 2026 02:17:54 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wrBHT-000000009Wj-2Awl;
-	Tue, 04 Aug 2026 09:17:51 +0000
-Date: Tue, 4 Aug 2026 17:16:56 +0800
-From: kernel test robot <lkp@intel.com>
-To: Guangshuo Li <lgs201920130244@gmail.com>,
-	Tiffany Lin <tiffany.lin@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Yunfei Dong <yunfei.dong@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
-	Houlong Wei <houlong.wei@mediatek.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Tomasz Figa <tfiga@chromium.org>, Chen-Yu Tsai <wenst@chromium.org>,
-	Haoxiang Li <haoxiang_li2024@163.com>, linux-kernel@vger.kernel.org,
+	id 1wrBO3-00000001RF7-3hzz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Aug 2026 09:24:41 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785835477;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=d6zoN+flJ4ZUzNrkimS+RY+Of6WNDF21txkvlime1Eg=;
+	b=bJJfzkrdfdT2CJyukz9OYoDhbdu2tPpTQbNJhsgYwMCfN2aGh4a4dwyzX0HP7ohqH4pfMQ
+	mwdw+i2NMNuJRXtidJvY+Sxo2vNMw7jBslLjzVTPbSsd+06witQfDXmWDW28x9yQnM+gYF
+	yoALFABdD5v2kwPk/NHG9PipnJf24NQ=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Brown <broonie@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org
-Subject: Re: [PATCH] media: mediatek: vcodec: unregister VPU watchdog handler
-Message-ID: <202608041721.qBlQgdnE-lkp@intel.com>
-References: <20260708124235.763036-1-lgs201920130244@gmail.com>
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: arm64: selftests: Check ID regs are immutable after a failed run
+Date: Tue,  4 Aug 2026 10:24:21 +0100
+Message-Id: <20260804092421.1728880-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260708124235.763036-1-lgs201920130244@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_021759_564952_A55C8B6B 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260804_022440_226913_F42A9619 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +75,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guangshuo,
+Add a set_id_regs case covering ID register immutability when a vCPU's
+first KVM_RUN fails after finalization but before
+KVM_ARCH_FLAG_HAS_RAN_ONCE is set. The test provokes such a failure with
+a PMUv3-enabled vCPU whose PMU is left uninitialized, then checks that
+KVM_SET_ONE_REG on an ID register and KVM_CREATE_DEVICE for a vGIC are
+both rejected with -EBUSY.
 
-kernel test robot noticed the following build errors:
+Assisted-by: Antigravity:gemini-3.1-pro
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
 
-[auto build test ERROR on linuxtv-media-pending/master]
-[also build test ERROR on media-tree/master linus/master v7.2-rc6 next-20260803]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Notes:
+    This exercises the bug fixed by the KVM/arm64 ID register finalisation
+    series and fails without it, so it should be applied on top of that
+    series:
+    
+    https://lore.kernel.org/r/20260803-kvm-arm64-idreg-final-v2-0-d7d7e4efc640@kernel.org
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Guangshuo-Li/media-mediatek-vcodec-unregister-VPU-watchdog-handler/20260804-140933
-base:   https://git.linuxtv.org/media-ci/media-pending.git master
-patch link:    https://lore.kernel.org/r/20260708124235.763036-1-lgs201920130244%40gmail.com
-patch subject: [PATCH] media: mediatek: vcodec: unregister VPU watchdog handler
-config: alpha-allmodconfig (https://download.01.org/0day-ci/archive/20260804/202608041721.qBlQgdnE-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 16.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260804/202608041721.qBlQgdnE-lkp@intel.com/reproduce)
+ .../testing/selftests/kvm/arm64/set_id_regs.c | 92 ++++++++++++++++++-
+ 1 file changed, 91 insertions(+), 1 deletion(-)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608041721.qBlQgdnE-lkp@intel.com/
+diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+index 7429a1055df56..f153d56b6e7f0 100644
+--- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
++++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+@@ -13,6 +13,7 @@
+ #include "kvm_util.h"
+ #include "processor.h"
+ #include "test_util.h"
++#include "vgic.h"
+ #include <linux/bitfield.h>
+ 
+ enum ftr_type {
+@@ -803,6 +804,93 @@ static void test_reset_preserves_id_regs(struct kvm_vcpu *vcpu)
+ 	ksft_test_result_pass("%s\n", __func__);
+ }
+ 
++/*
++ * ID registers must stay immutable even when a vCPU's first KVM_RUN fails
++ * after finalization but before KVM_ARCH_FLAG_HAS_RAN_ONCE is set.
++ */
++static void test_idreg_frozen_after_failed_run(void)
++{
++	u64 reg = 0, val = 0, new_val = 0;
++	struct kvm_vcpu_init init;
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	bool found = false;
++	int r;
++
++	if (!kvm_has_cap(KVM_CAP_ARM_PMU_V3)) {
++		ksft_test_result_skip("%s (PMUv3 unsupported)\n", __func__);
++		return;
++	}
++
++	/*
++	 * Fail the first run after finalization: a PMUv3 vCPU left without PMU
++	 * init is rejected by kvm_arm_pmu_v3_enable(). Skip the default vGIC so
++	 * the KVM_CREATE_DEVICE gate can also be exercised.
++	 */
++	test_disable_default_vgic();
++
++	vm = vm_create(1);
++	kvm_get_default_vcpu_target(vm, &init);
++	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
++	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
++	kvm_arch_vm_finalize_vcpus(vm);
++
++	r = _vcpu_run(vcpu);
++	TEST_ASSERT(r < 0 && errno == EINVAL,
++		    "first KVM_RUN should fail post-finalization: r=%d errno=%d",
++		    r, errno);
++
++	/* Pick a field whose lower value would be accepted before finalization. */
++	for (int i = 0; i < ARRAY_SIZE(test_regs) && !found; i++) {
++		const struct reg_ftr_bits *ftr_bits = test_regs[i].ftr_bits;
++
++		reg = KVM_ARM64_SYS_REG(test_regs[i].reg);
++		val = vcpu_get_reg(vcpu, reg);
++
++		for (int j = 0; ftr_bits[j].type != FTR_END; j++) {
++			u64 ftr = (val & ftr_bits[j].mask) >> ftr_bits[j].shift;
++			u64 safe = get_safe_value(&ftr_bits[j], ftr);
++
++			/* Skip fields KVM re-derives itself, e.g. the GIC field. */
++			if (ftr_bits[j].mutable || safe == ftr)
++				continue;
++
++			new_val = (val & ~ftr_bits[j].mask) |
++				  (safe << ftr_bits[j].shift);
++			found = true;
++			break;
++		}
++	}
++
++	if (!found) {
++		ksft_test_result_skip("%s (no immutable ID reg field to test)\n",
++				      __func__);
++		kvm_vm_free(vm);
++		return;
++	}
++
++	r = __vcpu_set_reg(vcpu, reg, new_val);
++	TEST_ASSERT(r < 0 && errno == EBUSY,
++		    "ID reg write after failed first run: r=%d errno=%d",
++		    r, errno);
++	TEST_ASSERT_EQ(vcpu_get_reg(vcpu, reg), val);
++
++	/* A write matching the finalized value is still accepted. */
++	r = __vcpu_set_reg(vcpu, reg, val);
++	TEST_ASSERT(!r, "matching ID reg write should be accepted: r=%d", r);
++
++	/* Creating an in-kernel irqchip after finalization must be rejected. */
++	if (kvm_supports_vgic_v3()) {
++		r = __kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V3);
++		TEST_ASSERT(r < 0 && errno == EBUSY,
++			    "vGIC creation after failed first run: r=%d errno=%d",
++			    r, errno);
++	}
++
++	kvm_vm_free(vm);
++	ksft_test_result_pass("%s\n", __func__);
++}
++
+ int main(void)
+ {
+ 	struct kvm_vcpu *vcpu;
+@@ -828,7 +916,7 @@ int main(void)
+ 
+ 	ksft_print_header();
+ 
+-	test_cnt = 3 + MPAM_IDREG_TEST + MTE_IDREG_TEST;
++	test_cnt = 4 + MPAM_IDREG_TEST + MTE_IDREG_TEST;
+ 	for (i = 0; i < ARRAY_SIZE(test_regs); i++)
+ 		for (j = 0; test_regs[i].ftr_bits[j].type != FTR_END; j++)
+ 			test_cnt++;
+@@ -847,5 +935,7 @@ int main(void)
+ 
+ 	kvm_vm_free(vm);
+ 
++	test_idreg_frozen_after_failed_run();
++
+ 	ksft_finished();
+ }
+-- 
+2.39.5
 
-All errors (new ones prefixed by >>):
-
->> drivers/media/platform/mediatek/vpu/mtk_vpu.c:440:1: error: expected identifier or '(' before '+' token
-     440 | +void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)
-         | ^
-
-
-vim +440 drivers/media/platform/mediatek/vpu/mtk_vpu.c
-
-   439	
- > 440	+void vpu_wdt_unreg_handler(struct platform_device *pdev, enum rst_id id)
-   441	{
-   442		struct mtk_vpu *vpu = platform_get_drvdata(pdev);
-   443	
-   444		if (!vpu || id >= VPU_RST_MAX)
-   445			return;
-   446	
-   447		mutex_lock(&vpu->vpu_mutex);
-   448		vpu->wdt.handler[id].reset_func = NULL;
-   449		vpu->wdt.handler[id].priv = NULL;
-   450		mutex_unlock(&vpu->vpu_mutex);
-   451	}
-   452	EXPORT_SYMBOL_GPL(vpu_wdt_unreg_handler);
-   453	
-   454	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
