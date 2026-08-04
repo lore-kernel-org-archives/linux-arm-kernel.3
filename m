@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFA6C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 15:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70CF7C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 15:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ftTsgcVpNbKCmx0FJnA+PSQP6EmU4JeV42lZlsrS4B0=; b=Tcrp+Ej/EMNjS5uxtTJGqFwgDq
-	KYpQYEo5BiPw81AtctyBbbYipDWkwhkeWekaVIz3p7CxrsFdKBbBoe/tfJkvPUzK3aBeEyeK+Xv4d
-	DE+1ClRkXWhEQzeD3M5p4A/u0f1mt14mjNAkWccJK4dvoOe1qMLvmybJnkXDAxyuVRkqctcZZ16lw
-	0YbGIfKWgIwYoS5oGjOYXyTk/zeNNxOSqsSuwgco/FFBxLc8lubDLe87EPvQscrO23kmrWUbNngUK
-	DRqokmRBZ1lBrWMnYAsyhVCLTE3vw0EzzcJPEJfkNWjfaCr1GjPA4TGl3mCJ8E9xdigRZAuAH7wdV
-	jeeVA7iw==;
+	bh=5bKVEcNFiFbLr1dxAdp9i5MeCT8J5gRCnSlut5TctaM=; b=uCLSLEAJAidrgnsjN2h98kGp4m
+	wn6nUiB7MZhv8LXI98f3G78YlZS8nASSnqewQa0IO61ONOTO7QFv25eTth2Bh6w24L02AwBjKKiak
+	j7FxA+icXmM1B/IXbQupOHQKZ9zgcGVZpWx2Ptd8k+pwe/3N9MUNuU9AlBAwqPLae41WmnwZJUW20
+	/h3UURahPAMqMd30yUr8gbl8kmPYaiRb6GIL686d1QGx16Gdkc3ZWDYJMbbYJXaX2p8y8KL6arj7b
+	lJzoKntRyXLBKJIyD690oUJhE/jiDrzs/WK9vBsi99sZYWyXGsbbYxR1VXbJmt+odid/O7gcRxFRM
+	8r2e027g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGsA-00000002BYg-0ttE;
-	Tue, 04 Aug 2026 15:16:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrGsW-00000002Bbg-1mpY;
+	Tue, 04 Aug 2026 15:16:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrGs9-00000002BYW-0IRS
+	id 1wrGsU-00000002BbK-33St
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 15:16:05 +0000
+	Tue, 04 Aug 2026 15:16:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A77F64018F;
-	Tue,  4 Aug 2026 15:16:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89E0B1F000E9;
-	Tue,  4 Aug 2026 15:16:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B9FE360A73;
+	Tue,  4 Aug 2026 15:16:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 705751F000E9;
+	Tue,  4 Aug 2026 15:16:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785856564;
-	bh=ftTsgcVpNbKCmx0FJnA+PSQP6EmU4JeV42lZlsrS4B0=;
+	s=k20260515; t=1785856585;
+	bh=5bKVEcNFiFbLr1dxAdp9i5MeCT8J5gRCnSlut5TctaM=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HRufI+Emv/LZbJmWN1om8HUrS3Vvz6U/9Y3SL83gqQvWGcxXXpzb6wSdZkqQXL5Lg
-	 bL1xUE/uyaKmnqYu2ifr9UFgMqW9fhGIUNR8nCst2kP+4eKzBYlbMOL1Tj0ZvoeXji
-	 RDRbjoP6/Iqa6Qw5kEAb90eihNF1YChONzouTFrEtMgGkpeqXEzZhTTidD1QOdAvKN
-	 hdhxCIJQTr2XBiU99pO0NfDOmSqNuOfEK5fGMEeffo57m/X8nNf8/ls8fEH4FqHUMF
-	 mLZTd34ThEHML72RnYQUEkp8VOMFqDQuYqRc84U0QWsz/kPfnKzpBJz++gl2hmbuLX
-	 cX+iKdUQas5/A==
+	b=GLZl8Pc9AsSkRLZYTRt8E99d8OlNZ7RgOVfHiYonOUdCEovyjx1lDjeV7JfrL3csI
+	 9wNQbKgovsfbtpsxo/IpKu1HfUDeWUWS6YieZn4r68x+j2aEpbSGWlO/uxaSf2sk3g
+	 VExXrqYkzICC3Xe+VEmzHc93BYv/yzXAGpmMbGHM9+ZBmB1gx0Ovp3SeW61a5Kn0qA
+	 OK/Kk9/4x2Vp7yjsApHxkdw/W2Esg/bMBSbgyrzqQoIn2RWwktzfbqXfUDOVtUiIui
+	 yIrDDbg/zP7OK+jkSvAmtN1M4ofLmypu8evk6/huXxlxevQrno29XpTcLeiUH+JiFw
+	 NRteEAT0I6Gwg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wrGs6-0000000CGJt-1b0o;
-	Tue, 04 Aug 2026 15:16:02 +0000
-Date: Tue, 04 Aug 2026 16:16:02 +0100
-Message-ID: <86ik5pc3wt.wl-maz@kernel.org>
+	id 1wrGsR-0000000CGKT-2XG5;
+	Tue, 04 Aug 2026 15:16:23 +0000
+Date: Tue, 04 Aug 2026 16:16:23 +0100
+Message-ID: <86h5l9c3w8.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Joey Gouly <joey.gouly@arm.com>
 Cc: kvmarm@lists.linux.dev,
@@ -62,10 +62,10 @@ Cc: kvmarm@lists.linux.dev,
 	Hyunwoo Kim <imv4bel@gmail.com>,
 	stable@vger.kernel.org
 Subject: Re: [PATCH 3/6] KVM: arm64: Consider SCTLR_EL2.M when mapping the L1 VNCR page
-In-Reply-To: <anHIhHS6INKZLnrZ@e143914.arm.com>
+In-Reply-To: <anHHA9Fj3be5ndmB@e143914.arm.com>
 References: <20260801124818.366274-1-maz@kernel.org>
 	<20260801124818.366274-4-maz@kernel.org>
-	<anHIhHS6INKZLnrZ@e143914.arm.com>
+	<anHHA9Fj3be5ndmB@e143914.arm.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -89,10 +89,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Aug 2026 12:09:56 +0100,
+On Tue, 04 Aug 2026 12:03:31 +0100,
 Joey Gouly <joey.gouly@arm.com> wrote:
 > 
-> Another thing I forgot..
+> Hi Marc,
+> 
+> Two small comments/suggestions.
 > 
 > On Sat, Aug 01, 2026 at 01:48:15PM +0100, Marc Zyngier wrote:
 > > We record a VNCR TLB even when SCTLR_EL2.M is 0 in order to make
@@ -111,6 +113,16 @@ Joey Gouly <joey.gouly@arm.com> wrote:
 > > Instead, use the fact that the S1 MMU being off at the point of
 > > translation is cached in our TLB, and simply ignore it if it
 > > doesn't match the current MMU state.
+> 
+> Could you expand/change this a little, something like:
+> 	
+> 	Instead, use the fact that the S1 MMU being off at the point of
+> 	translation is cached in our VNCR TLB, and if it doesn't match
+> 	the current MMU state, leave the VNCR unmapped.
+>
+
+Yup, that reads better. Thanks.
+
 > > 
 > > Fixes: 2a359e072596f ("KVM: arm64: nv: Handle mapping of VNCR_EL2 at EL2")
 > > Signed-off-by: Marc Zyngier <maz@kernel.org>
@@ -170,18 +182,17 @@ Joey Gouly <joey.gouly@arm.com> wrote:
 > > +	if (!(vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_M) != s1_mmu_disabled(&vt->wr))
 > > +		return;
 > 
-> Another thing, should we set valid=false? (Haven't really looked into
-> what that implies..)
+> A comment here would also be useful for future archaeology (also current
+> reading since the !( .. != ) code is confusing).
+> 
+> Or maybe:
+> 
+> 	bool mmu_disabled_sctlr = vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_M) == 0;
+> 	if (mmu_disabled_sctlr != s1_mmu_disabled(&vt->wr)) 
 
-No. The TLB itself is still valid. We just haven't hit it. Which is
-why we don't map the page in the fixmap, and wait until we take the
-fault. When (and if) it happens, we can invalidate it, rewalk, and
-establish the new TLB.
+And maybe using positive logic? I'll see what I can do.
 
-At this stage, this doesn't bring much. But if one day we need to
-cache multiple translations, we will want this exact flow.
-
-HTH,
+Thanks,
 
 	M.
 
