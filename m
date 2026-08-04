@@ -4,82 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85962C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 02:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A77BC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 02:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KBCTp/Dj4hax8K4vdk++/al4/OPtT9I69ZVO8QctjQ8=; b=LvZxP0fiwQRZoOXLaxA5NTvwiG
-	C/RdHBw6ZT/oKBmcbTwdmE6gmWQk7+w0PfMzogGOvJGuMN7hvKsbsgoFjgl3Jz7WfcbFwa3j9BGwd
-	Dj0DHyx7TdUrrbujPVNW+guafGAtrcQpamb06kiWjEPN6oMWJvzNWnUqfhGPmPbMBTvPuX2G8rWjA
-	+2WK029r4mS8IvA7fLNTaEYxwVEEavqxFIucx5p7EXAtqkk8u+UxeM2SSCVZqSNcEt+JGnDUIeNB7
-	LRXKRYe4zAmOG4164LBKVaCbh0bSy6S1uxbe+V66zeSB0Dqtx5y8pxRmwuC+cTEf8MWUJAIQvV2Em
-	G6+MBLgg==;
+	bh=i4mbcWu7TbXA5y2ZtqzgzMPuzlmBBWzoEYQ15SLe3tM=; b=H0BSuUloJzUo/n/ZHARRDsrv3+
+	Q3Lwq6QxL5BRmX7nFipNFvt3gnwSiK4ZlBesk+OMRW/05k6vVaf+1GenDiuEao6YYH+8Rg5daLWr4
+	A9lnl9l1YZc6zw1VjGjjIHwW/NdUrvr3uNF0WQ/2hs3rbnHZlKfy+eb4nq+xE+8+E/z4LaaWwMwEr
+	M8PToEUFjycokadkrZi6b8rKdwm4kX8CgTXyT5B3dRfYQ6fuxQs/zbsI/7EBO1DqM8oy+PQGD8P8h
+	X3nGQyRAoE1ZAtoCH4nDOD9BGOmQNiAMd/MWtPH0LVngEF0utfJosCZVd8V8nLZwPEMzRNDQRUtx8
+	RFWUVrvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr4o4-00000000q6Y-0PhG;
-	Tue, 04 Aug 2026 02:23:04 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wr4o6-00000000q7T-1Myh;
+	Tue, 04 Aug 2026 02:23:06 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr4o1-00000000q5W-2UD5;
-	Tue, 04 Aug 2026 02:23:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=KBCTp/Dj4hax8K4vdk++/al4/OPtT9I69ZVO8QctjQ8=; b=cfJHnsPS8+lt50R34OIpYaoLFK
-	3lvFwqf1TuEaHrQJmULImiw3DzOwrg5RFpQF9v0Ipby2paypRM5+7jvqmZmujLgRwKkFh9J/juiLJ
-	X1Qz8nuJE34gNeAFfnoL6029h1zKwlN23cRHzSHI+DEAFprImoSaATxAc7NSwMLiGJKw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wr4nj-00FtTG-BR; Tue, 04 Aug 2026 04:22:43 +0200
-Date: Tue, 4 Aug 2026 04:22:43 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Saravana Kannan <saravanak@kernel.org>, Lee Jones <lee@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com, mfd@lists.linux.dev,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 10/21] net: phy: add X-Powers AC200 EPHY control driver
-Message-ID: <a9ce53dd-0873-41c0-ad6a-fb42e6cc7aaa@lunn.ch>
-References: <20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com>
- <20260802-submit-acx00-of-dynamic-v1-v1-10-0a53cd9e21cc@gmail.com>
- <05b1e6a2-725e-4b8e-8629-249637bbcb81@lunn.ch>
- <CADvTj4o0JdjoO+FC4pO=qnjEQ8MRyzQdKp2Hxy9NsPU-gym5OQ@mail.gmail.com>
- <9b8be475-1fde-409c-a82e-be4b2e402650@lunn.ch>
- <CADvTj4pBovti19MXgQjFpxm=7aRm0sYQz9jxfo8bu3txH94THQ@mail.gmail.com>
+	id 1wr4o3-00000000q62-2gto
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Aug 2026 02:23:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kA3mBPJoUwZy1NiXWfiLc5/31GOvTC5XlJ6TlT08Qz3wBWqD/TCzuN70myof8QL+OSQ/n9l3EA2wbFmVZjbeq830I2w87JY64JpD95HcfG5OuS8lojDbQTYHM5y/hB0u7m5ZUTl9isPXoEcqfCCJBOc9h+mibKUenHZWuYnoT1IjqdD7Ye+FxpH8tz9JTSCOxrs48hx13Q7enKAQqnvKO2jTeNnEDnRS5A2ObxanVtjbuH1z+nMkmLOAIwzXFOi/Ocis5WscC5AdBSIzYCh0GFK6lcSsgdakOb7uS+RauCYvs9UIZR+dhb/pXRqsGzOgTWBGA7zIiMJbJHO2iGDT3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i4mbcWu7TbXA5y2ZtqzgzMPuzlmBBWzoEYQ15SLe3tM=;
+ b=goxrd+969TPY+Iil/teZxZtkqVxQhs/DUeBlMFrapZJLvHtlq6Q0Nwhd5LwMZVCMwXALVX82bMwFC2bEMBU0MKUwM5e6j7n379psf8YZULwYVF0IBjR0e0/OS/FUa2FgwTXNz5lteCVy7emNNMN+womoJhEaRAaH2AYSDxmGMOo05mht45PxOxOFP72V7jZmGELbSPZZx01y6CHz3e0rHs3e7QXmI6S5oclsg2HxIrhMblD0IN8DycJruMUd/tHbUNHknYn4d5evIp1ogJK7QuvsBEKYaKPMWgMK+ABJziPUqoDasZSurI7uZrGhPHkfECpA5MHQgn/7nlsSBlLMyg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i4mbcWu7TbXA5y2ZtqzgzMPuzlmBBWzoEYQ15SLe3tM=;
+ b=fH10m2k0osxDiZVJ0yL9uCm5cVbExm8izwnsOSzARndoURHQTn/XWi74ryNshTjF+ejIWz9bcxdXDav+rSV7nDJfKkssUTQuYziiiUhKegvE2LoslX1dllBJk89rn9+Gwss0npmSHOr2OQdli4+GgRWLsYM8DSz9jF7WVyqNAmg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MN2PR01MB5615.prod.exchangelabs.com (2603:10b6:208:11c::29) by
+ DS7PR01MB7736.prod.exchangelabs.com (2603:10b6:8:7c::7) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.270.18; Tue, 4 Aug 2026 02:22:57 +0000
+Received: from MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e]) by MN2PR01MB5615.prod.exchangelabs.com
+ ([fe80::996f:e4f2:dbd8:120e%5]) with mapi id 15.21.0270.016; Tue, 4 Aug 2026
+ 02:22:56 +0000
+Date: Mon, 3 Aug 2026 19:22:52 -0700 (PDT)
+From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+To: Robin Murphy <robin.murphy@arm.com>
+cc: will@kernel.org, mark.rutland@arm.com, 
+    linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+    ilkka@os.amperecomputing.com, leo.yan@arm.com
+Subject: Re: [PATCH v2 4/5] perf/arm-cmn: Plumb in new filter types
+In-Reply-To: <90465c737b71be5d39c3662c7ba07ab6a1326009.1785252273.git.robin.murphy@arm.com>
+Message-ID: <cee843db-c278-943e-7c04-2862a836fbe5@os.amperecomputing.com>
+References: <cover.1785252273.git.robin.murphy@arm.com> <90465c737b71be5d39c3662c7ba07ab6a1326009.1785252273.git.robin.murphy@arm.com>
+Content-Type: text/plain; format=flowed; charset=US-ASCII
+X-ClientProxiedBy: MW4PR04CA0214.namprd04.prod.outlook.com
+ (2603:10b6:303:87::9) To MN2PR01MB5615.prod.exchangelabs.com
+ (2603:10b6:208:11c::29)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CADvTj4pBovti19MXgQjFpxm=7aRm0sYQz9jxfo8bu3txH94THQ@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR01MB5615:EE_|DS7PR01MB7736:EE_
+X-MS-Office365-Filtering-Correlation-Id: f619354b-7a6b-4443-415c-08def1cf4bf8
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|376014|1800799024|56012099006|10067099003|11063799006|4143699003|22082099003|18002099003|55112099003;
+X-Microsoft-Antispam-Message-Info: RHGpVvr678VyIq/3t92TlZUIJ5l/AGfIIcfk/Hai984VO4nige9shfnppa1o8t/RZ6Cxb0QSlq8bH05G3XY2lq8vDaUgMdG26cGp3K+PGkqqRdkgfm1KqIuyKde4dehrdY8jWtWGReTS7M9zX1guGaXGf5NgCKQP9BR8/vyrEFKEiSBMAao1ggMEItOOkHQSJgo/XUwaxaTPtam90QpJA7cwmfB1GHITsjXnePwEGB307monD1klrTQuQlJg6ZEQ6vM817ZfYrw+T1LQc9S8hPEczz94jaxzua2lOZwoCzU44mUwGlvp67P7IAdb1C+Z+KPstOZJ895HXWkbeYFLRxneRnItyU1hUYP1JzGm0lG6KsJ+FuBrSzSOqyGyOydgFkcaWGl4JujSnsz7gGSRQKlnqknfPAyRm0bLifT+7JEFVNVGtPdzCfi/Z53H+JPryMgCxNhXfsGkS5LLlHWG1H6iqOzkjMa7dzVBh/JAWfBQZ9WX29od3kqOXBgicsOXFoqTSt7lJF5noBnpE+IBCDhCATM+2RC8r5EyV+n/x4C6GJrGXPKF8MuE4ZisSnUqh6vUnXqdbBctbITYoQrjVtB3ocwYjOyGu3Ma/2MvhTQ3aApopQHuEGhgWOxdE15wL4xcbsorTmW7/V6rXnmug0HyYJkQJoOn2GYCa32MfB0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR01MB5615.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(376014)(1800799024)(56012099006)(10067099003)(11063799006)(4143699003)(22082099003)(18002099003)(55112099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?f72tN6MLEOYLYwd2PCgVGiq8VqODKbFkBAV8yI7W50Fdu4gqyg8ZEWPhQKIn?=
+ =?us-ascii?Q?2FzH+zGE9WDtjNNlamIGYuBrHba8Zxq/PHLuPf03Y0RoukAiNsPyEy4KH7rt?=
+ =?us-ascii?Q?BqrrXdbdHN0ssOha6GoN1j+7PMcEaYwt8AoKFEwdPjDWnCbfNYj3WTxr/fYH?=
+ =?us-ascii?Q?ZXUij50vX63QOCaZC4jBDaqMCOweGUQjVHssj/DLRCQZDkGXSawB25bEkOG/?=
+ =?us-ascii?Q?86jCIt05zNveEdwMcIpFF0CUlOtCQv1ssUrqw9tzC0MX2o2ItP7LzjqPm1Ke?=
+ =?us-ascii?Q?syS8sbrkqN+fq+gQLdIcv2O5uq1hK0N+NQ8JY7KzLZvReMmHX8LUHMrDR3eM?=
+ =?us-ascii?Q?6zVfItE9NCat1I4FSZJ8YaoskIgjx+T/40j5i6fua7+6NleoWUwIWspwrD6l?=
+ =?us-ascii?Q?Rv1WPYUENM8xIrJjGcW9Zt/TGkpLPJEfrhd1QtPd9+Yn60X1Ne+fl/9Ew8xZ?=
+ =?us-ascii?Q?jK4+m26KdDA/b53lPvCXdufET9TAIjz4CZ0lyEuHnyHljKAaOKwX7Fwvnsqs?=
+ =?us-ascii?Q?FQbjzcyfw0IzJYq40QUaovC/qI+V38kKVHS11YGL0VdZlHwEjkcGF/Eh9yzW?=
+ =?us-ascii?Q?bmjz3xGL1tK+IiQVBagdIuMQ99j9lcqdoLCOXGCrjCaeYR2CrvutCy9vK63p?=
+ =?us-ascii?Q?bKuHJXj73M6nRXI6Vwf4IDfF8PQVY5lrsj5itXl+rsLicKYOOiYEWtR7NiTy?=
+ =?us-ascii?Q?ASgHPJGebGt89Hk0FGbGX9r1XWlkiGD1WsYxTDHd0j7BxpIFgNHXmEhI+lrH?=
+ =?us-ascii?Q?PJvwzNg7wGS1LuyiXxCTGfPeWDvbD4FjW0NWoCYSyw/sQeBqdaRjIOuE2YEs?=
+ =?us-ascii?Q?OD8HKeTHX/5olxcv0PSTzYDfs0ts2ACkse5kAPUpJedgXgWeMNSNrzQTIqA3?=
+ =?us-ascii?Q?CjA6Vvn5c5yn0zCP7cSzw/LeM9n9WHyRifs3GCdsK4dOiss7AeeDLz2odiw5?=
+ =?us-ascii?Q?EUaPgdd7eOslcYnKhL5FQrV5N9zUQydE/Ir4lhZqR2ONsb2rL2Rui1ncVJOz?=
+ =?us-ascii?Q?FhcQ5SEdgOR8nDMB34TV3IUKuyaHbgi5J50kZJ/lEvwqGZYaOyDRVUsExguJ?=
+ =?us-ascii?Q?pxcVzYB02YByHt8MdixTqySTx+5XL2CxeXVaid8rM6DvMq+O6qUfTtGWHpNL?=
+ =?us-ascii?Q?5THN3GCbc0uZyqJktB5P2pLqLApMNzGrWoFiGfL93jlwYY8tLWAj1KbSLSLa?=
+ =?us-ascii?Q?ohId5+rOB21I3DAslzRzKhyXc7FA2qOCbi3py++Nd2U9ruXAwRGpzP78OSPk?=
+ =?us-ascii?Q?EAROdTy5gT/PVMQDYoYB241qBLJummJeDG/YFZ8XEtq94qY+wU4Z5ZtTefUP?=
+ =?us-ascii?Q?SbiEzTUDlf7WAhKZ4mZSkpMlGHmau/hMPvwVX0olxWP0uhS4CslpwfKAiLIS?=
+ =?us-ascii?Q?CKwQjwvwsetdEsE5tHz/tX5v4UbGwfc+ULWglicDUqp3+upiXPt9hORsCEbm?=
+ =?us-ascii?Q?WGi9Z2FQHnNnD7iH9jExQ0ZiCLCeK+FPCk1tTUPDJYhXeLJNX1k1c9F/BCNZ?=
+ =?us-ascii?Q?Xhgh0zWtWW/6IGa03LC5i/02YNbHQFz9jbnrJRhmKC154Ehi5F1olgvp5Sut?=
+ =?us-ascii?Q?B0KUtHnlyxUoeRIboWsEMq/pJX4nFF66cxDl2f5OL1eV7ADM/oeHXycOroqv?=
+ =?us-ascii?Q?BFMPzs7oKc//VoonUCyXNWAfCRcSVj50isAJybTAzt/V/wmVsSu9NCOnoaJu?=
+ =?us-ascii?Q?NkEABh733NUlopWFIjqYX6ofns9XQzFYwW0RsPh+TfASaDYb9F/YKR1oym5G?=
+ =?us-ascii?Q?/2Qp0C43ZWNUwVovNVuoG20KuRv+R6k=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f619354b-7a6b-4443-415c-08def1cf4bf8
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR01MB5615.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2026 02:22:56.9506
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zQgjJEDquPKM7wdzOuYYxyXD10mQUscLYbLhBo0kXitw0yb0+8wPu64Ln6pkViNt+UUO+OhA6VKRKLyC2R/fs+9Zo8KNyosV+NMV7+t9aMxyDOJili75f+Xh9fs8OhVH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR01MB7736
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_192301_630032_F642B1F0 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20260803_192303_682026_1136002C 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +136,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > So what i'm trying to do with both of these is make it look more like
-> > standard Linux building blocks.
-> >
-> > If that is not possible, i would actually put all this code into the
-> > PHY driver. You then have a regmap property to gain access to the I2C
-> > registers.
-> 
-> I understand the goal of using standard Linux building blocks where they
-> fit, but I do not think folding these control paths into the common PHY
-> driver gives the right device model here.
-> 
-> The AC200 and AC300 expose the same Clause 22 PHY interface, but their
-> control functions are separate devices with different transports and
-> lifetimes. The AC200 control function is an MFD child accessed through
-> the parent I2C regmap. The AC300 control function is a separately
-> addressed non-PHY MDIO device. A regmap reference only describes the
-> AC200 transport; it does not represent the AC300 control device.
-> 
-> Folding both implementations into the common PHY driver would make that
-> driver manage AC200 MFD registers and resources as well as an AC300 MDIO
-> control endpoint. That would mix the package-specific control transports
-> with the otherwise common Clause 22 implementation.
 
-Given how messy this hardware is, i doubt it is discoverable. We have
-been pushing back on hacks to enable various things before probe in
-order to make it discoverable. So you are going to end up putting IDs
-in DT so that the driver probes without it being discovered. That
-means you can put any ID you want in DT, and the driver. So you have
-two different phy driver structs, two different probe functions, etc.
 
-	Andrew
+On Tue, 28 Jul 2026, Robin Murphy wrote:
+
+> Add the logic to handle events with the upcoming new filter controls.
+> Since for now we will have the sole invariant of all EVICT_STATE_SEL
+> events having HBT_LBT_SEL as a secondary filter, for the sake of
+> simplicity we can just special-case that, and save the complication
+> of a full multi-filter abstraction until unavoidably necessary.
+>
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+
+LGTM:
+
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+
+Cheers, Ilkka
+
+> ---
+>
+> v2: Tweak commit message
+>
+> drivers/perf/arm-cmn.c | 19 +++++++++++++++++++
+> 1 file changed, 19 insertions(+)
+>
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index 74bc2aae4a06..e25f46c38c23 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -166,12 +166,14 @@
+> #define CMN_CONFIG_FILTER		GENMASK_ULL(30, 27)
+> #define CMN_CONFIG_BYNODEID		BIT_ULL(31)
+> #define CMN_CONFIG_NODEID		GENMASK_ULL(47, 32)
+> +#define CMN_CONFIG_FILTER2		GENMASK_ULL(51, 48)
+>
+> #define CMN_EVENT_TYPE(event)		FIELD_GET(CMN_CONFIG_TYPE, (event)->attr.config)
+> #define CMN_EVENT_EVENTID(event)	FIELD_GET(CMN_CONFIG_EVENTID, (event)->attr.config)
+> #define CMN_EVENT_FILTER(event)		FIELD_GET(CMN_CONFIG_FILTER, (event)->attr.config)
+> #define CMN_EVENT_BYNODEID(event)	FIELD_GET(CMN_CONFIG_BYNODEID, (event)->attr.config)
+> #define CMN_EVENT_NODEID(event)		FIELD_GET(CMN_CONFIG_NODEID, (event)->attr.config)
+> +#define CMN_EVENT_FILTER2(event)	FIELD_GET(CMN_CONFIG_FILTER2, (event)->attr.config)
+>
+> #define CMN_CONFIG_WP_COMBINE		GENMASK_ULL(30, 27)
+> #define CMN_CONFIG_WP_DEV_SEL		GENMASK_ULL(50, 48)
+> @@ -284,6 +286,9 @@ enum cmn_filter_select {
+> 	SEL_CBUSY_SNTHROTTLE_SEL,
+> 	SEL_HBT_LBT_SEL,
+> 	SEL_SN_HOME_SEL,
+> +	SEL_SNP_VC_SEL,
+> +	SEL_ENHANCED_HBT_LBT_SEL,
+> +	SEL_EVICT_STATE_SEL,
+> 	SEL_MAX
+> };
+>
+> @@ -1377,6 +1382,7 @@ static struct attribute *arm_cmn_format_attrs[] = {
+> 	CMN_FORMAT_ATTR(filter, CMN_CONFIG_FILTER),
+> 	CMN_FORMAT_ATTR(bynodeid, CMN_CONFIG_BYNODEID),
+> 	CMN_FORMAT_ATTR(nodeid, CMN_CONFIG_NODEID),
+> +	CMN_FORMAT_ATTR(filter2, CMN_CONFIG_FILTER2),
+>
+> 	CMN_FORMAT_ATTR(wp_dev_sel, CMN_CONFIG_WP_DEV_SEL),
+> 	CMN_FORMAT_ATTR(wp_chn_sel, CMN_CONFIG_WP_CHN_SEL),
+> @@ -1745,6 +1751,8 @@ static void arm_cmn_val_add_event(struct arm_cmn *cmn, struct arm_cmn_val *val,
+>
+> 		if (sel)
+> 			val->filter[dtm][sel] = CMN_EVENT_FILTER(event) + 1;
+> +		if (sel == SEL_EVICT_STATE_SEL)
+> +			val->filter[dtm][SEL_HBT_LBT_SEL] = CMN_EVENT_FILTER2(event) + 1;
+>
+> 		if (type != CMN_TYPE_WP)
+> 			continue;
+> @@ -1799,6 +1807,10 @@ static int arm_cmn_validate_group(struct arm_cmn *cmn, struct perf_event *event)
+> 		    val->filter[dtm][sel] != CMN_EVENT_FILTER(event) + 1)
+> 			goto done;
+>
+> +		if (sel == SEL_EVICT_STATE_SEL && val->filter[dtm][SEL_HBT_LBT_SEL] &&
+> +		    val->filter[dtm][SEL_HBT_LBT_SEL] != CMN_EVENT_FILTER2(event) + 1)
+> +			goto done;
+> +
+> 		if (type != CMN_TYPE_WP)
+> 			continue;
+>
+> @@ -1943,6 +1955,8 @@ static void arm_cmn_event_clear(struct arm_cmn *cmn, struct perf_event *event,
+>
+> 		if (hw->filter_sel)
+> 			hw->dn[i].filter[hw->filter_sel].count--;
+> +		if (hw->filter_sel == SEL_EVICT_STATE_SEL)
+> +			hw->dn[i].filter[SEL_HBT_LBT_SEL].count--;
+>
+> 		dtm->pmu_config_low &= ~CMN__PMEVCNT_PAIRED(dtm_idx);
+> 		writel_relaxed(dtm->pmu_config_low, dtm->base + CMN_DTM_PMU_CONFIG);
+> @@ -1961,6 +1975,11 @@ static int arm_cmn_set_event_filter(struct arm_cmn_node *dn, struct perf_event *
+> 	if (fsel)
+> 		ret = arm_cmn_set_event_sel_hi(dn, fsel, CMN_EVENT_FILTER(event));
+>
+> +	if (fsel == SEL_EVICT_STATE_SEL && !ret) {
+> +		ret = arm_cmn_set_event_sel_hi(dn, SEL_HBT_LBT_SEL, CMN_EVENT_FILTER2(event));
+> +		if (ret)
+> +			dn->filter[fsel].count--;
+> +	}
+> 	return ret;
+> }
+>
+> -- 
+> 2.54.0.dirty
+>
+>
 
