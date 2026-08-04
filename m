@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03137C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 06:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 471ABC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 06:25:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Date:Cc:To:From:Subject:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cGFVWEk/L87zAQqYZdNMd8YoKosd5LHXs3b+GVvAT0k=; b=hCuXk6P7b/t4HCXo9rS7wEpEi9
-	+woI9vpp60xo2o9QkoZiW9fdaDsqvDnqfsWz7rxnzy2qspUaoGFw4TgC9JmkM44UgftdNdaO/YtKg
-	EcRSkvqTx6j2l8aonw0OK7dUV4lobYQH7UGPWTjhMpJDBX7LDWIA9OU5mcP6NhynHvAy69MGWnnHU
-	UVtNrxrinGhLcHHOC1sIitx21drWNhnpBuu9kVYW+LuYB1q2IWqahYauZfb1EGlLQr0w1fAMiEGcM
-	12LZIPHaJ98w7DQkKVdmy/G0L5PBaCdJEJCevYkjXLTgItGiRfX2+alV3WmBjNUXnRh9AM+L44pIl
-	5WgajmsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vs5BIlpD31kH75lJ3LGWHfh0U65a6Zt4KmLafSW9ByQ=; b=2L0fL9fsh7mx/ptmZstdfzTPb9
+	FqWAqoG2dwhy5wpvNdPfDU0U3X50//qP/PRMEzkDIz5MNPe6WF9z1YIssMvKhZZkprIzdtuoPubR7
+	dwwldvGV27HKH5R2xbdSktw75QwXKXixnOwReTgAt1vzQBnlK3qX9QbXr9wME3w4uovAXzLmtDD90
+	jq6aPWjJC4LOSdBUpqzSucvnMv1BJ+U569e6/MExhmN9Q9j6Uw/aCF+b6wEH9gWYxjVK3LRAXsyCa
+	Ya56OUcoIh60NvTOFcKI5bLHd3xa38vi5MQFsHu0DMZu+m632gBHVDIihgTiIkBmScNGUmZylFkGd
+	qLxKC6dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr8Rl-000000016TY-1WaW;
-	Tue, 04 Aug 2026 06:16:17 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wr8a1-000000016tx-2fdU;
+	Tue, 04 Aug 2026 06:24:49 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr8Rj-000000016TB-2mte
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 06:16:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1785824170;
-	bh=cGFVWEk/L87zAQqYZdNMd8YoKosd5LHXs3b+GVvAT0k=;
-	h=Subject:From:To:Cc:Date;
-	b=eusIPTTuYbmRVVvOhrqMqqRgdx7nr8X+xGcc+Lb5c03llC7uSJ1VRV1Gq+zjBt4a9
-	 jnII96cWyimPkHJKRjtcTIoEUUaLjsQggOKNyPcWA4/2VLqGLhZdF528vIM/SqHK4k
-	 fFgj0XJvxwZn10h0uA3QwNZdIS4SISqwHQHKMjfEZqqjYAoPns3GfrTwNXLDB2zvkY
-	 8bGTVTtO+oZk+A4+63X0XPkvtdFl0zn8Uox8A/Y998qL6LFrTpaTWv4mpXR7Wyzoiy
-	 nHqYHX4o5fooh9nd36GSs4tVEHlvrej5DveWgF14izzCNlu/7X+QCI8n3V56+8BcGN
-	 EcHnt2wayulCQ==
-Received: from [IPv6:2405:6e00:242d:870e:1a3e:8259:e4fe:6a28] (unknown [120.20.146.186])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id C43ED655A9;
-	Tue,  4 Aug 2026 14:16:08 +0800 (AWST)
-Message-ID: <7028fd175c1cab44bc7696b5cb92282180e1f0dc.camel@codeconstruct.com.au>
-Subject: [GIT PULL] aspeed: First batch of driver changes for 7.3
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: soc <soc@lists.linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Joel Stanley <joel@jms.id.au>
-Date: Tue, 04 Aug 2026 15:46:05 +0930
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
-MIME-Version: 1.0
+	id 1wr8Zy-000000016tD-1hU6;
+	Tue, 04 Aug 2026 06:24:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785824686; x=1817360686;
+  h=date:from:to:cc:subject:message-id;
+  bh=KKZFpNziv8p8HKPLsoOocbI9p7wTHRY7703zAFRVqFM=;
+  b=cEUYeWSa+OkdJ4ZgfcHohaGaKFGOC525Qbot3hRRGnNl0muNxTNbBPue
+   VAMHwvt2iEvB5fx4MDQY9EYsQq1AtHPLHamQLMUEvL2MEIKeNHgYWYsII
+   UglWkRViZWbEfaIxQrKlpUkgU3lwag09arv7lb7GfQB0jH3yqfWjnledM
+   OkCNMz5YdZXFewjhaSiR84nMRxF5ff/8n0lqp2Y02/xwZz0NS8TvYPpWJ
+   EsJeK6z2D9A128gDwckdn0u/+eBPmxMJy9fspB3EL+3FKVZDnMEhqSF5u
+   mqOB9C6lSb87DGFqaa7xPCyHPu2s/v+d64tpLbjQxyvxBXZh/S2l/0+r6
+   w==;
+X-CSE-ConnectionGUID: U2t8iAp4Sh6tvicFLcO4cw==
+X-CSE-MsgGUID: PTQmcHC0QYqQ9fVbzxYkKQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11864"; a="90179420"
+X-IronPort-AV: E=Sophos;i="6.25,203,1779174000"; 
+   d="scan'208";a="90179420"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Aug 2026 23:24:42 -0700
+X-CSE-ConnectionGUID: COFkYOwiRDeMNnPUy81RQg==
+X-CSE-MsgGUID: WbO2gSoCTg+tnth5R6yU4Q==
+X-ExtLoop1: 1
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 03 Aug 2026 23:24:39 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wr8Zp-0000000097p-0Ov6;
+	Tue, 04 Aug 2026 06:24:37 +0000
+Date: Tue, 04 Aug 2026 14:24:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Linux Memory Management List <linux-mm@kvack.org>,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ Mark Brown <broonie@kernel.org>
+Subject: [linux-next:master] BUILD REGRESSION
+ 9a4cdc958dd79fc6c3b20b51a10debec6ca09fec
+Message-ID: <202608041404.bOHh2XuT-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_231615_912545_99027640 
-X-CRM114-Status: UNSURE (   5.00  )
+X-CRM114-CacheID: sfid-20260803_232446_480120_E9FD2097 
+X-CRM114-Status: UNSURE (   4.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,33 +83,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello SoC maintainers,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+branch HEAD: 9a4cdc958dd79fc6c3b20b51a10debec6ca09fec  Add linux-next specific files for 20260803
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482=
-:
+Unverified Error/Warning (likely false positive, kindly check if interested):
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+    https://lore.kernel.org/oe-kbuild/202608040800.45L57Mym-lkp@intel.com
 
-are available in the Git repository at:
+    drivers/iio/magnetometer/qmc6308.c:402:7: error: call to '__compiletime_assert_472' declared with 'error' attribute: FIELD_PREP: value too large for the field
+    drivers/net/ethernet/airoha/airoha_eth.c:3470:25: sparse: sparse: division by zero
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git tags/aspeed=
--7.3-drivers-0
+Error/Warning ids grouped by kconfigs:
 
-for you to fetch changes up to 244b7f86d60544c99f6e3774fbf0e1aafd3a30f4:
+recent_errors
+|-- arm-randconfig-r121-20260803
+|   `-- drivers-net-ethernet-airoha-airoha_eth.c:sparse:sparse:division-by-zero
+`-- um-randconfig-002-20260803
+    `-- drivers-iio-magnetometer-qmc6308.c:error:call-to-__compiletime_assert_NNN-declared-with-error-attribute:FIELD_PREP:value-too-large-for-the-field
 
-  soc: aspeed: add missing MODULE_DEVICE_TABLE() (2026-08-04 13:46:20 +0930=
-)
+elapsed time: 726m
 
-----------------------------------------------------------------
-aspeed: First batch of driver changes for 7.3
+configs tested: 100
+configs skipped: 1
 
-Just the one patch adding MODULE_DEVICE_TABLE() where it was previously mis=
-sing.
+tested configs:
+alpha                            allnoconfig    gcc-16.1.0
+alpha                           allyesconfig    gcc-16.1.0
+alpha                              defconfig    gcc-16.1.0
+arc                             allmodconfig    gcc-16.1.0
+arc                             allyesconfig    gcc-16.1.0
+arc                  randconfig-001-20260804    gcc-15.2.0
+arc                  randconfig-002-20260804    gcc-8.5.0
+arm                  randconfig-001-20260804    gcc-10.5.0
+arm                  randconfig-002-20260804    gcc-15.2.0
+arm                  randconfig-003-20260804    clang-17
+arm                  randconfig-004-20260804    gcc-8.5.0
+arm64                randconfig-001-20260804    clang-24
+arm64                randconfig-002-20260804    gcc-9.5.0
+arm64                randconfig-003-20260804    gcc-11.5.0
+arm64                randconfig-004-20260804    gcc-9.5.0
+csky                            allmodconfig    gcc-16.1.0
+csky                 randconfig-001-20260804    gcc-9.5.0
+csky                 randconfig-002-20260804    gcc-11.5.0
+hexagon              randconfig-001-20260804    clang-24
+hexagon              randconfig-002-20260804    clang-24
+i386                            allmodconfig    gcc-14
+i386                buildonly-randconfig-001    gcc-14
+i386       buildonly-randconfig-001-20260804    clang-22
+i386       buildonly-randconfig-002-20260804    clang-22
+i386       buildonly-randconfig-003-20260804    clang-22
+i386       buildonly-randconfig-004-20260804    gcc-12
+i386       buildonly-randconfig-005-20260804    clang-22
+i386       buildonly-randconfig-006-20260804    gcc-14
+i386                 randconfig-001-20260804    gcc-14
+i386                 randconfig-002-20260804    gcc-14
+i386                 randconfig-003-20260804    gcc-14
+i386                 randconfig-004-20260804    gcc-14
+i386                 randconfig-005-20260804    gcc-14
+i386                 randconfig-006-20260804    clang-22
+i386                 randconfig-007-20260804    gcc-14
+i386                 randconfig-011-20260804    clang-22
+i386                 randconfig-012-20260804    gcc-14
+i386                 randconfig-013-20260804    clang-22
+i386                 randconfig-014-20260804    gcc-14
+i386                 randconfig-015-20260804    clang-22
+i386                 randconfig-016-20260804    gcc-13
+i386                 randconfig-017-20260804    clang-22
+loongarch                          defconfig    clang-24
+loongarch            randconfig-001-20260804    clang-24
+loongarch            randconfig-002-20260804    gcc-16.1.0
+nios2                           allmodconfig    gcc-11.5.0
+nios2                            allnoconfig    gcc-11.5.0
+nios2                randconfig-001-20260804    gcc-8.5.0
+nios2                randconfig-002-20260804    gcc-11.5.0
+parisc                          allmodconfig    gcc-16.1.0
+parisc                          allyesconfig    gcc-16.1.0
+parisc                             defconfig    gcc-16.1.0
+parisc               randconfig-001-20260804    gcc-8.5.0
+parisc               randconfig-002-20260804    gcc-8.5.0
+powerpc                      eiger_defconfig    clang-24
+powerpc              randconfig-001-20260804    clang-24
+powerpc              randconfig-002-20260804    gcc-11.5.0
+powerpc64            randconfig-001-20260804    gcc-8.5.0
+powerpc64            randconfig-002-20260804    gcc-8.5.0
+riscv                randconfig-002-20260804    gcc-13.4.0
+s390                 randconfig-001-20260804    clang-21
+s390                 randconfig-002-20260804    clang-18
+sh                                 defconfig    gcc-16.1.0
+sh                   randconfig-001-20260804    gcc-16.1.0
+sh                   randconfig-002-20260804    gcc-16.1.0
+sparc                randconfig-001-20260804    gcc-16.1.0
+sparc                randconfig-002-20260804    gcc-16.1.0
+sparc64              randconfig-001-20260804    clang-24
+sparc64              randconfig-002-20260804    clang-20
+um                   randconfig-001-20260804    gcc-14
+um                   randconfig-002-20260804    gcc-14
+x86_64              buildonly-randconfig-001    gcc-12
+x86_64     buildonly-randconfig-001-20260804    gcc-14
+x86_64     buildonly-randconfig-002-20260804    clang-22
+x86_64     buildonly-randconfig-003-20260804    gcc-14
+x86_64     buildonly-randconfig-004-20260804    gcc-14
+x86_64     buildonly-randconfig-005-20260804    clang-22
+x86_64     buildonly-randconfig-006-20260804    clang-22
+x86_64                                 kexec    clang-22
+x86_64               randconfig-001-20260804    gcc-14
+x86_64               randconfig-002-20260804    gcc-13
+x86_64               randconfig-003-20260804    clang-22
+x86_64               randconfig-004-20260804    clang-22
+x86_64               randconfig-005-20260804    gcc-14
+x86_64               randconfig-006-20260804    clang-22
+x86_64               randconfig-011-20260804    clang-22
+x86_64               randconfig-012-20260804    gcc-14
+x86_64               randconfig-013-20260804    clang-22
+x86_64               randconfig-014-20260804    clang-22
+x86_64               randconfig-015-20260804    clang-22
+x86_64               randconfig-016-20260804    clang-22
+x86_64               randconfig-071-20260804    gcc-14
+x86_64               randconfig-072-20260804    gcc-14
+x86_64               randconfig-073-20260804    gcc-14
+x86_64               randconfig-074-20260804    gcc-12
+x86_64               randconfig-075-20260804    gcc-14
+x86_64               randconfig-076-20260804    clang-22
+x86_64                          rhel-9.4-bpf    gcc-14
+xtensa               randconfig-001-20260804    gcc-8.5.0
+xtensa               randconfig-002-20260804    gcc-14.3.0
 
-----------------------------------------------------------------
-Pengpeng Hou (1):
-      soc: aspeed: add missing MODULE_DEVICE_TABLE()
-
- drivers/soc/aspeed/aspeed-uart-routing.c | 1 +
- 1 file changed, 1 insertion(+)
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
