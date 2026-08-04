@@ -4,59 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43CA1C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 06:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE3EC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 06:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
 	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXSmEYs9TbtvGp/eM4EavpIH6gjJRcZp18E17KYaQ20=; b=QSvkPyepYORChHsYT6HOXuhfNn
-	sePFb5wDdppHywdTbuttEiaePGxnom+TJEQL1pMcQXnnbg/WZxAPdbBIVpaYKRlzG4j7VmCrWAgDE
-	Qs4ZRsEWeJOfhmrkVMqk6cl/Gz2q8oiTGRts+9i2yeOryO9Qs0qLakc64QW4xNUGpzzi+an483HfG
-	7cuAKT8FwT5ynXeZAVX/K4Q9VXLTI8/jKh4JQc0n3z15Q9H4a4jlEcrl5o8GjtxKzfKQelwA8UYig
-	7h8rFKX8E8sKpTH1ZWk2bsr4WZr81gTfM1R57R8gm6IjobgOwuitrKSzO/+MBw+guOqBjs4pbZ1zM
-	EawCMh9Q==;
+	bh=PKYseCVUwAsrRbAPoZQ6d4d90WKFCcuz+KWQSPJljBM=; b=N9sQficRLVzomGf1nXllbuaX4o
+	YydfqG5LQ1WflcbSYL7a87bxkbNg0CBSyOiF927IcnycMtMKp/UrNz8d2yBhBIeA9JP9itKmCvq1Q
+	PQINoSG4NgVafCqqdCFNYBhozn+BE9odNRXi7cbx40EV0z42BqFJBcCfdMjtv3lYsCcwuNEsmj8WL
+	O4NThJ31y0fBvPNx1KLubYxOsmREgZlS66gI1nOxmxWCkFrpGW++f4uUWCXkuIBlD8CdmdSJwJA6U
+	0ubqaFdl7da6MZQ/Hg0kQPsY8r0cqQ8OToXGp64OpxErwqjD6WOkwDKENTIAJFY5XWSVsn19PoWgX
+	VNMnecIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr8NZ-000000015wH-46Uf;
-	Tue, 04 Aug 2026 06:11:57 +0000
+	id 1wr8Nv-00000001609-0fGl;
+	Tue, 04 Aug 2026 06:12:19 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr8NY-000000015w6-44Y7
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 06:11:57 +0000
+	id 1wr8Nu-000000015zr-245E;
+	Tue, 04 Aug 2026 06:12:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0961B600AE;
-	Tue,  4 Aug 2026 06:11:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E004B1F000E9;
-	Tue,  4 Aug 2026 06:11:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D8A77600AE;
+	Tue,  4 Aug 2026 06:12:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5487F1F000E9;
+	Tue,  4 Aug 2026 06:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785823915;
-	bh=PXSmEYs9TbtvGp/eM4EavpIH6gjJRcZp18E17KYaQ20=;
+	s=k20260515; t=1785823937;
+	bh=PKYseCVUwAsrRbAPoZQ6d4d90WKFCcuz+KWQSPJljBM=;
 	h=From:To:In-Reply-To:References:Subject:Date;
-	b=LZpCSM3RqZLgkfCU3TWvegvh/R7x1h7urJze+XOzns0XKzuNRnZNE+9ODkc50qZxD
-	 FluRk1VqBz3CCawC4gviCbpkEyKSV52QaaqJcpJuO9APuHvw95Zog9faPEClMI0Jfz
-	 3DdtQ9SCrbUWFEGvi2Vxo4cb5RQ8a5yHY2rWB1aj0iCaq7/cmssnCY5lICzmWRC2Ii
-	 TKGw2efti4DhYvxeZ3MGi17W85MT2krtjUwb8JdAcakhByqzrqxmnFL/P/AAZc0sSk
-	 9Cl3WtsvTThJzOhH5XC/AId3luPlIWj/aKA9i8aqlLsHSIciRjwsZ2zwE2gSpOb+r6
-	 OZrGrJfx90u2Q==
+	b=jJsCxs8dQHMV4VZQ8X3uIxwKM22zfav6Eh3dBkIPsBuhofxUa/GTB0aNqIi9VGlJN
+	 vfhzcJX0T+0uZHaR0sR4Y3GXjzFmHy4wkxd3tCB/70KjJbKifuuYaC8NyHQ7iaPUHO
+	 wccqNKHTXcsE2fl5UZa1L8hYHgX9XzWewAjrevp6+ihVv24SRnjadFMJm+jdPx7RzL
+	 e62FqrI2krUrJHnia7WWri4gfBC3Kmi+tBYmzPud7zr6g+T3Y12bgUzwurhWbAo7w/
+	 pzvD84R5B6llP3BlF2U1qpFUW4sRuRpj5efx8+4+OkJMNmCOKO8MSSk6MmLh13y49t
+	 zHPCknuf0UC9A==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Hauke Mehrtens <hauke@hauke-m.de>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <zajec5@gmail.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Patrice Chotard <patrice.chotard@foss.st.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Michal Simek <michal.simek@amd.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Khuong Dinh <khuong@os.amperecomputing.com>, Sven Peter <sven@kernel.org>, 
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Dinh Nguyen <dinguyen@kernel.org>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, linux-amlogic@lists.infradead.org, 
+ asahi@lists.linux.dev, linux-rpi-kernel@lists.infradead.org, 
+ linux-tegra@vger.kernel.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260801210353.383880-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260801210353.383880-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] arm64: dts: exynos: Correct white-space style
-Message-Id: <178582391140.12883.16293784037220851134.b4-ty@b4>
-Date: Tue, 04 Aug 2026 08:11:51 +0200
+In-Reply-To: <20260801210210.383417-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260801210210.383417-3-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: (subset) [PATCH 1/2] ARM: dts: Correct white-space style
+Message-Id: <178582392607.12985.6150713140771675075.b4-ty@b4>
+Date: Tue, 04 Aug 2026 08:12:06 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -76,15 +94,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 01 Aug 2026 23:03:54 +0200, Krzysztof Kozlowski wrote:
+On Sat, 01 Aug 2026 23:02:11 +0200, Krzysztof Kozlowski wrote:
 > Correct a few white-space issues, like missing space before bracket '{'
 > character or spurious space, which will be flagged by dt-check-style
 > ("redundant-whitespace" warning).  No functional changes.
 
 Applied, thanks!
 
-[1/1] arm64: dts: exynos: Correct white-space style
-      https://git.kernel.org/krzk/linux/c/db23b4aab4252f793d9fa97dc5d6f8d99c5e8e4b
+[1/2] ARM: dts: Correct white-space style
+      https://git.kernel.org/krzk/linux-dt/c/e2b3acf8c227beda488f00d06f1266f83b9b5c08
 
 Best regards,
 -- 
