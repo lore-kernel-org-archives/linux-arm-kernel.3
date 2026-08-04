@@ -4,108 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09295C55838
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 12:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72BE9C55838
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 12:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HxBuSuUOsN3xcHdKVMUU11HrTG94kQJTqxpKG7QuLAE=; b=TgYWmMxRMx3VAesPOW8xuXLkhz
-	xko9B8qoo61ts7IMnK3WzMatE9b30t0aDIR9Rq3eP2m1JMD+nsPtvTRsOOkJGbPgA4ddZK3rsUxTC
-	egW4jmFfN9/NXBCZPh6BbWoLcHGEYccFQxKOWkM+5Ol3uVlHaQ37ErBjVVvfEj/mS1HSdjUMeHwWv
-	Mo0ogSUSFLYhVmi9LCyzixiUHVAbiaSSnG8AN3bybkRrwjgHOVKNjtVxd4fzaA32n7vsphhW3brJ6
-	P0W9axGOxiJxTryK9Gt+Vbvw55BzG+lGZBPcI5bMlYns0ftAKnaFCOYG4f6IbrW+ClSbvZwuA6nsn
-	vpHMCQ4A==;
+	bh=1VZyWV/sBNXUleHaYHmmW4Y4u5KeXX8J+jfaO5wklAA=; b=Fnb1pAXwPPXzoZLWqWnHm5NRHp
+	AVcup1215s7LB4ZRsYCqprsIwFNJAONlI7uvbT2IDIF8IpyUUngNz9cLFAfEGUd3er8+Puu3pmliH
+	/NF07tsHJGJmpKQf88LPgnFZFrCGWt7sRZFgrIyJpyLyyecj2oScBKgmy1D3l0D7P8A33kXbV4v1+
+	It619rAcK65U0LDGjl5mUoVETX8U7yMfdj3FgJeC7qjDJYbFB9xxno3uxeyydMtX0aeNG6sMWEHss
+	iy1Q798C3uKBx2Zc5Mzw0GOP++4k7cZk0ox2kZBPVI0Ttu18ByrcdSpieH33ba0mm5EvLN5FT6flo
+	yuAuZBGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrELE-00000001otS-4975;
-	Tue, 04 Aug 2026 12:33:57 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1wrEM4-00000001p3o-14sD;
+	Tue, 04 Aug 2026 12:34:48 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrELB-00000001osw-0kdQ
+	id 1wrEM2-00000001p2q-146s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 12:33:55 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-6a097f5ab95so6047565a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 05:33:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785846831; cv=none;
-        d=google.com; s=arc-20260327;
-        b=PhG4eYe+8R5GhZWn2Q/3X+Mxa+BksJWzNQTQ3imyJRD4Mb56Jh+wtslKDMEzT1wV0U
-         6NokAEL6hrWflLgqXZNjzgTxE+Z5JY9qSYhOn8048D3LXdd4Sp7AzlmHeQJCXY75MdrV
-         Aci82gjsVxmXrQUNt0uUiuPWys9ZLL1KHqwYAxpdKw9q8XRUQ+baM14wx7bzaIBEWR0V
-         /cXMSIxeV8gkepXnsRsymEWAeXv5hXfQlSMVLBbI07znurYL63EwJVw6VEcG/NIt/Tos
-         UimroxKWc4ark0rPZ2ldLgqJPpWT7JweVyuzaMcNzicYWzsxK3xRGunH8wSmXqGH3JmK
-         bgpQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=HxBuSuUOsN3xcHdKVMUU11HrTG94kQJTqxpKG7QuLAE=;
-        fh=GSCkokkYidz7EFSXxVTnJFdfAzNsl+6EiuvcIANnDEI=;
-        b=DFNIVas0LhrkC/RNFAsxnQx5Jia5WcrrUIUlBT/1ohsVSWr9kPOCFU+Z4+gl8+xDrJ
-         NFYmQ90qNEW0NC4Wge2UPjSaSZGv+SRBfRC0f5np0SptvUBH2zA+ZI0ljRLp6GMzJdUf
-         xeddOnZTr6eFKsqXxReAvSUicclU6e3j8xanqosHQqrxXfN7qhTLKaiJacYc/oGkTQ7U
-         gZa9S3eyvGaVGZDjA4DWlLG8YtFrinj53FF5g2h0DrENwzvwIGPv3zlq2UQj9Z7ssTnr
-         A9qX0wGoWoK9GlmsjatpzkmvXwyvgJc0J6HZQjAY4/x4u+/gxYFHljEmDsmZ/h3v7XJC
-         ifKQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785846831; x=1786451631; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HxBuSuUOsN3xcHdKVMUU11HrTG94kQJTqxpKG7QuLAE=;
-        b=FwE1NpA3kIwrw2ibY7n05E64JFp3eP9IRRnfofKDnJUNMkVb58Rb0oYfDfsG5Eyyv4
-         Xhjmbu2fTeRe68LcEIHES5UvfO7NB6xGSFKuHq+WWhFxGR3p0EhxItEDQkHymcFKleic
-         6NbznEn1Ka2mMQHPhIMm9oMlJyIyHtgReE9tTOSa5InBKNWu1APzXwAIxcworpP/YJWp
-         HxXsthnmZg36//rMS50xHgSJ3ctJ6Yr7yLGM+HsvYlv5FihKbQnDo86/ZZ/Sa29IaDrU
-         WiiWsRfNHDSwgUmuliUQACfNaKk//4r4HUGXUAuUpdzI4/9zHVOR6+7/2uuL0abCWZ4h
-         KlxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785846831; x=1786451631;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=HxBuSuUOsN3xcHdKVMUU11HrTG94kQJTqxpKG7QuLAE=;
-        b=kCsUSdPRIbootfyecgQCGesY1dRxG780Qt8MwL4xa5h+RQXhwTbfZCIKFAwMcg+TmG
-         Gt6EJjyFrU6qzE+cILKA0IIUQQzoB5PDOETDeK1PLWJ1+Q9cYJX7tGPkMjDbjcu0UDvy
-         McnyS8PXo3nb2STCxD6Z8KLN6CKZijN368NxJzIyNO2cTbSK8+fTpWtGPtZ0v7WiPNmg
-         kep5MbA6RkZESHXbaVUS/JslM5CO2Pld9SwExGACuyfOWagxRIXXEbt1sSNswRzy7PSd
-         VygvwaT7go1+iI/lS8cleDxnRxoSjEkU+F5YgCC9CMHNPOG3rVATfjmIYU3trOP1J3W/
-         bSgA==
-X-Forwarded-Encrypted: i=1; AHgh+RoZPZtI5F3R1Ej8nLZWRuehJuaCvmk/vh93Nw8VYmDUkBqeQ0MBsEpGaoStPanfWJSznT49A0CXoXiv2ggaVAHe@lists.infradead.org
-X-Gm-Message-State: AOJu0YziXfbidlDLMUhQ3yVQEnXczteBY026GI61Afr81TFYGD/RHNsW
-	1GmxIKq2g9sSOYsohlaiZBDdlVk8YSPS65cAyL+bIwlKqn8E6QuqdAwf4JtvMfspN2pnvP3tGbU
-	LbqIHi7Lz8MP7kxTGePRZQvOdIlwsQGpmZxVLs9kTNw==
-X-Gm-Gg: AR+sD11vO5nApn1aLhey6b4hb7kcafCpxyjvIMz/3ewgRZ9Jw8frNgIM6yxTotx2DuP
-	l5zdPwKKhGP/t8F9wzlfkHqPWAaP63Ocj0wO5uyIxlgJW1rGgu8m8/M6LZ9M6x6XMStdejUIcnc
-	WlCEvOnAqxgi9MBfPPggfqSvhVEDFoYH+5zmRBP+DM4WzCUt/pi0w4uDEmAKq72Pzj3XS+d45E7
-	60HT/DEuTES5PJ99tJchCh/pl3pe4NB/QmPN3iPR3Yd4lni9LcjC7GJgsnnK95CWUYvPKDh3tYr
-	VeIzF7AD3MgionB8dh4EQCyGb5SrL77oZBMbku/GahCFMDp8qHSAKIJ/aURetvL8QD2JBWWedJH
-	poVI=
-X-Received: by 2002:a05:6402:a6ca:20b0:6a0:dda3:83db with SMTP id
- 4fb4d7f45d1cf-6a0dda38483mr5803047a12.0.1785846831292; Tue, 04 Aug 2026
- 05:33:51 -0700 (PDT)
+	Tue, 04 Aug 2026 12:34:47 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 8E7923FA1;
+	Tue,  4 Aug 2026 12:34:44 +0000 (UTC)
+Authentication-Results: smtp-out2.suse.de;
+	none
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id AB46A779C4;
+	Tue,  4 Aug 2026 12:34:42 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id tKeyJmLccWoTUgAAD6G6ig
+	(envelope-from <pfalcato@suse.de>); Tue, 04 Aug 2026 12:34:42 +0000
+Date: Tue, 4 Aug 2026 13:34:41 +0100
+From: Pedro Falcato <pfalcato@suse.de>
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org, 
+	John David Anglin <dave.anglin@bell.net>
+Subject: Re: [PATCH v2 2/6] parisc: Drop own implementations for ptep_get()
+ and ptep_test_and_clear_young()
+Message-ID: <anHcJZYyz9Zrshdm@pedro-suse>
+References: <20260803164400.531199-1-pfalcato@suse.de>
+ <20260803164400.531199-3-pfalcato@suse.de>
+ <anHHyiHqYf3yLf2K@lucifer>
 MIME-Version: 1.0
-References: <20260803135322.2898247-1-wenst@chromium.org>
-In-Reply-To: <20260803135322.2898247-1-wenst@chromium.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 4 Aug 2026 13:33:39 +0100
-X-Gm-Features: AUfX_myS2cidHM43LBbhd8UVPlKcCVWzzAL3r2Xg4qgdaYQLg0tQthlf_dnS1Jc
-Message-ID: <CADrjBPqVOTqfj6Xx6LMvnrVS8-gxrwh=-_XevD56Nf+ypSNhAg@mail.gmail.com>
-Subject: Re: [PATCH] drm/exynos/gem: Drop extra "0x" prefix in front of "%pad" format
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>, 
-	Kyungmin Park <kyungmin.park@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org, 
-	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <anHHyiHqYf3yLf2K@lucifer>
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Spamd-Result: default: False [-4.00 / 50.00];
+	REPLY(-4.00)[]
+X-Rspamd-Queue-Id: 8E7923FA1
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_053353_234453_6F170E81 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20260804_053446_455267_5A5AC9D6 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,38 +101,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Aug 2026 at 15:28, Chen-Yu Tsai <wenst@chromium.org> wrote:
->
-> The recent size_t format string fix for exynos DRM driver left the "0x"
-> prefix in front of "%pad" format around. Since the pointer format output
-> already provides "0x" prefix, this ends up adding an extra prefix.
->
-> Drop the redundant "0x" prefix".
->
-> Fixes: 3470274dca48 ("drm/exynos: fix size_t format string")
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
+On Tue, Aug 04, 2026 at 12:11:08PM +0100, Lorenzo Stoakes (ARM) wrote:
+> On Mon, Aug 03, 2026 at 05:43:56PM +0100, Pedro Falcato wrote:
+> > From: Helge Deller <deller@gmx.de>
+> >
+> > Switch to the generic implementations, which are identical.
+> 
+> You sure do like succinct commit messages :)
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+I didn't even write this one! See the From: :))
 
->  drivers/gpu/drm/exynos/exynos_drm_gem.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/gpu/drm/exynos/exynos_drm_gem.c b/drivers/gpu/drm/exynos/exynos_drm_gem.c
-> index 0208c9259572..acb8def747de 100644
-> --- a/drivers/gpu/drm/exynos/exynos_drm_gem.c
-> +++ b/drivers/gpu/drm/exynos/exynos_drm_gem.c
-> @@ -80,7 +80,7 @@ static void exynos_drm_free_buf(struct exynos_drm_gem *exynos_gem)
->                 return;
->         }
->
-> -       DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(0x%pad), size(0x%zx)\n",
-> +       DRM_DEV_DEBUG_KMS(dev->dev, "dma_addr(%pad), size(0x%zx)\n",
->                           &exynos_gem->dma_addr, exynos_gem->base.size);
->
->         dma_free_attrs(drm_dev_dma_dev(dev), exynos_gem->base.size, exynos_gem->cookie,
-> --
-> 2.55.0.571.g244d577d93-goog
->
->
+> 
+> Maybe worth saying by dropping the __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG and
+> ptep_get defines you get the generic versions from include/pgtable.h which are
+> functionally identical.
+> 
+
+I can touch it up though, if you insist.
+
+> (Being pedantic, they're not quite strictly identical as the
+> ptep_test_and_clear_young() generic function does some weird unnecessary
+> indirection with a local variable and the single {} is dropped etc.)
+> 
+> >
+> > Suggested-by: Usama Arif <usama.arif@linux.dev>
+> > Suggested-by: John David Anglin <dave.anglin@bell.net>
+> > Signed-off-by: Helge Deller <deller@gmx.de>
+> > Signed-off-by: Pedro Falcato <pfalcato@suse.de>
+> 
+> Nits above notwithstanding, LGTM so:
+> 
+> Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+
+Thanks!
+
+-- 
+Pedro
 
