@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C059AC55838
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F81C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O04AjETwdkKDFMoFDRH7HNAUs5os4iVo89vC02nF1dA=; b=IJGtHiJCTStrBdsQXeO5cr6BB+
-	zHFO+ndiBjClq/5ZQVQrCMj6GOpSxM9u63ckINFmht60j2TG1X8WCUvRFyzTGXA0XrIc0rMI3nHYS
-	tf5/6aGeCoonbHMhnEnmnfvm0bLLEQ+2vlKCFQKpgVKeJ7Cy9w1oDK2ryfOMUiZP1Z5suh0KV7/Hk
-	BGx556Ualhj2D1ukbt97+1NsRIWTri33CLi2dHCeq5oPdsy41KQ7G9JThRLmGhtV4UsgaF/WU673Z
-	f49q0iSb1MzaAbGwaEDjb/ChU6XkZIRX9bjDqIyfNJlP44WjyQQP8POzS630zYsgsCnUIqfY2A5UQ
-	UhSKGhjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=A6MV3T54jpp6pfa17f4P4YF6liSBRRpPBO9a2ATS4OQ=; b=wC9Wq8cL71BEDyncEF4HgJe1/x
+	1c7AHiS9sNQNT6uvCfwnsLgAsFPz9DIAIjl5JwXEs7SdPpKEVz8K8+hCER2mfpqQjGh/iuQnjyjKn
+	s/VVMBDwGqiH5b75jkQRW3xrdo54kZY8eRWoaucY94qFib8YqzfnTIcpFA1qObBL6d5S4IvF43NAW
+	zOJpBNpFrVF4uEnFFuO4AcQyqhp9GGeMy2CfRBGGNygerAG+iRFIVd22czxgWoaTDJLbalcbTjqOJ
+	RBFHwXs+E+TA1A0z0kreYVnxX9DlU/Dzl9Jk+HazfuF2JhhaxHNxIBfsz5/yBnoW+x7TTWmhcIvcH
+	YPNF72GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDEI-00000001fYy-46ji;
-	Tue, 04 Aug 2026 11:22:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrDFT-00000001fjZ-1XNv;
+	Tue, 04 Aug 2026 11:23:55 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrDEH-00000001fYg-14Qj
+	id 1wrDFQ-00000001fjE-3zqb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:22:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE257433CB;
-	Tue,  4 Aug 2026 11:22:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 355F71F000E9;
-	Tue,  4 Aug 2026 11:22:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785842560;
-	bh=O04AjETwdkKDFMoFDRH7HNAUs5os4iVo89vC02nF1dA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mETS7jtQ9xPeY0vCfNmg+ddX8fuc7SUbBvCjaH6OSIVCtgc43e2hUnlX4GQ8hVnLp
-	 6wlmwsuR15aWXkBkD3bqUj/JLgmtSQUiuVYLRHObbnTQtwRFxGwcIPHO6upxsRhNCF
-	 jUEuDv791XD4yslZfyX2uYtLSp1XjxI5cxjjPoKEzOuV65mhd8zYxK82NG56Fm7N89
-	 pbF71py3im6THBC+vOhEIjMCGSS1Bdv9a3qnU8xi2XXGG37cqRPZrOVpW7d9Jaxiaw
-	 fCO4hp38sQlygOaBiDhDSQ8C1Ut9rDn89dHfwdAGdMgsWlhRkekX4aGc5i1XCMjSPs
-	 4TId4Keo909Jw==
-Date: Tue, 4 Aug 2026 12:22:19 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
-	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH v2 6/6] mm: constify the pte_offset_map_ro_nolock()
- return value
-Message-ID: <anHJ48Glq8EdHatd@lucifer>
-References: <20260803164400.531199-1-pfalcato@suse.de>
- <20260803164400.531199-7-pfalcato@suse.de>
+	Tue, 04 Aug 2026 11:23:54 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785842628;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=A6MV3T54jpp6pfa17f4P4YF6liSBRRpPBO9a2ATS4OQ=;
+	b=mFaN+4JvKjSt50Gd0rfBo+esdoDIOyEYlLsi+PNeHONIvBKPQHIMQEZX2xPNt0TYq6OJ7u
+	3zBf1TflXe2CYA3dpI71hfmyZxCZGAFxK71fNlh02VpYindYZkQxJf0zIbiGQyrbBNPCu0
+	VD44g+xuaumHr2y8Q3bOAYmsbXtSbpw=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	alexandru.elisei@arm.com,
+	vdonnefort@google.com,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	qperret@google.com,
+	ardb@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	tabba@google.com,
+	fuad.tabba@linux.dev
+Subject: [PATCH v3 00/11] KVM: arm64: Restore type-checking across the host/hyp hypercall boundary
+Date: Tue,  4 Aug 2026 12:23:06 +0100
+Message-Id: <20260804112317.1937387-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260803164400.531199-7-pfalcato@suse.de>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_042353_153925_3E18C490 
+X-CRM114-Status: GOOD (  25.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,155 +81,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 05:44:00PM +0100, Pedro Falcato wrote:
-> Constify the pte_t * retval from pte_offset_map_ro_nolock(), for which it is
-> already pledged that accesses must be read-only. With it, convert the three
-> treewide users to use const pte_t *.
->
-> khugepaged passes the result right down to fault code (do_swap_page()). This
-> leads to a complicated set of conditions that, in order to be correct, must
-> not install anything into *vmf->pte. This is not trivial to work around in
-> fault code, and as such just trivially cast to non-const pte_t* in the
-> meantime.
->
-> The other users are far more trivial and the conversion is equally
-> trivially simple.
+Hi folks,
 
-Ah finally more words! :)
+This is based on rc6, but in case it is easier to take on kvmarm/next
+(320840b34af2a), the same series applied there is at [1]. It passes the
+same checks: bisectable, sparse clean, npVM and pVM boot.
 
->
-> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
+Patches 1-8 are identical. pkvm-7.3 reworked three of the handlers the
+series converts, so 9-11 deviate. Patch 9 also declares
+__pkvm_vcpu_sync_state, without which its caller has no generated stub.
+Patch 10 converts that handler too, and folds the two
+get_host_hyp_vcpus() macros into one function. Patch 11 moves the
+kern_hyp_va_host() unwrap out of __get_host_hyp_vcpus() to its callers,
+since container_of() casts through void * and drops the address space.
 
-With comment updated as below and nits addressed, LGTM so:
+Changes since v2 [2]:
+  - Dropped the *_VOID() macro variants. void is spelled as the return
+    type in the declaration and the definition, and the handler's
+    return-register store dispatches on a per-type table instead. The
+    table entry is pasted from the return type, so it has to be a
+    single word: __pkvm_create_private_mapping is spelled ulong on
+    both sides of the boundary. (Marc)
 
-Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+The SMCCC conversion of the host/hyp interface reduced every hypercall
+to a function number and a pile of registers: kvm_call_hyp_nvhe() never
+shows the compiler a callable, so the caller's arguments and the
+handler's DECLARE_REG() casts can disagree in type, count or order
+without a diagnostic. Reviewing a fix for exactly that class of bug,
+Marc wrote [3]:
 
-> ---
->  arch/powerpc/mm/pgtable.c | 2 +-
->  include/linux/mm.h        | 4 ++--
->  include/linux/pgtable.h   | 2 +-
->  mm/filemap.c              | 2 +-
->  mm/khugepaged.c           | 2 +-
->  mm/pgtable-generic.c      | 4 ++--
->  6 files changed, 8 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
-> index a9be337be3e4..e29db41b6043 100644
-> --- a/arch/powerpc/mm/pgtable.c
-> +++ b/arch/powerpc/mm/pgtable.c
-> @@ -390,7 +390,7 @@ void assert_pte_locked(struct mm_struct *mm, unsigned long addr)
->  	p4d_t *p4d;
->  	pud_t *pud;
->  	pmd_t *pmd;
-> -	pte_t *pte;
-> +	const pte_t *pte;
->  	spinlock_t *ptl;
->
->  	if (mm == &init_mm)
-> diff --git a/include/linux/mm.h b/include/linux/mm.h
-> index 7fabe6c66b4b..acf5a5e31d34 100644
-> --- a/include/linux/mm.h
-> +++ b/include/linux/mm.h
-> @@ -3885,8 +3885,8 @@ static inline pte_t *pte_offset_map(pmd_t *pmd, unsigned long addr)
->  pte_t *pte_offset_map_lock(struct mm_struct *mm, pmd_t *pmd,
->  			   unsigned long addr, spinlock_t **ptlp);
->
-> -pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
-> -				unsigned long addr, spinlock_t **ptlp);
-> +const pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
-> +				      unsigned long addr, spinlock_t **ptlp);
->  pte_t *pte_offset_map_rw_nolock(struct mm_struct *mm, pmd_t *pmd,
->  				unsigned long addr, pmd_t *pmdvalp,
->  				spinlock_t **ptlp);
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index dc418553e57a..dd51e722c535 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -112,7 +112,7 @@ static inline pte_t *__pte_map(pmd_t *pmd, unsigned long address)
->  {
->  	return pte_offset_kernel(pmd, address);
->  }
-> -static inline void pte_unmap(pte_t *pte)
-> +static inline void pte_unmap(const pte_t *pte)
+  "we lost all form of type-checking when everything was hastily
+   converted to SMCCC to avoid function pointers. Somehow, I feel that
+   the cure was worse than the disease.
 
-I was going to question this based on whether the contract holds for
-CONFIG_HIGHPTE but actually:
+   I wish we'd reintroduce some form of compile-time checks, maybe by
+   having generated stubs?"
 
-#define pte_unmap(pte)	do {	\
-	kunmap_local((pte));	\
-	rcu_read_unlock();	\
-} while (0)
+and sketched the shape he preferred [4]: a generated nvhe_hvc_##f()
+stub that does the type-checking, driven by "some form of declarative
+IDL", with "both the caller and callee stubs ... totally generated".
 
-#define kunmap_local(__addr)					\
-do {								\
-	BUILD_BUG_ON(__same_type((__addr), struct page *));	\
-	__kunmap_local(__addr);					\
-} while (0)
+This series implements that, in plain preprocessor macros rather
+than an external generator, in the mold of the syscall wrappers.
+Each hypercall's signature is declared once, in kvm_hcall.h:
+kvm_call_hyp_nvhe() resolves to a typed nvhe_hvc_##f() stub
+generated from the declaration, and the hyp-main.c handlers
+unmarshal their arguments through glue that is type-checked
+against the same declaration. A mistyped or stale call, or a
+handler that drifts from its caller, now fails to compile. On top
+of that shared declaration, host-VA parameters gain a __kern
+sparse address space, so dereferencing one at EL2 without
+kern_hyp_va_host() translation is flagged by sparse. The address
+space is KVM-private and lives with the interface it annotates
+rather than in compiler_types.h, like x86's __seg_gs in asm/percpu.h.
+The deeper instances of that bug class, host VAs reached through
+struct fields after the boundary, are follow-up work.
 
-static inline void __kunmap_local(const void *vaddr) <-- const!
-{
-	kunmap_local_indexed(vaddr);
-}
+The declarations do not also generate the function-number enum or the
+dispatch table. The enum carries the availability-band markers that
+decide when each hypercall becomes reachable, and its base entry is
+consumed from assembly, so generating it would hide the banding. The
+remaining duplication cannot drift silently: a name mismatch between
+declaration, caller and handler fails to compile, and a missing
+dispatch-table entry is rejected at run time as
+SMCCC_RET_NOT_SUPPORTED.
 
-So nice (CONFIG_HIGHPTE is going to go away at some point though, right? I
-hope... :)
+Along the way it turned out "make C=2" has never checked the nVHE
+objects at all: the custom %.nvhe.o rule reuses rule_cc_o_c, which
+only hooks the checker for C=1, and that only on a rebuild. Patches
+2-5 fix the hook and the handful of pre-existing sparse warnings it
+flushes out, so the checker lands clean. The libfdt objects under
+arch/arm64/kernel/pi/ have the same gap through the same rule, so
+patch 6 gives them the same one-line fix; it touches arm64 core
+rather than KVM, so it can go through either tree. Patch 1 is
+adjacent: trace_remote_event.h is not self-contained (it uses bool
+without including linux/types.h), which the nVHE include order had
+been silently working around; it can go through the tracing tree
+instead if preferred.
+
+The first six patches do not depend on the type-checking work (the
+tracing-header fix, the sparse cleanups, and the two C=2 hook fixes),
+so they could be taken on their own, ahead of the rest of the series
+if that is easier.
+
+The series is structured as follows:
+
+  01:     Make trace_remote_event.h self-contained.
+  02-04:  Fix the pre-existing sparse warnings in the nVHE code.
+  05:     Run the source checker on nVHE objects under C=2.
+  06:     Same for the libfdt objects under arch/arm64/kernel/pi/.
+  07:     Pass the host-VA hypercall arguments as pointers at EL2.
+  08:     Move the dispatch macros to a new kvm_hcall.h.
+  09:     Declare the hypercall signatures, type-check the callers.
+  10:     Generate the handler unmarshalling, type-check the handlers.
+  11:     Tag host-VA parameters __kern for sparse.
+
+The generated code is unchanged, checked by comparing the disassembly
+of every KVM object, function by function, against the base: the
+callers are identical apart from hypercall returns now being tested at
+their declared width and the stage-2 TLB-flush level argument now
+being sign-extended as it is loaded (an s8 passed as an int), and the
+handlers are instruction-for-instruction identical apart from
+flush_hyp_vcpu()/sync_hyp_vcpu() being inlined into their only
+caller. The extra argument that prompted the thread, a
+mistyped or reordered argument, and a handler that disagrees with its
+declaration all now fail to compile. checkpatch complains about the
+__KVM_HCALL_MAP() machinery, the (type, name) pair syntax and the
+generated signature typedefs, as it does about __MAP() in the syscall
+wrappers; the idiom cannot be parenthesized, and the typedef is what
+checks the handler against the declaration. Enforcing the
+__kern tag needs sparse v0.6.5-rc1 or later for __typeof_unqual__,
+as all sparse checking on current kernels does; no stable sparse
+release has it yet, so build from sparse.git (checker-valid.sh skips
+the check, with a warning, on anything older).
+
+Based on Linux 7.2-rc6 (075b74841bd00).
+
+Cheers,
+/fuad
+
+[1] https://android-kvm.googlesource.com/linux/+/refs/heads/tabba/pkvm-hostva-kvmarm-next
+[2] https://lore.kernel.org/all/20260803124220.332248-1-fuad.tabba@linux.dev/
+[3] https://lore.kernel.org/all/86zf7po2n3.wl-maz@kernel.org/
+[4] https://lore.kernel.org/all/86wm2tnsd8.wl-maz@kernel.org/
+
+Fuad Tabba (11):
+  tracing: Include linux/types.h in trace_remote_event.h
+  KVM: arm64: nVHE: Share the stacktrace per-CPU declarations with EL2
+  KVM: arm64: nVHE: Declare the hyp event IDs before defining them
+  KVM: arm64: nVHE: Use NULL to reset the trace buffer backing pointer
+  KVM: arm64: nVHE: Run the source checker under C=2
+  arm64: pi: Run the source checker on the libfdt objects under C=2
+  KVM: arm64: nVHE: Pass host VA arguments as pointers
+  KVM: arm64: Move the host hypercall interface to its own header
+  KVM: arm64: Type-check hypercall arguments at the caller
+  KVM: arm64: nVHE: Check hypercall handlers against the declared ABI
+  KVM: arm64: Tag host-VA hypercall parameters __kern
+
+ arch/arm64/include/asm/kvm_hcall.h       | 240 +++++++++++++
+ arch/arm64/include/asm/kvm_host.h        |  48 +--
+ arch/arm64/include/asm/kvm_mmu.h         |  10 +
+ arch/arm64/include/asm/stacktrace/nvhe.h |  10 +-
+ arch/arm64/kernel/pi/Makefile            |   1 +
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h   |   7 +-
+ arch/arm64/kvm/hyp/include/nvhe/trace.h  |   5 +-
+ arch/arm64/kvm/hyp/nvhe/Makefile         |   1 +
+ arch/arm64/kvm/hyp/nvhe/events.c         |   2 +
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c       | 433 +++++++++++------------
+ arch/arm64/kvm/hyp/nvhe/pkvm.c           |  12 +-
+ arch/arm64/kvm/hyp/nvhe/stacktrace.c     |   3 +-
+ arch/arm64/kvm/hyp/nvhe/trace.c          |   6 +-
+ arch/arm64/kvm/hyp_trace.c               |   2 +-
+ arch/arm64/kvm/stacktrace.c              |   3 -
+ include/linux/trace_remote_event.h       |   2 +
+ 16 files changed, 481 insertions(+), 304 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_hcall.h
 
 
->  {
->  	rcu_read_unlock();
->  }
-> diff --git a/mm/filemap.c b/mm/filemap.c
-> index 6afec636881f..af5d3fcd1b05 100644
-> --- a/mm/filemap.c
-> +++ b/mm/filemap.c
-> @@ -3490,7 +3490,7 @@ static vm_fault_t filemap_fault_recheck_pte_none(struct vm_fault *vmf)
->  {
->  	struct vm_area_struct *vma = vmf->vma;
->  	vm_fault_t ret = 0;
-> -	pte_t *ptep;
-> +	const pte_t *ptep;
->
->  	/*
->  	 * We might have COW'ed a pagecache folio and might now have an mlocked
-> diff --git a/mm/khugepaged.c b/mm/khugepaged.c
-> index b237f6e7662a..09efac93a8c6 100644
-> --- a/mm/khugepaged.c
-> +++ b/mm/khugepaged.c
-> @@ -1170,7 +1170,7 @@ static enum scan_result __collapse_huge_page_swapin(struct mm_struct *mm,
->  			 * Here the ptl is only used to check pte_same() in
->  			 * do_swap_page(), so readonly version is enough.
->  			 */
-> -			pte = pte_offset_map_ro_nolock(mm, pmd, addr, &ptl);
-> +			pte = (pte_t *) pte_offset_map_ro_nolock(mm, pmd, addr, &ptl);
+base-commit: 075b74841bd0065a3bda3440873c747938e69b68
+-- 
+2.39.5
 
-Hmm yeah this is nasty, but you explain why in the commit message. Could you
-extend the comment to explain it?
-
->  			if (!pte) {
->  				mmap_read_unlock(mm);
->  				result = SCAN_NO_PTE_TABLE;
-> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
-> index b91b1a98029c..2cfc6e608ef4 100644
-> --- a/mm/pgtable-generic.c
-> +++ b/mm/pgtable-generic.c
-> @@ -308,8 +308,8 @@ pte_t *__pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp)
->  	return NULL;
->  }
->
-> -pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
-> -				unsigned long addr, spinlock_t **ptlp)
-> +const pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
-
-Can pmd be const too?
-
-> +				      unsigned long addr, spinlock_t **ptlp)
->  {
->  	pmd_t pmdval;
->  	pte_t *pte;
-> --
-> 2.55.0
->
-
---
-Cheers, Lorenzo
 
