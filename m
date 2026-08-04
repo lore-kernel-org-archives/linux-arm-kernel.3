@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D32C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7D84C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9znuLwMG7/bwbWiZGynguB+oJV4iL4W2VVgKTamDp8=; b=EQEBUgpLBrov/hkhUimWgH9hdY
-	GCw/pS/cE7TwcFCgCP6jwK0btXOJTL6mbzQbTCPwCdUKSszoTDd5YfkjUYWJxXmUb4jlkKyLgqbBF
-	sz1E21mDStS38bQoSmfr+G8OINiOlVMpAJKb4dHv2KPTpPQiD5kg2Twqo3qGMzzEmTpTLtzlbJGT6
-	jQ1jAuyDqQz9jvUQeHYXFrIsIa5/0beeMit8ykuPKK01kJfexwCfbQL85V0K2Dqv1YikRM+YaE7oe
-	GXHcKoXlSBP2O8ISBT4nEs7MJc3nSzzEHr6SBPsXWg8G5FYYCRp/3fwSD4gJCuloWZKtw2YKynUDg
-	XoADOk5g==;
+	bh=T5mY/j+OmwUsgyWxYodxrd+PBskI/mrpKfPAo4uWVn0=; b=w8aVw/ndI/2fZqN6mW5oD3Sdj8
+	8szPCMp2H3KB0PMoV3loD4AeyDmjoP5XKA6DsAOj+olYiVtl8+T7m6sbkwpq08rTYGSrpP5rlW4I+
+	DWoryzvbzsexclsKUJkCoHymmRNovryylDVMG76+2+3FAeNsRBMv2UCRRt1XH/Lexm7llodOn8w5K
+	JOU7CIgDdq7JhSUXXHUHJ4jz7W1weZ4c2n7oJAMht0k5lSY4vZHpM16E+CjKLDoVNVK1q4UHBMzIQ
+	wnMEwUqYMAG9YQxT+iF0KGvZUZigIQzzsU3VguUFUspRaohOSqH95pjwaISIjQ29DJ8QmdMYbtRCJ
+	0Yvnzu6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrFUW-00000001y23-1La1;
-	Tue, 04 Aug 2026 13:47:36 +0000
+	id 1wrFYO-00000001yPU-3NYG;
+	Tue, 04 Aug 2026 13:51:36 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrFUU-00000001y1Y-1yM3
+	id 1wrFYN-00000001yPO-0sMJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 13:47:34 +0000
+	Tue, 04 Aug 2026 13:51:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E338E60A75;
-	Tue,  4 Aug 2026 13:47:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 314DF1F000E9;
-	Tue,  4 Aug 2026 13:47:30 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 701E560A78;
+	Tue,  4 Aug 2026 13:51:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 331CE1F000E9;
+	Tue,  4 Aug 2026 13:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785851253;
-	bh=p9znuLwMG7/bwbWiZGynguB+oJV4iL4W2VVgKTamDp8=;
+	s=k20260515; t=1785851494;
+	bh=T5mY/j+OmwUsgyWxYodxrd+PBskI/mrpKfPAo4uWVn0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ow6k0OgbNlWxz6A+WOV7j/Pcr593FXte0NU7P4xA6WBHih0UuTl/E+UNqNo0GI59C
-	 4dDc3+77Q4elBRJ2ntrlK3P2GAmBsdCq8kKYaqjUzR3SzEBxJuZmwRXbyFDeo+nbFt
-	 8G90MTxz2DxafhjA/UY+PABxcrlOSed7NByg4NRJSwZe19Mo9y8CAfACxTHod0fWJD
-	 +pPX5o/+bXmtKbRbtS+SKT46SU7Ea/OJKPFIBeqp8AGfq0UJm1EWYCA62knc8cni2f
-	 cQoUVtqSdg3rtllZUSLyBbpeWV4tJoiUT0PLA4qfW0fmvvR+BpFMyLIWxRoMog2E8i
-	 2os1Z8BVW/vEg==
-Date: Tue, 4 Aug 2026 14:47:15 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: cl@gentwo.org, dennis@kernel.org, tj@kernel.org, urezki@gmail.com, 
-	catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com, david@kernel.org, 
-	akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 04/16] vmalloc: pass in pgd pointer for
- vmap{__vunmap}_range_noflush()
-Message-ID: <anHqZbo87H1hpC7V@lucifer>
-References: <20260715180455.515692-1-yang@os.amperecomputing.com>
- <20260715180455.515692-5-yang@os.amperecomputing.com>
- <amnIBsFnkt5Q2UUw@lucifer>
- <64d83bb0-b19c-47cd-94db-34ac99686ed0@os.amperecomputing.com>
+	b=iyJ0wXMfaR5dzmHJj3nMatbYEy47gtxGAaQxZ0dRwLBersf0RYRiMqPW6MSONURKp
+	 Mx/4+zzzWmZa5b6xuXsAnrkILVzSCXLRsm45N/1dJZzCGCSQFiUtgWwS0QTONjTgRq
+	 ho2N9WlXFQkXO0x9Jcu/uCCZ6zuuxv1VGe8YMIzQMtidfMhzn1E/Dgbkvel9NuXwKO
+	 KBbEt87ZDXj5HiKUOSJnyrSx3yIY77yvaDVhHvkfXBKvYuspfma+mXANWvbDHc1a9C
+	 ZIfl7Q6NTSlNHnNkBSxYDvbp+B7TyySMIpV2rcdGYTHQO8d73xGOGE3ppkkpwypIhG
+	 9rfPv3GfZo6bA==
+Date: Tue, 4 Aug 2026 14:51:28 +0100
+From: Will Deacon <will@kernel.org>
+To: Linu Cherian <linu.cherian@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Gavin Shan <gshan@redhat.com>
+Subject: Re: [PATCH v4 6/6] arm64: cpufeature: Detect BBML3 based on
+ ID_AA64MMFR2_EL1.BBM
+Message-ID: <anHuYDo5TIa-s7L8@willie-the-truck>
+References: <20260723044034.2983651-1-linu.cherian@arm.com>
+ <20260723044034.2983651-7-linu.cherian@arm.com>
+ <amy7kPXnaPHmWMwc@google.com>
+ <anAQYj0ZJkrjZSn2@a079125.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <64d83bb0-b19c-47cd-94db-34ac99686ed0@os.amperecomputing.com>
+In-Reply-To: <anAQYj0ZJkrjZSn2@a079125.arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,240 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 12:12:03PM -0700, Yang Shi wrote:
->
->
-> On 7/29/26 2:32 AM, Lorenzo Stoakes (ARM) wrote:
-> > On Wed, Jul 15, 2026 at 11:04:06AM -0700, Yang Shi wrote:
-> > > vmap{__vunmap}_range_noflush() assume manipulate init_mm pgd.  The
-> > It's not an assumption, it's a requirement.
-> >
-> > There is now (and really should have always been) strictly a locking requirement
-> > that the mm being manipulated is init_mm.
-> >
-> > > following patch will map percpu local mapping into percpu page table by
-> > > calling them, so the assumption will no longer stand.  Make them take
-> > > pgd pointer as an parameter.
-> > No, this isn't OK.
-> >
-> > vmalloc is expressly for manipulating kernel mappings in init_mm.
->
-> This commit message may be a little bit misleading. vmalloc still
-
-It is - it's worse than that implies :) as you're actually allowing arbitrary
-mm's to be manipulated.
-
-> manipulates init_mm all the time. The percpu allocator uses some vmalloc
-> APIs to map memory. So the APIs used by percpu allocator needs to manipulate
-> percpu page table when mapping memory for the new percpu area added by the
-> following patches. So percpu pgd is just used when mapping the specific
-> percpu area by percpu allocator.
-
-Yup I understand all that, but my objection remains the same. You're essentially
-hacking something in to the vmalloc code which adds complexity and confusion.
-
-(The correct version of this, assuming the per-CPU page table stuff was
-acceptable, would be to separate out common code and have vmalloc and the
-per-CPU page table stuff use the common code :)
-
->
-> >
-> > > Also make vmap_range_noflush() non static, it will be called outside
-> > > vmalloc in the following patch.
-> > Hmm not loving the exposure of an internal function ehre.
->
-> The RFC reused and extended the vmalloc APIs. We don't have to do so if it
-> is not preferred. I think I can create some percpu allocator specific APIs
-> to manipulate percpu area mapping with percpu pgd.
->
-> >
-> > > There is no functional change.
-> > >
-> > > Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> > You're fundamentally changing something here, conceptually. I'm not sure why you
-> > specifically need vmalloc to do it but it doesn't strike me as worthwhile for
-> > what you're doing.
->
-> The percpu allocator uses vmalloc APIs to map percpu variables currently. So
-> the patch extended it to take pgd pointer as an extra parameter. This helped
-> to reduce duplicate code. I can add percpu specific APIs if extending the
-> APIs doesn't make too much sense.
-
-I mean again, the correct version of this would be to separate out common code
-and refactor etc. etc.
-
-But yes, I'd rather the vmalloc code is left as-is. Doing what you're proposing
-in this patch adds complexity and confusion as to whether remote mm's can be
-updated.
-
-(Overall my impression is that the per-CPU page table approach isn't something
-Linus wants and there's push back from the commnity, so maybe worth discussing
-the approach in general first rather than respinning?)
-
->
-> Thanks,
-> Yang
->
-> >
+On Mon, Aug 03, 2026 at 09:22:02AM +0530, Linu Cherian wrote:
+> Hi Will,
+> 
+> On Fri, Jul 31, 2026 at 04:13:20PM +0100, Will Deacon wrote:
+> > On Thu, Jul 23, 2026 at 10:10:33AM +0530, Linu Cherian wrote:
+> > > Add ID_AA64MMFR2_EL1.BBM based BBML3 feature detection in
+> > > cpu_supports_bbml3() so that cpus with the feature would
+> > > not have to be added into MIDR based supports_bbml3_list.
+> > > 
+> > > Reviewed-by: Gavin Shan <gshan@redhat.com>
+> > > Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
 > > > ---
-> > >   mm/internal.h    |  5 ++++-
-> > >   mm/kmsan/hooks.c | 14 +++++++-------
-> > >   mm/vmalloc.c     | 25 +++++++++++++------------
-> > >   3 files changed, 24 insertions(+), 20 deletions(-)
-> > >
-> > > diff --git a/mm/internal.h b/mm/internal.h
-> > > index 181e79f1d6a2..9d9f08cb26a1 100644
-> > > --- a/mm/internal.h
-> > > +++ b/mm/internal.h
-> > > @@ -1552,10 +1552,13 @@ void clear_vm_uninitialized_flag(struct vm_struct *vm);
-> > >   int __must_check __vmap_pages_range_noflush(unsigned long addr,
-> > >   			       unsigned long end, pgprot_t prot,
-> > >   			       struct page **pages, unsigned int page_shift);
-> > > +int __must_check vmap_range_noflush(pgd_t *pgdir, unsigned long addr,
-> > > +			unsigned long end, phys_addr_t phys_addr,
-> > > +			pgprot_t prot, unsigned int max_page_shift);
-> > >
-> > >   void vunmap_range_noflush(unsigned long start, unsigned long end);
-> > >
-> > > -void __vunmap_range_noflush(unsigned long start, unsigned long end);
-> > > +void __vunmap_range_noflush(pgd_t *pgdir, unsigned long start, unsigned long end);
-> > >
-> > >   static inline bool vma_is_single_threaded_private(struct vm_area_struct *vma)
-> > >   {
-> > > diff --git a/mm/kmsan/hooks.c b/mm/kmsan/hooks.c
-> > > index 8f22d1f22981..e2a0faf344b9 100644
-> > > --- a/mm/kmsan/hooks.c
-> > > +++ b/mm/kmsan/hooks.c
-> > > @@ -135,8 +135,8 @@ static unsigned long vmalloc_origin(unsigned long addr)
-> > >
-> > >   void kmsan_vunmap_range_noflush(unsigned long start, unsigned long end)
-> > >   {
-> > > -	__vunmap_range_noflush(vmalloc_shadow(start), vmalloc_shadow(end));
-> > > -	__vunmap_range_noflush(vmalloc_origin(start), vmalloc_origin(end));
-> > > +	__vunmap_range_noflush(init_mm.pgd, vmalloc_shadow(start), vmalloc_shadow(end));
-> > > +	__vunmap_range_noflush(init_mm.pgd, vmalloc_origin(start), vmalloc_origin(end));
-> > >   	flush_cache_vmap(vmalloc_shadow(start), vmalloc_shadow(end));
-> > >   	flush_cache_vmap(vmalloc_origin(start), vmalloc_origin(end));
-> > >   }
-> > > @@ -181,7 +181,7 @@ int kmsan_ioremap_page_range(unsigned long start, unsigned long end,
-> > >   			vmalloc_origin(start + off + PAGE_SIZE), prot, &origin,
-> > >   			PAGE_SHIFT);
-> > >   		if (mapped) {
-> > > -			__vunmap_range_noflush(
-> > > +			__vunmap_range_noflush(init_mm.pgd,
-> > >   				vmalloc_shadow(start + off),
-> > >   				vmalloc_shadow(start + off + PAGE_SIZE));
-> > >   			err = mapped;
-> > > @@ -203,10 +203,10 @@ int kmsan_ioremap_page_range(unsigned long start, unsigned long end,
-> > >   			__free_pages(shadow, 1);
-> > >   		if (origin)
-> > >   			__free_pages(origin, 1);
-> > > -		__vunmap_range_noflush(
-> > > +		__vunmap_range_noflush(init_mm.pgd,
-> > >   			vmalloc_shadow(start),
-> > >   			vmalloc_shadow(start + clean * PAGE_SIZE));
-> > > -		__vunmap_range_noflush(
-> > > +		__vunmap_range_noflush(init_mm.pgd,
-> > >   			vmalloc_origin(start),
-> > >   			vmalloc_origin(start + clean * PAGE_SIZE));
-> > >   	}
-> > > @@ -233,8 +233,8 @@ void kmsan_iounmap_page_range(unsigned long start, unsigned long end)
-> > >   	     i++, v_shadow += PAGE_SIZE, v_origin += PAGE_SIZE) {
-> > >   		shadow = kmsan_vmalloc_to_page_or_null((void *)v_shadow);
-> > >   		origin = kmsan_vmalloc_to_page_or_null((void *)v_origin);
-> > > -		__vunmap_range_noflush(v_shadow, vmalloc_shadow(end));
-> > > -		__vunmap_range_noflush(v_origin, vmalloc_origin(end));
-> > > +		__vunmap_range_noflush(init_mm.pgd, v_shadow, vmalloc_shadow(end));
-> > > +		__vunmap_range_noflush(init_mm.pgd, v_origin, vmalloc_origin(end));
-> > >   		if (shadow)
-> > >   			__free_pages(shadow, 1);
-> > >   		if (origin)
-> > > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> > > index 1afca3568b9b..17c26e9796b2 100644
-> > > --- a/mm/vmalloc.c
-> > > +++ b/mm/vmalloc.c
-> > > @@ -295,9 +295,9 @@ static int vmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
-> > >   	return err;
-> > >   }
-> > >
-> > > -static int vmap_range_noflush(unsigned long addr, unsigned long end,
-> > > -			phys_addr_t phys_addr, pgprot_t prot,
-> > > -			unsigned int max_page_shift)
-> > > +int vmap_range_noflush(pgd_t *pgdir, unsigned long addr, unsigned long end,
-> > > +		       phys_addr_t phys_addr, pgprot_t prot,
-> > > +		       unsigned int max_page_shift)
-> > >   {
-> > >   	pgd_t *pgd;
-> > >   	unsigned long start;
-> > > @@ -314,7 +314,7 @@ static int vmap_range_noflush(unsigned long addr, unsigned long end,
-> > >   	BUG_ON(addr >= end);
-> > >
-> > >   	start = addr;
-> > > -	pgd = pgd_offset_k(addr);
-> > > +	pgd = pgd_offset_pgd(pgdir, addr);
-> > >   	do {
-> > >   		next = pgd_addr_end(addr, end);
-> > >   		err = vmap_p4d_range(pgd, addr, next, phys_addr, prot,
-> > > @@ -334,8 +334,8 @@ int vmap_page_range(unsigned long addr, unsigned long end,
-> > >   {
-> > >   	int err;
-> > >
-> > > -	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
-> > > -				 ioremap_max_page_shift);
-> > > +	err = vmap_range_noflush(init_mm.pgd, addr, end, phys_addr,
-> > > +				 pgprot_nx(prot), ioremap_max_page_shift);
-> > >   	flush_cache_vmap(addr, end);
-> > >   	if (!err)
-> > >   		err = kmsan_ioremap_page_range(addr, end, phys_addr, prot,
-> > > @@ -478,7 +478,7 @@ static void vunmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
-> > >    *
-> > >    * This is an internal function only. Do not use outside mm/.
-> > >    */
-> > > -void __vunmap_range_noflush(unsigned long start, unsigned long end)
-> > > +void __vunmap_range_noflush(pgd_t *pgdir, unsigned long start, unsigned long end)
-> > >   {
-> > >   	unsigned long next;
-> > >   	pgd_t *pgd;
-> > > @@ -486,7 +486,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
-> > >   	pgtbl_mod_mask mask = 0;
-> > >
-> > >   	BUG_ON(addr >= end);
-> > > -	pgd = pgd_offset_k(addr);
-> > > +	pgd = pgd_offset_pgd(pgdir, addr);
-> > >   	do {
-> > >   		next = pgd_addr_end(addr, end);
-> > >   		if (pgd_bad(*pgd))
-> > > @@ -503,7 +503,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
-> > >   void vunmap_range_noflush(unsigned long start, unsigned long end)
-> > >   {
-> > >   	kmsan_vunmap_range_noflush(start, end);
-> > > -	__vunmap_range_noflush(start, end);
-> > > +	__vunmap_range_noflush(init_mm.pgd, start, end);
-> > >   }
-> > >
-> > >   /**
-> > > @@ -670,9 +670,10 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
-> > >   	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
-> > >   		int err;
-> > >
-> > > -		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
-> > > -					page_to_phys(pages[i]), prot,
-> > > -					page_shift);
-> > > +		err = vmap_range_noflush(init_mm.pgd, addr,
-> > > +					 addr + (1UL << page_shift),
-> > > +					 page_to_phys(pages[i]), prot,
-> > > +					 page_shift);
-> > >   		if (err)
-> > >   			return err;
-> > >
-> > > --
-> > > 2.47.0
-> > >
-> > >
-> > >
-> > Cheers, Lorenzo
->
+> > >  arch/arm64/kernel/cpufeature.c | 17 +++++++++--------
+> > >  1 file changed, 9 insertions(+), 8 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > > index 896bafdb00b1..dbd7d187520c 100644
+> > > --- a/arch/arm64/kernel/cpufeature.c
+> > > +++ b/arch/arm64/kernel/cpufeature.c
+> > > @@ -2133,6 +2133,12 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+> > >  
+> > >  bool cpu_supports_bbml3(void)
+> > >  {
+> > > +	u64 mmfr2;
+> > > +
+> > > +	mmfr2 = __read_sysreg_by_encoding(SYS_ID_AA64MMFR2_EL1);
+> > > +	if (SYS_FIELD_GET(ID_AA64MMFR2_EL1, BBM, mmfr2) >= ID_AA64MMFR2_EL1_BBM_3)
+> > > +		return true;
+> > 
+> > This is a bit of a nit, but I think it would be more consistent to use
+> > has_cpuid_feature() here instead of __read_sysreg_by_encoding(), similarly
+> > to how we handle kpti in unmap_kernel_at_el0() (which also has both an
+> > ID register field and a list of MIDRs).
+> 
+> force_pte_mapping required by map_mem(during early boot) needs
+> cpu_supports_bbml3 check and cpu features/capabilities are not 
+> initialized by that time. Should i add a comment there to clarify this ?
 
---
-Cheers, Lorenzo
+It looks to me like has_cpuid_feature() will call
+__read_sysreg_by_encoding() under the hood for SCOPE_LOCAL_CPU.
+
+What am I missing?
+
+Will
 
