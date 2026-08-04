@@ -4,70 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A69EEC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 04:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13108C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 04:21:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TverFBSwY7MtpYT35sNPQk4g4Kr+oiSA90dPP0U4w/M=; b=3dH0yPbBsk2yTG6S/38wzyHd5A
-	iHcCr5DZlqo73+Uk5xOwhuNt43mQFBWV+lETnH7du08HUVJR/uR+jBsB1MadTQhx02nDYFwjW0kn4
-	AO4NAyzDzTi/XtA+6fGntZ9rdUGGvpo69ft/vXAUhf5b1fjs+zBAa0YN0vHERDMTgi5GB+hbqWbEk
-	Ho7mydtW8I4nHJSurbn5q7aEvlgifhcGfckjlDWJxojNAe0e78tP3Fev1am6GPUVfUfb8HMhi/S5E
-	Mzmr5fLRxsd07vpVFwwUMVCeY0Agn/Bf8MDmy4WviXlfKHEF9IBnD+nrjcSzbejROfJ9o7jqe8rQ2
-	Aep2f+TA==;
+	bh=SNaVEJ1HZqqSb/BWjpBmAcESh4gvUlmp0T6zod8QVBo=; b=B6xWt+bSnZgCjFswa7MzD86/NF
+	zU9twIYIkRZYyTNrOHXS0NUNuNOseHTBCS2AsnkULUuFV7xTNdNKfc6pPOQ3tqiRZF2O6LyyVwhMe
+	NMga4/TYtGzetnykiH0jSGGaQFAp8NjmQDSMpRYJ4M2VP2NMI5DokijBc2yQAeDIOtEgyg7tHG97b
+	V99MsZrebsR35meiw7vixQTukMsI8pChUfO6P75VXI9xzCDKP1VWpuGvATyOzcclVEwW1K/BUYGCP
+	A4rmqIEbmnAvREtD0Omo9maNYg2LR+sVTvFAu6fkMQMkhtz8WGc6+wIE2awkFP0CCsnAdsJMTLaYl
+	NZb0yx5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr6bn-00000000yT4-1FP1;
-	Tue, 04 Aug 2026 04:18:31 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1wr6eb-00000000yhW-3Fj2;
+	Tue, 04 Aug 2026 04:21:25 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr6bj-00000000ySY-3m2Y
+	id 1wr6eZ-00000000ygM-04Qi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 04:18:29 +0000
-X-Forwarded-Encrypted: i=1; AHgh+Rri2IAjUPeOBPwun8ssKHJxArpvbzT3iniOGDmHAq/7tRuQbktbe7U4fsudYqw46Xrii6hOaqwz1mNcOL6bGMy2@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785782134;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TverFBSwY7MtpYT35sNPQk4g4Kr+oiSA90dPP0U4w/M=;
-	b=LPUfmN72pO+SYcRUGTAvyMDGUW9Cv65I9rgIFLX6XF2CXB21aqlM4fZbmHUvZVO825Sf6i
-	bF/MYCXiRRBSJxsFdVhfo5WrIEgGIAmREij2Y4cNsE3df+2Puk4RoEngXRy1kh2cOTMueS
-	rYXviRLZFkvPccevw73/d9I/jd4S+Gw=
-X-Gm-Message-State: AOJu0YwTWknx1HQoRkVmzvNqFbn24PPWtK9S7RoFgUEQHXrlsTgnHEZk
-	7y8XHA/TOGZckT62q53kBUoaaZ+LL/mjWrgxcZrhzjyj4w/h33VzdicQUT0MhnGlvaqsirXlHB1
-	hLbFdh1bMAZKtE9pzJazTd/ZAJZIVA39nyBoxvLxu
-X-Received: by 2002:a05:622a:5914:b0:517:5e32:2d14 with SMTP id
- d75a77b69052e-52cd4fbbf92mr1330831cf.10.1785782130203; Mon, 03 Aug 2026
- 11:35:30 -0700 (PDT)
+	Tue, 04 Aug 2026 04:21:24 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3811f512167so4195270a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Aug 2026 21:21:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1785817282; x=1786422082; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SNaVEJ1HZqqSb/BWjpBmAcESh4gvUlmp0T6zod8QVBo=;
+        b=Ofc6sUoU1vvQ2mWE3A68da9sQlaiAxpZVSK/KLtqxq53xVtu9vWvbI0HfmJ1FU35WK
+         8a9tlvsgyEecLXmxwzq/42+ZfUU06xKOnuqnLhRcq6KIAU6TeFz8YDjJwImqFof0BRdg
+         vEtBkrV5sWKLzHRVcxUVbWRZV7PVpF0txiwuB2OfCDJKi+CNdRYvUYVcz9Q1Q7DAX0hs
+         n5qCA+jpjH2UKyxwF8ZDgdh8ARIrGieYug5f9Ug8S3GvGNI3+/Q0Vg6PPYDGyDgO1Q5q
+         RHEznHJ7wieIr5K5BTQrpnAJy1oI/EZChy22b9zKAI6hP5OvdKiZl1iL/eQibKq99sga
+         bxGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785817282; x=1786422082;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SNaVEJ1HZqqSb/BWjpBmAcESh4gvUlmp0T6zod8QVBo=;
+        b=GARPSkioflbi9PloIDw2D7xaBi7UyvEJ3Hev7FI8SfXpYQAgquFlDKLHpPk7slVmHU
+         BsfgkH+zGmnrVcjHg2JersbB2cFLG3QrH0tk3eHQGfBi9HFTEKWayLLDPTdnjqiITWr8
+         4NVPX/qWtXCUKGqW9s02AQRrGIaeLTgGMnEnecYpeU8GqyXbxS69UPtmOYmuhHEqOPnI
+         6hTwBJfGk2YnBrxiYaqhinVQjMbKz7DIxyyEuUOygHNM7Ji+xbIe8MYD8c1zZH8r7JIb
+         yBodTutbz8Yms+tfQqeJb3DFYen6d6BhtuOJ56h7QYY+mSVjIIEbc65O71Oh2vi2ROyn
+         dXIg==
+X-Forwarded-Encrypted: i=1; AHgh+RqogUOJo7mpHBL3nRKJohYorMoX+JeqqPDlFK91kF0QPpkPZWLWJpla4L/NE5TruaSBR3oWzwuKQEFDD7D7DZm+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWt4u8OA1nSXD24gHtBQhE4WrvTmnPdAmvvSwstsI6HqQJXQS9
+	qtQpFY3DM7H/BtbkWAuyYNxxQARkxurmlw9Zg/p4PupbhWH5WFzA/zNSLay6glDW5So=
+X-Gm-Gg: AR+sD138G7tzvBF4hh6c/vBXpXHVKh5awt6ymIlfXtak0T4Dvxl3Sythueime6WtW4m
+	IFc5EDtMAkQMMpByrOKDEtuA2uvBrTaaksqetLptjatUwIY3N2s3EiGUtZaJlKQD0EWbSWm/HCY
+	Y8aUs5ONBXU+LFU24qtE98wLIcir/+BnK0KfG7QIT/O5Xoeequ4pgt89ZA+lmeFqhUl4kYcPuH0
+	8+RJ9Yy9NUWTCHliUgNa6EBt6EwLZMV65DVNb5xrjvEjaShQAtRHl5n1WY4/pDO8r/aFlckMSPm
+	Y6mOANWYfDT1Nqp4qKCcR0vzHb6SGUQ+rNXut8C6rOeju/gi0NwHoZWdfrnseIuJjusiE3jkB2V
+	S+EU26pUegjKHpNX0dmp0W9sK0Ohyk0JOuVmjngLDV+NrnnWXf/q5Ea0ESeQi1TRo1rOjUcabXQ
+	ofsK5/z3hiOE+sOzLS1CQZKusxWq5VJ8ZHlEEFft0bQ/pM539VBVPfLfNUkWIi
+X-Received: by 2002:a17:90b:4a09:b0:38d:ecfe:41aa with SMTP id 98e67ed59e1d1-38fbc60c7femr11264577a91.43.1785817281575;
+        Mon, 03 Aug 2026 21:21:21 -0700 (PDT)
+Received: from localhost ([122.172.82.94])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3153dd4e47dsm64394331eec.3.2026.08.03.21.21.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Aug 2026 21:21:20 -0700 (PDT)
+Date: Tue, 4 Aug 2026 09:51:17 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Maulik Shah <maulik.shah@oss.qualcomm.com>
+Cc: Linus Walleij <linusw@kernel.org>, 
+	Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Lorenzo Bianconi <lorenzo@kernel.org>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Sean Wang <sean.wang@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
+	Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
+	Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Viresh Kumar <vireshk@kernel.org>, linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-actions@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	openbmc@lists.ozlabs.org, linux-arm-msm@vger.kernel.org, soc@lists.linux.dev
+Subject: Re: [PATCH] pinctrl: Use IRQ trigger mask helpers
+Message-ID: <mre6ggyfjxo5dgvtrp3nsrbxngenw4r2eb6nygi4ybs5zsefyq@kcu6u33q3ien>
+References: <20260802-b4b4-irq-trigger-mask-pinctrl-v1-1-1c398ab53d28@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20260803124220.332248-1-fuad.tabba@linux.dev> <20260803124220.332248-11-fuad.tabba@linux.dev>
- <86qzkfaxp9.wl-maz@kernel.org>
-In-Reply-To: <86qzkfaxp9.wl-maz@kernel.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Mon, 3 Aug 2026 19:34:52 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTw1=xCPugZrmQ3nj1ddvCZ=vcZT3=KO_FMHB1USUTu7kA@mail.gmail.com>
-X-Gm-Features: AUfX_mzt1I-nWoB71I22HAPLuIRo3_4lIfQ2cr-FZF11IecwevWTzcB4PKY0l4U
-Message-ID: <CA+EHjTw1=xCPugZrmQ3nj1ddvCZ=vcZT3=KO_FMHB1USUTu7kA@mail.gmail.com>
-Subject: Re: [PATCH v2 10/11] KVM: arm64: nVHE: Check hypercall handlers
- against the declared ABI
-To: Marc Zyngier <maz@kernel.org>
-Cc: oupton@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, 
-	rostedt@goodmis.org, mhiramat@kernel.org, alexandru.elisei@arm.com, 
-	vdonnefort@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, 
-	ardb@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260802-b4b4-irq-trigger-mask-pinctrl-v1-1-1c398ab53d28@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260803_211828_082884_9D9B70F5 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20260803_212123_065226_F2CF7012 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,275 +111,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Aug 2026 at 19:03, Marc Zyngier <maz@kernel.org> wrote:
-...
->
-> I've also dropped this with the following hacks. The set_cpu_reg()
-> stuff isn't brilliant, and requires a single word type. But I find the
-> overall scheme less invasive.
->
-> WDYT?
+On 02-08-26, 19:35, Maulik Shah wrote:
+> diff --git a/drivers/pinctrl/spear/pinctrl-plgpio.c b/drivers/pinctrl/spear/pinctrl-plgpio.c
+> index 1ec22010a3f9..5fcbea32089d 100644
+> --- a/drivers/pinctrl/spear/pinctrl-plgpio.c
+> +++ b/drivers/pinctrl/spear/pinctrl-plgpio.c
+> @@ -339,7 +339,7 @@ static int plgpio_irq_set_type(struct irq_data *d, unsigned trigger)
+>  	if (plgpio->regs.eit == -1)
+>  		supported_type = IRQ_TYPE_LEVEL_HIGH;
+>  	else
+> -		supported_type = IRQ_TYPE_EDGE_RISING | IRQ_TYPE_EDGE_FALLING;
+> +		supported_type = IRQ_TYPE_EDGE_BOTH;
+>  
+>  	if (!(trigger & supported_type))
+>  		return -EINVAL;
 
-Works, and hyp-main.nvhe.o comes out byte identical. I did look for a
-way to dispatch on void without the type table, but _Generic doesn't
-take an incomplete type and __builtin_choose_expr type-checks both
-arms on gcc and clang, so I don't think there's a better option.
+Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
 
-One nit: the declaration in kvm_hcall.h still says "unsigned long"
-while the definition now says "ulong". Could we make both ulong?
-
-I'm happy to respin with both of these, or would you like to fold them in?
-
-Cheers,
-/fuad
-
-
-
-
->
->         M.
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index f8ea1661b3166..0d5fa6432461d 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -39,6 +39,12 @@ DEFINE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
->                 ,, cpu_reg(host_ctxt, 3),, cpu_reg(host_ctxt, 4)        \
->                 ,, cpu_reg(host_ctxt, 5),, cpu_reg(host_ctxt, 6))
->
-> +#define set_cpu_reg_ulong(ctxt, r, v)  { cpu_reg(ctxt, r) = v; }
-> +#define set_cpu_reg_u64(ctxt, r, v)    { cpu_reg(ctxt, r) = v; }
-> +#define set_cpu_reg_int(ctxt, r, v)    { cpu_reg(ctxt, r) = v; }
-> +#define set_cpu_reg_void(ctxt, r, v)   { v; }
-> +#define set_cpu_reg(ctxt, r, t, v)     set_cpu_reg_##t(ctxt, r, v)
-> +
->  #define DEFINE_KVM_HOST_HCALL(ret, name, ...)                          \
->         static kvm_host_hcall_sig_##name __do_##name;                   \
->         static __always_inline                                          \
-> @@ -48,39 +54,18 @@ DEFINE_PER_CPU(struct kvm_nvhe_init_params, kvm_init_params);
->         }                                                               \
->         static void handle_##name(struct kvm_cpu_context *host_ctxt)    \
->         {                                                               \
-> -               cpu_reg(host_ctxt, 1) = __se_##name(KVM_HOST_HCALL_REGS(__VA_ARGS__)); \
-> +               set_cpu_reg(host_ctxt, 1, ret, __se_##name(KVM_HOST_HCALL_REGS(__VA_ARGS__))); \
->         }                                                               \
->         static ret __do_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__))
->
-> -#define DEFINE_KVM_HOST_HCALL_VOID(name, ...)                          \
-> -       static kvm_host_hcall_sig_##name __do_##name;                   \
-> -       static __always_inline                                          \
-> -       void __se_##name(__KVM_HCALL_MAP(__KVM_HCALL_LONG, __VA_ARGS__)) \
-> -       {                                                               \
-> -               __do_##name(__KVM_HCALL_MAP(__KVM_HCALL_CAST, __VA_ARGS__)); \
-> -       }                                                               \
-> -       static void handle_##name(struct kvm_cpu_context *host_ctxt)    \
-> -       {                                                               \
-> -               __se_##name(KVM_HOST_HCALL_REGS(__VA_ARGS__));          \
-> -       }                                                               \
-> -       static void __do_##name(__KVM_HCALL_MAP(__KVM_HCALL_DECL, __VA_ARGS__))
-> -
->  #define DEFINE_KVM_HOST_HCALL0(ret, name)                              \
->         static kvm_host_hcall_sig_##name __do_##name;                   \
->         static void handle_##name(struct kvm_cpu_context *host_ctxt)    \
->         {                                                               \
-> -               cpu_reg(host_ctxt, 1) = __do_##name();                  \
-> +               set_cpu_reg(host_ctxt, 1, ret, __do_##name());          \
->         }                                                               \
->         static ret __do_##name(void)
->
-> -#define DEFINE_KVM_HOST_HCALL0_VOID(name)                              \
-> -       static kvm_host_hcall_sig_##name __do_##name;                   \
-> -       static void handle_##name(struct kvm_cpu_context *host_ctxt)    \
-> -       {                                                               \
-> -               __do_##name();                                          \
-> -       }                                                               \
-> -       static void __do_##name(void)
-> -
->  /* Number of implemented GICv3 LRs. Used by flush_hyp_vcpu(). */
->  unsigned int hyp_gicv3_nr_lr;
->
-> @@ -242,7 +227,7 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
->                 host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__pkvm_vcpu_load,
-> +DEFINE_KVM_HOST_HCALL(void, __pkvm_vcpu_load,
->         pkvm_handle_t, handle, unsigned int, vcpu_idx, u64, hcr_el2)
->  {
->         struct pkvm_hyp_vcpu *hyp_vcpu;
-> @@ -261,7 +246,7 @@ DEFINE_KVM_HOST_HCALL_VOID(__pkvm_vcpu_load,
->         }
->  }
->
-> -DEFINE_KVM_HOST_HCALL0_VOID(__pkvm_vcpu_put)
-> +DEFINE_KVM_HOST_HCALL0(void, __pkvm_vcpu_put)
->  {
->         struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
->
-> @@ -421,42 +406,42 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_host_mkyoung_guest,
->         return __pkvm_host_mkyoung_guest(gfn, hyp_vcpu);
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_adjust_pc,
-> +DEFINE_KVM_HOST_HCALL(void, __kvm_adjust_pc,
->         struct kvm_vcpu __kern *, vcpu)
->  {
->         __kvm_adjust_pc(kern_hyp_va_host(vcpu));
->  }
->
-> -DEFINE_KVM_HOST_HCALL0_VOID(__kvm_flush_vm_context)
-> +DEFINE_KVM_HOST_HCALL0(void, __kvm_flush_vm_context)
->  {
->         __kvm_flush_vm_context();
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa,
-> +DEFINE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_ipa,
->         struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
->  {
->         __kvm_tlb_flush_vmid_ipa(kern_hyp_va_host(mmu), ipa, level);
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_ipa_nsh,
-> +DEFINE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_ipa_nsh,
->         struct kvm_s2_mmu __kern *, mmu, phys_addr_t, ipa, int, level)
->  {
->         __kvm_tlb_flush_vmid_ipa_nsh(kern_hyp_va_host(mmu), ipa, level);
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid_range,
-> +DEFINE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid_range,
->         struct kvm_s2_mmu __kern *, mmu, phys_addr_t, start, unsigned long, pages)
->  {
->         __kvm_tlb_flush_vmid_range(kern_hyp_va_host(mmu), start, pages);
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_tlb_flush_vmid,
-> +DEFINE_KVM_HOST_HCALL(void, __kvm_tlb_flush_vmid,
->         struct kvm_s2_mmu __kern *, mmu)
->  {
->         __kvm_tlb_flush_vmid(kern_hyp_va_host(mmu));
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid,
-> +DEFINE_KVM_HOST_HCALL(void, __pkvm_tlb_flush_vmid,
->         pkvm_handle_t, handle)
->  {
->         struct pkvm_hyp_vm *hyp_vm = get_np_pkvm_hyp_vm(handle);
-> @@ -468,19 +453,19 @@ DEFINE_KVM_HOST_HCALL_VOID(__pkvm_tlb_flush_vmid,
->         put_pkvm_hyp_vm(hyp_vm);
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_flush_cpu_context,
-> +DEFINE_KVM_HOST_HCALL(void, __kvm_flush_cpu_context,
->         struct kvm_s2_mmu __kern *, mmu)
->  {
->         __kvm_flush_cpu_context(kern_hyp_va_host(mmu));
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__kvm_timer_set_cntvoff,
-> +DEFINE_KVM_HOST_HCALL(void, __kvm_timer_set_cntvoff,
->         u64, cntvoff)
->  {
->         __kvm_timer_set_cntvoff(cntvoff);
->  }
->
-> -DEFINE_KVM_HOST_HCALL0_VOID(__kvm_enable_ssbs)
-> +DEFINE_KVM_HOST_HCALL0(void, __kvm_enable_ssbs)
->  {
->         u64 tmp;
->
-> @@ -494,18 +479,18 @@ DEFINE_KVM_HOST_HCALL0(u64, __vgic_v3_get_gic_config)
->         return __vgic_v3_get_gic_config();
->  }
->
-> -DEFINE_KVM_HOST_HCALL0_VOID(__vgic_v3_init_lrs)
-> +DEFINE_KVM_HOST_HCALL0(void, __vgic_v3_init_lrs)
->  {
->         __vgic_v3_init_lrs();
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_save_aprs,
-> +DEFINE_KVM_HOST_HCALL(void, __vgic_v3_save_aprs,
->         struct vgic_v3_cpu_if __kern *, cpu_if)
->  {
->         __vgic_v3_save_aprs(kern_hyp_va_host(cpu_if));
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__vgic_v3_restore_vmcr_aprs,
-> +DEFINE_KVM_HOST_HCALL(void, __vgic_v3_restore_vmcr_aprs,
->         struct vgic_v3_cpu_if __kern *, cpu_if)
->  {
->         __vgic_v3_restore_vmcr_aprs(kern_hyp_va_host(cpu_if));
-> @@ -541,7 +526,7 @@ DEFINE_KVM_HOST_HCALL(int, __pkvm_host_unshare_hyp,
->         return __pkvm_host_unshare_hyp(pfn);
->  }
->
-> -DEFINE_KVM_HOST_HCALL(unsigned long, __pkvm_create_private_mapping,
-> +DEFINE_KVM_HOST_HCALL(ulong, __pkvm_create_private_mapping,
->         phys_addr_t, phys, size_t, size, u64, prot)
->  {
->         /*
-> @@ -554,7 +539,7 @@ DEFINE_KVM_HOST_HCALL(unsigned long, __pkvm_create_private_mapping,
->          * Instead pass the allocation address as the return value (or return
->          * ERR_PTR() on failure).
->          */
-> -       unsigned long haddr;
-> +       ulong haddr;
->         int err = __pkvm_create_private_mapping(phys, size, prot, &haddr);
->
->         if (err)
-> @@ -573,7 +558,7 @@ DEFINE_KVM_HOST_HCALL0(int, __pkvm_reserve_vm)
->         return __pkvm_reserve_vm();
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__pkvm_unreserve_vm,
-> +DEFINE_KVM_HOST_HCALL(void, __pkvm_unreserve_vm,
->         pkvm_handle_t, handle)
->  {
->         __pkvm_unreserve_vm(handle);
-> @@ -630,7 +615,7 @@ DEFINE_KVM_HOST_HCALL(int, __tracing_load,
->         return __tracing_load(desc_hva, desc_size);
->  }
->
-> -DEFINE_KVM_HOST_HCALL0_VOID(__tracing_unload)
-> +DEFINE_KVM_HOST_HCALL0(void, __tracing_unload)
->  {
->         __tracing_unload();
->  }
-> @@ -647,7 +632,7 @@ DEFINE_KVM_HOST_HCALL(int, __tracing_swap_reader,
->         return __tracing_swap_reader(cpu);
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__tracing_update_clock,
-> +DEFINE_KVM_HOST_HCALL(void, __tracing_update_clock,
->         u32, mult, u32, shift, u64, epoch_ns, u64, epoch_cyc)
->  {
->         __tracing_update_clock(mult, shift, epoch_ns, epoch_cyc);
-> @@ -665,19 +650,19 @@ DEFINE_KVM_HOST_HCALL(int, __tracing_enable_event,
->         return __tracing_enable_event(id, enable);
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__tracing_write_event,
-> +DEFINE_KVM_HOST_HCALL(void, __tracing_write_event,
->         u64, id)
->  {
->         trace_selftest(id);
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_save_apr,
-> +DEFINE_KVM_HOST_HCALL(void, __vgic_v5_save_apr,
->         struct vgic_v5_cpu_if __kern *, cpu_if)
->  {
->         __vgic_v5_save_apr(kern_hyp_va_host(cpu_if));
->  }
->
-> -DEFINE_KVM_HOST_HCALL_VOID(__vgic_v5_restore_vmcr_apr,
-> +DEFINE_KVM_HOST_HCALL(void, __vgic_v5_restore_vmcr_apr,
->         struct vgic_v5_cpu_if __kern *, cpu_if)
->  {
->         __vgic_v5_restore_vmcr_apr(kern_hyp_va_host(cpu_if));
->
-> --
-> Without deviation from the norm, progress is not possible.
+-- 
+viresh
 
