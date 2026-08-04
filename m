@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59440C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:15:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EC6FC5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:16:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NlvQqMPX1ZBZq6vczB6DK1Q1sg9iUABmibDLc459ooE=; b=2dIo7tM+IkUq1WkcVDkdBYRS42
-	R2bGFtQPxUpwzKjvBRvlXU0itCMBtAitVSetzwVO9mwxYS28WlmZPadZXekOkMcJHRQapeowYbj3X
-	tNOIE9lyje0Ap8oVqjy274bJ4YIUuvrhc26VxOju2myRFVVQ6OhN5w1LKjH6lDil0wij/5QALkmPC
-	Pcq5Za3iDFs2ZkJJERQPRFNdsjF+1sqCKJtxSoFayJHigCYhMsNva8BPkc3HaUI/5EpQLNoFUXyMh
-	2AqSexEiXKNsEUsNdykpD1HFl7Lh1/n6FKXhtxsp+7/ddzEZ/7D7cGrphY+VHmykyAw46l9e7+aq5
-	OCjy+WIA==;
+	bh=1BnYhgvMr/FHPkS0bNJFQoIeIyjuwgqHxPYj6YvNKVc=; b=gKsViEkrbGT2QsrEu0Sjq6PSt1
+	mSUwcc2dQpMgqsASWkgE8HKspP9YVCjGY+mJqqIYrHbpYKJtHVOV7PkfkJ8gdpvihKQbLPMCrfGnO
+	M8VJLY8u/juZj/BF0hA4xyYhc4SsFp2rQ7n79siYWNncn3X7pVEuJZrFhS0h0PnWrvouzxPqXxzE+
+	U1ju3GrEjsyDReYjhgkZqXJWRH1Eis+D4iAxjXTb70DsfwlRO7dnnmf8lHMGMX9z+RNayLDlvWH5M
+	ndQAsgZqwrrPkbieGKOz2vJAMdsMQkkymEKFyo6UyxgDXh4yL1M4ALbi3Y8E6btbcq5zkunvN18N5
+	fangHOgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrD6x-00000001eds-2yON;
-	Tue, 04 Aug 2026 11:15:07 +0000
+	id 1wrD7i-00000001epf-3vlG;
+	Tue, 04 Aug 2026 11:15:54 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrD6x-00000001edB-0vHa
+	id 1wrD7h-00000001epN-2XoE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:15:07 +0000
+	Tue, 04 Aug 2026 11:15:53 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 25FFD60A59;
-	Tue,  4 Aug 2026 11:15:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 211D21F000E9;
-	Tue,  4 Aug 2026 11:14:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 116CE60A73;
+	Tue,  4 Aug 2026 11:15:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 046C71F000E9;
+	Tue,  4 Aug 2026 11:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785842105;
-	bh=NlvQqMPX1ZBZq6vczB6DK1Q1sg9iUABmibDLc459ooE=;
+	s=k20260515; t=1785842152;
+	bh=1BnYhgvMr/FHPkS0bNJFQoIeIyjuwgqHxPYj6YvNKVc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZnHoS2uq+Wpn11Z4etXu+hxwCLOTiTcnmGh7C2+5V3PHkGFMDITE9z6uYgjCeYU/L
-	 fC2NEuRAvvmECwZZAk2YEwJi/IwoCe8YsK5WKKXZVKTQd4iez0HYq95u5/tbxm135G
-	 BW+tRjPZmgs+NDRQXQS+Z1PArA8qMZ3MY68n34Q2d8TV/awui74P0GXMnIVCuorty7
-	 wc+LZ/aDpCuNW+K8lOzK6vW28Jlb7Q6F04ycjuf6wruLgZ+JZ8nOR4jzNd1mJrn889
-	 QN98PED33opeHD+Qj9pfIsMlzShSZ8hTwHnXReg/xD7GXlIty0nulMgyNHSoKB2eaN
-	 uL1Z8zxWAFNqw==
-Date: Tue, 4 Aug 2026 12:14:43 +0100
+	b=DCdqhtW0GuGx813a1jz15OF/gAOcKlGQQMgstOkscJnbZ80cNSpXodL8obchTcvvY
+	 KQN/nV7kGqJm+LgZAMxiWln9TvZ9vdXnXKBNn04G5L50+Jtsera2TdakLrWXQPjpRJ
+	 x8VVNbIUYTfqBCCHJia88Qyqm/NaABhvVg7mu4+1dGtQVeVDCeexi1Iy6rImYBMNfi
+	 yuvK2QUypp85rdG0Cu3jYFHIqsB3PJSA8ZplOmQs5oOP8mjC8gas04Nptnlq3h+Y8s
+	 Y9VUnlv4cYWu2FTlz34/ZW1CV/hhjFHJB7a6P2rmFU++gl2FT7ktYhKgMqjMNRVXzR
+	 yYKcYv6kfq3MQ==
+Date: Tue, 4 Aug 2026 12:15:31 +0100
 From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
 To: Pedro Falcato <pfalcato@suse.de>
 Cc: David Hildenbrand <david@kernel.org>, 
@@ -59,14 +59,14 @@ Cc: David Hildenbrand <david@kernel.org>,
 	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
 	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH v2 4/6] mm/s390: constify ptep_get() argument
-Message-ID: <anHJh7rPomeJgVHc@lucifer>
+Subject: Re: [PATCH v2 5/6] mm: constify generic pte_get*()
+Message-ID: <anHJtpEpXWITllqk@lucifer>
 References: <20260803164400.531199-1-pfalcato@suse.de>
- <20260803164400.531199-5-pfalcato@suse.de>
+ <20260803164400.531199-6-pfalcato@suse.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260803164400.531199-5-pfalcato@suse.de>
+In-Reply-To: <20260803164400.531199-6-pfalcato@suse.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,31 +81,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 05:43:58PM +0100, Pedro Falcato wrote:
-> It's a simple READ_ONCE() dereference, therefore it can be const.
+On Mon, Aug 03, 2026 at 05:43:59PM +0100, Pedro Falcato wrote:
+> None of the helpers need write access to the PTE. Constifying the param
+> allows for const typesafety.
+
+constity?
+
 >
 > Signed-off-by: Pedro Falcato <pfalcato@suse.de>
 
-Even I can't be pedantic about this one... :) so:
+LGTM, so:
 
 Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
 > ---
->  arch/s390/include/asm/pgtable.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  include/linux/pgtable.h | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 >
-> diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
-> index e882663a58e7..ec331ec92943 100644
-> --- a/arch/s390/include/asm/pgtable.h
-> +++ b/arch/s390/include/asm/pgtable.h
-> @@ -986,7 +986,7 @@ static inline void set_pte(pte_t *ptep, pte_t pte)
->  }
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index 8c093c119e5a..dc418553e57a 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -490,7 +490,7 @@ static inline int pudp_set_access_flags(struct vm_area_struct *vma,
+>  #endif
 >
->  #define ptep_get ptep_get
+>  #ifndef ptep_get
 > -static inline pte_t ptep_get(pte_t *ptep)
 > +static inline pte_t ptep_get(const pte_t *ptep)
 >  {
 >  	return READ_ONCE(*ptep);
+>  }
+> @@ -739,7 +739,7 @@ static inline void ptep_clear(struct mm_struct *mm, unsigned long addr,
+>   * present bit set *unless* it is 'l'. Because get_user_pages_fast() only
+>   * operates on present ptes we're safe.
+>   */
+> -static inline pte_t ptep_get_lockless(pte_t *ptep)
+> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
+>  {
+>  	pte_t pte;
+>
+> @@ -777,7 +777,7 @@ static inline pmd_t pmdp_get_lockless(pmd_t *pmdp)
+>   * We require that the PTE can be read atomically.
+>   */
+>  #ifndef ptep_get_lockless
+> -static inline pte_t ptep_get_lockless(pte_t *ptep)
+> +static inline pte_t ptep_get_lockless(const pte_t *ptep)
+>  {
+>  	return ptep_get(ptep);
 >  }
 > --
 > 2.55.0
