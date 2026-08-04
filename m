@@ -4,57 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC21C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:18:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45293C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 13:19:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I/xJUBIsf5tc/tiVs7VEOF8KlHKQaO0v8ZsALjsK6og=; b=RnxKVbcg1Bdds4WqCZ/5pbijhU
-	7WkA0vOB5TPlzB31U3YAVLfp9sGMK25pIzxXBnmpH4KwIWdaekm6XVS7buwkjXee8aI6o8keK2ogN
-	E7WpkiS7efVSDJ9P7ajDocNP9E9VkIR55m5IpHVM+nxskgrlLMpc+4jV7+fgCzE2vjGQotqDr0ybc
-	go3SKkVPsj3DdRQGla1+Oqkra7nyG+bSooo+JTlFTtMXdyle9Pagq4Ltre/tsBCRCd3jxHs4JoOev
-	xURupkwUCQ5o6Po/fFvMWs2KoVnQ0Cn8WVDvxE2cvdV8vrZ4I76LPO6ry9RfgqvCaGmMRi68q9yLj
-	Qr9hacQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DihpUshOA1iMkB0dRfTLl/pMzsh8ujAkX6htwmhsPgc=; b=47huyyPmQRYyhMECzAqr6UCFrh
+	hseScrT7C53nzw+RUs3KIGunV6tLM2ejDSzdXa4rYpme3uinqLeFrTU9QQ79XFhoYAPEe/O982Kr1
+	Z8rDgn4m8gmRQ76GY2HoFFbTiDMbdxCRLxZNHeLPcir5EvLaiD6rgwHh2gWV0HPBhLIin3aW7uF2x
+	dJoo2UeJGl+kKBTN70onF4BJnLuJ/QkFE3oSlxZ3aJ2AisJpZ7yOXwur9f1wxviu18l6YqdGV/JDd
+	87mim3awrIdvTgDevSnULIYEFGdkjcK3m50wLZcpThzPepqqR124X9E+Ho6av73DPenJBvSKY7HyL
+	ws1cIGxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrF1s-00000001u28-2bgF;
-	Tue, 04 Aug 2026 13:18:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrF1q-00000001u1p-42oQ
+	id 1wrF3M-00000001uA2-3yeT;
+	Tue, 04 Aug 2026 13:19:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrF3K-00000001u9V-0PuV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 13:17:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 68ACB429EC;
-	Tue,  4 Aug 2026 13:17:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 588A91F000E9;
-	Tue,  4 Aug 2026 13:17:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785849477;
-	bh=I/xJUBIsf5tc/tiVs7VEOF8KlHKQaO0v8ZsALjsK6og=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=a+2tuoyCeQfldI1lbv6MGEskpRSxVFaek1rvE5zs6SOcwXL9xKDw+tEuVnDiHDdIR
-	 NVgUel9QhOsqPS5SwqYlDWQzIg2OJxf/DPJYni3VAS/5jGCzOqmUT8+0qNmAfJnWgy
-	 9q25hWpEjcOSni+DpEOYl15ZC6B7IMkcwjMPxBk79qp1y4MwpdvCnGP0jbJeUWOK5v
-	 DJROoZnm7RyRJ4TqD60ij4VYaSGdXUAw8INMu7IL7uXe5lN9KLC/OgRe2UjD4e2pD1
-	 YsHiWuGiL8wZ9Urqq686JdnSV7/X3NJfIPbwGcywnuYVXrlFwEvozsWvugkbxCBFAK
-	 qtCcGxIv1B8sA==
-Date: Tue, 4 Aug 2026 14:17:52 +0100
-From: Will Deacon <will@kernel.org>
-To: Bradley Morgan <include@grrlz.net>
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: sleep: factor sleep_save_stash slot lookup
- into a macro
-Message-ID: <anHmgJgrPbd31Il8@willie-the-truck>
-References: <20260717114746.15109-1-include@grrlz.net>
+	Tue, 04 Aug 2026 13:19:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7AC3E1476;
+	Tue,  4 Aug 2026 06:19:24 -0700 (PDT)
+Received: from [10.57.44.180] (unknown [10.57.44.180])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B7143F66F;
+	Tue,  4 Aug 2026 06:19:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785849568; bh=NvRjT9Esb9qj9dSa9tEJ9J5zZySATr33Mf+UnG5bR7A=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OMrE8whLpJFQBhveqqIbqAKKQcVRCbg591te1k+SA8QgvhFbMxmJHLashxhYfOgAi
+	 juCGKJHjJl2XgtyAskltDE52iESHO+ckTd+1nhO8VxHE6lR4xaULOG3bJ9Zw+6LBpw
+	 oUHfurqWDSK1GhkwDpTz/6+EFboAsUiSLESB6vGA=
+Message-ID: <3b8d49be-f031-4134-bd20-a8c51632f4ad@arm.com>
+Date: Tue, 4 Aug 2026 14:19:22 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260717114746.15109-1-include@grrlz.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 15/37] KVM: arm64: CCA: Handle RMI_EXIT_RIPAS_CHANGE
+Content-Language: en-GB
+To: Fuad Tabba <fuad.tabba@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+ kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Quentin Perret <qperret@google.com>
+References: <20260715142841.80544-1-steven.price@arm.com>
+ <20260715142841.80544-16-steven.price@arm.com> <865x1rcvfw.wl-maz@kernel.org>
+ <f971d029-84d9-4c66-9875-36fa8f1a2a1b@arm.com> <86zez3b6ps.wl-maz@kernel.org>
+ <7beafe29-0c5e-418b-8797-190f1850b18a@arm.com>
+ <CA+EHjTx751071VhZPf6ABaZngTqOdPG+_aVLCTct_G_ksfYviA@mail.gmail.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <CA+EHjTx751071VhZPf6ABaZngTqOdPG+_aVLCTct_G_ksfYviA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_061930_200033_A504403F 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,117 +87,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 17, 2026 at 11:47:46AM +0000, Bradley Morgan wrote:
-> Both __cpu_suspend_enter() and _cpu_resume() open code the same
-> MPIDR_EL1 hash lookup to find the current CPU's slot in
-> sleep_save_stash. Factor it into a get_sleep_stash_slot
-> macro.
-> 
-> Since that macro would be the only remaining user of
-> compute_mpidr_hash, inline the hash computation into
-> get_sleep_stash_slot and just remove compute_mpidr_hash
-> altogether.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Bradley Morgan <include@grrlz.net>
-> ---
-> Changes since V1:
-> - Inline the macro, there only is one user. (Will)
-> - Also change the C psuedocode to be correct
-> 
->  arch/arm64/kernel/sleep.S | 103 +++++++++++++++-----------------------
->  1 file changed, 41 insertions(+), 62 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
-> index f093cdf71be1..dcf00a4d6233 100644
-> --- a/arch/arm64/kernel/sleep.S
-> +++ b/arch/arm64/kernel/sleep.S
-> @@ -7,48 +7,48 @@
->  
->  	.text
->  /*
-> - * Implementation of MPIDR_EL1 hash algorithm through shifting
-> + * Compute the address of the current CPU's entry in sleep_save_stash,
-> + * i.e. &sleep_save_stash[hash(MPIDR_EL1)], where the hash is an
-> + * implementation of the MPIDR_EL1 hash algorithm through shifting
->   * and OR'ing.
->   *
-> - * @dst: register containing hash result
-> - * @rs0: register containing affinity level 0 bit shift
-> - * @rs1: register containing affinity level 1 bit shift
-> - * @rs2: register containing affinity level 2 bit shift
-> - * @rs3: register containing affinity level 3 bit shift
-> - * @mpidr: register containing MPIDR_EL1 value
-> - * @mask: register containing MPIDR mask
-> - *
->   * Pseudo C-code:
->   *
-> - *u32 dst;
-> + *	u64 mpidr = MPIDR_EL1 & mpidr_hash.mask;
-> + *	u32 hash = ((mpidr & 0xff) >> mpidr_hash.shift_aff[0]) |
-> + *		   ((mpidr & 0xff00) >> mpidr_hash.shift_aff[1]) |
-> + *		   ((mpidr & 0xff0000) >> mpidr_hash.shift_aff[2]) |
-> + *		   ((mpidr & 0xff00000000) >> mpidr_hash.shift_aff[3]);
-> + *	slot = &sleep_save_stash[hash];
-> + *
-> + * @slot: output register
->   *
-> - *compute_mpidr_hash(u32 rs0, u32 rs1, u32 rs2, u32 rs3, u64 mpidr, u64 mask) {
-> - *	u32 aff0, aff1, aff2, aff3;
-> - *	u64 mpidr_masked = mpidr & mask;
-> - *	aff0 = mpidr_masked & 0xff;
-> - *	aff1 = mpidr_masked & 0xff00;
-> - *	aff2 = mpidr_masked & 0xff0000;
-> - *	aff3 = mpidr_masked & 0xff00000000;
-> - *	dst = (aff0 >> rs0 | aff1 >> rs1 | aff2 >> rs2 | aff3 >> rs3);
-> - *}
-> - * Input registers: rs0, rs1, rs2, rs3, mpidr, mask
-> - * Output register: dst
-> - * Note: input and output registers must be disjoint register sets
-> -         (eg: a macro instance with mpidr = x1 and dst = x1 is invalid)
-> + * Clobbers: x2 - x8
->   */
-> -	.macro compute_mpidr_hash dst, rs0, rs1, rs2, rs3, mpidr, mask
-> -	and	\mpidr, \mpidr, \mask		// mask out MPIDR bits
-> -	and	\dst, \mpidr, #0xff		// mask=aff0
-> -	lsr	\dst ,\dst, \rs0		// dst=aff0>>rs0
-> -	and	\mask, \mpidr, #0xff00		// mask = aff1
-> -	lsr	\mask ,\mask, \rs1
-> -	orr	\dst, \dst, \mask		// dst|=(aff1>>rs1)
-> -	and	\mask, \mpidr, #0xff0000	// mask = aff2
-> -	lsr	\mask ,\mask, \rs2
-> -	orr	\dst, \dst, \mask		// dst|=(aff2>>rs2)
-> -	and	\mask, \mpidr, #0xff00000000	// mask = aff3
-> -	lsr	\mask ,\mask, \rs3
-> -	orr	\dst, \dst, \mask		// dst|=(aff3>>rs3)
-> +	.macro get_sleep_stash_slot slot
-> +	mrs	x3, mpidr_el1
-> +	adr_l	x2, mpidr_hash
-> +	ldr	x8, [x2, #MPIDR_HASH_MASK]
-> +	/*
-> +	 * Following code relies on the struct mpidr_hash
-> +	 * members size.
-> +	 */
-> +	ldp	w4, w5, [x2, #MPIDR_HASH_SHIFTS]
-> +	ldp	w6, w7, [x2, #(MPIDR_HASH_SHIFTS + 8)]
-> +	and	x3, x3, x8			// mask out MPIDR bits
-> +	and	x2, x3, #0xff			// aff0
-> +	lsr	x2, x2, x4			// hash = aff0 >> rs0
-> +	and	x8, x3, #0xff00			// aff1
-> +	lsr	x8, x8, x5
-> +	orr	x2, x2, x8			// hash |= aff1 >> rs1
-> +	and	x8, x3, #0xff0000		// aff2
-> +	lsr	x8, x8, x6
-> +	orr	x2, x2, x8			// hash |= aff2 >> rs2
-> +	and	x8, x3, #0xff00000000		// aff3
-> +	lsr	x8, x8, x7
-> +	orr	x2, x2, x8			// hash |= aff3 >> rs3
-> +	ldr_l	\slot, sleep_save_stash
-> +	add	\slot, \slot, x2, lsl #3	// slot = &sleep_save_stash[hash]
+Hi Fuad
 
-nit: In the old code, rs0-rs3 were arguments to the macro. Now that you've
-removed those, the comments are stale.
+Thanks for your feedback.
 
-Will
+On 04/08/2026 13:20, Fuad Tabba wrote:
+> Hi Suzuki,
+> 
+> + Quentin (who's on leave, but for when he gets back)
+> 
+> On Mon, 3 Aug 2026 at 16:30, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> ...
+>>> I.e don't hack into the API. Use the information you already have to
+>>> decide whether you need to use the existing API at all.
+>>>
+>>> If that cannot be done for whatever reason, then you need to indirect
+>>> the call with a set of operations that leave the existing code
+>>> untouched.
+>>
+>> Please let us know if you think we need to explore this ^ ?
+> 
+> FWIW, pKVM already has this kind of indirection: in protected mode,
+> the kvm_pgtable_stage2_* calls in mmu.c dispatch to the
+> pkvm_pgtable_stage2_* wrappers through KVM_PGT_FN(), and the callers
+> don't branch. It is global today because pKVM owns the whole host, but
+> a per-VM version would let the CCA backend handle the filter and the
+> IPA aliasing internally, keeping __unmap_stage2_range()'s signature
+> intact. That should work for pKVM as well.
+
+Sure, will explore this option. For the record, the patch here only 
+passes down the "filter" parameter to __unmap_stage2_range() [ though
+in a different name, only_shared ] and we still handle the aliasing 
+inside the CCA code. Let me explore on this front.
+
+Suzuki
+
+
+
+> 
+> Cheers,
+> /fuad
+
 
