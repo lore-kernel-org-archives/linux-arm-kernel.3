@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DB4DC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 18:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C22EBC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 18:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pNvk/hVxan4X92LEuNLrhC26XmWg6H10cQTm3nYIy8=; b=Z8bRSiE2RZqrAvGzpwZ1IViszw
-	4dpaPkVbgp7Z/0p0z/QRGHFutZ7nvPfiT/NaYr29jNtJgovY3ZppBBSAV+/qMTYQ5STacAgy4DEll
-	oSlVHnXqpRwUHv2OUIze2PRqwjN0A4pm09XbdEzSHTsPaS7jx5AF6JnFtVZ6Cns+SZJnUl7pS3zvY
-	ljf5+Hn2hnvr5364Wnu06G7WGA9/rkVponaQnv4VenzdjrlLEy7SO8BqeNYOf8IEKFIR8WcaC3UeI
-	4/oPuxo0Fe+UISB/3ib3QAsCoGYdnGmBhaHMHSnGLfjLYaXLQVedsYt+vaJBZTWy4OO7pC6gCmTRs
-	KPrd5ieg==;
+	bh=N6576v3MOprnouh8kf8c+zTXGFEWTUzL1KdNDDydAwE=; b=hXGzUkB37G9HepLw6hMtPUOdwF
+	J4C/w2pqUzKUB90MF23zUxqKRxyM3lqZTSnuNuojsJQukXq9Ykfnzeq3A2mVbU4ZpqE4Rw2rIOUuh
+	Njirafc4u/Ar7rOdPbBqbVNppB5nCqysQT6xUH0QYqMKhuZZpYotkZv9Tjf/tZEXTqC22Sy3IRUmn
+	+STiQ8dDJzDFm6K8DMIPJ6J+dg08n0qaBCrt1gwwEZldmG9Rj5xQ3B+wPxDONYupBAL3BS7nlTwys
+	jqB6Y8yOfDdi143KIu4+rPvolx/ZiLkbJZW7F36EUgOrWkLVpiIyqnL9nOyITSJBhaVqNry2iVQKd
+	iwqEqXXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrJXS-00000002ZYH-3Xx0;
-	Tue, 04 Aug 2026 18:06:54 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wrJZm-00000002Zpq-0yUA;
+	Tue, 04 Aug 2026 18:09:18 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrJXR-00000002ZXf-3Hro
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Aug 2026 18:06:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4pNvk/hVxan4X92LEuNLrhC26XmWg6H10cQTm3nYIy8=; b=TpyaRaYZLg/n2BYtHJXErQH29W
-	6pY46PDbcU/PJH6PFMKJMixpiZtwudk778hqs51AMMiK/YZTaHHmwNyd5NQnvASuFayXom6gJ/viN
-	CBa9xLRHNV2SDR9WVxhUb9u1vohm90k5Vqbs4Kh+XAiMe28Xfa2rKTBBJzp7xy7LZ5N4maISrddCD
-	M7UQfCBzU4lu+qb3CLknfmWgfsJ0R31KepvHYgd3/fWwlH9ldg4ILGUOdWyEnfN9MxQDjwF0pv4q8
-	ZJeRe9Wqm1Ij/J4TxN4bPCrPtfEEv30uJE5Z2zqzfPZ7ZRjDlgfbTtm/YYGyDbgIERxzyby5g2tsA
-	ITpE0eFA==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrJXP-00000004SL5-3nTg;
-	Tue, 04 Aug 2026 18:06:51 +0000
-Date: Tue, 4 Aug 2026 19:06:51 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org,
-	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
-	will@kernel.org, akpm@linux-foundation.org, hca@linux.ibm.com,
-	gor@linux.ibm.com, agordeev@linux.ibm.com, linux-mm@kvack.org,
+	id 1wrJZj-00000002Zp6-375j;
+	Tue, 04 Aug 2026 18:09:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785866956; x=1817402956;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=4aSiIYeWMIhCKAcDd1UGuzMezS0cEl8w1x31H8BKhLk=;
+  b=PNvs0kdm4c/niwTEFDtHTNqFcf4FPPekHvbOBn4Fo61jDk8Yzk4a7vRK
+   PoWxu44udwywjdbbllgFXxBKZKe9RKsq6wsZF/+fQnaUXj4eHfIACMNQO
+   uuofXfw6z5l00i0eu0s2Pnpu7ckUxSC8VcUjtwAFxLXzoDE/d0azsl7YB
+   X98So5QTdyULfVYTpVFoQWyLyKLSWCX7yMtGar64BNflbT1JEAVApVaON
+   wmam4cXgT8nfIWpC56E/NLB+0ytgb45PN6LHDiVoWCZQHLN/PGne6YRA5
+   f/CI8DElb+B0kZDbbQ6HKkFLlecp3qq/MJaUl05zuCHa9d5Pm0lw4HkI6
+   w==;
+X-CSE-ConnectionGUID: RtknB+PoSjirVp52kWtx7g==
+X-CSE-MsgGUID: PYU19+JSSUiBDtOGHvhelg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11865"; a="85406710"
+X-IronPort-AV: E=Sophos;i="6.25,204,1779174000"; 
+   d="scan'208";a="85406710"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Aug 2026 11:09:15 -0700
+X-CSE-ConnectionGUID: w/e1AY87R+KoigwvlggZyA==
+X-CSE-MsgGUID: KyhvMCRLRjCmqW3k5o0O+g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,204,1779174000"; 
+   d="scan'208";a="259798529"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 04 Aug 2026 11:09:11 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wrJZc-00000000ANR-466W;
+	Tue, 04 Aug 2026 18:09:08 +0000
+Date: Wed, 5 Aug 2026 02:08:49 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sreeraj S Kurup <sreekuttan2156239@gmail.com>, ryder.lee@mediatek.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	bhelgaas@google.com
+Cc: oe-kbuild-all@lists.linux.dev, robh@kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-Message-ID: <anIqO2AiVlLTEPOd@casper.infradead.org>
-References: <20260715180455.515692-1-yang@os.amperecomputing.com>
- <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
- <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
- <amCPBrdltFSE_fEf@J2N7QTR9R3>
- <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
- <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
- <anHuLy52o5S9Nlwp@lucifer>
- <anH1CgpwS3PHeDRq@lucifer>
- <20260804144054.GE27883@nvidia.com>
+	Sreeraj S Kurup <sreekuttan2156239@gmail.com>
+Subject: Re: [PATCH] PCI: mediatek-gen3: Fix 64-bit type truncation in
+ mtk_pcie_set_trans_table()
+Message-ID: <202608050123.GZC7hug7-lkp@intel.com>
+References: <20260728101413.4575-1-sreekuttan2156239@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260804144054.GE27883@nvidia.com>
+In-Reply-To: <20260728101413.4575-1-sreekuttan2156239@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_110915_794263_533367FF 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,12 +92,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 11:40:54AM -0300, Jason Gunthorpe wrote:
-> That said there is still a merit for things like replicating .text, and
-> I think we will also have some multi-socket systems that would benefit
-> from this too..
+Hi Sreeraj,
 
-Are you referring to kernel text replication or userspace text
-replication?  If the latter, I don't think we need per-CPU page tables
-to do it.
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on pci/next]
+[also build test ERROR on pci/for-linus linus/master v7.2-rc6 next-20260803]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Sreeraj-S-Kurup/PCI-mediatek-gen3-Fix-64-bit-type-truncation-in-mtk_pcie_set_trans_table/20260728-183948
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
+patch link:    https://lore.kernel.org/r/20260728101413.4575-1-sreekuttan2156239%40gmail.com
+patch subject: [PATCH] PCI: mediatek-gen3: Fix 64-bit type truncation in mtk_pcie_set_trans_table()
+config: csky-allmodconfig (https://download.01.org/0day-ci/archive/20260805/202608050123.GZC7hug7-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260805/202608050123.GZC7hug7-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608050123.GZC7hug7-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from include/linux/bits.h:5,
+                    from include/linux/bitops.h:6,
+                    from include/linux/kernel.h:23,
+                    from include/linux/clk.h:13,
+                    from drivers/pci/controller/pcie-mediatek-gen3.c:10:
+   drivers/pci/controller/pcie-mediatek-gen3.c: In function 'mtk_pcie_set_trans_table':
+>> drivers/pci/controller/pcie-mediatek-gen3.c:340:46: error: implicit declaration of function 'ffs64'; did you mean 'fls64'? [-Wimplicit-function-declaration]
+     340 |                         addr_align = BIT_ULL(ffs64(cpu_addr) - 1);
+         |                                              ^~~~~
+   include/vdso/bits.h:8:45: note: in definition of macro 'BIT_ULL'
+       8 | #define BIT_ULL(nr)             (ULL(1) << (nr))
+         |                                             ^~
+
+
+vim +340 drivers/pci/controller/pcie-mediatek-gen3.c
+
+   321	
+   322	static int mtk_pcie_set_trans_table(struct mtk_gen3_pcie *pcie,
+   323					    resource_size_t cpu_addr,
+   324					    resource_size_t pci_addr,
+   325					    resource_size_t size,
+   326					    unsigned long type, int *num)
+   327	{
+   328		resource_size_t remaining = size;
+   329		resource_size_t table_size;
+   330		resource_size_t addr_align;
+   331		const char *range_type;
+   332		void __iomem *table;
+   333		u32 val;
+   334	
+   335		while (remaining && (*num < PCIE_MAX_TRANS_TABLES)) {
+   336			/* Table size needs to be a power of 2 */
+   337			table_size = BIT_ULL(fls64(remaining) - 1);
+   338	
+   339			if (cpu_addr > 0) {
+ > 340				addr_align = BIT_ULL(ffs64(cpu_addr) - 1);
+   341				table_size = min(table_size, addr_align);
+   342			}
+   343	
+   344			/* Minimum size of translate table is 4KiB */
+   345			if (table_size < 0x1000) {
+   346				dev_err(pcie->dev, "illegal table size %#llx\n",
+   347					(unsigned long long)table_size);
+   348				return -EINVAL;
+   349			}
+   350	
+   351			table = pcie->base + PCIE_TRANS_TABLE_BASE_REG + *num * PCIE_ATR_TLB_SET_OFFSET;
+   352			writel_relaxed(lower_32_bits(cpu_addr) |
+   353					PCIE_ATR_SIZE(fls64(table_size) - 1), table);
+   354			writel_relaxed(upper_32_bits(cpu_addr), table + PCIE_ATR_SRC_ADDR_MSB_OFFSET);
+   355			writel_relaxed(lower_32_bits(pci_addr), table + PCIE_ATR_TRSL_ADDR_LSB_OFFSET);
+   356			writel_relaxed(upper_32_bits(pci_addr), table + PCIE_ATR_TRSL_ADDR_MSB_OFFSET);
+   357	
+   358			if (type == IORESOURCE_IO) {
+   359				val = PCIE_ATR_TYPE_IO | PCIE_ATR_TLP_TYPE_IO;
+   360				range_type = "IO";
+   361			} else {
+   362				val = PCIE_ATR_TYPE_MEM | PCIE_ATR_TLP_TYPE_MEM;
+   363				range_type = "MEM";
+   364			}
+   365	
+   366			writel_relaxed(val, table + PCIE_ATR_TRSL_PARAM_OFFSET);
+   367	
+   368			dev_dbg(pcie->dev, "set %s trans window[%d]: cpu_addr = %#llx, pci_addr = %#llx, size = %#llx\n",
+   369				range_type, *num, (unsigned long long)cpu_addr,
+   370				(unsigned long long)pci_addr,
+   371				(unsigned long long)table_size);
+   372	
+   373			cpu_addr += table_size;
+   374			pci_addr += table_size;
+   375			remaining -= table_size;
+   376			(*num)++;
+   377		}
+   378	
+   379		if (remaining)
+   380			dev_warn(pcie->dev, "not enough translate table for addr: %#llx, limited to [%d]\n",
+   381				 (unsigned long long)cpu_addr, PCIE_MAX_TRANS_TABLES);
+   382	
+   383		return 0;
+   384	}
+   385	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
