@@ -4,54 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D776C5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7559FC55838
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=brppILycK8XCyPmvwDAK27mdv/KOXXmIOAumvCStsEQ=; b=ftzZ9oqa58LAgm
-	8pOYB3Qj8aZDwwRa2EfBN7LPcmPdzCSjkXwZt9cEUWfmTKLEi2Tbq7uN1hadRtWvBWIaV5Nopt7ro
-	tagxT7ItHgslHAkTwVZ9czgo2KaKhRXDdaVy/OMWN2clxcl6uBBd8bz42uf6g9EH0EXgIn+8W16jI
-	j1X4j4cWKPIItWZR6ey/pFlFzWbnV6G/rE5IbgkD4sOReQZ+m4W2IM7oBl1IzR4bC3C1m8bTNmBqD
-	JRJTjFyrtftEj16MkGng94X+ubk3u4RYySQUsvQq1ocq8zEUBxEGfDilzpqmxMnW28YAf6YFZBmmP
-	cq2SZxtH8PZLpyp7DJuQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+19O7nuCCtomwWmgwH/WqZ+QVpHVmBP+p+odMSd16YE=; b=qVhuv0Dc50uTM/hlskUhWAx/a2
+	vto88idJMeckKaiQuWSZud691a1pDzSFcmPhXqu2FhLQ9Mh4Bq+aQesVbDn0l3A2D13mHYuc+oyB2
+	0byJFx8jKqvIU78wA959KUSEdWqmFHx/oDvQyITlIS0Qu8sOnjjy0wfp27UUWkc3iEH9jnUKhKQCt
+	ZV9bvewcFxacBQ7CPwrB7JEf+HmT07VtAWOxD+8kHJfpYmkYmoPV7ioCOE3HRQe6komZdsBtkWykt
+	bAjPh3W/ZZlvldnXX1nagxbInJX3xiKa1Im2+geE0FzFYJnHsgfbCKEzuhiNOCvg4ijs/oTA6L31l
+	1y0IWUIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIaX-00000002QFR-3AWx;
-	Tue, 04 Aug 2026 17:06:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIaU-00000002QBd-1gj5
+	id 1wrIaY-00000002QGz-3f8e;
+	Tue, 04 Aug 2026 17:06:02 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrIaW-00000002QDF-25j3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 17:06:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C76F01684;
-	Tue,  4 Aug 2026 10:05:53 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8F9323F632;
-	Tue,  4 Aug 2026 10:05:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785863157; bh=YzD7+HPBTAQSY9PfPJMGymfBg5La+P63n6Hj+NlyMeQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Rrgk9AnV7LxAb5EF/5/NRLyqnW1I9w7Xw25iV3FTEWX9st5hae8leuGEi29TgK4Su
-	 Pl3yhDCXhn+c3jtSCzn8LyhmBlaMEjvhVESM/BhMns3pvqPL3PA/THo25wT+s94fgA
-	 g9qyllyxHJ/G2NvHss2DGH+A1J1yHNW86WUVHDlw=
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 10/20] arm64: gpr-num: add __GPR_NUM() helper
-Date: Tue,  4 Aug 2026 18:04:53 +0100
-Message-Id: <20260804170503.3513916-11-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
-In-Reply-To: <20260804170503.3513916-1-mark.rutland@arm.com>
-References: <20260804170503.3513916-1-mark.rutland@arm.com>
+	Tue, 04 Aug 2026 17:06:01 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-381b831d535so81274a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 10:06:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785863159; x=1786467959; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+19O7nuCCtomwWmgwH/WqZ+QVpHVmBP+p+odMSd16YE=;
+        b=IctyooyWFqu1op4/BFpe5kyDm7+EffrkK5/uJdXyU0l/OpDZFZ8IKTkOLvfrCwZUly
+         KyKMcnHwulmwrJsLc9snMUdXEBJaWRKhjHP1OzC7eOViTB2/ozcLTNlssN9BSf50iY9b
+         jXPxIbf1fP9GAe8h/SGUM8oUP4wSF+X/OBnZ2+PgNr1kDE05A759kkDinfS5CxBQwEVN
+         yHhwfyF8PzbkR0pSycsig/GGzbQJELrckuli5UORo2d+mZXD6fE8DFnGmDQzB+XZbkjg
+         2kIsfxdLah6Fn1Y6CoWJvuWgmfoz0O1xY8PzrqQVgWGpgIqp0iDTPXDlNp0V3WwLRH/o
+         3p2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785863159; x=1786467959;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+19O7nuCCtomwWmgwH/WqZ+QVpHVmBP+p+odMSd16YE=;
+        b=NxNuATlOGd9l3imiK3frCDbg9Jv1pP1Kjkg8UdsJqJZlwYfdDNFSJaxoq8PYKycCJT
+         rrpSd+xTsRjT7hrBZsgVqKMtu5duSdmq89pA+QGMCpOACM8/O6e5rcHFBH8xo/Tk1kBz
+         wswu/9NtFi948WjMUwGQhGfVD5t30sBHFu1UkUFbfIHDAh59r+lgWaz+JoaToz5DdMbS
+         YOhUlcLkrZxBAFkIY17n/LX6JYh3JgUT5hrK9wO8iWGGRDfJBd0D5lczOIZEFHOlC123
+         eL1Q5fWuDojdg6p5sHqNrdJUPdB7DnUo3Z3+qjocEsdb4bBXRdclrT9kBfM5k+M1fTqQ
+         WoQw==
+X-Forwarded-Encrypted: i=1; AHgh+Rp1wAfrxMCaJaW5O2iOXEWcd2A951kjb5+Oc9hUG+F/Z3iDljgAMjcDxW5J07+4PZ5w5CmRZppZkQZpQSYAj97X@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8Lj+AJkDHXwOBHyW1cP0F4zEg1NHMbd+MKE9tInivmcOx/vvL
+	5x+UQqL+mKnelwsGQFwbtxQikGK3s04cKNGqaJ0zasztI4Fxsc6fyS77
+X-Gm-Gg: AR+sD13iaxl4HVGTxywdpqc9b7YnQO7Cq+ndDzUgGtfHv0z6d3UY099W8NuNS/+JDw/
+	YeLviHamStSoFSrcWjYCRSHabrLojVjPRmzE3wflwj3wMXELkOvJRTbGACu4UmW+xwwk6/Wc0ww
+	P0tVzXSSnE4i3pRye/M6f7PX03Wiq2qEq0tpnv0Ci60WJKg6JYG4j6TuvP2v+NZuMmJVo96EQcb
+	Yg6eojhIznqu8ZZ6PLf4/sEuDJasdKQSDUP53XScXUYgLcdxfjfSJNrxYhPiT7vusHCFM6sOCGe
+	0svSNL0qO2IVD0/fwHhcVq9TFE/DaM6lufWvT9IwsOOOpdWgYBMV7BpddCPCmFOBB/5VeeFM3wD
+	UUBXBxYDlxUJSi1EFwWQ2dYfS9U7hYFKx0plRqcPEwEWcGW7lq554Nrg2Y/IWAsb/RlHsfXaZqh
+	UmNXFQSZbTsmWxbQSLnpNUiv5ZNVy5wlL1nvhWYrxqA9qFKDW1L+xgfTAQd2I=
+X-Received: by 2002:a17:90b:5823:b0:38d:dbc7:5178 with SMTP id 98e67ed59e1d1-3903c632441mr378816a91.22.1785863159404;
+        Tue, 04 Aug 2026 10:05:59 -0700 (PDT)
+Received: from ubuntu.. ([2405:201:8026:213e:1461:a94d:d559:948d])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31586162e80sm7230582eec.0.2026.08.04.10.05.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Aug 2026 10:05:58 -0700 (PDT)
+From: mdshahid03@gmail.com
+To: Jonathan Cameron <jic23@kernel.org>
+Cc: Andy Shevchenko <andy@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Markus Elfring <Markus.Elfring@web.de>,
+	Joshua Crofts <joshua.crofts1@gmail.com>,
+	linux-iio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Mohammad Shahid <mdshahid03@gmail.com>
+Subject: [PATCH v5 1/3] iio: adc: bcm_iproc_adc: Remove redundant probe error messages
+Date: Tue,  4 Aug 2026 22:35:19 +0530
+Message-ID: <20260804170521.196393-2-mdshahid03@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260804170521.196393-1-mdshahid03@gmail.com>
+References: <20260804170521.196393-1-mdshahid03@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_100558_485575_A8C9BCC9 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260804_100600_544577_5401D102 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,61 +105,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The gpr-num infrastructure requires users to concatenate the register
-name with a long prefix in order to get a symbol that evaluates to a
-compile-time constant. Doing this manually is error-prone and painful to
-read.
+From: Mohammad Shahid <mdshahid03@gmail.com>
 
-Add a new __GPR_NUM() helper which wraps the concatenation.
+devm_request_threaded_irq() already logs an error when the request
+fails, making the explicit dev_err() redundant.
 
-For the moment I've left existing open-coded concatenation as-is. In
-particular, the DEFINE_MRS_S() and DEFINE_MSR_S() macros have awkward
-stringification requirements and would require invasive changes that
-outweigh the benefit. I have plans to rework those in the near future to
-remove the need to use gpr-num values.
+Similarly, iproc_adc_enable() already reports failures, making the
+additional dev_err() in the probe path redundant.
 
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: James Morse <james.morse@arm.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Yang Shi <yang@os.amperecomputing.com>
+Remove both duplicate messages.
+
+Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
 ---
- arch/arm64/include/asm/gpr-num.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/iio/adc/bcm_iproc_adc.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/gpr-num.h b/arch/arm64/include/asm/gpr-num.h
-index 240cd25d55c5a..30fb8a67b19f0 100644
---- a/arch/arm64/include/asm/gpr-num.h
-+++ b/arch/arm64/include/asm/gpr-num.h
-@@ -11,6 +11,8 @@
- 	.equ	.L__gpr_num_xzr, 31
- 	.equ	.L__gpr_num_wzr, 31
+diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
+index cf4738b16e62..7c2e2770cd61 100644
+--- a/drivers/iio/adc/bcm_iproc_adc.c
++++ b/drivers/iio/adc/bcm_iproc_adc.c
+@@ -551,10 +551,8 @@ static int iproc_adc_probe(struct platform_device *pdev)
+ 				iproc_adc_interrupt_handler,
+ 				iproc_adc_interrupt_thread,
+ 				IRQF_SHARED, "iproc-adc", indio_dev);
+-	if (ret) {
+-		dev_err(&pdev->dev, "request_irq error %d\n", ret);
++	if (ret)
+ 		return ret;
+-	}
  
-+#define __GPR_NUM(gpr)		(.L__gpr_num_##gpr)
-+
- #else /* __ASSEMBLER__ */
+ 	ret = clk_prepare_enable(adc_priv->adc_clk);
+ 	if (ret) {
+@@ -564,10 +562,8 @@ static int iproc_adc_probe(struct platform_device *pdev)
+ 	}
  
- #define __DEFINE_ASM_GPR_NUMS					\
-@@ -26,6 +28,8 @@
- "	wx\\n	.req	w\\n\n"										\
- "	.endr\n"
+ 	ret = iproc_adc_enable(indio_dev);
+-	if (ret) {
+-		dev_err(&pdev->dev, "failed to enable adc %d\n", ret);
++	if (ret)
+ 		goto err_adc_enable;
+-	}
  
-+#define __GPR_NUM(gpr)		"(.L__gpr_num_" gpr ")"
-+
- #endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_GPR_NUM_H */
+ 	indio_dev->name = "iproc-static-adc";
+ 	indio_dev->info = &iproc_adc_iio_info;
 -- 
-2.30.2
+2.43.0
 
 
