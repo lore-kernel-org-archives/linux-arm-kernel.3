@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54CEEC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C10EC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jxuiu4IBbnfhJ+O4j2h0m19X6B2mNwUZ06fB82uY7uM=; b=ztgLE0IvsBMqJC
-	+sFTzemWrjXHnw/5n2rKphbwBsQpxKrKlUoEaYOu1WksZgtWqG5cumMpJ32MTZZwBXCXFaZY/Vj+l
-	d7HzPwM+oWt/pzFKwiUL/zczVjwvSrPouiTPY0dNqzb5t/eUOcjl6wJQLBqo9mobjORlvxQdGM8jm
-	Io8BqRM3ayvmAiAmhbqTKzX3R9VFv6jwvyH0rVG1JX1iOS9RXgtuXFhKPUMktazi8UWdHPVlCtEbq
-	uKRnYL7h+JyRjafq9f2xoFlci49fDcDguhqA65qr5RrtAF0ol9Rou8y9XC4NE+3VSotnPDsJaA/RC
-	e5QzZ09Igst+p7nSIRPQ==;
+	List-Owner; bh=luFEf4JDwGVlaK+1gbKy2veDE1i4rdFp33T7Jyd+mWo=; b=EvB46YjuggQOje
+	Ea1kopXfR2nM/BDTPhfpi2EEo9kqXiEt517nPa0jTDY6AY6iIDD8e8zeNj6mUPNckfnd5NZ8ljzT5
+	kyArFMFeq093WMUHAcuidYYkqFvDr5osh8K9LEAJdGL98tp1bCIpbpL88MzEXlepgHOgGpItdamJ3
+	k9w1J9Av4CDh/ufhvlPuxBeAi96JNOxN/KxFowDzoBjTZjaLP1PyIcOVuEk0a1PBbpiYjaXEd1298
+	RkIy2WQAKbMB7USFhkAIEqaFpvY6nHBDUWcQl/+yvY4FlLWlW7ai99FeG/gIs/lCZqlFU+a1B6Ttu
+	3bnhRu4PppW0YGvqrQKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIZy-00000002PnS-2y0I;
-	Tue, 04 Aug 2026 17:05:26 +0000
+	id 1wrIa4-00000002Pqh-3KJ4;
+	Tue, 04 Aug 2026 17:05:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIZw-00000002PlV-1O4k
+	id 1wrIa2-00000002Pol-0J3F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 17:05:25 +0000
+	Tue, 04 Aug 2026 17:05:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3518D165C;
-	Tue,  4 Aug 2026 10:05:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81B02168F;
+	Tue,  4 Aug 2026 10:05:22 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B024F3F632;
-	Tue,  4 Aug 2026 10:05:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 919193F632;
+	Tue,  4 Aug 2026 10:05:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785863123; bh=WDsn/mHahpvx62D9TO6yFmeHtgjl099mMZSfB+gdWx8=;
+	t=1785863126; bh=4XZAKms2bbsXl7jhYQa+H5QMcZJ+Y5K09MfcXetzfHY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B4iI2hXmltZNoYxh61wFs+EWimdCWGTamsf0wpEgVEMKfTEgOXEPyfrZwrHh0f6+G
-	 vgrL0enQ6ykpPJkrkuQK/IUQ9zpmlecN+p8eN6GvG7n/u9ycuCClHkQNiop7ORYgzy
-	 FPXrTImNT1nmeUXQ4FFJPFUSy4pZGGZCXeQOlGHc=
+	b=hRurMByg0dgY8hMg2tozNITTWByme6oUT0q3PZjhT6ZTtmwhwgyOn07NJ8nmi4FSQ
+	 +E9cIyqMoPR3ucMvXQH7gPFkIizW8nm+ZuJV/P5mEznyC9oKkhDH1gdPoXDpKhIAjX
+	 z3pzVO+9A1qncGHui4I5yxMGaFmGhNdvo4nndENU=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 02/20] arm64: percpu: Fix this_cpu_and() mask generation
-Date: Tue,  4 Aug 2026 18:04:45 +0100
-Message-Id: <20260804170503.3513916-3-mark.rutland@arm.com>
+Subject: [PATCH v2 03/20] arm64: cmpxchg: LL/SC: Avoid redundant extension
+Date: Tue,  4 Aug 2026 18:04:46 +0100
+Message-Id: <20260804170503.3513916-4-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
 In-Reply-To: <20260804170503.3513916-1-mark.rutland@arm.com>
 References: <20260804170503.3513916-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_100524_497687_7FEC55F8 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20260804_100530_364750_8688CC13 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,185 +67,72 @@ Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 implementation of this_cpu_and(pcp, val) is built in terms of
-ANDNOT operations, which requires the 'val' argument to be bitwise
-negated. The bitwise negation is not implemented correctly, with two
-bugs described below.
+The __ll_sc__cmpxchg_case_##name##sz() template always takes 'old' as an
+unsigned long. When 'sz' is less than 32 bits, the 'old' is explicitly
+truncated so that old[31:sz-1] is zero, which is necessary so that the
+W-register EOR+CBNZ sequence doesn't fail spuriously.
 
-(1) The bitwise negation is performed as '~val' rather than '~(val)'.
-    This won't always generate the expected value when 'val' is an
-    expression.
+For 32-bit types specifically, no extension is necessary, but as 'old'
+is 64 bits, the caller must extend 'old' to 64 bits. This leads to a
+redundant instruction (typically a MOV) to extend the value, as can be
+seen from disassembly of the test case below.
 
-    For example, for this_cpu_and(pcp, 1 - 1):
+Avoid this by always taking 'old' as a 'u##sz' type, and explicitly
+zero-extend this to a 64-bit or 32-bit type matching the X or W register
+used by the assembly. To make this work, the table of cases now
+explicitly lists 'x' for the cases where an X register is used.
 
-    * 'val'    is  '1 - 1'   ===> (int) 0x00000000
-    * '~val'   is '~1 - 1'   ===> (int) 0xfffffffd
-    * '~(val)' is '~(1 - 1)' ===> (int) 0xffffffff
+For 32-bit types this removes the redundant instruction. For 64-bit
+types there is no truncation, and hence no change. For {16,8}-bit types,
+the existing zero-extension to 64-bit is equivalent to the new
+zero-extension to 32-bit, and compilers happen to use the same
+instructions for this.
 
-    ... and thus bit[1] of 'pcp' would be preserved unexpectedly by the
-    ANDNOT operation.
+I've placed the logic for zero extension into a new <asm/xwreg.h> header
+as it will be used by other logic in subsequent patches.
 
-(2) The bitwise negation is performed on 'val' before it has been cast
-    to (at least) the width of 'pcp'. This won't always generate the
-    expected value for the upper bits.
+Test case:
 
-    For example, for this_cpu_and(pcp, zero), where 'pcp' is a u64 and
-    'zero' is a u32:
-
-    * 'zero'           ===> (u32) 0x00000000
-    * '~(zero)'        ===> (u32) 0xffffffff
-    * '(u64)~(zero)'   ===> (u64) 0x00000000ffffffff
-    * '~((u64)(zero))' ===> (u64) 0xffffffffffffffff
-
-    ... and thus bits[63:32] of 'pcp' would be preserved unexpectedly by
-    the ANDNOT operation.
-
-Fix these issues by adding brackets around 'val', and by casting 'val'
-to an appropriately-sized type before bitwise negation.
-
-The bugs described above can be seen from the disassembly of the
-following test code:
-
-| void this_cpu_and_u64_zero(u64 __percpu *pcp)
+| u32 outline_cmpxchg_u32(u32 *p, u32 o, u32 n)
 | {
-|         u64 zero = 0;
-|         this_cpu_and(*pcp, zero);
-| }
-|
-| void this_cpu_and_u32_zero(u64 __percpu *pcp)
-| {
-|         u32 zero = 0;
-|         this_cpu_and(*pcp, zero);
-| }
-|
-| void this_cpu_and_expr_zero(u64 __percpu *pcp)
-| {
-|         this_cpu_and(*pcp, 1 - 1);
-| }
-|
-| void this_cpu_and_expr_zero_brackets(u64 __percpu *pcp)
-| {
-|         this_cpu_and(*pcp, (1 - 1));
+|         return cmpxchg(p, o, n);
 | }
 
 Before this patch:
 
-| <this_cpu_and_u64_zero>:
-|        paciasp
-|        stp     x29, x30, [sp, #-16]!
-|        mrs     x1, sp_el0
-|        mov     x29, sp
-|        ldr     w2, [x1, #8]
-|        add     w2, w2, #0x1
-|        str     w2, [x1, #8]
-|        mov     x3, #0xffffffffffffffff         // #-1
-|        mrs     x2, tpidr_el1
-|        add     x0, x0, x2
-| 1:     ldxr    x5, [x0]
-|        bic     x5, x5, x3
-|        stxr    w4, x5, [x0]
-|        cbnz    w4, 1b
-|        ldr     x0, [x1, #8]
-|        add     x0, x0, x3
-|        str     w0, [x1, #8]
-|        cbz     x0, 2f
-|        ldr     x0, [x1, #8]
-|        cbnz    x0, 3f
-| 2:     bl      preempt_schedule_notrace
-| 3:     ldp     x29, x30, [sp], #16
-|        autiasp
+| <outline_cmpxchg_u32>:
+|        b       1f
+|        casal   w1, w2, [x0]
+|        mov     w0, w1
 |        ret
-|
-| <this_cpu_and_u32_zero>:
-|        paciasp
-|        stp     x29, x30, [sp, #-16]!
-|        mrs     x1, sp_el0
-|        mov     x29, sp
-|        ldr     w2, [x1, #8]
-|        add     w2, w2, #0x1
-|        str     w2, [x1, #8]
-|        mov     x3, #0xffffffff                 // #4294967295
-|        mrs     x2, tpidr_el1
-|        add     x0, x0, x2
-| 1:     ldxr    x5, [x0]
-|        bic     x5, x5, x3
-|        stxr    w4, x5, [x0]
-|        cbnz    w4, 1b
-|        ldr     x0, [x1, #8]
-|        sub     x0, x0, #0x1
-|        str     w0, [x1, #8]
-|        cbz     x0, 2f
-|        ldr     x0, [x1, #8]
-|        cbnz    x0, 3f
-| 2:     bl      preempt_schedule_notrace
-| 3:     ldp     x29, x30, [sp], #16
-|        autiasp
-|        ret
-|
-| <this_cpu_and_expr_zero>:
-|        paciasp
-|        stp     x29, x30, [sp, #-16]!
-|        mrs     x1, sp_el0
-|        mov     x29, sp
-|        ldr     w2, [x1, #8]
-|        add     w2, w2, #0x1
-|        str     w2, [x1, #8]
-|        mov     x3, #0xfffffffffffffffd         // #-3
-|        mrs     x2, tpidr_el1
-|        add     x0, x0, x2
-| 1:     ldxr    x5, [x0]
-|        bic     x5, x5, x3
-|        stxr    w4, x5, [x0]
-|        cbnz    w4, 1b
-|        ldr     x0, [x1, #8]
-|        sub     x0, x0, #0x1
-|        str     w0, [x1, #8]
-|        cbz     x0, 2f
-|        ldr     x0, [x1, #8]
-|        cbnz    x0, 3f
-| 2:     bl      preempt_schedule_notrace
-| 3:     ldp     x29, x30, [sp], #16
-|        autiasp
+| 1:     mov     w3, w1
+|        prfm    pstl1strm, [x0]
+| 2:     ldxr    w1, [x0]
+|        eor     w4, w1, w3
+|        cbnz    w4, 3f
+|        stlxr   w4, w2, [x0]
+|        cbnz    w4, 2b
+|        dmb     ish
+| 3:     mov     w0, w1
 |        ret
 
 After this patch:
 
-| <this_cpu_and_u64_zero>:
-|        paciasp
-|        stp     x29, x30, [sp, #-16]!
-|        mrs     x1, sp_el0
-|        mov     x29, sp
-|        ldr     w2, [x1, #8]
-|        add     w2, w2, #0x1
-|        str     w2, [x1, #8]
-|        mov     x3, #0xffffffffffffffff         // #-1
-|        mrs     x2, tpidr_el1
-|        add     x0, x0, x2
-| 1:     ldxr    x5, [x0]
-|        bic     x5, x5, x3
-|        stxr    w4, x5, [x0]
-|        cbnz    w4, 1b
-|        ldr     x0, [x1, #8]
-|        add     x0, x0, x3
-|        str     w0, [x1, #8]
-|        cbz     x0, 2f
-|        ldr     x0, [x1, #8]
-|        cbnz    x0, 3f
-| 2:     bl      0 <preempt_schedule_notrace>
-| 3:     ldp     x29, x30, [sp], #16
-|        autiasp
+| <outline_cmpxchg_u32>:
+|        b       1f
+|        casal   w1, w2, [x0]
+|        mov     w0, w1
 |        ret
-|
-| <this_cpu_and_u32_zero>:
-|        b       this_cpu_and_u64_zero
-|
-| <this_cpu_and_expr_zero>:
-|        b       this_cpu_and_u64_zero
-|
-| <this_cpu_and_expr_zero_brackets>:
-|        b       this_cpu_and_u64_zero
+| 1:     prfm    pstl1strm, [x0]
+| 2:     ldxr    w3, [x0]
+|        eor     w4, w3, w1
+|        cbnz    w4, 3f
+|        stlxr   w4, w2, [x0]
+|        cbnz    w4, 2b
+|        dmb     ish
+| 3:     mov     w0, w3
+|        ret
 
-Fixes: 959bf2fd03b5 ("arm64: percpu: Rewrite per-cpu ops to allow use of LSE atomics")
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
 Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Cc: Ard Biesheuvel <ardb@kernel.org>
@@ -257,33 +144,107 @@ Cc: Peter Zijlstra <peterz@infradead.org>
 Cc: Vladimir Murzin <vladimir.murzin@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Yang Shi <yang@os.amperecomputing.com>
-Cc: stable@vger.kernel.org
 ---
- arch/arm64/include/asm/percpu.h | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/include/asm/atomic_ll_sc.h | 27 +++++++++++++--------------
+ arch/arm64/include/asm/xwreg.h        | 16 ++++++++++++++++
+ 2 files changed, 29 insertions(+), 14 deletions(-)
+ create mode 100644 arch/arm64/include/asm/xwreg.h
 
-diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
-index 63bbfd4944a37..31193bcf89a2b 100644
---- a/arch/arm64/include/asm/percpu.h
-+++ b/arch/arm64/include/asm/percpu.h
-@@ -206,13 +206,13 @@ PERCPU_RET_OP(add, add, ldadd)
- 	_pcp_protect_return(__percpu_add_return_case_64, pcp, val)
+diff --git a/arch/arm64/include/asm/atomic_ll_sc.h b/arch/arm64/include/asm/atomic_ll_sc.h
+index 89d2ba2723590..160c1251f0ec9 100644
+--- a/arch/arm64/include/asm/atomic_ll_sc.h
++++ b/arch/arm64/include/asm/atomic_ll_sc.h
+@@ -11,6 +11,7 @@
+ #define __ASM_ATOMIC_LL_SC_H
  
- #define this_cpu_and_1(pcp, val)	\
--	_pcp_protect(__percpu_andnot_case_8, pcp, ~val)
-+	_pcp_protect(__percpu_andnot_case_8, pcp, ~(u8)(val))
- #define this_cpu_and_2(pcp, val)	\
--	_pcp_protect(__percpu_andnot_case_16, pcp, ~val)
-+	_pcp_protect(__percpu_andnot_case_16, pcp, ~(u16)(val))
- #define this_cpu_and_4(pcp, val)	\
--	_pcp_protect(__percpu_andnot_case_32, pcp, ~val)
-+	_pcp_protect(__percpu_andnot_case_32, pcp, ~(u32)(val))
- #define this_cpu_and_8(pcp, val)	\
--	_pcp_protect(__percpu_andnot_case_64, pcp, ~val)
-+	_pcp_protect(__percpu_andnot_case_64, pcp, ~(u64)(val))
+ #include <linux/stringify.h>
++#include <asm/xwreg.h>
  
- #define this_cpu_or_1(pcp, val)		\
- 	_pcp_protect(__percpu_or_case_8, pcp, val)
+ #ifndef CONFIG_CC_HAS_K_CONSTRAINT
+ #define K
+@@ -239,20 +240,17 @@ __ll_sc_atomic64_dec_if_positive(atomic64_t *v)
+ #define __CMPXCHG_CASE(w, sfx, name, sz, mb, acq, rel, cl, constraint)	\
+ static __always_inline u##sz						\
+ __ll_sc__cmpxchg_case_##name##sz(volatile void *ptr,			\
+-					 unsigned long old,		\
++					 u##sz old,			\
+ 					 u##sz new)			\
+ {									\
++	/*                                                              \
++	 * Sub-word sizes require zero extension so that EOR+CBNZ won't	\
++	 * consume non-zero upper bits of the register containing "old".\
++	 */								\
++	xwreg_t(w) cmpval = xwreg_zero_extend(old, w, sz);		\
+ 	unsigned long tmp;						\
+ 	u##sz oldval;							\
+ 									\
+-	/*								\
+-	 * Sub-word sizes require explicit casting so that the compare  \
+-	 * part of the cmpxchg doesn't end up interpreting non-zero	\
+-	 * upper bits of the register containing "old".			\
+-	 */								\
+-	if (sz < 32)							\
+-		old = (u##sz)old;					\
+-									\
+ 	asm volatile(							\
+ 	"	prfm	pstl1strm, %[v]\n"				\
+ 	"1:	ld" #acq "xr" #sfx "\t%" #w "[oldval], %[v]\n"		\
+@@ -264,7 +262,8 @@ __ll_sc__cmpxchg_case_##name##sz(volatile void *ptr,			\
+ 	"2:"								\
+ 	: [tmp] "=&r" (tmp), [oldval] "=&r" (oldval),			\
+ 	  [v] "+Q" (*(u##sz *)ptr)					\
+-	: [old] __stringify(constraint) "r" (old), [new] "r" (new)	\
++	: [old] __stringify(constraint) "r" (cmpval),			\
++	  [new] "r" (new)						\
+ 	: cl);								\
+ 									\
+ 	return oldval;							\
+@@ -278,19 +277,19 @@ __ll_sc__cmpxchg_case_##name##sz(volatile void *ptr,			\
+ __CMPXCHG_CASE(w, b,     ,  8,        ,  ,  ,         , K)
+ __CMPXCHG_CASE(w, h,     , 16,        ,  ,  ,         , K)
+ __CMPXCHG_CASE(w,  ,     , 32,        ,  ,  ,         , K)
+-__CMPXCHG_CASE( ,  ,     , 64,        ,  ,  ,         , L)
++__CMPXCHG_CASE(x,  ,     , 64,        ,  ,  ,         , L)
+ __CMPXCHG_CASE(w, b, acq_,  8,        , a,  , "memory", K)
+ __CMPXCHG_CASE(w, h, acq_, 16,        , a,  , "memory", K)
+ __CMPXCHG_CASE(w,  , acq_, 32,        , a,  , "memory", K)
+-__CMPXCHG_CASE( ,  , acq_, 64,        , a,  , "memory", L)
++__CMPXCHG_CASE(x,  , acq_, 64,        , a,  , "memory", L)
+ __CMPXCHG_CASE(w, b, rel_,  8,        ,  , l, "memory", K)
+ __CMPXCHG_CASE(w, h, rel_, 16,        ,  , l, "memory", K)
+ __CMPXCHG_CASE(w,  , rel_, 32,        ,  , l, "memory", K)
+-__CMPXCHG_CASE( ,  , rel_, 64,        ,  , l, "memory", L)
++__CMPXCHG_CASE(x,  , rel_, 64,        ,  , l, "memory", L)
+ __CMPXCHG_CASE(w, b,  mb_,  8, dmb ish,  , l, "memory", K)
+ __CMPXCHG_CASE(w, h,  mb_, 16, dmb ish,  , l, "memory", K)
+ __CMPXCHG_CASE(w,  ,  mb_, 32, dmb ish,  , l, "memory", K)
+-__CMPXCHG_CASE( ,  ,  mb_, 64, dmb ish,  , l, "memory", L)
++__CMPXCHG_CASE(x,  ,  mb_, 64, dmb ish,  , l, "memory", L)
+ 
+ #undef __CMPXCHG_CASE
+ 
+diff --git a/arch/arm64/include/asm/xwreg.h b/arch/arm64/include/asm/xwreg.h
+new file mode 100644
+index 0000000000000..d55e3ac68f7eb
+--- /dev/null
++++ b/arch/arm64/include/asm/xwreg.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef __ASM_XWREG_H
++#define __ASM_XWREG_H
++
++#include <asm/types.h>
++
++#define __xwreg_t_x		u64
++#define __xwreg_t_w		u32
++#define xwreg_t(xw)		__xwreg_t_##xw
++
++/*
++ * Zero extend 'v' from 'sz' bits (8/16/32/64) to fill an X or W register.
++ */
++#define xwreg_zero_extend(v, xw, sz)	((xwreg_t(xw))(u##sz)(v))
++
++#endif /* __ASM_XWREG_H */
 -- 
 2.30.2
 
