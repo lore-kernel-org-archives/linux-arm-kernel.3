@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9F7C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59440C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 11:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fgnZvb3RUMxqApqKxj1p/2JMp+8yTlhg+fzaKOMnIEE=; b=EPYerivfrVC69q
-	WJD3djrAhyXTXCFXC/e2OdbE8/rcuVNzN7Qx1Zka6j9CoW0KkKCuGPfKoQyR+UA4L3IfV4WAjAMGW
-	X+3r0pFctLW/F2Dbbjb/5IGuY/Lvs1J/U9pf6iV7sCa/fNUgEmc7LsA6xkvtr+SGw9IaYt64mKghq
-	7C8m02A7IYbUg7jbyIFUlVJ0Af9+Crq1F0RRWUAHZx7Fl8IDLnYFQcf1q9BUR7gEhmJKQbZD8m5sH
-	Nc9JtO6HMOK7lOgtg5eY1taj/hk+fe4VRd5PP5Ge+qxeNeniuL6z/5sX8uTOVscPY7ra4kabthObQ
-	g2gKPtg+k3IJqBdpNhiQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NlvQqMPX1ZBZq6vczB6DK1Q1sg9iUABmibDLc459ooE=; b=2dIo7tM+IkUq1WkcVDkdBYRS42
+	R2bGFtQPxUpwzKjvBRvlXU0itCMBtAitVSetzwVO9mwxYS28WlmZPadZXekOkMcJHRQapeowYbj3X
+	tNOIE9lyje0Ap8oVqjy274bJ4YIUuvrhc26VxOju2myRFVVQ6OhN5w1LKjH6lDil0wij/5QALkmPC
+	Pcq5Za3iDFs2ZkJJERQPRFNdsjF+1sqCKJtxSoFayJHigCYhMsNva8BPkc3HaUI/5EpQLNoFUXyMh
+	2AqSexEiXKNsEUsNdykpD1HFl7Lh1/n6FKXhtxsp+7/ddzEZ/7D7cGrphY+VHmykyAw46l9e7+aq5
+	OCjy+WIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrD6l-00000001eaQ-2G6N;
-	Tue, 04 Aug 2026 11:14:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wrD6x-00000001eds-2yON;
+	Tue, 04 Aug 2026 11:15:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrD6k-00000001eaG-1EWe
+	id 1wrD6x-00000001edB-0vHa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 11:14:54 +0000
+	Tue, 04 Aug 2026 11:15:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 130AD43E56
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 11:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBE401F00A3A
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 11:14:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 25FFD60A59;
+	Tue,  4 Aug 2026 11:15:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 211D21F000E9;
+	Tue,  4 Aug 2026 11:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785842094;
-	bh=fgnZvb3RUMxqApqKxj1p/2JMp+8yTlhg+fzaKOMnIEE=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=Dj0zWmSeisE4UJelCdbUW6unfzGpRDcxCC/T8MdKCM9LE8YFsRTBwcHvSqhq6Wvn8
-	 YgR6Lz3NY/BVLnTKZMsAuKCmjg8HDQ44K6i0ZfISamAJOFJOfp+lLKcPr0vMe4n7Pa
-	 1ZxS6L0qPm//cjrz7+yjHJnPo2Y4k/SNNPon05oQMaCyFLGmYTHv1BEzGu5zr9nGTq
-	 g8Ntu4A4SkmREkAz1vGw32hqXSIWbEuJ4wuya53y/nudU34Sv392CYafFmcM08bpsg
-	 S8Kns1g/pq+AG885kPruJSJ7NBiLFHwxjKJoN/LfxeWHGL3YTcNqKwomXOkG38+wwa
-	 CgmLc/Z0rmMuQ==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-39c86ce9e29so33317211fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 04:14:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RohkK8qaM2hgwFtsuO8ZVwxOxVJBb2jPBOPUUVxM82Yw35qEyNtQQ8uYMeQvVf4rkpr0EW9e2vrcrHFOMQezLQH@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdHV0AOHONqKtDFO3FYqZ6bvOK3+QMxxZmee3gkIY3fJsVXlC+
-	LtcedvgokHt2xPnhpnn03hwJWg/Hw8WTf/WhBVwEI3tkFVUAWXLo60scFU/r9YwrNyHcz+BQl/S
-	/HgYPqOH3qSojamjjitEuXDjquq+ojCM=
-X-Received: by 2002:a05:651c:1607:b0:38d:e220:8dc2 with SMTP id
- 38308e7fff4ca-39f862d6e6dmr25991121fa.20.1785842092263; Tue, 04 Aug 2026
- 04:14:52 -0700 (PDT)
+	s=k20260515; t=1785842105;
+	bh=NlvQqMPX1ZBZq6vczB6DK1Q1sg9iUABmibDLc459ooE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZnHoS2uq+Wpn11Z4etXu+hxwCLOTiTcnmGh7C2+5V3PHkGFMDITE9z6uYgjCeYU/L
+	 fC2NEuRAvvmECwZZAk2YEwJi/IwoCe8YsK5WKKXZVKTQd4iez0HYq95u5/tbxm135G
+	 BW+tRjPZmgs+NDRQXQS+Z1PArA8qMZ3MY68n34Q2d8TV/awui74P0GXMnIVCuorty7
+	 wc+LZ/aDpCuNW+K8lOzK6vW28Jlb7Q6F04ycjuf6wruLgZ+JZ8nOR4jzNd1mJrn889
+	 QN98PED33opeHD+Qj9pfIsMlzShSZ8hTwHnXReg/xD7GXlIty0nulMgyNHSoKB2eaN
+	 uL1Z8zxWAFNqw==
+Date: Tue, 4 Aug 2026 12:14:43 +0100
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: Pedro Falcato <pfalcato@suse.de>
+Cc: David Hildenbrand <david@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
+	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
+	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
+	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH v2 4/6] mm/s390: constify ptep_get() argument
+Message-ID: <anHJh7rPomeJgVHc@lucifer>
+References: <20260803164400.531199-1-pfalcato@suse.de>
+ <20260803164400.531199-5-pfalcato@suse.de>
 MIME-Version: 1.0
-References: <cover.1785772659.git.jernej.skrabec@gmail.com>
- <3980ea1aeb3f7fe8b4700e36560deeba3d050664.1785772659.git.jernej.skrabec@gmail.com>
- <CAGb2v66E95PwYhdPC4mkX1htF2VXECiGwUHfzLHV2ydOMiwxrg@mail.gmail.com>
-In-Reply-To: <CAGb2v66E95PwYhdPC4mkX1htF2VXECiGwUHfzLHV2ydOMiwxrg@mail.gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 4 Aug 2026 19:14:38 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67ugarRQAB=yDiyGti4E_r=dF0G08-TiGgphQSefHs8zQ@mail.gmail.com>
-X-Gm-Features: AUfX_mx9hzvoUh1G84nXavbQjcP_NwL2YKj3AIrXlYUyRtxAKsoU5YliBwxz1Dg
-Message-ID: <CAGb2v67ugarRQAB=yDiyGti4E_r=dF0G08-TiGgphQSefHs8zQ@mail.gmail.com>
-Subject: Re: [PATCH 13/13] drm/sun4i: Align VI buffer addresses for subsampled formats
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	airlied@gmail.com, simona@ffwll.ch, samuel@sholland.org, 
-	dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260803164400.531199-5-pfalcato@suse.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,110 +78,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 4, 2026 at 1:25=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wrote=
-:
+On Mon, Aug 03, 2026 at 05:43:58PM +0100, Pedro Falcato wrote:
+> It's a simple READ_ONCE() dereference, therefore it can be const.
 >
-> On Tue, Aug 4, 2026 at 12:11=E2=80=AFAM Jernej Skrabec <jernej.skrabec@gm=
-ail.com> wrote:
-> >
-> > This is a partial revert of commit 79ac1c945ab8 ("drm/sun4i: layers:
-> > Use drm_fb_dma_get_gem_addr() to get display memory").
-> >
-> > Chroma must start at the beginning of a subsampling block, for example
-> > chroma start address for NV12 must be aligned to 2 pixels.
-> > drm_fb_dma_get_gem_addr() offsets luma by the exact source coordinates
-> > and chroma by the coordinates divided by the subsampling factor, so for
-> > odd offsets both planes no longer describe the same pixel, which the
-> > Display Engine scaler can't handle.
-> >
-> > Align source coordinates down for all planes instead. Remaining shift
-> > of one pixel is already compensated with scaler phase shift in
-> > sun8i_vi_layer_update_coord().
->
-> Well I think this applies to the format in general, and probably should
-> be fixed in drm_fb_dma_get_gem_addr() instead?
->
-> > Fixes: 79ac1c945ab8 ("drm/sun4i: layers: Use drm_fb_dma_get_gem_addr() =
-to get display memory")
-> > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> > ---
-> >  drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 20 ++++++++++++++++++--
-> >  1 file changed, 18 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/s=
-un4i/sun8i_vi_layer.c
-> > index 09f668c8af24..ad036cb9d88e 100644
-> > --- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> > +++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-> > @@ -197,15 +197,31 @@ static void sun8i_vi_layer_update_buffer(struct s=
-un8i_layer *layer,
-> >         struct drm_plane_state *state =3D plane->state;
-> >         struct drm_framebuffer *fb =3D state->fb;
-> >         const struct drm_format_info *format =3D fb->format;
-> > +       struct drm_gem_dma_object *gem;
-> > +       u32 dx, dy, src_x, src_y;
-> >         dma_addr_t dma_addr;
-> >         u32 ch_base;
-> >         int i;
-> >
-> >         ch_base =3D sun8i_channel_base(layer);
-> >
-> > +       /* Adjust x and y to be divisible by subsampling factor */
-> > +       src_x =3D (state->src.x1 >> 16) & ~(format->hsub - 1);
-> > +       src_y =3D (state->src.y1 >> 16) & ~(format->vsub - 1);
->
-> AFAICT the only difference compared to drm_fb_dma_get_gem_addr()
-> is the masking here, i.e. round_down().
->
-> > +
-> >         for (i =3D 0; i < format->num_planes; i++) {
-> > -               /* Get the start of the displayed memory */
-> > -               dma_addr =3D drm_fb_dma_get_gem_addr(fb, state, i);
-> > +               gem =3D drm_fb_dma_get_gem_obj(fb, i);
-> > +               dma_addr =3D gem->dma_addr + fb->offsets[i];
-> > +
-> > +               dx =3D src_x;
-> > +               dy =3D src_y;
-> > +               if (i > 0) {
-> > +                       dx /=3D format->hsub;
-> > +                       dy /=3D format->vsub;
-> > +               }
-> > +
-> > +               dma_addr +=3D dx * format->cpp[i];
-> > +               dma_addr +=3D dy * fb->pitches[i];
->
->
-> Where as the helper has (or used to have before the blocksize stuff):
->
->     paddr +=3D (format->cpp[plane] * (state->src_x >> 16)) / fb->format->=
-hsub;
->     paddr +=3D (fb->pitches[plane] * (state->src_y >> 16)) / fb->format->=
-vsub;
->
-> Am I missing something?
+> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
 
-After some headbanging on my end I see that the offset for the Y plane
-needs to be rounded down.
+Even I can't be pedantic about this one... :) so:
 
-But instead of reverting the whole thing and open-coding the helper
-again, could you adjust the address returned by the helper for odd
-offsets?
+Reviewed-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
 
-And just a heads up, this also needs a clipped version of
-drm_fb_dma_get_gem_addr() as sun8i_ui_layer_update_coord() uses the
-clipped dimensions. I am currently working on this part.
+> ---
+>  arch/s390/include/asm/pgtable.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/s390/include/asm/pgtable.h b/arch/s390/include/asm/pgtable.h
+> index e882663a58e7..ec331ec92943 100644
+> --- a/arch/s390/include/asm/pgtable.h
+> +++ b/arch/s390/include/asm/pgtable.h
+> @@ -986,7 +986,7 @@ static inline void set_pte(pte_t *ptep, pte_t pte)
+>  }
+>
+>  #define ptep_get ptep_get
+> -static inline pte_t ptep_get(pte_t *ptep)
+> +static inline pte_t ptep_get(const pte_t *ptep)
+>  {
+>  	return READ_ONCE(*ptep);
+>  }
+> --
+> 2.55.0
+>
 
-
-ChenYu
-
-> >
-> >                 /* Set the line width */
-> >                 DRM_DEBUG_DRIVER("Layer %d. line width: %d bytes\n",
-> > --
-> > 2.43.0
-> >
+--
+Cheers, Lorenzo
 
