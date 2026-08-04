@@ -4,98 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBED9C55ABC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:17:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4843BC5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E2l8SC5Yz3l3RQ8kfLiWXU6wvt0RqrCjSGXwLiFhpCg=; b=MUo3FLhVmxRYvy7cViyj76UrR0
-	hGXNjRXSOdX5d/1dq+P3JwnK29ucZtr5Yn6EY6w2XFlY650KOZSUoDxEcrACkrI6fZtjOR7SSysTt
-	j0p0tbYCboWwL35mtNZ9f7u8WeoysQ5Xch7qu8uxHQu5i8v0Xojx+xY+3c+hT5TR/NT/t/nLRaaUY
-	QK4IoprSYDIx0QxP3khhQ9UYMLgaM4O2atV2YtcShjo3p2tk+YlJuuiMn2d0xtVEAaxV+KX2J/oxP
-	cryJZwRpEpIPb1ybSeYC+rupW7M22qfqpmu/km/qAUDc9ZDEQxDBqvqtfGoXV/76XlGss26LPKGfM
-	jiObFTag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZgjGdPbFOrBvAZPDF5UtbgM8THHmRWT3MTZdAtuILgM=; b=07cYGI091VcB9v68cdiEvEtTvN
+	LaWpgLT6Iymu382zY+1X7FTcyvLE8yaveu2axelc5Q9jEFHZmiko+AZ/0RNYXOcGldlcx0zIK+BXC
+	ASsCoDv/c9DkXfi0NfTK2dCAYAL/PA4bx/mDsZUs5kJnaK2FqJDtINZnjJ8D+2091hO2fX9mADsxl
+	CUR2gUD5KBeJhNl6hcPrG7pB6awPRiItVc7HIlZaTnEh5ciaQhtZfCJMenQd0OVcPhd00UVnblBca
+	4Jo4JChJjYrv5APT+Weps/pYs6PJbMcAoNbiGX1myjL+GVlBujZjcc1xRVOIwEX/g2IXQUOx+FzOj
+	FQpvqe4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9Os-00000001Cxx-1xH4;
+	id 1wr9Os-00000001Cyi-2umy;
 	Tue, 04 Aug 2026 07:17:22 +0000
-Received: from smtpbguseast3.qq.com ([54.243.244.52])
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9Om-00000001CYt-1dPe;
-	Tue, 04 Aug 2026 07:17:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1785827298;
-	bh=E2l8SC5Yz3l3RQ8kfLiWXU6wvt0RqrCjSGXwLiFhpCg=;
-	h=From:To:Subject:Date:Message-Id;
-	b=pgysLPSKhco3sMM/jci2VixwgqgdEP3DVtJY8+ymFeeCsM28uQX7zoNoMDJ+3nxrG
-	 NMqGb1KVrq0NYFAlgkNPnKcq4GSmfbnz9Nf6lge8n2S84JDI4lBmVndCWGcWnGofdw
-	 q77SdDhYGXx1pAndrQoApW9YSAhUC0QjSDEZisRE=
-X-QQ-mid: esmtpsz19t1785827296t5d5c1fbd
-X-QQ-Originating-IP: 0cHwMQcP2BBEqYGFtlahXAYAHyCJF7V6tqtxURYr1Mg=
-Received: from DESKTOP-8BT1A2O.localdomain ( [61.154.14.86])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 04 Aug 2026 15:08:13 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 9911778146744449110
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: [PATCH v6 5/7] phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
-Date: Tue,  4 Aug 2026 15:07:28 +0800
-Message-Id: <20260804070730.68-6-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20260804070730.68-1-kernel@airkyi.com>
-References: <20260804070730.68-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: OaUS/vBL36PcEzQO6Z6f+WAeEsVjZiLXs40cvGfyr6DfYpua82S4ajAE
-	v+tcsSbUfU0wlnsUSHKp21ylXmQs/2BLeQrnf+6eESzo+mXQERHA4JoIWqc6PVXV9Cy9Dy4
-	vUNdHNk3wzCeKQXobmuXHZhty7CviVNIDG/Nee1KxnbSBotqMJ0V38cxatAuhTMTcVCGNYP
-	ZaQPYDQrCVLEJ6GqlxnnSXD/pLj5F60MbdO5Oao6zFqaoQ91I1sVKN0ZTI5/G/xMbBoSfE3
-	XcEXmMEfPfAwX4S19ABDGsSGprWRN/NUY58xSWl14l53PKcD4jCUuIxtXQrNAoT+HbEPbj8
-	6cp/UbAKf/3WEolc0q6x3tOAIXowJvR9MDt7sGgxIpWlkTO6tuEHoXYkKuS2LsgAu9iu6aZ
-	NdBuB3M4Z0YD+GAOQ2CClPLPEaEjK69pyJxlMiDhG8aLRr8gJGDrwOXEnHY4p2XTjEo5N/L
-	hhi5BZE5TWQu8jJwQi29hiewTUhiZQkalwho4v0rJsNGRwknAgdLi0F0qE8y9QfGNnr/gQe
-	NqGX0lDhOz2pPJn6kujxZ6VwOKtBLCkAzhFjIcKI1o5zEz2jH5oLuT6N+iWLIaE9AmsR1gp
-	86bXZQM9NKko2/DIxExaE/D+iIvv9aXh6ie/tu7yf5CR0llthu8i5LiSuW00HLjZWUlf3o+
-	xAC9dtj17MP+B1DfXQ+utmep9AAaosmuC3oLtWsWiRFV4dMXltppmZki9pzaa6ttkPM/VvR
-	zDos0NPTfpPwiwvwn28/tW8etg9CSBRhKVd43oTiaQzXTlDRZiG2nRisiJnL7XuyqvI+ZKh
-	6rPw9weY3JcmMMmZFtQ9IBbYh2T1frtUWaFjNDvMKJf4Dfb2ThjRGYkoxt5hcFAgKPmK72N
-	chSxTzd+1GDLWAitJ/ymgBbQJQXfGE14TFxWdUB8ki3c7dXq/oIzU1UTs4eJx1njsH/Ii13
-	4iIloOLjHj12qaDX2TlqVsJ4haggC3GIFt9p+GdBcS+hjAxJ8KD17aoCJkmPj6oeDCSu8us
-	Rl46kl/ibWJ7c9hyS4pqU9bcRa2msZyNOiaeKnqQ==
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
+	id 1wr9Oo-00000001CoC-0h7C
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Aug 2026 07:17:20 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67417nI52283882
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 4 Aug 2026 07:17:17 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ZgjGdPbFOrBvAZPDF5UtbgM8THHmRWT3MTZdAtuILgM=; b=B/qkmK9YpbI9Be+Q
+	02N1LubvoXLC2uEtUkGyCiG+yCpRwKjhtJNMz3gyk4SRfdE9Pgl30plIQcTvaCeH
+	WgcLCHFvtq3TWA04EzutdM9v/k6BrkpEdWvpHxdyMkqOdbp2zpYnb5jNheC2wulR
+	2cxw/mDbI6kPLXFO+P98Ys/eQiGEXMPCE8fL+Fg66p9cvIIOQ1CT1h3cgC8s5dSv
+	E4uCR2Jn++QaKJO5OfGklGmtoMYNNIuCl/ZtncOGgvXLG8sejVnO6PvNi87AT9QS
+	jz02JgV/3chXPHjQZhrwyjg1aQy7v0YeZgrUN+G/QT9yXVMsm0nFAnGbe2PVZFWd
+	p6oEOg==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fu5hqsd4b-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 07:17:17 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-51c0408254aso9439191cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 00:17:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785827836; x=1786432636; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZgjGdPbFOrBvAZPDF5UtbgM8THHmRWT3MTZdAtuILgM=;
+        b=ZqayP/AhO/pkWqGfisGqNOiZNTqt35nS539/ORleTpqCfEGXrci4imopRZ+1iPKJZT
+         ckXERdLAjlISHv2IrxVrvrDYMtatpTo6MVYJFJODg5c8dD4grPxynAT7yaRXU+DRE5Rx
+         nRo9lcWg73l+lwT6Lfi+JwPgR8nplp+v+nDwamzmx0pnkU0fsW4k1A9Nfwc7mqGn8+03
+         jxIs+Q0hSIh10t0Ll1iN013xrSBXb1eBDm9TjsbDJ2lKEOPr4b2AMuYH0KmKjmvh/JmQ
+         EfwX7D01QOHllf1tT/pglKu9g+meRrK1/HQrjHNaIiudWcPzkhuYZzufPSjlAIDYBgjO
+         NZrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785827836; x=1786432636;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZgjGdPbFOrBvAZPDF5UtbgM8THHmRWT3MTZdAtuILgM=;
+        b=G9VaBLYY77iSL4X/ZZ3LolEjPLyDH2hAUjKNYyKL7fHZUQLsgStftgCgfSPVedPjtB
+         gSfUoJhpIf2H1N2fSkjAPSZGWluZFkg+sR0acjReJz4aSjd7az7mu72lbu8M3DSkDAeg
+         +TvFHEDlJQFJOkW9+ZakeNEhVGIrKejiynVonfZhqrhDp1Ala1M3oDDMojA0Wmru/E2W
+         oDESnPWj8P6rLDEDPo53N6savXzypM75Zox3ff/wGZqIlBpnS4S1Xbx58EGwr1JAGCr3
+         HHUvKog3e5P6q0LYgWV74ImKrwyxemCfelmK80zC4M35ZbOJLaHuv9KeDFv1lUFeH3ot
+         ccMQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpMeEUr8TUlt1IH3qZFZbnlIO3Cz3rezv8WtbEK5ZXgfF+5pY3KvVhznqtDKokQVcFW7TRoydHEOrIHBCJG7Aqs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmnYi9KSyTW+ogVqNCc1U8rq2Bbq5Kbw+2eXk7qCSfobtU5S3A
+	y/NBAf/HTAY7P16EFPKG6tc5IsNvzDkQwkuQ5MYrVIuoNR7RqFCpWCmk48WIfUDOZIVNeOf++xf
+	/1IKZ/4YhDo3hnYba4OuFYm5O1Gb4E7ZuFir0YbJVaNGisxU45fMc4F8ADIVaCWJkYlusHaAgw6
+	5GEQ==
+X-Gm-Gg: AR+sD10Seub8ks3I2wWhs4RnubIQ/QXVH8bxMwfPUF3jMFqkAgT2Y1wAITctzGiW2bY
+	k7sbhHR/mNAGCO235fYthOIM8xxxLfsskBW8Cl36LzpJxnXxcn0Lc1Vcwqm5T9V1XGyF+zh/34Q
+	ob5jlMRa4GYrOsbBW5HD/EIok9m2nb1ATw13N8d2We2vthZSRM9o/9v33olKAdMqogWWmeu9Esv
+	tbCmYmBKs2aQDge4JYizgpaSZLKMWcACtAmjwv6YcZB4QWb0M4uX0CQ91frTOOFZnkeVI6Bhf8y
+	lTj3/F867ycQcAdNV5I00RkO0k8x21TIu5z7uFD8RQ5gOQAu/k3P5xal3AGK2eNO4XTmEEoCOqZ
+	2ClDThKbi32l+zpJOiAWEQWRi
+X-Received: by 2002:ac8:5802:0:b0:51c:d1c:10e2 with SMTP id d75a77b69052e-52cd353fcbamr43688621cf.12.1785827836484;
+        Tue, 04 Aug 2026 00:17:16 -0700 (PDT)
+X-Received: by 2002:ac8:5802:0:b0:51c:d1c:10e2 with SMTP id d75a77b69052e-52cd353fcbamr43688401cf.12.1785827836136;
+        Tue, 04 Aug 2026 00:17:16 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.219.214])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49807b8d04fsm420265975e9.3.2026.08.04.00.17.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Aug 2026 00:17:15 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Date: Tue, 04 Aug 2026 09:17:00 +0200
+Subject: [PATCH 4/5] spi: dt-bindings: spi-cadence: Drop duplicated
+ type/ref
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260804-spi-num-cs-v1-4-4ccb13dcc7b0@oss.qualcomm.com>
+References: <20260804-spi-num-cs-v1-0-4ccb13dcc7b0@oss.qualcomm.com>
+In-Reply-To: <20260804-spi-num-cs-v1-0-4ccb13dcc7b0@oss.qualcomm.com>
+To: CL Wang <cl634@andestech.com>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Kousik Sanagavarapu <five231003@gmail.com>,
+        Vladimir Moravcevic <vmoravcevic@axiado.com>,
+        Tzu-Hao Wei <twei@axiado.com>, Swark Yang <syang@axiado.com>,
+        Prasad Bolisetty <pbolisetty@axiado.com>,
+        Karthikeyan Mitran <kmitran@axiado.com>,
+        Michal Simek <michal.simek@amd.com>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=856;
+ i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=QvBv95KSm8SL2goH2K3maE3l+qVg2d99K5h/49887Yc=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqcZHuZRAX5vP43ZFkZZlLQewkCV42WR6ypgeVN
+ GNZxrY2XoiJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCanGR7gAKCRDBN2bmhouD
+ 178iD/9bjlLQN7VCREG9hHKpqvo7x0FpdQs/jSs5UwEx86EVo85cZ3LN4KF1IhphaMVqqB9BrUG
+ rx+yz8Fjvy8HFIRc5SlRwaqojtiPkH6/HsLiKu1jDMDWZQvSnWG1+KCTbfPef9yPYkjQ9BLkW5s
+ 76VfxpaM10lL8JqXplJu+iqGcLGwJ/tkNXixYW9awi16t6AARc4ONZDUTy/FXC6+/itUEqNH9aq
+ 22XbFTNflcyhQi+NeSFJYGMmzVnrrp1JOgwZtjlkagUVHkDLdq5YI36JkkDVWQqb+f60qel3ts2
+ 98uaMfZfsQnVi1ujKZidhdiWQaidB+zbMsAuiRmxZZ7YAcrwbLh0dYRmQ8HTMwDDMp1r8+yWp5h
+ D7u31IEPja3WLrKjfaqnJmOqLMcokK3O8gevh8KxgJQARzoPlFeNTMxg8Wu3b7arl/gFu2p7hwP
+ mAAkGbO2lC9AO7A1wqGGPYIORqeawEESTMw/9QTy9w9wujjiGl3zIyS5wUfkWxsKK+dYqwjfj97
+ FCxKc/pKlPn2NTUGsE9SZXxtYBqqUsFP1acOCVDSgRHKhCD+HLuMJ34mmyrh3FNZJqjT3jT+STu
+ 5H7G18cmshN2t6eL5YicM8oReh9zYzsnpSSHGlOrHkfCWcPjzirRt8CxUybg6qmx+i8J16x7RBr
+ v4f67HAw2yTC8hQ==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODA0MDA1NiBTYWx0ZWRfXxP57hQiW4w53
+ gA13qOdBrX1DIKxl4dbfzoFsUiW35rzkQe5J7wWUJYL7fW6s82U2wCF9zslUk8Y0T3Zf4cMaNG9
+ Z3K7r0RlI1w+hCBQtwJ/zWwsPXGFDds=
+X-Proofpoint-GUID: ajKIRFzufx_Nc-AipOZFkUd4XsvSAmD1
+X-Proofpoint-ORIG-GUID: ajKIRFzufx_Nc-AipOZFkUd4XsvSAmD1
+X-Authority-Analysis: v=2.4 cv=EoniaycA c=1 sm=1 tr=0 ts=6a7191fd cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=+bKQE0WJfmhK2875HamI0Q==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
+ a=EUspDBNiAAAA:8 a=tRHPAiqlqGnVGwjNgokA:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA0MDA1NiBTYWx0ZWRfX1Dc6JjPz67jE
+ 8+Ww/mri0Jkj8IGsD3d42rDQa8WmVLUQMwo3cbIc5709+IxJcSn/hKoRjTP7jhozc+K990FIIm1
+ ODn1CpRsZktv+iypzaY1pEB5QC+jmCQBqfswh16UjMDWmSL5A38sHREsh9pr+kC/1Pimvmz30eE
+ yjc1m69rbvK6xx4Z3P2c38ayxJRe7fsPuej1A6JWHy7d7Moh+hw8bzRy0F4MSUrHIVYHqstfKVf
+ owJWp7vGqoRVEeVdguijRyC6ykXK7Qgt1OW4jPZZ+HgsfyOl+moJ3EcDsUaBGWOAvK+z823cWcC
+ yB5PbBEI8bnpyMLeZjb9AXQv2ny8faR+WXvPOlSiuoPtbe7koId8Oaib/YVUdzhrAcUQ7aLl/v6
+ cS8gI7g38vKJYo+/Pzk70VmT3ZpIrY5yltJ+635FzbTuQvmZCs6bgFlKbZPzpCvbzMPTCuYngTz
+ NkkbYlUJ1OLA3PI9XkQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-04_01,2026-08-03_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0
+ bulkscore=0 impostorscore=0 suspectscore=0 spamscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608040056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_001717_378506_0FC48799 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260804_001718_349261_D4E265AA 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,75 +175,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+spi-controller.yaml schema already defines this $ref for this property,
+so binding does not have to.
 
-Using the DRM_AUX_BRIDGE helper to create the transparent DRM bridge
-device.
-
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
+ Documentation/devicetree/bindings/spi/spi-cadence.yaml | 1 -
+ 1 file changed, 1 deletion(-)
 
-(no changes since v1)
+diff --git a/Documentation/devicetree/bindings/spi/spi-cadence.yaml b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+index 347bed0c4956..429cd824156c 100644
+--- a/Documentation/devicetree/bindings/spi/spi-cadence.yaml
++++ b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+@@ -43,7 +43,6 @@ properties:
+       Number of chip selects used. If a decoder is used,
+       this will be the number of chip selects after the
+       decoder.
+-    $ref: /schemas/types.yaml#/definitions/uint32
+     minimum: 1
+     maximum: 4
+     default: 4
 
----
- drivers/phy/rockchip/Kconfig              |  2 ++
- drivers/phy/rockchip/phy-rockchip-typec.c | 13 +++++++++++--
- 2 files changed, 13 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-index 14698571b607..9173d3b4fef4 100644
---- a/drivers/phy/rockchip/Kconfig
-+++ b/drivers/phy/rockchip/Kconfig
-@@ -119,6 +119,8 @@ config PHY_ROCKCHIP_SNPS_PCIE3
- config PHY_ROCKCHIP_TYPEC
- 	tristate "Rockchip TYPEC PHY Driver"
- 	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
-+	depends on DRM || DRM=n
-+	select DRM_AUX_BRIDGE if DRM_BRIDGE
- 	select EXTCON
- 	select GENERIC_PHY
- 	select RESET_CONTROLLER
-diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
-index d9701b6106d5..48070b50416e 100644
---- a/drivers/phy/rockchip/phy-rockchip-typec.c
-+++ b/drivers/phy/rockchip/phy-rockchip-typec.c
-@@ -54,6 +54,7 @@
- 
- #include <linux/mfd/syscon.h>
- #include <linux/phy/phy.h>
-+#include <drm/bridge/aux-bridge.h>
- 
- #define CMN_SSM_BANDGAP			(0x21 << 2)
- #define CMN_SSM_BIAS			(0x22 << 2)
-@@ -1162,16 +1163,24 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
- 
- 	for_each_available_child_of_node(np, child_np) {
- 		struct phy *phy;
-+		ret = 0;
- 
--		if (of_node_name_eq(child_np, "dp-port"))
-+		if (of_node_name_eq(child_np, "dp-port")) {
- 			phy = devm_phy_create(dev, child_np,
- 					      &rockchip_dp_phy_ops);
--		else if (of_node_name_eq(child_np, "usb3-port"))
-+			ret = drm_aux_bridge_register_from_node(dev, child_np);
-+		} else if (of_node_name_eq(child_np, "usb3-port"))
- 			phy = devm_phy_create(dev, child_np,
- 					      &rockchip_usb3_phy_ops);
- 		else
- 			continue;
- 
-+		if (ret) {
-+			pm_runtime_disable(dev);
-+			of_node_put(child_np);
-+			return ret;
-+		}
-+
- 		if (IS_ERR(phy)) {
- 			dev_err(dev, "failed to create phy: %pOFn\n",
- 				child_np);
 -- 
 2.53.0
 
