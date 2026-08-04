@@ -4,96 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD27C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:06:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D427C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 17:06:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aqQolFyy9CteLDWszj4sftvNtB4+0GIquieHeua55fE=; b=K1RiqJcIoSsTqyJpRI0yUlYpY/
-	bXE7VxxcuwtD/mZeKrXtP0StwCDQvpTRXSRnmUAy/4qi5DeTmsyeAHlZFFixkCmajNAl8rfnx0SkF
-	odevtneY7nfxv72Zo5kS+vfeizNgftgMkHt3NXamRK55rNUznrIfXk5ddfVkj96mg7QRAWKeRMsN4
-	aVQtHqPLOvr2Nmxidh3t5mpQRKz3+RGhTUxUvBwHVLM1gIYJlF70pnpAN7osL0kCIGatoY5O+pwSL
-	Axn5N9RxpekIril8kFY8i9KDO1SHbutXnQ7WrGRXG16zgrzx62b9t5paJnS/q6pj1ieFMZ2s/vUmy
-	Wdwc+H4A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3YqmqGKIPkphFV2jpv6a6xSKr4jecc8pLFqqUVC6B/4=; b=JDiIkH99w3i0CX
+	x9K1Z/9JzNWGWXhPjCjOPVr7GOy9hbGlgi2uOoR/AlgdMSMY20WRVMzQ8jcM7+FzqyP/KEKrwE8f6
+	6HpLLDxedfGAcdamFBrBUpBhz9LOH4yICNa3RJqcQ+O0tTT1uyx+ySmh1cKrWq7TEFiaDCKXTcarn
+	T5OanJSJN+rwcNtSvUxhyHrpxYGfnz3fhA4eyI6xonRAaSUv2gCwp5YVM3BUO84wGEAAaq85WcVgC
+	dV5iQHxU+Er47MYocdhdHqm70Ma1HNcbg8nQiPyuZ/b4tueVpOkE/fzeVmJI0gnV5vcqfKESqUp5L
+	HN5sSssoi0CuqXXZdOrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIaj-00000002QRu-0suC;
-	Tue, 04 Aug 2026 17:06:13 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrIag-00000002QOT-2G3G
+	id 1wrIam-00000002QVL-1bh3;
+	Tue, 04 Aug 2026 17:06:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrIah-00000002QPp-2C3O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 17:06:11 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2cf27856f9cso1073235ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 10:06:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785863170; x=1786467970; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=aqQolFyy9CteLDWszj4sftvNtB4+0GIquieHeua55fE=;
-        b=ouSxBmS248mNiSE5r4k7TtTK1uCoF+Y6inz6W81PV6/IUqplqA5R+qddqB3187CLiw
-         B/NaKdEV2Tdp2VAIM6UvyYK4cyL6iVx24waHgq8x9bhuVOY4CqmwfIRbqJ6HRJa8JS9J
-         USNzFNYNZE3fT4M84maXFK1C4GlLzV+efXWjZVB7oKbQOQOKrGz8Y+sP+tA+pVmB6z9T
-         cz2BImFd4i8wo3PsWVsTVm4jbgH2n1YrqGf2UtUAdOqXUThLSLVVoLvYjQMCPf0kxYzd
-         EIfIRH+gqaUL7/7DttqN7xINptnfr+xsx7p9VBckSNB4xvEqhcWmcAHoc8uIFrwsx22R
-         q7cQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785863170; x=1786467970;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aqQolFyy9CteLDWszj4sftvNtB4+0GIquieHeua55fE=;
-        b=nOoLLfzKtQCDM3bgebIq8aBinlzDL9qxIxmaEw5FhwtzvpiKGkL3BuuOATzB37ds0p
-         kkYKLZlYjlHn8WQ3roRkhFZkzqcaf/XLbmRd+EBmt41ALDNk8foNMZyI5/ii8LBEiPCf
-         hfb6eZJJSVjhPcJStTe3ENZXML4Jp16491lOmN9tbMwi7fUWvbExn7jSut7SBKBwTo/m
-         I78tcT4Url0BNuW39FCb8e6+E6FaI5wEQ7puVAXRUx3R1WgiNA7xZ5ogZzmILfGbMbtd
-         7dvmnQAvYnpulsM7FoY54C8/TRU3yYpafDDp5jXeSr8/qYoXdQL3MW1EYU7UbEdAXxOx
-         c93A==
-X-Forwarded-Encrypted: i=1; AHgh+RqAASIPnYCaBChG+//L5Y+0DjFyUjzXdtCZzZQ2PTn6DkCpD5sGL0qAfpAKZz0m+HbAputI8/Qf+xtonWCZyjib@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzyTs668XgfoYhwnkKzo3C2TatLfAtJruMOUX3D+WmYfUzZlXi
-	ceXE/dIfP9SNHbRKySwjfKbHg9TT+IWYxQcZdKNQFkJPPNKWefjgvB1/
-X-Gm-Gg: AR+sD11nZxUUZ7yHAe6OX/FeqCZzSsv2Xxg1NpK3KUaLfsUNZFCZQOGabRK7mytvlp0
-	XpLwsMdAPvDs3k7474wL9/Ca+3Qngwsy3osdP186c1jUJx2P3ndx8vMEPjHpcqFoWvEsx2KzVul
-	wM39lWImb/84tkoX68gg9sYddHtMEsfeUp6M1Rg0uEjvIpt+4+2lcoOoGrq/9kQSSZsKhk3YAE1
-	zZYFpVU4Nr+QUa7yef49g+in8YTyhFFfls4cVZW074ehbc14KoSBAj7zD59omMQ7UecoLKxfd9p
-	+vmPgbd8GLmdMXEYyU38YmmJfh6SqfiRHS+i39VN3LxQUbqbzhjpHUG9SlR3cDVR7cKm4PcXcsb
-	H79U1EP1ZSGHhKtgOmLtD//Bes0hT1kX09w01tyotUqcceCqDcljC7QHKIvrNLmO3wmu5+VSK9t
-	xoBzcrnfHkXoMa047nVQZKIuWwSL2aNQqjCLfGmbJq+pHXfOw9X3lNJcH2woxQeD/58yJorw==
-X-Received: by 2002:a17:902:cecd:b0:2ca:53e9:1277 with SMTP id d9443c01a7336-2d0ca712f17mr2879415ad.1.1785863169414;
-        Tue, 04 Aug 2026 10:06:09 -0700 (PDT)
-Received: from ubuntu.. ([2405:201:8026:213e:1461:a94d:d559:948d])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31586162e80sm7230582eec.0.2026.08.04.10.06.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 10:06:08 -0700 (PDT)
-From: mdshahid03@gmail.com
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Andy Shevchenko <andy@kernel.org>,
-	David Lechner <dlechner@baylibre.com>,
-	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Markus Elfring <Markus.Elfring@web.de>,
-	Joshua Crofts <joshua.crofts1@gmail.com>,
-	linux-iio@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH v5 2/3] iio: adc: bcm_iproc_adc: Introduce local device pointer
-Date: Tue,  4 Aug 2026 22:35:20 +0530
-Message-ID: <20260804170521.196393-3-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260804170521.196393-1-mdshahid03@gmail.com>
-References: <20260804170521.196393-1-mdshahid03@gmail.com>
+	Tue, 04 Aug 2026 17:06:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F121C1684;
+	Tue,  4 Aug 2026 10:06:06 -0700 (PDT)
+Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 293303F632;
+	Tue,  4 Aug 2026 10:06:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1785863171; bh=XZjvGkTQofdBvvBwSuBBvXySbzPZJO4hBi/MD5ui/Nk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=C3HdOizzKiGOwIKH+hZzDcVkHqzhmhmHvBYB3DWy4UWFurOF6YXL++L+zFPeVavel
+	 6xnXc0dgdXfe+aqLL+s8NA8ki+PtkXYW1WO+uqV+sX9ibyxRl4t9FnLTCa4TqMbDd0
+	 JOUDd1eTxA0MPYFevtL8g1AO2QI3DSMrOBa+89JQ=
+From: Mark Rutland <mark.rutland@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 13/20] arm64: percpu: Add infrastructure for preemptible this_cpu_*() ops
+Date: Tue,  4 Aug 2026 18:04:56 +0100
+Message-Id: <20260804170503.3513916-14-mark.rutland@arm.com>
+X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260804170503.3513916-1-mark.rutland@arm.com>
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_100610_578994_468E5005 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20260804_100611_669348_FCFE2EE8 
+X-CRM114-Status: GOOD (  27.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +63,387 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: mark.rutland@arm.com, vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+Currently arm64's this_cpu_*() ops transiently disable preemption in
+order to guarantee that the address generation and memory access(es)
+occur on the same CPU.
 
-Introduce a local 'struct device *dev' variable in iproc_adc_probe()
-and use it for device-managed helper calls instead of repeatedly
-referencing '&pdev->dev'.
+Transiently disabling preemption can be  expensive. When re-enabling
+preemption it is necessary to make a conditional function call to
+preempt_schedule[_notrace]() in order to handle the rare case that the
+task needs to be rescheduled. The potential function call has a number
+of negative effects on code generation (e.g. due to the need to create a
+stack frame and spill registers), and the conditionality can result in
+poor code generation and/or poor branch prediction.
 
-No functional change intended.
+This patch adds infrastructure for a scheme where this_cpu_*() ops do
+not need to transiently disable preemption, avoiding the negative
+impacts described above. Individual operations will be converted in
+subsequent patches.
 
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
+Each operation registers a critical section during which the exception
+return code will adjust the offset and addresses if preemption occurs
+mid-sequence. The critical section is registered/unregistered with a
+small prologue and epilogue which encodes three distinct GPRRs (<pcp>,
+<off>, <addr>) into a new thread_info::pcp_gprs field:
+
+         // Prologue. Enable fixups for <off> and <addr>.
+         mrs	<tsk>, sp_el0
+         mov	<tmp>, #__VAL_PCPU_GPRS(<pcp>, <off>, <addr>)
+         strh	<tmp>, [<tsk>, #TSK_TI_PCPU_GPRS]
+
+         // Generate cpu-specific address
+         mrs	<off>, TPIDR_ELx
+         add	<addr>, <pcp>, <off>
+
+         // Perform access sequence
+         ldr	<val>, [<addr>]
+
+         // Epilogue. Disable fixups
+         strh	wzr, [<tsk>, #TSK_TI_PCPU_GPRS]
+
+If an exception is taken from within the critical section, the exception
+return code will adjust <off> to be the current CPU's offset, and will
+adjust <addr> to be (<pcp> + <off>). Distinct registers are used for
+<pcp>, <off>, and <addr>, so that the fixup can be applied safely at any
+point during the critical section.
+
+To ensure that this_cpu_*() operations within exception handlers work
+correctly and do not corrupt state, thread_info::pcpu_gprs is saved
+into a new pt_regs::pcpu_gprs field upon exception entry, and restored
+upon exception return.
+
+Looking at a simple this_cpu_operation:
+
+| void outline_this_cpu_add_u64(u64 __percpu *p, u64 v)
+| {
+| 	this_cpu_add(*p, v);
+| }
+
+Atop v7.2-rc4, with GCC 15.2.0 and defconfig, this is compiled as:
+
+| <outline_this_cpu_add_u64>:
+|        paciasp
+|        stp     x29, x30, [sp, #-16]!
+|        mrs     x2, sp_el0
+|        mov     x29, sp
+|        ldr     w3, [x2, #8]
+|        add     w3, w3, #0x1
+|        str     w3, [x2, #8]
+|        mrs     x3, tpidr_el1
+|        add     x0, x0, x3
+| 1:     ldxr    x5, [x0]
+|        add     x5, x5, x1
+|        stxr    w4, x5, [x0]
+|        cbnz    w4, 1b
+|        ldr     x0, [x2, #8]
+|        sub     x0, x0, #0x1
+|        str     w0, [x2, #8]
+|        cbz     x0, 2f
+|        ldr     x0, [x2, #8]
+|        cbnz    x0, 3f
+| 2:     bl      preempt_schedule_notrace
+| 3:     ldp     x29, x30, [sp], #16
+|        autiasp
+|        ret
+
+With the scheme added in this patch, this can be compiled as:
+
+| <outline_this_cpu_add_u64>:
+|        mrs     x2, sp_el0
+|        mov     x4, #0xc80     // __VAL_PCPU_GPRS(x0, x4, x3)
+|        strh    w4, [x2, #20]
+|        mrs     x4, tpidr_el1
+|        add     x3, x0, x4
+| 1:     ldxr    x6, [x3]
+|        add     x6, x6, x1
+|        stxr    w5, x6, [x3]
+|        cbnz    w5, 1b
+|        strh    wzr, [x2, #20]
+|        ret
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>
 ---
- drivers/iio/adc/bcm_iproc_adc.c | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+ arch/arm64/include/asm/percpu.h      | 71 ++++++++++++++++++++++++++++
+ arch/arm64/include/asm/ptrace.h      |  5 ++
+ arch/arm64/include/asm/thread_info.h |  1 +
+ arch/arm64/kernel/asm-offsets.c      |  2 +
+ arch/arm64/kernel/entry-common.c     | 38 +++++++++++++++
+ arch/arm64/kernel/entry.S            | 19 ++++++++
+ 6 files changed, 136 insertions(+)
 
-diff --git a/drivers/iio/adc/bcm_iproc_adc.c b/drivers/iio/adc/bcm_iproc_adc.c
-index 7c2e2770cd61..312be7c12e58 100644
---- a/drivers/iio/adc/bcm_iproc_adc.c
-+++ b/drivers/iio/adc/bcm_iproc_adc.c
-@@ -506,10 +506,10 @@ static int iproc_adc_probe(struct platform_device *pdev)
- {
- 	struct iproc_adc_priv *adc_priv;
- 	struct iio_dev *indio_dev = NULL;
-+	struct device *dev = &pdev->dev;
- 	int ret;
+diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+index 29f20c8748fe1..8b4c9ea05d4e6 100644
+--- a/arch/arm64/include/asm/percpu.h
++++ b/arch/arm64/include/asm/percpu.h
+@@ -5,10 +5,13 @@
+ #ifndef __ASM_PERCPU_H
+ #define __ASM_PERCPU_H
  
--	indio_dev = devm_iio_device_alloc(&pdev->dev,
--					sizeof(*adc_priv));
-+	indio_dev = devm_iio_device_alloc(dev, sizeof(*adc_priv));
- 	if (!indio_dev)
- 		return -ENOMEM;
++#include <linux/bits.h>
+ #include <linux/preempt.h>
++#include <linux/stringify.h>
  
-@@ -528,10 +528,9 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 		return ret;
- 	}
+ #include <asm/alternative.h>
+ #include <asm/cmpxchg.h>
++#include <asm/gpr-num.h>
+ #include <asm/stack_pointer.h>
+ #include <asm/sysreg.h>
  
--	adc_priv->adc_clk = devm_clk_get(&pdev->dev, "tsc_clk");
-+	adc_priv->adc_clk = devm_clk_get(dev, "tsc_clk");
- 	if (IS_ERR(adc_priv->adc_clk)) {
--		dev_err(&pdev->dev,
--			"failed getting clock tsc_clk\n");
-+		dev_err(&pdev->dev, "failed getting clock tsc_clk\n");
- 		ret = PTR_ERR(adc_priv->adc_clk);
- 		return ret;
- 	}
-@@ -547,7 +546,7 @@ static int iproc_adc_probe(struct platform_device *pdev)
- 		return ret;
- 	}
+@@ -51,6 +54,74 @@ static inline unsigned long __kern_my_cpu_offset(void)
+ 	return off;
+ }
  
--	ret = devm_request_threaded_irq(&pdev->dev, adc_priv->irqno,
-+	ret = devm_request_threaded_irq(dev, adc_priv->irqno,
- 				iproc_adc_interrupt_handler,
- 				iproc_adc_interrupt_thread,
- 				IRQF_SHARED, "iproc-adc", indio_dev);
++#define PCPU_GPR_PCP_SHIFT		0
++#define PCPU_GPR_PCP			GENMASK(4, 0)
++#define PCPU_GPR_OFF_SHIFT		5
++#define PCPU_GPR_OFF			GENMASK(9, 5)
++#define PCPU_GPR_ADDR_SHIFT		10
++#define PCPU_GPR_ADDR			GENMASK(14, 10)
++
++#define __VAL_PCPU_GPRS(pcp, off, addr)							\
++	"("										\
++		"(" __GPR_NUM(pcp)  " << " __stringify(PCPU_GPR_PCP_SHIFT) ") | "	\
++		"(" __GPR_NUM(off)  " << " __stringify(PCPU_GPR_OFF_SHIFT) ") | "	\
++		"(" __GPR_NUM(addr) " << " __stringify(PCPU_GPR_ADDR_SHIFT) ")"		\
++	")"
++
++#define __ASSERT_PCPU_GPRS_DISTINCT(pcp, off, addr)			\
++	".if ("								\
++		"(" __GPR_NUM(pcp) " == " __GPR_NUM(off) ") || "	\
++		"(" __GPR_NUM(pcp) " == " __GPR_NUM(addr) ") || "	\
++		"(" __GPR_NUM(off) " == " __GPR_NUM(addr) ")"		\
++	"    )\n"							\
++	".error \"PCPU GPRS overlap: {" pcp "," off "," addr "}\"\n"	\
++	".endif\n"
++
++#define ____PCPU_GPRS_BEGIN(gprs, pcp, off, addr)			\
++	"// ____PCPU_GPRS_BEGIN(" gprs ", " pcp ", " off ", " addr")\n"	\
++	__DEFINE_ASM_GPR_NUMS						\
++	__DEFINE_ASM_GPR_ALIASES					\
++	__ASSERT_PCPU_GPRS_DISTINCT(pcp, off, addr)			\
++	"	mov w" off ", #" __VAL_PCPU_GPRS(pcp, off, addr) "\n"	\
++	"	strh	w" off ", " gprs "\n"				\
++	__KERN_ASM_CPU_OFFSET(off) "\n"
++
++/*
++ * Begin a PCPU GPR critical section which requires <addr> (and <off>).
++ *
++ * At the start of the critical section, and upon any (preemptible) exception
++ * until __PCPU_GPRS_END():
++ * - <off>  will be set to the current CPU's percpu offset.
++ * - <addr> will be set to <pcp> + <off>.
++ *
++ * The <pcp>, <off>, and <addr> registers must be distinct GPRs.
++ *
++ * <gprs> must be '&current_thread_info()->gprs', as a memory operand which can
++ * be written both at the start and end of the critical section (e.g. using
++ * "=Qo" constraints).
++ */
++#define __PCPU_GPRS_BEGIN(gprs, pcp, off, addr)				\
++	____PCPU_GPRS_BEGIN(gprs, pcp, off, addr)			\
++	"	add	" addr ", " pcp ", " off "\n"
++
++/*
++ * Begin a PCPU GPR critical section which only requires <off> and does not
++ * require <addr>.
++ *
++ * This is only for operations that can use register-offset addressing,
++ * e.g. STR <Xt>, [<Xn>, <Xm].
++ *
++ * All other details are the same as __PCPU_GPRS_BEGIN().
++ */
++#define __PCPU_GPRS_BEGIN_OFFSET(gprs, pcp, off)			\
++	____PCPU_GPRS_BEGIN(gprs, pcp, off, "xzr")
++
++/*
++ * End a PCU GPR critical section.
++ */
++#define __PCPU_GPRS_END(gprs)						\
++	"	strh	wzr, " gprs "\n"
++
+ #ifdef __KVM_NVHE_HYPERVISOR__
+ #define __my_cpu_offset __hyp_my_cpu_offset()
+ #else
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index a1aa668aad50e..962013df20c7a 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -169,6 +169,11 @@ struct pt_regs {
+ 
+ 	u64 sdei_ttbr1;
+ 	struct frame_record_meta stackframe;
++
++	u16	pcpu_gprs;
++	u16	__unused1;
++	u32	__unused2;
++	u64	__unused3;
+ };
+ 
+ /* For correct stack alignment, pt_regs has to be a multiple of 16 bytes. */
+diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+index 5d7fe3e153c85..6db5fa72211d1 100644
+--- a/arch/arm64/include/asm/thread_info.h
++++ b/arch/arm64/include/asm/thread_info.h
+@@ -46,6 +46,7 @@ struct thread_info {
+ 	u64			mpam_partid_pmg;
+ #endif
+ 	u32			cpu;
++	u16			pcpu_gprs;
+ };
+ 
+ #define thread_saved_pc(tsk)	\
+diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+index b6367ff3a49ca..bde09e9fe3e64 100644
+--- a/arch/arm64/kernel/asm-offsets.c
++++ b/arch/arm64/kernel/asm-offsets.c
+@@ -36,6 +36,7 @@ int main(void)
+   DEFINE(TSK_TI_SCS_BASE,	offsetof(struct task_struct, thread_info.scs_base));
+   DEFINE(TSK_TI_SCS_SP,		offsetof(struct task_struct, thread_info.scs_sp));
+ #endif
++  DEFINE(TSK_TI_PCPU_GPRS,	offsetof(struct task_struct, thread_info.pcpu_gprs));
+   DEFINE(TSK_STACK,		offsetof(struct task_struct, stack));
+ #ifdef CONFIG_STACKPROTECTOR
+   DEFINE(TSK_STACK_CANARY,	offsetof(struct task_struct, stack_canary));
+@@ -78,6 +79,7 @@ int main(void)
+   DEFINE(S_PMR,			offsetof(struct pt_regs, pmr));
+   DEFINE(S_STACKFRAME,		offsetof(struct pt_regs, stackframe));
+   DEFINE(S_STACKFRAME_TYPE,	offsetof(struct pt_regs, stackframe.type));
++  DEFINE(S_PCPU_GPRS,		offsetof(struct pt_regs, pcpu_gprs));
+   DEFINE(PT_REGS_SIZE,		sizeof(struct pt_regs));
+   BLANK();
+ #ifdef CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+index ceb4eb11232a6..5bba1359280c3 100644
+--- a/arch/arm64/kernel/entry-common.c
++++ b/arch/arm64/kernel/entry-common.c
+@@ -25,12 +25,49 @@
+ #include <asm/irq_regs.h>
+ #include <asm/kprobes.h>
+ #include <asm/mmu.h>
++#include <asm/percpu.h>
+ #include <asm/processor.h>
+ #include <asm/sdei.h>
+ #include <asm/stacktrace.h>
+ #include <asm/sysreg.h>
+ #include <asm/system_misc.h>
+ 
++/*
++ * Where the context being returned to had an active percpu GPR critical
++ * section, ensure that the offset and address GPRs are updated to match the
++ * current CPU.
++ *
++ * For simplicity we always update the GPRs when a critical section is active
++ * and preemption was *possible*, regardless of whether preemption actually
++ * occurred. Where preemption did not occur, the updates are redundant but not
++ * harmful.
++ */
++static __always_inline void irqentry_exit_pcpu_adjust(struct pt_regs *regs)
++{
++	int reg_pcp, reg_off, reg_addr;
++	unsigned long pcp, off, addr;
++	u16 gprs = regs->pcpu_gprs;
++
++	/*
++	 * Zero means no active PCPU GPRs. As the PCPU GPRs must be distinct,
++	 * a PCPU critical section cannot possibly use {x0,x0,x0}.
++	 */
++	if (likely(!gprs))
++		return;
++
++	reg_pcp  = FIELD_GET(PCPU_GPR_PCP,  gprs);
++	reg_off  = FIELD_GET(PCPU_GPR_OFF,  gprs);
++	reg_addr = FIELD_GET(PCPU_GPR_ADDR, gprs);
++
++	pcp = pt_regs_read_reg(regs, reg_pcp);
++
++	off = __kern_my_cpu_offset();
++	pt_regs_write_reg(regs, reg_off, off);
++
++	addr = pcp + off;
++	pt_regs_write_reg(regs, reg_addr, addr);
++}
++
+ /*
+  * Handle IRQ/context state management when entering from kernel mode.
+  * Before this function is called it is not safe to call regular kernel code,
+@@ -58,6 +95,7 @@ static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+ 	local_irq_disable();
+ 	irqentry_exit_to_kernel_mode_preempt(regs, state);
+ 	local_daif_mask();
++	irqentry_exit_pcpu_adjust(regs);
+ 	mte_check_tfsr_exit();
+ 	irqentry_exit_to_kernel_mode_after_preempt(regs, state);
+ }
+diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
+index 1b4cd70515550..567d8096b87d9 100644
+--- a/arch/arm64/kernel/entry.S
++++ b/arch/arm64/kernel/entry.S
+@@ -194,6 +194,17 @@ alternative_cb_end
+ #endif
+ 	.endm
+ 
++	.macro pcpu_gprs_entry, tsk:req, regs:req, tmp:req
++	ldrh	w\tmp, [\tsk, #TSK_TI_PCPU_GPRS]
++	strh	w\tmp, [\regs, #S_PCPU_GPRS]
++	strh	wzr, [\tsk, #TSK_TI_PCPU_GPRS]
++	.endm
++
++	.macro pcpu_gprs_exit, tsk:req, regs:req, tmp:req
++	ldrh	w\tmp, [\regs, #S_PCPU_GPRS]
++	strh	w\tmp, [\tsk, #TSK_TI_PCPU_GPRS]
++	.endm
++
+ 	.macro	kernel_entry, el, regsize = 64
+ 	.if	\el == 0
+ 	alternative_insn nop, SET_PSTATE_DIT(1), ARM64_HAS_DIT
+@@ -277,6 +288,7 @@ alternative_else_nop_endif
+ 	.else
+ 	add	x21, sp, #PT_REGS_SIZE
+ 	get_current_task tsk
++	pcpu_gprs_entry	tsk, sp, x0
+ 	.endif /* \el == 0 */
+ 	mrs	x22, elr_el1
+ 	mrs	x23, spsr_el1
+@@ -335,6 +347,7 @@ alternative_else_nop_endif
+ 	.macro	kernel_exit, el
+ 	.if	\el != 0
+ 	disable_daif
++	pcpu_gprs_exit	tsk, sp, x0
+ 	.endif
+ 
+ #ifdef CONFIG_ARM64_PSEUDO_NMI
+@@ -1044,10 +1057,16 @@ SYM_CODE_START(__sdei_asm_handler)
+ 	stp	x29, x4, [sp, #-16]!
+ 	mov	x29, sp
+ 
++	add	x16, x19, #SDEI_EVENT_INTREGS
++	pcpu_gprs_entry tsk, x16, x17
++
+ 	add	x0, x19, #SDEI_EVENT_INTREGS
+ 	mov	x1, x19
+ 	bl	__sdei_handler
+ 
++	add	x16, x19, #SDEI_EVENT_INTREGS
++	pcpu_gprs_exit tsk, x16, x17
++
+ 	msr	sp_el0, x20
+ 	/* restore regs >x17 that firmware won't restore */
+ 	mov	x4, x19         // keep x4 for __sdei_asm_exit_trampoline
 -- 
-2.43.0
+2.30.2
 
 
