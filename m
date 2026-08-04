@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66DEC5518F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70050C5518F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 07:51:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NWahUvJ869KYcFwOImwjqm6rJ8smONrk+DtdT/9DldY=; b=P/giasrOH0U6fQTtSVAMrpfTUY
-	DvFuIKYzrzVk/qGMfiRw32osVxHoHGwxkFUTQ00T1D3m5KYTF5sttqhzKipOFDD0k/35hzWuABsA/
-	2SPUXG2QpxQmeLXhQtebbxM3uoJfns4xV+fYL9kV9Xx1Wu+otyHdM6ngQOPZcUPLDc6MLSKa9jh6N
-	JZ3enoLZkjchyBobpxhadqNPsY3ePBdIwTiUc2sbJAqbkHFo7V38bLSR0X85LiZpMO0EpFqhvbpgA
-	bgGEE0nG3u561dHu8OIlGX+QTQ0gvAvOo33ImQyarqlj9QU4rCV24uGn9xwFT8gn3MtgNrjhh+9Jx
-	dgl15W4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UeaaGkfj+CmXQK3D7/sp1H2v+3bv6fIBMs0uAbi+VxE=; b=KQVh/GX5SS6EJ2w3x1THOWA9Hg
+	Ere4Dn/VaiHpC7/BF50Jsvbe6jIT0JkHRx5FJPKfx9F9NI83gDZbjorE3hQjuvr2NoY0/TRnFw8e5
+	k5SZ0QPHklx35bB/kVaceHtPKV+u5bgTRYuh95mKKgPn2+2jLUXUJb6oUVV6mnLs38SD4hsUjo+WT
+	80SyxgdwwYTbUgrzC5dtF80Re85t0TYygfiETV7uTuJWyfBZImvSR5wDpALq+KqhA6eHrsrY4h1Nq
+	wT5lMpmMRq5ksevGZ+PANwjwk9Wz4bG9OHc5lJOwdN1Qp+fXi7o+vTYgOLVqQtwwCJSfI4+b+W2ck
+	0szM5DFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9sv-00000001GMo-07dW;
-	Tue, 04 Aug 2026 07:48:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wr9va-00000001GYn-1pis;
+	Tue, 04 Aug 2026 07:51:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wr9st-00000001GMe-3JQA;
-	Tue, 04 Aug 2026 07:48:23 +0000
+	id 1wr9vZ-00000001GYh-1mqW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Aug 2026 07:51:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DFAF560A6B;
-	Tue,  4 Aug 2026 07:48:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E8A51F000E9;
-	Tue,  4 Aug 2026 07:48:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AD95343D25
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 07:51:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 914A71F00ACA
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Aug 2026 07:51:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785829702;
-	bh=NWahUvJ869KYcFwOImwjqm6rJ8smONrk+DtdT/9DldY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ec+VVqvT8ZS4ECZoClUqLkK06Smr5R69Pq+jFikyeNXwxq30k1s/kkf41IHV3yruF
-	 jR2uOHklLLgd8iT5y92wawagNy/Nm9X1AxTxktqc2dhOzrRrHSaCLTiHZ16ArNAu2/
-	 /u1t0JDwkn632r1L4wyKEtR6a4ELqVKykRe7BnyX/47IGx+GvVMtqJvkmqWQThYBX4
-	 DZjNFVbxugjj8BqaSum4J7YE7ESsYLRCrAewPhe83IKkpb8c6Ri6Yq7tnXC3QXeW18
-	 1z5RdpEL0+8gLnV0p+mZN2h82cj0ijuTUkNIkbZvcv0fv3ZKfJUAsDM5EkPkVFmnPe
-	 tpGlg/33rsLDA==
-Date: Tue, 4 Aug 2026 09:48:19 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Gregor Herburger <gregor.herburger@linutronix.de>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dts: broadcom: bcm2712-d-rpi-5-b: add
- compatible
-Message-ID: <20260804-unbeatable-fluffy-galago-bfe282@quoll>
-References: <20260803-bcm2712-d-stepping-compatible-v2-0-803017e4ba7a@linutronix.de>
- <20260803-bcm2712-d-stepping-compatible-v2-2-803017e4ba7a@linutronix.de>
+	s=k20260515; t=1785829868;
+	bh=UeaaGkfj+CmXQK3D7/sp1H2v+3bv6fIBMs0uAbi+VxE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Lh//8K/BjNLfqPOULpksK3++stnAXFzDO7EQjE7RTS72eRu03/yiUQxcZSuM+L5np
+	 2PKIOyi37oW7GwEbPksUNbxSo142sphFkeF4sJQ1ori5DYjV9Pwmr0baYlAYiSHLPb
+	 eh1O0GhAMkgXyM37ZPWKVVmOe1ehK9H9TiSyBO5MntPmbqhkY1/Z58FKTvjoyb1hIQ
+	 VJU7ZAnZT3orLOwpdldiLYNuyZximnx/qx/wcY4RCithAZ67jozuXoDr3RiJruvih5
+	 39i1vgGKDKngp41aQZBCvccOATqvJWuK5911lTscvbF0OnTEza5c/+F0nqMXTDmJY2
+	 61T2CXr6Cke5w==
+Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5b0117d49dcso4870486e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 00:51:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoIjn7aDpCGPLqC53Gina9sdIu6SCvM+7BNE9ctIswBDZfiPD6tIO+iAO350cjb1hQSFf4xBJlrlO1Qmi6M1PXy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyINvsZH86NemBd3k5crrE3KNKqCcSOTfZhL8SlqPJ0WTypGX1V
+	iqO4gyQlouiPCe/bSHm8VlOIG0H5HGA5PtvjW8aM/5dFWLfh69c6bYx5qrmsD/z2IkAAkl5IhhZ
+	UxdunKL/wXWa8+sS96iWzX7dhCtY5xAw=
+X-Received: by 2002:a05:6512:10d5:b0:5b2:9c9d:6448 with SMTP id
+ 2adb3069b0e04-5b2e4f11a0fmr2873674e87.12.1785829867354; Tue, 04 Aug 2026
+ 00:51:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260803-bcm2712-d-stepping-compatible-v2-2-803017e4ba7a@linutronix.de>
+References: <20260801-apple-m4-initial-devicetrees-v2-0-5cb07cc275da@cyberchaos.dev>
+ <20260801-apple-m4-initial-devicetrees-v2-5-5cb07cc275da@cyberchaos.dev>
+In-Reply-To: <20260801-apple-m4-initial-devicetrees-v2-5-5cb07cc275da@cyberchaos.dev>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 4 Aug 2026 09:50:54 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkkvrHR9nqO3gTiyU0s=q2-7mr3FY_07JAG4sFyuCENQA@mail.gmail.com>
+X-Gm-Features: AUfX_mxbSJUYZ_-VvnAPg1iAT8y_V2wQkeDasemCN2JDNhyPEfoJfdRT5MtVKyg
+Message-ID: <CAD++jLkkvrHR9nqO3gTiyU0s=q2-7mr3FY_07JAG4sFyuCENQA@mail.gmail.com>
+Subject: Re: [PATCH v2 5/9] dt-bindings: pinctrl: apple,pinctrl: Add t8132 compatible
+To: Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Thomas Gleixner <tglx@kernel.org>, Radu Rendec <radu@rendec.net>, Hector Martin <marcan@marcan.st>, 
+	Mark Kettenis <kettenis@openbsd.org>, Andi Shyti <andi.shyti@kernel.org>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, 
+	Sasha Finkelstein <k@chaosmail.tech>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-i2c@vger.kernel.org, 
+	linux-pwm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +88,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 02:09:25PM +0200, Gregor Herburger wrote:
-> The bcm2712 found on the Raspberry Pi 5 is available in the d Stepping
-> and in a c Stepping. There are two separate dts files. The
-> bcm2712-rpi-5-b.dts for the c Stepping and the bcm2712-d-rpi-5-b.dts for
-> the d Stepping. The d stepping does not set its own compatible/model
-> string but uses "raspberrypi,5-model-b".
-> 
-> These two steppings are not compatible. Booting with the wrong dtb file
+On Sat, Aug 1, 2026 at 11:41=E2=80=AFPM Yureka Lilian <yureka@cyberchaos.de=
+v> wrote:
 
-Not compatible but...
+> The pin controller on the Apple silicon t8132 (M4) SoC is compatible
+> with t8103. Add "apple,t8132-pinctrl" as SoC specific compatible under
+> "apple,t8103-pinctrl".
+>
+> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 
-> causes a crash at boot.
-> 
-> Add a compatibles string "raspberrypi,5-model-b-d0" to allow us to
-> distinguish between those two steppings.
-> 
-> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> ---
->  arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-> index 127be0fc27c2..11a38cd53401 100644
-> --- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-> @@ -3,6 +3,11 @@
->  
->  #include "bcm2712-rpi-5-b.dts"
->  
-> +/ {
-> +	compatible = "raspberrypi,5-model-b-d0", "raspberrypi,5-model-b", "brcm,bcm2712";
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-this tells they are compatible. If compatibility was wrong since the
-beginning, you do not have to preserve the ABI.
-
-Best regards,
-Krzysztof
-
+Yours,
+Linus Walleij
 
