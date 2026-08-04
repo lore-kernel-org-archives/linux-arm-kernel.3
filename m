@@ -4,76 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA5D7C55172
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 10:07:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8C8C55172
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 10:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PANt3NGdtjBFDRfPstacXTEKSF9sanKddmIv/XTBA8E=; b=cGyiWulBqh891e6EadcOfTxPVg
-	4c486XI83rqkH6XYWcmyXxDYnP7mIxwjBVCZ82EnpvSbyQ5O+mmUadkZQMjPqUR/tfOA53lDCfwd5
-	umdnNNSfOhSLlaWCGSKHrgjrRVvg8Xf0RGJITPIkj9LlcMkpSTDTkFo8zvBW3CmjitzHQDR1fgAOF
-	+uFlO45WzUaO+0V/m3HFP6y15+mj043vgV9PLezvFeJKgzirDu7I9fMJQx41LXrROEkFjKr6MLTYn
-	WQ76hh5BcLeKGZF5aAZyI9toG25pvmWV2kUKZjxhTaqGyAqR2FDTguWHCPva19uQWN/vBmBNQdJZl
-	KQAMMF1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3fT0yy7k6aVn8xwuYBWmP3Y+ZHenzu63FaqBq4B3FSs=; b=mhX3teA2vFM1+/D3Syc1PLZIxi
+	1mDRofAxw4ptAP/y8nrXe48LaWMlaAHr7RXqEYsWzygPZD3JATt6HhPtz0tU6mBoorKBTVpDhzfqC
+	MySn169vvGp8UXYPyC75z7ZtnaZcRcxj9JZVLoBsLyrI24ipIxynbcpZLjm2u3U/VtNw7na/s9E40
+	OxZqXCVY4sSmrVJcyH6TLNFnAZdLST46eQEMx72+q515ej9PWeZsqfbP31Aq636+74eAWp0AYO/Yj
+	pRNSkmkw7EUzP5lIh4CRr6YX5m1SHHPfFyYi08VXbc5b/TOxqnYfHGiYNz8Bh1JU2nZwzlhxY7e5E
+	Rj8KOzGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrC3g-00000001Vp7-1DPc;
-	Tue, 04 Aug 2026 10:07:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrC3d-00000001VlU-0MGZ
+	id 1wrC7x-00000001WU9-3guq;
+	Tue, 04 Aug 2026 10:12:05 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrC7v-00000001WTp-3uZ3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Aug 2026 10:07:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D6F1168F;
-	Tue,  4 Aug 2026 03:07:32 -0700 (PDT)
-Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 22E033F86F;
-	Tue,  4 Aug 2026 03:07:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785838056; bh=/dykouqF0RUydoGbvMlOXk/hXe6B5OyVaox4xUQ6Cs0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fvwqOp/YKmVUA6+Q4Lp+Ysm026sffb41su59Dvfyi4dGY0yMyUoH6pJGg4B/1LAtn
-	 h7xxypwVkxBgdjU3cnZXoy6lWWVAjgdoi5dSnqQwEN8ehpKxMU6diQfdymkjTX6SE2
-	 V0Uv1FHhjrUAkFr+xx0VIApQdQi1k4pqNXvb+/5U=
-From: Andre Przywara <andre.przywara@arm.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Reinette Chatre <reinette.chatre@intel.com>,
-	Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
-	Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
-	Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Srinivas Ramana <sramana@qti.qualcomm.com>,
-	Niyas Sait <niyas.sait@arm.com>,
-	Lee Trager <lee@trager.us>,
-	Ritwick Sharma <ritwick.sharma@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 11/11] arm_mpam: detect and enable MPAM-Fb PCC support
-Date: Tue,  4 Aug 2026 12:06:27 +0200
-Message-ID: <20260804100627.3217149-12-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260804100627.3217149-1-andre.przywara@arm.com>
-References: <20260804100627.3217149-1-andre.przywara@arm.com>
+	Tue, 04 Aug 2026 10:12:05 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-c1c52d920b8so626475066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 03:12:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785838321; cv=none;
+        d=google.com; s=arc-20260327;
+        b=f2jA7FYEBn1zW0QyX8LWNAtYDW1nAery8AehUGhrxCXK/zKX0lCpBhHX78vIIfr4+O
+         1C3Ty5bgpZSBJD/U3VrwPNwjaqNbCUFJjlbBmcNQSRQnEvWk/ZgaQjflC8mq1xMSCbRC
+         tk0IHOea2K/OKZ4np3jRL6577RasqubK8MqEItIT2aZt0v3NoJHkM5PUW0LD6XvOKAN5
+         BQ2iggKKbuJf92LxuzwxaGEPu5X/WocTQZC1b855a0ObRnKq4/Y2YCk4N4jus/bSNwbV
+         JifrdMi7wyIty3mEyCrIWb9QqP7cpkRrxZjfWsRt9fUWua5/JzXDWsW2ygQH1diLoFQS
+         zObA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=3fT0yy7k6aVn8xwuYBWmP3Y+ZHenzu63FaqBq4B3FSs=;
+        fh=El1qNuFE9CCiptZq2PUv3yOa7R+QKilu8f3vYCjrELc=;
+        b=PezAOVgcu21pfHPcXgC8zIGU623LunLvptGY19uNrEpzAueg06blPTLskQnnPI58YG
+         aslrCrEq5hUbG/314vxEpi1lY/+eFF9Y6RFWL45wVDnylZoVQe8o6wSPtMKas3g23FCP
+         pHkM0MA+F8H8IMKTVdOrRJP7mEERTQx+3dFoDcQg79J6CzezuvGBaJAGpPlDOLs7G5zq
+         VRf6ksmG9K/9sZWEtU1ii+x8QRWumqvNIjDRzGrDwT8uXL3Tj4j8yNMBpFd+b0uSV3jv
+         gorT49sFCnHtmEj+ivgOj2/UmTXCfI0ZiuuDWHW/8Ihg3BDi7Ksz+vbrwrZXT6E+SSTD
+         N6Fg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1785838321; x=1786443121; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3fT0yy7k6aVn8xwuYBWmP3Y+ZHenzu63FaqBq4B3FSs=;
+        b=YLO7owXDOWwyQnlg08sMzcZE362eBMApoQyKiiseDCEOvoF0KuYpFUInKDqaVMfKiM
+         MHltTXJU8U6x/2PbYAnJT6M/Jg/sPGo/o23shBoqtG8Tw/JyG4/abQmLSR99SfnDSfAg
+         ozeEJaEA23LAHMUnd7KOSsUGS+RDYidtcUO8gKhTWubCCTYNWbjzaKyxRnFcSoXNZSGk
+         ZBJhC1Lv3QWtC4jFMDnEX04oOSLBe9YxkpcE979GnhUaAXTdEgPvhl8OrhHyX1d5BDRn
+         OcufwIhmPNI0i8UMERMt+g/hx7aHNAJnDRk2bZ8BDncDpCd0NFGY+km7tKOAs3GWtXl+
+         AsTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785838321; x=1786443121;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=3fT0yy7k6aVn8xwuYBWmP3Y+ZHenzu63FaqBq4B3FSs=;
+        b=p6YJz+3ZFy+c1Tph3wsOc05PjoWivXSMn9QcgJNfmfbQuymTv2FIxSoiZcgDstlOUS
+         jRbWWZV/Ai4r8vspQkHvtgQRpUercjyHrLvcvZrbLbOFJbdxsiH6uNr94SsdznuHtyh5
+         LRFz0G6dThxaWo/JRqVRmghtY8pGcPug1UmuoapegesJDuaNJvnm56qU/LC4yEvQTPkH
+         4jnm5v5Iko/C7c1soB39IlTu/9GOy7+vWPJPQ2R2DCVG7bFU2inNvoQZiZkg/NZZdWXn
+         EymrOXn64wS+/nrO/sEzcPSjrRLmfxnbX6lywKPZOaxt9Jo7t14w03FSTCyrRmWjvAEV
+         PNSA==
+X-Forwarded-Encrypted: i=1; AHgh+RrETDwVaSe10jZn6mMzrk4/k0/PuM9jCbSM0pVn6yd2dBX8hkRwJJaozN2RNDZoupQqzU7WXfDVpKeYeXSNAzOP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4M6zHplHCofaoLf4F26RxcqJjryhBVnWO6g2bUmpArdbThfeg
+	m2e0gv2vZPqhgKjWwva25XM6yG1qniqm7hdKfMHZOL9/4OZTAJYTG0R6dSEgds45SW/67M2FIpD
+	dxo/epa7IazCDNu+pAT2Ct3k+g5S1ygU78e6YYwaPLQ==
+X-Gm-Gg: AR+sD13AuLu2jB7MmYL4XvoVVT3dL1tKdN8GTpmixQhNn5Cg/yVhv9A464fKKeAiVPF
+	Szc02T5HUMNEzGlPvJZHqnEK/zCfIJB4EEYsCFwG00kwYbsKuCu71FWZiVvtCFvQfnaztcxtMT2
+	QpObFGWp/H6CnHUXaISXf3XRvVx74hG0vN/0pt82zXG0QqM5CJb0+V2YvfFWnYg58LVsmumSHvg
+	L/meVlp6mBXRKWv/a77xUdZ8MCrMVEjj0zlP1jra35uMx3i9EY0+ltDF6knNTrbwLmTOmm8xLHa
+	KcoGBCtJtt+FZQAa42L8Unx1uaJF0GJ/uZFT9s63DuizJwbou1luPsy33jbSbi6oo/oMDQPPjqM
+	xq44=
+X-Received: by 2002:a17:907:c007:b0:c15:dcc6:d06d with SMTP id
+ a640c23a62f3a-c1fe7d11095mr1281460266b.0.1785838321130; Tue, 04 Aug 2026
+ 03:12:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260605-exynos-pmu-cpuhp-idle-fixes-v1-0-0cd05c81a82d@linaro.org>
+ <20260605-exynos-pmu-cpuhp-idle-fixes-v1-3-0cd05c81a82d@linaro.org>
+ <CADrjBPq4fou5KWh4T=oNkUVPz5Jk-821OVe3j5sWrKnCtHYM6w@mail.gmail.com>
+ <DJ5GP6VQJDHL.2V30K56ME95DO@linaro.org> <CADrjBPqF6GPRLNUZtzkGUHTUQ6NOPoaRvVvF1mUUj_DJ9As1dg@mail.gmail.com>
+ <DJFT3TXC0OJA.1ZK17YA2RSQXK@linaro.org> <CADrjBPovA8Kpzjqwr5w0UvqYhpdGyBwpv=xkBLcGGuwZZoocPg@mail.gmail.com>
+ <DK00H7RT3OUP.6XS03TKMIU34@linaro.org>
+In-Reply-To: <DK00H7RT3OUP.6XS03TKMIU34@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 4 Aug 2026 11:11:49 +0100
+X-Gm-Features: AUfX_mz5t_Pe04iy5Urjl5FLntfM2UaJUBsRQk-xp7uJxfwmN41IPr1rHKikzkY
+Message-ID: <CADrjBPpk1beXfAJ7uhKHwYKo1wDPg+qxwfc-PQgZL6dcAN1CDA@mail.gmail.com>
+Subject: Re: [PATCH 3/3] soc: samsung: exynos-pmu: fix error paths in
+ cpuhotplug/idle states setup
+To: Alexey Klimov <alexey.klimov@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Sam Protsenko <semen.protsenko@linaro.org>, linux-samsung-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_030737_217469_1E914C8B 
-X-CRM114-Status: GOOD (  22.71  )
+X-CRM114-CacheID: sfid-20260804_031204_020993_67FF1FF4 
+X-CRM114-Status: GOOD (  48.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,272 +124,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm MPAM-Fb specification [1] describes a protocol to access MSC
-registers through a firmware interface. This requires a shared memory
-region to hold the message, and a mailbox to trigger the access.
-For ACPI this is wrapped as a PCC channel, described using existing
-ACPI abstractions.
+Hi Alexey,
 
-Add code to parse those PCC table descriptions associated with an MSC,
-and store the parsed information in the MSC struct.
-There can be multiple PCC channels, and each channel can serve multiple
-MSCs, so we need to keep track of the channel usage, using a list and
-a refcount.
+Apologies, I've been on vacation 2 of the last 3 weeks, but I thought
+we had this all sorted.
 
-This will be used by the MPAM-Fb access wrapper code.
+On Thu, 16 Jul 2026 at 13:57, Alexey Klimov <alexey.klimov@linaro.org> wrote:
+>
+> Hi Peter,
+>
+> On Mon Jun 22, 2026 at 9:43 PM BST, Peter Griffin wrote:
+> > Hi Alexey,
+> >
+> > On Mon, 22 Jun 2026 at 19:57, Alexey Klimov <alexey.klimov@linaro.org> wrote:
+> > [..]
+> >> >> >
+> >> >> > I originally made the failure non-fatal because the system still boots
+> >> >> > without the notifiers registered (and all other Arm64 Exynos SoCs
+> >> >> > upstream don't register notifiers and AFAICT have broken cpu hotplug
+> >> >> > and cpu idle).
+> >> >> >
+> >> >> > In hindsight, that seems like a mistake. I think your patch to fully
+> >> >> > unwind everything in case of failure makes more sense.  See small
+> >> >> > comment below about destroy_cpuhp_and_cpuidle()
+> >> >>
+> >> >> Wait, setup_cpuhp_and_cpuidle() should be non-fatal and shouldn't
+> >> >> return any errors?
+> >> >
+> >> > I suggest you re-read my above comment above ^^
+> >>
+> >> Could you please clarify what specifically addresses my question about
+> >> notifiers?
+> >
+> > Sure, I was referring to this part of my previous reply:
+> >
+> >> >> > In hindsight, that seems like a mistake. I think your patch to fully
+> >> >> > unwind everything in case of failure makes more sense.
+> >
+> > [..]
+> >>
+> >> If c2 idles are used during reboot/shutdown then they fail or what?
+> >
+> > This followed similar logic to the Samsung downstream kernel drivers.
+> > I have no extra information about it beyond the downstream kernel
+> > source. It seemed reasonable though that CPU's will be hotplugged
+> > during suspend and reboot so you may wish to ignore these.
+> >
+> > The proper solution of course is a fully PSCI compliant firmware,
+> > which doesn't require these side channel hints.
+>
+> It seems there is some misunderstanding, where we are not getting to the
+> point.
 
-[1] https://developer.arm.com/documentation/den0144/latest
+From my point of view your proposed patch looks good, as I mentioned
+in my earlier replies. The only reason for not sending a reviewed-by
+tag was the outstanding piece of feedback regarding only calling
+destroy_cpuhp_and_cpuidle() for platforms that called
+setup_cpuhp_and_cpuidle(). Currently it is only gs101 that calls
+setup_cpuhp_and_cpuidle() but in your patch you call
+destroy_cpuhp_and_cpuidle() unconditionally. Will that cause issues
+for other SoCs?
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Tested-by: Ritwick Sharma <ritwick.sharma@arm.com> # on Arm AGI CPU
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
----
- drivers/resctrl/mpam_devices.c  | 113 +++++++++++++++++++++++++++++++-
- drivers/resctrl/mpam_fb.c       |  41 ++++++++++++
- drivers/resctrl/mpam_internal.h |   2 +
- 3 files changed, 154 insertions(+), 2 deletions(-)
+> I think I still do not see any comment about failed notifiers
+> and question about c2 idle states is kinda misdirected.
+> I also don't see any answers that clarify this from previous emails:
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 3c686903def3..666ebf6234db 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -19,14 +19,19 @@
- #include <linux/irqdesc.h>
- #include <linux/list.h>
- #include <linux/lockdep.h>
-+#include <linux/mailbox_client.h>
- #include <linux/mutex.h>
- #include <linux/platform_device.h>
- #include <linux/printk.h>
-+#include <linux/property.h>
- #include <linux/srcu.h>
- #include <linux/spinlock.h>
- #include <linux/types.h>
- #include <linux/workqueue.h>
- 
-+#include <acpi/pcc.h>
-+#include <acpi/acpi_io.h>
-+
- #include "mpam_internal.h"
- 
- /* Values for the T241 errata workaround */
-@@ -49,6 +54,88 @@ static LIST_HEAD(mpam_all_msc);
- 
- struct srcu_struct mpam_srcu;
- 
-+/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
-+static DEFINE_MUTEX(pcc_chan_list_lock);
-+static LIST_HEAD(pcc_chan_list);
-+
-+static void mpam_pcc_chan_release(struct kref *ref)
-+{
-+	struct mpam_pcc_chan *cur = container_of(ref, struct mpam_pcc_chan,
-+						 refcount);
-+
-+	pcc_mbox_free_channel(cur->pcc_chan);
-+	list_del(&cur->pcc_chans);
-+	mutex_destroy(&cur->pcc_chan_lock);
-+	kfree(cur);
-+}
-+
-+static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
-+					       int subspace_id)
-+{
-+	struct mpam_pcc_chan *cur;
-+
-+	guard(mutex)(&pcc_chan_list_lock);
-+
-+	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
-+		if (cur->subspace_id == subspace_id) {
-+			kref_get(&cur->refcount);
-+
-+			return cur;
-+		}
-+	}
-+
-+	cur = kzalloc_obj(*cur);
-+	if (!cur)
-+		return ERR_PTR(-ENOMEM);
-+
-+	cur->pcc_cl.dev = dev;
-+	cur->pcc_cl.tx_block = true;
-+
-+	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
-+	if (IS_ERR(cur->pcc_chan)) {
-+		long err = PTR_ERR(cur->pcc_chan);
-+
-+		kfree(cur);
-+		return ERR_PTR(err);
-+	}
-+
-+	/*
-+	 * Timeout based on the "nominal latency" in us, from the
-+	 * PCC ACPI table. tx_tout is in ms.
-+	 * Add some margin here to be on the safe side.
-+	 */
-+	cur->pcc_cl.tx_tout = DIV_ROUND_UP(cur->pcc_chan->latency * 5, 1000);
-+
-+	mutex_init(&cur->pcc_chan_lock);
-+
-+	cur->subspace_id = subspace_id;
-+	kref_init(&cur->refcount);
-+
-+	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
-+
-+	return cur;
-+}
-+
-+static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
-+{
-+	struct mpam_pcc_chan *cur, *tmp;
-+
-+	if (!pcc_chan)
-+		return 0;
-+
-+	guard(mutex)(&pcc_chan_list_lock);
-+
-+	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
-+		if (cur == pcc_chan) {
-+			kref_put(&cur->refcount, mpam_pcc_chan_release);
-+
-+			return 0;
-+		}
-+	}
-+
-+	return -ENOENT;
-+}
-+
- /*
-  * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
-  * can be enabled.
-@@ -2275,6 +2362,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
- {
- 	struct mpam_msc *msc = platform_get_drvdata(pdev);
- 
-+	mpam_pcc_chan_put(msc->pcc_chan);
-+
- 	mutex_lock(&mpam_list_lock);
- 	mpam_msc_destroy(msc);
- 	mutex_unlock(&mpam_list_lock);
-@@ -2285,7 +2374,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
- static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- {
- 	int err;
--	u32 tmp;
-+	u32 pcc_subspace_id;
- 	struct mpam_msc *msc;
- 	struct resource *msc_res;
- 	struct device *dev = &pdev->dev;
-@@ -2329,7 +2418,7 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- 	if (err)
- 		return ERR_PTR(err);
- 
--	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
-+	if (device_property_read_u32(dev, "pcc-channel", &pcc_subspace_id))
- 		msc->iface = MPAM_IFACE_MMIO;
- 	else
- 		msc->iface = MPAM_IFACE_PCC;
-@@ -2350,6 +2439,26 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
- 		}
- 		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
- 		msc->mapped_hwpage = io;
-+	} else if (msc->iface == MPAM_IFACE_PCC) {
-+		msc->pcc_chan = mpam_pcc_chan_get(dev, pcc_subspace_id);
-+		if (IS_ERR(msc->pcc_chan)) {
-+			pr_err("Failed to request MSC PCC channel\n");
-+			return ERR_CAST(msc->pcc_chan);
-+		}
-+
-+		err = mpam_fb_check_shared_buffer_size(msc);
-+		if (err) {
-+			mpam_pcc_chan_put(msc->pcc_chan);
-+
-+			return ERR_PTR(err);
-+		}
-+
-+		err = mpam_fb_check_protocol_version(msc);
-+		if (err) {
-+			mpam_pcc_chan_put(msc->pcc_chan);
-+
-+			return ERR_PTR(err);
-+		}
- 	} else {
- 		return ERR_PTR(-EINVAL);
- 	}
-diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
-index bb743ee460a2..73cc1b09f676 100644
---- a/drivers/resctrl/mpam_fb.c
-+++ b/drivers/resctrl/mpam_fb.c
-@@ -20,10 +20,15 @@
- #define MPAM_FB_PROTOCOL_ID		0x1a
- 
- #define MPAM_PROTOCOL_VERSION_CMD	0x0
-+#define MPAM_FB_VERSION_MAJOR_MASK		GENMASK_U32(31, 16)
-+#define MPAM_FB_VERSION_MINOR_MASK		GENMASK_U32(15, 0)
-+
- #define MPAM_MSC_READ_CMD		0x4
- #define MPAM_MSC_WRITE_CMD		0x5
- 
- #define MPAM_FB_PROT_HEADER_LEN		sizeof(u32)
-+/* The longest message is MPAM_MSC_WRITE, with 4 parameters. */
-+#define MPAM_FB_MAX_MSG_SIZE		(4 * sizeof(u32))
- 
- #define MPAM_FB_SUCCESS		 0
- #define MPAM_FB_ERR_NOT_SUPPORTED	-1
-@@ -209,3 +214,39 @@ int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value)
- 	return mpam_fb_send_request(msc, msc->id, reg, &value,
- 				    MPAM_MSC_WRITE_CMD);
- }
-+
-+/* We only support MPAM-Fb protocol version 1.x */
-+int mpam_fb_check_protocol_version(struct mpam_msc *msc)
-+{
-+	u32 version;
-+	int ret;
-+
-+	ret = mpam_fb_send_request(msc, 0, 0, &version,
-+				   MPAM_PROTOCOL_VERSION_CMD);
-+	if (ret)
-+		return ret;
-+
-+	if (FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version) != 1) {
-+		pr_err("Incompatible MPAM-Fb protocol version %d.%d\n",
-+		       FIELD_GET(MPAM_FB_VERSION_MAJOR_MASK, version),
-+		       FIELD_GET(MPAM_FB_VERSION_MINOR_MASK, version));
-+
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc)
-+{
-+	int min_buffer_size = MPAM_FB_MAX_MSG_SIZE +
-+			      sizeof(struct acpi_pcct_ext_pcc_shared_memory);
-+
-+	if (msc->pcc_chan->pcc_chan->shmem_size < min_buffer_size) {
-+		pr_err("MPAM-Fb PCC channel size too small.\n");
-+
-+		return -ENOMEM;
-+	}
-+
-+	return 0;
-+}
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index f13a79a84c58..8859189088f3 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -528,6 +528,8 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
- /* MPAM-Fb Firmware-backed protocol wrappers */
- int mpam_fb_send_read_request(struct mpam_msc *msc, u16 reg, u32 *result);
- int mpam_fb_send_write_request(struct mpam_msc *msc, u16 reg, u32 value);
-+int mpam_fb_check_protocol_version(struct mpam_msc *msc);
-+int mpam_fb_check_shared_buffer_size(struct mpam_msc *msc);
- 
- /*
-  * MPAM MSCs have the following register layout. See:
--- 
-2.43.0
+As I understand it your proposed patch fixes all the issues you are
+asking questions about? Is there some outstanding point that your
+patch hasn't already addressed?
 
+>
+> >Why do we need to have notifiers (say cpu_pm_register_notifier())
+> >registered if, for instance, cpuhp_setup_state() fails?
+>
+> Let's jump to the details then to move it forward somewhere.
+>
+> If one of the cpuhp_setup_state() fails and in the current sources
+> (without this patch) we don't check if it succeeds or not we may not
+> have properly working hotplug notifiers =>
+> {set,clear}_bit(cpu, pmu_context->in_cpuhp) may not be updated
+> correctly.
+>
+> The if-check logic in cpuidle callback:
+>
+>         if (test_bit(cpu, pmu_context->in_cpuhp)) {
+>                 raw_spin_unlock(&pmu_context->cpupm_lock);
+>                 return NOTIFY_BAD;
+>         }
+>
+> relies on that and may not work reliably. As a result c2 idle states
+> may stop working or offlined CPU may be put into c2 idle state.
+>
+> Going further, if register_reboot_notifier() fails and we don't
+> check its return value then
+>
+>         /* Ignore CPU_PM_ENTER event in reboot or suspend sequence. */
+>         if (pmu_context->sys_insuspend || pmu_context->sys_inreboot) {
+>                 raw_spin_unlock(&pmu_context->cpupm_lock);
+>                 return NOTIFY_OK;
+>         }
+>
+> a CPU can be put or at least attempted to be put into c2 idle state.
+> That's why there was a question:
+>
+> >> If c2 idles are used during reboot/shutdown then they fail or what?
+>
+> If it is fine to use c2 idle states during power off or reboot,
+> then why the code blocks them during power off/reboot?
+>
+> >> I am not saying that patch is correct and some rework is needed but I don't
+> >> get why we should completely ignore errors from hotplug states registration
+> >> and should not check registration of notifiers. At least warning should be
+> >> shown to user that pm functionality might be unreliable.
+> >
+> > As mentioned above, and in my previous reply, I think your proposed
+> > patch is a good idea.
+>
+> You mentioned, so far as I understood your replies, that _only_
+> destroy_cpuhp_and_cpuidle() is useful and setup_cpuhp_and_cpuidle()
+> should be non-fatal.
+
+I don't know how you reached that conclusion from my replies, as I
+never said either of those things. The only outstanding point for me
+in your patch was about calling destroy_cpuhp_and_cpuidle()
+unconditionally for platforms that never called
+setup_cpuhp_and_cpuidle(). I was expecting either a new version or
+some justification as to why that's OK.
+
+Peter
 
