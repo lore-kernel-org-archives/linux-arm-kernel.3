@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 798D6C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 04:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 141D0C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 04:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46KglQXmBZaXhQzKYrdlIIgbE5Hkt8Onh1lXOlB0H+Y=; b=0IajAu56llvAX88g59z72H4A6w
-	2aOlA9+9rPiHfkYk34VJ3NYLwdI0Ldy1sqLPFsoPX8uRtJX2IlKHiH1WKpH1AIRH/XF8HW93JtGxq
-	QRAd0SFYFkJrOfhu8rBvbC7r3w1aG1qivUDX7gIbm9Mh3abgoZHUcKFuYcSecqgs1dzndsM1qryIq
-	etYeW0RsGeQnFBhumgnPmmWIlETyYkYCXouBG5gJiP/dIWXkfQ93GrTYdAdbDJbOVS/O44BzlKN8n
-	jp64PBTq3n30kkw+RIklAcmeHKBqtkGScmrSt6jh0jx9byaCBLKTFNDiLYJd847cZqLMj7qG19UPy
-	s0ior7mw==;
+	bh=wocs7BrvMROfC3flwkNIJADWZwICYt4AX965blqbLWs=; b=TUElNA+F/yDaFMZlAHg8PfyG1m
+	8Ulm4uXEY/WNnJVnrrfMuvJS6AaI4U1k5J5PquGpaFh2Nj9h2XsaDwVduBU4ATLfTecTvpOCix0H3
+	UPwnWaCoRSwdcrEfDdBB6fe4W+X2vgmMPUrYGcbTQ0NuqYnTnENbH6MiWgX3Vg7m0RX5afFgMU/B1
+	ZT9lv7A4b3Nvoqt270p+neElDnJptbw9hu10ZCQklSIM4PziamuuuYm4xf0DPzzpBv/5eahHDEBXF
+	9NA9PHA5LD8bd1kzGjgP2g/9dlYh6xmtk8dnFuugsD35GPi4SzXKXT9B0mt1tQx6nioPC6aQ2BbDG
+	1NAgvEkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrSuC-00000003Cx3-1xUW;
-	Wed, 05 Aug 2026 04:07:00 +0000
-Received: from mail-m158187.netease.com ([47.251.158.187])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrSu8-00000003CwB-0fm0;
-	Wed, 05 Aug 2026 04:06:59 +0000
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 48d284d12;
-	Wed, 5 Aug 2026 12:06:48 +0800 (GMT+08:00)
-Message-ID: <29d483f3-2eb2-4886-a4fe-9b4b6d9d14f3@rock-chips.com>
-Date: Wed, 5 Aug 2026 12:06:48 +0800
+	id 1wrTSJ-00000003EA3-4Azr;
+	Wed, 05 Aug 2026 04:42:15 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrTSI-00000003E9g-0Bqq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Aug 2026 04:42:15 +0000
+Received: from [10.7.58.6] (unknown [4.194.122.170])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7BD1820B7169;
+	Tue,  4 Aug 2026 21:41:47 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7BD1820B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1785904910;
+	bh=wocs7BrvMROfC3flwkNIJADWZwICYt4AX965blqbLWs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Qq9IGe1F+8af8fGOOGD6lh0x6Zi02G2paZfbSpLeJVFDhpCnZ1RN357zA61P57joS
+	 +i6Iw0maX5wy5xKIYYY+aj/qy4UDGSdu0XL0Gtdk817s1e9SzqVzIgoRTNqF9ei+q1
+	 BWznAJyNiLNtQCmO8lRtf06JCHM0qOWrl92dFkcQ=
+Message-ID: <96bf067f-b811-4a25-a7d3-ff50c13134d0@linux.microsoft.com>
+Date: Wed, 5 Aug 2026 10:12:03 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/10] Add HPD support for Rockchip Analogix DP
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andy Yan <andy.yan@rock-chips.com>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260804081717.741404-1-damon.ding@rock-chips.com>
- <5609825.iZASKD2KPV@diego>
+Subject: Re: [PATCH] arm64: smp: distinguish secondary CPUs that hang after
+ reaching head.S
+To: Will Deacon <will@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Jinjie Ruan <ruanjinjie@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Marc Zyngier <maz@kernel.org>, Thomas Huth <thuth@redhat.com>,
+ Fuad Tabba <fuad.tabba@linux.dev>, Thomas Gleixner <tglx@kernel.org>,
+ Pengjie Zhang <zhangpengjie2@huawei.com>,
+ mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+ Saurabh Sengar <ssengar@linux.microsoft.com>
+References: <20260722113044.1835365-1-namjain@linux.microsoft.com>
+ <6e13c10f-ccc2-48c3-bf8a-d65133a33e17@huawei.com>
+ <70e8596f-7316-4cc9-90e8-ff06a94c4616@arm.com>
+ <d52431ea-3166-459c-8f3d-988fdef63c32@linux.microsoft.com>
+ <amYPss8PK9dgg2TD@willie-the-truck>
+ <45ab9640-14b7-48d7-89e2-109aa3935539@linux.microsoft.com>
+ <anHsh0SpRfSMIza7@willie-the-truck>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <5609825.iZASKD2KPV@diego>
+From: Naman Jain <namjain@linux.microsoft.com>
+In-Reply-To: <anHsh0SpRfSMIza7@willie-the-truck>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9fd01a3dc903a8kunm1ce208566a0762
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZGUtDVkxKH0lPHk8aQk9NQ1YVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
-	9PT0hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=FgyUEkOSbZ9/Qa2HsnMSqlJTDs3+ieUTOhT9JTG9m353+h07kHDJSkyJkiV1xSGLeuP1ZNOPNhW/UyyKHBrB0s88ZhkpPA9S9N/GUK+Ysde2voUzWUHSAaRZ6kSaywTHvGm6ytkbHBrkYeBqy2xriZHbFkzBzomG2mMnge3r4Gw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=46KglQXmBZaXhQzKYrdlIIgbE5Hkt8Onh1lXOlB0H+Y=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_210657_280134_F6E63653 
-X-CRM114-Status: GOOD (  32.73  )
+X-CRM114-CacheID: sfid-20260804_214214_114618_4F02B6E2 
+X-CRM114-Status: GOOD (  21.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,232 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
 
-On 8/5/2026 6:39 AM, Heiko Stübner wrote:
-> Hi Damon,
-> 
-> Am Dienstag, 4. August 2026, 10:17:07 Mitteleuropäische Sommerzeit schrieb Damon Ding:
->> Display-connector mode (DP connector without HPD GPIO):
+
+On 8/4/2026 7:13 PM, Will Deacon wrote:
+> On Mon, Jul 27, 2026 at 11:08:05AM +0530, Naman Jain wrote:
+>> On 7/26/2026 7:16 PM, Will Deacon wrote:
+>>> On Fri, Jul 24, 2026 at 10:16:03AM +0530, Naman Jain wrote:
+>>>> On 7/23/2026 11:26 AM, Anshuman Khandual wrote:
+>>>>> On 23/07/26 8:19 AM, Jinjie Ruan wrote:
+>>>>>> 在 2026/7/22 19:30, Naman Jain 写道:
+>>>>>>> When a secondary CPU fails to come online, __cpu_up() falls back to
+>>>>>>> __early_cpu_boot_status, but boot status 0x0 is ambiguous: it cannot
+>>>>>>> distinguish a CPU that never executed head.S (firmware/hypervisor never
+>>>>>>> dispatched it, so it never ran a single instruction) from one that
+>>>>>>> entered head.S, started executing, and then got stuck somewhere in kernel
+>>>>>>> bring-up. Add a change to let us tell those two cases apart, which
+>>>>>>> narrows down where to look when a CPU goes missing during boot.
+>>>>>> I previously encountered this issue when debugging the parallel startup
+>>>>>> of ARM64 secondary cores. It is difficult for the kernel to determine
+>>>>>> whether the secondary core is hung in the firmware or whether it has not
+>>>>>> executed a single instruction. So I think this motive is reasonable.
+>>>>>
+>>>>> Why should kernel determine the difference here ? Would not the firmware
+>>>>> know if it has started any secondary CPU for the kernel which must have
+>>>>> come inside head.S ? If the cpu gets hung inside firmware while starting
+>>>>> up then the debug responsibilities belong there instead.
+>>>>>
+>>>>> Still wondering what's the rationale for this change.
+>>>>
+>>>> Hello Anshuman,
+>>>> This sounds fair to me. Let me elaborate the problem, beyond the scope of
+>>>> this patch. In production, we occasionally see these crashes where one of
+>>>> the CPU fails to bring up online, with 0x0 status code. Hypervisor may be
+>>>> missing the telemetry, but the problem is that we don't know if the
+>>>> secondary CPU ever started executing the instructions or is stuck somewhere
+>>>> between the start of head.S and marking itself online at the end of
+>>>> secondary_start_kernel().
+>>>> There are couple of places, where we get those other status codes, but not
+>>>> everywhere. If the issue is not easily reproducible, experiments on local
+>>>> setups do not yield anything. That's where I am attempting to add some more
+>>>> information in kernel to debug these issues.
+>>>
+>>> I think this is a game of diminishing returns. There's a lot of stuff
+>>> that the firmware/hypervisor can get wrong here and trying to detect or
+>>> handle that in Linux is going to be a real mess. For example, if it
+>>> enters the kernel at the wrong address, or in the wrong mode, or with
+>>> the MMU enabled etc. It sounds like you don't have much idea about
+>>> what happens in the failure case, so it might not even execute the code
+>>> that you're adding correctly.
 >>
->>    &edp_out_conn {
->>        remote-endpoint = <&dp_con_in>;
->>    };
->>
->>    dp-con {
->>        compatible = "dp-connector";
->>        label = "DP OUT";
->>        type = "full-size";
->>
->>        port {
->>            dp_con_in: endpoint {
->>                remote-endpoint = <&edp_out_conn>;
->>            };
->>        };
->>    };
->>
->> Display-connector mode (DP connector with HPD GPIO):
->>
->>    dp-con {
->>        compatible = "dp-connector";
->>        label = "DP OUT";
->>        type = "full-size";
->>        pinctrl-0 = <&edp0_hpd>;
->>        pinctrl-names = "default";
->>        hpd-gpios = <&gpio4 RK_PC1 GPIO_ACTIVE_HIGH>;
->>
->>        port {
->>            dp_con_in: endpoint {
->>                remote-endpoint = <&edp_out_conn>;
->>            };
->>        };
->>    };
->>
->> All four configurations detect cable plug/unplug events correctly.
+>> That is true. I agree. While we cannot and should not worry about adding
+>> logs for each of these firmware failure points in kernel, do you see any
+>> merit in adding any of this information to the kernel to at least narrow
+>> down the problem?
+> 
+> Possibly, but I'd prefer to land the parallel bringup work first and then
+> see whether this still makes sense.
+> 
+> Will
 
-Thanks a lot for your testing and feedback. :-)
 
-It seems my test setup gave me the false impression that those cases 
-worked well.
+Acked.
 
-> 
-> hmm, it wasn't working entirely for me though and was still running into
-> issues when the display was unplugged on boot.
-> 
-
-Are you seeing this boot‑unplug issue for both scenarios: DP‑connector 
-with HPD‑gpio paired with eDP without HPD‑gpio, and DP‑connector without 
-HPD‑gpio paired with eDP with HPD‑gpio? I.e. it wrongly reports 
-connected even with no display plugged in and proceeds into DRM 
-.atomic_enable()?
-
-> I wiggled around a bit like in the diff below and am now getting correct
-> plug and unplug events.
-
-Oh, I see. For the GPIO HPD case, the IRQ needs to be enabled early so 
-that plug‑in interrupts can be properly responded to. However GPIO HPD 
-does not require a runtime PM get. I will better separate these two 
-scenarios in the next version.
-
-> 
-> But of course, as the dp-variant of the connector does not provide
-> a "detect" and just the "hpd" functionality, it's missing the initial state.
-> 
-> I'm currently not sure how to find out _if_ a panel is connected on boot.
-> 
-
-Based on Dmitry's commit cb640b2ca546 ("drm/bridge: display‑connector: 
-don't set OP_DETECT for DisplayPorts"), HPD events from DP‑variant 
-connector should be handled by the upstream DP controller. Hence I added 
-analogix_dp_bridge_notify() to retrieve HPD status coming from downstream.
-
-As expected, under the bridge‑connector framework, the detect result 
-from Analogix DP should in theory reflect the actual connection status.
-Let's dig into this boot‑time initial‑state issue together.
-
-> 
-> In other review comments:
-> - the bridge could use devm_drm_of_get_bridge() as suggested in
->    the documentation of drm_of_find_panel_or_bridge(), as that would
->    remove the separate panel_bridge creation
-> - instead of using plat_data->next_bridge _inside_ the driver
->    struct drm_bridge has a field next_bridge already.
-
-Great suggestions, I will incorporate them for the next version 
-alongside Sashiko's comments.
-
-Best regards,
-Damon
-
-> 
-> 
-> Heiko
-> 
-> 
-> ------- 8< -------
-> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> index 877e1b3ca7525..1388640a27de7 100644
-> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> @@ -43,7 +43,7 @@ static const bool verify_fast_training;
->   static bool analogix_dp_require_pm_for_hpd_irq(struct analogix_dp_device *dp)
->   {
->   	return analogix_dp_is_rockchip(dp->plat_data->dev_type) && !dp->hpd_gpiod &&
-> -	       !dp->force_hpd;
-> +	       !dp->hpd_bridge && !dp->force_hpd;
->   }
->   
->   static void analogix_dp_init_dp(struct analogix_dp_device *dp)
-> @@ -72,7 +72,7 @@ static int analogix_dp_detect_hpd(struct analogix_dp_device *dp)
->   	 * Trust connection status from downstream bridge (e.g.,
->   	 * display-connector with hpd-gpios).
->   	 */
-> -	if (dp->plat_data->next_bridge && dp->connection_notified)
-> +	if (dp->hpd_bridge && dp->connection_notified)
->   		return 0;
->   
->   	while (timeout_loop < DP_TIMEOUT_LOOP_COUNT) {
-> @@ -926,10 +926,10 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
->   	 */
->   	if (dp->plat_data->next_bridge && dp->last_bridge_is_panel)
->   		status = connector_status_connected;
-> -
-> -	if (!analogix_dp_detect_hpd(dp))
-> +	else if (!analogix_dp_detect_hpd(dp))
->   		status = connector_status_connected;
->   
-> +printk("---> %s status %d\n", __func__, status);
->   	return status;
->   }
->   
-> @@ -1044,7 +1044,7 @@ static int analogix_dp_set_bridge(struct analogix_dp_device *dp)
->   		goto out_dp_init;
->   	}
->   
-> -	if (!analogix_dp_require_pm_for_hpd_irq(dp))
-> +	if (!analogix_dp_require_pm_for_hpd_irq(dp) && !dp->hpd_bridge)
->   		enable_irq(dp->irq);
->   	return 0;
->   
-> @@ -1187,7 +1187,7 @@ static void analogix_dp_bridge_disable(struct drm_bridge *bridge)
->   	if (dp->dpms_mode != DRM_MODE_DPMS_ON)
->   		return;
->   
-> -	if (!analogix_dp_require_pm_for_hpd_irq(dp))
-> +	if (!analogix_dp_require_pm_for_hpd_irq(dp) && !dp->hpd_bridge)
->   		disable_irq(dp->irq);
->   
->   	analogix_dp_set_analog_power_down(dp, POWER_ALL, 1);
-> @@ -1264,6 +1264,7 @@ static void analogix_dp_bridge_notify(struct drm_bridge *bridge, struct drm_conn
->   	struct analogix_dp_device *dp = to_dp(bridge);
->   
->   	dp->connection_notified = (status == connector_status_connected);
-> +printk("---> %s connection_notified %d\n", __func__, dp->connection_notified);
->   }
->   
->   static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
-> @@ -1641,6 +1642,13 @@ static int analogix_dp_aux_done_probing(struct drm_dp_aux *aux)
->   	if (ret && ret != -ENODEV)
->   		return ret;
->   
-> +	/*
-> +	 * There is a next link in the chain which is not a panel, we should
-> +	 * expect hotplug-information coming from there.
-> +	 */
-> +	if (plat_data->next_bridge && !drm_bridge_is_panel(plat_data->next_bridge))
-> +		dp->hpd_bridge = true;
-> +
->   	return component_add(dp->dev, plat_data->ops);
->   }
->   
-> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-> index d0fb25e543ea0..ecca3b87b4456 100644
-> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
-> @@ -169,6 +169,7 @@ struct analogix_dp_device {
->   	bool			fast_train_enable;
->   	bool			psr_supported;
->   	bool			last_bridge_is_panel;
-> +	bool			hpd_bridge;
->   	bool			connection_notified;
->   
->   	u8 dpcd[DP_RECEIVER_CAP_SIZE];
-> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-> index ec5950066f838..6f0d642739ffd 100644
-> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-> @@ -182,7 +182,7 @@ void analogix_dp_config_interrupt(struct analogix_dp_device *dp)
->   	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_2);
->   	writel(0, dp->reg_base + ANALOGIX_DP_COMMON_INT_MASK_3);
->   
-> -	if (dp->hpd_gpiod) {
-> +	if (dp->hpd_gpiod || dp->hpd_bridge) {
->   		analogix_dp_mute_hpd_interrupt(dp, HPD_IRQ);
->   	} else {
->   		/*
-> @@ -438,7 +438,7 @@ void analogix_dp_init_hpd(struct analogix_dp_device *dp)
->   {
->   	u32 reg;
->   
-> -	if (dp->hpd_gpiod)
-> +	if (dp->hpd_gpiod || dp->hpd_bridge)
->   		return;
->   
->   	analogix_dp_clear_hotplug_interrupts(dp, HPD_IRQ);
-> @@ -539,6 +539,9 @@ int analogix_dp_get_plug_in_status(struct analogix_dp_device *dp)
->   	if (dp->hpd_gpiod) {
->   		if (gpiod_get_value(dp->hpd_gpiod))
->   			return 0;
-> +	} else if (dp->hpd_bridge) {
-> +		if (dp->connection_notified)
-> +			return 0;
->   	} else {
->   		reg = readl(dp->reg_base + ANALOGIX_DP_SYS_CTL_3);
->   		if (reg & HPD_STATUS)
-> 
-> 
-> 
-> 
-> 
+Regards,
+Naman
 
 
