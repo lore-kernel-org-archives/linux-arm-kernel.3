@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DE2C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C49C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G4xKySEczjJKlV50yKNxN3atJelGibN9yGRp2vrzooU=; b=xRkysfRT6Ne/81gE0JVzMgb3/a
-	R6fdt0a6T40NC4Q8PTjN13QGBrWMTj1CV7Q6j2gtBMO9vtGJYTRNury4JRF/enXxmyglLYEXhxJvm
-	6/rZ/CdnSbc3mAnYtioTeK0hqpRNzh2K8NeuqS0EyxyI8KKmbFDC7tKGlTW1b5nfptyTdChmZ5S9z
-	5QXENRyWSOT/ABcARvnlilA+fbofUVroHE1wViD15J0kMJQ8G2ulaQAPTypRM9OM37xA+gvcSZcpX
-	ru40stbwiZFfy4Ib37MXEvjACO9OcOlugihIhhyFl2RflDyTb0bUq10QVMCjBZfaD731bBfnRO2GR
-	sb0TBxcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9ZRJc3/K8jWfYuPRvuIdzf0hyVL9OC6N5kDNbWjfFX8=; b=3C+Q/76yWK7TFIqxqHZJyRG/wv
+	49f3ol9Ge/94uHGASWSG/KYAEGX7BEDcOqGxSmhgAGvwutZLWZpG6qFeGoubs89ImAs9VB5HFcfNk
+	CFn88ccIFaJqQLDDR/H1WxhI9zENuK05EGUvKpGUbYr7uFY+eQ7D1GXlFIx7E3CNAPJUHqqbVPq4K
+	bs4/PFRcjwofEQFdhuVtvJ3I8Ru1vae6Hx4p735ApODbrtAHTvep/8gRrMtLbIW54jTBet6njtCaz
+	kNW6nb7tCstvqDkOnYzt7VQWattqQZKEXZgEPRQU5LWY2Stw0XlqFkLcaKZKz/rPaKf1I0mgvC1rd
+	9nh/cj6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVlI-00000003NQ7-086l;
-	Wed, 05 Aug 2026 07:10:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrVpf-00000003Noz-0KGK;
+	Wed, 05 Aug 2026 07:14:31 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVlF-00000003NPI-2Xut;
-	Wed, 05 Aug 2026 07:09:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C909040DC3;
-	Wed,  5 Aug 2026 07:09:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E25AE1F000E9;
-	Wed,  5 Aug 2026 07:09:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785913795;
-	bh=G4xKySEczjJKlV50yKNxN3atJelGibN9yGRp2vrzooU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QijWH5jeUl1w3T5g/U+UIRCah49Z2j7Fro2KNIi5knm8wE+WmgJb6hGUiRVerdGwr
-	 Ir8mUr5npj+GJC4wq+Ddcm9vaUKQdhJhbTnZFX8ormAiQ+dEw8AUDgpdklRzaVldbb
-	 oCemOovogmvlD5ylxpMFMG+ZDbIYebv1laShUx+ALlOCREK2sEa+Q/ggvRhCHvWpYf
-	 l9kF/yp20fPNWJmXCP/o0gGnAc1AaoJnnV9jMURR95QVRRK0WuWTvNKHI2s04Ixysc
-	 aJ/AGOZWu5bLJBQCj7vzHBLjlZk+y9cAxs8feAgM9/26bgpib1GXGwOOKVJkuTN+oV
-	 A8f6vmg5sZEnA==
-Date: Wed, 5 Aug 2026 09:09:53 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>, 
-	Matthias Fend <matthias.fend@emfend.at>, Mikhail Rudenko <mike.rudenko@gmail.com>, 
-	Daniel Scally <dan.scally@ideasonboard.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Michael Riesch <michael.riesch@collabora.com>, Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
-	Sylvain Petinot <sylvain.petinot@foss.st.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Paul Elder <paul.elder@ideasonboard.com>, Martin Kepplinger <martin.kepplinger@puri.sm>, 
-	Quentin Schulz <quentin.schulz@theobroma-systems.com>, Tommaso Merciai <tomm.merciai@gmail.com>, 
-	Svyatoslav Ryhel <clamor95@gmail.com>, Richard Acayan <mailingradian@gmail.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux@ew.tq-group.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org
-Subject: Re: [PATCH v4 7/7] ARM: tegra: Convert to new media orientation
- definitions
-Message-ID: <anLhnbJ3h4G792uq@orome>
-References: <20260804-kbingham-orientation-v4-0-336998dd63b4@ideasonboard.com>
- <20260804-kbingham-orientation-v4-7-336998dd63b4@ideasonboard.com>
+	id 1wrVpc-00000003Noa-04QX;
+	Wed, 05 Aug 2026 07:14:30 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 213B44E410F1;
+	Wed,  5 Aug 2026 07:14:22 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C8BD6602AB;
+	Wed,  5 Aug 2026 07:14:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1A93411C34222;
+	Wed,  5 Aug 2026 09:14:05 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1785914056; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=9ZRJc3/K8jWfYuPRvuIdzf0hyVL9OC6N5kDNbWjfFX8=;
+	b=tqCVjOBwzd66RZ+R5VqvCpQRKbHC9tDt22LgJvpIFoFGl/9VPLxu/QnvPPtK7MxWo7ioj3
+	3kJl1+y5LvmpZZNlrs93oNd6VJ2aCjfS2fPXGRIEEjoyDB8na08K68qyfZNcdd35hRo82T
+	6ZjT4FhZok5kLuqjtPm2UpX/52wVbAYIn9Fi/9d9irLbSady68k8GWAI9CiGgLGy+pEyg4
+	W/nN5wlScoiag7BBvg/hIo7bMggsJegNnRv8FenPGn0VqZ/cKnK2BhnAnK3Oen6WVS0pz+
+	0sREcJ41v/Vx15b7MZeRKm/2Lik67aVkD3B5PNlXXYgk8geGGs3grVfthUH1tQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: linux-kernel@vger.kernel.org, 
+ Wolfram Sang <wsa+renesas@sang-engineering.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Andy Yan <andy.yan@rock-chips.com>, David Airlie <airlied@gmail.com>, 
+ dri-devel@lists.freedesktop.org, Fabio Estevam <festevam@gmail.com>, 
+ Frank Li <Frank.Li@nxp.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, imx@lists.linux.dev, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Liu Ying <victor.liu@nxp.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Robert Foss <rfoss@kernel.org>, 
+ Sandy Huang <hjc@rock-chips.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Simona Vetter <simona@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>
+In-Reply-To: <20260705163536.1850-5-wsa+renesas@sang-engineering.com>
+References: <20260705163536.1850-5-wsa+renesas@sang-engineering.com>
+Subject: Re: (subset) [PATCH 0/3] drm: remove unneeded 'fast_io' parameter
+ in regmap_config
+Message-Id: <178591404454.122884.10665232219542066367.b4-ty@b4>
+Date: Wed, 05 Aug 2026 09:14:04 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="njba5wbvog4atzxq"
-Content-Disposition: inline
-In-Reply-To: <20260804-kbingham-orientation-v4-7-336998dd63b4@ideasonboard.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260805_001428_282145_88A905C5 
+X-CRM114-Status: UNSURE (   7.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,58 +92,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---njba5wbvog4atzxq
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 7/7] ARM: tegra: Convert to new media orientation
- definitions
-MIME-Version: 1.0
+On Sun, 05 Jul 2026 18:35:35 +0200, Wolfram Sang wrote:
+> When using MMIO with regmap, fast_io is implied. No need to set it
+> again. No dependencies, can be applied directly to the subsystem tree.
+> Buildbot is happy, too.
+> 
+> 
+> Wolfram Sang (3):
+>   drm/bridge: remove unneeded 'fast_io' parameter in regmap_config
+>   drm/imx: remove unneeded 'fast_io' parameter in regmap_config
+>   drm/rockchip: remove unneeded 'fast_io' parameter in regmap_config
+> 
+> [...]
 
-On Tue, Aug 04, 2026 at 08:43:34PM +0100, Kieran Bingham wrote:
-> The orientation property for video interface devices now has definitions
-> to prevent hardcoded integer values for the enum options.
->=20
-> Update the users throughout the nvidia device trees to use the new
-> definitions.
->=20
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
-> ---
-> v2:
->  - Fix MEDIA_ORIENTATION_REAR to MEDIA_ORIENTATION_BACK
-> ---
->  arch/arm/boot/dts/nvidia/tegra30-asus-nexus7-grouper-common.dtsi | 3 ++-
->  arch/arm/boot/dts/nvidia/tegra30-asus-transformer-common.dtsi    | 3 ++-
->  arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts                     | 4 +++-
->  arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi                      | 3 ++-
->  4 files changed, 9 insertions(+), 4 deletions(-)
+Applied, thanks!
 
-Reviewed-by: Thierry Reding <treding@nvidia.com>
+[1/3] drm/bridge: remove unneeded 'fast_io' parameter in regmap_config
+      commit: ae2854a7622fa088a2cebd0ac51ef72226301e99
 
-And if the plan is to merge these through the media tree:
+Best regards,
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
-Acked-by: Thierry Reding <treding@nvidia.com>
 
---njba5wbvog4atzxq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpy4cEACgkQ3SOs138+
-s6GX7xAAiUn50cg1N3IYryCjW1HFvtOEELAbn3WbEabsf8ChY6p27lszsD2u1SWA
-ljxp3aiozUzCDwS4rO/auUa1ubQ4YRFi+KmviEMAaNlx+odGBEP9OmYdo8CsKq78
-8+xxglQ3WizUEMIc0B7j8IVwUsAvE32qOnrr56XTx1YaqrA66BNENIq9wlURELrw
-bh40y7Cc+hRdum3b85woDbChECrG6q3Y0JFQQuZovQvs/bhWJ27/Z1ILLVkjy5pD
-Ases5xrdbEn7iYc2w80khRpu4aqUycjsCBf6E/bYZj/2TDHK6ir5W4wpB6E00E5D
-AuQo8CmAW+l5aWJDbfBcBPC3xcduHHH9D4dGpO4Cd52Yntu9cgDmfTk+kEgHJ6EC
-adEIuD3pHuqgQWSpOUfSlGFNDq+HhUpXZWH2lx/abGSyjcydQE+urtU3XQilKpOk
-j+Lq191FrKk7epLKNrqklsyKV3xNIBZnkLIb0SxVV9SCWs4qdoRWN9gfHB3VmaL4
-kR2WQrc9xpnabF+v0Mele7z45YdHdoHY/5ttfZAdm53Q1/Zgz058i8Unn5U9GVDM
-pqt/pJjTGqKKn8Z2AHRe2zKw9S4dDTDSybfzC8RdjE5OB8TKjKyjumwpkxGiIUIn
-jogEFjQcRrmyO5tbZ96lii8IL9M+aMr5EeyMpcrJJaxZRSV3cGg=
-=n6SN
------END PGP SIGNATURE-----
-
---njba5wbvog4atzxq--
 
