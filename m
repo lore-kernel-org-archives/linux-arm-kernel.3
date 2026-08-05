@@ -4,161 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECEEAC55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 038C8C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y9hkkjdmafJzS9eEzwPN0UqcbjM6LEHIzsWnMQ++U3M=; b=jv7nTa7extnKB+GFSF4O6n0Qv5
-	W/nI7+29WfGxEP2FVpsCdQsJQEPUFTIXooK3K92VDHRYHwVHNXqErzhOeJpCNM64lKqxnqJKAPDCU
-	Bwt6mL4RWSCkT4M99qbUSvXh4QZPAUL5NZuFskAHfpQIXeCX+F0fNeEd/zK43NuaHYApKmFM15i6N
-	V7SOpRWNeu9jHBnF4brw6WiyA2LnCBDsR0zARwPVi42o87Oz4y0IIVLlLlxPfDdPzu1KhDezqgtd1
-	APC2Aydq605NR00TRM6UHsXw/kB7nKPIgzxSqfgBl1O1Xc3n513fpRIAZlGRH7kOFaN3JoLult/DN
-	+qLVKLnQ==;
+	bh=L2T6UFZUko+IGG8cx7yR8iAbhCfElf8m4Y2JzxY9iDk=; b=oZp4dhlaEeAtF9cBot8AV4ZW7+
+	v9T4yEQ9zCJn3EuSWE+lwawQPgCF3AymFvJaVXnFJeNhZoZ1RQPNhNLo32du8jM3ry5iGiQrJ9pak
+	Ygu/eo9NZNKhKcAvPSExlvEZh0rdFaq3YL5YtlfpQ6Ael/4YTfrs4W01i8C58nhXzGFqYRi5rM1xW
+	1nLK2808BXs2qcn5nTl0cuGMJ1h6t33rBeH+Ld08EV7fPd3I11sYYo+HGtl49JOoCNYo/CDJZDBV4
+	gC3M9JjqUkxkpoyHZmNg+/hBgMIHAF8rb9tFGtjOqPZlUOOMTHP22MckA0hli0ZLy5UXbf680hOfZ
+	Q0SsuyGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrc44-000000041l2-3D06;
-	Wed, 05 Aug 2026 13:53:48 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wrc8N-000000042Dy-2Jts;
+	Wed, 05 Aug 2026 13:58:15 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrc42-000000041jD-2QMk
+	id 1wrc8K-000000042DN-28ob
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 13:53:47 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 675BvGtR2865663
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 5 Aug 2026 13:53:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Y9hkkjdmafJzS9eEzwPN0UqcbjM6LEHIzsWnMQ++U3M=; b=L9HS3tiWCzeqPSks
-	zEc4JN4XqjssiJfGc15ExH8KDLT0NXO+7bDMGr40ct01adEZGRdvuRQGEnPZzYpW
-	S2/zah0JTzMM66LIrT9h0fyTqlFi3F6M0xf9URI+1WbmUQWkhB/lrZ8QXmkQJDLf
-	m47k3JP9LeJRUgj4aX5B8ItRBSgazv8zVCFrMlS2yP6QTrHmIQMpQT0x5s65R/bI
-	fblrag2FPpw8xleeWPimpKvVZZ8Hn7CLTLQoPBt2zgzVNW9y3q9zQy1xub5IfSo8
-	0u8VlEQhzsSPy6JQmkqj/4VVDNckmMR43OjsNeGOJS0mHCtDO2qNYA2Sr5iYpZoK
-	UdF3Bg==
-Received: from mail-yw1-f198.google.com (mail-yw1-f198.google.com [209.85.128.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fv2r6104q-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 13:53:45 +0000 (GMT)
-Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-81eddfe28b4so27085757b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 06:53:45 -0700 (PDT)
+	Wed, 05 Aug 2026 13:58:13 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-6983d3dae7aso3360566a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 06:58:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785938025; x=1786542825; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Y9hkkjdmafJzS9eEzwPN0UqcbjM6LEHIzsWnMQ++U3M=;
-        b=GDd8oHZESxuo6mfyu2E0E/sqNEQNxckTRMvpbGbKEzuRRfHzTEM+a4gGB2dkLA/fzS
-         qmpjaJ+D0Ta8WhdxueDx3cLRLODeFWvWgTmKj/YR5dlt9KQ0HSUhbFBuI/Bja6nW+ukK
-         X12tk0CKjMaBlQdtkA8+G8tQ1PqTuzvZUG10ThqYZ+myZ5Cs0XFJYTlKCkiS9v0rZoEq
-         QJ0bDu1RwMBPQHc8iR5ZQPX2SBNA/p/b/7Ny3Iml0yJZurSXNQxWao9YAycxm+lGvE3t
-         NCD3Gv/UT9B/Qh1GeyRZ8MQ+MY9rA/ZUpfmAGWP0IxiXk1pqMTUEZE5p0t73Z+ijV0id
-         tixw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785938025; x=1786542825;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=linaro.org; s=google; t=1785938290; x=1786543090; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Y9hkkjdmafJzS9eEzwPN0UqcbjM6LEHIzsWnMQ++U3M=;
-        b=dJl6w5X9hv7ZByLglNiSfD82zZQZoH7qNa9xbXOePaHT9iNnL3thnczVIDR4ZY0bqa
-         LYl1XFGXK1EHpzVBF60LBsmrAkYrWtAOO48z9zZT97pgY/72z75o0dkGRRGA65Aw9RBV
-         8sYbIfuSQIqDLiAMk73hmFndo8D+OUIJWlrEO58yNnKnFCwphBgpeYsX1Xgw8JJOVu/V
-         NZTWrtpvbgn6v5UMgC2I9ocbP6XEc02w0c6vT3mHrGyBzAIqVbN2bmtXBIGFKHj8euXI
-         iG/YLVxLai/dc+hQygfWoSgbR0WxeVYGQEJS7HrbnbwXmkyFDChQNgbckUAEuVnf07eM
-         wHCw==
-X-Forwarded-Encrypted: i=1; AHgh+RqKBoJSxXAliqEtFiMV/RGSIJaJnhi0i/sMQcJczjQ76g8KW/d3c7C23M5gMtu8SVmFP+i7Yd6no8AXrs/0GSvF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyippHD5dNV3hkIWwPFpXW6F6LkSRp0yFSjMQiIZSq64ZauXhu
-	2nXYfEXBjkxQqfgS/46z1vB6hbbwqgE6GynsfyyaSh+9isV6qZyNuHCQRCIuQD1oorGMMhHPrJq
-	8vU58x0SM4zEVWgIpyNy9c3ibqAiHJGbxmOOGdVnS9b3EFDfAXr/poGujyL4Mk8nGnUQbZYlGI/
-	/MCQ==
-X-Gm-Gg: AR+sD12k255Ko4PxnmT1buseGpym39VGRQjO4++1M0f2pJzzbDwEPo4O1HIhqiqCVQ9
-	7A1vOti+pUH1PVTIJFORt6XgAduSxzRlR3phsCtbYBAAOHmO7wqDfX16tChtXeh9mHq3MQefWO6
-	hZ/abOgpbGKO+Fov9+HZHZKir+FlPBMJ27ifgsGJQB3r1qO9JUB74pI2aY8bixubtqsjlp+Lb1j
-	dJ0Zr9tZVEt67W49kSsp5R5IPSOArb30pQIhS5HydyCFvys52mNTnjWxt0Chh0N5abdflTHk1+3
-	Cg+1Fsg0pc4o3UwasfKWvoaSC1Ir/DrnZ/X7x7I93ptwct9Ney9NmbunkqZqemdfsubEgwzXAhP
-	i4fzoivF2lH0lhjV2h5ttlZd1dCPnMb8=
-X-Received: by 2002:a05:690c:6f12:b0:81d:3018:6eca with SMTP id 00721157ae682-8201c491d4cmr43939797b3.12.1785938024866;
-        Wed, 05 Aug 2026 06:53:44 -0700 (PDT)
-X-Received: by 2002:a05:690c:6f12:b0:81d:3018:6eca with SMTP id 00721157ae682-8201c491d4cmr43939387b3.12.1785938024330;
-        Wed, 05 Aug 2026 06:53:44 -0700 (PDT)
-Received: from hu-nihalkum-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8201320ec71sm20892517b3.12.2026.08.05.06.53.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 06:53:44 -0700 (PDT)
-From: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-Date: Wed, 05 Aug 2026 19:22:50 +0530
-Subject: [PATCH RESEND v6 5/5] arm64: dts: qcom:
- shikra-iqs-evk-imx577-camera: Add DT overlay
+        bh=L2T6UFZUko+IGG8cx7yR8iAbhCfElf8m4Y2JzxY9iDk=;
+        b=p8wH+vsOdeolW//6OKsgYO29JZtRmTFKC5fesQQUY9Q7pmOmzEuOw/mn26tgHJURyF
+         uRk0B6Ov31ksd5371/t6LDoakwDDRLeCY+lHFv/I3VMNpPGt7e4+hJATKEqA+zHyR29U
+         1pio1EvQBmgdzINY9E70Nm/cxOnqJIBrF2cntIqZCDTvggQV3lFKsrfm/pwm8bdWfa/4
+         XcCv/2lcrgR/sjH1fy1UCCuNFFCyd2hW5sai82rxDmw6tOYfBlFdwaH67TUi38dz9GpN
+         hNc8hwG0OmPE2CrO6V21SD7qd0MdzSHx2zdBIwIeupX2S1XBC7BqZxhfGtbh4xCTv7be
+         yoWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785938290; x=1786543090;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=L2T6UFZUko+IGG8cx7yR8iAbhCfElf8m4Y2JzxY9iDk=;
+        b=OJ4DyQtbxVW4VBIR8sPV1c5zc3YpjSLp4Qo986c9krY8xNB5dcwW+vglnWuYqTtX75
+         E4QcDHiHhuEtQS6tVEPwhLiWrqjuzcPzCVGmpuLi2SDhGQvkwV3ErPkIU2I7HQqIlHtU
+         x8yJnLmmXyR6Sj1DWpN7eIXNpuW5Ozn5wA+3R34BK6qds8z0so90z/7Cx0CEyI46Xhv1
+         Vwu0X9VpynmLCCdSH3er0HNZhlfkJW79eUJ5czcraV7Nv+TFp2BgQJzmyKuhp9PbprUO
+         HPd6RF0srdQDLVpNE24jzA6BP8UjGpX4g62sMvh56fiFVXsd5nEKcsuRqSHeyO26eKcF
+         L3ZA==
+X-Forwarded-Encrypted: i=1; AHgh+RqCxmwHjipBdxfAYEOJ+J0uoDCJ9kihNKlPwNqvLq7BlvJ1xah2B9zKoBDbuW5NUeJetcL0uJl0JSqCrBSDMh3P@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEJxUKpGxR9+EJ1UpY35djgwpwhQ3b7zH4UTgkmU/Nnx7kU5Qr
+	6qtgoDIkv/CU463f8Kib/eolN3rVqM2IuYWFJmRyxH4kc0stQfhJ7CHXfflMVNltYdk=
+X-Gm-Gg: AR+sD12B//dPXr11bm+qSUXNHHNWuZjIW88Z17efMrlslPbEO+1nuEgWoRmk/vXacsd
+	VZ/f5gQBszbc45fP0ETZQF37V2jAuYwL0ADVR9PgGtekRtp8a5QjLcxKu7Eg3nHVkYvtJpC4L6H
+	DUMhkIsxUspn+0DXttuc9CiPOqZMunJn7iiUxpt01m6aAfTfESJMLreDDvcnXV1DCzb0dnRk3/P
+	hUmJs4Xt6V0MTcKb8SSv2scqssic28J2QG9PqOA4MtdkO+D1ZlMNjTGhQkgz3CJr4GSxQLpw9Rs
+	oic+/5SLdlW65WvID9+/9tXR+pCdbn3sJJjphlimHiBbDAl751A9U141uXiwVXoO//K+PkdvqEm
+	PQ8Ew3Z97qZprNMjLsz+JlRR/G6H356MuWJZqxoiIwbpY6VGZa+60HphpbvHSEZU/sKx90Lqevb
+	4EHpXnuYfGOsR389nXkfeOuY1Ct2+666s4eYa19xCxxbQvwi8WcpP41YFBVbrMfSObtxnnodIyW
+	WfcFg==
+X-Received: by 2002:a05:6402:52cd:b0:697:8b0c:36e1 with SMTP id 4fb4d7f45d1cf-6a14ef2123bmr3928015a12.4.1785938290276;
+        Wed, 05 Aug 2026 06:58:10 -0700 (PDT)
+Received: from [192.168.1.3] ([37.18.141.193])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a145de65a3sm2117691a12.19.2026.08.05.06.58.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Aug 2026 06:58:09 -0700 (PDT)
+Message-ID: <9fa68534-2b12-420a-93b7-a6ada21c180e@linaro.org>
+Date: Wed, 5 Aug 2026 14:58:08 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260805-shikra-camss-review-v6-5-a8dbc66f0d87@oss.qualcomm.com>
-References: <20260805-shikra-camss-review-v6-0-a8dbc66f0d87@oss.qualcomm.com>
-In-Reply-To: <20260805-shikra-camss-review-v6-0-a8dbc66f0d87@oss.qualcomm.com>
-To: Bryan O'Donoghue <bod@kernel.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Loic Poulain <loic.poulain@oss.qualcomm.com>,
-        Mauro Carvalho Chehab <mchehab@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Robert Foss <rfoss@kernel.org>,
-        Andi Shyti <andi.shyti@kernel.org>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, linux-media@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-i2c@vger.kernel.org, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org,
-        Suresh Vankadara <quic_svankada@quicinc.com>,
-        Vikram Sharma <vikram.sharma@oss.qualcomm.com>,
-        Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785937970; l=3663;
- i=nihal.gupta@oss.qualcomm.com; s=20260608; h=from:subject:message-id;
- bh=lTjpGa9aw9j7oo/7K2Uo54+/x9/nRwS5LnIyxeuI31I=;
- b=DVdk7tPHrxiR9a0X3yL4sAFZRnMhvSJDw5eUqZ1EMTNhSORE2OvZxD59JcHMpgqYI+XLBUYIC
- zlWbfOPbH9UBXiR06J5SL9aLD7spPeInAFOoGCQ7KTQmOCaKaq9QvD1
-X-Developer-Key: i=nihal.gupta@oss.qualcomm.com; a=ed25519;
- pk=DIbyFMNwqU/iMvU/0pCQp2wmRVgtHFBT3PcSu+A+Ncw=
-X-Authority-Analysis: v=2.4 cv=WrIb99fv c=1 sm=1 tr=0 ts=6a734069 cx=c_pps
- a=g1v0Z557R90hA0UpD/5Yag==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=OGCdAuOInqFJiNoUztwA:9 a=QEXdDO2ut3YA:10
- a=MFSWADHSvvjO3QEy5MdX:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: tWPU1kIw_zK8z7i1XM_w2FPrdP_IRRPC
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODA1MDExMiBTYWx0ZWRfX1wDbgW0YIHKL
- K+jdZ9IksLIVjxSJiA5EyHes+0QWJxUPyWkB3jKu0jjx+flXw7Ifq3DhL/BSO436qpg84R5T8Wg
- i3jeKftsAl3hVVBy0IQ6cO+ZluVDLhc=
-X-Proofpoint-ORIG-GUID: tWPU1kIw_zK8z7i1XM_w2FPrdP_IRRPC
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA1MDExMiBTYWx0ZWRfX0UYcfOn/mn9M
- 2/G6CXNcZsC9UlYblt4j0wOt6t6XBOsJPUztwGRMhqcLSmzzorcA7e96CwW6KQIzLO+nkTE19bM
- y6r3IwSWXWOhZyq6+6Dv9vZeBo6R0r7DJWDgJaOWSdxl3Wkp6PZjpIt/YhufeyHJg35svdAVUB2
- jE7Y7aE6W1bh4qCJgZLlOEga4MtWLaVv0pNkvI01cmwAcZSL6rRdBjT6N+BatGZ7tE2Vww5NBaC
- jGjXmsMtVLMieHxPfH2uppnER5b0MpQBsrw4BjCeRER58A1jWWaglwX7Djn4gWGgju8M6WOBZyE
- 9gehj8XQ/2GDDav2js0pbd/Tl6qaPwag3FRXfaNhrj/e1ezvvgklvGQ3yYBKK1ebarToJwfsT42
- 8F82KsmlY/7K1C6dne+tXr4eFOaEQ1o2rMmSdVXbWx+W7gxJnNtlq5iua236mdnORVnEazekU4q
- RrG6E874+skNKZAxoLA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-05_04,2026-08-04_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0 priorityscore=1501 impostorscore=0 bulkscore=0
- clxscore=1015 lowpriorityscore=0 adultscore=0 phishscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608050112
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 3/4] perf/arm64: Add BRBE support for
+ bpf_get_branch_snapshot()
+To: Puranjay Mohan <puranjay12@gmail.com>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Leo Yan <leo.yan@arm.com>,
+ Rob Herring <robh@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Shuah Khan <shuah@kernel.org>,
+ Breno Leitao <leitao@debian.org>, Ravi Bangoria <ravi.bangoria@amd.com>,
+ Stephane Eranian <eranian@google.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, Usama Arif
+ <usama.arif@linux.dev>, linux-arm-kernel@lists.infradead.org,
+ linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel-team@meta.com
+References: <20260616155716.2631508-1-puranjay@kernel.org>
+ <20260616155716.2631508-4-puranjay@kernel.org>
+ <8a24abbc-10bc-42bb-8fee-0a174d8f1751@linaro.org>
+ <CANk7y0inRXCUKtuio3Cb03DvuNPq6yp1o+tsE8PZitrY0LaOPQ@mail.gmail.com>
+ <6ee32efc-01be-4532-aa59-3948f59156c0@linaro.org>
+ <CANk7y0hU_m6gJ9FpGfGUJg-Ok8PoXhKruny_0OkeOgLbCo6ZLA@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CANk7y0hU_m6gJ9FpGfGUJg-Ok8PoXhKruny_0OkeOgLbCo6ZLA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_065346_735689_54507E47 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20260805_065812_752579_265E065D 
+X-CRM114-Status: GOOD (  34.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,123 +125,501 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Shikra IQS is an industrial-grade variant using PM8150 PMIC, requiring
-different CSIPHY and sensor supply rails compared to the retail boards
-(CQM and CQS) which use PM4125.
 
-Add a dedicated overlay for optional IMX577 integration via CSIPHY1.
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Signed-off-by: Nihal Kumar Gupta <nihal.gupta@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/Makefile                  |  2 +
- .../dts/qcom/shikra-iqs-evk-imx577-camera.dtso     | 79 ++++++++++++++++++++++
- 2 files changed, 81 insertions(+)
+On 05/08/2026 12:47, Puranjay Mohan wrote:
+> On Wed, Aug 5, 2026 at 11:07 AM James Clark <james.clark@linaro.org> wrote:
+>>
+>>
+>>
+>> On 03/08/2026 7:54 pm, Puranjay Mohan wrote:
+>>> On Mon, Aug 3, 2026 at 12:07 PM James Clark <james.clark@linaro.org> wrote:
+>>>>
+>>>>
+>>>>
+>>>> On 16/06/2026 16:57, Puranjay Mohan wrote:
+>>>>> Enable bpf_get_branch_snapshot() on ARM64 by implementing the
+>>>>> perf_snapshot_branch_stack static call for BRBE.
+>>>>>
+>>>>> BRBE is paused before masking exceptions to avoid branch buffer
+>>>>> pollution from trace_hardirqs_off(). Exceptions are then masked with
+>>>>> local_daif_save() to prevent PMU overflow pseudo-NMIs from interfering.
+>>>>> If an overflow between pause and DAIF save re-enables BRBE, the snapshot
+>>>>> detects this via BRBFCR_EL1.PAUSED and bails out.
+>>>>>
+>>>>> Branch records are read using perf_entry_from_brbe_regset() with a NULL
+>>>>> event pointer to bypass event-specific filtering. The buffer is
+>>>>> invalidated after reading.
+>>>>>
+>>>>> Introduce a for_each_brbe_entry() iterator to deduplicate bank
+>>>>> iteration between brbe_read_filtered_entries() and the snapshot.
+>>>>>
+>>>>> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+>>>>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+>>>>> ---
+>>>>>     drivers/perf/arm_brbe.c  | 128 ++++++++++++++++++++++++++++++++-------
+>>>>>     drivers/perf/arm_brbe.h  |   9 +++
+>>>>>     drivers/perf/arm_pmuv3.c |   5 +-
+>>>>>     3 files changed, 120 insertions(+), 22 deletions(-)
+>>>>>
+>>>>> diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
+>>>>> index effbdeacfcbb..a141ad7abcf2 100644
+>>>>> --- a/drivers/perf/arm_brbe.c
+>>>>> +++ b/drivers/perf/arm_brbe.c
+>>>>> @@ -9,6 +9,7 @@
+>>>>>     #include <linux/types.h>
+>>>>>     #include <linux/bitmap.h>
+>>>>>     #include <linux/perf/arm_pmu.h>
+>>>>> +#include <asm/daifflags.h>
+>>>>>     #include "arm_brbe.h"
+>>>>>
+>>>>>     #define BRBFCR_EL1_BRANCH_FILTERS (BRBFCR_EL1_DIRECT   | \
+>>>>> @@ -256,6 +257,14 @@ static bool valid_brbe_version(int brbe_version)
+>>>>>                brbe_version == ID_AA64DFR0_EL1_BRBE_BRBE_V1P1;
+>>>>>     }
+>>>>>
+>>>>> +static __always_inline bool cpu_has_brbe(void)
+>>>>
+>>>> This should be more like cpu_valid_brbe_version(). has_brbe() only
+>>>> implies that the CPU has BRBE, not that it's a version that the driver
+>>>> supports. And it's actually just a wrapper around valid_brbe_version()
+>>>> that accesses the ID reg on that CPU, not a functionally different check.
+>>>>
+>>>> But it also looks like valid_brbe_version() isn't called from anywhere
+>>>> else, so why not delete that function and use its name for the new one?
+>>>
+>>> I will do that in next version
+>>>
+>>>>
+>>>>> +{
+>>>>> +     u64 aa64dfr0 = read_sysreg_s(SYS_ID_AA64DFR0_EL1);
+>>>>> +     int brbe = cpuid_feature_extract_unsigned_field(aa64dfr0, ID_AA64DFR0_EL1_BRBE_SHIFT);
+>>>>> +
+>>>>> +     return valid_brbe_version(brbe);
+>>>>> +}
+>>>>> +
+>>>>>     static void select_brbe_bank(int bank)
+>>>>>     {
+>>>>>         u64 brbfcr;
+>>>>> @@ -271,6 +280,20 @@ static void select_brbe_bank(int bank)
+>>>>>         isb();
+>>>>>     }
+>>>>>
+>>>>> +static inline void __brbe_advance(int *bank, int *idx, int nr_hw)
+>>>>> +{
+>>>>> +     if (++(*idx) >= BRBE_BANK_MAX_ENTRIES &&
+>>>>> +         *bank * BRBE_BANK_MAX_ENTRIES + *idx < nr_hw) {
+>>>>> +             *idx = 0;
+>>>>> +             select_brbe_bank(++(*bank));
+>>>>> +     }
+>>>>> +}
+>>>>> +
+>>>>> +#define for_each_brbe_entry(idx, nr_hw)                                      \
+>>>>> +     for (int __bank = (select_brbe_bank(0), 0), idx = 0;            \
+>>>>> +          __bank * BRBE_BANK_MAX_ENTRIES + idx < (nr_hw);            \
+>>>>> +          __brbe_advance(&__bank, &idx, (nr_hw)))
+>>>>> +
+>>>>>     static bool __read_brbe_regset(struct brbe_regset *entry, int idx)
+>>>>>     {
+>>>>>         entry->brbinf = get_brbinf_reg(idx);
+>>>>> @@ -474,11 +497,9 @@ unsigned int brbe_num_branch_records(const struct arm_pmu *armpmu)
+>>>>>
+>>>>>     void brbe_probe(struct arm_pmu *armpmu)
+>>>>>     {
+>>>>> -     u64 brbidr, aa64dfr0 = read_sysreg_s(SYS_ID_AA64DFR0_EL1);
+>>>>> -     u32 brbe;
+>>>>> +     u64 brbidr;
+>>>>>
+>>>>> -     brbe = cpuid_feature_extract_unsigned_field(aa64dfr0, ID_AA64DFR0_EL1_BRBE_SHIFT);
+>>>>> -     if (!valid_brbe_version(brbe))
+>>>>> +     if (!cpu_has_brbe())
+>>>>>                 return;
+>>>>>
+>>>>>         brbidr = read_sysreg_s(SYS_BRBIDR0_EL1);
+>>>>> @@ -618,10 +639,10 @@ static bool perf_entry_from_brbe_regset(int index, struct perf_branch_entry *ent
+>>>>>
+>>>>>         brbe_set_perf_entry_type(entry, brbinf);
+>>>>>
+>>>>> -     if (!branch_sample_no_cycles(event))
+>>>>> +     if (!event || !branch_sample_no_cycles(event))
+>>>>>                 entry->cycles = brbinf_get_cycles(brbinf);
+>>>>>
+>>>>> -     if (!branch_sample_no_flags(event)) {
+>>>>> +     if (!event || !branch_sample_no_flags(event)) {
+>>>>>                 /* Mispredict info is available for source only and complete branch records. */
+>>>>>                 if (!brbe_record_is_target_only(brbinf)) {
+>>>>>                         entry->mispred = brbinf_get_mispredict(brbinf);
+>>>>> @@ -774,32 +795,97 @@ void brbe_read_filtered_entries(struct perf_branch_stack *branch_stack,
+>>>>>     {
+>>>>>         struct arm_pmu *cpu_pmu = to_arm_pmu(event->pmu);
+>>>>>         int nr_hw = brbe_num_branch_records(cpu_pmu);
+>>>>> -     int nr_banks = DIV_ROUND_UP(nr_hw, BRBE_BANK_MAX_ENTRIES);
+>>>>>         int nr_filtered = 0;
+>>>>>         u64 branch_sample_type = event->attr.branch_sample_type;
+>>>>>         DECLARE_BITMAP(event_type_mask, PERF_BR_ARM64_MAX);
+>>>>>
+>>>>>         prepare_event_branch_type_mask(branch_sample_type, event_type_mask);
+>>>>>
+>>>>> -     for (int bank = 0; bank < nr_banks; bank++) {
+>>>>> -             int nr_remaining = nr_hw - (bank * BRBE_BANK_MAX_ENTRIES);
+>>>>> -             int nr_this_bank = min(nr_remaining, BRBE_BANK_MAX_ENTRIES);
+>>>>> +     for_each_brbe_entry(i, nr_hw) {
+>>>>> +             struct perf_branch_entry *pbe = &branch_stack->entries[nr_filtered];
+>>>>>
+>>>>> -             select_brbe_bank(bank);
+>>>>> +             if (!perf_entry_from_brbe_regset(i, pbe, event))
+>>>>> +                     break;
+>>>>>
+>>>>> -             for (int i = 0; i < nr_this_bank; i++) {
+>>>>> -                     struct perf_branch_entry *pbe = &branch_stack->entries[nr_filtered];
+>>>>> +             if (!filter_branch_record(pbe, branch_sample_type, event_type_mask))
+>>>>> +                     continue;
+>>>>>
+>>>>> -                     if (!perf_entry_from_brbe_regset(i, pbe, event))
+>>>>> -                             goto done;
+>>>>> +             nr_filtered++;
+>>>>> +     }
+>>>>>
+>>>>> -                     if (!filter_branch_record(pbe, branch_sample_type, event_type_mask))
+>>>>> -                             continue;
+>>>>> +     branch_stack->nr = nr_filtered;
+>>>>> +}
+>>>>>
+>>>>> -                     nr_filtered++;
+>>>>> -             }
+>>>>> +/*
+>>>>> + * Best-effort BRBE snapshot for BPF tracing. Pause BRBE to avoid
+>>>>> + * self-recording and return 0 if the snapshot state appears disturbed.
+>>>>> + */
+>>>>> +int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries, unsigned int cnt)
+>>>>> +{
+>>>>> +     unsigned long flags;
+>>>>> +     int nr_hw, nr_copied = 0;
+>>>>> +     u64 brbfcr, brbcr;
+>>>>> +
+>>>>> +     if (!cnt)
+>>>>> +             return 0;
+>>>>
+>>>> If you're trying to avoid branches before pausing BRBE, can't you check
+>>>> this after the pause?
+>>>
+>>> will drop this in the next version and this is just an optimization.
+>>>
+>>>>
+>>>>> +
+>>>>> +     /* Guard against running on a CPU without BRBE (e.g. big.LITTLE). */
+>>>>> +     if (!cpu_has_brbe())
+>>>>> +             return 0;
+>>>>> +
+>>>>> +     /*
+>>>>> +      * Pause BRBE first to avoid recording our own branches. The
+>>>>> +      * sysreg read/write and ISB are branchless, so pausing before
+>>>>> +      * checking BRBCR avoids polluting the buffer with our own
+>>>>> +      * conditional branches.
+>>>>> +      */
+>>>>> +     brbfcr = read_sysreg_s(SYS_BRBFCR_EL1);
+>>>>> +     brbcr = read_sysreg_s(SYS_BRBCR_EL1);
+>>>>> +     write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+>>>>
+>>>> Can this work without first disabling interrupts? Sashiko pointed it
+>>>> out, but I think it's correct. If you read an active state into brbfcr,
+>>>> then the PMU event fires and disables BRBE, then you disable interrupts,
+>>>> then you would restore an active state when it should be inactive.
+>>>> Surely the only way to do it properly is to disable interrupts before
+>>>> touching anything at all, if the PMU handler is also touching the same
+>>>> registers?
+>>>>
+>>>> If you want to avoid trace_hardirqs_off() can you make a new
+>>>> raw_local_daif_save() that disables interrupts and then call
+>>>> trace_hardirqs_off() yourself after pausing BRBE? Or not call
+>>>> trace_hardirqs_off() at all? There is a comment mentioning something
+>>>> like that in arch/arm64/kernel/suspend.c.
+>>>
+>>> Yes. I'll add raw_local_daif_save()/raw_local_daif_restore() and mask before
+>>> touching any BRBE register, which fixes the stale restore. trace_hardirqs_off()
+>>> then moves below the pause so lockdep still sees a balanced off/on pair while
+>>> its branches land in an already paused buffer.
+>>>
+>>>>
+>>>> Also, disabling interrupts doesn't stop the PMU event from overflowing
+>>>> and changing the state of PAUSED either. I think this is another path
+>>>> that leads to you restoring the wrong state, so don't you also need to
+>>>> disable the PMU?
+>>>
+>>> Hardware only sets PAUSED on a BRBE freeze event (RBHYTD), and a freeze needs
+>>> BRBE to not already be paused (RNXCWF). So once we have paused, nothing changes
+>>> underneath us and the PMU does not need disabling. It would not help anyway:
+>>> armv8pmu_stop() calls brbe_disable(), which zeroes BRBCR_EL1 and discards the
+>>> records we came to read.
+>>
+>> That does mean you throw away real freeze events while paused though, in
+>> addition to the brbe_invalidate() you need to avoid non contiguous
+>> buffers. So it takes branches away from PMU events.
+> 
+> RBHYTD gives a freeze two effects: PAUSED is set, and BRBTS_EL1 captures a
+> timestamp. Recording has already stopped because we paused, and the driver never
+> reads BRBTS_EL1. On the way out we check PMOVSCLR_EL0 and leave PAUSED set if a
+> counter overflowed, so a pending overflow handler still finds a frozen buffer.
+> 
+>> So it takes branches away from PMU events.
+> 
+> Yes, but that is brbe_invalidate(), not the pause. Interrupts are masked and
+> nothing else runs on the CPU, so the only branches the pause suppresses are the
+> snapshot's own.
+> 
+>>>
+>>> You are right that a freeze can still land in the window between reading BRBFCR
+>>> and setting PAUSED, and restoring the value we read would then clear a PAUSED
+>>> bit the hardware set. So v6 checks PMOVSCLR_EL0 and leaves BRBE paused if a
+>>> counter has overflowed. Reads of PMOVSCLR are non-destructive and it stays set
+>>> until the overflow handler clears it, so it is still visible after we have set
+>>> PAUSED ourselves:
+>>>
+>>>           if (!valid_brbe_version())
+>>>                   return 0;
+>>>
+>>>           flags = raw_local_daif_save();
+>>>
+>>>           brbfcr = read_sysreg_s(SYS_BRBFCR_EL1);
+>>>           brbcr = read_sysreg_s(SYS_BRBCR_EL1);
+>>>
+>>>           write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+>>>           isb();
+>>>
+>>>           trace_hardirqs_off();
+>>>
+>>>           /* BRBCR_EL1 is zero while the driver has BRBE disabled. */
+>>>           if (!brbcr)
+>>>                   goto restore;
+>>>
+>>>           ... read the records ...
+>>>
+>>
+>> Up to the point where you read the records you technically don't need
+>> any branches (if you don't do trace_hardirqs_off()) so you could do the
+>> whole thing without pausing. Just disable interrupts, read every branch
+>> entry unconditionally, re-enable interrupts and then find the last valid
+>> entry and do the branchy stuff after reading.
+>>
+>> I'm thinking out loud, but doesn't that make it a lot easier? And it
+>> avoids the brbe_invalidate() which takes the branches away from the PMU
+>> event. It also avoids having to think too hard about racing with PMU
+>> events causing a freeze even after interrupts are disabled and after
+>> reading the freeze value:
+>>
+>>     raw_local_daif_save();
+>>     brbfcr = read_sysreg_s(SYS_BRBFCR_EL1);
+>>     brbcr = read_sysreg_s(SYS_BRBCR_EL1);
+>>     select_bank(0);
+>>     read_record(0);
+>>     read_record(1);
+>>     ...
+>>     select_bank(0);
+>>     read_record(0);
+>>     read_record(1);
+>>     ...
+>>     write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+>>     isb();
+>>     local_daif_restore();
+>>
+>>     /* Now do post processing, find last valid record, check if it was
+>> enabled by looking at brbcr etc. */
+> 
+> MRS is not a branch, so that works, but three things would have to change:
+> 
+> 1. perf_entry_from_brbe_regset() goes through BRBE_REGN_SWITCH, a 32 case
+>     switch, because the register number has to be an immediate. gcc emits a jump
+>     table and the function has 52 branches in the object file. The read would
+>     need full unrolling.
+> 
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 03ed24afad5795b49848a2548c0facdc9f3e7115..5884ff14ad4552249b029d4aad569ccde5768647 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -342,9 +342,11 @@ dtb-$(CONFIG_ARCH_QCOM)	+= shikra-iqs-evk.dtb
- 
- shikra-cqm-evk-imx577-camera-dtbs	:= shikra-cqm-evk.dtb shikra-cqm-cqs-evk-imx577-camera.dtbo
- shikra-cqs-evk-imx577-camera-dtbs	:= shikra-cqs-evk.dtb shikra-cqm-cqs-evk-imx577-camera.dtbo
-+shikra-iqs-evk-imx577-camera-dtbs	:= shikra-iqs-evk.dtb shikra-iqs-evk-imx577-camera.dtbo
- 
- dtb-$(CONFIG_ARCH_QCOM)	+= shikra-cqm-evk-imx577-camera.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= shikra-cqs-evk-imx577-camera.dtb
-+dtb-$(CONFIG_ARCH_QCOM)	+= shikra-iqs-evk-imx577-camera.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm4250-oneplus-billie2.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm4450-qrd.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= sm6115-fxtec-pro1x.dtb
-diff --git a/arch/arm64/boot/dts/qcom/shikra-iqs-evk-imx577-camera.dtso b/arch/arm64/boot/dts/qcom/shikra-iqs-evk-imx577-camera.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..d8c968a918c67cdebc0e7c6fc14ef820c97ecb75
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/shikra-iqs-evk-imx577-camera.dtso
-@@ -0,0 +1,79 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/qcom,shikra-gcc.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&camss {
-+	vdd-csiphy-1p2-supply = <&pm8150_l11>;
-+	vdd-csiphy-1p8-supply = <&pm8150_l12>;
-+
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			csiphy1_ep: endpoint {
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep1>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci {
-+	status = "okay";
-+};
-+
-+&cci_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&tlmm 33 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&cam_mclk1_default &cam1_reset_default>;
-+		pinctrl-names = "default";
-+
-+		clocks = <&gcc GCC_CAMSS_MCLK1_CLK>;
-+		assigned-clocks = <&gcc GCC_CAMSS_MCLK1_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		/*
-+		 * avdd and dvdd are supplied by on-board regulators on the
-+		 * IMX577 module from the connector's 3.3 V rail; they are
-+		 * not SoC-controlled. dovdd (1.8 V) powers the carrier board
-+		 * level-shifter that translates CCI I2C and reset lines
-+		 * between the SoC and the connector.
-+		 */
-+		dovdd-supply = <&pm8150_l15>;
-+
-+		port {
-+			imx577_ep1: endpoint {
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <1 2 3 4>;
-+				remote-endpoint = <&csiphy1_ep>;
-+			};
-+		};
-+	};
-+};
-+
-+&tlmm {
-+	cam1_reset_default: cam1-reset-default-state {
-+		pins = "gpio33";
-+		function = "gpio";
-+		drive-strength = <2>;
-+		bias-disable;
-+	};
-+};
+Yes you would have to manually unroll it. I doubt the compiler would 
+emit a branch for BRBE_REGN_SWITCH() because your indexes are static if 
+it's unrolled. But if it does you can change it to a sequence of 
+read_sysreg_s()s.
 
--- 
-2.34.1
+If you really want to be sure there are no branches, write it in a 
+single asm block.
+
+> 2. RPGDLX needs an ISB before the reads, and Table D19-10 makes it
+>     IMPLEMENTATION DEFINED whether ISB itself generates a record. When we pause,
+>     IZCHRF means the pausing ISB cannot pollute the buffer it is about to read.
+> 
+
+I assume one potential extra record from the isb() is acceptible seeing 
+as you already have two or more conditions plus a function call before 
+the pause? Is the problem that you don't know whether to filter it out 
+later because it's IMPDEF and isn't always there? You already don't know 
+exactly how many branches there will be before the pause beause it's 
+written in C. So I'm not sure what the exact issue here is.
+
+> 3. 64 record parts still need a bank switch, so BRBFCR_EL1 still has to be
+>     written and restored.
+> 
+
+Yes that was included in my pseudo code example but it's still 
+branchless. I did miss that you might need an isb() after disabling 
+interrupts, but you added one for RPGDLX anyway.
+
+> Correctness would then depend on the read staying branchless, which is not
+> checkable at build time and fails silently: a branch mid read shifts the buffer,
+
+Why would the compiler insert a branch between two read_sysreg_s()s, 
+which are asm volatile? Is that allowed?
+
+> giving a duplicate and a gap. 64 * 24 bytes of records also wants a per-CPU
+> scratch buffer rather than the stack.
+> 
+
+A per-CPU scratch buffer doesn't sound too bad. But aren't you in 
+control of how many entries are available to write to? You can reject 
+any calls that have fewer than 64 and always write directly to *entries.
+
+You could also compare with 'cnt' after reading each record and exit the 
+read section. Like you say below, branches not taken don't generate 
+records, and once the branch is taken you stop reading so after that 
+point generating records doesn't matter.
+
+> Happy to prototype it. What I would not do is pause without invalidating:
+> records are from/to pairs, so a consumer walking across the hole reconstructs a
+> call path that never happened. The invalidate was Mark's request after the RFC,
+> "to maintain record contiguity for other consumers", so dropping the pause drops
+> that too.
+
+Well the point was to not have to pause at all, so there's no need to 
+invalidate either. Even if you did add a pause, as long as there are no 
+branches between the pause and resume you don't need an invalidate 
+because you didn't miss any branches.
+
+> 
+> I was thinking of this for v6:
+> 
+>          flags = raw_local_daif_save();
+> 
+>          /* The BRBE sysregs below are UNDEFINED without this. */
+>          if (!valid_brbe_version()) {
+
+You don't need to disable interrupts to call this, it's a constant. Or 
+is it to stop migration?
+
+V5 reads sysregs before disabling interrupts so I assume migration isn't 
+an issue here.
+
+>                  raw_local_daif_restore(flags);
+>                  return 0;
+>          }
+> 
+>          brbfcr = read_sysreg_s(SYS_BRBFCR_EL1);
+>          brbcr = read_sysreg_s(SYS_BRBCR_EL1);
+> 
+>          write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+>          isb();
+> 
+>          /* BRBCR_EL1 is zero while the driver has BRBE disabled. */
+>          if (!brbcr) {
+>                  write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+>                  isb();
+>                  raw_local_daif_restore(flags);
+>                  return 0;
+>          }
+> 
+>          trace_hardirqs_off();
+> 
+>          ... read the records ...
+> 
+>          if (!(brbfcr & BRBFCR_EL1_PAUSED) &&
+>              !(read_pmovsclr() & (ARMV8_PMU_OVSR_P | ARMV8_PMU_OVSR_F)))
+>                  brbe_invalidate();
+>          else
+>                  brbfcr |= BRBFCR_EL1_PAUSED;
+> 
+>          write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+>          isb();
+>          local_daif_restore(flags);
+> 
+> Exceptions are masked before anything is sampled, BRBCR_EL1 is only read and
+> never written, and BRBFCR_EL1 is written back from the value saved under the
+> mask. cpu_has_brbe() is now valid_brbe_version().
+> 
+> Neither conditional costs a record: valid_brbe_version() falls through when BRBE
+> is present (RBBNSZ, only taken branches are recorded), and the BRBCR_EL1 test is
+
+Isn't the compiler free to invert it and make the happy path a taken 
+branch. I don't think any of that can be assumed without writing in 
+assembly.
+
+> after the pause. It cannot move later because BRBFCR_EL1 is UNDEFINED without
+> FEAT_BRBE.
+> 
+> PMOVSCLR_EL0 is masked because PMCCNTR_EL0 is bit 31 and PMCR_EL0.N is at most
+> 31, so the cycle counter is outside every range RNXCWF, RGXGWY, RPKTXQ and
+> RLDMVK name. Unmasked, a cycle counter overflow looked like a freeze.
+
+Sorry I didn't understand this bit. Can you elaborate?
+
+> 
+> Do you think this version works?
+> 
+> Thanks,
+> Puranjay
+
+
+ From your previous reply:
+
+   "Hardware only sets PAUSED on a BRBE freeze event (RBHYTD), and a
+    freeze needs BRBE to not already be paused (RNXCWF). So once we have
+    paused, nothing changes underneath us and the PMU does not need
+    disabling."
+
+I'm still not 100% convinced this is correct. You read BRBFCR_EL1 and 
+write PAUSED to it in separate instructions. The PMU can overflow and 
+change the PAUSED state between those two instructions leading to 
+restoration of the wrong value.
+
+Isn't this non pausing version way simpler to understand, and also has 
+the benefit of not invalidating someone elses BRBE buffers. The only 
+downside seems to be that it might have some assembly to make sure the 
+if statements are always not taken branches rather than inverted, but 
+personally I don't think that makes it any harder to understand than the 
+branchy pausing version in V5:
+
+   #define read_record(i)
+     if (i >= cnt)                                       \
+        goto out;                                        \
+     isb(); /* Ensure our own exit branch isn't read? */ \
+     entries[i].inf = read_brbe_inf(i)                   \
+     if (!inf)                                           \
+        goto out;                                        \
+     entries[i].src = read_brb_src(i)                    \
+     entries[i].dst = read_brb_dst(i)                    \
+
+   raw_local_daif_save();
+
+   /* disable counters to stop BRBFCR_EL1.PAUSE state changing */
+   pmcr = armv8pmu_pmcr_read();
+   armv8pmu_pmcr_write(pmcr & ~ARMV8_PMU_PMCR_E);
+   isb();
+
+   brbfcr = read_sysreg_s(SYS_BRBFCR_EL1);
+   brbcr = read_sysreg_s(SYS_BRBCR_EL1);
+
+   select_bank(0);
+   read_record(0);
+   read_record(1);
+   ...
+   select_bank(1);
+   read_record(32);
+   read_record(33);
+   ...
+
+out:
+   write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+   isb();
+   armv8pmu_pmcr_write(pmcr);
+   raw_local_daif_restore();
+
+   /* Post process entries[n].inf etc into correct format */
+   ...
+
 
 
