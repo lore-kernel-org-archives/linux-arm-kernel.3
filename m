@@ -4,105 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018C0C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 18:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4670EC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 19:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/g0aAQ3sTV3pEk/c08ymRkyu+vrncQM0ftrLofpZAv8=; b=wUak5D6oxhRNoLlCORMalG9J4m
-	aReE80P8Wi0MLR+ctha13Il/RWi8WupHWRH4N1KgIjUsOz2cZ8m75HEgNkvzpaZiY3Pg5g9S1Sqzk
-	IT6+Xt7CbkxkEU1W89JpESMsJcdyI7okxGnZc+RtXD5mI9HUQtxt9OvX4fzRGRO9ggVZj0joSZSbj
-	SO3NecRsUAiRRLX+kiA8yMPZ4sJv32hr1WhvOz2qM6Q5iOUNNG8osUqeJShlg8n6JPdmsZ6Nyax+O
-	Hgq9IbwwXK62siwhg5Q0pWu9rg18udhclPrYwCRuKxaCgnIWK6m5vG1SAtRuY95sQYk1Vo2eA9MW4
-	IDiVzSCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lY8ZEQ2hlKG5xfE4pkvXblb/dffG7Wh4lNbHjY9KfTc=; b=sSr2uIsQwvsFSvmXGrDzhD0jrS
+	L7W6lOxkL0gNN0me7+O4uKucBEOQvhtOL8BtprC/LBPmwa48p4hlSqHA62JXSAFa/M22em8P2T6VV
+	xQVD5RR+LdJ455aq2rrOUC30E6N1IvksVQiAVMEgx7cXirpZ0p80hmPBgSbcUlkwq3fZadYFuRPw4
+	MkThQiiGXeiweTtH3Ly5Cwta1fb3pWVGHaM4ov+XIaX/MjlKyhatA6U1F1hNB6n6T4bzEmrz6d5aX
+	4dOOBSc7pLEnGb+Zyxqo2V6wx2TBHLF873Kl77r46fa/tTD88nIcmyq8eeG8t/lg935gTDLJY+OlD
+	JXRL4iDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrfwx-00000004N9R-1FHN;
-	Wed, 05 Aug 2026 18:02:43 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wrgrU-00000004QRD-3QtO;
+	Wed, 05 Aug 2026 19:01:08 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrfwu-00000004N93-1c7U
+	id 1wrgrS-00000004QQN-2kfR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 18:02:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785952959;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/g0aAQ3sTV3pEk/c08ymRkyu+vrncQM0ftrLofpZAv8=;
-	b=QenSoqPd5q5KSpCvqhh1hUH40O52NS1MK2FtXApdo3Jey5zXbofIM6QJ78A7Q5HCJtU8CE
-	yqTU0dvTYDuEg0FlUxhspJaB0lHplKF3MJnccZV4rsTV9W0I6DXQVFJ9n+1n20zECFiCYG
-	JOt9ZDJfgdHtWd3Nj0M3naCnSepdwuk=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-552-yUmNiBSpOJWoJSVnS8pCHg-1; Wed, 05 Aug 2026 14:02:27 -0400
-X-MC-Unique: yUmNiBSpOJWoJSVnS8pCHg-1
-X-Mimecast-MFC-AGG-ID: yUmNiBSpOJWoJSVnS8pCHg_1785952946
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4954c2d4081so9846735e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 11:02:27 -0700 (PDT)
+	Wed, 05 Aug 2026 19:01:07 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-384930ca5e2so1530083a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 12:01:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785956465; x=1786561265; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=lY8ZEQ2hlKG5xfE4pkvXblb/dffG7Wh4lNbHjY9KfTc=;
+        b=riEX7Ysf9ZJ8XVQwVxJU6ukMkAHXE1Gmm7gFtfo8tMyFRXX0eHE4BwSTuL+xScbZFN
+         VXLb6ODpI99iW2RfYrw5U97gGzkftoDS52bm1FFF5ADS3UrGBLjFx24+z1SSQdSGuHqC
+         qajUm3mRQxuZC0WTeBFGV8dHyKAxMtUZGJcoKurQVSmo5nN2YWVdqlbH6xrK+m164JDM
+         FDGs0l1Rs6vE/R7fDyWYHf2+0+bQVCbqhGukwKk/SqbP9RXpktrHsV28QF2dWdnfsdcz
+         UolTu/Mtk2rxMnYqB76E5wvLDwn4VoZLd+aFhb12k6Yl+OdxrfCaLoLwW9tR0xfnpJgL
+         d0GQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785952946; x=1786557746;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/g0aAQ3sTV3pEk/c08ymRkyu+vrncQM0ftrLofpZAv8=;
-        b=Sv1k8oFvUwJSYZAHnCFJ6RijsGJuje8bv8wuZrTULBD6fUPZJXYf5pZB6PN8VpCeNU
-         FnAMPZOieW3D+Cy0pd7uhHq85L+PjON2iqDURXziYsbMxq+eALKZHuenmljnCJpET/8k
-         cUozCzpeLbWE6ZQ47MMEE+XwRSh1XHcrYu7VduEirCAmRUK8VbkgEAcZhQIu/IsWxOvG
-         1y3+Ft0LtVsEY5iBbcNa2x6ge55tRxvbLHBUCVU1BAsEl+7nc+kk1QB64HNluqihMH4p
-         aAoQNTNaMQbqIZmDAvfpj5/yzmM++HOnxoPL/96nsgD0HGoKqTK+6fK0+l840SQBvTLG
-         tFvQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpZwPHFl1mkqKIgsQyUu3eTX+Hjg5ESULsKRp1BqcwHFGpt7KTo5xlTwjvyHeA6opgbQQY0BFWSP3JJ0GfGR0Nu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfH4iqiXWmZ0712xibBN8MbW9eFMESMuAQRxtGp3c3EvM9DfEn
-	0u/8HuoRx/tVVKG9XtD8pDyqIcn2SbXQdtMUCztWzAbjH02YgQxkL1vcPowQYLaqDYlshmzu4wW
-	6Cb2TmCTUa/ve9jogS/i0+3HLZ1rvSY4rj72KeiBBmUmOkEAqrKEtcTWtmTvUBRt4FmBMqaUnks
-	yZKl+Tz6uFz0w=
-X-Gm-Gg: AR+sD11v+xwrR0U771Kr5JrU52ruJ3JlKvOZJZjai4259Gu2IV1bmeLkTYXdtgdkYQ+
-	QFzLwwO9TaKbqLwaPD0S1Z45hpuKxeApg3qprqfsNaYGuVEz3a0XOa4Fia1MTpcOQrEKhGYR6KX
-	SlaEVjQehXC5rI2rTQfEk1fNwLOZitTkRdnEgyxJz+yxXUTeWYj/iKhc67V7PsnvXAtPtu+hyJ0
-	B711hRRlOnXCITAZz5SG21HngFfN04IdNBwxIaMa6xSO2R0LsctGwvs2v8s7IkfBmjuLhi/e2vM
-	NH0hKkaM3zCvyUYu+AWZzPATKnDwEbDJ4LsuZ1LzQxMDQCarUNXGXl39rOnN3DmUD4INSFfj2MM
-	=
-X-Received: by 2002:a05:600d:8492:b0:495:69eb:27fe with SMTP id 5b1f17b1804b1-4994e7bb193mr87767725e9.11.1785952946352;
-        Wed, 05 Aug 2026 11:02:26 -0700 (PDT)
-X-Received: by 2002:a05:600d:8492:b0:495:69eb:27fe with SMTP id 5b1f17b1804b1-4994e7bb193mr87766805e9.11.1785952945804;
-        Wed, 05 Aug 2026 11:02:25 -0700 (PDT)
-Received: from localhost ([2a01:e11:1007:ea0:8374:5c74:dd98:a7b2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49949fd4bbcsm199485675e9.7.2026.08.05.11.02.25
+        d=1e100.net; s=20251104; t=1785956465; x=1786561265;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=lY8ZEQ2hlKG5xfE4pkvXblb/dffG7Wh4lNbHjY9KfTc=;
+        b=Bf2X3CUNeVstt7VF1+8tcHTQmPFCdFvg23timAKk/lGZ0o8Qe1Yi8nPa0HNJCRhgzs
+         nWdSvJTh4ddiY53ZDd+hX1SZjoWXrkLYRC6c/LelcSASLlPLeruqb+v/xRPcvfXYyAji
+         II69PV0crm6w9fpm2alEKpbHfX6vQ/sNwur/epAobdt0ZS++1jZutzHHL9BmH+mSAwU1
+         JkowNgqW3grE5XFw7L7OUVwnryFxQ2qw7r7ARE6ARAVdP+sJelu1+K+A82j12bjsNu6S
+         N6YfztwpPL1WxMOLR0ldYw7YkXnztz0o6tD51Nw7a1zT9PerB9rOUP332eQ8YuwkNNXV
+         DOqg==
+X-Forwarded-Encrypted: i=1; AHgh+RqEDwo/tGIyaMWDkH56KKVyf0b9u1fk/2GHJ7po/XCzdtwSkPh2WsWreR/0yb2zj0pFSp+6bqiTjXf4N51XRf8q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3ljych6dP1PTGj9JN0+8/eh2AtPAtIL7THKA1Zs0qtoocFtpy
+	OSL63PALOYoLvaDO+hIhFgnFY/qkYkZWEur7mob8IuTzcuinjhOSlmh7
+X-Gm-Gg: AR+sD13ckyvdQVoARPlQQuAgTKgwVFzOX635/PWo/O4gDb33qPXWgWVB8w6DX0zIkWd
+	HYiMAdF8BO3BK5u4MJfaucq6O0Jwbck/dc0SLNzCHUGRDzxQwROaWB6e3ebKbsbbfRgXgGZpVEy
+	r+QfCyUty5m9BLynBM2MhrviHKxdhwPeRKZp2G1TmIoN7oLXtxrO1hhcJyHjHhwULEPsTc2FcMH
+	JdaNeSB1vFpuwwGbfTYaC1y7iD3V5S5aft97dI026OEVvZHvbvUJ79BnpXmurjLJnAI9egDqC1d
+	bUwPbbKl+ufDfJ/VCigh1/9y9CJaL7e2KwDCYD+9lr5blagWHFPHFujdRBbsAXGTLrhkr3gHa1U
+	b363y8Q2kV0kilxu0fJUxKzgw2etNUfJDUiIBxc4rkL3ce2zQBAOo9xDCz7eokcEQ/LlFg8TKAq
+	zcEMGfle+BMe8pNdq3EwVw5zny0mvVD+RgHFQZkPL41/Fkrq69kWes2K0udnsEd37DK7xB4WXTy
+	nQldSdvkUdkuC7U431V8wxWmFdG8Zpp4KRqrW7kp+2zP5ky5Nffm9o19RvnpMMA9CuN5emxUXyM
+	/s/wP9XjGx2QEIYHJ1PVKryqpiWoVw/VEr2Qmg==
+X-Received: by 2002:a17:90b:46:b0:38e:67e1:15b with SMTP id 98e67ed59e1d1-3903c5363a5mr10200520a91.6.1785956465025;
+        Wed, 05 Aug 2026 12:01:05 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e34])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3903d183dadsm2136925a91.0.2026.08.05.12.01.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 11:02:25 -0700 (PDT)
-Date: Wed, 5 Aug 2026 20:02:24 +0200
-From: Davide Caratti <dcaratti@redhat.com>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Daniel Thompson <daniel@riscstar.com>,
-	Alex Elder <elder@riscstar.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next] net: stmmac: add tc-ets qdisc offload
-Message-ID: <anN6sHZt47dRZeaE@dcaratti.users.ipa.redhat.com>
-References: <20260804-stmmac-ets-offload-v1-1-f3a09169d22b@oss.qualcomm.com>
+        Wed, 05 Aug 2026 12:01:03 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: devicetree@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Hauke Mehrtens <hauke@hauke-m.de>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <zajec5@gmail.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM5301X ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] ARM: dts: BCM5301X: AC56U: set WAN MAC from nvram
+Date: Wed,  5 Aug 2026 12:01:01 -0700
+Message-ID: <20260805190101.6773-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-In-Reply-To: <20260804-stmmac-ets-offload-v1-1-f3a09169d22b@oss.qualcomm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: sYnUzU75Conc_VQkMNb5JKM4y3h8_oqRGCozeej6beg_1785952946
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_110240_505632_0DBFF0EE 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20260805_120106_695762_3E4989EF 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,77 +104,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 08:17:35PM +0200, Lorenzo Bianconi wrote:
+The WAN MAC is offset by 1. Set in dts to avoid having to handle this in
+userspace.
 
-[...]
+nvram size found from a random bootlog online.
 
-> When all bands are strict priority, the MTL scheduler is programmed with
-> SP scheduling; 
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ .../dts/broadcom/bcm4708-asus-rt-ac56u.dts    | 55 +++++++++++++++++++
+ 1 file changed, 55 insertions(+)
 
-... and I replied too early _ sorry for the noise _ there is another small thing
-w.r.t. SP scheduling:
-
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c
-> @@ -1210,6 +1210,73 @@ static int tc_setup_etf(struct stmmac_priv *priv,
->  	return 0;
->  }
->  
-> +static int tc_setup_sp_sched(struct stmmac_priv *priv)
-> +{
-> +	struct plat_stmmacenet_data *pdata = priv->plat;
-> +	int i;
-> +
-> +	for (i = 0; i < pdata->tx_queues_to_use; i++)
-> +		pdata->tx_queues_cfg[i].weight = 0;
-> +	stmmac_set_tx_queue_weight(priv);
-> +
-> +	pdata->tx_sched_algorithm = MTL_TX_ALGORITHM_SP;
-> +	stmmac_prog_mtl_tx_algorithms(priv, priv->hw,
-> +				      pdata->tx_sched_algorithm);
-> +
-> +	return 0;
-> +}
-
-The above function configures the stmmac SP queues to a well-known state where all
-queues are SP. However,
-
-[...]
-
-> +
-> +static int tc_setup_ets_sched(struct stmmac_priv *priv,
-> +			      struct tc_ets_qopt_offload *qopt)
-> +{
-> +	struct tc_ets_qopt_offload_replace_params *p = &qopt->replace_params;
-> +	struct plat_stmmacenet_data *pdata = priv->plat;
-> +	int i, nstrict = 0;
-> +
-> +	if (p->bands > priv->plat->tx_queues_to_use)
-> +		return -EOPNOTSUPP;
-> +
-> +	for (i = 0; i < p->bands; i++) {
-> +		if (!p->quanta[i])
-> +			nstrict++;
-> +	}
-> +
-> +	if (p->bands && nstrict)
-> +		return -EOPNOTSUPP;
-> +
-> +	if (nstrict) {
-> +		tc_setup_sp_sched(priv);
-
-This is not necessarily what the user wants when setting up the ETS qdisc.
-The driver should parse 'priomap' (like in [1] or [2]) so that only 'nstrict'
-queues are involved, and selected based on the packet priority. Otherwise, the
-offloaded ETS is going to behave very differently from its full-software
-implementation _ which is something we probably want to avoid.
-
-[1] https://elixir.bootlin.com/linux/v7.1.5/source/drivers/net/ethernet/microchip/lan966x/lan966x_ets.c#L36
-[2] https://elixir.bootlin.com/linux/v7.1.5/source/drivers/net/ethernet/airoha/airoha_eth.c#L2281
-	
-WDYT? Any feedback appreciated!
-
+diff --git a/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts b/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts
+index c80ac16ad949..df59136b076c 100644
+--- a/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts
++++ b/arch/arm/boot/dts/broadcom/bcm4708-asus-rt-ac56u.dts
+@@ -25,6 +25,15 @@ memory@0 {
+ 		      <0x88000000 0x08000000>;
+ 	};
+ 
++	nvram@1c080000 {
++		compatible = "brcm,nvram";
++		reg = <0x1c080000 0x180000>;
++
++		et0macaddr: et0macaddr {
++			#nvmem-cell-cells = <1>;
++		};
++	};
++
+ 	leds {
+ 		compatible = "gpio-leds";
+ 
+@@ -92,3 +101,49 @@ button-wps {
+ &usb3_phy {
+ 	status = "okay";
+ };
++
++&gmac0 {
++	nvmem-cells = <&et0macaddr 0>;
++	nvmem-cell-names = "mac-address";
++};
++
++&srab {
++	status = "okay";
++
++	ports {
++		port@0 {
++			label = "lan1";
++		};
++
++		port@1 {
++			label = "lan2";
++		};
++
++		port@2 {
++			label = "lan3";
++		};
++
++		port@3 {
++			label = "lan4";
++		};
++
++		port@4 {
++			label = "wan";
++
++			nvmem-cells = <&et0macaddr 1>;
++			nvmem-cell-names = "mac-address";
++		};
++
++		port@5 {
++			label = "cpu";
++		};
++
++		port@7 {
++			status = "disabled";
++		};
++
++		port@8 {
++			status = "disabled";
++		};
++	};
++};
 -- 
-davide
+2.55.0
 
 
