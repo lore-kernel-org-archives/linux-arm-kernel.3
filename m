@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB192C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Aug 2026 23:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E498C55184
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 00:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SCVhMTFo9ZCIqfgdJ+B+IzrzbBtMPPk2WY1IBkcWtfU=; b=MOLmvRkn76DmfIOoKok6eOUN7T
-	vR5G1dhdirZTuqJpKA3u8MTHfeNtuI20toMO9bsIP/AI3AEVYNy/tRwd23e4tEAQbS58CJJ5aKzt1
-	OMNGebZzdnRZKxnGuvGHNse25K7rM0Ns9MubiFM4+oHQbFZfNqhJifxdFEvxBmlW2bsY3+jihyiM6
-	wCD7QtXu1GgNFmDC6om5Pmlt3XLZ9GTvYc6wmdnqPzcmU17RGYbLcDBJM/y7xH8Si9UC1wq16/tWX
-	SjhSOJQiffSGeyV0GValyOvIO3H1IHANeV3AvQv2JeGTl2/G4VLyJ3KA+tqnkEAe8gzjn8D50fGNv
-	DhVJx5DA==;
+	bh=wVEMBbEdefM7yw4jrExG2EaFI8XCUTLCLGP+UaBsQzk=; b=rMRZm8sDKJD+2ksUKjYz/NUdFU
+	45mH2Uz/Mq01QtIAXakCfOem0MJIZL64sWtRKZXKOV9rBGXCSEhledWuXxAA8XQyC70zI1lGNIuku
+	LW0dpqYiRuxy92zV4CpNs3NNU5hopHpaaavx2UCBiD0ZoThlEVvlyhguJoPmku0uk7Li8iN8pUcgi
+	7E3G7b2wV+JTS/dzUz6tyRJ50fBJ2o+r73TK4X8WSo5PXEaelT0iZOY5qWmEZ0+wGONncjUBAao0P
+	BMlLMxPgSakhejCb4b9yOSVVjBWoz3wcWg0l7JiFjkAqxN7rJkSWhPJKYtuCXCe1xnXd15RdjwDK6
+	sxTl0AvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrP20-00000002whY-4AIs;
-	Tue, 04 Aug 2026 23:58:48 +0000
+	id 1wrPVl-00000002yDr-1WgG;
+	Wed, 05 Aug 2026 00:29:33 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrP1z-00000002whM-3TTx;
-	Tue, 04 Aug 2026 23:58:47 +0000
+	id 1wrPVj-00000002yDi-3rgD;
+	Wed, 05 Aug 2026 00:29:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C585C60A6A;
-	Tue,  4 Aug 2026 23:58:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 148E71F00A3D;
-	Tue,  4 Aug 2026 23:58:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C258D60052;
+	Wed,  5 Aug 2026 00:29:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65F5A1F000E9;
+	Wed,  5 Aug 2026 00:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785887926;
-	bh=SCVhMTFo9ZCIqfgdJ+B+IzrzbBtMPPk2WY1IBkcWtfU=;
+	s=k20260515; t=1785889770;
+	bh=wVEMBbEdefM7yw4jrExG2EaFI8XCUTLCLGP+UaBsQzk=;
 	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=YYTk4rkz3f7zh1LLjCQt/arT1XMQFHNw7GR48lndg5vQnIHUmlmY67d4Sb/sAS4/W
-	 3p9tfajAwvLR0QA0eWoDDnrwf3ePfa7+L2BfxW7sTZkk+C24aOVlrK1Omj7mrmzJdR
-	 FV/Zc0wELT/GHKmADlbsFMp2mJqVz8e9cvFznhVwBmAlY5Arg+k1IbvOiseciPyniw
-	 hqAgkMaKkGOA57swioeIJn+Jw1Ry4jviHHhIYnXHSAFZoy4FP80l1qh7bu1AGIP6bz
-	 yrCSOeOuA1kjpoEpN5gIOAKMZvmJRCl5Zyma67IsfXPYEvJFHYh4+mHISvWs0kYhW1
-	 c3Iz2QL6JSM5g==
-Date: Tue, 4 Aug 2026 17:58:34 -0600 (MDT)
+	b=MqAoRhfm1zlG8hISZxXC9aRivBnaEvPzdNFBBBHfSHKBlsKVlZzBNOrghJirMVk12
+	 aXbziJiP4Rj3/So76Q0nQh9vtGLjxySwQsx4sE6SlawSIl2tN1bo44PoBfIuXSkkZg
+	 jLCErxwpJMkC4CHj5/1cIEBCXz//t6+mRgDGCblwdqrD0Qpz0ugk4cFt8CIvcFLgdS
+	 xwMYAe7GE5JChqwqsOYMbijdN0K5M6UNI7uVG3i2TOoMjLlOColEXzQc269Ul5It9v
+	 4EoRZ5QVAJP0iU0pN9CYAoeDqh979YQGenaf/56OrjUcVnfiKOTdflbHRyqhxbTn0+
+	 p14QBWYOHauuA==
+Date: Tue, 4 Aug 2026 18:29:28 -0600 (MDT)
 From: Paul Walmsley <pjw@kernel.org>
 To: Atish Patra <atish.patra@linux.dev>
 cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -53,11 +53,11 @@ cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
     linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
     linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
     linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v8 03/22] RISC-V: Add Sxcsrind ISA extension definition
- and parsing
-In-Reply-To: <20260701-counter_delegation-v8-3-7909f863a645@meta.com>
-Message-ID: <f488451d-a8bf-f6d4-3f34-c820a0171019@kernel.org>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-3-7909f863a645@meta.com>
+Subject: Re: [PATCH v8 04/22] dt-bindings: riscv: add Sxcsrind ISA extension
+ description
+In-Reply-To: <20260701-counter_delegation-v8-4-7909f863a645@meta.com>
+Message-ID: <66661b25-5cef-6590-b885-31cf954a16ce@kernel.org>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-4-7909f863a645@meta.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -78,83 +78,66 @@ On Wed, 1 Jul 2026, Atish Patra wrote:
 
 > From: Atish Patra <atishp@rivosinc.com>
 > 
-> The S[m|s]csrind extension extends the indirect CSR access mechanism
-> defined in Smaia/Ssaia extensions.
+> Add the S[m|s]csrind ISA extension description.
 > 
-> This patch just enables the definition and parsing.
-> 
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 
-Thanks, Similarly to my comments on patch 2, the following is what's been 
+Along the lines of the comments on patches 2 and 3, here's what's been 
 queued for v7.3.
 
 
 - Paul
 
-
 From: Atish Patra <atishp@rivosinc.com>
 
-RISC-V: Add Smcsrind and Sscsrind ISA extension definition and parsing
+dt-bindings: riscv: add Smcsrind and Sscsrind ISA extension descriptions
 
-The S[m|s]csrind extensions extend the indirect CSR access mechanism
-defined in Smaia/Ssaia extensions.
+Add the S[m|s]csrind ISA extension description.
 
-This patch just enables the definition and parsing.
-
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
-Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-Link: https://patch.msgid.link/20260701-counter_delegation-v8-3-7909f863a645@meta.com
-[pjw@kernel.org: use official RISC-V extension names in the patch description]
+Link: https://patch.msgid.link/20260701-counter_delegation-v8-4-7909f863a645@meta.com
+[pjw@kernel.org: use official extension names in the patch description]
 Signed-off-by: Paul Walmsley <pjw@kernel.org>
 ---
- arch/riscv/include/asm/hwcap.h | 4 ++++
- arch/riscv/kernel/cpufeature.c | 2 ++
- 2 files changed, 6 insertions(+)
+ .../devicetree/bindings/riscv/extensions.yaml    | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 7ef8e5f55c8d..d4a7b90e2d78 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -112,6 +112,8 @@
- #define RISCV_ISA_EXT_ZCLSD		103
- #define RISCV_ISA_EXT_ZICFILP		104
- #define RISCV_ISA_EXT_ZICFISS		105
-+#define RISCV_ISA_EXT_SSCSRIND		106
-+#define RISCV_ISA_EXT_SMCSRIND		107
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index 5ffc40d599c0..ccff2be1224d 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -181,6 +181,14 @@ properties:
+             changes to interrupts as frozen at commit ccbddab ("Merge pull
+             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
  
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
++        - const: smcsrind
++          description: |
++            The standard Smcsrind machine-level extension extends the
++            indirect CSR access mechanism defined by the Smaia extension. This
++            extension allows other ISA extensions to use indirect CSR access
++            mechanism in M-mode as ratified in the 20240326 version of the
++            privileged ISA specification.
++
+         - const: smmpm
+           description: |
+             The standard Smmpm extension for M-mode pointer masking as
+@@ -226,6 +234,14 @@ properties:
+             Profiles Version 1.0, with commit b1d806605f87 ("Updated to
+             ratified state.")
  
-@@ -121,9 +123,11 @@
- #ifdef CONFIG_RISCV_M_MODE
- #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
- #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SMNPM
-+#define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SMCSRIND
- #else
- #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
- #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SSNPM
-+#define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SSCSRIND
- #endif
- 
- #endif /* _ASM_RISCV_HWCAP_H */
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index f46aa5602d74..3fa0a563fb21 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -576,11 +576,13 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvksg, riscv_zvksg_bundled_exts, riscv_ext_vector_crypto_validate),
- 	__RISCV_ISA_EXT_DATA_VALIDATE(zvkt, RISCV_ISA_EXT_ZVKT, riscv_ext_vector_crypto_validate),
- 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-+	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
- 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
- 	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
- 	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
- 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-+	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
- 	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
- 	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
++        - const: sscsrind
++          description: |
++            The standard Sscsrind supervisor-level extension extends the
++            indirect CSR access mechanism defined by the Ssaia extension. This
++            extension allows other ISA extensions to use indirect CSR access
++            mechanism in S-mode as ratified in the 20240326 version of the
++            privileged ISA specification.
++
+         - const: ssnpm
+           description: |
+             The standard Ssnpm extension for next-mode pointer masking as
 -- 
 2.53.0
 
