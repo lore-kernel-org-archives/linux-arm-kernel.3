@@ -4,77 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93DDDC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 05:58:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3246C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:05:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v7zCWK++jNfxfhEt8Y8jIgML8WXQN15ZQy6uHyDnBnc=; b=RNxkIq6JTLrzoMm21G3EWFdQQw
-	t7Aj/LMj9w9MEgx3tQt9O4uD0QLTjKLB34r+atl6/YLDwrhQkoID1TsruYfGcn3waw2mlHLXt6F82
-	66Q4fcGunsYt9X4UtlQpxW+nSxFxaDdE+zpvuGyJ5Y+KSDPLZsOjb/FKmqgO+M5P0YHF2fWC/Zfr5
-	nv+WCnvy+4FWeQf9/UJWgnzyuBCb+yQsb3EbzUG3e69VglsnAWZIbODnY7k2gRS/TAXNhF/vrl/+p
-	lB7xw+68kJoEXAuUIZzoLhHkuIDvGNbnO5NU4nMZ+QDdyBltNIzy0z+Fs1jz8D+hSMHncSTD5YozF
-	ZHgNJJYw==;
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tRd1VpgdcpCboCWZ3SthlDpOzvouEzTnkFBo/WtbgVQ=; b=K8L1aKD4wWxEKfTOiPgnVazc3W
+	JI5maSc4C1/zVGwkF/qzXqnbIW3haHQLRbIDE78IYXs0UagcqMkvBavenF0sOzyycyIRw+WxCXmuE
+	BnijpKIUPyQ8VhqsUN+uohXO0C/nk19VTZBeMb7RqgUW/aUNxRPV/EH3OPvuFi5Za3wGtGQCSanZC
+	QudjNtOc5B95AXpFWjK8WmeSZsadI6XMbBqSd0eOBJoxajVT/QwdOHQIp+QuQv7zv5d0kvWV2OChb
+	sNT2t7XDS7MI7bMPcEude5zkHhLLYFhHjYxpNLZAMTE7QAToQ5oGK4zYCBJXEMKZHrha9JRb8E+kW
+	Gn9LKdfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrUdo-00000003H5j-0IeW;
-	Wed, 05 Aug 2026 05:58:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wrUl4-00000003HXw-1LsC;
+	Wed, 05 Aug 2026 06:05:42 +0000
+Received: from out162-62-57-137.mail.qq.com ([162.62.57.137])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrUdn-00000003H5P-16rk
+	id 1wrUl0-00000003HWl-3Vtt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 05:58:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12245403D2;
-	Wed,  5 Aug 2026 05:58:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 574631F000E9;
-	Wed,  5 Aug 2026 05:58:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785909490;
-	bh=v7zCWK++jNfxfhEt8Y8jIgML8WXQN15ZQy6uHyDnBnc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WpTfVY+gis0GaZ8Ilij2iuNXtip1yECYuuQNUlYVo6jVc87VSMT30kmNOwPl/ZTao
-	 7oJbpElLKRYZM/H9E3uzPA0m2dDs7qxBrWfUSWeNQgVusyFJAB0zhgsb3CndB3eLBl
-	 oVx+8kJVKo/dvCnEjFd77EC7hbxP5rQoI682riTb93MQ9TfiRSWCb3g5JOckn0oZli
-	 58e+xTR7r2M3llPSRy5MrzI9rSBdgu2K2JYrZI3FiSOydblbfVLAtbSKgrhbcozdEM
-	 SIQIBRN5owC9lJ1/5UdzSc5P9So3/Y8YL+DvqEaETnFE51wJndUFjamNuiFbFR2lzb
-	 lLGJvpl87Db5A==
-Message-ID: <595fe323-59d3-4f4a-92a3-ac5d67b7461b@kernel.org>
-Date: Wed, 5 Aug 2026 07:58:02 +0200
+	Wed, 05 Aug 2026 06:05:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1785909928; bh=tRd1VpgdcpCboCWZ3SthlDpOzvouEzTnkFBo/WtbgVQ=;
+	h=From:To:Cc:Subject:Date;
+	b=ARr8ZSb4uJsV9c/BtPVMfKpi67DIVWRT9LkSt1454apAXUM84rLvT++tE/uBtR8dS
+	 oXE6TijrP+PMvHK6PnxFknCb91E4iXYqecZiGO6CeOllG30rMawF1TkyYlPXU2me2G
+	 KlEF0g60P94RUjJ0vK09NG0PvujqsTOp+X+8x/wk=
+Received: from PC24010019.. ([58.240.122.156])
+	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
+	id 157AE45F; Wed, 05 Aug 2026 14:05:23 +0800
+X-QQ-mid: xmsmtpt1785909923ty2jmr6xa
+Message-ID: <tencent_5E7D6E7FB25B4CD732F08547C11F5DA24808@qq.com>
+X-QQ-XMAILINFO: NQp/UN4soYLT105Eu4TQVRXyb/MTuV1aAwkKI5/+YhNpZEItaTz97Aa46qFUUg
+	 /Uqi47c0DPPwTJzpQBq1/2bzGXNZx3tn+WTNp8ScbhKcV5WEIE0Z95SmL20xBi/+g1WSSoylyQvb
+	 H/MB9DFBSAmfqMSkv+hOnFRHXQZ2NKtBw2kFi4Cw6Inqwcf7ldVQJ09gucQWPZstUgzc7ESAADdO
+	 8RU8k1kE+kqYyud670NtGmCQX+XdKU1YRBUt+NcZMWBtmbr4t5VGpbpSmXvMI8RSBzMeZezpnzzn
+	 bCvpta200iGJO15FR3hMnDvkYfWEkoA+oc2DvQqFLyoyWMNuxmAD8tTVgN3xhWVn5zSOF3yHkTqG
+	 VXApQHcsKCXvn2wfoRj2GAGTyWpqdcK4HtQkkzl06Ldg1OHNc/0YrLQMt5kb9aLGG/0SifI4cBCr
+	 Uygtt5FlA2CIDwnmHGCe2OM7nAVO7vTN5NIo+elpxFHAUYQ2m5X8NRiqBP2oT8RtJkePElPiaWIr
+	 gfmz/V3pd21p1btDef18lZkhBiGdUPNKBoshMl+yl1wLGcvftGSLO5fqSFjnZ27OvzoANdXYd5+e
+	 QmsWcKkkxbi/PO1/6FqGGx3SlcE4k+5KP1DBpbUbuzsgauxBEex81mGv1JzfGIZZGfPw/Msjc0WG
+	 xFujy1+9pr2oYfvPYNet9tkm3E1iPJic2TMl049YOxscenkrSVHKBuogX9AH2DB/I0ULEmNusw9h
+	 T3UeskF3BkbNHG+VmLVCWJr6/L+UNZfF0J6pI4+O2uFc+giQG59J6sFkxvFx/uC/8bTxqU58DWc7
+	 t7TE2reRA4tlFSQsuHoBWVvZbox59VrHF5pTbvU9pRoUHV7oGbH74g0t/+NzKBoK7idCz8wmB/zK
+	 QmDjZ+0pJFpcoYHJU6KUS4XyFL7NyA/mR9g+P4OyHRshRhy2qEjfomSVQdQ1eBwx1hOiVs55Y8Uj
+	 x5kylUFduH9jPtLZLlZjDipnFnHvI1UA1/jDTZmzSaaqiJ5G/XckVd3s/JTQE5zWsrSOd+2TzqF0
+	 yLG6dgbSKroxmSGiIChqLK8Fo7Wh07JrT97spFl7W+9QK5mhX3yHlmlKpWGTU=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+From: aquapinn@qq.com
+To: Ryder Lee <ryder.lee@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: zhengping.zhang@airoha.com,
+	lei.dong@airoha.com,
+	hui.ma@airoha.com,
+	upstream@airoha.com,
+	Zhengping Zhang <aquapinn@qq.com>
+Subject: [PATCH] PCI: mediatek: Find INTx controller by property
+Date: Wed,  5 Aug 2026 14:05:07 +0800
+X-OQ-MSGID: <20260805060508.594458-1-aquapinn@qq.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/6] mm: constify the pte_offset_map_ro_nolock() return
- value
-To: Pedro Falcato <pfalcato@suse.de>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: David Hildenbrand <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett"
- <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, "Matthew Wilcox (Oracle)"
- <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Muhammad Usama Anjum <usama.anjum@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-References: <20260803164400.531199-1-pfalcato@suse.de>
- <20260803164400.531199-7-pfalcato@suse.de> <anHJ48Glq8EdHatd@lucifer>
- <anI6BEyTJFzQY-N9@pedro-suse.lan>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <anI6BEyTJFzQY-N9@pedro-suse.lan>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_230539_460587_1CC993A0 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +95,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Zhengping Zhang <aquapinn@qq.com>
 
+All existing DTS users already name the INTx child node
+"interrupt-controller". Use of_get_child_by_name() to find it instead
+of assuming it is the first child node.
 
-Le 04/08/2026 à 21:22, Pedro Falcato a écrit :
-> On Tue, Aug 04, 2026 at 12:22:19PM +0100, Lorenzo Stoakes (ARM) wrote:
-> 
->>
->>>   			if (!pte) {
->>>   				mmap_read_unlock(mm);
->>>   				result = SCAN_NO_PTE_TABLE;
->>> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
->>> index b91b1a98029c..2cfc6e608ef4 100644
->>> --- a/mm/pgtable-generic.c
->>> +++ b/mm/pgtable-generic.c
->>> @@ -308,8 +308,8 @@ pte_t *__pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp)
->>>   	return NULL;
->>>   }
->>>
->>> -pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
->>> -				unsigned long addr, spinlock_t **ptlp)
->>> +const pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
->>
->> Can pmd be const too?
-> 
-> I was going to say "yes but then pmdp_get() also needs to be constfified" but
-> actually no, it can't:
-> 
-> pte_t *__pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp) {
->          if (unlikely(pmd_bad(pmdval))) {
->                  pmd_clear_bad(pmd);
->                  goto nomap;
->          }
-> }
-> 
-> so PTE mapping actually needs to write to the pmdp if the pmd looks bad.
-> Tricky stuff :)
+Signed-off-by: Zhengping Zhang <aquapinn@qq.com>
+---
+ drivers/pci/controller/pcie-mediatek.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-But if pmd is const, can it be bad at all ?
-
-Christophe
-
+diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
+index 8b57c3d75b94..7b54f3dc6cf8 100644
+--- a/drivers/pci/controller/pcie-mediatek.c
++++ b/drivers/pci/controller/pcie-mediatek.c
+@@ -572,9 +572,9 @@ static int mtk_pcie_init_irq_domain(struct mtk_pcie_port *port,
+ 	int ret;
+ 
+ 	/* Setup INTx */
+-	pcie_intc_node = of_get_next_child(node, NULL);
++	pcie_intc_node = of_get_child_by_name(node, "interrupt-controller");
+ 	if (!pcie_intc_node) {
+-		dev_err(dev, "no PCIe Intc node found\n");
++		dev_err(dev, "no PCIe INTx interrupt-controller node found\n");
+ 		return -ENODEV;
+ 	}
+ 
+-- 
+2.43.0
 
 
