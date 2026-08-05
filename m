@@ -4,67 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7ABEC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 09:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD6F7C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 09:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dzL4TRwsy5qGDqtTUAxjyEDoSW3IpXDX+afbmp5lAf0=; b=maxAm7OOoOLYs/qVissvokjXnM
-	D0EsEgvIqPs6b1r2XatSavB3p6XR9sNC6WMhhMEIzuNEuLWoKvH/NwSQL4KFXfoncjyR0NJV8VbX6
-	m2PyO4DFbeDNkTbUvViTM3y3sNhP75B6ZKIGKV0Dgt72bHQF+IFp/pFE6iBCvJD9JKR1JsGGQbvWz
-	WI7MAv0Q4vyP8v0MBqMynSk5MTqs+3lrFJJ2YXMVDE1dxIk+yKRFOC2TJa8r24qo2QDmibiyW/VqF
-	jLjliE6l6YVeFNfY3j6lN5ELb80EyKEqsTC4hClhMgnJ0TPo1MrCXh68zW87xkfAYSDTH+hcqZ0CW
-	2lE3s5Og==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1d11wDHcnIDQEXg/EyahnFUaeXftU1YB2XpZKCwT5kY=; b=GI2sKWuJ5IT6FP
+	7IWn4iI2T8orqV3m6o+qwVj6BYtOav1bxuJig2DTWUZaQMB7S2dJCeYO8kBALQUept9ElIzkwNprN
+	5NIyYsMLoR8ndCq9q0wc6tEUvma1amR++n4aBzuhh2SmgEJgQpWReyiNSPP9mkPcWDVOb7YjwaDui
+	zCML1g8KtZrQ8xYkHYBeg9LRQo2XCTbGLvBdr5zokMKz4uUkb3oz2y0sjAgWj1+EMSWPYrNGT+bRQ
+	ykxL7ohqoQY8/S/Dt7jrooN6ds0OGa2i0LqRZPIQGivqgHlJwFxGZHAot2LeN2VXWOZxCheNSYrqE
+	CFd8SGK6AUfshBrtjEpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrXoA-00000003bYV-1iXC;
-	Wed, 05 Aug 2026 09:21:06 +0000
+	id 1wrXrE-00000003brg-0UeF;
+	Wed, 05 Aug 2026 09:24:16 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrXo6-00000003bXU-3JTk
+	id 1wrXrB-00000003bqt-2Uxl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 09:21:04 +0000
+	Wed, 05 Aug 2026 09:24:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C11A9153B;
-	Wed,  5 Aug 2026 02:20:54 -0700 (PDT)
-Received: from localhost (a079125.arm.com [10.164.21.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1545E3F66F;
-	Wed,  5 Aug 2026 02:20:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4602153B;
+	Wed,  5 Aug 2026 02:24:04 -0700 (PDT)
+Received: from [10.57.87.98] (unknown [10.57.87.98])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 110153F66F;
+	Wed,  5 Aug 2026 02:24:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785921658; bh=LW9EZgLM/owzJSlQ+NzI5vnyZ9lEG0L/Js2ah2Km9MQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iZT3KwBEAB9OYz13EITRYb/2Da5rPA80Mbw8sMzATWs41jEERnPrdboNZth/UUT3B
-	 lt7OE3Gxz64bJLGuOiSnQUXV51OeOGgZZBxg/5frtN39aKC+Uk33lfd2us+HA96vIy
-	 ybXM0x18k9qEkKRIomc0dM0G41zjeb9aeh2xiGu4=
-Date: Wed, 5 Aug 2026 14:50:55 +0530
-From: Linu Cherian <linu.cherian@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Gavin Shan <gshan@redhat.com>
-Subject: Re: [PATCH v4 6/6] arm64: cpufeature: Detect BBML3 based on
- ID_AA64MMFR2_EL1.BBM
-Message-ID: <anMAdzxG4HeKPq0L@a079125.arm.com>
-References: <20260723044034.2983651-1-linu.cherian@arm.com>
- <20260723044034.2983651-7-linu.cherian@arm.com>
- <amy7kPXnaPHmWMwc@google.com>
- <anAQYj0ZJkrjZSn2@a079125.arm.com>
- <anHuYDo5TIa-s7L8@willie-the-truck>
+	t=1785921848; bh=5+i+m9WSJqQvin47phulhm8sOavejG6eTb3No4RAakM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eDff7BARSdi7ra/VdL2bJTZukrenI2Tt4LT4fWY3+q70NkU3JCSd+PqI3aSfZHl5w
+	 jrlwfn37FLQWw1+Z2J542shyCC6COzZ2orte9z1AkShbf61cGe1r+RdM1EojbSfcf1
+	 kBIcp4VTByONOgeSJ0j+npDX1QaIOSNUf3Zfih/Q=
+Message-ID: <00a85d9a-8727-4b89-b33b-ce2d3358355c@arm.com>
+Date: Wed, 5 Aug 2026 10:24:04 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <anHuYDo5TIa-s7L8@willie-the-truck>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 14/20] arm64: percpu: Implement preemptible read/write
+ ops
+Content-Language: en-GB
+To: Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
+ <20260804170503.3513916-15-mark.rutland@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260804170503.3513916-15-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_022103_003636_585BF779 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20260805_022413_821613_962C83D0 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,64 +67,188 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Tue, Aug 04, 2026 at 02:51:28PM +0100, Will Deacon wrote:
-> On Mon, Aug 03, 2026 at 09:22:02AM +0530, Linu Cherian wrote:
-> > Hi Will,
-> > 
-> > On Fri, Jul 31, 2026 at 04:13:20PM +0100, Will Deacon wrote:
-> > > On Thu, Jul 23, 2026 at 10:10:33AM +0530, Linu Cherian wrote:
-> > > > Add ID_AA64MMFR2_EL1.BBM based BBML3 feature detection in
-> > > > cpu_supports_bbml3() so that cpus with the feature would
-> > > > not have to be added into MIDR based supports_bbml3_list.
-> > > > 
-> > > > Reviewed-by: Gavin Shan <gshan@redhat.com>
-> > > > Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> > > > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
-> > > > ---
-> > > >  arch/arm64/kernel/cpufeature.c | 17 +++++++++--------
-> > > >  1 file changed, 9 insertions(+), 8 deletions(-)
-> > > > 
-> > > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > > > index 896bafdb00b1..dbd7d187520c 100644
-> > > > --- a/arch/arm64/kernel/cpufeature.c
-> > > > +++ b/arch/arm64/kernel/cpufeature.c
-> > > > @@ -2133,6 +2133,12 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
-> > > >  
-> > > >  bool cpu_supports_bbml3(void)
-> > > >  {
-> > > > +	u64 mmfr2;
-> > > > +
-> > > > +	mmfr2 = __read_sysreg_by_encoding(SYS_ID_AA64MMFR2_EL1);
-> > > > +	if (SYS_FIELD_GET(ID_AA64MMFR2_EL1, BBM, mmfr2) >= ID_AA64MMFR2_EL1_BBM_3)
-> > > > +		return true;
-> > > 
-> > > This is a bit of a nit, but I think it would be more consistent to use
-> > > has_cpuid_feature() here instead of __read_sysreg_by_encoding(), similarly
-> > > to how we handle kpti in unmap_kernel_at_el0() (which also has both an
-> > > ID register field and a list of MIDRs).
-> > 
-> > force_pte_mapping required by map_mem(during early boot) needs
-> > cpu_supports_bbml3 check and cpu features/capabilities are not 
-> > initialized by that time. Should i add a comment there to clarify this ?
+On 04/08/2026 18:04, Mark Rutland wrote:
+> Use the PCPU GPR infrastructure to implement preemptible this_cpu_read()
+> and this_cpu_write().
 > 
-> It looks to me like has_cpuid_feature() will call
-> __read_sysreg_by_encoding() under the hood for SCOPE_LOCAL_CPU.
+> This change means that this_cpu_read() will always use a plain LDR, even
+> in LTO configurations where READ_ONCE() will use LDA[P]R. Using plain
+> LDR is preferable, given that the rationale for using LDA[P]R in
+> READ_ONCE() was to retain address dependencies against values written by
+> other CPUs, which isn't expected usage for this_cpu_read(). Using plain
+> LDR will enforce fewer ordering constraints.
 > 
-> What am I missing?
-
-Below is my understanding. Correct me if i am wrong.
-has_cpuid_feature depends on struct arm64_cpu_capabilities *entry.
-Inorder to derive *entry from a capability ID, cpucap_ptrs should be
-in initialized state and that wont be the case when force_pte_mapping
-invokes cpu_supports_bbml3. 
-
-
-  
+> Test case:
 > 
-> Will
+> | void outline_this_cpu_write_u64(u64 __percpu *p, u64 v)
+> | {
+> | 	this_cpu_write(*p, v);
+> | }
+> 
+> Generated code before this patch (v7.2-rc4):
+> 
+> | <outline_this_cpu_write_u64>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x2, sp_el0
+> |        mov     x29, sp
+> |        ldr     w3, [x2, #8]
+> |        add     w3, w3, #0x1
+> |        str     w3, [x2, #8]
+> |        mrs     x3, tpidr_el1
+> |        str     x1, [x0, x3]
+> |        ldr     x0, [x2, #8]
+> |        sub     x0, x0, #0x1
+> |        str     w0, [x2, #8]
+> |        cbz     x0, 1f
+> |        ldr     x0, [x2, #8]
+> |        cbnz    x0, 2f
+> | 1:     bl      preempt_schedule_notrace
+> | 2:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
+> 
+> Generated code after this patch:
+> 
+> | <outline_this_cpu_write_u64>:
+> |        mrs     x2, sp_el0
+> |        mov     w3, #0x7c60
+> |        strh    w3, [x2, #20]
+> |        mrs     x3, tpidr_el1
+> |        str     x1, [x0, x3]
+> |        strh    wzr, [x2, #20]
+> |        ret
+> 
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yang Shi <yang@os.amperecomputing.com>
+> ---
+FYI I'm seeing build warnings caused by this patch (with ftrace enabled - based 
+on the warnings, I'm guessing that's the key bit), using:
+
+aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
+
+I haven't investigated the cause.
+
+Thanks,
+Ryan
+
+---8<---
+In file included from linux/arch/arm64/include/asm/spectre.h:17,                                                                                                                                                                       
+                 from linux/arch/arm64/include/asm/processor.h:47,
+                 from linux/include/linux/sched.h:13,
+                 from linux/include/linux/ratelimit.h:6,
+                 from linux/include/linux/dev_printk.h:16,
+                 from linux/include/linux/device.h:15,
+                 from linux/include/linux/node.h:18,
+                 from linux/include/linux/cpu.h:17,
+                 from linux/include/linux/stop_machine.h:5,
+                 from linux/kernel/trace/ftrace.c:17:
+linux/kernel/trace/ftrace.c: In function 'ftrace_filter_pid_sched_switch_probe':
+linux/arch/arm64/include/asm/percpu.h:295:42: warning: conversion from 'long unsigned int' to 'u8' {aka 'unsigned char'} changes value from '18446744073709551615' to '255' [-Woverflow]                                               
+  295 |         _pcp_wrap(__percpu_write_8, pcp, (unsigned long)(val))
+      |                                          ^~~~~~~~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+  277 |         op(&(pcp), __VA_ARGS__);                                        \
+      |                    ^~~~~~~~~~~
+linux/include/linux/percpu-defs.h:369:25: note: in expansion of macro 'this_cpu_write_1'
+  369 |                 case 1: stem##1(variable, __VA_ARGS__);break;           \
+      |                         ^~~~
+linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+  500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+      |                                         ^~~~~~~~~~~~~~~~
+linux/kernel/trace/ftrace.c:8628:17: note: in expansion of macro 'this_cpu_write'
+ 8628 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+      |                 ^~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:297:43: warning: conversion from 'long unsigned int' to 'u16' {aka 'short unsigned int'} changes value from '18446744073709551615' to '65535' [-Woverflow]
+  297 |         _pcp_wrap(__percpu_write_16, pcp, (unsigned long)(val))
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+  277 |         op(&(pcp), __VA_ARGS__);                                        \
+      |                    ^~~~~~~~~~~
+linux/include/linux/percpu-defs.h:370:25: note: in expansion of macro 'this_cpu_write_2'
+  370 |                 case 2: stem##2(variable, __VA_ARGS__);break;           \
+      |                         ^~~~
+linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+  500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+      |                                         ^~~~~~~~~~~~~~~~
+linux/kernel/trace/ftrace.c:8628:17: note: in expansion of macro 'this_cpu_write'
+ 8628 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+      |                 ^~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:299:43: warning: conversion from 'long unsigned int' to 'u32' {aka 'unsigned int'} changes value from '18446744073709551615' to '4294967295' [-Woverflow]
+  299 |         _pcp_wrap(__percpu_write_32, pcp, (unsigned long)(val))
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+  277 |         op(&(pcp), __VA_ARGS__);                                        \
+      |                    ^~~~~~~~~~~
+linux/include/linux/percpu-defs.h:371:25: note: in expansion of macro 'this_cpu_write_4'
+  371 |                 case 4: stem##4(variable, __VA_ARGS__);break;           \
+      |                         ^~~~
+linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+  500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+      |                                         ^~~~~~~~~~~~~~~~
+linux/kernel/trace/ftrace.c:8628:17: note: in expansion of macro 'this_cpu_write'
+ 8628 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+      |                 ^~~~~~~~~~~~~~
+linux/kernel/trace/ftrace.c: In function 'ignore_task_cpu':
+linux/arch/arm64/include/asm/percpu.h:295:42: warning: conversion from 'long unsigned int' to 'u8' {aka 'unsigned char'} changes value from '18446744073709551615' to '255' [-Woverflow]
+  295 |         _pcp_wrap(__percpu_write_8, pcp, (unsigned long)(val))
+      |                                          ^~~~~~~~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+  277 |         op(&(pcp), __VA_ARGS__);                                        \
+      |                    ^~~~~~~~~~~
+linux/include/linux/percpu-defs.h:369:25: note: in expansion of macro 'this_cpu_write_1'
+  369 |                 case 1: stem##1(variable, __VA_ARGS__);break;           \
+      |                         ^~~~
+linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+  500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+      |                                         ^~~~~~~~~~~~~~~~
+linux/kernel/trace/ftrace.c:8898:17: note: in expansion of macro 'this_cpu_write'
+ 8898 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+      |                 ^~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:297:43: warning: conversion from 'long unsigned int' to 'u16' {aka 'short unsigned int'} changes value from '18446744073709551615' to '65535' [-Woverflow]
+  297 |         _pcp_wrap(__percpu_write_16, pcp, (unsigned long)(val))
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+  277 |         op(&(pcp), __VA_ARGS__);                                        \
+      |                    ^~~~~~~~~~~
+linux/include/linux/percpu-defs.h:370:25: note: in expansion of macro 'this_cpu_write_2'
+  370 |                 case 2: stem##2(variable, __VA_ARGS__);break;           \
+      |                         ^~~~
+linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+  500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+      |                                         ^~~~~~~~~~~~~~~~
+linux/kernel/trace/ftrace.c:8898:17: note: in expansion of macro 'this_cpu_write'
+ 8898 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+      |                 ^~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:299:43: warning: conversion from 'long unsigned int' to 'u32' {aka 'unsigned int'} changes value from '18446744073709551615' to '4294967295' [-Woverflow]
+  299 |         _pcp_wrap(__percpu_write_32, pcp, (unsigned long)(val))
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+  277 |         op(&(pcp), __VA_ARGS__);                                        \
+      |                    ^~~~~~~~~~~
+linux/include/linux/percpu-defs.h:371:25: note: in expansion of macro 'this_cpu_write_4'
+  371 |                 case 4: stem##4(variable, __VA_ARGS__);break;           \
+      |                         ^~~~
+linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+  500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+      |                                         ^~~~~~~~~~~~~~~~
+linux/kernel/trace/ftrace.c:8898:17: note: in expansion of macro 'this_cpu_write'
+ 8898 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+      |                 ^~~~~~~~~~~~~~
+---8<---
+
+
 
