@@ -4,79 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E89F7C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 11:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BFDC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 11:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nU69mhax0G3DAB/gtdxJnO/6cJN5a5tJ2TqP96CH/u8=; b=EPust06fvP28pPaZW/8s64cSxF
-	82IsthI16SLERj9/AtAxSovGFxzGOc0+yszBHAO8p7QVS+b2jVDpBd1uBoYA5irFUL63u8w+HXXIb
-	bj3DDojWCFikdQdecqIEsk8p3cuw6RXbutLXEI8hw4WObtd2IzrVQZEDMBaJJfR25ajt/tkXQL0+s
-	vBUXrBRZRmvS0tqQvhmAV+xVVseVv1DpXkH4h1FAFqps8mh/PByckKg9VR/URtJY04Ke0eL9d9/M6
-	Etw/asH+NKTliEeowGFV6uxJn24yT+Tj6bnEliQ9qqM9yBMOyaXwaX7Q12IOSKf2mFQgL300+CdVV
-	LJU6HJ3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3UAVk8fCaTvm9E7QhuLg8S14/K+7SSYssW7sMyZymmA=; b=YGHc3HWQKj5QSEzqgRO4Cku6tk
+	Ok2djhl8ZS66fIxAZAVWB7SjdBZfeM/41TO8DG1+0DgAHiPmEg3t0MsO7mtICVs2F9+LaA8UGTFS/
+	zZIqVM6rHcCZJuS2z+iwjsah20rqowEYK0T4RgIalnp7egxGSI8L8/EcDEfnGSvpTihCdmsuu2DMY
+	sxiWucZXLiAUbu8tlWi4nNcqM9H4865tk96ZWFlgm5V9XFfFf3icqZVr05g5DqJZTUFkwMKnZnWUv
+	ztRkke1ycCiVF2FOs7rWyKpsbK8nqvbq8DkNNH2b60HmsR7TuKwE2WbAgEzUQNtjWayOT+jpRf3Jt
+	GJXz/PpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wra68-00000003pXi-2uPj;
-	Wed, 05 Aug 2026 11:47:48 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1wra6J-00000003pa7-42P9;
+	Wed, 05 Aug 2026 11:47:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wra65-00000003pXD-3zJ0
+	id 1wra6H-00000003pZf-4B0w
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Aug 2026 11:47:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=3UAVk8fCaTvm9E7QhuLg8S14/K+7SSYssW7sMyZymmA=; b=ha2ngkjWrBvpijMSpCpaKvVzae
+	JQV+Or5T6r+P5NWGSs3PgV4J3YK27OVTMRfCRZLbMb+vIfX6J8dl7UsX90tbqDcMwcAE9UbUJ/W7R
+	JUNhSzxtOB5LUlSrDkN3hfMYCELf39qbSYmwjjJ4BttEBfWeoWfmffqDK9QLLOXx3tH0WAg5W4yoW
+	hgFbvrfYn5UbiQBvpF4Dae3qBdFUftXF3FwL8/yzgGt8RAe2Mqpo54cWAP1T7vujq2Iayjknmu7yG
+	O9O+ZH8tcGtw2W/SfwxENAbTgBmR/hwCzYflkMp+eqYb9WL9a5X91HAaTWUgBeFxo5EzKzK/RVEtF
+	ZDhLu6CQ==;
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wra6E-0000000AhEd-3vuw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 11:47:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1785930466; x=1817466466;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GHEQA7zE2Q7m0lCPj2/Gzzf6Dy30RMpWXQ1Kz2fOrjA=;
-  b=DuccITyeh4hI1j60QpJ4UhgHmV6kSRx9qHDIZYI3b1xbR1ob4ubqS0mB
-   nxzqC1brJywBfdm5t7V1K71DyTZyqBKaPtnJpfHMr1fxLA54Gt+OM4I5H
-   5Qx2mt4jZFzmpqk+6qYEyCQRs5igmdwTcjz7xb1BA1BjMaOtgBfLGmtnR
-   SjwO3+LZcQpsaJbvgzOVLlAk2wJr6qwZYnL6AhtUpOFKxdqwlIkRNQja/
-   TRXAOC4+2BDEiT865ugqSqzY/lqDS3TPCR1a6PEAFVjzgL5MXfnl38NdJ
-   4wTSNA/6GypuPu4ujHK1d5kMcZfip0JAk0/otPLo+dG3DRN2H8Rqn38Pg
-   Q==;
-X-CSE-ConnectionGUID: vPOY3CZ5R46zJhG72iAjgg==
-X-CSE-MsgGUID: xzj9ffACQ4Cr4E2Ue8rmMg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11865"; a="90385037"
-X-IronPort-AV: E=Sophos;i="6.25,206,1779174000"; 
-   d="scan'208";a="90385037"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Aug 2026 04:47:43 -0700
-X-CSE-ConnectionGUID: mW0NGWteQ6WLVnKOlmafdQ==
-X-CSE-MsgGUID: BKtAXhwDT+m59ThNsdWdSQ==
-X-ExtLoop1: 1
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa003.fm.intel.com with ESMTP; 05 Aug 2026 04:47:40 -0700
-Received: by black.igk.intel.com (Postfix, from userid 1008)
-	id AB16999; Wed, 05 Aug 2026 13:47:38 +0200 (CEST)
-Date: Wed, 5 Aug 2026 13:47:38 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Alyssa Milburn <amilburn@zall.org>
-Subject: Re: [PATCH v2 2/3] usb: typec: tipd: Factor out i2c specifics
-Message-ID: <anMi2q5FmsvE4z8W@black.igk.intel.com>
-References: <20260727-tipd-ace3-v2-0-1345957bd635@chaosmail.tech>
- <20260727-tipd-ace3-v2-2-1345957bd635@chaosmail.tech>
+	Wed, 05 Aug 2026 11:47:56 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-c15ca7a7ca9so94013966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 04:47:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785930473; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Om9ChAhNGXQEkTqPFi0Z07DgYOuhftkHvBSDwzfUEBr+3xzkKPV5N5/0BOv6Nnsf+r
+         1Ibh+ltG9s4/m6UjIceAhszSG/+LGskqit3WldUfXIF0oMWRcXZ2tn58NcikIhs8lOA4
+         sUvZxM9VK/qNHtlq9vj+7c4Gc2hEio49jb5poE3JhYBAnIy9dABVv/4Q4jlHTSDAUZHl
+         7obFPfk9BUhWWpamF+9d7CruB4ska7Q0P7aGcGPiCiCUz2Eb50T61jv7LeZJadRsS+aB
+         eJtQsiregH5IR6GxCFr9noAvHleiXlwNvFepcNvkdfI2fHCOl0OvjsFAyLlWFIY740pE
+         k+sQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=3UAVk8fCaTvm9E7QhuLg8S14/K+7SSYssW7sMyZymmA=;
+        fh=LwxUEhPWbOapcN+1T9WeiJ8KIeZiFFvQagsK8/d6cl4=;
+        b=lvM6aq6vvsxsu9B6Hrwh/3LfjU56BVpTFrHlyj/pM5QZ84FpjW3b8HgrbcRc4szTof
+         xQRkF3RzukPtoo4SROuRS8NN7M8t5kHk7gyAGL3mmeAaXJq+YSdPaUZd5a1QcviS/7lI
+         KAcBHVuWdmNp2KPNeK0SKzKDePTGeZOdTEy0SxgfVnj5flmWVHZfmYsPPzTT3f4+QCP2
+         cTo3+Lne28oRNTpuiL6pz+G3rFdH+zscxEfvUNDGwQH/Nso9Z4xPeFi7f2Ks7koXFxZK
+         NsBsWV91MxgLYi+JBlftaDrOsCF3LuDgMdl83d9jrjrVXOJfoCV69XdCIdp6Jm6ctJbx
+         Cbvw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785930473; x=1786535273; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=3UAVk8fCaTvm9E7QhuLg8S14/K+7SSYssW7sMyZymmA=;
+        b=sHh8o45A28uPgrJtyYowzY7dXIGmfYjGT7G0VBqJPowFlSim1J9cwAHIHmYzzmN52r
+         VscUmUv143tL76C5ihEes+NdAngcHnMeB3tAGVNWCI+DC21e8gXuIBd4yOBFbKbVsL5a
+         zZQqzpzMs1F+mlQ+tRPZXzMFE08K/IWVZxmM2B7yqEXxDyjv5fZUmo8BcWosQUMX/TQy
+         9jBESMzcM4b20d2IyqFKy0T5tYSrehdFsE7HMEBWG04uRsvE9GAby0xxqnKoh3+Zlf+J
+         x167ycdAVUHxiTy8XtXFZUl9Uw1BgIRsalb+tUBxa6UTiaCurFjL7ANtfzCIAlmwrYvb
+         XLkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785930473; x=1786535273;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3UAVk8fCaTvm9E7QhuLg8S14/K+7SSYssW7sMyZymmA=;
+        b=fDFA20zhBvJTJ2fz+TiuJ47coEP+LhLi1vKQAJi/K6GWscy1q7/O9C/x+fjr35dAuN
+         401n17Nfn/7rOLIdle3HgN9v6EuYNCHOi/hBCwqKKAt+BhJq7hjtGb5ddBSC0cvH3two
+         MrcMCasRp7nm41P1CQW35Z4R2FhOFqIYMVTjlVHHxp29/bi3glXquH5BPBbDrnJ3nmkj
+         nZzMWdg6BKMUqEBqbtKduePyu34xj8ooUB/CAtp1xyPRuoNEnciPQG/juJoqZ1qJ/IG6
+         WxDY7sQQu4TqPTqxVjim5KGQA5+t24JSDuMmGOICw9Ate45sqWYv6SGTMyWTBskf4WJN
+         Ak1Q==
+X-Forwarded-Encrypted: i=1; AHgh+RrkWK9Q0Re5U+21qltUI+LQrxmgjZhM6zrgU6nXQVv/wUzVRFjI8sWbWAEOeyQN2BHqeruZszT3ka2MMUjh8syV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQyfTVv8ectxE5wlDrAHeURO+EtgIMcfi34+lHxtWgLxcMCwFB
+	/6LU8lABLJEaktQQIrSHNo0t7kd2hJ5PmiEHoC6Dg9oK4Nzkg3YwZfVKlt+tJhrR/nDUWUbPKe/
+	Ii1E4X+ovytXOhDrpADd5mFVd9L6mrPI=
+X-Gm-Gg: AR+sD12hgn/gx5u2hHBllriSgzuIWrE3bPNNFcs0OZhoPLIyRerisgqW+HRQsl6XZoq
+	O29Z5xYH7eQvZP6s3MBCJ9N6wGhv4vb2UsMLcNpaVWLWaRcfI/gSm4TZXFFk0+IBDFWAmlyNJYg
+	RogIYsMe13qApoWMDIF0HberHcePCdk6R4bVO/TR0vGDHH/gRAIY2sc1reMuLEsXB5Cxb6KFdIw
+	jSE0aw+BVm9DxfM0+vc961jjMwV1OHvAmiDRPeVcdEWgulEd90H6e0mHS7qPyDw4qShSKVV3OLa
+	s56Ljf4TTm6h+kE6D9w5RsZ8ln/sXLNjr/owgtz1wnmNWqzDbIkN5dPNqykH
+X-Received: by 2002:a17:907:1ca0:b0:c20:2299:1ddb with SMTP id
+ a640c23a62f3a-c2039abc09cmr360640866b.3.1785930472532; Wed, 05 Aug 2026
+ 04:47:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260727-tipd-ace3-v2-2-1345957bd635@chaosmail.tech>
+References: <20260616155716.2631508-1-puranjay@kernel.org> <20260616155716.2631508-4-puranjay@kernel.org>
+ <8a24abbc-10bc-42bb-8fee-0a174d8f1751@linaro.org> <CANk7y0inRXCUKtuio3Cb03DvuNPq6yp1o+tsE8PZitrY0LaOPQ@mail.gmail.com>
+ <6ee32efc-01be-4532-aa59-3948f59156c0@linaro.org>
+In-Reply-To: <6ee32efc-01be-4532-aa59-3948f59156c0@linaro.org>
+From: Puranjay Mohan <puranjay12@gmail.com>
+Date: Wed, 5 Aug 2026 12:47:38 +0100
+X-Gm-Features: AUfX_mzBURrEDNjJEyg21SVA5RFbwL54hNf7iDxco6mEuBZj-ZYLCBD7SSDGaSk
+Message-ID: <CANk7y0hU_m6gJ9FpGfGUJg-Ok8PoXhKruny_0OkeOgLbCo6ZLA@mail.gmail.com>
+Subject: Re: [PATCH v5 3/4] perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
+To: James Clark <james.clark@linaro.org>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>, 
+	Ravi Bangoria <ravi.bangoria@amd.com>, Stephane Eranian <eranian@google.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Usama Arif <usama.arif@linux.dev>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_044746_167058_8467DBF5 
-X-CRM114-Status: GOOD (  31.63  )
+X-CRM114-CacheID: sfid-20260805_124755_240018_C4809202 
+X-CRM114-Status: GOOD (  46.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,464 +147,444 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Aug 5, 2026 at 11:07=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
+>
+>
+>
+> On 03/08/2026 7:54 pm, Puranjay Mohan wrote:
+> > On Mon, Aug 3, 2026 at 12:07=E2=80=AFPM James Clark <james.clark@linaro=
+.org> wrote:
+> >>
+> >>
+> >>
+> >> On 16/06/2026 16:57, Puranjay Mohan wrote:
+> >>> Enable bpf_get_branch_snapshot() on ARM64 by implementing the
+> >>> perf_snapshot_branch_stack static call for BRBE.
+> >>>
+> >>> BRBE is paused before masking exceptions to avoid branch buffer
+> >>> pollution from trace_hardirqs_off(). Exceptions are then masked with
+> >>> local_daif_save() to prevent PMU overflow pseudo-NMIs from interferin=
+g.
+> >>> If an overflow between pause and DAIF save re-enables BRBE, the snaps=
+hot
+> >>> detects this via BRBFCR_EL1.PAUSED and bails out.
+> >>>
+> >>> Branch records are read using perf_entry_from_brbe_regset() with a NU=
+LL
+> >>> event pointer to bypass event-specific filtering. The buffer is
+> >>> invalidated after reading.
+> >>>
+> >>> Introduce a for_each_brbe_entry() iterator to deduplicate bank
+> >>> iteration between brbe_read_filtered_entries() and the snapshot.
+> >>>
+> >>> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+> >>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> >>> ---
+> >>>    drivers/perf/arm_brbe.c  | 128 ++++++++++++++++++++++++++++++++---=
+----
+> >>>    drivers/perf/arm_brbe.h  |   9 +++
+> >>>    drivers/perf/arm_pmuv3.c |   5 +-
+> >>>    3 files changed, 120 insertions(+), 22 deletions(-)
+> >>>
+> >>> diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
+> >>> index effbdeacfcbb..a141ad7abcf2 100644
+> >>> --- a/drivers/perf/arm_brbe.c
+> >>> +++ b/drivers/perf/arm_brbe.c
+> >>> @@ -9,6 +9,7 @@
+> >>>    #include <linux/types.h>
+> >>>    #include <linux/bitmap.h>
+> >>>    #include <linux/perf/arm_pmu.h>
+> >>> +#include <asm/daifflags.h>
+> >>>    #include "arm_brbe.h"
+> >>>
+> >>>    #define BRBFCR_EL1_BRANCH_FILTERS (BRBFCR_EL1_DIRECT   | \
+> >>> @@ -256,6 +257,14 @@ static bool valid_brbe_version(int brbe_version)
+> >>>               brbe_version =3D=3D ID_AA64DFR0_EL1_BRBE_BRBE_V1P1;
+> >>>    }
+> >>>
+> >>> +static __always_inline bool cpu_has_brbe(void)
+> >>
+> >> This should be more like cpu_valid_brbe_version(). has_brbe() only
+> >> implies that the CPU has BRBE, not that it's a version that the driver
+> >> supports. And it's actually just a wrapper around valid_brbe_version()
+> >> that accesses the ID reg on that CPU, not a functionally different che=
+ck.
+> >>
+> >> But it also looks like valid_brbe_version() isn't called from anywhere
+> >> else, so why not delete that function and use its name for the new one=
+?
+> >
+> > I will do that in next version
+> >
+> >>
+> >>> +{
+> >>> +     u64 aa64dfr0 =3D read_sysreg_s(SYS_ID_AA64DFR0_EL1);
+> >>> +     int brbe =3D cpuid_feature_extract_unsigned_field(aa64dfr0, ID_=
+AA64DFR0_EL1_BRBE_SHIFT);
+> >>> +
+> >>> +     return valid_brbe_version(brbe);
+> >>> +}
+> >>> +
+> >>>    static void select_brbe_bank(int bank)
+> >>>    {
+> >>>        u64 brbfcr;
+> >>> @@ -271,6 +280,20 @@ static void select_brbe_bank(int bank)
+> >>>        isb();
+> >>>    }
+> >>>
+> >>> +static inline void __brbe_advance(int *bank, int *idx, int nr_hw)
+> >>> +{
+> >>> +     if (++(*idx) >=3D BRBE_BANK_MAX_ENTRIES &&
+> >>> +         *bank * BRBE_BANK_MAX_ENTRIES + *idx < nr_hw) {
+> >>> +             *idx =3D 0;
+> >>> +             select_brbe_bank(++(*bank));
+> >>> +     }
+> >>> +}
+> >>> +
+> >>> +#define for_each_brbe_entry(idx, nr_hw)                             =
+         \
+> >>> +     for (int __bank =3D (select_brbe_bank(0), 0), idx =3D 0;       =
+     \
+> >>> +          __bank * BRBE_BANK_MAX_ENTRIES + idx < (nr_hw);           =
+ \
+> >>> +          __brbe_advance(&__bank, &idx, (nr_hw)))
+> >>> +
+> >>>    static bool __read_brbe_regset(struct brbe_regset *entry, int idx)
+> >>>    {
+> >>>        entry->brbinf =3D get_brbinf_reg(idx);
+> >>> @@ -474,11 +497,9 @@ unsigned int brbe_num_branch_records(const struc=
+t arm_pmu *armpmu)
+> >>>
+> >>>    void brbe_probe(struct arm_pmu *armpmu)
+> >>>    {
+> >>> -     u64 brbidr, aa64dfr0 =3D read_sysreg_s(SYS_ID_AA64DFR0_EL1);
+> >>> -     u32 brbe;
+> >>> +     u64 brbidr;
+> >>>
+> >>> -     brbe =3D cpuid_feature_extract_unsigned_field(aa64dfr0, ID_AA64=
+DFR0_EL1_BRBE_SHIFT);
+> >>> -     if (!valid_brbe_version(brbe))
+> >>> +     if (!cpu_has_brbe())
+> >>>                return;
+> >>>
+> >>>        brbidr =3D read_sysreg_s(SYS_BRBIDR0_EL1);
+> >>> @@ -618,10 +639,10 @@ static bool perf_entry_from_brbe_regset(int ind=
+ex, struct perf_branch_entry *ent
+> >>>
+> >>>        brbe_set_perf_entry_type(entry, brbinf);
+> >>>
+> >>> -     if (!branch_sample_no_cycles(event))
+> >>> +     if (!event || !branch_sample_no_cycles(event))
+> >>>                entry->cycles =3D brbinf_get_cycles(brbinf);
+> >>>
+> >>> -     if (!branch_sample_no_flags(event)) {
+> >>> +     if (!event || !branch_sample_no_flags(event)) {
+> >>>                /* Mispredict info is available for source only and co=
+mplete branch records. */
+> >>>                if (!brbe_record_is_target_only(brbinf)) {
+> >>>                        entry->mispred =3D brbinf_get_mispredict(brbin=
+f);
+> >>> @@ -774,32 +795,97 @@ void brbe_read_filtered_entries(struct perf_bra=
+nch_stack *branch_stack,
+> >>>    {
+> >>>        struct arm_pmu *cpu_pmu =3D to_arm_pmu(event->pmu);
+> >>>        int nr_hw =3D brbe_num_branch_records(cpu_pmu);
+> >>> -     int nr_banks =3D DIV_ROUND_UP(nr_hw, BRBE_BANK_MAX_ENTRIES);
+> >>>        int nr_filtered =3D 0;
+> >>>        u64 branch_sample_type =3D event->attr.branch_sample_type;
+> >>>        DECLARE_BITMAP(event_type_mask, PERF_BR_ARM64_MAX);
+> >>>
+> >>>        prepare_event_branch_type_mask(branch_sample_type, event_type_=
+mask);
+> >>>
+> >>> -     for (int bank =3D 0; bank < nr_banks; bank++) {
+> >>> -             int nr_remaining =3D nr_hw - (bank * BRBE_BANK_MAX_ENTR=
+IES);
+> >>> -             int nr_this_bank =3D min(nr_remaining, BRBE_BANK_MAX_EN=
+TRIES);
+> >>> +     for_each_brbe_entry(i, nr_hw) {
+> >>> +             struct perf_branch_entry *pbe =3D &branch_stack->entrie=
+s[nr_filtered];
+> >>>
+> >>> -             select_brbe_bank(bank);
+> >>> +             if (!perf_entry_from_brbe_regset(i, pbe, event))
+> >>> +                     break;
+> >>>
+> >>> -             for (int i =3D 0; i < nr_this_bank; i++) {
+> >>> -                     struct perf_branch_entry *pbe =3D &branch_stack=
+->entries[nr_filtered];
+> >>> +             if (!filter_branch_record(pbe, branch_sample_type, even=
+t_type_mask))
+> >>> +                     continue;
+> >>>
+> >>> -                     if (!perf_entry_from_brbe_regset(i, pbe, event)=
+)
+> >>> -                             goto done;
+> >>> +             nr_filtered++;
+> >>> +     }
+> >>>
+> >>> -                     if (!filter_branch_record(pbe, branch_sample_ty=
+pe, event_type_mask))
+> >>> -                             continue;
+> >>> +     branch_stack->nr =3D nr_filtered;
+> >>> +}
+> >>>
+> >>> -                     nr_filtered++;
+> >>> -             }
+> >>> +/*
+> >>> + * Best-effort BRBE snapshot for BPF tracing. Pause BRBE to avoid
+> >>> + * self-recording and return 0 if the snapshot state appears disturb=
+ed.
+> >>> + */
+> >>> +int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entries=
+, unsigned int cnt)
+> >>> +{
+> >>> +     unsigned long flags;
+> >>> +     int nr_hw, nr_copied =3D 0;
+> >>> +     u64 brbfcr, brbcr;
+> >>> +
+> >>> +     if (!cnt)
+> >>> +             return 0;
+> >>
+> >> If you're trying to avoid branches before pausing BRBE, can't you chec=
+k
+> >> this after the pause?
+> >
+> > will drop this in the next version and this is just an optimization.
+> >
+> >>
+> >>> +
+> >>> +     /* Guard against running on a CPU without BRBE (e.g. big.LITTLE=
+). */
+> >>> +     if (!cpu_has_brbe())
+> >>> +             return 0;
+> >>> +
+> >>> +     /*
+> >>> +      * Pause BRBE first to avoid recording our own branches. The
+> >>> +      * sysreg read/write and ISB are branchless, so pausing before
+> >>> +      * checking BRBCR avoids polluting the buffer with our own
+> >>> +      * conditional branches.
+> >>> +      */
+> >>> +     brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+> >>> +     brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+> >>> +     write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+> >>
+> >> Can this work without first disabling interrupts? Sashiko pointed it
+> >> out, but I think it's correct. If you read an active state into brbfcr=
+,
+> >> then the PMU event fires and disables BRBE, then you disable interrupt=
+s,
+> >> then you would restore an active state when it should be inactive.
+> >> Surely the only way to do it properly is to disable interrupts before
+> >> touching anything at all, if the PMU handler is also touching the same
+> >> registers?
+> >>
+> >> If you want to avoid trace_hardirqs_off() can you make a new
+> >> raw_local_daif_save() that disables interrupts and then call
+> >> trace_hardirqs_off() yourself after pausing BRBE? Or not call
+> >> trace_hardirqs_off() at all? There is a comment mentioning something
+> >> like that in arch/arm64/kernel/suspend.c.
+> >
+> > Yes. I'll add raw_local_daif_save()/raw_local_daif_restore() and mask b=
+efore
+> > touching any BRBE register, which fixes the stale restore. trace_hardir=
+qs_off()
+> > then moves below the pause so lockdep still sees a balanced off/on pair=
+ while
+> > its branches land in an already paused buffer.
+> >
+> >>
+> >> Also, disabling interrupts doesn't stop the PMU event from overflowing
+> >> and changing the state of PAUSED either. I think this is another path
+> >> that leads to you restoring the wrong state, so don't you also need to
+> >> disable the PMU?
+> >
+> > Hardware only sets PAUSED on a BRBE freeze event (RBHYTD), and a freeze=
+ needs
+> > BRBE to not already be paused (RNXCWF). So once we have paused, nothing=
+ changes
+> > underneath us and the PMU does not need disabling. It would not help an=
+yway:
+> > armv8pmu_stop() calls brbe_disable(), which zeroes BRBCR_EL1 and discar=
+ds the
+> > records we came to read.
+>
+> That does mean you throw away real freeze events while paused though, in
+> addition to the brbe_invalidate() you need to avoid non contiguous
+> buffers. So it takes branches away from PMU events.
 
-Sorry to keep you waiting.
+RBHYTD gives a freeze two effects: PAUSED is set, and BRBTS_EL1 captures a
+timestamp. Recording has already stopped because we paused, and the driver =
+never
+reads BRBTS_EL1. On the way out we check PMOVSCLR_EL0 and leave PAUSED set =
+if a
+counter overflowed, so a pending overflow handler still finds a frozen buff=
+er.
 
-On Mon, Jul 27, 2026 at 06:09:29PM +0200, Sasha Finkelstein wrote:
-> From: Alyssa Milburn <amilburn@zall.org>
-> 
-> Make the core driver more bus-agnostic to prepare for SPMI variants of
-> the tipd chip
-> 
-> Signed-off-by: Alyssa Milburn <amilburn@zall.org>
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
-> ---
->  drivers/usb/typec/tipd/Kconfig    |   8 ++++--
->  drivers/usb/typec/tipd/Makefile   |  11 ++++---
->  drivers/usb/typec/tipd/core.c     | 224 ++++++++++++++++++++++-------------------------------------------------------------------------------------------------------------------------
->  drivers/usb/typec/tipd/i2c.c      | 104 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
->  drivers/usb/typec/tipd/tps6598x.h | 114 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
->  5 files changed, 265 insertions(+), 196 deletions(-)
-> 
-> diff --git a/drivers/usb/typec/tipd/Kconfig b/drivers/usb/typec/tipd/Kconfig
-> index b82715293072..c87cbe6109ca 100644
-> --- a/drivers/usb/typec/tipd/Kconfig
-> +++ b/drivers/usb/typec/tipd/Kconfig
-> @@ -1,9 +1,13 @@
-> +config TYPEC_TPS6598X_CORE
-> +	tristate
-> +	select USB_ROLE_SWITCH
-> +	select POWER_SUPPLY
-> +
->  config TYPEC_TPS6598X
->  	tristate "TI TPS6598x USB Power Delivery controller driver"
->  	depends on I2C
-> -	select POWER_SUPPLY
->  	select REGMAP_I2C
-> -	select USB_ROLE_SWITCH
-> +	select TYPEC_TPS6598X_CORE
->  	help
->  	  Say Y or M here if your system has TI TPS65982 or TPS65983 USB Power
->  	  Delivery controller.
+> So it takes branches away from PMU events.
 
-Looks better now.
+Yes, but that is brbe_invalidate(), not the pause. Interrupts are masked an=
+d
+nothing else runs on the CPU, so the only branches the pause suppresses are=
+ the
+snapshot's own.
 
-> diff --git a/drivers/usb/typec/tipd/Makefile b/drivers/usb/typec/tipd/Makefile
-> index aa439f80a889..c741bf44f52f 100644
-> --- a/drivers/usb/typec/tipd/Makefile
-> +++ b/drivers/usb/typec/tipd/Makefile
-> @@ -1,6 +1,9 @@
->  # SPDX-License-Identifier: GPL-2.0
-> -CFLAGS_trace.o			:= -I$(src)
-> +CFLAGS_trace.o				:= -I$(src)
->  
-> -obj-$(CONFIG_TYPEC_TPS6598X)	+= tps6598x.o
-> -tps6598x-y			:= core.o
-> -tps6598x-$(CONFIG_TRACING)	+= trace.o
-> +obj-$(CONFIG_TYPEC_TPS6598X_CORE)	+= tps6598x-core.o
-> +tps6598x-core-y				:= core.o
-> +tps6598x-core-$(CONFIG_TRACING)		+= trace.o
-> +
-> +obj-$(CONFIG_TYPEC_TPS6598X)		+= tps6598x.o
-> +tps6598x-y				:= i2c.o
-> diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-> index d5ee0af9058b..aadadfdc6ed1 100644
-> --- a/drivers/usb/typec/tipd/core.c
-> +++ b/drivers/usb/typec/tipd/core.c
-> @@ -9,7 +9,6 @@
->  #include <linux/i2c.h>
->  #include <linux/acpi.h>
->  #include <linux/gpio/consumer.h>
-> -#include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/power_supply.h>
->  #include <linux/regmap.h>
-> @@ -92,31 +91,6 @@ struct tps6598x_rx_identity_reg {
->  	struct usb_pd_identity identity;
->  } __packed;
->  
-> -/* TPS_REG_USB4_STATUS */
-> -struct tps6598x_usb4_status_reg {
-> -	u8 mode_status;
-> -	__le32 eudo;
-> -	__le32 unknown;
-> -} __packed;
-> -
-> -/* TPS_REG_DP_SID_STATUS */
-> -struct tps6598x_dp_sid_status_reg {
-> -	u8 mode_status;
-> -	__le32 status_tx;
-> -	__le32 status_rx;
-> -	__le32 configure;
-> -	__le32 mode_data;
-> -} __packed;
-> -
-> -/* TPS_REG_INTEL_VID_STATUS */
-> -struct tps6598x_intel_vid_status_reg {
-> -	u8 mode_status;
-> -	__le32 attention_vdo;
-> -	__le16 enter_vdo;
-> -	__le16 device_mode;
-> -	__le16 cable_mode;
-> -} __packed;
-> -
->  /* Standard Task return codes */
->  #define TPS_TASK_TIMEOUT		1
->  #define TPS_TASK_REJECTED		3
-> @@ -143,81 +117,6 @@ static const char *const modes[] = {
->  /* Unrecognized commands will be replaced with "!CMD" */
->  #define INVALID_CMD(_cmd_)		(_cmd_ == 0x444d4321)
->  
-> -struct tps6598x;
-> -
-> -struct tipd_data {
-> -	irq_handler_t irq_handler;
-> -	u64 irq_mask1;
-> -	size_t tps_struct_size;
-> -	void (*remove)(struct tps6598x *tps);
-> -	int (*register_port)(struct tps6598x *tps, struct fwnode_handle *node);
-> -	void (*unregister_port)(struct tps6598x *tps);
-> -	void (*trace_data_status)(u32 status);
-> -	void (*trace_power_status)(u16 status);
-> -	void (*trace_status)(u32 status);
-> -	int (*apply_patch)(struct tps6598x *tps);
-> -	int (*init)(struct tps6598x *tps);
-> -	int (*switch_power_state)(struct tps6598x *tps, u8 target_state);
-> -	bool (*read_data_status)(struct tps6598x *tps);
-> -	int (*reset)(struct tps6598x *tps);
-> -	int (*connect)(struct tps6598x *tps, u32 status);
-> -};
-> -
-> -struct tps6598x {
-> -	struct device *dev;
-> -	struct regmap *regmap;
-> -	struct mutex lock; /* device lock */
-> -	u8 i2c_protocol:1;
-> -
-> -	struct gpio_desc *reset;
-> -	struct typec_port *port;
-> -	struct typec_partner *partner;
-> -	struct usb_pd_identity partner_identity;
-> -	struct usb_role_switch *role_sw;
-> -	struct typec_capability typec_cap;
-> -
-> -	struct power_supply *psy;
-> -	struct power_supply_desc psy_desc;
-> -	enum power_supply_usb_type usb_type;
-> -
-> -	int wakeup;
-> -	u32 status; /* status reg */
-> -	u32 data_status;
-> -	u16 pwr_status;
-> -	struct delayed_work	wq_poll;
-> -
-> -	const struct tipd_data *data;
-> -};
-> -
-> -struct cd321x_status {
-> -	u32 status;
-> -	u32 pwr_status;
-> -	u32 data_status;
-> -	u32 status_changed;
-> -	struct usb_pd_identity partner_identity;
-> -	struct tps6598x_dp_sid_status_reg dp_sid_status;
-> -	struct tps6598x_intel_vid_status_reg intel_vid_status;
-> -	struct tps6598x_usb4_status_reg usb4_status;
-> -};
-> -
-> -struct cd321x {
-> -	struct tps6598x tps;
-> -
-> -	struct tps6598x_dp_sid_status_reg dp_sid_status;
-> -	struct tps6598x_intel_vid_status_reg intel_vid_status;
-> -	struct tps6598x_usb4_status_reg usb4_status;
-> -
-> -	struct typec_altmode *port_altmode_dp;
-> -	struct typec_altmode *port_altmode_tbt;
-> -
-> -	struct typec_mux *mux;
-> -	struct typec_mux_state state;
-> -
-> -	struct cd321x_status update_status;
-> -	struct delayed_work update_work;
-> -	struct usb_pd_identity cur_partner_identity;
-> -};
-> -
->  static enum power_supply_property tps6598x_psy_props[] = {
->  	POWER_SUPPLY_PROP_USB_TYPE,
->  	POWER_SUPPLY_PROP_ONLINE,
-> @@ -1087,11 +986,12 @@ static int tps6598x_check_mode(struct tps6598x *tps)
->  	return -ENODEV;
->  }
->  
-> -static const struct regmap_config tps6598x_regmap_config = {
-> +const struct regmap_config tps6598x_regmap_config = {
->  	.reg_bits = 8,
->  	.val_bits = 8,
->  	.max_register = 0x7F,
->  };
-> +EXPORT_SYMBOL_GPL(tps6598x_regmap_config);
+> >
+> > You are right that a freeze can still land in the window between readin=
+g BRBFCR
+> > and setting PAUSED, and restoring the value we read would then clear a =
+PAUSED
+> > bit the hardware set. So v6 checks PMOVSCLR_EL0 and leaves BRBE paused =
+if a
+> > counter has overflowed. Reads of PMOVSCLR are non-destructive and it st=
+ays set
+> > until the overflow handler clears it, so it is still visible after we h=
+ave set
+> > PAUSED ourselves:
+> >
+> >          if (!valid_brbe_version())
+> >                  return 0;
+> >
+> >          flags =3D raw_local_daif_save();
+> >
+> >          brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+> >          brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+> >
+> >          write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+> >          isb();
+> >
+> >          trace_hardirqs_off();
+> >
+> >          /* BRBCR_EL1 is zero while the driver has BRBE disabled. */
+> >          if (!brbcr)
+> >                  goto restore;
+> >
+> >          ... read the records ...
+> >
+>
+> Up to the point where you read the records you technically don't need
+> any branches (if you don't do trace_hardirqs_off()) so you could do the
+> whole thing without pausing. Just disable interrupts, read every branch
+> entry unconditionally, re-enable interrupts and then find the last valid
+> entry and do the branchy stuff after reading.
+>
+> I'm thinking out loud, but doesn't that make it a lot easier? And it
+> avoids the brbe_invalidate() which takes the branches away from the PMU
+> event. It also avoids having to think too hard about racing with PMU
+> events causing a freeze even after interrupts are disabled and after
+> reading the freeze value:
+>
+>    raw_local_daif_save();
+>    brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+>    brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+>    select_bank(0);
+>    read_record(0);
+>    read_record(1);
+>    ...
+>    select_bank(0);
+>    read_record(0);
+>    read_record(1);
+>    ...
+>    write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+>    isb();
+>    local_daif_restore();
+>
+>    /* Now do post processing, find last valid record, check if it was
+> enabled by looking at brbcr etc. */
 
-Don't export that. Just move it to i2c.c
+MRS is not a branch, so that works, but three things would have to change:
 
->  static int tps6598x_psy_get_online(struct tps6598x *tps,
->  				   union power_supply_propval *val)
-> @@ -1738,27 +1638,13 @@ static void cd321x_remove(struct tps6598x *tps)
->  	cancel_delayed_work_sync(&cd321x->update_work);
->  }
->  
-> -static int tps6598x_probe(struct i2c_client *client)
-> +int tipd_init(struct tps6598x *tps)
->  {
-> -	const struct tipd_data *data;
-> -	struct tps6598x *tps;
->  	struct fwnode_handle *fwnode;
->  	u32 status;
->  	u32 vid;
->  	int ret;
->  
-> -	data = i2c_get_match_data(client);
-> -	if (!data)
-> -		return -EINVAL;
-> -
-> -	tps = devm_kzalloc(&client->dev, data->tps_struct_size, GFP_KERNEL);
-> -	if (!tps)
-> -		return -ENOMEM;
-> -
-> -	mutex_init(&tps->lock);
-> -	tps->dev = &client->dev;
-> -	tps->data = data;
-> -
->  	tps->reset = devm_gpiod_get_optional(tps->dev, "reset", GPIOD_OUT_LOW);
->  	if (IS_ERR(tps->reset))
->  		return dev_err_probe(tps->dev, PTR_ERR(tps->reset),
-> @@ -1766,23 +1652,12 @@ static int tps6598x_probe(struct i2c_client *client)
->  	if (tps->reset)
->  		msleep(TPS_SETUP_MS);
->  
-> -	tps->regmap = devm_regmap_init_i2c(client, &tps6598x_regmap_config);
-> -	if (IS_ERR(tps->regmap))
-> -		return PTR_ERR(tps->regmap);
-> -
->  	if (!device_is_compatible(tps->dev, "ti,tps25750")) {
->  		ret = tps6598x_read32(tps, TPS_REG_VID, &vid);
->  		if (ret < 0 || !vid)
->  			return -ENODEV;
->  	}
->  
-> -	/*
-> -	 * Checking can the adapter handle SMBus protocol. If it can not, the
-> -	 * driver needs to take care of block reads separately.
-> -	 */
-> -	if (i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
-> -		tps->i2c_protocol = true;
-> -
->  	if (tps->data->switch_power_state) {
->  		ret = tps->data->switch_power_state(tps, TPS_SYSTEM_POWER_STATE_S0);
->  		if (ret)
-> @@ -1816,7 +1691,7 @@ static int tps6598x_probe(struct i2c_client *client)
->  	 * with existing DT files, we work around this by deleting any
->  	 * fwnode_links to/from this fwnode.
->  	 */
-> -	fwnode = device_get_named_child_node(&client->dev, "connector");
-> +	fwnode = device_get_named_child_node(tps->dev, "connector");
->  	if (fwnode)
->  		fw_devlink_purge_absent_suppliers(fwnode);
->  
-> @@ -1842,14 +1717,14 @@ static int tps6598x_probe(struct i2c_client *client)
->  			goto err_unregister_port;
->  		ret = tps->data->connect(tps, status);
->  		if (ret)
-> -			dev_err(&client->dev, "failed to register partner\n");
-> +			dev_err(tps->dev, "failed to register partner\n");
->  	}
->  
-> -	if (client->irq) {
-> -		ret = devm_request_threaded_irq(&client->dev, client->irq, NULL,
-> +	if (tps->irq) {
-> +		ret = devm_request_threaded_irq(tps->dev, tps->irq, NULL,
->  						tps->data->irq_handler,
->  						IRQF_SHARED | IRQF_ONESHOT,
-> -						dev_name(&client->dev), tps);
-> +						dev_name(tps->dev), tps);
->  	} else {
->  		dev_warn(tps->dev, "Unable to find the interrupt, switching to polling\n");
->  		INIT_DELAYED_WORK(&tps->wq_poll, tps6598x_poll_work);
-> @@ -1860,13 +1735,12 @@ static int tps6598x_probe(struct i2c_client *client)
->  	if (ret)
->  		goto err_disconnect;
->  
-> -	i2c_set_clientdata(client, tps);
->  	fwnode_handle_put(fwnode);
->  
->  	tps->wakeup = device_property_read_bool(tps->dev, "wakeup-source");
-> -	if (tps->wakeup && client->irq) {
-> -		devm_device_init_wakeup(&client->dev);
-> -		enable_irq_wake(client->irq);
-> +	if (tps->wakeup && tps->irq) {
-> +		devm_device_init_wakeup(tps->dev);
-> +		enable_irq_wake(tps->irq);
->  	}
->  
->  	return 0;
-> @@ -1887,15 +1761,14 @@ static int tps6598x_probe(struct i2c_client *client)
->  
->  	return ret;
->  }
-> +EXPORT_SYMBOL_GPL(tipd_init);
->  
-> -static void tps6598x_remove(struct i2c_client *client)
-> +void tipd_remove(struct tps6598x *tps)
->  {
-> -	struct tps6598x *tps = i2c_get_clientdata(client);
-> -
-> -	if (!client->irq)
-> +	if (!tps->irq)
->  		cancel_delayed_work_sync(&tps->wq_poll);
->  	else
-> -		devm_free_irq(tps->dev, client->irq, tps);
-> +		devm_free_irq(tps->dev, tps->irq, tps);
->  
->  	if (tps->data->remove)
->  		tps->data->remove(tps);
-> @@ -1910,29 +1783,26 @@ static void tps6598x_remove(struct i2c_client *client)
->  	if (tps->reset)
->  		gpiod_set_value_cansleep(tps->reset, 1);
->  }
-> +EXPORT_SYMBOL_GPL(tipd_remove);
->  
-> -static int __maybe_unused tps6598x_suspend(struct device *dev)
-> +int tipd_suspend(struct tps6598x *tps)
->  {
-> -	struct i2c_client *client = to_i2c_client(dev);
-> -	struct tps6598x *tps = i2c_get_clientdata(client);
-> -
->  	if (tps->wakeup) {
-> -		disable_irq(client->irq);
-> -		enable_irq_wake(client->irq);
-> +		disable_irq(tps->irq);
-> +		enable_irq_wake(tps->irq);
->  	} else if (tps->reset) {
->  		gpiod_set_value_cansleep(tps->reset, 1);
->  	}
->  
-> -	if (!client->irq)
-> +	if (!tps->irq)
->  		cancel_delayed_work_sync(&tps->wq_poll);
->  
->  	return 0;
->  }
-> +EXPORT_SYMBOL_GPL(tipd_suspend);
->  
-> -static int __maybe_unused tps6598x_resume(struct device *dev)
-> +int tipd_resume(struct tps6598x *tps)
->  {
-> -	struct i2c_client *client = to_i2c_client(dev);
-> -	struct tps6598x *tps = i2c_get_clientdata(client);
->  	int ret;
->  
->  	ret = tps6598x_check_mode(tps);
-> @@ -1946,25 +1816,22 @@ static int __maybe_unused tps6598x_resume(struct device *dev)
->  	}
->  
->  	if (tps->wakeup) {
-> -		disable_irq_wake(client->irq);
-> -		enable_irq(client->irq);
-> +		disable_irq_wake(tps->irq);
-> +		enable_irq(tps->irq);
->  	} else if (tps->reset) {
->  		gpiod_set_value_cansleep(tps->reset, 0);
->  		msleep(TPS_SETUP_MS);
->  	}
->  
-> -	if (!client->irq)
-> +	if (!tps->irq)
->  		queue_delayed_work(system_power_efficient_wq, &tps->wq_poll,
->  				   msecs_to_jiffies(POLL_INTERVAL));
->  
->  	return 0;
->  }
-> +EXPORT_SYMBOL_GPL(tipd_resume);
->  
-> -static const struct dev_pm_ops tps6598x_pm_ops = {
-> -	SET_SYSTEM_SLEEP_PM_OPS(tps6598x_suspend, tps6598x_resume)
-> -};
-> -
-> -static const struct tipd_data cd321x_data = {
-> +const struct tipd_data tipd_cd321x_data = {
->  	.irq_handler = cd321x_interrupt,
->  	.irq_mask1 = APPLE_CD_REG_INT_POWER_STATUS_UPDATE |
->  		     APPLE_CD_REG_INT_DATA_STATUS_UPDATE |
-> @@ -1982,8 +1849,9 @@ static const struct tipd_data cd321x_data = {
->  	.switch_power_state = cd321x_switch_power_state,
->  	.connect = cd321x_connect,
->  };
-> +EXPORT_SYMBOL_GPL(tipd_cd321x_data);
+1. perf_entry_from_brbe_regset() goes through BRBE_REGN_SWITCH, a 32 case
+   switch, because the register number has to be an immediate. gcc emits a =
+jump
+   table and the function has 52 branches in the object file. The read woul=
+d
+   need full unrolling.
 
-There shouldn't be need to export these either. You can add a
-variant flag member to struct tps6598x for now, and pick the correct
-data for example from a lookup table.
+2. RPGDLX needs an ISB before the reads, and Table D19-10 makes it
+   IMPLEMENTATION DEFINED whether ISB itself generates a record. When we pa=
+use,
+   IZCHRF means the pausing ISB cannot pollute the buffer it is about to re=
+ad.
 
-Ideally IMO each variant would be handled in its own file. But that
-would require a bit more refactoring of course.
+3. 64 record parts still need a bank switch, so BRBFCR_EL1 still has to be
+   written and restored.
 
-> -static const struct tipd_data tps6598x_data = {
-> +const struct tipd_data tipd_tps6598x_data = {
->  	.irq_handler = tps6598x_interrupt,
->  	.irq_mask1 = TPS_REG_INT_POWER_STATUS_UPDATE |
->  		     TPS_REG_INT_DATA_STATUS_UPDATE |
-> @@ -2000,8 +1868,9 @@ static const struct tipd_data tps6598x_data = {
->  	.reset = tps6598x_reset,
->  	.connect = tps6598x_connect,
->  };
-> +EXPORT_SYMBOL_GPL(tipd_tps6598x_data);
->  
-> -static const struct tipd_data tps25750_data = {
-> +const struct tipd_data tipd_tps25750_data = {
->  	.irq_handler = tps25750_interrupt,
->  	.irq_mask1 = TPS_REG_INT_POWER_STATUS_UPDATE |
->  		     TPS_REG_INT_DATA_STATUS_UPDATE |
-> @@ -2018,33 +1887,8 @@ static const struct tipd_data tps25750_data = {
->  	.reset = tps25750_reset,
->  	.connect = tps6598x_connect,
->  };
-> -
-> -static const struct of_device_id tps6598x_of_match[] = {
-> -	{ .compatible = "ti,tps6598x", &tps6598x_data},
-> -	{ .compatible = "apple,cd321x", &cd321x_data},
-> -	{ .compatible = "ti,tps25750", &tps25750_data},
-> -	{}
-> -};
-> -MODULE_DEVICE_TABLE(of, tps6598x_of_match);
-> -
-> -static const struct i2c_device_id tps6598x_id[] = {
-> -	{ .name = "tps6598x", .driver_data = (kernel_ulong_t)&tps6598x_data },
-> -	{ }
-> -};
-> -MODULE_DEVICE_TABLE(i2c, tps6598x_id);
-> -
-> -static struct i2c_driver tps6598x_i2c_driver = {
-> -	.driver = {
-> -		.name = "tps6598x",
-> -		.pm = &tps6598x_pm_ops,
-> -		.of_match_table = tps6598x_of_match,
-> -	},
-> -	.probe = tps6598x_probe,
-> -	.remove = tps6598x_remove,
-> -	.id_table = tps6598x_id,
-> -};
-> -module_i2c_driver(tps6598x_i2c_driver);
-> +EXPORT_SYMBOL_GPL(tipd_tps25750_data);
->  
->  MODULE_AUTHOR("Heikki Krogerus <heikki.krogerus@linux.intel.com>");
-> -MODULE_LICENSE("GPL v2");
-> -MODULE_DESCRIPTION("TI TPS6598x USB Power Delivery Controller Driver");
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("TI TPS6598x USB Power Delivery Controller Core Functions");
+Correctness would then depend on the read staying branchless, which is not
+checkable at build time and fails silently: a branch mid read shifts the bu=
+ffer,
+giving a duplicate and a gap. 64 * 24 bytes of records also wants a per-CPU
+scratch buffer rather than the stack.
+
+Happy to prototype it. What I would not do is pause without invalidating:
+records are from/to pairs, so a consumer walking across the hole reconstruc=
+ts a
+call path that never happened. The invalidate was Mark's request after the =
+RFC,
+"to maintain record contiguity for other consumers", so dropping the pause =
+drops
+that too.
+
+I was thinking of this for v6:
+
+        flags =3D raw_local_daif_save();
+
+        /* The BRBE sysregs below are UNDEFINED without this. */
+        if (!valid_brbe_version()) {
+                raw_local_daif_restore(flags);
+                return 0;
+        }
+
+        brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+        brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+
+        write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+        isb();
+
+        /* BRBCR_EL1 is zero while the driver has BRBE disabled. */
+        if (!brbcr) {
+                write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+                isb();
+                raw_local_daif_restore(flags);
+                return 0;
+        }
+
+        trace_hardirqs_off();
+
+        ... read the records ...
+
+        if (!(brbfcr & BRBFCR_EL1_PAUSED) &&
+            !(read_pmovsclr() & (ARMV8_PMU_OVSR_P | ARMV8_PMU_OVSR_F)))
+                brbe_invalidate();
+        else
+                brbfcr |=3D BRBFCR_EL1_PAUSED;
+
+        write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+        isb();
+        local_daif_restore(flags);
+
+Exceptions are masked before anything is sampled, BRBCR_EL1 is only read an=
+d
+never written, and BRBFCR_EL1 is written back from the value saved under th=
+e
+mask. cpu_has_brbe() is now valid_brbe_version().
+
+Neither conditional costs a record: valid_brbe_version() falls through when=
+ BRBE
+is present (RBBNSZ, only taken branches are recorded), and the BRBCR_EL1 te=
+st is
+after the pause. It cannot move later because BRBFCR_EL1 is UNDEFINED witho=
+ut
+FEAT_BRBE.
+
+PMOVSCLR_EL0 is masked because PMCCNTR_EL0 is bit 31 and PMCR_EL0.N is at m=
+ost
+31, so the cycle counter is outside every range RNXCWF, RGXGWY, RPKTXQ and
+RLDMVK name. Unmasked, a cycle counter overflow looked like a freeze.
+
+Do you think this version works?
 
 Thanks,
-
--- 
-heikki
+Puranjay
 
