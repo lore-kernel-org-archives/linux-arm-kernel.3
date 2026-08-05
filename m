@@ -4,67 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4AA6C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 03:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72819C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 03:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NTcBSlM5LuKCDc9Ov6EpGoH7qPKq43ytKlh8zg6LOU8=; b=XX7j6tP8udBy7og5YUtdLMLhz8
-	iV7ZSI79KbgcFxQOUlGHVyXQ44y7u3g324Ug+h+CadzS8c7NHQA53t295WdcZjThkmFzdXcdlPCv4
-	27WrJVvppkJn+5gMGIoMss1/3PYNqWRsMlss9mBCDI05EV20b/D9gvCKWK4/fK7r0vYMbnwr9n8hR
-	/4CMIt5K76n8onbeMzisv2lflmVgWXJOwgNIT3l+PP941/Mck5kGIzxfrEyZkCWNW+xJ4sO6fk5L8
-	PMMHJDlxSIYRG5+uovNAG/ykVKx6YvwVPIj/v0eSuckyIpguW4G1beOZJXn9ICF+Yf3Ysp18HJmdL
-	SOWpOLsg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Type:Content-Transfer-Encoding:Date:Message-ID:In-Reply-To:CC:To:From
+	:Subject:Mime-Version:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7hZs9Ix78cG9JiLmKyTk8Go33VSZmsG+AqSGCjUXAAM=; b=0k1wo1cFDf6qU0hEZHhNF3JEEH
+	I1ajufI3Zsc6xq+pGWF17zDF0h3HSI6wBHX/yEete4xpNvLBw+5brbvHSpCKvBRxIEWQkXNhQJjvE
+	QXvhlAhmkGwbAs1+VPXFirapwdc8WZ9ekiKjUCZRMUWhzr6H9qPaNA2qa3UvRPJ42yJtOCTiIO+tJ
+	88rC6Tahy/4h9mBnYk51Hk19T7UFwAxryDSVtcqgwZYF84/yETPs1pDTgefC3OMspauswnHDCMMJK
+	vmxp9zJzxMIrhC4RCTmVA23GUyrDVpoLg0/wFDN+aKKsq7wUTg2YXdw3Zze19XoNCTx/WGooWvZZQ
+	cWTaZvoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrSgs-00000003CCS-3hFP;
-	Wed, 05 Aug 2026 03:53:14 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wrSmt-00000003CVT-27Kd;
+	Wed, 05 Aug 2026 03:59:27 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrSgp-00000003CBh-0vfL
+	id 1wrSmp-00000003CV6-1qHG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 03:53:13 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=NTcBSlM5LuKCDc9Ov6EpGoH7qPKq43ytKlh8zg6LOU8=;
-	b=ciB7JbH2jOtlsV83or6ZbFuGdUOa/oqJ1sMZT2E+QXFaGj3y9aEbYhCLtAe8hVKsZqPI8XLSO
-	7F/rXN8KdAlKXWGFzaALI38bXSleMd7DLPmVUdg0C45hIcZvDE5s64xPDAiiLCQSqSDF0zZDZbL
-	WU9PmPjrBg6HwB/tgb33hsU=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4hFGTl5JYjzpSvB;
-	Wed,  5 Aug 2026 11:43:23 +0800 (CST)
-Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
-	by mail.maildlp.com (Postfix) with ESMTPS id 011704057D;
-	Wed,  5 Aug 2026 11:52:53 +0800 (CST)
-Received: from localhost.huawei.com (10.90.31.46) by
- kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 5 Aug 2026 11:52:52 +0800
-From: Qinxin Xia <xiaqinxin@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <anshuman.khandual@arm.com>,
-	<BenNiu@meta.com>, <robin.murphy@arm.com>, <xiqi2@huawei.com>,
-	<xiaqinxin@huawei.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxarm@huawei.com>, <wangzhou1@hisilicon.com>, <sunnanyong@huawei.com>,
-	<prime.zeng@hisilicon.com>
-Subject: [PATCH] arm64: uaccess: Optimize copy_to/from_user with LSUI extension
-Date: Wed, 5 Aug 2026 11:52:51 +0800
-Message-ID: <20260805035251.2813306-1-xiaqinxin@huawei.com>
-X-Mailer: git-send-email 2.33.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.31.46]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemj200003.china.huawei.com (7.202.194.15)
+	Wed, 05 Aug 2026 03:59:26 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20260805035916epoutp039c33f8a154493d169eb4bb783cedeeb0~IzLsPX2xC2432424324epoutp03Q
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Aug 2026 03:59:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20260805035916epoutp039c33f8a154493d169eb4bb783cedeeb0~IzLsPX2xC2432424324epoutp03Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1785902356;
+	bh=7hZs9Ix78cG9JiLmKyTk8Go33VSZmsG+AqSGCjUXAAM=;
+	h=Subject:Reply-To:From:To:CC:In-Reply-To:Date:References:From;
+	b=c4RpI0Cto38a4GK00G/UXpfd2ogMJIBZLlx/vN6zws12xfJhiifkhEG8i7H6izXCR
+	 oh+bLnLA1Aq8eczGj/hyh5Ro14FoB7ZjbvXtyjJy15drEP0Noo/gBW7mwJry20K1aE
+	 Ci7Zp5yiijfE6uW0HuXp50i3qe6Kk5A5cREZuiM8=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20260805035915epcas5p2ac9a5531321fe9f472572880f5a2c750~IzLr0JVUO2674926749epcas5p27;
+	Wed,  5 Aug 2026 03:59:15 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4hFGr33wxyz6B9m6; Wed,  5 Aug
+	2026 03:59:15 +0000 (GMT)
+Mime-Version: 1.0
+Subject: RE: [PATCH 1/1] arm: backtrace-clang: fix wrong sp usage for
+ unwinding
+From: Maninder Singh <maninder1.s@samsung.com>
+To: Ard Biesheuvel <ardb@kernel.org>, Nathan Chancellor <nathan@kernel.org>
+CC: Maninder Singh <maninder1.s@samsung.com>, Russell King
+	<linux@armlinux.org.uk>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+	Onkarnath <onkarnath.1@samsung.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "llvm@lists.linux.dev"
+	<llvm@lists.linux.dev>, Rohit Thapliyal <r.thapliyal@samsung.com>, Nick
+	Desaulniers <ndesaulniers@google.com>
+X-Priority: 3
+X-Content-Kind-Code: NORMAL
+In-Reply-To: <07e390cf-05ac-479e-9c34-d02b9897104c@app.fastmail.com>
+X-Drm-Type: N,general
+X-Msg-Generator: Mail
+X-Msg-Type: PERSONAL
+X-Reply-Demand: N
+Message-ID: <20260805035915epcms5p8b47cc0c9349e1a5178cc6e4c6d3ee918@epcms5p8>
+Date: Wed, 05 Aug 2026 09:29:15 +0530
+X-CMS-MailID: 20260805035915epcms5p8b47cc0c9349e1a5178cc6e4c6d3ee918
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CMS-RootMailID: 20260729034101epcms5p4ac85b52aef78052cbc03d5913a7300b5
+References: <07e390cf-05ac-479e-9c34-d02b9897104c@app.fastmail.com>
+	<20260729034101epcms5p4ac85b52aef78052cbc03d5913a7300b5@epcms5p4>
+	<20260803182255.GC1067866@ax162>
+	<CGME20260729034101epcms5p4ac85b52aef78052cbc03d5913a7300b5@epcms5p8>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_205311_974357_04E3DE35 
-X-CRM114-Status: UNSURE (   7.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260804_205924_142402_A5281C8B 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,86 +90,37 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maninder1.s@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the ARMv9.6/LSUI (Load/Store Unprivileged Immediate)
-extension to optimize copy_from_user operations. The implementation
-uses the alternative mechanism to select between the standard unprivileged
-load-pair sequence and the new ldtp/sttp instruction at runtime based on
-hardware capability.
+Hi Ard, Nathan
 
-Co-developed-by: Qi Xi <xiqi2@huawei.com>
-Signed-off-by: Qi Xi <xiqi2@huawei.com>
-Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
----
- arch/arm64/include/asm/asm-uaccess.h |  6 ++++++
- arch/arm64/lib/copy_from_user.S      | 11 +++++++++++
- arch/arm64/lib/copy_to_user.S        | 11 +++++++++++
- 3 files changed, 28 insertions(+)
+Thanks for checking the patch.
 
-diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
-index 12aa6a283249..4c1b94b275e9 100644
---- a/arch/arm64/include/asm/asm-uaccess.h
-+++ b/arch/arm64/include/asm/asm-uaccess.h
-@@ -94,4 +94,10 @@ alternative_else_nop_endif
- 
- 		_asm_extable_uaccess	8888b, \l;
- 	.endm
-+
-+	.macro user_ldst_pair l, inst, reg1, reg2, addr, post_inc
-+8888:		\inst		\reg1, \reg2, [\addr], \post_inc;
-+
-+		_asm_extable_uaccess    8888b, \l;
-+	.endm
- #endif
-diff --git a/arch/arm64/lib/copy_from_user.S b/arch/arm64/lib/copy_from_user.S
-index 400057d607ec..f561a9c07345 100644
---- a/arch/arm64/lib/copy_from_user.S
-+++ b/arch/arm64/lib/copy_from_user.S
-@@ -45,7 +45,18 @@
- 	.endm
- 
- 	.macro ldp1 reg1, reg2, ptr, val
-+#ifdef CONFIG_ARM64_LSUI
-+	alternative_if_not ARM64_HAS_LSUI
-+		user_ldp 9997f, \reg1, \reg2, \ptr, \val
-+	alternative_else
-+		.arch_extension lsui
-+		user_ldst_pair 9997f, ldtp, \reg1, \reg2, \ptr, \val
-+		nop
-+		nop
-+	alternative_endif
-+#else
- 	user_ldp 9997f, \reg1, \reg2, \ptr, \val
-+#endif
- 	.endm
- 
- 	.macro stp1 reg1, reg2, ptr, val
-diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
-index 819f2e3fc7a9..a77dd153566f 100644
---- a/arch/arm64/lib/copy_to_user.S
-+++ b/arch/arm64/lib/copy_to_user.S
-@@ -48,7 +48,18 @@
- 	.endm
- 
- 	.macro stp1 reg1, reg2, ptr, val
-+#ifdef CONFIG_ARM64_LSUI
-+	alternative_if_not ARM64_HAS_LSUI
-+		user_stp 9997f, \reg1, \reg2, \ptr, \val
-+	alternative_else
-+		.arch_extension lsui
-+		user_ldst_pair 9997f, sttp, \reg1, \reg2, \ptr, \val
-+		nop
-+		nop
-+	alternative_endif
-+#else
- 	user_stp 9997f, \reg1, \reg2, \ptr, \val
-+#endif
- 	.endm
- 
- 	.macro cpy1 dst, src, count
--- 
-2.33.0
-
+> The existing code does seem to be broken, as the provided frame pointer
+> value is ignored entirely.
+>=20
+> However, by removing this add, you are skipping the false frame, which
+> was added to ensure that calling c_backtrace() from dump_backtrace()
+> does not miss any frames when regs =3D=3D NULL.
+>=20
+> So I think the correct approach here is to make the add conditional
+> on whether frame =3D=3D fp, which will be the case when c_backtrace()
+> is called from dump_backtrace() with a NULL regs argument.
+>=20
+> I.e.,
+>=20
+> =C2=A0=20cmp=C2=A0=20=C2=A0=20frame,=20fp=0D=0A>=20=C2=A0=20addeq=C2=A0=
+=20frame,=20sp,=20=2324=0D=0A=0D=0AInitially=20I=20thought=20we=20can=20ign=
+ore=20the=20extra=20frame,=20because=20we=20will=20be=20getting=0D=0Athe=20=
+backtrace=20till=20show_stack().=0D=0A=0D=0ABut=20=22YES=22=20as=20you=20sa=
+id=20to=20ensure=20dump_backtrace()=20in=20Backtrace,=20it=20should=20be=20=
+there.=0D=0ASo=20I=20will=20send=20the=20update=20change.=0D=0A=0D=0ATested=
+=20with=20your=20suggestion:=0D=0A=0D=0ACall=20trace:=0D=0A=20dump_backtrac=
+e=20from=20show_stack+0x14/0x18=0D=0A=20show_stack=20from=20dump_stack_lvl+=
+0x38/0x74=0D=0A=20dump_stack_lvl=20from=20dump_stack+0x14/0x18=0D=0A=20dump=
+_stack=20from=20meminfo_proc_show+0x4c/0x908=0D=0A=20meminfo_proc_show=20fr=
+om=20seq_read_iter+0x148/0x4bc=0D=0A=0D=0A=0D=0AThanks,=0D=0A=0D=0AManinder=
+=20Singh
 
