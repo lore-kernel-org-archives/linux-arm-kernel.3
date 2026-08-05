@@ -4,83 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3246C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:05:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9747C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tRd1VpgdcpCboCWZ3SthlDpOzvouEzTnkFBo/WtbgVQ=; b=K8L1aKD4wWxEKfTOiPgnVazc3W
-	JI5maSc4C1/zVGwkF/qzXqnbIW3haHQLRbIDE78IYXs0UagcqMkvBavenF0sOzyycyIRw+WxCXmuE
-	BnijpKIUPyQ8VhqsUN+uohXO0C/nk19VTZBeMb7RqgUW/aUNxRPV/EH3OPvuFi5Za3wGtGQCSanZC
-	QudjNtOc5B95AXpFWjK8WmeSZsadI6XMbBqSd0eOBJoxajVT/QwdOHQIp+QuQv7zv5d0kvWV2OChb
-	sNT2t7XDS7MI7bMPcEude5zkHhLLYFhHjYxpNLZAMTE7QAToQ5oGK4zYCBJXEMKZHrha9JRb8E+kW
-	Gn9LKdfQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1hLSDYK85M3wvI1xgsH2onhHuYsbD0hLp15Rb5kZzBE=; b=DKrN87fCfgHVD8JNpogs9J41+d
+	6JzX3qtq3joHAT3EWh4QhzWjZb9/ATlbKxWbwtYhMHJ56gnDYpAUkFEzsH+WQuTY9fJ0vzAX6/BUK
+	r0lF0FFUzpJvvH5hq83e7rnMpFootxYiDuV3zz4njY1HfLzC1lnf2NdvuGaL3cEwXlDAoZ60S66LB
+	LNfEdDA481nkAvEdYOAd11VfoY2A3ZnH0hmc9AxdMJq4m3i9yTpl+eQJF+cy7u4Kjy0mNGjmIQ0uL
+	mNYH+PWqaFfs98jmfOp4MVCND2EKRJdMeo6+b9jbb2eJW28DPUuMuprOHMzrEAysJiIoG69KW5AKQ
+	LcuDjVig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrUl4-00000003HXw-1LsC;
-	Wed, 05 Aug 2026 06:05:42 +0000
-Received: from out162-62-57-137.mail.qq.com ([162.62.57.137])
+	id 1wrUrc-00000003HxN-1e5d;
+	Wed, 05 Aug 2026 06:12:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrUl0-00000003HWl-3Vtt
+	id 1wrUrb-00000003HxA-1V6C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 06:05:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1785909928; bh=tRd1VpgdcpCboCWZ3SthlDpOzvouEzTnkFBo/WtbgVQ=;
-	h=From:To:Cc:Subject:Date;
-	b=ARr8ZSb4uJsV9c/BtPVMfKpi67DIVWRT9LkSt1454apAXUM84rLvT++tE/uBtR8dS
-	 oXE6TijrP+PMvHK6PnxFknCb91E4iXYqecZiGO6CeOllG30rMawF1TkyYlPXU2me2G
-	 KlEF0g60P94RUjJ0vK09NG0PvujqsTOp+X+8x/wk=
-Received: from PC24010019.. ([58.240.122.156])
-	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
-	id 157AE45F; Wed, 05 Aug 2026 14:05:23 +0800
-X-QQ-mid: xmsmtpt1785909923ty2jmr6xa
-Message-ID: <tencent_5E7D6E7FB25B4CD732F08547C11F5DA24808@qq.com>
-X-QQ-XMAILINFO: NQp/UN4soYLT105Eu4TQVRXyb/MTuV1aAwkKI5/+YhNpZEItaTz97Aa46qFUUg
-	 /Uqi47c0DPPwTJzpQBq1/2bzGXNZx3tn+WTNp8ScbhKcV5WEIE0Z95SmL20xBi/+g1WSSoylyQvb
-	 H/MB9DFBSAmfqMSkv+hOnFRHXQZ2NKtBw2kFi4Cw6Inqwcf7ldVQJ09gucQWPZstUgzc7ESAADdO
-	 8RU8k1kE+kqYyud670NtGmCQX+XdKU1YRBUt+NcZMWBtmbr4t5VGpbpSmXvMI8RSBzMeZezpnzzn
-	 bCvpta200iGJO15FR3hMnDvkYfWEkoA+oc2DvQqFLyoyWMNuxmAD8tTVgN3xhWVn5zSOF3yHkTqG
-	 VXApQHcsKCXvn2wfoRj2GAGTyWpqdcK4HtQkkzl06Ldg1OHNc/0YrLQMt5kb9aLGG/0SifI4cBCr
-	 Uygtt5FlA2CIDwnmHGCe2OM7nAVO7vTN5NIo+elpxFHAUYQ2m5X8NRiqBP2oT8RtJkePElPiaWIr
-	 gfmz/V3pd21p1btDef18lZkhBiGdUPNKBoshMl+yl1wLGcvftGSLO5fqSFjnZ27OvzoANdXYd5+e
-	 QmsWcKkkxbi/PO1/6FqGGx3SlcE4k+5KP1DBpbUbuzsgauxBEex81mGv1JzfGIZZGfPw/Msjc0WG
-	 xFujy1+9pr2oYfvPYNet9tkm3E1iPJic2TMl049YOxscenkrSVHKBuogX9AH2DB/I0ULEmNusw9h
-	 T3UeskF3BkbNHG+VmLVCWJr6/L+UNZfF0J6pI4+O2uFc+giQG59J6sFkxvFx/uC/8bTxqU58DWc7
-	 t7TE2reRA4tlFSQsuHoBWVvZbox59VrHF5pTbvU9pRoUHV7oGbH74g0t/+NzKBoK7idCz8wmB/zK
-	 QmDjZ+0pJFpcoYHJU6KUS4XyFL7NyA/mR9g+P4OyHRshRhy2qEjfomSVQdQ1eBwx1hOiVs55Y8Uj
-	 x5kylUFduH9jPtLZLlZjDipnFnHvI1UA1/jDTZmzSaaqiJ5G/XckVd3s/JTQE5zWsrSOd+2TzqF0
-	 yLG6dgbSKroxmSGiIChqLK8Fo7Wh07JrT97spFl7W+9QK5mhX3yHlmlKpWGTU=
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: aquapinn@qq.com
-To: Ryder Lee <ryder.lee@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: zhengping.zhang@airoha.com,
-	lei.dong@airoha.com,
-	hui.ma@airoha.com,
-	upstream@airoha.com,
-	Zhengping Zhang <aquapinn@qq.com>
-Subject: [PATCH] PCI: mediatek: Find INTx controller by property
-Date: Wed,  5 Aug 2026 14:05:07 +0800
-X-OQ-MSGID: <20260805060508.594458-1-aquapinn@qq.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 05 Aug 2026 06:12:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 37141600B1;
+	Wed,  5 Aug 2026 06:12:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875871F000E9;
+	Wed,  5 Aug 2026 06:12:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785910345;
+	bh=1hLSDYK85M3wvI1xgsH2onhHuYsbD0hLp15Rb5kZzBE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=nuE1953L+3uAi2FMf+5JWzAAPNWofIinBa7crSNrCgsraRRSMNncnBoftKUUhA5LL
+	 /XIkABmVioCXWD4/nqjYmth/a1BqShCVNeIs7MmkY6QKmNe6Dvi3MLmVkn3ZW8hp4r
+	 J1JZnb8ds2VXplLPxeIVmoCSL4Fg7LHyb2LyBN0peX6uskmvX2dh3QvTH2gYNSjJsO
+	 8Zp2JJSrNU+DR4D6sh2qRdh8Yz+JWGD+C/ptATgjG917Ygf+zbXpdqYGkbZe0pJynV
+	 5DJCfmXRCnd5OH1mNCKU7fwmztu2DGU0+YCUuG0hbBKL1otTwnPAT8MvOcZWn9Y0nD
+	 ckE0cMYWtKaww==
+Message-ID: <3d5f0435-59a8-4eb8-825a-d8451c6dfb81@kernel.org>
+Date: Wed, 5 Aug 2026 08:12:18 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_230539_460587_1CC993A0 
-X-CRM114-Status: GOOD (  10.62  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+To: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, tj@kernel.org,
+ urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org,
+ akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com,
+ agordeev@linux.ibm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Jason Gunthorpe <jgg@nvidia.com>
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+ <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+ <amCPBrdltFSE_fEf@J2N7QTR9R3>
+ <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+ <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org> <anHuLy52o5S9Nlwp@lucifer>
+ <63ea8156-a109-b2a2-6d35-1c17ad7f1a9d@gentwo.org>
+ <84b31836-1d10-4bec-a469-468b91fd4645@kernel.org>
+ <9f146ce0-4adc-0c00-a2d8-c01b47edc9d1@gentwo.org>
+ <ea268481-d584-4744-99d6-0b05aade7d5d@kernel.org>
+ <b4b79f6b-e09d-bbb1-2181-07e756e849bb@gentwo.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <b4b79f6b-e09d-bbb1-2181-07e756e849bb@gentwo.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,34 +132,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhengping Zhang <aquapinn@qq.com>
+On 8/5/26 00:01, Christoph Lameter (Ampere) wrote:
+> On Tue, 4 Aug 2026, David Hildenbrand (Arm) wrote:
+> 
+>>>
+>>> You cannot accept that one instruction is faster than the same
+>>> instruction prefixed with another and something else at its tail?
+>>
+>> I am pretty sure that you got exactly what I meant, you likely just don't have
+>> the data to back it up.
+>>
+>> Proof me wrong!
+> 
+> Well you seem to have alrady seen the benchmarks that we ran and are
+> running. So I had doubts on your sincerety with this comment. Seemes to be
+> be just there for effect.
 
-All existing DTS users already name the INTx child node
-"interrupt-controller". Use of_get_child_by_name() to find it instead
-of assuming it is the first child node.
+Let me repeat a third time:
 
-Signed-off-by: Zhengping Zhang <aquapinn@qq.com>
----
- drivers/pci/controller/pcie-mediatek.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+So to be clear: claiming that the additional instructions are unacceptable I'd
+expect something minimal like: "removing these 3 instructions speeds up
+micro-benchmark (a, b, c) by X% and macro-benchmarks (d, e, f) by Y% compared to
+Mark's approach". [1]
 
-diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
-index 8b57c3d75b94..7b54f3dc6cf8 100644
---- a/drivers/pci/controller/pcie-mediatek.c
-+++ b/drivers/pci/controller/pcie-mediatek.c
-@@ -572,9 +572,9 @@ static int mtk_pcie_init_irq_domain(struct mtk_pcie_port *port,
- 	int ret;
- 
- 	/* Setup INTx */
--	pcie_intc_node = of_get_next_child(node, NULL);
-+	pcie_intc_node = of_get_child_by_name(node, "interrupt-controller");
- 	if (!pcie_intc_node) {
--		dev_err(dev, "no PCIe Intc node found\n");
-+		dev_err(dev, "no PCIe INTx interrupt-controller node found\n");
- 		return -ENODEV;
- 	}
- 
+[1] https://lore.kernel.org/r/ea268481-d584-4744-99d6-0b05aade7d5d@kernel.org
+
 -- 
-2.43.0
+Cheers,
 
+David
 
