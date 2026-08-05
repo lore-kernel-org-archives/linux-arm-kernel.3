@@ -4,118 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2516C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C31C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 08:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SOyil/NGwg0VaSdflx14NVa9rgx+efKsRRVNMmH6kEY=; b=sC59ewVpgOJ4Vb+wv62GRyFbTO
-	vU+PsPkGOdlc6HtyYm3c4UH+3tjSRaD13U67z1TzgdU6FieAyMKLwke4QAD2nAeAs84QbXjWogGn7
-	3dsLhq7BG2gCK93Ra3x/YptVDzCoseykCOczcbhMJPPVqDJ+hcRcZ54QahQVTGO6HsqUDBnuPSXAe
-	TO3Fmf5hKq2cex2zacpKWe6To30pi3UbKQHx3mcp6EMQr9bOKr5YLU074+K8aWQ58umGOjBMB3jbX
-	fAdG/2yYwik4RzPXXcAfMY/INkY/0V89I1f08ZJXoehKRAxubmuXj1jlnbBvRCOOUbXgtrYVyy6Hm
-	fPNdFhDA==;
+	bh=db+v0NPIIndwhHMGIyL/nfOie4gWWsSLJbxQZ/GJglw=; b=Dn07CX6aa+9QgOO0HssLu9Qxir
+	qYmrcq3v/HMC4MF42SMYHVYbBiqu76R26e7cm5uhlosqXOwMbScjj3icw8g3Ldizdk8ERt0wr6BZd
+	+IPnNmG9gsgEawdBmd1QuDZaY0y72+CbAMqmXeg06WgpQ3U5j9y2uAXElQld3yFHdZWCJR3iDmzm5
+	OxCaSGTE04LWq1OhgBw+DTmlrXcUBHV1Lw4gX+arSg8hlWzZFJEVibrB+mor2nlXufzUMEk1j6Jg+
+	+q3XFOndw2INg2DfAaApGrsms/uP6xjCVEa6vEQVqC3MmTUlzGsYaIR4DtNS/2184un5i30HDGnqo
+	G4qicYHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWWT-00000003Rp3-295f;
-	Wed, 05 Aug 2026 07:58:45 +0000
-Received: from mail-westeuropeazon11013010.outbound.protection.outlook.com ([52.101.72.10] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wrWYE-00000003S7H-1eZb;
+	Wed, 05 Aug 2026 08:00:34 +0000
+Received: from mta1.migadu.com ([37.59.57.117] helo=out-171.mta1.migadu.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWWQ-00000003Ro2-2A8m
+	id 1wrWYB-00000003S6g-2mAc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 07:58:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KzSTlkjE7BQxlBMrtuS1hcH2TTKXaQ2OagC0JQwU3hiLJYxjeoO9cgQPPMn4lDAdyztvFv909dbNflFYEFosR+vCwN4y301a/pT9UF9Wg2GGl0pqCkv+GixNvr3hml8vY70b4LGQkfiF05tgLKKcU+cQDpzyzjIj4riTB/NDnvXhNUen+voYQ23QzeyoIw37CAwG7Wqck5Vo4bymobeCXpRB5VKqkpcgzERQTNpjvg/C0S39YAnaTS76/vMUq32i9HqQMg86HbuVrhnwrR/1ybkmU1/4eY0tXJviTel6u4w4mXgWaxD8ikT/sm8kjnhHm4aX79MKqRAJrpaRnxMmZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SOyil/NGwg0VaSdflx14NVa9rgx+efKsRRVNMmH6kEY=;
- b=NUyZGqSDOgo1gHTREadjJ5mWNY4OUVnZLf6vdenEnPHCSJg+eB/9XuVCoohBWsenE+Oo2Wp36xXktw8Kla+fIq2IgMEq4IRlK8aO1d9Z62iQtxnLDU/1YAr4KHDM4Cd10RUE3eUxhqV4UTkhKLuc7biQor7SYkWepDAI9opG7NHJuqkW4ay43wHT2h0qu9yuRN4viON4c6KrhhEpb4vrYmnrh3TY0sFRIMyTgiOdAFqJT+JVfuF/1f5t5L9DO1QRhQb2l65yC4Z/Er1eZnmKDyLkubHs6LQ7R0ldRy5B5bDYC6NJvo1tMwUpm/RV0mGK1B/Pb/Xb65l+nZXfNTxeZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SOyil/NGwg0VaSdflx14NVa9rgx+efKsRRVNMmH6kEY=;
- b=NxTGkVC2SBUyE/gMzqgu00Mcx0aAljaa8ZpXHNx81yM/hepzj/+OOyd7x4yYSo+dP+MeFqmzJISwLqMpmO6kpSij+9B6MQCcxLk5iNOcWy/l054Rx0zOwyWWrYgjrnjLSPtaa27LNDtpqsv6TWWD02rjFHx3ayRQf6DqTdCA4OasZZnfFeD4HakDkhff5rCcaTUrj1GrZa5T1Jfeaa8dLNKc6pXfpnWPxZKn+BOEcT1SHuU5ul/Piz0bz+X189KpZw/cVwq8wzL6BlUNfba1NC+m3s7rOonidQqKHF1JiyshogT/LpIuuVPW+U0x/4W1CjF4H6FxwH6Dd3c4iWjYqg==
-Received: from AS9PR06CA0294.eurprd06.prod.outlook.com (2603:10a6:20b:45a::22)
- by PR3PR10MB3914.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:43::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.15; Wed, 5 Aug
- 2026 07:58:35 +0000
-Received: from AMS0EPF00000198.eurprd05.prod.outlook.com
- (2603:10a6:20b:45a:cafe::91) by AS9PR06CA0294.outlook.office365.com
- (2603:10a6:20b:45a::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.20 via Frontend Transport; Wed, 5
- Aug 2026 07:58:35 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AMS0EPF00000198.mail.protection.outlook.com (10.167.16.244) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.292.8 via Frontend Transport; Wed, 5 Aug 2026 07:58:35 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 5 Aug
- 2026 10:04:00 +0200
-Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 5 Aug
- 2026 09:58:34 +0200
-Message-ID: <493ce8b0-0d4f-474f-9194-d16299ee2296@foss.st.com>
-Date: Wed, 5 Aug 2026 09:58:33 +0200
+	Wed, 05 Aug 2026 08:00:33 +0000
+Message-ID: <920aee80-5297-4d70-a1ea-616976db7f70@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785916819;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=db+v0NPIIndwhHMGIyL/nfOie4gWWsSLJbxQZ/GJglw=;
+	b=WcAGkTiLyA/FOQnCkP705/KPLwXshGh5+z9mBuv6t97IY7n5FtK+a0rGEXw9mvzc/LMO0t
+	YkSKmqCCvu4J//sHlBq/n/KtKAvRPzLH6nDJx+IgjxuEj1IjBqbwH9T/kmrywRIdrcsyov
+	lsStOIycl8jtq/nhm92s03Bq1YXmn/Q=
+Date: Wed, 5 Aug 2026 00:59:45 -0700
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] rtc: st-lpc: get IRQ via platform_get_irq()
-To: Rosen Penev <rosenp@gmail.com>, <linux-rtc@vger.kernel.org>
-CC: Alexandre Belloni <alexandre.belloni@bootlin.com>, Nathan Chancellor
-	<nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, "Bill
- Wendling" <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
-	"moderated list:ARM/STI ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>, "open list:CLANG/LLVM BUILD
- SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
-References: <20260714002259.1392655-1-rosenp@gmail.com>
+Subject: Re: [PATCH v8 05/22] RISC-V: Define indirect CSR access helpers
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Jiri Olsa <jolsa@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>,
+ Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+ <20260701-counter_delegation-v8-5-7909f863a645@meta.com>
+ <1b20aa77-0f0f-08c7-9439-972983adf709@kernel.org>
 Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20260714002259.1392655-1-rosenp@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <1b20aa77-0f0f-08c7-9439-972983adf709@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
- (10.75.128.132)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF00000198:EE_|PR3PR10MB3914:EE_
-X-MS-Office365-Filtering-Correlation-Id: 514cb983-0744-4647-9795-08def2c759e2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|7416014|82310400026|1800799024|10067099003|56012099006|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info: yACAWsGaAs5m4VCQxeHigXrIZbp89fNaU9ULnhxW+zOZRsKJNpN5N+ZsQBS0tWwbSci3fqGEBlbJfAQj22CbJ94b5oIdbCs4wXnTyddyh3JTJ5GBKzAu9qChVc6L5HqtLSpeFRg1WVpi5znooEWbmJIk7ruI+2x0ja4T8Tq0j1d6KTpb54f/npqh72pybigu7jJEDwtdz2UdsrPCeuun56fe3+f+XJ/xIDoRGxRky6qtMKg6I8dT+ey9cd7owcHQlJbc+/7juyIiWwTJjqrfRvGZbe82TE2QPrBaqZ1PjXiSYZ9oW/wnCXys0Zw8p8GqYCLC4yRJKM/sVbZaKkfh+ZHk2uDY3FkYhayylnVmH/wFw1OVNKlIpBxJ9lhOEh0nuRw6swXk36Mk7/2R0KIptVgwzV27bAk/zzS3BSYfEv/wGj/rIPfI6oQnrTP/bYfgLgM72t6aeism6TZO5VPrHFwecUPMIDR2qGH5W05enrvzqKFFg8dhhTmk19pGO/ixsLsaQBSlIvVtU+1GiIC9apepRv85ellS26yB7g18gfVD87P4m+/MKuhmFjZAhp2qRNswUvVntb5YLdlG2QzytEFfOTG6mexQt5fSvXNcdjtaShAGPBg0r27a24NBrffI4ojhMegEjYz852D2u/QM1k2ovlzY2Kc31BB6H9HWO7m7vQW/lK8z0gTxAzP1pSLwQJvcJC0cYPfGmKpQipsYiw==
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(7416014)(82310400026)(1800799024)(10067099003)(56012099006)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 89oXGZYSMIEtBDbCZZEVlPRuYLlT3GvVGngOEJEWKXh7DEN141MaeL++2opKJXnd2IQYIcqNlVdLmbsATFE6U25UBuJAiFouA3eTSZT7JzcLuZxYjVdDumwRGTs1SstTOyYILXHRrUoywFaLP2wxaRsZb1COkOrINA8mBcjoDqypMdkT5c43gkJ0kdFPVhRmT/RlV/I0b28jBobNmL42TfK0DzRC+/sHR/kpIkoLlWc8HLlt0lLwV4qIfTJp4/REwfGOdbyIe9Wz4ddqS320jOhPN5SkIgHsaNtTvngX00SURY4jDBHC5IBK/rkpekkeI290HXsXh8PZnK+kTblSt9jCwm962E/zaSZLYt4mQhUMIqx5U8qtS2J+XGIOF6Ddpy3KCSIrXRdxiL7qr/lsOq/4uifvF4+8+fvdT13cW/xLXZALbn3SBf5l5JaO8m6h
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 07:58:35.2803
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 514cb983-0744-4647-9795-08def2c759e2
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000198.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR10MB3914
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_005842_859639_15B4B56A 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20260805_010032_083831_C75CA79F 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,61 +78,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 8/4/26 5:39 PM, Paul Walmsley wrote:
+> On Wed, 1 Jul 2026, Atish Patra wrote:
+> 
+>> From: Atish Patra <atishp@rivosinc.com>
+>>
+>> The indirect CSR requires multiple instructions to read/write CSR.
+>> Add a few helper functions for ease of usage.
+>>
+>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> 
+> Thanks.  These macros seem better implemented as static inline functions.
+> That also nicely aligns the code with what you write in the patch
+> description.
 
+I don't think inlining these macros in the following way will work 
+because of the following reason. It won't build once anything calls it.
 
-On 7/14/26 02:22, Rosen Penev wrote:
-> Replace irq_of_parse_and_map() with platform_get_irq(), which resolves
-> the interrupt from pdev->dev.of_node directly and returns a positive IRQ
-> or a negative errno (it never returns 0). Propagate the error on failure
-> instead of the previous open-coded "IRQ missing or invalid" / -EINVAL
-> message, so -EPROBE_DEFER is handled correctly. The rtc->irq field is a
-> signed short, so the negative error code is preserved.
+csr_read()/csr_write() stringify the CSR argument straight into the 
+inline asm template:
+
+#define csr_read(csr)                                         \
+({                                                            \
+       register unsigned long __v;                             \
+       __asm__ __volatile__ ("csrr %0, " __ASM_STR(csr)        \
+                             : "=r" (__v) :                    \
+                             : "memory");                      \
+       __v;                                                    \
+})
+
+so the CSR operand has to be a literal token. With iregcsr as a function
+parameter the template becomes "csrr %0, iregcsr", which will result in 
+the following compilation error
+
+Error: unknown CSR `iregcsr'
+
+The patch description should be fixed to indicate that these are macros.>
+> Also, I renamed this file to change the abbreviation "ind" to "indirect",
+> along the lines of this feedback here:
 > 
-> np is still used by of_property_read_u32() for "st,lpc-mode", so it is
-> not removed.
+>     https://lore.kernel.org/linux-riscv/CAHk-=whhSLGZAx3N5jJpb4GLFDqH_QvS07D+6BnkPWmCEzTAgw@mail.gmail.com/
 > 
-> Built for ARM (multi_v7_defconfig + CONFIG_RTC_DRV_ST_LPC) with LLVM=1;
-> drivers/rtc/rtc-st-lpc.o compiles cleanly.
+> This case is even worse since there are already uses of "csr_index" in
+> the codebase, so it's even more unclear what "ind" is supposed to mean.
 > 
-> Assisted-by: opencode:hy3-free
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+
+Agreed on the expanding the abbreviation part and we should change it.
+
+> Updated patch follows.  Please let me know if you have any objections,
+> 
+> 
+> - Paul
+> 
+> From: Atish Patra <atishp@rivosinc.com>
+> 
+> RISC-V: Define indirect CSR access helpers
+> 
+> The indirect CSR requires multiple instructions to read/write CSR.
+> Add a few helper functions for ease of usage.
+> 
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> Link: https://patch.msgid.link/20260701-counter_delegation-v8-5-7909f863a645@meta.com
+> [pjw@kernel.org: expand "ind" abbreviation; use static inline functions rather than macros]
+> Signed-off-by: Paul Walmsley <pjw@kernel.org>
 > ---
->  drivers/rtc/rtc-st-lpc.c | 9 +++------
->  1 file changed, 3 insertions(+), 6 deletions(-)
+>   arch/riscv/include/asm/csr_indirect.h | 51 +++++++++++++++++++++++++++
+>   1 file changed, 51 insertions(+)
+>   create mode 100644 arch/riscv/include/asm/csr_indirect.h
 > 
-> diff --git a/drivers/rtc/rtc-st-lpc.c b/drivers/rtc/rtc-st-lpc.c
-> index c6d4522411b3..ae79ddf24f37 100644
-> --- a/drivers/rtc/rtc-st-lpc.c
-> +++ b/drivers/rtc/rtc-st-lpc.c
-> @@ -18,7 +18,6 @@
->  #include <linux/kernel.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> -#include <linux/of_irq.h>
->  #include <linux/platform_device.h>
->  #include <linux/rtc.h>
->  
-> @@ -212,11 +211,9 @@ static int st_rtc_probe(struct platform_device *pdev)
->  	if (IS_ERR(rtc->ioaddr))
->  		return PTR_ERR(rtc->ioaddr);
->  
-> -	rtc->irq = irq_of_parse_and_map(np, 0);
-> -	if (!rtc->irq) {
-> -		dev_err(&pdev->dev, "IRQ missing or invalid\n");
-> -		return -EINVAL;
-> -	}
-> +	rtc->irq = platform_get_irq(pdev, 0);
-> +	if (rtc->irq < 0)
-> +		return rtc->irq;
->  
->  	ret = devm_request_irq(&pdev->dev, rtc->irq, st_rtc_handler,
->  			       IRQF_NO_AUTOEN, pdev->name, rtc);
-
-Hi Rosen
-
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
-
-Thanks
-Patrice
+> diff --git a/arch/riscv/include/asm/csr_indirect.h b/arch/riscv/include/asm/csr_indirect.h
+> new file mode 100644
+> index 000000000000..3cd6a9059455
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/csr_indirect.h
+> @@ -0,0 +1,51 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#ifndef _ASM_RISCV_CSR_INDIRECT_H
+> +#define _ASM_RISCV_CSR_INDIRECT_H
+> +
+> +#include <linux/types.h>
+> +#include <linux/irqflags.h>
+> +
+> +#include <asm/csr.h>
+> +
+> +static inline unsigned long csr_indirect_read(u16 iregcsr, u32 iselbase, u32 iseloff)
+> +{
+> +	unsigned long __value = 0;
+> +	unsigned long __flags;
+> +
+> +	local_irq_save(__flags);
+> +	csr_write(CSR_ISELECT, iselbase + iseloff);
+> +	__value = csr_read(iregcsr);
+> +	local_irq_restore(__flags);
+> +
+> +	return __value;
+> +}
+> +
+> +static inline void csr_indirect_write(u16 iregcsr, u32 iselbase, u32 iseloff, unsigned long value)
+> +{
+> +	unsigned long __flags;
+> +
+> +	local_irq_save(__flags);
+> +	csr_write(CSR_ISELECT, iselbase + iseloff);
+> +	csr_write(iregcsr, (value));
+> +	local_irq_restore(__flags);
+> +}
+> +
+> +static inline unsigned long csr_indirect_warl(u16 iregcsr, u32 iselbase, u32 iseloff,
+> +					      unsigned long warl_val)
+> +{
+> +	unsigned long __old_val = 0, __value = 0;
+> +	unsigned long __flags;
+> +
+> +	local_irq_save(__flags);
+> +	csr_write(CSR_ISELECT, iselbase + iseloff);
+> +	__old_val = csr_read(iregcsr);
+> +	csr_write(iregcsr, warl_val);
+> +	__value = csr_read(iregcsr);
+> +	csr_write(iregcsr, __old_val);
+> +	local_irq_restore(__flags);
+> +
+> +	return __value;
+> +}
+> +
+> +#endif
 
 
