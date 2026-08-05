@@ -4,84 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD42C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 16:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6AFBC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 16:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jrqhku8KyxeiISShmwJpJXHc7/raRYshoO3CpoShleo=; b=QEkbt2Zbvia0hgjSNFZjxaMdj1
-	fp/gNZwf79PAKUL4Fa6lAb8orktU9QnNaiCIPzqlo1biTRbUWqntNVmoOW1oEqhR6jX2N4vK9C2W/
-	fmoUBNRSLlG64ZoZIkwrc62QsQL/LDWdbBqn/5epq2yd0lA6H8pW3+cclhd2MlfXaEsJLpWiE0fIc
-	dFTb+tXlpyS0iMCJsFjM9DH1YyUVkLn4w+nTh+fKbYOzaENQn70OGmhbGf16uzAXItRwkPzkYq4c1
-	3RmxCw76inCUHaxWuDM8k5MOwNDJp2N3gsxFC791hy7bFzikgaEF299anWKEtQubLDAi9mEuJ2blY
-	NcenULCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s0lx5fgW992e5Cz/cU4YqatMbomgvYAN8oH/xxnURBY=; b=H9B+BiIm4E7Gavd7moOpDWE+g5
+	a0t/6qcNvtrJmca4zCyekNgSuYti5zU2+Rl2I1e2tnFFiy16iWlV5eE1HFKzmL9vL6dQI+mj+LWmi
+	tFUBclYQK+fqk1KVBePex5D80vg0qSlURskhLWKcOu4RXFXymS2mCuQhCTlKakhK+l0hOqdbjh03W
+	8Iy5QMA0G1Rp+UMp8FHfrjabwTI8Hhyid/tZOcZ/gFZ86hm3LxiOEWAD1ON7JhiW8KI32PiEKlbnW
+	/3VC1ZGuSyYhEKRyCMXLLIB63IwViOhLNj9d3yYqSwWS4vDdZicBzmbJQ5b6pTDw2rGhM/GR5g7iT
+	LQiCXskA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wreqQ-00000004IST-1uLU;
-	Wed, 05 Aug 2026 16:51:54 +0000
-Received: from mail-pf1-x445.google.com ([2607:f8b0:4864:20::445])
+	id 1wresj-00000004IZV-2zQW;
+	Wed, 05 Aug 2026 16:54:17 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wreqN-00000004IS8-0Esc
+	id 1wresh-00000004IYw-33H5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 16:51:52 +0000
-Received: by mail-pf1-x445.google.com with SMTP id d2e1a72fcca58-8487eb67173so1975197b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 09:51:49 -0700 (PDT)
+	Wed, 05 Aug 2026 16:54:16 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-47fe76491b8so91467f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 09:54:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785948709; x=1786553509; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jrqhku8KyxeiISShmwJpJXHc7/raRYshoO3CpoShleo=;
-        b=JXA1EDf05U0qzsTCiIH3+YlkHUqyhrEbBy4rqBy0Vz43EJwKm/JvyWtn/DWvgZyT8+
-         hDMEn+HkszE+2MYOJtGD4Z9a+QWWyx03pmaBMb1KAVMmYP5q7HCzTK7Udx03e/LV7n/+
-         L2RA59fY7iiWexvo52ta7K5jnPd1zncI/feFb1Efbw/g7baGOTIyyVYC1En/0cjrDX5R
-         39nQYv643oB6bmJjn/NQusrWITw/f4I3zkPVZGA0qIVAd1GM/6T+k7ncqw1REDJSZReW
-         mGMKyXrH4gaJq1aFt0vXGuS2GV5MpwK+Ryz2jN9ZDVTYQ6TWUWYyTnkDN2ZbInWkotPR
-         hGIg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785948709; x=1786553509;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1785948854; x=1786553654; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jrqhku8KyxeiISShmwJpJXHc7/raRYshoO3CpoShleo=;
-        b=VpOFgvk0QDrIsnvGzVtUifVUblsPcFKbDpPdMxspMoe6cxptv1D8n8FmDXSpmCuBIA
-         MK8/jOQbuh3Suu7c7/nFCpWIx2CjjxQw7EOhnq1AvkEshlkJoHZ63NXrzLzOmxAT94hp
-         O31g1bUjRCC3uS+9tPzG/k5plOhFA3k+ld5QX2gThIolofIpwCDS6UDf2QcCboJp0jlv
-         l7pv6iS/lmNr8BYixbu34gif0GjTyBDRfj89IcEXB7Yicr7Ey06DMEUwzMlCS8htnKDg
-         Kwmd2KYpGLXFDFwIJE0LHXN3VlWMt35JCd2pILAfMMWbWTlcbb6nW/guszOYn55lq/ew
-         Vhxg==
-X-Forwarded-Encrypted: i=1; AHgh+RqtOQ+c5K/fFrWmX5ZtIq192Cazx/oz/Rjxul2EJHe36TKcUxkBgodakID2rKwOb1O9YPrlWpJv7mPjGawXEni+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTR85QLLF7e9ARKh3i6Mm4oOTGEMaIYL+RKbN0+FBLsLoO1RKh
-	eX0nksOeovmCXRkIBzZdaEXlwcHn+6fhxu8mH23Tnbz7kmUlnlAzk3iaSXL6M53AEjFUqRGyd99
-	c/TzS/A==
-X-Received: from pghr18.prod.google.com ([2002:a63:e512:0:b0:c92:dd1e:dc3c])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:99b:b0:848:76c4:fba9
- with SMTP id d2e1a72fcca58-84f2dff77c0mr8958464b3a.7.1785948708769; Wed, 05
- Aug 2026 09:51:48 -0700 (PDT)
-Date: Wed,  5 Aug 2026 09:46:10 -0700
-In-Reply-To: <20260731195612.2697986-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20260731195612.2697986-1-seanjc@google.com>
-X-Mailer: git-send-email 2.55.0.571.g244d577d93-goog
-Message-ID: <178594833919.3639358.12902044577496582719.b4-ty@google.com>
-Subject: Re: [PATCH v3 00/12] KVM: selftests: Add more syscall wrappers, fix hardware_disable_test
-From: Sean Christopherson <seanjc@google.com>
-To: Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	David Hildenbrand <david@kernel.org>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
+        bh=s0lx5fgW992e5Cz/cU4YqatMbomgvYAN8oH/xxnURBY=;
+        b=s4V5bxzNDyDIW63n+dfj5m6G0SbFlEbkoM9TXqgW1BWpJH3LW+Fnqatv5bmZZaljFO
+         z4zpbAMgbpUBXIT4PI+bHaQUcuuFkomQnYe0YHS0R662YQgYuETjgEcB0KqfO/KS8Hna
+         ruUF9oNW92dxHQgAyToOGtUaoKvTbGWcFtiZes8UV7QkHklm6ZYIsmJeBwQ1OzMgOhTQ
+         tKHJuq82dEhEw8EP07atawVu+ncgvBgjzsq92BS96TvLU8wEO0o4j1h0do3P1XMfop0L
+         pNjkicynefzbV8lFrsV6WGpWwIt9An4oeh0ZYOn3+lHBT/wZ8As0+ZUCRD4dMmOLhVSa
+         XStA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785948854; x=1786553654;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=s0lx5fgW992e5Cz/cU4YqatMbomgvYAN8oH/xxnURBY=;
+        b=Tz/sI/BcIbut6sVCXxJCqhdFtB9CQB5UcmAyNT7VD7ZUibOetnJUlb6zDpKk8MBJOk
+         ojX5eptY1Hdzlfat6VsglB/zbjDV2rtwWydhOWyu9HRR+sgpCSeS+0hs5I3rxNsVvmo9
+         olg4sFDfucqOBm9ARU2RdMQvjzB6rRZC8p0iPFoGZTtwmEWD+o4Hl2HDrhvWXktB4cMl
+         4Pmg+tfk6g9xUZlWqkxuPepD3zsXWVBtg2gU3bU2FNHw8pA6E5y+UmTT53EDHXkdhuN+
+         it0O+HD7nBGH1c1FDAEg90E9uj+RMOMGmIDUBRy4hrUVO3+atJAlo4etVMC6zZ4C6s64
+         +sLg==
+X-Forwarded-Encrypted: i=1; AHgh+RrQIOKDVv+R9c4EPRjhAgb5IH7H6/kzLDlhHlgdAoavL8HwLHmDRROJFvz0ZmD9tvCjU/euI/utNRctpHgZXwa/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx78fVPJzVKsJ9KqdSheY5b4zaRrGM468cTkmOkq3YmpkzpdUZl
+	NZ3GMYU/Ys0KAJqMpKu7lTs5152iAMMd0PpFpUd/V7dS/8iNJUchcuDi
+X-Gm-Gg: AR+sD10m3KnKO/8sr2xDq2D+NWSyoOXrann01+eqjq4Ml10k8IsFijjzZz8jwDqSNyN
+	EDlKff02eTtaQIf/kTb0ZpsBzskmTXOh8GGZEnbzt7p2wbJvgF25dDQuLF+05c+pPU7YxY5b3qt
+	v6tmxwenlNEwZ/VSDVAy1OuMX3KPkB1VDnW4Z6Rdtz8p1Lz6cG+5xyEYqlwRTOjxhILvgreijz4
+	AjafEDctvJXCZO6j9QRDTdRhif2Re9u6mnqL/UTxqze4JBWi19d7WLt42Tgh+hqS3jt+EUHsJxA
+	iHyjVamRVQrIZ4d+yxLnhcgXVs4BNztjJdc4TREy8DrT+KozLVG3w7YLJBMRih45CjmXVZoRP2+
+	qODbHrJGc7sUSP+4XO2MN6UDyrnPp3wCycgx31xEzqTT6PebmPpomkTOHAoX1YdRkGdXTq6gAkA
+	JrlYMsHIDNEO2GXr89TACxZGh0ciIR0U/Z9o5rICDNAMrfIAIFt/hrbSR1dF7OHCbSmP+5FIbuF
+	HPJRGXY1zbVi8+MxgAOh9zsV+5DJp0q+lApErDUxrjncp1PFMwtOHwYrIRHyyMrqdJonlc2iiNV
+	n5k=
+X-Received: by 2002:a05:6000:200f:b0:46f:7d90:8124 with SMTP id ffacd0b85a97d-47fec528a60mr6555260f8f.2.1785948853795;
+        Wed, 05 Aug 2026 09:54:13 -0700 (PDT)
+Received: from OrangePi5-Plus.BB-HOME (20014C4E1B86F10001BE789C6EE938EE.dsl.pool.telekom.hu. [2001:4c4e:1b86:f100:1be:789c:6ee9:38ee])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47febfda0d7sm9829057f8f.2.2026.08.05.09.54.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Aug 2026 09:54:13 -0700 (PDT)
+From: Igor Paunovic <royalnet026@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Daniele Briguglio <hello@superkali.me>
+Cc: Ricardo Pardini <ricardo@pardini.net>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Igor Paunovic <royalnet026@gmail.com>
+Subject: Re: [PATCH] clk: rockchip: rk3588: don't disable unused I2S MCLK output gates
+Date: Wed,  5 Aug 2026 18:53:47 +0200
+Message-ID: <20260805165350.14710-1-royalnet026@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <6cc68287-ee87-4db6-8f40-531ec2d92fb2@pardini.net>
+References: <6cc68287-ee87-4db6-8f40-531ec2d92fb2@pardini.net>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_095151_100305_D4B5EF93 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260805_095415_783140_AE488A2B 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +110,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 12:56:00 -0700, Sean Christopherson wrote:
-> Third time's a charm.  Sorry for the spam.
-> 
-> Buried in the middle of this is a fix for the hardware_disable_test where
-> it can end up with a runtime of multiple minutes when running a preemptible
-> kernels on a large NUMA system.  Turns out my analysis/guess in v1 was wrong;
-> the problem isn't direct CPU contention, it's that letting the workers do any
-> amount of "real" work on any CPUs leads to pthread_create() slowdowns from
-> the perspective of the caller.
-> 
-> [...]
+Hi,
 
-Applied to kvm-x86 selftests2, thanks!
+Independent reproduction and a Tested-by for this fix, on a third board
+family: Orange Pi 5 Plus (rk3588, es8388 clocked from I2S0_8CH_MCLKOUT).
 
-[01/12] KVM: selftests: Add a KVM syscall wrapper for sched_setaffinity()
-        https://github.com/kvm-x86/linux/commit/f766bf3d0ac8
-[02/12] KVM: selftests: Set threads CPU affinity before doing work in hardware disable test
-        https://github.com/kvm-x86/linux/commit/2887da61c42d
-[03/12] KVM: selftests: Pre-set threads affinity in hardware disable test when possible
-        https://github.com/kvm-x86/linux/commit/496779b54943
-[04/12] KVM: selftests: Return the target CPU from pin_task_to_random_cpu()
-        https://github.com/kvm-x86/linux/commit/8de0e85f654e
-[05/12] KVM: selftests: Extract picking of random CPU from cpu_set_t to separate API
-        https://github.com/kvm-x86/linux/commit/d58cc7bbc5a0
-[06/12] KVM: selftests: Affine threads to random CPUs in hardware disable test
-        https://github.com/kvm-x86/linux/commit/563416ea9ae4
-[07/12] KVM: selftests: Drop unreachable, dead code from hardware disable test
-        https://github.com/kvm-x86/linux/commit/bb0e7d84c4be
-[08/12] KVM: selftests: Add KVM syscall wrapper for pthread_create()
-        https://github.com/kvm-x86/linux/commit/5171573ce7cb
-[09/12] KVM: selftests: Add KVM syscall wrappers for pthread_{cancel,join}()
-        https://github.com/kvm-x86/linux/commit/bc9143135bf3
-[10/12] KVM: selftests: Add helper APIs to cancel+join pthreads
-        https://github.com/kvm-x86/linux/commit/939b20e5f35e
-[11/12] KVM: selftests: Add KVM syscall wrappers for pthread_{g,s}etaffinity_np()
-        https://github.com/kvm-x86/linux/commit/83b5065f3e1c
-[12/12] KVM: selftests: Clean up global constants in hardware disable test
-        https://github.com/kvm-x86/linux/commit/1039496ae75d
+On v7.2-rc6 without this patch the analog codec is completely dead in
+both directions - playback silent, capture records exact digital zeroes -
+because clk_disable_unused() closes the new i2s0_8ch_mclkout_to_io GRF
+gate at the end of boot: SYS_GRF SOC_CON6 reads 0x7c7 (bit 0 set) while
+the clock tree shows i2s0_8ch_mclkout enabled for the codec and
+i2s0_8ch_mclkout_to_io with an enable count of 0. Re-opening the gate by
+hand over /dev/mem brings the codec back the same second, and with the
+gate held open the board plays and records normally.
 
---
-https://github.com/kvm-x86/linux/tree/next
+Tested-by: Igor Paunovic <royalnet026@gmail.com>
+
+On scale: grepping v7.2-rc6, every rk3588 board DTS that clocks its
+codec from an I2S MCLKOUT still references the plain id rather than the
+_TO_IO one - I count 21 files (es8316/es8388/es8323/rt5616/nau8822
+across the Orange Pi 5 family, ROCK 5A/5B/5B+/5T/5C/ITX, NanoPC-T6,
+CM3588, ArmSoM, CoolPi, the EVBs, QuartzPro64, Gameforce Ace and
+Firefly) - so all of these ship with broken analog audio if v7.2 goes
+final without this fix. Is anything still blocking it from going in
+with the next -rc?
+
+Thanks,
+Igor
 
