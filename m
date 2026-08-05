@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49347C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB278C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5LSfaQsJnWTgUDlHUu9ZzXQ3/4tSCBUVOkdmaV5v2+4=; b=zyzZyl32dkQlPxl9DsILYrW/QK
-	htvcv5/1m3SgDc/i1FxWxLUsHMR3xYWaSyAg+EWMq5hgSoJhUiUFNXbuvqM2jvGjVM7pQtfL1VmK0
-	K9jFO9QAU2HFWZEm2g7nJoe5nJw4toIeGz0j8KNFtWhSS2l/Dgwd+hdzrPjMuCSaANrr4smwNdqDI
-	LAaQ2ET2lJelqTq1EDkkPtwfA8prkJXfS+9jbnnQ+aHgQoqUD8VTMpwAafSvUnjv+G7cF5xhCNsHP
-	sosQnoNoLov/PgxoAXvzM0Q71uJXH9tQiTDba/NNcKMHFEdOsBk1vxTaTzx0TIZBlRLy4VKTGmMfw
-	mG1Ii00g==;
+	bh=MIMQJmkPDn3nvMi1GhZGX+SdavJhQT13XOPhF8HYz0c=; b=fLQtu1RYnwwMHfVbCAYqvcKd4J
+	1DPqbLR297bKdvfIrjmGNCLfN2ew83z0bRjgAodwuCqnC1rQl9vBOaszkPgEBR2vOINbPqj8ddW3R
+	vIM3ZyIFW/+uDK9TxXZvbM/oL5YUhCrifmLBu/By5s58McSisl+Ski8irRC5LACPJuaaLxCD5N4Cf
+	iFH9yLc36THf9sLeLZSLsA2o1QTFOXY7rZLUtC6fp613ZuXwJtGMcUWFLnpHChtxIs7GwIo1glfY1
+	uIBrEwbH82tyOgUTXOxKGy0XbB4mylAKsfdp1etr3n26DAEaosVQIWLnAMzmc65QVeS8tM2NeJX++
+	a0ye9NxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wranS-00000003uUL-28N5;
-	Wed, 05 Aug 2026 12:32:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrasu-00000003vqe-17dS;
+	Wed, 05 Aug 2026 12:38:12 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wranQ-00000003uU2-3wFa
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 12:32:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 53CEE42A0C;
-	Wed,  5 Aug 2026 12:32:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7563A1F000E9;
-	Wed,  5 Aug 2026 12:32:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785933152;
-	bh=5LSfaQsJnWTgUDlHUu9ZzXQ3/4tSCBUVOkdmaV5v2+4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kgarzZbcePG1xY1ektXE5fX/hI8viRoMoas3xXwM3dzop8NJE/Ox2uoR4T7k8JHmK
-	 m4CUq5FDrCQbUh1Ae8x5roBl4qQX2apjTVHzkDh7FmAwCG1vMo3WRkPakqVOJmQUux
-	 bE9TTgXH5dUMPg/+hlfsGYiwFyKm9ZSftz2LUs57TKqiwQozfuCl0DJB3sxe8rsjrF
-	 phb7RyXHPE9zUuVm8LC2imncAm9Fp/BWU+gMTFWPte+9o9qzThQ8GEtlZIordwnqTo
-	 pLokldhx5f/+pkjUP5N54JMUkKc7+BjQfMpPvkQW9TH0OBn5cpLQtKkPdlozP24H+G
-	 9m9y98fuINt7Q==
-Date: Wed, 5 Aug 2026 13:32:26 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Yao Yuan <yaoyuan@linux.alibaba.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Peter Maydell <peter.maydell@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v18 03/14] KVM: arm64: Manage GCS access and registers
- for guests
-Message-ID: <6d63905e-8c6e-4c88-b60b-d34ab1401783@sirena.org.uk>
-References: <20260803-arm64-gcs-v18-0-fd8c40f5ad88@kernel.org>
- <20260803-arm64-gcs-v18-3-fd8c40f5ad88@kernel.org>
- <enhoyivbkdaacgyazubgfzftt34xjemtrybvgpuqvr4czjtbhm@7qvrce5lmdyw>
+	id 1wrasr-00000003vqG-2A7j;
+	Wed, 05 Aug 2026 12:38:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=MIMQJmkPDn3nvMi1GhZGX+SdavJhQT13XOPhF8HYz0c=; b=dYIAdTdWn8at/e23MJphOglQxR
+	Kaf+LEAJsIG6pOqiS75PLVNwqDFgUsd37/X2bssbkk/nAfGOax3+pLUKc+aMYew6ncwYZPWNrcXOR
+	5MSyce9+rMW3ZQOweIsjJ2TNvhUi7NscaybzmC44+mpHVzMZarvt5t8RmmiT0uTeeKwg=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wrash-00GAPS-HF; Wed, 05 Aug 2026 14:37:59 +0200
+Date: Wed, 5 Aug 2026 14:37:59 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	mfd@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net-next v2 8/8] net: phy: add X-Powers AC200/AC300 EPHY
+ driver
+Message-ID: <30bab755-3356-4d4a-a939-8488aa487874@lunn.ch>
+References: <20260804-submit-acx00-of-dynamic-v1-v2-0-3eef49ff1d8c@gmail.com>
+ <20260804-submit-acx00-of-dynamic-v1-v2-8-3eef49ff1d8c@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="G0bWhbbolYLdYDz9"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <enhoyivbkdaacgyazubgfzftt34xjemtrybvgpuqvr4czjtbhm@7qvrce5lmdyw>
-X-Cookie: Stop ahead.
+In-Reply-To: <20260804-submit-acx00-of-dynamic-v1-v2-8-3eef49ff1d8c@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260805_053809_555035_2D1B5095 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,50 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +static int acx00_ephy_disable_eee(struct phy_device *phydev)
+> +{
+> +	int ret;
+> +
+> +	ret = phy_modify_paged(phydev, ACX00_PAGE_1,
+> +			       ACX00_PAGE1_INTELLIGENT_EEE_CONTROL_REG,
+> +			       ACX00_PAGE1_INTELLIGENT_EEE_ENABLE, 0);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return phy_clear_bits_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV,
+> +				  MDIO_EEE_100TX);
+> +}
 
---G0bWhbbolYLdYDz9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-On Wed, Aug 05, 2026 at 05:48:04PM +0800, Yao Yuan wrote:
-> On Mon, Aug 03, 2026 at 11:56:48PM +0800, Mark Brown wrote:
+> +
+> +	/* Set the hardware default before phylib reads its EEE advertisement. */
+> +	ret = acx00_ephy_disable_eee(phydev);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to disable EEE\n");
 
-> >
-> >  		if (ctxt_has_s1poe(&vcpu->arch.ctxt))
-> >  			write_sysreg_el1(__vcpu_sys_reg(vcpu, POR_EL2), SYS_POR);
-> > +
-> > +		if (ctxt_has_gcs(&vcpu->arch.ctxt)) {
-> > +			write_sysreg_el1(__vcpu_sys_reg(vcpu, GCSCR_EL2), SYS_GCSCR);
-> > +			write_sysreg_el1(__vcpu_sys_reg(vcpu, GCSPR_EL2), SYS_GCSPR);
-> > +		}
+If the PHY is capable of doing MAC based EEE, that should be the
+default.
 
-> Looks the s1pie checking for GCS vEL2 context switch is
-> necessary yet IIUC, KVM does vEL2 context switch for nested
-> L1's EL2, it should follow same rule as non-nested L1's EL1
-> context switch.
+Why clear MDIO_AN_EEE_ADV? This does not stop the user from
+re-enabling EEE for this link mode. phy_disable_eee_mode().
 
-Right, it's not really needed in either case but hopefully helps code
-generation a bit.  Thanks for spotting that.
-
-Please delete unneeded context from mails when replying.  Doing this
-makes it much easier to find your reply in the message, helping ensure
-it won't be missed by people scrolling through the irrelevant quoted
-material.
-
---G0bWhbbolYLdYDz9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpzLVoACgkQJNaLcl1U
-h9AShQf9GTcWUv5esdda/vVYebPT3BbxWQXttB8maWVlWNrtRAZ3CcuUZK1lNv3Q
-M/gte5u9UOApkJA4FxQKLJKXrvlkl9eWlXAmhwPtMgd2JwfMt716GCJTqYO6AUe8
-U1Zt5uL70KfvRw52jOA7fIwKLHh6qP072nyrPg0KKTMh16zBuSsr39cNDqu6/e2U
-N/Uo4Zrb3Qqcl+tlYkZuPdCReFrJmJUuM0tOq7wOPpQjB7ySzou1akvTvBWNPlJm
-Hyn4x0+bcF+fOAe+xkq+avmuS5AOix3cuAxcxeAOr0ZQWf+rR+1V6OOWqHx87gSS
-NEhHYl2r6NQ/B5yMZuzvDYScdhY5zw==
-=Ce0W
------END PGP SIGNATURE-----
-
---G0bWhbbolYLdYDz9--
+	Andrew
 
