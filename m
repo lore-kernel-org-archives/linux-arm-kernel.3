@@ -4,103 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AABC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:47:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC58C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:From:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lzxl6ov54XABkEdqGVKNEiBDIIDgS5W3+aFuZLq5XxY=; b=KFstwXfoveUHit
-	zXa0EhgMQAFIV0petkkXPSyJMKZgye7OcC8IY8gyXXTrs7H+8QAeei2gGjX2vITVWfYPvROJFBlpX
-	2OnSDbXnZwceBZ9JYjjb9CLP3zeUkKG8hM+QMjgEG9oAztDVOTza13pOVvogF6U19Mdt9wyTCKX3A
-	4t8DUwsCVEpVeNBC1Z+DVyZgAqClQ/YVphg8avPV0EVzOpU8ft1AERx23OLczfkRAcqgWdj8j2NK9
-	wbmqU/rvgzgk+dNuBl/gLbud71bcrA/bk8/msucJes5GDk0mmn1lU5Ho4LWNAc327J3zfPylBOX+U
-	TEAoSA3E/N4SFOPkM/EA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=c3V4qSzOkxpZx3NiN3u7t44+UfsiA1QFBuzhgGyCJts=; b=4Gz/wuVBmkbL616BZku42Xcox0
+	dN9ZD/VEZlI4lCBm9NR0MVWup7h9OUcDJMiXjRtrM2Rdws+kSiUvuuNNKWkzWpYclLw3/I39p4aVo
+	8HpjBg5Xhn2BoomiuW7SxSHwENDoMNJSnrRhCmh9Q+aZ1eX9K+QimV8I6Kj8m+MR8Hhwt4SevPqwL
+	l9W8TkHoDui8vNJiB8K+CHYoIBCzRmktdgkRNiyblruHmELfL962MEcfvd4F58ZONy+LmxN1L/lhX
+	DAcH9kRshmbOb6FxumTgTN2iuhkP0WB8NVCSPJyKMLhczsQJiO4aJmBTS2Mt3ZHzhWt2MiENvP2EV
+	DDzWCkgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVPK-00000003LNl-3sWJ;
-	Wed, 05 Aug 2026 06:47:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrVPv-00000003LU9-14fS;
+	Wed, 05 Aug 2026 06:47:55 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVPI-00000003LNa-2CqA
+	id 1wrVPr-00000003LTK-1M6m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 06:47:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B663B43B54;
-	Wed,  5 Aug 2026 06:47:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7A9D1F000E9;
-	Wed,  5 Aug 2026 06:47:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785912435;
-	bh=lzxl6ov54XABkEdqGVKNEiBDIIDgS5W3+aFuZLq5XxY=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To;
-	b=Opi1qu8JZZLOL3KmQh79XU8FqJKFaFl4tD3f2O1brEVBwfq1buPJZInLNUIgFOdVo
-	 wXj/1meF0rQI5di7eqK+U5G1QvmQG0dhg6xYr/IZEq0R/FZRgf9OSJyDmN49geFKmY
-	 NVOqU6XjUSdgMtaCTp5iwCvgolM57dbXArM5nP+WiD2OVOi5dl7Rr8zR6KbSKaey2P
-	 Ic9SG6Y/9wpeBP9JjnGzHFV5W/0xCH9+ib9IyDutIyU21VmfupAhvxYKQ6re7/pAbr
-	 P4nXHctAoaIYQbmJvBMMO4I+m4PUq2iUIpAaLfp3cZs8eOYHUDrF66eXey+f2zALg5
-	 l2+Gzf+lPBquA==
-Message-ID: <d600d0db-5109-4386-9a49-955be74cc432@kernel.org>
-Date: Wed, 5 Aug 2026 08:47:08 +0200
+	Wed, 05 Aug 2026 06:47:54 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785912467;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=c3V4qSzOkxpZx3NiN3u7t44+UfsiA1QFBuzhgGyCJts=;
+	b=l6JEi5PKIXxC+IhcLUBzscWRE8H5f3rOBUv0oBUbfK4BiGswrw47SKFd3lzGxvtzMWB4ds
+	poYjl9sbX4WuhuQMTZEHjm62NxMUrvRXD/md9Z4ugpUqulPbfTycZyzz5sgXiH0WTVZOfu
+	z4CCnJQxm2RhkPJeE1cFf2OHzscsL9E=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] KVM: arm64: selftests: Check ID regs are immutable after a failed run
+Date: Wed,  5 Aug 2026 07:47:40 +0100
+Message-Id: <20260805064740.3013538-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/20] arm64: percpu: Add infrastructure for
- preemptible this_cpu_*() ops
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
-References: <20260804170503.3513916-1-mark.rutland@arm.com>
- <20260804170503.3513916-14-mark.rutland@arm.com>
- <7df18d5e-886e-43d1-b53d-52a1d08aba49@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <7df18d5e-886e-43d1-b53d-52a1d08aba49@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260804_234752_529710_36D73361 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,53 +72,177 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/5/26 08:45, David Hildenbrand (Arm) wrote:
->> Atop v7.2-rc4, with GCC 15.2.0 and defconfig, this is compiled as:
->>
->> | <outline_this_cpu_add_u64>:
->> |        paciasp
->> |        stp     x29, x30, [sp, #-16]!
->> |        mrs     x2, sp_el0
->> |        mov     x29, sp
->> |        ldr     w3, [x2, #8]
->> |        add     w3, w3, #0x1
->> |        str     w3, [x2, #8]
->> |        mrs     x3, tpidr_el1
->> |        add     x0, x0, x3
->> | 1:     ldxr    x5, [x0]
->> |        add     x5, x5, x1
->> |        stxr    w4, x5, [x0]
->> |        cbnz    w4, 1b
->> |        ldr     x0, [x2, #8]
->> |        sub     x0, x0, #0x1
->> |        str     w0, [x2, #8]
->> |        cbz     x0, 2f
->> |        ldr     x0, [x2, #8]
->> |        cbnz    x0, 3f
->> | 2:     bl      preempt_schedule_notrace
->> | 3:     ldp     x29, x30, [sp], #16
->> |        autiasp
->> |        ret
-> 
-> FWIW, in a recent discussion on some prototype hacking [1] we saw some overhead
-> in micro-benchmarks that would really hammer on a path that would now do a
-> preempt_disable()+preempt_enable().
-> 
-> Switching from preempt_disable() to preempt_enable_no_resched() made it turn to
-> noise. Of course, that has other undesirable impacts, and I am not sure if we
-> are in the territory of code layout changes affecting the numbers.
-> 
-> Just mentioning it as some data point.
-> 
+Add a set_id_regs case covering ID register immutability when a vCPU's
+first KVM_RUN fails after finalization but before
+KVM_ARCH_FLAG_HAS_RAN_ONCE is set. The test provokes such a failure with
+a PMUv3-enabled vCPU whose PMU is left uninitialized, then checks that
+KVM_SET_ONE_REG on the feature and implementation ID registers, and
+KVM_CREATE_DEVICE for a vGIC, are all rejected with -EBUSY.
 
-[1] https://lore.kernel.org/linux-mm/20260630174852-mutt-send-email-mst@kernel.org/
+Assisted-by: Antigravity:gemini-3.1-pro
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
 
+Notes:
+    This exercises the bug fixed by the KVM/arm64 ID register finalisation
+    series and fails without it, so it should be applied on top of that
+    series:
+    
+    https://lore.kernel.org/r/20260803-kvm-arm64-idreg-final-v2-0-d7d7e4efc640@kernel.org
+    
+    Changes since v1:
+    - Cover the VM-wide implementation ID registers (MIDR_EL1, REVIDR_EL1,
+      AIDR_EL1) as well as the feature ID registers, per Mark's review.
+    - Check every feature ID field that could still be lowered before
+      finalization, rather than only the first one found.
+    - Report the skip under the same name as the pass, with the reason as a
+      ksft_print_msg() diagnostic, so automation can match results for this
+      test across runs.
+
+ .../testing/selftests/kvm/arm64/set_id_regs.c | 106 +++++++++++++++++-
+ 1 file changed, 105 insertions(+), 1 deletion(-)
+
+diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+index 7429a1055df56..10849d21c0dd2 100644
+--- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
++++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+@@ -13,6 +13,7 @@
+ #include "kvm_util.h"
+ #include "processor.h"
+ #include "test_util.h"
++#include "vgic.h"
+ #include <linux/bitfield.h>
+ 
+ enum ftr_type {
+@@ -803,6 +804,107 @@ static void test_reset_preserves_id_regs(struct kvm_vcpu *vcpu)
+ 	ksft_test_result_pass("%s\n", __func__);
+ }
+ 
++/*
++ * ID registers must stay immutable even when a vCPU's first KVM_RUN fails
++ * after finalization but before KVM_ARCH_FLAG_HAS_RAN_ONCE is set.
++ */
++static void test_idreg_frozen_after_failed_run(void)
++{
++	static const u32 imp_id_regs[] = {
++		SYS_MIDR_EL1,
++		SYS_REVIDR_EL1,
++		SYS_AIDR_EL1,
++	};
++	struct kvm_vcpu_init init;
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	int r;
++
++	if (!kvm_has_cap(KVM_CAP_ARM_PMU_V3)) {
++		ksft_print_msg("PMUv3 unsupported, cannot fail the first run\n");
++		ksft_test_result_skip("%s\n", __func__);
++		return;
++	}
++
++	/* Skip the default vGIC so the KVM_CREATE_DEVICE gate is reachable. */
++	test_disable_default_vgic();
++
++	vm = vm_create(1);
++	vm_enable_cap(vm, KVM_CAP_ARM_WRITABLE_IMP_ID_REGS, 0);
++	kvm_get_default_vcpu_target(vm, &init);
++	init.features[0] |= (1 << KVM_ARM_VCPU_PMU_V3);
++	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
++	kvm_arch_vm_finalize_vcpus(vm);
++
++	/*
++	 * A PMUv3 vCPU left without PMU init is rejected by
++	 * kvm_arm_pmu_v3_enable(), which runs after sysreg finalization.
++	 */
++	r = _vcpu_run(vcpu);
++	TEST_ASSERT(r < 0 && errno == EINVAL,
++		    "first KVM_RUN should fail post-finalization: r=%d errno=%d",
++		    r, errno);
++
++	/*
++	 * Feature ID registers: use values that would have been accepted before
++	 * finalization, so that a rejection means the registers are final
++	 * rather than the value being invalid.
++	 */
++	for (int i = 0; i < ARRAY_SIZE(test_regs); i++) {
++		const struct reg_ftr_bits *ftr_bits = test_regs[i].ftr_bits;
++		u64 reg = KVM_ARM64_SYS_REG(test_regs[i].reg);
++		u64 val = vcpu_get_reg(vcpu, reg);
++
++		for (int j = 0; ftr_bits[j].type != FTR_END; j++) {
++			u64 ftr = (val & ftr_bits[j].mask) >> ftr_bits[j].shift;
++			u64 safe = get_safe_value(&ftr_bits[j], ftr);
++			u64 new_val;
++
++			if (safe == ftr)
++				continue;
++
++			new_val = (val & ~ftr_bits[j].mask) |
++				  (safe << ftr_bits[j].shift);
++
++			r = __vcpu_set_reg(vcpu, reg, new_val);
++			TEST_ASSERT(r < 0 && errno == EBUSY,
++				    "%s write after failed first run: r=%d errno=%d",
++				    ftr_bits[j].name, r, errno);
++			TEST_ASSERT_EQ(vcpu_get_reg(vcpu, reg), val);
++		}
++
++		/* A write matching the finalized value is still accepted. */
++		vcpu_set_reg(vcpu, reg, val);
++	}
++
++	/*
++	 * The VM-wide implementation ID registers are gated separately. Bit 0
++	 * is within the writable mask of all three, so flipping it is a change
++	 * KVM would otherwise accept.
++	 */
++	for (int i = 0; i < ARRAY_SIZE(imp_id_regs); i++) {
++		u64 reg = KVM_ARM64_SYS_REG(imp_id_regs[i]);
++		u64 val = vcpu_get_reg(vcpu, reg);
++
++		r = __vcpu_set_reg(vcpu, reg, val ^ 1);
++		TEST_ASSERT(r < 0 && errno == EBUSY,
++			    "implementation ID reg write after failed first run: r=%d errno=%d",
++			    r, errno);
++		TEST_ASSERT_EQ(vcpu_get_reg(vcpu, reg), val);
++	}
++
++	/* Creating an in-kernel irqchip would change the ID registers too. */
++	if (kvm_supports_vgic_v3()) {
++		r = __kvm_create_device(vm, KVM_DEV_TYPE_ARM_VGIC_V3);
++		TEST_ASSERT(r < 0 && errno == EBUSY,
++			    "vGIC creation after failed first run: r=%d errno=%d",
++			    r, errno);
++	}
++
++	kvm_vm_free(vm);
++	ksft_test_result_pass("%s\n", __func__);
++}
++
+ int main(void)
+ {
+ 	struct kvm_vcpu *vcpu;
+@@ -828,7 +930,7 @@ int main(void)
+ 
+ 	ksft_print_header();
+ 
+-	test_cnt = 3 + MPAM_IDREG_TEST + MTE_IDREG_TEST;
++	test_cnt = 4 + MPAM_IDREG_TEST + MTE_IDREG_TEST;
+ 	for (i = 0; i < ARRAY_SIZE(test_regs); i++)
+ 		for (j = 0; test_regs[i].ftr_bits[j].type != FTR_END; j++)
+ 			test_cnt++;
+@@ -847,5 +949,7 @@ int main(void)
+ 
+ 	kvm_vm_free(vm);
+ 
++	test_idreg_frozen_after_failed_run();
++
+ 	ksft_finished();
+ }
 -- 
-Cheers,
+2.39.5
 
-David
 
