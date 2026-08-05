@@ -4,76 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E5FC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 17:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8F3C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 17:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wYKOBudt0uhQ3hJOEGm1KHcZCUuKNg4bZ1AwVf8XBWE=; b=SKeh6S0pP+S0rvw07t0kX+3tGo
-	a9S+OSr32FDUiJ1ejjoK3/jOfiu3PCm2+Ejtqd/5V3c8To1tkL6teTS6d9e5Qw/OVEq7g0oNJwtr8
-	M+sYEt8KE6fDVd6UBarS1eBpXJWxA/xexlIw/lGjtauGxqcFwhYhtpZJbzvKCdNd2YFjee3YVqUIZ
-	TklZhZFN2nxIBvpjn4Ym/XcdtjUOs1yOZCHBu0sHUGiNGIahuAEP75K4hrU1rFrOY9RX9cSYUmd5T
-	OVvnMaGKRF58GRDRBGYpFZ8XTNCgqr3D4I8n4/9b6lOfj3iTb+JRXmJ3GnBd9OteodJ8lvzKpLNKI
-	dNrt7o7A==;
+	bh=ywyXEIwWxG+qAZwRuspdGRjEEFimti+ky1oQFF9/aW4=; b=LHIT3wIDSJa9Uwho/dFTEQCYCH
+	VVo5OOSiJ11XafVvWGUHUl4pZ9szJmKE8x8WRh0iKdkMBtBahHkUTdV5TRV7OxGAT1Mh2jCNu2Qxv
+	8Pyz70epGrTgClptZl0VB9EqeMbzNDLB/IGo3rHTszEbDsgxRcDpfNQht36WqhZ5F1m6OdFDLaADw
+	f1dEFZY+JcSCcEtW1ga8f6bc6f1CuEmZr8qqc5UePf13PBG6ooRVV0tEBa2mMdhNW82dCkM59+y5T
+	nuz0xrLbOCDRSIVvgErohit5p+MRIzuzWi+gEBj2+55uJerZb4zA5QgFgb8DNnBJBBbVgKxUEpPRv
+	Wx02Sa3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrezH-00000004JFa-22xQ;
-	Wed, 05 Aug 2026 17:01:03 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.47])
+	id 1wrf4X-00000004JaZ-49tc;
+	Wed, 05 Aug 2026 17:06:30 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrezF-00000004JEH-0fEp;
-	Wed, 05 Aug 2026 17:01:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1785949258; bh=wYKOBudt0uhQ3hJOEGm1KHcZCUuKNg4bZ1AwVf8XBWE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ugsHNFWPAIscm8a3y/n2BQkKjk8USJ2RMdLkl8G6GcMDaCj6SpWs22yjwq0UfSc68
-	 MAdiX44qP6KUwEOHGV/7+1s7AEWAXrBoV+W0XUVV/mIZa6BA9lRAqmsZyEOSU1DiBg
-	 DZ1f1/Aim536xan7vM3/fw4zrOXoeDiyktfPs1RY=
-Received: from AERO17.taila7786d.ts.net ([112.43.117.189])
-	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
-	id 37ACA63; Thu, 06 Aug 2026 01:00:55 +0800
-X-QQ-mid: xmsmtpt1785949255t5zhr05ms
-Message-ID: <tencent_CF663AE8A4E2ACE4EB5E5E40198C8E893305@qq.com>
-X-QQ-XMAILINFO: MhK4DKsBP06idkYQZ1KmLE8p3prVyjyv0JplOFvX2T6BtmXXyI4Q7StkqzY0DS
-	 I2ExgAdxdm5CARZQQHh2DI/85FxfxOtkA2z6lh7L6iyKte5O16OFWwUjDh/UsizimVmdaSGNsKEk
-	 u700aQJ4Sx4nuTcUZlJflX2qxKFgXwYxhxxhWphXsHL2h9ZKdf16q5tkF7NV7LeXob8MIqxVEct8
-	 fju6lWUhkXaMIlZ+aT+4ooOE74+v7CMe5v5oTc8TFWOYCh3S1S/Nd4zU5pEw3yCYICqlZkcmPvjr
-	 9ZTE6ZmwEUKTk1ckvJ8QJGlPOael3dBS2ATy4JZwzKhtxXmsmLSwyA/pQW2wav12zKuTL3wNJ9vN
-	 l2NCAnttTROnusPa4smvyBv4sZWLPBRBvhBwvTpVzEzZqO+6BQtK5hF7mzz0PIVYSdjBeVJaWJ88
-	 rCs9GLLM00ukW4EUi2Y7+9Y4SsRjGAfwwwje0hUXbf1b9pGye27sjMzKY99CQRGfk3nSy4AGtGTb
-	 f7nO3xU32mmVjIKdqhy6zyK42jZo9oXaOVnH3QbNQcfBZwvMVbwTW1FMwKvDmIuXppfeFHGDHBDe
-	 Hw4RY85VKFsWiGnExSFvh+qLY3On86zpjMSc4ZhIbQTbVnRvgwsi/Ka/tWkOjxpThOSvj4zfYEn1
-	 S3zvhAYCeZvCKVV6c4WyH2Kb9mw7Ryllv0KJreIRo3xTWU1qD08v7vK8sBq8nCXAUS++4ymS1PWQ
-	 3GsBOPk4PW31zqwLHwBE/ZET0FtVyXMsnLgFC2Ego5fjtSRarjsPrpprXaT+gPf5IzUyzkvfjlPe
-	 QHJ5Vhlq1TtJ4BAVeSklvM+7vGrJMaugjxdlq17PXAKs60SesKArbgr/7k5h8hemBFjVkeQ4FurV
-	 hxPreVGkHm4ZeXl2VcKtK8djnStZhC3TOJ5Y/lG7cYbrICagfWvc+CwL5wY4pvF1eZWA7suj7TNk
-	 8yXJQVfm3ue0AHChwS7dknnTYdcPUbL22H9rxPOLF09vFHj/cmGVZk5DixqLoVvOYq/NTu55QbpT
-	 OWfB4Q3rdBlgPtri02II4NtsvEJbIqDCYPNbroZqz2CQhimtDDXwmkxceeZGk=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-From: Pufan Jin <2254650260@qq.com>
-To: Jimmy Hon <honyuenkwun@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Enable the NPU on LubanCat 4
-Date: Thu,  6 Aug 2026 01:00:54 +0800
-X-OQ-MSGID: <20260805170054.143528-1-2254650260@qq.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <CALWfF7Ly=o85=ZQ3Laewe5VwW6agHLvqqSPKFDzcf75UWYnP4g@mail.gmail.com>
-References: <CALWfF7Ly=o85=ZQ3Laewe5VwW6agHLvqqSPKFDzcf75UWYnP4g@mail.gmail.com>
-MIME-Version: 1.0
+	id 1wrf4V-00000004JaC-3v6G
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Aug 2026 17:06:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GldxGlMkEDM/6Xh/5dZxJAGgn4EKcwFbDQ/q5kbHWOAQ9YjFlNN5XMGqQblATszsFpfXOwKiOedS6BDmtYr7lRW5DufIyUB3ceKAENmUjxFP7a9wD5r8LxVZkZqV41wwa4lryK5C4H6eBbPUmtWHuxFErOO0+7eJMx9Js/bHtvRJYZH377hOz0s+vlIBZ9EPZ6UeiuGu135IJh50Cl4vrVDmCcEdcqK2+bf3Dg4NXgyeVj1+Zc37QeVjAIplbruL/GXHHd289cAbDY+nBilRFMtWuUvFuDPsK+QiDx9Vkj8nYW0PeTwvl522c65SF8gDMPkdj0PRFArH+TvGvdeTEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ywyXEIwWxG+qAZwRuspdGRjEEFimti+ky1oQFF9/aW4=;
+ b=B618j5kOxVuQK5wTOxy89iped5aUWytsxtRwtz5BTJRKrs0EBW8z0t7R+7pzaICz0yrQDhATDpVtbnZzD9zMHHNEVMWAaP3Kyr2PodrzmCcO1nnn/rIQrxWM5Aqt7XBZRmGY/VTSoM04N/H/OEU4xE5Hlq2rkdwxb4viuiADRbIp3ULFzphMZ+Rc37ZOkt+XNSfnVoAMjWlA2oJULR1/qdY+pkN9vclw78o7TCF8Sl/ohzGqYD2DQg6fjr4O9iwPgBODsDAkyHjLx2NtP18FmPG3lnie4AQfc+ulybVtqW/u5zOQNWD6+Eu4df4NI+RtMiK+W7S0rp9DDzRG/kychw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ywyXEIwWxG+qAZwRuspdGRjEEFimti+ky1oQFF9/aW4=;
+ b=RdSseoVekO3CNA6vBXDt1u0EPDwjUEgt/LgzMCZkn+C4H2vPvWzg2VTQO9BvSQka8P/Zuqgmii0COGBRR3U8hzStjIqizD9zf1mTMHnTBHEgw0GXj2pKI9fMtLM+vFXwl/MYsS8ZINzD5OK7a4BtQ/cfsCosmvD3kNKlptEhSDNizeX4HWw6TPvGfPBNWaQTl4j7o9AMjeR0KuZZo5mP7QCiLOrbGDgWUsYNopY5HcRZhBfDrj+3adEPv2rrFfVe1dPRtqS2XULouEYDli1z5M2hjPjwn+ABv4jPG1Zv+VoxLbkbhg9Anu85P5+KuPF0LsEaUVqC4mrNTAydoIQUqg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA1PR04MB10442.eurprd04.prod.outlook.com (2603:10a6:102:44a::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Wed, 5 Aug
+ 2026 17:06:21 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.018; Wed, 5 Aug 2026
+ 17:06:21 +0000
+Date: Wed, 5 Aug 2026 12:06:10 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Shengjiu Wang <shengjiu.wang@gmail.com>
+Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, broonie@kernel.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, shawnguo@kernel.org,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Xiubo.Lee@gmail.com,
+	nicoleotsuka@gmail.com, perex@perex.cz, tiwai@suse.com,
+	linuxppc-dev@lists.ozlabs.org,
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Subject: Re: [PATCH v3 1/5] ASoC: dt-bindings: fsl,imx-asrc: update port
+ binding to support multiple paths
+Message-ID: <anNtgkZYhoWsSRr6@SMW015318>
+References: <20260804100218.49587-1-shengjiu.wang@oss.nxp.com>
+ <20260804100218.49587-2-shengjiu.wang@oss.nxp.com>
+ <anH5i7y3JkB1moee@SMW015318>
+ <CAA+D8ANCoc5qOUvTQPRNkvrfqAY3n6x_fbfUveP8Sfv+SL1NVw@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAA+D8ANCoc5qOUvTQPRNkvrfqAY3n6x_fbfUveP8Sfv+SL1NVw@mail.gmail.com>
+X-ClientProxiedBy: PH7PR17CA0015.namprd17.prod.outlook.com
+ (2603:10b6:510:324::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB10442:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4e3eaf5-a267-4bb6-224e-08def313df63
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|19092799006|376014|23010399003|22082099003|18002099003|4143699003|56012099006|11063799006|3023799007|6133799003|10067099003;
+X-Microsoft-Antispam-Message-Info: WQeKr76JRykxd6Qqf+SvZur07Oo7DBtYrgczBd/WJBrZBVQEJG8LllW16LJdsPNEQe3/Oin/Z97Jct6TWwcl+f9sGkdWvCUS1ImHBdZ4cS9zD9//qynUC/wK3WFHzYCuHZsfPD/ns5aOW54k8euzB4yvFYG+pD+5jgloPPgF1DvMdob2oRd4wolX8xXpV9ebk+nJfyPOHn5QR8p0kr23dJzOdN+vyo6pVBOIg7l1It6dxba+wjs4BJDzyaVjyYeG8jUrZRamevtcSN5lpx9mztcP78jUltUlHPAO2IAU9JYHdMOhiqM95jVPeahgcH/TFp64OHsEM7ffSB0j4UwI3NyXGaUarFhNFHpiEZYt2FH4dsiydz2Cx1NoOelT5YZxe6w6dFhK/zhQiLfLncC0BsynIjtPf2tibmwUKI8FQLid5anijQz8MNR2OsZMVlqx/0BsV36hFmraLlosujxeiZ95ITe+ccZ760L5Mv+KRK7+jah6edOD2XK9/Qy7/44SyVIXtIvt5CWa51X+Ymv3Qsi8M4/bdqMFZzoM6QecE4SxG5THc7N9vdMNpVfHaTvJ2YrOFsmy6H4rIZXP4ecqinbcwhRKch6uqNSZVufUBH+X3/s4bKzD6mQYqPSJjSNGcXnOq54JQrdX7uFNaF5cneAoXmVH64+OoM7riraXS24=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(19092799006)(376014)(23010399003)(22082099003)(18002099003)(4143699003)(56012099006)(11063799006)(3023799007)(6133799003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L0JDcHZ5S1gvbnBQS2t0aXJkaTQrRzAxS2sxT2hTOUQ3OWRINzZpSTZ4Wno0?=
+ =?utf-8?B?SlNoSnhkQ0xtZ0tUQmZwMTN0ZkVzYkVkUTRWQmVTNTV6L3BOYzV5djRVaW5r?=
+ =?utf-8?B?b0tQajdnRHlOczBsejJrc0Z0NERDUmpjNXNHU3ltUzlFSjJQOXFaMEY3dFRo?=
+ =?utf-8?B?S2hCNmhQdHprdDYwcXRHa2tDR1M4VURxTTFJVmZCMjlUZWEzU3k3MWJVSzZL?=
+ =?utf-8?B?M2xtODRXdkc2VndGdHRUSjg2WVZkYUhMMkRNcCs0bFVXb05ZUWR6M2hRQnls?=
+ =?utf-8?B?cnRiRk93N2lzTkNkWHhpc1ZUOXFxZWMrblJBWUZaK3lvRVMxZXJTRnZqNGlR?=
+ =?utf-8?B?ZWQ0bWNqbDBqWTkyY1EwWGVjY0hsVEpHRnd5NHh3dVc3VGd3N3NIOFZhTHJp?=
+ =?utf-8?B?b1VIUHk1VmEvTExONkZkODNiem41WHMzUHFaN05JY0dsbEZkaFduOGk3L2JD?=
+ =?utf-8?B?TmlpQTNwZCtYU0N4SGVIODJLRnVOMFVqNVRKYU5Xc0ZZSTVjYTk4aTJJZDU5?=
+ =?utf-8?B?UkpPSUxySkt5MUNvRWJidStJYWEreTBKczZjeUNBNTdZSGtNQ0R5YXhkUUk0?=
+ =?utf-8?B?Nmsvdm5XK2twNFJkRktscnNoQXpDdFJNTEpVMkc0VlFnT1ZvRDI4ZE4xeUNG?=
+ =?utf-8?B?RDVXb2F4LzQxcjBCMExIZEpDUWIyQ1J4TmtxTSt0VDRCZkIrR3lJUS9WYkJV?=
+ =?utf-8?B?SURyanBGU1VlVVl2RjNldE41UTZUYUZlTjVvZjJqZjQ4VXM4RG1LZjVQRXI2?=
+ =?utf-8?B?c2Q0citoMkNZZ2FBNEVaN1RYZkQ4YlMxSkF5RTNMSTU3WjQ3blZZRHRYa1ZX?=
+ =?utf-8?B?dzJtRTkzMnpMU3F2SmR1ZmZLYjZiWXpLV1ptV0Q1eEdJY1Z3TTFwQUN4RmpS?=
+ =?utf-8?B?d2lUT3lPK2VndTZMLzZPM1ZQMVFDbmQyUW05c0E3RitvL2ZaMVVCQWp0ZVEx?=
+ =?utf-8?B?ZXVDcGtObVNyWkVNSGJuK0J4MkJUcWJNeG1LODQvWlhsOGZUZkxDTHFQS2da?=
+ =?utf-8?B?UlF4LzhNTk90QVp1UE9ZRXBGRDJoUXl5ZHFpSENqNzVMUVJrUG5sVVUxNFEx?=
+ =?utf-8?B?WllaU2VKcTJES01SWkVmamh1eDBUbG04TDNFM20rQTdsK2trUUhseHI4Y3dk?=
+ =?utf-8?B?elNHU2UwOGwySVVpd21vMHVJK0JlRG81RmNOdHRxSkFhUDNsT1B3Y0NSY0lH?=
+ =?utf-8?B?VEUvN2hYajJENVBZcytGdWtZTXVGY0VycEFvanJyTGJBbFNGcWlqVk9Hdnp6?=
+ =?utf-8?B?VDgrR1ovdWNlbFN2T1pXTGNQRWN2Y09ZTmNiLzU4c1FwMTlFUk90V0EvSGdX?=
+ =?utf-8?B?SG1LZDV2L0Rqa0k4bzNxckxQaS9QV1d4eDkrYmc3L0Jub2p1SHNCOWM1c1Fw?=
+ =?utf-8?B?OGMvL1BDZFlxajFOZWhFZXVqbE5zdlFndi83VzhWKzRvWFNwTldZclFZOEVR?=
+ =?utf-8?B?NU5FS2RwVDRjbWlhbE1VUmxFQlJhYWJoQVJ1TDV3WTB0WWhYVHF2QmltemFL?=
+ =?utf-8?B?WmkvTUZBMmFaeFBFQXAvUTllRWd3czQ4NTlyNC80UVRQQWhwUjJIZHl6Z0tw?=
+ =?utf-8?B?bXplbUVKTnNnSGxOT1NOZis0QXRRRWxkTEtKS2YzUUNRVzQrQmpsMHQ3ZUkv?=
+ =?utf-8?B?SXd3UWppU0VDSFpMSXpaRlRnYXlTcFhxQVI3NDVtc28wNGFQL3h1RmtEREZo?=
+ =?utf-8?B?VUVvTUN2Wkt6S3F2N3o1V1NXaXUzYkk5ZlJ6OEU4a3Q4RERvN25FQnU1dWNn?=
+ =?utf-8?B?V25rKzBWdVQ2V3p6cjJzS1FCeXl5VzduenZKZjNReExEUExHUnEwb1N2a0g1?=
+ =?utf-8?B?Qm9vdTZSQWtMWXUyRGdCcVV3Z2plMi84VU5zZVNGa1htc3pNL1FHNkpCWW5W?=
+ =?utf-8?B?dDFmeVJyVGtZWHpJTmxuajVKbjJOQ1RuWUtBMzU0QUh0aURrZ1o3ejBOWE1I?=
+ =?utf-8?B?YlBqeU9iRUh3OFpSRzZkaSs2UFF6SmVucjFGK0pKcy94QUVITm50ZGdTUVdM?=
+ =?utf-8?B?dk5LTzVHaTZHRDdUais2V0JJVjJIUThGeTcxa2ljNDNVVnFMQjc0RkFITUlP?=
+ =?utf-8?B?QkpLSFVZaGszMXZzTnRHOHdUMVkzRnJuQ0Z1ZGNxZFpOUUY4cG4yM3RiZ1N1?=
+ =?utf-8?B?WlREQkJUYWFqWG5aQzgvbFpKL1hRQ2Y1U2RnQmxGWVgzMUg4K0JaY2NuQWxL?=
+ =?utf-8?B?RldiSlp3d2hnUHBtUnlDL2tUOUZTNXhxSGJUZEtaL0plaUY5dCtXOGF3SCt0?=
+ =?utf-8?B?NVphNU0xMHhkRGZ6S1Q2bHBlWk9NUDdyV0pFZlpUQ2tQVEhSTFpzZGd5cEpG?=
+ =?utf-8?B?NFB4UGxMeGpSNFZGK20yZGcyNUduWDVwVytwd0dvbmhJMSs5U29WRzdpdGJz?=
+ =?utf-8?Q?uAUxjaOVqV/tcPcYo4s+Iki8WVY+k4MwWyyi1?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4e3eaf5-a267-4bb6-224e-08def313df63
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 17:06:21.4378
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HfT7TMcoRYsiEvRx4Qazn5JfwCpxVU3t3QDN0aZIssOeVyLRTGuj1ksyZ9oZtHr24hpQRMfRG87J/t5oYCjoGYzB574SesahY3Q4PqvqBwAuNfWdQ+iNvEIvtarNW+IM
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10442
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_100101_509672_A3727FFC 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20260805_100627_979583_82986E10 
+X-CRM114-Status: GOOD (  26.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,24 +158,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 5, 2026 at 11:48 AM Jimmy Hon <honyuenkwun@gmail.com> wrote:
-> As you mentioned here, the power domain will control the regulator. So
-> please remove the regulator-always-on from the regulator.
+On Wed, Aug 05, 2026 at 02:57:59PM +0800, Shengjiu Wang wrote:
+> On Tue, Aug 4, 2026 at 10:39 PM Frank Li <Frank.li@oss.nxp.com> wrote:
+> >
+> > On Tue, Aug 04, 2026 at 06:02:14PM +0800, shengjiu.wang@oss.nxp.com wrote:
+> > > From: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > >
+> > > The i.MX ASRC hardware supports up to three conversion pairs (A, B, C).
+> > > The existing binding exposed only a single generic audio-graph port,
+> > > which cannot represent independent conversion paths when multiple pairs
+> > > are in use simultaneously.
+> > >
+> > > Add a ports container that enumerates up to three sub-ports, each
+> > > representing an independent conversion path:
+> > >   port@0 -- conversion path 0
+> > >   port@1 -- conversion path 1
+> > >   port@2 -- conversion path 2
+> > >
+> > > Each sub-port references audio-graph-port.yaml as before. Hardware pairs
+> > > are allocated dynamically at stream open time; each active stream
+> > > direction (playback or capture) on a port consumes one hardware pair.
+> > >
+> > > For backwards compatibility, keep the old single port property but mark
+> > > it deprecated. A schema constraint (not: required: [port, ports]) ensures
+> > > that both forms cannot be used at the same time. The binding example is
+> > > updated to show the preferred ports form.
+> > >
+> > > No existing upstream DTS file for fsl,imx-asrc uses the previously
+> > > documented single 'port' node, so this change does not break any
+> > > in-tree device tree.
+> >
+> > if no existing upstream DTS file use it, you can direct replace with ports
+>
+> That is to avoid any downstream use of the 'port', so not directly replace it.
 
-You are right, thanks. always_on makes _regulator_disable() skip its
-last-user branch, so the regulator_disable() that pd_npu issues never
-reaches the hardware and the rail stays up regardless.
+Does downstream strictly run DTB_CHECK ?
 
-Dropped in v2 and retested: the three cores still probe and
-regulator_summary shows vdd_npu_s0 back at a use count of zero while the
-NPU is idle, so nothing pins the rail any more.
+Frank
 
-Same change commit de5b39d16318 ("arm64: dts: rockchip: Remove
-workaround that prevented Turing RK1 GPU power regulator control") made
-for vdd_gpu_s0. I did not add a Fixes: tag, since pd_npu had no
-domain-supply before this patch and so there was nothing for always_on
-to block.
-
-Pufan
-
+>
+> best regards
+> Shengjiu Wang
+>
+> >
+> > Frank
+> >
+> > >
+> > > Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > > ---
+> > >  .../bindings/sound/fsl,imx-asrc.yaml          | 45 ++++++++++++++++---
+> > >  1 file changed, 40 insertions(+), 5 deletions(-)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml b/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml
+> > > index 608defc93c1e..67d2826eef3f 100644
+> > > --- a/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml
+> > > +++ b/Documentation/devicetree/bindings/sound/fsl,imx-asrc.yaml
+> > > @@ -78,9 +78,19 @@ properties:
+> > >    power-domains:
+> > >      maxItems: 1
+> > >
+> > > +  ports:
+> > > +    $ref: /schemas/graph.yaml#/properties/ports
+> > > +    patternProperties:
+> > > +      "^port@[0-2]$":
+> > > +        $ref: audio-graph-port.yaml#
+> > > +        unevaluatedProperties: false
+> > > +        description: port for an independent conversion path
+> > > +
+> > >    port:
+> > >      $ref: audio-graph-port.yaml#
+> > >      unevaluatedProperties: false
+> > > +    deprecated: true
+> > > +    description: deprecated, use ports instead
+> > >
+> > >    fsl,asrc-rate:
+> > >      $ref: /schemas/types.yaml#/definitions/uint32
+> > > @@ -125,6 +135,10 @@ required:
+> > >    - fsl,asrc-width
+> > >
+> > >  allOf:
+> > > +  - not:
+> > > +      required:
+> > > +        - port
+> > > +        - ports
+> > >    - $ref: dai-common.yaml#
+> > >    - if:
+> > >        properties:
+> > > @@ -180,11 +194,32 @@ examples:
+> > >          fsl,asrc-rate = <48000>;
+> > >          fsl,asrc-width = <16>;
+> > >
+> > > -        port {
+> > > -            playback-only;
+> > > +        ports {
+> > > +            #address-cells = <1>;
+> > > +            #size-cells = <0>;
+> > > +
+> > > +            port@0 {
+> > > +                reg = <0>;
+> > > +                playback-only;
+> > > +                endpoint {
+> > > +                    remote-endpoint = <&fe00_ep>;
+> > > +                };
+> > > +            };
+> > > +
+> > > +            port@1 {
+> > > +                reg = <1>;
+> > > +                capture-only;
+> > > +                endpoint {
+> > > +                    remote-endpoint = <&fe01_ep>;
+> > > +                };
+> > > +            };
+> > >
+> > > -            asrc_endpoint: endpoint {
+> > > -                remote-endpoint = <&fe00_ep>;
+> > > +            port@2 {
+> > > +                reg = <2>;
+> > > +                capture-only;
+> > > +                endpoint {
+> > > +                    remote-endpoint = <&fe02_ep>;
+> > > +                };
+> > >              };
+> > > -       };
+> > > +        };
+> > >      };
+> > > --
+> > > 2.34.1
+> > >
+> > >
 
