@@ -4,77 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D968BC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:08:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268D0C55822
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNEcH5eiRUh8NICgduYDaOl24IADYP9UbXI26pv5SRE=; b=tO/dj1dCpipT3uUXEIRcI7UyI4
-	75DEUJSkOrcDZGBYwLIUyPCsHl9SstXhA+Gh5j6c/qhBmU7RcXPYvaLamgQoQxxePT45YaUaMoaXT
-	wBw7PwTvI6/2cLbZOwT2HLuYhNTe7cpMyedbz6lpbB5+3vVu19Rucj+MWWoJpTu7dLlwn0Z+LjUWw
-	/3w5qiR5OlWFtzR8Q/fODGmAShdbB30wkObz9BD3pCgVlRvaYn5k2yULLaP8YMPHaOb3eEWZ2wEt3
-	XSfCz0h4oAQTi0OqE2W7Gx9rXDo4JYBGEoTZ6XvWrUersJAO1km5tT9E1/0yb7R43XhwsRHPFQYYS
-	lDc7f3cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AB188XGB4sbY3JcvO+RtPjAq1fA2l4207oGcIEuttd0=; b=JavQQ5FLeJ2mcrYr6A2FgY8LbE
+	pEjJ//8OmANFgSUEGYuBjvf7UfJlQYkmM4vmaAIyHg3l8RTKeP1UNgN0/gKVKg+mK/+VHFsWrKPkM
+	E1UT2niAFj3T58qAdh1Jo/7cFrgc9kU8TXXY65uxxaTvwtvuNM17V3oOqux4XetWb8AVfx8GpXvMZ
+	qStg3nIYUVZFi5jl3GqkPuiWW+dbnlxdW6areZ9srfiuLnKvvpbxRTYXLN+qcgCshO1+rXaJZUijx
+	P+xuUP9+i3D9v0PT7yxDHCXzHJvrRIycaozpfrZ9jbjagHE1RLPUKkKPze83r+Q3dejPxtZFoNwP/
+	GlID6g1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVji-00000003N5b-1eM3;
-	Wed, 05 Aug 2026 07:08:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wrVl7-00000003NMb-3jy9;
+	Wed, 05 Aug 2026 07:09:49 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVjg-00000003N4S-2GT1;
-	Wed, 05 Aug 2026 07:08:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F19AD60A80;
-	Wed,  5 Aug 2026 07:08:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE5631F000E9;
-	Wed,  5 Aug 2026 07:08:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785913699;
-	bh=vNEcH5eiRUh8NICgduYDaOl24IADYP9UbXI26pv5SRE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=c3mCOyRJupjeALk951K9k9qrCVAMZ1QRwiaQgQlnLHQDEOH3pMfR5xqhYUeTrO8WV
-	 /uPS14bgTrexVmJZ2lLL91OeyEwvaEHZ0tEl2a4xByGlqC+dmoiH/5JJ8orkfm0Gl8
-	 puMUKpkpygQTin0GNRnBDSNKkZVAvuHMEOoUzkQvl+VISDrwmKDO7bXVI5yj7dydXT
-	 YjRsEA1O/5ofG1nkNZi9s9qo4s9i53HHBTt7RrC0UY1pKMTg+t/QMxYAEgoHMyfTMJ
-	 1LstaBccT9LgPW3XsWLE23Iz0e/pAvf0niG2dD3BaW2jiv7XvUzaTvhnTh8Gtz/X+h
-	 2fsTYNjabDTZA==
-Date: Wed, 5 Aug 2026 09:08:17 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>, 
-	Matthias Fend <matthias.fend@emfend.at>, Mikhail Rudenko <mike.rudenko@gmail.com>, 
-	Daniel Scally <dan.scally@ideasonboard.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Michael Riesch <michael.riesch@collabora.com>, Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
-	Sylvain Petinot <sylvain.petinot@foss.st.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Paul Elder <paul.elder@ideasonboard.com>, Martin Kepplinger <martin.kepplinger@puri.sm>, 
-	Quentin Schulz <quentin.schulz@theobroma-systems.com>, Tommaso Merciai <tomm.merciai@gmail.com>, 
-	Svyatoslav Ryhel <clamor95@gmail.com>, Richard Acayan <mailingradian@gmail.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux@ew.tq-group.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	Quentin Schulz <quentin.schulz@cherry.de>, David Heidelberg <david@ixit.cz>
-Subject: Re: [PATCH v4 6/7] arm64: dts: rockchip: Convert to new media
- orientation definitions
-Message-ID: <anLhT24qvnEA4Hts@orome>
-References: <20260804-kbingham-orientation-v4-0-336998dd63b4@ideasonboard.com>
- <20260804-kbingham-orientation-v4-6-336998dd63b4@ideasonboard.com>
+	id 1wrVl4-00000003NLY-2HSd
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Aug 2026 07:09:48 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-496bb7cdf51so6988015e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 00:09:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785913784; x=1786518584; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=AB188XGB4sbY3JcvO+RtPjAq1fA2l4207oGcIEuttd0=;
+        b=Zmd250JP9XjGtUOnPFTnNZdltGx++3X0ytGmoupNQ3H/GHglw86oyBKL2s6fVFjyBI
+         Sa7BIxKv6hZfoY6VHM80rfFp29jku7gJiIoy8WFqpp1aKLfnCGdwYYXU5NfD301y0GBb
+         kR6GKqmelJItOl+jdpZd6jryZ+ou5QAZsW+fpYX1X/eqWsakPcHkxflpeKsUssNj8dGD
+         +v25rZw8Cz9NKRzu6TcVUGJBkfzNCu46TTCYSTY3g6CQSHs+9PARWHwI8GmZgkpB100i
+         L5jE2mtpQnBsB+jh5YhRJbaPXQ4qhCRiI5f9QaX+O0RU9Vnm4oRF7q8swJUB6W54Jr+p
+         p3kA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785913784; x=1786518584;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=AB188XGB4sbY3JcvO+RtPjAq1fA2l4207oGcIEuttd0=;
+        b=iSX4cOXqIoNageHDb8ek1dbb7OQeizFLTwXdquJ6BDK0cDA78Z+hFa80yxnc6tkDdT
+         RsRiby9U22cqe5xZz5/wP9oYhUst+tO+QuAF1EHz+6ny5qosYa+5RX3tSeg34gYjxbpK
+         AD8E4xsnFn+VhAPCvaCHvQ/rWdDKycoweGdbJ0qiiYVo41SwDQpPbZKW4VwavhDDl3o+
+         slZFPOYkBl+XKpW8wQdphJtiYfPje30agFl38oQGDjpqf3F0SqtURCdbgNay3B9xUyzR
+         9PjYalzrCGfisEq6Rw0bTeUxPbDh9THET2tj4ZVL+vGgq5vyM5kMRSHC1dzvIIXo1Nsr
+         l7Og==
+X-Forwarded-Encrypted: i=1; AHgh+RpUYqMcKA+Rg4JGs8KC06MjRBf84g2bM0qckcmf9Ctm8whiheJUNcBSm6I7NolXedxVBQSWoMleP5LoftomCQ6W@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzkM6p3KivYFEkUDN0ZorNKlaiSfsz6mwRTlAW5g01WbM6AU6b
+	taVEwPa6XQ7wuVH9jq3jdWxKlO8rkUZsl7bEM/xJZAi4knlUHjezabjomUn+zypM
+X-Gm-Gg: AR+sD13iDR0cOLyRQZtjjRmR8mlm7EZ1G6h1gcqEsHQsY9GMGtdiZ+NgAQVnBpfueuM
+	PtXyxnev+hqFLx8z7ss0qXIPPRgrHgmQa2E60C/AumqaOxTlMJp2FZ9Qk//QrJoH+12CQKPZ4kR
+	phQfwRAPNF+4p85aaYlknos+3lkyqxGXK1ak6swxLJAGaE/ibmFi5IRcB05vOIObOGiwIhBNCUi
+	6W7uLSx5X4MXHvOzaFUs+3qQAAl1ocY9tZDuwlHc1dyANmp6KggliP2QOsobtAkg4k91tTFJ3uA
+	Y4bjlr7GsLXkaYXY5XkmvlK2wIPeNJAF8Byy3YPzrFZZH7Qai/y/I0ckhUQcNEc7iAJj8nXj0iY
+	qH7HtVcgfxqCahn7j8VRd9dgENorq+0tRMbqG0UV1FCeKylgbcZBDQhkFybBL2JAR3JLs8ddqzo
+	G0waTe97sAsrlWqIpkJrriJ838B97AzwDUEfzEDeyF16bPQeBXOdUycDT3x1sfkX9sAw==
+X-Received: by 2002:a05:600c:138a:b0:498:943:ccc0 with SMTP id 5b1f17b1804b1-4994e714d8fmr46447075e9.6.1785913783962;
+        Wed, 05 Aug 2026 00:09:43 -0700 (PDT)
+Received: from fedora ([46.205.219.119])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4994e4c32e0sm35567225e9.0.2026.08.05.00.09.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Aug 2026 00:09:43 -0700 (PDT)
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+To: netdev@vger.kernel.org
+Cc: lorenzo@kernel.org,
+	win847@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Daniel Pawlik <pawlik.dan@gmail.com>
+Subject: [PATCH] net: airoha: npu: use coherent DMA for mailbox messages
+Date: Wed,  5 Aug 2026 09:08:51 +0200
+Message-ID: <20260805070851.2885888-1-pawlik.dan@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fgh3aexbzhxkl2gy"
-Content-Disposition: inline
-In-Reply-To: <20260804-kbingham-orientation-v4-6-336998dd63b4@ideasonboard.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260805_000946_704945_8B39F499 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,60 +98,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Commit 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox
+buffer") switched airoha_npu_send_msg() to DMA_BIDIRECTIONAL so
+non-coherent CPUs invalidate caches before reading NPU GET responses.
 
---fgh3aexbzhxkl2gy
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 6/7] arm64: dts: rockchip: Convert to new media
- orientation definitions
-MIME-Version: 1.0
+On EN7581 + MT7996 that change regresses probe: the mailbox completes
+successfully, but WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0 and
+mt76 never binds NPU offload. Healthy boards report 0.1111.
 
-On Tue, Aug 04, 2026 at 08:43:33PM +0100, Kieran Bingham wrote:
-> The orientation property for video interface devices now has definitions
-> to prevent hardcoded integer values for the enum options.
->=20
-> Update the users throughout the rockchip device trees to use the new
-> definitions.
->=20
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de> # PP-1516 and
-> Reviewed-by: David Heidelberg <david@ixit.cz>
-> Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
-> ---
->  arch/arm64/boot/dts/rockchip/px30-pp1516.dtsi                        | 3=
- ++-
->  arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso    | 3=
- ++-
->  arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts                | 5=
- +++--
->  .../boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam0.dtso      | 3=
- ++-
->  .../boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso      | 3=
- ++-
->  5 files changed, 11 insertions(+), 6 deletions(-)
+Mailbox messages are tiny and already copied by the caller. Bounce
+through dma_alloc_coherent() so the CPU observes the NPU-written
+response without relying on streaming DMA direction.
 
-Reviewed-by: Thierry Reding <treding@nvidia.com>
+Verified on Quantum Fiber W1700K (EN7581 + MT7996).
 
---fgh3aexbzhxkl2gy
-Content-Type: application/pgp-signature; name="signature.asc"
+Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
+Assisted-by: Cursor:composer-2
+Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+---
+ drivers/net/ethernet/airoha/airoha_npu.c | 21 ++++++++++++++++-----
+ 1 file changed, 16 insertions(+), 5 deletions(-)
 
------BEGIN PGP SIGNATURE-----
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index b679bed952de..d2f6c9c084b8 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -166,12 +166,21 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+ 	u16 core = 0; /* FIXME */
+ 	u32 val, offset = core << 4;
+ 	dma_addr_t dma_addr;
++	void *dma_buf;
+ 	int ret;
+ 
+-	dma_addr = dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
+-	ret = dma_mapping_error(npu->dev, dma_addr);
+-	if (ret)
+-		return ret;
++	/*
++	 * Mailbox payloads are small and bidirectional (CPU sets the
++	 * request, NPU writes the response). Streaming DMA_BIDIRECTIONAL
++	 * mapping regresses EN7581+MT7996: MBOX reports success but
++	 * WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0. Use a
++	 * coherent bounce buffer so the CPU always sees the NPU response.
++	 */
++	dma_buf = dma_alloc_coherent(npu->dev, size, &dma_addr, GFP_ATOMIC);
++	if (!dma_buf)
++		return -ENOMEM;
++
++	memcpy(dma_buf, p, size);
+ 
+ 	spin_lock_bh(&npu->cores[core].lock);
+ 
+@@ -191,7 +200,9 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+ 
+ 	spin_unlock_bh(&npu->cores[core].lock);
+ 
+-	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
++	if (!ret)
++		memcpy(p, dma_buf, size);
++	dma_free_coherent(npu->dev, size, dma_buf, dma_addr);
+ 
+ 	return ret;
+ }
+-- 
+2.55.0
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpy4WEACgkQ3SOs138+
-s6FxpQ//ccqIThK+LrLFr51FSei9dZNGzceLGFOXJBDVy7F9Wor8MoXR9+T5Nicv
-DFoLV/3A36SIHJDDr4kAe2A/RQxRdJ1P4XT8xX3m4rAbrKbpA7slVletVDznuOL3
-NqFcdqOCuGAVzHn36GKzVG7psqDZekFMGFQZZV9ytFjeACObSYy+rnENLJT8ZFIt
-1vjuc5XQhD++Z+Qt14/wt/O+nBFzw6Cwkbv09QqXraCTG9BebWWJoQPOzE9TPRnE
-A2I2uHlZC0RAFY5WfYTFrsMpOvJprE5dKc64tFfwwIYOgZFRfGTT5r3FnshLdkcS
-cZouRDlEqHeMOWtG57WSsl8UPvV8GzUZZoK0wGeG9WO6iWF3yECeB4y2gSdRnWFS
-r7CRFXrWLCvp7CX/9VZ54ixtzttjI27BkqnbYafol41icUNqWCaHy1Ewi102tK2l
-u95l9hxc9lmtvgWsvZKA5dhLpG4Cp2oH5LqNFT5CbV+bPgqHiIOMbiSxEqe00aP2
-CogK/9GsG+264IfGiYc5cb6zI0C0x3POihUky1oMjRe8gDtsQ0g2L31kpPI6yg8k
-uecCcyUs4KKcWR5q6ZN8UiXVf3qZ53lfQmreM7+b8Ud2/amKJvii1p8s+3q3AmSE
-ZggvZyddTpgOudbYr5x0j5VAPTTaOhf/FCb7Ph8XB3cgSKdHcjE=
-=q+Bc
------END PGP SIGNATURE-----
-
---fgh3aexbzhxkl2gy--
 
