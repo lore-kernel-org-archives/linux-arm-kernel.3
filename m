@@ -4,117 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9D2C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 09:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A640BC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 09:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gc5m4+tIBvg0egjJhph4T+RN5CfIOJByD9/EsS70PrM=; b=JAlt1kk5ou7D8joJd0yYbgNQqf
-	/96KIShWBIeuAmeeI7VCsZNxEdayAgpLIOu9/0/8rFbbx0VYGHHx8DAZCoU3pWMjLpdeMFVzhtm9l
-	FFCM3618FtCRmwgve5CJIwoT2nxn+/RrWsRHRAjevUDYM61zqlgaG/1zaJObevWHNv6UmVwTkb7Ms
-	r89g2O1ABWH1CD+/TV/zomA83X3INX1P2dE4P6R/JlljL0W8jeyq0hpaM5HVZFDMhqi5acQpZgaMH
-	2qlaXICCDDECoKYK6w3BDVM4pA63I2hJmNl7hRUSt20DiSlq6EUUVsjPf2+5/YlOxUHPo8IacNYXv
-	Xn+xZ8sg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=6wxwPIWRM1vDM9w14XJDhv0/P5Ac49d5AiJFGkrPer4=; b=QNyODQjiwZT5/k
+	xqcnQnv6EBmWCfflRBqyfUx8LQOGRzQBkD5+gkK41Suaq/4ovWiPwLsYmKfQFvgiIlP/D17rmPbQW
+	1VXsEQ1dMwe0zt0o7wudNXDgmqVWURxJQBSWOf0bhmnexbeBK6dLmkJALq6crzo8TaIK7Hwyr4lON
+	tiLpLSztqfFpuKknQLJPHwDe/vADllRTWbVRuC/ktTMhwEog1ZSn2ASpNscRkEH9PdhMgzVlABvNH
+	FwarBZjRvVkKBQGg0giYabFV+WyhuH+oWRpVJSWQR0ao3MLIvZeCz0vihZ+ecweBDRVXcF95ADCLl
+	pBWz157PbWzUf+3oSZdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrXdr-00000003aHn-3U2N;
-	Wed, 05 Aug 2026 09:10:27 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wrXhh-00000003ayW-34vy;
+	Wed, 05 Aug 2026 09:14:25 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrXdp-00000003aH6-2Een
+	id 1wrXhe-00000003axi-2kZw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 09:10:27 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4994d67d260so29815e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 02:10:23 -0700 (PDT)
+	Wed, 05 Aug 2026 09:14:24 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47f92e3c14bso640093f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 02:14:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1785921022; x=1786525822; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20251104; t=1785921261; x=1786526061; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Gc5m4+tIBvg0egjJhph4T+RN5CfIOJByD9/EsS70PrM=;
-        b=K2KQNsEimZF6yvRFfUfBL+kom/MUaOzPS6Dy76BDR8YkSJapWXqYMIwWT376n4TC0R
-         n5RShDfCFWVFyFaZX2IgVIoEOXQXfId8aOFJ0B+/vBdBcu79bwgCKqn53Sr7n3LmGSV2
-         X/8TjHkBrAtW9OX7PevowQjPpzyAYOCAlhg6Uj+HycbuIBd7gnTvkpuImep46FcLcj6E
-         2zsFTgn8F77KVHTckotZs/73STs5J1seHqEWwTHddxBjIFh4yiCd7ZGFTdjLevRUnp0k
-         oSavZTbNRXGz3dOraifPE47/RnNiKQuuZfbgZZrqRvy9N3BM5BJoikgfue/pZkYL9Zes
-         5EOA==
+        bh=6wxwPIWRM1vDM9w14XJDhv0/P5Ac49d5AiJFGkrPer4=;
+        b=seog8LWPSRdd82AK8rxSVM3xJ8MMm/kmTfuS6x3Xfz/1ySjOPmWt3c6eDWep6fzS2R
+         5sneei/Dm4XjAJepChH5T8DknGz0ohUTnxY0RpyO8wxv3bU79K4tSEHjEEU8nKKcHa4V
+         oda+3SeVGeua1+LcE0meIlds70kxd5mX5UMiEFQpWES8Rtc0KB2UdphfZe8wdgdMByad
+         0XoS/pyZECkHzviJS/5LOZ9HQw7KPhu1m5THfJc94dkSUQLLxAjfhnDTcrvVidV7rY5P
+         D5qSS+faiBOLa65N3TKcZNbeVH2mv+vKf3UnpWK2FMvYJODl0gPkY6c+7P/WA3jXi9S4
+         ZaVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785921022; x=1786525822;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1785921261; x=1786526061;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Gc5m4+tIBvg0egjJhph4T+RN5CfIOJByD9/EsS70PrM=;
-        b=p8IhQsuyCbLAhbRNQ8AAAUSFExpgPTS8XGquyatiOo7wM97nxsJXhA+t8B/RSQ34Wf
-         gKbAYRNYf5y8VRfA8jf9qZBZ2m0upBvb/ov9zOotVwqtH9RgS7QQarM2KuKUUaHJ0FS2
-         WN9nNZvs5TVm/qbLm84yeF2Rq5rWKYEuVeFX8hEC84O0fAo5H5BRKIDYXL8DNJeZmKds
-         0XYdF3+i2ynXX1GvlzM0wMSCSQNB4lplgeZOdVZI5qYrsA3nUwzc8mqjlEVna2YSS1VH
-         nQ9D7tetvUHRBVHoujm1XuWER2pYDCcd28pZ84P+M6Go8lQCSrlmayq2xZOKan0dUBhp
-         FjsQ==
-X-Forwarded-Encrypted: i=1; AHgh+Ro09D8ma8cq/lJizvq4SAKFFE2GejD6FdHNdx8wgueuNIBw4OcV5D7Is9nnmFZDTaE6aGd75L+ycvxeadRh+KKH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7MGM5W4FLmz+kBV273VYlwYIp53EIMuzlIcggXO/4TSY2XMgS
-	X5jpFE06yeRuHbEDBWIdbwhZjWN1WPbZGUbvGwdaDYu2kreCPvflRvq192Mv4QKOKA==
-X-Gm-Gg: AR+sD11tNCK/vlfgOjYiMXm48LiKl/+dmdbOhv/Q/pmknm0Tfz1SorrWRsSwOJasdao
-	CLD65OaAdMasLfc92Y7rUL6vE1Cy7JKNFzJkl5Q2WVILCJxR5LBIlum0JEGgZSy4bnhb1enS4FK
-	NnpmYvi9aUVrra9LM3B8IsVLW10aeBH/X4u/g/pfOFEX9Y8LEoCOVv65c+buCjyqOV9klr0I17R
-	5VMXfXD5MPq7FWIKaw6pNGrFrlnIghFLc4ko4bTGsgYIC31y7JgF0NjhOTat2O/ZLShN551HWQb
-	+IsMaxgdv4RGCGc6rlfmeBUkxQifiFz/r/Qms0XOPU0Q5qvpRBNz5gUwcZOjwFzRkok+AZbOaHH
-	vsyi5cFcKTh5W8Q70a+ggbMHDZJ1vhgrNFsjFsZUBNyUk7vHXCd1zxxbK+vN4YmA2B21nxNgMGU
-	zT9wqM5qbWrfKK4kTt/osL2AbZ6v7mlpWW9Ywo8/T/N0qeZQKKe6pQplTvuM40mfY0GwgePC9wc
-	JttBR+R5Cye0SjT2DpXywUsVFsqgQ==
-X-Received: by 2002:a05:600c:630f:b0:495:4069:b0de with SMTP id 5b1f17b1804b1-4994f123620mr696915e9.9.1785921021836;
-        Wed, 05 Aug 2026 02:10:21 -0700 (PDT)
-Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4994dfda45asm92632815e9.4.2026.08.05.02.10.20
+        bh=6wxwPIWRM1vDM9w14XJDhv0/P5Ac49d5AiJFGkrPer4=;
+        b=T6PzcqvaTvTC/5k+clVO4xxjNCPo5HasenCwtGlDdPMiRRO2V9FbnueXRa0ruqSpKH
+         n2RLpz4SpjyegOvvTWXHTRQJby/KAYSAWHok1rZACOw/glmLD2x5UX2F2qGVGUCFhAOg
+         Ev+b45/Ex6CaAAb2TkNhSqn0vwVHfFAsQpD5DcqP70uSy/zOJf5xPCvk4MSB6rB5htDw
+         2l3BHO7F1qUo0hjd98Bt/NdKnKbDSzCEtLjpd71JeQt/2Oj+759cgkz0+iqNW2PUs6lJ
+         xO2Zbca7gJ0r7ta2YIbusRdhw3dOoreRakVTq8RbBaItys2IHOGMxCVxZvL3YPni3Zjk
+         G9tg==
+X-Gm-Message-State: AOJu0YzUAg8g3g4jS4J5A+M6gBCKfTDbvtg/ukyQa6bH7a517In8+OFb
+	nv1TXwCFSTgfe6FdXAPGy1hV21FGP4Fjm4OIFE0s8Yv0cYQfndqw9Y8/
+X-Gm-Gg: AR+sD139D3cB+uMFiQsfheVskEaBNQTAACjzMr+Fa3H4k65Gxl1VgKFvy4uAYZAZ3Pc
+	25drDVIv+3pXkS9okfOrrAP4zOsggd86dtu37iASvMJgrqMGAj+vvykSdNw3VynIbkClaVnscZv
+	+Ov2BYXxgQkOa9Fh71SZ/rGcM6la4HlWjpANQVI/CZ8LtLVvzmY0YrzyQT33alSPdKKXlQV3sz3
+	l0JIr2xVnQ1DxV6EfiI7GaXbM2CSh5HFbmIM4HmeGc6uAFl56phRT2bQ0mO/n9WQlqEqByx9+IX
+	AlzHmoaV93I/O1u+h7zvI/8Ft/qnJG6ZHhLMqwxb+URywv173noU6Dhi8uCEkqf4FJNPka7Cktw
+	ps3aNPM4WW/1yFeKreqxzWRysVjF9Eff6E26Z5ttUeGpX7Aed0As0Ll4/jvKG2l36om77386Dis
+	7wLR6QMVWbyrG0FrOiVC986Aht+z0KVBF4IF12SJN191RXvWBlgXhNzpF+pjsZLmVr5daxQHVIE
+	y+41eMHhCyPwxbYi/qia4KZdg==
+X-Received: by 2002:a05:6000:40ce:b0:47f:96e3:530e with SMTP id ffacd0b85a97d-47fec4f015cmr9183382f8f.8.1785921260475;
+        Wed, 05 Aug 2026 02:14:20 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47febfe5b1bsm6458207f8f.12.2026.08.05.02.14.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 02:10:20 -0700 (PDT)
-Date: Wed, 5 Aug 2026 09:10:16 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
- reference
-Message-ID: <anL9-OrDGqYQAWNV@google.com>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <20260717180442.110954-13-aneesh.kumar@kernel.org>
- <ami_mpd_1pF4Tmdu@google.com>
- <yq5a5x1ygo7z.fsf@kernel.org>
- <amnRB98ZZIysHuM3@google.com>
- <yq5acxw6dl1d.fsf@kernel.org>
- <20260804142032.GC27883@nvidia.com>
+        Wed, 05 Aug 2026 02:14:18 -0700 (PDT)
+Date: Wed, 5 Aug 2026 10:14:16 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v2 02/20] arm64: percpu: Fix this_cpu_and() mask
+ generation
+Message-ID: <20260805101416.454a49b6@pumpkin>
+In-Reply-To: <20260804170503.3513916-3-mark.rutland@arm.com>
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
+	<20260804170503.3513916-3-mark.rutland@arm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260804142032.GC27883@nvidia.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_021025_624744_08ACFFA6 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20260805_021422_729229_F3DE2506 
+X-CRM114-Status: GOOD (  26.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,47 +97,116 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, stable@vger.kernel.org, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 11:20:32AM -0300, Jason Gunthorpe wrote:
-> On Wed, Jul 29, 2026 at 06:12:38PM +0530, Aneesh Kumar K.V wrote:
-> > There is a possibility that we may support io_tlb_mem with cc_shared =
-> > false in the future. As a result, only swiotlb_map() knows which type of
-> > bounce buffer was used, making it the only place where the attributes
-> > can be updated correctly.
+On Tue,  4 Aug 2026 18:04:45 +0100
+Mark Rutland <mark.rutland@arm.com> wrote:
+
+> The arm64 implementation of this_cpu_and(pcp, val) is built in terms of
+> ANDNOT operations, which requires the 'val' argument to be bitwise
+> negated. The bitwise negation is not implemented correctly, with two
+> bugs described below.
 > 
-> Yeah, +1, the attribute should be changed at the same effective place
-> the source memory is changed away from what the DMA API user
-> provided. Only the thing providing the new memory (eg swiotlb) should
-> know its properties.
+> (1) The bitwise negation is performed as '~val' rather than '~(val)'.
+>     This won't always generate the expected value when 'val' is an
+>     expression.
+> 
+>     For example, for this_cpu_and(pcp, 1 - 1):
+> 
+>     * 'val'    is  '1 - 1'   ===> (int) 0x00000000
+>     * '~val'   is '~1 - 1'   ===> (int) 0xfffffffd
+>     * '~(val)' is '~(1 - 1)' ===> (int) 0xffffffff
+> 
+>     ... and thus bit[1] of 'pcp' would be preserved unexpectedly by the
+>     ANDNOT operation.
+> 
+> (2) The bitwise negation is performed on 'val' before it has been cast
+>     to (at least) the width of 'pcp'. This won't always generate the
+>     expected value for the upper bits.
+> 
+>     For example, for this_cpu_and(pcp, zero), where 'pcp' is a u64 and
+>     'zero' is a u32:
+> 
+>     * 'zero'           ===> (u32) 0x00000000
+>     * '~(zero)'        ===> (u32) 0xffffffff
+>     * '(u64)~(zero)'   ===> (u64) 0x00000000ffffffff
+>     * '~((u64)(zero))' ===> (u64) 0xffffffffffffffff
+> 
+>     ... and thus bits[63:32] of 'pcp' would be preserved unexpectedly by
+>     the ANDNOT operation.
+> 
+> Fix these issues by adding brackets around 'val', and by casting 'val'
+> to an appropriately-sized type before bitwise negation.
+> 
 
-I will keep the conversation here instead of 2 threads.
-
-That seems like a big leap, I'd be worried about devices that operate
-on confidential data that should not be shared/decrypted.
-
-One example for this which exists in pKVM (this part is not
-upstream yet) is non coherent devices that require bouncing but they
-still want to keep the data private. In that case ideally they get
-an encrypted SWIOTLB pool, but it's always better to fail than to use
-a decrypted pool behind it's back.
-
-I have not been following the work on T=1/T=0 devices, but IIRC, they
-required some complexity to handle their stage-2 as these modes will
-be emulated differently (for CCA, RMM vs untrusted host).
-I was thinking that it might be easier to represent those to the
-guest kernel as 2 separate devices (bounded to different groups...)
-where one is trusted and the other is not, and that way the DMA-API
-can have strict rules about memory sharing.
-
-Otherwise, SWIOTLB does not seem like the right place to me, as it
-does not understand the context the device is operating in, and the
-DMA-API should deduce that from the flags passed.
-
-Thanks,
-Mostafa
+I'm not sure the arm asm output is really needed.
 
 > 
-> Jason
+> Fixes: 959bf2fd03b5 ("arm64: percpu: Rewrite per-cpu ops to allow use of LSE atomics")
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: James Morse <james.morse@arm.com>
+> Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yang Shi <yang@os.amperecomputing.com>
+> Cc: stable@vger.kernel.org
+> ---
+>  arch/arm64/include/asm/percpu.h | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/percpu.h b/arch/arm64/include/asm/percpu.h
+> index 63bbfd4944a37..31193bcf89a2b 100644
+> --- a/arch/arm64/include/asm/percpu.h
+> +++ b/arch/arm64/include/asm/percpu.h
+> @@ -206,13 +206,13 @@ PERCPU_RET_OP(add, add, ldadd)
+>  	_pcp_protect_return(__percpu_add_return_case_64, pcp, val)
+>  
+>  #define this_cpu_and_1(pcp, val)	\
+> -	_pcp_protect(__percpu_andnot_case_8, pcp, ~val)
+> +	_pcp_protect(__percpu_andnot_case_8, pcp, ~(u8)(val))
+>  #define this_cpu_and_2(pcp, val)	\
+> -	_pcp_protect(__percpu_andnot_case_16, pcp, ~val)
+> +	_pcp_protect(__percpu_andnot_case_16, pcp, ~(u16)(val))
+
+I don't think the (u8) or (u16) casts are needed.
+They force the high 24/16 bits to be ones, but the asm should
+ignore those bits (or possible even prefer they be zeros).
+They might also force the compiler to emit code to mask the high bits.
+
+Actually the (u16) cast is wrong for (s8)128.
+That is tricky to fix, maybe:
+	~(sizeof(val) == 1 ? (u8)(val) : (val))
+(Remember ?: promotes its operands to int.)
+
+>  #define this_cpu_and_4(pcp, val)	\
+> -	_pcp_protect(__percpu_andnot_case_32, pcp, ~val)
+> +	_pcp_protect(__percpu_andnot_case_32, pcp, ~(u32)(val))
+
+The (u32) cast isn't needed (and has pretty much no effect).
+
+>  #define this_cpu_and_8(pcp, val)	\
+> -	_pcp_protect(__percpu_andnot_case_64, pcp, ~val)
+> +	_pcp_protect(__percpu_andnot_case_64, pcp, ~(u64)(val))
+
+This one still isn't right.
+If val is a signed int with a negative value then it is sign extended
+before being inverted.
+	val             (int)0x80000000
+	(u64)(val)   0xffffffff80000000
+	~(u64)(val)  0x000000007fffffff
+Something like ~(u64)((val) + 0u) will DTRT.
+
+	David
+
+>  
+>  #define this_cpu_or_1(pcp, val)		\
+>  	_pcp_protect(__percpu_or_case_8, pcp, val)
+
 
