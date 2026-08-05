@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B28D3C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D4B0C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uCH2ArP3YXCqY+N5LvM1AvwEMdALrEinYage/fEFyGQ=; b=Scb4XpyjEstCDSBcTW/Ur4PXc9
-	n0gDWA1Ig1ltXlXmq5r7+2CPCTAqnuOfBngcYDrB2v0MoVBmligrb7Bwb+alqIwytFiurx5Q6oy2V
-	wC/ygFcQx2JalLiOW58QzGkXJ2s5tAG+wq7sgwpWDZodaFRqwK8bkykGGB4ZpGEMo5mFA2lLFoUae
-	smQmLL+mIV3bYStL6Zj5gzBw6dMk9j+DkDSen6Vcx1Mpxz6P8bRUvrrhVj2hfwzMiwjx5cS+YfwPG
-	5NPha3z2PdHnGiNMebLLv04PCg6Oqn4zRNxLPZBiT6JyPOTISqrV+2/C7VHcHpqrjALNJ9SiPxaNB
-	ckpq/jnA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=L58QuRttbq8ipfvicwBxGanLWWeJ0MgayPUEKQeAujc=; b=cLRlj/CvQtJdC9
+	qeJnAeyztAoR4aTrInPQbhhoEXdV4qU5VvIV6fKV+h0zkotxtIg0uwfzlV/iIWak2n9ERolEu58AJ
+	5ou3otBZD8aCzR3Z0lAk1CZDhuE+SMerBTTIZZGQV1EkmZErL3tHb71qwn0mW0yvAi+cwHY2ivVDk
+	IvVmycJIgAR1eU82k4a/VLDnhcbVApsyIOC7Z2StNx8rUyjsIz6NXqdE90sJ97Q3qZBgs8QFFxV1U
+	C+MA43pf5LECqS+xC1kyqYOeb24yPkP+P3ULPigTVLJDfzd2680fyfkLPYcY5JDuZhZpmaEeKHZCT
+	JM9qsc0qtnfros2ZoKXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wraON-00000003rru-18OO;
-	Wed, 05 Aug 2026 12:06:39 +0000
-Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	id 1wraQZ-00000003s5a-4ACs;
+	Wed, 05 Aug 2026 12:08:56 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wraOK-00000003rrW-2vCi
+	id 1wraQX-00000003s52-2PVL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 12:06:37 +0000
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfout.stl.internal (Postfix) with ESMTP id 583CD1D000F9;
-	Wed,  5 Aug 2026 08:06:35 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Wed, 05 Aug 2026 08:06:35 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1785931595; x=1786017995; bh=uCH2ArP3YX
-	CqY+N5LvM1AvwEMdALrEinYage/fEFyGQ=; b=KI8LcDABuTJduK0RO5dyxTf6aD
-	kBEPCFejn1NYPHmzzSloX71C/cHfFdqVbzAPAesgIAcrwNjHTr9upvmr+YKKlL1x
-	EctIxdOh3YwuoF+sNw40q1/5+au/5qPvBx4i/upwYDR5+/jQhrHZ0UWKj5e4Fslv
-	4WIOtJRmox8gW1J9pUv4yEBYCMV5dOnQOuB6Cxt2mnNoZJZ7Pyn6sB8JYBNAt53h
-	Orko06VpBPWaB1NL8U48QbrJvMof9ZhAWLS99Qq92bTL3xFsg2R9Uu9v73rYO0DY
-	pQ9OEAxcwWNgllojx5PNiH60flW9uLzQo5LvOk0oht7wzSu3yQsoNyZjSqOQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1785931595; x=1786017995; bh=uCH2ArP3YXCqY+N5LvM1AvwEMdALrEinYag
-	e/fEFyGQ=; b=Z2v3cyomB1PB4GwnGrAkJWCbhc68LKW7r/oA5W29UU32+6b7YIA
-	ngBThDz3uxMDtlzs+VpG0flrp8Bw8V/HxptwkFiSDdMRKav0nnoxGVO/4kJ/wXqH
-	RysOQdQHAkxlhbJGiWiUz+SXsYE3As53q21uH7VBrsE5YF0gQDxLq/6lsd2gG4vW
-	6KCuSYirg4IWNmpMTYu0wXaoA68VoNdS6Nf5vBgPp/6C74CNksQs2o83sFTJmQP6
-	nMQrxtDPda8RcTpPXpCfGsg0enm2eKQRDKnffruzHMLORaD5wbXVbuhJ//vgMkM/
-	oGbFlr9l9WJ0UEm/lr7t61tALg21Dt8c4Lw==
-X-ME-Sender: <xms:SidzaswSIv2VvT-985Y9sxXOSxmlKr5RhX_g03WYjA72QPYl2qybHA>
-    <xme:SidzamrH3_LYQlydWwlMuVpQ3oI6txOt5J64HIKctqTjGqfixGf5GPDgjYHdFCFdq
-    umlUIHR7ZINZcOZKsTn7KbKJEZP4b_CqlGWxjIhZRKT388dAZxah_dg>
-X-ME-Received: <xmr:SidzaqlFGbWp7WRyEYoEpzX9QK-RKdk0k1ln7734yv8W8AZzmzi4HYCU7Fm_pzfn-wnUfL8aWWFadCoxh_ldSwI2hMAnhET-gMs>
-X-ME-Proxy-Cause: dmFkZTGg4gHFWX/1EjYXAxtIRZWZMG+Rj5WZxw6FK+u6PHVpV5bLsk6WQMPSuqoH6nqEr/
-    l4GMAkNMH1YcDmK5IqbD6/qVUN9jNEwiNF+eS3cKa6x/UnKd8gcwwlTg+Ri1XRQYJtz1AR
-    Zio5g3bvOJI3zxIodiB1sFgDeMIEWjj7rSvfjbglmH0MVH2OohTXEU7VtLrsEs3k0GML0F
-    rzhFmOljDAfhtwuBEASommCqh3EH4o5VQRFhshTFE7MnC+RzAVpyEMYp5kEHAQDkTA7Fkl
-    hTYspyTvAUPxqAQDCAQR/5nbRCgT7TsBRjPzHQShiXvxJ/QmS3iZHUKgr6SGmwLjnQxnGE
-    NJym7JX+z2dlTZ8rL6gENZHpX7sDOa76sqWLCzvleNMTiD1JxXptda3YUnHgRPjCbeB95j
-    ApQi68xY1DE4CBw6DY+HQJiparia/RbiA2PNV0A2ukaf4v9BP/06ew2bnHTvfXzFVJvk6j
-    PkV66c6X086BeulwWT9EyfWASNXxVKZfzOppgUKMohH4wPCEF4XW2HyQozBMBJgJszB/xt
-    owZe14krcNs/Q73FJJbPXnEW0PbqZz/dF3+5A1f3EJU6q/GZPSLo9C5IYl1IKwj2Ub6N03
-    cO7pyDQAVYGeERKmPPUYmApEujslzmRS4TVBXhHffrM8ixn8p0RKnbwPW7dg
-X-ME-Proxy: <xmx:SidzaoUekvsWmXQmuWx8M77mvB4-KnA1Z4Sw5EK-2jEcVz-HoNG0gA>
-    <xmx:SidzamqHKHZUghg_DGnkSYgZP1_x3QP-khEoj_1cvNRN0LeU_Zfi0g>
-    <xmx:SidzahUwTYjRpIqN0u455ZjUQ8Uo5v0bmULaNGC51cxJn2Tu83ZxTQ>
-    <xmx:SidzavE5WmU_WCt9vahlOxutBqFYtg740ZZfCAh_Vk3H_Tv8o0Txig>
-    <xmx:SydzagVmct1DPYCWX9frL6FZSvhtmZP8fimoxvgVHNefJYmBeYxYrv8y>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 5 Aug 2026 08:06:34 -0400 (EDT)
-Date: Wed, 5 Aug 2026 14:06:33 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Alba Mendez <me@alba.sh>
-Subject: Re: [PATCH v4 3/6] spmi: apple: check transaction status
-Message-ID: <20260805120633.GC832571@robin.jannau.net>
-References: <20260805-t603x-spmi-v4-0-c15a12d9a7d1@chaosmail.tech>
- <20260805-t603x-spmi-v4-3-c15a12d9a7d1@chaosmail.tech>
+	Wed, 05 Aug 2026 12:08:55 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4957eefd361so6643025e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 05:08:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785931731; x=1786536531; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=L58QuRttbq8ipfvicwBxGanLWWeJ0MgayPUEKQeAujc=;
+        b=qF5b5PXnLNHKR4wx+qSWvwDNG7lVczWoKjZh4aqYAzFpw5nGVKaesws5wCsE+MsEAU
+         0cVf9D4/9NoGZCW+L5hq7NqEJ1XVZhGOTPjfCIU1aX9u3/Ra/z9k8FI2YjEUvF/ICrMq
+         VXmBPtNta0b62QLJKPHMpXg9II9CL94W24mx8Jb8iZF0P4ihv5bJr8sfhJihc3hWh71v
+         BtNFfUaCjF2CnJpw2uOZLUivPXsM43gZM1NiH9S/hqG6rLJfVfXXPkh6kd5kfI8+TB+A
+         mFoxRyevUvMakAZ/ZjoQ5oeIvHAFsnZZvM/oST0nFxA+YSYrOhO4sQRf1SkSmSXccKNh
+         UzIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785931731; x=1786536531;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=L58QuRttbq8ipfvicwBxGanLWWeJ0MgayPUEKQeAujc=;
+        b=JMNdRodad04HYxgb3g/oNkIMkAQo5gFIat8fMjGa3rSil86Gc1jOMihbYF45ZC9yL3
+         BkCFrtHtd6rUKCdCT569D5sd2bgltGzYzqbwRicYy2uxzNz+Sgz9bfhZEuCKVW4i2U64
+         glEIxTPfUoPozn0pTRx3cD9KHW1ClQU58JByUFlvw5RWUiXDEenqlhY6iC3aoPBcUCsT
+         F8meh/YMly56tQpVkKNO31IHeUPB49sQTPvUPoBJFwsGp/q3m2a4uDMpfHENz6LQvIfV
+         ML38hGrR+d5Ca8hKNLz2tffDiQtXxoMTPb8zYl0Isd7JM14TmhugukZGPmYrqHPEpO4P
+         Wcfg==
+X-Forwarded-Encrypted: i=1; AHgh+RrmsdoplbbsEPMbwKil5Tsl/tJnGxlffT1c3ylrYXdxzH6MAVA8XZtmXuoXl7FJw2OTNpeFQlN7EAN5cmLyXv+v@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx7yIzs/PjDU+WFkq2EkMJg/CyssMKLzv2Yql2d7GPCien35te
+	dAHoJRj6962ChGPbV1V0gTFXM+nM23W+ySAtEMqleHI6UJdJXkfcIcIln1RWqLdx4Vg=
+X-Gm-Gg: AR+sD11W4bUu8+HjLsXfyQNocc3GK0Q2TIsci1Kp+348Ppi8dVXARJP9K/ah+INw05c
+	f71uGwwzGrVTqQIfE1YCgaX0iG08gKMzFMrj2f0rXyXSgjhPsuUWGqOFIBbQYyfIS37EjDovx6H
+	baOvDdXaMEkQ/t/31FUZYPKw1j+bZr8TYCVUkkC/LerlMu3f0oaZ7R7wCaTHILqZ1yN3oY80sKF
+	ZmPZ6eFwpRV6qizI1+5jCX4+bJkgYqEfPbOh0H+agRDETSJgA+P4vT/9hvFPbnb8tORn6q1liZo
+	rBVHBVeMU5JJka1VNla1gVlfbBlzo76nY2WuFlb349iLguJzeL8QU5ThpscLcsENN/RCh673f12
+	yNlv6vPQ84fxG3Jw8EAT4GG30WaLbSMSweFquyImOV5M4JnE0rsfcXV8JTxA9EqpyNBa+NTeZ8N
+	XOytoG1AEZ1us07JXf4LEwOo5H4qfYKa2iEeabcTbXNZ4nbhWtjXI0NsnYQ7PAYlVMbVufdLVzQ
+	cL6YuwCGOR6YKQ9SuLs6sdjzg==
+X-Received: by 2002:a05:600c:524a:b0:495:5890:8f6c with SMTP id 5b1f17b1804b1-4994e71d349mr61612425e9.7.1785931731173;
+        Wed, 05 Aug 2026 05:08:51 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fec23e250sm9440714f8f.26.2026.08.05.05.08.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Aug 2026 05:08:50 -0700 (PDT)
+Date: Wed, 5 Aug 2026 13:08:48 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Subject: Re: [PATCH v2 14/20] arm64: percpu: Implement preemptible
+ read/write ops
+Message-ID: <20260805130848.6d533293@pumpkin>
+In-Reply-To: <00a85d9a-8727-4b89-b33b-ce2d3358355c@arm.com>
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
+	<20260804170503.3513916-15-mark.rutland@arm.com>
+	<00a85d9a-8727-4b89-b33b-ce2d3358355c@arm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260805-t603x-spmi-v4-3-c15a12d9a7d1@chaosmail.tech>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_050636_779650_36D059B5 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20260805_050853_681808_70763670 
+X-CRM114-Status: GOOD (  25.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,116 +99,211 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, vladimir.murzin@arm.com, peterz@infradead.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, stable@vger.kernel.org, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, david@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 12:11:13PM +0200, Sasha Finkelstein wrote:
-> From: Alba Mendez <me@alba.sh>
+On Wed, 5 Aug 2026 10:24:04 +0100
+Ryan Roberts <ryan.roberts@arm.com> wrote:
+
+> On 04/08/2026 18:04, Mark Rutland wrote:
+> > Use the PCPU GPR infrastructure to implement preemptible this_cpu_read()
+> > and this_cpu_write().
+> > 
+> > This change means that this_cpu_read() will always use a plain LDR, even
+> > in LTO configurations where READ_ONCE() will use LDA[P]R. Using plain
+> > LDR is preferable, given that the rationale for using LDA[P]R in
+> > READ_ONCE() was to retain address dependencies against values written by
+> > other CPUs, which isn't expected usage for this_cpu_read(). Using plain
+> > LDR will enforce fewer ordering constraints.
+> > 
+> > Test case:
+> > 
+> > | void outline_this_cpu_write_u64(u64 __percpu *p, u64 v)
+> > | {
+> > | 	this_cpu_write(*p, v);
+> > | }
+> > 
+> > Generated code before this patch (v7.2-rc4):
+> > 
+> > | <outline_this_cpu_write_u64>:
+> > |        paciasp
+> > |        stp     x29, x30, [sp, #-16]!
+> > |        mrs     x2, sp_el0
+> > |        mov     x29, sp
+> > |        ldr     w3, [x2, #8]
+> > |        add     w3, w3, #0x1
+> > |        str     w3, [x2, #8]
+> > |        mrs     x3, tpidr_el1
+> > |        str     x1, [x0, x3]
+> > |        ldr     x0, [x2, #8]
+> > |        sub     x0, x0, #0x1
+> > |        str     w0, [x2, #8]
+> > |        cbz     x0, 1f
+> > |        ldr     x0, [x2, #8]
+> > |        cbnz    x0, 2f
+> > | 1:     bl      preempt_schedule_notrace
+> > | 2:     ldp     x29, x30, [sp], #16
+> > |        autiasp
+> > |        ret
+> > 
+> > Generated code after this patch:
+> > 
+> > | <outline_this_cpu_write_u64>:
+> > |        mrs     x2, sp_el0
+> > |        mov     w3, #0x7c60
+> > |        strh    w3, [x2, #20]
+> > |        mrs     x3, tpidr_el1
+> > |        str     x1, [x0, x3]
+> > |        strh    wzr, [x2, #20]
+> > |        ret
+> > 
+> > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> > Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> > Cc: Ard Biesheuvel <ardb@kernel.org>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: James Morse <james.morse@arm.com>
+> > Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Cc: Peter Zijlstra <peterz@infradead.org>
+> > Cc: Vladimir Murzin <vladimir.murzin@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Yang Shi <yang@os.amperecomputing.com>
+> > ---  
+> FYI I'm seeing build warnings caused by this patch (with ftrace enabled - based 
+> on the warnings, I'm guessing that's the key bit), using:
 > 
-> Check for parity errors and missing command ACKs
+> aarch64-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44
 > 
-> Signed-off-by: Alba Mendez <me@alba.sh>
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
-> ---
->  drivers/spmi/spmi-apple-controller.c | 26 +++++++++++++++++++++-----
->  1 file changed, 21 insertions(+), 5 deletions(-)
+> I haven't investigated the cause.
+
+It'll be the earlier patch that changed the casts.
+The code is doing:
+		this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+			       FTRACE_PID_IGNORE);
+where the constant is -1.
+I suspect the warning messages are coming from the switch case that are
+optimised away because the size if wrong (ftrace_ignore_pid seems to
+be a pid number to ignore and is 32 bits.
+
+That does seem a long-winded way to access per-cpu data.
+To make any sense the code must be running with preemption disabled and
+be caching info in per-cpu memory.
+In which case it can just access it directly.
+OTOH it could save the 'global' address of the per-cpu data and then access
+it using the pointer so that access would be a normal one.
+
+	David
+
 > 
-> diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-> index 4d5356bf9bbf..7ebf899edf17 100644
-> --- a/drivers/spmi/spmi-apple-controller.c
-> +++ b/drivers/spmi/spmi-apple-controller.c
-> @@ -11,6 +11,8 @@
->   *		spmi-pmic-arb.c Copyright (c) 2021, The Linux Foundation.
->   */
->  
-> +#include <linux/bitfield.h>
-> +#include <linux/bits.h>
->  #include <linux/io.h>
->  #include <linux/iopoll.h>
->  #include <linux/module.h>
-> @@ -23,6 +25,12 @@
->  #define SPMI_RSP_REG 0x8
->  #define SPMI_ACT_REG 0xa4
->  
-> +/* SPMI_RSP_REG reply word */
-> +#define SPMI_REPLY_FRAME_PARITY_STATUS GENMASK(31, 16)
-> +#define SPMI_REPLY_ACK BIT(15)
-> +#define SPMI_REPLY_SLAVE_ID GENMASK(14, 8)
-> +#define SPMI_REPLY_CMD GENMASK(7, 0)
-> +
->  #define SPMI_ACT_FIFO_FLUSH BIT(0)
->  #define SPMI_RX_FIFO_EMPTY BIT(24)
->  
-> @@ -66,7 +74,7 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  {
->  	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
->  	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
-> -	u32 rsp;
-> +	u32 reply, rsp;
->  	size_t len_read = 0;
->  	u8 i;
->  	int ret;
-> @@ -82,12 +90,12 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  	if (ret)
->  		return ret;
->  
-> -	/* Discard SPMI reply status */
-> -	readl(spmi->regs + SPMI_RSP_REG);
-> +	reply = readl(spmi->regs + SPMI_RSP_REG);
->  
->  	/* Read SPMI data reply */
->  	while (len_read < len) {
->  		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
-> +			spmi->prev_fail = true;
+> Thanks,
+> Ryan
+> 
+> ---8<---
+> In file included from linux/arch/arm64/include/asm/spectre.h:17,                                                                                                                                                                       
+>                  from linux/arch/arm64/include/asm/processor.h:47,
+>                  from linux/include/linux/sched.h:13,
+>                  from linux/include/linux/ratelimit.h:6,
+>                  from linux/include/linux/dev_printk.h:16,
+>                  from linux/include/linux/device.h:15,
+>                  from linux/include/linux/node.h:18,
+>                  from linux/include/linux/cpu.h:17,
+>                  from linux/include/linux/stop_machine.h:5,
+>                  from linux/kernel/trace/ftrace.c:17:
+> linux/kernel/trace/ftrace.c: In function 'ftrace_filter_pid_sched_switch_probe':
+> linux/arch/arm64/include/asm/percpu.h:295:42: warning: conversion from 'long unsigned int' to 'u8' {aka 'unsigned char'} changes value from '18446744073709551615' to '255' [-Woverflow]                                               
+>   295 |         _pcp_wrap(__percpu_write_8, pcp, (unsigned long)(val))
+>       |                                          ^~~~~~~~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+>   277 |         op(&(pcp), __VA_ARGS__);                                        \
+>       |                    ^~~~~~~~~~~
+> linux/include/linux/percpu-defs.h:369:25: note: in expansion of macro 'this_cpu_write_1'
+>   369 |                 case 1: stem##1(variable, __VA_ARGS__);break;           \
+>       |                         ^~~~
+> linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+>   500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+>       |                                         ^~~~~~~~~~~~~~~~
+> linux/kernel/trace/ftrace.c:8628:17: note: in expansion of macro 'this_cpu_write'
+>  8628 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+>       |                 ^~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:297:43: warning: conversion from 'long unsigned int' to 'u16' {aka 'short unsigned int'} changes value from '18446744073709551615' to '65535' [-Woverflow]
+>   297 |         _pcp_wrap(__percpu_write_16, pcp, (unsigned long)(val))
+>       |                                           ^~~~~~~~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+>   277 |         op(&(pcp), __VA_ARGS__);                                        \
+>       |                    ^~~~~~~~~~~
+> linux/include/linux/percpu-defs.h:370:25: note: in expansion of macro 'this_cpu_write_2'
+>   370 |                 case 2: stem##2(variable, __VA_ARGS__);break;           \
+>       |                         ^~~~
+> linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+>   500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+>       |                                         ^~~~~~~~~~~~~~~~
+> linux/kernel/trace/ftrace.c:8628:17: note: in expansion of macro 'this_cpu_write'
+>  8628 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+>       |                 ^~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:299:43: warning: conversion from 'long unsigned int' to 'u32' {aka 'unsigned int'} changes value from '18446744073709551615' to '4294967295' [-Woverflow]
+>   299 |         _pcp_wrap(__percpu_write_32, pcp, (unsigned long)(val))
+>       |                                           ^~~~~~~~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+>   277 |         op(&(pcp), __VA_ARGS__);                                        \
+>       |                    ^~~~~~~~~~~
+> linux/include/linux/percpu-defs.h:371:25: note: in expansion of macro 'this_cpu_write_4'
+>   371 |                 case 4: stem##4(variable, __VA_ARGS__);break;           \
+>       |                         ^~~~
+> linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+>   500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+>       |                                         ^~~~~~~~~~~~~~~~
+> linux/kernel/trace/ftrace.c:8628:17: note: in expansion of macro 'this_cpu_write'
+>  8628 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+>       |                 ^~~~~~~~~~~~~~
+> linux/kernel/trace/ftrace.c: In function 'ignore_task_cpu':
+> linux/arch/arm64/include/asm/percpu.h:295:42: warning: conversion from 'long unsigned int' to 'u8' {aka 'unsigned char'} changes value from '18446744073709551615' to '255' [-Woverflow]
+>   295 |         _pcp_wrap(__percpu_write_8, pcp, (unsigned long)(val))
+>       |                                          ^~~~~~~~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+>   277 |         op(&(pcp), __VA_ARGS__);                                        \
+>       |                    ^~~~~~~~~~~
+> linux/include/linux/percpu-defs.h:369:25: note: in expansion of macro 'this_cpu_write_1'
+>   369 |                 case 1: stem##1(variable, __VA_ARGS__);break;           \
+>       |                         ^~~~
+> linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+>   500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+>       |                                         ^~~~~~~~~~~~~~~~
+> linux/kernel/trace/ftrace.c:8898:17: note: in expansion of macro 'this_cpu_write'
+>  8898 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+>       |                 ^~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:297:43: warning: conversion from 'long unsigned int' to 'u16' {aka 'short unsigned int'} changes value from '18446744073709551615' to '65535' [-Woverflow]
+>   297 |         _pcp_wrap(__percpu_write_16, pcp, (unsigned long)(val))
+>       |                                           ^~~~~~~~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+>   277 |         op(&(pcp), __VA_ARGS__);                                        \
+>       |                    ^~~~~~~~~~~
+> linux/include/linux/percpu-defs.h:370:25: note: in expansion of macro 'this_cpu_write_2'
+>   370 |                 case 2: stem##2(variable, __VA_ARGS__);break;           \
+>       |                         ^~~~
+> linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+>   500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+>       |                                         ^~~~~~~~~~~~~~~~
+> linux/kernel/trace/ftrace.c:8898:17: note: in expansion of macro 'this_cpu_write'
+>  8898 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+>       |                 ^~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:299:43: warning: conversion from 'long unsigned int' to 'u32' {aka 'unsigned int'} changes value from '18446744073709551615' to '4294967295' [-Woverflow]
+>   299 |         _pcp_wrap(__percpu_write_32, pcp, (unsigned long)(val))
+>       |                                           ^~~~~~~~~~~~~~~~~~~~
+> linux/arch/arm64/include/asm/percpu.h:277:20: note: in definition of macro '_pcp_wrap'
+>   277 |         op(&(pcp), __VA_ARGS__);                                        \
+>       |                    ^~~~~~~~~~~
+> linux/include/linux/percpu-defs.h:371:25: note: in expansion of macro 'this_cpu_write_4'
+>   371 |                 case 4: stem##4(variable, __VA_ARGS__);break;           \
+>       |                         ^~~~
+> linux/include/linux/percpu-defs.h:500:41: note: in expansion of macro '__pcpu_size_call'
+>   500 | #define this_cpu_write(pcp, val)        __pcpu_size_call(this_cpu_write_, pcp, val)
+>       |                                         ^~~~~~~~~~~~~~~~
+> linux/kernel/trace/ftrace.c:8898:17: note: in expansion of macro 'this_cpu_write'
+>  8898 |                 this_cpu_write(tr->array_buffer.data->ftrace_ignore_pid,
+>       |                 ^~~~~~~~~~~~~~
+> ---8<---
+> 
+> 
 
-should this have been in the previous patch? Not sure if the flush helps
-in this case but the line looks in this change out-of-place
-
->  			dev_err_ratelimited(&ctrl->dev,
->  					    "FIFO lacks reply data, controller stuck?\n");
->  			return -EIO;
-> @@ -105,6 +113,10 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  		spmi->prev_fail = true;
->  	}
->  
-> +	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len) - 1)) {
-> +		dev_err(&ctrl->dev, "some frames failed parity check\n");
-> +		return -EIO;
-> +	}
->  	return 0;
->  }
->  
-> @@ -113,6 +125,7 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  {
->  	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
->  	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
-> +	u32 reply;
->  	size_t i = 0, j;
->  	int ret;
->  
-> @@ -136,14 +149,17 @@ static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  	if (ret)
->  		return ret;
->  
-> -	/* Discard */
-> -	readl(spmi->regs + SPMI_RSP_REG);
-> +	reply = readl(spmi->regs + SPMI_RSP_REG);
->  
->  	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
->  		dev_warn(&ctrl->dev, "FIFO has extra data\n");
->  		spmi->prev_fail = true;
->  	}
->  
-> +	if (!FIELD_GET(SPMI_REPLY_ACK, reply)) {
-> +		dev_err(&ctrl->dev, "command not acknowledged\n");
-> +		return -EIO;
-> +	}
->  	return 0;
->  }
-
-besides the single misplaced line
-
-Reviewed-by: Janne Grunau <j@jannau.net>
-
-Janne
 
