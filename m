@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77739C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 15:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E14CC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 15:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Flg4QZQ4xZBxdFqtD7yG7JFgD80sYwr4xDNIvMLPrJw=; b=vpXDeMg0Jki1LhnxMZw7KXDUzV
-	J+goo+egHsDDRUQ0Al7UpdLw4weDXdtu9va6Rmy2RX8KjRUSxK0aRq+3UgyxtGSVH3KifHNTxH2o2
-	LWHd1LPC3IHCIEBou71PRiwbdHTadhQIFcBGBUcAowUHbCXMX+yBdbWPf44IUTTAbTDFbpgXPWPcY
-	m7NcZgSuHjH0dbiQ67nvb+7CxTecfvFRLxu2jb4pRNaYkgpXtxfY8JfVI4V4loc9bYqrTu1c3VyTW
-	uTrqaYMS6uEAS0QzQMBQ0B2OPfXN5mPwa9XHNdL4+jaBVh1e2BxPKMHvaSvW1ki4AYO/hISNXNnqi
-	zUSKaP7w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ep5s2RfCR1ouH4tpNMfbsvxcvHXIBQkHbYkhl2XlO8g=; b=1WVYVc/absKno7
+	xmCYmzTMvXaPpBqDZ2KLuhgk6ZitxBVnHhCLGZXScrURo6Vn1DdALTWkWlCbabUWGZlrpUOxAPRLF
+	najQYjcfWz93DdhjKUKm4+6howFekkTXUxe1/ei8xUmwj5+pgPKNaV5p3Gmxle3wWIUEEqzbtc1VA
+	ijXpkcBLyZI89CBp3/y/HealimafWyXOY1cGjvILP2gcOQn7hJdri6SUaDSHL6XetacYliJxCU6Vx
+	O3SIr8cFDjOdB7swOReDSykIx8Su3hrDH0RtN1PgwXwITXk2/cvUW0HAZgoctq7GwSmuarXHmtzu9
+	EADjQM+9BoLqp+iGQinA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrd8b-000000048Kq-1EGW;
-	Wed, 05 Aug 2026 15:02:33 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wrd8X-000000048Ig-3Qet;
+	Wed, 05 Aug 2026 15:02:29 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrd8X-000000048Hy-0ong
+	id 1wrd8V-000000048He-1yFY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 15:02:30 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-4720f3bf164so1478819f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 08:02:28 -0700 (PDT)
+	Wed, 05 Aug 2026 15:02:28 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47fd66a094eso442622f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 08:02:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785942147; x=1786546947; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Flg4QZQ4xZBxdFqtD7yG7JFgD80sYwr4xDNIvMLPrJw=;
-        b=gJDwOnXl37WTMeJwun/ZcZZW+GxXyIVQk6wDDgiaX6xwBDbzkO+RRsyFddMy9Q7Aa1
-         48tadCsuRPOaYJLJUQ9sWMVp4ZwYbirM7b9ZBeghYmzQVn3AQb2+ovHofa5Md/K56sNZ
-         +nTzStEgnwcJmp3/AMAx2Yx4/4OfL4ZRhcCS+MFNunZivdF2QeRwMoliV9HWKTbUaNYY
-         SGFsGHl6liD1FRT+JYphGCC1WUfC8ighnOC02Fe6ee77vCbQW8YK0vBUpDdT7PYnuibA
-         3nNK94s2AmlZWVpB5KTLwgT1zUi2+5d2myvVbsb1dxDoNGBc8qJf3GqE14BFxn/zwNqr
-         Oq8Q==
+        d=linaro.org; s=google; t=1785942145; x=1786546945; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=Ep5s2RfCR1ouH4tpNMfbsvxcvHXIBQkHbYkhl2XlO8g=;
+        b=dg1kDaO6ndaxc+JvpDBu3A64bfhRvtfOefoTUDgKS/9AqqfCV2WvcOYzBojF3oWSdJ
+         T06+QpdUq4IbPQxdyIpfAEqIepx1FVzpSTRIGJoPm++IvWfkWjb7VgQSN9fHG7OJYU7R
+         6shpYfkMYC3OmTBqrDIVUaLagOVpp7Sb0NYQdLAxHsmF+K2tqVEI+pYf2ir4sR3cd31f
+         dDX7WjOBX8B5xl5uUbHilJmV0inI2JQsA/1gv+75T7UQR0Iem14Z3J3dPK1BD0MCtdAp
+         1qC34ATxKLyWUhQFyQ1Iqm84mYq7dEs7zeDtA8auvrGaTyJJiQoa4TukRG4A5jDUKt+F
+         O6bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785942147; x=1786546947;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Flg4QZQ4xZBxdFqtD7yG7JFgD80sYwr4xDNIvMLPrJw=;
-        b=SHtIJHYZpYG14hU3bOQqIsedRluetL6Htw2vYIArvfXpKgdqn9LYT3RDZcNuKuKg9K
-         XZzN4jKQuOlmu9S29TLTO4TyeTIvV6rKmxMXxfd4DQ2a0RjEiIfuDWu07v2CTsvKi9U3
-         GATls+4WDWBF/jiGOagb7jXh7HbRr3rprj49vjxvVvh0WYMOoI0EMSB+48eCspdsuKC+
-         hs0b8tp0xDbrCvMtjWm0RIwdT4HGxC306tIq5VwTjAJ3SYWWTXEHmzPQHC+oynYd4o+7
-         sr5lFeG6A4c7t3aOMqkfMkJiNB8jnFh9XZEBRErbBg+5wcnNWWJGaWFh+MYauLfjGLLk
-         wqSg==
-X-Gm-Message-State: AOJu0YzMEg2x0AOvZfNS7PLeyiokezkGkA5liccr5/Cf4jKA6lbK4qJw
-	GNknIsmxmT5LDXYy3vzWvxURuc73Y5n0Xb7TF691gM0BvioroDveNDKPSjEFqui4H6XCSJImLO1
-	z5QXjGPQnVg==
-X-Gm-Gg: AR+sD11Db+XVBy57KzGsgsyb5iFZN2FpPSTbvQBY2mmQdlRVChSNtaZxbspTadJ82m0
-	nIN1a48UBcvaQHY31KtKQUCpR1vFNPen25bu2+l60fK9B/dVwjnKR9s5Bs9j5NZxAFKXdQhthFv
-	XIMIPqBsaGiKfJQmMWPQ3ieYJfQq2xhAJLwxqcXvFmmsU9jzY7XXXeaa5SEmhEUOSnj6Ep9OJ27
-	30QF5s5M5A+6tJK1HqZCNqMJsiUpau1A1Zhmq8HJ/vCyOyJH9oyUztpgpTAjlJBovG22np5YvFW
-	GWiTudMGiJq50pQYr9loGp7y7ac6CkSerG5GbhEnKfhmQ9qmgkADoKNGf+nu+2hJoWkcb2d1rCc
-	u0U37yQalytIe0HC073CsU/Fo8rgPaBV0tep/NZIkSeyRzHA8KuAnC0QK9d1LK3HRgWSyS58Fd0
-	iD6zNF7u8i8wKIamd4eH84ht4Ge1O3/OlM7h05YzrO5KRcguUEzjWNWFE8Vf4SbBlE
-X-Received: by 2002:a5d:64e3:0:b0:47f:f002:3656 with SMTP id ffacd0b85a97d-47ff011797dmr8776881f8f.12.1785942147253;
-        Wed, 05 Aug 2026 08:02:27 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785942145; x=1786546945;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Ep5s2RfCR1ouH4tpNMfbsvxcvHXIBQkHbYkhl2XlO8g=;
+        b=KmCmun7sMTnJj2I1/AXKuoWfME4JyrT/mDNAkVpnJECuLi3sgJK8rK5OIdpWLGLhws
+         WBihPGGh0LuE3yT14NfjJqWWC53QzVVGd+g4ORDQC7kEgvOQjf6x3VikwIRRQdpn5uez
+         0DE5Xf5+3djI4/g0j6cXMxe9Pcy+MN9nOH7u6rHgdTI7zKXd0XnWdxdE4SG9fn0g/edM
+         OXDVwuGJfDWbuMQi+3MKVlgzZfoiaVkwAJcoS+vWmWwCRLxI3tsjWQHvGEmqg8dTkveQ
+         XtirwPy3We0hrYKepil8RyTZHYt4cYDV33Rn36QU1P8QI34Cfl1evv/4niJEJGymFrhz
+         IfTw==
+X-Gm-Message-State: AOJu0YxOjzcvUDa5G0rVQakKxE7/wHSwXy1QG1pyJiCL8LIsPpYau9ih
+	xKLb6hJqCVzUKEogCmkTWWdnrzQlkh8b2vjb5PQSlx+iHFeHE+otJNosmOB0Qxr+j9b/U9SGxTV
+	zY6BDmF/BYg==
+X-Gm-Gg: AR+sD13b+5zggUnp8tjt6WdGcF84/vYAxaE3RguhLYoB5XA8p8fTiwfSWe3qVByoW7q
+	JFPJiLGLfN1aUnwsN+jM4GA7HodHwslMldXro9A8ZopLIZVkilozWmOcUPb3zqg/wv5xyxfqCVh
+	2CRPUvROUTISSMMtH2b7kpKE1822J487shxjy/jRsycuZyAOurw+eK6NdvDpzgmMVLXpgk4wNfT
+	jqgtMh54KJv3wqF5cRV64Y2KlLoIsSc8IXiSMSYpbX58SryhUpp0BMN1WLbvhWAsFAqMOefL6O7
+	qvuhAf5NHy2F5+MeBuT1afyYK06KETWeLLZ3id72LSE8DrHCPcsYhHRJQ7VUhczSD7ZNmLMsKK7
+	2q8ENITKROZXhknSFlkGNy8CtAZSk26IjNSYBPLGgHFARuhwJFZ2RzXJI7PhBNcIrnAhv9Vc/TW
+	FJ8bf8emTMLH7ThXlD2WVoHJEiF0dBvwz3Fe2Q102A3dt17DZRHz0dwo2TKmijJH9o
+X-Received: by 2002:a5d:5541:0:b0:47a:b86f:3ed1 with SMTP id ffacd0b85a97d-47fec62bacamr9911458f8f.21.1785942145445;
+        Wed, 05 Aug 2026 08:02:25 -0700 (PDT)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fec23ede6sm10308695f8f.30.2026.08.05.08.02.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fec23ede6sm10308695f8f.30.2026.08.05.08.02.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 08:02:26 -0700 (PDT)
+        Wed, 05 Aug 2026 08:02:24 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 05 Aug 2026 16:01:52 +0100
-Subject: [PATCH 2/3] perf: arm_spe: Factor HW discard mode out of
- arm_spe_perf_aux_output_begin()
+Subject: [PATCH 0/3] perf: arm_spe: Add support for a 'software' discard
+ mode
+Date: Wed, 05 Aug 2026 16:01:50 +0100
+Message-Id: <20260805-james-spe-software-discard-v1-0-0ff0e44c4c92@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260805-james-spe-software-discard-v1-2-0ff0e44c4c92@linaro.org>
-References: <20260805-james-spe-software-discard-v1-0-0ff0e44c4c92@linaro.org>
-In-Reply-To: <20260805-james-spe-software-discard-v1-0-0ff0e44c4c92@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAF5Qc2oC/x3MQQqDQAwF0KtI1g3MiKjTq5QuwszXplCVpNiCe
+ PcOXb7NO8hhCqdrc5BhV9d1qYiXhvJDlhmspZra0PZhDB0/5QVn38C+Tu+PGLioZ7HC49CnmBE
+ ldYlqsBkm/f7z2/08fxEhcjRsAAAA
+X-Change-ID: 20260804-james-spe-software-discard-87691ce1a949
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Leo Yan <leo.yan@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
  Al Grant <Al.Grant@arm.com>
@@ -87,8 +88,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
  linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_080229_256488_D4A7F874 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20260805_080227_538966_7532B9FB 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,99 +104,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Discard mode doesn't call perf_aux_output_begin() or emit aux records,
-and enabling it never fails. We'll add a second discard mode in the
-next commit so it will be cleaner if there is a separate begin function
-just for discard mode.
+Add a mode similar to discard mode that we get in SPE V1P2, but without
+requiring hardware support. It works by allocating a single page in the
+driver when opening the event so the buffer can still be programmed and
+SPE enabled. The same page is mapped multiple times to make up a 4MB
+buffer so the full interrupt is serviced less frequently.
 
-No functional changes intended.
+Unfortunately we can't rely on userspace to do the allocation because
+the existing HW discard mode came with the relaxation that an event can
+be opened without mapping a buffer. Therefore adding SW discard mode
+without doing the allocation in the driver would break old tools. It
+will also be useful for very simple tools that only do raw
+perf_event_open() calls and don't want to mess around with mmaps. Tools
+also can't do the hack to present a 4MB buffer to hardware while only
+being backed by a single page.
+
+Discard mode is used to activate SPE related PMU events so that they can
+be counted by the PMU, without the overhead of collecting any SPE data.
+So it's likely that simple tools are using discard mode with only raw
+perf_event_open() calls.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/perf/arm_spe_pmu.c | 34 ++++++++++++++++++++++++++--------
- 1 file changed, 26 insertions(+), 8 deletions(-)
+James Clark (3):
+      perf: arm_spe: Factor aux output and flags out of buffer fault handler
+      perf: arm_spe: Factor HW discard mode out of arm_spe_perf_aux_output_begin()
+      perf: arm_spe: Add support for a 'software' discard mode
 
-diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
-index 10d28ad81256..562a1d3be39f 100644
---- a/drivers/perf/arm_spe_pmu.c
-+++ b/drivers/perf/arm_spe_pmu.c
-@@ -363,6 +363,11 @@ static const struct attribute_group *arm_spe_pmu_attr_groups[] = {
- 	NULL,
- };
- 
-+static bool arm_spe_discard_mode(struct perf_event *event)
-+{
-+	return ATTR_CFG_GET_FLD(&event->attr, discard);
-+}
-+
- /* Convert between user ABI and register values */
- static u64 arm_spe_event_to_pmscr(struct perf_event *event)
- {
-@@ -609,18 +614,23 @@ static u64 arm_spe_pmu_next_off(struct perf_output_handle *handle)
- 	return limit;
- }
- 
-+static void arm_spe_pmu_begin_discard(struct perf_output_handle *handle,
-+				      struct perf_event *event)
-+{
-+	u64 limit;
-+
-+	limit = FIELD_PREP(PMBLIMITR_EL1_FM, PMBLIMITR_EL1_FM_DISCARD);
-+	limit |= PMBLIMITR_EL1_E;
-+
-+	write_sysreg_s(limit, SYS_PMBLIMITR_EL1);
-+}
-+
- static int arm_spe_perf_aux_output_begin(struct perf_output_handle *handle,
- 					 struct perf_event *event)
- {
- 	u64 base, limit;
- 	struct arm_spe_pmu_buf *buf;
- 
--	if (ATTR_CFG_GET_FLD(&event->attr, discard)) {
--		limit = FIELD_PREP(PMBLIMITR_EL1_FM, PMBLIMITR_EL1_FM_DISCARD);
--		limit |= PMBLIMITR_EL1_E;
--		goto out_write_limit;
--	}
--
- 	/* Start a new aux session */
- 	buf = perf_aux_output_begin(handle, event);
- 	if (!buf) {
-@@ -775,6 +785,12 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
- 		arm_spe_pmu_disable_and_drain_local();
- 		break;
- 	case SPE_PMU_BUF_FAULT_ACT_OK:
-+		if (arm_spe_discard_mode(event)) {
-+			arm_spe_pmu_begin_discard(handle, event);
-+			isb();
-+			break;
-+		}
-+
- 		/*
- 		 * We handled the fault (the buffer was full), so resume
- 		 * profiling as long as we didn't detect truncation.
-@@ -864,7 +880,7 @@ static int arm_spe_pmu_event_init(struct perf_event *event)
- 	    !(spe_pmu->features & SPE_PMU_FEAT_EFT))
- 		return -EOPNOTSUPP;
- 
--	if (ATTR_CFG_GET_FLD(&event->attr, discard) &&
-+	if (arm_spe_discard_mode(event) &&
- 	    !(spe_pmu->features & SPE_PMU_FEAT_DISCARD))
- 		return -EOPNOTSUPP;
- 
-@@ -884,7 +900,9 @@ static void arm_spe_pmu_start(struct perf_event *event, int flags)
- 	struct perf_output_handle *handle = this_cpu_ptr(spe_pmu->handle);
- 
- 	hwc->state = 0;
--	if (arm_spe_perf_aux_output_begin(handle, event)) {
-+	if (arm_spe_discard_mode(event)) {
-+		arm_spe_pmu_begin_discard(handle, event);
-+	} else if (arm_spe_perf_aux_output_begin(handle, event)) {
- 		arm_spe_pmu_stop(event, 0);
- 		return;
- 	}
+ drivers/perf/arm_spe_pmu.c | 208 ++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 168 insertions(+), 40 deletions(-)
+---
+base-commit: 075b74841bd0065a3bda3440873c747938e69b68
+change-id: 20260804-james-spe-software-discard-87691ce1a949
 
--- 
-2.43.0
+Best regards,
+--  
+James Clark <james.clark@linaro.org>
 
 
