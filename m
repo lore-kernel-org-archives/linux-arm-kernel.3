@@ -4,149 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51521C56203
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 15:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71CDEC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 15:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:MIME-Version:References:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=; b=ieN8jBnkNzIF3/HN37f1YbXIgs
-	uYHneR55DUe8cAXuVRHNzoTDjcpNKI0qi6vvfzWFgkTZ7odMxtAfdr5uk8g3fB8xM9zA02CWhmuZW
-	7K/s66E8s2oc95R+hZomKJDCit1WW09GrSTUjBd6TVE/caZYZu+Siis9gcsgKB5OjSJJYTaITgODM
-	M+0ND9LZDERG+Ux5TKrcnQ/fhu59Fy9iusKxzVHLCF3lUxgJV6693F9ddcdW3GlWmNt2rUJlear+p
-	n3+Ug9pjbun+4HeXImnd94CweyMgnqR0KyJQm7Y0tHyov6nItVpNyjK1YAdMD/WaGP18qoubVWkM9
-	KX96zA+g==;
+	bh=6P2+ujme6g+HTSW6n7ztSC163pEV3pR8Oo8zV1D+dnQ=; b=adowWz2qO/wEt4hrz/x2bZJVEC
+	lFVBBb2Kg6d6XcxBQ7YPECAPsFtl2yvPGHye509QYA7Xu96uunPTsd5947P3r+KRBVr2PuPcJdSNY
+	ybaOgyjKL+6V7DJE+HNaNIXpoAVWJ+p+6gXIoS3Yn1cp20Xo2EwsjwGkKBt1EDQe1hHeHv7PjsCs5
+	zpyKqFETaUnef/0jNfSEDfm6f9kGv3ejHY+rfTuFGVnuopH1nGNULXsJNA14+TQzL4R0NiYWOTvf/
+	eFU3fcTQ5i8pO1Vy6l3+38HYUaBB+Zdv/jCeqiITAcTYc1hhjnQcDP9PKIBfX8cOqMggZ7kJ1vXrq
+	xEQE7DRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wre1E-00000004EHB-32B3;
-	Wed, 05 Aug 2026 15:59:00 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wre1X-00000004ETy-0aSU;
+	Wed, 05 Aug 2026 15:59:19 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wre1C-00000004EB5-18tR
+	id 1wre1U-00000004ERv-3506
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 15:58:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Zbrgg4LP1xLmPZcsxttFQ/i8pVGwGuRCYAyXyV45HH/hPslOow7T9Ea6VWtcSWM2oSYCkjjRz5eR0PzSElWgB5b8YGB1fwWQQEtdiObPQNq/bg2muipR8B/gK9c/CYilOH2eqfBELhabmkvPXRkrUwyMkI9tDgv16vd7nMN3CX65SJvipfgzepzB0WRqQd1+PlF3sDhrJ95bhdj4+B02EPlEjwPLPS4zreD4jv2CLFY5YEKazPe97OiLzCQfGZI0kNdx46NYwForsKkyuIRWmbnJqUNh51gX4ChbCiszwIz0vXD+Jw3g4oYhndxsRYeX1c2+e6XAZ07tLSLwkhvjcg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=;
- b=BuTn6sf7wy8SHc9/3fwt6a5DC7iVPBeChA8ivNtacxEX+ioG78oMwlEPOPOc9sfvzg9TtvE6KgvNA8wsm0kCrowfG4njMHhsx4bxYl5V0P9gpAW+p5JoFNKw0piNPLa+Zps1ui2ici6T3yVFeW1YSXgwofn245is5UXg4QnPignW9CEDkCpS/vNcv1IXLMZj/BezUEqzkS1/0l77yy6XGyEHd5coiktE53fODM809euH/x+LFrd4n9nlaCIoKrpHAL+xCPWbCW6BHoFaot8BsviDrLih8sMmWoFlLOx1D4Qk6vxMh0YRlv+fxygm9EjVmzegmme7/rdrIuaWUP/NQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=;
- b=F1RYLByj1cu/Ain+IDB413keOpCqRhpiFnlg+tHGL+azdczqW32mBC/Wdi8d5Lbh4dFuUmbTfbMclv9pwiyqELgjMtyAqCgKZ4cj8Vkh3Soaw4cEOEr4DOFkYwi+0xGbaoAPz+HljSnqTzgAxBWPBZoDI9k6tCosfLUL8nhrdwGn7uHf+Pa3k85CHrvfEXhoIOMw2kWRdWTncR5CZBz0Zl3cBfjGrHz89wWgfvesROyZKdmS6aFYW7R8c8aopU8wZrq+uMmuimlvqyRxu4J4qPBnv6qsQLgkt8RUlewa2W/r0QUXJJfnRR/fxnDAGhg0z6m3EtrMg2dA9RFjmuCBQQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
- by PA4PR04MB9295.eurprd04.prod.outlook.com (2603:10a6:102:2a6::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Wed, 5 Aug
- 2026 15:58:56 +0000
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c%4]) with mapi id 15.21.0292.018; Wed, 5 Aug 2026
- 15:58:56 +0000
-From: pankaj.gupta@oss.nxp.com
-Date: Wed, 05 Aug 2026 22:18:37 +0530
-Subject: [PATCH v34 7/7] arm64: dts: imx8ulp: add reserved memory for
- EdgeLock Enclave
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260805-imx-se-if-v34-7-7e4713d14e0a@nxp.com>
-References: <20260805-imx-se-if-v34-0-7e4713d14e0a@nxp.com>
-In-Reply-To: <20260805-imx-se-if-v34-0-7e4713d14e0a@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785948512; l=2461;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=8LTJ7dQk+ZmHVQUVQ7z2QFEU98qQ6ZendsUWTwEehrU=;
- b=91ZoZ5GwYxRNHsrUHVMJIkdJVOc8a/PIrwQ157f0GiNMDiWstMq/7yVDanjhmVtQ01br/uYqr
- 6FhP6phmSI6D/YGPmMZYmLHDvIOAwCXar7qiLkePtbdbKzXpMH6Sl4t
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SI1PR02CA0043.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::19) To AM9PR04MB8469.eurprd04.prod.outlook.com
- (2603:10a6:20b:414::15)
+	Wed, 05 Aug 2026 15:59:18 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c9e30214d8fso1054735a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 08:59:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785945555; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Z5ijjLHvVXy2MAChrPrfIrdlVRoTRXr+fpDp2kkDYnh0zr5fTattcSww8V82YYRv2t
+         ydoYjjS5cEH1agr31yuhde4AAjGRPylIFUHpty4pkx74Drtc45lY3bqlc+ZoZPfyfKQS
+         zNH7BXK0u0iEKgMYXj1y5pJm2f0PsUo9jFLdmsOfm1YdqavqN3waiYMk2u16KhXt5xZC
+         p8GHVpAOWWh8stARM10SOT81hdL+Gfu6ZPWj2yfZVpUgG62TX4e1hJfeRmREm71R62Q1
+         CIzvTpAv1p8fRKxVqAc+xFe35mF+NWq25cZA/M96BHk52CDJ75G+YuJxTlqZN/Rur/qK
+         xo2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:dkim-signature;
+        bh=6P2+ujme6g+HTSW6n7ztSC163pEV3pR8Oo8zV1D+dnQ=;
+        fh=12RhZ05jKW3xHfm0lh+nKC8HZCubxN6OPnDzFsz8Fqc=;
+        b=ffcTTwLAeV3DUlSZbs+eSKnD0noEgRE5aYMghPBohZhQ0rLgTwYVDrMyPe2y1M30M6
+         XCI9c7FqV5sB0bn4xkwmNRMEdnBAxF0u/0OZiltydjxfLk4bGieGd8EJUMh/FBI6LOcI
+         rO8INmAT2tNCsfpxptK2J6AJ8fhaMjUydkALxeg854ZQ8xyQaIf7++0Pcfnu0WLdBxkM
+         jZ5Q4vnRb/HgeSW1A5VgtnpAu4v8z9CgwskVkcFyp0ZFtUHP88qA5ot65GD1Y6OgVaVV
+         k3MtSEFjtxTBBlHxyOM+VsPWtEzmwGJ49lgjbClAp/cnYCllwJfo7xexiXCsbyoBlrlj
+         4BaQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785945555; x=1786550355; darn=lists.infradead.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6P2+ujme6g+HTSW6n7ztSC163pEV3pR8Oo8zV1D+dnQ=;
+        b=PhJ3nOUK+5Xv4tReTa1cIUKHbvM7sCRnKGEBlCsV+W5Mo4f2yvnd2hp51iKScpvUke
+         qj4O/93yl29vQzKKzu23TUe7UUIBhorpCIUYS5qYHwL360aN1ryA17b6F8xyW60AfRRI
+         UpZ8JBnGKnZpVhABPitDGQRbpZobyCDue2MSNYDHsUbcide8b23agfey7WsdXjZP6Rm5
+         5XducOMpPN2RMIQCzOkZoRlPIaQ0VbJBW12L3UstWDrhw2Ju32PFDacVqU1w4krKbVAx
+         lKTI1/BXjob2VG1g0/GXtQfK2te4NkRZKRuEf12o6SBHKJ/W8bxSF98fW/MSguivnKPw
+         nxmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785945555; x=1786550355;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=6P2+ujme6g+HTSW6n7ztSC163pEV3pR8Oo8zV1D+dnQ=;
+        b=VOjjilDyn5Bc3itdhXR6t1hcbs94oNP9tTujuiZS90ijR2f4PMooQM4WPNMmDtbwIT
+         J0NYwZUJyYbaOa5CRlSTPF+OxS7YcBg9Gq+nDKn98kb5ZkmotMMo4PnkHD4iX2VA7nH5
+         UYReSQCoUKyu8fJd33yxYKlN+0nLhmRqCLiC9klUVuqBugriDfIgOmmMnuXGjxN0TquI
+         MFcInd8Y8NE+TvFFRmUkP7ckP48Uz10JUhV2HMjTpIrwzPWi8hs8Bu942YAYos15VZ7H
+         cCVSJGuZotqLgtga9pakZEUq1ifdxW/m/8ASmuM5ceyuUzDmWmPOzeRvmaV58nmLAWZ1
+         IBEg==
+X-Forwarded-Encrypted: i=1; AHgh+RpNa8XKt6AvMxJoTl7JE9PFCLoQaFw20fGzoyDp63tn3Rx5m4Kmn63nclk7hdAxihlUNTViOCjiliH8JxR/0Nc5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDtSvdobfCJQ1SxgpRc72QVLIpTxf1p41h5MlM4AWJeN6RALdx
+	C37TlNirxFJiZeNQT8gLQ3HqS8YhGiGzZpHlZkQOwJ9x7uUAsYSRVbV6QuypU1Nwxqw917XoaDo
+	fCA8AP1smCaAml0C3UslBoDuwiZpEXv+209utOGr1
+X-Gm-Gg: AR+sD12Ywlg2pO6+hUhXTEkjbq/PV/MVkrlPZ6xwR3UkYQ4WE2kIC9WGmxT+IZc1/xB
+	Foc40ZFoGm4IlPpuVMySwXxe5gFsyB4R0n6Y5nwBFbkh3ghwZirywKirhtSBxkcUfVs1jviEKZ1
+	O93wH8rgnLsss8Fbt/gej0W07ZUlzVSOSN2mgnPI2vMHvLNyto1s2au62ee7ygHs+BVfe3nNXTF
+	9m7r6pZ356Vx0oYK9Xg84srKIpI7jUZihhQhJ0vuxnlfVTIST7hF8fVejvZLfP9APDg8fcVrZ7A
+	oi40JMmhm+bP3ke/IggVi5U6ui5pnx6OXCtSLw5U0wUW7GYI8iSpvbZ8gQo8FZVRGWNflx4VFwM
+	VX+eg5WcyN/kRl8kWLa9VADMz/uA02r8Q5Ds=
+X-Received: by 2002:a05:6a20:9392:b0:3c3:a140:9380 with SMTP id
+ adf61e73a8af0-3cb85e469d1mr8503935637.16.1785945554052; Wed, 05 Aug 2026
+ 08:59:14 -0700 (PDT)
+Received: from 176938342045 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 5 Aug 2026 08:59:13 -0700
+Received: from 176938342045 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 5 Aug 2026 08:59:13 -0700
+From: Ackerley Tng <ackerleytng@google.com>
+In-Reply-To: <20260803134403.80630-23-steven.price@arm.com>
+References: <20260803134403.80630-1-steven.price@arm.com> <20260803134403.80630-23-steven.price@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|PA4PR04MB9295:EE_
-X-MS-Office365-Filtering-Correlation-Id: 71c5bf35-44d9-4667-db2a-08def30a7465
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|23010399003|376014|7416014|1800799024|921020|56012099006|10067099003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: RtZiYxRB/efzwtiQfINrsPaF/x+aaZsW7wB4VA/K4FEST8TV6VHwlfm5ufCS8lIQdNJ59UqK12g0/o0TrCjNZQSkQAazSJn8J3cUOYD05CHG+92MmPeVbBnkJfZEu8NlpYuDR0+NuhdMt/z0qcgsOTXTtnmumMeFZ2r16x+kQxC4FNBGCYO7aZMO+rUnG1un3eMleCA/J0SCyB7JUNQ3x3Bg6p4+lY4GDTi2vO/JlKIQLjjSx3TBUDUJV1oiW0/4L2PQzLt1QoEYprNUnpLtALkHUcS/wnR1QJ3pcOUIVsqHlRoxsTusVyWuqIRZ5Ada/EmZJAUC6cEKGBdvQBG/tMpWtQG9BW0+Ffp4LtKc2krwhIpgjs+Y4OmSnDewt3i5aoy2YazH4N4DHHXLsTDFHKPDqQyHWJCNeQYsrmDRxgyhPLYGxf6cR/v1RPKAMgSBQ2NPlcRtdwaWJ6HsOz0Qz1+irLXGqSglEgT7sEVAFmAyjRn+KBkS2kM9kxrrkOuwFXsKMWABCP15kQyU2DI1wdauF629ghvxjTPf6TvYT1vuGWqSbkyd1pD69iEWn1WofxQfCOXabLbxoewivsPjBNlgQpIk/NduohKbMP3b6shPI/dURZGNxcABejJIPut7Cca6JcYCn0eKzMLQGafQvHNNMGi4YVBtw8JbnYqCR5iO+w1h6XebWJv/wy3qH82I6BiyLeru5neG66MITU8Zfw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(23010399003)(376014)(7416014)(1800799024)(921020)(56012099006)(10067099003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VnQ1TUcyRTRETXZQYjhsZ202emdqNFkxRDBqREpRcXQrTU5CWDg2N21iNEFE?=
- =?utf-8?B?L0pjZlVlUDZqSGlLYWxCWWpzZFZRamF3NnFlZWdDZkg1S1pBNkdoNXNOZ05t?=
- =?utf-8?B?b0FTd0xQeE9ZelIxZE5PU0V6U05QMHZUakNVdHdlcDVWVmpSaDVDOFg1Q2k4?=
- =?utf-8?B?Mlcvc1VMTlNITmFtWWF6Q01ReWg2YjJwQi9jd2plOXB2U0U0enJLSzZSQlJL?=
- =?utf-8?B?d0R0TGpQekpHKzdXOGQwTGdxOEpXZkxkTURNWWtMRldMSGhENS9QeHArN2tI?=
- =?utf-8?B?ek5PSURQLzFpV2U4VTFLYlVVS0ZwcXJ1Y0dPV01tSlR4ZDFwTHNOWmM3Z0hR?=
- =?utf-8?B?N1VYZFVQQmNQRDIreWdteFN4cloyMTUrTkhvMUJlZmJ6UDhHdGRoSUZCSC8y?=
- =?utf-8?B?WWxiOWFPVVJ5SGdPdnUvU1BWNWMrSEREelpZZGNCSTZTSzRucEsySDdocS9S?=
- =?utf-8?B?T2V5T2IzdUVxTHJyWk9lS3BrU25TSHRVL0NjUzBGSGx3ckd3U2pGQzg2UTdN?=
- =?utf-8?B?QXZyZnJPdVRUd3R4a0w2V2JuZXRjNnVWaHdWSmQ0SUhMVmc0ODI1NytBVjE0?=
- =?utf-8?B?cW8zVW5Ca3BQRmRBdzM0VG5EaU5QWk5FWmd2b09IRGthSUcvU3ZPQ3cwWUlI?=
- =?utf-8?B?RXpLQmlBa3kxdTdJQWlnbmJUc1BlYm1CWEsvM29pV3B6VHFVMU92MEIwNkdQ?=
- =?utf-8?B?djBiOWlCc0dibTUveUcyMXJoZTI2c1Azc3lOL0VubWhwa2g2Qi9EOWNoc2Z5?=
- =?utf-8?B?anBuYm9lSTd2Zy9LbXJkVkpMcWlxZ0pPekcwSlpzcG9UN1F2QkdZVkpCSVJB?=
- =?utf-8?B?NEd1RkpCeTJHQnZFaTlJbmllRnJrKzRFeGh3NG96TWwvMGdabzlxM0J1WFR3?=
- =?utf-8?B?YnpnL2pDN1JJZmZsUW5SS0x5NzJrN3hzVHVhV0lGMkhPL2VXbHo3NE9JZEo5?=
- =?utf-8?B?cDhFYXpLbmdIL1NPMEFWYnJwTUE0di9yMEFFQng4OFlrMkJqaTAxeGFNNjhx?=
- =?utf-8?B?UEdpcWdUTzlXREwwcTBLd1plNHVJcXppV1lCSWdFWDNiQlU2V1dBZVFMSGc3?=
- =?utf-8?B?VERTRjlDa3IvYVZiSzI5Nis3THp2Rm56Rm9IKzZxYzM3MkxKTHkyMTBRSWZP?=
- =?utf-8?B?UElZdmJFMGkyZlFSREVwcHN3cnZMN0VWRTdPMVRESVk4UE5TWHAzN0tkNGtS?=
- =?utf-8?B?bkRLSWVjRGVJMEdxTCtIa0tMbCtORUZYeFRjTWkxRHRqU0dFQWMzd2d5Y29t?=
- =?utf-8?B?YkRsc05keVVLM2k1bGd3cXdRTDJnQnZlN1RTY0tKWkJUOWoza1pMWkdXc3M5?=
- =?utf-8?B?OE5FWi84Tk4vd2htZnpSREdBTy85bGxZNW9PVXdxdkhSdXkzdkRueEZtMkJW?=
- =?utf-8?B?MlViREFMTWVzaEtVOU92ZitWeGNjcWtRSHhIbkw0dDdxMDFwK2VWM2lzN1My?=
- =?utf-8?B?aHdHTk14VE9ERXd2UmZHSk1oRHpyeWtpSFhmdDM2M1dsdVhzejJXRzJTVzFR?=
- =?utf-8?B?RE9oTDFJbXlNajFoV1JXMUZRLzBFY2RxaExnMGViRlAwaUtyeDhMK2dxbmIw?=
- =?utf-8?B?NVZ4YjY1bDFIZWVQcEZWZ1FtVkx1amNoYVZsTVgxTzZlU3RKR1JRSUVqb2V2?=
- =?utf-8?B?cW5DaEpmU1A1a0VuNysrbUNnZG1vSWRYcXY1bE10bU15K0h2MkZVczZZUjFl?=
- =?utf-8?B?dFo2Qk1vZWxPWFZiUGhDbUtXWjN4bXRTZGI3Szc1R0VZZE4yZ0YrSDg0Sy90?=
- =?utf-8?B?ak5LbCsvNktHVVo4dEVhWHQvZWRNOUUzc093UHBlaWl4UVh3Y0R6SllVZHl6?=
- =?utf-8?B?TXBWREFmbEl5a1hndEpveHZoTzlOdms2Z3NnNTFWNGM1U3E0TzZacTc0TjY3?=
- =?utf-8?B?SnQ2aHBFdU1GcTJIZHVVMXBwWTdYM2xNa3E4c0t0QWxSL0RmOHlPMUVSMDBH?=
- =?utf-8?B?TzMwdktzUEdRaDV4OGw2ZU83OGVKdDk2V3V4UEQvTEFWYW01d0x3WjlSdU5J?=
- =?utf-8?B?c0dyR2k3NDM1emYveVc2cHl3R2kyK3FTRktPNENEazZqWkVnUE1mdzRvTjEw?=
- =?utf-8?B?MTVYWEt1d1VJWllUQWxlK1V1N28vQTNmcGhEUHZoZlgxS05YcU82ei85VHlT?=
- =?utf-8?B?YzJmU1VhdDlmTWtjSXJkZXFHNDhYSThYcGZmNitpVEpyQmlkT0RoRUNPMmJo?=
- =?utf-8?B?dkE2TzNpRE1ZeVZuQUlFaytRWW81Q0xUSTJob1lrSHhBaFBDNTJJb1RDMnRr?=
- =?utf-8?B?U0JnM1d5aXJTY3grb1FmcFhYM2R4bHJ2aUY5NjBwRC91c25BRUdTT1JKVk9H?=
- =?utf-8?B?cXF4cnp3bDJic0NlMnMyME5oT3YrTWh5MkIxVldoUTVrbjhvMW9BeTR6MUtZ?=
- =?utf-8?Q?s6iSlWDWr12unPpMnPJz0XZXamOlRDshvpW2V?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71c5bf35-44d9-4667-db2a-08def30a7465
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 15:58:56.2110
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hZcW+eGp9Yc2tKhc6SgzLMR7J/5dLaEPGeKNnVVFvEbByW0FGX+iJiTBP/yulBXmT9JtfFlB1L9cWwncHtp0QKMhcnUkS6DO91S54z1ja4l1M3Ry4TKEBTiL/F/Jfq6J
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9295
+Date: Wed, 5 Aug 2026 08:59:13 -0700
+X-Gm-Features: AUfX_mw87HguPfWFRxAUKpdtMQ3QriucOf-WRaZA41ldEtA-bI259FcP0zXpgjI
+Message-ID: <CAEvNRgH+HWHgf26XDHN6aMLYjRh4M8okntBfjDFCBreXRXL=TA@mail.gmail.com>
+Subject: Re: [PATCH v16 22/45] KVM: arm64: CCA: Handle RMI_EXIT_RIPAS_CHANGE
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, 
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_085858_309075_9A5E893A 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20260805_085916_811880_F24BD132 
+X-CRM114-Status: GOOD (  36.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,82 +130,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
+Steven Price <steven.price@arm.com> writes:
 
-Reserve 1MB of DDR for the EdgeLock Enclave. The enclave hardware can only
-access DDR in the 0x80000000 - 0xafffffff window, so constrain the pool to
-that range with alloc-ranges and let the kernel choose the placement rather
-than hardcoding an address.
+> The guest can request that a region of its protected address space is
+> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
+> RSI_IPA_STATE_SET. This causes a guest exit with the
+> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
+> protected region to unprotected (or back), exiting to the VMM to make
+> the necessary changes to the guest_memfd and memslot mappings. On the
+> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
+> calls.
+>
+> The VMM may wish to reject the RIPAS change requested by the guest. For
+> now it can only do this by no longer scheduling the VCPU as we don't
+> currently have a usecase for returning that rejection to the guest, but
+> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
+> open for adding a new ioctl in the future for this purpose.
+>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v15:
+>  * Propagate negative error returns.
+> Changes since v14:
+>  * Use addition rather than bitwise OR for adding the shared_bit in
+>    realm_unmap_shared_range(), this handles the case where the region
+>    includes the last address (which means 'end' already has the bit
+>    set).
+> Changes since v13:
+>  * Switch to the new RMI_RTT_UNPROT_UNMAP range-based API.
+>  * Drop ugly hack for RMM bug which errored when the RIPAS was already
+>    set to the desired value.
+> Changes since v12:
+>  * Switch to the new RMM v2.0 RMI_RTT_DATA_UNMAP which can unmap an
+>    address range.
+> Changes since v11:
+>  * Combine the "Allow VMM to set RIPAS" patch into this one to avoid
+>    adding functions before they are used.
+>  * Drop the CAP for setting RIPAS and adapt to changes from previous
+>    patches.
+> Changes since v10:
+>  * Add comment explaining the assignment of rec->run->exit.ripas_base in
+>    kvm_complete_ripas_change().
+> Changes since v8:
+>  * Make use of ripas_change() from a previous patch to implement
+>    realm_set_ipa_state().
+>  * Update exit.ripas_base after a RIPAS change so that, if instead of
+>    entering the guest we exit to user space, we don't attempt to repeat
+>    the RIPAS change (triggering an error from the RMM).
+> Changes since v7:
+>  * Rework the loop in realm_set_ipa_state() to make it clear when the
+>    'next' output value of rmi_rtt_set_ripas() is used.
+> New patch for v7: The code was previously split awkwardly between two
+> other patches.
+> ---
+>  arch/arm64/include/asm/kvm_rmi.h |   6 +
+>  arch/arm64/kvm/mmu.c             |   8 +-
+>  arch/arm64/kvm/rmi.c             | 473 +++++++++++++++++++++++++++++++
+>  3 files changed, 484 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
+> index 1e5026039458..751659a48be3 100644
+> --- a/arch/arm64/include/asm/kvm_rmi.h
+> +++ b/arch/arm64/include/asm/kvm_rmi.h
+> @@ -107,6 +107,12 @@ int kvm_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
+>  int kvm_rec_handle_request(struct kvm_vcpu *vcpu);
+>  bool kvm_rec_handle_hvc(struct kvm_vcpu *vcpu, int *ret);
+>
+> +void kvm_realm_unmap_range(struct kvm *kvm,
+> +			   unsigned long ipa,
+> +			   unsigned long size,
+> +			   bool unmap_private,
+> +			   bool may_block);
+> +
+>  static inline bool kvm_realm_is_private_address(struct realm *realm,
+>  						unsigned long addr)
+>  {
 
-Provide this as a shared imx8ulp-firmware.dtsi that also enables the hsm0
-node and wires up its memory-region, so every i.MX8ULP board can bring up
-the enclave with a single include instead of duplicating the reserved
-memory node. Include it from imx8ulp-evk.
+Coming here from guest_memfd, would like to look more closely at the
+conversions-related stuff, and learn more about ARM CCA in the process :)
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts      |  3 ++-
- .../arm64/boot/dts/freescale/imx8ulp-firmware.dtsi | 31 ++++++++++++++++++++++
- 2 files changed, 33 insertions(+), 1 deletion(-)
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index cd06881c1497..dcc2ab08d0e4 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -319,6 +319,7 @@ static void invalidate_icache_guest_page(void *va, size_t size)
+>   * @start: The intermediate physical base address of the range to unmap
+>   * @size:  The size of the area to unmap
+>   * @may_block: Whether or not we are permitted to block
+> + * @only_shared: If true then protected mappings should not be unmapped
+>   *
+>   * Clear a range of stage-2 mappings, lowering the various ref-counts.  Must
+>   * be called while holding mmu_lock (unless for freeing the stage2 pgd before
+> @@ -326,7 +327,7 @@ static void invalidate_icache_guest_page(void *va, size_t size)
+>   * with things behind our backs.
+>   */
+>  static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64 size,
+> -				 bool may_block)
+> +				 bool may_block, bool only_shared)
+>  {
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 5dea66c1e7aa..885242fd07ce 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,11 +1,12 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- /dts-v1/;
- 
- #include "imx8ulp.dtsi"
-+#include "imx8ulp-firmware.dtsi"
- 
- / {
- 	model = "NXP i.MX8ULP EVK";
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-new file mode 100644
-index 000000000000..e4bc352f68af
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ *
-+ * Default reserved memory and EdgeLock Enclave (ELE) enablement shared by
-+ * i.MX8ULP boards. Include this from a board dts to bring up the secure
-+ * enclave without having to duplicate the reserved-memory node. The ELE
-+ * hardware can only access DDR in the 0x80000000 - 0xafffffff window, so the
-+ * pool is constrained to that range with alloc-ranges and the kernel is left
-+ * to place the 1 MiB region.
-+ */
-+
-+/ {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ele_reserved: ele-reserved {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x30000000>;
-+			size = <0 0x100000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+	status = "okay";
-+};
+Why convert attr_filter to a boolean, why not pass the filter through? I
+think that might allow all the 3 states - unmapping private, unmapping
+shared, and unmapping both. (Assuming unmapping none == not even calling
+this function).
 
--- 
-2.43.0
+Also, perhaps it's better to add this parameter to
+__unmap_stage2_range() together with the patch that uses the only_shared
+information :)
 
+I see that in [1] not changing __unmap_stage2_range() was going to be
+explored, did that work out?
+
+[1] https://lore.kernel.org/all/3b8d49be-f031-4134-bd20-a8c51632f4ad@arm.com/
+
+>  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
+>  	phys_addr_t end = start + size;
+> @@ -343,7 +344,7 @@ void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
+>  	if (kvm_vm_is_protected(kvm_s2_mmu_to_kvm(mmu)))
+>  		return;
+>
+> -	__unmap_stage2_range(mmu, start, size, may_block);
+> +	__unmap_stage2_range(mmu, start, size, may_block, false);
+>  }
+>
+>
+> [...snip...]
+>
 
