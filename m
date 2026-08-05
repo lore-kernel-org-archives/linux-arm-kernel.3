@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1901C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD71C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JRnmSwfePuxjzp3S3366V2iKuGTS0E5jGJbo3/yzTqY=; b=JP8/irNDbIo9yLxThOUTa7vFMP
-	cSMyWlgxBY2QzfTSSbl1f/jJ+aPLS8oIK1OCbzYCuoq2GQvw6CkjV+6KUGNdNOBDc06uBP8mlFMnG
-	5iq+SrehkaBgkQpd8TTpcA5pX/OraOhSXGcjg/nQPVfKigvGIbT9XOuxlruxj6BFYP4x9C/spPgF0
-	Xzlo6NISFJ9LY8//Xtc5GFQHXZrxCs9zWpGSvGwt9t3OZ5IEtJwOhNRoKjTDwzOdoZA74CRYKUbCm
-	R5DnzIa5P+ET7V2NRIUSIESkMgGjaDTE3RO5FlKudhWYijAzSgUVYgIxGItgmd9cbuQwtthtbvLaj
-	/ei/bcrA==;
+	bh=kJXq08sJkug6Mcz5qGLPAxyPM7bBnkDiej3zEpwgtzY=; b=o7Ug5/Rfmhq04VOWQdUQ8jbqfS
+	saRx+KDJMrrn1gcHa/ympy/Tmi9/4PEXoTPqkfRQrNYlRcst1OjkoG+svgjpW+iuq6Z1Nm6fbXUKH
+	7DxuxmqEbwJs2JzR4epsIWmek4deGS1lJX48A56nebqeiFfXHeTRETRTcayTaYFgq4tGI6Istmnyj
+	8jdzr5uYOOcFrTukTIZ25HxcbtjqlTPL4wmZAko+uI696yGtypZ+p2o5PoZP9wzkDfBXXUQIPegAF
+	0nmV8+Ywk/ZmfRP+8UPqLWc5AQnoQhU8vqDL2S7ocrtSZP+l/u20k+SKtz5D7gl3NBrm1ZYIN/1WS
+	QaawyD8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrW2Z-00000003PAs-0Iq7;
-	Wed, 05 Aug 2026 07:27:51 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wrW4S-00000003POU-3Oro;
+	Wed, 05 Aug 2026 07:29:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrW2W-00000003P9q-0nOw;
-	Wed, 05 Aug 2026 07:27:50 +0000
-Date: Wed, 5 Aug 2026 09:27:41 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1785914863;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JRnmSwfePuxjzp3S3366V2iKuGTS0E5jGJbo3/yzTqY=;
-	b=yEayGddaDKi2zac0rvSRmjjvtr1lIAegfo0pQUMXWYmEfWWGeLMLxxSFzkYq9+QyNN+bsJ
-	ACYgn6vC4qdJK/LQHJHd6qgOmecgYZg3tuKadXmFaLntp+3bntqmrmWp3YHcYPrSx4MkYq
-	KUIYmTBkyo5ODeoHXPokddunWa0qXSjgT5JBWhTxv12cVAdxZOUihsTaAj1YxR9MRLE7Sh
-	faQJ6rGQMqHwvXpZ/QWtLsV6XYMMVKk+JAXVv6Ig6Wvd3xOHvEcI7mkK87PfCPzhGRD1Nx
-	KaFz5ndvZ0fGWBSe76bLcx8V+d/Wkg1OcXDfH3BCp7czsobPSD4Rs2ATRXvTRg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1785914863;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JRnmSwfePuxjzp3S3366V2iKuGTS0E5jGJbo3/yzTqY=;
-	b=fkzURMFPZeNTOuzVlxu4KF2sqGwU73Oo0MmvEOCYJNKxGa44uyEPBf59FbH1Kc4MBchImb
-	bL2YR40YTXln9pAA==
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Rob Herring <robh@kernel.org>, 
+	id 1wrW4R-00000003POD-2fPs;
+	Wed, 05 Aug 2026 07:29:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 166BC4175F;
+	Wed,  5 Aug 2026 07:29:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35E0F1F000E9;
+	Wed,  5 Aug 2026 07:29:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785914986;
+	bh=kJXq08sJkug6Mcz5qGLPAxyPM7bBnkDiej3zEpwgtzY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=VfuCMa2ZSKpC7x6V3r4+9Q7OvelZRJaKlPLGdse6v7At7B0BQfHZjm68xaWRUeISH
+	 FYcMOx5aVLYwrJkeRLYCRlRRme3pn+edrgFN8umcaH9bNx4D4Xw/0aKcv3f1LKY3G2
+	 vDU9geH1EyduSUlp4DQj7H5IZTrAXSyXJYM78aeqdHybSlw8hbvabPEfAMksFpqkLx
+	 +Z4kkdPrskRmrW6PmQRNucRRvOrlVdE/uUagFA8wOezUrXNxHKcfwPPkeZ3aM+Y9G9
+	 wyLXAB5hS6odKAaIX/8CoV1KTWblG+sr+a20aMJCT8lIEfvup6NUebxEjg10Cd6bNK
+	 NtlH/WP425dkQ==
+Date: Wed, 5 Aug 2026 09:29:42 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Coia Prant <coiaprant@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Eric Anholt <eric@anholt.net>, devicetree@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] arm64: dts: broadcom: bcm2712-d-rpi-5-b: add
- compatible
-Message-ID: <vv6ufnanks27moditlav2ebaub6m5te5tag3m6qv5l65cm25iw@i7m54od3wz4k>
-References: <20260804-bcm2712-d-stepping-compatible-v3-0-1860094486eb@linutronix.de>
- <20260804-bcm2712-d-stepping-compatible-v3-2-1860094486eb@linutronix.de>
- <6ed9b2e5-b700-477a-8f6f-cb48c597a111@gmx.net>
+	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Romain Gantois <romain.gantois@bootlin.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, 
+	Shawn Lin <shawn.lin@rock-chips.com>, David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 04/10] dt-bindings: net: pcs: add rockchip,rk3568-xpcs
+ binding
+Message-ID: <20260805-stirring-wondrous-mule-faf37d@quoll>
+References: <20260801142244.679437-2-coiaprant@gmail.com>
+ <20260801142244.679437-6-coiaprant@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <6ed9b2e5-b700-477a-8f6f-cb48c597a111@gmx.net>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_002748_407543_798E982B 
-X-CRM114-Status: GOOD (  25.24  )
+In-Reply-To: <20260801142244.679437-6-coiaprant@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,66 +80,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 04:57:09PM +0200, Stefan Wahren wrote:
-> Hi Gregor,
+On Sat, Aug 01, 2026 at 10:22:28PM +0800, Coia Prant wrote:
+> Add device tree binding documentation for the Synopsys DesignWare
+> XPCS integrated on the Rockchip RK3568 SoC.
 > 
-> sorry for my late reply.
+> The XPCS is accessed over the APB3 bus and internally connected to
+> a Naneng Combo SerDes PHY.  It supports 1000BASE-X, SGMII, and
+> QSGMII modes, with four MII ports.
 > 
-> Am 04.08.26 um 15:13 schrieb Gregor Herburger:
-> > The bcm2712 found on the Raspberry Pi 5 is available in the d Stepping
-> > and in a c Stepping. There are two separate dts files. The
-> > bcm2712-rpi-5-b.dts for the c Stepping and the bcm2712-d-rpi-5-b.dts for
-> > the d Stepping. The d stepping does not set its own compatible/model
-> > string but uses "raspberrypi,5-model-b".
-> In case the SoC and not the board has a D stepping, why do just change the
-> board compatible without the SoC compatible like "brcm,bcm2712-d0"?
-> > 
-You mean changing both compatible strings? Like this:
-	compatible = "raspberrypi,5-model-b-d0", "brcm,bcm2712-d0";
+> The binding describes:
+> - Required properties: compatible, reg, clocks, clock-names
+> - Optional properties: phys, phy-names, power-domains
+> - pcs-mii sub-nodes for each MII port (reg 0..3)
 
-Don't know actually. Have not found an example for something like this in the
-tree. I prefer it actually like it is. Would like to hear the opinion of an
-devicetree maintainer about this.
+Irrelevant paragraph. We can read the diff. Drop.
 
-> > These two steppings are not compatible. Booting with the wrong dtb file
-> > causes a crash at boot.
-> This sounds like the patch should have a fixes tag?
-Yes can add one.
-> > 
-> > Add a compatibles string "raspberrypi,5-model-b-d0" to allow us to
-> > distinguish between those two steppings.
-> > 
-> > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> > ---
-> >   arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts | 5 +++++
-> >   1 file changed, 5 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-> > index 127be0fc27c22..5a86ad69645c3 100644
-> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
-> > @@ -3,6 +3,11 @@
-> >   #include "bcm2712-rpi-5-b.dts"
-> > +/ {
-> > +	compatible = "raspberrypi,5-model-b-d0", "brcm,bcm2712";
-> > +	model = "Raspberry Pi 5 d0 Stepping";
-> > +};
-> > +
-> >   &gio_aon {
-> >   	brcm,gpio-bank-widths = <15 6>;
-> > 
+A nit, subject: drop second/last, redundant "binding". The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
+
 > 
+> Signed-off-by: Coia Prant <coiaprant@gmail.com>
+> ---
+>  .../bindings/net/pcs/rockchip-dwxpcs.yaml     | 127 ++++++++++++++++++
+>  1 file changed, 127 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml b/Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
+> new file mode 100644
+> index 0000000000000..3e3f3a388d822
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
+> @@ -0,0 +1,127 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/pcs/rockchip-dwxpcs.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip RK3568 Synopsys DesignWare Ethernet PCS
+> +
+> +maintainers:
+> +  - Coia Prant <coiaprant@gmail.com>
+> +
+> +description: |
+> +  Rockchip RK3568 SoC integrates a Synopsys DesignWare Ethernet Physical
+> +  Coding Sublayer (XPCS).
+> +  The PCS provides an interface between the Media Access Control (MAC)
+> +  and the Physical Medium Attachment (PMA) sublayer through a Media
+> +  Independent Interface (GMII).
+> +
+> +  The XPCS is accessed over the APB3 bus and internally connected to a
+> +  Naneng Combo SerDes PHY.
+> +  It supports 1000BASE-X, SGMII and QSGMII modes.
+> +
+> +  The block contains four MII ports (pcs-mii@0..3) that can be
+> +  individually enabled and routed to one of the Ethernet GMAC controllers
+> +  via the pcs-handle property in the MAC device tree node.
+> +
+> +properties:
+> +  compatible:
+> +    const: rockchip,rk3568-xpcs
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 0
 
--- 
-Gregor Herburger
-Linutronix GmbH | Bahnhofstrasse 3 | D-88690 Uhldingen-Mühlhofen
-Phone: +49 7556 25 999 35; Fax.: +49 7556 25 999 99
+reg is always the second property.
 
-Hinweise zum Datenschutz finden Sie hier (Informations on data privacy 
-can be found here): https://linutronix.de/legal/data-protection.php
+Also, use consistent style of quotes.
 
-Linutronix GmbH | Firmensitz (Registered Office): Uhldingen-Mühlhofen | 
-Registergericht (Registration Court): Amtsgericht Freiburg i.Br., HRB700 
-806 | Geschäftsführer (Managing Directors): Dr. Wilfried Wessner, 
-Katharina Kopp, Alexander Gieringer
+> +
+> +  reg:
+> +    description: |
+> +      Base address and size of the XPCS register space mapped over the
+> +      APB3 bus.
+
+Drop description, redundant.
+
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    description: |
+> +      Clock sources for the XPCS:
+> +      - csr: APB3 bus interface clock (clk_csr_i), required for register
+> +        access.
+> +      - eee: EEE clock (clk_eee_i), required for Energy Efficient
+> +        Ethernet (EEE) operation.
+> +    minItems: 2
+> +    maxItems: 2
+
+No, instead list items with description.
+
+> +
+> +  clock-names:
+> +    items:
+> +      - const: csr
+> +      - const: eee
+> +
+> +  phys:
+> +    description: |
+
+Do not need '|' unless you need to preserve formatting.
+
+> +      The phandle of SerDes PHY (Naneng Combo PHY) that provides
+> +      the serial lanes for 1000BASE-X / SGMII / QSGMII.
+> +      The SerDes must be powered on and initialised before any XPCS
+> +      register access.
+> +    maxItems: 1
+> +
+> +  phy-names:
+> +    const: serdes
+> +
+> +  power-domains:
+> +    description: |
+> +      Power domain for the XPCS.
+
+Drop sentence and |
+
+> +      On RK3568 this is typically the PD_PIPE power domain, which also
+> +      supplies the SerDes PHY.
+> +    maxItems: 1
+> +
+> +patternProperties:
+> +  "^pcs-mii@[0-3]$":
+
+Why `git grep pcs-mii@` gives me no results? Are you doing this
+similarly to existing devices or is this quite different device than
+every other hardware?
+
+> +    type: object
+> +    description: |
+
+Same here
+
+> +      One of the four MII ports of the XPCS.
+> +      The port number is specified by the reg property (0..3).
+
+Drop sentence, redundant. Schema tells that.
+
+> +      The port is linked to an Ethernet MAC controller via the
+> +      pcs-handle property in the MAC's device tree node.
+> +
+> +    properties:
+> +      reg:
+> +        minimum: 0
+> +        maximum: 3
+> +        description: |
+
+As well
+
+> +          MII port number of PCS.
+> +
+> +      status: true
+
+Nope, do you see anywhere code like this?
+
+> +
+> +    required:
+> +      - reg
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rk3568-cru.h>
+> +    #include <dt-bindings/power/rk3568-power.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +
+> +    pcs@fda00000 {
+> +      compatible = "rockchip,rk3568-xpcs";
+> +      #address-cells = <1>;
+> +      #size-cells = <0>;
+> +      reg = <0xfda00000 0x200000>;
+> +      clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
+> +      clock-names = "csr", "eee";
+> +      phys = <&combphy2 PHY_TYPE_SGMII>;
+> +      phy-names = "serdes";
+> +      power-domains = <&power RK3568_PD_PIPE>;
+> +
+> +      pcs-mii@0 {
+> +        reg = <0>;
+> +      };
+> +    };
+> -- 
+> 2.47.3
+> 
 
