@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9FEC55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E34C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OHqTPpoy4PlrSjK5plmGj+ERzLd4Tg5Z8i+fDM3t4Tg=; b=klpem/if7q4Hyrj0BeInEraffI
-	4UR9WSeFpZW9uSBDHHeLKkxaGCR7eQv77i0Qe5YxLSJLz8xeIgwrmzXiG12eXaq2dGHvrdvfoX0Ph
-	L8RiIUu1FcHXDQJaJ2VQl/hIrUFgKD6aklStcuGMxcdluV4+sg0rBL5OBkjHGMKVGcuNVjTFDd7Zw
-	j6dGRgPeZMmqYkR+VBaS3qC/lp3BvYaOmaSMWgV10pEySWBpcG77kU6aI76z3eE+yiWwJZjPvMXS3
-	F/znO87hZwvqI1wJg7bjb0uV0OvA6woNUP6jn4R2Ct0292KzsZngzzXby2Lr5DkgLFVRi3jieaVpM
-	H5Nrp8LQ==;
+	bh=8XjuuAS9qzELKWMzzGKFt00IGUUpW4MBEhvQC26pWBc=; b=rAqWLuIa39s1rVdONQ5E7DADIg
+	AxcYIi02I8Rp0IblX/6Mkk6OFyklOsEi+RutFrJTXvjbyiJPv4WSZODwbHo55tIpyDD1krZhVfT8R
+	EkfjzlIKvNvdADvM8j0tsuzPU/qxzeUDdNXQzXz4lY0i0E3L0eT19zuW9eVix7lQL8lp4zWTYoQNZ
+	pSkoN+VKl/ySjlKJ6MhyDXqGY+ls1W9r3tJRwHKlPQavS/3r+svVNdGlTFvqqdNMVEh4CTK1+wojG
+	ZX4q25kmspoq4DHOw+SDsSCdG0kLv4JPsxVTYScPyrnQHDzyN45BYHwYu/NzqNBVzneWclVunY70W
+	CgSxeuGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wradf-00000003tfq-0xlB;
-	Wed, 05 Aug 2026 12:22:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wraeM-00000003tlN-1wld;
+	Wed, 05 Aug 2026 12:23:10 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrade-00000003tfg-2r79
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 12:22:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C28636011F;
-	Wed,  5 Aug 2026 12:22:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B0D81F000E9;
-	Wed,  5 Aug 2026 12:22:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785932545;
-	bh=OHqTPpoy4PlrSjK5plmGj+ERzLd4Tg5Z8i+fDM3t4Tg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=d6OiclPvJS/21qaE6HRFu5Cd9pppTVz8Z7gq3bGnzkapMrP4+qwNgwAEUDUZF3CsB
-	 elSFTEmNXwLrS/m5A9zKH2TtagQ6Jj5nGFSSyMLAKYDos1qwOEcFfMwRn8og1htpMO
-	 88cbECxUyTntBhcbLFpUwjrzFlLJY3x/3EyHDEq25vdvr/nFilqdN6PcqeznXFjNF3
-	 gd28hdU0y+C3+sdx4bo2GYv2Ybcp2wrDXdq9btP50HNeyK7yy/KQBhOxfeN8Kzug2I
-	 5VVU53QIBho1A2kTD1D3R0g0tz82ZILCqC1O9SaguLJUWkoVzwdkBKTtyiO/DjDoKo
-	 uw6fQESbB5xXA==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v9 0/7] Switch Arm SMCCC firmware services to an SMCCC bus
-In-Reply-To: <anMHs65s6Mk-ZRdT@arm.com>
-References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
- <anMHs65s6Mk-ZRdT@arm.com>
-Date: Wed, 05 Aug 2026 17:52:17 +0530
-Message-ID: <yq5awlu43gg6.fsf@kernel.org>
+	id 1wraeK-00000003tl1-25IE;
+	Wed, 05 Aug 2026 12:23:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=8XjuuAS9qzELKWMzzGKFt00IGUUpW4MBEhvQC26pWBc=; b=XY4YXHWoFxOikBgzmUK4/FQFSi
+	mHJDkn1jprsIY1vu53fcnRoDUYwGNLBLyh8aA8HGBQFJevr6dktTjyoR/sOhysO/pehiL3Pl+Xfuc
+	PUvomUBObKIB6exaioP9dCxSjP/mjzrFAobd7YCNCg6uQHuqyqeiR+ClP3X8w/cT+YVU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wrae7-00GAIv-J5; Wed, 05 Aug 2026 14:22:55 +0200
+Date: Wed, 5 Aug 2026 14:22:55 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	mfd@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH net-next v2 6/8] net: phy: add X-Powers AC300 EPHY
+ control driver
+Message-ID: <05af101c-62d4-4d46-b170-052487ecb681@lunn.ch>
+References: <20260804-submit-acx00-of-dynamic-v1-v2-0-3eef49ff1d8c@gmail.com>
+ <20260804-submit-acx00-of-dynamic-v1-v2-6-3eef49ff1d8c@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260804-submit-acx00-of-dynamic-v1-v2-6-3eef49ff1d8c@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260805_052308_550739_C546F067 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +80,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Catalin Marinas <catalin.marinas@arm.com> writes:
+On Tue, Aug 04, 2026 at 08:27:04PM -0600, James Hilliard wrote:
+> The AC300 Fast Ethernet PHY needs a separate non-PHY Clause 22 endpoint
+> to complete package setup before the link endpoint becomes usable.
 
-> On Wed, Aug 05, 2026 at 12:02:48PM +0530, Aneesh Kumar K.V (Arm) wrote:
->> Changes from v8:
->> https://lore.kernel.org/all/20260707081351.1680209-1-aneesh.kumar@kernel.org
->> * Rebase onto the arm64 for-next/core branch.
->
-> Was there a dependency on anything in for-next/core? We normally apply
-> series on their own branch on top of the vanilla kernel (e.g. 7.2-rc3)
-> and merge everything together in for-next/core. We (and many other
-> maintainers) strongly prefer series posted on top of an -rc kernel
-> (typically -rc1 to -rc3) unless there's a dependency on a different
-> branch. Never based on -next or -next like branches (which is what
-> for-next/core is, as the name implies).
->
+Please use the functions in phy_package.c
 
-The reason is that these two patches create conflicts. Since this series
-involves file movement, resolving those conflicts was not
-straightforward. Therefore, I rebased the series on top of both of the
-following commits:
+    Andrew
 
-commit 24f55f511b9e ("virt: arm-cca-guest: use migrate_disable() for attestation token requests")
-commit e62decaf98e7 ("arm64/coco: Add pKVM as a CC platform")
-
--aneesh
+---
+pw-bot: cr
 
