@@ -4,153 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D478C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49347C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ox2xbRLxNvdqpJFmgdEJg4jzYCu9Zb10QHH/V8E5mn0=; b=C+CPQT3Zi9t4NkaIcB1RW+qBYi
-	OhqF4YmpuV2hKxDXHJV9EyNWn5slfDgdjnB2R+BwG7vFgMq5sXrYAK4/BZEGoW6O5KlfiVnW5EyjV
-	+Nv66blhOgY8+GoTve7J8A4QCZ6vW1+7UH1BpwyvmwtdauPmjJMdMiUYMiZ/azKpzWd8BYmvo3iG7
-	ZyfGp6VEJAANzkF5+sxFyQZhAlF6DuqC0IwKS8+02PBRFxtG1fNLok57dlfHR7qXmxJjhEtZidDtj
-	2rRaBWyh/ZTECwo1pA3RjZNwg/a7NbKoqyJyCdYDGRPsH67fgbbaO0eNU/pCh5J6yPpCazh8qtPc2
-	fEL31bsQ==;
+	bh=5LSfaQsJnWTgUDlHUu9ZzXQ3/4tSCBUVOkdmaV5v2+4=; b=zyzZyl32dkQlPxl9DsILYrW/QK
+	htvcv5/1m3SgDc/i1FxWxLUsHMR3xYWaSyAg+EWMq5hgSoJhUiUFNXbuvqM2jvGjVM7pQtfL1VmK0
+	K9jFO9QAU2HFWZEm2g7nJoe5nJw4toIeGz0j8KNFtWhSS2l/Dgwd+hdzrPjMuCSaANrr4smwNdqDI
+	LAaQ2ET2lJelqTq1EDkkPtwfA8prkJXfS+9jbnnQ+aHgQoqUD8VTMpwAafSvUnjv+G7cF5xhCNsHP
+	sosQnoNoLov/PgxoAXvzM0Q71uJXH9tQiTDba/NNcKMHFEdOsBk1vxTaTzx0TIZBlRLy4VKTGmMfw
+	mG1Ii00g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wralY-00000003uK8-0Yjc;
-	Wed, 05 Aug 2026 12:30:36 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wranS-00000003uUL-28N5;
+	Wed, 05 Aug 2026 12:32:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wralV-00000003uJm-1KN2
+	id 1wranQ-00000003uU2-3wFa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 12:30:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rHg7Pqy25T1EHcgljCMLNjJuRPyEm5Tm8xIwNQxi154dmvQaxxwQ5Sfk5Zr1bu+HYKYwn30v6FBIPFAAkSsohBd9qXxRaHAvXuyqtx0FuYmPa4wemPCRkMiuDAv4D86/ViFBDd94eZtEOpbSvAhMWFvPukWS9jGgvFXdgQUhd0/dsxzN94k1pfZeEa+x1iFAZliadFZaGTFhxfNaBZRSvX1v5v6HQGTPxA9h5YoLx/q3TV2/n0GU/MDYB0hsOWYKTaZs9VkoHoAY2Oq5BRHm4HQ1jV46GhoNcGtSdLgqNJLgp/bZm6Ve7PtRBJuhZyzzDjA2floBpGsApbNHKdIxyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ox2xbRLxNvdqpJFmgdEJg4jzYCu9Zb10QHH/V8E5mn0=;
- b=J5cAUlCPGO7XGnJjd968I77MnrobAxioxdSRBUM5FQpspKNsY/6F5pwSbUFD5rFdgyHQb3+ytihLz2wLViZ7x2vRY3oMf23x667ReFqT2GL+6uYN39bVg/ZGxR2eUBHDnFswYEE0ctM4M45IXJVTtM/d4XFTc7JynvGy/UUwtFusAZhQKajz5FTuwvAK1SVxv0DbbMYwqhuMTXyWgNTcKZIfYlZhF1eLyWoTo3PzfumItM5XN424YDKpl46axijZo0Zn8beaVzEhOt/wGX5qk6o2FwGjMlhTp184TXde4VAAYIJeb+QUbqxlpRfVbaVLD4vD0lBzUeQIwTsn6tckgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ox2xbRLxNvdqpJFmgdEJg4jzYCu9Zb10QHH/V8E5mn0=;
- b=MKDGdRlKhEgo7F2ULcO8dm44E0sNuHGjxPBIwyFLQU51nhvBCS7veG5Oa9Crj4LQJikt0LL1cTsw7dI/yJ1D+nnUuX0dfww+k4pznjZVeYtphfNfTCKan3kwMp2HXXZHPY9rgKauD2BHGoq1CBUbRT443eI1iJCAQHGh0erBq2fj6BxFyOHVghOyphLqgTVwbicP8ZMNW6vxUdgZIexCsT9XDv71/3SDrPZQ4KU1cUJleAvSEJg3CKz5BuynnJExBgY/o5tfWUsG1HhmeYisGrZUDGBXEwwmadQ94+nVV26w9rXznT7FiaayOsIWZdyqFSV6R8L6hnD78fexmViTbw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by EAYPR12MB999132.namprd12.prod.outlook.com (2603:10b6:303:2c2::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.20; Wed, 5 Aug
- 2026 12:30:25 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0292.015; Wed, 5 Aug 2026
- 12:30:25 +0000
-Date: Wed, 5 Aug 2026 09:30:23 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Wed, 05 Aug 2026 12:32:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 53CEE42A0C;
+	Wed,  5 Aug 2026 12:32:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7563A1F000E9;
+	Wed,  5 Aug 2026 12:32:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785933152;
+	bh=5LSfaQsJnWTgUDlHUu9ZzXQ3/4tSCBUVOkdmaV5v2+4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kgarzZbcePG1xY1ektXE5fX/hI8viRoMoas3xXwM3dzop8NJE/Ox2uoR4T7k8JHmK
+	 m4CUq5FDrCQbUh1Ae8x5roBl4qQX2apjTVHzkDh7FmAwCG1vMo3WRkPakqVOJmQUux
+	 bE9TTgXH5dUMPg/+hlfsGYiwFyKm9ZSftz2LUs57TKqiwQozfuCl0DJB3sxe8rsjrF
+	 phb7RyXHPE9zUuVm8LC2imncAm9Fp/BWU+gMTFWPte+9o9qzThQ8GEtlZIordwnqTo
+	 pLokldhx5f/+pkjUP5N54JMUkKc7+BjQfMpPvkQW9TH0OBn5cpLQtKkPdlozP24H+G
+	 9m9y98fuINt7Q==
+Date: Wed, 5 Aug 2026 13:32:26 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yao Yuan <yaoyuan@linux.alibaba.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Michael Kelley <mhklinux@outlook.com>
-Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
- reference
-Message-ID: <20260805123023.GO27883@nvidia.com>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <20260717180442.110954-13-aneesh.kumar@kernel.org>
- <ami_mpd_1pF4Tmdu@google.com>
- <yq5a5x1ygo7z.fsf@kernel.org>
- <amnRB98ZZIysHuM3@google.com>
- <yq5acxw6dl1d.fsf@kernel.org>
- <20260804142032.GC27883@nvidia.com>
- <anL9-OrDGqYQAWNV@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <anL9-OrDGqYQAWNV@google.com>
-X-ClientProxiedBy: YT4PR01CA0449.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:10d::21) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v18 03/14] KVM: arm64: Manage GCS access and registers
+ for guests
+Message-ID: <6d63905e-8c6e-4c88-b60b-d34ab1401783@sirena.org.uk>
+References: <20260803-arm64-gcs-v18-0-fd8c40f5ad88@kernel.org>
+ <20260803-arm64-gcs-v18-3-fd8c40f5ad88@kernel.org>
+ <enhoyivbkdaacgyazubgfzftt34xjemtrybvgpuqvr4czjtbhm@7qvrce5lmdyw>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|EAYPR12MB999132:EE_
-X-MS-Office365-Filtering-Correlation-Id: 693df1b0-8bad-4c1b-433e-08def2ed530c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|18002099003|22082099003|4143699003|11063799006|56012099006|6133799003|10067099003;
-X-Microsoft-Antispam-Message-Info: wtpreoMMSbMNkvVIQRVqvnZb64uPO/ftJxH026TyI2TzinjsLqw7pGLDEkAypUGJMmAcdbM2IY90FmH6YKekynfqyKGced4hUOuk9RfrciCspsz4NQJFTPsrpRl5z8AE+5yP7EfQEaHeDyVbP+mAexfUnm5PpXvtZ/vYMp/Th7N5r3q88w81hqhFqqWLuWxkXirkQvjH8GAhF2BjYZvOfAkjTJvGvqCSBheB05I/rJwAmuXhNMGSkBqD3gq4sLcuq5Xx8WOeOs5fu4zM6HE5ciMtyWNJZHXeyehPBcbaSyjngsvB5CWNz3umZ0gkaEw85yIuFxzWr+Ez8+J2ReLWnHOVbzCtZ/U0snRYGtVQKTFVTCP9NIQN2aumWCfasdKIILrze0GTmHp/SzOEc0Y/o7oYPSpJAq2LjRsZqGwRKMGE6pPWbEhfRrktnXm+Kej8dAV5Dd/YnExy1kJB3mkBEd9UE1MUqYCIZxDxhZP5FRAMX02KCbiP4y/Os86P5SG3d5iUCLFcX1fNlj8a7Duq2Uo8e54Lv18GMX7lhsMFgC0SJVk9tA91SAQrucfnwnkeCBy4rrQM9+3cMMVN4jUFO33344zWFqI3oEQRFdMI0B5rtI1sFZMTJdxfncy/3yqov9rEQaTCL06DYaZ9fwTE862u/SLRfklyfilqlxzi2i8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006)(6133799003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IhdvWWGfiwCzol3+AUKdUWMHHE4HWALFFNYMRE+RmFsR/2v0ODtmAbuAIrmW?=
- =?us-ascii?Q?++YuY5qxNSSGbhCE/uUqv1Zjre7UVbCER/qCW06WVTAImbxzFOP7BV0KHQju?=
- =?us-ascii?Q?vBuuCfhcl9vk3TVlXgbCJikyf4g9V69eZfKjeyHVYKjZCQUP6/96b9u2FrXy?=
- =?us-ascii?Q?EXkfC4LFf5h/97MPvBYj7HtXF/lW1Q72gmOXNPYUUYwmlNK9oLOBnS7uvtqg?=
- =?us-ascii?Q?+9KvvEN5Ap8UTSJxNyrcCyGm39bMV9f+msR9ieDkLSkEwZirn70aGektH7ul?=
- =?us-ascii?Q?Wir3QQsAufage7I47Xnxol6uEKRuCWyQo+2FxZlDl5rw2r35ZPHJzrhABDSV?=
- =?us-ascii?Q?nQ2OCr0uTwo+hd/CCA4BfENcsgXUNGDKNwyQ7C3yl6AVihvvU9oomRTSES9X?=
- =?us-ascii?Q?66CnYKuSc1TmuRXXaxtdf0f/mhsJh1NEeXxqP4MiLGub8FrdlDQaQsHiGo+O?=
- =?us-ascii?Q?bhE21Pn2LEjbrTVyZhtQYWw/xUiQ27AwYXKFS6KLOi/xawx4KlV19LK6o09U?=
- =?us-ascii?Q?0OigRMbjTxpbvEY6mHKRjOdc7fd1VW36PnM/JQ/4AobFA8EXl7IjJJ8oJmhV?=
- =?us-ascii?Q?QL/SE2wISFBJucIPsPumh62swZWFbj1Fl8HpiqfcbKc22jCeXnz5rnSngtrY?=
- =?us-ascii?Q?WoBioRTvqcEmBlOOsmPDMelFg3yqC+Hac9lKhr5B22c89P/v+2inJGhvUP5S?=
- =?us-ascii?Q?TadWy/uYUATQIbDhMBEoMQjgqmCoFoJ1e8Qa0S2TorUtCaAOfxHdnzpCYVaz?=
- =?us-ascii?Q?RZMm4pEJsbUuFwg1bUQs9cBjvAKqkvAwY18LtVIML/wLcCoxfog1FNJr1Xe7?=
- =?us-ascii?Q?0JI1ywQNQRuAJV1IEVNgJPIQVSJuc1MUxS5qDkD9HV69GKczAk+g38sa+vHx?=
- =?us-ascii?Q?7naYCd1KdDssmBcCL0e8DBr+kz9RgjbAu0hkP6JZFDht1PxbaZnshp2T1Ws2?=
- =?us-ascii?Q?j/an/bIzYWCs+GSsxmf4saCwUi9Qwt8p5ctqftcc2iOzU/aZNffGSWdcTWop?=
- =?us-ascii?Q?hHoCgzOarMuljYizaEyWVXAwzvBmaSwEJ5eLXxQWtjdDXDhqOyRSOiHP40+Z?=
- =?us-ascii?Q?mAeIZzTGQiNsNHrnaZrtgaLMMAClk2eSvN8qtLC48WvM0x4bk+GT/ZXv5HOm?=
- =?us-ascii?Q?Tww27yTLgyTCRHtucU4XbLgBxbeBTg3aKaF/Uf9nYBABBxbgSsCji7sMIcBR?=
- =?us-ascii?Q?o4qUUXOIGSAxDKY+DMqaxfQgQl0eouNSDdO9e1ZZ/OZicVV4bph6Tf7hnZHA?=
- =?us-ascii?Q?udQOE0V7OSTJEZRzRCfYATnyQCS9qkpkdk5QUs9F/EwcX35CHWxZfQ+l+tlQ?=
- =?us-ascii?Q?0UZqvFtnxhnoZECLAfOBTeVsBry1Lj7JEU0528cPZ/kWNRlbzMhRA5N6cFwb?=
- =?us-ascii?Q?91eIDW939hdE1zKt68NPqswU9YUPZ22jYJnFHhEwF/cBJmLMrCcRRlSAZ6PC?=
- =?us-ascii?Q?LYmutjcySr/n1pfCMmLcm1UCc4MsRx+SBQprC0bweGx8CULgSFYOQfF2KkXV?=
- =?us-ascii?Q?GgEcXTpWlUS5nX+VfBOVL/aKhyCJPJat0mgs8o4M/8RFCwZ92jeuLNiYIN/t?=
- =?us-ascii?Q?obhA4NG10RZeFaZB1rDR7JO4ZV8nObjNY8u8u8QBZLN4xX/gy+IEY9VXuTpr?=
- =?us-ascii?Q?6gyMbpy3WJ73qzF1SmH3e+HP/KeeY0iFDWjUEobitwCrGyJa5+3m+wtNrdKp?=
- =?us-ascii?Q?PKWjgiFUGpIO8Gn1hniVAlB7vMjyz+JRtEViMNPoGPScTyYfWmA0iRXChWL2?=
- =?us-ascii?Q?6a91FZ2B/A=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 693df1b0-8bad-4c1b-433e-08def2ed530c
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 12:30:24.9433
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SnEE0VCiRX+7FvTKRW2hbsqeIdcBOCg9gwb9qK8aHHGB4wwY9TBKfnxLggJ3Y/Xl
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: EAYPR12MB999132
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_053033_412184_46D1B014 
-X-CRM114-Status: GOOD (  36.43  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="G0bWhbbolYLdYDz9"
+Content-Disposition: inline
+In-Reply-To: <enhoyivbkdaacgyazubgfzftt34xjemtrybvgpuqvr4czjtbhm@7qvrce5lmdyw>
+X-Cookie: Stop ahead.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,75 +81,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 09:10:16AM +0000, Mostafa Saleh wrote:
-> On Tue, Aug 04, 2026 at 11:20:32AM -0300, Jason Gunthorpe wrote:
-> > On Wed, Jul 29, 2026 at 06:12:38PM +0530, Aneesh Kumar K.V wrote:
-> > > There is a possibility that we may support io_tlb_mem with cc_shared =
-> > > false in the future. As a result, only swiotlb_map() knows which type of
-> > > bounce buffer was used, making it the only place where the attributes
-> > > can be updated correctly.
-> > 
-> > Yeah, +1, the attribute should be changed at the same effective place
-> > the source memory is changed away from what the DMA API user
-> > provided. Only the thing providing the new memory (eg swiotlb) should
-> > know its properties.
-> 
-> I will keep the conversation here instead of 2 threads.
-> 
-> That seems like a big leap, I'd be worried about devices that operate
-> on confidential data that should not be shared/decrypted.
 
-That seems like something very differnt.
+--G0bWhbbolYLdYDz9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> One example for this which exists in pKVM (this part is not
-> upstream yet) is non coherent devices that require bouncing but they
-> still want to keep the data private. In that case ideally they get
-> an encrypted SWIOTLB pool, but it's always better to fail than to use
-> a decrypted pool behind it's back.
+On Wed, Aug 05, 2026 at 05:48:04PM +0800, Yao Yuan wrote:
+> On Mon, Aug 03, 2026 at 11:56:48PM +0800, Mark Brown wrote:
 
-We don't have any API for a DMA API caller to signal 'must be
-confidential'. If we want to add one it would be a flag to check
-before changing the physical address in swiotlb.
+> >
+> >  		if (ctxt_has_s1poe(&vcpu->arch.ctxt))
+> >  			write_sysreg_el1(__vcpu_sys_reg(vcpu, POR_EL2), SYS_POR);
+> > +
+> > +		if (ctxt_has_gcs(&vcpu->arch.ctxt)) {
+> > +			write_sysreg_el1(__vcpu_sys_reg(vcpu, GCSCR_EL2), SYS_GCSCR);
+> > +			write_sysreg_el1(__vcpu_sys_reg(vcpu, GCSPR_EL2), SYS_GCSPR);
+> > +		}
 
-As defined today the DMA API expressly copies from private to shared
-memory, that is baked into it's design and not a bug.
+> Looks the s1pie checking for GCS vEL2 context switch is
+> necessary yet IIUC, KVM does vEL2 context switch for nested
+> L1's EL2, it should follow same rule as non-nested L1's EL1
+> context switch.
 
-My expectation is all these cases have to be solved by setting up the
-swiotlb properly so it provides suitable bounce buffers. Yes, this
-means we will eventually need both private and shared swiotlb pools.
+Right, it's not really needed in either case but hopefully helps code
+generation a bit.  Thanks for spotting that.
 
-> I have not been following the work on T=1/T=0 devices, but IIRC, they
-> required some complexity to handle their stage-2 as these modes will
-> be emulated differently (for CCA, RMM vs untrusted host).
-> I was thinking that it might be easier to represent those to the
-> guest kernel as 2 separate devices (bounded to different groups...)
-> where one is trusted and the other is not, and that way the DMA-API
-> can have strict rules about memory sharing.
+Please delete unneeded context from mails when replying.  Doing this
+makes it much easier to find your reply in the message, helping ensure
+it won't be missed by people scrolling through the irrelevant quoted
+material.
 
-No way! That's would be a giant disaster for the driver model.
+--G0bWhbbolYLdYDz9
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Each struct device will have a flag that shows if it is in T=1 or T=0
-state. The flag can only change while a driver is not bound, and
-changing the flag will update the DMA API configuration.
+-----BEGIN PGP SIGNATURE-----
 
-A T=1 device should have the same issue as you point out for pkvm, it
-really needs to have a private SWIOTLB pool.
- 
-> Otherwise, SWIOTLB does not seem like the right place to me, as it
-> does not understand the context the device is operating in, and the
-> DMA-API should deduce that from the flags passed.
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpzLVoACgkQJNaLcl1U
+h9AShQf9GTcWUv5esdda/vVYebPT3BbxWQXttB8maWVlWNrtRAZ3CcuUZK1lNv3Q
+M/gte5u9UOApkJA4FxQKLJKXrvlkl9eWlXAmhwPtMgd2JwfMt716GCJTqYO6AUe8
+U1Zt5uL70KfvRw52jOA7fIwKLHh6qP072nyrPg0KKTMh16zBuSsr39cNDqu6/e2U
+N/Uo4Zrb3Qqcl+tlYkZuPdCReFrJmJUuM0tOq7wOPpQjB7ySzou1akvTvBWNPlJm
+Hyn4x0+bcF+fOAe+xkq+avmuS5AOix3cuAxcxeAOr0ZQWf+rR+1V6OOWqHx87gSS
+NEhHYl2r6NQ/B5yMZuzvDYScdhY5zw==
+=Ce0W
+-----END PGP SIGNATURE-----
 
-It is exactly the right place because it is the one supplying the new
-memory. Context is irrelevant, the flag only describes what the new
-memory actually *IS*, and swiotlb knows 100% if the new memory is
-shared or private.
-
-For your issue it would be appropriate to add a debugging check that
-the new memory is not incompatible with the expected policy. eg a T=1
-device getting decrypted swiotlb memory is a bug in swiotlb setup that
-should be caught. But that's a debugging check, we expect the swiotlb
-to have selected the right kind of memory by construction. This isn't
-done yet since this series doesn't even yet support a T=1 device..
-
-Jason
+--G0bWhbbolYLdYDz9--
 
