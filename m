@@ -4,71 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B3FBC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 08:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE61C56203
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 08:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GmYyrdZe1B0PBpV7nWZEHOZ78x8Fhml0/nyFckT8Q5U=; b=RqLhCsQOsz3lQOXotvfVXecIor
-	OOPBHUDg21tpVoOyEuZPg6GZKiocMsPZH8O1bUdub5FHJYwyxVkEzTr1wI44y4jQUrfbFVvCD68la
-	AH6aO4O7f6Cl4hjP3YFIKlN4BQJ9pBoyEqiRupaizNnVIJWM+aaiXe3+R+f0OzRFaRLCidMVoTNrH
-	IB/jNUurqmHOs8SEQH/jmx60CvEkZFC+ppqxJhf7qjTBivyNP7m5txX83XMd6nSLHa/1FnFwpNQT0
-	cQAvdA9gdwVgeCWnkIoE6f+WY3oTIbPggAtacDsr53cW+E1LEhx/izyy3DWp8qHzrauJeuFERQa7E
-	mjiOTCgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7MzOsUeybMS9dXaNgD2Ggm/YXuUKfNu/EThsAs7XLtY=; b=Zb14lywe8LbilxejeXnYF7a7sX
+	Ce6kW3QFYrQsmIbTxQJybjCFApiB5NpFuTQHj8jFzKKd24RgJGQKDjAli19M8xYGiOT1cBIws9Vey
+	iLGt6Aemwyb3pQH5SNCia/ZMZbii2SFyIckCtgLFu2rqaoHNN8QmfHRAjJlmxDIE8RNPOMgM/b5W7
+	n0vKjLV2zQQUQWKnZX/+mg2vcs7+emN5OlHOesGhgjuzTlaCJfpgQTU4LyXIaxKgXUwpehWlQYQge
+	mB/r0T2JkCmtQ/sK4lW7onqSkZveQUOiHnbIFAbsEj46442bMyqPuBV3U5uPJgctZLdx+QEt65UHZ
+	tlGdDENQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWo0-00000003VwI-0j0R;
-	Wed, 05 Aug 2026 08:16:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wrWqP-00000003WC6-1AoW;
+	Wed, 05 Aug 2026 08:19:21 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWny-00000003Vw2-2Xdd
+	id 1wrWqM-00000003W9G-04T9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 08:16:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 124D7600AE;
-	Wed,  5 Aug 2026 08:16:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B6411F000E9;
-	Wed,  5 Aug 2026 08:16:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785917809;
-	bh=GmYyrdZe1B0PBpV7nWZEHOZ78x8Fhml0/nyFckT8Q5U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T1dfoJYrP3ggTDguqaQhaDmZLHe3mJjru4jCT/1ANuiGL1fot3+s/dHfHfhjYoyEX
-	 Y/aoGoTTs2LxtCJHGd5OZv4Owb8anEX7nZ58Cgw3J9H/zzQiBn6w/oiPjSeGxP3u+E
-	 mYDuXnJmHjwfW6tfBp1xS0WGTKuLh8ZX8Yh8rSfPMcpsINud33uvR4MdiF0syKhk7T
-	 utgpQXaaxlwgXTCPSMKCC9+pkhuX90w61xunWQsdzZiRliIxSsrtcJDlhjr4Ykn/nQ
-	 XHnITQrz2tNu+rbNWvGoQt9hshksDufbzvK3Orz/AFL06/C0FFAzaDTVmR0YTcEHVn
-	 UuniWlaO51HGw==
-Date: Wed, 5 Aug 2026 09:16:30 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	"David Hildenbrand (Arm)" <david@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Yang Shi <yang@os.amperecomputing.com>, Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, 
-	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-	akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-Message-ID: <anLr5Xd-sD7frihN@lucifer>
-References: <amCPBrdltFSE_fEf@J2N7QTR9R3>
- <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
- <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
- <anHuLy52o5S9Nlwp@lucifer>
- <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com>
- <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org>
- <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
- <CAHk-=whjfRaeYsAVS9VfYO5uaSB43sT7zPOmNWR6gC8h=t60=g@mail.gmail.com>
- <anIhSGs70TTzymHM@lucifer>
- <8d6119c7-2216-fcdd-d0b9-cc60ccc8caf3@gentwo.org>
+	Wed, 05 Aug 2026 08:19:19 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49554ebb87dso6030625e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 01:19:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1785917956; x=1786522756; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7MzOsUeybMS9dXaNgD2Ggm/YXuUKfNu/EThsAs7XLtY=;
+        b=TEtv7lnNySanHgbcS+q8ALY++PPWV8l5O2njbBTmOagHGawlKKGxaCBJeouyWYO5UR
+         InAZC3hkKBc1n4BuVRq2ivhvMUwkh3Y4AsS1vIGDyGbYjRM+UjpR/UGbe+MopHlnmCeC
+         J3U7AjN/quuK8RWBiQkBKc+HZQPiBjnTSjLH2PJHPdN3rEXE3PsqnwvYIwIUDVP4EyFS
+         v/WmCMwclPkVr/awYVa2m5yZg6rsmnIUB0amBILoOYFJbSTJCTJXhJur99tVII4mYI9i
+         kgJSpRsUZyn2fKNlW92uRArKCkJGzrsYuV/wf5OrN7IaNLXpRDFw0+xxh+bm9+6nwfWH
+         65nA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785917956; x=1786522756;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7MzOsUeybMS9dXaNgD2Ggm/YXuUKfNu/EThsAs7XLtY=;
+        b=WY9+oTluZg6yfK48lGOXhPNHmfRAkQes7q1Tb/0zJxufK9QrNrvj4vhTdG8cenzE9A
+         6Yil2u2I5TcWQCfz021XauP6DxIO1VKc3Tae+gBoQqv64U/Ig7fyb9dnlq1uSykzauNo
+         msvMjdOBUZJUBvQy4tH7oIbDwOBOOwuEJ/9s2VV+o1Df/hzjDLDvQAnY1xO8DjZ9Lt0T
+         7Ly+mECH3BmVLkE3z1Us7AF1KNK8oXe8c7FFxANo+zvZ6fFq65g3gO/Mp8dt4+GLPoQ7
+         b/yz2y+gmyI2mnyMmQdE5nvQB4je5996TO1n6D/xZ5ROZooIPAVZHx7Ub6sJI6DYfQe5
+         HNOA==
+X-Forwarded-Encrypted: i=1; AHgh+RrRpvU3DnWETrgjFIrLGGQC5zLatC9Flh8kbFOKGxzUJhTrDcHSR85FX8wDFjyNficu5XMNWUtMYx45xe+Po6CP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1RaktQ7qImGqc9MrNc9U/NJMdoh2Z1bdwZYlheq9/vtXAGBcl
+	DiJpAciZqDo4TZeoMX/r9E9Pre23ycgohebz/K1MYLA4wjI8kPF672jni1tIsTIr2ug=
+X-Gm-Gg: AR+sD13fXUc3kjWGPEtEAD7q2IB8OhMxOPiMC+WrT5heCfM9vQnzYDVFy4W2k1RETAE
+	/x1hs+yhlB600ntVd0vh+U7z8hDPbpeVtVHSu9JxUcGcHE4oNrzTY6Z2uGkHRNBxWYRN5+6GhoU
+	7QPXFdXrxrXxHErAAeDbt2jWg/rAUmUIO3R6kyZ6NEHtO1Rx60nwMZDVC9rhayr/f9MMMhBXLgc
+	MNJ5UMwX8OJrjpaOyUKqGhahgrGLhf8FyY8hlafHI0aDbS5T3aUxENayDx2LbKsgE3AuUopX+Cx
+	3Ryvf9AY7H8EGAHWy3exbw0Kuu3krReXTLXdmw9fUwyVurLdwvuosvdSjBRgYu0fvpUWsGyC9El
+	2twQRUG5UmrijKgO5kwesbskAikrIFKnjkJ2LsjatlnhDhKQLcTbZbGade1v+65OoXJU3WvPkcU
+	t4gePGgHIBsxxdSueTjZIycTYfD8aNoJAMYIDkOgC8TSCc20bTsxstWMI9RWBIbXjIOSbeMOChl
+	0c5GeUIwc/wC3yKqWqvtW5yPCayl7YzCyq34kzIL0nG3c7AWnD57GDhzAX2onqBVRkbPb4hcUwM
+X-Received: by 2002:a05:600c:3b22:b0:495:4d88:e630 with SMTP id 5b1f17b1804b1-4994e7bb0e5mr48896535e9.10.1785917956009;
+        Wed, 05 Aug 2026 01:19:16 -0700 (PDT)
+Received: from gregwork.sec.9e.network ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4994e0356d4sm74745695e9.10.2026.08.05.01.19.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Aug 2026 01:19:15 -0700 (PDT)
+From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+To: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	corey@minyard.net,
+	devicetree@vger.kernel.org
+Cc: jammy_huang@aspeedtech.com,
+	yc_hsieh@aspeedtech.com,
+	openipmi-developer@lists.sourceforge.net,
+	linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+Subject: [PATCH v3 1/2 RESEND] ipmi: kcs_bmc_aspeed: g6: Add KCS Channel 4 over PCIe
+Date: Wed,  5 Aug 2026 10:19:00 +0200
+Message-ID: <45f36ea6a3a2df18b51c5b83200c7596dbafe133.1785135437.git.gregoire.layet@9elements.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <cover.1785135437.git.gregoire.layet@9elements.com>
+References: <cover.1785135437.git.gregoire.layet@9elements.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8d6119c7-2216-fcdd-d0b9-cc60ccc8caf3@gentwo.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260805_011918_080715_9E6AEADF 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,63 +111,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20260805081900.IM37rUwLGR_JPFyhAlc2VEZVjUhOGHQe7HAnpWdmQEw@z>
 
-On Tue, Aug 04, 2026 at 02:40:27PM -0700, Christoph Lameter (Ampere) wrote:
-> On Tue, 4 Aug 2026, Lorenzo Stoakes (ARM) wrote:
->
-> > On Tue, Aug 04, 2026 at 10:01:45AM -0700, Linus Torvalds wrote:
-> > > So I'm just trying to clarify my stance - I don't hate percpu TLB
-> > > contents per se. I hate the notion of codifying them.
-> >
-> > I do worry that changing per-CPU data structures to support this is exactly
-> > codifying this (and will encourage other arches to follow suit).
-> >
-> > And I really don't think there's any way to implement this without
-> > fundamentally changing core mm or assumptions that core mm can make.
->
-> Would it be possible to discuss the technical issues instead of throwing
-> up this and that foggy objection? Lets not get into the complexities of
+Created a 5th KCS channel to match against the KCS 4 over PCIe addresses.
 
-Christoph this is very unhelpful. I and other maintainers have raised
-_specific_ and _technical_ objections. If you are having comprehension
-issues it'd be more constructive to ask questions.
+The ASPEED AST2600 has a PCIe to LPC controller. It includes a KCS
+interface on channel 4. This is a fully KCS-compatible interface
+that is exposed over PCIe.
 
-It's really simple - convince us or the series doesn't go upstream.
+The 5th channel created is only valid on the AST2600.
+This cannot be used for AST2400 and AST2500 chips, as they don't have LPC
+over PCIE.
 
->
-> The fundamental problem is that your patchset does
->
->
-> <preeamble establishing restart point>
-> RMV per cpu op
-> <post handling cleaning up setup of restart point>
->
->
-> What x86 does and what we can get ARM to do is:
->
-> RMW per cpu op
-> Why do you think that your solution that requires a complex restart
-> mechanism is better?
->
->
-> These are operations that are key to the performance in critical parts of
-> memory management and this code is replicated by being inlined thousands
-> of times in the kernel.
+Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
+---
+ drivers/char/ipmi/kcs_bmc_aspeed.c | 41 ++++++++++++++++++++++++++++--
+ 1 file changed, 39 insertions(+), 2 deletions(-)
 
-I mean this is just silly :)
+diff --git a/drivers/char/ipmi/kcs_bmc_aspeed.c b/drivers/char/ipmi/kcs_bmc_aspeed.c
+index a13a3470c17a..97daa2b3d6a0 100644
+--- a/drivers/char/ipmi/kcs_bmc_aspeed.c
++++ b/drivers/char/ipmi/kcs_bmc_aspeed.c
+@@ -26,7 +26,7 @@
 
-Provide data to back any of this, and no your benchmarks of your approach
-vs. nothing isn't it, nor do they demonstrate anything about what you claim
-here.
+ #define DEVICE_NAME     "ast-kcs-bmc"
 
-You've been asked for this multiple times now.
+-#define KCS_CHANNEL_MAX     4
++#define KCS_CHANNEL_MAX     5
 
-(And please no hand waving about 'critical parts of mm'. Be specific
-please.)
+ /*
+  * Field class descriptions
+@@ -102,6 +102,12 @@
+ #define     LPC_LSADR12_LSADR2_SHIFT 16
+ #define     LPC_LSADR12_LSADR1_MASK  GENMASK(15, 0)
+ #define     LPC_LSADR12_LSADR1_SHIFT 0
++#define PCIE_LPC_HICRB       0x900
++#define PCIE_LPC_HICRC       0x904
++#define PCIE_LPC_LADR4       0x910
++#define PCIE_LPC_IDR4        0x914
++#define PCIE_LPC_ODR4        0x918
++#define PCIE_LPC_STR4        0x91C
 
->
->
+ #define OBE_POLL_PERIOD	     (HZ / 2)
 
+@@ -159,6 +165,7 @@ static void aspeed_kcs_outb(struct kcs_bmc_device *kcs_bmc, u32 reg, u8 data)
+ 	case LPC_ODR2:
+ 	case LPC_ODR3:
+ 	case LPC_ODR4:
++	case PCIE_LPC_ODR4:
+ 		break;
+ 	default:
+ 		return;
+@@ -191,6 +198,9 @@ static void aspeed_kcs_outb(struct kcs_bmc_device *kcs_bmc, u32 reg, u8 data)
+ 	case 4:
+ 		regmap_update_bits(priv->map, LPC_HICRC, LPC_HICRC_IRQXE4, LPC_HICRC_IRQXE4);
+ 		break;
++	case 5:
++		regmap_update_bits(priv->map, PCIE_LPC_HICRC, LPC_HICRC_IRQXE4, LPC_HICRC_IRQXE4);
++		break;
+ 	default:
+ 		break;
+ 	}
+@@ -278,6 +288,14 @@ static int aspeed_kcs_set_address(struct kcs_bmc_device *kcs_bmc, u32 addrs[2],
+
+ 		break;
+
++	case 5:
++		if (nr_addrs == 1)
++			regmap_write(priv->map, PCIE_LPC_LADR4, ((addrs[0] + 1) << 16) | addrs[0]);
++		else
++			regmap_write(priv->map, PCIE_LPC_LADR4, (addrs[1] << 16) | addrs[0]);
++
++		break;
++
+ 	default:
+ 		return -EINVAL;
+ 	}
+@@ -344,6 +362,11 @@ static int aspeed_kcs_config_upstream_irq(struct aspeed_kcs_bmc *priv, u32 id, u
+ 		val = (id << LPC_HICRC_ID4IRQX_SHIFT) | (hw_type << LPC_HICRC_TY4IRQX_SHIFT);
+ 		regmap_update_bits(priv->map, LPC_HICRC, mask, val);
+ 		break;
++	case 5:
++		mask = LPC_HICRC_ID4IRQX_MASK | LPC_HICRC_TY4IRQX_MASK | LPC_HICRC_OBF4_AUTO_CLR;
++		val = (id << LPC_HICRC_ID4IRQX_SHIFT) | (hw_type << LPC_HICRC_TY4IRQX_SHIFT);
++		regmap_update_bits(priv->map, PCIE_LPC_HICRC, mask, val);
++		break;
+ 	default:
+ 		dev_warn(priv->kcs_bmc.dev,
+ 			 "SerIRQ configuration not supported on KCS channel %d\n",
+@@ -373,6 +396,10 @@ static void aspeed_kcs_enable_channel(struct kcs_bmc_device *kcs_bmc, bool enabl
+ 	case 4:
+ 		regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_LPC4E, enable * LPC_HICRB_LPC4E);
+ 		return;
++	case 5:
++		regmap_update_bits(priv->map, PCIE_LPC_HICRB, LPC_HICRB_LPC4E,
++				   enable * LPC_HICRB_LPC4E);
++		return;
+ 	default:
+ 		pr_warn("%s: Unsupported channel: %d", __func__, kcs_bmc->channel);
+ 		return;
+@@ -452,6 +479,10 @@ static void aspeed_kcs_irq_mask_update(struct kcs_bmc_device *kcs_bmc, u8 mask,
+ 			regmap_update_bits(priv->map, LPC_HICRB, LPC_HICRB_IBFIE4,
+ 					   enable * LPC_HICRB_IBFIE4);
+ 			return;
++		case 5:
++			regmap_update_bits(priv->map, PCIE_LPC_HICRB, LPC_HICRB_IBFIE4,
++					   enable * LPC_HICRB_IBFIE4);
++			return;
+ 		default:
+ 			pr_warn("%s: Unsupported channel: %d", __func__, kcs_bmc->channel);
+ 			return;
+@@ -492,6 +523,7 @@ static const struct kcs_ioreg ast_kcs_bmc_ioregs[KCS_CHANNEL_MAX] = {
+ 	{ .idr = LPC_IDR2, .odr = LPC_ODR2, .str = LPC_STR2 },
+ 	{ .idr = LPC_IDR3, .odr = LPC_ODR3, .str = LPC_STR3 },
+ 	{ .idr = LPC_IDR4, .odr = LPC_ODR4, .str = LPC_STR4 },
++	{ .idr = PCIE_LPC_IDR4, .odr = PCIE_LPC_ODR4, .str = PCIE_LPC_STR4 },
+ };
+
+ static int aspeed_kcs_of_get_channel(struct platform_device *pdev)
+@@ -575,11 +607,16 @@ static int aspeed_kcs_probe(struct platform_device *pdev)
+ 	if (channel < 0)
+ 		return channel;
+
++	np = pdev->dev.of_node;
++	if (channel == 5 && !of_device_is_compatible(np, "aspeed,ast2600-kcs-bmc")) {
++		dev_err(&pdev->dev, "LPC over PCIE KCS4 only supported on ast2600\n");
++		return -ENODEV;
++	}
++
+ 	nr_addrs = aspeed_kcs_of_get_io_address(pdev, addrs);
+ 	if (nr_addrs < 0)
+ 		return nr_addrs;
+
+-	np = pdev->dev.of_node;
+ 	rc = of_property_read_u32_array(np, "aspeed,lpc-interrupts", upstream_irq, 2);
+ 	if (rc && rc != -EINVAL)
+ 		return -EINVAL;
 --
-Cheers, Lorenzo
+2.54.0
 
