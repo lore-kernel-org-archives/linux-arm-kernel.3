@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49FDC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6788CC561E6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DoXf7tbT+GijFUb8lgA9KilXjWzwUEA0M4rKTFmRF+o=; b=ZlbVAasQhfBTJJSlqxUFDGet35
-	1olQy18saFde144PpLM6YhsnbBaD8uHWA+3KI89CeEMxpnmnDC81ntkZW/WXnxICSxPWzODNo+/D7
-	NK19jBaJR4x9sUIxf9MfaEAaEquR6BqGIe1UDs3hBWHxdoqAl7RfgGhEYnf9rIB0GFO5KjIAA9tgZ
-	kKWMyoGko6d+/bB7+qq54UAKFqiRwtfKOmxN3JX52CE7FEs9XOK/bLxBj9yvIda7+ksva9NpQJDRK
-	vr6P27gLh0+PN+fbDy7XtmLP78XbhQcpOugBjLoCNVmktIpo6pPlsWDQ5hdyeUYhfsQmI8jQwgq62
-	J2O3rEfw==;
+	bh=eknVX0861nDOKN5z4L+9yWvQ2f3wGrn2cEr5rttrL2M=; b=Go8BIj3b3KKEA3otijnoGq9fi1
+	xWJUqwQwlXoT9otX9BXs321fGSNIopWcgGCWDZlvt/B7xnZ+U4gbgN1zr0Lb1exJwh0A4pu5bRHUA
+	jN+cBVtqtP0tpWQQ4Ik6qBawH+HJRdgrAl7gcw3PjI/Gq/a8UefFdwNOiRaqRFIAFPaQuALEELnDb
+	9lP705Ld4PEzozs4M24fCFZ3j5FWU7QAb8kA0sv7OyGtp/ZGTB+jZ4GD6jUmZdlmU1zIUtASd4fRh
+	HFqkMoXxO+4YC0IXyu5mEK1UHCIJ5q7bHm8zVxhUN0Ac9arJZoiASPcAhaoGbqMVTDrNfCOMwWf8i
+	o25kGCdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVgo-00000003MMm-0tH9;
-	Wed, 05 Aug 2026 07:05:22 +0000
+	id 1wrVhh-00000003MWh-0BC8;
+	Wed, 05 Aug 2026 07:06:17 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVgm-00000003MML-3dLP;
-	Wed, 05 Aug 2026 07:05:20 +0000
+	id 1wrVhf-00000003MWQ-2PBd;
+	Wed, 05 Aug 2026 07:06:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E31A760A69;
-	Wed,  5 Aug 2026 07:05:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD8A61F00A3A;
-	Wed,  5 Aug 2026 07:05:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0A95E600AE;
+	Wed,  5 Aug 2026 07:06:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E95E71F000E9;
+	Wed,  5 Aug 2026 07:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785913518;
-	bh=DoXf7tbT+GijFUb8lgA9KilXjWzwUEA0M4rKTFmRF+o=;
+	s=k20260515; t=1785913574;
+	bh=eknVX0861nDOKN5z4L+9yWvQ2f3wGrn2cEr5rttrL2M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m1eDJqeCdnafzhh5h3TF31h4Kx8ZVMOH4twLNGsfIT4KTU0H135BCRSBlXs6M5XFx
-	 bojlJfWNyiX6mEQsdfHshfxYVzEpOR3ULPvmyg7DbQitGTL/pcctkL2CLaSW8qTS4Y
-	 oRt85JYkTLtnVxo4LUQIvXqRFnnrn/o1hSRUnf91kuPGTRqR01FfubauOhniWOXthZ
-	 BYZc67/ae9as8G46mp1iy78FvQI2LbidzPAb6Mm14sD3soAp1tgXbm/GxJxzr9eofk
-	 q/ZGW9ZpAqZtTCA1fX12TVkixDwST8oEXozbT1rDYlExGuU8Ye8vPV+vG2rAMx44ln
-	 WbabuA10U4W5A==
-Date: Wed, 5 Aug 2026 09:05:15 +0200
+	b=ZCJQ00ZM/6jRCBJ7sim1OY48D9QamjxYzsjWXpuG3i6QUhpGZWvuU3Z3H3mJnbrJg
+	 GzAMmQq9xsXz+9u/nLJkdckcie/yalUEXIcQS9BlUREx3Vxf3AuFnGO+eFIXHf5Bi6
+	 TS9KFf9KelVJ/gsbyPlg/LKsrqNnhT8GfPMzP1q3VWX1yyTxI0RDE+S7wTxkm1UtLt
+	 LTT44MKtBImOfrDwImCD6LniAloMPBHDHBY34xBw7TEzZmJwM8CuOnRhaO0zCV8QOz
+	 DayMa4k8cqAqlvJJET3MOaG5p+GxUqtnijJOV7m0Vrthp59Rf6XAtNbXshOBrmWlVx
+	 ktcXVZ5EdjuBA==
+Date: Wed, 5 Aug 2026 09:06:12 +0200
 From: Thierry Reding <thierry.reding@kernel.org>
 To: Kieran Bingham <kieran.bingham@ideasonboard.com>
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -64,18 +64,17 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	linux@ew.tq-group.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
 	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	Conor Dooley <conor.dooley@microchip.com>, Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, 
-	David Heidelberg <david@ixit.cz>
-Subject: Re: [PATCH v4 1/7] dt-bindings: media: Add macros for video
- interface devices
-Message-ID: <anLgoTtDZQ38QzWM@orome>
+	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, David Heidelberg <david@ixit.cz>
+Subject: Re: [PATCH v4 2/7] dt-bindings: media: i2c: Utilise
+ video-interface-devices enums
+Message-ID: <anLg1lmGUlsfqCKL@orome>
 References: <20260804-kbingham-orientation-v4-0-336998dd63b4@ideasonboard.com>
- <20260804-kbingham-orientation-v4-1-336998dd63b4@ideasonboard.com>
+ <20260804-kbingham-orientation-v4-2-336998dd63b4@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="j3q7nwjwirtsmzgs"
+	protocol="application/pgp-signature"; boundary="crtkhkxtfcvyoatl"
 Content-Disposition: inline
-In-Reply-To: <20260804-kbingham-orientation-v4-1-336998dd63b4@ideasonboard.com>
+In-Reply-To: <20260804-kbingham-orientation-v4-2-336998dd63b4@ideasonboard.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,59 +90,62 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---j3q7nwjwirtsmzgs
+--crtkhkxtfcvyoatl
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 1/7] dt-bindings: media: Add macros for video
- interface devices
+Subject: Re: [PATCH v4 2/7] dt-bindings: media: i2c: Utilise
+ video-interface-devices enums
 MIME-Version: 1.0
 
-On Tue, Aug 04, 2026 at 08:43:28PM +0100, Kieran Bingham wrote:
-> Add a new dt-bindings/media/video-interface-devices.h header that
-> defines macros corresponding to the orientation enumeration types from
-> media/video-interface-devices.yaml.
+On Tue, Aug 04, 2026 at 08:43:29PM +0100, Kieran Bingham wrote:
+> The orientation property for video interface devices now has definitions
+> to prevent hardcoded integer values for the enum options.
 >=20
-> Expand the documentation of the video-interface-devices orientation to
-> reference the new header which provides human readable defines for the
-> orientation enum, to help avoid hardcoding values in dts.
+> Update the existing examples throughout the bindings documentation for
+> camera sensors.
 >=20
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
 > Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Acked-by: Michael Riesch <michael.riesch@collabora.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Reviewed-by: Benjamin Mugnier <benjamin.mugnier@foss.st.com>
 > Reviewed-by: David Heidelberg <david@ixit.cz>
 > Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
 > ---
->  .../bindings/media/video-interface-devices.yaml         | 17 +++++++++++=
-------
->  include/dt-bindings/media/video-interface-devices.h     | 13 +++++++++++=
-++
->  2 files changed, 24 insertions(+), 6 deletions(-)
+>  Documentation/devicetree/bindings/media/i2c/hynix,hi846.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov08d10.yaml  | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov4689.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov5675.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov5693.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/ovti,ov64a40.yaml  | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/sony,imx111.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/sony,imx355.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/sony,imx415.yaml   | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/st,vd55g1.yaml     | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/st,vd56g3.yaml     | 3 ++-
+>  Documentation/devicetree/bindings/media/i2c/thine,thp7312.yaml | 3 ++-
+>  12 files changed, 24 insertions(+), 12 deletions(-)
 
 Reviewed-by: Thierry Reding <treding@nvidia.com>
 
---j3q7nwjwirtsmzgs
+--crtkhkxtfcvyoatl
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpy4KsACgkQ3SOs138+
-s6FSixAAvF/nuWj8x0EsLtnIBtNApx4xw1S4zIAzPiQ7t5eq2zZYJWFAcZZJPLIJ
-pXoirHiAJCM3MfbvDqNag7+P3Qg31O0jWacsvMhuQCv1sJlZG8MmVbXxkma2/asj
-q1k0p5ODledgKBvIabnlCbEaomZUK+umsCNxBiabNCRuRbl3/Xkpd1+VdJW3cdML
-X2Zs2KoULb13xnF2LXMtH8IlUpnUpUMCPX3hX6BCJAxCTnIUq2P+rYKZAszJ7R8o
-ljbgmv/2odtHZ4o9LlrLUjAZqOJWZyZC+em9aYUu2ywfOHfYcq/gGebPo5yS9f5N
-gNVywyLAPqloKHrsE4qjD6fctMByN+PzuUBKJ1Wlc3dYjBp/hnWcMlqISrB4GYuc
-VAeUoX1A+aYK7/MHQsNOJ2EdkP/ROQkkySOazY2rRpGqkJ/P7PSSPQ1GhchzTun8
-ce2e0+HUhKpEUa1+dPE6cyaSnMlZR2DMkzT1muQAoZlXKHotNbMgUy010SzbYBzE
-Ejwg3UD4KM//QVHejyFg1TKolJyqEFIcyYtizWejLN2F4uyzY1MlA9768XrzuNNG
-mDM/YSoNMVBTJVeYM9js/FSqOpgxrPw0D4fd9EBbCF6qxvkEfkguNSx9iZlahGKh
-Q/N8W4rn+WXb+optFaVTZxwxtSD/7rIy3Iddo4ZCFdzO5gHirdQ=
-=qQ7c
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpy4OQACgkQ3SOs138+
+s6HEXQ/+NE4OTznpxu0nClmHdRJqIZarnzOuvAgqFtMSmVGZokmcz08vGbCmoDKX
+ZeVVALZyvhdwepTYHsn7uO99xCUbNgUV3mpz6tBHua1wihU0lpLfp6PWnzqN+fBK
+4mWr3pMX+Y8Lq9bMt+P8LqOPXr7qJByVZIDb0ncBcJAfzkElFapHqDHdDI92INNy
+RCMsbBwiESoxfmwWTZhB/wbsRprAy0eflhLVFyi+HDph9ZeT02RzqsdLVUhQspLX
+naqbOD5HgwoINV3NECp/Zj4nnjGb7LN4cXncy0f2IvLNAyzbIsT6bY9buFKB4o1K
+1Q4jNyvamZ4bpuvtRVibvAT2ATwxVRtBRZWzFJ6pBiS00kldJI8ez+U2gsFD8g1/
+z4zd1vntTYhNrxiPEtEUa0knho4h7pCWUjS+huxQgtZsv8lBRT8H7aNVIakM2PoN
+n/M0MPzc0YjxDfw/7HiaSugeCPorswVf387VvNGhkyRkUvuKFd8+8vC5HN0QK8Ad
+E+M3NlUAzNOW/yKxXZTCILAzH5/1wzeI47uBsbU8rduHaGyViNvO1YQyfiV2J7X+
+Ka6+YLPRwTB8QXP3m/I2Mg3uoUWkIwRf2dAmtC87Iv4dYnbHWovomWO4C5g//a1g
+GCRxpADDOg2f+/pfAYk2FmYeG1/j+AHgAuRj3bJJTXcAlOdc6Yk=
+=IBGL
 -----END PGP SIGNATURE-----
 
---j3q7nwjwirtsmzgs--
+--crtkhkxtfcvyoatl--
 
