@@ -4,81 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD74C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 03:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C92C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 03:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3lSrMpocDV/Hvep88z36Dgthq0eziOupD1/vUR+w/A=; b=LoebcCzb9BGADtBAMSkK2m+Aam
-	i3xxa3u+Re0Uz5vsEwB7wzNbx4MxMfdA6C3kgpqtDPP7YCoWKjtYFERflIv2Id6znCgVBTkw0P1jl
-	J3muw7vMCdybvy2+OxCJTkniQd8kIdr6KzN9LZEQwW8It56VB5PBC1qWdEmC66I1utksM88VIC4Nv
-	9cwQXphjo7kGIK5JvTKPZ3LqNQxf/+OEBCExde3lhmkSZj5nK4r+MdYyMMnnmqWZeBs9jHkGUUgFF
-	C8MtXsyRfDlj+1/8GMbRcisHFMML2oQoWi2CttKlIyS+8h+zkhO2va26mHcZkwmycIOA/ey+5WPXn
-	6pexYBzQ==;
+	bh=j/NmALyDnaea82VN1dJT9y4h9uKdhWB1U02N76kyw3U=; b=Q2n103LDevtzBYNE5R3XOP3RmG
+	zzL+HZxXtcqg/CNNhfQ/pPqABtoPA+aoQiCRLaN4YOZSIc9GH9ax8HBAyOjwPVhYqeqZvG2YxvGd3
+	38jwhnf59kehItyt99TSroOHBosoGPsM5nAO6feAQNsbNdaqZTWYwusAyVcKrVjPanBNMYNa3ZNsX
+	rclQIWvuGxjVdkCkM1/gX3vFoV2SSm1HN3Rxra9vFvgW6exiX9D0gp9yhVbSEKsMMYPGx0Qq7w5nW
+	7Z6RdNxMkj6AqLqbo4uuJoZho5WZfNIk9O4uAi+4hL5wCWUbVDkHWzvlnCY4fbu81ULez2crTXBU7
+	rcpPY3tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrSXj-00000003BWd-0v9z;
-	Wed, 05 Aug 2026 03:43:47 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wrScQ-00000003Bk0-0Nft;
+	Wed, 05 Aug 2026 03:48:38 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrSXg-00000003BWJ-2oeV
+	id 1wrScN-00000003BiH-0opl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 03:43:46 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=B3lSrMpocDV/Hvep88z36Dgthq0eziOupD1/vUR+w/A=;
-	b=m/eLKphe0U0vdf134ra5FOXe/Jdx1SdB1VrNfeMXmz90/Cr9j09gSN/YbpqKLP3HFt1XUe99f
-	pbkE9eQb3ekisjALdFrXvyV6mRMMdOeegaLcL4JGFDKbG1CoScMBS4Qmt5wbplmmD0QEK6zlySO
-	gVDyzmzcDl9p6kDJ/wTQ8UI=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hFGGw6rGDzLlTg;
-	Wed,  5 Aug 2026 11:34:00 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2BCA840572;
-	Wed,  5 Aug 2026 11:43:32 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Wed, 5 Aug 2026 11:43:31 +0800
-Message-ID: <fe06c78d-1422-4ac2-86a8-6d78f37e866b@huawei.com>
-Date: Wed, 5 Aug 2026 11:43:30 +0800
+	Wed, 05 Aug 2026 03:48:36 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-7dbcb505578so5426377b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 20:48:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785901713; cv=none;
+        d=google.com; s=arc-20260327;
+        b=n2NMOchUxuDIDNNjnZ5ty3J3AFIPjdvJQT6ewPi8Mw9a2htGzDTBtYaS6JwNa0uZzA
+         woDE1KJZxOA9AbsYkbIMAbAsXg1W+RnQqtxVcWYNR0ytBEZI4+obfu8gfcV5PjUyQLCr
+         cWFclpAkKu/RMKH09jvA8AbcBaaRuM6c6DU5EEbrSH4DqQaJz4Bd3cFVOcnrr3dhhuof
+         fCoEL6LMiAUWFgJXE8zom5f7iCt3C5GAEbtDzxxzn5OTLqfLtiwI82tD76q/cGWxSb6r
+         fjBNXre0/w+meOhBqJaUYgfB1bNoQ/93hr6mCe+f4Pm+YrjnWROMqw9RtxLg0UkbEs7O
+         4C0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=j/NmALyDnaea82VN1dJT9y4h9uKdhWB1U02N76kyw3U=;
+        fh=JSmPkNmh9eHyz8BV3jZBK/voGGOhZbByCa0d5jUH+zo=;
+        b=YYVix4GYW/J82qIhhKxPTRA7A9rGleHjlUI3wkII2M7eu9cNpRt0FPdcQd28cUx3uV
+         8ZqkWai+Ldirst0bgVsBS7VdR4aL2N9opRAIC9UBCfVRfpoCyGSLaY+bBSSZalu4Zbrw
+         eECmeresKU0ZcgeTvza5UakDKk6YJh5TaLQEFdELHRbDTeksW362Rq13y0kHHV8vRqDt
+         x5YRMCT3dct/zXwap6c3vo9tRgXpv1RLq0QoX90BQY5Rz1dEHEd/wetHJ4rO6LGU/ohI
+         HEYJ+hiqjBFQNTiyAoVTCuFJzulvAOYujHRDBFPZOgzEJjSvkv1/PikeBFzWVLIgnmrS
+         keZQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1785901713; x=1786506513; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=j/NmALyDnaea82VN1dJT9y4h9uKdhWB1U02N76kyw3U=;
+        b=N8uAkXPz0J97Vlj2S6yDIsUFNFYBR0F0DMY+wjAUHHXUAKKitHvBWRTjmO+Ea8UDiI
+         i3SahlAFRJZBQIa1cXC2ckVxSOKpvliF7CceUJ4sfr9akHyMwsGeqzx7TVQNrhQYAmQ7
+         oddY9ecjd1i543qfYj2u5AhRM5Z7zboVsBTzk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785901713; x=1786506513;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=j/NmALyDnaea82VN1dJT9y4h9uKdhWB1U02N76kyw3U=;
+        b=PiblY8o3nL4fOHNZKcR2PO769O/jvr/AzyK2QytfYOus2NEGTPB3JXm8h6hNaioVhp
+         Ppmx8PeaHWE4J9IuMHGYjv1jfTU9sPSZqksW7ZtD+mszI0UMp1Zsr8hSlagBQQcDD5Xf
+         acxQqt0eVVaEu92NPqQlO6MNKe+QNwo5pDe+1Y81aJR6pj8+JhwTlgkkZ3ZgH3SKoJRj
+         /ac5Q/4GV5dUUnR5A+Y+IitLkD0oVpln2A1VEdHBjv4Um3oO+gmOF6W4sVFPZ8PBKihZ
+         B3adAsi/iqzAcOHauwuOFJQbvTxFo/ECFrOUIIxpSFbqj/ufpmEUyIajICO7tk0qHCat
+         +mHw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq0g/KLhwXGjAsSGEk5lWOc7RnJoxjgkBQE2hcuF0uarvag9T41DSfNDTpvwgiT69PgOHFX3g259vxU7Xf5dU9b@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywrh9Uhr6nrBMO/6AlDKNgrsz6s249AVhwd2u3PD2Kpg+a/gjNi
+	UcpJa/GFEmKHGvEBG493bCysBlkVzXLBbuj2LDmSNLhDsN3wssUksPOteW89bOVDG/lU5VZmNgS
+	4wWyil3HpjtPt7nvqfg3AN7yTo2Wtv2hBE8V229J5
+X-Gm-Gg: AR+sD12ZFLq4iMAxhCTDcGONxSYYfNXgmrfX57gAzwkenqOXOy6AGsFh2gFsBNI4aG+
+	tsNYqwYMl4bOPmO8vQmVDLslrQcZEv/oFQEm5qU+LfVWPZ3MdDUWPogAYmWnOafSLG0wozlzU6N
+	fmzn6U6OAI3eqLdzr9NxxStDTCTYOUsh18tlGCrxivVd3isHex4fq/qvp7qo4XFbuAAX8klYc0p
+	qZX4k8m5CXoux7lmPEL5BqsrqJtqwKLPyimUKWzbiu+1USiIEMXJCis/DcP5mq8AzkonYCdhCL6
+	wwpsgOiu+9XTTZBsUD55O+48YOk7Tj1ePkjioPEA85ZRyN/5Wp/Jql3bbCqQ6hniVI5QBicIMsA
+	=
+X-Received: by 2002:a05:690c:9a88:b0:81e:4e5d:484a with SMTP id
+ 00721157ae682-82022294eb4mr22113487b3.2.1785901713089; Tue, 04 Aug 2026
+ 20:48:33 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware
- dirty tracking
-To: Leonardo Bras <leo.bras@arm.com>
-CC: Oliver Upton <oupton@kernel.org>, <maz@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <yuzenghui@huawei.com>,
-	<wangzhou1@hisilicon.com>, <yangjinqian1@huawei.com>,
-	<caijian11@h-partners.com>, <liuyonglong@huawei.com>, <yezhenyu2@huawei.com>,
-	<yubihong@huawei.com>, <linuxarm@huawei.com>, <joey.gouly@arm.com>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>
-References: <alpIfIOFfrudBzD5@LeoBrasDK> <al4bYajWE-v6wofu@LeoBrasDK>
- <96516762-f004-4c2a-a9c6-6fbad49ad6ae@huawei.com>
- <amoZY8uGLf1PEpjK@LeoBrasDK>
- <8e36e2c8-587f-4228-ab13-d6783927a281@huawei.com>
- <45d76d0d-48e9-46a6-b1f9-691f840eba46@huawei.com>
- <anBrvILpcSFhW7Wg@LeoBrasDK>
- <95f1ebd4-be04-4684-be68-388f752a1379@huawei.com>
- <anDCno9HdVI5UAls@LeoBrasDK>
- <2070002d-94aa-4a5b-8df1-e8e0f0fd265c@huawei.com>
- <anHIa5PDnF7r9EA4@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <anHIa5PDnF7r9EA4@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
+ <20260714114414.184512-43-angelogioacchino.delregno@collabora.com>
+ <CAL_JsqJXpY8jHEgSHcHz4QZTFEZe8PLbO6vbpxWH4qobs0MPyA@mail.gmail.com>
+ <f3837531-2949-4741-a23e-387317485c02@collabora.com> <CAL_JsqLVAQ6uhU0fGK_qnOn1x559ErWSJTKkSjr0z791thwD3w@mail.gmail.com>
+In-Reply-To: <CAL_JsqLVAQ6uhU0fGK_qnOn1x559ErWSJTKkSjr0z791thwD3w@mail.gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Wed, 5 Aug 2026 11:48:22 +0800
+X-Gm-Features: AUfX_mymFrVaiYOLaCO3AlvD0Um00IkfLaFRQ7IWTs7XOa8ZsYdcyTa8_6zr7HM
+Message-ID: <CAGXv+5GeYZ_et3bH9Udf=C3f30-zuM1=Z1meU47RnofG0NL+dQ@mail.gmail.com>
+Subject: Re: [PATCH v2 42/46] dt-bindings: display: mediatek: Introduce MT8196
+ 2D Sharpness Processor
+To: Rob Herring <robh@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, chunkuang.hu@kernel.org, 
+	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch, 
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, justin.yeh@mediatek.com, 
+	jason-jh.lin@mediatek.com, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_204345_046226_17C8CB20 
-X-CRM114-Status: GOOD (  45.14  )
+X-CRM114-CacheID: sfid-20260804_204835_382084_B6BBEE3A 
+X-CRM114-Status: GOOD (  22.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,271 +125,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Aug 5, 2026 at 2:19=E2=80=AFAM Rob Herring <robh@kernel.org> wrote:
+>
+> On Tue, Jul 28, 2026 at 8:49=E2=80=AFAM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
+> >
+> > On 7/28/26 15:40, Rob Herring wrote:
+> > > On Tue, Jul 14, 2026 at 6:45=E2=80=AFAM AngeloGioacchino Del Regno
+> > > <angelogioacchino.delregno@collabora.com> wrote:
+> > >>
+> > >> Add documentation for the Two-Dimension Sharpness Processor, or
+> > >> "TDSHP", found in many MediaTek SoCs including MT8196 and its
+> > >> variants.
+> > >>
+> > >> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno=
+@collabora.com>
+> > >> ---
+> > >>   .../mediatek/mediatek,mt8196-tdshp.yaml       | 98 +++++++++++++++=
+++++
+> > >>   1 file changed, 98 insertions(+)
+> > >>   create mode 100644 Documentation/devicetree/bindings/display/media=
+tek/mediatek,mt8196-tdshp.yaml
+> > >>
+> > >> diff --git a/Documentation/devicetree/bindings/display/mediatek/medi=
+atek,mt8196-tdshp.yaml b/Documentation/devicetree/bindings/display/mediatek=
+/mediatek,mt8196-tdshp.yaml
+> > >> new file mode 100644
+> > >> index 000000000000..ccd6a8443443
+> > >> --- /dev/null
+> > >> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt=
+8196-tdshp.yaml
+> > >> @@ -0,0 +1,98 @@
+> > >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > >> +%YAML 1.2
+> > >> +---
+> > >> +$id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8196=
+-tdshp.yaml#
+> > >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > >> +
+> > >> +title: MediaTek Display Two-Dimension Sharpness Processor (TDSHP)
+> > >> +
+> > >> +maintainers:
+> > >> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora=
+.com>
+> > >> +
+> > >> +description:
+> > >> +  The MediaTek 2D Sharpness Processor (TDSHP) is responsible for pe=
+rforming
+> > >> +  image sharpness adjustments/enhancements in a display pipeline.
+> > >> +  This hardware block supports adjusting the luma and contour 2d hi=
+stograms,
+> > >> +  frequency weighting, luma-chroma gain and others, with adaptive w=
+eights.
+> > >> +
+> > >> +properties:
+> > >> +  compatible:
+> > >> +    const: mediatek,mt8196-disp-tdshp
+> > >> +
+> > >> +  reg:
+> > >> +    maxItems: 1
+> > >> +
+> > >> +  clocks:
+> > >> +    maxItems: 1
+> > >> +
+> > >> +  power-domains:
+> > >> +    maxItems: 1
+> > >> +
+> > >> +  ports:
+> > >> +    $ref: /schemas/graph.yaml#/properties/ports
+> > >> +
+> > >> +    properties:
+> > >> +      port@0:
+> > >> +        $ref: /schemas/graph.yaml#/properties/port
+> > >> +
+> > >> +      port@1:
+> > >> +        $ref: /schemas/graph.yaml#/properties/port
+> > >> +
+> > >> +    required:
+> > >> +      - port@0
+> > >> +      - port@1
+> > >> +
+> > >> +  trigger-sources:
+> > >> +    maxItems: 1
+> > >> +
+> > >> +required:
+> > >> +  - compatible
+> > >> +  - reg
+> > >> +  - clocks
+> > >> +  - clock-names
+> > >
+> > > This causes a warning.
+> > >
+> > > Seems this is in linux-next already, but no reviews?
+> > >
+> > > Rob
+> >
+> > Wow. No idea how clock-names got into the list of required properties: =
+there is
+> > only one possible clock, and this doesn't need any clock-names at all.
+> >
+> > Same for the resizer binding.
+> > Sorry for the mistake.
+>
+> Why is this still in linux-next?
+
+This is in your dt/next branch, applied 13 days ago. Maybe you applied it
+by mistake?
 
 
-On 8/4/2026 7:10 PM, Leonardo Bras wrote:
-> On Tue, Aug 04, 2026 at 12:54:16PM +0800, Tian Zheng wrote:
->>
->>
->> On 8/4/2026 12:32 AM, Leonardo Bras wrote:
->>> On Mon, Aug 03, 2026 at 09:57:46PM +0800, Tian Zheng wrote:
->>>>
->>>>
->>>> On 8/3/2026 6:21 PM, Leonardo Bras wrote:
->>>>> On Mon, Aug 03, 2026 at 12:04:24PM +0800, Tian Zheng wrote:
->>>>>>
->>>>>>
->>>>>> On 8/3/2026 9:33 AM, Tian Zheng wrote:
->>>>>>>>>>>>> 09, 2026 at 06:40:23PM +0800, Tian Zheng wrote:
->>>>>>>>>>>>>> -    if (prot & KVM_PGTABLE_PROT_W)
->>>>>>>>>>>>>> +    if (prot & KVM_PGTABLE_PROT_W) {
->>>>>>>>>>>>>>                set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
->>>>>>>>>>>>>>
->>>>>>>>>>>>>> +        /*
->>>>>>>>>>>>>> +         * No DEVICE filter needed here:
->>>>>>>>>>>>>> relax_perms is only called
->>>>>>>>>>>>>> +         * on FSC_PERM faults. Device pages
->>>>>>>>>>>>>> always get full RW from
->>>>>>>>>>>>>> +         * initial mapping and are never write-protected during
->>>>>>>>>>>>>> +         * migration, so they never trigger a permission fault.
->>>>>>>>>>>>>> +         */
->>>>>>>>>>>>>> +        if (pgt->flags & KVM_PGTABLE_S2_DBM)
->>>>>>>>>>>>>> +            set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->>>>>>>>>>>>>> +    } else {
->>>>>>>>>>>>>> +        /*
->>>>>>>>>>>>>> +         * Clear DBM on W→RO downgrade to prevent hardware from
->>>>>>>>>>>>>> +         * silently upgrading RO+DBM back to W+dirty, which would
->>>>>>>>>>>>>> +         * bypass KVM's write tracking and cause data corruption.
->>>>>>>>>>>>>> +         */
->>>>>>>>>>>>>> +        clr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
->>>>>>>>>>>>>> +    }
->>>>>>>>>>>>>> +
->>>>>>>>>>>>> This block makes it pretty evident that the DBM bit really *is* the
->>>>>>>>>>>>> write permission bit. I'd much rather we
->>>>>>>>>>>>> introduce the concept of dirty
->>>>>>>>>>>>> state to the page table library and migrate the abstract write
->>>>>>>>>>>>> permission to the DBM field, even if we don't have FEAT_HAFDBS.
->>>>>>>>>>>>>
->>>>>>>>>>>
->>>>>>>>>>> Ohh, that's an amazing idea!
->>>>>>>>>>
->>>>>>>>>> Thinking about that again...
->>>>>>>>>> If we adopt the encoding with DBM being the write-permission
->>>>>>>>>> bit, and all
->>>>>>>>>> PTEs have it since the start, how can we have lazy-splitting happening?
->>>>>>>>>>
->>>>>>>>>> Only way I think of is removing both DBM and S2_S2AP_W bit
->>>>>>>>>> from writable
->>>>>>>>>> PTEs during dirty-track enable, and re-adding them during
->>>>>>>>>> the first write
->>>>>>>>>> fault. If we don't remove the DBM bit, systems with HDBSS
->>>>>>>>>> would just dirty
->>>>>>>>>> it by hardware, without causing a fault.
->>>>>>>>>>
->>>>>>>>>> DBM=0 would need to happen only in the first write-protect (only on
->>>>>>>>>> lazy-splitting). All other write-protecting would just clean
->>>>>>>>>> the S2_S2AP_W
->>>>>>>>>> bit, as everything is already split.
->>>>>>>>>>
->>>>>>>>>> Is that what was intended?
->>>>>>>>>>
->>>>>>>>>> Thanks!
->>>>>>>>>> Leo
->>>>>>>>>>
->>>>>>>>> Hi Leo,
->>>>>>>>>
->>>>>>>>> I think the cleanest way to handle this is to simply avoid setting DBM
->>>>>>>>> on block mappings. If we only set DBM on page-level PTEs, then block
->>>>>>>>> mappings will naturally stay DBM=0 and trigger a write fault on first
->>>>>>>>> access — exactly what we need for lazy splitting.
->>>>>>>>>
->>>>>>>>> When the fault occurs, the block gets split into page-level PTEs, and at
->>>>>>>>> that point we can set DBM=1 on the resulting leaf entries. This way:
->>>>>>>>>
->>>>>>>>> 1. Lazy split works naturally (fault -> split -> set DBM=1)
->>>>>>>>>
->>>>>>>>> 2. No need to clear DBM globally at dirty-track enable
->>>>>>>>>
->>>>>>>>> 3. No special handling for block mappings
->>>>>>>>>
->>>>>>>>> So I think global DBM is still viable — we just need to filter out block
->>>>>>>>> mappings when setting the DBM bit. That way the lazy split path
->>>>>>>>> is preserved
->>>>>>>>> without extra complexity.
->>>>>>>>
->>>>>>>> Hi Tian,
->>>>>>>>
->>>>>>>> Humm, but would not that be contrary to what Oliver suggested:
->>>>>>>> changing the
->>>>>>>> encoding from the PTE for all entries?
->>>>>>>>
->>>>>>>> (Like, if the PTE is writable, it has to have DBM set)
->>>>>>>>
->>>>>>>> IIUC what you said, on first faulting of the page in the VM:
->>>>>>>> - If the entry is a page (level-3 leaf) and writable, add DBM
->>>>>>>> - If it's a block entry (leaf but not a level-3), don't add DBM
->>>>>>>>
->>>>>>>> So after we enable dirty-logging:
->>>>>>>> - a level-3 entry would not fault, using HDBSS, and
->>>>>>>> - a block entry would fault, do the splitting, and add DBM to level-3
->>>>>>>>       entries during the split.
->>>>>>>>
->>>>>>>> If I got that correct, that would be clean indeed.
->>>>>>>>
->>>>>>>> But then we would have a different encoding for block entries and page
->>>>>>>> entries. In page entries, DBM could be used to say if the page is
->>>>>>>> writable,
->>>>>>>> but on block entries one would have to look at the 'dirty-bit'.
->>>>>>>>
->>>>>>>> Would that be ok?
->>>>>>>>
->>>>>>>> Thanks!
->>>>>>>> Leo
->>>>>>>>
->>>>>>> Hi Leo,
->>>>>>>
->>>>>>> My initial concern was that clearing all DBM bits at the start of
->>>>>>> migration would be too expensive, so I thought distinguishing between
->>>>>>> level-3 entries and block entries would be better.
->>>>>>>
->>>>>
->>>>> I think we expect it to be expensive, but since we already clean the
->>>>> dirty-bit (ro/rw) bit, we can have both happening in the same write :)
->>>>>
->>>>> (since we only mark the DBM bit when we fault the memory on lazy-splitting,
->>>>> we are expecting to have the same amount of writes to pagetable as we have
->>>>> before HDBSS, both on faulting and 1st iteration cleaning)
->>>>>
->>>> Hi, Leo
->>>>
->>>> Actually, I have thought about this approach too, but if we clear DBM in
->>>> kvm_pgtable_stage2_wrprotect(), then during the first round of
->>>> migration, we will fault and release RO -> W, and then add DBM.
->>>
->>> Yeah, that's only for lazy-splitting, though.
->>>
->>>>
->>>> But next time, when we migrate the dirty pages in round two, we will run
->>>> kvm_pgtable_stage2_wrprotect() again, which will clear DBM again. And
->>>> finally, HDBSS will be useless during migration.
->>>
->>> Right, on lazy splitting, we have to clean the DBM bit on the
->>> write-protect only if it's a block entry (hugepage).
->>>
->>> Once it faults for the first time, it will lazy-split, and we don't need to
->>> clean the DBM bit.
->>>
->>>>
->>>>>
->>>>>>> However, I ran a quick test on a 400GB VM (4 vCPUs), and the overhead
->>>>>>> turned out to be around 30ns — which I think is acceptable.
->>>>>>
->>>>>> Just a quick correction — I misstated the unit in my previous email. The
->>>>>> overhead for clearing DBM on the 400GB VM (4 vCPUs) was around 32 µs, not 30
->>>>>> ns.
->>>>>>
->>>>>
->>>>> Oh, that seems more likely :)
->>>>>
->>>>> Question: is tha above amount of memory initially in Level-1 blocks,
->>>>> level-2 blocks or level-3 pages? (aka: were you using explicit/transparent
->>>>> hugepages?)
->>>>>
->>>>
->>>> I'm using transparent hugepages. However, if we were to use level-3 stage-2
->>>> pages with -mem-prealloc enabled in QEMU, I believe the time cost would be
->>>> extremely high — potentially out of our control.
->>>>
->>>
->>> Yeah, that's the issue.
->>> For this not to explode like this, we need to mark as RO only when the
->>> entries are blocks AND we are doing lazy splitting.
->>>
->>> We have:
->>> Mode	DBM	Dirty bit
->>> RO	0	X
->>> WC	1	0
->>> WD	1	1
->>>
->>> On write-protect:
->>> - Lazy splitting + block entry (hugepage, level 2-) -> RO
->>> - Otherwise					    -> WC
->>>
->>> On first fault, the block entry will be lazy-splitten, and we can set DBM=1
->>> in every new page.
->>>
->>> That way we guarantee that we are not faulting level-3 pages unecessarily,
->>> nor need to go through the whole tree setting DBM=1 or DBM=0 on level-3
->>> pages.
->>>
->>> How does that sound?
->>>
->>> Thanks!
->>> Leo
->>>
-> 
->>
->> Hi Leo,
->>
->> I've also been thinking about this approach: clear
->> KVM_PTE_LEAF_ATTR_HI_S2_DBM when kvm_pgtable_stage2_wrprotect() calls
->> stage2_update_leaf_attrs(). And we can check whether a page is a block
->> page during the page walk, right?
-> 
-> Hi Tian,
-> That was what I was thinking :)
-> 
->>
->> So we can check the page level in the walker callback
->> stage2_attr_walker(), filter there, clear DBM for block pages and
->> preserve DBM on level-3 pages. Something like this:
->>
->> ```
->> pte &= ~data->attr_clr;      // wrprotect: clears S2AP_W only
->> pte |= data->attr_set;
->> if (ctx->level < KVM_PGTABLE_LAST_LEVEL)
-> 
-> Only on lazy splitting, right?
-> 
-> Or maybe we get the DBM bit on during eager splitting...
-> 
->>      pte &= ~KVM_PTE_LEAF_ATTR_HI_S2_DBM;  // strip DBM from blocks
->> ```
->>
->> My only concern is whether this breaks Oliver's model of treating DBM as
->> the write permission bit
-> 
-> That was my point in my previous message, we are not breaking Oliver's
-> model. IIUC in the new model/encoding, we have:
-> 
-> Mode	DBM	Dirty bit
-> RO	0	X
-> WC	1	0
-> WD	1	1
-> 
-> Let's not think about individual bits for now:
-> Blocks (hugepages) are marked RO, pages are marked WC
-> 
-> We do that so the blocks can be faulted, split and the resulting pages can
-> be marked WC. (except the page written to, which gets WD)
-> 
-> That means we are following the new encoding, but deciding to WC/RO
-> depending on the context. For dirty-logging both can be used to mark a page
-> that is not dirty, so we should be fine.
-> 
->> — though DBM will be set back to 1 once the
->> block is split into level-3 pages. So the inconsistency is temporary.
-> 
-> No inconsistency for now :)
-> 
-> What do you think?
-> 
-> Thanks!
-> Leo
-> 
-Right, totally agree.
-
-Thanks!
-Tian
-
+ChenYu
 
