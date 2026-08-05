@@ -4,125 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36606C55822
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABEC4C56201
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Snw8UQ2uKVRQw9alsnFu4CmKiKnOFJek0i71AkCPVEc=; b=X2fndnmcFxN2qebYNo6hu/CbZn
-	F1vrXayaMFMYc/28KjL+FSE+tuKzxFVcsMjS+UQ6oLdHVsgx/2Q0Tpj2tX/7x8ZtfjKL7C9wTiDCH
-	zNXSGxrYtvCEnPXDjs6aympuGgSzaxMb6qG2Mx+6rGDk2gjaNediynybAysta914qjLx6bvOxVKkZ
-	vaUEWJbE4u7ATE9ah90+ur96yCSe0//pB8KjrUTzFSCuaYGnPmnZqQ6OfHfmGHiXiNU2Z+gxTPf81
-	UQPWhtuMcxnNqoOuK0WyQ+oB321yRhl65ty4nvU4lzfbB78wtFp25aPGGgdUf6M4NsdKVySQRiFCv
-	qULsKK8g==;
+	bh=MCdVFBzoMQYqXVrZeC1sFHbOAswgeJFeoPQ04J47ZjA=; b=jmUit0gxB1WkX/4rtz7U8kisa7
+	i8z64oPmlzDGjXmZyKP3EC/7v9sjo1ADF6yNMKHjotJvt9obcLe2vgvFSb3ERHP3GPKeVTUl6zSvS
+	4MNKz1gVJ/g76dya+EuVXkv5/S5RSErjS2nP7ubjmZ03vydDhr0RS81u3szDwILV6aGp+tjzoN8DB
+	jUdqYDgfjg+HOP+/xKKOCraJfsgS2wVA8ihdaj1+i9XFJtQ43P8w3sfVWfNdG10xXq8OEoSDjDTg3
+	u8adqM37r+WQ6bQjYUcNliWFQ8CPR+VpM/p5lC82t87sTH6NSxDfquEJKebiRMQ4J1Fa/EusA1y+2
+	0EImwtiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVHz-00000003KQX-3i0U;
-	Wed, 05 Aug 2026 06:39:43 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wrVI5-00000003KUw-1bnZ;
+	Wed, 05 Aug 2026 06:39:49 +0000
+Received: from flow-a7-smtp.messagingengine.com ([103.168.172.142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVHv-00000003KLP-3BHP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 06:39:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wLIavur49PJfBw8cGwB2BcCnLFXX1Bx4L8A4C5oSSozsQxH8Mr5nLr3ACDaBN/uZJ1dF0Z/diDdF1dxgKV4+o4LYipDUOeqj6gTj241DvFmNA50IB8+GipPmHdd9V7wR8jcFqkGjEhM00oT7MttzOIZgiOYS0JLWrqetsN0WPplK2U9ec0VnD23lpHyJhC1QufrJhm6hRtLucf72s9h0VS7NsRwXYS6BIUfHjyP02FnYjF+1ckECnYa6dKi2I8x1NtO9YIqMeMuUrBjzAety5fdNGA6QIV1jaH/bQAWpwIdFctl7jIrpHqHe75ILsvDiym10//5r0MLdHLQeWobSsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Snw8UQ2uKVRQw9alsnFu4CmKiKnOFJek0i71AkCPVEc=;
- b=pSl+MgQUnIIz8b1SklF1qHlaNLvLppR/xnq0K6qKgBRxDBc4JUeCZ6/Ypo6p88jtDRXz/yDrvsdZf5av6GuhJFptdo1jiA3jBZQYJPSMVBnWuK1ok85H30IZChDyrg4jAahqYSQ61dgnxu+3ngOCkCTGqUIV2k3h7KuanfP0zGgp3K4Cx2/kcJYv03tX7NIO3PtDe2Pfjlg4mJSn063xYjHtDYzZ/fyr2auDkI+voaEyKO1k2hV+x6+VN2LLzh9PvMD71kOn4A3ZFG8I4Q1EyEnD4akJSF27M2PngQyOvLn952Hv4umn5DmzsNEG1qlE1zYO1ezfUcHlGKaysmNdeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=lunn.ch smtp.mailfrom=foss.st.com; dmarc=fail
- (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Snw8UQ2uKVRQw9alsnFu4CmKiKnOFJek0i71AkCPVEc=;
- b=NE3oJ8S2Wp1esEBtWsAr5tiPF13C+z23cmAVSF508Ernmdfc2xykqH1rRmRRy9ldjpUjSOY30rH1NBWaXoJoslBz77+6kJzNBGp7SLpn56Yss5CghYkCd9c6yJUcxqktcKsqill+/QPf+YxneO2n0aEL7+YCtYsUZfiKQklJZXsmX6fqqAAw8JIle3w+1rE2bH4qx671u/0jrqcISVfenkJ31Jt9c2QVGY2lPV3S6b+RX2IKWfqfkYkEJND9ZJPwY4GurduLOTcXear8VRkh4r3kXT7kBOI3m9t4QbfGk5yVdjpxsFKPwL+Oz6Hqc3AQqHKR8Qhx31uC2DRNjeWMdg==
-Received: from AM0PR02CA0119.eurprd02.prod.outlook.com (2603:10a6:20b:28c::16)
- by VI0PR10MB9744.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:339::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.15; Wed, 5 Aug
- 2026 06:39:32 +0000
-Received: from AM3PEPF00009BA0.eurprd04.prod.outlook.com
- (2603:10a6:20b:28c:cafe::55) by AM0PR02CA0119.outlook.office365.com
- (2603:10a6:20b:28c::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.15 via Frontend Transport; Wed, 5
- Aug 2026 06:39:32 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- AM3PEPF00009BA0.mail.protection.outlook.com (10.167.16.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.292.8 via Frontend Transport; Wed, 5 Aug 2026 06:39:31 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 5 Aug
- 2026 08:44:23 +0200
-Received: from [10.252.17.63] (10.252.17.63) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 5 Aug
- 2026 08:39:30 +0200
-Message-ID: <080e5ac0-cb7a-4871-a312-1b60459ab5d2@foss.st.com>
-Date: Wed, 5 Aug 2026 08:39:12 +0200
+	id 1wrVHy-00000003KOp-03XZ;
+	Wed, 05 Aug 2026 06:39:44 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailflow.phl.internal (Postfix) with ESMTP id 3722613802B4;
+	Wed,  5 Aug 2026 02:39:41 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Wed, 05 Aug 2026 02:39:41 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1785911981; x=
+	1785915581; bh=MCdVFBzoMQYqXVrZeC1sFHbOAswgeJFeoPQ04J47ZjA=; b=j
+	1ZeqOP4rfkMoeC7brYov08d9RhRzvpCtOYU3Xg+dHyscSehctOuZfUpCqSW4zbp4
+	DI5PQPtGzJDqPFyXJ32/F7VQrdYgR+z6YOAYi0q7dAVOZyWCeSOrmn/ifgPOWP1e
+	6IomDHLKl3a2Y/4E5OyrvhNaMYNsYL77K13y7QS3/t/IKqTTgNnbhX9EuVAI71S5
+	rjqBAQqn3KnorJQ5Wies3HozKtJrSvFVUCHH9ctZK7dFvjPC+uLFXODIacvagGKb
+	05/zfWwQYeH1GIKKADTlWgzVZTxRgWZ6FeRBx63l3DBXRXVJgg01bjm5sfl0VHOx
+	NySngkooYGxGPtAoIaRew==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1785911981; x=1785915581; bh=M
+	CdVFBzoMQYqXVrZeC1sFHbOAswgeJFeoPQ04J47ZjA=; b=UmcEj8Zp071yco1kQ
+	2tPnVQzj3BFIlDJtIlNKQ2vOnXcRDbUXZG1MHzYhBx1PxhjpK7dHh+KiCcfJ9feG
+	N8JPEMuey5zgTZJ3XEwY9HQbWFFeu+2er5QXcwwrFY5wNWVDFZvJzEfZXU9sAyQi
+	/tbf2Yp8FgqBOoMqbBGTy4DE5daAeY3fHcpbA9qhC58qNOpr3AdfF6Us1NLWhLnt
+	5j35ymIfX3E7beJnytGnW6M7b31cRman7wyzgJ0ejtLVBW01MnRSDpTyOMgf2hXL
+	/lL2Vh0aCQO+//4+kfahp0Hz3toceJfvG61PfqCvrgGE5/r/ze10G4mSH+u4oUbr
+	QT2WQ==
+X-ME-Sender: <xms:rdpyavfm9mn9d-ojgdALEF9UeRcNU6YwgLLnNxBv3EkpY_CJZoJJNQ>
+    <xme:rdpyapKIgN0kblrv7d_WUewyKnTEcNgCz70oj6TKnDjHNNs89_T2pj0xHaR_ltcIk
+    foti4xVwU1xNY20Cr_Cx-WoOVNdlSjKZt8_Bhy0L7OtBpIvnnnLwKI>
+X-ME-Received: <xmr:rdpyahCSwpWhdUT5OHLpZ_kpUEoAf6PkxYtk3IzJLNdHKKGPHfbNJOIh4nzcsNqDGN_e9Iu1Sw>
+X-ME-Proxy-Cause: dmFkZTGXEDL04vcK2sDnKk1CmvKU/eZmnC/t9ja4KZoFmKHOCdBsKmXq25MbtfK3Z/feDx
+    gqOrpGCep9R5Bgz3tQcnjrsQirYkze8tJuxPPRflm80YpbZ++jUZBCUs57zIffUj729f63
+    dEDMo6xiiT/i5snVuBBlJb94jfjddPiipleSLEI67lNed4EM//QTtnrIVHxOn/PTf7Up+X
+    PkSN+hf7QV5xXvQ0GMs3tfCYbfm3jHsaVNFu2CE/bROOE4H2ZAOEXcZbCLVXYkR/+oe++q
+    siB2fOwbnTG33hR+OcfE0MUb9cavFe+MBMC+/N1A1Y9zwgQwsPopanh88MXFGqyMXaC8K1
+    q83yxC+u1msjHDb445feZjKBg97aUfeJFDTqX5CfhDn0GtuC4Jh9RE6TE+v+hnAh0j8jLt
+    69QKVbuO0dOl4WIZFIbLuyML4eJp5iZWaYEywYrl0bGXqvoiwA3NoiyWwMGzcCI6gDWzp0
+    ISE2DJ4jW4YFawjwN8V16E37dETdIwLmHc9R3KZHE4XiHXe3+aBGEZGt3zgEVUvObroYDW
+    318Tlt+vCj0QxNt97ocmdg/nlsxroNSQqQOUbsk0O+06zf168McCQRLbgbogYRWQd8g5zH
+    2hI+UQ8Vv+E5RZVsUzh3FFCFZocq5xsDawHM2TMEDRauWGdKZSoxLtx2QFWw
+X-ME-Proxy: <xmx:rdpyaqihrosZ2PA-WjKACoUGemSWIxfMHtPNiK_Ki3gceOD1w1kPDg>
+    <xmx:rdpyajMXQOSEWIGTR7vhcq8aFT0uDcvtPP2HZMmXxIokv435OQAgow>
+    <xmx:rdpyapbEbmB7ZpVWR9VtSRs592ooZVNxyhcY5KFq94ENjcCRdzT_oA>
+    <xmx:rdpyag-eATKMEWee5eE_zT2WedNVKuyITQjxcSPhtLBe_tUzMmNOSQ>
+    <xmx:rdpyamPrD_5XqDq6g5FUW5MICyDvWvsKNPNeMx6vD0clcKvOYe8nTrGo>
+Feedback-ID: i7a5e4b5f:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 5 Aug 2026 02:39:34 -0400 (EDT)
+From: Jiaxing Hu <gahing@gahingwoo.com>
+To: tomeu@tomeuvizoso.net,
+	heiko@sntech.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	ulfh@kernel.org,
+	p.zabel@pengutronix.de,
+	ogabbay@kernel.org,
+	zhangqing@rock-chips.com
+Cc: royalnet026@gmail.com,
+	alchark@flipper.net,
+	chaoyi.chen@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	linux-rockchip@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiaxing Hu <gahing@gahingwoo.com>
+Subject: [RFC PATCH v5 v5 7/8] arm64: dts: rockchip: rk3576: add NPU (RKNN) nodes
+Date: Wed,  5 Aug 2026 18:38:25 +1200
+Message-ID: <20260805063826.95682-8-gahing@gahingwoo.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260805063826.95682-1-gahing@gahingwoo.com>
+References: <20260805063826.95682-1-gahing@gahingwoo.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] net: stmmac: manage error case during
- stmmac_dvr_probe
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>, <linusw@kernel.org>,
-	<antonio.borneo@foss.st.com>, Maxime Chevallier
-	<maxime.chevallier@bootlin.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
-	<netdev@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260804132052.205273-1-christophe.roullier@foss.st.com>
- <20260804132052.205273-5-christophe.roullier@foss.st.com>
- <17bdf6d8-a31d-4601-bbc9-4d7b78897272@lunn.ch>
-Content-Language: fr
-From: Christophe ROULLIER <christophe.roullier@foss.st.com>
-In-Reply-To: <17bdf6d8-a31d-4601-bbc9-4d7b78897272@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.252.17.63]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM3PEPF00009BA0:EE_|VI0PR10MB9744:EE_
-X-MS-Office365-Filtering-Correlation-Id: 26676093-53e8-4345-de95-08def2bc4e82
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|82310400026|1800799024|36860700016|13003099007|56012099006|11063799006|4143699003|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: wnpyS/MLTvPba3dMJDwYTUsiUDwbs5tv8gDF4nyC6/3+Y51lW63gvxyLWaugO+KLK+F00Z0cy2sPxHhbfh0Nh+bvphF1X7ngB8ibyopu1HbuWvu4sJay1P2en9y/wUgMBUndk5M3k7qIAEEtEd+k8WCFC3CB5PET8BmCzmwNsc8naAy8xGgqE3gd9vfHEjLoT3SRXZRyUlVT7jKjX0ET+V4tqZsPGM5mWY9px6MpbmBqfIs9xGOdzsQjH2ejfeemNdsqYdQBjBf6oerZVtjQHgA21lIMnHWIzuwKGzFWJ7mfdmhynHPH6Mk3HTdMSVky0A2E0GiZA2i6Ng3H5LJnv1JuBWOI0siBYLEYk2LgUhNYSHI1TkX7O6577xpoFc85NPhkDBUgLAnmFM9yd89bl5AzChPIZSR/FRGlcHVtB0skbDkynX38q6ndyvvFWNh73GqZM+nF/1DSku4cMG2s7wlxY3AvJmR/8abm0X+NQzeqHdCSxo9Kz29QgPFw4JxGrsVfdlqhG3zZkm20zlpE3Q7piEjX4X8Tw9uEbmoxHUdIVHTPbCZMdj/Z4uwmIu/l9QTNUW5IKUJSB/bKKaaMjniCtEm00Ora3TQiwXL2BauIZ9CpLemXY54VoJxBFk0U5dAG8Z2zmOavZHzKNw8SrGn5PVLKCwsB2i0CTolXlsw=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(82310400026)(1800799024)(36860700016)(13003099007)(56012099006)(11063799006)(4143699003)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: IzsSawp58E5cFjJuE2rs8UrQ9KBeZahF2Cw60Y7dNGJwJb6A5bXnKBlNyhLBdJtGM/3PaVzSIrwygnpL5HkmGuq9JSktCN/StHDgkrw+3X0w0nmitYKzmtzSh+ZOh3R+DMi8Geelo9M/HMNl0XeRdjo0J36oS6/mFYxuiXj0kDlQC+rQuFhxyTJA4LM7HrFN3Wj1iocPRdonIJb/Na5Ox5k6OQVFDned0owWdOjCghVqY3rY3bIcfX5CfTzwrnQZi6BuaSMZQOKb/1dUzsHyzES1izWY0tIQB35dmebsNcFOCt5QVoRZwjG3ucpKiIsyHlg0R3GMsyPhvIdjvay6bo7FSp2qHrVhGdT+pPC2aswJBWUgR4WVWQ5eYNbOjSox1jqU4YaGSnL+TkQEMDaf2xIXa0LRx3saMnn99eUFX0jjOl0Xq5LmaL5HToFuZgg+
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 06:39:31.7280
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 26676093-53e8-4345-de95-08def2bc4e82
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009BA0.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR10MB9744
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_233940_225575_31C7E7C9 
-X-CRM114-Status: UNSURE (   6.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260804_233942_212653_0EFDCDE4 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,21 +126,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-No problem Andrew.
+Add the two RKNN cores and their IOMMUs, plus the NPU power-domain
+resets the pmdomain driver now cycles on power-on. Both cores are
+disabled by default; boards enable what they wire up.
 
-https://lkml.iu.edu/2602.2/02822.html
+Each core lists both NPU power domains, its own first. The compute path
+needs NPU1 powered even when only core 0 runs, and a node with a single
+domain would be auto-attached by the driver core before the driver can
+attach the list itself. The IOMMUs keep one domain each, since they rely
+on that same auto-attach.
 
-Le 04/08/2026 à 19:45, Andrew Lunn a écrit :
-> On Tue, Aug 04, 2026 at 03:20:52PM +0200, Christophe Roullier wrote:
->> In case of error during stmmac_mdio_register, pm_runtime is not
->> cleaning before exit probe.
->>
->> Signed-off-by: Christophe Roullier <christophe.roullier@foss.st.com>
->> Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> I don't want to accuse you of anything, but Russell has not been
-> active for a while, this is v1 of a patchset, so seeing a Reviewed-by:
-> by Russell jumped out at me. Can you point me at the archived email
-> from Russell. Just doing my due diligence, trust but verify etc.
->
->       Andrew
+Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 80 +++++++++++++++++++++++-
+ 1 file changed, 78 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index b0c0d3c8b..1e6dd039f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1070,14 +1070,22 @@ power-domain@RK3576_PD_NPUTOP {
+ 						power-domain@RK3576_PD_NPU0 {
+ 							reg = <RK3576_PD_NPU0>;
+ 							clocks = <&cru HCLK_RKNN_ROOT>,
+-								 <&cru ACLK_RKNN0>;
++								 <&cru ACLK_RKNN0>,
++								 <&cru CLK_RKNN_DSU0>,
++								 <&cru ACLK_RKNN_CBUF>,
++								 <&cru HCLK_RKNN_CBUF>;
++							resets = <&cru SRST_A_RKNN0_BIU>;
+ 							pm_qos = <&qos_npu_m0>;
+ 							#power-domain-cells = <0>;
+ 						};
+ 						power-domain@RK3576_PD_NPU1 {
+ 							reg = <RK3576_PD_NPU1>;
+ 							clocks = <&cru HCLK_RKNN_ROOT>,
+-								 <&cru ACLK_RKNN1>;
++								 <&cru ACLK_RKNN1>,
++								 <&cru CLK_RKNN_DSU0>,
++								 <&cru ACLK_RKNN_CBUF>,
++								 <&cru HCLK_RKNN_CBUF>;
++							resets = <&cru SRST_A_RKNN1_BIU>;
+ 							pm_qos = <&qos_npu_m1>;
+ 							#power-domain-cells = <0>;
+ 						};
+@@ -1832,6 +1840,74 @@ qos_npu_m1ro: qos@27f22100 {
+ 			reg = <0x0 0x27f22100 0x0 0x20>;
+ 		};
+ 
++		rknn_core_0: npu@27700000 {
++			compatible = "rockchip,rk3576-rknn-core";
++			reg = <0x0 0x27700000 0x0 0x1000>,
++			      <0x0 0x27701000 0x0 0x1000>,
++			      <0x0 0x27703000 0x0 0x1000>;
++			reg-names = "pc", "cna", "core";
++			interrupts = <GIC_SPI 247 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN0>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru PCLK_NPUTOP_ROOT>,
++				 <&cru ACLK_RKNN_CBUF>, <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "hclk", "npu", "pclk",
++				      "aclk_cbuf", "hclk_cbuf";
++			resets = <&cru SRST_A_RKNN0>;
++			reset-names = "srst_a";
++			power-domains = <&power RK3576_PD_NPU0>, <&power RK3576_PD_NPU1>;
++			iommus = <&rknn_mmu_0>;
++			status = "disabled";
++		};
++
++		rknn_mmu_0: iommu@27702000 {
++			compatible = "rockchip,rk3576-iommu", "rockchip,rk3568-iommu";
++			reg = <0x0 0x27702000 0x0 0x100>,
++			      <0x0 0x27702100 0x0 0x100>;
++			interrupts = <GIC_SPI 247 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN0>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru ACLK_RKNN_CBUF>,
++				 <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "iface", "npu",
++				      "aclk_cbuf", "hclk_cbuf";
++			#iommu-cells = <0>;
++			power-domains = <&power RK3576_PD_NPU0>;
++			status = "disabled";
++		};
++
++		rknn_core_1: npu@27708000 {
++			compatible = "rockchip,rk3576-rknn-core";
++			reg = <0x0 0x27708000 0x0 0x1000>,
++			      <0x0 0x27709000 0x0 0x1000>,
++			      <0x0 0x2770b000 0x0 0x1000>;
++			reg-names = "pc", "cna", "core";
++			interrupts = <GIC_SPI 248 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN1>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru PCLK_NPUTOP_ROOT>,
++				 <&cru ACLK_RKNN_CBUF>, <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "hclk", "npu", "pclk",
++				      "aclk_cbuf", "hclk_cbuf";
++			resets = <&cru SRST_A_RKNN1>;
++			reset-names = "srst_a";
++			power-domains = <&power RK3576_PD_NPU1>, <&power RK3576_PD_NPU0>;
++			iommus = <&rknn_mmu_1>;
++			status = "disabled";
++		};
++
++		rknn_mmu_1: iommu@2770a000 {
++			compatible = "rockchip,rk3576-iommu", "rockchip,rk3568-iommu";
++			reg = <0x0 0x2770a000 0x0 0x100>,
++			      <0x0 0x2770a100 0x0 0x100>;
++			interrupts = <GIC_SPI 248 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cru ACLK_RKNN1>, <&cru HCLK_RKNN_ROOT>,
++				 <&cru CLK_RKNN_DSU0>, <&cru ACLK_RKNN_CBUF>,
++				 <&cru HCLK_RKNN_CBUF>;
++			clock-names = "aclk", "iface", "npu",
++				      "aclk_cbuf", "hclk_cbuf";
++			#iommu-cells = <0>;
++			power-domains = <&power RK3576_PD_NPU1>;
++			status = "disabled";
++		};
++
+ 		gmac0: ethernet@2a220000 {
+ 			compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
+ 			reg = <0x0 0x2a220000 0x0 0x10000>;
+-- 
+2.43.0
+
 
