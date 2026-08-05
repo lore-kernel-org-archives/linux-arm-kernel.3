@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CB6C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFF2AC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BFHIi52G0DLGh2jlHFvMQOsriC8Uz3afVC7wSChQQrE=; b=JwUrZGXSV4X8rnNL6RBm5EXZMl
-	fijhugQnczxAsjTUzvCdYXYQzTkY6YQhY5fZgs19u1AKQNArWymUxn0XmW7ahxrhnRylPQrk7BP8i
-	3lDUq5BDP5pY3X9+Hs/OY9lSlKan+xvMdi1uQRiV8SkOJ36/X1+Mc1hoAb5W8ELaAIKdy5xAAX1Td
-	euykKHjzXliFXSPGURGQ4z+fQovLVPT/e/7QxMSEZHfn5gkqZzWgqHLAsg2lnAPKt0wfOb4tp0+/x
-	ztRTnjAyfBCD+Ygc/eCj3OM07zsuGs/5i/BJt8qb7pN9k8WzzftLpvm3NEpEr3HmoLy1RQVgTx8I/
-	zrmoCoTA==;
+	bh=KsO67/Q1bB5+9TsoihVncOsYpwNmLHwKaRgGnvby9hM=; b=abO1Nx/TDaJ89TbVUtCNeCIlwu
+	h0smY37GVaSUuwDx2bx9j+DhNQWUDOCl99ftEGZXXE/Ffvda1jchYGxy0JYX0+pxnCKXV/hCffATg
+	5N4nqXBxDjYOaoAvKbCWDcv7A2m5E2PqXAB4LHA+zWG6pB6LBC7AECi5ZXcUR1cRx3lfJq4smHg2s
+	IpkasQ1gnCcQcRsp/tkw5VhhEx1kGY9mBYosHF77wNdS5Apzn9DmweE2M8yX5Q/9QR1Y+J4HefEYB
+	kWhHeVfjzTL4UnJ3O4128javTN9/VAhGul97FEusiHDVLkvCZGk+UYew7xDxKIxR46jXxLnV+TG+9
+	MzckwQbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wraun-00000003w0a-2RhQ;
-	Wed, 05 Aug 2026 12:40:09 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1wravh-00000003w7D-3lYF;
+	Wed, 05 Aug 2026 12:41:05 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wraul-00000003w0F-3LKu
+	id 1wravf-00000003w6Q-1p44
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 12:40:09 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id C7D8F3E26;
-	Wed,  5 Aug 2026 12:40:05 +0000 (UTC)
-Authentication-Results: smtp-out2.suse.de;
-	none
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CBBE8779C3;
-	Wed,  5 Aug 2026 12:40:03 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 5Z90LiMvc2owfAAAD6G6ig
-	(envelope-from <pfalcato@suse.de>); Wed, 05 Aug 2026 12:40:03 +0000
-Date: Wed, 5 Aug 2026 13:40:02 +0100
-From: Pedro Falcato <pfalcato@suse.de>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Lorenzo Stoakes <ljs@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
-	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH v2 0/6] mm: add basic PTE const type-safety
-Message-ID: <anMrnsN1xf_Psn3w@pedro-suse.lan>
-References: <20260803164400.531199-1-pfalcato@suse.de>
- <a5afofuxhzwkeb76jdheottyxt4mms3arg2iucunztczbmd3lf@wiqp7yccjzlt>
+	Wed, 05 Aug 2026 12:41:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1785933663; x=1817469663;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aGqrGLoXLWCR77fzM54CRWcSbftuIKEd6Z/+uJWgrMo=;
+  b=CApoL4VNyJWPgqipLUc8jdCoFpo5wAa3nDaL2Bum6vAEkLzVW/Q6lh1c
+   KKyqC1Dui3qtHLIv6xZaf7g5bSuP9Gs43zt6ZTyzzVl+wi8+N+u/QeCQi
+   Zo5mD0vLkrNKwNQMtCm1sZj76c6myXPBwrfzPnet/Tzbj2EQOFMeD7htA
+   BY9L9tkB2pygNXbZSQCrEeg182zgX3Dg0/LnjazzsEZ+w6GhsFe0gkoPh
+   lyk5Fdjn7Vdc4Cz0+hAqJrqNSZ7Nd3m1nt+jbhop6/jsqqvo1RfYyadjH
+   HV6urznYmgVxFxghVSYOdOj7LMz06ssm5c8TYfmGT59QpTNl68aC7yhMN
+   Q==;
+X-CSE-ConnectionGUID: Co7HQMoXRYGZc1z5pgyxnw==
+X-CSE-MsgGUID: qBtGIY+xReSnIzm4SBPGIg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11865"; a="109293671"
+X-IronPort-AV: E=Sophos;i="6.25,206,1779174000"; 
+   d="scan'208";a="109293671"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Aug 2026 05:41:02 -0700
+X-CSE-ConnectionGUID: wzosoJldQVSzkWsOxz6I0Q==
+X-CSE-MsgGUID: 8VuOfVSbSQKWowPXIlo1nw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,206,1779174000"; 
+   d="scan'208";a="257499770"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa006.fm.intel.com with ESMTP; 05 Aug 2026 05:40:59 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1008)
+	id 2A42E99; Wed, 05 Aug 2026 14:40:58 +0200 (CEST)
+Date: Wed, 5 Aug 2026 14:40:58 +0200
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Alyssa Milburn <amilburn@zall.org>
+Subject: Re: [PATCH v2 2/3] usb: typec: tipd: Factor out i2c specifics
+Message-ID: <anMvWrR5E54fPXVV@black.igk.intel.com>
+References: <20260727-tipd-ace3-v2-0-1345957bd635@chaosmail.tech>
+ <20260727-tipd-ace3-v2-2-1345957bd635@chaosmail.tech>
+ <anMi2q5FmsvE4z8W@black.igk.intel.com>
+ <7D31226B-98F2-4DF2-BA47-31CF9B269A7F@chaosmail.tech>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a5afofuxhzwkeb76jdheottyxt4mms3arg2iucunztczbmd3lf@wiqp7yccjzlt>
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Queue-Id: C7D8F3E26
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+In-Reply-To: <7D31226B-98F2-4DF2-BA47-31CF9B269A7F@chaosmail.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_054007_986409_668B4E76 
-X-CRM114-Status: GOOD (  20.48  )
+X-CRM114-CacheID: sfid-20260805_054103_542545_E9CA0892 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,44 +95,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 04:12:21PM +0530, Anshuman Khandual wrote:
-> On Mon, Aug 03, 2026 at 05:43:54PM +0100, Pedro Falcato wrote:
-> > Since forever, MM code has thrown pte_t * around with no concern for const
-> > safety, or typesafety of any kind. This is confusing. Attempt to address it
-> > by:
-> > 1) Making sure pte_get*() helpers can cope with const pte_t * arguments
-> > 2) Constifying the pte_offset_map_ro_nolock() return type, which by definition
-> > already pledges that users will not write to it.
+On Wed, Aug 05, 2026 at 01:57:18PM +0200, Sasha Finkelstein wrote:
+> On Aug 5, 2026, at 13:47, Heikki Krogerus <heikki.krogerus@linux.intel.com> wrote:
+> >> 
+> >> -static const struct regmap_config tps6598x_regmap_config = {
+> >> +const struct regmap_config tps6598x_regmap_config = {
+> >> .reg_bits = 8,
+> >> .val_bits = 8,
+> >> .max_register = 0x7F,
+> >> };
+> >> +EXPORT_SYMBOL_GPL(tps6598x_regmap_config);
 > > 
-> > These two simple steps were already able to uncover code smell from
-> > khugepaged + do_swap_page().
-> > 
-> > Separate steps could include introducing pte_offset_map_ro_lock() for more
-> > widespread usage of this.
-> > 
-> > Benefits of this include less confusion and better type-safety. It could also
-> > futurely aid in efforts such as [0] which may want semantic annotation of these
-> > accesses.
-> > 
-> > Based on mm-unstable and compile-tested on a handful of architectures.
-> > 
-> > No functional changes intended.
+> > Don't export that. Just move it to i2c.c
 > 
-> Even though the pte accesses should always be type-safe, this series does
-> not really address the problem completely and instead changes things only
-> for a small set of pte access sites. So just wondering how much beneficial
-> this series really is ?
+> I use this one in spmi.c too, the regmap configuration is the same,
+> just the backend is different
 
-This series is meant to be a small step in the right direction (while
-feeling out what the community thinks, which seems to be receptive). The
-obvious next steps would be to introduce some sort of
+Ah, sorry I missed that.
 
-const pte_t *pte_offset_map_ro_lock(struct mm_struct *mm, pmd_t *pmd,
-			   unsigned long addr, spinlock_t **ptlp);
-
-and use it in more places. That will obviously involve a bit of churn.
-
+Thanks,
 
 -- 
-Pedro
+heikki
 
