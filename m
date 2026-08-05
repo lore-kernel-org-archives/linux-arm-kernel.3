@@ -4,172 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4BD7C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 10:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8735CC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 11:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3qs+wWNgWmnm/OWzkjpZ8KcBSC69ItpZm3fjtjYmKyo=; b=zqPDDBMxwrEkE3G6jq+ubGp4Y8
-	mQmu2yDe2dJHLAankqZz+dPcD7MhAEQ05RaQ05ScvKDh43R71J8P0F/Mqbnd3oBAN7EKF1vYPz3vK
-	v7cPWDtZJvbXWSkBLVnkz1EIyNH0TXfqLCv2kf8XdeirnFgtnEemaJ8EAc5G8yeXJqq60yvAqeXeU
-	F6/HaPl9PsM20oScWR3ZYRBRmMCeEzZTh7cjDDiV97yGx94ulkHOte5O/FELX9vz0AquUeJ9KYW7D
-	j1/IUHAg8tTYskixnOA43h6gcGCCh1AOs6zvIIkGPjDvTumPPRcVWaP093rPZZBMvm5rcUCr84zr2
-	Mk41jojQ==;
+	bh=PdP7j+PM85jv59LWW3oHScYRNQLnSJgIIbuicxOjPE0=; b=DbFt1zDl/VROWMuTySztPlg5DN
+	moCVzf+5+YM8OWzZsUoxa/vVlk914eE+B6KQCXTNQxkfsNzHvxPd7PCIdESBacmK2+mTaOIoiIpei
+	ulDCXRjsomV6yYw4Jas1q3EiDJZYpToV1p+QLiocKJI2Qf84d9TPQ9Ahzj15jGTjPwRInY03kCr5N
+	u/A5mMbN+yq5+LowiyHJojPIcD4OUTaxSTcX1ur3QCIv56CrNSCA2oRH5+eo09+REIG+lV1QapfGb
+	GuIqkxj4Px8Te9FEp8ut/g2BPlQ4YkZOI37ZAwwS2YAFWrnai+2wPCeBalXT7dI0ax0+yapBIVjtU
+	13aP12yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrZIh-00000003mJ5-2Pl3;
-	Wed, 05 Aug 2026 10:56:43 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1wrZSD-00000003mqZ-3Raq;
+	Wed, 05 Aug 2026 11:06:33 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrZId-00000003mIg-0XYj
+	id 1wrZSA-00000003mq1-1vAe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 10:56:41 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6758dbXV1847081;
-	Wed, 5 Aug 2026 05:56:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=3qs+wWNgWmnm/OWzkjpZ8KcBSC69ItpZm3fjtjYmK
-	yo=; b=j7dKGG48MTWTK76i2ns3esA6ty2B0UrjrrSPodapNcAqPR/spK/0m2Ywx
-	FuhMjPK0WqTQicXTU84xtrXi3bof9K/bKI2hpfzNH7w6czfhz6vUEmPSUgqf/LjJ
-	uJ6a8tLgeiBEVslE1cd0WuT2mel85MnF+mX8NnmYwEtH6gP+3Iez/OaqpnsBh7tP
-	wiPg/3yRsAxnEw/7IYorsl4or03gRPzuV4LFPcRCjNc0vus8LlmJ4tcQRV0Wqdi5
-	6CjGhqLouX9U8XxIRn/O65mK2tfTGWo/1S4odb1PNo89nOpseUhlddgtflMTB8uy
-	OLPMIutFcYGSe3/1OakFshuxhR7hQ==
-Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011004.outbound.protection.outlook.com [40.107.208.4])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4fuuxtu810-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 05 Aug 2026 05:56:35 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yN9lijEiUCmcFU+YuNs1tE3wdnJmEa67HYUsQ4nWTluFtYs25hvdeDxvCTccPt783sTzR44Q1dlMjRxv5xbSOEkmudVxN0lzyuDyGSv9ZmVmwIMC5TMM3PuC98eRIeLotiLFh0f2XQzqsqCcPvKZvcPu4+PjycfVe5skjCHZZclPVxFlnKSnKZSz3ovJVxDyHbfo/CIAyC0/kW5iHWWbRHi561+I6eiGNxn0DfkRpFc0wqiN43gkVKqe1xETRiq+Mt2Tb2b/tP8zQLEZBG6x2ENqkm1aSRdgXTVvB/ZZI5mmw1lEjeglVLAl+i8b/aHUbL6jjitWITMm7Ek1EuIh8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3qs+wWNgWmnm/OWzkjpZ8KcBSC69ItpZm3fjtjYmKyo=;
- b=t60tN0sBVNvxKBiD2ch4ImUcAl5G5pe5uZPBwRg3DEEU81WpSW6xxCrm/++3Kc3wCx6c5XjQMwkFgknt43biLWM630UGzP/cOtBLPfTYfPpiGpZEFNBsEf3AiJdOrd+VfOTBhH5kbngCx5lMAGGT55/1+QG/dmZLxPZzk27/DmvuHZglbHilO5rO+0SeIf7/NnMadVyUSMt1UnfKTpi5sTQgXOTXsJGo80frU9hcrBHLAuzii0LvqYq/lD7yxiSIFgMrZyHFG1K8cH2pTn6UYwjemQJp7/Y52h1otvflCWgsqTaExc3JrXu9AWnX5vC26xZwuxbK3yZzIaot+GSqrQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3qs+wWNgWmnm/OWzkjpZ8KcBSC69ItpZm3fjtjYmKyo=;
- b=lsI5DP7PmVGabkqSwoXLBisKkPvN0SNUg8gsjfniTnKk+ZRTSz92hFYTK3H3BYCR3JHmrspdG6Y7p28JCPiuE9fGLXKuKZICNgqkjnHRvdl0s50gEiHj4UzdOFenfKv1iV4F9miqYzquH9cyZan59wWFlgy3eBl6ahjMcAlW2d4=
-Received: from CH0PR03CA0347.namprd03.prod.outlook.com (2603:10b6:610:11a::26)
- by PH0PR10MB997641.namprd10.prod.outlook.com (2603:10b6:510:386::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Wed, 5 Aug
- 2026 10:56:32 +0000
-Received: from CH1PEPF0000AD7F.namprd04.prod.outlook.com
- (2603:10b6:610:11a:cafe::8f) by CH0PR03CA0347.outlook.office365.com
- (2603:10b6:610:11a::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.16 via Frontend Transport; Wed, 5
- Aug 2026 10:56:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- CH1PEPF0000AD7F.mail.protection.outlook.com (10.167.244.88) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.292.8 via Frontend Transport; Wed, 5 Aug 2026 10:56:32 +0000
-Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 5 Aug
- 2026 05:56:32 -0500
-Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 5 Aug
- 2026 05:56:31 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 5 Aug 2026 05:56:31 -0500
-Received: from [10.24.50.20] (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 675AuRZU1276885;
-	Wed, 5 Aug 2026 05:56:28 -0500
-Message-ID: <995f20c8-77da-4054-8068-dd580507aa6e@ti.com>
-Date: Wed, 5 Aug 2026 16:26:27 +0530
+	Wed, 05 Aug 2026 11:06:32 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6758ddUE2669653
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 5 Aug 2026 11:06:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PdP7j+PM85jv59LWW3oHScYRNQLnSJgIIbuicxOjPE0=; b=gueJ8mtjDJvuiB6O
+	/U7VY+LAbY7ZHpCN5YLWu1iiqsEGaDlCZWbuCiYpTXmnuow1cRNVoR4x/PALveCF
+	UjFVtqF+fUuzB6SAvWJH3IRx20zflxXvQBkoaMw2w7JqOeoT9tlmG0VGsGgPn0SA
+	M96bMY2vX7EZndXnnefNMiyhM3+piOPC+mwl/YhcrZGPvOsYG6BYeljT3mW99/0x
+	kVNAFSJw5bjdgvdbY/s2jWlGLwjh6H865EMEKzT3BlZvUe4P7SKWl7l0gkrgLYfd
+	4JjgB3v09a3QRACvhEvZgwUoXae+VJX31No2kfISTbflrUrhbDRPX/gBW6Z/nwoF
+	NaRFLg==
+Received: from mail-ua1-f69.google.com (mail-ua1-f69.google.com [209.85.222.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fum3qc8v1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 11:06:27 +0000 (GMT)
+Received: by mail-ua1-f69.google.com with SMTP id a1e0cc1a2514c-9775c49866dso11605241.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 04:06:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785927982; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ipCaAoLtOaDplqrKzft+pyF5e+ACnyEzT5JtZ9Grtp74RnXD31phCbDkau5tKyFf45
+         +0HgQVdlHkd0Gd35zO4MFnrAi/ic20j/pWl8v0fF6ZWd2mXdPWKjBFpRxzPHd5noTghK
+         G1Vtvgnxumwqlz5/jjxfzKwaoF9CGFVHi8NUcgvf7UxhCgbUuEPNQIKhTB98D9WwHZoW
+         8FZaon/pBtMGys39q0ez+hlBzkkEwrHNZVyuz9cASQ2V2TCX3lhkzwTmK8d9gH95+uIn
+         7LLZDppeouHWwZtaczwwNYenj4uYi2y0/TvEFPrhc8GVWLBS/gS8eP/6jAcjKP+PkjRP
+         Br4Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PdP7j+PM85jv59LWW3oHScYRNQLnSJgIIbuicxOjPE0=;
+        fh=bQeLUScymZyGYq9eyGt03gRmfJZkmM1zt9O5vZQT2nc=;
+        b=ZQKBpkTHu9/LThqW9YTZ2DiELVAM/KRtidtwyAc/EW/9IDHil3fjIzkIXYQCvZm4eg
+         sznActWxiJqvMdRXkHuK/s/EAyKvZBsVqcFZGAz3G3Wmnl5nGFKsDecLaOD8nuzBpHgo
+         F6MTw78MfYzaUK+YnM/r4tFqZmleyad7AcgCDVVEJhQHCdTd4meUleq5e/NxflrS5DBg
+         N1VbKhNk6eR+9erdHyZPXkRVjHrzbU+Lbq5/ITuCqODz/U4RikJVPlvjQwmPQWVGdnMl
+         UX4RhAnkpzRCvMMGt2enRfw0rHLT+6NsFgcXwtye1S2/lVapR7xdrr2NhNR9cNoGb67q
+         UcYg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1785927982; x=1786532782; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=PdP7j+PM85jv59LWW3oHScYRNQLnSJgIIbuicxOjPE0=;
+        b=e1L1SaN+sfO/GBTxR7pFZV1dvLRgEJdM1RBoVaivgt4qDmSYzrprYXwwaCt7Uw6mBM
+         U6JGZAMYzYy9XK8nxZgO6jQc7QT7zVbY396oMsSslDGdYWm2ovzsSNjo4w5Zohev/+Hh
+         PKshdHxZeoRLZTHNfzWnwT2A+zQL/3W6u0Ea/bkSqwYwBUg55nrxUGM3bUCwQYsf2m2g
+         tg4I3QvYD43pkDmjXjWfrF7paaAKV77T7j8foi74JMejTdYpejekWumTCjTwhDRwTqWa
+         lYEvakryM9PxHrnFUIjhWAN5mUgICmAq80hh1Mmjgi+kJ+3zopjbnKWV7Lj8ZGitynQB
+         wqfg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785927982; x=1786532782;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PdP7j+PM85jv59LWW3oHScYRNQLnSJgIIbuicxOjPE0=;
+        b=a0MFLKrtZxmGILJMkpgHTyYyfQfHcnEA5LppI6DciR0lejsjzBBRoWVzq2i15s64p8
+         vmnqwTqJ4tBVTxohwjLucIEVZPb1LJ9bErRX+ZhDX6lpFjZG5u06FyAv00Og9yOxTgMY
+         f3LuW53ohqne6D0+pbGrZGanWuX4idnXmKLCuctTqR2zE6v/X5+Y4bkkGTPQ35NchL1k
+         eSI4+H/zDGyOYPfsu91s0WYi845jaShQxLqpsKTYaUT+EYr4TiY1B4TW4y4dX2+FCJk3
+         G+w1H4dRs+fjysjZuctij8O04gh48dKiXPlXye3kkBT+2vbGWN5uEE1zd/5QqfWs0d0v
+         bh3g==
+X-Forwarded-Encrypted: i=1; AHgh+Rq80XIVgeBEqFWQm+664FsTYO+iCcosFUxBri1XA3Nv0LU7ZEqs8Bt3Vm6aGcJJPl++l8f/Q3PqVt0h9F+LHbbp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGUaFyVvRKrTGPTIwHYFrIHAvkv0dl7PesUzIyRRocnkUPCGX8
+	CwfFPoSgLcStbs/k3bO5mri/pWfE+IJG6O+1rn6lYTD1f7Kg9r0ujTE/3fnqmDqYSu0N0QfGxu4
+	GeDW/hVYq3l7GXQuv6/jNLE9tjlVjPW2Fslu4GW9xaYnYuj4yoZEzFZG0aRukKE5FgdF1h6VMMf
+	6LSB3fV3m18n0K9OoPSerHZLfg874m9fO1AXmmE6q5lv7qsFvDrAFB
+X-Gm-Gg: AR+sD12pUOqfhYCyRvio/J6hbrSCZS3qTVtb4iEwphISGhNf4CV3p9dji5nyqAdOOgd
+	3uY/YkI9w8go3RTejQ04yOPMShODLMdj2AuRBIMxlP2KfwyW/RdmmAVZwro1b9r4N1ikVgU5kiL
+	RjiyrHT6ewaymQZk3svaTolGtnv+CDfw8izO4pXvcrpDB5ZGAiOLaLRlChwA==
+X-Received: by 2002:a05:6102:3ed6:b0:738:9abd:9ebc with SMTP id ada2fe7eead31-760e79e969amr589182137.0.1785927981684;
+        Wed, 05 Aug 2026 04:06:21 -0700 (PDT)
+X-Received: by 2002:a05:6102:3ed6:b0:738:9abd:9ebc with SMTP id
+ ada2fe7eead31-760e79e969amr589163137.0.1785927981095; Wed, 05 Aug 2026
+ 04:06:21 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] arm64: dts: ti: k3-am62a: Set MMC clock pins as
- OUTPUT
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20260805004821.416613-1-jm@ti.com>
- <20260805004821.416613-4-jm@ti.com>
-Content-Language: en-US
-From: Moteen Shah <m-shah@ti.com>
-In-Reply-To: <20260805004821.416613-4-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7F:EE_|PH0PR10MB997641:EE_
-X-MS-Office365-Filtering-Correlation-Id: b1d3a96e-3926-4c54-9a30-08def2e035eb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|376014|1800799024|82310400026|4143699003|3023799007|10067099003|56012099006|18002099003|22082099003|13003099007;
-X-Microsoft-Antispam-Message-Info: zFTHY7XHmiIBGJTxMamE0qUxOwOQ44DFHfDW7bWodf0fg/f22W75rTgUzeLzObkys76MCudyGdsmtXGpith4LrxZ3tip9FVLxMe24eartnU3UMX02UXNNgyMmSOz1L6e64ptgPdu6BYJ4RG4ai3xe7DtmKiPkKA6hLg91+6gZqDChEoZS2uQlZYVUpUxia79DwHvvjX4+1DcTY646Ogl9YBqUIqYDnFz/J8KM+z1za7GxR+LH4hvX+crSZKN9LO/ZOGwAD4dJLH3MzbNgSFmwOleLURU4zl7yI2sW1HOiZ9ar+p9jpzRDFL8nsoudnXxXACxstAh9UuOwnp5TEoW+9PGH23pceq19dLD4icfhiIHsQ53sdZ+n5qfX49YcF0yhcIxfbnRQTN3Tv9GHjTt/1tb/6jwzSVxMH4G2H+sLQZMJ5/1XMjabteBm9B8KAcwpafBvO9478v/UYHegqQE9G95aPKvtYVj6cFATBwWKNWQHGW5+v8wIRsfFbdsf+454HHHcpFxb8Y8UmRpPCbRVQ6I4jPPNeVO0Z7lbTxx9RLTK0NO6nNDTpYWsWf2ODMi/sHEgRK+/g4TXOTTg8BEeHyXfsW474Qa6HFKf5Pt7ng9BqWQ7yL8a9sFAGYV05ScFAMrDErcJSUgSiBa/h3JwlTPSByNyrkJ7w0oofEQ7HEBR1mF+UtdGoeNU+L8RxZ2Ibrqbyz5vc3lB6gl6cgL3Q==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(1800799024)(82310400026)(4143699003)(3023799007)(10067099003)(56012099006)(18002099003)(22082099003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ulzL5DcgDmPZlvQzsglU4bMrJtoYAiqiLVcNo6AySHqq+u9E49qlkOYJ3DWcbMi09MWpM0gaV3EGPNNKaCiirIcDh/EDxnhTxgnwY/erZRNl6pPbvgGya96fRjwxZ5bpHd7hCPbFThOkS5A9eaLXWj/tmtjZWzwGpv/B91hc+33y5lze4KYZYMt7cwogdK0mIKo1VGaSgxgZu8y1TJNrROCEZhk29o0NIAsdGluw2xMOqW5U/yL0IjLdydsMv3LtaldXmcubXSGr8iUcyoia0OvihSBLUwU/vjU3/E+1Gvk+q0kjmRSh7/IUWXuoCTdUGOELp1Zx8Z2OG5lX29gQvddj/WsIgkdcRrOC4/kmeVNUFtbB6u6KGTEkh4vLo7Y3A0hC9wdTfQwI7arfX1AjzipW9r3kutpcc/u+lkp/fsJRCREtKKt0mLwFaZx9C3G5
-X-Exchange-RoutingPolicyChecked: cgvhGu3JxQsHPd7KLwfPzSyXfGhJ11N/p/TPZBtfr68VbNveseKGegOZ2TjxTaytR2OJ2tv1jIQC3vn2guNXnQMEgOpaRJ81NKusoATPPbYANeOG99okY6TDNatQbeTcyfrwyqDqIKBmnvRto8kWBU0vyX7BbtyLicX74D1fZ8RTDu2LuKZvb8QbQhyHHeG8lCWvzvpxX+8A4I9y/XlmHdzP2euTzuPcrhf1/I7M+F6EQO9JfYQ7B7TnfQv7uAmALX7AfsXceBth80NTRV3rV0WEXcTxwIy04S/0PLpM06NOchB84Tvx69Hx3TiwAYoPmzwombM9qAastbTVguaCAg==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 10:56:32.3386
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b1d3a96e-3926-4c54-9a30-08def2e035eb
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7F.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB997641
-X-Proofpoint-ORIG-GUID: ZB9S6dkJ2RAEFyiIVc2WL1dbEUnPzb5S
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODA1MDA4NyBTYWx0ZWRfX04hBQrcnECdn
- JiixkeAP6XPET5OOdMM4LhA5LZ2k3VBO1zaWxxUTSZwK2g6GPIweRVNxDzlQpQLvtNm/UsTFbMo
- icWTdMVami9gv+KRIV1Pgw50LMRuUbQ=
-X-Proofpoint-GUID: ZB9S6dkJ2RAEFyiIVc2WL1dbEUnPzb5S
-X-Authority-Analysis: v=2.4 cv=fZKdDUQF c=1 sm=1 tr=0 ts=6a7316e3 cx=c_pps
- a=4d7Nl6fXTlayLABBLko2Iw==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8
- a=i2YvWbDG3o7-TbIA7CoA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA1MDA4NyBTYWx0ZWRfXy5apikxu1fNS
- INZ6W44exYh5iHA3YEjtYeAxWE5KJc+IGLYbgqmNPcQ+LJs5mO+KwZULe2gmxOrDhb+k7Moatdi
- DdhJHN0QN2Vro+qH4eyIEW9r2ulrt3SIP+/plbTejpqSZEsyIC8uWWRw6En2KEY2hiFQ/5PU925
- kZQrr+UvIvzcqBlCKaPGTUtfr5qwcSZ/aGfYuG0wZDEIW++hYnp63r2ic4ihE5MKf/QfAgD5cSJ
- PjPGjr4S0oWDDhww2qMi8wbB34PBjKf2WyvYRkyLtrNWoXCHgNX5fVaaGrRBFEgdvv6txTXTu5v
- Trh44Do5pbkgPyKsstk6kAcsclk1BZcxCG+8ouD6gH+txiNNjjDbbnDvnmeEcXP/vOyt0PiDIk+
- ScAP1ZmlxmpiQA4dUc03PstfJW+rXxYzyZfSJZbHsfmBWBjjuLddJNjfWbD2pn2lqiLcz2dzThU
- xZDO8BTi4RdYcWdQQng==
+References: <20260802145618.1952804-1-cristian.marussi@arm.com>
+ <CAPxK-6eoSguQXkQyhoKkxos89BL4Y5f43ntv8MAY7xoiNmMeYQ@mail.gmail.com> <2e1996c3-4525-4239-ad17-4056071c9407@kernel.org>
+In-Reply-To: <2e1996c3-4525-4239-ad17-4056071c9407@kernel.org>
+From: Subrahmanya Lingappa <subrahmanya.lingappa@oss.qualcomm.com>
+Date: Wed, 5 Aug 2026 16:36:09 +0530
+X-Gm-Features: AUfX_mxJmEDJMYBb9pAHnD9lC9sTDUryeBkmp_1xfADIX__hgUO83zL9-a4n4N8
+Message-ID: <CAPxK-6f4mQYeWPxLvfg6cqYsPa2e5C6dCfCjurV74059gF8JSw@mail.gmail.com>
+Subject: Re: [PATCH v7 00/23] Introduce SCMI Telemetry support
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
+        linux-doc@vger.kernel.org, sudeep.holla@kernel.org,
+        james.quinlan@broadcom.com, f.fainelli@gmail.com,
+        vincent.guittot@linaro.org, etienne.carriere@st.com,
+        peng.fan@oss.nxp.com, michal.simek@amd.com, d-gole@ti.com,
+        jic23@kernel.org, elif.topuz@arm.com, lukasz.luba@arm.com,
+        philip.radford@arm.com, souvik.chakravarty@arm.com, leitao@kernel.org,
+        kas@kernel.org, puranjay@kernel.org, usama.arif@linux.dev,
+        kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA1MDA4OCBTYWx0ZWRfX3HI55TJLS/YT
+ C2hR+NT9xtQXzBHjC6gWvT30U9V0r+6QW9wbhzvi1TPq3gaxh6+zCRO9+Hsys00kJAXLkT1I4SY
+ uuP4Jsq5hygFHm+ba9j+2t0pNOdctHu9QeVS5XKZRvo6/zbU3zddKnrpIBQVm5eQ8w3ec4r7Wmg
+ BwdA/0vik0ws5KEhpcNux9OksD1qH74Lmsbm6tEvTItwDCEqDCDtpWq3dobj+16yzH/uNnsvgbL
+ TfO8C90UC7x/+wad3vt455S4uE7Kgs2US2ftNvGBmjn/NjriRoETFEzWuwTIbbqC5nysxAO4Zgz
+ JOfQQcNLSU7535rZPy3qfisF64mKvM6RrlXBADG2LKZh5uczes0DCzoy+yxlfsoCPmKp+6bSGyr
+ 0dgxAGJxn13xYHqCqurwUJV245aSKXJSj7gQK61CBR/cbA6dZm2FXMfFEiGZPo26dOoSqfK9MJc
+ CJRgbsvh7mUYuL58k/Q==
+X-Proofpoint-GUID: 8-hxUsrAP8wW9aq4nGWey_p2PsN3pfC8
+X-Authority-Analysis: v=2.4 cv=LsiiDHdc c=1 sm=1 tr=0 ts=6a731933 cx=c_pps
+ a=UbhLPJ621ZpgOD2l3yZY1w==:117 a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=3WHJM1ZQz_JShphwDgj5:22 a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=NEAV23lmAAAA:8
+ a=MWzHnyj4nXRH5IYb9WUA:9 a=QEXdDO2ut3YA:10 a=TOPH6uDL9cOC6tEoww4z:22
+ a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: 8-hxUsrAP8wW9aq4nGWey_p2PsN3pfC8
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODA1MDA4OCBTYWx0ZWRfXztE5NPWkIso8
+ F2iCm7UvGKYrDRMuiWmogVSrxwByV/JNM2aueKs0HUpPSV0O6PG0Aimv3O29Srhud9OeLC1PKmm
+ nI6AGRIYvAMyQeQ3Lwd3GUPKgg1C0v0=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
  definitions=2026-08-05_03,2026-08-04_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 lowpriorityscore=0 adultscore=0
- malwarescore=0 clxscore=1015 bulkscore=0 spamscore=0 impostorscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2608050087
+ phishscore=0 impostorscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ priorityscore=1501 bulkscore=0 lowpriorityscore=0 adultscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608050088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_035639_181537_B59583B1 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20260805_040630_637527_0D145D30 
+X-CRM114-Status: GOOD (  43.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,47 +171,387 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Judith,
+David,
 
-On 05/08/26 06:18, Judith Mendez wrote:
-> MMC clock pins must be configured as OUTPUT-only per TRM [0] with
-> receiver disabled (RXACTIVE bit = 0). Change MMC CLK pins from
-> PIN_INPUT to PIN_OUTPUT to match documentation.
-
-I think this patch and the next one should carry a fixes tag.
-
-With that for the whole series,
-Reviewed-by: Moteen Shah <m-shah@ti.com>
-
-Regards,
-Moteen
-> [0] https://www.ti.com/lit/pdf/spruj16 Rev. C: Table 12-257. MMCSDi I/O Signals
+On Wed, Aug 5, 2026 at 11:44=E2=80=AFAM David Hildenbrand (Arm)
+<david@kernel.org> wrote:
 >
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
->   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
+> On 8/5/26 07:21, Subrahmanya Lingappa wrote:
+> > Cristian and David,
+> >
+> > On Sun, Aug 2, 2026 at 8:27=E2=80=AFPM Cristian Marussi
+> > <cristian.marussi@arm.com> wrote:
+> >>
+> >> Hi all,
+> >>
+> >> [TLDR Summary]
+> >>  [V7 highlights]
+> >>  - V7 focus was on making the ABI complete feature-wise by adding:
+> >>    + UUID enumerations
+> >>    + BATCHED DE_CFG
+> >>    + BATCH ops with per-DE status
+> >>    + Generic EVENT Subscription with GENERATION_COUNTER support
+> >>    + Better UAPI Doxygen docs
+> >>    + Reserved space to grow scattered all-over
+> >>  - V7 cleans up all the residual known sparse issues
+> >>  - While aiming for ABI-completeness, V7 addressed also a few reported
+> >>    general driver/protocol issues BUT the bulk of remanining Sashiko-V=
+6
+> >>    complains are still to be tackled
+> >>
+> >>  [V8 TODO (getting merge-able)]
+> >>   - Tackle outstanding Sashiko issues
+> >>   - [ABI]: more DOCS and examples
+> >>
+> >> The upcoming SCMI v4.0 specification [0] introduces a new SCMI protoco=
+l
+> >> dedicated to System Telemetry.
+> >>
+> >> In a nutshell, the SCMI Telemetry protocol allows an agent to discover=
+ at
+> >> runtime the set of Telemetry Data Events (DEs) available on a specific
+> >> platform and provides the means to configure the set of DEs that a use=
+r is
+> >> interested into, while reading them back using the collection method t=
+hat
+> >> is deeemed more suitable for the usecase at hand. (...amongst the vari=
+ous
+> >> possible collection methods allowed by SCMI specification)
+> >>
+> >> Without delving into the gory details of the whole SCMI Telemetry prot=
+ocol
+> >> let's just say that the SCMI platform/server firmware advertises a num=
+ber
+> >> of Telemetry Data Events, each one identified by a 32bit unique ID, an=
+d an
+> >> SCMI agent/client, like Linux, can discover them and read back at will=
+ the
+> >> associated data value in a number of ways.
+> >>
+> >> Data collection is mainly intended to happen on demand via shared memo=
+ry
+> >> areas exposed by the platform firmware, discovered dynamically via SCM=
+I
+> >> Telemetry and accessed by Linux on-demand, but some DE can also be rep=
+orted
+> >> via SCMI Notifications asynchronous messages or via direct dedicated
+> >> FastChannels (another kind of SCMI memory based access): all of this
+> >> underlying mechanism is anyway hidden to the user since it is mediated=
+ by
+> >> the kernel driver which will return the proper data value when queried=
+.
+> >>
+> >> Anyway, the set of well-known architected DE IDs defined by the spec i=
+s
+> >> limited to a dozen IDs, which means that the vast majority of DE IDs a=
+re
+> >> customizable per-platform: as a consequence, though, the same ID, say
+> >> '0x1234', could represent completely different things on different sys=
+tems.
+> >>
+> >> Precise definitions and semantic of such custom Data Event IDs are out=
+ of
+> >> the scope of the SCMI Telemetry specification and of this implementati=
+on:
+> >> they are supposed to be provided using some kind of JSON-like descript=
+ion
+> >> file that will have to be consumed by a userspace tool which would be
+> >> finally in charge of making sense of the set of available DEs.
+> >>
+> >> IOW, in turn, this means that even though the DEs enumerated via SCMI =
+come
+> >> with some sort of topological and qualitative description provided by =
+the
+> >> protocol (like unit of measurements, name, topology info etc), kernel-=
+wise
+> >> we CANNOT be completely sure of "what is what" without being fed-back =
+some
+> >> sort of information about the DEs by the afore mentioned userspace too=
+l.
+> >>
+> >> For these reasons, currently this series does NOT attempt to register =
+any
+> >> of these DEs with any of the usual in-kernel subsystems (like HWMON, I=
+IO,
+> >> PERF etc), simply because we cannot be sure which DE is suitable, or e=
+ven
+> >> desirable, for a given subsystem. This also means there are NO in-kern=
+el
+> >> users of these Telemetry data events as of now.
+> >>
+> >> So, while we do not exclude, for the future, to feed/register some of =
+the
+> >> discovered DEs to/with some of the above mentioned Kernel subsystems, =
+as
+> >> of now we have ONLY modeled a custom userspace API to make SCMI Teleme=
+try
+> >> available to userspace tools.
+> >>
+> >> With V5 we adopted a pure chardev/IOCTL ABI approach, refining the IOC=
+TL
+> >> based interface already present with the previous FS-based ABI.
+> >>
+> >> INTERFACES
+> >>
+> >> For each discovered SCMI Instance a character device named tlm_<N> is
+> >> created under /dev/scmi/ subtree.
+> >>
+> >> The IOCTL interface described at 'include/uapi/linux/scmi.h' is made
+> >> available to enumerate and configure Telemetry resources: Telemetry da=
+ta
+> >> can be collected using a few different IOCTls, depending on the requir=
+ed
+> >> granularity.
+> >>
+> >> Alternatively it is possible to obtain a list of the file descriptors
+> >> referencing directly the underlying SCMI Telemetry SHMTI memory areas =
+and
+> >> implement in user space an SCMI Telemetry parser accessing directly th=
+e
+> >> SHMTI, while staying in compliance with the SCMI TDCF format.
+> >>
+> >> NOTE THAT from v3 onwards the firmware interface level NOW supports ON=
+LY
+> >> the latest SCMI v4.0 specification [0].
+> >>
+> >> Based on V7.2-rc4, tested on an emulated setup.
+> >>
+> >> This series is available also at [1].
+> >>
+> >> If you still reading...any feedback welcome :P
+> >>
+> >> Thanks,
+> >> Cristian
+> >>
+> >> ---
+> >> v6 --> v7
+> >>  - [ABI] IOCTL EVENTS support: GENERATION COUNTER (stlm monitor)
+> >>  - [ABI] expose DE tracking: UUID/SHMTI/OFFS
+> >>  - [ABI] IOCTL BATCHED DE_CFG
+> >>  - [ABI] added per-DE IOCTL BATCH status
+> >>  - [ABI] new ABI feats flags
+> >>  - [ABI] improved description in Doxygen docs
+> >>  - [ABI] added reserved space to grow
+> >>  - [STLM] added new ABI feats support (generation, UUIDs, location...)
+> >>  - [SYS/TLM] fixed module_init error path
+> >>  - [SYS/TLM] fixed interval DISCRETE flags reporting
+> >>  - [SYS/TLM] check open FMODE before executing a config change
+> >>  - [SYS/TLM] fixing DEs data cleanup on RESET
+> >>  - [SYS/TLM] added _RAW helpers to handle non-MMIO TDCF-like accesses
+> >>    (like Notification payload)
+> >>  - [SYS/TLM] added UUID rescan logic at DE enable, when DE/UUID associ=
+ation
+> >>  - [TLM] reworked UUID internal handling (endianity) and use uuid_t ty=
+pe
+> >>  - [TLM] added generic Telemetry protocol support for events subscript=
+ion
+> >>    unknown
+> >>  - residual sparse fixes
+> >> v5 --> v6
+> >>  - rebased on v7.2-rc4
+> >>  - fixed a lot of Sashiko complains
+> >>  - fixed ABI issues reported by review (Fayssal)
+> >>  - added IOCTL TLM_RESET
+> >>  - added ABI versioning
+> >>  - added compat_ioctl support
+> >>  - use a new IOCTL magic name
+> >>  - better handling of UUID endianity
+> >>  - reworked all bounds checks in UAPI implementation
+> >>  - reject oversized SHMTI mmap request
+> >>  - refined 'stlm' testing tool to be more interactive and to
+> >>    exercise the full spectrum of IOCTLs ('stlm -h' is your manual
+> >>    for now :P)
+> >>  - fully reworked per-protocol notification handling
+> >>  - dropped the last bit of human readable data attached to the
+> >>    chardev .read
+> >> v4 --> v5
+> >>  - rebased on v7.2-rc1
+> >>  - dropped FileSystem based driver
+> >>  - introduced a new simple chardev SCMI driver using Telemetry
+> >>  - reworked/reviewed the v4 IOCTLs based UAPI
+> >>  - UAPI: better struct alignment and comments
+> >>  - UAI: Removed flexible array members
+> >>  - UAPI: make SCMI Telemetry protocol stack completely independent fro=
+m
+> >>          uapi defs
+> >>  - UAPI: new ioctls support to enable RAW mmap direct access to SCMI S=
+HMTI
+> >>          areas from userspace
+> >>  - added new ABI Documentation
+> >>  - added new SCMI core facility to lookup the current SCMI instance ID
+> >> v3 --> v4
+> >>  - rebased on v7.1-rc7
+> >>  - updatded doc to detail Concurrency model
+> >>  - bail out on FW_BUG errors
+> >>  - make all_des_enable/all_des_tstamp_enable entry readable
+> >>  - refactored access to TDE values
+> >>  - refactored common accessors for tlm_priv (FIX WARN on kfree)
+> >>  - make all files by default world readable and user writable (if need=
+ed)
+> >>  - added uid/god/umask mount options (and docs)
+> >>  - added generation counter to aid spotting config changes (and docs)
+> >>  - added DebugFS configurable support to debug/dump SHMTI areas (and d=
+ocs)
+> >>  - hide FS entries when NOT supported (like des_simple_sample_read)
+> >>  - fixed output format of des/<NNN>/value to -> <TS> <VALUE>
+> >>  - renamed top-dir by_components to by-components
+> >>  - add a .remove method to SCMI System Telemetry Driver
+> >>  - use kzalloc_obj
+> >> V2 --> V3
+> >>  - rebased on v7.0-rc5
+> >>  - ported the firmware interface to SCMI v4.0 BETA
+> >>  - split the SCMI protocol layer in a lot of small patches
+> >>  - completd filesystem and ABI documentation
+> >>  - renamed components subtree to by_components
+> >>  - fixed uninitialized var in scmi_telemetry_de_subdir_symlink
+> >>  - renamd tstamp_exp to tstamp_rate
+> >>  - swap logic in scmi_telemetry_initial_state_lookup
+> >>  - use memcpy_from_le32 where required
+> >>  - changed a dfew dev_err into Telemetry traces
+> >>  - define and use new helper scmi_telemetry_de_unlink
+> >>  - simplify a few assignments with ternary ops
+> >>  - added a missing __mmust_check on the internal SCMI API
+> >>  - reworked and clarified de_data_read returned errno:
+> >>         ENODATA vs EINVAL vs ENODEV/ENOENT
+> >>  - removed some risky/unneeded devres allocations
+> >>  - various checkpatch fixes
+> >>  - reworked and clarified usage of traces in Telemetry
+> >>  - added the missing DT binding for protocol 0x1B
+> >>  - split out unrelated change around notification from patch
+> >>    adding support for protocol internal notifier
+> >>  - more comments
+> >>
+> >> V1 --> V2
+> >>  - rebased on v6.19-rc3
+> >>  - harden TDCF shared memory areas accesses by using proper accessors
+> >>  - reworked protocol resources lifecycle to allow lazy enumeration
+> >>  - using NEW FS mount API
+> >>  - reworked FS inode allocation to use a std kmem_cache
+> >>  - fixed a few IOCTLs support routine to support lazy enumeration
+> >>  - added (RFC) a new FS lazy mount option to support lazily population=
+ of
+> >>    some subtrees of the FS (des/ groups/ components/)
+> >>  - reworked implementation of components/ alternative FS view to use
+> >>    symlinks instead of hardlinks
+> >>  - added a basic simple (RFC) testing tool to exercise UAPI ioctls int=
+erface
+> >>  - hardened Telmetry protocol and driver to support partial out-of-spe=
+c FW
+> >>    lacking some cmds (best effort)
+> >>  - reworked probing races handling
+> >>  - reviewed behaviour on unmount/unload
+> >>  - added support for Boot_ON Telemetry by supporting SCMI Telemetry cm=
+ds:
+> >>    + DE_ENABLED_LIST
+> >>    + CONFIG_GET
+> >>  - added FS and ABI docs
+> >>
+> >> RFC --> V1
+> >> ---
+> >>  - moved from SysFS/chardev to a full fledged FS
+> >>  - added support for SCMI Telemetry BLK timestamps
+> >>
+> >> [0]: https://developer.arm.com/documentation/den0056/f/?lang=3Den
+> >> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/cris/linux.git/lo=
+g/?h=3Dscmi_telemetry_ng_V7
+> >>
+> >> Cristian Marussi (23):
+> >>   firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
+> >>   firmware: arm_scmi: Allow registration of unknown-size events/report=
+s
+> >>   firmware: arm_scmi: Introduce protocol instance notifiers
+> >>   dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
+> >>   include: trace: Add Telemetry trace events
+> >>   firmware: arm_scmi: Add basic Telemetry support
+> >>   firmware: arm_scmi: Add support to parse SHMTIs areas
+> >>   firmware: arm_scmi: Add Telemetry configuration operations
+> >>   firmware: arm_scmi: Add Telemetry DataEvent read capabilities
+> >>   firmware: arm_scmi: Add support for Telemetry reset
+> >>   firmware: arm_scmi: Add Telemetry notification support
+> >>   firmware: arm_scmi: Add support for boot-on Telemetry
+> >>   firmware: arm-scmi: Add telemetry generic event support
+> >>   firmware: arm_scmi: Add Telemetry generation counter event
+> >>   firmware: arm_scmi: Add common per-protocol debugfs support
+> >>   firmware: arm_scmi: Add Telemetry debugfs SHMTI dump support
+> >>   firmware: arm_scmi: Add Telemetry debugfs ABI documentation
+> >>   firmware: arm_scmi: Expose per-instance identifier
+> >>   uapi: Add ARM SCMI Telemetry definitions
+> >>   firmware: arm_scmi: Add System Telemetry driver
+> >>   docs: ioctl-number: Add SCMI Ioctls
+> >>   [RFC] Documentation: Add SCMI System Telemetry documentation
+> >>   [RFC] tools/scmi: Add SCMI Telemetry testing tool
+> >>
+> >>  Documentation/ABI/testing/debugfs-scmi        |   22 +
+> >>  .../bindings/firmware/arm,scmi.yaml           |    8 +
+> >>  Documentation/userspace-api/index.rst         |    1 +
+> >>  .../userspace-api/ioctl/ioctl-number.rst      |    1 +
+> >>  Documentation/userspace-api/stlm.rst          |  148 +
+> >>  MAINTAINERS                                   |    1 +
+> >>  drivers/firmware/arm_scmi/Kconfig             |   24 +
+> >>  drivers/firmware/arm_scmi/Makefile            |    3 +-
+> >>  drivers/firmware/arm_scmi/common.h            |   18 +
+> >>  drivers/firmware/arm_scmi/driver.c            |  119 +-
+> >>  drivers/firmware/arm_scmi/notify.c            |   38 +-
+> >>  drivers/firmware/arm_scmi/notify.h            |    8 +-
+> >>  drivers/firmware/arm_scmi/protocols.h         |   17 +
+> >>  .../firmware/arm_scmi/scmi_system_telemetry.c | 1515 +++++++
+> >>  drivers/firmware/arm_scmi/telemetry.c         | 3762 ++++++++++++++++=
++
+> >>  include/linux/scmi_protocol.h                 |  261 +-
+> >>  include/trace/events/scmi.h                   |   48 +-
+> >>  include/uapi/linux/scmi.h                     |  517 +++
+> >>  tools/testing/scmi/Makefile                   |   25 +
+> >>  tools/testing/scmi/stlm.c                     | 1371 ++++++
+> >>  20 files changed, 7877 insertions(+), 30 deletions(-)
+> >>  create mode 100644 Documentation/userspace-api/stlm.rst
+> >>  create mode 100644 drivers/firmware/arm_scmi/scmi_system_telemetry.c
+> >>  create mode 100644 drivers/firmware/arm_scmi/telemetry.c
+> >>  create mode 100644 include/uapi/linux/scmi.h
+> >>  create mode 100644 tools/testing/scmi/Makefile
+> >>  create mode 100644 tools/testing/scmi/stlm.c
+> >>
+> >> --
+> >> 2.54.0
+> >>
+> >>
+> >
+> >   Just to close the loop on my earlier comment: the second telemetry pr=
+ovider
+> >   I  had in mind is now public, RISC-V RPMI Specifications Telemetry
+> > service group:
+> >
+> >     https://github.com/riscv-non-isa/riscv-rpmi/pull/162
+> >
+> >   V7 has already moved the SCMI ABI in a better direction: explicit ABI
+> >   features,  reserved growth space, UUID tracking, batched operations,
+> > per-item status
+> >   and a  generation event make the interface less brittle than the
+> > version I first
+> >   commented on.
+> >
+> >   So I am not asking to block SCMI Telemetry on a generic telemetry UAP=
+I. That
+> >   would still be premature. My remaining ask is smaller: please keep th=
+e
+> >   chardev-facing descriptor/group/config/sample/mmap handling cleanly
+> >   separated  from SCMI-private storage and TDCF parsing.
 >
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> index b04636cab71c7..e63c5200a2370 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> @@ -328,7 +328,7 @@ AM62AX_IOPAD(0x0b4, PIN_INPUT_PULLUP, 1) /* (K24) GPMC0_CSn3.I2C2_SDA */
->   	main_mmc0_pins_default: main-mmc0-default-pins {
->   		pinctrl-single,pins = <
->   			AM62AX_IOPAD(0x220, PIN_INPUT, 0) /* (Y3) MMC0_CMD */
-> -			AM62AX_IOPAD(0x218, PIN_INPUT, 0) /* (AB1) MMC0_CLK */
-> +			AM62AX_IOPAD(0x218, PIN_OUTPUT, 0) /* (AB1) MMC0_CLK */
->   			AM62AX_IOPAD(0x214, PIN_INPUT, 0) /* (AA2) MMC0_DAT0 */
->   			AM62AX_IOPAD(0x210, PIN_INPUT_PULLUP, 0) /* (AA1) MMC0_DAT1 */
->   			AM62AX_IOPAD(0x20c, PIN_INPUT_PULLUP, 0) /* (AA3) MMC0_DAT2 */
-> @@ -344,7 +344,7 @@ AM62AX_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
->   	main_mmc1_pins_default: main-mmc1-default-pins {
->   		pinctrl-single,pins = <
->   			AM62AX_IOPAD(0x23c, PIN_INPUT, 0) /* (A21) MMC1_CMD */
-> -			AM62AX_IOPAD(0x234, PIN_INPUT, 0) /* (B22) MMC1_CLK */
-> +			AM62AX_IOPAD(0x234, PIN_OUTPUT, 0) /* (B22) MMC1_CLK */
->   			AM62AX_IOPAD(0x230, PIN_INPUT, 0) /* (A22) MMC1_DAT0 */
->   			AM62AX_IOPAD(0x22c, PIN_INPUT, 0) /* (B21) MMC1_DAT1 */
->   			AM62AX_IOPAD(0x228, PIN_INPUT, 0) /* (C21) MMC1_DAT2 */
+> IIRC, this is not a ABI concern, right?
+>
+> Any kernel internal refactorings can be had later, once RPMI actually lan=
+ds.
+>
+
+ Yes, fair point.
+
+  The internal provider/backend split is not an ABI requirement by itself, =
+and I
+  agree that a real common internal layer can wait until there is a second =
+Linux
+  provider, such as RPMI, to model it against.
+
+> --
+> Cheers,
+>
+> David
 
