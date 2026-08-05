@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E14CC55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 15:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC1B1C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 15:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Ep5s2RfCR1ouH4tpNMfbsvxcvHXIBQkHbYkhl2XlO8g=; b=1WVYVc/absKno7
-	xmCYmzTMvXaPpBqDZ2KLuhgk6ZitxBVnHhCLGZXScrURo6Vn1DdALTWkWlCbabUWGZlrpUOxAPRLF
-	najQYjcfWz93DdhjKUKm4+6howFekkTXUxe1/ei8xUmwj5+pgPKNaV5p3Gmxle3wWIUEEqzbtc1VA
-	ijXpkcBLyZI89CBp3/y/HealimafWyXOY1cGjvILP2gcOQn7hJdri6SUaDSHL6XetacYliJxCU6Vx
-	O3SIr8cFDjOdB7swOReDSykIx8Su3hrDH0RtN1PgwXwITXk2/cvUW0HAZgoctq7GwSmuarXHmtzu9
-	EADjQM+9BoLqp+iGQinA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YdFUB2zH6KQ2jS1Qeu0n7oVNGn5pzmET1AhmT2Fra+g=; b=w27KzhtGFbO1KigRdQfyr0e+wD
+	Bm6lGMakt+6mP40byphhW4nB3tFvvTUn3llOA5fVvD8H0vIShjwG+tAiflxvj9zz5dz81IRUY9cC5
+	Z6z/2HIxplrpAvTOLG6w+F2j1bqKO2sYe1as9CmrPkXpsHiu6eKVo3+SYWPWHmRnd0mkE8NV2n8He
+	PN71u0+GCfUYXVyut2gSm3lRZNCvdAARJ4KuWxXLT17JSw2bAzWG9rK2PyCtjdtJGxDTf9WnsSO8g
+	nUhQZRBDRcwvqT8VRG5mac70z9UpvdGK5Cco/UivCX5TbOEBpNTd+X/n2zX6JEJ72hCR2EBbXVsvI
+	XjlBMR9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrd8X-000000048Ig-3Qet;
-	Wed, 05 Aug 2026 15:02:29 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wrd8b-000000048Kg-0joF;
+	Wed, 05 Aug 2026 15:02:33 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrd8V-000000048He-1yFY
+	id 1wrd8W-000000048Hh-20dr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 15:02:28 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47fd66a094eso442622f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 08:02:26 -0700 (PDT)
+	Wed, 05 Aug 2026 15:02:29 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49548e01d02so6195235e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 08:02:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1785942145; x=1786546945; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=Ep5s2RfCR1ouH4tpNMfbsvxcvHXIBQkHbYkhl2XlO8g=;
-        b=dg1kDaO6ndaxc+JvpDBu3A64bfhRvtfOefoTUDgKS/9AqqfCV2WvcOYzBojF3oWSdJ
-         T06+QpdUq4IbPQxdyIpfAEqIepx1FVzpSTRIGJoPm++IvWfkWjb7VgQSN9fHG7OJYU7R
-         6shpYfkMYC3OmTBqrDIVUaLagOVpp7Sb0NYQdLAxHsmF+K2tqVEI+pYf2ir4sR3cd31f
-         dDX7WjOBX8B5xl5uUbHilJmV0inI2JQsA/1gv+75T7UQR0Iem14Z3J3dPK1BD0MCtdAp
-         1qC34ATxKLyWUhQFyQ1Iqm84mYq7dEs7zeDtA8auvrGaTyJJiQoa4TukRG4A5jDUKt+F
-         O6bA==
+        d=linaro.org; s=google; t=1785942146; x=1786546946; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YdFUB2zH6KQ2jS1Qeu0n7oVNGn5pzmET1AhmT2Fra+g=;
+        b=TMkM+xYnS4bWNxvqj9TW435TYYnr1UMay3oGYQ1PYI8P7rdoXLMnVYHTzUX6qP+JMT
+         BK0CskUqmZRRSlppRPnCsNpzqJefWOXvtYMfWQpW6T1CG73zubPxvvD/e+1eLzoBGUmm
+         VCZkOaMNdTqfw5UjliUS4dnU5fpgw2d1ZDrbkXJOGtyTfJ7u+OQnPtCx4DSVo3iiO93G
+         f4NfFPrZ/dql0zJ2zpfDbOE/7e346iSBZZmTm2znyCsB4XdYMhwd/GXZ30wRRGd+i6AD
+         o8/BHg0rVP1ZouOqgYVHu3ypVmZ+LiHP8nCj6BJqqnG+S1jAuLiBlg/frfF8+kqH/08l
+         zEyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785942145; x=1786546945;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Ep5s2RfCR1ouH4tpNMfbsvxcvHXIBQkHbYkhl2XlO8g=;
-        b=KmCmun7sMTnJj2I1/AXKuoWfME4JyrT/mDNAkVpnJECuLi3sgJK8rK5OIdpWLGLhws
-         WBihPGGh0LuE3yT14NfjJqWWC53QzVVGd+g4ORDQC7kEgvOQjf6x3VikwIRRQdpn5uez
-         0DE5Xf5+3djI4/g0j6cXMxe9Pcy+MN9nOH7u6rHgdTI7zKXd0XnWdxdE4SG9fn0g/edM
-         OXDVwuGJfDWbuMQi+3MKVlgzZfoiaVkwAJcoS+vWmWwCRLxI3tsjWQHvGEmqg8dTkveQ
-         XtirwPy3We0hrYKepil8RyTZHYt4cYDV33Rn36QU1P8QI34Cfl1evv/4niJEJGymFrhz
-         IfTw==
-X-Gm-Message-State: AOJu0YxOjzcvUDa5G0rVQakKxE7/wHSwXy1QG1pyJiCL8LIsPpYau9ih
-	xKLb6hJqCVzUKEogCmkTWWdnrzQlkh8b2vjb5PQSlx+iHFeHE+otJNosmOB0Qxr+j9b/U9SGxTV
-	zY6BDmF/BYg==
-X-Gm-Gg: AR+sD13b+5zggUnp8tjt6WdGcF84/vYAxaE3RguhLYoB5XA8p8fTiwfSWe3qVByoW7q
-	JFPJiLGLfN1aUnwsN+jM4GA7HodHwslMldXro9A8ZopLIZVkilozWmOcUPb3zqg/wv5xyxfqCVh
-	2CRPUvROUTISSMMtH2b7kpKE1822J487shxjy/jRsycuZyAOurw+eK6NdvDpzgmMVLXpgk4wNfT
-	jqgtMh54KJv3wqF5cRV64Y2KlLoIsSc8IXiSMSYpbX58SryhUpp0BMN1WLbvhWAsFAqMOefL6O7
-	qvuhAf5NHy2F5+MeBuT1afyYK06KETWeLLZ3id72LSE8DrHCPcsYhHRJQ7VUhczSD7ZNmLMsKK7
-	2q8ENITKROZXhknSFlkGNy8CtAZSk26IjNSYBPLGgHFARuhwJFZ2RzXJI7PhBNcIrnAhv9Vc/TW
-	FJ8bf8emTMLH7ThXlD2WVoHJEiF0dBvwz3Fe2Q102A3dt17DZRHz0dwo2TKmijJH9o
-X-Received: by 2002:a5d:5541:0:b0:47a:b86f:3ed1 with SMTP id ffacd0b85a97d-47fec62bacamr9911458f8f.21.1785942145445;
-        Wed, 05 Aug 2026 08:02:25 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1785942146; x=1786546946;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YdFUB2zH6KQ2jS1Qeu0n7oVNGn5pzmET1AhmT2Fra+g=;
+        b=Hinek3oUvsrv00Ghwob6+XPu/4BMj3ocLhmqYZlQX1Sr6FJQ3qJl8mpdHpXkse/ob+
+         1abMgHcXiLHC9lqgk0bncqW6OmJHqrC3dnFSkGd+xchY0w8OURQ4IP6g2yMA4zYxZviR
+         gVQvMYLb9BavbF8/E9sgJhD7TBHQPkVKYrR2164mY6w2QfoXOhO0xhrsaj/HyE28CGXO
+         /cSmGweU8NdW98Yejb8pE8nr6CnzNO9oKYaTGHcCJuiUxI3GE8NFQQCJDMW2dCsA8iZB
+         ZFKIx42rxXFhtOCxZVAJq4lYB+rI9hWeaUABXQCmrynoZCRTUsPTwpML66XJlv2Sdkrn
+         ctWg==
+X-Gm-Message-State: AOJu0YyCR6lzFkqZmQqfZ2Kjz3anCXCA1H1f+99VtflVStMWDyFVco3T
+	m76D7lZIJVPJdR+5+JOfyhPoqI7qZcuCbV3Lpk4vol396iyMqSjo0yh/z0ZbGAyeXjE=
+X-Gm-Gg: AR+sD11Lt7DvZ9NWpVbgxvl32rAoQgqBgGcV8Rl92jFzLwVuyUPsHQT0jp2fXADbDjL
+	SXCiM8MmiWlI4Fwe7xEHdGaCxPL0/oFH6xxDXO46dZbs9U9eeAEU7eK2LlWd5HTBWmXjQ1WCA/H
+	bBHlbbLysiyahZnOaSsyJ1zJ++vAI8m+G/GXtnNV/kqJnyiXDUwhZKxlXRq1Km38w3Ga+srSdV8
+	y8graZUL7dp9zSVV6hpAJjGmB4yO1AQtv22fjDJKH2hG5ZZ9mQObAeX+TxiwhIZHdSDL5DcOMTI
+	UekZA109sN70NEi9hXDgWYZtxdcBUobiLywZXkeISe8ue3mgr3q4F1OvNSXlwvKX2/1xM2evfyR
+	sZLifPuTeNmt/7XmV9PnZxcUIkFF+sjHSn1Lh/1ErKy6mKrNhu4ZmHamRY4hpo5AlOX2zZPjFwD
+	6ll/Ooxq2AC09BjKlo+iaOeiGBm29hYjUiGLMdKf/ukjeu17Fa4we5nSRcENFdOULpPNatrUZBv
+	b4=
+X-Received: by 2002:a05:600d:4448:20b0:495:5e3d:15e1 with SMTP id 5b1f17b1804b1-4994e7d21fdmr85868895e9.16.1785942146401;
+        Wed, 05 Aug 2026 08:02:26 -0700 (PDT)
 Received: from pop-os.local ([37.18.141.193])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fec23ede6sm10308695f8f.30.2026.08.05.08.02.24
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fec23ede6sm10308695f8f.30.2026.08.05.08.02.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 08:02:24 -0700 (PDT)
+        Wed, 05 Aug 2026 08:02:25 -0700 (PDT)
 From: James Clark <james.clark@linaro.org>
-Subject: [PATCH 0/3] perf: arm_spe: Add support for a 'software' discard
- mode
-Date: Wed, 05 Aug 2026 16:01:50 +0100
-Message-Id: <20260805-james-spe-software-discard-v1-0-0ff0e44c4c92@linaro.org>
+Date: Wed, 05 Aug 2026 16:01:51 +0100
+Subject: [PATCH 1/3] perf: arm_spe: Factor aux output and flags out of
+ buffer fault handler
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAF5Qc2oC/x3MQQqDQAwF0KtI1g3MiKjTq5QuwszXplCVpNiCe
- PcOXb7NO8hhCqdrc5BhV9d1qYiXhvJDlhmspZra0PZhDB0/5QVn38C+Tu+PGLioZ7HC49CnmBE
- ldYlqsBkm/f7z2/08fxEhcjRsAAAA
-X-Change-ID: 20260804-james-spe-software-discard-87691ce1a949
+Message-Id: <20260805-james-spe-software-discard-v1-1-0ff0e44c4c92@linaro.org>
+References: <20260805-james-spe-software-discard-v1-0-0ff0e44c4c92@linaro.org>
+In-Reply-To: <20260805-james-spe-software-discard-v1-0-0ff0e44c4c92@linaro.org>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
  Leo Yan <leo.yan@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
  Al Grant <Al.Grant@arm.com>
@@ -88,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
  linux-kernel@vger.kernel.org, James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_080227_538966_7532B9FB 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20260805_080228_629938_04BEFA74 
+X-CRM114-Status: GOOD (  20.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,41 +103,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a mode similar to discard mode that we get in SPE V1P2, but without
-requiring hardware support. It works by allocating a single page in the
-driver when opening the event so the buffer can still be programmed and
-SPE enabled. The same page is mapped multiple times to make up a 4MB
-buffer so the full interrupt is serviced less frequently.
+Software discard mode will still want to handle buffer faults, but
+doesn't have a real aux buffer to set flags or call
+perf_aux_output_end() on. Factor the aux buffer parts out of
+arm_spe_pmu_buf_get_fault_act() so it only decodes the fault, which
+better matches the name and can be used by the new mode later.
 
-Unfortunately we can't rely on userspace to do the allocation because
-the existing HW discard mode came with the relaxation that an event can
-be opened without mapping a buffer. Therefore adding SW discard mode
-without doing the allocation in the driver would break old tools. It
-will also be useful for very simple tools that only do raw
-perf_event_open() calls and don't want to mess around with mmaps. Tools
-also can't do the hack to present a 4MB buffer to hardware while only
-being backed by a single page.
+This makes the arm_spe_pmu_stop() handling a bit simpler because it
+doesn't need to conditionally call arm_spe_perf_aux_output_end() anymore
+to handle the case when the fault handler didn't do it.
 
-Discard mode is used to activate SPE related PMU events so that they can
-be counted by the PMU, without the overhead of collecting any SPE data.
-So it's likely that simple tools are using discard mode with only raw
-perf_event_open() calls.
+No functional changes intended.
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-James Clark (3):
-      perf: arm_spe: Factor aux output and flags out of buffer fault handler
-      perf: arm_spe: Factor HW discard mode out of arm_spe_perf_aux_output_begin()
-      perf: arm_spe: Add support for a 'software' discard mode
+ drivers/perf/arm_spe_pmu.c | 36 +++++++++++++++++++-----------------
+ 1 file changed, 19 insertions(+), 17 deletions(-)
 
- drivers/perf/arm_spe_pmu.c | 208 ++++++++++++++++++++++++++++++++++++---------
- 1 file changed, 168 insertions(+), 40 deletions(-)
----
-base-commit: 075b74841bd0065a3bda3440873c747938e69b68
-change-id: 20260804-james-spe-software-discard-87691ce1a949
+diff --git a/drivers/perf/arm_spe_pmu.c b/drivers/perf/arm_spe_pmu.c
+index dbd0da111639..10d28ad81256 100644
+--- a/drivers/perf/arm_spe_pmu.c
++++ b/drivers/perf/arm_spe_pmu.c
+@@ -677,11 +677,12 @@ static void arm_spe_pmu_disable_and_drain_local(void)
+ 
+ /* IRQ handling */
+ static enum arm_spe_pmu_buf_fault_action
+-arm_spe_pmu_buf_get_fault_act(struct perf_output_handle *handle)
++arm_spe_pmu_buf_get_fault_act(u64 *aux_flags)
+ {
+ 	const char *err_str;
+ 	u64 pmbsr;
+-	enum arm_spe_pmu_buf_fault_action ret;
++
++	*aux_flags = 0;
+ 
+ 	/*
+ 	 * Ensure new profiling data is visible to the CPU and any external
+@@ -703,12 +704,11 @@ arm_spe_pmu_buf_get_fault_act(struct perf_output_handle *handle)
+ 	 * flag to indicate that the last record is corrupted.
+ 	 */
+ 	if (FIELD_GET(PMBSR_EL1_DL, pmbsr))
+-		perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED |
+-					     PERF_AUX_FLAG_PARTIAL);
++		*aux_flags |= PERF_AUX_FLAG_TRUNCATED | PERF_AUX_FLAG_PARTIAL;
+ 
+ 	/* Report collisions to userspace so that it can up the period */
+ 	if (FIELD_GET(PMBSR_EL1_COLL, pmbsr))
+-		perf_aux_output_flag(handle, PERF_AUX_FLAG_COLLISION);
++		*aux_flags |= PERF_AUX_FLAG_COLLISION;
+ 
+ 	/* We only expect buffer management events */
+ 	switch (FIELD_GET(PMBSR_EL1_EC, pmbsr)) {
+@@ -727,8 +727,7 @@ arm_spe_pmu_buf_get_fault_act(struct perf_output_handle *handle)
+ 	/* Buffer management event */
+ 	switch (FIELD_GET(PMBSR_EL1_BUF_BSC_MASK, pmbsr)) {
+ 	case PMBSR_EL1_BUF_BSC_FULL:
+-		ret = SPE_PMU_BUF_FAULT_ACT_OK;
+-		goto out_stop;
++		return SPE_PMU_BUF_FAULT_ACT_OK;
+ 	default:
+ 		err_str = "Unknown buffer status code";
+ 	}
+@@ -738,11 +737,7 @@ arm_spe_pmu_buf_get_fault_act(struct perf_output_handle *handle)
+ 			   err_str, smp_processor_id(), pmbsr,
+ 			   read_sysreg_s(SYS_PMBPTR_EL1),
+ 			   read_sysreg_s(SYS_PMBLIMITR_EL1));
+-	ret = SPE_PMU_BUF_FAULT_ACT_FATAL;
+-
+-out_stop:
+-	arm_spe_perf_aux_output_end(handle);
+-	return ret;
++	return SPE_PMU_BUF_FAULT_ACT_FATAL;
+ }
+ 
+ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+@@ -750,14 +745,18 @@ static irqreturn_t arm_spe_pmu_irq_handler(int irq, void *dev)
+ 	struct perf_output_handle *handle = dev;
+ 	struct perf_event *event = handle->event;
+ 	enum arm_spe_pmu_buf_fault_action act;
++	u64 aux_flags;
+ 
+ 	if (!perf_get_aux(handle))
+ 		return IRQ_NONE;
+ 
+-	act = arm_spe_pmu_buf_get_fault_act(handle);
++	act = arm_spe_pmu_buf_get_fault_act(&aux_flags);
+ 	if (act == SPE_PMU_BUF_FAULT_ACT_SPURIOUS)
+ 		return IRQ_NONE;
+ 
++	perf_aux_output_flag(handle, aux_flags);
++	arm_spe_perf_aux_output_end(handle);
++
+ 	/*
+ 	 * Ensure perf callbacks have completed, which may disable the
+ 	 * profiling buffer in response to a TRUNCATION flag.
+@@ -927,6 +926,7 @@ static void arm_spe_pmu_stop(struct perf_event *event, int flags)
+ 	struct arm_spe_pmu *spe_pmu = to_spe_pmu(event->pmu);
+ 	struct hw_perf_event *hwc = &event->hw;
+ 	struct perf_output_handle *handle = this_cpu_ptr(spe_pmu->handle);
++	u64 aux_flags;
+ 
+ 	/* If we're already stopped, then nothing to do */
+ 	if (hwc->state & PERF_HES_STOPPED)
+@@ -944,10 +944,12 @@ static void arm_spe_pmu_stop(struct perf_event *event, int flags)
+ 		if (perf_get_aux(handle)) {
+ 			enum arm_spe_pmu_buf_fault_action act;
+ 
+-			act = arm_spe_pmu_buf_get_fault_act(handle);
+-			if (act == SPE_PMU_BUF_FAULT_ACT_SPURIOUS)
+-				arm_spe_perf_aux_output_end(handle);
+-			else
++			act = arm_spe_pmu_buf_get_fault_act(&aux_flags);
++			perf_aux_output_flag(handle, aux_flags);
++			arm_spe_perf_aux_output_end(handle);
++
++			/* Assume PMBSR only needs clearing for real faults */
++			if (act != SPE_PMU_BUF_FAULT_ACT_SPURIOUS)
+ 				write_sysreg_s(0, SYS_PMBSR_EL1);
+ 		}
+ 
 
-Best regards,
---  
-James Clark <james.clark@linaro.org>
+-- 
+2.43.0
 
 
