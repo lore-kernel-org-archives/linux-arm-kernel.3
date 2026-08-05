@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D62FC55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:21:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD44C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R478x+VsQssRpU/U+H9eTTLOJEK424oXp8O1P95M0Gk=; b=2sU2p+zxOKg9uD6z2faPi/qUQN
-	TIS5R5ZxnvuoZzvqkzKq92ns0w9Q080R8zAGESg3tZi8lKEdtXBUbTx05qkqQsqjf4286GJ87Qczj
-	wpHV5M3YyWky/HaQ6nd96oO6ZdYw8frIPaExIz1CiyVZqW5mXWoyLSmDXzXPyfLgbxYh5sMSth7iX
-	GcllIA/ojbfVTqnegUSgx8U0DGybmRNO0O44azhLPtTvV29VRy62Of5Nr6XNVTOegCB0AWLXPUp1R
-	dK7zsIXiNv05cwLyd2gu+UNooKAlVLPUkhd0UzVr+FOTk1XShe8gFPlsTbSSgCBo/prdQxbtvRK5J
-	k0OdHhTw==;
+	bh=P/7dhBSgukk8ss4p9GXKM7Hns3H6z46vF+Aj0GzKdlA=; b=pvJtEDMHSi5tSlPvrzzr6L9AJH
+	1w8qjXMD5eI4rElcfj33RzdkTDEYNFaBGcPNOy+7mYZleaWQ87c5OPfrktgc5uoB4sHl02vei8WNY
+	YmgXrUAOijt+G9MUf0fHPssk9wdhVkoIX01eH07Wvese+K6VYGEYl3Ai9PB+e4rBVNM/a1P0N4f/P
+	BWk+UEr8qKAWKd4oq0XKJqv2c1CGTZazjpgQWxgVKiGtLBJmlVkiMKN0Yzo9ECDTX3EeCgKaZEoi2
+	GFcYyE1V9HHnLIVlwARkMS2MEIBnbKWtE3Fb2BSpmFQdaw+QUML31qTOVzLkFIFWOhIhP6+fp/WMh
+	BCC7I2WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrac6-00000003tFZ-2h5N;
-	Wed, 05 Aug 2026 12:20:50 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wrac9-00000003tHt-36Cp;
+	Wed, 05 Aug 2026 12:20:53 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrac4-00000003tCv-12ya
+	id 1wrac7-00000003tFE-1syc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 12:20:49 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4954a2e73a9so5570975e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 05:20:47 -0700 (PDT)
+	Wed, 05 Aug 2026 12:20:52 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-49555a0e68bso4464105e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 05:20:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=9elements.com; s=google; t=1785932446; x=1786537246; darn=lists.infradead.org;
+        d=9elements.com; s=google; t=1785932449; x=1786537249; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=R478x+VsQssRpU/U+H9eTTLOJEK424oXp8O1P95M0Gk=;
-        b=L9G/TgvuGG1Y8Ux2YBL/rOrSJwvcvzfrm8awBglqwexkH7HgVPhGXhPKWB3k+3iXMZ
-         jr0tarJ0qt2BDPpm45P4WA8oewL1mZItACmMZNo8Xkl4RLeXMpZ/s4YQanxDY7ORWFM/
-         IN2uEydNs9cmLluEnakyvjTCiAZ0/b1Si/qsKe19mC2arGCjaGicXvRMJclVT92K2v5w
-         4OJSFzQaaKW6b7gGIkkh9+O8jdchY5iaG5aQ3hV5bs3E4HI45OWjtyTDhuvS2y/3CFxd
-         vSL2tIXpiltK/PLnpHBRnloRO1OVL8u/nxsEdSQXm4INyQ+zcdlM36orEjYBksVfUCpf
-         YV6Q==
+        bh=P/7dhBSgukk8ss4p9GXKM7Hns3H6z46vF+Aj0GzKdlA=;
+        b=W6SsadACBN1B1gJvowXE1iH/YbKR1xbiWruFILgrEEx7I/lAovSTK2lYupO5wOcg9v
+         dF4B+GjgYwccMWjAnP1KvexSYtCahjKq5St9la1CBH5ZsVuIuEMR5TsSuD8EyGRIaVoI
+         K0aJEBt3H9AL/jAOm4QRyTeKOKrZTyWyPvZF8wOugMgEDdi3D3o97hwLJ2H4AkxrN8gX
+         NWnVlpsDPuoc6YUYFgM37iUqrnqI0VeCivW1rBCk9wc0docgVIaVTge4Sq5Fsm0tfY0H
+         9pMJ2XIWxiCBTBffUAZU+VKb+J66aHYskG5T46FFmzUl2m9FeUeB6K3+qyZ5zD/sNaUc
+         gZ3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785932446; x=1786537246;
+        d=1e100.net; s=20251104; t=1785932449; x=1786537249;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=R478x+VsQssRpU/U+H9eTTLOJEK424oXp8O1P95M0Gk=;
-        b=DPSCwqFufmBd88h+LjMryoVK05FRLO/Uvrc0mj4ha8+EF0qiPzK1GI8xra0pPah2Fy
-         DVMRTP5Ffea8UDxE/QBGOdmQPXtDf7cv3QcWTLoJ2ENaTAYWar2a68H+GTzqqAY7I01r
-         ufhgcplvpvVC/kPBYn04PLT56XW5dwLBqH/wO9j676CIsnEZM2FDbD9kSL/SWZqINvU5
-         chjzydpDHHxq3q8sTQ9BUViv4UQb3ibGpPTpqhO6dq5REHjjryujBtiAvY07McEDjeVF
-         Pxxi/zywkoq1sszcuyUB5iOhqKy17d+os6ZFi64+ttvjTsBAf26fmmJTgZe0e+uZ18/x
-         I6Mg==
-X-Forwarded-Encrypted: i=1; AHgh+RrsVmlTn2/nnwubrJOh1a1YVUKqCL3sE3krO7x5fZzMDTpQ3hahewGexRaBa3UlrT9cqUdVFxfD0zwhqrAo3aWE@lists.infradead.org
-X-Gm-Message-State: AOJu0YysM1cYbuWJrGBGAqcnrPcVL8eJSIYPsGX1ZF7cwbIBgV2HTssy
-	lRgfU+5CfMkMmWnvmAVyZ8dyZ/Vhav4thTQ5GDEcYDBNdhfVHSea8uEOZJDR2vkKOJ8=
-X-Gm-Gg: AR+sD11scon7almRiz7z4tqagA7yYqBHdCfMXG3hN+mKQASJ+6W3Ye0jFs8EpwLD1ep
-	6Vzf+qHTtQSTB4lVaBOdpru5L1s0+JUGvYcJYo50gPigfqsxKIiplpX7LpUag9rrV5kgUVNPbW+
-	kRMwCGirTXWsVyt4PPaFt7tujJlzaJbK3PBCWy9ByZOdst9TrEFpwyCydjYPjR3vNTOC3Ybv1LB
-	WZphnd5C8yYSuVJJz4z/EDN1YU8eSdhMwcWnHEGsN2V92qbfqn2qUcumNT2L5VMi40fCsjVSpfk
-	WaqhH4rtewXm7Qanzj9UPRNmcqg9NeGrHuP0yXHx3eBsHGQA8mznOG2605MzmKr/OhDVUuIjhx5
-	n+IANgpoBH9ljLawTwDhhbnxCHRFJWN4tZzrvs6TrEqFIq94oz9PegOnYyd+5W9oMnqR11Xc6QS
-	iuLzxCZI/jsfyjp8i4KG7l7eKlyXvsf94wnwi//hbRIR2LwSbi1ylS/w47qsXcNuKtxhBS0U883
-	0sLmXdjbEAAm5kCXs4jUZkHROnFDQTlVMeZY9lFVWHruPcpsN943TYgBaY3/ZwNBPx1tLKL+QJW
-X-Received: by 2002:a7b:cb95:0:b0:495:52a5:8829 with SMTP id 5b1f17b1804b1-4994e7c118fmr56108875e9.11.1785932446337;
-        Wed, 05 Aug 2026 05:20:46 -0700 (PDT)
+        bh=P/7dhBSgukk8ss4p9GXKM7Hns3H6z46vF+Aj0GzKdlA=;
+        b=cnmsJX1PhPaL5uHKksAhwvAG4cplQhZhhQ175NBWJjE3KmMNSNBEXeNCoG98CYByTE
+         IQ/Uwx83GvTJ4nmFbrDnVg0GpaYgZ9LgP7eH8Up9CbVxGXpSPQ8sLcfXU1kY8J7b7+SB
+         ChKMg2IUQyGyamTFfCGv99tbgSKUAJNo0hzecRRmsH8EN5Eq6gVNs0Er4GLkY5ZAOpQC
+         PNe7NUgc8qxxzEqSIOs/wq9lVHBV3vB5EOh6GfNBk8qfMUSrNn4ZduHAx2GhIlr4L5xq
+         cSTRNZSU40wmeeZHiBNmI4M8S/6yLrvVE+i2tt+l0Zj9GggAPGdZ1z4C0xI81Y7E2DOB
+         sbkg==
+X-Forwarded-Encrypted: i=1; AHgh+RqEe2luJUHWU+/gYl2hfXgdU5D0DyIMwsN+0q4RnDSivL21jjgEhXVJSTWtmwb+V3szymdFbrk4e/i6HMmXbLjU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVPshKxwgROeMh6pAhvBpqoqUIyR0Ee4ZSJHX+jd5lQwYDPFWG
+	bdWobCFrj83136HLY0tTM/ZqPbqiU3W665+QqrV+Q9FebxpvjhNU8f9XCbvZsjvcsXY=
+X-Gm-Gg: AR+sD13gpPfIK/pjH+8KOzAhtVLuAh7u2JHDw8Tyk4z9E+q234kZP5CdCuI5uA9tuVm
+	MhMRXPobLgm7OlHg3Ek1YSgIVAtVgrMvvoAVwiuw9J0/rPeHoeNKGSn/bwr/mcOdAwz/IFHlppb
+	EM3iksNGqM+7Y8Mt/9uKNZHnJx70HEu5tQBKtZXWyHrIPXD9Mt0YLpRnFoex15eZkUSUyDA32vW
+	kHknTKlWtilB+WYJjf0M1iGAk2c5holhVV6X34QuX7A1XD6sNUH/2QZCiIdxPocOHvreQoZ27bY
+	6R/3jQFAxTqgDglCoRJz4RDGtEG0awdHSC7CPHW9b2j6r3UAAdnHG00Ae7lORKzn3ydzwcMw7vg
+	bIe0s+3kjXByO/Wg3tmAlCvuXhBJCjeKqBUV4HaNjAozOSoUTXykvvMJpxYhsayIZ73vuVw0eMV
+	drEjN34G/+BqMxiumBrok+03Nrj/O5y9WxCVvNd7dWi4NtEfKgLQWJmNmbXGFes+0FhqXnRGcUV
+	V+9V3MEz1veI9d0AIkoB2n2nh33Mm3BeJeHcCmHxsmM3R9C5lNAZM+WyjP2fWJVB7fEczxZp0ia
+X-Received: by 2002:a7b:c7d6:0:b0:495:4b42:8677 with SMTP id 5b1f17b1804b1-4994e7d17c3mr61632935e9.18.1785932449558;
+        Wed, 05 Aug 2026 05:20:49 -0700 (PDT)
 Received: from gregwork.sec.9e.network ([188.111.3.154])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49949f68f95sm196663515e9.0.2026.08.05.05.20.44
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49949f68f95sm196663515e9.0.2026.08.05.05.20.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 05:20:46 -0700 (PDT)
+        Wed, 05 Aug 2026 05:20:49 -0700 (PDT)
 From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
 To: joel@jms.id.au,
 	andrew@codeconstruct.com.au,
@@ -94,9 +94,9 @@ Cc: andrew@lunn.ch,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	=?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
-Subject: [PATCH v5 5/6] ARM: dts: aspeed: g6: Change vuart compatible string for ast2600
-Date: Wed,  5 Aug 2026 14:19:52 +0200
-Message-ID: <d54bfe689e6a0f318961588ab6b72fc2b09ebb47.1785932211.git.gregoire.layet@9elements.com>
+Subject: [PATCH v5 6/6] ARM: dts: aspeed: g6: add aspeed,vuart-over-pci prop to vuart3 and 4
+Date: Wed,  5 Aug 2026 14:19:53 +0200
+Message-ID: <8d24d424b3504105394055de268e0a11515635a9.1785932211.git.gregoire.layet@9elements.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1785932211.git.gregoire.layet@9elements.com>
 References: <cover.1785932211.git.gregoire.layet@9elements.com>
@@ -104,8 +104,9 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_052048_315733_16A67DDF 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260805_052051_540568_47F048FE 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,55 +121,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the ast2600 compatible string.
-Make it more precise and enable specific ast2600 properties.
-Still use the ast2500 compatible string as a fallback.
+The VUART 3 and 4 are VUART over PCI.
+Set this flag to indicate this information.
+Also set the syscon phandle.
 
 Signed-off-by: Grégoire Layet <gregoire.layet@9elements.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index 56bb3b0444f7..7c02633f2bd6 100644
+index 7c02633f2bd6..fbd7ab6332a1 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
 +++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -707,7 +707,7 @@ emmc: sdhci@1e750100 {
- 			};
- 
- 			vuart1: serial@1e787000 {
--				compatible = "aspeed,ast2500-vuart";
-+				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
- 				reg = <0x1e787000 0x40>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH>;
-@@ -717,7 +717,7 @@ vuart1: serial@1e787000 {
- 			};
- 
- 			vuart3: serial@1e787800 {
--				compatible = "aspeed,ast2500-vuart";
-+				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
- 				reg = <0x1e787800 0x40>;
+@@ -722,7 +722,9 @@ vuart3: serial@1e787800 {
  				reg-shift = <2>;
  				interrupts = <GIC_SPI 180 IRQ_TYPE_LEVEL_HIGH>;
-@@ -727,7 +727,7 @@ vuart3: serial@1e787800 {
+ 				clocks = <&syscon ASPEED_CLK_APB2>;
++				aspeed,scu-syscon = <&syscon>;
+ 				no-loopback-test;
++				aspeed,vuart-over-pci;
+ 				status = "disabled";
  			};
  
- 			vuart2: serial@1e788000 {
--				compatible = "aspeed,ast2500-vuart";
-+				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
- 				reg = <0x1e788000 0x40>;
- 				reg-shift = <2>;
- 				interrupts = <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>;
-@@ -737,7 +737,7 @@ vuart2: serial@1e788000 {
- 			};
- 
- 			vuart4: serial@1e788800 {
--				compatible = "aspeed,ast2500-vuart";
-+				compatible = "aspeed,ast2600-vuart", "aspeed,ast2500-vuart";
- 				reg = <0x1e788800 0x40>;
+@@ -742,7 +744,9 @@ vuart4: serial@1e788800 {
  				reg-shift = <2>;
  				interrupts = <GIC_SPI 181 IRQ_TYPE_LEVEL_HIGH>;
+ 				clocks = <&syscon ASPEED_CLK_APB2>;
++				aspeed,scu-syscon = <&syscon>;
+ 				no-loopback-test;
++				aspeed,vuart-over-pci;
+ 				status = "disabled";
+ 			};
+ 
 -- 
 2.54.0
 
