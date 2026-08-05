@@ -4,55 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAAFC55184
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 00:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB3DC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 00:38:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jf/xVNbWPols23hslUUwD7fcUT/RrrsqrpMbZwK78iA=; b=zJziLwZ1aD2QcfdU7+0r6aIwgQ
-	i50xfGnDoTIg/PTrqvHeY21ioi8CfSpdSilOrNHwHLxjKCzSV95iN7COjGSZu0OGKE7FEsO5jqGe8
-	8njFbnzhxbrOrFDZVGS+hp8T7OZ3mFEoqI/d9qN5ZUJ8sspLZ5VsvhedTCNFYyzH7Cs/iyt34QpH5
-	JobrWQ/qgm1ucZFOh6ANh7py5z//X8jrZgdjI9cFBgTL2nQIklbcngwTSZTShgbACkrw2UL0v8oXa
-	4TfL/3IBSMdi98qQYqTe17uJs3ulWQJf0QwGcPhSelNKSEbSOagsr+c4UW2TLqeygAghFh5KlCV5x
-	OK36h6Ag==;
+	bh=xwWhxSFvLCrAUwUCJ+/6aXjbM/H8cn7WFr737NnKdX0=; b=lVflpZjmneDmt3opWD7HSsLdW1
+	UtfuZ2PYNzivo1ugVKlrHLtxQ0C+ICxnSOqklsKaiC86sqwgibPD/4N1Ep0IzH4U98RsfW+A2NI00
+	wW/cAlLDVL8ob/rWNfUrQUHZ0V/bX0oDJOHWMqxjMRXg0xYSQ2qI3ycvmKqJ/bRPDCu75YvP3UJCb
+	huSNi/+vLkam25rQd/zjLdbuWYVZxGYM54Q/YumAnXBAsgiqVdw8n95MMYA5WIFQ9MvBH4dFunsHy
+	Q3uDxDqr6VXrs7T2LCdr+hSFCBcaFnSbWO7oZmWDNwcfko6B0aciTu/jISLAjWxDVGHoW0HjfoPDC
+	zayIYiwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPZm-00000002yXP-3Sz4;
-	Wed, 05 Aug 2026 00:33:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrPei-00000002yzN-21Fx;
+	Wed, 05 Aug 2026 00:38:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPZm-00000002yXF-02Gj;
-	Wed, 05 Aug 2026 00:33:42 +0000
+	id 1wrPeg-00000002yz3-3nYx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Aug 2026 00:38:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E5FCA40D87;
-	Wed,  5 Aug 2026 00:33:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A8461F000E9;
-	Wed,  5 Aug 2026 00:33:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F73F60052;
+	Wed,  5 Aug 2026 00:38:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24A8B1F000E9;
+	Wed,  5 Aug 2026 00:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785890020;
-	bh=jf/xVNbWPols23hslUUwD7fcUT/RrrsqrpMbZwK78iA=;
+	s=k20260515; t=1785890325;
+	bh=xwWhxSFvLCrAUwUCJ+/6aXjbM/H8cn7WFr737NnKdX0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=ZsAE/KR5jsl+73ewpPJ90yFlmGYeO7a/wU07gbrHhMBmdf2F7ePh3+D6jz4/Yvg+N
-	 675vAD3SbnXCak/e6mSmhMiirV3WDfNQEA2LDct1FWFIuqG+MNwHTbruXgTZbbWtc6
-	 MjuMfKZ/wyvQ0Kd+VFExQUnJyMNZ31FnnYVilc6wfpN8Y6QapN+M/XcDG3My7JaY3S
-	 f0NwSVZ50X7wH3OHI4nJI1uCw5K+6hRv/gDBJBV/KvkvspNC0xGWkbGohBhhbGBZQv
-	 yXlRidHfTfUNxbqlME8YG9BJw8RxuHD6fKpCPpEJhRP3jfYi0XLE6MtCpYBITsXgTI
-	 lxGgiv42yPQkQ==
-Date: Wed, 5 Aug 2026 01:33:36 +0100
+	b=kOhnKpPBPhfcceK4xplZklrx2yTbvA7rih4xFdnm1XalpUqizU54/L64dthiGTCU5
+	 x+2ahrHGwJS3RppA1jIDB1obkV4xlwnBDkUgPcyEn8RpUhH3b3KsuTmIAve5CjnS1I
+	 9+TBlimr84GLFij6q672vaNgQRcU2GdOxYRDyDYGuVbtLV0nxWk98NAXcmESw2yGdH
+	 zsHcBFPtGBbNjcWXkoYkYLFY2/v26UC1a6wLHQYb/PD2gA6nykJlV+KEq8IzdxIeBi
+	 r4iEWl4b9p48F6JesS9ozneQ0wxYQ1ugiriXjePPETEiVZ3O0upDEzpSm7Xh9aiPPo
+	 iwecQpkfIdmEQ==
+Date: Wed, 5 Aug 2026 01:38:39 +0100
 From: Jonathan Cameron <jic23@kernel.org>
-To: kernel test robot <lkp@intel.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Linux Memory Management List
- <linux-mm@kvack.org>, linux-arm-kernel@lists.infradead.org,
- linux-iio@vger.kernel.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, Mark Brown <broonie@kernel.org>
-Subject: Re: [linux-next:master] BUILD REGRESSION
- 9a4cdc958dd79fc6c3b20b51a10debec6ca09fec
-Message-ID: <20260805013336.4bd8a298@jic23-huawei>
-In-Reply-To: <202608041404.bOHh2XuT-lkp@intel.com>
-References: <202608041404.bOHh2XuT-lkp@intel.com>
+To: Varshini Rajendran <varshini.rajendran@microchip.com>
+Cc: <ehristev@kernel.org>, <dlechner@baylibre.com>, <nuno.sa@analog.com>,
+ <andy@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+ <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+ <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+ <srini@kernel.org>, <marcelo.schmitt@analog.com>, <radu.sabau@analog.com>,
+ <joshua.crofts1@gmail.com>, <jorge.marques@analog.com>,
+ <Jonathan.Santos@analog.com>, <jishnu.prakash@oss.qualcomm.com>,
+ <antoniu.miclaus@analog.com>, <duje@dujemihanovic.xyz>,
+ <mazziesaccount@gmail.com>, <linux-iio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 02/17] nvmem: add DEFINE_FREE for nvmem_cell_put
+ cleanup
+Message-ID: <20260805013839.1c4d10f9@jic23-huawei>
+In-Reply-To: <20260804113338.261782-3-varshini.rajendran@microchip.com>
+References: <20260804113338.261782-1-varshini.rajendran@microchip.com>
+	<20260804113338.261782-3-varshini.rajendran@microchip.com>
 X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
@@ -71,141 +80,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Aug 2026 14:24:23 +0800
-kernel test robot <lkp@intel.com> wrote:
+On Tue, 4 Aug 2026 17:03:23 +0530
+Varshini Rajendran <varshini.rajendran@microchip.com> wrote:
 
-> tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> branch HEAD: 9a4cdc958dd79fc6c3b20b51a10debec6ca09fec  Add linux-next specific files for 20260803
+> Add cleanup.h helper for nvmem_cell_put() to enable automatic resource
+> cleanup using __free(nvmem_cell_put) annotation.
 > 
-> Unverified Error/Warning (likely false positive, kindly check if interested):
+> Use IS_ERR_OR_NULL() since nvmem_cell_get() can return error pointers,
+> and passing an ERR_PTR to nvmem_cell_put() would cause issues.
 > 
->     https://lore.kernel.org/oe-kbuild/202608040800.45L57Mym-lkp@intel.com
-> 
->     drivers/iio/magnetometer/qmc6308.c:402:7: error: call to '__compiletime_assert_472' declared with 'error' attribute: FIELD_PREP: value too large for the field
+> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
+https://sashiko.dev/#/patchset/20260804113338.261782-1-varshini.rajendran%40microchip.com
+Has a question about whether this should be available when
+!CONFIG_NVMEM
 
-The line in question is setting a 2 bit field (GENMASK(3, 2)) to 0.
-No idea what is triggering that warning.
+Seems like a reasonable suggestion to me given nvmem_cell_put() is stubbed
+out.
 
->     drivers/net/ethernet/airoha/airoha_eth.c:3470:25: sparse: sparse: division by zero
+Jonathan
+
+> ---
+>  include/linux/nvmem-consumer.h | 4 ++++
+>  1 file changed, 4 insertions(+)
 > 
-> Error/Warning ids grouped by kconfigs:
-> 
-> recent_errors
-> |-- arm-randconfig-r121-20260803
-> |   `-- drivers-net-ethernet-airoha-airoha_eth.c:sparse:sparse:division-by-zero
-> `-- um-randconfig-002-20260803
->     `-- drivers-iio-magnetometer-qmc6308.c:error:call-to-__compiletime_assert_NNN-declared-with-error-attribute:FIELD_PREP:value-too-large-for-the-field
-> 
-> elapsed time: 726m
-> 
-> configs tested: 100
-> configs skipped: 1
-> 
-> tested configs:
-> alpha                            allnoconfig    gcc-16.1.0
-> alpha                           allyesconfig    gcc-16.1.0
-> alpha                              defconfig    gcc-16.1.0
-> arc                             allmodconfig    gcc-16.1.0
-> arc                             allyesconfig    gcc-16.1.0
-> arc                  randconfig-001-20260804    gcc-15.2.0
-> arc                  randconfig-002-20260804    gcc-8.5.0
-> arm                  randconfig-001-20260804    gcc-10.5.0
-> arm                  randconfig-002-20260804    gcc-15.2.0
-> arm                  randconfig-003-20260804    clang-17
-> arm                  randconfig-004-20260804    gcc-8.5.0
-> arm64                randconfig-001-20260804    clang-24
-> arm64                randconfig-002-20260804    gcc-9.5.0
-> arm64                randconfig-003-20260804    gcc-11.5.0
-> arm64                randconfig-004-20260804    gcc-9.5.0
-> csky                            allmodconfig    gcc-16.1.0
-> csky                 randconfig-001-20260804    gcc-9.5.0
-> csky                 randconfig-002-20260804    gcc-11.5.0
-> hexagon              randconfig-001-20260804    clang-24
-> hexagon              randconfig-002-20260804    clang-24
-> i386                            allmodconfig    gcc-14
-> i386                buildonly-randconfig-001    gcc-14
-> i386       buildonly-randconfig-001-20260804    clang-22
-> i386       buildonly-randconfig-002-20260804    clang-22
-> i386       buildonly-randconfig-003-20260804    clang-22
-> i386       buildonly-randconfig-004-20260804    gcc-12
-> i386       buildonly-randconfig-005-20260804    clang-22
-> i386       buildonly-randconfig-006-20260804    gcc-14
-> i386                 randconfig-001-20260804    gcc-14
-> i386                 randconfig-002-20260804    gcc-14
-> i386                 randconfig-003-20260804    gcc-14
-> i386                 randconfig-004-20260804    gcc-14
-> i386                 randconfig-005-20260804    gcc-14
-> i386                 randconfig-006-20260804    clang-22
-> i386                 randconfig-007-20260804    gcc-14
-> i386                 randconfig-011-20260804    clang-22
-> i386                 randconfig-012-20260804    gcc-14
-> i386                 randconfig-013-20260804    clang-22
-> i386                 randconfig-014-20260804    gcc-14
-> i386                 randconfig-015-20260804    clang-22
-> i386                 randconfig-016-20260804    gcc-13
-> i386                 randconfig-017-20260804    clang-22
-> loongarch                          defconfig    clang-24
-> loongarch            randconfig-001-20260804    clang-24
-> loongarch            randconfig-002-20260804    gcc-16.1.0
-> nios2                           allmodconfig    gcc-11.5.0
-> nios2                            allnoconfig    gcc-11.5.0
-> nios2                randconfig-001-20260804    gcc-8.5.0
-> nios2                randconfig-002-20260804    gcc-11.5.0
-> parisc                          allmodconfig    gcc-16.1.0
-> parisc                          allyesconfig    gcc-16.1.0
-> parisc                             defconfig    gcc-16.1.0
-> parisc               randconfig-001-20260804    gcc-8.5.0
-> parisc               randconfig-002-20260804    gcc-8.5.0
-> powerpc                      eiger_defconfig    clang-24
-> powerpc              randconfig-001-20260804    clang-24
-> powerpc              randconfig-002-20260804    gcc-11.5.0
-> powerpc64            randconfig-001-20260804    gcc-8.5.0
-> powerpc64            randconfig-002-20260804    gcc-8.5.0
-> riscv                randconfig-002-20260804    gcc-13.4.0
-> s390                 randconfig-001-20260804    clang-21
-> s390                 randconfig-002-20260804    clang-18
-> sh                                 defconfig    gcc-16.1.0
-> sh                   randconfig-001-20260804    gcc-16.1.0
-> sh                   randconfig-002-20260804    gcc-16.1.0
-> sparc                randconfig-001-20260804    gcc-16.1.0
-> sparc                randconfig-002-20260804    gcc-16.1.0
-> sparc64              randconfig-001-20260804    clang-24
-> sparc64              randconfig-002-20260804    clang-20
-> um                   randconfig-001-20260804    gcc-14
-> um                   randconfig-002-20260804    gcc-14
-> x86_64              buildonly-randconfig-001    gcc-12
-> x86_64     buildonly-randconfig-001-20260804    gcc-14
-> x86_64     buildonly-randconfig-002-20260804    clang-22
-> x86_64     buildonly-randconfig-003-20260804    gcc-14
-> x86_64     buildonly-randconfig-004-20260804    gcc-14
-> x86_64     buildonly-randconfig-005-20260804    clang-22
-> x86_64     buildonly-randconfig-006-20260804    clang-22
-> x86_64                                 kexec    clang-22
-> x86_64               randconfig-001-20260804    gcc-14
-> x86_64               randconfig-002-20260804    gcc-13
-> x86_64               randconfig-003-20260804    clang-22
-> x86_64               randconfig-004-20260804    clang-22
-> x86_64               randconfig-005-20260804    gcc-14
-> x86_64               randconfig-006-20260804    clang-22
-> x86_64               randconfig-011-20260804    clang-22
-> x86_64               randconfig-012-20260804    gcc-14
-> x86_64               randconfig-013-20260804    clang-22
-> x86_64               randconfig-014-20260804    clang-22
-> x86_64               randconfig-015-20260804    clang-22
-> x86_64               randconfig-016-20260804    clang-22
-> x86_64               randconfig-071-20260804    gcc-14
-> x86_64               randconfig-072-20260804    gcc-14
-> x86_64               randconfig-073-20260804    gcc-14
-> x86_64               randconfig-074-20260804    gcc-12
-> x86_64               randconfig-075-20260804    gcc-14
-> x86_64               randconfig-076-20260804    clang-22
-> x86_64                          rhel-9.4-bpf    gcc-14
-> xtensa               randconfig-001-20260804    gcc-8.5.0
-> xtensa               randconfig-002-20260804    gcc-14.3.0
-> 
-> --
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
-> 
+> diff --git a/include/linux/nvmem-consumer.h b/include/linux/nvmem-consumer.h
+> index 34c0e58dfa26..35a2ea8b8957 100644
+> --- a/include/linux/nvmem-consumer.h
+> +++ b/include/linux/nvmem-consumer.h
+> @@ -9,6 +9,7 @@
+>  #ifndef _LINUX_NVMEM_CONSUMER_H
+>  #define _LINUX_NVMEM_CONSUMER_H
+>  
+> +#include <linux/cleanup.h>
+>  #include <linux/err.h>
+>  #include <linux/errno.h>
+>  #include <linux/notifier.h>
+> @@ -54,6 +55,9 @@ struct nvmem_cell *nvmem_cell_get(struct device *dev, const char *id);
+>  struct nvmem_cell *devm_nvmem_cell_get(struct device *dev, const char *id);
+>  void nvmem_cell_put(struct nvmem_cell *cell);
+>  void devm_nvmem_cell_put(struct device *dev, struct nvmem_cell *cell);
+> +
+> +DEFINE_FREE(nvmem_cell_put, struct nvmem_cell *, if (!IS_ERR_OR_NULL(_T)) nvmem_cell_put(_T))
+> +
+>  void *nvmem_cell_read(struct nvmem_cell *cell, size_t *len);
+>  int nvmem_cell_write(struct nvmem_cell *cell, void *buf, size_t len);
+>  int nvmem_cell_read_u8(struct device *dev, const char *cell_id, u8 *val);
 
 
