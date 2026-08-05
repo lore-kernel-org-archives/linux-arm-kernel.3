@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3225C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 01:01:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF645C55838
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 01:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wDoFFK8k5YTxmRnKscMNyLZY+muzZHuYjeYkOMRXrgw=; b=Q5HbxFwGq9V+lMrVd0vDdljASv
-	+FSi7sxYQceGNWHBS6ML0V7/qtAUM4pLghLi5JwLHhGTZ8ePIgScv0KSvFcEilZ/Rk4z88x/RkJ6j
-	jGDT24/2r6LXEYWK8afJLPYV6fyOMYVGOIsReojZac7XiLdPehuUxAPTU1STDzCtqNcgiU2a1ZPnw
-	C/L1oidPgisYMVFhbI7MKrKC+EtLKnz09lKi8QmN5IqIWbxuec4fZjI/0yYS49ec9NJAN9msHwcZK
-	8EOHHR2EoG3EN66vbYhSO1eDL6s6JWLVHsoLXfsnX6gwUK175fpM8GjbHrs7DOqC8pCRKkhSYys9q
-	kIljXBog==;
+	bh=o3KX9skCpKY11w+0FlGhhpohym5ngk1RFk12GUsJf1c=; b=LLznSEpdKUMNvW3XDoDnPsWVkt
+	a5qPpTEOFTRuF3V7bhZUpf/OWGk7mWs7Er/s7dXYz/HzFwmKtRz2x47aPp9rPm6FVFlKgg0pxWy/6
+	itlsU3hfN6Vp+2tMo42nNFDCM6YLTXOOa+gq44ApasWPdaUlMhcpfWfS61HxrLah79fiVsOKt89Sf
+	KgSsiAtvbvnPa1uh+5r+zvovCqzf7i3eHY7SM0tsaISbJ5kvuvUMLO7CPmmGtAa+vM0qe5+zBmRgj
+	eU/xJuK8l4UgUDy/yxH9v3pp13idWJbigA2e//76LpVsAhCKvkB6IKjBtpsu5PQw2sgOQbgoFBg2l
+	147PZV6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrQ04-000000031oF-2dn2;
-	Wed, 05 Aug 2026 01:00:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrQ0A-000000031qV-3cDg;
+	Wed, 05 Aug 2026 01:00:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrQ02-000000031nq-2uSD;
-	Wed, 05 Aug 2026 01:00:50 +0000
+	id 1wrQ09-000000031q2-31iM;
+	Wed, 05 Aug 2026 01:00:57 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E901843B31;
-	Wed,  5 Aug 2026 01:00:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C92EE1F00A3A;
-	Wed,  5 Aug 2026 01:00:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F3C160052;
+	Wed,  5 Aug 2026 01:00:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DB11F00A3E;
+	Wed,  5 Aug 2026 01:00:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785891648;
-	bh=wDoFFK8k5YTxmRnKscMNyLZY+muzZHuYjeYkOMRXrgw=;
+	s=k20260515; t=1785891656;
+	bh=o3KX9skCpKY11w+0FlGhhpohym5ngk1RFk12GUsJf1c=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=RF85tYGhiHjm4uKEo6TkqefkpcwefKhKJq9/2Jlh8vaqy6UKnmGfglB6gY4WtX+RB
-	 g3uMxUym+TA80Pcie3lZ6/FjKqvM134zsd5ySqspot8vYK3oVDvkuBDe4F1MSjY1tP
-	 tMPfXZf/mLT6faoINwrYE9u3oeQ9vMaeKNi+Mf7xTdgwzWxcVDu0D9LfPQB8B7kzk+
-	 68TLfFuLW+eZN+heFN1zkWLtcThdT2/mT8CRfzjstHj2yfiRw0AQ0PhCK96/2NhUaw
-	 sCIgFltDMj64gGpqSTbyDwmm1oLoM2rC4m4979s7z3U5e68pfEagOi/MMH6AGxI9hP
-	 K6Y0lPpuZgGSw==
+	b=ZdiRkgYOxwCPkyMP9MXyafK1991EZ2jyJgUEjzC2UWj9+QArYQs43RDm9QZJNPw0m
+	 oy0b1mpk81lRd6mP9Kd9YkyGgkV1nRaJrd01I4S90yQpJEKYyP8gRTOLOUS81omaFE
+	 xeWYq13BjLzViMjeSeU45Ni79OpHKVfICNf85FDTslgPXrV98IaZvWvqEhmd1q2KTN
+	 fG38PHUUcJr3FF2zkt88SvL1ShkgvHtc2+0xQ/wCSJAxsL46ftyEAP0X4WbI5NP3lJ
+	 bBHYQLmu27YWWGOIGiaZkH3m31IkjoAIV1qCeQzcqpRZlOvtdE3wFNxW6emnA80SNb
+	 c/VoDu4hfMiBQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 5691F3926663;
-	Wed,  5 Aug 2026 01:00:10 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id D09C53926663;
+	Wed,  5 Aug 2026 01:00:17 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: airoha: fix ARRAY_SIZE() division by zero
- on
- UP builds
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <178589160888.3856351.13210051056800049801.git-patchwork-notify@kernel.org>
-Date: Wed, 05 Aug 2026 01:00:08 +0000
-References: <20260731-airoha-spinlock-array-fix-v1-1-863a7e239a5f@kernel.org>
-In-Reply-To: <20260731-airoha-spinlock-array-fix-v1-1-863a7e239a5f@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, nathan@kernel.org,
- ndesaulniers@google.com, morbo@google.com, justinstitt@google.com,
- horms@kernel.org, aleksander.lobakin@intel.com,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org, llvm@lists.linux.dev, ojeda@kernel.org, lkp@intel.com
+Subject: Re: [PATCH v8 00/22] Add Counter delegation ISA extension support
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <178589161639.3856351.5268442875805678038.git-patchwork-notify@kernel.org>
+Date: Wed, 05 Aug 2026 01:00:16 +0000
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+To: Atish Patra <atish.patra@linux.dev>
+Cc: linux-riscv@lists.infradead.org, jolsa@kernel.org, pjw@kernel.org,
+ mark.rutland@arm.com, robh@kernel.org, anup@brainfault.org,
+ namhyung@kernel.org, acme@kernel.org, krzk+dt@kernel.org, irogers@google.com,
+ will@kernel.org, james.clark@linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ conor@kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,23 +77,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+This series was applied to riscv/linux.git (for-next)
+by Paul Walmsley <pjw@kernel.org>:
 
-On Fri, 31 Jul 2026 17:47:38 +0200 you wrote:
-> airoha_alloc_gdm_device() initializes the txq_lock[] array iterating
-> over ARRAY_SIZE(dev->txq_lock). ARRAY_SIZE() expands to
-> sizeof(dev->txq_lock) / sizeof((dev->txq_lock)[0]), but on UP builds
-> (CONFIG_SMP unset, CONFIG_DEBUG_SPINLOCK unset) arch_spinlock_t is an
-> empty struct, so sizeof(spinlock_t) is zero and the expression is a
-> compile-time division by zero (undefined behavior), reported by clang
-> as "division by zero is undefined [-Wdivision-by-zero]".
+On Wed, 01 Jul 2026 01:46:48 -0700 you wrote:
+> This series adds the counter delegation extension support. It is based on
+> very early PoC work done by Kevin Xue and mostly rewritten after that.
+> The counter delegation ISA extension(Smcdeleg/Ssccfg) actually depends
+> on multiple ISA extensions.
+> 
+> 1. S[m|s]csrind : The indirect CSR extension[1] which defines additional
+>    5 ([M|S|VS]IREG2-[M|S|VS]IREG6) register to address size limitation of
+>    RISC-V CSR address space.
+> 2. Smstateen: The stateen bit[60] controls the access to the registers
+>    indirectly via the above indirect registers.
+> 3. Smcdeleg/Ssccfg: The counter delegation extensions[2]
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next] net: airoha: fix ARRAY_SIZE() division by zero on UP builds
-    https://git.kernel.org/netdev/net-next/c/c509971352a6
+  - [v8,01/22] RISC-V: perf: fix resource cleanup on driver probe failure
+    https://git.kernel.org/riscv/c/bf08074d8a20
+  - [v8,02/22] RISC-V: Add Sxcsrind ISA extension CSR definitions
+    https://git.kernel.org/riscv/c/7c31031b2974
+  - [v8,03/22] RISC-V: Add Sxcsrind ISA extension definition and parsing
+    https://git.kernel.org/riscv/c/7fe9435ef9e7
+  - [v8,04/22] dt-bindings: riscv: add Sxcsrind ISA extension description
+    https://git.kernel.org/riscv/c/010e2b79bd08
+  - [v8,05/22] RISC-V: Define indirect CSR access helpers
+    https://git.kernel.org/riscv/c/6f1ece4a6691
+  - [v8,06/22] RISC-V: Add Smcntrpmf extension parsing
+    https://git.kernel.org/riscv/c/935bfae38e57
+  - [v8,07/22] dt-bindings: riscv: add Smcntrpmf ISA extension description
+    https://git.kernel.org/riscv/c/837eaefa4d63
+  - [v8,08/22] RISC-V: Add Sscfg extension CSR definition
+    https://git.kernel.org/riscv/c/db40f62b80ec
+  - [v8,09/22] RISC-V: Add Ssccfg/Smcdeleg ISA extension definition and parsing
+    https://git.kernel.org/riscv/c/2ea70441fe0f
+  - [v8,10/22] dt-bindings: riscv: add Counter delegation ISA extensions description
+    https://git.kernel.org/riscv/c/b8d69e7159cc
+  - [v8,11/22] RISC-V: perf: Restructure the SBI PMU code
+    (no matching commit)
+  - [v8,12/22] RISC-V: perf: Modify the counter discovery mechanism
+    (no matching commit)
+  - [v8,13/22] RISC-V: perf: Add a mechanism to defined legacy event encoding
+    (no matching commit)
+  - [v8,14/22] RISC-V: perf: Implement supervisor counter delegation support
+    (no matching commit)
+  - [v8,15/22] RISC-V: perf: Skip PMU SBI extension when not implemented
+    (no matching commit)
+  - [v8,16/22] RISC-V: perf: Use config2/vendor table for event to counter mapping
+    (no matching commit)
+  - [v8,17/22] RISC-V: perf: Add legacy event encodings via sysfs
+    (no matching commit)
+  - [v8,18/22] RISC-V: perf: Add Qemu virt machine events
+    (no matching commit)
+  - [v8,19/22] tools/perf: Support event code for arch standard events
+    (no matching commit)
+  - [v8,20/22] tools/perf: Add RISC-V CounterIDMask event field
+    (no matching commit)
+  - [v8,21/22] TEST(do-not-upstream): fake qemu-virt PMU events for cdeleg counter-mask testing
+    (no matching commit)
+  - [v8,22/22] TEST(do-not-upstream): fake qemu vendor JSON + mapfile entry for CounterIDMask path
+    (no matching commit)
 
 You are awesome, thank you!
 -- 
