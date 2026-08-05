@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E498C55184
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 00:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAAFC55184
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 00:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wVEMBbEdefM7yw4jrExG2EaFI8XCUTLCLGP+UaBsQzk=; b=rMRZm8sDKJD+2ksUKjYz/NUdFU
-	45mH2Uz/Mq01QtIAXakCfOem0MJIZL64sWtRKZXKOV9rBGXCSEhledWuXxAA8XQyC70zI1lGNIuku
-	LW0dpqYiRuxy92zV4CpNs3NNU5hopHpaaavx2UCBiD0ZoThlEVvlyhguJoPmku0uk7Li8iN8pUcgi
-	7E3G7b2wV+JTS/dzUz6tyRJ50fBJ2o+r73TK4X8WSo5PXEaelT0iZOY5qWmEZ0+wGONncjUBAao0P
-	BMlLMxPgSakhejCb4b9yOSVVjBWoz3wcWg0l7JiFjkAqxN7rJkSWhPJKYtuCXCe1xnXd15RdjwDK6
-	sxTl0AvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jf/xVNbWPols23hslUUwD7fcUT/RrrsqrpMbZwK78iA=; b=zJziLwZ1aD2QcfdU7+0r6aIwgQ
+	i50xfGnDoTIg/PTrqvHeY21ioi8CfSpdSilOrNHwHLxjKCzSV95iN7COjGSZu0OGKE7FEsO5jqGe8
+	8njFbnzhxbrOrFDZVGS+hp8T7OZ3mFEoqI/d9qN5ZUJ8sspLZ5VsvhedTCNFYyzH7Cs/iyt34QpH5
+	JobrWQ/qgm1ucZFOh6ANh7py5z//X8jrZgdjI9cFBgTL2nQIklbcngwTSZTShgbACkrw2UL0v8oXa
+	4TfL/3IBSMdi98qQYqTe17uJs3ulWQJf0QwGcPhSelNKSEbSOagsr+c4UW2TLqeygAghFh5KlCV5x
+	OK36h6Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPVl-00000002yDr-1WgG;
-	Wed, 05 Aug 2026 00:29:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrPZm-00000002yXP-3Sz4;
+	Wed, 05 Aug 2026 00:33:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrPVj-00000002yDi-3rgD;
-	Wed, 05 Aug 2026 00:29:32 +0000
+	id 1wrPZm-00000002yXF-02Gj;
+	Wed, 05 Aug 2026 00:33:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C258D60052;
-	Wed,  5 Aug 2026 00:29:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65F5A1F000E9;
-	Wed,  5 Aug 2026 00:29:29 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E5FCA40D87;
+	Wed,  5 Aug 2026 00:33:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A8461F000E9;
+	Wed,  5 Aug 2026 00:33:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785889770;
-	bh=wVEMBbEdefM7yw4jrExG2EaFI8XCUTLCLGP+UaBsQzk=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References;
-	b=MqAoRhfm1zlG8hISZxXC9aRivBnaEvPzdNFBBBHfSHKBlsKVlZzBNOrghJirMVk12
-	 aXbziJiP4Rj3/So76Q0nQh9vtGLjxySwQsx4sE6SlawSIl2tN1bo44PoBfIuXSkkZg
-	 jLCErxwpJMkC4CHj5/1cIEBCXz//t6+mRgDGCblwdqrD0Qpz0ugk4cFt8CIvcFLgdS
-	 xwMYAe7GE5JChqwqsOYMbijdN0K5M6UNI7uVG3i2TOoMjLlOColEXzQc269Ul5It9v
-	 4EoRZ5QVAJP0iU0pN9CYAoeDqh979YQGenaf/56OrjUcVnfiKOTdflbHRyqhxbTn0+
-	 p14QBWYOHauuA==
-Date: Tue, 4 Aug 2026 18:29:28 -0600 (MDT)
-From: Paul Walmsley <pjw@kernel.org>
-To: Atish Patra <atish.patra@linux.dev>
-cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-    Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
-    Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>, 
-    Arnaldo Carvalho de Melo <acme@kernel.org>, 
-    Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>, 
-    Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>, 
-    linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-    linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-    linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v8 04/22] dt-bindings: riscv: add Sxcsrind ISA extension
- description
-In-Reply-To: <20260701-counter_delegation-v8-4-7909f863a645@meta.com>
-Message-ID: <66661b25-5cef-6590-b885-31cf954a16ce@kernel.org>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-4-7909f863a645@meta.com>
+	s=k20260515; t=1785890020;
+	bh=jf/xVNbWPols23hslUUwD7fcUT/RrrsqrpMbZwK78iA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ZsAE/KR5jsl+73ewpPJ90yFlmGYeO7a/wU07gbrHhMBmdf2F7ePh3+D6jz4/Yvg+N
+	 675vAD3SbnXCak/e6mSmhMiirV3WDfNQEA2LDct1FWFIuqG+MNwHTbruXgTZbbWtc6
+	 MjuMfKZ/wyvQ0Kd+VFExQUnJyMNZ31FnnYVilc6wfpN8Y6QapN+M/XcDG3My7JaY3S
+	 f0NwSVZ50X7wH3OHI4nJI1uCw5K+6hRv/gDBJBV/KvkvspNC0xGWkbGohBhhbGBZQv
+	 yXlRidHfTfUNxbqlME8YG9BJw8RxuHD6fKpCPpEJhRP3jfYi0XLE6MtCpYBITsXgTI
+	 lxGgiv42yPQkQ==
+Date: Wed, 5 Aug 2026 01:33:36 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: kernel test robot <lkp@intel.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Linux Memory Management List
+ <linux-mm@kvack.org>, linux-arm-kernel@lists.infradead.org,
+ linux-iio@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org, Mark Brown <broonie@kernel.org>
+Subject: Re: [linux-next:master] BUILD REGRESSION
+ 9a4cdc958dd79fc6c3b20b51a10debec6ca09fec
+Message-ID: <20260805013336.4bd8a298@jic23-huawei>
+In-Reply-To: <202608041404.bOHh2XuT-lkp@intel.com>
+References: <202608041404.bOHh2XuT-lkp@intel.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,71 +71,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 1 Jul 2026, Atish Patra wrote:
+On Tue, 04 Aug 2026 14:24:23 +0800
+kernel test robot <lkp@intel.com> wrote:
 
-> From: Atish Patra <atishp@rivosinc.com>
+> tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> branch HEAD: 9a4cdc958dd79fc6c3b20b51a10debec6ca09fec  Add linux-next specific files for 20260803
 > 
-> Add the S[m|s]csrind ISA extension description.
+> Unverified Error/Warning (likely false positive, kindly check if interested):
 > 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+>     https://lore.kernel.org/oe-kbuild/202608040800.45L57Mym-lkp@intel.com
+> 
+>     drivers/iio/magnetometer/qmc6308.c:402:7: error: call to '__compiletime_assert_472' declared with 'error' attribute: FIELD_PREP: value too large for the field
 
-Along the lines of the comments on patches 2 and 3, here's what's been 
-queued for v7.3.
+The line in question is setting a 2 bit field (GENMASK(3, 2)) to 0.
+No idea what is triggering that warning.
 
-
-- Paul
-
-From: Atish Patra <atishp@rivosinc.com>
-
-dt-bindings: riscv: add Smcsrind and Sscsrind ISA extension descriptions
-
-Add the S[m|s]csrind ISA extension description.
-
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
-Link: https://patch.msgid.link/20260701-counter_delegation-v8-4-7909f863a645@meta.com
-[pjw@kernel.org: use official extension names in the patch description]
-Signed-off-by: Paul Walmsley <pjw@kernel.org>
----
- .../devicetree/bindings/riscv/extensions.yaml    | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 5ffc40d599c0..ccff2be1224d 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -181,6 +181,14 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
- 
-+        - const: smcsrind
-+          description: |
-+            The standard Smcsrind machine-level extension extends the
-+            indirect CSR access mechanism defined by the Smaia extension. This
-+            extension allows other ISA extensions to use indirect CSR access
-+            mechanism in M-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
-+
-         - const: smmpm
-           description: |
-             The standard Smmpm extension for M-mode pointer masking as
-@@ -226,6 +234,14 @@ properties:
-             Profiles Version 1.0, with commit b1d806605f87 ("Updated to
-             ratified state.")
- 
-+        - const: sscsrind
-+          description: |
-+            The standard Sscsrind supervisor-level extension extends the
-+            indirect CSR access mechanism defined by the Ssaia extension. This
-+            extension allows other ISA extensions to use indirect CSR access
-+            mechanism in S-mode as ratified in the 20240326 version of the
-+            privileged ISA specification.
-+
-         - const: ssnpm
-           description: |
-             The standard Ssnpm extension for next-mode pointer masking as
--- 
-2.53.0
+>     drivers/net/ethernet/airoha/airoha_eth.c:3470:25: sparse: sparse: division by zero
+> 
+> Error/Warning ids grouped by kconfigs:
+> 
+> recent_errors
+> |-- arm-randconfig-r121-20260803
+> |   `-- drivers-net-ethernet-airoha-airoha_eth.c:sparse:sparse:division-by-zero
+> `-- um-randconfig-002-20260803
+>     `-- drivers-iio-magnetometer-qmc6308.c:error:call-to-__compiletime_assert_NNN-declared-with-error-attribute:FIELD_PREP:value-too-large-for-the-field
+> 
+> elapsed time: 726m
+> 
+> configs tested: 100
+> configs skipped: 1
+> 
+> tested configs:
+> alpha                            allnoconfig    gcc-16.1.0
+> alpha                           allyesconfig    gcc-16.1.0
+> alpha                              defconfig    gcc-16.1.0
+> arc                             allmodconfig    gcc-16.1.0
+> arc                             allyesconfig    gcc-16.1.0
+> arc                  randconfig-001-20260804    gcc-15.2.0
+> arc                  randconfig-002-20260804    gcc-8.5.0
+> arm                  randconfig-001-20260804    gcc-10.5.0
+> arm                  randconfig-002-20260804    gcc-15.2.0
+> arm                  randconfig-003-20260804    clang-17
+> arm                  randconfig-004-20260804    gcc-8.5.0
+> arm64                randconfig-001-20260804    clang-24
+> arm64                randconfig-002-20260804    gcc-9.5.0
+> arm64                randconfig-003-20260804    gcc-11.5.0
+> arm64                randconfig-004-20260804    gcc-9.5.0
+> csky                            allmodconfig    gcc-16.1.0
+> csky                 randconfig-001-20260804    gcc-9.5.0
+> csky                 randconfig-002-20260804    gcc-11.5.0
+> hexagon              randconfig-001-20260804    clang-24
+> hexagon              randconfig-002-20260804    clang-24
+> i386                            allmodconfig    gcc-14
+> i386                buildonly-randconfig-001    gcc-14
+> i386       buildonly-randconfig-001-20260804    clang-22
+> i386       buildonly-randconfig-002-20260804    clang-22
+> i386       buildonly-randconfig-003-20260804    clang-22
+> i386       buildonly-randconfig-004-20260804    gcc-12
+> i386       buildonly-randconfig-005-20260804    clang-22
+> i386       buildonly-randconfig-006-20260804    gcc-14
+> i386                 randconfig-001-20260804    gcc-14
+> i386                 randconfig-002-20260804    gcc-14
+> i386                 randconfig-003-20260804    gcc-14
+> i386                 randconfig-004-20260804    gcc-14
+> i386                 randconfig-005-20260804    gcc-14
+> i386                 randconfig-006-20260804    clang-22
+> i386                 randconfig-007-20260804    gcc-14
+> i386                 randconfig-011-20260804    clang-22
+> i386                 randconfig-012-20260804    gcc-14
+> i386                 randconfig-013-20260804    clang-22
+> i386                 randconfig-014-20260804    gcc-14
+> i386                 randconfig-015-20260804    clang-22
+> i386                 randconfig-016-20260804    gcc-13
+> i386                 randconfig-017-20260804    clang-22
+> loongarch                          defconfig    clang-24
+> loongarch            randconfig-001-20260804    clang-24
+> loongarch            randconfig-002-20260804    gcc-16.1.0
+> nios2                           allmodconfig    gcc-11.5.0
+> nios2                            allnoconfig    gcc-11.5.0
+> nios2                randconfig-001-20260804    gcc-8.5.0
+> nios2                randconfig-002-20260804    gcc-11.5.0
+> parisc                          allmodconfig    gcc-16.1.0
+> parisc                          allyesconfig    gcc-16.1.0
+> parisc                             defconfig    gcc-16.1.0
+> parisc               randconfig-001-20260804    gcc-8.5.0
+> parisc               randconfig-002-20260804    gcc-8.5.0
+> powerpc                      eiger_defconfig    clang-24
+> powerpc              randconfig-001-20260804    clang-24
+> powerpc              randconfig-002-20260804    gcc-11.5.0
+> powerpc64            randconfig-001-20260804    gcc-8.5.0
+> powerpc64            randconfig-002-20260804    gcc-8.5.0
+> riscv                randconfig-002-20260804    gcc-13.4.0
+> s390                 randconfig-001-20260804    clang-21
+> s390                 randconfig-002-20260804    clang-18
+> sh                                 defconfig    gcc-16.1.0
+> sh                   randconfig-001-20260804    gcc-16.1.0
+> sh                   randconfig-002-20260804    gcc-16.1.0
+> sparc                randconfig-001-20260804    gcc-16.1.0
+> sparc                randconfig-002-20260804    gcc-16.1.0
+> sparc64              randconfig-001-20260804    clang-24
+> sparc64              randconfig-002-20260804    clang-20
+> um                   randconfig-001-20260804    gcc-14
+> um                   randconfig-002-20260804    gcc-14
+> x86_64              buildonly-randconfig-001    gcc-12
+> x86_64     buildonly-randconfig-001-20260804    gcc-14
+> x86_64     buildonly-randconfig-002-20260804    clang-22
+> x86_64     buildonly-randconfig-003-20260804    gcc-14
+> x86_64     buildonly-randconfig-004-20260804    gcc-14
+> x86_64     buildonly-randconfig-005-20260804    clang-22
+> x86_64     buildonly-randconfig-006-20260804    clang-22
+> x86_64                                 kexec    clang-22
+> x86_64               randconfig-001-20260804    gcc-14
+> x86_64               randconfig-002-20260804    gcc-13
+> x86_64               randconfig-003-20260804    clang-22
+> x86_64               randconfig-004-20260804    clang-22
+> x86_64               randconfig-005-20260804    gcc-14
+> x86_64               randconfig-006-20260804    clang-22
+> x86_64               randconfig-011-20260804    clang-22
+> x86_64               randconfig-012-20260804    gcc-14
+> x86_64               randconfig-013-20260804    clang-22
+> x86_64               randconfig-014-20260804    clang-22
+> x86_64               randconfig-015-20260804    clang-22
+> x86_64               randconfig-016-20260804    clang-22
+> x86_64               randconfig-071-20260804    gcc-14
+> x86_64               randconfig-072-20260804    gcc-14
+> x86_64               randconfig-073-20260804    gcc-14
+> x86_64               randconfig-074-20260804    gcc-12
+> x86_64               randconfig-075-20260804    gcc-14
+> x86_64               randconfig-076-20260804    clang-22
+> x86_64                          rhel-9.4-bpf    gcc-14
+> xtensa               randconfig-001-20260804    gcc-8.5.0
+> xtensa               randconfig-002-20260804    gcc-14.3.0
+> 
+> --
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests/wiki
+> 
 
 
