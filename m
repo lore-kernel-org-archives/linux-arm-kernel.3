@@ -4,82 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0E0C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:32:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F16C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4gwj0kFUhwuS98ircZVc44GpqB+5fy9yUkWQ55U7j40=; b=N1NPgabomm8LOhzlYQDoxo47Jr
-	gdnOB/FJeJ8mHYTMWOoojEI6NTFjCKoJLVHw/pD16ynW7ZB66j4/HOAeBsD+hb85dq7DxeWb4iKDq
-	ESZqfqZEadJMu7yz9fYPT030hjLyPqdMwvkUmRIGj6IdrvwQDjUWwq436yocsGzZhJ7y7GwDSYt2T
-	5WSAI46hBLBJvkL/R4gUPQF6YhlK26jkF608wUKkvc/35V1w7tRoSabWfM4qGq/gR8IfFXa8iOF3F
-	GCwTBHs9y+pWe6HrTKsFoSVnuFCc9EV4u8QOpULJpQ2exeTaNvRD/VCWTNDFPof7x/qkDFV5BMCyH
-	atsxJZkg==;
+	bh=E8Pplx5QnU6Rr1kBPTcri9uayeJX5puxAU3cLDzc2Vs=; b=euO7Lsb6Xvk9QhhmWjYesCngdi
+	pCCa86Sv2EKGwwyag4iCtdW169URtkANWvMOCoBXWXIx5gSzpREmf9A6khdVvzKhozbWi5jWD1+Jo
+	UsgQM17U5mfytoDDb8iezucGZQgd0XH9epRC0JXt+Nzt0cy6ldvKNzHZq7tq4c5r5ouAdT6yEmD0b
+	k6lNqOQNcM+ai5eaRegkansuqXdmdV9tcwtqbiWQyU3EOfkjoP654qGlJ4Cs/SSg3SVg01Sfj3nvo
+	VQq1K8i86U8nzmKN/ov824hk3oGANXlqoQb2b4Uzn+CwGQLe6U2dalkfBtg53WJcsa1pjtpB1Atnh
+	wBsM4eKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrW79-00000003Psr-3XPd;
-	Wed, 05 Aug 2026 07:32:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wrW8C-00000003Q2F-3Rn4;
+	Wed, 05 Aug 2026 07:33:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrW78-00000003Psl-2zCB
+	id 1wrW8A-00000003Q1v-2jIe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 07:32:34 +0000
+	Wed, 05 Aug 2026 07:33:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 65326600B1;
-	Wed,  5 Aug 2026 07:32:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A6D91F000E9;
-	Wed,  5 Aug 2026 07:32:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E717643A2B;
+	Wed,  5 Aug 2026 07:33:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C6121F00A3A;
+	Wed,  5 Aug 2026 07:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785915152;
-	bh=4gwj0kFUhwuS98ircZVc44GpqB+5fy9yUkWQ55U7j40=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=AJJaA9T5tFKel4SLkebN3gx+nsuoveBPZ42YEDRckt7z5kruBLv1cdm23oYFWUo5S
-	 2+0Uy2veLD2U0WtemOp5DFT8pOeKwMnYh7BfGDSHPFK6RD0dqCa+j8bfHG0k4sUI15
-	 APjHr9sxzCjMFbJnmXLX+Cy4cajxnSR6QLQXbSZyd8QNc2Wu3QyuGRHuxH+DT2vWUi
-	 PDLuTIFKK+UrX5hi4PA44H90RVHvhmJexgou2NK1zNvaE4o0wdp43YQ7Okb3YV5jC1
-	 P2OIor9K3oxs5BK8xht++hYBWLCkk3S9xo6QCLtvmvfiubshhWNZ/+gPb9B0BTkmjr
-	 N4JsiYxAy70eA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wrW73-0000000CUuY-39dd;
-	Wed, 05 Aug 2026 07:32:29 +0000
-Date: Wed, 05 Aug 2026 08:32:29 +0100
-Message-ID: <86ecgdaupe.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	grayhat@foxmail.com
-Subject: Re: [PATCH 1/2] KVM: arm64: nv: Allocate the shadow S2 MMUs individually
-In-Reply-To: <anJcUNlnNmP-mKWH@gmail.com>
-References: <20260803224405.41468-1-kmehltretter@gmail.com>
-	<86mrv2arf2.wl-maz@kernel.org>
-	<86jyq6aq8g.wl-maz@kernel.org>
-	<anJcUNlnNmP-mKWH@gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org, grayhat@foxmail.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1785915217;
+	bh=E8Pplx5QnU6Rr1kBPTcri9uayeJX5puxAU3cLDzc2Vs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=F5MLED9H9oiftWsSWmYwWngs/cNwLMNqjiFUrs55d7/+9LLdDJ8lMaBzebMm/SoJG
+	 1ZHB6d8hz9XJqp/a12SjjwTXArbSNHAZkmgjgtSZv7FeiVXng4IuHYdN0QlMlVRa/B
+	 Tw4E6wPq6l0JU6AXTvkw8LbOFD9/R4/f6P81LZq+LlTn+RQcJCS3iqorqfLWPRACga
+	 i3B5UO2t9Xmz4Mrhzt6uqw1Ck8GmpJHPaQebJNbMeu9+zPVMWEavpoPApWuvWuJvVC
+	 JFZn8q83Y2sFtpy148eBMQFN9w50r4kx+pCHH8hsYcywwkUlwOE9yuhHLERvj3axEH
+	 qgJQAqsOTiBxQ==
+Date: Wed, 5 Aug 2026 09:33:32 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH] dt-bindings: irq: sun7i-nmi: Document the Allwinner A733
+ NMI controller
+Message-ID: <20260805-subtle-clever-ammonite-0bdfce@quoll>
+References: <20260731-allwinner-a733-nmi-support-v1-1-61e4a0825b20@baylibre.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260731-allwinner-a733-nmi-support-v1-1-61e4a0825b20@baylibre.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,83 +73,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Aug 2026 22:54:30 +0100,
-Karl Mehltretter <kmehltretter@gmail.com> wrote:
+On Fri, Jul 31, 2026 at 06:09:52PM +0200, Jerome Brunet wrote:
+> The A733 NMI controller is compatible with the A523 one. Add an
+> A733-specific compatible string, with the A523 as fallback.
 > 
-> On Tue, Aug 04, 2026 at 03:56:47PM +0100, Marc Zyngier wrote:
-> > > The other thing is that reallocating the pointer array isn't great. It
-> > > adds complexity, and makes everything more fragile than it should be.
-> > > 
-> > > See the hack below that seems to work OK.
-> > > 
-> 
-> Your draft is indeed a bit simpler.
-> 
-> Should I send a cleaned-up version as v2?
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
+>  .../bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml      | 3 +++
+>  1 file changed, 3 insertions(+)
 
-Yes, please.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-> 
-> I would allocate the table on the first call to kvm_vcpu_init_nested()
-> and not in kvm_init_nested(), so it cannot leak if VM creation
-> fails.
+Best regards,
+Krzysztof
 
-I'd rather keep it on the VM creation path. This is VM-wide data, by
-definition, and given that its size doesn't depend on the number of
-vcpus anymore (we allocate the maximum once and for all), it is right
-where it belongs. See the untested hack below for the freeing on error.
-
-> There's another issue in the current code: the ptdump debugfs file
-> keeps the raw mmu pointer as its private data. I would add that to the
-> commit message.
-
-Why is that a problem? With this approach, the mmu pointers are always
-expected to be valid, irrespective of the allocation pattern, and we
-only publish pointers to the dumper when the S2_mmu is actively being
-used.
-
-We're about to rip out the NV ptdump anyway as it has many other
-problems, but I'd like to understand what you see that I don't.
-
-Thanks,
-
-	M.
-
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 9e42e92dbc7b1..e883e45382fb2 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -223,10 +223,6 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 	mutex_unlock(&kvm->lock);
- #endif
- 
--	ret = kvm_init_nested(kvm);
--	if (ret)
--		return ret;
--
- 	ret = kvm_share_hyp(kvm, kvm + 1);
- 	if (ret)
- 		return ret;
-@@ -241,6 +237,10 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 	if (ret)
- 		goto err_free_cpumask;
- 
-+	ret = kvm_init_nested(kvm);
-+	if (ret)
-+		goto err_uninit_mmu;
-+
- 	if (is_protected_kvm_enabled()) {
- 		/*
- 		 * If any failures occur after this is successful, make sure to
-@@ -269,6 +269,7 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
- 
- err_uninit_mmu:
- 	kvm_uninit_stage2_mmu(kvm);
-+	kvfree(kvm->arch.nested_mmus);
- err_free_cpumask:
- 	free_cpumask_var(kvm->arch.supported_cpus);
- err_unshare_kvm:
-
--- 
-Without deviation from the norm, progress is not possible.
 
