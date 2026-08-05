@@ -4,98 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92230C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D44FC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oZnOz+lFliwxu36iteUFdBeqSrMjklljgmmUuQxHg8w=; b=JkRVNeq62gq4QLLaKov/k7OS30
-	IJ/t3oeTeWxRIZ780s+e6euJUU6kEkrxAg/3hqyXTrNJIgjsTFgGOguJz6dpA/nozCXrBw6Qu33cF
-	dxVpuTNCXxxUZT6tHNTGK8vy0iK0SMyI0uw92oXQMiY2h1MRlulj2motHT+K2McKWvK1RRgHZi9Fr
-	sBudYcGNIBQJUHNjUB0RZCYd+WWwQPvnwya20LzdqCS1rJSWvem/bvw0odghMo9Z2XlQZhcUGv/kM
-	Qi/4fNfbcJYTZVaft2jUqx66PKRM/APiRwMTv8n7Q30SNsPDoI4WXmptTKRFCkrN//zVBQsRUrkdZ
-	KC6yFNnw==;
+	bh=XWYvdwwhHXOZMdpKG9po4fGYOA5/a+2jpomAjIrH0/E=; b=lPnJQKgopMZkdl7/LrBb5b/7zK
+	cRBB/5p6z4YWEF1kX+wg4HkfuJT+H5tdsdmFwm95KCxSARNeuR7bL1PoyYlUxqkUIYOuXDaZ+Bs7y
+	IZZzQ4NWAriM2Ww7rV0egIwHFTqKPGUGQwVt6mA1cPE0cgGxWmw6MCBXOokWmg2T4qC+U2d0/9Vem
+	XFKzWtUBFjLGanM5UwFwWFIW8LD4TxuBSnluiHK/Q/zDjq+hJJPg54Gdbix11jQuVHwmeBw2ei/no
+	5AByaF3PrDUvEnbmiaCD8cVEGQEdcWa1JN9To55VdH7+C3eWZTvqvPcGUkfxAD28GMOsSsPemUTf0
+	V1cc8xRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wraxL-00000003wH8-0lTp;
-	Wed, 05 Aug 2026 12:42:47 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1wrb1d-00000003wZc-3s7A;
+	Wed, 05 Aug 2026 12:47:13 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wraxJ-00000003wGh-0kBB
+	id 1wrb1b-00000003wZG-090q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 12:42:46 +0000
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 0DD9B7A00FA;
-	Wed,  5 Aug 2026 08:42:44 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-10.internal (MEProxy); Wed, 05 Aug 2026 08:42:44 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1785933763; x=1786020163; bh=oZnOz+lFli
-	wxu36iteUFdBeqSrMjklljgmmUuQxHg8w=; b=Wn609wNwYrrmQbTpcDynhSDStY
-	gGIhqdFZVKXCXL4GHJPWXdoYt3hpiRki5LG7bzAgO1atUSbw0+oFrYCqUc4ttBRK
-	vKbleun23vO614LjvE/OR60CzgLWEz5u2MNRWd43ib7uH/YT96EGXByxtlT30pK2
-	SoZylNZvAgi8QuTCxYEp+jIcTZDyPY71dGOI1EWk+Ef2MsgUgOUSasD8Y9C4M2v6
-	XiFNDIUcaP7ZH9nGz/pCEH/dHXu4VESgx945h1zEgXtfasSmiarqXU9pCa5Xq9F+
-	PDpgg13lYsV4tOO8zKqSTea2l0ZBrIqyzxoKRQDwUVHyObdIt85XoMCWn/sQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1785933763; x=1786020163; bh=oZnOz+lFliwxu36iteUFdBeqSrMjklljgmm
-	UuQxHg8w=; b=E5MYhjxrUcVK2oAkqObxw498r1vOURfzBEIp/WH1s3ANcntTDuN
-	29RM/xx6pYpyfTrn9VXgl/1rsncTahVBRF4u1KWJITF3ZPKtEeYyiuRYDu9kGZGT
-	C0wt1/CrZ2GlfVEV1S+3yhFf4WCMSPqW9scm6cnLk4e6hD2tn8aWECUWv8u0jxac
-	7XzfkveUUKNRANVr4qmVu8TKSHh+l5Q0LMWRbGHAh8uFHQdDWiLw7dtwXKeJ59fg
-	xQqdkV3hk2oSTFOTZycyIR5F6XG7pkN1+3haO77WVMBmR2/9JivP7cAwtf3x5FAg
-	E/yoZWgdH1HCNYeWrIjb/EcCuvaSK3uJpQQ==
-X-ME-Sender: <xms:wy9zapadcEE91w-5QNdsCipzADSyEWIuOebks72M9kjL6yXavvCp9Q>
-    <xme:wy9zamxbOrcWZNlzMMUTuJPuNCztcPkSmgBJc68b3kj_oa0xXiUmIbY7NcBsyV47u
-    qu6frIsGlyiavfpJZf1DxKGdFdfj_gLE0RJVfxJKshhssbW_H84mlQ0>
-X-ME-Received: <xmr:wy9zaoMWfN7nNH4txDNj4JIbuK6_FHpg0_9jgeWEfcS8Sl8cgW2yZ-7ZIEWVj1yIb7vFDu3sbvxCJJhmhyhdb38BOAO3crsR9V8>
-X-ME-Proxy-Cause: dmFkZTGkxG5+bKB3SVvwZgoKpuZnwcY2RZfLPeIdWuIJyD7KFmMJ6s4R3VeZ77i5duGXQO
-    EsOQWVqvA5irAxo5NC3Xj9nfTYjVxuidQN+egJFsdfIEgbKqHRKPBKbm8ES547UdZ6tW4S
-    dGoPag4hF4kbmWxjThIh/nTsj33/2K4Uf/bRACCwfRXDB4GyNz5wtpvkmE3q//F6xZSidB
-    kJo/xlmOTiqfKf9MLD8mSJay4zOHvlx4vCEIFcjZtji4+1Eeqp9/Ezq5XJETp2oCZyL/ko
-    /rJy17Fos2/Vao9ng1D4ervMsHtSMfqVlj+vfrFwK4u7k5i1KLHiC4dJxKTKUdTTVF6MTG
-    zOkTHiF0DJ9hTZJBsyLxVHZcbBl/qLMAiE0OYErDdz0U0qgDBdVzLRjYffRz1v37/74uOW
-    ZnJB6MaerpnHOXrTn67r87SuS1KbIgIS3ZkHFzSEAtiSsmqVabYjJpdXQrQYSumdyj89ex
-    0Ewf+3vk+KecCo2D8VWfchxKNxPG0SsQPfMEJEaETCtnx88csMcNtA1zz3TlfUXnu4zsVc
-    Z8frn5Ok71wPCUOtZ8J4kmpMo1WuOIFBBu10KrPV5lwlTMsIbhUThFjfM2Ig9nFWlr66jO
-    ML6YXAu8rOPGLpJNCgxGO7lEJbiJ+7TFsg6ELv7qK2tHY8BRcbta5ziViv4A
-X-ME-Proxy: <xmx:wy9zalfnQPd3qGvncxghiLSUgPgcyOhB1wVxpn32Ca4B0-6fSBgQaw>
-    <xmx:wy9zatS0mOUCYL5UZZObJEDo7hfosVGHwXBpi-N8HG-Ocfu1oAetWg>
-    <xmx:wy9zajfClY2GG0mH1c4o76KWC0Ygo_y_u81Md9NNBTpd-jNviycFpA>
-    <xmx:wy9zamv-4gu5Slx6nTWSVesn8DLQhnwtyBIqbUYPliS9-pGJb9dg_A>
-    <xmx:wy9zah93Ixw5VhaLlJlbXp9_aYuAm0dq5WyRTIPdzRSkWaQUFDP9jF8x>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 5 Aug 2026 08:42:43 -0400 (EDT)
-Date: Wed, 5 Aug 2026 14:42:42 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Alba Mendez <me@alba.sh>
-Subject: Re: [PATCH v4 6/6] spmi: apple: Add interrupt functionality
-Message-ID: <20260805124242.GF832571@robin.jannau.net>
-References: <20260805-t603x-spmi-v4-0-c15a12d9a7d1@chaosmail.tech>
- <20260805-t603x-spmi-v4-6-c15a12d9a7d1@chaosmail.tech>
+	Wed, 05 Aug 2026 12:47:12 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-6a17c7c3c6eso5451a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 05:47:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785934029; x=1786538829; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XWYvdwwhHXOZMdpKG9po4fGYOA5/a+2jpomAjIrH0/E=;
+        b=CkC3HvHnPmVzGMveXgHTum1AcwsA9gJj/YRzREiiI7Sk6sKOQdRV96FG2yAMxA4KGN
+         FsWi/qHyMtTd5nZmnOL/fCofzZHVqgguVZKPQ9E2pdIoPbCEAc/0YdwnOm8PQZZY02Tc
+         YOcoRp5EqiUZcXDTbJGSSd8X5yxPCuGzR+lZgx+JvCY3WWiPIgrEkFRVqi3NeH/LFYi5
+         i50LxK6lvEWYTN2SiUUXiyN7h7q7dP8e13VWKuGuPHE3MaIDdrSGO0T5JL00+dUINoRN
+         kZDOujkhsNetp2LSIBR7WJGQAn9HuUUl0C7i1PREvgERg2E0e7poa7DoMWUUm5LLDWHx
+         Wp9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785934029; x=1786538829;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=XWYvdwwhHXOZMdpKG9po4fGYOA5/a+2jpomAjIrH0/E=;
+        b=EnltUnmmr2O4aO1LeLuTDqnjR18MDquOmkCXj9V0hSQIXXYCti6e6La+gNyqYJI9OM
+         LEWsfLkoLwvXYqszGIJ+9uAD0oGIGah9r36dc95z+pasz5B41UBbnEdV6/nQIWjFRdFm
+         f78Jxsw4vYNIfPL2dmKouFdBq4OUdjElR3rhzRNAm3nl4oZfxY8TkM3v1PTN8beuo3hw
+         fExSbUZYoNuAncMzwzHqv430znj0MuxjZyXCDWOcnWlgneKCSjcooz+UIzaFRRFStet2
+         lB1wSaW0tlkqvlKfsQMDvwcoY+9MAkyAuAL5tpxdiUvoFeoZ0TEkkClJzbpex1bS4ZGu
+         aOGg==
+X-Gm-Message-State: AOJu0Yz4uZS6zLz9Ril9BF9Ap+ZHCCNOFN0p96gM0KXxgz2nM5uqm6v2
+	lV45ZcHMqvmZ3a9NxQUjCj4zp/H2igiCLc6EEFpvTLMMTt/TB7l6VVIk4c1Jv4WG9A==
+X-Gm-Gg: AR+sD114tXZ8ILrqQNRK77buJ0s+B44SmXQ5fOMAugEOZhmkQ7JtkVl0ZCv3r1uUro+
+	czMGqFvaReSpG3W4f/G9V268aQ1K6Z+xY2a235WKPYt5Tf6dDGgii3jYROoIM+VZPKAC+DZyuch
+	cTpVwtgxTAHIBQF9COMaRqTe6oJcTkR1KjUoIK9c2PDuDu/L9id0/ei0FLvHXDag7qTb/izw7HA
+	qbl3n2aXidGsnNKN98guyRlzvlD/IA74lCtu18uuwGAzsFWXZu4NzHKssvCe1bHRfRUFdDEz1UJ
+	lT52IWUfyFp7QVQiBpdj6xla0Au6C3rdyzPyExq9ULQ02NUvcqw+7fucXuoi1mWneCdwK6AdmSo
+	XAFDSmRBy1uKPka087UnbYp774wauzKzoazV9FlT5y1W3bZpnlqsYKS961TJeEla4/279vthbRT
+	oBpb5wXT3tq7VBIdsFC45MWPE/3rr6BsLUdy0WA4gVaEPAKvne1nDRBERTB2eiwJU3h/vMDcHlI
+	RdZ/k8sGt3Jb2ByrNXCx/ygpJORFnyqbBPnFY0L3Oa3
+X-Received: by 2002:aa7:d747:0:b0:6a1:8b8f:bec4 with SMTP id 4fb4d7f45d1cf-6a18b8fc391mr1793a12.4.1785934028557;
+        Wed, 05 Aug 2026 05:47:08 -0700 (PDT)
+Received: from google.com (63.235.189.35.bc.googleusercontent.com. [35.189.235.63])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a1453d3825sm2028486a12.0.2026.08.05.05.47.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Aug 2026 05:47:07 -0700 (PDT)
+Date: Wed, 5 Aug 2026 12:47:03 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	vdonnefort@google.com, keirf@google.com
+Subject: Re: [PATCH v7 02/24] KVM: arm64: Donate MMIO to the hypervisor
+Message-ID: <anMwxy9gEEt_Wu6M@google.com>
+References: <20260715115906.2664882-1-smostafa@google.com>
+ <20260715115906.2664882-3-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260805-t603x-spmi-v4-6-c15a12d9a7d1@chaosmail.tech>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260715115906.2664882-3-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_054245_342008_3044C2E5 
-X-CRM114-Status: GOOD (  35.45  )
+X-CRM114-CacheID: sfid-20260805_054711_166319_8201D45C 
+X-CRM114-Status: GOOD (  37.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,377 +106,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 12:11:16PM +0200, Sasha Finkelstein wrote:
-> From: Alba Mendez <me@alba.sh>
+On Wed, Jul 15, 2026 at 11:58:43AM +0000, Mostafa Saleh wrote:
+> Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
+> drivers can protect and access the MMIO of IOMMUs.
 > 
-> Add support for interrupts sent by slave devices and use IRQ for
-> RX FIFO if possible, as that IRQ fires as soon as the reply is
-> available, which is usually takes a few us instead of the 10ms sleep
-> interval for polling
-
-same as for the other changes, better check all of them because I
-probably missed that before.
-
-> Signed-off-by: Alba Mendez <me@alba.sh>
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> As donating MMIO is very rare, and we don’t need to encode the full
+> state, it’s reasonable to have a separate function to do this.
+> It will init the host s2 page table with an invalid leaf with the owner ID
+> to prevent the host from mapping the page on faults.
+> 
+> Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
+> stage-2 PTEs, as this can be triggered from recycle logic under memory
+> pressure. There is no code relying on this, as all ownership changes is
+> done via kvm_pgtable_stage2_set_owner()
+> 
+> For the error path in IOMMU drivers, add a function to donate MMIO
+> back from hyp to host. However, that leaks the hypervisor virtual
+> address range which should be acceptable as this is quite rare and
+> it matches the behaviour of fix_map/block.
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
 > ---
->  drivers/spmi/Kconfig                 |   3 +-
->  drivers/spmi/spmi-apple-controller.c | 254 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
->  2 files changed, 255 insertions(+), 2 deletions(-)
+>  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  7 ++
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 91 ++++++++++++++++++-
+>  arch/arm64/kvm/hyp/pgtable.c                  | 11 +--
+>  3 files changed, 102 insertions(+), 7 deletions(-)
 > 
-> diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
-> index a80cf4047b86..7243863a09b4 100644
-> --- a/drivers/spmi/Kconfig
-> +++ b/drivers/spmi/Kconfig
-> @@ -13,7 +13,8 @@ if SPMI
+> diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> index 29935c7da1de..51b0eb3844a9 100644
+> --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> @@ -36,6 +36,13 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
+>  int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
+>  int __pkvm_host_unshare_hyp(u64 pfn);
+>  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
+> +/*
+> + * Donate MMIO range to the hypervisor, it will be mapped in the hypervisor's
+> + * private range and unmapped from the host stage-2.
+> + */
+> +int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size, unsigned long *haddr);
+> +/* Remaps MMIO range in the host, typically used in error path. */
+> +int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size);
+>  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+>  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 4e329e39a695..d803b3dd4cb4 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -378,7 +378,11 @@ static int host_stage2_unmap_dev_all(void)
+>  	u64 addr = 0;
+>  	int i, ret;
 >  
->  config SPMI_APPLE
->  	tristate "Apple SoC SPMI Controller platform driver"
-> -	depends on ARCH_APPLE || COMPILE_TEST
-> +	select IRQ_DOMAIN_HIERARCHY
-> +	depends on ARCH_APPLE || (COMPILE_TEST && 64BIT)
->  	help
->  	  If you say yes to this option, support will be included for the
->  	  SPMI controller present on many Apple SoCs, including the
-> diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-> index c3bc1f6d5741..7e86d7983fb4 100644
-> --- a/drivers/spmi/spmi-apple-controller.c
-> +++ b/drivers/spmi/spmi-apple-controller.c
-> @@ -13,11 +13,17 @@
->  
->  #include <linux/bitfield.h>
->  #include <linux/bits.h>
-> +#include <linux/completion.h>
-> +#include <linux/interrupt.h>
->  #include <linux/io.h>
->  #include <linux/iopoll.h>
-> +#include <linux/irq.h>
-> +#include <linux/irqchip/chained_irq.h>
-> +#include <linux/irqdomain.h>
->  #include <linux/module.h>
->  #include <linux/mutex.h>
->  #include <linux/platform_device.h>
-> +#include <linux/spinlock.h>
->  #include <linux/spmi.h>
->  
->  /* SPMI Controller Registers */
-> @@ -26,6 +32,13 @@
->  #define SPMI_RSP_REG 0x8
->  #define SPMI_ACT_REG 0xa4
->  
-> +#define SPMI_IRQ_MASK_BASE 0x20
-> +#define SPMI_IRQ_ACK_BASE 0x60
-> +#define SPMI_NUM_PERIPHERAL_IRQS 256
-> +#define SPMI_NUM_IRQS (SPMI_NUM_PERIPHERAL_IRQS + 32)
-> +
-> +#define SPMI_IRQ_NOTIFY 256
-> +
->  /* SPMI_RSP_REG reply word */
->  #define SPMI_REPLY_FRAME_PARITY_STATUS GENMASK(31, 16)
->  #define SPMI_REPLY_ACK BIT(15)
-> @@ -41,6 +54,12 @@
->  struct apple_spmi {
->  	void __iomem *regs;
->  	struct mutex fifo_lock;
-> +	struct completion fifo_rx;
-> +	struct irq_domain *irqd;
-> +	raw_spinlock_t irq_mask_lock;
-> +	DECLARE_BITMAP(irq_mask_cache, SPMI_NUM_PERIPHERAL_IRQS);
-> +	int irq;
-> +	bool notify_irq;
->  	bool prev_fail;
->  };
->  
-> @@ -48,6 +67,56 @@ struct apple_spmi {
->  	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
->  			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
->  
-> +static void apple_spmi_irq_ack_raw(struct apple_spmi *spmi, u32 irq)
-> +{
-> +	u32 __iomem *reg = spmi->regs + SPMI_IRQ_ACK_BASE + (irq / 32) * 4;
-> +
-> +	writel(BIT(irq % 32), reg);
-> +}
-> +
-> +static void apple_spmi_irq_mask_raw(struct apple_spmi *spmi, u32 irq)
-> +{
-> +	u32 __iomem *reg = spmi->regs + SPMI_IRQ_MASK_BASE + (irq / 32) * 4;
-> +
-> +	writel(readl(reg) & ~BIT(irq % 32), reg);
-> +}
-> +
-> +static void apple_spmi_irq_unmask_raw(struct apple_spmi *spmi, u32 irq)
-> +{
-> +	u32 __iomem *reg = spmi->regs + SPMI_IRQ_MASK_BASE + (irq / 32) * 4;
-> +
-> +	writel(readl(reg) | BIT(irq % 32), reg);
-> +}
-> +
-> +static void apple_spmi_irq_ack(struct irq_data *d)
-> +{
-> +	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-> +
-> +	apple_spmi_irq_ack_raw(spmi, d->hwirq);
-> +}
-> +
-> +static void apple_spmi_irq_mask(struct irq_data *d)
-> +{
-> +	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-> +	unsigned long flags;
-> +
-> +	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
-> +	apple_spmi_irq_mask_raw(spmi, d->hwirq);
-> +	clear_bit(d->hwirq, spmi->irq_mask_cache);
-> +	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
-> +}
-> +
-> +static void apple_spmi_irq_unmask(struct irq_data *d)
-> +{
-> +	struct apple_spmi *spmi = irq_data_get_irq_chip_data(d);
-> +	unsigned long flags;
-> +
-> +	raw_spin_lock_irqsave(&spmi->irq_mask_lock, flags);
-> +	set_bit(d->hwirq, spmi->irq_mask_cache);
-> +	apple_spmi_irq_unmask_raw(spmi, d->hwirq);
-> +	raw_spin_unlock_irqrestore(&spmi->irq_mask_lock, flags);
-> +}
-> +
->  static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 param)
->  {
->  	return opc | sid << 8 | (u32)param << 16 | (1 << 15);
-> @@ -60,7 +129,19 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
->  	int ret;
->  	u32 status;
->  
-> -	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
-> +	if (spmi->notify_irq) {
-> +		ret = wait_for_completion_timeout(&spmi->fifo_rx,
-> +			usecs_to_jiffies(REG_POLL_TIMEOUT_US));
-> +		if (!ret)
-> +			ret = -ETIMEDOUT;
-> +		else if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)
-> +			ret = -EIO;
-> +		else
-> +			ret = 0;
-> +	} else {
-> +		ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
-> +	}
-> +
->  	if (ret) {
->  		spmi->prev_fail = true;
->  		dev_err(&ctrl->dev,
-> @@ -85,8 +166,10 @@ static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  
->  	if (spmi->prev_fail) {
->  		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_RSP_REG);
-> +		apple_spmi_irq_ack_raw(spmi, SPMI_IRQ_NOTIFY);
->  		spmi->prev_fail = false;
->  	}
-> +	reinit_completion(&spmi->fifo_rx);
->  
->  	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
->  
-> @@ -188,6 +271,164 @@ static int spmi_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
->  	return -EINVAL;
+> -	/* Unmap all non-memory regions to recycle the pages */
+> +	/*
+> +	 * Unmap all non-memory regions to recycle the pages.
+> +	 * That relies on kvm_pgtable_stage2_unmap() not clearing
+> +	 * counted PTEs which include hypervisor MMIO.
+> +	 */
+>  	for (i = 0; i < hyp_memblock_nr; i++, addr = reg->base + reg->size) {
+>  		reg = &hyp_memory[i];
+>  		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr);
+> @@ -1119,6 +1123,91 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+>  	return ret;
 >  }
 >  
-> +static int apple_spmi_irq_set_type(struct irq_data *d, unsigned int type)
+> +int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size, unsigned long *haddr)
 > +{
-> +	/* all interrupts have MSI semantics */
-> +	return type == IRQ_TYPE_EDGE_RISING ? 0 : -EINVAL;
-> +}
+> +	kvm_pte_t pte;
+> +	u64 offset;
+> +	int ret;
 > +
-> +static struct irq_chip apple_spmi_irq_chip = {
-> +	.name = "apple_spmi",
-> +	.irq_mask = apple_spmi_irq_mask,
-> +	.irq_unmask = apple_spmi_irq_unmask,
-> +	.irq_ack = apple_spmi_irq_ack,
-> +	.irq_set_type = apple_spmi_irq_set_type,
-> +	.flags = IRQCHIP_ONESHOT_SAFE,
-> +};
+> +	/* Only before de-privilege. */
+> +	if (static_branch_unlikely(&kvm_protected_mode_initialized))
+> +		return -EPERM;
 > +
-> +static int apple_spmi_irq_domain_map(struct irq_domain *irqd,
-> +					unsigned int irq, irq_hw_number_t hw)
-> +{
-> +	irq_domain_set_info(irqd, irq, hw, &apple_spmi_irq_chip, irqd->host_data,
-> +				handle_edge_irq, NULL, NULL);
-> +	return 0;
-> +}
-> +
-> +static int apple_spmi_irq_domain_translate(struct irq_domain *irqd,
-> +					struct irq_fwspec *fwspec,
-> +					unsigned long *hwirq,
-> +					unsigned int *type)
-> +{
-> +	u32 *args = fwspec->param;
-> +
-> +	if (fwspec->param_count != 2)
+> +	if (!PAGE_ALIGNED(addr | size) ||
+> +	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
 > +		return -EINVAL;
 > +
-> +	if (args[0] >= SPMI_NUM_PERIPHERAL_IRQS)
-> +		return -EINVAL;
-> +	*hwirq = args[0];
-> +	*type = args[1] & IRQ_TYPE_SENSE_MASK;
-> +	return 0;
-> +}
-> +
-> +static int apple_spmi_irq_domain_alloc(struct irq_domain *irqd, unsigned int virq,
-> +				unsigned int nr_irqs, void *arg)
-> +{
-> +	unsigned int type = IRQ_TYPE_NONE;
-> +	struct irq_fwspec *fwspec = arg;
-> +	irq_hw_number_t hwirq;
-> +	int i, ret;
-> +
-> +	ret = apple_spmi_irq_domain_translate(irqd, fwspec, &hwirq, &type);
+> +	ret = __pkvm_create_private_mapping(addr, size, PAGE_HYP_DEVICE, haddr);
+
 > +	if (ret)
 > +		return ret;
 > +
-> +	if (hwirq + nr_irqs > SPMI_NUM_PERIPHERAL_IRQS)
-> +		return -EINVAL;
-> +
-> +	for (i = 0; i < nr_irqs; i++) {
-> +		ret = apple_spmi_irq_domain_map(irqd, virq + i, hwirq + i);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static void apple_spmi_irq_domain_free(struct irq_domain *irqd, unsigned int virq,
-> +				unsigned int nr_irqs)
-> +{
-> +	int i;
-> +
-> +	for (i = 0; i < nr_irqs; i++) {
-> +		struct irq_data *d = irq_domain_get_irq_data(irqd, virq + i);
-> +
-> +		irq_set_handler(virq + i, NULL);
-> +		irq_domain_reset_irq_data(d);
-> +	}
-> +}
-> +
-> +static const struct irq_domain_ops apple_spmi_irq_domain_ops = {
-> +	.translate	= apple_spmi_irq_domain_translate,
-> +	.alloc		= apple_spmi_irq_domain_alloc,
-> +	.free		= apple_spmi_irq_domain_free,
-> +};
-> +
-> +static void apple_spmi_irq_handler(struct irq_desc *desc)
-> +{
-> +	struct apple_spmi *spmi = irq_desc_get_handler_data(desc);
-> +	struct irq_chip *chip = irq_desc_get_chip(desc);
-> +	bool handled = false;
-> +	unsigned long val, offset, bit;
-> +
-> +	chained_irq_enter(chip, desc);
-> +	val = readl(spmi->regs + SPMI_IRQ_ACK_BASE + (SPMI_IRQ_NOTIFY / 32) * 4);
-> +	if (val & BIT(SPMI_IRQ_NOTIFY % 32)) {
-> +		apple_spmi_irq_ack_raw(spmi, SPMI_IRQ_NOTIFY);
-> +		complete(&spmi->fifo_rx);
-> +		handled = true;
-> +	}
-> +
-> +	for (offset = 0; offset < SPMI_NUM_PERIPHERAL_IRQS / 8; offset += sizeof(val)) {
-> +		val = readq(spmi->regs + SPMI_IRQ_ACK_BASE + offset);
-> +		/**
-> +		 * because of other masters in the bus, we're going to get a multitude of
-> +		 * interrupts we're not interested in. irq_resolve_mapping isn't very
-> +		 * optimized for the nonexistent path, so instead we mask with (a locally
-> +		 * cached version of) the IRQ mask
-> +		 */
-> +		val &= spmi->irq_mask_cache[offset / sizeof(val)];
-> +		for_each_set_bit(bit, &val, 64) {
-> +			generic_handle_domain_irq(spmi->irqd, offset * 8 + bit);
-> +			handled = true;
-> +			val &= ~BIT(bit);
+> +	host_lock_component();
+> +	for (offset = 0; offset < size; offset += PAGE_SIZE) {
+> +		if (addr_is_memory(addr + offset)) {
+> +			ret = -EINVAL;
+> +			goto unlock;
 
-this is no longer necessary
+If this fails we are left with the mapping inside the hyp because the unlock
+doesn't destroy the private mapping. Is this intended ?
 
 > +		}
-> +	}
-> +	if (!handled)
-> +		handle_bad_irq(desc);
-> +	chained_irq_exit(chip, desc);
-> +}
-> +
-> +static void remove_chained_handler(void *data)
-> +{
-> +	unsigned int irq = (unsigned int)(uintptr_t)data;
-> +
-> +	irq_set_chained_handler_and_data(irq, NULL, NULL);
-> +}
-> +
-> +static int apple_spmi_init_irq(struct platform_device *pdev,
-> +			  struct apple_spmi *spmi, int irq)
-> +{
-> +	int ret;
-> +	struct irq_domain_info info = {
-> +		.fwnode		= pdev->dev.fwnode,
-> +		.hwirq_max	= ~0U,
-> +		.ops		= &apple_spmi_irq_domain_ops,
-> +		.host_data	= spmi,
-> +	};
-> +
-> +	raw_spin_lock_init(&spmi->irq_mask_lock);
-> +
-> +	for (size_t offset = 0; offset < SPMI_NUM_IRQS / 8; offset += 4) {
-> +		writel(0, spmi->regs + SPMI_IRQ_MASK_BASE + offset);
-> +		writel(U32_MAX, spmi->regs + SPMI_IRQ_ACK_BASE + offset);
-> +	}
-> +
-> +	spmi->irqd = devm_irq_domain_instantiate(&pdev->dev, &info);
-> +	if (IS_ERR(spmi->irqd))
-> +		return PTR_ERR(spmi->irqd);
-> +
-> +	spmi->notify_irq = true;
-> +	ret = devm_add_action(&pdev->dev, remove_chained_handler, (void *)(uintptr_t)spmi->irq);
-> +	if (ret)
-> +		return ret;
-> +
-> +	irq_set_chained_handler_and_data(spmi->irq, apple_spmi_irq_handler, spmi);
-> +	apple_spmi_irq_unmask_raw(spmi, SPMI_IRQ_NOTIFY);
-
-logically I'd set spmi->notify_irq only after unmasking it, not that it
-matters as the spmi controller isn't registered yet.
-
-> +
-> +	return 0;
-> +}
-> +
->  static int apple_spmi_probe(struct platform_device *pdev)
->  {
->  	struct apple_spmi *spmi;
-> @@ -200,6 +441,8 @@ static int apple_spmi_probe(struct platform_device *pdev)
->  
->  	spmi = spmi_controller_get_drvdata(ctrl);
->  	mutex_init(&spmi->fifo_lock);
-> +	init_completion(&spmi->fifo_rx);
-> +	platform_set_drvdata(pdev, spmi);
->  
->  	spmi->regs = devm_platform_ioremap_resource(pdev, 0);
->  	if (IS_ERR(spmi->regs))
-> @@ -211,6 +454,15 @@ static int apple_spmi_probe(struct platform_device *pdev)
->  	ctrl->write_cmd = spmi_write_cmd;
->  	ctrl->cmd = spmi_cmd;
->  
-> +	spmi->irq = platform_get_irq_optional(pdev, 0);
-> +	if (spmi->irq < 0 && spmi->irq != -ENXIO)
-> +		return spmi->irq;
-> +	if (spmi->irq >= 0) {
-> +		ret = apple_spmi_init_irq(pdev, spmi, spmi->irq);
+> +		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
 > +		if (ret)
-> +			return ret;
+> +			goto unlock;
+> +		if (pte && !kvm_pte_valid(pte)) {
+> +			ret = -EPERM;
+> +			goto unlock;
+> +		}
 > +	}
+> +	/*
+> +	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
+> +	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
+> +	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
+> +	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
+> +	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
+> +	 */
+> +	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
+> +			      addr, size, &host_s2_pool,
+> +			      KVM_HOST_INVALID_PTE_TYPE_DONATION,
+> +			      FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_HYP));
+> +unlock:
+> +	host_unlock_component();
+> +	return ret;
+> +}
 > +
->  	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
->  	if (ret)
->  		return dev_err_probe(&pdev->dev, ret,
+> +int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size)
 
-Reviewed-by: Janne Grunau <j@jannau.net>
+This function seems to only update the host stage-2 annotation but it
+doesn't destroy the hyp mapping.
 
-thanks, this looks better than the initial version.
+I was looking to make use of this patch in an upcoming posting for the
+v2 ITS hardening but in my case I don't need the private VA range
+creation.
 
-Janne
+Thanks,
+Sebastian
+
+> +{
+> +	kvm_pte_t pte;
+> +	u64 offset;
+> +	int ret = 0;
+> +
+> +	if (static_branch_unlikely(&kvm_protected_mode_initialized))
+> +		return -EPERM;
+> +
+> +	if (!PAGE_ALIGNED(addr | size) ||
+> +	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
+> +		return -EINVAL;
+> +
+> +	host_lock_component();
+> +	for (offset = 0; offset < size; offset += PAGE_SIZE) {
+> +		if (addr_is_memory(addr + offset)) {
+> +			ret = -EINVAL;
+> +			goto unlock;
+> +		}
+> +		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
+> +		if (ret)
+> +			goto unlock;
+> +		if (!pte || kvm_pte_valid(pte)) {
+> +			ret = -EINVAL;
+> +			goto unlock;
+> +		}
+> +		if (FIELD_GET(KVM_HOST_DONATION_PTE_OWNER_MASK, pte) != PKVM_ID_HYP) {
+> +			ret = -EPERM;
+> +			goto unlock;
+> +		}
+> +	}
+> +	WARN_ON(host_stage2_idmap_locked(addr, size, PKVM_HOST_MMIO_PROT));
+> +unlock:
+> +	host_unlock_component();
+> +	return ret;
+> +}
+> +
+>  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
+>  {
+>  	u64 phys = hyp_pfn_to_phys(pfn);
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 91a7dfad6686..3073184cf6ad 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -1161,13 +1161,12 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+>  	kvm_pte_t *childp = NULL;
+>  	bool need_flush = false;
+>  
+> -	if (!kvm_pte_valid(ctx->old)) {
+> -		if (stage2_pte_is_counted(ctx->old)) {
+> -			kvm_clear_pte(ctx->ptep);
+> -			mm_ops->put_page(ctx->ptep);
+> -		}
+> +	/*
+> +	 * That also ignores stage2_pte_is_counted() instead of clearing
+> +	 * the PTE as the MMIO can be owned by the hypervisor.
+> +	 */
+> +	if (!kvm_pte_valid(ctx->old))
+>  		return 0;
+> -	}
+>  
+>  	if (kvm_pte_table(ctx->old, ctx->level)) {
+>  		childp = kvm_pte_follow(ctx->old, mm_ops);
+> -- 
+> 2.55.0.141.g00534a21ce-goog
+> 
 
