@@ -4,71 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D3FCC55822
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21C25C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SNcg4yLRrAMqVvjh7xGpP76Z6KvGkJyHkRJKm8OCgRY=; b=vhgUWsfjN6jxsH3qF8fgX58/i0
-	y4323BnOQBkcuZKh27ZmPo0GyBaG7d4sUtLYXnftvy6WiTCC+AWn+ltniwYV35toB7BTOH0DPbPWf
-	70Utx+YpKDu+0sLR9K1o8Or9tvdFN8gQQny+XiOFGKezImjvNOcJ/SeFatwv6LPRSeYoYmM6p53Qu
-	AGjrshfOeBKKZ8tWlA+rFjmKJ+wKOdWpUNiZ7baO2abQr7/MqYw6HRBNhFhs4ku11+QdIieFBjEDO
-	11MG+aMZh4nz+sXSqcJvoQAdkT83c/3TFkuHDQD/+lIca6bwORYhSKtcEdmeh4hyFfdFE4cBu9Q3a
-	7L1Y49yw==;
+	bh=v0gFZIF2db8KJGG1tEkguhOHK5K/jZjmuXvyiKIoMp0=; b=UfxMtjcgoLM9sxl3SQM85S8q68
+	J0WdPo27JBKUA/Xs4E4FMZC2VzObiLi5yKet/uWP6WsS6p5M6ax1op3iuuTBbLCmGbQSOIOqbSaYX
+	GG8LymXhAVBiNLeou4EGxxzLGg8uulI9i+qPSrNtEIKUuH7+i6fkASxtu3y4AQhExlB7q4ekoCdjr
+	x9cETgpGpW5DFo+0lJkNuKb345X/ccCnvTYomNVqzWTqah4KCGuhYpjmYoHLDXWHn/h65OSoRe4U8
+	FpaADFPI/mshJYvfyj1g2BgWjhNk5hEF/Nxi/DZa2wl00ZyypHdjYze7tjawbEfjWJKNj23f31IOe
+	/vttxAIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWQV-00000003QoE-0ucd;
-	Wed, 05 Aug 2026 07:52:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrWSA-00000003R08-2VRJ;
+	Wed, 05 Aug 2026 07:54:18 +0000
+Received: from mail-francesouthazon11011062.outbound.protection.outlook.com ([40.107.130.62] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWQT-00000003Qo4-3Geb
+	id 1wrWS7-00000003QyO-1pK5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 07:52:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B454660A6A;
-	Wed,  5 Aug 2026 07:52:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20A271F000E9;
-	Wed,  5 Aug 2026 07:52:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785916352;
-	bh=SNcg4yLRrAMqVvjh7xGpP76Z6KvGkJyHkRJKm8OCgRY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Dj4to2ePMBKxrHS21YueJj81YBvWMmm/zU4B6OTvdGDkTfFp1jwM0gD6RdcKfxGtc
-	 PhQq2bw4OGCZxVghhLaRsKjkiPE0ihI0JyxRB4Sc97q31ueKUeQWhvJwJcmVEfL1lM
-	 Ynbxbw+z/um1SJYU9jOV32JojP1BxGUIJ3O9qTyFH3RtyZ0VSYHOnIZGHHltBR95c+
-	 QYuKxnvSdNIV+hx8vNDOH3xMxpSpfI+09zXkMl7ANBx1/aVeTB22kL9ucuT4Z1wcB4
-	 ldYvkVT9eyqfzL3+L8FPelecfDynCcvGFfeM1cWDuUbupTItSpAFtozClYiQ+3W3Jm
-	 dF80eOm2m1jpA==
-Date: Wed, 5 Aug 2026 08:52:14 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>, "David Hildenbrand (Arm)" <david@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, 
-	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org, 
-	akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, 
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-Message-ID: <anLmaVE5PSh6qmNz@lucifer>
-References: <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
- <amCPBrdltFSE_fEf@J2N7QTR9R3>
- <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
- <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
- <anHuLy52o5S9Nlwp@lucifer>
- <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com>
- <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org>
- <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
- <anIXr4Kbn59Ac31Y@lucifer>
- <69f4cd9c-bd6c-4e5d-b8d1-a7be8408a57a@os.amperecomputing.com>
+	Wed, 05 Aug 2026 07:54:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JsykVrz1Wgss6vU3CagsEbgD/J3eQss2eQZSb9cV2CGr+FiYcTbM1566gUZqeOe/GRHZ6CZ4UmooGnloWXsEyYDsVFXZJNaL/E0+GGV0M0jXVsQMc5019YWdO+YYo4Sf9fq0HMI9BBbJ5JNgBVkanlkMKlJ+kMF7JqHcL8Qvp0+mB5x38bkcePYBMsrbyPbd35o2N5bg8e7ARP4WGVH9eCVoQ+b2vpIK6AMRS8etaYuqQk2mDi851iTTWPLDx8O/V33CD334V04OLCKJ259svYlMwJrBXIRkah3FARdDgFcvRtZ8AbvR/+UzNcrxW+1M6y0d8puUSyhedxSsBwXyyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=v0gFZIF2db8KJGG1tEkguhOHK5K/jZjmuXvyiKIoMp0=;
+ b=e5EXRkmIULv0ft0O+346Pe6SJKlwEAt2EquG/tLP0t51DaqgskwI4nbyFNi2ZA46ngjlytJbSEYRim44sbcGcU9U1HtDkHjKTnCSNNYs2vsuYNrgV+Xc3mmG7R1vkiwChKA0t2T39bnrSy+QayN6kFg7tDbUpDJ+jx76pBoDCl+m00Ud38g9tcJKLZC3eZZLnUdWUh6h52iYhmr8xtxF4jSp3/ck4T9k5cGBOFIC8eD3cUI9R2Q7BrdodKzjcT9Z1f1D7EM2bgdInfOdiHznQXCAyK49/BqNZqyNFLJ9jJpOrEYWUbXLAwtU744csCK4Ams078+lu+g+jVm73LAUTg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=v0gFZIF2db8KJGG1tEkguhOHK5K/jZjmuXvyiKIoMp0=;
+ b=QPU1cPZ+oJv3sK4ygiAfA7uNDTL6l80nAxmL8+qePa/0O882+1lkNqKOIGuXQXgK8G29EVGaIv57XqAiHeZaP6b+PGzMj0JY3cxah6i2EbfMFRFNPBGtn055QNG5/yKwmYBUXqFz9z38DL5eFJd9S85mZBNwEohIr0vAfwE8RHs9pbXQBjm7KI93EMF1itHrSxxo3BCiKAFo4fDqzzhvNTyLJKdpAeKYPBqx2siVaU+rqpQ3PeGjR68DUytw2Y4YybNZJDZY/A+18uf0HpFZum+lSZpB7fu6IO5bINxiL+zZlsMzHjVdmTsFu+dzy2dCMlu0Z45Rk10U42UgrX+A9w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB8465.eurprd04.prod.outlook.com (2603:10a6:20b:348::19)
+ by VI0PR04MB10687.eurprd04.prod.outlook.com (2603:10a6:800:25e::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Wed, 5 Aug
+ 2026 07:54:08 +0000
+Received: from AS8PR04MB8465.eurprd04.prod.outlook.com
+ ([fe80::36fa:43c3:5ac6:9545]) by AS8PR04MB8465.eurprd04.prod.outlook.com
+ ([fe80::36fa:43c3:5ac6:9545%6]) with mapi id 15.21.0292.013; Wed, 5 Aug 2026
+ 07:54:08 +0000
+From: pankaj.gupta@oss.nxp.com
+Date: Wed, 05 Aug 2026 14:14:47 +0530
+Subject: [PATCH v33 1/7] Documentation/firmware: add imx/se to
+ other_interfaces
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260805-imx-se-if-v33-1-212e32ff0295@nxp.com>
+References: <20260805-imx-se-if-v33-0-212e32ff0295@nxp.com>
+In-Reply-To: <20260805-imx-se-if-v33-0-212e32ff0295@nxp.com>
+To: Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785919487; l=7403;
+ i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
+ bh=ZSAmXRvPjYNeGEa/I9hefXFuALx9geFcXzYMsSoJmHQ=;
+ b=7nJvQdq/X/VLhFzSw55WbZkVWuOpkG0saLno/CMtei3cZc1wZXohBkL93EjBbPEnjKrVd0TSC
+ ek+NFyJTLWaAXaSg2GhaQ3v7JtGnDXWJlWiUxLgJsOpPDn/UlOKjJSc
+X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
+ pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
+X-ClientProxiedBy: SI1PR02CA0015.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::18) To AS8PR04MB8465.eurprd04.prod.outlook.com
+ (2603:10a6:20b:348::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <69f4cd9c-bd6c-4e5d-b8d1-a7be8408a57a@os.amperecomputing.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8465:EE_|VI0PR04MB10687:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4cc74646-9938-44ff-958b-08def2c6bab2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|19092799006|921020|6133799003|22082099003|18002099003|3023799007|11063799006|56012099006|10067099003;
+X-Microsoft-Antispam-Message-Info: b6iA0U7UvUbDqQB+Ax4Vil7VEEgcHZ+ZUA0jCbH9G0vpEsND0E6MNwlrv6zQqhEVX9X1FyMkeG1GcTK45U1/y7SZ0xBWqD1BgqR2KzMdcREnvlFtjY8xTk1bnzAxpAgxljgXSxKUBm04QPBY+tFYjlgwdVMMJceQ6njprjzxy93lci9yTLpDP1nsEjkUrl8WkApIie4BMghmyX8p4IrquTI2o4CIiO3M8jrhwd6Tcada9zDvVU5jY/HAvMp0XJMYgVtJM1AWF/9vnUqP+xpLLnYOwkTqf13NB6yPZkUeW3wxxwFivitpTMyqebLk9hEatJrOWqx2YZiifW8Eg5AkLhpAwBqV8mfo8h5+68alMi4EOPfxKE+U65YfMJ1slRaEEk3Dt+fymdq0pi3+J+QldBUvqiETvwkYefN1pRS1H2Be9/BR7/2dUgiDp3Zu26aBirR4Muum0LVG+JEziXngjHcHCNo4BOgx68LJq/wCXaqVyCq4jUskH7aZsDw1zJivj31K/qjag178dymkK4oS+txc+5NvNq43MCS/Lq9t5sA3Odpm+r9//dm30g0gmRUh7JOwCwYj7y1EFDhFmlZuidEhWBiJJqBfESxLgbocdm7IRCK6JKnmw025sfUXRCbU0bOdwfykdiC8TjTlxaBAQxJwB8TSMdxSayWpFZj5VslnC5Dw7GUqhPNDpiEig+z0My/G+SFLCnwIJSKjpSOIaw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8465.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(19092799006)(921020)(6133799003)(22082099003)(18002099003)(3023799007)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cGpyak8yNncyaDdrM2FaNTdJby83L0tFNHVNUHhMRjg4Z1YrU0pyVmQyZFY0?=
+ =?utf-8?B?RzdaVDlLK3d4ZCswMWFlc2QzRUZNT3JYOTRZejl3elMxYkNxWEF5SEphR0sv?=
+ =?utf-8?B?S3RRSTJ4a3Q5S0VKSVZ3YjMvQkplak9IQnJlRXpRcUhnem5Va1BiOGJLUXp0?=
+ =?utf-8?B?amZ5bE9QdWVYN3Iwc0JDYXlvM3dZL3cwbUtuK3BVYVFYSkxZVmtjQm9KakFC?=
+ =?utf-8?B?b0hTaE5qUG5GaVhiZ3FLUkJCRXRQaDkwSzdjamg3czJuaW1jQXpOZDdJaDVv?=
+ =?utf-8?B?Q3l4OHJCaW1uS3V1M2tjMUJUOFF3VlhEOC9tK0hDS2JhNjRPV25BY0lMc1Fa?=
+ =?utf-8?B?Z2ROYUdwOUZZQlcrMURNc1M3UTJObVNreHJ1Rmk0TlA5MEoxbVZsbWdJMWZJ?=
+ =?utf-8?B?OCtPakF2RGtteGM5TnVmV09kVmJzNXFpb1FWdnlMMkV1QXRyUzhFcnJFZ3lZ?=
+ =?utf-8?B?UHcyQWp4QTVBNm03MU9GWUJ1NEQ4dERJRldkSkxINktiSVBpVUxnWkNGTXE3?=
+ =?utf-8?B?SzFsN2tXQmw3aytIVTFDUzhNcWlWdzE3MTRlUUpPcHpvUnkweGthMzVmdXJt?=
+ =?utf-8?B?NlFXQ1VyQ1d2WEFyMzY5cVRYVko1dVNsc1NkZnZuYWJNWGoyczVhZXljKzRo?=
+ =?utf-8?B?QUN1M3JnWjZ4YTlrcmZRUm02SEVkRjl3bTN4UlVZb3FzTHZmamkxeFo4bG84?=
+ =?utf-8?B?L3d6L3Znd2h2djZ2OS9nc2FHYVpZNUg2Lzhvbk1kQVdzclpJeTUyd2RDazZm?=
+ =?utf-8?B?RlB5bUJWb0ljZVMvMmZXTVpkaUtaQVhXdzZSYWdSbEFBQnhhMXpScTFlUlR2?=
+ =?utf-8?B?TS9aSnFPa2NuQ3pOSVlRanZLc2tncEk5bkVFdzJ2YXcwdFQwNE95VnYwU1U1?=
+ =?utf-8?B?YVhuaFV6aFpjbU10ajJISFVHWTlaOVZ4QkUyUXhxeStCSUNNRTJqUGpnMkV6?=
+ =?utf-8?B?WHQzcEFhVldJUTJUT3NUcSttMXFmTEdHT2ozQUpJY2xtbWxla21ySnNBM1Bt?=
+ =?utf-8?B?Q3BBd1p1d01UTE5oR21sMmxzNjdLTFMxQ3pQQU41eDhSRWdRTEc3V2tlM1BQ?=
+ =?utf-8?B?NXprajRsWDNLYlBDRGNLUVphWEJLVFFReHZ3bnNNVVpBb05JMCtDbWtvUFA2?=
+ =?utf-8?B?eldiOHdZZ2VEMHl2M2l3RUlSZ3lFZjdXdE8yOEorcytjcWxWSjNsVVRhZXJR?=
+ =?utf-8?B?UjNxWjcwYVk5dmFvMllLM1NOVzdJZ0tjNU92eGx2aXJuVmtHejFRQ2RJT0tr?=
+ =?utf-8?B?WHE0NEZaTEVCbjA1NEdsUlBZR3B5dUN4UVoyNGRtanZmRUxuWVhwV2xVRk9r?=
+ =?utf-8?B?SWZWOUxUejdTcU0vSGwzdzI5SjRROEd1WGVJUnJ0azg0YWlxdWhKOW5KV2du?=
+ =?utf-8?B?YWkvTUtOcVNidnp5RGpUWExlanlJaUphaHBUYzRKWnZsZGV0Nm05QzFlbnFp?=
+ =?utf-8?B?ZGYwMzQrM2poR0lWNjRXZFJ5NzVMMVk2ZkNBUWd5QS84MW81REptVXlEV0t4?=
+ =?utf-8?B?ZGFhZVhQQkhVcGk3bld0V0p5S214a2VVNnlpdDJ3TWZFNXJvQ09xcW1VK1Zo?=
+ =?utf-8?B?aFhHNW1lRy93OENhYXhzZjBrNGs0Vm45WUtiajNYc1ByUFd0L0pJTzdubVlC?=
+ =?utf-8?B?Mm5hY0drT3dTMlhTSHcxWFMvKzNJVklSUmkxdTEvbXFhVU12WkpuaFJkc3hz?=
+ =?utf-8?B?L1Y2SFVGbXgrWE9qb1oxbmdKbWt4VkJlVHJiWXRzT0w4b243RThnL2VtL3NK?=
+ =?utf-8?B?U0FSMCtnZTVhMFBaWU53VEZXUEdjNUNtYjZVbG9hUklJUGxVVU54K0dXYnpS?=
+ =?utf-8?B?TEZvMFBvZHdnbTNudDJld3JmeTlLS1p5YnZFZitDbGRMMHZHTUxjTmVJcnJD?=
+ =?utf-8?B?dkxaeFdNN3c0b1k4Tkc0QWV3d3c2VTAzQWIvUW1FODlTU3d5d0pSOXE3c3VU?=
+ =?utf-8?B?MmpGVlo2STJrVXl2b2dyYTVpRzV3QnpPMW1UYUg1Ynp1cXg5TnBINW5oWE05?=
+ =?utf-8?B?R1JDa0RDZ2RMRitCY2RlWEsxcTNhZkU4a09ENVoxZlY3ajZZdlk2SHpQRUhE?=
+ =?utf-8?B?YmloKzNYR1BMUE45U0JlRk1iYjdnemNoVm9JRjVmNEc3Uzdub3lEM2U4QVZh?=
+ =?utf-8?B?amhHMlk4WDByR0J3dFNBZ2pHU3p0RUJMTzd1YXpqZExOTmVoem8zOXFJU0tr?=
+ =?utf-8?B?S2g3QzdOYllZN3VtOHhpNlloMTU5aFU0STM1cGNpTDhqVEdPSi8vbkZ3Uncv?=
+ =?utf-8?B?V0NjUEZGN0NLcnROaldPN3lCcjlZM0x0NWZiNnZKcXpDMGh5TEpuQ0tIK09q?=
+ =?utf-8?B?LzErVTNDanNrem9jcEVVV3JUeklGM1hRVzNkWUN5YmxJU281RENZUms2cE14?=
+ =?utf-8?Q?VUtEnqJKmJN1sOZqA0HLnZ5Lok8z92ubKWDbR?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4cc74646-9938-44ff-958b-08def2c6bab2
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8465.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 07:54:08.5288
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: f4j4k4MCplnTnc1qcjDpkgL5Ghohny/MQNVDERyS4C4guBYMDIUKIdJTYjp8RMQe+AwxdQjZRr/ffepfCxN41xgJgcV06B+U+Cl7v1zUJf/jf1q1Y+R0T8l5FztxOoDz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10687
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260805_005415_664934_289D5B4B 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,152 +161,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 02:51:54PM -0700, Yang Shi wrote:
->
->
-> On 8/4/26 10:23 AM, Lorenzo Stoakes (ARM) wrote:
-> > On Tue, Aug 04, 2026 at 09:30:08AM -0700, Linus Torvalds wrote:
-> > > On Tue, 4 Aug 2026 at 09:27, Christoph Lameter (Ampere) <cl@gentwo.org> wrote:
-> > > > We certainly do not want to replicate that approach. We are using the per
-> > > > cpu page tables to avoid address calculations in the VM that other
-> > > > platforms can do with a segment override.
-> > > Right, and I said that that's ok as long as it's a internal
-> > > architecture thing. Not a "this is how the VM works".
-> > >
-> > > Because people really have wanted to make it a "this is how the VM
-> > > works" thing. And that is very much what I object to.
-> > Well :) it fundamentally changes how mm works - now we have a whole new set of
-> > kernel page tables and PGD's that we have to think about.
-> >
-> > And the series either tries to hack changes that fundamentally alter how
-> > vmalloc works or will add its own duplicative kernel page table code to do the
-> > same kind of thing.
->
-> I don't think this series fundamentally alter how vmalloc works IMHO.
-> vmalloc still works in the same way and the page tables share the same
-> contents (except local percpu area), it just needs to sync up kernel page
-> tables when the top level is changed. This is not new, x86 has been doing so
-> for years, see arch_sync_kernel_mappings(). The patch just added the
-> implementation for arm64.
+From: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-Your patch fundamentally changes how vmalloc works (!init_mm) as I pointed out
-in the patch.
+Documents i.MX SoC's Service layer and C_DEV driver for selected SoC(s)
+that contains the NXP hardware IP(s) for Secure Enclaves(se) like:
+- NXP EdgeLock Enclave on i.MX93 & i.MX8ULP
 
-Your response was essentially 'OK I'll duplicate the code' which was not really
-encouraging.
+Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ .../driver-api/firmware/other_interfaces.rst       | 133 +++++++++++++++++++++
+ 1 file changed, 133 insertions(+)
 
-So either you have a variant of vmalloc that works on a brand new type of kernel
-page table mapping, or you have _yet more_ duplicative kernel page table code,
-explicitly the kind of code that has caused latent races and issues that I've
-very recently had to address.
+diff --git a/Documentation/driver-api/firmware/other_interfaces.rst b/Documentation/driver-api/firmware/other_interfaces.rst
+index 06ac89adaafb..6c6fa9a0ba1d 100644
+--- a/Documentation/driver-api/firmware/other_interfaces.rst
++++ b/Documentation/driver-api/firmware/other_interfaces.rst
+@@ -49,3 +49,136 @@ of the requests on to a secure monitor (EL3).
+ 
+ .. kernel-doc:: drivers/firmware/stratix10-svc.c
+    :export:
++
++NXP Secure Enclave Firmware Interface
++=====================================
++
++Introduction
++------------
++The NXP's i.MX HW IP like EdgeLock Enclave, V2X etc., creates an embedded secure
++enclave within the SoC boundary to enable features like:
++
++- Hardware Security Module (HSM)
++- Security Hardware Extension (SHE)
++- Vehicular to Anything (V2X)
++
++Each of the above features is enabled through dedicated NXP H/W IP on the SoC.
++On a single SoC, multiple hardware IP (or can say more than one secure enclave)
++can exist.
++
++NXP SoCs enabled with the such secure enclaves(SEs) IPs are:
++i.MX93, i.MX8ULP
++
++To communicate with one or more co-existing SE(s) on SoC, there is/are dedicated
++messaging units(MU) per SE. Each co-existing SE can have one or multiple exclusive
++MUs, dedicated to itself. None of the MU is shared between two SEs. Communication
++of the MU is realized using the mailbox driver. Each secure enclave can cater to
++multiple clients by virtue of these exclusive MUs. Also, they can distinguish
++transactions originating from these clients based on the MU used and core security
++state. The communication between the clients and secure enclaves is in the form of
++a command/response mechanism. Each client could expose a specific set of secure enclave
++features to the higher layers, based on the commands supported by that client. For
++example, the secure enclave could simultaneously support an OPTEE TA and Linux
++middleware as clients. Each of these clients can expose a specific set of secure
++enclave features based on the command set supported by them.
++
++NXP Secure Enclave(SE) Interface
++--------------------------------
++MU(s) is/are not shared between SE(s). But for an SoC like i.MX95 which has
++multiple SE(s) like HSM, V2X-HSM, V2X-SHE, all the SE(s) and their interfaces 'se-if'
++that is/are dedicated to a particular SE will be enumerated and provisioned using the
++single compatible node("fsl,imx95-se").
++
++Each 'se-if' comprises two layers:
++
++- (C_DEV Layer) User-Space software-access interface.
++- (Service Layer) OS-level software-access interface.
++
++::
++
++   +--------------------------------------------+
++   |            Character Device(C_DEV)         |
++   |                                            |
++   |   +---------+ +---------+     +---------+  |
++   |   | misc #1 | | misc #2 | ... | misc #n |  |
++   |   |  dev    | |  dev    |     | dev     |  |
++   |   +---------+ +---------+     +---------+  |
++   |        +-------------------------+         |
++   |        | Misc. Dev Synchr. Logic |         |
++   |        +-------------------------+         |
++   |                                            |
++   +--------------------------------------------+
++
++   +--------------------------------------------+
++   |               Service Layer                |
++   |                                            |
++   |      +-----------------------------+       |
++   |      | Message Serialization Logic |       |
++   |      +-----------------------------+       |
++   |          +---------------+                 |
++   |          |  imx-mailbox  |                 |
++   |          |   mailbox.c   |                 |
++   |          +---------------+                 |
++   |                                            |
++   +--------------------------------------------+
++
++- service layer:
++  This layer is responsible for ensuring the communication protocol that is defined
++  for communication with firmware.
++
++  FW Communication protocol ensures two things:
++
++  - Serializing the messages to be sent over an MU.
++  - FW can handle one command message at a time.
++
++- c_dev:
++  This layer offers character device contexts, created as '/dev/<se>_mux_chx'.
++  Using these multiple device contexts that are multiplexed over a single MU,
++  userspace application(s) can call fops like write/read to send the command message,
++  and read back the command response message to/from Firmware.
++  fops like read & write use the above defined service layer API(s) to communicate with
++  Firmware.
++
++  Misc-device(/dev/<se>_mux_chn) synchronization protocol::
++
++                                Non-Secure               +   Secure
++                                                         |
++                                                         |
++                +-----------+      +-------------+       |
++                | se_ctrl.c +<---->+imx-mailbox.c|       |
++                |           |      |  mailbox.c  +<-->+------+    +------+
++                +-----+-----+      +-------------+    | MU X +<-->+ ELE |
++                      |                               +------+    +------+
++                      +----------------+                 |
++                      |                |                 |
++                      v                v                 |
++                  logical           logical              |
++                  receiver          waiter               |
++                     +                 +                 |
++                     |                 |                 |
++                     |                 |                 |
++                     |            +----+------+          |
++                     |            |           |          |
++                     |            |           |          |
++              device_ctx     device_ctx     device_ctx   |
++                                                         |
++                User 0        User 1       User Y        |
++                +------+      +------+     +------+      |
++                |misc.c|      |misc.c|     |misc.c|      |
++   kernel space +------+      +------+     +------+      |
++                                                         |
++   +---------------------------------------------------- |
++                    |             |           |          |
++   userspace   /dev/ele_muXch0    |           |          |
++                          /dev/ele_muXch1     |          |
++                                        /dev/ele_muXchY  |
++                                                         |
++
++When a user sends a command to the firmware, it registers its device_ctx
++as waiter of a response from firmware.
++
++Enclave's Firmware owns the storage management over a Linux filesystem.
++For this c_dev provisions a dedicated slave device called "receiver".
++
++.. kernel-doc:: drivers/firmware/imx/se_ctrl.c
++   :export:
 
-People have repeatedly treated the ordinary or garden variety kernel page tables
-as 'never go away, nobody else touches' and rolled their own
-walking/manipulation code which I'm now having to fix up, so I'm really not in
-favour of going down that road again.
+-- 
+2.43.0
 
-For instance, there's a contract that kernel mapping manipulation and race
-resolution _has_ to happen on init_mm.mmap_lock. I'm not sure exactly how that
-will interact with the per CPU page table concept.
-
-arch_sync_kernel_mappings() and friends are different - that's about
-synchronising kernel mappings across process PGDs, you're proposing an _entirely
-distinct_ set of kernel page tables.
-
-Core mm really does have to worry about this stuff even if only one arch
-implements them.
-
->
-> >
-> > So now core mm has to worry about TLB coherency and synchronisation, how this
-> > might interact with things like page table isolation, and a lot of other
-> > headaches (and I'm not really convinced they've been thought through here).
->
-> I don't think this series changed how TLB is sync'ed either. When we
-> invalidate TLB entries for kernel (i.e. vmalloc area), the TLBI is sent to
-> all CPUs, it is unchanged.
-
-The v2 change log which was a laundry list of 'I didn't think about X' (which is
-understandable - this stuff is hard) really doesn't fill me with confidence that
-you've thought everything through.
-
-And inevitably you have to worry about TLB synchronisation of these page tables,
-as you're essentially inventing a new class of page tables that have different
-semantics from everything else.
-
->
-> The series does change how percpu area is setup for ARM64, but this is
-> already sort of architecture dependent.
-
-The diffstat disagrees with you :) you are changing core percpu and mm for this.
-
->
-> >
-> > IOW - breaking fundamental assumptions about kernel page tables is inherently a
-> > whole-VM change (See [0] for instance for an example of what can go wrong).
-> >
-> > If Christoph + Yang can provide compelling data that advocates for this change
-> > AND the core mm and arm64 communities agree to move forward with this, then
-> > things are different.
->
-> We shared some benchmark data in the cover letter. Kernel build is a quite
-> common benchmark used by kernel developers. Specjbb and MySQL benchmark
-> results are considered important benchmarks as well. I wish I could run
-> benchmark on more ARM64 cpus from other vendors, but I do have limited
-> access to other hardware.
-
-I understand that and saw them (thanks for that). But can you also run them
-against Mark's series?
-
->
-> >
-> > However, I think the best approach here is to find the least invasive way of
-> > limiting the change to the architecture itself.
-> >
-> > Mark has put forward an approach that eliminates the exact overhead that this
-> > series aims to address but does so without having to fundamentally alter core
-> > mm assumptions (v2 posted at [1]).
-> >
-> > So that seems very clearly to be a better alternative to me.
-> >
-> > Ultimately we need mm and arm64 maintainer agreement on the way forwards (or in
-> > the case of a truly isolated arm64 solution, arm64 maintainer agreement).
-> >
-> > The LSF session was not encouraging ([2]) and as an mm maintainer I'm not at all
-> > happy with this myself, nor does the arm64 community seem all that enthused so I
-> > would against gently suggest to Christoph to be a little more open-minded about
-> > the the proposed alternative which he seems to have dismissed out of hand.
->
-> Nobody disagreed Mark's approach also achieved good result, we just thought
-> the series can do better. I agree there is always trade off between gain and
-> cost, this is why we are seeking more usecases although there are different
-> opinions.
-
-I'm glad you raised tradeoffs, absolutely agree :)
-
-Your proposal incurs high costs in terms of maintenance headaches, so it's not
-'which is theoretically quicker based on instruction count' (a poor metric
-anyway), but rather an assessment of overall RoI.
-
-And every series must be considered on its own merits, nothing is guaranteed to
-be taken.
-
-Let's see how the alternative stacks up based on data please.
-
->
-> Thanks,
-> Yang
->
-> >
-> > >                Linus
-> > --
-> > Cheers, Lorenzo
-> >
-> > [0]:https://lore.kernel.org/linux-mm/20260723-series-vmap-race-fix-v6-0-8cc77dcc0018@kernel.org/
-> > [1]:https://lore.kernel.org/linux-arm-kernel/20260804170503.3513916-1-mark.rutland@arm.com/
-> > [2]:https://lwn.net/Articles/1073395/
->
-
---
-Cheers, Lorenzo
 
