@@ -4,105 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0027FC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 17:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D826C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 17:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MpFFANYWC8oF3BuUI/bTa1pYQgJbnIlCD1S9bFmjp4o=; b=ZtfXpwap1SKlQ8WfYCHSbViDEb
-	MNeX0RkMVrEz7s1bHafYA3p/xddN6vewExuf2hmYW9JX2mfydmsjiUzE3Yz2PgswXGR2xYIfkG2g3
-	FVUl5sxVaYwZ/v8moZTK64WIQZPlANW2QDN++KLXbV+bW1ccTtdNKus6TME4two0DQSgca3ETnyWR
-	APODCnwPNcmjfH0LTbri3c2hm7z0v1twleWOX24VFDy2qr0rXw7jtywatwyfYPeV67g4rvrO1UY9R
-	9ZV6j4X/8GWPWLAPvxx7yClHr3ZLeqOTckfJrZY92YowIlvcM4J+us7ziJBHipOHO1ltqxVeUQh1A
-	Pp5R678Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ig4HxOQjnpmoynEQayIeEsifMuFOLWzyqUkLO0olbbc=; b=J2YTtNKJjMESeo058hCbHmNv7S
+	cqAeA2+Vf78hzvtDMTIYEbMkYK2nrUW+G3AbkMvmZIk861fSqLuGmY4svkXVWlvu9um5q85orjHE0
+	MxNXrJsAsk2ogRsC75x9NlMKAzSWTRAQXW1AoCThR11Tsxri253UmAEMwXf9CFK4FpN97sJcuWF5H
+	ooGRvo2OOtZB5ontwuEWW46VqI5q0I59BGbwYbdpcmpCXNt7BU5BKBlTsrvLdGcM5UK1ebQZ0jE4P
+	isCyjkYCN+VLwx8FN1CLF2xdaqX0Y89JtHg3TwzJjlxTZ8WQaDOBdmZSgOqRO0aVPcAd42AesOgXg
+	neiHdE3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrfVH-00000004L83-2VCy;
-	Wed, 05 Aug 2026 17:34:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wrfeO-00000004LiN-2uW7;
+	Wed, 05 Aug 2026 17:43:32 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrfVD-00000004L7F-3blf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 17:34:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1785951241;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MpFFANYWC8oF3BuUI/bTa1pYQgJbnIlCD1S9bFmjp4o=;
-	b=BktJWwyjxrluFUTrTp30egmni4Hm7O3BZKQwu16cUfkkAWBgb71YFFJ2se9l4M1qjwDp7R
-	uM3ft3cDhKCw+03qHBa0MKyh1KNCDxOLZNLZIwU4RCT2IFx7WYnWVHgnj3LwDmF18oBYvJ
-	lmXE5aSRCOEMtWINfWhnI5YsQywiMwQ=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-643-KxTFSVQFMj6gYfacbOV6Xg-1; Wed, 05 Aug 2026 13:32:05 -0400
-X-MC-Unique: KxTFSVQFMj6gYfacbOV6Xg-1
-X-Mimecast-MFC-AGG-ID: KxTFSVQFMj6gYfacbOV6Xg_1785951124
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-47f8398ed9fso989080f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 10:32:04 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785951124; x=1786555924;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MpFFANYWC8oF3BuUI/bTa1pYQgJbnIlCD1S9bFmjp4o=;
-        b=eoptXetp2azVHXn5CgStUo1iuC6Zu9PtP2mC4olYSFVMnZ5UB/m2wNzlUtPfvHeG8E
-         x4/iHVSe74C09TOBpMjgeCATHusy+TcPwcP03v2aFK8z74D2RC3GP7r/QCUJ7fbgVp9o
-         hu7po6HBl69bJpOkhvqGmbRCqcSPJlxOCfd0ZNGNrU1DXoNRYZw4hajcAcP+e29tgkZf
-         Zx9OoU7iAV8RMLaiK3uxFPnWZ+XLSdFFkwBaN9Sg4eiAb8GtsjvXy4DhZehuzWDDtM6j
-         QIIAJNCLlXbxaa+oEDDpZSA+gXAeBmos7poNXrURtD9JgQDlvWROnqMhbbtIwW/g2ok+
-         WlEw==
-X-Forwarded-Encrypted: i=1; AHgh+RpnuIk8AMK//tatHZHaH+mU3gVJ960kUNleJXJqQ81iRfsNHUqg2uW+BlNYC0tfY0xwdrzEddO3iz90sx5PirAL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaCNLoF5Ag+ULDPa9LhBXN0WpxvfLcpidxbe0DGeFC2Dejv7eY
-	aMtT6pB2cTzP/7NyKTp/ozqciQ8cZjtka6il6cjUiLcVjCuwHJHtqStLPkXLA0/G0U+l3IKIB6f
-	szWZDBSz4HwlFQnI557zA3dTLQzNjvrKreIxJYzMQE5b0vIpkg/q0SCmrc7WgEno3oGOZ0qTQoR
-	QV
-X-Gm-Gg: AR+sD10UVwnlQOUAQa70v7TYVIBv7XxYksPQ9z9LYO+jZvngccKnVxwAKfm3P+WuROt
-	N4IW/aajFfCkv3HyICcxdWDMee0mmeyGP9aZtCcnGRAjAgiYmnH30fto6zN82FjkJTWJ7iYibTx
-	K5ZmsyXJxssQk15vbDBF2tQddIYYsRH7ZEPRc7pu5UPO29uoVmC6IFtqgtQy2ozNR688l6YLUPJ
-	2PgV0pVLy6nfGLPkw46+f+BTGAWsed91CxTeBHFXMViCmm1WITaZX9PRG+ZBrYUZor1UnXnt6Ab
-	ebF4f/1T7N8CE9omtC11ba6DPmqoKowPQSB5pnhNpQxkdPCc0zEymmgxFSfgze3KJamfIuv0rdU
-	=
-X-Received: by 2002:a05:600c:22ca:b0:498:ee7:e40a with SMTP id 5b1f17b1804b1-4994e7d2c19mr94429775e9.16.1785951123753;
-        Wed, 05 Aug 2026 10:32:03 -0700 (PDT)
-X-Received: by 2002:a05:600c:22ca:b0:498:ee7:e40a with SMTP id 5b1f17b1804b1-4994e7d2c19mr94428975e9.16.1785951123249;
-        Wed, 05 Aug 2026 10:32:03 -0700 (PDT)
-Received: from localhost ([2a01:e11:1007:ea0:8374:5c74:dd98:a7b2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4994e980559sm66252115e9.2.2026.08.05.10.32.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 10:32:02 -0700 (PDT)
-Date: Wed, 5 Aug 2026 19:32:01 +0200
-From: Davide Caratti <dcaratti@redhat.com>
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Daniel Thompson <daniel@riscstar.com>,
-	Alex Elder <elder@riscstar.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next] net: stmmac: add tc-ets qdisc offload
-Message-ID: <anNzkcCXvOehhNcZ@dcaratti.users.ipa.redhat.com>
-References: <20260804-stmmac-ets-offload-v1-1-f3a09169d22b@oss.qualcomm.com>
+	id 1wrfeL-00000004Lhu-39LB;
+	Wed, 05 Aug 2026 17:43:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:In-Reply-To:References;
+	bh=ig4HxOQjnpmoynEQayIeEsifMuFOLWzyqUkLO0olbbc=; b=O1doOVf/XA7nC1K1o+6KDQQwQC
+	VAHI5m6Sb6Av7G3Q4Ah0sLDemgPfsD+CVZAeFwOGN2sVazwKU03TUHHqe8adWZztVlT/70F1RDnSo
+	nMvkrdT2s4sNye184r1qc/GeM/OcwU/XJ+yu28FG9LHFG4Y6RguDUilQ9gGscEa/fSI4afhzh8Amy
+	wrwCBL6Ph2nREed/kgfmnWGHXK9uzAE7e7/OaKk1mJF37wu3FVXPrIVp7cXCwckRCZJ0w60DRBOYX
+	624mSnt3ikmWSsVf+ni/zQtmWRGeboTbd1BBQUYOATa1GHF4i/rksPuhikMrH7GjtTnUIbsQYznR9
+	rXD5WuQA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip dts32 changes for 7.3 #2
+Date: Wed, 05 Aug 2026 19:43:26 +0200
+Message-ID: <6604532.5fSG56mABF@diego>
 MIME-Version: 1.0
-In-Reply-To: <20260804-stmmac-ets-offload-v1-1-f3a09169d22b@oss.qualcomm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: iY_A8aMVRzpvdK5xk1ox3iXDggPo7Q9LGNow3igVHI4_1785951124
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_103403_971560_1D2B3DBF 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20260805_104329_818764_BEF18783 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,54 +63,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 08:17:35PM +0200, Lorenzo Bianconi wrote:
+Hi soc maintainers,
 
-[...]
- 
-> When all bands are strict priority, the MTL scheduler is programmed with
-> SP scheduling; otherwise the requested weights are applied to the TX
-> queues and the scheduler is switched to DWRR. The TC_ETS_STATS command
-> is accepted and handled.
-> 
-> Export stmmac_set_tx_queue_weight() so the ETS path can reprogram queue
-> weights, and wire TC_SETUP_QDISC_ETS into stmmac_setup_tc().
-> 
-> Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+One lonely patch with whitespace fixes below, and there is nothing
+more for the arm32 side pending for 7.3. So that should be end for
+this part.
 
-hello Lorenzo, thanks for your patch!
 
-> ---
-> +static int tc_setup_ets_sched(struct stmmac_priv *priv,
-> +			      struct tc_ets_qopt_offload *qopt)
-> +{
-> +	struct tc_ets_qopt_offload_replace_params *p = &qopt->replace_params;
-> +	struct plat_stmmacenet_data *pdata = priv->plat;
-> +	int i, nstrict = 0;
-> +
-> +	if (p->bands > priv->plat->tx_queues_to_use)
-> +		return -EOPNOTSUPP;
-> +
-> +	for (i = 0; i < p->bands; i++) {
-> +		if (!p->quanta[i])
-> +			nstrict++;
-> +	}
-> +
-> +	if (p->bands && nstrict)
-> +		return -EOPNOTSUPP;
-> +
-> +	if (nstrict) {
-> +		tc_setup_sp_sched(priv);
+Please pull.
+Thanks
+Heiko
 
-From what I understood, this will fail configuring the strict priority case (the only one
-possible according to the commit message, where all bands have quanta equal to 0). Maybe
-the if() statement should be done like:
 
- if (nstrict && nstrict != p->bands)
-	return -EOPNOTSUPP;
+The following changes since commit 44045aa7a9a9e6484617f44f77a3efb2d8e78565:
 
-WDYT? thank you in advance!
+  ARM: dts: rockchip: Add Alientek DLRV1126 (2026-07-12 22:03:41 +0200)
 
--- 
-davide
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v7.3-rockchip-dts32-2
+
+for you to fetch changes up to 1a17f391c139567e2fac6894c6b43f5978e915c8:
+
+  ARM: dts: rockchip: Correct white-space style (2026-08-02 20:26:21 +0200)
+
+----------------------------------------------------------------
+Whitespace fixes
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      ARM: dts: rockchip: Correct white-space style
+
+ arch/arm/boot/dts/rockchip/rk3188-radxarock.dts            | 2 +-
+ arch/arm/boot/dts/rockchip/rk3288-evb-act8846.dts          | 2 +-
+ arch/arm/boot/dts/rockchip/rk3288-evb.dtsi                 | 2 +-
+ arch/arm/boot/dts/rockchip/rk3288-firefly-reload-core.dtsi | 2 +-
+ arch/arm/boot/dts/rockchip/rk3288-firefly.dtsi             | 2 +-
+ arch/arm/boot/dts/rockchip/rv1103b-omega4-evb.dts          | 2 +-
+ arch/arm/boot/dts/rockchip/rv1126.dtsi                     | 2 +-
+ 7 files changed, 7 insertions(+), 7 deletions(-)
+
+
 
 
