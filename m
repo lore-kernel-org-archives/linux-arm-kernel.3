@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6788CC561E6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE123C561E6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eknVX0861nDOKN5z4L+9yWvQ2f3wGrn2cEr5rttrL2M=; b=Go8BIj3b3KKEA3otijnoGq9fi1
-	xWJUqwQwlXoT9otX9BXs321fGSNIopWcgGCWDZlvt/B7xnZ+U4gbgN1zr0Lb1exJwh0A4pu5bRHUA
-	jN+cBVtqtP0tpWQQ4Ik6qBawH+HJRdgrAl7gcw3PjI/Gq/a8UefFdwNOiRaqRFIAFPaQuALEELnDb
-	9lP705Ld4PEzozs4M24fCFZ3j5FWU7QAb8kA0sv7OyGtp/ZGTB+jZ4GD6jUmZdlmU1zIUtASd4fRh
-	HFqkMoXxO+4YC0IXyu5mEK1UHCIJ5q7bHm8zVxhUN0Ac9arJZoiASPcAhaoGbqMVTDrNfCOMwWf8i
-	o25kGCdw==;
+	bh=hiOuQZ+qbKPtsU6vpJkFL0vOoLX/w3NXaU22HaBxqH0=; b=Rw5rGY/ABJ4idYLIhKkl77ZMQ/
+	vZ9Ted2IwSjNU9iKPbXUJfBnp/MXsdXcaBlH+qbn+Esn+6J/n08HSnnCxSi6MhTwMylMUBiMlPL3a
+	L6wOrQcmY3oTUepjZKC2mvjX2YYF9PZX3S0hXeNTvg+DzekYERnO+oQjK8TQ16DVEUheLAEbL0sd5
+	BNTM7MH6h5LHj234hb+gAoSjZMEMJ3b8dSTnOv/hS6FgBV5tpYoMGF3e+QMKYFLaFF/QI/rhV2u9c
+	3XgpG47976WKD4P58kj64Fo7mxdrhHV6eHslCxVpi7M31pxCT34MGJJFO2K5EEHst2oaBHt1u6y5Q
+	K0ajK8kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVhh-00000003MWh-0BC8;
-	Wed, 05 Aug 2026 07:06:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrVi4-00000003Me9-2UFT;
+	Wed, 05 Aug 2026 07:06:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVhf-00000003MWQ-2PBd;
-	Wed, 05 Aug 2026 07:06:15 +0000
+	id 1wrVi3-00000003MdO-1beC;
+	Wed, 05 Aug 2026 07:06:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A95E600AE;
-	Wed,  5 Aug 2026 07:06:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E95E71F000E9;
-	Wed,  5 Aug 2026 07:06:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 692F86011F;
+	Wed,  5 Aug 2026 07:06:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FBD41F000E9;
+	Wed,  5 Aug 2026 07:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785913574;
-	bh=eknVX0861nDOKN5z4L+9yWvQ2f3wGrn2cEr5rttrL2M=;
+	s=k20260515; t=1785913598;
+	bh=hiOuQZ+qbKPtsU6vpJkFL0vOoLX/w3NXaU22HaBxqH0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZCJQ00ZM/6jRCBJ7sim1OY48D9QamjxYzsjWXpuG3i6QUhpGZWvuU3Z3H3mJnbrJg
-	 GzAMmQq9xsXz+9u/nLJkdckcie/yalUEXIcQS9BlUREx3Vxf3AuFnGO+eFIXHf5Bi6
-	 TS9KFf9KelVJ/gsbyPlg/LKsrqNnhT8GfPMzP1q3VWX1yyTxI0RDE+S7wTxkm1UtLt
-	 LTT44MKtBImOfrDwImCD6LniAloMPBHDHBY34xBw7TEzZmJwM8CuOnRhaO0zCV8QOz
-	 DayMa4k8cqAqlvJJET3MOaG5p+GxUqtnijJOV7m0Vrthp59Rf6XAtNbXshOBrmWlVx
-	 ktcXVZ5EdjuBA==
-Date: Wed, 5 Aug 2026 09:06:12 +0200
+	b=g1Ov3nPN/H02R9GEFGczrKNWADKqiMios7nEgu5q0aTkR5yNoAq/YPFCc4FcpCi31
+	 NB30DsAGv8mcU1kTHYpNZaIACfvqi6WC7OSHEXsIVNANC+65vIPPtkMuT0meoAIagS
+	 TVnDXIygJGYHsUaMutVh3qVorPKIPe/SEvBaHXcmgz68O0l8LbMQ5nAKlNqbTL5mAr
+	 jkrFdodytU3oBscZjUbYoeJg1nBVCWq1oYESR+zFJzjKkUzpuqI+7kTJFN7QgEPZNG
+	 T4rUNsoC9EMgJgyYMVEDwOe4mMDF08ZFi6PuU8+9FMkgr4fjexF7goUeXOv0lEbTpU
+	 czEkoo3pgrTug==
+Date: Wed, 5 Aug 2026 09:06:35 +0200
 From: Thierry Reding <thierry.reding@kernel.org>
 To: Kieran Bingham <kieran.bingham@ideasonboard.com>
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -64,17 +64,17 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	linux@ew.tq-group.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
 	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, David Heidelberg <david@ixit.cz>
-Subject: Re: [PATCH v4 2/7] dt-bindings: media: i2c: Utilise
- video-interface-devices enums
-Message-ID: <anLg1lmGUlsfqCKL@orome>
+	Alexander Stein <alexander.stein@ew.tq-group.com>, David Heidelberg <david@ixit.cz>
+Subject: Re: [PATCH v4 3/7] arm64: dts: freescale: Convert to new media
+ orientation definitions
+Message-ID: <anLg9GdLKD4eMguI@orome>
 References: <20260804-kbingham-orientation-v4-0-336998dd63b4@ideasonboard.com>
- <20260804-kbingham-orientation-v4-2-336998dd63b4@ideasonboard.com>
+ <20260804-kbingham-orientation-v4-3-336998dd63b4@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="crtkhkxtfcvyoatl"
+	protocol="application/pgp-signature"; boundary="nmyfnhbtb3klucjj"
 Content-Disposition: inline
-In-Reply-To: <20260804-kbingham-orientation-v4-2-336998dd63b4@ideasonboard.com>
+In-Reply-To: <20260804-kbingham-orientation-v4-3-336998dd63b4@ideasonboard.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,62 +90,53 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---crtkhkxtfcvyoatl
+--nmyfnhbtb3klucjj
 Content-Type: text/plain; protected-headers=v1; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 2/7] dt-bindings: media: i2c: Utilise
- video-interface-devices enums
+Subject: Re: [PATCH v4 3/7] arm64: dts: freescale: Convert to new media
+ orientation definitions
 MIME-Version: 1.0
 
-On Tue, Aug 04, 2026 at 08:43:29PM +0100, Kieran Bingham wrote:
+On Tue, Aug 04, 2026 at 08:43:30PM +0100, Kieran Bingham wrote:
 > The orientation property for video interface devices now has definitions
 > to prevent hardcoded integer values for the enum options.
 >=20
-> Update the existing examples throughout the bindings documentation for
-> camera sensors.
+> Update the users throughout the freescale/NXP device trees to use the new
+> definitions.
 >=20
-> Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
 > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Reviewed-by: Benjamin Mugnier <benjamin.mugnier@foss.st.com>
+> Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 > Reviewed-by: David Heidelberg <david@ixit.cz>
 > Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
 > ---
->  Documentation/devicetree/bindings/media/i2c/hynix,hi846.yaml   | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/ovti,ov08d10.yaml  | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/ovti,ov4689.yaml   | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/ovti,ov5675.yaml   | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/ovti,ov5693.yaml   | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/ovti,ov64a40.yaml  | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/sony,imx111.yaml   | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/sony,imx355.yaml   | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/sony,imx415.yaml   | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/st,vd55g1.yaml     | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/st,vd56g3.yaml     | 3 ++-
->  Documentation/devicetree/bindings/media/i2c/thine,thp7312.yaml | 3 ++-
->  12 files changed, 24 insertions(+), 12 deletions(-)
+>  .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtso      |=
+ 3 ++-
+>  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi                      |=
+ 3 ++-
+>  2 files changed, 4 insertions(+), 2 deletions(-)
 
 Reviewed-by: Thierry Reding <treding@nvidia.com>
 
---crtkhkxtfcvyoatl
+--nmyfnhbtb3klucjj
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpy4OQACgkQ3SOs138+
-s6HEXQ/+NE4OTznpxu0nClmHdRJqIZarnzOuvAgqFtMSmVGZokmcz08vGbCmoDKX
-ZeVVALZyvhdwepTYHsn7uO99xCUbNgUV3mpz6tBHua1wihU0lpLfp6PWnzqN+fBK
-4mWr3pMX+Y8Lq9bMt+P8LqOPXr7qJByVZIDb0ncBcJAfzkElFapHqDHdDI92INNy
-RCMsbBwiESoxfmwWTZhB/wbsRprAy0eflhLVFyi+HDph9ZeT02RzqsdLVUhQspLX
-naqbOD5HgwoINV3NECp/Zj4nnjGb7LN4cXncy0f2IvLNAyzbIsT6bY9buFKB4o1K
-1Q4jNyvamZ4bpuvtRVibvAT2ATwxVRtBRZWzFJ6pBiS00kldJI8ez+U2gsFD8g1/
-z4zd1vntTYhNrxiPEtEUa0knho4h7pCWUjS+huxQgtZsv8lBRT8H7aNVIakM2PoN
-n/M0MPzc0YjxDfw/7HiaSugeCPorswVf387VvNGhkyRkUvuKFd8+8vC5HN0QK8Ad
-E+M3NlUAzNOW/yKxXZTCILAzH5/1wzeI47uBsbU8rduHaGyViNvO1YQyfiV2J7X+
-Ka6+YLPRwTB8QXP3m/I2Mg3uoUWkIwRf2dAmtC87Iv4dYnbHWovomWO4C5g//a1g
-GCRxpADDOg2f+/pfAYk2FmYeG1/j+AHgAuRj3bJJTXcAlOdc6Yk=
-=IBGL
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpy4PsACgkQ3SOs138+
+s6HAfA//YOk7q5LpyLNfCLWpw4PJyqRmkuOdrCDSDENusiMG1+cYxA1f/qFGUB08
+eQ4+3p3EN8/l6JslxUy98QIy00jJeyyHxrHTQdhTn3wwoxbdfvw1fCKJ5LWKXfXZ
+QwuzppC3RuWUpddqA1YgkuF92GFSObqvfhIAGGXjRAdoBkrEuibwoEKRBH/NRNw9
+Cc05gKN6CB4FgHxJdZhYX9q+iW5HdWIqOJdUgyfbYw8DojIpYdhYeHUR/Sl54Vky
+p9KBloxGTvhBA1oVe0a6bryeBjhE0La5w3SKigRhV85T0A/Mq9W1CJTxtEswNJEa
+YcQx+Cj+IVwXnk3HvS5fgVtHTwv2nM8Pgnp21szd9SspfYreM7hBbKJ+AKivd4P5
+mKbuay45A9f1iku6VgvQGPUdOjA1m6KiN6NH5MPB73r8R52FveLin+5keZgQH/Dq
+K+nVXsNnoAfJznYBHWC2jisv0hTr/ERkSfFbyjeUTfDb6RteETuYqZI13Ub6neSM
+ml2sJa2+aZ4n/8j7mvjcx81yVNr5MawTnCHK+dDMvHhPQpaMU5cm8YT2j8KAvAnd
+I3PHZhqHoMNhGjifsQDIXARw/gzA27BeL9GcEF3vpUAJA6hec70EJELEbBbZFoC/
+rF3yo2GCWGIJWMaIw1tvCwQTm/acz9Qdy2c3QpbDOajzilxwQ4Q=
+=QISY
 -----END PGP SIGNATURE-----
 
---crtkhkxtfcvyoatl--
+--nmyfnhbtb3klucjj--
 
