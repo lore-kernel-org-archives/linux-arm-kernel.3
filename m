@@ -4,113 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C92C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 03:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A3EC56201
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 03:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j/NmALyDnaea82VN1dJT9y4h9uKdhWB1U02N76kyw3U=; b=Q2n103LDevtzBYNE5R3XOP3RmG
-	zzL+HZxXtcqg/CNNhfQ/pPqABtoPA+aoQiCRLaN4YOZSIc9GH9ax8HBAyOjwPVhYqeqZvG2YxvGd3
-	38jwhnf59kehItyt99TSroOHBosoGPsM5nAO6feAQNsbNdaqZTWYwusAyVcKrVjPanBNMYNa3ZNsX
-	rclQIWvuGxjVdkCkM1/gX3vFoV2SSm1HN3Rxra9vFvgW6exiX9D0gp9yhVbSEKsMMYPGx0Qq7w5nW
-	7Z6RdNxMkj6AqLqbo4uuJoZho5WZfNIk9O4uAi+4hL5wCWUbVDkHWzvlnCY4fbu81ULez2crTXBU7
-	rcpPY3tw==;
+	bh=IC37ysMh6ZKiMmXZQoVdT7RLjzLigmBICjngmFTmRM8=; b=NZO13c1nZwziqvcEFUbxvhOISR
+	DKC8NdpqAU9C4uQlv1U12UkENyOhHFupcMEygG8p7m1N4h6U7CauAKLUGP7WeJUQ7yjEtSBjCNirR
+	wJK9zLED2idN10gIrux/DjXGOIckVbJoNnvIX2tnYnek0Uf8M8wrLx2cM3buNVywmdpBRp0+/QOZn
+	lo6El60xDqhmi1vcJYN8+NsD+jkqqTkXCNAGzlRdNG39FBs6M0Hfu0KpmuUo97dsVum6u12LjNuW5
+	f0KC4lz9gCTFW04NCR2oWRK25ehG0Yns2mY/k1j1oBOCi4Xc9dMagBosFFbDVdYGpybkqtyYTVGjq
+	KkwRyPfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrScQ-00000003Bk0-0Nft;
-	Wed, 05 Aug 2026 03:48:38 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1wrScM-00000003BiO-4BqY;
+	Wed, 05 Aug 2026 03:48:35 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrScN-00000003BiH-0opl
+	id 1wrScK-00000003BhW-01fp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 03:48:36 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-7dbcb505578so5426377b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 20:48:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785901713; cv=none;
+	Wed, 05 Aug 2026 03:48:33 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-47fdd674e17so261723f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 20:48:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785901709; cv=none;
         d=google.com; s=arc-20260327;
-        b=n2NMOchUxuDIDNNjnZ5ty3J3AFIPjdvJQT6ewPi8Mw9a2htGzDTBtYaS6JwNa0uZzA
-         woDE1KJZxOA9AbsYkbIMAbAsXg1W+RnQqtxVcWYNR0ytBEZI4+obfu8gfcV5PjUyQLCr
-         cWFclpAkKu/RMKH09jvA8AbcBaaRuM6c6DU5EEbrSH4DqQaJz4Bd3cFVOcnrr3dhhuof
-         fCoEL6LMiAUWFgJXE8zom5f7iCt3C5GAEbtDzxxzn5OTLqfLtiwI82tD76q/cGWxSb6r
-         fjBNXre0/w+meOhBqJaUYgfB1bNoQ/93hr6mCe+f4Pm+YrjnWROMqw9RtxLg0UkbEs7O
-         4C0A==
+        b=fwRDDl3thUD9jL4DfbXS+NnDh+AE6UZR1IGol1W3927yZXVGNNsXSKmo5R6caBsq+R
+         B1s011VY2I/QnOkYFQYOteI6zrWvF7r8qCnWT5MbRrA1lhzeqEPeJNbrqx3P1fofYqqm
+         7GU14yuAdAMjFJw8D3PZ3TsciKej4AD19wVQOdA3a3rcwXlO52yDynVGU1LEgrp5R5FD
+         /4k3GCriYi4affLdK/btwMrKBF8V4Yxjpy6RhB71ojAYCzhy1u2BytJbcInfarXcbgIz
+         18p5qC4T2nNPhnmWoq0Fz41MFbUCY0VAHAG7I7wHgUo+V0lAbHcQQpkD/hAON+uYzFpl
+         6dfQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=j/NmALyDnaea82VN1dJT9y4h9uKdhWB1U02N76kyw3U=;
-        fh=JSmPkNmh9eHyz8BV3jZBK/voGGOhZbByCa0d5jUH+zo=;
-        b=YYVix4GYW/J82qIhhKxPTRA7A9rGleHjlUI3wkII2M7eu9cNpRt0FPdcQd28cUx3uV
-         8ZqkWai+Ldirst0bgVsBS7VdR4aL2N9opRAIC9UBCfVRfpoCyGSLaY+bBSSZalu4Zbrw
-         eECmeresKU0ZcgeTvza5UakDKk6YJh5TaLQEFdELHRbDTeksW362Rq13y0kHHV8vRqDt
-         x5YRMCT3dct/zXwap6c3vo9tRgXpv1RLq0QoX90BQY5Rz1dEHEd/wetHJ4rO6LGU/ohI
-         HEYJ+hiqjBFQNTiyAoVTCuFJzulvAOYujHRDBFPZOgzEJjSvkv1/PikeBFzWVLIgnmrS
-         keZQ==;
+        bh=IC37ysMh6ZKiMmXZQoVdT7RLjzLigmBICjngmFTmRM8=;
+        fh=yYeAObaXk4gZFcQH870k+Qpg+ZdQR+WPEgbHLdpDirA=;
+        b=gSXFl6+0jsX7QCHa0AN1bQov5hpdpc8Qenk2V8ttohoJmCJB5rl7G1hl40CqguA7O4
+         Tj+F7HVkpg/+n9BfnO2jPyJ7yHQJ9Ukw/bYxX3fqCZn9kS3biK2f5ISNbe97rIOIHyr4
+         wN263QaBZTwjN3b1nX7iH1b1FT+IWgB+Mt8PhQM5kSbldcrK6SlYBD1F7FbLXV7B7nH6
+         YESkUdDY6F1sO0G3gpNoJpoIDw9TaJqGHeGyTQGvXIVLpr6p1bjtEx28bewBsvFU2iSf
+         QuhmTRdg58DUZVKDkjtHG3SVMdFhIRZb1tjZT7kVqz5iJ22sR8POw/PQ+yu4lM6+6Q04
+         m/BQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1785901713; x=1786506513; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785901709; x=1786506509; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=j/NmALyDnaea82VN1dJT9y4h9uKdhWB1U02N76kyw3U=;
-        b=N8uAkXPz0J97Vlj2S6yDIsUFNFYBR0F0DMY+wjAUHHXUAKKitHvBWRTjmO+Ea8UDiI
-         i3SahlAFRJZBQIa1cXC2ckVxSOKpvliF7CceUJ4sfr9akHyMwsGeqzx7TVQNrhQYAmQ7
-         oddY9ecjd1i543qfYj2u5AhRM5Z7zboVsBTzk=
+        bh=IC37ysMh6ZKiMmXZQoVdT7RLjzLigmBICjngmFTmRM8=;
+        b=eaIj7SoV+8VQz54qJ8FV8AAHypnaGHk19i7QxBrojCEepCrPDxwbhyEuElk8K8jG8V
+         Fe2HtCKsu1EY0xZa5t+Ik79NgPqjBdCn/rMNESevIzI4zvP4fwP378poBVeAnX2Lq3eE
+         +lQlW7spk7YxP/UIvHdZJopKOMebUF8VyqVKvHDuJLpa4FkB5lAiJPT33y1QEK6J4nqY
+         HjwV/czyaRgIVD8i2Hhyy2A5ZDebtdTy2k0YMB7wjtx3UHGZWqMejF8FWEDUeBcMwNGX
+         Z8z/UvNHpqnWsLsRBzMExFOrLzclFcL1ZtrYiNnZ4JqVYP/vEmtobxOjhv6oBPj70h4E
+         UyVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785901713; x=1786506513;
+        d=1e100.net; s=20251104; t=1785901709; x=1786506509;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=j/NmALyDnaea82VN1dJT9y4h9uKdhWB1U02N76kyw3U=;
-        b=PiblY8o3nL4fOHNZKcR2PO769O/jvr/AzyK2QytfYOus2NEGTPB3JXm8h6hNaioVhp
-         Ppmx8PeaHWE4J9IuMHGYjv1jfTU9sPSZqksW7ZtD+mszI0UMp1Zsr8hSlagBQQcDD5Xf
-         acxQqt0eVVaEu92NPqQlO6MNKe+QNwo5pDe+1Y81aJR6pj8+JhwTlgkkZ3ZgH3SKoJRj
-         /ac5Q/4GV5dUUnR5A+Y+IitLkD0oVpln2A1VEdHBjv4Um3oO+gmOF6W4sVFPZ8PBKihZ
-         B3adAsi/iqzAcOHauwuOFJQbvTxFo/ECFrOUIIxpSFbqj/ufpmEUyIajICO7tk0qHCat
-         +mHw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq0g/KLhwXGjAsSGEk5lWOc7RnJoxjgkBQE2hcuF0uarvag9T41DSfNDTpvwgiT69PgOHFX3g259vxU7Xf5dU9b@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywrh9Uhr6nrBMO/6AlDKNgrsz6s249AVhwd2u3PD2Kpg+a/gjNi
-	UcpJa/GFEmKHGvEBG493bCysBlkVzXLBbuj2LDmSNLhDsN3wssUksPOteW89bOVDG/lU5VZmNgS
-	4wWyil3HpjtPt7nvqfg3AN7yTo2Wtv2hBE8V229J5
-X-Gm-Gg: AR+sD12ZFLq4iMAxhCTDcGONxSYYfNXgmrfX57gAzwkenqOXOy6AGsFh2gFsBNI4aG+
-	tsNYqwYMl4bOPmO8vQmVDLslrQcZEv/oFQEm5qU+LfVWPZ3MdDUWPogAYmWnOafSLG0wozlzU6N
-	fmzn6U6OAI3eqLdzr9NxxStDTCTYOUsh18tlGCrxivVd3isHex4fq/qvp7qo4XFbuAAX8klYc0p
-	qZX4k8m5CXoux7lmPEL5BqsrqJtqwKLPyimUKWzbiu+1USiIEMXJCis/DcP5mq8AzkonYCdhCL6
-	wwpsgOiu+9XTTZBsUD55O+48YOk7Tj1ePkjioPEA85ZRyN/5Wp/Jql3bbCqQ6hniVI5QBicIMsA
-	=
-X-Received: by 2002:a05:690c:9a88:b0:81e:4e5d:484a with SMTP id
- 00721157ae682-82022294eb4mr22113487b3.2.1785901713089; Tue, 04 Aug 2026
- 20:48:33 -0700 (PDT)
+        bh=IC37ysMh6ZKiMmXZQoVdT7RLjzLigmBICjngmFTmRM8=;
+        b=B2TEyUy0GIkuNuM3PNURZEaydvfd6vzvZwZvyyxAc874ijHDZVg8759yStcdJp8Wu9
+         YylFpkixB1pBnV46YYrgnfsVdfBlu1Wj1dejI4y2PF5Zh1BDcgqGkU2j2962ryTjBIiv
+         pBUK3PEdZLAr6WinPlytfuLv5eXL9g6ogLgbNk7EyNNWrB1oz06VUy0bTIPYhalzOmJQ
+         Q4xKZZ4l9O3uWwEWkqP/0/0QFjJEvwjoBNUTJLtAS1cCyXg8/u4XYSVtRIT08gLvg0ff
+         WWeDel4E2EbUK/Cz0XfI1KDituemvSYjfGuz5XHDv54Z2040mq16oTbfjyv7Qky3ywAu
+         NFLw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq0qA7140uu4dUfKhVTMDnLEPSk/Da4Mz+Vtm6NAC45qcFJuUcousSQlbZHVWadwIy2e8ZoF/E7nUzlwCdEu+mA@lists.infradead.org
+X-Gm-Message-State: AOJu0YynirLyus/TOL0/B9Dg2qPGrcEQyXEnBxorb9ITrV8BfNyVlgCw
+	np+C8uqqYiyc1RjvgJwKvYuGQnBRu9AySFTgwsQDzRXVbhfS/WHZvE4sjAnqcs59rnn8+00PlqY
+	4YcWHtXXCcxXxtw08NYM3mje+pjRH198=
+X-Gm-Gg: AR+sD12gzgSiQ5YzE2PyFx4Ud34GZuXzinOin71HF2i7a9vz3Pz9DkhrPIiZa1glgHI
+	JK7vgCnek8AMtymDirJrVZ710hLFke4B6krqxuD+fQZCubKGM3njAS0UL976cCrS3tUct24/lXr
+	NiYyqPRJlGR6hWjRDU3LWeJ+K/9A7xPSaWjbXlgADDnw9u5dQOrwHzpYbdQpxJjdov6ej30KHib
+	8z3+djyVova1RGqfgT/nMNqz0QFZaGqwbrBB69lkXNvmpVKeM48nz116WvU7AB8liA1kal8tEoV
+	xlshhWIfIQNrr/dzaxe4zni+Y/lHRJ+q8ZnE9FDELf4CHV+GqSBfff50HOWsYq2HxvoUKPsf8Ss
+	n9auKV/nSlCiw
+X-Received: by 2002:a7b:c408:0:b0:498:ee7:e403 with SMTP id
+ 5b1f17b1804b1-4994e7db010mr23612565e9.19.1785901709391; Tue, 04 Aug 2026
+ 20:48:29 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260714114414.184512-1-angelogioacchino.delregno@collabora.com>
- <20260714114414.184512-43-angelogioacchino.delregno@collabora.com>
- <CAL_JsqJXpY8jHEgSHcHz4QZTFEZe8PLbO6vbpxWH4qobs0MPyA@mail.gmail.com>
- <f3837531-2949-4741-a23e-387317485c02@collabora.com> <CAL_JsqLVAQ6uhU0fGK_qnOn1x559ErWSJTKkSjr0z791thwD3w@mail.gmail.com>
-In-Reply-To: <CAL_JsqLVAQ6uhU0fGK_qnOn1x559ErWSJTKkSjr0z791thwD3w@mail.gmail.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Wed, 5 Aug 2026 11:48:22 +0800
-X-Gm-Features: AUfX_mymFrVaiYOLaCO3AlvD0Um00IkfLaFRQ7IWTs7XOa8ZsYdcyTa8_6zr7HM
-Message-ID: <CAGXv+5GeYZ_et3bH9Udf=C3f30-zuM1=Z1meU47RnofG0NL+dQ@mail.gmail.com>
-Subject: Re: [PATCH v2 42/46] dt-bindings: display: mediatek: Introduce MT8196
- 2D Sharpness Processor
-To: Rob Herring <robh@kernel.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, chunkuang.hu@kernel.org, 
-	p.zabel@pengutronix.de, airlied@gmail.com, simona@ffwll.ch, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, justin.yeh@mediatek.com, 
-	jason-jh.lin@mediatek.com, kernel@collabora.com
+References: <tencent_FF56D057857A89EBFD82C037D80A53598C06@qq.com>
+In-Reply-To: <tencent_FF56D057857A89EBFD82C037D80A53598C06@qq.com>
+From: Jimmy Hon <honyuenkwun@gmail.com>
+Date: Tue, 4 Aug 2026 22:48:17 -0500
+X-Gm-Features: AUfX_mw42ZkfMvaqB3cDywMHwxabaZ-q76T8alcxd9P7DU-SEanTaAyKauHIg34
+Message-ID: <CALWfF7Ly=o85=ZQ3Laewe5VwW6agHLvqqSPKFDzcf75UWYnP4g@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Enable the NPU on LubanCat 4
+To: Pufan Jin <2254650260@qq.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_204835_382084_B6BBEE3A 
-X-CRM114-Status: GOOD (  22.57  )
+X-CRM114-CacheID: sfid-20260804_204832_062190_2C6824C7 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,113 +120,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 5, 2026 at 2:19=E2=80=AFAM Rob Herring <robh@kernel.org> wrote:
+On Tue, Aug 4, 2026 at 9:49=E2=80=AFAM Pufan Jin <2254650260@qq.com> wrote:
 >
-> On Tue, Jul 28, 2026 at 8:49=E2=80=AFAM AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com> wrote:
-> >
-> > On 7/28/26 15:40, Rob Herring wrote:
-> > > On Tue, Jul 14, 2026 at 6:45=E2=80=AFAM AngeloGioacchino Del Regno
-> > > <angelogioacchino.delregno@collabora.com> wrote:
-> > >>
-> > >> Add documentation for the Two-Dimension Sharpness Processor, or
-> > >> "TDSHP", found in many MediaTek SoCs including MT8196 and its
-> > >> variants.
-> > >>
-> > >> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno=
-@collabora.com>
-> > >> ---
-> > >>   .../mediatek/mediatek,mt8196-tdshp.yaml       | 98 +++++++++++++++=
-++++
-> > >>   1 file changed, 98 insertions(+)
-> > >>   create mode 100644 Documentation/devicetree/bindings/display/media=
-tek/mediatek,mt8196-tdshp.yaml
-> > >>
-> > >> diff --git a/Documentation/devicetree/bindings/display/mediatek/medi=
-atek,mt8196-tdshp.yaml b/Documentation/devicetree/bindings/display/mediatek=
-/mediatek,mt8196-tdshp.yaml
-> > >> new file mode 100644
-> > >> index 000000000000..ccd6a8443443
-> > >> --- /dev/null
-> > >> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,mt=
-8196-tdshp.yaml
-> > >> @@ -0,0 +1,98 @@
-> > >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > >> +%YAML 1.2
-> > >> +---
-> > >> +$id: http://devicetree.org/schemas/display/mediatek/mediatek,mt8196=
--tdshp.yaml#
-> > >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > >> +
-> > >> +title: MediaTek Display Two-Dimension Sharpness Processor (TDSHP)
-> > >> +
-> > >> +maintainers:
-> > >> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora=
-.com>
-> > >> +
-> > >> +description:
-> > >> +  The MediaTek 2D Sharpness Processor (TDSHP) is responsible for pe=
-rforming
-> > >> +  image sharpness adjustments/enhancements in a display pipeline.
-> > >> +  This hardware block supports adjusting the luma and contour 2d hi=
-stograms,
-> > >> +  frequency weighting, luma-chroma gain and others, with adaptive w=
-eights.
-> > >> +
-> > >> +properties:
-> > >> +  compatible:
-> > >> +    const: mediatek,mt8196-disp-tdshp
-> > >> +
-> > >> +  reg:
-> > >> +    maxItems: 1
-> > >> +
-> > >> +  clocks:
-> > >> +    maxItems: 1
-> > >> +
-> > >> +  power-domains:
-> > >> +    maxItems: 1
-> > >> +
-> > >> +  ports:
-> > >> +    $ref: /schemas/graph.yaml#/properties/ports
-> > >> +
-> > >> +    properties:
-> > >> +      port@0:
-> > >> +        $ref: /schemas/graph.yaml#/properties/port
-> > >> +
-> > >> +      port@1:
-> > >> +        $ref: /schemas/graph.yaml#/properties/port
-> > >> +
-> > >> +    required:
-> > >> +      - port@0
-> > >> +      - port@1
-> > >> +
-> > >> +  trigger-sources:
-> > >> +    maxItems: 1
-> > >> +
-> > >> +required:
-> > >> +  - compatible
-> > >> +  - reg
-> > >> +  - clocks
-> > >> +  - clock-names
-> > >
-> > > This causes a warning.
-> > >
-> > > Seems this is in linux-next already, but no reviews?
-> > >
-> > > Rob
-> >
-> > Wow. No idea how clock-names got into the list of required properties: =
-there is
-> > only one possible clock, and this doesn't need any clock-names at all.
-> >
-> > Same for the resizer binding.
-> > Sorry for the mistake.
+> The three RKNN cores and their IOMMUs are disabled by default in the SoC
+> dtsi, so the board has to describe the NPU supply before they can be
+> enabled.
 >
-> Why is this still in linux-next?
+> This board feeds both the NPU logic and its SRAM from a single RK8602
+> output on i2c1. The vendor DTS makes that explicit by giving the same
+> regulator node two labels, vdd_npu_s0 and vdd_npu_mem_s0, and then
+> handing one to rknpu-supply and the other to mem-supply. There is no
+> separate memory rail to describe, so npu-supply and sram-supply both
+> point at vdd_npu_s0. The binding requires both properties.
+>
+> Neither property is what actually enables the rail: the rocket driver
+> never requests a regulator, it only takes clocks, resets, register
+> ranges and a power domain. The rk3588 power domain driver marks
+> RK3588_PD_NPU as needing a regulator, so the rail has to be described on
+> pd_npu, the root of VD_NPU that the three per-core domains hang off.
+> This matches what rock-5b does.
+As you mentioned here, the power domain will control the regulator. So
+please remove the regulator-always-on from the regulator.
 
-This is in your dt/next branch, applied 13 days ago. Maybe you applied it
-by mistake?
-
-
-ChenYu
+Jimmy
 
