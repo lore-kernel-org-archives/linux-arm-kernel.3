@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D50EC56209
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:03:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812EAC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zpq+fvaxWT022GHhy9WEKHR6+wO3c39jKiNTeZbbOZA=; b=yWwe9SB5tUot0RVJ4lr2+CJACW
-	sFwgTpXWF7k8UqT7nTHzQf9P2fkYcTZu8Ow9qfRIBENNkzPNL8Vzx9zin8alTHQhFNqYI1wNq42Yz
-	CPtWp0QDXAe0WDKihZGqND2O9+0Rkb3QV59rqM274w/f2aAM+JX4fe2h9VmUo+pzYB3JT94knkDga
-	7EKakpgHo33+OdU8U4q/k0GUKYkALVyZk0OjoSsUFKILaOxqLVo/0jk1NYLRv48S44jPaza0lI2Ui
-	yEbU4mH2SK85KVwW92ZITX3O1VJ0zmEJ75zjiwLj7OJ6h9wtcMz5mCH7P37cT5nd42LQv3FbUkMSc
-	5zWInjyw==;
+	bh=6dZeeWW4zswGFXRIdcHQCGueQ0cZnamc2cT7yvBaiNI=; b=ZlPiwrXDe8VBAM19qoBkfwb1fv
+	lQgkDFIKvPpTjaPMGU7CeJfx/QaLZGDw8YhaEOx+ZsN90j4OsK8jch7aW6JVhahS+Si9FVsXPfykk
+	AlZ9CUDDyY0TAjpjVfv519VPiIhgAvaEWN+nzXXtnkvKmjrRgbrej5bT+vXg0Qt7ab1Kg+jWC7HIn
+	/4/xhd/yCmOO42VcjX9Hm9G3s8lFdEu4qsIwMgxaCTvhHbjofKYFHy0xAjYTUf4L1pkwc6S/3UUkc
+	So5d19BwP2KMnadxUF/sCK/z2GlSUzwZ+NkM5ROjF8YHSD+Dint4ZVOsPyqwJK8KBjTgs4nreeRqJ
+	6tCtZn4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbH5-00000003xRP-2WnS;
-	Wed, 05 Aug 2026 13:03:11 +0000
+	id 1wrbH6-00000003xTF-1CGw;
+	Wed, 05 Aug 2026 13:03:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbH4-00000003xPD-1n5I
+	id 1wrbH4-00000003xP9-1n0d
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 05 Aug 2026 13:03:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 75CC443B70;
+	by sea.source.kernel.org (Postfix) with ESMTP id 51FBE43B2D;
 	Wed,  5 Aug 2026 13:03:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5657CC2BCFB;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 33DC6C2BD00;
 	Wed,  5 Aug 2026 13:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1785934989;
-	bh=U/VelihwE9/Y5DyVuu89kZaY6Foh61jZ62a+Hvygccg=;
+	bh=FoLZfGD6uyaU5BQXg5Am0hO9ZEAWctWsieG0YVFNjNM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=LpzPpe+CglNuxiT2pA5APAQP3umTEsbMMl5KOL0dAnhHgDmHgy0u5px872FsO3gY9
-	 ejAE5kJY5R+CbefIjHM9sZpBklvujVmGnwcZlMkIrFP3a24nWguJWNQ8JDgzOJfMA/
-	 ynbhErm7MmznT3x24isy4/GHKj4kd8Gi+TSvGwom59qYf2m9/EAUtJWVtg7j5w/oUW
-	 J0jwlaiEp88NFlKcyFXankhFNP8TNoOQoMR65wod26W97bzpOBUsjqo9cPob/WhoE/
-	 H08LMnIKXW52/QCrL6Il3B4v3yKuY+y/d0V7tULk8FVvJjCkKWBNKQvsmlFmeiInKw
-	 IhNZODu55LCDA==
+	b=dr8Gu4WRgQgVNIAIdD55kno1nIHZsnfEwN/jsJ96Gi4W0GuvK5S9xO0qh9ojRGnrW
+	 Xnj63vmpgabGaZqpdRoFSD/tK1XvmqfJfJ1lE1YdQFWGFdMIMIDV0AXdc3/k1V/Xh7
+	 c0Y0zlGn4tYHCg1OdkSG7cLbTnhCA0M0sSQg3RIxhNoITl8mga8CZNi9DFC21roaw1
+	 uqtxyfeMPkFPJpmKEBBG9vA7V4khfhe+dE8vJ8u4RgbsXGr5PiNW8rp92YVKL6jtSt
+	 0F1U1FrwwjC6PO5q0eJcESnod9KljAxyYeXkUqB0Hk7RiQfZxOfPOR6i8JhvXoUhHP
+	 PFGZBoLnxOkEA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 45330C56205;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 20B8EC55ABF;
 	Wed,  5 Aug 2026 13:03:09 +0000 (UTC)
 From: Colin Huang via B4 Relay <devnull+u8813345.gmail.com@kernel.org>
-Date: Wed, 05 Aug 2026 21:02:36 +0800
-Subject: [PATCH v4 08/12] ARM: dts: aspeed: anacapa: Enable MCTP and FRU
- for NIC
+Date: Wed, 05 Aug 2026 21:02:34 +0800
+Subject: [PATCH v4 06/12] ARM: dts: aspeed: anacapa: Add eeprom device node
+ for NFC adaptor board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260805-anacapa-devlop-phase-devicetree-v4-8-5d67e0efa6c5@gmail.com>
+Message-Id: <20260805-anacapa-devlop-phase-devicetree-v4-6-5d67e0efa6c5@gmail.com>
 References: <20260805-anacapa-devlop-phase-devicetree-v4-0-5d67e0efa6c5@gmail.com>
 In-Reply-To: <20260805-anacapa-devlop-phase-devicetree-v4-0-5d67e0efa6c5@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -61,13 +61,13 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
  colin.huang2@amd.com, Colin Huang <u8813345@gmail.com>, 
- Andy Chung <Andy.Chung@amd.com>
+ Carl Lee <carl.lee@amd.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785934963; l=3214;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785934963; l=854;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=BGZCKTF8QAag1qskLE0ofPzySUEOSMb3NZgJbIMmwIo=;
- b=MpjikqOMq7zVXHAewpVwjarArr7otF1/OoOdZn2NtUC0MBbZ2MTzXrXKWYlc58Cq8PNSO30Fk
- uc7L3qxtYXqAKMDtrJBwbimeTtMwDSdYRLMzclKn5H+D1fnXnWJcYt/
+ bh=ogPWoxlP9zHHWVbVILynjOOXZGqV6RgIxVGA6kDFSUc=;
+ b=/z4nvmSJvhRzs0g+CPh58slDGf0C8IT4bhg5QND24yWyfa8GVxhDS4CFvka3p6F+TTW1eybjs
+ Z2vhqivCuPSCR1JDbutj6KtxGU2P75NaPgrUYmlzNLMRZmSQbl6XRCj
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-Endpoint-Received: by B4 Relay for u8813345@gmail.com/20260202 with
@@ -88,155 +88,39 @@ Reply-To: u8813345@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Chung <Andy.Chung@amd.com>
+From: Carl Lee <carl.lee@amd.com>
 
-Add the mctp-controller property to enable frontend NIC management
-via PLDM over MCTP.
-Also add EEPROM device for NIC FRU and reorder the I2C virtual bus
-index accroding to the system silkscreen index.
+Add eeprom device node for NFC adaptor board FRU.
 
-Signed-off-by: Andy Chung <Andy.Chung@amd.com>
+Signed-off-by: Carl Lee <carl.lee@amd.com>
 ---
- .../aspeed/aspeed-bmc-facebook-anacapa-evt2.dts    | 119 +++++++++++++++++++++
- 1 file changed, 119 insertions(+)
+ .../boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts    | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts
-index ff393ad7cdb7..703284721224 100644
+index 1901a325c72c..c7bffa7c6557 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts
-@@ -8,6 +8,25 @@ / {
- 	compatible = "facebook,anacapa-bmc-evt2", "aspeed,ast2600";
- };
- 
-+&{/aliases} {
-+	i2c36 = &i2c11mux0ch5;
-+	i2c37 = &i2c11mux0ch6;
-+	i2c38 = &i2c11mux0ch7;
-+	i2c39 = &i2c11mux0ch0;
-+	i2c40 = &i2c11mux0ch1;
-+	i2c41 = &i2c11mux0ch2;
-+	i2c42 = &i2c11mux0ch3;
-+	i2c43 = &i2c11mux0ch4;
-+	i2c44 = &i2c10mux0ch1;
-+	i2c45 = &i2c10mux0ch2;
-+	i2c46 = &i2c10mux0ch3;
-+	i2c47 = &i2c10mux0ch4;
-+	i2c48 = &i2c10mux0ch5;
-+	i2c49 = &i2c10mux0ch6;
-+	i2c50 = &i2c10mux0ch7;
-+	i2c51 = &i2c10mux0ch0;
-+};
-+
- // MB - PDB
- &i2c8 {
- 	i2c-mux@72 {
-@@ -55,6 +74,106 @@ eeprom@51 {
+@@ -22,6 +22,19 @@ eeprom@51 {
  	};
  };
  
-+// R Bridge Board
-+&i2c10 {
-+	multi-master;
-+	mctp@10 {
-+		compatible = "mctp-i2c-controller";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+	};
-+
-+	i2c-mux@71 {
-+		/delete-property/ i2c-mux-idle-disconnect;
-+
-+		i2c10mux0ch1: i2c@1 {
-+			mctp-controller;
-+			// BE NIC FRU
++// MB
++&i2c13 {
++	i2c-mux@70 {
++		i2c13mux0ch7: i2c@7 {
++			// NFC adaptor board FRU
 +			eeprom@50 {
-+				compatible = "atmel,24c32";
-+				reg = <0x50>;
-+			};
-+		};
-+		i2c10mux0ch2: i2c@2 {
-+			mctp-controller;
-+			// BE NIC FRU
-+			eeprom@50 {
-+				compatible = "atmel,24c32";
-+				reg = <0x50>;
-+			};
-+		};
-+		i2c10mux0ch3: i2c@3 {
-+			mctp-controller;
-+			// BE NIC FRU
-+			eeprom@50 {
-+				compatible = "atmel,24c32";
-+				reg = <0x50>;
-+			};
-+		};
-+		i2c10mux0ch4: i2c@4 {
-+			mctp-controller;
-+			// BE NIC FRU
-+			eeprom@50 {
-+				compatible = "atmel,24c32";
++				compatible = "atmel,24c128";
 +				reg = <0x50>;
 +			};
 +		};
 +	};
 +};
 +
-+// L Bridge Board
-+&i2c11 {
-+	multi-master;
-+	mctp@10 {
-+		compatible = "mctp-i2c-controller";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+	};
-+
-+	i2c-mux@71 {
-+		/delete-property/ i2c-mux-idle-disconnect;
-+
-+		i2c11mux0ch0: i2c@0 {
-+			mctp-controller;
-+			// FE NIC FRU
-+			eeprom@50 {
-+				compatible = "atmel,24c32";
-+				reg = <0x50>;
-+			};
-+		};
-+		i2c11mux0ch1: i2c@1 {
-+			mctp-controller;
-+			// BE NIC FRU
-+			eeprom@50 {
-+				compatible = "atmel,24c32";
-+				reg = <0x50>;
-+			};
-+		};
-+		i2c11mux0ch2: i2c@2 {
-+			mctp-controller;
-+			// BE NIC FRU
-+			eeprom@50 {
-+				compatible = "atmel,24c32";
-+				reg = <0x50>;
-+			};
-+		};
-+		i2c11mux0ch3: i2c@3 {
-+			mctp-controller;
-+			// BE NIC FRU
-+			eeprom@50 {
-+				compatible = "atmel,24c32";
-+				reg = <0x50>;
-+			};
-+		};
-+		i2c11mux0ch4: i2c@4 {
-+			mctp-controller;
-+			// BE NIC FRU
-+			eeprom@50 {
-+				compatible = "atmel,24c32";
-+				reg = <0x50>;
-+			};
-+		};
-+	};
-+};
-+
- // MB
- &i2c13 {
- 	i2c-mux@70 {
+ &sgpiom0 {
+ 	ngpios = <128>;
+ 	bus-frequency = <2000000>;
 
 -- 
 2.34.1
