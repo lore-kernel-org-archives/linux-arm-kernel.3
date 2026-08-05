@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD71C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714E3C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJXq08sJkug6Mcz5qGLPAxyPM7bBnkDiej3zEpwgtzY=; b=o7Ug5/Rfmhq04VOWQdUQ8jbqfS
-	saRx+KDJMrrn1gcHa/ympy/Tmi9/4PEXoTPqkfRQrNYlRcst1OjkoG+svgjpW+iuq6Z1Nm6fbXUKH
-	7DxuxmqEbwJs2JzR4epsIWmek4deGS1lJX48A56nebqeiFfXHeTRETRTcayTaYFgq4tGI6Istmnyj
-	8jdzr5uYOOcFrTukTIZ25HxcbtjqlTPL4wmZAko+uI696yGtypZ+p2o5PoZP9wzkDfBXXUQIPegAF
-	0nmV8+Ywk/ZmfRP+8UPqLWc5AQnoQhU8vqDL2S7ocrtSZP+l/u20k+SKtz5D7gl3NBrm1ZYIN/1WS
-	QaawyD8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C0ogknZifwHUHqlmbzAZ1WlG35CJPpu3eT3NUulJv6o=; b=bFgzJ79alG2iH0lbfaqISczAVw
+	aplN6TzL3okZS/ekFWdZNvJfpSpq/c+qzJMt6T9CbQn3QkJfb2fDUvIhuzKeI+KaZqi6mlsGho8b8
+	RXCDb0HZ037TyUJveqVuqKnR97kXvu8m33gJ0bWfGNCCF45tHM+0mmUezIMUm5mQFGIrK+kX0lbGq
+	DbqAEUYuFOUAtOI3aNtorc3AS8j5/a9az/EtNL0IqOFtsy90hbO6pInrxJrK9JZemObMDshfrXEIo
+	9IfgpX3py4+zxNX1ALsNKCtng8ZV/qzVNj9q7Ec8IzCydzJJRZO2+a4834d/ubAZSxFMMFud+i0TX
+	nnI5bALg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrW4S-00000003POU-3Oro;
-	Wed, 05 Aug 2026 07:29:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wrW5P-00000003PYz-0nsL;
+	Wed, 05 Aug 2026 07:30:47 +0000
+Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrW4R-00000003POD-2fPs;
-	Wed, 05 Aug 2026 07:29:47 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 166BC4175F;
-	Wed,  5 Aug 2026 07:29:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35E0F1F000E9;
-	Wed,  5 Aug 2026 07:29:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785914986;
-	bh=kJXq08sJkug6Mcz5qGLPAxyPM7bBnkDiej3zEpwgtzY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=VfuCMa2ZSKpC7x6V3r4+9Q7OvelZRJaKlPLGdse6v7At7B0BQfHZjm68xaWRUeISH
-	 FYcMOx5aVLYwrJkeRLYCRlRRme3pn+edrgFN8umcaH9bNx4D4Xw/0aKcv3f1LKY3G2
-	 vDU9geH1EyduSUlp4DQj7H5IZTrAXSyXJYM78aeqdHybSlw8hbvabPEfAMksFpqkLx
-	 +Z4kkdPrskRmrW6PmQRNucRRvOrlVdE/uUagFA8wOezUrXNxHKcfwPPkeZ3aM+Y9G9
-	 wyLXAB5hS6odKAaIX/8CoV1KTWblG+sr+a20aMJCT8lIEfvup6NUebxEjg10Cd6bNK
-	 NtlH/WP425dkQ==
-Date: Wed, 5 Aug 2026 09:29:42 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Vinod Koul <vkoul@kernel.org>, 
-	Maxime Chevallier <maxime.chevallier@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Romain Gantois <romain.gantois@bootlin.com>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Russell King <linux@armlinux.org.uk>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 04/10] dt-bindings: net: pcs: add rockchip,rk3568-xpcs
- binding
-Message-ID: <20260805-stirring-wondrous-mule-faf37d@quoll>
-References: <20260801142244.679437-2-coiaprant@gmail.com>
- <20260801142244.679437-6-coiaprant@gmail.com>
+	id 1wrW5M-00000003PXh-1cZX
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Aug 2026 07:30:46 +0000
+Message-ID: <fc37a0e2-816b-4fde-880b-7b117d462626@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1785915038;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=C0ogknZifwHUHqlmbzAZ1WlG35CJPpu3eT3NUulJv6o=;
+	b=n2D9a/hPBedAD8LSevbLI9iOrECg0VzUuxk15L+oUg4Gxckz/WqTaOWBOFJKCLi6KMXA/b
+	uFj0HYIgYTn3t2qwRBzFCPEGH0Cl7yQ53K9pWgI3N3k6xhdTweCMlkCpjPEdSyXfzaWwaW
+	gNxMRFTwkwVHxMAa8XdeevrZpFeypyM=
+Date: Wed, 5 Aug 2026 00:30:31 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260801142244.679437-6-coiaprant@gmail.com>
+Subject: Re: [PATCH v8 02/22] RISC-V: Add Sxcsrind ISA extension CSR
+ definitions
+To: Paul Walmsley <pjw@kernel.org>
+Cc: Jiri Olsa <jolsa@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>,
+ Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+ <20260701-counter_delegation-v8-2-7909f863a645@meta.com>
+ <3d1f698c-6b76-5252-4e8f-b61671e309c7@kernel.org>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <3d1f698c-6b76-5252-4e8f-b61671e309c7@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260805_003044_846762_3C343A47 
+X-CRM114-Status: GOOD (  22.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,201 +79,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 01, 2026 at 10:22:28PM +0800, Coia Prant wrote:
-> Add device tree binding documentation for the Synopsys DesignWare
-> XPCS integrated on the Rockchip RK3568 SoC.
+On 8/4/26 4:35 PM, Paul Walmsley wrote:
+> On Wed, 1 Jul 2026, Atish Patra wrote:
 > 
-> The XPCS is accessed over the APB3 bus and internally connected to
-> a Naneng Combo SerDes PHY.  It supports 1000BASE-X, SGMII, and
-> QSGMII modes, with four MII ports.
+>> From: Kaiwen Xue <kaiwenx@rivosinc.com>
+>>
+>> This adds definitions of new CSRs and bits defined in Sxcsrind ISA
+>> extension. These CSR enables indirect accesses mechanism to access
+>> any CSRs in M-, S-, and VS-mode. The range of the select values
+>> and ireg will be define by the ISA extension using Sxcsrind extension.
+>>
+>> Signed-off-by: Kaiwen Xue <kaiwenx@rivosinc.com>
+>> Reviewed-by: Clément Léger <cleger@rivosinc.com>
+>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
 > 
-> The binding describes:
-> - Required properties: compatible, reg, clocks, clock-names
-> - Optional properties: phys, phy-names, power-domains
-> - pcs-mii sub-nodes for each MII port (reg 0..3)
+> Thanks.  It's easier for folks to grep and cross-reference if the official
+> RISC-V extension names are used whenever possible, rather than something
+> like Sxcsrind.  Queued the following patch for v7.3.
+> 
 
-Irrelevant paragraph. We can read the diff. Drop.
-
-A nit, subject: drop second/last, redundant "binding". The
-"dt-bindings" prefix is already stating that these are bindings.
-See also:
-https://elixir.bootlin.com/linux/v7.1-rc7/source/Documentation/devicetree/bindings/submitting-patches.rst#L23
+Agreed. Thanks!
 
 > 
-> Signed-off-by: Coia Prant <coiaprant@gmail.com>
+> - Paul
+> 
+> 
+> RISC-V: Add Smcsrind and Sscrind ISA extension CSR definitions
+> 
+> From: Kaiwen Xue <kaiwenx@rivosinc.com>
+> 
+> This adds definitions of new CSRs and bits defined in the Smcsrind and
+> Sscrinq ISA extensions. These CSRs enable the indirect CSR accesses
+> mechanism to access any indirect CSRs in M-, S-, and VS-mode. The
+> range of the select values and ireg will be defined by the ISA
+> extension that are based on the Smcsrind and Sscsrind extensions.
+> 
+> Signed-off-by: Kaiwen Xue <kaiwenx@rivosinc.com>
+> Reviewed-by: Clément Léger <cleger@rivosinc.com>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
+> Link: https://patch.msgid.link/20260701-counter_delegation-v8-2-7909f863a645@meta.com
+> [pjw@kernel.org: clean up the patch description; use official RISC-V extension names]
+> Signed-off-by: Paul Walmsley <pjw@kernel.org>
 > ---
->  .../bindings/net/pcs/rockchip-dwxpcs.yaml     | 127 ++++++++++++++++++
->  1 file changed, 127 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
+>   arch/riscv/include/asm/csr.h |   30 ++++++++++++++++++++++++++++++
+>   1 file changed, 30 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml b/Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
-> new file mode 100644
-> index 0000000000000..3e3f3a388d822
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/pcs/rockchip-dwxpcs.yaml
-> @@ -0,0 +1,127 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/pcs/rockchip-dwxpcs.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Rockchip RK3568 Synopsys DesignWare Ethernet PCS
-> +
-> +maintainers:
-> +  - Coia Prant <coiaprant@gmail.com>
-> +
-> +description: |
-> +  Rockchip RK3568 SoC integrates a Synopsys DesignWare Ethernet Physical
-> +  Coding Sublayer (XPCS).
-> +  The PCS provides an interface between the Media Access Control (MAC)
-> +  and the Physical Medium Attachment (PMA) sublayer through a Media
-> +  Independent Interface (GMII).
-> +
-> +  The XPCS is accessed over the APB3 bus and internally connected to a
-> +  Naneng Combo SerDes PHY.
-> +  It supports 1000BASE-X, SGMII and QSGMII modes.
-> +
-> +  The block contains four MII ports (pcs-mii@0..3) that can be
-> +  individually enabled and routed to one of the Ethernet GMAC controllers
-> +  via the pcs-handle property in the MAC device tree node.
-> +
-> +properties:
-> +  compatible:
-> +    const: rockchip,rk3568-xpcs
-> +
-> +  '#address-cells':
-> +    const: 1
-> +
-> +  '#size-cells':
-> +    const: 0
-
-reg is always the second property.
-
-Also, use consistent style of quotes.
-
-> +
-> +  reg:
-> +    description: |
-> +      Base address and size of the XPCS register space mapped over the
-> +      APB3 bus.
-
-Drop description, redundant.
-
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    description: |
-> +      Clock sources for the XPCS:
-> +      - csr: APB3 bus interface clock (clk_csr_i), required for register
-> +        access.
-> +      - eee: EEE clock (clk_eee_i), required for Energy Efficient
-> +        Ethernet (EEE) operation.
-> +    minItems: 2
-> +    maxItems: 2
-
-No, instead list items with description.
-
-> +
-> +  clock-names:
-> +    items:
-> +      - const: csr
-> +      - const: eee
-> +
-> +  phys:
-> +    description: |
-
-Do not need '|' unless you need to preserve formatting.
-
-> +      The phandle of SerDes PHY (Naneng Combo PHY) that provides
-> +      the serial lanes for 1000BASE-X / SGMII / QSGMII.
-> +      The SerDes must be powered on and initialised before any XPCS
-> +      register access.
-> +    maxItems: 1
-> +
-> +  phy-names:
-> +    const: serdes
-> +
-> +  power-domains:
-> +    description: |
-> +      Power domain for the XPCS.
-
-Drop sentence and |
-
-> +      On RK3568 this is typically the PD_PIPE power domain, which also
-> +      supplies the SerDes PHY.
-> +    maxItems: 1
-> +
-> +patternProperties:
-> +  "^pcs-mii@[0-3]$":
-
-Why `git grep pcs-mii@` gives me no results? Are you doing this
-similarly to existing devices or is this quite different device than
-every other hardware?
-
-> +    type: object
-> +    description: |
-
-Same here
-
-> +      One of the four MII ports of the XPCS.
-> +      The port number is specified by the reg property (0..3).
-
-Drop sentence, redundant. Schema tells that.
-
-> +      The port is linked to an Ethernet MAC controller via the
-> +      pcs-handle property in the MAC's device tree node.
-> +
-> +    properties:
-> +      reg:
-> +        minimum: 0
-> +        maximum: 3
-> +        description: |
-
-As well
-
-> +          MII port number of PCS.
-> +
-> +      status: true
-
-Nope, do you see anywhere code like this?
-
-> +
-> +    required:
-> +      - reg
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/rk3568-cru.h>
-> +    #include <dt-bindings/power/rk3568-power.h>
-> +    #include <dt-bindings/phy/phy.h>
-> +
-> +    pcs@fda00000 {
-> +      compatible = "rockchip,rk3568-xpcs";
-> +      #address-cells = <1>;
-> +      #size-cells = <0>;
-> +      reg = <0xfda00000 0x200000>;
-> +      clocks = <&cru PCLK_XPCS>, <&cru CLK_XPCS_EEE>;
-> +      clock-names = "csr", "eee";
-> +      phys = <&combphy2 PHY_TYPE_SGMII>;
-> +      phy-names = "serdes";
-> +      power-domains = <&power RK3568_PD_PIPE>;
-> +
-> +      pcs-mii@0 {
-> +        reg = <0>;
-> +      };
-> +    };
-> -- 
-> 2.47.3
+> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+> index 31b8988f4488..7f09e54a0f9a 100644
+> --- a/arch/riscv/include/asm/csr.h
+> +++ b/arch/riscv/include/asm/csr.h
+> @@ -347,6 +347,12 @@
+>   /* Supervisor-Level Window to Indirectly Accessed Registers (AIA) */
+>   #define CSR_SISELECT		0x150
+>   #define CSR_SIREG		0x151
+> +/* Supervisor-Level Window to Indirectly Accessed Registers (Sscsrind) */
+> +#define CSR_SIREG2		0x152
+> +#define CSR_SIREG3		0x153
+> +#define CSR_SIREG4		0x155
+> +#define CSR_SIREG5		0x156
+> +#define CSR_SIREG6		0x157
+>   
+>   /* Supervisor-Level Interrupts (AIA) */
+>   #define CSR_STOPEI		0x15c
+> @@ -394,6 +400,14 @@
+>   /* VS-Level Window to Indirectly Accessed Registers (H-extension with AIA) */
+>   #define CSR_VSISELECT		0x250
+>   #define CSR_VSIREG		0x251
+> +/*
+> + * VS-Level Window to Indirectly Accessed Registers (H-extension with Sscsrind)
+> + */
+> +#define CSR_VSIREG2		0x252
+> +#define CSR_VSIREG3		0x253
+> +#define CSR_VSIREG4		0x255
+> +#define CSR_VSIREG5		0x256
+> +#define CSR_VSIREG6		0x257
+>   
+>   /* VS-Level Interrupts (H-extension with AIA) */
+>   #define CSR_VSTOPEI		0x25c
+> @@ -436,6 +450,12 @@
+>   /* Machine-Level Window to Indirectly Accessed Registers (AIA) */
+>   #define CSR_MISELECT		0x350
+>   #define CSR_MIREG		0x351
+> +/* Machine-Level Window to Indirectly Accessed Registers (Smcsrind) */
+> +#define CSR_MIREG2		0x352
+> +#define CSR_MIREG3		0x353
+> +#define CSR_MIREG4		0x355
+> +#define CSR_MIREG5		0x356
+> +#define CSR_MIREG6		0x357
+>   
+>   /* Machine-Level Interrupts (AIA) */
+>   #define CSR_MTOPEI		0x35c
+> @@ -498,6 +518,11 @@
+>   # define CSR_IEH		CSR_MIEH
+>   # define CSR_ISELECT	CSR_MISELECT
+>   # define CSR_IREG	CSR_MIREG
+> +# define CSR_IREG2	CSR_MIREG2
+> +# define CSR_IREG3	CSR_MIREG3
+> +# define CSR_IREG4	CSR_MIREG4
+> +# define CSR_IREG5	CSR_MIREG5
+> +# define CSR_IREG6	CSR_MIREG6
+>   # define CSR_IPH		CSR_MIPH
+>   # define CSR_TOPEI	CSR_MTOPEI
+>   # define CSR_TOPI	CSR_MTOPI
+> @@ -523,6 +548,11 @@
+>   # define CSR_IEH		CSR_SIEH
+>   # define CSR_ISELECT	CSR_SISELECT
+>   # define CSR_IREG	CSR_SIREG
+> +# define CSR_IREG2	CSR_SIREG2
+> +# define CSR_IREG3	CSR_SIREG3
+> +# define CSR_IREG4	CSR_SIREG4
+> +# define CSR_IREG5	CSR_SIREG5
+> +# define CSR_IREG6	CSR_SIREG6
+>   # define CSR_IPH		CSR_SIPH
+>   # define CSR_TOPEI	CSR_STOPEI
+>   # define CSR_TOPI	CSR_STOPI
 > 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
 
