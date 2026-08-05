@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 585A6C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:03:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA645C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5aBb8vdZhKZlcccw3emWuqjiEhSnKguXtqBx4zXM4Kk=; b=wv9YWyYnODnWUu3GYuxNkAyxrM
-	DMRzKA5Ea/nofvc1iQ47pvgAaqiv0qz0jyNmV9eURw83+VeVl/qRRXUYzAwX9I+bFe2Dk1V65r5Am
-	5jDiW7efAV4iWdMbL5qHywtiKSUnccVzuoARAgoSig/TcgBam1xtTmv2lW5yEAZ4Sy2CsHtpF/fve
-	siPK5FVUucHVioYQ85vqexi/1Wg3Zp+fQKnvfop3pIjDgFRgvmULu7uDYrCwWVCMsqLwUln4QX3k3
-	0e341uHhbUnM1fDh+7xp9nZaaQnCF1Qx3Tn9DqNOem9te6EdEe6LZO5jWGmTWmLf+wpRAy+AGsegX
-	aA3TDlnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0THhRo5kOVI7aLEpHnqmWXR6vt63Hy3D5k779a1bV98=; b=VfKrL+iKIcwlZPoq6FL9RYN/Vp
+	RMzxWeN9993E8ghbqoUcIKyYVVvvw28CBndF4c/O8j/VG6KH8fz/u+NCFkSytrBYVwWjAXmx6Mxam
+	+SfX/GezFZYbW2u+H0iZiS3yMNIEU418I5GGQdEZBgbndedOVHPxFqk/EZvBjzAlHI5ItdPRV4oxO
+	lMpNku9qrertc77r1hHI/h6f3WRFggl2yTCLin4rJnEMTKZLQCKWhRe4+hh6RjHzSC9utGC8rnzeP
+	lmjdqB+hTbFD0kqtlkkUo5ZT4+dS40019e4pGRZ9JIIYO4H0+jW9mO7Izyo+bz41czRTDDJ+BxVep
+	4GyzU8qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbHF-00000003xgH-0Klz;
-	Wed, 05 Aug 2026 13:03:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrbJh-00000003yaB-1wip;
+	Wed, 05 Aug 2026 13:05:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbH5-00000003xPI-2e2A
+	id 1wrbJg-00000003ya3-162A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 13:03:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D37AA60A82;
-	Wed,  5 Aug 2026 13:03:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 84EEBC32781;
-	Wed,  5 Aug 2026 13:03:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1785934989;
-	bh=8axNV0qz+55gS2UiiJda4kv4M/AoCvvKFE19+hHj11I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=S/EwwSmxwQD9OrzOJZ88LCvr5u572OasVBJ6eyuQF0fwbmM5lfnL3TmeGrJEMH2DC
-	 lNPgxvvg6bksyJgJMNFVFqBche5eAaRObrw3WyMpebvXvQ9gl8xENuiy5I50uZfoUZ
-	 4tfy5c9fYMwUhyqtNyj3V/WDSTlcI5M+tTspph7OZPYr+MnEka9ifrfaXBS93ELdc3
-	 0yIY45xEfOvRCse8o9E8LKOO/Hgz5Tk24VX9Fw3oqBLLgso4jFiBtRmwbQG8497gAJ
-	 EYtZgkseLCDdeCcJKdfRU5Rh9wE6E8Tq3XsVAJAchOGpnC/HHZ9KvtlEDxmDztRo8Q
-	 deJtW3DRBfHOA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72BA7C56205;
-	Wed,  5 Aug 2026 13:03:09 +0000 (UTC)
-From: Colin Huang via B4 Relay <devnull+u8813345.gmail.com@kernel.org>
-Date: Wed, 05 Aug 2026 21:02:38 +0800
-Subject: [PATCH v4 10/12] ARM: dts: aspeed: anacapa: Add LPDB fuse monitor
- GPIO expander
+	Wed, 05 Aug 2026 13:05:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E868041497;
+	Wed,  5 Aug 2026 13:05:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F1071F00A3A;
+	Wed,  5 Aug 2026 13:05:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785935151;
+	bh=0THhRo5kOVI7aLEpHnqmWXR6vt63Hy3D5k779a1bV98=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=HL4/upL0WK0ArFGrVyu49md5TqVZWiio+QQhBGHelbj9azHFE35XqnUezcWMzNcIL
+	 ztBKv4VuzOwhpecti1fOzN4KPUch8dp1MUJw95NtK+qW/r/J49vLIMt2k0T+DW2uQu
+	 Ivi4ruzkzmqUONXTMPBv4vrEESOwnoA2/SNv8Hz2R9zIkDzT0Bw7W/OO2BWNYfPqfX
+	 i51T4v9jcLWmUIDBRXPmZ63fFr1+J7ww3l+nLPJTSxlNex+9swwu5bogxsFlFfyhQb
+	 psxcdCfJsSONDqIYSzDbLqxVpOrwilAHls6z0A2oDVERXjU4E4za8OM/K0+80GxrrE
+	 389TO3t6Nz0SA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v9 3/7] firmware: arm_rmm: Move RSI support out of
+ arch/arm64
+In-Reply-To: <anMcw5lTFN7OYreL@arm.com>
+References: <20260805063255.1638614-1-aneesh.kumar@kernel.org>
+ <20260805063255.1638614-4-aneesh.kumar@kernel.org>
+ <anMcw5lTFN7OYreL@arm.com>
+Date: Wed, 05 Aug 2026 18:35:42 +0530
+Message-ID: <yq5atsp83eft.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260805-anacapa-devlop-phase-devicetree-v4-10-5d67e0efa6c5@gmail.com>
-References: <20260805-anacapa-devlop-phase-devicetree-v4-0-5d67e0efa6c5@gmail.com>
-In-Reply-To: <20260805-anacapa-devlop-phase-devicetree-v4-0-5d67e0efa6c5@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- colin.huang2@amd.com, Colin Huang <u8813345@gmail.com>, 
- Rex Fu <rex.fu.amd@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785934963; l=3520;
- i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=kGTVHDij4WGDqWe9Tp6hUO68XWQC9ip/+ELRTxuQLWs=;
- b=T/R1BvgIP4u03YPyUa5vxerDdM8cZYUmxK8T/yWCFavVndMWWIftCzROXI1hq0pEQ58entGwE
- bX4b0pYVUkXC+4HGEYJwM6VZWGqp4R8MIG4r8v/+KpjYC9i6xteKpUz
-X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
- pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
-X-Endpoint-Received: by B4 Relay for u8813345@gmail.com/20260202 with
- auth_id=761
-X-Original-From: Colin Huang <u8813345@gmail.com>
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,120 +78,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: u8813345@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rex Fu <rex.fu.amd@gmail.com>
+Catalin Marinas <catalin.marinas@arm.com> writes:
 
-Add the PCA9554 GPIO expander for PDB fuse monitor signals.
+> On Wed, Aug 05, 2026 at 12:02:51PM +0530, Aneesh Kumar K.V (Arm) wrote:
+>> The RSI SMCCC function IDs describe a firmware ABI and are not arm64
+>> architecture specific definitions. Follow-up changes need to use them from
+>> non-arch code, including drivers/firmware/smccc and the Arm CCA guest
+>> driver.
+>> 
+>> Move the complete Realm Service Interface (RSI) implementation from
+>> arch/arm64 to drivers/firmware/arm_rmm. The RSI SMCCC definitions and
+>> command helpers are also moved to include/linux so they can be shared by
+>> architecture code and firmware or driver code. This also keeps the
+>> firmware interface outside architecture code, as requested [1].
+>> 
+>> [1] https://lore.kernel.org/all/agsNO9cc7H-b0H8L@willie-the-truck
+>> 
+>> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+>
+> I haven't checked but Sashiko has some points that it may break the
+> build on other architectures with COMPILE_TEST.
+>
+> https://sashiko.dev/#/patchset/20260805063255.1638614-1-aneesh.kumar@kernel.org
+>
+> (for some reason I get error 502 above; hopefully it's temporary)
+>
 
-Signed-off-by: Rex Fu <rex.fu.amd@gmail.com>
----
- .../dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts | 87 ++++++++++++++++++++++
- 1 file changed, 87 insertions(+)
+Below is the sashiko output
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts
-index 0eb547ad0ec1..f09dd1abe77d 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts
-@@ -8,6 +8,93 @@ / {
- 	compatible = "facebook,anacapa-bmc-dvt", "aspeed,ast2600";
- };
- 
-+// MB - PDB
-+&i2c8 {
-+	i2c-mux@72 {
-+		i2c8mux0ch0: i2c@0 {
-+			gpio@22 {
-+				gpio-line-names =
-+					"RPDB_FAN_FULL_SPEED_R_N", "RPDB_I2C_TMP432_U8_ALERT_R_N",
-+					"RPDB_I2C_TMP432_U29_ALERT_R_N", "RPDB_GLOBAL_WP",
-+					"RPDB_FAN_CT_FAN_FAIL_R_N", "RPDB_VERID_A0",
-+					"RPDB_VERID_A1", "RPDB_VERID_A2",
-+					"RPDB_ALERT_P50V_HSC2_R_N", "RPDB_ALERT_P50V_HSC3_R_N",
-+					"RPDB_ALERT_P50V_HSC4_R_N", "RPDB_ALERT_P50V_STBY_R_N",
-+					"RPDB_P12V_MB_VRM_ALERT_R_N",
-+					"RPDB_P12V_STBY_VRM_ALERT_R_N",
-+					"RPDB_PGD_P3V3_STBY_PWRGD_R",
-+					"RPDB_P12V_STBY_VRM_PWRGD_BUF_R";
-+			};
-+			gpio@24 {
-+				gpio-line-names =
-+					"RPDB_EAM2_PRSNT_MOS_N_R", "RPDB_EAM3_PRSNT_MOS_N_R",
-+					"RPDB_PWRGD_P50V_HSC4_SYS_R",
-+					"RPDB_PWRGD_P50V_STBY_SYS_BUF_R",
-+					"RPDB_P50V_FAN5_R2_PG", "RPDB_P50V_FAN6_R2_PG",
-+					"RPDB_P50V_FAN7_R2_PG", "RPDB_P50V_FAN8_R2_PG",
-+					"RPDB_SKU_ID0", "RPDB_FAN5_PRSNT_N_R",
-+					"", "RPDB_FAN6_PRSNT_N_R",
-+					"RPDB_FAN7_PRSNT_N_R", "RPDB_FAN8_PRSNT_N_R",
-+					"", "";
-+			};
-+			gpio@38 {
-+				compatible = "nxp,pca9554";
-+				reg = <0x38>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+
-+				gpio-line-names =
-+					"RPDB_P50V_FUSE2_TVS1", "RPDB_P50V_FUSE2_TVS2",
-+					"RPDB_P50V_FUSE3_TVS1", "RPDB_P50V_FUSE3_TVS2",
-+					"RPDB_P50V_FUSE4_TVS1", "",
-+					"", "";
-+			};
-+		};
-+		i2c8mux0ch1: i2c@1 {
-+			gpio@22 {
-+				gpio-line-names =
-+					"LPDB_FAN_FULL_SPEED_R_N", "LPDB_I2C_TEMP75_U8_ALERT_R_N",
-+					"LPDB_I2C_TMP432_U29_ALERT_R_N", "LPDB_GLOBAL_WP",
-+					"LPDB_FAN_CT_FAN_FAIL_R_N", "LPDB_VERID_A0",
-+					"LPDB_VERID_A1", "LPDB_VERID_A2",
-+					"LPDB_ALERT_P50V_HSC0_R_N", "LPDB_ALERT_P50V_HSC1_R_N",
-+					"LPDB_ALERT_P50V_HSC5_R_N", "LPDB_I2C_P12V_SW_VRM_ALERT_R_N",
-+					"LPDB_EAM0_PRSNT_MOS_N_R", "LPDB_EAM1_PRSNT_MOS_N_R",
-+					"LPDB_PWRGD_P50V_HSC5_SYS_R", "BARKLIP_PRSNT_N_R3";
-+			};
-+			gpio@24 {
-+				gpio-line-names =
-+					"LPDB_P50V_FAN0_R2_PG", "LPDB_P50V_FAN1_R2_PG",
-+					"LPDB_P50V_FAN2_R2_PG", "LPDB_P50V_FAN3_R2_PG",
-+					"LPDB_P50V_FAN4_R2_PG", "LPDB_FAN0_PRSNT_N_R",
-+					"LPDB_FAN1_PRSNT_N_R", "LPDB_FAN2_PRSNT_N_R",
-+					"LPDB_FAN3_PRSNT_N_R", "LPDB_FAN4_PRSNT_N_R",
-+					"LPDB_SKU_ID0", "",
-+					"", "",
-+					"", "LPDB_PG_P3V3_R";
-+			};
-+			gpio@38 {
-+				compatible = "nxp,pca9554";
-+				reg = <0x38>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+
-+				interrupt-parent = <&sgpiom0>;
-+				interrupts = <174 IRQ_TYPE_LEVEL_LOW>;
-+
-+				gpio-line-names =
-+					"LPDB_P50V_FUSE0_TVS1", "LPDB_P50V_FUSE0_TVS2",
-+					"LPDB_P50V_FUSE1_TVS1", "LPDB_P50V_FUSE1_TVS2",
-+					"LPDB_P50V_FUSE5_TVS1", "",
-+					"", "";
-+			};
-+		};
-+	};
-+};
-+
- &sgpiom0 {
- 	ngpios = <128>;
- 	bus-frequency = <2000000>;
+>> -#endif /* __ASM_RSI_CMDS_H */
+>> +#endif /* __LINUX_ARM_RSI_CMDS_H_ */
+> Now that this header is moved to include/linux/ to be shared by cross
+> architecture code, will it break non-ARM64 builds?
+> Looking at rsi_attestation_token_init() further up in this file:
+>    struct arm_smccc_1_2_regs regs;
+>    ...
+>    arm_smccc_1_2_smc(&args.regs, &args.regs);
+>    
+> Both struct arm_smccc_1_2_regs and arm_smccc_1_2_smc() are guarded by
+> CONFIG_ARM64 in include/linux/arm-smccc.h. If a generic firmware driver
+> using COMPILE_TEST includes this header on a different architecture, it
+> seems compilation will fail.
 
--- 
-2.34.1
+Only arm64 code is including that header for now.
 
+arch/arm64/mm/init.c:37:#include <linux/arm-rsi-cmds.h>
+arch/arm64/include/asm/mem_encrypt.h:5:#include <linux/arm-rsi-cmds.h>
+arch/arm64/include/asm/pgtable-prot.h:69:#include <linux/arm-rsi-cmds.h>
+arch/arm64/include/asm/io.h:11:#include <linux/arm-rsi-cmds.h>
+arch/arm64/kernel/setup.c:10:#include <linux/arm-rsi-cmds.h>
+drivers/virt/coco/arm-cca-guest/arm-cca.c:6:#include <linux/arm-rsi-cmds.h>
+drivers/firmware/arm_rmm/rsi.c:11:#include <linux/arm-rsi-cmds.h>
 
+-aneesh
 
