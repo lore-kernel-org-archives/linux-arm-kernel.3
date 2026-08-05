@@ -4,69 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F4A3C56201
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 10:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7FC6C56201
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 10:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q4K8KezGj1uNtUBla4Um/QhzlQ9Qk/rg7DVPoMDL72Q=; b=JR9IPghusyc8KG+ma0bDt4BnfX
-	WLZXWhvZ0SCG1kztzExcjQ4mVyYmgxk5L9orhGsAT2am5t+Uc/tB8f+WzXkkvXxUkMqMDdM6NYbrc
-	qyYWpTP4h4p/4YK43mAAeNBVMagIoPrtJ+yz8vNTZeAScLG1I6Nh6D6qBNbhDIGmGKJNZVFneiXPi
-	zpVwgMoQEYXQe2ktQiOTnGglgCb5jdaGa2qTVBcWOMKzwCecEhHAQDXLHy30J8FwT5il2s8D4rWod
-	mXzY7XHAcW/O36YmSKwM5FphlFhFfVRfYnK+o+fOLoCkUyAudBipFmUAxMgNjcHW6KIZt//+hbG4F
-	UJhHZZEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VBLPmYrNwyqCULYKtthS+JHQCLS3nMPhwf7QeBH1JBU=; b=Obf/7jCgqM1yq3NeQ99r2b0vFV
+	XBYTeyP5pTXR5nDQwUpMp34g5delRpZJlTmWbEofMCH/CmSyhUZauagnnRe+/mEQ6NljyKdOum7pT
+	prUqdPIZZ3uQfZqphAt8mZWbXuGkbHSQMlAlfHkQ1IrSk9UBZHPZa79NgbTPlJxUzbmRkUHRMLiuD
+	0B39rbjL/PnbMvkYTK2qdCDMFmNbCxyPSfjxsX2eBvCwL+pDaSdR6LYAtPxa6cH/vqJHMbf3SdSSz
+	TBIPpNzSq4Yiu/yIt4w+kX65J7bAXgHn0+iK9RFXiKbp3b8bkvYi2pfN4H40ywQ0wELFK24bP1vcG
+	HydRqI5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrZ50-00000003ldk-00Vl;
-	Wed, 05 Aug 2026 10:42:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrZ4x-00000003ld9-1zCc
+	id 1wrZ6g-00000003lo7-1Izg;
+	Wed, 05 Aug 2026 10:44:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrZ6d-00000003lnm-0hNi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 10:42:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA2D2153B;
-	Wed,  5 Aug 2026 03:42:20 -0700 (PDT)
-Received: from localhost (a085714.arm.com [10.164.19.28])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2E9F63F632;
-	Wed,  5 Aug 2026 03:42:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785926544; bh=dLnCHFABrcZb/4lMb8OKip2XrApMrTNt9jLEKjSti1o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ai1MPx4+Ir9VhFeH2HWxjevL9kszGJ6grspTTZUKC4wtSs46+DRMHe7SevW8UESlp
-	 nEm2r4W4I9DKOG0PZ90sfhgLuvCLZGB6e8v5MNNQqPMOIVLQnZJ/pyE+ZB356so1Ga
-	 R5xoG9ECl/ieCh3WindUP/tPTEQ7Blav4otAFLv8=
-Date: Wed, 5 Aug 2026 16:12:21 +0530
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: Pedro Falcato <pfalcato@suse.de>
-Cc: David Hildenbrand <david@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Lorenzo Stoakes <ljs@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
-	Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>, 
-	Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, Barry Song <baohua@kernel.org>, 
-	Lance Yang <lance.yang@linux.dev>, Usama Arif <usama.arif@linux.dev>, 
-	Kevin Brodsky <kevin.brodsky@arm.com>, Muhammad Usama Anjum <usama.anjum@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH v2 0/6] mm: add basic PTE const type-safety
-Message-ID: <a5afofuxhzwkeb76jdheottyxt4mms3arg2iucunztczbmd3lf@wiqp7yccjzlt>
-References: <20260803164400.531199-1-pfalcato@suse.de>
+	Wed, 05 Aug 2026 10:44:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785926651;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VBLPmYrNwyqCULYKtthS+JHQCLS3nMPhwf7QeBH1JBU=;
+	b=aK1FQJSV1z0YVzoPn1TPCwJOJJLZws3QHztpGmUiJTxAAzUjwN1ZvhTJ4rQgxxu/dv+MvG
+	CLmTCUX+O6giSF0eGkrUvaRlFXN6JdU9POOmrauGG0IKQA1lSQ2H+t+GAsz8ewKyURO1jY
+	s8ssLrYwbsPesgCmSJwnvWdoqcfjDd0=
+Received: from mail-yw1-f199.google.com (mail-yw1-f199.google.com
+ [209.85.128.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-520-bhSMNmX_O9uapLSNlvNpHg-1; Wed, 05 Aug 2026 06:44:09 -0400
+X-MC-Unique: bhSMNmX_O9uapLSNlvNpHg-1
+X-Mimecast-MFC-AGG-ID: bhSMNmX_O9uapLSNlvNpHg_1785926649
+Received: by mail-yw1-f199.google.com with SMTP id 00721157ae682-81e6abfca68so16901257b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 03:44:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785926649; x=1786531449;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VBLPmYrNwyqCULYKtthS+JHQCLS3nMPhwf7QeBH1JBU=;
+        b=gyeGbbz3ErBpm8jFdSVWPYwJdztIeBMe8qccdxDz1+8zlanrIQ4gFBfh8wpJNfDy0t
+         dVkxYVlsI3/aWJp1rsa+In2G987WcuuGGsrWqI8ZepnwjGl95/H0i+dlkGijXTZF3M+G
+         qv76lkCg4zSKQ7ItE4PIWuqhHceLMS4BB8QVqqlmb7RD3kuscaFDaL3xBW5d84LYOr3u
+         sWDu/K+QQIgk9/Ht4bUWds1WgU+DNCZ8oIkvIQphkbAfPvaumC/L+qqRMesmLVGziYBD
+         b3NQV1qTkDbSebEzVbJiJxay2qMO0t97jJh/8i9ttpAZiXeAEMO8zEn0MCEab/AD33Km
+         15oA==
+X-Forwarded-Encrypted: i=1; AHgh+RobQS7R1hqwAscNeW1LDIW+Lfjut11c3D8L29Ec/NMTqyDrr15h5/yLXr6PaTdV4wj/3korsR0L/a1ukLhWXDf8@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywgu04o5++PaLnjgGiP9x//PX1wwAUHWJVuXatzbu7sQzZ47QQH
+	sJDmJvZuCesw9c5+reURPXkt4H/k5119ypnBydclAmEM4wXAQBHD7XoZftF9JqixL3Dd1og9hPD
+	qwm9PJbHlq/rpEUSVL1MebBnJ7dYzraU/7x5HIyoMeO96e7gyBwXjrVgyntHsfC71vda8eAn+7j
+	fek1GVMBQ6F8wMp9o7nzXsox115OgiZL8p74MWQc4at0BHILQ5zS4u3hGgcVs=
+X-Gm-Gg: AR+sD12dqzydUKDC1YT9H/Y1tj7KkEOdo+qYK6TCtMi1UaWwtctW6FseXRm0mmLI96j
+	QYmxDP8EzmOCciRaoVntRUo6dB8YLoeoz4VWHuLRHwueewYmM6QphZySwAMu2Yx3oodcil4o8hm
+	eWlLPOGkSFChMwQI7JWRpGDCIKBUkbmY3e+A2Abupph/i5JU8VidypUUo=
+X-Received: by 2002:a05:690c:4d02:b0:80d:964f:88fd with SMTP id 00721157ae682-8201f0c14a8mr34578027b3.5.1785926648649;
+        Wed, 05 Aug 2026 03:44:08 -0700 (PDT)
+X-Received: by 2002:a05:690c:4d02:b0:80d:964f:88fd with SMTP id
+ 00721157ae682-8201f0c14a8mr34577737b3.5.1785926648209; Wed, 05 Aug 2026
+ 03:44:08 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260803164400.531199-1-pfalcato@suse.de>
+References: <20260722-panel-fix-kms-panel-put-v1-1-ebde56446ee5@linaro.org>
+In-Reply-To: <20260722-panel-fix-kms-panel-put-v1-1-ebde56446ee5@linaro.org>
+From: Albert Esteve <aesteve@redhat.com>
+Date: Wed, 5 Aug 2026 12:43:57 +0200
+X-Gm-Features: AUfX_mzIqL0xVaQ870Pw0RFXK5xY2ZBOqREaUxjUjBjO8iIwCsGBLuNH2W3gAs8
+Message-ID: <CADSE00K71ke8yXv8xxJ=e68kqPQAjXiOw1kY_BFpTsfw=xiJaw@mail.gmail.com>
+Subject: Re: [PATCH] drm: fix missing header include for drm_panel_put()
+To: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Marek Vasut <marex@denx.de>, 
+	Stefan Agner <stefan@agner.ch>, Yannick Fertre <yannick.fertre@foss.st.com>, 
+	Raphael Gallais-Pou <raphael.gallais-pou@foss.st.com>, 
+	Philippe Cornu <philippe.cornu@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, dri-devel@lists.freedesktop.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: iS_6jSI-HiQh1aUzE-tGFpfGogmcsS7NXWLQ8Gbu7Dc_1785926649
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_034231_590365_A83F7FA3 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20260805_034415_365953_B4BA040C 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,99 +113,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 03, 2026 at 05:43:54PM +0100, Pedro Falcato wrote:
-> Since forever, MM code has thrown pte_t * around with no concern for const
-> safety, or typesafety of any kind. This is confusing. Attempt to address it
-> by:
-> 1) Making sure pte_get*() helpers can cope with const pte_t * arguments
-> 2) Constifying the pte_offset_map_ro_nolock() return type, which by definition
-> already pledges that users will not write to it.
-> 
-> These two simple steps were already able to uncover code smell from
-> khugepaged + do_swap_page().
-> 
-> Separate steps could include introducing pte_offset_map_ro_lock() for more
-> widespread usage of this.
-> 
-> Benefits of this include less confusion and better type-safety. It could also
-> futurely aid in efforts such as [0] which may want semantic annotation of these
-> accesses.
-> 
-> Based on mm-unstable and compile-tested on a handful of architectures.
-> 
-> No functional changes intended.
+Hi Neil,
 
-Even though the pte accesses should always be type-safe, this series does
-not really address the problem completely and instead changes things only
-for a small set of pte access sites. So just wondering how much beneficial
-this series really is ?
+On Wed, Jul 22, 2026 at 12:07=E2=80=AFPM Neil Armstrong
+<neil.armstrong@linaro.org> wrote:
+>
+> Some DRM drivers lacked the drm_panel.h include to use drm_panel_put()
+> after the commit b71a623598d3 ("drm/panel: of_drm_find_panel() return a c=
+ounted reference").
+>
+> Fixes: b71a623598d3 ("drm/panel: of_drm_find_panel() return a counted ref=
+erence")
+> Signed-off-by: Neil Armstrong <neil.armstrong@linaro.org>
 
-> 
-> [CC list editorially trimmed for brevity reasons; apologies if you're not on it]
-> 
-> Link: https://lore.kernel.org/linux-mm/20260526-kpkeys-v8-0-eaaacdacc67c@arm.com/#t [0]
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>
-> Cc: Helge Deller <deller@gmx.de>
-> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Lorenzo Stoakes <ljs@kernel.org>
-> Cc: "Liam R. Howlett" <liam@infradead.org>
-> Cc: Vlastimil Babka <vbabka@kernel.org>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Suren Baghdasaryan <surenb@google.com>
-> Cc: Michal Hocko <mhocko@suse.com>
-> Cc: "Matthew Wilcox (Oracle)" <willy@infradead.org>
-> Cc: Jan Kara <jack@suse.cz>
-> Cc: Zi Yan <ziy@nvidia.com>
-> Cc: Baolin Wang <baolin.wang@linux.alibaba.com>
-> Cc: Nico Pache <npache@redhat.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Dev Jain <dev.jain@arm.com>
-> Cc: Barry Song <baohua@kernel.org>
-> Cc: Lance Yang <lance.yang@linux.dev>
-> Cc: Usama Arif <usama.arif@linux.dev>
-> Cc: Kevin Brodsky <kevin.brodsky@arm.com>
-> Cc: Muhammad Usama Anjum <usama.anjum@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-parisc@vger.kernel.org
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-mm@kvack.org
-> Cc: linux-fsdevel@vger.kernel.org
-> 
-> v2:
->  - Small fixups on the arm64 side
->  - Re-order patches in a way such that bisection is preserved
->  - Pick up Helge's patch dropping parisc ptep_get()
->  - Constify s390's ptep_get() as well
-> 
-> Helge Deller (1):
->   parisc: Drop own implementations for ptep_get() and
->     ptep_test_and_clear_young()
-> 
-> Pedro Falcato (5):
->   mm/arm64: constify pte_get*() and contpte get logic
->   mm/powerpc/8xx: constify ptep_get() argument
->   mm/s390: constify ptep_get() argument
->   mm: constify generic pte_get*()
->   mm: constify the pte_offset_map_ro_nolock() return value
-> 
->  arch/arm64/include/asm/pgtable.h             | 10 +++++-----
->  arch/arm64/mm/contpte.c                      | 11 ++++++++---
->  arch/parisc/include/asm/pgtable.h            | 20 --------------------
->  arch/powerpc/include/asm/nohash/32/pte-8xx.h |  2 +-
->  arch/powerpc/mm/pgtable.c                    |  2 +-
->  arch/s390/include/asm/pgtable.h              |  2 +-
->  include/linux/mm.h                           |  4 ++--
->  include/linux/pgtable.h                      |  8 ++++----
->  mm/filemap.c                                 |  2 +-
->  mm/khugepaged.c                              |  2 +-
->  mm/pgtable-generic.c                         |  4 ++--
->  11 files changed, 26 insertions(+), 41 deletions(-)
-> 
-> -- 
-> 2.55.0
-> 
+Oops, I missed building on my last revision. Thanks for taking care of
+this and sorry for the inconvenience.
+
+BR,
+Albert.
+
+> ---
+>  drivers/gpu/drm/imx/dcss/dcss-kms.c | 1 +
+>  drivers/gpu/drm/mxsfb/mxsfb_drv.c   | 1 +
+>  drivers/gpu/drm/stm/ltdc.c          | 1 +
+>  3 files changed, 3 insertions(+)
+>
+> diff --git a/drivers/gpu/drm/imx/dcss/dcss-kms.c b/drivers/gpu/drm/imx/dc=
+ss/dcss-kms.c
+> index 01e0c10b6ea1..7c5a6e2bc89a 100644
+> --- a/drivers/gpu/drm/imx/dcss/dcss-kms.c
+> +++ b/drivers/gpu/drm/imx/dcss/dcss-kms.c
+> @@ -13,6 +13,7 @@
+>  #include <drm/drm_gem_dma_helper.h>
+>  #include <drm/drm_gem_framebuffer_helper.h>
+>  #include <drm/drm_of.h>
+> +#include <drm/drm_panel.h>
+>  #include <drm/drm_probe_helper.h>
+>  #include <drm/drm_vblank.h>
+>
+> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mx=
+sfb_drv.c
+> index 7cb19c15bf39..8b4a500347fb 100644
+> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> @@ -29,6 +29,7 @@
+>  #include <drm/drm_mode_config.h>
+>  #include <drm/drm_module.h>
+>  #include <drm/drm_of.h>
+> +#include <drm/drm_panel.h>
+>  #include <drm/drm_probe_helper.h>
+>  #include <drm/drm_vblank.h>
+>
+> diff --git a/drivers/gpu/drm/stm/ltdc.c b/drivers/gpu/drm/stm/ltdc.c
+> index daf198edb42f..8818dcf98da7 100644
+> --- a/drivers/gpu/drm/stm/ltdc.c
+> +++ b/drivers/gpu/drm/stm/ltdc.c
+> @@ -34,6 +34,7 @@
+>  #include <drm/drm_gem_atomic_helper.h>
+>  #include <drm/drm_gem_dma_helper.h>
+>  #include <drm/drm_of.h>
+> +#include <drm/drm_panel.h>
+>  #include <drm/drm_print.h>
+>  #include <drm/drm_probe_helper.h>
+>  #include <drm/drm_simple_kms_helper.h>
+>
+> ---
+> base-commit: 0f065acf44aeb8c32691d88cc87004fd2e54e902
+> change-id: 20260722-panel-fix-kms-panel-put-38c079412f83
+>
+> Best regards,
+> --
+> Neil Armstrong <neil.armstrong@linaro.org>
+>
+
 
