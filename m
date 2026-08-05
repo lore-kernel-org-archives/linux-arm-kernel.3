@@ -4,129 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C80BC55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 19:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE3AC55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 20:32:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJomEUU5GTCCYKoO0xr3unuZpW1V4YnPiWHTeS/RIiQ=; b=iqJpyzXSWNcdRjF+VaStehgps5
-	jS+8eeHFLk0Z0W8ZCD+j8OuCp6oyvorVfy9fLxre04aKks70Vr9zXr4NF/VSXVG/deNGTYc+YRXwu
-	Oq2+9I3QBbEK+uDrMNyMn319mTVPNmwwAlM31+WNkdMnifq/zue1cZgm4TjDxhmjZ+R3ifdN+if9P
-	x2gVkX2FRRTIkPHtNQtaCaHV1PcGLGShEC2AiM/jvndvso0BPfZv/jk8jqkLk+1kO6a+roshL3XCT
-	ywe9InhAFoY6hRDY6YwWxTD39LhSe+XkmxJVC2YWQeaRpedPxH15vdMcc+voy/DloGYE6Fj1+omJU
-	VNnR1CcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oqrGtEQIh0Mq/RQtbS30gLn+prr4+6xwg8RlNlqwgYY=; b=yvUzbMzB4ygu4HTct+HsONMAoX
+	0r/En2hh1KAmv+3FFaNBOt7e3ExHCiHdbGXl4NeGyAOJ/QjFfPmsh3yrQY97jC7A3qap4gxqXimJD
+	LcvfEM2I9i6hCHxtbNvHeOCKwGFoPIBfu9KUBg5ixkE2CybQ0MIrl0/kH5ZkYkysNl9dZ01x49sF1
+	BIkvs20qWJNYRdmWYMF9HZvgQYsPE26wTOSTaq0n/877BwqqghtyBgO1rmKhGVxbNRH86eNXEzJK8
+	AWBSkyvKOn76UfvHvb8UwSIILTFCwr5qu/T64bsyVKrCYyvXhVxoPuQ4VxvobyOB488lfrMS+CtzS
+	H2bZ0P2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrhLz-00000004U8A-2uig;
-	Wed, 05 Aug 2026 19:32:39 +0000
+	id 1wriHq-00000004X0w-0XZu;
+	Wed, 05 Aug 2026 20:32:26 +0000
 Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrhLw-00000004U4L-1R7x
+	id 1wriHn-00000004X0c-2sMp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 19:32:38 +0000
+	Wed, 05 Aug 2026 20:32:25 +0000
 Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id D75C0240029
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Aug 2026 21:32:33 +0200 (CEST)
+	by mout01.posteo.de (Postfix) with ESMTPS id E383D240027
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Aug 2026 22:32:20 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
-	s=1984.8680eb; t=1785958353;
-	bh=wJomEUU5GTCCYKoO0xr3unuZpW1V4YnPiWHTeS/RIiQ=;
-	h=From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
-	b=PjhBvV0ca8dWcb3U+40UvwDIstWCZMQj4WkdmjmhhYLoNfaFEvEBDVl8i/uMljp1E
-	 g2w+FrTezFBYAII26w3m/re8tzsvU55yhk5GluP3zaDluWO1oDQa02f9F992Up9iLL
-	 T2EjxYkMuw6BhoL7nDHF3WFmx6a+rTLHPGzPZM7Q0xf9oa3223B9I5ABwsOfU/nP30
-	 6ZU/H2gvvD25s4fEVbFTNpdCQ1a7Qx5f75tSx+yNd5fI1WLJkxqlHBFsiuwoxB4yii
-	 lpXpGWvwKZZd1gwycasqJDSooM00z3bDabN4qqTLXWYWaa/Q92AcZx2fYVaCZGPa8V
-	 9z+s3cawne9gg==
+	s=1984.8680eb; t=1785961940;
+	bh=oqrGtEQIh0Mq/RQtbS30gLn+prr4+6xwg8RlNlqwgYY=;
+	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP:From;
+	b=me8OU24GfvTbQfFBoo6ti9CYnAkBxhrVsZTnoK42QrNRgrLX8hMhluz4gvAAlKenL
+	 ly8JgyDlAMzukNFETZ3IG74v7rz3zbgQ7M+YbPDdLf4t+igaT3VUQYEnUq2jvaWijf
+	 xGtfy3sJ3sR0GIu3C2cKSPjuWvHo9Ox04DyMFApbpMUMafVsg3sYd3awCu7ebmSDOK
+	 gpbo2UwSfo8E8uUksZ9Qf3g5kiUzSmzX3XP5gm6FcyqIm604Mlevj1c+r7x5IaFWt+
+	 F+Ssu/LamHR95sOognwdameUxI0EnQmX9DmakJgALo/d/moSXvhT/QmpKhAA+te/OX
+	 cUOqqwfpyRSWg==
 Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4hFgXv59mYz6tvm;
-	Wed,  5 Aug 2026 21:32:31 +0200 (CEST)
+	by submission (posteo.de) with ESMTPSA id 4hFhst3B87z9rxN;
+	Wed,  5 Aug 2026 22:32:18 +0200 (CEST)
+Message-ID: <d4912a33dee21a57d29ed4cc3692a8b72db522b0.camel@posteo.de>
+Subject: Re: [PATCH v3 1/5] dt-bindings: rtc: Add pinctrl for S35390A
 From: Markus Probst <markus.probst@posteo.de>
-Date: Wed, 05 Aug 2026 19:32:33 +0000
-Subject: [PATCH v3 5/5] rtc: s35390a: Add synology quirk
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260805-rtc_s35390a_int1-v3-5-e836faba3e25@posteo.de>
-References: <20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de>
-In-Reply-To: <20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
- Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
- Michael Langer <michael.brainbug.langer@googlemail.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- Linus Walleij <linusw@kernel.org>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring
+	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
+	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+	 <sebastian.hesselbarth@gmail.com>, Michael Langer
+	 <michael.brainbug.langer@googlemail.com>, Andrew Morton
+	 <akpm@linux-foundation.org>, Linus Walleij <linusw@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1557;
- i=markus.probst@posteo.de; h=from:subject:message-id;
- bh=nU4oKF0HljyU5+Oar3xvGQYP2KUrQWpDTVckxk3b1j0=;
- b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqc4/GyQzzF6iNKyJaLLL+IyBR24UoJcQZxyBCZ
- kCOyyW0uGGJAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCanOPxhsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9IITw//TVFw1lU39BGaxlnr/0PpFc1Yv+TME8E
- qSNW2XeehKOyzMjw7w4X0jkqLh9K10t0lDa9erv5yeXqDCF1XD236yK+g7igo2SidcuKu7GRi0r
- 6ua+J5lvSaAyrxuvNFd2PJYNT41eSS8hhbJNFnBneSDohEX7KxscpYauM5Msm4S9RDZQkt4sYvQ
- AQl1ZBWnKEWXOnSv3/YJKKpHAZ8OeECe7Iq4tz/mTNc1HiYpUjOhw8AVWYlCPNn6Lzz7IDN0pYw
- CBRBolLhB9RltyUnYmls0+mQfIntcduKMfqgSa/YJNMkJKogqTK4/dO5+3CA7roVwFYNWtYh5ef
- f1jVO7Tq5EyN4WKko+o7a3wvTc980gRJqncv4y77UGNM8aKt+547mNwPlIrmoCYBuAaSFMKn95M
- ac9d96ShcEYuM+XyTkvSzK/fkE5WAuzQ2q7Z4dKLKZzYHGbCKePnRXWDamkhX1gcaGNyhUKbUMK
- TrEHBH5uUdz1YZwwdPVqYA2yUkUWWcJJqImzTiDoXWUrBm/sKZi5G7dLTdlWuPxC4FwcpdZtJt8
- Hw//9QkY5zBddPCwJE5XwRWOjMx/qpAuixp21HhOK1Qp78PWruDtHDsJLOIRskxnifTI6NIGmvA
- bH0cisP/+0NAX2qnBuaLOmEglMvyi504awnrc8I2Liuzh3FXCnc0=
-X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
- fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
+	devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 05 Aug 2026 20:32:20 +0000
+In-Reply-To: <20260805-rtc_s35390a_int1-v3-1-e836faba3e25@posteo.de>
+References: <20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de>
+	 <20260805-rtc_s35390a_int1-v3-1-e836faba3e25@posteo.de>
 Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
-  keydata=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
-  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
+ keydata=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
+ jfGillcaQOqFZ3WwVqyzG1BUfTow==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-YHHTGLRZcmpMmgroGyKa"
+MIME-Version: 1.0
 OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_123236_707218_68FAB2C6 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260805_133224_045008_2C2E2535 
+X-CRM114-Status: GOOD (  22.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,52 +127,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Synology NAS devices use interrupt signal 1 for wakeup alarms. On ACPI
-it is not possible to configure pinctrl.
 
-Use interrupt signal 1 for wakeup if no pinmux function has been
-configured in devicetree and dmi sys vendor matches "Synology Inc.".
+--=-YHHTGLRZcmpMmgroGyKa
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Markus Probst <markus.probst@posteo.de>
----
- drivers/rtc/rtc-s35390a.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
+On Wed, 2026-08-05 at 19:32 +0000, Markus Probst wrote:
+> Synology NAS devices use the output pin for interrupt signal 1 to wake up
+> the system.
+>=20
+> Move devicetree bindings for sii,s35390a into its own file.
+> Add necessary properties to configure the individual pins via pinctrl,
+> which allows the interrupt signal 1 to be used for wakeup alarm.
+>=20
+> Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> ---
+>  .../devicetree/bindings/rtc/sii,s35390a.yaml       | 109 +++++++++++++++=
+++++++
+>  .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
+>  MAINTAINERS                                        |   1 +
+>  3 files changed, 110 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/Doc=
+umentation/devicetree/bindings/rtc/sii,s35390a.yaml
+> new file mode 100644
+> index 000000000000..0355f17f233a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+> @@ -0,0 +1,109 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: S-35390A 2-WIRE REAL-TIME CLOCK
+> +
+> +maintainers:
+> +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
+> +
+> +description:
+> +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with t=
+he
+> +  very low current consumption in the wide range of operation voltage.
+> +
+> +allOf:
+> +  - $ref: rtc.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: sii,s35390a
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    minItems: 1
+> +    maxItems: 2
+> +    description: Supports up to 2 interrupt lines via the INT1 and INT2 =
+pins.
+> +
+> +  wakeup-parent: true
+> +
+> +  wakeup-source: true
+> +
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +patternProperties:
+> +  "^pins":
+> +    type: object
+> +    patternProperties:
+> +      "-pins$":
+> +        type: object
+> +        properties:
+> +          pins:
+> +            $ref: /schemas/pinctrl/pinmux-node.yaml#/properties/pins
+> +            items:
+> +              enum:
+> +                - int1
+> +                - int2
+> +
+> +          function:
+> +            $ref: /schemas/types.yaml#/definitions/string
+> +            description: |
+> +              Pin function:
+> +              - ignore:  Preserve the previous state.
+> +              - disable: Disable pin output.
+> +              - wakeup:  Output wakes up the system.
+> +              - clock:   Output clock pulse.
+> +              - pmin1:   Minute periodical output with 50% duty.
+> +              - pmin2:   Minute periodical output L for 7.81 ms.
+> +                         Can only be used with pin int1.
+> +            enum:
+> +              - ignore
+> +              - disable
+> +              - wakeup
+> +              - clock
+> +              - pmin1
+> +              - pmin2
+> +
+> +        required:
+> +          - function
+> +
+> +        additionalProperties: false
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    i2c {
+> +        #address-cells =3D <1>;
+> +        #size-cells =3D <0>;
+> +
+> +        rtc@30 {
+> +            compatible =3D "sii,s35390a";
+> +            reg =3D <0x30>;
+> +            pinctrl-0 =3D <&rtc_pins_default>;
+> +            pinctrl-names =3D "default";
+> +
+> +            wakeup-parent =3D <&int>;
+> +
+> +            rtc_pins_default: pins {
+> +              int1-pins {
+> +                pins =3D "int1";
+> +                function =3D "wakeup";
+> +              };
+> +              int2-pins {
+> +                pins =3D "int2";
+> +                function =3D "disable";
+> +              };
+> +            };
+> +        };
+> +    };
+> diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/Doc=
+umentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> index f4d0eed98a08..7b3f682ef4d5 100644
+> --- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> +++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+> @@ -81,8 +81,6 @@ properties:
+>        - ricoh,rv5c386
+>        # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
+>        - ricoh,rv5c387a
+> -      # 2-wire CMOS real-time clock
+> -      - sii,s35390a
+>        # ST SPEAr Real-time Clock
+>        - st,spear600-rtc
+>        # VIA/Wondermedia VT8500 Real-time Clock
+> @@ -105,5 +103,4 @@ required:
+>    - reg
+> =20
+>  additionalProperties: false
+> -
+>  ...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 5114e6db7307..4c8bc35cfe55 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -22695,6 +22695,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/=
+git/abelloni/linux.git
+>  F:	Documentation/admin-guide/rtc.rst
+>  F:	Documentation/devicetree/bindings/rtc/
+>  F:	drivers/rtc/
+> +F:	include/dt-bindings/rtc/
+>  F:	include/linux/rtc.h
+>  F:	include/linux/rtc/
+>  F:	include/uapi/linux/rtc.h
+This hunk should be removed.
 
-diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
-index d63bdeff8cdb..2537bd8fe3e8 100644
---- a/drivers/rtc/rtc-s35390a.c
-+++ b/drivers/rtc/rtc-s35390a.c
-@@ -5,6 +5,7 @@
-  * Copyright (c) 2007 Byron Bradley
-  */
- 
-+#include <linux/dmi.h>
- #include <linux/module.h>
- #include <linux/rtc.h>
- #include <linux/i2c.h>
-@@ -771,8 +772,18 @@ static int s35390a_probe(struct i2c_client *client)
- 		return dev_err_probe(dev, err, "pinctrl enable failed\n");
- 
- 	/* If no pinmux function is defined in DT, fallback to previous behaviour */
--	fallback[0] = S35390A_FUNC_IGNORE;
--	fallback[1] = S35390A_FUNC_WAKEUP;
-+
-+	if (dmi_match(DMI_SYS_VENDOR, "Synology Inc.")) {
-+		/*
-+		 * Synology uses interrupt signal 1 for wakeup. Since pinctrl cannot be
-+		 * configured on ACPI, we check against the dmi sys vendor.
-+		 */
-+		fallback[0] = S35390A_FUNC_WAKEUP;
-+		fallback[1] = S35390A_FUNC_DISABLE;
-+	} else {
-+		fallback[0] = S35390A_FUNC_IGNORE;
-+		fallback[1] = S35390A_FUNC_WAKEUP;
-+	}
- 
- 	for (i = 0; i < ARRAY_SIZE(s35390a_pin_groups); i++) {
- 		if (s35390a->pinfunction[i] == -1) {
+Thanks
+- Markus Probst
 
--- 
-2.54.0
 
+--=-YHHTGLRZcmpMmgroGyKa
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmpzndEbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSW7MP/R+DKRnlq2TKQNEX5aF6
+xNbEmDv3HbKlTbQ1HWrBqpVbGMAkCmX42QNITv0YrECVN/74dlqfvS+gSWNYVKsc
+VHGoLcJPNvjQraFvKNfI9e8bpozlSMNgmLTw35i+5/mA1T1UybOn26z5WzpnUat3
+7DiOYsxPomsj+HvitUFbo3l/U/gvTrqJrPXNDQDm8jW+O4fIYZ+ERJi8kNaHV52v
+313Lp5xCcN90mdEz/U1eGl1Pyaf/kIwmLoEdoORYF3zZhrQsfNPc2RXhC9hRCl+v
+z41b9RCnfPhHCgt3JsvDcv1B11OTmA1HR6PeX9sxTax0k+xX0EV15tonkYjEB/WA
+MbaDUSCxLOwBDU8hkLNqzIovrW8oNThzT6HErUUuaupJeMIaVQpNhH4yi4yTkAVz
+vfLyFj/jOWg0UJW05cPC9U5Q14+NjnhZTcySIoKvcrZplUSqJp5CpqFLmKMjMJoJ
+gVl/KvEdyyH4WfMkUH3Wdsspc/w4wR9g/DWVLMfqG/pAeXgBMX6Df1s0Y+O/2TvU
+PayR4C7QnztgiWNQe2DsDldy+R1eXmBVQqFNHiAoqcxnmbxzhpNxzgnsR1FEr1l/
+s/k5y8N5h/wYo/Cl/Tr2f9isE+zdU3fBeYCnkq2I9dM46zQyfnMhB8rhgm2cN4cT
+KSPO6QJag9O0lE+gZvvfI9ll
+=E2qu
+-----END PGP SIGNATURE-----
+
+--=-YHHTGLRZcmpMmgroGyKa--
 
