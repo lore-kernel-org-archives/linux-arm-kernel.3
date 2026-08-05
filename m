@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB10CC55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 14:23:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FBD2C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 14:27:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vtFogd9Yw/S+y2ZZkzMQdnH2xhJ3MBW6Yho0E6kCH+g=; b=i9wZbEZDHVVQoTYgrUZG9lx7jK
-	ErbEhgPCYZJ8LZjexdeMRB+lVviTOJhcltJtiUekZqMDMiSYOzw5Kd/T+8Vc4ZmBspUdd/KJgCWj4
-	det6Ep8IInzTlCs24XS8T2OjNOEksqayP4TkLIZHxTkUzr1+rrSKhWugWUAG+F71DHQ2Q4yWhh0tk
-	A1fcdJ56eSb7fo1JilF030kTAJRFhLpTwQXtmWdPpmt9MdD0LrtfKkXBmggelFd3a9c2G8dtJSwIu
-	aa2ZqKodu7zRpU557CaJEePs/YdiK9Hc3ZhYqkkHUsHQCNF2K6BgHwjo/D7j5F1ay8rjCADmaLonx
-	bq1hYIfA==;
+	bh=h0FQAZMCTtVMu+SfQBpj4XUrE+k5949tT3pyyR9/qH4=; b=t6Lv5SXMmuuASHUII+KHHRaW0v
+	ny1mlSmEUKnQcEOPODjg2A7Ypg4nZj/7lfL4XZ5L+7snaycb5go+WntujNRb+y5jCDaCluFKE1BGZ
+	4Lu4n6MyluIBLdszLJzguoV/s8Y+vOcn6zwYU+ydP3tpf5iwKCUVnywgJCOqyeOasHxmPtp/tNWjv
+	emxxqTOj3ngL911BErnXsZRw4EnnWE6kJXnoAMJUkY7qGcj7J/Ig6cfLT454Gdvd+n13/RrilhvUe
+	maObroyjVfZo6Gr4EVoHC1ixO+ALcnVymh9mx/hPwtbxHlg8MAWenOvsTH0eHRMCi5+tpk0Bp0hBd
+	rRO06Zlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrcWG-000000044hd-3Oj2;
-	Wed, 05 Aug 2026 14:22:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrca2-000000044ye-1jqI;
+	Wed, 05 Aug 2026 14:26:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrcWF-000000044h0-1SgI
+	id 1wrca1-000000044yX-1DtO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 14:22:55 +0000
+	Wed, 05 Aug 2026 14:26:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5AA6F60A6A;
-	Wed,  5 Aug 2026 14:22:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DCE4F1F00A3A;
-	Wed,  5 Aug 2026 14:22:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C538E4179B;
+	Wed,  5 Aug 2026 14:26:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C17B01F000E9;
+	Wed,  5 Aug 2026 14:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785939774;
-	bh=vtFogd9Yw/S+y2ZZkzMQdnH2xhJ3MBW6Yho0E6kCH+g=;
+	s=k20260515; t=1785940008;
+	bh=h0FQAZMCTtVMu+SfQBpj4XUrE+k5949tT3pyyR9/qH4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IlbWjj7+sINUO1Vw7fwnR0Cx5BAwf8PlFf5lX9PNVakRSfI32KlCDwEexX5uuoXVT
-	 MnrBciX8ueqmC7Mw4+SlQ73lWMr6xgzOkOukG7jeTmeSaovYh5m1w7FJyZcNiIdjC4
-	 eTV3UgeB1TUWlWmPnoH4GWLDPgAy2//IDMCU8vXSMj55Ubmnh9qOuTfw5zVoWwV/Ip
-	 ln5k5fMEjGiVZ+XKTt5xh2+rd5yQBz/ZzOE9Ns2z5DXGRvs4kLrZX3wW/QXUS9ywK2
-	 KdwN3zbnQsNb0kIOEx9UkCxxWol4+0cozvECvFUzHd+wEQd6B3OvsJx3LnRXxLElZf
-	 EB1HxzkWn5vAw==
-Date: Wed, 5 Aug 2026 09:22:53 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Thomas Gleixner <tglx@kernel.org>, linux-kernel@vger.kernel.org,
+	b=Qceu6FYzmtEP9k/+BTogjyl7kCvl5SLBImKlYNAsxgA0B0R6UDLtjFxfAku3TQrdG
+	 fpyToLNBAo8AWZifjl1u4VuLFi8aDndzEHqltMC+uzWTID8BBzXnUjmtuEsi9GRfku
+	 yRWFFC2iPdHMgJgzCDrEowY8jEM66OOWqJPshFgp6+XI/AA4CViPT77OxdYJZXlwIO
+	 22rZX86QnymccpzY2iax3No2CXgLkhnjAK9meWvVRYVui3p6BrqMbd0JJn0P6g18fo
+	 K0Bd9PHPwnX6KUHdrf2fB2BHYJY0sRSFrBXn7ggBwvWQb4Wq3h/N5XcwGvxU7Tu/LB
+	 TMEE8HEjAXvxw==
+Date: Wed, 5 Aug 2026 09:26:46 -0500
+From: Rob Herring <robh@kernel.org>
+To: Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+	Imran Shaik <imran.shaik@oss.qualcomm.com>,
+	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Maxime Ripard <mripard@kernel.org>, linux-sunxi@lists.linux.dev,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Subject: Re: [PATCH] dt-bindings: irq: sun7i-nmi: Document the Allwinner A733
- NMI controller
-Message-ID: <178593977246.792405.15302040660276543988.robh@kernel.org>
-References: <20260731-allwinner-a733-nmi-support-v1-1-61e4a0825b20@baylibre.com>
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v9 06/10] dt-bindings: clock: qcom: Add support for CAMCC
+ for Eliza
+Message-ID: <20260805142646.GA795123-robh@kernel.org>
+References: <20260804-eliza-mm-cc-v9-v9-0-39067760dc3c@oss.qualcomm.com>
+ <20260804-eliza-mm-cc-v9-v9-6-39067760dc3c@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260731-allwinner-a733-nmi-support-v1-1-61e4a0825b20@baylibre.com>
+In-Reply-To: <20260804-eliza-mm-cc-v9-v9-6-39067760dc3c@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 31 Jul 2026 18:09:52 +0200, Jerome Brunet wrote:
-> The A733 NMI controller is compatible with the A523 one. Add an
-> A733-specific compatible string, with the A523 as fallback.
+On Tue, Aug 04, 2026 at 11:20:19PM +0530, Taniya Das wrote:
+> Eliza camera clock controller is on CX and MX rails similar to Milos.
+> Add compatible string for Eliza camera and camera BIST clock
+> controller to the existing Milos camcc binding and add the
+> dt-bindings header for Eliza.
 > 
-> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> The camera clock controller provides power domains, so 'power-domain-cells'
+
+You mean '#power-domain-cells'?
+
+> must be present in the device tree node. Add this to required properties
+> to enforce it in the binding schema.
+
+The sashiko report seems valid to me. Should cambistmclkcc be a power 
+domain provider?
+
+> 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 > ---
->  .../bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml      | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-
-Applied, thanks!
-
+>  .../bindings/clock/qcom,milos-camcc.yaml           |  12 +-
+>  .../dt-bindings/clock/qcom,eliza-cambistmclkcc.h   |  32 +++++
+>  include/dt-bindings/clock/qcom,eliza-camcc.h       | 151 +++++++++++++++++++++
+>  3 files changed, 193 insertions(+), 2 deletions(-)
 
