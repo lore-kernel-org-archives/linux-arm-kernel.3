@@ -4,133 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B07C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 19:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3505BC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 19:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CKKRCBlqmfghV+o1u/j3QUArykIXYZQYJXdu6AksOkc=; b=yDWC6T/cty91m4AFMuhlQEp/fO
-	CtGIi70/l31bD0Zxy0oNdfc+++Tx7LCiArQq5G/KTP8stGHNtzvBvhNFdCQVysNVsYCpSvB144trZ
-	+BpbeUJvrSLdnYTREK2iATJDdDIy0g+IGhKG2p+Q5TQjxjZslqQzfy4XlDCW6IUZWxO5dseM4xKbD
-	XLhJYpgf6SzOYwahFxzPOzVnrfiENl5jcyWDkiL0pkBHw8aD1AemNDboeS68hydi1LJtfpC3PSjNp
-	1kGxqCIi4uSgv31yoKSlvxU1RWTIFX2q+NbXDPLBCng82Sgd+PwrgwXST5FJqZoRtoaEZ+5JZ36Hp
-	mFQaepfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iwRdHOYXMfbpO1WX4Vm0GVh3HBQvySrcvt0pl3nz9Z8=; b=Crgg6GKg/RghZr
+	Wr9o2H4BrVqSk4ipD3GNX8krDIGEXDdsIzvZiW/KaZzn3DLfMAf+ERwzzm8dp0vV960SL2sCZdruD
+	OPo9tXYPAtBPwGY2zjDV0YL5wsuV+GY3Gwa5urgpIfx6vvnwi2iLdo4nRS3D6ZBYagZ/z4GrJGZwg
+	6tumz6UB6IJosYp4NtPBnHlcj8sLV+0l2Q+hUrasbVsuLtyAUz9ph8SVMcQwTQs38crCazEAZhABH
+	LQ6dVvIcf7UKJ1h9mD60rt9jD99YcBjuxKMTSrCYBtlxFbX2nFV3qXprusvPekx/7B3BHQFZdyDJh
+	Kgwaxpc2e9SQ+p89/J8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrhLh-00000004Txo-21k3;
-	Wed, 05 Aug 2026 19:32:21 +0000
-Received: from mail-westcentralusazon11010033.outbound.protection.outlook.com ([40.93.198.33] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wrhLu-00000004U3m-2sjV;
+	Wed, 05 Aug 2026 19:32:34 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrhLf-00000004Tw1-1XDG
+	id 1wrhLs-00000004U0q-0lfq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 19:32:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Nb+buzgyTCp0RTJCO3OutSfvccCgDxCthY3Jddej7A6wWz273wzOL4fvJJA4Ixr3JrJWmLpTx+T9QzjAeTj+PvLnck+4SlFEVszrmDeUDiiPya+FKfnEHOZjJ90EInPFolooxVz/LE+ME5AWyfHErS5nrh0XV6D2qkcOFEBEwI5ozFVt+0OsJS5L/rG0hi64/8LnsDuVnxvBqEM4qguk3V17H24caHDPYyx3SI0yADTllzo1bvCkGtqd/9EulRzw4gRuaSR7mhcPMQZXE6vREGE7W6H5wBXjGn93RSvWBLSstSgE2zygVQL/6dTw1qvOYaeIydaEto6sP6DYrr7Lug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CKKRCBlqmfghV+o1u/j3QUArykIXYZQYJXdu6AksOkc=;
- b=IumVscG3U5l1Iv4AunCtXgRIX2HXpXeROCTs8/uxOmbUeY/a3YleTBbUCvxuz9sEmsraCZ2Rm62GmNo4h/vd6Q1eIk2ODNbP5vZ4qlMW6IPDYgYE2SAcnpkM/KwA1vKT9c92Njc38BLFjSWUeSRj9J9ZBL30jBu9H4S8jcUe6FggiZup1SAqUe554p1XIoh+r3Ikp6CZcKKT6T874LHXMpNxeBR781evv/5uSGeOin2ND/x8UKzbxL3VUfty54fEneZaWAHnEVSpl3FjVh2YRh1Q5SESH5xQVkycN8LAkWYNRzM5EmNLZPn0RFzrJ6avxQvwjTS9bx2SWfe5oYNnXw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CKKRCBlqmfghV+o1u/j3QUArykIXYZQYJXdu6AksOkc=;
- b=di17o31N/lIu3nfF/EmJW594J0YRJCJCWUAQu1HqDbBnli0jvTpIxPiMMMMdYiYLJAkF27DoU2kG4gpGOmglzNziwBkeYYTdbmjGku/QEQltvFVz9lO8mximGza2tIn8uOlLFRwvrUP5Ab+z9Cyc912vWGVzv4WMs1cYfe+n1AOe4NjjV7rA/EuS9sqIZjFHTSn/hKkTi+LEb1wtHXxzUBqoKzFjWun4vsekNSZs/887nLiOp615GA9rN/EA/eUl7LUoeoWOHzLzh6QOSdz0NOUNXitXmLTT3wFaM6wY6n9WSFYBWHY7RX7O1BO7kyxvxtchba3iTWW4NPY/PPtuyg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CY1PR12MB9601.namprd12.prod.outlook.com (2603:10b6:930:107::16)
- by PH8PR12MB7157.namprd12.prod.outlook.com (2603:10b6:510:22b::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.16; Wed, 5 Aug
- 2026 19:15:30 +0000
-Received: from CY1PR12MB9601.namprd12.prod.outlook.com
- ([fe80::cd76:b497:475f:4de3]) by CY1PR12MB9601.namprd12.prod.outlook.com
- ([fe80::cd76:b497:475f:4de3%4]) with mapi id 15.21.0270.017; Wed, 5 Aug 2026
- 19:15:30 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: iommu@lists.linux.dev,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: David Matlack <dmatlack@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH v4 5/8] iommu/arm-smmu-v3: Precompute the invalidation commands
-Date: Wed,  5 Aug 2026 16:15:23 -0300
-Message-ID: <5-v4-1802653d8886+492-smmu_tlbi_jgg@nvidia.com>
-In-Reply-To: <0-v4-1802653d8886+492-smmu_tlbi_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: YT3PR01CA0081.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:84::27) To CY1PR12MB9601.namprd12.prod.outlook.com
- (2603:10b6:930:107::16)
+	Wed, 05 Aug 2026 19:32:33 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id B3957240029
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Aug 2026 21:32:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de;
+	s=1984.8680eb; t=1785958346;
+	bh=iwRdHOYXMfbpO1WX4Vm0GVh3HBQvySrcvt0pl3nz9Z8=;
+	h=From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:To:Cc:Autocrypt:OpenPGP:From;
+	b=agRlX3R4kae76kGCGFIEHlHz91aUktgGzSVfOfBVAUYivHWRrfpqrK/5944Ix1cdO
+	 AMh0dIlAi48ELz9dVwvBHzlkk0Jkj7FD+xRSJXnIK76jgZ9/HUvvV4MDHczAN0+nd5
+	 yHXmC5qXy6ZSLgrNHwXVqmjrB6kN/BKJ4GnJpAVQ5pRXrSEjYpVBDZr5I/7qxgFwGI
+	 r8g1LeVzLbYhwr6eNak6dIlqmbC1O+kVls1N8UQKr7dTp/Okzftu5lW4729PuNKoSw
+	 r+LpEDqCDIn0KL6rSyJ88zvi3WmL+W0F4mHwfGG//xtuohA1NfQz1614H2YDaKVAhe
+	 gSGw/E7FfKcPQ==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4hFgXl4pGRz6tvy;
+	Wed,  5 Aug 2026 21:32:23 +0200 (CEST)
+From: Markus Probst <markus.probst@posteo.de>
+Subject: [PATCH v3 0/5] rtc: s35390a: Allow use of output pin for interrupt
+ signal 1 for wakealarm
+Date: Wed, 05 Aug 2026 19:32:25 +0000
+Message-Id: <20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9601:EE_|PH8PR12MB7157:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3e2b5f08-8091-4735-5c20-08def325ea2c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|23010399003|1800799024|56012099006|10067099003|11063799006|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: U7IKF0OPh6oup881sasbOxsTBbNOlwaaYoiUTTvWeLnkort79QTBxzpeFhbq4y4dm5K1ad9pohF7oBoUTBktEoFAPo4Jti7SLjYu4SXxbeRed0Rxb7zHCfLOsVLf/qymutPNJN53COFpD8vB7Hd3gcmbIGVN2kMYuCV+xIr4CSw0HXC9HZketCmFXNYeJDIBgv9dwVOm33H8RVjLbYhr8TdbOwfqkPVGtdEfC8Jf/mhWtvEiGN+IqsOoJgB/PHB11YLwR3C8dfVkzCBPaHNy4QYVPtflBJm45CyEjPTBB+beUTHSpR3odBhGqMsxLPc20GNEPU+1pQX0s8SOQ81Rcf0TrKIiCaxjTiNJ7o6U6gnuO6LrncGWlxbL20WjHFF/fvj8V7IzaiiOUYFYFuGVCVUQvSJo9lp8LYm+l0VaHEy0Uv9P8D01KKRxypfY56UXvXDeS0hGSbyS4tCtIhmCc+glizKNpb9QVLdb2a9V9aZdXxHRL24tgvzq710ZcGRWmnM0a1Pj2wS4Bd9dCLfgw7txSqxYaVkYyh+vrEfMCaE5/J9Mja3/FypEP1Icbs5HcxkXV47C5DTsUXnhLO16QIKEJL+m00sRwaH2YLuab7ARogXqrHDDiGBWHivVfJ/Y5/ALGUcazOzl8m6eR9vRBtjAqQT7m9L4WaY+sI1m18Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9601.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(23010399003)(1800799024)(56012099006)(10067099003)(11063799006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PjispF7IkuXRCk+qwnkyUxfDh896Cd4/Rm6fKTXLOXFjGg3vzaP2YQZmZ2eC?=
- =?us-ascii?Q?783M1KSbfwM/Sqj6+e8KPzsuHVlETYDpE6/Lx6bu5sBEaBDd0Z1L/VFbJTGK?=
- =?us-ascii?Q?n/xK+bnU5cR7nNyPe7Pxwhddo9w7+UDoGUx/DlST+XRruYfBkQEzBdWcIUyD?=
- =?us-ascii?Q?MXK2iGT730J0ibbUyCqPMMh2mIUlzivvQO6qBqdfKD0jyPZi2UYHXjAEya2J?=
- =?us-ascii?Q?FNfr9wOqG+wTDLtcW7nxPFwCf8kMjwpSmmm6HSj5pyyGY0kKpcL2ByZgW2+I?=
- =?us-ascii?Q?GcDwx86hRf5tfbg90N7ia5zoN5mAX+ALJ9Yc4h5iJrpbKpDrv/jvVjbVDIbj?=
- =?us-ascii?Q?pxpYQia8SZFvHoVzGrtgnqzGNKAJMXqELoZs9IofgAhA5w+ZQsBlA8gM9/+W?=
- =?us-ascii?Q?WPtE43Fb76gC+llokKLSwP7hkDzMfsyk3GZLd7+Jzsx69LQgCGoDk1QTfCxN?=
- =?us-ascii?Q?ww6AWBpORuExGt7D3Tnk7m3H7lEU6iuYKOk92DpGSz0hxVzp8coP+ibW/sXl?=
- =?us-ascii?Q?7rsd1fJKZcm+OJTB9PRtMqDEnVxFm7olL32uQVoZJhNdCikWjLjB7ilmlS3l?=
- =?us-ascii?Q?P4t90Ca54eKoGsACGYyjS3n1+nArT5TrxpXILqhkaJmWcCLZUmhwdoNnZAdV?=
- =?us-ascii?Q?JUNDrIS6b9wrnD0qETqwygXd9hLIqKbQQocrC3/CBopj9oZLX/YPEIM0aZQn?=
- =?us-ascii?Q?vzW+WRFxSBlHj1OgEpIqG4U4eObddzJJMudUTrtN6gDZiA0NIpwU7nq0zpkg?=
- =?us-ascii?Q?lrE1tEtL6fPFLyODrKwB5aLa8vWcagi3rLj2DMxZ/NGvbtapVEu+3W5ORyOA?=
- =?us-ascii?Q?ZpCDed9xzjiKObkDEOGyK4Py9M2B+Wogjxdpo4KZAu3rKO+UiM0wX0EmU8nS?=
- =?us-ascii?Q?70J916fW1oLmMPhEL7YzYociiodrDJytScANvAQ5hRupOhFsiJGxR9rt9zFY?=
- =?us-ascii?Q?ofB1FY/DOqFA3S5hqOht/4FIzQFzTjEcECDxfNlvWP90OC/75Nj5v449+6Pb?=
- =?us-ascii?Q?tzeF6GZkOz3AZ2uLZPUIWcQ5L68PfSeRydfkW9Fn0UbEeDKLPj1nX1dKdYaW?=
- =?us-ascii?Q?cr0GMk1W+3h676pdVWgUNCatIUciTNzvStBliotmrjOu8TYP1Pw7KUsYre0O?=
- =?us-ascii?Q?NF08oJ4zb2WUPTzC6SgahRXmAcbkqihNVI/2SvwSMh6TL2ii+VcJHNMUSIRD?=
- =?us-ascii?Q?C7epOlp6mN2nfVB50PDgm6hK/yyZt64AYs/+xyUK+D/3L2TkKuJoxzytXse2?=
- =?us-ascii?Q?/psdPytKav5D9Ct5untfF+SXTPKPJrc24yriBeLohCf0Ed0BWmedr7tin0uX?=
- =?us-ascii?Q?3koR3ArQC9Du1EYEVRlbLm5Y3hotLhnbqArwZ5i0Lr6kS1WqPsijtI+Pg8z6?=
- =?us-ascii?Q?QJlN4iceFSb6gGJOzXuiUfUSXhXs6BKh90egvXFUMkiOdbsb3Xhao8opHDY6?=
- =?us-ascii?Q?lwx0EEE6JSTVHbYvf/faebDHD9nim/O8Z/PEhoCeanY+SIahGbMQ6cTlyRRN?=
- =?us-ascii?Q?5iLhxGBvyuSNzSIjBRAH710CJLHa0rpRQfPqvj7kXSxryRNBAz5CIMpksYhB?=
- =?us-ascii?Q?Rj2lhD9UDqlZU/7F+cTknnYrwRiaOAu0mE/jwzWC9bSyATIUkyUHlJPBaR5I?=
- =?us-ascii?Q?UBlgNr9LukK7MbUy+tX5uqyjXWwUwByUBFi9EtYabUUh5AC2X8MD6oPAF/oe?=
- =?us-ascii?Q?yI+eFUFlgZZ3kAqW37ITNw8S9tMISnGtv5tav5RVsRtAX7Aaw859ZlAf2CaX?=
- =?us-ascii?Q?Ny6c446iHQ=3D=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3e2b5f08-8091-4735-5c20-08def325ea2c
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9601.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 19:15:30.3901
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 8ANuNlTz3Igb3Frq/ZdyC2a9BlrU5eINM79VfxOm9aWp8r9dylKam91eT4TyRRx3
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7157
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XOTQrCMBAF4KuUrE3JD422K+8hIs1kqhHa1CQGR
+ Xp3YyvoQpcP3vtmHiSgtxhIUzyIx2SDdUMOclUQOLXDEak1ORPBhGJKMuojHIKsZM3agx0ip1W
+ lALRkGyM7kmejx87eZnK3X3K46jNCfDnvhsfLNd+KS43oNiAF1/c2NkVal4J6UOS1PtkQnb/P/
+ yU+l/+/kjhllGshZI1caRTb0YWIrjQ4Y0l8gA3jPwCRgY4zqOvWcKPgG5im6QkD5DtVLwEAAA=
+ =
+X-Change-ID: 20260630-rtc_s35390a_int1-556ccb308d3f
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Michael Langer <michael.brainbug.langer@googlemail.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Markus Probst <markus.probst@posteo.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3722;
+ i=markus.probst@posteo.de; h=from:subject:message-id;
+ bh=jrTgFP/6/lbl+dptsrGWnkKve08eWg5NyDBoxwYhbvw=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqc4/Fv4fcMLIljm7bfkO9VwUQBXNOr9wvvaiJz
+ hLrxYNWHk6JAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCanOPxRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9Iang//b6+Y+K3FZy1/GUpDqYmHdiEhhXFxgcD
+ kLOp1Z/x9nQd1CnZK4+bEf4LGEOh3u619Sif56Lbdh6+G4gVUZXdvXak1MOM/tH58bqHVAEnpfn
+ n/WSY5GwuRzpZKuqTxWqvwy0p2Qk70bFVqvol+U5vYxNrSbuOO1V28XjMSTX8MUL7gJ0+OXuuDX
+ /4CJWmobKKzXSNk45TFDv6AYff5pvAEl479o0EWhyRmkhgSscFjcHtjhTLlnjtKUfHE3dNyyYla
+ Ww00vB2JhxvmC2Twrb5Q2PGmh8xJI9S7h6MLVfY0mDDDOCbUbHFJHEx4FNAkImXmldX7O5TotS6
+ BqwDHiyoj85NCkS+gLPHxcTj8gsYzyuekMHmonhqfT4Hv/SBJZBPOQZx5emeBbB2GHx8BwsQR1j
+ +TKNDwKmE3QtxjemQA9N27aCdp2NB125CERT8CkryzQj7t3ORZ0e+uH34CSPEQlJ/hMqgHfAZZa
+ IKZ6J6/dJQDbQGFEUy/285TS3DxwBXTKRZ6ubk5j6mBHIebuZ2VRmNy9BA0MggeI4NJ4Azo9eg3
+ mXUWV3ReWHnjU0KFD/j7HAxSh93UOt4G0UGo39WbkOcHfLS52qkzmNX6RbytWq8TWPygX3Lom1F
+ Ml+sTYZIb6jf0JzpNViu3sk0AVp/9fixttCLqlRApVs7qWE/jl+M=
+X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
+ fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+  keydata=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
+  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_123219_453851_2CAF9495 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20260805_123232_542523_9452DD50 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,265 +146,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Store the required cmd data in the tlbi and just copy it out when
-processing each item in the invs list. The cmd form only depends on
-if the instance supports RIL or not, otherwise it is always the same.
+Add pinctrl to allow the use of output pin for interrupt signal 1
+for wakealarm. This is needed for wakealarms to work on Synology NAS
+devices.
 
-This avoids redundant calculations for each invs entry.
+I could only partially test the pinctrl patch. My testing system runs
+ACPI, which makes it impossible for me to configure pinctrl there. I did
+however verify that with missing pinctrl configuration in the devicetree,
+the register were correctly set. So there should be no regressions.
+Every other function than ignore, disable and wakeup should also be
+considered untested.
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Tested-by: Nicolin Chen <nicolinc@nvidia.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Also If I am not mistaken, wake alarms on these systems are currently broken:
+(not tested, judged by looking at the devicetrees).
+
+- arch/arm/boot/dts/marvell/armada-370-synology-ds213j.dts
+- arch/arm/boot/dts/marvell/armada-xp-synology-ds414.dts
+- arch/arm/boot/dts/marvell/kirkwood-synology.dtsi
+- arch/arm/boot/dts/marvell/kirkwood-ds110jv10.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds111.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds112.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds210.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds212.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds212j.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds411.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds411j.dts
+- arch/arm/boot/dts/marvell/kirkwood-ds411slim.dts
+- arch/arm/boot/dts/marvell/kirkwood-rs212.dts
+- arch/arm/boot/dts/marvell/kirkwood-rs411.dts
+
+If thats the case it can be fixed by using this patch series and adding
+the example in the devicetree to the s35390a devicetree.
+
+If somebody still runs one of these systems, please test.
+
+Thanks
+- Markus Probst
+
+Signed-off-by: Markus Probst <markus.probst@posteo.de>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 128 ++++++++++----------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  11 ++
- 2 files changed, 78 insertions(+), 61 deletions(-)
+Changes in v3:
+- fix issues reported by Sashiko
+  - fix use of uninitialized time data
+  - remove dependence on `CONFIG_OF`
+  - add missing `pinctrl_enable` call
+  - fix wrong index used in `s35390a_pinconf_set`
+  - fix interrupt not cleared
+  - fix `device_set_wakeup_capable` called to late in probe
+  - fix mode caching even on failure
+  - fix failure on synology quirk mode update ignored
+- only set irq in alarm_irq_enable callback
+- fix alarm time not set if set_alarm is called with alarm disabled
+- use pinmux instead of pinconf
+- move patternProperties below properties in dt
+- remove dt-bindings header
+- add '#clock-cells' dt property
+- merge 32768khz and user frequency mode into "clock"
+- remove alarm mode
+- refer to mode now as function in the code, to match phrasing in pinmux
+- resolve checkpatches --strict warnings
+- remove mode_init bool and instead set initial function to -1
+- remove err_read probe variable and reuse err
+- rebase onto v6.2-rc6
+- Link to v2: https://patch.msgid.link/20260801-rtc_s35390a_int1-v2-0-f10c99ad1d6c@posteo.de
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 057e180bfe15be..55a47a5bdc184f 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2482,32 +2482,15 @@ static bool arm_smmu_ttl_addr_aligned(u64 address, unsigned int tg,
- 	return !(address & GENMASK_U64(pgsz_lg2 - 1, 0));
- }
- 
--static void arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
--					struct arm_smmu_cmdq_batch *cmds,
--					struct arm_smmu_cmd *cmd, bool leaf,
--					u64 address, unsigned int num,
--					unsigned int scale, u8 ttl, u8 tg_enc)
--{
--	cmd->data[0] |= FIELD_PREP(CMDQ_TLBI_0_NUM, num) |
--			FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
--	cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, leaf) |
--		       FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
--		       FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | address;
--	arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
--}
--
- /*
-- * Issue a single range TLBI command covering [iova, iova+size). Returns true if
-- * successful, false if the range is too large for a single command.
-+ * Generate a single range TLBI command covering [iova, iova+size). Sets
-+ * use_full_inv if the range is too large for a single command.
-  *
-  * The algorithm finds the smallest SCALE where the range (in tg-sized pages)
-  * fits in the 5-bit NUM field (max 32 units of 2^SCALE pages). This may widen
-  * the invalidation range.
-  */
--static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
--					  struct arm_smmu_cmdq_batch *cmds,
--					  struct arm_smmu_cmd *cmd,
--					  struct arm_smmu_tlbi *tlbi)
-+static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi)
- {
- 	u8 tgsz_lg2 = tlbi->tgsz_lg2;
- 	u64 cur_tg = tlbi->iova >> tgsz_lg2;
-@@ -2517,8 +2500,9 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 	unsigned int scale;
- 	u8 ttl = 0;
- 
--	if (!tlbi->size)
--		return false;
-+	tlbi->range.data1 =
-+		FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-+		FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | (cur_tg << tgsz_lg2);
- 
- 	/*
- 	 * Determine what level the granule is at. For non-leaf, both
-@@ -2536,10 +2520,9 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 	if (num_tg == 1) {
- 		if (!ttl)
- 			ttl = 3;
--		arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only,
--					    cur_tg << tgsz_lg2, 0, 0, ttl,
--					    tg_enc);
--		return true;
-+		tlbi->range.data0 = 0;
-+		tlbi->range.data1 |= FIELD_PREP(CMDQ_TLBI_1_TTL, ttl);
-+		return;
- 	}
- 
- 	/*
-@@ -2563,7 +2546,8 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 		/*
- 		 * Range too large for a single command, use full invalidation.
- 		 */
--		return false;
-+		tlbi->range.use_full_inv = true;
-+		return;
- 	}
- 
- 	/* 16K granule TTL=1 is reserved (Section 4.4.1) */
-@@ -2575,38 +2559,28 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 	    !arm_smmu_ttl_addr_aligned(cur_tg << tgsz_lg2, tgsz_lg2, ttl))
- 		ttl = 0;
- 
--	arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only,
--				    cur_tg << tgsz_lg2,
--				    DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1,
--				    scale, ttl, tg_enc);
--	return true;
-+	tlbi->range.data0 =
-+		FIELD_PREP(CMDQ_TLBI_0_NUM,
-+			   DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1) |
-+		FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
-+	tlbi->range.data1 |= FIELD_PREP(CMDQ_TLBI_1_TTL, ttl);
- }
- 
- /*
-  * One TLBI command per IOTLB entry, assuming the entries are all at least
-- * iopte_granule sized. Returns false if too many commands would be needed which
-- * indicates too high a latency. The threshold is similar to MAX_DVM_OPS in
-- * arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
-+ * iopte_granule sized. Sets use_full_inv if too many commands would be needed
-+ * which indicates too high a latency. The threshold is similar to MAX_DVM_OPS
-+ * in arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
-  */
--static bool arm_smmu_cmdq_batch_add_single(struct arm_smmu_device *smmu,
--					   struct arm_smmu_cmdq_batch *cmds,
--					   struct arm_smmu_cmd *cmd,
--					   struct arm_smmu_tlbi *tlbi)
-+static void arm_smmu_tlbi_calc_single(struct arm_smmu_tlbi *tlbi)
- {
- 	unsigned long num_ops = tlbi->size / tlbi->iopte_size;
--	unsigned long iova = tlbi->iova;
--	unsigned long i;
- 
--	if (!num_ops || num_ops > 512)
--		return false;
--
--	for (i = 0; i < num_ops; i++) {
--		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
--			       (iova & ~GENMASK_U64(11, 0));
--		arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
--		iova += tlbi->iopte_size;
-+	if (!num_ops || num_ops > 512) {
-+		tlbi->single.use_full_inv = true;
-+		return;
- 	}
--	return true;
-+	tlbi->single.num = num_ops;
- }
- 
- static void arm_smmu_inv_all_cmd(struct arm_smmu_inv *inv,
-@@ -2626,16 +2600,32 @@ static bool arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
- 				       struct arm_smmu_cmd *cmd,
- 				       struct arm_smmu_tlbi *tlbi)
- {
-+	u64 iova = tlbi->iova;
-+	unsigned int i;
-+
- 	if (inv->smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
--		if (arm_smmu_cmdq_batch_add_range(inv->smmu, cmds, cmd, tlbi))
--			return false;
--	} else {
--		if (arm_smmu_cmdq_batch_add_single(inv->smmu, cmds, cmd, tlbi))
--			return false;
-+		if (tlbi->range.use_full_inv) {
-+			arm_smmu_inv_all_cmd(inv, cmds, cmd);
-+			return true;
-+		}
-+		cmd->data[0] |= tlbi->range.data0;
-+		cmd->data[1] = tlbi->range.data1;
-+		arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds, cmd);
-+		return false;
- 	}
- 
--	arm_smmu_inv_all_cmd(inv, cmds, cmd);
--	return true;
-+	if (tlbi->single.use_full_inv) {
-+		arm_smmu_inv_all_cmd(inv, cmds, cmd);
-+		return true;
-+	}
-+
-+	for (i = 0; i < tlbi->single.num; i++) {
-+		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-+			       (iova & ~GENMASK_U64(11, 0));
-+		iova += tlbi->iopte_size;
-+		arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds, cmd);
-+	}
-+	return false;
- }
- 
- static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
-@@ -2654,8 +2644,8 @@ static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
- 	return false;
- }
- 
--static void __arm_smmu_domain_inv_range(struct arm_smmu_tlbi *tlbi,
--					struct arm_smmu_invs *invs)
-+static void arm_smmu_domain_tlbi_inv(struct arm_smmu_tlbi *tlbi,
-+				     struct arm_smmu_invs *invs)
- {
- 	struct arm_smmu_cmdq_batch cmds = {};
- 	bool used_s12_vmall = false;
-@@ -2752,6 +2742,13 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 	};
- 	struct arm_smmu_invs *invs;
- 
-+	if (!size || size == SIZE_MAX) {
-+		tlbi.single.use_full_inv = true;
-+		tlbi.range.use_full_inv = true;
-+	} else {
-+		arm_smmu_tlbi_calc_single(&tlbi);
-+	}
-+
- 	/*
- 	 * An invalidation request must follow some IOPTE change and then load
- 	 * an invalidation array. In the meantime, a domain attachment mutates
-@@ -2782,6 +2779,15 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 	rcu_read_lock();
- 	invs = rcu_dereference(smmu_domain->invs);
- 
-+	/*
-+	 * Only precalculate RIL if it will be used, invs generation ensures
-+	 * this matches the instances used for invalidation.
-+	 */
-+	if (invs->has_range_inv) {
-+		if (!tlbi.range.use_full_inv)
-+			arm_smmu_tlbi_calc_range(&tlbi);
-+	}
-+
- 	/*
- 	 * Avoid locking unless ATS is being used. No ATC invalidation can be
- 	 * going on after a domain is detached.
-@@ -2790,10 +2796,10 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 		unsigned long flags;
- 
- 		read_lock_irqsave(&invs->rwlock, flags);
--		__arm_smmu_domain_inv_range(&tlbi, invs);
-+		arm_smmu_domain_tlbi_inv(&tlbi, invs);
- 		read_unlock_irqrestore(&invs->rwlock, flags);
- 	} else {
--		__arm_smmu_domain_inv_range(&tlbi, invs);
-+		arm_smmu_domain_tlbi_inv(&tlbi, invs);
- 	}
- 
- 	rcu_read_unlock();
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index fde1819148195a..4f57cd58197b0a 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -814,6 +814,17 @@ struct arm_smmu_tlbi {
- 	/* Base Translation Granule of the page table */
- 	u8 tgsz_lg2;
- 	bool leaf_only;
-+
-+	struct {
-+		bool use_full_inv;
-+		u16 num;
-+	} single;
-+
-+	struct {
-+		bool use_full_inv;
-+		u32 data0;
-+		u64 data1;
-+	} range;
- };
- 
- struct arm_smmu_evtq {
--- 
-2.43.0
+Changes in v2:
+- remove sii,wakealarm-output-pin property
+- add pinctrl
+- add fix to allow disabling of wake alarms
+- add synology quirk
+- Link to v1: https://patch.msgid.link/20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de
+
+---
+Markus Probst (5):
+      dt-bindings: rtc: Add pinctrl for S35390A
+      rtc: s35390a: Add missing newline to dev_err
+      rtc: s35390a: Fix alarm not disabling
+      rtc: s35390a: Add pinctrl
+      rtc: s35390a: Add synology quirk
+
+ .../devicetree/bindings/rtc/sii,s35390a.yaml       | 109 ++++++
+ .../devicetree/bindings/rtc/trivial-rtc.yaml       |   3 -
+ MAINTAINERS                                        |   1 +
+ drivers/rtc/Kconfig                                |   1 +
+ drivers/rtc/rtc-s35390a.c                          | 413 +++++++++++++++++----
+ 5 files changed, 461 insertions(+), 66 deletions(-)
+---
+base-commit: d7dd96eb916519208210bb4a0408fcf4f7fdce5d
+change-id: 20260630-rtc_s35390a_int1-556ccb308d3f
 
 
