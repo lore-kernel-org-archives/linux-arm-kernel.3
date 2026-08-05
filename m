@@ -4,162 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F1FC55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 14:38:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F604C55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 14:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9FRHPO+BmX4UJCmN4Tc3PwSNcypPY/NF6MBIVJrXSpI=; b=cnUASDxwJSH3rXcLYoQg883Uu0
-	NSpzIsZRf8ZJwuUSqD9AYOj0TuQl+zmU13qsqCnWHYVeU+qCy+v5tB7ZPb8WIb33PmeqL7FlvdFPN
-	/WPcZoSLosPaTKOmzJiFezFSU+MaXFkfn0JWul12ur55RHFmXNCNam1eLWjlmZWwsyZOeGJ80kkDO
-	n12zxG/6UmB1kUsKn3p2InaTRfHfFhs4HQRzH6Kfp8tVx1mjjLmUp9b4oQrnY4RUWxImYtzIsnQKd
-	gbV0tFLPdngCQjmGqN13z0nCYiGrffkxdeSoOkUC+OXSMmMFMnV85l2MuLN3qQT+M/qSS+j+LIhyV
-	uJY/tsuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GmKuYnc86DNlMiU9IPUM6hRlMNPMsSVV3yRLUh7Zy/w=; b=3A/bsBv6Q5ABqT2boeB5Po66XZ
+	DmCDrBv6qt+v4xL3fafggK/0jp7UV1Nc/ek4ZPPw9Q+sUjAkOGMJuSAo5iXgwmQYai/BmDjQv4rYd
+	TyCipj7tWu5+mfzcxaNl9EbyBKNLyN0WxXo8GDDHcIaOYVEei0/uQV6z1y1/HZMG/DJofpWyCQyOG
+	oZHSw2CK0abRVaS3B70cF970EWfwm0Eb9in4qIfSK0Bc9Oc+BA/WgEAnov/Xsntox8gnPcwggAgjH
+	liPJruFvjK0ATM8szj2O5ckgWFTQt3g8AJCj5KNmQw1Ed/uRNCPi1EbP1+69U4ByA0V9ljDnYOrb1
+	icuxxBNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrcl4-000000045nq-2tIJ;
-	Wed, 05 Aug 2026 14:38:14 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1wrcq4-000000046JR-1ihE;
+	Wed, 05 Aug 2026 14:43:24 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrcl2-000000045nC-1fk8
+	id 1wrcq1-000000046IQ-113c
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 14:38:13 +0000
-Received: from pps.filterd (m0380145.ppops.net [127.0.0.1])
-	by m0380145.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 675BxjmK1269776;
-	Wed, 5 Aug 2026 09:38:08 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-type:date:from:message-id:mime-version:subject:to; s=
-	proofpoint-05-2026; bh=9FRHPO+BmX4UJCmN4Tc3PwSNcypPY/NF6MBIVJrXS
-	pI=; b=L1qXLhawM66DcKq0eAycGa4G8x+hb0T6+lbGwe1WqH+1UVDMJtBUd081P
-	F8ICxlVpp3Xh33cN+5R+jcrUvtuR+q2CdVnkWgeBVB0DlxzvoVsGSPfldiMlyiKi
-	YVefdceKTpA5nGZY/2bZRdbcLgzEWer1OnnfVyDjyJBnqyydXHXUOAT0+Nwb6xgr
-	LzQBph6GkY0KM0+8ZC12/llj3AtHsaM35bR4XQwdWpW0/KAVnDouEirOtPHITSJh
-	VwzZziPi2L6hC7tFYt9ZDLBIFtYteJ3d9pc65CidcZMKhuVLUA7lGulF97audF3B
-	U9gNqStJCULnx3JmYmZgvw514rkgQ==
-Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012019.outbound.protection.outlook.com [40.107.200.19])
-	by m0380145.ppops.net (PPS) with ESMTPS id 4fv434sar2-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 05 Aug 2026 09:38:06 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xKF+4tRHsSR1CbmEHZvgLwdq+IOSOao4qRBQoXVRUbyTxjDebHjAeExKwgAMd+X889GCkACwRPXx8PEVfaD6Qc6HDd2+6eQ1cDpOHqI5DcEOVYjpcseN/OS3iiminqEo2A0qkyzj/Fg5FPKn2ejMpl6orLW03wmvlp4sVxnV+NE8/rRjQ8vX7aFVHcrKZrUdgZRHpQhXL/bwPAyO0sL6h2vxo+eyPpJEL7qqd9IIRxBTxAsSLWVqrqbY8u6LybwUPcYvfQuST4Qnbz0b3JMWAoT5rTnk/p/yRU8PQ7Par6lfuZaYYveBZZnoc/fTNA2Jhx+SiNuQ/G8wc300/GR6mg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9FRHPO+BmX4UJCmN4Tc3PwSNcypPY/NF6MBIVJrXSpI=;
- b=xAQrp0Xq6Tv8L0SXY2Lhbk3769KWO/ZAswznpS7SXQsrryncCiQ/aA2OF3bFhyQUvjTgqDzhSMjgctL+Nbne5/XEco8skq4zi1JlvuMQMAbty20qcyNwFfDGtB+uC54eUYrCxI6bpkKp3W7+kuoRonK9J7LncH5ISBtZHNvNaG0lW/tjnZKLo0vVwt9pa8IzhQoDiMY/pJ40cFK5oQrVEMvhg4eshLZwXXwSlfZSUXMiI4Up3i2+aVV8+POotvptdDvEsgzw4zZ9MCx1z/8wzSb5JuNNIkvj+8fmmyAhxStO0kA8rs9GPff9+8mpnl+psWWv8WWmpz096RzoGzrndg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=atomide.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9FRHPO+BmX4UJCmN4Tc3PwSNcypPY/NF6MBIVJrXSpI=;
- b=XeDZxL6gAV6PjrjOD/hTfsoaNnlGK+Ujr3cB6AeR1xNSsTH3sAGb0BrnBXuFFbRFghMsmDfT9LCti4qFb2ozDdCRb3GTgrI7guQMTeGB3p+aRWHCeOlyqsuilvb15mlE6nqtc/YZq66UuscvXr4ktvAwLlllptvVY7bmnlqUvjk=
-Received: from PH7P221CA0001.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:32a::7)
- by PH0PR10MB5893.namprd10.prod.outlook.com (2603:10b6:510:149::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Wed, 5 Aug
- 2026 14:37:54 +0000
-Received: from CY4PEPF0000EDD1.namprd03.prod.outlook.com
- (2603:10b6:510:32a:cafe::10) by PH7P221CA0001.outlook.office365.com
- (2603:10b6:510:32a::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.19 via Frontend Transport; Wed, 5
- Aug 2026 14:37:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CY4PEPF0000EDD1.mail.protection.outlook.com (10.167.241.197) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Wed, 5 Aug 2026 14:37:53 +0000
-Received: from DFLE213.ent.ti.com (10.64.6.71) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 5 Aug
- 2026 09:37:17 -0500
-Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 5 Aug
- 2026 09:37:17 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 5 Aug 2026 09:37:17 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232] (may be forged))
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 675EbG5p1573533;
-	Wed, 5 Aug 2026 09:37:16 -0500
-Date: Wed, 5 Aug 2026 09:37:16 -0500
-From: Nishanth Menon <nm@ti.com>
-To: SoC <soc@kernel.org>, <arm@kernel.org>
-CC: SoC list <soc@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>,
-        Santosh Shilimkar <ssantosh@kernel.org>,
-        "Tony Lindgren" <tony@atomide.com>
-Subject: [GIT PULL] soc: ti: Driver updates for v7.3
-Message-ID: <20260805143716.gbr73pwvengxycr2@cabbage>
+	Wed, 05 Aug 2026 14:43:22 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-c15cb6f5c12so178130666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 07:43:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785940999; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ojbshUTCZlxE5i1sD/gMXo/tLQ98gi2Yz54If8GZ7Nqr12afqcmiVE7/7kYApl9Il4
+         RmzQBvQm4/c3+cAyVmw61nGovqcLUfd8RnHIsC9+0i1069BozPY0sFxUtnjMz4JVNXiS
+         iEFKreIXzHBoVWjM7VaXOPx5SBcttN+F0Oza5ZCn31ebpHfiThuAZTZ0AqNS9hVlHcgC
+         eaQT37J1cNk1yyGYxA20uo12uC9F+3PyzLxq2jBHvCmhGINdon5+FZeRwvhGWYCWdj7x
+         zwSA/MKG0ktPk0N8ppezrSYiFgCLEo2ZicCijTCs2Y1qGj9ygF9KS6YgwI+SbcpJlrpk
+         tbAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=GmKuYnc86DNlMiU9IPUM6hRlMNPMsSVV3yRLUh7Zy/w=;
+        fh=XDL6SiRy5QPgh1H9fdxdpCVLgUxSKrTnkfoAAb71RA0=;
+        b=B3x0PWjQCpMnnbLx8wmPO/wTm8ZzsDKmJSu3koETKhKaJDiqnYw7DLBDO+ccr+3XOJ
+         fkCyJ6Sbm3lNEt7dqNtfyJ6weMtAYSV58XstABnhPHc2TFOguYCzuZ5bdk6LmW5TjCGD
+         /Tj35sP2yBPCp6pN4yzMHheoXF2Kx3gK16GEBHGlRnmN/fScTYByV0cO3zqq6cuMUtFC
+         a+jiFf8XFvpDTlIciht+hA+CjJmkC1vbxQ44sRncG0G81dljSHsoR5BQW1F1xlv91gzN
+         rdL+QgclkuWQcQAcxjC3o29t6N3mvfzy0k2Rl2LhJt/gsP0ueq2Il2h98nR3W4JiL0Un
+         1WaQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1785940998; x=1786545798; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GmKuYnc86DNlMiU9IPUM6hRlMNPMsSVV3yRLUh7Zy/w=;
+        b=sUGHmXIotdfz16MLW/c+fNWZ/ckjoMerXW2R1A3lpeL1U5FY1e9/AfqdcoRA861yjF
+         f3GEuKad2nLk7VIbKqOpDPGJHq8bzq0HFXyNvsWcfehti6g5lpsOd7RxBov/rcdBfR4J
+         5lFjez95dh9qJSGfrAkafLbl0xf0xG/znf3j+cTlD7oa5KI1v9COIeGL/vJze0AkpaXD
+         qdnkgO9qQ/cB/TEr8SzZTeKhv3kQ/q+rzvXWDfMwTyRlK1l4bL2b/Qrv3ITGS/OU1qQj
+         TR10zRsMwSMZQwmv3br4GQDqIWcVqDTDmGnP29EyZS8fQSmOL5HAhAq3rfPZsn/CQvLy
+         eKKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785940998; x=1786545798;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GmKuYnc86DNlMiU9IPUM6hRlMNPMsSVV3yRLUh7Zy/w=;
+        b=HYx6NCvTQEBi0t38i7Aj6VbL+RW/k/K80oXamxKV3ARiErXOo4tw9AD6Zmv1ZB6mmp
+         iAkCiUnQc5Yv2cira7BupvKEWoF37hrZPqZioojZjtOvOjxfb/VzbCkGqVq0uop/oyRo
+         bFTSRfKFikJAWQyAocSK7XrkqJQ3WKUZH5apRXjrQR3bs5JTfJjedsIlLYoP95i6BNFS
+         kTiGwOCttyYLIwJaMVal4u6HMo+fVU4wX5RBBSEb5WRP+71oxc909Ew6sSW6Fk+tncje
+         GVGVA7eGkDK9n6jXJPOBvdwNER8CINhO0l+Rn1g/5dsDoc6sMOoYqXxu1h8ZN/pKKanV
+         LR4g==
+X-Forwarded-Encrypted: i=1; AHgh+RrcQSLJthFcilbTiOhg0J5pkx1jfpyqTdCWofYzzBrVr+68s3RLVlHZrQWBogrcIrmoyhvDfyHfV/ux2QCiOM1k@lists.infradead.org
+X-Gm-Message-State: AOJu0YwurRzt+pX2l314fPDt3cpqGWd4aAMP/l4jWEXRpm7qLzNEP60z
+	rOKhxwHao51SJ+ZUV2Rv/81YsFuIBhkpEztF5VXGG7VbT9jQDS3ljMpmdSzF6qBlupsKhUC0+Kz
+	GydvGtj/1vgQUpoHOz8vlL5vD6n82Eq4=
+X-Gm-Gg: AR+sD13wjuQzMBsXw1TOSwqel86haOapoScJ10tdtNnarmwd9ABoy6NUQY5OlA+HIX/
+	yWZIZvl+JCgWSXF0JET4I0tOAUGpd1EN/8ELDb2MRKJdWd9kbXsQltS68igCVhzPwvsm0IZ03wf
+	QU1wzADD4G5RHT3QPU2uBQm5e8kPvxC3ju2HLjoiGS2oud23NK2pVx2a3OY3DKRIlNUfgDOIaAZ
+	Yk5JSCX15es42Up3NhQvY0LUUeEaSbLmI+XpadW895LwaIgwSP+PaSAzppbwiVhoOIKCkJGL+yG
+	7gVwFb1JdAj40pb+cd+usyyBEAmWUljyQB0HBocA7lenSbI03hBh4eTegcW2
+X-Received: by 2002:a17:907:97d3:b0:c1f:e09d:12 with SMTP id
+ a640c23a62f3a-c2039ed30e4mr347405066b.25.1785940998077; Wed, 05 Aug 2026
+ 07:43:18 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="53qpsf576eiodqg7"
-Content-Disposition: inline
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD1:EE_|PH0PR10MB5893:EE_
-X-MS-Office365-Filtering-Correlation-Id: 930390c4-0e3b-4b19-5eca-08def2ff21dc
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|13003099007|10067099003|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: ZaaUq43HmxbAl6vDAYTSlxOSfeofA+wKoFxZzczRJ8pmhZf2wucDGVIMj6zBRMluXzVVXkeTc+1njkUGb2V7qVnOIWfQpg2ZwI/xB5UN5kTrL8UxjRMq9rYS3w7vQlF/01f/Oy4v/rlpkKmhXni9OzxvBT3VoBzBKHxzbDE2j0j0+a7GEgRqa1lH4mpRPSjGS8++oaoWZ1ipZu0RIPr68pidtlR0eJl+caUan1s5ytUVtzIw4JUmBAZmOiDPCoyRSizPZH+J4lfqLEduGJX+jZ2wDHBI53P47JPlew1ORgNz3AfY71cAdsQXoLgin42QGAdvs3Hingi4mRl1iEs6CZUBYOu7OEveWJsTxt3slGKRgiBLHxMy4gMN0seDTO+/fRvDcMdoQltSAJPozyCmk9+3QgOfyRCMHpZYAp1/ysxT5tRGfaSfpesBONpA0G6pKPai+afr2YatkfWp4CCDDEM8FEBNMr/x8uj6B5atGju1FSWKbhPDcZwyaTuf65gGqVX0zP99M7Fvi84DJddwFfWZSdD//aM/nNCYkFkBFoMQEvqHHmFz8J7vZn8ZDxFnpHC045beG2WXvmFCdk8XjKLrZoLjBffQe2MweSoSAK4kg9Bd1/N754/rGEJjXjkJRK4bfRfRpSmVptjhJbhjHNaK8QaObmnyGdT4UHvdWjy5MSYucSw1s0itsBqVtlYYnT38KgbjrbkqQ4o8KLLbQg==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(13003099007)(10067099003)(56012099006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: KGq+BmUqCQpIDIHL9kTwoJHFCbp33ljgQWE+4fNfV71VWBJ/HRq5JpG4+5E3lozaGi38RdBeKkXOaCoigNGyh+yybq8BVxhBiLruNq1I6CKAl3fDTDwIq+cdMchi1CNuPOi7JjwT1e9E62Sq24dMKzgSPzMNukkgPI70P0HwHKvsFB1/0dn7eeJN7oQO36H4DkARFDGsom3H3qod3H4kDltVPcvMJa4RMYoIDwKx5pD7LVSB309WQGP8n7t0KO75YwaJrWdo6zT2KdAezgz22HKgjlMEKCQmSwMBkfd8N7BqqvzqXm7JgvC8pu1ujEUHg6JtE2jr6lhj5+VzP89ST1zB+TYNrZj7PekxSZW32QxwSoPc5lWMaBLYDni90jRAw5PSIGzxYCmateDboZX5aPXpTZTiBSw3ralw/VWviIhrlrYEj9eWQBO9TIJMKh0f
-X-Exchange-RoutingPolicyChecked: a87wnCwvmV6VIJZsVJAMOV9sCGmCM3NB1vPQBMeceXEQNOEoDukn3kyz0tE8A5TyCRnDDKw4K/MSqvtqjVFF/Po5jR4cF4BXmq44GaxVYXmi7F9hqEwAY2fQSyEy+HF7MznluwkU5qz9JM8POYDGEfIWYwXUA4TcT8DZBZB6gK8VtFWXvq0zYhMv+KIu42fprIZ0/5Q46/73lic/1MNy9FIMir2Fp309O7KwfvuQ/syZrpRMwmX7+hlV1mLM2HGKLCZTrBLXveBuqWgKietJ0+1QRe1/qtbYtJEFhszgVayRUS5Wg0oDpARnGDWuwPktg+3Zr6hYRiRp/3i3zTwxRA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 14:37:53.0931
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 930390c4-0e3b-4b19-5eca-08def2ff21dc
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD1.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB5893
-X-Authority-Analysis: v=2.4 cv=IbG3n2qa c=1 sm=1 tr=0 ts=6a734acf cx=c_pps
- a=jJxBgQE0Gv9vBhouG1T1Tg==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=Sv0fKeRqtYgA:10 a=V5UXEbMT0ywA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=gO1vWkAQAl3rybz1DQOp:22
- a=VwQbUJbxAAAA:8 a=sozttTNsAAAA:8 a=5nXWgFptBgo4Z40EvlQA:9 a=CjuIK1q_8ugA:10
- a=YU97IdcIghu6H5AM4kMA:9 a=FfaGCDsud1wA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODA1MDExOCBTYWx0ZWRfX5TJ99KtzO3Za
- oveYqq6vJ+diefplgv8gyHTIiZRMC8Jsv/MTynE8CpI6NrNrZn1pqF4mPhFGT/DfUjpJm9wZbEt
- NISSwFNj8i2xLmr5Vr1mt8NjsCZPnTQ=
-X-Proofpoint-GUID: wvoKbVmAwKipyjyxHQYnj8Bbmpj85WGQ
-X-Proofpoint-ORIG-GUID: wvoKbVmAwKipyjyxHQYnj8Bbmpj85WGQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA1MDExOCBTYWx0ZWRfX+AKgC4XbhmXK
- Q3Yj56EDh7DRgGGdmySWw6Y94Xf5ZQbVJNvlyFDMvsG1SzHW4DgW5NXwCaxnS0cV3nuMvrvSGTi
- O49tCe9zxbuy0DGFI9pNWFRiMFQixrI6Y6ml9WQ1y3Gq8WV21BpPa/zYNjbHkJZO5zNOwFXU+uU
- xqwXUkoyZilpEeT/KZxip1opVNFCXsGVNmWI5aWctNfx2ezPM48yus4y1lKaRNbGdh/LWrbcmqB
- K5I4e3dzvrjPD74YiEBBbv5URxE9+LXv06i3pjkhRi4SKatOeu9XD+CpwgoswGKUCWREvqgFPQZ
- vIf8ee6XmGpMiL9xR1eILqgSsfK0pYL60NetyxvMkO3fN04tCPDE2ZhZE01FXIOz+MYRb6Ir7Jm
- 5iDIVPcM8YHBC20eclR+XzHpbpAUgduNTz5GPtwBLOZZO2Bj9EnqLcUCv+aSLEGisLMPqzhL7ty
- Qbsv40Mq+RhlC+S3e4A==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-05_04,2026-08-04_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1011 spamscore=0 phishscore=0 priorityscore=1501
- impostorscore=0 adultscore=0 malwarescore=0 bulkscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608050118
+References: <20260616155716.2631508-1-puranjay@kernel.org> <20260616155716.2631508-4-puranjay@kernel.org>
+ <8a24abbc-10bc-42bb-8fee-0a174d8f1751@linaro.org> <CANk7y0inRXCUKtuio3Cb03DvuNPq6yp1o+tsE8PZitrY0LaOPQ@mail.gmail.com>
+ <6ee32efc-01be-4532-aa59-3948f59156c0@linaro.org> <CANk7y0hU_m6gJ9FpGfGUJg-Ok8PoXhKruny_0OkeOgLbCo6ZLA@mail.gmail.com>
+ <9fa68534-2b12-420a-93b7-a6ada21c180e@linaro.org>
+In-Reply-To: <9fa68534-2b12-420a-93b7-a6ada21c180e@linaro.org>
+From: Puranjay Mohan <puranjay12@gmail.com>
+Date: Wed, 5 Aug 2026 15:43:03 +0100
+X-Gm-Features: AUfX_myFuMQkGotW7dGfaw08yRHYvZWV8Y5fv9LrxJXxEZA7_XIfztesEAbA_3s
+Message-ID: <CANk7y0is-SB+hPhriwQ24v-UUTUfk9p01y1CQm=q_Y-=GXO04A@mail.gmail.com>
+Subject: Re: [PATCH v5 3/4] perf/arm64: Add BRBE support for bpf_get_branch_snapshot()
+To: James Clark <james.clark@linaro.org>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Leo Yan <leo.yan@arm.com>, Rob Herring <robh@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Shuah Khan <shuah@kernel.org>, Breno Leitao <leitao@debian.org>, 
+	Ravi Bangoria <ravi.bangoria@amd.com>, Stephane Eranian <eranian@google.com>, 
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>, Usama Arif <usama.arif@linux.dev>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_073812_486979_CACBA8C0 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260805_074321_462297_5C1F5B56 
+X-CRM114-Status: GOOD (  38.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,81 +133,604 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---53qpsf576eiodqg7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Wed, Aug 5, 2026 at 2:58=E2=80=AFPM James Clark <james.clark@linaro.org>=
+ wrote:
+>
+>
+>
+> On 05/08/2026 12:47, Puranjay Mohan wrote:
+> > On Wed, Aug 5, 2026 at 11:07=E2=80=AFAM James Clark <james.clark@linaro=
+.org> wrote:
+> >>
+> >>
+> >>
+> >> On 03/08/2026 7:54 pm, Puranjay Mohan wrote:
+> >>> On Mon, Aug 3, 2026 at 12:07=E2=80=AFPM James Clark <james.clark@lina=
+ro.org> wrote:
+> >>>>
+> >>>>
+> >>>>
+> >>>> On 16/06/2026 16:57, Puranjay Mohan wrote:
+> >>>>> Enable bpf_get_branch_snapshot() on ARM64 by implementing the
+> >>>>> perf_snapshot_branch_stack static call for BRBE.
+> >>>>>
+> >>>>> BRBE is paused before masking exceptions to avoid branch buffer
+> >>>>> pollution from trace_hardirqs_off(). Exceptions are then masked wit=
+h
+> >>>>> local_daif_save() to prevent PMU overflow pseudo-NMIs from interfer=
+ing.
+> >>>>> If an overflow between pause and DAIF save re-enables BRBE, the sna=
+pshot
+> >>>>> detects this via BRBFCR_EL1.PAUSED and bails out.
+> >>>>>
+> >>>>> Branch records are read using perf_entry_from_brbe_regset() with a =
+NULL
+> >>>>> event pointer to bypass event-specific filtering. The buffer is
+> >>>>> invalidated after reading.
+> >>>>>
+> >>>>> Introduce a for_each_brbe_entry() iterator to deduplicate bank
+> >>>>> iteration between brbe_read_filtered_entries() and the snapshot.
+> >>>>>
+> >>>>> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+> >>>>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> >>>>> ---
+> >>>>>     drivers/perf/arm_brbe.c  | 128 ++++++++++++++++++++++++++++++++=
+-------
+> >>>>>     drivers/perf/arm_brbe.h  |   9 +++
+> >>>>>     drivers/perf/arm_pmuv3.c |   5 +-
+> >>>>>     3 files changed, 120 insertions(+), 22 deletions(-)
+> >>>>>
+> >>>>> diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
+> >>>>> index effbdeacfcbb..a141ad7abcf2 100644
+> >>>>> --- a/drivers/perf/arm_brbe.c
+> >>>>> +++ b/drivers/perf/arm_brbe.c
+> >>>>> @@ -9,6 +9,7 @@
+> >>>>>     #include <linux/types.h>
+> >>>>>     #include <linux/bitmap.h>
+> >>>>>     #include <linux/perf/arm_pmu.h>
+> >>>>> +#include <asm/daifflags.h>
+> >>>>>     #include "arm_brbe.h"
+> >>>>>
+> >>>>>     #define BRBFCR_EL1_BRANCH_FILTERS (BRBFCR_EL1_DIRECT   | \
+> >>>>> @@ -256,6 +257,14 @@ static bool valid_brbe_version(int brbe_versio=
+n)
+> >>>>>                brbe_version =3D=3D ID_AA64DFR0_EL1_BRBE_BRBE_V1P1;
+> >>>>>     }
+> >>>>>
+> >>>>> +static __always_inline bool cpu_has_brbe(void)
+> >>>>
+> >>>> This should be more like cpu_valid_brbe_version(). has_brbe() only
+> >>>> implies that the CPU has BRBE, not that it's a version that the driv=
+er
+> >>>> supports. And it's actually just a wrapper around valid_brbe_version=
+()
+> >>>> that accesses the ID reg on that CPU, not a functionally different c=
+heck.
+> >>>>
+> >>>> But it also looks like valid_brbe_version() isn't called from anywhe=
+re
+> >>>> else, so why not delete that function and use its name for the new o=
+ne?
+> >>>
+> >>> I will do that in next version
+> >>>
+> >>>>
+> >>>>> +{
+> >>>>> +     u64 aa64dfr0 =3D read_sysreg_s(SYS_ID_AA64DFR0_EL1);
+> >>>>> +     int brbe =3D cpuid_feature_extract_unsigned_field(aa64dfr0, I=
+D_AA64DFR0_EL1_BRBE_SHIFT);
+> >>>>> +
+> >>>>> +     return valid_brbe_version(brbe);
+> >>>>> +}
+> >>>>> +
+> >>>>>     static void select_brbe_bank(int bank)
+> >>>>>     {
+> >>>>>         u64 brbfcr;
+> >>>>> @@ -271,6 +280,20 @@ static void select_brbe_bank(int bank)
+> >>>>>         isb();
+> >>>>>     }
+> >>>>>
+> >>>>> +static inline void __brbe_advance(int *bank, int *idx, int nr_hw)
+> >>>>> +{
+> >>>>> +     if (++(*idx) >=3D BRBE_BANK_MAX_ENTRIES &&
+> >>>>> +         *bank * BRBE_BANK_MAX_ENTRIES + *idx < nr_hw) {
+> >>>>> +             *idx =3D 0;
+> >>>>> +             select_brbe_bank(++(*bank));
+> >>>>> +     }
+> >>>>> +}
+> >>>>> +
+> >>>>> +#define for_each_brbe_entry(idx, nr_hw)                           =
+           \
+> >>>>> +     for (int __bank =3D (select_brbe_bank(0), 0), idx =3D 0;     =
+       \
+> >>>>> +          __bank * BRBE_BANK_MAX_ENTRIES + idx < (nr_hw);         =
+   \
+> >>>>> +          __brbe_advance(&__bank, &idx, (nr_hw)))
+> >>>>> +
+> >>>>>     static bool __read_brbe_regset(struct brbe_regset *entry, int i=
+dx)
+> >>>>>     {
+> >>>>>         entry->brbinf =3D get_brbinf_reg(idx);
+> >>>>> @@ -474,11 +497,9 @@ unsigned int brbe_num_branch_records(const str=
+uct arm_pmu *armpmu)
+> >>>>>
+> >>>>>     void brbe_probe(struct arm_pmu *armpmu)
+> >>>>>     {
+> >>>>> -     u64 brbidr, aa64dfr0 =3D read_sysreg_s(SYS_ID_AA64DFR0_EL1);
+> >>>>> -     u32 brbe;
+> >>>>> +     u64 brbidr;
+> >>>>>
+> >>>>> -     brbe =3D cpuid_feature_extract_unsigned_field(aa64dfr0, ID_AA=
+64DFR0_EL1_BRBE_SHIFT);
+> >>>>> -     if (!valid_brbe_version(brbe))
+> >>>>> +     if (!cpu_has_brbe())
+> >>>>>                 return;
+> >>>>>
+> >>>>>         brbidr =3D read_sysreg_s(SYS_BRBIDR0_EL1);
+> >>>>> @@ -618,10 +639,10 @@ static bool perf_entry_from_brbe_regset(int i=
+ndex, struct perf_branch_entry *ent
+> >>>>>
+> >>>>>         brbe_set_perf_entry_type(entry, brbinf);
+> >>>>>
+> >>>>> -     if (!branch_sample_no_cycles(event))
+> >>>>> +     if (!event || !branch_sample_no_cycles(event))
+> >>>>>                 entry->cycles =3D brbinf_get_cycles(brbinf);
+> >>>>>
+> >>>>> -     if (!branch_sample_no_flags(event)) {
+> >>>>> +     if (!event || !branch_sample_no_flags(event)) {
+> >>>>>                 /* Mispredict info is available for source only and=
+ complete branch records. */
+> >>>>>                 if (!brbe_record_is_target_only(brbinf)) {
+> >>>>>                         entry->mispred =3D brbinf_get_mispredict(br=
+binf);
+> >>>>> @@ -774,32 +795,97 @@ void brbe_read_filtered_entries(struct perf_b=
+ranch_stack *branch_stack,
+> >>>>>     {
+> >>>>>         struct arm_pmu *cpu_pmu =3D to_arm_pmu(event->pmu);
+> >>>>>         int nr_hw =3D brbe_num_branch_records(cpu_pmu);
+> >>>>> -     int nr_banks =3D DIV_ROUND_UP(nr_hw, BRBE_BANK_MAX_ENTRIES);
+> >>>>>         int nr_filtered =3D 0;
+> >>>>>         u64 branch_sample_type =3D event->attr.branch_sample_type;
+> >>>>>         DECLARE_BITMAP(event_type_mask, PERF_BR_ARM64_MAX);
+> >>>>>
+> >>>>>         prepare_event_branch_type_mask(branch_sample_type, event_ty=
+pe_mask);
+> >>>>>
+> >>>>> -     for (int bank =3D 0; bank < nr_banks; bank++) {
+> >>>>> -             int nr_remaining =3D nr_hw - (bank * BRBE_BANK_MAX_EN=
+TRIES);
+> >>>>> -             int nr_this_bank =3D min(nr_remaining, BRBE_BANK_MAX_=
+ENTRIES);
+> >>>>> +     for_each_brbe_entry(i, nr_hw) {
+> >>>>> +             struct perf_branch_entry *pbe =3D &branch_stack->entr=
+ies[nr_filtered];
+> >>>>>
+> >>>>> -             select_brbe_bank(bank);
+> >>>>> +             if (!perf_entry_from_brbe_regset(i, pbe, event))
+> >>>>> +                     break;
+> >>>>>
+> >>>>> -             for (int i =3D 0; i < nr_this_bank; i++) {
+> >>>>> -                     struct perf_branch_entry *pbe =3D &branch_sta=
+ck->entries[nr_filtered];
+> >>>>> +             if (!filter_branch_record(pbe, branch_sample_type, ev=
+ent_type_mask))
+> >>>>> +                     continue;
+> >>>>>
+> >>>>> -                     if (!perf_entry_from_brbe_regset(i, pbe, even=
+t))
+> >>>>> -                             goto done;
+> >>>>> +             nr_filtered++;
+> >>>>> +     }
+> >>>>>
+> >>>>> -                     if (!filter_branch_record(pbe, branch_sample_=
+type, event_type_mask))
+> >>>>> -                             continue;
+> >>>>> +     branch_stack->nr =3D nr_filtered;
+> >>>>> +}
+> >>>>>
+> >>>>> -                     nr_filtered++;
+> >>>>> -             }
+> >>>>> +/*
+> >>>>> + * Best-effort BRBE snapshot for BPF tracing. Pause BRBE to avoid
+> >>>>> + * self-recording and return 0 if the snapshot state appears distu=
+rbed.
+> >>>>> + */
+> >>>>> +int arm_brbe_snapshot_branch_stack(struct perf_branch_entry *entri=
+es, unsigned int cnt)
+> >>>>> +{
+> >>>>> +     unsigned long flags;
+> >>>>> +     int nr_hw, nr_copied =3D 0;
+> >>>>> +     u64 brbfcr, brbcr;
+> >>>>> +
+> >>>>> +     if (!cnt)
+> >>>>> +             return 0;
+> >>>>
+> >>>> If you're trying to avoid branches before pausing BRBE, can't you ch=
+eck
+> >>>> this after the pause?
+> >>>
+> >>> will drop this in the next version and this is just an optimization.
+> >>>
+> >>>>
+> >>>>> +
+> >>>>> +     /* Guard against running on a CPU without BRBE (e.g. big.LITT=
+LE). */
+> >>>>> +     if (!cpu_has_brbe())
+> >>>>> +             return 0;
+> >>>>> +
+> >>>>> +     /*
+> >>>>> +      * Pause BRBE first to avoid recording our own branches. The
+> >>>>> +      * sysreg read/write and ISB are branchless, so pausing befor=
+e
+> >>>>> +      * checking BRBCR avoids polluting the buffer with our own
+> >>>>> +      * conditional branches.
+> >>>>> +      */
+> >>>>> +     brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+> >>>>> +     brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+> >>>>> +     write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+> >>>>
+> >>>> Can this work without first disabling interrupts? Sashiko pointed it
+> >>>> out, but I think it's correct. If you read an active state into brbf=
+cr,
+> >>>> then the PMU event fires and disables BRBE, then you disable interru=
+pts,
+> >>>> then you would restore an active state when it should be inactive.
+> >>>> Surely the only way to do it properly is to disable interrupts befor=
+e
+> >>>> touching anything at all, if the PMU handler is also touching the sa=
+me
+> >>>> registers?
+> >>>>
+> >>>> If you want to avoid trace_hardirqs_off() can you make a new
+> >>>> raw_local_daif_save() that disables interrupts and then call
+> >>>> trace_hardirqs_off() yourself after pausing BRBE? Or not call
+> >>>> trace_hardirqs_off() at all? There is a comment mentioning something
+> >>>> like that in arch/arm64/kernel/suspend.c.
+> >>>
+> >>> Yes. I'll add raw_local_daif_save()/raw_local_daif_restore() and mask=
+ before
+> >>> touching any BRBE register, which fixes the stale restore. trace_hard=
+irqs_off()
+> >>> then moves below the pause so lockdep still sees a balanced off/on pa=
+ir while
+> >>> its branches land in an already paused buffer.
+> >>>
+> >>>>
+> >>>> Also, disabling interrupts doesn't stop the PMU event from overflowi=
+ng
+> >>>> and changing the state of PAUSED either. I think this is another pat=
+h
+> >>>> that leads to you restoring the wrong state, so don't you also need =
+to
+> >>>> disable the PMU?
+> >>>
+> >>> Hardware only sets PAUSED on a BRBE freeze event (RBHYTD), and a free=
+ze needs
+> >>> BRBE to not already be paused (RNXCWF). So once we have paused, nothi=
+ng changes
+> >>> underneath us and the PMU does not need disabling. It would not help =
+anyway:
+> >>> armv8pmu_stop() calls brbe_disable(), which zeroes BRBCR_EL1 and disc=
+ards the
+> >>> records we came to read.
+> >>
+> >> That does mean you throw away real freeze events while paused though, =
+in
+> >> addition to the brbe_invalidate() you need to avoid non contiguous
+> >> buffers. So it takes branches away from PMU events.
+> >
+> > RBHYTD gives a freeze two effects: PAUSED is set, and BRBTS_EL1 capture=
+s a
+> > timestamp. Recording has already stopped because we paused, and the dri=
+ver never
+> > reads BRBTS_EL1. On the way out we check PMOVSCLR_EL0 and leave PAUSED =
+set if a
+> > counter overflowed, so a pending overflow handler still finds a frozen =
+buffer.
+> >
+> >> So it takes branches away from PMU events.
+> >
+> > Yes, but that is brbe_invalidate(), not the pause. Interrupts are maske=
+d and
+> > nothing else runs on the CPU, so the only branches the pause suppresses=
+ are the
+> > snapshot's own.
+> >
+> >>>
+> >>> You are right that a freeze can still land in the window between read=
+ing BRBFCR
+> >>> and setting PAUSED, and restoring the value we read would then clear =
+a PAUSED
+> >>> bit the hardware set. So v6 checks PMOVSCLR_EL0 and leaves BRBE pause=
+d if a
+> >>> counter has overflowed. Reads of PMOVSCLR are non-destructive and it =
+stays set
+> >>> until the overflow handler clears it, so it is still visible after we=
+ have set
+> >>> PAUSED ourselves:
+> >>>
+> >>>           if (!valid_brbe_version())
+> >>>                   return 0;
+> >>>
+> >>>           flags =3D raw_local_daif_save();
+> >>>
+> >>>           brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+> >>>           brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+> >>>
+> >>>           write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+> >>>           isb();
+> >>>
+> >>>           trace_hardirqs_off();
+> >>>
+> >>>           /* BRBCR_EL1 is zero while the driver has BRBE disabled. */
+> >>>           if (!brbcr)
+> >>>                   goto restore;
+> >>>
+> >>>           ... read the records ...
+> >>>
+> >>
+> >> Up to the point where you read the records you technically don't need
+> >> any branches (if you don't do trace_hardirqs_off()) so you could do th=
+e
+> >> whole thing without pausing. Just disable interrupts, read every branc=
+h
+> >> entry unconditionally, re-enable interrupts and then find the last val=
+id
+> >> entry and do the branchy stuff after reading.
+> >>
+> >> I'm thinking out loud, but doesn't that make it a lot easier? And it
+> >> avoids the brbe_invalidate() which takes the branches away from the PM=
+U
+> >> event. It also avoids having to think too hard about racing with PMU
+> >> events causing a freeze even after interrupts are disabled and after
+> >> reading the freeze value:
+> >>
+> >>     raw_local_daif_save();
+> >>     brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+> >>     brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+> >>     select_bank(0);
+> >>     read_record(0);
+> >>     read_record(1);
+> >>     ...
+> >>     select_bank(0);
+> >>     read_record(0);
+> >>     read_record(1);
+> >>     ...
+> >>     write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+> >>     isb();
+> >>     local_daif_restore();
+> >>
+> >>     /* Now do post processing, find last valid record, check if it was
+> >> enabled by looking at brbcr etc. */
+> >
+> > MRS is not a branch, so that works, but three things would have to chan=
+ge:
+> >
+> > 1. perf_entry_from_brbe_regset() goes through BRBE_REGN_SWITCH, a 32 ca=
+se
+> >     switch, because the register number has to be an immediate. gcc emi=
+ts a jump
+> >     table and the function has 52 branches in the object file. The read=
+ would
+> >     need full unrolling.
+> >
+>
+> Yes you would have to manually unroll it. I doubt the compiler would
+> emit a branch for BRBE_REGN_SWITCH() because your indexes are static if
+> it's unrolled. But if it does you can change it to a sequence of
+> read_sysreg_s()s.
+>
+> If you really want to be sure there are no branches, write it in a
+> single asm block.
 
-Hi,
+I will try that approach in the next version.
 
-Please pull
+> > 2. RPGDLX needs an ISB before the reads, and Table D19-10 makes it
+> >     IMPLEMENTATION DEFINED whether ISB itself generates a record. When =
+we pause,
+> >     IZCHRF means the pausing ISB cannot pollute the buffer it is about =
+to read.
+> >
+>
+> I assume one potential extra record from the isb() is acceptible seeing
+> as you already have two or more conditions plus a function call before
+> the pause? Is the problem that you don't know whether to filter it out
+> later because it's IMPDEF and isn't always there? You already don't know
+> exactly how many branches there will be before the pause beause it's
+> written in C. So I'm not sure what the exact issue here is.
+>
+> > 3. 64 record parts still need a bank switch, so BRBFCR_EL1 still has to=
+ be
+> >     written and restored.
+> >
+>
+> Yes that was included in my pseudo code example but it's still
+> branchless. I did miss that you might need an isb() after disabling
+> interrupts, but you added one for RPGDLX anyway.
+>
+> > Correctness would then depend on the read staying branchless, which is =
+not
+> > checkable at build time and fails silently: a branch mid read shifts th=
+e buffer,
+>
+> Why would the compiler insert a branch between two read_sysreg_s()s,
+> which are asm volatile? Is that allowed?
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+You are right, I just over complicated it!
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+> > giving a duplicate and a gap. 64 * 24 bytes of records also wants a per=
+-CPU
+> > scratch buffer rather than the stack.
+> >
+>
+> A per-CPU scratch buffer doesn't sound too bad. But aren't you in
+> control of how many entries are available to write to? You can reject
+> any calls that have fewer than 64 and always write directly to *entries.
+>
+> You could also compare with 'cnt' after reading each record and exit the
+> read section. Like you say below, branches not taken don't generate
+> records, and once the branch is taken you stop reading so after that
+> point generating records doesn't matter.
+>
+> > Happy to prototype it. What I would not do is pause without invalidatin=
+g:
+> > records are from/to pairs, so a consumer walking across the hole recons=
+tructs a
+> > call path that never happened. The invalidate was Mark's request after =
+the RFC,
+> > "to maintain record contiguity for other consumers", so dropping the pa=
+use drops
+> > that too.
+>
+> Well the point was to not have to pause at all, so there's no need to
+> invalidate either. Even if you did add a pause, as long as there are no
+> branches between the pause and resume you don't need an invalidate
+> because you didn't miss any branches.
+>
+> >
+> > I was thinking of this for v6:
+> >
+> >          flags =3D raw_local_daif_save();
+> >
+> >          /* The BRBE sysregs below are UNDEFINED without this. */
+> >          if (!valid_brbe_version()) {
+>
+> You don't need to disable interrupts to call this, it's a constant. Or
+> is it to stop migration?
 
-are available in the Git repository at:
+It was to stop migration.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-driv=
-er-soc-for-v7.3
+>
+> V5 reads sysregs before disabling interrupts so I assume migration isn't
+> an issue here.
+>
+> >                  raw_local_daif_restore(flags);
+> >                  return 0;
+> >          }
+> >
+> >          brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+> >          brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+> >
+> >          write_sysreg_s(brbfcr | BRBFCR_EL1_PAUSED, SYS_BRBFCR_EL1);
+> >          isb();
+> >
+> >          /* BRBCR_EL1 is zero while the driver has BRBE disabled. */
+> >          if (!brbcr) {
+> >                  write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+> >                  isb();
+> >                  raw_local_daif_restore(flags);
+> >                  return 0;
+> >          }
+> >
+> >          trace_hardirqs_off();
+> >
+> >          ... read the records ...
+> >
+> >          if (!(brbfcr & BRBFCR_EL1_PAUSED) &&
+> >              !(read_pmovsclr() & (ARMV8_PMU_OVSR_P | ARMV8_PMU_OVSR_F))=
+)
+> >                  brbe_invalidate();
+> >          else
+> >                  brbfcr |=3D BRBFCR_EL1_PAUSED;
+> >
+> >          write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+> >          isb();
+> >          local_daif_restore(flags);
+> >
+> > Exceptions are masked before anything is sampled, BRBCR_EL1 is only rea=
+d and
+> > never written, and BRBFCR_EL1 is written back from the value saved unde=
+r the
+> > mask. cpu_has_brbe() is now valid_brbe_version().
+> >
+> > Neither conditional costs a record: valid_brbe_version() falls through =
+when BRBE
+> > is present (RBBNSZ, only taken branches are recorded), and the BRBCR_EL=
+1 test is
+>
+> Isn't the compiler free to invert it and make the happy path a taken
+> branch. I don't think any of that can be assumed without writing in
+> assembly.
+>
+> > after the pause. It cannot move later because BRBFCR_EL1 is UNDEFINED w=
+ithout
+> > FEAT_BRBE.
+> >
+> > PMOVSCLR_EL0 is masked because PMCCNTR_EL0 is bit 31 and PMCR_EL0.N is =
+at most
+> > 31, so the cycle counter is outside every range RNXCWF, RGXGWY, RPKTXQ =
+and
+> > RLDMVK name. Unmasked, a cycle counter overflow looked like a freeze.
+>
+> Sorry I didn't understand this bit. Can you elaborate?
+>
+> >
+> > Do you think this version works?
+> >
+> > Thanks,
+> > Puranjay
+>
+>
+>  From your previous reply:
+>
+>    "Hardware only sets PAUSED on a BRBE freeze event (RBHYTD), and a
+>     freeze needs BRBE to not already be paused (RNXCWF). So once we have
+>     paused, nothing changes underneath us and the PMU does not need
+>     disabling."
+>
+> I'm still not 100% convinced this is correct. You read BRBFCR_EL1 and
+> write PAUSED to it in separate instructions. The PMU can overflow and
+> change the PAUSED state between those two instructions leading to
+> restoration of the wrong value.
 
-for you to fetch changes up to dce7afe3efe485a99200a59dc78738539cbd133f:
+I was checking if the overflow happened and leaving it paused in that case.
 
-  soc: ti: wkup_m3_ipc: Remove redundant dev_err() (2026-07-24 11:35:08 -05=
-00)
+> Isn't this non pausing version way simpler to understand, and also has
+> the benefit of not invalidating someone elses BRBE buffers. The only
+> downside seems to be that it might have some assembly to make sure the
+> if statements are always not taken branches rather than inverted, but
+> personally I don't think that makes it any harder to understand than the
+> branchy pausing version in V5:
+>
+>    #define read_record(i)
+>      if (i >=3D cnt)                                       \
+>         goto out;                                        \
+>      isb(); /* Ensure our own exit branch isn't read? */ \
+>      entries[i].inf =3D read_brbe_inf(i)                   \
+>      if (!inf)                                           \
+>         goto out;                                        \
+>      entries[i].src =3D read_brb_src(i)                    \
+>      entries[i].dst =3D read_brb_dst(i)                    \
+>
+>    raw_local_daif_save();
+>
+>    /* disable counters to stop BRBFCR_EL1.PAUSE state changing */
+>    pmcr =3D armv8pmu_pmcr_read();
+>    armv8pmu_pmcr_write(pmcr & ~ARMV8_PMU_PMCR_E);
+>    isb();
+>
+>    brbfcr =3D read_sysreg_s(SYS_BRBFCR_EL1);
+>    brbcr =3D read_sysreg_s(SYS_BRBCR_EL1);
+>
+>    select_bank(0);
+>    read_record(0);
+>    read_record(1);
+>    ...
+>    select_bank(1);
+>    read_record(32);
+>    read_record(33);
+>    ...
+>
+> out:
+>    write_sysreg_s(brbfcr, SYS_BRBFCR_EL1);
+>    isb();
+>    armv8pmu_pmcr_write(pmcr);
+>    raw_local_daif_restore();
+>
+>    /* Post process entries[n].inf etc into correct format */
 
-----------------------------------------------------------------
-TI SoC driver updates for v7.3
+I will try out this approach and get back.
 
-Minor bug fixes and cleanups across TI SoC and firmware drivers:
-
-- firmware: ti_sci: Fix a resource leak by undoing list publication when
-  device populate fails, ensuring proper cleanup on error paths
-- soc: ti: knav_qmss: Remove debugfs file on teardown to avoid stale
-  entries and potential use-after-free scenarios
-- soc: ti: wkup_m3_ipc: Remove redundant dev_err() call to avoid
-  duplicate error reporting
-
-----------------------------------------------------------------
-Pan Chuang (1):
-      soc: ti: wkup_m3_ipc: Remove redundant dev_err()
-
-Pengpeng Hou (2):
-      firmware: ti_sci: Undo list publication on populate failure
-      soc: ti: knav_qmss: Remove debugfs file on teardown
-
- drivers/firmware/ti_sci.c        | 4 ++++
- drivers/soc/ti/knav_qmss.h       | 1 +
- drivers/soc/ti/knav_qmss_queue.c | 7 +++++--
- drivers/soc/ti/wkup_m3_ipc.c     | 4 +---
- 4 files changed, 11 insertions(+), 5 deletions(-)
-
---=20
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5=
- 849D 1736 249D
-https://ti.com/opensource
-
---53qpsf576eiodqg7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE+KKGk1TrgjIXoxo03bWEnRc2JJ0FAmpzSpYACgkQ3bWEnRc2
-JJ2axw/+OeYULAqpTLuUqU3d9npoZjk2w00LLBZUpTohXqwvNwmb4Q7pCgXFezPP
-mlFb1Ug/08WUyng9ZGXN7H5i8M3K2xyTKAR2D74YciYlEyNSrLa31Mau4ilfVsCy
-6NW3DJ6jtQWKWcFmW7kO612yR1gyawTzttn5OqIF45GTOKyYq04Ffn0ATjf3QoOG
-SXCoO+JiHm7eTqogTf9+wWPUsJEh8veEnjRzQoXHFDxje9bnoUyX/3q8+ZMarN5b
-TiP+olGUd2Qat6mkmKavhouLGgvm6Mc2Ijnvxrn4P8xe/h9iWAPhd/A6Lk7bnEo/
-myTq7VFaSVKRJfaDQ1Czf4s61oXh7uVNauSoflICrcrMaSnR6hMXk33byb8Vf/TF
-el+8gsKPyLxy4V363nEh5SxucH+bpaHbDzT68UeLN2HT/WB32nVxBb2Uuq3yV2bX
-JQb6WGKOoKfhfW95sMr9hYBj3dVUfnxbKGdLqK1AZhXhZGcehPP3DzC+aH1+J7hF
-DOc7R65w1XSyWxKMNGXn+XYE5oe0hrjyV6O/Vpcf/nh7Qj6MOqtkWEpjvZFksE58
-bSGWBpSj6ganwQAGVPOeM3aRUd2+v8ibVIivj39ZNMcUcxi8Ez1LE7+QPg/a7QQd
-C4PtzqmeQ+6+sWJQ+UtQtHOAYA/SkNMmZgnBlueYu6F4FA1LN60=
-=yJQI
------END PGP SIGNATURE-----
-
---53qpsf576eiodqg7--
+Thanks,
+Puranjay
 
