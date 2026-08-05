@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADF5C55838
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC71C2A09B
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 02:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,75 +12,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RzurtN0DXtJ4YV8O94n+1KjkgXHYGsR0+0vBXEULE1M=; b=ZzwiJWV5y/O4yZEA+Bzm06v00C
-	BGXizD9He9TQleY4DGn9b0MAp2o9YWwidt5mzOiW0qXGXCv89R77IcoAi0Z3XLbs8B8p3sYHyU2R4
-	Wq5nfoJOmIpJfmWhC96HeQv5ZWuXaFVS497BfoJdAZhrMNZsA/Oz4GRAZYNOSsRfCryCxkRCj+Xr4
-	mltO8KFIRs14abg5LQ4pPbK8ShQ6XiA253Ss4VjIeJwZ0DDHy6om37vIkXamoow9jm/GdoBCmFwHi
-	3ebDMBMre+b9Kb7t0FyBo7NL0VcBp4AyReaNITlEceDbaqtQ+5iz8syvl0L3Z6s7JTAgTA/lOWR/i
-	Ym7vxUsw==;
+	bh=a7n627btFdgAMk+nFRlo8bZ30B6WMW9WO37DeKOzDqM=; b=cbYdz/X0d8snbV8RvqZ9fAtZkG
+	qykrJLz3iAOBgcsG2EwDOZunQneYhqhqL0f7QuaQuOJe2yYqSRfLTyQwo5+cqmrhxKfX/hQqOKV5U
+	euFji4r9htA+Kyg6QqOZVq3+iALy35cFG4i2Ws9zqdEvis5MDby8I6POWzCtMMfrjIp2LbmBqH5V1
+	jkxcWdqwW9BqMCb+EoZxj5t4oL0OoXT3o7EQuRsUVEcKEvnTZS4D7dX+ChyGq6QrNUueLBlVataWT
+	bEdn0tWCt+uCsbEznTpdAJ4zN4WZg1wErVHCxDJrnNr+rOTIXgksFVQQG9/rRVp73RqPmF9o1t3dM
+	NyQL7yYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRN8-000000037d6-33hx;
-	Wed, 05 Aug 2026 02:28:46 +0000
-Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
+	id 1wrRN9-000000037et-1vqM;
+	Wed, 05 Aug 2026 02:28:47 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRMx-000000037Nw-1SGh
+	id 1wrRMz-000000037QX-1CbU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 02:28:38 +0000
-Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7ec1e9d3359so408069a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 19:28:35 -0700 (PDT)
+	Wed, 05 Aug 2026 02:28:40 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7f18c0e03e3so290241a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 19:28:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785896914; x=1786501714; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785896916; x=1786501716; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=RzurtN0DXtJ4YV8O94n+1KjkgXHYGsR0+0vBXEULE1M=;
-        b=khkuhfhR5caB/X19sKBmXPvQDD2z5NqZ0dFnbeIfrt7MvV2WBNRrMPiPbmlxE33593
-         z7YGN8fXOM2EmxrFkAmd9yUqx/f0hL49mJjVg3cvJXqtdWU3BsDxzSb0g/5NvDybM/cP
-         Iu8E1RzAcr28Gh+7EZP/GBcGpDITQX9dRyOqYpSOphGL7oj5Nw3VlVt2NCEIbBkZvFbc
-         R3XdbXog8oGP4A1lTVxzvu8D7NgZxjz0GJADAQPsjpHM23npLg6g8CvrSgM8H87S/xdU
-         uB6pmNvnJ2VPCs8PrNO/ZYJdW2vEzPDhWLuevjIQcGzh5G9vwQkGQYKmMQdCB48lZiBo
-         IeVQ==
+        bh=a7n627btFdgAMk+nFRlo8bZ30B6WMW9WO37DeKOzDqM=;
+        b=lhDjQSifPVDo7PH3vt3MuZ07f8uxbF7sGTca/Uf0a7ILk64hfXfyM+utr7AHhI5+ed
+         n6hWEaqAWCvfhUyCGsH0Bgoh3gDOKP2kTXM6bZ0eEmtUTK9c9nJNG/rq6BAkQzsOlHN5
+         3TbFiw2Ul1HxJ8cCqkUNIzmjHGQU4noQyQkJBqJHUp5jxt8m5Jvh8bL6CvqEM2axuhdG
+         Ex6Rt761F6kKA58eUOdGZovRBuS69iAveptOVIIeaGAn7ogY5Udk/uE1Y9kKvsGIWS8D
+         tAIOmhSdvwmw/06Z3xFr0arFHY+0m6qCNUz5E+IsBAOQaV7wBaarzBvRSCjUEdo7JZT+
+         /kVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785896914; x=1786501714;
+        d=1e100.net; s=20251104; t=1785896916; x=1786501716;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RzurtN0DXtJ4YV8O94n+1KjkgXHYGsR0+0vBXEULE1M=;
-        b=NYq6XVVxL5wnNZnt8VMGzTDqo4a5Z+NXPoRgWg5A/KWFTi0TzHPtUzd2d3QyELpcAL
-         gQk7spD+VZFdZ8wE5Ln1vLFqDWGDX+AAb6K4aLbtOYyYWTEToYOwEkZW1UJ1It6QAcbL
-         1bji17FAZome5/JcjpdAdwHuvHLuSdmRIBJaGGmVxdKckf+zrwSQRS8VsiRDpRxlxZBR
-         tg0XXuguGi1Kqsz6x/Kp4HSUAu4junLefwvQeTZaxGpMVPIryUwJd6Mj7C/irIaiNpTk
-         s6j3Ds2hbjR4v4DTIMta+uf8dwRkWBxph8h6x12Ije8bEiZMOsXPkk3ocTVC0McOOCQ6
-         oJ+g==
-X-Forwarded-Encrypted: i=1; AHgh+RqtbjLKasQ+M4Qqx67Wl8rgapEzdlMCzO/YywfTUuc2eNyjwKFqZpSlldjT0nALp4q/CULoiV0uKe2VVUCNsFbI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfLjz0RpLaNQ9uyoq8elGUTexad+x6Yf9HDTm5vTWrnw2RIx0e
-	JNO8oViO6btLSvCnHZaWmunzBesTVR9efdmuOfEOl636a88+Nlh1S4n0
-X-Gm-Gg: AR+sD10uB6wmsiG031D1fru1hWHse4yFbsbTILf2OM+wjtxH7h1lSzdLVjVpn/+3ThS
-	dWsiKdwZgWmtiVo6RaJuZzGiM2KF8q6JXgRobe2RV13ySGQLqSyWgeZzYoEgX+rIaOsLMkOwwd7
-	RXOy79ZKXViAOixOxgvoGI9lrkMcj1drMdvsqD4qeDMHlW7uGaRjuHxudUhkRBrPiq/aTMfxRYM
-	wzCAtiVCsZ2RhMDIoFhGKF19JeFpCj7O79qQG6dVwRtMLLmXAnyYJNEosSDeRoJtuvZ0s1GhdM9
-	lnMYQqv6NN5+vRvOJKzgcmgFX8XIUlgnGossV+HsHQvPPeua24RyrNMwbDGLFj7N6SYBt+gyOOM
-	pig9R7htQuIx5l4NXTSd1AzYmAlsfeYAuYwcQYptKWkpMi/wZS1vWSWdTj1NCKYKxp8Y5sZ4r8g
-	vY452MaELQxOYSTfDcoxy+LmpYKtOhOatebuCXxim4LN31FNKX+FfSIOdwALn9Zd6oSLI1bTXky
-	2pStqwGnHRxDoCwD48PRJG2GBXBcYGFGhxGeeSj45MRVDp034niUZzTmmPheZa3ynuXYpoZG1eI
-	MDgo1+oRhaQtU5sREJfRoMhgC+nBWIzuOE5bSZrKjrzh+dbFT/h8Aonv8KpYFYNDAhEjGPcgOof
-	xNcq8knkEbx4UCcwV
-X-Received: by 2002:a05:6830:67f9:b0:7e6:8955:c52d with SMTP id 46e09a7af769-7f1e5d2f816mr2651673a34.5.1785896914418;
-        Tue, 04 Aug 2026 19:28:34 -0700 (PDT)
+        bh=a7n627btFdgAMk+nFRlo8bZ30B6WMW9WO37DeKOzDqM=;
+        b=YXpY7bRopW39LZRO4D4QHTcxPMEGprQ05JhOmbrMXSrW74JqJUMammyQP2SQnZn9gg
+         807hQf8MIwqrsHSRyXVx1B987DgX+Xs3ijaFdJi+VqnHQNmB9z+hbOgTVFEjyChBzorP
+         eTSfnQA+/o/i+eaEHrLYUJucG01B+BIsJ+hQ4LnD6tpBDr5xNsCqAyOdstY5XdugxpP/
+         /9skXKztm5ZDWJZqgF1q4YpRONhavLGPkeuSREG8mpFt7hTAJUQzzqBhuA4n5R9qc06I
+         N/eYhoNTopW0v8z4p89PKE3NnqPg4cPt871l4bGr5W3qneIicouwhzWLEjTaLVdEPRxf
+         WZnA==
+X-Forwarded-Encrypted: i=1; AHgh+Rpj7gzF74mPtSGy3MPcq4oQwvvu02OV3i8jb1dBHag1MjH6D2hUD3ObY+oxEjj7uGZkL+ouQ4/3RhZGBwtw1SGU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhpykcXQmMttTFW/fFEtVi/w5fkq+YDULNLN+Ee0E/9e74uxdL
+	UvDgy3JfnhTKhV8I9esqNzHq7uGwthXcw9gnqPT9PSY9LSHchlvjhYE/
+X-Gm-Gg: AR+sD12hjr6T7NAFEyv52FMmX5sDuHtpyqavf0utEYm/0E58YR3cTNlAyUQQJTVFd9H
+	0X/t6ulSxaJn6x80DI0ll3R0rc/GC+J/JznuE9eTT+BroNfqhcV/uspg6JY4blRw5LS4XMd0nu4
+	kKTxNgt54edSCUAOuJwnjyJG2uHfCofbGS/Aye0FyXc9T9t72vIQBkVPjjeVJbJLWbvNU/CT0l4
+	3Gab3OKsl2P9wbaaofV8QQ1V8tlQccDqfgMruUQG533erKyQH2tg6zJ5klQ+pHduK0JecO7YdKh
+	o6ieD1vUrbd3KWthgWVwHi8FC7YxVmS2kvjbKUaKf65m/Vs3C5LSz9Sjh/BEbGlnRwfIjGxZh1U
+	PN6CV327wzsdfrqx+1wmWkx4gWlU9HwGsArHHWoPSyLvh3f4xMiIdsBRLbSAIVhDamHXzf5zHlK
+	cKZmpAt1PhVucckO8uEQLhoWXHYbnRamI/5hKlaJhW9+oTUZhtfNYI9IVIqEhckU57Ng8qaa8c+
+	YcjCeE84UZRJTTXMsZTgKGKXBg6RYNrkFVbA1op/wVaDiGVqEhmxiAJQprPQH4ZZo8Gnz1UMWpM
+	wpJa4RJ+JqTz2HCS5CwLRf5EP2jKHU/PVZly3I7c/SVQ9V5NsXOPMv2OrAmtwZaO9WeLGGLGMOg
+	8XinJT/jaslCUX75x
+X-Received: by 2002:a05:6830:3489:b0:7e9:bf64:b70b with SMTP id 46e09a7af769-7f1e5c2af15mr2626135a34.1.1785896916416;
+        Tue, 04 Aug 2026 19:28:36 -0700 (PDT)
 Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f1df565d37sm2078153a34.16.2026.08.04.19.28.33
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f1df565d37sm2078153a34.16.2026.08.04.19.28.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 19:28:34 -0700 (PDT)
+        Tue, 04 Aug 2026 19:28:36 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 04 Aug 2026 20:27:04 -0600
-Subject: [PATCH net-next v2 6/8] net: phy: add X-Powers AC300 EPHY control
+Date: Tue, 04 Aug 2026 20:27:06 -0600
+Subject: [PATCH net-next v2 8/8] net: phy: add X-Powers AC200/AC300 EPHY
  driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260804-submit-acx00-of-dynamic-v1-v2-6-3eef49ff1d8c@gmail.com>
+Message-Id: <20260804-submit-acx00-of-dynamic-v1-v2-8-3eef49ff1d8c@gmail.com>
 References: <20260804-submit-acx00-of-dynamic-v1-v2-0-3eef49ff1d8c@gmail.com>
 In-Reply-To: <20260804-submit-acx00-of-dynamic-v1-v2-0-3eef49ff1d8c@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -96,8 +96,8 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_192835_500189_9F6C9218 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20260804_192837_676877_DE205A0F 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,504 +112,624 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AC300 Fast Ethernet PHY needs a separate non-PHY Clause 22 endpoint
-to complete package setup before the link endpoint becomes usable.
+The AC200 and AC300 MDIO link endpoints report the same Clause 22
+identifier and use a compatible link-side paged register layout. Their
+identification registers are inaccessible until a package-specific
+control path powers and configures the block.
 
-Enable VCC1 and the input clock, select its 24, 25 or 27 MHz rate, apply
-the SoC SID calibration value and vendor offset, configure the documented
-I/O drive strength, and perform the reset-before-clock power-up sequence.
-Validate the control and link address relationship against the package
-straps, clear a latched MDIO error, and configure the internal digital
-LDO only for the package variant which uses it.
+Add a common PHY driver which matches the firmware-provided identifier
+only when the node also references one X-Powers control device. Validate
+that reference and the AC300 address relationship, defer until the
+provider is bound, and create a managed device link to protect its
+lifetime and order teardown and power management.
 
-Early PHY creation uses reset-default MII. A separate operation later
-applies phydev->interface and, if already powered, changes only RMII_SEL
-before the normal PHY soft reset.
+When the optional two-bit SID configuration field is present, verify that
+its package-selector bit agrees with the fixed control reference. Use its
+second bit to select the AC300 low-calibration tuning sequence. Omitting
+the field skips package validation and selects the normal sequence.
 
-Expose serialized, idempotent power and interface operations to the
-common PHY driver. Enable only the MDIO, MII and input-clock pads in this
-basic driver; dedicated LED outputs remain disabled for a later patch.
+Power the control block in reset-default MII mode during PHY probe. Once
+the MAC supplies phydev->interface, pass MII or RMII to the provider
+before the normal PHY soft reset. Program the AC200 link address through
+its provider and let the AC300 provider validate its strapped address.
+
+Apply the common vendor analog initialization, with the package-specific
+normal value and the optional AC300 low-calibration sequence. Support the
+board-selected xMII receive-clock inversion and leave MDI/MDI-X in its
+vendor automatic mode. Disable standard and Intelligent EEE initially,
+then restore phylib's standard EEE policy after later resets.
+
+Power the package control block down with the PHY and restore the vendor
+configuration on resume. If power-off fails, attempt to restore the PHY
+before returning the original suspend error.
 
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/net/phy/Kconfig             |   9 +
- drivers/net/phy/Makefile            |   1 +
- drivers/net/phy/xpowers-ac300-ctl.c | 423 ++++++++++++++++++++++++++++++++++++
- drivers/net/phy/xpowers-acx00.h     |   2 +
- 4 files changed, 435 insertions(+)
+ drivers/net/phy/Kconfig         |   9 +
+ drivers/net/phy/Makefile        |   1 +
+ drivers/net/phy/xpowers-acx00.c | 544 ++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 554 insertions(+)
 
 diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index 6119f4de880d..7535db7f3471 100644
+index 7535db7f3471..c505ade5955c 100644
 --- a/drivers/net/phy/Kconfig
 +++ b/drivers/net/phy/Kconfig
-@@ -484,6 +484,15 @@ config XPOWERS_AC200_PHY_CTL
- 	  address, interface mode, calibration and I/O controls through the
- 	  parent AC200 I2C regmap.
+@@ -493,6 +493,15 @@ config XPOWERS_AC300_PHY_CTL
+ 	  interface mode, clock and I/O controls through the separate MDIO
+ 	  control address.
  
-+config XPOWERS_AC300_PHY_CTL
-+	tristate "X-Powers AC300 Ethernet PHY control"
-+	depends on COMMON_CLK && NVMEM && OF_MDIO
++config XPOWERS_ACX00_PHY
++	tristate "X-Powers AC200/AC300 Ethernet PHY"
++	depends on OF_MDIO
 +	help
-+	  Enable the MDIO control driver for the Fast Ethernet PHY in the
-+	  X-Powers AC300 companion IC. It programs the PHY calibration,
-+	  interface mode, clock and I/O controls through the separate MDIO
-+	  control address.
++	  Enable the Fast Ethernet PHY driver shared by the X-Powers AC200
++	  and AC300 companion ICs. This driver configures their common MDIO PHY
++	  registers and uses one statically selected package-control provider for
++	  power, calibration and interface setup.
 +
  config XILINX_GMII2RGMII
  	tristate "Xilinx GMII2RGMII converter driver"
  	help
 diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index f81854fc9f12..0c4e40c9a28a 100644
+index 0c4e40c9a28a..db71f1c2b756 100644
 --- a/drivers/net/phy/Makefile
 +++ b/drivers/net/phy/Makefile
-@@ -101,4 +101,5 @@ obj-$(CONFIG_STE10XP)		+= ste10Xp.o
- obj-$(CONFIG_TERANETICS_PHY)	+= teranetics.o
+@@ -102,4 +102,5 @@ obj-$(CONFIG_TERANETICS_PHY)	+= teranetics.o
  obj-$(CONFIG_VITESSE_PHY)	+= vitesse.o
  obj-$(CONFIG_XPOWERS_AC200_PHY_CTL) += xpowers-ac200-ctl.o
-+obj-$(CONFIG_XPOWERS_AC300_PHY_CTL) += xpowers-ac300-ctl.o
+ obj-$(CONFIG_XPOWERS_AC300_PHY_CTL) += xpowers-ac300-ctl.o
++obj-$(CONFIG_XPOWERS_ACX00_PHY)	+= xpowers-acx00.o
  obj-$(CONFIG_XILINX_GMII2RGMII) += xilinx_gmii2rgmii.o
-diff --git a/drivers/net/phy/xpowers-ac300-ctl.c b/drivers/net/phy/xpowers-ac300-ctl.c
+diff --git a/drivers/net/phy/xpowers-acx00.c b/drivers/net/phy/xpowers-acx00.c
 new file mode 100644
-index 000000000000..d3ca4df8a9a3
+index 000000000000..f9e6be751252
 --- /dev/null
-+++ b/drivers/net/phy/xpowers-ac300-ctl.c
-@@ -0,0 +1,423 @@
++++ b/drivers/net/phy/xpowers-acx00.c
+@@ -0,0 +1,544 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * X-Powers AC300 Ethernet PHY control driver
++ * X-Powers AC200/AC300 Ethernet PHY driver
 + *
++ * Copyright (C) 2019 Jernej Skrabec <jernej.skrabec@gmail.com>
 + * Copyright (C) 2026 James Hilliard <james.hilliard1@gmail.com>
 + */
 +
 +#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/delay.h>
++#include <linux/device.h>
 +#include <linux/mdio.h>
 +#include <linux/module.h>
-+#include <linux/mutex.h>
 +#include <linux/nvmem-consumer.h>
++#include <linux/of.h>
++#include <linux/of_mdio.h>
++#include <linux/of_platform.h>
 +#include <linux/phy.h>
++#include <linux/platform_device.h>
 +#include <linux/property.h>
-+#include <linux/regulator/consumer.h>
 +
 +#include "xpowers-acx00.h"
 +
-+#define AC300_EPHY_BGS_EFFUSE_OFFSET	3
-+#define AC300_SYS_CONTROL_REG			0x00
-+#define AC300_CHIP_VERSION_MASK			GENMASK(15, 12)
-+#define AC300_PACKAGE_STATUS_MASK		GENMASK(11, 8)
-+#define AC300_EPHY_CLK_SEL_MASK			GENMASK(7, 6)
-+#define AC300_EPHY_CLK_SEL_25_MHZ		FIELD_PREP(AC300_EPHY_CLK_SEL_MASK, 0)
-+#define AC300_EPHY_CLK_SEL_27_MHZ		FIELD_PREP(AC300_EPHY_CLK_SEL_MASK, 1)
-+#define AC300_EPHY_CLK_SEL_24_MHZ		FIELD_PREP(AC300_EPHY_CLK_SEL_MASK, 2)
-+#define AC300_EFUSE_CLK_ENABLE			BIT(5)
-+#define AC300_EPHY_REG_CLK_ENABLE		BIT(4)
-+#define AC300_MDIO_ERROR			BIT(3)
-+#define AC300_CLKIN_GATING_ENABLE		BIT(2)
-+#define AC300_EPHY_RESET_DEASSERT		BIT(1)
-+#define AC300_CHIP_RESET_DEASSERT		BIT(0)
++#define ACX00_EPHY_ID				0x00441400
 +
-+#define AC300_MASK_VERSION_REG			0x04
-+#define AC300_MASK_VERSION_MASK			GENMASK(2, 0)
++#define ACX00_EPHY_CONFIG_VARIANT_AC300		BIT(0)
++#define ACX00_EPHY_CONFIG_CALIBRATION_LOW	BIT(1)
 +
-+#define AC300_PACKAGE_POR_INTERNAL_DLDO		BIT(3)
-+#define AC300_PACKAGE_PHY_ADDR_MASK		GENMASK(2, 0)
++#define ACX00_PAGE_SELECT_REG			0x1f
++#define ACX00_PAGE_SELECT_MASK			GENMASK(12, 8)
++#define ACX00_PAGE_0				0
++#define ACX00_PAGE_1				1
++#define ACX00_PAGE_2				2
++#define ACX00_PAGE_6				6
++#define ACX00_PAGE_8				8
 +
-+#define AC300_SYS_BIAS1_REG			0x02
-+#define AC300_INTERNAL_DLDO_ENABLE		BIT(15)
++#define ACX00_PAGE0_GLOBAL_CONFIG_REG		0x13
++#define ACX00_PAGE0_XMII_RX_CLOCK_INVERT	BIT(12)
++#define ACX00_PAGE0_MDI_MODE_MASK		GENMASK(1, 0)
++#define ACX00_PAGE0_MDI_MODE_AUTO		2
 +
-+#define AC300_SYS_IO_REG			0x05
-+#define AC300_MDIO_DRV_MASK			GENMASK(15, 14)
-+#define AC300_MII_DRV_MASK			GENMASK(11, 10)
-+#define AC300_IO_DRV_LEVEL_2			2
-+#define AC300_CLKIN_PAD_ENABLE			BIT(4)
-+#define AC300_EPHY_MII_IO_ENABLE			BIT(0)
++#define ACX00_PAGE1_APS_CONTROL_REG		0x12
++#define ACX00_PAGE1_APS_DISABLED_4S_VALUE	0x4824
++#define ACX00_PAGE1_UAPS_CONTROL_REG		0x13
++#define ACX00_PAGE1_UAPS_ENABLE			BIT(15)
++#define ACX00_PAGE1_INTELLIGENT_EEE_CONTROL_REG	0x17
++#define ACX00_PAGE1_INTELLIGENT_EEE_ENABLE	BIT(3)
 +
-+#define AC300_EPHY_CONFIG_REG			0x06
-+#define AC300_EPHY_BGS_EFFUSE_MASK		GENMASK(15, 12)
-+#define AC300_EPHY_RMII_SEL			BIT(11)
-+#define AC300_EPHY_SHUTDOWN			BIT(0)
++#define ACX00_PAGE2_TX_DATA_CONTROL_REG		0x18
++#define ACX00_PAGE2_10BT_FIR_SELECT_MASK		GENMASK(14, 12)
++#define ACX00_PAGE2_10BT_FIR_SELECT_DEFAULT	0
 +
-+#define AC300_SYS_CONTROL_ENABLE_BITS \
-+	(AC300_EFUSE_CLK_ENABLE | AC300_EPHY_REG_CLK_ENABLE | \
-+	 AC300_CLKIN_GATING_ENABLE | AC300_EPHY_RESET_DEASSERT | \
-+	 AC300_CHIP_RESET_DEASSERT)
++#define ACX00_PAGE6_ADC_CONTROL_REG		0x10
++#define ACX00_PAGE6_ADC_CONTROL_LOW_CAL_VALUE	0x5523
++#define ACX00_PAGE6_AFE_RX_CONTROL_REG		0x13
++#define ACX00_PAGE6_AFE_RX_CONTROL_VALUE		0xf000
++#define ACX00_PAGE6_AFE_EQ_RX_DETECT_CONTROL_REG	0x14
++#define AC200_PAGE6_AFE_EQ_RX_DETECT_VALUE	0x708f
++#define AC300_PAGE6_AFE_EQ_RX_DETECT_VALUE	0x708b
++#define ACX00_PAGE6_AFE_EQ_RX_DETECT_LOW_CAL_VALUE 0x7809
++#define ACX00_PAGE6_TX_LEVEL_REG			0x15
++#define ACX00_PAGE6_TX_LEVEL_100M_MASK		GENMASK(15, 8)
++#define ACX00_PAGE6_TX_LEVEL_10M_MASK		GENMASK(7, 0)
++#define ACX00_PAGE6_TX_LEVEL_VALUE(_100m, _10m) \
++	(FIELD_PREP(ACX00_PAGE6_TX_LEVEL_100M_MASK, (_100m)) | \
++	 FIELD_PREP(ACX00_PAGE6_TX_LEVEL_10M_MASK, (_10m)))
++#define ACX00_PAGE6_TX_LEVEL_DEFAULT_VALUE \
++	ACX00_PAGE6_TX_LEVEL_VALUE(0x15, 0x30)
++#define ACX00_PAGE6_TX_LEVEL_LOW_CAL_VALUE \
++	ACX00_PAGE6_TX_LEVEL_VALUE(0x35, 0x33)
 +
-+#define AC300_SYS_IO_VALUE \
-+	(FIELD_PREP(AC300_MDIO_DRV_MASK, AC300_IO_DRV_LEVEL_2) | \
-+	 FIELD_PREP(AC300_MII_DRV_MASK, AC300_IO_DRV_LEVEL_2) | \
-+	 AC300_CLKIN_PAD_ENABLE | AC300_EPHY_MII_IO_ENABLE)
++#define ACX00_PAGE8_AFE_CONTROL_REG		0x18
++#define ACX00_PAGE8_AFE_CONTROL_VALUE		0x00bc
++#define ACX00_PAGE8_AUTO_CAL_CONTROL_REG		0x1d
++#define ACX00_PAGE8_AUTO_CAL_TX_LEVEL_ADJUST_BYPASS BIT(11)
++#define ACX00_PAGE8_AUTO_CAL_LOW_CAL_OPAQUE_BITS	0x0044
++#define ACX00_PAGE8_AUTO_CAL_LOW_VALUE \
++	(ACX00_PAGE8_AUTO_CAL_TX_LEVEL_ADJUST_BYPASS | \
++	 ACX00_PAGE8_AUTO_CAL_LOW_CAL_OPAQUE_BITS)
 +
-+struct ac300_ephy_ctl {
-+	struct acx00_ephy_control control;
-+	struct mdio_device *mdiodev;
-+	struct clk *clk;
-+	struct mutex lock; /* Serializes power sequencing and state. */
-+	u16 sys_control;
-+	u16 ephy_config;
-+	phy_interface_t interface;
-+	bool package_known;
-+	bool internal_dldo;
-+	bool powered;
++/*
++ * Another integration of this exact-ID PHY documents its digital vendor
++ * register map, which also matches the observed ACx00 reset values. The ACx00
++ * analog-page field encodings remain unpublished, so keep those as opaque
++ * vendor initialization values instead of inventing bit definitions.
++ */
++
++struct acx00_ephy_priv {
++	struct phy_device *phydev;
++	struct acx00_ephy_control *control;
++	bool is_ac300;
++	bool use_low_calibration_tuning;
++	bool xmii_rx_clock_inverted;
 +};
 +
-+static unsigned int
-+ac300_ephy_ctl_link_addr(const struct ac300_ephy_ctl *priv)
++static int acx00_ephy_read_page(struct phy_device *phydev)
 +{
-+	return priv->mdiodev->addr - AC300_EPHY_CONTROL_ADDR_OFFSET;
-+}
-+
-+static u16 ac300_ephy_ctl_config(const struct ac300_ephy_ctl *priv)
-+{
-+	return priv->ephy_config |
-+		(priv->interface == PHY_INTERFACE_MODE_RMII ?
-+		 AC300_EPHY_RMII_SEL : 0);
-+}
-+
-+static int ac300_ephy_ctl_power_off_locked(struct ac300_ephy_ctl *priv)
-+{
-+	int err;
 +	int ret;
 +
-+	if (!priv->powered)
++	ret = __phy_read(phydev, ACX00_PAGE_SELECT_REG);
++	if (ret < 0)
++		return ret;
++
++	return FIELD_GET(ACX00_PAGE_SELECT_MASK, ret);
++}
++
++static int acx00_ephy_write_page(struct phy_device *phydev, int page)
++{
++	return __phy_write(phydev, ACX00_PAGE_SELECT_REG,
++			   FIELD_PREP(ACX00_PAGE_SELECT_MASK, page));
++}
++
++static int acx00_ephy_control_power_on(struct acx00_ephy_priv *priv)
++{
++	return priv->control->power_on(priv->control,
++				       priv->phydev->mdio.addr);
++}
++
++static int acx00_ephy_control_power_off(struct acx00_ephy_priv *priv)
++{
++	return priv->control->power_off(priv->control);
++}
++
++static int acx00_ephy_set_interface(struct phy_device *phydev)
++{
++	struct acx00_ephy_priv *priv = phydev->priv;
++
++	if (phydev->interface == PHY_INTERFACE_MODE_NA)
 +		return 0;
-+
-+	ret = mdiodev_write(priv->mdiodev, AC300_EPHY_CONFIG_REG,
-+			    ac300_ephy_ctl_config(priv) | AC300_EPHY_SHUTDOWN);
-+	err = mdiodev_write(priv->mdiodev, AC300_SYS_IO_REG, 0);
-+	if (!ret)
-+		ret = err;
-+	err = mdiodev_write(priv->mdiodev, AC300_SYS_CONTROL_REG,
-+			    priv->package_known && !priv->internal_dldo ?
-+			    AC300_CHIP_RESET_DEASSERT : 0);
-+	if (!ret)
-+		ret = err;
-+
-+	clk_disable_unprepare(priv->clk);
-+	priv->powered = false;
-+
-+	return ret;
-+}
-+
-+static int ac300_ephy_ctl_power_off(struct acx00_ephy_control *control)
-+{
-+	struct ac300_ephy_ctl *priv =
-+		container_of(control, struct ac300_ephy_ctl, control);
-+	int ret;
-+
-+	mutex_lock(&priv->lock);
-+	ret = ac300_ephy_ctl_power_off_locked(priv);
-+	mutex_unlock(&priv->lock);
-+
-+	return ret;
-+}
-+
-+static int
-+ac300_ephy_ctl_set_interface(struct acx00_ephy_control *control,
-+			     phy_interface_t interface)
-+{
-+	struct ac300_ephy_ctl *priv =
-+		container_of(control, struct ac300_ephy_ctl, control);
-+	u16 value;
-+	int ret = 0;
-+
-+	switch (interface) {
-+	case PHY_INTERFACE_MODE_MII:
-+		value = 0;
-+		break;
-+	case PHY_INTERFACE_MODE_RMII:
-+		value = AC300_EPHY_RMII_SEL;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	mutex_lock(&priv->lock);
-+	if (priv->interface == interface)
-+		goto out_unlock;
-+
-+	if (priv->powered)
-+		ret = mdiodev_modify(priv->mdiodev, AC300_EPHY_CONFIG_REG,
-+				     AC300_EPHY_RMII_SEL, value);
-+	if (!ret)
-+		priv->interface = interface;
-+
-+out_unlock:
-+	mutex_unlock(&priv->lock);
-+
-+	return ret;
-+}
-+
-+static int ac300_ephy_ctl_power_on(struct acx00_ephy_control *control,
-+				   unsigned int phy_addr)
-+{
-+	struct ac300_ephy_ctl *priv =
-+		container_of(control, struct ac300_ephy_ctl, control);
-+	u8 package_status;
-+	u16 reset_value;
-+	int sys_control;
-+	int ret;
-+
-+	if (phy_addr != ac300_ephy_ctl_link_addr(priv))
++	if (phydev->interface != PHY_INTERFACE_MODE_MII &&
++	    phydev->interface != PHY_INTERFACE_MODE_RMII)
 +		return -EINVAL;
 +
-+	mutex_lock(&priv->lock);
-+	if (priv->powered) {
-+		ret = 0;
-+		goto out_unlock;
++	return priv->control->set_interface(priv->control,
++					    phydev->interface);
++}
++
++static void acx00_ephy_control_release(void *data)
++{
++	struct acx00_ephy_priv *priv = data;
++	int ret;
++
++	ret = acx00_ephy_control_power_off(priv);
++	if (ret)
++		phydev_warn(priv->phydev,
++			    "failed to power off control block: %pe\n",
++			    ERR_PTR(ret));
++}
++
++static struct device *
++acx00_ephy_find_supplier(struct device_node *control, bool is_ac300)
++{
++	struct platform_device *pdev;
++	struct mdio_device *mdiodev;
++
++	if (is_ac300) {
++		mdiodev = of_mdio_find_device(control);
++		return mdiodev ? &mdiodev->dev : NULL;
 +	}
 +
-+	ret = clk_prepare_enable(priv->clk);
-+	if (ret)
-+		goto out_unlock;
-+	priv->powered = true;
++	pdev = of_find_device_by_node(control);
++	return pdev ? &pdev->dev : NULL;
++}
 +
-+	/* Keep the external-supply configuration across subsequent resets. */
-+	reset_value = priv->package_known && !priv->internal_dldo ?
-+		      AC300_CHIP_RESET_DEASSERT : 0;
-+	ret = mdiodev_write(priv->mdiodev, AC300_SYS_CONTROL_REG, reset_value);
-+	if (ret)
-+		goto err_power_off;
++static int acx00_ephy_get_control(struct phy_device *phydev,
++				  struct acx00_ephy_priv *priv)
++{
++	struct device *dev = &phydev->mdio.dev;
++	struct acx00_ephy_control *control;
++	struct device_node *control_node;
++	struct device *supplier;
++	struct device_link *link;
++	const char *compatible;
++	const char *property;
++	bool has_ac200;
++	bool has_ac300;
++	u32 control_addr;
++	u32 configuration = 0;
++	int ret;
 +
-+	/* The manual requires both resets to be released before the clocks. */
-+	ret = mdiodev_write(priv->mdiodev, AC300_SYS_CONTROL_REG,
-+			    AC300_EPHY_RESET_DEASSERT |
-+			    AC300_CHIP_RESET_DEASSERT);
-+	if (ret)
-+		goto err_power_off;
++	has_ac200 = of_property_present(dev->of_node,
++					"x-powers,ac200-control");
++	has_ac300 = of_property_present(dev->of_node,
++					"x-powers,ac300-control");
++	if (has_ac200 == has_ac300)
++		return dev_err_probe(dev, -EINVAL,
++				     "exactly one ACx00 control is required\n");
 +
-+	/* Retain the vendor clock-enable defaults, including the eFuse clock. */
-+	ret = mdiodev_write(priv->mdiodev, AC300_SYS_CONTROL_REG,
-+			    priv->sys_control);
-+	if (ret)
-+		goto err_power_off;
-+
-+	sys_control = mdiodev_read(priv->mdiodev, AC300_SYS_CONTROL_REG);
-+	if (sys_control < 0) {
-+		ret = sys_control;
-+		goto err_power_off;
++	priv->is_ac300 = has_ac300;
++	property = has_ac300 ? "x-powers,ac300-control" :
++			       "x-powers,ac200-control";
++	compatible = has_ac300 ? "x-powers,ac300-ephy-ctl" :
++				 "x-powers,ac200-ephy-ctl";
++	control_node = of_parse_phandle(dev->of_node, property, 0);
++	if (!control_node)
++		return dev_err_probe(dev, -EINVAL, "missing %s\n", property);
++	if (!of_device_is_compatible(control_node, compatible)) {
++		ret = dev_err_probe(dev, -EINVAL,
++				    "%s does not reference a %s device\n",
++				    property, compatible);
++		goto out_put_node;
 +	}
-+	if (sys_control & AC300_MDIO_ERROR) {
-+		ret = mdiodev_write(priv->mdiodev, AC300_SYS_CONTROL_REG,
-+				    priv->sys_control | AC300_MDIO_ERROR);
-+		if (ret)
-+			goto err_power_off;
++	if (!of_device_is_available(control_node)) {
++		ret = dev_err_probe(dev, -EINVAL,
++				    "%s references a disabled device\n",
++				    property);
++		goto out_put_node;
++	}
 +
-+		sys_control = mdiodev_read(priv->mdiodev, AC300_SYS_CONTROL_REG);
-+		if (sys_control < 0) {
-+			ret = sys_control;
-+			goto err_power_off;
-+		}
-+		if (sys_control & AC300_MDIO_ERROR) {
-+			ret = -EIO;
-+			goto err_power_off;
++	if (has_ac300) {
++		ret = of_property_read_u32(control_node, "reg", &control_addr);
++		if (ret || control_addr != phydev->mdio.addr +
++					       AC300_EPHY_CONTROL_ADDR_OFFSET) {
++			ret = dev_err_probe(dev, -EINVAL,
++					    "AC300 control address does not match reg\n");
++			goto out_put_node;
 +		}
 +	}
 +
-+	package_status = FIELD_GET(AC300_PACKAGE_STATUS_MASK, sys_control);
-+	if ((~package_status & AC300_PACKAGE_PHY_ADDR_MASK) !=
-+	    ac300_ephy_ctl_link_addr(priv)) {
-+		ret = -EINVAL;
-+		goto err_power_off;
++	if (device_property_present(dev, "nvmem-cells")) {
++		ret = nvmem_cell_read_variable_le_u32(dev,
++						      "configuration",
++						      &configuration);
++		if (ret) {
++			dev_err_probe(dev, ret,
++				      "failed to read PHY configuration\n");
++			goto out_put_node;
++		}
++
++		if (!!(configuration & ACX00_EPHY_CONFIG_VARIANT_AC300) !=
++		    priv->is_ac300) {
++			ret = dev_err_probe(dev, -EINVAL,
++					    "configuration does not match control device\n");
++			goto out_put_node;
++		}
 +	}
 +
-+	priv->internal_dldo = package_status & AC300_PACKAGE_POR_INTERNAL_DLDO;
-+	priv->package_known = true;
-+	ret = mdiodev_modify(priv->mdiodev, AC300_SYS_BIAS1_REG,
-+			     AC300_INTERNAL_DLDO_ENABLE,
-+			     priv->internal_dldo ?
-+			     AC300_INTERNAL_DLDO_ENABLE : 0);
-+	if (ret)
-+		goto err_power_off;
++	priv->use_low_calibration_tuning =
++		priv->is_ac300 &&
++		!!(configuration & ACX00_EPHY_CONFIG_CALIBRATION_LOW);
++	ret = 0;
 +
-+	/* Keep the documented default drive level and leave the IRQ disabled. */
-+	ret = mdiodev_write(priv->mdiodev, AC300_SYS_IO_REG,
-+			    AC300_SYS_IO_VALUE);
-+	if (ret)
-+		goto err_power_off;
++	supplier = acx00_ephy_find_supplier(control_node, priv->is_ac300);
++	if (!supplier) {
++		ret = dev_err_probe(dev, -EPROBE_DEFER,
++				    "%s device is not registered\n", property);
++		goto out_put_node;
++	}
 +
-+	fsleep(10000);
++	link = device_link_add(dev, supplier, DL_FLAG_AUTOREMOVE_CONSUMER);
++	if (!link) {
++		ret = dev_err_probe(dev, -EINVAL,
++				    "failed to link %s device\n", property);
++		goto out_put_supplier;
++	}
 +
-+	ret = mdiodev_write(priv->mdiodev, AC300_EPHY_CONFIG_REG,
-+			    ac300_ephy_ctl_config(priv) | AC300_EPHY_SHUTDOWN);
-+	if (ret)
-+		goto err_power_off;
++	/* The managed link keeps the provider and its operations bound. */
++	device_lock(supplier);
++	if (!device_is_bound(supplier)) {
++		ret = -EPROBE_DEFER;
++	} else {
++		control = dev_get_drvdata(supplier);
++		if (!control || !control->power_on || !control->power_off ||
++		    !control->set_interface)
++			ret = -EINVAL;
++		else
++			priv->control = control;
++	}
++	device_unlock(supplier);
++	if (ret == -EPROBE_DEFER)
++		ret = dev_err_probe(dev, ret, "%s driver is not ready\n",
++				    property);
++	else if (ret)
++		ret = dev_err_probe(dev, ret,
++				    "%s driver has invalid control operations\n",
++				    property);
 +
-+	fsleep(10000);
-+
-+	ret = mdiodev_write(priv->mdiodev, AC300_EPHY_CONFIG_REG,
-+			    ac300_ephy_ctl_config(priv));
-+	if (ret)
-+		goto err_power_off;
-+
-+	goto out_unlock;
-+
-+err_power_off:
-+	ac300_ephy_ctl_power_off_locked(priv);
-+out_unlock:
-+	mutex_unlock(&priv->lock);
-+
++out_put_supplier:
++	put_device(supplier);
++out_put_node:
++	of_node_put(control_node);
 +	return ret;
 +}
 +
-+static int ac300_ephy_ctl_probe(struct mdio_device *mdiodev)
++static int acx00_ephy_disable_eee(struct phy_device *phydev)
 +{
-+	struct device *dev = &mdiodev->dev;
-+	struct ac300_ephy_ctl *priv;
-+	unsigned long clk_rate;
-+	unsigned int phy_addr;
-+	u8 calibration;
-+	u8 bgs_effuse_code;
-+	u8 package_status;
-+	int mask_version;
-+	int sys_control;
 +	int ret;
++
++	ret = phy_modify_paged(phydev, ACX00_PAGE_1,
++			       ACX00_PAGE1_INTELLIGENT_EEE_CONTROL_REG,
++			       ACX00_PAGE1_INTELLIGENT_EEE_ENABLE, 0);
++	if (ret)
++		return ret;
++
++	return phy_clear_bits_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV,
++				  MDIO_EEE_100TX);
++}
++
++static int acx00_ephy_probe(struct phy_device *phydev)
++{
++	struct device *dev = &phydev->mdio.dev;
++	struct acx00_ephy_priv *priv;
++	int ret;
++
++	if (!dev->of_node)
++		return -ENODEV;
 +
 +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
 +	if (!priv)
 +		return -ENOMEM;
-+	if (mdiodev->addr < AC300_EPHY_CONTROL_ADDR_OFFSET ||
-+	    mdiodev->addr > AC300_EPHY_CONTROL_ADDR_OFFSET +
-+			    FIELD_MAX(AC300_PACKAGE_PHY_ADDR_MASK))
-+		return dev_err_probe(dev, -EINVAL,
-+				     "control address is outside the package range\n");
-+	priv->mdiodev = mdiodev;
-+	mutex_init(&priv->lock);
 +
-+	ret = devm_regulator_get_enable(dev, "vcc1");
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to enable VCC1 supply\n");
-+
-+	/* Wait for the power-on reset interval specified by the manual. */
-+	fsleep(10000);
-+
-+	priv->clk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(priv->clk))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk),
-+				     "failed to get input clock\n");
-+
-+	ret = devm_clk_rate_exclusive_get(dev, priv->clk);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to lock clock rate\n");
-+
-+	clk_rate = clk_get_rate(priv->clk);
-+	switch (clk_rate) {
-+	case 24000000:
-+		priv->sys_control = AC300_EPHY_CLK_SEL_24_MHZ;
-+		break;
-+	case 25000000:
-+		priv->sys_control = AC300_EPHY_CLK_SEL_25_MHZ;
-+		break;
-+	case 27000000:
-+		priv->sys_control = AC300_EPHY_CLK_SEL_27_MHZ;
-+		break;
-+	default:
-+		return dev_err_probe(dev, -EINVAL,
-+				     "unsupported input clock rate %lu Hz\n",
-+				     clk_rate);
-+	}
-+	priv->sys_control |= AC300_SYS_CONTROL_ENABLE_BITS;
-+
-+	ret = nvmem_cell_read_u8(dev, "calibration", &calibration);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to read calibration data\n");
-+
-+	/* The vendor driver supplies no transfer function beyond this offset. */
-+	bgs_effuse_code = (calibration + AC300_EPHY_BGS_EFFUSE_OFFSET) &
-+			   FIELD_MAX(AC300_EPHY_BGS_EFFUSE_MASK);
-+	priv->ephy_config =
-+		FIELD_PREP(AC300_EPHY_BGS_EFFUSE_MASK, bgs_effuse_code);
-+	/* EPHY_MODE and BIST_CLK_EN stay clear for normal operation. */
-+
-+	priv->control.power_on = ac300_ephy_ctl_power_on;
-+	priv->control.power_off = ac300_ephy_ctl_power_off;
-+	priv->control.set_interface = ac300_ephy_ctl_set_interface;
-+	/* MII is the reset default used until the MAC supplies its interface. */
-+	priv->interface = PHY_INTERFACE_MODE_MII;
-+	mdiodev_set_drvdata(mdiodev, &priv->control);
-+
-+	/* Validate the package while the control endpoint is known to respond. */
-+	phy_addr = ac300_ephy_ctl_link_addr(priv);
-+	ret = ac300_ephy_ctl_power_on(&priv->control, phy_addr);
++	priv->phydev = phydev;
++	ret = acx00_ephy_get_control(phydev, priv);
 +	if (ret)
 +		return ret;
 +
-+	sys_control = mdiodev_read(mdiodev, AC300_SYS_CONTROL_REG);
-+	if (sys_control < 0) {
-+		ret = sys_control;
-+		goto err_disable;
-+	}
-+	package_status = FIELD_GET(AC300_PACKAGE_STATUS_MASK, sys_control);
++	priv->xmii_rx_clock_inverted =
++		device_property_read_bool(dev,
++					  "x-powers,xmii-rx-clock-inverted");
++	phydev->priv = priv;
++	ret = devm_add_action_or_reset(dev, acx00_ephy_control_release, priv);
++	if (ret)
++		return ret;
 +
-+	mask_version = mdiodev_read(mdiodev, AC300_MASK_VERSION_REG);
-+	if (mask_version < 0) {
-+		ret = mask_version;
-+		goto err_disable;
-+	}
-+
-+	dev_info(dev, "chip version %u, mask version %u, package %#x, %s supplies, PHY %u, %lu Hz clock\n",
-+		 (unsigned int)FIELD_GET(AC300_CHIP_VERSION_MASK, sys_control),
-+		 (unsigned int)FIELD_GET(AC300_MASK_VERSION_MASK, mask_version),
-+		 package_status,
-+		 package_status & AC300_PACKAGE_POR_INTERNAL_DLDO ?
-+			"POR/internal DLDO" : "reset pin/external VDD",
-+		 ac300_ephy_ctl_link_addr(priv), clk_rate);
-+
-+	ret = ac300_ephy_ctl_power_off(&priv->control);
++	ret = acx00_ephy_control_power_on(priv);
 +	if (ret)
 +		return dev_err_probe(dev, ret,
-+				     "failed to quiesce control block\n");
++				     "failed to power on control block\n");
++
++	/* Set the hardware default before phylib reads its EEE advertisement. */
++	ret = acx00_ephy_disable_eee(phydev);
++	if (ret)
++		return dev_err_probe(dev, ret,
++				     "failed to disable EEE\n");
 +
 +	return 0;
++}
 +
-+err_disable:
-+	ac300_ephy_ctl_power_off(&priv->control);
++static int acx00_ephy_soft_reset(struct phy_device *phydev)
++{
++	struct acx00_ephy_priv *priv = phydev->priv;
++	int ret;
++
++	ret = acx00_ephy_set_interface(phydev);
++	if (ret)
++		return ret;
++
++	ret = acx00_ephy_control_power_on(priv);
++	if (ret)
++		return ret;
++
++	/* ACx00 can acknowledge reset in power-down without restarting. */
++	ret = genphy_resume(phydev);
++	if (ret)
++		return ret;
++
++	return genphy_soft_reset(phydev);
++}
++
++static int acx00_ephy_config_init(struct phy_device *phydev)
++{
++	struct acx00_ephy_priv *priv = phydev->priv;
++	u16 afe_eq_rx_detect = priv->is_ac300 ?
++		AC300_PAGE6_AFE_EQ_RX_DETECT_VALUE :
++		AC200_PAGE6_AFE_EQ_RX_DETECT_VALUE;
++	u16 tx_level_value = ACX00_PAGE6_TX_LEVEL_DEFAULT_VALUE;
++	u16 global_config;
++	int oldpage;
++	int ret;
++
++	global_config = FIELD_PREP(ACX00_PAGE0_MDI_MODE_MASK,
++				   ACX00_PAGE0_MDI_MODE_AUTO);
++	if (priv->xmii_rx_clock_inverted)
++		global_config |= ACX00_PAGE0_XMII_RX_CLOCK_INVERT;
++
++	ret = phy_modify_paged(phydev, ACX00_PAGE_0,
++			       ACX00_PAGE0_GLOBAL_CONFIG_REG,
++			       ACX00_PAGE0_XMII_RX_CLOCK_INVERT |
++			       ACX00_PAGE0_MDI_MODE_MASK, global_config);
++	if (ret)
++		return ret;
++
++	if (priv->is_ac300 && priv->use_low_calibration_tuning) {
++		afe_eq_rx_detect =
++			ACX00_PAGE6_AFE_EQ_RX_DETECT_LOW_CAL_VALUE;
++		tx_level_value = ACX00_PAGE6_TX_LEVEL_LOW_CAL_VALUE;
++	}
++
++	oldpage = phy_select_page(phydev, ACX00_PAGE_1);
++	if (oldpage < 0)
++		return oldpage;
++
++	ret = __phy_write(phydev, ACX00_PAGE1_APS_CONTROL_REG,
++			  ACX00_PAGE1_APS_DISABLED_4S_VALUE);
++	if (ret)
++		goto out_restore_page;
++	ret = __phy_modify(phydev, ACX00_PAGE1_UAPS_CONTROL_REG,
++			   ACX00_PAGE1_UAPS_ENABLE, 0);
++	if (ret)
++		goto out_restore_page;
++	ret = __phy_modify(phydev, ACX00_PAGE1_INTELLIGENT_EEE_CONTROL_REG,
++			   ACX00_PAGE1_INTELLIGENT_EEE_ENABLE, 0);
++	if (ret)
++		goto out_restore_page;
++
++	ret = acx00_ephy_write_page(phydev, ACX00_PAGE_2);
++	if (ret)
++		goto out_restore_page;
++	ret = __phy_modify(phydev, ACX00_PAGE2_TX_DATA_CONTROL_REG,
++			   ACX00_PAGE2_10BT_FIR_SELECT_MASK,
++			   FIELD_PREP(ACX00_PAGE2_10BT_FIR_SELECT_MASK,
++				      ACX00_PAGE2_10BT_FIR_SELECT_DEFAULT));
++	if (ret)
++		goto out_restore_page;
++
++	ret = acx00_ephy_write_page(phydev, ACX00_PAGE_6);
++	if (ret)
++		goto out_restore_page;
++	ret = __phy_write(phydev, ACX00_PAGE6_AFE_EQ_RX_DETECT_CONTROL_REG,
++			  afe_eq_rx_detect);
++	if (ret)
++		goto out_restore_page;
++	ret = __phy_write(phydev, ACX00_PAGE6_AFE_RX_CONTROL_REG,
++			  ACX00_PAGE6_AFE_RX_CONTROL_VALUE);
++	if (ret)
++		goto out_restore_page;
++	if (priv->is_ac300 && priv->use_low_calibration_tuning) {
++		ret = __phy_write(phydev, ACX00_PAGE6_ADC_CONTROL_REG,
++				  ACX00_PAGE6_ADC_CONTROL_LOW_CAL_VALUE);
++		if (ret)
++			goto out_restore_page;
++	}
++	ret = __phy_write(phydev, ACX00_PAGE6_TX_LEVEL_REG, tx_level_value);
++	if (ret)
++		goto out_restore_page;
++
++	ret = acx00_ephy_write_page(phydev, ACX00_PAGE_8);
++	if (ret)
++		goto out_restore_page;
++	if (priv->is_ac300 && priv->use_low_calibration_tuning) {
++		ret = __phy_write(phydev, ACX00_PAGE8_AUTO_CAL_CONTROL_REG,
++				  ACX00_PAGE8_AUTO_CAL_LOW_VALUE);
++		if (ret)
++			goto out_restore_page;
++	}
++	ret = __phy_write(phydev, ACX00_PAGE8_AFE_CONTROL_REG,
++			  ACX00_PAGE8_AFE_CONTROL_VALUE);
++
++out_restore_page:
++	ret = phy_restore_page(phydev, oldpage, ret);
++	if (ret)
++		return ret;
++
++	/* Restore the standard EEE policy retained by phylib across resets. */
++	return genphy_c45_an_config_eee_aneg(phydev);
++}
++
++static int acx00_ephy_power_on_and_resume(struct phy_device *phydev)
++{
++	struct acx00_ephy_priv *priv = phydev->priv;
++	int ret;
++
++	ret = acx00_ephy_set_interface(phydev);
++	if (ret)
++		return ret;
++
++	ret = acx00_ephy_control_power_on(priv);
++	if (ret)
++		return ret;
++
++	ret = genphy_resume(phydev);
++	if (ret) {
++		acx00_ephy_control_power_off(priv);
++		return ret;
++	}
++
++	/* Powering off the control block loses the vendor-page state. */
++	return acx00_ephy_config_init(phydev);
++}
++
++static int acx00_ephy_resume(struct phy_device *phydev)
++{
++	return acx00_ephy_power_on_and_resume(phydev);
++}
++
++static int acx00_ephy_suspend(struct phy_device *phydev)
++{
++	struct acx00_ephy_priv *priv = phydev->priv;
++	int resume_ret;
++	int ret;
++
++	ret = genphy_suspend(phydev);
++	if (ret)
++		return ret;
++
++	ret = acx00_ephy_control_power_off(priv);
++	if (ret) {
++		resume_ret = acx00_ephy_power_on_and_resume(phydev);
++		if (resume_ret)
++			phydev_warn(phydev,
++				    "failed to recover from suspend error: %pe\n",
++				    ERR_PTR(resume_ret));
++	}
++
 +	return ret;
 +}
 +
-+static void ac300_ephy_ctl_remove(struct mdio_device *mdiodev)
++static int acx00_ephy_match_phy_device(struct phy_device *phydev,
++				       const struct phy_driver *phydrv)
 +{
-+	struct acx00_ephy_control *control = mdiodev_get_drvdata(mdiodev);
++	struct device_node *node = phydev->mdio.dev.of_node;
 +
-+	control->power_off(control);
++	if (!genphy_match_phy_device(phydev, phydrv) || !node)
++		return 0;
++
++	/* RK630 reports the same PHY ID, so require an X-Powers control link. */
++	return of_property_present(node, "x-powers,ac200-control") ||
++	       of_property_present(node, "x-powers,ac300-control");
 +}
 +
-+static const struct of_device_id ac300_ephy_ctl_of_match[] = {
-+	{ .compatible = "x-powers,ac300-ephy-ctl" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, ac300_ephy_ctl_of_match);
-+
-+static struct mdio_driver ac300_ephy_ctl_driver = {
-+	.probe = ac300_ephy_ctl_probe,
-+	.remove = ac300_ephy_ctl_remove,
-+	.shutdown = ac300_ephy_ctl_remove,
-+	.mdiodrv.driver = {
-+		.name = "ac300-ephy-ctl",
-+		.of_match_table = ac300_ephy_ctl_of_match,
++static struct phy_driver acx00_ephy_driver[] = {
++	{
++		PHY_ID_MATCH_MODEL(ACX00_EPHY_ID),
++		.name = "X-Powers AC200/AC300 EPHY",
++		.match_phy_device = acx00_ephy_match_phy_device,
++		.probe = acx00_ephy_probe,
++		.read_page = acx00_ephy_read_page,
++		.write_page = acx00_ephy_write_page,
++		.soft_reset = acx00_ephy_soft_reset,
++		.config_init = acx00_ephy_config_init,
++		.suspend = acx00_ephy_suspend,
++		.resume = acx00_ephy_resume,
 +	},
 +};
++module_phy_driver(acx00_ephy_driver);
 +
-+mdio_module_driver(ac300_ephy_ctl_driver);
++static const struct mdio_device_id __maybe_unused acx00_ephy_tbl[] = {
++	{ PHY_ID_MATCH_MODEL(ACX00_EPHY_ID) },
++	{ }
++};
++MODULE_DEVICE_TABLE(mdio, acx00_ephy_tbl);
 +
 +MODULE_AUTHOR("James Hilliard <james.hilliard1@gmail.com>");
-+MODULE_DESCRIPTION("X-Powers AC300 Ethernet PHY control driver");
++MODULE_DESCRIPTION("X-Powers AC200/AC300 Ethernet PHY driver");
 +MODULE_LICENSE("GPL");
-diff --git a/drivers/net/phy/xpowers-acx00.h b/drivers/net/phy/xpowers-acx00.h
-index 482ba6faba6e..0af8895e4cae 100644
---- a/drivers/net/phy/xpowers-acx00.h
-+++ b/drivers/net/phy/xpowers-acx00.h
-@@ -4,6 +4,8 @@
- 
- #include <linux/phy.h>
- 
-+#define AC300_EPHY_CONTROL_ADDR_OFFSET	16
-+
- struct acx00_ephy_control {
- 	int (*power_on)(struct acx00_ephy_control *control,
- 			unsigned int phy_addr);
 
 -- 
 2.53.0
