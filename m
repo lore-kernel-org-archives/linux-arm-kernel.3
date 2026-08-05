@@ -4,98 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62303C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30F1BC55ABA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 12:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Lak8rgV4TBA9As436yfX+HrOfQqXF+XbAta7p0a8HE=; b=A1JHKEskCWStqLhyN/bhSi2Pa9
-	v+aaHuMq0vKDrh3nWVShxBuWsz349sjverbq5vcsnu3deu3tnSzAGatwqSngjwDTUsQIGq4JtCKze
-	s48riLRPTkn9DYpxxg32Ednvd+4WzqJJ6QLGV+/pOlw/TLIQHDENVBAXvdcBH9kZCFrdY6n7V1ohI
-	Tkvv6IlgrTjZOVsSfDbaM0nV1bwrTPHCAOTiuJFvWHa/T4fquChyARbTyhXQrXeI8bHdoetD10lhl
-	jkS7Tw3Mp3yodf4s+4LhZmVDJILgZ9dFuic5040tEUnTPAyE5qJIPpp2v9oEsoPpiN9SC38gSwWdh
-	RHmbpliw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Dp0YqgID/4phtDgYq1gE5Cv1WezComCCtY1tYXFFVXw=; b=yy/HbPTsBHq2YOZVg4eFft985v
+	q0ZWGoPDljCWx84fljbNuJBZ0Vobg6akGG3QiHdN0PsnSEZJRkYM96udZc5c0mF3P2RPDJWk10Avb
+	dEgYIaqIqb+ivNtdWe1jav8ajCepsx3dOIK7C7PsMScPwGdBzA2Y29pBlqOYIDWZB2wMx4jOFCXY1
+	u98MoItBX4f7+tFtLjU6nE3lbvYlRJ+eLJQTb8hHuIAgLVnOvzRrlUKVguasf0aYnDdIUNWKjbpm3
+	vbzRP3ZC/snG+aZ+1C1qOKgxSD+8zNFV5B1S4INJnZ9umgy21vgFaYFHWaXEvd0U2XHjH+UNkZbKL
+	dRN9s4pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrabL-00000003syT-2L5X;
-	Wed, 05 Aug 2026 12:20:03 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1wrabo-00000003t4h-3fy4;
+	Wed, 05 Aug 2026 12:20:32 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrabI-00000003sxk-0M8B
+	id 1wrabl-00000003t3a-0orf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 12:20:01 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.stl.internal (Postfix) with ESMTP id AD3ED1D00169;
-	Wed,  5 Aug 2026 08:19:58 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Wed, 05 Aug 2026 08:19:59 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1785932398; x=1786018798; bh=4Lak8rgV4T
-	BA9As436yfX+HrOfQqXF+XbAta7p0a8HE=; b=BL2iZNnZbiYMJb05UD42YfF9C0
-	sVUJVTAffXnzIXSp07QQ4H6YaSnm5/PPR8np0OjQ8vGHrvr5/dza6Hophvp2kUsO
-	1HehX/r/RH1NHisTpI4yRXpQUbCSufw3MrEXTfInTcFWo3v5odYzy0d5fxsL0t9N
-	ZfBzx0QAxVLGtVuxTejV0fF8UxapSQzK8An1BkqU3B5Yx7bfRBjAknMEGknt417c
-	YS0I90NLBdUdZMHybaqJsnqsK6asKB72OVWQDcDHGHTr/b9XjobWsJu+U74tBhNs
-	41+K4yZJ8w+hMI0wNPPbjJ1yMZzi7iemz0miFSa2m2jM+Mp2LmYyq5GQlMdQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1785932398; x=1786018798; bh=4Lak8rgV4TBA9As436yfX+HrOfQqXF+XbAt
-	a7p0a8HE=; b=Wc9mHTV8RTA6rlj11SYSKx0vebIjjrO0TbBmSNVdQUc+Grj7mEf
-	6RxVzBbmkA15iVex4s6LzVLLSgAQF5fItjdBEiI5zk7gxtc+Se47vkrs59OUXHVd
-	MnrtlabS7rmENpRuPpJx0rukCytKncVvUxIVdy1aL1wr3KQDc6lAzyk8BeXGhpGk
-	deb8oaz1DxlPL3G7DdDWek7UdBb4QTezGvgLYvo/mD2KGr1HeCRnUgSaPo/VeklD
-	t5DKSVIXlAsT3hEYQ/vJVOS29FvTLvtj6l3Fo6gss2G4Nq6rnnZplnMcNP28lI9a
-	McBbXf39Nwydt+p8E8HCWq5J7mbBgNyasZQ==
-X-ME-Sender: <xms:bipzajLxEDZu-eM6UGT6samPD9k-uH0w4p0LLhmjrqMa-yAtc1MLsA>
-    <xme:bipzatgcbEbJ1ibnxtZ5qxbun1h4oEfjwQuAodhw8TC0X4VoG71reAVYQ-BgNJlS1
-    b_p_t999wjc-AyRRzITp4i6As-1G1aHaoJq4fu-MA3P7VCUlgCs3s3K>
-X-ME-Received: <xmr:bipzan95AoJXyfXjS5VOjThoG8944gVNiSN0er5cKgVSnvHmDr9VuSjhIy5oLfNDvfyrU4Quc1sf1P0gTpXoD0d22epczuGmRxM>
-X-ME-Proxy-Cause: dmFkZTFGl6m1+z/PGwm1fKYbGgZqV0gceTmb6U6AhknIfhtlGQ7S5oNeKJD8/Pxi0pzdx9
-    2jMj0eowvjvKIK/03wsZpu64u0/p2tfyWJZPfTpsU+XQOmB19NlB0EAuYY3xsrvj6KXtl8
-    LmlKpJG62gQn6BN22lJCJjMor2+U/WeuhQ2osHRPR/M7v4qcPXPCOqLxryuQEHsrJSx9Ys
-    94xfDsTa+1ghXKPorx2iBXoz3HnlHZyjr6bkCJUNftns5yfzJ0G2IKlaChkU2xIeP6W9oi
-    FN5OJI113y3Of9XTxHyN3y632/VTr/wfedT+2erMGAD1uwRGNLaFCf0tud93hVEesUEDSP
-    ooeU0cGFQPME/+Zg7IGLmpLDGgLzmUpjsvl+YqtdU94VilP/n0m5Z6zQoz4QSM+EHb8U/E
-    oOnLiXxum0g8oiKuvcYbLb7ElMNGu9jT49sV7tu+5kJfcATMVAACGLy53A15nwkWkbXcjZ
-    KLDuJ03kHg9XMr0oxwwYoBzR14sfy2h61MpjktDhwvWxXJZ2jjVtHS9nfoSPAqGavllssA
-    LtJYYiX3FBwjQOm4I+dIPNOmbrsTcsMdkMXXhJLjv/YCEEtrDdkJ/HFJXl+8+B5XZIMOgD
-    AwXoHBl3+fwCZP8dUfRKN1xorIjlBYn9yI+S4dRmYHqy3c9xDJb7751vttNQ
-X-ME-Proxy: <xmx:bipzaqN0txxLDcl7jTuOlatmQQpWh6PjvjZk9UlI7TtyZ1LdYPWYgQ>
-    <xmx:bipzajAmFYbU5RDPU8gmeEqmHHeNKqppE56jv0baOz55WXMZ0IFrHw>
-    <xmx:bipzamOuOvkeqvFWUrss1jnzoukGkxpN2U-qps04d81cvfm2yJg05g>
-    <xmx:bipzaicV2-3J0NisSg6tfeiZCMi5EKl94JW4FfJRQnmMKtg_k8hnmw>
-    <xmx:bipzapuH3B1ubUh1MGFlnSFEBRdwIZQYdR5aIGpE4U2TYG0mERXAvO_p>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 5 Aug 2026 08:19:57 -0400 (EDT)
-Date: Wed, 5 Aug 2026 14:19:56 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, Alba Mendez <me@alba.sh>
-Subject: Re: [PATCH v4 4/6] spmi: apple: Implement remaining commands
-Message-ID: <20260805121956.GD832571@robin.jannau.net>
-References: <20260805-t603x-spmi-v4-0-c15a12d9a7d1@chaosmail.tech>
- <20260805-t603x-spmi-v4-4-c15a12d9a7d1@chaosmail.tech>
+	Wed, 05 Aug 2026 12:20:31 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49556f97a9dso5957825e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 05:20:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=9elements.com; s=google; t=1785932427; x=1786537227; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Dp0YqgID/4phtDgYq1gE5Cv1WezComCCtY1tYXFFVXw=;
+        b=ADmpxOPu+tFurqT1oecDGYs+pMPCT2GV/+EU+P2juAqtir3DPZfU8arM8Cq2HKAPda
+         YR6KkIjSz8fADBUl+kRkHJPl8iuryseaO7A4kQY2w38aL7lRqij/JdSWXj21Zlux75k3
+         xM6rHu+YMmD7c1BSCU0iYLv8ozJtel4GtAlIMmwwN4PI70vrxWPxs9v0qsgZ8a25sNQZ
+         vK4lUMQYkekQUE9TcQfX1x+OTAm2muSDte4qQtVDnSETFpmlZRFAe+Se+huRk45DXWvw
+         Oq1UOUvS0ZGswmgszNYXRarw+b7eyPMYXdaGH3/ozd8n2esLONp1sHeNOD82LeKl5S9o
+         AE3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785932427; x=1786537227;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Dp0YqgID/4phtDgYq1gE5Cv1WezComCCtY1tYXFFVXw=;
+        b=sy7vOykAV+ph+TvATLtxaAQcuD4fdSIiJVmjm1iGbBdDQvQyhWvN8nGCcIK+noATUk
+         AmbuYVcfQxgJrF8WXwUYftqqpb87G74zdiApIrQk+oDXT/TWgIab0GbXyOf2PBYwfryY
+         AgYY4+BPs0jzFqcvjvbZZV4HIQAdW5clrUQEsy8VwB3H7L7UBv70P/5TGsWl6lXVDTbl
+         v8uH1lF6cj0If29TEcaaB2UtB+8D072m25OiG/1oLdoUxU2NPnG5oLJti1qc56OmePX4
+         2IE+wTw3oeHUgeblUBIPPHyLsqrpwtLdzcMmIpYDNI/kJxEtuvbvAMRu51I14ERQ+ufG
+         kkfg==
+X-Forwarded-Encrypted: i=1; AHgh+RqiQS27aGtZWB2HcDmsr1cenAzZSxLknFwBdXeAAsV4ZxbUg7tC9UDoC+iQYp45rMNJXb3kBDfpZqhqwEPJeC3v@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRFLWiUk/11Lc6xP5IJvupFzmhY0Ud+JyPaQzl0e3x58zVHTap
+	JXDItk/iDvEdZ/zCpHpVQY3rhYkYKa7j+GfpKzvUcas08RL/4Ds7/xi6nY5+et/CgyY=
+X-Gm-Gg: AR+sD11Ye+PMLxr4WnW1fXYzpkm9nT+VUhduhDo11lB/vtBN+OAoCTzQj7mJTkwk8Kj
+	UYdRcQNRfITR0BWapD1523DzjMb7xC4x2EprxncJJyOgtDZAgU1h+U223/sja52EPBJJQlLfeYz
+	SAAZnt1QKvApqGuMUL0wXXW7+9uNshTfoZphOnqMfpkq4xHnwTu/tcy/JJvhAB0jnP19DahpytO
+	+fG0Mp2ns98JEnFksgs1HjozjplTp3pEkCRyee8a3Mgyq1LVCsvIAq/WlTeKPpFxBTex6x8HzCn
+	cVV2PeJ0/Ug+e9NiZvufh3jp7ifggISvxHT3sbEKNbet7+4PJByh3yRlbpyFFfQEToLNiB/pcQf
+	pMB0yA0DoBH+hf3ZHiNgV9u4Fgm8twEVNBZ+xOSOC8egl+Cz/RVS9K0jT3eugQQ4MoRZVqePsgc
+	nVGLrfk83Mnv918+WOsxfza7HU9bKk4KTTnfYI7dlzzABr/fkxlu+P2z5wv36djtXYC9YLNjtiw
+	I48PQzPWVXt/KE9e/ZSihqs1TtaRHWsfBudXyI/TZHD0ixikFacplnuCZQ49hlF/F2Pt3aSPhKh
+X-Received: by 2002:a05:600c:4e87:b0:493:e365:ace9 with SMTP id 5b1f17b1804b1-4994e7c0356mr76610975e9.11.1785932426940;
+        Wed, 05 Aug 2026 05:20:26 -0700 (PDT)
+Received: from gregwork.sec.9e.network ([188.111.3.154])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49949f68f95sm196663515e9.0.2026.08.05.05.20.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Aug 2026 05:20:26 -0700 (PDT)
+From: =?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+To: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	lkundrak@v3.sk,
+	devicetree@vger.kernel.org,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	lee@kernel.org
+Cc: andrew@lunn.ch,
+	jacky_chou@aspeedtech.com,
+	yh_chung@aspeedtech.com,
+	ninad@linux.ibm.com,
+	anirudhsriniv@gmail.com,
+	tan.siewert@9elements.com,
+	linux-serial@vger.kernel.org,
+	mfd@lists.linux.dev,
+	linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Gr=C3=A9goire=20Layet?= <gregoire.layet@9elements.com>
+Subject: [PATCH v5 0/6] soc: aspeed: Add BMC and host driver for PCIe BMC device
+Date: Wed,  5 Aug 2026 14:19:47 +0200
+Message-ID: <cover.1785932211.git.gregoire.layet@9elements.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260805-t603x-spmi-v4-4-c15a12d9a7d1@chaosmail.tech>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_052000_212346_9B050252 
-X-CRM114-Status: GOOD (  25.75  )
+X-CRM114-CacheID: sfid-20260805_052030_156129_49C219F6 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,214 +117,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 12:11:14PM +0200, Sasha Finkelstein wrote:
-> From: Alba Mendez <me@alba.sh>
-> 
-> Add support for zero write and power management commands
+This is the v5 for upstreaming the VUART over PCIe BMC device drivers.
+The initial drivers were taken from the ASPEED kernel SDK
+(master-v6.18) [1].
 
-missing dot at the end of the sentence.
+There are two drivers: a BMC-side driver and a host-side driver.
+Together they enable host<->BMC VUART communication via PCIe.
 
-> Signed-off-by: Alba Mendez <me@alba.sh>
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
-> ---
->  drivers/spmi/spmi-apple-controller.c | 114 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----------------------------------------------
->  1 file changed, 68 insertions(+), 46 deletions(-)
-> 
-> diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-> index 7ebf899edf17..49827e51e93e 100644
-> --- a/drivers/spmi/spmi-apple-controller.c
-> +++ b/drivers/spmi/spmi-apple-controller.c
-> @@ -46,9 +46,9 @@ struct apple_spmi {
->  	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
->  			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
->  
-> -static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 saddr, size_t len)
-> +static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 param)
->  {
-> -	return opc | sid << 8 | saddr << 16 | (len - 1) | (1 << 15);
-> +	return opc | sid << 8 | (u32)param << 16 | (1 << 15);
->  }
->  
->  /* Wait for Rx FIFO to have something */
-> @@ -69,14 +69,14 @@ static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
->  	return 0;
->  }
->  
-> -static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
-> -			 u16 saddr, u8 *buf, size_t len)
-> +static int spmi_raw_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
-> +			 u16 param, const u8 *buf, size_t len, u8 *ibuf, size_t ilen)
+The virtual UART is an 8250-compatible register set. It is called
+'virtual' because it is internally a simple FIFO.
+On the AST2600, two VUARTs can be exposed over PCI via the PCI BMC device.
 
-Instead of two sets of not very distinctive variable names ("buf"/"len",
-"ibuf"/ilen") please use just buf/len and a boolean to indicate whether
-the command is a read or write if you insists of routing all commands
-through a single function. This can be simply added as first condition
-in the "while" iterating over the write/read buffers.
+The host cannot access the BMC's memory. Only the exposed features are
+accessible. These are the KCS4 channel and 2 VUARTs. There is also some
+mailbox register functionality for a communication between
+the host and the BMC. More information can be found here [2].
 
->  {
->  	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
-> -	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
-> +	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, param);
->  	u32 reply, rsp;
->  	size_t len_read = 0;
-> -	u8 i;
-> +	size_t i = 0, j;
->  	int ret;
->  
->  	if (spmi->prev_fail) {
-> @@ -86,6 +86,14 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  
->  	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
->  
-> +	while (i < len) {
-> +		j = min_t(size_t, sizeof(spmi_cmd), len - i);
-> +		spmi_cmd = 0;
-> +		memcpy(&spmi_cmd, buf + i, j);
-> +		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
-> +		i += j;
-> +	}
-> +
->  	ret = apple_spmi_wait_rx_not_empty(ctrl);
->  	if (ret)
->  		return ret;
-> @@ -93,7 +101,7 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  	reply = readl(spmi->regs + SPMI_RSP_REG);
->  
->  	/* Read SPMI data reply */
-> -	while (len_read < len) {
-> +	while (len_read < ilen) {
->  		if (readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY) {
->  			spmi->prev_fail = true;
->  			dev_err_ratelimited(&ctrl->dev,
-> @@ -101,11 +109,9 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  			return -EIO;
->  		}
->  		rsp = readl(spmi->regs + SPMI_RSP_REG);
-> -		i = 0;
-> -		while ((len_read < len) && (i < 4)) {
-> -			buf[len_read++] = ((0xff << (8 * i)) & rsp) >> (8 * i);
-> -			i += 1;
-> -		}
-> +		i = min_t(size_t, sizeof(spmi_cmd), ilen - len_read);
-> +		memcpy(ibuf + len_read, &rsp, i);
-> +		len_read += i;
->  	}
->  
->  	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
-> @@ -113,54 +119,69 @@ static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
->  		spmi->prev_fail = true;
->  	}
->  
-> -	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << len) - 1)) {
-> +	if (!ilen && !FIELD_GET(SPMI_REPLY_ACK, reply)) {
-> +		dev_err(&ctrl->dev, "command not acknowledged\n");
-> +		return -EIO;
-> +	}
-> +	if (~FIELD_GET(SPMI_REPLY_FRAME_PARITY_STATUS, reply) & ((1 << ilen) - 1)) {
->  		dev_err(&ctrl->dev, "some frames failed parity check\n");
->  		return -EIO;
->  	}
->  	return 0;
->  }
->  
-> -static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
-> -			  u16 saddr, const u8 *buf, size_t len)
-> +/* Send a raw command with 1..16 input data frames */
-> +static int spmi_raw_cmd_input(struct spmi_controller *ctrl, u8 opc, u8 sid,
-> +			 u16 param, u8 *buf, size_t len)
->  {
-> -	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
-> -	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
-> -	u32 reply;
-> -	size_t i = 0, j;
-> -	int ret;
-> -
-> -	if (spmi->prev_fail) {
-> -		writel(SPMI_ACT_FIFO_FLUSH, spmi->regs + SPMI_RSP_REG);
-> -		spmi->prev_fail = false;
-> -	}
-> -
-> -	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
-> +	return spmi_raw_cmd(ctrl, opc, sid, param, NULL, 0, buf, len);
-> +}
->  
-> -	while (i < len) {
-> -		j = 0;
-> -		spmi_cmd = 0;
-> -		while ((j < 4) & (i < len))
-> -			spmi_cmd |= buf[i++] << (j++ * 8);
-> +/* Send a raw command with (optional) body and an input ACK */
-> +static int spmi_raw_cmd_ack(struct spmi_controller *ctrl, u8 opc, u8 sid,
-> +			  u16 param, const u8 *buf, size_t len)
-> +{
-> +	return spmi_raw_cmd(ctrl, opc, sid, param, buf, len, NULL, 0);
-> +}
->  
-> -		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
-> +static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
-> +			 u16 saddr, u8 *buf, size_t len)
-> +{
-> +	switch (opc) {
-> +	case SPMI_CMD_EXT_READ:
-> +	case SPMI_CMD_EXT_READL:
-> +		return spmi_raw_cmd_input(ctrl, opc | (len - 1), sid, saddr, buf, len);
-> +	case SPMI_CMD_READ:
-> +		return spmi_raw_cmd_input(ctrl, opc | saddr, sid, saddr, buf, len);
->  	}
-> +	return -EINVAL;
-> +}
->  
-> -	ret = apple_spmi_wait_rx_not_empty(ctrl);
-> -	if (ret)
-> -		return ret;
-> -
-> -	reply = readl(spmi->regs + SPMI_RSP_REG);
-> -
-> -	if (!(readl(spmi->regs + SPMI_STATUS_REG) & SPMI_RX_FIFO_EMPTY)) {
-> -		dev_warn(&ctrl->dev, "FIFO has extra data\n");
-> -		spmi->prev_fail = true;
-> +static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
-> +			  u16 saddr, const u8 *buf, size_t len)
-> +{
-> +	switch (opc) {
-> +	case SPMI_CMD_WRITE:
-> +		return spmi_raw_cmd_ack(ctrl, opc | saddr, sid, buf[0] << 8 | saddr, NULL, 0);
-> +	case SPMI_CMD_ZERO_WRITE:
-> +		return spmi_raw_cmd_ack(ctrl, opc | buf[0], sid, buf[0] << 8 | saddr, NULL, 0);
-> +	case SPMI_CMD_EXT_WRITE:
-> +	case SPMI_CMD_EXT_WRITEL:
-> +		return spmi_raw_cmd_ack(ctrl, opc | (len - 1), sid, saddr, buf, len);
->  	}
-> +	return -EINVAL;
-> +}
->  
-> -	if (!FIELD_GET(SPMI_REPLY_ACK, reply)) {
-> -		dev_err(&ctrl->dev, "command not acknowledged\n");
-> -		return -EIO;
-> +static int spmi_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid)
-> +{
-> +	switch (opc) {
-> +	case SPMI_CMD_RESET:
-> +	case SPMI_CMD_SLEEP:
-> +	case SPMI_CMD_SHUTDOWN:
-> +	case SPMI_CMD_WAKEUP:
-> +		return spmi_raw_cmd_ack(ctrl, opc, sid, 0, NULL, 0);
->  	}
-> -	return 0;
-> +	return -EINVAL;
->  }
->  
->  static int apple_spmi_probe(struct platform_device *pdev)
-> @@ -183,6 +204,7 @@ static int apple_spmi_probe(struct platform_device *pdev)
->  
->  	ctrl->read_cmd = spmi_read_cmd;
->  	ctrl->write_cmd = spmi_write_cmd;
-> +	ctrl->cmd = spmi_cmd;
->  
->  	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
->  	if (ret)
+Changes since v4 [3]:
+- Squashed '8250' DT binding changes in one patch based on Krzysztof's
+  review.
+- Removed 'aspeed,sirq-polarity-sense' support on new
+  'aspeed,ast2600-vuart' compatible string as it's a deprecated property.
+- Renamed 'syscon' to 'aspeed,scu-syscon' in '8250' DT binding.
+- Cleanup in BMC driver:
+  - Changed bit 14 to RESERVED macro
+  - Changed macros ordering
+  - use FIELD_PREP macro
+- Cleaned up of the host-side driver:
+  - Removed unused INTX. Only use MSI interrupt.
+  - Proper use of dev_err_probe.
+  - Use of 'module_pci_driver'.
+  - Used managed functions and simplified exit code.
+- Changed the host side driver location:
+  - Now in driver/mfd/aspeed-pci-core.c
+  - Changed code to use MFD cells.
+    VUART are sub driver of the core driver.
+    This allows for easy expansion for KCS support.
+  - The core driver now only sets up MSI interrupts and
+    instantiates the 8250 sub-driver.
 
-looks good otherwise
+The host driver will performs multiple functions. The AST2600 also
+supports LPC over PCI, with a specific KCS channel (KCS4). This host core
+driver should also be used to enable the IPMI automatically via this KCS
+channel.
 
-Janne
+Tested:
+As with v4, VUART data flow and MSI interrupts have been verified
+as working on the test hardware.
+BMC: Asus IPMI Kommando Card R1.01, AST2600 A3 running OpenBMC
+Host: Linux kernel v7.0.0
+
+This series only supports the AST2600; the AST2700 is not supported.
+
+The findings regarding the MSI interrupt numbers are explained in the v4
+cover letter [3].
+
+As with v3 and v4, I would like to know whether I should add the
+'lpc-io-reg' and 'lpc-interrupt' values to the vuart3 and vuart4 nodes
+directly in the 'aspeed-g6.dtsi'. The host driver is not capable of
+finding the vuart address on its own, so they are hardcoded to 0x3f8 and
+0x2f8. It will not work with other addresses, so perhaps they should be
+in the .dtsi to ensure the correct configuration for the two vuart over
+PCI.
+
+[1]: https://github.com/AspeedTech-BMC/linux/tree/aspeed-master-v6.18/drivers/soc/aspeed
+[2]: https://lore.kernel.org/linux-aspeed/CAFi2wKYOAotiezepDqaR5PZDqDaPKKDfAEnpx5EHC0mL39hy6w@mail.gmail.com/
+[3]: https://lore.kernel.org/linux-aspeed/cover.1783524645.git.gregoire.layet@9elements.com/
+
+Grégoire Layet (6):
+  dt-bindings: serial: 8250: aspeed: add ast2600 and
+    aspeed,vuart-over-pci
+  serial: 8250_aspeed_vuart: add aspeed,ast2600-vuart compatible string
+  serial: 8250_aspeed_vuart: add VUART over PCI
+  soc: mfd: add ASPEED AST2600 PCIe BMC device driver
+  ARM: dts: aspeed: g6: Change vuart compatible string for ast2600
+  ARM: dts: aspeed: g6: add aspeed,vuart-over-pci prop to vuart3 and 4
+
+ .../devicetree/bindings/serial/8250.yaml      |  42 +++++-
+ MAINTAINERS                                   |   6 +
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi       |  12 +-
+ drivers/mfd/Kconfig                           |  12 ++
+ drivers/mfd/Makefile                          |   2 +
+ drivers/mfd/aspeed-pci-core.c                 | 120 ++++++++++++++++++
+ drivers/tty/serial/8250/8250_aspeed_vuart.c   |  92 ++++++++++++++
+ 7 files changed, 280 insertions(+), 6 deletions(-)
+ create mode 100644 drivers/mfd/aspeed-pci-core.c
+
+
+base-commit: 253b1036b9163f23f7b18274a0d4e904ac8821c5
+--
+2.54.0
 
