@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714E3C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:30:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0E0C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:32:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C0ogknZifwHUHqlmbzAZ1WlG35CJPpu3eT3NUulJv6o=; b=bFgzJ79alG2iH0lbfaqISczAVw
-	aplN6TzL3okZS/ekFWdZNvJfpSpq/c+qzJMt6T9CbQn3QkJfb2fDUvIhuzKeI+KaZqi6mlsGho8b8
-	RXCDb0HZ037TyUJveqVuqKnR97kXvu8m33gJ0bWfGNCCF45tHM+0mmUezIMUm5mQFGIrK+kX0lbGq
-	DbqAEUYuFOUAtOI3aNtorc3AS8j5/a9az/EtNL0IqOFtsy90hbO6pInrxJrK9JZemObMDshfrXEIo
-	9IfgpX3py4+zxNX1ALsNKCtng8ZV/qzVNj9q7Ec8IzCydzJJRZO2+a4834d/ubAZSxFMMFud+i0TX
-	nnI5bALg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4gwj0kFUhwuS98ircZVc44GpqB+5fy9yUkWQ55U7j40=; b=N1NPgabomm8LOhzlYQDoxo47Jr
+	gdnOB/FJeJ8mHYTMWOoojEI6NTFjCKoJLVHw/pD16ynW7ZB66j4/HOAeBsD+hb85dq7DxeWb4iKDq
+	ESZqfqZEadJMu7yz9fYPT030hjLyPqdMwvkUmRIGj6IdrvwQDjUWwq436yocsGzZhJ7y7GwDSYt2T
+	5WSAI46hBLBJvkL/R4gUPQF6YhlK26jkF608wUKkvc/35V1w7tRoSabWfM4qGq/gR8IfFXa8iOF3F
+	GCwTBHs9y+pWe6HrTKsFoSVnuFCc9EV4u8QOpULJpQ2exeTaNvRD/VCWTNDFPof7x/qkDFV5BMCyH
+	atsxJZkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrW5P-00000003PYz-0nsL;
-	Wed, 05 Aug 2026 07:30:47 +0000
-Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
+	id 1wrW79-00000003Psr-3XPd;
+	Wed, 05 Aug 2026 07:32:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrW5M-00000003PXh-1cZX
+	id 1wrW78-00000003Psl-2zCB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 07:30:46 +0000
-Message-ID: <fc37a0e2-816b-4fde-880b-7b117d462626@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785915038;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=C0ogknZifwHUHqlmbzAZ1WlG35CJPpu3eT3NUulJv6o=;
-	b=n2D9a/hPBedAD8LSevbLI9iOrECg0VzUuxk15L+oUg4Gxckz/WqTaOWBOFJKCLi6KMXA/b
-	uFj0HYIgYTn3t2qwRBzFCPEGH0Cl7yQ53K9pWgI3N3k6xhdTweCMlkCpjPEdSyXfzaWwaW
-	gNxMRFTwkwVHxMAa8XdeevrZpFeypyM=
-Date: Wed, 5 Aug 2026 00:30:31 -0700
-MIME-Version: 1.0
-Subject: Re: [PATCH v8 02/22] RISC-V: Add Sxcsrind ISA extension CSR
- definitions
-To: Paul Walmsley <pjw@kernel.org>
-Cc: Jiri Olsa <jolsa@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>,
- Namhyung Kim <namhyung@kernel.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>,
- Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
- <20260701-counter_delegation-v8-2-7909f863a645@meta.com>
- <3d1f698c-6b76-5252-4e8f-b61671e309c7@kernel.org>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <3d1f698c-6b76-5252-4e8f-b61671e309c7@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_003044_846762_3C343A47 
-X-CRM114-Status: GOOD (  22.75  )
+	Wed, 05 Aug 2026 07:32:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 65326600B1;
+	Wed,  5 Aug 2026 07:32:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A6D91F000E9;
+	Wed,  5 Aug 2026 07:32:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785915152;
+	bh=4gwj0kFUhwuS98ircZVc44GpqB+5fy9yUkWQ55U7j40=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=AJJaA9T5tFKel4SLkebN3gx+nsuoveBPZ42YEDRckt7z5kruBLv1cdm23oYFWUo5S
+	 2+0Uy2veLD2U0WtemOp5DFT8pOeKwMnYh7BfGDSHPFK6RD0dqCa+j8bfHG0k4sUI15
+	 APjHr9sxzCjMFbJnmXLX+Cy4cajxnSR6QLQXbSZyd8QNc2Wu3QyuGRHuxH+DT2vWUi
+	 PDLuTIFKK+UrX5hi4PA44H90RVHvhmJexgou2NK1zNvaE4o0wdp43YQ7Okb3YV5jC1
+	 P2OIor9K3oxs5BK8xht++hYBWLCkk3S9xo6QCLtvmvfiubshhWNZ/+gPb9B0BTkmjr
+	 N4JsiYxAy70eA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wrW73-0000000CUuY-39dd;
+	Wed, 05 Aug 2026 07:32:29 +0000
+Date: Wed, 05 Aug 2026 08:32:29 +0100
+Message-ID: <86ecgdaupe.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	grayhat@foxmail.com
+Subject: Re: [PATCH 1/2] KVM: arm64: nv: Allocate the shadow S2 MMUs individually
+In-Reply-To: <anJcUNlnNmP-mKWH@gmail.com>
+References: <20260803224405.41468-1-kmehltretter@gmail.com>
+	<86mrv2arf2.wl-maz@kernel.org>
+	<86jyq6aq8g.wl-maz@kernel.org>
+	<anJcUNlnNmP-mKWH@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org, grayhat@foxmail.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,127 +94,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/4/26 4:35 PM, Paul Walmsley wrote:
-> On Wed, 1 Jul 2026, Atish Patra wrote:
+On Tue, 04 Aug 2026 22:54:30 +0100,
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
 > 
->> From: Kaiwen Xue <kaiwenx@rivosinc.com>
->>
->> This adds definitions of new CSRs and bits defined in Sxcsrind ISA
->> extension. These CSR enables indirect accesses mechanism to access
->> any CSRs in M-, S-, and VS-mode. The range of the select values
->> and ireg will be define by the ISA extension using Sxcsrind extension.
->>
->> Signed-off-by: Kaiwen Xue <kaiwenx@rivosinc.com>
->> Reviewed-by: Clément Léger <cleger@rivosinc.com>
->> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> On Tue, Aug 04, 2026 at 03:56:47PM +0100, Marc Zyngier wrote:
+> > > The other thing is that reallocating the pointer array isn't great. It
+> > > adds complexity, and makes everything more fragile than it should be.
+> > > 
+> > > See the hack below that seems to work OK.
+> > > 
 > 
-> Thanks.  It's easier for folks to grep and cross-reference if the official
-> RISC-V extension names are used whenever possible, rather than something
-> like Sxcsrind.  Queued the following patch for v7.3.
+> Your draft is indeed a bit simpler.
 > 
+> Should I send a cleaned-up version as v2?
 
-Agreed. Thanks!
+Yes, please.
 
 > 
-> - Paul
-> 
-> 
-> RISC-V: Add Smcsrind and Sscrind ISA extension CSR definitions
-> 
-> From: Kaiwen Xue <kaiwenx@rivosinc.com>
-> 
-> This adds definitions of new CSRs and bits defined in the Smcsrind and
-> Sscrinq ISA extensions. These CSRs enable the indirect CSR accesses
-> mechanism to access any indirect CSRs in M-, S-, and VS-mode. The
-> range of the select values and ireg will be defined by the ISA
-> extension that are based on the Smcsrind and Sscsrind extensions.
-> 
-> Signed-off-by: Kaiwen Xue <kaiwenx@rivosinc.com>
-> Reviewed-by: Clément Léger <cleger@rivosinc.com>
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> Link: https://patch.msgid.link/20260701-counter_delegation-v8-2-7909f863a645@meta.com
-> [pjw@kernel.org: clean up the patch description; use official RISC-V extension names]
-> Signed-off-by: Paul Walmsley <pjw@kernel.org>
-> ---
->   arch/riscv/include/asm/csr.h |   30 ++++++++++++++++++++++++++++++
->   1 file changed, 30 insertions(+)
-> 
-> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> index 31b8988f4488..7f09e54a0f9a 100644
-> --- a/arch/riscv/include/asm/csr.h
-> +++ b/arch/riscv/include/asm/csr.h
-> @@ -347,6 +347,12 @@
->   /* Supervisor-Level Window to Indirectly Accessed Registers (AIA) */
->   #define CSR_SISELECT		0x150
->   #define CSR_SIREG		0x151
-> +/* Supervisor-Level Window to Indirectly Accessed Registers (Sscsrind) */
-> +#define CSR_SIREG2		0x152
-> +#define CSR_SIREG3		0x153
-> +#define CSR_SIREG4		0x155
-> +#define CSR_SIREG5		0x156
-> +#define CSR_SIREG6		0x157
->   
->   /* Supervisor-Level Interrupts (AIA) */
->   #define CSR_STOPEI		0x15c
-> @@ -394,6 +400,14 @@
->   /* VS-Level Window to Indirectly Accessed Registers (H-extension with AIA) */
->   #define CSR_VSISELECT		0x250
->   #define CSR_VSIREG		0x251
-> +/*
-> + * VS-Level Window to Indirectly Accessed Registers (H-extension with Sscsrind)
-> + */
-> +#define CSR_VSIREG2		0x252
-> +#define CSR_VSIREG3		0x253
-> +#define CSR_VSIREG4		0x255
-> +#define CSR_VSIREG5		0x256
-> +#define CSR_VSIREG6		0x257
->   
->   /* VS-Level Interrupts (H-extension with AIA) */
->   #define CSR_VSTOPEI		0x25c
-> @@ -436,6 +450,12 @@
->   /* Machine-Level Window to Indirectly Accessed Registers (AIA) */
->   #define CSR_MISELECT		0x350
->   #define CSR_MIREG		0x351
-> +/* Machine-Level Window to Indirectly Accessed Registers (Smcsrind) */
-> +#define CSR_MIREG2		0x352
-> +#define CSR_MIREG3		0x353
-> +#define CSR_MIREG4		0x355
-> +#define CSR_MIREG5		0x356
-> +#define CSR_MIREG6		0x357
->   
->   /* Machine-Level Interrupts (AIA) */
->   #define CSR_MTOPEI		0x35c
-> @@ -498,6 +518,11 @@
->   # define CSR_IEH		CSR_MIEH
->   # define CSR_ISELECT	CSR_MISELECT
->   # define CSR_IREG	CSR_MIREG
-> +# define CSR_IREG2	CSR_MIREG2
-> +# define CSR_IREG3	CSR_MIREG3
-> +# define CSR_IREG4	CSR_MIREG4
-> +# define CSR_IREG5	CSR_MIREG5
-> +# define CSR_IREG6	CSR_MIREG6
->   # define CSR_IPH		CSR_MIPH
->   # define CSR_TOPEI	CSR_MTOPEI
->   # define CSR_TOPI	CSR_MTOPI
-> @@ -523,6 +548,11 @@
->   # define CSR_IEH		CSR_SIEH
->   # define CSR_ISELECT	CSR_SISELECT
->   # define CSR_IREG	CSR_SIREG
-> +# define CSR_IREG2	CSR_SIREG2
-> +# define CSR_IREG3	CSR_SIREG3
-> +# define CSR_IREG4	CSR_SIREG4
-> +# define CSR_IREG5	CSR_SIREG5
-> +# define CSR_IREG6	CSR_SIREG6
->   # define CSR_IPH		CSR_SIPH
->   # define CSR_TOPEI	CSR_STOPEI
->   # define CSR_TOPI	CSR_STOPI
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> I would allocate the table on the first call to kvm_vcpu_init_nested()
+> and not in kvm_init_nested(), so it cannot leak if VM creation
+> fails.
 
+I'd rather keep it on the VM creation path. This is VM-wide data, by
+definition, and given that its size doesn't depend on the number of
+vcpus anymore (we allocate the maximum once and for all), it is right
+where it belongs. See the untested hack below for the freeing on error.
+
+> There's another issue in the current code: the ptdump debugfs file
+> keeps the raw mmu pointer as its private data. I would add that to the
+> commit message.
+
+Why is that a problem? With this approach, the mmu pointers are always
+expected to be valid, irrespective of the allocation pattern, and we
+only publish pointers to the dumper when the S2_mmu is actively being
+used.
+
+We're about to rip out the NV ptdump anyway as it has many other
+problems, but I'd like to understand what you see that I don't.
+
+Thanks,
+
+	M.
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 9e42e92dbc7b1..e883e45382fb2 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -223,10 +223,6 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 	mutex_unlock(&kvm->lock);
+ #endif
+ 
+-	ret = kvm_init_nested(kvm);
+-	if (ret)
+-		return ret;
+-
+ 	ret = kvm_share_hyp(kvm, kvm + 1);
+ 	if (ret)
+ 		return ret;
+@@ -241,6 +237,10 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 	if (ret)
+ 		goto err_free_cpumask;
+ 
++	ret = kvm_init_nested(kvm);
++	if (ret)
++		goto err_uninit_mmu;
++
+ 	if (is_protected_kvm_enabled()) {
+ 		/*
+ 		 * If any failures occur after this is successful, make sure to
+@@ -269,6 +269,7 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+ 
+ err_uninit_mmu:
+ 	kvm_uninit_stage2_mmu(kvm);
++	kvfree(kvm->arch.nested_mmus);
+ err_free_cpumask:
+ 	free_cpumask_var(kvm->arch.supported_cpus);
+ err_unshare_kvm:
+
+-- 
+Without deviation from the norm, progress is not possible.
 
