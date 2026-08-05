@@ -4,149 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DF3C55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2516C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=; b=HPWd+DIT6iQyTpfj4FjhQhM1ad
-	i708oKjsRtaiVBnSa5PGnvhKshc+O6vtlWbNAYLLmNnVZPOX7L9EKkMBDpPcoAQOBFJEkpaazPTgq
-	ZHAr2Md1cj45sTAcMF/csSrJg5JFOV1a08QbPJ6X9B2dKfsrzvUdL1svZX0f0o6gN6fidaCgjGHiq
-	+j97yOhvlGcnJpkSwjFYMo5k5ZMxY8go1VgsvaW4aery2K6yXCN9Uj1ufO9ufr9yDnFy4K5Auf8g0
-	TVANUYfNpepJEEJZ6m6MRropY8HGBgKskfOonERviIQZZ319D0sAhjctQWlyCvVf6aKjH6wp+40Ew
-	H6NHvKGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SOyil/NGwg0VaSdflx14NVa9rgx+efKsRRVNMmH6kEY=; b=sC59ewVpgOJ4Vb+wv62GRyFbTO
+	vU+PsPkGOdlc6HtyYm3c4UH+3tjSRaD13U67z1TzgdU6FieAyMKLwke4QAD2nAeAs84QbXjWogGn7
+	3dsLhq7BG2gCK93Ra3x/YptVDzCoseykCOczcbhMJPPVqDJ+hcRcZ54QahQVTGO6HsqUDBnuPSXAe
+	TO3Fmf5hKq2cex2zacpKWe6To30pi3UbKQHx3mcp6EMQr9bOKr5YLU074+K8aWQ58umGOjBMB3jbX
+	fAdG/2yYwik4RzPXXcAfMY/INkY/0V89I1f08ZJXoehKRAxubmuXj1jlnbBvRCOOUbXgtrYVyy6Hm
+	fPNdFhDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWSe-00000003RJm-2MRh;
-	Wed, 05 Aug 2026 07:54:48 +0000
-Received: from mail-northeuropeazon11010003.outbound.protection.outlook.com ([52.101.84.3] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wrWWT-00000003Rp3-295f;
+	Wed, 05 Aug 2026 07:58:45 +0000
+Received: from mail-westeuropeazon11013010.outbound.protection.outlook.com ([52.101.72.10] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWSb-00000003R75-0dAF
+	id 1wrWWQ-00000003Ro2-2A8m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 07:54:47 +0000
+	Wed, 05 Aug 2026 07:58:44 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q+u8IjW3YRPRvq9BUVq82/Q0li/Bi1jUa9pE0oMl11sAqKu/DFKlV8iPzOl5d27LMyJ6EPgHeXp6Vw4Fip5NxiDikpPxsUygDvsur8LbM8LFhNll/4wYSckmuIYkgjAGc4ap/GpPqLSOfhjypD6X51o1xf0+OV1fpietakEFDnbV718t/rCeJgwdegRH3tAcs2wRucUeXg4ztjEDnaCA/Lz6n6GR98MdaoEUT3yAa06DhjTkD0aRkjy5Zog7XSQxuqeF23tlblqIKRrceTOUDGay2sFCO+5zB8N8ifWLDmbkb+AZQLfcUiwd+c4iZAR+7IPdnohWaj5TOCFsB/sCwQ==
+ b=KzSTlkjE7BQxlBMrtuS1hcH2TTKXaQ2OagC0JQwU3hiLJYxjeoO9cgQPPMn4lDAdyztvFv909dbNflFYEFosR+vCwN4y301a/pT9UF9Wg2GGl0pqCkv+GixNvr3hml8vY70b4LGQkfiF05tgLKKcU+cQDpzyzjIj4riTB/NDnvXhNUen+voYQ23QzeyoIw37CAwG7Wqck5Vo4bymobeCXpRB5VKqkpcgzERQTNpjvg/C0S39YAnaTS76/vMUq32i9HqQMg86HbuVrhnwrR/1ybkmU1/4eY0tXJviTel6u4w4mXgWaxD8ikT/sm8kjnhHm4aX79MKqRAJrpaRnxMmZg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=;
- b=qzt692tA6XlGveJdJl/PJbGrNe/JQO+O4fmXfW72vpNHdWo4FIBLyNmJ6v9/yTvQNq/sSSWMc3MOqm8KOiareBKl/u8UoMo887zIU5PxPAlZpVCo4op0+EULwaO513S313uvwM1CfksYXsQ5qtytKd/tzRU434ULFsz1IaT1QM1LoZstwKUO+0tIOaNuaVCb9MD5GpsFxn0zqHeMdZoU1SVyqmvOS0fZF04d2rEkGJM6xH0suFPP9lSxTOK+LpN+5iZCPWjZpuLFnOMLyCbJbq/UMp1n8gMqa8leCNQc4zZCroUGDOjGWdhhPznC3jWK4G8X1LFr3zaFMXH2jqG0Kw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=SOyil/NGwg0VaSdflx14NVa9rgx+efKsRRVNMmH6kEY=;
+ b=NUyZGqSDOgo1gHTREadjJ5mWNY4OUVnZLf6vdenEnPHCSJg+eB/9XuVCoohBWsenE+Oo2Wp36xXktw8Kla+fIq2IgMEq4IRlK8aO1d9Z62iQtxnLDU/1YAr4KHDM4Cd10RUE3eUxhqV4UTkhKLuc7biQor7SYkWepDAI9opG7NHJuqkW4ay43wHT2h0qu9yuRN4viON4c6KrhhEpb4vrYmnrh3TY0sFRIMyTgiOdAFqJT+JVfuF/1f5t5L9DO1QRhQb2l65yC4Z/Er1eZnmKDyLkubHs6LQ7R0ldRy5B5bDYC6NJvo1tMwUpm/RV0mGK1B/Pb/Xb65l+nZXfNTxeZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=gmail.com smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=;
- b=ed5nR+GfZO3ebAjZTXSHfG5avpkix+DSUbRTgKMlGV1nngzQ8jr1sMYMiOgDP+igo4tZj87HpKbc+dpXVmDEkczn0fvQG9xlFg6H9EcTgHxe4+Jei5JcMopQr6f2FIrh+Jny/1o1q/+6sC1gWIHVeVIFNcnvE1vk/fp9X+noIHMJtDkc3R4VCOhphqWswZKe8sdVBVanZ5mSRuih8tP2cLc6mlLFHn+wida7k10FMeOzY8DKsVdbT+8FFI/nQsAWo1nlaShQbuvrTSKOGp4iO0XOSqB9kVuZQOf5sriNxEjLw40ScH1X0WBgOOzCObSliPG2v+0bP64vZYojl6j4fw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB8465.eurprd04.prod.outlook.com (2603:10a6:20b:348::19)
- by VI0PR04MB10687.eurprd04.prod.outlook.com (2603:10a6:800:25e::14) with
+ bh=SOyil/NGwg0VaSdflx14NVa9rgx+efKsRRVNMmH6kEY=;
+ b=NxTGkVC2SBUyE/gMzqgu00Mcx0aAljaa8ZpXHNx81yM/hepzj/+OOyd7x4yYSo+dP+MeFqmzJISwLqMpmO6kpSij+9B6MQCcxLk5iNOcWy/l054Rx0zOwyWWrYgjrnjLSPtaa27LNDtpqsv6TWWD02rjFHx3ayRQf6DqTdCA4OasZZnfFeD4HakDkhff5rCcaTUrj1GrZa5T1Jfeaa8dLNKc6pXfpnWPxZKn+BOEcT1SHuU5ul/Piz0bz+X189KpZw/cVwq8wzL6BlUNfba1NC+m3s7rOonidQqKHF1JiyshogT/LpIuuVPW+U0x/4W1CjF4H6FxwH6Dd3c4iWjYqg==
+Received: from AS9PR06CA0294.eurprd06.prod.outlook.com (2603:10a6:20b:45a::22)
+ by PR3PR10MB3914.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:43::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.18; Wed, 5 Aug
- 2026 07:54:39 +0000
-Received: from AS8PR04MB8465.eurprd04.prod.outlook.com
- ([fe80::36fa:43c3:5ac6:9545]) by AS8PR04MB8465.eurprd04.prod.outlook.com
- ([fe80::36fa:43c3:5ac6:9545%6]) with mapi id 15.21.0292.013; Wed, 5 Aug 2026
- 07:54:39 +0000
-From: pankaj.gupta@oss.nxp.com
-Date: Wed, 05 Aug 2026 14:14:53 +0530
-Subject: [PATCH v33 7/7] arm64: dts: imx8ulp: add reserved memory for
- EdgeLock Enclave
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260805-imx-se-if-v33-7-212e32ff0295@nxp.com>
-References: <20260805-imx-se-if-v33-0-212e32ff0295@nxp.com>
-In-Reply-To: <20260805-imx-se-if-v33-0-212e32ff0295@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785919487; l=2461;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=8LTJ7dQk+ZmHVQUVQ7z2QFEU98qQ6ZendsUWTwEehrU=;
- b=UgYkGKOO7aoL8lAyZCLd97j79C71hDWEZk8wO/WrlHjdrVdn2uSE4X2n1OomE273GQm2K7n/0
- AwRtK2EnJiIBlFoTS9yAiJC4EQA7UAvWhSHI05v11smKwcCendxMXVp
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: MA0PR01CA0068.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:ad::14) To AS8PR04MB8465.eurprd04.prod.outlook.com
- (2603:10a6:20b:348::19)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.15; Wed, 5 Aug
+ 2026 07:58:35 +0000
+Received: from AMS0EPF00000198.eurprd05.prod.outlook.com
+ (2603:10a6:20b:45a:cafe::91) by AS9PR06CA0294.outlook.office365.com
+ (2603:10a6:20b:45a::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.270.20 via Frontend Transport; Wed, 5
+ Aug 2026 07:58:35 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AMS0EPF00000198.mail.protection.outlook.com (10.167.16.244) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.8 via Frontend Transport; Wed, 5 Aug 2026 07:58:35 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 5 Aug
+ 2026 10:04:00 +0200
+Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Wed, 5 Aug
+ 2026 09:58:34 +0200
+Message-ID: <493ce8b0-0d4f-474f-9194-d16299ee2296@foss.st.com>
+Date: Wed, 5 Aug 2026 09:58:33 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] rtc: st-lpc: get IRQ via platform_get_irq()
+To: Rosen Penev <rosenp@gmail.com>, <linux-rtc@vger.kernel.org>
+CC: Alexandre Belloni <alexandre.belloni@bootlin.com>, Nathan Chancellor
+	<nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, "Bill
+ Wendling" <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+	"moderated list:ARM/STI ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>, "open list:CLANG/LLVM BUILD
+ SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
+References: <20260714002259.1392655-1-rosenp@gmail.com>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20260714002259.1392655-1-rosenp@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8465:EE_|VI0PR04MB10687:EE_
-X-MS-Office365-Filtering-Correlation-Id: fa8fe2ef-ee45-4d2a-1948-08def2c6cd16
+X-MS-TrafficTypeDiagnostic: AMS0EPF00000198:EE_|PR3PR10MB3914:EE_
+X-MS-Office365-Filtering-Correlation-Id: 514cb983-0744-4647-9795-08def2c759e2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|19092799006|921020|22082099003|18002099003|11063799006|56012099006|10067099003;
-X-Microsoft-Antispam-Message-Info: vN9cqN0KVbaVpBaXgOhBSHejHlw7DECW9Pp8O6J9NTJ5TqZQ0Yuxr/t/GU7OZBUBR24HIiTFKSe4aEB2SyaACQWc2fj60ghQkfIlfIGN+4hURckGRYsPJq+kbgj7uTMum9Kf9xKhnnMYv7JaMxGuAvLMrc0RZ2IvL54oIbmJNFQ0MUQOU6Dohw3w81RWo7IxN6ExJZo2Fng29GmkEHP+TrUFIT4nlk3pNPso5DxrkJAkYInW5Y/aT3/RbzK+1znRUy1je5G9SxKuXxVYx117vlsut1pyjorYrOwP6if5+asFZxyj92qy/w0/2brR+/LJYpgcKaPZHGsD3b5wEaKrZoXHj31TOOGzYnu+h78EFtYAzxRJDXAJL/BSV4BMClks5gLUUHwYYcHtqy0dEL1eoBBOSRWmN79ekVbSgltnhzOBrRJqMKvFoUvXS5G7I7RrdKxG5GuLjHjYCKK5qVWzutUCGUAu/nfNYTU/jACW08g1sCAezIl6PGMYXrZotLNwb2Mz6VzlYXqfJdrj7qokC/s3lJjdn3TpaA7rMeNJMhMI/hBrxPJ9jihzGHeL6NhL6PHnF6SpjbHLCnHQFntenFK6Ou6nPPlFvzOMeEXIIS0tjzLk1EFZHpSUViXy1sSVHxQgqRg1d/pw0zcrQRCsjLQFa5wSvcotFpJDQiztH56dxrJGYGPf1sEguYk3Am7vOtE3dspaky2o7VGYmI9joA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8465.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(19092799006)(921020)(22082099003)(18002099003)(11063799006)(56012099006)(10067099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|7416014|82310400026|1800799024|10067099003|56012099006|18002099003|22082099003|11063799006;
+X-Microsoft-Antispam-Message-Info: yACAWsGaAs5m4VCQxeHigXrIZbp89fNaU9ULnhxW+zOZRsKJNpN5N+ZsQBS0tWwbSci3fqGEBlbJfAQj22CbJ94b5oIdbCs4wXnTyddyh3JTJ5GBKzAu9qChVc6L5HqtLSpeFRg1WVpi5znooEWbmJIk7ruI+2x0ja4T8Tq0j1d6KTpb54f/npqh72pybigu7jJEDwtdz2UdsrPCeuun56fe3+f+XJ/xIDoRGxRky6qtMKg6I8dT+ey9cd7owcHQlJbc+/7juyIiWwTJjqrfRvGZbe82TE2QPrBaqZ1PjXiSYZ9oW/wnCXys0Zw8p8GqYCLC4yRJKM/sVbZaKkfh+ZHk2uDY3FkYhayylnVmH/wFw1OVNKlIpBxJ9lhOEh0nuRw6swXk36Mk7/2R0KIptVgwzV27bAk/zzS3BSYfEv/wGj/rIPfI6oQnrTP/bYfgLgM72t6aeism6TZO5VPrHFwecUPMIDR2qGH5W05enrvzqKFFg8dhhTmk19pGO/ixsLsaQBSlIvVtU+1GiIC9apepRv85ellS26yB7g18gfVD87P4m+/MKuhmFjZAhp2qRNswUvVntb5YLdlG2QzytEFfOTG6mexQt5fSvXNcdjtaShAGPBg0r27a24NBrffI4ojhMegEjYz852D2u/QM1k2ovlzY2Kc31BB6H9HWO7m7vQW/lK8z0gTxAzP1pSLwQJvcJC0cYPfGmKpQipsYiw==
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(7416014)(82310400026)(1800799024)(10067099003)(56012099006)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aWI0WE1zNno1cU5lRmp3Y2ozVy9SalQ2SWtjRlZjNG42WWFCem5MK2pybjRB?=
- =?utf-8?B?YmVtdUlnWlI2STVMTWN6ZkRzajErcHJ1MnBZRWlFT2V1QVFnM21ZZ2pSK01Z?=
- =?utf-8?B?U3dmbjg4bXlnVzFjZ3dTbFdWL1k3KytncWpsWlBJRTlocGRBSkJEckI1YVp3?=
- =?utf-8?B?emVLenJ2eGJSZTdad2lxQjB3QS92RTNlS2N0dFdlZ25LTlRXc3NyNTRFY0Zu?=
- =?utf-8?B?OVFIRDRDZVBNaFBQVElLQlVtd1ZGVk9WZkdKbFNkVWQ4akFLd1N4MmlibWVF?=
- =?utf-8?B?V1pZWFpQRzVOanh2OXNaTlB4UC91dDc1a2lqYmViTzRsUzdidElVK3lwdW1V?=
- =?utf-8?B?WHRNamlzVjBFcHVESDBTUnd3Y3F3ZHpmU05DSWJMUWZFYXYvclhFN1RJNjly?=
- =?utf-8?B?M2s4VE94RTVBenRnWUZRTWw2aGRrTFZWcUFrV3RnUWpVcXk3RitVditxY1Ba?=
- =?utf-8?B?QTFTMit2RVBZNWFreXhHaW9zTU5maWZrR0VqU200by8xeDh4Z2wwd0lubFl0?=
- =?utf-8?B?UXBIOGdlMVl6cmRZNkRuMGNkZXpmaktJSVc3MVhnU3dWS20zL1ZGWExaUXIr?=
- =?utf-8?B?L2U2Q1dLUW5oQXJpTkFJQUR5UWFFZitHLzhQRHBUTlVHT2FPczdXbmNtakxv?=
- =?utf-8?B?dkRQWVFsdy8wOWhiUGlyQWZ3aERYckk5aVZSYkVuL0d1SDNRNG5NTGpnYnUz?=
- =?utf-8?B?aDVNQWt0YU9aT2JCUE5tNjRjaDhIZDd2Z0tHZEo4UDZBd2M2ZFQ4TlNaZ0tU?=
- =?utf-8?B?alFoUG1JZEMrRHFnM1hlN0RDd3hremNWSEFQTUZJR1JTaXFteXRRcjRITG1D?=
- =?utf-8?B?OWcrSTFNUk9hUkp3eG00VlZIMEEyNTd0RUJKakZwak1QejNFdmkwaTNWbFlW?=
- =?utf-8?B?ZFpQWUJaNGRFZ0svYWFvQXBubWxObk81ODhlODhFamZJZDdBQWUvc05QVEg3?=
- =?utf-8?B?TktoRFd2ZzU1YnJlNnFHaUk2dHZlV3A2cDRTUW5CWDZpV2E2K3JwaHJGY0o0?=
- =?utf-8?B?WThBY1p5cGRIVUpPM2J6Y3VhVWVJR2JIYlNrSzdNYUU5d0s3WmkwZUNzQ0xX?=
- =?utf-8?B?Zk5GVjhzdHIwaW1nazBwQWUwRW85N3U0dkFvL0RzN2ZwTW50enBKWTlSRVNz?=
- =?utf-8?B?bTBZL2RJcnBJQUJxclNMTmVITHdHbStldWVyNlNnR3JyVExVbmVRdktiTmpL?=
- =?utf-8?B?eThBakc4eVNRRXJ4RXpLWStGNU96OU8zcS85RWNJQkZhdmZIRkRwUnFoTDFm?=
- =?utf-8?B?RGZnQkJET0lYVFRDSmpjRWlHSENLMUxmMEMxYXJobUxBNXZsNGJqRTNoVGVs?=
- =?utf-8?B?VjJHUXIwVE94TXFUaWZzbFJ6SEljNisraFRkN0gwbFkvVE9jc0s2eS85Y2xV?=
- =?utf-8?B?V2ZONTIzSzgzMjZCQjNQRWp4cFluZHJIK2FPWWV6d2dNWU1zOUlzVW9mb3FD?=
- =?utf-8?B?VXJXOEtYT1ExdSszNnhaUTNlbHIrekFzUnRxWUJteG1vakNOQm9WaVNmSTcz?=
- =?utf-8?B?V0hERHVxMjVPSFFEQUQzVGZ2YTVncWlab2J4UGgxMXN2UGcrTFdMZlJ4K0Y2?=
- =?utf-8?B?MWtLQ25oSHFHR1JjanY0MmF3WnRiTkVFZ3VHKzhYbnIxS0JvM1dKWVFvdVJ0?=
- =?utf-8?B?dzRzemhiY3pxa0Zyai9pUXJyZFVueHI0TktSQWloMlRFK1hnWUNhS3BHT25I?=
- =?utf-8?B?RUtPNEJCWHFKdC9zL1Jma2xSeWVyRTU1VkdoNXNkd2tUeWVva3VtQ0xkOUNP?=
- =?utf-8?B?UFFJWHZ0MHV4c1EyRmpTS2JUa1Vzc1BhcjdjN3ROTUtycUxETTRzV2xkU3lV?=
- =?utf-8?B?Rno5cVprRERhakVuUnRxMElQb1RxT3I2VzM4TUNZbWJidlVmRDQrWjQwdEFm?=
- =?utf-8?B?WlFmdWY2bUc2cXN1OGM0RHJWblVtQWp3UkpoT0ZLalNONU8vSWZlTzJ5Ri9O?=
- =?utf-8?B?SmNDMUJWTUs5cVhPVk9GcCtQUzdnU3M1NnU5UVdUOHpaUUJhbW5FeVJrdDF4?=
- =?utf-8?B?WjFnVmZhN29PcGYwYllITWpsVXVCTUdjWTJLU2RUR2FpSEFrR2N6RVJjdytt?=
- =?utf-8?B?MVNxSi9OaFNOV0ZQbVFLbVhkNGNTUG9MZ2o0bVhsU0RnWFloK3VwSS9PKzRD?=
- =?utf-8?B?ZlZxcktoaituU0hJbmdGWW93MzBmcldja01ra1JkWGdHT0dqNTVjSXdOekNK?=
- =?utf-8?B?bURJNW9tS3VOMmd1eG1hK09EdFFHQWhhQlkycUFRWC9vRTQzdDc5b1hPN1BO?=
- =?utf-8?B?WWFQNXRuMFZka0h6c1p0R2VqUHNPT0lYdlc3V1VQVStDWjFYODNXRC93d0lx?=
- =?utf-8?B?c25weHJtMkMzY2ZRVUx1RGoxb1dWcCtGbnB6SldlTElYYjhMcm1Nb3JYU0hT?=
- =?utf-8?Q?xv7oKV0uFUpmjaJuC1TE7hvzBLTMbnZJXaFej?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa8fe2ef-ee45-4d2a-1948-08def2c6cd16
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8465.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 07:54:39.2812
+X-MS-Exchange-AntiSpam-MessageData-0: 89oXGZYSMIEtBDbCZZEVlPRuYLlT3GvVGngOEJEWKXh7DEN141MaeL++2opKJXnd2IQYIcqNlVdLmbsATFE6U25UBuJAiFouA3eTSZT7JzcLuZxYjVdDumwRGTs1SstTOyYILXHRrUoywFaLP2wxaRsZb1COkOrINA8mBcjoDqypMdkT5c43gkJ0kdFPVhRmT/RlV/I0b28jBobNmL42TfK0DzRC+/sHR/kpIkoLlWc8HLlt0lLwV4qIfTJp4/REwfGOdbyIe9Wz4ddqS320jOhPN5SkIgHsaNtTvngX00SURY4jDBHC5IBK/rkpekkeI290HXsXh8PZnK+kTblSt9jCwm962E/zaSZLYt4mQhUMIqx5U8qtS2J+XGIOF6Ddpy3KCSIrXRdxiL7qr/lsOq/4uifvF4+8+fvdT13cW/xLXZALbn3SBf5l5JaO8m6h
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Aug 2026 07:58:35.2803
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /BYC5RdYMbjaUaa/yyg2Q3j2ZYAnev+Jmc+cyR8mkrOFuyKL5RsWsc2nQ8G9cjhJRKsk29Gcvtwfl8n3dOQri6a8DdhbHp70pYRE1+kD5n95vQfj7hu4Aj0e2ELyI9fh
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10687
+X-MS-Exchange-CrossTenant-Network-Message-Id: 514cb983-0744-4647-9795-08def2c759e2
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000198.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR10MB3914
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_005445_379426_BAA330A8 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20260805_005842_859639_15B4B56A 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,82 +130,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
 
-Reserve 1MB of DDR for the EdgeLock Enclave. The enclave hardware can only
-access DDR in the 0x80000000 - 0xafffffff window, so constrain the pool to
-that range with alloc-ranges and let the kernel choose the placement rather
-than hardcoding an address.
 
-Provide this as a shared imx8ulp-firmware.dtsi that also enables the hsm0
-node and wires up its memory-region, so every i.MX8ULP board can bring up
-the enclave with a single include instead of duplicating the reserved
-memory node. Include it from imx8ulp-evk.
+On 7/14/26 02:22, Rosen Penev wrote:
+> Replace irq_of_parse_and_map() with platform_get_irq(), which resolves
+> the interrupt from pdev->dev.of_node directly and returns a positive IRQ
+> or a negative errno (it never returns 0). Propagate the error on failure
+> instead of the previous open-coded "IRQ missing or invalid" / -EINVAL
+> message, so -EPROBE_DEFER is handled correctly. The rtc->irq field is a
+> signed short, so the negative error code is preserved.
+> 
+> np is still used by of_property_read_u32() for "st,lpc-mode", so it is
+> not removed.
+> 
+> Built for ARM (multi_v7_defconfig + CONFIG_RTC_DRV_ST_LPC) with LLVM=1;
+> drivers/rtc/rtc-st-lpc.o compiles cleanly.
+> 
+> Assisted-by: opencode:hy3-free
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> ---
+>  drivers/rtc/rtc-st-lpc.c | 9 +++------
+>  1 file changed, 3 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/rtc/rtc-st-lpc.c b/drivers/rtc/rtc-st-lpc.c
+> index c6d4522411b3..ae79ddf24f37 100644
+> --- a/drivers/rtc/rtc-st-lpc.c
+> +++ b/drivers/rtc/rtc-st-lpc.c
+> @@ -18,7 +18,6 @@
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+> -#include <linux/of_irq.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/rtc.h>
+>  
+> @@ -212,11 +211,9 @@ static int st_rtc_probe(struct platform_device *pdev)
+>  	if (IS_ERR(rtc->ioaddr))
+>  		return PTR_ERR(rtc->ioaddr);
+>  
+> -	rtc->irq = irq_of_parse_and_map(np, 0);
+> -	if (!rtc->irq) {
+> -		dev_err(&pdev->dev, "IRQ missing or invalid\n");
+> -		return -EINVAL;
+> -	}
+> +	rtc->irq = platform_get_irq(pdev, 0);
+> +	if (rtc->irq < 0)
+> +		return rtc->irq;
+>  
+>  	ret = devm_request_irq(&pdev->dev, rtc->irq, st_rtc_handler,
+>  			       IRQF_NO_AUTOEN, pdev->name, rtc);
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts      |  3 ++-
- .../arm64/boot/dts/freescale/imx8ulp-firmware.dtsi | 31 ++++++++++++++++++++++
- 2 files changed, 33 insertions(+), 1 deletion(-)
+Hi Rosen
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 5dea66c1e7aa..885242fd07ce 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,11 +1,12 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- /dts-v1/;
- 
- #include "imx8ulp.dtsi"
-+#include "imx8ulp-firmware.dtsi"
- 
- / {
- 	model = "NXP i.MX8ULP EVK";
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-new file mode 100644
-index 000000000000..e4bc352f68af
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ *
-+ * Default reserved memory and EdgeLock Enclave (ELE) enablement shared by
-+ * i.MX8ULP boards. Include this from a board dts to bring up the secure
-+ * enclave without having to duplicate the reserved-memory node. The ELE
-+ * hardware can only access DDR in the 0x80000000 - 0xafffffff window, so the
-+ * pool is constrained to that range with alloc-ranges and the kernel is left
-+ * to place the 1 MiB region.
-+ */
-+
-+/ {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ele_reserved: ele-reserved {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x30000000>;
-+			size = <0 0x100000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+	status = "okay";
-+};
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
--- 
-2.43.0
+Thanks
+Patrice
 
 
