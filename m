@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268D0C55822
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:10:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DE2C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 07:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AB188XGB4sbY3JcvO+RtPjAq1fA2l4207oGcIEuttd0=; b=JavQQ5FLeJ2mcrYr6A2FgY8LbE
-	pEjJ//8OmANFgSUEGYuBjvf7UfJlQYkmM4vmaAIyHg3l8RTKeP1UNgN0/gKVKg+mK/+VHFsWrKPkM
-	E1UT2niAFj3T58qAdh1Jo/7cFrgc9kU8TXXY65uxxaTvwtvuNM17V3oOqux4XetWb8AVfx8GpXvMZ
-	qStg3nIYUVZFi5jl3GqkPuiWW+dbnlxdW6areZ9srfiuLnKvvpbxRTYXLN+qcgCshO1+rXaJZUijx
-	P+xuUP9+i3D9v0PT7yxDHCXzHJvrRIycaozpfrZ9jbjagHE1RLPUKkKPze83r+Q3dejPxtZFoNwP/
-	GlID6g1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G4xKySEczjJKlV50yKNxN3atJelGibN9yGRp2vrzooU=; b=xRkysfRT6Ne/81gE0JVzMgb3/a
+	R6fdt0a6T40NC4Q8PTjN13QGBrWMTj1CV7Q6j2gtBMO9vtGJYTRNury4JRF/enXxmyglLYEXhxJvm
+	6/rZ/CdnSbc3mAnYtioTeK0hqpRNzh2K8NeuqS0EyxyI8KKmbFDC7tKGlTW1b5nfptyTdChmZ5S9z
+	5QXENRyWSOT/ABcARvnlilA+fbofUVroHE1wViD15J0kMJQ8G2ulaQAPTypRM9OM37xA+gvcSZcpX
+	ru40stbwiZFfy4Ib37MXEvjACO9OcOlugihIhhyFl2RflDyTb0bUq10QVMCjBZfaD731bBfnRO2GR
+	sb0TBxcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVl7-00000003NMb-3jy9;
-	Wed, 05 Aug 2026 07:09:49 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wrVlI-00000003NQ7-086l;
+	Wed, 05 Aug 2026 07:10:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVl4-00000003NLY-2HSd
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 07:09:48 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-496bb7cdf51so6988015e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 00:09:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785913784; x=1786518584; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=AB188XGB4sbY3JcvO+RtPjAq1fA2l4207oGcIEuttd0=;
-        b=Zmd250JP9XjGtUOnPFTnNZdltGx++3X0ytGmoupNQ3H/GHglw86oyBKL2s6fVFjyBI
-         Sa7BIxKv6hZfoY6VHM80rfFp29jku7gJiIoy8WFqpp1aKLfnCGdwYYXU5NfD301y0GBb
-         kR6GKqmelJItOl+jdpZd6jryZ+ou5QAZsW+fpYX1X/eqWsakPcHkxflpeKsUssNj8dGD
-         +v25rZw8Cz9NKRzu6TcVUGJBkfzNCu46TTCYSTY3g6CQSHs+9PARWHwI8GmZgkpB100i
-         L5jE2mtpQnBsB+jh5YhRJbaPXQ4qhCRiI5f9QaX+O0RU9Vnm4oRF7q8swJUB6W54Jr+p
-         p3kA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785913784; x=1786518584;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=AB188XGB4sbY3JcvO+RtPjAq1fA2l4207oGcIEuttd0=;
-        b=iSX4cOXqIoNageHDb8ek1dbb7OQeizFLTwXdquJ6BDK0cDA78Z+hFa80yxnc6tkDdT
-         RsRiby9U22cqe5xZz5/wP9oYhUst+tO+QuAF1EHz+6ny5qosYa+5RX3tSeg34gYjxbpK
-         AD8E4xsnFn+VhAPCvaCHvQ/rWdDKycoweGdbJ0qiiYVo41SwDQpPbZKW4VwavhDDl3o+
-         slZFPOYkBl+XKpW8wQdphJtiYfPje30agFl38oQGDjpqf3F0SqtURCdbgNay3B9xUyzR
-         9PjYalzrCGfisEq6Rw0bTeUxPbDh9THET2tj4ZVL+vGgq5vyM5kMRSHC1dzvIIXo1Nsr
-         l7Og==
-X-Forwarded-Encrypted: i=1; AHgh+RpUYqMcKA+Rg4JGs8KC06MjRBf84g2bM0qckcmf9Ctm8whiheJUNcBSm6I7NolXedxVBQSWoMleP5LoftomCQ6W@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzkM6p3KivYFEkUDN0ZorNKlaiSfsz6mwRTlAW5g01WbM6AU6b
-	taVEwPa6XQ7wuVH9jq3jdWxKlO8rkUZsl7bEM/xJZAi4knlUHjezabjomUn+zypM
-X-Gm-Gg: AR+sD13iDR0cOLyRQZtjjRmR8mlm7EZ1G6h1gcqEsHQsY9GMGtdiZ+NgAQVnBpfueuM
-	PtXyxnev+hqFLx8z7ss0qXIPPRgrHgmQa2E60C/AumqaOxTlMJp2FZ9Qk//QrJoH+12CQKPZ4kR
-	phQfwRAPNF+4p85aaYlknos+3lkyqxGXK1ak6swxLJAGaE/ibmFi5IRcB05vOIObOGiwIhBNCUi
-	6W7uLSx5X4MXHvOzaFUs+3qQAAl1ocY9tZDuwlHc1dyANmp6KggliP2QOsobtAkg4k91tTFJ3uA
-	Y4bjlr7GsLXkaYXY5XkmvlK2wIPeNJAF8Byy3YPzrFZZH7Qai/y/I0ckhUQcNEc7iAJj8nXj0iY
-	qH7HtVcgfxqCahn7j8VRd9dgENorq+0tRMbqG0UV1FCeKylgbcZBDQhkFybBL2JAR3JLs8ddqzo
-	G0waTe97sAsrlWqIpkJrriJ838B97AzwDUEfzEDeyF16bPQeBXOdUycDT3x1sfkX9sAw==
-X-Received: by 2002:a05:600c:138a:b0:498:943:ccc0 with SMTP id 5b1f17b1804b1-4994e714d8fmr46447075e9.6.1785913783962;
-        Wed, 05 Aug 2026 00:09:43 -0700 (PDT)
-Received: from fedora ([46.205.219.119])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4994e4c32e0sm35567225e9.0.2026.08.05.00.09.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 00:09:43 -0700 (PDT)
-From: Daniel Pawlik <pawlik.dan@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org,
-	win847@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Pawlik <pawlik.dan@gmail.com>
-Subject: [PATCH] net: airoha: npu: use coherent DMA for mailbox messages
-Date: Wed,  5 Aug 2026 09:08:51 +0200
-Message-ID: <20260805070851.2885888-1-pawlik.dan@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	id 1wrVlF-00000003NPI-2Xut;
+	Wed, 05 Aug 2026 07:09:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C909040DC3;
+	Wed,  5 Aug 2026 07:09:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E25AE1F000E9;
+	Wed,  5 Aug 2026 07:09:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785913795;
+	bh=G4xKySEczjJKlV50yKNxN3atJelGibN9yGRp2vrzooU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QijWH5jeUl1w3T5g/U+UIRCah49Z2j7Fro2KNIi5knm8wE+WmgJb6hGUiRVerdGwr
+	 Ir8mUr5npj+GJC4wq+Ddcm9vaUKQdhJhbTnZFX8ormAiQ+dEw8AUDgpdklRzaVldbb
+	 oCemOovogmvlD5ylxpMFMG+ZDbIYebv1laShUx+ALlOCREK2sEa+Q/ggvRhCHvWpYf
+	 l9kF/yp20fPNWJmXCP/o0gGnAc1AaoJnnV9jMURR95QVRRK0WuWTvNKHI2s04Ixysc
+	 aJ/AGOZWu5bLJBQCj7vzHBLjlZk+y9cAxs8feAgM9/26bgpib1GXGwOOKVJkuTN+oV
+	 A8f6vmg5sZEnA==
+Date: Wed, 5 Aug 2026 09:09:53 +0200
+From: Thierry Reding <thierry.reding@kernel.org>
+To: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>, 
+	Matthias Fend <matthias.fend@emfend.at>, Mikhail Rudenko <mike.rudenko@gmail.com>, 
+	Daniel Scally <dan.scally@ideasonboard.com>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
+	Michael Riesch <michael.riesch@collabora.com>, Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
+	Sylvain Petinot <sylvain.petinot@foss.st.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Paul Elder <paul.elder@ideasonboard.com>, Martin Kepplinger <martin.kepplinger@puri.sm>, 
+	Quentin Schulz <quentin.schulz@theobroma-systems.com>, Tommaso Merciai <tomm.merciai@gmail.com>, 
+	Svyatoslav Ryhel <clamor95@gmail.com>, Richard Acayan <mailingradian@gmail.com>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux@ew.tq-group.com, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-tegra@vger.kernel.org
+Subject: Re: [PATCH v4 7/7] ARM: tegra: Convert to new media orientation
+ definitions
+Message-ID: <anLhnbJ3h4G792uq@orome>
+References: <20260804-kbingham-orientation-v4-0-336998dd63b4@ideasonboard.com>
+ <20260804-kbingham-orientation-v4-7-336998dd63b4@ideasonboard.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_000946_704945_8B39F499 
-X-CRM114-Status: GOOD (  12.69  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="njba5wbvog4atzxq"
+Content-Disposition: inline
+In-Reply-To: <20260804-kbingham-orientation-v4-7-336998dd63b4@ideasonboard.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,69 +88,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox
-buffer") switched airoha_npu_send_msg() to DMA_BIDIRECTIONAL so
-non-coherent CPUs invalidate caches before reading NPU GET responses.
 
-On EN7581 + MT7996 that change regresses probe: the mailbox completes
-successfully, but WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0 and
-mt76 never binds NPU offload. Healthy boards report 0.1111.
+--njba5wbvog4atzxq
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 7/7] ARM: tegra: Convert to new media orientation
+ definitions
+MIME-Version: 1.0
 
-Mailbox messages are tiny and already copied by the caller. Bounce
-through dma_alloc_coherent() so the CPU observes the NPU-written
-response without relying on streaming DMA direction.
+On Tue, Aug 04, 2026 at 08:43:34PM +0100, Kieran Bingham wrote:
+> The orientation property for video interface devices now has definitions
+> to prevent hardcoded integer values for the enum options.
+>=20
+> Update the users throughout the nvidia device trees to use the new
+> definitions.
+>=20
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+> ---
+> v2:
+>  - Fix MEDIA_ORIENTATION_REAR to MEDIA_ORIENTATION_BACK
+> ---
+>  arch/arm/boot/dts/nvidia/tegra30-asus-nexus7-grouper-common.dtsi | 3 ++-
+>  arch/arm/boot/dts/nvidia/tegra30-asus-transformer-common.dtsi    | 3 ++-
+>  arch/arm/boot/dts/nvidia/tegra30-lg-p895.dts                     | 4 +++-
+>  arch/arm/boot/dts/nvidia/tegra30-lg-x3.dtsi                      | 3 ++-
+>  4 files changed, 9 insertions(+), 4 deletions(-)
 
-Verified on Quantum Fiber W1700K (EN7581 + MT7996).
+Reviewed-by: Thierry Reding <treding@nvidia.com>
 
-Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
-Assisted-by: Cursor:composer-2
-Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_npu.c | 21 ++++++++++++++++-----
- 1 file changed, 16 insertions(+), 5 deletions(-)
+And if the plan is to merge these through the media tree:
 
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index b679bed952de..d2f6c9c084b8 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -166,12 +166,21 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
- 	u16 core = 0; /* FIXME */
- 	u32 val, offset = core << 4;
- 	dma_addr_t dma_addr;
-+	void *dma_buf;
- 	int ret;
- 
--	dma_addr = dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
--	ret = dma_mapping_error(npu->dev, dma_addr);
--	if (ret)
--		return ret;
-+	/*
-+	 * Mailbox payloads are small and bidirectional (CPU sets the
-+	 * request, NPU writes the response). Streaming DMA_BIDIRECTIONAL
-+	 * mapping regresses EN7581+MT7996: MBOX reports success but
-+	 * WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0. Use a
-+	 * coherent bounce buffer so the CPU always sees the NPU response.
-+	 */
-+	dma_buf = dma_alloc_coherent(npu->dev, size, &dma_addr, GFP_ATOMIC);
-+	if (!dma_buf)
-+		return -ENOMEM;
-+
-+	memcpy(dma_buf, p, size);
- 
- 	spin_lock_bh(&npu->cores[core].lock);
- 
-@@ -191,7 +200,9 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
- 
- 	spin_unlock_bh(&npu->cores[core].lock);
- 
--	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
-+	if (!ret)
-+		memcpy(p, dma_buf, size);
-+	dma_free_coherent(npu->dev, size, dma_buf, dma_addr);
- 
- 	return ret;
- }
--- 
-2.55.0
+Acked-by: Thierry Reding <treding@nvidia.com>
 
+--njba5wbvog4atzxq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmpy4cEACgkQ3SOs138+
+s6GX7xAAiUn50cg1N3IYryCjW1HFvtOEELAbn3WbEabsf8ChY6p27lszsD2u1SWA
+ljxp3aiozUzCDwS4rO/auUa1ubQ4YRFi+KmviEMAaNlx+odGBEP9OmYdo8CsKq78
+8+xxglQ3WizUEMIc0B7j8IVwUsAvE32qOnrr56XTx1YaqrA66BNENIq9wlURELrw
+bh40y7Cc+hRdum3b85woDbChECrG6q3Y0JFQQuZovQvs/bhWJ27/Z1ILLVkjy5pD
+Ases5xrdbEn7iYc2w80khRpu4aqUycjsCBf6E/bYZj/2TDHK6ir5W4wpB6E00E5D
+AuQo8CmAW+l5aWJDbfBcBPC3xcduHHH9D4dGpO4Cd52Yntu9cgDmfTk+kEgHJ6EC
+adEIuD3pHuqgQWSpOUfSlGFNDq+HhUpXZWH2lx/abGSyjcydQE+urtU3XQilKpOk
+j+Lq191FrKk7epLKNrqklsyKV3xNIBZnkLIb0SxVV9SCWs4qdoRWN9gfHB3VmaL4
+kR2WQrc9xpnabF+v0Mele7z45YdHdoHY/5ttfZAdm53Q1/Zgz058i8Unn5U9GVDM
+pqt/pJjTGqKKn8Z2AHRe2zKw9S4dDTDSybfzC8RdjE5OB8TKjKyjumwpkxGiIUIn
+jogEFjQcRrmyO5tbZ96lii8IL9M+aMr5EeyMpcrJJaxZRSV3cGg=
+=n6SN
+-----END PGP SIGNATURE-----
+
+--njba5wbvog4atzxq--
 
