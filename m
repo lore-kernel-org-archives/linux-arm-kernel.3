@@ -4,153 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C3CDC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 205F3C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QGZ6cVzjYD1blhwp59ff9yPAj+yBCEUxvcvUKqMHV24=; b=1DRAWOepDhIjIBOVTQpFYKvw58
-	P6CkVv413auQ08FR1ci8SqGNxR7yZMIwxsZ7RVYgD0sQWfSZZhjgzXBCpJYsvKsjZba+ALcoqb15f
-	zMmEtCOw/HlKBAg7Gqpj1dtYixC2z21T/hL1pITo0CXKscRGB2oEzxdnnJs1dB0ieMKIU89yuj96Q
-	p4S7LxQhWN9r0nE06b3ozQ9LokzGmyF0pqyPd/NZ1/v1K4fHJuRwBTLTcwAWYn5iwj3qREGewxRAc
-	xQvv5SSI0QSudHFIy5dbKvZCm9kS6BRDIxaGodG2bn62gMcpp19+lRsNsU47EcVCajDpnM05eNi4z
-	n+bI09GQ==;
+	bh=pHYWzmu6ZuPAY5Z9zsBk2vZkLf/NrY20M76Txnt8CKc=; b=mo5+G+G3HuL8iGrmrqVOUFf9oF
+	OJ+4B2cspWVFt7xy3mUw+3oVkiCN5DySCsKAlg638w3JAlYxfKYCIXFGjcVWvCMpo7fg6ruf14Ev8
+	KQEiSsKAxj+UNxPOA6Her1WuvRiM5aMDeoT8DbrZJyDeUB2a9O20wPwPVeqYInAIzI6+lWmXZBbCR
+	mgSf9LPsuUBniBJCgr33AxAHOb53TgoR+atOcWW3L5mDG7GcdFQfyOUS1XiCVAOPiAp2PEzn0bcv6
+	qCnIrGxGN5ITbOmvgXs9yQselQ0WRRTQYXc5uwk21dtDNPRn/UorWybU81Ukxe5whDrNwHz6n1Xvd
+	bHH2guvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbso-000000040d2-2rpa;
-	Wed, 05 Aug 2026 13:42:10 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wrbsy-000000040g0-1p4L;
+	Wed, 05 Aug 2026 13:42:20 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbsl-000000040cH-3FWA
+	id 1wrbsw-000000040fH-0rsP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 13:42:08 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 675CfoaK3472155
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 5 Aug 2026 13:42:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=QGZ6cVzjYD1blhwp59ff9yPA
-	j+yBCEUxvcvUKqMHV24=; b=SeMhmsPlBef8oJZc4zxXQn3r7QrYTU/pwj1MqsQj
-	MCpO2jYD2rSd9WYrN6TGYtXghDRU42bINTwbo1b13k2QBEOGc8Cdig7QN2ATOkUr
-	IYdDwZs2NvahzywT03bqqFlqjFNiqD9GF6Rj1E/8NgLhJ5D38lj8ySkLURrtAnd2
-	iKorZJ+2KQZsUhMPPjh6GohtqY+4wOrS3uBViiSBUUcGgNwcNeknnq3zZb4vOscO
-	tLqRKrua88cCmmLd6lJSV2ClKTWncap4sEm8Q5jEGUxVtghvjBSh2qRBTXwRQChN
-	WJZLK0c+ZMOkfU4LsiTjWfoF9+udp8DdjmgZEOy4SV5vvQ==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fv5dk090r-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 13:42:07 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-5174a23afcbso9882361cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 06:42:06 -0700 (PDT)
+	Wed, 05 Aug 2026 13:42:19 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-6a17c7c3c6eso6137a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 06:42:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1785937326; x=1786542126; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=QGZ6cVzjYD1blhwp59ff9yPAj+yBCEUxvcvUKqMHV24=;
-        b=NORW0h9SPMPDQ9YwIxHAJHbjlQn3Bwagx/z4vd3JahRi1VNsgM7kyyOh0hbouFK8sA
-         Ta0XAOO9MEgZ2Y1Pl/U9WxVl0HBVI9TGBIALhkEMoLE2VA7/Z55WoGMvfD83UQtc8q8K
-         y1h4qBsAUrEo+4WzwzKsH23E+M5/I/mSecPIDUB+VWIbthNwg1GRmarKPlkBlCmkV+8N
-         EXmZuPANTppN4qKJXEj5mILxAfksF+cxpbVK3brmKErolc6zZebdzsITsRL+J1F7lWqP
-         QuFFiUTOt3iTHQEtxHJ9OoufoeG4fKlsX4UwhSZcO0pvyRJZ1knXZCwW0ZbqCA3FYHH+
-         f5iA==
+        d=google.com; s=20251104; t=1785937336; x=1786542136; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pHYWzmu6ZuPAY5Z9zsBk2vZkLf/NrY20M76Txnt8CKc=;
+        b=K6p2UrE05BrP+4BmSfW0wSp2E1fgaLFChz+/7xSKozaqApVTGbmsYoM1jvYUS501oJ
+         Yw9jL82mfM0VOBveLNfCHzxGIi8jCqSUicTIQUO0s/+ao/quxnGQqQeaI7iC/GdA1PdB
+         InaYtMq2OOn2ARSqZcDQdfcSUDN60jIPNnzhLYmNjtUcBIPogvwXawI+g5Xz81hxbf9k
+         BXsLYQaGwbvpshajSL1BRpf27JN1bXqmBVm1q4p/ksXiIAj139Oto8L84BpyvojVttUm
+         vtSN7kIaR/KSdVJgBWIOJWAnbNQKjYdPDaZeORx0mvhXqARI71z2NZ/7OOUGlH/sA4Zv
+         UkeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785937326; x=1786542126;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=QGZ6cVzjYD1blhwp59ff9yPAj+yBCEUxvcvUKqMHV24=;
-        b=mXB8XZmXbjq2mI2wrZ1pUkZ+6EnFg0wJC0hYYyGpuYjxHftc/2aRs72xd9CNVgtV7E
-         rxnjKNVmaWp84pZ0ma4TYNpJefs8Ad+DhBjdEoJTSL6mD3CwzylIAAMMA9s+6GvffzuK
-         2WLJ0E+mF8M4vcLVCa+Bu1nerfUDZzBhRVu1EJpeoz5CE6u9OJTaWIdF89gl63j7JkHo
-         MSVpGWamUDb5v3723xKkFYVxkEWyAQJoZzPJxopT8v3AVaqs6ShSYLKO/SqJCpYVTG8p
-         +n6JqCM7NoLxFwxQBf7V1WrMXNH8/AthasyiHhBbQuWiSVLcj4OkeNyobVPaM/n6CMzX
-         weAw==
-X-Forwarded-Encrypted: i=1; AHgh+RoC5kZhSTvNQX6CKdV5SttcGLVU3V9nouBZp5rO4B3zKHiheFkxlJpmYKp1tamIl/VaA9xdjFi7E8NFEMtaepiO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzL5rFdNbBKAZYz02+v0kYoYKwCQ8GqzoH4qDEG7MzAZguUZn1
-	1qeO4PwdBl9RWUVAQnD0e8kq/FQOahziMztAP7Dbs7TCFaeTYt2URvVBKu91xyt9z5F03X1gKdU
-	1sFP2bG3CJ97USb0t2YY7wlFjCBwqxddB2co+9MAdPm/DxqUeL4N8u1LkvO5tNxvWJ5h3wnLt2v
-	zBmA==
-X-Gm-Gg: AR+sD12P3TkOj6x0pPUODQIgaakKY4S91uc4X1h6oKZStHtNiWYx6n53Wsx/ww2GvgU
-	vRZGgtr3l9Zsb8sjqiI7ngkOxChiW29M8gi5G8JWtgC2oid6ThTWU1XivcUfnCmIqr8rNJ1cSkS
-	fzZgHAQPeFc2CfH1e9frIz229Wv5JrR6DPic55yFezJSVRSDz/P8yC+g1rlbioWmCUG9eR2B+03
-	CFjXKaurTgBZVeDueBZlvX2QXH0P+AGqsAey6oJxmQlqK/i/0+YeusccK4SrOmaVhMp1gW9pFxM
-	qVq/YT2eTBWpghOdOnV+IpzirPmbqOly9JXPX82O/BF21tZylJwABDEJ/wrzEZYWCE5UwqmGuKq
-	54pu3xsb9IR2HZA==
-X-Received: by 2002:a05:622a:60a:b0:52c:e0bf:dd79 with SMTP id d75a77b69052e-52ce5f7f999mr67814921cf.16.1785937325405;
-        Wed, 05 Aug 2026 06:42:05 -0700 (PDT)
-X-Received: by 2002:a05:622a:60a:b0:52c:e0bf:dd79 with SMTP id d75a77b69052e-52ce5f7f999mr67813741cf.16.1785937324345;
-        Wed, 05 Aug 2026 06:42:04 -0700 (PDT)
-Received: from oss.qualcomm.com ([86.121.37.248])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c2036422825sm117379166b.43.2026.08.05.06.42.01
+        d=1e100.net; s=20251104; t=1785937336; x=1786542136;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=pHYWzmu6ZuPAY5Z9zsBk2vZkLf/NrY20M76Txnt8CKc=;
+        b=nHmKAgfpqNTj2DBIQesPQMVYiQ4GN9Kr2UyQxbUb9GKz+kX302fFKasw4DdCdkSElc
+         qrD9LB8qUu8ZtT35JEKKK/lLDd16cbbEO5sFRDnThLSGlaFeY5h4i1zswLhYLGEGPJKx
+         PK2ZBR2aqPi2DDMfvXABEqlYQaRaz8c1DosUi9ToECVCcnc9vtehvOmBIy7mDTCa+dmF
+         aoASc1tS+5tTismh3U1yjsukWVOmLC1hjSvdR/nf5t5uzmebbNhe6JUbh7cjY0zj3TFE
+         2iURM/1xsHVTv38Sl5bstfZ/U0L02h4x+h3ohq0I/1roSzz2M7vV5CexTuQkGXb2jROx
+         KKsw==
+X-Gm-Message-State: AOJu0YyHJ2KPM5X2rOPzJO+vj3NOm94+mobCPHRceM5/21tkqpMghHCd
+	jAy/Qz3cOE6aQyXDIy483RdudgFULyIURypU48ph7gt2sgNaqM0GDBXF2Bj2K4e2phzyh2ZudL9
+	7u7i0rA==
+X-Gm-Gg: AR+sD13XePpL1lkxCtOJF52e6/ZQ6ip09oMUW6JRuulTMnLyQ7imyffwJy3bVhJN3lJ
+	6fJxKJUghHZEMJxH1U12/8jR+YISLPQEANqI4ozxqzItQbIZ1LG9Fcjxfa+RWn1MiyVDUCuYisF
+	ozaTFr9zul1+bxuGToWnqpLovTM5zOaLN7NMkJEZhRpaJX0mv3qMLvXS4Pc7FfJFPpssmczook8
+	6lafAQuLhCgbn54EllqwmwrLNtd/M6i1+f1v5GrukniyQB+nRUQl0ZhOX2UgFcyeHX4ON+u9MS+
+	mreQLouS7oeaTWRazP36egAXpDDnb9Zu/o2azfBFa/peW1WDfumbbpeOvLm6wMeKQEBx1y5xTba
+	7M6mnvlc8UjNMXYJXYTPrKrsEWkerd5IIoZIm5U5FTUuj+aIq431zVOOuxnGHKxwRd26N6DM2Cb
+	umhJVxSgFqdQzQtsv5Aj569ypo59fYt40jfv2IpnZCrScUZ+CFohxSJ7VGh7tbNekGA9LwPTWWC
+	ufOc/cmH+H59dQFUtFTNjEhO/yQqA==
+X-Received: by 2002:aa7:dbc1:0:b0:69f:d9cd:ec41 with SMTP id 4fb4d7f45d1cf-6a14fc57373mr57486a12.6.1785937335722;
+        Wed, 05 Aug 2026 06:42:15 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c20560bab69sm8654166b.37.2026.08.05.06.42.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 06:42:03 -0700 (PDT)
-Date: Wed, 5 Aug 2026 16:42:00 +0300
-From: Abel Vesa <abel.vesa@oss.qualcomm.com>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Luca Weiss <luca.weiss@fairphone.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v9 03/10] arm64: dts: qcom: milos: Add power-domains for
- camcc and videocc
-Message-ID: <dftvxtkdz6bnsnu3urcargv3saf3vi7iyaab4uaso4g662ddes@qi3ufx6wweya>
-References: <20260804-eliza-mm-cc-v9-v9-0-39067760dc3c@oss.qualcomm.com>
- <20260804-eliza-mm-cc-v9-v9-3-39067760dc3c@oss.qualcomm.com>
+        Wed, 05 Aug 2026 06:42:14 -0700 (PDT)
+Date: Wed, 5 Aug 2026 13:42:10 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	vdonnefort@google.com, keirf@google.com
+Subject: Re: [PATCH v7 02/24] KVM: arm64: Donate MMIO to the hypervisor
+Message-ID: <anM9sk_gXTt5F1Ie@google.com>
+References: <20260715115906.2664882-1-smostafa@google.com>
+ <20260715115906.2664882-3-smostafa@google.com>
+ <anMwxy9gEEt_Wu6M@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260804-eliza-mm-cc-v9-v9-3-39067760dc3c@oss.qualcomm.com>
-X-Proofpoint-ORIG-GUID: AZyaPJTQEINPnkO75D4dMHjP5LdMhqb0
-X-Authority-Analysis: v=2.4 cv=Or9/DS/t c=1 sm=1 tr=0 ts=6a733daf cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=Afnz6uBANMlDQL2PJxecKw==:17
- a=kj9zAlcOel0A:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=vyOKmKYE018VkNFVGwIA:9 a=CjuIK1q_8ugA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA1MDExMSBTYWx0ZWRfX/GHPd5c7j2MB
- T++potJ6sc8haNzbJBTS36FVkkUybTPpo4cOdQ0QYcS1eCxzUSRScWlZU9kGCVjSuOUx/DnomtB
- I8P5SouhE7dyBqjXW/VxXHpVLmef+9DcQwP/km6TcppnJusosWD7Jwp6scs7J3/RYmznZ4SyfjI
- uLLdklLSNhUBtBFAOpYuQ+mLYr4/Xp2xG+pkKuMCWyNsABm82atetIQRNrHhu+ZUCQJO2ojLmNB
- VE9zI1UMQKKMTRkLko4xlqbI85zSkFFXuA14xl+tOJkRdvsGba9zcSdRW0uMpQXkZX8eBTQGZ0l
- YUnJ9YfA008V0NZe/Pdj8ijJzb72fqvPMiFM8GRpoQLZJsvglR02/gsUw/hs1Tlv5y8KhcvG35I
- YrEMFR0+W31gm7sfRYLI/vtPRHFz0fsK/Wy8OLXblkVIfGkRkwCM4v2243IklMdAEwX3kwnp15d
- U0yKBKU8LiDC0JDMmAw==
-X-Proofpoint-GUID: AZyaPJTQEINPnkO75D4dMHjP5LdMhqb0
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODA1MDExMSBTYWx0ZWRfX9tpcjHNikMQT
- 6ddnLUH09TP4Iuz6cXnWOTkn6Kq8F+kDiKQapaTY45F27Nm7CDNzwdHJvpfEGTKgQiTzHnlKiUc
- txyH7HkiT4mv/hCFZci32Kp8hFrUbE4=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-05_04,2026-08-04_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 priorityscore=1501 spamscore=0 bulkscore=0
- clxscore=1015 malwarescore=0 lowpriorityscore=0 adultscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608050111
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <anMwxy9gEEt_Wu6M@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_064207_820278_EA8DBAA3 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20260805_064218_278146_A475BBAA 
+X-CRM114-Status: GOOD (  40.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,16 +108,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-08-04 23:20:16, Taniya Das wrote:
-> The Milos camera and video clock controllers operate on the CX and MX
-> power rails, and require these power domains along with their
-> associated performance state votes to be specified for accessing the
-> clock controller and its GDSC. Add the 'power-domains' and
-> 'required-opps' properties to the camcc and videocc nodes.
+On Wed, Aug 05, 2026 at 12:47:03PM +0000, Sebastian Ene wrote:
+> On Wed, Jul 15, 2026 at 11:58:43AM +0000, Mostafa Saleh wrote:
+> > Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
+> > drivers can protect and access the MMIO of IOMMUs.
+> > 
+> > As donating MMIO is very rare, and we don’t need to encode the full
+> > state, it’s reasonable to have a separate function to do this.
+> > It will init the host s2 page table with an invalid leaf with the owner ID
+> > to prevent the host from mapping the page on faults.
+> > 
+> > Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
+> > stage-2 PTEs, as this can be triggered from recycle logic under memory
+> > pressure. There is no code relying on this, as all ownership changes is
+> > done via kvm_pgtable_stage2_set_owner()
+> > 
+> > For the error path in IOMMU drivers, add a function to donate MMIO
+> > back from hyp to host. However, that leaks the hypervisor virtual
+> > address range which should be acceptable as this is quite rare and
+> > it matches the behaviour of fix_map/block.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  7 ++
+> >  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 91 ++++++++++++++++++-
+> >  arch/arm64/kvm/hyp/pgtable.c                  | 11 +--
+> >  3 files changed, 102 insertions(+), 7 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > index 29935c7da1de..51b0eb3844a9 100644
+> > --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > @@ -36,6 +36,13 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
+> >  int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
+> >  int __pkvm_host_unshare_hyp(u64 pfn);
+> >  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
+> > +/*
+> > + * Donate MMIO range to the hypervisor, it will be mapped in the hypervisor's
+> > + * private range and unmapped from the host stage-2.
+> > + */
+> > +int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size, unsigned long *haddr);
+> > +/* Remaps MMIO range in the host, typically used in error path. */
+> > +int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size);
+> >  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+> >  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+> >  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > index 4e329e39a695..d803b3dd4cb4 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > @@ -378,7 +378,11 @@ static int host_stage2_unmap_dev_all(void)
+> >  	u64 addr = 0;
+> >  	int i, ret;
+> >  
+> > -	/* Unmap all non-memory regions to recycle the pages */
+> > +	/*
+> > +	 * Unmap all non-memory regions to recycle the pages.
+> > +	 * That relies on kvm_pgtable_stage2_unmap() not clearing
+> > +	 * counted PTEs which include hypervisor MMIO.
+> > +	 */
+> >  	for (i = 0; i < hyp_memblock_nr; i++, addr = reg->base + reg->size) {
+> >  		reg = &hyp_memory[i];
+> >  		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr);
+> > @@ -1119,6 +1123,91 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+> >  	return ret;
+> >  }
+> >  
+> > +int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size, unsigned long *haddr)
+> > +{
+> > +	kvm_pte_t pte;
+> > +	u64 offset;
+> > +	int ret;
+> > +
+> > +	/* Only before de-privilege. */
+> > +	if (static_branch_unlikely(&kvm_protected_mode_initialized))
+> > +		return -EPERM;
+> > +
+> > +	if (!PAGE_ALIGNED(addr | size) ||
+> > +	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
+> > +		return -EINVAL;
+> > +
+> > +	ret = __pkvm_create_private_mapping(addr, size, PAGE_HYP_DEVICE, haddr);
 > 
-> Fixes: d9d59d105f98 ("arm64: dts: qcom: Add initial Milos dtsi")
-> Reviewed-by: Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> > +	if (ret)
+> > +		return ret;
+> > +
+> > +	host_lock_component();
+> > +	for (offset = 0; offset < size; offset += PAGE_SIZE) {
+> > +		if (addr_is_memory(addr + offset)) {
+> > +			ret = -EINVAL;
+> > +			goto unlock;
+> 
+> If this fails we are left with the mapping inside the hyp because the unlock
+> doesn't destroy the private mapping. Is this intended ?
+> 
 
-Reviewed-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+Yes, there is no way to remove a private mapping at the moment, all
+the callers to __pkvm_create_private_mapping() will leak it on failure.
+
+> > +		}
+> > +		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
+> > +		if (ret)
+> > +			goto unlock;
+> > +		if (pte && !kvm_pte_valid(pte)) {
+> > +			ret = -EPERM;
+> > +			goto unlock;
+> > +		}
+> > +	}
+> > +	/*
+> > +	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
+> > +	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
+> > +	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
+> > +	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
+> > +	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
+> > +	 */
+> > +	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
+> > +			      addr, size, &host_s2_pool,
+> > +			      KVM_HOST_INVALID_PTE_TYPE_DONATION,
+> > +			      FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_HYP));
+> > +unlock:
+> > +	host_unlock_component();
+> > +	return ret;
+> > +}
+> > +
+> > +int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size)
+> 
+> This function seems to only update the host stage-2 annotation but it
+> doesn't destroy the hyp mapping.
+
+Yes, as mentioned above there is no way to destroy it, and this was
+not desgined for frequent use. Typicaly, __pkvm_host_donate_hyp_mmio()
+is called at boot per area/device. And __pkvm_hyp_donate_host_mmio()
+is only used for failures.
+
+> 
+> I was looking to make use of this patch in an upcoming posting for the
+> v2 ITS hardening but in my case I don't need the private VA range
+> creation.
+
+I believe if you need to map MMIO, private range is the right way to
+do it as the linear map was mainly designed around system memory.
+
+Thanks,
+Mostafa
+
 
