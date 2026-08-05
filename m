@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EDBC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 03:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD74C55182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 03:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PBiIVDJP/I4xoZ8eeeuxXne41kApHBPJ1tiSt0js/C0=; b=O3fkIb0bV/2KnJIijvTeTjyJ5g
-	DI+y2S8csK71TzvSyCgujc5oUCwOfll3uQz5WISzjyu4wz6PoonPfTt1cJTWzMv0SHnA9/51grnip
-	PkXa0og+NyF/VZer9pEcr9k+z5dntN8MA7bGnewCZWEqXJKa8yUkzqz77A/bIZrlyjfMdqIAmfowH
-	NnWseCw70vOqYBqArsnEDOGSwNOtv+ROqosgfVpLt6GVU+qaz2KFaR3yqxaLPrinee2nclLMtGLAK
-	5ks3xyVA7GwfdXFr+MDCUlywqZsL/0XKfaeT/ixjH4pcUA4YaZCW/wranVuW6iYE2y7kEO3ciww9d
-	a8wzhBCw==;
+	bh=B3lSrMpocDV/Hvep88z36Dgthq0eziOupD1/vUR+w/A=; b=LoebcCzb9BGADtBAMSkK2m+Aam
+	i3xxa3u+Re0Uz5vsEwB7wzNbx4MxMfdA6C3kgpqtDPP7YCoWKjtYFERflIv2Id6znCgVBTkw0P1jl
+	J3muw7vMCdybvy2+OxCJTkniQd8kIdr6KzN9LZEQwW8It56VB5PBC1qWdEmC66I1utksM88VIC4Nv
+	9cwQXphjo7kGIK5JvTKPZ3LqNQxf/+OEBCExde3lhmkSZj5nK4r+MdYyMMnnmqWZeBs9jHkGUUgFF
+	C8MtXsyRfDlj+1/8GMbRcisHFMML2oQoWi2CttKlIyS+8h+zkhO2va26mHcZkwmycIOA/ey+5WPXn
+	6pexYBzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrSW3-00000003BQW-3tZX;
-	Wed, 05 Aug 2026 03:42:03 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wrSXj-00000003BWd-0v9z;
+	Wed, 05 Aug 2026 03:43:47 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrSW0-00000003BQ3-3ynY
+	id 1wrSXg-00000003BWJ-2oeV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 03:42:03 +0000
+	Wed, 05 Aug 2026 03:43:46 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=PBiIVDJP/I4xoZ8eeeuxXne41kApHBPJ1tiSt0js/C0=;
-	b=MliSnTGqFXXG2EciqyXtjVH2mxQYLv66ZKoJetM/Vi7AGn3PDx7OirI9ZO/9f0B6XFXdHglK/
-	9n62fQ4Hv/clD9LrAUoLTk1pG/KxoeB4H4kFn12A8wbWJirEJDFW+dS9cN58d0wKssTcoG8KuXj
-	H4zrhbcf1cyV90bSHpWZem8=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4hFGF160kfzmVWY;
-	Wed,  5 Aug 2026 11:32:21 +0800 (CST)
+	bh=B3lSrMpocDV/Hvep88z36Dgthq0eziOupD1/vUR+w/A=;
+	b=m/eLKphe0U0vdf134ra5FOXe/Jdx1SdB1VrNfeMXmz90/Cr9j09gSN/YbpqKLP3HFt1XUe99f
+	pbkE9eQb3ekisjALdFrXvyV6mRMMdOeegaLcL4JGFDKbG1CoScMBS4Qmt5wbplmmD0QEK6zlySO
+	gVDyzmzcDl9p6kDJ/wTQ8UI=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4hFGGw6rGDzLlTg;
+	Wed,  5 Aug 2026 11:34:00 +0800 (CST)
 Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 399434057C;
-	Wed,  5 Aug 2026 11:41:53 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 2BCA840572;
+	Wed,  5 Aug 2026 11:43:32 +0800 (CST)
 Received: from [10.67.120.103] (10.67.120.103) by
  kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Wed, 5 Aug 2026 11:41:52 +0800
-Message-ID: <3808f469-5403-4f2e-85f0-8c6ca13068bd@huawei.com>
-Date: Wed, 5 Aug 2026 11:41:51 +0800
+ 15.2.1544.36; Wed, 5 Aug 2026 11:43:31 +0800
+Message-ID: <fe06c78d-1422-4ac2-86a8-6d78f37e866b@huawei.com>
+Date: Wed, 5 Aug 2026 11:43:30 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v4 3/6] KVM: arm64: Add auto DBM support for hardware
@@ -77,8 +77,8 @@ X-Originating-IP: [10.67.120.103]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_204201_607574_BCC9E268 
-X-CRM114-Status: GOOD (  47.20  )
+X-CRM114-CacheID: sfid-20260804_204345_046226_17C8CB20 
+X-CRM114-Status: GOOD (  45.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -320,22 +320,7 @@ On 8/4/2026 7:10 PM, Leonardo Bras wrote:
 > Only on lazy splitting, right?
 > 
 > Or maybe we get the DBM bit on during eager splitting...
-
-Hi, Leo
-
-No, it works for both. Whether eager or lazy split, wrprotect always 
-runs before split, so the block DBM is cleared first.
-
-For eager split: wrprotect clears W (W=1->W=0) and strips DBM from the 
-block. Then the block is split into level-3 pages, but since W=0 and DBM 
-depends on W, DBM stays 0. DBM is only set back to 1 during the first 
-write fault (relax_perms: W=0->W=1, which also sets DBM=1).
-
-I think this is safe for both modes. But if you think we should only do 
-this for lazy split, let me know.
-
-Thanks!
-Tian>
+> 
 >>      pte &= ~KVM_PTE_LEAF_ATTR_HI_S2_DBM;  // strip DBM from blocks
 >> ```
 >>
@@ -370,5 +355,9 @@ Tian>
 > Thanks!
 > Leo
 > 
+Right, totally agree.
+
+Thanks!
+Tian
 
 
