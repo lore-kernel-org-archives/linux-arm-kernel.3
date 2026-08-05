@@ -4,114 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B83C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3448C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sgu7nAbq8Yx5koaOMKJWboxHdobCAGSow6z6pMfKPGU=; b=Am7i9R8ZGzV+800igQFVRyj6hz
-	PWbS07AGatmPUy2PRN9+aB6HJpNqXQq+NHXhNDwn6jswSIfTgMUUgdkHb8BO7ftQ8AP27H8tBoabY
-	bBVxST02tfyeAJhqR1LSkSFMz4oGE4Ju/t1h6pZkUuDq6ruXeLNTXGo4llpLBLmsAgFwtWOGivLM7
-	70UPu06xsZQD/55LvJf6DTkscy5GHjvvdMDnnf3QEPRQYJmTiP8GI12/blvSYrgR9CE+BuVkw9DVh
-	n/FhUTBoD73I/6VtVO04UMNuSIllN2NmFBQ20ixxEWHYbtSvv7q3G/iUD5DEe5+o1exm3J8W+1505
-	ABX7R0vA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=HEb5iQOS1MLMJKU89sKWr/FPc1/kneu/2knRUa94cyY=; b=0h0qie7XUjPKdb
+	4H3PE6DU/odIQFusqnugqSDXThRllfvZNe7ZXOasL248umJWdxyB8nGnA6ZOQoKp4Yb6RkcpNo6yf
+	K85xS37aOn9ZX+TbxEWFeC0mX2DAScfoEjBa/weGC5xu8m3J6zxFy263jaVKLP228U+w1yn0dqyc2
+	wFCa9XVXY9DPfda3HFuTUgqZ72Yh5t01GzphMR0YueL1cpP5OaSzDRtywj1htdripGjGjCxYkrp+D
+	lz5tvvMvc2KTqTOF9vDYN8CcCJKx4fdkaKqiI1P/LjwEvPgXIiOISP35/M7E6UNJWhnrqF7kQYu2j
+	v2VPXFgcz2TaZEL042bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVI9-00000003KZ9-430L;
-	Wed, 05 Aug 2026 06:39:54 +0000
-Received: from flow-a7-smtp.messagingengine.com ([103.168.172.142])
+	id 1wrVNb-00000003LCh-3kjD;
+	Wed, 05 Aug 2026 06:45:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVI6-00000003KVM-1gqK;
-	Wed, 05 Aug 2026 06:39:51 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailflow.phl.internal (Postfix) with ESMTP id 94FD713802B4;
-	Wed,  5 Aug 2026 02:39:49 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Wed, 05 Aug 2026 02:39:49 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gahingwoo.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1785911989; x=
-	1785915589; bh=sgu7nAbq8Yx5koaOMKJWboxHdobCAGSow6z6pMfKPGU=; b=n
-	nVc6o4SYwwZTj6Vk+l+xfiUe9OeptoP/QtL8JNdxvIZkQ5KoFuw/eKMh2fyqzcDE
-	srF2dOzJA4hg8sYyLN77b6LUGSp9oZbiCbjb3mjOvNDB4vybbGWb4RQnlCcwUD81
-	KLcV16KfnnuyIMEqjJOxaLA2kiGhp2E6br3WjtGDA37ZLlIKdmNWsOn1dLLFx62r
-	fxVSYsvoPPtj6KfeToJyrQrcJARKjBBY+u7ta5xp/j8nMCjc8YMZrWHQ0faUbSNe
-	1JcFxOSvTWcQg1FqWWejRN4lEgbWypJas0d2PBDIF83+eEwFzGzSEggEnhM9DGEg
-	RjfUnKqG6yv96dZzVO8PA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1785911989; x=1785915589; bh=s
-	gu7nAbq8Yx5koaOMKJWboxHdobCAGSow6z6pMfKPGU=; b=i+xsd7rUchE64hOng
-	1d/N+OTO+yPwLPy8M2pVsjrUE7P7Ca7sI7ZSp99Zl+J6tyfxSCt8UHNG6O+9AW1b
-	b1/GngK/9RQDu98v3IHAQJs7bvDX10Fa+8+uKGKy41+fAaEYfQZC63Zrj+DMCw3i
-	MFeXtSRD/U5vSJf9+I13tZxbhBU0tJQ9QxloDVpnSy8854Kq3ZA5vgPdG+/6b73A
-	ljVVSIc7Ke9eYMOgeTPNLPaX8m43iK/bp4GxnRd0QjbvdueWf0m3qFqeC29zqlEY
-	y7zHL3/J+1PeOammtx73rs4m7VCeV9fm5vilblstSyOpWQbiMKqmWGK063qDEU5A
-	YzwAQ==
-X-ME-Sender: <xms:tdpyalwDTzDvtCYRVykQjMJ1hDVJDmA2ZCksfzaaW1RDJQutMTx-jA>
-    <xme:tdpyapNdoz1alAxVduo86h8xu4pHuwNWAh_XOD691wqFEA273TiAPDvsFrHSXNc4a
-    8hgki0T44RZ-aX-OfshzrHjqJEuacbz5eNJvV_b_MMyTbNmVrJLOoBo>
-X-ME-Received: <xmr:tdpyan0p4grVWgU1xRLTkuQHAmc60Py5Qu216I3oqlXKoF5qKriQjWindTnO1cZk2LBM74r4gQ>
-X-ME-Proxy-Cause: dmFkZTEMD1OFu076QwS9SFwNgP6f5aaFBOwJl5YptK3m8ebGw9lTTouZHPU4h9ndohppuA
-    MqhtPKehSzM5cGKuNBr7L6AJ+uKJutNiohMQhyJKCTICyfajJ/xSmO114JbBqjULjhSC0i
-    Xlbxa+pOAxXg2slJctiMdK5ps5AbzNH+rDDT9fXXq0g54RoxSPklkyLc3RP+86Tl3mTPLD
-    /CWbaQf672RUMg9LfQxwI5O+ggniqgBk/wewxNq7ajt7vQQvywjAFU9vcqWNy4/76iwxXo
-    1STNvatirfOQsprQ3D+aYGRSjMJWxbKmD4Sm0dtan9ggAh4pCQ0vJVqSCJ6plnee8sAotn
-    JIPDgs2IkNgZ0ZOs8jBCMoA7smDBf+rP2Oam7L0IFLsMWxzF3Vns/F57rEIAROCMT1PxWC
-    HK0Mmy3KwiK6zDt7qxZMdN6LnjBHZoxeppGyMiwjLMfq1d9+StUlw9Bvn2R8KHgdUHcro0
-    awb5zDKAi0vm+cISnCiCHH7VQahSSVdauGeTmhWTAb3+YzRdQgGLzOSt4UFiiOv6eGcBSr
-    8T3XM2+Z6rZAjiWRkmYqbqkz8Arz5hf1p5eQUIvKWE8SP1VflAt+mbgF9ZPwqiCWazwA6F
-    p+6ZCsWTn7O5JhZZMWRbC/SlfTgk+ULmN1v0VrzK9aL+g0e2sQBEDy0k7nmg
-X-ME-Proxy: <xmx:tdpyahEJqupNNvQselDLjMiNe4ife2dY4smmWJGrfSuoBTMjD-B4Ew>
-    <xmx:tdpyauh0_5Zk-9YPQmb-2cOFzv_SPtktRxa2qctp7UKh4t6t_XzixA>
-    <xmx:tdpyaqdI9sKdpdCWYE8Xyf27G2skeFkgcViGENtLHw75vDxhStuoEg>
-    <xmx:tdpyakwfCGTTSvlTy9GJHYYhkCcbkO9mVX_cvy1mxJwLi3JG89mApQ>
-    <xmx:tdpyajAquqjKv3hUQGr-7NEswes9p9f6VEiDaWcz6yPdJOqaZmtR1til>
-Feedback-ID: i7a5e4b5f:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 5 Aug 2026 02:39:43 -0400 (EDT)
-From: Jiaxing Hu <gahing@gahingwoo.com>
-To: tomeu@tomeuvizoso.net,
-	heiko@sntech.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	ulfh@kernel.org,
-	p.zabel@pengutronix.de,
-	ogabbay@kernel.org,
-	zhangqing@rock-chips.com
-Cc: royalnet026@gmail.com,
-	alchark@flipper.net,
-	chaoyi.chen@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jiaxing Hu <gahing@gahingwoo.com>
-Subject: [RFC PATCH v5 v5 8/8] arm64: dts: rockchip: rk3576-rock-4d: enable NPU
-Date: Wed,  5 Aug 2026 18:38:26 +1200
-Message-ID: <20260805063826.95682-9-gahing@gahingwoo.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260805063826.95682-1-gahing@gahingwoo.com>
-References: <20260805063826.95682-1-gahing@gahingwoo.com>
+	id 1wrVNb-00000003LC4-0xQz
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Aug 2026 06:45:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 55821600AE;
+	Wed,  5 Aug 2026 06:45:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 909F11F000E9;
+	Wed,  5 Aug 2026 06:45:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785912330;
+	bh=HEb5iQOS1MLMJKU89sKWr/FPc1/kneu/2knRUa94cyY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=I/OkyZJnBgPfKGzVMFEAs6kZoqY1IYbczztDW5790OWxPQJyqgLloV9nTWctHVUap
+	 FRfKzbrU0DC3oNgl/bJHHQNN0+IVIKX1vZawl4jiWPI/Vmws5cqRe8nz0byDdBpkR4
+	 plalnBfrbqrOucs/3w+6AjyBneZQLcmCwpxr9kwBdjjC3pjXZd2jphLKumvEN04IYA
+	 pyaf7G5TEDQsKivGe1yaoOTHsFyLzGZNaGouCtIyo4YHsBzJTjsAsZm9rdYWv7eQOH
+	 7HyeM/5VMwbjq6xHlKzkG+3P4KI8GPSK1Rmsj+RSzoahiM/71V3Z+Csd5cIsujMKe7
+	 FyLl5/ip8/p+Q==
+Message-ID: <7df18d5e-886e-43d1-b53d-52a1d08aba49@kernel.org>
+Date: Wed, 5 Aug 2026 08:45:22 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_233950_579509_1E93174B 
-X-CRM114-Status: GOOD (  10.51  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/20] arm64: percpu: Add infrastructure for
+ preemptible this_cpu_*() ops
+To: Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
+References: <20260804170503.3513916-1-mark.rutland@arm.com>
+ <20260804170503.3513916-14-mark.rutland@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260804170503.3513916-14-mark.rutland@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,49 +111,49 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable rknn_core_0 and its IOMMU on the Radxa ROCK 4D and supply the
-core from vdd_npu_s0.
+> Atop v7.2-rc4, with GCC 15.2.0 and defconfig, this is compiled as:
+> 
+> | <outline_this_cpu_add_u64>:
+> |        paciasp
+> |        stp     x29, x30, [sp, #-16]!
+> |        mrs     x2, sp_el0
+> |        mov     x29, sp
+> |        ldr     w3, [x2, #8]
+> |        add     w3, w3, #0x1
+> |        str     w3, [x2, #8]
+> |        mrs     x3, tpidr_el1
+> |        add     x0, x0, x3
+> | 1:     ldxr    x5, [x0]
+> |        add     x5, x5, x1
+> |        stxr    w4, x5, [x0]
+> |        cbnz    w4, 1b
+> |        ldr     x0, [x2, #8]
+> |        sub     x0, x0, #0x1
+> |        str     w0, [x2, #8]
+> |        cbz     x0, 2f
+> |        ldr     x0, [x2, #8]
+> |        cbnz    x0, 3f
+> | 2:     bl      preempt_schedule_notrace
+> | 3:     ldp     x29, x30, [sp], #16
+> |        autiasp
+> |        ret
 
-The supply is marked always-on because the NPU power domains are what
-gate the block here, and dropping the rail underneath them takes an
-async SError on the next power-on rather than a clean retry. Only
-rknn_core_0 is enabled: the driver binds one core per node and the
-second core is left to whoever can test it.
+FWIW, in a recent discussion on some prototype hacking [1] we saw some overhead
+in micro-benchmarks that would really hammer on a path that would now do a
+preempt_disable()+preempt_enable().
 
-Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
----
- arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Switching from preempt_disable() to preempt_enable_no_resched() made it turn to
+noise. Of course, that has other undesirable impacts, and I am not sure if we
+are in the territory of code layout changes affecting the numbers.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-index 272af1012..965e0906b 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-@@ -442,6 +442,7 @@ regulator-state-mem {
- 			};
- 
- 			vdd_npu_s0: dcdc-reg2 {
-+				regulator-always-on;
- 				regulator-boot-on;
- 				regulator-enable-ramp-delay = <400>;
- 				regulator-min-microvolt = <550000>;
-@@ -869,3 +870,12 @@ vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
- 		remote-endpoint = <&hdmi_in_vp0>;
- 	};
- };
-+
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_0 {
-+	status = "okay";
-+};
+Just mentioning it as some data point.
+
 -- 
-2.43.0
+Cheers,
 
+David
 
