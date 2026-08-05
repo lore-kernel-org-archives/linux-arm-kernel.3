@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B981AC561E6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 05:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93DDDC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 05:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xe8rDXjXZwjUoH4sZFgUHq56nL63HObRiCFz1CSPj84=; b=HGTuQXE4XJCKABGLNmDJB6n01E
-	lPCJ+j8bYbOCXy2/fY4P7Z1egepLdAJk4Icrf9QyjLgwo6aejA9HHpCC+jDHsqtT+XL5uZIY9pRDa
-	xKgypth4d89v/aa9Dw6JZalB6avPF5Sq3Ws5+c7PnYZbJU8mqz+3nJ3lSKwavGKwYtMjllwoPezwx
-	vy4jvYQhZ7S2MCSK3TbLySh7NuY+C5NowJ8Cdu/u2JVU89Ws1uZTTpCWKCyXK5v6w7tLRzH2dgbKP
-	ET3ykGThfUlX+NjcJE8FZmXqyj+M5rgPWJCRthJReN/FqzhJTbNemFtISKO2Z0DsCRnlx3Q10x6p8
-	RAG+aZXQ==;
+	bh=v7zCWK++jNfxfhEt8Y8jIgML8WXQN15ZQy6uHyDnBnc=; b=RNxkIq6JTLrzoMm21G3EWFdQQw
+	t7Aj/LMj9w9MEgx3tQt9O4uD0QLTjKLB34r+atl6/YLDwrhQkoID1TsruYfGcn3waw2mlHLXt6F82
+	66Q4fcGunsYt9X4UtlQpxW+nSxFxaDdE+zpvuGyJ5Y+KSDPLZsOjb/FKmqgO+M5P0YHF2fWC/Zfr5
+	nv+WCnvy+4FWeQf9/UJWgnzyuBCb+yQsb3EbzUG3e69VglsnAWZIbODnY7k2gRS/TAXNhF/vrl/+p
+	lB7xw+68kJoEXAuUIZzoLhHkuIDvGNbnO5NU4nMZ+QDdyBltNIzy0z+Fs1jz8D+hSMHncSTD5YozF
+	ZHgNJJYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrUdS-00000003H3r-3J3W;
-	Wed, 05 Aug 2026 05:57:50 +0000
-Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
+	id 1wrUdo-00000003H5j-0IeW;
+	Wed, 05 Aug 2026 05:58:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrUdP-00000003H3T-0M0T
+	id 1wrUdn-00000003H5P-16rk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 05:57:49 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 333441197E5;
-	Wed, 05 Aug 2026 07:57:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1785909458;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=xe8rDXjXZwjUoH4sZFgUHq56nL63HObRiCFz1CSPj84=;
-	b=IpoaRo8aKoEzSGKghomcQ8x1jio62Q5Ddmnzov68nIfC/VbuvRjyHdnH1NP55juZcbQxx4
-	uypSkNi+8KddJlw5NqCaLYh/VsAx3bS8qw5w/xqYv0ioDKVQKYfoXMrW5C+JA/g2RJHq6K
-	twJUU3GwYHmMygxncYsih6HoNrmUC8nrySL6B119KBAxV6SK2IC9b8WJJptUDQZMfmb3hE
-	DH2YO3PYPNxWR0gnfFRLq6VE5zNdCs0yIFNq2dXgp4nlkd4sv7P97y0YXV1/VM99vsut1O
-	q+8ou5oNHy2NqMUVwvU1wZSoujbFSoPWtdmxcAcDjEQtEcR2+WF+VohuZZ8foA==
-Message-ID: <fa06093a-50de-7b5b-daf7-bec288451efc@nabladev.com>
-Date: Wed, 5 Aug 2026 07:56:54 +0200
+	Wed, 05 Aug 2026 05:58:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 12245403D2;
+	Wed,  5 Aug 2026 05:58:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 574631F000E9;
+	Wed,  5 Aug 2026 05:58:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785909490;
+	bh=v7zCWK++jNfxfhEt8Y8jIgML8WXQN15ZQy6uHyDnBnc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=WpTfVY+gis0GaZ8Ilij2iuNXtip1yECYuuQNUlYVo6jVc87VSMT30kmNOwPl/ZTao
+	 7oJbpElLKRYZM/H9E3uzPA0m2dDs7qxBrWfUSWeNQgVusyFJAB0zhgsb3CndB3eLBl
+	 oVx+8kJVKo/dvCnEjFd77EC7hbxP5rQoI682riTb93MQ9TfiRSWCb3g5JOckn0oZli
+	 58e+xTR7r2M3llPSRy5MrzI9rSBdgu2K2JYrZI3FiSOydblbfVLAtbSKgrhbcozdEM
+	 SIQIBRN5owC9lJ1/5UdzSc5P9So3/Y8YL+DvqEaETnFE51wJndUFjamNuiFbFR2lzb
+	 lLGJvpl87Db5A==
+Message-ID: <595fe323-59d3-4f4a-92a3-ac5d67b7461b@kernel.org>
+Date: Wed, 5 Aug 2026 07:58:02 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.2.0
-Subject: Re: [PATCH v3] driver: fpga: xilinx-selectmap: add csi and rdwr
- support
-Content-Language: en-US
-To: Xu Yilun <yilun.xu@linux.intel.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-fpga@vger.kernel.org, Bartosz Golaszewski <brgl@kernel.org>,
- Linus Walleij <linusw@kernel.org>, Michal Simek <michal.simek@amd.com>,
- Moritz Fischer <mdf@kernel.org>, Tom Rix <trix@redhat.com>,
- Xu Yilun <yilun.xu@intel.com>, linux-gpio@vger.kernel.org
-References: <20260727052218.4079979-1-hs@nabladev.com>
- <am9m0pGSUYKaRRDI@yilunxu-OptiPlex-7050>
-From: Heiko Schocher <hs@nabladev.com>
-In-Reply-To: <am9m0pGSUYKaRRDI@yilunxu-OptiPlex-7050>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/6] mm: constify the pte_offset_map_ro_nolock() return
+ value
+To: Pedro Falcato <pfalcato@suse.de>, "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: David Hildenbrand <david@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, "Liam R. Howlett"
+ <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
+ Michal Hocko <mhocko@suse.com>, "Matthew Wilcox (Oracle)"
+ <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
+ Usama Arif <usama.arif@linux.dev>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Muhammad Usama Anjum <usama.anjum@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
+References: <20260803164400.531199-1-pfalcato@suse.de>
+ <20260803164400.531199-7-pfalcato@suse.de> <anHJ48Glq8EdHatd@lucifer>
+ <anI6BEyTJFzQY-N9@pedro-suse.lan>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <anI6BEyTJFzQY-N9@pedro-suse.lan>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_225747_598665_D3EA9716 
-X-CRM114-Status: GOOD (  39.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,225 +89,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Yilun,
 
-On 02.08.26 17:48, Xu Yilun wrote:
-> On Mon, Jul 27, 2026 at 07:22:10AM +0200, Heiko Schocher wrote:
->> The current driver requests the optional CSI_B and RDWR_B GPIOs but
->> only configures their initial output state and never changes them
->> afterwards. As a result, CSI_B and RDWR_B remain inactive throughout
->> the configuration process.
-> 
-> Then how the existing configuration process work if the control signals
-> are always *INACTIVE*?
 
-The sentence is simply wrong, as this depends on the setting in the DTS.
-I rework this part of the  commit message
-
->> This may work on systems with a single FPGA where these signals do not
->> need to be controlled by software,
-> 
-> Is this always the case today? Then why does the existing driver bother
-> doing the devm_gpiod_get_optional()?
-
-The gpios are never used in mainline:
-
-$ grep -lr csi-gpios arch
-$
-
-I change this sentence to
-
-"""
-This may work on systems with a single FPGA where these signals do not
-need to be controlled by software, or where the signals are configured
-to their active state. But this does not not support systems with
-multiple FPGAs sharing a SelectMAP interface.
-"""
-
-Hope this makes it clearer.
-
->> but it does not support systems
->> with multiple FPGAs sharing a SelectMAP interface.
->>
->> On systems with multiple FPGAs sharing the same SelectMAP data bus,
->> the driver must actively control these signals during configuration.
->>
->> CSI_B (Chip Select, active low) selects the target FPGA. It is asserted
->> before configuration data is transferred and deasserted afterwards so
->> that only the intended device responds to bus transactions.
-> 
-> I still don't understand, only one Chip Select pin defined for each
-> selectmap device, how could it select between multiple FPGAs?
-
-I wrote in the commit message:
-"""
-On systems with multiple FPGAs sharing the same SelectMAP data bus
-"""
-
-So, each instance of the driver has its own CSI_B and RDWR_B signal,
-but they share clock, data pins...
-
-Current driver asserts the CSI_B signal for each instance in probe,
-so if you have N FPGAs, N FPGAs have after probing an active CS signal.
-
-As all FPGAs share the same databus and clock, and when driver starts
-downloading to a specific FPGA the firmware, all FPGAs are active
-and react to the firmware download.
-
-This was not yet a problem as no driver in mainline used the gpios at
-all (or it would work for single FPGAs with active CSI_B and RDWR_B
-signals set)
-
->> RDWR_B (Read/Write, active low) controls the transfer direction on the
->> SelectMAP interface. A low level selects write cycles, while a high
->> level selects read cycles. During FPGA configuration the driver drives
->> RDWR_B low before transferring the bitstream and restores it to its
->> reading (high state) afterwards.
->>
->> Store the optional GPIO descriptors and toggle both signals around the
->> configuration data transfer, allowing multiple FPGAs to safely share a
->> single SelectMAP interface.
->>
->> Tested on an AM625 based board with two Xilinx FPGAs connected to the
->> GPMC bus.
-> 
-> What is GPMC bus, anything to do with "SelectMAP data bus"?
-
-No, I remove this line from the commit message.
-
+Le 04/08/2026 à 21:22, Pedro Falcato a écrit :
+> On Tue, Aug 04, 2026 at 12:22:19PM +0100, Lorenzo Stoakes (ARM) wrote:
 > 
 >>
->> Signed-off-by: Heiko Schocher <hs@nabladev.com>
->> ---
+>>>   			if (!pte) {
+>>>   				mmap_read_unlock(mm);
+>>>   				result = SCAN_NO_PTE_TABLE;
+>>> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+>>> index b91b1a98029c..2cfc6e608ef4 100644
+>>> --- a/mm/pgtable-generic.c
+>>> +++ b/mm/pgtable-generic.c
+>>> @@ -308,8 +308,8 @@ pte_t *__pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp)
+>>>   	return NULL;
+>>>   }
+>>>
+>>> -pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
+>>> -				unsigned long addr, spinlock_t **ptlp)
+>>> +const pte_t *pte_offset_map_ro_nolock(struct mm_struct *mm, pmd_t *pmd,
 >>
->> Changes in v3:
->> - use 0 (deasserted state) and 1 (asserted state) in gpio_set_value()
->>    as commented from Micahl
->> - rewrite commit message as requested from Xu Yilun
->>    - describe what rdwr_b and csi_b do, and why this change is needed
->>      for more than one FPGA.
->> - add comment before asserting the signals, why they are asserted
->>    in this order.
->>
->> Changes in v2:
->> - add comments from Michal
->>    - skip check if gpio descriptor variables csi_b/rdwr_b are valid,
->>      as validate_desc() checks this in gpiod_set_value() call.
->>    - initialize the gpio variables csi_b/rdwr_b immediately with
->>      the return value from devm_gpiod_get_optional(), so we can
->>      drop local gpio variable at all
->>
->>   drivers/fpga/xilinx-selectmap.c | 32 +++++++++++++++++++++++++-------
->>   1 file changed, 25 insertions(+), 7 deletions(-)
->>
->> diff --git a/drivers/fpga/xilinx-selectmap.c b/drivers/fpga/xilinx-selectmap.c
->> index d0cbb5fdfe3a..35078206a3a3 100644
->> --- a/drivers/fpga/xilinx-selectmap.c
->> +++ b/drivers/fpga/xilinx-selectmap.c
->> @@ -19,6 +19,8 @@
->>   struct xilinx_selectmap_conf {
->>   	struct xilinx_fpga_core core;
->>   	void __iomem *base;
->> +	struct gpio_desc *csi_b;
->> +	struct gpio_desc *rdwr_b;
->>   };
->>   
->>   #define to_xilinx_selectmap_conf(obj) \
->> @@ -30,16 +32,30 @@ static int xilinx_selectmap_write(struct xilinx_fpga_core *core,
->>   	struct xilinx_selectmap_conf *conf = to_xilinx_selectmap_conf(core);
->>   	size_t i;
->>   
->> +	/*
->> +	 * Assert CSI_B and select write mode.
->> +	 *
->> +	 * UG570 states in note 4 in Figure "Continuous x8 SelectMAP Data
->> +	 * Loading", RDWR_B should be asserted before CSI_B to avoid
->> +	 * causing an ABORT on the next CCLK.
->> +	 *
->> +	 * To be sure, set first RDWR_B pin before activate CSI_B
->> +	 */
->> +	gpiod_set_value(conf->rdwr_b, 1);
->> +	gpiod_set_value(conf->csi_b, 1);
->> +
->>   	for (i = 0; i < count; ++i)
->>   		writeb(buf[i], conf->base);
->>   
->> +	gpiod_set_raw_value(conf->csi_b, 0);
->> +	gpiod_set_raw_value(conf->rdwr_b, 0);
+>> Can pmd be const too?
 > 
-> I don't see why you do gpiod_set_raw_value() here, they seems change nothing.
-
-Oh, I am sorry, mistake from me, of course it must be gpiod_set_value()
-
-I will change this in v4.
-
+> I was going to say "yes but then pmdp_get() also needs to be constfified" but
+> actually no, it can't:
 > 
->    Function (example)                 line property          physical line
->    gpiod_set_raw_value(desc, 0);      don't care             low
->    ...
->    gpiod_set_value(desc, 1);          active low             low
+> pte_t *__pte_offset_map(pmd_t *pmd, unsigned long addr, pmd_t *pmdvalp) {
+>          if (unlikely(pmd_bad(pmdval))) {
+>                  pmd_clear_bad(pmd);
+>                  goto nomap;
+>          }
+> }
 > 
->> +
->>   	return 0;
->>   }
->>   
->>   static int xilinx_selectmap_probe(struct platform_device *pdev)
->>   {
->>   	struct xilinx_selectmap_conf *conf;
->> -	struct gpio_desc *gpio;
->>   	void __iomem *base;
->>   
->>   	conf = devm_kzalloc(&pdev->dev, sizeof(*conf), GFP_KERNEL);
->> @@ -56,15 +72,17 @@ static int xilinx_selectmap_probe(struct platform_device *pdev)
->>   	conf->base = base;
->>   
->>   	/* CSI_B is active low */
->> -	gpio = devm_gpiod_get_optional(&pdev->dev, "csi", GPIOD_OUT_HIGH);
->> -	if (IS_ERR(gpio))
->> -		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
->> +	conf->csi_b = devm_gpiod_get_optional(&pdev->dev, "csi",
->> +					      GPIOD_OUT_HIGH);
-> 
-> You've changed this from v2, why? Why keep the initial state active?
+> so PTE mapping actually needs to write to the pmdp if the pmd looks bad.
+> Tricky stuff :)
 
-Seems the same typo, as above with gpio_set_raw_value.
+But if pmd is const, can it be bad at all ?
 
-I will change in v4 back and add comment
+Christophe
 
-I have to wait until next week, before I can test the new version.
 
-Many thanks for your time, patience and review.
-
-bye,
-Heiko
-> 
->> +	if (IS_ERR(conf->csi_b))
->> +		return dev_err_probe(&pdev->dev, PTR_ERR(conf->csi_b),
->>   				     "Failed to get CSI_B gpio\n");
->>   
->>   	/* RDWR_B is active low */
->> -	gpio = devm_gpiod_get_optional(&pdev->dev, "rdwr", GPIOD_OUT_HIGH);
->> -	if (IS_ERR(gpio))
->> -		return dev_err_probe(&pdev->dev, PTR_ERR(gpio),
->> +	conf->rdwr_b = devm_gpiod_get_optional(&pdev->dev, "rdwr",
->> +					       GPIOD_OUT_HIGH);
->> +	if (IS_ERR(conf->rdwr_b))
->> +		return dev_err_probe(&pdev->dev, PTR_ERR(conf->rdwr_b),
->>   				     "Failed to get RDWR_B gpio\n");
->>   
->>   	return xilinx_core_probe(&conf->core);
->> ---
->> base-commit: 58717b2a1365d06c8c64b72aa948541b53fe31eb
->>
->> -- 
->> 2.55.0
->>
->>
-
--- 
-Nabla Software Engineering
-HRB 40522 Augsburg
-Phone: +49 821 45592596
-E-Mail: office@nabladev.com
-Geschäftsführer : Stefano Babic
 
