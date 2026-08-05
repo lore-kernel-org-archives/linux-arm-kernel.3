@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73709C55182
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 08:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AECBC56201
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 08:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0RyFHAmnxx0/ymhDekWev9I5Arzzmwq8UaZpl1nESOE=; b=FyeJK/J+7XUGYqm8V47bLdI/lv
-	P6XGTDRynBIEDh667KlgaUyraOylvO2s6DEVZOBsivkfC+JFIXXgRJ+tRZVSWR5B6MAiR/6bActmO
-	m/fgQWXbz1mCD3VQPOh2rqqNHVbh7Jeejd5BENfeR7/oy/G/qZnGCw6XHIUSADaoc7QG7hLmooMOS
-	hfByeeEkyUyivMov+93amWsN06u6aG3O40oPWyJx2DpCOFgzhMGEGcMraCg0TzqReL9O7BxjWEjwx
-	Benha51c43UVMb88YGdM54a5mRFKJfkzWPhH9oIj78mb8HTtq0iWMExRv1Y28UGOgdk7WXrEnyVRl
-	Ts5Noyyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gleMR2Ij9sbym4Ccjc5fpF70K8yu51WNoTHBTHFuxYM=; b=APWxJEn+VdUxkXXp9pIQVs/iTu
+	VeAIvibEWdk4hKarJxeiqStZiX5WnQ5JRBPkzA7OYQ7QvdsO0exf21e9OPySds/W3PrWYMlzZJ3jI
+	vmL3Re+06MTWSuoU8rhdoqAAgpQE3xZj7DyLQzGFErz6mhzxqGabSh4CM+UcAFHNfktt86cHhmjHM
+	/fyTUuwiHG/nAQLovgkMrIhau+Qc0hZaeRwqGyeiM9x49TlMV5zujk1EkHg2zfpHlA/2TTuo372cR
+	MJaVpn8U4fYhVag1F01+FojBGuAlXixyJNOD1Jlrm94bm33sqlPbErKX13VPGDkLmXjUhGMWMuSNf
+	XjM4RkQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWeh-00000003USC-02Hj;
-	Wed, 05 Aug 2026 08:07:15 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1wrWfh-00000003Ug5-2sM9;
+	Wed, 05 Aug 2026 08:08:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrWee-00000003URS-3CnI
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 08:07:14 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1785917230;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0RyFHAmnxx0/ymhDekWev9I5Arzzmwq8UaZpl1nESOE=;
-	b=Ikeaak2vrD3qJf+KaLdPzn2aI3Ty20b03euVkyMxY/zYnbA+2oCWqs3gOR2Uekow9uhsYE
-	r1nouToSqwzgbWLZ2luegCLd0MG2F3kO5KG4innHraMepnTRrHiwig/BjBB1Rz9P/bKXtC
-	hH6pD6QuxEEH9jVB0GkOG5JZrl/Ak84=
-From: Atish Patra <atish.patra@linux.dev>
-To: Paul Walmsley <pjw@kernel.org>
-Cc: Jiri Olsa <jolsa@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Conor Dooley <conor@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH v8 05/22] RISC-V: Define indirect CSR access helpers
-Date: Wed,  5 Aug 2026 01:07:06 -0700
-Message-ID: <20260805080706.2895158-1-atish.patra@linux.dev>
-In-Reply-To: <1b20aa77-0f0f-08c7-9439-972983adf709@kernel.org>
-References: <1b20aa77-0f0f-08c7-9439-972983adf709@kernel.org>
+	id 1wrWff-00000003UfX-2kin;
+	Wed, 05 Aug 2026 08:08:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DA072600B1;
+	Wed,  5 Aug 2026 08:08:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7EF0AC2BCF6;
+	Wed,  5 Aug 2026 08:08:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1785917294;
+	bh=laBUPwOl5B7j6tOv3xGopCaFBP5wANkpZgaxfwV14i4=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=OoCAG9JT+Y+nAmR5LXwxcNZGOzh/BrzsD+nQ8oLcNB+22e24KOOWZIA3nO5xQhK78
+	 1vX//xJOMgOOrrGzEqXm+e+IhS3Ht9O7BPzsW9GKyitM+CCFpGsyVID23cFzg/q+BM
+	 EWYTEuvfT7Z1T0WG3vmQRhZbbyzQToVZIxloXjzKZOpu3G6wg3SnBDmJYkgVhiPN4H
+	 Ke9kh1RpZDLfgvryNdijTM5bDfR/6j6SZGaY2lfrWXoB76+g/CvN/HMVSwbNoSz9Cd
+	 OzTROWbExLTKQRDEznApTjlE9qGVRfYhtaAQco1Xk4kxgcLo5V/UsD/QIMkJCoZnJd
+	 cBYI99aFko6Dw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5A931C55174;
+	Wed,  5 Aug 2026 08:08:14 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Subject: [PATCH v9 0/6] Add VIM4 MCU/FAN support
+Date: Wed, 05 Aug 2026 10:06:01 +0200
+Message-Id: <20260805-add-mcu-fan-khadas-vim4-v9-0-75df78710b9e@aliel.fr>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_010712_937909_C1FEC3B6 
-X-CRM114-Status: GOOD (  27.07  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XRzWrDMAwH8FcpPs/D8mfc095j7CA78mrWJFuSh
+ o7Sd5+bHhoC6XyTQT/9kS5soD7TwPa7C+tpykPu2lL4lx2LB2w/iee61EwKaYUWkmNd8yaeeMK
+ Wfx2wxoFPudEcI8RAxqjoAyvd3z2lfJ7l94973dPPqQwY758s4EA8dk2Tx/2upfPI5yFOAbs1H
+ PIwdv3vnGyCuePfEBNwwWUASUFjdEG84THT8TX1MznJJaO2GVkYJ4yyQUqtPK4YtWDAbTOqMGj
+ RJeNEAAgrRi8YCduMLozWDkCjrJKsV4xZMnqbMbc0KSZ0YFyQasXYB2PAbjO2MLE8Hywkbc2Kc
+ Q/GPluxK4zxOmCF3pq6WjHVg3HPDl7dDq51IiIPqOyCuV6vf6lhJnjfAgAA
+X-Change-ID: 20260402-add-mcu-fan-khadas-vim4-ac1cbe553c9b
+To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Beniamino Galvani <b.galvani@gmail.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+ mfd@lists.linux.dev, Ronald Claveau <linux-kernel-dev@aliel.fr>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4629;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=laBUPwOl5B7j6tOv3xGopCaFBP5wANkpZgaxfwV14i4=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQ1bR+8QHS37tfX/uqe/6nVulMrZuun5y2wMeR6YdLkYbD
+ 1yRO1WY11HKwiDGxSArpsjSP9fyxLvLR8983aOeAjOHlQlkCAMXpwBM5NZkhv/ZRqqL+xc8NRDf
+ /IL7xGyLu6/STRby75jXLVn5Sl38abEzw3/vEImNR+S/paXayLgscbutE16bU+pVvGI5T9zKss+
+ Xf/AAAA==
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,122 +96,104 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/4/26 6:39 PM, Paul Walmsley wrote:
+The Khadas VIM4 board features a different MCU variant compared to
+previous VIM boards.
+While it shares the same I2C-based communication model,
+it differs in some ways:
 
-> Thanks.  These macros seem better implemented as static inline functions.
-> That also nicely aligns the code with what you write in the patch
-> description.
+  - A distinct register map with its own volatile/writeable register set
+  - A fan control with 0–100 levels instead of the 0–3 levels previously
+  - A fan power supply gated through a regulator
 
-Unfortunately these can't be functions - the conversion doesn't build once
-anything calls them.
+This series adds support for this new variant by:
 
-I applied your version of the header and switched the driver over to the
-csr_indirect_* names. drivers/perf/riscv_pmu_sbi.o builds fine before the
-change, and after it:
+  1. Refactoring the khadas-mcu MFD driver to use per-variant data
+     structures (regmap config, cells, fan platform data),
+     and adding the khadas,vim4-mcu compatible string.
 
-  CC      drivers/perf/riscv_pmu_sbi.o
-  ./arch/riscv/include/asm/csr_indirect.h:30: Error: unknown CSR `iregcsr'
-  ./arch/riscv/include/asm/csr_indirect.h:18: Error: unknown CSR `iregcsr'
-  ./arch/riscv/include/asm/csr_indirect.h:30: Error: unknown CSR `iregcsr'
-  ./arch/riscv/include/asm/csr_indirect.h:30: Error: unknown CSR `iregcsr'
-  ./arch/riscv/include/asm/csr_indirect.h:30: Error: unknown CSR `iregcsr'
-  ./arch/riscv/include/asm/csr_indirect.h:42: Error: unknown CSR `iregcsr'
-  ./arch/riscv/include/asm/csr_indirect.h:43: Error: unknown CSR `iregcsr'
-  ./arch/riscv/include/asm/csr_indirect.h:44: Error: unknown CSR `iregcsr'
-  ./arch/riscv/include/asm/csr_indirect.h:45: Error: unknown CSR `iregcsr'
-  make[4]: *** [scripts/Makefile.build:289: drivers/perf/riscv_pmu_sbi.o] Error 1
+  2. Extending the fan thermal driver to retrieve the fan register
+     and maximum level from platform_data,
+     and to optionally manage a power regulator for the fan supply.
 
-one error per inlined instantiation: line 18 is csr_indirect_read(), line
-30 csr_indirect_write(), lines 42-45 the four accesses in
-csr_indirect_warl().
+  3. Adding the corresponding DTS node for the VIM4, wiring the MCU to
+     the I2C AO_A bus and exposing it as a thermal cooling device.
 
-The reason is that csr_read()/csr_write() stringify the CSR argument
-straight into the inline asm template:
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+Changes in v9:
+- Rebased on next-20260731 (patches 1/8, 2/8 and 6/8 already applied, dropped from this series).
+- PATCH 1: Add levels table and nlevels in khadas_mcu_fan_pdata struct.
+- PATCH 2: Use MFD_CELL_* macros instead of open-coding mfd_cell.
+- PATCH 3: Provide levels table and nlevels to platform data.
+           Check match_data before the switch.
+- PATCH 4: Use levels[] and nlevels from platform data. VIM4 levels is (0, 30, 40, 55, 75, 100).
+- Link to v8: https://lore.kernel.org/r/20260702-add-mcu-fan-khadas-vim4-v8-0-244feee91a36@aliel.fr
 
-  #define csr_read(csr)                                         \
-  ({                                                            \
-        register unsigned long __v;                             \
-        __asm__ __volatile__ ("csrr %0, " __ASM_STR(csr)        \
-                              : "=r" (__v) :                    \
-                              : "memory");                      \
-        __v;                                                    \
-  })
+Changes in v8:
+- PATCH 4: Define constant for fan max level, remove extra space for unnecessary alignment.
+           Thanks to Lee's review.
+- Link to v7: https://lore.kernel.org/r/20260603-add-mcu-fan-khadas-vim4-v7-0-594ba8a965d8@aliel.fr
 
-so the CSR operand has to be a literal token. With iregcsr as a function
-parameter the template becomes "csrr %0, iregcsr", which the assembler
-has no way to resolve.
+Changes in v7:
+- PATCH 3-4: Simplify the per-variant handling by using local variables in khadas_mcu_probe()
+             instead of introducing a dedicated data structure. Thanks to Lee's review.
+- Link to v6: https://lore.kernel.org/r/20260516-add-mcu-fan-khadas-vim4-v6-0-cccc9b61f465@aliel.fr
 
-This isn't a matter of inlining or of only ever passing constants:
-__ASM_STR() expands in the preprocessor, long before inlining or constant
-propagation, so __ASM_STR(iregcsr) is "iregcsr" regardless of what the
-caller passes or which optimisation level is used. It isn't
-toolchain-specific either - gcc 12, gcc 16 and clang 22 all reject it,
-clang with the more explicit "operand must be a valid system register
-name or an integer in the range [0, 4095]".
+Changes in v6:
+- PATCH 4: Address Lee's review comments:
+  - Use an enum to discriminate between MCU types instead of passing
+    MFD data through the DT match table
+  - Fix error code from -EINVAL to -ENODEV when no MCU type is matched
+  - Make khadas_mcu_fan_cells and khadas_mcu_cells const
+  - Use dev_err_probe() for regmap initialization error
+  - Document fan speed levels for max_level
+- Link to v5: https://lore.kernel.org/r/20260424-add-mcu-fan-khadas-vim4-v5-0-afcfa7157b23@aliel.fr
 
-The underlying reason is architectural rather than a quirk of the macro:
-csrr/csrw encode the CSR as a 12-bit immediate and there is no
-register-indirect form. Which is of course why Sscsrind exists in the
-first place, but the sireg CSR number itself still has to be an
-immediate. That constraint is also why asm/csr.h keeps all seven
-accessors (csr_read, csr_write, csr_swap, csr_set, csr_clear,
-csr_read_set, csr_read_clear) as macros, with no static inline variant of
-any of them.
+Changes in v5:
+- PATCH 5: Replace devm_regulator_get_optional() with devm_regulator_get()
+           to simplify error handling and remove NULL checks, also
+           ordering as reverse christmas according to Neil's feedback.
+- Link to v4: https://lore.kernel.org/r/20260421-add-mcu-fan-khadas-vim4-v4-0-447114a28f2d@aliel.fr
 
-The reason for-next is green today is that this patch only adds the
-header. The callers are in patches 12 and 14, which aren't applied yet,
-and an uncalled static inline isn't emitted, so the bad asm never reaches
-the assembler. It breaks as soon as the driver patches land.
+Changes in v4:
+- PATCH 1: limit fan-supply property by compatible according to Conor's feedback.
+- Link to v3: https://lore.kernel.org/r/20260417-add-mcu-fan-khadas-vim4-v3-0-a6a7f570b11b@aliel.fr
 
-The only way to keep a function signature would be a switch with a
-literal CSR in each arm. The driver uses four of the IREG CSRs - CSR_SIREG
-for the counter, CSR_SIREG2 for the hpmevent, and CSR_SIREG4 / CSR_SIREG5
-for the rv32 high halves - so that would mean a four-arm switch in each of
-the three helpers, which seems clearly worse than the macro.
+Changes in v3:
+- PATCH 1: adding comment on vim4 compatible saying it is not discoverable,
+           thanks to Rob's and Neil's feedback.
+- Link to v2: https://lore.kernel.org/r/20260403-add-mcu-fan-khadas-vim4-v2-0-70536b22439a@aliel.fr
 
-One clarification on your version, since only part of it is a problem: the
-iselbase/iseloff parameters are fine as values - they're data written to
-the literal CSR_ISELECT, not a CSR number. It's specifically iregcsr that
-can't be a variable.
+Changes in v2:
+- PATCH 5: Add regulator_disable on suspend thanks to Neil's feedback.
+- Link to v1: https://lore.kernel.org/r/20260402-add-mcu-fan-khadas-vim4-v1-0-2b12eb4ac7b0@aliel.fr
 
-> That also nicely aligns the code with what you write in the patch
-> description.
+---
+Ronald Claveau (6):
+      mfd: khadas-mcu: Add per-variant configuration infrastructure and VIM4 support
+      mfd: khadas-mcu: Use MFD_CELL_* macros for cell declarations
+      mfd: khadas-mcu: Add support for VIM4 MCU variant
+      thermal: khadas-mcu-fan: Add fan config from platform data Add regulator support
+      arm64: dts: amlogic: t7: Add i2c controller node
+      arm64: dts: amlogic: t7: khadas-vim4: Add i2c MCU fan node
 
-Fair point, and that mismatch is real - the changelog says "Add a few
-helper functions" while the patch defines macros. Since the macros have to
-stay, I'll fix it from the other side: reword the body to say helper
-macros (matching the subject, which already says "helpers") and add a line
-explaining why they can't be functions, so the next reader doesn't have to
-rediscover it.
+ .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  |  13 +++
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi        |  10 ++
+ drivers/mfd/khadas-mcu.c                           | 126 ++++++++++++++++++---
+ drivers/thermal/khadas_mcu_fan.c                   |  58 +++++++---
+ include/linux/mfd/khadas-mcu.h                     |  24 ++++
+ 5 files changed, 197 insertions(+), 34 deletions(-)
+---
+base-commit: 9dba66b6217aacb924d997de3866e7e4c0dcf952
+change-id: 20260402-add-mcu-fan-khadas-vim4-ac1cbe553c9b
 
-> Also, I renamed this file to change the abbreviation "ind" to "indirect",
-> along the lines of this feedback here:
->
->    https://lore.kernel.org/linux-riscv/CAHk-=whhSLGZAx3N5jJpb4GLFDqH_QvS07D+6BnkPWmCEzTAgw@mail.gmail.com/
->
-> This case is even worse since there are already uses of "csr_index" in
-> the codebase, so it's even more unclear what "ind" is supposed to mean.
+Best regards,
+-- 
+Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-No objection at all - csr_indirect_* and csr_indirect.h are clearer, and
-the collision with the existing csr_index uses is a good argument on its
-own. (The driver has its own rvpmu_csr_index(), which is exactly the
-confusion you're describing.) I'll use the new names in the driver
-patches.
 
-> Updated patch follows.  Please let me know if you have any objections,
-
-So: renames yes, macros-to-functions no. If 6f1ece4a6691 can still be
-amended, the fix is to keep your rename and restore the macro bodies.
-Happy to send that as a patch if that's easier, or as a fixup on top of
-for-next if the branch has already been published - just let me know which
-you prefer.
-
-Thanks for picking up the earlier patches.
-
---
-Regards,
-Atish
 
