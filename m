@@ -4,66 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD50DC55ABA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 14:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC1DC5AC79
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 14:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kov5DddpRaSHaT5QtIBhO+yv3izobi8lORUTe2us6Es=; b=RpW38dS51oqB+OZ1Q+3iYC5hoR
-	83EhpPzyYXDuOD9h2MkPPqH6fmmTcpTUGDO27QLYdOBPyXR1kwIeCKG6Zu8TcQAcUQoAwM7eDWIDf
-	lcphot7vDpjiRHwqkgTiQgKSSlVfsrYegMZEvuATWre6en6v/ye/5v8gJNtDp8bINohnCE6s3nq30
-	RWJOAFLXOyaTzA2la0rpW9FncJdLvwhbcbDlDyjBzkAjW64RFk2bWUEv/Uki7WNyiYyEMBaHOa55U
-	6DPoGEMBVSAR3XWtEhoNo1BQr4nJ72QYbXyYsXqgjg+sH7iir7yb5Pw9fuxfawEIy/a5Y+UGGFZ4B
-	Ptr788gA==;
+	bh=NNzat26Y19ZrKtjltXLxT2fvXKCHP/AoQJ9WhsEOxAU=; b=yM1e49rJ9UJV3wcZqrsqKd7YSZ
+	Ar4QgSjTACh0unbmXQI4Ho4eGDEUi2Z5qZ09774w5Zcx5MvirwDeI+MZ7lAFwJ2FYXBE3bCKE9kel
+	ldZ/9jXUXxdEwol5NRI+Bb5z5YkiMioVdhiiHRf3P747QGRu4b3NFE9ZsCOC4xeibqR5G6P7Ur+3+
+	UCqLnnag0Cb54DDCKkItPHVprVou1iZ7h4uNnG5Wpx4MkD52rMQoHf+r/KS2MgbN85KHHTGpLXJMi
+	joSCfmS2k8pCchjE0edPzlmC2NGWI/nj5lfW8fn2HDDoH/jmkweBO6TAdKFk+GzGLmr88W+7fN7vN
+	Es6xW9Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrczz-000000047OP-0AYs;
-	Wed, 05 Aug 2026 14:53:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrczw-000000047Nb-2CkY
+	id 1wrd3R-000000047jh-1seN;
+	Wed, 05 Aug 2026 14:57:13 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrd3O-000000047j3-1Awk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 14:53:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D705F153B;
-	Wed,  5 Aug 2026 07:53:28 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A06C3F632;
-	Wed,  5 Aug 2026 07:53:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1785941612; bh=K0NMuw1cdB8mhCo22y55f2vhoceFHsGS1XGjNj01RFk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XgANokC1wy/pXB+aYJ4f7KYRB1lAKM4KkLXZvORJwCDGWcBvspQ5D2OkQ0mEdzGOw
-	 IfCn2OXVY2KnBju9YVSjsvw24cmBPBpNC0hQn/mS+3lJWMJys3O8g7ZXwNRoex59zK
-	 a9PT5dHCKKnOQwWU2QAJ6XszSUhjjlD/4dkCiI3A=
-Date: Wed, 5 Aug 2026 15:53:28 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: Yang Shi <yang@os.amperecomputing.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org,
-	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
-	will@kernel.org, david@kernel.org, akpm@linux-foundation.org,
-	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-Message-ID: <anNMvTAvUJkfspSR@J2N7QTR9R3>
-References: <20260715180455.515692-1-yang@os.amperecomputing.com>
- <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
- <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
- <amCPBrdltFSE_fEf@J2N7QTR9R3>
- <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+	Wed, 05 Aug 2026 14:57:11 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4954d5d814fso69765e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 07:57:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1785941827; x=1786546627; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NNzat26Y19ZrKtjltXLxT2fvXKCHP/AoQJ9WhsEOxAU=;
+        b=Ld1WAiLsYBL41Q/DBfAWLuNPsBGvvHA53630tfUX8pYmnl2gNe1tkH3BG2wxNh7tae
+         JYKwXn+m06sea+rc5hzQV5NmXVXgDuM8hRSHGuiwrku8stKwFOuIYFvXdIwv++vK5s21
+         bBwiqzZg19sSutD56W8k5K9TA0HLsrYXp61nE22aB/NzX8JnLD4sQ/Vjpc/685RWC+tC
+         BIyQz87XeSmMx/7fb8wV89yqXP+R9C+AxIzx79gtw8xEoAtox/lFUSVMLWbJX6WcjHgG
+         QmriiOozOTcXB35Tj+tCZs6bI3uss5qKgsrO+7RBUUvXdFFfTC9asrl7PRKVn8J3p8/r
+         GdTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785941827; x=1786546627;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=NNzat26Y19ZrKtjltXLxT2fvXKCHP/AoQJ9WhsEOxAU=;
+        b=aZ5xSesEngPO97E4lpTkIALU84m3tNSWNWaP8RPcVrMjrlSYE6NpOpYtS0qZoPgCIq
+         2Ie37HGI39L8tlSXZtkeD99ZrJCGiZ2gFH+xN5nTkZWoKAxcjxdTcNwsk36/9gumRAL4
+         wxNuQsOr2lM2QBZN9lI6uD57+QxKKvRtTedQ+an4J3/huqEdNdDRdANsW+Q9xosk8j8X
+         9IUiEyMMtTWYK6UKgA8Y33zxfxatqmffSoSH/2R16vqCfwHXEyXw4sFn0tD7njC+4pTA
+         Ztv3QDI0+Nquc7lCllCq0cqf5Z3PXegJghn3u6dkK+MemmI2rP376l0KVds0UNqql1Ou
+         zQdQ==
+X-Gm-Message-State: AOJu0YzOV46Md/SSPPkncE2N0euJLN+ZGULqHnvM4EPi0f6SbqzWHQTF
+	AxAOnRFODX3qvW9LCJC5scN+O7RMQWxrmtQCXgPYvQwduW0lrLyHfE4ewq5NUmWfXw==
+X-Gm-Gg: AR+sD13uijcur+bDdOUqPo7TYBp5kBCdY6tcrhovRytcAlJOEtxUF11IajSxRdwEaGC
+	aFj2R9XghiwIuTA2E/37a0ELHZbpaahPGdHLIXjifVmQMciKldySCns+R604pDjSpzoKe15MrYH
+	DKm1tvwzRN4I2E8T+809GnAUmg21HXwhG6UhbznzgdK9iZ7TK5kOV40VcsEwx1s4w3KBj/0YXOI
+	qM374jfwEu0V46qLi4MSzRr+Lrdo9EJhAtpgWnoRF5rXy1iJo0m7OkEuzNYdOkXtcAKePBZH3dN
+	GNm6FU/gJGM7qSA2DmAjBhxppJYnji0cW4svXFpLRst0pEYjA+0R6vleLj9xupblDAVwRTv1rU8
+	VzgsIYoG3kbtWdcy62ckMQAJ5w9XZXKwrnzRhHsoMRIgaHb08lzaDyped4RLfospAo1hdLR9YMS
+	kr+ImiZdGykV9o1TGxWpmVap1kAfJ4O5sc8DTMHRnd4OQtaF5ytGvhggrO5P1IEWeWKmYYefgoh
+	HxPkkNCOAP0ZzJ3BstggATEk0Yeph2a
+X-Received: by 2002:a05:600c:6554:b0:493:ae5f:d29f with SMTP id 5b1f17b1804b1-4994f0fb66dmr834065e9.3.1785941827064;
+        Wed, 05 Aug 2026 07:57:07 -0700 (PDT)
+Received: from google.com (63.235.189.35.bc.googleusercontent.com. [35.189.235.63])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47fec232d74sm9786235f8f.17.2026.08.05.07.57.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Aug 2026 07:57:06 -0700 (PDT)
+Date: Wed, 5 Aug 2026 14:57:02 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jgg@ziepe.ca,
+	mark.rutland@arm.com, qperret@google.com, tabba@google.com,
+	vdonnefort@google.com, keirf@google.com
+Subject: Re: [PATCH v7 02/24] KVM: arm64: Donate MMIO to the hypervisor
+Message-ID: <anNPPrjGd2Z2dSwc@google.com>
+References: <20260715115906.2664882-1-smostafa@google.com>
+ <20260715115906.2664882-3-smostafa@google.com>
+ <anMwxy9gEEt_Wu6M@google.com>
+ <anM9sk_gXTt5F1Ie@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <anM9sk_gXTt5F1Ie@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_075336_659616_E3BAD622 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20260805_075710_380119_90CC8279 
+X-CRM114-Status: GOOD (  48.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,81 +108,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 27, 2026 at 03:06:27PM -0700, Christoph Lameter (Ampere) wrote:
-> On Wed, 22 Jul 2026, Mark Rutland wrote:
-> > I expect that should come with a reasonable benefit, but I don't have
-> > benchmark figures yet as I haven't finished converting the xchg and
-> > cmpxchg implementations.
-> >
-> > > It sounds like it just moved the cost from one place to the other
-> > > place and it also seems hacky TBH.
+On Wed, Aug 05, 2026 at 01:42:10PM +0000, Mostafa Saleh wrote:
+> On Wed, Aug 05, 2026 at 12:47:03PM +0000, Sebastian Ene wrote:
+> > On Wed, Jul 15, 2026 at 11:58:43AM +0000, Mostafa Saleh wrote:
+> > > Add a function to donate MMIO to the hypervisor so IOMMU hypervisor
+> > > drivers can protect and access the MMIO of IOMMUs.
+> > > 
+> > > As donating MMIO is very rare, and we don’t need to encode the full
+> > > state, it’s reasonable to have a separate function to do this.
+> > > It will init the host s2 page table with an invalid leaf with the owner ID
+> > > to prevent the host from mapping the page on faults.
+> > > 
+> > > Also, prevent kvm_pgtable_stage2_unmap() from removing owner ID from
+> > > stage-2 PTEs, as this can be triggered from recycle logic under memory
+> > > pressure. There is no code relying on this, as all ownership changes is
+> > > done via kvm_pgtable_stage2_set_owner()
+> > > 
+> > > For the error path in IOMMU drivers, add a function to donate MMIO
+> > > back from hyp to host. However, that leaks the hypervisor virtual
+> > > address range which should be acceptable as this is quite rare and
+> > > it matches the behaviour of fix_map/block.
+> > > 
+> > > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > > ---
+> > >  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  7 ++
+> > >  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 91 ++++++++++++++++++-
+> > >  arch/arm64/kvm/hyp/pgtable.c                  | 11 +--
+> > >  3 files changed, 102 insertions(+), 7 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > > index 29935c7da1de..51b0eb3844a9 100644
+> > > --- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+> > > @@ -36,6 +36,13 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
+> > >  int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
+> > >  int __pkvm_host_unshare_hyp(u64 pfn);
+> > >  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
+> > > +/*
+> > > + * Donate MMIO range to the hypervisor, it will be mapped in the hypervisor's
+> > > + * private range and unmapped from the host stage-2.
+> > > + */
+> > > +int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size, unsigned long *haddr);
+> > > +/* Remaps MMIO range in the host, typically used in error path. */
+> > > +int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size);
+> > >  int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+> > >  int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+> > >  int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > index 4e329e39a695..d803b3dd4cb4 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > @@ -378,7 +378,11 @@ static int host_stage2_unmap_dev_all(void)
+> > >  	u64 addr = 0;
+> > >  	int i, ret;
+> > >  
+> > > -	/* Unmap all non-memory regions to recycle the pages */
+> > > +	/*
+> > > +	 * Unmap all non-memory regions to recycle the pages.
+> > > +	 * That relies on kvm_pgtable_stage2_unmap() not clearing
+> > > +	 * counted PTEs which include hypervisor MMIO.
+> > > +	 */
+> > >  	for (i = 0; i < hyp_memblock_nr; i++, addr = reg->base + reg->size) {
+> > >  		reg = &hyp_memory[i];
+> > >  		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr);
+> > > @@ -1119,6 +1123,91 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+> > >  	return ret;
+> > >  }
+> > >  
+> > > +int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size, unsigned long *haddr)
+> > > +{
+> > > +	kvm_pte_t pte;
+> > > +	u64 offset;
+> > > +	int ret;
+> > > +
+> > > +	/* Only before de-privilege. */
+> > > +	if (static_branch_unlikely(&kvm_protected_mode_initialized))
+> > > +		return -EPERM;
+> > > +
+> > > +	if (!PAGE_ALIGNED(addr | size) ||
+> > > +	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
+> > > +		return -EINVAL;
+> > > +
+> > > +	ret = __pkvm_create_private_mapping(addr, size, PAGE_HYP_DEVICE, haddr);
+> > 
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > > +	host_lock_component();
+> > > +	for (offset = 0; offset < size; offset += PAGE_SIZE) {
+> > > +		if (addr_is_memory(addr + offset)) {
+> > > +			ret = -EINVAL;
+> > > +			goto unlock;
+> > 
+> > If this fails we are left with the mapping inside the hyp because the unlock
+> > doesn't destroy the private mapping. Is this intended ?
+> > 
 > 
-> Yang Shi's patch has *no* critical section. There is no additional code
-> for the RMV instruction. The RMV instruction is executed on the correct
-> per cpu area.
+> Yes, there is no way to remove a private mapping at the moment, all
+> the callers to __pkvm_create_private_mapping() will leak it on failure.
+> 
+> > > +		}
+> > > +		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
+> > > +		if (ret)
+> > > +			goto unlock;
+> > > +		if (pte && !kvm_pte_valid(pte)) {
+> > > +			ret = -EPERM;
+> > > +			goto unlock;
+> > > +		}
+> > > +	}
+> > > +	/*
+> > > +	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
+> > > +	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
+> > > +	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
+> > > +	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
+> > > +	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
+> > > +	 */
+> > > +	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
+> > > +			      addr, size, &host_s2_pool,
+> > > +			      KVM_HOST_INVALID_PTE_TYPE_DONATION,
+> > > +			      FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_HYP));
+> > > +unlock:
+> > > +	host_unlock_component();
+> > > +	return ret;
+> > > +}
+> > > +
+> > > +int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size)
+> > 
+> > This function seems to only update the host stage-2 annotation but it
+> > doesn't destroy the hyp mapping.
+> 
+> Yes, as mentioned above there is no way to destroy it, and this was
+> not desgined for frequent use. Typicaly, __pkvm_host_donate_hyp_mmio()
+> is called at boot per area/device. And __pkvm_hyp_donate_host_mmio()
+> is only used for failures.
+> 
 
-None of that was in question.
+Yes, I saw that you only allow the call during the init pKVM calls, however it seems a bit fragile.
 
-> One of the reasons for the performance win is the
-> eliminattion of these critical sections. Your approach still has some form
-> of prologue and posthandling like the current preempt approach and
-> therefore will not be able to have the same performance gains.
+> > 
+> > I was looking to make use of this patch in an upcoming posting for the
+> > v2 ITS hardening but in my case I don't need the private VA range
+> > creation.
+> 
+> I believe if you need to map MMIO, private range is the right way to
+> do it as the linear map was mainly designed around system memory.
 
-In absolute terms, yes.
+Is there a reason behind not having MMIO as part of the linear
+map in the hypervisor ? I would like to avoid holding the hva around and
+just do a simple addition to resolve the hyp_va.
 
-However, I'm fairly confident that the vast majority of the overhead we
-have today can be eliminated with simpler alternatives.
+> 
+> Thanks,
+> Mostafa
+>
 
-There is a trade-off, and there are surprisingly complex interactions
-between page tables and other things (e.g. entry code). There is risk
-and maintenance burden associated with that. Hence people want to
-understand how much of the benefit is attributable to what. So far, the
-statements haven't convinced me people actually know what portion of the
-overhead come from which factor, e.g.
-
-* How much of that attributable to conditional work when re-enabling
-  preemption?
-
-* How much of that is attributable to RMW sequences to modify the
-  preempt count itself?
- 
-* How much of that is attributable to system register accesses (SP_EL0
-  and TPIDR_ELx)?
-
-Any of those could easily dominate the other factors and might easily be
-avoidable. Most of that should be measurable today. For example you
-could restore the preempt_{enable,disable} calls atop Yang Shi's
-patches.
-
-> The code is more efficient, there is no restart necessary and the
-> technique is already widely used on x86 for a long time.
-
-It's true that the per-cpu page table approach will have fewer
-instructions in the fast path.
-
-However, the other statements here are potentially misleading:
-
-(1) There is no restart in the scheme I have proposed, so restarting is
-    irrelevant to the comparison.
-
-(2) On x86, this_cpu*() operations use segment relative addressing, NOT
-    per-cpu page tables. If arm64 had a similar addressing scheme, I
-    expect we would use it.
-
-(3) There are a number of novel problems associated with per-cpu page
-    tables (e.g the various unsolved issues Yang has described), which
-    do not apply to x86's implementation of this_cpu_*() operations.
-
-> Having the ability in general to map mmemory differently depending on the
-> cpu opens up a number of other optimization like
-
-> What we are proposing here is a basic new feature that simplifies code and
-> allows addititonal performance and functional features that are so far not
-> possible on ARM64.
-
-While this simplifies the this_cpu_*() operations, I don't believe this
-is a simplification overall, and IMO, describing it as such is
-misleading.
-
-Mark.
+Thanks,
+Sebastian
 
