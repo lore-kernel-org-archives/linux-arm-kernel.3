@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3448C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AABC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:From:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HEb5iQOS1MLMJKU89sKWr/FPc1/kneu/2knRUa94cyY=; b=0h0qie7XUjPKdb
-	4H3PE6DU/odIQFusqnugqSDXThRllfvZNe7ZXOasL248umJWdxyB8nGnA6ZOQoKp4Yb6RkcpNo6yf
-	K85xS37aOn9ZX+TbxEWFeC0mX2DAScfoEjBa/weGC5xu8m3J6zxFy263jaVKLP228U+w1yn0dqyc2
-	wFCa9XVXY9DPfda3HFuTUgqZ72Yh5t01GzphMR0YueL1cpP5OaSzDRtywj1htdripGjGjCxYkrp+D
-	lz5tvvMvc2KTqTOF9vDYN8CcCJKx4fdkaKqiI1P/LjwEvPgXIiOISP35/M7E6UNJWhnrqF7kQYu2j
-	v2VPXFgcz2TaZEL042bQ==;
+	List-Owner; bh=lzxl6ov54XABkEdqGVKNEiBDIIDgS5W3+aFuZLq5XxY=; b=KFstwXfoveUHit
+	zXa0EhgMQAFIV0petkkXPSyJMKZgye7OcC8IY8gyXXTrs7H+8QAeei2gGjX2vITVWfYPvROJFBlpX
+	2OnSDbXnZwceBZ9JYjjb9CLP3zeUkKG8hM+QMjgEG9oAztDVOTza13pOVvogF6U19Mdt9wyTCKX3A
+	4t8DUwsCVEpVeNBC1Z+DVyZgAqClQ/YVphg8avPV0EVzOpU8ft1AERx23OLczfkRAcqgWdj8j2NK9
+	wbmqU/rvgzgk+dNuBl/gLbud71bcrA/bk8/msucJes5GDk0mmn1lU5Ho4LWNAc327J3zfPylBOX+U
+	TEAoSA3E/N4SFOPkM/EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVNb-00000003LCh-3kjD;
-	Wed, 05 Aug 2026 06:45:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrVPK-00000003LNl-3sWJ;
+	Wed, 05 Aug 2026 06:47:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrVNb-00000003LC4-0xQz
+	id 1wrVPI-00000003LNa-2CqA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 06:45:31 +0000
+	Wed, 05 Aug 2026 06:47:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 55821600AE;
-	Wed,  5 Aug 2026 06:45:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 909F11F000E9;
-	Wed,  5 Aug 2026 06:45:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B663B43B54;
+	Wed,  5 Aug 2026 06:47:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7A9D1F000E9;
+	Wed,  5 Aug 2026 06:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785912330;
-	bh=HEb5iQOS1MLMJKU89sKWr/FPc1/kneu/2knRUa94cyY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=I/OkyZJnBgPfKGzVMFEAs6kZoqY1IYbczztDW5790OWxPQJyqgLloV9nTWctHVUap
-	 FRfKzbrU0DC3oNgl/bJHHQNN0+IVIKX1vZawl4jiWPI/Vmws5cqRe8nz0byDdBpkR4
-	 plalnBfrbqrOucs/3w+6AjyBneZQLcmCwpxr9kwBdjjC3pjXZd2jphLKumvEN04IYA
-	 pyaf7G5TEDQsKivGe1yaoOTHsFyLzGZNaGouCtIyo4YHsBzJTjsAsZm9rdYWv7eQOH
-	 7HyeM/5VMwbjq6xHlKzkG+3P4KI8GPSK1Rmsj+RSzoahiM/71V3Z+Csd5cIsujMKe7
-	 FyLl5/ip8/p+Q==
-Message-ID: <7df18d5e-886e-43d1-b53d-52a1d08aba49@kernel.org>
-Date: Wed, 5 Aug 2026 08:45:22 +0200
+	s=k20260515; t=1785912435;
+	bh=lzxl6ov54XABkEdqGVKNEiBDIIDgS5W3+aFuZLq5XxY=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To;
+	b=Opi1qu8JZZLOL3KmQh79XU8FqJKFaFl4tD3f2O1brEVBwfq1buPJZInLNUIgFOdVo
+	 wXj/1meF0rQI5di7eqK+U5G1QvmQG0dhg6xYr/IZEq0R/FZRgf9OSJyDmN49geFKmY
+	 NVOqU6XjUSdgMtaCTp5iwCvgolM57dbXArM5nP+WiD2OVOi5dl7Rr8zR6KbSKaey2P
+	 Ic9SG6Y/9wpeBP9JjnGzHFV5W/0xCH9+ib9IyDutIyU21VmfupAhvxYKQ6re7/pAbr
+	 P4nXHctAoaIYQbmJvBMMO4I+m4PUq2iUIpAaLfp3cZs8eOYHUDrF66eXey+f2zALg5
+	 l2+Gzf+lPBquA==
+Message-ID: <d600d0db-5109-4386-9a49-955be74cc432@kernel.org>
+Date: Wed, 5 Aug 2026 08:47:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 13/20] arm64: percpu: Add infrastructure for
  preemptible this_cpu_*() ops
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 To: Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
 References: <20260804170503.3513916-1-mark.rutland@arm.com>
  <20260804170503.3513916-14-mark.rutland@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+ <7df18d5e-886e-43d1-b53d-52a1d08aba49@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -97,7 +98,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260804170503.3513916-14-mark.rutland@arm.com>
+In-Reply-To: <7df18d5e-886e-43d1-b53d-52a1d08aba49@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -115,42 +116,46 @@ Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Atop v7.2-rc4, with GCC 15.2.0 and defconfig, this is compiled as:
+On 8/5/26 08:45, David Hildenbrand (Arm) wrote:
+>> Atop v7.2-rc4, with GCC 15.2.0 and defconfig, this is compiled as:
+>>
+>> | <outline_this_cpu_add_u64>:
+>> |        paciasp
+>> |        stp     x29, x30, [sp, #-16]!
+>> |        mrs     x2, sp_el0
+>> |        mov     x29, sp
+>> |        ldr     w3, [x2, #8]
+>> |        add     w3, w3, #0x1
+>> |        str     w3, [x2, #8]
+>> |        mrs     x3, tpidr_el1
+>> |        add     x0, x0, x3
+>> | 1:     ldxr    x5, [x0]
+>> |        add     x5, x5, x1
+>> |        stxr    w4, x5, [x0]
+>> |        cbnz    w4, 1b
+>> |        ldr     x0, [x2, #8]
+>> |        sub     x0, x0, #0x1
+>> |        str     w0, [x2, #8]
+>> |        cbz     x0, 2f
+>> |        ldr     x0, [x2, #8]
+>> |        cbnz    x0, 3f
+>> | 2:     bl      preempt_schedule_notrace
+>> | 3:     ldp     x29, x30, [sp], #16
+>> |        autiasp
+>> |        ret
 > 
-> | <outline_this_cpu_add_u64>:
-> |        paciasp
-> |        stp     x29, x30, [sp, #-16]!
-> |        mrs     x2, sp_el0
-> |        mov     x29, sp
-> |        ldr     w3, [x2, #8]
-> |        add     w3, w3, #0x1
-> |        str     w3, [x2, #8]
-> |        mrs     x3, tpidr_el1
-> |        add     x0, x0, x3
-> | 1:     ldxr    x5, [x0]
-> |        add     x5, x5, x1
-> |        stxr    w4, x5, [x0]
-> |        cbnz    w4, 1b
-> |        ldr     x0, [x2, #8]
-> |        sub     x0, x0, #0x1
-> |        str     w0, [x2, #8]
-> |        cbz     x0, 2f
-> |        ldr     x0, [x2, #8]
-> |        cbnz    x0, 3f
-> | 2:     bl      preempt_schedule_notrace
-> | 3:     ldp     x29, x30, [sp], #16
-> |        autiasp
-> |        ret
+> FWIW, in a recent discussion on some prototype hacking [1] we saw some overhead
+> in micro-benchmarks that would really hammer on a path that would now do a
+> preempt_disable()+preempt_enable().
+> 
+> Switching from preempt_disable() to preempt_enable_no_resched() made it turn to
+> noise. Of course, that has other undesirable impacts, and I am not sure if we
+> are in the territory of code layout changes affecting the numbers.
+> 
+> Just mentioning it as some data point.
+> 
 
-FWIW, in a recent discussion on some prototype hacking [1] we saw some overhead
-in micro-benchmarks that would really hammer on a path that would now do a
-preempt_disable()+preempt_enable().
-
-Switching from preempt_disable() to preempt_enable_no_resched() made it turn to
-noise. Of course, that has other undesirable impacts, and I am not sure if we
-are in the territory of code layout changes affecting the numbers.
-
-Just mentioning it as some data point.
+[1] https://lore.kernel.org/linux-mm/20260630174852-mutt-send-email-mst@kernel.org/
 
 -- 
 Cheers,
