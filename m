@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9747C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE78EC55174
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 06:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1hLSDYK85M3wvI1xgsH2onhHuYsbD0hLp15Rb5kZzBE=; b=DKrN87fCfgHVD8JNpogs9J41+d
-	6JzX3qtq3joHAT3EWh4QhzWjZb9/ATlbKxWbwtYhMHJ56gnDYpAUkFEzsH+WQuTY9fJ0vzAX6/BUK
-	r0lF0FFUzpJvvH5hq83e7rnMpFootxYiDuV3zz4njY1HfLzC1lnf2NdvuGaL3cEwXlDAoZ60S66LB
-	LNfEdDA481nkAvEdYOAd11VfoY2A3ZnH0hmc9AxdMJq4m3i9yTpl+eQJF+cy7u4Kjy0mNGjmIQ0uL
-	mNYH+PWqaFfs98jmfOp4MVCND2EKRJdMeo6+b9jbb2eJW28DPUuMuprOHMzrEAysJiIoG69KW5AKQ
-	LcuDjVig==;
+	bh=mxbN27HzQygzeZajgaLftS66wkwbyglGlg2fwcZSYAo=; b=fd8P7FoxCL/nTfdZQb+P5rH9co
+	FudgtYotLZA87W7xJjYeRAbQig7+3oY86k8Uykw2e0MvMjyKzp2ilbAXtUYlg70iFE58suVE0/ajZ
+	fcTw07Qfc/bbwWWTAbjiRa5R26NbzNLdyiGFyJUkFe3BtIp6zx4pQTg3pKeH4OvRR4ETtOgk5wyPV
+	ofMdqdPclR7FS50vbO0Xk4pEYgjt7LH1qWwi4s0Up+1rZp3hDOBhqKJKC9yVOXBmpx0jm4PDqMWH5
+	p78L1z5teJ41F4+zVitiKlzMSu1jXVUrAVn8MpgJUe/bLOuDa8mdeRSq1s3U2lKGC1V2hAZBX6DjW
+	iMFU7TSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrUrc-00000003HxN-1e5d;
-	Wed, 05 Aug 2026 06:12:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wrUu4-00000003IBo-3D1m;
+	Wed, 05 Aug 2026 06:15:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrUrb-00000003HxA-1V6C
+	id 1wrUu3-00000003IBT-0hIs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 06:12:27 +0000
+	Wed, 05 Aug 2026 06:14:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 37141600B1;
-	Wed,  5 Aug 2026 06:12:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 875871F000E9;
-	Wed,  5 Aug 2026 06:12:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4329E40F0A;
+	Wed,  5 Aug 2026 06:14:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5E9C1F000E9;
+	Wed,  5 Aug 2026 06:14:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785910345;
-	bh=1hLSDYK85M3wvI1xgsH2onhHuYsbD0hLp15Rb5kZzBE=;
+	s=k20260515; t=1785910497;
+	bh=mxbN27HzQygzeZajgaLftS66wkwbyglGlg2fwcZSYAo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=nuE1953L+3uAi2FMf+5JWzAAPNWofIinBa7crSNrCgsraRRSMNncnBoftKUUhA5LL
-	 /XIkABmVioCXWD4/nqjYmth/a1BqShCVNeIs7MmkY6QKmNe6Dvi3MLmVkn3ZW8hp4r
-	 J1JZnb8ds2VXplLPxeIVmoCSL4Fg7LHyb2LyBN0peX6uskmvX2dh3QvTH2gYNSjJsO
-	 8Zp2JJSrNU+DR4D6sh2qRdh8Yz+JWGD+C/ptATgjG917Ygf+zbXpdqYGkbZe0pJynV
-	 5DJCfmXRCnd5OH1mNCKU7fwmztu2DGU0+YCUuG0hbBKL1otTwnPAT8MvOcZWn9Y0nD
-	 ckE0cMYWtKaww==
-Message-ID: <3d5f0435-59a8-4eb8-825a-d8451c6dfb81@kernel.org>
-Date: Wed, 5 Aug 2026 08:12:18 +0200
+	b=ZlCN3Ih/osn0lNdEaS65UcN4m6ia9tNUMcOYMINtchoxBKSUEZ/OJZ9/rVk0pZBIs
+	 IJLMmcWwqLHpyfKaceNb++2ojr7Qkqvt5g6mhKXK3BH+44mUhZiZi8fLaxAo77kwtI
+	 pOGDo6T1Dz209AAFdeW7lCicP4FJzKEkAni1zxPagGJprSAfUtWopdVRfrDRLAvwkO
+	 SR8EVMe3b9XI6vuXhMUY34wt1Z7MquBfTRHwGCYo7TA0y7APXW0QoBv47Q1Lau/l5Z
+	 fifz2iuIdDzCI+eP7JKhWFNgyvhJ0zE/vaIi3ZlhMzPx9UTtNjgpdivvjfrb+InFbU
+	 h1l6bGUmUev+Q==
+Message-ID: <2e1996c3-4525-4239-ad17-4056071c9407@kernel.org>
+Date: Wed, 5 Aug 2026 08:14:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-To: "Christoph Lameter (Ampere)" <cl@gentwo.org>
-Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
- Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, tj@kernel.org,
- urezki@gmail.com, catalin.marinas@arm.com, will@kernel.org,
- akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com,
- agordeev@linux.ibm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Jason Gunthorpe <jgg@nvidia.com>
-References: <20260715180455.515692-1-yang@os.amperecomputing.com>
- <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
- <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
- <amCPBrdltFSE_fEf@J2N7QTR9R3>
- <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
- <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org> <anHuLy52o5S9Nlwp@lucifer>
- <63ea8156-a109-b2a2-6d35-1c17ad7f1a9d@gentwo.org>
- <84b31836-1d10-4bec-a469-468b91fd4645@kernel.org>
- <9f146ce0-4adc-0c00-a2d8-c01b47edc9d1@gentwo.org>
- <ea268481-d584-4744-99d6-0b05aade7d5d@kernel.org>
- <b4b79f6b-e09d-bbb1-2181-07e756e849bb@gentwo.org>
+Subject: Re: [PATCH v7 00/23] Introduce SCMI Telemetry support
+To: Subrahmanya Lingappa <subrahmanya.lingappa@oss.qualcomm.com>,
+ Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ arm-scmi@vger.kernel.org, linux-doc@vger.kernel.org,
+ sudeep.holla@kernel.org, james.quinlan@broadcom.com, f.fainelli@gmail.com,
+ vincent.guittot@linaro.org, etienne.carriere@st.com, peng.fan@oss.nxp.com,
+ michal.simek@amd.com, d-gole@ti.com, jic23@kernel.org, elif.topuz@arm.com,
+ lukasz.luba@arm.com, philip.radford@arm.com, souvik.chakravarty@arm.com,
+ leitao@kernel.org, kas@kernel.org, puranjay@kernel.org,
+ usama.arif@linux.dev, kernel-team@meta.com
+References: <20260802145618.1952804-1-cristian.marussi@arm.com>
+ <CAPxK-6eoSguQXkQyhoKkxos89BL4Y5f43ntv8MAY7xoiNmMeYQ@mail.gmail.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -115,9 +105,9 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <b4b79f6b-e09d-bbb1-2181-07e756e849bb@gentwo.org>
+In-Reply-To: <CAPxK-6eoSguQXkQyhoKkxos89BL4Y5f43ntv8MAY7xoiNmMeYQ@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,30 +122,313 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/5/26 00:01, Christoph Lameter (Ampere) wrote:
-> On Tue, 4 Aug 2026, David Hildenbrand (Arm) wrote:
+On 8/5/26 07:21, Subrahmanya Lingappa wrote:
+> Cristian and David,
 > 
->>>
->>> You cannot accept that one instruction is faster than the same
->>> instruction prefixed with another and something else at its tail?
+> On Sun, Aug 2, 2026 at 8:27 PM Cristian Marussi
+> <cristian.marussi@arm.com> wrote:
 >>
->> I am pretty sure that you got exactly what I meant, you likely just don't have
->> the data to back it up.
+>> Hi all,
 >>
->> Proof me wrong!
+>> [TLDR Summary]
+>>  [V7 highlights]
+>>  - V7 focus was on making the ABI complete feature-wise by adding:
+>>    + UUID enumerations
+>>    + BATCHED DE_CFG
+>>    + BATCH ops with per-DE status
+>>    + Generic EVENT Subscription with GENERATION_COUNTER support
+>>    + Better UAPI Doxygen docs
+>>    + Reserved space to grow scattered all-over
+>>  - V7 cleans up all the residual known sparse issues
+>>  - While aiming for ABI-completeness, V7 addressed also a few reported
+>>    general driver/protocol issues BUT the bulk of remanining Sashiko-V6
+>>    complains are still to be tackled
+>>
+>>  [V8 TODO (getting merge-able)]
+>>   - Tackle outstanding Sashiko issues
+>>   - [ABI]: more DOCS and examples
+>>
+>> The upcoming SCMI v4.0 specification [0] introduces a new SCMI protocol
+>> dedicated to System Telemetry.
+>>
+>> In a nutshell, the SCMI Telemetry protocol allows an agent to discover at
+>> runtime the set of Telemetry Data Events (DEs) available on a specific
+>> platform and provides the means to configure the set of DEs that a user is
+>> interested into, while reading them back using the collection method that
+>> is deeemed more suitable for the usecase at hand. (...amongst the various
+>> possible collection methods allowed by SCMI specification)
+>>
+>> Without delving into the gory details of the whole SCMI Telemetry protocol
+>> let's just say that the SCMI platform/server firmware advertises a number
+>> of Telemetry Data Events, each one identified by a 32bit unique ID, and an
+>> SCMI agent/client, like Linux, can discover them and read back at will the
+>> associated data value in a number of ways.
+>>
+>> Data collection is mainly intended to happen on demand via shared memory
+>> areas exposed by the platform firmware, discovered dynamically via SCMI
+>> Telemetry and accessed by Linux on-demand, but some DE can also be reported
+>> via SCMI Notifications asynchronous messages or via direct dedicated
+>> FastChannels (another kind of SCMI memory based access): all of this
+>> underlying mechanism is anyway hidden to the user since it is mediated by
+>> the kernel driver which will return the proper data value when queried.
+>>
+>> Anyway, the set of well-known architected DE IDs defined by the spec is
+>> limited to a dozen IDs, which means that the vast majority of DE IDs are
+>> customizable per-platform: as a consequence, though, the same ID, say
+>> '0x1234', could represent completely different things on different systems.
+>>
+>> Precise definitions and semantic of such custom Data Event IDs are out of
+>> the scope of the SCMI Telemetry specification and of this implementation:
+>> they are supposed to be provided using some kind of JSON-like description
+>> file that will have to be consumed by a userspace tool which would be
+>> finally in charge of making sense of the set of available DEs.
+>>
+>> IOW, in turn, this means that even though the DEs enumerated via SCMI come
+>> with some sort of topological and qualitative description provided by the
+>> protocol (like unit of measurements, name, topology info etc), kernel-wise
+>> we CANNOT be completely sure of "what is what" without being fed-back some
+>> sort of information about the DEs by the afore mentioned userspace tool.
+>>
+>> For these reasons, currently this series does NOT attempt to register any
+>> of these DEs with any of the usual in-kernel subsystems (like HWMON, IIO,
+>> PERF etc), simply because we cannot be sure which DE is suitable, or even
+>> desirable, for a given subsystem. This also means there are NO in-kernel
+>> users of these Telemetry data events as of now.
+>>
+>> So, while we do not exclude, for the future, to feed/register some of the
+>> discovered DEs to/with some of the above mentioned Kernel subsystems, as
+>> of now we have ONLY modeled a custom userspace API to make SCMI Telemetry
+>> available to userspace tools.
+>>
+>> With V5 we adopted a pure chardev/IOCTL ABI approach, refining the IOCTL
+>> based interface already present with the previous FS-based ABI.
+>>
+>> INTERFACES
+>>
+>> For each discovered SCMI Instance a character device named tlm_<N> is
+>> created under /dev/scmi/ subtree.
+>>
+>> The IOCTL interface described at 'include/uapi/linux/scmi.h' is made
+>> available to enumerate and configure Telemetry resources: Telemetry data
+>> can be collected using a few different IOCTls, depending on the required
+>> granularity.
+>>
+>> Alternatively it is possible to obtain a list of the file descriptors
+>> referencing directly the underlying SCMI Telemetry SHMTI memory areas and
+>> implement in user space an SCMI Telemetry parser accessing directly the
+>> SHMTI, while staying in compliance with the SCMI TDCF format.
+>>
+>> NOTE THAT from v3 onwards the firmware interface level NOW supports ONLY
+>> the latest SCMI v4.0 specification [0].
+>>
+>> Based on V7.2-rc4, tested on an emulated setup.
+>>
+>> This series is available also at [1].
+>>
+>> If you still reading...any feedback welcome :P
+>>
+>> Thanks,
+>> Cristian
+>>
+>> ---
+>> v6 --> v7
+>>  - [ABI] IOCTL EVENTS support: GENERATION COUNTER (stlm monitor)
+>>  - [ABI] expose DE tracking: UUID/SHMTI/OFFS
+>>  - [ABI] IOCTL BATCHED DE_CFG
+>>  - [ABI] added per-DE IOCTL BATCH status
+>>  - [ABI] new ABI feats flags
+>>  - [ABI] improved description in Doxygen docs
+>>  - [ABI] added reserved space to grow
+>>  - [STLM] added new ABI feats support (generation, UUIDs, location...)
+>>  - [SYS/TLM] fixed module_init error path
+>>  - [SYS/TLM] fixed interval DISCRETE flags reporting
+>>  - [SYS/TLM] check open FMODE before executing a config change
+>>  - [SYS/TLM] fixing DEs data cleanup on RESET
+>>  - [SYS/TLM] added _RAW helpers to handle non-MMIO TDCF-like accesses
+>>    (like Notification payload)
+>>  - [SYS/TLM] added UUID rescan logic at DE enable, when DE/UUID association
+>>  - [TLM] reworked UUID internal handling (endianity) and use uuid_t type
+>>  - [TLM] added generic Telemetry protocol support for events subscription
+>>    unknown
+>>  - residual sparse fixes
+>> v5 --> v6
+>>  - rebased on v7.2-rc4
+>>  - fixed a lot of Sashiko complains
+>>  - fixed ABI issues reported by review (Fayssal)
+>>  - added IOCTL TLM_RESET
+>>  - added ABI versioning
+>>  - added compat_ioctl support
+>>  - use a new IOCTL magic name
+>>  - better handling of UUID endianity
+>>  - reworked all bounds checks in UAPI implementation
+>>  - reject oversized SHMTI mmap request
+>>  - refined 'stlm' testing tool to be more interactive and to
+>>    exercise the full spectrum of IOCTLs ('stlm -h' is your manual
+>>    for now :P)
+>>  - fully reworked per-protocol notification handling
+>>  - dropped the last bit of human readable data attached to the
+>>    chardev .read
+>> v4 --> v5
+>>  - rebased on v7.2-rc1
+>>  - dropped FileSystem based driver
+>>  - introduced a new simple chardev SCMI driver using Telemetry
+>>  - reworked/reviewed the v4 IOCTLs based UAPI
+>>  - UAPI: better struct alignment and comments
+>>  - UAI: Removed flexible array members
+>>  - UAPI: make SCMI Telemetry protocol stack completely independent from
+>>          uapi defs
+>>  - UAPI: new ioctls support to enable RAW mmap direct access to SCMI SHMTI
+>>          areas from userspace
+>>  - added new ABI Documentation
+>>  - added new SCMI core facility to lookup the current SCMI instance ID
+>> v3 --> v4
+>>  - rebased on v7.1-rc7
+>>  - updatded doc to detail Concurrency model
+>>  - bail out on FW_BUG errors
+>>  - make all_des_enable/all_des_tstamp_enable entry readable
+>>  - refactored access to TDE values
+>>  - refactored common accessors for tlm_priv (FIX WARN on kfree)
+>>  - make all files by default world readable and user writable (if needed)
+>>  - added uid/god/umask mount options (and docs)
+>>  - added generation counter to aid spotting config changes (and docs)
+>>  - added DebugFS configurable support to debug/dump SHMTI areas (and docs)
+>>  - hide FS entries when NOT supported (like des_simple_sample_read)
+>>  - fixed output format of des/<NNN>/value to -> <TS> <VALUE>
+>>  - renamed top-dir by_components to by-components
+>>  - add a .remove method to SCMI System Telemetry Driver
+>>  - use kzalloc_obj
+>> V2 --> V3
+>>  - rebased on v7.0-rc5
+>>  - ported the firmware interface to SCMI v4.0 BETA
+>>  - split the SCMI protocol layer in a lot of small patches
+>>  - completd filesystem and ABI documentation
+>>  - renamed components subtree to by_components
+>>  - fixed uninitialized var in scmi_telemetry_de_subdir_symlink
+>>  - renamd tstamp_exp to tstamp_rate
+>>  - swap logic in scmi_telemetry_initial_state_lookup
+>>  - use memcpy_from_le32 where required
+>>  - changed a dfew dev_err into Telemetry traces
+>>  - define and use new helper scmi_telemetry_de_unlink
+>>  - simplify a few assignments with ternary ops
+>>  - added a missing __mmust_check on the internal SCMI API
+>>  - reworked and clarified de_data_read returned errno:
+>>         ENODATA vs EINVAL vs ENODEV/ENOENT
+>>  - removed some risky/unneeded devres allocations
+>>  - various checkpatch fixes
+>>  - reworked and clarified usage of traces in Telemetry
+>>  - added the missing DT binding for protocol 0x1B
+>>  - split out unrelated change around notification from patch
+>>    adding support for protocol internal notifier
+>>  - more comments
+>>
+>> V1 --> V2
+>>  - rebased on v6.19-rc3
+>>  - harden TDCF shared memory areas accesses by using proper accessors
+>>  - reworked protocol resources lifecycle to allow lazy enumeration
+>>  - using NEW FS mount API
+>>  - reworked FS inode allocation to use a std kmem_cache
+>>  - fixed a few IOCTLs support routine to support lazy enumeration
+>>  - added (RFC) a new FS lazy mount option to support lazily population of
+>>    some subtrees of the FS (des/ groups/ components/)
+>>  - reworked implementation of components/ alternative FS view to use
+>>    symlinks instead of hardlinks
+>>  - added a basic simple (RFC) testing tool to exercise UAPI ioctls interface
+>>  - hardened Telmetry protocol and driver to support partial out-of-spec FW
+>>    lacking some cmds (best effort)
+>>  - reworked probing races handling
+>>  - reviewed behaviour on unmount/unload
+>>  - added support for Boot_ON Telemetry by supporting SCMI Telemetry cmds:
+>>    + DE_ENABLED_LIST
+>>    + CONFIG_GET
+>>  - added FS and ABI docs
+>>
+>> RFC --> V1
+>> ---
+>>  - moved from SysFS/chardev to a full fledged FS
+>>  - added support for SCMI Telemetry BLK timestamps
+>>
+>> [0]: https://developer.arm.com/documentation/den0056/f/?lang=en
+>> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/cris/linux.git/log/?h=scmi_telemetry_ng_V7
+>>
+>> Cristian Marussi (23):
+>>   firmware: arm_scmi: Add new SCMIv4.0 error codes definitions
+>>   firmware: arm_scmi: Allow registration of unknown-size events/reports
+>>   firmware: arm_scmi: Introduce protocol instance notifiers
+>>   dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
+>>   include: trace: Add Telemetry trace events
+>>   firmware: arm_scmi: Add basic Telemetry support
+>>   firmware: arm_scmi: Add support to parse SHMTIs areas
+>>   firmware: arm_scmi: Add Telemetry configuration operations
+>>   firmware: arm_scmi: Add Telemetry DataEvent read capabilities
+>>   firmware: arm_scmi: Add support for Telemetry reset
+>>   firmware: arm_scmi: Add Telemetry notification support
+>>   firmware: arm_scmi: Add support for boot-on Telemetry
+>>   firmware: arm-scmi: Add telemetry generic event support
+>>   firmware: arm_scmi: Add Telemetry generation counter event
+>>   firmware: arm_scmi: Add common per-protocol debugfs support
+>>   firmware: arm_scmi: Add Telemetry debugfs SHMTI dump support
+>>   firmware: arm_scmi: Add Telemetry debugfs ABI documentation
+>>   firmware: arm_scmi: Expose per-instance identifier
+>>   uapi: Add ARM SCMI Telemetry definitions
+>>   firmware: arm_scmi: Add System Telemetry driver
+>>   docs: ioctl-number: Add SCMI Ioctls
+>>   [RFC] Documentation: Add SCMI System Telemetry documentation
+>>   [RFC] tools/scmi: Add SCMI Telemetry testing tool
+>>
+>>  Documentation/ABI/testing/debugfs-scmi        |   22 +
+>>  .../bindings/firmware/arm,scmi.yaml           |    8 +
+>>  Documentation/userspace-api/index.rst         |    1 +
+>>  .../userspace-api/ioctl/ioctl-number.rst      |    1 +
+>>  Documentation/userspace-api/stlm.rst          |  148 +
+>>  MAINTAINERS                                   |    1 +
+>>  drivers/firmware/arm_scmi/Kconfig             |   24 +
+>>  drivers/firmware/arm_scmi/Makefile            |    3 +-
+>>  drivers/firmware/arm_scmi/common.h            |   18 +
+>>  drivers/firmware/arm_scmi/driver.c            |  119 +-
+>>  drivers/firmware/arm_scmi/notify.c            |   38 +-
+>>  drivers/firmware/arm_scmi/notify.h            |    8 +-
+>>  drivers/firmware/arm_scmi/protocols.h         |   17 +
+>>  .../firmware/arm_scmi/scmi_system_telemetry.c | 1515 +++++++
+>>  drivers/firmware/arm_scmi/telemetry.c         | 3762 +++++++++++++++++
+>>  include/linux/scmi_protocol.h                 |  261 +-
+>>  include/trace/events/scmi.h                   |   48 +-
+>>  include/uapi/linux/scmi.h                     |  517 +++
+>>  tools/testing/scmi/Makefile                   |   25 +
+>>  tools/testing/scmi/stlm.c                     | 1371 ++++++
+>>  20 files changed, 7877 insertions(+), 30 deletions(-)
+>>  create mode 100644 Documentation/userspace-api/stlm.rst
+>>  create mode 100644 drivers/firmware/arm_scmi/scmi_system_telemetry.c
+>>  create mode 100644 drivers/firmware/arm_scmi/telemetry.c
+>>  create mode 100644 include/uapi/linux/scmi.h
+>>  create mode 100644 tools/testing/scmi/Makefile
+>>  create mode 100644 tools/testing/scmi/stlm.c
+>>
+>> --
+>> 2.54.0
+>>
+>>
 > 
-> Well you seem to have alrady seen the benchmarks that we ran and are
-> running. So I had doubts on your sincerety with this comment. Seemes to be
-> be just there for effect.
+>   Just to close the loop on my earlier comment: the second telemetry provider
+>   I  had in mind is now public, RISC-V RPMI Specifications Telemetry
+> service group:
+> 
+>     https://github.com/riscv-non-isa/riscv-rpmi/pull/162
+> 
+>   V7 has already moved the SCMI ABI in a better direction: explicit ABI
+>   features,  reserved growth space, UUID tracking, batched operations,
+> per-item status
+>   and a  generation event make the interface less brittle than the
+> version I first
+>   commented on.
+> 
+>   So I am not asking to block SCMI Telemetry on a generic telemetry UAPI. That
+>   would still be premature. My remaining ask is smaller: please keep the
+>   chardev-facing descriptor/group/config/sample/mmap handling cleanly
+>   separated  from SCMI-private storage and TDCF parsing.
 
-Let me repeat a third time:
+IIRC, this is not a ABI concern, right?
 
-So to be clear: claiming that the additional instructions are unacceptable I'd
-expect something minimal like: "removing these 3 instructions speeds up
-micro-benchmark (a, b, c) by X% and macro-benchmarks (d, e, f) by Y% compared to
-Mark's approach". [1]
-
-[1] https://lore.kernel.org/r/ea268481-d584-4744-99d6-0b05aade7d5d@kernel.org
+Any kernel internal refactorings can be had later, once RPMI actually lands.
 
 -- 
 Cheers,
