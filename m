@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AE0C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 10:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608DAC55822
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 10:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dlLlF9LK0MzV1u8H0UYPrxod1v9WUWZh7NTLPM/1pbQ=; b=GElt0B0xDP+xbczDm/IHvaKere
-	/19JKzqyEPK9omhan14w3mCjYI7ESdBtDY+wmMM0udyci8j0Xnb8rSpbVLKCS9HE+Ogt9nw9cS1qa
-	zU8u49rmQxl+zECssA/DiR632ZGXlngtIK2Qc3X/lAY0Oz6yojZC04YwvOXTA4zzAaxzmtZKnqi6g
-	96Bi6tgvw/BP7P5+ubXv5zaawKlNOaJKlzXNtVq9cLyEUEoOJdtWqB9Y0eIIX+2T9kyK+gUw2IUxI
-	WDnbhXjGcSSfx4rOiy31irSGZ0hplrIIbYT0ndfaex7yZMq3EsZ5A0gxgrAOisX1ptCYNABGQQQt1
-	JupFWnGw==;
+	bh=o06/6FPH7j0zA4EIe85PZVZwlMghUXEo1x/4oJlkPUw=; b=pOmxF7wytyr0Jkyjf75U+yxr7i
+	7IHJPJlyTEGO/YR8tjlAoWoU+UY78Sbbpa4JU34CrRqKe4petMiM2c6oBnQva4L0/a3YQybG88NDk
+	VHZ+cquEUFo+vaSfZe6i/+cn6pQJnGIE5Jw8H8Ipa/E8Nv0NPIUYATQzABcEcZUc0vzQJEey7EUGe
+	IAOAJ0MC9wz1at9bLP/8l/O3rX/d12AdXOHvf9nU2JJFfJAK7VaU87d2I8ntS8w4IiMjei/dKshH7
+	DeimJBBRk73KWj0W0GqNybu1JNuvpU85t0gXEH1Mjsem1BOX5wSouwPstJqk01lW+DTOh1iY9PT81
+	bTPmbnHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrYdi-00000003iDg-1hVB;
-	Wed, 05 Aug 2026 10:14:22 +0000
+	id 1wrUqy-00000003Hst-0Bqp;
+	Wed, 05 Aug 2026 06:11:48 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrYdg-00000003iDN-1wMw
+	id 1wrUqw-00000003HsZ-2LqY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 10:14:20 +0000
+	Wed, 05 Aug 2026 06:11:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8255D600AE;
-	Wed,  5 Aug 2026 10:14:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72AB21F000E9;
-	Wed,  5 Aug 2026 10:14:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DCF85600B1;
+	Wed,  5 Aug 2026 06:11:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0455F1F000E9;
+	Wed,  5 Aug 2026 06:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1785924859;
-	bh=dlLlF9LK0MzV1u8H0UYPrxod1v9WUWZh7NTLPM/1pbQ=;
+	s=k20260515; t=1785910297;
+	bh=o06/6FPH7j0zA4EIe85PZVZwlMghUXEo1x/4oJlkPUw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RUqDLO7iDc/lhRb2Fl7xRPqw1FvnOuR4xpc7tDTIBV/ZFowhZd/odbNSGO/Rw8TAV
-	 Z3DAfdUGbiK9ope86Dc2lZti77U2/Jzlgqcgdot5wNykouszXCvA7deI+Y4Tzpq5Rs
-	 +/EV9nM4jXuMgzbHepUFudAUNWcLyZ6ouW3snVpGGPiDbhNNf0rMbK6Uq2NWJ910fp
-	 +fB4x+jdjvHDGUB6Ft3oTfoU8ijQzeF5MRwb7eUEnsXaPxxVNR4SR29xmxMo42tmxF
-	 IDaeUAgvJJu9iQE8/VDVYFFWsY9twUJKL2hKr0oH+8XzvMm3LoDiUpr6qyJtOp0A7o
-	 Dc0W7vjUbAqsA==
-Message-ID: <b07849bd-b0d5-4719-af9f-453352cf622a@kernel.org>
-Date: Wed, 5 Aug 2026 12:14:08 +0200
+	b=LkwWgCSqVEHenrGLY5DwHpwv7bCvEcjU1bM/SAkxZR2C7FbjCYG3GZB5To0YtXKhJ
+	 BROZukET64rl4TaA+ifSfCscJVUF45Sj1Mbg8SEyLyuM5osT/W4PTtOdU+dpW/5eRG
+	 lT1en6InMlUBFn/zGgyPhjerWsf2AfB8VVnhSXw4voTEHz6UfS0qFAT9XSyOwjJ8fM
+	 f54q8nYfmXaOeDNfFsURdyQ4grrm1xxLOlAzlipOCf89+cNJXPeLxgPi2gG5ZvQVWv
+	 qF4AxGW4BsKoX4/f0sTLmGSj0EsjUXEQ/4Y3hV+0ZhQ0+P1Cw/fzmiNjZE2Z54f5q5
+	 k+NL4/dHq1Unw==
+Message-ID: <17add1ab-4390-4e8c-95ce-b8f0723d4c79@kernel.org>
+Date: Wed, 5 Aug 2026 08:11:29 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/6] mm: constify generic pte_get*()
-To: Pedro Falcato <pfalcato@suse.de>,
- Andrew Morton <akpm@linux-foundation.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Lorenzo Stoakes <ljs@kernel.org>,
- "Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>,
- Michal Hocko <mhocko@suse.com>, "Matthew Wilcox (Oracle)"
- <willy@infradead.org>, Jan Kara <jack@suse.cz>, Zi Yan <ziy@nvidia.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>, Nico Pache <npache@redhat.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Lance Yang <lance.yang@linux.dev>,
- Usama Arif <usama.arif@linux.dev>, Kevin Brodsky <kevin.brodsky@arm.com>,
- Muhammad Usama Anjum <usama.anjum@arm.com>,
+Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
+ for this series)
+To: "Christoph Lameter (Ampere)" <cl@gentwo.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>,
+ "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ dennis@kernel.org, tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
+ will@kernel.org, akpm@linux-foundation.org, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, linux-mm@kvack.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
-References: <20260803164400.531199-1-pfalcato@suse.de>
- <20260803164400.531199-6-pfalcato@suse.de>
+ Jason Gunthorpe <jgg@nvidia.com>
+References: <20260715180455.515692-1-yang@os.amperecomputing.com>
+ <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
+ <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
+ <amCPBrdltFSE_fEf@J2N7QTR9R3>
+ <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
+ <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org> <anHuLy52o5S9Nlwp@lucifer>
+ <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com>
+ <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org>
+ <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
+ <anIXr4Kbn59Ac31Y@lucifer>
+ <69f4cd9c-bd6c-4e5d-b8d1-a7be8408a57a@os.amperecomputing.com>
+ <94c7988a-3ecf-4b26-b0a8-011bdc76283b@kernel.org>
+ <29edec61-8f11-b9b1-3df9-2a51815ee771@gentwo.org>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -113,7 +117,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260803164400.531199-6-pfalcato@suse.de>
+In-Reply-To: <29edec61-8f11-b9b1-3df9-2a51815ee771@gentwo.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -130,14 +134,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/3/26 18:43, Pedro Falcato wrote:
-> None of the helpers need write access to the PTE. Constifying the param
-> allows for const typesafety.
+On 8/5/26 00:35, Christoph Lameter (Ampere) wrote:
 > 
-> Signed-off-by: Pedro Falcato <pfalcato@suse.de>
-> ---
+>> That's really all we are asking for. If there is a measurable performance
+>> difference, great. Share the results or point us at them if we missed them.
+> 
+> Scanning over the patchset: It seems that you are using a special
+> instruction that is unfamiliar to me. Which processors support that?
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+That's best asked in reply to Mark's patch set I think.
 
 -- 
 Cheers,
