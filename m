@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D8D7C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D50EC56209
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 13:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TsToUmNoeBgrbjOgZX1nld4aTgniXbr44AUxLSb32Mc=; b=R2A4+GWgXr0+RI65EToyog4Ryq
-	1M7t8qH8qWFhQBK/XducR9Ufw2TfP1qEKoGgkLtaet1pW83OQboKD+ROlnTNz5tDHIUd2pjkWzc25
-	/+X47R0H5Ud4VBoEf7nhwzY4z6NvG5nQollnz4M28hRIeMuoY3jSJNwsLflv/WodjazCy5Dg9jZXU
-	qpBFf8IWtuwyOQjf35spasQXGpZibLvrhFyOn5ZBUJau1gaE2QmgWTZgoJEWMvB8EPif+xjhDDZVS
-	H6MUM5EdiYsEjOSBvj4mAi1i+5uw5vxIFUF4UQ0evJozZxbHGe/ljgpT2WEigIsPWXtrxRjLCifUx
-	5/F53fzw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zpq+fvaxWT022GHhy9WEKHR6+wO3c39jKiNTeZbbOZA=; b=yWwe9SB5tUot0RVJ4lr2+CJACW
+	sFwgTpXWF7k8UqT7nTHzQf9P2fkYcTZu8Ow9qfRIBENNkzPNL8Vzx9zin8alTHQhFNqYI1wNq42Yz
+	CPtWp0QDXAe0WDKihZGqND2O9+0Rkb3QV59rqM274w/f2aAM+JX4fe2h9VmUo+pzYB3JT94knkDga
+	7EKakpgHo33+OdU8U4q/k0GUKYkALVyZk0OjoSsUFKILaOxqLVo/0jk1NYLRv48S44jPaza0lI2Ui
+	yEbU4mH2SK85KVwW92ZITX3O1VJ0zmEJ75zjiwLj7OJ6h9wtcMz5mCH7P37cT5nd42LQv3FbUkMSc
+	5zWInjyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbH4-00000003xPK-1Jfi;
-	Wed, 05 Aug 2026 13:03:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrbH5-00000003xRP-2WnS;
+	Wed, 05 Aug 2026 13:03:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrbH3-00000003xOp-2eW9
+	id 1wrbH4-00000003xPD-1n5I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 13:03:09 +0000
+	Wed, 05 Aug 2026 13:03:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F013242E7B;
-	Wed,  5 Aug 2026 13:03:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C2B2EC19425;
-	Wed,  5 Aug 2026 13:03:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 75CC443B70;
+	Wed,  5 Aug 2026 13:03:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5657CC2BCFB;
+	Wed,  5 Aug 2026 13:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1785934988;
-	bh=bYDdWSVVTiG5MK6NhiClpB+w+7wlTNEHoSs63MTDrVY=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=b6u66+XSuX2JpJNoqebmDGmCCC2fAhfiOkGGom1m3S8HNeqUQ7mVWReDKbZmybdWy
-	 Z1FfDxUWghRiDva/MocNsf59o5odsgrOm9urFZmYFl8r6lYHkFBCUl1ADWWOOIWxXn
-	 5JHFr9rvv7yS8DMXrg9aut4L0OGxlmkxgiT8yQjYacYRjHkX4Jb+yR38z/IpGkamqU
-	 Gx4YH1V/A1j5Bf7Q2Q7Y0Jf7x8E42cp1jySTQpYYKxkaP2M2F/HDvf6Y8fw/4yWokE
-	 FllRKIiwgklGn6Qkl44RbTeA8LuytatalwfuQUJpHXm8F/SRZ7UsTAxoegotkB5Eu/
-	 jWfsJSH/ey2Gg==
+	s=k20201202; t=1785934989;
+	bh=U/VelihwE9/Y5DyVuu89kZaY6Foh61jZ62a+Hvygccg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=LpzPpe+CglNuxiT2pA5APAQP3umTEsbMMl5KOL0dAnhHgDmHgy0u5px872FsO3gY9
+	 ejAE5kJY5R+CbefIjHM9sZpBklvujVmGnwcZlMkIrFP3a24nWguJWNQ8JDgzOJfMA/
+	 ynbhErm7MmznT3x24isy4/GHKj4kd8Gi+TSvGwom59qYf2m9/EAUtJWVtg7j5w/oUW
+	 J0jwlaiEp88NFlKcyFXankhFNP8TNoOQoMR65wod26W97bzpOBUsjqo9cPob/WhoE/
+	 H08LMnIKXW52/QCrL6Il3B4v3yKuY+y/d0V7tULk8FVvJjCkKWBNKQvsmlFmeiInKw
+	 IhNZODu55LCDA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 9D334C55ABA;
-	Wed,  5 Aug 2026 13:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 45330C56205;
+	Wed,  5 Aug 2026 13:03:09 +0000 (UTC)
 From: Colin Huang via B4 Relay <devnull+u8813345.gmail.com@kernel.org>
-Subject: [PATCH v4 00/12] ARM: dts: aspeed: anacapa: restructure devicetree
- for development-phase
-Date: Wed, 05 Aug 2026 21:02:28 +0800
-Message-Id: <20260805-anacapa-devlop-phase-devicetree-v4-0-5d67e0efa6c5@gmail.com>
+Date: Wed, 05 Aug 2026 21:02:36 +0800
+Subject: [PATCH v4 08/12] ARM: dts: aspeed: anacapa: Enable MCTP and FRU
+ for NIC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGU0c2oC/43NSw7CIBSF4a00jMXwaKE4ch/GAV5uW5K+Ag3Rm
- O5d6kQTB3X4n8F3niRi8BjJqXiSgMlHP405ykNBoLNji9S73EQwoVjJNLWjBTtb6jD100znzkb
- cwgMuAZGWnHEnG8kFMJKVOWDj7++HyzV35+Myhcf7MPFt/d9OnDJq9M0oqTRYkOd2sL4/wjSQz
- U7i2zP7nsieqhspaqW5qn48+fEUE/uezJ4GI6FyTe3M7dtb1/UFz/hTrm4BAAA=
-X-Change-ID: 20260407-anacapa-devlop-phase-devicetree-4101d3f312c0
+Message-Id: <20260805-anacapa-devlop-phase-devicetree-v4-8-5d67e0efa6c5@gmail.com>
+References: <20260805-anacapa-devlop-phase-devicetree-v4-0-5d67e0efa6c5@gmail.com>
+In-Reply-To: <20260805-anacapa-devlop-phase-devicetree-v4-0-5d67e0efa6c5@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
  Andrew Jeffery <andrew@codeconstruct.com.au>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
  colin.huang2@amd.com, Colin Huang <u8813345@gmail.com>, 
- Carl Lee <carl.lee@amd.com>, Rex Fu <rex.fu.amd@gmail.com>, 
- Andy Chung <Andy.Chung@amd.com>, Peter Shen <peter.shen@amd.com>
+ Andy Chung <Andy.Chung@amd.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1785934963; l=3300;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1785934963; l=3214;
  i=u8813345@gmail.com; s=20260202; h=from:subject:message-id;
- bh=bYDdWSVVTiG5MK6NhiClpB+w+7wlTNEHoSs63MTDrVY=;
- b=JpW4raBNri6sH3Ja42DQW7J3vx/7RUB0HXn/GLfe3sG52WMvc65kv4VxarMyU30IM4cLoixZE
- DKEe+jKGXLvBCGXdk62DQ4vm/qPb8gSi0HzHW04zQrhGXZFzG0RA+N/
+ bh=BGZCKTF8QAag1qskLE0ofPzySUEOSMb3NZgJbIMmwIo=;
+ b=MpjikqOMq7zVXHAewpVwjarArr7otF1/OoOdZn2NtUC0MBbZ2MTzXrXKWYlc58Cq8PNSO30Fk
+ uc7L3qxtYXqAKMDtrJBwbimeTtMwDSdYRLMzclKn5H+D1fnXnWJcYt/
 X-Developer-Key: i=u8813345@gmail.com; a=ed25519;
  pk=Zlg0WqpCw4qbswOqamTBTXIchwR/3SnYZpy7rjaGMdQ=
 X-Endpoint-Received: by B4 Relay for u8813345@gmail.com/20260202 with
@@ -92,74 +88,158 @@ Reply-To: u8813345@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series refactors the Anacapa BMC devicetree layout to better support
-development-phase hardware revisions (EVT1/EVT2/DVT) while keeping a platform
-entrypoint.
+From: Andy Chung <Andy.Chung@amd.com>
 
-Signed-off-by: Colin Huang <u8813345@gmail.com>
+Add the mctp-controller property to enable frontend NIC management
+via PLDM over MCTP.
+Also add EEPROM device for NIC FRU and reorder the I2C virtual bus
+index accroding to the system silkscreen index.
+
+Signed-off-by: Andy Chung <Andy.Chung@amd.com>
 ---
-Changes in v4:
-- Capitalize the first word of the short description.
-- Rework the Anacapa development-phase devicetree hierarchy.
-- Ensure that anacapa-evt1 generates an identical devicetree to the existing aspeed-bmc-facebook-anacapa.dts.
-- Add SPI flash VCC supply.
-- Simplify leakage GPIO line names.
-- Add LPDB fuse monitor GPIO expander.
-- Link to v3: https://lore.kernel.org/r/20260602-anacapa-devlop-phase-devicetree-v3-0-7c93c5df8d9b@gmail.com
+ .../aspeed/aspeed-bmc-facebook-anacapa-evt2.dts    | 119 +++++++++++++++++++++
+ 1 file changed, 119 insertions(+)
 
-Changes in v3:
-- Restructure the EVT2 devicetree to inherit from the EVT1 devicetree, making it incremental rather than standalone.
-- Add the DVT devicetree, inheriting from the EVT2 devicetree.
-- Enable MCTP and FRU support for the NIC.
-- Align PDB fan GPIO numbering.
-- Add an EEPROM device node for the NFC adaptor board.
-- Add an additional EEPROM device node for the SCM.
-- Add shunt resistor values for HSC monitors
-- Link to v2: https://lore.kernel.org/r/20260409-anacapa-devlop-phase-devicetree-v2-0-68f328671653@gmail.com
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts
+index ff393ad7cdb7..703284721224 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa-evt2.dts
+@@ -8,6 +8,25 @@ / {
+ 	compatible = "facebook,anacapa-bmc-evt2", "aspeed,ast2600";
+ };
+ 
++&{/aliases} {
++	i2c36 = &i2c11mux0ch5;
++	i2c37 = &i2c11mux0ch6;
++	i2c38 = &i2c11mux0ch7;
++	i2c39 = &i2c11mux0ch0;
++	i2c40 = &i2c11mux0ch1;
++	i2c41 = &i2c11mux0ch2;
++	i2c42 = &i2c11mux0ch3;
++	i2c43 = &i2c11mux0ch4;
++	i2c44 = &i2c10mux0ch1;
++	i2c45 = &i2c10mux0ch2;
++	i2c46 = &i2c10mux0ch3;
++	i2c47 = &i2c10mux0ch4;
++	i2c48 = &i2c10mux0ch5;
++	i2c49 = &i2c10mux0ch6;
++	i2c50 = &i2c10mux0ch7;
++	i2c51 = &i2c10mux0ch0;
++};
++
+ // MB - PDB
+ &i2c8 {
+ 	i2c-mux@72 {
+@@ -55,6 +74,106 @@ eeprom@51 {
+ 	};
+ };
+ 
++// R Bridge Board
++&i2c10 {
++	multi-master;
++	mctp@10 {
++		compatible = "mctp-i2c-controller";
++		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++	};
++
++	i2c-mux@71 {
++		/delete-property/ i2c-mux-idle-disconnect;
++
++		i2c10mux0ch1: i2c@1 {
++			mctp-controller;
++			// BE NIC FRU
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++		i2c10mux0ch2: i2c@2 {
++			mctp-controller;
++			// BE NIC FRU
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++		i2c10mux0ch3: i2c@3 {
++			mctp-controller;
++			// BE NIC FRU
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++		i2c10mux0ch4: i2c@4 {
++			mctp-controller;
++			// BE NIC FRU
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++	};
++};
++
++// L Bridge Board
++&i2c11 {
++	multi-master;
++	mctp@10 {
++		compatible = "mctp-i2c-controller";
++		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++	};
++
++	i2c-mux@71 {
++		/delete-property/ i2c-mux-idle-disconnect;
++
++		i2c11mux0ch0: i2c@0 {
++			mctp-controller;
++			// FE NIC FRU
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++		i2c11mux0ch1: i2c@1 {
++			mctp-controller;
++			// BE NIC FRU
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++		i2c11mux0ch2: i2c@2 {
++			mctp-controller;
++			// BE NIC FRU
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++		i2c11mux0ch3: i2c@3 {
++			mctp-controller;
++			// BE NIC FRU
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++		i2c11mux0ch4: i2c@4 {
++			mctp-controller;
++			// BE NIC FRU
++			eeprom@50 {
++				compatible = "atmel,24c32";
++				reg = <0x50>;
++			};
++		};
++	};
++};
++
+ // MB
+ &i2c13 {
+ 	i2c-mux@70 {
 
-Changes in v2:
-- Fix dtbs_check fail.
-  Validated by following command:
-    make dt_binding_check DT_SCHEMA_FILES=arm/aspeed/aspeed.yaml
-    make CHECK_DTBS=y DT_SCHEMA_FILES=arm/aspeed/aspeed.yaml aspeed/aspeed-bmc-facebook-anacapa.dtb
-    make CHECK_DTBS=y DT_SCHEMA_FILES=arm/aspeed/aspeed.yaml aspeed/aspeed-bmc-facebook-anacapa-evt1.dtb
-    make CHECK_DTBS=y DT_SCHEMA_FILES=arm/aspeed/aspeed.yaml aspeed/aspeed-bmc-facebook-anacapa-evt2.dtb
-- Link to v1: https://lore.kernel.org/r/20260407-anacapa-devlop-phase-devicetree-v1-0-97b96367cac3@gmail.com
-
----
-Andy Chung (1):
-      ARM: dts: aspeed: anacapa: Enable MCTP and FRU for NIC
-
-Carl Lee (1):
-      ARM: dts: aspeed: anacapa: Add eeprom device node for NFC adaptor board
-
-Colin Huang (6):
-      dt-bindings: arm: aspeed: Add Anacapa EVT1 EVT2 DVT board
-      ARM: dts: aspeed: anacapa: Add EVT1 devicetree and point wrapper to it
-      ARM: dts: aspeed: anacapa: Add EVT2 devicetree inheriting EVT1
-      ARM: dts: aspeed: anacapa: Add DVT devicetree inheriting EVT2
-      ARM: dts: aspeed: anacapa: Add additional EEPROM node for SCM
-      ARM: dts: aspeed: anacapa: evt2: Add shunt resistor values for HSC monitors
-
-Rex Fu (4):
-      ARM: dts: aspeed: anacapa: Align PDB fan GPIO numbering
-      ARM: dts: aspeed: anacapa: Add LPDB fuse monitor GPIO expander
-      ARM: dts: aspeed: anacapa: Simplify leakage GPIO line names
-      ARM: dts: aspeed: anacapa: Add SPI flash VCC supply
-
- .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    3 +
- .../dts/aspeed/aspeed-bmc-facebook-anacapa-dvt.dts |  265 +++++
- .../aspeed/aspeed-bmc-facebook-anacapa-evt1.dts    | 1079 ++++++++++++++++++++
- .../aspeed/aspeed-bmc-facebook-anacapa-evt2.dts    |  408 ++++++++
- .../dts/aspeed/aspeed-bmc-facebook-anacapa.dts     | 1077 +------------------
- 5 files changed, 1756 insertions(+), 1076 deletions(-)
----
-base-commit: 112264fb0bd0a7982b13da18cd3e289e2ab76eed
-change-id: 20260407-anacapa-devlop-phase-devicetree-4101d3f312c0
-
-Best regards,
 -- 
-Colin Huang <u8813345@gmail.com>
+2.34.1
 
 
 
