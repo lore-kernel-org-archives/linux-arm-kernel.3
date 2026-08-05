@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1991EC55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 02:28:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD6DC55838
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 02:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D64PmTVEKzBZLdk+xtOtavancebLmpSxAZFhbcTQDwg=; b=s7nO4TfLKdlT71AIz+uJ8bDBMD
-	1okiPzS41RRuMX4cIl3lkZjhH06QOaUbUn067CwVjadItwfKN0Pt3jtVUugYRDx5bPkQG922L9BXS
-	1vd3IVdo6lGXhS3PGZpaa6IPGwDmfnxYLBpXRAEoaVisuHLyb/WPu7DponeoQazC80wYIGIyZb9Kx
-	TAeFmTmpqE+SeDtilUmAJ6DBWugHb+VMQDcsU9X8T7zXN1kJ4E0mvbGtM/7VL7b/In0g8HYbdtmeR
-	7uO40olcrYqjz5do0I/UY6xoeyVrk13ky/M7jbPE+Ztk04Lftk27rN15S06uXJ/QLhqEa9zn9pdMN
-	he5q8RhQ==;
+	bh=MjVtijpmJ/oNZWvDUTBmnWApL7aWLNJ+r5jlKeKXMpI=; b=x2IQ/vxNaIbQZBsUJNiRLDMiMj
+	Jy0DnUeZo3jVIrKHw1RBI3b8lkAs+r85gSq2poYgnfKdJqzecQGacsYuxwrSqwIpiK/ktwvwkAH37
+	xT9eaqePTudzpo6X7I5jmG8EBQGjc63HXmeIyqS0HrcsHv0rAWQknMIk86OZK4VKHa9+NK/w6obmt
+	w0D3KIdCh6N+QoNS5eTKeYR8RptbDcFVm86hGEpbrJuwH9KRd3QPH5k/WcTpZvV0J5pbNq7BNuUft
+	kfWpFhDFJbvqXxN6fIGaRltG8VSaUGlzBxMyOpWl9+56ZqufUVCleRqzEZQGgYPlofQ8hBtn13uLs
+	+G+uLNuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRN2-000000037Uk-0qLl;
-	Wed, 05 Aug 2026 02:28:40 +0000
-Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
+	id 1wrRN9-000000037eQ-1KOO;
+	Wed, 05 Aug 2026 02:28:47 +0000
+Received: from mail-ot1-x335.google.com ([2607:f8b0:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRMv-000000037LM-1KO4
+	id 1wrRMz-000000037QY-1pkJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 02:28:35 +0000
-Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-7ec49608332so288370a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 19:28:33 -0700 (PDT)
+	Wed, 05 Aug 2026 02:28:39 +0000
+Received: by mail-ot1-x335.google.com with SMTP id 46e09a7af769-7e9ecb1e13cso611740a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 19:28:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785896912; x=1786501712; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785896915; x=1786501715; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=D64PmTVEKzBZLdk+xtOtavancebLmpSxAZFhbcTQDwg=;
-        b=eQz+YG0WuuyzddhCuceIutsiweaWHR5xwUhYyVokbUq2tivZ8MOI6FhyuYYkLHLGWS
-         MXiEy3GrMYjGJ+BJ+o7bitJ9UM83SRQtqucUIxA1DwIWuO4fRLjI7Ddi7xdVzSlCJPSN
-         gHNLFm6i7NYyXQBSIFtjGmT/3LoglK7tIN5gs6HNwPpQESVAAID42OCX3veUSpYfH4kl
-         0dAw8NVyVQTY+Ncyckbu77LRXIy20l47IaRRuolQNSyL54GVB9S2csBzJOr8nBlzaQ5h
-         Rx9MNQ2VCPrLT3rPWFSMBW5nhXzYHL4Kq85vc09PYakBt65d2Fm6f97HbttkZm9hcJnt
-         YmtA==
+        bh=MjVtijpmJ/oNZWvDUTBmnWApL7aWLNJ+r5jlKeKXMpI=;
+        b=PWVNs4EZgH7exHOCR0dEj+2GXjW6mWcsuPGnPUEHaUxIEgJ9SdP6Tqbv4/Y0pBP8+y
+         1Q4417BomauxhVWwHeVLnRC8shuhKHLEBxLamFs2USrlh56keGDiZ61cVGdDttkozyzq
+         /apLW1qM0vyZr66zQT+Ga1ssxOCqzdIZ9KV4Cx5iFm9IzsIvrE/Solxe38x4UItFUFSj
+         16G+5TmXiHFQE7tc4vewjSy9aMLZTdG5iQntp6EgWO7hM91cWSSgGaZrhWy6Kq/YJ+Xz
+         7J8QfgKK/2QfaAW73bpJlgoxbzOgX+lQDacD1X7qUkUR44UY2k6MMFrq8uggd1dueRFJ
+         OPbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785896912; x=1786501712;
+        d=1e100.net; s=20251104; t=1785896915; x=1786501715;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=D64PmTVEKzBZLdk+xtOtavancebLmpSxAZFhbcTQDwg=;
-        b=pI9j1FahszqV7Do/gRk2INskwrCifVqTHZW7ZXfUzFGiJIkTjEkVSif3eskOihqgYn
-         dPd0Tg61eX+yZGtRF7YMNBloeC90I2255/5FQkpITnQOps673TV4PgU/WU1qNOlYqBaL
-         s5vygCj1oqWQ9BGdby82ufic6+r9j49KEruL9cxmXyjvheKLumVpw7q8tKoZEPCuN9Wb
-         8R6hcNtz1IcSFk0soGw1zH6YKX7ynOKACm8kbF74AVF7lFAZDDNoD+cV/5Yfgecx7+R0
-         w1wHYMsYZ4k4ze8x6EcPQT+xZlbQRp4B2OxFts7k0NO/bE3zJM/TwoQGUlJ8NhHH1Txo
-         aJQg==
-X-Forwarded-Encrypted: i=1; AHgh+RpTNaLch7U17CLraD9UN/tuWySkAKkOeg9oPUF7Yy05umy+wMJjnfU3HYIuMG3IEpw7vqEMNOl+tIGOKRnrzyVm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLuZQGNGgEw3UiadaCtSFR6WCmV5LBwqoHKf8PhXvEnP2skT81
-	X/jGyghwlcNxU/Tt/GSI5QfZrFD8uNWhCpUhmiUojBUHQquBuoyg/pE9
-X-Gm-Gg: AR+sD12rhDmxB2ILC5HHY2vzgACih38ps/svatnlgOxAUR+J2rrqaVT9I2icMwyPbiz
-	UBX6ER/isUGgVf67lY4xk828BTXSunEnA70Mb4Uglv4zFtO0DWpTgLxxZaaXDBmZH/lLFcYw96J
-	aas9453VTT+Sn6GsCKqepg4PHlUOFjJks4zrh0IEUbtabeGT7ONjC9ZHwH5addBsc89bqDXsRIB
-	DoZX3onU4gZE6TSaudOjuzTYZl/6pptkOc1lvwAiaG+UZ7vs5SyFdwqPGaWoAxNA8VoUXVXPPQx
-	Myp3NqQ3jhKR/P2PuJlY9BbkUmEBAAfGtkazacBGKpulvcVcWflOoXmcMcwCKv5AV36a1kHgbck
-	AZ2Y653r5JItjNUeVH7pFZ4Rc96yWfakNwQdLsx9FbpzTjADQVFrDLF2ZUblSf8q7qf91a6GEf0
-	IhS6G60lvX8wSy9fJ+E8GxsnvwgwaT8j33d+A3E1ueVBHhMmjhjkYHY7roxeWSRJepQAqftt5KN
-	zaA3VhdIyXAutHZG1y7OS4q5lZ8zoph3B8XNHiautLDrHa8J6g6yyGr84TMl4a4W4bPpseVm9dz
-	z8nALcU8G0AoKqoZoRkuwsevKTAK78Y4G5n2H3WaddB16Hp2U8yUCSp/J8A2bQZHRLkA/fFYv6c
-	ngVFBL08IQq8LIda0
-X-Received: by 2002:a05:6830:828e:b0:7dc:c4ae:a689 with SMTP id 46e09a7af769-7f1e5c13d47mr2668638a34.2.1785896912411;
-        Tue, 04 Aug 2026 19:28:32 -0700 (PDT)
+        bh=MjVtijpmJ/oNZWvDUTBmnWApL7aWLNJ+r5jlKeKXMpI=;
+        b=tUBS4Ni/+8YfnE5NS5ebQk80Hy1sRDZ93Tfst9dkFw4B3n+lzBv884T2TaqU+ixaar
+         dmLTtLWAIQ6GKx0odPS9c7DppU6F4sp6/VuIHg3BOuZBWKWKmU0n25XevR+HIzPn2yMS
+         JPyj2b/lkxRgeuvD4BmXftkCXv6P0j4aJuma0bQGr4x0KKhdL8QFH8+/qIfjVOi85nl/
+         HmVNAtz1QzMdQAkSEpcaWdIh4lFzbF2/AdRNZ+rP0I4uKDAoricJKJRZJ/hxPRDdl3G7
+         Gve5QSeLfRrbGs5xY/0qEvwKZhYNEgkfaYmydyWVzm2ggU/ccsqui3X/XWCxeiE3PwjD
+         tstA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr+2JQhaLNUKvfTT6szDJXzHdkNQ8ad6Th1ikl4ZAkz30Xa3WyJze/Tx349UqLWa7GvqxHrlBcep0ZcNrik3E85@lists.infradead.org
+X-Gm-Message-State: AOJu0YydnoLwMhjvtYC9+EKPb93roBfzeBdip23PHzm3aJAi5g0JbEaZ
+	guhLvOQFFPE0lbW0T39SXdr5mS5vl8DgKgpFlO8BaFfrYgbZlpPrMofu
+X-Gm-Gg: AR+sD12ZmCgIv/y8xwzxYGpL/crUJAWRsCHmSU1qz71xBuhXCSj+qIEc6xQoa/DwL0H
+	gKEQbTzagAguagVrZQ79k5xwjla0oDTMeeLhpLUk/TgyVOGOSJ3Wl1CQAidKtitkk0D7r7yoVdc
+	dR2xfC9qFx/G/3yx+Q0L8J8uPVa9zXCbDCk4HB+VDHSZwgkljlm8SLY27aAAEY8Xpo9ZMu+1kKf
+	Ot4y+mzvK7umkMFE5CrJhqSEnWzaTwq05RDiFGQ89oUcemZajvpQWHDi/k1F24SzNOEQhbhAjTQ
+	Q6FMZ+BHPzmnu3TPm4GLXGo4oqwideBR2T58fhCOZ6+48Ly+ylIqlX33NYarEOi/AFyiZ8zz1Xf
+	RQa0cVqS6RwpByL9JnmsTavgSmhxcO/IJbls95H+dH7yTXrBoS5AN1BT8MilRjkAAzypeqD5kmt
+	wrUu8DeHY3OKYEd5dJZh8BVjsXkc0HGL5AuBbnr65VxiPvEJge28C75lyXQVsw7HmfxMGlBsm1G
+	SgA22fTjv+gh9rPbfDg9N9xfbb+IgSsksv/hmLBtsybjCrCcUu3acJBJ4DGXxj+QQWbMYFsCuJP
+	zBTjUU9RMG3uIulkm+CPvof72MbMqilASjhIviyAok9QPBaPi/uvHws2osdgfj7eK9DNUFQwu9L
+	EIeZZiiU1p9JZUM8veIGGlJKA1E4=
+X-Received: by 2002:a05:6830:3741:b0:7e9:ea28:4c1f with SMTP id 46e09a7af769-7f1e5d893e2mr2408593a34.8.1785896915399;
+        Tue, 04 Aug 2026 19:28:35 -0700 (PDT)
 Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f1df565d37sm2078153a34.16.2026.08.04.19.28.31
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f1df565d37sm2078153a34.16.2026.08.04.19.28.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 19:28:31 -0700 (PDT)
+        Tue, 04 Aug 2026 19:28:35 -0700 (PDT)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 04 Aug 2026 20:27:02 -0600
-Subject: [PATCH net-next v2 4/8] net: phy: add X-Powers AC200 EPHY control
- driver
+Date: Tue, 04 Aug 2026 20:27:05 -0600
+Subject: [PATCH net-next v2 7/8] dt-bindings: net: x-powers: add
+ AC200/AC300 EPHY
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260804-submit-acx00-of-dynamic-v1-v2-4-3eef49ff1d8c@gmail.com>
+Message-Id: <20260804-submit-acx00-of-dynamic-v1-v2-7-3eef49ff1d8c@gmail.com>
 References: <20260804-submit-acx00-of-dynamic-v1-v2-0-3eef49ff1d8c@gmail.com>
 In-Reply-To: <20260804-submit-acx00-of-dynamic-v1-v2-0-3eef49ff1d8c@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -96,8 +96,8 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_192833_408502_44053436 
-X-CRM114-Status: GOOD (  28.51  )
+X-CRM114-CacheID: sfid-20260804_192837_732823_B9DA1193 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,384 +112,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AC200 Fast Ethernet PHY needs package registers in the parent I2C
-regmap to be configured before its Clause 22 endpoint becomes usable.
+The AC200 and AC300 MDIO link interfaces report the same Clause 22
+identifier and use a compatible link-side paged register layout, but need
+different package control interfaces before that identifier can be read.
 
-Add a control driver which obtains the calibration value, applies the
-vendor offset, selects the documented 24 or 27 MHz input clock, programs
-the link PHY address and performs the required reset, clock and shutdown
-sequence. Use the optional SoC SID cell when supplied and otherwise read
-the AC200's internal calibration eFuse.
+Describe the forced-ID PHY and require exactly one reference to an
+enabled AC200 or AC300 control device. The PHY node's reg value is
+programmed through the AC200 control interface. For AC300, it must match
+the address selected by the package straps and is therefore limited to 0
+through 7.
 
-Early PHY creation occurs before a MAC has attached, so use reset-default
-MII initially. A separate operation later applies phydev->interface; when
-the block is already powered it changes only RMII_SEL before the normal
-PHY soft reset.
+Allow a system to provide its optional two-bit SID configuration field.
+Bit 0 identifies the AC200 or AC300 package and must agree with the
+described control device. Bit 1 selects the AC300 low-calibration tuning
+sequence. Omitting the field skips package validation and selects the
+normal calibration sequence.
 
-Expose serialized, idempotent power and interface operations to the
-common PHY driver. Enable only the MII I/O pads in this basic driver;
-dedicated LED outputs remain disabled until a later LED patch describes
-and manages them.
+Also describe the optional xMII receive-clock inversion needed by some
+integrations. Requiring an X-Powers control reference distinguishes these
+integrations from the Rockchip RK630 PHY, which reports the same
+identifier.
 
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 ---
- drivers/net/phy/Kconfig             |   9 ++
- drivers/net/phy/Makefile            |   1 +
- drivers/net/phy/xpowers-ac200-ctl.c | 294 ++++++++++++++++++++++++++++++++++++
- drivers/net/phy/xpowers-acx00.h     |  15 ++
- 4 files changed, 319 insertions(+)
+ .../bindings/net/x-powers,acx00-ephy.yaml          | 117 +++++++++++++++++++++
+ 1 file changed, 117 insertions(+)
 
-diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index a29d3fed8a05..6119f4de880d 100644
---- a/drivers/net/phy/Kconfig
-+++ b/drivers/net/phy/Kconfig
-@@ -475,6 +475,15 @@ config VITESSE_PHY
- 	help
- 	  Currently supports the vsc8244
- 
-+config XPOWERS_AC200_PHY_CTL
-+	tristate "X-Powers AC200 Ethernet PHY control"
-+	depends on MFD_AC200
-+	help
-+	  Enable the control driver for the Fast Ethernet PHY function in
-+	  the X-Powers AC200 mixed-signal companion IC. It programs the PHY
-+	  address, interface mode, calibration and I/O controls through the
-+	  parent AC200 I2C regmap.
-+
- config XILINX_GMII2RGMII
- 	tristate "Xilinx GMII2RGMII converter driver"
- 	help
-diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index e23df5e836e9..f81854fc9f12 100644
---- a/drivers/net/phy/Makefile
-+++ b/drivers/net/phy/Makefile
-@@ -100,4 +100,5 @@ obj-$(CONFIG_SMSC_PHY)		+= smsc.o
- obj-$(CONFIG_STE10XP)		+= ste10Xp.o
- obj-$(CONFIG_TERANETICS_PHY)	+= teranetics.o
- obj-$(CONFIG_VITESSE_PHY)	+= vitesse.o
-+obj-$(CONFIG_XPOWERS_AC200_PHY_CTL) += xpowers-ac200-ctl.o
- obj-$(CONFIG_XILINX_GMII2RGMII) += xilinx_gmii2rgmii.o
-diff --git a/drivers/net/phy/xpowers-ac200-ctl.c b/drivers/net/phy/xpowers-ac200-ctl.c
+diff --git a/Documentation/devicetree/bindings/net/x-powers,acx00-ephy.yaml b/Documentation/devicetree/bindings/net/x-powers,acx00-ephy.yaml
 new file mode 100644
-index 000000000000..c69e6a8c71a4
+index 000000000000..c280bcf8aa25
 --- /dev/null
-+++ b/drivers/net/phy/xpowers-ac200-ctl.c
-@@ -0,0 +1,294 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * X-Powers AC200 Ethernet PHY control driver
-+ *
-+ * Copyright (c) 2022 Arm Ltd. (Andre Przywara <andre.przywara@arm.com>)
-+ * Copyright (C) 2026 James Hilliard <james.hilliard1@gmail.com>
-+ */
++++ b/Documentation/devicetree/bindings/net/x-powers,acx00-ephy.yaml
+@@ -0,0 +1,117 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/x-powers,acx00-ephy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/nvmem-consumer.h>
-+#include <linux/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/regmap.h>
++title: X-Powers AC200 and AC300 Ethernet PHY
 +
-+#include "xpowers-acx00.h"
++maintainers:
++  - James Hilliard <james.hilliard1@gmail.com>
 +
-+#define AC200_EPHY_BPS_EFFUSE_OFFSET	3
++description:
++  The AC200 and AC300 expose Fast Ethernet MDIO link interfaces which report
++  the same PHY ID and use a compatible link-side paged register layout. Each
++  package uses a different control interface to make its MDIO endpoint
++  accessible. A fixed board references its enabled AC200 or AC300 control
++  device. The PHY node's reg value is programmed through the AC200 interface;
++  for AC300 it must match the address selected by the package straps.
 +
-+#define AC200_SYS_EPHY_CTL0_REG			0x0014
-+#define AC200_EPHY_RESET_DEASSERT		BIT(0)
-+#define AC200_EPHY_SYSCLK_ENABLE			BIT(1)
++select:
++  properties:
++    compatible:
++      contains:
++        const: ethernet-phy-id0044.1400
++  required:
++    - compatible
++  anyOf:
++    - required:
++        - x-powers,ac200-control
++    - required:
++        - x-powers,ac300-control
 +
-+#define AC200_SYS_EPHY_CTL1_REG			0x0016
-+#define AC200_EPHY_MII_IO_ENABLE			BIT(0)
++properties:
++  compatible:
++    const: ethernet-phy-id0044.1400
 +
-+/* AC200-internal copy of the Ethernet PHY calibration eFuse. */
-+#define AC200_EFUSE_EPHY_REG			0x8004
++  nvmem-cells:
++    maxItems: 1
++    description:
++      Optional two-bit SoC SID configuration field. Bit 0 selects the package
++      variant, with zero for AC200 and one for AC300, and must agree with the
++      described control device. Bit 1 selects the AC300 vendor low-calibration
++      tuning sequence. Omitting the field selects the normal tuning sequence
++      without validating the package variant.
 +
-+#define AC200_EPHY_CTL_REG			0x6000
-+#define AC200_EPHY_SHUTDOWN			BIT(0)
-+#define AC200_EPHY_CLK_SEL_24_MHZ		BIT(2)
-+#define AC200_EPHY_PHY_ADDR_MASK			GENMASK(8, 4)
-+#define AC200_EPHY_RMII_SEL			BIT(11)
-+#define AC200_EPHY_BPS_EFFUSE_MASK		GENMASK(15, 12)
++  nvmem-cell-names:
++    const: configuration
 +
-+struct ac200_ephy_ctl {
-+	struct acx00_ephy_control control;
-+	struct regmap *regmap;
-+	struct mutex lock; /* Serializes power sequencing and state. */
-+	u16 ephy_ctl;
-+	unsigned int phy_addr;
-+	phy_interface_t interface;
-+	bool powered;
-+};
++  x-powers,ac200-control:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Reference to the AC200 Ethernet PHY control function
 +
-+static u16 ac200_ephy_ctl_config(const struct ac200_ephy_ctl *priv)
-+{
-+	return priv->ephy_ctl |
-+		(priv->interface == PHY_INTERFACE_MODE_RMII ?
-+		 AC200_EPHY_RMII_SEL : 0) |
-+		FIELD_PREP(AC200_EPHY_PHY_ADDR_MASK, priv->phy_addr);
-+}
++  x-powers,ac300-control:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Reference to the AC300 MDIO Ethernet PHY control device
 +
-+static int ac200_ephy_ctl_power_off_locked(struct ac200_ephy_ctl *priv)
-+{
-+	int err;
-+	int ret;
++  x-powers,xmii-rx-clock-inverted:
++    type: boolean
++    description:
++      Invert the xMII receive clock inside the PHY. This is required by some
++      SoC integrations, including the Allwinner H6 AC200 connection.
 +
-+	if (!priv->powered)
-+		return 0;
++required:
++  - compatible
 +
-+	ret = regmap_write(priv->regmap, AC200_EPHY_CTL_REG,
-+			   ac200_ephy_ctl_config(priv) | AC200_EPHY_SHUTDOWN);
-+	err = regmap_write(priv->regmap, AC200_SYS_EPHY_CTL1_REG, 0);
-+	if (!ret)
-+		ret = err;
-+	err = regmap_write(priv->regmap, AC200_SYS_EPHY_CTL0_REG, 0);
-+	if (!ret)
-+		ret = err;
++oneOf:
++  - properties:
++      x-powers,ac300-control: false
++    required:
++      - x-powers,ac200-control
++  - properties:
++      x-powers,ac200-control: false
++    required:
++      - x-powers,ac300-control
 +
-+	priv->powered = false;
++dependentRequired:
++  nvmem-cells: [ nvmem-cell-names ]
 +
-+	return ret;
-+}
++allOf:
++  - $ref: ethernet-phy.yaml#
++  - if:
++      required:
++        - x-powers,ac300-control
++    then:
++      properties:
++        reg:
++          maximum: 7
 +
-+static int ac200_ephy_ctl_power_off(struct acx00_ephy_control *control)
-+{
-+	struct ac200_ephy_ctl *priv =
-+		container_of(control, struct ac200_ephy_ctl, control);
-+	int ret;
++unevaluatedProperties: false
 +
-+	mutex_lock(&priv->lock);
-+	ret = ac200_ephy_ctl_power_off_locked(priv);
-+	mutex_unlock(&priv->lock);
++examples:
++  - |
++    mdio {
++        #address-cells = <1>;
++        #size-cells = <0>;
 +
-+	return ret;
-+}
++        ethernet-phy@0 {
++            compatible = "ethernet-phy-id0044.1400";
++            reg = <0>;
++            nvmem-cells = <&ephy_configuration>;
++            nvmem-cell-names = "configuration";
++            x-powers,ac300-control = <&ac300_ephy_ctl>;
++        };
++    };
 +
-+static int
-+ac200_ephy_ctl_set_interface(struct acx00_ephy_control *control,
-+			     phy_interface_t interface)
-+{
-+	struct ac200_ephy_ctl *priv =
-+		container_of(control, struct ac200_ephy_ctl, control);
-+	u16 value;
-+	int ret = 0;
++  - |
++    mdio {
++        #address-cells = <1>;
++        #size-cells = <0>;
 +
-+	switch (interface) {
-+	case PHY_INTERFACE_MODE_MII:
-+		value = 0;
-+		break;
-+	case PHY_INTERFACE_MODE_RMII:
-+		value = AC200_EPHY_RMII_SEL;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	mutex_lock(&priv->lock);
-+	if (priv->interface == interface)
-+		goto out_unlock;
-+
-+	if (priv->powered)
-+		ret = regmap_update_bits(priv->regmap, AC200_EPHY_CTL_REG,
-+					 AC200_EPHY_RMII_SEL, value);
-+	if (!ret)
-+		priv->interface = interface;
-+
-+out_unlock:
-+	mutex_unlock(&priv->lock);
-+
-+	return ret;
-+}
-+
-+static int ac200_ephy_ctl_power_on(struct acx00_ephy_control *control,
-+				   unsigned int phy_addr)
-+{
-+	struct ac200_ephy_ctl *priv =
-+		container_of(control, struct ac200_ephy_ctl, control);
-+	u16 ephy_ctl;
-+	int ret;
-+
-+	if (phy_addr > FIELD_MAX(AC200_EPHY_PHY_ADDR_MASK))
-+		return -EINVAL;
-+
-+	mutex_lock(&priv->lock);
-+	if (priv->powered && priv->phy_addr == phy_addr) {
-+		ret = 0;
-+		goto out_unlock;
-+	}
-+	if (priv->powered) {
-+		ret = ac200_ephy_ctl_power_off_locked(priv);
-+		if (ret)
-+			goto out_unlock;
-+	}
-+	priv->phy_addr = phy_addr;
-+
-+	ephy_ctl = ac200_ephy_ctl_config(priv);
-+
-+	/* Start from a disabled state before applying the configuration. */
-+	ret = regmap_write(priv->regmap, AC200_SYS_EPHY_CTL0_REG, 0);
-+	if (ret)
-+		goto err_disable;
-+
-+	ret = regmap_write(priv->regmap, AC200_SYS_EPHY_CTL1_REG,
-+			   AC200_EPHY_MII_IO_ENABLE);
-+	if (ret)
-+		goto err_disable;
-+
-+	ret = regmap_write(priv->regmap, AC200_EPHY_CTL_REG,
-+			   ephy_ctl | AC200_EPHY_SHUTDOWN);
-+	if (ret)
-+		goto err_disable;
-+
-+	ret = regmap_write(priv->regmap, AC200_SYS_EPHY_CTL0_REG,
-+			   AC200_EPHY_RESET_DEASSERT |
-+			   AC200_EPHY_SYSCLK_ENABLE);
-+	if (ret)
-+		goto err_disable;
-+
-+	fsleep(10000);
-+
-+	ret = regmap_write(priv->regmap, AC200_EPHY_CTL_REG, ephy_ctl);
-+	if (ret)
-+		goto err_disable;
-+
-+	priv->powered = true;
-+	goto out_unlock;
-+
-+err_disable:
-+	/* Attempt every step of the shutdown sequence after a partial start. */
-+	priv->powered = true;
-+	ac200_ephy_ctl_power_off_locked(priv);
-+out_unlock:
-+	mutex_unlock(&priv->lock);
-+
-+	return ret;
-+}
-+
-+static int ac200_ephy_ctl_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct ac200_ephy_ctl *priv;
-+	unsigned long clk_rate;
-+	unsigned int calibration;
-+	u8 nvmem_calibration;
-+	u8 bps_effuse_code;
-+	struct clk *clk;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+	mutex_init(&priv->lock);
-+
-+	priv->regmap = dev_get_regmap(dev->parent, NULL);
-+	if (!priv->regmap)
-+		return dev_err_probe(dev, -EPROBE_DEFER,
-+				     "parent regmap is not ready\n");
-+
-+	if (device_property_present(dev, "nvmem-cells")) {
-+		ret = nvmem_cell_read_u8(dev, "calibration",
-+					 &nvmem_calibration);
-+		if (ret)
-+			return dev_err_probe(dev, ret,
-+					     "failed to read calibration data\n");
-+		calibration = nvmem_calibration;
-+	} else {
-+		ret = regmap_read(priv->regmap, AC200_EFUSE_EPHY_REG,
-+				  &calibration);
-+		if (ret)
-+			return dev_err_probe(dev, ret,
-+					     "failed to read on-chip calibration data\n");
-+	}
-+
-+	/* The vendor driver supplies no transfer function beyond this offset. */
-+	bps_effuse_code = (calibration + AC200_EPHY_BPS_EFFUSE_OFFSET) &
-+			   FIELD_MAX(AC200_EPHY_BPS_EFFUSE_MASK);
-+	priv->ephy_ctl =
-+		FIELD_PREP(AC200_EPHY_BPS_EFFUSE_MASK, bps_effuse_code);
-+	/* EPHY_MODE and BIST_CLK_EN stay clear for normal operation. */
-+
-+	clk = clk_get(dev->parent, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk),
-+				     "failed to get input clock\n");
-+
-+	clk_rate = clk_get_rate(clk);
-+	clk_put(clk);
-+
-+	switch (clk_rate) {
-+	case 24000000:
-+		priv->ephy_ctl |= AC200_EPHY_CLK_SEL_24_MHZ;
-+		break;
-+	case 27000000:
-+		break;
-+	default:
-+		return dev_err_probe(dev, -EINVAL,
-+				     "unsupported input clock rate %lu Hz\n",
-+				     clk_rate);
-+	}
-+
-+	priv->control.power_on = ac200_ephy_ctl_power_on;
-+	priv->control.power_off = ac200_ephy_ctl_power_off;
-+	priv->control.set_interface = ac200_ephy_ctl_set_interface;
-+	/* MII is the reset default used until the MAC supplies its interface. */
-+	priv->interface = PHY_INTERFACE_MODE_MII;
-+	platform_set_drvdata(pdev, &priv->control);
-+
-+	return 0;
-+}
-+
-+static void ac200_ephy_ctl_remove(struct platform_device *pdev)
-+{
-+	struct acx00_ephy_control *control = platform_get_drvdata(pdev);
-+
-+	control->power_off(control);
-+}
-+
-+static const struct of_device_id ac200_ephy_ctl_of_match[] = {
-+	{ .compatible = "x-powers,ac200-ephy-ctl" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, ac200_ephy_ctl_of_match);
-+
-+static struct platform_driver ac200_ephy_ctl_driver = {
-+	.probe = ac200_ephy_ctl_probe,
-+	.remove = ac200_ephy_ctl_remove,
-+	.shutdown = ac200_ephy_ctl_remove,
-+	.driver = {
-+		.name = "ac200-ephy-ctl",
-+		.of_match_table = ac200_ephy_ctl_of_match,
-+	},
-+};
-+module_platform_driver(ac200_ephy_ctl_driver);
-+
-+MODULE_AUTHOR("James Hilliard <james.hilliard1@gmail.com>");
-+MODULE_DESCRIPTION("X-Powers AC200 Ethernet PHY control driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/net/phy/xpowers-acx00.h b/drivers/net/phy/xpowers-acx00.h
-new file mode 100644
-index 000000000000..482ba6faba6e
---- /dev/null
-+++ b/drivers/net/phy/xpowers-acx00.h
-@@ -0,0 +1,15 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __DRIVERS_NET_PHY_XPOWERS_ACX00_H
-+#define __DRIVERS_NET_PHY_XPOWERS_ACX00_H
-+
-+#include <linux/phy.h>
-+
-+struct acx00_ephy_control {
-+	int (*power_on)(struct acx00_ephy_control *control,
-+			unsigned int phy_addr);
-+	int (*power_off)(struct acx00_ephy_control *control);
-+	int (*set_interface)(struct acx00_ephy_control *control,
-+			     phy_interface_t interface);
-+};
-+
-+#endif
++        ethernet-phy@1 {
++            compatible = "ethernet-phy-id0044.1400";
++            reg = <1>;
++            x-powers,ac200-control = <&ac200_ephy_ctl>;
++        };
++    };
++...
 
 -- 
 2.53.0
