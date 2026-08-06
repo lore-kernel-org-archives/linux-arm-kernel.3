@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BA3BC55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B77D3C56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 10:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZVBzTOpJvQdc3kvEZNdrQSwpBB+rsEs/rfNxos6CNk4=; b=Di5c7ghXJiurOIpiG4wPIC2VXl
-	azRPrveHaqBkrpmuaJSbBgAoAYjxMo57uvGYim0IetsSdKeoub84+imw8M9e6hFgl7Ya9E3q+2FfP
-	kPpdLimAny5y+E6Rk1eW9sk+i55N/NCV9BTXM5fI3Gi/IQy5s8nw335/zPooNoy7asswgSSiaHw/D
-	hFYvO1BZmgBpJggNFYyf5kDFjYc5K1ClH9E/A8om3c/p6/YHTH2JjON1HmvBF7yx665mBInSBCnTz
-	4nojx9p4mGytqoMqFSUbWYWklVCuVwbPMRl+9fJ52cL+lOJp0e+kAqvB15LcRnjJfGYBoBG5MlbpS
-	9P7sgi4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MWi0NI9m0cyCHv/YKcE74ooCGwGwg2XY1zvoMF0Rkgs=; b=VhBAQr1mZmnFYtc7ISXvT1QZ1b
+	GUmUomsa2e5qf+6ECRrEBrnDML+cxx2Fm/DF3F2lWLFw0OnGj+46Acp87qY82eywXnpMWOiPdQExY
+	/WAZl8nJ2D5oeKgBPT2bKCN6/kSuXWnekTA5sNE6iw+eqXM7POmrOa11ce1RDf5OJ7Gg4mFyzuXmT
+	4J4WAp1371oWJWBFpvNWeph1QCsYyHSj+CGBWfHItc26/gPaa00r2z/ty9i+mKFOai7q255drM9Sq
+	ekc/dzs4LI6YZG11akdFlMgKHxWHt6VZEbX3KmLcwhRrdyUTLtHCEE/W6/JafqKVGj9BNnKBPJASe
+	78ua7Vrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrusn-00000005U8l-10qS;
-	Thu, 06 Aug 2026 09:59:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wrux7-00000005UYd-06QM;
+	Thu, 06 Aug 2026 10:03:53 +0000
+Received: from out-179.mta1.migadu.com ([95.215.58.179])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrusm-00000005U8Z-1T31
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Aug 2026 09:59:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZVBzTOpJvQdc3kvEZNdrQSwpBB+rsEs/rfNxos6CNk4=; b=qAFGnGN6Sea8pqmOxQWSOaaKW+
-	1EgKTz52aHVOk4nPG0JxbrLAOKchyIqiOTbcsQaVXLvemDK3HElT6mZ8oPcoiuw6yaIAjoKUDXzec
-	MvNDBepGTiaCyBJ4pZiqCiMA5XOpOlsKBIq9bSYjKcfvppEHDH/StqLYbsWy+8WzlrhIAJsG0fIAT
-	w4oqsf4Xj+L9HYBRNil2VxNM5QOICOO848135b8Y5Ek1e063UqWWX1gAragmqiCUZWDKT2Uo+irzo
-	ZJP2gNZVGeO2rLk8LLyVUoOwXm3nPCcoVp+96d5nbtTI3x1GPKxp4cDF6QeNOf5btPWh4Mkck2W7F
-	v7eT7gKg==;
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wrusj-0000000BOhW-0VPQ
+	id 1wrux4-00000005UXI-1g3X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 09:59:23 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=ZVBzTOpJvQdc3kvEZNdrQSwpBB+rsEs/rfNxos6CNk4=;
-	b=Hb2USHrYKLxu9v7vqQ111lRpMDKhmY0OX4xfFppo+knkferqSllL2Bz6jRO6u2PN1ypgVauy7
-	pwegRKCzQ6IemGTWa0Ul0Ahvu9KpKOhMK6zQc+wnjnF6tvVmxA3SJm+H20h8HU7CaSBTonKXTlI
-	UgFU4xjlXfk1dUJMlvB6uyA=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4hG2YW4h2vz1prNF;
-	Thu,  6 Aug 2026 17:49:19 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7EAF44056E;
-	Thu,  6 Aug 2026 17:58:53 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Thu, 6 Aug 2026 17:58:52 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <petr.pavlu@suse.com>
-CC: <atomlin@atomlin.com>, <da.gomez@kernel.org>, <egg12138@foxmail.com>,
-	<jpoimboe@kernel.org>, <liaohua4@huawei.com>, <lilinjie8@huawei.com>,
-	<linusw@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-modules@vger.kernel.org>,
-	<linux@armlinux.org.uk>, <mcgrof@kernel.org>, <rostedt@goodmis.org>,
-	<samitolvanen@google.com>, <xiaojunzhe1@h-partners.com>,
-	<xieyuanbin1@huawei.com>
-Subject: Re: [PATCH] ARM: unwind: modules: Fix the mismatch between .ARM.exidx* and .text
-Date: Thu, 6 Aug 2026 17:58:07 +0800
-Message-ID: <20260806095807.24475-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <449549e3-8670-4c9e-a348-0ad3c6a521b2@suse.com>
-References: <449549e3-8670-4c9e-a348-0ad3c6a521b2@suse.com>
+	Thu, 06 Aug 2026 10:03:51 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1786010627;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MWi0NI9m0cyCHv/YKcE74ooCGwGwg2XY1zvoMF0Rkgs=;
+	b=Ty5O7BPeeLVaIMGJXZp3xJGEA2mnwh1wjVXmlLzlgjj2LEBj8CpEOEdsgWEGQA42Cgf4sj
+	CT531aboWPk63SaGlPDGkRBcWRek2DwgQE1mx1KHu32gBQF1Ay1QCy7IQY8+IAS0jTIKPR
+	yOGYyINxpEkeLq1fsQqSfGFc7snBLZ0=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>
+Subject: [PATCH v1 1/4] KVM: arm64: Validate the host-provided vgic model in pKVM
+Date: Thu,  6 Aug 2026 11:02:53 +0100
+Message-Id: <20260806100256.371164-2-fuad.tabba@linux.dev>
+In-Reply-To: <20260806100256.371164-1-fuad.tabba@linux.dev>
+References: <20260806100256.371164-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_105921_520133_C9EECC13 
-X-CRM114-Status: UNSURE (   6.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_030350_578904_ECC3D857 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,11 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Aug 2026 11:40:23 +0200, Petr Pavlu wrote:
-> A fix for this issue was posted previously:
-> 
-> https://lore.kernel.org/linux-modules/tencent_08845B64E5F38EB7FA1779982A071AB4A607@qq.com/
+EL2 copies vgic_model from the host's struct kvm unchecked, and the nVHE
+world switch dispatches on it with no cpucap guard. A host writing
+KVM_DEV_TYPE_ARM_VGIC_V5 makes EL2 access GICv5 CPU interface registers,
+which are UNDEFINED without FEAT_GCIE and panic the hypervisor on any
+GICv3 machine.
 
-Oh, sorry, I didn't know about this. Let's discuss it on
-previously posted patch. :)
+Accept only the models pKVM can run, forcing anything else to 0.
+
+Fixes: 9b8e3d4ca0e73 ("KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore")
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/kvm/hyp/nvhe/pkvm.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 24d6f164129ac..59bb15efdca42 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -340,13 +340,25 @@ static void pkvm_init_features_from_host(struct pkvm_hyp_vm *hyp_vm, const struc
+ {
+ 	struct kvm *kvm = &hyp_vm->kvm;
+ 	unsigned long host_arch_flags = READ_ONCE(host_kvm->arch.flags);
++	u32 vgic_model = READ_ONCE(host_kvm->arch.vgic.vgic_model);
+ 	DECLARE_BITMAP(allowed_features, KVM_VCPU_MAX_FEATURES);
+ 
+ 	/* CTR_EL0 is always under host control, even for protected VMs. */
+ 	hyp_vm->kvm.arch.ctr_el0 = host_kvm->arch.ctr_el0;
+ 
+-	/* Preserve the vgic model so that GICv3 emulation works */
+-	hyp_vm->kvm.arch.vgic.vgic_model = host_kvm->arch.vgic.vgic_model;
++	/*
++	 * Preserve the vgic model for GICv3 emulation, but only what pKVM can
++	 * run: the GICv5 world switch touches registers UNDEFINED at EL2
++	 * without FEAT_GCIE. 0 is not a valid kvm_device_type: "no vgic".
++	 */
++	switch (vgic_model) {
++	case KVM_DEV_TYPE_ARM_VGIC_V2:
++	case KVM_DEV_TYPE_ARM_VGIC_V3:
++		break;
++	default:
++		vgic_model = 0;
++	}
++	hyp_vm->kvm.arch.vgic.vgic_model = vgic_model;
+ 
+ 	/* No restrictions for non-protected VMs. */
+ 	if (!kvm_vm_is_protected(kvm)) {
+-- 
+2.39.5
+
 
