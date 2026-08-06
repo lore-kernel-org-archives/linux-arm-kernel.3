@@ -4,91 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C735C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 00:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A65C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 00:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/YMYZ/ZLPHXITGBWlmd5D8EZ5M6klx5Cg4Wc6dV+NEs=; b=rK/RAaDJ2zfaL7udY2zp5ZGGui
-	11aoe726eRxJ6GUrVt9cHC0OjGPEfLBSey7OT8mbFPTgkIWEo85UPDk2fg7IBD0xp53C3gOnLB3ab
-	Zf+Zu6Bki7z1V23VahQpNzjaLEYhQhYoDJcXQEwwheR/68/TRtheyciM5ECe7ZCaiLmUYIMRmO5U7
-	j3zBCUOM5clC5IlKtUt8aFjWVJJHitzIUEFen1t4WnYMmdThV182Mh8zRjRrrsZpvfeqcJEwrneU8
-	TZDif005hZxo/EoOnEUJ64l2YrLBjM0dAOPCHUR4HXhtlWxowMuJENn3NGvUHJkc26VIHLHhYGWtL
-	df/FYKqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mIQG4VkkRUOkOICWRjH06sara5xVIfyHYhJI/Yt0VPA=; b=f6kpjX25s7DYZXtMt1TMkS+w2Z
+	R+sSGJqG+I2uebdoEGDcsMqMIFvQuGtNQMpG7x7mnEfMoDVOA9Tcz5HQ0x4TW602ba+9X6U2vvTDe
+	RRiylixjmV/CM7eWzUodSvZhPQEz1njVXE0bsb2dPDDT34cdIifwzu85YflQD6HSIDugN0X1zlc+2
+	4bdRlIqUXChODdR2ILJjHnFXYHt1dkCruuh1QzWPCkDgzJ5CPwbGujWa8e2LfAGycYdFTiHWjkndu
+	e3xidOE3xtdJfUqbqsCBBIDCPjMr7u/k7BR+pZQjK98AMLGbuMOQDr1SzmobT2x2JxOV+vcjsoj3R
+	HhNbzQBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrm6g-00000004gUR-3a2b;
-	Thu, 06 Aug 2026 00:37:10 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1wrm8j-00000004gbJ-0OWu;
+	Thu, 06 Aug 2026 00:39:17 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrm6e-00000004gU3-2qjQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 00:37:09 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-8ff20870ac7so10727066d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 17:37:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785976627; x=1786581427; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/YMYZ/ZLPHXITGBWlmd5D8EZ5M6klx5Cg4Wc6dV+NEs=;
-        b=dTz4DgPV9V08ieYx0wywDflw6lqKIAV549DuNQ5f+yPRdvea1ZDjkKB6YV0YmL/Klf
-         Fv9qW7m5UsAKwe9UTYNpDrVbSFL5g/2Ew43nXMKf1ztqlxTPuhK/ZNEtSXz8L/I5/vTH
-         RpHGy7OUnPyfnTU606tuo2VN0I7zI4oH4/VrZG3ofaPLLf6fPYtUeedPzYDuEy0jvmRK
-         2dAfDstHsAzSw2hPaZviNJ6aZaBgpXoR7YVH0mWPJ6iQ35rtQ9HksknVjit07uKpOkJj
-         E+gjHesDqZTwLpJtn8ceI3KNLnIzRtSXjmCSD6AkebfGaZgaP0bxoC2C37xu/pqjrhyb
-         CMNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785976627; x=1786581427;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/YMYZ/ZLPHXITGBWlmd5D8EZ5M6klx5Cg4Wc6dV+NEs=;
-        b=Pgb38H1ozpoyyEpQzOZaYlnjo4yjmSsXehtPTt6VALZ2zslRmWhJBM2g8tAxjU6kTI
-         VXHa/rM0+0FnP+wjjEX4pfnUZUWw1GXwDnINM0lO9RLGCPViCMfV4ayHxebyXSiVfzmd
-         EnLBUYk0lgLqKF3jqCgT3KhPdn260MkU9Kx2Ttyo+rPSeh9oTbT9hTDI3+4R59i7BZLD
-         V2TF7ITeGJAeSvQRpmJjbdfIvPVO5Fo78UiyHacrxiChiIFlv32OOYlNsrjoHn0Xo9C9
-         zqzeGsD3Ng+gegqYtMbIFT4vNEMqYzTt7qApw5pZTn5XSjFAWXuXH4EqhhPGmZcSGWP5
-         bsYQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rr1GMahozVDOMq+3FdMRhsYpD4ZdiYxC/uUPpxQ8UkRep9rDSoIBSgmA3J7OOFjIAbN+aCYPpofI4ilTaEvUI0G@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyw7J7VUXvWyZHck0M88QzzDklO9vH1rpRmkUpHXXczzkyq9TM6
-	guq/07NGzde0vCPmOSllNgKHJs9CS8mbuWVSIT18OJyT48RK70xj1c5W
-X-Gm-Gg: AR+sD12cnPTl0ycSYVahNu9dMl4g3onjuiKz1WjoirBNVTYsaDiJkZsI8cGwrYKc8pV
-	qC1qHFzLKcn8wIOq97fHiHbbDbn5YWV8zLrI/4WpxTIufDLHSAaRkMloN7BKqmjp2l04kZt5MDL
-	RajcIXwDBEstKgMbRE+thZ2THOY0w9TLggXMhbHprY5lnzqED5578r8ZrWJ+RzmSkN0GY9h+rVP
-	6a+/0UF0/W/8bZer/tBd2OY+ZXHuTC8P0y+P5XjDihN1NGkF3I09NOI+dp/6c/7NLrsIBQ3UwvB
-	5wGQ7IrtxqFK4zu3ZzYvnQNZHS51OaeTGMMkiGzZO9yjglhN8rYotJ47mWdmEhIFW6THxtc5UXo
-	8zpsKfWB2Ud+esrENSPz6R8+29sYSpB8ArA0qXXrWZwRDsYHmZi3j/BEXOd64vzYuEcQWRRsaTW
-	AWMwYNvGcmRm2QeCBZLM1/8XoESNyC9sqwHGmxHZSVz8znNE8bKu9ujJQlnaIHaxB2CFhcYLOoI
-	/uxHrrrWIJAvn3Rb645pT1Heh+ql/2jUCBKesqHvOx+KPvefmBX1opv50Vi8mpVzO1D4D18w7P/
-	746PhXjH6uropgcKY9D3YRWeP24FN/giV9m5PQ==
-X-Received: by 2002:a05:6214:252d:b0:8ed:a980:6b2c with SMTP id 6a1803df08f44-908813bd801mr126643476d6.30.1785976626999;
-        Wed, 05 Aug 2026 17:37:06 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-9088008e9aasm38717096d6.28.2026.08.05.17.37.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 17:37:06 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: devicetree@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM53573 ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] ARM: dts: BCM53573: Rename mpcore node to mpcore-bus
-Date: Wed,  5 Aug 2026 17:37:03 -0700
-Message-ID: <20260806003703.5141-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	id 1wrm8g-00000004gZr-1evn;
+	Thu, 06 Aug 2026 00:39:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1785976750;
+	bh=+kI5bMPxmKszrrlmZRhrrwGKt5vlPS+riQK99NPB3wM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=QAy2JK5kux4tSxZVKkdlsIDYAt7+WrjtAEZEmG7zWFvKVCZhfyXLKtKdaZ7hmrAbI
+	 6Zl5yn4lGVeCEtbusiDza0XLFhx3oiT4wZpoKCuRjqxA43477vYfHgLCJeZEcRQZlR
+	 zAUg8cdIbCaq+D/kledrJrK0+6JJs/nLPhE1vl3zR+mktG7lO9Oo4GvGjpnxNAAA9r
+	 JPjlwFMr10VXhKs125Rno7ibhXhvooix3YaWuYx7Hge9KcrAKVKbU9oxrHD8NgaCdg
+	 SJfO0BnJqs5J2A/OubrbYh1cKeF64Eq7G6MCcEsoxAd5DGLBVPM1od5FTeIkti/JGE
+	 6ppiV8naz62oQ==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D29D517E052F;
+	Thu, 06 Aug 2026 02:39:10 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 87D1E480028; Thu, 06 Aug 2026 02:39:10 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 06 Aug 2026 02:39:07 +0200
+Subject: [PATCH v10 01/21] drm/bridge: synopsys: dw-dp: Register DP AUX on
+ bridge attach
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260806-synopsys-dw-dp-improvements-v10-1-d84a26c303d6@collabora.com>
+References: <20260806-synopsys-dw-dp-improvements-v10-0-d84a26c303d6@collabora.com>
+In-Reply-To: <20260806-synopsys-dw-dp-improvements-v10-0-d84a26c303d6@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3652;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=+kI5bMPxmKszrrlmZRhrrwGKt5vlPS+riQK99NPB3wM=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpz161XxASkSlzZQXOp8/+GsmxmqBn+xiC0U
+ 8UxrMEnInKOXIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqc9etAAoJENju1/PI
+ O/qa4y4QAIFJsqPdLNa8OBIaOQF6MJkQIkC8pcs6SK/c4+xA023pmhhGsLWhhj/khwNfrxnNJ3s
+ iEODziZZIezGptie9elbk12yG/rGOnyfC9f0XL9j+GZVXtpQUGcU67q0UvOWl3V0o8JvsdFr0UV
+ 9KdTzWv3X5BSPWSOfFSUNSNt5XZ3gytoOPJzfJyE81EG7nzKqPuD6O3buyMi0/vyo/kvcqC3yhN
+ gzKLEntc/h0Ct8+sWFtPWSo0Hn+zuCbnTIxfZuKMnL9hZ4U3L4nGIIPkEpKC2pCaIp4XuRR9xbF
+ SgnGLgMG6sJ8uR7n8hEX04UpCJBis6ectLD/2yR7j9CH+NyyrlXnwMbFywJ6BG8JnwXv/LGh4OV
+ RUfb0lbPYWGYW/r6ls2KPCOM20RJna2QIZlFYGUZo1Upzu1D85Mu/LDR8MP1zj2osV18G98AnTU
+ 5Z34W7rr3BHZMvtpFcCbOd9pJDnCi4JKZkwWEWRxcmeDnk1bjwygfy99kmzm6eVqiaVeugaeo4W
+ kehok619CAuHlga9+l5WLGDFdmTCGzYoOiNumryEO+Fsj8F+maytlnHASNcBnm5lV6Y/8dNMcpP
+ r+/ZQSu9QkVECHhRjbFXWmRawNSRU2KSh4wD8ZLr1yANMYdMSXtzuEnR4yfU8y0Hn53o2dKeOpJ
+ ZCCiL1kOu6GJ7mD6femcy7A==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_173708_718431_F5884875 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20260805_173914_623761_1F261E5A 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +113,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 'mpcore' node name does not match the simple-bus node name pattern
-'^([a-z][a-z0-9\-]+-bus|bus|localbus|soc|axi|ahb|apb)(@.+)?$'.
-Rename to 'mpcore-bus' to match the pattern, consistent with the
-naming used in bcm-nsp.dtsi and bcm-ns.dtsi.
+Unregister the DP AUX device at the right spot as documented in the
+drm_dp_aux_register() function description. This helps that it is
+only accessed when the DRM device is ready and the bridge is powered
+and initialized (further fixes are required for that).
 
-Assisted-by: OpenCode:Big-Pickle
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- arch/arm/boot/dts/broadcom/bcm53573.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 55 +++++++++++++++++++++------------
+ 1 file changed, 35 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm/boot/dts/broadcom/bcm53573.dtsi b/arch/arm/boot/dts/broadcom/bcm53573.dtsi
-index 1aaa05cd3693..2c43be98090b 100644
---- a/arch/arm/boot/dts/broadcom/bcm53573.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm53573.dtsi
-@@ -32,7 +32,7 @@ cpu@0 {
- 		};
- 	};
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index 8b8529e1723c..60feb3d1e14b 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -1813,7 +1813,36 @@ static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_b
+ 	return &state->base;
+ }
  
--	mpcore@18310000 {
-+	mpcore-bus@18310000 {
- 		compatible = "simple-bus";
- 		ranges = <0x00000000 0x18310000 0x00008000>;
- 		#address-cells = <1>;
++static int dw_dp_bridge_attach(struct drm_bridge *bridge,
++			       struct drm_encoder *encoder,
++			       enum drm_bridge_attach_flags flags)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++	struct device *dev = dp->dev;
++	int ret;
++
++	dp->aux.dev = dev;
++	dp->aux.drm_dev = encoder->dev;
++	dp->aux.name = dev_name(dev);
++	dp->aux.transfer = dw_dp_aux_transfer;
++
++	ret = drm_dp_aux_register(&dp->aux);
++	if (ret)
++		dev_err(dev, "Aux register failed: %d\n", ret);
++
++	return ret;
++}
++
++static void dw_dp_bridge_detach(struct drm_bridge *bridge)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++
++	drm_dp_aux_unregister(&dp->aux);
++}
++
+ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
++	.attach = dw_dp_bridge_attach,
++	.detach = dw_dp_bridge_detach,
+ 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+ 	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+@@ -2043,20 +2072,10 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
+-	dp->aux.dev = dev;
+-	dp->aux.drm_dev = encoder->dev;
+-	dp->aux.name = dev_name(dev);
+-	dp->aux.transfer = dw_dp_aux_transfer;
+-	ret = drm_dp_aux_register(&dp->aux);
+-	if (ret) {
+-		dev_err_probe(dev, ret, "Aux register failed\n");
+-		return ERR_PTR(ret);
+-	}
+-
+ 	ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "Failed to attach bridge\n");
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	dw_dp_init_hw(dp);
+@@ -2064,37 +2083,33 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+ 	ret = phy_init(dp->phy);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "phy init failed\n");
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	ret = devm_add_action_or_reset(dev, dw_dp_phy_exit, dp);
+ 	if (ret)
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 
+ 	dp->irq = platform_get_irq(pdev, 0);
+ 	if (dp->irq < 0) {
+ 		ret = dp->irq;
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	ret = devm_request_threaded_irq(dev, dp->irq, NULL, dw_dp_irq,
+ 					IRQF_ONESHOT, dev_name(dev), dp);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "failed to request irq\n");
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	return dp;
+-
+-unregister_aux:
+-	drm_dp_aux_unregister(&dp->aux);
+-	return ERR_PTR(ret);
+ }
+ EXPORT_SYMBOL_GPL(dw_dp_bind);
+ 
+ void dw_dp_unbind(struct dw_dp *dp)
+ {
+-	drm_dp_aux_unregister(&dp->aux);
++	/* nothing to do */
+ }
+ EXPORT_SYMBOL_GPL(dw_dp_unbind);
+ 
+
 -- 
-2.55.0
+2.53.0
 
 
