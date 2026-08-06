@@ -4,85 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12107C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 19:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D26BC56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 19:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eJyYuIzEP97cm89L88l359VJouC3QafW8DAfksKCUYw=; b=p9owbzgtxOJu+mY1MsKn5aarzl
-	BRm1CJxz0N8U87mc1p5uvfNjom+aW4HwUHyoeR7R6WYMBEyKzEzJG/pHE+xF2U0iZpk2B5HqwD0gI
-	Ok5u4c2JluoQCB5tHc7WOxYtf0wkG5/r+xrS5pzxXuhq8p8rU6iMlhmp6VHt8Hn2lrvqDxhMfwDH5
-	aO6C/GiztcFq3h8LlQZMg9FadadpxnlUVYS88w+JCcwwSBXRpBOeIGyY85KKNalWijJE0mjrEAhex
-	qU3+SlyGa4meyX2i1Kt3d9ipwWNmyZ/OqxO9u0AwKYyRsPI7x+zN4NNYP3eEPCeUD0cE1/TfC5ULk
-	OrnyPTnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H2EhcnsYOzEzPIrClR6LtQZs8r4MjxaBnx81bh1sB+A=; b=ntgX1vC6tWbagh8OZ6Pf+QVE1P
+	Gn5Bt8la8xcAXDBvVWhwPOGuc2TTvqEoQWkMI9QTMSDX6ncIt2sKHVfV0itWxuay7Z+ZYI/a/MZAp
+	n1GWN7Qa4O5TtleIiWyqiUJwbYX3cUWs1dnwJvUMDxMzgZ1FR/beeN3TawVkXoKtEixRlVcoE35Cp
+	FSBoMI2LOjjVxQpDhbcbEiNlyU5VfYIGN8d2XvXpjTeSDSIn+0/SbSoeVtuFc1kEzqIjETYFhKjmi
+	bkvYQzGkpEmnpdL6+Up9AgbfholoF3e6gyMEdUIcKRWsNEYuOyPl+nDyVGCfbCH4pCsMj2WpJuNdo
+	vP/yMc2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws45l-00000006aLu-45iC;
-	Thu, 06 Aug 2026 19:49:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ws499-00000006ajK-3tJt;
+	Thu, 06 Aug 2026 19:52:55 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws45k-00000006aL1-1lUk
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Aug 2026 19:49:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=eJyYuIzEP97cm89L88l359VJouC3QafW8DAfksKCUYw=; b=H2MFwTzWMkSh4OhgP7yCLp40Yk
-	xj1RP7LFr0zZcj1Jv9pIH75mfMRony1os1VbnrAMAQVOPvd1K1/l15iALSaZVKTfeBr4Jy6duv2lV
-	GROVFhzU09avgLtTW56lgloVnQ4YQhczO7XpL3uTZLa849aGnTzrERs2edKr7Lp+2uYjR+MYi/t0u
-	2YyPB7XMI/5DBPeOSjmsK14rIQqAB44GYJPRq+PM79EVRIBkkfPCQyw91S6CUYNhjt03JpYWO2CFr
-	mYxUoJNJWSnpT8lQmvvusrZ7h3TrxG0Hj0HA+6shwVBZuJSC1d8rIS2RvoQ2TxdjowCfQyFwNzp/5
-	6B5PKfjw==;
-Received: from layka.disroot.org ([178.21.23.139])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1ws45h-0000000BnWX-1s5Z
+	id 1ws496-00000006aiR-1MLP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 19:49:23 +0000
-Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 752B541912;
-	Thu, 06 Aug 2026 21:49:14 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 0eZVW6ZCSgtJ; Thu,  6 Aug 2026 21:49:13 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1786045753; bh=HOw79g3ooG6NNzkyYSEvjfgfmCBbxswKnKtrHqLTX78=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=CQViigoh1Wj77XqViuITPP0uHfgEnK9TNml11c6Ts3lTlvg1xSNhnuAVswN8r0Wgj
-	 VsYmzBXJEmCFqZGI1iV9yN2pjaqwNGSL+2RRWakxEToMXP2wiIdvC8S/F5Xf49/GqW
-	 /vyXD91CzLpzzW3H6RpHYb8fxVOtXPmkJsp3Ko4EDCWUCURKFME5eTp43vn5bZ9aFO
-	 z1QDPdoXuH45RzXQ+jQv+7S6gEvAuxeDs0lxyZLdl0IYW1s2KNF2pHaNVqVVEwxT3i
-	 Y6VU1QYzc13+aGGmXWa7R7uHyZVf4TV94NFvUduO8Cqj+DHTJq8BQ4SwdYq7Q2e2AY
-	 p65AvPOm0dqkA==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 07 Aug 2026 01:18:43 +0530
-Subject: [PATCH v4 3/3] arm64: dts: exynos7870-j6lte: add Sharp GP2AP070S
- proximity sensor
+	Thu, 06 Aug 2026 19:52:54 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 676ICBtd946515;
+	Thu, 6 Aug 2026 14:52:49 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=H2EhcnsYOzEzPIrClR6LtQZs8r4MjxaBnx81bh1sB
+	+A=; b=YFzH686P+27bjlbNMcgWAMaXYs1ZNyvy4h74U0HPFeyNbYE0izmk/hJ3O
+	yQ/oZ6VdVUph6351Z1f1YqBFoMtlRXfQyyUBcPBlD1nhHh84B94Mrf54R54zkv1N
+	qIqCWYi+QXGtA+7yk3JINjq9BCEiHtiz3wlBbqPV4jQNOhJrT08O4C8jA9LMRB8i
+	sslJ237iZBzQvKO5EbqqRfwYEu2o1MJXnk49r04jKH+tQwPnQFixRNLSdMo2OGpD
+	OsQzUD7H65qD9XzuMSQacCgRvtcsBs8d58mr/qWgdJ3vVXj0whE9/fqa/20O6knn
+	4ZFLngx2VlRTr6EmfUw9bne2Gr1OQ==
+Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010040.outbound.protection.outlook.com [52.101.46.40])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4fvsrf3xjk-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 06 Aug 2026 14:52:48 -0500 (CDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=JxIgNi3IC3k5dV/PzV/bkwjgf84+zYTG+0uilsKkHHK3TY4S5yZQXRjrGm6J2B6g2nQqEB/6c9vXAkE3oQ89j+OQysPnkU1gsK7+yJcp3Y23sVmSvceHmvVn1X747BCxjldfCvQjneBka3adPZud2+gacyYSdC5zRZslBdxcSILidNSvjf9uhbbFuM6a+p3vPF+OmZImqM4UK8MFlT+rwOVt1FjGsdxZ9/NhgdmVZ522opPwhpEFgskfndmSaGBGNFzUNv6O1H1NW1xoNS8eNBFuoLiicpbCSm7qCbBtpdmjpxH47UlLF2plk6J4zaT9zh7/jR+yfIA52pGnrO2JbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H2EhcnsYOzEzPIrClR6LtQZs8r4MjxaBnx81bh1sB+A=;
+ b=TQ3DzdOwSIJ6vHl7xXfZfXSzvageb5suTVDLGWXcK0rxr62VsyWw+p+ZOabgFBChvbHPkI41aP1i8wa4RabATRkV9vw8VZj25ZM5Q33SOdBocw8rjDK4WxQIpxpzzbEUnHed6mQjnd99GERWUeRS3NDUfFO+SusgLHnh469548NVe2X9s5ur45xYZDb9jQcAYIxql4cJD/048IKN3xriEJNqp+SP/PX1UiGt0xObVdBgt68JwHwIvoLfVFCwl5I0rVeXrJ2CpAv73KOJdvaGBIzmabRXoDmv+0q4NRDaQDQj+Rsb9c/IK7wdC//aoBuqagmDqTDzcg4PAxqQO7atwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H2EhcnsYOzEzPIrClR6LtQZs8r4MjxaBnx81bh1sB+A=;
+ b=VViZDFN7JN1pPwvAEhIcMr9iwRbsXDmrApWSZesN8Hw/l/PeOI/s9rOQflvZH3ClfVQOf5xbWtHv6lucepym56GW+gburZA2daWq8wec+zhkgO9ke4nkFnyYwHDNlN3KY1tS4Np1eeXstCx8tMcCHrAxweleaDrSizU1HSXdeDc=
+Received: from MW4PR04CA0137.namprd04.prod.outlook.com (2603:10b6:303:84::22)
+ by SA1PR10MB6638.namprd10.prod.outlook.com (2603:10b6:806:2b9::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.16; Thu, 6 Aug
+ 2026 19:52:45 +0000
+Received: from MWH0EPF000A6731.namprd04.prod.outlook.com
+ (2603:10b6:303:84:cafe::5) by MW4PR04CA0137.outlook.office365.com
+ (2603:10b6:303:84::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.20 via Frontend Transport; Thu, 6
+ Aug 2026 19:52:45 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
+Received: from lewvzet200.ext.ti.com (198.47.23.194) by
+ MWH0EPF000A6731.mail.protection.outlook.com (10.167.249.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Thu, 6 Aug 2026 19:52:44 +0000
+Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet200.ext.ti.com
+ (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 6 Aug
+ 2026 14:52:43 -0500
+Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 6 Aug
+ 2026 14:52:43 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE211.ent.ti.com
+ (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Thu, 6 Aug 2026 14:52:43 -0500
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 676JqgLO3900552;
+	Thu, 6 Aug 2026 14:52:42 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH 1/2] arm64: dts: ti: k3-am62a-mcu: Fix watchdog comment
+Date: Thu, 6 Aug 2026 14:52:41 -0500
+Message-ID: <20260806195242.669491-2-jm@ti.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260806195242.669491-1-jm@ti.com>
+References: <20260806195242.669491-1-jm@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260807-gp2ap070s-v4-3-74f6a67b6272@disroot.org>
-References: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
-In-Reply-To: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Kaustabh Chakraborty <kauschluss@disroot.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A6731:EE_|SA1PR10MB6638:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8f065cf5-6fbe-4928-0201-08def3f4488e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|23010399003|36860700016|1800799024|18002099003|22082099003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: x0niIRcRdDFFcMTw8/3rlnk73esYBXI76jsPwhl2YcjmLZKRM4d1qiIQxdV9FHotu5gmWizJ7OIxfXfMLfhmFeaiZF8yaLBoCg7GRjk6SUi3+x6BbJfT12V7hOzx7wp+i+8jVXtPcALlADCdBAOxdPDWcmgbTTm5d77UqPLo16SHmR7OHj6NWU9hbWIP0dtGPfJjcaY6fk64yJs0drGiW4lyfFEo+Kqn/mNETEQmYZEJfvacrumzPvYZmnnwQ6P+yqlYMIk0Tiq8AR2lmZV7fvZXgg/C8a+WZSOT9NA/mRi1UOhZ+ePytA+p2L6TkL1uvqzbEHkR4fa28/+EqOTZrnaygv1z8SJhUW55hgpCmSy1KPJgOwr6U4n7FOg3LMM+sjutAjwqW2DJF8vdpubN96QTlfqJvnk+LnPSRSSGUZVsIK8Om2qHzM3PdXdCkoZnob68SXHMQqIswQqXAYfnALE7J2/jPkzzJQvh9KiEub9MX6vGmiKr3sovCUzW2PeKQdix1CcDzJljrTJ2NkUbfEZ2aOFM4KFN9KB71Kssq8mwQi0IDbR4742WMcl4Vz5DzmpDOFb3nfJPRGv+gOwne3eOaMzlQLAacXPIz3N4eFZg5nly/LZz07xOGN3o0dZio58c4lFjcPUj7H6TqmOIoUvL2tv7lKZ5ScLRaOzS1vZOcNwbLv136wx6SEG64CIBcsHv+1hocuAr5BWPIkoxdg==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(23010399003)(36860700016)(1800799024)(18002099003)(22082099003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 9ApNLyfqXVkkIVQ+3BFS9iyw2slXUF9cGT7/ZPMrtIceBtmxOwC5kpS2lALh61RjnSlzpiIh8yKd3ZjOdmSXcV4uPeH0C/avueViqPsqDHDnyHKlOpLAO+I3JZ954MYm1OJlXzCtVq0YG+bK2ta3dTQpUnTvGGPoJ+nufMlbUfk+n/Ciwd3rarAYuVt3aMxHXEtW3eab622nQz5tY2Eaato6FIfP6QDgr379cDO+YkUDRLhc4kvq3VB3RFknRYkEU7XJDew8jlYWlY4d54Ojv3Ndse4F3KQku4zdLMdKC83uew2ulwLUWGiEUKpkYtqYjuDqiN3yCk+lduu+KO7ptR4EqGY1hb/uuNp9nv5gOgurmNS87d3ny6RqQhGVklGxRKrs6ae3wF80GYRtEtGJUIZvffoGfKB41fxqwuUFvuebrO/cu5nZsjK6jV0HTMR1
+X-Exchange-RoutingPolicyChecked: T2kETleyQjrfbo6gMoSP2EgvpLjs4p8uQ2/wJLive2jCEln9KKSq4SALaFGeJ2T0FMRfGgHSWyDUk0ZqrW9jtb59N/qSaG4Q5tv4ZKSDhH7eQZIAebFuivacByxjdthG4vYQyLCX4NydPU+gBCD1wUMeL7E9PzKCpaa/YPa3AmOwnHhDdSC5K3h2qb5xrXt2ZPhxs9bO7TGIdZdHGaXpP0TzVuuVCFGvhJg8ahxkk4vP5AoFsg+TR1JUh/TvN+GpwHvCQQ5HA4w23eu7M9nGJ2w+ltg2/Pf+77woQ04t9OZ/28a5dgozBx885OScRm3/lEcRNUdErnp7o68ReTF2DQ==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 19:52:44.6607
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f065cf5-6fbe-4928-0201-08def3f4488e
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6731.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6638
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA2MDE1NSBTYWx0ZWRfX8fcxfj9rbHIt
+ gwI+tMbmfVL6DvUKNJrCqwdSqJLVl7mFuBihP0aQIlnr4YyGfxRlECOYgiN2gor1L8JvwZvUrmH
+ Gt5hAnVrGUZd3snMKjcxVwXMsrQdK18Eb55PmHajCdj4IIKAtBISSxN8tA8ubwiAf+yx2iii6Uh
+ 2JK/RNwc6tR1OAfXqmYS3jVTcGqm8/I+ttRVSah+wGw6G7VU+4wTUxdj2lGVk7iLrmQ5z0P2YdQ
+ Iyz8omLR5GcWR6xbN6QQaC1OjkSTKIriekhAyvoQmNwIvvEUnCjXSmnowu5La4i7mQJM3R1PD/n
+ 5QZIBGgXQAwlK3mHcpM8JwZTxAUNngR14gR+mN5dO2dKgEnWT8F33Brub7hA2xLpiRc6E56W1Ue
+ K1kVQV39trINr/ODIHU00xSymDyfIP1dQhlHpGFJ73zzbJtcjhiXQybT2F/QKZKWOyatoomQa3x
+ 0TJcx00POlaRKtmKIOg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODA2MDE1NSBTYWx0ZWRfX3StJRGDQ4SWb
+ t4+0LmMhC4lhdF5fkOPEJKK8dna0SXSNwEy6gjw3j7VeTEh9aK9jf2vDHZLneN0Wm1jrEcJLgHA
+ QUz/evTegIjR/TYnLecclCxZMg3NQ1g=
+X-Proofpoint-GUID: J2ieV5m_xHZxIkvy0GricvIHJW66xg-1
+X-Proofpoint-ORIG-GUID: J2ieV5m_xHZxIkvy0GricvIHJW66xg-1
+X-Authority-Analysis: v=2.4 cv=C+rZDwP+ c=1 sm=1 tr=0 ts=6a74e610 cx=c_pps
+ a=AQ8jqBFaYtg5UXnSSWtk/A==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=Sv0fKeRqtYgA:10 a=s63m1ICgrNkA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=LutdpnNTiN0Nrs00G9YA:9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-06_02,2026-08-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 spamscore=0 bulkscore=0 impostorscore=0
+ clxscore=1015 suspectscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608060155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_204921_619747_8C6F185D 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20260806_125252_637409_D4A548B4 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,119 +179,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Sharp GP2AP070S is a proximity sensor, which is connected to a
-GPIO-driven I2C line. Define the devicetree node for the sensor.
+There are no M4 cores in MCU domain for AM62AX and watchdog nodes
+are tighly coupled to R5 core, fix the comment accordingly.
 
-The sensor requires two voltage supplies, one of which is from the
-primary regulator bank of the device, while the other one is controlled
-by the GPIO. Add a regulator wrapping over the concerned GPIO so as to
-feed it to the sensor node.
-
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+Fixes: 804702e4c2aa ("arm64: dts: ti: k3-am62a: Add watchdog nodes")
+Signed-off-by: Judith Mendez <jm@ti.com>
 ---
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts | 55 ++++++++++++++++++++++++-
- 1 file changed, 53 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-index de30d0970336..dd493138fed6 100644
---- a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-+++ b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-@@ -73,6 +73,35 @@ key-volup {
- 		};
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+index d22caa7c346b3..5b90320778747 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+@@ -147,7 +147,7 @@ mcu_rti0: watchdog@4880000 {
+ 		power-domains = <&k3_pds 131 TI_SCI_PD_EXCLUSIVE>;
+ 		assigned-clocks = <&k3_clks 131 0>;
+ 		assigned-clock-parents = <&k3_clks 131 2>;
+-		/* Tightly coupled to M4F */
++		/* Tightly coupled to R5F */
+ 		status = "reserved";
  	};
  
-+	i2c-proximity {
-+		compatible = "i2c-gpio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&i2c_proxm_bus>;
-+
-+		sda-gpios = <&gpf4 3 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+		scl-gpios = <&gpf4 2 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
-+
-+		i2c-gpio,delay-us = <2>;
-+
-+		proximity@39 {
-+			compatible = "sharp,gp2ap070s";
-+			reg = <0x39>;
-+			interrupt-parent = <&gpa0>;
-+			interrupts = <5 IRQ_TYPE_EDGE_BOTH>;
-+
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&proxm_irq>;
-+
-+			vdd-supply = <&vdd_fixed_proxm>;
-+			vled-supply = <&vdd_ldo33>;
-+
-+			proximity-near-level = <500>;
-+		};
-+	};
-+
- 	memory@40000000 {
- 		device_type = "memory";
- 		reg = <0x0 0x40000000 0x3d800000>,
-@@ -94,6 +123,16 @@ vdd_fixed_mmc2: regulator-fixed-mmc2 {
- 		enable-active-high;
- 	};
- 
-+	/* proximity: vdd */
-+	vdd_fixed_proxm: regulator-fixed-proxm {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_fixed_proxm";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		gpio = <&gpd2 3 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
- 	reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <1>;
-@@ -354,13 +393,12 @@ vdd_ldo32: ldo32 {
- 				regulator-ramp-delay = <12000>;
- 			};
- 
-+			/* proximity: vled */
- 			vdd_ldo33: ldo33 {
- 				regulator-name = "vdd_ldo33";
- 				regulator-min-microvolt = <3300000>;
- 				regulator-max-microvolt = <3300000>;
- 				regulator-ramp-delay = <12000>;
--				regulator-boot-on;
--				regulator-always-on;
- 			};
- 
- 			/* touchscreen: vdd */
-@@ -556,6 +594,13 @@ pmic_irq: pmic-irq-pins {
- 		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR4>;
- 	};
- 
-+	proxm_irq: proxm-irq-pins {
-+		samsung,pins = "gpa0-5";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
-+	};
-+
- 	touch_irq: touch-irq-pins {
- 		samsung,pins = "gpa0-6";
- 		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-@@ -579,6 +624,12 @@ bt_enable: bt-enable-pins {
- 		samsung,pin-pud = <EXYNOS_PIN_PULL_DOWN>;
- 	};
- 
-+	i2c_proxm_bus: i2c-proxm-bus-pins {
-+		samsung,pins = "gpf4-3", "gpf4-2";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_3>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+	};
-+
- 	wlan_enable: wlan-enable-pins {
- 		samsung,pins = "gpd3-6";
- 		samsung,pin-function = <EXYNOS_PIN_FUNC_OUTPUT>;
-
 -- 
 2.54.0
 
