@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D054C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0555C5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/gLDqiEqei1+fjZXdMiK47A9FRs2SDhUmiNtbllN8nE=; b=O9Q4PdZGPusFhO2wuVa6yW5pe9
-	E9TIM0FfcatPS3JhkaIm/CJFY029lFDvUPmSJo/Vqj1N+xEHHKKrlNSO3iMmPzOJRdXLhOVQuxlQP
-	C6DZoNNvLFOjNkMkrX5ZU53VbLDjAU09itFz2r9d6J+gvJ3AXSDzgyBttUdyj3sXcz2hdYv2DWHka
-	TTzPvc4C9DADPqMs5MzJ3aVWCo35ikS5A/lbBcmPBpiGAsCxnpoKogbYJnUEc4c7XCQvE4nVlc1wc
-	QCOsvX+1ZHOeeCMbs3NyufWb6uPWmxeQL8UrdbihLxcvrSL0bdINZ7/gjFAqT+9JqFt0hei/dzHLY
-	NFlYLvZA==;
+	bh=nc0GZEveyNsfDrAwQEPhop1DRFKVu2AYZuwNyht0URA=; b=g3lT/8rNZy8HcWiATKdnq7rfeb
+	7MuH6/Nf18Vp7+TXaGx/s6nkoPAv+GPQiSulNr46Xfawj7twtQfxvXe0iaiGMMqYumjtgABeZrawS
+	ZIImjadBWBwC5hvuaAdlNzxOia/YwL5R2pxCNuVQ6mW2TwtBcL4/LD++5luAZocOT0OXRT+u3lpr7
+	OwVA6vawXzsE/UpQMrvyS5Pp6D9D5UlRt4uy4bdk3reGql1dMCxcTQHnnOyV5FVQm/w2DI7FXIL/P
+	Co9DOJDS4ZLYb8atAN59YH9wvHItXhq92KQnYF8o7SdD6OVE6UnyJXdnVcmVPB8PIgR9FPdIftr3U
+	lHHwZesg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1dR-00000006KUx-2KFa;
-	Thu, 06 Aug 2026 17:12:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ws1dU-00000006KWN-2hgz;
+	Thu, 06 Aug 2026 17:12:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1dQ-00000006KUO-0RhI
+	id 1ws1dT-00000006KVV-3iSR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 17:12:00 +0000
+	Thu, 06 Aug 2026 17:12:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D8E10418BA;
-	Thu,  6 Aug 2026 17:11:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 403EC1F000E9;
-	Thu,  6 Aug 2026 17:11:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2676160DB6;
+	Thu,  6 Aug 2026 17:12:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54EF11F00A3A;
+	Thu,  6 Aug 2026 17:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786036319;
-	bh=/gLDqiEqei1+fjZXdMiK47A9FRs2SDhUmiNtbllN8nE=;
+	s=k20260515; t=1786036322;
+	bh=nc0GZEveyNsfDrAwQEPhop1DRFKVu2AYZuwNyht0URA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gYCLj/zglJVnOWYe18H7W6nAeZ5joQXjvmP2m3xjx4FzTopPkXOxrziOhDmj7Z1MZ
-	 6jCioFfjD+P/uaup4I08ljip+EgVrcRSRSdRt0vpsOzpyZ4oVdgzQRJyFGJAAPm7gt
-	 f7/KFMOyHkOGzFXFkXaN+2NQg5u4ZDweN5VTGqc4wVN6hdOF7Qpg7fQLWb7ZER1OzH
-	 RB2U113phXlNSgNmxwpGACvGnJFi67NTDmROgjlL126YEo50VRhjm649v7f6DjeVig
-	 6NGmCwVp8EvLV0f95Yar05VLm5wOgWkj2gZezmW9wesq1iMtRSzX2GQYBw8QuNogN5
-	 MiqmWkUccy0Sg==
+	b=HZGulFHmp2kRydQcX+HNixq1fQGz3Rl29xnmQfAkrAmykBfoHo8Nq/4xOrrNca27X
+	 jT9nyRtSD7+hhJr6wbZqIzOKhvh6uzLHz6x3LGYMd36xREbB3L4skkNe8umNghNmkp
+	 fwN4AvN48za6TfxrYVcSSyCnWEC5SVDENlzwePvwudD1bRqGdSJv1JnD/QtHhHIxAK
+	 yZ11HliiBp2Hwx3Z/T3qTZvtSA+vQ1I6pXvvurL57UkiRw0SkR82ciLI6/6vr161ze
+	 QPqEyzWDpI3ahaChlGle/uCNUp1V83hk+i+rVobryhSyQw0e2OOlh+tgTrWVTAvUV3
+	 iBLVZaG2TJ7OA==
 From: Will Deacon <will@kernel.org>
-To: He Kuang <hekuang@huawei.com>,
-	Wang Nan <wangnan0@huawei.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Mark Brown <broonie@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Aishwarya TCV <Aishwarya.TCV@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] tools: Ensure tools copy of linux/filter.h exports the UAPI
-Date: Thu,  6 Aug 2026 18:11:38 +0100
-Message-ID: <178601921971.406723.9036179766069411765.b4-ty@kernel.org>
+Subject: Re: [PATCH v2] dt-bindings: arm-smmu: qcom: add compatible for IPQ9650 SoC
+Date: Thu,  6 Aug 2026 18:11:39 +0100
+Message-ID: <178601639875.384211.6516528975191609551.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260805-arm64-selftest-fix-filter-h-build-v1-1-c29648ee3126@kernel.org>
-References: <20260805-arm64-selftest-fix-filter-h-build-v1-1-c29648ee3126@kernel.org>
+In-Reply-To: <20260731-ipq9650_smmu_binding-v2-1-143a51c8ffce@oss.qualcomm.com>
+References: <20260731-ipq9650_smmu_binding-v2-1-143a51c8ffce@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,20 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 05 Aug 2026 22:32:23 +0100, Mark Brown wrote:
-> Normally when there is an include/foo.h and an include/uapi/foo.h the
-> non-UAPI copy includes the UAPI copy.  This is the case for the in
-> kernel copy of linux/filter.h but not for the copy in tools/ which
-> results in build breaks for the newly added arm64
-> seccomp_ptrace_x0_bypass selftest.  Add an explicit include of the uapi
-> to fix the test and avoid future surprises.
+On Fri, 31 Jul 2026 11:01:26 +0530, Kathiravan Thirumoorthy wrote:
+> Add the compatible string for the APPS SMMU present on the Qualcomm
+> IPQ9650 SoC.
 > 
-> [...]
+> 
 
-Applied to arm64 (for-next/selftests), thanks!
+Applied to iommu (arm/smmu/bindings), thanks!
 
-[1/1] tools: Ensure tools copy of linux/filter.h exports the UAPI
-      https://git.kernel.org/arm64/c/7a1f400ff5e5
+[1/1] dt-bindings: arm-smmu: qcom: add compatible for IPQ9650 SoC
+      https://git.kernel.org/iommu/c/02f1359b1143
 
 Cheers,
 -- 
