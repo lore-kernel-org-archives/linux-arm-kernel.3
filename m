@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2913C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8457AC5620A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p2S6YDDMwCU2+WqTESVpXyI2fQYYUrTudhc3TbUc1v0=; b=ht6yYEcPlVb9/E1yAOLRg0MYEI
-	1oroWlBH2ca7VfuzZCWQrwXyGQt+IeM7TtbJYnCG4ZgCif3IJkp5d7hYnVlDDLu3Z78NfB6GxPPvk
-	P8Xep8ncF+u6gIDdD8SLogmfedINi8o2CWlu+o+xKgRNZf1QP76U04Fn8YqwUqnymWUkjRgTDF4QV
-	YvxQbpZhVrdL1sISPNx5juWiZfA/kROuo2eCNtwgyKxeNBwoYWblR126Qo/PSqbmIvz7x11j17Kxs
-	fbJl0ImLe2IfPBknETt3yFLJe5J48/+apoO5wsAMP3VLcNMTPy4youGUcyLedJ0YqSljSASw78ctT
-	kviEvyKQ==;
+	bh=OhOBr3j0QjVNF9J4gCRF8jBCfEh6FyCNnHEL79rdVEo=; b=2N1mlOCkQWm8E48tB1Yzc/UCvf
+	Gqjz205D57AfWf50ENGtnPZ3vrbtSoDOf2fEvYtqDJOpfk2Pf5kOvb5M4NHvX22Y07lLalNpGY791
+	bFlUDTIWdSbTuSMoNd6vrNzsdQ8xhpJnCo6U7GN+EX53cSuFPEaaN5oBHgS7glqPFCKL9v5ZlgbSk
+	5SEXcSqXgBm0wE904P7+qCATks6wsDDAbNxJk1FSfbN0MP5e0CHeuhB2V+QCK8wQ/ldmTGGEcd9wY
+	8L4eX7RuOSOIXCp/0J7HUv1Sf341oS/cZxqKQslB/uuf9QWiqo6MwiLXceXSMF7WeTIAw6fBUDfGG
+	/69eScdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wruUj-00000005ORE-3vEW;
+	id 1wruUj-00000005OQW-2lCe;
 	Thu, 06 Aug 2026 09:34:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wruUd-00000005OMm-2DnH
+	id 1wruUd-00000005OM2-0OZj
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 06 Aug 2026 09:34:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BA7C243FB6;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8ACF643F87;
 	Thu,  6 Aug 2026 09:34:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 88BE3C2BCFF;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 506F1C2BCF7;
 	Thu,  6 Aug 2026 09:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786008866;
-	bh=xUgMhJisYvLuqDZcdPp4HG6wSEX/KHSUvHPVx8bBVro=;
+	bh=xksXNR3RIxdAAWa4ZhBc1ec5Me5J0Ftc6OOeqFa8oRc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=mIIDQ00j1xrM959FClKDZK5VJnm8wwPwNCrONSyIdy7SeLn7N+cY4rmiEQaYx3MqG
-	 ecVHbeUJhniU6XDfuH+9REe6U/nwfQ2EpCEfy6Vq25HL/P2ZfEedKyoDf8gCsyj7LH
-	 BFSXFHfCdAJFaLlF0KSGz7Dvr7fjx47h/1eRBu+TjxyIzc+IhIhMkg4CGPppqbWlA4
-	 I0CjM45+gDasdmGfoHkv9KrF5d7OncEaFTB/8fFM/QCqtC+F6bDHfBg8wyKkbd3/4V
-	 khbQDLrevVGF3EfcAMQ+qbDWqkBKA3dXj1anqrjKFnhE+tj/pTTbRqOjhROsJR+ryK
-	 BYNDY9x/vM7BQ==
+	b=r+t+ygdUF8iAuJnJfsPUYCXVRoWcg8xWExj72eAjkTdVqixYikWlnvx3aQx6hkGeN
+	 Z3gSL3+r7X8+MTZEm4vPxjL/tBa388Vw1D7PgUM+RHJMtaWx1QjcFyPbihV2ePTeub
+	 hxyRdn3kj4WBlm0mSpnmtM9QnxXpYwY5GMQ84sV2aHHP0jlbGlr7xHDeiVEQ22wzdU
+	 ZwTWF+EaftOF6m56yQfOd/TN42wyiLTzTxK/fo2vN2O8tdO3UEjnsjx7gPd4lr9jIL
+	 4bFckpT7+IARfxqhVf0wDdIU0QVCVrPtaVKDEwE/TAI4w/3co+HnzYKHMJRz0NlGmi
+	 m77BIKwbYMMoA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 72765C55838;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2FEA4C56208;
 	Thu,  6 Aug 2026 09:34:26 +0000 (UTC)
 From: Long Zhao via B4 Relay <devnull+longzhao.ambarella.com@kernel.org>
-Date: Thu, 06 Aug 2026 17:34:13 +0800
-Subject: [PATCH v2 05/10] dt-bindings: serial: add Ambarella UART
+Date: Thu, 06 Aug 2026 17:34:10 +0800
+Subject: [PATCH v2 02/10] dt-bindings: soc: add Ambarella secure scratchpad
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-longzhao-upstream-cv75-v2-v2-5-6b09707c5fe9@ambarella.com>
+Message-Id: <20260806-longzhao-upstream-cv75-v2-v2-2-6b09707c5fe9@ambarella.com>
 References: <20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com>
 In-Reply-To: <20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -68,11 +68,11 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, 
  soc@lists.linux.dev, Long Zhao <longzhao@ambarella.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786008863; l=1437;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786008863; l=1545;
  i=longzhao@ambarella.com; s=20260730; h=from:subject:message-id;
- bh=3IBRZ3r8aIVqSKUt911TKSBxsBmqjCi8qDWSpR60+wA=;
- b=M6+0z8dDfmpElcLgzbEbUfUoySjemhkkbs6T71oYsaDIRGkmIvWuGiAI40PfLWa3hP6Qi0wI0
- 0li8Y/TnBYSCa1X2yPoCMk2J9YWaf1jHSF9yoqV/fpNFTwIayiYcOkg
+ bh=1vmye3CK0HpbkUmTNeoU7Oscgo8VwkmeZd901TWonnk=;
+ b=f3oS0meErI2j00TKtSZ8nQ8sMS+wTYXOy+doYgvXLIsQdTWSBNPan7rytIrwLIoZznhElBAee
+ KuyY6KX+IeZBHkpzWLPBo4zGKFpEpuqUX2LsFzPBeafjNNlDGKeEVi7
 X-Developer-Key: i=longzhao@ambarella.com; a=ed25519;
  pk=/xGhPTOX0/eYsyTWzyjjgAIW1Z/YD+IlnOnvcdRozow=
 X-Endpoint-Received: by B4 Relay for longzhao@ambarella.com/20260730 with
@@ -95,63 +95,57 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Long Zhao <longzhao@ambarella.com>
 
-Document the Ambarella UART controller.
+Document the Ambarella secure scratchpad syscon used by CV75.
 
 Signed-off-by: Long Zhao <longzhao@ambarella.com>
 ---
- .../bindings/serial/ambarella,cv75-uart.yaml       | 45 ++++++++++++++++++++++
- 1 file changed, 45 insertions(+)
+ .../ambarella/ambarella,cv75-sec-scratchpad.yaml   | 39 ++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/serial/ambarella,cv75-uart.yaml b/Documentation/devicetree/bindings/serial/ambarella,cv75-uart.yaml
+diff --git a/Documentation/devicetree/bindings/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml b/Documentation/devicetree/bindings/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml
 new file mode 100644
-index 000000000000..86d6d8a61ace
+index 000000000000..4bfeca0ac3da
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/serial/ambarella,cv75-uart.yaml
-@@ -0,0 +1,45 @@
++++ b/Documentation/devicetree/bindings/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml
+@@ -0,0 +1,39 @@
 +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/serial/ambarella,cv75-uart.yaml#
++$id: http://devicetree.org/schemas/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Ambarella CV75 UART
++title: Ambarella CV75 Secure Scratchpad Registers
 +
 +maintainers:
 +  - Long Zhao <longzhao@ambarella.com>
 +
++description:
++  The secure scratchpad block contains shared system registers used by
++  other Ambarella SoC blocks through syscon regmap lookups.
++
 +allOf:
-+  - $ref: serial.yaml#
++  - $ref: /schemas/mfd/syscon-common.yaml#
 +
 +properties:
 +  compatible:
-+    const: ambarella,cv75-uart
++    items:
++      - const: ambarella,cv75-sec-scratchpad
++      - const: syscon
 +
 +  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
 +    maxItems: 1
 +
 +required:
 +  - compatible
 +  - reg
-+  - interrupts
-+  - clocks
 +
 +unevaluatedProperties: false
 +
 +examples:
 +  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+    serial@e4000000 {
-+        compatible = "ambarella,cv75-uart";
-+        reg = <0xe4000000 0x1000>;
-+        interrupts = <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&uart_clk>;
++    scratchpad@e002e000 {
++        compatible = "ambarella,cv75-sec-scratchpad", "syscon";
++        reg = <0xe002e000 0x1000>;
 +    };
 
 -- 
