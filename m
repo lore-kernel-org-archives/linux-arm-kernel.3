@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE38C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:02:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5C3C56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KI0HE3TjLwg5vX+3xRIAMwwVeJIWI4hexpP4whJ0JMM=; b=O20jL/yMBhxSsGGsFoC4ECUvoQ
-	uhIy0xjHtXwboccyW0PYQB/+m/6H0YIeOvdquKukqMDUugGeNKS6jOoPpjZMy1/GZIIhq+7b24u4k
-	rsX+L4+mpqx6JqXsJFSwkkso1YY8V37Lt6Z6+749c/Z0gfRl9P4hPZwGgEUkpDgFhcxFs5VvLyZlS
-	5KAZaBAUZWOSKiYc83U1Ksn87vb8mMh3uyjfVPWJyOfXECUKxn7Wsv27YtfF18KAR2Erru1DUduqF
-	JGeS40Mi7EPX3AnjiDwy4hZYhO7IP/R5bTLTHsDhIIz0uKvIWxDqppw0gkfR3Xnxm4Zgc0HqcPOY9
-	gmS4WH8g==;
+	bh=rvbOmkLuSzR1GdmwiHxRJgnt030v0CExhjNxEUtUlLc=; b=Pd/D/Qrp98HeB4dQyfeHqWXQ4e
+	LV3QXsQc0f8wlwCmq32Cv1g+DKO3RL4ALIL40nX0RCzjhzTeExudb0eZxpeuvs4oIxmcVvAIK2MPP
+	qLXJAA2IYxNYUU6kfL3FlJbf314N910QXcKXIBCFeesngYIrlwJ7wrp6vFo9OItUA3oFEHRm2Aj4O
+	bffTz95a6yBfggOVfsKLaBm+feQgxZANoHEIgJP2DjRYJzVCgaNPoQSdCj/Gft5f0i+joPKvQPQbp
+	Q1yWp9oQu2Zd0jc8v5J2F/toWaO0xJAafpBot1Q4J+Kr7a8k+2D/XmM0eFKPF81ngFEyEd00OMqsz
+	qnYSdWIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrxk9-00000005qIB-2m8f;
-	Thu, 06 Aug 2026 13:02:41 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1wrxkU-00000005qL3-3DYS;
+	Thu, 06 Aug 2026 13:03:02 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrxk6-00000005qHY-0ffB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 13:02:40 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KI0HE3TjLwg5vX+3xRIAMwwVeJIWI4hexpP4whJ0JMM=;
-	b=yk/apbZSUOi1fZInYN9LOQZhYyOoCuBIeXwbaM+kdzh+0BMgOMnsTO47jtesBkaxO/AuASNHy
-	x5L1lxOqKaka4dkEH3DnilAbaU5h+PsLugKUd++q9+lJQMaVYrfMg/75cFcJC9fw7RnAqqUc/Cz
-	QZiI6g3Ar4xDT3w7GqltNIo=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4hG6d42jZjz1T4Fq;
-	Thu,  6 Aug 2026 20:52:40 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 720A84057D;
-	Thu,  6 Aug 2026 21:02:22 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Thu, 6 Aug 2026 21:02:21 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <egg12138@foxmail.com>, <pmladek@suse.com>, <linusw@kernel.org>,
-	<jpoimboe@kernel.org>, <rostedt@goodmis.org>, <petr.pavlu@suse.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-modules@vger.kernel.org>, <linux@armlinux.org.uk>, Xie Yuanbin
-	<xieyuanbin1@huawei.com>
-Subject: Re: [PATCH v3] ARM: module.lds: fix unwind metadata for merged .text sections
-Date: Thu, 6 Aug 2026 21:02:12 +0800
-Message-ID: <20260806130212.48727-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <tencent_08845B64E5F38EB7FA1779982A071AB4A607@qq.com>
-References: <tencent_08845B64E5F38EB7FA1779982A071AB4A607@qq.com>
+	id 1wrxkR-00000005qKQ-3slI;
+	Thu, 06 Aug 2026 13:03:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786021380; x=1817557380;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hYrDjwLvku5ojxnuYUcL4exJBEemvK5kPuchBihDAsA=;
+  b=Nk+IH3VCB6zBZB0VIQnM/Fj9L63yxbgqtjo77NXSuoQR8aGsvV7wTPP0
+   aHTmKp/qw7nw/DDs0eHUmFkoIJU0DJMgrLL6ya85v6RVgqS5+2XXA6YzR
+   3vrU7pPDOYBdUmS/lxinSnDc1mn99ZfEYz58loj6DKVehQIMvOwvD4QcB
+   bzWmL/SQu8wOXCVvQENqXEWWfFCAxdJZ1KcmdieW2DhnlAFcMg/IWBh7O
+   i9jFak22JxAgNM4B0VRfFgiVPERyNK90KJgxPmJqjuGqj0Tubi0nDgHeH
+   nRH5SDsvS4NmhstG4kzKLP7WjTZMui2IWovRGs49L/A91r2uI7ol5E609
+   Q==;
+X-CSE-ConnectionGUID: a16q11zoRzKa/kGcagxLVQ==
+X-CSE-MsgGUID: Cbe+I03uRWqeusEG4mbdVw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11867"; a="86557028"
+X-IronPort-AV: E=Sophos;i="6.25,208,1779174000"; 
+   d="scan'208";a="86557028"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 06:02:59 -0700
+X-CSE-ConnectionGUID: KgO1AvBZRVaZfc1qBgY8aA==
+X-CSE-MsgGUID: TVod3CvVQr+UPuOI1r6eLg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,208,1779174000"; 
+   d="scan'208";a="260837214"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 06 Aug 2026 06:02:49 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wrxkE-00000000FAj-1p8p;
+	Thu, 06 Aug 2026 13:02:46 +0000
+Date: Thu, 6 Aug 2026 21:02:40 +0800
+From: kernel test robot <lkp@intel.com>
+To: Akari Tsuyukusa <akkun11.open@gmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Miles Chen <miles.chen@mediatek.com>
+Cc: oe-kbuild-all@lists.linux.dev, Akari Tsuyukusa <akkun11.open@gmail.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] clk: mediatek: fix memory leak on module removal
+Message-ID: <202608062020.IFIwVdEc-lkp@intel.com>
+References: <20260629142348.273766-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260629142348.273766-1-akkun11.open@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_060238_720530_24540CD7 
-X-CRM114-Status: UNSURE (   7.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_060300_038485_69D1662F 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,31 +94,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 30 May 2026 23:46:01 +0800, Xiao Junzhe wrote:
-> +	.ARM.extab		0 : {
-> +		*(.ARM.extab .ARM.extab.text .ARM.extab.text.[0-9a-zA-Z_]*)
-> +	}
-> +	.ARM.exidx		0 : {
-> +		*(.ARM.exidx .ARM.exidx.text .ARM.exidx.text.[0-9a-zA-Z_]*)
-> +	}
-> +}
+Hi Akari,
 
-I think ".ARM.extab.text" and ".ARM.exidx.text" is redundant, and I
-suggest that
-"*(.ARM.extab .ARM.extab.text.[0-9a-zA-Z_]*)"
-"*(.ARM.exidx .ARM.exidx.text.[0-9a-zA-Z_]*)"
-instead.
+kernel test robot noticed the following build errors:
 
-Mapping between the text sections and exidx sections in .o files
-generated by the compilers:
-".text" -> ".ARM.exidx"
-".text.xx" -> ".ARM.exidx.text.xx"
+[auto build test ERROR on clk/clk-next]
+[also build test ERROR on linus/master v7.2-rc6 next-20260805]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-".ARM.extab.text" and ".ARM.exidx.text" sections will never be
-generated by the compilers.
+url:    https://github.com/intel-lab-lkp/linux/commits/Akari-Tsuyukusa/clk-mediatek-fix-memory-leak-on-module-removal/20260805-032732
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/20260629142348.273766-1-akkun11.open%40gmail.com
+patch subject: [PATCH] clk: mediatek: fix memory leak on module removal
+config: sparc-randconfig-001-20260806 (https://download.01.org/0day-ci/archive/20260806/202608062020.IFIwVdEc-lkp@intel.com/config)
+compiler: sparc-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260806/202608062020.IFIwVdEc-lkp@intel.com/reproduce)
 
-Also Cc to Linus Walleij and UNWIND:
-Cc: Linus Walleij <linusw@kernel.org>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Steven Rostedt <rostedt@goodmis.org>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608062020.IFIwVdEc-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/clk/mediatek/clk-mt8173-infracfg.c: In function 'clk_mt8173_infracfg_probe':
+>> drivers/clk/mediatek/clk-mt8173-infracfg.c:131:36: error: 'clk_data' undeclared (first use in this function); did you mean 'clk_gate'?
+     131 |         platform_set_drvdata(pdev, clk_data);
+         |                                    ^~~~~~~~
+         |                                    clk_gate
+   drivers/clk/mediatek/clk-mt8173-infracfg.c:131:36: note: each undeclared identifier is reported only once for each function it appears in
+
+
+vim +131 drivers/clk/mediatek/clk-mt8173-infracfg.c
+
+    78	
+    79	static void clk_mt8173_infra_init_early(struct device_node *node)
+    80	{
+    81		int i;
+    82	
+    83		infra_clk_data = mtk_alloc_clk_data(CLK_INFRA_NR_CLK);
+    84		if (!infra_clk_data)
+    85			return;
+    86	
+    87		for (i = 0; i < CLK_INFRA_NR_CLK; i++)
+    88			infra_clk_data->hws[i] = ERR_PTR(-EPROBE_DEFER);
+    89	
+    90		mtk_clk_register_factors(infra_early_divs,
+    91					 ARRAY_SIZE(infra_early_divs), infra_clk_data);
+    92	
+    93		of_clk_add_hw_provider(node, of_clk_hw_onecell_get, infra_clk_data);
+    94	}
+    95	CLK_OF_DECLARE_DRIVER(mtk_infrasys, "mediatek,mt8173-infracfg",
+    96			      clk_mt8173_infra_init_early);
+    97	
+    98	static int clk_mt8173_infracfg_probe(struct platform_device *pdev)
+    99	{
+   100		struct device_node *node = pdev->dev.of_node;
+   101		int r, i;
+   102	
+   103		if (!infra_clk_data) {
+   104			infra_clk_data = mtk_alloc_clk_data(CLK_INFRA_NR_CLK);
+   105			if (!infra_clk_data)
+   106				return -ENOMEM;
+   107		} else {
+   108			for (i = 0; i < CLK_INFRA_NR_CLK; i++)
+   109				if (infra_clk_data->hws[i] == ERR_PTR(-EPROBE_DEFER))
+   110					infra_clk_data->hws[i] = ERR_PTR(-ENOENT);
+   111		}
+   112	
+   113		r = mtk_clk_register_gates(&pdev->dev, node, infra_gates,
+   114					   ARRAY_SIZE(infra_gates), infra_clk_data);
+   115		if (r)
+   116			return r;
+   117	
+   118		r = mtk_clk_register_cpumuxes(&pdev->dev, node, cpu_muxes,
+   119					      ARRAY_SIZE(cpu_muxes), infra_clk_data);
+   120		if (r)
+   121			goto unregister_gates;
+   122	
+   123		r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, infra_clk_data);
+   124		if (r)
+   125			goto unregister_cpumuxes;
+   126	
+   127		r = mtk_register_reset_controller_with_dev(&pdev->dev, &clk_rst_desc);
+   128		if (r)
+   129			goto unregister_clk_hw;
+   130	
+ > 131		platform_set_drvdata(pdev, clk_data);
+   132		return 0;
+   133	
+   134	unregister_clk_hw:
+   135		of_clk_del_provider(node);
+   136	unregister_cpumuxes:
+   137		mtk_clk_unregister_cpumuxes(cpu_muxes, ARRAY_SIZE(cpu_muxes), infra_clk_data);
+   138	unregister_gates:
+   139		mtk_clk_unregister_gates(infra_gates, ARRAY_SIZE(infra_gates), infra_clk_data);
+   140		return r;
+   141	}
+   142	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
