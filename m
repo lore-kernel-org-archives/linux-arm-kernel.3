@@ -4,61 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76568C55838
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 06:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C961BC55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 06:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGK/RoC19nUT02iTa9oP7JFher0vxY/EWJohRihzv6k=; b=rVSrrz0gASXRJ+TWoeSGe671co
-	cpxwST0PztOBsZY4Wpkg0DGes5mYXTXibvEcAwzhmB9QV4Le3gdymuhMZjndw/P1LRXH8AIQuRXHB
-	2Pns2t/85TUh0/lRudIP6+1XfBmKWz/2HFC5WOBd6GcHdXDVQHp4IpYOPlp655aQiCHmwBH5Qxx38
-	NzUCC/bXjF9YUOpfUhns/HRPbha1SrpG6kKQk3h2DKvwee/neQcpYaz16Lo/Hl6UhWw6TEE6+L4pm
-	HG56Ny4ALuGg6y8uNhTmaA9mUqv2p7zbcTrnWeGzD8gdM/MET1EyOSLVAtBo05/GVnjsjeNpxyY3h
-	hbfvcu0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=331DRkSFWDCKr7dCFic+xle6jZcQv2JhNVnEK+JljZE=; b=dHXNzApZV4LANipWVojVcuMY4h
+	I9waIOayHaMhL7dfjxr+5SoLTCRRV0t8+uAhVP6uwON3nLWjdV7qjy1CBkzzm7vU6OpX08PtMgIXY
+	6v0U9r3morFD+Vc0saHUTpy1xgiaOaylgp55zEM6Waxh8NnAaKH1U2kJlsU7pxCMpx/hGSN77K5az
+	3dt9QHHmC9krR3rvQWmujynJhnoAPfDEXDt6uRwNw5+Al3FXWjhj04pYX5Ruu/M9qn0pPJEe+Mw1q
+	Io2ckummtURk2jXVPLOtkR4qa3DoZZWJK+1voXlA+gbVU3Bp2RUoMaSz/8eODlyQutdQL1lGRT3QD
+	12chrNKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrrxT-000000055ZZ-18xE;
-	Thu, 06 Aug 2026 06:52:03 +0000
-Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
+	id 1wrryc-000000055kk-1pYY;
+	Thu, 06 Aug 2026 06:53:14 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrrxQ-000000055Yw-11OY
+	id 1wrrya-000000055jw-1FjE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 06:52:02 +0000
+	Thu, 06 Aug 2026 06:53:13 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-848479c9bd5so1694973b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 23:53:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1785999118; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=aGK/RoC19nUT02iTa9oP7JFher0vxY/EWJohRihzv6k=;
-	b=r5kLjVWjQyf39TRWFihnyL0MDzQWHeNVWN/QHW+7QcnbIGUvWMtGNM9PQom+r2HiMxJRKaK+kArfIC+B25/Qcx+eCJqhhA460yWNdQFU92v6etRY7xKdt/yQRIG2xrai/UXN4QbphQLBd8xWm3PX9+vRrzU2866HdBm/kZVoUAU=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R111e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=yaoyuan@linux.alibaba.com;NM=1;PH=DS;RN=15;SR=0;TI=SMTPD_---0X8TCDP1_1785999116;
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0X8TCDP1_1785999116 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 06 Aug 2026 14:51:57 +0800
-Date: Thu, 6 Aug 2026 14:51:55 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>, Fuad Tabba <tabba@google.com>, 
-	Oliver Upton <oupton@kernel.org>, Peter Maydell <peter.maydell@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v18 03/14] KVM: arm64: Manage GCS access and registers
- for guests
-Message-ID: <rduid57zbypxwiujgfez67walqgqkekhyktkbibtiqcjh5buge@jqqcu52yl5nc>
-References: <20260803-arm64-gcs-v18-0-fd8c40f5ad88@kernel.org>
- <20260803-arm64-gcs-v18-3-fd8c40f5ad88@kernel.org>
- <enhoyivbkdaacgyazubgfzftt34xjemtrybvgpuqvr4czjtbhm@7qvrce5lmdyw>
- <6d63905e-8c6e-4c88-b60b-d34ab1401783@sirena.org.uk>
+        d=gmail.com; s=20251104; t=1785999191; x=1786603991; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=331DRkSFWDCKr7dCFic+xle6jZcQv2JhNVnEK+JljZE=;
+        b=hVOGXW5Qi7lsbJFQb1ALnRLyc2urjb8kwPoIfTToCdzS8rWO68NINvWQGPb2kka3a/
+         ROZcpPIDYUD6S5mirjbVqlM3bU14f/js8SLUjcUtECoh+w14gvYM7UdvniddTqGoBfeV
+         DMdsP+pJ/7aRqhtlxkzGDb+676oHISS8Huk4saxteINWNiGlabpEwkId3yBeQxaSK5AZ
+         aVJdlrcPM187D+HIzWFKmnxi6JOUX6JOhVIdjXTKdAuO1Jms4MA9mcu4cYTcoKpo1nVW
+         mN/kp+ENtU0ElJZf/0GEHKVZItSin7rD35bx3ahM3Exy3h66eQNchWUB+9G84sRULWvM
+         NDSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1785999191; x=1786603991;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=331DRkSFWDCKr7dCFic+xle6jZcQv2JhNVnEK+JljZE=;
+        b=OvkajyomnBrhy77BWRZIBWQ7pHqiE6Y4VqUOwakqdCqfm/OIt+ZVQDHenC2ESR8uUN
+         0NiHRA2EQRwW2WxNdeWxLPe+zTi5xaXHXFr+5L+qMQ+y5XBwGMWekko3k6klT6WXe2iB
+         O3GCSuGVzWACCM4dt76AI/ubuFKHRse10o3vFhYrVmslnUX5dOWs/Z/cqdR0GOVnW4Gw
+         T2QWc9SRUVWk9FD5MHQ5T7qI9i0x1HA7HfghxvswzoE91On3iTq7k6YkRD/N36Srd2yF
+         yogGuJinzMDQkgWqGpHX3wzk3EiqW2UzUXvVNd02xsLX9PnPcMCbWlwEsxMb6MNZo2og
+         3/hg==
+X-Forwarded-Encrypted: i=1; AHgh+RoCqe5BcWLOPF3j5qBXwB+r12vppca0SLeg0RBZgMJcm1sb83YlW6HpZoQYCwS4aEjOEsyg72HNcNhrUUwex23T@lists.infradead.org
+X-Gm-Message-State: AOJu0YzS/DdUs+aQOPMQmpHu9Wfdb0vuekPzsHkHsNzu/0wwgHC5+o61
+	/B83w0BDWqefij6pmmHNqZ+FEY+LeYs+zKp/GFqjK1/qM3nxLCsc8/os
+X-Gm-Gg: AR+sD11qh8O6/xx3fhwftnhQMj3+VWyQSmQB6ac5YBiyETCAfwauhgLlVg63j3OvnjH
+	a+2Uo6skzsLzvswgbQ/6ajiT2AWxBo9kBh5FLUn81tkZWeomWKLWYcwHeFVbEgXQai2aALDkWEl
+	OY7kOmg6KJkBaf/NroM3gpE1iV4RXCN3bZDT/7PXX/uHUtCRcBP9c0ZqE3kkwDLhfs9KNx/UrNn
+	2PGyVAA5WxQ9rSfkF9oQ6TvPDVxp53WdU0TPcJLzB0Jj3s+9zf6+1xe9c+LFrhybC3n5Pm0Rttr
+	4mBauMF3Azy3mHLOypYFPHCp2yCKhdM6uDfdfvWU6xwza9HLI4ZIRzwr/VG3OGGXdewDBZ/EXil
+	EvN4/PjEzl8HUyY71DErfOMgG3FOSKQuRHrsR7izUnZVcWDOfwHY6Uw/Lov75vi/wpYn/Rz0z/b
+	g61dzcpna8JbqTGTvKb14+b8vyWKfxfVnToKAUJ8IqLcr8lqXbqJ584GbzUzCWckat3X6gP/rqk
+	3xqLvzk/6vC+srp5L+2CK/ppzQiHsZc7U4rq0/GmEbr9CP20IAuvdoY2MfZ9TSIfSBAaRxOKMxT
+	SY0u
+X-Received: by 2002:aa7:8884:0:b0:847:9315:fb8b with SMTP id d2e1a72fcca58-84f2e031490mr13109342b3a.6.1785999190781;
+        Wed, 05 Aug 2026 23:53:10 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f459ba2b9sm714920b3a.48.2026.08.05.23.53.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Aug 2026 23:53:09 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Peter Chen <peter.chen@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-usb@vger.kernel.org
+Cc: Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH] usb: chipidea: ci_hdrc_imx: Propagate -EPROBE_DEFER from IRQ lookup
+Date: Thu,  6 Aug 2026 13:52:54 +0700
+Message-ID: <20260806065254.28204-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6d63905e-8c6e-4c88-b60b-d34ab1401783@sirena.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_235200_642011_BDDF361B 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20260805_235312_337478_D6D3DBA8 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +105,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 01:32:26PM +0800, Mark Brown wrote:
-> On Wed, Aug 05, 2026 at 05:48:04PM +0800, Yao Yuan wrote:
-> > On Mon, Aug 03, 2026 at 11:56:48PM +0800, Mark Brown wrote:
->
-> > >
-> > >  		if (ctxt_has_s1poe(&vcpu->arch.ctxt))
-> > >  			write_sysreg_el1(__vcpu_sys_reg(vcpu, POR_EL2), SYS_POR);
-> > > +
-> > > +		if (ctxt_has_gcs(&vcpu->arch.ctxt)) {
-> > > +			write_sysreg_el1(__vcpu_sys_reg(vcpu, GCSCR_EL2), SYS_GCSCR);
-> > > +			write_sysreg_el1(__vcpu_sys_reg(vcpu, GCSPR_EL2), SYS_GCSPR);
-> > > +		}
->
-> > Looks the s1pie checking for GCS vEL2 context switch is
-> > necessary yet IIUC, KVM does vEL2 context switch for nested
-> > L1's EL2, it should follow same rule as non-nested L1's EL1
-> > context switch.
->
-> Right, it's not really needed in either case but hopefully helps code
-> generation a bit.  Thanks for spotting that.
->
-> Please delete unneeded context from mails when replying.  Doing this
-> makes it much easier to find your reply in the message, helping ensure
-> it won't be missed by people scrolling through the irrelevant quoted
-> material.
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Sure. let me try delete more next time.
-I delete some but decide to leave the whole context switch
-diffs to help other guys to see the realted changes when
-read my comment.
+Return -EPROBE_DEFER from platform_get_irq_optional() so the driver is
+re-probed when the interrupt resource becomes available instead of
+continuing probe without an IRQ.
+
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ drivers/usb/chipidea/ci_hdrc_imx.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+index 56d2ba824a0b..f53d09e90010 100644
+--- a/drivers/usb/chipidea/ci_hdrc_imx.c
++++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+@@ -525,6 +525,8 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+ 		data->supports_runtime_pm = true;
+ 
+ 	data->wakeup_irq = platform_get_irq_optional(pdev, 1);
++	if (data->wakeup_irq == -EPROBE_DEFER)
++		return -EPROBE_DEFER;
+ 	if (data->wakeup_irq > 0) {
+ 		irq_name = devm_kasprintf(dev, GFP_KERNEL, "%s:wakeup", pdata.name);
+ 		if (!irq_name) {
+-- 
+2.43.0
+
 
