@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C62C561E6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69025C56203
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=028tNDH2SwInY8oNZE5hhV9wanUNv6a/m5RoDHoCJqc=; b=urbS/YcVPYLgiX7ON4eaBm0878
-	ZjapkDFJC7BtmKYJmy+63sXDPDwIZY1FJfxSgZ82WjhE22N6JMkMvMOHgq0IsT0tUyVnTVIu1rddU
-	G2iDIGpNG9Vf4NyWas/DaoGfgMucIsPem2m1Fp0iNHW1KR9da9mBO0PJJ4GGRYZR/8Ye3s2AWDSM6
-	0/xhx/mLi+g3mtmJD3GNlK6YaO3bgX+P6eTd4Ab0VFxolDIJ8uWr/wpQgsq6CcHyrZPtP4fAuraP3
-	avMHq42XmC4pCr4+nwasW3UhbrR6KEfhOd0MGu2XtB079co9jB8Avh39Lrqm1SF3v8Kp2SxtRGQ2A
-	WJiTUsQA==;
+	bh=gQ8zq70y0787azP95WYE6ddYaI5CvHh9/VpExmEvz+w=; b=H/twKA0UPXpxMyOzpkUx1kKvpS
+	Un+b+X2adU1omd5VBdcmYm6jgM3rwKa+BOLbA87gRe3i1AuYsrPSbWnEuvUmeJxCnUMS9iOJ5K1hB
+	HXKlirWqZwh0BTE2UNpJtc2mhcak11y26QX+AW514gLR30+lfGP4dMpceyCPtnkQSAqGwxI6qj7fj
+	Ky65rd8aZxY8T+uOHjDDCia0Nph/pYH77jTIfiUJfxoxy2gqZMDhXM1v5VrwnfDBKypzX+e7WNmC8
+	hjvt5+Zoq+tbjEKMdCjT3KlL/6WhIPp5Z3jgrXNjk0joHXSbkSc4oLdpo3FrKrVkHbMi42BHO5SLU
+	vufoVgYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wru7a-00000005L2J-0YNO;
+	id 1wru7a-00000005L3a-2fc5;
 	Thu, 06 Aug 2026 09:10:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wru7W-00000005L12-3IfK
+	id 1wru7X-00000005L17-2x1z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 09:10:34 +0000
+	Thu, 06 Aug 2026 09:10:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7A27A42DC5;
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B6DC4367E;
 	Thu,  6 Aug 2026 09:10:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EB751F00A3E;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7047D1F01559;
 	Thu,  6 Aug 2026 09:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1786007434;
-	bh=028tNDH2SwInY8oNZE5hhV9wanUNv6a/m5RoDHoCJqc=;
+	bh=gQ8zq70y0787azP95WYE6ddYaI5CvHh9/VpExmEvz+w=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jQhniWGc15LDVO9PD03KpBmdgMLzqHPEVdp37vZSBlkjXEzf8lehFqbiKBH2nfx37
-	 I9QY3O6UiRCKFR6XfbpICjBBRG1pgJd2QMGM9w3LC1LpQs5+E3Xa92+tdhe7UiUAAD
-	 +e2C3Vw66L1rnyJUDWuZ/DVF+ud1bGARFPfwd/FFPlDPPYgk4myd1iCybw1I+xHAPI
-	 j/4JsPaea4/qTaYF1GJGINFTC3VZxsxF4teXQpli8e9fd9vcSFkJRWHsMlvp6nt9z6
-	 7zNTe1O2IkgxIVVU1Tuq0G9GQCEnAUCBgGDsFaOHATtlHBZtAzcBuooD+LbubxvRrA
-	 uGPyOYDAHBvZA==
+	b=hrlYiL6AUHSwVsGrZy5BQKpHYGfFiVMP+eiN1kClFvgN7Hy2nKce9wuEa5tJDtsDQ
+	 xNxbyoL+N0ycBsX4at6VXk9WEnX6CMrKjrIL1FRn8vLrpm0HIdTgK52fvnsE82/3bN
+	 q79LKl4awvIPHZCILgwY34u8eqgpE4ODq44vrQmVx/z5RMrbFV+a0GMYJNELSCG0Lk
+	 jC1eQ6qH6pPNij5jKlFAW31JGGFp79LxMSqh/9ngbWVovbxNgtE6t0CdaVBaAscljO
+	 jJDD7R9QoewanwYAcoDcIv4epE+s9loQdE8lRSM0LbC0xh6eLx5soNvMsADZ7zR1rg
+	 cd57302UT8qNw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wru7U-0000000CtHi-1ntx;
+	id 1wru7U-0000000CtHi-2vCZ;
 	Thu, 06 Aug 2026 09:10:32 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -62,9 +62,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
 	ljs@kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH v2 3/8] KVM: arm64: Consider SCTLR_EL2.M when mapping the L1 VNCR page
-Date: Thu,  6 Aug 2026 10:10:21 +0100
-Message-ID: <20260806091026.620700-4-maz@kernel.org>
+Subject: [PATCH v2 4/8] KVM: arm64: Correctly handle end of VA space TLBI invalidation
+Date: Thu,  6 Aug 2026 10:10:22 +0100
+Message-ID: <20260806091026.620700-5-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260806091026.620700-1-maz@kernel.org>
 References: <20260806091026.620700-1-maz@kernel.org>
@@ -88,84 +88,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We record a VNCR TLB even when SCTLR_EL2.M is 0 in order to make
-our life easier. But this is not something that the architecture
-anticipate.
+Our TLB invalidation by VA code is based on comparing two ranges,
+one defined by the TLB, and one defined by the TLBI instruction.
 
-As a consequence, a hypervisor is free to set VNCR_EL2 to
-some PA when SCTLR_EL2.M==0, use it to run a guest which indirectly
-accesses the VNCR page, then eventually set SCTLR_EL2.M==1 with
-the same VA. Yes, this is odd, but apparently legal.
+Each range is defined by a start and a size. However, the way the
+comparison is done doesn't account for address rollover, as it
+compares an address with (base + size). This works nicely until
+this expression represent the last page/block in the TTBR1 VA space,
+as the result is a big fat 0. And a failed TLB invalidation.
 
-A common trick in HW is to invalidate the TLBs on SCTLR_ELx.M being
-flipped. But doing this is a not a good idea for us (we'd need to
-trap SCTLR accesses), and wouldn't scale as we nest deeper.
+Rewrite the comparison in a way that is immune to the address
+rollover (making the end address inclusive instead of exclusive),
+and move this into a common helper that is used by both VA and IPA
+invalidations, as suggested by Hyunwoo Kim (although the IPA version
+didn't suffer from this particular problem, obviously).
 
-Instead, use the fact that the S1 MMU being off at the point of
-translation is cached in our TLB, and if it doesn't match the current
-MMU state, leave the VNCR unmapped.
-
-Fixes: 2a359e072596f ("KVM: arm64: nv: Handle mapping of VNCR_EL2 at EL2")
+Fixes: 4ffa72ad8f37e ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 Cc: stable@vger.kernel.org
 ---
- arch/arm64/include/asm/kvm_nested.h | 7 +++++++
- arch/arm64/kvm/at.c                 | 2 --
- arch/arm64/kvm/nested.c             | 4 ++++
- 3 files changed, 11 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/nested.c | 43 ++++++++++++++++++-----------------------
+ 1 file changed, 19 insertions(+), 24 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 012d711034d17..bfed664d823bd 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -388,6 +388,8 @@ struct s1_walk_result {
- 	bool	failed;
- };
- 
-+#define S1_MMU_DISABLED		(-127)
-+
- static inline void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
- {
- 	wr->fst		= fst;
-@@ -396,6 +398,11 @@ static inline void fail_s1_walk(struct s1_walk_result *wr, u8 fst, bool s1ptw)
- 	wr->failed	= true;
- }
- 
-+static inline bool s1_walk_translated(struct s1_walk_result *wr)
-+{
-+	return wr->level != S1_MMU_DISABLED;
-+}
-+
- int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
- 		       struct s1_walk_result *wr, u64 va);
- int __kvm_find_s1_desc_level(struct kvm_vcpu *vcpu, u64 va, u64 ipa,
-diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
-index 640f2dc00a8ba..0926426b87989 100644
---- a/arch/arm64/kvm/at.c
-+++ b/arch/arm64/kvm/at.c
-@@ -11,8 +11,6 @@
- #include <asm/kvm_mmu.h>
- #include <asm/lsui.h>
- 
--#define S1_MMU_DISABLED		(-127)
--
- static int get_ia_size(struct s1_walk_info *wi)
- {
- 	return 64 - wi->txsz;
 diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 035cda256e2a5..27bc7ee4b3382 100644
+index 27bc7ee4b3382..8a602d074dbb4 100644
 --- a/arch/arm64/kvm/nested.c
 +++ b/arch/arm64/kvm/nested.c
-@@ -1578,6 +1578,10 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
- 	if (!vt->valid)
+@@ -999,6 +999,20 @@ static void invalidate_vncr(struct vncr_tlb *vt)
+ 		clear_fixmap(vncr_fixmap(vt->cpu));
+ }
+ 
++static bool vncr_tlb_intersects(struct vncr_tlb *vt, u64 addr,
++				u64 scope_start, u64 scope_size)
++{
++	u64 tlb_size, tlb_start, tlb_end, scope_end;
++
++	tlb_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift, vt->wr.level));
++
++	tlb_start = addr & ~(tlb_size - 1);
++	tlb_end = tlb_start + tlb_size - 1;
++	scope_end = scope_start + scope_size - 1;
++
++	return !(tlb_end < scope_start || tlb_start > scope_end);
++}
++
+ /*
+  * VNCR TLB invalidation occurs from MMU notifiers or TLBI instructions, and
+  * either can race against a vcpu not being onlined yet (no pseudo-TLB
+@@ -1021,19 +1035,9 @@ static void kvm_invalidate_vncr_ipa(struct kvm *kvm, u64 start, u64 end)
+ 	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
  		return;
  
-+	/* We cache the MMU state in the TLB. Check that it matches. */
-+	if (!!(vcpu_read_sys_reg(vcpu, SCTLR_EL2) & SCTLR_ELx_M) != s1_walk_translated(&vt->wr))
-+		return;
-+
- 	if (read_vncr_el2(vcpu) != vt->gva)
- 		return;
+-	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+-		u64 ipa_start, ipa_end, ipa_size;
+-
+-		ipa_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+-							    vt->wr.level));
+-		ipa_start = vt->wr.pa & ~(ipa_size - 1);
+-		ipa_end = ipa_start + ipa_size;
+-
+-		if (ipa_end <= start || ipa_start >= end)
+-			continue;
+-
+-		invalidate_vncr(vt);
+-	}
++	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm)
++		if (vncr_tlb_intersects(vt, vt->wr.pa, start, end - start))
++			invalidate_vncr(vt);
+ }
+ 
+ struct s1e2_tlbi_scope {
+@@ -1059,28 +1063,19 @@ static void invalidate_vncr_va(struct kvm *kvm,
+ 	lockdep_assert_held_write(&kvm->mmu_lock);
+ 
+ 	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
+-		u64 va_start, va_end, va_size;
+-
+-		va_size = ttl_to_size(pgshift_level_to_ttl(vt->wi.pgshift,
+-							   vt->wr.level));
+-		va_start = vt->gva & ~(va_size - 1);
+-		va_end = va_start + va_size;
+-
+ 		switch (scope->type) {
+ 		case TLBI_ALL:
+ 			break;
+ 
+ 		case TLBI_VA:
+-			if (va_end <= scope->va ||
+-			    va_start >= (scope->va + scope->size))
++			if (!vncr_tlb_intersects(vt, vt->gva, scope->va, scope->size))
+ 				continue;
+ 			if (vt->wr.nG && vt->wr.asid != scope->asid)
+ 				continue;
+ 			break;
+ 
+ 		case TLBI_VAA:
+-			if (va_end <= scope->va ||
+-			    va_start >= (scope->va + scope->size))
++			if (!vncr_tlb_intersects(vt, vt->gva, scope->va, scope->size))
+ 				continue;
+ 			break;
  
 -- 
 2.47.3
