@@ -4,80 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 912F5C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9338FC55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7U1LmfJSqa24lJH2SEn+qA/TeRuZ2252NEslGpBzkeU=; b=hse5Gu1F/TG5IyhWu47eLQpI9e
-	AJ6AoS4m9YQlvjystE3zdsKx0Iaqdfsw9vt8rc7cbexkgZK7ZNefVN/oZZa9NVvB6iOXK00Xh/smu
-	gp877q7+Er85Qf1OnNmvlkpKWdKn8X29nr93P45oYvERB1WxwqIPT/2j4FxnVT8Fb6KDgBmVDP0TJ
-	3HXBGAMR1dD0AhwAiHrefCUZfaJzv2MdbmeVOGS/oTkBW9p+dx9cvCB/gpAcZMGz0eSeLoxnF92zQ
-	6z+BoNmmfGyf/oo+sBmaUdwQgtxkYo7e22dR+Vmd31T+Ls3m/4BTZWaABfzfFyf0KXrW1fGt4fN34
-	UI2si7Pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5cumNkGH2fsBGNARNBjuk9zDJze4M94YJWYb1DucRGM=; b=nGjFrsp1ZPy3mjOPP/buDRHcDU
+	8zxwTZRWglwv4fR23JOQL3ifTSAlCM9zkOfjx0ZeoTQErmDpgZS7IXBufJUqJfg39EEvgiXSHjjjg
+	2WfLGBSt11DIQw6T2/aUQCjOMSejMAEDIzQms5aKDA49AyIk1Xsul4L6EJDEHB6dBK5e8HCKCu4k7
+	moLTp5CkrtRNsd0WGwEJd3oyQ9/g/HwR+HhjpEX38R38qCP60fLszmTR7572HbCdPccUhXf0pZD60
+	xv6COAnyEjyFpGOEX9kzihcNrnHDWRpUbcc/rFw9eO1iptS0GTLjy3H4gmNqqJ/g9JUJoi65A7Yb7
+	DIdRaQNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtnE-00000005Imz-1qR0;
-	Thu, 06 Aug 2026 08:49:36 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1wrtyz-00000005KCw-3MxL;
+	Thu, 06 Aug 2026 09:01:45 +0000
+Received: from mail-southcentralusazon11021131.outbound.protection.outlook.com ([40.93.194.131] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtn9-00000005Ikn-2mj6
+	id 1wrtyw-00000005KBa-3Tdv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 08:49:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1786006171; x=1817542171;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=XNeG3M4dWAfIsmDBbwjWj2IXhD+Qtz4KOR6R5jwR+jw=;
-  b=QB7+1JW3MG2S8SrsDeHNuguKv6q2IjfbXWR8aAmy24ygeTbv8KB0dlOc
-   ig7g5eEWbtI8y/n011vvLDNtnXraHNXXswld41ymtC7aqf0QWgPrUSia+
-   FEZHlx7QdB21SHATh9IdOh3vYtKPcSd9g3dRHuKFySSvloYXdReNnA2ei
-   pbVtxQMVhkK1B+mO7bO7usFeeKCFn3RrxoMOp8Vu2qhAYSsgDRsiX8dQG
-   FzocncnY7IQBdeWL9Vt3xMrcN/0Baw1fJiokzvSy6eMraOfJFjvMy3h2J
-   hzWqaecO4kKTh+zG4mhQUHAYcc9EXBdzrJSpWCYntDzrQAjl3/g6nLK/J
-   A==;
-X-CSE-ConnectionGUID: fSnijaBeTzGVn5jrl+q6+w==
-X-CSE-MsgGUID: bF4lcckWRjCECWByfLDleg==
-X-IronPort-AV: E=Sophos;i="6.25,208,1779174000"; 
-   d="scan'208";a="62050920"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Aug 2026 01:49:31 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 6 Aug 2026 01:49:30 -0700
-Received: from che-ll-i67070.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 6 Aug 2026 01:49:21 -0700
-From: Varshini Rajendran <varshini.rajendran@microchip.com>
-To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
-	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<srini@kernel.org>, <marcelo.schmitt@analog.com>, <radu.sabau@analog.com>,
-	<joshua.crofts1@gmail.com>, <jorge.marques@analog.com>,
-	<Jonathan.Santos@analog.com>, <jishnu.prakash@oss.qualcomm.com>,
-	<antoniu.miclaus@analog.com>, <duje@dujemihanovic.xyz>,
-	<mazziesaccount@gmail.com>, <varshini.rajendran@microchip.com>,
-	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v6 17/17] ARM: dts: microchip: sama7d65: add thermal zones node
-Date: Thu, 6 Aug 2026 13:10:24 +0530
-Message-ID: <20260806074024.531259-18-varshini.rajendran@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260806074024.531259-1-varshini.rajendran@microchip.com>
-References: <20260806074024.531259-1-varshini.rajendran@microchip.com>
+	Thu, 06 Aug 2026 09:01:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w84G5CqXi4g9q/JzACxj7A6qg2KGfyQ+IZrPrC9ZAccleRtzQ5Bl/fziJWCS1nIrft1u2DCY8+T/vwcjdp1y8EDs0/a0BI57Z6ENf/4VGm69EX71IjL9CaWtaDdk9jmhdSfuTEESg4/Uo57AC8/wOHzoixApOLTANM2OLiwVgz3+g0LNeKbcub9iQvEwZvw5J51ZEkieHC6a/BaeeUJe8mPF/7iep6YGHDYhH8kpVGfy1x1cuhDWTUXzxjck59uBEipT1wUMkd6a6RllxLDJtV2mXlLL9tTfEIfQh9sxbbWV+wQdxqJEROZRxxqQ5aW9aFRsYKGP04m6kjt8CeCpJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5cumNkGH2fsBGNARNBjuk9zDJze4M94YJWYb1DucRGM=;
+ b=GzTTDFHIF7Kl+09pBI2YoR5eB2PPePZm/kMv9ve7z3lYWITXq8yvXnUdx3ivu735tYz5fHpvWbOXhl8QUOSMjSm02umeFKpl5We3xdM0D8PyjccKurx7V1dxsVI1z4aDjT2XheIyvNLvLD6sL7xUCSyNL3ybP4BvuRlzyLlLBKcDO+Xo1AmwL9WtQIAx0N3KNKv2AWUNAomCLMX0NfdLeXFgft4dACLyEeO0p6OcZHYo9dfDyGffeAZEmxtlCN5ut57ERB7SklIyVi0RlyZN/a68afCXsIz4yBe0pR/iLfiPVWR3UI7Z3m/4yZzBeDZ03iLwBepLaO9p3350qSiaFw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
+ dmarc=none action=none header.from=axiado.com; dkim=none (message not
+ signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5cumNkGH2fsBGNARNBjuk9zDJze4M94YJWYb1DucRGM=;
+ b=bBONLShZYAvFGSEIYoE7y7k1ksFkvs72nc0CgHv5nO0C+PfIEe7THmdv8hocNkaVtJDeMTh07D/TpLp3drOyFT5Y+sYDNTkbqmhuVDr+qw94eYBZ3RBpXtBRB0SQ2ewbzu2m5Dy+G79iLfjdm49VpxxKMJIpXfJ82gYAey6yQggwQTqtxTkYLMwAS4XfacACpR3U1VmBsKt8TVouI/VqYHS5b0gZfYVz5uvngoUbjgYrtJestjqy1540PHPsgdcRewLDnKEh4FOfemS1GZoBhPaciJiaRgFP3XTSteP5SYtBm1XbvUzMNrluOm3Fkb4vWx29r3aDj3d0ueID1NeI2A==
+Received: from SJ0PR03CA0196.namprd03.prod.outlook.com (2603:10b6:a03:2ef::21)
+ by SA3PR18MB5391.namprd18.prod.outlook.com (2603:10b6:806:2f3::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Thu, 6 Aug
+ 2026 09:01:36 +0000
+Received: from SJ1PEPF000023D2.namprd02.prod.outlook.com
+ (2603:10b6:a03:2ef:cafe::26) by SJ0PR03CA0196.outlook.office365.com
+ (2603:10b6:a03:2ef::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.19 via Frontend Transport; Thu, 6
+ Aug 2026 09:01:36 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
+ smtp.mailfrom=axiado.com; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
+ designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
+ client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
+Received: from smtp.corp.axiado.com (64.62.143.114) by
+ SJ1PEPF000023D2.mail.protection.outlook.com (10.167.244.9) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
+ via Frontend Transport; Thu, 6 Aug 2026 09:01:35 +0000
+Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 8B4984186B58;
+	Thu,  6 Aug 2026 02:01:35 -0700 (PDT)
+From: Petar Stepanovic <pstepanovic@axiado.com>
+Date: Thu, 06 Aug 2026 02:01:29 -0700
+Subject: [PATCH 1/2] dt-bindings: hwmon: add Axiado AX3000 and AX3005 PWM
+ fan controller
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260806-axiado-ax3000-pwm-fan-v1-1-f6db4cf2166b@axiado.com>
+References: <20260806-axiado-ax3000-pwm-fan-v1-0-f6db4cf2166b@axiado.com>
+In-Reply-To: <20260806-axiado-ax3000-pwm-fan-v1-0-f6db4cf2166b@axiado.com>
+To: Petar Stepanovic <pstepanovic@axiado.com>, 
+ Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Tzu-Hao Wei <twei@axiado.com>, Karthikeyan Mitran <kmitran@axiado.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-pwm@vger.kernel.org, linux-doc@vger.kernel.org
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786006895; l=3222;
+ i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
+ bh=0AjNPWV5OPhrQhjPlrG6C5c7ICRCle76yQboEFhoosQ=;
+ b=ntmYImKE9EO1zK/rQXo5qJwdIotDKd1YGbfZWuzYV83+acbAYrKEilY/j9UPaLZkVL+pw+qPg
+ XXea6ws0rygDhRMf/BNvfLFf14WLlYSNuToF/VLB6j+Z4i8OfybQq7t
+X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
+ pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D2:EE_|SA3PR18MB5391:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19e26bbb-3e39-4fe1-9d3f-08def399519c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|36860700016|82310400026|7416014|376014|10067099003|56012099006|3023799007|18002099003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: W3HMMw/e9KJQ7VZoDBXkUJxp/y7tVSmJqsxHKrcvU5pIJAy/ODDyF57Cwcv/I4Al9SHR3wuAhTrKuUU9Mvs4Shn1SvNE1tWEm0mzh6sx2kyBXgNn8jFtSnl24vgVx9WGtRHHrRIT3IuVn0iQCPhqE8rj8pjPXVCMidTBe8dAkaL8YYKtYImnnLn+xCABPvnG9TEylCvK54SR3E75IMy0nMPgZEvrmbJsGWM0OQoUlk+ddjyQuxhlaUFOQkDcwTCmvxhN7pvva+C/9WXqEHzdeiDvpzjb2qWYoCDl/p2lDdZivPcDVLNtQ1IkfzieIy0e6LXaJdiJVtsTYPMj5R+hBVG1uBAWwleN1qmQl2UO1Cg3D6c88a8jgsy5oa+5S0toi+DRuoDGXDjXwrs+zkh1xIPg+hOIwmGAr907VIT4094ySICpn3BYepDTqxI3av1SzMIBeV0k3eZiQU/ei5P5z7tpbr8YFXe6NsTZSGPoelTLaESmP+MjV1wTkyGsRnsT6B23GyEfit7C1+A/w8o6SC4XV+7ufDmgO06gzGvA55ZSZDzPloLGrOiamM4DdWyWgCScCTMqgRs8/tvJbi/YXyVOQoebx1/9FmY5WxdLe1MfOrHwV7Xdd733fl6k443CSx3gR3E835RBzaIv5K5FpdSIGQXfaw1WutjhjjRkSw44VwQ+ksjpJj4ujRRFcME6nfqg0wZ9fBw/XZuWoduk0cG77cHVVrBGqY2f7Ww5EU1jzoPmTgNhiXxMFTu+hm7b
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(36860700016)(82310400026)(7416014)(376014)(10067099003)(56012099006)(3023799007)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: kWQDZBoAoJyWSShn8BRUsULSJEe6eEQjY5tSjaD0dATShEmgpQ2J68Nto11McmWaBm1+PxAgG8HH9AMK0E8qisxTobDq0iJm/+AWNJ/1eQCwcRQ8UQ+XB7PAJtdjwkcefII+TfrIy7x0yjsVw9ZYbjygf9olhdqGFNiwLx0b/DZ5/Rd/XiAvRKVl5afcu+Lib99kwwRQlIj6cQ30J6pyA9svAlObZuQHpRvFrPwV8gDQedQeTOLX5kHdYorDL66WprXX9Q1ySTYsROemrASpbwdHuOeulfEULUlbEyWxEQvR3IEssIWg+XADunDVmrcNGxyGdwKTbbpoLVf6Bav0YaRIetV7a45NM53lNbOt+4/VErQM8mHUzkN2JKidbYqf0WjqBEmmTuSFJ5pibUz1FXbc5Skt2L6T/beriMmxub2z4YOk2OvJQx5Q43kmyA1X
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 09:01:35.7482
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19e26bbb-3e39-4fe1-9d3f-08def399519c
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D2.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR18MB5391
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_014932_362326_A019BCBF 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20260806_020142_873734_164632BB 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,82 +133,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add thermal zones node for SAMA7D65 with trip points for passive
-cooling and critical shutdown.
+Add a Devicetree binding for the PWM fan controller found on the
+Axiado AX3000 and AX3005 SoCs.
 
-Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+The controller measures fan speed using a hardware tachometer block.
+Fan speed is controlled through a PWM signal supplied by an external
+PWM controller.
+
+Add a MAINTAINERS entry for the binding.
+
+Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 ---
- arch/arm/boot/dts/microchip/sama7d65.dtsi | 42 +++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
+ .../bindings/hwmon/axiado,ax3000-pwm-fan.yaml      | 68 ++++++++++++++++++++++
+ MAINTAINERS                                        |  8 +++
+ 2 files changed, 76 insertions(+)
 
-diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index 3aba73983c79..7743f9e8f692 100644
---- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -16,6 +16,7 @@
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/mfd/at91-usart.h>
- #include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
-+#include <dt-bindings/thermal/thermal.h>
+diff --git a/Documentation/devicetree/bindings/hwmon/axiado,ax3000-pwm-fan.yaml b/Documentation/devicetree/bindings/hwmon/axiado,ax3000-pwm-fan.yaml
+new file mode 100644
+index 000000000000..a985f49bbdcd
+--- /dev/null
++++ b/Documentation/devicetree/bindings/hwmon/axiado,ax3000-pwm-fan.yaml
+@@ -0,0 +1,68 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/hwmon/axiado,ax3000-pwm-fan.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Axiado AX3000 and AX3005 PWM Fan Controller
++
++maintainers:
++  - Petar Stepanovic <pstepanovic@axiado.com>
++  - Akhila Kavi <akavi@axiado.com>
++  - Prasad Bolisetty <pbolisetty@axiado.com>
++
++description:
++  The Axiado AX3000 and AX3005 fan controllers use a hardware tachometer
++  block to measure fan speed. Fan speed is controlled through a PWM signal
++  supplied by an external PWM controller.
++
++properties:
++  compatible:
++    oneOf:
++      - const: axiado,ax3000-pwm-fan
++      - items:
++          - const: axiado,ax3005-pwm-fan
++          - const: axiado,ax3000-pwm-fan
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  pwms:
++    maxItems: 1
++    description:
++      PWM specifier used to control fan speed.
++
++  pulses-per-revolution:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 1
++    default: 2
++    description:
++      Number of tachometer pulses generated per fan revolution.
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - pwms
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    fan@33001400 {
++        compatible = "axiado,ax3000-pwm-fan";
++        reg = <0x0 0x33001400 0x0 0x400>;
++        interrupts = <GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH>;
++        clocks = <&clk>;
++        pwms = <&pwm0 0 400>;
++    };
++...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a674e36529f7..f528b1a42e0f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4457,6 +4457,14 @@ W:	https://ez.analog.com/linux-software-drivers
+ F:	Documentation/devicetree/bindings/pwm/adi,axi-pwmgen.yaml
+ F:	drivers/pwm/pwm-axi-pwmgen.c
  
- / {
- 	model = "Microchip SAMA7D65 family SoC";
-@@ -38,6 +39,7 @@ cpu0: cpu@0 {
- 			i-cache-size = <0x8000>;	// L1, 32 KB
- 			next-level-cache = <&L2>;
- 			operating-points-v2 = <&cpu_opp_table>;
-+			#cooling-cells = <2>; /* min followed by max */
- 
- 			L2: l2-cache {
- 				compatible = "cache";
-@@ -126,6 +128,46 @@ thermal_sensor: thermal-sensor {
- 		io-channel-names = "sensor-channel";
- 	};
- 
-+	thermal-zones {
-+		cpu_thermal: cpu-thermal {
-+			polling-delay-passive = <1000>;
-+			polling-delay = <5000>;
-+			thermal-sensors = <&thermal_sensor>;
++AXIADO PWM FAN CONTROLLER DRIVER
++M:	Petar Stepanovic <pstepanovic@axiado.com>
++M:	Akhila Kavi <akavi@axiado.com>
++M:	Prasad Bolisetty <pbolisetty@axiado.com>
++L:	linux-hwmon@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/hwmon/axiado,ax3000-pwm-fan.yaml
 +
-+			trips {
-+				cpu_normal: cpu-alert0 {
-+					temperature = <90000>;
-+					hysteresis = <0>;
-+					type = "passive";
-+				};
-+
-+				cpu_hot: cpu-alert1 {
-+					temperature = <95000>;
-+					hysteresis = <0>;
-+					type = "passive";
-+				};
-+
-+				cpu_critical: cpu-critical {
-+					temperature = <100000>;
-+					hysteresis = <0>;
-+					type = "critical";
-+				};
-+			};
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&cpu_normal>;
-+					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+
-+				map1 {
-+					trip = <&cpu_hot>;
-+					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		ranges;
+ AXIADO SPI DB DRIVER
+ M:	Vladimir Moravcevic <vmoravcevic@axiado.com>
+ M:	Tzu-Hao Wei <twei@axiado.com>
+
 -- 
 2.34.1
 
