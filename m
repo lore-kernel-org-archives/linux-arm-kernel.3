@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7EE8C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C118DC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CNFDGBasAzdtMYMXr/QlbpUhNB9kt+XhO0QxWK3ASd8=; b=151JPS8iBm3FJ+x/wTyMqnoCx5
-	yceqzDZb9PcYAFYaOOtFKECND1YpQggeauai6JODdf6jwWsEonrPkX0hAH2GAGOB22zWWdZ+jTnzl
-	2AvRWt2rEMd/4e27+hhbt29qN5NBvcHhWYsHxw26RqVnkK+Yl14oNUg+mnwKfsfKOsNQY/Zs/G76/
-	pgsAT83E6SqvR6jgawvsykAIARCNfMzdFYM1suPHVlUUdOdovC7MhZxjQ5Vc5iOgU3+1z1vtcNe6Z
-	Qx/14NR+uT1mfsl58gDkxE9Gb3A2FDfKSuLGz1gxqI/4Et0bB6fwRfIU9Z6xvgTwTB168H/Q4a6nI
-	eKIcu0Yg==;
+	bh=7DTQ07GJKnfbpZQI4eZNwIceuMVDGsiSmnyh13hn3T4=; b=sZTUVOdEJgFqP1OGb7G7b+Kk77
+	lXgd/mt3+wm92Wv8WKavns2MhaBGV7xXogGaE00P/JiQTQW9Emgz3BH3E4QDB1B426gtFtFqhTgK/
+	3chaOv3nmMq1FRal8M3fhjNxF+oMH5hXjBk5RfNJj5m8Txhq6gO9PBiPe8xv00BavmYzJ+AZaGgZk
+	7NUm1Fx0kYv+BKcBwkwe8NfpqyOUwxiLoH+7Sh54+yurVIef/Y0lsCpjO9W+sQ2hmnBf6uarlOBnA
+	fZxLZ+urbO3odUaidemS3Y9oiXO1u9Uy242eh+PofWycdkJgPRvuKobq6tfi3vImQ2TszXiv7FHs/
+	NOZtzGJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryXA-00000005wW1-3pDO;
-	Thu, 06 Aug 2026 13:53:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wryXD-00000005wX6-4AKD;
+	Thu, 06 Aug 2026 13:53:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryXA-00000005wVt-1J6E
+	id 1wryXD-00000005wWk-1SQA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 13:53:20 +0000
+	Thu, 06 Aug 2026 13:53:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9F5B460A99;
-	Thu,  6 Aug 2026 13:53:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 347CB1F000E9;
-	Thu,  6 Aug 2026 13:53:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EB5CD439A5;
+	Thu,  6 Aug 2026 13:53:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB3E11F000E9;
+	Thu,  6 Aug 2026 13:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786024399;
-	bh=CNFDGBasAzdtMYMXr/QlbpUhNB9kt+XhO0QxWK3ASd8=;
+	s=k20260515; t=1786024402;
+	bh=7DTQ07GJKnfbpZQI4eZNwIceuMVDGsiSmnyh13hn3T4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=dNi74+4psZcWvuyypQ6jT4auh3Kr9dB0kfp8MHGrNCRMh4o/O7lwSaSoLkHHzdGzK
-	 gDm1LX8DUtLnGKzq4JEnFQ5U648Hrj0zzQNEDayOU2Er0E5hfyanaBpX7sJd85RBtP
-	 5dxGQqLJVCykmwLMNLyEcBtu4NXOu5YyA8sePqMKRnpbPsVwilm2zl1IeUqap1NPdL
-	 V+WNX8tHbeM3iLUF+iZN8Si6b/y7ejToEiEoIN0qwuh1PmZM3wSnGUkfaWgAdN8MHF
-	 EXJEaSVaV46HagYmueFLHrjlk740OTb6HSR5QAzRw1efmMg3boy/m/p3O/WlPtjjrY
-	 ST5oIHhRfD1CA==
+	b=e+BWU4WIQSW3J6P4C5TRKyo/AXNNQHs35lrkU1rCrq12MFCQqUAJcnTiEAfwgaA0K
+	 QGpIWb/krRM7CI3msRzsZATYaZVO6J6jwU3uVBzd5atQj8NQnB4TrtZW2RnaYIl/X0
+	 h9H+f7VOsjjpg5yQLjx1OHOhoDb/HWkPWnN9W3WbAv5WTrb5lNa04cljWr/zdgBWDn
+	 795UkbpZDwZubWpMnseP/14Fn24rJ6H6nUzSmB7OVGPMRYoDOhLbwM7wIIrnSleikD
+	 zlF4xMB6eMteV9aDqgoJ3lE94Ja/GJfwMQRSXr/WOq8orxYhvIcQlRTWDcdHmvunSA
+	 S/VSKMKP43H6w==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>,
@@ -68,9 +68,9 @@ Cc: Puranjay Mohan <puranjay@kernel.org>,
 	bpf@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: [PATCH v6 1/3] perf/core: Fix NULL pmu_ctx passed to pmu->sched_task()
-Date: Thu,  6 Aug 2026 06:52:21 -0700
-Message-ID: <20260806135224.3267890-2-puranjay@kernel.org>
+Subject: [PATCH v6 2/3] perf/core: Run sched_task() for PMUs with only CPU-wide events
+Date: Thu,  6 Aug 2026 06:52:22 -0700
+Message-ID: <20260806135224.3267890-3-puranjay@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260806135224.3267890-1-puranjay@kernel.org>
 References: <20260806135224.3267890-1-puranjay@kernel.org>
@@ -90,45 +90,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-perf_pmu_sched_task() returns early when cpuctx->task_ctx is set, and
-cpc->task_epc is only non-NULL while a task context is scheduled in on
-this CPU. __perf_pmu_sched_task() therefore always passes NULL:
+perf_pmu_sched_task() returns early when cpuctx->task_ctx is set and
+leaves the work to perf_ctx_sched_task_cb(). That one only walks
+ctx->pmu_ctx_list, so a PMU whose events are all CPU-wide is never
+visited and its sched_task() callback does not run. With
 
-  Unable to handle kernel NULL pointer dereference at virtual address 00
-  pc : armv8pmu_sched_task+0x14/0x50
-  Call trace:
-   armv8pmu_sched_task+0x14/0x50 (P)
-   perf_pmu_sched_task+0xac/0x108
-   __perf_event_task_sched_out+0x6c/0xe0
+  perf record -b -e cycles -a -- ls
 
-Pass &cpc->epc instead. __perf_init_event_pmu_context() sets its ->pmu
-when the PMU is registered; ->ctx stays NULL until a CPU-wide event
-attaches. That is enough here because armv8pmu_sched_task() is the only
-in-tree implementation that dereferences the argument at all, and it
-only reads ->pmu. The oops therefore needs BRBE, which arrived in v6.17.
+armv8pmu_sched_task() is skipped on every switch to a task that has a
+perf event of its own, and BRBE records leak across the task boundary.
+intel_pmu_lbr_add() calls perf_sched_cb_inc() unconditionally as well,
+so LBR records leak the same way on x86.
+
+Drop the early return and instead skip the individual CPCs that
+perf_ctx_sched_task_cb() already handles.
+
+That requires the two to agree on which CPC belongs to which path, and
+they do not. perf_ctx_sched_task_cb() gates on cpc->sched_cb_usage,
+which perf_sched_cb_inc() sets per CPU for every branch stack user,
+while the new gate uses cpc->task_epc, which __link_epc() sets only on
+the CPU the task context is scheduled in on. A task with an event for
+that PMU pinned to another CPU has an epc on ctx->pmu_ctx_list while
+cpc->task_epc is NULL, so both paths would run and sched_task() would be
+called twice per context switch. On x86 the second
+__intel_pmu_lbr_restore() finds lbr_stack_state == LBR_NONE and calls
+intel_pmu_lbr_reset(), throwing away the callstack the first one
+restored. So gate perf_ctx_sched_task_cb() on cpc->task_epc too.
+
+For the CPCs that perf_pmu_sched_task() now handles, the callback no
+longer runs inside the perf_ctx_disable() and perf_ctx_enable() pair in
+perf_event_context_sched_in(). __perf_pmu_sched_task() disables the PMU
+around the call itself, so the callback still runs with it disabled.
 
 Fixes: bd2756811766 ("perf: Rewrite core context handling")
 Cc: stable@vger.kernel.org
 Acked-by: Usama Arif <usama.arif@linux.dev>
 Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 ---
- kernel/events/core.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ kernel/events/core.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index b282de3e7d7ca..9815894b67e77 100644
+index 9815894b67e77..675dd05935f35 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
-@@ -3907,7 +3907,8 @@ static void __perf_pmu_sched_task(struct perf_cpu_pmu_context *cpc,
- 	perf_ctx_lock(cpuctx, cpuctx->task_ctx);
- 	perf_pmu_disable(pmu);
+@@ -3757,6 +3757,9 @@ static void perf_ctx_sched_task_cb(struct perf_event_context *ctx,
+ 	list_for_each_entry(pmu_ctx, &ctx->pmu_ctx_list, pmu_ctx_entry) {
+ 		cpc = this_cpc(pmu_ctx->pmu);
  
--	pmu->sched_task(cpc->task_epc, task, sched_in);
-+	pmu->sched_task(cpc->task_epc ? cpc->task_epc : &cpc->epc,
-+			task, sched_in);
++		if (cpc->task_epc != pmu_ctx)
++			continue;
++
+ 		if (cpc->sched_cb_usage && pmu_ctx->pmu->sched_task)
+ 			pmu_ctx->pmu->sched_task(pmu_ctx, task, sched_in);
+ 	}
+@@ -3921,12 +3924,15 @@ static void perf_pmu_sched_task(struct task_struct *prev,
+ 	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
+ 	struct perf_cpu_pmu_context *cpc;
  
- 	perf_pmu_enable(pmu);
- 	perf_ctx_unlock(cpuctx, cpuctx->task_ctx);
+-	/* cpuctx->task_ctx will be handled in perf_event_context_sched_in/out */
+-	if (prev == next || cpuctx->task_ctx)
++	if (prev == next)
+ 		return;
+ 
+-	list_for_each_entry(cpc, this_cpu_ptr(&sched_cb_list), sched_cb_entry)
++	list_for_each_entry(cpc, this_cpu_ptr(&sched_cb_list), sched_cb_entry) {
++		if (cpuctx->task_ctx && cpc->task_epc)
++			continue;
++
+ 		__perf_pmu_sched_task(cpc, sched_in ? next : prev, sched_in);
++	}
+ }
+ 
+ static void perf_event_switch(struct task_struct *task,
 -- 
 2.53.0-Meta
 
