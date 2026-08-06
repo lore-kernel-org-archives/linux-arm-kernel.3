@@ -4,111 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04812C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 12:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F7C2C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 12:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uz/0QLtoO6Ht4cHpgxRB3mMpt5uDyBa2kwI4zN90unI=; b=zqjByx0FFgEiqTEnQRlKvD2rES
-	Ayvr5i9n6QZ7RFbfsTXUFurakf4DxnKwZC6xhqWsn7gfjKaWjtcjXu4QN4a98b9F37N+fbREeOLmW
-	ZIK5y+dRhGEWjjUquSseCFDsJlaLRS4m4EAFrswjKuJk5mjSUnZF4qGW5MJmclcJi3CS0m1ZFWMAR
-	1tc/wjbM9AYMZKUegF932vUCwkSD2+wpaWL84ljq6Zcw1Q8KtiRdUQ+RRzStg/Ddu7SIFXHPT2F8J
-	jBZGPVrxuDffV5UbIZf5Wh2+Im9KN5wLI0o7dGyctPDwYcMtwJ13qGi+m1Qz7b4RYDUBLUjhNP8AZ
-	pU+mEi8w==;
+	bh=/n69lRzU+/KobSt2jufolpdWS7t3iHXcIlRoKqP9Tf4=; b=WaHCyrZcr6FHTDFw0/uwRPzc4T
+	KkPv99y1k4rdy9zMqp2im7f4z9vBIQ+7M54MTAFChn6Vwk9XcKcfpHWmymjiT2Ss1mGilJpzATWNZ
+	LeMPXuCQeLmf4VGItkFBHx6AsG+Jz1sOtRqHYOAFF9zLjM/JT2/aG4JS5Sk+1TZqJzD50wjCn6cwD
+	EQGLwCG2ojSs1wIrw6VsLF39VPZQ92RVrrRTYkdc4yxqFU4lOVdjcXirorJtu5EIqBWL5UDnd6Dtk
+	H/fXtOBbYJDSay0jSuwnOTyRwBkLZzcrv5/wGzn6KYIXd/YhjMwwPHZaKmIHI0uCpLPlEgjTiIoFJ
+	t0sggVJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrxFX-00000005n11-3F0K;
-	Thu, 06 Aug 2026 12:31:03 +0000
-Received: from mail-westus3azon11012053.outbound.protection.outlook.com ([40.107.209.53] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wrxKC-00000005nlC-27Yo;
+	Thu, 06 Aug 2026 12:35:52 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrxFV-00000005mz8-133u
+	id 1wrxK9-00000005nk8-2bMq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 12:31:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k+RIEjXm0774zPR70yrs+WKuOY63/+JLu+6wMPp3xTKyJ85BP2Ayu9OZKDe9N1NaqYXQh7Zqwhy2jDSvN1gdNFYqeTN/saJqGZD4o8dFekdwqrTy7tvFn3iZnB3EpE2ysVJI5qLynYsV0JJgHjG8ArMzBANuc33bmwgTJrH43vAX8JIxJ0H0xJU4pQaTORy6sTPFwIsGtJkiT/vHhTFa4qddWCXyDvLcT4qzWfVESXGBz3GmoX+epyOa4oMsx6iCZzPn6jS7rF3ROxh223vjLaBMQv5+TniXcP9Y1T2Os86+gPeKFDRnJnPll2AcjildL7fzPwyxFSp8z+HLNXyImA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uz/0QLtoO6Ht4cHpgxRB3mMpt5uDyBa2kwI4zN90unI=;
- b=LUTBcV0DS0JaiTbuxmMnTGt18Hs76zafwydm0Piu3o8rdpLm9EqUCxPrCKuShI20Y/DI5prLRyfRevb7F2J/h5xRLP4P/tVx76U400CgEv2GTpSCMfmiCg+nksm0iZv/o8a8g30H2eZ78Q2ueLO9X5UbkoQwrfP7jVFZ1ytnhrQarTfgZzFBQ+a4iDMS4rMfVOM2OGrKXpG+LTIjObCoeeM7Cp3rcbGYuZIPtWh3sCk6vtPJW+jqxMQUq1DAEqIeEb28yoxDBOLiTVBVk2YFl59qeO9mt+6G/upy1q7CQSE5h0DsJJA1o8mVhd3DpSdVJrpPFWG6swnSRxPjKAAvUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uz/0QLtoO6Ht4cHpgxRB3mMpt5uDyBa2kwI4zN90unI=;
- b=hNprmBP044Dvkh3RANh3UwMPlT0xvPHTmZHJTUVtEWmjd2P8tu7ISfI0JSqi3BSLJOp604SXl0UCuDmjpSDTuDGgweTU44LnlIIXitseRVdyS+rOmBNdZB8JRBcXngIeCTgMEc+U/ccWExrWdzSfOMbTFl0ISSqjDX2ruYho1jo=
-Received: from SA1PR05CA0005.namprd05.prod.outlook.com (2603:10b6:806:2d2::7)
- by PH7PR12MB7870.namprd12.prod.outlook.com (2603:10b6:510:27b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.21; Thu, 6 Aug
- 2026 12:30:40 +0000
-Received: from SA2PEPF00003F61.namprd04.prod.outlook.com
- (2603:10b6:806:2d2:cafe::2) by SA1PR05CA0005.outlook.office365.com
- (2603:10b6:806:2d2::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.8 via Frontend Transport; Thu, 6
- Aug 2026 12:30:40 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SA2PEPF00003F61.mail.protection.outlook.com (10.167.248.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Thu, 6 Aug 2026 12:30:40 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 6 Aug
- 2026 07:30:39 -0500
-Received: from xhdappanad40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Thu, 6 Aug 2026 07:30:35 -0500
-From: Golla Nagendra <nagendra.golla@amd.com>
-To: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <michal.simek@amd.com>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <radhey.shyam.pandey@amd.com>,
-	<kees@kernel.org>, <sakari.ailus@linux.intel.com>, <yukuai3@huawei.com>
-CC: <git@amd.com>, <dmaengine@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<nagendra.golla@amd.com>
-Subject: [PATCH 5/6] dmaengine: zynqmp_dma: Reject zero-length memcpy transfers
-Date: Thu, 6 Aug 2026 18:00:13 +0530
-Message-ID: <20260806123014.2120447-6-nagendra.golla@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260806123014.2120447-1-nagendra.golla@amd.com>
-References: <20260806123014.2120447-1-nagendra.golla@amd.com>
+	Thu, 06 Aug 2026 12:35:51 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-c2055573c8cso170364866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 05:35:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786019746; x=1786624546; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/n69lRzU+/KobSt2jufolpdWS7t3iHXcIlRoKqP9Tf4=;
+        b=XS21w2RM105uc9rdry9hpzoWU/oYwts/OrFQTsRLU9b41sIuEqtzYqY2G4EjSmPs31
+         gmDrAFt34A4zk2Xe/jf/GMiif0Ozev+J/3SqvIV1lVOyavh1ONqVwTzqbc9m59VRwQQg
+         HBm0fuxQACB5QvvKcAmZcofh5jqgG+nmZjevXJsGc+q+Q/32/u0qOFihIumTG3NWSFYi
+         4Vskqobljqam7oBPoke3401X0jHv4CNjTSGzw/7Z75U3LewOFLNVJAHXkYp9WEHKavjR
+         GEXQXO+s8ov+K3XP/Q2sNSpqZzInL9MoJnCQAiyAz/ZRqEdjEoMuAZdra2GAnv86mP9e
+         4fpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786019746; x=1786624546;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/n69lRzU+/KobSt2jufolpdWS7t3iHXcIlRoKqP9Tf4=;
+        b=Nl4wxWLmn2aMI4a3Gx8MBs8gJ4kSx1xf/ZTU7krjBErwF8S5uD2pgT/ZDrllC34Xi4
+         iYAW2Xo6YbI56NWdKEZRmmPnyy6wol3A8gAYIjYMKIy+8G3pI5yKzc0d/Pb/Zf3YuJ+T
+         BC33Oq3ryzyQMRMSh+GR1v2UC7tuCDv9PfYohOYAUr+4b2DWHhJDnLf67xIZAQpiZ/+W
+         OxcU42pdUteLhnShbpoLu9XFSBa8vI9LvbgqKsngcso+K/3zp6meW+xXfNrRTin1M0ms
+         ot4qLbta1Jxh8k0iuDlsygmRCsb7XYY8PHXy6zl231Mw6pWc+uSCqbNsWw/sIxMJgfiw
+         n9Ew==
+X-Forwarded-Encrypted: i=1; AHgh+RpcImzT/E6BmgEnBvMi+NI+l8We85uC8dhoa6V4cpfnFVa68c2fsOnBBwbRn1eObUKHkHIqJWnA54iTX5jJx+M8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQDCgDRMv/o7LlfUwNT+sMZdD+JD6dPgQD5S3Xhm7pUnzgMZm7
+	6wweFiG7B4LeBx0BV45bqHoJ4QjfZVcUR4e3yBqLpAq9Wws4fwq8cN5g6O1pNEzWAzk+8xhXsjw
+	G+m5bzA==
+X-Gm-Gg: AR+sD11HLXYTIHue6+OxPpc8wAB6/vd65HBdWvN+AJZScuCQDdGElwjFxixSBauimuH
+	jNsb1I86uXD35MfvInXgZnxLwFEsRqE2GTzR/9TYdUyV9bOh8vCyNt4psTJ89L3g4Kd5DlCIHj4
+	WWwMjNhwp42OUQ1tqkIF3++e2zPkw/oyKRag+Qu9/tPF96GJOKMXWQbEItucQH2FJOYUfoz4vBO
+	EMTGzVgolpTKS6exMOgsLvSa5K77ZlsMp9znxtBdTubIUIo0ntg3PvqOL/eOX0uHiq9sxb1OvVt
+	x5Mx92YADHnoea3wY3t2wNrIY78LU3PwKpLaVON0wl8dB6p9JuBgRtQ3XeM5aVBnw3DeUQ/brIH
+	IBUXi50sLXgRNW0qv/mW5RM9vyjBLlaMm4dIWpSN0ACoQ7fycuB/VlY9D2r0ERjNgQcQNWVUcfi
+	nun2fPhsQAlTsRmLe7CNlXUiLUXpgw6ZvqOQm+56dh5OB2xxK9HXCC1VPYTBxD4XctsxniOL72Z
+	xAKor+tlV1i6AGqCTau99r8dKdedLm0
+X-Received: by 2002:a17:907:c00d:b0:c16:9043:7973 with SMTP id a640c23a62f3a-c2039af8befmr794258966b.4.1786019745003;
+        Thu, 06 Aug 2026 05:35:45 -0700 (PDT)
+Received: from google.com (135.91.155.104.bc.googleusercontent.com. [104.155.91.135])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c203642435dsm244849866b.44.2026.08.06.05.35.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2026 05:35:44 -0700 (PDT)
+Date: Thu, 6 Aug 2026 13:35:40 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Fuad Tabba <fuad.tabba@linux.dev>, maz@kernel.org, oupton@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, mhiramat@kernel.org,
+	alexandru.elisei@arm.com, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com,
+	ardb@kernel.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 01/11] tracing: Include linux/types.h in
+ trace_remote_event.h
+Message-ID: <anR_nEDeWLYKIs7P@google.com>
+References: <20260804112317.1937387-1-fuad.tabba@linux.dev>
+ <20260804112317.1937387-2-fuad.tabba@linux.dev>
+ <20260805165432.0118a513@gandalf.local.home>
+ <CA+EHjTxZ1tBfau4eK-nOdqig1xwngzsq8YyHtiE-iAMkZpSF8g@mail.gmail.com>
+ <20260806081952.5cbd8170@gandalf.local.home>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F61:EE_|PH7PR12MB7870:EE_
-X-MS-Office365-Filtering-Correlation-Id: cb3c61bf-0d95-4312-6d3c-08def3b68701
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|36860700016|82310400026|1800799024|10067099003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 9CVdp9EuNP4h4+f0at3+XaAFwzT8YKFs2zQymnVt/QvNj5bcWti2YjkJfqut6/ulAELr4+L/MRIFSmlkt/WSXyx3bKh+HWDH14b9Ns6yBb5BqZB1QC00DtPn8dtbolQMSQis5ZdzSk1AaXR3wrAG7h/Ca76p5ErmKNPDB+8v5cJzjYH4ebfyaqd2S4qx1go92VnORiYPt1bLqKEeKoTSDL0ww3FofBi3GEttSOBUuQsb6MFFAp92Dsk9ZQWvqGn4SyNCl/kLCTBZjFDtlcujmoKbzk1pLWPmUxK3E7MjEHmJtIUzIejNv9Ej0HeECd5cUTaZUBN44XboKHKyuej7P6pWbWiqUJGeVbtRzVs7VBoN0tpOGE4U/0IyrYCOxQn3HI8oeLgYe+saQlRC7zub2wnTjcxcEGjyPz7paRrtzzCfxVjnRMlCzhjKf53nwQZFJkBoQQSzt3LWe7SGG43H04352+Z7HRnsZUJya3WJB7R4U1fVJF/bqUhso2gNNrHD/NEI+NjGoIL49Uwz2ckVezyxZptWuYFRSwGJE2NOPL2YNTtcd5TJiWeEc1IouTfbD+w96ed/13ltEi+zVA4C/dx0J31fANZVo+2wzvaCgI7KG8Fx6qyFSOUW8C/PSAGxtpC4CQ4y+a1uxr6JOj1eKfYOGdrGUyX0XmjYreQij0ahWAiZ2J5eM/UaGclx02iFDp0+ukyQ7OSVOdtVz8ZZvA==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(36860700016)(82310400026)(1800799024)(10067099003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: G0tUkKUt283pKSljuHCku6LQeD7gr0+ZdBQ+xfJFxlNlv0ZGbJXmu+GQAvzAvkb6jMPcrqvmSwtX+uNCECSPVbpNvaed45E+2S9h54qNmbbucOdufTZgzmDXrYdaXhvn0k/iEADxRR01Hb6nmgxKCjAXzhPA0Egry9YmxCkQIWGQQ2koJ06PfVYbY55wDOXllwrKkC5UzRq9k9kjovIpyBlkndZIQrz1jRLOFUaD2cTugseXrlh/VBr6iAdfZKoD8zivaKVMoGkHQyJ/UZ2mZ+alRQ77xElWHOy/Zcfe72nmdyf1R8k7CTsRIPDzr/YqgetWY/1uqocda5TpxfCjfsC0V9HA9GliFdRFwM9Ax/t/HPuUYy5PCkl/T6gh5HiNufUN5srRYiPSCgqZfyavZuQ+UANjMonr6rCNI/Yc+5Tb/DZ8IECiKwtHvlirlJE/
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 12:30:40.7055
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb3c61bf-0d95-4312-6d3c-08def3b68701
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F61.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7870
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260806081952.5cbd8170@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_053101_290319_78F03C1D 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260806_053549_705356_FE69C797 
+X-CRM114-Status: GOOD (  24.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,39 +111,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Zero-length prep_memcpy() needlessly consumed a descriptor slot. Reject
-zero-length memcpy at prep time and document the behaviour.
+On Thu, Aug 06, 2026 at 08:19:52AM -0400, Steven Rostedt wrote:
+> On Thu, 6 Aug 2026 09:43:00 +0100
+> Fuad Tabba <fuad.tabba@linux.dev> wrote:
+> 
+> > > My ack still stands, but I wonder if we should just not use the include and
+> > > instead s/bool/_Bool/ ?  
+> > 
+> > I'd prefer to keep the include, if you don't mind.
+> > 
+> > As far as I can tell, apart from the typedef itself, the only headers
+> > built into the kernel that use _Bool as a type are a uapi one and
+> > arch/um's user.h when it's built for the host, neither of which has
+> > bool available, plus what looks like a leftover in bcache_ondisk.h
+> > from when it was uapi.
+> > 
+> > The include also covers whatever field gets added next.
+> > 
+> > Happy to switch if you'd still prefer _Bool.
+> 
+> The reason I suggested this is because I'm not sure how much we want to add
+> Linux headers to files built for the hypervisor.
+> 
+> If Vincent is good with adding this, then so am I.
+> 
+> But I rather have him give an ack before we do.
+> 
+> -- Steve
 
-Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
----
- drivers/dma/xilinx/zynqmp_dma.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+We have types.h already in several places in the hypervisor, so I think it's
+alright to include it here also.
 
-diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-index 2d56ea08ce45..e70874d65123 100644
---- a/drivers/dma/xilinx/zynqmp_dma.c
-+++ b/drivers/dma/xilinx/zynqmp_dma.c
-@@ -836,7 +836,8 @@ static void zynqmp_dma_synchronize(struct dma_chan *dchan)
-  * @len: Transfer length
-  * @flags: transfer ack flags
-  *
-- * Return: Async transaction descriptor on success and NULL on failure
-+ * Return: Async transaction descriptor on success and NULL on failure or
-+ *	   zero length transfer
-  */
- static struct dma_async_tx_descriptor *zynqmp_dma_prep_memcpy(
- 				struct dma_chan *dchan, dma_addr_t dma_dst,
-@@ -851,6 +852,9 @@ static struct dma_async_tx_descriptor *zynqmp_dma_prep_memcpy(
- 
- 	chan = to_chan(dchan);
- 
-+	if (!len)
-+		return NULL;
-+
- 	desc_cnt = DIV_ROUND_UP(len, ZYNQMP_DMA_MAX_TRANS_LEN);
- 
- 	spin_lock_irqsave(&chan->lock, irqflags);
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+
 -- 
-2.43.7
-
+Vincent
 
