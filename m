@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1266CC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 20:42:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B22C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 20:43:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gAPr7dBMCf8yUzJi59dnnodBINCClaGWigQ3oRl4LAU=; b=2Ub21gFlSf2V1knPvTziYqPDH9
-	SVJHrK01v0JZTj9L/YYAv/KHI1PV9WAP1GkSh5/nYNXIfswFIPLjH3aHelQ1rgRCXnHOxFy8LSkiR
-	ZsrXNX7kyA/+8pm3V8Nq8lrsdUir5F+/T+/BNwcEUh8CV3XEy+yc/dYExYUm7Bf/fNLdXs2C1+zl7
-	gEpxmLqKUXM2iUTUwdd+kF3IicU9hKMzRXdWH8rw6KtnIta+IsDxfQPEZr3wiVbD1cDClcaX02Nim
-	DFoTfN8/5ZsVCUpvS1DzdVXHC4Yt6Qnfbqr2r/XeM/OKDMAh7vTMI8JIJQumWGQOAvOwkrkw5w3Ma
-	Ws1Ke4DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qRm+M10jztiBItKv95Cc4Tv6ZB83NIZgeNvNPEhB7KE=; b=jvCUcnoZLhKDgfRLNsbR7YcFQj
+	2uG6irg1TWsfesm/VfvuOqP/GxNEgzEWK0WD2A5MnHpBrCRdzX6g1e9m+Kl7L47ooNwUxUyH5raJ1
+	MmzkLke0Ax89WYKOopZsIoM1XLkXcfHzVFna+5XQljOf10YZUgXl76oNUjbmjLITYiqjooSE2c4p5
+	A8YZgiUDC09miUGQf3mRtEDoGleG5+IbmtPdsaMQst7xSLvHbM1aQhcHJppgi8+7m8QxNWvvhpwhd
+	Oi5mr746gZGROIh8+epaxCW7J8G14I1QI1cSAzX/T8vfhTUtZnDgyjes24BYup79UwsSd3rTbjeuB
+	amPqO7bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws4v2-00000006gNu-2p3b;
-	Thu, 06 Aug 2026 20:42:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ws4vx-00000006gWH-3kon;
+	Thu, 06 Aug 2026 20:43:21 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws4v1-00000006gNl-3keZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 20:42:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 38A5E600AF
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Aug 2026 20:42:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E62F51F00A3A
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Aug 2026 20:42:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786048942;
-	bh=gAPr7dBMCf8yUzJi59dnnodBINCClaGWigQ3oRl4LAU=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ThCAtXuBFveNGBgOi4U8LJwTjM9q6jk8MytdRfLKZlElTTQt+SyCiVRetZZ4CtVzj
-	 5akf/JfyuZkrh+yYQ8yo0n945k1oPZYZnP9ea8l8mFls4hJ7Zh5mScndjnqfmHmpG0
-	 OLCCopE01irRyKb+mlwaMwBU4DzhZjH6p5gP21fNtD4h/xAJupZ3UHSQpVssh48jE2
-	 +R231GdFATbO4juLDgb4ilALTOmKegP18NTQZ7USGEYGAv0BTTu9ZSAtKDxTdFTian
-	 EpXQXQNUFzMlk3DkB5iDmbOMvURstSa5awD6niFHfqtUkY5cgU22MVRpZhrxR/Uj2u
-	 kX94+hCg/o3gA==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5aeb59d54b1so2771881e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 13:42:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rq0n5hBWkdQ3uOPljG78weGvGiITZz/VbXwnMKKujRwAOKSDBihep9yP+OgV/qlC+T5mYayFc0sDxglctau894K@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyt5IHA33Bw/ich6XmYuILS7EE7oRAxHU3sqjQ9/eNh1QZn2zJB
-	1bUY5T5iJ5JXsyfmQ8w+V63QEjNXkyvPNWqD6u8D77bVWRW6jyQW09EeaTEOe8BHXgxBx7kvOYO
-	wg9t60StuGRvaChk/6N+tT5gMSHp8Vmg=
-X-Received: by 2002:a05:6512:2388:b0:5b0:1b0a:2370 with SMTP id
- 2adb3069b0e04-5b2f4b960aemr2506954e87.2.1786048941742; Thu, 06 Aug 2026
- 13:42:21 -0700 (PDT)
+	id 1ws4vu-00000006gVA-3zUt;
+	Thu, 06 Aug 2026 20:43:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786048999; x=1817584999;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=XYQ9ph7SkY99P2wiTffNIVODeXKg9zc/r2YlJXW/V38=;
+  b=WDs/lzAqmI0EwRha6dVp1hIpsd5DgVDBByKUJbMqL4Jz+XR8XKrNPInJ
+   usQcx2GjpVnfCbHFQo4zNASQiJDdL1hqKqfP84losjd/7I0kryEUqKhpr
+   ydWqD8LlPD25bgKmnwvGbZi4WveYcE4BRWJGOWSNXmOsX/Kkteb+MqQve
+   2VDxWwVCIkqCQ48B47+DATpETdMEbzdMX+T2FfInhaDr4Z+vc9Wh0RPAL
+   WvDvQReU4oGmHK6SxGeAQnb5WmAchS+DMho61MiELtI4vQBbPxwiiYu64
+   HkZUBeBUT1opW4M+SSAL6qT3DlC/+BFlEg+e3bN0YvQNw8WRxF5rqpVzG
+   g==;
+X-CSE-ConnectionGUID: bFub+QMzQtOI343nnwztmQ==
+X-CSE-MsgGUID: rC0qpDF1R0yD1znv2KYXNQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11867"; a="74196168"
+X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
+   d="scan'208";a="74196168"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 13:43:17 -0700
+X-CSE-ConnectionGUID: htgOAVvLRcKSncnclFgLkw==
+X-CSE-MsgGUID: 5CYS6t07T7uX3QBlQJtdtg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
+   d="scan'208";a="286886747"
+Received: from ettammin-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.50])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 13:43:13 -0700
+Date: Thu, 6 Aug 2026 23:43:11 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Jiri Kosina <jikos@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	chrome-platform@lists.linux.dev, linux-input@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 6/9] i2c: of-prober: Defer regulator_disable() on
+ successful probe in simple helper
+Message-ID: <anTx3y3kZNDEKRFW@ashevche-desk.local>
+References: <20260721075226.2347933-1-wenst@chromium.org>
+ <20260721075226.2347933-7-wenst@chromium.org>
+ <al9IwVR7Whw2DiXU@ashevche-desk.local>
+ <CAGXv+5EkcASZ__Cyp4PnwemPd2xAe+WL-ics9jqHLuxWjWyT7w@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260623-arm-generic-irq-entry-v7-1-v1-1-f25ca7079e3b@kernel.org> <c10eb90f-3da5-48c4-9734-1913ea62bd9d@huawei.com>
-In-Reply-To: <c10eb90f-3da5-48c4-9734-1913ea62bd9d@huawei.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 6 Aug 2026 22:42:09 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=ZiU4K1h7Xo8-eOGcfLEWjsHTQ9xk843T-VFoOCX7BUQ@mail.gmail.com>
-X-Gm-Features: AUfX_mw8cHybIofmmWvpUNOCHVFuyexHEc1HC_i-wCbtiWbMWu4jBHqLm_Y5234
-Message-ID: <CAD++jL=ZiU4K1h7Xo8-eOGcfLEWjsHTQ9xk843T-VFoOCX7BUQ@mail.gmail.com>
-Subject: Re: [PATCH] ARM: entry: Convert IRQ handling to generic IRQ entry
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Russell King <linux@armlinux.org.uk>, Oleg Nesterov <oleg@redhat.com>, 
-	Thomas Gleixner <tglx@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGXv+5EkcASZ__Cyp4PnwemPd2xAe+WL-ics9jqHLuxWjWyT7w@mail.gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_134318_998364_20B8C882 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +97,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jinjie,
+On Wed, Jul 22, 2026 at 04:34:15PM +0800, Chen-Yu Tsai wrote:
+> On Tue, Jul 21, 2026 at 6:24 PM Andy Shevchenko
+> <andriy.shevchenko@linux.intel.com> wrote:
+> > On Tue, Jul 21, 2026 at 03:52:20PM +0800, Chen-Yu Tsai wrote:
 
-sorry for slow return to this topic :/
+...
 
-On Sat, Jun 27, 2026 at 4:57=E2=80=AFAM Jinjie Ruan <ruanjinjie@huawei.com>=
- wrote:
+> > > +     /*
+> > > +      * Wait a bit of time for async drivers to probe and increase the
+> > > +      * regulator enable count. This allows the drivers to check and
+> > > +      * skip waiting for re-initialization.
+> > > +      */
+> > > +     if (defer_disable) {
+> > > +             dev_dbg(dev, "Deferring regulator disable\n");
+> > > +             msleep(100);
+> >
+> > How was this value chosen?
+> 
+> I just chose an arbitrary round value.
+> 
+> If both the prober and the driver for the probed device (trackpad in
+> this example) are builtin, the time between enabling the node and the
+> driver asynchronously probing is between 5 ms and 30 ms, but could
+> also see outliers exceeding 100 ms.
+> 
+> If you're worried the value won't suit every user, I could make it a
+> parameter of the simple helpers? And the user itself could be made to
+> probe asynchronously to not block the main code path.
 
-> I have a small suggestion regarding the `interrupts_enabled` logic. If
-> arm32 could also implement `regs_irqs_disabled(regs)` (similar to what
-> arm64 and some other architectures already have), we might be able to
-> unify this across subsystems.
+I think the comment above should be updated to summarize the above instead of
+"a bit of time".
 
-Yes, the patch implements this, hehe :)
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> Specifically, we could then replace the custom `interrupts_enabled`
-> usage in both the arm64 architecture code and drivers like
-> `drivers/irqchip/irq-gic-v3.c`.
 
-That should already be possible with this patch.
-
-I could also make a patch to replace all uses of interrupts_enabled()
-with regs_irqs_disabled() as a follow-up to this patch (which introduces
-regs_irqs_disabled()) if it gets accepted, I don't know if
-that's a good idea though, maybe it makes the code harder
-to read?
-
-Yours,
-Linus Walleij
 
