@@ -4,105 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF6EFC56207
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:24:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BE5C56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyD3MC/LYtqqEnSjFEabCt1+8sKgizIUqavkWxkyS9A=; b=ABmHDPZOhUej32DCcniBxugK/3
-	JaidZ219RnpSXPL+XbglGf3Cqlt40b/2/89Ji+BgvokpGV+f1G7QsJxGHsB7NdI2yTc+LDxTljINo
-	mSAhCYBofqtJjODqXw+5p5PbEbWO+RqHPw817cMJT9c9/NY3Wnu/C+fz6bjUKEBSEDz6QuTgfF8+V
-	JKyxX+FDWtNeIzB+LNr+3Xp6otSE1ennE+/T/+LlA/PS2RHWAPNV4CAAJdeqXlKzpqPWZXrVgjCqU
-	UtNyqU/1DFfxRn4WkyPpGIy5Tqrj/PuCMKoRbeJAUxOngBiLu0bsS8X0CgFVu9zW3yKIwcT7IF/MX
-	qUzfJ5pw==;
+	bh=96YiMEHTPjVYOYR4q4ZD8nnOS9gprq4WjdET6qlWVhY=; b=zk24g2O6L07MvYWQ9SB3cwZUvm
+	O9E3LmFUMbnTor5sjlehWHuUr986BEjdhFrQa0XDDYSTjZV0xWJTA4KjQtZ0qcmqKAeavCbKtq3n4
+	l4LAC8zaAPEWAuagSLPD0ThIj2J/CWuypkrZHovF75LepPTM4ZVYiNpx+MP/12LCdV3WlPfy+exxO
+	G0KJ1u3qOOei/J/2UtbQACDNPI1oUnquUs0WDISkAY8kzp45D2HSahCXjBjrDO7VwkOMjY0ae0Sky
+	UM16tJIcEV1Rv7mkd5e5oKLg57v8XtBvB6wcLlb4GdWrE3paZZUa3Db2JFIb/cztVV7D+ayWVjFwF
+	jqjK4pCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrzxO-000000064d6-1wz2;
-	Thu, 06 Aug 2026 15:24:30 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1ws01Z-000000065FG-0zp0;
+	Thu, 06 Aug 2026 15:28:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrzwu-000000064b3-0otp
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 15:24:29 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-38e3efab7e0so1013311a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 08:23:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786029839; x=1786634639; darn=lists.infradead.org;
-        h=content-transfer-encoding:lines:status:content-disposition
-         :content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JyD3MC/LYtqqEnSjFEabCt1+8sKgizIUqavkWxkyS9A=;
-        b=DGne33Bc6m15jL3lDXcbCgRJEdUgQ2Ac1VUONxEs/CvG64TthKXgvSHXNwdkqp2FxN
-         A47hsiIY0LlAhwLQegONPi889t6rn1Urzi6Zpo5zjN2+I5AwuZ0EZBhERKueBnfSiYhn
-         tkKYKDYPjnxSGqtQ37amLn6JmQbQdGo9el4gyUjB40FLbixLY3A50fYYmFhYpEnkodlh
-         Bn624+3dTfMFi/vrKHvYt+o+gBhhIU0s8hJ4wCe2xKhZwzSAqz5o7P9MoKmQgcku2vg6
-         mksJtj5lrhYS6ELnHeRAFzDAnGCA2RMfxVKWzna70FSs+tlmTDTbgBPdwq7iflRduEH2
-         Q0wA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786029839; x=1786634639;
-        h=content-transfer-encoding:lines:status:content-disposition
-         :content-type:mime-version:references:in-reply-to:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=JyD3MC/LYtqqEnSjFEabCt1+8sKgizIUqavkWxkyS9A=;
-        b=RRg9O3pEvdrUiMYiN9zCMvzL8/JteyzgpJPZZsxuhlAUY/3+7VYSnBX6m1nUBy3rWl
-         kg3Sudv62D2XntJK5ONjfS8OC650cjkG+FPvI+qWBDGDNVTO0sSEaGB/KWYDWrW5OEGD
-         mxzHAi4TTkHQJZUHWNTuKZ1bCeOGiAs60mmmZEfiNZWfJoi6omwg5g7JpMcxcq69XSRg
-         emu6keLUhz5nRFDtadIOe63u31wP4UHH4fMf+sSUxpk7A6sYx9r8b0KgdaYWwl1AtaZW
-         CXmj9bxuAxc9t6KQARPC+cL5AZfY8OSO+uATjWSqdOaOtLaXqHyM9i+eVSf2ztfAx+2s
-         4DeA==
-X-Forwarded-Encrypted: i=1; AHgh+Rp1va1RlgQN9d847Ef/zhkQ5y0AtjfO1OCeMjwseAV4GrDYgHrekPgBMjQATQVuT0q3FbowVpAIKzJ+H7T/zDfy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yza4jCuEnV39PMK/aMzR9aNux7ZzHmFbrOSzhhLKCtGkYwpOV1W
-	9GirUlG70jfLgNUWm2rzItwbrNsPCgDpVSJVVLZxWI/VbA9oFxytM9Py
-X-Gm-Gg: AR+sD13gVBzsN3XSncXbQUwJGxnQWpgFu8Pcadf6CPyfbXvLlzjNWTkbnxF6OlyxYn1
-	LNcPclLznnq7Mt6r+1oMd3NSkY+f+OoKWMOqTlej/X+BI3PB+CkldrlJ1EOnyMIO8+hbsIR7QNp
-	5TW4BCfbO/EJGpzDBD0ifpOQv+oPEjhlx7DX/TdXYO92rt3GY5NhCr9XS+vML7umdJkXdk7VpTW
-	jeOdC/qx8I6uzP/3/YWi4MW8lwvSnrR1cqVcNLmkNmSO2S8Jvfjy+AljOrbA8mmg2E/Pgf8h54D
-	1LqiSMXt1SOuZzCCZuH/LRfvE4eMk/rpPBq10P7drqZAZc+S8QOnuQNjFxQKqXAfItX7KeH+4Yx
-	HcdvyehcAodV6Tf9D3y6R27qVt5KJcWOsaXTQKk+Jkcuhrmva2+5LrR5lsNlH2Pnyb+Euo+6B89
-	ait0CVOWCBSUS1TWXtzzapH/57tuVEzz56jnCWLiSE2QSwnmlaRWGg0YeTbV2tvbsLlZD99zHpY
-	jdHkCGP+73T6+YoKF3IGvpRtdWXuw==
-X-Received: by 2002:a17:90b:4ccc:b0:38e:5828:a446 with SMTP id 98e67ed59e1d1-3908982a10emr2522273a91.19.1786029838637;
-        Thu, 06 Aug 2026 08:23:58 -0700 (PDT)
-Received: from DESKTOP-VNSSJ2S.lan (59-127-145-64.hinet-ip.hinet.net. [59.127.145.64])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-39085f5c9a5sm1696416a91.15.2026.08.06.08.23.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Aug 2026 08:23:58 -0700 (PDT)
-From: Zhi-Jun You <hujy652@gmail.com>
-To: hujy652@gmail.com,
-	Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch,
-	angelogioacchino.delregno@collabora.com,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	sujuan.chen@mediatek.com
-Subject: Re: [PATCH net v3 1/2] net: ethernet: mtk_wed: skip ring reset in wdma_tx_ring_setup for WED v3
-Date: Thu,  6 Aug 2026 23:23:50 +0800
-Message-ID: <20260806152350.555-1-hujy652@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260724172040.1653-1-hujy652@gmail.com>
-References: <20260724172040.1653-1-hujy652@gmail.com>
+	id 1ws01Y-000000065E0-1jjS;
+	Thu, 06 Aug 2026 15:28:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C8DA443F7E;
+	Thu,  6 Aug 2026 15:28:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A5956C2BCF7;
+	Thu,  6 Aug 2026 15:28:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1786030127;
+	bh=YxBzcKnSFS/hs7Z6ZB2yAm0XU5wv5qxZmHDbDUlH1so=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=rIzbwdeF3ZCdd01M+KYWYEYL6jSkwAO4FkUwgZFiOIGgvTDC+B6zKRU8zxE6DSMAL
+	 RqwblFxs8UEbTMsxj0dbn7LBBWoIaLlsoeZZYVaPctzP1Jw3jBM8UuhMDX9Jafh0T3
+	 0QRF/w3AlUQDfxEQqfQf7BelQdrE2wcm4kNjjfVddPbRZrA+q1w2u8UAEApPC+a+kI
+	 ktZs3fn4mC5gQVgaARpmUS86yZczTDZbM6sekoVsdxlthHXqalGopMIT1K0SE1s3zO
+	 uzJes6c7FD/Nu5EqoBER1RC8PII8yYvLSUjTNW9nuOlxtNSzyusu7f0PKxt9dqBXTW
+	 sRoVphMTNe1vw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8CC1DC56208;
+	Thu,  6 Aug 2026 15:28:47 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Thu, 06 Aug 2026 17:27:38 +0200
+Subject: [PATCH 6/6] nvme-apple: Drop the PRP null check chicken bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mutt-References: <20260724172040.1653-1-hujy652@gmail.com>
-X-Mutt-Fcc: ~/sent
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_082400_258395_412F5756 
-X-CRM114-Status: GOOD (  24.16  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260806-b4-nvme-fwabi-v1-6-bde19ce8db04@kernel.org>
+References: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
+In-Reply-To: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
+ Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
+ Arnd Bergmann <arnd@arndb.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sven Peter <sven@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1941; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=YxBzcKnSFS/hs7Z6ZB2yAm0XU5wv5qxZmHDbDUlH1so=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ1bJCp3+P3XspXXZp+S/LvvxxCa4t3kKT7zkhKjNH0pcx
+ Q/WhLF0lLIwiHExyIopsmzfb2/65OEbwaWbLr2HmcPKBDKEgYtTACYyaQIjw+qi5gKbfSf7NWV+
+ fK+33TfR8mlZgl6E6Ksfnx/7HNIxmMnIMD/3TkTyRp0doQ9vxm14oc5lOps3Y0Fd58ZI/ecT9Zg
+ iuAA=
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,70 +86,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 25, 2026 at 01:20:39AM +0800, Zhi-Jun You wrote:
-> Currently WED v3 tx wdma ring, ring reset happens in a separate code
-> block unconditionally.
-> 
-> Moreover, v3 has double the size of wdma_desc and has different init
-> values. mtk_wed_ring_reset doens't deal with that and would corrupt the
-> wdma_desc.
-> 
-> Fix this by skipping mtk_wed_ring_reset in mtk_wdma_tx_ring_setup for
-> WED v3.
+Now that we program the DMA direction correctly the NULL check that used
+to make commands fail passes. Another side effect of this bit was that
+non-align buffers on the admin queue were silently allowed and that's
+been fixed now as well and we this don't need this chicken bit anymore.
+More importantly, starting with the firmware installed with macOS 15,
+which is required for M4 but can also be installed on the previous SoCs,
+the controller no longer exposes this control register and any access
+SErrors instead. Just drop the write entirely.
 
-Commenting on Sashiko's report:
-https://sashiko.dev/#/patchset/20260724172040.1653-1-hujy652%40gmail.com
+Fixes: 5bd2927aceba ("nvme-apple: Add initial Apple SoC NVMe driver")
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/nvme/host/apple.c | 14 --------------
+ 1 file changed, 14 deletions(-)
 
-> 
-> Fixes: e2f64db13aa1 ("net: ethernet: mtk_wed: introduce WED support for MT7988")
-> Signed-off-by: Zhi-Jun You <hujy652@gmail.com>
-> ---
-> Changes in v3:
-> - new patch addressing WED v3 ring reset issue raised by Sashiko
-> - Link to the review: https://lore.kernel.org/netdev/20260630144831.1109-1-hujy652@gmail.com/
-> ---
->  drivers/net/ethernet/mediatek/mtk_wed.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
-> index 10d9beaae372..7d2775a97fa0 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_wed.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
-> @@ -1938,7 +1938,7 @@ mtk_wed_wdma_tx_ring_setup(struct mtk_wed_device *dev, int idx, int size,
->  	wdma_w32(dev, MTK_WDMA_RING_TX(idx) + MTK_WED_RING_OFS_CPU_IDX, 0);
->  	wdma_w32(dev, MTK_WDMA_RING_TX(idx) + MTK_WED_RING_OFS_DMA_IDX, 0);
->  
-> -	if (reset)
-> +	if (!mtk_wed_is_v3_or_greater(dev->hw) && reset)
->  		mtk_wed_ring_reset(wdma, MTK_WED_WDMA_RING_SIZE, true);
->  
->  	if (!idx)  {
-
--This is a pre-existing issue, but while reviewing the WDMA ring reset logic,
- I noticed what looks like reversed logic in mtk_wdma_rx_reset():
- drivers/net/ethernet/mediatek/mtk_wed.c:mtk_wdma_rx_reset() {
- 	...
- 	for (i = 0; i < ARRAY_SIZE(dev->rx_wdma); i++) {
- 		if (dev->rx_wdma[i].desc)
- 			continue;
- 		wdma_w32(dev,
- 			 MTK_WDMA_RING_RX(i) + MTK_WED_RING_OFS_CPU_IDX, 0);
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index 78f89b5679e5..bf1c32c66153 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -47,9 +47,6 @@
+ #define APPLE_ANS_BOOT_STATUS	 0x1300
+ #define APPLE_ANS_BOOT_STATUS_OK 0xde71ce55
+ 
+-#define APPLE_ANS_UNKNOWN_CTRL	 0x24008
+-#define APPLE_ANS_PRP_NULL_CHECK BIT(11)
+-
+ #define APPLE_ANS_LINEAR_SQ_CTRL 0x24908
+ #define APPLE_ANS_LINEAR_SQ_EN	 BIT(0)
+ 
+@@ -1127,17 +1124,6 @@ static void apple_nvme_reset_work(struct work_struct *work)
+ 		/* Setup the NVMMU for the maximum admin and IO queue depth */
+ 		writel(anv->hw->max_queue_depth - 1,
+ 			anv->mmio_nvme + APPLE_NVMMU_NUM_TCBS);
+-
+-		/*
+-		 * This is probably a chicken bit: without it all commands
+-		 * where any PRP is set to zero (including those that don't use
+-		 * that field) fail and the co-processor complains about
+-		 * "completed with err BAD_CMD-" or a "NULL_PRP_PTR_ERR" in the
+-		 * syslog
+-		 */
+-		writel(readl(anv->mmio_nvme + APPLE_ANS_UNKNOWN_CTRL) &
+-			~APPLE_ANS_PRP_NULL_CHECK,
+-			anv->mmio_nvme + APPLE_ANS_UNKNOWN_CTRL);
  	}
- 	...
- }
- Does the if (dev->rx_wdma[i].desc) continue; check skip the CPU_IDX reset for
- active rings?
- When a WDMA RX reset occurs (e.g., during recovery from a hang), the hardware
- index is reset to 0, but the CPU_IDX register won't be reset for active rings
- since they have a non-NULL desc.
- Could this desynchronize the driver and hardware, leading to a permanent stall
- of the WDMA RX rings and network traffic failure?
- - ACK I will add a patch addressing this.
+ 
+ 	/* Setup the admin queue */
 
- Best regards,
- Zhi-Jun
-> -- 
-> 2.47.3
-> 
+-- 
+2.55.0
+
 
 
