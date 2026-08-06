@@ -4,94 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0286C56205
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A3FC56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s50/Dncm/XVDEXbgfdvtyBDU0LCq5hI6Hqz4Yn4A3oc=; b=GO4glEGslpVLITraGg2ajWKOV4
-	frN1o30MGPiGDMl2z/4DdahM91XB8lR8WSwiDXxYgCnpNhi/2PdAxpwwgXsDCk3Qp5jPHWQ8O08eZ
-	sbZHYO2xWEED0jV7Mw8uFZsRtmRNV6mSTFVhzNcMbW/MD6fIhrjxRoqnBtKmlC3RaZJiGGQ7XHsbm
-	IqhKcePcuEGvbw+6YlYFrpGvN5RBAj5yvXPcVV9rKXlNtuZTUru/zuU/k6U98SVm4dRSiHLRuXyEu
-	0mUHMcNMNJ2p+mDGD2U/5s8Pp4+Bh4tZrTNpmHTvCWUrY3fKk+ryXOjba2oZmaEVYP5dKkDaJAO0g
-	tVRLp5WA==;
+	bh=7t2ppmEV8KZPQctXq3NUCSS5AXEtR6dC/YbrnTJetEs=; b=LjVhnrQQQSRJewsNkg83coSB88
+	WorGNCGj7J2OcDh1rKiCDsK3YDSYUt03qY3PgQl/s8dywII0UnpTB0uzt0ibsWrJLPaDn7awKWrub
+	uvOHDg8rNk/leRZJCtaURCc4aO8c06BntOVaGX8URf+oXOuK8szjhRShGoM7fpET5zCDAnvpAq4X9
+	c6kEPC+K/LnNdED5ALI7iNNhap7Tp3PrLw8qbSnz23spwx9OFcHydsllTtmtcIUmwHCFgFf/8G+XE
+	DOxJdVdmafjxy8Er4nSnurO4PoH0d/5oOPfMCZURhHGg+8+cOxKSORfTWbSDF4Oeacz3w4N81e1ZQ
+	MwS9jpGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws25U-00000006Os0-0Aqo;
-	Thu, 06 Aug 2026 17:41:00 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1ws2Lm-00000006PyP-11dr;
+	Thu, 06 Aug 2026 17:57:50 +0000
+Received: from sender4-op-o11.zoho.com ([136.143.188.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws25R-00000006Orc-1OAs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 17:40:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786038058; x=1817574058;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jR6UAf+W3pRyagiBnBIthX9L1RTvVK8tgmNzQD67mJU=;
-  b=lWpTxuxPDWz8JQzO9DOn/GoslLZ7c1UN3NkPUIy08mh9OA2HKcWIcxuy
-   ihbPUl7o8B8tjcSghoWzuPTmAZH4cZfv/ra1ox4CtUy71ep0ZUEyzJbNJ
-   Ed0cFP4tDWbTzm+7pFJfZK0+LWTm0k93ApptxeFJRDmpeNdtLKpwGPZfd
-   BcodF6DnuNYkysOLHvssREQN1nEPz1eUI0zOb3u1IkN/cc/I04ncO8Cjo
-   5nV9l5B1oifh1XR181yst5Hguru/xgQAiBIvIjZOjZYwkHYjJE3bFzPAy
-   uc8RnMtnlJ+CKjQW1u4HLwdyPWb6XgynmYpFQxlsh6OMYTlkpzGZjTWdm
-   g==;
-X-CSE-ConnectionGUID: dqs99W8BQO68Kg08mAoNZA==
-X-CSE-MsgGUID: ewkpzJJ8SreCMJSglmYUIg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11867"; a="98151991"
-X-IronPort-AV: E=Sophos;i="6.25,208,1779174000"; 
-   d="scan'208";a="98151991"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 10:40:57 -0700
-X-CSE-ConnectionGUID: 7DB5m3cyQx2LtjOXhuPo6g==
-X-CSE-MsgGUID: 1SUtF5e8QmWqOPxccB+TSA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,208,1779174000"; 
-   d="scan'208";a="300373251"
-Received: from igk-lkp-server01.igk.intel.com (HELO 3cba2a188a06) ([10.211.93.152])
-  by orviesa001.jf.intel.com with ESMTP; 06 Aug 2026 10:40:51 -0700
-Received: from kbuild by 3cba2a188a06 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1ws25I-000000004f4-1D7z;
-	Thu, 06 Aug 2026 17:40:48 +0000
-Date: Thu, 6 Aug 2026 19:40:10 +0200
-From: kernel test robot <lkp@intel.com>
-To: Markus Elfring <Markus.Elfring@web.de>, acpica-devel@lists.linux.dev,
-	bpf@vger.kernel.org, coresight@lists.linaro.org,
-	kvm@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-perf-users@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	mptcp@lists.linux.dev, netdev@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org, virtualization@lists.linux.dev,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alex Mastro <amastro@fb.com>, Alex Williamson <alex@shazbot.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andi Kleen <ak@linux.intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Ankur Arora <ankur.a.arora@oracle.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Linux Memory Management List <linux-mm@kvack.org>
-Subject: Re: [PATCH] tools: Use fputc() calls in some functions
-Message-ID: <202608061909.wj199SHx-lkp@intel.com>
-References: <48f2d61f-d468-49b7-881e-f00777db073f@web.de>
+	id 1ws2Lj-00000006Pxr-2JmO;
+	Thu, 06 Aug 2026 17:57:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1786039023; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ZFXJbF+uCUZNw+eEaDW5/JhYp93Db5Hqqko0UmTN24ysW6SuIQSB2aLdBUhpgCgz7qHVmKwUru53W6h67x2JkC7lxCbfI20cXJBpNaBout4CgQ2tNm/0ZkwrdzxvoUb9mHtrlIeC+ErP3lJc5U3VTvz0pjXis/NDzgUlGLjMl7U=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1786039023; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7t2ppmEV8KZPQctXq3NUCSS5AXEtR6dC/YbrnTJetEs=; 
+	b=NjPBIc8XI2v5ookPpLYAmEprwtm2lmLdWHJ32BMu8hEwM4lddPgXhmnGWsc4kiw3WC0bpEOKC198UY0zBXo4GdKOqr/gphV5L9TEEW9R7Zvl6VysD1IKdqkA0/xNhcFoE6Uv9ypOvpOc6/YkpQGGpFCa8Xm7odQLpkuJ42bVNgI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786039023;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=7t2ppmEV8KZPQctXq3NUCSS5AXEtR6dC/YbrnTJetEs=;
+	b=A88Zm4h1XJd75PKpCw9Qd2ouL8JgScvKbLul8lq5fGefFN3GsNc6BoxuM+i6F2LG
+	B91VeeXuXo8UKZpI+4YlP43oNGHJKYw7wrpdTd6F9vTk7oiYPCbeyh7eMwd/KrMi3X/
+	zhBg1wdeFxC1yohQ4BnYDH6mPQBSssxidTYOwGMg=
+Received: by mx.zohomail.com with SMTPS id 178603901993027.6707984562496;
+	Thu, 6 Aug 2026 10:56:59 -0700 (PDT)
+Received: by venus (Postfix, from userid 1000)
+	id D00661808BD; Thu, 06 Aug 2026 19:56:53 +0200 (CEST)
+Date: Thu, 6 Aug 2026 19:56:53 +0200
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Vinod Koul <vkoul@kernel.org>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v6 1/7] drm/bridge: aux-hpd-bridge: Add
+ drm_dev_has_dp_hpd_bridge()
+Message-ID: <anTHNpUryNm72aGM@venus>
+References: <20260804070730.68-1-kernel@airkyi.com>
+ <20260804070730.68-2-kernel@airkyi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="lmyx267gariqvzno"
 Content-Disposition: inline
-In-Reply-To: <48f2d61f-d468-49b7-881e-f00777db073f@web.de>
+In-Reply-To: <20260804070730.68-2-kernel@airkyi.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/286.26.37
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_104057_410232_A398F513 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20260806_105747_622896_8DFD1D31 
+X-CRM114-Status: GOOD (  26.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,75 +94,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
 
-kernel test robot noticed the following build errors:
+--lmyx267gariqvzno
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 1/7] drm/bridge: aux-hpd-bridge: Add
+ drm_dev_has_dp_hpd_bridge()
+MIME-Version: 1.0
 
-[auto build test ERROR on perf-tools-next/perf-tools-next]
-[also build test ERROR on tip/perf/core perf-tools/perf-tools linus/master v7.2-rc6 next-20260806]
-[cannot apply to acme/perf/core]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Hi,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Markus-Elfring/tools-Use-fputc-calls-in-some-functions/20260806-165154
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git perf-tools-next
-patch link:    https://lore.kernel.org/r/48f2d61f-d468-49b7-881e-f00777db073f%40web.de
-patch subject: [PATCH] tools: Use fputc() calls in some functions
-config: x86_64-kexec (https://download.01.org/0day-ci/archive/20260806/202608061909.wj199SHx-lkp@intel.com/config)
-compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260806/202608061909.wj199SHx-lkp@intel.com/reproduce)
+On Tue, Aug 04, 2026 at 03:07:24PM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+>=20
+> Add a new API to check whether a DisplayPort HPD bridge has already
+> been registered. This helps avoid duplicate registration of the same
+> HPD bridge, although the current framework allows doing so.
+>=20
+> Suggested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608061909.wj199SHx-lkp@intel.com/
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-All errors (new ones prefixed by >>):
+I still see the bridge registered twice for fusb302. Apparently the
+the new notifier is faster than the explicit registration in the
+driver. The code added here works though; reloading
+aux_hpd_typec_dp_bridge does not register more and more bridges :)
 
->> builtin-check.c:300:8: error: incompatible pointer to integer conversion passing 'FILE *' (aka 'struct _IO_FILE *') to parameter of type 'int' [-Wint-conversion]
-     300 |         fputc(stderr, '\n');
-         |               ^~~~~~
-   /usr/include/stdio.h:155:16: note: expanded from macro 'stderr'
-     155 | #define stderr stderr
-         |                ^~~~~~
-   /usr/include/stdio.h:611:23: note: passing argument to parameter '__c' here
-     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
-         |                       ^
->> builtin-check.c:300:16: error: incompatible integer to pointer conversion passing 'int' to parameter of type 'FILE *' (aka 'struct _IO_FILE *') [-Wint-conversion]
-     300 |         fputc(stderr, '\n');
-         |                       ^~~~
-   /usr/include/stdio.h:611:34: note: passing argument to parameter '__stream' here
-     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
-         |                                  ^
-   2 errors generated.
-   make[5]: *** [tools/build/Makefile.build:95: tools/objtool/builtin-check.o] Error 1
->> disas.c:540:9: error: incompatible pointer to integer conversion passing 'FILE *' (aka 'struct _IO_FILE *') to parameter of type 'int' [-Wint-conversion]
-     540 |                 fputc(stream, '\n');
-         |                       ^~~~~~
-   /usr/include/stdio.h:611:23: note: passing argument to parameter '__c' here
-     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
-         |                       ^
->> disas.c:540:17: error: incompatible integer to pointer conversion passing 'int' to parameter of type 'FILE *' (aka 'struct _IO_FILE *') [-Wint-conversion]
-     540 |                 fputc(stream, '\n');
-         |                               ^~~~
-   /usr/include/stdio.h:611:34: note: passing argument to parameter '__stream' here
-     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
-         |                                  ^
-   2 errors generated.
-   make[5]: *** [tools/build/Makefile.build:95: tools/objtool/disas.o] Error 1
-   make[5]: Target '__build' not remade because of errors.
-   make[4]: *** [Makefile:123: tools/objtool/objtool-in.o] Error 2
-   make[4]: Target 'all' not remade because of errors.
-   make[3]: *** [Makefile:74: objtool] Error 2
-   make[2]: *** [Makefile:1587: tools/objtool] Error 2
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:248: __sub-make] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:248: __sub-make] Error 2
-   make: Target 'prepare' not remade because of errors.
+Greetings,
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-- Sebastian
+
+>  drivers/gpu/drm/bridge/aux-hpd-bridge.c | 42 ++++++++++++++++++++++++-
+>  include/drm/bridge/aux-bridge.h         |  6 ++++
+>  2 files changed, 47 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/gpu/drm/bridge/aux-hpd-bridge.c b/drivers/gpu/drm/br=
+idge/aux-hpd-bridge.c
+> index f02a38a2638a..a56c88eba005 100644
+> --- a/drivers/gpu/drm/bridge/aux-hpd-bridge.c
+> +++ b/drivers/gpu/drm/bridge/aux-hpd-bridge.c
+> @@ -12,6 +12,8 @@
+>  #include <drm/drm_bridge.h>
+>  #include <drm/bridge/aux-bridge.h>
+> =20
+> +#define DRM_AUX_HPD_BRIDGE_NAME	"dp_hpd_bridge"
+> +
+>  static DEFINE_IDA(drm_aux_hpd_bridge_ida);
+> =20
+>  struct drm_aux_hpd_bridge_data {
+> @@ -36,6 +38,44 @@ static void drm_aux_hpd_bridge_free_adev(void *_adev)
+>  	auxiliary_device_uninit(_adev);
+>  }
+> =20
+> +static int hpd_bridge_match(struct device *dev, const void *data)
+> +{
+> +	const struct device_node *np =3D data;
+> +	struct auxiliary_device *adev;
+> +
+> +	if (!dev_is_auxiliary(dev))
+> +		return 0;
+> +
+> +	adev =3D to_auxiliary_dev(dev);
+> +	if (strcmp(adev->name, DRM_AUX_HPD_BRIDGE_NAME))
+> +		return 0;
+> +
+> +	return adev->dev.platform_data =3D=3D np;
+> +}
+> +
+> +/**
+> + * drm_dev_has_dp_hpd_bridge - check whether a HPD DisplayPort bridge is=
+ registered
+> + * @parent: device instance providing this bridge
+> + * @np: device node pointer corresponding to this bridge instance
+> + *
+> + * Walk the children of @parent and check whether a HPD DisplayPort brid=
+ge for
+> + * the given @np has already been registered via devm_drm_dp_hpd_bridge_=
+add().
+> + *
+> + * Return: true if a HPD bridge for @parent / @np already exists, false =
+otherwise
+> + */
+> +bool drm_dev_has_dp_hpd_bridge(struct device *parent, struct device_node=
+ *np)
+> +{
+> +	struct device *child;
+> +
+> +	child =3D device_find_child(parent, np, hpd_bridge_match);
+> +	if (child) {
+> +		put_device(child);
+> +		return true;
+> +	}
+> +	return false;
+> +}
+> +EXPORT_SYMBOL_GPL(drm_dev_has_dp_hpd_bridge);
+> +
+>  /**
+>   * devm_drm_dp_hpd_bridge_alloc - allocate a HPD DisplayPort bridge
+>   * @parent: device instance providing this bridge
+> @@ -63,7 +103,7 @@ struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(=
+struct device *parent, str
+>  	}
+> =20
+>  	adev->id =3D ret;
+> -	adev->name =3D "dp_hpd_bridge";
+> +	adev->name =3D DRM_AUX_HPD_BRIDGE_NAME;
+>  	adev->dev.parent =3D parent;
+>  	adev->dev.release =3D drm_aux_hpd_bridge_release;
+>  	adev->dev.platform_data =3D of_node_get(np);
+> diff --git a/include/drm/bridge/aux-bridge.h b/include/drm/bridge/aux-bri=
+dge.h
+> index c2f5a855512f..cca07a8e2d45 100644
+> --- a/include/drm/bridge/aux-bridge.h
+> +++ b/include/drm/bridge/aux-bridge.h
+> @@ -25,6 +25,7 @@ struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(s=
+truct device *parent, str
+>  int devm_drm_dp_hpd_bridge_add(struct device *dev, struct auxiliary_devi=
+ce *adev);
+>  struct device *drm_dp_hpd_bridge_register(struct device *parent,
+>  					  struct device_node *np);
+> +bool drm_dev_has_dp_hpd_bridge(struct device *parent, struct device_node=
+ *np);
+>  void drm_aux_hpd_bridge_notify(struct device *dev, enum drm_connector_st=
+atus status);
+>  #else
+>  static inline struct auxiliary_device *devm_drm_dp_hpd_bridge_alloc(stru=
+ct device *parent,
+> @@ -44,6 +45,11 @@ static inline struct device *drm_dp_hpd_bridge_registe=
+r(struct device *parent,
+>  	return NULL;
+>  }
+> =20
+> +static inline bool drm_dev_has_dp_hpd_bridge(struct device *parent, stru=
+ct device_node *np)
+> +{
+> +	return false;
+> +}
+> +
+>  static inline void drm_aux_hpd_bridge_notify(struct device *dev, enum dr=
+m_connector_status status)
+>  {
+>  }
+> --=20
+> 2.53.0
+>=20
+
+--lmyx267gariqvzno
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmp0yuIACgkQ2O7X88g7
++po3bQ//XxQC2aSQqCssQjBwMzPwUFwLFuI1cswQEnui/0Ma+SOGA796JIx+7t4U
+aaoov8lNcVLA8v6jA+VHswHsj+iy31uUHdXOJDl06b3CS+wNvxLbelMMQUQ+liFr
+XxJ/pgkwSeDY455N996scnB1WG+tYQJSquY95aTlHFitgcp9sLUQ8gQjSNits0nq
+qteTIoAV/wzBIAn3gH1XY/aEGSQHg/rXMi+/E8NNgZxuKcMABIbkipi7CG0PGL6F
+1GR7OzGOJBAaYBCOTzf+IXXSOs9URotGfXp60kU4ClIGR9WcrdeM+vBVVQteTQeB
+d5Cxu7dPTMIeGtpB37xLwlVHb187pE7szjjBi1SWpf5IXv4S3feA5uZnpTwagsR8
+rXsD/jEDWZ/3oi5CtDdtAduZEGIxBNAKY2yzC9xze+vM0j8i6RoOHwBTa4vwL7A2
+ZwbLdiz+S29nlbImHxcN7riTJOcU31V6ccXtdYVn2REqNzi4wn7kzxP2zMG/pfDr
+QpvXOj9UtsFZyo/uCukbBFu6jP6pu08u0qdTa6AUAXYsSgkfaV9jVyDtPboX6fp3
+1kxaxqm5IcwdOa6Nz9brODhsigM+qqMrd3WGGurmW4sN8ADfz5Vsdv4dMXOlUGO4
+kT0gbbmbtdS1GZ4S6BDC7sNiokDFT0JCJwwL0dIwfiJRr9y1aUU=
+=GGPA
+-----END PGP SIGNATURE-----
+
+--lmyx267gariqvzno--
 
