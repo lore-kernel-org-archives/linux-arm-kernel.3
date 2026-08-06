@@ -4,113 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3282DC55174
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 01:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46EB9C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 01:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=edLN34k9foZMVhZcUUtF6FHiGZ8AVNOJWI7MIXQI8QA=; b=YZVoy4rTxPCYIipn5T7ukOB+bG
-	g8ZFPhwe6al4QG9RU5dMfN2W0IS4aGYLW0iubAaEA9fpLucaiiSta64PjQRu3ENiiuA8bSOTDQPRO
-	eyTEThzl+G2nxGZmtBYsbJ1hHqDV1W0vJ5SBJw+6rqOffEvEFEzlgycoVt4VnMmH6tXhvWFRMX6BP
-	898EF5eTbcWk4YbAcTnQ8qgGY5SMLHbtPWpvz7kZ5TkhuYXcJZsCU7BaQA0Zvv1oi0zG4h6Zbx185
-	4+Y0hgtr/Ci/57Es0//Mt6HndicD8KQnYWbxHMw/NdPNVhOzua7DckO1/CbvPr3KxtVRo3L8y2tVK
-	VJ/suP8g==;
+	bh=CmtSbhR0umzoPCNMklVcndk+0d6Cbu71OPbe5cqrdZM=; b=UifjtLMIoRZcqn7Qjp6fViY06+
+	dmhELHuv7FF3zcyzJDwZilWmCvw/ll417MBmYbTuyB00wGgk8f0mPOYbw5n3VPsUPwdLZ2VtXoMaV
+	Ta99j6hUo2gCvac2HV8Di/BiQmhaHEQD8B8SWtBuuMuEl3tqie8/am4bEX3WBRv1fzLlStgzBFva7
+	XM2ublK7p5QMuWFYQVrNToJI6eXhMc3mpl1BPtBr6rUBMhCRumxAH4zEVwe0ZprgT0ChuzZec1MNo
+	jay2crQnJbs3oeSd7niEaHXFYE3nIr0yX76Zu9wFk2yW33H8BzMlv8BMi7aEgaUi+ruGL9XQoGSsB
+	GnkAkOGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrmua-00000004lZA-3RlI;
-	Thu, 06 Aug 2026 01:28:44 +0000
-Received: from mail-ua1-x92c.google.com ([2607:f8b0:4864:20::92c])
+	id 1wrn2e-00000004mAT-2KO5;
+	Thu, 06 Aug 2026 01:37:04 +0000
+Received: from mail-vk1-xa36.google.com ([2607:f8b0:4864:20::a36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrmuW-00000004lYB-2FaK
+	id 1wrn2b-00000004m9W-1nNW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 01:28:43 +0000
-Received: by mail-ua1-x92c.google.com with SMTP id a1e0cc1a2514c-97723f98735so1053269241.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 18:28:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1785979719; cv=none;
+	Thu, 06 Aug 2026 01:37:03 +0000
+Received: by mail-vk1-xa36.google.com with SMTP id 71dfb90a1353d-5c38565e774so486170e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 18:37:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785980220; cv=none;
         d=google.com; s=arc-20260327;
-        b=kptQooB2R3X7kA2hRh1SuX2c/vp31XZ6ZW6kWAbn29RQ933P6GC7+IypZ3OAnhAkAR
-         CASxvhmLaLaH27hJ5WwQyIW3RM+bgKfFKX3UABWyfRdpxP+ciiRmTx+Fwu2j+SkmLxxH
-         Vgq8bcaZUdHv9wkrpzcet/9hvOBk7QI/vtJBcI6Rgg0CkJ+8rxlYl1ALScAf0R9wl0C+
-         dEH5IIZH92CxtB1ociokDHyB5b2ku05koTp/sGuaThNLv9wKMY/cmsl8x0kAz/I1IFAJ
-         o9l1a7xtGaiyT/lCiBebb1zmzEGQARpuCNXWFnijSJjWXfihy3trPCq+Xhdf6ILJtUnm
-         sziQ==
+        b=WVtHih0OX3SiaCm1Rt2sVG/gqXQkKDitAqjvtMCxRfuErknECJ2lLF0KKaIQ/nQe/F
+         dnaDtzDubFoLuMI7Q3sFm6ocAn1n8mUsK3CkDzP02ArBoM5JsFU0lHTbvoXG8vYaLl5A
+         aj5TGd0x6c0KtiCM4UN5qq/CjuF6+JLgRLxI5NqQs9n1xjjd3s0AISRxZiFlhFO69YrM
+         zQBjCOwSmjnwdBy6cUcSzQAJySTKn/pnhPaBXd90mcDTr7P0AGT/evNsUTP6BL9niIIC
+         szhAU5A51TOcRMDjUM9flQXO/fG7Ve7Jgxom1PgMpBReLb4N43YHEkrSUURubX2ng4fA
+         l+IQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=edLN34k9foZMVhZcUUtF6FHiGZ8AVNOJWI7MIXQI8QA=;
-        fh=DIOeTZEUXV5NZbdoWIjhJu2lDE+MhqnqY9OhGRWAOHI=;
-        b=T9GTcEQBVY3uPsQ5FG/dbvV0tq3TsoHnCL5v18k98shCi9JHHqwxlJMu9Cou2uys2P
-         TXYNoPki3v9q0qkwA7lys+YBE78Fafff4TZSv6xiflbX8A7sq5r/eye8i3ixjQy8pJHa
-         RKIBsPmgkck3lKCrlcVe0BYBYCnLLpZ2wY8zE1wuuior/SOy1NUm6BawQchIbEIrmGcN
-         IK4CmAlsy16yKIVy8dFbPtBldkgoH+yh4Lnpk83BYc0R3pU1h/QFipCMeYLSgMzRbkpc
-         DJLMjNH2pfResTlEOjsJm4HmPtgYbIQCx4N6VDB/FBJGq6lBo6oUN7BJ0mgfVLDusHO3
-         H1rA==;
+        bh=CmtSbhR0umzoPCNMklVcndk+0d6Cbu71OPbe5cqrdZM=;
+        fh=grNhG4+A6ZfA6mBLGBaTPNpqi1qliIhC9T4Og5t44CA=;
+        b=WgjvxtI04K9TmBSs1uRHMNHHl0vCgkz7A78TIzFtYNtpjda/INKobCgEHKASYPsr+E
+         SpLNgjWbHLKu0R57tBUTufOv5cvW49xo93CF74rjJNXaQ92ysVK112naEVPXx8CeyIwm
+         +SkrRdFmx75V0g44K+ZM7lb0ZNRv3QRYh8c5NWXYkLEKCJ3faHXfqnLqYhWtbb7EuLLj
+         9243W94ttXQkDngu5Wop9ZzSH4l83m60gVUxlGEinAfbH65ErpJMmFd3DC9LvvazgQi4
+         mIIJ+8i6MA8ILZvMUa2PlbtFOxvwfbIjGTf5eISHNeQWvyRq8SLhfDG2rPpdENtRbYU4
+         7WBQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785979719; x=1786584519; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785980220; x=1786585020; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=edLN34k9foZMVhZcUUtF6FHiGZ8AVNOJWI7MIXQI8QA=;
-        b=ZJNrCzlIh72lBO6eOniqFCAQFgB6MuSURkMRwUGOW33CLiqPPw7NpeXd3MrqRHB/My
-         tocU/veVqa2J6qRcR0CX9d7wJ5EZ6NIkFCZRKTIFrkcJeUdNRHvS8hxp9yzBs3E23XoS
-         Ob47w6uHkqUacZTgI/rRVkJva2G5v/hDhSL46/9eynIqBbgvvgxnT7KWe2w+mI9Al1ra
-         fp9J3T7xPuZ2rLjZjfyHqu5u+OtJNFx2kbR1SXnRJPjOizQBnZ/gc+ZbBUPG9hRY+Hg1
-         OjsXBQExmbHFSzGbsW/veLfz70bDDqFHPDcPEzk0GdQm4dbaUxFm3l7WWLYzP9dJSSPG
-         Zo7Q==
+        bh=CmtSbhR0umzoPCNMklVcndk+0d6Cbu71OPbe5cqrdZM=;
+        b=ic4WxjUMI8zeQMrIGKmYMnImuJgWlUel6WAKEKrM0dNDFZ7gCm3BbfkqCS+WG/gARx
+         4jywxNyAXt5joK95A1vOuPsNnyRoqcvuBBcaPA2B1My/IbLFA4Lt+VFklMqtv6lEh5GO
+         YsdA4YAeLOyEGPsml6sDufa4k4Duh8l+jrpXpy8JHJB2/kJvgrLJM78UvGu8oUrnx2ay
+         QS+HV4HDwCG/Yd7TF/Xr3bRMbdMQcv8CwJOzC+Vg2qbn9K0/jiYKuzbwVZwZLeSh8PKl
+         pZ61aH0LVrbaz51tjZSptyrs/DmokEMM3AF+V26L5Q/Jcq4ORlpsDLaJ/4V/qIK8I0EL
+         9rtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785979719; x=1786584519;
+        d=1e100.net; s=20251104; t=1785980220; x=1786585020;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=edLN34k9foZMVhZcUUtF6FHiGZ8AVNOJWI7MIXQI8QA=;
-        b=U1aMTiIsIwmLWiBtzv6+3YgHuvOZLt1zPAcSvAe4gnKyTnRKps0QJ2I5JfSxaIVRby
-         IsRdefG5wS5cQrpAMrpr0OdmN47ckUdJzce0U3F1iB3efMte5MPeMa5wxi9o6/alolA9
-         8xz/rXWbiSbg1ARuMTJHMHrgq5onvw86KJJyTMdfNoVvn19dk4YsSBHmv82yDcSw24Ej
-         LCF+TXTXf67oXu51DgJP7+ynfh8hLpdkWuPJee893PrSEfzbMrV50pXS22PZLMFVM0c8
-         daRiImsLtWRl1frZJkyklWoIk2A7BcA4IHpn4HbejmYgu3JlD8/X/qkQSdmSbF245dk/
-         n4JA==
-X-Forwarded-Encrypted: i=1; AHgh+RofZewPg2z3HbCL+0vGa9Agb8JpW8rU38qdctC1dHVoX8D7Hpkjo61cMwoHLVnnvOoBxrQuLEiG+wfAuqySq8uk@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkDTTQ0S+MUcY1aLyKpBtARv0hwxbbwCVYokQ7uv+gPQakk93/
-	3yGhBeiY5FMhN3q7ESPfdoAr7RqqgXq7UoIvVPHDDlf0ueZz0p45ifdQ7qUl28Moe2quWgOr12E
-	N/o4xoOhZs7DaO0PsZ9W3w/0yKmAWYF4=
-X-Gm-Gg: AR+sD12wS2O6nFl/kWTxXG5JF0livyh2XuNFPtasEScqC2Rg9vx3fkzkheCLm7jNQC2
-	aB/OFr4wr7XMui+WULRjZXgA8do0QFCNJWBg064GSRC1WHt23H4vkW/ahhTXsd514KnKZCTROz7
-	1qRtibhkhPEaoHNfTd6zpWXLQuJFgkGbYtwd4QIPOLiB2/WGLnWXB1FZna9MBUxbZCOyp1EHhKn
-	9woGQ9MgaBt14NpjBollHavgb1A4s+QtNe5vY1XhgQgOK1rte1t1PkNB3Wc62scf2yFHssP2AK3
-	WZvv7BCZplBINMNrOuGtlNFs4ZYAGjO0xIgjHDsPWCRIPFgP/np6LY9wNlsgOXvvuQpv/PJGJe4
-	WEXW8bO6PsNvS0qiQDBoUI2Tu921UIhs1cceltewCy4KUoWdh5eCak9G9tNsGOFicWC8uDvgN8b
-	S3vFR0qa155j6tWWPywA9u5oKxA9sA3XuqfneAa7iK8LApaxY=
-X-Received: by 2002:a05:6102:5689:b0:739:4fa1:50aa with SMTP id
- ada2fe7eead31-760e8f3596emr3241387137.14.1785979718818; Wed, 05 Aug 2026
- 18:28:38 -0700 (PDT)
+        bh=CmtSbhR0umzoPCNMklVcndk+0d6Cbu71OPbe5cqrdZM=;
+        b=W5GjLPQwjIEZlDAlT1kq4S8y4Li0y5H2vLwVD+0uRYnBrOSa5z7Iq5xjOi+DxYBELJ
+         uYuxXZR0S1I8ARjw1PF6CcgHg5srih5xCLMeJwIWRAVS1ZHJvxA+NAgbof6YedW87RuK
+         4ftUuZR5d1dnkATUrjGH6XnU44mJ0rrPf/ZMpx1Ags9zzFAcr/RphwaTkRUtBajjX6Pw
+         AukLLiJ2lqNbvJl1Kt+AfUjr+qN37WbgS2kR9b/tDWyxzm40pjf4mLseQ1IKF1pELwy/
+         WKHYnPSRmQEtMrogdQXHnPZMPGOsSu0cBr51iL2hkM2D+MRjqjwqUEvFuKkBaHtGz5AN
+         C1Aw==
+X-Forwarded-Encrypted: i=1; AHgh+RoyafToYQBT0nxjmpehXqc5BUkn/1Jqg1tThWDS3s5tzZnmICkTdPa8IjAO19JJhA6C78KMTqJfF9LAzqjTl+ZB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1ns/20/O1xyHOeqrOI0Rt5x4Troft0Zqg4h8SNMe21YhPJLAX
+	TWke/kyrs7i1dx8gtpRiTqA1ATBuUWmVEb51/tLTk3hHaE/xrkYXu7HKNa3bkv5N3pRlu9mT4Y4
+	6h5acFWVQBfNkdDFNLAd73GPqDMsIKWQ=
+X-Gm-Gg: AR+sD11ZjeoFBiSEEUQ7Wrnr2FITp0XGKztWU+HDv40yG/bQEBQkW0XsEojbnA7sl58
+	SD+irLIjXk0PALV5Z+1CpUd+w11Mj7e0YsWYMcpDm/KuDhPATGQEJJlQ1lpgskrJOMEC6W0/aNB
+	/qoJcXXczO7TMWzruFnG4vxurTmsMgzMfTHt6WVqfcTzHUCoBSwRFMf+PcJKTq+07pRcd6Jpv3R
+	e3KSuaRQOmqsXrS33dI3tXcLMlcta7NAJQv7saRv9TuNR0PTqUJtcHv04ViSmdf2J9Pt6O3qIZ6
+	F5HOmRgdBRq97IvcS2vLY9DiusF7Z4jrw3JWZbU0edbHsmvYw3ptOQNFpBLFdZjLLcYp+a8bcux
+	KSQ27hLseSNrqQFY32xalPN9l5qbgfLX2cvTgymyFZhkReFlyC4LBuV0vz5WzxEpdm7jzLEpwpz
+	D7LvQluy4zAkPOp0H3LbLROK5XhzOHGe8ED+Oq
+X-Received: by 2002:a05:6122:4f8a:b0:5bf:bb66:414f with SMTP id
+ 71dfb90a1353d-5c3d93a8410mr1586273e0c.11.1785980220218; Wed, 05 Aug 2026
+ 18:37:00 -0700 (PDT)
 MIME-Version: 1.0
 References: <20260804-submit-acx00-of-dynamic-v1-v2-0-3eef49ff1d8c@gmail.com>
- <20260804-submit-acx00-of-dynamic-v1-v2-8-3eef49ff1d8c@gmail.com> <30bab755-3356-4d4a-a939-8488aa487874@lunn.ch>
-In-Reply-To: <30bab755-3356-4d4a-a939-8488aa487874@lunn.ch>
+ <20260804-submit-acx00-of-dynamic-v1-v2-5-3eef49ff1d8c@gmail.com> <20260805141737.GA715959-robh@kernel.org>
+In-Reply-To: <20260805141737.GA715959-robh@kernel.org>
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Wed, 5 Aug 2026 19:28:27 -0600
-X-Gm-Features: AUfX_mwRHCzyF7gAfwi_ObKJnDFQfjNsCJSXem_hxMypqW9gycQbdES8PR3dd9k
-Message-ID: <CADvTj4r5y7ME1jb1OxnvjXoQRhpnQq1L=QgdUE7ESNgS2jzTBA@mail.gmail.com>
-Subject: Re: [PATCH net-next v2 8/8] net: phy: add X-Powers AC200/AC300 EPHY driver
-To: Andrew Lunn <andrew@lunn.ch>
+Date: Wed, 5 Aug 2026 19:36:49 -0600
+X-Gm-Features: AUfX_mzQwafoGswTs6dpUFv2c34FSJlAsZ9bjOHCBKQRghZLcM4QQZUZyorkfog
+Message-ID: <CADvTj4r7qwdb4+-k11HD7d_8kYhJX3=XE1ftaRKP+-xpSiST5A@mail.gmail.com>
+Subject: Re: [PATCH net-next v2 5/8] dt-bindings: net: x-powers: add AC300
+ EPHY control
+To: Rob Herring <robh@kernel.org>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
 	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Lee Jones <lee@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+	Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
 	Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>, netdev@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, mfd@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_182840_583389_C6C1EB40 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260805_183701_487542_86B53D8F 
+X-CRM114-Status: GOOD (  25.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,42 +126,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 5, 2026 at 6:38=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote:
+On Wed, Aug 5, 2026 at 8:17=E2=80=AFAM Rob Herring <robh@kernel.org> wrote:
 >
-> > +static int acx00_ephy_disable_eee(struct phy_device *phydev)
-> > +{
-> > +     int ret;
+> On Tue, Aug 04, 2026 at 08:27:03PM -0600, James Hilliard wrote:
+> > The AC300 exposes its Fast Ethernet PHY control registers through a
+> > separate non-PHY Clause 22 address. The manual defines that address as
+> > the link PHY address plus 16, giving control addresses 16 through 23 an=
+d
+> > link addresses 0 through 7.
+>
+> That's not a separate device, but just a second address range. You
+> should make 'reg' have 2 entries.
+
+I tried a different approach in my v3 using ethernet-phy-package to
+instead of ctrl drivers with the AC300 control address specified by the
+ethernet-phy-package register(internal it's doing a + 16 to get align
+with existing conventions).
+
+>
+> >
+> > Describe the control endpoint, its required VCC1 supply, its 24, 25 or
+> > 27 MHz input clock and its SoC SID calibration cell. The actual PHY
+> > remains a separate ethernet-phy node and supplies the MAC-selected
+> > interface mode at runtime.
+> >
+> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+> > ---
+> >  .../bindings/net/x-powers,ac300-ephy-ctl.yaml      | 70 ++++++++++++++=
+++++++++
+> >  1 file changed, 70 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/net/x-powers,ac300-ephy-=
+ctl.yaml b/Documentation/devicetree/bindings/net/x-powers,ac300-ephy-ctl.ya=
+ml
+> > new file mode 100644
+> > index 000000000000..8a616ff3e89f
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/net/x-powers,ac300-ephy-ctl.yam=
+l
+> > @@ -0,0 +1,70 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/net/x-powers,ac300-ephy-ctl.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > > +
-> > +     ret =3D phy_modify_paged(phydev, ACX00_PAGE_1,
-> > +                            ACX00_PAGE1_INTELLIGENT_EEE_CONTROL_REG,
-> > +                            ACX00_PAGE1_INTELLIGENT_EEE_ENABLE, 0);
-> > +     if (ret)
-> > +             return ret;
+> > +title: X-Powers AC300 Ethernet PHY control interface
 > > +
-> > +     return phy_clear_bits_mmd(phydev, MDIO_MMD_AN, MDIO_AN_EEE_ADV,
-> > +                               MDIO_EEE_100TX);
-> > +}
->
->
+> > +maintainers:
+> > +  - James Hilliard <james.hilliard1@gmail.com>
 > > +
-> > +     /* Set the hardware default before phylib reads its EEE advertise=
-ment. */
-> > +     ret =3D acx00_ephy_disable_eee(phydev);
-> > +     if (ret)
-> > +             return dev_err_probe(dev, ret,
-> > +                                  "failed to disable EEE\n");
+> > +description:
+> > +  The AC300 Fast Ethernet PHY has a separate control interface accesse=
+d as a
+> > +  non-PHY Clause 22 device. Its address is 16 plus the address of the =
+link PHY.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: x-powers,ac300-ephy-ctl
+> > +
+> > +  reg:
+> > +    minimum: 16
+> > +    maximum: 23
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +    description:
+> > +      AC300 input clock. Its configured rate must be 24, 25, or 27 MHz=
+ and
+> > +      determines the corresponding EPHY_CLK_SEL value.
+> > +
+> > +  vcc1-supply:
+> > +    description:
+> > +      3.3 V supply for the AC300 I/O, bandgap, Ethernet PHY analog fro=
+nt end,
+> > +      and internal digital LDO
 >
-> If the PHY is capable of doing MAC based EEE, that should be the
-> default.
+> Sounds like this supply and clock would need to be enabled before
+> accessing the "link PHY address"? If so, then 2 nodes is really a
+> problem.
 
-AFAIU it's only capable of PHY based EEE
-
-> Why clear MDIO_AN_EEE_ADV? This does not stop the user from
-> re-enabling EEE for this link mode. phy_disable_eee_mode().
-
-I think I was doing this since I was trying to align the driver defaults
-with the vendor driver defaults which disable EEE entirely.
+I think having the link node depend on the ctrl node was preventing
+issues there AFAIU. My v3 works differently though.
 
 >
->         Andrew
+> Rob
 
