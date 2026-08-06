@@ -4,97 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE9CC55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 05:23:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B426AC56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 05:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rju6HFe/S+MJe8cf6yB0HBsbdDH7a0Yg40XL1i/Z1yY=; b=c7GCp4t+zU/Cl/DBDNX3NHRQE0
-	BtdlkKw5PUtrXl+0GWvVnBK1MEv3JFaaB87cnTWH6bXyK5GFIq2qpJdG2eJaon+vag1EmX2wKxSPC
-	O1YqTvsatdpW+kAhzvUq5MUdByDKLhvOwVQ4zEkBpzKnVkwn2UmFnRUSkPpeAUgdrIF8Dl2rwGIIT
-	7DHFKFkRuutxAol0QEujSr5urs9FtWD3IwEKKxLuEHXjumXUduurhm08Hg9Prbr225d9cSD6hcPAq
-	c5WRumpH6e4LdyMJZIncFy/arIoohIJ0FkGaUPLsH6dscscvQ/d9RtoaujBHul5W7n28FrrrX56wK
-	b3YQsZqg==;
+	bh=5/chxC2eDdGa6xrgCohNp7hs/WOpE04paX2N4M4f+KM=; b=FDtyeXyfz6veINsAqdHFgJ0kJR
+	+5a5pz03RUHdTIcXHfmUWyV7+NCC9EMxHszbAMpWErC/nyjFc67hOc6oDhkRjWq4tGGApq08XTnvY
+	i1Xkv+Gh1PvOomSJ1WSak7McaYjb6DH6NpSBgvpyZJhRtVzN3ptKRsV1AS2h5lfGouWUEBDbMIeBT
+	a5WHAhMbuixx0IP1Njgf9I1x92nB5OKC3w+46onF7pyu7qZTIUyvx78+h6jKRxJRlatBtkgDYM73Q
+	9NDuEZwV/1L6AU4KpPtP0ep8cvdTUg3m7Md+RzIXG+DCeSkz4tvItIx0udI1/0j0hC/c1C3cBQ3AQ
+	bHtXURPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrqZZ-00000004yFU-1kEp;
-	Thu, 06 Aug 2026 05:23:17 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1wrqeH-00000004yy2-1L3I;
+	Thu, 06 Aug 2026 05:28:09 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrqZU-00000004y9H-3WX6
+	id 1wrqeF-00000004yxa-0xYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 05:23:15 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84eb992a881so1648939b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 22:23:12 -0700 (PDT)
+	Thu, 06 Aug 2026 05:28:08 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ce98cb8165so7151405ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 22:28:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1785994086; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Pua1W6N5vbRBDUiBFUKGUzd5hoCB7H4KuWJmRC3WYHEOmzWw03U9Dk9uGAMIvIEA0W
+         QB/iv7eLJYaHwikaHxn4D8+8Zue3+AHYLx+OmxjPIem6GF4Ox+nbIdLK3oQZnxOmni0H
+         Oxn0MBzl56ji4i9N/ozqDSt3l3mJDo9F+depyDw0KQzq50jti17Caxj9w/TEVAGJZkew
+         +GCknyrFs6/2edWmfM/Nd3ab1bzH8Vo6D1mJMq6JLeuILs8dyBbu9oKBq8Cbg8hAjXpn
+         14uaXK4bGcZSRXNMUW1z+vgnJGTiFKBRd3Nk/HAwXqfBJIdkNGkNQzMukrl2ILHF1SHe
+         1pTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5/chxC2eDdGa6xrgCohNp7hs/WOpE04paX2N4M4f+KM=;
+        fh=F9pIFm3eIWaCbpfCrVC4YyItuTZHXoiGj+Rf10qqbxY=;
+        b=F0W6kktuXSX2D4SPk3hZclZ3i334uhKn+1wPaB6F3ToJYf9F2JeCH46CU7fnGB7ntA
+         FWEsPrfPlmsfUAyAK9o2DVq7Dbnlr6Y71ZLpWORd3Djeevb2doIK0k1ba+5XfsiYOK/S
+         CKfDIesVzK56S3IUA4Jtl5J6Yqm6bixxJQaUzSXvaq4cx/RVGzkpypZHvaVJu3//U6Jr
+         xxYAi0ahpUYnChHyMiFc6ch0YQI4/jwmkH54f/50gvlE5wyTFnQv0pOyX8q/BwFjtdom
+         R12zqNbSNe0oaPREVTBUHftWdpVhRlf4dzrDqrqkX20pioRqsAKbN1UPOg0j/4LuS73U
+         IuyQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785993792; x=1786598592; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rju6HFe/S+MJe8cf6yB0HBsbdDH7a0Yg40XL1i/Z1yY=;
-        b=JgOGaXDaimMEZlmxpJnEKuOTZip4RrKKXfFMF1JtWnL/DCZSJeADoNac16Xx6qcEL5
-         q/Ivv+SZHlH+rxcsCX2RtlGyGWuaTI2AeSaDSK3bjibfkdKoiFNLTZpYdbpUYhrtiPlc
-         Wg1oj0TtYQRZB1nZ73nhwgd4sAL28D9K6heOM2dgOf5cryzopkVYEiSojtgdr96jgBUR
-         xwCDeKEtetmhkhESOgqRnLp9Bwir0Q9oJPcoaEvARUAJ0SBEmEOYd/mk1dizDPO5QWSA
-         ZUFFPcy7FsRR2ojndKYeEO3dhz64oJlpSkqZTv41zYlsGxev6GQTiXGjNITAQtQw+qa9
-         xELw==
+        d=gmail.com; s=20251104; t=1785994086; x=1786598886; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5/chxC2eDdGa6xrgCohNp7hs/WOpE04paX2N4M4f+KM=;
+        b=DVCSuZ9JMm/nseSUtpfQcl/x71+Z6dN/feYjI9Ojc9mDBumJHu/gEYVDuXbGZVP3dc
+         Ef+mU9jXtKk3iMOhAyQweFX8JFIem2wHWrFAjew5b4DulnsuodYiczNRchV05EfkC3mm
+         R3e8Y8m6r89TBpn8SEjGE3pY6uyCRmNPBdSDx+ljR/iPMjnXvUr3KU/2p2Zze30lSi47
+         dlyMAZ9VaAY1cqmCcq4uCi4aDJPBsKG83Mgz0cRJ3ZM3sX5TFgfw1bAorqzeGWmxjH5D
+         He3YQEH3fKSKkg/X5+DE8YCl2hwkbz5S8N6hqFIWOuQGAXAPuJQ+vc5ZqYdVb/OLlafn
+         w9mg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785993792; x=1786598592;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rju6HFe/S+MJe8cf6yB0HBsbdDH7a0Yg40XL1i/Z1yY=;
-        b=YznUAe+u3+fwS+/H5219YBVh8pozIl9/uolHefIXWXxL9728sEeTWcB26WFcLNFW9P
-         vzqSlpzIqV87/LpDqLBv+fj2wztyijJ6zZtXWvmCMErAiA6ATLtiY7vOEuzWFJLOdftk
-         E9tnFcympzeeHpiOD0PaAdT0BqTJbFT698vgw666yV2oit0IcpEahzEK/sH8RJNkXWVU
-         cFbunWcXDosCeyfySzSieIKA05I6f0aixNwudZrNqKl5zi3SRo/erZ+nbFijKuVAFzM5
-         ggytQlhsxgZOQA3mhPGSekAat62qvAXX2+uOWaAZMprxssMR/AkKxRoiffb5TR9kJXM3
-         EGkg==
-X-Forwarded-Encrypted: i=1; AHgh+Rpc6nDXr9JFoCY+27UXeFba53IpyN0ETSeOdb4hk3QoJYqMMM9WJ0QrYe7/2QC0F+Ub0Tt45+LDO45hr2My080P@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8LnjbhPcWRWTm14Xx1mHWVZEZ8q6CJzbdXP9oV7x6fjeC82AZ
-	bTbCrSK3owxp7J4a+XfeMVJJLOhE6WrONc4hDnfQuOTtuzIdy35qbbB4
-X-Gm-Gg: AR+sD11oz5Znzk62UkInGHwpyW3qU26JckogUz0AcvGtwPxQjMlJTxepaoSIdWzhpxp
-	CNiHSTB7dKjU9cxvuE//lP3U71jb5URrkvl8vVL3kCa3eKkDVoPxRtHHV2sGBVh9LLkpK4FRdWP
-	elaQPdVhJ5GRjXrVv7rfmVluLpz1F9qxZI2dyV8k0iyKu3CSHSu5q/g6SmgB9yiMotq0ssdymDd
-	M90yJ7M4WfXwboxHWl/Bsl2UCNxtb2RFYC4cmCPQ/GebShoi9i0PJRXZtghW/xQQOuLf8IfQfXY
-	4Ks9yfBBkTU+xLaNspBxkqDOLZuUyXw4FnD+X2F7cxckKS6QFS9FS7JYUVDTxbWub36b43bTuS1
-	wPF6YI9Lm+B7r5mKmsCTsWiAu9Ei48nnjuqzV3P58ejWfB/7036ad2doitofzRDP79SzRDkipJf
-	VBYp4RkGJR8ME33jNL0XtRu+cavVAxYJkYXd6qq1w2Cs9LVvuj7+xPxdpnZm+XCQ5W5+xxr120w
-	mcdM4M+WrW1HLYWedit+YrM2HcgbIpNtaDh7JkWXTXy46+EN2Mrfu+TZLz3JNtGrpr/BLw7XorF
-	W7C+
-X-Received: by 2002:a05:6a00:2e1a:b0:848:42a7:1854 with SMTP id d2e1a72fcca58-84f2e0c9c90mr12879556b3a.39.1785993792226;
-        Wed, 05 Aug 2026 22:23:12 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f45bc9cffsm554279b3a.59.2026.08.05.22.23.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 22:23:11 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Mark Brown <broonie@kernel.org>,
-	Nicolas Frattaroli <frattaroli.nicolas@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-rockchip@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH 14/14] ASoC: rockchip: spdif: Return the original error code
-Date: Thu,  6 Aug 2026 12:21:36 +0700
-Message-ID: <20260806052136.21034-15-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260806052136.21034-1-phucduc.bui@gmail.com>
-References: <20260806052136.21034-1-phucduc.bui@gmail.com>
+        d=1e100.net; s=20251104; t=1785994086; x=1786598886;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5/chxC2eDdGa6xrgCohNp7hs/WOpE04paX2N4M4f+KM=;
+        b=RAM97vyWQKuKFCh8Bgdg+sQNtGPPbHQKSFZzrgOM4mVMxSWYGaL0e9OBZdQWP+WXN/
+         LnJDjjoXzzgnmTaPddUbxq9qOzsPZNPu5UldAnMaZwOM0u6JfHJSC4CdHA2OtB76KTN+
+         pQZ+LljvRaYEosRIs49eqc5fxoK21u8RsvuW3pgYWZwbRpQ7RJ0wwu+i3ZUCue1fZOCk
+         fkVXKXm9u/s1SVex5V11MHgGqdXArSMidYiuYf6XVIRTl04Mju4P0drAmLstNJ0/Hx3i
+         +pSLl5PspVnTqdzsIwV/mmcOQYzQ+1UP0m0AiXUNu0Tbag4vQqRyMWgr4OTOedzUcbZT
+         HNXg==
+X-Forwarded-Encrypted: i=1; AHgh+RrBbqNp3ITGOgKjOnHqcxeK8vqBFg7iJIocqD7YnI1Q+itfv18vdeMgh+1f0iep6M4AInyTC82yxYm1eVt0b1/p@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZcqseqdjUxnBZrjvsEj8OaJ76SKkpsRm6gMhyufKXPIqOh00L
+	tiy6eeKoprF+aa6lY5XEj77Ks6OqewMgHi9KeOjzc+ZmoXkwQHXJaPZTbqgingN+RV99vpX3Lqu
+	Ecwfr5wnViOUbEonT0/MJpn2+Geg29fo=
+X-Gm-Gg: AR+sD11SbaHQ0dGdrgo+TwnoZv6F1Wp4mrfoKw1YA9VI/sZESIgXS74ncki2hq44F78
+	BNhKAcfJt5UDcny/5xsOrVQKPy7nSzyCFbn/fAavj0WDXoEq3WkLGLEtUqCSAxTSZE/0T85ChRM
+	rDfpF80wbt8L181XSJak0X9bBPKfv0f1fbb31aCVeOw/A6PpoSegp195BnVLTIFs5IgS+Ns/Cxx
+	X4SULX62B33uW8D5TeOF3oGQOHMSM6P8OcMRaLAwkCQeTLKhXocKyJXIguYZy9A1kstZTHKJFqS
+	GptZz7CQ77PXRUyxOUYQbKQ8D6dK6X7Wb1vXZxgT+Z0n
+X-Received: by 2002:a17:903:228b:b0:2ca:eff:ff58 with SMTP id
+ d9443c01a7336-2d0f710991amr9793645ad.15.1785994085793; Wed, 05 Aug 2026
+ 22:28:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260804100218.49587-1-shengjiu.wang@oss.nxp.com>
+ <20260804100218.49587-2-shengjiu.wang@oss.nxp.com> <anH5i7y3JkB1moee@SMW015318>
+ <CAA+D8ANCoc5qOUvTQPRNkvrfqAY3n6x_fbfUveP8Sfv+SL1NVw@mail.gmail.com> <anNtgkZYhoWsSRr6@SMW015318>
+In-Reply-To: <anNtgkZYhoWsSRr6@SMW015318>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Thu, 6 Aug 2026 13:27:51 +0800
+X-Gm-Features: AUfX_myhLzhOuWWyjCG9X66ATeLQftPHIJVdiIW_bTxwa_fBiVstKxt6vFHm5B8
+Message-ID: <CAA+D8APMT2eSgrc37n_YZ4PsDZ-_8h4gHsyhADGGYDpTob_g+Q@mail.gmail.com>
+Subject: Re: [PATCH v3 1/5] ASoC: dt-bindings: fsl,imx-asrc: update port
+ binding to support multiple paths
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: shengjiu.wang@oss.nxp.com, lgirdwood@gmail.com, broonie@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, Frank.Li@nxp.com, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	shawnguo@kernel.org, linux-sound@vger.kernel.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Xiubo.Lee@gmail.com, nicoleotsuka@gmail.com, 
+	perex@perex.cz, tiwai@suse.com, linuxppc-dev@lists.ozlabs.org, 
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_222312_889711_519680F1 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20260805_222807_270406_A1020D95 
+X-CRM114-Status: GOOD (  23.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,37 +126,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Thu, Aug 6, 2026 at 1:06=E2=80=AFAM Frank Li <Frank.li@oss.nxp.com> wrot=
+e:
+>
+> On Wed, Aug 05, 2026 at 02:57:59PM +0800, Shengjiu Wang wrote:
+> > On Tue, Aug 4, 2026 at 10:39=E2=80=AFPM Frank Li <Frank.li@oss.nxp.com>=
+ wrote:
+> > >
+> > > On Tue, Aug 04, 2026 at 06:02:14PM +0800, shengjiu.wang@oss.nxp.com w=
+rote:
+> > > > From: Shengjiu Wang <shengjiu.wang@nxp.com>
+> > > >
+> > > > The i.MX ASRC hardware supports up to three conversion pairs (A, B,=
+ C).
+> > > > The existing binding exposed only a single generic audio-graph port=
+,
+> > > > which cannot represent independent conversion paths when multiple p=
+airs
+> > > > are in use simultaneously.
+> > > >
+> > > > Add a ports container that enumerates up to three sub-ports, each
+> > > > representing an independent conversion path:
+> > > >   port@0 -- conversion path 0
+> > > >   port@1 -- conversion path 1
+> > > >   port@2 -- conversion path 2
+> > > >
+> > > > Each sub-port references audio-graph-port.yaml as before. Hardware =
+pairs
+> > > > are allocated dynamically at stream open time; each active stream
+> > > > direction (playback or capture) on a port consumes one hardware pai=
+r.
+> > > >
+> > > > For backwards compatibility, keep the old single port property but =
+mark
+> > > > it deprecated. A schema constraint (not: required: [port, ports]) e=
+nsures
+> > > > that both forms cannot be used at the same time. The binding exampl=
+e is
+> > > > updated to show the preferred ports form.
+> > > >
+> > > > No existing upstream DTS file for fsl,imx-asrc uses the previously
+> > > > documented single 'port' node, so this change does not break any
+> > > > in-tree device tree.
+> > >
+> > > if no existing upstream DTS file use it, you can direct replace with =
+ports
+> >
+> > That is to avoid any downstream use of the 'port', so not directly repl=
+ace it.
+>
+> Does downstream strictly run DTB_CHECK ?
 
-Return the original error code directly and drop the redundant error
-message since the called function already reports the failure.
+I don't know if anyone downstream uses the 'port' or not.  so keep it
+in this file but
+mark it is as deprecated to avoid any impact of this change (add 'ports')
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/rockchip/rockchip_spdif.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/sound/soc/rockchip/rockchip_spdif.c b/sound/soc/rockchip/rockchip_spdif.c
-index 7f15bc7f8f35..2d53efd5dd2e 100644
---- a/sound/soc/rockchip/rockchip_spdif.c
-+++ b/sound/soc/rockchip/rockchip_spdif.c
-@@ -396,13 +396,13 @@ static int rk_spdif_probe(struct platform_device *pdev)
- 
- 	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
- 	if (ret)
--		return dev_err_probe(&pdev->dev, ret, "Could not register PCM\n");
-+		return ret;
- 
- 	ret = devm_snd_soc_register_component(&pdev->dev,
- 					      &rk_spdif_component,
- 					      &rk_spdif_dai, 1);
- 	if (ret)
--		return dev_err_probe(&pdev->dev, ret, "Could not register DAI\n");
-+		return ret;
- 
- 	return 0;
- }
--- 
-2.43.0
-
+Best regards
+Shengjiu Wang
 
