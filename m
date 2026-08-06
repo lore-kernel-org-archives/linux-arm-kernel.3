@@ -4,58 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F94EC56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 11:22:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5200AC55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 11:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63QAIwnchL8Oj8xhlzOBO2I3PZCelkaEyl/+cgVci/I=; b=DJBmRVELO136suzTOGhQo47p4Y
-	taXMPp1LdTsGa41s1hHLgYI63WXP1aTEpLDhHg+0nbfC1MSHqpW/5uTHcGVT+usVv9IYho+iuz2It
-	MtQTIvC1CPapopETkZ7517O1eRr3EtiXSb6jeT6pONkGBOQOQHQg4EsahHhUyHiMisC4jjB/nfUFR
-	9J45cCpy0acKXdbbAWZ1sYk13p79JQ8rOqBSm5GLJHhRUAkJI1Q3T9YpOmAtjUlMuVgAmGD0m0B4t
-	o5mbLRU46WnvsQNpiZqYSfpX1ZjkqmCz4PFVZ9IsLoGuIxT0NhTh12jISNsBV1VrmSGl+CsnAWo22
-	B65yzI7w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ur5pxDsq9n9H/HFDYgERPK1NsWX8WsP9dfNsb8PiZ7A=; b=454e6yJRqKNmpvku0+w/Yeg6qd
+	0SXzeHBMPhfLOp5cSaFvvHYrDN7p1LaYkK4vFWWpW7VUAl8DyrM5HGxXtCiEzHkCtPfOh+Wv/Awm/
+	NVrf2r8U0F4RPy+FXEV+f6B5H1aDJ32KgslLzi4NBrRBjfm6yRlDKUcsXDQE2P4EWgxLQJsSFQlP9
+	Z/OyX6qApmO5yn11iuhK4JuzDIwAFTf5jNuQrFPXkEr6Ncf+xBtx5EcrmB1zWctvihZ4GKMSoxRaj
+	QQPqxwAYkTMIiBPIB5QxY9zR5c3ezLiy6RVlv+kp9muX18YE6FQWOUx+l1p23GBU4YStwUK6FngYZ
+	V6kHamBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrwAl-00000005dQN-1CxS;
-	Thu, 06 Aug 2026 11:22:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrwAh-00000005dOi-07L6
+	id 1wrwAh-00000005dOl-0j6W;
+	Thu, 06 Aug 2026 11:21:59 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrwAe-00000005dO9-28qg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 11:22:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90784153B;
-	Thu,  6 Aug 2026 04:21:52 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0E4753F66F;
-	Thu,  6 Aug 2026 04:21:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786015316; bh=NxvDQNUaxLdXEBOORglSp9h3tEgNpMWW3m9cpoWPstw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ge6pnxV1Fubr8Qf/BlaxjwFA9FcvmWmwAOcMjbmy/xhWZznGrFdl2G8X+S9wNbJzm
-	 TNGnyKVyombig3MpytVxqOG7/D4ybXCWFfUgY1RZ4RgxViO9f3/Vt8Gtql6RWD9nSR
-	 E9svhYLwwPHhMkHcaOLXXIZEoJNpmf86rg5JYf6Y=
-Date: Thu, 6 Aug 2026 12:21:51 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Subject: Re: [PATCH v2 13/20] arm64: percpu: Add infrastructure for
- preemptible this_cpu_*() ops
-Message-ID: <anRuT1Psmar9mW5L@J2N7QTR9R3>
-References: <20260804170503.3513916-1-mark.rutland@arm.com>
- <20260804170503.3513916-14-mark.rutland@arm.com>
- <7df18d5e-886e-43d1-b53d-52a1d08aba49@kernel.org>
- <d600d0db-5109-4386-9a49-955be74cc432@kernel.org>
+	Thu, 06 Aug 2026 11:21:58 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=ur5pxDsq9n9H/HFDYgERPK1NsWX8WsP9dfNsb8PiZ7A=;
+	b=dxJwxN9GkTzSlBqcHKbke5gNfI/dXT/Nebusaq+T3UE9TgYETuOheUsC4xHpIJo3PcDWJq7Jz
+	LcNzL0Bv2BOjitF9hMOAAyCjnfXmNSSc/jD54tjXkANh/EtFGGebRfjNmEIvb5flnLcLkCx719C
+	dR9ge5CQMupSII5Ejq53SLQ=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4hG4PC6kfjz1K96b;
+	Thu,  6 Aug 2026 19:12:15 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id BB17F4055B;
+	Thu,  6 Aug 2026 19:21:46 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 6 Aug 2026 19:21:46 +0800
+Message-ID: <d57e11b0-c943-4441-b210-4b0549d03b54@huawei.com>
+Date: Thu, 6 Aug 2026 19:21:45 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d600d0db-5109-4386-9a49-955be74cc432@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] tools: Ensure tools copy of linux/filter.h exports the
+ UAPI
+To: Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>
+CC: He Kuang <hekuang@huawei.com>, Wang Nan <wangnan0@huawei.com>, Arnaldo
+ Carvalho de Melo <acme@redhat.com>, "Peter Zijlstra (Intel)"
+	<peterz@infradead.org>, Alexei Starovoitov <ast@kernel.org>, Aishwarya TCV
+	<Aishwarya.TCV@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20260805-arm64-selftest-fix-filter-h-build-v1-1-c29648ee3126@kernel.org>
+ <anRpO_kxC9-uKnMh@willie-the-truck>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <anRpO_kxC9-uKnMh@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_042159_165236_B5E932AD 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20260806_042156_703134_4BA39D5B 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,70 +79,50 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 05, 2026 at 08:47:08AM +0200, David Hildenbrand (Arm) wrote:
-> On 8/5/26 08:45, David Hildenbrand (Arm) wrote:
-> >> Atop v7.2-rc4, with GCC 15.2.0 and defconfig, this is compiled as:
-> >>
-> >> | <outline_this_cpu_add_u64>:
-> >> |        paciasp
-> >> |        stp     x29, x30, [sp, #-16]!
-> >> |        mrs     x2, sp_el0
-> >> |        mov     x29, sp
-> >> |        ldr     w3, [x2, #8]
-> >> |        add     w3, w3, #0x1
-> >> |        str     w3, [x2, #8]
-> >> |        mrs     x3, tpidr_el1
-> >> |        add     x0, x0, x3
-> >> | 1:     ldxr    x5, [x0]
-> >> |        add     x5, x5, x1
-> >> |        stxr    w4, x5, [x0]
-> >> |        cbnz    w4, 1b
-> >> |        ldr     x0, [x2, #8]
-> >> |        sub     x0, x0, #0x1
-> >> |        str     w0, [x2, #8]
-> >> |        cbz     x0, 2f
-> >> |        ldr     x0, [x2, #8]
-> >> |        cbnz    x0, 3f
-> >> | 2:     bl      preempt_schedule_notrace
-> >> | 3:     ldp     x29, x30, [sp], #16
-> >> |        autiasp
-> >> |        ret
-> > 
-> > FWIW, in a recent discussion on some prototype hacking [1] we saw some overhead
-> > in micro-benchmarks that would really hammer on a path that would now do a
-> > preempt_disable()+preempt_enable().
-> > 
-> > Switching from preempt_disable() to preempt_enable_no_resched() made it turn to
-> > noise. Of course, that has other undesirable impacts, and I am not sure if we
-> > are in the territory of code layout changes affecting the numbers.
-> > 
-> > Just mentioning it as some data point.
+
+
+在 2026/8/6 19:00, Will Deacon 写道:
+> On Wed, Aug 05, 2026 at 10:32:23PM +0100, Mark Brown wrote:
+>> Normally when there is an include/foo.h and an include/uapi/foo.h the
+>> non-UAPI copy includes the UAPI copy.  This is the case for the in
+>> kernel copy of linux/filter.h but not for the copy in tools/ which
+>> results in build breaks for the newly added arm64
+>> seccomp_ptrace_x0_bypass selftest.  Add an explicit include of the uapi
+>> to fix the test and avoid future surprises.
+>>
+>> Fixes: 2fcbc4adf997 ("kselftest/arm64: Add seccomp ptrace x0 bypass test")
+>> Fixes: f143c11bb7b9 ("tools: bpf: Use local copy of headers including uapi/linux/filter.h")
+>> Signed-off-by: Mark Brown <broonie@kernel.org>
+>> ---
+>>  tools/include/linux/filter.h | 1 +
+>>  1 file changed, 1 insertion(+)
+>>
+>> diff --git a/tools/include/linux/filter.h b/tools/include/linux/filter.h
+>> index bcc6df79301a..4ead4e72097c 100644
+>> --- a/tools/include/linux/filter.h
+>> +++ b/tools/include/linux/filter.h
+>> @@ -6,6 +6,7 @@
+>>  #define __TOOLS_LINUX_FILTER_H
+>>  
+>>  #include <linux/bpf.h>
+>> +#include <uapi/linux/filter.h>
+>>  
+>>  /* ArgX, context and stack frame pointer register positions. Note,
+>>   * Arg1, Arg2, Arg3, etc are used as argument mappings of function
 > 
-> [1] https://lore.kernel.org/linux-mm/20260630174852-mutt-send-email-mst@kernel.org/
+> Is this still needed if we take the test changes from Jinjie?
+> 
+> https://lore.kernel.org/r/20260806090935.39311-1-ruanjinjie@huawei.com
 
-Thanks for the pointer.
+I think both of these are needed for the fix.
 
-IIUC in those cases you're using preempt_disable() .. preempt_enable()
-directly, not this_cpu_*(), right?
+https://lore.kernel.org/all/20260806111546.42042-1-ruanjinjie@huawei.com/
 
-If so, patches 5 and 6 of this series [2,3] might have an impact, but I
-wouldn't expect a significant change unless you're calling
-preempt_enable a lot.
+> 
+> Will
+> 
 
-Please beware that it's not safe to use preempt_enable_no_resched()
-UNLESS it is immediately followed by a call to schedule(). That's not
-documented today (and I couldn't find a good reference), so more folk
-are likely to be tempted to use it...
-
-I'll send a patch to clarify that (or at least start the discussion with
-scheduler/preempt folk).
-
-Mark.
-
-[2] https://lore.kernel.org/linux-arm-kernel/20260804170503.3513916-6-mark.rutland@arm.com/
-[3] https://lore.kernel.org/linux-arm-kernel/20260804170503.3513916-7-mark.rutland@arm.com/
 
