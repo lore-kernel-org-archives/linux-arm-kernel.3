@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6946C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 21:25:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE72DC56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 21:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8JFZqlB50uswLR58OmnyCXaxlSBWX6UZAyFotochoo=; b=NGwMlKHU/wmGS5eBGlSxnRh/Kr
-	e9wLzqJLVrxek0YQbkzH3vnidQof/hJmMPSLW+roUNvKqQkivBdIh4F1nhU90RuIhT0vHslIs38Ll
-	drsbZJdXXgSbV8qzBMS05wsyh/Yd1QO8VZUEGpHujCe4klNT/YrwNWHHkcuIJhaJnCUTOVQQzqvKg
-	ntD3AgaAW3emI8iCbEVjD+tsCOoJzNXUi9YckCBYaJJ//+trz5ZjV6dmD5AZDpowOMPLXlyoPs0iZ
-	nvVwDUOG07ZGYgfAe/4N4j1TthYuAFy8ktKGdXnz4zfL4CNJpaFt0bbTU5AUXJBzLxDPh7gsZ6FL2
-	Oaq1iAhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yd3/JGFOLcwsntjnEW68DdLA+DfDMzDlmqW2hw1f6Ps=; b=mIuRop0JLqf1QpIMdYBE/EYVUI
+	XXEeLy6VuqB9abC1AHbyF6zUIeqeRSszvQAxUEVNlRAHgtdFkK0zJRRY/oXKyF689+JSmEZHlUbKN
+	SkbXCA9es5/VXFOPobCKzPRCEYf3YjO4/cxetTVXOQ8G9oVepFUsbPNrkUNhp0kus2xfXRlXbhMTp
+	V4n0bHdmMVkasIjsWOtq7it5szTPfPdG9YQMj416gTkqaydsMV9mafX1HS4YLooCt1iNvkQE5u8k1
+	ASKApHPnVHEEayM/q1YGYds6k8pPdtJ/l3ZGymLW6LXp3WKSgBb9wIDoEObcsEQHM8ykZnG5jldrQ
+	97VqPeQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws5b0-00000006jGw-2Kym;
-	Thu, 06 Aug 2026 21:25:46 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1ws5jm-00000006jwv-1AqP;
+	Thu, 06 Aug 2026 21:34:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws5ay-00000006jGG-1yPf
+	id 1ws5jl-00000006jwp-1z90
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 21:25:45 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2caced6038eso18221405ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 14:25:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786051544; x=1786656344; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=U8JFZqlB50uswLR58OmnyCXaxlSBWX6UZAyFotochoo=;
-        b=EJyQF1IOQmSB6q7WZyOeErOPvMi4h1hnF7sTpXBXEI/WE2fMZNQKPj+fFqm3HH6ibx
-         MGEnUU5BjqaN0gRWqJthSYiUX0a8OzhoeNOoOxnEybt3sxiFw2tnsP+L65lZveLxGeNa
-         JP6wjuX3dBAcrI2P+fdLSDjLcuuHKvQXI4lAOG01rCf7k6/Xyt1Md1aXKQkRzO0yETYx
-         WAbwNbv5Y/59zHDgbk5ZFO8651xXgHSBHUEO+6oU8ol9kesQPkj9L/90oLMD5SAvsalY
-         D5d7LE1WuFanZ7JMa4uX3yY7vaDesda1Cvv4aoU761fSZA+fwFxR+lea40phh53ElB4c
-         k6nw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786051544; x=1786656344;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=U8JFZqlB50uswLR58OmnyCXaxlSBWX6UZAyFotochoo=;
-        b=l8faf/UmW1Qz2RrzF864twfYTt9P0Aiiuw7lVwAiaNAZXy3RFhm3zRbVUm7b28oWwS
-         tDUgTmtabMMjZJ8LL/KgtPlEU50fKLiEopvi2KJKRz6VdrXq5a3VwsqJsxXpvVuBkpXn
-         vzZnRkyfnsu3+O3btMDG16Fd8+RtuMYBohX6Yl2b9ODVGSv7c0LY9ccE32ni32z4XZtT
-         yhREevm7yocwmyPrWD3evElEfPcAQlw1zE097r7k5KMDPMx5fkT9De3oO0S541XL7sUy
-         PgpIp8l7euzC1IjtE9LQe2sx6mCyEnc0dhSIP922GnK4qx54h7SyPQ2+Gh66iJAkdkpM
-         zXaQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoqQ8xy+95cP5s3XDbhxiS/WbAAg461e3hCb+WN/8kKZ/uDjo8qCP0HQ4b/ao6QAB01ms9nzZR6TwRrQq3Lq5Nt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxioKuLAkLez1Pfz//rA+RGrulBKVy08d4mp4PYF2DYP27HUXiq
-	ky9q5/XDQuMlPI1Sl+fMId7qVwSV86MwtoGWiQWHPotbT7KN1Be46QI+
-X-Gm-Gg: AR+sD12ejM/Y74Kxk4lrLEeysnnq32WzTNaFpAH26dI2+XswtgA5pXZYoOPQ88ZH78c
-	L4IDYvpfDjxiszLwsZDXK+5E1SBGNTYOLbPRzd+X6rmPd41riVzJMf7dri+Pc0tqG5oateHElD7
-	U/nqj6stc76WnAsiJlqumbfxh9TYJCCd4MFCkkDjvn13gYDW5kKnt/ypjjsv46CaU5yhmNyB2aO
-	n4tcOh33BJBIslZOaOX2BUA37DY2q3eHtz52IqY5mfIt/EPCLdWDc3Ov0sK0YTHc9wX8PFXxICD
-	ceFNPxYFSWBziUPCD+RPdB3TyWhGv2JZwLS87vDTKIbRhxbR14qq90A++rGbjy9my9AWV30leNR
-	lmQtDqSVgqkt86z8q1BhKimDZJKEE3uYjOZLtxqiOdq098Sc7Par9Qe5aZbK2a+4DgdoWleC8Hx
-	mk2UmgGUcGZVfcUs9Bkw+nsw64mrE28GhqowOyLiTDb2WXpCImytpYYgq+SVNyb3R+pAo9uad9j
-	g==
-X-Received: by 2002:a17:903:3846:b0:2cf:6e5d:23e9 with SMTP id d9443c01a7336-2d0f1c5f19dmr118531195ad.14.1786051543613;
-        Thu, 06 Aug 2026 14:25:43 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d16c4ea157sm179095ad.78.2026.08.06.14.25.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Aug 2026 14:25:43 -0700 (PDT)
-Date: Thu, 6 Aug 2026 14:25:42 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Zi-Yu Chen <zychennvt@gmail.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] watchdog: Add Nuvoton MA35D1 watchdog driver
- support
-Message-ID: <60f4cc17-d545-45ab-8fe1-589dbbd153ef@roeck-us.net>
-References: <20260804070351.1846165-1-zychennvt@gmail.com>
- <20260804070351.1846165-3-zychennvt@gmail.com>
+	Thu, 06 Aug 2026 21:34:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6824D600B0
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Aug 2026 21:34:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ACE61F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Aug 2026 21:34:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786052088;
+	bh=Yd3/JGFOLcwsntjnEW68DdLA+DfDMzDlmqW2hw1f6Ps=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=iJTzlJhbojz3frHzPcS3w4gCJFD9Op/dChir1U2xKyB4YudPzCIa9X8cxbOl6UE+J
+	 HBk3fJ2UkPyuemlV/x218xtO+jzTz/SJ2m3hObzNdVX0X9bahpjHRCW3Qmre96o8Vm
+	 SSFWmH6ErcuI5rTSDdO5OGP8GNbW3c8i5Jjj2N5DDpCZv8CwcwCbubkXKC0vAq/2Lm
+	 Scrym3qRkzk9nGeV3pnyP3G5F0VdZ1DvMX9hA4z1ECMn/jCftUaV61h3zip4sG20If
+	 yNUbF46BG2xbnNVdlE1S7Yh3d3Ed2ewr9oi1+ouJ9UZwKUlGDMgTVIZN33yQRYzzE0
+	 6ENgX6g8++bzA==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5b2a3166398so2641121e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 14:34:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RooUqKfpjjbNFLL8RDn0YByyTF851stlaV1X35hqUvNHwQYE0AfvfXkkXPjNLziYReM6WwA2COPrRYtxQ3qLs8r@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyw5WK25ExQfplhw3sxrX8huChjF1Gf7U0ZRYrtB40wfZ/AlOJJ
+	LsblD5H1H7sFxIQnYryXbfnSv/4R7VN3tHAGjaPUlcbrOt82505noum4hOFtIourO86nwPkua93
+	itWLE9JYrrk+cU+wPVv9LUKre6v8zwok=
+X-Received: by 2002:a05:6512:3e17:b0:5ae:c454:3746 with SMTP id
+ 2adb3069b0e04-5b303b7e6abmr655632e87.43.1786052086882; Thu, 06 Aug 2026
+ 14:34:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260804070351.1846165-3-zychennvt@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_142544_507929_4FFF3EDA 
-X-CRM114-Status: GOOD (  10.88  )
+References: <20260806083728.351824-2-krzk@kernel.org>
+In-Reply-To: <20260806083728.351824-2-krzk@kernel.org>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 6 Aug 2026 23:34:34 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmY=zd9ro5OzD5HK_GBxEBRbJu73dO9ZZ796R2xpL81zA@mail.gmail.com>
+X-Gm-Features: AUfX_mzPSVfj4FuEYELOQ9M6R4lntnhq47DsZWQZZdv6ADv_yISTJYNWs_ln1h4
+Message-ID: <CAD++jLmY=zd9ro5OzD5HK_GBxEBRbJu73dO9ZZ796R2xpL81zA@mail.gmail.com>
+Subject: Re: [GIT PULL] pinctrl: samsung: for v7.3 (second try)
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sylwester Nawrocki <snawrocki@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,16 +81,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 03:03:50PM +0800, Zi-Yu Chen wrote:
-> Add driver support for the Watchdog Timer (WDT) integrated in
-> Nuvoton MA35D1 SoC. This driver provides standard watchdog functionality,
-> including timeout configuration, ping, and system reset support via
-> the watchdog framework.
-> 
-> Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
+On Thu, Aug 6, 2026 at 10:37=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
 
-Applied.
 
-Thanks,
-Guenter
+> Second try - in the previous I had still the old email:
+> https://lore.kernel.org/all/20260806082831.350285-2-krzk@kernel.org/
+> Same contents.
+>
+> Best regards,
+> Krzysztof
+>
+>
+> The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e524917774=
+82:
+>
+>   Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+
+Pulled in, thanks!
+
+Yours,
+Linus Walleij
 
