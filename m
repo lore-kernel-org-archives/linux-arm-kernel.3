@@ -4,99 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005B4C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 00:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A6C7C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 01:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGOF3+zE/HPeWBfoXRspwZAAIeCB5o19/AmblsL/TEU=; b=mTwnc7sFaD3nThwjlztrJXTouq
-	vx31rGkpFtoBJhn7Z4JH6e3ST+5gO+kr4zbQWQ7hJVz3WZHBKuMWRddhIqDEc/pRRrEouC0SSxH36
-	rTq6OTAcEyg0VvWcclZlBByA7DJ9OL8ChIpsRKkYlsJkp8DHrse48WpMlAwphVKrmZXij96dHKsDl
-	99/aimTDvo6AYLhzDlGJN1t6tx8upPKJtsNYiBYg8slpf5FtliZfMqOCzMHYtUYRJR3XLDsuLi/46
-	QxN3iyOuWKbl34CWfI2Y4N4c8a+5UhgJP1nDfQloR4ckCImJ7l1fh5Lnc8xw8QnwQkE0348NqAA3Y
-	oM3TpRog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bal3DF24tEuv9v68Mv6uRMQC+Qszsii4odcMK59YhOg=; b=JSRYTUCpfoqRaJCsath+M8L6Un
+	WEf4JZaeXxR7oDjht5mGNOjm3Nby/wI75lsEU0nMouxmetGRc10lBxKISE2wGaU7Nk/j+EWFg+p6x
+	ORucLckOoP8u12tDrAPRBdNi8HRGvls+nP74f9dkaH4E60kjW5zFOfWQzrtXgjoWURLVrol552Z+H
+	BgcJD7HOryg7esDk9dhKRJofyOCXxGuTWnf5ul+AD+V86ss7ErYrSxjtF8U5tMnJIRmIlz9Hf+tHt
+	1b6p4E/1D3njrxCyEgcj+thuEhUcbFVqA7VjVhjZRMzjWMssRfVdl6jvXotDsWsFEhWZsspV8Me/t
+	9ndpfbPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrmFm-00000004j06-3AQc;
-	Thu, 06 Aug 2026 00:46:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wrmeC-00000004k9x-35T6;
+	Thu, 06 Aug 2026 01:11:48 +0000
+Received: from mail-francecentralazon11013053.outbound.protection.outlook.com ([40.107.162.53] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrmFk-00000004iyp-0VrX;
-	Thu, 06 Aug 2026 00:46:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785977188;
-	bh=hpRBIVgimgcr5Tx2ODAqFEn04TQlm5wXnpcVXWduEcA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QquTZHIRH13VVx1Ib2vy/++8bbyTh+hCUlXSMZj8uNDOzWt5TSaL8/QwRR5XKjnT6
-	 kEqAHgezWkcs+/MOyJ7u/3T7tBo6JtKK2gc4iK3rnPrfT9u2K5WVZlO1KsVoVQQGPV
-	 r5GNq7Sg6beYnTKtKSe2iE5HBAwG6XlRtLexB7swz1qtiudE0qkDc0g6KMvS6BImH+
-	 M8WzibU9YKwowt12GVUcXrofTVmvRxX1wqWKzeLRMs5fQEBw/NsAwvRYa2AvmF+p5D
-	 RA2O0JPJmKuvXpWt78Lad0M72TSl5PoiabbDZ3Yk7I8IdmNOnEd5KFDcKk+YOL4fit
-	 QmqvFxS1JaYGA==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6741617E06DB;
-	Thu, 06 Aug 2026 02:46:28 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id A540D480067; Thu, 06 Aug 2026 02:39:10 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 06 Aug 2026 02:39:27 +0200
-Subject: [PATCH v10 21/21] drm/bridge: synopsys: dw-dp: Add audio support
+	id 1wrmeA-00000004k9M-3F9D;
+	Thu, 06 Aug 2026 01:11:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=v0RV3CjxU0pmzb0VXQSBkSD6+3ufKtTNIRbo4/T8WNBxMoRcy59nMENdjT31uaXde4ohVD6shpG/RDUwfkpV0vdGrJMtrTRzK/zoSy577wpQX8vVDkVBW/mZOynSRVeSmn2diGKQwhFJUdpdtbieiYlwuHZkyDwgd5TZfVMZ02c2dBIWixWVVeXPdllFeKRI1C0clZidXUGWsPMlj/oRlM/3/qVLwASTyCHc23xMN9hkl1VBDvCXOVE89qHcLaxVDE9TvLFdRXaNUiknQ3N8mHzHBXKZkW2WYTQcX6RICSj0taFE9fkvDqhiqGHqtYzHa0veKJpze9EGhAJuUnzDCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bal3DF24tEuv9v68Mv6uRMQC+Qszsii4odcMK59YhOg=;
+ b=m3A9xL0Xtrk+AODLrBfFfZiRnwR1fCe2oQ9JaXsK5l1QZDNYr11k1vE6N92TC0W7BZLDYiir9Qr3nnc4kVea9Te7iDtQb+FOVHemqHEH8M08nerzf2qB+b3Lz/LzeITjJz01QZa0wqNOQP7D+EQL30lb6riL9zgoMAkqBVD6lv2oNLM4vpl66L4gD/x2QxGB4Hg631SufhGeDKREDJBA1CRKy/NQM2b5f1DzpX6LEQnnrGc9vljO75VlE7lU3LG5mcw+bwJG/6ygBh4PuSJKVlx95xU9oU9c4Bc1eTtEu9SJwvK2Q01KTyP3l7DYWd1RfYhG+VFmhcgS7SImRiTUaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bal3DF24tEuv9v68Mv6uRMQC+Qszsii4odcMK59YhOg=;
+ b=ZeXrHmv/t7CM2Zgq4NRGup87ajrWTVvo8j3f55hPc1Rb2u9fHNJ3d4AofhrpHe44p45rZW6af3riEgk7ErvkopXPZRH2MPBxUrg/ySPg9aoM5dESudacV3P+zTBlBabkHaEL9Cp1fqqVy7BQsCHKidxZugSqHZE58XmVYz15q3VT07wXudGctoloJY4vBdcLJnKmv5rwj98AAQvgoW4zVwE1AdoVBmThVh7RWdlVXhNw5NsQQV1WqkyjIDXx0yzJVvggjdBSwE8AWk29a76+WtP5X0FtnLgkHjEUBdMvQfHwtOtigURH9UeBCxXK9Fh85YVlv66d5eqTnufkb6FrHQ==
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
+ by VI0PR04MB12008.eurprd04.prod.outlook.com (2603:10a6:800:317::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Thu, 6 Aug
+ 2026 01:11:38 +0000
+Received: from MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889]) by MRWPR04MB12330.eurprd04.prod.outlook.com
+ ([fe80::ca22:f8c8:6aca:7889%6]) with mapi id 15.21.0292.018; Thu, 6 Aug 2026
+ 01:11:38 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Rob Herring <robh@kernel.org>, "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+CC: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Lubomir Rintel <lkundrak@v3.sk>, Dmitry
+ Osipenko <digetx@gmail.com>, Shree Ramamoorthy <s-ramamoorthy@ti.com>, Heiko
+ Stuebner <heiko@sntech.de>, Joseph Chen <chenjh@rock-chips.com>, Chris Zhong
+	<zyw@rock-chips.com>, Zhang Qing <zhangqing@rock-chips.com>, Sebastian
+ Reichel <sebastian.reichel@collabora.com>, Andreas Kemnade
+	<andreas@kemnade.info>, =?iso-8859-1?Q?Jonathan_Neusch=E4fer?=
+	<j.neuschaefer@gmx.net>, Julien Panis <jpanis@baylibre.com>, Matti Vaittinen
+	<mazziesaccount@gmail.com>, Alexander Kurz <akurz@blala.de>,
+	=?iso-8859-1?Q?Andr=E9_Draszik?= <andre.draszik@linaro.org>,
+	"mfd@lists.linux.dev" <mfd@lists.linux.dev>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>, "linux-samsung-soc@vger.kernel.org"
+	<linux-samsung-soc@vger.kernel.org>
+Subject: RE: [PATCH 00/10] dt-bindings: mfd: Use generic power-controller
+ schema
+Thread-Topic: [PATCH 00/10] dt-bindings: mfd: Use generic power-controller
+ schema
+Thread-Index: AQHdJBwqZOYUhgeTo0eopaQW6T3HuraP9ZQAgABCsEA=
+Date: Thu, 6 Aug 2026 01:11:38 +0000
+Message-ID: <MRWPR04MB12330DBC8F268BBD1118883FC88D22@MRWPR04MB12330.eurprd04.prod.outlook.com>
+References: <20260804-mfd-syspower-v1-0-a440783c2e78@nxp.com>
+ <20260805211054.GA1783131-robh@kernel.org>
+In-Reply-To: <20260805211054.GA1783131-robh@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MRWPR04MB12330:EE_|VI0PR04MB12008:EE_
+x-ms-office365-filtering-correlation-id: 838e7d8c-41f8-4827-a91e-08def357aa9a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|19092799006|22082099003|18002099003|11063799006|56012099006|4143699003|3023799007|38070700021|10067099003;
+x-microsoft-antispam-message-info: B3o3TiTYfeW35zbv46bUt2isnbu/C2IqSMOKXNlR9jqQeHEJk0u29KtaxK+GCGGU0NfKfvu6uo8tyGKNwIoRlUus3iozgXLNW3uk8kg8J21MuIAOGXpKwO+DN7+dgCh6jTk4h3csSXBXZFQrJSw+hiqSGAcbi4haIQxixIvfQPUSPviA4Sy+5I4truMfcNEBfco5X5ww3UU62w5zr1Yzw7Q+uTvOzkyctXcDFy05BtOqJn0rv5V/dN2uW30+mo2mZvUPIdiT8IZbPufGSlruFmYjroGRwmouF8ABsaMzWfrKnZ76P5yCYZEMVs473qeUkzQr/fwb6LMOTdaq51C0R7XnvSWIFIufoRhq446OIvp9eNeWWjk1fnrTJItrJrE7S6YVJFGoB4368nJ/0kWQVNWpamOj+vuZ9w21jhVBpmX0JK6fbB87G9AQtKAPPQ5LqS6rQPUutD7oQWOh5fZSeDTDXT1PcYWw2ff2FfzicyxmUpB/BZTkY3AA00ft4io3IenVbFnscCAhJAqfWXUEmg0bIZILELbomieeVAY7chMaBdevp93F4UH9a/YHdAup8mXi2PDUaOrmhef5aiYabbFc1WU42UwdVmcbf+oe1hAAPTUhLiFGpT7ymx7yMsHH4ira4Zujm21qR7DS85+968+Uk+5pcH79j0yt8MG+a2TBU5PyvthHU8zgUwQ5qmpa5W+fL/mNWV0Q7n9M2k3wiPVxC1fBD2gaSQh0DQD2aSU=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12330.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(19092799006)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003)(3023799007)(38070700021)(10067099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?908SaPwrspzDur6huYhdKZG12K9YmfVcq49kkUVaqg2LU0tfeToW57tMdt?=
+ =?iso-8859-1?Q?zzBBMlotiCixQAm10hEbZLAoxrVYd3D8H6wFwKmPjzvPzvscMrKaZkdEAP?=
+ =?iso-8859-1?Q?8yv/CrzVTDQLFAjYG7f89m2y1AVR+H+J76mADnPW9thzSv6n6q1VMHR2QE?=
+ =?iso-8859-1?Q?vxXZn69eqOgoBGFKbm2csY/SeLXKwB1Ubae844MQXVfPijxfMLlfsmFEl0?=
+ =?iso-8859-1?Q?73wn403zunNz3ZxjMyew9Sp02pA8xZGRvI7jEHRC0h7GveCn2K1POaAwBV?=
+ =?iso-8859-1?Q?uSmV91HpY78FF2v4LAW5nfhnX0yqAZ56hdKXDhKwwcP/PFyvXEK/wEr4tH?=
+ =?iso-8859-1?Q?T4w5gWgIjpoCsKT9lCX6Gvku7YLUmBpKOhzTdCvRgTBraLdpkX+YrB0BaJ?=
+ =?iso-8859-1?Q?nIIYSy8f6PrzqV1wOB4a3VhFMfcpRRMp9jffk8X+HWZdG2YpOeWKWTciji?=
+ =?iso-8859-1?Q?wb0flAAh7yILYCMPO/BWD1czJ2VqYZHlSmWUFCKZRKZN0qWH7koTrujqHU?=
+ =?iso-8859-1?Q?lEGDIP9Stf2ipQSzvzp2Rjk63rnWBqryYZHuv8Bhd6gKGJMVhAR+lqOJ7o?=
+ =?iso-8859-1?Q?flXOHmmDjKSA5zHizL5Q3lCOsGZljS/Z+KVCzKkC7uiuirTUCF3RM098UL?=
+ =?iso-8859-1?Q?4AAhRu7Ou3jWHeiUlEo5Wjvsu909TmMYtXVbFYIoswCMF/wUH8o3GGzK5m?=
+ =?iso-8859-1?Q?jy937YCDhFAOARSDhg0bgMd2tpZJoxVHYMQqQ7UzA4aG2UGR4SVM5JPiTy?=
+ =?iso-8859-1?Q?LnpaWU7fBZ1dl2UGu8RSBrz8zl5T77qCNMU0wWa9g4BEVBM4Eb14r1ALyx?=
+ =?iso-8859-1?Q?YEXYfEPleQhvnhVyAKJbKnBEp9pIQIUZavl83P5O7Sy4napYyeVGejiLXx?=
+ =?iso-8859-1?Q?/rHzRB57fmp/Q+jta21vdWpcSV0ZIeJ6gEklNLPpLMjz1ez4Mp2BfHvAFY?=
+ =?iso-8859-1?Q?Nwnxssm5UE/b6FUVpAA+k0KTB8yCxdWzx0YV951m5ybDcOLt+eT0jrx/nU?=
+ =?iso-8859-1?Q?f2JA8Q3xmAD3MsVBrrLsCdjQuii6dMCMeYomYfGurGf9g3amLrhKd71Uzc?=
+ =?iso-8859-1?Q?gbEJpGcX2VwyxpSEVUNf9VfVv24A9KYU2nd2xgjdra4Kwu4Mf0zy8DNa6W?=
+ =?iso-8859-1?Q?HoeKxdJN7ig/eVdklrEcKs6vf6A8+Is2/W1OIYXob9mbjtfgnCgyKcez+Q?=
+ =?iso-8859-1?Q?xbq5b/Za+WaJ4VbekOBIM/eA6Wm5O43i2EVyI+21hYdLuusSGd52+36SXd?=
+ =?iso-8859-1?Q?9gAGzZkS5KpcV8uk8u+DY9f+Gc4Ahk64DURpe6Z8qH3IKcqb2GnWXrHltj?=
+ =?iso-8859-1?Q?OoSOgbLwIThh1I8ECKAKtTXWueKBtOdag4c8jJSFRO84ahX1fRvMfQUByO?=
+ =?iso-8859-1?Q?sKWkFvRus0Kdg9gRIjMbvfbK/NZxl1cGTS8dWrr5Pyvhy0SWWZn4oiezDM?=
+ =?iso-8859-1?Q?KLzy1gXFh+U4Kao7X3zsOX+AweTWV5hhGkk/s92SDKq2PoLcsmhpcZoRxo?=
+ =?iso-8859-1?Q?L6CgMmjzG9V/dSwdCWt7HXyFPH+fPNUJhdcsFntEqxQbr2PelomyFOTBJK?=
+ =?iso-8859-1?Q?SwUhvPWrZiRqSKBobgIjJBWWCkmjXgXRvitY3w+KuZ5vXpfYYiNJS6H/fl?=
+ =?iso-8859-1?Q?HIXazrj5vyrJLgOGwY2O/R9oHakd6/DDbYYf5DngT7SE7OqzVC70nWWz2h?=
+ =?iso-8859-1?Q?mMEVFk+UlqDOdKq24SYxxdK4MUTOLiFwkVrJT4vGErgaiqL3uPLwgXErNB?=
+ =?iso-8859-1?Q?6RwsO7ew3cXPAzNCLsp/NPB2Y7RCzOkyTQ1E9MlUcXrBqk?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-synopsys-dw-dp-improvements-v10-21-d84a26c303d6@collabora.com>
-References: <20260806-synopsys-dw-dp-improvements-v10-0-d84a26c303d6@collabora.com>
-In-Reply-To: <20260806-synopsys-dw-dp-improvements-v10-0-d84a26c303d6@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11909;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=hpRBIVgimgcr5Tx2ODAqFEn04TQlm5wXnpcVXWduEcA=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpz16639wJlKX9vQ8vd41qofQ7WuEbBzISpq
- XiVZPAZkHyKh4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqc9euAAoJENju1/PI
- O/qaq/YP/AwEDSuAiMbwXWjlWyrddB3nItXP6oQJETx0joS+uJH8HV3a/MzciI4+SM6kqWVfdXU
- Sa8mB9ZK2mkoWiUEYdmrK1vmUv4G9/+r9BvetuM2aAhXpAf1Yk7pYZivQbwvNQLpwcpytIYw2IE
- qvnL8zQkffZQ9Oi2guzDpUbRq2VDjugJqEL63yN19BkZgFXCWHZFPvAMqOuz4xiSk+sZH638EDI
- vNqIVw4mxIMzd8kKErmzwBnzQKGOi1J6tN5KUffsfeQQpFeIa/9UsqUC2yyJdex5Dj821gtL2nP
- 4UIFSzurMGgLfZehRuecr7Q3JR7BRqPRZwyIHc5EspMCkMYcgd4DnN/tLffcNiDOkocXf1QUJVe
- 3n4PNXYF2/iGbdcObfiE2py3wnIz9F9uhl2rrAWzmIDih6LGTOnm8A33sss1U80IlOndSV4gCGy
- Vjjn1ev3smCp7Bh+ZO9GqTSfmmdQ2Xd4RgbUPh9/Q0hOBVJi8qkv/rd2CP427ncypaX6NE+D1G2
- UYTAm5HJoflgg3Cmlx5s0lm9FrWx+1xCLHuOr4k0TXPffM2hNwRC42rE+n+8M5YGUQssIjMOAKY
- rLMqhNwxaF7Wub1T0KScxqC2tPiMX92g5eU2Ybyzq8nB+R47uO733hWF9P4KCg275PQIWyWvIQW
- UW5INL/SXxtGnkzvz6Jkznw==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12330.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 838e7d8c-41f8-4827-a91e-08def357aa9a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Aug 2026 01:11:38.2799
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: GlWCekUsKJj7gWhT68C85utAHqVrfTCVHOb7hoeipG6tnP67n6kxk6Y4dzFP72H0X2tDonimHxnVVL4IBwbiYQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB12008
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_174632_472111_65E938DC 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20260805_181146_833644_E14FE9B2 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,417 +153,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement audio support for the Synopsys DesignWare DisplayPort
-controller.
+Hi Rob,
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 307 +++++++++++++++++++++++++++++++-
- 1 file changed, 306 insertions(+), 1 deletion(-)
+> Subject: Re: [PATCH 00/10] dt-bindings: mfd: Use generic power-
+> controller schema
+>=20
+> On Tue, Aug 04, 2026 at 10:16:35PM +0800, Peng Fan (OSS) wrote:
+> > The generic power-controller.yaml schema has been added to
+> > dt-schema[1], providing a common definition for the
+> > `system-power-controller` boolean property. Convert MFD bindings
+> that
+> > locally define this property to instead reference the shared schema.
+> >
+> > The common change across all patches is:
+> >  - Add a $ref to /schemas/power/power-controller.yaml#
+> >  - Remove the local `system-power-controller` property definition
+> >  - Switch from additionalProperties to unevaluatedProperties
+> >
+> > This is a pick of patches 2-11 from [2], rebased to linux-next/master,
+> > no changes. Patch 1 (the generic power-controller.yaml schema itself)
+> > is dropped since it has already been picked up by dt-schema.
+> >
+> >
+> > Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> > ---
+> > Peng Fan (10):
+> >       dt-bindings: mfd: ene-kb[3]930: Use generic power-controller
+> schema
+> >       dt-bindings: mfd: ti,tps65910: Use generic power-controller
+> schema
+> >       dt-bindings: mfd: rockchip,rk8x: Use generic power-controller
+> schema
+> >       dt-bindings: mfd: ricoh,rn5t618: Use generic power-controller
+> schema
+> >       dt-bindings: mfd: netronix,ntxec: Use generic power-controller
+> schema
+> >       dt-bindings: mfd: ti,twl: Use generic power-controller schema
+> >       dt-bindings: mfd: ti,tps6594: Use generic power-controller
+> schema
+> >       dt-bindings: mfd: rohm,bd71828-pmic: Use generic power-
+> controller schema
+> >       dt-bindings: mfd: fsl,mc13xxx: Use generic power-controller
+> schema
+> >       dt-bindings: mfd: samsung,s2mpg10-pmic: Use generic
+> > power-controller schema
+>=20
+> Can we hold off on this until at least the next cycle.=20
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index 35e45b5c3fc4..079d3f8e8148 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -23,17 +23,21 @@
- #include <drm/drm_bridge.h>
- #include <drm/drm_bridge_connector.h>
- #include <drm/display/drm_dp_helper.h>
-+#include <drm/display/drm_hdmi_audio_helper.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_of.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
- #include <drm/drm_simple_kms_helper.h>
- 
-+#include <sound/hdmi-codec.h>
-+
- #define DW_DP_VERSION_NUMBER			0x0000
- #define DW_DP_VERSION_TYPE			0x0004
- #define DW_DP_ID				0x0008
- 
- #define DW_DP_CONFIG_REG1			0x0100
-+#define AUDIO_SELECT				GENMASK(2, 1)
- #define DW_DP_CONFIG_REG2			0x0104
- #define DW_DP_CONFIG_REG3			0x0108
- 
-@@ -110,6 +114,10 @@
- #define HBR_MODE_ENABLE				BIT(10)
- #define AUDIO_DATA_WIDTH			GENMASK(9, 5)
- #define AUDIO_DATA_IN_EN			GENMASK(4, 1)
-+#define AUDIO_DATA_IN_EN_CHANNEL12		BIT(0)
-+#define AUDIO_DATA_IN_EN_CHANNEL34		BIT(1)
-+#define AUDIO_DATA_IN_EN_CHANNEL56		BIT(2)
-+#define AUDIO_DATA_IN_EN_CHANNEL78		BIT(3)
- #define AUDIO_INF_SELECT			BIT(0)
- 
- #define DW_DP_SDP_VERTICAL_CTRL			0x0500
-@@ -253,6 +261,8 @@
- 
- #define SDP_REG_BANK_SIZE			16
- 
-+#define DW_DP_SDP_VERSION			0x12
-+
- struct dw_dp_link_caps {
- 	bool enhanced_framing;
- 	bool tps3_supported;
-@@ -306,6 +316,19 @@ struct dw_dp_hotplug {
- 	bool long_hpd;
- };
- 
-+enum dw_dp_audio_interface_support {
-+	DW_DP_AUDIO_I2S_ONLY = 0,
-+	DW_DP_AUDIO_SPDIF_ONLY = 1,
-+	DW_DP_AUDIO_I2S_AND_SPDIF = 2,
-+	DW_DP_AUDIO_NONE = 3,
-+};
-+
-+enum dw_dp_audio_interface {
-+	DW_DP_AUDIO_I2S = 0,
-+	DW_DP_AUDIO_SPDIF = 1,
-+	DW_DP_AUDIO_UNUSED,
-+};
-+
- struct dw_dp {
- 	struct drm_bridge bridge;
- 	struct device *dev;
-@@ -321,10 +344,18 @@ struct dw_dp {
- 	int irq;
- 	struct work_struct hpd_work;
- 	struct dw_dp_hotplug hotplug;
-+	enum dw_dp_audio_interface audio_interface;
-+	int audio_channels;
-+	int audio_channel_allocation;
-+	int audio_sample_width;
-+	bool audio_muted;
-+	int audio_sdp_nr;
- 	/* Serialize hpd status access */
- 	struct mutex irq_lock;
- 	/* Serialize sdp_reg_bank access */
- 	struct mutex sdp_lock;
-+	/* Serialize audio state */
-+	struct mutex audio_lock;
- 
- 	struct drm_dp_aux aux;
- 
-@@ -1696,6 +1727,254 @@ static int dw_dp_link_enable(struct dw_dp *dp)
- 	return ret;
- }
- 
-+static int dw_dp_audio_infoframe_send(struct dw_dp *dp)
-+{
-+	struct hdmi_audio_infoframe frame;
-+	struct dw_dp_sdp sdp;
-+	int ret;
-+
-+	ret = hdmi_audio_infoframe_init(&frame);
-+	if (ret < 0)
-+		return ret;
-+
-+	frame.coding_type = HDMI_AUDIO_CODING_TYPE_STREAM;
-+	frame.sample_frequency = HDMI_AUDIO_SAMPLE_FREQUENCY_STREAM;
-+	frame.sample_size = HDMI_AUDIO_SAMPLE_SIZE_STREAM;
-+	frame.channels = dp->audio_channels;
-+	frame.channel_allocation = dp->audio_channel_allocation;
-+
-+	ret = hdmi_audio_infoframe_pack_for_dp(&frame, &sdp.base, DW_DP_SDP_VERSION);
-+	if (ret < 0)
-+		return ret;
-+
-+	sdp.flags = DW_DP_SDP_VERTICAL_INTERVAL;
-+
-+	return dw_dp_send_sdp(dp, &sdp);
-+}
-+
-+static void __dw_dp_audio_disable(struct dw_dp *dp)
-+{
-+	if (dp->audio_sdp_nr >= 0) {
-+		dw_dp_clear_sdp(dp, dp->audio_sdp_nr);
-+		dp->audio_sdp_nr = -1;
-+	}
-+
-+	regmap_clear_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
-+			  EN_AUDIO_STREAM_SDP | EN_AUDIO_TIMESTAMP_SDP);
-+	regmap_clear_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
-+			  EN_AUDIO_STREAM_SDP);
-+
-+	regmap_clear_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_DATA_IN_EN);
-+
-+	if (dp->audio_interface == DW_DP_AUDIO_SPDIF)
-+		clk_disable_unprepare(dp->spdif_clk);
-+	else if (dp->audio_interface == DW_DP_AUDIO_I2S)
-+		clk_disable_unprepare(dp->i2s_clk);
-+
-+	dp->audio_interface = DW_DP_AUDIO_UNUSED;
-+}
-+
-+static int __dw_dp_audio_enable(struct dw_dp *dp)
-+{
-+	u8 audio_data_in_en;
-+
-+	switch (dp->audio_channels) {
-+	case 1:
-+	case 2:
-+		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12;
-+		break;
-+	case 8:
-+		audio_data_in_en = AUDIO_DATA_IN_EN_CHANNEL12 |
-+				   AUDIO_DATA_IN_EN_CHANNEL34 |
-+				   AUDIO_DATA_IN_EN_CHANNEL56 |
-+				   AUDIO_DATA_IN_EN_CHANNEL78;
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1,
-+			   AUDIO_DATA_IN_EN | NUM_CHANNELS | AUDIO_DATA_WIDTH |
-+			   AUDIO_INF_SELECT | HBR_MODE_ENABLE | AUDIO_MUTE,
-+			   FIELD_PREP(AUDIO_DATA_IN_EN, audio_data_in_en) |
-+			   FIELD_PREP(NUM_CHANNELS, dp->audio_channels - 1) |
-+			   FIELD_PREP(AUDIO_DATA_WIDTH, dp->audio_sample_width) |
-+			   FIELD_PREP(AUDIO_INF_SELECT, dp->audio_interface) |
-+			   FIELD_PREP(HBR_MODE_ENABLE, 0) |
-+			   FIELD_PREP(AUDIO_MUTE, dp->audio_muted));
-+
-+	/* Wait for inf switch */
-+	usleep_range(20, 40);
-+
-+	/*
-+	 * Send audio stream during vertical and horizontal blanking periods.
-+	 * Send out audio timestamp SDP once per video frame during the vertical
-+	 * blanking period
-+	 */
-+	regmap_update_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
-+			   EN_AUDIO_STREAM_SDP | EN_AUDIO_TIMESTAMP_SDP,
-+			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1) |
-+			   FIELD_PREP(EN_AUDIO_TIMESTAMP_SDP, 1));
-+	regmap_update_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
-+			   EN_AUDIO_STREAM_SDP,
-+			   FIELD_PREP(EN_AUDIO_STREAM_SDP, 1));
-+
-+	if (dp->audio_sdp_nr >= 0) {
-+		dw_dp_clear_sdp(dp, dp->audio_sdp_nr);
-+		dp->audio_sdp_nr = -1;
-+	}
-+
-+	dp->audio_sdp_nr = dw_dp_audio_infoframe_send(dp);
-+	if (dp->audio_sdp_nr < 0)
-+		return dp->audio_sdp_nr;
-+
-+	return 0;
-+}
-+
-+static int dw_dp_audio_startup(struct drm_bridge *bridge,
-+			       struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio startup\n");
-+
-+	return pm_runtime_get_active(dp->dev, RPM_TRANSPARENT);
-+}
-+
-+static void dw_dp_audio_unprepare(struct drm_bridge *bridge,
-+				  struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	guard(mutex)(&dp->audio_lock);
-+
-+	__dw_dp_audio_disable(dp);
-+}
-+
-+static int dw_dp_audio_prepare(struct drm_bridge *bridge,
-+			       struct drm_connector *connector,
-+			       struct hdmi_codec_daifmt *daifmt,
-+			       struct hdmi_codec_params *params)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+	u8 supported_audio_interfaces;
-+	enum dw_dp_audio_interface audio_interface;
-+	u32 cfg1;
-+	int ret;
-+
-+	guard(mutex)(&dp->audio_lock);
-+
-+	/*
-+	 * prepare might be called multiple times, so release the clocks
-+	 * from previous calls to keep the calls in balance.
-+	 */
-+	if (dp->audio_interface != DW_DP_AUDIO_UNUSED)
-+		__dw_dp_audio_disable(dp);
-+
-+	/* The hardware is limited to 1,2 or 8 channels */
-+	switch (params->cea.channels) {
-+	case 1:
-+	case 2:
-+	case 8:
-+		break;
-+	default:
-+		dev_err(dp->dev, "invalid audio channels %d\n", params->cea.channels);
-+		return -EINVAL;
-+	}
-+
-+	if (params->sample_width < 16 || params->sample_width > 24) {
-+		dev_err(dp->dev, "invalid data sample width %d\n", params->sample_width);
-+		return -EINVAL;
-+	}
-+
-+	switch (daifmt->fmt) {
-+	case HDMI_SPDIF:
-+		audio_interface = DW_DP_AUDIO_SPDIF;
-+		break;
-+	case HDMI_I2S:
-+		/*
-+		 * It is recommended to use SPDIF instead of I2S, since I2S mode requires
-+		 * manually inserting PCUV control bits from userspace and this is done
-+		 * automatically in hardware for SPDIF mode.
-+		 */
-+		audio_interface = DW_DP_AUDIO_I2S;
-+		break;
-+	default:
-+		dev_err(dp->dev, "invalid DAI format %d\n", daifmt->fmt);
-+		return -EINVAL;
-+	}
-+
-+	regmap_read(dp->regmap, DW_DP_CONFIG_REG1, &cfg1);
-+	supported_audio_interfaces = FIELD_GET(AUDIO_SELECT, cfg1);
-+
-+	if (supported_audio_interfaces != DW_DP_AUDIO_I2S_AND_SPDIF &&
-+	    supported_audio_interfaces != audio_interface) {
-+		dev_err(dp->dev, "unsupported DAI %d\n", daifmt->fmt);
-+		return -EINVAL;
-+	}
-+
-+	ret = clk_prepare_enable(dp->spdif_clk);
-+	if (ret)
-+		return ret;
-+
-+	ret = clk_prepare_enable(dp->i2s_clk);
-+	if (ret) {
-+		clk_disable_unprepare(dp->spdif_clk);
-+		return ret;
-+	}
-+
-+	if (audio_interface == DW_DP_AUDIO_I2S)
-+		clk_disable_unprepare(dp->spdif_clk);
-+	else if (audio_interface == DW_DP_AUDIO_SPDIF)
-+		clk_disable_unprepare(dp->i2s_clk);
-+
-+	dp->audio_channels = params->cea.channels;
-+	dp->audio_channel_allocation = params->cea.channel_allocation;
-+	dp->audio_sample_width = params->sample_width;
-+	dp->audio_interface = audio_interface;
-+
-+	ret = __dw_dp_audio_enable(dp);
-+	if (ret < 0) {
-+		dev_err(dp->dev, "failed to enable audio\n");
-+		__dw_dp_audio_disable(dp);
-+		return ret;
-+	}
-+
-+	dev_dbg(dp->dev, "audio prepare with %d channels using DAI=%d\n",
-+		dp->audio_channels, dp->audio_interface);
-+
-+	return 0;
-+}
-+
-+static void dw_dp_audio_shutdown(struct drm_bridge *bridge,
-+				 struct drm_connector *connector)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio shutdown\n");
-+
-+	dw_dp_audio_unprepare(bridge, connector);
-+	pm_runtime_put_autosuspend(dp->dev);
-+}
-+
-+static int dw_dp_audio_mute_stream(struct drm_bridge *bridge,
-+				   struct drm_connector *connector,
-+				   bool enable, int direction)
-+{
-+	struct dw_dp *dp = bridge_to_dp(bridge);
-+
-+	dev_dbg(dp->dev, "audio %smute\n", enable ? "" : "un");
-+
-+	guard(mutex)(&dp->audio_lock);
-+
-+	dp->audio_muted = enable;
-+
-+	regmap_update_bits(dp->regmap, DW_DP_AUD_CONFIG1, AUDIO_MUTE,
-+			   FIELD_PREP(AUDIO_MUTE, enable));
-+
-+	return 0;
-+}
-+
- static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 				       struct drm_atomic_commit *state)
- {
-@@ -1734,6 +2013,14 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 		dev_err(dp->dev, "failed to enable video: %d\n", ret);
- 		return;
- 	}
-+
-+	scoped_guard(mutex, &dp->audio_lock) {
-+		if (dp->audio_interface != DW_DP_AUDIO_UNUSED) {
-+			ret = __dw_dp_audio_enable(dp);
-+			if (ret < 0)
-+				dev_err(dp->dev, "failed to restore audio: %d\n", ret);
-+		}
-+	}
- }
- 
- static void dw_dp_reset(struct dw_dp *dp)
-@@ -2044,6 +2331,11 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.detect = dw_dp_bridge_detect,
- 	.edid_read = dw_dp_bridge_edid_read,
- 	.oob_notify = dw_dp_bridge_oob_notify,
-+
-+	.dp_audio_startup = dw_dp_audio_startup,
-+	.dp_audio_prepare = dw_dp_audio_prepare,
-+	.dp_audio_shutdown = dw_dp_audio_shutdown,
-+	.dp_audio_mute_stream = dw_dp_audio_mute_stream,
- };
- 
- static int dw_dp_link_retrain(struct dw_dp *dp)
-@@ -2251,6 +2543,10 @@ int dw_dp_probe(struct dw_dp *dp)
- 	if (ret)
- 		return ret;
- 
-+	ret = devm_mutex_init(dev, &dp->audio_lock);
-+	if (ret)
-+		return ret;
-+
- 	res = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(res))
- 		return PTR_ERR(res);
-@@ -2357,12 +2653,21 @@ int dw_dp_probe(struct dw_dp *dp)
- 		return ret;
- 
- 	dp->vsc_sdp_nr = -1;
-+	dp->audio_interface = DW_DP_AUDIO_UNUSED;
-+	dp->audio_sdp_nr = -1;
- 
- 	bridge = &dp->bridge;
- 	bridge->of_node = dev->of_node;
--	bridge->ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
-+	bridge->ops = DRM_BRIDGE_OP_DP_AUDIO |
-+		      DRM_BRIDGE_OP_DETECT |
-+		      DRM_BRIDGE_OP_EDID |
-+		      DRM_BRIDGE_OP_HPD;
- 	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
- 	bridge->ycbcr_420_allowed = true;
-+	bridge->hdmi_audio_dev = dev;
-+	bridge->hdmi_audio_max_i2s_playback_channels = 8;
-+	bridge->hdmi_audio_dai_port = 1;
-+	bridge->hdmi_audio_spdif_playback = true;
- 
- 	return devm_drm_bridge_add(dev, bridge);
- }
+Sure.=20
 
--- 
-2.53.0
+This change
+> effectively bumps the minimum version of dtschema. While power-
+> controller.yaml is added to dtschema, it is not yet in a released version=
+.
+> I'm not all that sure these changes are much improvement given it is a
+> single boolean.
 
+If you prefer, I could drop the patchset.
+
+Thanks,
+Peng.
+
+>=20
+> Rob
 
