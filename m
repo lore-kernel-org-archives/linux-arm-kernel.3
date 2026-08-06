@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61117C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B23EC5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:12:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XpYKqC5ieeH0CeVfPg5XXhrYkSlRUnEoujChOtFxVHE=; b=0zsszOMKQe96p/JuChXHnIoAkP
-	pm2wa0UGTlSdTfQ6KH5Btfa+wF1+YvkVahFl/qSqZ7dpXzrlKXgjox4foqUWA6NpqoemI+kkW80BG
-	szc9Iu4eV7SN0PlrxUjw1/0gfaLXacI4F/vQhANakD28fqVMxXQtnreoX9gfeGx4GTUn7ryLy9hNR
-	pmnYw/XiwZ718pUqkOlucD52SbGDX7pfrU/0GplQWcJMGRTgsF3yrhnJpd3l5psHaKZBrdeqtVl37
-	HM5oCkyMZXJWcwzqVn3k0KfBM027IMrWftTkLCd1MX7udkcDNLMPlDzNWYPLb4o4duLp2Cfrc9zfL
-	yuSb1pSw==;
+	bh=/22LGD1MGbC96K2zWOrMVz7tCsjDUPU9MbskXggav7I=; b=YcJAbigUxwDM1g8/E9uJME6LEW
+	Y/U2BsxQ7IEYt5X1iXCQ9p8BTIgXDW5yRnjckRG0ncxn6P5YieUbxusXygrD4TwQ4BpqLWgIBAMqO
+	r4nKdaypIyQgjf86nxpiujUR+tCQG+D6XH61io2MPgJRXQNoZk0RBfTD4ZA3HoZODnd8DJKG3Nywa
+	myoJGMJOsZDaVYfwtBLcSrBauIve0q86Cqv437dI+IZkxy0Gm+JG36VcK/oQXRdNuFnDyFJqR+iGW
+	8SlGDfe0in+jM/tELwpDr+0CB00lRMPMKlXQmdo0L44WhEeWIoyS7bgNYz0vfHDXzSFtiXoHv+bg3
+	lwqruq2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1dn-00000006Kjy-1Ffa;
-	Thu, 06 Aug 2026 17:12:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ws1dp-00000006Kmd-1i4J;
+	Thu, 06 Aug 2026 17:12:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1dk-00000006Kht-3QTZ
+	id 1ws1do-00000006KlB-0HcQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 17:12:20 +0000
+	Thu, 06 Aug 2026 17:12:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42ABC60AB0;
+	by sea.source.kernel.org (Postfix) with ESMTP id CD9FD41B45;
+	Thu,  6 Aug 2026 17:12:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89E4A1F00A3D;
 	Thu,  6 Aug 2026 17:12:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2308B1F00A3A;
-	Thu,  6 Aug 2026 17:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786036340;
-	bh=XpYKqC5ieeH0CeVfPg5XXhrYkSlRUnEoujChOtFxVHE=;
+	s=k20260515; t=1786036343;
+	bh=/22LGD1MGbC96K2zWOrMVz7tCsjDUPU9MbskXggav7I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=itg203n/X9z7r8BvUTyqqg4HN+pgvQltq3OEpnuhRJovfdZYmyuY0JrdsB0FN6p0U
-	 XNyYL6tOsuTAqZQRwS3gS44EKj/FNNigUhXwAQ60L8HanplHB+r+chLekmgRZ9NJBk
-	 qKCdXFIQQO9v/N+AsUcSFl85AzdI5g5QxvJrSGsp62xybVceZonq0kpZugYNCmziij
-	 nbI6CHv62c51LUaUjirub6Mbt3PJW7BP1rtXobzhT2xVFA6L4cwBKbdJFULZwOjlhU
-	 E2TFv4804ozpS9B1hPx2EQ9fsv/9UP1HmjiGcR6XPMib6VAs4Ku1uLCr2ckTQ8jW8O
-	 JxlWkC+TxIdxw==
+	b=aJxprpj/PmeLQcUf+DpkzRl7CnakIvyMWVwJ70+wVwNnKVtFvXGjz9FtIIsqYhKRj
+	 2OOcLN+Dxf5yEOIISv5TQstKp20rKTaODyTqJkqNj6cvGudQmR+9xhhp/GhKHGiuuU
+	 xWpyYCqfvdnRc0a3kl1pQCUd+JrBvsA9ONkfwP7m/XA55WtNMMZxEEaRLpiR1ck50h
+	 rY0hKPyeib0L68BZg6aAvD2PlbZ/Dfn7zjbMcdWWL2PGKq0jq9qw0nX7e4bwVolCL4
+	 WGclWlKRboI6O97q8rZ6Dg7dkkRLfrZvAOHMSqogW36MEkwYbZc/gZuyHSYOCgDYXG
+	 OqpoYDJhvAjbA==
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	shuah@kernel.org,
-	broonie@kernel.org,
+To: joro@8bytes.org,
+	akpm@linux-foundation.org,
+	Kuan-Wei Chiu <visitorckw@gmail.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	robin.murphy@arm.com,
+	nicolinc@nvidia.com,
+	cychu@google.com,
+	hhchung@google.com,
+	amitamishra@google.com,
+	marscheng@google.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
+	iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH RESEND] kselftest/arm64: Fix abi test compilation errors
-Date: Thu,  6 Aug 2026 18:11:45 +0100
-Message-ID: <178601918128.406021.15265264695708888556.b4-ty@kernel.org>
+	jserv@ccns.ncku.edu.tw,
+	Yu-Chun Lin <eleanor.lin@realtek.com>
+Subject: Re: [PATCH 0/2] lib/sort: Clean up sort_nonatomic() and sort_r_nonatomic()
+Date: Thu,  6 Aug 2026 18:11:46 +0100
+Message-ID: <178585154950.3657024.3915308246763901818.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260806111546.42042-1-ruanjinjie@huawei.com>
-References: <20260806111546.42042-1-ruanjinjie@huawei.com>
+In-Reply-To: <20260730181216.2709088-1-visitorckw@gmail.com>
+References: <20260730181216.2709088-1-visitorckw@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,21 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 06 Aug 2026 19:15:46 +0800, Jinjie Ruan wrote:
-> The arm64 ABI selftests fail to compile due to missing include paths
-> for kernel headers, causing errors like incomplete type struct sock_filter
-> and implicit BPF macro declarations.
+On Thu, 30 Jul 2026 18:12:14 +0000, Kuan-Wei Chiu wrote:
+> Remove the sort_nonatomic() and sort_r_nonatomic() APIs from the kernel
+> library.
 > 
-> Add $(KHDR_INCLUDES) and -I$(top_srcdir)/tools/include to CFLAGS
-> to resolve the header search path. Also remove the hardcoded __NR_write
-> macro and include <asm/unistd.h> to obtain the correct syscall number.
+> Currently, the arm-smmu-v3 driver is the sole in-tree user of
+> sort_nonatomic(). Because the array size being sorted is small in
+> practice, there is no real risk of triggering a soft lockup. Therefore,
+> the periodic cond_resched() calls provided by the _nonatomic variant
+> are unnecessary.
 > 
 > [...]
 
-Applied to arm64 (for-next/selftests), thanks!
+Applied driver change to iommu (arm/smmu/updates), thanks!
 
-[1/1] kselftest/arm64: Fix abi test compilation errors
-      https://git.kernel.org/arm64/c/eb78ef9cf77a
+[1/2] iommu/arm-smmu-v3: Replace sort_nonatomic() with sort()
+      https://git.kernel.org/iommu/c/340e3c5165d4
 
 Cheers,
 -- 
