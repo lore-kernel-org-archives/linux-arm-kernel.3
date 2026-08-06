@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E753FC56203
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3A3C56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQdBpwmy1p6NJAKv+mWKwiZ+G/Txt/w3AU9gQqqYqGs=; b=yIfo33IxUgpnBOIDmATFJ+Ez94
-	q8RauDPU0Az+Agqzx6tWU1jU0y1V/Q7BrDFzIsxmhKHUrWtK/phtPl41J/8+O4f8K+p2+/17r72KC
-	ZqIVxmFkiZ8DAaiIOrHbL7s2JRU3JOY9iKBS/U3Puabdu/DKnyKtYMT8X8OyYRZlgRgOhzPGHCgEM
-	IhVGvYHGdMIvQbywXUNCUkyvMOQOLG8g6DOzfJ/sHZ3N5wT3YWsov4sg6BbYyMCodpGDeR7PX2Hzs
-	RfLSs6V7gteseh9rqbizBZS8WNmpN9PsHNkwvutdUOrDuRP5E5RoV6J02kes408mTv/qtOAJJRa/J
-	gFh2ypGA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Rp6JZ2VZMu6D7qs8xPRngx/HR+ZmZziCVMPQ8iG3ozM=; b=I+UHIkAeJtkiyn
+	V9KIMVsXYJaCvHz4FPUeZKeGkbMoOrUS/XI+vf1/KDVb38cmMelbHy23LNr9gX54x5olbskOo05Ih
+	HRgKLgRKVK+QodVzPKpNyRh3AiGbntkhfX6jDM1NIXz1NYwsaMEmkqxKzFQJQomgVwVTyCTXeGU8C
+	uqDY1wZOSgg+YBMUjir1ZrcQUtYTl2350y1Lc/cAx95hHbum6CrtDxs8NWKyluPZhfrgw7f4HOb8J
+	GJV157QgpYmwLhc9zYQyQ2KRlSviNzEGLf92spEncb+jurqWuNgd1j7eRLeyRp0npd/3uGjxLRxYh
+	VW/K61xPTOU0BMJd9BTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtyy-00000005KCR-2ZOA;
-	Thu, 06 Aug 2026 09:01:44 +0000
-Received: from mail-eastusazon11022089.outbound.protection.outlook.com ([52.101.53.89] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wrtyz-00000005KD0-3khv;
+	Thu, 06 Aug 2026 09:01:45 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtyv-00000005KBI-2ycp
+	id 1wrtyx-00000005KBc-1blu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 09:01:43 +0000
+	Thu, 06 Aug 2026 09:01:44 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ejndZ6w7q2UXUokT+0egnZPdJ20SGevGQ0CHhMa+tltzBTU7HekbWoxeay3ZTcl9DtaY/EHCAB0m3wnQKH//88umar7R2o1sHfaP8RG5bqmz4JRKb3zukiJxKrwvHbTaBffiaOnPdyyi4ClrBzkYR/2ha8WeTZzLDN14RaZUhnch9yH87ZYhkGaiiNW3tzjnVtemJc17SUXq/Tg0SakeSjFtsuX3LdJKLNegerkcIc/CKCJg435sVWjxPqWjaxdgbCaoSwskiAu9XxSt0f8JkfLS8VxLOiACaQcxjfjZGybpF0ObM4C85g3yFZWo6Li0n4/pM4+CZRgcpOoki2QO3w==
+ b=AyoqmN+z1dPzmmsLPVXfjPGTN7T867p3ZEBhQ9Z1io3kIYWviXvym9gKm9Ia9ZKlrG7UBwDYKDV3kuP2aDT8XSYsExOBDYXie1TDnrSZLb04NSxOZJvzt7IcvXRRgRlUM90MrUcsJCAWhyyCeON09KLV43HY/hE+73TMqSNeGFTHj7DgYzLnOD0WfflmhT6oS5utqoIwFHmkzSbX4MuWBplBORhTy3vV5KsX6WTm/WRJ3gT/i2GHg13r2UppP3zZdJZ1+78VHxUaVOwxwcV2aqDglhCg/F+/kcbht+4oPZybrAgtMhvCA0fwyi+PYTmIHqrTmoDQtf2UHHR9ze0bvw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GQdBpwmy1p6NJAKv+mWKwiZ+G/Txt/w3AU9gQqqYqGs=;
- b=PdI3aRMM7Keh57KOMTvCfeI1rr/oZZghxSjsnaljIzR6l2pHntRYxnOVe457B4y43fCwCDl1plnQ2mdFaYkhJjhxGevAuWe8+Qvfs1cK0n2fgKhdOkaBwxEGVi5wdo+BTJ4HY5A0BFHLMZHbgdhswXADR76AxMpe//dar8FYNkm05A4NuVewZSlx8nyE9k3y5GCCA1u8IG6YeHZ1svH10FUR+BragyatdpTne0BZcwjHWNLiXryUJcGxn0mRcN0ikr+dgHV/WhJSvvq3qW0uwof4VC0qnn9r/S/u1qHSIE70jXncwXuTo0WBdmUNghOikiUgZdSQ/NnQAr8sA9lwoA==
+ bh=Rp6JZ2VZMu6D7qs8xPRngx/HR+ZmZziCVMPQ8iG3ozM=;
+ b=HmncpdBw9vag1YJv7nfS8hhbrrS9Aozbwq4XhmPaDDzt3NTuTotnw+k+LHaHWgzuozQnoaUHijmxJxX0x9gAcZcyh7cmKFv7sTzr6BMRerryE0eQ5rrgTvlNfyYJUmWFnFB4f6e+sUlCWkPWkYPAvyUALXYUCLeNAyFIudkx36ROAzx8PioOWVY31bYuk8pmO/STzjbtRPB9bzM/puM3W9eHsQleVdZaB5Vx+6lTnzhE0oci5SPgrVJqeOjxuXXbqSVsMDynuaLjwmqzMRZainZOufOZtf5LHfNMO9S+SeKXSezfze8kF4uUQk/NS7+n4fi/8SL652s8PiRs4/Sueg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
  64.62.143.114) smtp.rcpttodomain=axiado.com smtp.mailfrom=axiado.com;
  dmarc=none action=none header.from=axiado.com; dkim=none (message not
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GQdBpwmy1p6NJAKv+mWKwiZ+G/Txt/w3AU9gQqqYqGs=;
- b=qtqDORKTZYKpV8FsTEIbAZ2HGbn9bmGL4ewONY0BQektgVObzgWAGUutxL4CyhHNPQYhFhvrblNr0r/kXOKlKqhiAz0HUeQZRJ1vvjP+FFkaBNLo8ZIoFLA/rlQvBeiffPafUi18x+CCTPskhEuji27yocP3wPuJiS63P2qinejvpTMYiBFMYToBRO1uz5o+bgXi7gSm7JIfR2ID31gutMC54inVN5p99wsqGDAuxkEtzhs9itsq7grKjSkQgZiuTx7IdG7yOjyqSJ/5UoYtEeSuvGbn84I0Lu5fI8AUt7n2aa263ZQwqX4/24PigrbS5Qnktq9XRj1Co5BGuuE6Eg==
-Received: from SA9PR03CA0006.namprd03.prod.outlook.com (2603:10b6:806:20::11)
- by BN9PR18MB4363.namprd18.prod.outlook.com (2603:10b6:408:101::20) with
+ bh=Rp6JZ2VZMu6D7qs8xPRngx/HR+ZmZziCVMPQ8iG3ozM=;
+ b=XYXLBAtIVkowZpNbVM9UOLANOZS8u5OeL+hxPqLFLFRgI/917pvSUkZppoEZ8Xfsw22dRll3+d9n+5jiH5mfU9QQo+RnDzXvAaGBkk2LH+UO5A2dqeQFUGU3DtXDQqL9Nx7pa07UerX1wcTp2ap+ezq36bBqGZsVrue1y6K6kkCwWWFHOy9Z6kNuVPopgbzZCnFSUd4c75j602kmi01q5Xzu9txYE+bED+EmbrO9UUANMW9eFmhvQ7JEyJODkLmxSRzOu7yQPal+DNFN7bHF1kBkgVD2VShVaxOu4X+jnmi7Q0CT4Ftz9Ie61aaGJGvU9d+J4NUZA15OT/4zfKuBOw==
+Received: from BY5PR04CA0004.namprd04.prod.outlook.com (2603:10b6:a03:1d0::14)
+ by BY3PR18MB4739.namprd18.prod.outlook.com (2603:10b6:a03:3ca::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.20; Thu, 6 Aug
- 2026 09:01:36 +0000
-Received: from SA2PEPF00003F61.namprd04.prod.outlook.com
- (2603:10b6:806:20:cafe::62) by SA9PR03CA0006.outlook.office365.com
- (2603:10b6:806:20::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.21 via Frontend Transport; Thu, 6
- Aug 2026 09:01:36 +0000
+ 2026 09:01:35 +0000
+Received: from SJ1PEPF000023CE.namprd02.prod.outlook.com
+ (2603:10b6:a03:1d0:cafe::4d) by BY5PR04CA0004.outlook.office365.com
+ (2603:10b6:a03:1d0::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.19 via Frontend Transport; Thu, 6
+ Aug 2026 09:01:35 +0000
 X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 64.62.143.114)
  smtp.mailfrom=axiado.com; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=axiado.com;
@@ -60,22 +60,23 @@ Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
  designate 64.62.143.114 as permitted sender) receiver=protection.outlook.com;
  client-ip=64.62.143.114; helo=smtp.corp.axiado.com;
 Received: from smtp.corp.axiado.com (64.62.143.114) by
- SA2PEPF00003F61.mail.protection.outlook.com (10.167.248.36) with Microsoft
+ SJ1PEPF000023CE.mail.protection.outlook.com (10.167.244.10) with Microsoft
  SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.6
- via Frontend Transport; Thu, 6 Aug 2026 09:01:36 +0000
+ via Frontend Transport; Thu, 6 Aug 2026 09:01:35 +0000
 Received: from axz-uw1-build-vm02.corp.axiado.com (unknown [10.14.1.22])
-	by smtp.corp.axiado.com (Postfix) with ESMTP id 9B4324186B59;
+	by smtp.corp.axiado.com (Postfix) with ESMTP id 77F064186B53;
 	Thu,  6 Aug 2026 02:01:35 -0700 (PDT)
 From: Petar Stepanovic <pstepanovic@axiado.com>
-Date: Thu, 06 Aug 2026 02:01:30 -0700
-Subject: [PATCH 2/2] hwmon: add Axiado AX3000 and AX3005 PWM fan controller
- driver
+Subject: [PATCH 0/2] hwmon: add Axiado AX3000 and AX3005 PWM fan support
+Date: Thu, 06 Aug 2026 02:01:28 -0700
+Message-Id: <20260806-axiado-ax3000-pwm-fan-v1-0-f6db4cf2166b@axiado.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-axiado-ax3000-pwm-fan-v1-2-f6db4cf2166b@axiado.com>
-References: <20260806-axiado-ax3000-pwm-fan-v1-0-f6db4cf2166b@axiado.com>
-In-Reply-To: <20260806-axiado-ax3000-pwm-fan-v1-0-f6db4cf2166b@axiado.com>
+X-B4-Tracking: v=1; b=H4sIAGhNdGoC/x2MMQqAMAwAvyKZDcQWi/oVcYg2agartKCC+HeL0
+ 3HD3QNJokqCrnggyqlJ95ClKguYVg6LoPrsYMg4qg0h38p+z7BEhMe14cwBreOm9eL86CrI7RF
+ l1vv/9sP7fkAayEZnAAAA
+X-Change-ID: 20260520-axiado-ax3000-pwm-fan-36a89de6db61
 To: Petar Stepanovic <pstepanovic@axiado.com>, 
  Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>, 
  Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
@@ -88,37 +89,37 @@ Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-pwm@vger.kernel.org, linux-doc@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786006895; l=14838;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1786006895; l=2103;
  i=pstepanovic@axiado.com; s=20250916; h=from:subject:message-id;
- bh=Z77WBjh0Aq+oBYpObsNok2aBwqUPPNoxqyDI9zAhbZc=;
- b=ikA2Ko+PqUaSG7rZPtJXgoIuF/QGtjICdqthFeULM3REmj0ZGQHTCdIX64vEwDZmRfQjJRm5d
- uWeVJSYAMm8DoO0k9592dOvbC6DOWqOaQgV8hZ8BhvPlKHkpp8pBJ4f
+ bh=L1errroewBQQ9h3a50ccUPOFxOTJzBDhDpiOOeW/1u0=;
+ b=7bX0V3G8/2zI9kiRlqLXiXWLtUoWx4pJFJaPaiO2c+cWc1zSdQ57Fddf90sB2wHp0ctMYqytY
+ u12dZtooJllCkQnpuGFceTCzU8VJpKcNRtG2cMLmV8FQCHUilMd/2qG
 X-Developer-Key: i=pstepanovic@axiado.com; a=ed25519;
  pk=70f1UJOGT9U11ZK6o+ENXtv0I5wBE3e+Y9YWODzRsdI=
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F61:EE_|BN9PR18MB4363:EE_
-X-MS-Office365-Filtering-Correlation-Id: e3e91246-61d3-4b3d-8ccc-08def39951ef
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023CE:EE_|BY3PR18MB4739:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4505a7df-c331-407b-8c17-08def399519d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700016|23010399003|56012099006|10067099003|6133799003|3023799007|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: kOpt6xWtKml5bLQwiQagRHbKU1xWKa7X9WZdDN2Ie7FW5dD2s2y3BioSk85Vzlq2cLtmMgOM/l0hRJ1XDsGiNt7zrf5xXDpnQR0+ujbGRsfy6dsfSGH3E4M5m9O0nSVSeLx3SczF5OGo9hB6ksbrMGA4u4ydYr2p+GLorbakH8L5NNVVcWlXyqoGJjr+mnuXYvkcYcAiSMI49se5v/qjIp2mHsHTib9M88o+mKEXYOnvITmWX+MYHvp2A/+c2T6jbz6il30tXA2HLK+cU5XkESKJddK/+MVZpGIJ2rnRAeAMY1B6u0Pc7F8WmZ1cbCbMQKYXrRkdVLr3rfQd8UpXRzGsD1ZrTLs+Ijnk3RaFm/51B1VHtlsiSM9Pm3Lo2S4J38DOcRYG01B6BtYt+MS/pesaLtTBveiEapgxw9DCjTqmBuYkaBzFZlKNTjLldKx9lq/FWY2V2W+Risa76/q04wMJ46oJWAGpdmoVUfkoZIq4jDucpQDIPRnj/zwPSa6/uybsaIzlhxNst2ligdCzAklDuULS/5ebRPVXonkyADekcuaVSeHbcedehhG8Pcv/SmBUkFzh2/DuSxvUhZDpAanQ61jMd6TYebi2CMKC4BUgI026obwe4zw91xziTL76zjIYkMZDnpoO5PXkZjw5fPHwgAl2KoAM3e/heTcjtYGfKwi8aUfDN11Nf6VordTnXGx0ojt1tAKjwr2MF1CITu5LV2oy2kahbqMAxHd1CX4USPMxthp1Uoy0tlBB6mZO
-X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700016)(23010399003)(56012099006)(10067099003)(6133799003)(3023799007)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|7416014|23010399003|56012099006|10067099003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: UxmJT3eKjLLquuigrOMh8L7s2aHV1iItKHcGITPBtFQ7UjC7rAsEpiRQDX80h2xUqaDDurumPMNx/9L/ej95s9j8LLcZMYekfYzb3a3kyf3HWpfDFiIPd2NWdLHrGgG7auqoiYAQ34KY2Ty9JJRCk4g/Ot2QkNVhQoDsOBRGQF5zmnkV8AXwX6H7IrT/tqlm7p+k+JWL691EGLt1EIk5/6Kt0IFNB/H7gJF8S+QnggXOVRTZvj5dzjAoS1l6UOuvHs2fmrHtAvUG1F97HCNKBjeu/7YKO4fsUmwtKpSTjfqBhvuGKEd6GhwOvUUtDR9Rgcimify7E72PjGASWcV6JvCYstSbkgJWx8E2JBo2vC1s1V+ubckgd497WDKf8ChpYXinigbuQgNko3+rv05SDinmUraDUoDA5MxDGiuzLJQ/OEORQuBDNAIU4fk8xKN/4+eqOof9iMAOvZz6sm5xbG2dO8EK3oeJ9RFD2lMlzoRA8/jVPbELyeBD4/3kKwNqJmA9SjB27RhIHJ5Qqqq9cCVifHGVkwph+IhV8wMVmCmq2r14Fl3XiyIqPj/+MvJP/m/EH1JUhcSiv4OOzCAvrM7H9jLQ4IO/ioUtGlPfmVhjOFDrXCnK2xFkPHubvrxpExjNtr2q6KpX06f7s+kJc/OnQX9xXy+gk2hwysqHDPo7RweAl+1BJkzTqjDqvhsDFmfrEa9B5TSMCgbSpMebkGt3ADkfF+KOjaBjEBzMELugGu5qoPTFhVT+ZDc0z1jX
+X-Forefront-Antispam-Report: CIP:64.62.143.114;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtp.corp.axiado.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(7416014)(23010399003)(56012099006)(10067099003)(18002099003)(921020);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: MG9pmjDT4ugr2RwnWf5Tyhzj0CkdaVB+Hb2CGLe2p9t/gKZqa03WF2UiqfeOwCkbkmGVnE0tAbs2JwAnIJCo1XamDtkTxW/o/OSPmZ1SSijhnvb1p9nDHrCyJ7v6jVtR6q/e/34hCXhJIgml55W7C6hsGkM3vauVFDTtbLkTIWmJLy/wGbXjJ8F3EJZbcTa+RGLCGrDqxDqau+FtJeeG+MEKoj23wk2zVrPXdiuEmxC18Mr9bSloFadHLMwm90w0/HWfTWcSRYq4LHNciRoOCaXAZOErDhy0i+SHu86bgEy14InEuA/2KjkeH6bPqwoL1+OQ5s/wUteRgzGTGk8WcxE/XldP9TOLCXeGSOfDo5QkrwCHkB9oc6dkVMp+X1jEto0prnIu6J4pVKtTfnIA1GOpZlvybCIOW+9Tks957Avm1Wvgs5C6hwtQs4qHkWxm
+X-MS-Exchange-AntiSpam-MessageData-0: PFcV2kV2hA7kqXD1o0qRem2kPZD80MkYP9tM/TvFnEQv37A3N6XcEu1RxltIkQvl326FcSjH6X1qkapapU3/0rA+6+M2h3SM/tduU/+bXeX5SI67qkaBEYz4BEVqWEB1p4NAICiPzi9a7vYST6bMR21MC5WAqOst8xP8+21I191MzvkmV8gYa/9+ZjM3ULr2L9FtZ/NLshXicKtpIyVx1YJSwDJ4jEu1j+3q/aADp7gjHGwZ2gV3WAokJk5DxuUzPYL6wp1DRlc8RSO+b6+GwXItSjo2xWtvm8nXSDfNgrckXB/SbJWlut672w4icmCDhtPL7pvGw8MBkS7KixNP9YSYlvDfbRKKEmtYWqU/oZPH3FeIG7x2KpMcQAzKoYTR10HcEjbCJMDwTcNyPNKQXds6yXNtyfRoRncbCK8uZFo/ulZ3vafi8tLooaANaAaX
 X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 09:01:36.1665
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 09:01:35.6693
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e3e91246-61d3-4b3d-8ccc-08def39951ef
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4505a7df-c331-407b-8c17-08def399519d
 X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[64.62.143.114];Helo=[smtp.corp.axiado.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F61.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023CE.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN9PR18MB4363
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY3PR18MB4739
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_020141_835242_24F9C8F4 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20260806_020143_432438_092833A9 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,531 +134,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the PWM fan controller found on the Axiado AX3000 and
-AX3005 SoCs.
+This series adds support for the fan controller found on the Axiado
+AX3000 and AX3005 SoCs.
 
-The controller uses a hardware tachometer block and interrupt to measure
-fan speed. Fan speed is controlled through a PWM signal supplied by an
-external PWM controller.
+The controller provides a hardware tachometer block for measuring the
+rotational speed of one fan. Fan speed is controlled through a PWM
+signal supplied by an external PWM controller.
 
-Register the controller with the hwmon subsystem and expose the standard
-fan1_input and pwm1 attributes. The number of tachometer pulses generated
-per fan revolution can be configured using the pulses-per-revolution
-Devicetree property.
+The tachometer counts fan pulses in hardware and reports the accumulated
+count through an MMIO register when the measurement interval expires.
+The generic pwm-fan driver counts tachometer interrupts in software and
+therefore cannot directly operate this hardware counter block.
 
-The driver was tested on AX3000 and AX3005 boards.
+The driver registers with the hwmon subsystem and provides the
+following standard sysfs attributes:
+
+  - fan1_input for the measured fan speed in RPM
+  - pwm1 for fan-speed control in the range 0 to 255
+
+The number of tachometer pulses generated per fan revolution can be
+configured using the pulses-per-revolution devicetree property. If the
+property is not specified, the driver uses two pulses per revolution.
+
+The series includes:
+
+  - Devicetree binding documentation
+  - Axiado PWM fan hwmon driver
+  - hwmon driver documentation
+  - MAINTAINERS entry
+
+The driver was tested on AX3000 and AX3005 platforms.
 
 Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
 ---
- Documentation/hwmon/axiado-pwm-fan.rst |  38 ++++
- Documentation/hwmon/index.rst          |   1 +
- MAINTAINERS                            |   2 +
- drivers/hwmon/Kconfig                  |  12 +
- drivers/hwmon/Makefile                 |   1 +
- drivers/hwmon/axiado-pwm-fan.c         | 389 +++++++++++++++++++++++++++++++++
- 6 files changed, 443 insertions(+)
+Petar Stepanovic (2):
+      dt-bindings: hwmon: add Axiado AX3000 and AX3005 PWM fan controller
+      hwmon: add Axiado AX3000 and AX3005 PWM fan controller driver
 
-diff --git a/Documentation/hwmon/axiado-pwm-fan.rst b/Documentation/hwmon/axiado-pwm-fan.rst
-new file mode 100644
-index 000000000000..d110e170b0df
---- /dev/null
-+++ b/Documentation/hwmon/axiado-pwm-fan.rst
-@@ -0,0 +1,38 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+Kernel driver axiado-pwm-fan
-+============================
-+
-+Supported chips:
-+
-+  * Axiado AX3000
-+  * Axiado AX3005
-+
-+    Datasheet: Not publicly available
-+
-+Author:
-+
-+  * Petar Stepanovic <pstepanovic@axiado.com>
-+
-+Description
-+-----------
-+
-+The Axiado AX3000 and AX3005 PWM fan controllers measure the rotational
-+speed of one fan using a hardware tachometer block. Fan speed is controlled
-+through a PWM signal supplied by an external PWM controller.
-+
-+The number of tachometer pulses generated per fan revolution is configured
-+through the ``pulses-per-revolution`` devicetree property. If the property
-+is not specified, the driver uses two pulses per revolution.
-+
-+Sysfs attributes
-+----------------
-+
-+The driver provides the following standard hwmon attributes:
-+
-+=============== ====== =====================================================
-+fan1_input      RO     Fan speed in revolutions per minute (RPM).
-+
-+pwm1            RW     Relative PWM control value from 0 to 255. A value of
-+                       255 selects the maximum PWM duty cycle.
-+=============== ====== =====================================================
-diff --git a/Documentation/hwmon/index.rst b/Documentation/hwmon/index.rst
-index 29130df44d12..857924205861 100644
---- a/Documentation/hwmon/index.rst
-+++ b/Documentation/hwmon/index.rst
-@@ -51,6 +51,7 @@ Hardware Monitoring Kernel Drivers
-    asus_ec_sensors
-    asus_rog_ryujin
-    asus_wmi_sensors
-+   axiado-pwm-fan
-    bcm54140
-    bel-pfe
-    bpa-rs600
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f528b1a42e0f..61e7a0939002 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4464,6 +4464,8 @@ M:	Prasad Bolisetty <pbolisetty@axiado.com>
- L:	linux-hwmon@vger.kernel.org
- S:	Supported
- F:	Documentation/devicetree/bindings/hwmon/axiado,ax3000-pwm-fan.yaml
-+F:	Documentation/hwmon/axiado-pwm-fan.rst
-+F:	drivers/hwmon/axiado-pwm-fan.c
- 
- AXIADO SPI DB DRIVER
- M:	Vladimir Moravcevic <vmoravcevic@axiado.com>
-diff --git a/drivers/hwmon/Kconfig b/drivers/hwmon/Kconfig
-index 2bfbcc033d59..161054ba7312 100644
---- a/drivers/hwmon/Kconfig
-+++ b/drivers/hwmon/Kconfig
-@@ -469,6 +469,18 @@ config SENSORS_ATXP1
- 	  This driver can also be built as a module. If so, the module
- 	  will be called atxp1.
- 
-+config SENSORS_AXIADO_PWM_FAN
-+	tristate "Axiado PWM fan controller"
-+	depends on ARCH_AXIADO || COMPILE_TEST
-+	depends on PWM
-+	help
-+	  This driver supports the Axiado PWM fan controller. It uses a PWM
-+	  output to control fan speed and a tachometer interrupt to report fan
-+	  speed as RPM through the hardware monitoring sysfs interface.
-+
-+	  This driver can also be built as a module. If so, the module will be
-+	  called axiado-pwm-fan.
-+
- config SENSORS_CGBC
- 	tristate "Congatec Board Controller Sensors"
- 	depends on MFD_CGBC
-diff --git a/drivers/hwmon/Makefile b/drivers/hwmon/Makefile
-index 63effc0ab8d1..78fcb22a1777 100644
---- a/drivers/hwmon/Makefile
-+++ b/drivers/hwmon/Makefile
-@@ -58,6 +58,7 @@ obj-$(CONFIG_SENSORS_ASPEED)	+= aspeed-pwm-tacho.o
- obj-$(CONFIG_SENSORS_ASPEED_G6) += aspeed-g6-pwm-tach.o
- obj-$(CONFIG_SENSORS_ASUS_ROG_RYUJIN)	+= asus_rog_ryujin.o
- obj-$(CONFIG_SENSORS_ATXP1)	+= atxp1.o
-+obj-$(CONFIG_SENSORS_AXIADO_PWM_FAN) += axiado-pwm-fan.o
- obj-$(CONFIG_SENSORS_AXI_FAN_CONTROL) += axi-fan-control.o
- obj-$(CONFIG_SENSORS_CGBC)	+= cgbc-hwmon.o
- obj-$(CONFIG_SENSORS_CHIPCAP2) += chipcap2.o
-diff --git a/drivers/hwmon/axiado-pwm-fan.c b/drivers/hwmon/axiado-pwm-fan.c
-new file mode 100644
-index 000000000000..b15bd3513d5e
---- /dev/null
-+++ b/drivers/hwmon/axiado-pwm-fan.c
-@@ -0,0 +1,389 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2021-2026 Axiado Corporation.
-+ */
-+
-+#include <linux/bits.h>
-+#include <linux/cleanup.h>
-+#include <linux/clk.h>
-+#include <linux/hwmon.h>
-+#include <linux/io.h>
-+#include <linux/interrupt.h>
-+#include <linux/math64.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/platform_device.h>
-+#include <linux/property.h>
-+#include <linux/pwm.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+
-+#define PWM_MAX	255
-+
-+/* TACH Register offsets */
-+#define AX_TACH_CTRL_REG	0x00
-+#define AX_TACH_TIMER_COUNT_REG	0x04
-+#define AX_TACH_COUNT_REG	0x08
-+#define AX_TACH_INT_STATUS_REG	0x0c
-+
-+#define AX_TACH_CTRL_ENABLE		BIT(0)
-+#define AX_TACH_CTRL_INT_ENABLE		BIT(1)
-+
-+#define AX_TACH_INT_PENDING             BIT(0)
-+
-+struct axiado_pwm_fan_tach {
-+	int irq;
-+	u32 pulses_per_revolution;
-+	u32 timer_count;
-+	u32 count;
-+};
-+
-+struct axiado_pwm_fan_ctx {
-+	/* Protects PWM state and cached PWM value. */
-+	struct mutex pwm_lock;
-+	/* Protects tachometer count updated from interrupt context. */
-+	spinlock_t tach_lock;
-+	struct pwm_device *pwm;
-+	struct pwm_state pwm_state;
-+	void __iomem *tach_base;
-+	struct axiado_pwm_fan_tach tach;
-+	unsigned int pwm_value;
-+};
-+
-+static const struct hwmon_channel_info * const pwm_fan_info[] = {
-+	HWMON_CHANNEL_INFO(pwm, HWMON_PWM_INPUT),
-+	HWMON_CHANNEL_INFO(fan, HWMON_F_INPUT),
-+	NULL
-+};
-+
-+static irqreturn_t axiado_tach_irq_handler(int irq, void *dev)
-+{
-+	struct axiado_pwm_fan_ctx *ctx = dev;
-+	u32 status;
-+
-+	status = ioread32(ctx->tach_base + AX_TACH_INT_STATUS_REG);
-+
-+	if (!status)
-+		return IRQ_NONE;
-+
-+	scoped_guard(spinlock_irqsave, &ctx->tach_lock) {
-+		ctx->tach.count = ioread32(ctx->tach_base + AX_TACH_COUNT_REG);
-+	}
-+
-+	iowrite32(AX_TACH_INT_PENDING, ctx->tach_base + AX_TACH_INT_STATUS_REG);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int axiado_set_pwm(struct axiado_pwm_fan_ctx *ctx, unsigned int pwm)
-+{
-+	struct pwm_state state;
-+	int ret;
-+
-+	guard(mutex)(&ctx->pwm_lock);
-+
-+	if (ctx->pwm_value == pwm)
-+		return 0;
-+
-+	state = ctx->pwm_state;
-+	state.duty_cycle = DIV_ROUND_UP_ULL((u64)pwm * state.period, PWM_MAX);
-+	state.enabled = pwm > 0;
-+
-+	ret = pwm_apply_might_sleep(ctx->pwm, &state);
-+	if (ret)
-+		return ret;
-+
-+	ctx->pwm_state = state;
-+	ctx->pwm_value = pwm;
-+
-+	return 0;
-+}
-+
-+static int axiado_pwm_fan_write(struct device *dev,
-+				enum hwmon_sensor_types type, u32 attr,
-+				int channel, long val)
-+{
-+	struct axiado_pwm_fan_ctx *ctx = dev_get_drvdata(dev);
-+
-+	if (type != hwmon_pwm || attr != hwmon_pwm_input)
-+		return -EOPNOTSUPP;
-+
-+	if (val < 0 || val > PWM_MAX)
-+		return -EINVAL;
-+
-+	return axiado_set_pwm(ctx, val);
-+}
-+
-+static unsigned int axiado_tach_get_rpm(struct axiado_pwm_fan_ctx *ctx)
-+{
-+	u32 pulses_per_revolution = ctx->tach.pulses_per_revolution;
-+	u64 pulses, rpm;
-+
-+	scoped_guard(spinlock_irqsave, &ctx->tach_lock)
-+		pulses = ctx->tach.count;
-+
-+	if (!pulses_per_revolution)
-+		return 0;
-+
-+	rpm = pulses * 60;
-+	do_div(rpm, pulses_per_revolution);
-+
-+	return rpm;
-+}
-+
-+static int axiado_pwm_fan_read(struct device *dev, enum hwmon_sensor_types type,
-+			       u32 attr, int channel, long *val)
-+{
-+	struct axiado_pwm_fan_ctx *ctx = dev_get_drvdata(dev);
-+
-+	switch (type) {
-+	case hwmon_pwm:
-+		if (attr != hwmon_pwm_input)
-+			return -EOPNOTSUPP;
-+
-+		scoped_guard(mutex, &ctx->pwm_lock)
-+			*val = ctx->pwm_value;
-+
-+		return 0;
-+
-+	case hwmon_fan:
-+		if (attr != hwmon_fan_input)
-+			return -EOPNOTSUPP;
-+
-+		*val = axiado_tach_get_rpm(ctx);
-+
-+		return 0;
-+
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static umode_t axiado_pwm_fan_is_visible(const void *data,
-+					 enum hwmon_sensor_types type, u32 attr,
-+					 int channel)
-+{
-+	if (type == hwmon_fan && attr == hwmon_fan_input)
-+		return 0444;
-+
-+	if (type == hwmon_pwm && attr == hwmon_pwm_input)
-+		return 0644;
-+
-+	return 0;
-+}
-+
-+static const struct hwmon_ops pwm_fan_hwmon_ops = {
-+	.is_visible = axiado_pwm_fan_is_visible,
-+	.read = axiado_pwm_fan_read,
-+	.write = axiado_pwm_fan_write,
-+};
-+
-+static const struct hwmon_chip_info pwm_fan_chip_info = {
-+	.ops = &pwm_fan_hwmon_ops,
-+	.info = pwm_fan_info,
-+};
-+
-+static int axiado_pwm_apply_disabled(struct axiado_pwm_fan_ctx *ctx)
-+{
-+	struct pwm_state state;
-+
-+	guard(mutex)(&ctx->pwm_lock);
-+
-+	if (!ctx->pwm_value)
-+		return 0;
-+
-+	state = ctx->pwm_state;
-+	state.duty_cycle = 0;
-+	state.enabled = false;
-+
-+	return pwm_apply_might_sleep(ctx->pwm, &state);
-+}
-+
-+static void axiado_pwm_disable(void *data)
-+{
-+	struct axiado_pwm_fan_ctx *ctx = data;
-+
-+	axiado_pwm_apply_disabled(ctx);
-+}
-+
-+static void axiado_tach_enable(struct axiado_pwm_fan_ctx *ctx)
-+{
-+	iowrite32(AX_TACH_INT_PENDING,
-+		  ctx->tach_base + AX_TACH_INT_STATUS_REG);
-+	iowrite32(ctx->tach.timer_count,
-+		  ctx->tach_base + AX_TACH_TIMER_COUNT_REG);
-+	iowrite32(AX_TACH_CTRL_ENABLE | AX_TACH_CTRL_INT_ENABLE,
-+		  ctx->tach_base + AX_TACH_CTRL_REG);
-+}
-+
-+static void axiado_tach_disable(void *data)
-+{
-+	struct axiado_pwm_fan_ctx *ctx = data;
-+
-+	iowrite32(0, ctx->tach_base + AX_TACH_CTRL_REG);
-+	iowrite32(AX_TACH_INT_PENDING,
-+		  ctx->tach_base + AX_TACH_INT_STATUS_REG);
-+}
-+
-+static int axiado_pwm_fan_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct axiado_pwm_fan_ctx *ctx;
-+	unsigned long tach_clk_rate;
-+	struct device *hwmon;
-+	struct clk *tach_clk;
-+	int ret;
-+
-+	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
-+	if (!ctx)
-+		return -ENOMEM;
-+
-+	mutex_init(&ctx->pwm_lock);
-+	spin_lock_init(&ctx->tach_lock);
-+
-+	ctx->tach_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(ctx->tach_base))
-+		return PTR_ERR(ctx->tach_base);
-+
-+	ctx->pwm = devm_pwm_get(dev, NULL);
-+	if (IS_ERR(ctx->pwm))
-+		return dev_err_probe(dev, PTR_ERR(ctx->pwm),
-+				     "Could not get PWM\n");
-+
-+	platform_set_drvdata(pdev, ctx);
-+
-+	pwm_init_state(ctx->pwm, &ctx->pwm_state);
-+
-+	if (!ctx->pwm_state.period)
-+		return dev_err_probe(dev, -EINVAL, "PWM period is zero\n");
-+
-+	tach_clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(tach_clk))
-+		return dev_err_probe(dev, PTR_ERR(tach_clk),
-+				     "Failed to get tachometer clock\n");
-+
-+	tach_clk_rate = clk_get_rate(tach_clk);
-+	if (!tach_clk_rate || tach_clk_rate > U32_MAX)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "Invalid tachometer clock rate: %lu\n",
-+				     tach_clk_rate);
-+
-+	ctx->tach.timer_count = tach_clk_rate;
-+	ctx->tach.pulses_per_revolution = 2;
-+	device_property_read_u32(dev, "pulses-per-revolution",
-+				 &ctx->tach.pulses_per_revolution);
-+
-+	if (!ctx->tach.pulses_per_revolution)
-+		return dev_err_probe(dev, -EINVAL,
-+				     "pulses-per-revolution cannot be zero\n");
-+
-+	ctx->tach.irq = platform_get_irq(pdev, 0);
-+	if (ctx->tach.irq < 0)
-+		return dev_err_probe(dev, ctx->tach.irq,
-+				     "Failed to get tachometer IRQ\n");
-+
-+	ret = devm_request_irq(dev, ctx->tach.irq, axiado_tach_irq_handler, 0,
-+			       dev_name(dev), ctx);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to request tach IRQ\n");
-+
-+	ret = devm_add_action_or_reset(dev, axiado_tach_disable, ctx);
-+	if (ret)
-+		return ret;
-+
-+	dev_dbg(dev, "Fan tachometer: irq=%d, pulses_per_revolution=%u\n",
-+		ctx->tach.irq, ctx->tach.pulses_per_revolution);
-+
-+	axiado_tach_enable(ctx);
-+
-+	ret = axiado_set_pwm(ctx, PWM_MAX);
-+
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to configure PWM\n");
-+
-+	ret = devm_add_action_or_reset(dev, axiado_pwm_disable, ctx);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed to add PWM disable action\n");
-+
-+	hwmon = devm_hwmon_device_register_with_info(dev, "axpwmfan", ctx,
-+						     &pwm_fan_chip_info, NULL);
-+	if (IS_ERR(hwmon))
-+		return dev_err_probe(dev, PTR_ERR(hwmon),
-+				     "Failed to register hwmon device\n");
-+
-+	return 0;
-+}
-+
-+static int axiado_pwm_fan_disable(struct device *dev)
-+{
-+	struct axiado_pwm_fan_ctx *ctx = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = axiado_pwm_apply_disabled(ctx);
-+	if (ret)
-+		return ret;
-+
-+	axiado_tach_disable(ctx);
-+	synchronize_irq(ctx->tach.irq);
-+
-+	return 0;
-+}
-+
-+static void axiado_pwm_fan_shutdown(struct platform_device *pdev)
-+{
-+	struct axiado_pwm_fan_ctx *ctx = platform_get_drvdata(pdev);
-+
-+	/* Best effort during shutdown. */
-+	axiado_pwm_apply_disabled(ctx);
-+
-+	axiado_tach_disable(ctx);
-+	synchronize_irq(ctx->tach.irq);
-+}
-+
-+static int axiado_pwm_fan_suspend(struct device *dev)
-+{
-+	return axiado_pwm_fan_disable(dev);
-+}
-+
-+static int axiado_pwm_fan_resume(struct device *dev)
-+{
-+	struct axiado_pwm_fan_ctx *ctx = dev_get_drvdata(dev);
-+	int ret;
-+
-+	axiado_tach_enable(ctx);
-+
-+	scoped_guard(mutex, &ctx->pwm_lock)
-+		ret = pwm_apply_might_sleep(ctx->pwm, &ctx->pwm_state);
-+
-+	if (ret)
-+		axiado_tach_disable(ctx);
-+
-+	return ret;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(axiado_pwm_fan_pm,
-+				axiado_pwm_fan_suspend,
-+				axiado_pwm_fan_resume);
-+
-+static const struct of_device_id axiado_pwm_fan_match[] = {
-+	{ .compatible = "axiado,ax3000-pwm-fan" },
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, axiado_pwm_fan_match);
-+
-+static struct platform_driver axiado_pwm_fan_driver = {
-+	.probe		= axiado_pwm_fan_probe,
-+	.shutdown	= axiado_pwm_fan_shutdown,
-+	.driver	= {
-+		.name		= "axiado-pwm-fan",
-+		.pm		= pm_sleep_ptr(&axiado_pwm_fan_pm),
-+		.of_match_table	= axiado_pwm_fan_match,
-+	},
-+};
-+
-+module_platform_driver(axiado_pwm_fan_driver);
-+MODULE_AUTHOR("Axiado Corporation");
-+MODULE_DESCRIPTION("Axiado PWM fan controller driver");
-+MODULE_LICENSE("GPL");
-+
+ .../bindings/hwmon/axiado,ax3000-pwm-fan.yaml      |  68 ++++
+ Documentation/hwmon/axiado-pwm-fan.rst             |  38 ++
+ Documentation/hwmon/index.rst                      |   1 +
+ MAINTAINERS                                        |  10 +
+ drivers/hwmon/Kconfig                              |  12 +
+ drivers/hwmon/Makefile                             |   1 +
+ drivers/hwmon/axiado-pwm-fan.c                     | 389 +++++++++++++++++++++
+ 7 files changed, 519 insertions(+)
+---
+base-commit: 28807a684f870463e059fbc8cb22f5b780b94fe4
+change-id: 20260520-axiado-ax3000-pwm-fan-36a89de6db61
 
+Best regards,
 -- 
-2.34.1
+Petar Stepanovic <pstepanovic@axiado.com>
 
 
