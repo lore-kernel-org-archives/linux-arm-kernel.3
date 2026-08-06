@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C64C55838
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 07:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0903DC55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Qdw3rPKOE/bqfzieoBLsN+JJCKDj8Yo0JXPMaKeuak=; b=3PTaiOtd9Gif9j588Xt4KPjzGo
-	atg6PnbyYE7VkYvVqh6JVI/RmGocu/xDgy0YbpPtTtQ5Oi+pLdslN2AevL/xMLqzLr5zuVZQKidly
-	dh2G1iMCeVsg9Do0+WWuPicOmifr2nu/Zn8SrXi7eATuocAfqS2peVDmdCRdR8rEBoUaqWPg0GIsu
-	BuKvxPN+pcbnQclZT0BEjssrcNIyt6MijJK2q5tUMUEfzZl3ZDP56ZAG9Xtwn9xkMaZvWnuf3RFR/
-	Ut0JGlTyaZNzjrfH607wO3z5K0SjgcvvOXM7PXV6zqSy3vYEnKLPC1H4ZFu2Bv42e7v737bZdNZES
-	ByYi8hnQ==;
+	bh=G4mBrcplMMkvLk0VtoqgZz3oJibjvqjIg0cwoQjSO8Y=; b=tRem9ME+Q4mYz58q+iIkQ5Jhh8
+	lm5aOC8KS9gFMiY2wO/7Ya6Bccb8ntAAxkrI1oi9yZLQvWkIIE5omutjRDKgcznQfgtiPNavGzN/B
+	X/gKURg0zJdUEMUUKSJ7uN2EC+Wcy4AnTOYXoO6aWhXs5bdwIAn476V2ZTpvRqJjzRCNSy/l19BMO
+	7sf5k0z4uuZnUpLDi9bnKbH/An/WyDGHsGy6wM5ADOrbgAu9DIGbgoA1aFqqISe0EU2U+SZrsSHea
+	LXTawgpWqkVh4hqfhFvzdjPnVnLSrbdclZSH9cjNPyK/1Vn3bKasfZgxJ2apIREDaU9g8MyyX/Yor
+	yXEnKbWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrt08-00000005BEl-3vp1;
-	Thu, 06 Aug 2026 07:58:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wrt3b-00000005BYw-2fsZ;
+	Thu, 06 Aug 2026 08:02:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrt07-00000005BES-2MVh;
-	Thu, 06 Aug 2026 07:58:51 +0000
+	id 1wrt3a-00000005BYn-49C8;
+	Thu, 06 Aug 2026 08:02:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B7C0A60A8C;
-	Thu,  6 Aug 2026 07:58:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C0881F000E9;
-	Thu,  6 Aug 2026 07:58:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BE38A60A64;
+	Thu,  6 Aug 2026 08:02:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E84481F000E9;
+	Thu,  6 Aug 2026 08:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786003130;
-	bh=6Qdw3rPKOE/bqfzieoBLsN+JJCKDj8Yo0JXPMaKeuak=;
+	s=k20260515; t=1786003345;
+	bh=G4mBrcplMMkvLk0VtoqgZz3oJibjvqjIg0cwoQjSO8Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=J8YD+KrbFok+1fwrI0iVh4vH26ewld4lv4yE4DFBk81pY0lZdIVyTtOduja1KQ1L3
-	 BV958JiLuPY/ayW+tVLF8iavvaLcHpcaNd+5HKEnzG/wxP5fw0xcGz5ZrCF96Ga3rQ
-	 ckARtxPyCWzm/OG4zer/hsYuw61JO3TxKyA3pb1bv+sVmLiolZQc9VE6T8be16/0Lj
-	 pxPY2tkmJr0KqCi8N0/leBGXsiRewNbRPX/Jt8LHaJlHqqSX8Ocp0sZRGKAA/snYwu
-	 kWb5phclr88l1FQHh0l1AcAt9lBb+HtlHoWI3czYHgwuZFMhavmOxmga44ZQ7ZyAHq
-	 m/0hJeUVeZY+Q==
-Date: Thu, 6 Aug 2026 08:58:32 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Yunhui Cui <cuiyunhui@bytedance.com>
-Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, kasan-dev@googlegroups.com, David Hildenbrand <david@kernel.org>
-Subject: Re: [PATCH v2 00/15] riscv: add Svnapot PTE folding support
-Message-ID: <anQ-GfzFl-thu3q8@lucifer>
-References: <cover.1784201104.git.cuiyunhui@bytedance.com>
+	b=egYFd4uftcou2OI3Py4pJ/G23qlqTVM4ey/w9Mi1+qLdnuY5sybr+2Yr5Habu9JP+
+	 79UxBnx0Rbe3bkI7Ne+gw1/g2HAm4rKTnVL5Ud6qSqG0PMzUqF6fUGXtK4Yi8Q6g/L
+	 wG7/QeFKeT3f99W1lT4EveCsdPILhDrMxXguOdftJ/2dpKPM1pId1tOvY0Z6453qpb
+	 k+Derjlv5TM/omVIzJN+R2H/rAwdPRBxaCBhqKxo3CzU46TbrYFQtqSHUwlp0Wu35E
+	 yR75vEMfLOCFMSYn0rNUfNL89WpSL2cZ4+3RFpyZjWkQMfX+blmgYD7O/UwDnklD5Y
+	 LUWS4yBbBVGBA==
+Date: Thu, 6 Aug 2026 10:02:23 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Daniel Pawlik <pawlik.dan@gmail.com>
+Cc: netdev@vger.kernel.org, win847@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Christian Marangi <ansuelsmth@gmail.com>
+Subject: Re: [PATCH v2] net: airoha: npu: use coherent DMA for mailbox
+ messages
+Message-ID: <anQ_jxeuxFH4vf1i@lore-desk>
+References: <20260805070851.2885888-1-pawlik.dan@gmail.com>
+ <20260806072601.1815487-1-pawlik.dan@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9tofzTosBcZJpMvZ"
 Content-Disposition: inline
-In-Reply-To: <cover.1784201104.git.cuiyunhui@bytedance.com>
+In-Reply-To: <20260806072601.1815487-1-pawlik.dan@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,14 +72,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I already commented on you failing to cc- anybody here (!)
+--9tofzTosBcZJpMvZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I am guessing you did the core bits in response to David's request ([0]), but in
-general - if you're changing core mm to suit an arch change, you really need to
-send it as an RFC and then it'd make sense to send the core mm changes
-separately as an RFC with an explanation as to why you need them.
+On Aug 06, Daniel Pawlik wrote:
+> Commit 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox
+> buffer") switched airoha_npu_send_msg() to DMA_BIDIRECTIONAL so
+> non-coherent CPUs invalidate caches before reading NPU GET responses.
+>=20
+> On EN7581 + MT7996 that change regresses probe: the mailbox completes
+> successfully, but WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0 and
+> mt76 never binds NPU offload. Healthy boards report 0.1111.
+>=20
+> airoha_npu_send_msg() is also used from PPE foe_commit under
+> spin_lock_bh(), so per-message dma_alloc_coherent(GFP_ATOMIC) is a poor
+> fit. Allocate one device-managed coherent bounce buffer at probe and
+> reuse it under the existing per-core mailbox lock. That also keeps the
+> buffer valid if the NPU completes a write after a mailbox timeout.
+>=20
+> Verified on Quantum Fiber / Gemtek W1700K (EN7581 + MT7996).
 
-[0]:https://lore.kernel.org/all/62c418bc-082b-4ae2-a889-f63dd2b7f503@kernel.org/
+Hi Daniel,
 
-Thanks, Lorenzo
+I tested the issue you reported on a very similar hw (reported below) and it
+works fine for me
+- EN7581-mmc
+- MT7996 SoC
+
+@Christian: Is the issue occurring for you? I guess we should debug it a bit
+more.
+
+>=20
+> Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buff=
+er")
+> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/202608050=
+70851.2885888-1-pawlik.dan@gmail.com/
+> Assisted-by: Cursor:composer-2
+> Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+> ---
+> v2:
+> - allocate one coherent mailbox buffer at probe and reuse it under the
+>   per-core lock instead of per-message dma_alloc_coherent(GFP_ATOMIC)
+>=20
+>  drivers/net/ethernet/airoha/airoha_npu.c  | 31 +++++++++++++++++------
+>  include/linux/soc/airoha/airoha_offload.h |  4 +++
+>  2 files changed, 27 insertions(+), 8 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ether=
+net/airoha/airoha_npu.c
+> index b679bed952de..dfa09fed907e 100644
+> --- a/drivers/net/ethernet/airoha/airoha_npu.c
+> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
+> @@ -23,6 +23,8 @@
+>  #define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
+>  #define NPU_EN7581_FIRMWARE_DATA_MAX_SIZE	0x10000
+>  #define NPU_DUMP_SIZE				512
+> +/* Enough for struct ppe_mbox_data and small WLAN TLV payloads */
+> +#define AIROHA_NPU_MBOX_SIZE			256
+
+Are you sure this is enough for all possible messages?
+
+> =20
+>  #define REG_NPU_LOCAL_SRAM		0x0
+> =20
+> @@ -165,17 +167,24 @@ static int airoha_npu_send_msg(struct airoha_npu *n=
+pu, int func_id,
+>  {
+>  	u16 core =3D 0; /* FIXME */
+>  	u32 val, offset =3D core << 4;
+> -	dma_addr_t dma_addr;
+>  	int ret;
+> =20
+> -	dma_addr =3D dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
+> -	ret =3D dma_mapping_error(npu->dev, dma_addr);
+> -	if (ret)
+> -		return ret;
+> +	if (size > AIROHA_NPU_MBOX_SIZE)
+> +		return -EINVAL;
+> =20
+> +	/*
+> +	 * Mailbox payloads are bidirectional (CPU request, NPU response).
+> +	 * On EN7581+MT7996, streaming DMA_BIDIRECTIONAL against the
+> +	 * caller kzalloc() buffer can leave WLAN_FUNC_GET_WAIT_NPU_VERSION
+> +	 * reading as 0.0 despite MBOX success. Reuse a probe-time coherent
+> +	 * bounce buffer under the per-core lock (also used from PPE
+> +	 * foe_commit under atomic context).
+> +	 */
+>  	spin_lock_bh(&npu->cores[core].lock);
+> =20
+> -	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, dma_addr);
+> +	memcpy(npu->mbox_buf, p, size);
+
+Even if it is a just a theoretical issue (we just use core 0 at the moment)=
+, we
+should have a per-core buffer since we can theoretically have concurrent me=
+ssages
+on different cores.
+
+> +
+> +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, npu->mbox_dma);
+>  	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, size);
+>  	regmap_read(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, &val);
+>  	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, val + 1);
+> @@ -189,9 +198,10 @@ static int airoha_npu_send_msg(struct airoha_npu *np=
+u, int func_id,
+>  	if (!ret && FIELD_GET(MBOX_MSG_STATUS, val) !=3D NPU_MBOX_SUCCESS)
+>  		ret =3D -EINVAL;
+> =20
+> -	spin_unlock_bh(&npu->cores[core].lock);
+> +	if (!ret)
+> +		memcpy(p, npu->mbox_buf, size);
+
+I do not like this double copy here. I guess we could pass a pointer for the
+reply buffer to airoha_npu_send_msg() and avoid the copy in
+airoha_npu_wlan_msg_get(). What do you think?
+
+> =20
+> -	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
+> +	spin_unlock_bh(&npu->cores[core].lock);
+> =20
+>  	return ret;
+>  }
+> @@ -770,6 +780,11 @@ static int airoha_npu_probe(struct platform_device *=
+pdev)
+>  	if (err)
+>  		return err;
+> =20
+> +	npu->mbox_buf =3D dmam_alloc_coherent(dev, AIROHA_NPU_MBOX_SIZE,
+> +					    &npu->mbox_dma, GFP_KERNEL);
+> +	if (!npu->mbox_buf)
+> +		return -ENOMEM;
+> +
+>  	err =3D airoha_npu_run_firmware(dev, base, &res);
+>  	if (err)
+>  		return dev_err_probe(dev, err, "failed to run npu firmware\n");
+> diff --git a/include/linux/soc/airoha/airoha_offload.h b/include/linux/so=
+c/airoha/airoha_offload.h
+> index 7589fccfeef6..afd481233489 100644
+> --- a/include/linux/soc/airoha/airoha_offload.h
+> +++ b/include/linux/soc/airoha/airoha_offload.h
+> @@ -179,6 +179,10 @@ struct airoha_npu {
+> =20
+>  	struct airoha_foe_stats __iomem *stats;
+> =20
+> +	/* Coherent bounce buffer for mailbox cmd/rsp (airoha_npu_send_msg) */
+> +	void *mbox_buf;
+> +	dma_addr_t mbox_dma;
+
+you need to move them in airoha_npu_core struct. Please rename them to:
+
+	struct airoha_npu_core {
+		...
+		void *buf;
+		dma_addr_t addr;
+		...
+	};
+
+Regards,
+Lorenzo
+
+> +
+>  	struct {
+>  		int (*ppe_init)(struct airoha_npu *npu);
+>  		int (*ppe_deinit)(struct airoha_npu *npu);
+> --=20
+> 2.55.0
+>=20
+
+--9tofzTosBcZJpMvZ
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCanQ/jwAKCRA6cBh0uS2t
+rEesAP9YwI3B8KcL0t7IuGBi4EsnYjyf9b2tfEZ1b4GfKQTmuwEAvsXTkH8KLaTN
+02bD6Xwo5rgejGryitnWS/humdqftwM=
+=Fp5W
+-----END PGP SIGNATURE-----
+
+--9tofzTosBcZJpMvZ--
 
