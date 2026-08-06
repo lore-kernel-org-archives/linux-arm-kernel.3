@@ -4,77 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9272C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AA1FC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 14:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9MvHu1Pl2ssBHzhmhTZmBr2JBtolR+FQT5i70MkMUxQ=; b=2CdAODaW7EukkntqnmlFdFLWwM
-	/Wwdh1cI7tmFHv+xYX4yX5Ujfz6qIxd4sfi1fWrymI4KIaWbH3TL4YgB00rcFSqamLkPYIpzeoMhH
-	0U2hqugTZ9wPQPnMm/xfao63shUqjNhMzGsdHSYmDSixSKYKJvXByDiuBXEafQtXGdoYd+KoU74uN
-	p1opIG4XscqZtbMPJNfCpzhbIF07fboLtvWJaRAO9Ih0gzglXifUV57fOb4akrm04IaL1VrD4mViU
-	teS+aD8X+T2uic2QXWk30vXbuAyt4DiEWCB/jcDAG1ljue6YTAjgNaaSK02cqjMrkUsxsi28Edlgi
-	T4DiZBfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7pMfYgYsPe6RYIlMfXawdb5sgBE6uIIG4t7FMT8HGy0=; b=f8wtG2FMuryR6GhpmhxRi5wKeo
+	5v2n8DD8/scAv0RVi9qERQVQMD6s0p16GeJ5AUMwT8ts3RZZytaXQoSG2xIgaiVThROLc4708kYIr
+	5A9H3jqH+dxd+VD25RYXGnx6XpeeWPj/GFshYH3ge5FnBleE/m+mYIknHZAo0NhcS3Nqu7Ko6TmN6
+	qqxAoQ1RyLQ4pYsPhwKgWR2b7w3N7XLqJK6QtsMFgOmn7OtXrUK7Fjc+ZSNd58Nk8nLT8sO/KGHia
+	oDJeIENNftZZjWV3HGfkMKl8mvimTgbBcBnxT6+v+SOWklNToLC2RYtOUKMpM5+ESdqd8MAbMCfdn
+	8BoLI31A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryXI-00000005wYB-0Ivh;
-	Thu, 06 Aug 2026 13:53:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wrynT-00000005xlk-0cD7;
+	Thu, 06 Aug 2026 14:10:11 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryXH-00000005wXz-1gme
+	id 1wrynQ-00000005xlM-36Wf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 13:53:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D356A60A99;
-	Thu,  6 Aug 2026 13:53:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 556B71F000E9;
-	Thu,  6 Aug 2026 13:53:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786024406;
-	bh=9MvHu1Pl2ssBHzhmhTZmBr2JBtolR+FQT5i70MkMUxQ=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Vp2tN+o31EsdMyor7sYZoPaRvifAaVI0ng6axlV+D3HQZ87rBtnUL8FxPgESR/eDI
-	 9fdM4SQ9ACgkezeHcW04FMFaql9Kc9HS9j98nmY02HT4aq4BjB+azty6HJ0TC8viGH
-	 OHTurSNVGbLVxdOrIS0VEo/JvBDtm0nkMTyC0shIJqgDSgYYJaIm25iiVUAINwwHhL
-	 8/3ZF10KVCp7Yp1PtMbSSe2DjxVAh69HMDlAyvLHou2ejEHUOA0nZju/1D6F8G8ZMp
-	 Yfwt98mBfhcbk0xLoPkLu79bZhedv0iXd+GbPj0i1ykSn9dMI065p8MR7Nh2NWn0n+
-	 dXYvxhXgj8iZw==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Usama Arif <usama.arif@linux.dev>,
-	Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	x86@kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org,
+	Thu, 06 Aug 2026 14:10:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g0l5SZH49Ipyn6koyD724qfQtuDoAhgy3CSrPmGKt0i4UWWlNenOrgLt+1qWUKdkrJ/FA4cQWQeRTSUKn4BFFs37SKL/sYskG+quEX/XF6pscYGtf06SyCGJsfGSseCcIITQ3wbi6j1ICEI5rZTfteKZGeOXwaYcJgKHx7lU21BC50e5ZVRFR3ZiiYF96K0yEPO8V3gQvVLQ47QtKgOsTP3btLo8vTXL6JLuHJICYoY1fd3yJuClztNT12A5dMhQ+xAQbse1KftDfDCpKuJ4ECEDWh7xYxPBQ053yV4lO4VmxLu0goOFUbgReVrQmWuEq04e+fd/0dUx/Q+HeWPhlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7pMfYgYsPe6RYIlMfXawdb5sgBE6uIIG4t7FMT8HGy0=;
+ b=IPNasRLgO+0Weun2KKsNLOyiYhQI0H41NVsucLfGhfqKhmBeU0ZuS/8oJpO2Ke4/xl+eajhkx05e3FsLrCIA1dQxpwfpj3pvH4A1/pdN1QdEw235zAiU0kfPX7kfss14cHkxPP3jKENwJbE7GMS0g3jsx2vyX+Hx7wMmNcZYVpK/NLCxVL5ZFsSmeevmebWHRvjGW9tBRHv6t6BSQWBLyVd3Wd3P84DduNGlgoP5TWZGagrR8PaFpAVIvxh/OW5ytjDcgHOnySFiiL75cWoIJifV7Ydol6Yx3Y1dBjZoRTOi8bItheqzDt6X6hE6eyHhbc7wM8RSY7BJEN3g7rKnRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7pMfYgYsPe6RYIlMfXawdb5sgBE6uIIG4t7FMT8HGy0=;
+ b=te5U1qH3N9Vg8Vjn1osaaoeMsOAD3GIU1ZitFNNSV0R0JlQ5mLjrFxEKQa3ba40PQZOVp3mG11AL1J1wfrGD3TlaZy6voWyW44YQvtfdPXl+cUpZf6+na0oeB/6AQuECSXKCAYqj+l/j86dexZti9M4xfhYMzpMqYqvxAY0F780TSP8CK10W9UzRs9V5cwgnjRV/UgWoMVvS0JX4IJfNd/zJrdWe/2TQeY/+I133KyoDVkxhqa1CEx/TFIBXpMAfE1jyRl2azwIarmBOm6RhGptJkZ274Ong3Nbc1mDpv7htjeqjuM2tmKtBAxOUt4pk617GiUMV7STDBs4v3CMAxQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DS7PR12MB8345.namprd12.prod.outlook.com (2603:10b6:8:d8::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.21; Thu, 6 Aug
+ 2026 14:09:54 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0292.019; Thu, 6 Aug 2026
+ 14:09:52 +0000
+Date: Thu, 6 Aug 2026 11:09:51 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Will Deacon <will@kernel.org>, Nicolin Chen <nicolinc@nvidia.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>, linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 3/3] perf/core: Clear the whole branch entry in perf_clear_branch_entry()
-Date: Thu,  6 Aug 2026 06:52:23 -0700
-Message-ID: <20260806135224.3267890-4-puranjay@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260806135224.3267890-1-puranjay@kernel.org>
-References: <20260806135224.3267890-1-puranjay@kernel.org>
+Subject: Re: [PATCH v3] iommu/tegra241-cmdqv: Reject a VCMDQ base above the
+ 48-bit hardware limit
+Message-ID: <20260806140951.GA71449@nvidia.com>
+References: <20260729220329.805417-1-nicolinc@nvidia.com>
+ <anSCXUjivdb_aOv_@willie-the-truck>
+ <7e66d67a-f63f-465c-acb0-c1238f534c07@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7e66d67a-f63f-465c-acb0-c1238f534c07@arm.com>
+X-ClientProxiedBy: YT4P288CA0067.CANP288.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d2::27) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS7PR12MB8345:EE_
+X-MS-Office365-Filtering-Correlation-Id: 34bbf99e-71ec-4431-4b63-08def3c4623c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|23010399003|11063799006|56012099006|10067099003|18002099003|22082099003|4143699003;
+X-Microsoft-Antispam-Message-Info: GOldzsKZEldOrG37TJZg3nj3Ld/BOhha+DVn2iWuXp7813VvIJ08jWXR6jA5wXBKPQB6cYmGmHdq6OIB3HGuwWmcRVcM1SWD/FXyGGDx5vR06uPG6MAC7DvDU8eGJesL/9mPratJGX578IcjHHBV79vFl8veWUk9e2pY0jlHRZODObub5dKuDwTNR88uEQVK8AJ3qeLBSNdu5MnjSY5xNbpgqHJeQJSoNOO4q885FCsZH7kR/O2HjwPSnM/SylBFfDbjiNZULOawkfAvvZ/KNQ3kWieM7yxuoInU/Ax6dyZw29HUk+8u9NOZM/PmeEb/oyDEt4qjvZKZKVrX8dZyDipJihGIU3Wo5JFVRtuYrzmyFsJt6oupACc7S2nEHYP9EFJPo6lqAjpLXOVITTvX+KK1XkaiMPjrSSecCVJ1/9ILEX1j6Iz+W+nOaHK5LzQI3XDusWNXRDLbuI9k8OEZaeE8ONb5O2AhqZlrbUc/RyhfP+p4NtfsNf5/h6A8YUxkijQZRauE0ZsINbdy+bkTN5crmlRAU5UG7EjZ/s3Iu98ubMc4iI/dAvvTP8AAbnmg7Agz9tvqeiRPL4r3ACAbiiG1HMamkQzEEudnIt8ciVBDg7X0th3MpZ7ONXcgOs24aAsD+8do1KGRq6r9pwlz0sUCeqtObU1SFyYq5q/ZvCI=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(23010399003)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uPtUtMd1Wti030/G46w9MOaIjbkeUyFdV4TL+Gq2IoOBMKfAKp9gTlLwdY29?=
+ =?us-ascii?Q?oFDKZKjtTOIDKgmRsMNQkTcjgv0GJPyFW3A6TskNHwGQNDbacyYlUJ+3EJKI?=
+ =?us-ascii?Q?en+K8JKxxrMexd8/wje09957EdrQOgv9yP4nSioy5C1klPZZQnQxjztItNft?=
+ =?us-ascii?Q?mwytiTevF3AYMw9DqutGhxET0Nw+TvVJvISXSQ9sfJMjaNkHMjwFx8SpR49F?=
+ =?us-ascii?Q?jPhDJGGN2ObaP13QUKezO9QxspmSjD178KCwvDHBsDTq1NIe6Uxdg/tbdUC/?=
+ =?us-ascii?Q?9L+fiZECIBcAPZScrHH9NsZJLNjNhuoTa3NAJrChTQFLbYN7EkN6BM02L5r1?=
+ =?us-ascii?Q?SGiYA4SblneoOKbh+29Q/CBMjEmBheblvinIu7VTMASRfxbi0A8GIpUo/i5Z?=
+ =?us-ascii?Q?/27XfRh9ftCx6SCmuU3FiHCPT6AVF/LZdtJjG3DRehVS5WkQ2fM5vPqruYrx?=
+ =?us-ascii?Q?EVHGgl9J5rsIQgBDuoVIIgXz72baeoxYqrhtL4NHPy2tLDji/mbUsAiNXj4C?=
+ =?us-ascii?Q?SiEO8a/8MGHJohkHxJG5iLqQpVVL8C2cTuZyseGzlQOZn4mpBnZdq64xL6ML?=
+ =?us-ascii?Q?oy4RiMpSPcbTOjB2xOjqcKF1qV9ZX4MPWRSYmNqQVuSp9ldMoY3HawWR8+4x?=
+ =?us-ascii?Q?a5MtnYNK5khNC76/IyFd0bPJoT2CMmPX0wC8L/3tNAeupVa8vsAIaoWvZgim?=
+ =?us-ascii?Q?QzXnNDuChfoKDpMSpdSNTyLhxZeByyNgRBRs2AmvuEsbhs3ZkGPZ4lMYj0E4?=
+ =?us-ascii?Q?bpVRu8UgqpijbgGPPKrLtSBfaSjEBq0aVxzZmQeCFMPlZTchUXq+mwz96N8/?=
+ =?us-ascii?Q?TTC9/z1fZI6BjEpoM2B21lXglqRe9/aWihfWmiIjGGRgw8OU7JjvrYJQTi/d?=
+ =?us-ascii?Q?p3YSttS0hNxOZOaVeMcA6UaYjPUt+vKMnu98eLR4NqsZui0Ow4mZe6JrTmja?=
+ =?us-ascii?Q?tz9LafbRQ291j4a/zWYtQZrJB4P91/Dm8Jicz1Rkp2SWPtfdsh7Co4/KrbXe?=
+ =?us-ascii?Q?Y04kj0WovGGv1OUGnQDcmySTik4b7tBCpvZ2SePFN+tWk0wLPYMf3q1pPqBV?=
+ =?us-ascii?Q?ZP/cZuO8cqxlMf2crU8m9syPzRSfiAvn1VQ6gRgUExyU0Wb6UgkLUPpZpcIo?=
+ =?us-ascii?Q?nIAt2qoqlkJIqo+ASvdK7mt0gD5Eq/ndKX5ZtNUj1gwiJJzwfx+qXR/yiQty?=
+ =?us-ascii?Q?Fhrmef4Dzyoz9uHc26eCt4bPQDpeA6hHM+IfpHkonZ0XsCz5ARQgjY3cu5Bk?=
+ =?us-ascii?Q?xQLid40GSpHUnhsb2RcZSrfcxgB9bG76pM+sQj7bqn+Kobg/X8R7S3a33xlQ?=
+ =?us-ascii?Q?VWPFaGjefUKhMTmQEL82H8Q8LEv4lxkT7sJe34/+wdBRMIKJjGaHC+UV8vEc?=
+ =?us-ascii?Q?qwclWO/q8oOEe6bH9/3JLDpW3dHf7kZXsGevbnPCEPpGV6xXa5nsWKq/XZ3P?=
+ =?us-ascii?Q?UwcNROTpD/jC5mYr/+1ivJPGQ/i4aEe46OtFOjxM4PHiButv1KXivCyH5Hcj?=
+ =?us-ascii?Q?1iPL5hdpI69aKa6LRqocCa5pOHToAAM1CF+4CQtW7lXDdfrMp+F6neUZWKeh?=
+ =?us-ascii?Q?6VyhbSzGa8sg0ty1GAZfUzV5RdNzPm2cG55ei2VpBUjKuzH/CsgBRjlAGfY0?=
+ =?us-ascii?Q?ko+uZGkJr1zDpTnMXZlQRVacqW2kIp4EC6LdflLLuHaPrZ+06EkL2o4hfimS?=
+ =?us-ascii?Q?5fllYUhqw7JQdLO0BoGBG4zga7iKPvUTAjrLfialNgSZW+B2dfEvVts+yXz/?=
+ =?us-ascii?Q?s7jNF9DF5Q=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 34bbf99e-71ec-4431-4b63-08def3c4623c
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 14:09:52.2097
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EWwGHMpeVr6dVUZRWXc4dvriRnKxWBbbPEaX4watjvBUiOO3gxIh/w58i94eJugs
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8345
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_071008_781432_0F411FC5 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,147 +140,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-perf_clear_branch_entry_bitfields() clears the bitfields of struct
-perf_branch_entry one by one and leaves from/to alone, since callers
-overwrite those straight away. The list has to be kept in sync with the
-struct by hand and has already fallen behind: new_type and priv were
-added to perf_branch_entry and never added here.
+On Thu, Aug 06, 2026 at 02:17:31PM +0100, Robin Murphy wrote:
 
-Only BRBE writes those two, and neither is written for every record.
-brbe_set_perf_entry_type() leaves new_type alone for a branch type it
-does not recognise, and priv is not set for source-only records.
-arm_pmuv3.c allocates the per-CPU branch stack with kmalloc(), so such a
-record carries whatever the slot held: uninitialised kmalloc() data on
-the first pass over the buffer, the previous record's values after that.
-Both reach userspace through the branch stack. Nothing under
-arch/x86/events/ writes either field, so x86 is unaffected.
+> But if we really do want to bother sanity-checking emulations, then why
+> allow them to still get away with being broken in the case that we do happen
+> to allocate queue memory at a sufficiently low PA anyway? Why not actually
+> validate smmu->oas itself (plus anything else relevant) in
+> __tegra241_cmdqv_probe()?
 
-Clear the entry with a single struct assignment instead:
+Yeah, if the VMM has setup the SMMU so it cannot access all of DRAM
+then it is going to be really broken across the entire driver. This
+just doesn't work at all. No reason to add any special cases to look
+for it only in vcmdq.
 
-	*br = (struct perf_branch_entry){ };
+IMHO the error here is masking the base:
 
-The bitfields add up to exactly 64 bits, so there is no padding, and
-every caller assigns from/to immediately afterwards, so zeroing those as
-well changes nothing. PERF_BR_SPEC_NA is 0, so dropping the explicit
-spec assignment leaves the behaviour unchanged. Nothing needs keeping in
-sync when a field is added.
+ 	q->q_base = q->base_dma & VCMDQ_ADDR;
 
-The helper no longer touches only bitfields, so rename it to
-perf_clear_branch_entry().
+That's sort of a HW bug to design like that, the base should be a full
+64 bit value and programming any base that falls outside the S2 should
+always generate the same HW fault forwarded toward the VM. The HW
+should have captured the unsupported upper bits and compressed them
+into a 'fail all DMA' flag.
 
-Fixes: b190bc4ac9e6 ("perf: Extend branch type classification")
-Fixes: 5402d25aa571 ("perf: Capture branch privilege information")
-Suggested-by: James Clark <james.clark@linaro.org>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Acked-by: Usama Arif <usama.arif@linux.dev>
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
- arch/x86/events/amd/brs.c   |  2 +-
- arch/x86/events/amd/lbr.c   |  2 +-
- arch/x86/events/intel/lbr.c |  6 +++---
- drivers/perf/arm_brbe.c     |  2 +-
- include/linux/perf_event.h  | 16 ++--------------
- 5 files changed, 8 insertions(+), 20 deletions(-)
-
-diff --git a/arch/x86/events/amd/brs.c b/arch/x86/events/amd/brs.c
-index 06f35a6b58a5b..68c5f42965e91 100644
---- a/arch/x86/events/amd/brs.c
-+++ b/arch/x86/events/amd/brs.c
-@@ -343,7 +343,7 @@ void amd_brs_drain(void)
- 
- 		rdmsrq(brs_from(brs_idx), from);
- 
--		perf_clear_branch_entry_bitfields(br+nr);
-+		perf_clear_branch_entry(br + nr);
- 
- 		br[nr].from = from;
- 		br[nr].to   = to;
-diff --git a/arch/x86/events/amd/lbr.c b/arch/x86/events/amd/lbr.c
-index 5b437dc8e4ce2..3639817456119 100644
---- a/arch/x86/events/amd/lbr.c
-+++ b/arch/x86/events/amd/lbr.c
-@@ -183,7 +183,7 @@ void amd_pmu_lbr_read(void)
- 		    entry.to.split.reserved)
- 			continue;
- 
--		perf_clear_branch_entry_bitfields(br + out);
-+		perf_clear_branch_entry(br + out);
- 
- 		br[out].from	= sign_ext_branch_ip(entry.from.split.ip);
- 		br[out].to	= sign_ext_branch_ip(entry.to.split.ip);
-diff --git a/arch/x86/events/intel/lbr.c b/arch/x86/events/intel/lbr.c
-index f8fadb0b16a45..6541c7046c2b3 100644
---- a/arch/x86/events/intel/lbr.c
-+++ b/arch/x86/events/intel/lbr.c
-@@ -756,7 +756,7 @@ void intel_pmu_lbr_read_32(struct cpu_hw_events *cpuc)
- 
- 		rdmsrq(x86_pmu.lbr_from + lbr_idx, msr_lastbranch.lbr);
- 
--		perf_clear_branch_entry_bitfields(br);
-+		perf_clear_branch_entry(br);
- 
- 		br->from	= msr_lastbranch.from;
- 		br->to		= msr_lastbranch.to;
-@@ -847,7 +847,7 @@ void intel_pmu_lbr_read_64(struct cpu_hw_events *cpuc)
- 		if (abort && x86_pmu.lbr_double_abort && out > 0)
- 			out--;
- 
--		perf_clear_branch_entry_bitfields(br+out);
-+		perf_clear_branch_entry(br + out);
- 		br[out].from	 = from;
- 		br[out].to	 = to;
- 		br[out].mispred	 = mis;
-@@ -921,7 +921,7 @@ static void intel_pmu_store_lbr(struct cpu_hw_events *cpuc,
- 		to = rdlbr_to(i, lbr);
- 		info = rdlbr_info(i, lbr);
- 
--		perf_clear_branch_entry_bitfields(e);
-+		perf_clear_branch_entry(e);
- 
- 		e->from		= from;
- 		e->to		= to;
-diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
-index ba554e0c846c4..effbdeacfcbb3 100644
---- a/drivers/perf/arm_brbe.c
-+++ b/drivers/perf/arm_brbe.c
-@@ -604,7 +604,7 @@ static bool perf_entry_from_brbe_regset(int index, struct perf_branch_entry *ent
- 		return false;
- 
- 	brbinf = bregs.brbinf;
--	perf_clear_branch_entry_bitfields(entry);
-+	perf_clear_branch_entry(entry);
- 	if (brbe_record_is_complete(brbinf)) {
- 		entry->from = bregs.brbsrc;
- 		entry->to = bregs.brbtgt;
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 48d851fbd8ea5..e034be4a473a8 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -1467,21 +1467,9 @@ static inline u32 perf_sample_data_size(struct perf_sample_data *data,
- 	return size;
- }
- 
--/*
-- * Clear all bitfields in the perf_branch_entry.
-- * The to and from fields are not cleared because they are
-- * systematically modified by caller.
-- */
--static inline void perf_clear_branch_entry_bitfields(struct perf_branch_entry *br)
-+static inline void perf_clear_branch_entry(struct perf_branch_entry *br)
- {
--	br->mispred	= 0;
--	br->predicted	= 0;
--	br->in_tx	= 0;
--	br->abort	= 0;
--	br->cycles	= 0;
--	br->type	= 0;
--	br->spec	= PERF_BR_SPEC_NA;
--	br->reserved	= 0;
-+	*br = (struct perf_branch_entry){ };
- }
- 
- extern void perf_output_sample(struct perf_output_handle *handle,
--- 
-2.53.0-Meta
-
+Jason
 
