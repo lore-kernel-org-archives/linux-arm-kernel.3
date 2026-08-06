@@ -4,127 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51E75C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:53:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD06C56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GLZVvWnmVYEOZ60GUJzWl+4H/vxFacK0X3tmmC3tbT8=; b=ulNhheVMZvVT00H4jhObzpzOeV
-	VH6ZsBQN1lF5k2spXFlTLBddth1iOz/RaGXtRotmHtg9RIeGzWQom0wxfYSbsjnU3TtrBHQ1w8wvW
-	z6MU019H4eeF7VYLTD4GmOjEC8pvm9Enr/PrZEwaaSz1zUmGCjwZw0R5lxovF3jVzr2StZE6k58LP
-	OXC5kNxgULlpUfxYg7RR4jA8VraMEft2dV92+CWVZOCcTEk3+cV6UvRv999YkpPQKois7kqcC15Es
-	ZreNK8Yx7iUt/nN9YkToaT7OMwX5APZYAqpKFXmSPEyb8sHu2efwG0L1eIDnSidES5riuQp6kwqD6
-	tuXsjANg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=87/H9EMlwH5MQtLg4YoCYwZZh62cqUzZ27PH8DCBgO4=; b=bZnAF0PPdRqyHo19T6idJVKK5x
+	ioQQeWGP0oxyTYIocOmpXKp523+XI/c6Nx9uKCRNNXCfvif0vG4HJTDvAH7E+6+i0BT3TRBsX0yQx
+	yMMg+6i/3hUEHxgxySdO01huTKGZABhWZDQrocHaV4k9hLX6Np08qvHtPAbb3BcGph4LS9GKhwaoL
+	5H/f602U6T/BYGprC7cdCB9MDf7X+qmylwt/rq/j0GSm13Izn0MI4uQE0nmx7slTTCUN3ZOczlzyo
+	F6LqA9Z3zL1ev9olgOF4RH7cBFnvECpGayCgSWff311xc9Ls4FzCjZYIM+Uaur+fW8CTjAd6vO/eB
+	vOJjDivg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws0Ph-000000068yB-0ZZ1;
-	Thu, 06 Aug 2026 15:53:45 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1ws0Qn-00000006940-1YY0;
+	Thu, 06 Aug 2026 15:54:53 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws0Pe-000000068xX-0syQ
+	id 1ws0Qk-00000006939-3vlV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 15:53:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UUj4XW6wvGOA/uHuCLZRDC2Z60i5Sd4QCLpp9ze+C32QMDWBi0HNb4XnvLOUp08gg2B1O6byze/ZIHirXgfxei7YMVNB7oqmD47nNuVuOm5E4YYl59uw5/o5suWg9RrehjW+t0aHxiCztcU9bYN8UuamiU2WFEsAa2qneZjYYCstB1Fuy3bky1q6JAX37p4oV/hYC0V/EtZZ2Xpk91biu3onsBaJL20tCR25ituQCANQx70z+5DV8Vrmn4RbZ0jk5KrgEzOY7boB1mBhbxAr4HwJadjF4UyK8q5ozB21fPGOx0+H/Fg8Dp7t1uDQFpUiGt5IGW06LDyj1VqjuaS2mQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GLZVvWnmVYEOZ60GUJzWl+4H/vxFacK0X3tmmC3tbT8=;
- b=QpL01XGGWJ5OPpM3MTYNVnElTLD02qEg+uBWa9J+X2INTrh0SLbiC/oMifNI+t8Yb2tPeCv18H8GjpAOg3td5mAxKvccQp+z4qZaC4Gqe7lo17zGuyTRUkvUZy0APIAz/SifpDsrUbCab5yv3WbnG7W0n3aB9rvS/kngaV7YUYls4LN3/hcJYzzcS7WavxmCPMGLy+wGq8/J8+6hA33JH7JJA1sYixNdseDgxvVHpB0GAbCB/pvZqNHRCxUskJFCx4lukMlsEw7pSp/iiXJrjnO1dxHH7UweFIzvXOrqXqHZTY+kuuyYpT8oswirZHrp/z+Xgjh5wZLzSnvB2X8ACA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GLZVvWnmVYEOZ60GUJzWl+4H/vxFacK0X3tmmC3tbT8=;
- b=jBqBAknDzDKJJ9TeeG6RUzrpZvjI+gW6Dm12AJwK21qVbE9f9R7amEPdlACOkvxRkLnEXQVyRqI7go0LefkbindB2XxWkHo6nLcUaft82ySwDfslao0wam52EOFdOyDjN8AQ2P7Z8MExxaohE0FiNHEFjdoAap2X4/yY90GjxIaYRNZEfw6r1uH3O9obnpain0OHQrQCPgCvznNd6hZ4FW5jckWJmUO71UN9mBI9IbnNZhjNlPtvW3JjMhIj9QUYOv//auLVRjWuvCra+dmkgh5uWxmxRKu1JEt1uPBkiR2Klkx5My7plSxXmyb8Zbf/qs4WBKzJknGh3It74pFg7w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU2PR04MB9083.eurprd04.prod.outlook.com (2603:10a6:10:2f2::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.20; Thu, 6 Aug
- 2026 15:53:35 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.018; Thu, 6 Aug 2026
- 15:53:35 +0000
-Date: Thu, 6 Aug 2026 10:53:26 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Golla Nagendra <nagendra.golla@amd.com>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
-	robh@kernel.org, krzk+dt@kernel.org, radhey.shyam.pandey@amd.com,
-	kees@kernel.org, sakari.ailus@linux.intel.com, yukuai3@huawei.com,
-	git@amd.com, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/6] dmaengine: zynqmp_dma: Fix minor whitespace
-Message-ID: <anSt9mL_Ttla4Wnn@SMW015318>
-References: <20260806123014.2120447-1-nagendra.golla@amd.com>
- <20260806123014.2120447-5-nagendra.golla@amd.com>
+	Thu, 06 Aug 2026 15:54:52 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2cad8076b01so29320325ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 08:54:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786031690; x=1786636490; darn=lists.infradead.org;
+        h=content-transfer-encoding:lines:status:content-disposition
+         :content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=87/H9EMlwH5MQtLg4YoCYwZZh62cqUzZ27PH8DCBgO4=;
+        b=ElY3oYnPdlBEB8PdaaLkHpNVxbtIKPP+xnRy4ThpF30CUSk3Yzvpg3OXDq+GP3uh3M
+         X6OVaYNwuZsNa7jLDhjo+D2cCekiIcp6OB/FQ5ki3B3pLk79ffYqbyICM9+AVl+cx7C4
+         6NOrme16Vcv4HKyAxPZ5r3y0Eq4bW+4yJ8HlgWXDi1w2qLmZ+ze3kPu2nrErUB0wkwVj
+         Vbv73qsHxriozv/ZhS0NX73YiTXiaKnILloWNWJhsFxa0dQhMVkew9C0cFklq1SBT9EY
+         R0pC2RtcjxW/gto0yjptOekksGnzPzcgxVS0ryJpUfGqc2cLDVWEjsi55XrOaNGcw+91
+         Jv9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786031690; x=1786636490;
+        h=content-transfer-encoding:lines:status:content-disposition
+         :content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=87/H9EMlwH5MQtLg4YoCYwZZh62cqUzZ27PH8DCBgO4=;
+        b=cgve/IPofz0xw68iRF5/7Nw1cIpZvX1P0WgAVc1fqtdV8H0dHxTU7hKmgHsUm50vjT
+         yLLu5didMGVLIGaFYoYeGNe8qFvhKtIGF/sYjNN5PanvOJCJ08emhem+lzkAFBtNTNMt
+         SscsaI509EvMjAkHqKqSEh57y1zdQZrkbbIug9ZjFfKtluEu15KF74y08Da4uVzzVI1l
+         nTO55NYVWw4YpLaOvmIVG3ZyzDHwBPfYkBRVKCUa4JrTiMGOMAJN9d3VvocytWzZZVJ2
+         IQesPOg5+R8D1el6u6R3sTTCQ3xv/F/phTseH67YZja8vDx1rG9ZzKPypSmqmpsLG5aB
+         +jqA==
+X-Forwarded-Encrypted: i=1; AHgh+Rox7keeidBIeOPg2nBv6fM+Rp84yD7e9CPR83uerXJm8t33dzxXOGylQxNt8wzgue+GIbatGAt73SAg+Ht+2OIw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwR/dl/aJZWV3vvINo3xQzqr9lzybPLO1eP3oh+jrNVMqYKQmWm
+	UCmygWUnBQH/mTsNALrXDq/AK63U0mSIBQZR9jF62mIHsVwLrFQqvcXh
+X-Gm-Gg: AR+sD10ao7Kzj+mtcfL+Y9WF4Zb/MWB3ZyDPnAat2eJcRzxOmZdgVba6pHSl81u4V7W
+	6vqmcfLNbhhQx/ytiXN1OYgX/jVQw+V5DrceiWIzFl1E9zygA9s9xTOKHcAf6WOQ3xVK6BbzqaH
+	KvGprOk+grgIFwdLSrvqIorrwPIXx2G0OC8FYeWGlY72Zndulvd8chRUeY8nJp1B4WYcA8yHdBf
+	X+Fg0Vo1vsVEylUlQg3POCtxWP6LiFjLT1dPrE5QQjOJplwNjvfdw+ArobEU0XvxKchBrWMsaVu
+	QTY6TlPYav6In51R3GRuAQpTdCjGsDTnHfSxFb8LThIbGM+QlnbTyNe/m60Vt23tAZ8lNioV3jR
+	MpjSFbt+c09MfECjW1o9mNxBDKvb8rM95DHteb90GHPRjj0SpiySrsGVBvH8cYjEAw1J/jCsICp
+	sd7pdgEdAXsV16hJTjrcgnqTbjJg6To/Uwj7CrE+LyVjDJZWm7oPhk5euBH8VjpzI/LS+Mfamz7
+	g3hOg6izx8QlejdCq8Nlmv9ZFYqGw==
+X-Received: by 2002:a17:903:4688:b0:2cc:f5aa:9513 with SMTP id d9443c01a7336-2d0ca7fbc9amr204312735ad.10.1786031689896;
+        Thu, 06 Aug 2026 08:54:49 -0700 (PDT)
+Received: from DESKTOP-VNSSJ2S.lan (59-127-145-64.hinet-ip.hinet.net. [59.127.145.64])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d0aa4c94d4sm33717415ad.65.2026.08.06.08.54.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2026 08:54:49 -0700 (PDT)
+From: Zhi-Jun You <hujy652@gmail.com>
+To: pabeni@redhat.com
+Cc: andrew+netdev@lunn.ch,
+	angelogioacchino.delregno@collabora.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	hujy652@gmail.com,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	lorenzo@kernel.org,
+	matthias.bgg@gmail.com,
+	nbd@nbd.name,
+	netdev@vger.kernel.org,
+	sujuan.chen@mediatek.com
+Subject: Re: [PATCH net v3 2/2] net:ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
+Date: Thu,  6 Aug 2026 23:54:30 +0800
+Message-ID: <20260806155430.768-1-hujy652@gmail.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260730090030.201100-1-pabeni@redhat.com>
+References: <20260724172040.1653-2-hujy652@gmail.com> <20260730090030.201100-1-pabeni@redhat.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260806123014.2120447-5-nagendra.golla@amd.com>
-X-ClientProxiedBy: PH7P221CA0049.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::32) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB9083:EE_
-X-MS-Office365-Filtering-Correlation-Id: 60330683-c1b9-4153-1df4-08def3d2dfa1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|23010399003|7416014|376014|11063799006|4143699003|56012099006|10067099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: okBypb8O9aMHbyCvb1KcGcI1KAHg+TQnn+CP8QK4vA2LEe9kqBsM8GsSCUBKjidGdsc9EwgF9dXkiadrh1/OCgD4uh5uffE4wiyl7G0uQ1wVnJCyk9TLBHeZwTmCfUQGiEk49M+VKBjf6NHQEiy0hpX+b/UgrIidulqG0uZ+frDCr5WYjawQDdlwaIptV4dsIoYxm3VVzhtuVG5u3aTaW17/NceQalsQSDAqKEOdeWfOcBjF9OInLHzrxcnwjHJi551/jDqK4PX0jyK+xGJxvWTuLGUk18yQs9SYfDEmtXD/tdaJv0pKoFVChUSmLpsx/YYhMR6KyZiMyewYh/XV+2aBSr2sDSvChefVCOdaMrbeIZ9Ex85aV1842RQA+XgO4sMxYk5mWEMETCmmnFoLCezuqPvXEglFmntXjoCdQHWyeGOgCMEULW3eVkVO9ad3pN2smW8qursEus6UkpOEIO6Fkom2NIrKZY4z9MrET2qnY0UDO2Z7baoFhBUurAYGZ62C8jnSiKMmLyjrhBuaUCbonnB3yq48G/lCeBBz7oZgO2PuuhV92tcGOFq5PqfFE/siGrxKQ9HpkUL8JYJfqW1OFHh7xu4tdBLDiuNN0FQHM5T/3+Z+8lg3VfcQT3NbTJMKY602G/xYGvsiwSZdyPvc3iylLLGekW4chF/3Cz0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(23010399003)(7416014)(376014)(11063799006)(4143699003)(56012099006)(10067099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?w/l69q4/wq01AU+Ef+J6jcBDzgriDWhiWM71xAKGCQpB3fY5WTTTZTJMY7cp?=
- =?us-ascii?Q?IOctCG1wvqjODqtYXTrh+PECPKSFUjN+V4rE++OiNNRtxjrGPDoauoXJs0ii?=
- =?us-ascii?Q?vaG55IMK1b+hVrVP648BDFflhgIz1ojCnGAkQqb06fWAeYEYG1uwZ1AdMjM1?=
- =?us-ascii?Q?XcWNgTf9MKZUQnopjmwcid7V5/uUhtQrfLl2rBGSFbaoMRpMLswx4CC8Ii4M?=
- =?us-ascii?Q?EP6QP30xsY1xXoUd3OE4kyqoONT4UdtGx2rUJZyOvQEE+A+33EmbErIs2ztr?=
- =?us-ascii?Q?bbtYpg//FRY2e/V7HfmL1wGcGQbGM1H4ys7HeJ6x0csqCmuL74ZRRP6qe/i/?=
- =?us-ascii?Q?IyeMrYMKjLKmElY/muo72FCJOM0/V3unX62jZL4KUAfCXiMGmuVDBAwl9vaX?=
- =?us-ascii?Q?7nbIKLu8cn/MHwcC3ashyylJCTil+h33cgqvuCpBi/Gup3bOo6CfAPH4ROW9?=
- =?us-ascii?Q?7zxMb78OQCen9TBaJk4g9CXOcFSaMwXqOhVQVUsnOJNYX8jkObnEMqio8zui?=
- =?us-ascii?Q?4NwIYqtB9h6BGIJKjb6veT4ada1vUNCgPZS0AeMflf2R6UrYS7fIpnll2G9v?=
- =?us-ascii?Q?IDMOmLBLz74ft8dsjIRwspA2eumbbhzPzU82Amqor9SQfoxlDZwMWT0tC8Fq?=
- =?us-ascii?Q?REnNO1dYwDLYaqZJ+JFHuxldnSdxRJ4TaaBFlzcjqfmZLy3+0QzUhK9JiE7B?=
- =?us-ascii?Q?6Lx5b5jkkTYgmpiHkWfoKPM5tAG5dZ+vVg+0PIuqP0lADsxpLviM31e6WdJT?=
- =?us-ascii?Q?G980n1q5vsVm1jXyA1BnlPMTkoTp1+OW+ZHdwdnT+cwl+3kqCeWPRaPaI2li?=
- =?us-ascii?Q?tLsMAREID6b8430hCleJDxOpujbzbdhofIKmS5IJdOqlLl3NYWLPtKqb5Puz?=
- =?us-ascii?Q?79regFEJugADC9UOhQxaioINBGBMzhPk2+iN2TD8FPpzcLwPomXYQ/hHd94q?=
- =?us-ascii?Q?6WgVFWi/AMLCUywW/csAfT6x0nmZ9DtfX+QCZCCqJG9ntMFplOwjC6O9J8Gr?=
- =?us-ascii?Q?pX+xcSPq3WuIlgQcZq/2FUM+EouqgBRTIZYGGqbYR8Do3OwFMfs7fIUP25KF?=
- =?us-ascii?Q?NO8BqlFtsUz59GQZaJBDpgvpNBavDTv3pfsES3toEUtyWWGDAcqIBIWj0flq?=
- =?us-ascii?Q?v0nK9bxZJFmcaGNY+JP66gl/iViqDvoVBTmhdMU6U3P+pnrH7s5LwGw9+Egw?=
- =?us-ascii?Q?iu+pJDyq4X3w9iJOSStnTCr6JS27JAep/XN/c3cABWVaVWWM7BW61tIehWCp?=
- =?us-ascii?Q?PfPgcIZaiLneJIFXWne0G7TQed+Sr6LTnKU+zZSGORScF5Cr3HXUDPDSbMJ3?=
- =?us-ascii?Q?V1IRoPLeInSO8+ybahPa7pEwbNH2uvKYkqzh1s8kwBTpzjulMkAh9tmnoH7q?=
- =?us-ascii?Q?GuntzLQcOVdtBrlvHgbEbI2usHSzhBMA7KtXtldy//gMVrn0vjfyrSDZqZWP?=
- =?us-ascii?Q?HAKc8m0QQe/Z9qRjs/DhRRdV+Tyfgp4zCcK9Plh5u08IR4+SEw9iO9PI7v+1?=
- =?us-ascii?Q?KMC5UQcF0DytyS7vc26W6AT1mj7aa6sxQHGt2aRqNIKl+PjPEgC25BzmUSPG?=
- =?us-ascii?Q?Ie5biqowb5fpA9hoa90MPmsCHZWu/lurSHczg6ErWYmPORr3dV06IKmUvTW3?=
- =?us-ascii?Q?hnfEH1EZWy65me6SDJUjaVbjSbmNQYzBNuNw82/9FvMkuCeZoaFFJDmPb1gN?=
- =?us-ascii?Q?uL/vNnvTRaSTd7Pf6yYLmDUdJKEphgE5Iy4Q1AHt02V3+t+Jz43tf2b0PxfH?=
- =?us-ascii?Q?CyQr3aTiu03x4EST3Oo0lKQyaHWOHr1XPmwy0uYdlMXCCqI15okN?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 60330683-c1b9-4153-1df4-08def3d2dfa1
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 15:53:35.6925
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: m7SVfub/nZcyiqh4o5mS4Knrf/7nZh3GoRnTQ/fv6LZ8RaB1nmGihKrUCEufx/3XFsiT1SEhM0Jaj7vYHsoh6D5BomSFIKogIUF5blMil7iBUq0uf1DXOaLX/PWuhVMf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9083
+X-Mutt-References: <20260730090030.201100-1-pabeni@redhat.com>
+X-Mutt-Fcc: ~/sent
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_085342_256050_18D392EC 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20260806_085450_977875_D78EA2D3 
+X-CRM114-Status: GOOD (  27.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,41 +117,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 06:00:12PM +0530, Golla Nagendra wrote:
-> Fix minor whitespace formatting in zynqmp_dma_chan_probe().
->
-> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
+On Thu, Jul 30, 2026 at 11:00:30AM +0200, Paolo Abeni wrote:
+> From: AI Reviewer <ai@example.com>
+> 
+> This is an AI-generated review of your patch. The human sending this
+> email has considered the AI review valid, or at least plausible.
+> Full review at: https://sashiko.dev/
 > ---
->  drivers/dma/xilinx/zynqmp_dma.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-> index c5b05fd52e9d..2d56ea08ce45 100644
-> --- a/drivers/dma/xilinx/zynqmp_dma.c
-> +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> @@ -947,7 +947,7 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
->  	if (match_data)
->  		chan->irq_offset = match_data->offset;
->
-> -	chan->is_dmacoherent =  of_property_read_bool(node, "dma-coherent");
-> +	chan->is_dmacoherent = of_property_read_bool(node, "dma-coherent");
+> --- Patch [2]: [PATCH net v3 2/2] net:ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986 ---
+> commit 30cd2d1bc8bf876e5d201d631684431920a3f165
+> Author: Zhi-Jun You <hujy652@gmail.com>
+> 
+> net:ethernet: mtk_wed: setup WDMA_RING_TX(0) for non-DBDC MT7986
+> 
+> This commit fixes an issue on non-DBDC MT7986 where WDMA_RING_TX(0) is
+> never set up because idx is 1, even though it is required for WED RX to
+> function. It addresses this by explicitly calling mtk_wed_wdma_tx_ring_setup
+> if the WED version is v2 and rx_ring[0] is unallocated.
+> 
+> Link: https://lore.kernel.org/r/20260711112128.971-1-hujy652@gmail.com
+> Link: https://lore.kernel.org/r/20260630144831.1109-1-hujy652@gmail.com
+> 
+> > diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+> > --- a/drivers/net/ethernet/mediatek/mtk_wed.c
+> > +++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+> [ ... ]
+> > @@ -2334,6 +2334,13 @@ mtk_wed_start(struct mtk_wed_device *dev, u32 irq_mask)
+> >  		if (!dev->rx_wdma[i].desc)
+> >  			mtk_wed_wdma_rx_ring_setup(dev, i, 16, false);
+> 
+> [Severity: High]
+> This is a pre-existing issue, but does this code ignore the return value
+> from mtk_wed_wdma_rx_ring_setup()? 
+> 
+> If mtk_wed_ring_alloc() fails due to memory pressure, it returns an error
+> without configuring the hardware base registers. Because the error is
+> ignored, when DMA is later enabled in mtk_wed_start(), could the hardware
+> attempt to fetch from unmapped physical addresses and cause an IOMMU fault?
+> 
+> >  
+> > +	/*
+> > +	 * non-DBDC MT7986 allocates only rx_ring[1] and tx_wdma[1] during setup
+> > +	 * but tx_wdma[0] is also needed for WED to function.
+> > +	 */
+> > +	if (mtk_wed_is_v2(dev->hw) && !dev->rx_ring[0].desc)
+> > +		mtk_wed_wdma_tx_ring_setup(dev, 0, MTK_WED_WDMA_RING_SIZE, !!dev->tx_wdma[0].desc);
+> 
+> [Severity: High]
+> Does this new call to mtk_wed_wdma_tx_ring_setup() also need to check its
+> return value? 
+> 
+> Similar to the RX ring above, if mtk_wed_ring_alloc() fails to allocate
+> memory, the hardware base registers won't be configured. Since the caller
+> proceeds to enable hardware DMA regardless, might this lead to the WED
+> processing descriptors from unmapped memory and causing memory corruption
+> or a system crash?
+> 
 
-You should not parse this common property, call of_dma_is_coherent() ?
+I am not sure how to proceed with this.
 
-Frank
+Can Felix or Lorenzo comment this?
 
->  	zdev->chan = chan;
->  	tasklet_setup(&chan->tasklet, zynqmp_dma_do_tasklet);
->  	spin_lock_init(&chan->lock);
-> @@ -959,6 +959,7 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
->
->  	dma_cookie_init(&chan->common);
->  	chan->common.device = &zdev->common;
-> +
->  	zynqmp_dma_init(chan);
->  	ret = platform_get_irq(pdev, 0);
->  	if (ret < 0)
-> --
-> 2.43.7
->
+Best regards,
+Zhi-Jun
+
+> > +
+> >  	if (dev->wlan.hw_rro) {
+> >  		for (i = 0; i < MTK_WED_RX_PAGE_QUEUES; i++) {
+> -- 
+> This is an AI-generated review.
+> 
+
 
