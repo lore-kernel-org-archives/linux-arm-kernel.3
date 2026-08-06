@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 389F4C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 16:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62AA4C56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 16:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1mmhRLKDxaELj7616F3jLYF/axUtWF1l/JEzzjmppo=; b=NXj7HEUoUXGzEcdW52S2h1jhZW
-	U880bnFO1uAaF5IT3Bh1HlyYo0oGEilgcYrJYOLIZZeillZ8PZR9y1/FZbpalCIrv0Q/fdMgmx2a8
-	ruZE7dUbojTzInV5YKrHZSKzaTEG4IJPaYWw/Z5z4xCO9C36X1VcbJket4FKDq3HLP+6YCAPiOutx
-	CDp4BZzK10mKLSBz/HZ/vGWxHOBzTAOWAvM0xIt+7ZhwAu0wnKgmmfWl5u0qCvz1tdS2/YsjMXF9W
-	7QbCFPe++i/BOIN1N+aTdHl2zuE0LAYO9HBFdImHG3C5a4RRhayWDWdmhBeLalGv850oupStyiexN
-	P9DnqZ5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tXxkSVa+2eu05dZjUDlR4s5Kc7ssR4Aj7dZF9elDO2E=; b=pIsL3d9xUICaGq76wwJy1nckff
+	GdZtaX2kEyQ9BXe1J9zX3g4MuY9qyV/P+FHjziOsWambIdrY4DjCan8dAVMHN2PsMGVz529nGxLO0
+	/+IYbtYfE2rUSBAZijZZpEeLIFxjiAtuuxIAiejfdrDuMSMg//yMUBteUlcFooWVflX2eG2jpZSaZ
+	dAJb74Bjj0+IR0WQPXcC3/P5yqNhI/vuxVzVGKM8qqM0uek4gqi6yHJgjctut/Yq1hvT+3w9oxqdy
+	id+OKJHsxJbUPB6pFsjMrOS/MZ5DEbfRbCp5Aem4+YRlDHN4NzXHZWRrfrHW9816LwXFriTacTOzg
+	7UwobWCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws0ef-00000006AkN-0SDc;
-	Thu, 06 Aug 2026 16:09:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ws0jU-00000006BJA-4462;
+	Thu, 06 Aug 2026 16:14:12 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws0ee-00000006AkB-05L1
+	id 1ws0jQ-00000006BHC-4C4e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 16:09:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40C4C43911;
-	Thu,  6 Aug 2026 16:09:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D4651F00A3E;
-	Thu,  6 Aug 2026 16:09:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786032551;
-	bh=J1mmhRLKDxaELj7616F3jLYF/axUtWF1l/JEzzjmppo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=kKNEIVaiVH4wrn5oHK5ajPxUnFHB9+4/A/1LvM/uKTkDc0Tv9t57ZG0ITr9wXU8Xp
-	 dM7Cy6hGgHbZ/yeYTfWQ71Y57HgqRdmv1eKN2HCcuSEE4ilC3CtyGNaMO6veI78U67
-	 YcMqItiqFW5t/eUfTLQayfOrEOELuT08s9jUqHMsWIlKuGRS7h4T2GXPWrf4X6w2Zv
-	 tNNgofe3iP7rxX22Z7nlivDoSEEfrD+/jWedR6As/aEKkVkXWpqV8mSDDYNCbarkZ1
-	 SVWiBIPcCxOreaWD7DyyAbxr2eCgQZMraKPZN7mkuyWcqW1KUCi9T1+4s4zx6S89Zo
-	 2vOjrgZWIe6og==
-Date: Thu, 6 Aug 2026 18:09:08 +0200
-From: Thierry Reding <thierry.reding@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Mikko Perttunen <mperttunen@nvidia.com>, Yury Norov <yury.norov@gmail.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Russell King <linux@armlinux.org.uk>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes <ljs@kernel.org>, 
-	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, 
-	Mike Rapoport <rppt@kernel.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Michal Hocko <mhocko@suse.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
-	"T.J. Mercier" <tjmercier@google.com>, Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, linux-media@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, linux-mm@kvack.org, 
-	iommu@lists.linux.dev, linaro-mm-sig@lists.linaro.org, 
-	linux-trace-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 06/11] mm/cma: Allow dynamically creating CMA areas
-Message-ID: <anSuYvj1JU5K8xUO@orome>
-References: <20260701-tegra-vpr-v3-0-d80f7b871bb4@nvidia.com>
- <CGME20260701160902eucas1p1214af933ba0f54b85630a3a4e5a4689c@eucas1p1.samsung.com>
- <20260701-tegra-vpr-v3-6-d80f7b871bb4@nvidia.com>
- <3f47aeab-33b1-4966-a5ce-5d6d5261e0e2@samsung.com>
- <e212caac-6c30-448a-9e10-32fff8b842f6@kernel.org>
- <83e5e74d-7106-4e14-9d10-56438372f6a3@samsung.com>
- <ak_E4UxfnFJywJa7@orome>
- <1eec88e6-1ea8-4525-bb17-e41444d715dc@samsung.com>
+	Thu, 06 Aug 2026 16:14:11 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4956869750eso17893345e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 09:14:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1786032847; x=1786637647; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tXxkSVa+2eu05dZjUDlR4s5Kc7ssR4Aj7dZF9elDO2E=;
+        b=Be9Erh2dD9HdWqwqBBSCEhPp+dnk3W8hU/wgLxRqqmbAbKvxannE0jZnLVYVzPvO12
+         R+npBcrayJ90aAe4q8GGrzknv0Xkx3KKJRg3yEc/1GSXMmYnkFJ9QkX4vWJuGlTA2ZFb
+         SzF9MZsQBcf+5x/DHr0KMMsMx7BRedKfxKPfcPGShd/DbUIfOa0IhkIaHL+qMSu49uge
+         e7V+XS1/lpy0GE9jvgUAoUuOqhE5hZ8Z07eBuFhTTzoLlig31mCxMP9Jq9c2SGnQ6IW0
+         xUWo5sqhlyM1OXgaQDwFVHemkLYQVYHitjzaFlzNIf3lWRTRie2zQ3yYfmjVAPWQd7VL
+         C2Lw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786032847; x=1786637647;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tXxkSVa+2eu05dZjUDlR4s5Kc7ssR4Aj7dZF9elDO2E=;
+        b=AnKHChMRMEWovJDuESklnP835uN2ZtcX1Tc9O/fj8jp3+0rtUcq/U1mxKW0Zl35OsY
+         8UnNy2RAkp2siDcbZpjdzj05rcVAq0t4BUEx0+FL2VD3PxGanuwnODS1sMWzKDERA77J
+         TF1eml+cIbHICGgjjqqi7w1U5C9x82lSmhsgWTdqmK/bAVeuKeVsj2XZbUJqYwauMmXF
+         B0Hr1w5qqf8XGdg3+xmwBt+Oe5ARvZ2lZSqeo10ZlRj711gDShbr/v7kxrxdem2xJXCy
+         YvkI4MY6ALc76cXoP8u4PJBUjG88lleMzIYEtQkm69L1/MPrlQWwTF2EbkjhmG9iQbYB
+         RsHg==
+X-Forwarded-Encrypted: i=1; AHgh+Rp2wzka4KiuMnxP1mbNenM3L7IWbyg+P1HUQbLib9+OsY3f/hWPDmANB3Q5MssuSOAvYqgua0/EbeTgoF4PjQj6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW2I5gd+BkHnpnoaK3wkb4TCUXEh8hFKtWHi+OWctC9a+/7nBb
+	VEbF/kM7vfE1P3aGPIvPuKzxAR/AaQUxwNduXU46vIlAUOILeRCPFbrj9VNI+uAeh+Y=
+X-Gm-Gg: AR+sD10lG8PI+/VRRNycDTegW2nKs7huRZZ4mv7w1CKCYswAY6nA882f22o25JsfIe9
+	fAE1uoB3MRPSzX/FQTDl2XFGv3bkE0kGnwl4c8sUsQhhCdyIYV1p3T9rb6WYvFjEHoRBIxGvbWx
+	TmJ1lDtI3zJrCeuEdDcMcA2WsUAA1ItQH6gEISlKBbRq5tuoaCvJHUCD+6NbjMCWGxoqbw7hoBF
+	qfXZv83f2kSFxytcE6jY2SlfdkADu6QfejPTuvR9hDjhyNY8bTcV/FulqcxQQSvZ1XQFeXcgDSC
+	/FM0EEdPzNhYCGhbvUvtowdDRC1h+qKjeavcZqDqnorABaWzjhxHXQPKnu6fdPlM2lvYy3H0Kdz
+	ANQxBMb5VSCh/xRMtbdXcdzLgKewJawX8NAz31APZ3M4fM0kQbwhfxyWDze9OO8892wolwzWGxR
+	KoJ6P+OK0gdb3UVQrkkXfUzgYe2wSagHXSshF21HQiWlrF78o9OHWSYw6YVv4B0Fcxn+gCaZ8eo
+	Q==
+X-Received: by 2002:a05:600c:4ba2:b0:493:b6ee:fcb7 with SMTP id 5b1f17b1804b1-4994e7d3434mr142978515e9.14.1786032846564;
+        Thu, 06 Aug 2026 09:14:06 -0700 (PDT)
+Received: from [192.168.0.101] ([109.76.115.165])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995421b198sm84909005e9.7.2026.08.06.09.14.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Aug 2026 09:14:06 -0700 (PDT)
+Message-ID: <ccf41669-685c-4657-9ffa-7053719bd539@linaro.org>
+Date: Thu, 6 Aug 2026 17:14:04 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="awe2ln3pvo2iqnm5"
-Content-Disposition: inline
-In-Reply-To: <1eec88e6-1ea8-4525-bb17-e41444d715dc@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
+ support per-direction phys
+To: jason98166@gmail.com, Vinod Koul <vkoul@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Guochun Huang <hero.huang@rock-chips.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260726-dcphy-rx-v1-v2-0-cf9cc34a412a@gmail.com>
+ <579EMzIB4QpX971YyewFrke7qDRTnb7VISWtBI86oM2PJpls9AOXn5nKFyv8PA9EiZWOiczXm9LbDAO8XTkrig==@protonmail.internalid>
+ <20260726-dcphy-rx-v1-v2-1-cf9cc34a412a@gmail.com>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Content-Language: en-GB
+In-Reply-To: <20260726-dcphy-rx-v1-v2-1-cf9cc34a412a@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_091409_057370_082C502C 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,132 +111,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 26/07/2026 15:55, Jason Yang via B4 Relay wrote:
+> From: Jason Yang <jason98166@gmail.com>
+> 
+> The Samsung MIPI D-/C-PHY block on RK3588 drives a MIPI DSI transmitter
+> and, on the same PHY, can receive a MIPI CSI camera. Describing both as
+> independent consumers of one PHY requires the direction to be expressed
+> in the devicetree.
+> 
+> Allow "#phy-cells" to be 1 or 2. The existing single-cell form still
+> selects the PHY type and refers to the transmitter, so shipped DSI
+> device trees stay valid; bumping the cell count unconditionally would
+> invalidate them. A second cell adds the direction, letting a DSI (TX)
+> and a CSI (RX) reference the same PHY node as separate consumers.
+> 
+> Add include/dt-bindings/phy/rockchip,rk3588-mipi-dcphy.h for the
+> RK_DCPHY_DIR_TX and RK_DCPHY_DIR_RX direction constants.
+> 
+> Signed-off-by: Jason Yang <jason98166@gmail.com>
+> Assisted-by: Claude:claude-opus-4-8
+LGTM
 
---awe2ln3pvo2iqnm5
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 06/11] mm/cma: Allow dynamically creating CMA areas
-MIME-Version: 1.0
-
-On Thu, Jul 16, 2026 at 12:43:56PM +0200, Marek Szyprowski wrote:
-> On 09.07.2026 17:59, Thierry Reding wrote:
-> > On Thu, Jul 09, 2026 at 07:56:45AM +0200, Marek Szyprowski wrote:
-> >> On 08.07.2026 10:35, David Hildenbrand (Arm) wrote:
-> >>> On 7/7/26 12:02, Marek Szyprowski wrote:
-> >>>> On 01.07.2026 18:08, Thierry Reding wrote:
-> >>>>> From: Thierry Reding <treding@nvidia.com>
-> >>>>>
-> >>>>> There is no technical reason why there should be a limited number o=
-f CMA
-> >>>>> regions, so extract some code into helpers and use them to create e=
-xtra
-> >>>>> functions (cma_create() and cma_free()) that allow creating and fre=
-eing,
-> >>>>> respectively, CMA regions dynamically at runtime.
-> >>>> Well, the technical reason for not creating cma regions dynamically =
-at
-> >>>> runtime is that on some architectures (like 32bit ARM) the early fix=
-up
-> >>>> for the region is needed to make it functional for DMA.
-> >>> Can you point me at the code that does that? Thanks!
-> >> Check dma_contiguous_early_fixup() and dma_contiguous_remap() in=C2=A0
-> >> arch/arm/mm/dma-mapping.c. Those functions ensures that the CPU mappin=
-gs for
-> >> the CMA reserved region in linear map are remapped with 4k pages inste=
-ad
-> >> of the 1M sections, so later, it will be=C2=A0possible to alter the ma=
-ppings and
-> >> change them to coherent when needed (altering 1M sections is not possi=
-ble,
-> >> because each process has it's own level-1 array even for the kernel li=
-near
-> >> mapping).
-> >>
-> >>
-> >>
-> >> However, in the use case in this patchset the reserved region is only =
-shared
-> >> with buddy allocator by using the CMA infrastructure, not registered t=
-o the
-> >> regular DMA-mapping API, so it would work fine. I'm not convinced that=
- this
-> >> is the right API to use for this though.
-> > Are you saying you're not convinced that CMA is the right API to use for
-> > this? Or something else?
-> I read this again and indeed CMA seems to be right solution. I only wonder
-> why do You want to create the CMA areas dynamically? Imho it would work=
-=C2=A0if
-> You just create large enough CMA area on boot, what would automatically
-> share the memory with buddy allocator and then allocate dynamic VPR regio=
-ns
-> with cma_alloc(), potentially unmapping or marking the allocated region as
-> reserved in linear kernel mapping to avoid any potential speculative acce=
-ss
-> to the protected memory.
-
-Hi Marek,
-
-sorry for missing your reply earlier.
-
-The reason why we want to create the CMA areas dynamically is because we
-want to split the secure memory into multiple areas. And the size and
-number of these areas may need to vary, so I didn't want to have to rely
-on rebuilding kernels with different numbers of maximum CMA areas
-depending on the chunk size that we choose.
-
-The reason why we need to split up the protected memory into multiple
-CMA areas is that allocation patterns can create holes within a CMA
-area. For the VPR memory, however, we must ensure that there aren't any
-holes within the protected region because it is specified using a single
-base address and a size. So there is one contiguous region that can be
-marked protected.
-
-If we were to use a single CMA area, we could get holes within an area
-that is marked protected and once the pages are returned to the buddy
-allocator with cma_release(), something else could be attempting to
-access it and cause an error because it is still protected.
-
-The only way to make sure we get a single, resizable and contiguous
-region is by using multiple CMA areas and allocating the entire area
-once our allocations need to expand into that new area. So we're not in
-fact using much of the CMA infrastructure and actually need to duplicate
-some of it. We primarily need it for the page migration and reclaim
-functionality.
-
-> In both cases You will probably won't need the DMA-mapping API on top of
-> it, although it might be even possible to partially use with by
-> registering custom dma_ops for the devices using the protected region
-> (assuming that it would support only DMA_ATTR_NO_KERNEL_MAPPING
-> allocations).
-
-Yeah, I don't think we want the DMA API on top at all. The allocator has
-special needs, like clustered allocations to minimize fragmentation and
-keeping as few chunks activated as possible. We also want to avoid
-resize operations because they can be quite heavy depending on system
-load.
-
-Thierry
-
---awe2ln3pvo2iqnm5
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmp0saEACgkQ3SOs138+
-s6HmUQ//RyPTgx2QiCZkziDzWhQ8YjQ9J8KlwiQnyLspOz+Na5x6bslbOl/AuuBd
-DCTC8+y/ax94aG30aB0SctUZLtHriGHwevA3J9hm/CfR1K72DsjLSDnkqujE5h7B
-QxLJyl9wyqStgOfJEl6PwA8H9VbDkdJNHJlmpFzeki7a5QHQR28b+FyoWOZGGutC
-YKiDlqpqQk1rs9d8WQ4M5w6JiRmImAI9YcoFP36b36oPf6/DziGOYjqCO6k9o1GI
-pKj8EV6as2MTKoCdsuwHiQo/f2gQfyquJF+yK6m62NZy6wyr1ceed6jmCoIcuuh6
-NKDs1AUWYdLhOVod22LHwn8GCjaDRkYHuUNgRtVrz5BgUuVUW/EmVieF/7BeRpna
-HZ+uWPa09LwQq0ma8cRTNEQykq4zhVKxshPlVGeFuRJqIQ7C3ba/4UCWEDtT4Dlj
-udGkgC059nR72DiCjPnQ40LV5naHw+dIkTt7uS2rh/xRih0ZW5bTc1ex3KvVq2H+
-wtjVSehARwHbIzU3ijuk3iNDaGRYZS99YYB5NjULlXGFeldz0M4qj8L/Gu684Kt0
-c0DFGObvF6isiTZgfuIwCNEEURIKdOut/DpqvFXcAmaAYvwvko7EPo4xwigfSapd
-63yY0m3zfV1lefYdShI86wkQ8t4KSbU6Vhoh/A0AUNc1mcNqir8=
-=PD/g
------END PGP SIGNATURE-----
-
---awe2ln3pvo2iqnm5--
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
