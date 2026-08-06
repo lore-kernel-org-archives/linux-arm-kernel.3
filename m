@@ -4,60 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28EF1C56205
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 12:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93676C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 12:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ib/Ij7w0Dy6ao8A0RqFf47+bB4f4UpgPvkTYsD8YBIY=; b=UPZl06yMyGURZ1U/d1fmWmQapz
-	j2wY3rgqBw1jz4ZOWKGtjY1KnVEzbrV6VuDfQON4BzP+6BDGBnJ6SqS2lAx8y3jMsB6WxeUiVuCyM
-	uDk2pe7PAHM18S7tnJRJlyMRdLDrcGUbnkwCFt8NjgCKNcJLN4bMiSXHiJx74i/uDeGWsbLQA+jKv
-	sFanMz84GkyrURf25TLrEhW4IFXkTkzQEKicJp2c+sXj78ipNjWM2Es3SX9Qcj2k4Dayrii963GhX
-	0OBnDJLIZuzgzL7o1CK38uzGl16z3o5pzBcpyoBZz9mbQfCYiWaJ1u1bKyKATa1uGZ9DucEH+aio8
-	Avhbk+uA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XVZRy0YZlCjC9/KWxr/f7SDogbybirs0ZOdMfzAeX5E=; b=dJ9Ee+AwT7HfVUKTejvUAomXxM
+	xbB8MkZr7tyRUfFpqRg4DghqaSMWCqdKBp77z1t7JVB+CV8F5nMBgKEunhqluyHGEj7QGfs/hU5KC
+	YPZe/kw1c7W9tfOqEGLFET4Fa+kncV0XYQ5RK7aHyTcgPJKsfh6ptWY0qWcqj4J1sh45FayB1e1uR
+	beU4DR+SYKCN2z9luBXt9Qk+MuMNCT3NMUMi+c/Imlq4Q+AfqQHLQcwiyLXKwybzyAo64ikHCDloK
+	0VRa/73hwPmvUJt7Fpq+3bIkOZRAxjMjCmDLBBuYhQU+V8Uxa4H7QwMsLNxlZHDxbt21MJ/u6+bWr
+	99F+QaTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrwoT-00000005hok-2rI8;
-	Thu, 06 Aug 2026 12:03:05 +0000
+	id 1wrwsG-00000005i5i-0llJ;
+	Thu, 06 Aug 2026 12:07:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrwoQ-00000005hoF-1o9h
+	id 1wrwsD-00000005i5I-2Zxp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 12:03:03 +0000
+	Thu, 06 Aug 2026 12:06:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06C4F153B;
-	Thu,  6 Aug 2026 05:02:57 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 89CED3F66F;
-	Thu,  6 Aug 2026 05:02:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F033153B;
+	Thu,  6 Aug 2026 05:06:52 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0A133F632;
+	Thu,  6 Aug 2026 05:06:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786017781; bh=Pes57n+6v17ZygtCGqVVA3yl7WFgtBkWoGseT7Oe42U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MV3n4NTgx9HTigR5cVdXwcPNeiaG+1rdIG24BewFcVMlSAIwTKvL6D0DQFZunbBCH
-	 UXWI9N/29GOOa8TfR+8Ze7pmZGsLupvdF9pOOT+7mq5XM8spEqflVAp/4biOhhTwsc
-	 u7z9MuA9JMEXH6pB8m4Y7hbneTmB42rsQ0LyWjCA=
-Date: Thu, 6 Aug 2026 13:02:56 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Subject: Re: [PATCH v2 13/20] arm64: percpu: Add infrastructure for
- preemptible this_cpu_*() ops
-Message-ID: <anR38C1uTmU4WYhr@J2N7QTR9R3>
-References: <20260804170503.3513916-1-mark.rutland@arm.com>
- <20260804170503.3513916-14-mark.rutland@arm.com>
- <7df18d5e-886e-43d1-b53d-52a1d08aba49@kernel.org>
- <d600d0db-5109-4386-9a49-955be74cc432@kernel.org>
- <anRuT1Psmar9mW5L@J2N7QTR9R3>
- <9c3feb9d-3111-4f37-90f7-3ad3c2e094c7@kernel.org>
+	t=1786018016; bh=r9VGBxwF+J0VJMXe/vi44fLPtflZtoQXoDHaJyHXsjc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GGKJmMity6kCF4wZUNnHzGepGcdf1SaRohZ8rLzLYO1VxTi0fZmOhXFOXJnUb1Vf9
+	 okW11psOZ0rMszXq//5a61um/a4XDtFh74fuswTOVdDdoe608hYchCJ1BUTHAAGX9F
+	 dklFELZc0aOaNaGHxF0c2x8fqfYoTiYtoz3VBiSY=
+Message-ID: <3c39665b-5fe0-4015-ae96-c97e0ce8e9c2@arm.com>
+Date: Thu, 6 Aug 2026 14:06:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9c3feb9d-3111-4f37-90f7-3ad3c2e094c7@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC/RFT 0/2] net: stmmac: Add support for Allwinner A733
+ GMAC210
+To: Jerome Brunet <jbrunet@baylibre.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260731-allwinner-a733-gmac-support-v1-0-d0a8732bfa82@baylibre.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260731-allwinner-a733-gmac-support-v1-0-d0a8732bfa82@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_050302_548856_26B91F77 
-X-CRM114-Status: GOOD (  27.89  )
+X-CRM114-CacheID: sfid-20260806_050657_742745_549A131C 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,72 +81,67 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: vladimir.murzin@arm.com, ryan.roberts@arm.com, peterz@infradead.org, catalin.marinas@arm.com, david.laight.linux@gmail.com, stable@vger.kernel.org, ruanjinjie@huawei.com, james.morse@arm.com, yang@os.amperecomputing.com, cl@gentwo.org, maz@kernel.org, ljs@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 01:32:52PM +0200, David Hildenbrand (Arm) wrote:
-> On 8/6/26 13:21, Mark Rutland wrote:
-> > On Wed, Aug 05, 2026 at 08:47:08AM +0200, David Hildenbrand (Arm) wrote:
-> >> On 8/5/26 08:45, David Hildenbrand (Arm) wrote:
-> >>>
-> >>> FWIW, in a recent discussion on some prototype hacking [1] we saw some overhead
-> >>> in micro-benchmarks that would really hammer on a path that would now do a
-> >>> preempt_disable()+preempt_enable().
-> >>>
-> >>> Switching from preempt_disable() to preempt_enable_no_resched() made it turn to
-> >>> noise. Of course, that has other undesirable impacts, and I am not sure if we
-> >>> are in the territory of code layout changes affecting the numbers.
-> >>>
-> >>> Just mentioning it as some data point.
-> >>
-> >> [1] https://lore.kernel.org/linux-mm/20260630174852-mutt-send-email-mst@kernel.org/
-> > 
-> > Thanks for the pointer.
-> > 
-> > IIUC in those cases you're using preempt_disable() .. preempt_enable()
-> > directly, not this_cpu_*(), right?
+Hi,
+
+On 7/31/26 18:30, Jerome Brunet wrote:
+> The A733 GMAC210 is a DesignWare MAC 5.20 with an Allwinner glue close to
+> the A523 GMAC200 already supported by dwmac-sun55i, but with a few
+> significant differences:
 > 
-> It was purely preempt_disable/preempt_enable experiments without any percpu stuff.
+>   * The glue configuration registers are a dedicated MMIO region of the
+>     controller instead of a syscon register.
+>   * That region is inside the controller reset domain, so the reset must be
+>     released before the configuration is written, and must not be asserted
+>     again afterwards or the configuration is lost.
+>   * The DMA channels have their own interrupt lines.
+>   * A PTP reference clock and an AHB reset are needed.
+>   * The controllers do not require a power domain (AFAIK).
+>   * The TX clock delay value is 5 bits wide instead of 3, split over 2
+>     register fields.
 > 
-> > If so, patches 5 and 6 of this series [2,3] might have an impact, but I
-> > wouldn't expect a significant change unless you're calling
-> > preempt_enable a lot.
-> > 
-> > Please beware that it's not safe to use preempt_enable_no_resched()
-> > UNLESS it is immediately followed by a call to schedule(). That's not
-> > documented today (and I couldn't find a good reference), so more folk
-> > are likely to be tempted to use it...
-> Yes, that's also why we abandoned that (including for various other reasons :) ).
+> The DT changes for the A733 and the Cubie A7A board are not part of this
+> series and will be sent separately through the sunxi tree.
+> 
+> Tested on a Cubie A7A, RGMII with an external PHY on GMAC0.
+> 
+> Full disclosure: at the moment there is a problem with EEE/LPI while
+> testing on the Cubie A7A. If the device stays in LPI mode long enough, the
+> link sometimes (but not always) goes down, coming back up when the device
+> exits LPI mode.
 
-:)
+I saw that the MAXIO PHY *vendor* driver disables exactly those two 
+modes, so is this maybe more of a PHY problem?
 
-> preempt_enable_no_resched() helped to identify that the preempt_enable() was
-> really causing the noticeable overhead, not the other minor stuff we added on
-> some hot paths.
+Cheers,
+Andre
 
-Understood!
-	
-If we seeeing particularly noticeable overhead from preempt_enable() in
-some workloads, there are some options we could investigate to reduce
-that impact (e.g. using __preserve_most or a trampoline like x86's
-preempt_schedule_thunk to reduce necessary spills and register
-pressure).
+> 
+> I'm currently working around the problem by adding the following
+> properties to the PHY node:
+> 
+> 	eee-broken-100tx;
+> 	eee-broken-1000t;
+> 
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
+> Jerome Brunet (2):
+>        dt-bindings: net: sun8i-emac: Add A733 GMAC210 compatible
+>        net: stmmac: Add support for Allwinner A733 GMAC210
+> 
+>   .../bindings/net/allwinner,sun8i-a83t-emac.yaml    | 130 +++++++++++++++---
+>   drivers/net/ethernet/stmicro/stmmac/dwmac-sun55i.c | 145 ++++++++++++++++++---
+>   2 files changed, 242 insertions(+), 33 deletions(-)
+> ---
+> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+> change-id: 20260731-allwinner-a733-gmac-support-163bde10c152
+> 
+> Best regards,
+> --
+> Jerome
+> 
+> 
 
-Please let me know if you see anything that stands out, as any examples
-would be useful for investigation. We'd want to figure out how much of
-the overhead comes from register pressure, and how much of it comes from
-the conditional call itself.
-
-If you're testing with PREEMPT_DYNAMIC=y, on some architectures
-(including arm64) you might see overhead reduced by:
-
-  https://lore.kernel.org/lkml/20260803191731.3244294-1-mark.rutland@arm.com/
-
-... but IIUC on x86 that won't change the cost of
-preempt_enable[_notrace](). Today that makes a static call to
-preempt_schedule[_notrace]_thunk, and a plain call will be the same
-cost.
-
-Mark.
 
