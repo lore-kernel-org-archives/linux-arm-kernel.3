@@ -4,139 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3019C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42711C56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ULE6uDTLXdtM6z8B9L/Qb6Jzh4xJsdCzsVAxM/7Q73Y=; b=VkW15zCukiQG25IWatyZXaQ+/b
-	GrwmgcqTCdYvoJb5yOPmZ80NK8ipeOYfPb/Mue42MUbxcWd40Tly6jS+lkiamxHAkvKrSOac5hNic
-	sC771xocDGL+tPu+l5q7iF9O0RW88dB1negZOUx80/q9GT9egNs1t67ccHbY2c+5cJJHVxmhGumQi
-	gCV5adxkmprwodwfExwVel6TbHlexw5HbsrQfVLasaWk9dRQy6RZBXHI0xCj/vgKj9ZQjhk/i07/M
-	+uOB7xyDgLWfyNuhYzbQHCqru4Ufk118iPRnYW6FeD/PGH9/n420wJFO898z7kzmePQhJV70tNFXH
-	Q2J4xH1g==;
+	bh=knTPycIW4JC9RtVxI7lTQdVb1SJbys3U0akygREf/j8=; b=pmxCMyTK8pgtA3F1JaaoIIPUWY
+	AwfORCA+kliMRQ2uj50i/CIae7YKjLAvvFDVjFQ+wImW9zy7e+7p2soxX47QtyNUwN78zALrb3s5G
+	CBEzb++CjX5bzm+DGjkY3A3fQhImhTwDPvGQ9p8d2SZo2NHfSWsL3x/zGG9O3AYU2E89gSKS43HJ7
+	zqI9scSvp8JZ3dZjaj3ZRdSh9yLqu11oiGNt4ufwl829udZPbzMEOsJsp0K5Xury1bgq6FKDm2C2e
+	kb9YMh8Rqqwp5GaXnLTum3qYsv1okFfqTCd4BOrhkI2vfl8RUfPY/xpwL6KFZlB2dciGFxp6F28ll
+	d+D3joPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wruW9-00000005PbP-20xQ;
-	Thu, 06 Aug 2026 09:36:01 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wruWC-00000005PfF-3lfx;
+	Thu, 06 Aug 2026 09:36:04 +0000
+Received: from mail-pz2-x00.google.com ([2607:f8b0:4864:3b::])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wruW7-00000005PZ6-345U
+	id 1wruW8-00000005PZu-1ing
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 09:36:01 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2cab973140bso27406675ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 02:35:59 -0700 (PDT)
+	Thu, 06 Aug 2026 09:36:03 +0000
+Received: by mail-pz2-x00.google.com with SMTP id 41be03b00d2f7-ca24d39d8a4so1086040a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 02:36:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786008959; x=1786613759; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ULE6uDTLXdtM6z8B9L/Qb6Jzh4xJsdCzsVAxM/7Q73Y=;
-        b=Wztc7JKB02opvBHnBnUsxKZKvUSWSplgHUZ0/ebj4lbWZObDGpsw2TwoMGJRUeUG/5
-         6Q2HUVEsJDOkJEeXR9/7ass4gTclbLgRmaH2VoEAzE/xBqk8zg/MRStIpiGUT3QBJfra
-         J+8ToNOgotjLXVRdU3aNN5BNy4GR0YA27C8g1oWgXmRoLvbDS+RgZLjiEW8rGPMosAek
-         5PIilEGyOep4g7NQSO6qOU3ax8ZkRs/Mwp0AjGJjgGbupMxs6j9TTJiHjTO7i/KofPPg
-         o1hxPl5wI/rU4gBVlJSXIGtgESTg+C5kjIMnnn4TKb0EEbO1yrLWxiaKN08ZD1JerIy5
-         JYdQ==
+        d=gmail.com; s=20251104; t=1786008960; x=1786613760; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=knTPycIW4JC9RtVxI7lTQdVb1SJbys3U0akygREf/j8=;
+        b=Hla95+PRB/DtR20VwiFZ+IK4cGoyUwLht4Em59kjP2LDaq6hcKBOHT2WgSb3X5qp5t
+         o+bJcl+gBxNkuYVmVGTaDuBrSVZ97H2FDtz+baEGr34IQ9Pc6DhmPscuP8l9JT9UbVxn
+         TfQ3zQjtXe58EBFi4grZPLyNtZ+OaSocywF6oNqfCLkzXGMTH8facwOu7pLlYLRDOcpO
+         4a7iEbblaKUACCF10RLJO0M8wThBzPuEFAT1JDLGKtJeIVC0MuRdXY6i1YuYp+u2DMdd
+         chz2v2M/tvRNArxVVbezzD/YHOJydzEQqBexUynJIgFAIYvSKcwtdHu82cstjuQVJCb7
+         tlGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786008959; x=1786613759;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=ULE6uDTLXdtM6z8B9L/Qb6Jzh4xJsdCzsVAxM/7Q73Y=;
-        b=Iv+UNHAc71PUEunM0qH3w61i6uECeOS1znhNe/wp56k99pEH+Im3I9gt9cffdaLPyF
-         OZe+QJE4qqOHlYOR9Q4FPRDKXIVDW3qkw9p2Jupa2Trn44DvYt//CBg5Rn7U78kVPiuk
-         wNlErEd2WDf1JwrovnAt5jnUdcX1edrOrKauC72yIEHrNm3nHtOZ45NlgYvNrmDMH3dM
-         AVupcIP0M5YdzPcnEecl6k+42EuLHmXs7BRTJwe0hln6Hw9C0yFkFXY2el7ve7c3o5jv
-         GBIbtzqsU6PAWRxcToBwffwcccHlSqvgWmA2diOl0JmpcV29osOqSCOEroG8Oxb6ur83
-         mGHg==
-X-Forwarded-Encrypted: i=1; AHgh+RqGWAGFbspIBlUV9sV8R+hAGx8gzRoRtasoYwR6fpL0F0+6lPXskORvncN84TRzyzneT6umBv36lXv0X/JcygbA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNpwAo54N1WNEKdr32hoJmQeyCp96GeUGi8kqo/URGy7KgQ6AL
-	AqhVPa9NBG3Lwgg7CXL9OyyztlQIU2QDHgjEcvPVN1PEXXXN2yOXyp7c
-X-Gm-Gg: AR+sD13EQG45yqTQOI2TTWwVrVeHrIqI+XhQmMQ4gpBk/xDpGhZndcR+UCdQR+MXhdo
-	vT0RVLOISPC9k5c7vg2rHMx8QC6rk73Pu8Oqi0CV0bbmbe9yhpuFM4+mMVcoOh8JFJRzzzybnvJ
-	zx/KGba6ahI3vRwYotoJ942KmZQp543awJYt06G2av9UpmdSCJGtdxhLq8gFDK3eKYWm5YDwnrY
-	jQjs+Kj8NuT01KAYWkt36ypFfetZbUqdsJELQwdThCNbTFaJZpo6XSzt6O9qw8c5O+t9sDb82Tj
-	RT3BUMxJE0ix0E6tzWe4SS/uGZa6E6fqjZ0g1MPfCfs3+x7hNsoH/7/SYD+cTqV87dyaNYd0a5p
-	OGhHsSmLrp8aeP6gKhsfF7l5U0K9IgemPj9Oq5BDbGFsdZBcegNupujGT5gqPZT5gnZZOxShPTn
-	ghKYpJcCQ7GVog1Qz+pyTl+p0Zf+86Rlh4yMknjyQwvfbq4Lw1XfM9eo0TmoRK9xTqwcPUIbgln
-	eH2QzcVmOItPuQt6QRHIgZXCil6R3oO3L/muQ==
-X-Received: by 2002:a17:903:2301:b0:2c9:ff29:3f91 with SMTP id d9443c01a7336-2d0ca7afc9fmr135970995ad.6.1786008958858;
-        Thu, 06 Aug 2026 02:35:58 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d0aa013dafsm28332885ad.35.2026.08.06.02.35.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Aug 2026 02:35:58 -0700 (PDT)
-Message-ID: <697f8c44-1eef-47c2-8e59-9daa65e6989e@roeck-us.net>
-Date: Thu, 6 Aug 2026 02:35:57 -0700
+        d=1e100.net; s=20251104; t=1786008960; x=1786613760;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=knTPycIW4JC9RtVxI7lTQdVb1SJbys3U0akygREf/j8=;
+        b=UqKFmzAuLc/b3C59+fTHCp0pbCtWS/K5Z8/NZk+3AQuB6LNdcv0lcahv4qIEJWQZle
+         7I74hgRW0OjeT4WF2x5bMx5iKpWMGVq53LDbZWU3eUfhT+Svo2mE+6YEwJ0JuAVmJUeZ
+         m4pYqSM16tk3LEPx/vwrVjcHnMGMXZu/RByehubXf9YWKmXgE28erwrx/1k87KxMZlfB
+         BbnQijHNoNXDgK6sFb2VV6moDvnIpG7p9GrRXRwxPr/8NuC+hvAOGyRwxQht795b5dpI
+         yNhgWMe3OmVcrr7K6EsIKoEx9tvSnwVpiMZ/4R6AqGIpZBoKyFEr2aO44hMP96JbqMiL
+         HdZA==
+X-Forwarded-Encrypted: i=1; AHgh+RqNVp5gYpjSa9aedXoOb+MHKQCC9RTvF9wU8Wgq7sCAq+KdKBN/y/jjscbaMgZ/Dh4ZBdKwJZsQ40x3JEOE6TnO@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywg6X9EDYe1DQFQ7GEfumgOm996qUwqoQFsjKXeFjERiBBtQOui
+	/GMy6Bd6na9Q5YTTPoCDL9kbXLfmUMSjcBypo81Qs1JctwFoPGBiFtwg
+X-Gm-Gg: AR+sD13qnhCofedu7i1LysUutVV13itho8bv5uew8PemuVcmY5k0xD0dhHUrI8etEzh
+	5boG8ScTSgavV1hqx4s4Km7Z2L+UGvcC1bHfjtwJceY12ECErRcptzDzqjaKCcyz7ovQZVhCHXq
+	tGEm+4NNM4iYmfpWpgfBD0LJLflCOKjkRv7xLssF2nOv62ZfaMkga4Wr5+efPKnSqIcT6gRAgrb
+	1iObCB3TFXJruZz1XyYTZuzfQwOhIVlqwBZFmvCTPf/UnLkQpMOjBEQ/BPf/sKAJNmlzYtN0xVS
+	9ApdsmJCIPJe2Dcs8dMTGNs7IfgP1SJ4mSbE3rFY4muYVhyXD1LK+6e1ssJ5bEJvVY7qFBgl03E
+	B9Xqytl+B4pHpol2YnWXadkcN13UWPw65MxbyQJn2OxVPHvcX7irBsW66bA0aCEhqpxkCFaDsrS
+	ix5/odahffXJM+pMt9xQNR/n67oRR16NrVywrn/0cfDi72Xg3uk/9OXSb5q46NJuS6Xb7OYzahD
+	fU=
+X-Received: by 2002:a05:6a00:2d8f:b0:848:7552:3d86 with SMTP id d2e1a72fcca58-84f2e009be7mr14478703b3a.23.1786008959699;
+        Thu, 06 Aug 2026 02:35:59 -0700 (PDT)
+Received: from intel.company.local ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f453b0aeasm1043878b3a.13.2026.08.06.02.35.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2026 02:35:59 -0700 (PDT)
+From: Wandun Chen <chenwandun1@gmail.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	chenhuacai@kernel.org,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	robh@kernel.org,
+	saravanak@kernel.org,
+	rppt@kernel.org,
+	baoquan.he@linux.dev,
+	pasha.tatashin@soleen.com,
+	pratyush@kernel.org,
+	m.szyprowski@samsung.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-mm@kvack.org,
+	kexec@lists.infradead.org,
+	iommu@lists.linux.dev
+Cc: kernel@xen0n.name,
+	alex@ghiti.fr,
+	akpm@linux-foundation.org,
+	ruirui.yang@linux.dev,
+	robin.murphy@arm.com
+Subject: [PATCH v5 2/8] of: reserved_mem: add dumpable flag to opt-in vmcore
+Date: Thu,  6 Aug 2026 17:35:13 +0800
+Message-ID: <20260806093519.2907771-3-chenwandun1@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260806093519.2907771-1-chenwandun1@gmail.com>
+References: <20260806093519.2907771-1-chenwandun1@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] watchdog: stm32_iwdg: Propagate -EPROBE_DEFER from
- IRQ lookup
-To: phucduc.bui@gmail.com, Wim Van Sebroeck <wim@linux-watchdog.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- linux-watchdog@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20260806062812.26523-1-phucduc.bui@gmail.com>
- <20260806062812.26523-2-phucduc.bui@gmail.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20260806062812.26523-2-phucduc.bui@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_023559_784167_B06B47FE 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20260806_023600_454154_DB589C3A 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,44 +122,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/5/26 23:28, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> platform_get_irq_optional() does not returns 0. It returns a positive
-> IRQ number on success or a negative error code on failure.
-> 
-> Return -EPROBE_DEFER from platform_get_irq_optional() so the driver is
-> re-probed when the interrupt resource becomes available instead of
-> continuing probe without an IRQ.
-> 
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
->   drivers/watchdog/stm32_iwdg.c | 4 +++-
->   1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/watchdog/stm32_iwdg.c b/drivers/watchdog/stm32_iwdg.c
-> index b356a272ff9a..102f51084957 100644
-> --- a/drivers/watchdog/stm32_iwdg.c
-> +++ b/drivers/watchdog/stm32_iwdg.c
-> @@ -287,7 +287,9 @@ static int stm32_iwdg_irq_init(struct platform_device *pdev,
->   		return 0;
->   
->   	irq = platform_get_irq_optional(pdev, 0);
-> -	if (irq <= 0)
-> +	if (irq == -EPROBE_DEFER)
-> +		return irq;
-> +	if (irq < 0)
->   		return 0;
+From: Wandun Chen <chenwandun@lixiang.com>
 
-	if (irq < 0) {
-		if (irq != -ENXIO)
-			return irq;
-		return 0;
-	}
+Add a 'dumpable' flag to struct reserved_mem to decide whether a
+reserved area should be included in the kdump vmcore. Non-dumpable
+regions are later marked MEMBLOCK_NODUMP;the filtering itself happens
+in memblock, keeping the arch kdump code independent of the DT API.
 
-platform_get_irq_optional() does not return 0. and -ENXIO is returned
-if there is no interrupt.
+Most reserved regions are owned by devices and do not contain data
+useful for kernel crash analysis, so dumpable default to false.
+Reusable CMA regions are different: their pages are handed back to the
+buddy allocator and may contain key data for crash analysis, so set
+dumpable to true in rmem_cma_setup().
 
-Guenter
+The dumpable flag is also used to check /memreserve/ entries for overlap
+with other dumpable regions.
+
+Suggested-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+ include/linux/of_reserved_mem.h | 1 +
+ kernel/dma/contiguous.c         | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/include/linux/of_reserved_mem.h b/include/linux/of_reserved_mem.h
+index e8b20b29fa68..55a67cee41ea 100644
+--- a/include/linux/of_reserved_mem.h
++++ b/include/linux/of_reserved_mem.h
+@@ -15,6 +15,7 @@ struct reserved_mem {
+ 	phys_addr_t			base;
+ 	phys_addr_t			size;
+ 	void				*priv;
++	bool				dumpable;
+ };
+ 
+ struct reserved_mem_ops {
+diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
+index f754079a287d..63ff134dadd4 100644
+--- a/kernel/dma/contiguous.c
++++ b/kernel/dma/contiguous.c
+@@ -565,6 +565,7 @@ static int __init rmem_cma_setup(unsigned long node, struct reserved_mem *rmem)
+ 		dma_contiguous_default_area = cma;
+ 
+ 	rmem->priv = cma;
++	rmem->dumpable = true;
+ 
+ 	pr_info("Reserved memory: created CMA memory pool at %pa, size %ld MiB\n",
+ 		&rmem->base, (unsigned long)rmem->size / SZ_1M);
+-- 
+2.43.0
 
 
