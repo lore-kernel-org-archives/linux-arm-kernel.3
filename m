@@ -4,75 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E702C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:15:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F97DC56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ohnM/QTJNZ+57FtwY6l9db7MEahwiXQwpnCOrToPkmg=; b=23d6odIZdpjyv+vL1pJ5lN/cS7
-	MSV7MZgKKNIauphWfZ82KzF9og0wtOjP6cJsiZDr/3RClovMpbmecuZrR3rs5830YYxXEn2FWpbAO
-	KDcgqsSgh+DK8JQcc8xTbMl2JBkUUmBQVdpDqquJHastSj+E1mulEwbPWmicsRvzDhscqT0tOYvNb
-	83s4hcag60XW2dZa0aoiCda7mNoB6vAMs5BFgG/tWBkPwOYZhHcoWXn/UJRvll7jyegszrzUJPetk
-	YITyUBINfYCPW8R/MxjEPGiRYgwjRg6l8mMhqZgFallUk6o4wLHdtyIfu+G0TJzDL85yKVbasV+QD
-	Dw54Tupg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ECR1SUTQs3fUaSbLUwK/9GhxltOqHNFdjscrSlF8808=; b=PRSzJIjWEj54vP099rkit3QLlq
+	ycHG5I8twYdBw9sUCWSezDs6yntGjgIClHYi2DTe9RAkmcvl8ep/KjW4p+qpMNXwMAq57ATLpf562
+	CgNJKQtZJ4A/w7CE883dzefIdKReXHpriERc7PO63ZtiquBGtv/cXMpnH/LEajD+kOzt6RPtOYl1u
+	VCBmIpUtvHM4k7rp36oCpbNy6dvzyMPPGBgX8eQWUavvXlXso0MrmuL7HWhAPiOJpiM0AvRV0GUmm
+	iYaoQZkgDzCP0mgpkVlvsfqHqPOS+/lAr7W4bSFGhRo8OiRl3evnwp3b7fEsWl1xmAwwnWe3bS3rI
+	BNYwmY/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1h1-00000006LjF-20bE;
-	Thu, 06 Aug 2026 17:15:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ws1UN-00000006Hdt-1Q15;
+	Thu, 06 Aug 2026 17:02:39 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1h0-00000006Lj9-1HH5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 17:15:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B2C90405C5;
-	Thu,  6 Aug 2026 17:15:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BC1A1F00A3A;
-	Thu,  6 Aug 2026 17:15:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786036541;
-	bh=ohnM/QTJNZ+57FtwY6l9db7MEahwiXQwpnCOrToPkmg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XKcmZebSRKhOclLgWHO9NdRoYzuH0VLZl5rBKrCWL1gXuylkJCeiEchNqSFMmGSM6
-	 vH8boDW0vXrJFmVbuai85kPhGyl6ArrCrfWjlu9sMcn5Gt5kOLITQ1IvFv1OG4B3Y+
-	 1hqp1gXkTq558qykMk6eRd5lzO9SjG+yoavkuOWP0URRsjZ6Ajjh6QeNyl7evYP7MP
-	 YBGIcQfTFygshxRU8t5SlwyurdMjKlk91Nz4F/8VkXHOpLfdhwl2rKLK6h7iowEtu2
-	 viI37MTyeJtnNrqaTIKqxlK411bwjGjmdj+RLpA/dcNJnUr71M4oraSGHoTVek3ZR8
-	 oZB4vvu1jMVmQ==
-Date: Thu, 6 Aug 2026 18:15:35 +0100
-From: Will Deacon <will@kernel.org>
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org,
-	tj@kernel.org, urezki@gmail.com, catalin.marinas@arm.com,
-	akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com,
-	agordeev@linux.ibm.com, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-Message-ID: <anTBN7WzVZukl26p@willie-the-truck>
-References: <0344c559-1959-4531-9265-d5a5180eb7cd@arm.com>
- <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
- <amCPBrdltFSE_fEf@J2N7QTR9R3>
- <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
- <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
- <anHuLy52o5S9Nlwp@lucifer>
- <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com>
- <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org>
- <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
- <anIXr4Kbn59Ac31Y@lucifer>
+	id 1ws1UG-00000006HNB-0vle;
+	Thu, 06 Aug 2026 17:02:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1786035745;
+	bh=Vi2DWBLkp7BA7pxSSPHO/Gv/jDm6EqjBm8PNB7RSSxM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=a4HLd9t1f1WVhNO+Y2lsrsXPIR2Dg2iE+/EAqbTTefiZH4XCz7LGOY6YS663L2GR/
+	 ITxug1FzaU1goqHJJiXBLbZDdNO0IK5qgZu2UNjY7+JfVWUjIUiRR32O0L5+xeO1WR
+	 nrdFeIsCqp9HZbQVp2myyxUpREN5Xm6XLXZZj8ED1czGHql67cZBVv17Nr/tbQteVY
+	 Qms7BM6Wbaope/2KboW9rSPFLrFRlGyzgOEhDWvF7odZpMDccVyIXi0cbxV4zR24g7
+	 D4GcHEWYleeRm24sSN97CsmerbTqsXbHZ+/X/87ANnwG3sTCKL/LCEkK8hqspEoFiX
+	 DoliuOB0vrL+A==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B5BA317E121B;
+	Thu, 06 Aug 2026 19:02:25 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id 096BE48004C; Thu, 06 Aug 2026 19:02:25 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 06 Aug 2026 19:02:18 +0200
+Subject: [PATCH v11 12/21] drm/bridge: synopsys: dw-dp: Support software
+ triggered OOB HPD
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <anIXr4Kbn59Ac31Y@lucifer>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260806-synopsys-dw-dp-improvements-v11-12-0d508505f383@collabora.com>
+References: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
+In-Reply-To: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3715;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=Vi2DWBLkp7BA7pxSSPHO/Gv/jDm6EqjBm8PNB7RSSxM=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp0viB3bwBopZcY3L9Pn+/IzYyAUNUHYrKn1
+ gdvIX4WpJ2coIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqdL4gAAoJENju1/PI
+ O/qa2PUP/A1O6uIOHjQA65v1LL//7YdVhisyfqxIVCoXbbNg2V4Pdz6mBDm+ixFoxdVnyOjScl3
+ 0Dn0HEFSl93MfFe1mzbs2fkxPrI+IXiP5JCZSaNITbrrxnjMLBNMz3EcHjQ1Ax7qn7i+538pDKf
+ 6FqNJ6TmZDoigAdTECNhImBiX3zRg5qsp1S6vr4848qtyXKSJApS17VF5N86Chboa6x+Oicq2St
+ DZ71drDgM7mHRZ9y/VdcD+++RFnAO9TLJXazkMHqLlKqLXaGEpRt5Jvpc1AiKd4VU3ZCr9lMm5W
+ 84Tbzw1us+SSnmiWLHhAGvm6TxfUY1NBjBVYoaUA+RkBb/M6KTZFBVlrw4W/EcKeSbI1IzYO9Rn
+ X7UNOsHzsmDA/2coIUVzjB0IxCSLwhBEuzUdgTIKvf4TjVE6KA3ja0GwAyJuGhMwEsPv/v5r+YV
+ JQ85v7NJv34s61SNlTUt1+byncvu+mHy8pE6cVqt86ZRPAgw1XUcYvvutGkc8P4JoqAjFjKOaGP
+ ZrpjRvocEqHefsOK1z2d2l7BrZ2uZjQz86gjoDalGJbvbUYK1tG4gm4EHVgi6aGFhHrUtzehdur
+ 968ViOfrYEI7Mtke4ED1TdelIe0Qh8HRWuaWSdQkqPiWDm3PXxPowY81LRO9OMdl2kWYtbkvBTb
+ jeoVmTiDaELdSXhLyN/AqBA==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_100232_459083_C0140F3F 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +112,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 06:23:48PM +0100, Lorenzo Stoakes (ARM) wrote:
-> On Tue, Aug 04, 2026 at 09:30:08AM -0700, Linus Torvalds wrote:
-> > On Tue, 4 Aug 2026 at 09:27, Christoph Lameter (Ampere) <cl@gentwo.org> wrote:
-> > >
-> > > We certainly do not want to replicate that approach. We are using the per
-> > > cpu page tables to avoid address calculations in the VM that other
-> > > platforms can do with a segment override.
-> >
-> > Right, and I said that that's ok as long as it's a internal
-> > architecture thing. Not a "this is how the VM works".
-> >
-> > Because people really have wanted to make it a "this is how the VM
-> > works" thing. And that is very much what I object to.
-> 
-> Well :) it fundamentally changes how mm works - now we have a whole new set of
-> kernel page tables and PGD's that we have to think about.
-> 
-> And the series either tries to hack changes that fundamentally alter how
-> vmalloc works or will add its own duplicative kernel page table code to do the
-> same kind of thing.
-> 
-> So now core mm has to worry about TLB coherency and synchronisation, how this
-> might interact with things like page table isolation, and a lot of other
-> headaches (and I'm not really convinced they've been thought through here).
-> 
-> IOW - breaking fundamental assumptions about kernel page tables is inherently a
-> whole-VM change (See [0] for instance for an example of what can go wrong).
-> 
-> If Christoph + Yang can provide compelling data that advocates for this change
-> AND the core mm and arm64 communities agree to move forward with this, then
-> things are different.
-> 
-> However, I think the best approach here is to find the least invasive way of
-> limiting the change to the architecture itself.
-> 
-> Mark has put forward an approach that eliminates the exact overhead that this
-> series aims to address but does so without having to fundamentally alter core
-> mm assumptions (v2 posted at [1]).
-> 
-> So that seems very clearly to be a better alternative to me.
-> 
-> Ultimately we need mm and arm64 maintainer agreement on the way forwards (or in
-> the case of a truly isolated arm64 solution, arm64 maintainer agreement).
+Add support for USB-C DP AltMode out-of-band hotplug handling. The
+handling itself is implemented in the platform specific driver as the
+registers to force HPD state are not part of the Designware DisplayPort
+IP itself. Instead the platform integration might provide the necessary
+functionality to mux the HPD signal.
 
-So the nice thing about having two implementations (i.e. the per-cpu
-page-tables *and* the preemption stuff from Mark) is that we can pitch
-them against each other to help us make a decision.
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 38 +++++++++++++++++++++++++++++++++
+ include/drm/bridge/dw_dp.h              |  3 +++
+ 2 files changed, 41 insertions(+)
 
-However, I don't see how anybody could argue that Mark's series isn't
-cleaner and easier to maintain. I've seen it described as "hacky" but I
-can't tell whether or not that's supposed to be a criticism. If we
-seriously want to consider the per-cpu page-table approach on arm64, the
-numbers need to be _really_ good and across a variety of hardware, not
-just the stuff with a memory system made of baling twine. That extends
-to the kernel text replication efforts too.
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index a6099f7ddc87..3af5b1f643c1 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -1875,6 +1875,19 @@ static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_b
+ 	return &state->base;
+ }
+ 
++static bool dw_dp_is_routed_to_usb_c(struct drm_encoder *encoder)
++{
++	struct drm_bridge *last_bridge __free(drm_bridge_put) = NULL;
++	struct fwnode_handle *fwnode;
++
++	last_bridge = drm_bridge_chain_get_last_bridge(encoder);
++	if (!last_bridge)
++		return false;
++
++	fwnode = of_fwnode_handle(last_bridge->of_node);
++	return fwnode_device_is_compatible(fwnode, "usb-c-connector");
++}
++
+ static int dw_dp_bridge_attach(struct drm_bridge *bridge,
+ 			       struct drm_encoder *encoder,
+ 			       enum drm_bridge_attach_flags flags)
+@@ -1903,6 +1916,13 @@ static int dw_dp_bridge_attach(struct drm_bridge *bridge,
+ 		goto err_disable_irq;
+ 	}
+ 
++	if (dw_dp_is_routed_to_usb_c(encoder)) {
++		dev_dbg(dev, "USB-C mode\n");
++
++		if (dp->plat_data.hpd_sw_sel)
++			dp->plat_data.hpd_sw_sel(dp->plat_data.data, 1);
++	}
++
+ 	return 0;
+ 
+ err_disable_irq:
+@@ -1923,6 +1943,19 @@ static void dw_dp_bridge_detach(struct drm_bridge *bridge)
+ 	drm_dp_aux_unregister(&dp->aux);
+ }
+ 
++static void dw_dp_bridge_oob_notify(struct drm_bridge *bridge,
++				    struct drm_connector *connector,
++				    enum drm_connector_status status)
++{
++	bool hpd_high = status != connector_status_disconnected;
++	struct dw_dp *dp = bridge_to_dp(bridge);
++
++	if (dp->plat_data.hpd_sw_cfg)
++		dp->plat_data.hpd_sw_cfg(dp->plat_data.data, hpd_high);
++	else
++		dev_err_once(dp->dev, "Missing platform handler for OOB HPD handling\n");
++}
++
+ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
+ 	.attach = dw_dp_bridge_attach,
+ 	.detach = dw_dp_bridge_detach,
+@@ -1937,6 +1970,7 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
+ 	.atomic_disable = dw_dp_bridge_atomic_disable,
+ 	.detect = dw_dp_bridge_detect,
+ 	.edid_read = dw_dp_bridge_edid_read,
++	.oob_notify = dw_dp_bridge_oob_notify,
+ };
+ 
+ static int dw_dp_link_retrain(struct dw_dp *dp)
+@@ -2105,6 +2139,10 @@ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_
+ 
+ 	dp->dev = dev;
+ 	dp->pixel_mode = plat_data->pixel_mode;
++
++	dp->plat_data.hpd_sw_sel = plat_data->hpd_sw_sel;
++	dp->plat_data.hpd_sw_cfg = plat_data->hpd_sw_cfg;
++	dp->plat_data.data = plat_data->data;
+ 	dp->plat_data.max_link_rate = plat_data->max_link_rate;
+ 
+ 	INIT_WORK(&dp->hpd_work, dw_dp_hpd_work);
+diff --git a/include/drm/bridge/dw_dp.h b/include/drm/bridge/dw_dp.h
+index a82412a9e769..79b2cdf0df99 100644
+--- a/include/drm/bridge/dw_dp.h
++++ b/include/drm/bridge/dw_dp.h
+@@ -20,6 +20,9 @@ enum {
+ struct dw_dp_plat_data {
+ 	u32 max_link_rate;
+ 	u8 pixel_mode;
++	void *data;
++	void (*hpd_sw_sel)(void *data, bool hpd);
++	void (*hpd_sw_cfg)(void *data, bool hpd);
+ };
+ 
+ int dw_dp_bind(struct dw_dp *dp, struct drm_encoder *encoder);
 
-Will
+-- 
+2.53.0
+
 
