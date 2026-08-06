@@ -4,106 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34000C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 16:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 976CAC5ACAE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gmc94BOeV/agrYVwd5GE2jTgxobDY3nBhtv7wGNzmI0=; b=BZNIzoN2Vt+R7EmJG71JwXf/D2
-	hh8eeV7Ke5917lHLDy45oV7rzmFaz+OKzo11/eItv8eGFbAgg98LK7URBvy7D0vo0XTlwQetSUe9E
-	CV5DZi0jO4TK6Q3AAFGesTIytfG6mRk9tX1jEm/N0ALfV1q8RivhSUeRC7hTxFOFgqXAmKI+amcmR
-	2EfASaQVNxqaJmzzzDnzVfXXQ6tZe4gEhKKDkTCVjQdLxNdsdpcZ5VmENw6iYGHEJOAJ7nrGMHd7f
-	0decNA8H/FWSgF+C7f6/sfn30oTL8gpKnzv6LuMFvqpN/5aSzIf9nQLKxZx1j3lqQ087UBNDa1h7u
-	t/+uabAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mIQG4VkkRUOkOICWRjH06sara5xVIfyHYhJI/Yt0VPA=; b=ev9NxEuJWZzJTxt67IkfQ+PKy9
+	BeLvepOxnZowQ+D1f4DkFtZJYl29Hgm7vrqqfy5fZ92K+L9Mk9OWTRsti/h4HNWlbopkO58VmHnfU
+	v5z03NAkbcTMLqyTtcV95l1bO1BkRJkupDkwR6Exre/m9CM9De3hZCoPcfrNYXgth2JGWMVIvdHJw
+	v08ShyJTerLMTjsH/vgVh2q8as1h8N2uYFzF9PFAPXgFji9PKp72jMhw0Tmm8iuph0TR4WFKeTC4N
+	qQZB/lCCOWK4Be7XbQZMccpnLPxZfPN1ca7/cFOy2FrMjNthlSXwxAaiMqM5brQaeGY698+dvfySv
+	0w8cKAsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1OT-00000006H30-3f7l;
-	Thu, 06 Aug 2026 16:56:33 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1ws1UE-00000006HMo-2tBk;
+	Thu, 06 Aug 2026 17:02:30 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1OR-00000006H2G-41cB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 16:56:33 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-51c15a5b265so6451cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 09:56:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786035388; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DwbocfKNCUKfFXqojwX/MOvqb8/1qGpfp3uX0NEyCbG1GDjZojFwWQ1jzhG7bCArnb
-         L9+YweUQUlnigAejRjtI1Zx8Bi0PPvozHzXUgUPTggyFRspUeJbZ5VXtJrHBB/f1baMl
-         U978nL1rp5TQ+sIE8ZrKZ5eY+zMlfx963r6qwCzf9UzGU9RFDERg8FxELAlvkzzGd8qj
-         u5NjAxfgdtZDJrf8loEF0ii5Fm8LGpszyVoOhe583KFwraZ/zpOjojvX7Alz0dw2zRUT
-         26FeV4IDJKv9NsdwPLvOtUfVMC0H6Y2IZ76ZdrSwuveZKbvZpLAn9UN8AlHCaoXQQ3EK
-         oY9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=gmc94BOeV/agrYVwd5GE2jTgxobDY3nBhtv7wGNzmI0=;
-        fh=5EUpP7brmwGUPfSKBtH5lnCpGHx99qdx9Vxm3kWhrWM=;
-        b=TWv9DqxN0Q3i7Uk/L7eUe5eBA3QnLSoYwVcUgRoAF1AREh/5UVmtj1Z/JQz8H7Gbc+
-         OPPhaLEGEvq6KNndYSqyhy8n0Eg6CrUJ6klEk5tBdzVi3GdIu+ijL8Uz1v1Up9gp0G7d
-         jtiCSBvUEUqOewMaRj37QnxfEZaXwrWqddakCZTbeRDi6J+oNDrFJSlYWlPsbSSS5iYB
-         /jilHh00sOlqQHbCk0cngi4ccKs/8VnzNtlW0kf/Vh3gceQ0XRtT7f7gAnOBIGRMv7sK
-         AETiiApJM9THHHmYmD9ep0pHu2XJdZcdq+2jczL/aIUqx27qChjC03vnTMHkOKYigm3a
-         GWmA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786035388; x=1786640188; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=gmc94BOeV/agrYVwd5GE2jTgxobDY3nBhtv7wGNzmI0=;
-        b=Y14weAO2Tybo2qDZ6h0PZf+7vu1G4Fyw+S7BBQjEdggRRE/VnFFquGLyRxJtweWI/V
-         FV2w5LFcQsp5igZzg6gJGT9UYcRxUJe3KnkUBWUzjDQIRss3NITUb6C/h7yAmzOj7Y2g
-         wR17ptthEYHITcFjhK+ib9Zs4x/yCSeBYIlyBu2TpCInWrlqlukrUvC0ZY/wRxfxbPHS
-         z7icStnymosOwEYSJ/HWKlaksnALtypDVSLkPZR56iKg/MzkROxIOaw5g/OcmBaEG5qo
-         r9SWZKFGwkjBOD6bo8cAO0DUA9QfKM++kEeJ6Bl3iT+mHyph2PO86QL6DSOIJPqbFcvC
-         KkyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786035388; x=1786640188;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=gmc94BOeV/agrYVwd5GE2jTgxobDY3nBhtv7wGNzmI0=;
-        b=L8oi/Qmg9XXOqHZIFuGRa9jL2Kt+6oIWexMuGKFPgPKqgN8DdlT9vm3/TVIMorkhkg
-         IVlsPHVjzLqtFxT8ky3RtfISLbAHkfURRKS1FsfJt+Vs5hKJeAaDsZcKP7muKluxqnhU
-         TaBfXD3e5VDEFAlqvHuTcBD59aWYiMa0ITXiaaa8CcQa4+FmpSu3XS6YuraWswZZaftd
-         WbZNwljEgomGsmPFLKtSfS6muYrbCvgFE/29NpnaSSVb9k1LFA8esmLyR3Sb73RGSEub
-         nv6IONzTUBipCUhgAezsYoGEakHbq0aLH00gxIzjPQBQyxaKIrI2a1Z1a4orae6rG3OS
-         Jx1w==
-X-Forwarded-Encrypted: i=1; AHgh+RowghFXFxtIDTE0kO0nWyXzd2dGSO9fcIX4hssRKazzXSntgMY7iXijk/2ergX3EkAxY+6zZvwYSoovD3UavpBm@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbK1Ikur05R0N+62W+whw7RuMC1L2+z/TPrxVofFijW3NZODNo
-	8XQIC7ic+mtxRHqAH4HnnPDJN8XntK8EqMtnRw53XJSICY1SL8AFs0jVQd8xJzp8huVOTGbUsvE
-	KWdTGjINqL6US8Npm0gmgqdc2BT08Mi6/VTn3dG1H
-X-Gm-Gg: AR+sD120K03qn15WV5VMill7LegKY8+fcR5C6ruLFSd5SOR0G/zJ1rXpB/0q2o9nfrc
-	lY+pHUccGA/2F2Ltl8TRxzKEBruvRQpGVLjtNFGN1PX4UV5qAeZb8r+P7R7aE6Mb0wu1c8Pctoj
-	Rmh7mHhDA+UgyHw8VEMZze19aTNf3XoxB7JRL7qT4lqPuUmb3c7HHAv/7fCtC9pCwcqpwIeqVuy
-	LXaQOhPkV5XLQVttjfECZGam4VlSG3jh5322li2Tso2/IW4U6yxJ/la659TFoXweqp9DSFcofrh
-	rzmtf9MW+LOhPv2orNO3rd6dZHygdqPaSP2mZDxmpNDHv870+E+3mcA=
-X-Received: by 2002:a05:622a:aa06:10b0:516:ccc0:ee38 with SMTP id
- d75a77b69052e-52cfea3217fmr17874811cf.9.1786035387706; Thu, 06 Aug 2026
- 09:56:27 -0700 (PDT)
+	id 1ws1UB-00000006HKf-3Sys;
+	Thu, 06 Aug 2026 17:02:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1786035745;
+	bh=+kI5bMPxmKszrrlmZRhrrwGKt5vlPS+riQK99NPB3wM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=WxigxzgjOEdfvfqAUaBwr6+cyQ6UbZVB+m1NJdTljCFDthWNj+6F7izNFE7t76Lmf
+	 GNiBWBXI1GlruQVzEoavgsdmu1xgW+VuMZ10sn1sDrVLAkf0ZDPKJcb46DpM6DXbHt
+	 Fh/wZZ7MhSYlydpB+Gt/xqxPUn0gXTX9GhsD9DJhkEUumAPGaWJnc9nvmtDc2EKlwK
+	 YZb0+EeYUzeupaYGOxGKOFUxz6sOSojijfV0T7tif6hPmIBLN4od7frV9SR8OcDwSZ
+	 Ht14q/m4HoWNXplMpJoB53mGkGkqnNZlT6RfBM0EEoe16N+tyFOPv2vVnlhJds45Ca
+	 +BJ1ISUR/fb9Q==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 43E1B17E0967;
+	Thu, 06 Aug 2026 19:02:25 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id EE235480028; Thu, 06 Aug 2026 19:02:24 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 06 Aug 2026 19:02:07 +0200
+Subject: [PATCH v11 01/21] drm/bridge: synopsys: dw-dp: Register DP AUX on
+ bridge attach
 MIME-Version: 1.0
-References: <20260806150105.4010701-1-smostafa@google.com>
-In-Reply-To: <20260806150105.4010701-1-smostafa@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 6 Aug 2026 17:55:50 +0100
-X-Gm-Features: AUfX_mwomSdWQ7tiQrgFTXXCNg9udOM-KnUsiS7N6B9mS0wCaSf-yQZNn_iicSE
-Message-ID: <CA+EHjTzk154LY4Tb8mKCL5iud23M_VovoRAujkr6qOqEc4_rWg@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
-To: Mostafa Saleh <smostafa@google.com>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oupton@kernel.org, 
-	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	vdonnefort@google.com, sebastianene@google.com, keirf@google.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260806-synopsys-dw-dp-improvements-v11-1-0d508505f383@collabora.com>
+References: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
+In-Reply-To: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@collabora.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Sashiko <sashiko-bot@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3652;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=+kI5bMPxmKszrrlmZRhrrwGKt5vlPS+riQK99NPB3wM=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp0viBYkgS88JgmurQUGfLsz3jzVSPVwXMCo
+ P6PYTyUraqu5IkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqdL4gAAoJENju1/PI
+ O/qaEXUP/jdESHAMkmrA1PyAGWyGAvXRq3YiB2TCBK2nj9h/dJ8r4xNwjYJAuu8dpHzT2bX3C2d
+ rowDBu2Sfa6RI9R5rR/RW/fJ+6qENWPGq/zDL31coEbm6tg7zH1M/ABoR/g1Nx8YCWE5sNvvhxt
+ K225pHGo7Jaen25f1F8jvwLJ5nV9VU+Fy+PrNmvq6aVdWJ3Y4Le2sYWF2Xik63rpnN9dZu7j0S+
+ gcpnXDJXtGY2fg2ybFJ9XtTzhJuy9krIRdn1UUTOLX38SKQznSoiz+T64g1fHjbJO9BrX8PL6vy
+ GVjKBdb52FVLql8ck2tXZwGJV70l9Sb5O4ALSQHig+I1n2BtIPfoNGYp3FGh4mwPolJsMISlxsz
+ 3sSEmmyR3XsfjIPp3UarYpTs/4DjwR1Ifq3s6zehNZjUWXJ6GTIOLusmaVUseHshuOmWbMo8kVc
+ JXtKt+4ir+iaXRxB0A7E/pxrakurSrtRgXEKwjjChMWEzQ3aryg5KMOI8jAdxlC2rqDtHNk0C5v
+ nETw9sI4V5frhBf8v73HbSdEemuGYC7oF6KjPqf/R7xlPiQDeucUdggc88MVZgTHRaw4lUNioDf
+ 9N+fRn8/Rylt1btr9uIo16pS/iutoeB6rM/5Ko3bjx/TQP+7jxABuO0vBdnDHWF25DocnWHYE7D
+ T0rul8ij23C5JMU8tpxI4dA==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_095632_005268_0850C3C9 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20260806_100228_014281_02AC53D1 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,39 +113,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mostafa,
+Unregister the DP AUX device at the right spot as documented in the
+drm_dp_aux_register() function description. This helps that it is
+only accessed when the DRM device is ready and the bridge is powered
+and initialized (further fixes are required for that).
 
-On Thu, 6 Aug 2026 at 16:01, Mostafa Saleh <smostafa@google.com> wrote:
-...
->  void __kvm_timer_set_cntvoff(u64 cntvoff)
->  {
-> @@ -63,7 +64,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
->          * Trap the virtual counter/timer if we have a broken cntvoff
->          * implementation.
->          */
-> -       if (has_broken_cntvoff())
-> +       if (has_broken_cntvoff() && hyp_timer_get_offset(vcpu_vtimer(vcpu)))
->                 set |= CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
+Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 55 +++++++++++++++++++++------------
+ 1 file changed, 35 insertions(+), 20 deletions(-)
 
-nit: the comment above could note the trap is now gated on a non-zero
-virtual offset, to match timer_set_traps() on the VHE side (well...
-maybe you don't want to _completely_ match _that_ comment, but you get
-my drift ;)) .
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+index 8b8529e1723c..60feb3d1e14b 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
+@@ -1813,7 +1813,36 @@ static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_b
+ 	return &state->base;
+ }
+ 
++static int dw_dp_bridge_attach(struct drm_bridge *bridge,
++			       struct drm_encoder *encoder,
++			       enum drm_bridge_attach_flags flags)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++	struct device *dev = dp->dev;
++	int ret;
++
++	dp->aux.dev = dev;
++	dp->aux.drm_dev = encoder->dev;
++	dp->aux.name = dev_name(dev);
++	dp->aux.transfer = dw_dp_aux_transfer;
++
++	ret = drm_dp_aux_register(&dp->aux);
++	if (ret)
++		dev_err(dev, "Aux register failed: %d\n", ret);
++
++	return ret;
++}
++
++static void dw_dp_bridge_detach(struct drm_bridge *bridge)
++{
++	struct dw_dp *dp = bridge_to_dp(bridge);
++
++	drm_dp_aux_unregister(&dp->aux);
++}
++
+ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
++	.attach = dw_dp_bridge_attach,
++	.detach = dw_dp_bridge_detach,
+ 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+ 	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+@@ -2043,20 +2072,10 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+ 	if (ret)
+ 		return ERR_PTR(ret);
+ 
+-	dp->aux.dev = dev;
+-	dp->aux.drm_dev = encoder->dev;
+-	dp->aux.name = dev_name(dev);
+-	dp->aux.transfer = dw_dp_aux_transfer;
+-	ret = drm_dp_aux_register(&dp->aux);
+-	if (ret) {
+-		dev_err_probe(dev, ret, "Aux register failed\n");
+-		return ERR_PTR(ret);
+-	}
+-
+ 	ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "Failed to attach bridge\n");
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	dw_dp_init_hw(dp);
+@@ -2064,37 +2083,33 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+ 	ret = phy_init(dp->phy);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "phy init failed\n");
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	ret = devm_add_action_or_reset(dev, dw_dp_phy_exit, dp);
+ 	if (ret)
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 
+ 	dp->irq = platform_get_irq(pdev, 0);
+ 	if (dp->irq < 0) {
+ 		ret = dp->irq;
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	ret = devm_request_threaded_irq(dev, dp->irq, NULL, dw_dp_irq,
+ 					IRQF_ONESHOT, dev_name(dev), dp);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "failed to request irq\n");
+-		goto unregister_aux;
++		return ERR_PTR(ret);
+ 	}
+ 
+ 	return dp;
+-
+-unregister_aux:
+-	drm_dp_aux_unregister(&dp->aux);
+-	return ERR_PTR(ret);
+ }
+ EXPORT_SYMBOL_GPL(dw_dp_bind);
+ 
+ void dw_dp_unbind(struct dw_dp *dp)
+ {
+-	drm_dp_aux_unregister(&dp->aux);
++	/* nothing to do */
+ }
+ EXPORT_SYMBOL_GPL(dw_dp_unbind);
+ 
 
-Tested on QEMU with a forced has_broken_cntvoff(), then booted a
-protected guest: without the patch it hits the UNDEF, with it the
-guest boots.
+-- 
+2.53.0
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
-
-Cheers,
-/fuad
-
-
->
->         sysreg_clear_set(cnthctl_el2, clr, set);
-> --
-> 2.55.0.654.g21b8a5bc05-goog
->
 
