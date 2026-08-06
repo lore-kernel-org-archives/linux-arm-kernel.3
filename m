@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1A0C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 19:49:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4D5C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 19:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ASMPuQKSJC8uNvcCgcqLa+1nmbq4NWEZPtoSGFS+jfM=; b=OPOhIMWQMNwLqsNTh1E2UfrM3q
-	49j4FKwCOwZybBs9e7Z6TALWUYTx8vyWE3CbM/0vYtGRp4UN8xCrJXHyx2NlzVzWx6/hgFulpovIV
-	y2CugHLdMkU7dnx4gJP2py09UAH0KxUnhfrqXdOBmlMoidDVf6OuBqq1c7ErsZvqqPzphS4vr2VN0
-	ZZFUv2ZdlEuFWZ1SCuBk6gqUGqZmRdynyem6zthSSKSIBTgKK3+d4kNGHfhDNafuwH2Kv8FAOaWj9
-	S/Aszy3FrBCE2/6zY146q4Q/dB5EiY/HHPey6jvnTXwScfpX+WlmBi/wrmmQpOrr8ao+l7JaHnthk
-	nDObgECg==;
+	bh=AHBe1sQ8hbHuUkt8WDpUsL2o9pU/b1TiEkYr2xV3LhU=; b=rjSII9BIT7IM+G+BteS4lCV06X
+	Yf2b0H4lrJkYS/csmmPhpnJPyKMRVWWq5og80IL3bAAn3IA7L1fi4agXaVna2SvZeAV/Qyw2O2+6T
+	e6on2HSr1m1k3qkft7nabdASfwmRukhLa1ASJvhKitiNsinV9dIAKDb5X6K1KqF7m/RMz1fQ2IHHC
+	nML5NP1MBsDHNS7lq6N4u7cqOfnMEuEe0TYyx480Qx+z8s7BmmiiTOse0RSlMMCfEm+/ghI+DqxDM
+	W8ijJZ909YAqzMEJ7OL4mldN1LhutYVDf4BvzE2Zf2GfL30X1c/0WI4ZLdMCyyI7XLQFXzBqilTK8
+	Q8f+/ynQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws45b-00000006aI6-3f49;
+	id 1ws45b-00000006aHo-3HgG;
 	Thu, 06 Aug 2026 19:49:15 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws45Y-00000006aFw-3IG6
+	id 1ws45Y-00000006aGC-37bs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 19:49:15 +0000
+	Thu, 06 Aug 2026 19:49:14 +0000
 Received: from mail01.layka.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 132C0418A8;
-	Thu, 06 Aug 2026 21:49:02 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id BCDF542774;
+	Thu, 06 Aug 2026 21:49:08 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id TX4d1873iFKH; Thu,  6 Aug 2026 21:49:01 +0200 (CEST)
+ id ECROkf0UwLKs; Thu,  6 Aug 2026 21:49:07 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1786045741; bh=sD2ttyi1AZR6Zq2YrL2GU2IPJ5gSb8y1BWyzSisavgo=;
+	t=1786045747; bh=0wASVkJyPvbonmrnXQcG94Uhs3ifv4yrwNEHHlhrXzk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=drX8aEalvzR/JLisqZZWEt2B/9mgarj6P3nUBGnMPaVNAf3yuEZ3284cXFRi9Wpvs
-	 7D+aXyEaOoktjoMnHeiDdA4lm1yN/pUp8U53hyj2wnrkJvJEMFJ0I+ik51r9m5Xx2E
-	 hL1+3ib2Ju7VZ2AzErs1GacpKjQncfrQIk1ik1dAYJgo9RR6GYFvsPyKJMNjBA/Ocm
-	 pNoysk/bBhIANdN4ifI3ZLooxeZDtn8PNqmRCPKHydWT78fhuq6TsxTisURyrfbOCY
-	 c1d1TPVIaYDFMX1EtHY0nriPh62NNZ0RjvWBLvoPr2AFt2WtgzjpAHZ9Z1PnQbfCkV
-	 v9Z0MI20iC+cQ==
+	b=k1TXwJ51j29s2DdHjthwUO8oUvVCOmC8yixW6cBR5yFNjIPake5u2fmChp6a4W6SY
+	 WRtd2LbrC8XNm/G8CiQuurhzNKfCyRvDvp8Da3uUpv1g29DKE2RN+N1Kt1foqH08Xf
+	 rFWeiLr553rB/Mw9ZJ3kd05DJsNeBfwFe1+NRkLF4fbQ2jLBcp38YXMN/BElgFHQS2
+	 FYvpZsmcid/RNM0ToTsI98FrfV+4nVr2XfdmHAGqNABH0bqA7oJUJy6rZxFNL8q2qN
+	 G5Ejzfu/faizdfbWdZjasnj735YwIuslA9BLqlljuAqPwoYo/tZzLsTyPQD0moxPZJ
+	 bnzQ9hTOOLs3A==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Fri, 07 Aug 2026 01:18:41 +0530
-Subject: [PATCH v4 1/3] dt-bindings: iio: proximity: add Sharp GP2AP070S
+Date: Fri, 07 Aug 2026 01:18:42 +0530
+Subject: [PATCH v4 2/3] iio: proximity: add driver for Sharp GP2AP070S
  proximity sensor
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260807-gp2ap070s-v4-1-74f6a67b6272@disroot.org>
+Message-Id: <20260807-gp2ap070s-v4-2-74f6a67b6272@disroot.org>
 References: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
 In-Reply-To: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
 To: Jonathan Cameron <jic23@kernel.org>, 
@@ -66,8 +66,8 @@ Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_124912_969485_E6428CA0 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20260806_124913_085727_92F03A83 
+X-CRM114-Status: GOOD (  21.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,89 +83,554 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The GP2AP070S is a proximity sensor designed and manufactured by Sharp
-Corporation. Unlike the other GP2AP* schemas, this is strictly a
-proximity sensor and NOT an ambient light sensor.
+Corporation. This sensor is used in mobile devices, including, but not
+limited to - the Samsung Galaxy J6.
 
-For power supplies, it expects two voltage supplies, one for core and
-other for driving the infrared LED which is used to measure proximity
-distance. However, some variants may not explicitly require a separate
-regulator for the LED as they're able to draw power from the main
-supply.
+The driver has been adopted from Samsung's downstream kernel
+implementation [1]. Due to the lack of public documentation about the
+schematics of this device. The downstream driver acts as the secondary
+source of information. Driver clarity has also been improved with the
+help of the GP2AP* drivers in iio/light.
 
-This chip has been used in production mobile devices such as the Samsung
-Galaxy J6.
-
+Link: https://github.com/Exynos7870/android_kernel_samsung_universal7870/blob/lineage-16.0/drivers/sensors/gp2ap070s.c [1]
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- .../bindings/iio/proximity/sharp,gp2ap070s.yaml    | 60 ++++++++++++++++++++++
- 1 file changed, 60 insertions(+)
+ drivers/iio/proximity/Kconfig     |  11 +
+ drivers/iio/proximity/Makefile    |   1 +
+ drivers/iio/proximity/gp2ap070s.c | 491 ++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 503 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/iio/proximity/sharp,gp2ap070s.yaml b/Documentation/devicetree/bindings/iio/proximity/sharp,gp2ap070s.yaml
+diff --git a/drivers/iio/proximity/Kconfig b/drivers/iio/proximity/Kconfig
+index bb77fad2a1b3..39db19e59650 100644
+--- a/drivers/iio/proximity/Kconfig
++++ b/drivers/iio/proximity/Kconfig
+@@ -41,6 +41,17 @@ config D3323AA
+ 	  To compile this driver as a module, choose M here: the module will be
+ 	  called d3323aa.
+ 
++config GP2AP070S
++	tristate "Sharp GP2AP070S proximity sensor"
++	depends on I2C
++	select REGMAP_I2C
++	help
++	  Say Y here to build a driver for the Sharp GP2AP070S proximity
++	  sensor.
++
++	  To compile this driver as a module, choose M here: the module will be
++	  called gp2ap070s.
++
+ config HX9023S
+ 	tristate "TYHX HX9023S SAR sensor"
+ 	select IIO_BUFFER
+diff --git a/drivers/iio/proximity/Makefile b/drivers/iio/proximity/Makefile
+index 4352833dd8a4..627ffb04acb2 100644
+--- a/drivers/iio/proximity/Makefile
++++ b/drivers/iio/proximity/Makefile
+@@ -7,6 +7,7 @@
+ obj-$(CONFIG_AS3935)		+= as3935.o
+ obj-$(CONFIG_CROS_EC_MKBP_PROXIMITY) += cros_ec_mkbp_proximity.o
+ obj-$(CONFIG_D3323AA)		+= d3323aa.o
++obj-$(CONFIG_GP2AP070S)		+= gp2ap070s.o
+ obj-$(CONFIG_HX9023S)		+= hx9023s.o
+ obj-$(CONFIG_IRSD200)		+= irsd200.o
+ obj-$(CONFIG_ISL29501)		+= isl29501.o
+diff --git a/drivers/iio/proximity/gp2ap070s.c b/drivers/iio/proximity/gp2ap070s.c
 new file mode 100644
-index 000000000000..73f0abc1f09c
+index 000000000000..49770c308ddb
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/iio/proximity/sharp,gp2ap070s.yaml
-@@ -0,0 +1,60 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/iio/proximity/sharp,gp2ap070s.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/iio/proximity/gp2ap070s.c
+@@ -0,0 +1,491 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * IIO driver for Sharp GP2AP070S proximity sensor.
++ *
++ * Based on Samsung G610FXXU1CRI4 kernel driver - drivers/sensors/gp2ap070s.c
++ * Copyright (c) 2010 Samsung Electronics Co., Ltd.
++ * Copyright (c) 2026 Kaustabh Chakraborty <kauschluss@disroot.org>
++ */
 +
-+title: Sharp GP2AP070S Proximity sensor
++#include <linux/array_size.h>
++#include <linux/bitfield.h>
++#include <linux/delay.h>
++#include <linux/err.h>
++#include <linux/i2c.h>
++#include <linux/interrupt.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/regmap.h>
++#include <linux/regulator/consumer.h>
++#include <linux/types.h>
++#include <linux/units.h>
 +
-+maintainers:
-+  - Kaustabh Chakraborty <kauschluss@disroot.org>
++#include <linux/iio/events.h>
++#include <linux/iio/iio.h>
++#include <linux/iio/types.h>
 +
-+allOf:
-+  - $ref: ../common.yaml#
++#define GP2AP070S_REG_COM1		0x80
++#define   GP2AP070S_COM1_WKUP		BIT(7)
++#define   GP2AP070S_COM1_EN		BIT(5)
 +
-+properties:
-+  compatible:
-+    const: sharp,gp2ap070s
++#define GP2AP070S_REG_COM2		0x81
 +
-+  reg:
-+    maxItems: 1
++#define GP2AP070S_REG_COM3		0x82
++#define   GP2AP070S_COM3_INT_PULSE	BIT(1)
 +
-+  interrupts:
-+    maxItems: 1
++#define GP2AP070S_REG_COM4		0x83
++#define   GP2AP070S_COM4_BLINK		GENMASK(2, 0)	/* LED Blink Interval */
++#define     GP2AP070S_COM4_BLINK_0ms	0
++#define     GP2AP070S_COM4_BLINK_2ms	1
++#define     GP2AP070S_COM4_BLINK_8ms	2
++#define     GP2AP070S_COM4_BLINK_33ms	3
++#define     GP2AP070S_COM4_BLINK_66ms	4
++#define     GP2AP070S_COM4_BLINK_131ms	5
++#define     GP2AP070S_COM4_BLINK_262ms	6
++#define     GP2AP070S_COM4_BLINK_524ms	7
 +
-+  vdd-supply:
-+    description: Voltage supply for the internal circuitry
++#define GP2AP070S_REG_PS1		0x85
++#define   GP2AP070S_PS1_RESOL		GENMASK(5, 4)	/* Resolution */
++#define     GP2AP070S_PS1_RESOL_14ms	0
++#define     GP2AP070S_PS1_RESOL_12ms	1
++#define     GP2AP070S_PS1_RESOL_10ms	2
++#define     GP2AP070S_PS1_RESOL_8ms	3
 +
-+  vled-supply:
-+    description: Voltage supply for the IR LED
++#define GP2AP070S_REG_PS2		0x86
++#define   GP2AP070S_PS2_IOUT		GENMASK(6, 4)	/* Current Output */
++#define     GP2AP070S_PS2_IOUT_0mA	0
++#define     GP2AP070S_PS2_IOUT_24mA	1
++#define     GP2AP070S_PS2_IOUT_89mA	2
++#define     GP2AP070S_PS2_IOUT_130mA	3
++#define     GP2AP070S_PS2_IOUT_190mA	4
++#define   GP2AP070S_PS2_SUM32		BIT(2)
 +
-+  proximity-near-level: true
++#define GP2AP070S_REG_PS3		0x87
++#define   GP2AP070S_PS3_PRST		GENMASK(6, 4)	/* Repeating Measurements */
 +
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - vdd-supply
++#define GP2AP070S_REG_PS_THD_LO_LE16	0x88
++#define GP2AP070S_REG_PS_THD_HI_LE16	0x8a
++#define GP2AP070S_REG_D0_LE16		0x90
 +
-+additionalProperties: false
++#define GP2AP070S_REG_MAX		(GP2AP070S_REG_D0_LE16 + 1)
 +
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
++struct gp2ap070s_drvdata {
++	struct regmap *regmap;
++	struct mutex mutex;
++	u32 near_level;
++};
 +
-+    i2c {
-+      #address-cells = <1>;
-+      #size-cells = <0>;
++static bool gp2ap070s_regmap_volatile(struct device *dev, unsigned int reg)
++{
++	return reg == GP2AP070S_REG_D0_LE16 || reg == GP2AP070S_REG_D0_LE16 + 1;
++}
 +
-+      proximity@39 {
-+        compatible = "sharp,gp2ap070s";
-+        reg = <0x39>;
-+        interrupt-parent = <&gpio>;
-+        interrupts = <1 IRQ_TYPE_EDGE_BOTH>;
-+        vdd-supply = <&vdd_supply>;
-+        vled-supply = <&vled_supply>;
-+        proximity-near-level = <500>;
-+      };
-+    };
++static const struct regmap_config gp2ap070s_regmap_config = {
++	.reg_bits = 8,
++	.val_bits = 8,
++	.volatile_reg = gp2ap070s_regmap_volatile,
++	.max_register = GP2AP070S_REG_MAX,
++	.cache_type = REGCACHE_FLAT,
++};
 +
-+...
++static const char *const gp2ap070s_regulator_names[] = {
++	"vdd",
++	"vled",
++};
++
++static ssize_t gp2ap070s_iio_read_near_level(struct iio_dev *indio_dev,
++					     uintptr_t priv,
++					     const struct iio_chan_spec *chan,
++					     char *buf)
++{
++	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
++
++	return sysfs_emit(buf, "%u\n", drvdata->near_level);
++}
++
++static const struct iio_chan_spec_ext_info gp2ap070s_iio_chan_spec_ext_info[] = {
++	{
++		.name = "nearlevel",
++		.shared = IIO_SEPARATE,
++		.read = gp2ap070s_iio_read_near_level,
++	},
++	{ }
++};
++
++static const struct iio_event_spec gp2ap070s_iio_event_spec[] = {
++	{
++		.type = IIO_EV_TYPE_THRESH,
++		.dir = IIO_EV_DIR_RISING,
++		.mask_separate = BIT(IIO_EV_INFO_VALUE),
++	},
++	{
++		.type = IIO_EV_TYPE_THRESH,
++		.dir = IIO_EV_DIR_FALLING,
++		.mask_separate = BIT(IIO_EV_INFO_VALUE),
++	},
++	{
++		.type = IIO_EV_TYPE_THRESH,
++		.dir = IIO_EV_DIR_EITHER,
++		.mask_separate = BIT(IIO_EV_INFO_ENABLE),
++	},
++};
++
++static const struct iio_chan_spec gp2ap070s_iio_chan_spec[] = {
++	{
++		.type = IIO_PROXIMITY,
++		.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),
++		.ext_info = gp2ap070s_iio_chan_spec_ext_info,
++		.event_spec = gp2ap070s_iio_event_spec,
++		.num_event_specs = ARRAY_SIZE(gp2ap070s_iio_event_spec),
++	},
++};
++
++static int gp2ap070s_iio_read_raw(struct iio_dev *indio_dev,
++				  struct iio_chan_spec const *chan, int *val,
++				  int *val2, long mask)
++{
++	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
++	__le16 value;
++	int ret;
++
++	ret = regmap_bulk_read(drvdata->regmap, GP2AP070S_REG_D0_LE16, &value,
++			       sizeof(value));
++	if (ret)
++		return ret;
++
++	*val = le16_to_cpu(value);
++	return IIO_VAL_INT;
++}
++
++static int gp2ap070s_iio_read_event_value(struct iio_dev *indio_dev,
++					  const struct iio_chan_spec *chan,
++					  enum iio_event_type type,
++					  enum iio_event_direction dir,
++					  enum iio_event_info info, int *val,
++					  int *val2)
++{
++	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
++	__le16 value;
++	int ret;
++
++	if (type != IIO_EV_TYPE_THRESH || info != IIO_EV_INFO_VALUE)
++		return -EINVAL;
++
++	guard(mutex)(&drvdata->mutex);
++
++	switch (dir) {
++	case IIO_EV_DIR_RISING:
++		ret = regmap_bulk_read(drvdata->regmap,
++				       GP2AP070S_REG_PS_THD_HI_LE16, &value,
++				       sizeof(value));
++		if (ret)
++			return ret;
++
++		*val = le16_to_cpu(value);
++		return IIO_VAL_INT;
++	case IIO_EV_DIR_FALLING:
++		ret = regmap_bulk_read(drvdata->regmap,
++				       GP2AP070S_REG_PS_THD_LO_LE16, &value,
++				       sizeof(value));
++		if (ret)
++			return ret;
++
++		*val = le16_to_cpu(value);
++		return IIO_VAL_INT;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int gp2ap070s_iio_write_event_value(struct iio_dev *indio_dev,
++					   const struct iio_chan_spec *chan,
++					   enum iio_event_type type,
++					   enum iio_event_direction dir,
++					   enum iio_event_info info, int val,
++					   int val2)
++{
++	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
++	__le16 value;
++	u16 threshold_other;
++	int ret;
++
++	if (type != IIO_EV_TYPE_THRESH || info != IIO_EV_INFO_VALUE)
++		return -EINVAL;
++
++	/* Ensure val is a 16-bit value */
++	if (val < 0 || val >= BIT(16))
++		return -EINVAL;
++
++	guard(mutex)(&drvdata->mutex);
++
++	switch (dir) {
++	case IIO_EV_DIR_RISING:
++		ret = regmap_bulk_read(drvdata->regmap,
++				       GP2AP070S_REG_PS_THD_LO_LE16, &value,
++				       sizeof(value));
++		if (ret)
++			return ret;
++
++		/* Ensure lo_threshold < hi_threshold */
++		threshold_other = le16_to_cpu(value);
++		if (threshold_other >= val)
++			return -EINVAL;
++
++		value = cpu_to_le16(val);
++		ret = regmap_bulk_write(drvdata->regmap,
++					GP2AP070S_REG_PS_THD_HI_LE16, &value,
++					sizeof(value));
++		if (ret)
++			return ret;
++
++		return 0;
++	case IIO_EV_DIR_FALLING:
++		ret = regmap_bulk_read(drvdata->regmap,
++				       GP2AP070S_REG_PS_THD_HI_LE16, &value,
++				       sizeof(value));
++		if (ret)
++			return ret;
++
++		/* Ensure hi_threshold > lo_threshold */
++		threshold_other = le16_to_cpu(value);
++		if (threshold_other <= val)
++			return -EINVAL;
++
++		value = cpu_to_le16(val);
++		ret = regmap_bulk_write(drvdata->regmap,
++					GP2AP070S_REG_PS_THD_LO_LE16, &value,
++					sizeof(value));
++		if (ret)
++			return ret;
++
++		return 0;
++	default:
++		return -EINVAL;
++	}
++}
++
++static int gp2ap070s_read_event_config(struct iio_dev *indio_dev,
++				       const struct iio_chan_spec *chan,
++				       enum iio_event_type type,
++				       enum iio_event_direction dir)
++{
++	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
++	unsigned int value;
++	int ret;
++
++	if (type != IIO_EV_TYPE_THRESH)
++		return -EINVAL;
++
++	guard(mutex)(&drvdata->mutex);
++
++	switch (dir) {
++	case IIO_EV_DIR_EITHER:
++		ret = regmap_read(drvdata->regmap, GP2AP070S_REG_COM3, &value);
++		if (ret)
++			return ret;
++
++		return FIELD_GET(GP2AP070S_COM3_INT_PULSE, value);
++	default:
++		return -EINVAL;
++	}
++}
++
++static int gp2ap070s_write_event_config(struct iio_dev *indio_dev,
++					const struct iio_chan_spec *chan,
++					enum iio_event_type type,
++					enum iio_event_direction dir,
++					bool state)
++{
++	struct gp2ap070s_drvdata *drvdata = iio_priv(indio_dev);
++
++	if (type != IIO_EV_TYPE_THRESH)
++		return -EINVAL;
++
++	guard(mutex)(&drvdata->mutex);
++
++	switch (dir) {
++	case IIO_EV_DIR_EITHER:
++		return regmap_assign_bits(drvdata->regmap, GP2AP070S_REG_COM3,
++					  GP2AP070S_COM3_INT_PULSE, state);
++	default:
++		return -EINVAL;
++	}
++}
++
++static const struct iio_info gp2ap070s_iio_info = {
++	.read_raw = gp2ap070s_iio_read_raw,
++	.read_event_value = gp2ap070s_iio_read_event_value,
++	.write_event_value = gp2ap070s_iio_write_event_value,
++	.read_event_config = gp2ap070s_read_event_config,
++	.write_event_config = gp2ap070s_write_event_config,
++};
++
++static irqreturn_t gp2ap070s_irq_handler(int irq, void *private)
++{
++	struct iio_dev *indio_dev = private;
++	s64 timestamp = iio_get_time_ns(indio_dev);
++
++	iio_push_event(indio_dev,
++		       IIO_UNMOD_EVENT_CODE(IIO_PROXIMITY, 0, IIO_EV_TYPE_THRESH,
++					    IIO_EV_DIR_EITHER),
++		       timestamp);
++
++	return IRQ_HANDLED;
++}
++
++static int gp2ap070s_reset(struct gp2ap070s_drvdata *drvdata)
++{
++	int ret;
++
++	ret = regmap_write(drvdata->regmap, GP2AP070S_REG_COM1, 0);
++	if (ret)
++		return ret;
++
++	return regmap_reinit_cache(drvdata->regmap, &gp2ap070s_regmap_config);
++}
++
++static void gp2ap070s_reset_action(void *private)
++{
++	struct gp2ap070s_drvdata *drvdata = private;
++
++	gp2ap070s_reset(drvdata);
++}
++
++static int gp2ap070s_probe_hw_register(struct gp2ap070s_drvdata *drvdata)
++{
++	struct device *dev = regmap_get_device(drvdata->regmap);
++	int ret;
++
++	ret = gp2ap070s_reset(drvdata);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to reset sensor\n");
++
++	ret = regmap_write(drvdata->regmap, GP2AP070S_REG_COM2, 0);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to enable interrupts\n");
++
++	ret = regmap_set_bits(drvdata->regmap, GP2AP070S_REG_COM3,
++			      GP2AP070S_COM3_INT_PULSE);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to unmask interrupts\n");
++
++	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_COM4,
++				GP2AP070S_COM4_BLINK,
++				FIELD_PREP_CONST(GP2AP070S_COM4_BLINK,
++						 GP2AP070S_COM4_BLINK_33ms));
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to set LED blink timing\n");
++
++	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_PS1,
++				GP2AP070S_PS1_RESOL,
++				FIELD_PREP_CONST(GP2AP070S_PS1_RESOL,
++						 GP2AP070S_PS1_RESOL_10ms));
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to set resolution\n");
++
++	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_PS2,
++				GP2AP070S_PS2_IOUT | GP2AP070S_PS2_SUM32,
++				FIELD_PREP_CONST(GP2AP070S_PS2_IOUT,
++						 GP2AP070S_PS2_IOUT_89mA) |
++				GP2AP070S_PS2_SUM32);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to set current output\n");
++
++	ret = regmap_write_bits(drvdata->regmap, GP2AP070S_REG_PS3,
++				GP2AP070S_PS3_PRST,
++				FIELD_PREP_CONST(GP2AP070S_PS3_PRST, 3));
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to set measurement repetitions\n");
++
++	ret = regmap_set_bits(drvdata->regmap, GP2AP070S_REG_COM1,
++			      GP2AP070S_COM1_WKUP | GP2AP070S_COM1_EN);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to enable sensor\n");
++
++	return 0;
++}
++
++static int gp2ap070s_probe(struct i2c_client *client)
++{
++	struct device *dev = &client->dev;
++	struct iio_dev *indio_dev;
++	struct gp2ap070s_drvdata *drvdata;
++	int ret;
++
++	indio_dev = devm_iio_device_alloc(dev, sizeof(*drvdata));
++	if (!indio_dev)
++		return -ENOMEM;
++
++	drvdata = iio_priv(indio_dev);
++	drvdata->regmap = devm_regmap_init_i2c(client, &gp2ap070s_regmap_config);
++	if (IS_ERR(drvdata->regmap))
++		return dev_err_probe(dev, PTR_ERR(drvdata->regmap), "Failed to create regmap\n");
++
++	ret = devm_mutex_init(dev, &drvdata->mutex);
++	if (ret)
++		return ret;
++
++	ret = devm_regulator_bulk_get_enable(dev,
++					     ARRAY_SIZE(gp2ap070s_regulator_names),
++					     gp2ap070s_regulator_names);
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to get and enable regulators\n");
++
++	fsleep(10 * (MICRO / MILLI));
++
++	indio_dev->name = "gp2ap070s";
++	indio_dev->modes = INDIO_DIRECT_MODE;
++	indio_dev->channels = gp2ap070s_iio_chan_spec;
++	indio_dev->num_channels = ARRAY_SIZE(gp2ap070s_iio_chan_spec);
++	indio_dev->info = &gp2ap070s_iio_info;
++
++	if (device_property_present(dev, "proximity-near-level")) {
++		ret = device_property_read_u32(dev, "proximity-near-level",
++					       &drvdata->near_level);
++		if (ret)
++			return dev_err_probe(dev, ret,
++					     "Failed to get value for proximity-near-level\n");
++	}
++
++	ret = gp2ap070s_probe_hw_register(drvdata);
++	if (ret)
++		return ret;
++
++	ret = devm_add_action_or_reset(dev, gp2ap070s_reset_action, drvdata);
++	if (ret)
++		return ret;
++
++	ret = devm_request_threaded_irq(dev, client->irq, NULL,
++					gp2ap070s_irq_handler, IRQF_ONESHOT,
++					"gp2ap070s-irq", indio_dev);
++	if (ret)
++		return ret;
++
++	return devm_iio_device_register(dev, indio_dev);
++}
++
++static const struct of_device_id gp2ap070s_of_device_id[] = {
++	{ .compatible = "sharp,gp2ap070s" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, gp2ap070s_of_device_id);
++
++static const struct i2c_device_id gp2ap070s_i2c_device_id[] = {
++	{ .name = "gp2ap070s" },
++	{ }
++};
++MODULE_DEVICE_TABLE(i2c, gp2ap070s_i2c_device_id);
++
++static struct i2c_driver gp2ap070s_i2c_driver = {
++	.driver = {
++		.name = "gp2ap070s",
++		.of_match_table = gp2ap070s_of_device_id,
++	},
++	.probe = gp2ap070s_probe,
++	.id_table = gp2ap070s_i2c_device_id,
++};
++module_i2c_driver(gp2ap070s_i2c_driver);
++
++MODULE_AUTHOR("Kaustabh Chakraborty <kauschluss@disroot.org>");
++MODULE_DESCRIPTION("Sharp GP2AP070S Proximity Sensor");
++MODULE_LICENSE("GPL");
 
 -- 
 2.54.0
