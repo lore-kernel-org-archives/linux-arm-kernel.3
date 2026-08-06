@@ -4,99 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C7AC56205
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 18:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D47C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 19:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VVB7kCIhX3W/Erqbp2nM9uyGnxMP7+gXaSWn+KWkvDI=; b=UdWQz2ZiMPtVCwnoK+q287GTqF
-	DcVged+mQEsSB9onPirZpXuA2gA6Jno/ewRxl0EGYR3/8vW0nPj2x9LmFxKvYzyBND8oC/8OVO7/r
-	isw1lK+NvgM+qYYGiysj/PUCeDPaol9yro3VZgMmow9+g9sKGVTdkBJvKiAAV92t3yJ19ArqzTfsd
-	DkFH9GqYVdE28FqOi9xVZHS5p0keRi9LeVbnmhlBNtIaUmThQWpAlb3a2De3tSlwVSHMtn9uvg47v
-	HwwIzo995qzGSlnfuq/jBGtpEyv3IMYE0Oaa4EpJ8lCKXu3yjymZ0rCEoj7xlk2k62UQnq8HHZjwb
-	ohDDS9Gg==;
+	bh=y2EyQmnDXiMO+KBYyWcf8iTBbNxUMV46wXMjAySCPPk=; b=WYBrHOg1N7QFYMAz4LDy7qXW1s
+	i/zCcEo+IESJEuV0XRsH7aqU0HX/lMCjahsWRfnmDZRr/wVeos3AXAo2QiKDau5CwhO9HNF0J35K4
+	mla+TF1AjbLuOxs17iVTRyMfk6Jos990OxEIY1J2xkYPHyNctJyV5acll1vRw7zgo8tNt2VUUsp7b
+	QV8NReCFBkXaHQ6oJu93UtvrqipbSxQPOBXzE4JSSrWLIloZk5NAKkMKA+dQly0BeAkMHuKkypDza
+	wnYtK5cNvhi3XvNiHJ79Wejr3cFSQjEhiJDj5zBAzowG+mE+5q37/1rmeTZk6WFUzNCNUhd8DQIQB
+	bV4qL+ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1US-00000006Hw1-3rZs;
-	Thu, 06 Aug 2026 17:02:44 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1ws3QK-00000006XaJ-34oG;
+	Thu, 06 Aug 2026 19:06:36 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1UI-00000006HPR-01iL;
-	Thu, 06 Aug 2026 17:02:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1786035746;
-	bh=oRTwAEvsdtAdQ3xeWlEgRs01pA0QwvbbaxWZXaVnR4M=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=NVITPhUPm+E2bCAxfubkWxeXY6au6qJQc4/dYj2IOKnvPdF1D8ziM+nN/8vv2pcss
-	 en44xonxTBT/Je/GsLqGaP+jcvXmTsrZoLf/YY46l6TPRVYezrVWEBha3/QghPgBLy
-	 lbjCaNUuqkdhHlGtn0XyQ1lKAJ0gk27G+n9oFin/+ycPQ0TJXsOTDKprR/WdRW4DSI
-	 7VMOxC+amjJr/FRZBGRiEJ4EyCmtsfW2ATnbe56NAYd/hjUa8qOhvhGtKf6ILEvPjd
-	 XlBvXZHj+v3jbdTdwXOT9NFr5Q+OCgdWyanxt5awG+PnCEfodiP1S7g2SiraSbwbzJ
-	 K96MWQSGLetWA==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E377817E1249;
-	Thu, 06 Aug 2026 19:02:25 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 0DD36480055; Thu, 06 Aug 2026 19:02:25 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 06 Aug 2026 19:02:21 +0200
-Subject: [PATCH v11 15/21] drm/rockchip: dw_dp: Add runtime PM support
+	id 1ws3QH-00000006XZi-1VBR;
+	Thu, 06 Aug 2026 19:06:35 +0000
+Received: from pps.filterd (m0333521.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 676Ftnfi3426829;
+	Thu, 6 Aug 2026 19:06:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=y2EyQmnDXiMO+KBYyWcf8iTBbNxUMV46wXMjAySCPPk=; b=
+	S7iZ20kCXaV6xthJI9aeotqDl5di4yyzA+TVFor9BJqD0UO6xJJqdVSDV0/0V43h
+	5sRGJj4RJ/uG2nc55z/p2pxdYF5wcgpEf6ihGLYUUJFFSyszzlxA7MxvN27qAU73
+	5BwVsI+atSMuZhXz8wGP8YfwPRsFunCcuC/e7pRO1kDmbTeASxL5tJycZaurP0DL
+	G+WG4haZ43kn9uo4ariiOqo/p+ZVnnbeP+pnhXb8zUverEzm4p2tlmg0/zdCYkYg
+	bWsZBaA1JekiTB66fl0zxcXq1nP+xHs/UcL7VbDgnE42lACacRSncsjaeoMxtdnb
+	ZJIejFF7LwJNgET0nVYIzA==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4fs7qaeukj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 06 Aug 2026 19:06:28 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 676J0dV1024794;
+	Thu, 6 Aug 2026 19:06:27 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4fs78w56g5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 06 Aug 2026 19:06:27 +0000 (GMT)
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.1.12) with ESMTP id 676J6Lgj011247;
+	Thu, 6 Aug 2026 19:06:26 GMT
+Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 4fs78w56b9-8;
+	Thu, 06 Aug 2026 19:06:26 +0000 (GMT)
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+To: Peter Wang <peter.wang@mediatek.com>,
+        Chaotian Jing <chaotian.jing@mediatek.com>,
+        Stanley Jhu <chu.stanley@gmail.com>,
+        "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-scsi@vger.kernel.org, linux-mediatek@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, Pan Chuang <panchuang@vivo.com>
+Cc: "Martin K . Petersen" <martin.petersen@oracle.com>
+Subject: Re: [PATCH] ufs: host: Remove redundant dev_err()
+Date: Thu,  6 Aug 2026 15:06:13 -0400
+Message-ID: <178589207042.336697.5428904830095409055.b4-ty@oracle.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260717035013.563791-1-panchuang@vivo.com>
+References: <20260717035013.563791-1-panchuang@vivo.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-synopsys-dw-dp-improvements-v11-15-0d508505f383@collabora.com>
-References: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
-In-Reply-To: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@flipper.net>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2058;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=oRTwAEvsdtAdQ3xeWlEgRs01pA0QwvbbaxWZXaVnR4M=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp0viBugf7kmffLWiX1OgyTdCwCTPaeyaUDs
- rciieB6Y4JvmYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqdL4gAAoJENju1/PI
- O/qaszIP/0DAaR/hYLDvWsgM90fNgIUOCUVWdLpAdJLvjbDTehiuKy4XldYAXULqubgYEu0ksLC
- NYoQht5odetpFfbog3Nh5oaUhw7D4qLD+JbH2ECP/01GNOVnr7w1Y6GThw1EdMIdVtlfe5f1XgI
- aZHssLkz//cq88AFQNbzaAu+uoeTyOadH7siM4tZMrP0YUZbZRxKvAiZReVClHeUHWDJT9X9hS6
- 7KK36K+W9zgYbiczVOfI73NMWDwQze3SgXCHR9dW3cAxhJlHigiUINny3tVHwZnoupf/n5xQhOA
- z8704oHlJEGs1l7UMHWxEk7PHHbjqa02akAeOQi5gTAtbJQhfGMqdoDItsdmgprVy3pIq/j2uRg
- 11JZaY9dGBluIJHBQKs/uFxNb/5CzpbWkluKiMiN/IGdo3+OKTLTRuHmit/mPquKCspOhB6Uy5Q
- PjPjGjT+/yTIfx1LqMpsPVbchVlrSoHObFNy/Lt35IekwbzgAQcVezJDAmrOVHlbEWrOiSfhAyo
- CUteyvi4iGwTuIHjlMVwSsqUNx2nBZDdH9zABAVaZPfF7BfmHhtBa6PEWSOykwCz4khKNaxoyQY
- /3YeUGZDAhwg/sjUQd5gRn+cTtQkvsQutP3YbP+nluoeWEe9bCjdKulynzspdxju0sCFhRZ4JUM
- UGTTi7UKOvD03O+hZbWcquQ==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-06_02,2026-08-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
+ spamscore=0 malwarescore=0 bulkscore=0 lowpriorityscore=0 mlxscore=0
+ phishscore=0 mlxlogscore=999 suspectscore=0 classifier=spam adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2606160000 definitions=main-2608060149
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA2MDE0OSBTYWx0ZWRfX1uVfCvDw4m57
+ fBn9Rm7NRnY3wmHVapYWzcFIcLBAV/77yBOsqMsIkuAYHlu/0dgHjD/eNraiuVN5+qyrbQeq57S
+ 62dcQR9HayzsmPC3i7k8FeuqdETxRCRr7YBOLCz/cSqOnsp0csdCYjvTsZMHT9eqTZNGFV2iKNk
+ qleY4aFVDD9CnjvSROxphr7EkxVx/H/G8EIl4kg+0AfT52VkfCY+e3NvkvOy2gOjyLPOzVHH70v
+ LAkqJ7NS0T+8O4mDSY9f1JRF3YvTV/bZr44LqYps2jofSwfM6Y2s/Gked7HlvKTJpcYhP3hxqrQ
+ QmtDLSdR7Q9dITUBpp2MorhizPu3QWkdbcQZa2iIhZ6qRsdSEA2Dq0920NZ1H7Ti3+l4VeUqlys
+ N3/s9mTy27gK1HCu4R1GUayTqucPGddTjRKv0m5VedeiB+5vmPo40X7BlWo6wftqVOeGoHmmgpi
+ mpr83vRdYeJxEccbsRdXkRTAT1wxIPA6aa2xhdG4=
+X-Proofpoint-GUID: 4k1UmZ-IcOhwdXf4lXREHveo7pErMlfR
+X-Authority-Analysis: v=2.4 cv=frDsol4f c=1 sm=1 tr=0 ts=6a74db34 b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=jiCTI4zE5U7BLdzWsZGv:22 a=x0eKOSpe3m1H3M0S9YoZ:22 a=VwQbUJbxAAAA:8
+ a=EHcGivrlkkicjW9g384A:9 a=QEXdDO2ut3YA:10 a=5yU3S35YU4bGjq-dph-N:22
+ a=Bho9c0fBagfJEIQBS7DQ:22 cc=ntf awl=host:13510
+X-Proofpoint-ORIG-GUID: 4k1UmZ-IcOhwdXf4lXREHveo7pErMlfR
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODA2MDE0OSBTYWx0ZWRfX4oHG75xzDa0I
+ NHBIjFVUeyS3j9pI+8CuWtk8GwsUOpadLUoOEnKHEPoSNDvSRz0qsnEz/5e8aZyCvZfRDlLwrTz
+ b0Xxt5uI6oRQWTNdISgZDr/+vOyIPpMLwJK/lmJuQoJipyWYEG4a
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_100234_279082_8E00E26A 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20260806_120633_402377_1D66A115 
+X-CRM114-Status: UNSURE (   7.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,68 +121,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for runtime PM to the Rockchip RK3576/3588 Synopsys
-DesignWare DisplayPort driver.
+On Fri, 17 Jul 2026 11:50:13 +0800, Pan Chuang wrote:
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/gpu/drm/rockchip/dw_dp-rockchip.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+> Since commit 55b48e23f5c4 ("genirq/devres: Add error handling in
+> devm_request_*_irq()"), devm_request_irq() automatically logs
+> detailed error messages on failure. Remove the now-redundant
+> driver-specific dev_err() calls.
+> 
+> 
 
-diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-index ffcfb887d0d2..770ab042a187 100644
---- a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-@@ -12,6 +12,7 @@
- #include <linux/mfd/syscon.h>
- #include <linux/of_device.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/videodev2.h>
- 
-@@ -231,6 +232,7 @@ static int dw_dp_rockchip_probe(struct platform_device *pdev)
- 	if (IS_ERR(dp->vo_grf))
- 		return PTR_ERR(dp->vo_grf);
- 
-+	plat_data->autosuspend_delay = 500;
- 	plat_data->max_link_rate = plat_data_const->max_link_rate;
- 	plat_data->pixel_mode = plat_data_const->pixel_mode;
- 	plat_data->hpd_sw_sel = dw_dp_rockchip_hpd_sw_sel;
-@@ -253,6 +255,24 @@ static void dw_dp_rockchip_remove(struct platform_device *pdev)
- 	component_del(&pdev->dev, &dw_dp_rockchip_component_ops);
- }
- 
-+static int dw_dp_rockchip_runtime_suspend(struct device *dev)
-+{
-+	struct rockchip_dw_dp *dp = dev_get_drvdata(dev);
-+
-+	return dw_dp_runtime_suspend(dp->base);
-+}
-+
-+static int dw_dp_rockchip_runtime_resume(struct device *dev)
-+{
-+	struct rockchip_dw_dp *dp = dev_get_drvdata(dev);
-+
-+	return dw_dp_runtime_resume(dp->base);
-+}
-+
-+static const struct dev_pm_ops dw_dp_pm_ops = {
-+	RUNTIME_PM_OPS(dw_dp_rockchip_runtime_suspend, dw_dp_rockchip_runtime_resume, NULL)
-+};
-+
- static const struct rockchip_dw_dp_plat_data rk3588_dp_plat_data = {
- 	.num_ctrls = 2,
- 	.ctrl_ids = {0xfde50000, 0xfde60000},
-@@ -287,5 +307,6 @@ struct platform_driver dw_dp_driver = {
- 	.driver = {
- 		.name = "dw-dp",
- 		.of_match_table = dw_dp_of_match,
-+		.pm = pm_ptr(&dw_dp_pm_ops),
- 	},
- };
+Applied to 7.3/scsi-queue, thanks!
+
+[1/1] ufs: host: Remove redundant dev_err()
+      https://git.kernel.org/mkp/scsi/c/0cad7bd51301
 
 -- 
-2.53.0
-
+Martin K. Petersen
 
