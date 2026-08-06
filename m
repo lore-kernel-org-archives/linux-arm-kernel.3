@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC82C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 21:45:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E1CC5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 21:46:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WdoFzCI6/MSoPm4Khb52UUh02MpjvNSJrVeGRSfhXrI=; b=lcLgjH+6mDmUW/M1HHGB7SA7MI
-	u2nXJRovuM9Wd4f2WFy5ijLmhuS21A4Ctb/sgAkfYxWzltgTr4AL6iUo8tWixy7vXeMc7RUMQtWE7
-	Y9pEXAtnl/wjKTMow8J5/fCgyxADGu7TqOuBj1DmQwJ5X3/+6ENKM++3FTQbK9oCH6oFw4eMNw1ib
-	wy1XZLxAnkIrEhdvv8Q7o7qaZOonpYtZvbi5z9cM0Hi+Yf7L1Yhld6bzR47uXERooKEElqx32LRTu
-	RLcCf8Fbf9W/NQpMN7HsWcUPHh5WOegE2aUkJAv8f0fvxsQp8VHYYSaSz/VqfWctsE9t/C+0lK5yw
-	F+CD2ZDA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
+	From:Subject:Message-ID:Mime-Version:Date:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=shGHIfLMy0zOulR4PSpJjZWPNrTU67gcyn62KwrDxcg=; b=wVB2Rsk+2jlgvoUm7KyVZlGbv+
+	SCTQOPRiCDKB0Qxt+4ihX4VBjvOqvDpuTcTVnizkLncYJ0Mwdt6B7QrYlBirDZXiwLVpsjDmPlD53
+	mTHXKE6Qm/SL2gRry9iWODxpBonH5LlwiPAGUJE+ieRLzxs8PycoN3PYos0glySbyuswGZyMNR803
+	SK0SQZdlXpaOgxAleAsvbD4Rg4tJp9p03hUQzML7gGWXskgUSmogSPYkHCH45+zAQv8cq2CJJeDcf
+	spFO+G7UzxlGVtTr0H22PHqaX7UfLscf0nmoE6QYkrYBjRDwTX1uxNjeC8e8XqbszM374sStnCbF3
+	pvPJX5rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws5uI-00000006kTw-0vJ5;
-	Thu, 06 Aug 2026 21:45:42 +0000
-Received: from out-185.mta1.migadu.com ([95.215.58.185])
+	id 1ws5v1-00000006kbn-2Y6c;
+	Thu, 06 Aug 2026 21:46:27 +0000
+Received: from mail-pj1-x1047.google.com ([2607:f8b0:4864:20::1047])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws5uE-00000006kTJ-3IOa
+	id 1ws5uy-00000006kbF-3Fpg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 21:45:40 +0000
-Message-ID: <a8749023-d598-43d9-8a64-569b2d057438@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1786052731;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WdoFzCI6/MSoPm4Khb52UUh02MpjvNSJrVeGRSfhXrI=;
-	b=iP14MZpKhZJ+z+2rvfX0XlFyk4Tgyh1nCMITUlGFyIb4ogl4Mn/PrfIdy7huNh/NHvrtzz
-	RZvG3RqEQg1vduqQeXJ2WtMVw5h2qF8Ap1r+Sc60B97Z5gL6XiWtGYKYBTTl2CBPSr028Z
-	vucexiDg6x8wsSlrpBWqzkESx7cP1rI=
-Date: Thu, 6 Aug 2026 14:45:03 -0700
-MIME-Version: 1.0
-Subject: Re: [PATCH v8 14/22] RISC-V: perf: Implement supervisor counter
- delegation support
-To: Yicong Yang <yang.yicong@picoheart.com>
-Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
- Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Ian Rogers <irogers@google.com>,
- Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
- <20260701-counter_delegation-v8-14-7909f863a645@meta.com>
- <46cc0a87-a6cf-44d0-87d0-187ae8f6791e@picoheart.com>
- <12675382-8ef2-4dcb-9e12-bc9cf8cc46ab@linux.dev>
- <15b63bb1-ea29-42cd-905c-fbecc8423118@picoheart.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <15b63bb1-ea29-42cd-905c-fbecc8423118@picoheart.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+	Thu, 06 Aug 2026 21:46:25 +0000
+Received: by mail-pj1-x1047.google.com with SMTP id 98e67ed59e1d1-38e22137fb3so3637052a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 14:46:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786052783; x=1786657583; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=shGHIfLMy0zOulR4PSpJjZWPNrTU67gcyn62KwrDxcg=;
+        b=WD935fEaat1R4KVloHaST3NKqg4pjPCLStI/ymUzpV44pWgegSY5ANAFBbg8yAlgBN
+         v8TlduL5npcZOR/7ybL1Be9eu2usua6NnurdD8+STnsYWZla0k1mQNBPRBRYIjGvUbd2
+         nEkfoAScsT2YIf7xxcnPtoLTBp3tEGbuxfU6Z5vVMAP+5iNxU715x0TVzwO5GBshi/cQ
+         Zte0yKUXppIMRv/6YJ7h8yE5EPDs3uR/du3m/G1NuGW7LlyMWjJnKyzxGWf5wHW4ock6
+         6jKoporMkk4LKGHtqNHAyZGGNm9o6MNciEDIV3LZThxLGlQUsyVW4tsAc4tGdGRSzkup
+         BwKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786052783; x=1786657583;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=shGHIfLMy0zOulR4PSpJjZWPNrTU67gcyn62KwrDxcg=;
+        b=Y9LwNW0N6ND8z6fJ6JGk+L4nWe8z2Tduj1/h/VL2+WK1p+ghoFfjSAMeIZGaszm0P2
+         Sp21UpqBigKfHbaAhFNOOj37HNAd01WmwHAjbikBJyxnJ9Ysz2uiiveLgC7mZ3mO59xP
+         mIPnL0ai/r1je2u4ldD705o2LFn3PlwM8U/BG7D4LoUcLgnTTYk3CE4eJbCzXhc1tWUc
+         qQKtQeLzhPKRKEWfmSj6Lxq8gYhS237DG1nnUGeQcN0EjgmHYXqNr5Au4NkkEYtw78vR
+         JvgrNLE8iTsMqbEqnLp/nGQBsTcff71jrU5xC7s8YmOj95cNgcSDVfupz70keqyb5xzu
+         Pdbg==
+X-Forwarded-Encrypted: i=1; AHgh+RprVzi3miMKKeT1/gOPK8CSMqIFUVdgZu4u2GKTlYxmU01jCOX6xN4IXZ0upf8yiiEF7pEBegxN5X8bSdDi+b1h@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtMsRs73kRZsLQ0kwQBO0WAvifkD732q0ZlMlv/xx+WsKCwNZs
+	L24BzgYYhN9ngsGyMSovlG3pSM9YjR1k27SpFdEQBwa4duw50v7vVFiBgTGZ94ztHQZFXtSWDqi
+	PUDP5jA==
+X-Received: from pjup19.prod.google.com ([2002:a17:90a:d313:b0:38d:efe5:1502])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4fc9:b0:38e:740f:9764
+ with SMTP id 98e67ed59e1d1-3903c5f6477mr18528170a91.18.1786052782928; Thu, 06
+ Aug 2026 14:46:22 -0700 (PDT)
+Date: Thu,  6 Aug 2026 14:46:18 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.679.g6767b8d81c-goog
+Message-ID: <20260806214618.82180-1-seanjc@google.com>
+Subject: [PATCH] KVM: Never clear KVM_REQ_VM_DEAD from a vCPU's requests
+From: Sean Christopherson <seanjc@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Sean Christopherson <seanjc@google.com>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_144539_121228_12001F38 
-X-CRM114-Status: GOOD (  34.23  )
+X-CRM114-CacheID: sfid-20260806_144624_817834_5C002B6C 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,225 +87,121 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Use kvm_test_request() instead of kvm_check_request() when querying
+KVM_REQ_VM_DEAD, i.e. don't clear KVM_REQ_VM_DEAD, as the entire purpose
+of KVM_REQ_VM_DEAD is to prevent the vCPU from enterring the guest ever
+again, even if userspace insists on redoing KVM_RUN.
 
-On 8/6/26 5:16 AM, Yicong Yang wrote:
-> On 8/6/26 10:00 AM, Atish Patra wrote:
->> On 7/7/26 1:24 AM, Yicong Yang wrote:
->>> On 7/1/26 4:47 PM, Atish Patra wrote:
->>>> From: Atish Patra <atishp@rivosinc.com>
->>>>
->>>> There are few new RISC-V ISA exensions (ssccfg, sscsrind, smcntrpmf) which
->>>> allows the hpmcounter/hpmevents to be programmed directly from S-mode. The
->>>> implementation detects the ISA extension at runtime and uses them if
->>>> available instead of SBI PMU extension. SBI PMU extension will still be
->>>> used for firmware counters if the user requests it.
->>>>
->>>> The current linux driver relies on event encoding defined by SBI PMU
->>>> specification for standard perf events. However, there are no standard
->>>> event encoding available in the ISA. In the future, we may want to
->>>> decouple the counter delegation and SBI PMU completely. In that case,
->>>> counter delegation supported platforms must rely on the event encoding
->>>> defined in the perf json file or in the pmu driver.
->>>>
->>>> For firmware events, it will continue to use the SBI PMU encoding as
->>>> one can not support firmware event without SBI PMU.
->>>>
->>>> Signed-off-by: Atish Patra <atishp@rivosinc.com>
->>>> ---
->>>>    arch/riscv/include/asm/csr.h   |   1 +
->>>>    drivers/perf/riscv_pmu_sbi.c   | 578 +++++++++++++++++++++++++++++++++--------
->>>>    include/linux/perf/riscv_pmu.h |   3 +
->>>>    3 files changed, 478 insertions(+), 104 deletions(-)
->>>>
->>>> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
->>>> index a3b24b88e401..cd22b5168689 100644
->>>> --- a/arch/riscv/include/asm/csr.h
->>>> +++ b/arch/riscv/include/asm/csr.h
->>>> @@ -258,6 +258,7 @@
->>>>    #endif
->>>>      #define SISELECT_SSCCFG_BASE        0x40
->>>> +#define HPMEVENT_MASK            GENMASK_ULL(63, 56)
->>>>      /* mseccfg bits */
->>>>    #define MSECCFG_PMM            ENVCFG_PMM
->>>> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
->>>> index 2568c6808f5d..7995da4a98a1 100644
->>>> --- a/drivers/perf/riscv_pmu_sbi.c
->>>> +++ b/drivers/perf/riscv_pmu_sbi.c
->>>> @@ -28,6 +28,8 @@
->>>>    #include <asm/cpufeature.h>
->>>>    #include <asm/vendor_extensions.h>
->>>>    #include <asm/vendor_extensions/andes.h>
->>>> +#include <asm/hwcap.h>
->>>> +#include <asm/csr_ind.h>
->>>>      #define ALT_SBI_PMU_OVERFLOW(__ovl)                    \
->>>>    asm volatile(ALTERNATIVE_2(                        \
->>>> @@ -60,7 +62,20 @@ asm volatile(ALTERNATIVE(                        \
->>>>    #define PERF_EVENT_FLAG_USER_ACCESS    BIT(SYSCTL_USER_ACCESS)
->>>>    #define PERF_EVENT_FLAG_LEGACY        BIT(SYSCTL_LEGACY)
->>>>    -PMU_FORMAT_ATTR(event, "config:0-55");
->>>> +#define RVPMU_SBI_PMU_FORMAT_ATTR    "config:0-47"
->>>> +#define RVPMU_CDELEG_PMU_FORMAT_ATTR    "config:0-55"
->>>> +
->>>> +static ssize_t __maybe_unused rvpmu_format_show(struct device *dev, struct device_attribute *attr,
->>>> +                        char *buf);
->>>> +
->>>> +#define RVPMU_ATTR_ENTRY(_name, _func, _config)    (            \
->>>> +    &((struct dev_ext_attribute[]) {                \
->>>> +        { __ATTR(_name, 0444, _func, NULL), (void *)_config }    \
->>>> +    })[0].attr.attr)
->>>> +
->>>> +#define RVPMU_FORMAT_ATTR_ENTRY(_name, _config) \
->>>> +    RVPMU_ATTR_ENTRY(_name, rvpmu_format_show, (char *)_config)
->>>> +
->>>>    PMU_FORMAT_ATTR(firmware, "config:62-63");
->>>>      static bool sbi_v2_available;
->>>> @@ -68,7 +83,11 @@ static bool sbi_v3_available;
->>>>    static DEFINE_STATIC_KEY_FALSE(sbi_pmu_snapshot_available);
->>>>    #define sbi_pmu_snapshot_available() \
->>>>        static_branch_unlikely(&sbi_pmu_snapshot_available)
->>>> +
->>>>    static DEFINE_STATIC_KEY_FALSE(riscv_pmu_sbi_available);
->>>> +#define riscv_pmu_sbi_available() \
->>>> +        static_branch_likely(&riscv_pmu_sbi_available)
->>>> +
->>>>    static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
->>>>      /* Avoid unnecessary code patching in the one time booting path*/
->>>> @@ -83,19 +102,35 @@ static DEFINE_STATIC_KEY_FALSE(riscv_pmu_cdeleg_available);
->>>>    #define riscv_pmu_sbi_available() \
->>>>            static_branch_likely(&riscv_pmu_sbi_available)
->>>>    -static struct attribute *riscv_arch_formats_attr[] = {
->>>> -    &format_attr_event.attr,
->>>> +static struct attribute *riscv_sbi_pmu_formats_attr[] = {
->>>> +    RVPMU_FORMAT_ATTR_ENTRY(event, RVPMU_SBI_PMU_FORMAT_ATTR),
->>>>        &format_attr_firmware.attr,
->>>>        NULL,
->>>>    };
->>>>    -static struct attribute_group riscv_pmu_format_group = {
->>>> +static struct attribute_group riscv_sbi_pmu_format_group = {
->>>>        .name = "format",
->>>> -    .attrs = riscv_arch_formats_attr,
->>>> +    .attrs = riscv_sbi_pmu_formats_attr,
->>>>    };
->>>>    -static const struct attribute_group *riscv_pmu_attr_groups[] = {
->>>> -    &riscv_pmu_format_group,
->>>> +static const struct attribute_group *riscv_sbi_pmu_attr_groups[] = {
->>>> +    &riscv_sbi_pmu_format_group,
->>>> +    NULL,
->>>> +};
->>>> +
->>>> +static struct attribute *riscv_cdeleg_pmu_formats_attr[] = {
->>>> +    RVPMU_FORMAT_ATTR_ENTRY(event, RVPMU_CDELEG_PMU_FORMAT_ATTR),
->>>> +    &format_attr_firmware.attr,
->>>> +    NULL,
->>>> +};
->>>> +
->>>> +static struct attribute_group riscv_cdeleg_pmu_format_group = {
->>>> +    .name = "format",
->>>> +    .attrs = riscv_cdeleg_pmu_formats_attr,
->>>> +};
->>>> +
->>>> +static const struct attribute_group *riscv_cdeleg_pmu_attr_groups[] = {
->>>> +    &riscv_cdeleg_pmu_format_group,
->>>>        NULL,
->>>>    };
->>>>    @@ -482,6 +517,14 @@ static void rvpmu_sbi_check_std_events(struct work_struct *work)
->>>>      static DECLARE_WORK(check_std_events_work, rvpmu_sbi_check_std_events);
->>>>    +static ssize_t rvpmu_format_show(struct device *dev,
->>>> +                 struct device_attribute *attr, char *buf)
->>>> +{
->>>> +    struct dev_ext_attribute *eattr = container_of(attr,
->>>> +                struct dev_ext_attribute, attr);
->>>> +    return sysfs_emit(buf, "%s\n", (char *)eattr->var);
->>>> +}
->>>> +
->>>>    static int rvpmu_ctr_get_width(int idx)
->>>>    {
->>>>        return pmu_ctr_list[idx].width;
->>>> @@ -599,6 +642,38 @@ static uint8_t rvpmu_csr_index(struct perf_event *event)
->>>>        return pmu_ctr_list[event->hw.idx].csr - CSR_CYCLE;
->>>>    }
->>>>    +static uint64_t get_deleg_priv_filter_bits(struct perf_event *event)
->>>> +{
->>>> +    u64 priv_filter_bits = 0;
->>> could we explicitly initialize the priv_filter_bits to MINH? though this bit
->>> is S-mode read-only and won't have any effects, but considering the semantic
->>> is to inhibit counting at certain privilege mode, initialize it to MINH will
->>> make it clear.
->> Wouldn't that be confusing ? I feel we need a comment there as well to explain why
->> are setting MINH in S-mode if we need that.
->>
-> sounds reasonable. let's keep it as is.
->
->>>> +    bool guest_events = false;
->>>> +
->>>> +    if (event->attr.config1 & RISCV_PMU_CONFIG1_GUEST_EVENTS)
->>>> +        guest_events = true;
->>> use attr::config1 to distinguish the KVM events looks incorrect. it's a user
->>> visible interface and could be set explicitly by the user and break the
->>> logic here.. e.g. perf stat -e cycles/config1=0x1/
->> Reusing config1 for kvm guest events are already in upstream. As KVM is just another user of host perf driver, it is used. The config is event specific so a user specific event vs kvm initiated event would be separate anyways.
->>
->> But we can harden the interface with additional check using this which was exclusive to perf_event_create_kernel_counter which
->> kvm invokes[1].
->>
->> event->owner = TASK_TOMBSTONE;
->>
->> [1] https://github.com/torvalds/linux/blob/master/kernel/events/core.c#L14324
->>
-> makes sense. there's a is_kernel_event() wrapper but currently is local
-> there in the event core (so is TASK_TOMBSTONE).
-Correct.
-> but yes it's not introduced by this patch.
->
->>>> +    if (event->attr.exclude_kernel)
->>>> +        priv_filter_bits |= guest_events ? HPMEVENT_VSINH : HPMEVENT_SINH;
->>>> +    if (event->attr.exclude_user)
->>>> +        priv_filter_bits |= guest_events ? HPMEVENT_VUINH : HPMEVENT_UINH;
->>>> +    if (guest_events && event->attr.exclude_hv)
->>>> +        priv_filter_bits |= HPMEVENT_SINH;
->>>> +    if (event->attr.exclude_host)
->>>> +        priv_filter_bits |= HPMEVENT_UINH | HPMEVENT_SINH;
->>>> +    if (event->attr.exclude_guest)
->>>> +        priv_filter_bits |= HPMEVENT_VSINH | HPMEVENT_VUINH;
->>>> +
->>>> +    return priv_filter_bits;
->>>> +}
->>>> +
-> [...]
->
->>>> +static void rvpmu_deleg_ctr_enable_irq(struct perf_event *event)
->>>> +{
->>>> +    unsigned long hpmevent_curr;
->>>> +    unsigned long of_mask;
->>>> +    struct hw_perf_event *hwc = &event->hw;
->>>> +    int counter_idx = hwc->idx;
->>>> +    unsigned long sip_val = csr_read(CSR_SIP);
->>>> +
->>>> +    if (!is_sampling_event(event) || (sip_val & SIP_LCOFIP))
->>> we should also consider overflow for counters of non-sampling events..
->> This is intentional. As per the sscofpmf, OF bits as a interrupt disable and overflow indicator.
->> So we need to clear the bit if you need the interrupt for the sampled events.
->>
->> For non sampled events, that is not necessary. But If it overflows, it shouldn't raise an interrupt.
->>
-> okay I see the existing interrupt handler skip the non-sample events as well
-> so it's the current policy of the driver. but generally we should handle
-> the overflow of non sampled events as well to avoid count lost if the counter
-> is implemened less than 64bit. in such case it's possible to overflow
-> several times for a long counting period.
+Ensuring KVM_REQ_VM_DEAD is never cleared will allow relaxing KVM's rule
+that ioctls can't be invoked on dead VMs, to only disallow ioctls if the
+VM is bugged, i.e. if KVM hit a KVM_BUG_ON().
 
-  The wrap is already accounted for: riscv_pmu_event_update() recovers the
-  delta with (new - prev) & cmask, which is correct for any advance short of a full lap,
-  and the half-width preload in riscv_pmu_event_init() keeps prev_count away from the
-  wrap point. This common design across architectures. If a platform implement too narrow
-  counter width such that overflow several times for a long counting period without a single
-  context switch, that's a platform problem.
+Opportunistically add compile-time assertions to guard against clearing
+KVM_REQ_VM_DEAD through the standard APIs.
 
-> it's also another thing not introduced by this patch so we may keep the handling
-> here as is.
->
-> thanks.
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+
+This was previously posted as part of a series to add an ioctl to allow
+userspace to terminate a TDX VM.  I'm posting it separately because it fixes
+a very real flaw, although the flaw is probably benign in practice?  I don't
+want to find out though, i.e. I don't want to wait to get this merged.
+
+This came back on my radar when fixing a bug in x86's pre-fault code, and
+looking at that code made it pretty clear that clearing KVM_REQ_VM_DEAD could
+make a bad situation worse.
+
+ arch/arm64/kvm/arm.c     | 2 +-
+ arch/x86/kvm/mmu/mmu.c   | 2 +-
+ arch/x86/kvm/vmx/tdx.c   | 2 +-
+ arch/x86/kvm/x86.c       | 2 +-
+ include/linux/kvm_host.h | 9 +++++++--
+ 5 files changed, 11 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 50adfff75be8..a56ead423897 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1108,7 +1108,7 @@ static int kvm_vcpu_suspend(struct kvm_vcpu *vcpu)
+ static int check_vcpu_requests(struct kvm_vcpu *vcpu)
+ {
+ 	if (kvm_request_pending(vcpu)) {
+-		if (kvm_check_request(KVM_REQ_VM_DEAD, vcpu))
++		if (kvm_test_request(KVM_REQ_VM_DEAD, vcpu))
+ 			return -EIO;
+ 
+ 		if (kvm_check_request(KVM_REQ_SLEEP, vcpu))
+diff --git a/arch/x86/kvm/mmu/mmu.c b/arch/x86/kvm/mmu/mmu.c
+index c519e8e8d646..ec34caa06b6a 100644
+--- a/arch/x86/kvm/mmu/mmu.c
++++ b/arch/x86/kvm/mmu/mmu.c
+@@ -5033,7 +5033,7 @@ static int kvm_tdp_page_prefault(struct kvm_vcpu *vcpu, gpa_t gpa,
+ 		if (signal_pending(current))
+ 			return -EINTR;
+ 
+-		if (kvm_check_request(KVM_REQ_VM_DEAD, vcpu))
++		if (kvm_test_request(KVM_REQ_VM_DEAD, vcpu))
+ 			return -EIO;
+ 
+ 		cond_resched();
+diff --git a/arch/x86/kvm/vmx/tdx.c b/arch/x86/kvm/vmx/tdx.c
+index b272c20586a7..6c842e9191a5 100644
+--- a/arch/x86/kvm/vmx/tdx.c
++++ b/arch/x86/kvm/vmx/tdx.c
+@@ -1995,7 +1995,7 @@ static int tdx_handle_ept_violation(struct kvm_vcpu *vcpu)
+ 		if (kvm_vcpu_has_events(vcpu) || signal_pending(current))
+ 			break;
+ 
+-		if (kvm_check_request(KVM_REQ_VM_DEAD, vcpu)) {
++		if (kvm_test_request(KVM_REQ_VM_DEAD, vcpu)) {
+ 			ret = -EIO;
+ 			break;
+ 		}
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index d94b59140c45..0af4b4a95c2d 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -8060,7 +8060,7 @@ static int vcpu_enter_guest(struct kvm_vcpu *vcpu)
+ 	bool req_immediate_exit = false;
+ 
+ 	if (kvm_request_pending(vcpu)) {
+-		if (kvm_check_request(KVM_REQ_VM_DEAD, vcpu)) {
++		if (kvm_test_request(KVM_REQ_VM_DEAD, vcpu)) {
+ 			r = -EIO;
+ 			goto out;
+ 		}
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 03bfc92864b6..cf7fe835c4ad 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -2324,13 +2324,18 @@ static inline bool kvm_test_request(int req, struct kvm_vcpu *vcpu)
+ 	return test_bit(req & KVM_REQUEST_MASK, (void *)&vcpu->requests);
+ }
+ 
+-static inline void kvm_clear_request(int req, struct kvm_vcpu *vcpu)
++static __always_inline void kvm_clear_request(int req, struct kvm_vcpu *vcpu)
+ {
++	BUILD_BUG_ON(req == KVM_REQ_VM_DEAD);
++
+ 	clear_bit(req & KVM_REQUEST_MASK, (void *)&vcpu->requests);
+ }
+ 
+-static inline bool kvm_check_request(int req, struct kvm_vcpu *vcpu)
++static __always_inline bool kvm_check_request(int req, struct kvm_vcpu *vcpu)
+ {
++	/* Once a VM is dead, it needs to stay dead. */
++	BUILD_BUG_ON(req == KVM_REQ_VM_DEAD);
++
+ 	if (kvm_test_request(req, vcpu)) {
+ 		kvm_clear_request(req, vcpu);
+ 
+
+base-commit: a806d364ef288a6443a1337820ea8410a7ccc6b3
+-- 
+2.55.0.679.g6767b8d81c-goog
+
 
