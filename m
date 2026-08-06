@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13FFC561E6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622F8C561E6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lGVquPdLm5iCHyN6vtfcTrIQSO+K7PXkfivVp8RwPIA=; b=0P7FCWQwuH/tNQOBDcs7tYuQpr
-	wJKf9Np+/KGxAfyyEB8Eb+fk4OTIXVZURBV7KUUHKNYHVi7PP4g2H7UYwA8yxtrLEw/RMTIh+ilY6
-	fIO6/SFHLUqXbJdimMzjQqITMXQH6bZ/OxpYtQ5uD/LiSeKByuv4eJPR7t9E3oXSaM6LKmJGP2Oi2
-	PdQogIBOI3kxp4F/kJwsjO9SsQIyisLACflrLyaXFx5WaBCnZsYK/0eDRi+2nTq0E1NIBkJ4GI9XV
-	LNZu+2c4URkQOHO6vX5vdCXf1LWaVS3wxxu5ebQ+y+TZuetrqYC55hWwSwWC0i9R44tiI65ZdmedU
-	Byvx/59A==;
+	bh=xETcnXPG1rHGxnguRdsMvGynwcAnDPqDrOB2wbseaJg=; b=1RfAxWCvzhQC89FGeqGjs9bsEe
+	sZlnhAkACcOc+n/9saq6j1anSM1IULyoB5QtWAvJMNAE/RWt+tK/WN4899xzM2XWDV0amNIvrm3+z
+	1miAq1VqDqY7D3uVtvODuq5sorN4KE2n7ohn2/G9Bm+eUjRgOkwt6hQYCgOD08RR+A+1hcpSd6orS
+	H/FOCGIj9l/zdueLte4i2pnczOa8t1NjMxoZWhoUEpoWQCNABaXpHxc4/OVlcasuItLHq1sohXQUx
+	ZhqTmo+61ibbXIZSoi05revP+1/jGx0vl5WeOd90jcZsuI+UvKhocSCIWdE67eg/eCMsgr9N3KtcJ
+	ElBJF8Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtT0-00000005EaJ-120x;
-	Thu, 06 Aug 2026 08:28:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wrtbo-00000005G4j-0lhm;
+	Thu, 06 Aug 2026 08:37:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtSy-00000005EZt-3f5X
+	id 1wrtbm-00000005G4S-45Zc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 08:28:40 +0000
+	Thu, 06 Aug 2026 08:37:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4213F60A8C;
-	Thu,  6 Aug 2026 08:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81BC51F000E9;
-	Thu,  6 Aug 2026 08:28:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4CCCC413AB;
+	Thu,  6 Aug 2026 08:37:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE1F1F000E9;
+	Thu,  6 Aug 2026 08:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786004920;
-	bh=lGVquPdLm5iCHyN6vtfcTrIQSO+K7PXkfivVp8RwPIA=;
+	s=k20260515; t=1786005466;
+	bh=xETcnXPG1rHGxnguRdsMvGynwcAnDPqDrOB2wbseaJg=;
 	h=From:To:Cc:Subject:Date;
-	b=gdY+aVt/d2meuxbCOWFFPYJYgvR4pFknlbSk/Deyyn3duPcXrMIZ7P68rRcUr97yY
-	 30dtFUEbUvIOA/r0z89AHhclMGYQOhjldBS8MLkOahnIfXK721VDeTlUpLEhf5p5KW
-	 N1houl7xLGegpKxeazqJuCjaWSJl/24qskS7UYoQOnA6Nq4MgMJ6ZLYPF/qcYTbizS
-	 GfEKWJyz8oxj1dseSQLkLai3i7BgnFkUqbbCgFJVPGe9etmE8G7/EHBY81OSQmRa9l
-	 U2IE8+f7xbOcwwFTrAV8AG8cY/SfHpTVHpAK5jLhhZ5U0p9OAQ2YccFNL9l047r5yI
-	 eD+7tERjJheXw==
+	b=HP/OxrQAalykCntp4r+1KruZvR3p6C6WhqGSUgH3taZeREm3f93a2hq5camHOcegb
+	 db/opMZqVDWsOYduQUBHSg92ziRpc5QmJr1YwMgYe5d9VmPLRz5jlTLjyIyOkdYA0G
+	 5KFfAdgcVBFByq6waiW88e3ClBT7TA23YOuMiGmz4AbreXMd/uClP5vDrnhYPJnJF/
+	 bVK5nIq99cor8ZjvB2dcCP0K7IBp3Ld8vbw8UfGqwJYoRqq1Cx3Nf5/xT6sTQeyaJ2
+	 M/3oZjIs+l1/qbYIQ1wwTxdo6jFLvVWBErSuyFmWeti0luJyWSQqMc1aZlv2PUfa68
+	 lmXMFTfcYR6gw==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>
+To: Linus Walleij <linusw@kernel.org>
 Cc: Krzysztof Kozlowski <krzk@kernel.org>,
 	Sylwester Nawrocki <snawrocki@kernel.org>,
 	Alim Akhtar <alim.akhtar@samsung.com>,
@@ -52,12 +52,12 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-gpio@vger.kernel.org
-Subject: [GIT PULL] pinctrl: samsung: for v7.3
-Date: Thu,  6 Aug 2026 10:28:31 +0200
-Message-ID: <20260806082831.350285-2-krzk@kernel.org>
+Subject: [GIT PULL] pinctrl: samsung: for v7.3 (second try)
+Date: Thu,  6 Aug 2026 10:37:28 +0200
+Message-ID: <20260806083728.351824-2-krzk@kernel.org>
 X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1260; i=krzk@kernel.org; h=from:subject; bh=wHBsbGN9pb7/610WcdUv6xMxzm/J3FNizWzhkmu4r+A=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqdEWvE2i5ZJRBaIFs8/5iQLObjFNMadfOnos67 efYVnHTocaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCanRFrwAKCRDBN2bmhouD 1ywMD/9TQ/VsbVZW/6gsuMTjDfGKfY6fPHx5GPMdwXkhV+zS5KPUkWUlyr800qaHcEV292cbYx3 rp97b3yDwYrDKlvdrWxBpHiSbnGqU3sgmHHHlTVYt6t8zjaAzM4vmsvHkAv07vW9NTxsPwJY/VU JLa0EphKiCVH8uOjMsNHbxve8RM954QsWZ3RQu8rMPhHxzjh4MwLuL71ClHJE5CDCkvJjp3jx2L pODJBZ4/h9HpPDy5IsrzFifm8ql/zZsiT3ugIATcogLeK0tEQNGfLL3ErL4yC0OVoLR+s6jiLpv WaCN0VD4p3s5i6K8xupoDPE77maQX6ijZQhI5kD7fD3qq5JtcAhp6SWMt0VCV9yH7Jr/tMwI+fZ HHNriB4xnJl7NL2gOm7CTGUSCUYQeupXYsEimT/ZTTtRW4tssYDRWp2jIqfB+12RdobKM8embQK 06sJ+Mb6JH+CLX+B0qWu21kMQxrDztSyrqyznhxSf7f7B3fxx+ye2y+TjErvCqeLb57FqJH0dmv VEWJu6+fi8CI95WZuni+IeRG835YQAseXMZukCxhIesutMWH+N2dp9lGel0DSo1T8wW0Fv/fa4N B4bbGVupBWq90NoEIzjzCTM5x6BAkM4HuYo3bP3W9FGp5TyvwU0hHnI740dNKFKlDBMEX7ZLyqY S4SMOJX9yUPnYtQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1448; i=krzk@kernel.org; h=from:subject; bh=GSj2xjCNpU7RFp2n8qMzzLXG0wroYNW/RtrARjI/Fbc=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqdEfIxNEq366S5fS6pXcmoVMDK2gJknTAZtHKQ VJM4YZ00RWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCanRHyAAKCRDBN2bmhouD 18JsD/9c07VASvHRN2HNf4ywD3BnbucQmSS2Y4UvlUstOicR2scLW7oWTC8544MiC6nPd8bLp4v fL5w6+GwIfIwYROV3Xsy/rXPD6HbZfoiVB+yjgJIqWzPIvq6OAttmUjE17R2eq0YYLH/0+8ytRC 3OmJXzHXAmedTuuHhPufObIskewRhVjw4yTHwsaLCE/E1BCMoeqeD/Rh2USE7szne2+NqrzqQt6 99YZAj/bvVQX+nuDh2W7X1qHtoKjv8N6dOGG12mWgBkEd99OG9QxDGfcuVK82fbJ7O5aPgfi38k wL6mAOuCtGpLgFrwMsWMNSECmTsg7EddqvzE5Alnqr2LJKaQVWmLu0zv0Gb0YMIl7nfDZV7Z0ib Y+bWrE2hq3yNWw4NjspY5TF0C3A3KL+y//mpCZxjTzWnez6UnGNBJLR/YZeD8HoeFSU1rwCuZxf A3WczXYzL/nhAZMVNMZFAa0q1sUMvHvdSedz6r9fa9HlEmyNPISxXqTT/BCNnAOPJ33ZmMMlmV9 k7npJJencS2G2InJC5dx+NCpJu/H+0xoW6wZAfts7BXsJYk0xw2YNYnYf8u6aXeJgxysIgVUOBq O8HpfZmiQWYVSvIOOUKuSPhO0xEGyTbMMh0OUdAXLjqfy5LDGxbRPtpAVk3tZmwbk3ldFBBbDl6 4wecwnxt4g/e81w==
 X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -73,6 +73,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+
+Hi Linus,
+
+Second try - in the previous I had still the old email:
+https://lore.kernel.org/all/20260806082831.350285-2-krzk@kernel.org/
+Same contents.
+
+Best regards,
+Krzysztof
+
 
 The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
