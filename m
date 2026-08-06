@@ -4,85 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B007AC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 23:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B8C2C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 23:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HhR7VQd3Lnap7YrCgJV7cJg4hHHTnDU4T9DOUg42A20=; b=oknpM/dcnpZeefPGIhFX18MSEu
-	NfLLfQgOqNKzKNWj3p+3zVsUS/QqMeFjFdy1AdZLIxRJQf369wgxOyi7tJ1+KWkcwG3dWmXZt0j6g
-	ku59IlyWtpJiWwZpmPA3wdIm6m1z53DuEAR8WDC2E3DAKI3QmE5jCLges38k9Eo7ugtGlXuGHvAI/
-	kkEoIQ2T+TKrNk10ozX//N9h/4pjw8XLacWCHV2YwtHxeYAl89hXy6c5GmHzyBVqb0JFTSi3dLANR
-	uQsSHZlkuXINPjKSsC1s7rwSl9TjD4qq63VHf3QcUPqZniwclHY3jz9kSQ/6AHZD3aw4p/wSbwYJp
-	M6/qJ1sQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bByA5tzpJTMFYPvaOtMt5JHJJTkEHrdfwgPmDZ1jMOs=; b=JdasO6ReAcYkuTj1yGfimS7QYd
+	2rge4+pfcdMWRV1yHFqeJcX8/RLzmXvg4vs7x4oFlwoJOVWKL/AxfbUI73Jx+AmFStuviShOBlpR4
+	FGws6vi8WpueRT249qTWyziGekeWQlNSLSIbkBDBd/bWiD4UjjHsLMrXhydZzlVjgCA9qYTSgP0nl
+	uHeZK+ORF/Z4wSXTc3V33HNdLlSDXg6R2kbbOSRYFOPW6ADrqynY47QnWZP8ZVYnloYwR4VTnItj0
+	2nAJIkxoAq8/UfnAxGGHFdJFZKzgjd30qdSU4hMURvfQAplsShWmWNxUgnIO6XzWxAVd5BIjQMnR+
+	oOUERTLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws7FT-00000006plv-13vQ;
-	Thu, 06 Aug 2026 23:11:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ws7Zn-00000006rA5-0NDP;
+	Thu, 06 Aug 2026 23:32:39 +0000
+Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws7FR-00000006plR-2Hx5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Aug 2026 23:11:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=HhR7VQd3Lnap7YrCgJV7cJg4hHHTnDU4T9DOUg42A20=; b=A6OshfbMZIDxPOMys8JezjfUgj
-	7GsoCnQapa3hDn/eRTmmTbGAgcASderRxPwrI7RAQL3Z5xxxTafHs29D7vqcrvJNOSjSbxKmMf//x
-	HK37Ma+dqdtuSgbA7jS/Ft5rg5csQKJKWIk8U02ffdpxEHBV15Ri5Ntjb68mS/PaxMJDJwdIdQsu4
-	zDeCUCu/c4OEx8pK+GwQCkJ42ctlpLx1caHTdXiuSf/s6DPX1Niw4azGBHhoU+OT3rA+bcxl4k6pJ
-	HqvBgr0/UMLu4YS40XKn5rlKbcOk5wOezIliSMFs4nrD6Pw1ydZ82LC5FvGwiazgjNyN433BwdpCW
-	qmIYMnJg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1ws6DZ-0000000BuI0-3BZN
+	id 1ws7Zl-00000006r9g-0ElO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 22:05:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECAAE153B;
-	Thu,  6 Aug 2026 15:05:28 -0700 (PDT)
-Received: from [10.57.40.157] (unknown [10.57.40.157])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 69FC33F86F;
-	Thu,  6 Aug 2026 15:05:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786053932; bh=v/L2HSf1KNTXA1th8L9+b1jkT+PbXLtTdKC9CLCe6aE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ggV3jSsHif6GUt7ygEDwaca9HUMK4dxVMocg6ZDOcSTYTGW7gyBLCn/NxistwWIYY
-	 ZhqNSDSTYi7IlWKSmhbKa/WvSzz0YuA93NktJ+rTZauHLz5QABYmi3axkC9VIrLpOC
-	 BdR5yVpTOPRmtrPkEza5Ap0eiOFafFv3jBGAadQQ=
-Message-ID: <42170467-fe36-4382-867f-49bdc6a7bc9a@arm.com>
-Date: Thu, 6 Aug 2026 23:05:27 +0100
+	Thu, 06 Aug 2026 23:32:38 +0000
+Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-8efcef23d21so18382646d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 16:32:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786059155; x=1786663955; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bByA5tzpJTMFYPvaOtMt5JHJJTkEHrdfwgPmDZ1jMOs=;
+        b=oIT0kkPJ+JtV1/Va57XGtGT3vEySIgyaPO81I+JVvgZu80bHFKeRG5or0cftBgcqgf
+         iCoY+nWZ8/csmPdpAGsYMJyZ8t/MBLhaPoYJiH3eFx0r0gNlWdjRWxd6hLrax614cjQb
+         YWdkE4las5oIlPC+ZexnAqivgTKmADr6ATtUpWXfGnyf86u3SIEPPSx627dvdFWabJHS
+         xwDpjwzFLdPIo6ycrYcndlVYnKkw/oEJrca1stgvX86ISmt1+Vp+5Np6N1Ks6sPikHKk
+         oLI+RSDjf4vc+lUxy2/mxdfrmWTx1BDTt43ChlyzLd2k4jalWXHA603w1ufZ+moz7FZX
+         NAmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786059155; x=1786663955;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bByA5tzpJTMFYPvaOtMt5JHJJTkEHrdfwgPmDZ1jMOs=;
+        b=TTHn+psF2l0oI5bLlb4A3WPO53KwrxIcuprB1UOc69S7bENEw3McOu4/+Ed1vqgFLv
+         S1pYkDKeYBga+Dh9cBynlqfVW7soSNywQobT5ChEbcucEgApE8KCCzyFZuL8rnNlOoQB
+         KaJ84LbGASRbYEGRfxKwArvQNnbCzSiAgvK9/8FRY+BVzUZzrxtRRAtRbJ5LPUEzNgZ9
+         oJjgXHmRZFy2TFO2/ol0qc92w5VU0p8sV+BHC8ug0+KW7X0P8CPL484zy2h/Sg/nkSIW
+         s9HYCoulEFQEpEOtnPlShuIJGvgOsIrRCXtHcgl3ASLoe08oe7ZhtWLQJ2C8MDjTnuai
+         exTA==
+X-Forwarded-Encrypted: i=1; AHgh+RpsPQqu5xy80LaGHbCBkxKlD/KRh+IVMgAZHb+1Bhi5e4pal+yzz2q8GuWKoptutKr5DniuFBI81V1WmrbPzE0o@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtvAKFxa/N2dCHM7O68SS2wBhcrCGGl/U1lyVjZga1KShMtzTU
+	Wt8Zt5sRa8GgvK/2YHz1AKRsejGYPHMVQBAp4MnkFpljGIV6EDnsR4cZ
+X-Gm-Gg: AR+sD11/7B5i8FViqcNMuvnvCstauGQRhq43u/uvRr1bSAh2y8vuVcxtjoUQNM/fpt8
+	A28d8fKOvZQGzzkK71zXhp7ytXHCOkzND8uo0WUExa3pDi+AthUdw0y2NUz3ttXccnA9+RYBtmL
+	E84MCn4u8oYZUzUwDw18DCZf7XuQRTnlvaGemRo7kU+srrt9UOXLVb/9Udxe3DiHK0wmQ+cowxR
+	YF+2znF80jyvp7hNG91wRC3Ib8g4agxrUeJsrsTIVj/TpeO7neixNHGrBiu+EFxnYD0SNrjyM4F
+	EKXYNO3CvIGx3EA1s5W8jgmHLBVLPWGwHyaOjiqlW0H2tHFEIO2DcaDBBYmmE79NU6SNGuexniY
+	NyrhNITrVAoTnEXgoqFUvOCxdKRVEJA+gn/ZWwK3w/PhIVB7+OPE94DPrmcW6qM0CF3rkGw8dNT
+	OEsHRMZtiA9ifSvOPVooa9VmvT/L+1v8HX4XCX5FNtX09WPYOhXZiEPLKoTpoaGxE0OVJ4tMMcC
+	G/5pmv65Gv+ZM2PqD4m6ep4ED3jcFhERpIuekgnVv02zKcZKSFim9LaExFGEeYZSqoxT1rEMynd
+	qsUADZxOH35piAx4i/nuogKG6itj5FKJAuDmQiu3TPdETzfJ
+X-Received: by 2002:a05:620a:628b:b0:92e:f0a5:ac3e with SMTP id af79cd13be357-936490ebca7mr2066666285a.28.1786059155042;
+        Thu, 06 Aug 2026 16:32:35 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e35])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9366e09dc07sm24753185a.15.2026.08.06.16.32.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2026 16:32:34 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-sound@vger.kernel.org
+Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Maruthi Srinivas Bayyavarapu <maruthi.srinivas.bayyavarapu@xilinx.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ZYNQ ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] ASoC: xilinx: formatter_pcm: pass aud_drv_data to irq handlers
+Date: Thu,  6 Aug 2026 16:32:31 -0700
+Message-ID: <20260806233231.30631-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v16 00/45] arm64: Support for Arm CCA in KVM
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-References: <20260803134403.80630-1-steven.price@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20260803134403.80630-1-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_230538_129731_392732A8 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260806_163237_105540_A295A02D 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,40 +104,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/08/2026 14:43, Steven Price wrote:
-> This series adds support for running protected VMs using KVM under the
-> Arm Confidential Compute Architecture (CCA), including the firmware
-> support needed to communicate with the Realm Management Monitor (RMM).
-> 
+The irq handlers take a struct device pointer and call
+dev_get_drvdata() to obtain the driver data.  However, the driver
+data is only set at the end of probe, after devm_request_irq(),
+so an interrupt taken in between causes the handlers to pass a
+NULL pointer to readl() and crash.
 
+Pass the private data directly as the devm_request_irq() argument
+instead of the device pointer, matching what the handlers expect.
 
-...
+Fixes: 6f6c3c36f091 ("ASoC: xlnx: add pcm formatter platform driver")
+Assisted-by: opencode:deepseek-v4-flash-free
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ sound/soc/xilinx/xlnx_formatter_pcm.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
-> This series is based on the guest_memfd in-place conversion v9 tree[1],
-> which is itself based on kvm-x86/next. It is also available as a git
-> repository:
-> 
-> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v16
-
-
-> 
-> Work in progress changes for kvmtool are available from the git
-> repository below:
-
-Here is a cleaned up version, rebased on to Will's kvmtool master
-branch:
-
-https://gitlab.arm.com/linux-arm/kvmtool-cca cca/kvm-v16
-
-(This works with the v15 of the KVM series too)
-Build on top of Fuad's Guest memfd support patches.
-
-Cheers
-Suzuki
-
-
-> 
-> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v13
-
+diff --git a/sound/soc/xilinx/xlnx_formatter_pcm.c b/sound/soc/xilinx/xlnx_formatter_pcm.c
+index 7eba3a0205f1..b50306b0fc06 100644
+--- a/sound/soc/xilinx/xlnx_formatter_pcm.c
++++ b/sound/soc/xilinx/xlnx_formatter_pcm.c
+@@ -280,8 +280,7 @@ static irqreturn_t xlnx_mm2s_irq_handler(int irq, void *arg)
+ {
+ 	u32 val;
+ 	void __iomem *reg;
+-	struct device *dev = arg;
+-	struct xlnx_pcm_drv_data *adata = dev_get_drvdata(dev);
++	struct xlnx_pcm_drv_data *adata = arg;
+ 
+ 	reg = adata->mmio + XLNX_MM2S_OFFSET + XLNX_AUD_STS;
+ 	val = readl(reg);
+@@ -299,8 +298,7 @@ static irqreturn_t xlnx_s2mm_irq_handler(int irq, void *arg)
+ {
+ 	u32 val;
+ 	void __iomem *reg;
+-	struct device *dev = arg;
+-	struct xlnx_pcm_drv_data *adata = dev_get_drvdata(dev);
++	struct xlnx_pcm_drv_data *adata = arg;
+ 
+ 	reg = adata->mmio + XLNX_S2MM_OFFSET + XLNX_AUD_STS;
+ 	val = readl(reg);
+@@ -636,7 +634,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 		}
+ 		ret = devm_request_irq(dev, aud_drv_data->mm2s_irq,
+ 				       xlnx_mm2s_irq_handler, 0,
+-				       "xlnx_formatter_pcm_mm2s_irq", dev);
++				       "xlnx_formatter_pcm_mm2s_irq", aud_drv_data);
+ 		if (ret) {
+ 			dev_err(dev, "xlnx audio mm2s irq request failed\n");
+ 			goto clk_err;
+@@ -663,7 +661,7 @@ static int xlnx_formatter_pcm_probe(struct platform_device *pdev)
+ 		ret = devm_request_irq(dev, aud_drv_data->s2mm_irq,
+ 				       xlnx_s2mm_irq_handler, 0,
+ 				       "xlnx_formatter_pcm_s2mm_irq",
+-				       dev);
++				       aud_drv_data);
+ 		if (ret) {
+ 			dev_err(dev, "xlnx audio s2mm irq request failed\n");
+ 			goto clk_err;
+-- 
+2.55.0
 
 
