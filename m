@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C961BC55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 06:53:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB06C55838
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 06:58:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=331DRkSFWDCKr7dCFic+xle6jZcQv2JhNVnEK+JljZE=; b=dHXNzApZV4LANipWVojVcuMY4h
-	I9waIOayHaMhL7dfjxr+5SoLTCRRV0t8+uAhVP6uwON3nLWjdV7qjy1CBkzzm7vU6OpX08PtMgIXY
-	6v0U9r3morFD+Vc0saHUTpy1xgiaOaylgp55zEM6Waxh8NnAaKH1U2kJlsU7pxCMpx/hGSN77K5az
-	3dt9QHHmC9krR3rvQWmujynJhnoAPfDEXDt6uRwNw5+Al3FXWjhj04pYX5Ruu/M9qn0pPJEe+Mw1q
-	Io2ckummtURk2jXVPLOtkR4qa3DoZZWJK+1voXlA+gbVU3Bp2RUoMaSz/8eODlyQutdQL1lGRT3QD
-	12chrNKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Og4J4rIMluGAROgsSgHc7NrmB9oSF18CDjoJb6Nf1RI=; b=kdkpt/ezKRq3sHtjuBjueegOuI
+	riYkbLwxR0gatwU47Hw2+gj6MR78fTj7cQ7ZNL+1A1kPbKYU0S34FhpJVBfAswKDTiix7IkOUg+Jc
+	ik3nJzv/oVjK9EatM58MEIqEBHV7/afmyJzdb7pdgJRPQO4GnRqIdCfXXOggAGfRP/ONw+5mNED1f
+	YTqciD7ZGDs0UeJfFT7sbVNEQv1PUbAO3uo1zGAIjyPzjKiRriqzHDXumsXraMBIO+dYz64yklxP0
+	/0LxIFwj1RTY5dlgHPvdxnLVbhs3eL8RdJ0FwweceguXEetSnfuWWZWYpIrA+EdIi8/8xLTaQ3aqr
+	rUbPSfLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrryc-000000055kk-1pYY;
-	Thu, 06 Aug 2026 06:53:14 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1wrs41-0000000562a-3zDL;
+	Thu, 06 Aug 2026 06:58:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrrya-000000055jw-1FjE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 06:53:13 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-848479c9bd5so1694973b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 23:53:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785999191; x=1786603991; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=331DRkSFWDCKr7dCFic+xle6jZcQv2JhNVnEK+JljZE=;
-        b=hVOGXW5Qi7lsbJFQb1ALnRLyc2urjb8kwPoIfTToCdzS8rWO68NINvWQGPb2kka3a/
-         ROZcpPIDYUD6S5mirjbVqlM3bU14f/js8SLUjcUtECoh+w14gvYM7UdvniddTqGoBfeV
-         DMdsP+pJ/7aRqhtlxkzGDb+676oHISS8Huk4saxteINWNiGlabpEwkId3yBeQxaSK5AZ
-         aVJdlrcPM187D+HIzWFKmnxi6JOUX6JOhVIdjXTKdAuO1Jms4MA9mcu4cYTcoKpo1nVW
-         mN/kp+ENtU0ElJZf/0GEHKVZItSin7rD35bx3ahM3Exy3h66eQNchWUB+9G84sRULWvM
-         NDSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785999191; x=1786603991;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=331DRkSFWDCKr7dCFic+xle6jZcQv2JhNVnEK+JljZE=;
-        b=OvkajyomnBrhy77BWRZIBWQ7pHqiE6Y4VqUOwakqdCqfm/OIt+ZVQDHenC2ESR8uUN
-         0NiHRA2EQRwW2WxNdeWxLPe+zTi5xaXHXFr+5L+qMQ+y5XBwGMWekko3k6klT6WXe2iB
-         O3GCSuGVzWACCM4dt76AI/ubuFKHRse10o3vFhYrVmslnUX5dOWs/Z/cqdR0GOVnW4Gw
-         T2QWc9SRUVWk9FD5MHQ5T7qI9i0x1HA7HfghxvswzoE91On3iTq7k6YkRD/N36Srd2yF
-         yogGuJinzMDQkgWqGpHX3wzk3EiqW2UzUXvVNd02xsLX9PnPcMCbWlwEsxMb6MNZo2og
-         3/hg==
-X-Forwarded-Encrypted: i=1; AHgh+RoCqe5BcWLOPF3j5qBXwB+r12vppca0SLeg0RBZgMJcm1sb83YlW6HpZoQYCwS4aEjOEsyg72HNcNhrUUwex23T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzS/DdUs+aQOPMQmpHu9Wfdb0vuekPzsHkHsNzu/0wwgHC5+o61
-	/B83w0BDWqefij6pmmHNqZ+FEY+LeYs+zKp/GFqjK1/qM3nxLCsc8/os
-X-Gm-Gg: AR+sD11qh8O6/xx3fhwftnhQMj3+VWyQSmQB6ac5YBiyETCAfwauhgLlVg63j3OvnjH
-	a+2Uo6skzsLzvswgbQ/6ajiT2AWxBo9kBh5FLUn81tkZWeomWKLWYcwHeFVbEgXQai2aALDkWEl
-	OY7kOmg6KJkBaf/NroM3gpE1iV4RXCN3bZDT/7PXX/uHUtCRcBP9c0ZqE3kkwDLhfs9KNx/UrNn
-	2PGyVAA5WxQ9rSfkF9oQ6TvPDVxp53WdU0TPcJLzB0Jj3s+9zf6+1xe9c+LFrhybC3n5Pm0Rttr
-	4mBauMF3Azy3mHLOypYFPHCp2yCKhdM6uDfdfvWU6xwza9HLI4ZIRzwr/VG3OGGXdewDBZ/EXil
-	EvN4/PjEzl8HUyY71DErfOMgG3FOSKQuRHrsR7izUnZVcWDOfwHY6Uw/Lov75vi/wpYn/Rz0z/b
-	g61dzcpna8JbqTGTvKb14+b8vyWKfxfVnToKAUJ8IqLcr8lqXbqJ584GbzUzCWckat3X6gP/rqk
-	3xqLvzk/6vC+srp5L+2CK/ppzQiHsZc7U4rq0/GmEbr9CP20IAuvdoY2MfZ9TSIfSBAaRxOKMxT
-	SY0u
-X-Received: by 2002:aa7:8884:0:b0:847:9315:fb8b with SMTP id d2e1a72fcca58-84f2e031490mr13109342b3a.6.1785999190781;
-        Wed, 05 Aug 2026 23:53:10 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f459ba2b9sm714920b3a.48.2026.08.05.23.53.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 23:53:09 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: Peter Chen <peter.chen@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-usb@vger.kernel.org
-Cc: Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH] usb: chipidea: ci_hdrc_imx: Propagate -EPROBE_DEFER from IRQ lookup
-Date: Thu,  6 Aug 2026 13:52:54 +0700
-Message-ID: <20260806065254.28204-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wrs40-0000000562P-1ibu;
+	Thu, 06 Aug 2026 06:58:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EF84D42AC9;
+	Thu,  6 Aug 2026 06:58:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39DB91F000E9;
+	Thu,  6 Aug 2026 06:58:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785999525;
+	bh=Og4J4rIMluGAROgsSgHc7NrmB9oSF18CDjoJb6Nf1RI=;
+	h=From:Date:Subject:To:Cc;
+	b=Id+KiXWCH0b3bg7Qog+PMhWe2FZgZ/bTAjgf42f21DnSOXky2G+O00DZUtGzAPJTk
+	 62wkCkugzNROZgeSjntHRq8FmWEy36oDPG5YXTBTgfzdUm/3sUidZ/0tLt18BVsBl5
+	 wZwhfReGhh4l1mo2B1J6jXD5sNOb1l9+58CpldpJZ/YL+PZKh457y1F2Xy+LKyzlg9
+	 S4guBDVMCwWjZLtf0a5AmV1xSfxMDseR+LLri3Bzd/71zyW3EmiIY8J6z5CR0EQa/5
+	 H2i+UCbIIkFt+7FGSskzSLBNUcu3flkS0UsKXrtHlRcE/VHK870iAhYDPBNKxfw5Sy
+	 d4kMiWejUY0gQ==
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Thu, 06 Aug 2026 09:58:38 +0300
+Subject: [PATCH] drivers/base, mm: move arch_numa.c to mm/
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_235312_337478_D6D3DBA8 
-X-CRM114-Status: GOOD (  11.63  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260806-arch-numa-v1-1-968ec128121e@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAJ0wdGoC/yWM0QrCMAwAf2Xk2WI7yhB/RXxIa1wjLJNkG8LYv
+ 9vq4x3H7WCkTAbXbgeljY1nqRBOHeSCMpLjR2XofT/4ix8cai5O1gldjDGlWF0IEWr/Vnry5/e
+ 63f9sa3pRXtqgFQmNXFKUXJqalUeW84S2kMJxfAEGyNpgjQAAAA==
+X-Change-ID: 20260806-arch-numa-444bb4806114
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Danilo Krummrich <dakr@kernel.org>, David Hildenbrand <david@kernel.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ "Liam R. Howlett" <liam@infradead.org>, Lorenzo Stoakes <ljs@kernel.org>, 
+ Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <pjw@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Suren Baghdasaryan <surenb@google.com>, Vlastimil Babka <vbabka@kernel.org>, 
+ Will Deacon <will@kernel.org>, driver-core@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org
+X-Mailer: b4 0.16-dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,31 +80,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+arch_numa.c implements boot time discovery and initialization of NUMA
+topology on architectures that select GENERIC_ARCH_NUMA (currently arm64
+and riscv).
 
-Return -EPROBE_DEFER from platform_get_irq_optional() so the driver is
-re-probed when the interrupt resource becomes available instead of
-continuing probe without an IRQ.
+Since this is step in the initialization of the memory management
+subsystem, it's logical to have arch_numa.c in mm/ alongside numa.c,
+numa_memblks.c and numa_emulation.c.
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+Move arch_numa.c to mm/ and add its F: entry to "MEMBLOCK AND MEMORY
+MANAGEMENT INITIALIZATION" in MAINTAINERS.
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- drivers/usb/chipidea/ci_hdrc_imx.c | 2 ++
- 1 file changed, 2 insertions(+)
+ MAINTAINERS                      | 1 +
+ drivers/base/Kconfig             | 7 -------
+ drivers/base/Makefile            | 1 -
+ mm/Kconfig                       | 7 +++++++
+ mm/Makefile                      | 1 +
+ {drivers/base => mm}/arch_numa.c | 0
+ 6 files changed, 9 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-index 56d2ba824a0b..f53d09e90010 100644
---- a/drivers/usb/chipidea/ci_hdrc_imx.c
-+++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-@@ -525,6 +525,8 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
- 		data->supports_runtime_pm = true;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 5114e6db7307..465b64f8e93c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16880,6 +16880,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/rppt/memblock.git fixes
+ F:	Documentation/core-api/boot-time-mm.rst
+ F:	include/linux/kho/abi/memblock.h
+ F:	include/linux/memblock.h
++F:	mm/arch_numa.c
+ F:	mm/bootmem_info.c
+ F:	mm/memblock.c
+ F:	mm/memtest.c
+diff --git a/drivers/base/Kconfig b/drivers/base/Kconfig
+index f7d385cbd3ba..1d93bfc34490 100644
+--- a/drivers/base/Kconfig
++++ b/drivers/base/Kconfig
+@@ -239,13 +239,6 @@ config GENERIC_ARCH_TOPOLOGY
+ 	  appropriate scaling, sysfs interface for reading capacity values at
+ 	  runtime.
  
- 	data->wakeup_irq = platform_get_irq_optional(pdev, 1);
-+	if (data->wakeup_irq == -EPROBE_DEFER)
-+		return -EPROBE_DEFER;
- 	if (data->wakeup_irq > 0) {
- 		irq_name = devm_kasprintf(dev, GFP_KERNEL, "%s:wakeup", pdata.name);
- 		if (!irq_name) {
--- 
-2.43.0
+-config GENERIC_ARCH_NUMA
+-	bool
+-	select NUMA_MEMBLKS
+-	help
+-	  Enable support for generic NUMA implementation. Currently, RISC-V
+-	  and ARM64 use it.
+-
+ config FW_DEVLINK_SYNC_STATE_TIMEOUT
+ 	bool "sync_state() behavior defaults to timeout instead of strict"
+ 	help
+diff --git a/drivers/base/Makefile b/drivers/base/Makefile
+index 8074a10183dc..435710f643a5 100644
+--- a/drivers/base/Makefile
++++ b/drivers/base/Makefile
+@@ -25,7 +25,6 @@ obj-$(CONFIG_PINCTRL) += pinctrl.o
+ obj-$(CONFIG_DEV_COREDUMP) += devcoredump.o
+ obj-$(CONFIG_GENERIC_MSI_IRQ) += platform-msi.o
+ obj-$(CONFIG_GENERIC_ARCH_TOPOLOGY) += arch_topology.o
+-obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
+ obj-$(CONFIG_ACPI) += physical_location.o
+ 
+ obj-y			+= test/
+diff --git a/mm/Kconfig b/mm/Kconfig
+index 9e0ca4824905..410b8a0a92b9 100644
+--- a/mm/Kconfig
++++ b/mm/Kconfig
+@@ -1469,6 +1469,13 @@ config NUMA_EMU
+ 	  into virtual nodes when booted with "numa=fake=N", where N is the
+ 	  number of nodes. This is only useful for debugging.
+ 
++config GENERIC_ARCH_NUMA
++	bool
++	select NUMA_MEMBLKS
++	help
++	  Enable support for generic NUMA implementation. Currently, RISC-V
++	  and ARM64 use it.
++
+ config ARCH_HAS_USER_SHADOW_STACK
+ 	bool
+ 	help
+diff --git a/mm/Makefile b/mm/Makefile
+index eff9f9e7e061..fd29be716fa8 100644
+--- a/mm/Makefile
++++ b/mm/Makefile
+@@ -122,6 +122,7 @@ obj-$(CONFIG_CMA)	+= cma.o
+ obj-$(CONFIG_NUMA) += numa.o
+ obj-$(CONFIG_NUMA_MEMBLKS) += numa_memblks.o
+ obj-$(CONFIG_NUMA_EMU) += numa_emulation.o
++obj-$(CONFIG_GENERIC_ARCH_NUMA) += arch_numa.o
+ obj-$(CONFIG_BALLOON) += balloon.o
+ obj-$(CONFIG_PAGE_EXTENSION) += page_ext.o
+ obj-$(CONFIG_PAGE_TABLE_CHECK) += page_table_check.o
+diff --git a/drivers/base/arch_numa.c b/mm/arch_numa.c
+similarity index 100%
+rename from drivers/base/arch_numa.c
+rename to mm/arch_numa.c
+
+---
+base-commit: 075b74841bd0065a3bda3440873c747938e69b68
+change-id: 20260806-arch-numa-444bb4806114
+
+--
+Sincerely yours,
+Mike.
 
 
