@@ -4,87 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CB5C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 00:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A001C55174
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 00:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=C+ndS92zXPqAJ+cNcpLuaSmLaftIm1AvtWGzzi2M09w=; b=NZvZw+YYQKZ6A0eXyur1gVzyHt
-	Jn4+lZp48agslWqNZZuvmAVlXzTfmeNpWQ8ctTPpkC1bR9m0uiuxPb73KGBBZTXRqI8cgltGXnRG5
-	yVVQD4BUYYub6Uveg2oX3g0haixbn8AgKWoQ8Zj5UG3OBSZo2yutyXoarPIxpfPk4uSXaTXYYa7rY
-	Dm7/QvDeW4XfqmAw0y6uPktXptdmkrBO9Q0snNzvINEUJ22ESd1p/iY6t9vCP0EatcP3ikm+Y0dOS
-	61bCWpXZooHnhK4XvtkXfBEIujIWCSWctJFJZ4plrXJAxjQl61fKlLzIZRtau9ld2hWVxMSKS+KIZ
-	NuorgUlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bOdorbk/UlhKifvig4KB0lM7KTYBeYcFRnwahVZUW58=; b=xMksNFI2mcIG1Bg/pccpNjO9WP
+	TqB5OFtaXwQrtW54Bpmju3Kpq87vfT4woVloN/n1mBMyRpjnlbp9xUWrFplXDFrgyTNHvRTz7bn1y
+	ZRBj7BLmmxyn4N6dVQNuf3lEq8RIjA6r3BzDvnx7kkEQFQC+2s0EWca1khpg70tnCNBxGPZqWA+HY
+	FiDOyUHkI7TSqRZn/c0qt2QPngowmEFhrKZHTQbGGKzY5o/yfj9VWNbuGOTamfav8yxr2E1YEKL/R
+	q3GGSw9ausGNA90YAToxNV6/XaI/B111OUrO13MThIevV4l8tANBwiHvvNpEsK1JDdVAT/FflZGCl
+	ZgxjwSzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrlYz-00000004fHZ-0Y94;
-	Thu, 06 Aug 2026 00:02:21 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1wrll4-00000004fl0-0t5S;
+	Thu, 06 Aug 2026 00:14:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrlYx-00000004fHE-1Eea
+	id 1wrll1-00000004fkW-3tms
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 00:02:20 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-84862b0d5aeso1924868b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 17:02:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bourg.net; s=google; t=1785974537; x=1786579337; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=C+ndS92zXPqAJ+cNcpLuaSmLaftIm1AvtWGzzi2M09w=;
-        b=CbCGFq24EEzd1oBdIkiRsUjPizqGLyRC/oX1VQgo8jDO6FfQKdEfkFVBAvN9kWt1cN
-         gnMPGtrjzLI/wcPwAPlJVgSq0FDCAmFAFzZv7NfcMwDfSuvXkrMCPJlSKWMvXFTCzdua
-         uQbQQTPeOcC4EjumXV4GR+cCipb7FJTRbSckM=
+	Thu, 06 Aug 2026 00:14:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1785975286;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=bOdorbk/UlhKifvig4KB0lM7KTYBeYcFRnwahVZUW58=;
+	b=Z3jCsFtg6kYxTbizKRZy3Tvvn00aZQE2pYvBiqkEYh2E2sCVa+p042QSXId+tLn6/JWBQ3
+	ILvp6RJGS9kOImmvbODZmZKhlGpJERTcsRVqN/PwWUgdla863NXyP0PPkQjGOmUYXWm4xM
+	stK+RJY1aGo8x10Vncq8BNz8wnO8uo8=
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
+ [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-335-uB5W7CX9PUGr4JwfiYC7jg-1; Wed, 05 Aug 2026 20:14:45 -0400
+X-MC-Unique: uB5W7CX9PUGr4JwfiYC7jg-1
+X-Mimecast-MFC-AGG-ID: uB5W7CX9PUGr4JwfiYC7jg_1785975285
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-81bee860fb7so52938097b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 17:14:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785974537; x=1786579337;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=C+ndS92zXPqAJ+cNcpLuaSmLaftIm1AvtWGzzi2M09w=;
-        b=iFqcj1P9C5qU1YyL+lJpDUCW7YJllENV+VGhUyomarD5ZtymJB+xwt77UbxsX6XYdU
-         pNKYXgwxqyKgCT/xe4xARYOu5cWlzsXOBlrKi/oUvUShyCqVll/XFwTgulLfJuvCjO5G
-         5ph1sZGd3X/7wrCOmlTYO+mWsog0umfRmk5baLyPmGWQyKv6ZkwHGfbap8/Zgaa1VX71
-         N+8KHQ+oqwMAeGLvKqro9uJaWzA7CkxwPyRq4czmawhPHxS5PGNedEMwCoAsj6HVppqn
-         iV13hFTKzGK9XEokJBH8zFv9ypfdm4m2eWytYLvrpg4QzjvD94Q2rsNaNJ3qMoeC7xiY
-         Q75A==
-X-Forwarded-Encrypted: i=1; AHgh+RoOdyDefXMdJvpAYCtYT3llX58YgrdkGT+co28UaSJbjgZmDv9k/TC7yMb/jYVkWjKMZQk4EPm/TSd0KAeNFL8t@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZnfCHMPMlBe4YZ5ExZDzOYsltjNqeqJ0wX/s0uptTGBR4GeaA
-	5+tPFf3WpS5gojRYB5fLFmKnXZMgxYuX1Iuv5kLIJvU62dAcWXJRMT5TiZFQyEGTlCY=
-X-Gm-Gg: AR+sD130won4TxWmPGVTDJHH5PeF3Lfh2u6fxuVk8YRPnc8btEudZd/tbeE2vcNSUGT
-	mQ/OqzwLYYGuP+gHo1zTaHhK4JzNjRHEgtMlDE1jb8sq7pWy/weoaRWwmOQ8HAnP4MqgEw0Pye8
-	Omzv5wVm/NEJZQSw5MGcbjfqo0jI24JSnwfFciTSDMPnsKqsehslJYspV79IkoGBKk6ItY5lJc4
-	KER+m7/byClQunJvEC4J0stLqiInJPfJleTJu0gzcYap7mplO8XxWf8bp4vB9/ZCu4gq5OTy/rp
-	daFUfCpwklHe1JN7EQOcsv4qmfDvlxVx5cyx3qa3Q8IsyZPVUGj+jTFq8jot+j4URRJUCfvZ9iy
-	q9/CF5+tuEHJ7eS0LNsnZsjgdZPuwgzg0mEU3whLR9QzMwmRArTMWUz0CkHgIfkfPGC2boyN8AG
-	RWmoNIQq+gCgdBjxmSwZJkrFnTANlpwKF0KvRrLPvDLEldn2QpHg/hHs1gPvSXNhN4eBPnLE1/9
-	YVAKjxPx94VC7Jc4OYB5zkuCmRVBKEmWnz3twZ5sKG0EK9f
-X-Received: by 2002:a05:6a00:8d81:b0:847:7f3c:b5f5 with SMTP id d2e1a72fcca58-84f2dfc8f83mr13807202b3a.11.1785974537350;
-        Wed, 05 Aug 2026 17:02:17 -0700 (PDT)
-Received: from deskstar (syn-024-216-245-233.biz.spectrum.com. [24.216.245.233])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f4538bb3bsm180478b3a.12.2026.08.05.17.02.13
+        d=1e100.net; s=20251104; t=1785975285; x=1786580085;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bOdorbk/UlhKifvig4KB0lM7KTYBeYcFRnwahVZUW58=;
+        b=V09skGLK+1VFT1xdNcgX6pPjgJlKCnt4VycBMexMEPp49wpqDxz+xtlmlncNAj/DRt
+         SzEKc4QOUkPhWVoxXSWGILT+mXMB9dC/N+G4jIMx8aa71k6AvKjGUlAk4Fc+WhzXNp77
+         gpZ0aOK3t8F8lOLaRpHswhKa9BUkPeILW/pzMCrpVgqdlG5xzATh7uoSaeHLV8WhrZu6
+         h4MDXg6nSrtGSi1m1FRV9m6dEp0TcFpyRVgZjLU2l6o653apSVDoqbzFLrkRv6p8reUs
+         TszTrsa5R3psnRENB5QPMDhHOgYdH+BP3G35O3rzEgFQvk8nh8u8k4iJFcrClOQKAlJ1
+         3YmQ==
+X-Forwarded-Encrypted: i=1; AHgh+Roc4EotTUIJuxDM4PZ0yBGnZ4WuXVxnxTJJ0w0egAXtPDZhMS9U9+fm6gejBBEZIEnYEw1L0TBCvBjZT9Y35znw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0YyZfT1dNTDSimxgTUFQh58e/O+iVYL34OOnVoBTfgzNgi0Bn
+	gZqpA8nMO+vspwRYCn4GtgmOXMoVPJPRW42fda2c1vshq2+Jsnyl7bOl4D7iKUWynj0iVq78r8s
+	LmVTjO41OhGnhgR2Uy8jtG2H+0EOMlD1/dXgMDt39Wd3rUKRfKB7rqirzW/y1Kz0bSRIakYxKzh
+	SC
+X-Gm-Gg: AR+sD13k/v6MRJ0kyWFOYVEMBJYYPOAkF9NXED5ZtWk2R0b5X/LlXuLgEMaTzkoW/nG
+	TeTwIXU+wE36JW7+fONUTaoWrxPoJO8knzU2C0A0wOU7I1aYuSWOdTlBIlUBff5cFpLFDPucaTA
+	cB4M5sBUHdiXuiOOMa03y1suqOt9WLSpybi3gS8ooKsjKO181p6oE8r2h4VKrlR9TtqHRASzrvc
+	IQZHj+y9tWRdfArLGN7ufOTootrDPD1X1/xqLHM1XhUgmEvkUmI8cZKKIIGxSULFPXzRZxa9ISp
+	BPeX6UkTWJZk4m9U/PqDeQILA/oEEA/8fzB4bwkYrMEcrsPGklH9l0Q2a86lMQms6UEwhgVucpG
+	3+vNMG/fx/DdGnM7b0wwKUNxJ/0YAMML7bj8=
+X-Received: by 2002:a05:690c:3613:b0:81e:9826:942c with SMTP id 00721157ae682-8201bab4aeamr67377837b3.0.1785975284913;
+        Wed, 05 Aug 2026 17:14:44 -0700 (PDT)
+X-Received: by 2002:a05:690c:3613:b0:81e:9826:942c with SMTP id 00721157ae682-8201bab4aeamr67377517b3.0.1785975284317;
+        Wed, 05 Aug 2026 17:14:44 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-82013c49127sm29075737b3.32.2026.08.05.17.14.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Aug 2026 17:02:15 -0700 (PDT)
-From: gus bourg <gus@bourg.net>
-To: ardb@kernel.org
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	ilias.apalodimas@linaro.org,
-	linux-efi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Gus Bourg <gus@bourg.net>
-Subject: [PATCH] arm64/efi: Do not call EFI runtime services preemptibly under SW PAN
-Date: Wed,  5 Aug 2026 17:01:44 -0700
-Message-ID: <20260806000144.3388823-1-gus@bourg.net>
-X-Mailer: git-send-email 2.53.0
+        Wed, 05 Aug 2026 17:14:43 -0700 (PDT)
+Date: Wed, 5 Aug 2026 20:14:42 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Jerome Brunet <jbrunet@baylibre.com>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Russell King <linux@armlinux.org.uk>, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] clk: fix self-consuming provider module pinning
+Message-ID: <anPR8mIUmDV1j0gA@redhat.com>
+References: <20260723-clk-provider-pinning-v2-1-8dad72eb79f0@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260723-clk-provider-pinning-v2-1-8dad72eb79f0@baylibre.com>
+User-Agent: Mutt/2.4.0 (2026-06-19)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: njDsxUsbMiIKLN0jK1F2pK-3Ij8zwgs1P9_orAFAI9Q_1785975285
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_170219_392286_C0224CED 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20260805_171448_051667_E2856A9C 
+X-CRM114-Status: GOOD (  27.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,123 +111,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Gus Bourg <gus@bourg.net>
+Hi Chen-Yu,
 
-When PAN is emulated by switching TTBR0_EL1, arch_efi_call_virt_setup()
-installs the EFI mm into TTBR0_EL1 via uaccess_ttbr0_enable(), and only a
-return from exception ever puts it back: check_and_switch_context() skips
-the register write by design ("Defer TTBR0_EL1 setting for user threads to
-uaccess_enable() when emulating PAN"), and __switch_to() does not touch it
-either. switch_mm() updates only thread_info->ttbr0.
+On Thu, Jul 23, 2026 at 03:00:51PM +0200, Jerome Brunet wrote:
+> clk_hw_get_clk() lets a provider get a struct clk for one of its own
+> struct clk_hw.
+> 
+> When a struct clk is created, the module usage count of the provider
+> is unconditionally increased. For a self-consuming provider, this means
+> it pins itself and the module can never be unloaded.
+> 
+> Increasing the module usage count should only be done when the consumer
+> lives in a different module from the provider. Use THIS_MODULE to
+> capture caller's module and increase the module usage count accordingly.
+> 
+> It is OK for consumer-only APIs such as clk_get() or of_clk_get() to
+> pass a NULL owner. As a result, any provider module will get pinned,
+> same as before.
+> 
+> Fixes: 30d6f8c15d2c ("clk: add api to get clk consumer from clk_hw")
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> ---
+> This issue has been present for a while. Virtually all users of
+> clk_hw_get_clk() are affected. The majority are compiled as builtins
+> according to the defconfigs. It is not problem in this case but it is
+> if the configuration is changed to module.
+> 
+> The following modules are using clk_hw_get_clk() and are compiled as
+> module with some shipped defconfigs:
+> * drivers/gpu/drm/msm/disp/mdp4/mdp4_lvds_pll.c
+> * drivers/phy/cadence/phy-cadence-sierra.c
+> * drivers/pwm/pwm-meson.c
+> * sound/soc/codecs/lpass-va-macro.c
+> 
+> Currently those module cannot be unloaded once they have been loaded.
+> 
+> """
+> rmmod: ERROR: Module blabla-module is in use
+> """
+> 
+> With this applied, we can get back to removing the direct usage
+> of the struct clk in struct clk_hw and eventually remove this
+> struct member entirely.
 
-Since commit a5baf582f4c0 ("arm64/efi: Call EFI runtime services without
-disabling preemption") the runtime call is preemptible, so the EFI worker
-can now be scheduled out inside that window. An involuntary preemption is
-harmless, because __swpan_entry_el1()/__swpan_exit_el1() save and restore
-the state around the exception. A voluntary reschedule is not: it performs
-no return from exception, so the worker resumes with another task's
-TTBR0_EL1 - or reserved_pg_dir - and the next efi_mm access takes a level 0
-translation fault.
+Do you have any thoughts about this patch to the clk core? I agree with
+Stephen that we should add kunit tests for changes to the clk core where
+possible, however in this particular case I think it would be very
+complicated. It also feels more like an integration test instead of a
+unit test to me. In the hopefully limited cases where we don't add kunit
+tests, I think it would be good to get multiple trusted contributors to
+review.
 
-There is such a preemption point in arch_efi_call_virt_setup() itself,
-immediately after the TTBR0 install: __efi_fpsimd_begin() ->
-kernel_neon_begin() -> put_cpu_fpsimd_context() -> local_bh_enable() ->
-preempt_check_resched().
+Thanks,
 
-On a Khadas VIM3 (Cortex-A73/A53, no FEAT_PAN, so CONFIG_ARM64_SW_TTBR0_PAN
-is in use) this reproduces as:
-
-  Unable to handle kernel access to user memory outside uaccess routines
-    at virtual address 00000000f322ff30
-  Mem abort info:
-    ESR = 0x0000000096000004
-    FSC = 0x04: level 0 translation fault
-  Internal error: Oops: 0000000096000004 [#1]  SMP
-  Workqueue: efi_rts_wq efi_call_rts
-  pstate: 80400005 (Nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-  pc : efi_call_rts+0xd8/0x288
-  Call trace:
-   efi_call_rts+0xd8/0x288 (P)
-   process_one_work+0x178/0x4f8
-   worker_thread+0x194/0x328
-
-The faulting instruction is the kernel's own load of efi.runtime->get_time;
-firmware is never entered, so efi_runtime_fixup_exception() declines it
-(the PC is kernel text) and the result is a full oops rather than
-EFI_ABORTED. The EFI runtime path is then wedged for the rest of the boot:
-efi_rts_work.efi_rts_comp is never completed and the runtime lock is never
-released, so every subsequent caller blocks in uninterruptible sleep, and
-poweroff hangs because EFI_RUNTIME_SERVICES is still set.
-
-The failing window was identified with ftrace, tracing efi_call_rts,
-arch_efi_call_virt_setup, kthread_use_mm, __efi_fpsimd_begin,
-kernel_neon_begin and arch_efi_call_virt_teardown together with
-sched_switch. Of four preemptions observed inside the window over 12726
-calls, the two that landed before the TTBR0 install (in kthread_use_mm)
-were harmless and the two that landed in kernel_neon_begin were not; one
-of those faulted.
-
-Keep configurations that emulate PAN on the non-preemptible path, which is
-what they used before a5baf582f4c0. Systems with FEAT_PAN are unaffected:
-system_uses_ttbr0_pan() is false there, uaccess_ttbr0_enable() is a no-op,
-and check_and_switch_context() installs TTBR0_EL1 on every switch.
-
-Fixes: a5baf582f4c0 ("arm64/efi: Call EFI runtime services without disabling preemption")
-Cc: <stable@vger.kernel.org> # v6.19+
-Assisted-by: Claude:claude-opus-5 ftrace
-Signed-off-by: gus bourg <gus@bourg.net>
----
- arch/arm64/kernel/efi.c | 25 +++++++++++++++++++++++--
- 1 file changed, 23 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
-index 30cd7f804398..1b666ca79758 100644
---- a/arch/arm64/kernel/efi.c
-+++ b/arch/arm64/kernel/efi.c
-@@ -166,11 +166,32 @@ asmlinkage efi_status_t efi_handle_corrupted_x18(efi_status_t s, const char *f)
- 	return s;
- }
- 
-+/*
-+ * Whether an EFI runtime service call may run preemptibly.
-+ *
-+ * When PAN is emulated by switching TTBR0_EL1, the EFI mm is installed into
-+ * the register by uaccess_ttbr0_enable() below, and only a return from
-+ * exception ever puts it back: check_and_switch_context() deliberately skips
-+ * the write ("Defer TTBR0_EL1 setting for user threads to uaccess_enable()
-+ * when emulating PAN"), and __switch_to() never touches it. A voluntary
-+ * reschedule performs no return from exception, so a preemptible runtime call
-+ * can be scheduled back in holding another task's TTBR0_EL1 and take a level 0
-+ * translation fault on its next efi_mm access. Keep those configurations on
-+ * the non-preemptible path, which is what they used before commit
-+ * a5baf582f4c0 ("arm64/efi: Call EFI runtime services without disabling
-+ * preemption").
-+ */
-+static bool efi_runtime_preemptible(void)
-+{
-+	return !system_uses_ttbr0_pan() && preemptible() &&
-+	       (current->flags & PF_KTHREAD);
-+}
-+
- void arch_efi_call_virt_setup(void)
- {
- 	efi_runtime_assert_lock_held();
- 
--	if (preemptible() && (current->flags & PF_KTHREAD)) {
-+	if (efi_runtime_preemptible()) {
- 		/*
- 		 * Disable migration to ensure that a preempted EFI runtime
- 		 * service call will be resumed on the same CPU. This avoids
-@@ -207,7 +228,7 @@ void arch_efi_call_virt_teardown(void)
- 	 */
- 	uaccess_ttbr0_disable();
- 
--	if (preemptible() && (current->flags & PF_KTHREAD)) {
-+	if (efi_runtime_preemptible()) {
- 		kthread_unuse_mm(&efi_mm);
- 		migrate_enable();
- 	} else {
--- 
-2.53.0
+Brian
 
 
