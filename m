@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15D1CC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 21:22:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E017AC56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 21:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9vzF8P90pJwqfmoMEA1Lju0P+zM2C2zQqCrgcHUCsoo=; b=get4W45QCu/62JGKHR9m2HX0Xr
-	TvlDAL11fb3uUJG3oCEPlS578daQBqj2g4GpmnuPYxhy+TY0iLKUsqsNuK3yIR1sCkg2ATZ7TvW9g
-	nqcS79oeGYcy6fNTV7tb3beamz1PM1a0G136yRYlu4CFqAohO4pBn/QWj0kfTus2f+bYHrqyLN3uA
-	6NZPsRRC1F81xjYr8Vw9La5CLcvdfUIiCdBNFInu3GpLehBYVPHJIhMga8ejU9O1Yv71MIAnqEIW8
-	glDXqvK0j+brB4LoauN/cHefQ3SyP54tlpMOZm6H9jCPCwoHWZRg/VQcoNzyoVwBQiJFnqETcP7wj
-	J6oYlrdA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zwZ9QBMqGE2tZiVXNSVp3vvHqmz+exr7B1ifk8CdFas=; b=c9Jhp9zPfsXafyq00TrpxYeC0F
+	rWFZwLKZbOPRkFqYp6mPtjH8vyFjK55TKd1XxT3f6hqdXwR60e2sAeMbtVqeDnIl0Hn+reQljZVf+
+	laI8BPfzrM/m83ewcGBL7K+I1pIyWXwUWu6mywSErcpIklFLhkBZPyXXY6Ay8uherxmSkqMZNyKGC
+	4nw58eKY/bnLwk6bLkiSOGRlT7JliseFr8Sc1e1Yyhc4KMDhUS8vd1jSIYCe0zQb1fefNzQbe8aG/
+	2bYJ/az+eTtebakaDqO43o3QOYKvIfoHsR9NNR/7YpFyWNCG1Dxa8nT6c8TYJKM8xIEb3SZI0j0Vh
+	bl2BfSyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws5Xp-00000006idw-3Eb4;
-	Thu, 06 Aug 2026 21:22:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ws5ZX-00000006isR-0BFC;
+	Thu, 06 Aug 2026 21:24:15 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws5Xo-00000006idn-2t3b
+	id 1ws5ZT-00000006iro-3MBV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 21:22:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 372744399F
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Aug 2026 21:22:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C1181F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Aug 2026 21:22:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786051348;
-	bh=9vzF8P90pJwqfmoMEA1Lju0P+zM2C2zQqCrgcHUCsoo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=UTkVffnqKSg/icWvoUhylyhF2KZnptdVSwItRiPQ7u2G+sqvGi4QZf3Op9HCajhsA
-	 KUc0cFJMT+J1W5OWGJwph+pGYEp0m0YivkyMgyEXUvkkY08RueLXercOcpxYTduibb
-	 kJVpbvAhS/fVlWsr+ODcM8lsCO4c6O7TcuVIPPuia/etPKWfD70XQxK/rXKZBXe1V9
-	 xVgPCUs4+nw8vzEuAh5y6AYFGb7ccQWZBjBRguwz/zIkhAXpkkOa2bDpxVD6Ua1KpH
-	 9TUn5lIV5r4pcJTJmRs/gEdAKDFLRLIqcfPpVDUfroCvmcISvXf/BPoT+ITOyjlTaG
-	 13iZt7jPZEQ/g==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-5b013084dc2so2462367e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 14:22:28 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RphKUUefPmmNZLwK1LwPEck8pg2ceYfRKzvoThXXcFeIgyo3r5B2bGvaovM4QY4cSKsNR06TKAjljGvgFur/Kz0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXHeA8c+j6/mYvSpPMyM2hSR2DUXUXnOe1cpop2aDxkNtGADee
-	Eht8YMIDduDIEyF/GLv1gErHlL9gk93M5H5LV3TWdLuq2emNiD3NZQDBoba2KqcElbn6DOjskJe
-	fn5mVM/i3hOUEQBPtSJG0UUxrn7F14Hs=
-X-Received: by 2002:ac2:51c7:0:b0:5ad:58c8:5de8 with SMTP id
- 2adb3069b0e04-5b2f4c920dbmr2348971e87.1.1786051346854; Thu, 06 Aug 2026
- 14:22:26 -0700 (PDT)
+	Thu, 06 Aug 2026 21:24:13 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-84e04df8c46so3048815b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 14:24:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786051451; x=1786656251; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=zwZ9QBMqGE2tZiVXNSVp3vvHqmz+exr7B1ifk8CdFas=;
+        b=HYMUBC6JEoEVgdLdGkOwkHljl3dOhIxUvKRYBlHqOp5+jUq3aqAWxXLKBfE1t4nL/e
+         P12TZEdwqOaHAfepr0azJ5Tw9WmM7FIDnaflR5SpLR4I/FZ/c1WqFO59715bmaYLBL+p
+         wTUz7XIljQGYZQRsk/QWaER2Fyt9tf0LiiDJ5CVF8/erdXmgCNLhsQsXVpfxkqLOv3Lv
+         1rxpiVaJUNTXA64k+hP5Z42Xa0sKsY86+Cj4ZmgJ3+rahwnCwm0er1ZkU54/sZtCWUNp
+         lLA4o6PA7iWG6sqaWUClZ0m2aHFXQPF+vNcVp/d2FwlEVhlUXSdCt/nGAK7SpbUpSak6
+         ejPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786051451; x=1786656251;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zwZ9QBMqGE2tZiVXNSVp3vvHqmz+exr7B1ifk8CdFas=;
+        b=g9FIeFXcvbCI4Fj5giPpt2XhdxBBKN4Xrwn9qHmh3XM+eHz5w+WdULmcNlwrakr5c8
+         5/bXWNUmziPJt4XMBcg5ljPV10Oo69DvcIUHQgzlNXYSIaySwtZ9PqhboDrnyP9AEX8L
+         pyds7casj0JiU6Hbhu1DrRNvycLC4QKL3+3rsxsCxjXM0mbpvOQ+vaEXqGp4B/kxEXC0
+         zuf79NQ+aYlrx8+3rlRX9PwH514mOXNaqWdBn3tIulR4GU08KnufJkcrT7kbirFMnhfh
+         PIM+qTdYTsj6c3Pbm2gDnWrSWM9DG3JfXQuOej9UGB2tQM3hMI4dXDakNVxMvRiMLH03
+         0nrg==
+X-Forwarded-Encrypted: i=1; AHgh+RoPmZ7zDNDT1e+yoNJeyusXbiOkkAPmQTukT9yNGuCggSGR6OeW2JQ4ORYR4gui8+RVbJXkTTaV2I/Z/sZ3T1sb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBCHKqhWYzqbuoMDFl46dfb6mSO2Snqe5vGdVQzuMmQcJztarC
+	aRmbnqrzFLL+/cBtMSBRL8Jj8EQL1Fu2xQNBonji7VPvRn52GkLaAF0D
+X-Gm-Gg: AR+sD109t2mad6dCNdJAu7EwCMdrrXaWq/1lL1cYGa6qF//dXY73f3W3QT3tAqCjAZH
+	KCaG3D4wx0F1lJnt/otVYcv/mhU2EFGDqXPKlzzMqh8m19E7Ef5A6OEKYsc+HliiTMjx+Ej5yfO
+	bA62s0PS66Zev+e6falJwrMQXEEzwq6nm8c5KMBAjZ1jOPlfQgnTjY7PnTljAWABbHe162as4SE
+	ybFAO4Fw3M8SUGniwgzeQe82clP3I/dyFhJcy6AlmMtqJxnmkzBUdxqyCSSQBnz1BOc0SJJDMN2
+	fd+YhjHS3Kjw7/6Ex4N1fYsxqIiXEYU8Pnknqx+Viria1pENiGxILCiX5d6ecB+jL0LFrsqDIzj
+	L7yLtDsTtb1x0qA4VZkmLhap0sgZbJvQ7EKbsybYlpACnxREvP7UtmT9l4nCJloBPPqhMyKsyxV
+	N0bMxszk/lhL7ikqywaZihvNPrRzp4JZ0cehfEwus1vg1nGFw88FEtdKhjNydrzyHi4eWWPENqF
+	ETyvZfMdE6XxA==
+X-Received: by 2002:a05:6a00:2d0b:b0:848:5c00:fa91 with SMTP id d2e1a72fcca58-84f2e0ed967mr19698345b3a.38.1786051450767;
+        Thu, 06 Aug 2026 14:24:10 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a3a188esm10061b3a.5.2026.08.06.14.24.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2026 14:24:09 -0700 (PDT)
+Date: Thu, 6 Aug 2026 14:24:08 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Hongyan Xu <getshell@seu.edu.cn>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, jianhao.xu@seu.edu.cn
+Subject: Re: [PATCH] watchdog: at91sam9_wdt: prevent timer rearm during
+ teardown
+Message-ID: <70f6bc97-a82b-4d9c-b3cd-79cbb4cf7866@roeck-us.net>
+References: <20260806060613.1830-1-getshell@seu.edu.cn>
 MIME-Version: 1.0
-References: <20260623-arm-generic-irq-entry-v7-1-v1-1-f25ca7079e3b@kernel.org> <49d4cefa-f733-4c8a-a371-5607d460ade1@huawei.com>
-In-Reply-To: <49d4cefa-f733-4c8a-a371-5607d460ade1@huawei.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 6 Aug 2026 23:22:13 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnKzxtW=csmrV=19-_DofVG=aqnM0uiBTWGygTWmeQgvw@mail.gmail.com>
-X-Gm-Features: AUfX_mwcnU-RQgatc_wVa6xnaOUPVH7OzC5qQicNmioQM-ZhpAB8rBNifOfEEZE
-Message-ID: <CAD++jLnKzxtW=csmrV=19-_DofVG=aqnM0uiBTWGygTWmeQgvw@mail.gmail.com>
-Subject: Re: [PATCH] ARM: entry: Convert IRQ handling to generic IRQ entry
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: "Paul E. McKenney" <paulmck@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Russell King <linux@armlinux.org.uk>, Oleg Nesterov <oleg@redhat.com>, 
-	Thomas Gleixner <tglx@kernel.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260806060613.1830-1-getshell@seu.edu.cn>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_142411_838883_FCBB30A7 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +105,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 27, 2026 at 5:16=E2=80=AFAM Jinjie Ruan <ruanjinjie@huawei.com>=
- wrote:
+On Thu, Aug 06, 2026 at 02:06:13PM +0800, Hongyan Xu wrote:
+> at91_ping() rearms the watchdog timer from its callback. timer_delete()
+> neither waits for a running callback nor prevents it from rearming the
+> timer, so probe failure or driver removal can leave the timer accessing the
+> devm-allocated at91wdt after it has been freed.
+> 
+> Use timer_shutdown_sync() on both teardown paths. It waits for a running
+> callback and rejects any attempt by the callback to rearm the timer.
+> 
+> Fixes: 5161b31dc39a ("watchdog: at91sam9_wdt: better watchdog support")
+> Signed-off-by: Hongyan Xu <getshell@seu.edu.cn>
 
-> > +noinstr void arm_irq_handler(struct pt_regs *regs, int mode)
-> > +{
-> > +     irqentry_state_t state =3D irqentry_enter(regs);
-> > +
-> > +     /*
-> > +      * mode =3D=3D 1 means we came from userspace, and then we
-> > +      * should just immediately switch to the irq stack.
-> > +      * Then we check of we are on the thread stack. If we are
-> > +      * not, then by definition we are already using the irq stack.
-> > +      */
-> > +     if (mode =3D=3D 1 || on_thread_stack())
-> > +             call_on_irq_stack(handle_arm_irq, regs);
->
-> It seems that the CONFIG_VMAP_STACK Overflow Protection is missing,
+Applied.
 
-I don't think so, it is checked before this point in the assembly:
-
-+       svc_entry trace=3D0
-+       mov     r0, sp                          @ regs
-+       mov     r1, #0                          @ from kernel mode
-+       bl      arm_irq_handler
-(...)
-
-svc_entry checks it.
-
-> should we implement the C version of CONFIG_VMAP_STACK first, before
-> moving the IRQ handling to C?"
-
-Not 100% sure what you mean here.
-
-Currently the CONFIG_VMAP_STACK checks are done in
-arch/arm/kernel/entry-armv.S, in the svc_entry macro
-that is called in every exception entry.
-
-svc_entry in turn calls do_overflow_check from
-arch/arm/kernel/entry-header.S that does the actual overflow
-check and calls __bad_stack() if we get an overflow.
-
-This looks nice to have in assembly to me, and even
-arm64 does this check in assembly?
-
-How do you imagine C doing this without using any stack?
-
-Yours,
-Linus Walleij
+Thanks,
+Guenter
 
