@@ -4,82 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F735C5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 18:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A75C56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 18:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VvqVDCFd/DWfRyPbMPVLFfs2uBTy+cvknpQHmfC9ir0=; b=B4pV7LW+hvZP/dHaaHvgGLEb8f
-	XUOMkW8R2sUYJZ/eS38eksW95pBKk5vznGOsMiZRoOaHm9JHPcJKw01kN48ZPXq2pelCwQdbDSFhp
-	AudFRoy595pfeAR/sIFSJ28AOrNibdni1E2TwMvgLL2QG08cchxXK+aKHUGv7s5GxBr5gG2GcNlH7
-	sbKUARbT66Md7evFUAm/zGR7ViXKDD1hYNmeS2J4sQaFGQG9IXCmrf0FXLKubub0IJJO/DoIyz3x4
-	0+0b09/DxbAvpXXzeOKEYnXsCDlFMuR0ZUMSYh0T1ROKIHHQDK0dR5me/X6WfQePDu6fds4A1TdGh
-	E5+hAhPg==;
+	bh=1kCFpQh+EQJQ0LCC3WIaX1KslN0Dp6DhUszXmPhw3Ds=; b=uZyeSraOAbidcEUZa0ZgrgmUZ5
+	PoR2Yvhfu6a2MAmNutmf18CUPtjNHjkgpFKus8JUkTiZSsHhkpt9sgD4YS8y4DcPx9YHgh2vSTGKm
+	DgL/O02VuWQAo5YuMrlTfb9Q3f1t6yQXcy69U2u9cxtOiebpv3JysIboEEnNuRkjqYH2GnJSKlQrl
+	unwloOns8IdpRmWprbVes/6FvxnNSivS9FpWiZJKfnozZSOfSfc+kxDJuk3MxnGLxKn2e+izyvJpz
+	xSq/HCKSTqcWVgojMaP0OBMVwDJpjGyYKV0E+vsfv/jA00gCCez+O3IFE8CxeqCgOta/TZ7Eu19t7
+	YvrTPoVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws2Pw-00000006QXf-1syx;
-	Thu, 06 Aug 2026 18:02:08 +0000
-Received: from sender4-op-o11.zoho.com ([136.143.188.11])
+	id 1ws2Zq-00000006RPT-3Ho3;
+	Thu, 06 Aug 2026 18:12:22 +0000
+Received: from mail-westcentralusazon11010064.outbound.protection.outlook.com ([40.93.198.64] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws2Pu-00000006QWz-2NXZ;
-	Thu, 06 Aug 2026 18:02:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1786039281; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fI5hflcGYGR78Sx2OUja5rJ3MURm64Sfve2tS6OUsW/xi/ciIhu7qlzNryG1CTddv/s5oOXEyDo2W9ZKJ6lkIG8g90e6703g3Dk8blxOgbYEmH0iQctBJBjuJ6RNNXsVMsb+pvrZfYWyfXpMcTtOhJd9EHKGQIgnxwRd/cngbvI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1786039281; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=VvqVDCFd/DWfRyPbMPVLFfs2uBTy+cvknpQHmfC9ir0=; 
-	b=TiyvRR/BkSubqsDw4jOEgMp400km0U/+8/U8GPOzmSE1oFK56nXO2mQ5LkJyxAMpEF5lLeF5DdQvopvSHdKuze/FykRY6FWFBbMLOQdnPVs8m3GOVkPV1iv628J/YDv8Ftbr28Unh1gPiEwQcLTVfayN5BVeiHH2ePc/xVgdRTA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786039281;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=VvqVDCFd/DWfRyPbMPVLFfs2uBTy+cvknpQHmfC9ir0=;
-	b=Glz0rDcYaFk9/2KrItwkKjHBTB6+FxhTaXberHy774dCEoBmZX9+ZqYuFsZQLacp
-	YH8F3wg6Ef2bhrgdtkRZT2pwK1R8NifNEFYJ8E0tbEp68AO12u4bdhhGR3Z+4RheLWq
-	Yat1cNeb6jvtisudhO1hnMn76UE5Q+zLvRL7JsEY=
-Received: by mx.zohomail.com with SMTPS id 1786039278681438.7405188318794;
-	Thu, 6 Aug 2026 11:01:18 -0700 (PDT)
-Received: by venus (Postfix, from userid 1000)
-	id 1273C1808BD; Thu, 06 Aug 2026 20:01:13 +0200 (CEST)
-Date: Thu, 6 Aug 2026 20:01:13 +0200
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Vinod Koul <vkoul@kernel.org>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v6 3/7] drm/display: Add soft depend for
- aux-hpd-typec-dp-bridge module
-Message-ID: <anTLpHm_bIPSsdvz@venus>
-References: <20260804070730.68-1-kernel@airkyi.com>
- <20260804070730.68-4-kernel@airkyi.com>
+	id 1ws2Zo-00000006ROa-19Ac
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Aug 2026 18:12:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G0DqtPeXBDqS5pOGM9VCrTuQk7q4F5+f1HXp1fnHRh5GAUNnSej94dMUd+Gemj4gnaBNgDJnMxcemCtdLEMevQnpnKPFGBnnhGTqdjxnd3fcioq23+K0o4knADmaj4soGCTLuaUM1gpc1kkTX7oENvdaXjF+6EA0OQ4Y7mJrbrNMyIAUTzaqkTfLb+hPIZFcWCAAP2+L+kEHu7dPkHig1g7erW13w6nSzdEhUuvoDRz8aOBblXOII5ZVLYgOxpJ6SkLVC6ymxHI6KG0bSaJdhXGaY4ywROy4/Wz70z4kTLpUiUZ4prDvec8WCMHDPY8N6/6YNiKUbW1/nC629EoD0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1kCFpQh+EQJQ0LCC3WIaX1KslN0Dp6DhUszXmPhw3Ds=;
+ b=Zs1QVdS/LLIQPErbOWky3jDQzqMwDnkt48AfHaQnf0NUz0E3TM2ocWw1JYLetiuAimLxfsBsjzFWNWsoFAjveT5/yLrLYjN+Ut2PdUcYcfBOTLyiXYyY82OfseygjEN4DOb5f1zoSfu0t8FHXj7t6V86sik0JWdtRm7HuKq6cBVoH0yNp0zXDZecZ4eEEyIy8fgYpSheP1W5q82kGlhToY4XOIGB6O6yV/IyfF0Yu9o8+cbbGZtJAeFJPILhUPP9MrE1sm4Mrie6vgIgZ5hoJbretCFraNWNaSsLx2IVnRzENLkRdtuIsDVwjwx3+b3FqDRGzujj+b9xGoeYLaqXtw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1kCFpQh+EQJQ0LCC3WIaX1KslN0Dp6DhUszXmPhw3Ds=;
+ b=W+4wy311ez03W4O2nHpHfsRzcT49WWCqFn0vUgYKsEkjCfn9qIGUqBt5wlUqEVcTkffz884642qFuxoagODU7yEtXE7WLcexOHLsKCySqZ5I3LiAzLPq7XcPYH2kz8I7d1k8f2cArin4eTGA12tgqYcRq2ZQxPj+BUCI9S08HAY=
+Received: from BN0PR02CA0051.namprd02.prod.outlook.com (2603:10b6:408:e5::26)
+ by CY8PR12MB8316.namprd12.prod.outlook.com (2603:10b6:930:7a::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.21; Thu, 6 Aug
+ 2026 18:12:10 +0000
+Received: from BN1PEPF00004682.namprd03.prod.outlook.com
+ (2603:10b6:408:e5:cafe::23) by BN0PR02CA0051.outlook.office365.com
+ (2603:10b6:408:e5::26) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.21 via Frontend Transport; Thu, 6
+ Aug 2026 18:12:09 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BN1PEPF00004682.mail.protection.outlook.com (10.167.243.88) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Thu, 6 Aug 2026 18:12:09 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 6 Aug
+ 2026 13:12:05 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Thu, 6 Aug 2026 13:11:59 -0500
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>, Rob Herring
+	<robh@kernel.org>, Brian Masney <bmasney@redhat.com>, Stephen Boyd
+	<sboyd@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<driver-core@lists.linux.dev>, Danilo Krummrich <dakr@kernel.org>, "Michael
+ Turquette" <mturquette@baylibre.com>, "Rafael J . Wysocki"
+	<rafael@kernel.org>, Russell King <linux@armlinux.org.uk>, Shuah Khan
+	<skhan@linuxfoundation.org>, Jonathan Corbet <corbet@lwn.net>
+Subject: [PATCH net-next v2 0/7] net: xilinx: axienet: Add 10G/25G (XXV) ethernet support
+Date: Thu, 6 Aug 2026 23:41:46 +0530
+Message-ID: <20260806181153.1213996-1-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260723123838.125145-1-suraj.gupta2@amd.com>
+References: <20260723123838.125145-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="byd6tvu63oubmgfz"
-Content-Disposition: inline
-In-Reply-To: <20260804070730.68-4-kernel@airkyi.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.10.1.5.2/286.26.37
-X-ZohoMailClient: External
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00004682:EE_|CY8PR12MB8316:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1cd23e06-f0f1-4671-b845-08def3e63b2e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|23010399003|82310400026|7416014|376014|11063799006|56012099006|10067099003|18002099003|22082099003|3023799007|13003099007|921020;
+X-Microsoft-Antispam-Message-Info: L6U1TGZpDPTqiLDDhWz06IC5lKCxcFnwO7Rsc0Y4f/PGKrU25SfYMCN4eIP0zQxa1L0qWnuQm/ZaH2lBily2PQpEavGnknBW9QUkG8H5FXVqG5VJ4uOoiBbAkP2JPSSsulwCWRHfWI39uVw351QprQlBP/eWT7Sje39hdvoI8+lyxIOdVZIHV3eA4n9wEKLlcfHxyR+CXTXBYm3Ylw8J3Vn6636kxz9dc3078hws4nKoXebHuvMen+Kwu2BMicAHd3vZefoOQkEhu/bTIt/1TYXsAlZT8Eh5Uy90AC+D7gJGcEaRSgfSXiF7NEoYLfQawopN5cv3BaA9WJh3GkhREuZwHDxqqqyJJpx0Rr1SWpexEtIkXoRdasTkuNJFdXyyetevCoUyPuuhF30SVakW6l/M9UeNSBEDQsjy0jvmfE0LjImiipMdtnlR7OVee00D59PgLQdiIbmoeUJGfqky44b6beJB6kUfZhK+1OgzUd/3IRl8YDlAmp4xUX+DkLuZSKp2ZG0fQzr/lcKwtbZAZegLl81Ra/O/lks5Gxp9pGDAv+9YJBD/s7/wtkTTBnuIG3/sz/SelOjNoqy5Xqy7qNKDI8UD9WZlBqCMZRp8CZTTTbzY6CZ7pg9ua1sJgh9H6LvQZsJSHo9jH+d1OnmPkF1cKrWaAipC6Gk2PJ+TX4cJCLenF3PuUmbjoOy/LwJg4W39KQ18bqyZTfncvpxXKt+zCv8rqPfcOgyEs/5x7pS1TJebbtRbw4XIYMYPxyz1
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(23010399003)(82310400026)(7416014)(376014)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003)(3023799007)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: +xCmanH4r7ALOH2SOwx1E1dDg97ZuAO19gHopnetoX/JQxW+czoBkxcrkeGj2+wcPiZORQEsyMU015ey4qqB5eb1QKKULdPirzmrprQXde1Lkn5C1PUeVGueHO8zXTiGbWT0Vmcoob7qb0xyX+ctp93kYkgib7LpWlIbVYtwdEEa1jUA3wEjWFQijlZfqiLEvmpAJHLv+YBnWenv14BAzQT8APBU/PxjLFt72RFhSuwoHbFQ2hnr26G3+Gl2bNOc9DCCQ9gWiRxHiCnWtTG9h/5iC6HIkBDZWQn1XyWMgtuoPGCx+5ARbVo+GUHxw+9aBqe+NiybMnIrFsoClmAVM+Ffa3aLMMwPSkc3CyZRwidl/nGaeU5dCPmozspmjcbnF6B5xI7Czh9uBmDom+7dG0avaSyTSlM6IlSsq26Z64RqdpeWkX6tng50tojYX5gx
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 18:12:09.3737
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1cd23e06-f0f1-4671-b845-08def3e63b2e
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004682.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8316
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_110206_653593_E9978C75 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20260806_111220_314861_4180EB0D 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,83 +131,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series extends the AXI Ethernet driver to support the
+XXV Ethernet subsystem.
 
---byd6tvu63oubmgfz
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 3/7] drm/display: Add soft depend for
- aux-hpd-typec-dp-bridge module
-MIME-Version: 1.0
+- Add a devm_clk_bulk_get_enable() helper for consumers that need a set
+  of mandatory clocks enabled with device-managed cleanup.
 
-Hi,
+- Refactor through struct axienet_config so per-MAC behaviour is
+  expressed as capability flags and callbacks instead of runtime
+  MAC-type checks in the shared code.
 
-On Tue, Aug 04, 2026 at 03:07:26PM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->=20
-> The aux-hpd-typec-dp-bridge module serves as a generic TypeC
-> DisplayPort HPD bridge and is not required by any other
-> module. Therefore, it will not be auto-loaded.
->=20
-> Given that the drm_display_helper module houses DisplayPort-related
-> helper code, add a MODULE_SOFTDEP() within it to suggest loading the
-> aux-hpd-typec-dp-bridge module beforehand.
->=20
-> Suggested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
+- Document the XXV IP in Devicetree.
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+- Add support for the XXV Ethernet subsystem.
 
-Booting defconfig without manual HPD bridge registration works now :)
+- Add a preparatory RMON cleanup, a statistics-ops refactor of
+  struct axienet_config, and ethtool / ndo_get_stats64 counter reporting
+  for XXV.
 
-Greetings,
+Notes:
+- This series depends on [1], which is sent as part of another series.
+  That change is required for this series to compile and is not included
+  here to avoid duplication.
+- "xlnx,rxmem" is a required property; driver changes for that are
+  handled in a separate patch series[2].
+- Due to phylink limitations, we aren't able to advertise both 10G and
+  25G base-r interfaces and switch between them using ethtool.
+  We are open to suggestions on how to handle this.
 
--- Sebastian
+[1]: https://lore.kernel.org/all/20260717090824.2364230-1-srinivas.neeli@amd.com/
+[2]: https://lore.kernel.org/all/20260806170253.1199749-1-suraj.gupta2@amd.com/
 
->=20
-> (no changes since v6)
->=20
-> ---
->  drivers/gpu/drm/display/drm_display_helper_mod.c | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/drivers/gpu/drm/display/drm_display_helper_mod.c b/drivers/g=
-pu/drm/display/drm_display_helper_mod.c
-> index d8a6e6228773..f0152d6b0b2d 100644
-> --- a/drivers/gpu/drm/display/drm_display_helper_mod.c
-> +++ b/drivers/gpu/drm/display/drm_display_helper_mod.c
-> @@ -18,5 +18,6 @@ static void __exit drm_display_helper_module_exit(void)
->  	drm_dp_aux_dev_exit();
->  }
-> =20
-> +MODULE_SOFTDEP("pre: aux-hpd-typec-dp-bridge");
->  module_init(drm_display_helper_module_init);
->  module_exit(drm_display_helper_module_exit);
-> --=20
-> 2.53.0
->=20
+Changes in v2:
+- Patch 1/7:
+  * Add Reviewed-by: Brian Masney <bmasney@redhat.com>. Thanks Brian!
+- Patch 3/7:
+  * Split the XXV binding into its own schema file
+    (xlnx,xxv-ethernet.yaml) instead of extending xlnx,axi-ethernet.yaml
+    with if/then branches, per Rob Herring's review.
+  * Add a multichannel (MCDMA) example.
+- Patch 4/7:
+  * Require both GT Wizard reset-done bits in axienet_xxv_poll_link_ready()
+    so polling does not exit before both the TX and RX resets complete.
 
---byd6tvu63oubmgfz
-Content-Type: application/pgp-signature; name="signature.asc"
+V1: https://lore.kernel.org/all/20260723123838.125145-1-suraj.gupta2@amd.com/
 
------BEGIN PGP SIGNATURE-----
+Suraj Gupta (7):
+  clk: Add devm_clk_bulk_get_enable()
+  net: xilinx: axienet: Introduce axienet_config for MAC-specific ops
+  dt-bindings: net: xlnx,xxv-ethernet: Add Xilinx XXV 10G/25G Ethernet
+  net: xilinx: axienet: Add 10G/25G (XXV) ethernet support
+  net: xilinx: axienet: Make axienet_rmon_ranges non-static for reuse
+  net: xilinx: axienet: Dispatch statistics through axienet_config ops
+  net: xilinx: axienet: Add statistics support for XXV ethernet
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmp0y+gACgkQ2O7X88g7
-+po1aRAAoVOEYS4tq1yTJqRuHjwNUobsS9PYSr5qD/DQPC1oCG4gOnrFa6dbHHJq
-rUBAu1add5nl7fsbmBqBskTWJmavNvRP/MD1gFLf3O/2kaHGMTu8J/kGohL8lK1c
-ZmCWvUErRM40JPnmDgi+HyLrAfewMZS+gcxolhfB7dvbR47MWiBXV52aZ8umglFW
-arbLXrh6q8/ibncTclQ4NW6D0loqyrKhSdTLNtGisYCcwJzvLmGhZdCfGEIcdHz8
-B7l8pHmmcL2M5udlUV1TFp9f6PR37gMhPFF6eu1EY0nr6+6RAR6RcSXKmz7fH+2K
-FgWL3Cw9o2Q851SH3VDapSyi01F5NVHiDJZrUCuCl5VylS4xJ7ZohMXVqxhi/7BF
-wnQEOY92uKvJ8SZErnu/mxuyttYFn7QAh26REhCDfmOBkvguo6fskjKSqrCKpJsZ
-WCijZVU3WVoiZrhhp0NISmGU0qQu/+Gl6de6bYAZYh6ohdbhgu5oFSOlHQdK8cBI
-2pYuo7inWqpmh02xPRs1HFrnLQCptZMkm1VIBrIiVSam95dQqhSvRLqi7xeXu6Hu
-uYJzZ3c1gh8lRBqYaXBO/lWZ81/+uUVFXgFfHTvMNRrfFklmCOvus9i43qf/Z66k
-1z3ifHGU1tZVyDyyEqOXWPdvk4KwHtPgwI57NWSEgep83nQ8fnw=
-=6FUg
------END PGP SIGNATURE-----
+ .../bindings/net/xlnx,xxv-ethernet.yaml       | 107 ++++
+ .../driver-api/driver-model/devres.rst        |   1 +
+ MAINTAINERS                                   |   1 +
+ drivers/clk/clk-devres.c                      |   7 +
+ drivers/net/ethernet/xilinx/Makefile          |   3 +-
+ drivers/net/ethernet/xilinx/xilinx_axienet.h  |  90 +++
+ .../net/ethernet/xilinx/xilinx_axienet_main.c | 603 ++++++++++++------
+ .../net/ethernet/xilinx/xilinx_axienet_xxv.c  | 595 +++++++++++++++++
+ .../net/ethernet/xilinx/xilinx_axienet_xxv.h  | 141 ++++
+ include/linux/clk.h                           |  23 +
+ 10 files changed, 1389 insertions(+), 182 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
+ create mode 100644 drivers/net/ethernet/xilinx/xilinx_axienet_xxv.c
+ create mode 100644 drivers/net/ethernet/xilinx/xilinx_axienet_xxv.h
 
---byd6tvu63oubmgfz--
+
+base-commit: 67ce33d8d0d166bc9e445d6e42a75b131ed23a7b
+-- 
+2.25.1
 
