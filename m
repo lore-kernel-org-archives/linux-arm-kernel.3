@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C118DC5AC7A
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9272C56208
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7DTQ07GJKnfbpZQI4eZNwIceuMVDGsiSmnyh13hn3T4=; b=sZTUVOdEJgFqP1OGb7G7b+Kk77
-	lXgd/mt3+wm92Wv8WKavns2MhaBGV7xXogGaE00P/JiQTQW9Emgz3BH3E4QDB1B426gtFtFqhTgK/
-	3chaOv3nmMq1FRal8M3fhjNxF+oMH5hXjBk5RfNJj5m8Txhq6gO9PBiPe8xv00BavmYzJ+AZaGgZk
-	7NUm1Fx0kYv+BKcBwkwe8NfpqyOUwxiLoH+7Sh54+yurVIef/Y0lsCpjO9W+sQ2hmnBf6uarlOBnA
-	fZxLZ+urbO3odUaidemS3Y9oiXO1u9Uy242eh+PofWycdkJgPRvuKobq6tfi3vImQ2TszXiv7FHs/
-	NOZtzGJw==;
+	bh=9MvHu1Pl2ssBHzhmhTZmBr2JBtolR+FQT5i70MkMUxQ=; b=2CdAODaW7EukkntqnmlFdFLWwM
+	/Wwdh1cI7tmFHv+xYX4yX5Ujfz6qIxd4sfi1fWrymI4KIaWbH3TL4YgB00rcFSqamLkPYIpzeoMhH
+	0U2hqugTZ9wPQPnMm/xfao63shUqjNhMzGsdHSYmDSixSKYKJvXByDiuBXEafQtXGdoYd+KoU74uN
+	p1opIG4XscqZtbMPJNfCpzhbIF07fboLtvWJaRAO9Ih0gzglXifUV57fOb4akrm04IaL1VrD4mViU
+	teS+aD8X+T2uic2QXWk30vXbuAyt4DiEWCB/jcDAG1ljue6YTAjgNaaSK02cqjMrkUsxsi28Edlgi
+	T4DiZBfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryXD-00000005wX6-4AKD;
-	Thu, 06 Aug 2026 13:53:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wryXI-00000005wYB-0Ivh;
+	Thu, 06 Aug 2026 13:53:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryXD-00000005wWk-1SQA
+	id 1wryXH-00000005wXz-1gme
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 13:53:23 +0000
+	Thu, 06 Aug 2026 13:53:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB5CD439A5;
-	Thu,  6 Aug 2026 13:53:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB3E11F000E9;
-	Thu,  6 Aug 2026 13:53:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D356A60A99;
+	Thu,  6 Aug 2026 13:53:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 556B71F000E9;
+	Thu,  6 Aug 2026 13:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786024402;
-	bh=7DTQ07GJKnfbpZQI4eZNwIceuMVDGsiSmnyh13hn3T4=;
+	s=k20260515; t=1786024406;
+	bh=9MvHu1Pl2ssBHzhmhTZmBr2JBtolR+FQT5i70MkMUxQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=e+BWU4WIQSW3J6P4C5TRKyo/AXNNQHs35lrkU1rCrq12MFCQqUAJcnTiEAfwgaA0K
-	 QGpIWb/krRM7CI3msRzsZATYaZVO6J6jwU3uVBzd5atQj8NQnB4TrtZW2RnaYIl/X0
-	 h9H+f7VOsjjpg5yQLjx1OHOhoDb/HWkPWnN9W3WbAv5WTrb5lNa04cljWr/zdgBWDn
-	 795UkbpZDwZubWpMnseP/14Fn24rJ6H6nUzSmB7OVGPMRYoDOhLbwM7wIIrnSleikD
-	 zlF4xMB6eMteV9aDqgoJ3lE94Ja/GJfwMQRSXr/WOq8orxYhvIcQlRTWDcdHmvunSA
-	 S/VSKMKP43H6w==
+	b=Vp2tN+o31EsdMyor7sYZoPaRvifAaVI0ng6axlV+D3HQZ87rBtnUL8FxPgESR/eDI
+	 9fdM4SQ9ACgkezeHcW04FMFaql9Kc9HS9j98nmY02HT4aq4BjB+azty6HJ0TC8viGH
+	 OHTurSNVGbLVxdOrIS0VEo/JvBDtm0nkMTyC0shIJqgDSgYYJaIm25iiVUAINwwHhL
+	 8/3ZF10KVCp7Yp1PtMbSSe2DjxVAh69HMDlAyvLHou2ejEHUOA0nZju/1D6F8G8ZMp
+	 Yfwt98mBfhcbk0xLoPkLu79bZhedv0iXd+GbPj0i1ykSn9dMI065p8MR7Nh2NWn0n+
+	 dXYvxhXgj8iZw==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>,
@@ -66,11 +66,10 @@ Cc: Puranjay Mohan <puranjay@kernel.org>,
 	linux-perf-users@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v6 2/3] perf/core: Run sched_task() for PMUs with only CPU-wide events
-Date: Thu,  6 Aug 2026 06:52:22 -0700
-Message-ID: <20260806135224.3267890-3-puranjay@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 3/3] perf/core: Clear the whole branch entry in perf_clear_branch_entry()
+Date: Thu,  6 Aug 2026 06:52:23 -0700
+Message-ID: <20260806135224.3267890-4-puranjay@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260806135224.3267890-1-puranjay@kernel.org>
 References: <20260806135224.3267890-1-puranjay@kernel.org>
@@ -90,79 +89,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-perf_pmu_sched_task() returns early when cpuctx->task_ctx is set and
-leaves the work to perf_ctx_sched_task_cb(). That one only walks
-ctx->pmu_ctx_list, so a PMU whose events are all CPU-wide is never
-visited and its sched_task() callback does not run. With
+perf_clear_branch_entry_bitfields() clears the bitfields of struct
+perf_branch_entry one by one and leaves from/to alone, since callers
+overwrite those straight away. The list has to be kept in sync with the
+struct by hand and has already fallen behind: new_type and priv were
+added to perf_branch_entry and never added here.
 
-  perf record -b -e cycles -a -- ls
+Only BRBE writes those two, and neither is written for every record.
+brbe_set_perf_entry_type() leaves new_type alone for a branch type it
+does not recognise, and priv is not set for source-only records.
+arm_pmuv3.c allocates the per-CPU branch stack with kmalloc(), so such a
+record carries whatever the slot held: uninitialised kmalloc() data on
+the first pass over the buffer, the previous record's values after that.
+Both reach userspace through the branch stack. Nothing under
+arch/x86/events/ writes either field, so x86 is unaffected.
 
-armv8pmu_sched_task() is skipped on every switch to a task that has a
-perf event of its own, and BRBE records leak across the task boundary.
-intel_pmu_lbr_add() calls perf_sched_cb_inc() unconditionally as well,
-so LBR records leak the same way on x86.
+Clear the entry with a single struct assignment instead:
 
-Drop the early return and instead skip the individual CPCs that
-perf_ctx_sched_task_cb() already handles.
+	*br = (struct perf_branch_entry){ };
 
-That requires the two to agree on which CPC belongs to which path, and
-they do not. perf_ctx_sched_task_cb() gates on cpc->sched_cb_usage,
-which perf_sched_cb_inc() sets per CPU for every branch stack user,
-while the new gate uses cpc->task_epc, which __link_epc() sets only on
-the CPU the task context is scheduled in on. A task with an event for
-that PMU pinned to another CPU has an epc on ctx->pmu_ctx_list while
-cpc->task_epc is NULL, so both paths would run and sched_task() would be
-called twice per context switch. On x86 the second
-__intel_pmu_lbr_restore() finds lbr_stack_state == LBR_NONE and calls
-intel_pmu_lbr_reset(), throwing away the callstack the first one
-restored. So gate perf_ctx_sched_task_cb() on cpc->task_epc too.
+The bitfields add up to exactly 64 bits, so there is no padding, and
+every caller assigns from/to immediately afterwards, so zeroing those as
+well changes nothing. PERF_BR_SPEC_NA is 0, so dropping the explicit
+spec assignment leaves the behaviour unchanged. Nothing needs keeping in
+sync when a field is added.
 
-For the CPCs that perf_pmu_sched_task() now handles, the callback no
-longer runs inside the perf_ctx_disable() and perf_ctx_enable() pair in
-perf_event_context_sched_in(). __perf_pmu_sched_task() disables the PMU
-around the call itself, so the callback still runs with it disabled.
+The helper no longer touches only bitfields, so rename it to
+perf_clear_branch_entry().
 
-Fixes: bd2756811766 ("perf: Rewrite core context handling")
-Cc: stable@vger.kernel.org
+Fixes: b190bc4ac9e6 ("perf: Extend branch type classification")
+Fixes: 5402d25aa571 ("perf: Capture branch privilege information")
+Suggested-by: James Clark <james.clark@linaro.org>
+Reviewed-by: James Clark <james.clark@linaro.org>
 Acked-by: Usama Arif <usama.arif@linux.dev>
 Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 ---
- kernel/events/core.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+ arch/x86/events/amd/brs.c   |  2 +-
+ arch/x86/events/amd/lbr.c   |  2 +-
+ arch/x86/events/intel/lbr.c |  6 +++---
+ drivers/perf/arm_brbe.c     |  2 +-
+ include/linux/perf_event.h  | 16 ++--------------
+ 5 files changed, 8 insertions(+), 20 deletions(-)
 
-diff --git a/kernel/events/core.c b/kernel/events/core.c
-index 9815894b67e77..675dd05935f35 100644
---- a/kernel/events/core.c
-+++ b/kernel/events/core.c
-@@ -3757,6 +3757,9 @@ static void perf_ctx_sched_task_cb(struct perf_event_context *ctx,
- 	list_for_each_entry(pmu_ctx, &ctx->pmu_ctx_list, pmu_ctx_entry) {
- 		cpc = this_cpc(pmu_ctx->pmu);
+diff --git a/arch/x86/events/amd/brs.c b/arch/x86/events/amd/brs.c
+index 06f35a6b58a5b..68c5f42965e91 100644
+--- a/arch/x86/events/amd/brs.c
++++ b/arch/x86/events/amd/brs.c
+@@ -343,7 +343,7 @@ void amd_brs_drain(void)
  
-+		if (cpc->task_epc != pmu_ctx)
-+			continue;
-+
- 		if (cpc->sched_cb_usage && pmu_ctx->pmu->sched_task)
- 			pmu_ctx->pmu->sched_task(pmu_ctx, task, sched_in);
- 	}
-@@ -3921,12 +3924,15 @@ static void perf_pmu_sched_task(struct task_struct *prev,
- 	struct perf_cpu_context *cpuctx = this_cpu_ptr(&perf_cpu_context);
- 	struct perf_cpu_pmu_context *cpc;
+ 		rdmsrq(brs_from(brs_idx), from);
  
--	/* cpuctx->task_ctx will be handled in perf_event_context_sched_in/out */
--	if (prev == next || cpuctx->task_ctx)
-+	if (prev == next)
- 		return;
+-		perf_clear_branch_entry_bitfields(br+nr);
++		perf_clear_branch_entry(br + nr);
  
--	list_for_each_entry(cpc, this_cpu_ptr(&sched_cb_list), sched_cb_entry)
-+	list_for_each_entry(cpc, this_cpu_ptr(&sched_cb_list), sched_cb_entry) {
-+		if (cpuctx->task_ctx && cpc->task_epc)
-+			continue;
-+
- 		__perf_pmu_sched_task(cpc, sched_in ? next : prev, sched_in);
-+	}
+ 		br[nr].from = from;
+ 		br[nr].to   = to;
+diff --git a/arch/x86/events/amd/lbr.c b/arch/x86/events/amd/lbr.c
+index 5b437dc8e4ce2..3639817456119 100644
+--- a/arch/x86/events/amd/lbr.c
++++ b/arch/x86/events/amd/lbr.c
+@@ -183,7 +183,7 @@ void amd_pmu_lbr_read(void)
+ 		    entry.to.split.reserved)
+ 			continue;
+ 
+-		perf_clear_branch_entry_bitfields(br + out);
++		perf_clear_branch_entry(br + out);
+ 
+ 		br[out].from	= sign_ext_branch_ip(entry.from.split.ip);
+ 		br[out].to	= sign_ext_branch_ip(entry.to.split.ip);
+diff --git a/arch/x86/events/intel/lbr.c b/arch/x86/events/intel/lbr.c
+index f8fadb0b16a45..6541c7046c2b3 100644
+--- a/arch/x86/events/intel/lbr.c
++++ b/arch/x86/events/intel/lbr.c
+@@ -756,7 +756,7 @@ void intel_pmu_lbr_read_32(struct cpu_hw_events *cpuc)
+ 
+ 		rdmsrq(x86_pmu.lbr_from + lbr_idx, msr_lastbranch.lbr);
+ 
+-		perf_clear_branch_entry_bitfields(br);
++		perf_clear_branch_entry(br);
+ 
+ 		br->from	= msr_lastbranch.from;
+ 		br->to		= msr_lastbranch.to;
+@@ -847,7 +847,7 @@ void intel_pmu_lbr_read_64(struct cpu_hw_events *cpuc)
+ 		if (abort && x86_pmu.lbr_double_abort && out > 0)
+ 			out--;
+ 
+-		perf_clear_branch_entry_bitfields(br+out);
++		perf_clear_branch_entry(br + out);
+ 		br[out].from	 = from;
+ 		br[out].to	 = to;
+ 		br[out].mispred	 = mis;
+@@ -921,7 +921,7 @@ static void intel_pmu_store_lbr(struct cpu_hw_events *cpuc,
+ 		to = rdlbr_to(i, lbr);
+ 		info = rdlbr_info(i, lbr);
+ 
+-		perf_clear_branch_entry_bitfields(e);
++		perf_clear_branch_entry(e);
+ 
+ 		e->from		= from;
+ 		e->to		= to;
+diff --git a/drivers/perf/arm_brbe.c b/drivers/perf/arm_brbe.c
+index ba554e0c846c4..effbdeacfcbb3 100644
+--- a/drivers/perf/arm_brbe.c
++++ b/drivers/perf/arm_brbe.c
+@@ -604,7 +604,7 @@ static bool perf_entry_from_brbe_regset(int index, struct perf_branch_entry *ent
+ 		return false;
+ 
+ 	brbinf = bregs.brbinf;
+-	perf_clear_branch_entry_bitfields(entry);
++	perf_clear_branch_entry(entry);
+ 	if (brbe_record_is_complete(brbinf)) {
+ 		entry->from = bregs.brbsrc;
+ 		entry->to = bregs.brbtgt;
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 48d851fbd8ea5..e034be4a473a8 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -1467,21 +1467,9 @@ static inline u32 perf_sample_data_size(struct perf_sample_data *data,
+ 	return size;
  }
  
- static void perf_event_switch(struct task_struct *task,
+-/*
+- * Clear all bitfields in the perf_branch_entry.
+- * The to and from fields are not cleared because they are
+- * systematically modified by caller.
+- */
+-static inline void perf_clear_branch_entry_bitfields(struct perf_branch_entry *br)
++static inline void perf_clear_branch_entry(struct perf_branch_entry *br)
+ {
+-	br->mispred	= 0;
+-	br->predicted	= 0;
+-	br->in_tx	= 0;
+-	br->abort	= 0;
+-	br->cycles	= 0;
+-	br->type	= 0;
+-	br->spec	= PERF_BR_SPEC_NA;
+-	br->reserved	= 0;
++	*br = (struct perf_branch_entry){ };
+ }
+ 
+ extern void perf_output_sample(struct perf_output_handle *handle,
 -- 
 2.53.0-Meta
 
