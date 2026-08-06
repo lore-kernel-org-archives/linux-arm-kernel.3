@@ -4,130 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3233DC55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 10:08:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A45CC55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 10:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KhZld27+M+uSfFp/4mUcI1U/RKA6sGB9YBQVMpH+L0A=; b=g3XuobeI65JBi7X4TXUShXHJ0o
-	UVgOOMadbxwuTWD/eDWEoXbM7UvFKSmqFi5aFRJKAHoOE8ZNeshbaDVWBo9VZjVcwbKUA8n+0xG+o
-	sXL979O2eHSnIDyE4jvOMFfmS6pl/6yfecWwVzOd09Y2v4VJCzr1y1Mokc2N7b+ed6kWSSINWRrI/
-	6TAXUk9FFFaW2NZiu0yNG+9H6a8hHsdhEcflpmLNreQIjr+2ZBoQ/Jurt5xKDU3XKb2QSgDANei3V
-	ywgSKeAT2B8O04NWMwv/ShOKEBy0SDY/t01snhal2NiTahKndCsHIpExSm7RFqgfWkjFY3bOHzgDy
-	FLEpeROg==;
+	bh=IMZ8qkfhOLZiwmIb3BHX25zuCyq2Sc5EP83poQE1J/s=; b=gROSZm7HJGatGIO+mEv4EakIXS
+	4BP9OH/xqTfR7u4U1od8dOMLqOaG6NStWtP+lZGc1SL5pbe7rUPwEl2/O4skD4fCg5HiKvaU1cO+p
+	0QmTtaupIC9ZoGFtZAcq0Go34p5A3wo7niwEQO9Mhme4YEx4Fj15/4dvjJsne+GQVj+6FMzyHKfoK
+	v9mKAlLPDjlAVcrDsYZmoSzlLWYPy6cjfB2zaN4uGXTA3VXnMMGGDIMF+AhW1tCkfzuy6E5EjpfMl
+	RLxNf8GxnLT+EMRNRIZtY/gRwXE8hrWZAmMaV400HCeIKZ++t++wmZ4Zb8ub1Eej3tgS/TmpjJoZF
+	IIiHPOIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrv1J-00000005VqN-1kte;
-	Thu, 06 Aug 2026 10:08:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wrv51-00000005WNp-1tHo;
+	Thu, 06 Aug 2026 10:12:03 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrv1H-00000005Vng-2I6Q
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Aug 2026 10:08:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KhZld27+M+uSfFp/4mUcI1U/RKA6sGB9YBQVMpH+L0A=; b=Qpdq1be7k/dNu9YHpxb+vB181H
-	gd9gGNV1IQmwSa+BBoqSBSN1Kk09b9y8xFt1Qkgh26S8UKuUApL9u1VTNIRshwJWxP7c0ulSQidB3
-	HhRVJC48cFVr5N15YZDl3lEZAm7UKMXoMKfFv8z9P7bTZI50iAP9RYD9FvE7yg3hjPGizZ8iDtDt2
-	mTPvRealnm0XohAdPSDSYl1TPROm5KR/G7RIYdcIEpEO9P7gwHPoNXNX5d0Tj43J6hFoMn5GiJOlP
-	1tNHIXVGHCZr3RIzCI793490PjdVc0BHloy67Pzz+i9XXrFrERJlgL8eK+DJntvhJ3NjY+Xnhrde0
-	mVunBu+w==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wrv1D-0000000BP4w-3jQ0
+	id 1wrv4w-00000005WMP-491s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 10:08:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786010884;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KhZld27+M+uSfFp/4mUcI1U/RKA6sGB9YBQVMpH+L0A=;
-	b=aQqpuE65T6EJfhifQXSr6PtHR9oC0sTfW70Hl0I94sxHZBSLeczV+dmUp4HMFbWX4xJATQ
-	HeMVB6zk93UVrZvJ7lgtJhZB5FFDYt7JKPV9NxiBHyfFoeqerg45Avy9bZPr/R6eXh4Kei
-	1wJf8cS8QYhvD5XQeMBHwACcxvzcCvk=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1786010885;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KhZld27+M+uSfFp/4mUcI1U/RKA6sGB9YBQVMpH+L0A=;
-	b=Tavp5/TjSBIqxX1GtmXvVWYoxnO90AuVb2kW+uL0ESrf2eMAnTjB+d1NYkpgE9DVUiscRK
-	bUjaC1Do+Q/WGibmQpygKwHKjx5Rq4ojOlQJc/sYuBiVOSBXJ5z8LwJ+/UfVSz2YyRanE9
-	EE1rWEYXqp5FqibclVgHVMjxu6HY8tA=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-670-QC27in53P_WlAlx7FhiDiA-1; Thu, 06 Aug 2026 06:08:03 -0400
-X-MC-Unique: QC27in53P_WlAlx7FhiDiA-1
-X-Mimecast-MFC-AGG-ID: QC27in53P_WlAlx7FhiDiA_1786010882
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-495474a5fbcso17709995e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 03:08:02 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786010882; x=1786615682;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=KhZld27+M+uSfFp/4mUcI1U/RKA6sGB9YBQVMpH+L0A=;
-        b=oxn0NYQFQsbId65nf45osYJR9Y2jUV66mSv8JiYh80TvnuCmsnR4Jh0Ng8I5MhmKxM
-         ZZ/7pHNMCFKJgRmTForiKsf50wjaP9xHbb3dWluS1jBfquSMaxS3/yyD2SDrIhHHE/uW
-         I9qa62ZUdNUGfqrnDD+U/j+fRJVMFuePYmsxJpZ+ZBLOhULVRx05ZjTGhvZ71Z1YBky2
-         lrJ3Xcn93lUiVPPDU9Y10rwKBF86YpV2A8dfsvVzYvPXUu9jNU3ShHbJPuQOsBOf4XzP
-         oHgFOpP+lUKw9fljnM5oo7UWJrTNVwJH7ADr/AwfEM14dKxGrVqt6s23PqsP9Rb69wF0
-         psSQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rrvzz9vaCSal6cszvlugli+ww2uEDlMhp2cdEQk1jwExDn9uZxINyAwIrn74r4m2jDRnbgkK9iIOw+IrBLWl5sH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwguUUqeeSLK0BD4h/kJEBZLlxdsuP+yEEG5x22EyK9QDYSw+JN
-	6uBvF+KvZinLcOXxU5s7DU13FM7HlytNkhHxMQGLvyjFLVys4vcrN6PDh2VjtGGg43BitUR78QM
-	SG/0QIZoME0K6LDN/tC5ydGVcTu05y5yfPRXHG8NkTUswy6CthhOuo2f/sdmGBC5emMMTBEVhEK
-	aF
-X-Gm-Gg: AR+sD126PVwXBpUGmLglnBJNwc5RcJEvonnvIPJAJd7Q3zujoGIyBs+fWtfRQwwbOYD
-	5kpo0UP5bL6laz9SYhDvxp6R1hwHtv9cEGusuFcg/Jczzr+aKc1e9cVKoBFIEP5P1lTA6LYmX8i
-	dME0PmmwijcvIfvLYH+1pqKSHFH+aEef4qddfFWFFRo6IXe8hcpSpxXsz0RLMuh9Ky0da87vpry
-	YQi+CiaH2myJFterQgSk8d1EE8xEcqA4uexqNRZ5L01uLSITCW68jhAZe6cGA+d+0wn0KLwg6pG
-	dlnZBTkOXHEgAz/RSLt6aGsp6TxQNMEbcF2Rj+XJAfnDqCkdUpo7nrCQU8TaxqkS1AH8YvOH9Db
-	uaS0YmxxzqcKHOh5upTkR1E+LFoaX+JJrNGfpBQ8Efd5Uy5el7/J3h/AMZ39ocKMA09gQgAEbwe
-	s=
-X-Received: by 2002:a05:600c:8010:b0:499:521d:bff1 with SMTP id 5b1f17b1804b1-499521dc012mr92037255e9.2.1786010881760;
-        Thu, 06 Aug 2026 03:08:01 -0700 (PDT)
-X-Received: by 2002:a05:600c:8010:b0:499:521d:bff1 with SMTP id 5b1f17b1804b1-499521dc012mr92036505e9.2.1786010881353;
-        Thu, 06 Aug 2026 03:08:01 -0700 (PDT)
-Received: from [192.168.188.103] (ip239-44-231-195.pool-bba.aruba.it. [195.231.44.239])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49952d16496sm24832495e9.0.2026.08.06.03.08.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Aug 2026 03:08:00 -0700 (PDT)
-Message-ID: <a4b4b8c1-6c6a-40d3-a8f2-727407b0bfa2@redhat.com>
-Date: Thu, 6 Aug 2026 12:07:59 +0200
+	Thu, 06 Aug 2026 10:12:02 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260806101153euoutp0242b5000f9586b81bfd29aabe5b0bf591~JL6URvPlp1714517145euoutp02d
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Aug 2026 10:11:53 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260806101153euoutp0242b5000f9586b81bfd29aabe5b0bf591~JL6URvPlp1714517145euoutp02d
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1786011113;
+	bh=IMZ8qkfhOLZiwmIb3BHX25zuCyq2Sc5EP83poQE1J/s=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=hvQmoFjhsU8p1u0MmlmWQL29zelrY+Be3zf5/NM0om2nSLLwwR8OCwjwyRhkzh+89
+	 I3vMFQhnKJhD6HIP4oad6vEoWfBmu1Nz/d9n4e3A7pkAPAn110O65kmbZUBmOTYOw2
+	 iQHtEA2bshV4VP0X4zV7Rhe85gM+nMNaHDF2ggf4=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20260806101152eucas1p213e701b4891db43e93acd1f9d3447abe~JL6T8R35N1126211262eucas1p2s;
+	Thu,  6 Aug 2026 10:11:52 +0000 (GMT)
+Received: from [106.120.50.46] (unknown [106.120.50.46]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260806101151eusmtip1bacb3c8e11470851538ac16bd48c8b84~JL6Sik-9k2357923579eusmtip1r;
+	Thu,  6 Aug 2026 10:11:51 +0000 (GMT)
+Message-ID: <ef2c73d6-99ee-47fb-a3bc-620201a9ee83@samsung.com>
+Date: Thu, 6 Aug 2026 12:11:50 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 2/3] net: stmmac: fpe: Add missing return in
- stmmac_fpe_init()
-To: muhammad.nazim.amirul.nazle.asmade@altera.com,
- maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260803032358.16282-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <20260803032358.16282-3-muhammad.nazim.amirul.nazle.asmade@altera.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20260803032358.16282-3-muhammad.nazim.amirul.nazle.asmade@altera.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ycXBbqJvEHIJ9Xd1YXVkWyirjeSGAAMRSbPAYkbV8x8_1786010882
-X-Mimecast-Originator: redhat.com
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v5 0/8] kdump: reduce vmcore size and capture time
+To: Wandun Chen <chenwandun1@gmail.com>, catalin.marinas@arm.com,
+	will@kernel.org, chenhuacai@kernel.org, pjw@kernel.org, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, robh@kernel.org, saravanak@kernel.org,
+	rppt@kernel.org, baoquan.he@linux.dev, pasha.tatashin@soleen.com,
+	pratyush@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-mm@kvack.org, kexec@lists.infradead.org, iommu@lists.linux.dev
+Cc: kernel@xen0n.name, alex@ghiti.fr, akpm@linux-foundation.org,
+	ruirui.yang@linux.dev, robin.murphy@arm.com
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20260806093519.2907771-1-chenwandun1@gmail.com>
 Content-Transfer-Encoding: 7bit
+X-CMS-MailID: 20260806101152eucas1p213e701b4891db43e93acd1f9d3447abe
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260806093541eucas1p169d6fcb31de09012bdfca326867e86d6
+X-EPHeader: CA
+X-CMS-RootMailID: 20260806093541eucas1p169d6fcb31de09012bdfca326867e86d6
+References: <CGME20260806093541eucas1p169d6fcb31de09012bdfca326867e86d6@eucas1p1.samsung.com>
+	<20260806093519.2907771-1-chenwandun1@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_110808_096933_782F8B19 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20260806_031159_627156_7050024D 
+X-CRM114-Status: GOOD (  24.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,40 +90,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 8/3/26 5:23 AM, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
-> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> 
-> When FPE is not supported by the driver, stmmac_fpe_init() prints a
-> warning but falls through into the pmac_enabled initialization, which
-> should only be reached on supported hardware. Add the missing return
-> to prevent this.
-> 
-> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
-> v2: No changes. Collect Reviewed-by from Maxime Chevallier.
-> 
->  drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-> index 2f880c5e35b0..3436e962a238 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
-> @@ -174,8 +174,10 @@ void stmmac_fpe_init(struct stmmac_priv *priv)
->  			  &stmmac_mmsv_ops);
->  
->  	if ((!priv->fpe_cfg.reg || !priv->hw->mac->fpe_map_preemption_class) &&
-> -	    priv->dma_cap.fpesel)
-> +	    priv->dma_cap.fpesel) {
+On 06.08.2026 11:35, Wandun Chen wrote:
+> From: Wandun Chen <chenwandun@lixiang.com>
+>
+> On SoCs that carve out large firmware-owned reserved memory (GPU,
+> camera ISP, ...), kdump currently dumps those carveouts as part of
+> system RAM even though their contents are firmware state that is not
+> useful for kernel crash analysis.
+>
+> This series introduces a 'dumpable' flag on struct reserved_mem and a
+> MEMBLOCK_NODUMP flag in memblock to filter vmcore ELF header on DT-based
+> architectures (arm64, riscv, loongarch). Reserved regions default to
+> non-dumpable and are marked MEMBLOCK_NODUMP so kdump omits them;
+> reusable CMA regions are explicitly marked dumpable in rmem_cma_setup()
+> because their pages are handed back to the buddy allocator and may carry
+> crash-relevant data.
+>
+> Since the reserved memory regions are filtered out, the vmcore is
+> smaller in size and faster to produce. ACPI systems already filter
+> reserved memory out of the vmcore through their existing path; only
+> DT-based systems currently fail to filter these regions, which is what
+> this series addresses. The flag lives in memblock itself rather than
+> in a DT-only structure, so the mechanism is generic and both ACPI and
+> DT systems can benefit from it (suggested by Rob, thanks).
+>
+> The series is based on linux-next and is organized as follows:
+>   Patches 1-2: Introduce MEMBLOCK_NODUMP in memblock and the dumpable
+>                flag on struct reserved_mem.
+>   Patches 3-4: Mark non-dumpable /reserved-memory and /memreserve/
+>                entries with MEMBLOCK_NODUMP.
+>   Patch 5:     Switch riscv to memblock so the NODUMP flag is visible
+>                to the vmcore ELF header builder; add (KEXEC_FILE &&
+>                CRASH_DUMP) to riscv's ARCH_KEEP_MEMBLOCK condition.
+>   Patches 6-8: Fold the duplicated per-arch memblock walks into the
+>                weak defaults in crash_core, switch to
+>                for_each_mem_region(), and exclude MEMBLOCK_NODUMP
+>                regions from the vmcore ELF header.
+>
+> v4 --> v5:
+> 1. Rework the mechanism around a memblock-level MEMBLOCK_NODUMP flag
+>    (suggested by Rob) instead of the v4 opt-in 'dumpable' flag on
+>    DT-only struct reserved_mem.
+>
+> 2. Switch the riscv vmcore elf header preparation to use memblock
+>    instead of the resource tree, aligning it with arm64 and loongarch,
+>    so riscv also can exclude reserved memory from vmcore.
+>
+> 3. Deduplicate the vmcore elf header preparation: arm64, riscv and
+>    loongarch open-coded the same logic, so fold it into shared
+>     __weak defaults in crash_core.
+>
+> 4.  Drop the v4 patch that saved /memreserve/ entries into the
+>     reserved_mem array; /memreserve/ is now marked MEMBLOCK_NODUMP
+>     directly.
 
-Sashiko noted that the above condition does not reach the intended effect:
+v5 looks much better, at least from the reserved memory regions perspective.
 
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260803032358.16282-1-muhammad.nazim.amirul.nazle.asmade%40altera.com
 
-Also please be aware of net-next commit c82ff94592fb
-
-/P
+> v3 --> v4:
+> 1. Rebase this series on v7.2-rc1.
+> 2. Add two cleanup patches (patch 02/03).
+> 3. Simplify patch 03 to avoid checking whether initial_boot_params is
+>    NULL multiple times, suggested by Rob.
+>
+> v2 --> v3:
+> 1. Fix out-of-bounds issue if device tree lacks /reserved-memory node.[2]
+> 2. Fix UAF issue when alloc_reserved_mem_array() fails.
+> 3. Add some prepare patches.
+>
+> v1 --> v2:
+> 1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+>    feedback [1], v2 drop that property and exclude reserve memory
+>    by default.
+> 2. Split some prepared patches from the original patches.
+> 3. Address coding-style comments on patch 5 from Rob.
+>
+> [1] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+> [2] https://protect2.fireeye.com/v1/url?k=05b72ed7-643c3bed-05b6a598-74fe4860008a-295907342918bd15&q=1&e=c408484d-fdd8-4fe4-8eee-690e883afb73&u=https%3A%2F%2Fsashiko.dev%2F%23%2Fpatchset%2F20260520091844.592753-1-chenwandun%2540lixiang.com%3Fpart%3D4
+>
+> Wandun Chen (8):
+>   memblock: introduce MEMBLOCK_NODUMP flag
+>   of: reserved_mem: add dumpable flag to opt-in vmcore
+>   of: reserved_mem: mark /reserved-memory entries with MEMBLOCK_NODUMP
+>   of: reserved_mem: mark /memreserve/ entries as MEMBLOCK_NODUMP
+>   riscv: build crash_mem ranges from memblock instead of resource tree
+>   crash_core: fold duplicated memblock arch hooks into the weak default
+>   crash_core: replace for_each_mem_range() with for_each_mem_region()
+>   crash_core: skip MEMBLOCK_NODUMP regions when building vmcore ELF
+>     header
+>
+>  arch/arm64/kernel/machine_kexec_file.c     | 29 ------------------
+>  arch/loongarch/kernel/machine_kexec_file.c | 27 -----------------
+>  arch/riscv/Kconfig                         |  2 +-
+>  arch/riscv/kernel/machine_kexec_file.c     | 33 --------------------
+>  drivers/of/fdt.c                           |  2 ++
+>  drivers/of/of_private.h                    |  1 +
+>  drivers/of/of_reserved_mem.c               | 35 ++++++++++++++++++++++
+>  include/linux/memblock.h                   |  9 ++++++
+>  include/linux/of_reserved_mem.h            |  1 +
+>  kernel/crash_core.c                        | 34 +++++++++++++++++++--
+>  kernel/dma/contiguous.c                    |  1 +
+>  mm/memblock.c                              | 16 ++++++++++
+>  12 files changed, 98 insertions(+), 92 deletions(-)
+>
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
