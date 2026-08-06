@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C676EC56205
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6708FC5AC80
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=669I622W7Km88PXo45A8x+GE5SMgUb2sVCvST/fwGWA=; b=N9sRixBT3xo5ofVBOmlr5Zl6HH
-	SXx54j9HoDNl9sZ+Oyw5h9mrgGmXg3KLP3DBty0pQ+SKtZGL9OueSnpeIt9nQzGabfxAg8OoGTVOf
-	F+Xgw823c1mYGtYni/H8JgMoT2CTWIMIAMDFGnLtjmZeDKacktMvXjcwn+Tb7vHdX1CMS8vlGWVoP
-	a2qhcKxovxoiQR9nMQdWu41BvBIcjHzekGPy4/d9ULiRlz6EA2VT7VnUYGHzA8vG4VEpxNFhNeUMi
-	B6xulmiIc2CuwWIGzr9ESh1hhZpfcTaVLaH15O5GmzUcwDuBPl+Jrthdqb0hPrst3nDFe0/Ix8h6f
-	iEwiiZMg==;
+	bh=pXzrYbgAwF1eZ3UDTqcFJFnPegp1hD5ro+HaykmfZxM=; b=gxsDG93n18fyIDP0p9Pc7AJl1z
+	X2vnGLmmvZkDvWeWZ0Maz9/ol1qoJGwv3wMWC0wrYIDifpZZbNg3hCydZfPAMOFPsdaaspE00VhvG
+	nnx4jbOuT/l31lEb7KeFP/XD3JISqPuM5tmM1xMK4QN8QszkNexfH88vxVE+zTmATntcIenntar6D
+	L4jYPi7pM58HKRoO7i0DnRV5B1Rlce8sZ4WubiTX1ZwI4iuZLhF/3afHwI3BFXWwxbvsI8Ie7Oyej
+	uPYkSG43Vo1CpyPXWqCgMhIzk56wb9me8YvCXM2j6l8F0E+Ex+QCqQkv1AwlcLh08KBxI6ECTVDe8
+	AW4uP/Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1qG-00000006Mp0-3lNc;
-	Thu, 06 Aug 2026 17:25:16 +0000
+	id 1ws1qH-00000006Mpa-18mk;
+	Thu, 06 Aug 2026 17:25:17 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1qB-00000006Ml9-3dzy;
-	Thu, 06 Aug 2026 17:25:13 +0000
+	id 1ws1qB-00000006MlA-3dSO;
+	Thu, 06 Aug 2026 17:25:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1786037110;
-	bh=kZgKoVVIFup432J5wyz+w2YrxBYWFvZYNT1wMMh2tgY=;
+	bh=Ta0X0yCgJMGWBZiZBca3qxuBmoz/VEqxNUDEti0lFwo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZUhr8TDul89hyUnLDsO+FRh5lXOQvN2xTIH9JXCqs49FoZlfGjca5FTVqFEU2XIXp
-	 YlQYBtLWGm82M35MjIDL/pArdeA7sbVEe34/IoE9vRscbVOIkmcyGF5BaJ9gSU+GlL
-	 sgbGiC50ZBmgf2l7CFYz/rD/3gtA2d/QTFha2hAWSNpRaSXwlVRkz5Lwr/939isEoK
-	 wfQSp4B2ScR0OTX1G3Pntqq9gUI+SE7CJ9AV7O8kAya4HXwBRVZiFD42vMi4MJbw9L
-	 zgBKGEvCFbiWm5Da/XCgB5WJ8Q3yqeZHXeGfKDlKrvgnPiWTr5G22GHkOTt+jUwoj2
-	 //Emss92YgbKQ==
+	b=fOoyc5KFi+LAQx8fsvbyIaoC6+mntHYsVvnIJqPEY5dSaZe3n1IosImzUTbvZUgIT
+	 JFQUyFL9Fsf2Vx4dywJVpL7zwPheGD//mrFr1+T3AK49IgsL4/IzfYKMQkF6nFYd/a
+	 xeBAQb5Z6rPoDV/uZ2a1I6NTv2ycmP/yS67dKkMYjQZvQJctYrG8E2qkIIs44sOSfY
+	 9nMY3KQBILf6AxPkXvtXMztm0uZlmMEnebWYD/As7D6hp8KzX1gTpCLdWALCSAVa+1
+	 ONECOPuOhVTPtvvYCJwk8WjpjoseJhr3L8RQByXxqYTngvfOqqBVLukLNvDqIotJYk
+	 3eiUnO6VdJyqg==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C647317E0B39;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C93F717E0F83;
 	Thu, 06 Aug 2026 19:25:09 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 7D348480028; Thu, 06 Aug 2026 19:25:09 +0200 (CEST)
+	id 81AAC480030; Thu, 06 Aug 2026 19:25:09 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 06 Aug 2026 19:24:56 +0200
-Subject: [PATCH 1/4] arm64: defconfig: enable Rockchip VDEC
+Date: Thu, 06 Aug 2026 19:24:59 +0200
+Subject: [PATCH 4/4] arm64: defconfig: enable Rockchip NPU support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-rockchip-defconfig-additions-v1-1-6b1d8baa0bf5@collabora.com>
+Message-Id: <20260806-rockchip-defconfig-additions-v1-4-6b1d8baa0bf5@collabora.com>
 References: <20260806-rockchip-defconfig-additions-v1-0-6b1d8baa0bf5@collabora.com>
 In-Reply-To: <20260806-rockchip-defconfig-additions-v1-0-6b1d8baa0bf5@collabora.com>
 To: Heiko Stuebner <heiko@sntech.de>
@@ -61,27 +61,26 @@ Cc: Detlev Casanova <detlev.casanova@collabora.com>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=754;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=744;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=kZgKoVVIFup432J5wyz+w2YrxBYWFvZYNT1wMMh2tgY=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp0w3V4MpxaQx8VBjtposIXJIzyIdcFEzc78
- UZHB05hrNoWhIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqdMN1AAoJENju1/PI
- O/qaVD4P/1cnzDHENypa2GuwJZKgH8VZzH+EqpAj8MQSfu+zlEKAHqSI67Lne4XBYyD0P5MzazQ
- wgPdVZQNjSJbJuong+ySDIjGNZipsc5mrHgYjyIX96qVkmUQFwkMWYK1B0/nSEVYo5DJohZfJyK
- W1rRXTs/2fko8+pYDyMbGiBzqjlsa4ky9f+ZjlVaIeFXJHGPp4S+YwdIw4duASrH+Nb/sLZMVbq
- IujJoyqNaykGbxsCHOac1gI0bLN0y9X/zjlTIX8aWR5dAkVPp/lHoSRqTCDHL2Q9Z+TuGo9Y5VM
- U5tOTWPD0A5GXola1tbtFGElnXOuQ7zCyrOUC/A+q/sZjUx9bRjR/h1bVHPtjWbUOBjQ/tt2gKT
- LkWO0Oy6lJJrSbPQ0jyaw/yFMq3W17gaiWm3YKuAZ+KBo8lf30VIwDvE3lnTyRSI8fTmKkbviCs
- M9Q8Wi9Aq5X+awnjdM3BynqhWb8bvdof1+ClFI/SNc1ZTwR9ipSl9795AjX917yHCJ5g0W5Y+Yy
- 6suOt5IE7JKGBZCu/flRbj5eiJrcyXSvH6hTskKo4wdmgFy4NSBpCdpo2c/OnceCgnGv0CpIzrf
- HOvAaCg2pB3g4+Li+YYj4n50XhyhIy/C9RdMMB2WTR/54j8srss7bvtFHTE8da0mUZQhqh5Gspc
- LPEDcmQ2JBcqDfB/uPrcpZw==
+ bh=Ta0X0yCgJMGWBZiZBca3qxuBmoz/VEqxNUDEti0lFwo=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp0w3XgitMp952VZ1C06ZUZHgqggxpmhCVcR
+ wAYGpTjavb3Y4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqdMN1AAoJENju1/PI
+ O/qaaq4QAKVCLKw6XzBgN3Ay5X0u16g4O/GRYIgdOOA7e+hv51U4EJSn96S1LNNA3TxwFgQ6Vln
+ 5mW3keqwnQSwBMCKTJ1kipGjUq127E5NDq9isDkRdR8o/eGWI1CvZA8btrDzZfLZI7hj/jNWIDb
+ 608br6kBbBTH8P2BGCEBnUMN0FtkRAcxzWDpglI+6mpvMyUUPZU9QDHSX0NGHgnb1iWQ/1Af3Fp
+ MJiz7ehIgt8fjKLjVDnN+thEwV8JzV2lyoryJwOjLJNMEOLCH4IESzA545gyv9rVsLlOqX1BoiX
+ kga8nDN0Xmx/YHnNJXJGLXyHy/k9NbGzyvN2gi4BUyNNlT8YjrH3rTJm2ql4FQh+iqZEX4uMvat
+ agQMMd42S8AbKehVrzHK+fMEn4xY/ABxT7d99G8J6tosLOwkEKUBOBZLkCHqmdQFSA7J0Q8EEKG
+ 3JypS18SSF2gn1/VCZsXc8n46lCkiIVvUnmY287yXnZFuMQfilb2j9WyX/oJJnnOz94Nxisxouy
+ fno7o0SELRj51KRj92pdnFzaT48RCopCflTCndYcqs0xT2Kdg2BNZ/TJVLxqDHcfeONDAihZTSD
+ mYJ/9Oe47q2f9FbjQhqDbwK0TPbrbgAmssYp1gTHslL/ibEskS+JcnMwcvpTNo2vdTTWeae4ofP
+ cLBjkyQHgE7OHPqH1n7Mjug==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_102512_065010_F67A4913 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_102512_065426_3747FF87 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,26 +95,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the VDPU381/VDPU383 video decoder driver used for H.264 and H.265
-decoding on any board using Rockchip RK3588 or RK3576 SoCs.
+Enable support for the Rockchip NPU, which can be used with upstream
+mesa on many RK3588 boards, such as the Radxa Rock 5 family or the
+Orange Pis.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 654a102cb5bc..c84df0a9cf6e 100644
+index 648010c26edb..5faccf00b897 100644
 --- a/arch/arm64/configs/defconfig
 +++ b/arch/arm64/configs/defconfig
-@@ -939,6 +939,7 @@ CONFIG_VIDEO_RENESAS_VSP1=m
- CONFIG_VIDEO_RCAR_DRIF=m
- CONFIG_VIDEO_ROCKCHIP_RGA=m
- CONFIG_VIDEO_ROCKCHIP_CIF=m
-+CONFIG_VIDEO_ROCKCHIP_VDEC=m
- CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
- CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
- CONFIG_VIDEO_SAMSUNG_S5P_MFC=m
+@@ -1065,6 +1065,8 @@ CONFIG_BACKLIGHT_GPIO=m
+ CONFIG_LOGO=y
+ # CONFIG_LOGO_LINUX_MONO is not set
+ # CONFIG_LOGO_LINUX_VGA16 is not set
++CONFIG_DRM_ACCEL=y
++CONFIG_DRM_ACCEL_ROCKET=m
+ CONFIG_SOUND=m
+ CONFIG_SND=m
+ CONFIG_SND_ALOOP=m
 
 -- 
 2.53.0
