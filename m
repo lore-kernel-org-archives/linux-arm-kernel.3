@@ -4,58 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD676C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:13:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905C1C56203
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eVVLTX7C7F6lPVc7+NDyDXhvKtDdWM2U9sVkmnY2cW8=; b=BiGJ0J7lBGneH6Z699PpMzE04N
-	WSiX7ovqzZaSR9sUSfpC4G1bl/2YfnKUYNFouQNBVNkP2/nVLplbjvkyfGLL8CO/0YKUyOD+MfpMK
-	3N84Lr4bBpJCtGoVvj5LzXipdvYWz4/IIeaA6WoV4wWFa8LqefjqJH+HdoO8HFP19tkcVzxvnOAX2
-	kqUrVCPU7gem+e8uJ97znLiX5gkfNpCAO+I+/YRDKFjqej53K2ZjRX+sj8LgAdjmAi9EJoSTT4C/L
-	J0BzMXIbqYwfRe/FtwmCCUF6ohavQIwknl9t4wW7N+rbuRljmZDaAQbPHcHEPr4ep9/wueKLQYQ1b
-	6S8Sv1ww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JVezxqT7pqPq8EjOwQoBK9NfsDXNVMbK3A6RkO/5H1c=; b=yrJ/y9VMrzOOfcdzLH4am1KFPW
+	avfsyE/8+XoIWgwPuw6cDPtmArt4OPWlQmMfV9V8pRz1PbrK4dPjiN6mMKhdnd8bwRfqLf6NWy7eF
+	8VrBqv6kbGhEZvrPBhxzPjivVT6X0VoLn1W6tu0EfxpzOEg4Bdphw863zHcVCbW+xpmDeXEzJmmSv
+	SC+gkhZY/EN3cYR7QPAxFaKWCAEcJmknVHD7RJOVEfr/PoKQ+LPEQGmKsb3RjcsJG3mdCJ6UdubWg
+	WYNxtfjr/FWHyN0wtUBqQQs90cvaXgLBGVeDxoBR7hANOnuTY+4ye273Enk5BhZ3z0sRx82T0Bprw
+	oxN02bvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtED-00000005CRM-0N2N;
-	Thu, 06 Aug 2026 08:13:25 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1wrtJs-00000005Cpm-2xtk;
+	Thu, 06 Aug 2026 08:19:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtE9-00000005CR0-3TEP
+	id 1wrtJq-00000005Cpc-3jVl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 08:13:23 +0000
-Received: from [IPv6:2a0a:edc0:0:900:1d::4e] (lupine.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::4e])
-	(Authenticated sender: pza@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 424B0201EE8;
-	Thu, 06 Aug 2026 10:13:19 +0200 (CEST)
-Message-ID: <7c30baacac8c75037f32c0ac3099a6107cbec38b.camel@pengutronix.de>
-Subject: Re: [PATCH v3 4/6] pmdomain: renesas: Add R-Car X5H MDLC driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Geert Uytterhoeven <geert+renesas@glider.be>, Rob Herring
- <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michael Turquette	 <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney	 <bmasney@redhat.com>, Ulf
- Hansson <ulfh@kernel.org>, Wolfram Sang	
- <wsa+renesas@sang-engineering.com>, Marek Vasut	
- <marek.vasut+renesas@mailbox.org>, Kuninori Morimoto	
- <kuninori.morimoto.gx@renesas.com>
-Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Thu, 06 Aug 2026 10:13:19 +0200
-In-Reply-To: <89e6a71b35703f10e12f520af1f389b5f40f4b35.1785941595.git.geert+renesas@glider.be>
-References: <cover.1785941595.git.geert+renesas@glider.be>
-	 <89e6a71b35703f10e12f520af1f389b5f40f4b35.1785941595.git.geert+renesas@glider.be>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Thu, 06 Aug 2026 08:19:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B69D400E5;
+	Thu,  6 Aug 2026 08:19:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77F141F000E9;
+	Thu,  6 Aug 2026 08:19:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786004354;
+	bh=JVezxqT7pqPq8EjOwQoBK9NfsDXNVMbK3A6RkO/5H1c=;
+	h=From:To:Cc:Subject:Date;
+	b=CdR1aTtP/1803WqHAZuKdxq+7Ha+xJ20uBS36BW0TuN+4qCXfa3yaXr6nB5e0UH3r
+	 g2MO5N3KuOFfnOU0Ti2SbK6CEjMyzwdG7NRaUVwKI3CI0n1c6Z4vtFctcEiHG+CUnz
+	 3SAWtfEZ9FS0hgf7XxAwIsREc5BZ1xAY31wsP3Wdiixx/aEbIHZYDKZ2cN+NFUCuut
+	 fqMIp1MV/I568ijlZZDheZEJ3zrDH3QnjjZtvs5k54lOE9TArGGyPXPvlKQFkfz/qG
+	 TflFuTRlQ6TvsO6j4dRKxHluhsuuRpLydsztHAbkOmGEHkB8GioUuTH27Uhj1xuVnp
+	 O397pIPmwQV1A==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: soc@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL 1/3] arm64: dts: samsung: for v7.3, part two
+Date: Thu,  6 Aug 2026 10:19:01 +0200
+Message-ID: <20260806081903.165005-4-krzk@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_011322_021480_BDE5B52B 
-X-CRM114-Status: GOOD (  20.90  )
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3994; i=krzk@kernel.org; h=from:subject; bh=XPsFn2eE3sKXbnQScOVUfxElOUzFv7hsnuWT25srH+s=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqdEN3XIQVrSUEmRpJzGZp2Bwa3LUbB7XLJBk33 oQk+Jk+XpOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCanRDdwAKCRDBN2bmhouD 19rmD/9hEsO+IYIkeXBnej0YSFORBPlW8+XAGmiKZTZv27+16iSi3UOTAgYhYm/wHpE02nJVzei 1fziN65htHuW64eIkp3jAjJ4dxRjhialHrAZwMxEhcNXiTT+IQQ2EcpwQ0sMdTUSTXgucMZ3Yfd A7A9KNhm4D10g5AeWA+5awVidVmyBMI3sD63KAxh/SIfQW4p3gt4rm6v4VHi5OK0NRXlLTv7x26 SR8rvutFbpiP/n6nBXLqZcw0UaEv1mDQ+yZD2Pwqiyyfzjhi3fjRyMrMpqqRZuMkDSc86mavGib YSbMVZEnU+bS3Oy8H9bNpMIaarOKaX06gNbJVWnsIdCUyIYDpI9oOufFJOjoLVKtNlReHfHqe74 YvjsgiPrfvYo8UQupSPGZeBVhm5q2oye1dCU1YDF8dpehQVbS4oVoyoTFzC7wc9ltOmK0gY8/g+ DDaDXwE9OE0XCLH+DwXgiDFZhti2fhiGhcnKt3KbaGAiIqucFVodAaoFxI55m9WH2POnn7UAU3P 6+0cURfC8SrZuIEAds40hB5J3V1tuXxe1+s6k3Pr6aDKNSKvCqyuAzSOFp9IV8LQWCRnBOb3eO2 RFv8bxNqODulRi8fFbACRZgVibms0x2ox6ajfk4XKMCn1YgjWqHduCOG+VTa6D5rmDjX3AXSFjr 0q8L8eTLU0oxxEA==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,70 +72,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2026-08-05 at 17:20 +0200, Geert Uytterhoeven wrote:
-> Add a minimal Module Controller driver for the R-Car X5H (R8A78000) SoC.
-> For now this just supports the always-on power domains, and dummy module
-> clocks and resets for the serial console (which is enabled by the boot
-> loader).
->=20
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> v3:
->   - Replace <linux/mod_devicetable.h> by more specific
->     <linux/device-id/of.h> in v7.2-rc2,
->   - Add a comment to document only always-on domains are supported,
->   - Consistently use /* sentinel */ for zero sentinels,
->   - Drop trailing commas from sentinels,
->=20
-> v2:
->   - Spin off from "pmdomain: renesas: Add R-Car X5H MDLC SCMI remapping
->     driver",
->   - Add default support not using SCMI,
->   - Drop all SCMI remapping support,
->   - Document use of -1 as a sentinel,
->   - Rename struct r8a78000_mdlc_info to mdlc_info,
->   - Print HW IDs in hexadecimal,
->   - Reduce log level for unsupported MDLC instances from warn to dbg,
-> ---
->  drivers/pmdomain/renesas/Kconfig         |   4 +
->  drivers/pmdomain/renesas/Makefile        |   1 +
->  drivers/pmdomain/renesas/r8a78000-mdlc.c | 330 +++++++++++++++++++++++
->  drivers/soc/renesas/Kconfig              |   1 +
->  4 files changed, 336 insertions(+)
->  create mode 100644 drivers/pmdomain/renesas/r8a78000-mdlc.c
->=20
-> diff --git a/drivers/pmdomain/renesas/r8a78000-mdlc.c b/drivers/pmdomain/=
-renesas/r8a78000-mdlc.c
-> new file mode 100644
-> index 0000000000000000..5c8acead7cff9bdd
-> --- /dev/null
-> +++ b/drivers/pmdomain/renesas/r8a78000-mdlc.c
-> @@ -0,0 +1,330 @@
-[...]
-> +#define DEFINE_MDLC_RESET_WRAPPER(op)					    \
-> +	static int r8a78000_mdlc_ ## op(struct reset_controller_dev *rcdev, \
-> +					unsigned long id)		    \
-> +	{								    \
-> +		struct r8a78000_mdlc_priv *priv =3D rcdev_to_priv(rcdev);	    \
-> +									    \
-> +		dev_dbg(priv->dev, "%s: Ignoring\n", __func__);		    \
-> +		return 0;						    \
-> +	}
-> +
-> +DEFINE_MDLC_RESET_WRAPPER(reset)
-> +DEFINE_MDLC_RESET_WRAPPER(assert)
-> +DEFINE_MDLC_RESET_WRAPPER(deassert)
-> +DEFINE_MDLC_RESET_WRAPPER(status)
-> +
-> +static const struct reset_control_ops r8a78000_mdlc_reset_ops =3D {
-> +	.reset =3D r8a78000_mdlc_reset,
-> +	.assert =3D r8a78000_mdlc_assert,
-> +	.deassert =3D r8a78000_mdlc_deassert,
-> +	.status =3D r8a78000_mdlc_status,
+Hi Arnd and SoC folks,
 
-Are .reset and .status needed by any consumers?
-I'd leave them -ENOTSUPP otherwise.
+On top of the previous pull request.
 
-regards
-Philipp
+Best regards,
+Krzysztof
+
+
+The following changes since commit a87d503a0ab077b0d9892290ab7dbec29f922eb1:
+
+  MAINTAINERS: Add entry for Samsung Exynos8855 SoC (2026-07-13 09:20:24 +0200)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-7.3-2
+
+for you to fetch changes up to db23b4aab4252f793d9fa97dc5d6f8d99c5e8e4b:
+
+  arm64: dts: exynos: Correct white-space style (2026-08-04 08:07:12 +0200)
+
+----------------------------------------------------------------
+Samsung DTS ARM64 changes for v7.3, part two
+
+Several non-functional (white-space and style) changes to match with DTS
+coding style as reported by recent dt-check-style tool.  Goal is to get
+to no `dt-check-style --mode strict` warnings over time.
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (9):
+      arm64: dts: exynos: Move 'status' to the end to match coding style
+      arm64: dts: exynos: Align continued properties and add missing blank lines
+      arm64: dts: exynos5433: Override thermal zones by phandle
+      arm64: dts: exynos: Re-order clocks and align continued properties
+      arm64: dts: google: Move 'status' to the end to match coding style
+      arm64: dts: google: Align continued properties and add missing blank lines
+      arm64: dts: fsd: Move 'status' to the end to match coding style
+      arm64: dts: fsd: Align continued properties and add missing blank lines
+      arm64: dts: exynos: Correct white-space style
+
+ arch/arm64/boot/dts/exynos/exynos2200-g0s.dts      |   2 +
+ arch/arm64/boot/dts/exynos/exynos2200.dtsi         |  98 ++++
+ arch/arm64/boot/dts/exynos/exynos5433-bus.dtsi     |  29 ++
+ arch/arm64/boot/dts/exynos/exynos5433-pinctrl.dtsi |   8 +-
+ .../boot/dts/exynos/exynos5433-tm2-common.dtsi     | 167 ++++--
+ arch/arm64/boot/dts/exynos/exynos5433-tmu.dtsi     |  49 +-
+ arch/arm64/boot/dts/exynos/exynos5433.dtsi         | 570 ++++++++++++---------
+ arch/arm64/boot/dts/exynos/exynos7-espresso.dts    |  13 +-
+ .../arm64/boot/dts/exynos/exynos7-trip-points.dtsi |   7 +
+ arch/arm64/boot/dts/exynos/exynos7.dtsi            |  58 ++-
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |   4 +-
+ arch/arm64/boot/dts/exynos/exynos7870.dtsi         |   9 +-
+ .../boot/dts/exynos/exynos7885-jackpotlte.dts      |   3 +-
+ arch/arm64/boot/dts/exynos/exynos7885.dtsi         |  21 +-
+ arch/arm64/boot/dts/exynos/exynos850-e850-96.dts   |  13 +-
+ arch/arm64/boot/dts/exynos/exynos850-pinctrl.dtsi  |   1 +
+ arch/arm64/boot/dts/exynos/exynos850.dtsi          |  47 +-
+ arch/arm64/boot/dts/exynos/exynos8855-pinctrl.dtsi |   2 +-
+ arch/arm64/boot/dts/exynos/exynos8855.dtsi         |   5 +
+ arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts |   1 +
+ arch/arm64/boot/dts/exynos/exynos8895.dtsi         |  56 +-
+ arch/arm64/boot/dts/exynos/exynos9810.dtsi         |   9 +-
+ arch/arm64/boot/dts/exynos/exynos990-c1s.dts       |   3 +-
+ arch/arm64/boot/dts/exynos/exynos990-r8s.dts       |   3 +-
+ .../boot/dts/exynos/exynos990-x1s-common.dtsi      |   3 +-
+ arch/arm64/boot/dts/exynos/exynos990.dtsi          |   5 +-
+ arch/arm64/boot/dts/exynos/exynosautov9-sadk.dts   |   9 +-
+ arch/arm64/boot/dts/exynos/exynosautov9.dtsi       |  86 +++-
+ arch/arm64/boot/dts/exynos/exynosautov920-sadk.dts |   2 +
+ arch/arm64/boot/dts/exynos/exynosautov920.dtsi     |  64 +++
+ arch/arm64/boot/dts/exynos/google/gs101-oriole.dts |   2 +
+ .../boot/dts/exynos/google/gs101-pinctrl.dtsi      |   8 +-
+ .../boot/dts/exynos/google/gs101-pixel-common.dtsi |  12 +-
+ arch/arm64/boot/dts/exynos/google/gs101-raven.dts  |   2 +
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  81 ++-
+ arch/arm64/boot/dts/tesla/fsd-evb.dts              |   8 +-
+ arch/arm64/boot/dts/tesla/fsd.dtsi                 | 121 +++--
+ 37 files changed, 1170 insertions(+), 411 deletions(-)
 
