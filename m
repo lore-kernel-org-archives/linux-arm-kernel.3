@@ -4,85 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F7CDC55838
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 06:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20CB2C55838
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 06:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3aCaFbKDjbrgsWA9pX65sno3g8y9yQszPJrQTiaiiUo=; b=K7o9lmlrVQBJxiXOF09pBocmdi
-	q2SKehY8yeN+ytUYxaNj4XRfER7u/WqH+k8DotuZZ5E+qVqgMPlrDQlO38PF8INnSRGhk+dRp10zB
-	uA4KGh3cTBOrbYrHncSijRPt7Hd+GdF+ue3nSL/iMZiIIJEb9xsWna1+06rGKF/RAFUwLALXPrfSC
-	l8xdnzd5g2Ya2GHCnKZ4S+NW+9YVZ7U8VFiwIcFw0KoyHN9Nhk5gOeE+WSwBOpFG8r8MaumCaWTbK
-	+HXSjsFgg5a+vLVMMkFVCxQ5SnsZb7g6DSPtvvx0E9ihCF5DL/xMZDyNAdinxHt367Nmq+M1y3zYO
-	mnklKeHA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3aNbsAERipFsx+yzQGv3WCU2Y9Zc5fWn7EPOiXhK8f8=; b=cnB9WQLKvdIK+vqpuuD4sQgkl8
+	3ynNnQTi2qNmn7bVBYjI4wIS4YcrP8ObG++ilPnAL/jR/uGbI3HKUypVsXOE4ia8jnOga5/+tuhbh
+	IYTw4Sim3/7kEehXpb/Mb6/gK/Qlyms1ePHTNVF717AB/b9U66xft49MhPgbT/gJseC2h4G0liM5V
+	30CT7scox87rBcz6PuYx1DUrGSqNGnZhDNvmygFoYC9T9yBjdc3wDfVDoy9jVPdGFMf7rdo/WhEpH
+	ZJtgagHmFh3dDBgpKGJB+YSOIbIKUkdITS77rpNjo/NpKbc2Pke87fHo63wA74q+fStDGcMlsqaYA
+	nUGND29g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrrip-000000054Wr-1pGz;
-	Thu, 06 Aug 2026 06:36:55 +0000
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	id 1wrruj-000000055EW-2T1i;
+	Thu, 06 Aug 2026 06:49:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrrij-000000054QB-1Rv7;
-	Thu, 06 Aug 2026 06:36:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1785998144;
-	bh=3aCaFbKDjbrgsWA9pX65sno3g8y9yQszPJrQTiaiiUo=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=XF7HG/ZzWcaBrI5Tx+atc6SAPN0SaKr2z9E3gpU0wxNZPziECnhvJYJK4Ru6KRQ8y
-	 6gL2HFfO8Dws50/hx8MSt5/TezFk1aSrq2S8mY2686Qc539b5wDzz//EJWoRIWVhw2
-	 MVifQNmg1U/r/rACA5DGNRFUr1T/O/FQQ804M+X0=
-X-QQ-mid: esmtpsz18t1785998139t713a1b3e
-X-QQ-Originating-IP: meHIFHb/eE+sKBjPiO2vnCjlJI5G19NMZP2xmTBwoyQ=
-Received: from PEN002676 ( [124.126.19.250])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 06 Aug 2026 14:35:27 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 7208643304580338951
-EX-QQ-RecipientCnt: 9
-From: ZhaoJinming <zhaojinming@uniontech.com>
-To: Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	linux-bluetooth@vger.kernel.org
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	ZhaoJinming <zhaojinming@uniontech.com>
-Subject: [PATCH] Bluetooth: btmtksdio: fix deadlock in close and reset paths
-Date: Thu,  6 Aug 2026 14:35:21 +0800
-Message-ID: <FD5D03449312D17C+20260806-btmtksdio-deadlock-fix-v1-1-3a2d4392d117@uniontech.com>
-X-Mailer: git-send-email 2.51.0
+	id 1wrrui-000000055EG-0RPv;
+	Thu, 06 Aug 2026 06:49:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id BC3B760A64;
+	Thu,  6 Aug 2026 06:49:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7202B1F000E9;
+	Thu,  6 Aug 2026 06:48:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1785998948;
+	bh=3aNbsAERipFsx+yzQGv3WCU2Y9Zc5fWn7EPOiXhK8f8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=fUjhy0vLKfClXxk6YvO7DPT0idsViF/fGh4Q8xpBEsMQnDrYmDR+FPbrSlP8klYpi
+	 CspRJKPJ0NcfRS4q20LNYzEjh2chLl6jfqUnU4f8aN0/lQV1EJG8YpqvQzqTfSmD71
+	 2SRYTMjbFvmfdoRa7VjCqWLPGkWbPW8RwEC8zjxHzu5adB0cCv29A14MBKLcVGA+in
+	 eqWSuRlIhCWXWL6US0yrikt+i0Dbh3Ji7PIjPqAhmcYHLIklA9l+a7U9YC0OOeOMIr
+	 JqJcJ2Z2RCx7QNRjJqrZ8b+y+7tzu+wuSyPgHnYgyqXhgkvq0+lCY13c1DVrNzEQTJ
+	 TZTbeNDC6Ma1g==
+Message-ID: <b90b8790-b0dc-4383-a9b7-fe9ba3f6edfd@kernel.org>
+Date: Thu, 6 Aug 2026 08:48:53 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Change-ID: 20260806-btmtksdio-deadlock-fix-f9421f1a7879
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz4b-0
-X-QQ-XMAILINFO: MwhIHrVefHZTbIQJW/yOT8KZgKpd1+0ZMDcoJ5Hltu8eO0TmTrGEAKU9
-	TfGtNIWDK4iuVZVkdNTzXdPpl7RKAL0DXK5bCqEFsr9JqSVG4VhikSxbF4HhjlVQyiTFi2G
-	FnjavN4fnRF9DepxgMkm5fovaWikDrPfP/1Pko4YHmGFqqjEdW7vDsfyWUN7gO/eAmBGKq6
-	ryan8rEp8xz8LhE1qVxhqm8IQ839NP2b5PWWVAmBBVwjtfu3L9Owq1B/OfARA+2Mra6tfrg
-	KoGzF/912hOIz1oYq0C4kfOLiMM4AJapNplMOKywUbIAn6u0e1krhwiNUsPtQEKn5f/a/xI
-	ZTrvvruC2Ihvp4RlC9nt6pUjU3mnzq6xh5+rTENA7/9V7DZkwALKBzxtfCnJre3HyqMlin0
-	2IbFApJGlFT+T0OObqEIcnuafnjddMYRHDpebYQPGq1rduKOg3SFDMoaco+F0w5lyNQXejh
-	k4YcJDhC6QyuFOmYd3bNTFXjI8yI/IdwjJBIjG/QBCpDvyJw2caavRtp1KY40UCt8sZszOb
-	1Hw5lrM9whz3wjmcyuKBroAKeCaHb+fSeYAYCnoju3xMeyYj6q+CIX9o82b5MQ77C1iqmQG
-	ntwGNoIGqCJoJFlVpFVEmCc3cLNx8vlxbUts39XXhH1xf+MFip0bTY8os9QwCYOj8uaRy7S
-	TmwSiJIScE3IQo9vTsqNjlC85ojVXVu4NEOeN5xZeAfuveW3chylamadq3HyBJHdUgun58H
-	MM8/jV38dFAnt/oo78qjaU9ZTQFg2pO09ZvjLLRxFDJkuKBsTJnrEjnExSeThNV/avuUDzb
-	QImo0K14fIoe84NIe5H0b6zG8a4C1JqjPKkyY5pfPFcbO+5OIL+4x4FSVINUUE9Kz858EYh
-	IpurnPMeJ7BbzuP0N8OvBbHT65VGtvssrJB05yUtUUz7V6WvXIsiNfOyeCCWZv1+jjklFSx
-	eJAA+AjxzhiYTAPwEv6httCKsVijBxGWu49CiS/bB1YGM/fdQAGqCmssG03gDKxnAES8+rD
-	a5V6QmwQIdnrnONtj0
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_233649_947241_81E847D5 
-X-CRM114-Status: GOOD (  13.42  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 04/10] dt-bindings: net: pcs: add rockchip,rk3568-xpcs
+ binding
+To: Coia Prant <coiaprant@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Vinod Koul <vkoul@kernel.org>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Russell King <linux@armlinux.org.uk>, Shawn Lin <shawn.lin@rock-chips.com>,
+ David Heidelberg <david@ixit.cz>, netdev@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-renesas-soc@vger.kernel.org
+References: <20260801142244.679437-2-coiaprant@gmail.com>
+ <20260801142244.679437-6-coiaprant@gmail.com>
+ <20260805-stirring-wondrous-mule-faf37d@quoll>
+ <CALj3r0hbp-zS7Sv-6T3uBOCq2ZO4XZHKvkD4dTZ3gXRS=90JUQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <CALj3r0hbp-zS7Sv-6T3uBOCq2ZO4XZHKvkD4dTZ3gXRS=90JUQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,86 +134,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-btmtksdio_close() and btmtksdio_reset() call cancel_work_sync() on
-bdev->txrx_work while holding the sdio host lock, which is also acquired
-by btmtksdio_txrx_work().  If txrx_work is queued when close/reset runs,
-a worker thread may start it after the host lock is taken and block in
-sdio_claim_host(), while cancel_work_sync() waits for the work to
-finish.  The host lock is only released after cancel_work_sync()
-returns, so both sides wait forever, deadlocking close/reset.
+On 05/08/2026 19:20, Coia Prant wrote:
+> Hi Krzysztof,
+> 
+> Thanks for the detailed review. Here's my response to each point:
+> 
+>>> +title: Rockchip RK3568 Synopsys DesignWare Ethernet PCS
+>>> +
+>>> +maintainers:
+>>> +  - Coia Prant <coiaprant@gmail.com>
+>>> +
+>>> +description: |
+>>> +  Rockchip RK3568 SoC integrates a Synopsys DesignWare Ethernet Physical
+>>> +  Coding Sublayer (XPCS).
+>>> +  The PCS provides an interface between the Media Access Control (MAC)
+>>> +  and the Physical Medium Attachment (PMA) sublayer through a Media
+>>> +  Independent Interface (GMII).
+>>> +
+>>> +  The XPCS is accessed over the APB3 bus and internally connected to a
+>>> +  Naneng Combo SerDes PHY.
+>>> +  It supports 1000BASE-X, SGMII and QSGMII modes.
+>>> +
+>>> +  The block contains four MII ports (pcs-mii@0..3) that can be
+>>> +  individually enabled and routed to one of the Ethernet GMAC controllers
+>>> +  via the pcs-handle property in the MAC device tree node.
+> 
+> 1. Commit message: I'll drop the redundant description paragraph and keep
+>    only the essential information.
+> 
+> 2. Subject: I'll drop the redundant "binding" word.
+> 
+>> +properties:
+>> +  compatible:
+>> +    const: rockchip,rk3568-xpcs
+>> +
+>> +  '#address-cells':
+>> +    const: 1
+>> +
+>> +  '#size-cells':
+>> +    const: 0
+> 
+> 3. reg order: I'll move reg to the second property (after compatible).
+> 
+> 4. Quotes: I'll use consistent quoting style throughout.
+> 
+>> +  reg:
+>> +    description: |
+>> +      Base address and size of the XPCS register space mapped over the
+>> +      APB3 bus.
+> 
+> 5. reg description: I'll drop it as redundant.
+> 
+>> +  clocks:
+>> +    description: |
+>> +      Clock sources for the XPCS:
+>> +      - csr: APB3 bus interface clock (clk_csr_i), required for register
+>> +        access.
+>> +      - eee: EEE clock (clk_eee_i), required for Energy Efficient
+>> +        Ethernet (EEE) operation.
+>> +    minItems: 2
+>> +    maxItems: 2
+> 
+> 6. clocks: I'll change to items with descriptions instead of min/maxItems.
+> 
+>> +  clock-names:
+>> +    items:
+>> +      - const: csr
+>> +      - const: eee
+>> +
+>> +  phys:
+>> +    description: |
+> 
+> 7. description formatting: I'll remove unnecessary '|' where not needed.
+> 
+>> +  power-domains:
+>> +    description: |
+>> +      Power domain for the XPCS.
+> 
+> 8. power-domains description: I'll drop the redundant part.
 
-Fix this by releasing the sdio host lock before calling
-cancel_work_sync(), then re-acquiring it afterwards.  The interrupt is
-already disabled (sdio_release_irq() in close, C_INT_EN_CLR in reset)
-before the work is cancelled, so no new work can be scheduled and
-cancel_work_sync() fully quiesces txrx_work before the device is torn
-down.  This mirrors the pattern already used by btmtksdio_flush(),
-which cancels the work without holding the host lock.
+I don't understand any of these. There are none of my quotes. I don't
+get what you are referring to.
 
-Signed-off-by: ZhaoJinming <zhaojinming@uniontech.com>
----
-btmtksdio_close() and btmtksdio_reset() call cancel_work_sync() on
-bdev->txrx_work while holding the sdio host lock that
-btmtksdio_txrx_work() also acquires. If txrx_work is queued at that
-point, a worker thread can start it and block in sdio_claim_host(),
-while cancel_work_sync() waits for the work to finish and the host lock
-is only released afterwards - a deadlock.
-
-This series releases the host lock around cancel_work_sync() so the work
-can always complete, mirroring the pattern already used by
-btmtksdio_flush().
----
-
----
- drivers/bluetooth/btmtksdio.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
-
-diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-index c6f80c419e901e71b21e550449250a5a6755d100..879d580226d25ad398105a158de1545dace33718 100644
---- a/drivers/bluetooth/btmtksdio.c
-+++ b/drivers/bluetooth/btmtksdio.c
-@@ -746,8 +746,16 @@ static int btmtksdio_close(struct hci_dev *hdev)
- 
- 	sdio_release_irq(bdev->func);
- 
-+	/* No new work can be scheduled after sdio_release_irq(), so cancel the
-+	 * work outside the sdio host lock. btmtksdio_txrx_work() also claims
-+	 * the host, so canceling it while holding the lock would deadlock.
-+	 */
-+	sdio_release_host(bdev->func);
-+
- 	cancel_work_sync(&bdev->txrx_work);
- 
-+	sdio_claim_host(bdev->func);
-+
- 	btmtksdio_fw_pmctrl(bdev);
- 
- 	clear_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state);
-@@ -1293,8 +1301,18 @@ static void btmtksdio_reset(struct hci_dev *hdev)
- 
- 	sdio_writel(bdev->func, C_INT_EN_CLR, MTK_REG_CHLPCR, NULL);
- 	skb_queue_purge(&bdev->txq);
-+
-+	/* With the interrupt disabled, the SDIO IRQ handler can no longer
-+	 * schedule txrx_work. Cancel the work outside the sdio host lock;
-+	 * btmtksdio_txrx_work() also claims the host, so canceling it while
-+	 * holding the lock would deadlock.
-+	 */
-+	sdio_release_host(bdev->func);
-+
- 	cancel_work_sync(&bdev->txrx_work);
- 
-+	sdio_claim_host(bdev->func);
-+
- 	gpiod_set_value_cansleep(bdev->reset, 1);
- 	msleep(100);
- 	gpiod_set_value_cansleep(bdev->reset, 0);
-
----
-base-commit: 0d839570765118029aa8bf4a95444c6a11aacf85
-change-id: 20260806-btmtksdio-deadlock-fix-f9421f1a7879
 
 Best regards,
--- 
-ZhaoJinming <zhaojinming@uniontech.com>
+Krzysztof
 
