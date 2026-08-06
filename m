@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43935C5ACD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47ED8C56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r+4dBrXytx8Pp4M6Zce80QJWV78ekktqXBweda+729w=; b=n9EbT98PKbTg0/p7azrycloxsZ
-	YnOmrEA526VVCIQDNUhPXI2f0YueOopN92k3L4RadXEZ+0dpEUyDj1eFPwDqe96sbHh/pRe6VlbKQ
-	foHYaqpJPYKp7ZszYh8sdcSh6Zy+hgi+xY4/3t4Fm6BNxe6ySFohOARR171LOojewAIRTQghRJ5lK
-	Js5EFa/U7zjeTCir3OLaBDJPsP+mTzq5BDfROyvL1dLu/VhWnJzVtL6/hLDut1K84KGNReEvLFLvT
-	yHzLsUaqjhyiwAbfI/ZfnOGAD1Jq8A+cgtp0k8FENBSoKVQlpRARV4sNxCl15rX5kHtc8mk9jvdQl
-	6NKnLJKA==;
+	bh=VV2+HJiBKohcfKJnnpPmLlfx/p4jT2HEAl7uN/HXcec=; b=MPJLW2pBCDYmYKNO4Ei+SRSWlt
+	ZiZt0Ee9LlA8SWsqSOCtmk6w+oWYrn/t/xHcygCa1Q4la0iu5msWrYY3/yPtHORedxNSuOpDbr1Ok
+	oE8zBfnPWHUCzqBEa2aE/WR7Vf+X3e9c92B5TO8uWH+DvTHtCrDXS5/ruQB24tbx+eclsZynPGHXi
+	nrLUBkK72bTT2yqvcMqHEO94iAbUVSBjRcQRZ3oloSQgJUVjCuCL/PJ/YdnGCRHRWUNPOzfiDjcJH
+	h2os8CBUgfablC8xJTavm+dQGhSoU/PEjGZnKAb3gXLB21f/rQbN+bKm2XWLPy4GDyZotNajV0WfP
+	/ICl/P5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1UL-00000006HXe-0GzG;
-	Thu, 06 Aug 2026 17:02:37 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1ws1UO-00000006HhC-1F51;
+	Thu, 06 Aug 2026 17:02:40 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1UE-00000006HMK-4Ajm;
-	Thu, 06 Aug 2026 17:02:32 +0000
+	id 1ws1UG-00000006HMn-0SmJ;
+	Thu, 06 Aug 2026 17:02:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1786035745;
-	bh=NCHXRPy+LHmwXdxbgtDdQU4HjaaTIm7gCF0WSF5xKIE=;
+	bh=6qZ7A1oz5Axgnpp4GtqPS8WNzAaEjziX3V59HPLoil0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kclgAkryddi/ggeMDdOFR0axFmRaZO+maq3eUJXUlC/LQ90NNxjoBU54CKnsHR5pp
-	 Eny4QMmlDwxY5yc60c8fOc95iWNIxRdXvgsYqp67wOO609i28fbSys6DfgWeTJrPfU
-	 3mfDxFtnVdc3knnbhtZq9SEaKNaeOJBYo/r6/Vh6SfLquGYgBnBXuEAGJIAKDLTDqP
-	 +CDINSGalGF3SOWVSMxAoYwGx1f33/9ko23myMYTs0/vn8Rb0apvGDreIb1hnAgIxs
-	 BE1EFe3O93empM0YNIqHRg8hyXxHrEMPrqyIcRLSsUYcxnlnz20UZgiMx9G2/gfovG
-	 yORqFSXs5SxOg==
+	b=IL84RrKq9Qn/9nDJ4RKZCLffv8gFO4UGPPvekqyqJhxtl6uQ94/+qymqu0bYnOEoo
+	 Qin9UyUEhqzizwv47DjWM/oAOF+fIvydI8TMosmvnTrIhV+cKUVgOrMENA8eg96pPV
+	 yA10c4ASs388BDAKgwGCnKIW7UYl8vpXLAvN4x60dQIyUnbZMNd4gN7yxYG8eF3864
+	 9Wra/WX7SfrNzVAzQtu+7VZogU4KBu0zYrZo3uOubTPxAUtcJBlQ2R1WorlmwBYR5u
+	 1ZJetLcu4jxaqNoZSQG2XgXh4jRaLmYNVzUQjXPPsnDVMTVXEd0gj+Za/+kNla+A7A
+	 YagArL2WqcXiA==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9628317E10B0;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A6D2017E11E4;
 	Thu, 06 Aug 2026 19:02:25 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 00A6E480035; Thu, 06 Aug 2026 19:02:25 +0200 (CEST)
+	id 0545348003D; Thu, 06 Aug 2026 19:02:25 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 06 Aug 2026 19:02:12 +0200
-Subject: [PATCH v11 06/21] drm/bridge: synopsys: dw-dp: Fix AUX transfer
- timeout race condition
+Date: Thu, 06 Aug 2026 19:02:15 +0200
+Subject: [PATCH v11 09/21] drm/bridge: synopsys: dw-dp: Support
+ MEDIA_BUS_FMT_FIXED
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-synopsys-dw-dp-improvements-v11-6-0d508505f383@collabora.com>
+Message-Id: <20260806-synopsys-dw-dp-improvements-v11-9-0d508505f383@collabora.com>
 References: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
 In-Reply-To: <20260806-synopsys-dw-dp-improvements-v11-0-0d508505f383@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -76,29 +76,28 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@collabora.com, 
  linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Sashiko <sashiko-bot@kernel.org>
+ Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2162;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3804;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=NCHXRPy+LHmwXdxbgtDdQU4HjaaTIm7gCF0WSF5xKIE=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp0viCLK9cau+WT/e4i2y7zVBrDCfqPauJIP
- u9RypZzTrONF4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqdL4gAAoJENju1/PI
- O/qaydIP/ixE6hIA212y0LRKuoC22VvVGE2JVyrPpjAYlG3QJKiAKFD8ZSoKFL9XJ9pCIBCyk2i
- R5ukXp4bNnParCTKl3uu4K5o9R6u/ZOfnrP8ZviL/zLM3EsC3+kfxsPVnEXpgtDFFeXbfZnfsu+
- qK4x9Dtx2qOXtZ7888G2WGWGMqDpXWKrqWOET23MrbV+qh6N07fFbSEEjuTzpC2Ncxk8fma7A/6
- bK+Uhn+SqO6+YhY2+pJV8ygRwaHdlO5WD69OIRFBYKaIEvcfDWriBkLEh+Jq95B9Ewekl6fOXp6
- LxbOuHE0YqbvME+Pvxi2xSEwwN6fpCwaQNXZc+cv6XIWuto/zxtByhYP3fc9kt97j6yc5Uz1f9a
- qKK6A8lDlyxSmswC0g8+2pGkTGD1M0jeKujSi54up9+HztAjQ9/BU3exDdUzy5YZWIzQ29t35NS
- 9Inoy8WKUQPzk/aHjRDXixfYnF4HGwN9VsCViWhYD1cLdStyKzvzQKbNTE75G/lvY3o8wFaAUr1
- t9HVVTGbThtFf3aZey7mSX4cl2syLd3OUW5vaV7QTcb+O9z4g74i8bHaNCGpKPqkUMsuMwIvAa8
- aq5tkghJ+E2rcr4ji02kf4PkPCizRXNJr055DqVgCqmPlzde0N06Zp6mTXoQX1653kEiTqGwvIR
- GEwFAnkI3PWmeP3W/RVE2AQ==
+ bh=6qZ7A1oz5Axgnpp4GtqPS8WNzAaEjziX3V59HPLoil0=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp0viA2oLTbGPrfeF1fSUlY7wWRiqYYBQYG3
+ 0WQreawGeBxuIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqdL4gAAoJENju1/PI
+ O/qacpQQAIAY+/RYcFy6YpPeU+CddLaw7vJg7XEWrOkvs4azi4PWuRJfEp8Hms61aQKA+qkil3o
+ IijWR/tCOaiuSxiC8ylonyUL6vk6GOOvTol/4OiP5/QVq3tSMqFcAwtLAhvVfJRt9gA5mZJtDkX
+ evidxQH5Tl2QJo2avPmVf02bydluGMSd2SzfRUbY2/Bjoo9kj4WukkkA0XdroatEoBmldJvrVyJ
+ ydcexKFc1wVTd8t6kjpZarz4RzhBVlj+CyEovJUliRIKW7PITeQn50dZo0DepGsly7dO8j7Sq4P
+ +ZntC0rAzcsqFsuAUSCY5VkDZjIrqKMpDOPKN1xw3BotzboH+uicTOXXamzJhuGEet7iHz79oMW
+ bJxr9mCZ0Ec6n+QOLzu9+MRugdl33Q+xuzHdr/m5kH+A58aORd1JXnrfODhmB18NZ6F2j36X0GA
+ Sl0Xx4FmGLxSroo3xL4moMFtMDoyOXNPcnH2IjYsZlIVHGrtbOCYXqLS8XI8yjEfCsuseYBwSFW
+ MlkTSrjyER4/nphyvKfFtjFO5P3DgascOboRFMzp+7wE/H0+MteZqEXoGLckyrgliUnhyH7DmDG
+ yWqQchJeaY59j/UCpwGCBbSigmK+Dcb2PyrQboIikKGMLWgvyC3L/R4LOYq/gB/VKXoGtnjQdzC
+ C0Fe34cXu4FOfYatoqv8zMg==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_100231_193252_C3237992 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260806_100232_343013_38CA4D5A 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,57 +112,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DP AUX transfer method uses a completion triggered by an interrupt,
-which can timeout. If the function runs into the timeout and the
-interrupt fires afterwards, the following DP aux transfer completion
-would trigger immediately without waiting for the interrupt. This in
-turn means the next one would also be broken and so on.
+Add support for MEDIA_BUS_FMT_FIXED, which is e.g. requested for USB-C
+DP chains as the last bridge in the chain (aux-hpd-bridge) does not
+implement atomic_get_output_bus_fmts(), which results in the generic
+drm_atomic_bridge_chain_select_bus_fmts() code using MEDIA_BUS_FMT_FIXED
+instead. For decent support of this, two areas are changed:
 
-Fix this potential issue by re-initializing the completion directly
-before sending the AUX command.
+1. In atomic_check, resolving MEDIA_BUS_FMT_FIXED output format by
+   using the negotiated input format.
 
-As this is racy (the interrupt might arrive between the completion
-re-init and the new command being programmed), also reset the AUX
-controller on timeouts and synchronize pending interrupts to gurantee
-that there are no pending AUX transfers when the dw_dp_aux_transfer()
-returns.
+2. Implementing a custom .atomic_get_input_bus_fmts hook that, on
+   MEDIA_BUS_FMT_FIXED, advertises all bandwidth-validated formats
+   from dw_dp_bridge_atomic_get_output_bus_fmts(). This lets the
+   upstream encoder negotiate the best mutually supported format.
 
-Due to lack of a sink, which generates AUX timeouts, this change is
-effectively untested.
-
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Fixes: 86eecc3a9c2e ("drm/bridge: synopsys: Add DW DPTX Controller support library")
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 34 +++++++++++++++++++++++++++++++--
+ 1 file changed, 32 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index b1856418f441..2573ea2bb574 100644
+index d35dcd4a413f..b9864a17c01d 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1466,6 +1466,8 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
- 	if (WARN_ON(msg->size > 16))
- 		return -E2BIG;
+@@ -1537,6 +1537,7 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
+ 				     struct drm_connector_state *conn_state)
+ {
+ 	struct drm_display_mode *adjusted_mode = &crtc_state->adjusted_mode;
++	unsigned int out_bus_format = bridge_state->output_bus_cfg.format;
+ 	struct dw_dp *dp = bridge_to_dp(bridge);
+ 	struct dw_dp_bridge_state *state;
+ 	const struct dw_dp_output_format *fmt;
+@@ -1547,7 +1548,10 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
+ 	state = to_dw_dp_bridge_state(bridge_state);
+ 	mode = &state->mode;
  
-+	reinit_completion(&dp->complete);
+-	fmt = dw_dp_get_output_format(bridge_state->output_bus_cfg.format);
++	if (out_bus_format == MEDIA_BUS_FMT_FIXED)
++		out_bus_format = bridge_state->input_bus_cfg.format;
 +
- 	switch (msg->request & ~DP_AUX_I2C_MOT) {
- 	case DP_AUX_NATIVE_WRITE:
- 	case DP_AUX_I2C_WRITE:
-@@ -1492,6 +1494,12 @@ static ssize_t dw_dp_aux_transfer(struct drm_dp_aux *aux,
- 	status = wait_for_completion_timeout(&dp->complete, timeout);
- 	if (!status) {
- 		dev_err(dp->dev, "timeout waiting for AUX reply\n");
-+		regmap_update_bits(dp->regmap, DW_DP_SOFT_RESET_CTRL,
-+				   AUX_RESET, FIELD_PREP(AUX_RESET, 1));
-+		usleep_range(10, 20);
-+		regmap_update_bits(dp->regmap, DW_DP_SOFT_RESET_CTRL,
-+				   AUX_RESET, FIELD_PREP(AUX_RESET, 0));
-+		synchronize_irq(dp->irq);
- 		return -ETIMEDOUT;
- 	}
++	fmt = dw_dp_get_output_format(out_bus_format);
+ 	if (!fmt)
+ 		return -EINVAL;
  
+@@ -1830,6 +1834,32 @@ static u32 *dw_dp_bridge_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
+ 	return output_fmts;
+ }
+ 
++static u32 *
++dw_dp_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
++				       struct drm_bridge_state *bridge_state,
++				       struct drm_crtc_state *crtc_state,
++				       struct drm_connector_state *conn_state,
++				       u32 output_fmt,
++				       unsigned int *num_input_fmts)
++{
++	/*
++	 * MEDIA_BUS_FMT_FIXED means the downstream bridge does not constrain
++	 * the bus format. In that case, advertise all formats supported by the
++	 * DP link so the upstream encoder can negotiate the best match.
++	 */
++	if (output_fmt == MEDIA_BUS_FMT_FIXED)
++		return dw_dp_bridge_atomic_get_output_bus_fmts(bridge,
++							       bridge_state,
++							       crtc_state,
++							       conn_state,
++							       num_input_fmts);
++
++	return drm_atomic_helper_bridge_propagate_bus_fmt(bridge, bridge_state,
++							 crtc_state, conn_state,
++							 output_fmt,
++							 num_input_fmts);
++}
++
+ static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_bridge *bridge)
+ {
+ 	struct dw_dp_bridge_state *state;
+@@ -1882,7 +1912,7 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
+ 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+ 	.atomic_create_state = drm_atomic_helper_bridge_create_state,
+-	.atomic_get_input_bus_fmts = drm_atomic_helper_bridge_propagate_bus_fmt,
++	.atomic_get_input_bus_fmts = dw_dp_bridge_atomic_get_input_bus_fmts,
+ 	.atomic_get_output_bus_fmts = dw_dp_bridge_atomic_get_output_bus_fmts,
+ 	.atomic_check = dw_dp_bridge_atomic_check,
+ 	.mode_valid = dw_dp_bridge_mode_valid,
 
 -- 
 2.53.0
