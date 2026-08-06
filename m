@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B7FDC55838
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 05:03:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC9BC55838
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 05:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QvgfMTGid+rMciEFA6IcKQ8hr90StVRwt8iU/v0xqIw=; b=CWcatjoWXDOWpjKDI3xOIBo0MH
-	j2lsOei3TtBIahQvIyINP4bPn0qZxObbTCJQtZzroG2R8HB/RaIatYwcIC6Rz4R/um8J1NZgrtvOs
-	1SU14zRm5AjrPBNnGIfkKY+fw6NPFV0rcU5Jj1beLCrShLiM+uKfZTv16q0afOMCTCUXNedx/SZFz
-	7+ROa6n7sS9+1t5o62iCJMZlfuVRKelusQG2FSqD/HoEuMTH4QN7wtVhq1WmNG65sScdP8aHi/dSx
-	iKUsMq1VhHw3KH/XT2jsnPiwnk+rVS5hzcci8RBzs28k/5vgfCkED/Z+OtT5Z912T4u7IYKcfmqEY
-	tsiIvYeg==;
+	bh=+oWKqgV2uBxAga3aUXb6pt+JmIGNx/LBE5DxnCPtLR8=; b=dZEM0C6IIYGb4TmBTLKaSqVYmA
+	CO0NgdtCoUmmZLBso9PWvZbtm7Pyxf2Ce5PylK6L8cfIKykSoNY8//XoEXJebZjKGSA2JbZgGdp8x
+	HkIz07brJp0E4gsYH2J+bRK5g1qYtIigvmEqX+Df/pjHjQ1ZU+GCKu14rzgw6LGeRqSEqYgw3EPIA
+	dJXuA48gWYzNBjm27lyKsP8PE3At7GXAOPX89NalkHf+5W1HnGa9U9SM+Bzv7Y2cJvdDqWpH5ZZ/D
+	vehMem3TS1eR2giA31aCb+tnu848/fdNyi7yguotmJA3g8K0O2NrDx5tmTbyvS4eQjhEMKVUW9JSH
+	r7HpoF/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrqFo-00000004vlX-0yoB;
-	Thu, 06 Aug 2026 05:02:52 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wrqLw-00000004vyR-3g6L;
+	Thu, 06 Aug 2026 05:09:12 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrqFl-00000004vl8-3ENa
+	id 1wrqLu-00000004vy1-0ULX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 05:02:51 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4954a32cf1eso8756905e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 22:02:48 -0700 (PDT)
+	Thu, 06 Aug 2026 05:09:11 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47f6609c657so840664f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Aug 2026 22:09:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785992567; x=1786597367; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1785992948; x=1786597748; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QvgfMTGid+rMciEFA6IcKQ8hr90StVRwt8iU/v0xqIw=;
-        b=WDh28TVHl8C7Wyy6YZ6n3yIoCrj7P0KpWSZ1RHLVdxThIgNSi+feZU5iPPqy3VC9Pf
-         C66ywyLKRMy+W9ApfdjppmMdyJX5dpQHnM7+U0sEek2Mjag7t0e71apVfqo0Ho93jV/h
-         Mg18Px7KdVRuQqhNszvZeZM6fDoFardnXsG++oHcyGFimbPCY6DzvDqx5NtVXTO2eCkI
-         DDAVnvUO//3v1su6fo7OZw6gn71tz/piD4NjM/+72mr+eT27PrT7EWgrlJI8AiovK31L
-         Qc7VC69wWi/AbjYRE8a/0R/kNIvz6emt1wg6TGcS9PKQcHUyJR3hgj1kNVFwJG36i/in
-         CtqQ==
+        bh=+oWKqgV2uBxAga3aUXb6pt+JmIGNx/LBE5DxnCPtLR8=;
+        b=RfAbOhVrNeQ/O4e4HfVTz0m+iJJj2G1t9yj0WDVOPsvGF6BpAbQxsZf91/cdBMYJ9Y
+         RWDBqDWCmHzcq3uq6+BZJOfZHpfdy0CTUtOtotiHgC0L9Vuw5X4zJlCq8bOy+NAA9d+z
+         42a33QC56GOHe3Dy/kh6Jgz3BFyshoctrAUDOxpMt1iOzeN/fTjfNsq1yXYc+s0AAqOf
+         3BksIIz9T3hXWiCzVSutZmq1yEmv+7RnMwMZWj5cvzYzyjfpIJftRMW02HcO43d8YAHg
+         VWEYXTZE72jrdGbPJ71mq1L6MOZ+nns1WBkD+u3gJhi7RJ1DoMFihi9mwS+YHzYUtyba
+         GaeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785992567; x=1786597367;
+        d=1e100.net; s=20251104; t=1785992948; x=1786597748;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=QvgfMTGid+rMciEFA6IcKQ8hr90StVRwt8iU/v0xqIw=;
-        b=dII/5jGSx4mRbR9hT8aNgNLPZ7CF1ZJybfJrxD1kE0eWD1LSv9urGoWjY1h7lYda/b
-         uCdfiwl3WvoVY2hiDM6N1qqtYHQe0XERH6zZ0jO/lafQ5nAlBpDApgkHr0ar1vfFjEpu
-         Oa183uCldatyyWYtC26JnJZOL94457su63oH79cOAzTWtyeYALW6xpWAEbv6ajSZGHKi
-         YQWVCF4qvxdUcO33mcaPDNrwE4ObV4bQRtJ14kpPYIY0O9P8dS+rBsKnSqEfJclpbQyb
-         n9Hde7xzaXt6bu8Al5tcuIgUSl88+AhwF5oa5XCYsH+ctE07Y4NbJ9FJWWfkHOiaRTKF
-         FUdQ==
-X-Forwarded-Encrypted: i=1; AHgh+RrTLpssW8gYvvy8C7ptgWm8Ls1G7oEqvSx14QmHmWuu7+UmPiqD6yhq38w5pFLgJJDQVA0UMZSxD1dQO/jvNUX+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6HC61DTP9G7lAbNxQtbQu/fYnZ/sL+gg5/6r36Woy6aFTbmQN
-	zCTq/zHO7GRoTOgvZiPKU8gvvhK0TK8FeWwEYGd/u3bt38RwPgBNkO5U
-X-Gm-Gg: AR+sD12DU075qVeUKb5kV5vK9eZn2S/u9gcOGgdsXfv4RcxFJ+Kf21C2iJy+bfsMq4J
-	2Z44jVx1MAIGxxPxJBlTU0mT31OfuHlBwRRR78QqH5pCkIDmDnzkUyJml7u6TMBFXEwCyOvuuSD
-	r/nWTXbvm7Gx6OKr0pWEPwhgUKCgLshjXAy7XeSNTcrEXwwzAS9VMtfakANtnJdqC6IFky+HTDf
-	T6LRZvnCUZztj1yu/MOF+v53nEF/9HeRyeKVf1tUmfHN/sXjROlBuETiQcwsc+Y24aqD/7X6Rho
-	kUqgBkKQ9C1CJLFmjkKLy6Wo6ncexycq00NWDbxd/9/kLnBMDAzlvYfVTSWTpyTVUOBg3iutmn6
-	WHIKiSrIs6TK41AnK9fj9GpNuEfD2CEcWWlCcmAGJw/c1i+QARvOxsEEky78xEHkELXobc0ven5
-	HJfk/RCQM28RljnzbjpnpH+/uZCb0zbcutVLYn0ToWdCK+0CBvFN9/KmpSR7AnJbYbVGhN+QLVs
-	PiwlVbFyPgKX4iyVxjWbaRz7neW67G9K7aHUAkwMmz3F1dNYovi96yS/2VR/EzR6ziNkCikBeRR
-	VQWWC7I1xT+nMZ2vkW8KY/8rB6ngoYbYcoAOtvby2iPEoW8WIQZN4GNtfARJiPsMTQt180yMG0e
-	MaiQXMiNLHPxvOXraWRYv
-X-Received: by 2002:a05:600c:5694:b0:495:503f:cf9a with SMTP id 5b1f17b1804b1-4994e7bab0emr107043945e9.9.1785992567364;
-        Wed, 05 Aug 2026 22:02:47 -0700 (PDT)
+        bh=+oWKqgV2uBxAga3aUXb6pt+JmIGNx/LBE5DxnCPtLR8=;
+        b=bkN8YTfMDhakLjzDuvrrPvF3JuYgzikNtKngi805THKQMFbak9+Km/DbBgrZFooS1J
+         42lpkKiwD/j8HaR5aGqsK6+5+4dHdqxpyU5LgDxScZZC2FtSBCWoNz4HQ8/+l5wZgV7f
+         MXPDPRltkq63G1x010n1yAYOXPKQ9v9iVBXUkeIdVx3nLb2YP0eSrFZ2w1/BThlBGnYl
+         HNbrBDPGtbM4YXP9b84oauv/hgwkjcMW/lANnN8ScAW3yAs3ZzTON6rcVHEFK4k1Nbel
+         U4iINv9osH97IukcL7wgxoWL/YgnZidwms+I2jvfDWAZseBfPO4TGLwqsZAUSVmxZDJ0
+         W4kg==
+X-Forwarded-Encrypted: i=1; AHgh+RqfzhBO0WJimi/fEe9gSy5ZUFtbffDX2MWkBR812meX4GNiohf/ouvgahd/jizHOpBO1tg5WTgLjdGAQqtJ6Gcd@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMUc79845wB3Hxhrph2cUNQQ1NUn7xdC/1N3IS1uo9QurjC3eu
+	Z1XrtROr+5QFRz9hffNKn6yu/ZXPpq3kHcm/iSnh3Vm8NROuxNA0mEGy
+X-Gm-Gg: AR+sD10BPsU7vk4bBQcco5bKQLYwJi9RyxLkhlUp2DzSonaLa9yL6ysTuA6H6vMUpM6
+	T6VRM1uEX0uLXsK27cQB4wAxS/0YnsZrlP0c4OK6EO3qoqPxBdPFSVfVXi32rqD25Nyd9Gt3TXK
+	cklpgRXrhr30oOUAP8sE7N3O7MbC1YEYZHqaL3vmZiQBL9qnMoBto1HJfGRYbJGIPrr+EP4LwJ7
+	ixr2DVQCU8G868tC+CIHLVFVOxKcV+KQEe99uSik2ufrMu7niAoOR6pCcbDT8jx+IuYVrlH96Q6
+	OzqOtEyyMTI5A9rShsS6OKZifD0G9GvUDMnwwgw/VaRepbx2LcKzmUxUPEutLfJ6Axoyzxr/7Ir
+	O5fWN0cwvEKjeiO7vm0lYlvKnyb9p4OjY1kQJLDdqh8BAtQKK5ZLmsgbnO7sFAo33B3sTk67XUO
+	NoBY3KLqxwYV22cWlB3zgJ5SZPV6rpXN47tvTrKvUBvgavVa9cF4HflqUywWhFPuUx4sZrO18DS
+	ZOLvyUCvw94bHE2ocZUPWGRhiQhP2fFn5ffffaMs/6SGAGjGgTtnPrdr2eMLBR5c1adSXuhbkbr
+	PRUQlbxcQjZkCzV5NYPry3XJU3z+7v3Brl8qVOGOnM7lplPG6gAs0NKiup2r7liaObrH+tERAAv
+	Lr+gTQaFN
+X-Received: by 2002:a05:6000:40da:b0:47f:93b6:8d06 with SMTP id ffacd0b85a97d-47fec482347mr19399636f8f.0.1785992947779;
+        Wed, 05 Aug 2026 22:09:07 -0700 (PDT)
 Received: from localhost.localdomain (dynamic-2a02-3100-adf9-2301-8c14-6be6-a9e6-a2d4.310.pool.telefonica.de. [2a02:3100:adf9:2301:8c14:6be6:a9e6:a2d4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-499542188easm28834695e9.6.2026.08.05.22.02.46
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47ff7b183b2sm3315505f8f.24.2026.08.05.22.09.06
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 05 Aug 2026 22:02:46 -0700 (PDT)
+        Wed, 05 Aug 2026 22:09:07 -0700 (PDT)
 From: Karl Mehltretter <kmehltretter@gmail.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>,
 	Viresh Kumar <viresh.kumar@linaro.org>
@@ -84,15 +84,15 @@ Cc: Karl Mehltretter <kmehltretter@gmail.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] cpufreq: imx6q: fix out-of-bounds write when probed more than once
-Date: Thu,  6 Aug 2026 07:02:39 +0200
-Message-Id: <20260806050239.90188-1-kmehltretter@gmail.com>
+Subject: [PATCH] cpufreq: imx6q: fix devres accumulation across driver rebind
+Date: Thu,  6 Aug 2026 07:09:02 +0200
+Message-Id: <20260806050902.90550-1-kmehltretter@gmail.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_220249_867774_E2833BF4 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20260805_220910_194637_F2F1F5C2 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,56 +107,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-imx6_soc_volt is allocated fresh on every probe, sized to the number of
-ARM OPPs:
+imx6_soc_volt is allocated with devm_kcalloc(cpu_dev, ...), where cpu_dev
+is the CPU device from get_cpu_device(0). That device is never unbound, so
+its devres list is never released, and imx6q_cpufreq_remove() does not free
+the array either. Every probe therefore adds an allocation that stays for
+the lifetime of the system.
 
-	imx6_soc_volt = devm_kcalloc(cpu_dev, num, sizeof(*imx6_soc_volt),
-				     GFP_KERNEL);
+Allocate against the platform device instead. Its devres is released when
+the driver is unbound, which is exactly the lifetime the array wants:
+imx6q_set_target() reads it, and nothing may reach that after
+cpufreq_unregister_driver().
 
-but it is filled through soc_opp_count, which has static storage and is
-never reset. A second bind after an unbind keeps indexing from where the
-first one stopped, and writes past the end of the new array.
+That makes the array actually go away on unbind, so also clear the
+file-scope pointer in remove and on the failed-probe path, rather than
+leave it pointing at memory devres is about to release.
 
-Unbinding and rebinding the driver on qemu's mcimx6ul-evk, under KASAN:
-
-  BUG: KASAN: slab-out-of-bounds in imx6q_cpufreq_probe+0x3b0/0xa34
-  Write of size 4 at addr c5e90480 by task binder/73
-   imx6q_cpufreq_probe from platform_probe+0x88/0xe4
-   platform_probe from really_probe+0x108/0x384
-   bind_store from kernfs_fop_write_iter+0x1b4/0x28c
-
-The write lands one u32 past the end of the allocation.
-
-soc_opp_count is only read a few lines below the loop that fills it, so it
-never needed static storage. Make it a local.
+Tested by rebinding the driver on qemu's mcimx6ul-evk.
 
 Fixes: b4573d1d657a ("cpufreq: imx6q: correct VDDSOC/PU voltage scaling when cpufreq is changed")
 Assisted-by: Claude:claude-opus-5
 Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
- drivers/cpufreq/imx6q-cpufreq.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/cpufreq/imx6q-cpufreq.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/cpufreq/imx6q-cpufreq.c b/drivers/cpufreq/imx6q-cpufreq.c
-index e93697d3edfd9..fe0453c9623fb 100644
+index e93697d3edfd9..8110c95059e0e 100644
 --- a/drivers/cpufreq/imx6q-cpufreq.c
 +++ b/drivers/cpufreq/imx6q-cpufreq.c
-@@ -55,7 +55,6 @@ static unsigned int max_freq;
- static unsigned int transition_latency;
+@@ -400,7 +400,7 @@ static int imx6q_cpufreq_probe(struct platform_device *pdev)
+ 	}
  
- static u32 *imx6_soc_volt;
--static u32 soc_opp_count;
+ 	/* Make imx6_soc_volt array's size same as arm opp number */
+-	imx6_soc_volt = devm_kcalloc(cpu_dev, num, sizeof(*imx6_soc_volt),
++	imx6_soc_volt = devm_kcalloc(&pdev->dev, num, sizeof(*imx6_soc_volt),
+ 				     GFP_KERNEL);
+ 	if (imx6_soc_volt == NULL) {
+ 		ret = -ENOMEM;
+@@ -485,6 +485,7 @@ static int imx6q_cpufreq_probe(struct platform_device *pdev)
+ 	return 0;
  
- static int imx6q_set_target(struct cpufreq_policy *policy, unsigned int index)
+ free_freq_table:
++	imx6_soc_volt = NULL;
+ 	dev_pm_opp_free_cpufreq_table(cpu_dev, &freq_table);
+ out_free_opp:
+ 	dev_pm_opp_of_remove_table(cpu_dev);
+@@ -506,6 +507,7 @@ static int imx6q_cpufreq_probe(struct platform_device *pdev)
+ static void imx6q_cpufreq_remove(struct platform_device *pdev)
  {
-@@ -330,6 +329,7 @@ static int imx6q_cpufreq_probe(struct platform_device *pdev)
- 	const struct property *prop;
- 	const __be32 *val;
- 	u32 nr, i, j;
-+	u32 soc_opp_count = 0;
- 
- 	cpu_dev = get_cpu_device(0);
- 	if (!cpu_dev) {
+ 	cpufreq_unregister_driver(&imx6q_cpufreq_driver);
++	imx6_soc_volt = NULL;
+ 	dev_pm_opp_free_cpufreq_table(cpu_dev, &freq_table);
+ 	dev_pm_opp_of_remove_table(cpu_dev);
+ 	regulator_put(arm_reg);
 -- 
 2.53.0
 
