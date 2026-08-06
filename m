@@ -4,58 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 943E4C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FAEC56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O8Dd86fiBUYQZ0Jxe5FmhYaCKclo4qcPq5WEHvDMQ68=; b=pREkD5NufYTdvQ+ZWnA4YilLg5
-	60B+8fGW9SyLg9JspyImDtJFqsYXsrgS59JvNED/qDIg89cCG4c+F3F6Z6/ltGIcmnkE1RK+jn9Lx
-	sOzHX16Zd/SlKkMvxXfetKOInhdZjFNmdmQO6vL7JhbfNWkMOXVUjoiwedb31Ve+RJEFQgrb9Ohj0
-	6Cd1IWgHQMPPB/W+QRaCoXlapXmXl2LIBqxqlyD+AdsBkY0/P+QXNkYM4yHL5KknfZ9ULQDuQCmzu
-	ru3bWtycBDpI6gli1lROZi1jS7R2Fz3/BVCQEFsJAaeagiJOYbY8fJnvdiQEgZ/ebNEXxWOyXcCix
-	3qfWoxZA==;
+	bh=ZU0VrTV4GLDlCfx7g+a3UzwLYWGbzU9Cafj3dXrmRs0=; b=xhm/6R8Do2RvNksx4UcRYHQNLm
+	GsixrthkCcAbjBGVMdxOWqOky/94e+Z+0K2DgRYKDczGnOdkEpWNW/3RXI+/VDpyz9bNp/Uqva4j4
+	hSFEKUiceUpqOqNc9pi8tg79vrwKy2XnhJcM3lB6Tzh7zJTVeb33yxc05ZmvDWCpRXrBg34oXIjDc
+	jA4GVtl3O85NeTAu10QWpNgp273ydMCyJ+hLJO5fZkyaUSvyRqF85D/P6Zk2DVSm/N0zvmnf3lf5y
+	duzPW+dxofXpYhTQwMKqu6TohnAYm4SbKAdmSV7oweKN1B3D/V/KPKvT8JDHYU1vrUp/P0wj5giAm
+	SnokOGyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1dZ-00000006KYj-3WT0;
-	Thu, 06 Aug 2026 17:12:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ws1de-00000006Kbx-3whW;
+	Thu, 06 Aug 2026 17:12:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1dY-00000006KXv-1rPK
+	id 1ws1dd-00000006Kar-1bwn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 17:12:08 +0000
+	Thu, 06 Aug 2026 17:12:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD10760AB0;
-	Thu,  6 Aug 2026 17:12:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CF5E1F00A3A;
-	Thu,  6 Aug 2026 17:12:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EDBD342E99;
+	Thu,  6 Aug 2026 17:12:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A9481F000E9;
+	Thu,  6 Aug 2026 17:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786036327;
-	bh=O8Dd86fiBUYQZ0Jxe5FmhYaCKclo4qcPq5WEHvDMQ68=;
+	s=k20260515; t=1786036332;
+	bh=ZU0VrTV4GLDlCfx7g+a3UzwLYWGbzU9Cafj3dXrmRs0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=L1QAU/7htQBAaseuQYRxTlNW4YrCOsgmc4vLlRkyRm4i//QPUS6SZfGGqgKUs8WDW
-	 6kt45LcfPJH7BIWea6be8hXoAfkqBTVac4ThgemBcXa+QyNFM3Okm51SYcOBQfR2KB
-	 yylnXUXB/zepHLEA3fRdR+e+zaD9dYxH8k6qBe7TL53cFZz8f/ZKmF96ay3WNFYPO/
-	 7K7R1+7SBIPpn5/05aqZkprdP2w2TRTWvVnJhh8Tj4KZeu6NhTH/3avlMy6Nocu8CT
-	 YL5XBMlCkvZnXWmaNzWa3u5+kY9AI0P483x4G3HsT1TcEylxfU+MZH/7lg/SsrQVHe
-	 rtbbd7FXtFl0A==
+	b=I6ckpMARmovzb8GA7jcN41tiAxs6P02GoIqR/93Jx+k472VjftW/vJBilnwhKIho8
+	 1b3CHjckp2tdT3Oj4xUoVj/PbgSR3Bmf8bVRS+JFjxdp70v8DHvUSyl3MF6E7v6jWb
+	 sZy8rMz08u6jDcr67Yrfcf1GqmNBxH9BC8IizSQ2Qgv4i4I47ttwMtP8U+bnmtXAHl
+	 sBnvuY6caeKLEuLSECNC0gf4sCEdpT30bJn67DZ7v3PwSh9tkPpaIjP3kk8JB3Y+xN
+	 VdlrO7oUo81la9VxR3J6oxu+mefjLW6fEEUyDpayd3HB828y8GAr+sal+IidJAPM/g
+	 XOyYi5eBCmbwA==
 From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	liulhong617@163.com
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
+To: Shuai Xue <xueshuai@linux.alibaba.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Frank Li <Frank.li@nxp.com>,
+	Xu Yang <xu.yang_2@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Yushan Wang <wangyushan12@huawei.com>,
+	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
+	Khuong Dinh <khuong@os.amperecomputing.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Chengwen Feng <fengchengwen@huawei.com>,
+	Yury Norov <ynorov@nvidia.com>,
+	Ma Ke <make24@iscas.ac.cn>,
 	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	liulhong617 <liulhong617@gmail.com>
-Subject: Re: [PATCH] arm64: mm: fix accidental linear mapping of no-map reserved memory
-Date: Thu,  6 Aug 2026 18:11:41 +0100
-Message-ID: <178602241325.427442.8605112911020828131.b4-ty@kernel.org>
+	imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	Pan Chuang <panchuang@vivo.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH 0/3] perf: Remove redundant error messages on IRQ request failure
+Date: Thu,  6 Aug 2026 18:11:42 +0100
+Message-ID: <178585020446.3647840.3969322133081891560.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260513010255.3764038-1-liulhong617@163.com>
-References: <20260513010255.3764038-1-liulhong617@163.com>
+In-Reply-To: <20260717103123.34887-1-panchuang@vivo.com>
+References: <20260717103123.34887-1-panchuang@vivo.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,20 +92,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 May 2026 09:02:55 +0800, liulhong617@163.com wrote:
-> When reserved-memory regions with the "no-map" property are not
-> page-aligned, the kernel may accidentally map them into the linear
-> mapping, contradicting the no-map semantics.
+On Fri, 17 Jul 2026 18:31:16 +0800, Pan Chuang wrote:
+> devm_request_threaded_irq() and devm_request_any_context_irq()
+> automatically log detailed error messages on failure via
+> the devm_request_result() helper, which prints device
+> name, IRQ number, handler functions, and error code.
 > 
-> The root cause is a mismatch between /proc/iomem's address boundaries
-> and the actual page table mapping boundaries:
+> Since devm_request_irq() is a static inline wrapper around
+> devm_request_threaded_irq(), it also benefits from this
+> automatic logging.
 > 
 > [...]
 
-Applied to arm64 (for-next/mm), thanks!
+Applied to arm64 (for-next/perf), thanks!
 
-[1/1] arm64: mm: fix accidental linear mapping of no-map reserved memory
-      https://git.kernel.org/arm64/c/7ace06a01efa
+[1/3] perf: Remove redundant dev_err()/dev_err_probe()
+      https://git.kernel.org/arm64/c/a2d0c34f6dc0
+[2/3] perf: arm_cspmu: Remove redundant dev_err()
+      https://git.kernel.org/arm64/c/3bee2a4d210b
+[3/3] drivers/perf: hisi: Remove redundant dev_err()/dev_err_probe()
+      https://git.kernel.org/arm64/c/5f254ed7149e
 
 Cheers,
 -- 
