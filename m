@@ -4,62 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8E3C561E6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1CDC561E6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D+0heS499WMn8/ZDqYM9hynjje4Gw8ZJl6CgmV7QoF0=; b=v9wru9CiPXRyWerN1OBlsnymKa
-	FdJyIbKx2ZRXs3CQkrejV3zt8+30OXiIlaJzoHZV+3fqnclAw4Z1nJN4U5bqMm0WcCQcUwnqtS0iv
-	mpSdTnBSXoH5K4ntZHrEw70DP16W9mTkKUdCCkCpIfF+5E78gEMVz0fQAJO1ypCVaaIdkKg9rZ2xP
-	zD/ZB4PqOohPYGMDHF6KBygvlrI6BqSlIKRTdkS1zlQbr0aNYkCMlekQ4Qvpgx24fj+ttZo6v2+HE
-	4ksKBw0YYxbjzHSDQI6UmKXozAIEWl78GIzSDRr1UDsXchX4MnKuWMrk49Z+ueIJqXxLyY3GNb3Mm
-	Mm4oj8og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MzxlFfjKSR7L23FWsQpcKHzSKBrXOTR2zTIs2ca9OCo=; b=YWNa3KSzHZSqmtz7NxmVFxiICW
+	vXvyXboTlJXbClPqJquiLdjOj3d2WD+joLDxsoJ0bUO8UF10RwGAFsLMBL13vfiZMYWrmcOsKK6Py
+	byN+aOg5QEvOTzF64hqWC5qHCWZfW0HR4gEuZs/rd5rsISHMh8eSCuDqbyCZ/ovr1sDx9BS/r6X9V
+	8qCnYHbunIb/JK3GFAzEjui0IX6Jl7Vml0kw9sxfuCM+KqSFz6se3A9IIgecH4b0R1jKFxZ54Kdv9
+	Tjkz1GwnXMrD6DxJRq+OQDykLQEKE8HgpV92QpiepDryVMwtYFE74RQI5oBSRoBKphx9FB+8NqqNB
+	rlJZ0K4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtJz-00000005Cs5-0Teq;
-	Thu, 06 Aug 2026 08:19:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wrtLS-00000005DD2-1CgJ;
+	Thu, 06 Aug 2026 08:20:54 +0000
+Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtJy-00000005Crl-1Bja
+	id 1wrtLP-00000005DCR-2aFD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 08:19:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E3E960A64;
-	Thu,  6 Aug 2026 08:19:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D28941F00A3F;
-	Thu,  6 Aug 2026 08:19:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786004361;
-	bh=D+0heS499WMn8/ZDqYM9hynjje4Gw8ZJl6CgmV7QoF0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CukeG4Jh6Z+V6Oy1eflG+QopdQZjFiSuYrgKfTThB+wMYSsAMZXXg5V7yGbIjI57e
-	 opMfEKIUh7Mt1eQbVQOWSjHKQm3JfsPPPv89BcqELF/QPjGqNtUOQ4xAX2H7Ipj0Cp
-	 7ATv1oj6k0QRP2f+28BrlvqwM2RAzS/fu2iYfRWcJIpR3XwLoevAoJ1wi1lUbMd392
-	 Cdzt/pSJbGlfDjP4JEcMij58xB7OMfPMgdODVV3lNYcf8F24padsB9XG4aQG0iNjBk
-	 lg6ozPyo1tsZDcKN3EusTgOeRyCHN/GoNRFjrFwagwzeVgx+Sh3jfbVdxRG+qc/9o7
-	 bgohRLxrAV5Wg==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL 3/3] ARM: samsung: mach for v7.3
-Date: Thu,  6 Aug 2026 10:19:03 +0200
-Message-ID: <20260806081903.165005-6-krzk@kernel.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260806081903.165005-4-krzk@kernel.org>
-References: <20260806081903.165005-4-krzk@kernel.org>
+	Thu, 06 Aug 2026 08:20:52 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ds4f0nZYx1wvZeEy9aLT2ojgb/NAW+CJ6L1gey3LN+MTo/8xXf9IqxPZW2wY963Ke01y5SCKj6HQ2RLLHAloJ55+6+xsNpKt0uqCE5oX6SbTuwvMEjE+/9Q5zNOCqpLnioevvXkbybWIzDzNsB/5B9tkm7TMZVLHgIPRQcStAR0heF9KnkiMRQNVgfxxxDgHZAKtZbMwOhDZ53S/cpjW9XVp+D7inUfdGUJifzwcwc1Hrotsv3DREd4t4zBz0Nuu1qRCBX+Ez5DPCGgFw+difBsLFoI/8HnOIcRC6PO3qdplCceRgMPauScGEeY9baklXMHBzim+miQd5E69bfxsng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MzxlFfjKSR7L23FWsQpcKHzSKBrXOTR2zTIs2ca9OCo=;
+ b=MTvTjdPgGtlHpgXFXVElQnjJwQvh2NdQKAcPQDOOTsqb1cEjpujEKs4TlavDjpYYyDGQGpdhZmX2YLdXcDsQazdhYC+DyLbTpnPnfGLDdVMGcV8Q9xabqMRntPTqqqy/0JRdYbTErjstuimCyLtjHwpT4ydeKkN1eJU4FTtKUKxQPUY0Tao5NWDODieFFRcvPG3QAwJdF+mhn7dqYi8OLqGEMjYeBzzv0q94vIv3qq8f8UiHF7UNF5Y1i4cl4r7LpHWzwKOAjmV23UOlnXpIcTc0Hkqbw4BahPkVGmSvH0g++Xv2azF8laKahwPM6kri4/s37ieY/dZN0ReDuiFAzg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
+ dkim=pass header.d=axiado.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MzxlFfjKSR7L23FWsQpcKHzSKBrXOTR2zTIs2ca9OCo=;
+ b=hnrrARuUAYDBLVT7xiyB7ekoOG6tYFHHkfvVcQuUOdGwcLSj+Wg7Pr90dTcIEP1ArA03RI9cFRGlN8P6/wRm47Oer9VHfWC7HEZOa1MEgLWpVyCX7uIlfCozCWm988ZYcSCmVsyDQaz7AoyuzfA0JUvBNPZrRRqag27Rq7mJFEUTqTn5sMbQ2hlWodgOj9uYJOkW6CbfaE6wGK+HHHpc/e7op5XezkOPwxA1NG8nr28d3qtKcmg+qqLoBxeYIwUOAYVRLT4Fd5cmuA7lcUoJzqJHvkViORDe+cdUq1Blby3BC+VnndgFG60PqZECrdA6vPH12D9RG+/kPntIINI01w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=axiado.com;
+Received: from PH0PR18MB4558.namprd18.prod.outlook.com (2603:10b6:510:ac::13)
+ by CH3PR18MB6025.namprd18.prod.outlook.com (2603:10b6:610:1d7::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Thu, 6 Aug
+ 2026 08:20:44 +0000
+Received: from PH0PR18MB4558.namprd18.prod.outlook.com
+ ([fe80::ba9:422:da8:b963]) by PH0PR18MB4558.namprd18.prod.outlook.com
+ ([fe80::ba9:422:da8:b963%6]) with mapi id 15.21.0292.018; Thu, 6 Aug 2026
+ 08:20:44 +0000
+Message-ID: <5d2a80ed-6c74-4ad7-8d18-c05e38bd8208@axiado.com>
+Date: Thu, 6 Aug 2026 16:20:38 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] dt-bindings: media: add axiado,ax3000-video
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Shubhangini G <shubhangini@axiado.com>,
+ Prasad Bolisetty <pbolisetty@axiado.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Karthikeyan Mitran <kmitran@axiado.com>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ openbmc@lists.ozlabs.org
+References: <20260730-ax3000-display-driver-v1-0-4fbd4d0c85d3@axiado.com>
+ <20260730-ax3000-display-driver-v1-1-4fbd4d0c85d3@axiado.com>
+ <ed8ca066-bb8b-4476-be96-37a2b6e022ab@kernel.org>
+ <a8383bd7-802b-41b0-897b-812b4a8fca33@axiado.com>
+ <9f689436-04c6-48d6-8342-7fac998f3910@kernel.org>
+ <b585130e-710a-434d-bf06-cc06f9bffc33@axiado.com>
+ <20260804-healthy-versatile-barnacle-b58db9@quoll>
+Content-Language: en-US
+From: Tzu-Hao Wei <twei@axiado.com>
+In-Reply-To: <20260804-healthy-versatile-barnacle-b58db9@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TPYP295CA0032.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:7d0:7::13) To PH0PR18MB4558.namprd18.prod.outlook.com
+ (2603:10b6:510:ac::13)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1196; i=krzk@kernel.org; h=from:subject; bh=Xyhmj+aDFTtIRlFLPpMbuYd/nr59AXNjT07GC2bojFY=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqdEN56v25JrMudRGF2XtGiuv5Lr8TEXdThEYxn 44nLXXXfCGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCanRDeQAKCRDBN2bmhouD 18epD/4w6HXLRLqbAjooYqlbReI4D+KYr9ghpD050JWUX+MOsPTIq9Uxf+uNOi2XWcYwaWSB9m5 1QgKbHj8y0ZbsqT3NSlxr2nbGgvieEtsQQ7OiqhGKuT+JiPi1/8bL/I8TXbb/PKiRa3Wl8h7548 6vFE4YbopDwhGKChogkZX1hDU1w5yE/ibbgYf8YX6uIxdiG3+lbHw+Ljy2fjO1KOzqUzG6edg03 CTTL/8KtNxvUMApQrR496TticUqpyQGeN6t1oYvboE5XUVNAAPSWWsRcnu91C3UjjJE/oG3nuFM OcRZeCMPyaR6nyd/NSlYFKvTyQiph/tuscahH9dbGGgxbalh73gzhH/gL29E0axyWEfdqRqXcaK ff8kYqGSlA0uJk4zrlBtQdONbXb1f18cf2EIvd7LiLFsGKAtKHLQeX8WVTlXCQIu4kNNu7cwDdJ 8EZJTrjoo1pYBASLH+kouwO+Zybn1/F2WoSXvD+2SDyCb3DDlKouc4fOtugFksNogg9sWHwgAwj XTGZEWLgM9IlPk+zw5XEW29x2mLmj/ayJiqcTjdrsg1j7vn+9zyLtVyEKiVqqCfk9xbQ4Av2utA pzt69EVaILgS5YgDm/go4FctQ8dLZ6WhZ7UrR3Z7rMna5JX27QN/jESJZ/OozoAnu+pAuD7sdCX xVMNJxLQq76rBTQ==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH0PR18MB4558:EE_|CH3PR18MB6025:EE_
+X-MS-Office365-Filtering-Correlation-Id: 276d6b76-aead-43c7-a421-08def3939c72
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|42112799006|366016|1800799024|10067099003|56012099006|5023799004|4143699003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: sgV06jKVzmDZjoWkthjWrp7XMyO7ybfTMivjgcFW9nY17vPGGXHHY49vNQzN5xlIrRr4j31nJ6NEwPmwPpfd6KkQ6SY9T7c5eZ7OGCxjN6ez9ZDjLtakpR2ak2NMJDRlC6noZqFaOnR+40WUYIgu2oc8ckl8jPIP9M3Jezah92S2QPrFwwv8EO1GddcJJSN8PKyQ5twGjuwF93BqnNamXW9XbnQI2HXeeYWdWa64p3vElTxRDm4sCXDKi77GQau3YnRKvngWMk3GbFBiQKSejYU/IYj/kT3TlazvAsPty0F41u8M3+mLLBeo3kC//x/nikW42r3Lfcees/S5XUGDw9i5ZoDN4z6LDBlrP2uykZgtuZsVmOt5ZwXrmwiz7hThPBwSAcrVYhjY08iVkdnF85k7CxQPinQagSqye0reTEHV8vhQw+DDOSmuGPmZxEFT8p7UFZLLjHq5kX8/eGkntBetGtHIiAMty7V752TWlyL0rswiSMZp1G8i34bStcJR9eDb5zySOEt4k/sMIfGuw5p74+GvHm10rRBFu+ew6U2J/UcdPDE9D8fdrKIZQ1HC4qkafhHD15NxI1shcLLSnvQj2QMiMEX4YXRPA2HR8CAglA7ahN3VrKQaogZMBHmCGIpI6mqzmKnK3u2zmJZsm57Ay/20v+F4swPn/zeAg3A=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR18MB4558.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(42112799006)(366016)(1800799024)(10067099003)(56012099006)(5023799004)(4143699003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cnlvSzNUYW5manJwMGpFUjN4RHZCaU9CLzV0OXRudWl4MUR2N01ROHM3R2Zh?=
+ =?utf-8?B?bCtYM2traVZteG9qbDRhV1QvMUltaXJOUWcyOGNYYUFaVmRndUQ0L0lJMUp2?=
+ =?utf-8?B?cTh1YmRBT0xydWtiNEwxRFJ1TzU4Sm5EaGZqK21SVGRrMnNjQ0NCdktRSUhi?=
+ =?utf-8?B?L1lRZGUyMllxMDd6N3dkSTNxSkJadUVTTXBSajJSQU5PK01kZDJaSVVpbzNQ?=
+ =?utf-8?B?VVNKVEVPUEhyWXJDcE4vRWZpWnRyNHdOUXFKcjFnTlVLQ0VucWRXMEluRE14?=
+ =?utf-8?B?dENoZHBWaWpzbEdVdWhzcXcvS1hETGpLUDZ5MFJmOFBhb2o5SFdpY2Rqa3dQ?=
+ =?utf-8?B?QUFxOW1yTzVqa3cycTRreUw4RkNHSUZvaGxSbWhsYXpGcUlNK0RxUE5rL2xv?=
+ =?utf-8?B?RGp2TVk5TGJUNC9aNFRwOXdBSmMvaE8yRjM3MFdvWnVzRlNTbnVmRU9SM0Y0?=
+ =?utf-8?B?V2JKN0tMZkwvM1l4M2JadEpCcGJoMmFBSGQ1RDRpMWlXY2psb0xPS3JFK0RM?=
+ =?utf-8?B?a0lzdm5pbFo4VytuZHlvYVBxZnBMU2lFWDZBTTUvcnRsbGwzaVQyQmVUVmFy?=
+ =?utf-8?B?WlpnNmlhZjEwUlBqYXZHaXlDMzZ3UWJoWFpidjJJTGF4MkJWWDRtWm9pKzMw?=
+ =?utf-8?B?aVFMREs0aFc5KzBiSVNaeHU1aWwzclJtT2NlNVZsYXhtU0ZJVTRENlRxbUN0?=
+ =?utf-8?B?a21TUVZpMTltUkNYcDhEUnQ1SjRqYW9oK2c0U0JkWVhJY0dNU1NLY2k0UU5v?=
+ =?utf-8?B?K3lYMlhXY09YaWdDVnJFaFphL0VUM211YU5vVUZ1Y0F1RVpNMnZZckhtRU9o?=
+ =?utf-8?B?S245QVNQViszTHozVStCVExRcTdqWHpET2w2dGwzMS9ab0JyUE00YmNJa3R0?=
+ =?utf-8?B?YnVtcGtocTFlNW9hZjJwNUdMTk5yMzFHMWJMbE15WmRoOHdhM1ZaZ0tqS3lU?=
+ =?utf-8?B?SndteWZwbWJKdlNKbkU3dzZkSUxOT254dzkyRjJodVZhSHV2K1JhTHJOK1dr?=
+ =?utf-8?B?dGwzcG5TSGdDRGh0WXBUdUQyVmFRRW5udXpadndZVmFobFdrNmVXSUFqNFE5?=
+ =?utf-8?B?Rm54OWw4aCtVejVHVmwxWlEwTjFHVW1xZzY5V25RNzRYd2F5YVR3VnNoUmRm?=
+ =?utf-8?B?cjZOcE1rRG9sbUpMS0t3V2UzY29lOUJYdkRPV0xtMUVxZThoZHpMNzZTRnB6?=
+ =?utf-8?B?Vlp2ZmJHNGNTZXppVGI3VG9KbHdRZE9TYWNkYWxGMyszYmdmV1V5dG1zbkFu?=
+ =?utf-8?B?Zk1XZ0tOb3l1bWE0RUQ4d1UvUmxDSmZsUis0M1A0SFFqZWVtaE8rcDE1TzYw?=
+ =?utf-8?B?b29sZTFOVHBZSURUYUdvazRuV29VYUxJMTVSN3Z4Q1pWdGhvR3JyaW5lZ3RT?=
+ =?utf-8?B?elEzSWVOb0pJeUtmb3pZUU9RQnhJclhnS1M3REQ0MTdjR3p4MXBTSVQ0YkhR?=
+ =?utf-8?B?Vm5zS1NjYjZmTDVlWk9PZU9VRTRtR2xpbVVCYUxNRTdsSFNMQVZDWUdGRnFG?=
+ =?utf-8?B?NS92VmFpWTVGcU9zQ0p6RjdDYXVlUXJTU0dhUTFNTFhVOFFyenJ3dHExTXUx?=
+ =?utf-8?B?MUZrQnZrTGpjM0JzSWJpVmxOdUJJRldtSkh3cFFmZC95QU1JZm9PUmhsMU9D?=
+ =?utf-8?B?ZkJOWE1ENFQvZmw2ak1hSFpZUGNxUFd1ZG91SVVHY3Z0ZWJsQ0pteDZmY2VP?=
+ =?utf-8?B?K2U2cVp3RzVlTUYxZmQ1QlY2REJvNks0RnZUUTU4akxObE9JM3RMTkhxZGFY?=
+ =?utf-8?B?bFZjLzVhYjNDMTdtZVloc0IvMWNFUkdaSEdqZmh1dFdYWUFUN2VOQTRkOWxq?=
+ =?utf-8?B?Um5yOVo1dzBlLzVWTzM4Z2l4VWJGL2c1TWFBNGJIYUF0UWN4aWJCSVgyYlVS?=
+ =?utf-8?B?bXk3YUNjamhuUC9tVElPMGVwY2k0Sk96VWpwYUN6Ky9QbUlmMVBuU2dldjZE?=
+ =?utf-8?B?SURvNHYxSk5maHpoRGpaSEN2MWFCQmNVeUNlNk5VcE96VjJ6cndkZGE2VFh2?=
+ =?utf-8?B?aWZnQ1Zqd09XakVMRFFzQUhCRzY0bU9HZHlSWEdDZDFra3kvWW9rNThSa0Rz?=
+ =?utf-8?B?YUdUbTFOZzU5c0RuRm5CQ1ZvOXhQMXpkbytHTWJVSWNiNUVzMk5GREQ2bDc2?=
+ =?utf-8?B?dEhUUWRLUDRoazVJNkt0NXV5eWlYMGZIc1hQSUN4UHJWcWl3bXY4aVRmc1ZO?=
+ =?utf-8?B?RWJVcGpsbVdmRWZwYzVWOWhuVU9tZ0dUV21TTWx1MnBaMEl5VE9ibHdZRHdp?=
+ =?utf-8?B?cHZCZWJuL2xPUEZHWEtNV0pRekdvbTZKcnFHZERrOUQ0UHVIUEtDMDRuWUNU?=
+ =?utf-8?B?SWJ3eFVMSHErRUV6ZnNaakJDc0EzYVRzM0Fjdng2QzY5cGFSeHJHdz09?=
+X-OriginatorOrg: axiado.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 276d6b76-aead-43c7-a421-08def3939c72
+X-MS-Exchange-CrossTenant-AuthSource: PH0PR18MB4558.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 08:20:44.6819
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: j/MVqbMsyDWAabA46PPD8mJVxZRy/tPh8GnWylzPeo1mXaKmhTLTueRlsy+5w0np
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR18MB6025
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_012051_682310_9332851A 
+X-CRM114-Status: GOOD (  26.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +158,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+On 8/4/2026 3:55 PM, Krzysztof Kozlowski wrote:
+> CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
+> 
+> 
+> On Tue, Aug 04, 2026 at 07:31:25AM +0800, Tzu-Hao Wei wrote:
+>>>> There is no local register interface for this driver to program: frame
+>>>> delivery is controlled entirely by the host-side display engine and
+>>>> the PCIe endpoint mapping that feeds the shared region, both external
+>>>> to this driver. A software polling timer schedules a workqueue item at
+>>>> the configured framerate, which copies frames from the WC-mapped
+>>>> shared region into vmalloc-backed vb2 buffers. Running the copy in a
+>>>> work item rather than directly in the timer callback keeps potentially
+>>>> multi-megabyte memcpy and per-pixel conversion work out of softirq
+>>>> context.
+>>>
+>>> Then this is not a separate device. You just described a Linux driver.
+>>>
+>>> I still wait for answers of my question above. You described getting
+>>> buffers only.
+>>>
+>>
+>> Thank you for the continued review.
+>>
+>> To correctly represent this in device tree without describing a
+>> software driver as a hardware device, would moving the schema into
+>> /reserved-memory be the preferred approach for v2?
+>>
+>> Specifically, we are considering moving it to:
+>> Documentation/devicetree/bindings/reserved-memory/axiado,ax3000-video-mem.yaml
+> 
+> I would rather suggest this should be part of the device handling the
+> host side of the device. Or is there none?
+> 
+> Again, how do you configure the frame parameters or start capturing the
+> data?
+> 
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+Thank you for the review.
 
-are available in the Git repository at:
+Regarding frame parameters and capture:
+1. Frame parameters: The remote host writes the active resolution and
+    format into the control mailbox (the second memory region).
+2. Starting capture: There is no hardware "start" register. The remote
+    host continuously writes frames into the VRAM asynchronously. Our
+    driver simply starts reading from the VRAM in software when requested.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-soc-7.3
+We did consider making this a child node of the PCIe Endpoint. However,
+that does not fit our architecture because this memory acts as a shared
+VRAM across multiple subsystems.
 
-for you to fetch changes up to f839968769b64bb81878a626d34097959ab79295:
+Currently, we are preparing two other drivers for upstream: PCIe EP and
+DRM/HDMI. In our primary use case, a remote host writes frames via PCIe
+directly into this VRAM. Our DRM driver concurrently reads this same
+VRAM to drive a physical monitor, while this V4L2 driver captures the
+frames for userspace (e.g., obmc-ikvm).
 
-  MAINTAINERS: Drop redundant lists from various Samsung entries (2026-08-01 17:07:51 +0200)
+Because this memory is shared simultaneously by PCIe hardware,
+the DRM, and V4L2, no single software driver can simply allocate it
+dynamically. So, I think it should be defined at the system level as a
+shared reserved-memory region.
 
-----------------------------------------------------------------
-Samsung mach/soc changes for v7.3
+Given this hardware topology, do you have a recommended devicetree
+pattern for representing this shared VRAM? We are open to your
+suggestions on the best way to model this upstream.
 
-Two minor cleanups:
-1. Replace __ASSEMBLY__ with __ASSEMBLER__ in headers to have
-   consistency with what compilers define.
+Best regards,
+TH
 
-2. Drop redundant mailing lists from Samsung MAINTAINERS entries (less
-   code).
+>>
+>> This would follow the same Devicetree architectural pattern as
+>> qcom,rmtfs-mem:
+>> Documentation/devicetree/bindings/reserved-memory/qcom,rmtfs-mem.yaml
+>>
+>> Just as qcom,rmtfs-mem describes a reserved memory buffer used by
+>> remote processors and exports /dev/rmtfs_mem%d without hardware MMIO
+>> registers, clocks, or resets, axiado,ax3000-video describes the
+>> reserved memory buffer used by the AX3000 display pipeline and exports
+>> /dev/video0.
+>>
+>> Does representing axiado,ax3000-video as a reserved-memory node look
+>> like the appropriate way to model this in v2?
+> 
+> So from a device we went now to pure memory... That's quite a change and
+> would prove this was completely bogus hardware description.
+> 
+> I actually fail to see any hardware here, because you could just
+> allocate whatever memory and pass it to your host, no? Why it has to be
+> a reserved memory?
+> 
+> Best regards,
+> Krzysztof
+> 
 
-----------------------------------------------------------------
-Krzysztof Kozlowski (1):
-      MAINTAINERS: Drop redundant lists from various Samsung entries
-
-Thomas Huth (1):
-      ARM: s3c: Replace __ASSEMBLY__ with __ASSEMBLER__ in header files
-
- MAINTAINERS                  | 21 ---------------------
- arch/arm/mach-s3c/map-base.h |  2 +-
- include/linux/serial_s3c.h   |  4 ++--
- 3 files changed, 3 insertions(+), 24 deletions(-)
 
