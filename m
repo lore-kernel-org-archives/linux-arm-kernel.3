@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C33BC55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09AA0C561E6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 09:10:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ekP/15RiyRS1mHmgBngaG2DUHSQ1RkRl7k1DMWmUVvw=; b=eykE1yU1UP91nFBLbJ24TUUnK2
-	gGwm1ccg30x9DnAujxQnO+hjt3rdv8aDNVYOMIOrQhbK8/t+ShQGzQz8TgNDZ4R5WMCl9MEZ5q9hB
-	yQhz/zZMO7y92vIQ6TLrrXU4eAMvoKz9Q+f10jXVvgRoj1R0NVa0V1Okk0rJM3cHKHUbr5GIbGipt
-	kW1ySl320Qsp6oMhBQ48njG98uscSe19X/8MDKCuriHnvRy8lAJrLvHtzxX2anbFsJX6aMd4Uswyy
-	yz9gfO0rYAUFgmA411NnNm3tletSERBj1MkRkcsGtWY9z7vviIfzy5w5iBR9JsymRknaayq16++38
-	cd6XOrzg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PYmsZN1mEJc1s26rxNv68w2Qd9AxfNAhcy0pmx5D2is=; b=XUkQJ3TUN8EKsvCPySupgLx941
+	xj4da5WXisbOJI/PnXeJ4ibGtTdcL5WZKRwYe+0/fiU+5J1z17WcBgUWFiD09EQe5vQapY3qf9Xrb
+	6v49zr89bfRKxreAMuowVZYENSh9cv+NfubsTCPdVI4szGZxsCU6ZWYIuFddj3aoyHej1qUap/TNq
+	N1XzYshZF7Rc/H1GMNhqwlsOSpelC/HSk5PBajwT6UoktCBN2mGhgHDsmkMDTOqrxUOZowUDC79Ty
+	Kpyd7T1JLts0SqUzJynm59ZJtdyou72SXQYciyzCZbeGXYZYfnVdMdFAQ+Cy+vK1Hqq6olou/uz5G
+	kO/PTRXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wru7a-00000005L2u-1Rdx;
+	id 1wru7a-00000005L4f-42rZ;
 	Thu, 06 Aug 2026 09:10:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wru7X-00000005L10-2wyU
+	id 1wru7Y-00000005L1Z-173E
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 09:10:35 +0000
+	Thu, 06 Aug 2026 09:10:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6290D418A7;
-	Thu,  6 Aug 2026 09:10:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 439701F00A3A;
+	by tor.source.kernel.org (Postfix) with ESMTP id 4841360AB4;
+	Thu,  6 Aug 2026 09:10:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F07481F00ADB;
 	Thu,  6 Aug 2026 09:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786007434;
-	bh=ekP/15RiyRS1mHmgBngaG2DUHSQ1RkRl7k1DMWmUVvw=;
-	h=From:To:Cc:Subject:Date;
-	b=bjZ38nMPTWrRhP6qJYO2Hngk6a4aWbndg06pLlj//9Vspo1l+N1sSW7/y7hE3LRcu
-	 5yMXQjQzrOBznd3tREJQpbzJT7P9pttE9dUiJha6dUX7ewR95Ct2UtKN0boP4JJYe/
-	 il6zgqwFi4Cka4rLo1p/FHHkPSPSLliduSiawurp5nXy0dMKxq9epFET7y6emN6dD8
-	 r+2ffw62KVUr75sR6hh1vdpAMAFzjY0dttZ+hs7Ul2Ibib3otWnddNAmzYCcyP2RQK
-	 hvGpM/IbCkZP73tDmyQjzWc7qEmznlNHqqBaK2uiuAPDGJOPfzURhBknpf9ZNEkgVL
-	 Wy/EtXgINcohw==
+	s=k20260515; t=1786007435;
+	bh=PYmsZN1mEJc1s26rxNv68w2Qd9AxfNAhcy0pmx5D2is=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=NfUy+FU2vQ7K6s1Gyd2T5GiI2aNzBxCE4jOM7S23hI5jNNT16tcfskxVcKT4o8/0a
+	 1Te+kyidaebRTW5nkulPP7tSFIY9UalPympE0VSGcbIn147fpYwIDhxhJJ8FiIUbRo
+	 D4Gs0SdosJMm6bJcR2juo7HPNa6qH8WBO9oiXNOhW7FOexh+zEhB+06GzSQ5pNW3fC
+	 4oKQsd0JWv9dXYtSVR8N55AdooNnQCZri+V8Wl+i+QMxNCK9qozKjsgeYJ7hfWk9Ez
+	 dds112kgaEI20srGEyEh0kvQdxkpCXk+qxakBdNuQWUMPSqJXMLQoPLQ4JQx2/MJy1
+	 wvWc8Xz6AiEhg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wru7T-0000000CtHi-2I6S;
-	Thu, 06 Aug 2026 09:10:31 +0000
+	id 1wru7V-0000000CtHi-13kg;
+	Thu, 06 Aug 2026 09:10:33 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -60,15 +60,19 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Fuad Tabba <fuad.tabba@linux.dev>,
 	Hyunwoo Kim <imv4bel@gmail.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>,
-	ljs@kernel.org
-Subject: [PATCH v2 0/8] KVM: arm64: VNCR TLB invalidation fixes
-Date: Thu,  6 Aug 2026 10:10:18 +0100
-Message-ID: <20260806091026.620700-1-maz@kernel.org>
+	ljs@kernel.org,
+	sashiko-bot@kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2 6/8] KVM: arm64: Sign-extend VA for range-based TLBI invalidation
+Date: Thu,  6 Aug 2026 10:10:24 +0100
+Message-ID: <20260806091026.620700-7-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260806091026.620700-1-maz@kernel.org>
+References: <20260806091026.620700-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, imv4bel@gmail.com, yaoyuan@linux.alibaba.com, ljs@kernel.org
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, fuad.tabba@linux.dev, imv4bel@gmail.com, yaoyuan@linux.alibaba.com, ljs@kernel.org, sashiko-bot@kernel.org, stable@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,89 +89,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prompted by a patch [0] from Hyunwoo Kim which was addressing a pretty
-annoying corner case, I spent some time looking at what was wrong in
-our VNCR TLBI code. And there was a few things to say about it...
+When the decode_range_tlbi() helper was moved to be used for S1 TLBIs,
+the required sign extension was omitted. Add it.
 
-- The TLB tracking to get into the slow path is wrong. It tracks what
-  is mapped, but not the established TLBs. Kind of annoying.
+As a result, special care must be taken to not overflow PA bits when
+this is used for S2 invalidation.
 
-- Handling IPA invalidation when the TLB was established with the S1
-  MMU disabled is failing for a number of reasons. This is the bug
-  that Hyunwoo Kim found, but I decided to address it at its root
-  rather than just fixing the symptoms.
+Fixes: 85bba00425ae0 ("KVM: arm64: nv: Move TLBI range decoding to a helper")
+Reported-by: sashiko-bot@kernel.org
+Link: https://lore.kernel.org/r/20260801130337.EB2BA1F00AC4@smtp.kernel.org
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Cc: stable@vger.kernel.org
+---
+ arch/arm64/include/asm/kvm_nested.h |  7 +++++++
+ arch/arm64/kvm/sys_regs.c           | 11 +++++++++++
+ 2 files changed, 18 insertions(+)
 
-- Deciding to run with a VNCR TLB doesn't take the state of
-  SCTLR_EL2.M into account. Yes, it is a special sort of sport to run
-  a hypervisor with its MMU disabled...
-
-- TLB invalidation by VA targeting the last page/block of TTBR1_EL2 is
-  dropped on the floor, because I cannot count. This was amusing. Not.
-
-Additionally, Sashiko kindly provided some extra horrors to look at:
-
-- A missing sign extension for range invalidation results in the wrong
-  VA range being considered.
-
-- TLBI doesn't participate in the general MMU invalidation retry
-  machinery, meaning that VNCR faults and TLBIs race in an
-  uncontrolled way.
-
-- TLBI and vcpu_put() can race badly, leading to a TOCTOU pattern
-  which results in either a BUG_ON() or a call to vncr_fixmap(-1).
-
-I have fixes for each of these issues, all stable candidates.
-
-On top of that, I have a patch reintroducing the tracking that the
-first patch removes, this time in a way that is actually functional.
-Or at least I think it is...
-
-I'd like to thank Hyunwoo Kim for their initial patch and for
-providing a reproducer that helped me finding these issues by running
-it at multiple levels of nesting.
-
-It is now too late for 7.2, so let's try to make this 7.3 material
-(hence the early repost).
-
-* From v1 [1]
-
-  - Added sign extension to range invalidation (Sashiko)
-
-  - Use mmu_invalidate_seq to resolve fault vs TLBI races (Sashiko)
-
-  - Speculatively bump the TLB refcount on fault to make sure the TLBI
-    takes the slow path when we are going for a S1 walk
-
-  - Clarify the check for the TLB matching for the S1 MMU state
-
-  - Extra sanitisation added on the S2 invalidation path
-
-  - Applied RBs from Yao Yuan to the patches that didn't change, with
-    thanks.
-    
-[0] https://lore.kernel.org/r/ameGoxbn2wzBq2kL@v4bel
-[1] https://lore.kernel.org/r/20260801124818.366274-1-maz@kernel.org
-
-Marc Zyngier (8):
-  KVM: arm64: Remove VM-wide VNCR mapping counter
-  KVM: arm64: Handle negative S1 walk levels in VNCR TLB size evaluation
-  KVM: arm64: Consider SCTLR_EL2.M when mapping the L1 VNCR page
-  KVM: arm64: Correctly handle end of VA space TLBI invalidation
-  KVM: arm64: Handle VNCR TLB invalidation race with vcpu_put() VNCR
-    unmapping
-  KVM: arm64: Sign-extend VA for range-based TLBI invalidation
-  KVM: arm64: Make VNCR invalidation participate in MMU invalidation
-    retry
-  KVM: arm64: Add VNCR TLB tracking again
-
- arch/arm64/include/asm/kvm_host.h   |   4 +-
- arch/arm64/include/asm/kvm_nested.h |  14 +++
- arch/arm64/kvm/at.c                 |   2 -
- arch/arm64/kvm/hyp/vhe/switch.c     |  10 +-
- arch/arm64/kvm/nested.c             | 173 +++++++++++++++++++---------
- arch/arm64/kvm/sys_regs.c           |  11 ++
- 6 files changed, 155 insertions(+), 59 deletions(-)
-
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index bfed664d823bd..c83be6d0e79ac 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -291,6 +291,13 @@ static inline u64 decode_range_tlbi(u64 val, u64 *range, u16 *asid)
+ 
+ 	base	= (val & GENMASK(36, 0)) << shift;
+ 
++	/*
++	 * We only deal with at most 48bit VA/IPA, so 48 is where we
++	 * sign-extend from. Should we support FEAT_L{VP}A* at some point,
++	 * this will need to be revisited.
++	 */
++	base	= (u64)sign_extend64(base, 48);
++
+ 	if (asid)
+ 		*asid = FIELD_GET(TLBIR_ASID_MASK, val);
+ 
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 5d5c579d45790..797e888bf9394 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -4057,6 +4057,7 @@ static bool handle_ripas2e1is(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	u32 sys_encoding = sys_insn(p->Op0, p->Op1, p->CRn, p->CRm, p->Op2);
+ 	u64 vttbr = vcpu_read_sys_reg(vcpu, VTTBR_EL2);
+ 	u64 base, range;
++	int pa_bits;
+ 
+ 	if (!kvm_supported_tlbi_ipas2_op(vcpu, sys_encoding))
+ 		return undef_access(vcpu, p, r);
+@@ -4068,6 +4069,16 @@ static bool handle_ripas2e1is(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	 */
+ 	base = decode_range_tlbi(p->regval, &range, NULL);
+ 
++	/*
++	 * Ignore TLBIs that start out of PA_bits range, and cap the
++	 * invalidation to the [base:bit(PA_bits)] interval.
++	 */
++	pa_bits = kvm_get_pa_bits(vcpu->kvm);
++	if (fls64(base) > pa_bits)
++		return true;
++
++	range = min(range, BIT_ULL(pa_bits) - base);
++
+ 	kvm_s2_mmu_iterate_by_vmid(vcpu->kvm, get_vmid(vttbr),
+ 				   &(union tlbi_info) {
+ 					   .range = {
 -- 
 2.47.3
 
