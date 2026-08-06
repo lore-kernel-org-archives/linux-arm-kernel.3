@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E6ABC56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:29:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 914D5C56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2fB20ftjI5YyskQiNKGBxKLyrxp45Qvk/ySA69FxKHA=; b=DSUi9bdLgjWndi8hnvmMc2ZWe0
-	rdkIDoo07DtzGrjsF7vGdjoA1C1Gq0Oi7giNUcy+jMzYgwyN2vVAwKC+qyPQUD8PS4/YqpTRWP+zA
-	pJ89kjdmsBOa+fwh69kiVsIHzk+rG5Er9iFfN8jiM5Ex22S7Pk7Sb2dtN3wvpAWC/YoG0jtOZ2tE7
-	nndlXlaiPdlcr1J6OHsPvrOjqL1MR5PdxDLo7zLIUzApOoRMa38YB96J5IPESLACBxYIjjKC4N36r
-	tGe59U/Z6JJ/ZJXKbYg21mO3iCj16cpGzk8s8+/8Wqpjrcyesf8n3qgeEjRyviAOwC2SU+r7Ujox8
-	oxe2szKA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6O6fwYO0V1o+Gk5m4zyd3j81GTFYD7SIa8ITeriVOr8=; b=DZyHGTJY5jujxs
+	YPdcXx9s15X6Dn9yiGFiI974ljL9qPSYkqawgovJ2wgtnI/+pSz0x+bzLrzaqFDmlVcdEbtn1onOj
+	vL7NomKQ+r4zl+h4iEvvx22ehrYBqUvPqcFV6fMHxOm1L6EpJ7nuuNTnyZ14oQkEmPp+HeDWAYLyy
+	5SKCMSB5/MxvIGbRzhDSMT4F0rLN2whNaXVgmGWaH+ODKIKI94elfhBYkEZBW233cnsw+uWSBZsRq
+	Dwq5mXDgz2mPeIKkGyplMCZMZ5E7FQxlhRinjP3qkAWzx2T3YKCJRKh2sB/qQgZt5AcoCqZzUi3DC
+	wANgB5xmTZO4buj+cUtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws01Z-000000065FA-0YQs;
-	Thu, 06 Aug 2026 15:28:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1ws01h-000000065Oj-1el9;
+	Thu, 06 Aug 2026 15:28:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws01Y-000000065Du-1jns;
+	id 1ws01Y-000000065Dt-2sRr;
 	Thu, 06 Aug 2026 15:28:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B5FC443687;
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F15B60AB0;
 	Thu,  6 Aug 2026 15:28:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 78CEBC2BCFB;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 42DB0C2BCC7;
 	Thu,  6 Aug 2026 15:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1786030127;
-	bh=ZLJDszrW9HD7IRTiZASdqbu+USSjGBXGFe43o7bNZrE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Y9KSw6SS00/FkdWaCDU9ttBeuCnjmYqQurygFg7wS8q2EP1VwVUKScUZbrJ0raRvP
-	 9xwdJxOGyKJbQT4pq57PAKXV/DGr2CU+zsoU2827PDka30p2Afnw0+iMnOz5dlNwwQ
-	 r35hP3i1Br7B+iRY2CjlSmaXXsUFjjtCWDI7TUvD/XJEFtovT2d5QMp+xq79Uuj0S5
-	 BCoTCdy1S8K4hNi2AsiaV9H9KA7bXdRyYdwLzijHh+dQFHvOhNKgs+H16bDBkdeyUw
-	 ws/MzQY2VcMYlHVjdESr9zlgXybt9sH4VOtgyfcyizJ1k7MuSFnWBY7Ohmhv6CweCV
-	 P3jLA9FXuLPwQ==
+	bh=97rXyYGAbf+UW53T2G9gDyGIgLk+bK8TQS1U6+lks6c=;
+	h=From:Subject:Date:To:Cc:From;
+	b=LRDnI40SUVOKDS5Z3QK3Gf68m58P+JIqLdq08I9knGIppbPwVUh564mLz0wQh1GJz
+	 84yXR9wACZHuPMAXxFpqwbddyM5nZV+D4IBbd0yndmYzXUjuu+rvJaQyFY6p5vQ1+I
+	 coBd1PX0Xj4Z9pmZoFFIw+UUbPZTInneMz32HPq/i2xXg77wIMHAh7PQznoK5IsrnQ
+	 vP8Ut1TWRjH2CbBn+o3WtxgGxQ8lMwT8KLMiOGx4muQZQWNbmjIi6TMqILY7QlCxj8
+	 oG6bWNKtJaumpo9jg3LlYgjFvGgfgKZzbL/rNTkq/ZWx3UbRYKGp9y8JQW3BBKXNro
+	 im2NnTFqHYh6w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5F343C5AC80;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1EB27C56208;
 	Thu,  6 Aug 2026 15:28:47 +0000 (UTC)
 From: Sven Peter <sven@kernel.org>
-Date: Thu, 06 Aug 2026 17:27:35 +0200
-Subject: [PATCH 3/6] nvme-apple: Never set the opcode in the NVMMU TCB
+Subject: [PATCH 0/6] Apple NVMe fixes for macOS 15+ firmware / M4 support
+Date: Thu, 06 Aug 2026 17:27:32 +0200
+Message-Id: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-b4-nvme-fwabi-v1-3-bde19ce8db04@kernel.org>
-References: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
-In-Reply-To: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMwQoCIRCA4VeROTcwmoj0KtFBd8eaIAutLRDff
+ W33+B3+v0HlIlzhpBoUXqTKMw/og4LpFvKVUeZhMGQceXIYLeblwZi+IQoS0dE7bX00GkbzKpz
+ kt/3Ol931E+88vf8T6H0FOg1ZLXEAAAA=
+X-Change-ID: 20260806-b4-nvme-fwabi-000386148b21
 To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
  Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
  Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
@@ -61,13 +63,13 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Sven Peter <sven@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=886; i=sven@kernel.org;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1338; i=sven@kernel.org;
  h=from:subject:message-id;
- bh=ZLJDszrW9HD7IRTiZASdqbu+USSjGBXGFe43o7bNZrE=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ1bJCs1X7mvXfs/qzv/Z+SRtRfHCDXzeYa3rU07/nnaAW
- 4A5xXVJRykLgxgXg6yYIsv2/famTx6+EVy66dJ7mDmsTCBDGLg4BWAiClwM/xSr2SOetRTk7dYq
- b5eMDpu0sOv1iupH95N6u4XWXgkMSWb4nxZbsJudseTDGu8vb72W7N96Yv9x994rH97JTROx4J+
- /jh0A
+ bh=97rXyYGAbf+UW53T2G9gDyGIgLk+bK8TQS1U6+lks6c=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ1bJCjX5qiO3ThWxxLc1vD5y+Mjzz90rn7IxlvtXiEdw/
+ 5KQ1t3RUcrCIMbFICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZhI43dGhrXse6xOvZooXxUo
+ s2rZPyGBhSr2FxoznN6ZiOws3CRzYAUjw+vmOHlN3coX8+KtjMo8Hrjf0lwpkLusl2lJpdqnStl
+ qNgA=
 X-Developer-Key: i=sven@kernel.org; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
@@ -86,31 +88,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-macOS always sets this to zero and the firmware starting with macOS 15
-has started to complain about what we're doing here.
+Hi,
 
-Fixes: 5bd2927aceba ("nvme-apple: Add initial Apple SoC NVMe driver")
+This series fixes a bunch of bugs that were working fine with M1/M2 NVMe
+controllers with older firmware but are now starting to bite us.
+With macOS 15 a new firmware is installed for the controller and both
+XNU and the controller are a bit more strict now. This firmware is
+required once we add M4 support.
+
+The first patch fixes a panic that can happen when the controller fails
+to initialize, which now happens for the first time with the new
+firmware. The other fixes then make it work again.
+
+Best,
+
+Sven
+
 Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- drivers/nvme/host/apple.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Sven Peter (6):
+      nvme-apple: Destroy the admin queue on removal
+      nvme-apple: Don't set a DMA direction for commands without a data transfer
+      nvme-apple: Never set the opcode in the NVMMU TCB
+      nvme: Add a quirk for page aligned admin queue buffers
+      nvme-apple: Require page aligned buffers on the admin queue
+      nvme-apple: Drop the PRP null check chicken bit
 
-diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index f134b5ffb774..1ea732c3df1c 100644
---- a/drivers/nvme/host/apple.c
-+++ b/drivers/nvme/host/apple.c
-@@ -318,7 +318,7 @@ static void apple_nvme_submit_cmd_t8103(struct apple_nvme_queue *q,
- 	u32 tag = nvme_tag_from_cid(cmd->common.command_id);
- 	struct apple_nvmmu_tcb *tcb = &q->tcbs[tag];
- 
--	tcb->opcode = cmd->common.opcode;
-+	tcb->opcode = 0;
- 	tcb->prp1 = cmd->common.dptr.prp1;
- 	tcb->prp2 = cmd->common.dptr.prp2;
- 	tcb->length = cmd->rw.length;
+ drivers/nvme/host/apple.c | 32 +++++++++++++++-----------------
+ drivers/nvme/host/core.c  |  5 ++++-
+ drivers/nvme/host/nvme.h  |  7 +++++++
+ 3 files changed, 26 insertions(+), 18 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260806-b4-nvme-fwabi-000386148b21
 
--- 
-2.55.0
+Best regards,
+--  
+Sven Peter <sven@kernel.org>
 
 
 
