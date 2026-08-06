@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FEF3C55838
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 07:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082E1C55838
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 07:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s5mDgbwvY3SqOuoz1jd042jQGZrilknm7rjQphy+tiA=; b=DDgzeMY9kOHxkGhSFArkjSmHbK
-	aCyNqAmU32IK0Bt4gY2sGmMi6BmBp/Du19IxzbMIycwwFUbDoA8268UvtUNvMkvv0SCW0fLwXbR8n
-	bPihXIYjNIvzNPZpo6DiSgxfQuyuH/GpRoY5pk/8nfiOAP2tKm3CdwGYhMPMNosn37Q/XzBEDE1c1
-	mTvFVDoZ0zQ4pnKIvBvxGNmpf+Spm9amKuNt/M0FumZmBKkY5VoNYFCtPv82UAHARWm0s2G5FN9Nt
-	bu6WTlYwJbzgWdeyMWyRRDSXZc2+KyCbAo9FcO48dGW3tG8BY4+YYX4MkJOlb+RJeb6NPNiN+K0UC
-	mqU8w7uA==;
+	bh=Bw0q5d56LIKtFiT6Te7rkJ4Ur/ITs2O5UDLJ3AFpiL0=; b=OqMa6TJN8GY+X494lG6vsM3ibd
+	t9RGisZZE1ALxooHToWdr4N/UI4KDGC1RcA9FrdXvc5/+c50ev60ppveehvRL7n6VbCwNABeYgOcq
+	/pZtuci06VZDS2gW4Qg0rGu6Q/YV/w0LcnUFtc2YYwBfraYe3fEUQid4hFmk3CxAMButC1g8t32Pi
+	1tZB6P0AWdojWcrlmDoVk9ZsErlwq7V2mtf8m7Pk6H9MlSzP/8OBddQRBnKWYjkN6qFgozE7mR4py
+	vjs3ac0YKbRDxdgj89O8hLQEUVxngTOcSFAoukAdw6bjswPM9Y3aez+E/MqkIjKXqD/LGKmc6gqVh
+	R/mDGifA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrskf-00000005AAT-1FsQ;
-	Thu, 06 Aug 2026 07:42:53 +0000
-Received: from out-178.mta0.migadu.com ([91.218.175.178])
+	id 1wrsro-00000005Amu-1ViY;
+	Thu, 06 Aug 2026 07:50:16 +0000
+Received: from mail-vk1-f172.google.com ([209.85.221.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrskd-00000005A9l-0kU1
+	id 1wrsrk-00000005AmZ-3v4T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 07:42:52 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RoYbA6lHRmY0Ulx81lH3Pbsagr2R65eRr2bxE3LVKpN6dF5eRythPHfVJ89dFsmfYmXczp6nLZ0rtCjeYUIv2xE@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1786002166;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=s5mDgbwvY3SqOuoz1jd042jQGZrilknm7rjQphy+tiA=;
-	b=uTZhyzq70IcORWpPjKpq4xQ40ZwrM9sY4JLfDrJrSaSWIlGPPtQg8MjxnNIUxRRrUSTw+H
-	BBtbT/zLqoQVnY37eOkgipNwXLBrzS3GZMXq2aSJrU6GwIHdxAu02StlFRHIzn3sD4E5TQ
-	YEX0tHpVMyMW3SWLJIbR/vaHgHZRKZo=
-X-Gm-Message-State: AOJu0Yw4AF7O2FItlOStwdsr3kRY40rUnTymDG7RuEKdyk7Z2nLMsvVa
-	wypRFLtdNOwaxilmsnLeof69VFjGXQ43BBztUYGmUkmsnjH034Iywrl3FyGJgsAKMMelhfKRAjT
-	0skq7cvkydbGWgDEgJ5WI7vaKGxFGlw0SUfIGcexW
-X-Received: by 2002:ac8:7c4c:0:b0:517:5d71:84e5 with SMTP id
- d75a77b69052e-52cfea0149dmr8214081cf.5.1786002153058; Thu, 06 Aug 2026
- 00:42:33 -0700 (PDT)
+	Thu, 06 Aug 2026 07:50:14 +0000
+Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-5bf8e1edc3aso1010722e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 00:50:11 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786002611; x=1786607411;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Bw0q5d56LIKtFiT6Te7rkJ4Ur/ITs2O5UDLJ3AFpiL0=;
+        b=LKF+EQlUF7P/cBhIgnoa0cNoyzNuyTdqQDR/TJenQX8TmuQ5YkjvGggapIYawfLq/a
+         mmsP4Cqpq2JKHh3aLfNoPtVSHOyC8FJrD9elrdT3DSowBlnRKLZBAvLls/+jkLCERF4R
+         2TQS5vjaauS5/BwrcwQudmW2tiTKeWee1lrdVRo/rkykK7/zlTBd23LGrKZRvvwIct7G
+         ncxh3j7j3YNjFn+IysLGsTT2Pe39YWMBMKinus5CiEQRMBkI4aEnyxPsK4CUM6RZDkHx
+         rZuNUHwmzYZOQztBY6VHLyr1x91SYtiHHmtRa0/S1WbNnGKX30+ls661qHUlH3UnbSHf
+         KMjQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp44VlPq9s1Ll/CHEr3RtNt1xeCXg9BDDmiOGs6Yd/HLzrzOQuYWwQwW9M4XVIPrqnee9+EyQ3Y/pNdBCPpzRgn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJulHWm+bYwGHEDg9kTdsmtmHxfCZmJLQVeo1p09FkI4CN2ga9
+	2GagzOGU/q6ECYjV8TULOPRfKK2E3ogjVzxatxJe2utJJuwM/qYYBzhVpG7kbIp1
+X-Gm-Gg: AR+sD13FsGAbH++fFROM4aaU6gJkT3uVOl1WjhG8408DbkTLy/5tfjdHVOQ9mA7xCRO
+	VIMf7WdoZ7lA4lzjChEOi/msXYZGnJ0RVFBm7gqzMK/x4lUXPqZk0KxJgnZP8gXZZ4jNlRZjDpF
+	Ogq33adVW4q4A1b3Su4NCNychMV7t14xNsqIzSjStHAg8amvQK1ROE9lDhoB/u/tFkj5fxYc/qK
+	dugttpZbJiasYFg/VbCK4HciJd1qgcVYRQzJvfWKnEF1Inzrg8VLf/H/a2Lxs6ly6I0p5IIQHLH
+	3O1BjqgWyzizb7wsc+J+NHjcbZEwdhBhH0VaXUJxP1cTbdaESpZvh0P5tIn/DdWVcWUZ8GdvVkd
+	2IGOZqFe8Q65K19fdVQlRomdqlsCUCcpICm9XUa4RidSODgD5KOoSdZMujftr0jyH3ICtH2+l50
+	D+pT/6sDaTchIZE3s4ySgC4q6uO+r84s7KfV9r9AdEvbtR0jnslc0kLwDF31OQTC0gALPY2CM7T
+	WBUpWHOp1RUBChj0Yz4jcIxBKozJUwfYCEO
+X-Received: by 2002:a05:6123:2e6:b0:5c2:b8a4:95c9 with SMTP id 71dfb90a1353d-5c3d924e662mr1900955e0c.11.1786002610932;
+        Thu, 06 Aug 2026 00:50:10 -0700 (PDT)
+Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5c3d05c594fsm2951856e0c.8.2026.08.06.00.50.10
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Aug 2026 00:50:10 -0700 (PDT)
+Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-977fca41f52so663917241.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 00:50:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rod7KxCCy5nPvJ69GOcDUBI1ZZPElZD/dHiiKAN9zh5k77vFZ0i3fwMaXBWzw370WC22zSBoODT1MzU4nzPD11Y@lists.infradead.org
+X-Received: by 2002:a05:6102:5788:b0:74c:7fd8:73f5 with SMTP id
+ ada2fe7eead31-760e7bec35amr3810486137.6.1786002610083; Thu, 06 Aug 2026
+ 00:50:10 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260805093828.3626610-1-fuad.tabba@linux.dev>
- <20260805093828.3626610-2-fuad.tabba@linux.dev> <anQQ3dcbk72N1g1a@kernel.org>
-In-Reply-To: <anQQ3dcbk72N1g1a@kernel.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 6 Aug 2026 08:41:56 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTymdanCKoQO3ATmUZ=7Ph2wv4ES8SfkSsTgmOYAYBWayQ@mail.gmail.com>
-X-Gm-Features: AUfX_myxDlOAjmYWKzMHR0N2hwA_2mNGaJp6De5XS0c3Q0cWjlphcGHmt0zum28
-Message-ID: <CA+EHjTymdanCKoQO3ATmUZ=7Ph2wv4ES8SfkSsTgmOYAYBWayQ@mail.gmail.com>
-Subject: Re: [PATCH 1/3] KVM: arm64: vgic-its: Don't dereference a NULL
- collection on ITT save
-To: Oliver Upton <oupton@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Sascha Bischoff <sascha.bischoff@arm.com>, Sebastian Ene <sebastianene@google.com>, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+References: <cover.1785941595.git.geert+renesas@glider.be> <89e6a71b35703f10e12f520af1f389b5f40f4b35.1785941595.git.geert+renesas@glider.be>
+ <0124d3a3-81dc-44ce-88a2-9426c65ac46c@mailbox.org>
+In-Reply-To: <0124d3a3-81dc-44ce-88a2-9426c65ac46c@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 6 Aug 2026 09:49:58 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXHPjzCidCkfyF0c9fndAmAte1DuhxGZt=WY=_jxpwU+Q@mail.gmail.com>
+X-Gm-Features: AUfX_mxDCMXWQzEKQw-oHDEPLKfBz2gF2hlxdZi1vAhDPfXSN6ZVQ5LCO1qQ5aA
+Message-ID: <CAMuHMdXHPjzCidCkfyF0c9fndAmAte1DuhxGZt=WY=_jxpwU+Q@mail.gmail.com>
+Subject: Re: [PATCH v3 4/6] pmdomain: renesas: Add R-Car X5H MDLC driver
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Ulf Hansson <ulfh@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, devicetree@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_004251_360075_84D5511F 
-X-CRM114-Status: GOOD (  26.08  )
+X-CRM114-CacheID: sfid-20260806_005012_985961_DDF21E1C 
+X-CRM114-Status: GOOD (  28.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +102,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
+Hi Marek,
 
-On Thu, 6 Aug 2026 at 05:43, Oliver Upton <oupton@kernel.org> wrote:
->
-> Hi Fuad,
->
-> Thanks for fixing this.
->
-> On Wed, Aug 05, 2026 at 10:38:26AM +0100, Fuad Tabba wrote:
-> > @@ -2119,6 +2119,14 @@ static int vgic_its_save_ite(struct vgic_its *its, struct its_device *dev,
-> >       u32 next_offset;
-> >       u64 val;
-> >
-> > +     /*
-> > +      * MAPC with V=0 keeps the ITEs mapped but drops their collection,
-> > +      * and with it the ICID. Save a zeroed entry, which the restore path
-> > +      * reads back as invalid.
-> > +      */
-> > +     if (!ite->collection)
-> > +             return vgic_its_write_entry_lock(its, gpa, 0ULL, ite);
+Thanks for your comments!
+
+On Thu, 6 Aug 2026 at 00:38, Marek Vasut <marek.vasut@mailbox.org> wrote:
+> On 8/5/26 5:20 PM, Geert Uytterhoeven wrote:
+> > +DEFINE_MDLC_RESET_WRAPPER(reset)
+> > +DEFINE_MDLC_RESET_WRAPPER(assert)
+> > +DEFINE_MDLC_RESET_WRAPPER(deassert)
+> > +DEFINE_MDLC_RESET_WRAPPER(status)
 > > +
+> > +static const struct reset_control_ops r8a78000_mdlc_reset_ops = {
+> > +     .reset = r8a78000_mdlc_reset,
+> > +     .assert = r8a78000_mdlc_assert,
+> > +     .deassert = r8a78000_mdlc_deassert,
+> > +     .status = r8a78000_mdlc_status,
+> > +};
 >
-> Writing a zero entry results in a suboptimal scan on the target,
-> compute_next_eventid_offset() should just skip ITEs that are known
-> invalid.
+> Please keep the list sorted alphabetically.
 
-Agreed, I can do that on top on the respin (I still owe Sashiko one
-for patch 3/3 [1]). The predecessor's next_offset still points at the
-zeroed slot today, so the restore crawls from there to the next valid
-ITE.
+This matches the order in which the members of struct reset_control_ops
+are defined.
 
-I don't think it replaces the write, though. Restore starts at event 0
-and walks forward until it finds a valid entry, so an orphaned ITE at
-or before that point is read directly, with no predecessor to skip it.
-Leave the slot alone and an earlier save's entry is still sitting in
-it: restore fails find_collection() and the migration dies with
--EINVAL on the destination. Zeroing is what DISCARD already does.
+> > +static int r8a78000_mdlc_attach_dev(struct generic_pm_domain *domain,
+> > +                                 struct device *dev)
+> > +{
+> > +     struct device_node *np = dev->of_node;
+> > +     struct r8a78000_mdlc_priv *priv;
+> > +     struct of_phandle_args pd_spec;
+> > +     const struct mod_map *map;
+> > +     unsigned int id;
+> > +     int ret;
+> > +
+> > +     ret = of_parse_phandle_with_args(np, "power-domains",
+> > +                                      "#power-domain-cells", 0, &pd_spec);
+> > +     if (ret < 0)
+> > +             return ret;
+> > +
+> > +     if (pd_spec.args_count != 2) {
+> > +             of_node_put(pd_spec.np);
+>
+> Maybe some "goto error" fail path which does of_node_put() wouldn't hurt
+> here, since the of_node_put() is duplicated in here multiple times.
 
-> Or better yet, we should just make the ITS emulation consistent
-> with the migration behavior and delete ITEs when their corresponding
-> collection is deleted. As you note, this is UNPRED after all :)
-
-Happy to do that for MAPC(V=0), but I think it might not remove the
-need for the check. vgic_its_free_collection() has a second caller:
-with the ITS disabled, clearing GITS_BASER<coll>.Valid frees every
-collection through vgic_its_free_collection_list() and NULLs
-ite->collection, while the device list and the ITTs survive and
-vgic_its_save_device_tables() only looks at the device BASER. I have a
-selftest that oopses in vgic_its_save_ite() that way, with no MAPC in
-it. And that one isn't UNPRED, so I'm not sure we can answer it by
-deleting ITEs and zeroing their ITTs.
-
-Cheers,
-/fuad
-
-[1] https://lore.kernel.org/all/CA+EHjTxuYLBwNsDnZd4B_jYWBDvGxXMWSDKPiMqjJjdCMYySaw@mail.gmail.com/
+I'd rather keep it like this, as of_node_put() must not be called in all
+error paths.  Moreover, SCMI remapping will add more error paths,
+and multiple fail* labels.
 
 >
-> Thanks,
-> Oliver
+> > +             return -EINVAL;
+> > +     }
+> > +
+> > +     scoped_guard(mutex, &r8a78000_mdlc_lock) {
+> > +             hlist_for_each_entry(priv, &r8a78000_mdlc_list, link) {
+> > +                     if (priv->np == pd_spec.np)
+> > +                             break;
+> > +             }
+> > +     }
+> > +
+> > +     if (!priv) {
+> > +             dev_err(dev, "%s: MDLC %pOF not found\n", __func__, pd_spec.np);
+> > +             of_node_put(pd_spec.np);
+> > +             return -ENODEV;
+> > +     }
+> > +
+> > +     id = pd_spec.args[1];
+> > +     of_node_put(pd_spec.np);
+> > +
+> > +     map = mod_map_find(priv->mod_map, id);
+> > +     if (!map) {
+> > +             dev_err(dev, "Unknown module 0x%x\n", id);
+> > +             return -ENOENT;
+> > +     }
+> > +
+> > +     dev_dbg(dev, "Ignoring HW module 0x%x\n", id);
+> > +     return 0;
+> > +}
+>
+> [...]
+>
+> > +static int r8a78000_mdlc_probe(struct platform_device *pdev)
+> > +{
+
+> > +     if (!info->base) {
+> > +             dev_dbg(dev, "Unsupported MDLC instance 0x%pa\n", &res->start);
+>
+> return dev_err_probe() might be more appropriate here, even if that
+> would be more chatty until the support for various MDLC nodes lands.
+
+Indeed, it would be very chatty, and may confuse users, that's why
+I used dev_dbg().  We can revisit that later.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
