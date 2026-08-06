@@ -4,94 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1714BC5AC67
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 21:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B925C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 21:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdNYUN2NKYN/Z1c6wkVpv11hDVgUadb9eUS5kEIFV7Q=; b=noG6eO8sQk/bVKPXv9blNztAK8
-	tmA25pb/H+NDZYwgBRRNp7WjKEdT6550xtEBzarUXMGQBhnpCkNoUC+DRQIz+L2UaZ6Nh+jUl2HV+
-	shqfAsrWLyMpaZBIGNoRCkazA8Bgp1bHM1QbaGFKFu+KFYs9QxNLLmnovrS2ctjgwpHh2OS4C7EO5
-	ovwgGOqkXGpwKI6jeZVP9bR6jDB70PRQdfGIWUYMYOxh737i1LCm2Y55j1MDLyRgYEKrZOLe9bK8A
-	aPZCoGmtgsV89EzEIUrtyKe9c8ekRFTkRTTso52sHA2OY80nPZNpbrFx7Z0RoPRTTQkBqZsUvgHX0
-	RHxtHXjw==;
+	bh=tNONvDQH2TmOaeFV2MkzL4ucxOMvl8BoEENaXUsQ2r0=; b=4QhxjO5wESMusTTqLASLNE0haH
+	uqPcZezBgXEajEVfCCgA6SSkufiC8BdKMUtdcfvmHtRbLs3mHqwL+jrX2NhPm7gPYIclTZNX+EvJK
+	DMxdCUZMqjOhUjlsAerPhhoRZ40EFk0Jm+NT6mDx9HpTLk4xbpXsC1LSe77ob5mxzn8OaTi8dpGBP
+	aa6N9nrdrIRvxlWVdQuVjfW6YJj5Ja1lqrrjWWNGX251FeqvTRgvbrW3Bnb6RafXtahCJSz9HjMqx
+	40y1cydAoo54ZlJRawoWAhmJ0fOsjwHdY1af1RhxK5uJwHvX6UzVCyAlMLohiernx3PkaT3v/YYMg
+	SsEPoUmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws5zz-00000006kxc-1pQh;
-	Thu, 06 Aug 2026 21:51:35 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws5zw-00000006kxE-2cMO
+	id 1ws62e-00000006l8n-3CVq;
+	Thu, 06 Aug 2026 21:54:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1ws62c-00000006l8C-0Wtr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 21:51:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786053093; x=1817589093;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=7YXZzO7rHKj6qKOZ2jDkYVaRVikc1Wt8k9LrXwdPOkI=;
-  b=STrjp17ZrWDDfBkq6sC6Z3ueXIF2jXJWW7OIEK375PjXAX9+Kg0x881B
-   B/tFAsOhA40Z0lvuWVffvaQAEljKw7HYMqX/u7KP0ur9dOv6jJC6wRO0d
-   DHJUEQxewFwF/3wcMAPvZ3ix9baxvlK4Vk9YNc++PpXraV3YglmGArkoC
-   iKmr4WFz3XinofM9bF2IfWwapjytMYTSBBTRaGoHF485ODLSJ+83P9WYi
-   TWw13K4aqwMmD5m4HxjNkjtU44HLV1zYQPtySd2JSudd5Gj+2p4RPZQKS
-   mpPou75Nx/vjJJkTUg/wpXIUtZopZQJCa9y9NqB10rFxJ7pc54PduokLY
-   g==;
-X-CSE-ConnectionGUID: 5HgRR0sPSIOmI1fbZ2SQig==
-X-CSE-MsgGUID: obO1qUzOQ966pcRwDJf90w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11867"; a="109453873"
-X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
-   d="scan'208";a="109453873"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 14:51:32 -0700
-X-CSE-ConnectionGUID: AB8YyTXOSCSKko1pPJhpvA==
-X-CSE-MsgGUID: gfPYtjsYTwuf1P+pMEQQWA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
-   d="scan'208";a="285586569"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 06 Aug 2026 14:51:25 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1ws5zl-00000000GKf-1GLg;
-	Thu, 06 Aug 2026 21:51:21 +0000
-Date: Fri, 7 Aug 2026 05:50:26 +0800
-From: kernel test robot <lkp@intel.com>
-To: Markus Elfring <Markus.Elfring@web.de>, acpica-devel@lists.linux.dev,
-	bpf@vger.kernel.org, coresight@lists.linaro.org,
-	kvm@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
-	linux-perf-users@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	mptcp@lists.linux.dev, netdev@vger.kernel.org,
-	platform-driver-x86@vger.kernel.org, virtualization@lists.linux.dev,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alex Mastro <amastro@fb.com>, Alex Williamson <alex@shazbot.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andi Kleen <ak@linux.intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Ankur Arora <ankur.a.arora@oracle.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Linux Memory Management List <linux-mm@kvack.org>
-Subject: Re: [PATCH] tools: Use fputc() calls in some functions
-Message-ID: <202608070547.MRKfa3bH-lkp@intel.com>
-References: <48f2d61f-d468-49b7-881e-f00777db073f@web.de>
+	Thu, 06 Aug 2026 21:54:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 177B7153B;
+	Thu,  6 Aug 2026 14:54:12 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 608D53F632;
+	Thu,  6 Aug 2026 14:54:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786053256; bh=OBhp8bb+qL85UhoATxzxbQJNiuhv+HIrFounOJ7gTx4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bKY13eBRtkqyCtj2CSBdQuFzfC+3x5lVjWPuIs6qS6U5e6YREM2ek5wB6Kvsql50U
+	 zxUSRGsVJfouTJv7BoS8HdFs9teQ1KTMSAVdboIfr6pyt3veTAr9LLoe2mKoKDrDU4
+	 L7KzvqLPYfgDNa1iV7Z8R/NQkKardxRUaecNbo5A=
+Date: Thu, 6 Aug 2026 22:54:03 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Karl Mehltretter <kmehltretter@gmail.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, grayhat@foxmail.com
+Subject: Re: [PATCH v3] KVM: arm64: nv: Keep the shadow S2 MMUs at fixed
+ addresses
+Message-ID: <d5svhw3jkjnkucohx2ntwhphemgbtfcmjt2zoyyw6svz56zfrh@z2ziydov5ras>
+References: <20260806192451.10169-1-kmehltretter@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <48f2d61f-d468-49b7-881e-f00777db073f@web.de>
+In-Reply-To: <20260806192451.10169-1-kmehltretter@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_145132_709634_835905A7 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20260806_145418_588010_ED6CE10E 
+X-CRM114-Status: GOOD (  23.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,75 +73,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Markus,
+On Thu, Aug 06, 2026 at 09:24:51PM +0200, Karl Mehltretter wrote:
+> kvm_vcpu_init_nested() can grow kvm->arch.nested_mmus while initialising
+> another vCPU: it copies the MMUs, publishes the new allocation, and frees
+> the old one. It updates pgt->mmu back-pointers, but not hw_mmu, leaving
+> already-running vCPUs with pointers to freed memory. hw_mmu cannot be
+> fixed up the same way: a running vCPU reads it without holding mmu_lock.
+> The nested S2 ptdump file's debugfs private data is also affected, as it
+> points into the freed array.
+> 
+> KASAN reports an access through the stale hw_mmu pointer as a
+> slab-use-after-free in kvm_handle_guest_abort().
+> 
+> Turn nested_mmus into a pointer table allocated once for the maximum
+> number of vCPUs during VM creation. Allocate the MMUs separately as
+> vCPUs are initialised and append their pointers to that table. The MMU
+> objects never move, so cached hw_mmu pointers, pgt->mmu back-pointers,
+> and ptdump private data remain valid.
+> 
+> Two issues in the old implementation are also fixed:
+> 
+> - The old failure path passed uninitialised MMUs to
+>   kvm_free_stage2_pgd(), which derives kvm from mmu->arch and can
+>   therefore dereference an invalid pointer. Only call
+>   kvm_free_stage2_pgd() for initialised MMUs.
+> - Previously, initialisation of the new MMUs was not ordered before
+>   publication of nested_mmus_size. Fix this by taking mmu_lock when
+>   increasing nested_mmus_size.
+> 
+> Fixes: 4f128f8e1aaa ("KVM: arm64: nv: Support multiple nested Stage-2 mmu structures")
+> Cc: stable@vger.kernel.org
+> Suggested-by: Marc Zyngier <maz@kernel.org>
+> Assisted-by: Claude:claude-fable-5
+> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 
-kernel test robot noticed the following build errors:
+[...]
 
-[auto build test ERROR on perf-tools-next/perf-tools-next]
-[also build test ERROR on tip/perf/core perf-tools/perf-tools linus/master v7.2-rc6 next-20260806]
-[cannot apply to acme/perf/core]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>  int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+>  {
+>  	struct kvm *kvm = vcpu->kvm;
+> -	struct kvm_s2_mmu *tmp;
+> -	int num_mmus, ret = 0;
+> +	struct kvm_s2_mmu *mmu;
+> +	int num_mmus, ret = 0, i;
+>  
+>  	if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features) &&
+>  	    !cpus_have_final_cap(ARM64_HAS_HCR_NV1))
+> @@ -91,42 +104,38 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
+>  	 */
+>  	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
+>  
+> -	if (num_mmus > kvm->arch.nested_mmus_size) {
+> -		tmp = kvcalloc(num_mmus, sizeof(*tmp), GFP_KERNEL_ACCOUNT);
+> -		if (!tmp)
+> -			return -ENOMEM;
+> -
+> -		write_lock(&kvm->mmu_lock);
+> +	if (num_mmus <= kvm->arch.nested_mmus_size)
+> +		return 0;
+>  
+> -		if (kvm->arch.nested_mmus_size) {
+> -			memcpy(tmp, kvm->arch.nested_mmus,
+> -			       size_mul(sizeof(*tmp), kvm->arch.nested_mmus_size));
+> +	lockdep_assert_held(&kvm->arch.config_lock);
+>  
+> -			for (int i = 0; i < kvm->arch.nested_mmus_size; i++)
+> -				tmp[i].pgt->mmu = &tmp[i];
+> +	for (i = 0; i < S2_MMU_PER_VCPU; i++) {
+> +		mmu = kzalloc_obj(*mmu, GFP_KERNEL_ACCOUNT);
+> +		if (!mmu) {
+> +			ret = -ENOMEM;
+> +			break;
+>  		}
+>  
+> -		swap(kvm->arch.nested_mmus, tmp);
+> -
+> -		write_unlock(&kvm->mmu_lock);
+> +		ret = init_nested_s2_mmu(kvm, mmu);
+> +		if (ret) {
+> +			kfree(mmu);
+> +			free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+> +			vcpu->arch.ctxt.vncr_array = NULL;
+> +			break;
+> +		}
+>  
+> -		kvfree(tmp);
+> +		kvm->arch.nested_mmus[kvm->arch.nested_mmus_size + i] = mmu;
+>  	}
+>  
+> -	for (int i = kvm->arch.nested_mmus_size; !ret && i < num_mmus; i++)
+> -		ret = init_nested_s2_mmu(kvm, &kvm->arch.nested_mmus[i]);
+> -
+>  	if (ret) {
+> -		for (int i = kvm->arch.nested_mmus_size; i < num_mmus; i++)
+> -			kvm_free_stage2_pgd(&kvm->arch.nested_mmus[i]);
+> -
+> -		free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+> -		vcpu->arch.ctxt.vncr_array = NULL;
+> +		while (i--)
+> +			free_nested_s2_mmu(kvm->arch.nested_mmus[kvm->arch.nested_mmus_size + i]);
+>  
+>  		return ret;
+>  	}
+>  
+> -	kvm->arch.nested_mmus_size = num_mmus;
+> +	guard(write_lock)(&kvm->mmu_lock);
+> +	kvm->arch.nested_mmus_size += S2_MMU_PER_VCPU;
+>  
+>  	return 0;
+>  }
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Markus-Elfring/tools-Use-fputc-calls-in-some-functions/20260806-165154
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git perf-tools-next
-patch link:    https://lore.kernel.org/r/48f2d61f-d468-49b7-881e-f00777db073f%40web.de
-patch subject: [PATCH] tools: Use fputc() calls in some functions
-config: x86_64-kexec (https://download.01.org/0day-ci/archive/20260807/202608070547.MRKfa3bH-lkp@intel.com/config)
-compiler: clang version 22.1.3 (https://github.com/llvm/llvm-project e9846648fd6183ee6d8cbdb4502213fcf902a211)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260807/202608070547.MRKfa3bH-lkp@intel.com/reproduce)
+Hey sorry for nitpicking once more, I actually like v2 more, as this
+version splits the error handling to two places. Marc's implementation
+[1] is also good, but that requires a twist in kvm_arch_flush_shadow_all().
+So I'd personally go with v2 (+my suggestions for it :)), but also fine if
+others have other opinions.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608070547.MRKfa3bH-lkp@intel.com/
+I also think the comment in kvm_vcpu_init_nested() is worth adjusting
+slightly, too.
 
-All errors (new ones prefixed by >>):
+Thanks,
+Wei-Lin Chang
 
->> builtin-check.c:300:8: error: incompatible pointer to integer conversion passing 'FILE *' (aka 'struct _IO_FILE *') to parameter of type 'int' [-Wint-conversion]
-     300 |         fputc(stderr, '\n');
-         |               ^~~~~~
-   /usr/include/stdio.h:155:16: note: expanded from macro 'stderr'
-     155 | #define stderr stderr
-         |                ^~~~~~
-   /usr/include/stdio.h:611:23: note: passing argument to parameter '__c' here
-     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
-         |                       ^
->> builtin-check.c:300:16: error: incompatible integer to pointer conversion passing 'int' to parameter of type 'FILE *' (aka 'struct _IO_FILE *') [-Wint-conversion]
-     300 |         fputc(stderr, '\n');
-         |                       ^~~~
-   /usr/include/stdio.h:611:34: note: passing argument to parameter '__stream' here
-     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
-         |                                  ^
-   2 errors generated.
->> disas.c:540:9: error: incompatible pointer to integer conversion passing 'FILE *' (aka 'struct _IO_FILE *') to parameter of type 'int' [-Wint-conversion]
-     540 |                 fputc(stream, '\n');
-         |                       ^~~~~~
-   /usr/include/stdio.h:611:23: note: passing argument to parameter '__c' here
-     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
-         |                       ^
->> disas.c:540:17: error: incompatible integer to pointer conversion passing 'int' to parameter of type 'FILE *' (aka 'struct _IO_FILE *') [-Wint-conversion]
-     540 |                 fputc(stream, '\n');
-         |                               ^~~~
-   /usr/include/stdio.h:611:34: note: passing argument to parameter '__stream' here
-     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
-         |                                  ^
-   make[5]: *** [tools/build/Makefile.build:96: tools/objtool/builtin-check.o] Error 1
-   2 errors generated.
-   make[5]: *** [tools/build/Makefile.build:95: tools/objtool/disas.o] Error 1
-   make[5]: Target '__build' not remade because of errors.
-   make[4]: *** [Makefile:123: tools/objtool/objtool-in.o] Error 2
-   make[4]: Target 'all' not remade because of errors.
-   make[3]: *** [Makefile:74: objtool] Error 2
-   make[2]: *** [Makefile:1587: tools/objtool] Error 2
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:248: __sub-make] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:248: __sub-make] Error 2
-   make: Target 'prepare' not remade because of errors.
+[1]: https://lore.kernel.org/kvmarm/86mrv2arf2.wl-maz@kernel.org/
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+[...]
+
+> @@ -1273,10 +1282,10 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+>  	int i;
+>  
+>  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> -		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> +		struct kvm_s2_mmu *mmu = kvm->arch.nested_mmus[i];
+>  
+>  		if (!WARN_ON(atomic_read(&mmu->refcnt)))
+> -			kvm_free_stage2_pgd(mmu);
+> +			free_nested_s2_mmu(mmu);
+>  	}
+>  	kvfree(kvm->arch.nested_mmus);
+>  	kvm->arch.nested_mmus = NULL;
+> -- 
+> 2.39.5 (Apple Git-154)
+> 
 
