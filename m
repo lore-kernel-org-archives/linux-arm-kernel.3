@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD18C5AC80
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61117C56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qs4zXt52yPprogidGbqcBFljl+XDCyeTQeEFyOiMma4=; b=ZAD/axMLEV5+rT34sv17NVX+/M
-	EuiuOqzvYaQc76iWGoT899LuitrfFnmtRCHbFZco8QLghb1rMizX8gQFLlRYeG+NFZjo5a/NVXKJw
-	NZ3J6W1QcRICMd/Fa/In300TAgoFjYP+74IqU/rthRrTWQwYHpF75r9dO/q8psHPDBeyaLy/e0yWP
-	HBs9fEvFUc+1HuQaeYtV0pq8boI5wCbkkcSYQREM9Q3sb3ZbnmxoNkjl+DXFFOzskEIwKjXfcowr1
-	sGry5+P6yXOjvHq6sYCPTXKkhnPKd5gySfodv6GhlKjQO4nRuHlMHIXhzyLLwaxpbTSbDU4+eL5Zb
-	UbR1E2Dg==;
+	bh=XpYKqC5ieeH0CeVfPg5XXhrYkSlRUnEoujChOtFxVHE=; b=0zsszOMKQe96p/JuChXHnIoAkP
+	pm2wa0UGTlSdTfQ6KH5Btfa+wF1+YvkVahFl/qSqZ7dpXzrlKXgjox4foqUWA6NpqoemI+kkW80BG
+	szc9Iu4eV7SN0PlrxUjw1/0gfaLXacI4F/vQhANakD28fqVMxXQtnreoX9gfeGx4GTUn7ryLy9hNR
+	pmnYw/XiwZ718pUqkOlucD52SbGDX7pfrU/0GplQWcJMGRTgsF3yrhnJpd3l5psHaKZBrdeqtVl37
+	HM5oCkyMZXJWcwzqVn3k0KfBM027IMrWftTkLCd1MX7udkcDNLMPlDzNWYPLb4o4duLp2Cfrc9zfL
+	yuSb1pSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1dj-00000006Kg9-0pf4;
-	Thu, 06 Aug 2026 17:12:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1ws1dn-00000006Kjy-1Ffa;
+	Thu, 06 Aug 2026 17:12:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1dh-00000006Ker-48tm
+	id 1ws1dk-00000006Kht-3QTZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 17:12:18 +0000
+	Thu, 06 Aug 2026 17:12:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AE351413F6;
+	by tor.source.kernel.org (Postfix) with ESMTP id 42ABC60AB0;
+	Thu,  6 Aug 2026 17:12:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2308B1F00A3A;
 	Thu,  6 Aug 2026 17:12:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC8F51F000E9;
-	Thu,  6 Aug 2026 17:12:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786036337;
-	bh=qs4zXt52yPprogidGbqcBFljl+XDCyeTQeEFyOiMma4=;
+	s=k20260515; t=1786036340;
+	bh=XpYKqC5ieeH0CeVfPg5XXhrYkSlRUnEoujChOtFxVHE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=iBXtthlavXY8ceSZ8duo8BEz3UTtrn7dI/0y6bxESSmRSKo1HkKCKlaCu3A9WirHR
-	 RCaf07lsAHagUamSPUErIlIquo4ZS0MMUGAhhsrEdwSe7kSl60cywOLbQ+7LnNQM6b
-	 roJKUc/LVltRJTsukumd1TH6O2LQCIfR1JsNswTfYXonHTfAH7xQi15e6XabbDob1J
-	 P3AZ6QMnzes+eywPTwI3FydlGPtx8xKlayAGqMiYhiY0ASZoNw6qLAc1bkgaP9ZGHm
-	 90CJ02MeY3jz5JrasF5ZxvkF7i0ZmH/CQp3uMRJ4OIB/9mB2doG65pVgC9sxtNzW8y
-	 r40+Xvi4iQh7A==
+	b=itg203n/X9z7r8BvUTyqqg4HN+pgvQltq3OEpnuhRJovfdZYmyuY0JrdsB0FN6p0U
+	 XNyYL6tOsuTAqZQRwS3gS44EKj/FNNigUhXwAQ60L8HanplHB+r+chLekmgRZ9NJBk
+	 qKCdXFIQQO9v/N+AsUcSFl85AzdI5g5QxvJrSGsp62xybVceZonq0kpZugYNCmziij
+	 nbI6CHv62c51LUaUjirub6Mbt3PJW7BP1rtXobzhT2xVFA6L4cwBKbdJFULZwOjlhU
+	 E2TFv4804ozpS9B1hPx2EQ9fsv/9UP1HmjiGcR6XPMib6VAs4Ku1uLCr2ckTQ8jW8O
+	 JxlWkC+TxIdxw==
 From: Will Deacon <will@kernel.org>
-To: mark.rutland@arm.com,
-	Robin Murphy <robin.murphy@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
+To: catalin.marinas@arm.com,
+	shuah@kernel.org,
+	broonie@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	ilkka@os.amperecomputing.com,
-	bwicaksono@nvidia.com
-Subject: Re: [PATCH v2] perf/arm_cspmu: Support 64-bit programmers' model
-Date: Thu,  6 Aug 2026 18:11:44 +0100
-Message-ID: <178601658928.385816.2976546188979360844.b4-ty@kernel.org>
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH RESEND] kselftest/arm64: Fix abi test compilation errors
+Date: Thu,  6 Aug 2026 18:11:45 +0100
+Message-ID: <178601918128.406021.15265264695708888556.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <2bde4469c918494e8fa04b2d297a6189ac8b7796.1785511378.git.robin.murphy@arm.com>
-References: <2bde4469c918494e8fa04b2d297a6189ac8b7796.1785511378.git.robin.murphy@arm.com>
+In-Reply-To: <20260806111546.42042-1-ruanjinjie@huawei.com>
+References: <20260806111546.42042-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,20 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jul 2026 16:22:58 +0100, Robin Murphy wrote:
-> The 64-bit Programmers' model extension, now named FEAT_CSPMU_EXT64,
-> makes all the non-counter registers 64-bit as well, of which we most
-> need to care PMEVFILTR<n>, PMEVTYPER<n>, and PMCR since it changes
-> location. Our event config fields are ready for this internally, but
-> we need a few more tweaks to propagate 64-bit values properly from
-> end to end.
+On Thu, 06 Aug 2026 19:15:46 +0800, Jinjie Ruan wrote:
+> The arm64 ABI selftests fail to compile due to missing include paths
+> for kernel headers, causing errors like incomplete type struct sock_filter
+> and implicit BPF macro declarations.
+> 
+> Add $(KHDR_INCLUDES) and -I$(top_srcdir)/tools/include to CFLAGS
+> to resolve the header search path. Also remove the hardcoded __NR_write
+> macro and include <asm/unistd.h> to obtain the correct syscall number.
 > 
 > [...]
 
-Applied to arm64 (for-next/perf), thanks!
+Applied to arm64 (for-next/selftests), thanks!
 
-[1/1] perf/arm_cspmu: Support 64-bit programmers' model
-      https://git.kernel.org/arm64/c/807b9ecead03
+[1/1] kselftest/arm64: Fix abi test compilation errors
+      https://git.kernel.org/arm64/c/eb78ef9cf77a
 
 Cheers,
 -- 
