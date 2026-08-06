@@ -4,149 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8EFC56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 11:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649A6C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 11:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=; b=hPBxwQTvYt5w8qwUOukygNI0cX
-	XY6AkxJ2Zheg4QMUwYSt6WBiSUp8KETBouzxFwQbCo9njJJDoAFUp9yrsWrmcU+FHoHv4JclV1pNs
-	AIdteFuARVdSsG5rlzvhy0R5zDPl23mw6nnl/6ZlLsz/2bb4D8Lz+dViK64Q+jUnQNsUOzf0i4CrH
-	E0RXttXmS8XCq8hV12PCTwzoyRrBg78QO68QHED4Ixw8zx4tA9ZCgnugRwt48AcFrImLUgJ6tEQO8
-	i/GDPlvqd8kopF+kQVzyryDbcWECtMekeTdWZnmDD9PWJvSSMN5GFxzYTW8NmyFm0ZikOTynIRoUM
-	Cd2LeM8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kMaEeVh+/U+NbRzoGC8Idgo7QP/ahOzSH8HwXGJHBcU=; b=tlB6UH3tE8RpuwsEGxm61+XtSF
+	1lpQo1B02ak95KJbNh8+FJ0l+TqISFA1KQ4qa6xilezxb40EjTL/t+/40OKf1M2FwUQwF2JtO+cSy
+	luCgSCW95jNJ7g7qnoFSwTKQTF3Plk4YR8BJsxdTTCCPO26o1UwhktUIOij/TscNwsYsVmnNk1V+m
+	EAJm5863+t7X16KZBNt0vjOm06CfN5MBIdkgg6YQ9vJFeJoz8LqYGcNGkOODU3GUmr/SWHvqFpViG
+	qty9pig1PrlrizGZjZyR464aVebIL3vkkzCn8KLU2YMeqhY62CxmPpmPt88YnVnjSr6+D756UTNiQ
+	EFiAvUPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrvr1-00000005bTO-23ct;
-	Thu, 06 Aug 2026 11:01:39 +0000
-Received: from mail-norwayeastazon11013021.outbound.protection.outlook.com ([40.107.159.21] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wrvtB-00000005bwf-3vt0;
+	Thu, 06 Aug 2026 11:03:53 +0000
+Received: from mail-oo1-xc35.google.com ([2607:f8b0:4864:20::c35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrvqz-00000005bP1-2NDS
+	id 1wrvt9-00000005bvK-08A8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 11:01:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hwJbpWES4vr/U8mqmQr1QMnY4bPxsI5UeantFgRPfsHFSTSf+lYQigB6SJWcLiH5bGHeuYrGnhlvbF5Ao79ETFT1riCMVsF9iBMhAL2aHhefz8jBlXPdUVtmKbwCS4NzssR3CFsX369VN1bUACRaIDwGNBjR7rjDD4LWgqbXcUID/tu+vvFKNbNguwIC4ng1XjK+stuFc2JtlxeEAeK4xgQV0mPkjj3D2epDtoYyRxFxEk6IxEEMPcnixzgkCyYkU8a1VixLXG5U9DpqvwCNXufcHPr7/db+qb/K1W5J8nQQ/qv+PUH2KDuQn2vPQm2iRcGt7nOfQiZP5uzI7/eWjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=;
- b=N+7YMwOfpH0iunW2KrNE6sddxS2AwERTVbU+2p/R5dalgqvS2HBfbe4hZp8bxG0INKcJ5pxJnWr64gorrRJth5D8TLOGU149mbV3hwYdvfNPtDwZmob0hAYd8xXpST3foMsVtCzhKydd0dR9i+Mkju2ZHCulVocMz5j9/8ua0DkMYZ4eAJhMfkSdtFyphBDNiLy37C5I6YicwHayFfNe2vsSt2bgLTWOWIT2MrM5jTWQ8cA74umXVuZ3G9Z7N+rpQUce78uqoFTcqSN/E9wwp+yEy3WtrSUSj16etwbjX8BqXzSSUCCKgrRv6zn+gjF6p+rb7ETjhwJbf64+9Weq8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/T28Dv7KzFFE9nxv/81pMJDpMBM2QOQ+wFzcBBIp92M=;
- b=FV6NCokib8sDEtnmeY52u0AycfvLAfxXevEkcvkc1SrH/P8OA0JhyXL4mwfW5sA/Y2DtgEL7hiBPEu1g/kyEf2K/AFIHRlBUoeShz11cJVXygvXukw/Vsy4+/dDJDk0wtDbxyFxWvrCV9crgvemnfUkVEx+ILHgGuPsvM3iCajgoeatYE8C1ELpviDlQJVBqJ29QpqN/tV60OLkaMrIZJc1M2efi7i+jkPN4RLJJ2EPdUOuybTQCKT9ZKmE70Me4PERzRimh5iphjneF2JV3D4XOlFzsC3Z7LZZeUe5CSG8XTLKU+GaSNWA2inpGrYhunEGiGNicntlnEOBAwzK3cg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
- by VI1PR04MB7007.eurprd04.prod.outlook.com (2603:10a6:803:13e::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.20; Thu, 6 Aug
- 2026 11:01:30 +0000
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c%4]) with mapi id 15.21.0292.019; Thu, 6 Aug 2026
- 11:01:30 +0000
-From: pankaj.gupta@oss.nxp.com
-Date: Thu, 06 Aug 2026 17:21:40 +0530
-Subject: [PATCH v35 7/7] arm64: dts: imx8ulp: add reserved memory for
- EdgeLock Enclave
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-imx-se-if-v35-7-11b25bb308ef@nxp.com>
-References: <20260806-imx-se-if-v35-0-11b25bb308ef@nxp.com>
-In-Reply-To: <20260806-imx-se-if-v35-0-11b25bb308ef@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1786017100; l=2461;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=8LTJ7dQk+ZmHVQUVQ7z2QFEU98qQ6ZendsUWTwEehrU=;
- b=9c0ZYr416VSLaonlDDQ8/+IA/WP2jwjhskXZEjBpxRqUeaz1zYP100EsBHERkDQR93axyYAKH
- VdNMBF5ohZTCC8y0zCQf6XElBkwT07LSOFyX1yfms8wSE1uGrS8oslq
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SI2PR01CA0023.apcprd01.prod.exchangelabs.com
- (2603:1096:4:192::17) To AM9PR04MB8469.eurprd04.prod.outlook.com
- (2603:10a6:20b:414::15)
+	Thu, 06 Aug 2026 11:03:52 +0000
+Received: by mail-oo1-xc35.google.com with SMTP id 006d021491bc7-6ae9b721927so1063191eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 04:03:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786014227; cv=none;
+        d=google.com; s=arc-20260327;
+        b=lxuyCZ9QWjxMV7uWBHYp3/rta0DPiVwOd8SUFQdj/iU6CfR9VJKoT60He8Lv0EtL+8
+         S3v1jEJB1Ec+JbNHZceBZg4+ou1sIMdrD2WZMhzdLgzsBdnpyyNgca0YUgWdIn8g9Z58
+         Sfm3IW2cRdGGVPNKIdl/MAv6MlEHwjT8eqicsm6BEuLZ4ZIHuaxYmrfc3kttYQMALiex
+         1N1SmjewKtZ0O53aRPs5AFD3eIZtlwYnm4iKs3cOASbLpVkzYEtS6+Fqd8xhrgr1mriV
+         1CoQy14GR7sNoItZVOW3wG936f2rD+moBZB0IQEs60sT1jSg1t2U1aDxaJ96I2+bqQMo
+         qz+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kMaEeVh+/U+NbRzoGC8Idgo7QP/ahOzSH8HwXGJHBcU=;
+        fh=E3sPWx3RdGJluuYa5a6NA8tI/kYvCsvtRZqti7HJbjk=;
+        b=Cudm3HPvccYBDE8gkCY2TOT+r8VN4cD6giJm+laFSIFJSP3zB9Zl7W8CkdBgfAwULV
+         fTR12mnGXw+WV+gZVN2OAfczmSIVonbpqILjT2s8tQ9Jd3vaN8oELlYjbjxgKFxIqymI
+         6rL5J8DiUBsAj/CHVrYtZFZlLLswdQdJlDxPDH17VDfiALO6pRmO+c6hq1MVQK6hXSX1
+         g3eLrNmyHX/KYK1hPHWHA+o0FWMBbVClKd6E6/M2o3IElhxVIulx8wgRnselA4SGdpHb
+         +z33rqs6DnkHcx0ySW478ucgykbzH71o9S3Wwupo974arExyrPjK6681lwF+LBNhCoIn
+         nxjA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1786014227; x=1786619027; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kMaEeVh+/U+NbRzoGC8Idgo7QP/ahOzSH8HwXGJHBcU=;
+        b=L2jaaWDTtlF7QNf82f6R+IbGOrkd7wQaQ7yTPAtPtz00Cp1pzOnrCdoXGgT36sZMRg
+         U5HsD20+HN5dpLHba5chY1vwCn6ercPsuaZZbQslhHG0tTpFFPX1uuTbOlW6jm7BtrDo
+         StGgKdKfSH4BV2Bg7F6jHggWX591/Bow9VJNMICxQeAKtV/mBM/wv4MAfSaSnetw+Kpm
+         MBmOz5FivUSEuGt8mm9TF8AY5DNwStgIw8loYYdkO81/NA2jDX9M4NNziQ0Qf6V+7HyC
+         J8Vg736iY+AaVRyjfgdcPRhYR1stYeCmGMkFjxq2aLJnjAWIMT9E7FF547q+x3GMoDLv
+         wJPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786014227; x=1786619027;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kMaEeVh+/U+NbRzoGC8Idgo7QP/ahOzSH8HwXGJHBcU=;
+        b=KbKFaNWlJpf2owc2x7iPm19ZrLXrcmjdGN52FlEkxXesHkMz2MH4/UtWn3zUylAUis
+         yzWpmtd7pamRAl43nEIHiD5dNbNeDPu7SBHTTtozjbRdUFm/3CwHwdHU119dboWNV4wN
+         QfPARVSieSGbXvSqBVVTEaGZwlsPDuOy62N31mboOztcf5qa9+W2W0QlPkJxycyuewyk
+         g7OdU1QtGoAR1MqwBuLJzdrguImWRGAB6a7ekpM4f8ikPJ6jNOqau2ms+kbHEx7Vd+E+
+         Vt6RgDkjhU0znxRxYBow1gH+ZN5yhRZMJnO9q+MhiWZ0LEwPSEtkk3JNwULjlOwgvb1a
+         xxIA==
+X-Forwarded-Encrypted: i=1; AHgh+Rq2K1pG2hIsGUEuoys+xVy0fY8b5tlZ2UsStffO0KvX6S4rkVwWtNM/o9cxIaBZPWyqQKWeK44LdIdk6XTQ02p9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWTBJkdWbEVzOsPX9iXUrpCJ+JiyBeZ2X9JGIOinv8mFN4rBlG
+	w4mcRpBU+0L26FSx5FFMFz38ik9dZXVCOqjBpeU6crgPh8Sw+Ui4fC2ua3NT1mxtP57qEUJQeiv
+	2k/VAEUeyhoi69Rm4BkEuhZL6E51BRYo9OQ1mHxcE1Q==
+X-Gm-Gg: AR+sD12tkLvTz1jJqDk54urgBFgmkeKyqWlyyUrpxFHWyGNBiAPgzG8GZONpAkLCTVw
+	i5nQkbiOW2dnAK19ZAF4JKlqS3A4xxEGvR1t0HIl/vLwLsopnqt5p1tdEHrqEZVRDd+uGLNOfyU
+	fjbZ15B748A2iXo7fndySfFx3NsP+SThq04sXQtKW6R82m/NCIA630Re7DbpdfO56bdHm13/uc0
+	FAHZ+Lrqq2VmLu+vqcHxNVNQ56irjCSLERNdhozsGoT+YFtxZGfnDejtQ8byQ1o25hiLzHdeDtc
+	27tpKWWEgIzVsqvbvRtzBvoTUPtTrjko2n3KipNFsETyvKk=
+X-Received: by 2002:a4a:e910:0:b0:6ac:ac32:b5ff with SMTP id
+ 006d021491bc7-6ae96c1b306mr7392747eaf.2.1786014225348; Thu, 06 Aug 2026
+ 04:03:45 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|VI1PR04MB7007:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19e113df-1617-4fae-f31f-08def3aa119b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|19092799006|7416014|376014|11063799006|56012099006|10067099003|18002099003|22082099003|921020;
-X-Microsoft-Antispam-Message-Info: chRxqHg61Z5A88sA9TfT2lb26niqOT+Txc2JI30ybbnkQm1Iz+OdGnOZsKC+i21Pc1+RGbhpqcpjFBAulhKueVMlQdYgSQST4gsrT4WsZbUq7Krz9Hu4UqGfprlpSAj46Cqq3mS96M/0zzplMNsaTVwLLX0K5LNT0+9YtdZHVAGY+xCWaU5kzQzFtTLTGSNXuuJnVv5ArllI1xf2e1MIM0cGynvir75OUuo3ouag5ivabJ48kuUdavEu4/XbCN6WUlqdNySXQTHRTSFD6M9BnmEpgQxZj8Mg3Gm1BpkNNpG03aviZHucF5ZOdCspNG+++FakvYAYiGprq9BtZQqPq83bU5XCCSh+oODbdkDpehX/Bl9NqUPH5ULttil/Bbo5jPH6mw6Hvn9DFm8xEvjSnBJNpxmJGtDUoFW7qurv8vYjphnVGNUgzTtBc+fgfkzOMjzSQhcWP3EZoeTpoo8cEiwAOdlZzWvXjzfv4iyU+ZIt1skulWvTTfmIpyD+04p8XkE91X+6j86/MMNX2zN9no0l/B/YrQ78HhOWQMkGjOOQpMnmPGTfEqYzKoFff0nEov1nwPKJlcbHRbApvmHNygkBxc+mcDz8g6c5Qqyo4h1iUv8yB/hvTHENfNTyLySDvqY4WDOgKyJKzvcJvHC0r8raByOenWibIFe8jQjzcoPA/oz/lqP9ukIT1hXqH/1rUrs3T1kt/ANJrjGYOhQ2gQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(19092799006)(7416014)(376014)(11063799006)(56012099006)(10067099003)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RndNc2lwT1g2aFRBWTJnck9WQlROdEt1b2xveUlDUUQ3L0RGckpBVDFSUlgv?=
- =?utf-8?B?SEJUUTl1WUx4L0NjbHNFb0VwdkdoeWRxNmQ1elZZdE5DcTdLNW8vc05CdHRu?=
- =?utf-8?B?azNNMVJwNVJ0cXYwMUFGVDBSSitUSElmWkpocG9TdkVKYXFiM243bTVYOGFu?=
- =?utf-8?B?TVlJNk1CNWU2WUxmVHNMait6b1ZldGtZVmQrZGJQalNrWHYybUxvdVNaRWVT?=
- =?utf-8?B?WXE0MlBUZnJ5UFRPWnRFWUZpcXRmemN4ZUMwRXBwWWZuUTRhQ3Bqb3RUVURS?=
- =?utf-8?B?d2FrZ2VHVHAyZHNGY1ZXSXdWakFRT3F6aVpUK1UzQW5wUEZhbzJVeFFNckFH?=
- =?utf-8?B?TE1CTE5SUHVuTFQraHlyR29OSnY1aTJnVTdZSzk2RVFBa084azM2ajRQTE9B?=
- =?utf-8?B?S2FPTVlLTjRrS3RsQm5RbWZGMUMyRXBzUTdNZ01adThtVzJpWTN4Y2k5UTNC?=
- =?utf-8?B?ejR6RmNkRU5XU0xvQWE0eTRuV3ZpRXFMQlEzRCtlM0pTdUxyYjBLWU9RVTBj?=
- =?utf-8?B?VFFMbC9nS0ZsZU1UZ1JFUm9SVkRkTHhxK0hLVGJ2NDVtWnJuZ1hEVWRKWThS?=
- =?utf-8?B?bDFDRFoyMjhER1FJZmUyeXNvdUdTVStidFR3QmU1dUpjdEQvSHVERWxaS2Vy?=
- =?utf-8?B?K1loeE1ac1JyVFQ5emg4OGc0WmNNaGc1dU44em5aMjNXSUZWbFAvTVF5VUo5?=
- =?utf-8?B?N1FOS2VCWUVaWjVqWFRkZ0tlOVRQVDd3VEZUTmE1MGlmenFkMTh0MjJBbE05?=
- =?utf-8?B?NGlPNms0dUNlODVzOUZLcnhoNzRuOHVxVHAzcG8wdXl1ZlMzdjRKSzErUlVQ?=
- =?utf-8?B?VjU0UnRyTnZVeGNiRERTTEQ3MjczRzlHRjFONFAxTUc4UE9FYVNTclhlbjcy?=
- =?utf-8?B?NlBwazVCVUMyYnU3OUdZdy8yc2xNTU5RazFtQ1MyTjhpSE9jWDdaTWg4L1Qz?=
- =?utf-8?B?bDZ6eE4zT0drTFpEUlhia2NZTHBrZlZKd1VqNFRSYlBFczRWV2hkbzhxbS9F?=
- =?utf-8?B?SVYyTVdna1V0WW1tTVoxMHZkTDFRam9FYStVdE1WKzZJSTArOHBxd2E1azFr?=
- =?utf-8?B?ZVQ1QjN3dXhMYlZWR0w1Qnh0TVJtcmtFMDJ0Yzh4cFprQTg1dEwzTjZzUjkv?=
- =?utf-8?B?SlpoWmRSNjU1TUtRMGg1QmdiTHl4SkJoT05sczk4cnRCMXErbngydnRMaG92?=
- =?utf-8?B?bzlNUHdVWDJWQ2ZHOUVyeTlCTld2SFc4WnlFR0JCY3dJUkZiSHk4cmFNbE1H?=
- =?utf-8?B?QTgvRWw5SGtIV0VrdVk3ampGdWo5dG5UWVN1UEczdW11cHpJeXJteEMvNFA1?=
- =?utf-8?B?R1c0MW9SZUhRS0U4ZmZ4aTdYNFQxUnh6b3BvL01UdUZLakk5NzNlUEdpS3lh?=
- =?utf-8?B?cEdzNHY5VDYzZ0RWV1NHcmxxaGs3RTFVbEtOcEkzTmZ5Z3NqNGFQcUd4SHVy?=
- =?utf-8?B?QWhFM3liNitvZnZwbkFjYW1TUkhQWE8rNC9WTUZJaVV3Y3lJMmdVN1NKVVhl?=
- =?utf-8?B?R0VKY2R4d1lDblY5UVFlNTRxbm5rVXJjcWphYXZhTVdhdnhsY3FwUm5CT2dW?=
- =?utf-8?B?NExtVnpNMGt3SVkrU29CL1BiV2JkSTBTQk5TYVZpY0lKck9Tb1QwUGMvVGdF?=
- =?utf-8?B?N3V6L0p4TlRtSXU2a2FOa09QUDl1MDYyUmpMVEhkS2REL2pJVk51YTFaT3hP?=
- =?utf-8?B?b0I1L2dDSGg0SjIxaE1FUmI4L3pxVFFNV0E3cDZ4RnR6MWIwcGFiWEdHWnNz?=
- =?utf-8?B?eDVxOU9JS1c5NXN0aHUrNXdueWYxcGI0WE0rSlBXd2lwVVVSY2xJUmJDci95?=
- =?utf-8?B?czlEOXhhS0VZRmhqVE4ybUpFK1hYQ3plODFLRHowZHhZY3Q5QS9TeGVBY2R4?=
- =?utf-8?B?QzJMb1Y1cFpvMU9zblB3ZXpYOTliRDVOVmgzN2VieG9vNHZqS2txYnYxMW85?=
- =?utf-8?B?S1ZJL0xhcEZYcDIvU3B6d1Rid0tUb0E1YmNWZnhJalNGamVQOFNvdStLQ2VD?=
- =?utf-8?B?VSt6czFqWnRzRC9QRjB1a0I2SHBrN1NVNCtHc08yOEZXOEgwVk1CRThQL0VD?=
- =?utf-8?B?cUJCSTkrcHVLUUd0T2E0RExvT2kza2RETlJrVkNtZ1k0WFVzVVpRbmw0WXRF?=
- =?utf-8?B?TGhHVG5UOE1GTERCcmdBbEZKWG45Sm9PaXlqU0Z2ckk2MWNpSTRPQ1NCQ1BH?=
- =?utf-8?B?NXJlYVBNakhMN3dtR2hFRTI0THZVUUthMWxKK2Yrdnk3YjFsa0MxVmsxQTlw?=
- =?utf-8?B?L0JqUXl0K1NwZE96ZlkxenNCVnZGamVZK1lHZWFYV0gwZk5WVEdZT1U3SWo4?=
- =?utf-8?B?amFER2hQaE55VkVJaE40TkJkV2JIOUZpaS9GdlRhR21QVGUxV1FIYWtUOGli?=
- =?utf-8?Q?IOHFdcXHPxwv7EF/x1d/hFsIPXumzPIHk4Szn?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19e113df-1617-4fae-f31f-08def3aa119b
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 11:01:29.9693
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9zxn5nvFMWIMsyin1hxhEQQDAgvYF9lebCzDksSSz38mzv4UyIbPx12Nb/n/5mbsxGdTBx9FVUDp6klRMw09L4mnkOWw71FW97B7XcpKJmQh15SPMJE7DiTVIvYOMXzx
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7007
+References: <cover.1784201104.git.cuiyunhui@bytedance.com> <138d74aa9863ae8ff445e16a2798d062895b75bc.1784201104.git.cuiyunhui@bytedance.com>
+ <anQ2bW3JxraT6PFY@lucifer>
+In-Reply-To: <anQ2bW3JxraT6PFY@lucifer>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Thu, 6 Aug 2026 19:03:33 +0800
+X-Gm-Features: AUfX_myo8uemIR_J8tcaFPQk5bQ_19S-a0xl3xjkzuEjy5SWJNGo65WwssSv6nw
+Message-ID: <CAEEQ3wk62WBSJb5JcnPJoVSb+JQq3ZcE4CRmqqTvkAO20XFjbg@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v2 10/15] mm/gup: add fast-GUP specific
+ lockless PTE helpers
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+Cc: linux-riscv@lists.infradead.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, kasan-dev@googlegroups.com, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	John Hubbard <jhubbard@nvidia.com>, Peter Xu <peterx@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_040137_604660_50536691 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20260806_040351_078456_7F1CEBA9 
+X-CRM114-Status: GOOD (  41.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,82 +126,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
+Hi Lorenzo,
 
-Reserve 1MB of DDR for the EdgeLock Enclave. The enclave hardware can only
-access DDR in the 0x80000000 - 0xafffffff window, so constrain the pool to
-that range with alloc-ranges and let the kernel choose the placement rather
-than hardcoding an address.
+On Thu, Aug 6, 2026 at 3:35=E2=80=AFPM Lorenzo Stoakes (ARM) <ljs@kernel.or=
+g> wrote:
+>
+> +cc literally everybody you failed to contact...!
+>
+> Why on earth are you doing sending a series like this which changes core =
+mm,
+> non-RFC and at v2 to boot, without bothering to Cc relevant people?
+>
+> I am also very confused as to why you are sending an ostensible RISC-V se=
+ries
+> then changing how core mm works to fit it, that's not how that works.
+>
+> And if you're seeking to change core mm send it as an RFC!
+>
+> On Thu, Jul 16, 2026 at 08:41:45PM +0800, Yunhui Cui wrote:
+> > fast-GUP snapshots a PTE without holding the PTL, pins the page, and
+> > then revalidates that the PTE did not change. Keep both reads under the
+> > same lockless PTE semantics by defaulting the fast-GUP revalidation to
+> > ptep_get_lockless().
+>
+> Why?...
 
-Provide this as a shared imx8ulp-firmware.dtsi that also enables the hsm0
-node and wires up its memory-region, so every i.MX8ULP board can bring up
-the enclave with a single include instead of duplicating the reserved
-memory node. Include it from imx8ulp-evk.
+Thanks for the review. Let me first explain the motivation behind patch
+10/15, and then address the RFC/Cc and naming issues.
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts      |  3 ++-
- .../arm64/boot/dts/freescale/imx8ulp-firmware.dtsi | 31 ++++++++++++++++++++++
- 2 files changed, 33 insertions(+), 1 deletion(-)
+The goal of this patchset is to let RISC-V Svnapot provide contiguous PTE
+semantics similar to arm64 contpte: generic MM should still see a normal
+per-page PTE view, while RISC-V can fold eligible PTE ranges into the
+Svnapot/NAPOT encoding underneath. Because of that, the RISC-V public
+ptep_get_lockless() may, for a Svnapot PTE, return the sub-PTE for the
+current address expected by generic MM, after checking the whole NAPOT rang=
+e
+for consistency and aggregating block-wide A/D bits.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 5dea66c1e7aa..885242fd07ce 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,11 +1,12 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- /dts-v1/;
- 
- #include "imx8ulp.dtsi"
-+#include "imx8ulp-firmware.dtsi"
- 
- / {
- 	model = "NXP i.MX8ULP EVK";
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-new file mode 100644
-index 000000000000..e4bc352f68af
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-firmware.dtsi
-@@ -0,0 +1,31 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ *
-+ * Default reserved memory and EdgeLock Enclave (ELE) enablement shared by
-+ * i.MX8ULP boards. Include this from a board dts to bring up the secure
-+ * enclave without having to duplicate the reserved-memory node. The ELE
-+ * hardware can only access DDR in the 0x80000000 - 0xafffffff window, so the
-+ * pool is constrained to that range with alloc-ranges and the kernel is left
-+ * to place the 1 MiB region.
-+ */
-+
-+/ {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		ele_reserved: ele-reserved {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x30000000>;
-+			size = <0 0x100000>;
-+			no-map;
-+		};
-+	};
-+};
-+
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+	status = "okay";
-+};
+fast-GUP has a narrower requirement. It needs the PTE for the current addre=
+ss
+for permission/PFN/page lookup, then pins the page, and finally checks that
+the page table entry it relied on did not change during the pin. fast-GUP d=
+oes
+not consume the block-wide A/D aggregation. If fast-GUP uses the public
+ptep_get_lockless() for both the initial read and the revalidation, it pays
+the cost of the NAPOT range scan and A/D aggregation in the fast path, even
+though that information is not used.
 
--- 
-2.43.0
+So patch 10/15 is not trying to wrap a simple equality check. The intent is=
+ to
+separate two semantics: the current-address PTE consumed by fast-GUP, and t=
+he
+original PTE snapshot used for post-pin revalidation. On normal architectur=
+es
+these are the same value, and the default implementation preserves the
+existing ptep_get_lockless() behavior. On RISC-V Svnapot, the value consume=
+d
+by fast-GUP is the sub-PTE, while revalidation compares whether the raw
+snapshot has changed.
 
+Patch 11/15 is the RISC-V use of this hook. It avoids the public
+ptep_get_lockless() block-wide A/D aggregation path in fast-GUP, while stil=
+l
+keeping correctness through raw snapshot revalidation. In the 64K THP alway=
+s
+mode, fio 4K random direct read improved from 2.615M IOPS / 9.97GiB/s to
+2.874M IOPS / 11.0GiB/s, and the average clat dropped from 95.54 usec to
+86.97 usec.
+
+Regarding the RFC/Cc issue, you are right, I handled that poorly. Although
+this series is mainly about RISC-V Svnapot, patch 10/15 adds a generic MM/G=
+UP
+helper and patch 12/15 also changes the arm64 contpte fast-GUP path, so the=
+y
+are no longer RISC-V-local changes. I was worried that the large list of
+individual recipients from get_maintainer.pl would create too much noise, s=
+o
+I mostly kept the mailing lists and dropped some individual Cc's. That was =
+a
+bad call; the relevant maintainers/reviewers should have been Cc'ed
+explicitly. Sorry about that.
+
+For the next version, I will split the generic fast-GUP helper out as a
+separate RFC, add the relevant MM/GUP/arm64/RISC-V maintainers and reviewer=
+s
+to Cc, and explain the semantic difference between the PTE consumed by
+fast-GUP and the post-pin revalidation snapshot. If I keep the arm64
+optimization, I will include the arm64 maintainers/reviewers in that RFC;
+otherwise I will drop it from the RISC-V series for now. I will also improv=
+e
+the naming, such as `rawp`/`raw_pte`, and add comments to make the snapshot
+semantics clearer.
+
+>
+> >
+> > Introduce fast-GUP specific PTE snapshot and revalidation helpers. The
+> > default implementation preserves the existing ptep_get_lockless()
+> > semantics, while allowing architectures to override the helpers when th=
+e
+> > public lockless getter provides extra semantics that fast-GUP does not
+> > consume.
+> >
+> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> > ---
+> >  include/linux/pgtable.h | 18 ++++++++++++++++++
+> >  mm/gup.c                |  6 ++++--
+> >  2 files changed, 22 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> > index da14328093a86..62943fcbf7046 100644
+> > --- a/include/linux/pgtable.h
+> > +++ b/include/linux/pgtable.h
+> > @@ -813,6 +813,24 @@ static inline pte_t ptep_get_lockless(pte_t *ptep)
+> >  }
+> >  #endif
+> >
+>
+> Of course, no comments, helpful!
+>
+> > +#ifndef gup_ptep_get_lockless
+> > +static inline pte_t gup_ptep_get_lockless(pte_t *ptep, pte_t *rawp)
+>
+> rawp? This is terrible naming.
+>
+> And 'gup_ptep_get_lockless()' is worse. What on earth is this function me=
+ant to
+> do? And why is 'gup lockless' considered different from lockless?
+>
+> And you return the value twice, because of course you do. Why? Who knows.
+>
+> > +{
+> > +     pte_t pte =3D ptep_get_lockless(ptep);
+> > +
+> > +     *rawp =3D pte;
+> > +
+> > +     return pte;
+> > +}
+> > +#endif
+> > +
+> > +#ifndef gup_ptep_revalidate
+> > +static inline bool gup_ptep_revalidate(pte_t *ptep, pte_t raw_pte)
+> > +{
+> > +     return pte_val(raw_pte) =3D=3D pte_val(ptep_get_lockless(ptep));
+> > +}
+>
+> Again this naming is utterly terrible and I'm at a loss as to why on eart=
+h
+> you're doing this?
+>
+> We don't need to abstract equality checks?
+>
+> > +#endif
+> > +
+> >  #ifndef pmdp_get_lockless
+> >  static inline pmd_t pmdp_get_lockless(pmd_t *pmdp)
+> >  {
+> > diff --git a/mm/gup.c b/mm/gup.c
+> > index 99902c15703b0..72fb147193e55 100644
+> > --- a/mm/gup.c
+> > +++ b/mm/gup.c
+> > @@ -2842,10 +2842,12 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t =
+*pmdp, unsigned long addr,
+> >       if (!ptep)
+> >               return 0;
+> >       do {
+> > -             pte_t pte =3D ptep_get_lockless(ptep);
+> > +             pte_t raw_pte, pte;
+>
+> What on earth is a 'raw' PTE?
+>
+> >               struct page *page;
+> >               struct folio *folio;
+> >
+> > +             pte =3D gup_ptep_get_lockless(ptep, &raw_pte);
+> > +
+> >               /*
+> >                * Always fallback to ordinary GUP on PROT_NONE-mapped pa=
+ges:
+> >                * pte_access_permitted() better should reject these page=
+s
+> > @@ -2871,7 +2873,7 @@ static int gup_fast_pte_range(pmd_t pmd, pmd_t *p=
+mdp, unsigned long addr,
+> >                       goto pte_unmap;
+> >
+> >               if (unlikely(pmd_val(pmd) !=3D pmd_val(pmdp_get_lockless(=
+pmdp))) ||
+> > -                 unlikely(pte_val(pte) !=3D pte_val(ptep_get_lockless(=
+ptep)))) {
+> > +                 unlikely(!gup_ptep_revalidate(ptep, raw_pte))) {
+>
+> Why do we need to refadctor a comparison between a local variable and a l=
+ockless
+> get?
+>
+> I'm just so confused by what on earth this patch is meant to be or why it=
+'s here...
+>
+> >                       gup_put_folio(folio, 1, flags);
+> >                       goto pte_unmap;
+> >               }
+> > --
+> > 2.39.5
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+> --
+> Cheers, Lorenzo
+
+
+Thanks,
+Yunhui
 
