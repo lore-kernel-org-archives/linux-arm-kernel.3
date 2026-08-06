@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D399C561E6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:45:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A0D6C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ePEtl2m67fNMAuLJ9Afbk/hABXEN6patEcXoPge2F0=; b=VkLRfG6VG7KMP5XZBDhnPAxntq
-	rD1hZpYmk/1cE4HTcDdeG1wLPQZBPeb3nQsBaqqh+SZJyzVZIEQJG3CisKso2W9Jxko+kImddAqj4
-	gLILwz9ea2q8VnSTbJyZlzZH3EfdxYQ4qL3noEPKfc6qfSM5ndC46iiqZ0aHg/1tDJnYlXItypI99
-	12gEAfTZet4TAx5bowgvExT1X6a37fwGYIlIMw8CknaNQXXTKhkvbkcgGSC+LMj9MI5QFr5YimhQu
-	ifaOJU+Ja4mGaCa3q/QcLxw/v5qTeUn0rXs3QfVWLfASB6aKCS9AwTreXggCHdOHscw8n/Lwxq8wy
-	EGS3wJEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8hijovbAFnss7Yyadpw60D5hqHw+OG1acDxHEX64xrU=; b=0Rzf/j95IXB/thWM/SC5ZCFET8
+	IfuMxhkMmVhgG2yHSLh83xGufPwZzGIL5rI2UAIIADeunDog0dPe9dtXpSuwmnhFv4sRuT29nu4OL
+	Ol10pvm0kLl08vnooN/iYkqbib9yZZIOgEhP/Pw+rB1HeR5IHR7Jxyw4OTFHd3VpOiYKqwLrcGPY2
+	2/oXXmeBCA1OnhQEmjnTUeprJ8xE+DW/exW480fDYqiBNW8w5rY5araryW6K0A0xXSA1/Ri+xdsmt
+	l5vIvyDefRUB3dN83W9HRJSh4DtcbWuvn1t447TcXfmBetjXddZGh7p8PckyltkIGHL2ms8Wny7jK
+	wPlG5fEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtj2-00000005H0k-3D9q;
-	Thu, 06 Aug 2026 08:45:16 +0000
-Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
+	id 1wrtkW-00000005HGX-44SA;
+	Thu, 06 Aug 2026 08:46:48 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtiz-00000005GzO-3cby
+	id 1wrtkT-00000005HFv-3zFH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 08:45:15 +0000
-X-Forwarded-Encrypted: i=1; AHgh+Rr5EcI6quzZx2vYTQd0BNfDUsUSUD9gsrbQ7qXWLAD8OJPy/p6scRBXGSeYTnUk+TASo2CF0d+BkD6ykGr/aEtK@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1786005911;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2ePEtl2m67fNMAuLJ9Afbk/hABXEN6patEcXoPge2F0=;
-	b=G9eqSxnGYsUchiUDeDKv91I2edQEXkNi8yTJ0Csb2wMqmKt3g63Yv5zVzsjdQv3BnVHj5l
-	b8jXPUBPck92atQotQKGeFilfrli8oedb5B4Ui7bKDU4LOWC3raPOFMzh01sm5lFD72h5Y
-	9GrcXjUfQqqqQWIdnjgd5XFJ4ZrqqRs=
-X-Gm-Message-State: AOJu0YyvbxyDuo50E9kngwI7xXTW4JmPuQCzRC9jNjVszTtiOKglUG84
-	XmJAp/isO4W73B1f4mf4RZXaNqOHx+4pXEEjgCtiwWt0PoOWLW3QjTjVhKb7tO9JgEmG3yjK5t8
-	W6iSQTYiKhaUfKUG9XcC4ZlsrpDPkOKKYfyfOkR/O
-X-Received: by 2002:a05:622a:4885:b0:516:3f51:81cb with SMTP id
- d75a77b69052e-52cfea4c54fmr11135181cf.13.1786005891634; Thu, 06 Aug 2026
- 01:44:51 -0700 (PDT)
+	Thu, 06 Aug 2026 08:46:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1786006006; x=1817542006;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=M7trVMqOss0CKTWdPfqLkrWNZSFKd0kI14xCgu/yMRg=;
+  b=ZjigekFMB93vm+iEN3h7SWFGfOTRD7HABbV34gM3Ll1EQVgAYaXu6NZB
+   UM73jjgtaPrcIBMG3py4/Q3vriswPmf6qbmgmCk5t3b3QeNmWYc4DifMY
+   POFvbdYHzOU01pSZT6evDGSiHg9Jaxh56eIW8E592Tf63fOQIhTsJyAwy
+   zkiRjxfsVD+3R0/ti2r5I0Px2xMBXFJzMb/W7V91T47zq3WcofI8/mJSD
+   U9fVWR7LqFTGkg3Y9y1k2GwqnzAEr4fCi9oNrjZqIj8MnK8GPFbruJB3G
+   e+gbYF5fzME7HgXCbiBTsgpHD3qELlEv1XYLinqGdPXkRmhmMvzYjxT8m
+   Q==;
+X-CSE-ConnectionGUID: zcac2EoRQDu2ajy4au5G5A==
+X-CSE-MsgGUID: PztgeF3cSHqRXHJeu+TDGg==
+X-IronPort-AV: E=Sophos;i="6.25,208,1779174000"; 
+   d="scan'208";a="293114454"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 01:46:45 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.45; Thu, 6 Aug 2026 01:46:44 -0700
+Received: from che-ll-i67070.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Thu, 6 Aug 2026 01:46:35 -0700
+From: Varshini Rajendran <varshini.rajendran@microchip.com>
+To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
+	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<srini@kernel.org>, <marcelo.schmitt@analog.com>, <radu.sabau@analog.com>,
+	<joshua.crofts1@gmail.com>, <jorge.marques@analog.com>,
+	<Jonathan.Santos@analog.com>, <jishnu.prakash@oss.qualcomm.com>,
+	<antoniu.miclaus@analog.com>, <duje@dujemihanovic.xyz>,
+	<mazziesaccount@gmail.com>, <varshini.rajendran@microchip.com>,
+	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v6 00/17] Add thermal management support for sama7d65
+Date: Thu, 6 Aug 2026 13:10:07 +0530
+Message-ID: <20260806074024.531259-1-varshini.rajendran@microchip.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20260804112317.1937387-1-fuad.tabba@linux.dev>
- <20260804112317.1937387-2-fuad.tabba@linux.dev> <20260805165432.0118a513@gandalf.local.home>
-In-Reply-To: <20260805165432.0118a513@gandalf.local.home>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Thu, 6 Aug 2026 09:43:00 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTxZ1tBfau4eK-nOdqig1xwngzsq8YyHtiE-iAMkZpSF8g@mail.gmail.com>
-X-Gm-Features: AUfX_mx7LtwidANKMNRCu_ciAI4sGIOLaBR410JmLmjAj3CDd42EszWO5YDN5aw
-Message-ID: <CA+EHjTxZ1tBfau4eK-nOdqig1xwngzsq8YyHtiE-iAMkZpSF8g@mail.gmail.com>
-Subject: Re: [PATCH v3 01/11] tracing: Include linux/types.h in trace_remote_event.h
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: maz@kernel.org, oupton@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, 
-	mhiramat@kernel.org, alexandru.elisei@arm.com, vdonnefort@google.com, 
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org, 
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_014514_046456_DF7AC0E7 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20260806_014646_200726_1B6C29D0 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +90,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks Steve,
+Thermal management system of sama7d65 includes:
 
-On Wed, 5 Aug 2026 at 21:53, Steven Rostedt <rostedt@goodmis.org> wrote:
-...
-> > --- a/include/linux/trace_remote_event.h
-> > +++ b/include/linux/trace_remote_event.h
-> > @@ -3,6 +3,8 @@
-> >  #ifndef _LINUX_TRACE_REMOTE_EVENTS_H
-> >  #define _LINUX_TRACE_REMOTE_EVENTS_H
-> >
-> > +#include <linux/types.h>
-> > +
-> >  struct trace_remote;
-> >  struct trace_event_fields;
-> >  struct trace_seq;
->
-> My ack still stands, but I wonder if we should just not use the include and
-> instead s/bool/_Bool/ ?
+- Temperature sensor as a part of ADC channel
+- Temperature calibration data retrieved from the OTP memory for
+  improved accuracy of the readings
+- DVFS implementation
+- Thermal system with DVFS as cooling cell.
 
-I'd prefer to keep the include, if you don't mind.
+This patch series adds support for the following:
 
-As far as I can tell, apart from the typedef itself, the only headers
-built into the kernel that use _Bool as a type are a uapi one and
-arch/um's user.h when it's built for the host, neither of which has
-bool available, plus what looks like a leftover in bcache_ondisk.h
-from when it was uapi.
+- Tag-based packet lookup for the NVMEM OTPC driver while preserving
+  backward compatibility with existing ID-based access
+- Temperature calibration layout handling in the ADC driver to support
+  different SoC-specific calibration data formats
+- ADC driver adaptation for sama7d65
+- DT nodes for OTP, ADC, temperature sensor, and thermal zones for
+  sama7d65
 
-The include also covers whatever field gets added next.
+Changes in v6:
+	- Moved DEFINE_FREE helper outside the CONFIG_NVMEM conditional
+	  #if / #else block
 
-Happy to switch if you'd still prefer _Bool.
+Link to v5: https://lore.kernel.org/lkml/20260804113338.261782-1-varshini.rajendran@microchip.com/
 
-Cheers,
-/fuad
+Changes in v5:
+	- Placed the DEFINE_FREE helper in the header file and added it as a
+	  new commit
+	- Added IS_ERR_OR_NULL(_T) condition to the DEFINE_FREE of nvmem_cell_put
+	- Reorder signing tags alphabetically in Patch 1
+	- Kept the changes minimal by retaining ret variable
+	- Collected the Rb tags
 
->
-> -- Steve
+Link to v4: https://lore.kernel.org/lkml/20260727122633.117435-1-varshini.rajendran@microchip.com/
+
+Changes in v4:
+	- Reworked cleanup.h usage: define and assign __free() variables at point
+	  of use after early returns, add DEFINE_FREE(nvmem_cell_put, ...) for
+	  nvmem_cell cleanup
+	- Split patch 3/13 into two: refactoring (layout struct) and tag validation
+	- Used struct u32_fract for p1 scaling factors
+	- Return -ENODEV instead of -EINVAL when layout is missing
+	- New precursor patch to remove unnecessary casts in of_device_id
+	- Removed trailing comma from single-line initializer array
+	- Moved emulation mode validation into a separate patch
+	- Added FourCC validation for packet tags; invalid tags fall back to ID-only
+	  access
+	- Mentioned FourCC in commit message and comments
+	- Used intermediate variable for off % 4
+	- Rename tmp → mr_val, val→ tag
+	- Addressed style issues: Removed comment blocks, put functions in
+	  one line
+	- Remove blank line after compatible in regulator node
+	- Reorder properties.
+
+Link to v3: https://lore.kernel.org/lkml/20260630093603.38663-1-varshini.rajendran@microchip.com/
+
+Changes in v3:
+    - Updated the commit message with reasoning for a new compatible
+      without a fallback (sama7d65-adc)
+    - Split patch 2/12 into two patches: a patch with cleanup.h changes only
+      and the rework patch
+    - Added comment explaining the TAG ACST
+    - Fixed the holes identified in the at91_adc_platform struct by
+      pahole tool
+    - Dropped labels in the dt document example
+    - Added temp variable in mchp_otpc_resolve_packet() to avoid % and /
+      operations in the same instruction (avoiding compiler optimization)
+    - Added the SoC details in the ADC driver Kconfig help section
+    - Maintained reverse xmas ordering in declarations
+    - Fixed node ordering (alphabetically) in the board dts file
+
+Link to v2: https://lore.kernel.org/lkml/20260623105944.128840-1-varshini.rajendran@microchip.com/
+
+Changes in v2:
+    - Preserved backward compatibility with ID-based packet lookup to
+      avoid breaking existing users
+    - Removed sama7g5 DTS changes (not needed with backward compatible
+      driver - will be sent later to update to the new access method)
+    - Preserved the packet data structure returned not to break the
+      consumers
+    - Reworked ADC driver to use a calibration layout structure instead of
+      hardcoded indexes, for scalability
+    - Fixed kernel-doc Return section
+    - Removed stray blank line in mchp_otpc_read()
+    - Removed unnecessary UL suffix in writel_relaxed()
+    - Dropped unused packet types
+    - Fixed stray spaces before exclamation marks in error messages
+    - Added ASCII representation to TAG macro definition
+    - Removed odd MAX enum with trailing comma and refactored
+    - Moved DTS patches to the end of series
+    - Used cleanup.h helpers for NVMEM data buffer handling in ADC driver
+    - Combined multiple v1 patches into logical units
+    - Used correct subject prefixes for dt-bindings patches
+    - Used fixed-layout NVMEM syntax for sama7d65 DTS and binding
+      instead of deprecated syntax
+    - Added cpu-supply linkage for proper DVFS voltage scaling
+    - Updated stale stride=4 comment in dt-bindings header
+
+Link to v1: https://lore.kernel.org/linux-arm-kernel/20250804100219.63325-1-varshini.rajendran@microchip.com/
+
+Varshini Rajendran (17):
+  dt-bindings: iio: adc: at91-sama5d2: document sama7d65
+  nvmem: add DEFINE_FREE for nvmem_cell_put cleanup
+  iio: adc: at91-sama5d2_adc: use cleanup.h for NVMEM buffer
+  iio: adc: at91-sama5d2_adc: rework temp calibration layout handling
+  iio: adc: at91-sama5d2_adc: add condition to validate calibration data
+  iio: adc: at91-sama5d2_adc: remove unnecessary casts in of_device_id
+  iio: adc: at91-sama5d2_adc: adapt the driver for sama7d65
+  dt-bindings: nvmem: microchip,sama7g5-otpc: add sama7d65 and dt node
+    example
+  nvmem: microchip-otpc: nvmem: microchip-otpc: add tag-based packet
+    lookup
+  nvmem: microchip-otpc: nvmem: add emulation mode and OTP access
+    validation
+  ARM: dts: microchip: sama7d65: add cpu opps
+  ARM: dts: microchip: sama7d65: Add ADC node
+  ARM: dts: microchip: sama7d65_curiosity: Enable ADC, DVFS
+  ARM: dts: microchip: sama7d65: add otpc node
+  ARM: dts: microchip: sama7d65: add cells for temperature calibration
+  ARM: dts: microchip: sama7d65: add temperature sensor
+  ARM: dts: microchip: sama7d65: add thermal zones node
+
+ .../bindings/iio/adc/atmel,sama5d2-adc.yaml   |   1 +
+ .../nvmem/microchip,sama7g5-otpc.yaml         |  28 +++-
+ .../dts/microchip/at91-sama7d65_curiosity.dts |  27 ++++
+ arch/arm/boot/dts/microchip/sama7d65.dtsi     | 131 +++++++++++++++++
+ drivers/iio/adc/Kconfig                       |   2 +-
+ drivers/iio/adc/at91-sama5d2_adc.c            | 124 +++++++++++-----
+ drivers/nvmem/microchip-otpc.c                | 133 ++++++++++++++++--
+ .../nvmem/microchip,sama7g5-otpc.h            |   4 +-
+ include/linux/nvmem-consumer.h                |   3 +
+ 9 files changed, 403 insertions(+), 50 deletions(-)
+
+-- 
+2.34.1
+
 
