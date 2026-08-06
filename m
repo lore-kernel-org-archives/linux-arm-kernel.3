@@ -4,92 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F28E7C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:51:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B48C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kXpD8fhMfpcH4/rK/CINTt82CSW0JYY906XwzS8WpVY=; b=qdJtBeyJ0MjNmFdjB8sphmRXPG
-	kLrDA03zWBxoVr9Tn2gsrylsAh5yiztLjzilxXT/kRCvYqfYUZrEie6szzYHFZqkl4mflYNfnp2yl
-	ZiWTt2X8kkJ7pvvN72lXCWaVzQjgfXNOQFrcD4Inae56XyxgTkL351XV4/9O3LER/JSuNzLvXxMx1
-	cV9T4sb4U2YGOxH4SH1mSRoilF5UnuUE9FHwaxGplzDagLu/BguhFk3ZBSB5QipTg/5zasAuV3j/u
-	g1MgPDmKKKzPljO+jlIu5B+AEaELqrjRjLm7ccpDINciNobpXsW85H0sUWkhjRIbs+MrUDqj+qT7B
-	zTP6A9Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IKqPFsGUTE/iktLHlZyo0CuSNyCusETSu5tRfe5rZ0I=; b=D4DoROR1obGpanbunSvlPbsrhb
+	s3/j+0zWra44vfZGYN7iFVqAlPR8LtwSngL8pIB8th2m4LOITzGxJUYUEafSX60RsiAufVONF7Mbs
+	aj0y+ffifTotF7EiWF/Hzgk048dbRG/JZTYAWZErwnH1/vU7A1CaeOnN/cbRYYIoY/uBrsB9BpGZn
+	mcat0/47xe0CcAR+I6TYXW3pk7UAUmfAXuOYWkesjrq3/Ou9iBVDIJVxhwLzeTCLPA0AI7+PdGUC6
+	ANRUXL/pJ5UgY8xgDGqUz2NYmiBq6+SDK9YHYF6yC7Torkqby3Sn/xMtJnif/25eraPmCIQBkS9Lc
+	mxxOAA8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryV3-00000005wKs-1rlH;
-	Thu, 06 Aug 2026 13:51:09 +0000
-Received: from mail-qk1-x72a.google.com ([2607:f8b0:4864:20::72a])
+	id 1wryX0-00000005wU5-36XE;
+	Thu, 06 Aug 2026 13:53:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wryUx-00000005wJv-3JEe
+	id 1wryWz-00000005wTz-25nd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 13:51:07 +0000
-Received: by mail-qk1-x72a.google.com with SMTP id af79cd13be357-93108a3c326so61854985a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 06:51:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1786024262; x=1786629062; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=kXpD8fhMfpcH4/rK/CINTt82CSW0JYY906XwzS8WpVY=;
-        b=Qvs7wv+JLOlFAr7QkbQedaghqDXYGSji9f5VIn6pAV1XktX8yKmD7XJEgvzVLMImxh
-         CPUAR0wnppBlPcQqHt3WQBKzKKRVkynOXbUpd/RGcmfgyAg/tqt3jUFCNvDSwltwN9cQ
-         Pj7B0LyPw95wKkhvq9QQSQHUeH6sRi5TKEuVI+1h4IanmnrtBPTW8rZIBbgyldsRg5kM
-         cytxVVK0UF/onE9TiexF+Pj+LkwGz3XXuCdBvdhMYRXA6qJzXZ/+Kj833ixDxH8VRo97
-         iqnYn6Rjvf7rqiLHdLNJ5I/gOskhn7/OxeEjY2/tPPEexGuoiTHmWtuJVvdqACTMGEwo
-         tspQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786024262; x=1786629062;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kXpD8fhMfpcH4/rK/CINTt82CSW0JYY906XwzS8WpVY=;
-        b=WrU0aRsnO+6HxMOs5wYZuz15ZsqU6ZNhFI/vnn6y9dgF67ETBzuyuQcH9hQ0NZrzsB
-         msaJuq10WDxSTUkI/m+nCUhOCSAe6U4Yk1LTVtcdBCteti4KW/GX29obyeUtTJVF9HQ5
-         V/WL5qVJGR/8NMGoni3cAoTgZSVqBETI65Sdz4ijchjd2NBulB3lAf/uVKUvUj/pQo6b
-         rhLrCfpMsPFih5GrMcJe1iPqAgW799KR8dSvyuwDmY1O7WnLaKebIPsWsdU7pNFlt6Sd
-         kYyO1AcKTXv2nuOlZX9eLMvtb6cHIeh/c+Lk/OV1T1bG6CfObUkT4QcBWawlNY8r45k7
-         89pw==
-X-Forwarded-Encrypted: i=1; AHgh+Rrc1IOhqF/6di9y1pnQju9IEqltMhHHSdvFUdj9qTd/tMi4JFu7Jtm7nSEgkgTK8wTbzN/6ma0l/FStmwxxwv4p@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAHy4dHdRBkweW8silnionSDqMST/hWhFsrYdbh62qC3W/yrQN
-	ONhM5zDNwhFs72Im96D+Es4pXeH13wfh3ft/p2pRpkklTRCcc9v55GFu8qi2UN9oOg==
-X-Gm-Gg: AR+sD129OTRxprefHWb+Jju39UPwEMdEy6AmiHPDM3Z6Et0JikDrgctUC4/Pl+mFSAQ
-	ANfvLJUO+SUZITjST9oQfWKEs92G77MN5ZOzU7ygqfC+C/a2iadT8qR6NLzgT8OZHyFxuJprFpE
-	O1KHuXkZkBG1d6QNAMZRuNti4SU+TTe+WtBvgg05ow1KI52nBH74eTII0Lt5jYq5ga72FgvoaJ0
-	996XKtvbkhHpVMHh2cmPiVF75EEaWyAbuXMk81iE7Qz2mlflRrvyBKGmOpx4FGc61nvkSIXIoGW
-	K4CH6YI3XjZKsX2QerEb14XjymZoPR5XKAKgBcfn/QgTkFbV4SZJ7KBpg9T5+qIaKRZs/dtlWKS
-	lBOrt5HmFXeE9/nvsh8BvKr0pRYQq6Ve9EsdmO8YSN7VaEIqnXXAjlTcdC0tWSnPl/1n0N5+u14
-	wA8Xc9iemhgt0SH0aQmlfvAmTDskSgdvHESWXPoeKzWMY8IUqpRjq4XmKU3r9kOor8eZOGOmv0q
-	gSMIYM=
-X-Received: by 2002:a05:620a:371f:b0:92e:7075:941 with SMTP id af79cd13be357-9365959e5femr648645685a.13.1786024261713;
-        Thu, 06 Aug 2026 06:51:01 -0700 (PDT)
-Received: from rowland.harvard.edu ([140.247.181.15])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-936582da028sm257577185a.26.2026.08.06.06.51.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Aug 2026 06:51:01 -0700 (PDT)
-Date: Thu, 6 Aug 2026 09:50:59 -0400
-From: Alan Stern <stern@rowland.harvard.edu>
-To: Hongyan Xu <getshell@seu.edu.cn>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	jianhao.xu@seu.edu.cn
-Subject: Re: [PATCH] usb: host: ehci-atmel: stop clocks before releasing HCD
-Message-ID: <b7f212cf-2577-4c77-ba71-edda2124868e@rowland.harvard.edu>
-References: <20260806060557.1747-1-getshell@seu.edu.cn>
+	Thu, 06 Aug 2026 13:53:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9CFCD60A7D;
+	Thu,  6 Aug 2026 13:53:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30B221F000E9;
+	Thu,  6 Aug 2026 13:53:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786024388;
+	bh=IKqPFsGUTE/iktLHlZyo0CuSNyCusETSu5tRfe5rZ0I=;
+	h=From:To:Cc:Subject:Date;
+	b=ltDRo8L2l+ReTf9LHJZ1lbVO+HFjWO0EkdBg/v1r8yVCrfkqDWQPbxKpu7+/m85UW
+	 EWsa7X+ULsG35QAAOGjWetSPRoWgy9hCyCIUGgxOeVnX7M6kLVvTgwKcN/3YTCKYdm
+	 Q9FxcVWow/UIypSymxwQH7WVcMDoH5E0ca4/xWWiMNFyJuYPkQEj8lDOTR87HQ3YSm
+	 ruoQsweYdo1x4c00BfM5mXDvvlIY4Jxf95mJX44Lib5cg53LvIL97Re1uhln/LF3cN
+	 mC09R+aBNeG5aEH1m0C3IdaLbVju5VMi8QV/2DWCONtOzXWV2w8H8r0XbhmwA4iu0p
+	 4apY1ZPUVJnuQ==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>
+Cc: Puranjay Mohan <puranjay@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Usama Arif <usama.arif@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	x86@kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 0/3] perf/core: sched_task() dispatch and branch entry fixes
+Date: Thu,  6 Aug 2026 06:52:20 -0700
+Message-ID: <20260806135224.3267890-1-puranjay@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260806060557.1747-1-getshell@seu.edu.cn>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_065104_649573_61971F71 
-X-CRM114-Status: GOOD (  18.74  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,41 +87,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 02:05:57PM +0800, Hongyan Xu wrote:
-> usb_put_hcd() drops the driver's HCD reference and can free the HCD and its
-> private data. The remove callback then calls atmel_stop_ehci(), which
-> obtains that HCD from platform data and dereferences its private data to
-> disable the clocks.
-> 
-> Stop the controller clocks before dropping the HCD reference so that
-> atmel_stop_ehci() cannot access an already freed HCD.
-> 
-> Fixes: 501c9c0802d9 ("USB: at91: Add USB EHCI driver for at91sam9g45 series")
-> Signed-off-by: Hongyan Xu <getshell@seu.edu.cn>
-> ---
+These three fixes were found while adding BRBE support for
+bpf_get_branch_snapshot() on arm64 and have been carried in that series
+since v1 [1]. They do not depend on it, so they go on their own from
+here; the version number continues from that series to avoid two
+numbering schemes for the same patches.
 
-Acked-by: Alan Stern <stern@rowland.harvard.edu>
+Patch 1 stops __perf_pmu_sched_task() passing a NULL pmu_ctx to
+pmu->sched_task(). armv8pmu_sched_task() is the only implementation that
+dereferences the argument, so the oops needs BRBE.
 
->  drivers/usb/host/ehci-atmel.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/drivers/usb/host/ehci-atmel.c b/drivers/usb/host/ehci-atmel.c
-> index 65747270fd88..bcd56f888ec9 100644
-> --- a/drivers/usb/host/ehci-atmel.c
-> +++ b/drivers/usb/host/ehci-atmel.c
-> @@ -177,9 +177,8 @@ static void ehci_atmel_drv_remove(struct platform_device *pdev)
->  	struct usb_hcd *hcd = platform_get_drvdata(pdev);
->  
->  	usb_remove_hcd(hcd);
-> -	usb_put_hcd(hcd);
-> -
->  	atmel_stop_ehci(pdev);
-> +	usb_put_hcd(hcd);
->  }
->  
->  static int __maybe_unused ehci_atmel_drv_suspend(struct device *dev)
-> -- 
-> 2.50.1.windows.1
-> 
-> 
+Patch 2 makes perf_pmu_sched_task() visit PMUs whose events are all
+CPU-wide. They are skipped today whenever the scheduled task has a perf
+event of its own, so branch records leak across task boundaries with
+perf record -b -a. intel_pmu_lbr_add() calls perf_sched_cb_inc()
+unconditionally, so x86 LBR is affected the same way.
+
+Dropping the early return alone leaves both dispatch paths running for
+one case, so perf_ctx_sched_task_cb() gains a matching gate. The two
+could instead be collapsed into perf_pmu_sched_task() alone, since
+__perf_pmu_sched_task() already passes the same epc, but that would move
+the callback out of the perf_ctx_disable() window for every PMU rather
+than just that one case, which seemed like too much for a fix tagged for
+stable.
+
+Patch 3 clears struct perf_branch_entry with a single struct assignment.
+perf_clear_branch_entry_bitfields() had drifted from the struct: new_type
+and priv were never cleared, and arm_pmuv3.c allocates the per-CPU branch
+stack with kmalloc().
+
+Tested on a 128 CPU arm64 machine with BRBE. A WARN_ON_ONCE() at the gate
+patch 2 adds to perf_ctx_sched_task_cb() fires within seconds of running
+perf record -b -a alongside a task-bound event pinned to a different CPU.
+
+Changes in v6:
+- Split the sched_task() fix into patches 1 and 2; the NULL dereference
+  and the missed dispatch are separate bugs with different reachability.
+- Gate perf_ctx_sched_task_cb() on cpc->task_epc. v5 removed the early
+  return in perf_pmu_sched_task() without it, so both paths ran for a
+  task whose event for that PMU is pinned to another CPU. Caught by the
+  WARN_ON_ONCE() described above.
+- Tag patches 1 and 2 for stable.
+- Send separately from the BRBE series, rebased onto tip perf/core.
+
+[1] https://lore.kernel.org/all/20260616155716.2631508-1-puranjay@kernel.org/
+
+Based on tip perf/core (f4dfab174244).
+
+Puranjay Mohan (3):
+  perf/core: Fix NULL pmu_ctx passed to pmu->sched_task()
+  perf/core: Run sched_task() for PMUs with only CPU-wide events
+  perf/core: Clear the whole branch entry in perf_clear_branch_entry()
+
+ arch/x86/events/amd/brs.c   |  2 +-
+ arch/x86/events/amd/lbr.c   |  2 +-
+ arch/x86/events/intel/lbr.c |  6 +++---
+ drivers/perf/arm_brbe.c     |  2 +-
+ include/linux/perf_event.h  | 16 ++--------------
+ kernel/events/core.c        | 15 +++++++++++----
+ 6 files changed, 19 insertions(+), 24 deletions(-)
+
+-- 
+2.53.0-Meta
+
 
