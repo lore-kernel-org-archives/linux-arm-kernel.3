@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB608C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 10:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7245FC5620A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 10:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R+kHrAsh4mnRSRJem4byDKdYAMKiGZXK6sT/FXhxkzw=; b=t6Temvh1FKR1gFsUJwHRUxutDp
-	foCO5VAjjEZAEQWi5YWwDCZuicXZPvAsm3F0IIXcXtMgnxr9KuLYubEneQwfPYeyEqoutEEDGjfNu
-	4r4X85TIDgCtElGOLO/mP5T1B/qkO64Kt1G7RNbQ472K9ipr0ei2GLhhIobF9eEoYJ8QW25P3p3cx
-	VXoMhEkgKwkBwjJ0kj49Ebhp8bwBs0IpfKNhyAgRhLHQf32WBTUKijf/aaHKf7hkQwwhDuOoVQs6d
-	+9+iqQ02v7NKfqaOIeGb1Cuz0Z4LsV/ot1mOdnEPoLoeWeWJbafY99A62+llWSVWYTFXG4F4JjzmD
-	9ps3ipDg==;
+	bh=LfpLkO0z7XT9QDSQsybvalFkn5acGM788D+d/q1c9Ds=; b=1QuM6bOLBKldyVHScdiPsPDjfp
+	V90GQICsQic2mlV4fe9b3Rn5lwBtvkwoNynD0JcimE+Dm0eA3LISalU14IGYEg4Jo31qYbeLliLRb
+	7/SFDugV74ov57t+bQr1EWhPnfmeaYkAXoG2imwZ50BDac0TBNgnn5HjuXPGZjcf9Xc9BAPlsXTJc
+	kCEH2TjHfggzcRKqoqea3mgIMeJiRFlEjCLDYpLoS2SvH6Et8uQrv2hucvOSrp8L5WGgmI1crZ/Gy
+	yzR4ftc2HEBs4XqVpMvNFBNRGiIij+ukVtWwWycGOKEsuXYyEn3yok8R+oa9rujW6VXMdp677rg/x
+	5UNHGEgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wruxE-00000005UcL-0r2u;
-	Thu, 06 Aug 2026 10:04:00 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
+	id 1wruxG-00000005Udf-1Pnv;
+	Thu, 06 Aug 2026 10:04:02 +0000
+Received: from out-170.mta1.migadu.com ([95.215.58.170])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wruxB-00000005UZx-2EpA
+	id 1wruxD-00000005Uaf-1QND
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 10:03:58 +0000
+	Thu, 06 Aug 2026 10:04:00 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1786010634;
+	t=1786010636;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=R+kHrAsh4mnRSRJem4byDKdYAMKiGZXK6sT/FXhxkzw=;
-	b=ZMt2h/+pfp8Ur+idXzkBA7DuC1qVvESpBvu2ETQx/8i935rt0B1ES0lMsMOEdMSjqPmIg4
-	8+TVn642unYxUgWy7Orzom0bMdP9XZFf9/jLQ3rJPIlT9YoeV/SAuqvVR2HL5XrXxRpzom
-	cCWg3woZz+t7plSts5W9g7e8snzUP7A=
+	bh=LfpLkO0z7XT9QDSQsybvalFkn5acGM788D+d/q1c9Ds=;
+	b=T++QlOkzH/ZJ163nv2/cuMVhISi9opZp+Cyw+QHMDZ+LoXjRuJieqOrFU8bRfETOodbMCx
+	eQ7gSRsS8CGdgAYgkKTsCASbsF55JhY71OjNR11vJpKzZbuUR37IYX9G9+dL5JcrgktzC2
+	acSMHDwTvZdEUNb9xYMwNO3g32rGoxE=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -50,17 +50,18 @@ Cc: Will Deacon <will@kernel.org>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <Sascha.Bischoff@arm.com>
-Subject: [PATCH v1 3/4] KVM: arm64: vgic: Do not access the GICv5 CPU interface from EL1
-Date: Thu,  6 Aug 2026 11:02:55 +0100
-Message-Id: <20260806100256.371164-4-fuad.tabba@linux.dev>
+Subject: [PATCH v1 4/4] KVM: arm64: Fix stale VGICv3 comments in the nVHE world switch
+Date: Thu,  6 Aug 2026 11:02:56 +0100
+Message-Id: <20260806100256.371164-5-fuad.tabba@linux.dev>
 In-Reply-To: <20260806100256.371164-1-fuad.tabba@linux.dev>
 References: <20260806100256.371164-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_030357_715708_FA113764 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20260806_030359_525062_83F6365B 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,44 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-can_access_vgic_from_kernel() excludes only the GICv3 system register
-interface, so on a native GICv5 system without FEAT_GCIE_LEGACY it
-returns true under nVHE. The kernel then saves and restores the CPU
-interface from EL1, where ICH_VMCR_EL2 and the ICH_PPI_* registers are
-UNDEFINED, and the nVHE world switch already does that work at EL2.
+__hyp_vgic_save_state() and __hyp_vgic_restore_state() handle GICv5 as
+well as GICv3, but their comments name VGICv3 only.
 
-Require VHE for GICv5 as for GICv3.
+No functional change intended.
 
-Fixes: 9b8e3d4ca0e73 ("KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore")
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/kvm/vgic/vgic.c | 12 ++++++++----
- 1 file changed, 8 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/switch.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 74bace10a22ed..df58c0042ed63 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -1042,11 +1042,15 @@ static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
- static inline bool can_access_vgic_from_kernel(void)
- {
- 	/*
--	 * GICv2 can always be accessed from the kernel because it is
--	 * memory-mapped, and VHE systems can access GICv3 EL2 system
--	 * registers.
-+	 * GICv3 and GICv5 drive the CPU interface through EL2 system
-+	 * registers, so only VHE reaches them from the kernel. GICv2 is
-+	 * memory-mapped and always reachable.
- 	 */
--	return !static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif) || has_vhe();
-+	if (kvm_vgic_global_state.type == VGIC_V5 ||
-+	    static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
-+		return has_vhe();
-+
-+	return true;
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index 7318e3e6a5f36..6b9e20f6b31b3 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -110,7 +110,7 @@ static void __deactivate_traps(struct kvm_vcpu *vcpu)
+ 	write_sysreg(__kvm_hyp_host_vector, vbar_el2);
  }
  
- static inline void vgic_save_state(struct kvm_vcpu *vcpu)
+-/* Save VGICv3 state on non-VHE systems */
++/* Save vgic state on non-VHE systems */
+ static void __hyp_vgic_save_state(struct kvm_vcpu *vcpu)
+ {
+ 	if (vgic_is_v5(kern_hyp_va(vcpu->kvm))) {
+@@ -125,7 +125,7 @@ static void __hyp_vgic_save_state(struct kvm_vcpu *vcpu)
+ 	}
+ }
+ 
+-/* Restore VGICv3 state on non-VHE systems */
++/* Restore vgic state on non-VHE systems */
+ static void __hyp_vgic_restore_state(struct kvm_vcpu *vcpu)
+ {
+ 	if (vgic_is_v5(kern_hyp_va(vcpu->kvm))) {
 -- 
 2.39.5
 
