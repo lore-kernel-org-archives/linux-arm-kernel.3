@@ -4,84 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB56C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC29EC56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6UfkwtaLNTyQVqOw+5SWsbqKwOlCXb/h/GoPtpUt3w4=; b=Or949yz4ZVud4PPl8YW1zyqLsE
-	wX3fLjZeuE4CZ7f2IXXdUbV63KJpxiuDltw9yUlyZDbcedLLaAbDSdlzlWZy9BsRhFUwO7bENabUc
-	SzmT+qG3xelX4iuE9QyJtKI2E+kCZv7/eSr6qq7DntO6k1Kvaotq/vookAroOaNTigT5V9J9JE1iX
-	eqKY97TcIDrPEbK6Wj5yBWapyin9tXEr3zM0ICJICgljR73qSHO1/eg6wgC2NpDedw/KeAehgK+Ac
-	C/zqjGOi+tmyYCXWsiDdcazUH3h9+n8Ha8JZKLj0uF7Ay1T9tOmOeHptUz5Waj+CztUTJGTSgMcRF
-	j2cTryCQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:Reply-To:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:To:From:
+	Date:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OloLxCbCdCb2VJxUTkF5CFkFEV6FsO0774Maxxh1ZoY=; b=Wtj2Sj7ahvFZd8RCPdCVzp2wLp
+	0b5Qg19NzeQTIzndZJ8mTVqzf0KAXrDlMb5r2fQPMx3a47Pfep8WYOD5xi/swh8pECe4VdkgJ2Rrf
+	eHGh9C2vBlWu58+F1CXr2tWUj4bhnn2kOaQddZnCrEn0smqSPk6kVnMk9ahOTENyWd1vmxAdXiFml
+	M/lvJHrODTDjuyLFm207QCF2bmW8VfjvMIGY85rnNxF4kP/WojW+QCT2FWsyGpmGNs6aRBc4UHGae
+	TbbxKbk4Ex/oXiNiocXdbHk71d7KozptVXKZUh/kCJPpxFUZrVfCMdfvwpn8eKEwP+eL56FT2WYc7
+	JrFwOQmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1qH-00000006Mq3-2LBW;
-	Thu, 06 Aug 2026 17:25:17 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1ws1qd-00000006NAh-49GV;
+	Thu, 06 Aug 2026 17:25:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1qB-00000006Ml7-3tf4;
-	Thu, 06 Aug 2026 17:25:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1786037109;
-	bh=z+cuir8dVnqy7vIB/Megx6Nr1nRbB+S4lxaUmDLUFZw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=bN9ynZIH0gW+c9lrsVqF4xe9XIwTEWFDUsf006p6e6IHZG5rB2a2OGeOOMOo/pR7A
-	 3/gGbgKC8xxTqtJJkof5gu7qD8TdgSIaYHRVZfWxLotSQ+PrwHlzs20uIqsTebwDzP
-	 dqR+Mmn3+tYCSwHPOKEsgg1cpgxudfjyuHNMAVtQJBd1FnClm7YtbgZme2ueq55Wf2
-	 z6IeA4cqVptu95nKVBgS/aNKWrpbljJjskAW2yymOyqeg9myUX+b+cU5qpJwo/9LNn
-	 7/z2Sn9ut2bBYH7jds2Pzbz9grj9g24iRG/LVH2eIbXxtwV99yen2ccZme5NVjYs4S
-	 GN1jP+AN4BqzQ==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C24A217E075D;
-	Thu, 06 Aug 2026 19:25:09 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id 802B948002F; Thu, 06 Aug 2026 19:25:09 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 06 Aug 2026 19:24:58 +0200
-Subject: [PATCH 3/4] arm64: defconfig: enable Rock 5B camera support
+	id 1ws1qc-00000006N9a-1IzJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Aug 2026 17:25:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DFE7A4016A;
+	Thu,  6 Aug 2026 17:25:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3F751F000E9;
+	Thu,  6 Aug 2026 17:25:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786037137;
+	bh=OloLxCbCdCb2VJxUTkF5CFkFEV6FsO0774Maxxh1ZoY=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To;
+	b=lmYLAD/RHaxZCZPZm4FSrcVFJpGcoW9uX18QFiGjczPvA4K89swvlYElZZLft9N0T
+	 aqpRcR0zFprcNQNwq6K8rF+YrQeQj2PFnI9PqUkVMGM1tNfwoM+yrKUB7oxOHs9I59
+	 kFp5JrHFpJyowHkTGqjZENaSFZ+h4mTLTiNb5kYhUV/B5fRr1A79XpVD1F7hogI/iS
+	 v9q1tC5Ey2wgxZt/ILAPnxk3dwEZQWTt6y/42S7A2n6c86gPH4I80gZT+TGylac2kO
+	 NyWruh8uuzI/GjUDtwyx9z8vnvWjTBMkFuM0ITTJ9FOdpzmwHfWhYM038b6i/Qsge4
+	 Qq9IG8wQf25Hw==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 5D4C5CE19F3; Thu,  6 Aug 2026 10:25:37 -0700 (PDT)
+Date: Thu, 6 Aug 2026 10:25:37 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Will Deacon <will@kernel.org>
+Subject: Re: [PATCH RFC] arm64: Mark set_preempt_need_resched() access to
+ .need_resched
+Message-ID: <ca54b283-3349-43d4-9460-32b084709d67@paulmck-laptop>
+References: <d345dc9f-c61e-4db5-a342-11b0ff3fb846@paulmck-laptop>
+ <amyaRXx8zXxOMgTL@J2N7QTR9R3>
+ <13df4ff4-8594-4c37-b25f-860248a222cf@paulmck-laptop>
+ <4fa802e7-6cfc-4cce-afee-c29b28171ad3@paulmck-laptop>
+ <anR28GyRtCpApQYX@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-rockchip-defconfig-additions-v1-3-6b1d8baa0bf5@collabora.com>
-References: <20260806-rockchip-defconfig-additions-v1-0-6b1d8baa0bf5@collabora.com>
-In-Reply-To: <20260806-rockchip-defconfig-additions-v1-0-6b1d8baa0bf5@collabora.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Detlev Casanova <detlev.casanova@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Michael Riesch <michael.riesch@collabora.com>, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- kernel@collabora.com, Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1054;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=z+cuir8dVnqy7vIB/Megx6Nr1nRbB+S4lxaUmDLUFZw=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGp0w3WXG01gvim1p5B3xuNmAETRXDdAHdPJV
- 0lc7L+WPAZC9YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqdMN1AAoJENju1/PI
- O/qa5mQP+wf+lLs/H+LVdnAUmuPdBTv0VTfryUG5tSPRK+/CtTJKoKfqAiXHVW4MyRMSKCFE3Z/
- jo/06KqoR8oo5pna/RgIWg0EGh5Wnetht+m8KfVAbAae+XjXoveN2XhblkW+HIuCqMdb6SHengm
- a+jzK9fPfw+7nKe/ZeLIcoEjkXLDjVBlbwJe5WiUFZ1q6rwq1365DJ6S3gOguAJf5Xel5IbWyLU
- Nxh05V/Nqt0pd8tx0I7CfnrXcDZNpAlSv8+yKmEJ7MMRYBI6mtdD09UD1F4NmH33ccgoCS4Vgnj
- 0OHPfa70Rjd5a0arOGrwR+dPm8gdmICLTNSEGbKdUuT+bAEcA/GS85bO1dDOu6Q1nLczDftpWCO
- rXBXaY9ldmmsko+cqRGaEEI3v8MpW0N2SWtlwInPrnFsxal71YwETuo17zeqHxyzpdAV5q8Fi+n
- bMgvRdTkr8O5VQV/qSXIa/hPrzA8jCltWyWnKwsaFIx/HCtbQ64ZwNJ+DMQDBVJzeUYYPTMm6Eo
- cRwHQHjYhiIqB37/5AgbxPH/4cqT0RzNqsOIxdrcr32/jr7+1gfaZ7bYac3/ww5gZFtQkmsfYcJ
- ddoPqTiSks0FZeLoriwSZSPHXRWyq9SylZp1mn4SZZS38zUud09Z5RGNHhjK/zVBvA8xanR9UHH
- Wy+agCJKp9L4AUHoQ3QsxCA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_102512_162143_084F5B15 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <anR28GyRtCpApQYX@willie-the-truck>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,40 +70,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
+Cc: Mark Rutland <mark.rutland@arm.com>, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the Rockchip MIPI RX Innosilicon DPHY driver, which is used
-by different generations of Rockchip SoCs as well as the Sony IMX415
-camera sensor driver used by the Radxa Cam 4K modules.
+On Thu, Aug 06, 2026 at 12:58:40PM +0100, Will Deacon wrote:
+> Hi Paul,
+> 
+> On Fri, Jul 31, 2026 at 11:39:14AM -0700, Paul E. McKenney wrote:
+> > On Fri, Jul 31, 2026 at 09:44:16AM -0700, Paul E. McKenney wrote:
+> > > On Fri, Jul 31, 2026 at 01:51:26PM +0100, Mark Rutland wrote:
+> > > > Hi Paul,
+> > > > 
+> > > > On Thu, Jul 30, 2026 at 04:59:57PM -0700, Paul E. McKenney wrote:
+> > > > > The .need_resched field can be accessed from both task level and
+> > > > > from interrrupt handlers, so apply WRITE_ONCE() to the update in
+> > > > > set_preempt_need_resched().  This also brings arm64 in line with s390
+> > > > > (which uses atomic operations) and x86 (which uses inline assembly).
+> > > > > Other architectures avoid this issue via the empty definition in
+> > > > > include/asm-generic/preempt.h.
+> > > > > 
+> > > > > KCSAN located this issue.
+> > > > 
+> > > > Do you have the KCSAN splat to hand? Seeing the exact race (and the
+> > > > relevant reader(s)) would be handy.
+> > > > 
+> > > > > Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+> > > > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > > > Cc: Will Deacon <will@kernel.org>
+> > > > > Cc: Jinjie Ruan <ruanjinjie@huawei.com>
+> > > > > Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> > > > > Cc: <linux-arm-kernel@lists.infradead.org>
+> > > > > 
+> > > > > ---
+> > > > >  preempt.h |    2 +-
+> > > > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > > > 
+> > > > > diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
+> > > > > index 932ea4b6204289..610853da140a78 100644
+> > > > > --- a/arch/arm64/include/asm/preempt.h
+> > > > > +++ b/arch/arm64/include/asm/preempt.h
+> > > > > @@ -28,7 +28,7 @@ static inline void preempt_count_set(u64 pc)
+> > > > >  
+> > > > >  static inline void set_preempt_need_resched(void)
+> > > > >  {
+> > > > > -	current_thread_info()->preempt.need_resched = 0;
+> > > > > +	WRITE_ONCE(current_thread_info()->preempt.need_resched, 0);
+> > > > >  }
+> > > > 
+> > > > I was under the impression that we only used this in a context where we
+> > > > couldn't have a nested writer (e.g. within a scheduler IRQ hook, with
+> > > > IRQs disabled).
+> > > > 
+> > > > If we have concurrent writers, this is probably broken regardless of
+> > > > whether it is single-copy-atomic, and I worry WRITE_ONCE() will mask a
+> > > > bug.
+> > > > 
+> > > > If you can share the KCSAN splat, that'd really help.
+> > > 
+> > > Let me regenerate it...
+> > 
+> > And please see below.
+> > 
+> > > > I think we need READ_ONCE() in test_preempt_need_resched(), but today
+> > > > that's only used by tracing to determine what to log.
+> > > 
+> > > I do have tracing enabled on some of my runs.
+> > 
+> > I did build with CONFIG_TRACEPOINTS=y.  Or let me know what sort of tracing
+> > you are interested in.  Or I can send you this guy from my ARM test system:
+> > 
+> > tools/testing/selftests/rcutorture/res/2026.07.31-10.25.08-torture/results-rcutorture-kcsan/TREE01/.config
+> > 
+> > 							Thanx, Paul
+> > 
+> > ------------------------------------------------------------------------
+> > 
+> > [  738.696166] BUG: KCSAN: data-race in __delay / set_need_resched_current
+> > [  738.696184]
+> > [  738.696188] read (marked) to 0xffff000005899b48 of 8 bytes by interrupt on cpu 8:
+> > [  738.696198]  __delay+0xb0/0x378
+> > [  738.696212]  __udelay+0x4c/0x60
+> > [  738.696225]  kcsan_setup_watchpoint+0x3b4/0x820
+> > [  738.696238]  __tsan_unaligned_write4+0x228/0x26c
+> > [  738.696249]  set_need_resched_current+0x138/0x1a8
+> > [  738.696260]  rcu_exp_handler+0x418/0x4a0
+> > [  738.696273]  __flush_smp_call_function_queue+0x36c/0x4a0
+> > [  738.696288]  generic_smp_call_function_single_interrupt+0x20/0x30
+> 
+> This is a bit weird -- it looks like the read is occuring from within
+> kcsan itself?
 
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+Ah, you are right, as part of KCSAN's software watchpoints.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index c7d9dfd120e9..648010c26edb 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -950,6 +950,7 @@ CONFIG_VIDEO_TI_J721E_CSI2RX=m
- CONFIG_VIDEO_HANTRO=m
- CONFIG_VIDEO_IMX219=m
- CONFIG_VIDEO_IMX412=m
-+CONFIG_VIDEO_IMX415=m
- CONFIG_VIDEO_OV5640=m
- CONFIG_VIDEO_OV5645=m
- CONFIG_VIDEO_S5KJN1=m
-@@ -1787,6 +1788,7 @@ CONFIG_PHY_RZ_G3E_USB3=m
- CONFIG_PHY_ROCKCHIP_EMMC=y
- CONFIG_PHY_ROCKCHIP_INNO_HDMI=m
- CONFIG_PHY_ROCKCHIP_INNO_USB2=y
-+CONFIG_PHY_ROCKCHIP_INNO_CSIDPHY=m
- CONFIG_PHY_ROCKCHIP_INNO_DSIDPHY=m
- CONFIG_PHY_ROCKCHIP_NANENG_COMBO_PHY=m
- CONFIG_PHY_ROCKCHIP_PCIE=m
+What do you suggest?
 
--- 
-2.53.0
-
+							Thanx, Paul
 
