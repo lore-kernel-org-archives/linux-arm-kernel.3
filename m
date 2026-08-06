@@ -4,65 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E80DDC56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 11:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BD9C5AC67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 11:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OUuBkFxHQvwLfZspjM/sL2r1bsrZ8568UGlPJR00gZM=; b=lbnpQg1JmZ46SS
-	L3MZcGAUHlzlp/4WDAfKDLYMwLbwfYs6C0npnt/Me8G1u3J5QLKyq+SzCewHiFasDnYwPMuUU8CXf
-	kVlECl/Ntyb0IRmw0jZXg8iyLD3vpl/tRnXMcw9+fr7SUwrdmhqJsu57MmhlFhuQP8K+uDJjzvjzb
-	BZc9zA4ogUEEPM2bPSX11GMWJT4qXJT9uNdJ2qeMeAWJ/2YsTaJGVJ2lgfPBW6NlWRjepd3xdRz3q
-	vL6q/oaAEVEMsm4jRf60CXKvX6vBmVyJCp5RokuNEAwMgWYEodLn+T2KvU7/3HmYy5Uv0ASvKrt4C
-	BOLjN84MyDzJ4Vf6BfiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zCKyTsliPA/oLttgzpk+xJQh+HCPRKP94PZT/T9gDjo=; b=UiHWAckbXp9RBWq+sLjVv+7+Cm
+	Y0aZRHUkWPQuITnJIzsmtvf+T1DIj0aFIPiTJwcLd+m7XyBiiGUrdErQInSmZxB9kbTCj1bXcCIxX
+	tE+ZWVY3zITEIj/XJA+uxK9qqzMnYfgWuOEDfLePZpqW8Q2KNrxRq0XktHlx+05KtSmcBW6dROVqZ
+	kPW0pgo4wqHTjzrf2GSkt20XlBZWcl2z/Zb6e4VkdV+Jz5NP/rqvRnhh9iij3BvePVNFtrL01i6KN
+	jot9mKkP13NgwEtjiHwmaI1MIcZS3+hlUuGhoj2naPeV/FUjqET7KuV8h9eYnZrxaxInudBEurM/n
+	dFZGBE2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrw4Y-00000005cqI-1Bhz;
-	Thu, 06 Aug 2026 11:15:38 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1wrw8F-00000005d4G-2gAl;
+	Thu, 06 Aug 2026 11:19:27 +0000
+Received: from vps.xff.cz ([195.181.215.36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrw4S-00000005cpI-3pQ6
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 11:15:36 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=OUuBkFxHQvwLfZspjM/sL2r1bsrZ8568UGlPJR00gZM=;
-	b=vLURiIrRe2aniUPa3vhtR2xoPLvnEnOkMzsE7OFjqr5v7rpJ89POYkYCTV53/q3RMr8tz5Z/l
-	3xVIxPIsorJZPvcsKRC3mqsJ4eV/DCuS+IXsoSUrXXvErQOBF2kGMp2InXpMtFB7+Zh6gLv75lj
-	qK2PKr/uE5GVtG92FO/XOZM=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4hG4Fg6cPMzKm9N;
-	Thu,  6 Aug 2026 19:05:43 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7103240586;
-	Thu,  6 Aug 2026 19:15:18 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
- (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 6 Aug
- 2026 19:15:17 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <shuah@kernel.org>,
-	<ruanjinjie@huawei.com>, <broonie@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH RESEND] kselftest/arm64: Fix abi test compilation errors
-Date: Thu, 6 Aug 2026 19:15:46 +0800
-Message-ID: <20260806111546.42042-1-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
+	id 1wrw8C-00000005d3i-1lDR;
+	Thu, 06 Aug 2026 11:19:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1786015158; bh=VZJLBZnRyPxnCLoEjoQyTL2E3KhxDtuYstjmKXmloU4=;
+	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
+	b=t+gQlB1V0eTdunNlGu7Efvhp5s23euUhKrq6r0mCrUKAP+ZyJPCZcjD5rWEJV0a8G
+	 +do9zHUtckn+wcm2J/HtiEghohNvu6748gAEhWdbxh6GdmWctUq/1GcJqgWQeAKKSH
+	 Xk/5pR+QEFiuQthNPkjj66Ko3Zv2jBQJIpVixhp0=
+Date: Thu, 6 Aug 2026 13:19:18 +0200
+From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
+To: David Heidelberg <david@ixit.cz>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Olivier Benjamin <olivier.benjamin@bootlin.com>, 
+	Manuel Traut <manut@mecka.net>, Alexander Warnecke <awarnecke002@hotmail.com>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, phone-devel@vger.kernel.org, 
+	imx@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH 2/4] arm64: dts: rockchip: rk3399-pinephone-pro: DW9714
+ coil requires higher voltage
+Message-ID: <galrq4ug3hhny2ivpylqwuztwv7vnqvm6sdhlu6pucxk6qy2mz@zxw4ckkxj2sh>
+Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
+	David Heidelberg <david@ixit.cz>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Olivier Benjamin <olivier.benjamin@bootlin.com>, 
+	Manuel Traut <manut@mecka.net>, Alexander Warnecke <awarnecke002@hotmail.com>, 
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, phone-devel@vger.kernel.org, 
+	imx@lists.linux.dev, stable@vger.kernel.org
+X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
+ <https://xff.cz/key.txt>
+References: <20260801-pp-pro-camera-v1-0-7b4d90788f9f@ixit.cz>
+ <20260801-pp-pro-camera-v1-2-7b4d90788f9f@ixit.cz>
+ <2j7ogeqj565sftp5wzqvtzi2id76fof623bifbmyu6ckhf6vm6@ya7h4tp5i4qf>
+ <7d55eaba-967c-4de6-8021-6b2d17670b1f@ixit.cz>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+In-Reply-To: <7d55eaba-967c-4de6-8021-6b2d17670b1f@ixit.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_041534_172518_F62D1A6C 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_041925_056659_4BF9BA6C 
+X-CRM114-Status: GOOD (  27.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,81 +89,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 ABI selftests fail to compile due to missing include paths
-for kernel headers, causing errors like incomplete type struct sock_filter
-and implicit BPF macro declarations.
+Hi,
 
-Add $(KHDR_INCLUDES) and -I$(top_srcdir)/tools/include to CFLAGS
-to resolve the header search path. Also remove the hardcoded __NR_write
-macro and include <asm/unistd.h> to obtain the correct syscall number.
+On Tue, Aug 04, 2026 at 11:12:21AM +0200, David Heidelberg wrote:
+> On 04/08/2026 09:39, Ondřej Jirman wrote:
+> > Hi,
+> > 
+> > On Sat, Aug 01, 2026 at 02:35:21AM +0200, David Heidelberg via B4 Relay wrote:
+> > > From: David Heidelberg <david@ixit.cz>
+> > > 
+> > > By datasheet the VDD (in-kernel named vcc) range is between 2.3 to 4.3 V.
+> > > Usually it's around 2.8 V. Here it matches the avdd2v8_dvp.
+> > > 
+> > > Fixes: 9336eb829a18 ("arm64: dts: rockchip: describe I2c Bus 1 and IMX258 world camera on PinePhone Pro")
+> > > Cc: stable@vger.kernel.org
+> > > Signed-off-by: David Heidelberg <david@ixit.cz>
+> > > ---
+> > >   arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 2 +-
+> > >   1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> > > index d46cdfe3f7849..bde35d9b2263e 100644
+> > > --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> > > +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> > > @@ -473,17 +473,17 @@ wcam_out: endpoint {
+> > >   			};
+> > >   		};
+> > >   	};
+> > >   	wcam_lens: camera-lens@c {
+> > >   		compatible = "dongwoon,dw9714";
+> > >   		reg = <0x0c>;
+> > >   		/* Same I2c bus as both cameras, depends on vcca1v8_codec for power. */
+> > > -		vcc-supply = <&vcc1v8_dvp>;
+> > > +		vcc-supply = <&avdd2v8_dvp>;
+> > 
+> > This does not match reality, schematic says it's VCC2V8_DVP:
+> > 
+> > 	https://xff.cz/dl/tmp/6253a0465329df41.png
+> 
+> Ahoj,
+> 
+> thanks for spotting this, since I know you have the device, would be too
+> much to ask you to send standalone fix for PP Pro?
+> 
+> I would drop the change from the series.
 
-Fixes: 21e37da12071 ("kselftest/arm64: Add testcase for SECCOMP_RET_TRACE orig_x0 bypass")
-Fixes: 2fcbc4adf997 ("kselftest/arm64: Add seccomp ptrace x0 bypass test")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/r/202608021842.jp6IBrFi-lkp@intel.com/
-Suggested-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
-v1->resend:
-- Cc public email.
----
- tools/testing/selftests/arm64/abi/Makefile                   | 2 ++
- tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c | 5 +----
- .../selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c        | 5 +----
- 3 files changed, 4 insertions(+), 8 deletions(-)
+Ok. Just for the reference, vcc1v8_dvp here feeds an enable pin for VCC2V8_DVP
+LDO regulator (which is supplied from VCC3V3_SYS and not described in DT, yet).
+So in practice enabling vcc1v8_dvp enables both VCC2V8_DVP and AVDD2V8_DVP and
+while DT does not describe the HW in detail, it describes the only regulator
+that is actually controllable and enables all needed power rails for the camera
+modules all by itself in proper order/timing.
 
-diff --git a/tools/testing/selftests/arm64/abi/Makefile b/tools/testing/selftests/arm64/abi/Makefile
-index a01d3806eba8..e91d4cdf17ad 100644
---- a/tools/testing/selftests/arm64/abi/Makefile
-+++ b/tools/testing/selftests/arm64/abi/Makefile
-@@ -1,6 +1,8 @@
- # SPDX-License-Identifier: GPL-2.0
- # Copyright (C) 2021 ARM Limited
- 
-+CFLAGS += $(KHDR_INCLUDES) -I$(top_srcdir)/tools/include
-+
- TEST_GEN_PROGS := hwcap ptrace syscall-abi tpidr2 seccomp_ptrace_x0_bypass seccomp_ret_trace_x0_bypass
- 
- include ../../lib.mk
-diff --git a/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c b/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
-index a00621a8949c..4ee8e5aaad6f 100644
---- a/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
-+++ b/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
-@@ -34,13 +34,10 @@
- #include <linux/elf.h>
- #include <linux/filter.h>
- #include <linux/seccomp.h>
-+#include <asm/unistd.h>
- 
- #include "kselftest.h"
- 
--#ifndef __NR_write
--#define __NR_write 64
--#endif
--
- #define EXPECTED_TESTS 1
- 
- #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-diff --git a/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c b/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
-index 3a69f53f4f88..a23081763328 100644
---- a/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
-+++ b/tools/testing/selftests/arm64/abi/seccomp_ret_trace_x0_bypass.c
-@@ -44,13 +44,10 @@
- #include <linux/filter.h>
- #include <linux/seccomp.h>
- #include <linux/ptrace.h>
-+#include <asm/unistd.h>
- 
- #include "kselftest.h"
- 
--#ifndef __NR_write
--#define __NR_write 64
--#endif
--
- #define PTRACE_EVENT_MASK(status) ((status) >> 16)
- 
- #if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
--- 
-2.34.1
+Not sure what's the DT maintainers idea here about whether DT has to describe
+every detail of power rails routing, or just what's pragmatic.
 
+Best regards,
+	o.j.
+
+> David
+> 
+> P.S. I noticed I didn't mark this series RFC. Too late.
+> 
+> > 
+> > regards,
+> > 	o.
+> > 
+> > >   	};
+> > >   	ucam: camera@36 {
+> > >   		compatible = "ovti,ov8858";
+> > >   		reg = <0x36>;
+> > >   		clocks = <&cru SCLK_CIF_OUT>; /* MIPI_MCLK1, derived from CIF_CLK0 */
+> > >   		clock-names = "xvclk";
+> > >   		dovdd-supply = <&vcc1v8_dvp>;
+> > > 
+> > > -- 
+> > > 2.53.0
+> > > 
+> > > 
+> 
+> -- 
+> David Heidelberg
+> 
 
