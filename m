@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77061C55174
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 00:39:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8562C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 00:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7gf+mpYsakBPSmIQkvoQ10f+PIuAlnT5eRoCJZDEArs=; b=dHozqT9RZ1JNDPg5pHB9pMf8mq
-	enKMg2Mk/nY6kD2Gd81o4MyU3NU5UAnBU63yJKX3siAxoWwyHlUYP5IfdW5sEOCrsZfBqznQLxf/q
-	vwM4g8eYhGpG/pgTOBc3pfhbp0u4k5+vwbGtD+9YVtjIkcs4EKzoqFgxl5uVMWbB4b/2x6N+fpc/7
-	aDGxH0Ns41EazUG+emH853a4CpDcQUACpG+Y+xd0IaahfAVvvokmF9qELK+K61UzYkgozfd0e8zCb
-	bgROLqBY4zEKeZ+PSozjazBtRlNvKDc6DeO5DJX7/1nsFIlJ9yqyBsfpEYQRiA4605kUih0CVwRwg
-	l8AvdFjQ==;
+	bh=msBQ8lS2p2rAepefZ8Gu3+Y+qM7aDU6u156Ya1WL8vQ=; b=AJ+RswJZ2l1qfeVOkHKe25bGJx
+	txkuI66/s77aphQjp5K3fhFTPJNLrNI5mIO/eLvuCoK1DiLzLt3q1QKyTrNwLuJKD6KYZrdnJ86s0
+	AIngWu93L0Ko9mdtRhvxzqzzC00QgL1oH/up4VEOMsQUQkQLrD4UIOIJNVL3k0H9lY9kopBofxXZ0
+	iBPSjIeCPfaZ2+ycwFkbEJva6vsuW3VSbHXsffPgd134rHVdvoulUqGuoih96zJWWP0Pi9LAqJhzv
+	KB/Qd08kilPuZbMhMviC4QsW6vqGdx69CCe/4F9TiyBiSnCTNF2vVS8M8VHZD9eAl9WtmobPdWTGG
+	0pYrRLRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrm98-00000004hUI-18KK;
-	Thu, 06 Aug 2026 00:39:42 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wrmFr-00000004j2b-2CF9;
+	Thu, 06 Aug 2026 00:46:39 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrm8q-00000004glU-3g6R;
-	Thu, 06 Aug 2026 00:39:28 +0000
+	id 1wrmFk-00000004iyn-225Q;
+	Thu, 06 Aug 2026 00:46:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1785976751;
-	bh=/pny3r7ktgDc2Z+IoylC5iAQmlaEL0Yh0JrwtTyx240=;
+	s=mail; t=1785977188;
+	bh=evmVzWSmkMNe11q/nd1T6eZIDF68HR1dZx3DTB4BQwA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=aG64Ov0NQjtVWfmCPFZcPSn5GI40uY0Rw0cmishWEaYkAjoqIB+1E25aclhEab97U
-	 00fgG7tGrJO2W+7PtdPuJHycXOPlZBXlraWmC7/JRXULI8u0raIDV/hG0j4eeBURjB
-	 qpdS5fKtRnpbbiDOXktXk8IlV/GjqhRzwwkUgl8jVeLCK+A2YkENqwuSxAlERX6u/A
-	 NGQ/XqXpasbH3lIegAwuEAPaHvurTnHNLyvbOiF1VwUts8rOeMcUsHWogDuoRgylNh
-	 fvTwpXPWMX3HFXtDJ+NeJ5KY0z3yKd6Sb7fL/PPZmYlw6K8e28Z2UADxLjSU6VOflh
-	 ftDBvIbuM3MEg==
+	b=nR3fWOYP8JmhzPqpY2p9KAi/8cCBBskSykgUGM21zrqtoRShqsXVhy9dbxgmb0Lo+
+	 UCeH7nG/PK6Am5p/Qtf/GxwbryBVLE+5ZXjyS0TF2ZXNwOepDq3rerl1GMN6ok1EEq
+	 LhHDlhYtoUuyRq2vCU0tNbGRJEtYMrJLhJaqEEEKhlbNNfGqPfLAao8otTCMPzUWNs
+	 cUwJG634yCW/6+0ANNYvlZig0rDDcWRlacd/R5cjtd3rK/8I1ycT9a+KpFxwebjhVn
+	 IBw8xoK/6HCHSKfAN/3BC0xK43Qf6ua8I+m9zCPAAKrORGpLAMt986e7Z5F90Tc6Ml
+	 5up9DwwjNSYCg==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 846B317E084E;
-	Thu, 06 Aug 2026 02:39:11 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6BE3D17E075D;
+	Thu, 06 Aug 2026 02:46:28 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 9E287480061; Thu, 06 Aug 2026 02:39:10 +0200 (CEST)
+	id A1005480064; Thu, 06 Aug 2026 02:39:10 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 06 Aug 2026 02:39:22 +0200
-Subject: [PATCH v10 16/21] drm/bridge: synopsys: dw-dp: Protect
- sdp_reg_bank from concurrent access
+Date: Thu, 06 Aug 2026 02:39:24 +0200
+Subject: [PATCH v10 18/21] drm/bridge: synopsys: dw-dp: Clear only enabled
+ SDPs on atomic disable
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-synopsys-dw-dp-improvements-v10-16-d84a26c303d6@collabora.com>
+Message-Id: <20260806-synopsys-dw-dp-improvements-v10-18-d84a26c303d6@collabora.com>
 References: <20260806-synopsys-dw-dp-improvements-v10-0-d84a26c303d6@collabora.com>
 In-Reply-To: <20260806-synopsys-dw-dp-improvements-v10-0-d84a26c303d6@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -78,26 +78,26 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-arm-kernel@lists.infradead.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2378;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2746;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=/pny3r7ktgDc2Z+IoylC5iAQmlaEL0Yh0JrwtTyx240=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpz167wZVFaB2j2JT4LQKLFTVJWIbXQdcXOk
- qqJYVWBwAzDtokCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqc9euAAoJENju1/PI
- O/qacE4QAIeBECduSDd7RLHt7dZy72CUXmLfxhcAccV9cyo4IA+NxxpwzEYzBepPzLKUlqsVL+f
- z7lAxnNUbGSBlR3wx0oPMYPDY5vsCdCXa5x5HnAqDF6k14WhyoWNlsonC8+bnnM/Yz5YRJVcxav
- SE6HD3YOr5xhR3TPp0gsdMYwo6BcatJLo+zYDk/z/hqy7igM7oxyAmziFuMu5oXgPtj9C3tsq/g
- i6MeT807KiefEeb30tno7sYGVkSxV6LMAUfmBxC1/xDGCLSrrh8G+n//xh529l1/wTJSTP0xZMo
- h/aCnt2b9jon4EAOLHxuLHqnHNWg7c+YjlqiBJz7ed8LcYd1LpCX/rOLKvGkYwLxVZynGwzJXr/
- VvwrI5mp9OjAHlqOgvuGwIkm7CX+DEbymncatH2P7uc+DMnIM8TKczkYCge2PX2xexF7mMDhDYR
- NimiJRRr9/1vWJ9QoU9VYQoqaP79K52MFwB/NyUlxVF3mO53wzgskE7VACjpKd0cVAHXbRCznXU
- 7lvniktXVgLkWGvqf2RIKRZAS/k07LACv9qQ9b/DAl6auOD2w9KHRPKfC7jgeraEUUQNnPHFC+3
- z5vKZn7FjlgjgKJW6qyB6tLRVThzX5s0010zKHnEsrgT8WlPo0aHu/HUrXJIj/FXOz0FfBy01/D
- 5iMAA1gaxsGjEsE2kG4sygw==
+ bh=evmVzWSmkMNe11q/nd1T6eZIDF68HR1dZx3DTB4BQwA=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpz1651f5GFzi7tbG0ij9UawtlVcYuwUkTjU
+ jPRQjqO83tCU4kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqc9euAAoJENju1/PI
+ O/qaY5IP/A3Aqr8ezypgIi8N3zCYHRywRMuOuZjrF8xT4BHuktmrAkkj1/90sqlaUxzK8mc33rF
+ SXksu2aBXDg7lAPDGmWJ+q51mve7IEXagbc+ceD/6H7iCmn2FG0xf6OWvjM08KLYvWf1Dn7zb/g
+ //eswcUI5VvbotKlDprYNrQhDS0Ewxk6JnprMaXUEV+heZvSeSbUm2kOw1wfxUzj+49g/N81etV
+ jcl2WaCUqX0DiU+Am7Dmd599icEw7nPNDKkK7lCt8V7cqNzB/DCUTzfjba50bnI30ZcR+KeEiUK
+ a1mnD7ESH5q7VaSMuaLSFWfVIiN6EfaSr3JvGHcYyXTj3jpZMvEdVUmFwwshXLi8p6dNn6qYF4d
+ +L49GA3fexLzPNr508a+A0uU2fOWAzK8m4c4KzJRZOzkwX8ZGSTMZsK4mmR47WAJMmXKwy0+4rB
+ Y82yQ7aVraRbNUIkcnH17/3IKEOist//j3J9Dk4ahb9LBXhRHGyhiTipb9NBPNKIFqDN6vHVEYy
+ 2nS6TfAVSYP7foyZH7GJKs+0apWR5kfyQ3M7p6flmZ87BCdueMu5i6qGnkTcHqNH86PD6aZnDp2
+ GaJr0BdaMUKIiZx0aGcxg12aH6bkuxLPtQwG5ReS/BXWEtkSDfLwQydUQWxce7GcUSFsLeBAvuz
+ 09u52Ix8/J0pkUO1wm3orvw==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_173925_113013_036B2DAC 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20260805_174632_682354_B3C1A3DA 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,80 +112,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Right now sdp_reg_bank is only used during atomic enable/disable and
-thus there is no risk of two threads accidently claiming the same bit.
+dw_dp_bridge_atomic_disable() bulk-cleared the whole SDP register bank
+allocation bitmap via bitmap_zero() resulting in the loss of all
+tracking information. This results in a slot potentially being handed
+out again by dw_dp_send_sdp(), which is still considered to be held
+by the previous owner. Then the previous owner might free up the wrong
+SDP later on.
 
-This changes once more SDP users (like audio support) are added, so
-introduce a mutex to protect concurrent access to the bitmap.
+Instead of bulk clearing the tracking information, the new
+implementation only clears the SDPs actually configured during
+dw_dp_bridge_atomic_enable() instead of the entire bank. The
+introduced functionality for that will also be used by the to-be-added
+audio infrastructure.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 24 +++++++++++++++++-------
- 1 file changed, 17 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 27 +++++++++++++++++++++++----
+ 1 file changed, 23 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index b8ba884d04ed..a63fe1fc0969 100644
+index 425bfcd3a37d..2883922af969 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -323,6 +323,8 @@ struct dw_dp {
- 	struct dw_dp_hotplug hotplug;
- 	/* Serialize hpd status access */
- 	struct mutex irq_lock;
-+	/* Serialize sdp_reg_bank access */
-+	struct mutex sdp_lock;
+@@ -337,6 +337,7 @@ struct dw_dp {
  
- 	struct drm_dp_aux aux;
+ 	struct drm_bridge *next_bridge;
  
-@@ -1048,11 +1050,13 @@ static int dw_dp_send_sdp(struct dw_dp *dp, struct dw_dp_sdp *sdp)
- 	u32 reg;
- 	int i, nr;
++	int vsc_sdp_nr;
+ 	DECLARE_BITMAP(sdp_reg_bank, SDP_REG_BANK_SIZE);
+ };
  
--	nr = find_first_zero_bit(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
--	if (nr < SDP_REG_BANK_SIZE)
--		set_bit(nr, dp->sdp_reg_bank);
--	else
--		return -EBUSY;
-+	scoped_guard(mutex, &dp->sdp_lock) {
-+		nr = find_first_zero_bit(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
-+		if (nr < SDP_REG_BANK_SIZE)
-+			set_bit(nr, dp->sdp_reg_bank);
-+		else
-+			return -EBUSY;
-+	}
+@@ -1078,7 +1079,19 @@ static int dw_dp_send_sdp(struct dw_dp *dp, struct dw_dp_sdp *sdp)
+ 				   EN_HORIZONTAL_SDP << nr,
+ 				   EN_HORIZONTAL_SDP << nr);
  
- 	reg = DW_DP_SDP_REGISTER_BANK + nr * 9 * 4;
- 
-@@ -1708,7 +1712,8 @@ static void dw_dp_bridge_atomic_enable(struct drm_bridge *bridge,
- 		return;
- 	}
- 
--	set_bit(0, dp->sdp_reg_bank);
+-	return 0;
++	return nr;
++}
++
++static void dw_dp_clear_sdp(struct dw_dp *dp, int nr)
++{
++	regmap_clear_bits(dp->regmap, DW_DP_SDP_VERTICAL_CTRL,
++			  EN_VERTICAL_SDP << nr);
++
++	regmap_clear_bits(dp->regmap, DW_DP_SDP_HORIZONTAL_CTRL,
++			  EN_HORIZONTAL_SDP << nr);
++
 +	scoped_guard(mutex, &dp->sdp_lock)
-+		set_bit(0, dp->sdp_reg_bank);
++		clear_bit(nr, dp->sdp_reg_bank);
+ }
  
- 	ret = dw_dp_link_enable(dp);
- 	if (ret < 0) {
-@@ -1752,7 +1757,8 @@ static void dw_dp_bridge_atomic_disable(struct drm_bridge *bridge,
+ static int dw_dp_send_vsc_sdp(struct dw_dp *dp)
+@@ -1396,7 +1409,7 @@ static int dw_dp_video_enable(struct dw_dp *dp)
+ 			   FIELD_PREP(VIDEO_STREAM_ENABLE, 1));
+ 
+ 	if (dw_dp_video_need_vsc_sdp(dp))
+-		dw_dp_send_vsc_sdp(dp);
++		dp->vsc_sdp_nr = dw_dp_send_vsc_sdp(dp);
+ 
+ 	return 0;
+ }
+@@ -1754,8 +1767,12 @@ static void dw_dp_bridge_atomic_disable(struct drm_bridge *bridge,
  
  	dw_dp_video_disable(dp);
  	dw_dp_link_disable(dp);
--	bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
-+	scoped_guard(mutex, &dp->sdp_lock)
-+		bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
+-	scoped_guard(mutex, &dp->sdp_lock)
+-		bitmap_zero(dp->sdp_reg_bank, SDP_REG_BANK_SIZE);
++
++	if (dp->vsc_sdp_nr >= 0) {
++		dw_dp_clear_sdp(dp, dp->vsc_sdp_nr);
++		dp->vsc_sdp_nr = -1;
++	}
++
  	dw_dp_reset(dp);
  	pm_runtime_put_autosuspend(dp->dev);
  }
-@@ -2229,6 +2235,10 @@ int dw_dp_probe(struct dw_dp *dp)
+@@ -2341,6 +2358,8 @@ int dw_dp_probe(struct dw_dp *dp)
  	if (ret)
  		return ret;
  
-+	ret = devm_mutex_init(dev, &dp->sdp_lock);
-+	if (ret)
-+		return ret;
++	dp->vsc_sdp_nr = -1;
 +
- 	res = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(res))
- 		return PTR_ERR(res);
+ 	bridge = &dp->bridge;
+ 	bridge->of_node = dev->of_node;
+ 	bridge->ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
 
 -- 
 2.53.0
