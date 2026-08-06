@@ -4,71 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF03C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE54C5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7J5Tb1/e7+0o2iMfnVQiLZsqKhQzq+Tx+/PZqWQZOR4=; b=Ao7IuZSQUDzJzN1djX4nwvXKsy
-	Sx3J1YoEEDHcZJQgaf1729IdQEiovOLfWv/BYLZmtcqP6LkNa61F40GEAAgzIQzYJidqi4/h9q59E
-	Ne8VibyR5uqhCkExL4vzn1+RfgfFVoAZNHK6KUKVqmfgCY8dlX7lP3bGCKYVffOdfkh11dZpI76Ks
-	BVG7qGb17lXiZ6vSq/jWKgWNWRgHa6tfdcwZIP0xu9vtWnUHTCOMlOYfa21e5Vv9KGGZ6mnuKUbx9
-	/pGgqT5NPR7rExwvsejcY5BrLeLJXcaKHzHjTkZLQrhxGfUyyqMsFKxZwa8zuAPRyokO2SN6hmSAb
-	KH33oKSg==;
+	bh=tHnqyOO1uDsuoF/xnUQI2mRzSuyrmk/rA7QZretz+bg=; b=jspRJtOCvnD3DiVmiCeT1Kj3ow
+	B3SAkL7UxFgEnKAkh4vInkyTTJ8EU6+RkOPbinbMy/5OsWQESi4jl3dcdsCeg/vndUDOIKjHSlDt3
+	eczDqRWIpXHDKJZyKAujrgGhl+y3X4xG0qrENfRZUW/PPkmgxBRURPR9yK/k4hCf7gXZL0eGTWKCf
+	d58qKzk0v6PnFj+rZUc9EPwAjEeck89qIyWk+9EuWeRjeJrg6btwUGHkSFj/6DUMbSmCGu6bqPvH3
+	FqaOLbOb6iwY7Mm9ETzycCeoOwh8+OIvEKNhwSj5yWrsphst9zLI3wuARCWi6dlSkqytgCQVaQivV
+	y6iqUL9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1x4-00000006Nwa-2jsU;
-	Thu, 06 Aug 2026 17:32:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1ws22D-00000006OLu-10x5;
+	Thu, 06 Aug 2026 17:37:37 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws1x3-00000006NwS-0li2
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 17:32:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4C24C60AB0;
-	Thu,  6 Aug 2026 17:32:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA1B81F000E9;
-	Thu,  6 Aug 2026 17:32:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786037536;
-	bh=7J5Tb1/e7+0o2iMfnVQiLZsqKhQzq+Tx+/PZqWQZOR4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HqKGBGIcEZ/+U514vL1iPOo9QBRMCr2ok62HCPSwILHjFBf/AR08b6mSqHDEjaeFN
-	 KutUxL79UxG002+LReaU0p1yGFhFC7M+yh/1MiQaeXZdBlS7PYjI0H9tHz+pQiATs5
-	 4NoJXbGzZ7yUsQOYaynFGTV4ABINw+XLGwBubFYe2XKsem9mQPQWlIPZT1GdujLy5t
-	 7sHUYsGGPpe20Hy4TMB7iE0OeCoue33lT9XHHBFBGyEYLevj+gtt3a0KpySvREVXv9
-	 EayAToVMPG7VDJ1NUebZQUOCdl8yYL3evrEWKLlclZumx0v+dIeuzQS1yy4ri8AhTN
-	 P9P8EQTM+ATwg==
-Date: Thu, 6 Aug 2026 18:31:57 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	"Christoph Lameter (Ampere)" <cl@gentwo.org>, "David Hildenbrand (Arm)" <david@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Yang Shi <yang@os.amperecomputing.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, dennis@kernel.org, tj@kernel.org, urezki@gmail.com, 
-	catalin.marinas@arm.com, akpm@linux-foundation.org, hca@linux.ibm.com, gor@linux.ibm.com, 
-	agordeev@linux.ibm.com, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [RFC v2 PATCH 0/16] Optimize this_cpu_*() ops for non-x86 (ARM64
- for this series)
-Message-ID: <anTCM94KoxY2nRaf@lucifer>
-References: <fc21c840-1584-4844-963f-80cea7f2e674@os.amperecomputing.com>
- <amCPBrdltFSE_fEf@J2N7QTR9R3>
- <25d1e09b-53e4-7cd5-87db-b58437e4e690@gentwo.org>
- <4887267b-dc26-4c33-96ca-8dff054a0d1f@kernel.org>
- <anHuLy52o5S9Nlwp@lucifer>
- <CAHk-=wgJ0wO=T+1G5zJwoeE-N4bAptCNo2TFirK364iPhnGG6A@mail.gmail.com>
- <dadd8268-3cef-3a3a-e277-b593bef3b788@gentwo.org>
- <CAHk-=wha5um2rB9u7EDeEhZJyaWOUFye-wTKzsykQqJH41RNdw@mail.gmail.com>
- <anIXr4Kbn59Ac31Y@lucifer>
- <anTBN7WzVZukl26p@willie-the-truck>
+	id 1ws22A-00000006OKz-2VRO;
+	Thu, 06 Aug 2026 17:37:36 +0000
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfout.stl.internal (Postfix) with ESMTP id 06D6B1D000BD;
+	Thu,  6 Aug 2026 13:37:31 -0400 (EDT)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-02.internal (MEProxy); Thu, 06 Aug 2026 13:37:31 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1786037850; x=1786124250; bh=tHnqyOO1uD
+	suoF/xnUQI2mRzSuyrmk/rA7QZretz+bg=; b=IUyxeOGlOih7TBAnxusRso1hWL
+	+YD1l8lbfLnHwA0Ufvz6nUguE6wwkFRDKrbNNYhXtEFBUpmukgRUgSdJk0Ln2sgw
+	xYvY8JiJKYPkRPDovyP31TrBfVNapNytvyr13BZVzjfbl1R5GRlqgHZgZ8PXX+us
+	bu8VG8QXT0lV/Hh4MVs0Dm3L90Ew05oiZxdWsZ1z+i9a8oF+TME47U4gM5bS/qfd
+	gaNCY2QiH8jhF7vaAQsQMokKtQC3t0L/OiSnnre23g2NUWte/GDVb3ZQo24NRze5
+	gGU4lrjdt3hHY8D84AifjhevQg0CjH+XlLGbOm3Onc8FMMIleaCdPdpmyuvQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1786037850; x=1786124250; bh=tHnqyOO1uDsuoF/xnUQI2mRzSuyrmk/rA7Q
+	Zretz+bg=; b=huILaywRzta094cghAmg/6V4TdtDqy2H/XXrwFKqf95sUihGqZ3
+	81y+lRl2fPzTG3A0Uk/nfvOdKcFG1lmiq8lkmReWqtIVnehpDYEFaAYiUAiasQ8z
+	IdC4ukU8TiqEK8ZM32l7isyoTeJNbGpPif3MGRbIsogQfuFvAAlCmQu4PPn0eWNm
+	ntyV4M4xr8Zpz+CUBIQzAUFcxTc3zhFuIs3AEvCQKdnldzQwLpyhRJY2ij4JZl0+
+	3BpMeWdSDXFlK6fH7iZhzxCZeQ+74BSEMz6xD1Rcejel7DvbcWKBDzYgkNmQyWnx
+	BNXU2mxZNfgbttuKZVXrFFPtVoCEg79Ufzg==
+X-ME-Sender: <xms:WsZ0asjitWyoR78JyGC827Km5p7ELDBt5EyTjboqKOA4kuPIDIxIDg>
+    <xme:WsZ0ag2qwvBL5raTTuIq3xNoKOEHT9QyPgo8gg30TEab1g71OdTSjrKIJhI7j4tJz
+    lNQ2deOwpyE6A6g72opBziBGDtESv7yE_L2gocK-QwagR61--HyIKw>
+X-ME-Received: <xmr:WsZ0avdO9znJLTTAKvHxJc1Y5JHT8XPOdEJZak_5utkTpDTwYG5XhAaDeuMPvUMYqSzO-vWDE-WukJwEL9FF7SysAt1VEI9yL7o>
+X-ME-Proxy-Cause: dmFkZTGwCXBcn4aLfwWdfO4trPZD1QJnLbrbvPnKiG1qC8XfJLrdxauf+uW9V1IadvHpNS
+    l5/Rx2MIiAcq66IRw6VMNUNmUS8TMak8AF662vYKZTkaUb9XRvR3Hq5ZAly3FQS82dOD/I
+    4+krjZ6PDY8zDg9K5QtufjuF7verAuoLHeGORs8+FMIAy6vf4TJevfTLkBahtqzGNudqIp
+    iIYMJZZHHEsfRL5babwzPWb74SeHSZPNEoaDGDsaEGPqXhdTAhVvEf3mcMgDTUfm01KbNe
+    3awc5mWY2/ljAsdLPc3I8Eji1uJDQFl78xVLs0EIksEuFDfEUFgdFbpIMbb/3lMTV/MroX
+    7vJLKhjVBRD9TNWGb4gVqNEBqgrqsBX1nLp2nlySFTGREb3kRF4FTj0wlVkEKHeYz1uhse
+    IAF0V7fJroKG015cX/hl+yIpMupTZq8aFUslwBqeHbSEAgsYz7zHWKWYfrOZvgpwrCoqpy
+    cQEXtyjVsn+xUvfLOx1SEUWntwSxS54UMqKz3IdDwJCNNJRH8FdCZXF/SEKkMqkPgDaYPw
+    RR14r5sUSe+UTd/GPp9Q03lcoLGMAGhR8wrOaqK0ILBlBjavlLbSa2DEkfSLJpL/KJQHOS
+    NidEGnsb2LJMV9HTmqZNDp2CTvQ9jBSni+FdQVBb9fvYn7agCX7VHpTNXUAA
+X-ME-Proxy: <xmx:WsZ0amzGoA_8Pqn4FLbFJQwVPwDUW5AVWeEYuRNjSvaez5uPnSRu6w>
+    <xmx:WsZ0anwa1PMy9xcRax62pV8WbhZYJ0_NT0h4qxZB8n3s9FSk9Ze96Q>
+    <xmx:WsZ0anaAaX4TbHmCUIdK_TtLIwNJ15EtoBrr0FRBzptOFUIhcg5B3w>
+    <xmx:WsZ0ag3EtiYRGPs7tq1OaBZaH0E2oHJl506hZtU7uFL86p-ayp2zCg>
+    <xmx:WsZ0an5YLg3nZukQbedDSXz2LgIABtNCffZm2HXNwIhwQZbZVGx0fze->
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 6 Aug 2026 13:37:29 -0400 (EDT)
+Date: Thu, 6 Aug 2026 19:37:28 +0200
+From: Janne Grunau <j@jannau.net>
+To: Sven Peter <sven@kernel.org>
+Cc: Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>, Arnd Bergmann <arnd@arndb.de>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/6] Apple NVMe fixes for macOS 15+ firmware / M4 support
+Message-ID: <20260806173728.GA682012@robin.jannau.net>
+References: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <anTBN7WzVZukl26p@willie-the-truck>
+In-Reply-To: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_103735_019508_60BA48BD 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,46 +107,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 06:15:35PM +0100, Will Deacon wrote:
-> So the nice thing about having two implementations (i.e. the per-cpu
-> page-tables *and* the preemption stuff from Mark) is that we can pitch
-> them against each other to help us make a decision.
+On Thu, Aug 06, 2026 at 05:27:32PM +0200, Sven Peter wrote:
+> Hi,
+> 
+> This series fixes a bunch of bugs that were working fine with M1/M2 NVMe
+> controllers with older firmware but are now starting to bite us.
+> With macOS 15 a new firmware is installed for the controller and both
+> XNU and the controller are a bit more strict now. This firmware is
+> required once we add M4 support.
+> 
+> The first patch fixes a panic that can happen when the controller fails
+> to initialize, which now happens for the first time with the new
+> firmware. The other fixes then make it work again.
 
-Yes exactly :)
+Whole series tested on devices with pre macOS 15 system firmware, a M1
+with system firmware 13.2 (OS firmware 12.3) and M1 Max with system
+firmware 14.5 (OS firmware 13.5).
 
-This point has been put to the submitters a number of times so I hope that
-an additional repetition from an arm64 maintainer helps underline it.
+Tested-by: Janne Grunau <j@jannau.net>
 
->
-> However, I don't see how anybody could argue that Mark's series isn't
-> cleaner and easier to maintain.
-
-I completely agree.
-
-> I've seen it described as "hacky" but I
-> can't tell whether or not that's supposed to be a criticism. If we
-
-Allow me to translate: 'I want to ignore this' :)
-
-Similarly the comment about mm maintainers wanting maintainable not-broken
-code being a 'foggy' position. Translation: 'I want to ignore this'.
-
-Since maintainers decide what gets merged the translation gets flipped
-if the submitters fail to address the feedback.
-
-Let's hope sanity prevails.
-
-> seriously want to consider the per-cpu page-table approach on arm64, the
-> numbers need to be _really_ good and across a variety of hardware, not
-> just the stuff with a memory system made of baling twine. That extends
-> to the kernel text replication efforts too.
-
-Thanks, and equally so for the core mm changes that are required by the
-page table approach (that requirement being attested to by the diffstat).
-
->
-> Will
-
---
-Cheers, Lorenzo
+Janne
 
