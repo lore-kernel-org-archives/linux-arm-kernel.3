@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62896C56209
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 00:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 459A3C56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 00:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxH3nNFH81MrSsxxSN3DbDPWeanDAJIc4Fa6F4Rmis0=; b=owU191qILcq+0k0mZIhpwrkDQN
-	4pHktgY8TUymCgRH9OTDLT9O0PPZLYxnN4dHUUYrau+encwF1yGfiNIY23UCjb2KfgjSL+WRqYHaz
-	NCtoiReBgUfIhfr4XyM5XfvzWBXrEhh9Sq1M0gQ2MmcUFNvk8wZ0Oqm6DXOkmTvHXuKUZgb1FriDF
-	bUqswle/ZDwIYxwFLmAl+nEqTiyudMxNxbitqV7PEDWRzPbPcMWc7JFdijf69bLrE0pCOcCzWWgrf
-	mtGN0St6bh8gZTPAdQu6qW4BGnDh7uVZwlldGiameDF7N6m9mexKZd50Bhn/UkXQ9ZCk7WSOIJGSs
-	ndOosv3Q==;
+	bh=ndML0ZALw9it2BKePTTpG9oEysLeXDXgidkJbWtRcY0=; b=D51BAxi+NjBc19bvC8QGP8r+Ud
+	b018NQtNLU+8iGzJwya9IlQoaIJLmRkHKoCTCCPDOshYpFm9gde9d3gE574odyTZQW4uC3Z6GGQZy
+	6gOksS9LE87H3WeyDRIBxA6NRJcy+2nUGBqAOSm8VXvKxYv/Zn3lB9WXtQPs3k08XijdJSVYK1ZD1
+	hI1ePGtGgk7LcJ8g7SjAJ3uUFnGfacHrqYK4jwAlq1jWwBpPmYjEz8Wyn8XuCK1q7Kk5wZfnb3gj6
+	O23+fAaRXl3j8qdqDOwMi+JQ0m7VO33HpJox+zAOhF+oSI1/I0JVWV1+q9mH0Fjx4dWRbkAS6rgAU
+	e6QqtKOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrm8y-00000004h1N-1BW0;
-	Thu, 06 Aug 2026 00:39:32 +0000
+	id 1wrm8z-00000004h5K-3hbC;
+	Thu, 06 Aug 2026 00:39:33 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrm8l-00000004gcC-3Rzm;
-	Thu, 06 Aug 2026 00:39:23 +0000
+	id 1wrm8l-00000004gby-1Nl6;
+	Thu, 06 Aug 2026 00:39:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1785976751;
-	bh=fcI6NxAi0w9kYs3KWpEoGjJ9DJV5ajPSR9SnFAY0JFY=;
+	bh=kXoRBBebvYIox0oNXN0VuZO24XXYD428JSoKN6soJ4A=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZCouqlUon+4oPxndlT3o5V1GekpaWkg/1cR+oRr5ipN4dFEeBNQ318Y6oML7rKMWb
-	 6HGRi4aFlnE2AeUgHBHhMM7Rc3kYZBZRhZkO68sFeRS5P0ZF+qHX+fiEx5ik9chnuY
-	 xlE3NQzajJGa4El2CRytKPaGeWTEVPCR2JywjN+MqrKNi6pFJ8f4/pE3n2BoweJ/IU
-	 pt81XtNyKbqhVEnE0DjDW0nyEPSqufsVXm/ice/vqNy/Uo4EbxihnvpZUC1rPdEMmR
-	 VHNl+BT6bAFcKDSoUcJbrphySrj/68HzvpjKQSXtFsIyHQEBTaTme9QwnNUU3seC5P
-	 e1z2/Zk1Suz0A==
+	b=mP10COIAyj2NaBjzWj0e8vDOj22SHY2533M6Sub5SGaEDvu2nFJLyxIpJlFzXu1GJ
+	 TB7LILix/vRTxTrbr3N6hsCLU46UdHQR8ES7WvyE/cvGEEjtLQYUYbG5waJmpATE3o
+	 k/Er67OCfFnzajAZd5swowTSIKRPU1qBKf/3AgvVhgqbIwcpz7HM1Ut23/ZN27xsLe
+	 S3jSFbujTQV5L9xGmcq77MAmE4Z20Tx/RV56U9SGbJ1mWJ0pOR0veg3a5oWAUmgkxS
+	 BXOFGJI+9M8PR0PtHVHXZ6Rs+50FheyQI7hSLEr1q8lx97UJtuqcg7QA94NjryfYfU
+	 6CHOFmkSaCG1Q==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 42DDF17E07DC;
-	Thu, 06 Aug 2026 02:39:11 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D7D0717E07B5;
+	Thu, 06 Aug 2026 02:39:10 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id 9409548003D; Thu, 06 Aug 2026 02:39:10 +0200 (CEST)
+	id 8BB6F480030; Thu, 06 Aug 2026 02:39:10 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 06 Aug 2026 02:39:15 +0200
-Subject: [PATCH v10 09/21] drm/bridge: synopsys: dw-dp: Support
- MEDIA_BUS_FMT_FIXED
+Date: Thu, 06 Aug 2026 02:39:10 +0200
+Subject: [PATCH v10 04/21] drm/bridge: synopsys: dw-dp: Document missing
+ reset line deassert
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-synopsys-dw-dp-improvements-v10-9-d84a26c303d6@collabora.com>
+Message-Id: <20260806-synopsys-dw-dp-improvements-v10-4-d84a26c303d6@collabora.com>
 References: <20260806-synopsys-dw-dp-improvements-v10-0-d84a26c303d6@collabora.com>
 In-Reply-To: <20260806-synopsys-dw-dp-improvements-v10-0-d84a26c303d6@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -76,28 +76,29 @@ Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@collabora.com, 
  linux-arm-kernel@lists.infradead.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Sashiko <sashiko-bot@kernel.org>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3804;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1609;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=fcI6NxAi0w9kYs3KWpEoGjJ9DJV5ajPSR9SnFAY0JFY=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpz1653pQP0kGVVseMikIvI0y2JwzOOmNQiZ
- 0kYQSoffk4274kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqc9euAAoJENju1/PI
- O/qa2gUP+wbkCNF37pnGW0Y1321xnOCnpa4hjp9MyvDns9J9eMSb0ZmmN7FHQXWwA2e/enUjQcb
- mxcX/TSDGfc71A2Wj0ZcOiVaXs6q9buW5I6XNmfook1LzWMkbfhKD4Merlo91rEa72btrnJH2br
- midg9+aAwsbp3tyrsPJ9LHBSjIfHHapjo3cjD0/AXwXBseV713s6s1zz1LxW8i/GS3UKeA8QBnY
- N1LnYxklUnlQ9V9NBUmopGuhQWBt3IQ97HWAL9+eGcygZSIm4vSg7zorayuZF0rQxXyD0esUyHY
- tpUnkJVMNLowKRVslxS9MmcelygGAcu6Zkb7lCw2mWvWJluIz1nDyzsbjjB/egFEsScFNw/OyFY
- aQi8BaAv6VHW9qo7ddZpvW1iCvbruQZXxYRK8ncuyte+1q/vbaOlM01lNDfwkoGGfaDWM7XLXm4
- Ot/4881z3eutuaeWjzKT/AI/XwdSK0ssCNWtl2isxNLYzkQZNSzmv2YnXgudu7jJkNd4W49E9W7
- X9Jiozj5T4ACf1wtwO8RReHXlJfEQ7h6A/3d4PLExiS6EOvB9FyWT8Tj7LTeuTLdYGkxtm/Idsm
- esTIVGRGjz6rV4AJVjUzPuRmlDB3veo78VVOgjiL7bT4xNulesHORRaszGoiyQM7knyYq/PvnES
- oSQDmwhq0Bv4a2LPq5IU3Mg==
+ bh=kXoRBBebvYIox0oNXN0VuZO24XXYD428JSoKN6soJ4A=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpz1611MdQU6XuU4EOBdIMThZhdenvp6Xc6q
+ d60Ul5IMtG6aIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqc9etAAoJENju1/PI
+ O/qa9X4P/3z14InEcW0zDYd450FemoZtBW2eH6iMu7XxXhuvVKcZgYEo9YBahsTiWhaO1z6Mw65
+ KEeLiTKLilF0fpyqd/KiFB7jsckouq3SPm4NgnIj2O56ZijRRlzQXpdH+YcWmg/hty1VqU4e/Ds
+ hy8yIQNd5f4KnDzqLovAFuTASkBwbAmwstIwCbBaIRB9KkI7JkXcANWZuLp35CnXgi2GvSzSLfw
+ OIMZxIQi/3S/zjgwVmTKpZjFRvZ3/+B/h5S59ovbprlSzXcI/dqjTa9XuI1qtPsv5wQBabrZ/e/
+ 3o2YZTXwsguFCiyWl5oLcAkWTgCQW2WrZUxMRCG4ECmo8zy+/ZerbjMVFhQt3VmKeFX9R0A+/NR
+ 72J0hbj8vgxEK1vTFC/4zt5ASXl2BG/EMoW3zCnNHVIq+PNzal5n5pMRyfD9MptRA7A99utGJBa
+ KMaigXgX06aTI5dtmXd6Xwnsm0O2Sl0fci3qowztr+GlCR6NOb6ZnPtamAyvooEri8iZOV4/NvB
+ rIsTSsbWAGQkQAUfTw0Vt6UlD4y5L4D0hQU3YzY+YyMaMa/Sk4TIeRZ2QK9gax7PWGZQcAzc+WU
+ T8VxpDCTEiBHNKF94HJbdYrQYTqrSbFjnSxx+6ToDTsAPGAJn8kFUhERzeYfG3UfId+ZQDIOzdm
+ 6EIPhUtI94FVgqGcXEJYsRg==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260805_173920_146952_BF38CBEE 
-X-CRM114-Status: GOOD (  16.28  )
+X-CRM114-CacheID: sfid-20260805_173919_581206_B08295A1 
+X-CRM114-Status: GOOD (  14.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,91 +113,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for MEDIA_BUS_FMT_FIXED, which is e.g. requested for USB-C
-DP chains as the last bridge in the chain (aux-hpd-bridge) does not
-implement atomic_get_output_bus_fmts(), which results in the generic
-drm_atomic_bridge_chain_select_bus_fmts() code using MEDIA_BUS_FMT_FIXED
-instead. For decent support of this, two areas are changed:
+If the driver uses devm_reset_control_get_exclusive_deasserted() instead
+of devm_reset_control_get() and thus automatically deasserts during
+probe, the SoC will hang when the device is unbound.
 
-1. In atomic_check, resolving MEDIA_BUS_FMT_FIXED output format by
-   using the negotiated input format.
+This does not happen, when runtime PM is being used (not yet supported
+in mainline), which suggests the power-domain involved requires this reset
+line to be deasserted.
 
-2. Implementing a custom .atomic_get_input_bus_fmts hook that, on
-   MEDIA_BUS_FMT_FIXED, advertises all bandwidth-validated formats
-   from dw_dp_bridge_atomic_get_output_bus_fmts(). This lets the
-   upstream encoder negotiate the best mutually supported format.
+Even with runtime PM there is no gurantee that the power-domain is
+disabled as it is shared. Considering the power-domain does not have
+the reset dependency described in DT, document the problem but leave
+things in the current state until a better solution is found as the
+reset line is deasserted by default on all supported platforms.
 
+Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-dp.c | 34 +++++++++++++++++++++++++++++++--
- 1 file changed, 32 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-index bd05ae9b044a..106978544cdf 100644
+index 9d46927ead4d..d3f93e9ba60a 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-@@ -1537,6 +1537,7 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 				     struct drm_connector_state *conn_state)
- {
- 	struct drm_display_mode *adjusted_mode = &crtc_state->adjusted_mode;
-+	unsigned int out_bus_format = bridge_state->output_bus_cfg.format;
- 	struct dw_dp *dp = bridge_to_dp(bridge);
- 	struct dw_dp_bridge_state *state;
- 	const struct dw_dp_output_format *fmt;
-@@ -1547,7 +1548,10 @@ static int dw_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 	state = to_dw_dp_bridge_state(bridge_state);
- 	mode = &state->mode;
+@@ -2094,6 +2094,10 @@ struct dw_dp *dw_dp_probe(struct platform_device *pdev, const struct dw_dp_plat_
+ 		return ERR_CAST(dp->hdcp_clk);
+ 	}
  
--	fmt = dw_dp_get_output_format(bridge_state->output_bus_cfg.format);
-+	if (out_bus_format == MEDIA_BUS_FMT_FIXED)
-+		out_bus_format = bridge_state->input_bus_cfg.format;
-+
-+	fmt = dw_dp_get_output_format(out_bus_format);
- 	if (!fmt)
- 		return -EINVAL;
- 
-@@ -1829,6 +1833,32 @@ static u32 *dw_dp_bridge_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
- 	return output_fmts;
- }
- 
-+static u32 *
-+dw_dp_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-+				       struct drm_bridge_state *bridge_state,
-+				       struct drm_crtc_state *crtc_state,
-+				       struct drm_connector_state *conn_state,
-+				       u32 output_fmt,
-+				       unsigned int *num_input_fmts)
-+{
 +	/*
-+	 * MEDIA_BUS_FMT_FIXED means the downstream bridge does not constrain
-+	 * the bus format. In that case, advertise all formats supported by the
-+	 * DP link so the upstream encoder can negotiate the best match.
++	 * This reset line is deasserted by default; asserting it hangs the SoC if the
++	 * related power-domain is still active.
 +	 */
-+	if (output_fmt == MEDIA_BUS_FMT_FIXED)
-+		return dw_dp_bridge_atomic_get_output_bus_fmts(bridge,
-+							       bridge_state,
-+							       crtc_state,
-+							       conn_state,
-+							       num_input_fmts);
-+
-+	return drm_atomic_helper_bridge_propagate_bus_fmt(bridge, bridge_state,
-+							 crtc_state, conn_state,
-+							 output_fmt,
-+							 num_input_fmts);
-+}
-+
- static struct drm_bridge_state *dw_dp_bridge_atomic_duplicate_state(struct drm_bridge *bridge)
- {
- 	struct dw_dp_bridge_state *state;
-@@ -1886,7 +1916,7 @@ static const struct drm_bridge_funcs dw_dp_bridge_funcs = {
- 	.atomic_duplicate_state = dw_dp_bridge_atomic_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
- 	.atomic_create_state = drm_atomic_helper_bridge_create_state,
--	.atomic_get_input_bus_fmts = drm_atomic_helper_bridge_propagate_bus_fmt,
-+	.atomic_get_input_bus_fmts = dw_dp_bridge_atomic_get_input_bus_fmts,
- 	.atomic_get_output_bus_fmts = dw_dp_bridge_atomic_get_output_bus_fmts,
- 	.atomic_check = dw_dp_bridge_atomic_check,
- 	.mode_valid = dw_dp_bridge_mode_valid,
+ 	dp->rstc = devm_reset_control_get(dev, NULL);
+ 	if (IS_ERR(dp->rstc)) {
+ 		dev_err_probe(dev, PTR_ERR(dp->rstc), "failed to get reset control\n");
 
 -- 
 2.53.0
