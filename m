@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53725C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147EBC56208
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k+Ic82NmQzZusUlCshJTGYzzvHzspn0EPyHNRDh8sMA=; b=iYmIScP7+1PlL6K0qs4eKCzq31
-	d4fIhsD9WCDbLJ4kLveHAJwPQjyRFRv8XFteB21arICEFFyDyFoFAhxPr3z8Y8PBo4QiwPZyvgHsC
-	rgMLmHGgZBX8tmr8qDTw0Gzm2A2MqrNSxxxUFYbQYcyHBsKUlfSz6wad7cto16dDZC++pHaNwiLO/
-	Y9O9k9hF1BZaAf4ZgGFT+bXlf3O6Lf/8gIhGeNZt1MZ9LPOHUxcrxFNza3y9H56RaBujNVSRzIAHM
-	qOsnp6joDeNf3T4fcnQKU++hwMRlozMAXWf5aD5eoZMFlGJs2YcF5iwtcB1V5IS9FcFL+sJTquJso
-	GlTqhfWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MISoDD2VmriUM3hHgIi/GwAEIAIyfPfXbHzrORj4/eI=; b=YjMOCMYUmfExq2D/RDUJahSbjY
+	BREAJAuMxXLi8S4ycgdiCDUvoo6KexjLgOG2TI16MNZa+0jUiPMXZycK4+PqqWwZ93RUUrPcGfVlz
+	dps9CRwjo87BjN3ZALjXoH8+pnkwHTD+ZWoIblxYB/oe4vNnUw6BtMYqNhpKDBRTb8uex306LPrGL
+	wluALotx7wwFv3WxIitRZN35aiNY4XMTHuC9x4J6el4fhtmtpEITSh9YVaw1nb1JCc8p+JksrNo1I
+	fdewcDqK+Gz4R7cOOqyp2cK0VK6/qTqSy0Heaeai3K+XPc5VNZUxpbHw7cN9yplRFsAQbQCeUgHhe
+	gjYv98nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrxxp-00000005rUv-0ylm;
-	Thu, 06 Aug 2026 13:16:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrxxo-00000005rUo-2rZx
+	id 1wrxyd-00000005rdS-1ZkB;
+	Thu, 06 Aug 2026 13:17:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wrxyb-00000005rcP-29kg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 13:16:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32EE243E96;
-	Thu,  6 Aug 2026 13:16:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C517A1F000E9;
-	Thu,  6 Aug 2026 13:16:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786022208;
-	bh=k+Ic82NmQzZusUlCshJTGYzzvHzspn0EPyHNRDh8sMA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gGwe34l+XbudjGZEUbY3qUhdKXw57r50CejnN7mBFP70j6kgs1Pk1xR8Zd9CDVQn0
-	 iOWGLM2bPSZl6bgUK5PFkImlGEPlrjZbA88r5uXDwL8ofRCQ8ysiyI3h625aj1bTL+
-	 oflORLs80mT/eRQZdJfd9qMthr0Lfsx1bnZlWQpqTE2aKLEN5//v3EwdOGo0iam1yO
-	 IAEU/KDRw3IGFT2Qn4u8yjsdmphG2Q8pok6NZnF2LM15ZT5tYVEM1Vkj1akxnfdg3E
-	 MG+wyAOegb6Sxf7d94rCUqgOU4PiyAJx26wnatX3ptUuvHr1TIiVmRKWuLz7jH0yNd
-	 7Vf889ACiSjKw==
-Date: Thu, 6 Aug 2026 14:16:43 +0100
-From: Will Deacon <will@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: liulhong617@163.comm, Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	liulhong617 <liulhong617@gmail.com>
-Subject: Re: [PATCH] arm64: mm: fix accidental linear mapping of no-map
- reserved memory
-Message-ID: <anSJO36In-3tNQNj@willie-the-truck>
-References: <20260513010255.3764038-1-liulhong617@163.com>
- <aljkLPTfyAbPaT98@willie-the-truck>
- <ea0c8525-adf6-4c11-a3ec-02fe2f3b883b@app.fastmail.com>
+	Thu, 06 Aug 2026 13:17:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6686A153B;
+	Thu,  6 Aug 2026 06:17:31 -0700 (PDT)
+Received: from [10.57.42.103] (unknown [10.57.42.103])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 388EF3F632;
+	Thu,  6 Aug 2026 06:17:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786022255; bh=Xi0GI+CCHAN9OYhaAuPoCvL+bhIRpBxTXYrZjuadPO8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LH79uJ1Jg2SNwztVGfB2pmdXfLorfNsLrP+Ftqm/LOL1yi7R7Vv98nZjRu+MQWYcz
+	 gpF5kVEPbHs+qGMcmFhnXyHGgHcIV+UHSR7a9RtQy8z1HG8Gp6lEVj+wqCp4t7y0+7
+	 stpowvv+zBdM0WV4ABt5UlPSRDHY3yqNgcX3f+DI=
+Message-ID: <7e66d67a-f63f-465c-acb0-c1238f534c07@arm.com>
+Date: Thu, 6 Aug 2026 14:17:31 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ea0c8525-adf6-4c11-a3ec-02fe2f3b883b@app.fastmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] iommu/tegra241-cmdqv: Reject a VCMDQ base above the
+ 48-bit hardware limit
+To: Will Deacon <will@kernel.org>, Nicolin Chen <nicolinc@nvidia.com>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Jason Gunthorpe <jgg@nvidia.com>,
+ linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20260729220329.805417-1-nicolinc@nvidia.com>
+ <anSCXUjivdb_aOv_@willie-the-truck>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <anSCXUjivdb_aOv_@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_061737_593252_F4FFAA0E 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,110 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 04, 2026 at 05:24:33PM +0300, Ard Biesheuvel wrote:
+On 2026-08-06 1:47 pm, Will Deacon wrote:
+> On Wed, Jul 29, 2026 at 03:03:29PM -0700, Nicolin Chen wrote:
+>> tegra241_vcmdq_alloc_smmu_cmdq() allocates the VCMDQ buffer via the common
+>> arm_smmu_init_one_queue(), which uses smmu->dev and its coherent DMA mask
+>> of DMA_BIT_MASK(smmu->oas). An SMMUv3 queue base holds a 52-bit address in
+>> Q_BASE_ADDR_MASK, but the VCMDQ_BASE register holds only 48 (VCMDQ_ADDR),
+>> so the masked write "q_base = base_dma & VCMDQ_ADDR" silently drops bits 48
+>> and up. The HW would then fetch its commands from a wrong memory location,
+>> which likely raises VCMDQ errors.
+>>
+>> Real hardware always pairs an SMMU OAS with a matching VCMDQ address field,
+>> so this cannot happen; it takes a VMM that gives a guest a mismatched OAS.
+>> Nor can the guest rely on the VMM to catch it: an SMMU CMDQ base keeps bits
+>> 48 and up in Q_BASE_ADDR_MASK, so a trapped CMDQ_BASE write still carries
+>> them, while a VCMDQ base goes straight to the hardware and loses them.
+>>
+>> Reject a base_dma with bits set outside VCMDQ_ADDR, the way the user-VCMDQ
+>> path already does for its base_addr_pa, failing the queue init rather than
+>> silently truncating the base. Use dev_warn_once() rather than WARN_ON(), as
+>> the OAS is VMM-controlled and a WARN_ON() would let it panic a guest booted
+>> with panic_on_warn.
+>>
+>> Assisted-by: Claude:claude-opus-5
+>> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+>> ---
 > 
-> On Thu, 16 Jul 2026, at 17:01, Will Deacon wrote:
-> > [+Ard]
-> >
-> > On Wed, May 13, 2026 at 09:02:55AM +0800, liulhong617@163.com wrote:
-> >> From: liulhong617 <liulhong617@gmail.com>
-> >> 
-> >> When reserved-memory regions with the "no-map" property are not
-> >> page-aligned, the kernel may accidentally map them into the linear
-> >> mapping, contradicting the no-map semantics.
-> >
-> > Crikey, I wonder what the semantics are for "no-map" if the region isn't
-> > page aligned? If the remaining part of the page is advertised as memory
-> > but doesn't have the "no-map" property, then we can't really satisfy
-> > what we're being asked to do.
-> >
-> >> The root cause is a mismatch between /proc/iomem's address boundaries
-> >> and the actual page table mapping boundaries:
-> >> 
-> >> 1. /proc/iomem derives its ranges from memblock via
-> >>    memblock_region_reserved_base_pfn/memblock_region_reserved_end_pfn,
-> >>    which perform PFN rounding so the displayed boundaries are
-> >>    page-aligned. This gives the impression that the no-map region
-> >>    occupies whole pages.
-> >> 
-> >> 2. However, memblock_mark_nomap() splits memblock.memory regions at
-> >>    exact byte boundaries (memblock_isolate_range preserves raw DT
-> >>    base/size with no alignment). When for_each_mem_range iterates the
-> >>    non-NOMAP regions adjacent to a no-map region, it returns start/end
-> >>    values that are NOT page-aligned — they are the precise byte
-> >>    boundaries from the memblock split.
-> >> 
-> >> 3. These sub-page-aligned values are passed to
-> >>    __create_pgd_mapping_locked(), which does:
-> >>      phys &= PAGE_MASK;
-> >>      addr = virt & PAGE_MASK;
-> >>      end = PAGE_ALIGN(virt + size);
-> >>    The downward rounding of phys via PAGE_MASK extends the mapped
-> >>    range backward into the adjacent no-map region, effectively
-> >>    including no-map memory in the linear mapping.
-> >> 
-> >> For example, with 64K pages, reserved_region@A2000000 (base=0xA2000000,
-> >> size=0x8000, no-map) causes for_each_mem_range to return
-> >> start=0xA2008000 for the next mappable region. After phys &= PAGE_MASK,
-> >> the actual mapping starts at 0xA2000000 — the entire no-map region is
-> >> incorrectly mapped.
-> >> 
-> >> Fix this by rounding the mappable range inward to PAGE_SIZE boundaries
-> >> before passing it to __map_memblock: start is rounded UP and end is
-> >> rounded DOWN. This ensures the mapped area never overlaps with adjacent
-> >> no-map regions. The cost is at most one page of unmapped gap at each
-> >> boundary, which is preferable to violating no-map semantics.
-> >> 
-> >> Signed-off-by: liulhong617 <liulhong617@gmail.com>
-> >> ---
-> >>  arch/arm64/mm/mmu.c | 14 ++++++++++++++
-> >>  1 file changed, 14 insertions(+)
-> >> 
-> >> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> >> index dd85e093f..bc8ac7622 100644
-> >> --- a/arch/arm64/mm/mmu.c
-> >> +++ b/arch/arm64/mm/mmu.c
-> >> @@ -1175,6 +1175,20 @@ static void __init map_mem(pgd_t *pgdp)
-> >>  	for_each_mem_range(i, &start, &end) {
-> >>  		if (start >= end)
-> >>  			break;
-> >> +		/*
-> >> +		 * for_each_mem_range may return sub-page-aligned boundaries
-> >> +		 * after memblock_mark_nomap() splits regions at byte precision.
-> >> +		 * __create_pgd_mapping_locked aligns phys down to PAGE_MASK,
-> >> +		 * which could accidentally map no-map memory on the boundary.
-> >> +		 * Round the mappable range inward: start UP, end DOWN, so
-> >> +		 * that the mapped area never overlaps with adjacent no-map
-> >> +		 * regions. The cost is at most one page of unmapped gap at
-> >> +		 * each boundary.
-> >> +		 */
-> >> +		start = PAGE_ALIGN(start);
-> >> +		end = end & PAGE_MASK;
-> >> +		if (start >= end)
-> >> +			continue;
-> >
-> > Maybe I'm over-worrying here, but I've seen firmware describe parts of
-> > memory as lots of small, adjacent regions in some cases and so I'm
-> > worried we'd fail to map the pages with this change.
-> >
-> > I'd be more in favour of detecting sub-page sized "no-map" regions that
-> > are adjacent to normal memory regions, emitting a warning/firmware taint
-> > and then doing... precisely nothing about it. What practical issues are
-> > you seeing on your system?
-> >
-> 
-> I think this change is conceptually sound: for_each_mem_range() will present
-> a set of coalesced memory ranges, so any sub-[OS-]page regions will have
-> been stitched together by this time.
+> This still just sounds like something that a VMM shouldn't do?
 
-Aha, thanks, that's the part I was missing.
+Yeah, if a VMM is going out of its way to emulate obviously-broken 
+hardware, then in my opinion we should just give it what it wants and 
+let it deal with the consequences of its brokenness.
 
-> I do wonder if it wouldn't be better if __create_pgd_mapping_locked() did
-> inward rounding, or even better, did no rounding at all, and left it to the
-> callers to perform the rounding.
+But if we really do want to bother sanity-checking emulations, then why 
+allow them to still get away with being broken in the case that we do 
+happen to allocate queue memory at a sufficiently low PA anyway? Why not 
+actually validate smmu->oas itself (plus anything else relevant) in 
+__tegra241_cmdqv_probe()?
 
-I can take this patch for now but maybe somebody can have a play with
-that in the future.
-
-Will
+Thanks,
+Robin.
 
