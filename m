@@ -4,74 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53EACC5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C827C56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:35:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=InNr4PZQvcLwSs9Fl1djJex86YGYmJ3a36sRvxyk8lg=; b=EQAxl5FhjlN86aVre2JDKiPulO
-	y5fataPY9ln2V03qtiyEFx8HnwAjKhkQwELLHf+xl3RuDw40TajThOYzDSdnEpGoOV8r2ZT+P58fJ
-	nT84q52GRaH98QDM6xv2AHMNBubRl/7I0O/9DCi2ncRqEouI7ssb1Ytzi9kHKw0cDEUKlWjnxR9XH
-	QOtxYxu0uFmalAp9sSpCXJWMEKk/ybg8UqLslwWWo3cca0+t4FCxBUFTl7h9+9DgXI3tCd9wpjiCA
-	QLk4fDOYxZXD5gyhhCAz+r615NBD22Vxiov6juOF8FlS49oHcrIbcSn+hLz4V2f1YMUU6Aelt3bY3
-	mCocfzcg==;
+	bh=bbrmQ+GhkVEYubpdUNjaSBaIV7BvrLU3vULivoHV6Ks=; b=x0HRoorXd6g+8SS3V6gSBdOv9r
+	lsDa6XS4WkW4IexIdEQgB+v+AI4GJYfMMUTvuWLpMx7j532aqxYcBVOKM+BvFnX1uKJVUWWKahHFQ
+	k80QPJufKVKTxbHfoGQ1g5QaatlOH84mypKrl3qjDT57etr0jffaFoaqj50Yplf6o+s3MbM7qnSBM
+	F7/DnQ3bA86RgaS77eh4/ZQPu+H4PEmQBL+4vD7FO1vyBJA0v1S1TYnhnzw4ADLzwTKgmy9H8qqGm
+	rEGi9fKHy/pleo9ytXyZLxoE9v6PRc7mMuFxE55vQpLKjqtgdIzcVb4ZsWEnEZuGOU3oTaUIThwJV
+	0wtX6DVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws01h-000000065QA-3umz;
-	Thu, 06 Aug 2026 15:28:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ws07c-000000066vX-258T;
+	Thu, 06 Aug 2026 15:35:04 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws01Y-000000065Dw-2oTO;
-	Thu, 06 Aug 2026 15:28:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ABA1B60AB9;
-	Thu,  6 Aug 2026 15:28:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 55018C2BCB9;
-	Thu,  6 Aug 2026 15:28:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1786030127;
-	bh=AuhuSDb8wKQjc4FtIZptQtimvxpq2uj7/79koaO+DOU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nsXerGy/+XEC9jM/LAsZsKFn9Xr9oCqsyJS4kh+1DNCaZhNI5P/8wE//hdPX3Pn7W
-	 ItOTv/NXfHHmR9qhMJYoSUBAz2Cqtvyne9fRAuwEHmmz9GZHZ5KJuZLZbvORjMEio1
-	 EHmg5Tohbh3M1rUmbGw1t6dKLkDUMYTIyeX6FcPMdTJcf6ZHGl8/rh51K4zLxzgFTD
-	 8n8qI0CRieF9YrKIeEIZA4LuPllBNIVKLP4nQ1A9g3W8V3U+bJatTCJqhJtWtQmsr4
-	 TE9EHuKM/OesS/uiHFB8QGNLHfU4MtxIoQ0OmdCeGSteALWCLj/igRTzDj7b0X3UAY
-	 WiqM3ORm6r5HQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3C4B8C56205;
-	Thu,  6 Aug 2026 15:28:47 +0000 (UTC)
-From: Sven Peter <sven@kernel.org>
-Date: Thu, 06 Aug 2026 17:27:33 +0200
-Subject: [PATCH 1/6] nvme-apple: Destroy the admin queue on removal
+	id 1ws07a-000000066ux-0Tf2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Aug 2026 15:35:03 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-ca00f126b7eso1661799a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 08:35:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786030501; x=1786635301; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bbrmQ+GhkVEYubpdUNjaSBaIV7BvrLU3vULivoHV6Ks=;
+        b=hcVkiDblqKZgIn1jf4w1FMj+k5T4Vk4CnEc77OKSwvM2RkBoOZ0Q1AHzsUj/Ofj1jv
+         5uwttKDm3OcPV3An1Q3G4d4SW/MkTI/Da7iZWuk2wDuqT0CU74fx1A3tx/F1x0PlrWjo
+         Vy96u3XHvdX3npDByktioJzdABeNN5Dej9d1DNEphPYzlTyAsSkbgMAz57U4riaKuJnD
+         mCiD82g0s5ee5TRyJpyGOlhv/GhGLjWnKv/rarG0uvi56OUjhkV5e/tKadKkwLladfvC
+         J3/lFprtUGuiNGBo6spahGyHGVOQVrMhJI7ze1aEZYgIv/kJmmZVtLaLPGTBsJGnECAh
+         bIpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786030501; x=1786635301;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=bbrmQ+GhkVEYubpdUNjaSBaIV7BvrLU3vULivoHV6Ks=;
+        b=swohSMD9hagDfcbrcsYK/wL/HZAURqQW7g0lMiIEioskKDOnCnlIkhe+y2qxJCkfOb
+         zbKB4vXYw79Kz9EYBUzWauM4moA2qZvrdudqgui+irVu9mjy41NoFZrS6zniOqvHwlbn
+         yTO7zcxYPYiph8QZkWkEdOxFYURkeskCmPDjlmi1QoMuHQZtjXDFVXnGJJdtyojW354y
+         oJvCC9UugdQj+ugCw38S3un/6BJkJN9ChZ02t74NwKjQjppXJuY2MAmBW0Jf6d9mGEal
+         Zb0aYxnfSFlnzds+6msXD3HALvbWETT7Oe/n1ufky3u7MW7dJP6wf9PoUIOfpMkq7LzW
+         30LA==
+X-Forwarded-Encrypted: i=1; AHgh+RqGp93p3/qlIv6sTZzlQEKIuCNfi5MCumOqFeNwptQeBgx7lj4WTeMiFXXMQDj7/28GlssBgyZOXJmiLk3tfZyk@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjbFAdYElR7u5B9WiW5xPMvhp+D8l8Q7n7Xtw6t5NNf/y3kIgQ
+	caV64UIPoELflf+Ewds8plcPwp0Y/UPVIVHzYE+QJKgwnid8KGe/dcpN
+X-Gm-Gg: AR+sD13i7gWAKfzKlj4JJQQfwtm6a5WlQomsR5U5u4EbjoLx4N1rbyQ4wo9pN0qracK
+	IPYsTpWBvj74KOzvLg/5yfF6Y6vHVNBVlqUZIB/B/UkSqoRZgVW3wibcoEAHHqmWnbNtzGhPc3t
+	OU3IVmqc1yeCS0UhAmjray03UyP5rqWEAJ+nblJjMsPMWH20a0+InDHNcRZNvy0p87zhQNCDbz6
+	iihHcvqUIDZ+KTHm2BwUBKYkgOw9wXyv5JLzykKKsKBsbMOAWrQ+x+/z1usFt9rGHGvOwq24S2v
+	HhmeENTWOtTU0JsqdLL3ovNqmt81MIYyFxxBhlTQTiUpfy2VbEP4/1JcBnLYEY7LRb5OE/cqZuZ
+	w2eljVw1Ft5WcDdSpu6aUvfUxEK8wa0EO/wXa5sNyPiEm7OxbL0gpJ6CFgFS1Y5JgUHUKpjULuO
+	xOiQcJ584sRm/I1VMfMMOlP4lI9SlBjDD+6UR47kIe8MwqRv5A2J5Uj5iqHY1pP6rGm2iwtPyco
+	kwxw5gtw1Il3sNMpJmu4LuoRzKUjhmERYSR7g==
+X-Received: by 2002:a05:6a21:9992:b0:3bf:b68f:4685 with SMTP id adf61e73a8af0-3cb85f43e7cmr17944621637.23.1786030500875;
+        Thu, 06 Aug 2026 08:35:00 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31586777bcfsm42980668eec.21.2026.08.06.08.34.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Aug 2026 08:35:00 -0700 (PDT)
+Message-ID: <d027eec5-ca83-4aba-a3c1-4724c77df0dc@roeck-us.net>
+Date: Thu, 6 Aug 2026 08:34:58 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260806-b4-nvme-fwabi-v1-1-bde19ce8db04@kernel.org>
-References: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
-In-Reply-To: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
-To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
- Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
- Arnd Bergmann <arnd@arndb.de>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sven Peter <sven@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5378; i=sven@kernel.org;
- h=from:subject:message-id;
- bh=AuhuSDb8wKQjc4FtIZptQtimvxpq2uj7/79koaO+DOU=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ1bJCvXMxIjA6y8zzr5m9hWLkhSPWbX2ZeDx6y2Lyi1sV
- wpu817QUcrCIMbFICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZhITzIjw8/PR3/+2hfyOuLR
- In2JucL/butoM5V8CFQ4HSe/dtfB/hMMf2W6rYw+rZtVNv/k/V8P82KVNk094xE5LdZh4kRlH9a
- e/awA
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
- auth_id=407
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] hwmon: add Axiado AX3000 and AX3005 PWM fan
+ controller driver
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Petar Stepanovic <pstepanovic@axiado.com>
+Cc: Akhila Kavi <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+ Tzu-Hao Wei <twei@axiado.com>, Karthikeyan Mitran <kmitran@axiado.com>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-doc@vger.kernel.org
+References: <20260806-axiado-ax3000-pwm-fan-v1-0-f6db4cf2166b@axiado.com>
+ <20260806-axiado-ax3000-pwm-fan-v1-2-f6db4cf2166b@axiado.com>
+ <anRaB--HAHoWFkDo@monoceros>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <anRaB--HAHoWFkDo@monoceros>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_083502_157228_144177E3 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,134 +157,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The admin queue is allocated with blk_mq_alloc_queue() but never
-destroyed. nvme_free_ctrl() only drops the last reference and
-blk_mq_exit_queue() and blk_sync_queue() never run: the hctx is never
-moved to q->unused_hctx_list and the timeout timer and work stay armed on
-a queue that is about to be freed which will eventually oops inside
-blk_mq_timeout_work().
+On 8/6/26 03:04, Uwe Kleine-König wrote:
 
-This can only be triggered when the controller fails to come up and is
-then immediately torn down again which is why no one ever ran into this
-before.
+> If there is a hwmon lock that serializes calls to hwmon_ops::read and
+> hwmon_ops::write, .pwm_lock isn't needed. (Unless I miss something,
+> please double check. Also I'm unsure if there is such a hwmon
+> serialization.)
+> 
 
-Let's just copy what the pcie driver does: unquiesce and destroy the admin
-queue before nvme_uninit_ctrl().
+In hwmon_attr_show(), hwmon_attr_show_string(), and hwmon_attr_store():
 
-With this the following WARN followed by a panic no longer happens:
+	guard(mutex)(&hwdev->lock);
 
-  WARNING: block/blk-mq.c:4390 at blk_mq_release+0x194/0x238, CPU#4: kworker/u34:4/119
-  CPU: 4 UID: 0 PID: 119 Comm: kworker/u34:4 Not tainted 7.2.0-rc1-dirty #248 PREEMPT
-  Hardware name: Apple Mac mini (M1, 2020) (DT)
-  Workqueue: nvme-wq apple_nvme_remove_dead_ctrl_work
-  pstate: 61400005 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-  pc : blk_mq_release+0x194/0x238
-  lr : blk_mq_release+0x58/0x238
-  sp : ffffc000833a3b50
-  x29: ffffc000833a3b50 x28: ffff80001d0450f8 x27: ffff800020c95200
-  x26: 0000000000000088 x25: 0000000000000000 x24: ffff800020f36805
-  x23: 0000000000000000 x22: ffffc00081a86878 x21: ffff800020be9c60
-  x20: 0000000000000000 x19: ffff800022501698 x18: 000000000000000a
-  x17: 7365757165722066 x16: 666f7265776f7020 x15: 0000000000000000
-  x14: 0000000000000028 x13: 0000000000004def x12: 0000000000000003
-  x11: 0000000000000000 x10: 0000000000000000 x9 : ffffc000805b4fc8
-  x8 : ffffc00081915820 x7 : ffffc00081c4f3c8 x6 : 0000000000000001
-  x5 : 0000000000000004 x4 : ffff800022498d80 x3 : ffffc000833a3b14
-  x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff800022501698
-  Call trace:
-   blk_mq_release+0x194/0x238 (P)
-   blk_put_queue+0x8c/0xf0
-   nvme_free_ctrl+0x4c/0x260
-   device_release+0x44/0x128
-   kobject_put+0xa0/0x120
-   put_device+0x1c/0x40
-   nvme_uninit_ctrl+0x48/0x60
-   apple_nvme_remove+0x54/0xb0
-   platform_remove+0x28/0x40
-   device_remove+0x54/0x98
-   device_release_driver_internal+
-   device_release_driver+0x20/0x38
-   apple_nvme_remove_dead_ctrl_wor
-   process_one_work+0x1f4/0x770
-   worker_thread+0x1b8/0x360
-   kthread+0x140/0x160
-   ret_from_fork+0x10/0x20
-  irq event stamp: 448
-  hardirqs last  enabled at (447):in_unlock_irqrestore+0x74/0x80
-  hardirqs last disabled at (448): [<ffffc000811cf5c0>] el1_brk64+0x20/0x60
-  softirqs last  enabled at (0): [ess+0xb28/0x2698
-  softirqs last disabled at (0): [<0000000000000000>] 0x0
-  ---[ end trace 0000000000000000
-  Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
-  Mem abort info:
-    ESR = 0x0000000096000005
-    EC = 0x25: DABT (current EL),
-    SET = 0, FnV = 0
-    EA = 0, S1PTW = 0
-    FSC = 0x05: level 1 translation fault
-  Data abort info:
-    ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
-    CM = 0, WnR = 0, TnD = 0, TagA
-    GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-  [0000000000000000] user address
-  Internal error: Oops: 0000000096000005 [#1]  SMP
-  CPU: 7 UID: 0 PID: 54 Comm: kwor          7.2.0-rc1-dirty #248PREEMPT
-  Tainted: [W]=WARN
-  Hardware name: Apple Mac mini (M1, 2020) (DT)
-  Workqueue: kblockd blk_mq_timeou
-  pstate: 01400005 (nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-  pc : percpu_ref_tryget_many.cons
-  lr : percpu_ref_tryget_many.constprop.0+0xc0/0x168
-  sp : ffffc000829cbce0
-  x29: ffffc000829cbce0 x28: ffff800020be9f48 x27: ffff800013e503c0
-  x26: 0000000000000108 x25: 000009c05
-  x23: 0000000000000000 x22: ffffc000819f5000 x21: ffff800020be9f48
-  x20: ffff8001deda4808 x19: ffff8000a
-  x17: 00000000580e1fac x16: ffffc00082bbbb7c x15: 0000000000000000
-  x14: 0000000000000028 x13: 000000001
-  x11: 0000000000000000 x10: 0000000000000000 x9 : ffffc000829cbc20
-  x8 : ffffc00081915820 x7 : ffffc0001
-  x5 : ffff80001ca77d08 x4 : 0000000000000000 x3 : ffff80001ca77cb8
-  x2 : 0000000000000000 x1 : 000000007
-  Call trace:
-   percpu_ref_tryget_many.constpro
-   blk_mq_timeout_work+0x48/0x298
-   process_one_work+0x1f4/0x770
-   worker_thread+0x1b8/0x360
-   kthread+0x140/0x160
-   ret_from_fork+0x10/0x20
-  Code: 91282000 97ed44b2 17ffffd2
-  ---[ end trace 0000000000000000 ]---
-
-Fixes: 5bd2927aceba ("nvme-apple: Add initial Apple SoC NVMe driver")
-Signed-off-by: Sven Peter <sven@kernel.org>
----
- drivers/nvme/host/apple.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index be3b91b43ea5..321502847a2c 100644
---- a/drivers/nvme/host/apple.c
-+++ b/drivers/nvme/host/apple.c
-@@ -1636,6 +1636,15 @@ static void apple_nvme_remove(struct platform_device *pdev)
- 	nvme_stop_ctrl(&anv->ctrl);
- 	nvme_remove_namespaces(&anv->ctrl);
- 	apple_nvme_disable(anv, true);
-+	if (anv->ctrl.admin_q && !blk_queue_dying(anv->ctrl.admin_q)) {
-+		/*
-+		 * If the controller was reset during removal, it's possible
-+		 * user requests may be waiting on a stopped queue. Start the
-+		 * queue to flush these to completion.
-+		 */
-+		nvme_unquiesce_admin_queue(&anv->ctrl);
-+		blk_mq_destroy_queue(anv->ctrl.admin_q);
-+	}
- 	nvme_uninit_ctrl(&anv->ctrl);
- 
- 	if (apple_rtkit_is_running(anv->rtk)) {
-
--- 
-2.55.0
-
+Guenter
 
 
