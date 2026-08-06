@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABE54C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0286C56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 17:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tHnqyOO1uDsuoF/xnUQI2mRzSuyrmk/rA7QZretz+bg=; b=jspRJtOCvnD3DiVmiCeT1Kj3ow
-	B3SAkL7UxFgEnKAkh4vInkyTTJ8EU6+RkOPbinbMy/5OsWQESi4jl3dcdsCeg/vndUDOIKjHSlDt3
-	eczDqRWIpXHDKJZyKAujrgGhl+y3X4xG0qrENfRZUW/PPkmgxBRURPR9yK/k4hCf7gXZL0eGTWKCf
-	d58qKzk0v6PnFj+rZUc9EPwAjEeck89qIyWk+9EuWeRjeJrg6btwUGHkSFj/6DUMbSmCGu6bqPvH3
-	FqaOLbOb6iwY7Mm9ETzycCeoOwh8+OIvEKNhwSj5yWrsphst9zLI3wuARCWi6dlSkqytgCQVaQivV
-	y6iqUL9g==;
+	bh=s50/Dncm/XVDEXbgfdvtyBDU0LCq5hI6Hqz4Yn4A3oc=; b=GO4glEGslpVLITraGg2ajWKOV4
+	frN1o30MGPiGDMl2z/4DdahM91XB8lR8WSwiDXxYgCnpNhi/2PdAxpwwgXsDCk3Qp5jPHWQ8O08eZ
+	sbZHYO2xWEED0jV7Mw8uFZsRtmRNV6mSTFVhzNcMbW/MD6fIhrjxRoqnBtKmlC3RaZJiGGQ7XHsbm
+	IqhKcePcuEGvbw+6YlYFrpGvN5RBAj5yvXPcVV9rKXlNtuZTUru/zuU/k6U98SVm4dRSiHLRuXyEu
+	0mUHMcNMNJ2p+mDGD2U/5s8Pp4+Bh4tZrTNpmHTvCWUrY3fKk+ryXOjba2oZmaEVYP5dKkDaJAO0g
+	tVRLp5WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws22D-00000006OLu-10x5;
-	Thu, 06 Aug 2026 17:37:37 +0000
-Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
+	id 1ws25U-00000006Os0-0Aqo;
+	Thu, 06 Aug 2026 17:41:00 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws22A-00000006OKz-2VRO;
-	Thu, 06 Aug 2026 17:37:36 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.stl.internal (Postfix) with ESMTP id 06D6B1D000BD;
-	Thu,  6 Aug 2026 13:37:31 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Thu, 06 Aug 2026 13:37:31 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm1; t=1786037850; x=1786124250; bh=tHnqyOO1uD
-	suoF/xnUQI2mRzSuyrmk/rA7QZretz+bg=; b=IUyxeOGlOih7TBAnxusRso1hWL
-	+YD1l8lbfLnHwA0Ufvz6nUguE6wwkFRDKrbNNYhXtEFBUpmukgRUgSdJk0Ln2sgw
-	xYvY8JiJKYPkRPDovyP31TrBfVNapNytvyr13BZVzjfbl1R5GRlqgHZgZ8PXX+us
-	bu8VG8QXT0lV/Hh4MVs0Dm3L90Ew05oiZxdWsZ1z+i9a8oF+TME47U4gM5bS/qfd
-	gaNCY2QiH8jhF7vaAQsQMokKtQC3t0L/OiSnnre23g2NUWte/GDVb3ZQo24NRze5
-	gGU4lrjdt3hHY8D84AifjhevQg0CjH+XlLGbOm3Onc8FMMIleaCdPdpmyuvQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1786037850; x=1786124250; bh=tHnqyOO1uDsuoF/xnUQI2mRzSuyrmk/rA7Q
-	Zretz+bg=; b=huILaywRzta094cghAmg/6V4TdtDqy2H/XXrwFKqf95sUihGqZ3
-	81y+lRl2fPzTG3A0Uk/nfvOdKcFG1lmiq8lkmReWqtIVnehpDYEFaAYiUAiasQ8z
-	IdC4ukU8TiqEK8ZM32l7isyoTeJNbGpPif3MGRbIsogQfuFvAAlCmQu4PPn0eWNm
-	ntyV4M4xr8Zpz+CUBIQzAUFcxTc3zhFuIs3AEvCQKdnldzQwLpyhRJY2ij4JZl0+
-	3BpMeWdSDXFlK6fH7iZhzxCZeQ+74BSEMz6xD1Rcejel7DvbcWKBDzYgkNmQyWnx
-	BNXU2mxZNfgbttuKZVXrFFPtVoCEg79Ufzg==
-X-ME-Sender: <xms:WsZ0asjitWyoR78JyGC827Km5p7ELDBt5EyTjboqKOA4kuPIDIxIDg>
-    <xme:WsZ0ag2qwvBL5raTTuIq3xNoKOEHT9QyPgo8gg30TEab1g71OdTSjrKIJhI7j4tJz
-    lNQ2deOwpyE6A6g72opBziBGDtESv7yE_L2gocK-QwagR61--HyIKw>
-X-ME-Received: <xmr:WsZ0avdO9znJLTTAKvHxJc1Y5JHT8XPOdEJZak_5utkTpDTwYG5XhAaDeuMPvUMYqSzO-vWDE-WukJwEL9FF7SysAt1VEI9yL7o>
-X-ME-Proxy-Cause: dmFkZTGwCXBcn4aLfwWdfO4trPZD1QJnLbrbvPnKiG1qC8XfJLrdxauf+uW9V1IadvHpNS
-    l5/Rx2MIiAcq66IRw6VMNUNmUS8TMak8AF662vYKZTkaUb9XRvR3Hq5ZAly3FQS82dOD/I
-    4+krjZ6PDY8zDg9K5QtufjuF7verAuoLHeGORs8+FMIAy6vf4TJevfTLkBahtqzGNudqIp
-    iIYMJZZHHEsfRL5babwzPWb74SeHSZPNEoaDGDsaEGPqXhdTAhVvEf3mcMgDTUfm01KbNe
-    3awc5mWY2/ljAsdLPc3I8Eji1uJDQFl78xVLs0EIksEuFDfEUFgdFbpIMbb/3lMTV/MroX
-    7vJLKhjVBRD9TNWGb4gVqNEBqgrqsBX1nLp2nlySFTGREb3kRF4FTj0wlVkEKHeYz1uhse
-    IAF0V7fJroKG015cX/hl+yIpMupTZq8aFUslwBqeHbSEAgsYz7zHWKWYfrOZvgpwrCoqpy
-    cQEXtyjVsn+xUvfLOx1SEUWntwSxS54UMqKz3IdDwJCNNJRH8FdCZXF/SEKkMqkPgDaYPw
-    RR14r5sUSe+UTd/GPp9Q03lcoLGMAGhR8wrOaqK0ILBlBjavlLbSa2DEkfSLJpL/KJQHOS
-    NidEGnsb2LJMV9HTmqZNDp2CTvQ9jBSni+FdQVBb9fvYn7agCX7VHpTNXUAA
-X-ME-Proxy: <xmx:WsZ0amzGoA_8Pqn4FLbFJQwVPwDUW5AVWeEYuRNjSvaez5uPnSRu6w>
-    <xmx:WsZ0anwa1PMy9xcRax62pV8WbhZYJ0_NT0h4qxZB8n3s9FSk9Ze96Q>
-    <xmx:WsZ0anaAaX4TbHmCUIdK_TtLIwNJ15EtoBrr0FRBzptOFUIhcg5B3w>
-    <xmx:WsZ0ag3EtiYRGPs7tq1OaBZaH0E2oHJl506hZtU7uFL86p-ayp2zCg>
-    <xmx:WsZ0an5YLg3nZukQbedDSXz2LgIABtNCffZm2HXNwIhwQZbZVGx0fze->
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 6 Aug 2026 13:37:29 -0400 (EDT)
-Date: Thu, 6 Aug 2026 19:37:28 +0200
-From: Janne Grunau <j@jannau.net>
-To: Sven Peter <sven@kernel.org>
-Cc: Neal Gompa <neal@gompa.dev>, Keith Busch <kbusch@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>, Arnd Bergmann <arnd@arndb.de>,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/6] Apple NVMe fixes for macOS 15+ firmware / M4 support
-Message-ID: <20260806173728.GA682012@robin.jannau.net>
-References: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
+	id 1ws25R-00000006Orc-1OAs
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Aug 2026 17:40:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786038058; x=1817574058;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=jR6UAf+W3pRyagiBnBIthX9L1RTvVK8tgmNzQD67mJU=;
+  b=lWpTxuxPDWz8JQzO9DOn/GoslLZ7c1UN3NkPUIy08mh9OA2HKcWIcxuy
+   ihbPUl7o8B8tjcSghoWzuPTmAZH4cZfv/ra1ox4CtUy71ep0ZUEyzJbNJ
+   Ed0cFP4tDWbTzm+7pFJfZK0+LWTm0k93ApptxeFJRDmpeNdtLKpwGPZfd
+   BcodF6DnuNYkysOLHvssREQN1nEPz1eUI0zOb3u1IkN/cc/I04ncO8Cjo
+   5nV9l5B1oifh1XR181yst5Hguru/xgQAiBIvIjZOjZYwkHYjJE3bFzPAy
+   uc8RnMtnlJ+CKjQW1u4HLwdyPWb6XgynmYpFQxlsh6OMYTlkpzGZjTWdm
+   g==;
+X-CSE-ConnectionGUID: dqs99W8BQO68Kg08mAoNZA==
+X-CSE-MsgGUID: ewkpzJJ8SreCMJSglmYUIg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11867"; a="98151991"
+X-IronPort-AV: E=Sophos;i="6.25,208,1779174000"; 
+   d="scan'208";a="98151991"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 10:40:57 -0700
+X-CSE-ConnectionGUID: 7DB5m3cyQx2LtjOXhuPo6g==
+X-CSE-MsgGUID: 1SUtF5e8QmWqOPxccB+TSA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,208,1779174000"; 
+   d="scan'208";a="300373251"
+Received: from igk-lkp-server01.igk.intel.com (HELO 3cba2a188a06) ([10.211.93.152])
+  by orviesa001.jf.intel.com with ESMTP; 06 Aug 2026 10:40:51 -0700
+Received: from kbuild by 3cba2a188a06 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1ws25I-000000004f4-1D7z;
+	Thu, 06 Aug 2026 17:40:48 +0000
+Date: Thu, 6 Aug 2026 19:40:10 +0200
+From: kernel test robot <lkp@intel.com>
+To: Markus Elfring <Markus.Elfring@web.de>, acpica-devel@lists.linux.dev,
+	bpf@vger.kernel.org, coresight@lists.linaro.org,
+	kvm@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+	linux-perf-users@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	mptcp@lists.linux.dev, netdev@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org, virtualization@lists.linux.dev,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Alex Mastro <amastro@fb.com>, Alex Williamson <alex@shazbot.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andi Kleen <ak@linux.intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Ankur Arora <ankur.a.arora@oracle.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Linux Memory Management List <linux-mm@kvack.org>
+Subject: Re: [PATCH] tools: Use fputc() calls in some functions
+Message-ID: <202608061909.wj199SHx-lkp@intel.com>
+References: <48f2d61f-d468-49b7-881e-f00777db073f@web.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260806-b4-nvme-fwabi-v1-0-bde19ce8db04@kernel.org>
+In-Reply-To: <48f2d61f-d468-49b7-881e-f00777db073f@web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_103735_019508_60BA48BD 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20260806_104057_410232_A398F513 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,24 +106,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 05:27:32PM +0200, Sven Peter wrote:
-> Hi,
-> 
-> This series fixes a bunch of bugs that were working fine with M1/M2 NVMe
-> controllers with older firmware but are now starting to bite us.
-> With macOS 15 a new firmware is installed for the controller and both
-> XNU and the controller are a bit more strict now. This firmware is
-> required once we add M4 support.
-> 
-> The first patch fixes a panic that can happen when the controller fails
-> to initialize, which now happens for the first time with the new
-> firmware. The other fixes then make it work again.
+Hi Markus,
 
-Whole series tested on devices with pre macOS 15 system firmware, a M1
-with system firmware 13.2 (OS firmware 12.3) and M1 Max with system
-firmware 14.5 (OS firmware 13.5).
+kernel test robot noticed the following build errors:
 
-Tested-by: Janne Grunau <j@jannau.net>
+[auto build test ERROR on perf-tools-next/perf-tools-next]
+[also build test ERROR on tip/perf/core perf-tools/perf-tools linus/master v7.2-rc6 next-20260806]
+[cannot apply to acme/perf/core]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Janne
+url:    https://github.com/intel-lab-lkp/linux/commits/Markus-Elfring/tools-Use-fputc-calls-in-some-functions/20260806-165154
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git perf-tools-next
+patch link:    https://lore.kernel.org/r/48f2d61f-d468-49b7-881e-f00777db073f%40web.de
+patch subject: [PATCH] tools: Use fputc() calls in some functions
+config: x86_64-kexec (https://download.01.org/0day-ci/archive/20260806/202608061909.wj199SHx-lkp@intel.com/config)
+compiler: clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260806/202608061909.wj199SHx-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608061909.wj199SHx-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> builtin-check.c:300:8: error: incompatible pointer to integer conversion passing 'FILE *' (aka 'struct _IO_FILE *') to parameter of type 'int' [-Wint-conversion]
+     300 |         fputc(stderr, '\n');
+         |               ^~~~~~
+   /usr/include/stdio.h:155:16: note: expanded from macro 'stderr'
+     155 | #define stderr stderr
+         |                ^~~~~~
+   /usr/include/stdio.h:611:23: note: passing argument to parameter '__c' here
+     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
+         |                       ^
+>> builtin-check.c:300:16: error: incompatible integer to pointer conversion passing 'int' to parameter of type 'FILE *' (aka 'struct _IO_FILE *') [-Wint-conversion]
+     300 |         fputc(stderr, '\n');
+         |                       ^~~~
+   /usr/include/stdio.h:611:34: note: passing argument to parameter '__stream' here
+     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
+         |                                  ^
+   2 errors generated.
+   make[5]: *** [tools/build/Makefile.build:95: tools/objtool/builtin-check.o] Error 1
+>> disas.c:540:9: error: incompatible pointer to integer conversion passing 'FILE *' (aka 'struct _IO_FILE *') to parameter of type 'int' [-Wint-conversion]
+     540 |                 fputc(stream, '\n');
+         |                       ^~~~~~
+   /usr/include/stdio.h:611:23: note: passing argument to parameter '__c' here
+     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
+         |                       ^
+>> disas.c:540:17: error: incompatible integer to pointer conversion passing 'int' to parameter of type 'FILE *' (aka 'struct _IO_FILE *') [-Wint-conversion]
+     540 |                 fputc(stream, '\n');
+         |                               ^~~~
+   /usr/include/stdio.h:611:34: note: passing argument to parameter '__stream' here
+     611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
+         |                                  ^
+   2 errors generated.
+   make[5]: *** [tools/build/Makefile.build:95: tools/objtool/disas.o] Error 1
+   make[5]: Target '__build' not remade because of errors.
+   make[4]: *** [Makefile:123: tools/objtool/objtool-in.o] Error 2
+   make[4]: Target 'all' not remade because of errors.
+   make[3]: *** [Makefile:74: objtool] Error 2
+   make[2]: *** [Makefile:1587: tools/objtool] Error 2
+   make[2]: Target 'prepare' not remade because of errors.
+   make[1]: *** [Makefile:248: __sub-make] Error 2
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:248: __sub-make] Error 2
+   make: Target 'prepare' not remade because of errors.
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
