@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0DD1C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53725C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 13:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8O3Jm/KCpUxHmdI56AF1wTxRqOJCMDI/5j9/Q6443Ro=; b=PdvjEXzkHfHxK5Xr60Fq1LkhbZ
-	MGbKl2oEisLc3u7pgvImBhvpVkw7MnIMvUDrLSHqUYs9F7b8juxvRR91kJS3utia1H6FMqWwLgtix
-	mkvdVoWJorv1ushEp91ICRKHKJdo2l8rZgMpYdA3y+puQjA3C9Wew+JvEg6fgDtCuzOvU2hgyUIPC
-	Tu9iumHsvqenySCNq6JQ/kUmDFyhCR2QvSPhs3yQbZZ/K2wpg6bUJ9Ub0oTsrcFD77kN29oTwGKm1
-	HxI+JYDrDunLRpuu7dR6d1RgnMYm0ygHpPKj88AS/3PYpSbM8SdAo/9EuCbqc+zSpUXl6NwU9CbdB
-	YVGVNKyg==;
+	bh=k+Ic82NmQzZusUlCshJTGYzzvHzspn0EPyHNRDh8sMA=; b=iYmIScP7+1PlL6K0qs4eKCzq31
+	d4fIhsD9WCDbLJ4kLveHAJwPQjyRFRv8XFteB21arICEFFyDyFoFAhxPr3z8Y8PBo4QiwPZyvgHsC
+	rgMLmHGgZBX8tmr8qDTw0Gzm2A2MqrNSxxxUFYbQYcyHBsKUlfSz6wad7cto16dDZC++pHaNwiLO/
+	Y9O9k9hF1BZaAf4ZgGFT+bXlf3O6Lf/8gIhGeNZt1MZ9LPOHUxcrxFNza3y9H56RaBujNVSRzIAHM
+	qOsnp6joDeNf3T4fcnQKU++hwMRlozMAXWf5aD5eoZMFlGJs2YcF5iwtcB1V5IS9FcFL+sJTquJso
+	GlTqhfWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrxxd-00000005rTK-0ZB3;
-	Thu, 06 Aug 2026 13:16:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wrxxp-00000005rUv-0ylm;
+	Thu, 06 Aug 2026 13:16:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrxxb-00000005rTE-1AK4
+	id 1wrxxo-00000005rUo-2rZx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 13:16:35 +0000
+	Thu, 06 Aug 2026 13:16:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 97D0B41F96;
-	Thu,  6 Aug 2026 13:16:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54DAA1F000E9;
-	Thu,  6 Aug 2026 13:16:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 32EE243E96;
+	Thu,  6 Aug 2026 13:16:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C517A1F000E9;
+	Thu,  6 Aug 2026 13:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786022194;
-	bh=8O3Jm/KCpUxHmdI56AF1wTxRqOJCMDI/5j9/Q6443Ro=;
+	s=k20260515; t=1786022208;
+	bh=k+Ic82NmQzZusUlCshJTGYzzvHzspn0EPyHNRDh8sMA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OYTTH2YZ95hRG04hyNETNtpBAmuqnutIGsr5526ph4/Spdpox8qylIrZLTN2uJeBJ
-	 v6OAiOPKkmABiofnuehJ9uheHaIhy99SVgixWZkBUyUc9/4tmUcXoOIcri5X5/G2YD
-	 zj6/fCqjKXrLbJuL7JOHgFKZZKwN9mbs4H9cfEImkJQC4VjC/HiJAaUYyQ+DNouog6
-	 uevVcXkGTmcu/rmvNKUgidInV3RVrEPw8CD7UN9FMBqSMYCT0ZXfCgP2TxMJhjM8ti
-	 tdzuY4Lmjf5fOxwo6R3fOk3huIa7nmHtCD0tA4V8JEPvXIpYtdGB2Ql7SLIO3UdBpP
-	 MMgcU7pcNIdmA==
-Date: Thu, 6 Aug 2026 08:16:33 -0500
-From: Rob Herring <robh@kernel.org>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Akhila Kavi <akavi@axiado.com>,
-	Prasad Bolisetty <pbolisetty@axiado.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Tzu-Hao Wei <twei@axiado.com>,
-	Karthikeyan Mitran <kmitran@axiado.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: hwmon: add Axiado AX3000 and AX3005 PWM
- fan controller
-Message-ID: <20260806131633.GA30560-robh@kernel.org>
-References: <20260806-axiado-ax3000-pwm-fan-v1-0-f6db4cf2166b@axiado.com>
- <20260806-axiado-ax3000-pwm-fan-v1-1-f6db4cf2166b@axiado.com>
+	b=gGwe34l+XbudjGZEUbY3qUhdKXw57r50CejnN7mBFP70j6kgs1Pk1xR8Zd9CDVQn0
+	 iOWGLM2bPSZl6bgUK5PFkImlGEPlrjZbA88r5uXDwL8ofRCQ8ysiyI3h625aj1bTL+
+	 oflORLs80mT/eRQZdJfd9qMthr0Lfsx1bnZlWQpqTE2aKLEN5//v3EwdOGo0iam1yO
+	 IAEU/KDRw3IGFT2Qn4u8yjsdmphG2Q8pok6NZnF2LM15ZT5tYVEM1Vkj1akxnfdg3E
+	 MG+wyAOegb6Sxf7d94rCUqgOU4PiyAJx26wnatX3ptUuvHr1TIiVmRKWuLz7jH0yNd
+	 7Vf889ACiSjKw==
+Date: Thu, 6 Aug 2026 14:16:43 +0100
+From: Will Deacon <will@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: liulhong617@163.comm, Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	liulhong617 <liulhong617@gmail.com>
+Subject: Re: [PATCH] arm64: mm: fix accidental linear mapping of no-map
+ reserved memory
+Message-ID: <anSJO36In-3tNQNj@willie-the-truck>
+References: <20260513010255.3764038-1-liulhong617@163.com>
+ <aljkLPTfyAbPaT98@willie-the-truck>
+ <ea0c8525-adf6-4c11-a3ec-02fe2f3b883b@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260806-axiado-ax3000-pwm-fan-v1-1-f6db4cf2166b@axiado.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <ea0c8525-adf6-4c11-a3ec-02fe2f3b883b@app.fastmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,78 +73,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 02:01:29AM -0700, Petar Stepanovic wrote:
-> Add a Devicetree binding for the PWM fan controller found on the
-> Axiado AX3000 and AX3005 SoCs.
+On Tue, Aug 04, 2026 at 05:24:33PM +0300, Ard Biesheuvel wrote:
 > 
-> The controller measures fan speed using a hardware tachometer block.
-> Fan speed is controlled through a PWM signal supplied by an external
-> PWM controller.
+> On Thu, 16 Jul 2026, at 17:01, Will Deacon wrote:
+> > [+Ard]
+> >
+> > On Wed, May 13, 2026 at 09:02:55AM +0800, liulhong617@163.com wrote:
+> >> From: liulhong617 <liulhong617@gmail.com>
+> >> 
+> >> When reserved-memory regions with the "no-map" property are not
+> >> page-aligned, the kernel may accidentally map them into the linear
+> >> mapping, contradicting the no-map semantics.
+> >
+> > Crikey, I wonder what the semantics are for "no-map" if the region isn't
+> > page aligned? If the remaining part of the page is advertised as memory
+> > but doesn't have the "no-map" property, then we can't really satisfy
+> > what we're being asked to do.
+> >
+> >> The root cause is a mismatch between /proc/iomem's address boundaries
+> >> and the actual page table mapping boundaries:
+> >> 
+> >> 1. /proc/iomem derives its ranges from memblock via
+> >>    memblock_region_reserved_base_pfn/memblock_region_reserved_end_pfn,
+> >>    which perform PFN rounding so the displayed boundaries are
+> >>    page-aligned. This gives the impression that the no-map region
+> >>    occupies whole pages.
+> >> 
+> >> 2. However, memblock_mark_nomap() splits memblock.memory regions at
+> >>    exact byte boundaries (memblock_isolate_range preserves raw DT
+> >>    base/size with no alignment). When for_each_mem_range iterates the
+> >>    non-NOMAP regions adjacent to a no-map region, it returns start/end
+> >>    values that are NOT page-aligned — they are the precise byte
+> >>    boundaries from the memblock split.
+> >> 
+> >> 3. These sub-page-aligned values are passed to
+> >>    __create_pgd_mapping_locked(), which does:
+> >>      phys &= PAGE_MASK;
+> >>      addr = virt & PAGE_MASK;
+> >>      end = PAGE_ALIGN(virt + size);
+> >>    The downward rounding of phys via PAGE_MASK extends the mapped
+> >>    range backward into the adjacent no-map region, effectively
+> >>    including no-map memory in the linear mapping.
+> >> 
+> >> For example, with 64K pages, reserved_region@A2000000 (base=0xA2000000,
+> >> size=0x8000, no-map) causes for_each_mem_range to return
+> >> start=0xA2008000 for the next mappable region. After phys &= PAGE_MASK,
+> >> the actual mapping starts at 0xA2000000 — the entire no-map region is
+> >> incorrectly mapped.
+> >> 
+> >> Fix this by rounding the mappable range inward to PAGE_SIZE boundaries
+> >> before passing it to __map_memblock: start is rounded UP and end is
+> >> rounded DOWN. This ensures the mapped area never overlaps with adjacent
+> >> no-map regions. The cost is at most one page of unmapped gap at each
+> >> boundary, which is preferable to violating no-map semantics.
+> >> 
+> >> Signed-off-by: liulhong617 <liulhong617@gmail.com>
+> >> ---
+> >>  arch/arm64/mm/mmu.c | 14 ++++++++++++++
+> >>  1 file changed, 14 insertions(+)
+> >> 
+> >> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> >> index dd85e093f..bc8ac7622 100644
+> >> --- a/arch/arm64/mm/mmu.c
+> >> +++ b/arch/arm64/mm/mmu.c
+> >> @@ -1175,6 +1175,20 @@ static void __init map_mem(pgd_t *pgdp)
+> >>  	for_each_mem_range(i, &start, &end) {
+> >>  		if (start >= end)
+> >>  			break;
+> >> +		/*
+> >> +		 * for_each_mem_range may return sub-page-aligned boundaries
+> >> +		 * after memblock_mark_nomap() splits regions at byte precision.
+> >> +		 * __create_pgd_mapping_locked aligns phys down to PAGE_MASK,
+> >> +		 * which could accidentally map no-map memory on the boundary.
+> >> +		 * Round the mappable range inward: start UP, end DOWN, so
+> >> +		 * that the mapped area never overlaps with adjacent no-map
+> >> +		 * regions. The cost is at most one page of unmapped gap at
+> >> +		 * each boundary.
+> >> +		 */
+> >> +		start = PAGE_ALIGN(start);
+> >> +		end = end & PAGE_MASK;
+> >> +		if (start >= end)
+> >> +			continue;
+> >
+> > Maybe I'm over-worrying here, but I've seen firmware describe parts of
+> > memory as lots of small, adjacent regions in some cases and so I'm
+> > worried we'd fail to map the pages with this change.
+> >
+> > I'd be more in favour of detecting sub-page sized "no-map" regions that
+> > are adjacent to normal memory regions, emitting a warning/firmware taint
+> > and then doing... precisely nothing about it. What practical issues are
+> > you seeing on your system?
+> >
 > 
-> Add a MAINTAINERS entry for the binding.
-> 
-> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
-> ---
->  .../bindings/hwmon/axiado,ax3000-pwm-fan.yaml      | 68 ++++++++++++++++++++++
->  MAINTAINERS                                        |  8 +++
->  2 files changed, 76 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/hwmon/axiado,ax3000-pwm-fan.yaml b/Documentation/devicetree/bindings/hwmon/axiado,ax3000-pwm-fan.yaml
-> new file mode 100644
-> index 000000000000..a985f49bbdcd
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/hwmon/axiado,ax3000-pwm-fan.yaml
-> @@ -0,0 +1,68 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/hwmon/axiado,ax3000-pwm-fan.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Axiado AX3000 and AX3005 PWM Fan Controller
-> +
-> +maintainers:
-> +  - Petar Stepanovic <pstepanovic@axiado.com>
-> +  - Akhila Kavi <akavi@axiado.com>
-> +  - Prasad Bolisetty <pbolisetty@axiado.com>
-> +
-> +description:
-> +  The Axiado AX3000 and AX3005 fan controllers use a hardware tachometer
-> +  block to measure fan speed. Fan speed is controlled through a PWM signal
-> +  supplied by an external PWM controller.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - const: axiado,ax3000-pwm-fan
-> +      - items:
-> +          - const: axiado,ax3005-pwm-fan
-> +          - const: axiado,ax3000-pwm-fan
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  pwms:
-> +    maxItems: 1
-> +    description:
-> +      PWM specifier used to control fan speed.
-> +
-> +  pulses-per-revolution:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 1
-> +    default: 2
-> +    description:
-> +      Number of tachometer pulses generated per fan revolution.
+> I think this change is conceptually sound: for_each_mem_range() will present
+> a set of coalesced memory ranges, so any sub-[OS-]page regions will have
+> been stitched together by this time.
 
-This is a property of a fan, not the fan controller. The fan(s) should 
-be represented as child node(s) under this device. Use the common fan 
-binding, fan-common.yaml. See other bindings using it.
+Aha, thanks, that's the part I was missing.
 
-Rob
+> I do wonder if it wouldn't be better if __create_pgd_mapping_locked() did
+> inward rounding, or even better, did no rounding at all, and left it to the
+> callers to perform the rounding.
+
+I can take this patch for now but maybe somebody can have a play with
+that in the future.
+
+Will
 
