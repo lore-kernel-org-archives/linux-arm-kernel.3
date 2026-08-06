@@ -4,149 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD403C56205
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 19:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74349C5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 19:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9TQm26Tr74CH73UFksYG3f41RR+dzeP/TP8Q+7bhujM=; b=WxN8BRMQOqjD/YgpwJ2u3A6nsO
-	vhzmxol7y07LxLGF3reZslYVdZLa/bGmr4qyjP8VlZedtJXf67kRqCf3K3S8SWHwk7mmSt649yCHt
-	mwV0Drz17A4vdj+RAl+MUVZ51fyk76yN+y+dHJ29Xw3UZPCRPvuV3fFOUwdRxsKmpPRCu9SFS7rkf
-	nKUlm84f8bu0NunJpiJku04uqL8EOlezqLhSaWm2StWMG2R30K8g2eYzjZMb2uA8KKWI0JThx5vjR
-	DVlcSIcQ4mo/ZI7m9DAMKtbFSbjoXXs7JZ8CcLksW9N43oSN/ivyO/jKH7ax80Jel2PHYCdtzi2+S
-	S+t4ExQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1h4OjIZuFRylghiUSJ61WRRPaolfYxZwgTgYYlB0hFY=; b=cktycKdyCM2vVM
+	SN0Lt4XnvvCKP8XVJp5jcsjmoDa3rTIFAr+j2BeuJKWThxJpOBCjW4Bnqe4yeNrGUkuVZEOZ03GKV
+	+yobtO0ck8g4m32HNTgFxkV6k304YM2oIVl3/yt03sMOYcdUKFRO4WoeF6QqqUi/qWNdSgmbCrdCi
+	a5myixVQeIexEtFVeV42L6cfOJZg/fbEBqadtKt0pOe0JEAT4xQzvnvyWGriMtTE/JwOYNrJvUGkL
+	LUtWZ0ZGehAFPNmIyKU1jlzfd375HY4O9xomGunZYY2imPLJAOcxTUxCScbMVJZBSZp4D4CBXjxmi
+	epz3FtFE+CQU4PLXnKmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws45P-00000006aEj-21Kw;
-	Thu, 06 Aug 2026 19:49:03 +0000
-Received: from mail-northeuropeazon11010001.outbound.protection.outlook.com ([52.101.84.1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1ws45R-00000006aFH-2XCh;
+	Thu, 06 Aug 2026 19:49:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws45M-00000006aE4-2v8r
+	id 1ws45O-00000006aEX-25eo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 06 Aug 2026 19:49:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=1h4OjIZuFRylghiUSJ61WRRPaolfYxZwgTgYYlB0hFY=; b=lZ9YQjxeiaWaUjjVX6fxuA5EEu
+	IltmYR0brGodCbOJ9SchxobOgY83NrNNkZFQhGN2Ji9U1+cZydkTmRnfnsL7xG45o5rnC5uENv3Ph
+	nsfXr/tYSpYgwD5o1fEqMy73YkP0kLRWSchLrGm1ZZ58K8ooZMgZFxluX+K7KgEl9GrAQUmvssBwk
+	39jHX2KBC00JbTrBCAQz6/YqS095hezbaFs1RrWGKrRARcDUjhrxmh2YQbcaWdQVNBvNsbVVh732W
+	BaPOGc0//XH3+syc6AtMppUpPwT+HHjNMSvy6vyiS0mEXW/TqAk/IIxLoFwruh8aUL9Ket5o5fbNp
+	vmbmg83Q==;
+Received: from layka.disroot.org ([178.21.23.139])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1ws45L-0000000BnVY-0dd3
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 06 Aug 2026 19:49:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LfpmydukdBhD94eyt8elYkpvgRPnxcF3mn1S3Tp907+X1hE3h8kQOp12UdG+xwQHPsFTUKwUB+iRaYJadskG03v/EQCHazolfIa/32bAih1+sRsH4QLH20wYs3sMamcjAeSITGyEAzhiBFQOjbbIMN+WiQfL6slWEYPHgvG3tlqb6h69MhV1yDexbq6Voo6jHgaMIzsatzHoF49b1+pgJtjfMBxRktJ889VvbJtyuD2GVfQdS8tIJ+//p6Li7OIDDh8RWaAJKLdWH5oq4qh8DKnRVPCsZqs6ieDJKyskaprowIL/CedI0v9EZuchyyOshzdk/aiCo3jH0z20YLQvLA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9TQm26Tr74CH73UFksYG3f41RR+dzeP/TP8Q+7bhujM=;
- b=E+ossKzjWcjRzPKmfsAIdXZxzOS8x/nDqWZdSSI2GvatjX3v7n0OssXKg7fA7Wdoghmuo4N5vfQeyZSgjxPiYLa22usZjhn8HU72mbrpzwWgePqqKxPI9KhYlJ7nz9If4nisoeB1GT9Ckf+u/uP27n0iyLwIRchoZ00/GdqLCMfkA0LFQrX7nUtEnnV6sQkzJaJAXhXeWiCvAOGlUi9tOraQkwrKKKRxdeKXwE7LDCNQRJVtSWx4klPP+6/6NzvyojTUxS+MsM1LDaVdWECZMTYlL4YSJ+edI/gKBdv6Odl3jP5is5K1RroR91dTqP8n6AohHcOtZ8iR5p7npV6wJA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9TQm26Tr74CH73UFksYG3f41RR+dzeP/TP8Q+7bhujM=;
- b=B5CYjXRQgMQSM/kudkIKl0vLr88Rzeqmc5hPDrcrrgw7HJEX8lkU/TjpY1RgXlJNdIkScIt3z5ujrkA7KV1pyRFXgEhIPjRgyIGZJ3rUhzcUDk4G5CqaJ2/n6un/l49ODoTUi4y4EvIqf0Su9g30LzFExICOyBak3es4Lhj9e9rf6OiPWdtBMqbnz3xwrY3bmL2huBvxNxwJLlPIjO+RulnQXOuCjcQGrNYfDecvDWGcKnOlsg3d0/qZ/IONHDcHogq1hQppMlyGGfAfrB1A288Pi1Lvgt5rk/m2jnEFxytAqmmKtLFozH4ZBvTSyedZpw3Q7z9mI1i2m5gG5tMZYg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB9205.eurprd04.prod.outlook.com (2603:10a6:20b:44c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.20; Thu, 6 Aug
- 2026 19:48:55 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.018; Thu, 6 Aug 2026
- 19:48:55 +0000
-From: Frank.Li@oss.nxp.com
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Joseph Guo <qijian.guo@nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	justin.jiang@nxp.com,
-	xinyu.chen@nxp.com,
-	qijian.guo@oss.nxp.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v2 0/3] Add i.MX93 Wireless FRDM board support
-Date: Thu,  6 Aug 2026 15:48:45 -0400
-Message-ID: <178604568699.425665.14745542223242634942.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260723-imx93w_frdm-v2-0-b108a76b2e40@nxp.com>
-References: <20260723-imx93w_frdm-v2-0-b108a76b2e40@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA9P221CA0016.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:806:25::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+Received: from mail01.layka.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 62177424C0;
+	Thu, 06 Aug 2026 21:48:56 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id NoRJ2Hp6m-Kq; Thu,  6 Aug 2026 21:48:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1786045735; bh=raI20MrYlOu6bLFM+HE81jC5KZTY1Ni31SmKyPR9uWk=;
+	h=From:Subject:Date:To:Cc;
+	b=DcDvUe2M5V+ZrKuu9SETkKfZ/+xp4UH+QZhsw2cGbsqqKREIL4DNfcvSSksQUL2Zy
+	 KJ9kVCgXawBBXKkSRGjswl24YKyUs3AAD5InSoOsn+/zKQPcRWuiFyHP4gF8eM+iwg
+	 q0whXyEwkq5tww+Tzz1zyQXqpQejp7C9YTbwXUE019tOUvXnbBZ1yxQDTyYDuvOCbO
+	 JL6R2DrfKa/jizTlhYwcn+L1PVWsLUiBSEYC0YMIOkvu7AJuJJtVxhzJO6zv2kv1aA
+	 kl5z31eNF+UfJ0OrzJ/HJ5qJq6TpiJraVIPMajYczZm/pjtbNfqFPxvHf8KqHLiQZd
+	 6//pw9IGPrsLQ==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH v4 0/3] Add Sharp GP2AP070S Proximity Driver and enable it
+ in Galaxy J6 (j6lte)
+Date: Fri, 07 Aug 2026 01:18:40 +0530
+Message-Id: <20260807-gp2ap070s-v4-0-74f6a67b6272@disroot.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB9205:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67f0687e-8a29-48d1-377d-08def3f3bf9d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|19092799006|376014|23010399003|11063799006|56012099006|18002099003|22082099003|10067099003;
-X-Microsoft-Antispam-Message-Info: 5ph+2GIZnZVsxCGF916xmhMacGI6ZcmTb5motnMIHo9gKTTCRvJ2fAz8R4RBPEWLzdXWqI7RTEeEeizuzqbnW9Tnze25Y2us42fbb08S/IAolQJuq9z+hPkX+KFSWQpAJE10RMBqNuDBz5PHEEm6Nav7njbT953pbj9PyCQYmoqK1Or0KrZbOMjf76ECKftAvlrcB7zSc17ynqTO8Byl5+SLsxP+prb2q58HsCz/lTS63I7IVTqItruVJrkIygxMwvWvA5w7RSHDSR7jksZPPpeOsi49LR5ZXFG3n0vFfFK26W0djGxCRK7nN7yWMxWEFipeBBn6fLzfXmekA/Ih7Nf+rSYPGcT9GzzaxI6kVx0L+7Mh8Pw7edwPvYgqlpLm2gdHamU8gyn1c3+CivrOpQ6p1171q7kf+WVo3umcqWfQuRWbPb9l6YDIwVGm2ec+9hbXRDSBdQua8/9eSEiX/dCLu7lmuQhywo2TareouI2ZpijM6eY5SVmjbcvjJ9ztdS6rdwaOtoP1Qi4cYFKg+IKI6M73JDSGCR0kJ9tJJ97fo1y0J2ZfdkDygzVIjQwUWLRyH9JhvAUITrnsc42XE55ZKeA0uN8QyZPy5VJ8APH6t4VcUEF/QZYCC2lK56AGRmYVarzteCMtOlKFgJFAV85lNqSiS1R5NIrXd55F8fI=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(19092799006)(376014)(23010399003)(11063799006)(56012099006)(18002099003)(22082099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QlpTZUI5c1M5M0tHdVhyaTdRWlBlY2YrNXpCaU5RaklERHNjekxHZnFjUXhS?=
- =?utf-8?B?TDhQK1d2bU5BY2hqRU1oTEZqS1pTbGlTRnlLREdiRlFKblhadUsrd21USXRp?=
- =?utf-8?B?UXVVLzlJU1ZQSXRibEhWK1czRUlOam9GczB1UEFFNTFOOWpxRExBSXFpWWY2?=
- =?utf-8?B?ZjBLZnhhNm5tVlN6Q2pxciszQ3JFL2xHRm1BUi9aNnRKSmgzQm9CREU1OGRZ?=
- =?utf-8?B?bnhrMzhMaUQxcENCK1ZiVW53ZkpiWkNvMUtTU0Rhc054R3pZRVpUZGVMcFlZ?=
- =?utf-8?B?QnEzM05SdjF1WGRQQ1h6bC9IaEJPNW9acCt6U2xoV2tIMTRqbFNVcGhIeGZm?=
- =?utf-8?B?NmdLZU0zQjZOaDRuOGdJa2NCK3dNekJidGJDNTBxR0IvMm8vM3I2czhpWHQ5?=
- =?utf-8?B?Wkpncm9ram9scDlGRDVXcGdjUFBoK2c4d3N1WFdXVFd6blFvUWZPamtISE9o?=
- =?utf-8?B?b2RHanh0d0FRa25sdWhWbU9EaTJQY24yRU44NlVkYXJnRDJoNTFXM2N5RmpU?=
- =?utf-8?B?ZkhMdm1oMFhjSXc1WHJhdGpEUWh5T0hBOHdsQkJqTG9HN3JrbEpCdVdaaElY?=
- =?utf-8?B?YXBpa29tbHhCV2RtY2xldlFpd2pwU2YveUV6OUcwMlFta0Jhdzd0RjNBOVVO?=
- =?utf-8?B?Mk9uQjc3OFVNbDBMWDVScWdzRTdoMzlVN00xc1JIUU04Rnl3YVdhdml4cTFt?=
- =?utf-8?B?bTVqenRFM0hRbFRtbjRMNERxMWV4TDhkSWdsbENlQTdod2RzRUZaZHEwNGF0?=
- =?utf-8?B?WjFwTlBrTFJxSkNEanBsRUtUUWdPWFBoTFJDUEwvKzlKY0s0b0h1dnlsMlBq?=
- =?utf-8?B?dnRDenFuRVZweC9oMHc0RVlnMGFiblYxYm9VR2lBNFdmaWVWMERIMzQrTjEw?=
- =?utf-8?B?TkpTcmtFTERqUUpCSStxYmFBZndXSnJ1S1NCcE92RXJoQmdQMS9JT1pyTWdO?=
- =?utf-8?B?dFB1RWJQeWM5WWYrVHA1Uzg0TkttcXpnc0IvWFN4WlZrcXRhaVhlRjJNMzBh?=
- =?utf-8?B?QlpoS2k5YmltbUpiQVpWTjhobXovek5VeHhaVkNSWU9iUUZNcFBDa0h1OXhu?=
- =?utf-8?B?bUJvWDY3MVlxS05aRmlLeEVGVnRLUlhTNkltK1ZSeXRESmJNZzhmNkhyT0JH?=
- =?utf-8?B?d2JrWERMYjNsRERUcnk2OEVjZTkxRXRrbk9HTzhlN0RtTHVLZDIyZW1NVlht?=
- =?utf-8?B?YnViMERsNlc5ajNWN3ZVMW02UWZ2ZVpXREJ4Z2QwTmlVSnRueUV3enRRVFZ0?=
- =?utf-8?B?QUlVRXpSUlFaaHVZZGhQYURLZTZMZis5Q1ozdWJZYVRWVnM4NDliMncrbDVV?=
- =?utf-8?B?NGhuSnRZZmVzTkYreVFtU0hqSGVhMmNJQnN1U21vN3krTXM4cXBUYzVxTnpp?=
- =?utf-8?B?b2h2OUREME01MWU2dnh4K01lTitncDQzc0cwWGwwYTByMHNWcnhCdk9pR0NT?=
- =?utf-8?B?M005Y3FaMEZGbTFjQ1U2Y0hPZXM1dHJCSjFVem1vZCtOMXFHajZENlZ2QTlG?=
- =?utf-8?B?WVI0SGtvUzF0Yis4YVlYdUNVdzkvcTgxOW95cWtsRmxlblBsNWNjWkxyK3lI?=
- =?utf-8?B?WndCSTdTZERSQUZubE16b2wvb2lRSGRJNnJHZHFKVTczUkN3SDRvZ1FvUXo3?=
- =?utf-8?B?Nk0vQkpQSkNjZmdUZUcvOFovYmpZcmdBQW16ekNCQ01obGxhVWFPdTVEQjNM?=
- =?utf-8?B?NUFzajV2YnVRZHJuNUI2SFVGdlRXQmFUVjFiV2NnNnM2bHBlTkZlenJiZThh?=
- =?utf-8?B?bzlidmhlMDlsQTdnR3Btb1M3S1FMRkRNYlpuSzRVUFR3N0NwR2c4QmJaMko3?=
- =?utf-8?B?c1BtLzh3Slp0MWxwcEdJVENqbnY2SlF2Zk5zeStkMUNuYStvU3BvMFhaYWhx?=
- =?utf-8?B?U2lmTG16Q2luRzAyRjlrbEp0ZUUxeEU1Z2o1MllmMmtzbDIzU0p0TGNIWDRn?=
- =?utf-8?B?bTBqNWluR3FkZTlibnc4UFpPS3RCcFlvMU5ZMjNmSTJNZERsQnBJNjlwSGdI?=
- =?utf-8?B?dU5adUQ3dGN1ZUNBNHRZS0tBVUQxcWNTaXRZUTM0Qk1MMi9SakdPQTJsVlN2?=
- =?utf-8?B?TUk1Q3BJZE1ETURvVG56bmZzRHlzRHRORDg5dmxzRGN4aUV3K0xzSGM4WnI1?=
- =?utf-8?B?dzZMUGVJYlNvTnhyVXJUTHByT0xMSlBUREpUTGNQd1dPNDJQUzgwK0ZJYlpj?=
- =?utf-8?B?QkNwOXFIcnA3anBMcHVaZ1FrVmJ0QmVZUTdlSHBUZXlRNTRNcTJxSmY0TmpV?=
- =?utf-8?B?MVdhbUVmNEZLaXk2YnBZYkZJVm5zTDEzcW9pV2w5ZFVZektHSXZJZys4dUZB?=
- =?utf-8?B?SzlUS0hpcy9HL3FoTDBZb1NFL091V3FYc2drcmlObVNjZDRaQjhVYk1aZEx5?=
- =?utf-8?Q?AVt/+QfJ71OV/587YIzPAExTHpnZaMxHZa854?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67f0687e-8a29-48d1-377d-08def3f3bf9d
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 19:48:55.3441
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KeRp93r1tPhs6KXQ6mTPSxxi2tm3fJmpOtuJbBGUNG7inLq73BmchRnZ4tQc7Nnp62DWWBXpMTpgA5jdFwvJDA+keDFqbAU6g40k0qiBerdi32+BvvKVwZ95u03RcBcQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9205
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNQQ7CIBQFr9KwFvOBVqwr72FcUPi0uCgN1EbT9
+ O5C3dSoy0nezJtJxOAwklMxk4CTi873CcpdQXSn+hapM4kJB34AyQVtB64GkBCplQiMQy1BVST
+ th4DWPdbW5frmeG9uqMccyIvOxdGH53o2sbz71Z0YBdoctRKq1AyMORsXg/fj3oeW5PLEN65gW
+ 5cnlzXGIoI0FapvV/x1RXINs5VGbWuL8tNdluUFDkddWS4BAAA=
+X-Change-ID: 20260723-gp2ap070s-f7e0120970a5
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_124900_740915_C8352486 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_204859_373177_7AC2E188 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,29 +100,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Sharp GP2AP070S is a promixity sensor (NOT an ambient light sensor) in
+mobile devices. This sensor chip is found in mobile devices, including
+(but perhaps not limited to) Samsung Galaxy J6 (codename: j6lte).
 
+To the best of my knowledge, there's no public documentation available
+for this device. [1] is a downstream kernel implementation, which has
+been the single source for developing this driver. Some bits have also
+been stolen from existing GP2AP* drivers available in iio/light.
 
-On Thu, 23 Jul 2026 16:13:20 +0900, Joseph Guo wrote:
-> i.MX93 Wireless FRDM board(FRDM-IMX93W) is a low-cost and compact board featuring
-> the i.MX93W applications processor
->
-> FRDM-IMX93W board basically reuse the FRDM-IMX93 board, with some minor functional
-> and pin connection differences. Factor common parts of FRDM-IMX93 and FRDM-IMX93W
-> into imx93-11x11-frdm-common.dtsi and add the board-specific changes.
->
-> [...]
+The last patch in this series touches the device tree sources to add the
+light sensor node in j6lte. This needs to be accepted into next only
+when the former patches are in next.
 
-Applied to imx/dt64-intend, thanks!
+[1] https://github.com/Exynos7870/android_kernel_samsung_universal7870/blob/lineage-16.0/drivers/sensors/gp2ap070s.c
 
-[1/3] arm64: dts: imx93-11x11-frdm: factor out common parts into dtsi
-      commit: 6feee64127065826f4b057654fe2e7b045db8c35
-[2/3] dt-bindings: arm: fsl: Add i.MX93 Wireless FRDM board
-      commit: 5d923b90668180c8bb0fbd70f87584e352f0e4b3
-[3/3] arm64: dts: imx93: Add i.MX93 Wireless FRDM board support
-      commit: 2528cbc1fdc07cfbfbded7c612cc93567fe2c121
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Changes in v4:
+- Clarify non-mandatory vled-supply commit message (Krzysztof Kozlowski)
+- Simplify driver probe return paths (David Lechner)
+- Rephrase fsleep() usage to use unit macros (David Lechner)
+- Use regmap_reinit_cache() instead of regcache_mark_dirty() (David Lechner)
+- Use regmap_assign_bits() instead on branch on regmap_{set,clear}_bits()
+  (David Lechner)
+- Drop redundant explicit cast to u16 (David Lechner)
+- Replace (1 << 16) with macrofied BIT(16) (David Lechner)
+- Add max_register to regmap config (David Lechner)
+- Add upper byte register for proximity distance volatile registers (Sashiko)
+- Return 0 instead of IIO_VAL_INT in iio config write calls (Sashiko)
+- Add REGCACHE_FLAT to regmap (Sashiko)
+- Link to v3: https://patch.msgid.link/20260731-gp2ap070s-v3-0-d1f5cecf9fe7@disroot.org
+
+Changes in v3:
+- Revoke stale patches sent erroneously, v2 changelog applies
+- Link to v2: https://patch.msgid.link/20260731-gp2ap070s-v2-0-1bdfee07d5ea@disroot.org
+
+Changes in v2:
+- Reshuffle and add missing header inclusions (Joshua Crofts)
+- Add missing regulators in driver and dt-schema
+  (Joshua Crofts, Jonathan Cameron)
+- Rename and rearrange register addresses, masks and values (Jonathan Cameron)
+- Use regmap_get_device() for carrying dev pointer (Jonathan Cameron)
+- Use FIELD_GET() instead of !! (Jonathan Cameron)
+- Drop unused i2c_set_clientdata() (Jonathan Cameron)
+- Use fsleep() instead of usleep_range() (Jonathan Cameron)
+- Check if proximity-near-level is available before reading its value
+  (Jonathan Cameron)
+- Drop redundant dev_err_probe() from devm_request_threaded_irq()
+  (Joshua Crofts)
+- Use mutex guards for guarding concurrent read/write calls (Sashiko)
+- Add reset chip action on removal (Sashiko)
+- Ensure input value in iio_write_event_value() is 16-bit (Sashiko)
+- Use regmap_bulk_*() instead of regmap_raw_*() (Jonathan Cameron)
+- Hint volatile registers for regmap (Jonathan Cameron)
+- Link to v1: https://patch.msgid.link/20260723-gp2ap070s-v1-0-b8ca3a4c10dd@disroot.org
+
+---
+Kaustabh Chakraborty (3):
+      dt-bindings: iio: proximity: add Sharp GP2AP070S proximity sensor
+      iio: proximity: add driver for Sharp GP2AP070S proximity sensor
+      arm64: dts: exynos7870-j6lte: add Sharp GP2AP070S proximity sensor
+
+ .../bindings/iio/proximity/sharp,gp2ap070s.yaml    |  60 +++
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  55 ++-
+ drivers/iio/proximity/Kconfig                      |  11 +
+ drivers/iio/proximity/Makefile                     |   1 +
+ drivers/iio/proximity/gp2ap070s.c                  | 491 +++++++++++++++++++++
+ 5 files changed, 616 insertions(+), 2 deletions(-)
+---
+base-commit: 290aaf24a551d5a0dce037e3fab30820f9113a10
+change-id: 20260723-gp2ap070s-f7e0120970a5
 
 Best regards,
---
-Frank Li <Frank.Li@nxp.com>
+--  
+Kaustabh Chakraborty <kauschluss@disroot.org>
+
 
