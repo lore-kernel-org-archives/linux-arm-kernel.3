@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A04DDC56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 12:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A494C55ABF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 12:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Q+zziGDBIptMzsPZcTiv1Xi/fJxSGOGLNBn/2gz4qA=; b=Xo3SbXmWy1XSJ6d6IhMAcoXYwX
-	nLztw/yNV6fAABAohqAHK1Y3z/w0TeXeauo0EBxHnfmYuz+YY0c8t6OR1u5k5+9Zcmai2tzBWt8ft
-	tvXw4EfZFIpEne4aZFaTiOyUxvKJ6Hgzx/r77scDQNID9Rc8vBLAreAipD3EH1X0N6+OYm8vMDVVs
-	8tK5PaFSvIevtPAMyi0Mi2CC4Pw11CLXgUnbNdDeOpug53t3hrWdCAJGiOys30XncFKL/mtWeKplE
-	vrUqFgFPKvyOKliF8Z6gNWFrnVuirGGubxrr9bOEgd3Pd+/q8ixjcn/7MxPBvfetehjrcZ47eTVB5
-	W49GrAjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mgLf17wfYrVfnQERm/70teVLZ84QX0oUVoumyFV8ZRM=; b=MRoGK0xIL1nxMvBXar9j+vwJvd
+	5csDb15ys/vplNBI04Ra2azIHiwrJxbiyRzcMG3QXqMAUg0b/99XOifPzetXJdo9DB8R5aJOlCj9C
+	hQpF+sHM8GmmV2z0qDGikWXtJCitW1j9/XYxhPHT87+qIdUyIke6XWSJqFEBn2cFiylX5eqDDgCEM
+	iOPwn1c8QUeieuIzrUhtMpNsIikZHFPqbX1GK7t1byY2XmB7ldl2wX5aDej0lx+Xom5gxz+sH8z4z
+	tpHCgTzaGaoLPh/YdDL28v+BpiaBZL8LehZ2Nh8UPxQvW4wB53l5EtTAakXehDCLN2qqblsncnom2
+	h8RlYKDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrx4w-00000005khD-0TS6;
-	Thu, 06 Aug 2026 12:20:06 +0000
-Received: from smtprelay0010.hostedemail.com ([216.40.44.10] helo=relay.hostedemail.com)
+	id 1wrx5S-00000005kql-1UAW;
+	Thu, 06 Aug 2026 12:20:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrx4r-00000005kfl-1KI8
+	id 1wrx5Q-00000005kq3-20p8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 12:20:04 +0000
-Received: from omf13.hostedemail.com (lb01a-stub [10.200.18.249])
-	by unirelay05.hostedemail.com (Postfix) with ESMTP id 06F4F4071F;
-	Thu,  6 Aug 2026 12:19:55 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf13.hostedemail.com (Postfix) with ESMTPA id 8425720010;
-	Thu,  6 Aug 2026 12:19:52 +0000 (UTC)
-Date: Thu, 6 Aug 2026 08:19:52 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Fuad Tabba <fuad.tabba@linux.dev>
-Cc: maz@kernel.org, oupton@kernel.org, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org,
- mhiramat@kernel.org, alexandru.elisei@arm.com, vdonnefort@google.com,
- joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
- yuzenghui@huawei.com, qperret@google.com, ardb@kernel.org,
- linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 01/11] tracing: Include linux/types.h in
- trace_remote_event.h
-Message-ID: <20260806081952.5cbd8170@gandalf.local.home>
-In-Reply-To: <CA+EHjTxZ1tBfau4eK-nOdqig1xwngzsq8YyHtiE-iAMkZpSF8g@mail.gmail.com>
-References: <20260804112317.1937387-1-fuad.tabba@linux.dev>
-	<20260804112317.1937387-2-fuad.tabba@linux.dev>
-	<20260805165432.0118a513@gandalf.local.home>
-	<CA+EHjTxZ1tBfau4eK-nOdqig1xwngzsq8YyHtiE-iAMkZpSF8g@mail.gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Thu, 06 Aug 2026 12:20:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4061641921;
+	Thu,  6 Aug 2026 12:20:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 307DE1F000E9;
+	Thu,  6 Aug 2026 12:20:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786018836;
+	bh=mgLf17wfYrVfnQERm/70teVLZ84QX0oUVoumyFV8ZRM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=j/8ODoQ/BObTPAuVgbRBkyY4VqKDu2JTVx6KDpzoENUSVZM4StTPPOBfVQrR0DLwx
+	 BPbiSChUBNQTktBDw6n3QNFmJhtHRKJv+0eA7V1Bt8WUGXlM/z01fdW3NdIFfwLint
+	 1nKdwN9GQtDBO3g0xJ6CMDO0lRX4RqpWMKwpwBsY7prLhwme4bDGoBV2uEwtCP+vKV
+	 bYXGWzukAZHDzGeTfKJnryBuy6Ya6UaWD/Lx/bvH2uKixWsEnWJsRK1xgc2HIsABjP
+	 CvTXOIRdxXWyncqIVf02p3LoX5Ketk7dgOMkZYSYfZYCmPJ/FaiMVaB787iPWDQiuf
+	 KF1E0abJV3VNA==
+Date: Thu, 6 Aug 2026 13:20:31 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: Will Deacon <will@kernel.org>, He Kuang <hekuang@huawei.com>,
+	Wang Nan <wangnan0@huawei.com>,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Aishwarya TCV <Aishwarya.TCV@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] tools: Ensure tools copy of linux/filter.h exports the
+ UAPI
+Message-ID: <c92e1b50-c217-45a9-b2ee-7c34c2c09bd5@sirena.org.uk>
+References: <20260805-arm64-selftest-fix-filter-h-build-v1-1-c29648ee3126@kernel.org>
+ <anRpO_kxC9-uKnMh@willie-the-truck>
+ <d57e11b0-c943-4441-b210-4b0549d03b54@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Server: rspamout01
-X-Rspamd-Queue-Id: 8425720010
-X-Stat-Signature: r86qiecciymy1dxrye8d3wyxeubaweq4
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19xrAhumewMEU9bfBTbxDXmAHqbmaYBTcE=
-X-HE-Tag: 1786018792-901548
-X-HE-Meta: U2FsdGVkX195zuqn6+P/oJUmDDmBsGeDk/Dol51GDMslSARahWNz568H6AtS7EGsXujFR5EgnerJAA1FLcRtHPbxXpVUqLywGSkHQCrLp5MMyOzhfpBJktvO9poZuZIuc2bqlmAIxIsHu6m1BBV10K+mDygWR0Q72fcRl0tfpITuQ6ol0J6Uq1wof/YO35DXnmCeVAZfY2ACGKSPARPQ5q6a4D5JodKbU9zOfAXLY6igoorxNrttkORPBbra1VvJ6+fyPYWKHprBf7RlDIqX1WHxGhaue79t/6UsjyUwbZcuAYGowA4DC0/RtB1xeIJp
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_052001_418105_94070101 
-X-CRM114-Status: GOOD (  17.68  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="T4VtcqluX5L3OEHF"
+Content-Disposition: inline
+In-Reply-To: <d57e11b0-c943-4441-b210-4b0549d03b54@huawei.com>
+X-Cookie: Brain fried -- Core dumped
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +78,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Aug 2026 09:43:00 +0100
-Fuad Tabba <fuad.tabba@linux.dev> wrote:
 
-> > My ack still stands, but I wonder if we should just not use the include and
-> > instead s/bool/_Bool/ ?  
-> 
-> I'd prefer to keep the include, if you don't mind.
-> 
-> As far as I can tell, apart from the typedef itself, the only headers
-> built into the kernel that use _Bool as a type are a uapi one and
-> arch/um's user.h when it's built for the host, neither of which has
-> bool available, plus what looks like a leftover in bcache_ondisk.h
-> from when it was uapi.
-> 
-> The include also covers whatever field gets added next.
-> 
-> Happy to switch if you'd still prefer _Bool.
+--T4VtcqluX5L3OEHF
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The reason I suggested this is because I'm not sure how much we want to add
-Linux headers to files built for the hypervisor.
+On Thu, Aug 06, 2026 at 07:21:45PM +0800, Jinjie Ruan wrote:
+> =E5=9C=A8 2026/8/6 19:00, Will Deacon =E5=86=99=E9=81=93:
 
-If Vincent is good with adding this, then so am I.
+> >> +#include <uapi/linux/filter.h>
 
-But I rather have him give an ack before we do.
+> > Is this still needed if we take the test changes from Jinjie?
 
--- Steve
+> > https://lore.kernel.org/r/20260806090935.39311-1-ruanjinjie@huawei.com
+
+> I think both of these are needed for the fix.
+
+> https://lore.kernel.org/all/20260806111546.42042-1-ruanjinjie@huawei.com/
+
+Yes, we need both - with just the include change we still have the issue
+that nothing in the test inclues the uapi header directly, nor would we
+expect the test to have to do that.
+
+--T4VtcqluX5L3OEHF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmp0fA4ACgkQJNaLcl1U
+h9BrZgf/b5IwpT9TYfwJeHi0BILUGcb+DuT+KKpxaa5j4zjN7F1HvV/KwJD65uyp
+RNUf3ZZ9d9Mllpw7B1kLetLOIDfLoN0o8TpdOc5TQvHW2rPjjIlautSVuyVif3wn
+P032z5Hifm6TpRgJxhIoIVDrmQTsJTM4utXfjyfa/xQ+oZdVgr7tHJ9E8gaOoomv
+/KJxzDOVbFs4bZ0nqcrICnpnep+NVO7WPPCXhzQiC6CBivz6ngyz030i7fO7Tbzh
+T5mOhjInozsOBRhI+1oLb5oQPvIMs7GznhwFSXAw9PR+W4UOLH9bCOxW2d1jExF0
+oA9IW9eWHQrlNy3SUSpg0l15TR+KPg==
+=aWyy
+-----END PGP SIGNATURE-----
+
+--T4VtcqluX5L3OEHF--
 
