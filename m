@@ -4,58 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA803C56208
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F25C56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zgVXlBMcGsPkxpJRBTkCHYZHbhRpMkLW08bAw7XuaYE=; b=SSjiWeYJGNWMPLWh86c1IPCgKZ
-	Q1JO+m/GMkUhb5reyxxQNDYMQ1Ol9v+dMgbUQMtLc+rLU8De5vy1sRNJhoe5iw8H3yyWB7Cvlo2fc
-	Ejl99Jgfv7wxd19CEAza6B9g91mlgciD0lFB0o/WEvaSaVn+IBdApuhf/2w6CeKIVgdBazTtwGHqi
-	ZMP5t3k2ZC3PiaHsn89NIws4KkMmGFXV05l0WUZQecYf9aRA7CUajZv11WstQvhdnkWBTHkNVS9Ju
-	r1rIJDljffCDT+D5wZyGAzkg/qsx40LcOqVIPA06pTIeCx1ps0Zvryh4mMotSW0+stCJzjHGtcCvp
-	bQHC1/yg==;
+	bh=/PTRslgxomaY6jfCndrQyWAa+I4zc2tvN0JXWilVu+k=; b=N9/53m1H5+qzZmpjb8VRvidr3a
+	MAZuCn9uAwUp5wBS1llIP8vzITDW0ViS/R4ujbqhIuF2MV9C6L0fQuUMnsLaOAz0J+x1PMZ6YQGf4
+	eJINre/Ye3k5TFEWSFXOaLlBfO03cFaPgZYR/yVo5VzKXxXb6RbN86GeZ8ASkdL0WqSN4uGl5yK3N
+	cFAwCk4j5QWy68wizPDXfWBGdxsy9QNu/K+JWDdfuVpIv8UP1mFGROi9m5orWb14VCLbpHbuplir7
+	/hM+/14b+jSdnsIe9Gzu7p9XD9lQ723zqNLfS6Z/uw3wlx4xr+tKHQse3tNv4tmV4qzhkC71kGM5f
+	QPbhg7rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws0CR-000000067Yf-1Y4O;
-	Thu, 06 Aug 2026 15:40:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1ws0Ce-000000067dc-2Ztk;
+	Thu, 06 Aug 2026 15:40:16 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws0CP-000000067Y2-1U86;
-	Thu, 06 Aug 2026 15:40:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A4D3A60AB0;
-	Thu,  6 Aug 2026 15:40:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2FEF1F000E9;
-	Thu,  6 Aug 2026 15:39:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786030800;
-	bh=zgVXlBMcGsPkxpJRBTkCHYZHbhRpMkLW08bAw7XuaYE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=AUu2y6wmi7Kt+aI/kQ4gij3whp0D8edr6xeRY+a7jg0HW1sKI4ilUoRulACej66Su
-	 XOwxxTGUHDk8FSf+f6kGR/qOMWYc/d6Q40h5mNIDu4+MwdojMoLgI6YYRHc4nAOxNt
-	 b4EXGEIKIUIeVfJdvGjx0HReNvfal3+wavUMsiEmxmeYs04gTPYOIehJ5rriF3JMLV
-	 8eauKCX7dypXrTSuCjPM7hGR5WAgDm/S9GRwJipCYtx3zzwhy3Wn8sYVINJLj3aKAQ
-	 GMcfgRgUSqnmtS+Q2Ix0IR7GrQrK6uE7jhvZmK/3CP24vXukkh7qb0GwMZvm3Zk5zO
-	 yMFfSACpj+6pQ==
-Date: Thu, 6 Aug 2026 17:39:58 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Daniel Pawlik <pawlik.dan@gmail.com>
-Cc: netdev@vger.kernel.org, win847@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3] net: airoha: npu: use coherent DMA for mailbox
- messages
-Message-ID: <anSqzp8GZe921cYZ@lore-desk>
-References: <20260806142816.511515-1-pawlik.dan@gmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bE6BQemWI+qryte1"
+	id 1ws0Cc-000000067by-4BQt
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Aug 2026 15:40:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oybOZDKylTMDvzpn55HwekF+ptQsUeYTDYuh49T7MHAXK/XSgdVAGslhCjt6ojbYbZ+xGt7HMdzF3VTS8Rhj1xLnK5FMYh1cgRt2SPkkQi4ftibALrf4DJ+xgTdPN0nrIokqbGMlEhb6PbKxGRJCOROR5MN0+BGuJKO7Sem1zy8pKriz0CuIcvd9Gsr7rHgaq3uNtZpwQ9wWU+a/F+/iJYd/ISUlGKjdqD7uTWEc+zfRWjhTmzcwKv2rgG56zuyReaSJmrHlzh2bN7NB5nohSdoLW8KOtlZr7D8RruoiP89PwO9mQyYNasMwnKePxplI9pGYQbXLlCL8/EIKhJiRcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/PTRslgxomaY6jfCndrQyWAa+I4zc2tvN0JXWilVu+k=;
+ b=Z0aWHMEkYAw2kZZfbov+Q3qryTf8i1pMJBiulqt/SVhcO8uTjgu1gPkojNR+RyCDYZtYPmoBlg0rbDXAaiOn3hd6Szxt7g5z6lePtq+1dBd1yIkPDpV21Xh398AIE6/WdMnXzv8UW8Y7jMAKXVCQtTKemJ3N6sXBFY5th1gFgP4g3L3b91FJASlxG792B2BUuQxS5MYJR9LdxXdafubh8iiCXZWI6RwEWrkPXaK1KEF+R7pPXYO+7JlYzCxl+VOnVZTV9LJE2l0Uvt4xfYuuXwwHiJTZHwUEX1pXTmcz2I4qtQdD9hZW1rjEB8u9OQVougBe4adCiGqQX+6j5H9akA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/PTRslgxomaY6jfCndrQyWAa+I4zc2tvN0JXWilVu+k=;
+ b=GMbJzm9CwLK5bLPHm8yrFlunITpIWpQRywi2sW1yBV3+C0ytGULAHA2pw/vYUj9zzzEguXLjUg8CsBuKiVRwcJHX8bDYtTxKEQjsrtnmMc33n+zOzaGs8r66xKJHyNfyIoQsRkBc9GzY1fXvVC1N1u7YoDIWyHZaBgDYFhZA47BDtvBnBeMwZr4u/NUgpmQOSBZtRkW6NY4vmYpjnNVkWKqsE4tGYsXkY7XaNeckPEdiCHxbs9a6RYIbD0XH9RDV0ADOUBkty1sV9WCrL2tniP+Q/mlpxt8mLldZeO5OTBDsWlPgbtTe+/CLzPZUA4O1Slb8/lZKomFk1IsxTmhYRg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by GVXPR04MB9877.eurprd04.prod.outlook.com (2603:10a6:150:113::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Thu, 6 Aug
+ 2026 15:40:00 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.018; Thu, 6 Aug 2026
+ 15:40:00 +0000
+Date: Thu, 6 Aug 2026 10:39:51 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Golla Nagendra <nagendra.golla@amd.com>
+Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
+	robh@kernel.org, krzk+dt@kernel.org, radhey.shyam.pandey@amd.com,
+	kees@kernel.org, sakari.ailus@linux.intel.com, yukuai3@huawei.com,
+	git@amd.com, dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/6] dmaengine: zynqmp_dma: Fix alloc_chan_resources
+ error cleanup
+Message-ID: <anSqx-k1HFLsgyX1@SMW015318>
+References: <20260806123014.2120447-1-nagendra.golla@amd.com>
+ <20260806123014.2120447-2-nagendra.golla@amd.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260806142816.511515-1-pawlik.dan@gmail.com>
+In-Reply-To: <20260806123014.2120447-2-nagendra.golla@amd.com>
+X-ClientProxiedBy: SA1P222CA0160.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c3::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB9877:EE_
+X-MS-Office365-Filtering-Correlation-Id: 83e229dd-3715-4d6c-e810-08def3d0f966
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|1800799024|7416014|376014|4143699003|11063799006|56012099006|10067099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: Hu2IeZ8jV2fdGEh5FY665Np+LY6Bgw/ElIcC2sxNkfOi6XjWUFu0v44Ysc0DrxHLI1Z3tpA3gQAGXBwaaj9iy3pdvTom6w8RuU0aY/TvGjy47thnf8EiYmh/JdwukoMDtDYxvZbemUWdf01Dj/GmhFdkNqvj1r3XyGkH3a3y+zgwOv1vcmbk3hhU/KzndNv5gm4wO0WowOgfe/TP3Gfa1KQSJI3O5V3XBIGtxG55Dt7eZcypODD3AVGqoYvqaKQEi0jMBouXVL/HKN2yxz615sN6h4JEiVryXqbo+7vbFgtpPlNWqst8UxjD6NVIIqoNXa0Jxvis9zzUHeJlaNDii0AmOnTqK2O1dHZUKkc0UVqszrwz7Aq5o94zMLfENZcAZk5T44C0Pe+os7U17sC1WvyjyU4b32uSg0x3hfGICCojReS0urR1QQYWS9wSKgodBX5XN4TnL+slKDTetdHAo/NnGS3LjfAk47kIRWDcu7S9jDy1UOmiEuA17bdl5ykxXqQRvKnTaxO1xOhq0Xmmljec+8ZcbjiftujUb1yB3P9iLaye63q20+25k6nYTfPlg/IYeX5gVu9/T8jLVsV7ypvdfqCnaNpzryLrkvhVVvb+pPU/pJCEMw5t7VB3NK5OQDCOKLWVQ0J6AyaNNvHUMTGACkpt+Wdd/26hOWxwp6Y=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(1800799024)(7416014)(376014)(4143699003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uWofANkAwrbzq/j7KzI0pwZAFHxy9CuD5P4mgNDIYU+0m9AURaFe+LeMf0CJ?=
+ =?us-ascii?Q?P4Yyx6i+WxM3qxENZHinJTlP3aFiYYRNU1jMjQrFfpnLl49+1qGSbP9gGbkj?=
+ =?us-ascii?Q?Blc6Z7iDhckp4ChFUIlT7jtwI8nPPu56YMp9BUJkmwvOElJQipFDuWFhd6BC?=
+ =?us-ascii?Q?ZpT6o7vHx705Up0j87/8j/fcoSpiEuD9zw9sgKOYOgo8nrLc648O0LyM2dhC?=
+ =?us-ascii?Q?jC/XDurxhd3y1nodxPmdp5FWkNRk8z0VxTAp+acZKKF2rFb2Nx1j73DBu3Zb?=
+ =?us-ascii?Q?HGee3uEXUAX1WvkCmaqw34yej+yqQvEX1R9pCqwhJpmeuNykMb/O6mmSzFh3?=
+ =?us-ascii?Q?jihA5Q10ui7fQyXNA8+HujclGeCdSzcMDVQV58Wcn3D4bM8kIAhcsKQUDir7?=
+ =?us-ascii?Q?Mt39/AA0iaf8uZM5QKXcV00+YDODqPXsIgk8k0cLsabFEtnkWM4GjbFONSBW?=
+ =?us-ascii?Q?qQzLy9Jt+hgHvUjd5LCkJHE5Z+ixIKgqsm8bHovbDLh+pQ80pcaYkpWuxQEg?=
+ =?us-ascii?Q?c8JAjdifdg3lJDKYJVnXRlIIaelcZPFkS/SVk2cl5ZmaYK3SXS/ij7HGPqAP?=
+ =?us-ascii?Q?pbdbH3sp9CSIBd+pfefhEIPSeiNERveW5l8dthC1gsJzhYYb6GyWBX+Mj89F?=
+ =?us-ascii?Q?YyeuyKkJhPCcbR64tM8nFTCwbKJkX/zFu7Z/8aoQU4W04rjOI7M60WyDBirV?=
+ =?us-ascii?Q?TENwDe8BgoQEETb6hsSX9V28Enk9oCWyId4AmWUoMPWH99VdO4n9b9SwtNzF?=
+ =?us-ascii?Q?i4DT3jm2mpPtrPmxkjGqSnl8GM83tdeiiUPmQR0PMxCa+8jRYn9xeMhAuHu+?=
+ =?us-ascii?Q?K6qn+kVkEOV/bUedspAFTVxpDKRDDbX6E+msPDy8M9lQdosdoLdlbDhmE8m6?=
+ =?us-ascii?Q?3TpvVpRJxNi5Yb5EOsHpF1XwjLwQOUHRHC+fdVSw6sop9B1Wd6NYFu5784Ok?=
+ =?us-ascii?Q?jrgOphnQu++xhAwVZ1IgbwAAGvtk+V+8VZg5UJwb2092CNvjnAk30hLTAEU0?=
+ =?us-ascii?Q?eDpJQS7HOe2yQJWJ6QbsB2KbfqujP3atmxtyOLsnSHEgu8rPUnDwh9Zt7KWr?=
+ =?us-ascii?Q?o17HWgBHtyFfnvsRGnu/X+QQuFkzJB97kAPs7RBIsHvjouVAFWvG1Qz6oPt4?=
+ =?us-ascii?Q?Dz4zEeSRabHe9jdI66WKlJa1rSJxQ0kz8fdCB5Ucg6nTwhSY8Hblcq56YlyL?=
+ =?us-ascii?Q?9cLEVD+8+svj+rX0rP47lmX9a5H+pM+K7MkkeFW883Zm37cnWC5oKwJNpmsp?=
+ =?us-ascii?Q?O+mOM95EKY8x6V3nSEoAid3MPi0O3Bk/1CmRp+v64IT/bzXUouu7Ou75K9FA?=
+ =?us-ascii?Q?k0+ZWWTQpwr8Yy8/2GlOL3hez/u+M/u9anlXyanarHPlZhhJ5/Jk4mrK2bPt?=
+ =?us-ascii?Q?odm7NvmJjDAVMo5x7D4GQZERPbN/ULXqzIxKyDlFmDPhVa/xAHR5alRdedOY?=
+ =?us-ascii?Q?2sE+7kRf7oPCe+xPlD6KExLHTsbpmU4Fayx/Vl4fkoPDD7LS5vDqwUarfi+3?=
+ =?us-ascii?Q?86+BO0mx8Axt/FW7Sy6ixRXQNFvxntR/OeRcdu8otZGlcTFTZYzVLr7C0OTP?=
+ =?us-ascii?Q?hvfXXPrnzO8ZucrlRNzS6jw4/coqPrtx1v9z6Fn5BnecFPRVQ4dtapre8Z9L?=
+ =?us-ascii?Q?OKjixw8Tignj6tBBGHd2r/V6p/fyGrz2Ss+YQYLslUME6IgWLoyDt3Y9Rxyq?=
+ =?us-ascii?Q?iNcUslNrG3SN5GHsUgjEaC5kPDhhFMuCIliMCcT++VAv5AHOgcJK8oacAKof?=
+ =?us-ascii?Q?NF4521meTGIFsqhsavMRhlDOQ08RKO2efZBjBQ4bCAhWvDw0gABN?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83e229dd-3715-4d6c-e810-08def3d0f966
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 15:39:59.9371
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PYevoEalasiWrmB/t9VEYiTQipdNWxvZcbhnIFWxfkjTNAWPo1arrQ9ZuuIecn3xJafQwyWEJ1yfxLMnKDiOnIoavT7v7zQyQhqZXU3S1Aq6VuLV7pvl1XU9GAGFKAAH
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9877
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_084015_039085_98B6BB57 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,281 +140,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---bE6BQemWI+qryte1
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Aug 06, Daniel Pawlik wrote:
-> Commit 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox
-> buffer") switched airoha_npu_send_msg() to DMA_BIDIRECTIONAL so
-> non-coherent CPUs invalidate caches before reading NPU GET responses.
->=20
-> On EN7581 + MT7996 that change regresses probe: the mailbox completes
-> successfully, but WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0 and
-> mt76 never binds NPU offload. Healthy boards report 0.1111.
->=20
-> airoha_npu_send_msg() is also used from PPE foe_commit under
-> spin_lock_bh(), so per-message dma_alloc_coherent(GFP_ATOMIC) is a poor
-> fit. Allocate one device-managed coherent bounce buffer per NPU core at
-> probe and reuse it under the existing per-core mailbox lock. That also
-> keeps the buffer valid if the NPU completes a write after a mailbox
-> timeout.
->=20
-> Pass an optional reply buffer into airoha_npu_send_msg() so GET callers
-> (e.g. airoha_npu_wlan_msg_get) copy the response payload once instead of
-> bouncing through the request allocation.
->=20
-> Verified on Quantum Fiber / Gemtek W1700K (EN7581 + MT7996).
->=20
-> Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buff=
-er")
-> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/202608050=
-70851.2885888-1-pawlik.dan@gmail.com/
-> Link: https://patchwork.kernel.org/project/linux-mediatek/patch/202608060=
-72601.1815487-1-pawlik.dan@gmail.com/
-> Assisted-by: Cursor:composer-2
-> Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+On Thu, Aug 06, 2026 at 06:00:09PM +0530, Golla Nagendra wrote:
+> Channel resource allocation can fail after runtime PM has been acquired
+> and after part of the descriptor state has been initialized. Without
+> proper rollback, the error path leaks a runtime PM reference and, on
+> coherent allocation failure, also leaks the software descriptor pool.
+>
+> Fix this by balancing runtime PM usage before returning an error and
+> releasing any partially allocated software descriptor pool.
+>
+> Fixes: 8982d48af36d ("dmaengine: zynqmp_dma: Fix PM reference leak in zynqmp_dma_alloc_chan_resourc()")
+> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
 > ---
-> v3:
-> - move coherent mailbox buffer into struct airoha_npu_core (buf/addr)
-> - allocate one buffer per core at probe
-> - add optional reply buffer to airoha_npu_send_msg() to avoid the extra
->   copy in airoha_npu_wlan_msg_get()
-> - document AIROHA_NPU_MBOX_SIZE vs ppe_mbox_data / WLAN payloads
->=20
-> v2:
-> - allocate one coherent mailbox buffer at probe and reuse it under the
->   per-core lock instead of per-message dma_alloc_coherent(GFP_ATOMIC)
->=20
->  drivers/net/ethernet/airoha/airoha_npu.c  | 67 ++++++++++++++++-------
->  include/linux/soc/airoha/airoha_offload.h |  3 +
->  2 files changed, 51 insertions(+), 19 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ether=
-net/airoha/airoha_npu.c
-> index b679bed952de..e1e0ddb92f03 100644
-> --- a/drivers/net/ethernet/airoha/airoha_npu.c
-> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
-> @@ -23,6 +23,12 @@
->  #define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
->  #define NPU_EN7581_FIRMWARE_DATA_MAX_SIZE	0x10000
->  #define NPU_DUMP_SIZE				512
-> +/*
-> + * Mailbox DMA payload size. Covers sizeof(struct ppe_mbox_data) (28) and
-> + * WLAN TLV messages (header + payload); largest in-tree WLAN payload to=
-day
-> + * is 16 bytes (INODE_TXRX_REG_ADDR). Keep headroom for future commands.
-> + */
-> +#define AIROHA_NPU_MBOX_SIZE			256
-> =20
->  #define REG_NPU_LOCAL_SRAM		0x0
-> =20
-> @@ -161,21 +167,32 @@ struct wlan_mbox_data {
->  };
-> =20
->  static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-> -			       void *p, int size)
-> +			       const void *req, int size,
-> +			       void *rsp, int rsp_off, int rsp_len)
-
-I guess you do not need rsp_off, just pass the data pointer (wlan_data->d f=
-or
-airoha_npu_wlan_msg_get()). Moreover you can define something like:
-
-static int __airoha_npu_send_msg(..., void *reply, int reply_len)
-{
-	...
-}
-
-static inline int airoha_npu_send_msg() { return __airoha_npu_send_msg( ...=
-, NULL, 0); }
-
-In this way the change will be less intrusive.
-
->  {
->  	u16 core =3D 0; /* FIXME */
-> +	struct airoha_npu_core *c =3D &npu->cores[core];
-
-please respect RCT if possible.
-
-Regards,
-Lorenzo
-
->  	u32 val, offset =3D core << 4;
-> -	dma_addr_t dma_addr;
->  	int ret;
-> =20
-> -	dma_addr =3D dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
-> -	ret =3D dma_mapping_error(npu->dev, dma_addr);
-> -	if (ret)
-> -		return ret;
-> +	if (size > AIROHA_NPU_MBOX_SIZE ||
-> +	    (rsp && (rsp_off < 0 || rsp_len < 0 ||
-> +		     rsp_off + rsp_len > size)))
-> +		return -EINVAL;
-> =20
-> -	spin_lock_bh(&npu->cores[core].lock);
-> +	/*
-> +	 * Mailbox payloads are bidirectional (CPU request, NPU response).
-> +	 * On EN7581+MT7996, streaming DMA_BIDIRECTIONAL against the
-> +	 * caller kzalloc() buffer can leave WLAN_FUNC_GET_WAIT_NPU_VERSION
-> +	 * reading as 0.0 despite MBOX success. Reuse a probe-time coherent
-> +	 * bounce buffer under the per-core lock (also used from PPE
-> +	 * foe_commit under atomic context).
-> +	 */
-> +	spin_lock_bh(&c->lock);
-> +
-> +	memcpy(c->buf, req, size);
-> =20
-> -	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, dma_addr);
-> +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, c->addr);
->  	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, size);
->  	regmap_read(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, &val);
->  	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, val + 1);
-> @@ -189,9 +206,10 @@ static int airoha_npu_send_msg(struct airoha_npu *np=
-u, int func_id,
->  	if (!ret && FIELD_GET(MBOX_MSG_STATUS, val) !=3D NPU_MBOX_SUCCESS)
->  		ret =3D -EINVAL;
-> =20
-> -	spin_unlock_bh(&npu->cores[core].lock);
-> +	if (!ret && rsp)
-> +		memcpy(rsp, c->buf + rsp_off, rsp_len);
-> =20
-> -	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
-> +	spin_unlock_bh(&c->lock);
-> =20
->  	return ret;
->  }
-> @@ -343,7 +361,7 @@ static int airoha_npu_ppe_init(struct airoha_npu *npu)
->  	ppe_data->init_info.wan_mode =3D QDMA_WAN_ETHER;
-> =20
->  	err =3D airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
-> -				  sizeof(*ppe_data));
-> +				  sizeof(*ppe_data), NULL, 0, 0);
->  	kfree(ppe_data);
-> =20
->  	return err;
-> @@ -362,7 +380,7 @@ static int airoha_npu_ppe_deinit(struct airoha_npu *n=
-pu)
->  	ppe_data->func_id =3D PPE_FUNC_SET_WAIT_HWNAT_DEINIT;
-> =20
->  	err =3D airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
-> -				  sizeof(*ppe_data));
-> +				  sizeof(*ppe_data), NULL, 0, 0);
->  	kfree(ppe_data);
-> =20
->  	return err;
-> @@ -386,7 +404,7 @@ static int airoha_npu_ppe_flush_sram_entries(struct a=
-iroha_npu *npu,
->  	ppe_data->set_info.size =3D sram_num_entries;
-> =20
->  	err =3D airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
-> -				  sizeof(*ppe_data));
-> +				  sizeof(*ppe_data), NULL, 0, 0);
->  	kfree(ppe_data);
-> =20
->  	return err;
-> @@ -411,7 +429,7 @@ static int airoha_npu_foe_commit_entry(struct airoha_=
-npu *npu,
->  					  : PPE_SRAM_SET_ENTRY;
-> =20
->  	err =3D airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
-> -				  sizeof(*ppe_data));
-> +				  sizeof(*ppe_data), NULL, 0, 0);
->  	if (err)
->  		goto out;
-> =20
-> @@ -420,7 +438,7 @@ static int airoha_npu_foe_commit_entry(struct airoha_=
-npu *npu,
->  	ppe_data->set_info.size =3D sizeof(u32);
-> =20
->  	err =3D airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
-> -				  sizeof(*ppe_data));
-> +				  sizeof(*ppe_data), NULL, 0, 0);
->  out:
->  	kfree(ppe_data);
-> =20
-> @@ -443,6 +461,7 @@ static int airoha_npu_ppe_stats_setup(struct airoha_n=
-pu *npu,
->  	ppe_data->stats_info.foe_stats_addr =3D foe_stats_addr;
-> =20
->  	err =3D airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
-> +				  sizeof(*ppe_data), ppe_data, 0,
->  				  sizeof(*ppe_data));
->  	if (err)
->  		goto out;
-> @@ -475,7 +494,8 @@ static int airoha_npu_wlan_msg_send(struct airoha_npu=
- *npu, int ifindex,
->  	wlan_data->func_id =3D func_id;
->  	memcpy(wlan_data->d, data, data_len);
-> =20
-> -	err =3D airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len);
-> +	err =3D airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len,
-> +				  NULL, 0, 0);
->  	kfree(wlan_data);
-> =20
->  	return err;
-> @@ -497,9 +517,9 @@ static int airoha_npu_wlan_msg_get(struct airoha_npu =
-*npu, int ifindex,
->  	wlan_data->func_type =3D NPU_OP_GET;
->  	wlan_data->func_id =3D func_id;
-> =20
-> -	err =3D airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len);
-> -	if (!err)
-> -		memcpy(data, wlan_data->d, data_len);
-> +	err =3D airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len,
-> +				  data, offsetof(struct wlan_mbox_data, d),
-> +				  data_len);
->  	kfree(wlan_data);
-> =20
->  	return err;
-> @@ -770,6 +790,15 @@ static int airoha_npu_probe(struct platform_device *=
-pdev)
->  	if (err)
->  		return err;
-> =20
-> +	for (i =3D 0; i < ARRAY_SIZE(npu->cores); i++) {
-> +		struct airoha_npu_core *core =3D &npu->cores[i];
-> +
-> +		core->buf =3D dmam_alloc_coherent(dev, AIROHA_NPU_MBOX_SIZE,
-> +						&core->addr, GFP_KERNEL);
-> +		if (!core->buf)
-> +			return -ENOMEM;
+>  drivers/dma/xilinx/zynqmp_dma.c | 19 +++++++++++++++----
+>  1 file changed, 15 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
+> index f6a812e49ddc..b7c561280694 100644
+> --- a/drivers/dma/xilinx/zynqmp_dma.c
+> +++ b/drivers/dma/xilinx/zynqmp_dma.c
+> @@ -483,8 +483,10 @@ static int zynqmp_dma_alloc_chan_resources(struct dma_chan *dchan)
+>  		return ret;
+>
+>  	chan->sw_desc_pool = kzalloc_objs(*desc, ZYNQMP_DMA_NUM_DESCS);
+> -	if (!chan->sw_desc_pool)
+> -		return -ENOMEM;
+> +	if (!chan->sw_desc_pool) {
+> +		ret = -ENOMEM;
+> +		goto err_pm;
 > +	}
+>
+>  	chan->idle = true;
+>  	chan->desc_free_cnt = ZYNQMP_DMA_NUM_DESCS;
+> @@ -502,8 +504,10 @@ static int zynqmp_dma_alloc_chan_resources(struct dma_chan *dchan)
+>  					       (2 * ZYNQMP_DMA_DESC_SIZE(chan) *
+>  					       ZYNQMP_DMA_NUM_DESCS),
+>  					       &chan->desc_pool_p, GFP_KERNEL);
+> -	if (!chan->desc_pool_v)
+> -		return -ENOMEM;
+> +	if (!chan->desc_pool_v) {
+> +		ret = -ENOMEM;
+> +		goto err_free_sw_desc_pool;
+
+This is seperated problem. Need use new patch to fix it.
+
+Frank
+
+> +	}
+>
+>  	for (i = 0; i < ZYNQMP_DMA_NUM_DESCS; i++) {
+>  		desc = chan->sw_desc_pool + i;
+> @@ -516,6 +520,13 @@ static int zynqmp_dma_alloc_chan_resources(struct dma_chan *dchan)
+>  	}
+>
+>  	return ZYNQMP_DMA_NUM_DESCS;
 > +
->  	err =3D airoha_npu_run_firmware(dev, base, &res);
->  	if (err)
->  		return dev_err_probe(dev, err, "failed to run npu firmware\n");
-> diff --git a/include/linux/soc/airoha/airoha_offload.h b/include/linux/so=
-c/airoha/airoha_offload.h
-> index 7589fccfeef6..16a988ad7467 100644
-> --- a/include/linux/soc/airoha/airoha_offload.h
-> +++ b/include/linux/soc/airoha/airoha_offload.h
-> @@ -173,6 +173,9 @@ struct airoha_npu {
->  		/* protect concurrent npu memory accesses */
->  		spinlock_t lock;
->  		struct work_struct wdt_work;
-> +		/* Coherent bounce buffer for mailbox cmd/rsp */
-> +		void *buf;
-> +		dma_addr_t addr;
->  	} cores[NPU_NUM_CORES];
-> =20
->  	int irqs[NPU_NUM_IRQ];
-> --=20
-> 2.55.0
->=20
-
---bE6BQemWI+qryte1
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCanSqzgAKCRA6cBh0uS2t
-rLa8AQCim3sEzkodq81UDGCSr42lQqC25sPkgT75z25sk3Px9wEA5HjnaauWDbDm
-qZryftaJCspJnhlQ2cFlvC3yFalF/A8=
-=6hv0
------END PGP SIGNATURE-----
-
---bE6BQemWI+qryte1--
+> +err_free_sw_desc_pool:
+> +	kfree(chan->sw_desc_pool);
+> +	chan->sw_desc_pool = NULL;
+> +err_pm:
+> +	pm_runtime_put_autosuspend(chan->dev);
+> +	return ret;
+>  }
+>
+>  /**
+> --
+> 2.43.7
+>
 
