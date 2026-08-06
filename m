@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986D1C55ABF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA17BC561E6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 08:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g/COYdqDrg8vdSyAwJS5nvJ2rFgUpbSAtTvf3IC0+cc=; b=Lh/gi/QDUkxMCuwYAShcAGx847
-	XXliQ3mmpYd4JC9ONLIO0x3RlfHZc1tr5jNxkjnQRpD8GhDwWZVm+A4qDYXlQRAh/rUDbXaMLdTUP
-	HbK7WVCLOvPIWbOjqK2IgWwv2klPEUHAgYgXioPlivz6+UX5f+0nLtpdKcHNe808bNGK5ae7y7vyr
-	i5KEt+GGJ7rHwSwvLbH77qIt/X0McE/TJzyJXG4TTtS0vCv3ihcBCtzDOqVx9jJVz3tmKegLW7QgA
-	B+R+3f8VP/kzBmKw1WT/tNnRAaOdM2eK7shNyHhktTCSbzgqHwJ34TvY4zWiMq9Jq1RjpTN6gjF3P
-	9Y+mJZbg==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4NuVl080bt4cA2uVz75kzQbvjwfydsHS9/195tFer8k=; b=DK8L4ky/TdQ8VROtRIfODc7BFL
+	IXsvMmbDngey6iPXryAY9MCshKtaNKGNQyIopIN0xX892t7Xd5sH7Uzk3Cg+G6aBDQVhrZ4nd7Vf/
+	VB+q3P3QgPohnX5L0dQZGF/EdoVvBjk2pypXz5XXZyy1gq0L/Zw0OIUKpEWbT8uDGnILP4Q/b/3Ru
+	p8MjuwWDh/DUCALXserHfp+jhqyamebEc4yR+aMq3+GYPLpa+WE9YB2qXErSfHjxeyAusgzwR5uW5
+	AmOt5jYZ6QG7yneEDOQZvn2LC57KDnAgHMaLLKE2ZogAfw1RLqhHxuUfWaSoEG05vNEzbH1mefqv1
+	eCWQayKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtMD-00000005DKU-1vwE;
-	Thu, 06 Aug 2026 08:21:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wrtNM-00000005DXa-36el;
+	Thu, 06 Aug 2026 08:22:52 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrtMB-00000005DJw-3qGH
+	id 1wrtNI-00000005DWJ-46JN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 08:21:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C13A4376C;
-	Thu,  6 Aug 2026 08:21:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 414981F000E9;
-	Thu,  6 Aug 2026 08:21:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786004499;
-	bh=g/COYdqDrg8vdSyAwJS5nvJ2rFgUpbSAtTvf3IC0+cc=;
-	h=From:To:Cc:Subject:Date;
-	b=fLtQqpYCCxvUJ2zcj4FlNtTJg6wNoGDhfI6kxbeW7JuX6H6W552j3du8+x3+CAxnI
-	 xKm1ff8aEvKlWw/QV6swlN4QfPepRWMq6Iez9IxTJ7Gr0vtI29hUawiI3JtjO2dbtm
-	 fBfBNVPr6LfWd/fodwfzDzHbC2AFbIjfBAItiFyQFRUDuHbh3n/Hmc0UVdq2Tsu6XX
-	 y6/3bgiHt+DLgAJYI6f/tNhBSQP0IOl1CbU6X+v3wps5Xl5TTKFjPoSfXnQEfD/FS/
-	 szreDRBM79igYxD6qCRTRU+Rub3w+hJc+VUH+LsYO22E1SN/ufCogGZk63MpJaP0Tb
-	 /QUBiKiooMJog==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	linux-clk@vger.kernel.org,
-	Sylwester Nawrocki <snawrocki@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Brian Masney <bmasney@redhat.com>
-Subject: [GIT PULL] clk: samsung: drivers for v7.3
-Date: Thu,  6 Aug 2026 10:21:30 +0200
-Message-ID: <20260806082130.165665-2-krzk@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	Thu, 06 Aug 2026 08:22:51 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=4NuVl080bt4cA2uVz75kzQbvjwfydsHS9/195tFer8k=;
+	b=rNkOuxuOy6FOR22QgZpBTFAow9DPI4vCWJsA0NRKxpTmhfRz8z3kOdqX5jiIFnSN0EVCLVxSS
+	Qi+F61a0r7NvpEwRy0fo3We9RaHuk1A90ySGA38QqKG+/+RfiXGTumdoY8xEg3kCaGB0cot4vu+
+	P7Fit34Z3j/1NNuCfITREv0=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4hG0Px1xDLzcb0W;
+	Thu,  6 Aug 2026 16:12:37 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 66A1A4056D;
+	Thu,  6 Aug 2026 16:22:33 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 6 Aug 2026 16:22:32 +0800
+Message-ID: <bd1db584-ce6b-46b5-ab66-11fb7873007b@huawei.com>
+Date: Thu, 6 Aug 2026 16:22:31 +0800
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1548; i=krzk@kernel.org; h=from:subject; bh=ZlNCp8dIjmyd81ZPzno5nW4rK5IDcbFp975B+dvP4ic=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqdEQKqxPuEQFxgqwExDsX10r70tiur91j6tXjt C9sZZxyEP+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCanRECgAKCRDBN2bmhouD 1xAkD/9GLsSNKKVQlcJ2lcpIwAtD74N6L7W2W/AmAR7VWt4lH9ZAepKjJ8GcXiW8pbGxaOzxGC2 KhOFvrKrjRU+7KES8rUbidBE7dGuNoklt2hwp0H+mFr3T4t7O/cgCTfVSr7rHmUmpNfOjzaMnJJ wtv5BqFJ/5V59tKDNA4VRmj640fC96m3oL1bONDPJi0DyJAZkZBwHowBwWD+lKrt1KHiUSbVkrZ rw4p6GoMZi1SkB15b2TW5guYkLaKjw0Oiferlzi5S4idxti18jYcwD/q8Ksa3CVZDzG7EQhUJS0 ofC6ayb1mJ3KEV6wLFwiWrUQ548tXkofKexFJ0qC5S0MR3iOvn0yicWW/Kcct2s3x6uQ1VpgMlX 5ZO5iNE+hciNQBZKMZXyoS/7RaqPh8/dnSXqdTnoS/NrC2fn6XdXkBkxuth7ctXbdOI63byAJXB aqvf1EiQi2PXhJbA0AZbnzwmgJUtnCHSvh+BGCP22K+My3JPPYDCRYgYNzwnnKyKQ6dfXAtFxLS 29sEunqF5ZqBWbPbvRjXjf6431AwVqix8gn2rj4owPj4+bNHHyCgniQYFY8uEI8u2KBfLDveDO5 hY5fLmOHUHTp2wl6YJTCIRvGwkpmqbjks/bP4OsEmKsRUQrb09Y27G0Rj0hnQtPn0Kba0TAyM1c 0E7W7LaqUGxXKmw==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] kselftest/arm64: Add seccomp ptrace x0 bypass test
+To: Mark Brown <broonie@kernel.org>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kselftest@vger.kernel.org>, <Aishwarya.TCV@arm.com>
+References: <20260728021122.2640104-1-ruanjinjie@huawei.com>
+ <20260728021122.2640104-2-ruanjinjie@huawei.com>
+ <a9ef63ac-6012-4788-8fd7-5902b6448484@sirena.org.uk>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <a9ef63ac-6012-4788-8fd7-5902b6448484@sirena.org.uk>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_012249_638732_9BE568B5 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,42 +80,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-are available in the Git repository at:
+在 2026/8/5 23:04, Mark Brown 写道:
+> On Tue, Jul 28, 2026 at 10:11:21AM +0800, Jinjie Ruan wrote:
+>> As Kees suggested, add a test that verifies that seccomp observes the
+>> correct first argument after a ptracer modifies x0 at a syscall-enter-stop
+>> on arm64.
+> 
+> This change is now in -next and is breaking the build on Arm's internal
+> KernelCI instance, the same thing can also be seen on at least upstream
+> KernelCI mixed in with extra issues due to what looks like a
+> missing/failed headers_install - I'll report the infra aspects of that
+> separately:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-clk-7.3
+Thank you for the report.
 
-for you to fetch changes up to 6d32ae6403694035896cbf0436088fca4c6a35f1:
+> 
+>   CC       seccomp_ptrace_x0_bypass
+> seccomp_ptrace_x0_bypass.c: In function ‘do_child’:
+> seccomp_ptrace_x0_bypass.c:67:28: error: array type has incomplete element type ‘struct sock_filter’
+>    67 |         struct sock_filter filter[] = {
+>       |                            ^~~~~~
+> seccomp_ptrace_x0_bypass.c:68:17: warning: implicit declaration of function ‘BPF_STMT’; did you mean ‘BPF_STX’? [-Wimplicit-function-declaration]
+>    68 |                 BPF_STMT(BPF_LD | BPF_W | BPF_ABS, offsetof(struct seccomp_data, nr)),  /* nr */
+>       |                 ^~~~~~~~
+>       |                 BPF_STX
+> seccomp_ptrace_x0_bypass.c:69:17: warning: implicit declaration of function ‘BPF_JUMP’; did you mean ‘BPF_JMP’? [-Wimplicit-function-declaration]
+>    69 |                 BPF_JUMP(BPF_JMP | BPF_JEQ | BPF_K, __NR_write, 0, 3),
+>       |                 ^~~~~~~~
+>       |                 BPF_JMP
+> seccomp_ptrace_x0_bypass.c:75:16: error: variable ‘prog’ has initializer but incomplete type
+>    75 |         struct sock_fprog prog = {
+>       |                ^~~~~~~~~~
+> seccomp_ptrace_x0_bypass.c:76:18: error: ‘struct sock_fprog’ has no member named ‘len’
+>    76 |                 .len = ARRAY_SIZE(filter),
+>       |                  ^~~
+> In file included from seccomp_ptrace_x0_bypass.c:38:
+> /tmp/kci/linux/tools/testing/selftests/kselftest.h:64:25: warning: excess elements in struct initializer
+>    64 | #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
+>       |                         ^
+> seccomp_ptrace_x0_bypass.c:76:24: note: in expansion of macro ‘ARRAY_SIZE’
+>    76 |                 .len = ARRAY_SIZE(filter),
+>       |                        ^~~~~~~~~~
+> /tmp/kci/linux/tools/testing/selftests/kselftest.h:64:25: note: (near initialization for ‘prog’)
+>    64 | #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
+>       |                         ^
+> seccomp_ptrace_x0_bypass.c:76:24: note: in expansion of macro ‘ARRAY_SIZE’
+>    76 |                 .len = ARRAY_SIZE(filter),
+>       |                        ^~~~~~~~~~
+> seccomp_ptrace_x0_bypass.c:77:18: error: ‘struct sock_fprog’ has no member named ‘filter’
+>    77 |                 .filter = filter,
+>       |                  ^~~~~~
+> seccomp_ptrace_x0_bypass.c:77:27: warning: excess elements in struct initializer
+>    77 |                 .filter = filter,
+>       |                           ^~~~~~
+> seccomp_ptrace_x0_bypass.c:77:27: note: (near initialization for ‘prog’)
+> seccomp_ptrace_x0_bypass.c:75:27: error: storage size of ‘prog’ isn’t known
+>    75 |         struct sock_fprog prog = {
+>       |                           ^~~~
+> seccomp_ptrace_x0_bypass.c:75:27: warning: unused variable ‘prog’ [-Wunused-variable]
+> seccomp_ptrace_x0_bypass.c:67:28: warning: unused variable ‘filter’ [-Wunused-variable]
+>    67 |         struct sock_filter filter[] = {
+> 
+> 
+>> --- /dev/null
+>> +++ b/tools/testing/selftests/arm64/abi/seccomp_ptrace_x0_bypass.c
+>> @@ -0,0 +1,195 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Test that seccomp, tracepoints and audit observe the correct syscall
+>> + * arguments after a ptracer has modified them at syscall-enter-stop.
+> 
+>> +#include <linux/filter.h>
+> 
+> The relevant definitions ought to be being picked up from here, there's
+> a copy of a current version in tools/include and has been for a while
+> (since at least v6.18) but there's no Makefile update to ensure that
+> gets picked up.
 
-  clk: samsung: pll: use kzalloc_flex (2026-07-18 18:21:13 +0200)
+Will add -I$(top_srcdir)/tools/include to CFLAGS for this test.
 
-----------------------------------------------------------------
-Samsung SoC clock drivers changes for v7.3
+> 
+>> +#ifndef __NR_write
+>> +#define __NR_write 64
+>> +#endif
+> 
+> That's...  interesting.
 
-1. Exynos990: Add few missing clocks and correct the gate clock parents
-   in the PERIS clock controller.
+I'll remove the hardcoded __NR_write.
 
-2. Cleanup - Use kzalloc_flex for __counted_by checks.
-
-----------------------------------------------------------------
-Denzeel Oliva (3):
-      dt-bindings: clock: exynos990: Add CLK_GOUT_PERIS_TMU_SUB_PCLK
-      clk: samsung: exynos990: Add PERIS TMU_SUB_PCLK gate
-      clk: samsung: exynos990: Fix PERIS gate clock parents
-
-Rosen Penev (3):
-      clk: samsung: use kzalloc_flex
-      clk: samsung: cpu: use kzalloc_flex
-      clk: samsung: pll: use kzalloc_flex
-
- drivers/clk/samsung/clk-cpu.c                 | 34 +++++++---------
- drivers/clk/samsung/clk-exynos990.c           | 24 +++++++-----
- drivers/clk/samsung/clk-pll.c                 | 56 +++++++++++++--------------
- drivers/clk/samsung/clk.c                     | 11 +++---
- drivers/clk/samsung/clk.h                     |  4 +-
- include/dt-bindings/clock/samsung,exynos990.h |  1 +
- 6 files changed, 63 insertions(+), 67 deletions(-)
 
