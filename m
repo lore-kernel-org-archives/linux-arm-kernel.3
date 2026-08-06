@@ -4,127 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F25C56205
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 620D6C56205
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Aug 2026 15:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/PTRslgxomaY6jfCndrQyWAa+I4zc2tvN0JXWilVu+k=; b=N9/53m1H5+qzZmpjb8VRvidr3a
-	MAZuCn9uAwUp5wBS1llIP8vzITDW0ViS/R4ujbqhIuF2MV9C6L0fQuUMnsLaOAz0J+x1PMZ6YQGf4
-	eJINre/Ye3k5TFEWSFXOaLlBfO03cFaPgZYR/yVo5VzKXxXb6RbN86GeZ8ASkdL0WqSN4uGl5yK3N
-	cFAwCk4j5QWy68wizPDXfWBGdxsy9QNu/K+JWDdfuVpIv8UP1mFGROi9m5orWb14VCLbpHbuplir7
-	/hM+/14b+jSdnsIe9Gzu7p9XD9lQ723zqNLfS6Z/uw3wlx4xr+tKHQse3tNv4tmV4qzhkC71kGM5f
-	QPbhg7rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0ThRgCkb2CvqeWusoxmgVEmTWKcE4SQ/2tb3yLJFfIQ=; b=cls7w3aobYsiUqWepj9ErSV+lx
+	ct+N7CSD0CG94BLk6kNLpj+nIL/ppR3xhSvRNDJJUGrx9zQSk5VM5ZOpTXse/IDzx4X1m0iAOTy89
+	ArywO2U0F7Q5VwkcitBci2wIDw5B9Xnmp6e8jdGDlUrKeKBtD8VGbpwjjSlswiWbp9WJIkFX1o4F1
+	kZQtBWscQfb1l9/9n5azZE7/qemqm3ac5yHia/157MdBIy33GsOQsmpnqZuWPFp1Qae8fTkvvfinC
+	JPU0QJ9JyRdwlGWslIhSbnGlnIzNxrRH+lP5H3hq3KX67Nq7D48GVtG4jE2/QOnSmei3j0e84+5rY
+	0GVGm75A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws0Ce-000000067dc-2Ztk;
-	Thu, 06 Aug 2026 15:40:16 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1ws0Ee-000000067yv-45wL;
+	Thu, 06 Aug 2026 15:42:20 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1ws0Cc-000000067by-4BQt
+	id 1ws0Ec-000000067yA-3hRj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Aug 2026 15:40:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oybOZDKylTMDvzpn55HwekF+ptQsUeYTDYuh49T7MHAXK/XSgdVAGslhCjt6ojbYbZ+xGt7HMdzF3VTS8Rhj1xLnK5FMYh1cgRt2SPkkQi4ftibALrf4DJ+xgTdPN0nrIokqbGMlEhb6PbKxGRJCOROR5MN0+BGuJKO7Sem1zy8pKriz0CuIcvd9Gsr7rHgaq3uNtZpwQ9wWU+a/F+/iJYd/ISUlGKjdqD7uTWEc+zfRWjhTmzcwKv2rgG56zuyReaSJmrHlzh2bN7NB5nohSdoLW8KOtlZr7D8RruoiP89PwO9mQyYNasMwnKePxplI9pGYQbXLlCL8/EIKhJiRcw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/PTRslgxomaY6jfCndrQyWAa+I4zc2tvN0JXWilVu+k=;
- b=Z0aWHMEkYAw2kZZfbov+Q3qryTf8i1pMJBiulqt/SVhcO8uTjgu1gPkojNR+RyCDYZtYPmoBlg0rbDXAaiOn3hd6Szxt7g5z6lePtq+1dBd1yIkPDpV21Xh398AIE6/WdMnXzv8UW8Y7jMAKXVCQtTKemJ3N6sXBFY5th1gFgP4g3L3b91FJASlxG792B2BUuQxS5MYJR9LdxXdafubh8iiCXZWI6RwEWrkPXaK1KEF+R7pPXYO+7JlYzCxl+VOnVZTV9LJE2l0Uvt4xfYuuXwwHiJTZHwUEX1pXTmcz2I4qtQdD9hZW1rjEB8u9OQVougBe4adCiGqQX+6j5H9akA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/PTRslgxomaY6jfCndrQyWAa+I4zc2tvN0JXWilVu+k=;
- b=GMbJzm9CwLK5bLPHm8yrFlunITpIWpQRywi2sW1yBV3+C0ytGULAHA2pw/vYUj9zzzEguXLjUg8CsBuKiVRwcJHX8bDYtTxKEQjsrtnmMc33n+zOzaGs8r66xKJHyNfyIoQsRkBc9GzY1fXvVC1N1u7YoDIWyHZaBgDYFhZA47BDtvBnBeMwZr4u/NUgpmQOSBZtRkW6NY4vmYpjnNVkWKqsE4tGYsXkY7XaNeckPEdiCHxbs9a6RYIbD0XH9RDV0ADOUBkty1sV9WCrL2tniP+Q/mlpxt8mLldZeO5OTBDsWlPgbtTe+/CLzPZUA4O1Slb8/lZKomFk1IsxTmhYRg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by GVXPR04MB9877.eurprd04.prod.outlook.com (2603:10a6:150:113::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.19; Thu, 6 Aug
- 2026 15:40:00 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%7]) with mapi id 15.21.0292.018; Thu, 6 Aug 2026
- 15:40:00 +0000
-Date: Thu, 6 Aug 2026 10:39:51 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Golla Nagendra <nagendra.golla@amd.com>
-Cc: vkoul@kernel.org, Frank.Li@kernel.org, michal.simek@amd.com,
-	robh@kernel.org, krzk+dt@kernel.org, radhey.shyam.pandey@amd.com,
-	kees@kernel.org, sakari.ailus@linux.intel.com, yukuai3@huawei.com,
-	git@amd.com, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/6] dmaengine: zynqmp_dma: Fix alloc_chan_resources
- error cleanup
-Message-ID: <anSqx-k1HFLsgyX1@SMW015318>
-References: <20260806123014.2120447-1-nagendra.golla@amd.com>
- <20260806123014.2120447-2-nagendra.golla@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260806123014.2120447-2-nagendra.golla@amd.com>
-X-ClientProxiedBy: SA1P222CA0160.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:3c3::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 06 Aug 2026 15:42:20 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-47ffaa8ebbdso555731f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 08:42:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sairon.cz; s=google; t=1786030937; x=1786635737; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0ThRgCkb2CvqeWusoxmgVEmTWKcE4SQ/2tb3yLJFfIQ=;
+        b=C8MKHZpfQXRdi3kDBLCa+3KpdQUvA2JTZLVw+79oynXRRXOlVo+n41yR75nCpkJWD/
+         GOS9Df5MGg9uyPznL+pZ6XrD1bwSh/DmqdumHuK84N5nvj9tMw5u/n0jud9qU7LIey9v
+         tuit/baqaLDSmjUNgGDe9Hm7gPwZtmbiBjp7iVYZSDkQewGI2zYkKc+ctML/k/Nin8Gr
+         ONC04j8B45f1/cqfLNdB2froDiVNqceC8VZRa2zmYPgVsIG8e7cQE/q6Bq2eoNKnv2fx
+         vKIRN9sJiKVczHwOCrXuYF1H0ms7R0F8YyE0oO6EdLItd4TgnvHlsa3BWIZ0Qirsx7EZ
+         ePxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786030937; x=1786635737;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0ThRgCkb2CvqeWusoxmgVEmTWKcE4SQ/2tb3yLJFfIQ=;
+        b=W6ZLJDAqVy7ibwnI+0kL2P+t3b9RXAd1/wn/OvblJio1BnNGvkWwqZ7fTkHy5Bcz3V
+         bUGtsj9Zkg2efG/Az3+13H+cqTqaaPWnlK2BmM9TRqfofKR5A3bXDi8wL5JfGnOtFtQI
+         KFgEJRHveHcD8BRJGIoZz4GHFAIL5fqgLEXNve9VRnuEocvfTzIcJRnlxNSrSj87nScZ
+         HI5pCScq0pcTDRs+3SHvrIjWbM2ERksMkbCR26XqMj4rk0aNBlAvczvSAAU2LZkJYXzM
+         /3/3dptlD08kVVOoOnVeSaTK4hbuCB0xj3IpCmLSkRYrxGw5szLET1Balw1NXE9Jkp5z
+         10ww==
+X-Forwarded-Encrypted: i=1; AHgh+Rp9oNStxX4bUH1EtSbfL5RUhHjPrm4LoVxboLWkM7YROiRrV7O3iMmZmp3parSeePZNkZ/l7NPWNM8nzNc4JD11@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqS3bXhdDMMD/aMBBG3WO1Io7r5Spmn4S634kLjEE8uM6lsVdM
+	M+8AQDo2bLd176JYyAkQ29LAR++wm70x6YxZhIiSOpYtvaXUMGX/t8LpKbwq7i7Yuog=
+X-Gm-Gg: AR+sD1116gXgs0bf3DkotrWFfbZSps0F1oRiJ6X/und7DhkKHe1iYqCvF5kmOCuyRV6
+	8TX4c2cgkFbexIx05wm5muT9QOu6GJTWtOl/W6bJJqbLYawglVguMZ8c1FJL4xcpLno2dCtnsZF
+	Ixf7Ykv0EBls4ZIBGRFZiB7mwdiEXTLh245cRZXjnEjla147DRJO+OVp2Exa92t5p4ItsQgk1T0
+	i//2Q+QloqlZnlEDL+yHeCT9Aih3ifuwMCKHot0+yPdHyoFDEqp4w3rSJJKgaqZqlLK8d+dNPN6
+	NOclw6uoD5W0QPo4/bKs40VDCbQnRRZoKiiTPPyfiiQQ/IHeuj1PysVgXQvMSQCBAZEAVHRxAJM
+	DmcBgObM9yaiflewTMvB5WiVk2DwPnBmNFoj7jcc8TnZThNCJt6OMmeCuiGJE5+qLP9wfEBmVO2
+	h21d+YMW53A0seIRGeZ3o/QJ2uWTp/RRFNdQQNbOp/Z0Yh9aJ/RKSs8qj62ZDpSKcCFcoKGyxPM
+	aCEsw+PTIBHHs0XVS25n+lePmmrJZzrFsju9q/21PcNCBiZeIBrL7ZYc1yyDDe66GsH0R9b7Zh3
+	ug==
+X-Received: by 2002:a05:6000:2988:20b0:47f:eb80:ff42 with SMTP id ffacd0b85a97d-47fec4e2975mr22971101f8f.4.1786030936542;
+        Thu, 06 Aug 2026 08:42:16 -0700 (PDT)
+Received: from krabice.lan (ip-89-103-66-201.bb.vodafone.cz. [89.103.66.201])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47ff7b25c01sm6605380f8f.29.2026.08.06.08.42.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2026 08:42:15 -0700 (PDT)
+From: =?UTF-8?q?Jan=20=C4=8Cerm=C3=A1k?= <sairon@sairon.cz>
+To: gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	florian.fainelli@broadcom.com,
+	rjui@broadcom.com,
+	sbranden@broadcom.com
+Cc: =?UTF-8?q?Jan=20=C4=8Cerm=C3=A1k?= <sairon@sairon.cz>,
+	phil@raspberrypi.com,
+	stefan@agner.ch,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-serial@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/1] Implement BCM2835 AUX RTS/CTS auto flow control
+Date: Thu,  6 Aug 2026 17:42:03 +0200
+Message-ID: <cover.1786030659.git.sairon@sairon.cz>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|GVXPR04MB9877:EE_
-X-MS-Office365-Filtering-Correlation-Id: 83e229dd-3715-4d6c-e810-08def3d0f966
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|19092799006|1800799024|7416014|376014|4143699003|11063799006|56012099006|10067099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Hu2IeZ8jV2fdGEh5FY665Np+LY6Bgw/ElIcC2sxNkfOi6XjWUFu0v44Ysc0DrxHLI1Z3tpA3gQAGXBwaaj9iy3pdvTom6w8RuU0aY/TvGjy47thnf8EiYmh/JdwukoMDtDYxvZbemUWdf01Dj/GmhFdkNqvj1r3XyGkH3a3y+zgwOv1vcmbk3hhU/KzndNv5gm4wO0WowOgfe/TP3Gfa1KQSJI3O5V3XBIGtxG55Dt7eZcypODD3AVGqoYvqaKQEi0jMBouXVL/HKN2yxz615sN6h4JEiVryXqbo+7vbFgtpPlNWqst8UxjD6NVIIqoNXa0Jxvis9zzUHeJlaNDii0AmOnTqK2O1dHZUKkc0UVqszrwz7Aq5o94zMLfENZcAZk5T44C0Pe+os7U17sC1WvyjyU4b32uSg0x3hfGICCojReS0urR1QQYWS9wSKgodBX5XN4TnL+slKDTetdHAo/NnGS3LjfAk47kIRWDcu7S9jDy1UOmiEuA17bdl5ykxXqQRvKnTaxO1xOhq0Xmmljec+8ZcbjiftujUb1yB3P9iLaye63q20+25k6nYTfPlg/IYeX5gVu9/T8jLVsV7ypvdfqCnaNpzryLrkvhVVvb+pPU/pJCEMw5t7VB3NK5OQDCOKLWVQ0J6AyaNNvHUMTGACkpt+Wdd/26hOWxwp6Y=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(1800799024)(7416014)(376014)(4143699003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uWofANkAwrbzq/j7KzI0pwZAFHxy9CuD5P4mgNDIYU+0m9AURaFe+LeMf0CJ?=
- =?us-ascii?Q?P4Yyx6i+WxM3qxENZHinJTlP3aFiYYRNU1jMjQrFfpnLl49+1qGSbP9gGbkj?=
- =?us-ascii?Q?Blc6Z7iDhckp4ChFUIlT7jtwI8nPPu56YMp9BUJkmwvOElJQipFDuWFhd6BC?=
- =?us-ascii?Q?ZpT6o7vHx705Up0j87/8j/fcoSpiEuD9zw9sgKOYOgo8nrLc648O0LyM2dhC?=
- =?us-ascii?Q?jC/XDurxhd3y1nodxPmdp5FWkNRk8z0VxTAp+acZKKF2rFb2Nx1j73DBu3Zb?=
- =?us-ascii?Q?HGee3uEXUAX1WvkCmaqw34yej+yqQvEX1R9pCqwhJpmeuNykMb/O6mmSzFh3?=
- =?us-ascii?Q?jihA5Q10ui7fQyXNA8+HujclGeCdSzcMDVQV58Wcn3D4bM8kIAhcsKQUDir7?=
- =?us-ascii?Q?Mt39/AA0iaf8uZM5QKXcV00+YDODqPXsIgk8k0cLsabFEtnkWM4GjbFONSBW?=
- =?us-ascii?Q?qQzLy9Jt+hgHvUjd5LCkJHE5Z+ixIKgqsm8bHovbDLh+pQ80pcaYkpWuxQEg?=
- =?us-ascii?Q?c8JAjdifdg3lJDKYJVnXRlIIaelcZPFkS/SVk2cl5ZmaYK3SXS/ij7HGPqAP?=
- =?us-ascii?Q?pbdbH3sp9CSIBd+pfefhEIPSeiNERveW5l8dthC1gsJzhYYb6GyWBX+Mj89F?=
- =?us-ascii?Q?YyeuyKkJhPCcbR64tM8nFTCwbKJkX/zFu7Z/8aoQU4W04rjOI7M60WyDBirV?=
- =?us-ascii?Q?TENwDe8BgoQEETb6hsSX9V28Enk9oCWyId4AmWUoMPWH99VdO4n9b9SwtNzF?=
- =?us-ascii?Q?i4DT3jm2mpPtrPmxkjGqSnl8GM83tdeiiUPmQR0PMxCa+8jRYn9xeMhAuHu+?=
- =?us-ascii?Q?K6qn+kVkEOV/bUedspAFTVxpDKRDDbX6E+msPDy8M9lQdosdoLdlbDhmE8m6?=
- =?us-ascii?Q?3TpvVpRJxNi5Yb5EOsHpF1XwjLwQOUHRHC+fdVSw6sop9B1Wd6NYFu5784Ok?=
- =?us-ascii?Q?jrgOphnQu++xhAwVZ1IgbwAAGvtk+V+8VZg5UJwb2092CNvjnAk30hLTAEU0?=
- =?us-ascii?Q?eDpJQS7HOe2yQJWJ6QbsB2KbfqujP3atmxtyOLsnSHEgu8rPUnDwh9Zt7KWr?=
- =?us-ascii?Q?o17HWgBHtyFfnvsRGnu/X+QQuFkzJB97kAPs7RBIsHvjouVAFWvG1Qz6oPt4?=
- =?us-ascii?Q?Dz4zEeSRabHe9jdI66WKlJa1rSJxQ0kz8fdCB5Ucg6nTwhSY8Hblcq56YlyL?=
- =?us-ascii?Q?9cLEVD+8+svj+rX0rP47lmX9a5H+pM+K7MkkeFW883Zm37cnWC5oKwJNpmsp?=
- =?us-ascii?Q?O+mOM95EKY8x6V3nSEoAid3MPi0O3Bk/1CmRp+v64IT/bzXUouu7Ou75K9FA?=
- =?us-ascii?Q?k0+ZWWTQpwr8Yy8/2GlOL3hez/u+M/u9anlXyanarHPlZhhJ5/Jk4mrK2bPt?=
- =?us-ascii?Q?odm7NvmJjDAVMo5x7D4GQZERPbN/ULXqzIxKyDlFmDPhVa/xAHR5alRdedOY?=
- =?us-ascii?Q?2sE+7kRf7oPCe+xPlD6KExLHTsbpmU4Fayx/Vl4fkoPDD7LS5vDqwUarfi+3?=
- =?us-ascii?Q?86+BO0mx8Axt/FW7Sy6ixRXQNFvxntR/OeRcdu8otZGlcTFTZYzVLr7C0OTP?=
- =?us-ascii?Q?hvfXXPrnzO8ZucrlRNzS6jw4/coqPrtx1v9z6Fn5BnecFPRVQ4dtapre8Z9L?=
- =?us-ascii?Q?OKjixw8Tignj6tBBGHd2r/V6p/fyGrz2Ss+YQYLslUME6IgWLoyDt3Y9Rxyq?=
- =?us-ascii?Q?iNcUslNrG3SN5GHsUgjEaC5kPDhhFMuCIliMCcT++VAv5AHOgcJK8oacAKof?=
- =?us-ascii?Q?NF4521meTGIFsqhsavMRhlDOQ08RKO2efZBjBQ4bCAhWvDw0gABN?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83e229dd-3715-4d6c-e810-08def3d0f966
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Aug 2026 15:39:59.9371
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PYevoEalasiWrmB/t9VEYiTQipdNWxvZcbhnIFWxfkjTNAWPo1arrQ9ZuuIecn3xJafQwyWEJ1yfxLMnKDiOnIoavT7v7zQyQhqZXU3S1Aq6VuLV7pvl1XU9GAGFKAAH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9877
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_084015_039085_98B6BB57 
+X-CRM114-CacheID: sfid-20260806_084218_959359_6793A44D 
 X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -140,71 +109,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 06:00:09PM +0530, Golla Nagendra wrote:
-> Channel resource allocation can fail after runtime PM has been acquired
-> and after part of the descriptor state has been initialized. Without
-> proper rollback, the error path leaks a runtime PM reference and, on
-> coherent allocation failure, also leaks the software descriptor pool.
->
-> Fix this by balancing runtime PM usage before returning an error and
-> releasing any partially allocated software descriptor pool.
->
-> Fixes: 8982d48af36d ("dmaengine: zynqmp_dma: Fix PM reference leak in zynqmp_dma_alloc_chan_resourc()")
-> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
-> ---
->  drivers/dma/xilinx/zynqmp_dma.c | 19 +++++++++++++++----
->  1 file changed, 15 insertions(+), 4 deletions(-)
->
-> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-> index f6a812e49ddc..b7c561280694 100644
-> --- a/drivers/dma/xilinx/zynqmp_dma.c
-> +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> @@ -483,8 +483,10 @@ static int zynqmp_dma_alloc_chan_resources(struct dma_chan *dchan)
->  		return ret;
->
->  	chan->sw_desc_pool = kzalloc_objs(*desc, ZYNQMP_DMA_NUM_DESCS);
-> -	if (!chan->sw_desc_pool)
-> -		return -ENOMEM;
-> +	if (!chan->sw_desc_pool) {
-> +		ret = -ENOMEM;
-> +		goto err_pm;
-> +	}
->
->  	chan->idle = true;
->  	chan->desc_free_cnt = ZYNQMP_DMA_NUM_DESCS;
-> @@ -502,8 +504,10 @@ static int zynqmp_dma_alloc_chan_resources(struct dma_chan *dchan)
->  					       (2 * ZYNQMP_DMA_DESC_SIZE(chan) *
->  					       ZYNQMP_DMA_NUM_DESCS),
->  					       &chan->desc_pool_p, GFP_KERNEL);
-> -	if (!chan->desc_pool_v)
-> -		return -ENOMEM;
-> +	if (!chan->desc_pool_v) {
-> +		ret = -ENOMEM;
-> +		goto err_free_sw_desc_pool;
+Hi everyone,
 
-This is seperated problem. Need use new patch to fix it.
+this is my attempt at adding hardware flow control to the BCM2835 AUX UART
+driver. The hardware supports it and the driver source has always noted
+that, but it was never implemented.
 
-Frank
+The driving factor for this contribution was that this peripheral is used
+on Raspberry Pi as the alternative muxable UART for the BCM43455 Bluetooth
+chip, should the user decide to use the "full" PL011 UART on the pin
+header. But this always led to some compromises, as the mini UART wasn't as
+robust as PL011, mainly because of the missing flow control. We use it for
+Home Assistant Yellow, which is essentially a carrier board for CM4/CM5,
+and with the recent update of the (downstream) Linux kernel to 6.18, the
+Bluetooth started to be significantly flaky and failing to initialize on
+boot [1]. Diagnostics showed that these failures are caused by RX buffer
+overruns during the initialization, which were probably always present, but
+some other changes apparently added up to greater instability of the
+driver, leading to overrun errors in approximately 40% of boots when using
+the mini UART for the Bluetooth link at 230400 baud.
 
-> +	}
->
->  	for (i = 0; i < ZYNQMP_DMA_NUM_DESCS; i++) {
->  		desc = chan->sw_desc_pool + i;
-> @@ -516,6 +520,13 @@ static int zynqmp_dma_alloc_chan_resources(struct dma_chan *dchan)
->  	}
->
->  	return ZYNQMP_DMA_NUM_DESCS;
-> +
-> +err_free_sw_desc_pool:
-> +	kfree(chan->sw_desc_pool);
-> +	chan->sw_desc_pool = NULL;
-> +err_pm:
-> +	pm_runtime_put_autosuspend(chan->dev);
-> +	return ret;
->  }
->
->  /**
-> --
-> 2.43.7
->
+I've originally tested this patch applied in the downstream rpi-6.18.y
+branch, using the mini UART for Bluetooth, which improved stability of the
+Bluetooth initialization greatly and allowed clean initialization even when
+bumping the baud rate to 1.5M. Then I applied this patch to latest mainline
+and did a couple of simulations forcing the UART to throttle by filling the
+LDISC buffer, with an FTDI adapter connected on the other side of the line.
+
+Note that for this to come into effect, the uart-has-rtscts property needs
+to be present in the DTS. No in-tree device tree sets it on uart1 - the
+property only appears on the PL011 nodes (uart0 on bcm2711, uarta on
+bcm2712) used for the Bluetooth link. Raspberry Pi has the CTS and RTS
+lines hooked up and muxable though, so it can be easily enabled when
+wanted.
+
+At this point, the implementation seems to be fully working in my tests,
+but there may be some subtle issues I don't see, as I'm not fully familiar
+with the subsystem. I used an LLM extensively during the implementation (as
+I properly disclose with the Assisted-by tag) though at this point I hope
+the patch is far from a one-shot vibe-coded mess, but please review
+carefully.
+
+Regards,
+Jan
+
+[1] https://github.com/home-assistant/operating-system/issues/4898
+
+Jan Čermák (1):
+  serial: 8250_bcm2835aux: Add support for RTS/CTS auto flow control
+
+ drivers/tty/serial/8250/8250_bcm2835aux.c | 160 +++++++++++++++++++++-
+ 1 file changed, 156 insertions(+), 4 deletions(-)
+
+
+base-commit: 0d839570765118029aa8bf4a95444c6a11aacf85
+-- 
+2.55.0
+
 
