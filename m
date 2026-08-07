@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB2AC5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0433C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDjRXP2df5cgNvzCtbBydFsofHWCi/T7LTXM/Z135R4=; b=D7i3MHINVn1QC/xyrvU9ESs/0v
-	FeaGMF4h1yXGzj9UYsgCgNG9pmMENlhF8yjUIVpnY4fKQoOVyyONzndNi8/5Afr96iDArXT9OI6i/
-	bTcrRXAQWQNd8YgkT87diebVg5ER3n2px4Sjwq0efisBJxX59qBd09oJaaDgxm7ut6u6RV7UvtlKV
-	xePiqkpAtZOpbnxihsQ4U/sCFQcLDS6cjGUDHUfs2iWJvI854Kpd03xEjrsm9EtPxFGXx7QSS0fZM
-	KkUTHS64Mw2DWNk0f1LCEX7esQ2ANmSd3ys7YIMHmVMYlItDY/EEdEJZk0bZ90Jhee0jeQAC9VdRo
-	LQP1MOeQ==;
+	bh=Bh6gYpomsjhBCkgXOSh/+9aHw3RTIik/SBzrTKlteL0=; b=b9+46Dll3QQ8jExIbnJ0DMLJXo
+	D/L7ofewFq+2L2GZWT6YLnWueO+tYgOX75YgAhX0x2DG5e7Ed/JmMl55VQzF2CPV/OECgBpI7CqM8
+	ZZtsc+vB4bqSiAuAkux3HaZNNb45nKCNQckd9J/fkRmtuFeq1NVlbkNoYCq1P+6mnKTTkpLB0CAgA
+	8Q8qMHlusEDGbHHPSbnlFZsBU0bN4sbdcWDTASbXg7ADO0XVoRZsCGU+ukqb1ilytrRnBf4fCUgRO
+	BL6zu+LkWwoWQVHcMHGZ0RjPuJiFwmdQxRKQMfKyoWZ36843AGilzP4MGlc1sRsxpxhMQt5e+oVca
+	IMOXWETQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHcB-00000007dZ6-2Pmh;
-	Fri, 07 Aug 2026 10:15:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wsHdV-00000007eHk-1x7A;
+	Fri, 07 Aug 2026 10:17:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHc9-00000007dX0-2pD1
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Aug 2026 10:15:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=uDjRXP2df5cgNvzCtbBydFsofHWCi/T7LTXM/Z135R4=; b=OjO287UL3bg1LZu+y+JlZt3dRl
-	vSJ5oFukhb6DhaXx6/nroJHtDdIHxdhl+9w8uNOYf3ss0WegYyEeR5YiklgWWOI0fqqo3qT23VQAR
-	lU3bqYfCoOhWqYXM/quTcQVSz5cfn6Gqu9ejxAvb/qeKYgzs+YYlkxu32o8FyaXDQzJfyAfmEzYxl
-	sHY7XAO+6NA7dKmNYtdNqAj+Q/KjfxknomOH5u+1emmkXYy7ao0doZ3wptH3RWYB+30OdeYXRDSHf
-	GWcgXCya0CHFt6szjSxrfeYUv9nDDfjlohARvfgmU9iVDBlAURJP7VdVdrR+pGUHSlH0gHkussG/8
-	aMdoH+XA==;
-Received: from mta1.migadu.com ([37.59.57.117] helo=out-171.mta1.migadu.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsHbs-0000000CHAM-4AZI
+	id 1wsHdU-00000007eHJ-1DlY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:15:44 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RprbjpXkmZ21tarZEQmQBqguUOqMUm+YqEbU6GN7cVWXtaWC8g370fQvDgMV/+Rea/f6a8D8/6D3zQiB1PYIItt@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1786097723;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uDjRXP2df5cgNvzCtbBydFsofHWCi/T7LTXM/Z135R4=;
-	b=Hm4vulsd7ChdIKbn5dCVaPSGHk50GejPKWQuM2W8KGGCd96VqPO3U+lmMOl6/aEBXLd4nH
-	BQtfBjo6XWsDfx1cysE2vPj4u53VMDxBDKDNmu8GGF1Jh+vPrGCOPKOycz0nxu7XxjuWtJ
-	EUjtv8UYnS0d/khpzNC0DTox3+BxWu8=
-X-Gm-Message-State: AOJu0YyOtuUwDNsing/vbP+E099SJwy3H8rP8zhuKGfOyExVnCPDA58y
-	WG4mL/2keyRClGqQnr6uJ34Zr0ZGPy+BtbZnn7vJh3JqXMZb+f70sRlA7Ei8eM0OPfUsM7alGVc
-	fwIssNniEf3VOlpk9vLKuQ+8DJtueRQWF050cluuG
-X-Received: by 2002:a05:622a:11c1:b0:51c:ca9:3d15 with SMTP id
- d75a77b69052e-52d109753d2mr13832331cf.12.1786097697194; Fri, 07 Aug 2026
- 03:14:57 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260806100256.371164-1-fuad.tabba@linux.dev> <20260806100256.371164-2-fuad.tabba@linux.dev>
- <6a92d2e40a2195099eed90179efa286295392e39.camel@arm.com>
-In-Reply-To: <6a92d2e40a2195099eed90179efa286295392e39.camel@arm.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Fri, 7 Aug 2026 11:14:20 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTyfhn-08ounOrVtGoeEToyAw1MbMMA9_cF67v7vxV0jxw@mail.gmail.com>
-X-Gm-Features: AUfX_mxSqna52-nLNq37ZWdcakZsFwbd8IwPxfJ_Dwi5KCENZZM1xI-WuipMZoY
-Message-ID: <CA+EHjTyfhn-08ounOrVtGoeEToyAw1MbMMA9_cF67v7vxV0jxw@mail.gmail.com>
-Subject: Re: [PATCH v1 1/4] KVM: arm64: Validate the host-provided vgic model
- in pKVM
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "maz@kernel.org" <maz@kernel.org>, "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>, 
-	"oupton@kernel.org" <oupton@kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Joey Gouly <Joey.Gouly@arm.com>, 
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, 
-	"will@kernel.org" <will@kernel.org>, Catalin Marinas <Catalin.Marinas@arm.com>, nd <nd@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_111537_005938_5429B6D8 
-X-CRM114-Status: GOOD (  20.61  )
+	Fri, 07 Aug 2026 10:17:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 90CC660A86;
+	Fri,  7 Aug 2026 10:17:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 488761F000E9;
+	Fri,  7 Aug 2026 10:17:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786097827;
+	bh=Bh6gYpomsjhBCkgXOSh/+9aHw3RTIik/SBzrTKlteL0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ju4Cm/4EbYTQNK3ePcewjErM7jfQxsikrCbhewLFHA8hkpjxCwt1yYI3Q3JLqpeeq
+	 3OLkoIos6O6uA+xRqK8UYvoJFMtIw0XVxUHPD6xvOyu7LQd/d0jFW57Vyrx/5nziJJ
+	 QQN1NkQQ2LeBjgk61ApvRaETarBRfBS7TUqFnh37vR3OlbRuJaxVY6HaZ0zJa0Fjr9
+	 ESC6iNFJwR8L86bHnqogHVm1mQ5iZ8Ch389TVhgCA/AhxJtxlAZhjlAU8nLsyxdSyk
+	 Flngl0/LcXMLAg+BQEu4tvB/aoXrnKqDsl68QYGlYl2JsM/ktPnv0JY8I5FezX/O1P
+	 fajspl7dlGSnQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wsHdR-0000000DIzD-1N9w;
+	Fri, 07 Aug 2026 10:17:05 +0000
+Date: Fri, 07 Aug 2026 11:17:04 +0100
+Message-ID: <861pcab5gf.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vladimir Murzin <vladimir.murzin@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	mark.rutland@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	ruanjinjie@huawei.com,
+	liaochang1@huawei.com
+Subject: Re: [RFC PATCH v2 45/45] irqchip/gic-v5: Add NMI support for IPIs
+In-Reply-To: <20260727163453.7969-46-vladimir.murzin@arm.com>
+References: <20260727163453.7969-1-vladimir.murzin@arm.com>
+	<20260727163453.7969-46-vladimir.murzin@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vladimir.murzin@arm.com, linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com, ruanjinjie@huawei.com, liaochang1@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,71 +85,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sascha,
+On Mon, 27 Jul 2026 17:34:53 +0100,
+Vladimir Murzin <vladimir.murzin@arm.com> wrote:
+> 
+> IPIs are implemented as a logical domain on top of the LPI domain.
+> Therefore, when an IPI is configured as an NMI, update the priority in
+> the parent LPI domain during setup and teardown.
+> 
+> Permit irq_supports_nmi() to accept IRQs managed by an NMI-capable
+> parent domain.
+> 
+> Finally, guard handle_irq_event_percpu() against calling
+> add_interrupt_randomness() from NMI context.
+> 
+> Signed-off-by: Vladimir Murzin <vladimir.murzin@arm.com>
+> ---
+>  drivers/irqchip/irq-gic-v5.c | 23 ++++++++++++++++++++++-
+>  kernel/irq/handle.c          |  3 ++-
+>  kernel/irq/manage.c          | 11 ++++++++---
+>  3 files changed, 32 insertions(+), 5 deletions(-)
+> 
+> The patch should definitely be split. The only reason I'm keeping it
+> as a single patch for now is that I'm not yet sure these changes are
+> moving in the right direction...
+> 
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> index 05b957ffc0b8..787cb8da4e1a 100644
+> --- a/drivers/irqchip/irq-gic-v5.c
+> +++ b/drivers/irqchip/irq-gic-v5.c
+> @@ -700,6 +700,24 @@ static void gicv5_spi_irq_nmi_teardown(struct irq_data *d)
+>  	irq_to_desc(d->irq)->handle_irq = handle_fasteoi_irq;
+>  }
+>  
+> +static int gicv5_ipi_irq_nmi_setup(struct irq_data *d)
+> +{
+> +	if (WARN_ON(!d->parent_data))
+> +		return -EINVAL;
 
-On Fri, 7 Aug 2026 at 10:57, Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
->
-> Hi Fuad,
-> On Thu, 2026-08-06 at 11:02 +0100, Fuad Tabba wrote:
-> > EL2 copies vgic_model from the host's struct kvm unchecked, and the
-> > nVHE
-> > world switch dispatches on it with no cpucap guard. A host writing
-> > KVM_DEV_TYPE_ARM_VGIC_V5 makes EL2 access GICv5 CPU interface
-> > registers,
-> > which are UNDEFINED without FEAT_GCIE and panic the hypervisor on any
-> > GICv3 machine.
-> >
-> > Accept only the models pKVM can run, forcing anything else to 0.
->
-> Can pKVM run VGIC_V2? See comment below.
+How can this happen? Shouldn't that be impossible by construction?
 
-It can't, and I agree the case should go, though not quite for the reason below.
+> +
+> +	d = d->parent_data;
+> +
+> +	return gicv5_hwirq_irq_nmi_setup(d->hwirq, GICV5_HWIRQ_TYPE_LPI);
+> +}
+> +
+> +static void gicv5_ipi_irq_nmi_teardown(struct irq_data *d)
+> +{
+> +	if (WARN_ON(!d->parent_data))
+> +		return;
+> +
+> +	d = d->parent_data;
+> +
+> +	gicv5_hwirq_irq_nmi_teardown(d->hwirq, GICV5_HWIRQ_TYPE_LPI);
+>  }
+>  
+>  static struct irq_chip gicv5_ppi_irq_chip = {
+> @@ -749,7 +767,7 @@ static struct irq_chip gicv5_lpi_irq_chip = {
+>  				  IRQCHIP_MASK_ON_SUSPEND,
+>  };
+>  
+> -static const struct irq_chip gicv5_ipi_irq_chip = {
+> +static struct irq_chip gicv5_ipi_irq_chip = {
 
-...
+If we can't have it const, can we have it as __ro_after_init?
 
-> > +     switch (vgic_model) {
-> > +     case KVM_DEV_TYPE_ARM_VGIC_V2:
->
-> Why are we allowing the v2 case through?
->
-> In vgic_v3_probe() there is an explicit check that blocks the
-> registration of VGIC_V2 if KVM_MODE_PROTECTED is set, so I don't think
-> that we could reach here with the VGIC_V2 model.
+>  	.name			= "GICv5-IPI",
+>  	.irq_mask		= irq_chip_mask_parent,
+>  	.irq_unmask		= irq_chip_unmask_parent,
+> @@ -757,6 +775,8 @@ static const struct irq_chip gicv5_ipi_irq_chip = {
+>  	.irq_set_affinity	= irq_chip_set_affinity_parent,
+>  	.irq_get_irqchip_state	= irq_chip_get_parent_state,
+>  	.irq_set_irqchip_state	= irq_chip_set_parent_state,
+> +	.irq_nmi_setup		= gicv5_ipi_irq_nmi_setup,
+> +	.irq_nmi_teardown	= gicv5_ipi_irq_nmi_teardown,
+>  	.ipi_send_single	= gicv5_ipi_send_single,
+>  	.flags			= IRQCHIP_SKIP_SET_WAKE	  |
+>  				  IRQCHIP_MASK_ON_SUSPEND,
+> @@ -1213,6 +1233,7 @@ static void gicv5_enable_nmi_support(void)
+>  	gicv5_ppi_irq_chip.flags |= IRQCHIP_SUPPORTS_NMI;
+>  	gicv5_spi_irq_chip.flags |= IRQCHIP_SUPPORTS_NMI;
+>  	gicv5_lpi_irq_chip.flags |= IRQCHIP_SUPPORTS_NMI;
+> +	gicv5_ipi_irq_chip.flags |= IRQCHIP_SUPPORTS_NMI;
+>  }
+>  
+>  static void __init gicv5_smp_init(void)
+> diff --git a/kernel/irq/handle.c b/kernel/irq/handle.c
+> index b7d52821837b..114fd63b0210 100644
+> --- a/kernel/irq/handle.c
+> +++ b/kernel/irq/handle.c
+> @@ -245,7 +245,8 @@ irqreturn_t handle_irq_event_percpu(struct irq_desc *desc)
+>  
+>  	retval = __handle_irq_event_percpu(desc);
+>  
+> -	add_interrupt_randomness(desc->irq_data.irq);
+> +	if (!in_nmi())
+> +		add_interrupt_randomness(desc->irq_data.irq);
 
-I'd rather not rely on that for same reasoning I mentioned for the
-GICv5 handlers [1]. vgic_v3_probe() runs at EL1, and EL2 reads
-vgic_model straight out of the host's struct kvm, so nothing stops a
-malicious host from writing V2 there.
+This also needs to be a separate patch.
 
-I kept the case here because V2 is inert at EL2. The only readers are
-vgic_is_v5() in the world switch and the != V3 test in
-__vgic_v3_perform_cpuif_access(). But the comment says "what pKVM can
-run", and that is V3 only, and is what those checks are there to
-enforce. So the accurate version is simpler:
+>  
+>  	if (!irq_settings_no_debug(desc))
+>  		note_interrupt(desc, retval);
+> diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
+> index 7eb07e3bdb4c..0091bb5f7662 100644
+> --- a/kernel/irq/manage.c
+> +++ b/kernel/irq/manage.c
+> @@ -1370,9 +1370,14 @@ static bool irq_supports_nmi(struct irq_desc *desc)
+>  	struct irq_data *d = irq_desc_get_irq_data(desc);
+>  
+>  #ifdef CONFIG_IRQ_DOMAIN_HIERARCHY
+> -	/* Only IRQs directly managed by the root irqchip can be set as NMI */
+> -	if (d->parent_data)
+> -		return false;
+> +	struct irq_data *data;
+> +	/*
+> +	 * Only IRQs directly managed by the root irqchip can be set
+> +	 * as NMI unless we inherit NMI from parent
+> +	 */
+> +	for (data = d->parent_data; data; data = data->parent_data)
+> +		if (!(data->chip && data->chip->flags & IRQCHIP_SUPPORTS_NMI))
+> +			return false;
 
-+    if (vgic_model != KVM_DEV_TYPE_ARM_VGIC_V3)
-+        vgic_model = 0;
+Maybe we should just trust the local irqchip to do the right
+thing. After all, the core code shouldn't be in the business of
+sanitising broken irqchip drivers advertising random crap.
 
-Will fix in v2. Thanks for the reviews!
+>  #endif
+>  	/* Don't support NMIs for chips behind a slow bus */
+>  	if (d->chip->irq_bus_lock || d->chip->irq_bus_sync_unlock)
 
-Cheers,
-/fuad
+Thanks,
 
-[1] https://lore.kernel.org/all/CA+EHjTxiHyuw5EjWLha1OySm3xjRH6rbk41On+5V2+ig1FdCmg@mail.gmail.com/
+	M.
 
-
-
-> > +     case KVM_DEV_TYPE_ARM_VGIC_V3:
-> > +             break;
-> > +     default:
-> > +             vgic_model = 0;
-> > +     }
-> > +     hyp_vm->kvm.arch.vgic.vgic_model = vgic_model;
-> >
-> >       /* No restrictions for non-protected VMs. */
-> >       if (!kvm_vm_is_protected(kvm)) {
->
-> Thanks,
-> Sascha
->
+-- 
+Without deviation from the norm, progress is not possible.
 
