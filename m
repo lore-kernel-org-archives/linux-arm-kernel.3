@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EDD8C2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 14:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3331C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 14:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDgu/7+GOlU7oW9geJEPCy6Ik6pjzN8DtRgX5YXRAsI=; b=DTafZp44RKsPIXTBIfTISrF2Yp
-	kSculLcfxPGUs/92FTqgOxrpq/VYS7VD3ZpvWAsUZ7O492i6FQkd0ZHISCo6D+TsEDMMUXAq/Xnck
-	3F8zV3gmnJZU7id+p/oxV/IM14QGihYF4Bq0f4X//ytV189aS3H3f/56+7AcNtXYts+1UcljVaIjP
-	ERTzvRTQkbnVNiwJv5oiuve+1KCKJF1HkHGB2RhbFKAKY7q8xnYyHayOwwBgyGlzuGr/9EKAoKzTV
-	NjfwDVik5kVZ/lZ02fKqtTaXHneNgwrGKtzWaq6JlvYpQxPi9Qy5t0w6y78IvCfy+D3ofxTne5Fox
-	X7GOggRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9oIKk6YNq2Rqd91/MJYNEf5wAqPlINb6VhTKN9sJyJ4=; b=izfX4hkrVuLRWYkTXrSwgmSbEJ
+	dmqHM9Zxy4yrU288WP9KDK+ndoiDWoW4Wug1a/fPYm+9EQATunJdplqiZgAE4FrBb4iCQOZeSR/D1
+	g1CMMVpE4RAvS/4Ul2CHuiFUZR/3XWRTIA+6KpXwA+wW5S9eQVopdGMOCmTes/sUW+KwMkjFisJLe
+	XujAgqnGLaEgjK5ZhmFc/fDR+WASeN4yyfoqe7ZMGb1cwEyCqKSQdRW8hcufE8ubw9GTr7D94gJKu
+	FfMs+q28JMRlY2SUhrJe3TrspKMpZ7AchFEEPWckxtBF4ObVTu0CFdPBEoKjaJ0IU//yicG5faRWZ
+	tHX6AUFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsLTQ-00000008GAv-1KlP;
+	id 1wsLTQ-00000008GAd-10Le;
 	Fri, 07 Aug 2026 14:23:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsLTO-00000008G9o-31DF
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wsLTN-00000008G9k-1zDB
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 07 Aug 2026 14:22:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00221600D8;
-	Fri,  7 Aug 2026 14:22:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD6821F000E9;
-	Fri,  7 Aug 2026 14:22:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786112576;
-	bh=hDgu/7+GOlU7oW9geJEPCy6Ik6pjzN8DtRgX5YXRAsI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bAH4zkK3uH8w1Smo1l6rXwRTmOTL31Cg5tPvcFUELH3FLKNWBk5fvgAK6EYxVpYKj
-	 VQMNYVXEBnhhvBZ6+k0eK1T2tq260lSTel7EUKZA4Sz5Vuar9YWHDdTIGX0V8DFnX6
-	 xIC5yFu/B8ZRppFa7IFFokOaEMZ+VQch/iN/GspZ3381/UQjef/CW3HyTyQtvo88lG
-	 VzhTkpaDA5cD7f4h/TLEMyXuj2Pq1+ZD6YdmqnVLY0IUlsD8Ln0vVFdcHeXwFn4V5q
-	 lECgnhFTuGk0wzdgsr7AWmrbGjM/Ma1txq/H00UIGy4nbqIXatusY3hyGQ0N4vARGL
-	 D06/Guo7tLQXQ==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Ard Biesheuvel <ardb+git@google.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	mark.rutland@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Liz Prucka <lizprucka@google.com>,
-	Seth Jenkins <sethjenkins@google.com>,
-	Kees Cook <kees@kernel.org>,
-	David Hildenbrand <david@kernel.org>,
-	Jann Horn <jannh@google.com>
-Subject: Re: [PATCH v8] arm64: mm: Unmap kernel data/bss entirely from the linear map
-Date: Fri,  7 Aug 2026 15:22:46 +0100
-Message-ID: <178610348593.1066050.1374603166096806542.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260803163346.3490089-2-ardb+git@google.com>
-References: <20260803163346.3490089-2-ardb+git@google.com>
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3F841516;
+	Fri,  7 Aug 2026 07:22:51 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 234DA3F9A2;
+	Fri,  7 Aug 2026 07:22:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786112575; bh=r9kab6txueHD+ZYfKgqlHdXTySwAoOlw+inr3Z5s1SU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qJs8kBaDFR6MWXa+CS6fHTFVvNkkQHTJgpAr4AUK2RDB/CA9G+9dyjIhXQe94nNKQ
+	 mNUDX8eweNIxD9im8vzt8gH36N/IzgEemCIijw4EFGjtlYADmbuNfvZ0uy10bmXK80
+	 tY6yTq1cVpgR+G9I99+L+KENdTXVESVAbGikcOmQ=
+Date: Fri, 7 Aug 2026 15:22:23 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <fuad.tabba@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>, 
+	"David Hildenbrand (Arm)" <david@kernel.org>, Matt Fleming <matt@codeblueprint.co.uk>, 
+	Ard Biesheuvel <ardb@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Sebastian Ene <sebastianene@google.com>, Vincent Donnefort <vdonnefort@google.com>
+Subject: Re: [PATCH v2 1/2] arm64: ptdump: Make note_page_flush() range aware
+Message-ID: <6psvlhoi727cullfgafzjjtih24setwhm3pfbyeakliytw6ft7@lfk3to4l7huv>
+References: <20260724185431.2990395-1-weilin.chang@arm.com>
+ <20260724185431.2990395-2-weilin.chang@arm.com>
+ <anXFo-igVdqrCogQ@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <anXFo-igVdqrCogQ@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260807_072257_591147_1B758377 
+X-CRM114-Status: GOOD (  27.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +77,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 03 Aug 2026 18:33:47 +0200, Ard Biesheuvel wrote:
-> The linear aliases of the kernel text and rodata are also mapped
-> read-only in the linear map. Given that the contents of these regions
-> are mostly identical to the version in the loadable image, mapping them
-> read-only and leaving their contents visible is a reasonable hardening
-> measure.
+Hi Will,
+
+On Fri, Aug 07, 2026 at 12:46:43PM +0100, Will Deacon wrote:
+> On Fri, Jul 24, 2026 at 07:54:30PM +0100, Wei-Lin Chang wrote:
+> > note_page_flush() calls note_page() with addr == 0 and level == -1 to
+> > dump the last row of a ptdump. addr == 0 (1 << 64 wrapped around)
+> > renders a huge region with enormous size for address spaces with
+> > IA bits < 64. For example the stage-2 page tables and the EFI runtime
+> > page table.
+> > 
+> > More importantly, the last region of the address space and everything
+> > after the address space up to 1 << 64 are merged into one row of
+> > output. If the last region within the address space is valid, it will
+> > appear to remain valid up to 1 << 64 with the same attributes.
+> > 
+> > Currently only the EFI runtime ptdump is affected by this, but KVM will
+> > soon fix its stage-2 ptdump by using note_page_flush(). Here is an
+> > example of an EFI runtime ptdump (last row):
+> > 
+> > 0x0000008000000000-0x0000000000000000   17179868672G PGD
+> > 
+> > With this patch:
+> > 
+> > 0x0000008000000000-0x0001000000000000      261632G PGD
+> > 
+> > To fix this, use ptdump_state.range[] to figure out where the address
+> > space ends, and call note_page() with that.
+> > 
+> > Fixes: 9d80448ac92b ("efi/arm64: Add debugfs node to dump UEFI runtime page tables")
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  arch/arm64/mm/ptdump.c | 17 ++++++++++++++++-
+> >  1 file changed, 16 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+> > index 1c20144700d7..5b34060ceb96 100644
+> > --- a/arch/arm64/mm/ptdump.c
+> > +++ b/arch/arm64/mm/ptdump.c
+> > @@ -278,9 +278,24 @@ void note_page_pgd(struct ptdump_state *pt_st, unsigned long addr, pgd_t pgd)
+> >  
+> >  void note_page_flush(struct ptdump_state *pt_st)
+> >  {
+> > +	const struct ptdump_range *range = pt_st->range;
+> > +	unsigned long end = 0;
+> >  	pte_t pte_zero = {0};
+> >  
+> > -	note_page(pt_st, 0, -1, pte_val(pte_zero));
+> > +	while (range->start != range->end) {
+> > +		end = range->end;
+> > +		range++;
+> > +	}
 > 
-> Data and bss, however, are now also mapped read-only but the contents of
-> these regions are more likely to contain data that we'd rather not leak.
-> So let's unmap these entirely in the linear map when the kernel is
-> running normally.
+> This seems to be duplicating some of what the core code does already in
+> ptdump_walk_pgd(). Can we retrieve the information we need from the
+> containing 'struct ptdump_pg_state' structure instead of recomputing
+> the address?
+
+I can add a member end_address in ptdump_pg_state, and initialize it
+with the last range->end when users initialize ptdump_pg_state
+(ptdump_walk() and ptdump_check_wx()). Is that what you had in mind?
+
+Thanks,
+Wei-Lin Chang
+
 > 
-> [...]
-
-Applied to arm64 (for-next/mm), thanks!
-
-[1/1] arm64: mm: Unmap kernel data/bss entirely from the linear map
-      https://git.kernel.org/arm64/c/fb0f3ef5601a
-
-Cheers,
--- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+> Will
 
