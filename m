@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C25B0C2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFD9C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mlpEb48WPTayGKdm4eVdxNznK3KImhnyyeVW6wCAWfk=; b=IUQJjzXRpcXlZA5Nlic2KtasdN
-	NvZcZXy6WFfArM15iByi2BfvUelCWM0pcxtC65f4VI+nsRdDqpuHr0GXAE8O57NWY+jVNhIDNhKpK
-	RmyR+5uz1AZv/o+IbQVCPcWMBqE7w/KtzmgrMeM0zJTChzT/v1FMcvZ6SL9FvZJI10hXvnUFn88ss
-	4IjuqFXqIIB8o2SFzZOuFNDtEYZ0Cg7xQ2oyhSgUYg96VbgvTt/DHvzDtq4pJwZPINtEEtIhigI3U
-	Q6Uf0f2uOmSSvcZsdSX5Zos2jg/a+5nCqnsuPzLu00uZGN+jvAXd7EFbR3Lwgj14PU5jsBmEgaetg
-	MlbF/cyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F5wfVPe4pHkiV+3qFX90kAEBpHZcNk0vzhENmzK7Lq8=; b=ruHhdY82ETdiTnBwobARqocBFK
+	zlxPhg2reHmBaBKg51ksbOt2ry7dt7bzb/CRlICLKb6CpSMhnKkzDViBFm0PmJI4nvImPusUL2zlp
+	udqzkrYNVF1IWwEd6oQermxhTzk3jw5sPYHxuWHOyKLvWvc4HD6Szh1wPILRYYjqxc38XmPeD9AJS
+	EQO6Qusu5M/MT59SlU9UL9QbpGqQSu+P+ojgF0eQtM5VvcYCBTzrzhQ42/l2z3eGFpsPYoG1/55Wq
+	qKw90I/M+iZo1zxQ4i95JyWRtgF2P9OmtpBzUJk01bVzqyyQ0sQZ0m5H/uJc3UtaE2gmRhDOipeSi
+	SaGpQM0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDeK-000000078jr-2i2t;
-	Fri, 07 Aug 2026 06:01:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wsDer-000000078oy-4C5a;
+	Fri, 07 Aug 2026 06:02:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDeK-000000078jj-0D30
+	id 1wsDeo-000000078nx-1lek
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 06:01:44 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0C809404CC;
-	Fri,  7 Aug 2026 06:01:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED2511F000E9;
-	Fri,  7 Aug 2026 06:01:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786082500;
-	bh=mlpEb48WPTayGKdm4eVdxNznK3KImhnyyeVW6wCAWfk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T497BqIIxWI3YaUWHpUZRfd69wbja9MhBt6qFUib0UHQQAUTcP+20Ysn2Uj5XZBIF
-	 bZUlgp10L/vfXGa14VhG2Nw+pjMj3IluXbhj5fD4pTCwNkdASrSXBpxTbxXDJArhlQ
-	 WIujQ1EC+Qi3OBKnCB66sUQCoBPyTyPLl9FjxiF6nW55mpNSHUOf2pGQbZ4F9VbmNv
-	 I4qx3NoXA7GjN2ajbRgN0ISOYvQ1hMmA1vCzWrJrTY7U/3ObmbYt0k06sh8xpOAo47
-	 B+YM/pW4NEeXj7ArLsFDOcDuAnosAm/PaxTq1Ajx2DIkJgJnWlWjYbloPI9ayzFstD
-	 CCB76+SIsIYWA==
-Date: Fri, 7 Aug 2026 08:01:36 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Long Zhao <longzhao@ambarella.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Jiri Slaby <jirislaby@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-serial@vger.kernel.org, soc@lists.linux.dev
-Subject: Re: [PATCH v2 02/10] dt-bindings: soc: add Ambarella secure
- scratchpad
-Message-ID: <20260807-raspberry-chowchow-of-endeavor-e57df8@quoll>
-References: <20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com>
- <20260806-longzhao-upstream-cv75-v2-v2-2-6b09707c5fe9@ambarella.com>
+	Fri, 07 Aug 2026 06:02:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1786082532;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=F5wfVPe4pHkiV+3qFX90kAEBpHZcNk0vzhENmzK7Lq8=;
+	b=OxTNOA0yp2y8k/X9POTxFvGYddYXxzwwYAA7iELsUPvU8eo+J5ON7EDtVavTbQLr1Sf84x
+	lJHhIEAFrOI0k+J+JmKqektmPKuAdyZoq1U991fi8qrvGponOMt4RlSg2TxT1+ydosnXGj
+	pnxIIy/ymMjNLamNrZjKu2ZlTWUZG6E=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-623-MOAQU8-vMyqKsvd5IbYs8A-1; Fri,
+ 07 Aug 2026 02:02:08 -0400
+X-MC-Unique: MOAQU8-vMyqKsvd5IbYs8A-1
+X-Mimecast-MFC-AGG-ID: MOAQU8-vMyqKsvd5IbYs8A_1786082527
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE02B1800614;
+	Fri,  7 Aug 2026 06:02:06 +0000 (UTC)
+Received: from [172.20.35.218] (unknown [10.30.44.80])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3CA551956094;
+	Fri,  7 Aug 2026 06:02:05 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS (MISSED 51 of 56): Test report for for-kernelci
+ (7.2.0-rc6, upstream-arm-next, db788396)
+Date: Fri, 07 Aug 2026 06:02:05 -0000
+To: catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260806-longzhao-upstream-cv75-v2-v2-2-6b09707c5fe9@ambarella.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Message-Id: <60634.126080702020800375@us-mta-623.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: egcGXB4w1E7Te_CJSXlMBIU1Pt6MWbRxB1SWntu7Zak_1786082527
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_230214_533730_6F2A1ED7 
+X-CRM114-Status: UNSURE (   6.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,24 +84,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 05:34:10PM +0800, Long Zhao wrote:
-> Document the Ambarella secure scratchpad syscon used by CV75.
-> 
-> Signed-off-by: Long Zhao <longzhao@ambarella.com>
-> ---
->  .../ambarella/ambarella,cv75-sec-scratchpad.yaml   | 39 ++++++++++++++++++++++
->  1 file changed, 39 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml b/Documentation/devicetree/bindings/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml
-> new file mode 100644
-> index 000000000000..4bfeca0ac3da
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/ambarella/ambarella,cv75-sec-scratchpad.yaml
+Hi, we tested your kernel and here are the results:
 
-Why do you need separate binding? What is incomplete here that it cannot
-go to syscon.yaml?
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-Best regards,
-Krzysztof
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2738163429
+
+Tests that were not ran because of internal issues:
+    /distribution/check-install [aarch64]
+    /distribution/command [aarch64]
+    /test/misc/machineinfo [aarch64]
+    Boot test [aarch64]
+    CKI/restraint [aarch64]
+    Hardware - Firmware test suite [aarch64]
+    Reboot test [aarch64]
+    SELinux Custom Module Setup [aarch64]
+    selinux-policy: serge-testsuite [aarch64]
+    Storage - blktests - throtl [aarch64]
+    Storage - blktests - ublk [aarch64]
+    stress: stress-ng - cpu-cache [aarch64]
+    stress: stress-ng - memory [aarch64]
+    xfstests - btrfs [aarch64]
+    xfstests - ext4 [aarch64]
+    xfstests - xfs [aarch64]
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
