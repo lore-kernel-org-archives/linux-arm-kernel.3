@@ -4,99 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C393C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 09:09:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00105C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 09:10:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jjSX3DSji4nKkqVPKbNZg/lqBAxi+8jNL2xKHv5aM18=; b=JtsUQuU98NsHI2CJIbhxd9hIAI
-	dyDCQnRvUVQQzVI0w+Vy9geNe8MydWdDRt2rhXgEaBBkZr/hYUsZjllF6J2XrIoL6S5xdXdHaPTOG
-	a56OMLE/sfKs86WwZn7r6GFg/KbvlK5Jm5D4k1LEMx7Zcz0CD7BDLpSCa7Mc+0WalL0cCljaL4I/1
-	AtqK7abQvp6BM2TV/UYoGAujyQFIv/kGPjRvuZoG0qp4c4+AcglPNIzz3VSFTYz2zs++28PyLsdbf
-	4YZWH4ZxPGdwcPzn0qg9ed+k4kDmBHh/0BhErOSSdoRMh4gmrGwkkUZiPdQqI8vH3e1AJV0J9LhDH
-	V0UxsbwQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KIWGEh9Ufcm6qiadbjnDxFEVPk5jpDGnhvZvsj6Ps4M=; b=OrF76kcuCvkfGlh+NjTpf2Fysj
+	X8DKb9BhfyLTHrj6rE2ttZledpsTU4+SDAi099Wfoy8SPZpajmbmZhZc9OeKapzP3J4H3sXJGsldO
+	/zvsZU0p2SgEiCFxuqhMjoVr3pTGcekH5qz/yKM1I/ONtwyUn5xQPO3QD47qNT85/8Nx9EP3prXX/
+	UXxn+CKxG4FlNXXuO8b2rBXbRvC/aKEDMHcQKan4K9ExglRRMxGgc8GTvGin3Y+QdLAtAaW6pqGxU
+	2yhweNS5e53K3QEbLsOsllRMpbkv6iYHR4BDQvhfdq1RCsPoniPAFKC5D/D7zLfN5SJOtkuvmZa2L
+	1Y2pQzVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsGa2-00000007UDo-0AR2;
-	Fri, 07 Aug 2026 09:09:30 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wsGae-00000007UJv-1E5Z;
+	Fri, 07 Aug 2026 09:10:08 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsGZz-00000007UCW-0RvI
+	id 1wsGab-00000007UJ3-20v8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 09:09:29 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4954aff6088so31368255e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 02:09:26 -0700 (PDT)
+	Fri, 07 Aug 2026 09:10:06 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-84e27035206so2413266b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 02:10:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786093765; x=1786698565; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jjSX3DSji4nKkqVPKbNZg/lqBAxi+8jNL2xKHv5aM18=;
-        b=g6n7YhdGFEfmbUsAKXpe7wZGacqu9MDdGZn3MwAKfCLlIqiupmhrmhe9Yzz9xdWXZP
-         v8wiNV2OjWcxLsnCzDBHg2MAOx8Fl9CtjoBhLG6sP5W7emZqGo21Bpv7ev10jV1Mow11
-         mfZrrBHplLGm0PzzLgyv0iWpWy06NBildKcUsUKhdmoX1oZRVkejEwPZG7EowFZTANBn
-         5L46pmoBqfj1UdgaKhPLT2qcYGQJY3mSLI6j4qP/VPnzPdb9TW+ZlIMCKmwtujDodgr9
-         Eog5t0+cENZzGq1Za2XytlLNS5qVN0JbrcFDQDqZTf+VmIssY5TlBN7cOfmUcVo+M0o8
-         1ENQ==
+        d=gmail.com; s=20251104; t=1786093804; x=1786698604; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KIWGEh9Ufcm6qiadbjnDxFEVPk5jpDGnhvZvsj6Ps4M=;
+        b=OFCIhzPciys4VyZvraYfZzqqRz6jqve7lSEyFZ3BMR8GfAMect2Xu0Vy9wYzk6pW4/
+         u9DpSyDSxde66BwDoym/jzBY3uDC4JVnKMgAH3BC1K/JFXX1tj+wzDHGkhMvvrFryuHz
+         tS0pGWWmbCisF7wNnkpqxc7/Qd0NxPJLrjz2IzEqE4aVCEfNL8cw2vVmaWuyxVPHdgfs
+         SQq1ToOvk3ipd8um1ereH0oBdU+7hXn1v3BkDM5h3cVd2yojO+Y6C4gJdpF7J1oVi5f2
+         15Lo00iqqCrijgJnFFy2qyosqVnxbygySQjFgXiOt1sGPyKod+eyjSt7W5i6RZ8UHtGl
+         6LfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786093765; x=1786698565;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1786093804; x=1786698604;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jjSX3DSji4nKkqVPKbNZg/lqBAxi+8jNL2xKHv5aM18=;
-        b=e6VleCbqv0jN2BoQRNEjQDyHNwFhFq16QJxK3DQMwFtgUTpH/5IeN4FBvXe/3Dx9jT
-         cWTPKp0KatGDPC5HqVhWf2gsFSzE6dVQLTHld6keWenAGXiryln4hKjvy7dUw7gv1m/g
-         IinDpbNASUBOCDErTdbDTvFPbzo7gg1rouCjnRLMA3+skpBLt1EzhhmEOZaL4nRUMN4c
-         kT1KIj/D+7Tf/FB497zAJ3HSCVu9uOS0oKxiw5ZQHfugRbuadgrc6P+r2B3Lf2LBl7zJ
-         rZZ/9VCXNJ7ClBCihLTOam4+8CiKKkXIF4somi74oaqjMeSTiosQ2n5+ExcHtaKrqDcK
-         PZKw==
-X-Forwarded-Encrypted: i=1; AHgh+RrIX3+1/xpBZrQ3b4yXFqVp62pdXnukv3nKeEMI9uz7nXsEgK5y4W1oNJPMXA+oYfkTdMH0aRVp35hvEjvcJmcc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJmT7jtD6UjxPEZo2Ni29V8njURbYYbpa/AMAy+aj+E9cHopRR
-	rbuWl9wOZErTncTRxEdmOQdu3jrdHFTX1cEx+PlmRbrip4lx4ZD1DCAPEIR8aubNlv4=
-X-Gm-Gg: AR+sD11pmlClUsSnwteTHItYuvwTFXiq9bqTl1ngDAciauAqTjd9k/vCE3i5M9kBbpc
-	M8spZT5/cpfcWzrREwCtN5NdWFHBrYZb4F2JkCNpWyZXcQ01igjT+wt2GN0NDaQU5pJ2KQOCiv3
-	IdfuuPO6wk5Co+s3jcw7kHbx4blClBi2jft5ADq0lPpQuxqN90IfGL7UL/S9PBU6sx4SBLoaABW
-	h2PuAXKxp/2mU3IETiQyWnLLAYcvVgXDtMFkuJJapZ5EwDjEud48aQPCtGnsD8lf0JWszQheRJc
-	w6567FwtBtpwu0Pe+ixQkyjWHjO/KEcC5roEVkUIAOPi56/o+QEjRlUa2hOjkrRx+r6PangAGCr
-	b/+hbo49363HmNpAvCD7TaUb7WB65D1naxSvE9ogwfMNWyRqJQADT3DPc9g61nYNMlYC8ZbkO6o
-	fuJh31EkPnC3KdYmZVtBbrCM68OPJh5VmwSo8sbO5wO3jqQ7FCZ302X7AdiMSl2BQ+PaX+99zA
-X-Received: by 2002:a05:600c:4e87:b0:493:e365:ace9 with SMTP id 5b1f17b1804b1-4994e7c0356mr282890995e9.11.1786093765114;
-        Fri, 07 Aug 2026 02:09:25 -0700 (PDT)
-Received: from [192.168.0.101] ([109.77.30.205])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48002145966sm3871692f8f.5.2026.08.07.02.09.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Aug 2026 02:09:24 -0700 (PDT)
-Message-ID: <c3cbebcf-19f5-4944-9e20-04dbb442c4d9@linaro.org>
-Date: Fri, 7 Aug 2026 10:09:23 +0100
+        bh=KIWGEh9Ufcm6qiadbjnDxFEVPk5jpDGnhvZvsj6Ps4M=;
+        b=cnA2ID9SRYnCgFO6NVSpvV3e/BCzEhsSsFIEsXCxPHfcYX17vvtBdYCYGc5CVZIjsn
+         Jogl3QEeAVLANCDcS4hcBVDwYezscnVXVfKi/jvTkwFHyZlCyrAMY1eDgfq4W9kKvNXM
+         icKn6KkGFgApHnh3k2pOyhPS+EtKJyHFGFQaVW7QKdn7Wc2zQGRciLe6fPAsRrUJwVoX
+         cEBxsK76a8aWYxpMlpz6feh38Ww5QfnxPy7ykUj5wfaybMmh4JszilVenkwH0OXlOO99
+         yFT3ZK1iO3bdxLlZ687OFm/17FzX/6KEqZo88PhldPX6Ru605cUneii8uOlSBlJ6ydaA
+         zEuA==
+X-Forwarded-Encrypted: i=1; AHgh+RrVMUvNYNjZ+4tZq/gMKN2FdR1NbV6fUIf8RDcH/Mt597V/DCR1bglDVPBcWM4kglkohMYwhuPoM016YZOV8H3w@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxnRtpbvanb4O/KBIGCo5fWJ/YJ+Lar51k3y05lw7jGZcsZGPy
+	pGUxiOyoBbsAquYSzzk5c+QF26YrVlVlM2OEf73kZkrDYtnWeGOzNyWj
+X-Gm-Gg: AR+sD10vDy1LF3wSW7DXz+J6FnNvNkNyvuUJH5ujrNG2MvTnJMjhwn7VrZa5L9Vtz2c
+	3nMi8fE3aX93GeMkxh7/5V9mz9/h5V/1yNJyHutdupES6B319GUwGc6YxYP4GyKIguW2SJsINQf
+	6IK2qwSGVNBUUjLjnJrvs170LdubjqisLQs1yiRrRfzf2OAbHpMzHt3bEfo2bJ9xGgZXYrvAXiW
+	wN+vKY2R4W4MPZ2u8XKxe3+HcD9Nyg7nUsykgviex2NtIZwKnvsPy1n7pSvXJ7kCjYQFsQCNBIv
+	GnXwTKWLVSL/GdTiR/zLztc2M7WFdFqt3Wo/+vNj7ABl7FFYo4a/hNNlkPRcShgEJUaHu7RhKbd
+	qNykZsjIBXuL0+8v39BvloNVey8M1XXh+zcU8QMikjEChAraqKMWWFVnJyDMUBxJ5X8+gD93tkh
+	zi1lhHPMlNdc4QpKjWZk4q6UVEVdUWqriIhRykD46zxi7yWOoXQnaPZYqPTt+WgJF+lKrlAuRd/
+	x2ZSuy6YAT0Ayr5cloqwTQZvtMesQPhU8ewrdQe+l8dMMSLKsIMfkA/oqGfcVQTT5zh7HM6BCfq
+	28pa
+X-Received: by 2002:a05:6a00:a116:b0:846:bc60:5bf7 with SMTP id d2e1a72fcca58-84f2dfcf7f5mr24182425b3a.6.1786093804529;
+        Fri, 07 Aug 2026 02:10:04 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a552859sm715908b3a.42.2026.08.07.02.09.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Aug 2026 02:10:03 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Jiri Slaby <jirislaby@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Yenchia Chen <yenchia.chen@mediatek.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Zhiyong Tao <zhiyong.tao@mediatek.com>,
+	Sherry Sun <sherry.sun@nxp.com>,
+	Robin Gong <yibin.gong@nxp.com>,
+	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>,
+	Praveen Talari <praveen.talari@oss.qualcomm.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Zong Jiang <quic_zongjian@quicinc.com>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Aniket Randive <aniket.randive@oss.qualcomm.com>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	Anup Kulkarni <anup.kulkarni@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 1/3] serial: qcom-geni: Propagate errors from optional IRQ lookup
+Date: Fri,  7 Aug 2026 16:09:43 +0700
+Message-ID: <20260807090945.41690-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] phy: rockchip-samsung-dcphy: factor MIPI D-PHY
- power on/off into helpers
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: jason98166@gmail.com, Vinod Koul <vkoul@kernel.org>,
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260726-dcphy-rx-v1-v2-0-cf9cc34a412a@gmail.com>
- <Ji-6adk9LJbP87Y7X6SfOcAyVnGpO4dbHk0lBikX3NGAPz3dynWpvL8QjkVM3G3jEnwTrTV0p7nOqBxPRaH0MQ==@protonmail.internalid>
- <20260726-dcphy-rx-v1-v2-2-cf9cc34a412a@gmail.com>
- <43327fb2-0085-4d86-b408-8723d852c258@linaro.org> <anTgZiqnol4226Le@venus>
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-Content-Language: en-GB
-In-Reply-To: <anTgZiqnol4226Le@venus>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_020927_167238_F941D5A7 
-X-CRM114-Status: GOOD (  10.32  )
+X-CRM114-CacheID: sfid-20260807_021005_544856_F3154D57 
+X-CRM114-Status: GOOD (  13.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,44 +122,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/08/2026 20:31, Sebastian Reichel wrote:
->> This looks a bit funny.
->>
->> Do you have an int method() {} with a final path that returns no value ?
->>
->> Tooling/compilers will definitely and rightly complain about that.
-> int function() {
->      ...
-> 
->      switch(foo) {
->      case 42:
->          return 1;
->      default:
->          return 0;
->      }
->      /* cannot be reached */
-> }
-> 
-> Greetings,
-> 
-> -- Sebastian
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Hmm.
+platform_get_irq_optional() returns a positive IRQ number on success or
+a negative error code on failure. For an optional IRQ, -ENXIO indicates
+that no IRQ is available, while other errors should be propagated.
 
-The LLM tells me there is no compiler version that will generate a 
-warning for this.
+Propagate errors such as -EPROBE_DEFER and -EINVAL instead of continuing
+probe without the IRQ.
 
-Entertaining overdone too
-
-"Across compilers that will ever see this code: yes, and I can now show 
-it rather than assert it — I installed the spread. gcc 12, 13, 14 and 
-clang 18, from -Wall -Wextra -Wpedantic upward: clean. Then the decisive 
-one: clang -Weverything — every diagnostic clang possesses, a strict 
-superset of any CI configuration that can exist — on Sebastian's exact 
-function: zero output."
-
-Meh
-
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
-bod
+ drivers/tty/serial/qcom_geni_serial.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/tty/serial/qcom_geni_serial.c b/drivers/tty/serial/qcom_geni_serial.c
+index 7ead87b4eb65..240a6d67d847 100644
+--- a/drivers/tty/serial/qcom_geni_serial.c
++++ b/drivers/tty/serial/qcom_geni_serial.c
+@@ -1883,8 +1883,13 @@ static int qcom_geni_serial_probe(struct platform_device *pdev)
+ 	uport->irq = irq;
+ 	uport->has_sysrq = IS_ENABLED(CONFIG_SERIAL_QCOM_GENI_CONSOLE);
+ 
+-	if (!data->console)
++	if (!data->console) {
+ 		port->wakeup_irq = platform_get_irq_optional(pdev, 1);
++		if (port->wakeup_irq < 0 && port->wakeup_irq != -ENXIO) {
++			ret = port->wakeup_irq;
++			goto error;
++		}
++	}
+ 
+ 	if (of_property_read_bool(pdev->dev.of_node, "rx-tx-swap"))
+ 		port->rx_tx_swap = true;
+-- 
+2.43.0
+
 
