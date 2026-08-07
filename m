@@ -4,161 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E072C5AC9E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:42:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEAF7C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=J4IsFEeTpVt60tPxwz78YvmFb7VqMsV3+47tRUOw49M=; b=gqvvW6eYzljKej
-	k7/FbjTM2uU3jtlG1snNYWrrToPv6P0WHOETj6YDB3QNKcAwJYPYx23y+wABCQGraUHaB3Xt3G76s
-	GSkBvCHZPCmGb9U8bCxttPLpYwm/T+uqom07Ltvn7oBZdwapT1bYvOKQL24PTgkIRxjBTVXo3plSZ
-	39xeFgXmw/3f0hSeQ64Zs6duv3g50z7TlkMpiO/GvUR0ggnue106SDytfQooSrZmEbJ4rqF8a+J/c
-	g1s/3qeMSk39GBTFq4uufaWHXRXG3NEx21UjJWeRRqEh+c+yQP0j4AyZRQpY8I8JazREncs74T0/n
-	kkvFk9VNSny6Ucyv3mGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dEuxmQTnVjhJU7Df2L3KNy3dMjT4Vz37tWHsKItKJRY=; b=cxkDUVZRX7KWz2C23UqMWimogP
+	SeF6TXiPG+pP4jwRuaBuWkFAdpO4AwroP++4LHhQ2i1HSKo74UFN+TO5fd5Pfb4C4I0iMCl8mVDg9
+	VkiCSDRDOsmp3LrFPNZqyN636qp+PLIew+541x3hCWzK4SZBgIpzGv7RxY4ogTn05Tmh/U3pq4TNA
+	tOYjmIKNHGEmJ/riMWqoer/9GXD6R0YB2MUNvnqeKaTxJp3Mee517rKCiljdxHrWq9w8ffToAi6el
+	RjfCfmdqEi+3QsF5v0vPdU2ateUTmdUMUds2NKYZ1sttJWA1RIfQgwzsKGv6ZxEh74DcNdNgxjph5
+	DRMbHjvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsG9l-00000007S4x-2oBz;
-	Fri, 07 Aug 2026 08:42:21 +0000
+	id 1wsGFp-00000007SUX-1ikd;
+	Fri, 07 Aug 2026 08:48:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsG9k-00000007S4F-0T4o
+	id 1wsGFn-00000007SUQ-3pcC
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Aug 2026 08:42:20 +0000
+	Fri, 07 Aug 2026 08:48:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=J4IsFEeTpVt60tPxwz78YvmFb7VqMsV3+47tRUOw49M=; b=cOrnTgWTpyZM55tNqxxTKdAZW0
-	INeKONbVlvhN37h+WqS3YaELT5VTDREgaFZG6UJlsSAlYKLqTLMhnj2tx6+cTfGZ35NLqQkAGzMc/
-	6o+gk3H/upeeBW2vPWRGGAsgC7tkF3h2kPerk5e7B4zbPJlF/HgKjRyv06iemQX28r41z0SA7jSG3
-	EQjD+H8oAomBpWkRxFn8jqWY0X6jGbEEyBvmIW2uCuxP2LpuHtCUP3xL7e/3SITIE7UfNijbA7HCL
-	PjWMyNGmKxN1d11w5keP4+VzgWXY5SiMZ1In/cqMvTrGwrnKKRZRAmkoHrITnoBRWqwijAh/twHHZ
-	Qn/P1iWg==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:To:From:Subject
+	:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=dEuxmQTnVjhJU7Df2L3KNy3dMjT4Vz37tWHsKItKJRY=; b=a1FcnngQ+XMrbZXLK7IM/vXkmC
+	daJiTvOb8zr5UbnurfDJnizJWVIyvTvv+IrMcabaYYXN0GndM5JqrYqXZ9oI5b9+ZNo94NcpmmFVO
+	w67YpANVKIuo/3NIiEFP/0pvN3waqZKAdEHvjh+ILEkVvpwJ5i5yQJRjvABtnFyxFUAC6OcATxMdE
+	9vm07fkg2RUyOxwJ8UoJHL1Z4qAqWvMdp6HVqOR49Y81jbQfOpbRji6g+e52L8R1ZK4Ar8O4UjfRN
+	0XgYwmlBUTqwNpWXd0c+gp/sPMa9qdcVXOb6+xDCOJZfyyksw2aQJR5Iel8oB2R41VVb2/sL83FY3
+	Dt709OEQ==;
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsG9g-0000000CDCn-2F4i
+	id 1wsGFk-0000000CDV1-3Bey
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 08:42:19 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6777ow633176985
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 7 Aug 2026 08:42:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=J4IsFEeTpVt60tPxwz78Yv
-	mFb7VqMsV3+47tRUOw49M=; b=JMWoD4mp2izJ2WK/bfj07tP/gIkvUi7iz7F6K4
-	RrSpug1OPLUEIjFa3UppKFZybBHpxeMdik4agXgcL6BzSEuwvBROlYkTNhl1QAYy
-	XESt0pxhsEuipl2pMe7GE6iekrchbQffqSdRjSwvDt5SdGZjFaVWyZfIuJ+MAfxo
-	C4aKNQemxBE+mZRAi8PtLy6/cVjNxt07dOy6MloYowg5i269Nx8TyCfTzzNXX8Wt
-	2KY6iaVnPdZ7QykGacOibDBO16z8y0XNQQNg+GwrVqam4WPmdldx2ec0c+zGIqmT
-	p7jQqYaNigVsfE40KM+BhlZ2BTNDQz2Tq/EsRdwPneCraYPQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4fvy6jk10f-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 08:42:10 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93494174477so260748785a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 01:42:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1786092129; x=1786696929; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=J4IsFEeTpVt60tPxwz78YvmFb7VqMsV3+47tRUOw49M=;
-        b=LDHiIj1yoL2n4XsdFR3HXQoIsLAbw4MIKH2O6eC4BlIPraLxstwZ75MOlWWUPHvcih
-         bmXPVIEQMhdq8RTF0J6bkyN1cplq/LigvFkQS7zoNvuyZFLKVLAx7xF+1FDKUX0YvH6g
-         yM32ClYvhBNnZaiu3Zv3hOgSVcQHUkhqWWX76MAGtcv1V9kNnu1fzxGLWgOAgDVgiRcq
-         0IpGwPMFRiv5PYDWbT3rwtnJ2Sef3uSUcDM2o7MlA+URVIJ9CRHbmGxVjwWMlFTpEbVO
-         vAwql3y6wPX/WTxoqHWa7CL8+8nOV45z4k18kCEBBAcop37Z3yD+hPvvqp+BJmf4wLxJ
-         FqeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786092129; x=1786696929;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=J4IsFEeTpVt60tPxwz78YvmFb7VqMsV3+47tRUOw49M=;
-        b=c60trEpdVsqgndJG2dKJen1W0dXAt2VqoT6EzpU8TLfd2wchPdubXVHEGrKe7wk3C1
-         diNgO2vwREXPHb4sX8GVWMOiotdXQ0E0x0OxD6AC2hQZm1c41lho5OKT4RM5ZFJHG8WN
-         D8C2/7SHwPf8SG/MqI2qp187wN348a9MpoJtbFJnuQfEHRtdVSwP61CLts9Sqlqxm6yR
-         g9FzD+7SmfjA23XS1vSp312vzLmy9GT8lQF3lYIN4jqYchZHLit37XO3JOgPRQWiBz2z
-         zodnbnxwn9s/XREfKf08yGwgpdwo5/y0iNYTHYC5aJtgoKqKK8Lk0MUyuSWBXDdeKDbX
-         9mJQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rpjsm8yvRhsUBy4RBDtH98b4IXU7Jkg0lFbnzb3FotXUQVi3tKSAcftcBqf7MDvjRQ1cioDVoVLwftQ1+M4YFvt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzaJxey6lEWjEl6uw000KDxPDCu4kPYGhjJgxS5YRVQNCxloKmk
-	vNQxJT083dQeo157X3V5RAlx05/Tu+oZtfYO1fsXxbLB2wiu7fmGKifZzL7naIgAmrXaaJt7Gmf
-	8icMLPZV4JgRhUGXd1wrDuL2p97Sycd8U+O987JmXWIktNYs8CNBevVlINGspV9fZx5av9jHUPQ
-	lW8A==
-X-Gm-Gg: AR+sD122Rjf+AjSzXq23qeMR0U2xpI0KM/BEtn7oM9CApIavC7v3icYw5efVzjFF7Lg
-	BXbxGfRjFwiYGvpgOsSzXas+5EkWyPXtK8MNTrm4z1c97NGauhsLgC/73nOAYeEWIdXIwlCJxRK
-	ZpNw9PuMQ+UQ9F8XYPI2zk0JIqxOXG8M1tgWcoWkJF7cJYirEjLZnbyTrTlV50tocmSd45/N5gn
-	2eR13/K3pK8UbmQiGW66ziOH2xrC3fHnqUGJZDbU9xQJS2T4LHqOFSqRmGZnVry35BVuqUzomh0
-	1OaNm6i2ofGbkwiAGQEGljMZC+1PyKFMbo+tA6o/TzTJFFyRTZ4s5ZwRirvdq5msl1+GyxvGOfU
-	N5gErJz9b24QtgNw=
-X-Received: by 2002:a05:622a:1820:b0:51c:963:cafc with SMTP id d75a77b69052e-52ce61e1e39mr210588461cf.41.1786092129682;
-        Fri, 07 Aug 2026 01:42:09 -0700 (PDT)
-X-Received: by 2002:a05:622a:1820:b0:51c:963:cafc with SMTP id d75a77b69052e-52ce61e1e39mr210588091cf.41.1786092129238;
-        Fri, 07 Aug 2026 01:42:09 -0700 (PDT)
-Received: from localhost ([188.216.77.92])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995420cb4esm126033935e9.2.2026.08.07.01.42.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 01:42:08 -0700 (PDT)
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Subject: [PATCH net-next v2 0/2] Implement mqprio and ets qdisc offload in
- stmmac driver
-Date: Fri, 07 Aug 2026 10:41:38 +0200
-Message-Id: <20260807-stmmac-ets-offload-v2-0-9ac67af92cb8@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQrCMBBFryKzdkqSSjGuvId0kSYTG2gazcRSK
- b27oQdw8+Hx+e9vwJQDMdxOG2RaAoc0V1DnE9jRzE/C4CqDEqoTV3FBLjEai1QYk/dTMg6t1W1
- ntfZukFCHr0w+rIf0ATMVnGkt0NdmDFxS/h5vizz6f+JFokTfGqFlp51Swz0xN++PmWyKsakB/
- b7vPxYW4f3FAAAA
-X-Change-ID: 20260804-stmmac-ets-offload-cc936c99fdb1
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Daniel Thompson <daniel@riscstar.com>, Alex Elder <elder@riscstar.com>,
-        Davide Caratti <dcaratti@redhat.com>, netdev@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org,
-        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODA3MDA2NCBTYWx0ZWRfX8xFo3uIC96Eg
- e68LrpsZx34u9W5BGhzzdjYom6LFz+22jlxbY+Ctfdy7fbJl6IHQG5Sp7Si0VKv2gKBgcm3pJtT
- xJ1EeiXmXAyMalyfYUzhOyemg6hr4NFiaKlv08BlCjsRrXaSK/Koxh4Hf4xrS6vySruCGBGn3Ku
- 0++G29v/5e8KBLKhmjF0wdDdKPAnFWcsza+ueSlymO1Rf6dffB2g2kr22SeEmWp5J8YFnclrnOq
- x9H7EJ2sxngt7IDMAGTy+6BvGdlTliO2J/LEMjiUSKePYV1Dniq5GddxnmdhCUvhp7mG7/HmWRE
- wUNJR+N6GVi1R1JmxoR0cojjbqbpRoi8SM6djT9PyNd6NPb+l5MFoxZ9Nht6NZ0pfYkVKrgwzsu
- xmf2HxtXzhWBeegQlvopq6c457jKvZAzBfbF3yuRGk83FI0xzI2Y/eSdzZMAp9TUprfwJ+COB8+
- uQcMrrcC/88cx8njXDA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwODA3MDA2NCBTYWx0ZWRfXw9szN1wIzsKJ
- 5HduGNbH6aXRL7JkE8c6akfBvVexIBGckbwMb6TzAHow/nrCODHFVOuhbcs9n/HjUpb6LAJ0PN1
- +GscVGHD6AYPsfz857sN/zv1zi+arrQ=
-X-Proofpoint-ORIG-GUID: JkAaFqrdZtvgsKFAWVfB8hUY7NeorOdY
-X-Proofpoint-GUID: JkAaFqrdZtvgsKFAWVfB8hUY7NeorOdY
-X-Authority-Analysis: v=2.4 cv=e5Y2j6p/ c=1 sm=1 tr=0 ts=6a759a62 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=WpTaRW6qxYHRGzLzQsVYzg==:17
- a=IkcTkHD0fZMA:10 a=Sv0fKeRqtYgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=FsjTgQVixRrW3wEsH18A:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-08-07_01,2026-08-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 adultscore=0 spamscore=0 priorityscore=1501 impostorscore=0
- bulkscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608070064
+	Fri, 07 Aug 2026 08:48:34 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1786092510;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dEuxmQTnVjhJU7Df2L3KNy3dMjT4Vz37tWHsKItKJRY=;
+	b=Gv7mV7zB4H3/CeFdDP5fwigh1QVtNacIjYIxlxwC8eAqjAIa8JoG8AcEZU6ACbHkEm5BMw
+	5cUvU+Z2mVReQamxY5Zb+390VEXHW+NFu9eGPUtRmv+lBhLrzRLU9sr5pLb0aiVlGT5yd5
+	596rol5/tIgzkpV7vF6NsPa+paUbTgmWMXN/DfwFIRy+Gx0M18jcnmQZZ91aLJyLCFM2AD
+	0jyCCG0NJHZeXh5nkxquuoPETUe3s6L2QJ3ULAsNQbqdJH4xUOZd+1/eUty1KvvWxCyLae
+	3WdpzHI7R0R7+g2D79kTI/WEIqEPSQHjgJxHadmyLPVh3mL9eD8Ynl6feh0tZg==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Fri, 07 Aug 2026 10:48:00 +0200
+Message-Id: <DKIKXY8XZVPF.3RFR4ISK6Y4QX@cknow-tech.com>
+Cc: <royalnet026@gmail.com>, <alchark@flipper.net>,
+ <chaoyi.chen@rock-chips.com>, <diederik@cknow-tech.com>,
+ <dri-devel@lists.freedesktop.org>, <linux-rockchip@lists.infradead.org>,
+ <iommu@lists.linux.dev>, <linux-pm@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [RFC PATCH v6 7/9] accel/rocket: add RK3576 NPU (RKNN) support
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Jiaxing Hu" <gahing@gahingwoo.com>, <tomeu@tomeuvizoso.net>,
+ <heiko@sntech.de>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+ <conor+dt@kernel.org>, <joro@8bytes.org>, <will@kernel.org>,
+ <robin.murphy@arm.com>, <ulfh@kernel.org>, <p.zabel@pengutronix.de>,
+ <ogabbay@kernel.org>, <zhangqing@rock-chips.com>
+References: <20260806063413.350184-1-gahing@gahingwoo.com>
+ <20260806063413.350184-8-gahing@gahingwoo.com>
+In-Reply-To: <20260806063413.350184-8-gahing@gahingwoo.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_094217_239286_4B40E640 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20260807_094833_266750_3E0BE488 
+X-CRM114-Status: GOOD (  43.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,31 +94,413 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jiaxing,
 
----
-Changes in v2:
-- Implement strict priority policy in mqprio qdisc offload
-- Restore to dt configured values destroying the qdisc
-- Do not ets offload if there are any queues in avb mode.
-- Re-apply ETS configuration closing/opening the net_device.
-- Link to v1: https://lore.kernel.org/r/20260804-stmmac-ets-offload-v1-1-f3a09169d22b@oss.qualcomm.com
+On Thu Aug 6, 2026 at 8:34 AM CEST, Jiaxing Hu wrote:
+> The RK3576 has two cores of the same RKNN block and a few platform
+> differences:
+>
+>  - the CBUF (convolution buffer) has its own clock domain, so the core
+>    needs six clocks rather than four;
+>  - the BIU reset moved into the power domain, leaving one reset here;
+>  - the NPU spans two power domains, and a device with more than one is
+>    skipped by the driver-core single-domain auto-attach, so the list has
+>    to be attached explicitly;
+>  - the DPU completion interrupt is armed exactly as on RK3588 but never
+>    reaches the GIC. The completion is visible in INTERRUPT_RAW_STATUS,
 
----
-Lorenzo Bianconi (2):
-      net: stmmac: add tc-ets qdisc offload
-      net: stmmac: add tc-mqprio qdisc offload
+I don't know if it's relevant, so just a data point:
+- RK3588 has Cortex A-76 + A-55, which have an External GICv4
+- RK3576 has Cortex A-72 + A-53, which have an External GICv3
 
- drivers/net/ethernet/stmicro/stmmac/hwif.h        |   4 +
- drivers/net/ethernet/stmicro/stmmac/stmmac.h      |   8 ++
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  35 +++++---
- drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c   | 100 +++++++++++++++++++++-
- 4 files changed, 136 insertions(+), 11 deletions(-)
----
-base-commit: b0057c68df711bf6a62033c072ac61c4f9d3cbc1
-change-id: 20260804-stmmac-ets-offload-cc936c99fdb1
+>    so sample that from an hrtimer rather than wait for an interrupt that
+>    does not come. The interrupt stays armed, and if it ever does arrive
+>    the two paths agree on which submit each completion belongs to.
+>
+> All of it hangs off the soc_data added earlier, so the RK3588 path keeps
+> its existing counts and behaviour.
+>
+> Signed-off-by: Jiaxing Hu <gahing@gahingwoo.com>
+> ---
+>  drivers/accel/rocket/rocket_core.c   |  18 ++++
+>  drivers/accel/rocket/rocket_core.h   |  15 ++-
+>  drivers/accel/rocket/rocket_device.c |   4 +
+>  drivers/accel/rocket/rocket_drv.c    |  10 ++
+>  drivers/accel/rocket/rocket_job.c    | 142 ++++++++++++++++++++++++---
+>  5 files changed, 174 insertions(+), 15 deletions(-)
+>
+> diff --git a/drivers/accel/rocket/rocket_core.c b/drivers/accel/rocket/ro=
+cket_core.c
+> index b202d1581..1c865e247 100644
+> --- a/drivers/accel/rocket/rocket_core.c
+> +++ b/drivers/accel/rocket/rocket_core.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/err.h>
+>  #include <linux/iommu.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/reset.h>
+> =20
+> @@ -21,6 +22,7 @@ int rocket_core_init(struct rocket_core *core)
+>  	u32 version;
+>  	int err =3D 0;
+> =20
+> +	/* RK3576 moves the BIU reset into its power domain and takes only srst=
+_a. */
+>  	core->resets[0].id =3D "srst_a";
+>  	core->resets[1].id =3D "srst_h";
+>  	err =3D devm_reset_control_bulk_get_exclusive(&pdev->dev, core->soc->nu=
+m_resets,
+> @@ -32,6 +34,9 @@ int rocket_core_init(struct rocket_core *core)
+>  	core->clks[1].id =3D "hclk";
+>  	core->clks[2].id =3D "npu";
+>  	core->clks[3].id =3D "pclk";
+> +	/* RK3576 clocks the CBUF separately; the compute path stalls without t=
+hese. */
+> +	core->clks[4].id =3D "aclk_cbuf";
+> +	core->clks[5].id =3D "hclk_cbuf";
+>  	err =3D devm_clk_bulk_get(dev, core->soc->num_clks, core->clks);
+>  	if (err)
+>  		return dev_err_probe(dev, err, "failed to get clocks for core %d\n", c=
+ore->index);
+> @@ -69,6 +74,19 @@ int rocket_core_init(struct rocket_core *core)
+>  		return err;
+>  	}
+> =20
+> +	/*
+> +	 * RK3576 spans two power domains, and a multi-domain device is skipped
+> +	 * by the driver-core single-domain auto-attach, so attach the list her=
+e.
+> +	 */
+> +	if (core->soc->multi_power_domain) {
+> +		struct dev_pm_domain_list *pd_list;
+> +
+> +		err =3D devm_pm_domain_attach_list(dev, NULL, &pd_list);
+> +		if (err < 0)
+> +			return dev_err_probe(dev, err,
+> +					     "failed to attach NPU power domains\n");
+> +	}
+> +
+>  	pm_runtime_use_autosuspend(dev);
+> =20
+>  	/*
+> diff --git a/drivers/accel/rocket/rocket_core.h b/drivers/accel/rocket/ro=
+cket_core.h
+> index 0f424bb86..205ff070d 100644
+> --- a/drivers/accel/rocket/rocket_core.h
+> +++ b/drivers/accel/rocket/rocket_core.h
+> @@ -6,6 +6,7 @@
+> =20
+>  #include <drm/gpu_scheduler.h>
+>  #include <linux/clk.h>
+> +#include <linux/hrtimer.h>
+>  #include <linux/io.h>
+>  #include <linux/mutex_types.h>
+>  #include <linux/reset.h>
+> @@ -29,8 +30,10 @@
+> =20
+>  /* Per-SoC differences, selected by the of_device_id match data. */
+>  struct rocket_soc_data {
+> -	unsigned int num_clks;		/* clk_bulk count */
+> -	unsigned int num_resets;	/* reset_bulk count */
+> +	unsigned int num_clks;		/* clk_bulk count: 4 base, 6 with CBUF */
+> +	unsigned int num_resets;	/* reset_bulk count: 2 base, 1 on RK3576 */
+> +	bool multi_power_domain;	/* device spans more than one PM domain */
+> +	bool poll_completion;		/* completion IRQ never reaches the GIC */
+>  };
+> =20
+>  struct rocket_core {
+> @@ -59,6 +62,14 @@ struct rocket_core {
+>  		atomic_t pending;
+>  	} reset;
+> =20
+> +	struct hrtimer poll_timer;
+> +	struct work_struct poll_work;
+> +	atomic_t poll_active;
+> +	unsigned int poll_ticks;
+> +	unsigned int poll_seq;
+> +	unsigned int poll_work_seq;
+> +	bool poll_dying;
+> +
+>  	struct drm_gpu_scheduler sched;
+>  	u64 fence_context;
+>  	u64 emit_seqno;
+> diff --git a/drivers/accel/rocket/rocket_device.c b/drivers/accel/rocket/=
+rocket_device.c
+> index 46e6ee1e7..bfb00f967 100644
+> --- a/drivers/accel/rocket/rocket_device.c
+> +++ b/drivers/accel/rocket/rocket_device.c
+> @@ -31,6 +31,10 @@ struct rocket_device *rocket_device_init(struct platfo=
+rm_device *pdev,
+>  		if (of_device_is_available(core_node))
+>  			num_cores++;
+> =20
+> +	for_each_compatible_node(core_node, NULL, "rockchip,rk3576-rknn-core")
+> +		if (of_device_is_available(core_node))
+> +			num_cores++;
+> +
+>  	rdev->cores =3D devm_kcalloc(dev, num_cores, sizeof(*rdev->cores), GFP_=
+KERNEL);
+>  	if (!rdev->cores)
+>  		return ERR_PTR(-ENOMEM);
+> diff --git a/drivers/accel/rocket/rocket_drv.c b/drivers/accel/rocket/roc=
+ket_drv.c
+> index 6e7dc91c5..7f7dfa374 100644
+> --- a/drivers/accel/rocket/rocket_drv.c
+> +++ b/drivers/accel/rocket/rocket_drv.c
+> @@ -217,10 +217,20 @@ static void rocket_remove(struct platform_device *p=
+dev)
+>  static const struct rocket_soc_data rk3588_soc_data =3D {
+>  	.num_clks =3D 4,
+>  	.num_resets =3D 2,
+> +	.multi_power_domain =3D false,
+> +	.poll_completion =3D false,
+> +};
+> +
+> +static const struct rocket_soc_data rk3576_soc_data =3D {
+> +	.num_clks =3D 6,
+> +	.num_resets =3D 1,
+> +	.multi_power_domain =3D true,
+> +	.poll_completion =3D true,
+>  };
 
-Best regards,
--- 
-Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+You should not modify the rk3588_soc_data while adding rk3576_soc_data in
+the same commit. Extending the _soc_data should be done on its own.
+
+> =20
+>  static const struct of_device_id dt_match[] =3D {
+>  	{ .compatible =3D "rockchip,rk3588-rknn-core", .data =3D &rk3588_soc_da=
+ta },
+> +	{ .compatible =3D "rockchip,rk3576-rknn-core", .data =3D &rk3576_soc_da=
+ta },
+>  	{}
+>  };
+>  MODULE_DEVICE_TABLE(of, dt_match);
+> diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/roc=
+ket_job.c
+> index aa26e2977..c5f91f4c5 100644
+> --- a/drivers/accel/rocket/rocket_job.c
+> +++ b/drivers/accel/rocket/rocket_job.c
+> @@ -7,6 +7,7 @@
+>  #include <drm/drm_file.h>
+>  #include <drm/drm_gem.h>
+>  #include <drm/rocket_accel.h>
+> +#include <linux/hrtimer.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/overflow.h>
+>  #include <linux/iommu.h>
+> @@ -21,6 +22,15 @@
+> =20
+>  #define JOB_TIMEOUT_MS 500
+> =20
+> +/*
+> + * RK3576 arms the same DPU completion as RK3588, but the interrupt neve=
+r
+> + * reaches the GIC. The completion itself is visible in INTERRUPT_RAW_ST=
+ATUS,
+> + * so sample that instead. The tick cap bounds jobs that never raise it =
+at all,
+> + * which is the same open problem as the wrong inference results.
+> + */
+> +#define RK3576_POLL_INTERVAL_NS	1000000LL	/* 1 ms */
+> +#define RK3576_POLL_MAX_TICKS	8
+> +
+>  static struct rocket_job *
+>  to_rocket_job(struct drm_sched_job *sched_job)
+>  {
+> @@ -151,6 +161,14 @@ static void rocket_job_hw_submit(struct rocket_core =
+*core, struct rocket_job *jo
+> =20
+>  	rocket_pc_writel(core, OPERATION_ENABLE, PC_OPERATION_ENABLE_OP_EN(1));
+> =20
+> +	if (core->soc->poll_completion) {
+> +		core->poll_ticks =3D 0;
+> +		WRITE_ONCE(core->poll_seq, core->poll_seq + 1);
+> +		atomic_set(&core->poll_active, 1);
+> +		hrtimer_start(&core->poll_timer, ns_to_ktime(RK3576_POLL_INTERVAL_NS),
+> +			      HRTIMER_MODE_REL);
+> +	}
+> +
+>  	dev_dbg(core->dev, "Submitted regcmd at 0x%llx to core %d", task->regcm=
+d, core->index);
+>  }
+> =20
+> @@ -341,30 +359,108 @@ static struct dma_fence *rocket_job_run(struct drm=
+_sched_job *sched_job)
+>  	return ERR_PTR(ret);
+>  }
+> =20
+> +static enum hrtimer_restart rocket_poll_timer_fn(struct hrtimer *timer)
+> +{
+> +	struct rocket_core *core =3D container_of(timer, struct rocket_core, po=
+ll_timer);
+> +	u32 raw;
+> +
+> +	if (!atomic_read(&core->poll_active))
+> +		return HRTIMER_NORESTART;
+> +
+> +	WRITE_ONCE(core->poll_work_seq, READ_ONCE(core->poll_seq));
+> +
+> +	raw =3D rocket_pc_readl(core, INTERRUPT_RAW_STATUS);
+> +	if ((raw & (PC_INTERRUPT_RAW_STATUS_DPU_0 | PC_INTERRUPT_RAW_STATUS_DPU=
+_1)) ||
+> +	    ++core->poll_ticks >=3D RK3576_POLL_MAX_TICKS) {
+> +		atomic_set(&core->poll_active, 0);
+> +		schedule_work(&core->poll_work);
+> +		return HRTIMER_NORESTART;
+> +	}
+> +
+> +	hrtimer_forward_now(timer, ns_to_ktime(RK3576_POLL_INTERVAL_NS));
+> +	return HRTIMER_RESTART;
+> +}
+> +
+> +/* Start the job's next task, or retire it. Caller holds job_lock. */
+> +static void rocket_job_next_locked(struct rocket_core *core)
+> +{
+> +	lockdep_assert_held(&core->job_lock);
+> +
+> +	if (!core->in_flight_job)
+> +		return;
+> +
+> +	if (core->in_flight_job->next_task_idx < core->in_flight_job->task_coun=
+t) {
+> +		rocket_job_hw_submit(core, core->in_flight_job);
+> +		return;
+> +	}
+> +
+> +	iommu_detach_group(NULL, iommu_group_get(core->dev));
+> +	dma_fence_signal(core->in_flight_job->done_fence);
+> +	pm_runtime_put_autosuspend(core->dev);
+> +	core->in_flight_job =3D NULL;
+> +}
+> +
+> +static void rocket_poll_work_fn(struct work_struct *work)
+> +{
+> +	struct rocket_core *core =3D container_of(work, struct rocket_core, pol=
+l_work);
+> +
+> +	pm_runtime_mark_last_busy(core->dev);
+> +
+> +	scoped_guard(mutex, &core->job_lock) {
+> +		/*
+> +		 * The interrupt can land while this work is queued, retire the job
+> +		 * and start the next task. poll_seq only advances under job_lock,
+> +		 * in hw_submit, so comparing it here says whether that happened.
+> +		 */
+> +		if (READ_ONCE(core->poll_dying) ||
+> +		    READ_ONCE(core->poll_work_seq) !=3D core->poll_seq)
+> +			return;
+> +
+> +		/*
+> +		 * Unlike an interrupt there is no hardware condition to ack here,
+> +		 * so with no job in flight there is nothing to write, and the
+> +		 * device may have autosuspended underneath this work already.
+> +		 */
+> +		if (!core->in_flight_job)
+> +			return;
+> +
+> +		rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
+> +		rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+> +
+> +		rocket_job_next_locked(core);
+> +	}
+> +}
+> +
+>  static void rocket_job_handle_irq(struct rocket_core *core)
+>  {
+> +	unsigned int seq =3D 0;
+> +
+> +	if (core->soc->poll_completion) {
+> +		seq =3D READ_ONCE(core->poll_seq);
+> +		atomic_set(&core->poll_active, 0);
+> +		hrtimer_cancel(&core->poll_timer);
+> +	}
+> +
+>  	pm_runtime_mark_last_busy(core->dev);
+> =20
+>  	scoped_guard(mutex, &core->job_lock) {
+>  		/*
+> -		 * Stopping the block belongs under the lock. hw_submit() writes
+> -		 * OPERATION_ENABLE too, and outside the lock this zero can land
+> -		 * after that one and kill a task that has only just started.
+> +		 * Stopping the block belongs under the lock. A submit from the
+> +		 * other completion path writes OPERATION_ENABLE too, and outside
+> +		 * the lock this zero can land after that one and kill a task that
+> +		 * has only just started.
+>  		 */
+
+You're modifying a comment which you added in patch 6/9 ...
+
+>  		rocket_pc_writel(core, OPERATION_ENABLE, 0x0);
+>  		rocket_pc_writel(core, INTERRUPT_CLEAR, 0x1ffff);
+> =20
+> -		if (core->in_flight_job) {
+> -			if (core->in_flight_job->next_task_idx < core->in_flight_job->task_co=
+unt) {
+> -				rocket_job_hw_submit(core, core->in_flight_job);
+> -				return;
+> -			}
+> +		/*
+> +		 * Where both completion paths are live, one whose submit the other
+> +		 * has already retired must not go on to start a further task.
+> +		 */
+> +		if (core->soc->poll_completion && seq !=3D core->poll_seq)
+> +			return;
+> =20
+> -			iommu_detach_group(NULL, iommu_group_get(core->dev));
+> -			dma_fence_signal(core->in_flight_job->done_fence);
+> -			pm_runtime_put_autosuspend(core->dev);
+> -			core->in_flight_job =3D NULL;
+> -		}
+> +		rocket_job_next_locked(core);
+
+... while also changing its implementation ... in a commit which should
+'just' add support for RK3576's NPU. Don't combine separate things in one
+commit which do not belong together (in a single commit).
+
+Cheers,
+  Diederik
+
+>  	}
+>  }
+> =20
+> @@ -466,6 +562,11 @@ int rocket_job_init(struct rocket_core *core)
+>  	int ret;
+> =20
+>  	INIT_WORK(&core->reset.work, rocket_reset_work);
+> +	INIT_WORK(&core->poll_work, rocket_poll_work_fn);
+> +	hrtimer_setup(&core->poll_timer, rocket_poll_timer_fn, CLOCK_MONOTONIC,
+> +		      HRTIMER_MODE_REL);
+> +	atomic_set(&core->poll_active, 0);
+> +	core->poll_dying =3D false;
+>  	spin_lock_init(&core->fence_lock);
+>  	mutex_init(&core->job_lock);
+> =20
+> @@ -507,8 +608,23 @@ int rocket_job_init(struct rocket_core *core)
+> =20
+>  void rocket_job_fini(struct rocket_core *core)
+>  {
+> +	/*
+> +	 * Stop the poll from starting hardware work before tearing anything
+> +	 * down: it submits the next task, and drm_sched_fini() does not wait
+> +	 * for work already queued. Cancel after the scheduler is gone, so a
+> +	 * job running now cannot re-arm the timer behind the cancel.
+> +	 */
+> +	if (core->soc->poll_completion)
+> +		WRITE_ONCE(core->poll_dying, true);
+> +
+>  	drm_sched_fini(&core->sched);
+> =20
+> +	if (core->soc->poll_completion) {
+> +		atomic_set(&core->poll_active, 0);
+> +		hrtimer_cancel(&core->poll_timer);
+> +		cancel_work_sync(&core->poll_work);
+> +	}
+> +
+>  	cancel_work_sync(&core->reset.work);
+>  	destroy_workqueue(core->reset.wq);
+>  }
+
 
 
