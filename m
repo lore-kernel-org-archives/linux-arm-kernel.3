@@ -4,111 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5141DC2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ACE0C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 17:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hq8X/4Xg0Ta1JBUv3CIgDq4vQ920HdWsgV3I1NkcJTQ=; b=GW630TxXFcggZRHrq3kzBCfguu
-	nO1FGIEmIUr8BQrt2k4YYyqRRWSq2x8gnGlfy2J6bqle0mhYfnZBoywVSRW5VpL/rH6ENFhl6MlP5
-	ooANHzvcqJLxXPY9BfQ+kDBihPqR0JMk1KBWszv53Wa22juepUzoWqJYN9SZK+Tu0T+Ymh8FwBNZ0
-	sIAYbln4sAnohjqATqFkm8XUQ84Ci2b3oExkuP4UU7PvVlvrZfAjMPYrGTs+U/lIukdt3CpbNazT7
-	htr+0AULgtYmCIkHg+Alk8Ut6sXxghemIHTg5GJffvvnoPj1lEX4aipGnFaukU1jhKJd3ZIJUZgo/
-	TPkskWKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZKVLhd1nZ5h4b188dd5r7DRqSKQCAYkPGXkJXHWpxNw=; b=cik3UWWydq2iYRdbucnE2auGid
+	q6z62Ka9eDrIiFTrmefT8x/fNIXsgLv6ZJaubsLK+88AGWPgrG5A/urZBoC8XQdbfGWvdNoyJ76GM
+	NMj+pmYuS4DsNWI9hGyvKG1YRbUdUfFqCQdUKZGtB9KFNv1Vd9u9FX15/dQo6miwkhSGfM4pp/JWa
+	G2vDtzb9j39JzbZNuK3hqpTLz61S/pY9i3eMdX/NQDOpOUTNtLc08oOeyY4oXXA4Xrya90nW1NcM7
+	FN6BytwGJHstbkKPMC+Wd7awlEQOJXAaR356t16XR7MJ6nEOwoXzOj8kAUWR1GciDdTq9QIeYJipq
+	YmPwcKpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNsz-00000008UIN-3a36;
-	Fri, 07 Aug 2026 16:57:33 +0000
-Received: from mail-vs1-xe30.google.com ([2607:f8b0:4864:20::e30])
+	id 1wsNwj-00000008UbP-2Cdr;
+	Fri, 07 Aug 2026 17:01:25 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNsx-00000008UHY-2tn5
+	id 1wsNwg-00000008Uam-2HRd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 16:57:32 +0000
-Received: by mail-vs1-xe30.google.com with SMTP id ada2fe7eead31-74a9ac9cda6so1856495137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 09:57:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786121850; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jZZ/6ILgfb/7emyUxtJOAeXQtIx/F/jhMY3RLtDC6udixUi/gC8+WpjuraSXI9vE2j
-         0K55C5/MEMnSwhPTsT4CyvaH0QacIx650jB1Zf7eaellxT0OCX30oAkMOmwrG+ExCFuV
-         0RIPVrvwMlOsxu61l9KQCokWCDJ3bbjKjqAxh7JqZQx9/LdvRdL57JduY5rqlWEDLSpY
-         l1dAAL0PCuWfHt63pVyJr6UvFArIJWPDTHH8KihioJMXHECpNMysgF5MClfltSMx8Nf9
-         dqWbGbtAVLQbzV9cZlAUWUR7uul853IOrmNnzpZvc+eaLvJV9xMATHr3fpOqhXAhg3Sp
-         wYvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Hq8X/4Xg0Ta1JBUv3CIgDq4vQ920HdWsgV3I1NkcJTQ=;
-        fh=en4XyQth78xkyB5bgO5sLRaLJ3e/JxQliyxBW7/84gM=;
-        b=mnW/ffmNRImDzCz+db95aV+/VnEI/pZdak9XqxrEni5R4UE8yicQQBTaPnn6NOe9fI
-         LW9JJSJrXl5zN/YBAidEiUpeiEFfmM59XfjBavSTUG0u6d9B6ME86jdvVAcai/HE2wvk
-         aL4g3PRxSoC4/OplJaf9+hg8cOL9rx8oX2dBl2XaxTrqy6cR1uv5kLO5evPV6n4F0R1c
-         LY8u9auYakZLnD1dZqaU9gKbG9qcnPUmCNt8k1/N42f49XgJo5/nessMZdHSbytw4bhg
-         HF/0RN/VKQqMkghdV9flD8cobh65jMrzpWyhBF01xqaWtpPN84G6yDV7xjY/Z5nTcU2A
-         ydNQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786121850; x=1786726650; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Hq8X/4Xg0Ta1JBUv3CIgDq4vQ920HdWsgV3I1NkcJTQ=;
-        b=bZ3mX8aCF1SXGPk/anz7izYzDp0wJaGUgSr8+xzcWyQwdFx4s/DNkVdQPQ8Hx7oxrv
-         twWNitNlcRDTGo6vaR5wxrPpvN4vUVnunOc51ml9zwSPZ0PLVI6sTBrsyRrwlArT6qq7
-         QT6cb9RqK8gE0kLm8pNyjFJCIWNbES5i6rCQ01cocnc+iCq406NqfpM/d+vjGh8OYQym
-         h0hNcNkU9z3vczPPI6kuzlrEY4yKeqelIFLslGU7nzYiLGb9X7cNpuW40SycUaC90qgM
-         lVFvy1bkNshUsLtNUyyRjQhBYOaARUGIMN7qe2xXSBJcxobHkN+aYtSvM9Mi4P5tS+b6
-         PKEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786121850; x=1786726650;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Hq8X/4Xg0Ta1JBUv3CIgDq4vQ920HdWsgV3I1NkcJTQ=;
-        b=cycRfWXwGMYbe8kG0ZwWUVskgjq5S+DjvyBzQgQ+lW1/bnaMnqu7cojjnREJ/KlNX8
-         bX4OaXQseEx2CDv2eFUJx8bqeW0cYhFyG52oYsaliNwxWE5I4XBMh2zvsQ9j9bNJFi4b
-         iOPDXBYCaOE0sFxX2byl5L4PgK09QmVK3cNf83/97EbJ5BsiyWxEFds+lQZ5kd5m8Bzi
-         rN7HsXm+1i/mfocbUAnGfCga7IbeXvsrKA4HzvuLUMGtjMknJMk1Y18Ey6GwvGXWXgSO
-         6uVU+KI0mS7S63xpt18TGFj4ETFhmI6QTn8BdxYovrLaVtcLemsmJFs4chSQMps+yap8
-         qZdg==
-X-Forwarded-Encrypted: i=1; AHgh+Roo5Z64VrZ7ExuGSs6EYh2BRGDU/tPpC79Mnh1DZyp8Sd8Pkq6yRc6wAP9aSx6n63yUd3E6+yOLNiHt3fNJE8J8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVQHdEHx+076F3sSQcNGqxv4IQULspfV79aRkQRrhMLaZCF1u2
-	TrzfoUFwiUeGfkHmZKZEP9u+dYbXJJuCFsxh+HehW5qDDZJji04qyHSd074tjavVgP/Qv3Jjr6U
-	S9fHvXAbt3ZYhsQpmAs+gdddU/aZ+K5M=
-X-Gm-Gg: AR+sD13tM7zfGaIFCTgqhNmV2O+Q/Ty3P9NdTnOMhwy3hWTBPOa5lB7r1Dp5LSo3qBj
-	TJsVaKbvbTDEyVgRIYTGiyuqfOItF9bK/lHkW+GFJOVsTYKnM/ylk7ZvX/MDyngpubW5yCv9F5v
-	7KfxnBpONFdgWIonoTXjNSiSeG3aTqXO7ufpqe0uivHlp710q24z0bqE7QZsxaHIXu5zbTm6EGr
-	nK+r6oI5XtC804yginvNRZjwi6cBpTepLuIddj64dQ93BUDAVWr3iJLqdpHyHSmJSPv+icyjYv4
-	a+X1hA4Uz7SaxGinVrGs+hDh9WV+cGu8HH2YsMvNEuVAuLD79G0D5YoXFKmeNZZL5YswrCWRqof
-	NjwDbxyL8SgpHu7MqPaX9Y1NdN5wWo9n2J1LtWw0pB0q6IRFu0gjKgsjHlfs/p0teVjEbaWu2V4
-	SQs1IxYIC0Ym5sU/LxrgTNjjLx2ppu6YT9rqAZ
-X-Received: by 2002:a05:6102:390f:b0:744:d1a6:b11d with SMTP id
- ada2fe7eead31-764e4f2985dmr717652137.3.1786121850298; Fri, 07 Aug 2026
- 09:57:30 -0700 (PDT)
+	Fri, 07 Aug 2026 17:01:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VUumVAv/8f0bCx4HBs8PKdQj1WnFBkjLUZfU3Rv5jHwSmUHhBLcjViMhd49uGBjQLbBM+Je1j8snAdC/GYDqH2DK2KzCeFbcpBe83pK4ZrnwUOQvUUqljl460w1NaVF062PKRVqTCi//PHVJPYBVm9TBMGXe8F1tK5DjLC7//lzkWhX1ip+s4Gq5h+330Vre4qn5ZBBQAYON0tKC9iD9buRSxouknOL/yQi0QJAKvO8Tnfese4ns1JhSm5fwCApPdtwKol6OxNNqC/OX+5VWf2mxtNtGX1kobu5B8JvSb+P9V4VqadzWDk8FRiAPGkNxAH0kKzlRYx+4VM1SB5KcbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZKVLhd1nZ5h4b188dd5r7DRqSKQCAYkPGXkJXHWpxNw=;
+ b=cgsLXWalWVYCBj71HcluYgAFV5o8exMPgznZdcTXBZSwaMA0zv5MdpY9BxIPYsMusj5XPEyehSgtpSH3+7vOYMlvSQvT3MGkSUFQKrKyzQS5MdLDMh4MNQKK+wfW5AFBuaSV2j9zmiA7GhUh7v8rCGs3Gt2A2P1K/PJTZF6WKUW4ZbOeoIrxsResoZqEm6Xp9VX5lPEeM6q0HQ4UEemwFGVNLPBfaR92oO/TN+fioiRdTk0if8ceAQS8DDVIbDCcJ3FUjko6tGi6bkpmOwrTYTjVzkKqzULLOVi/Tnlobu6AL0wP9VD56moHxuojIbvh1um+GsTRiMIX6Pder/WykQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZKVLhd1nZ5h4b188dd5r7DRqSKQCAYkPGXkJXHWpxNw=;
+ b=n3KS3WFY4Pd+aS3n2h3p6gAmSZD0swLSMs1vBJcYHevSfHBIL6kot9eAAEKn4euM/ps/m9/8vMC86n449ZkzoJyisjDxBJ5mZIpZ7KL/Scw6jBWvRoh/iJZqleI/S+TkTnp6g03f9mytP+kJc8KWfDoBLSWytLfLb+m2cc9Dqe8LA0i3YQ4xxu8YGKg8a85WRcR6Up5zwBsOS/cArvUBzPet+IRm0/Q8aHBxUnVIh4KhhX9aCSH4llKsS8hkU96Q/gEGYXLyVu22qK0DOxjV6pfnLq+5J2FPP3TkAd+tkz1A3nAZCXEEG3ZcDGfPs6kmyDWf5JYAn5GfgAY7x/gEMg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SJ2PR12MB8944.namprd12.prod.outlook.com (2603:10b6:a03:53e::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Fri, 7 Aug
+ 2026 17:01:06 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0292.022; Fri, 7 Aug 2026
+ 17:01:06 +0000
+Date: Fri, 7 Aug 2026 14:01:04 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Mostafa Saleh <smostafa@google.com>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Michael Kelley <mhklinux@outlook.com>
+Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
+ reference
+Message-ID: <20260807170104.GB158689@nvidia.com>
+References: <ami_mpd_1pF4Tmdu@google.com>
+ <yq5a5x1ygo7z.fsf@kernel.org>
+ <amnRB98ZZIysHuM3@google.com>
+ <yq5acxw6dl1d.fsf@kernel.org>
+ <20260804142032.GC27883@nvidia.com>
+ <anL9-OrDGqYQAWNV@google.com>
+ <20260805123023.GO27883@nvidia.com>
+ <0ce2249d-3a64-4889-b455-0e8fddcc7282@arm.com>
+ <20260807115500.GA158689@nvidia.com>
+ <aefab683-598c-4cca-b5a0-c9081ccf9e1c@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aefab683-598c-4cca-b5a0-c9081ccf9e1c@arm.com>
+X-ClientProxiedBy: BN9PR03CA0308.namprd03.prod.outlook.com
+ (2603:10b6:408:112::13) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-References: <20260717-submit-sunxi-nand-h6-h616-timings-v2-0-225515107640@gmail.com>
- <87ik5mav6x.fsf@bootlin.com>
-In-Reply-To: <87ik5mav6x.fsf@bootlin.com>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 7 Aug 2026 10:57:19 -0600
-X-Gm-Features: AUfX_myfeWEyYh7Y2JNZ3tcJ-zpan6IsdJA8dIqxxvbXvmFsYYO1pP5EnmrWVAg
-Message-ID: <CADvTj4pHOpKfNCoVcfDmtCuHh2F0H8e+_AhCwcSKG8xosLpbzA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] mtd: rawnand: sunxi: fix H6/H616 controller timings
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Richard Genoud <richard.genoud@bootlin.com>, linux-mtd@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SJ2PR12MB8944:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3197774e-aa91-4af5-08dd-08def4a5782e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|7416014|18002099003|11063799006|4143699003|22082099003|6133799003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: TmTctxJNrEvbadwM6ehviUBJp/fprcKz4yw2emMklxX0Ap7wVavsomoXwkIDxa7GeDSMgmPVY38T3c50nG5hb7dl1LomTvlapYwoXzlFkgIyRnzpRdQY7A67NEsZ/qafoybQZE1xUru9ZFzUNUAUj/AX7m1C2mdvrPa1o+7vqpf2ce/7LQCMTaRG40rL1JojObwOWhyI+9qwXo1ITS9RjcU7khWHT8/zMOzM1ZnuIdbr6U2zVc3wNOPGqKy8EgoJS0EvuLOGC1M9xmjygHiZ7DFO6raCgGVmSC97n5F7IfRImWUaOFRoiU9TlRkGiTZ+gtzswoBKnI1aX6rwAZ5efv4WHA5AAEI+QzNjs+5rw/xhhp/+r6IlDrXAxLoYGRReGSS2UN2PcqzBYu498Hih2+TG6crt51Uj59CVNjX+iaX0jEJF/qKQ34GetUuMHhqfnkZ66XckpZ5meJSyl7fgVcJltipHf7DeEEiuPuSpgFCjn9w9Xx+LPcl5+/7ym18KXbydndhIMmrJS8N+PThjViWSJzRbNOJU5H2firAXUNal6HzUGYe/EvQle1BwOaJLYqYy2QLhqSH8ptQ4TzgA1c+y+P9+ares7UGD7bUEZjW6+arT44zkxPfrlL80v/0U9Qr85yRF3WE9ff9+xnQqMEUpG/OtXBITO53z609KBIc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(7416014)(18002099003)(11063799006)(4143699003)(22082099003)(6133799003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fxVGUP1tf9Xo8j0QmRgguvkRJ8zU6l6TNIdQLIkIvii0vssXiWiIOWN8AVUd?=
+ =?us-ascii?Q?zg8f/QqMcuNCiwdfmGOAWNX5FHzuuqYZ66oNGkzsbSLxNbRLERucAkfzOVcA?=
+ =?us-ascii?Q?gwuc1I9okwGW50MtsWeCyrjIkbGpqrdXJ8eLzmDKWs0KMdyxWaWCLEixQk8Q?=
+ =?us-ascii?Q?tLINT3rSZpGze3h5BxExlJ6jr2sdsCKeLPeAgXG2CmSgiJQM2m5TunMloQVM?=
+ =?us-ascii?Q?UhfYl4tDW3b7YZhC6pYZMV5I5Z4Wze4yOenDZD9mWUvk6k0ChyJPaBd+XChO?=
+ =?us-ascii?Q?07ztJM1DM5TeP36ZCYwaxIeHmF6DMQOkHDATJZhhyWkEMVFk8str7qKv4PjF?=
+ =?us-ascii?Q?i2LB+Wfxwb26VtR+7k9hIr5wkHtRFAeuJCobIwaxMwbgrOfJBGeSgn3YaLP4?=
+ =?us-ascii?Q?HHkdrBBEfzgxL4JTBIKY87ql4U7gh/A0IZf3r1MPJAc2yph45y9tMDydixnt?=
+ =?us-ascii?Q?u1a7mc9kLiSwtkrYY1Lg+CMNVDJkQkVTEUFGdMbkVGi2ttFiJUJCZ4fjvWhe?=
+ =?us-ascii?Q?kAklRsLEu+HD68Wzg3T3oN647/q0Z/ptW+IWprXR+rKMb2Ue05zepHFw/sVG?=
+ =?us-ascii?Q?9a+gAmmZDgE50yJ1a9colMi5KJH3SFNPfAJwu4cdznTg+QzVAFGxwsuYGgkn?=
+ =?us-ascii?Q?G2gG2rTZRTQib0K5cI3IaPb7rAHlGxp6WhkQVdov0SIb/e2eu+FSPg/rozJR?=
+ =?us-ascii?Q?toq0350DAdEX15v2JkRfo38g0yYRq9G//tJo9+ivoRMm7RxDMCGK5AqNtzGz?=
+ =?us-ascii?Q?ZaLyLuKqWGqAmXNnPpSUhLe0ZxMmF1rtcTz5VmpxOw0hkNdpsq880nW6ZURl?=
+ =?us-ascii?Q?xL+KL8NO7oiiv78DAkgtr8bi45Oy9RZcEgl+3uVrzRMklB3XNjwbw0DDIUUw?=
+ =?us-ascii?Q?ac4bTUbnqbLhDMaTGVinFqHXidSQJx8C4hwBfLU+SDY1PRVOaWi3jpLUoUdw?=
+ =?us-ascii?Q?QXJVKXdAZ8/5s6F5nQMI7o9JKl53J22AxCZmZXgfRKNzIScaMTQdZn44wmLY?=
+ =?us-ascii?Q?kPEAjqtY1dVVctnd6Iu/fnG/WXRTwcwncBOChCvh/3PC8cKrGyuOCsS+fQw+?=
+ =?us-ascii?Q?sxu36v101WcCn240A9zf1i53edVjw1QDzcnsvovVczTNy573GdhTxjnpZt83?=
+ =?us-ascii?Q?CIoYb/nO1GQXStJjLZFZ3WQ6wOUnoCRJQw+Kg1Lxe0gvDMd8tLucLP5VMDCU?=
+ =?us-ascii?Q?lejeRYbAl+opHg/fd8VylK9y7gzdM8NJNnkJVQDBLetwbVU7GQTMY8BvbkJ/?=
+ =?us-ascii?Q?fGenVHbCer/vsCAtfTs3beY6tIhxz0oWnyrMzgV7uk9W0lufSYqXhabpGQLl?=
+ =?us-ascii?Q?yLfpdf4r0fXhiprx4dvUxRnupyhZIviEA3xorAvwuTLbHxbjIUat6HmCmrlv?=
+ =?us-ascii?Q?Bas/IxgCLIQ95u7qvQ+zaydSB1OWGAgW9tUxKMdJYXWp+6MmpQTX/EzejFqf?=
+ =?us-ascii?Q?Q/2HsUpw3dqgUPAC01wO6lL3woRFTN59nBVqmeG3MRao9sJIyJLxlH+2SD2p?=
+ =?us-ascii?Q?W0JqKaC3jlutcE1Yp/vVzoMqNAoVmia1s7u6k+TVyacamJHFOAqlhO+agu0p?=
+ =?us-ascii?Q?vgOp/mbJpAAA34Rvu7edVK2Xz3+a9ul2TtOrJ41+eA97+hUhhyLeq/avuB6X?=
+ =?us-ascii?Q?FDtkfa9jwKFQRgv9VQHgeoWr/GmZRdVdhbVY6ZcCWnNHXE9vGtUWtClj05ie?=
+ =?us-ascii?Q?23w5/XZtDC8YsRd53/qoFnCYZ8BqK9jK0wZCbOMsVxAs1kMXOJn8lW4pShrH?=
+ =?us-ascii?Q?IKBuE4+22A=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3197774e-aa91-4af5-08dd-08def4a5782e
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 17:01:06.0674
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jyBUpASbiSJd5Hs5s+e0CZXGjcECJ2aiyh6J6cRnwCWS1TVyi95Yr3eB2zAypUxS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8944
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_095731_737510_7E78BFD9 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20260807_100122_585172_BE4DA15D 
+X-CRM114-Status: GOOD (  32.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,38 +168,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 7, 2026 at 7:58=E2=80=AFAM Miquel Raynal <miquel.raynal@bootlin=
-.com> wrote:
->
-> Hi James,
->
-> On 17/07/2026 at 11:33:56 -06, James Hilliard <james.hilliard1@gmail.com>=
- wrote:
->
-> > The sunxi NAND timing solver currently applies the original A10 NDFC
-> > timing characteristics to every supported controller. The H6/H616 NDFC
-> > uses two internal cycles for several setup and hold intervals and has
-> > different delay-field encodings, so the resulting clock and timing
-> > register values do not match the hardware.
-> >
-> > Prepare for per-controller timing data in two behaviorally focused
-> > patches, then add and select the H616 characteristics in the final fix.
-> > Legacy controllers retain their existing setup-cycle behavior and delay
-> > encodings.
-> >
-> > Tested on an H616 board with Toshiba TC58NVG1S3H NAND.
-> >
-> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
->
-> There are a number of checkpatch issue. Can you please fix them? (except
-> the camelcase one which is fine with timing names coming from the ONFI
-> spec).
+On Fri, Aug 07, 2026 at 04:54:35PM +0100, Robin Murphy wrote:
 
-Should be fixed in my v3:
-https://lore.kernel.org/all/20260807-submit-sunxi-nand-h6-h616-timings-v3-0=
--91287b543f41@gmail.com/
+> > We will need to teach GIC to understand if/when the device uses a T=0
+> > translation for MSI and then use a shared physical address for the ITS
+> > IOVA instead of getting an IOVA translation from the iommu. The
+> > hypervisor will setup the S2 for the T=0 SMMU translation to be
+> > identity with all shared memory and the ITS page will be shared
+> > memory.
+> 
+> IIRC, for MSI or unlocked MSI-X it should look and work pretty much exactly
+> like regular VFIO, as everything can be mediated by the VMM and host kernel.
 
->
-> Thanks,
-> Miqu=C3=A8l
+Right
+
+> > Presumably in future we will have HW to handle a T=1 ITS page access
+> > and some way to negotiate with devices if they should use a T=1 path
+> > for MSI or not.
+> 
+> Locked MSI-X would be a pain right now as we cannot intercept the Realm
+> programming the MSI-X cap with a doorbell address and EventID value decided
+> by the ITS driver in the Realm guest, so we'd somehow have to sniff those
+> values out of the VMM's vITS emulation then try to configure an equivalent
+> NS LPI to match, or have a hook in the ITS driver that knows when it's in a
+> Realm and do some RSI handshake to proxy-allocate NS MSI vectors on the host
+> and pass the real values back into the Realm.
+
+Yes, we'd need to move to a model where the guest programs MSI
+directly and we learn the configuration required to emulate through
+the vGIC, not through MSI trapping. This broadly is the "righter" way
+to do interrupt routing but it will be hard to get there, if ever.
+
+> I'm still hoping we (both CCA and possibly Linux in general) can get away
+> with just refusing to support Locked MSI-X without GICv5, as once we have
+> proper Realm MSIs with direct injection then all the problems go away (or at
+> least become much smaller RMM problems that remain invisible to the host -
+> the one "big" problem being that the RMM has to begrudgingly implement an
+> entire GIC driver since it now has its own whole GIC to look after).
+
+Yeah, I'm fine with this, if GICv5 can allow direct MSI-X programming
+then great.
+
+Devices are going to need some way to negotiate if MSI-X is locked, and
+if MSI is T=1 or not, I don't know if PCI has something for that
+already..
+
+> > There won't be a vSMMU attached to the T=0 instance at all, it is just
+> > wired to be bypass.
+> 
+> If that's all anyone will ever want then it does allow some degree of
+> hackery like mirroring the whole of Realm S2 in an equivalent NS IOMMUFD
+> domain, then forcing IOMMU_DOMAIN_IDENTITY for unaccepted devices within the
+> guest. However I was under the impression that folks want to make meaningful
+> use of devices while still in their untrusted pre-acceptance state (but
+> maybe still switch them later), so it seems almost inevitable that
+> eventually someone says "actually, we would like S1 vSMMU for untrusted
+> scatter-gather as well..."
+
+So far almost all VMs today don't use vIOMMU at all, the ones that do
+are using it for things like PASID (or interrupt remapping on x86),
+not for translation. The cases where a vIOMMU is deliberately needed
+for translation seem to be mostly around SVA and PASID which isn't
+going to meaningfully work out of the box on a T=0 device.
+
+My prediction is this is fine. 
+
+At least it is sufficiently hard to make two parallel vSMMU's
+controlling the same PCI device, and to make the ITS routing also
+somehow work right, that it isn't worth doing at this point when there
+is so much other more basic stuff to get done.
+
+I imagine the ACPI might someday gain a description of the T=0 vSMMU
+in a way that is invisible to todays Linux and a future Linux could
+understand how to juggle the two iommu drivers for the same struct
+device, somehow.
+
+Regards,
+Jason
 
