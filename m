@@ -4,112 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6612BC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 14:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66D27C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 14:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W6m06+tQ3UmcgbeeK1HTCPK9otwtvhbVRYnkmzJl8qA=; b=0K9f6+kQRSqlTmXEJHvQxnB6vF
-	ilvB3yJkDJecXU/ynUmoGYyfgHv0BtCf+enwNtD8a7R8oTvKzT4fmrfoGYYQEJJn7Pr1ekIzbgbiU
-	klLeY+OcSKHqEGLeGzOQZvKjXqsEReoj4fAGWq4YCCJnFsuSHuWUDSoSjQOorgWthXDCV6hYAwQvW
-	at9OzrloEmjTn+rsRLId9WVoGb7HL10D9q8CkxH6//dUEW33A2TgKvGREl265/JgEF/JpQ3Ogj8pt
-	pv5d+cr2VXNbIWH/xHnz+A3dUnbccz5yWr5mf2durL6mIIjeaEh6sriwrjLSKgdiqZqAerm9UTl2v
-	1UeujlMg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=frceyuXjQVg9+KzxjNPGE/aivpHEE5+5R2qNmt3FWtQ=; b=FWSwBXZbfZD3TB
+	K0lFAguGTStwJE+3DdD44LBwjqLt7Ruux87xz52v/mY9kGCcPomKXYSIuB0l+4U6QkeO8XChYsYaz
+	KdIGgLFXUbpfRsTmg9eYwF2ZUQbT+WRMDV7cpt9W8hq6COwn6qiCYCpEm/PtK2CWIpSli8k3N2KeG
+	RTVlCF1DnhXqBkqeFlj/X0469eAwuC0mjk0O12vhDhX72GmL6aUUe9Fi2iK79WMQ6cUFWuh+MYHNF
+	3GaE3ZHEjuhob1fZ1Lo5xoX7TQmBke6K90+o5Y90PFTI+9rw3SqqXbTUsrtbdkGGZiIT1T4Kn7D0m
+	dT6+h4wEbMrc6GTtIBFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsLhq-00000008HUz-1xUZ;
-	Fri, 07 Aug 2026 14:37:54 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsLho-00000008HUS-1dri
+	id 1wsLtd-00000008IJI-3pNn;
+	Fri, 07 Aug 2026 14:50:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wsLtb-00000008IIx-3OKx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 14:37:53 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-698ae09e356so4052779a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 07:37:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786113470; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ndOAaw3AYsi3Zjzzwo4ziK7Xao8azh/It1id0GNfkRb4f4F5jcCR+bjJYWuVuIVG5M
-         Bxha+msUVwzRW02jJrsOyBwyUkmXibvdR4v33f1ryD05Ve4IyT2QbOYdLDLvwGvpy4wY
-         noYqtEm5xVa5i+HdFeZqQr1YXLptrKYOujCMu3e6dSgPglJ8pBv8gL9FBjq3fsezmuWC
-         dn4gC5uZQhNpPErgBsKX2bhBCjBvjEqiQOpGogPNoxysXKS0omPp6qTWodJI7Ky/88oR
-         W7cc48Ac6dgxAcHTk5JyoXLr0DonOE1m/E4F92mhmJ+0Wxb5OBk1idLVOEVziWQvDl+k
-         +Y3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=W6m06+tQ3UmcgbeeK1HTCPK9otwtvhbVRYnkmzJl8qA=;
-        fh=habB3ctrJQlwWp/yt8/FDuWvsq3o43h5KfkRnNH0XKU=;
-        b=RM1LLDDW5aa/B8pp9Jla0o2d2W8RvrExaX0SfmSTnw/bfjt6MBWdKoS0eYixEBjqvR
-         PPBGuX9uC3nHmHOYRXpHm37N4yTj6ObLQFQ7eE+mNH1HgH2HGdeO8RsF8IaD8KofK9Fm
-         ROATXQWc/cUPhqC8oIwMy44Vhwd8bT0w4skZSbDVApU9aEDYOBCIFB+PEWb9+roOXTEY
-         NMDNy1p05WykyC8JSodn3U8HQuRTjqxN9DhOde3Y/uHwdGIRnFP0O2gIHJZ85PsS+LO3
-         Qp9MLpiUDbMrqAj4jGA9t+sXn8LZ21TaKaLohQ9HU+o7Mh6Xy/k7WrQzZJDwzST77t7S
-         ZWJg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1786113470; x=1786718270; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W6m06+tQ3UmcgbeeK1HTCPK9otwtvhbVRYnkmzJl8qA=;
-        b=y1tufxhJlFdwXgKvNDNqlBnVEfI1hbZh8vpE9HMkOe+ZjCGkNWvz9+U6Yz9xIaPnHU
-         GeDKteeDzfpC+qxbksVzxUgsWtADih3816hrjamdjzOJ8sZHtBhwhqnaQ6VYbNMJOh/a
-         4AslQ6sHV+VDEOLFrpurKULfT85JU5kr6u8OAVguL4NMtbBSDMJT6Iwp2/xpicFIk/OY
-         5gp6mxeBuQz8VqTvXt/D/gl6yjfaeqaYs36pnfwgb1PlzUJHyE4owacE1nXp2KhLbdSj
-         YPkofQHYfyvkPQUzrGGgDbhgi1vNmEThYkNlQ6Trlugg+pVdReH76W/vgSSuHAJruEh5
-         cr9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786113470; x=1786718270;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=W6m06+tQ3UmcgbeeK1HTCPK9otwtvhbVRYnkmzJl8qA=;
-        b=rOhddVGUGzZTcST2ogVgTgbxNLTUPCqIATgkcmWWc8rkf+bczn+y4k1eq9A+svJ5j5
-         ZxU3ELSEUAPML6bh4NxVHeZT6FC+oJqKlFJnIin1M8YGF8SCcOi4iE78Ye+tyAH+B0yy
-         44SIGJOzJf5dX4hbNh55xJYPWCyg4FRltGIb9LQTsQAWasCXppKAfjH8zAVQkHBA1d7d
-         ySxU27YLAoojgfssWq93WAJMSqcYBd3ujjuOVcGxFnVvnGG9XmJm1lXBzOXM77+hosvq
-         NsZ1AbQA4ttGoXojeprCTShjtfkVB2pm5YmQQiIKqry11CdgdAnswfqos+0Ss91pvQjr
-         r5Qw==
-X-Forwarded-Encrypted: i=1; AHgh+RoxZETUphXEAlrdl1eiNQrnpgwSXhjyu4rsrcAPAvhDk0BqUNtQeAhMCtz/WgaYuyjUrJhCQWu6if2pt+8Qd71c@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqXABPbb3HP4TwFAecW4zUEzT0ENFsWXeYJzMa1klMHIzkSiKA
-	BYlbNylgoX9ifxBC3L3hWVUS2gyP95EXUaIUcNnzYaa055I1bJazw8ZRUIvbpbaePMe/yMUTOuP
-	yf8dICKI+CZkxPdD/mLhj8TS47VUY7L11zjcmsYE7dA==
-X-Gm-Gg: AR+sD107P+rTzco1zSiLWmsb+eeJj4OB3/YwBsC66xW9YkX7bmpi9FFc2aPK3lGgKIY
-	9gzl614OeAnvfbQG7H/qXX/6o9UAHAS4jn3Eh+Krvt0O0LxOOycXV/IaTKPVS5BB7W9Xo1F5HrV
-	0tXnK2gkMcBJNUQi2YNXr7cvWRQy9bSeNG5LUofd9Pkb53JWYzvIIU9V/PPphpXY6U6W45RiHGe
-	U5/ki3PbDKubGXd7ohri4zB4EQhji93Z7qVTIdYWDfIYx7XrBwCAS2CoJX7sr2y8ID1unatUu9r
-	BEaHhoPhXY2V/V3MHw7KBbvsQ8FUd5ophFwjawnXHWq01Wn+tadlVyBfGeGtlF51K5tqx1U845M
-	r+4A=
-X-Received: by 2002:a05:6402:380a:b0:6a1:1e25:143e with SMTP id
- 4fb4d7f45d1cf-6a14f07aa0emr11843889a12.3.1786113469730; Fri, 07 Aug 2026
- 07:37:49 -0700 (PDT)
+	Fri, 07 Aug 2026 14:50:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA8101516;
+	Fri,  7 Aug 2026 07:49:58 -0700 (PDT)
+Received: from [10.1.34.163] (e121487-lin.cambridge.arm.com [10.1.34.163])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 382F63F9A2;
+	Fri,  7 Aug 2026 07:50:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786114202; bh=3VFV0Tq5+TLEDLomLJHfr94hN8yTLaigO+hfGwVI8Ug=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=XKcC03dGJ6p7ZAdkFgqVUdGx79ODHV6WrgECXkApJD8DDIDlTFrFl/Sr7zMZnwwW/
+	 a+8KuORQvBsBWN1AMP0UK8lYHkluKGpabG3qGMThRc5wofofWcGD2e3zT7MkVsyDgS
+	 5MPr9mDULH/PfrTI22Vib39oam4nkTty1r5Zz+TM=
+Message-ID: <0c47125b-6a5e-41c9-b31c-d78643cbe6bd@arm.com>
+Date: Fri, 7 Aug 2026 15:49:58 +0100
 MIME-Version: 1.0
-References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
- <20260724-arm-smmu-v3-instcfg-override-v1-2-e7acf4a8a525@linaro.org> <amOpSPmc36+YXgCQ@nvidia.com>
-In-Reply-To: <amOpSPmc36+YXgCQ@nvidia.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 7 Aug 2026 15:37:37 +0100
-X-Gm-Features: AUfX_mycW6Onnp9fcyEmhcQ210POYMAQz3QVnbQpiqAFr05Ok_wIMchvSKnA5X0
-Message-ID: <CADrjBPoOctsStZn84vtCymdKen2R9XcM880=wxXSv1tpQ5+vyg@mail.gmail.com>
-Subject: Re: [PATCH 2/2] iommu/arm-smmu-v3: Override for Inst/Data attribute
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Pranjal Shrivastava <praan@google.com>, Daniel Mentz <danielmentz@google.com>, 
-	Mostafa Saleh <smostafa@google.com>, linux-arm-kernel@lists.infradead.org, 
-	iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
-	jyescas@google.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
+ mode
+To: Mark Rutland <mark.rutland@arm.com>, Breno Leitao <leitao@debian.org>
+References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
+ <anXkO8YpoadRzm07@J2N7QTR9R3>
+Content-Language: en-GB
+From: Vladimir Murzin <vladimir.murzin@arm.com>
+In-Reply-To: <anXkO8YpoadRzm07@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_073752_482709_E0002854 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20260807_075003_933657_BE376588 
+X-CRM114-Status: GOOD (  51.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,90 +67,209 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolin,
+On 8/7/26 14:57, Mark Rutland wrote:
+> Hi Breno,
+> 
+> On Fri, Aug 07, 2026 at 04:45:31AM -0700, Breno Leitao wrote:
+>> Running retsnoop on a kernel with GIC priority masking and
+>> CONFIG_ARM64_DEBUG_PRIORITY_MASKING=y trips the ICC_PMR_EL1 sanity check
+>> in __pmr_local_irq_disable():
+>>
+>>      WARNING: ./arch/arm64/include/asm/irqflags.h:63 at arm64_exit_to_kernel_mode+0xb8/0xc0, CPU#40: retsnoop/31805
+>>      CPU: 40 UID: 0 PID: 31805 Comm: retsnoop Not tainted 7.2.0-rc6-next-20260805 #7 PREEMPTLAZY
+>>      pstate: 234013c9 (nzCv DAIF +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
+>>      pc : arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63)
+>>      lr : el1_abort (arch/arm64/kernel/entry-common.c:323)
+>>      pmr: 000000f0
+>>      Call trace:
+>> D)    arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63) (P)
+>>       el1_abort (arch/arm64/kernel/entry-common.c:323)
+>>       el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:449)
+>> C)    el1h_64_sync (arch/arm64/kernel/entry.S:589)
+>>       copy_from_kernel_nofault (mm/maccess.c:52) (P)
+>>       bpf_probe_read_kernel (kernel/trace/bpf_trace.c:268)
+>>       bpf_prog_db21a1730c2407e5_calib_exit+0xf0/0x160
+>>       trace_call_bpf (kernel/trace/bpf_trace.c:147)
+>>       kretprobe_perf_func (kernel/trace/trace_kprobe.c:1750)
+>>       kretprobe_dispatcher (kernel/trace/trace_kprobe.c:1875)
+>>       __kretprobe_trampoline_handler (kernel/kprobes.c:2116)
+>>       kretprobe_brk_handler (arch/arm64/kernel/probes/kprobes.c:422)
+>>       call_el1_break_hook (arch/arm64/kernel/debug-monitors.c:244)
+>>       do_el1_brk64 (arch/arm64/kernel/debug-monitors.c:266)
+>> B)    el1_brk64 (arch/arm64/kernel/entry-common.c:427)
+>>       el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:481)
+>>       el1h_64_sync (arch/arm64/kernel/entry.S:589)
+>>       invoke_syscall (arch/arm64/kernel/syscall.c:49) (P)
+>>       do_el0_svc (arch/arm64/kernel/syscall.c:140)
+>>       el0_svc (arch/arm64/kernel/entry-common.c:736)
+>>       el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:755)
+>> A)    el0t_64_sync (arch/arm64/kernel/entry.S:594)
+>>
+>> This is my understand of the current situation:
+>>
+>> A) A task enters the kernel via a syscall.
+>> 	* PSTATE_I_SET becomes set on the live PMR
+>> 	* regs->PMR doesn't have PSR_I_SET set
+> At this point, regs->pmr will be the value of PMR when we were executing
+> in userspace, which should be the value of regs->pmr the last time we
+> returned to userspace. That should be GIC_PRIO_IRQON, as configured by
+> start_thread_common().
+> 
+> The entry asm will set PMR to 'GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET', but
+> that should be reset to GIC_PRIO_IRQON when el0_svc() calls
+> local_daif_restore(DAIF_PROCCTX).
+> 
+> Within invoke_syscall(), we should have DAIF==0 and PMR==GIC_PRIO_IRQON.
+> 
+>> B) A BRK fires at EL1 and that is what leaves the live PMR
+>>    with PSR_I_SET.
+>> 	* At this stage PSTATE_I_SET is set on both on PMR and regs->PMR
+> The value in the regs->pmr should be GIC_PRIO_IRQON, without
+> GIC_PRIO_PSR_I_SET.
+> 
+> As we don't unmask anything during BRK handling, the live PMR should
+> contain 'GIC_PRIO_IRQON | GIC_PRIO_PSR_I_SET'.
+> 
+>> C) A nested synchronous exception happens (Not sure why -- BPF related)
+>> 	* Now both the live PMR and regs->pmr have PSR_I_SET.
+> The presence of 'el1_abort()' in the trace suggests that BPF tried to
+> access memory which faulted. That looks to be a result of
+> bpf_probe_read_kernel() and copy_from_kernel_nofault().
+> 
+> Regardless of BPF, we can probably trigger a synchronous exception with
+> a WARN() or similar, so we will need to handle synchronous exceptions
+> from the same contexts.
+> 
+> In general, probing kernel VAs is fraught with danger even with a fault
+> handler, and IMO copy_from_kernel_nofault() is a dangerous and poorly
+> conceived interface. For example, if you're probing an arbitrary kernel
+> VA, you have no idea whether you're about to poke MMIO and crash the
+> system.
+> 
+> It would be interesting to know what the BPF program is doing, in case
+> it could crash the kernel in other ways we can't prevent here.
+> 
+>> D) On the way out, local_irq_disable() → __pmr_local_irq_disable() warns.
+>>    It detects that PMR is different than GIC_PRIO_IRQON and GIC_PRIO_IRQOFF,
+>>    given live PMR and regs->PMR have PSTATE_I_SET ORed.
+> Only the live value of PMR is important here, and the value of regs->pmr
+> is immaterial.
+> 
+> The warning is here to capture the fact that if
+> __pmr_local_irq_disable() were to set PMR to GIC_PRIO_IRQOFF, it would
+> effectively discard GIC_PRIO_PSR_I_SET and change the masked priority,
+> which has a bunch of secondary impacts for things like idle.
+> 
 
-Thank you for your review feedback.
+That matches my understanding of call trace
 
-On Fri, 24 Jul 2026 at 19:05, Nicolin Chen <nicolinc@nvidia.com> wrote:
->
-> On Fri, Jul 24, 2026 at 01:39:43PM +0100, Peter Griffin wrote:
-> > @@ -1206,7 +1207,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
-> >                       cpu_to_le64(STRTAB_STE_1_S1DSS | STRTAB_STE_1_S1CIR |
-> >                                   STRTAB_STE_1_S1COR | STRTAB_STE_1_S1CSH |
-> >                                   STRTAB_STE_1_S1STALLD | STRTAB_STE_1_STRW |
-> > -                                 STRTAB_STE_1_EATS | STRTAB_STE_1_MEV);
-> > +                                 STRTAB_STE_1_EATS | STRTAB_STE_1_MEV |
-> > +                                 STRTAB_STE_1_INSTCFG);
-> >               used_bits[2] |= cpu_to_le64(STRTAB_STE_2_S2VMID);
-> >
-> >               /*
-> > @@ -1222,7 +1224,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
-> >       if (cfg & BIT(1)) {
-> >               used_bits[1] |=
-> >                       cpu_to_le64(STRTAB_STE_1_S2FWB | STRTAB_STE_1_EATS |
-> > -                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV);
-> > +                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV |
-> > +                                 STRTAB_STE_1_INSTCFG);
-> >               used_bits[2] |=
-> >                       cpu_to_le64(STRTAB_STE_2_S2VMID | STRTAB_STE_2_VTCR |
-> >                                   STRTAB_STE_2_S2AA64 | STRTAB_STE_2_S2ENDI |
->
-> This adds for "stage-1" and "stage-2", while missing "bypass"?
+Call stack                    |live DAIF:PMR  | regs DAIF:PMR
+--------------------------------------------------------------
+<exception>
+el0_svc                       | DAIF:IRQ_ON+I | daif:IRQ_ON
+ - local_daif_restore         | daif:IRQ_ON   |
+<exception>            
+el1_brk                       | DAIF:IRQ_ON+I | daif:IRQ_ON
+<exception>            
+el1_abort                     | DAIF:IRQ_ON+I | DAIF:IRQ_ON+I
+ - local_daif_inherit         | DAIF_IRQ_ON+I |
+ - arm64_exit_to_kernel_mode  |               |
+   - local_irq_disable        |               |
 
-I need to follow up again on this point, but I don't believe currently
-we require the override for Laguna when it's in bypass.
+where:
+- DAIF is DAIF_MASK
+- daif is DAIF_PROCCTX
+- IRQ_ON is GIC_PRIO_IRQON
+- I is GIC_PRIO_PSR_I_SET
 
->
-> > @@ -1835,7 +1838,11 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
-> >                        STRTAB_STE_1_S1STALLD :
-> >                        0) |
-> >               FIELD_PREP(STRTAB_STE_1_EATS,
-> > -                        ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0));
-> > +                        ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0)) |
-> > +             FIELD_PREP(STRTAB_STE_1_INSTCFG,
-> > +                        smmu->options & ARM_SMMU_OPT_OVR_INSTCFG_DATA ?
-> > +                                STRTAB_STE_1_INSTCFG_DATA :
-> > +                                STRTAB_STE_1_INSTCFG_INCOMING);
->
-> Sashiko pointed out that this prematurely closes the cpu_to_le64()
-> macro.
 
-Will fix in v2
+> We'll need to work through those impacts; we might be able to relax the
+> check.
+> 
+>> How to fix it? I don't know very well.
+> The complete fix (which Ada and Vladimir have both been working on) is
+> to get rid of GIC_PRIO_PSR_I_SET entirely, which requires structural
+> changes in a few places/
+> 
+> I don't think we'd realised there was an extant bug of this shape, so
+> we'll need to consider what we can do to fix this in a backportable way.
+> 
+>> I am not certain that we want to have PSTATE_I_SET ever be sent to
+>> regs->pstate. Do we ever need PSTATE_I_SET in regs->pstate?
+> I'm not sure what you mean here. PSTATE_I_SET doesn't exist, and I'm not
+> sure whether you're asking about the PSTATE.DAIF bits saved in
+> regs->pstate, or the PMR value in regs->pmr.
+> 
+> Regardless of pseudo-NMI, is is essential that regs->pstate holds a
+> complete snapshot of SPSR, including the I bit.
+> 
+> With pseudo-NMI, it is essential that the full PMR value (including
+> GIC_PRIO_PSR_I_SET) is saved into regs->pmr.
+> 
+> However, as above, AFAICT only the live value matters here.
+> 
+>> In the current patch, I found that disabling IRQ in case it is disabled,
+>> would solve the warning, but, this seems more a hack than a proper fix,
+>> perhaps.
+>>
+>> Fixes: ae654112eac0 ("arm64: entry: Use split preemption logic")
+>> Signed-off-by: Breno Leitao <leitao@debian.org>
+>> ---
+>>  arch/arm64/kernel/entry-common.c | 8 +++++++-
+>>  1 file changed, 7 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
+>> index ceb4eb11232a6..fcce9ccd37108 100644
+>> --- a/arch/arm64/kernel/entry-common.c
+>> +++ b/arch/arm64/kernel/entry-common.c
+>> @@ -55,7 +55,13 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
+>>  static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
+>>  					      irqentry_state_t state)
+>>  {
+>> -	local_irq_disable();
+>> +	/*
+>> +	 * Only irqentry_exit_to_kernel_mode_preempt() needs interrupts masked,
+>> +	 * and it returns early when regs had them disabled. Skipping the
+>> +	 * disable avoids clobbering a PMR the irqflags API does not expect.
+>> +	 */
+>> +	if (!regs_irqs_disabled(regs))
+>> +		local_irq_disable();
+>>  	irqentry_exit_to_kernel_mode_preempt(regs, state);
+> I think that might happen to work as a bodge, but I don't think this is
+> a proper fix, and we'll need a clearer explanation of what's going on.
+> 
 
->
-> > @@ -1887,7 +1894,11 @@ void arm_smmu_make_s2_domain_ste(struct arm_smmu_ste *target,
-> >
-> >       target->data[1] = cpu_to_le64(
-> >               FIELD_PREP(STRTAB_STE_1_EATS,
-> > -                        ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0));
-> > +                        ats_enabled ? STRTAB_STE_1_EATS_TRANS : 0) |
-> > +             FIELD_PREP(STRTAB_STE_1_INSTCFG,
-> > +                        smmu->options & ARM_SMMU_OPT_OVR_INSTCFG_DATA ?
-> > +                                STRTAB_STE_1_INSTCFG_DATA :
-> > +                                STRTAB_STE_1_INSTCFG_INCOMING));
->
-> You might need to set in arm_smmu_make_bypass_ste() too.
->
-> > @@ -5087,6 +5098,13 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
-> >       if (smmu->sid_bits <= STRTAB_SPLIT)
-> >               smmu->features &= ~ARM_SMMU_FEAT_2_LVL_STRTAB;
-> >
-> > +     if (reg & IDR1_ATTR_PERMS_OVR) {
-> > +             smmu->features |= ARM_SMMU_FEAT_PERMS_OVR;
->
-> Where does this new feature bit get used?
+Agreed on the need for a clearer explanation.
 
-Good point, the feature flag isn't actually used anywhere else except
-here. The intention is to ensure the DT property
-"arm,instdata-override" is not specified for a SMMU which doesn't
-support the override feature. But we can perform that test without
-adding a feature flag that is otherwise unused. Will fix in the next
-version.
+Perhaps local_irq_disable() isn't the right API here, and we should
+use local_daif_restore(DAIF_PROCCTX_NOIRQ) instead?
 
-Thanks,
+Looking ahead, making an early decision on whether to preempt based on
+regs_irqs_disabled() seems like a reasonable approach. That's what
+I've done in [1] (though keep in mind that I forgot to update
+el0_irq).
 
-Peter
+[1] https://lore.kernel.org/linux-arm-kernel/20260727163453.7969-10-vladimir.murzin@arm.com/
+
+Cheers
+Vladimir
+
+> Mark.
+> 
+>>  	local_daif_mask();
+>>  	mte_check_tfsr_exit();
+>>
+>> ---
+>> base-commit: ea2bff00da89d7767d677bb68470130ba96f4928
+>> change-id: 20260807-arm64_fix-47cad8fb6323
+>>
+>> Best regards,
+>> --  
+>> Breno Leitao <leitao@debian.org>
+>>
+
 
