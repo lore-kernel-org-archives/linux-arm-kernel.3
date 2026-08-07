@@ -4,67 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86321C2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FEFCC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o1fE6JkjOYv/keYcMbNEp7t7rZGDHzQiCzT8MCcASAM=; b=YV8DWJreO62yHot1JZRBWOP/J0
-	ln28ld6YbtBCoemGOLAFYZ9Pyxq35jVa6OB32KEEnzx3vudfCweTpGPMcxn6gQ+3IDrfNukIBZQaP
-	8YkE/XLOtH9wHcp+VU6SRT3l0YNJy6jUzp12YICsxsvUUrFUtJh/IGRlHVMJOvUfrXUtitlbqkdgy
-	3QDsp+w49NKvNCGY2UpFbA0kTQsX3wcMGHE5RB76/6NrT6l63jO0zQkdpJDFHZQyEZ4oJOYvXHOvE
-	z76dZS9AJHnGpzDw488BsI1g2ce9S+lBBAI/Jwz3IqNOXJbtCnfdtaI9njXeA1YbtkPtA/jyUYmmM
-	GgLY2hpw==;
+	bh=DrL6gBCAOxHb0LQHDdbrlJolZxiGNWOy/qwBrxrXEdw=; b=4JFSeZNrVZ+hc5+rxjHOMwm9/8
+	NtkdiiWUFjXQC96jtiozNwz8XbKpnuU5LxoNWWCzTy/zoNfGpUQVqok5ecGJpXUf0h4FcfRv97Dxo
+	LzvSfAHoQrrdavvy0HHKa5UzFejpZ67plmMjSrl6OMP59cWuI/RVlyR9bArAbjc57jvkIc7W4qrXa
+	uK0Y2CBGpyTZHJyARFj0AY6LK1AA5I2Rfhk1MzXR2JXYhF8Nksyh9rnQkNuTB9sDmKdTT+oegJcnq
+	rDu7Rp/S8uvPbEgGMIk574OzqJswOSsCwsi0+jBhCmzg8tACOuecHqYV/ekUOcpjEzjc8jofQfkad
+	wRVaT1jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKsI-00000008ANq-3rqs;
-	Fri, 07 Aug 2026 13:44:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wsKtK-00000008AT0-0Swj;
+	Fri, 07 Aug 2026 13:45:42 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKsG-00000008ANh-2mUD
+	id 1wsKtI-00000008ASY-0gXw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 13:44:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2C89940BDA;
-	Fri,  7 Aug 2026 13:44:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECB781F00A3A;
-	Fri,  7 Aug 2026 13:44:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786110276;
-	bh=o1fE6JkjOYv/keYcMbNEp7t7rZGDHzQiCzT8MCcASAM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=mW2yQ4J4f2b2rUVorHqYW3uua8RfIC6vpcPSFtr0rFRz6c9FNeTTjVsjQejYSWl8D
-	 Cvoh9fSAJ1Mk5UiAAee3MiEjPu71m5vwFv+13+RN7Tn1+s0CcXw4chyLTJbdgW1YEi
-	 QAkDvd39j6SQXZslqNfW17ExZLsA4ZEjf777Br2NqcYPYPLt3uZf6tS7ieu9eeewiZ
-	 Vx34h2EJEx7B15RNjUahaqs9RqYrWOYZLy2Df7JGyWlCHw/4O1gNTi0S9oGkA3k8eN
-	 y9XBQ1pFqwhc9mOJn9dbF1FG50IU0YEAPNEtF+OfUnx6oRH8/pB4Knb8mcYRMzwOX3
-	 ZOHdLTS4GEquw==
-Date: Fri, 7 Aug 2026 15:44:30 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>,
-	"fuad.tabba@linux.dev" <fuad.tabba@linux.dev>
-Subject: Re: [PATCH v5 03/49] irqchip/gic-v5: Set up gic_kvm_info on ACPI
- hosts
-Message-ID: <anXhPp9QUH_rOn2X@red-moon>
-References: <20260807111159.429128-1-sascha.bischoff@arm.com>
- <20260807111159.429128-4-sascha.bischoff@arm.com>
+	Fri, 07 Aug 2026 13:45:41 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47f3b39f2a1so2629812f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 06:45:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786110338; x=1786715138; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=DrL6gBCAOxHb0LQHDdbrlJolZxiGNWOy/qwBrxrXEdw=;
+        b=jf3JDVUG/ykyVD5D9o0+xCrTHKJzF8fbrL7LB5ou2feTM//Fof74/4nOqMLQKW7r9K
+         4/YalcfstZ5b1AlNuibJ8iFcBpqiFf2szaXG3eGq6e6MNHDUruYU8kJ3gUmlcZGMomGd
+         LgTcET23lPvnTI95GxTar0zkLs8Q1h45hQ2odJV2CXOq8SSDZzXU7jzBZredWDVnmxzO
+         LhpHPhrZi37AqnK8cK1UjchxJrun5Ie0VpS4eRW9YW/+eq7oKGLO0zfni4i+DjFBOae5
+         dSqNPfcIYeX0CMqOnPubIjnYsJiMrXMeLPKi5YNAifgJMn/9aiwsr7ya7YZPgTAZtA3m
+         8I5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786110338; x=1786715138;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DrL6gBCAOxHb0LQHDdbrlJolZxiGNWOy/qwBrxrXEdw=;
+        b=VotdK+ta/aXoH39yNIXir/wlhO/Ne5qVr9/3taB5UMYUNcyXW8QTcSqXIOhfaYwHOS
+         LxkHPUa0EzbCTduJhkwjkC84AWSThlQ7KjdapR0VpCHRgEENOH9MWzmlFkUqdU06I1f0
+         nSztVG85hPEqinajZCZ5iRauCcNLAIkIRsiLnRZQN3wVw1GcJb8I4X8SnplHYe+iQYrv
+         +6Tk0l3DFgKIRx/fxHiy5DMgLBh7NJ6k333mBJmbxhvsfRQWtC1+xcndSc5VcrjF6MEr
+         ob2LKx1GjeBg/LQHmE+WCSc7mXmHqiM4Wl4FWJZd1RT2vE0LLJ2HUdm8WQcx27bvBEld
+         wgrQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq5WM0gfr6aOTb87dAcdDLesgdTGa0kGd9WkjHV5C+4V4F9lQslo0Rs9zRQdkPpt1luMC2bTZQ/Cm9dmXH/O8FB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOVaFfDkfNrpYPM/zZ45nN0GTEP0zjDBwfKwSSBqwE63SVXdEP
+	3FVaEwnLkcNN0uBaz5OzYUT3N7+kTabO/4yexJ5yix7LJeJ68lDprqkVra6QFjqfoA==
+X-Gm-Gg: AR+sD128Ek25RU/Pj81qkE1+VGFczMykCvHepiT//7EepGd0g4e08XddyX5YvJJFCK3
+	fHEcaBTw+NxK7oa4Sg58p5XLH3oWuTYgIsd/f/lQkcTXQJPank3mkEofp3bNVx8edFSrQwZV6yC
+	TNWkku82m440efCjQbvoFLKB0no5ZNaWPR4o1wPxgO4b7Nj5yjxIX1i/7TONhmZCqqxGUShU+fI
+	UwV0iaYOTgz+CSK27LB4XYgjAYmi4BCLfyal8eOUj948vlsjaihK9x4T2arvW8/iRIE3Pko70es
+	sEFNNu9rA/PhF8kPFVKXw5vZ7e/TuMf9EdAYM50rwX+QJdExXIWNpzN5AiCVRPkNMCNZC6gPX/Z
+	CCAivGskh9OYI87WFMY+Baa/ZHipRBRDEB7l2fvltgZrLYjOj5TqfwIuFryR4THnwHBFfhWIjoU
+	gjaX/9pwVrejBrkJx9TyS5uhEYq+4GSDHSrT0JX60Oamr5igkEOtWb8MtyNdHADLg4Rj+Q7j3h7
+	EWzn4pAcW+DGgeldsqC48/ft3NHRbMmQJRe2wfM1w==
+X-Received: by 2002:a5d:5e86:0:b0:47f:ebe3:ca31 with SMTP id ffacd0b85a97d-47fec62e00bmr38542831f8f.28.1786110332995;
+        Fri, 07 Aug 2026 06:45:32 -0700 (PDT)
+Received: from elver.google.com (24.125.187.35.bc.googleusercontent.com. [35.187.125.24])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-480021e8d50sm5963422f8f.24.2026.08.07.06.45.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Aug 2026 06:45:32 -0700 (PDT)
+Date: Fri, 7 Aug 2026 13:45:28 +0000
+From: Marco Elver <elver@google.com>
+To: Will Deacon <will@kernel.org>
+Subject: Re: [PATCH RFC] arm64: Mark set_preempt_need_resched() access to
+ .need_resched
+Message-ID: <anXheKZ7zKNw1oD_@elver.google.com>
+References: <d345dc9f-c61e-4db5-a342-11b0ff3fb846@paulmck-laptop>
+ <amyaRXx8zXxOMgTL@J2N7QTR9R3>
+ <13df4ff4-8594-4c37-b25f-860248a222cf@paulmck-laptop>
+ <4fa802e7-6cfc-4cce-afee-c29b28171ad3@paulmck-laptop>
+ <anR28GyRtCpApQYX@willie-the-truck>
+ <ca54b283-3349-43d4-9460-32b084709d67@paulmck-laptop>
+ <anXKRdA9sUziFda5@willie-the-truck>
+ <CANpmjNPCM0NV1EN2pNBf3EBBk8eLjbGGAiZ_+rJkoROJtG3jFQ@mail.gmail.com>
+ <anXbTwhaWZCIxxTg@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260807111159.429128-4-sascha.bischoff@arm.com>
+In-Reply-To: <anXbTwhaWZCIxxTg@willie-the-truck>
+User-Agent: Mutt/2.3.2 (2026-04-26)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260807_064540_234926_371FE778 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,196 +105,103 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, "Paul E. McKenney" <paulmck@kernel.org>, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, dvyukov@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 11:14:07AM +0000, Sascha Bischoff wrote:
-> Device-tree based GICv5 probing already passes the IRS details and
-> maintenance interrupt to KVM, but the ACPI path only initialises the
-> irqchip and installs the ACPI IRQ model. As a result, KVM never sees
-> the GICv5 host information required to probe the vGIC on ACPI systems.
-> 
-> Add the ACPI equivalent of the DT KVM setup. Parse the MADT GICC
-> entries for the maintenance interrupt, retaining the value from the
-> first relevant entry and warning if later entries disagree. Warn if
-> firmware describes the interrupt as edge-triggered, but register it as
-> a level-sensitive, active-high GSI. Pass the resulting IRQ together
-> with the IRS base and coherency information to KVM.
-> 
-> Native GICv5 does not require a maintenance interrupt unless the
-> legacy GICv3-compatible CPU interface is present, so preserve the
-> existing no-maintenance-IRQ handling for that case.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  drivers/irqchip/irq-gic-v5.c | 95 ++++++++++++++++++++++++++++++++++--
->  1 file changed, 91 insertions(+), 4 deletions(-)
+On Fri, Aug 07, 2026 at 02:19PM +0100, Will Deacon wrote:
+[...]
+> Ok, but then I don't understand how these accesses can race. They appear
+> to be on the same CPU, in the same IPI handler.
 
-Just a bunch of nits below.
+The only way this could happen is with an NMI, but that's not the case
+here? I should have looked at the 2nd stack trace, and it seems to be
+clear that this is a false positive: KCSAN sets up a watchpoint on an
+address that is also accessed by __delay.
 
-> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-> index e7a7aedcfaf78..5b8ea8551d832 100644
-> --- a/drivers/irqchip/irq-gic-v5.c
-> +++ b/drivers/irqchip/irq-gic-v5.c
-> @@ -1126,7 +1126,7 @@ static void gicv5_set_cpuif_idbits(void)
->  #ifdef CONFIG_KVM
->  static struct gic_kvm_info gic_v5_kvm_info __initdata;
->  
-> -static void __init gic_of_setup_kvm_info(struct device_node *node)
-> +static void __init gic_setup_kvm_info(unsigned int maint_irq)
->  {
->  	struct gicv5_irs_chip_data *irs_data = gicv5_irs_get_chip_data();
->  
-> @@ -1137,17 +1137,19 @@ static void __init gic_of_setup_kvm_info(struct device_node *node)
->  	 */
->  	if (!gicv5_global_data.virt_capable) {
->  		pr_info("GIC implementation is not virtualization capable\n");
-> -		return;
-> +		goto out_dispose_maint_irq;
+One problem with disabling KCSAN in this CPU's context is that we'd fail
+to detect data races from nested interrupts.
 
-Isn't it cleaner to dispose the mapping in the caller (by returning an
-error value) rather than here ?
+So yes, the best way forward is to disable KCSAN in the delay
+implementation. And I recall doing this for x86, which has this:
 
-I appreciate this keeps the IRQ mapping disposal in one place but it
-decouples the allocation from the failure path.
+	[arch/x86/lib/Makefile]
+	...
 
->  	}
->  
-> -	gic_v5_kvm_info.type = GIC_V5;
-> +	if (WARN_ON(!irs_data))
-> +		goto out_dispose_maint_irq;
->  
-> +	gic_v5_kvm_info.type = GIC_V5;
->  	gic_v5_kvm_info.gicv5_irs.base = irs_data->irs_base;
->  	gic_v5_kvm_info.gicv5_irs.non_coherent = !!(irs_data->flags & IRS_FLAGS_NON_COHERENT);
->  
->  	/* GIC Virtual CPU interface maintenance interrupt */
->  	gic_v5_kvm_info.no_maint_irq_mask = false;
-> -	gic_v5_kvm_info.maint_irq = irq_of_parse_and_map(node, 0);
-> +	gic_v5_kvm_info.maint_irq = maint_irq;
->  
->  	/*
->  	 * We require an MI if we have legacy support, but don't, otherwise.
-> @@ -1162,11 +1164,95 @@ static void __init gic_of_setup_kvm_info(struct device_node *node)
->  		gic_v5_kvm_info.no_maint_irq_mask = true;
->  
->  	vgic_set_kvm_info(&gic_v5_kvm_info);
-> +	return;
-> +
-> +out_dispose_maint_irq:
-> +	irq_dispose_mapping(maint_irq);
-> +}
-> +
-> +static void __init gic_of_setup_kvm_info(struct device_node *node)
-> +{
-> +	/* GIC Virtual CPU interface maintenance interrupt */
-> +	gic_setup_kvm_info(irq_of_parse_and_map(node, 0));
-> +}
-> +
-> +#ifdef CONFIG_ACPI
-> +struct gicv5_acpi_kvm_info {
-> +	u32 maint_irq;
-> +};
-> +
-> +static struct gicv5_acpi_kvm_info acpi_v5_kvm_info __initdata;
-> +
-> +static int __init gic_acpi_parse_virt_madt_gicc(union acpi_subtable_headers *header,
-> +						const unsigned long end)
-> +{
-> +	struct acpi_madt_generic_interrupt *gicc =
-> +		(struct acpi_madt_generic_interrupt *)header;
-> +	static int first_madt = true;
-> +
-> +	if (!(gicc->flags &
-> +	      (ACPI_MADT_ENABLED | ACPI_MADT_GICC_ONLINE_CAPABLE)))
-> +		return 0;
+	# KCSAN uses udelay for introducing watchpoint delay; avoid recursion.
+	KCSAN_SANITIZE_delay.o := n
 
-This would count as a valid parsed entry even though you don't retrieve the
-maintanance interrupt number, more below.
+So let's do this for arm64, too. Sorry for the noise.
 
-> +
-> +	if (gicc->flags & ACPI_MADT_VGIC_IRQ_MODE)
-> +		pr_warn_once(FW_BUG "MI wrongly advertised as Edge-triggered\n");
-> +
-> +	if (first_madt) {
-> +		first_madt = false;
-> +
-> +		acpi_v5_kvm_info.maint_irq = gicc->vgic_interrupt;
-> +		return 0;
-> +	}
-> +
-> +	if (acpi_v5_kvm_info.maint_irq != gicc->vgic_interrupt)
-> +		pr_warn_once(FW_BUG "MI not the same on all CPUs\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static bool __init gic_acpi_collect_virt_info(void)
-> +{
-> +	int count;
-> +
-> +	count = acpi_table_parse_madt(ACPI_MADT_TYPE_GENERIC_INTERRUPT,
-> +				      gic_acpi_parse_virt_madt_gicc, 0);
-> +
-> +	return count > 0;
->  }
-> +
-> +static void __init gic_acpi_setup_kvm_info(void)
-> +{
-> +	unsigned int maint_irq = 0;
-> +	int irq;
-> +
-> +	if (!gic_acpi_collect_virt_info()) {
-> +		pr_warn("Unable to get hardware information used for virtualization\n");
-> +		return;
-> +	}
+------ >8 ------
 
-Nit: gic_acpi_collect_virt_info() might return true and you still don't get
-the info you need. Now, at least one GICC entry should be enabled and online
-capable (we are booting on a core after all but never overestimate ACPI tables :))
-so this is theory but I thought I would mention it.
+From cfea3a0c12b2e685ce04c28b1bd207f0e4c05a56 Mon Sep 17 00:00:00 2001
+From: Marco Elver <elver@google.com>
+Date: Fri, 7 Aug 2026 13:37:32 +0000
+Subject: [PATCH] arm64: Disable KCSAN instrumentation in delay.o
 
-> +
-> +	if (acpi_v5_kvm_info.maint_irq) {
-> +		irq = acpi_register_gsi(NULL, acpi_v5_kvm_info.maint_irq,
-> +					ACPI_LEVEL_SENSITIVE,
-> +					ACPI_ACTIVE_HIGH);
-> +		if (irq > 0)
-> +			maint_irq = irq;
-> +		else
-> +			pr_warn("Failed to register GSI for GICv5 maintenance IRQ\n");
+KCSAN relies on udelay() for injecting delays. To avoid recursively
+triggering a watchpoint, where KCSAN sets up watchpoint on an address
+that is accessed by udelay() in the same thread, disable instrumentation
+in arm64's delay implementation.
 
-Another nit: do we really need the maint_irq variable ?
+Paul found a manifestation of this as follows:
 
-Thanks,
-Lorenzo
+| BUG: KCSAN: data-race in __delay / set_need_resched_current
+|
+| read (marked) to 0xffff000005899b48 of 8 bytes by interrupt on cpu 8:
+|  __delay+0xb0/0x378
+|  __udelay+0x4c/0x60
+|  kcsan_setup_watchpoint+0x3b4/0x820
+|  __tsan_unaligned_write4+0x228/0x26c
+|  set_need_resched_current+0x138/0x1a8
+|  rcu_exp_handler+0x418/0x4a0
+|  __flush_smp_call_function_queue+0x36c/0x4a0
+|  generic_smp_call_function_single_interrupt+0x20/0x30
+|  ipi_handler+0xec/0x558
+|  handle_percpu_devid_irq+0x220/0x2a0
+|  generic_handle_domain_irq+0x84/0xb4
+|  gic_handle_irq+0x64/0x144
+|  call_on_irq_stack+0x30/0x48
+|  do_interrupt_handler+0x80/0xb8
+|  el1_interrupt+0x3c/0x60
+|  el1h_64_irq_handler+0x18/0x24
+|  el1h_64_irq+0x6c/0x70
+|  smp_call_function_single+0x18c/0x25c
+|  sync_rcu_exp_select_node_cpus+0x534/0x8bc
+|  rcu_exp_sel_wait_wake+0x358/0xef4
+|  wait_rcu_exp_gp+0x30/0x44
+|  kthread_worker_fn+0x1b4/0x5dc
+|  kthread+0x1d8/0x204
+|  ret_from_fork+0x10/0x20
+|
+| write to 0xffff000005899b4c of 4 bytes by interrupt on cpu 8:
+|  set_need_resched_current+0x138/0x1a8
+|  [...]
 
-> +	}
-> +
-> +	gic_setup_kvm_info(maint_irq);
-> +}
-> +#endif // CONFIG_ACPI
->  #else
->  static inline void __init gic_of_setup_kvm_info(struct device_node *node)
->  {
->  }
-> +
-> +#ifdef CONFIG_ACPI
-> +static inline void __init gic_acpi_setup_kvm_info(void)
-> +{
-> +}
-> +#endif
->  #endif // CONFIG_KVM
->  
->  static int __init gicv5_init_common(struct fwnode_handle *parent_domain)
-> @@ -1265,6 +1351,7 @@ static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsig
->  		goto out_irs;
->  
->  	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id);
-> +	gic_acpi_setup_kvm_info();
->  
->  	return 0;
->  
-> -- 
-> 2.34.1
+This matches what is already done in arch/x86/lib/Makefile.
+
+Reported-by: "Paul E. McKenney" <paulmck@kernel.org>
+Fixes: dd03762ab608 ("arm64: Enable KCSAN")
+Signed-off-by: Marco Elver <elver@google.com>
+---
+ arch/arm64/lib/Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
+index 448c917494f3..b33e1ca4a781 100644
+--- a/arch/arm64/lib/Makefile
++++ b/arch/arm64/lib/Makefile
+@@ -1,4 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0
++
++# KCSAN uses udelay for introducing watchpoint delay; avoid recursion.
++KCSAN_SANITIZE_delay.o := n
++
+ lib-y		:= clear_user.o delay.o copy_from_user.o		\
+ 		   copy_to_user.o copy_page.o				\
+ 		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
+-- 
+2.55.0.654.g21b8a5bc05-goog
+
 
