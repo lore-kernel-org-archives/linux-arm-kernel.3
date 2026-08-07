@@ -4,81 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17119C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 11:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60631C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 11:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGUeaFOrmYnG09K1ojCvxoSpMGRjoyG9uPmXrdQbCYg=; b=uYwV54O8Oyl/crD13cwsK7xUiA
-	56tfH6amkA+B+GibQtnTLYTNggnsrCCC+gbNpXpVPQ86aEhD16PPGvKa8dWCOSVAyxcwVIWVrRBmP
-	BjHYXRYH9ZVfG/AWA9QIK+pmaWIcScjCAS+eMnm50hQ9XUD9yZS4y69xc6PexJAQUo4ZkhZxxyv9f
-	aLmWnp0q/mRBmbsZMdN2e384id7Wq4VV0Gn7paAs2+uwFpHjnqFrCvfexgXDMuff/iQ/wUtLenyOZ
-	8t9kAX5k49hS85xipnqHzcubKN1hKk4zezhTCEd6b3+xRA66W5JPsCm9HX41b4+854odMSHKhkRYW
-	ATz+HRmA==;
+	bh=lIbXpFTj/4jIXWlkQ6czPnMrtaq4DBoRJvyvQNnOL8U=; b=p5VQ0qhSuZR/9wgNzdtQh8Fdbv
+	9cVxLh4ZIkagmGUQUgMGxdbGDVIVrdLpp76bXSILYWFVaW6qY7pUVMidNUrJQSv+kpwjbNXV1I/pT
+	kSxY66OEl6bEXLfR7IylNfxkvBvSQZvAGfblfIfeXzIASDfg/CYfK+HiKqFN2yBqKcMp47WrUsbHe
+	pYHOZx6WfRdGWvL5jEZTy/6QdWxBCJHm8SeR9WbSpK2qopHq4U1Swe9pnozV35VYYGiBqwDzNXmFG
+	NnzIrQhhh01SVr+/CgvtjlPNiWaBdUQJWSdO7R/8ixS6ng8MOohAY44qqrAD7ScGXt9Jx5wEvc2Ib
+	nAi9J+xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsIMH-00000007o4n-2mJT;
-	Fri, 07 Aug 2026 11:03:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsIMF-00000007o4A-0HMT
+	id 1wsINq-00000007oKH-44yM;
+	Fri, 07 Aug 2026 11:05:02 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wsINp-00000007oJh-0Xls
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 11:03:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 056EA1A9A;
-	Fri,  7 Aug 2026 04:03:18 -0700 (PDT)
-Received: from [10.57.42.104] (unknown [10.57.42.104])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE4F43F86F;
-	Fri,  7 Aug 2026 04:03:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786100602; bh=xVUNR7ylOX30B68Mp97+YrCjqIAMylEeu1MoGj3JgSs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J8p7ij5IxKrp/kurzyHOpL7pNcFvOmaC1o1pKHx1B0H8nD1rs9aRZPjUBxhjjZZCQ
-	 N4wJy56XcfQZ9q6eMGh6OX2azJnBHJkC8guCRYo50qm8khWqqcEcjsfqtXCA71yfRP
-	 ZBj3ot3KvGeWH3bSFFxlac5fB9iAToqsB4eMcWRg=
-Message-ID: <0ce2249d-3a64-4889-b455-0e8fddcc7282@arm.com>
-Date: Fri, 7 Aug 2026 12:03:14 +0100
+	Fri, 07 Aug 2026 11:05:02 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-cbb7926836eso2430500a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 04:05:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786100700; cv=none;
+        d=google.com; s=arc-20260327;
+        b=aAngz8CCgKfCjz/mG6/LOqkG4m9Ibm9XD7N+HIg/dg+2Lcf9n26mGIRJPRk+rBy4w/
+         P6Y2jnnW3OgmnWAzpn7h6IYHGRfr3mJZ7PM5X7fUGGKiErvA4S31/teOHe06DQWXKksa
+         3XoZovUSfvHvJki4nM9tFNzThN1/HowB5L62+zJ+VSou9VOoMPU1nTVkIP99ppmpIaL4
+         C+P6wNMaI7q9yPtsWOgwDPp0vZw+S/la3H0MEKaOTAPEp9jtSENt+xqAP3LiWgD/TwEq
+         qYzZJtrU4EkGcnMHHQFBkw/9fgmow79FvncroY9D8IxG4a/Gn8kmZ7Hha/A31qu57qpg
+         CD5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=lIbXpFTj/4jIXWlkQ6czPnMrtaq4DBoRJvyvQNnOL8U=;
+        fh=xYxKSUHbXDjytJH2P0w6AFXpXOE7BylqRsmbsQHIGts=;
+        b=M5eYyQC6cGw5dCZldDT58wSK/EWai3WlVaZ2GVXROCFAv41aOmV9ku6ka8uOBLHDCU
+         zng3krPz5OwmPP8EM3IIBZVwDPC7G2Ii1G8PpfY7ASzgUsgvFIqPNcGTNjYHRqClHOlP
+         hKeRUtxkoH2eTsskf0WIinh/aswdTn9n49Jt8dZQL/B1ZOUhjkoY7zMHZfiwR4WUHG0i
+         daZIn/cnPDFd3buwppZAenYsQq8J2rhpXaSFwqNPgDAeVf7A8z0YPW3dn0hngLCI/znB
+         bqWSFD5drzjO7IV/gD3rEKBwGc2mV0cayZAOTiiNBNwixK6FzY0q0av7nnHnvxvr83yT
+         LSWA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786100700; x=1786705500; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lIbXpFTj/4jIXWlkQ6czPnMrtaq4DBoRJvyvQNnOL8U=;
+        b=a6Q1tSSbhEZ1eA0ZlyTuGMLL2mOm9+h0LtjzlMF9DuUMhaCLWhjlXHaM77L0zWo+hm
+         VJAGgpF979GOIn+57G6YJJiJvnHA7hXSXHJx6+Bru3OqZI9qXegQV/sDuKiQjR6DkbDa
+         dZycwzdNBl8KmYMzS0wS+QVaPrLBHQzCTHbTTZaS0uB86dugIuybm6+LbVCpnAmAMS3M
+         gy+daUlGaZvz3m3moy0//SxWH1TUwVst1NWfXxrqdNM1Nf2RVF4TkWuwMxKVwsus2UHO
+         Rwf8mK1vIIzOA7PphfERSRaUPcJwmBZcF2/gkd87Lrx+epOb6FZa4JtMGtfTF8D7k4lR
+         IKCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786100700; x=1786705500;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lIbXpFTj/4jIXWlkQ6czPnMrtaq4DBoRJvyvQNnOL8U=;
+        b=hLHFMd+7WLCoaP4Zw+kH3qpXBufqoXBb5ZqeeAiUaCdWu7il8WXmiahfSb0tGtjwO0
+         5kLF9DPQsWhqc2Zf9uDLF0mUP1d0ekvWVo82DF0ThHYcmtdzf8f8yMFC+o+hZRxwzDko
+         JClsfltNvZqzIRDiHLEVQjNb6VCIZ+apaxWIf0Sm0llinBJrvop9rBFZPs6h+ncNRQuI
+         niQJRu6ICW89IphrQRdHlBNjVoi+KEq7B+u5qXvPl7xbGUX1XDExV4zpKd2iaGvxeuDy
+         Iu0iMIGYD3VXo+yBDjLbLdDmM1ako7lVVEnwWCuUTcB+i8A5kH44oqnvjZs/TxAPYHfY
+         PAWg==
+X-Forwarded-Encrypted: i=1; AHgh+RqZJdMKBdxdiYNUg3M7ZBEzb30vrEVbaWhMZiAT91qBYdmhdjUBOMuFe9666UVB4W/p89S7DUunrpxWpbvnDavo@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYPd48eq2Lwr/4HNoSmqQs0sdTFqWYIeC7OUzrLmGVEbdVEO/I
+	p0N5cmnlaY5q7eiizdFYKMLdDPZCTRZ9j35xVPQ4DFgdHuurmjadJvqQx+RYwSmp2NMAXlO2tBH
+	+cPVyJ5i1E502mBul7xxHATxsTdsG+r4=
+X-Gm-Gg: AR+sD131GUvlZcXCc6BT7FdY9SdSO9ca8SN+bFGQ3od8K1gbCQ1/1Q2fGh5ALVmV2zi
+	EqISCLOlC3VaCeCqYE88FpM9MJMLozHIH6kh+nIIXFgqPTY9VlSFmCrbHOqek/EVu81znROaPZC
+	qAzbI07fhwrUUH6imKinhZwFPZLagsmdkiGRrZjBWqYL31uVXTaeprRJLzLN7jrJlSUL7IReYuc
+	sbIaK/VUX7GxaIfDgBKX5e9adPsEwfzQxOdariz+nr96PL8i1zEWm0h/bp4w98lc16f7iUYDK53
+	5EWnm1EvB/Ud8rsHL0asW/fZoKLvaszEFM0Yv93CouNyWuyO4N/p+T5HbphPkKCuqYDRFUCutrd
+	c0pK27oVSRoauTY856aJZ46Y9vSeYtdimuUkmiorThDvoikivtVRwovZc
+X-Received: by 2002:a05:6300:670b:b0:3c0:ac0f:6558 with SMTP id
+ adf61e73a8af0-3cb85e99259mr26552578637.2.1786100700044; Fri, 07 Aug 2026
+ 04:05:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
- reference
-To: Jason Gunthorpe <jgg@nvidia.com>, Mostafa Saleh <smostafa@google.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-coco@lists.linux.dev, Marek Szyprowski <m.szyprowski@samsung.com>,
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
- Michael Kelley <mhklinux@outlook.com>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <20260717180442.110954-13-aneesh.kumar@kernel.org>
- <ami_mpd_1pF4Tmdu@google.com> <yq5a5x1ygo7z.fsf@kernel.org>
- <amnRB98ZZIysHuM3@google.com> <yq5acxw6dl1d.fsf@kernel.org>
- <20260804142032.GC27883@nvidia.com> <anL9-OrDGqYQAWNV@google.com>
- <20260805123023.GO27883@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260805123023.GO27883@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260807093058.42840-1-phucduc.bui@gmail.com> <CAMuHMdWJ3W2JKmxaKaa-A-Zk633cf4UwbESi+F1_h4tX1AhRng@mail.gmail.com>
+ <CAABR9nF7sAT4C+W_qE8GVKhrtTjdm=DcpJH548RzFaYLuED+3A@mail.gmail.com> <20260807103645.GE1316230@ragnatech.se>
+In-Reply-To: <20260807103645.GE1316230@ragnatech.se>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Fri, 7 Aug 2026 18:04:48 +0700
+X-Gm-Features: AUfX_myqnP9cM0o7YKZHIMOZ9idGY0mI36nu52n1v9bZ-QIC3TPihkA-_6FUpl4
+Message-ID: <CAABR9nGAY6BjA2mRsv+2hkB1kv0QDJX6osXyEMw6jsjE+j2+vQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] thermal/drivers/rcar_gen3: Handle -ENXIO from
+ optional IRQ lookup
+To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Markus Mayer <mmayer@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, rafael@kernel.org, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+	Lukasz Luba <lukasz.luba@arm.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	linux-pm@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_040323_199196_85F3530B 
-X-CRM114-Status: GOOD (  47.31  )
+X-CRM114-CacheID: sfid-20260807_040501_172462_80B76774 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,112 +125,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-08-05 1:30 pm, Jason Gunthorpe wrote:
-> On Wed, Aug 05, 2026 at 09:10:16AM +0000, Mostafa Saleh wrote:
->> On Tue, Aug 04, 2026 at 11:20:32AM -0300, Jason Gunthorpe wrote:
->>> On Wed, Jul 29, 2026 at 06:12:38PM +0530, Aneesh Kumar K.V wrote:
->>>> There is a possibility that we may support io_tlb_mem with cc_shared =
->>>> false in the future. As a result, only swiotlb_map() knows which type of
->>>> bounce buffer was used, making it the only place where the attributes
->>>> can be updated correctly.
->>>
->>> Yeah, +1, the attribute should be changed at the same effective place
->>> the source memory is changed away from what the DMA API user
->>> provided. Only the thing providing the new memory (eg swiotlb) should
->>> know its properties.
->>
->> I will keep the conversation here instead of 2 threads.
->>
->> That seems like a big leap, I'd be worried about devices that operate
->> on confidential data that should not be shared/decrypted.
-> 
-> That seems like something very differnt.
-> 
->> One example for this which exists in pKVM (this part is not
->> upstream yet) is non coherent devices that require bouncing but they
->> still want to keep the data private. In that case ideally they get
->> an encrypted SWIOTLB pool, but it's always better to fail than to use
->> a decrypted pool behind it's back.
-> 
-> We don't have any API for a DMA API caller to signal 'must be
-> confidential'. If we want to add one it would be a flag to check
-> before changing the physical address in swiotlb.
-> 
-> As defined today the DMA API expressly copies from private to shared
-> memory, that is baked into it's design and not a bug.
-> 
-> My expectation is all these cases have to be solved by setting up the
-> swiotlb properly so it provides suitable bounce buffers. Yes, this
-> means we will eventually need both private and shared swiotlb pools.
-> 
->> I have not been following the work on T=1/T=0 devices, but IIRC, they
->> required some complexity to handle their stage-2 as these modes will
->> be emulated differently (for CCA, RMM vs untrusted host).
->> I was thinking that it might be easier to represent those to the
->> guest kernel as 2 separate devices (bounded to different groups...)
->> where one is trusted and the other is not, and that way the DMA-API
->> can have strict rules about memory sharing.
-> 
-> No way! That's would be a giant disaster for the driver model.
-> 
-> Each struct device will have a flag that shows if it is in T=1 or T=0
-> state. The flag can only change while a driver is not bound, and
-> changing the flag will update the DMA API configuration.
+Hi Niklas S=C3=B6derlund,
 
-I see we no longer seem to have the concern of devices in TDISP RUN 
-state being able to send T=0 transactions other than MSI writes, where 
-GICv3 means the host is already going to have to be in on the game to 
-some degree there anyway. There could still be a potential concern of 
-other non-PCIe equivalents wanting such a thing, though. However, even 
-then we don't have support in firmware bindings nor the IOMMU API itself 
-to be able to describe a single device being associated with both the 
-RMM's vSMMU for the T=1 (Realm) VA space, and the NS VMM's vSMMU for the 
-T=0 VA space, even if we did only have to care about using strictly one 
-or the other at any given time based on device state. Having distinct 
-struct devices is indeed clunky, but does at least reduce the problem to 
-a currently-manageable one of the client driver having to wrangle them 
-as a pair. Note that there are other such hardware properties that may 
-also differ between states, such as ITS frames when we do get GICv5, so 
-in fact having separate descriptions of the "shared" and "private" 
-aspects of a device, based on their respective MMIO address aliases, may 
-not be entirely unreasonable for CCA - making OSes understand that seems 
-like it might be easier than having to reinvent swathes of ACPI and 
-Devicetree bindings (and then still having to make OSes understand *those*).
+Thank you for your feedback .
 
-> A T=1 device should have the same issue as you point out for pkvm, it
-> really needs to have a private SWIOTLB pool.
+> > Regarding the caller, I only found rcar_gen3_thermal_request_irqs()
+> > being called here:
+> > https://elixir.bootlin.com/linux/v7.2-rc6/source/drivers/thermal/renesa=
+s/rcar_gen3_thermal.c#L530
+> > It does not appear to handle the error return there, so I don't think
+> > the caller currently handles these failures explicitly.
+>
+> Yes it does. If it can't get the optional interrupts the driver does not
+> support setting trip-points in hardware. No?
+>
 
-Yes, once device_cc_accepted() is true then we *must not* inadvertently 
-share any DMA buffers, if the caller has not explicitly requested 
-CC_SHARED (tying in to the XT use-case), otherwise we'd be breaking the 
-end-to-end confidentiality that TDISP/IDE/etc. is all about. So until we 
-do have an additional private SWIOTLB, we will have to just fail 
-mappings for an accepted device which would otherwise want bouncing due 
-to DMA mask or alignment limitations.
+Yes, for -ENXIO, you're right.
+The caller treats it as the absence of optional IRQs and disables
+hardware trip-point support.
+However, this also means that -EPROBE_DEFER, -EINVAL, and other errors
+are currently treated the same way.
+The caller does not distinguish these errors from -ENXIO, so the probe
+continues instead of propagating the actual error.
 
-(And FWIW when we do get there, I'd be inclined to make the default 
-SWIOTLB the "private" one, so all the sharing/decryption stuff can be 
-neatly partitioned off into the CoCo etc. special cases...)
+I think the caller should distinguish -ENXIO from other errors:
+keep the current behavior for -ENXIO, but propagate -EPROBE_DEFER,
+-EINVAL, and other errors.
 
-Thanks,
-Robin.
+ret =3D rcar_gen3_thermal_request_irqs(priv, pdev);
+if (ret =3D=3D -ENXIO) {
+        priv->ops.set_trips =3D NULL;
+} else if (ret) {
+        return ret;
+}
 
->> Otherwise, SWIOTLB does not seem like the right place to me, as it
->> does not understand the context the device is operating in, and the
->> DMA-API should deduce that from the flags passed.
-> 
-> It is exactly the right place because it is the one supplying the new
-> memory. Context is irrelevant, the flag only describes what the new
-> memory actually *IS*, and swiotlb knows 100% if the new memory is
-> shared or private.
-> 
-> For your issue it would be appropriate to add a debugging check that
-> the new memory is not incompatible with the expected policy. eg a T=1
-> device getting decrypted swiotlb memory is a bug in swiotlb setup that
-> should be caught. But that's a debugging check, we expect the swiotlb
-> to have selected the right kind of memory by construction. This isn't
-> done yet since this series doesn't even yet support a T=1 device..
-> 
-> Jason
-
+Best regards,
+Phuc
 
