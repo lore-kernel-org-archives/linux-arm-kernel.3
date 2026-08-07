@@ -4,86 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A36C5AC80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A36C9C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ixdVkEx13j+MHIM09cGrssA2HKr9JeWH00Mqxzi/0N8=; b=JYQS7vR6YOnOK9wapImr92j1Zs
-	EkF0FJq+ehwEywRQgyhgw2JBq7HeXymwR5SS9Ak91Ux49vMCducCopMai0XK55mQL2QF2eb9u0VK2
-	wk4SewhRw2j7ReHHaJGbnScNrZ6o/qFV7ZahZKJMDqJsFEcn6tkS3VxoggPTPDuf06n63/3H+nBMy
-	94jAUfJqw7KJefir+zgweRONIfGvWiyfnblhlyLWsn6zFDihPAkTXEwycmVxpZ96mhKYjk4ZaW6pw
-	IvXKdJQQQENozRe7ITiEM4a7cIaJdEnQeFu9ADzZA8gzfGiSU565DH0Jb2AC3H0eZFrP3OJ3bovbp
-	3ACD6fxg==;
+	bh=ElPrYku5hZS69V5JsbOr73/5/q9Y6OBUCb4suy4hExA=; b=Z0mcAsgxXl7I9/tjgq/ppDy4Ij
+	h0X4n+QhlMt6WwJrgU2Ts1k7MnTbC/kiuYYzlawOPpUY0idbKfq8Y6mAiQvR02Oy5/HXN0JFbiZsv
+	O0BTA8pTn5CemQtFRt0EEEob7BnaeTMNeIZr55+PpXqqTQ3UvBP2DrygTxm/+OKKfF1+6zoOZIRZb
+	BRNHSAdPeWK3XmkleeYVUy8Te4OVrIBPFpjn16aILCRRxHc7hEmCT0NlEnRN8rTzA7jXlbQxkVR1k
+	Gd8blqUEgbcbaAeobZX/vq6R5dln/snj7r2dsJYOuK+PDUnXyf3df91YBJzpNkPkkTFVMqYNrqvUb
+	XUaviwuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsI60-00000007jp9-0iEQ;
-	Fri, 07 Aug 2026 10:46:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wsI62-00000007js3-2qg0;
+	Fri, 07 Aug 2026 10:46:38 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsI5v-00000007jkU-3xtz
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Aug 2026 10:46:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ixdVkEx13j+MHIM09cGrssA2HKr9JeWH00Mqxzi/0N8=; b=UrXLOOp5RxLMmUPUEdbwWBgwdb
-	1FyUVmHcT1rmf7P/OPBRknph0krv4vXmjiFD/QXbJDDjdOv7KWUyAet1UZHi46qymSiOXEcz3ui8c
-	JEHzGAzd11m3ep27vPN1jlEDb2r7FRJYeV4G0s6yWNIyKK+MKRCVvyQcLfbUhcsQgrBuy7bJvN2NT
-	M3fW5YJzNncM+EoRQsDTfazu1DjNQtl1QN/kOoEURHulGtwAmxmZibUkWQvxXLMu+qtaR1qmsnewV
-	rg9/4V1f6h9AXkcoPjIQeIajcxYB/zBhkOvyudykrzzvwMiw7VAgpdqlal2PgKPhMNknu7nqNEs8O
-	STpNRcqA==;
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsI5r-0000000CIQf-3QiE
+	id 1wsI5x-00000007jli-1TCq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:46:30 +0000
+	Fri, 07 Aug 2026 10:46:35 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=F+buBpvt5JsCgdxPLSp6vCIZnajXZ5Yl2SgJxOvCoxAcLrIWxehrvuge7M7g9a8v5Ededg7dZ9C3Af0WX4/YMAqsO2IBwlZ75foI3hp5uDnxBcFiZEW7EkRHQmrrIFUUEFMzBxM125/is+fgle9ilmkUOwUEOpVMn2FvQTlZxtnV6NDxenmwzfjdGdhF9NO43ZvvxsVQfO76a9lcRJNFSfh3i5aBZ0yTX2VlXZsxjLcs1rf1OospHC4Ay4gotPh3KAzK6QtMBu1iCgMfOfnw/OnyWIP5xjj+iLcSExH+tgLtZLAz07A0OaF/1rRF0zBPSOwQ2P1ZdAVRJRJbyseztw==
+ b=mG2qiq6ulEvbrsZhyt6OT9tPBKjEZvVS63aQESMC2R7g06vHPAmORRqLQF6d6i1CzkfMwgKjc0eDndcArMA2vxwXc388M59f5hfWCRR3BmOAEP+MRTVg13BWtc0VfyMPA7REq+jPVaThl0Z+97ptDu9ehPmADQm8QcvSEkw3uD3DtoR1pzxznn47f4Gbq/jD7xQCZ27RtB4i1e5fnilk75MK2cx9Jpn1SGwmk3z2/naFzt68Z/vM0XasRtfoPoX6pE4B+EXSWKRYR73lGxzu5qTSp4NnBk17bCnD3nwdVqgY2iQ3JYj7UE0pOCWgatmHPB8f6lg48YZEzVzov6f17Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ixdVkEx13j+MHIM09cGrssA2HKr9JeWH00Mqxzi/0N8=;
- b=eHJsiP7xkGpuTMP+okf+j670lBqzp6Qt43GXAhB4D3LGxt5Fjnvf8kAozm8NQz7/YU84dz5zocu1VY1pbL4xKjhX85lZi120K0K2CtUMgMTS9Vh6rZzq4qZK+LvbC1+U8lvP1bfZopIgGX2cn9RrKUR+l82rUYQhpCRzzD1QcZZirQ7iXzIh4pIbre0iCnUyLsi5Zb7dPt50sPfgnWNgMUPgVUCqt5Ro9unPdSkoLEPW1jlzrHV1ab8fxicwne+fqqO50D+ke42qEkcWH4qaxYS6HUsGGAa4itDNvNS0h2RkBLWswlFsXOOmqquFmiDy94E7BTbnf6QGcXqq602kOA==
+ bh=ElPrYku5hZS69V5JsbOr73/5/q9Y6OBUCb4suy4hExA=;
+ b=o4dVH1pE+m+M8bTOAcQAjIUJDBYPDHWstEFFh26wMDydym3RFOSLd3uLHOv1WBusa5GnfA2QQLVnW4uHFZ8oismlRSFFSfag6kEbHViU3z5PWshsPvcMwoDWRjDb24aC8J5bCryz3p+99er16SAdyzn0bX0nTmXQ/94kQOue3kayEqArm0g8F1k4q7R02zwwrIqJlT8FxThwsd8qT79wv7ALyI/A4Mi3C/wPLOCMtIJjSQqM6Z3eU4FyfjLgrZR03GlX86QCD64fhek4f2CnKXUK9pMxuuKi6WAsgySEU01jR9BaZGbp75A4r6eC7eqCZfWPKiaiaEi9UxrJtwXOaA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ixdVkEx13j+MHIM09cGrssA2HKr9JeWH00Mqxzi/0N8=;
- b=eAbRrOeP3HB3LZSr78K8BskcTKdNmafr+47iNlAff6bt6zaVoEAb0teXZ2XjTzeJih+p/2uppb7PZrshYiMAaKLBWLFrw7FbCbVD7PkZKI4VhKpxdO5NO8xOGVAZYDsWNCtZwXVMlciW5lFQWTbPgQ926WLt5MIc8X2Govm0L+c=
-Received: from SJ0PR13CA0114.namprd13.prod.outlook.com (2603:10b6:a03:2c5::29)
- by DS0PR12MB6534.namprd12.prod.outlook.com (2603:10b6:8:c1::19) with
+ bh=ElPrYku5hZS69V5JsbOr73/5/q9Y6OBUCb4suy4hExA=;
+ b=EnkIxH8cHjzas6bAfXupyp46Vs00VkjcIYDkt+NRFjjVHX/ge/K2IA+4d/YVyDuGww5AmcXIK8MFtF78+vbqaph/e0XhBQRePp5mwfdYMHTUXmF1/2vy0kWXGSSjSb29eSgURqk6OpYlY5jMzQwoY7v8P3BBJT6U9gWTiQKdxGM=
+Received: from PH7P222CA0014.NAMP222.PROD.OUTLOOK.COM (2603:10b6:510:33a::16)
+ by CH3PR12MB9196.namprd12.prod.outlook.com (2603:10b6:610:197::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.23; Fri, 7 Aug
- 2026 10:46:11 +0000
-Received: from SJ5PEPF000001EB.namprd05.prod.outlook.com
- (2603:10b6:a03:2c5:cafe::2a) by SJ0PR13CA0114.outlook.office365.com
- (2603:10b6:a03:2c5::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.9 via Frontend Transport; Fri, 7
- Aug 2026 10:46:11 +0000
+ 2026 10:46:25 +0000
+Received: from SJ1PEPF000023D9.namprd21.prod.outlook.com
+ (2603:10b6:510:33a:cafe::5) by PH7P222CA0014.outlook.office365.com
+ (2603:10b6:510:33a::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.23 via Frontend Transport; Fri, 7
+ Aug 2026 10:46:24 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ5PEPF000001EB.mail.protection.outlook.com (10.167.242.199) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF000023D9.mail.protection.outlook.com (10.167.244.74) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Fri, 7 Aug 2026 10:46:10 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.315.0 via Frontend Transport; Fri, 7 Aug 2026 10:46:24 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 7 Aug
- 2026 05:46:05 -0500
+ 2026 05:46:23 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 7 Aug
+ 2026 05:46:22 -0500
 Received: from xhdnrottela40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Fri, 7 Aug 2026 05:46:00 -0500
+ Transport; Fri, 7 Aug 2026 05:46:17 -0500
 From: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
 To: Srinivas Neeli <srinivas.neeli@amd.com>, Andrew Lunn
 	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
@@ -96,9 +85,9 @@ To: Srinivas Neeli <srinivas.neeli@amd.com>, Andrew Lunn
 CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<git-dev@amd.com>, <nagadheeraj.rottela@amd.com>
-Subject: [PATCH 16/20] net: dsa: xilinx: drive per-MAC PTP TX/RX hardware paths
-Date: Fri, 7 Aug 2026 16:14:27 +0530
-Message-ID: <20260807104431.157230-17-nagadheeraj.rottela@amd.com>
+Subject: [PATCH 19/20] net: dsa: xilinx: offload bridge VLAN filtering to the switch
+Date: Fri, 7 Aug 2026 16:14:30 +0530
+Message-ID: <20260807104431.157230-20-nagadheeraj.rottela@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
 References: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
@@ -107,28 +96,28 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EB:EE_|DS0PR12MB6534:EE_
-X-MS-Office365-Filtering-Correlation-Id: d0863d66-0f5e-4e50-dab3-08def471181a
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D9:EE_|CH3PR12MB9196:EE_
+X-MS-Office365-Filtering-Correlation-Id: 11bdf564-8392-498e-be2b-08def4712089
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|7416014|23010399003|82310400026|56012099006|22082099003|18002099003|3023799007|10067099003|11063799006|921020;
-X-Microsoft-Antispam-Message-Info: J/J1uEZVnoAILiLAJ518ZiKILdvpViOqiKWQYuDmkT9oEedaQzSb8PjQipcPY+xK1CP2Sml39z+JNgVqMJMb9dzKaKULA3rwFtOxtXLc7rgkxhIBdNHBD0aPyAm2B8sYJ77Iyy2MGBq+jcC3mXST43/Tic2TmvCtYoPLXh+WxDxlxBhSMtQFf8W52nxaXXcbhVBTZ4ILvKrEi+pzK9sV1EbA7mgswT//MNsGJdFitEXv+53G7G6u4fPXbBpvIXPnv58ofnwYggDGOzrNFiWUOBEvqZAV3fX1gQBCyuZq/k7C6BCQWVpipHnOwnvcsdmuqNy73iWZe9VlGGzhDQfNJwLxvArCGSJCSSlDG87/npWo/2A5zXI1BfZ8CrR07i0lmHzoQ368HYBv+Ryq7v+c7IXxMjnxTF5K2SkzSDFic/pqVvn7a+v3X8zl/WEDBiZSFrdCy5hYBbRbxj1eyRpV2j4U7POurctVNzmpkic/pyk7RoYlzWeXvhER+aG/Y19u9ZB1B9xYv240xDttWFEv5ztcODhvm6E6NOrIEg0nAUB3XZ2dKU/8pig04460FY0tBwVz3ddfmSahouIdRSSE4RCM4r8pl+hnGgfkpOLjvOCCoCNwyJdJnrxdGQNwA0S2bRNOi5xJDy4bI1af4ZHtHvszRWmKLaYTsR8oHgwvCYj/X8hZdU8AdCL6TErjb5Iu/X8DPHev1YTEuJQT3vWttKxOugdA5fEvIO7L49wUI6CnWtrptNYQpKI9N/61gPdw
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(7416014)(23010399003)(82310400026)(56012099006)(22082099003)(18002099003)(3023799007)(10067099003)(11063799006)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|1800799024|82310400026|7416014|376014|11063799006|56012099006|10067099003|6133799003|18002099003|3023799007|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: zwXavk3eJfTJOYrkphTZSUyTZFl6UcKvy8G6KsUwp4399YJT67TC6TuOXykTX6baMcMXkhzw+hFBHybxURzZGSxXAQcqXha5Ad7PF+H+L9L3Mib+BCF0uK7lUhx9Togq+J9Atu6zygdSbIZ7zLUKnRpIN9DXRrkF4dp6hk8sCPZPsgClOtzN+H3yo8L60mINNyJjeFFiUU9ttAepQjznOaqOK0cOy3YfG6Uv3WxiZORRN9g32uT4JZjLF107kX4+G8oay0D3W8eRxkFWXmDnhm/upv73fMnv5UcOac1Fx/7qEhMHsu73yM9JSXKy6yJNS17d4fZ/CtCQlpl5MN77UJb6FQaXw56J7UeL/DBn9Wvv2f8XLLWB4LFo64MvuA0l9Gow+aaCbXWQ7FJ3xWkcfqYeCHmpCx1p8vMv6A4FQopKXYFEMOxEYflNxzDBT4xiRbRve/c0uxP2qDCde1UP+OXN+AHMwk80uXUWwl1ZvsB3hP/YlZX3hCw7YP8pafL0SjI6lQeCeTg7LRDCS+mFiUGV5SxN2Ukdl+G6F7qafsSiHe4Cp82vo3jFvgHlmsjyU3XrhNw4vjEueN/UKuWt9Y73Rw1Yv8tz07w6uJrRBmvGXalIFc05wH3Lc00sngygseXhsHiUF7PMjQ8y1Nqt0z5cw2ou3tjoFpw3q6jzNYUQpM+/GmnrpZJPK6ri8h6e5LtfSihw6SlUyO8tj6B36CeSdzTC4MR+4TaHdYzj4pfXrrwCZ9LWCkF01rQR4Bmd
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(82310400026)(7416014)(376014)(11063799006)(56012099006)(10067099003)(6133799003)(18002099003)(3023799007)(22082099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 3YZLnVdmNJVpG5KD16k0CDwbLVIga6Pb7/pUMHB5yVPEhBsVq/riWejXQcpzTyTZ0UoBKfdthtxhGcMnWkN5DtBbg2GNHiUhGAu3nNSUILr8XeI51+Mi/E30Fha5HvACf3Lsx5Ca1+/Qolan4CqknzC3pmaQNt2qjodVa6A9Nk8OsNS+g6opMUp2FsNeEwIbFRu2cXUub8OeW6KKySCIrHptwohRUgJ1vuQ91ft5lv24BD89JCjPv9OUZXDb+4YBrr8SpKGCXF51MDQSPhujgWaqPpTLW6hes3tmuI2+Q97c6f4ivve414QDfYwvZtE2QEdQsKd65tiqG60Pnvhwwvul/At7ZGTChXEFmP7z/wdL+9fYbtFWvhhNGhEVBHsvwr3Twn6Pe7GzcMnq4wDhuX0GMrWSkT1LdrZYUIJzF07J1ZwPRbQQNx/zm3YHEQe4
+X-MS-Exchange-AntiSpam-MessageData-0: B5EFtou5SBXqkxpoGV6F6aaGmRcP1L+d5uAdZ+VxmvvSQ7YtEjHjAm26RF+R2BlGBk3rgmbBkv2tBcGI4p1M+0lRxpAZ5knr7z1CJ2u1QOsaoxp8C/882agc13VqdrkcQ1ZB0j1i4BYTnfC04WAyvvAmkf29EwqI8Ve3WeX2mugC4ECYo694YPoPoQy4SwrQly1OxdR6pUV9CN4cpTbv7QJhKEBuCa1QNdXhKjIfWBM0LhorGPLYQ2PtuPo72GacZOyhVoMlQGmNyW/oF6UgYHsmxjqYAukO2neGHRbfI/w7Bc1ZYi432nc91fludo6wyi8tATLCeNruMXv0KBRnHjjBl/TDSKqeORpIhZP1XUu0hd74wAHlWp/XcE1le80s8/ymZLd0SEhkQEsUAkOTAXAeYaJW2Oh4UZ13Gy8Slyh4Qgi1k+Hed8O77pco4zEu
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 10:46:10.4990
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 10:46:24.5633
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d0863d66-0f5e-4e50-dab3-08def471181a
+X-MS-Exchange-CrossTenant-Network-Message-Id: 11bdf564-8392-498e-be2b-08def4712089
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EB.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D9.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6534
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9196
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_114628_118950_DA491D30 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20260807_034633_490766_ECBBE7D9 
+X-CRM114-Status: GOOD (  23.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,699 +132,521 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PTP event frames bypass the switch fabric. Each MAC has its own PTP
-TX and PTP RX register windows in the per-MAC register space, plus
-two dedicated interrupts. A frame captured in a MAC's PTP RX buffer
-goes directly to the matching user port. A frame pushed to a MAC's
-PTP TX buffer transmits out the same port without ever entering the
-conduit or switch.
+The switch always keys the L2 forwarding lookup on {DMAC, VID}. A
+per-VID port-membership table controls which ports each VLAN spans.
+The ingress parser assigns untagged frames the native VID of the
+receiving port before lookup, so tagged and untagged traffic share
+the same {DMAC, VID} key throughout.
 
-Publish the TX path to the tag protocol through ds->tagger_data
-in setup(). Using a function pointer through tagger_data rather
-than an exported symbol avoids a link-time dependency from the tag
-module to the switch module.
+Wire bridge VLAN filtering to the port-membership table and
+native-VID registers so bridge VLAN commands take effect in
+hardware. Program the native-VID register on PVID changes so
+untagged ingress lands in the right VLAN.
 
-TX timestamping accepts HWTSTAMP_TX_OFF and HWTSTAMP_TX_ON. Accept
-any PTP v2 event RX filter and promote it to
-HWTSTAMP_FILTER_PTP_V2_L2_EVENT. The per-MAC frame-filter block cannot
-narrow the filter by message type.
+Filtering is switch-wide, so declare it global. The per-MAC
+VLAN-enable bit adjusts the MAC's maximum frame length to
+account for the 4-byte tag.
 
-Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
-Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
 Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
 ---
- MAINTAINERS                             |   1 +
- drivers/net/dsa/xilinx/xilinx_tsn.c     |  24 ++
- drivers/net/dsa/xilinx/xilinx_tsn.h     |  76 +++++
- drivers/net/dsa/xilinx/xilinx_tsn_ptp.c | 357 +++++++++++++++++++++++-
- include/linux/dsa/xlnx_tsn.h            |  25 ++
- net/dsa/tag_xlnx_tsn.c                  |  29 +-
- 6 files changed, 510 insertions(+), 2 deletions(-)
- create mode 100644 include/linux/dsa/xlnx_tsn.h
+ drivers/net/dsa/xilinx/xilinx_tsn.c | 329 +++++++++++++++++++++++++++-
+ drivers/net/dsa/xilinx/xilinx_tsn.h |  50 ++++-
+ 2 files changed, 367 insertions(+), 12 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0e91cb2a307d..c44b6fdd5b4a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -29615,6 +29615,7 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
- F:	drivers/net/dsa/xilinx/
- F:	drivers/net/ethernet/xilinx/tsn/
-+F:	include/linux/dsa/xlnx_tsn.h
- F:	net/dsa/tag_xlnx_tsn.c
- 
- XILINX UARTLITE SERIAL DRIVER
 diff --git a/drivers/net/dsa/xilinx/xilinx_tsn.c b/drivers/net/dsa/xilinx/xilinx_tsn.c
-index 318d8b332208..e48c81f18d6e 100644
+index 57558b0e2613..7e5cf77cfa66 100644
 --- a/drivers/net/dsa/xilinx/xilinx_tsn.c
 +++ b/drivers/net/dsa/xilinx/xilinx_tsn.c
-@@ -18,6 +18,7 @@
- #include <linux/phy.h>
- #include <linux/phylink.h>
+@@ -20,6 +20,7 @@
  #include <linux/platform_device.h>
-+#include <linux/dsa/xlnx_tsn.h>
+ #include <linux/dsa/xlnx_tsn.h>
  #include <net/dsa.h>
++#include <net/switchdev.h>
  
  #include "xilinx_tsn.h"
-@@ -679,8 +680,25 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
- 	if (ret)
- 		goto err_nb;
  
-+	ret = xlnx_tsn_port_ptp_init(sw, XLNX_TSN_PORT_MAC1,
-+				     "ptp_rx_mac1", "ptp_tx_mac1");
-+	if (ret)
-+		goto err_ptp_exit;
-+
-+	ret = xlnx_tsn_port_ptp_init(sw, XLNX_TSN_PORT_MAC2,
-+				     "ptp_rx_mac2", "ptp_tx_mac2");
-+	if (ret)
-+		goto err_ptp_mac1;
-+
-+	sw->tagger_data.ptp_tx = xlnx_tsn_ptp_tx;
-+	ds->tagger_data = &sw->tagger_data;
-+
- 	return 0;
+@@ -804,7 +805,7 @@ static int xlnx_tsn_port_fdb_dump(struct dsa_switch *ds, int port,
+ 		addr[4] = key2 >> 8;
+ 		addr[5] = key2;
+ 		vid = FIELD_GET(TSN_CAM_VLAN, key2);
+-		if (vid == TSN_SW_DEFAULT_VID)
++		if (!sw->vlan_aware && vid == TSN_SW_DEFAULT_VID)
+ 			vid = 0;
  
-+err_ptp_mac1:
-+	xlnx_tsn_port_ptp_exit(sw, XLNX_TSN_PORT_MAC1);
-+err_ptp_exit:
-+	xlnx_tsn_ptp_exit(sw);
- err_nb:
- 	unregister_netdevice_notifier(&sw->nb);
- err_mdio:
-@@ -692,7 +710,10 @@ static void xlnx_tsn_teardown(struct dsa_switch *ds)
- {
- 	struct xlnx_tsn *sw = ds->priv;
- 	struct dsa_port *dp;
-+	int port;
- 
-+	for (port = XLNX_TSN_PORT_MAC1; port <= XLNX_TSN_PORT_MAC2; port++)
-+		xlnx_tsn_port_ptp_exit(sw, port);
- 	xlnx_tsn_ptp_exit(sw);
- 	unregister_netdevice_notifier(&sw->nb);
- 	xlnx_tsn_mdio_unregister_all(sw);
-@@ -709,6 +730,9 @@ static const struct dsa_switch_ops xlnx_tsn_switch_ops = {
- 	.teardown		= xlnx_tsn_teardown,
- 	.port_set_mac_address	= xlnx_tsn_port_set_mac_address,
- 	.port_stp_state_set	= xlnx_tsn_port_stp_state_set,
-+	.port_hwtstamp_get	= xlnx_tsn_port_hwtstamp_get,
-+	.port_hwtstamp_set	= xlnx_tsn_port_hwtstamp_set,
-+	.get_ts_info		= xlnx_tsn_get_ts_info,
- 	.phylink_get_caps	= xlnx_tsn_phylink_get_caps,
- };
- 
-diff --git a/drivers/net/dsa/xilinx/xilinx_tsn.h b/drivers/net/dsa/xilinx/xilinx_tsn.h
-index 6063763b5c17..d46150535775 100644
---- a/drivers/net/dsa/xilinx/xilinx_tsn.h
-+++ b/drivers/net/dsa/xilinx/xilinx_tsn.h
-@@ -9,10 +9,14 @@
- #include <linux/bits.h>
- #include <linux/if_ether.h>
- #include <linux/io.h>
-+#include <linux/net_tstamp.h>
- #include <linux/notifier.h>
- #include <linux/ptp_clock_kernel.h>
-+#include <linux/skbuff.h>
- #include <linux/spinlock.h>
- #include <linux/types.h>
-+#include <linux/workqueue.h>
-+#include <linux/dsa/xlnx_tsn.h>
- #include <net/dsa.h>
- 
- #define XLNX_TSN_NUM_PORTS	3
-@@ -127,7 +131,44 @@ enum tsn_port_state {
- #define TSN_TIMER_PULSES_PER_PPS	128
- #define TSN_TIMER_GTX_CLK_FREQ		125000000U
- 
-+/* Per-MAC PTP TX / RX register windows, sitting inside each per-MAC
-+ * reg space. Each PTP TX slot is 256 B wide; the first 8 B hold the
-+ * cmd1/cmd2 header, leaving 248 B for frame data. HW provides 8 slots.
-+ * The PTP RX buffer mirrors the layout with a 252 B usable area and
-+ * an 8 B HW timestamp footer.
-+ */
-+#define TSN_PTP_TX_CONTROL_OFFSET	0x00012000
-+#define TSN_PTP_RX_CONTROL_OFFSET	0x00012004
-+
-+#define TSN_PTP_RX_BASE_OFFSET		0x00010000
-+#define TSN_PTP_RX_PACKET_FIELD_MASK	GENMASK(11, 8)
-+#define TSN_PTP_RX_PACKET_CLEAR		BIT(0)
-+
-+#define TSN_PTP_TX_BASE_OFFSET		0x00011000
-+#define TSN_PTP_TX_HWBUF_SIZE		0x100
-+#define TSN_PTP_TX_BUFFERS		8
-+#define TSN_PTP_TX_BUFFER_OFFSET(i)	(TSN_PTP_TX_BASE_OFFSET + \
-+					 (i) * TSN_PTP_TX_HWBUF_SIZE)
-+#define TSN_PTP_TX_CMD_FIELD_LEN	8
-+#define TSN_PTP_TX_MAX_FRAME_SIZE	(TSN_PTP_TX_HWBUF_SIZE - \
-+					 TSN_PTP_TX_CMD_FIELD_LEN)
-+#define TSN_PTP_TX_BUFFER_CMD2_FIELD	0x4
-+
-+#define TSN_PTP_TX_FRAME_WAITING_MASK	GENMASK(15, 8)
-+#define TSN_PTP_TX_BUFFERS_FULL_MASK	BIT(TSN_PTP_TX_BUFFERS - 1)
-+#define TSN_PTP_TX_PACKET_FIELD_MASK	GENMASK(18, 16)
-+
-+#define TSN_PTP_HW_TSTAMP_SIZE		8
-+#define TSN_PTP_RX_HWBUF_SIZE		256
-+#define TSN_PTP_RX_FRAME_SIZE		252
-+#define TSN_PTP_HW_TSTAMP_OFFSET	(TSN_PTP_RX_HWBUF_SIZE - \
-+					 TSN_PTP_HW_TSTAMP_SIZE)
-+
-+#define TSN_PTP_MSG_TYPE_MASK		BIT(3)
-+
-+struct kernel_ethtool_ts_info;
- struct mii_bus;
-+struct netlink_ext_ack;
- struct xlnx_tsn;
- 
- /**
-@@ -137,11 +178,32 @@ struct xlnx_tsn;
-  * @regs: per-MAC register window, from reg-name "macN"
-  * @mii_bus: MDIO bus registered under the "mdio-macN" DT child,
-  *	     or NULL if absent
-+ * @ptp_tx_irq: per-MAC PTP TX-completion interrupt
-+ * @ptp_rx_irq: per-MAC PTP RX interrupt
-+ * @ptp_tx_lock: serialises the PTP TX slot allocator and the TX
-+ *		 completion path
-+ * @ptp_txq: in-flight PTP TX frames awaiting timestamp completion.
-+ *	     Each frame's slot index is kept in skb->cb[0].
-+ * @tx_tstamp_work: work item queued by the PTP TX IRQ to drain
-+ *		    ptp_txq and deliver timestamps through skb_tstamp_tx()
-+ * @ptp_rx_hw_pointer: HW write pointer snapshot read in the RX ISR
-+ * @ptp_rx_sw_pointer: SW read pointer; drained until it catches up
-+ * @hwtstamp_tx_type: current SO_TIMESTAMPING TX type for this port
-+ * @hwtstamp_rx_filter: current SO_TIMESTAMPING RX filter for this port
-  */
- struct xlnx_tsn_mac {
- 	struct xlnx_tsn *sw;
- 	void __iomem *regs;
- 	struct mii_bus *mii_bus;
-+	int ptp_tx_irq;
-+	int ptp_rx_irq;
-+	spinlock_t ptp_tx_lock; /* serialises PTP TX slot alloc + completion */
-+	struct sk_buff_head ptp_txq;
-+	struct work_struct tx_tstamp_work;
-+	u32 ptp_rx_hw_pointer;
-+	u32 ptp_rx_sw_pointer;
-+	int hwtstamp_tx_type;
-+	int hwtstamp_rx_filter;
- };
- 
- /**
-@@ -167,6 +229,8 @@ struct xlnx_tsn_mac {
-  *	       used as the starting point for adjust_by_scaled_ppm()
-  * @pps_enable: user requested PPS event delivery
-  * @countpulse: timer-tick counter, reset to zero every TSN_TIMER_PULSES_PER_PPS ticks
-+ * @tagger_data: PTP TX callback descriptor handed to the tag protocol
-+ *		 via @dsa_switch.tagger_data
-  */
- struct xlnx_tsn {
- 	struct dsa_switch ds;
-@@ -183,6 +247,7 @@ struct xlnx_tsn {
- 	u64 rtc_value;
- 	int pps_enable;
- 	int countpulse;
-+	struct xlnx_tsn_tagger_data tagger_data;
- };
- 
- static inline void mac_iow(struct xlnx_tsn_mac *m, u32 off, u32 val)
-@@ -197,5 +262,16 @@ static inline u32 mac_ior(struct xlnx_tsn_mac *m, u32 off)
- 
- int xlnx_tsn_ptp_init(struct xlnx_tsn *sw);
- void xlnx_tsn_ptp_exit(struct xlnx_tsn *sw);
-+int xlnx_tsn_port_ptp_init(struct xlnx_tsn *sw, int port,
-+			   const char *rx_name, const char *tx_name);
-+void xlnx_tsn_port_ptp_exit(struct xlnx_tsn *sw, int port);
-+void xlnx_tsn_ptp_tx(struct dsa_port *dp, struct sk_buff *skb);
-+int xlnx_tsn_port_hwtstamp_get(struct dsa_switch *ds, int port,
-+			       struct kernel_hwtstamp_config *config);
-+int xlnx_tsn_port_hwtstamp_set(struct dsa_switch *ds, int port,
-+			       struct kernel_hwtstamp_config *config,
-+			       struct netlink_ext_ack *extack);
-+int xlnx_tsn_get_ts_info(struct dsa_switch *ds, int port,
-+			 struct kernel_ethtool_ts_info *info);
- 
- #endif /* _XILINX_TSN_H */
-diff --git a/drivers/net/dsa/xilinx/xilinx_tsn_ptp.c b/drivers/net/dsa/xilinx/xilinx_tsn_ptp.c
-index 75c177f752f1..740d92e3e80d 100644
---- a/drivers/net/dsa/xilinx/xilinx_tsn_ptp.c
-+++ b/drivers/net/dsa/xilinx/xilinx_tsn_ptp.c
-@@ -1,18 +1,26 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-  * AMD/Xilinx TSN Endpoint Ethernet MAC DSA switch driver:
-- * PTP hardware clock.
-+ * PTP hardware clock and per-MAC PTP TX/RX paths.
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/cleanup.h>
-+#include <linux/etherdevice.h>
-+#include <linux/ethtool.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
- #include <linux/ktime.h>
- #include <linux/math64.h>
-+#include <linux/net_tstamp.h>
-+#include <linux/netdevice.h>
- #include <linux/of_irq.h>
- #include <linux/ptp_clock_kernel.h>
-+#include <linux/skbuff.h>
- #include <linux/spinlock.h>
- #include <linux/time64.h>
-+#include <linux/unaligned.h>
-+#include <linux/workqueue.h>
- #include <net/dsa.h>
- 
- #include "xilinx_tsn.h"
-@@ -233,3 +241,350 @@ void xlnx_tsn_ptp_exit(struct xlnx_tsn *sw)
- 	ptp_clock_unregister(sw->ptp_clock);
- 	sw->ptp_clock = NULL;
+ 		ret = cb(addr, vid, false, data);
+@@ -814,6 +815,297 @@ static int xlnx_tsn_port_fdb_dump(struct dsa_switch *ds, int port,
+ 	return ret;
  }
-+
-+static void memcpy_toio_32(struct xlnx_tsn_mac *m, unsigned long off,
-+			   const u8 *data, size_t len)
+ 
++/* The VLAN-membership control enable bit self-clears once the indirect
++ * read or write completes.
++ */
++static int xlnx_tsn_vlan_wait_done(struct xlnx_tsn *sw)
 +{
-+	while (len >= 4) {
-+		mac_iow(m, off, get_unaligned((const u32 *)data));
-+		off += 4;
-+		data += 4;
-+		len -= 4;
-+	}
++	u32 reg;
 +
-+	if (len) {
-+		u32 leftover = 0;
-+		u8 *dst = (u8 *)&leftover;
-+
-+		while (len--)
-+			*dst++ = *data++;
-+		mac_iow(m, off, leftover);
-+	}
++	return readl_poll_timeout(sw->sw_base + TSN_VLAN_CTRL_OFFSET, reg,
++				  !(reg & TSN_VLAN_EN), TSN_SW_POLL_DELAY_US,
++				  TSN_SW_POLL_TIMEOUT_US);
 +}
 +
-+static void memcpy_fromio_32(struct xlnx_tsn_mac *m, unsigned long off,
-+			     u8 *data, size_t len)
++/* Caller holds indirect_lock. */
++static int xlnx_tsn_vlan_read(struct xlnx_tsn *sw, u16 vid, u32 *data)
 +{
-+	while (len >= 4) {
-+		put_unaligned(mac_ior(m, off), (u32 *)data);
-+		off += 4;
-+		data += 4;
-+		len -= 4;
-+	}
-+
-+	if (len) {
-+		u32 leftover = mac_ior(m, off);
-+		u8 *src = (u8 *)&leftover;
-+
-+		while (len--)
-+			*data++ = *src++;
-+	}
-+}
-+
-+static void xlnx_tsn_read_tstamp(struct xlnx_tsn_mac *m,
-+				 struct skb_shared_hwtstamps *hwtstamps,
-+				 unsigned int off)
-+{
-+	u32 captured_ns, captured_sec;
-+
-+	memset(hwtstamps, 0, sizeof(*hwtstamps));
-+
-+	captured_ns = mac_ior(m, off + 4);
-+	captured_sec = mac_ior(m, off);
-+
-+	hwtstamps->hwtstamp = ktime_set(captured_sec, captured_ns);
-+}
-+
-+void xlnx_tsn_ptp_tx(struct dsa_port *dp, struct sk_buff *skb)
-+{
-+	struct xlnx_tsn *sw = dp->ds->priv;
-+	u32 frame_waiting, cmd1, cmd2 = 0;
-+	struct xlnx_tsn_mac *m;
-+	u8 free_index;
-+
-+	m = &sw->mac[dp->index];
-+
-+	if (unlikely(skb->len > TSN_PTP_TX_MAX_FRAME_SIZE)) {
-+		dev_kfree_skb_any(skb);
-+		return;
-+	}
-+
-+	scoped_guard(spinlock_irqsave, &m->ptp_tx_lock) {
-+		frame_waiting = FIELD_GET(TSN_PTP_TX_FRAME_WAITING_MASK,
-+					  mac_ior(m, TSN_PTP_TX_CONTROL_OFFSET));
-+		if (frame_waiting & TSN_PTP_TX_BUFFERS_FULL_MASK) {
-+			dev_kfree_skb_any(skb);
-+			return;
-+		}
-+
-+		free_index = fls(frame_waiting);
-+		cmd1 = skb->len;
-+
-+		mac_iow(m, TSN_PTP_TX_BUFFER_OFFSET(free_index), cmd1);
-+		mac_iow(m, TSN_PTP_TX_BUFFER_OFFSET(free_index) +
-+			TSN_PTP_TX_BUFFER_CMD2_FIELD, cmd2);
-+		memcpy_toio_32(m,
-+			       TSN_PTP_TX_BUFFER_OFFSET(free_index) +
-+			       TSN_PTP_TX_CMD_FIELD_LEN,
-+			       skb->data, skb->len);
-+
-+		skb->cb[0] = free_index;
-+		__skb_queue_tail(&m->ptp_txq, skb);
-+
-+		if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP)
-+			skb_shinfo(skb)->tx_flags |= SKBTX_IN_PROGRESS;
-+
-+		skb_tx_timestamp(skb);
-+		mac_iow(m, TSN_PTP_TX_CONTROL_OFFSET, BIT(free_index));
-+	}
-+}
-+
-+static void xlnx_tsn_ptp_recv(struct xlnx_tsn *sw, int port)
-+{
-+	struct net_device *user = dsa_to_port(&sw->ds, port)->user;
-+	struct xlnx_tsn_mac *m = &sw->mac[port];
-+	unsigned long frame_base;
-+	struct sk_buff *skb;
-+	u16 msg_len;
-+	u8 msg_type;
-+
-+	if (!user || !netif_running(user))
-+		return;
-+
-+	while ((m->ptp_rx_hw_pointer & 0xf) != (m->ptp_rx_sw_pointer & 0xf)) {
-+		m->ptp_rx_sw_pointer++;
-+
-+		frame_base = TSN_PTP_RX_BASE_OFFSET +
-+			     (m->ptp_rx_sw_pointer & 0xf) *
-+			     TSN_PTP_RX_HWBUF_SIZE;
-+
-+		skb = netdev_alloc_skb(user, TSN_PTP_RX_FRAME_SIZE);
-+		if (!skb) {
-+			DEV_STATS_INC(user, rx_dropped);
-+			continue;
-+		}
-+
-+		memcpy_fromio_32(m, frame_base, skb->data,
-+				 TSN_PTP_RX_FRAME_SIZE);
-+
-+		msg_type = *(u8 *)(skb->data + ETH_HLEN) & 0xf;
-+		msg_len = get_unaligned_be16(skb->data + ETH_HLEN + 2);
-+
-+		if (msg_len + ETH_HLEN > TSN_PTP_RX_FRAME_SIZE) {
-+			dev_kfree_skb_any(skb);
-+			DEV_STATS_INC(user, rx_length_errors);
-+			continue;
-+		}
-+
-+		skb_put(skb, msg_len + ETH_HLEN);
-+		skb->protocol = eth_type_trans(skb, user);
-+		skb->ip_summed = CHECKSUM_UNNECESSARY;
-+
-+		if (READ_ONCE(m->hwtstamp_rx_filter) != HWTSTAMP_FILTER_NONE &&
-+		    !(msg_type & TSN_PTP_MSG_TYPE_MASK))
-+			xlnx_tsn_read_tstamp(m, skb_hwtstamps(skb),
-+					     frame_base +
-+					     TSN_PTP_HW_TSTAMP_OFFSET);
-+
-+		dev_sw_netstats_rx_add(user, skb->len);
-+		netif_rx(skb);
-+	}
-+}
-+
-+static irqreturn_t xlnx_tsn_ptp_rx_isr(int irq, void *data)
-+{
-+	struct xlnx_tsn_mac *m = data;
-+	struct xlnx_tsn *sw = m->sw;
-+	int port = m - sw->mac;
-+
-+	m->ptp_rx_hw_pointer = FIELD_GET(TSN_PTP_RX_PACKET_FIELD_MASK,
-+					 mac_ior(m, TSN_PTP_RX_CONTROL_OFFSET));
-+	xlnx_tsn_ptp_recv(sw, port);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static void xlnx_tsn_tx_tstamp_work(struct work_struct *work)
-+{
-+	struct xlnx_tsn_mac *m = container_of(work, struct xlnx_tsn_mac,
-+					      tx_tstamp_work);
-+	struct skb_shared_hwtstamps hwtstamps;
-+	unsigned long ts_off;
-+	struct sk_buff *skb;
-+	u8 tx_packet, index;
-+
-+	guard(spinlock_irqsave)(&m->ptp_tx_lock);
-+
-+	tx_packet = FIELD_GET(TSN_PTP_TX_PACKET_FIELD_MASK,
-+			      mac_ior(m, TSN_PTP_TX_CONTROL_OFFSET));
-+
-+	while ((skb = __skb_dequeue(&m->ptp_txq)) != NULL) {
-+		index = skb->cb[0];
-+
-+		/* HW writes ascending slot indices into the TX status field
-+		 * as frames depart. Any queued skb with index > tx_packet
-+		 * has not been timestamped yet, so requeue it and stop.
-+		 */
-+		if (index > tx_packet) {
-+			__skb_queue_head(&m->ptp_txq, skb);
-+			break;
-+		}
-+
-+		ts_off = TSN_PTP_TX_BUFFER_OFFSET(index) +
-+			 TSN_PTP_HW_TSTAMP_OFFSET;
-+
-+		if (skb_shinfo(skb)->tx_flags & SKBTX_IN_PROGRESS) {
-+			xlnx_tsn_read_tstamp(m, &hwtstamps, ts_off);
-+			skb_tstamp_tx(skb, &hwtstamps);
-+		}
-+		consume_skb(skb);
-+	}
-+}
-+
-+static irqreturn_t xlnx_tsn_ptp_tx_isr(int irq, void *data)
-+{
-+	struct xlnx_tsn_mac *m = data;
-+
-+	mac_ior(m, TSN_PTP_TX_CONTROL_OFFSET);
-+	schedule_work(&m->tx_tstamp_work);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+int xlnx_tsn_port_ptp_init(struct xlnx_tsn *sw, int port,
-+			   const char *rx_name, const char *tx_name)
-+{
-+	struct xlnx_tsn_mac *m = &sw->mac[port];
 +	int ret;
 +
-+	skb_queue_head_init(&m->ptp_txq);
-+	spin_lock_init(&m->ptp_tx_lock);
-+	INIT_WORK(&m->tx_tstamp_work, xlnx_tsn_tx_tstamp_work);
-+	m->ptp_rx_hw_pointer = 0;
-+	m->ptp_rx_sw_pointer = 0xff;
-+	m->hwtstamp_tx_type = HWTSTAMP_TX_OFF;
-+	m->hwtstamp_rx_filter = HWTSTAMP_FILTER_NONE;
-+
-+	m->ptp_rx_irq = of_irq_get_byname(sw->dev->of_node, rx_name);
-+	if (m->ptp_rx_irq <= 0)
-+		return dev_err_probe(sw->dev, m->ptp_rx_irq ? : -ENXIO,
-+				     "failed to get %s IRQ\n", rx_name);
-+
-+	m->ptp_tx_irq = of_irq_get_byname(sw->dev->of_node, tx_name);
-+	if (m->ptp_tx_irq <= 0)
-+		return dev_err_probe(sw->dev, m->ptp_tx_irq ? : -ENXIO,
-+				     "failed to get %s IRQ\n", tx_name);
-+
-+	mac_iow(m, TSN_PTP_RX_CONTROL_OFFSET, TSN_PTP_RX_PACKET_CLEAR);
-+
-+	ret = request_irq(m->ptp_rx_irq, xlnx_tsn_ptp_rx_isr, 0, rx_name, m);
++	sw_iow(sw, TSN_VLAN_CTRL_OFFSET,
++	       FIELD_PREP(TSN_VLAN_CTRL_VID_MASK, vid) | TSN_VLAN_ACCESS_READ | TSN_VLAN_EN);
++	ret = xlnx_tsn_vlan_wait_done(sw);
 +	if (ret)
-+		return dev_err_probe(sw->dev, ret,
-+				     "failed to request %s IRQ %d\n",
-+				     rx_name, m->ptp_rx_irq);
++		return ret;
 +
-+	ret = request_irq(m->ptp_tx_irq, xlnx_tsn_ptp_tx_isr, 0, tx_name, m);
-+	if (ret) {
-+		free_irq(m->ptp_rx_irq, m);
-+		return dev_err_probe(sw->dev, ret,
-+				     "failed to request %s IRQ %d\n",
-+				     tx_name, m->ptp_tx_irq);
++	*data = sw_ior(sw, TSN_VLAN_DATA_OFFSET);
++	return 0;
++}
++
++/* Caller holds indirect_lock. */
++static int xlnx_tsn_vlan_write(struct xlnx_tsn *sw, u16 vid, u32 data)
++{
++	sw_iow(sw, TSN_VLAN_DATA_OFFSET, data);
++	sw_iow(sw, TSN_VLAN_CTRL_OFFSET,
++	       FIELD_PREP(TSN_VLAN_CTRL_VID_MASK, vid) | TSN_VLAN_ACCESS_WRITE | TSN_VLAN_EN);
++
++	return xlnx_tsn_vlan_wait_done(sw);
++}
++
++static void xlnx_tsn_set_native_vid(struct xlnx_tsn *sw, int port, u16 vid)
++{
++	u32 reg;
++
++	switch (port) {
++	case XLNX_TSN_CPU_PORT:
++		reg = sw_ior(sw, TSN_EP_NATIVE_VLAN_OFFSET);
++		reg = (reg & ~TSN_NATIVE_EP_VLAN_MASK) |
++		      FIELD_PREP(TSN_NATIVE_EP_VLAN_MASK, vid);
++		sw_iow(sw, TSN_EP_NATIVE_VLAN_OFFSET, reg);
++		break;
++	case XLNX_TSN_PORT_MAC1:
++		reg = sw_ior(sw, TSN_MAC_NATIVE_VLAN_OFFSET);
++		reg = (reg & ~TSN_NATIVE_MAC1_VLAN_MASK) |
++		      FIELD_PREP(TSN_NATIVE_MAC1_VLAN_MASK, vid);
++		sw_iow(sw, TSN_MAC_NATIVE_VLAN_OFFSET, reg);
++		break;
++	case XLNX_TSN_PORT_MAC2:
++		reg = sw_ior(sw, TSN_MAC_NATIVE_VLAN_OFFSET);
++		reg = (reg & ~TSN_NATIVE_MAC2_VLAN_MASK) |
++		      FIELD_PREP(TSN_NATIVE_MAC2_VLAN_MASK, vid);
++		sw_iow(sw, TSN_MAC_NATIVE_VLAN_OFFSET, reg);
++		break;
 +	}
-+
-+	return 0;
 +}
 +
-+void xlnx_tsn_port_ptp_exit(struct xlnx_tsn *sw, int port)
++/* Enable or disable native-VLAN egress untagging for a wire port.
++ * The endpoint port always sends frames tagged toward the host, so
++ * it is not handled here.
++ */
++static void xlnx_tsn_set_native_untag(struct xlnx_tsn *sw, int port, bool en)
 +{
-+	struct xlnx_tsn_mac *m = &sw->mac[port];
-+	struct sk_buff *skb;
++	u32 bit, reg;
 +
-+	if (m->ptp_tx_irq > 0)
-+		free_irq(m->ptp_tx_irq, m);
-+
-+	if (m->ptp_rx_irq > 0)
-+		free_irq(m->ptp_rx_irq, m);
-+
-+	cancel_work_sync(&m->tx_tstamp_work);
-+
-+	scoped_guard(spinlock_irqsave, &m->ptp_tx_lock)
-+		while ((skb = __skb_dequeue(&m->ptp_txq)) != NULL)
-+			dev_kfree_skb_any(skb);
-+}
-+
-+int xlnx_tsn_port_hwtstamp_get(struct dsa_switch *ds, int port,
-+			       struct kernel_hwtstamp_config *config)
-+{
-+	struct xlnx_tsn *sw = ds->priv;
-+	struct xlnx_tsn_mac *m;
-+
-+	m = &sw->mac[port];
-+
-+	if (port == XLNX_TSN_CPU_PORT)
-+		return -EOPNOTSUPP;
-+
-+	config->tx_type = m->hwtstamp_tx_type;
-+	config->rx_filter = m->hwtstamp_rx_filter;
-+
-+	return 0;
-+}
-+
-+int xlnx_tsn_port_hwtstamp_set(struct dsa_switch *ds, int port,
-+			       struct kernel_hwtstamp_config *config,
-+			       struct netlink_ext_ack *extack)
-+{
-+	struct xlnx_tsn *sw = ds->priv;
-+	struct xlnx_tsn_mac *m;
-+
-+	m = &sw->mac[port];
-+
-+	if (port == XLNX_TSN_CPU_PORT)
-+		return -EOPNOTSUPP;
-+
-+	switch (config->tx_type) {
-+	case HWTSTAMP_TX_OFF:
-+	case HWTSTAMP_TX_ON:
++	switch (port) {
++	case XLNX_TSN_PORT_MAC1:
++		bit = TSN_SW_CTRL_MAC1_NATIVE_UNTAG_EN;
++		break;
++	case XLNX_TSN_PORT_MAC2:
++		bit = TSN_SW_CTRL_MAC2_NATIVE_UNTAG_EN;
 +		break;
 +	default:
-+		return -ERANGE;
++		return;
 +	}
 +
-+	/* The per-MAC RX filter is left at its power-on default, which
-+	 * captures L2 gPTP event frames (ethertype 0x88f7) only. PTP over
-+	 * UDP is not supported. The filter cannot narrow by message type,
-+	 * so any L2 PTPv2 event request is promoted to
-+	 * HWTSTAMP_FILTER_PTP_V2_L2_EVENT.
-+	 */
-+	switch (config->rx_filter) {
-+	case HWTSTAMP_FILTER_NONE:
-+		break;
-+	case HWTSTAMP_FILTER_PTP_V2_L2_EVENT:
-+	case HWTSTAMP_FILTER_PTP_V2_L2_SYNC:
-+	case HWTSTAMP_FILTER_PTP_V2_L2_DELAY_REQ:
-+		config->rx_filter = HWTSTAMP_FILTER_PTP_V2_L2_EVENT;
-+		break;
-+	default:
-+		return -ERANGE;
-+	}
-+
-+	m->hwtstamp_tx_type = config->tx_type;
-+	WRITE_ONCE(m->hwtstamp_rx_filter, config->rx_filter);
-+
-+	return 0;
++	reg = sw_ior(sw, TSN_SW_CTRL_OFFSET);
++	if (en)
++		reg |= bit;
++	else
++		reg &= ~bit;
++	sw_iow(sw, TSN_SW_CTRL_OFFSET, reg);
 +}
 +
-+int xlnx_tsn_get_ts_info(struct dsa_switch *ds, int port,
-+			 struct kernel_ethtool_ts_info *info)
++/* Write a port's native VID and egress-untag setting to hardware.
++ * While VLAN filtering is off, every port uses the reset-default
++ * native VID and stays tagged, so committed VLANs have no effect
++ * until the bridge goes VLAN-aware. Caller holds indirect_lock.
++ */
++static void xlnx_tsn_apply_pvid(struct xlnx_tsn *sw, int port)
++{
++	u16 vid = sw->vlan_aware ? sw->pvid[port] : TSN_SW_DEFAULT_VID;
++	bool untag = sw->vlan_aware && sw->pvid_untagged[port];
++
++	xlnx_tsn_set_native_vid(sw, port, vid);
++	xlnx_tsn_set_native_untag(sw, port, untag);
++}
++
++/* Restrict learning to VIDs that already have a membership entry.
++ * When on, frames with an unregistered VID are not learned, preventing
++ * a spurious CAM entry that would bypass the membership check on a
++ * later hit. When off, learning is allowed on any VID, as required
++ * while the bridge is VLAN-unaware. Caller holds indirect_lock.
++ */
++static void xlnx_tsn_set_vlan_only_learning(struct xlnx_tsn *sw, bool on)
++{
++	u32 reg = sw_ior(sw, TSN_SW_ADDR_LEARN_OFFSET);
++
++	if (on)
++		reg &= ~TSN_SW_ADDR_LEARN_NO_VLAN_EN;
++	else
++		reg |= TSN_SW_ADDR_LEARN_NO_VLAN_EN;
++	sw_iow(sw, TSN_SW_ADDR_LEARN_OFFSET, reg);
++}
++
++static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
++					bool vlan_filtering,
++					struct netlink_ext_ack *extack)
 +{
 +	struct xlnx_tsn *sw = ds->priv;
-+
-+	info->phc_index = sw->ptp_clock ? ptp_clock_index(sw->ptp_clock) : -1;
-+	info->so_timestamping = SOF_TIMESTAMPING_TX_HARDWARE |
-+				SOF_TIMESTAMPING_RX_HARDWARE |
-+				SOF_TIMESTAMPING_RAW_HARDWARE;
-+	info->tx_types = BIT(HWTSTAMP_TX_OFF) | BIT(HWTSTAMP_TX_ON);
-+	info->rx_filters = BIT(HWTSTAMP_FILTER_NONE) |
-+			    BIT(HWTSTAMP_FILTER_PTP_V2_L2_EVENT);
-+
-+	return 0;
-+}
-diff --git a/include/linux/dsa/xlnx_tsn.h b/include/linux/dsa/xlnx_tsn.h
-new file mode 100644
-index 000000000000..34a451f4568a
---- /dev/null
-+++ b/include/linux/dsa/xlnx_tsn.h
-@@ -0,0 +1,25 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * AMD/Xilinx TSN Endpoint Ethernet MAC: shared tagger / switch
-+ * private interface.
-+ */
-+#ifndef _NET_DSA_XLNX_TSN_H
-+#define _NET_DSA_XLNX_TSN_H
-+
-+#include <linux/skbuff.h>
-+#include <net/dsa.h>
-+
-+/**
-+ * struct xlnx_tsn_tagger_data - per-switch context for the tag protocol
-+ * @ptp_tx: callback that copies a PTP event frame into the per-port
-+ *	    hardware TX buffer and holds the skb until the TX IRQ
-+ *	    delivers the timestamp. Consumes one reference to @skb.
-+ *
-+ * Set on @dsa_switch.tagger_data by the switch driver in setup()
-+ * and read by the tag protocol's xmit hook.
-+ */
-+struct xlnx_tsn_tagger_data {
-+	void (*ptp_tx)(struct dsa_port *dp, struct sk_buff *skb);
-+};
-+
-+#endif /* _NET_DSA_XLNX_TSN_H */
-diff --git a/net/dsa/tag_xlnx_tsn.c b/net/dsa/tag_xlnx_tsn.c
-index de352aa3d9a8..6f487ad7bcf9 100644
---- a/net/dsa/tag_xlnx_tsn.c
-+++ b/net/dsa/tag_xlnx_tsn.c
-@@ -3,14 +3,41 @@
-  * AMD/Xilinx TSN Endpoint Ethernet MAC tag protocol.
-  */
- 
-+#include <linux/dsa/xlnx_tsn.h>
-+#include <linux/if_vlan.h>
-+
- #include "tag.h"
- 
- #define XLNX_TSN_NAME	"xlnx_tsn"
- 
-+/* PTP frames must go directly into the egress MAC's hardware TX buffer,
-+ * not through the switch fabric or conduit DMA. Intercept here before
-+ * dsa_enqueue_skb() takes the frame and hand off our reference: ptp_tx()
-+ * consumes it, freeing the skb once the HW timestamp is read (or on
-+ * error).
-+ *
-+ * VLAN-tagged PTP is not supported. Match on the L2 ethertype and
-+ * skip any VLAN-tagged frame.
-+ */
- static struct sk_buff *xlnx_tsn_xmit(struct sk_buff *skb,
- 				     struct net_device *dev)
- {
--	return skb;
-+	struct xlnx_tsn_tagger_data *tagger_data;
 +	struct dsa_port *dp;
++	unsigned long bit;
++	u32 reg, data;
++	int ret;
 +
-+	dp = dsa_user_to_port(dev);
-+	tagger_data = dp->ds->tagger_data;
++	guard(mutex)(&sw->indirect_lock);
 +
-+	if (!tagger_data || !tagger_data->ptp_tx)
-+		return skb;
++	/* Flip Port-List-Valid on every configured VID: set it to enforce
++	 * membership, clear it so VLANs added while filtering was off stay
++	 * inert.
++	 */
++	for_each_set_bit(bit, sw->cfg_vids, VLAN_N_VID) {
++		ret = xlnx_tsn_vlan_read(sw, bit, &data);
++		if (ret)
++			return ret;
 +
-+	if (eth_hdr(skb)->h_proto != htons(ETH_P_1588) ||
-+	    skb_vlan_tag_present(skb))
-+		return skb;
++		if (vlan_filtering)
++			data |= TSN_VLAN_PORT_LIST_VALID;
++		else
++			data &= ~TSN_VLAN_PORT_LIST_VALID;
 +
-+	tagger_data->ptp_tx(dp, skb);
++		ret = xlnx_tsn_vlan_write(sw, bit, data);
++		if (ret)
++			return ret;
++	}
 +
-+	return NULL;
++	sw->vlan_aware = vlan_filtering;
++
++	/* Miss policy for unicast and multicast. It only kicks in when the
++	 * CAM misses and the VID has no membership entry either. So flood the
++	 * unregistered ones while VLAN-unaware, and drop them once filtering
++	 * is on.
++	 */
++	reg = sw_ior(sw, TSN_SW_CTRL_OFFSET);
++	reg &= ~(TSN_SW_CTRL_UCAST_MISS_MASK | TSN_SW_CTRL_MCAST_MISS_MASK);
++	if (vlan_filtering) {
++		reg |= FIELD_PREP(TSN_SW_CTRL_UCAST_MISS_MASK, TSN_SW_CTRL_MISS_DISCARD) |
++		       FIELD_PREP(TSN_SW_CTRL_MCAST_MISS_MASK, TSN_SW_CTRL_MISS_DISCARD);
++	} else {
++		reg |= FIELD_PREP(TSN_SW_CTRL_UCAST_MISS_MASK, TSN_SW_CTRL_UCAST_MISS_FLOOD) |
++		       FIELD_PREP(TSN_SW_CTRL_MCAST_MISS_MASK, TSN_SW_CTRL_MCAST_MISS_FLOOD);
++	}
++	sw_iow(sw, TSN_SW_CTRL_OFFSET, reg);
++
++	xlnx_tsn_set_vlan_only_learning(sw, vlan_filtering);
++
++	/* Apply the native VID and egress-untag settings saved while
++	 * filtering was off, or restore defaults when filtering is turned
++	 * off. VLANs added while filtering is already on are applied
++	 * directly by port_vlan_add().
++	 */
++	dsa_switch_for_each_user_port(dp, ds)
++		xlnx_tsn_apply_pvid(sw, dp->index);
++
++	/* The learning-control bits latch only when a port passes through
++	 * blocking, so cycle each port to make the new setting take hold.
++	 * The transition does not drop learnt entries, so flush them too -
++	 * they were keyed on the old native VID and are now stale.
++	 */
++	dsa_switch_for_each_user_port(dp, ds) {
++		ret = xlnx_tsn_port_state_cycle(sw, dp->index,
++						TSN_PORT_STATE_BLOCKING);
++		if (ret)
++			return ret;
++
++		ret = xlnx_tsn_port_state_cycle(sw, dp->index,
++						TSN_PORT_STATE_FLUSH);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++static int xlnx_tsn_port_vlan_add(struct dsa_switch *ds, int port,
++				  const struct switchdev_obj_port_vlan *vlan,
++				  struct netlink_ext_ack *extack)
++{
++	bool untagged = vlan->flags & BRIDGE_VLAN_INFO_UNTAGGED;
++	bool pvid = vlan->flags & BRIDGE_VLAN_INFO_PVID;
++	struct xlnx_tsn *sw = ds->priv;
++	u32 data;
++	int ret;
++
++	guard(mutex)(&sw->indirect_lock);
++
++	/* The hardware strips the tag on egress only for a wire port's native
++	 * VLAN. Reject an untagged request for any other VID. The CPU port is
++	 * exempt as it always trunks tagged toward the host.
++	 */
++	if (port != XLNX_TSN_CPU_PORT && untagged && !pvid &&
++	    vlan->vid != sw->pvid[port]) {
++		NL_SET_ERR_MSG_MOD(extack,
++				   "untagged egress is only supported for the port PVID");
++		return -EINVAL;
++	}
++
++	ret = xlnx_tsn_vlan_read(sw, vlan->vid, &data);
++	if (ret)
++		return ret;
++
++	data |= TSN_PORT_BIT(port);
++	if (sw->vlan_aware)
++		data |= TSN_VLAN_PORT_LIST_VALID;
++	else
++		data &= ~TSN_VLAN_PORT_LIST_VALID;
++	ret = xlnx_tsn_vlan_write(sw, vlan->vid, data);
++	if (ret)
++		return ret;
++
++	set_bit(vlan->vid, sw->cfg_vids);
++
++	/* The CPU port needs membership only. */
++	if (port == XLNX_TSN_CPU_PORT)
++		return 0;
++
++	if (pvid) {
++		sw->pvid[port] = vlan->vid;
++		sw->pvid_untagged[port] = untagged;
++		xlnx_tsn_apply_pvid(sw, port);
++	}
++
++	if (vlan->vid == sw->pvid[port] &&
++	    sw->pvid_untagged[port] != untagged) {
++		sw->pvid_untagged[port] = untagged;
++		xlnx_tsn_apply_pvid(sw, port);
++	}
++
++	return 0;
++}
++
++static int xlnx_tsn_port_vlan_del(struct dsa_switch *ds, int port,
++				  const struct switchdev_obj_port_vlan *vlan)
++{
++	struct xlnx_tsn *sw = ds->priv;
++	bool last_member;
++	u32 data;
++	int ret;
++
++	guard(mutex)(&sw->indirect_lock);
++	ret = xlnx_tsn_vlan_read(sw, vlan->vid, &data);
++	if (ret)
++		return ret;
++
++	data &= ~TSN_PORT_BIT(port);
++	last_member = !(data & TSN_VLAN_PORT_LIST_MASK);
++	if (last_member)
++		data &= ~TSN_VLAN_PORT_LIST_VALID;
++
++	ret = xlnx_tsn_vlan_write(sw, vlan->vid, data);
++	if (ret)
++		return ret;
++
++	if (last_member)
++		clear_bit(vlan->vid, sw->cfg_vids);
++
++	if (sw->pvid[port] == vlan->vid) {
++		sw->pvid[port] = TSN_SW_DEFAULT_VID;
++		sw->pvid_untagged[port] = false;
++		xlnx_tsn_apply_pvid(sw, port);
++	}
++
++	return 0;
++}
++
+ static void xlnx_tsn_phylink_get_caps(struct dsa_switch *ds, int port,
+ 				      struct phylink_config *config)
+ {
+@@ -900,10 +1192,9 @@ static void xlnx_tsn_mac_link_up(struct phylink_config *config,
+ 	}
+ 	mac_iow(m, TSN_SPEED_CFG_OFFSET, speed_cfg);
+ 
+-	rcw1 = mac_ior(m, TSN_RCW1_OFFSET) | TSN_RCW1_RX_EN;
++	rcw1 = mac_ior(m, TSN_RCW1_OFFSET) | TSN_RCW1_RX_EN | TSN_RCW1_VLAN_EN;
++	tc = mac_ior(m, TSN_TC_OFFSET) | TSN_TC_TX_EN | TSN_TC_VLAN_EN;
+ 	mac_iow(m, TSN_RCW1_OFFSET, rcw1);
+-
+-	tc = mac_ior(m, TSN_TC_OFFSET) | TSN_TC_TX_EN;
+ 	mac_iow(m, TSN_TC_OFFSET, tc);
  }
  
- static struct sk_buff *xlnx_tsn_rcv(struct sk_buff *skb,
+@@ -919,7 +1210,7 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
+ 	struct xlnx_tsn *sw = ds->priv;
+ 	struct dsa_port *dp;
+ 	u32 mgmt, reg;
+-	int ret;
++	int port, ret;
+ 
+ 	if (!dsa_is_user_port(ds, XLNX_TSN_PORT_MAC1) ||
+ 	    !dsa_is_user_port(ds, XLNX_TSN_PORT_MAC2))
+@@ -941,12 +1232,26 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
+ 	       TSN_SW_ADDR_LEARN_NO_VLAN_EN;
+ 	sw_iow(sw, TSN_SW_ADDR_LEARN_OFFSET, reg);
+ 
+-	/* On a CAM miss flood unknown tagged unicast frames to all ports. */
++	/* On a CAM miss flood unknown tagged unicast frames to all ports.
++	 * Also drop tagged frames whose ingress port is not in the VLAN
++	 * member list. The membership check only bites once VLANs exist.
++	 */
+ 	reg = sw_ior(sw, TSN_SW_CTRL_OFFSET);
+-	reg &= ~TSN_SW_CTRL_UCAST_MISS_MASK;
+-	reg |= FIELD_PREP(TSN_SW_CTRL_UCAST_MISS_MASK, TSN_SW_CTRL_UCAST_MISS_FLOOD);
++	reg &= ~(TSN_SW_CTRL_UCAST_MISS_MASK | TSN_SW_CTRL_MEMBER_VIOL_MASK);
++	reg |= FIELD_PREP(TSN_SW_CTRL_UCAST_MISS_MASK, TSN_SW_CTRL_UCAST_MISS_FLOOD) |
++	       FIELD_PREP(TSN_SW_CTRL_MEMBER_VIOL_MASK, TSN_SW_CTRL_MEMBER_VIOL_DISCARD);
+ 	sw_iow(sw, TSN_SW_CTRL_OFFSET, reg);
+ 
++	/* Every port uses the default native VID until VLAN filtering is
++	 * enabled. Seed the PVID shadow and program the native VID
++	 * registers to match.
++	 */
++	scoped_guard(mutex, &sw->indirect_lock)
++		for (port = XLNX_TSN_CPU_PORT; port < XLNX_TSN_NUM_PORTS; port++) {
++			sw->pvid[port] = TSN_SW_DEFAULT_VID;
++			xlnx_tsn_apply_pvid(sw, port);
++		}
++
+ 	/* Route CPU-originated bridge-group control frames (STP, LLDP) to
+ 	 * the single wire port whose MAC-nibble field matches the frame's
+ 	 * source-MAC low nibble, instead of flooding to both.
+@@ -1040,6 +1345,9 @@ static const struct dsa_switch_ops xlnx_tsn_switch_ops = {
+ 	.port_fdb_del		= xlnx_tsn_port_fdb_del,
+ 	.port_fdb_dump		= xlnx_tsn_port_fdb_dump,
+ 	.port_fast_age		= xlnx_tsn_port_fast_age,
++	.port_vlan_filtering	= xlnx_tsn_port_vlan_filtering,
++	.port_vlan_add		= xlnx_tsn_port_vlan_add,
++	.port_vlan_del		= xlnx_tsn_port_vlan_del,
+ 	.port_hwtstamp_get	= xlnx_tsn_port_hwtstamp_get,
+ 	.port_hwtstamp_set	= xlnx_tsn_port_hwtstamp_set,
+ 	.get_ts_info		= xlnx_tsn_get_ts_info,
+@@ -1102,6 +1410,11 @@ static int xlnx_tsn_probe(struct platform_device *pdev)
+ 	/* The fabric offloads a single bridge across the user ports. */
+ 	ds->max_num_bridges = 1;
+ 
++	/* The switch fabric is a single VLAN domain shared by all ports, so
++	 * VLAN filtering is configured switch-wide rather than per port.
++	 */
++	ds->vlan_filtering_is_global = true;
++
+ 	platform_set_drvdata(pdev, sw);
+ 
+ 	return dsa_register_switch(ds);
+diff --git a/drivers/net/dsa/xilinx/xilinx_tsn.h b/drivers/net/dsa/xilinx/xilinx_tsn.h
+index a94f5124a33d..955041cde564 100644
+--- a/drivers/net/dsa/xilinx/xilinx_tsn.h
++++ b/drivers/net/dsa/xilinx/xilinx_tsn.h
+@@ -8,6 +8,7 @@
+ #include <linux/bitfield.h>
+ #include <linux/bits.h>
+ #include <linux/if_ether.h>
++#include <linux/if_vlan.h>
+ #include <linux/io.h>
+ #include <linux/net_tstamp.h>
+ #include <linux/notifier.h>
+@@ -64,8 +65,9 @@
+ #define TSN_SW_MGMT_QUEUING_EP_SA_EGRESS	BIT(4)
+ 
+ /* Shared readl_poll_timeout() parameters (in microseconds) used at
+- * two call sites: the port-state change-commit bit and the CAM
+- * operation enable bit. Both self-clear when the operation completes.
++ * three call sites: the port-state change-commit bit, the CAM
++ * operation enable bit, and the VLAN-memory operation enable bit.
++ * All three self-clear when the hardware completes the operation.
+  */
+ #define TSN_SW_POLL_DELAY_US		10
+ #define TSN_SW_POLL_TIMEOUT_US		5000
+@@ -102,6 +104,28 @@
+ #define TSN_CAM_MAC2_READ_KEY_BASE	0x800
+ #define TSN_CAM_READ_KEY_COUNT		2048
+ 
++/* Port VLAN membership memory: per-VID egress port list, accessed
++ * indirectly through a control/data register pair. The control
++ * register's enable bit self-clears when the read or write completes.
++ */
++#define TSN_VLAN_CTRL_OFFSET		0x01100
++#define TSN_VLAN_DATA_OFFSET		0x01104
++#define TSN_VLAN_CTRL_VID_MASK		GENMASK(27, 16)
++#define TSN_VLAN_ACCESS_READ		0
++#define TSN_VLAN_ACCESS_WRITE		BIT(1)
++#define TSN_VLAN_EN			BIT(0)
++#define TSN_VLAN_PORT_LIST_VALID	BIT(3)
++#define TSN_VLAN_PORT_LIST_MASK		GENMASK(2, 0)
++
++/* Per-port native (PVID) registers: the endpoint port at +0x40, the two
++ * MAC ports packed into +0x44 (MAC1 in the low half, MAC2 in the high).
++ */
++#define TSN_EP_NATIVE_VLAN_OFFSET	0x00040
++#define TSN_MAC_NATIVE_VLAN_OFFSET	0x00044
++#define TSN_NATIVE_EP_VLAN_MASK		GENMASK(11, 0)
++#define TSN_NATIVE_MAC1_VLAN_MASK	GENMASK(11, 0)
++#define TSN_NATIVE_MAC2_VLAN_MASK	GENMASK(27, 16)
++
+ /* HW reset-default native VID; DSA's "no VLAN" (vid 0) maps onto it. */
+ #define TSN_SW_DEFAULT_VID		1
+ 
+@@ -183,12 +207,17 @@ enum tsn_port_state {
+ 
+ #define TSN_MDIO_MRD_MASK		GENMASK(15, 0)
+ 
+-/* Per-MAC receive / transmit / speed configuration registers. */
++/* Per-MAC receive / transmit / speed configuration registers. Setting
++ * the VLAN enable bit makes the MAC accept full-size VLAN-tagged frames
++ * without treating the extra 4 bytes as an oversize error.
++ */
+ #define TSN_RCW1_OFFSET			0x00000404
+ #define TSN_RCW1_RX_EN			BIT(28)
++#define TSN_RCW1_VLAN_EN		BIT(27)
+ 
+ #define TSN_TC_OFFSET			0x00000408
+ #define TSN_TC_TX_EN			BIT(28)
++#define TSN_TC_VLAN_EN			BIT(27)
+ 
+ #define TSN_SPEED_CFG_OFFSET		0x00000410
+ #define TSN_SPEED_CFG_MASK		GENMASK(31, 30)
+@@ -304,6 +333,15 @@ struct xlnx_tsn_mac {
+  * @nb: netdev notifier that handles NETDEV_REGISTER on each swpN
+  *	to set its final MAC, and NETDEV_CHANGEADDR on the conduit
+  *	to refresh the shared prefix
++ * @vlan_aware: true once bridge VLAN filtering is on. Until then the
++ *		native VID, egress untag, and membership enforcement are
++ *		all held back.
++ * @pvid: per-port bridge PVID shadow, written to the native VID register
++ *	  while @vlan_aware; defaults to TSN_SW_DEFAULT_VID
++ * @pvid_untagged: per-port flag tracking whether the PVID egresses
++ *		   untagged; drives the native-VLAN untag enable
++ * @cfg_vids: VIDs with a membership entry in the VLAN-membership memory,
++ *	      used to walk and update Port-List-Valid when @vlan_aware changes
+  * @indirect_lock: serialises the CAM and VLAN-membership indirect
+  *		   register sequences
+  * @mac: per-MAC state, indexed by user-port number (index 0 unused;
+@@ -327,7 +365,11 @@ struct xlnx_tsn {
+ 	struct net_device *conduit;
+ 	u8 mac_prefix[ETH_ALEN];
+ 	struct notifier_block nb;
+-	struct mutex indirect_lock; /* serialises CAM indirect access */
++	bool vlan_aware;
++	u16 pvid[XLNX_TSN_NUM_PORTS];
++	bool pvid_untagged[XLNX_TSN_NUM_PORTS];
++	DECLARE_BITMAP(cfg_vids, VLAN_N_VID);
++	struct mutex indirect_lock; /* serialises CAM + VLAN-memory access */
+ 	struct xlnx_tsn_mac mac[XLNX_TSN_NUM_PORTS];
+ 	int ptp_timer_irq;
+ 	struct ptp_clock *ptp_clock;
 -- 
 2.34.1
 
