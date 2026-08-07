@@ -4,108 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31BD0C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 04:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49438C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 04:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WFnpsZEDa2kOT31onzxrsvAFlmUG/9w4ITWZXzCCWLw=; b=JrMwFHKhO3LifSco65jZ6X7xHb
-	kJgJ6r7Z8MVQxm7diICByrxc1mrbBTyMAmCDIabsbJ/jXHHlPLF5AwYuQaoBT/WCnbiv2EPFRxVbn
-	fFVy8wwJxmSYfTNhyQ9shUyvt4no4xItv8iWvgBtkjlfNQhBNFT6GRQP+MZeokX/xQXX3pttg+/2B
-	llYrrXEmT0WgDbeq8Q1I3I0KExrowOtyOpqW9DR92rMYg08QsE6fWa0T2KMuECjjkwJe342W+FDcz
-	nVGQHWE6zzWbv4S8DhfS4qgqvTF40l+VCI8Vz+pDxpVrYqjWdWA5077aZAhbHcEbnk9DQ6Yh+GmAK
-	857527lQ==;
+	bh=4FfaUBZ/44pZrQdFDd7FtQetFnSd7H2nNTbyT3OlAYI=; b=iHA7ae9pZPwJJ+wqNlR2NjTCz3
+	eaWWqmjCocpP6UyiSP5j9GVmYACmf01I7nbtD1ppuNJNT4l8mha12Cp+qcX4Dn8lOdR8NFVJ/q7vs
+	QLwJS27uw4ikU4StbAOtsfzXqXkl9b6H6MDByGDpeSq2vo1rY+gGOuCKoWFBPqkBrPt4yGOmMpHtv
+	7mAFe2BOImVDFLVNyXyvo9Pa/ZEhGbUCAiLwxj18PJvmKUgf0MYlwkXFa3Zx11oRJbGMqdBd+9/2I
+	u7pFHLhJbnj28Tk0vEnPTh9t3zWBJL88WyP4PIz+b8qT4MUjI3UIt4XwGra75bAXHF8tN+vQbmsS4
+	cNoAw6XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsC7M-000000074p3-3sRv;
-	Fri, 07 Aug 2026 04:23:36 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1wsCQ1-000000075UL-1jhl;
+	Fri, 07 Aug 2026 04:42:53 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsC7K-000000074oe-3F3A
+	id 1wsCPx-000000075Tx-3aBx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 04:23:35 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2cc73e322dbso33398955ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 21:23:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786076614; cv=none;
-        d=google.com; s=arc-20260327;
-        b=aUMqE1hKFBFHoed1xtsu/ocZ46Ro1xGe1VfXc6FRqYTacnypimSb8Jo0grVBc37xlX
-         dKT61ct6Z7dk8ie4NTBaTKXEFCstgGbLUDqufFn0S0Bz3TFr79/3zdJvUgW1/SxltDK5
-         xogBZAmJsbxIOSNfPPDJL7uhZ10F2PzLcKBydaBx3MTBzqMSbVvkcz0My3pQ9XFlH1hj
-         fyxracvNdRZCBZnJk0qxrh/AqrGjpA5pkDtYdIh6E7A+jmh+lrK3cfxDVZORAT6Y765L
-         VS2aLnaH0jy97WX8zLj9GICvFAcmFHwmRwhtul1TtLq6KXzeNqMQ07Qalt5o3bMeh53m
-         q6oA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=WFnpsZEDa2kOT31onzxrsvAFlmUG/9w4ITWZXzCCWLw=;
-        fh=WOymJzbBaXr1JexK2XpAjH6NHTo+Ajih61yA+Jia0ps=;
-        b=cfder61V8+6UsUUe5c5JTBVEIJd5NJZFQbtTcSEp0DB39sm0he4xU52eOTsgpj3kXf
-         1zjnQhuTd8CtoiQZTjOTndjmW020XrPmGM+VjpJwRv/JETrp9Loh5TTbabyHk3f/NxcR
-         7NB/4X2FucPz04aiLcUXmHWFF8xuQLHl4XQ2S7B4zTT6nRqM1jtgyGWU5Yfp/nU0COXL
-         rpa1LSWMrJRPBPcFQKxrqYaMJGxuDI6LI04+q7BX/vCXc6R2mHnLpeSpA0+ExO9Eci/0
-         eAVu3aivaexzXWMdYwlrOam5cx46DKWV7r9Jdh+VcmMzB651Lh0M7Usm1BIMvhDyaKGb
-         bQMA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786076614; x=1786681414; darn=lists.infradead.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WFnpsZEDa2kOT31onzxrsvAFlmUG/9w4ITWZXzCCWLw=;
-        b=spVlKpC/9yK0HPnrz/USZ6D1m+dkvMeEbfBjTYv4A8skm9xDmzPIcv7h/xHFt3cH7M
-         eTctQqBbBAzyrDYvP4vIUbcMSz53EQ/NEJcwuXaipUkXEDXRFvsi8pvwFBSAz7NkmRID
-         Z6pkDGC8w6u8957U5aa06EQ1Lewql6QcP0kFGbYBsbBTwnmY5iuF5USx5IpUNhhH2shW
-         9zBoQLOZQBS3i2kM5fnCSeXZrC2tWMtaMvE7TvE1eTxI2N5ono/IpJ6Z6sUn/A4kFnnV
-         Ek4g/ZK/AkkVfKbG5omXUSzzZWnByLDBSg5EE2XOASbho3NKMtwLNfUskHJY1W5NKFUx
-         IAAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786076614; x=1786681414;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=WFnpsZEDa2kOT31onzxrsvAFlmUG/9w4ITWZXzCCWLw=;
-        b=Hju3WyD4DVXqsPfyICI4xQwyFRkW9201bOxCLmT9BdzTDN0GFEY0iBCzAebB5R0zAQ
-         itBvO7TEc+kHVkZEtSaOB3nXhkSPHI1aM40tVy8/lofjTQLcaR/Os7T3r6IWJ4mzqtnk
-         /wBDje6vD72/xbuNcR11p47xQZHWKUhPWF0DdC2noMubX/u0ACPp+w8UqsYKpO7BdNOC
-         U1PI5VH5/xzFqPzjXCk79GlGWGz0xJQQcLHo4cwwFyLOZvU7Gtovm+ofhXEtP4/71K6k
-         6TpjV37rtoXJ0NBguky5ePeKuMkVPxOvlMU4RGfys92x+uqMRgxe9+zyBoEGyiHn8LcO
-         smNw==
-X-Forwarded-Encrypted: i=1; AHgh+RqROjeKZjgIJyhyxPorvZXUUxQ6G3ZafnFlUR5DddzaQmfgBQimTXAV0gsblxDjXuQTKerVdfgTTxeq0bPGbrz7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxH5cXBULxTSWkL9S9tPMqPiUdnwqRXNzyD4a73Rb+rEESNEkX4
-	pC/EDeiIn8l4y7pN5yRrjPfIYsTBZQ2pGoSEjLt/Fx0JmqcDmrXjHyOX5xbxaVju6oDcizzJrg4
-	bSbFxDNdmk7gfxi3YUu6gGGSR+JyM/F8=
-X-Gm-Gg: AR+sD12vwtKlmZHxVl9BkVP0ISpOEk7MNFs2sbBtALOxWByanBZym56wLeQYmoRJsmL
-	YuyBwuM8b6/SJGs1SvD7rNzO5LpOuxcC+j6TYK1e0rjKQ67sB3nXjEPWFMkJtyo3eBpUO+qvpZD
-	epJ1hJNfGV09NP0nU2MHlrudE64Hd+6tXUVOZOXahzkAxYcBI/zVIo7ZeFabQXqOwgJ8iaEssqm
-	+/cURTiRYwMiPpUZq1LX6N+/zBx7JQYt0o+EEN1iltRd48JesRZ8UCPcGTYUgmuZYEJyjSwuPxg
-	naifPaucOuCh8/wz00UFes4ynth3i8LpvgeD7g1AXnklv6/JgyKI2NVBzgLRqyAr0NNx6aCzfPA
-	PUrWd+ZLmAEIt6M9gR4YIgsLnkhor+VyAEmiX3Z1HaAxllndey+bRSk8E
-X-Received: by 2002:a17:903:46c7:b0:2c9:b48c:fdec with SMTP id
- d9443c01a7336-2d0ca75d2admr259114625ad.12.1786076613823; Thu, 06 Aug 2026
- 21:23:33 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260806062812.26523-1-phucduc.bui@gmail.com> <20260806062812.26523-2-phucduc.bui@gmail.com>
- <697f8c44-1eef-47c2-8e59-9daa65e6989e@roeck-us.net>
-In-Reply-To: <697f8c44-1eef-47c2-8e59-9daa65e6989e@roeck-us.net>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Fri, 7 Aug 2026 11:23:21 +0700
-X-Gm-Features: AUfX_myprYNKXNoLAW3iUOi9MfOiRmf4CQgyEzA2vGpsF5wBvkFiXiwoc1ZIH4M
-Message-ID: <CAABR9nFqTWPingLM+kPknpU1OfC+2kOqELiT2Ep7wqN5JB6P5g@mail.gmail.com>
-Subject: Re: [PATCH 2/2] watchdog: stm32_iwdg: Propagate -EPROBE_DEFER from
- IRQ lookup
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-watchdog@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	Fri, 07 Aug 2026 04:42:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1786077770; x=1817613770;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WQzgyFExui/jji4SlbsaMUg9A00OnHYeCZD0NqBP5nc=;
+  b=YGawxpV8193+xBRALVjezTKe8JxEhEFmOydse4w7clNkSEpMtBGAyLeA
+   TVtcD5JBijxipsztVjwG0QzTQKV3JNxTf8beeQiBb7j6FI46KRiBdhNay
+   T1fvdyAzUDKNZSxiy3M5tZVQEyWglyTrNb2ZsVA+zFgpU9M4piQkU3o7l
+   e4DKI5D8PmuErfevM/mPc7TqzUAp23SStgVpp/e0l/wvKHooEyjbp8Fsc
+   d9qxYCIKRFQADkH+um8LXJx8zZA1AHz0VLv37JEAeytiJ0Q8UxTYCCz/F
+   Xz4AF6r2FRCuoltNOTn/XV71BvPzHR/O/SmveCc4C9hJ6OuC/dY8lsyRC
+   Q==;
+X-CSE-ConnectionGUID: qXdk4engTD+cM1JnrZActA==
+X-CSE-MsgGUID: VrApBlW3Rw+XWk2sYw9Tnw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11867"; a="86794599"
+X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
+   d="scan'208";a="86794599"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 21:42:48 -0700
+X-CSE-ConnectionGUID: C8Oo+PWATSOLkLQ4UNeMLA==
+X-CSE-MsgGUID: zPNwphfGThm3JHhGC1O09w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
+   d="scan'208";a="262351727"
+Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
+  by orviesa007.jf.intel.com with ESMTP; 06 Aug 2026 21:42:46 -0700
+Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wsCPr-00000000HBR-11Pz;
+	Fri, 07 Aug 2026 04:42:43 +0000
+Date: Fri, 7 Aug 2026 12:41:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: Rosen Penev <rosenp@gmail.com>, linux-sunxi@lists.linux.dev
+Cc: oe-kbuild-all@lists.linux.dev, Jassi Brar <jassisinghbrar@gmail.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Subject: Re: [PATCH] mailbox: sun6i: modernize probe and convert to fully
+ managed
+Message-ID: <202608071227.vRfy33Rr-lkp@intel.com>
+References: <20260727194208.10082-1-rosenp@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260727194208.10082-1-rosenp@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_212334_815865_37AAAD37 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260806_214249_910840_AF5B9D76 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,27 +91,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guenter,
+Hi Rosen,
 
-Thank you for your review.
+kernel test robot noticed the following build errors:
 
-> > -     if (irq <= 0)
-> > +     if (irq == -EPROBE_DEFER)
-> > +             return irq;
-> > +     if (irq < 0)
-> >               return 0;
->
->         if (irq < 0) {
->                 if (irq != -ENXIO)
->                         return irq;
->                 return 0;
->         }
->
-> platform_get_irq_optional() does not return 0. and -ENXIO is returned
-> if there is no interrupt.
+[auto build test ERROR on sunxi/sunxi/for-next]
+[also build test ERROR on linus/master v7.2-rc6 next-20260806]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-I will send a v2 soon.
+url:    https://github.com/intel-lab-lkp/linux/commits/Rosen-Penev/mailbox-sun6i-modernize-probe-and-convert-to-fully-managed/20260807-054041
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
+patch link:    https://lore.kernel.org/r/20260727194208.10082-1-rosenp%40gmail.com
+patch subject: [PATCH] mailbox: sun6i: modernize probe and convert to fully managed
+config: alpha-allmodconfig (https://download.01.org/0day-ci/archive/20260807/202608071227.vRfy33Rr-lkp@intel.com/config)
+compiler: alpha-linux-gcc (GCC) 16.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260807/202608071227.vRfy33Rr-lkp@intel.com/reproduce)
 
-Best regards,
-Phuc
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202608071227.vRfy33Rr-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/mailbox/sun6i-msgbox.c: In function 'sun6i_msgbox_probe':
+>> drivers/mailbox/sun6i-msgbox.c:271:46: error: passing argument 1 of 'devm_mbox_controller_register' from incompatible pointer type [-Wincompatible-pointer-types]
+     271 |         return devm_mbox_controller_register(&mbox->controller);
+         |                                              ^~~~~~~~~~~~~~~~~
+         |                                              |
+         |                                              struct mbox_controller *
+   In file included from drivers/mailbox/sun6i-msgbox.c:12:
+   include/linux/mailbox_controller.h:149:50: note: expected 'struct device *' but argument is of type 'struct mbox_controller *'
+     149 | int devm_mbox_controller_register(struct device *dev,
+         |                                   ~~~~~~~~~~~~~~~^~~
+>> drivers/mailbox/sun6i-msgbox.c:271:16: error: too few arguments to function 'devm_mbox_controller_register'; expected 2, have 1
+     271 |         return devm_mbox_controller_register(&mbox->controller);
+         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/mailbox_controller.h:149:5: note: declared here
+     149 | int devm_mbox_controller_register(struct device *dev,
+         |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +/devm_mbox_controller_register +271 drivers/mailbox/sun6i-msgbox.c
+
+   194	
+   195	static int sun6i_msgbox_probe(struct platform_device *pdev)
+   196	{
+   197		struct device *dev = &pdev->dev;
+   198		struct mbox_chan *chans;
+   199		struct reset_control *reset;
+   200		struct sun6i_msgbox *mbox;
+   201		void __iomem *regs;
+   202		int i, ret;
+   203		int irq;
+   204	
+   205		irq = platform_get_irq(pdev, 0);
+   206		if (irq < 0)
+   207			return irq;
+   208	
+   209		regs = devm_platform_ioremap_resource(pdev, 0);
+   210		if (IS_ERR(regs))
+   211			return PTR_ERR(regs);
+   212	
+   213		mbox = devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
+   214		if (!mbox)
+   215			return -ENOMEM;
+   216	
+   217		chans = devm_kcalloc(dev, NUM_CHANS, sizeof(*chans), GFP_KERNEL);
+   218		if (!chans)
+   219			return -ENOMEM;
+   220	
+   221		for (i = 0; i < NUM_CHANS; ++i)
+   222			chans[i].con_priv = mbox;
+   223	
+   224		mbox->clk = devm_clk_get_enabled(dev, NULL);
+   225		if (IS_ERR(mbox->clk)) {
+   226			ret = PTR_ERR(mbox->clk);
+   227			dev_err(dev, "Failed to get clock: %d\n", ret);
+   228			return ret;
+   229		}
+   230	
+   231		reset = devm_reset_control_get_exclusive(dev, NULL);
+   232		if (IS_ERR(reset)) {
+   233			ret = PTR_ERR(reset);
+   234			dev_err(dev, "Failed to get reset control: %d\n", ret);
+   235			return ret;
+   236		}
+   237	
+   238		/*
+   239		 * NOTE: We rely on platform firmware to preconfigure the channel
+   240		 * directions, and we share this hardware block with other firmware
+   241		 * that runs concurrently with Linux (e.g. a trusted monitor).
+   242		 *
+   243		 * Therefore, we do *not* assert the reset line if probing fails or
+   244		 * when removing the device.
+   245		 */
+   246		ret = reset_control_deassert(reset);
+   247		if (ret) {
+   248			dev_err(dev, "Failed to deassert reset: %d\n", ret);
+   249			return ret;
+   250		}
+   251	
+   252		mbox->regs = regs;
+   253	
+   254		/* Disable all IRQs for this end of the msgbox. */
+   255		writel(0, mbox->regs + LOCAL_IRQ_EN_REG);
+   256	
+   257		ret = devm_request_irq(dev, irq, sun6i_msgbox_irq, 0, dev_name(dev), mbox);
+   258		if (ret)
+   259			return ret;
+   260	
+   261		mbox->controller.dev           = dev;
+   262		mbox->controller.ops           = &sun6i_msgbox_chan_ops;
+   263		mbox->controller.chans         = chans;
+   264		mbox->controller.num_chans     = NUM_CHANS;
+   265		mbox->controller.txdone_irq    = false;
+   266		mbox->controller.txdone_poll   = true;
+   267		mbox->controller.txpoll_period = 5;
+   268	
+   269		spin_lock_init(&mbox->lock);
+   270	
+ > 271		return devm_mbox_controller_register(&mbox->controller);
+   272	}
+   273	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
