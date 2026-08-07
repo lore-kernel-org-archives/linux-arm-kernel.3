@@ -4,84 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D18C2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:55:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1EFC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LfASJtXsHlsEIaWbTnsyUHwYdgtUNjwkKHTI5rut7mQ=; b=Wu8Pe6uc4XWiOkqr+8C5UdNIjg
-	j/SeFx6qLeFBg6vfmPjRBwyUTcUmQSDOtrwLlXXElSYeRamihvFqpeX0HEqOLH9zUzTED72m5XaxM
-	elk/Zi33mFAMOa6L9avyKviWcwltSGbpcVmUEFpSqYKqcdparjy+HfYskoS3ekaiVdtscLBjT+dST
-	UNieMQHeCSvBPG96g1nbE8173xSfhz658dK9qx/VUbKkbh9s4hPC2fa5KowdvszHEyFkAKIYQhJK3
-	T12hcOEoUQsF9TEbgcF8n6AzmGJm3+BmIEmDdR1asRla7pr4iP0EfeGcG447sO+4WwnCiXWMobuvG
-	GoCwWNmQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=01kctYk5IdKA9UkACtqBMbCGEKvDJapJg0gXo9yw/QM=; b=J4Jw2V2MPIbigRoMYjX65cGkHi
+	5WmJl3bCIjBanVGzG6kXseuRSB3XEvkMEufu1BeiiOJ+m74ONhr/QT7Q5atcOCIqPtdTPLdKyMZfZ
+	RIDoGKIZujvw/EWisjviiuwvyujAOgLeY0zz+u18s5wJrI4IFr07JZZAKK8QWchZZo2d6dZTZLw1x
+	sgZPfJjo+ZDhVQNpYSFJ+xXJOvSVpHZfjCY6kTNfhtHq5gBq+JDFKlGLOkulkUzmvVFvu/TQtvjgk
+	YpqU4Fzb6OJFqSsYH7u3LrdldnZX1SgYFIaEOcVbdBmlwLMcfbn1aHTukXbl/Ay1CxGIcEAapDnra
+	e+qbyRTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMuP-00000008NfD-0i0S;
-	Fri, 07 Aug 2026 15:54:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMuL-00000008Ndk-422a
+	id 1wsMxw-00000008O2j-1ACs;
+	Fri, 07 Aug 2026 15:58:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wsMxv-00000008O2c-0dDp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 15:54:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5189D143D;
-	Fri,  7 Aug 2026 08:54:48 -0700 (PDT)
-Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 851543F86F;
-	Fri,  7 Aug 2026 08:54:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786118092; bh=klIMPnyANgSy/ng+RmKkjZQ0cx3W8zQnkFuBKihU8PQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aovgNPAEtin1OO4HfiSzNaKg/BVf6JUy74t18iDUy9r/nmoJtLq7DTDOD7C2UX7fE
-	 aRAZKiTxIeaOZ/Le+sX7trawhvKYh0vOKjTrWwlv097egb3/nDxp/jBRVs9nakZwXc
-	 cMRXRSiXxnHci10no0Aj/Kwn3nz4J8m6mIQ8wBJw=
-Message-ID: <aefab683-598c-4cca-b5a0-c9081ccf9e1c@arm.com>
-Date: Fri, 7 Aug 2026 16:54:35 +0100
+	Fri, 07 Aug 2026 15:58:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BD1904366E;
+	Fri,  7 Aug 2026 15:58:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6E391F000E9;
+	Fri,  7 Aug 2026 15:58:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786118314;
+	bh=01kctYk5IdKA9UkACtqBMbCGEKvDJapJg0gXo9yw/QM=;
+	h=From:To:Cc:Subject:Date;
+	b=h5HYNRu/hshbzDtvVTkL1jZJ5Q9JHagMTAWCEi/sBdsYi8D4eE5P64zBMcIVeUkwt
+	 qrYlJ3hShlWQyPaAJNFpVRHC717aR/hIXu64DumMXnk+6VOeTI/demIvc2mBBcSF15
+	 FQ8PMOUK/N1y7iECi3xzV5P37/0ZsGW1xfw0/rJMAy9epCpeVactEanJStVlsZclDv
+	 gVTcbBzI2uqwRUeqU6G8vdJR1e4Dg4rE6GI0eTZRG740sk5pEwDpth8a1h4kuWpU+R
+	 fph8CQjvOamToycX5oXQGYHzQK5X7nkvubbJ3iAV4xye7arbTZ7pQ2UDXbOsNQYXii
+	 xdUI3p+Gnvspg==
+From: Bjorn Andersson <andersson@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>,
+	linux-clk@vger.kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Imran Shaik <imran.shaik@oss.qualcomm.com>,
+	Taniya Das <taniya.das@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+	Stephan Gerhold <stephan.gerhold@linaro.org>,
+	Stephan Gerhold <stephan@gerhold.net>,
+	Qiang Yu <qiang.yu@oss.qualcomm.com>,
+	Herman van Hazendonk <github.com@herrie.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	Abel Vesa <abel.vesa@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Lin Li <zhuolin.li@oss.qualcomm.com>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Varadarajan Narayanan <varadarajan.narayanan@oss.qualcomm.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Vladimir Zapolskiy <vz@kernel.org>
+Subject: [GIT PULL] Qualcomm clock updates for v7.3
+Date: Fri,  7 Aug 2026 10:58:30 -0500
+Message-ID: <20260807155830.603972-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
- reference
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Mostafa Saleh <smostafa@google.com>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-coco@lists.linux.dev, Marek Szyprowski <m.szyprowski@samsung.com>,
- Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
- Michael Kelley <mhklinux@outlook.com>
-References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
- <20260717180442.110954-13-aneesh.kumar@kernel.org>
- <ami_mpd_1pF4Tmdu@google.com> <yq5a5x1ygo7z.fsf@kernel.org>
- <amnRB98ZZIysHuM3@google.com> <yq5acxw6dl1d.fsf@kernel.org>
- <20260804142032.GC27883@nvidia.com> <anL9-OrDGqYQAWNV@google.com>
- <20260805123023.GO27883@nvidia.com>
- <0ce2249d-3a64-4889-b455-0e8fddcc7282@arm.com>
- <20260807115500.GA158689@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260807115500.GA158689@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_085454_126474_5C9A2A3A 
-X-CRM114-Status: GOOD (  34.69  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,103 +87,276 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/08/2026 12:55 pm, Jason Gunthorpe wrote:
-> On Fri, Aug 07, 2026 at 12:03:14PM +0100, Robin Murphy wrote:
->>> Each struct device will have a flag that shows if it is in T=1 or T=0
->>> state. The flag can only change while a driver is not bound, and
->>> changing the flag will update the DMA API configuration.
->>
->> I see we no longer seem to have the concern of devices in TDISP RUN state
->> being able to send T=0 transactions other than MSI writes,
-> 
-> Right it was too complex and nobody needed it, so Linux will not
-> support T=0 through the DMA API on an T=1 device, and devices should
-> be designed to only send T=1 to the greatest degree possible.
-> 
-> If someone foolishly makes a device that works otherwise they will
-> have to take the difficult SW tasks of making it work.
-> 
->> where GICv3 means the host is already going to have to be in on the
->> game to some degree there anyway.
-> 
-> As I understand it:
-> 
-> We will need to teach GIC to understand if/when the device uses a T=0
-> translation for MSI and then use a shared physical address for the ITS
-> IOVA instead of getting an IOVA translation from the iommu. The
-> hypervisor will setup the S2 for the T=0 SMMU translation to be
-> identity with all shared memory and the ITS page will be shared
-> memory.
 
-IIRC, for MSI or unlocked MSI-X it should look and work pretty much 
-exactly like regular VFIO, as everything can be mediated by the VMM and 
-host kernel.
+The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
 
-> Presumably in future we will have HW to handle a T=1 ITS page access
-> and some way to negotiate with devices if they should use a T=1 path
-> for MSI or not.
+  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
 
-Locked MSI-X would be a pain right now as we cannot intercept the Realm 
-programming the MSI-X cap with a doorbell address and EventID value 
-decided by the ITS driver in the Realm guest, so we'd somehow have to 
-sniff those values out of the VMM's vITS emulation then try to configure 
-an equivalent NS LPI to match, or have a hook in the ITS driver that 
-knows when it's in a Realm and do some RSI handshake to proxy-allocate 
-NS MSI vectors on the host and pass the real values back into the Realm.
+are available in the Git repository at:
 
-I'm still hoping we (both CCA and possibly Linux in general) can get 
-away with just refusing to support Locked MSI-X without GICv5, as once 
-we have proper Realm MSIs with direct injection then all the problems go 
-away (or at least become much smaller RMM problems that remain invisible 
-to the host - the one "big" problem being that the RMM has to 
-begrudgingly implement an entire GIC driver since it now has its own 
-whole GIC to look after).
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-clk-for-7.3
 
-> There won't be a vSMMU attached to the T=0 instance at all, it is just
-> wired to be bypass.
+for you to fetch changes up to c7d44572a85ae1b897e0bf95357439ee75ddbcc7:
 
-If that's all anyone will ever want then it does allow some degree of 
-hackery like mirroring the whole of Realm S2 in an equivalent NS IOMMUFD 
-domain, then forcing IOMMU_DOMAIN_IDENTITY for unaccepted devices within 
-the guest. However I was under the impression that folks want to make 
-meaningful use of devices while still in their untrusted pre-acceptance 
-state (but maybe still switch them later), so it seems almost inevitable 
-that eventually someone says "actually, we would like S1 vSMMU for 
-untrusted scatter-gather as well..."
+  clk: qcom: Add support for Qualcomm GPU Clock Controller on Shikra (2026-08-04 10:39:11 -0500)
 
->> support in firmware bindings nor the IOMMU API itself to be able to describe
->> a single device being associated with both the RMM's vSMMU for the T=1
->> (Realm) VA space, and the NS VMM's vSMMU for the T=0 VA space, even
->> if we
-> 
-> Right!
-> 
->> did only have to care about using strictly one or the other at any given
->> time based on device state. Having distinct struct devices is indeed clunky,
->> but does at least reduce the problem to a currently-manageable one of the
->> client driver having to wrangle them as a pair.
-> 
-> So hard! A meaningful goal here is to have existing drivers largely
-> work unchanged in a CC world, so the device starts doing T=1 for
-> almost everything and the existing driver just works.
+----------------------------------------------------------------
+Qualcomm clock updates for v7.3
 
-Agreed, and I think with this series we should be pretty close now, at 
-least for coherent devices with 64-bit DMA masks. And from the thread 
-over at [1], it sounds like Hyper-V's VMbus is ready to go as 
-potentially our first user independent of any other PCI/TSM dependencies.
+Add global, TCSR, RPMh, and video clock controller support for Maili.
+Add global, RPM, GPU, display, and audio core clock controller support for
+Shikra. Add display and graphics clock controllers for Nord.
 
-Cheers,
-Robin.
+Add Glymur camera and EVA clock controllers, the IPQ9650 REFGEN clocks, and
+Hawi video clock controller support. Extend the IPQ5210 APSS PLL and RPM
+clock support for Agatti.
 
-[1] https://lore.kernel.org/all/20260803033520.12930-1-tiala@microsoft.com/
+Enable runtime PM and regulator-backed reference clock handling where needed.
+Update QCM2290 clock and power-domain handling, critical clock definitions,
+and arm architecture Kconfig defaults.
 
-> 
->> (And FWIW when we do get there, I'd be inclined to make the default SWIOTLB
->> the "private" one, so all the sharing/decryption stuff can be neatly
->> partitioned off into the CoCo etc. special cases...)
-> 
-> Yeah
->   
-> Jason
+Correct MDM9607, MSM8916, MSM8939, SM6115, QCS8300, Kaanapali, and Glymur
+clock and power-domain handling. Improve GDSC error propagation and teardown.
 
+Update bindings for the added controllers and required power and OPP
+properties.
+
+----------------------------------------------------------------
+Abel Vesa (2):
+      dt-bindings: clock: qcom: glymur-gcc: Add missing CX power domain
+      clk: qcom: gcc-glymur: Enable runtime PM
+
+Bjorn Andersson (4):
+      Merge branch '20260617-evacc_glymur-v2-2-905108dacaaa@oss.qualcomm.com' into clk-for-7.3
+      Merge branch '20260608-shikra-gcc-rpmcc-clks-v5-2-94cefe092ee3@oss.qualcomm.com' into clk-for-7.3
+      Merge branch '20260624-glymur_camcc-v5-1-a321df74b1a1@oss.qualcomm.com' into clk-for-7.3
+      Merge branch '20260707-b4-ipq9650_refgen_clocks-v1-1-e070624d03d2@oss.qualcomm.com' into clk-for-7.3
+
+Brian Masney (1):
+      clk: qcom: camcc-sc8280xp: unregister CAMCC_GDSC_CLK
+
+Dmitry Baryshkov (2):
+      clk: qcom: gcc-sm6115: Set HW_CTRL_TRIGGER for video GDSC
+      clk: qcom: gcc-qcm2290: don't park QUP RCGs upon registration
+
+Herman van Hazendonk (3):
+      clk: qcom: gdsc: propagate gdsc_check_status() errors from gdsc_poll_status
+      clk: qcom: gdsc: propagate gdsc_enable() failure for ALWAYS_ON domains
+      clk: qcom: gdsc: tear down per-domain genpds in gdsc_unregister()
+
+Imran Shaik (22):
+      dt-bindings: clock: qcom,rpmcc: Add Qualcomm Shikra SoC RPMCC
+      dt-bindings: clock: qcom: Add Qualcomm Shikra SoC Global Clock Controller
+      clk: qcom: smd-rpm: Add missing RF_CLK1/RF_CLK2 clocks support on Agatti
+      clk: qcom: Add Global clock controller support on Qualcomm Shikra SoC
+      clk: qcom: gcc-shikra: Add additional frequencies for EMAC RGMII clocks
+      clk: qcom: Fix test_ctl_hi field for DEFAULT_EVO PLLs
+      dt-bindings: clock: qcom: Add Qualcomm Shikra AudioCoreCC and AudioCoreCSR
+      clk: qcom: Add Audio Core clock controller support on Qualcomm Shikra SoC
+      dt-bindings: clock: qcom,qcm2290-dispcc: Add missing power-domains property
+      clk: qcom: gcc-qcm2290: Keep the critical clocks always-on from probe
+      clk: qcom: dispcc-qcm2290: Move to the latest common qcom_cc_probe() model
+      clk: qcom: dispcc-qcm2290: Enable runtime PM support
+      clk: qcom: qcm2290: Set POLL_CFG_GDSCR flag for DISPCC and GPUCC GDSCs
+      clk: qcom: qcm2290: Add RETAIN_FF_ENABLE flag for DISPCC and GPUCC GDSCs
+      clk: qcom: qcm2290: Update DISPCC and GPUCC GDSC *wait_val values
+      clk: qcom: gpucc-qcm2290: Drop pm_clk handling
+      clk: qcom: gpucc-qcm2290: Move to the latest common qcom_cc_probe() model
+      clk: qcom: gpucc-qcm2290: Keep the critical clocks always-on from probe
+      clk: qcom: gpucc-qcm2290: Park RCG's clk source at XO during disable
+      dt-bindings: clock: qcom: Add Qualcomm Shikra Display clock controller
+      dt-bindings: clock: qcom: Add Qualcomm Shikra GPU clock controller
+      clk: qcom: Add support for Qualcomm GPU Clock Controller on Shikra
+
+Jagadeesh Kona (6):
+      clk: qcom: gdsc: Add custom disable callback for GX GDSC
+      dt-bindings: clock: qcom: Add Glymur camera clock controller
+      clk: qcom: camcc-glymur: Add camera clock controller driver
+      clk: qcom: camcc-glymur: Add const qualifier for driver_data & CBCRs list
+      dt-bindings: clock: qcom: Add Qualcomm Maili video clock controller
+      clk: qcom: Add support for videocc driver on Qualcomm Maili SoC
+
+Jerome Brunet (1):
+      clk: qcom: clean-up simple provider misuse of the consumer API
+
+Kathiravan Thirumoorthy (3):
+      clk: qcom: gcc-ipq5424: drop the CLK_IGNORE_UNUSED flag
+      dt-bindings: clock: qcom: Add IPQ9650 REFGEN clock IDs
+      clk: qcom: ipq9650: Add clocks for the REFGEN block
+
+Krzysztof Kozlowski (10):
+      clk: qcom: Restrict IPQ5424, IPQ6018,IPQ9574, QCM2290 and others to ARM64
+      clk: qcom: Restrict A7PLL and IPQ4019 GCC to ARM
+      clk: qcom: Make important ARM64 drivers default
+      clk: qcom: Make important ARM32 drivers default
+      clk: qcom: Add defaults for desired arm64 drivers
+      clk: qcom: camcc-x1p42100: Constify qcom_cc_driver_data and list of critical CBCR registers
+      clk: qcom: videocc-x1p42100: Constify qcom_cc_driver_data and list of critical CBCR registers
+      dt-bindings: clock: qcom,sm8450-camcc: Drop qcom,sc8280xp-camcc from "if" block
+      dt-bindings: clock: qcom,sm8450-camcc: Require required-opps on SM8750
+      dt-bindings: clock: qcom,sm8450-video: Require required-opps on X1E80100
+
+Lin Li (2):
+      dt-bindings: clock: qcom: Add Hawi video clock controller
+      clk: qcom: Add support for VideoCC driver for Hawi
+
+Loic Poulain (2):
+      clk: qcom: gcc-qcs8300: Use retention for PCIe power domains
+      clk: qcom: gcc-qcs8300: Use retention for USB power domains
+
+Luca Weiss (1):
+      clk: qcom: Don't use all caps for Glymur GPUCC
+
+Qiang Yu (5):
+      dt-bindings: clock: qcom: Move glymur TCSR to own binding
+      dt-bindings: clock: qcom,glymur-tcsr: Add mahua support
+      clk: qcom: Add generic clkref_en support
+      clk: qcom: tcsrcc-glymur: Add regulator supplies and migrate to clk_ref helper
+      clk: qcom: tcsrcc-glymur: Add Mahua QREF regulator support
+
+Stephan Gerhold (12):
+      clk: qcom: gcc-msm8916: Fix enable_reg for gcc_blsp1_sleep_clk
+      clk: qcom: gcc-msm8939: Fix enable_reg for gcc_blsp1_sleep_clk
+      clk: qcom: gcc-mdm9607: Fix enable_reg for gcc_blsp1_sleep_clk
+      clk: qcom: gcc-mdm9607: Fix halt_reg for gcc_apss_axi_clk
+      clk: qcom: gcc-mdm9607: Increase delay for USB PHY reset
+      clk: qcom: gcc-mdm9607: Drop incorrect apss_tcu_clk_src
+      clk: qcom: gcc-mdm9607: Drop incorrect system_noc_bfdcd_clk_src
+      clk: qcom: gcc-mdm9607: Drop incorrect BIMC PLL and related clocks
+      dt-bindings: clock: qcom: gcc-mdm9607: Drop SYSTEM_NOC_BFDCD_CLK_SRC
+      dt-bindings: clock: qcom: gcc-mdm9607: Add missing "clocks" property
+      dt-bindings: clock: qcom: gcc-mdm9607: Use proper address in example
+      clk: qcom: gcc-mdm9607: Drop redundant register update during probe
+
+Taniya Das (18):
+      clk: qcom: gxclkctl: Use custom disable callback for gx_gdsc
+      clk: qcom: common: ensure runtime PM suspend completes on probe
+      clk: qcom: gxclkctl: Remove GX/GMxC rail votes to align with IFPC
+      dt-bindings: clock: qcom: Add EVA clock and reset controller for Glymur SoC
+      clk: qcom: gcc-glymur: Move EVA clocks to critical clock list
+      clk: qcom: Add EVA clock controller driver for Glymur SoC
+      dt-bindings: clock: qcom-rpmhcc: Add RPMH clock controller for Maili
+      dt-bindings: clock: qcom: Add Maili TCSR clock controller
+      dt-bindings: clock: qcom: Add Maili global clock controller
+      clk: qcom: gcc-hawi: Add support for global clock controller on Maili
+      clk: qcom: nord: use BRANCH_HALT_SKIP for PHY pipe clocks
+      clk: qcom: negcc-nord: use clk_regmap_phy_mux for USB3 pipe clock srcs
+      clk: qcom: gcc-nord: mark PCIe link clocks as critical
+      clk: qcom: negcc-nord: keep GPU2 CFG clock enabled via critical CBCR
+      dt-bindings: clock: qcom: Document Nord display clock controller
+      clk: qcom: Add Nord display clock controller support
+      dt-bindings: clock: qcom: Document Nord GPU clock controllers
+      clk: qcom: gpucc: Add Nord graphics clock controller support
+
+Uwe Kleine-König (The Capable Hub) (1):
+      clk: qcom: Drop inclusions of <linux/mod_devicetable.h>
+
+Varadarajan Narayanan (2):
+      dt-bindings: clock: qcom,a53pll: Add IPQ5210 compatible
+      clk: qcom: apss-ipq-pll: Add IPQ5210 support
+
+Vladimir Zapolskiy (1):
+      clk: qcom: Return expected ENOMEM error on dynamic allocation failure
+
+ .../devicetree/bindings/clock/qcom,a53pll.yaml     |    1 +
+ .../bindings/clock/qcom,gcc-mdm9607.yaml           |   18 +-
+ .../bindings/clock/qcom,glymur-evacc.yaml          |   72 +
+ .../devicetree/bindings/clock/qcom,glymur-gcc.yaml |    8 +
+ .../bindings/clock/qcom,glymur-tcsr.yaml           |  146 +
+ .../devicetree/bindings/clock/qcom,hawi-gcc.yaml   |   11 +-
+ .../bindings/clock/qcom,qcm2290-dispcc.yaml        |   15 +-
+ .../bindings/clock/qcom,qcm2290-gpucc.yaml         |    4 +-
+ .../devicetree/bindings/clock/qcom,rpmcc.yaml      |   65 +-
+ .../devicetree/bindings/clock/qcom,rpmhcc.yaml     |   65 +-
+ .../bindings/clock/qcom,shikra-audiocorecc.yaml    |   55 +
+ .../devicetree/bindings/clock/qcom,shikra-gcc.yaml |   70 +
+ .../bindings/clock/qcom,sm8450-camcc.yaml          |   12 +-
+ .../bindings/clock/qcom,sm8450-gpucc.yaml          |    4 +
+ .../bindings/clock/qcom,sm8450-videocc.yaml        |   17 +-
+ .../bindings/clock/qcom,sm8550-dispcc.yaml         |    3 +
+ .../bindings/clock/qcom,sm8550-tcsr.yaml           |   34 +-
+ .../bindings/clock/qcom,x1e80100-camcc.yaml        |    3 +
+ .../bindings/reset/qcom,shikra-audiocore-csr.yaml  |   42 +
+ drivers/clk/qcom/Kconfig                           |  274 +-
+ drivers/clk/qcom/Makefile                          |    9 +
+ drivers/clk/qcom/apss-ipq-pll.c                    |   19 +
+ drivers/clk/qcom/audiocorecc-shikra.c              |  810 ++++
+ drivers/clk/qcom/camcc-glymur.c                    | 2279 ++++++++++
+ drivers/clk/qcom/camcc-sc8280xp.c                  |   19 -
+ drivers/clk/qcom/camcc-x1p42100.c                  |    6 +-
+ drivers/clk/qcom/clk-hfpll.c                       |    4 +-
+ drivers/clk/qcom/clk-krait.c                       |    2 +-
+ drivers/clk/qcom/clk-rcg.c                         |    4 +-
+ drivers/clk/qcom/clk-rcg2.c                        |    2 +-
+ drivers/clk/qcom/clk-ref.c                         |  205 +
+ drivers/clk/qcom/clk-smd-rpm.c                     |    5 +
+ drivers/clk/qcom/common.c                          |    6 +-
+ drivers/clk/qcom/dispcc-qcm2290.c                  |   44 +-
+ drivers/clk/qcom/dispcc0-nord.c                    | 2004 +++++++++
+ drivers/clk/qcom/dispcc1-nord.c                    | 2004 +++++++++
+ drivers/clk/qcom/evacc-glymur.c                    |  454 ++
+ drivers/clk/qcom/gcc-glymur.c                      |   33 +-
+ drivers/clk/qcom/gcc-hawi.c                        |  201 +
+ drivers/clk/qcom/gcc-ipq5424.c                     |   11 -
+ drivers/clk/qcom/gcc-ipq9650.c                     |   89 +
+ drivers/clk/qcom/gcc-mdm9607.c                     |  193 +-
+ drivers/clk/qcom/gcc-msm8916.c                     |    5 +-
+ drivers/clk/qcom/gcc-msm8939.c                     |    5 +-
+ drivers/clk/qcom/gcc-nord.c                        |   45 +-
+ drivers/clk/qcom/gcc-qcm2290.c                     |  131 +-
+ drivers/clk/qcom/gcc-qcs8300.c                     |    8 +-
+ drivers/clk/qcom/gcc-shikra.c                      | 4432 ++++++++++++++++++++
+ drivers/clk/qcom/gcc-sm6115.c                      |    7 +-
+ drivers/clk/qcom/gdsc.c                            |   47 +-
+ drivers/clk/qcom/gdsc.h                            |    1 +
+ drivers/clk/qcom/gpu2cc-nord.c                     |  545 +++
+ drivers/clk/qcom/gpucc-nord.c                      |  593 +++
+ drivers/clk/qcom/gpucc-qcm2290.c                   |  102 +-
+ drivers/clk/qcom/gxclkctl-kaanapali.c              |   12 +-
+ drivers/clk/qcom/negcc-nord.c                      |   75 +-
+ drivers/clk/qcom/tcsrcc-glymur.c                   |  471 +--
+ drivers/clk/qcom/videocc-hawi.c                    |  839 ++++
+ drivers/clk/qcom/videocc-maili.c                   |  660 +++
+ drivers/clk/qcom/videocc-x1p42100.c                |    4 +-
+ include/dt-bindings/clock/qcom,gcc-mdm9607.h       |    1 -
+ include/dt-bindings/clock/qcom,glymur-camcc.h      |  122 +
+ include/dt-bindings/clock/qcom,glymur-evacc.h      |   38 +
+ include/dt-bindings/clock/qcom,hawi-videocc.h      |   64 +
+ include/dt-bindings/clock/qcom,ipq9650-gcc.h       |    5 +
+ include/dt-bindings/clock/qcom,maili-gcc.h         |   21 +
+ include/dt-bindings/clock/qcom,maili-videocc.h     |   50 +
+ include/dt-bindings/clock/qcom,nord-dispcc.h       |  115 +
+ include/dt-bindings/clock/qcom,nord-gpu2cc.h       |   47 +
+ include/dt-bindings/clock/qcom,nord-gpucc.h        |   48 +
+ .../dt-bindings/clock/qcom,shikra-audiocorecc.h    |   49 +
+ include/dt-bindings/clock/qcom,shikra-gcc.h        |  263 ++
+ include/linux/clk/qcom.h                           |   67 +
+ 73 files changed, 17310 insertions(+), 884 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,glymur-evacc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,glymur-tcsr.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,shikra-audiocorecc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,shikra-gcc.yaml
+ create mode 100644 Documentation/devicetree/bindings/reset/qcom,shikra-audiocore-csr.yaml
+ create mode 100644 drivers/clk/qcom/audiocorecc-shikra.c
+ create mode 100644 drivers/clk/qcom/camcc-glymur.c
+ create mode 100644 drivers/clk/qcom/clk-ref.c
+ create mode 100644 drivers/clk/qcom/dispcc0-nord.c
+ create mode 100644 drivers/clk/qcom/dispcc1-nord.c
+ create mode 100644 drivers/clk/qcom/evacc-glymur.c
+ create mode 100644 drivers/clk/qcom/gcc-shikra.c
+ create mode 100644 drivers/clk/qcom/gpu2cc-nord.c
+ create mode 100644 drivers/clk/qcom/gpucc-nord.c
+ create mode 100644 drivers/clk/qcom/videocc-hawi.c
+ create mode 100644 drivers/clk/qcom/videocc-maili.c
+ create mode 100644 include/dt-bindings/clock/qcom,glymur-camcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,glymur-evacc.h
+ create mode 100644 include/dt-bindings/clock/qcom,hawi-videocc.h
+ create mode 100644 include/dt-bindings/clock/qcom,maili-gcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,maili-videocc.h
+ create mode 100644 include/dt-bindings/clock/qcom,nord-dispcc.h
+ create mode 100644 include/dt-bindings/clock/qcom,nord-gpu2cc.h
+ create mode 100644 include/dt-bindings/clock/qcom,nord-gpucc.h
+ create mode 100644 include/dt-bindings/clock/qcom,shikra-audiocorecc.h
+ create mode 100644 include/dt-bindings/clock/qcom,shikra-gcc.h
+ create mode 100644 include/linux/clk/qcom.h
 
