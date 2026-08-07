@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35AE5C5ACAB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 21:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD69C5ACAB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 21:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pHBBxbPUVANpahMUOGZWz4stezBioU5NTMq0eeFgIz8=; b=4dRIdIus+6+TparRwS6bG33R/u
-	RWH0TAaG/nBE2OcC9islxCTeX3FExL7N/BF5b3R1cYm09jC1gkpkuxp/+E4zfQYJ0XXc9H5qW/2wM
-	5BYirO55gZpo48JDQAJgfWVN0LG9SuitQCeSyisgl4zLTYPKyJ6Mhsd5zjM+2p2A/N3/B0YO2tTqv
-	Y+wJlVNEbBEO0C1/ikBMOglj9GwBwCd7QwpJakh1sLELGmdgFu2XAQcWkNy3ndG0iHadNd+8Dh6S3
-	JvGflA5jKlKWplLxrvMLdHwV1aMT9w62lmCpqzHmigusYplSaAoBZWXjvcprJUMbV7EGen1+JrrvW
-	SC6rOlOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O0GWgFWa+KBYW+SsUAsbFeygA58QMJKApP/borqb9+I=; b=Y39SdP21Z+WOjbBvTL97jraBIZ
+	lwbNfznD4lx5HFJGP7/I8+Hcbdp+nHCCtERG+RWdNRibZsm7jZNp4hEFxyhEFgFef3C/L2TgDkhNK
+	MJd4Kp1nb8S0d0UsrEjA5EuJm8gAYOTmDD27wP9Bg/8lrdBP6hXbmo904ND4FaDHrf3EYkXAD+D/5
+	XesfBdL780i6UQuCYyGUpgXi10jB08Wspkp4LVHXqXvIkwREnp0kc9BXGJI5avqZSNGQoYEYajUuC
+	OXM+pkrV4rShjkcV4Si+/g4yLePoaxQQjD3NrdDlGJ9pG1zCwqiFqQ43GDz6bRfZihLUUYt3anEJh
+	KH4eHNFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsSCH-00000008lnW-1u3E;
-	Fri, 07 Aug 2026 21:33:45 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wsSLh-00000008m79-1WpD;
+	Fri, 07 Aug 2026 21:43:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsSCE-00000008ln1-2zIn;
-	Fri, 07 Aug 2026 21:33:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1786138415; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Wc23WidJGbIWp8Fc9+M+I68bZ4PE3481CJXMH84ECEWzumbc0wNNsxO+/eCvPGGyz2F+4cPGXI8HdocWkO0gPZmjOeJbsHsV3tivVdlZ1T4hTuuGjAeOdpxBPAPvezjK/OQrQeKCbARbZmrM7PAz7WyUYou4xOZx0cBjnJCkBcs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1786138415; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=pHBBxbPUVANpahMUOGZWz4stezBioU5NTMq0eeFgIz8=; 
-	b=CZ1Zq/UXMOXV8BWTC7lqowJhTyKrjo3mdIzxHp+IVlTuwMdLTo/5yiiidivXnQnMg+7fWe1t0uKVMz3YOSvzRF+Hh4CMSLuWHdGVNgjvaVr3zVVO3IqiWAcYdZtH/QdLs6n8z/WEMVXpu5WPtN/f/OQDO3kfPgZPcd/DEP5998w=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1786138415;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=pHBBxbPUVANpahMUOGZWz4stezBioU5NTMq0eeFgIz8=;
-	b=bJpBgN4XzSb+MF16ZgRzB3MeQ8Wh9DbgPv4TJJezvakTcET2asvMlAfgzZLS6roH
-	iL2djC89XDNBWidHr7yQ8DpHNX0sW39++lmX8eU9EPOkLbTMnXIgCnsMWK0lgrxgCFI
-	yRxOWBaPytGeg/DBKbZtGqe44RrBeNh9EFAAC2l0=
-Received: by mx.zohomail.com with SMTPS id 1786138412992223.01443850100577;
-	Fri, 7 Aug 2026 14:33:32 -0700 (PDT)
-Message-ID: <2f63364d-6653-4f78-ab0f-c75b4fd5bb9c@collabora.com>
-Date: Fri, 7 Aug 2026 23:33:28 +0200
+	id 1wsSLf-00000008m73-2jLB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 21:43:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D36F243AC9;
+	Fri,  7 Aug 2026 21:43:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E3AF1F000E9;
+	Fri,  7 Aug 2026 21:43:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786139006;
+	bh=O0GWgFWa+KBYW+SsUAsbFeygA58QMJKApP/borqb9+I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FCsmZMORxswv2bDdmcWQFXbFXcIjplPP1RneiT0TWSZiPP8H0kubyXerByucctfk8
+	 FtIlCV4dr4M15leD5VGrIfr+wGoGA9cRwUF9v+3wfLmmW6mlSlUVf7MSGaA5HNFFj3
+	 PnEtyivYrP6jJvQeWzCUv0KUcGBFUj9LE6bim8hQoC1H/eQ+LRXMcYLLCfcy2vkQKD
+	 YeK6DWtGst5v2i3fobrRN38C8ZOZqZTmsdtCX3x5Q8+76XcaFeSTiA4D/PQXkFMb//
+	 GCfer1AOJQmHmTEIOfy/ja9FMLnssIPt8tUxvRvgztwx5p209uONfwwRPSk7Xcs9Xy
+	 KCKM7ZsYKkVUw==
+Date: Fri, 7 Aug 2026 16:43:25 -0500
+From: Rob Herring <robh@kernel.org>
+To: Frank Li <Frank.li@oss.nxp.com>
+Cc: Francesco Dolcini <francesco@dolcini.it>, Marek Vasut <marex@denx.de>,
+	Stefan Agner <stefan@agner.ch>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: lcdif: Add endpoint bus-width
+ property
+Message-ID: <20260807214325.GA2070489-robh@kernel.org>
+References: <20260723093813.180089-1-francesco@dolcini.it>
+ <20260723093813.180089-2-francesco@dolcini.it>
+ <amI3HKLECuZBHLs0@SMW015318>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: phy: rockchip,rk3588-mipi-dcphy:
- support per-direction phys
-To: Vinod Koul <vkoul@kernel.org>
-Cc: jason98166@gmail.com, Neil Armstrong <neil.armstrong@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Guochun Huang <hero.huang@rock-chips.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260726-dcphy-rx-v1-v2-0-cf9cc34a412a@gmail.com>
- <20260726-dcphy-rx-v1-v2-1-cf9cc34a412a@gmail.com>
- <82da3622-9c3a-454c-87bc-fb4ec7adb68d@collabora.com> <anSuxfeitSqmSHNr@vaman>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <anSuxfeitSqmSHNr@vaman>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_143342_814319_EF3BD8F8 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <amI3HKLECuZBHLs0@SMW015318>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +85,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vinoud,
-
-Thanks for your feedback.
-
-On 8/6/26 17:56, Vinod Koul wrote:
-> On 03-08-26, 13:17, Michael Riesch wrote:
+On Thu, Jul 23, 2026 at 10:45:32AM -0500, Frank Li wrote:
+> On Thu, Jul 23, 2026 at 11:38:08AM +0200, Francesco Dolcini wrote:
+> > From: Francesco Dolcini <francesco.dolcini@toradex.com>
+> >
+> > The DPI output of the LCD interface can be configured with a bus width
+> > of 16, 18, or 24 bits. Introduce a bus-width property to the output
+> > endpoint, specifying the number of parallel RGB bits connected.
+> >
+> > Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> > ---
+> > v2: use the common bus-width property instead of the legacy interface-pix-fmt
+> > ---
+> >  Documentation/devicetree/bindings/display/fsl,lcdif.yaml | 9 +++++++++
+> >  1 file changed, 9 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> > index 2dd0411ec651..6931f0ae3829 100644
+> > --- a/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> > +++ b/Documentation/devicetree/bindings/display/fsl,lcdif.yaml
+> > @@ -71,6 +71,15 @@ properties:
+> >      $ref: /schemas/graph.yaml#/properties/port
+> >      description: The LCDIF output port
+> >
+> > +    properties:
+> > +      endpoint:
+> > +        $ref: /schemas/graph.yaml#/$defs/endpoint-base
 > 
->>> +      Two cells select the PHY type and the direction, so that the
->>> +      transmitter (DSI) and the receiver (CSI) can be described as
->>> +      independent consumers of the same PHY:
->>> +        - <PHY_TYPE_DPHY RK_DCPHY_DIR_TX>
->>> +        - <PHY_TYPE_DPHY RK_DCPHY_DIR_RX>
->>
->> How is that Rockchip specific? As you state above this is either MIPI
->> CSI or MIPI DSI, two perfectly standard protocols.
->>
->> @all Would it be reasonable to introduce PHY_TYPE_CSI and PHY_TYPE_DSI?
-> 
-> I think yes...
-> 
+> Is it better by use video-interfaces.yaml# ?
 
-Jason, could you incorporate that in a v3?
+Yes.
 
-Thanks for your work and best regards,
-Michael
-
+Rob
 
