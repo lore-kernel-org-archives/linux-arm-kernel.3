@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D08A3C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F19AEC5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 08:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ixpqFwpYyvhO6JYNSRkqWZf82rMGmiosNWxtjl84Sb8=; b=ZxVJSLHKNRmuZ8l3Ft5R72DT6b
-	Bv0n7otP0FQP1UmkV6nyR8JCpgX5MH9y+0lZTgXrQuzQwoYoiKitoW6gn7xMIEUDRt0fWM97WfSi+
-	dhPTq9IC8uM51136bjosB99RX5OEQ0KK9lzOYnF3Tz1d2DSJTXnGCF1+d4Cnshbmdjh6VtgTTi60J
-	X3pMtDxopBS5+ZvZnYmE98Cjs1KFUsVhPaQJvPndEIUttaUoa96qubABDRBNIikuAYodOUXU4qz4F
-	ONkh7e8p8WqgFSd9jIV9HvMUW8TKxzdLWAy3alw9m/iuD5GVc5jN56J3ZMJzUVjkzOyRz8E9mtgxO
-	v/smjK7w==;
+	bh=3MesJTCCNQlP4+x64Hx4yUyNd9X6ssapmn5zWFOTB7M=; b=nGzeLQsKeu93g2TnfASfSyArs8
+	wQuDO42lnqw9FhxJLcqXj642ZFVjDuJF4KQVAyk4/81ATHVnKgWEji678indh40nr8Ieh5QPyN+at
+	e2SNjR5E9TqLt8kzR1RmKcX8wTFqZ+VpCSh48+e5DDKpRehnOPWcKubhYxC+WfN3ekflpiv1G2GlD
+	DqxzWloJWkgDielDGXSAb4ZSY4SHFp2ZfYBxBZdKAIZIi5DPw5NSTzqkJXnMn7TBLOhBe2681CYDC
+	HVitpNufybRp+eiy8SRn7qlf5QNe++Fy0dtMkxLgnOstIEcep8rKtUzWFFKllD9VvRbik/aGWIwVe
+	//3kaG3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFzv-00000007QHC-1Xr8;
-	Fri, 07 Aug 2026 08:32:11 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1wsFzz-00000007QJd-1wLL;
+	Fri, 07 Aug 2026 08:32:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFzr-00000007QEZ-0fxE
+	id 1wsFzy-00000007QIq-2FWO
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 07 Aug 2026 08:32:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:
+	Content-Type:Content-ID:Content-Description;
+	bh=3MesJTCCNQlP4+x64Hx4yUyNd9X6ssapmn5zWFOTB7M=; b=gbzKDxP0olmYC9mQgZnuv5fMFp
+	3J3/LiZhFTEnYk5Aupesz3ocByyD3P+nj5zkwOXyVdKtl74cmsie2TxD8AfjXguBDrpK43Z1DzfRG
+	cTeCnqyDgqoHBQDaOxWYkUTI3N4oAx9WcRoUSPKmGTcbF2u9D8hXUE96J5AD+hOOp3bqBUb6JuyFU
+	jYecz5jaB14Ts6UDGiIuQAZeQ6Vtw5FZbS2m3i6ZEXiUs5J0C+np9H1G9DH9au+AiHSjLHT7xph/O
+	2BA5n+qIfs0h7+EesVPlQO2SS8UkKAtL+41YjUTjK9ld6qG6+vljlhRiYkcvk2RqgyTIE4RfT2Fun
+	6j0B5U1A==;
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wsFzv-0000000CCTM-3KTq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 08:32:08 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-84e0688b7e8so2990950b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 01:32:06 -0700 (PDT)
+	Fri, 07 Aug 2026 08:32:13 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-84e3007a2b7so2866086b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 01:32:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786091526; x=1786696326; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786091529; x=1786696329; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=ixpqFwpYyvhO6JYNSRkqWZf82rMGmiosNWxtjl84Sb8=;
-        b=N8+aG9Nem/ylcbSktREBvysmjN+5m3bGscRc5WMFqxSBQgMt/kcz+IJ7VwbbWtc/Di
-         EYtpUL8KLSTGcW10vxTn67zMQLXbLTPOd1dKCEpe5cYxS+tLJ+yGsYcBDJDQYwXGVex7
-         sRsEiMqAF9tZsS0XBHO7jC01L7M0V0UvBF4vC/fJYAEad8j4/EzwA6NcW6vUlWkvThLG
-         f6a9z8yFiVx9C1TRryW4Q8WFvvT6SlTk/nSS/hlP3AAxZ8+YSjg4LFobHzGxqOd5wV4I
-         PwjBr+I2xUfOnatf1FJvjPqvvDt0wQhwZEVtQlkh7GO4s0Z22HLVfIyQC2RcJBcdLpMp
-         Wssw==
+        bh=3MesJTCCNQlP4+x64Hx4yUyNd9X6ssapmn5zWFOTB7M=;
+        b=myXvcmkz84PmkDVFnEqDcy4sKjJ8/d2RvT/ncWEmIGurmNULmWeUwa2fIu4RaZlmv0
+         6dQyV2AqBmPbAiQvnhN6Uzl82IWHNBLnNBNrBilmYegDbhne9MP/ktVDqT670WuMCpnS
+         TnoAg/dBe0TVynEwgqfe+haNl/YPGM1aAMAHmBcwo9Up0kIouZ5UzIs8vGLxP8C+k82M
+         OO8/IPfzUTu5+yOe6DfEinMATbCgrjsTbgOXz+WUhOrcG5Ky+eqgpiekvF3ZnMjAkDrf
+         Z3xvw5m/FJxd6YzA1xgERV0qondpAU03RF1PT18JXuSIyB/2HkYbZJrJiLMzw2SR6ZlZ
+         zOiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786091526; x=1786696326;
+        d=1e100.net; s=20251104; t=1786091529; x=1786696329;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=ixpqFwpYyvhO6JYNSRkqWZf82rMGmiosNWxtjl84Sb8=;
-        b=G7DaYQx7twFvz6uWepDIVJes2wDqIZlp34fop45HhnEswk9/OYZ2ybBgPn5KXfdikd
-         lFeHoaFAbhgnlqqfqmHqOAujlJhgbr34EG8tRDMWsRlr6UcN9GWAwQGjEF27pHXJH6VU
-         s17l3OPZYWw/GZaDnvzYYiqJBRKEIdl1XjOH2tOsj0zbdm3ap8MWVIjwuG4MDjX8ozZN
-         ZDA4uQYNG/aUk6+GpyjRtPT5Rsub3bHHQ0X9NqraY+F31UxeLtXNutMyBjgB0orNrf2f
-         a8RGvRwY2gUS1xe3m7/AeMcATCia7SPCUCnAqXS3kcpc5XzLshVY4LjuUlU8dWMiHkxS
-         0dHw==
-X-Forwarded-Encrypted: i=1; AHgh+RpAa9OnPpBtvAL1Mv5ema31RHbVnk8B7c9/exUxm0IgXfPQ+OH31P2tar8i10YDNk4H63AbtgqvuQ6PtDJEZkBh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlE20pfPe1BetassaNJxLnmBP2aTqxMFM6RoQB8ZnJwTP99LNi
-	AYvELn70/8y5l++uNPgoqVcmzzOnvGwRHOmXsqwgWHWfY38DmmXorqgX
-X-Gm-Gg: AR+sD10tHFfuKQ8CfyMjCvbsHEeTeAyrJL2mJizRbnp5fzZoJ85/V5FMbde5cLAfPVt
-	JjMv+uwgeWC5q6thv84ge6b9GFOXD4K4vqq5EaU+VvJ90VQAoVJg4FmWYhryLiXk6GracX0VWa9
-	Rsh6A7d4a7fZA2gSHRxnZ9UdLuskqxMLkvkF2QoP05rUOhhc+oZLg+JIHgzwDkoftowwgQ7OBgi
-	Dttbi7vvBW3V4g3aD3iga+LFRtQuiSFNWwdGjswxaNXPNnz/gmhu5eleX6p/18lrj6Fq78eaLxm
-	qwkYTBmOsDWKCom4IqWLotpf9ClCro24JiI1E/HAJr/ezHlGtUOPVxr7k5yEB7GfvX3Hw+FQxmv
-	GcfwepNN40OTYdJVoswOYUXP06rIU1pGag1/pwWTIRmKhaPjPkYMDTmNRlMMphivAKF7bfyzYp3
-	wMLG3vV0rISns7xlzCD6Kw8Ox/RPDomw8Pwi0AtjU4aC1KQ+4/zdRXFW/XT1QSMSUkg08XGndsJ
-	Z0ShE/lNDGkz1Nod8DfW9g4SjnV9Icp/PI8sqdPgOJyoDpqcw==
-X-Received: by 2002:a05:6a00:c93:b0:84a:29a7:f650 with SMTP id d2e1a72fcca58-84f2de6ab12mr22053575b3a.0.1786091525621;
-        Fri, 07 Aug 2026 01:32:05 -0700 (PDT)
+        bh=3MesJTCCNQlP4+x64Hx4yUyNd9X6ssapmn5zWFOTB7M=;
+        b=balHhePQHAfHHyLWg9KuqYdjJ0sojL/xU1yW9GRt9zWbA3dIssSQnwJNGmm8/wJ1jo
+         TInkJF9qlV4D5JrPs2g536ZLMxjjoy3/A0fjdm9umGwfDTOC3/m2o7Z5jszaUD6OdW2I
+         BYmsBdrtCvUEpaZbhhFd8LqDK2rWRw3zBGSwbI7pExaa+7+dE90Jv1Gz5WG51hLjLDlH
+         QqklCbUUSeX55O9S4RFD2pA14eq8+FT6srHKtKGp7qvtMK7sjX8rPPo2le5ieO84N7xu
+         e68r5jS7O+dJO+oi2aX/MIrx7FzT4hKCm4fkQfY7CaIVCO4WdxCX5Z8PhG7kYb3ud4k8
+         uhyw==
+X-Forwarded-Encrypted: i=1; AHgh+RpfDapi2uNkNUm+BFfONmUDpjDcT+lj6Ulip2fdcm5aPfZ471VMDXpvatSe4salz0uRr862b8ZLWA/+RUk+rnKa@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6FaLBG63/TaO5tLvGNC96xMz8zja641wb18k3x+XwGjJmdkpE
+	unilDxskneG8WNL9tR8DKZHdwJXm+5e5mrKMDITYLKsUhpt36yDeYCfi
+X-Gm-Gg: AR+sD12weYNnDjJW31JvCBtNcz3BIUWfGZhgSG6Cc3aBCj33Jp9OZNnAGemNvBt97dr
+	GY5So37JkDiv9nQSP9uUuCjW3LQoZeEnRrI58ds9o4KEYcDjWVHPnYSBBs8bhQ8km9FsW2oEIBD
+	nHb7y1Z/UD/CNCbPPLO655xZ7fJYprM3rr7on+WVmokKZ/0pfXfVSvpAAt2Gm//3A6WhbIgSqtC
+	Ls613d4mdI13Upj/gbnmNmecew6A47sNZHcC3w9BdNOR6mLrV4Agev5I/ItrVYqoL3XAGTWlNN+
+	uRQ26Ap1qFWe1z36b93GJZ9U+jmGKUie6BfdEekGyIvI7LYSbtoJHVJ/M8UXf7ayvN4p4mO+4by
+	NqyHXa559jv/wJeDR7CwLNs4CHxt1Ry7WWfLuwEI27GTvL8zlUzNPHIlBavNaDJEzd2a2CVAk2j
+	IzoiFxdK5nYwEfUdkEX0XWTGMm3oOnWp8DoEAyGDvsI+sk8ShW2Je0Xez4JYHInMd0PB92NJiKz
+	3smISOYaEWqu8XqPVplF/TZTgRuifabDTfUKk/GAZsVez8bzQ==
+X-Received: by 2002:a05:6a00:3d54:b0:847:8b1d:230d with SMTP id d2e1a72fcca58-84f2e014151mr23029742b3a.3.1786091529420;
+        Fri, 07 Aug 2026 01:32:09 -0700 (PDT)
 Received: from fred-System-Product-Name (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a553071sm627409b3a.43.2026.08.07.01.32.03
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84f5a553071sm627409b3a.43.2026.08.07.01.32.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 01:32:05 -0700 (PDT)
+        Fri, 07 Aug 2026 01:32:09 -0700 (PDT)
 From: Fred Chen <fredchen.openbmc@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -80,17 +95,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 4/5] ARM: dts: aspeed: santabarbara: Add SGPIO line names
-Date: Fri,  7 Aug 2026 16:34:07 +0800
-Message-ID: <20260807083415.672008-5-fredchen.openbmc@gmail.com>
+Subject: [PATCH v3 5/5] ARM: dts: aspeed: santabarbara: Add leak cable present IO expander
+Date: Fri,  7 Aug 2026 16:34:08 +0800
+Message-ID: <20260807083415.672008-6-fredchen.openbmc@gmail.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20260807083415.672008-1-fredchen.openbmc@gmail.com>
 References: <20260807083415.672008-1-fredchen.openbmc@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_013207_205684_FFA27E01 
-X-CRM114-Status: GOOD (  10.26  )
+X-CRM114-CacheID: sfid-20260807_093212_041057_CBF2FF62 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,43 +120,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Label two groups of SGPIO lines.
-
-- FM_MCIO_[1-4]_THERMTRIP_N: thermal trip signals carried over the
-  MCIO cables, indicating overheat on each of the four asic modules.
-- UFM_READ_CMPLT: asserted by the BMC after it finishes reading UFM
-  data, to notify the CPLD that the data can be cleared.
+Add a pca9555 GPIO expander (0x22) on i2c6/i2c8/i2c10/i2c13, one per
+module board, to expose the PRSNT_MODULE[0-3]_LEAK_CABLE_R_N line used
+to detect whether the module's leak-detection cable is plugged
+in.
 
 Signed-off-by: Fred Chen <fredchen.openbmc@gmail.com>
 ---
- .../boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts   | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ .../aspeed-bmc-facebook-santabarbara.dts      | 56 ++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-index 9d334a01d407..3d35a5a74104 100644
+index 3d35a5a74104..ca5bd805d975 100644
 --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
 +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-santabarbara.dts
-@@ -1907,7 +1907,7 @@ &sgpiom0 {
- 	"MB_SKU_ID_3","",
- 	"SYS_PWR_FAULT_ALERT","BIOS_DEBUG_MODE",
- 	/*H0-H3 line 112-119*/
--	"FM_IOEXP_U538_INT_N","",
-+	"FM_IOEXP_U538_INT_N","UFM_READ_CMPLT",
- 	"FM_IOEXP_U539_INT_N","FM_MODULE_PWR_EN_N_1B",
- 	"FM_IOEXP_U540_INT_N","FM_MODULE_PWR_EN_N_2B",
- 	"FM_IOEXP_U541_INT_N","FM_MODULE_PWR_EN_N_3B",
-@@ -1941,7 +1941,10 @@ &sgpiom0 {
- 	"I3C_MCIO_4B_ALERT_ISO_R_N","",
- 	"","",
- 	/*K4-K7 line 168-175*/
--	"","","","","","","","",
-+	"FM_MCIO_1_THERMTRIP_N","",
-+	"FM_MCIO_2_THERMTRIP_N","",
-+	"FM_MCIO_3_THERMTRIP_N","",
-+	"FM_MCIO_4_THERMTRIP_N","",
- 	/*L0-L3 line 176-183*/
- 	"FM_CPU0_THERMTRIP_N","",
- 	"FM_CPU0_PROCHOT_N","",
+@@ -641,6 +641,19 @@ gpio@74 {
+ &i2c6 {
+ 	status = "okay";
+ 
++	gpio@22 {
++		compatible = "nxp,pca9555";
++		reg = <0x22>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-parent = <&sgpiom0>;
++		interrupts = <150 IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"PRSNT_MODULE0_LEAK_CABLE_R_N","",
++			"","","","","","",
++			"","","","","","","","";
++	};
++
+ 	// Rainbow0 FRU
+ 	eeprom@52 {
+ 		compatible = "atmel,24c256";
+@@ -866,6 +879,19 @@ ipmb@10 {
+ &i2c8 {
+ 	status = "okay";
+ 
++	gpio@22 {
++		compatible = "nxp,pca9555";
++		reg = <0x22>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-parent = <&sgpiom0>;
++		interrupts = <154 IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"PRSNT_MODULE2_LEAK_CABLE_R_N","",
++			"","","","","","",
++			"","","","","","","","";
++	};
++
+ 	// Rainbow2 FRU
+ 	eeprom@52 {
+ 		compatible = "atmel,24c256";
+@@ -1106,7 +1132,20 @@ eeprom@56 {
+ &i2c10 {
+ 	status = "okay";
+ 
+-	// Rainbow3 FRU
++	gpio@22 {
++		compatible = "nxp,pca9555";
++		reg = <0x22>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-parent = <&sgpiom0>;
++		interrupts = <158 IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"PRSNT_MODULE1_LEAK_CABLE_R_N","",
++			"","","","","","",
++			"","","","","","","","";
++	};
++
++	// Rainbow1 FRU
+ 	eeprom@52 {
+ 		compatible = "atmel,24c256";
+ 		reg = <0x52>;
+@@ -1588,7 +1627,20 @@ i2c12mux0ch7: i2c@7 {
+ &i2c13 {
+ 	status = "okay";
+ 
+-	// Rainbow1 FRU
++	gpio@22 {
++		compatible = "nxp,pca9555";
++		reg = <0x22>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		interrupt-parent = <&sgpiom0>;
++		interrupts = <162 IRQ_TYPE_LEVEL_LOW>;
++		gpio-line-names =
++			"PRSNT_MODULE3_LEAK_CABLE_R_N","",
++			"","","","","","",
++			"","","","","","","","";
++	};
++
++	// Rainbow3 FRU
+ 	eeprom@52 {
+ 		compatible = "atmel,24c256";
+ 		reg = <0x52>;
 -- 
 2.52.0
 
