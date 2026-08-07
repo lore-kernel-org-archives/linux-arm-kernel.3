@@ -4,63 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECDFC2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8866BC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zhBDyENIGSwZtQI1mO040SeQxcBm4D5J8P9tXaVMOZ8=; b=sY9BPRbndQ8g8C05Q+ROd5zHeN
-	umLUcbTjuDZSdOFl2RNN8fMIMe5gN4d2RLRoKm/iYhXqXgKPlwP6WlhaPgU26xeojd4yvMl5tIfe8
-	JGsF9pQrtHK2iT76l03b2oJs7gzB1vuyztPjnIGrTXoZyQJDE0ugGnilBhiHZ68juksylj2dNT83/
-	ERB/M0oW1yFRDtABA60N+fQ+e05CUEk+qMSLdCVjS+wxv+zxyQoxO3zkINbC81nni34IuSna4+6sQ
-	VwiXKpinlhlfGyoj7Vd0o/ix+y8OPHcJU9oSA9Jr6UBPV87XFY5fZhgXteNyOm3Jvjf1NiJ1eQaPl
-	bUk3GG1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kaVrTc+sa8/nAU81KZuP8UMHYiMz2IaW9U7Z7a/uKLs=; b=V4WWYmFvvr+kA/L+cbkSZCvP5p
+	OIJlmQJJvj2B+K/9uuIrM0UuyZ/eKghoe1wZMByOAhWJRquPGNdlK1XzKvKk/o85oJ16MdgFDpazL
+	l5Q3rlh/rJlI8XUWJMAxzIE1twb3pj/PNWutsox6VCAtVmRvDxwU439QgDzW8EfmLXwU+WzY+vPb+
+	9NjLon+TRkKJ0IcXiC8+VK4oHYc5VZzviqiMb84eOHZad2FSmVw7USl1STBL7XaRfaKgCxhJW0Mwo
+	KGwd7jvC63XDncBbvuWVOf4GlRl4BOmNVoBfKHrO81tnw2BCJksxiY04Anqd1BgeLcdMT3n/aGaws
+	clJvR95w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNS1-00000008QNk-3NEq;
-	Fri, 07 Aug 2026 16:29:41 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wsNTF-00000008QUP-0CnX;
+	Fri, 07 Aug 2026 16:30:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNRz-00000008QNQ-1UFI
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 16:29:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zhBDyENIGSwZtQI1mO040SeQxcBm4D5J8P9tXaVMOZ8=; b=v8k0yg/S9xgrZnqDl1XJV9HBGK
-	Z7aGiqoART4XAKAqdjg1PC9v+rTvg+Yr2n3k3NPl/7WbiiHrTJvgRobQdJX2m7WKgJRzlYQ/cg4XO
-	oAX673RWxfA+LdthIaZ1HRNYHhSQAfsBa2M+AhVsjD3rk/fK1PWmJIU9dkkux/CmH21OdOjSqivGt
-	aIT03iIwFH9iZt1Pq+cF1OL6zBzNYGUxPCWMA3RIDK+1I0kPXog3yqfgnALIUwZdu48k6wdcnmL6t
-	WhGSlH/65DJ3QyZVOwf0bAv90OjbFoveKx9ZCMN6BTDbOmYT7eEY5gDKOOV6N824FtTeJnc7YFVpP
-	PLXsBIcg==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wsNRd-000YhX-27;
-	Fri, 07 Aug 2026 16:29:17 +0000
-Date: Fri, 7 Aug 2026 09:29:12 -0700
-From: Breno Leitao <leitao@debian.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
- mode
-Message-ID: <anYHjvJ1_4dDjuzw@gmail.com>
-References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
- <anXkO8YpoadRzm07@J2N7QTR9R3>
- <anXqMsJ14r3BAbMG@gmail.com>
+	id 1wsNTD-00000008QUD-3zdS;
+	Fri, 07 Aug 2026 16:30:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F368360A69;
+	Fri,  7 Aug 2026 16:30:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACEEC1F000E9;
+	Fri,  7 Aug 2026 16:30:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786120254;
+	bh=kaVrTc+sa8/nAU81KZuP8UMHYiMz2IaW9U7Z7a/uKLs=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=PK3eXO1ZNO2cgeG5W6vmFtFO+JxU3N2sakvAjPydvI4UCeUbdIwq1j9ZHL6mxBio3
+	 ByNVChoj7VBRxhC3n6Ha2kKwChGuQIZOc3XyV+eauBrzcHLW56z2CQhCv/KiyioeHj
+	 qQfC0DaGthxVZaarROW59I0gx0HODZTV5+KVZzu4V6IXW0APjAsQ2OiDswVbhcWYD5
+	 /OdlBEQ5+9cyIEldp9cKKau6HcnbzJE/wNPp5OZrJvEGQr1gJ3/VZhftWJ9yzCbYAI
+	 Lfdk15Zghoxm3NfCsRSXSTco+7AuXZGM4wXU4MbzzTQoNGubZZrBRHfWqZrTzm9V0H
+	 VrUOgKidPVBtg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93A9F380CEE3;
+	Fri,  7 Aug 2026 16:30:14 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <anXqMsJ14r3BAbMG@gmail.com>
-X-Debian-User: leitao
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_092939_397100_021F7966 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] Bluetooth: btmtksdio: fix usage_count leak when
+ autosuspend_delay is negative
+From: patchwork-bot+bluetooth@kernel.org
+Message-Id: <178612021313.1887768.17053811482206662967.git-patchwork-notify@kernel.org>
+Date: Fri, 07 Aug 2026 16:30:13 +0000
+References: <20260807151447.2530075-1-lgs201920130244@gmail.com>
+In-Reply-To: <20260807151447.2530075-1-lgs201920130244@gmail.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: marcel@holtmann.org, luiz.dentz@gmail.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, sean.wang@mediatek.com,
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,66 +70,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Vladimir Murzin <vladimir.murzin@arm.com>, rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 07:58:21AM -0700, Breno Leitao wrote:
-> Meanwhile, I will try to ftrace the writes to PMR and regs->pmr to get
-> a better grasp of the states machine we are in (probably on Monday).
+Hello:
 
-It seems LLM found a very easy to reproduce this:
+This patch was applied to bluetooth/bluetooth-next.git (master)
+by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
 
-	bash-5.1# dmesg
+On Fri,  7 Aug 2026 23:14:47 +0800 you wrote:
+> btmtksdio_setup() calls pm_runtime_use_autosuspend() when runtime PM
+> is supported, but btmtksdio_remove() does not call the matching
+> pm_runtime_dont_use_autosuspend() when removing the device.
+> 
+> If the autosuspend delay is set to a negative value while autosuspend
+> is enabled, the runtime PM core increments usage_count to prevent
+> runtime suspend. Without calling pm_runtime_dont_use_autosuspend()
+> during driver teardown, this reference is not dropped and usage_count
+> remains unbalanced.
+> 
+> [...]
 
-	bash-5.1#  cd /sys/kernel/tracing
-	echo 'r:pmr vfs_read bad=+0($retval):u64' >> kprobe_events
-	echo 1 > events/kprobes/pmr/enable
+Here is the summary with links:
+  - Bluetooth: btmtksdio: fix usage_count leak when autosuspend_delay is negative
+    https://git.kernel.org/bluetooth/bluetooth-next/c/1e4acc44552b
 
-	bash-5.1# dmesg
-	[   54.997498] ------------[ cut here ]------------
-	[   54.997506] WARNING: ./arch/arm64/include/asm/irqflags.h:63 at arm64_exit_to_kernel_mode+0xc0/0xc8, CPU#1: bash/185
-	[   54.997530] Modules linked in:
-	[   54.997535] CPU: 1 UID: 0 PID: 185 Comm: bash Not tainted 7.2.0-rc6-next-20260806upstream #15 PREEMPT(full)
-	[   54.997538] Hardware name: linux,dummy-virt (DT)
-	[   54.997540] pstate: 234003c5 (nzCv DAIF +PAN -UAO +TCO +DIT -SSBS BTYPE=--)
-	[   54.997542] pc : arm64_exit_to_kernel_mode+0xc0/0xc8
-	[   54.997544] lr : el1_abort+0x5c/0x80
-	[   54.997547] sp : ffff800088ba35f0
-	[   54.997548] pmr: 000000f0
-	[   54.997550] x29: ffff800088ba35f0 x28: ffff0000c3cd0000 x27: 0000000000000000
-	[   54.997554] x26: ffff0000c3f277d0 x25: 0000000000000030 x24: 0000000000000001
-	[   54.997557] x23: 00000000834003c5 x22: 0000000000000000 x21: 0000000000000001
-	[   54.997566] x20: ffff800088ba3650 x19: 0000000000000000 x18: 0000000000000000
-	[   54.997569] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000001
-	[   54.997572] x14: 0000000040000000 x13: ffff800086b171f8 x12: fff080007fe00000
-	[   54.997576] x11: 0000000000000001 x10: aaaaaaaaaaaaaaab x9 : 000000000000001f
-	[   54.997579] x8 : 00000000000000d0 x7 : 0000000000000000 x6 : ffff0000c0adf02c
-	[   54.997582] x5 : ffff0000c0adf034 x4 : ffff800081408b08 x3 : 000000000000000c
-	[   54.997585] x2 : 00000000000002fe x1 : 0000000000000000 x0 : ffff800088ba3650
-	[   54.997589] Call trace:
-	[   54.997590]  arm64_exit_to_kernel_mode+0xc0/0xc8 (P)
-	[   54.997593]  el1_abort+0x5c/0x80
-	[   54.997595]  el1h_64_sync_handler+0x50/0x100
-	[   54.997597]  el1h_64_sync+0x80/0x88
-	[   54.997601]  __arch_copy_from_user+0x220/0x240 (P)
-	[   54.997604]  process_fetch_insn+0x450/0x8b0
-	[   54.997608]  kretprobe_trace_func+0x1b0/0x298
-	[   54.997611]  kretprobe_dispatcher+0x5c/0x88
-	[   54.997613]  __kretprobe_trampoline_handler+0xc4/0x168
-	[   54.997617]  kretprobe_brk_handler+0x40/0x68
-	[   54.997620]  call_el1_break_hook+0x74/0xa0
-	[   54.997623]  do_el1_brk64+0x30/0x60
-	[   54.997624]  el1_brk64+0x2c/0x48
-	[   54.997626]  el1h_64_sync_handler+0x80/0x100
-	[   54.997628]  el1h_64_sync+0x80/0x88
-	[   54.997630]  ksys_read+0x80/0x100 (P)
-	[   54.997634]  __arm64_sys_read+0x28/0x40
-	[   54.997636]  invoke_syscall+0x54/0xf0
-	[   54.997640]  do_el0_svc+0x7c/0xb8
-	[   54.997642]  el0_svc+0x60/0x188
-	[   54.997644]  el0t_64_sync_handler+0x84/0x130
-	[   54.997645]  el0t_64_sync+0x1ac/0x1b0
-	[   54.997647] ---[ end trace 0000000000000000 ]---
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
