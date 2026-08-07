@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E609BC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5B17C5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:57:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cfbg4OKMiHxX0/fCplY4WZEaCh6mteG/jz44Jr9wKjY=; b=VcFeBlkvf4J9WQsCuKsrmfbGTp
-	TivLI9X2sJgGn43q+hrGcgLoNvxI3Z3U0/zMIIXny1A9Tqo7Cd//WJBGAfel4mMiFwLDjyDzh1ldA
-	wn/rSTTzt8ekGRbAy9zEr+ZfeNpUvuNb9aNdtpa7Mo0n49A/LK68o+zSa0dIXtzMquopq9/Io6hhQ
-	qo+UPNwV5NiziQ7lsVmAxR4AqiijgpB3bWK96BUKqRkU6LC6cAy7JBVxQeNboWHe1MU7E/fKEPOsI
-	/lPkkZWh0Tq0VZC0dH/HAlV/U4fUeUAhUO34BukYHyf+Xk4IyxdVUwDZZQazRomYCqTJYi3ecC5pr
-	H/ohhXkA==;
+	bh=6h9TCw8eDVvs4kPXVD1hECd88bCZqNFEXcfZGl9xKJ8=; b=nD1f1b7GeDoQgp1TtNSkan6jCa
+	0fYmp72mgOBDvn9JXjdwuZQ+kfc6M7ZFGG01TBmokHnQDmboaenOPLNLRSjg/Cox0VP6G+c9hqxDH
+	11yTAfEfrsdqblGVFm/h5NEvncI++QwQF9OF4bxjwUdJB7gE/iiuG5A+JBaMPRzrpo0/TyO7ESs8B
+	W9cX5uwZZhhzVLo9TR1X7LYk7ltSvfkaSDbAF4gPxD3SmeTd0kOzP8ltxlFLNAiIup800fv/du13b
+	/SI8gOS5NtM8vkwX20IuoZR30RgEyX5YL7ForNgCiST4+7kqNambD3Yph/fns5wYbyIVBDMGsz6MQ
+	pK9lMMIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsEGZ-00000007BbG-222t;
-	Fri, 07 Aug 2026 06:41:15 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wsEVk-00000007CNl-1kyD;
+	Fri, 07 Aug 2026 06:56:56 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsEGW-00000007BaY-2e4C
+	id 1wsEVh-00000007CNM-3zsk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 06:41:13 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47f59f25ec4so1253655f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 23:41:11 -0700 (PDT)
+	Fri, 07 Aug 2026 06:56:55 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ceab75934dso39510255ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 23:56:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786084870; x=1786689670; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1786085813; x=1786690613; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cfbg4OKMiHxX0/fCplY4WZEaCh6mteG/jz44Jr9wKjY=;
-        b=qAOLZQQ4y2BnXYdTkSucz9dXvpjcmqSEQ536GIU5w6KBvVvke2i8+TK7pVSnJhaN+i
-         H3kP/JCA/iVEHnPBwQraVqJfOwpW0sKrl5LSRkfr70vf106YO9J69qFX9ygmCDr3Xd25
-         9PtayQuzus47EO0XkF9PXpF7gu+k6h89C8MZzeg8Rjo/grpAO5mzngGG912aqZBiyTpo
-         /MCr6aK+NuEoZ++lcGcd+uJ2iIkWNY2c6PkGNYrl7mKc88ZpPFt33sR8FhmNDTpc9JhK
-         DiiN7Peb0NfWbU7b1No066mDyOkQHygz1m7a6eIriDZQf/+e1v+KBaXkxZy74O/du/xK
-         HIrg==
+        bh=6h9TCw8eDVvs4kPXVD1hECd88bCZqNFEXcfZGl9xKJ8=;
+        b=sF4sM0ErwAyZnv1+r6b/oMuoqKZgPpgCAZ73xe9iOIhmktX4jQWApeAQRTTMqTOUgR
+         NsCl4OJdyY/6r14S+gyhI68ZyqJ1h+UNl2axIvw7S08vKqSAZooKE5WeMbpaujPvJrM9
+         HeosbKf7aSOqAUsyqdEJziZYzgFTHvQY1IihR9/p5wsVSZm1/c0lhXirOZhcKYp7bb0u
+         tqSUpyFytVGqh88h5COEc4NodiqEnOmkRyXZgQELIGM6VSeDN3HvD3F1pub7+zYdlSu+
+         /yovCfyTWb+xJ8w0EyiOY5/RC1Dh8xiTXM+A+BPRXnqPCSzdrvx34pz6FG5FkPBiF1Jm
+         nYVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786084870; x=1786689670;
+        d=1e100.net; s=20251104; t=1786085813; x=1786690613;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=cfbg4OKMiHxX0/fCplY4WZEaCh6mteG/jz44Jr9wKjY=;
-        b=eFLebjsqW36jNvqsoJAstffVvrNJoOvodxbTzYbWt7DnVo6g8w3c3hnJj7nrKvueri
-         OGJMnqD2v69JvcRsCt0RU15iIjeMVwTh0OtkS5URNaOxbs8FfBGPlie7tkDwnHIQx0hh
-         iJcp54w7pUsL+11LjrLoIwwaUoWN/XaVZ5sBTDklo6EJfK2s7LdI+JbQnuGrL3xK7jHP
-         CfdhprSBEZ5v4WeB+y2s/mB9K9IxZW9lhrLXNsudQCxfsIv7pZC2XMk/PBJhpJmm3AsG
-         wEEV/PY9Ch9SxJgJEoytEy/6JBo1dxbq+GhB+qMLIKkKj5pu8dBiHTzPxR8mB3ZUq3lw
-         XBBg==
-X-Forwarded-Encrypted: i=1; AHgh+Rojn00Ij20pRR5dfTsDEp931rVteAW6m3dWcudB+5+a/cY8Ldo8HXR0P/rIYv4qZWXyAHQ+t4Io5ygXQZ00skvg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSMaxmbFYXG3ppBhagYNE5rKJvWW5GBrTmxYbbrQv3mpZUAtDZ
-	sdjyjZd99pnLf8NzEW7vFrBAVcM5iy5lPfUmZmETVOb31mLKjP961o8W
-X-Gm-Gg: AR+sD10JeSYgcwy+zO04pAZL4tU8w+XZw0DoQIzK3wvYfQR8obpsD7D76aWfvo64POm
-	HmW3KT4bldopOeyBUigOqAALVEYiZK+qVITj9wfLEtgxgDCaQZyNJMZPMm5g+QkEn1EzJvTbp3B
-	8ZV1P1HGNHwdycUk4wuW8DWcO7F6EiCcryMMRul3EODOgK1QSsxoWddZuao9clP4tdtw0VjxDxd
-	B+WBcHtkUBrLHHM4dQ/mqBKj9JUhnvC1Lo7J0Axme8SHmQkLIFsB6SxE/ciaVrH01IzkPkuGOww
-	cwqUZ/EvkCsul3uYvR6HTSc4n8IM7uHRfzLGImd96X+JtyjEziwOmrXOgZ6um2Obp3Guue7cDOF
-	SfpV3wxZUHxZyYSLKQ6Wf7QD6MCvotQWfYpaCSOwBYr+F4miQaiRDzQF4Qe5VxEf0CXNfP5k5rH
-	JUm39VWBm43mi9YIG6NTrPTGXxO+IOkory177lbZGun/NA/b9U3C0hWCM=
-X-Received: by 2002:a05:6000:2981:20b0:476:7036:f854 with SMTP id ffacd0b85a97d-47ffd93cfadmr8835774f8f.21.1786084870270;
-        Thu, 06 Aug 2026 23:41:10 -0700 (PDT)
-Received: from fedora ([46.205.219.253])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48002150804sm2655044f8f.13.2026.08.06.23.41.09
+        bh=6h9TCw8eDVvs4kPXVD1hECd88bCZqNFEXcfZGl9xKJ8=;
+        b=EjYBkygF4Nk8zFGQZe/tyaHoP85vb5HXONKzDdI/clh5JDHfOZhONG5NRpvo37HrOX
+         NJqdU4wThNtGfh2crddh063GlVh1c4mbzp+QV3nqhh5KHwMKJKsEHc/of2PNTirV4fO9
+         Qr6Eke3L/3OQ5mQxxRC/bKDE2fM9g0Q/XSrLUKK9+U+wj4aWLP4DSYTdjkgVYGhjK/Hz
+         T3Ko4htAI/3CIZSNTvXkzSDVfS5Z9jE/zeNO6nfjoe9C3PB0D9TqmwYBouZEeJSlE1zl
+         RCUH09SAVOImpirO5V+M2lHyaxLkdz6YqJBuGcowUQeClBMuUOwoWadK/GsaEongnwTs
+         enag==
+X-Forwarded-Encrypted: i=1; AHgh+RopeLlvMnm4DeZBhZGwiMl0iJAYYNhakjrWZXIYGC+irVJbFda9fmW4WhKlDA9GhVpvZTo8HVNVfP7S4IykK9Hu@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYRGhmVj4ebjx8/h0qpVBItcKKUaUkBNismrplhRaygZ2C0gDP
+	EiW3+/JxVLxljb5+/DkGp4toc4XpIeNNFkEATV1cBne3i97pMPk/3K9V
+X-Gm-Gg: AR+sD12hcoE13dR1191P7QoxKFpvdZA4puHqBWEzLLGf2uOAW+bOTxHlbOW+X0L8xSx
+	7Sv7qelxAkECm6bZbzYW/lRHkj7umeREslzJnzAS/gdvGkDvuQHtgEZUlFt5we2lytLV8i+oHOD
+	avYzYS/EfQ6z9Id101/FEUFK416hYlFkC07dH1Sf+zAMRG33OWwzCY+1NdpTaJq66BLvqmdKVqN
+	yMDkO7//wtD/zHWcovYSoYzMV8SGF/Tkb8RJFIlKH9P2n4MZX4DJ6phFdtX0PFSaaF+TVVzNuut
+	1Nq2Q18aAJLmJ3APSGinY7V1fwJnP0pVU43AW9xDpZuWMVRXUIKXBA4yEF2fWStmiPlwxnzj+N4
+	bELsJvfvh0bB1ar3Ncs4Pu/c8N6xRt2lnaEE8SOYHHWG13sar5sXN1DWiYt4CX9qKGNuWJB4Ayl
+	wT4Z4/C6mkKM1Kr0aquT9tdgNfIOyMgvlN0y5t/HJ+3K5qoqOMC0dW6L2ts00/lUZSsccsWhHIS
+	DfdljBkoOqSRphfywHlB7SUQFQBnEa44M2QOg+BFCq3xAfjzeObLzmb7ya/hCHImoCyYjVy3aNz
+	G5R0
+X-Received: by 2002:a17:903:240e:b0:2ca:f8ef:33e4 with SMTP id d9443c01a7336-2d0ca9444femr245369825ad.17.1786085812605;
+        Thu, 06 Aug 2026 23:56:52 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2d14ccb0b2dsm4420185ad.3.2026.08.06.23.56.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Aug 2026 23:41:09 -0700 (PDT)
-From: Daniel Pawlik <pawlik.dan@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org,
-	win847@gmail.com,
+        Thu, 06 Aug 2026 23:56:52 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Peter Chen <peter.chen@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-usb@vger.kernel.org
+Cc: Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Pawlik <pawlik.dan@gmail.com>
-Subject: [PATCH v4] net: airoha: npu: use coherent DMA for mailbox messages
-Date: Fri,  7 Aug 2026 08:40:58 +0200
-Message-ID: <20260807064058.1117747-1-pawlik.dan@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v2 1/2] usb: chipidea: ci_hdrc_imx: Propagate errors from optional IRQ lookup
+Date: Fri,  7 Aug 2026 13:56:18 +0700
+Message-ID: <20260807065619.30604-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_234112_695880_B52F2068 
-X-CRM114-Status: GOOD (  21.78  )
+X-CRM114-CacheID: sfid-20260806_235653_998022_923019A4 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,196 +105,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox
-buffer") switched airoha_npu_send_msg() to DMA_BIDIRECTIONAL so
-non-coherent CPUs invalidate caches before reading NPU GET responses.
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-On EN7581 + MT7996 that change regresses probe: the mailbox completes
-successfully, but WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0 and
-mt76 never binds NPU offload. Healthy boards report 0.1111.
+platform_get_irq_optional() returns a positive IRQ number on success or
+a negative error code on failure. For an optional IRQ, -ENXIO indicates
+that no IRQ is available, while other errors should be propagated.
 
-airoha_npu_send_msg() is also used from PPE foe_commit under
-spin_lock_bh(), so per-message dma_alloc_coherent(GFP_ATOMIC) is a poor
-fit. Allocate one device-managed coherent bounce buffer per NPU core at
-probe and reuse it under the existing per-core mailbox lock. That also
-keeps the buffer valid if the NPU completes a write after a mailbox
-timeout.
+Propagate errors such as -EPROBE_DEFER and -EINVAL instead of continuing
+probe without the IRQ.
 
-Introduce __airoha_npu_send_msg() with an optional reply pointer so GET
-callers can copy the trailing response payload once. Keep
-airoha_npu_send_msg() as a thin wrapper for SET paths.
-
-Verified on Quantum Fiber / Gemtek W1700K (EN7581 + MT7996).
-
-Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
-Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260805070851.2885888-1-pawlik.dan@gmail.com/
-Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260806072601.1815487-1-pawlik.dan@gmail.com/
-Assisted-by: Cursor:composer-2
-Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
-v4:
-- drop rsp_off; copy trailing reply_len bytes into reply pointer
-- split __airoha_npu_send_msg() + thin airoha_npu_send_msg() wrapper
-  so SET callers stay unchanged
-- fix reverse-christmas-tree local variable ordering
-- constify data argument; clarify reply copy comment
 
-v3:
-- move coherent mailbox buffer into struct airoha_npu_core (buf/addr)
-- allocate one buffer per core at probe
-- add optional reply buffer to avoid the extra copy in
-  airoha_npu_wlan_msg_get()
-- document AIROHA_NPU_MBOX_SIZE vs ppe_mbox_data / WLAN payloads
+Link v1:
+https://lore.kernel.org/all/20260806065254.28204-1-phucduc.bui@gmail.com/
+Changes in v2:
+ - Update the commit message and error handling.
+ - Propagate all errors from platform_get_irq_optional() except -ENXIO,
+   instead of only handling -EPROBE_DEFER.
 
-v2:
-- allocate one coherent mailbox buffer at probe and reuse it under the
-  per-core lock instead of per-message dma_alloc_coherent(GFP_ATOMIC)
+ drivers/usb/chipidea/ci_hdrc_imx.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
- drivers/net/ethernet/airoha/airoha_npu.c  | 70 +++++++++++++++++------
- include/linux/soc/airoha/airoha_offload.h |  3 +
- 2 files changed, 54 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-index b679bed952de..74da3c4d06e4 100644
---- a/drivers/net/ethernet/airoha/airoha_npu.c
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -23,6 +23,12 @@
- #define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
- #define NPU_EN7581_FIRMWARE_DATA_MAX_SIZE	0x10000
- #define NPU_DUMP_SIZE				512
-+/*
-+ * Mailbox DMA payload size. Covers sizeof(struct ppe_mbox_data) (28) and
-+ * WLAN TLV messages (header + payload); largest in-tree WLAN payload today
-+ * is 16 bytes (INODE_TXRX_REG_ADDR). Keep headroom for future commands.
-+ */
-+#define AIROHA_NPU_MBOX_SIZE			256
+diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+index 56d2ba824a0b..7387c9903e80 100644
+--- a/drivers/usb/chipidea/ci_hdrc_imx.c
++++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+@@ -525,6 +525,10 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+ 		data->supports_runtime_pm = true;
  
- #define REG_NPU_LOCAL_SRAM		0x0
- 
-@@ -160,23 +166,32 @@ struct wlan_mbox_data {
- 	DECLARE_FLEX_ARRAY(u8, d);
- };
- 
--static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
--			       void *p, int size)
-+static int __airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-+				 const void *data, int len, void *reply,
-+				 int reply_len)
- {
--	u16 core = 0; /* FIXME */
--	u32 val, offset = core << 4;
--	dma_addr_t dma_addr;
-+	struct airoha_npu_core *c = &npu->cores[0]; /* FIXME: core */
-+	u32 val, offset = 0;
- 	int ret;
- 
--	dma_addr = dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
--	ret = dma_mapping_error(npu->dev, dma_addr);
--	if (ret)
--		return ret;
-+	if (len > AIROHA_NPU_MBOX_SIZE ||
-+	    (reply && (reply_len < 0 || reply_len > len)))
-+		return -EINVAL;
- 
--	spin_lock_bh(&npu->cores[core].lock);
-+	/*
-+	 * Mailbox payloads are bidirectional (CPU request, NPU response).
-+	 * On EN7581+MT7996, streaming DMA_BIDIRECTIONAL against the
-+	 * caller kzalloc() buffer can leave WLAN_FUNC_GET_WAIT_NPU_VERSION
-+	 * reading as 0.0 despite MBOX success. Reuse a probe-time coherent
-+	 * bounce buffer under the per-core lock (also used from PPE
-+	 * foe_commit under atomic context).
-+	 */
-+	spin_lock_bh(&c->lock);
-+
-+	memcpy(c->buf, data, len);
- 
--	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, dma_addr);
--	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, size);
-+	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, c->addr);
-+	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, len);
- 	regmap_read(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, &val);
- 	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, val + 1);
- 	val = FIELD_PREP(MBOX_MSG_FUNC_ID, func_id) | MBOX_MSG_WAIT_RSP;
-@@ -189,13 +204,21 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
- 	if (!ret && FIELD_GET(MBOX_MSG_STATUS, val) != NPU_MBOX_SUCCESS)
- 		ret = -EINVAL;
- 
--	spin_unlock_bh(&npu->cores[core].lock);
-+	/* Copy the trailing reply_len bytes of the response. */
-+	if (!ret && reply)
-+		memcpy(reply, c->buf + len - reply_len, reply_len);
- 
--	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
-+	spin_unlock_bh(&c->lock);
- 
- 	return ret;
- }
- 
-+static inline int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-+				      const void *data, int len)
-+{
-+	return __airoha_npu_send_msg(npu, func_id, data, len, NULL, 0);
-+}
-+
- static int airoha_npu_load_firmware(struct device *dev, void __iomem *addr,
- 				    const char *fw_name, int fw_max_size)
- {
-@@ -442,8 +465,9 @@ static int airoha_npu_ppe_stats_setup(struct airoha_npu *npu,
- 	ppe_data->func_id = PPE_FUNC_SET_WAIT_FLOW_STATS_SETUP;
- 	ppe_data->stats_info.foe_stats_addr = foe_stats_addr;
- 
--	err = airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
--				  sizeof(*ppe_data));
-+	err = __airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
-+				    sizeof(*ppe_data), ppe_data,
-+				    sizeof(*ppe_data));
- 	if (err)
- 		goto out;
- 
-@@ -497,9 +521,8 @@ static int airoha_npu_wlan_msg_get(struct airoha_npu *npu, int ifindex,
- 	wlan_data->func_type = NPU_OP_GET;
- 	wlan_data->func_id = func_id;
- 
--	err = airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len);
--	if (!err)
--		memcpy(data, wlan_data->d, data_len);
-+	err = __airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len,
-+				    data, data_len);
- 	kfree(wlan_data);
- 
- 	return err;
-@@ -770,6 +793,15 @@ static int airoha_npu_probe(struct platform_device *pdev)
- 	if (err)
- 		return err;
- 
-+	for (i = 0; i < ARRAY_SIZE(npu->cores); i++) {
-+		struct airoha_npu_core *core = &npu->cores[i];
-+
-+		core->buf = dmam_alloc_coherent(dev, AIROHA_NPU_MBOX_SIZE,
-+						&core->addr, GFP_KERNEL);
-+		if (!core->buf)
-+			return -ENOMEM;
+ 	data->wakeup_irq = platform_get_irq_optional(pdev, 1);
++	if (data->wakeup_irq < 0 && data->wakeup_irq != -ENXIO) {
++		ret = data->wakeup_irq;
++		goto err_clk;
 +	}
-+
- 	err = airoha_npu_run_firmware(dev, base, &res);
- 	if (err)
- 		return dev_err_probe(dev, err, "failed to run npu firmware\n");
-diff --git a/include/linux/soc/airoha/airoha_offload.h b/include/linux/soc/airoha/airoha_offload.h
-index 7589fccfeef6..16a988ad7467 100644
---- a/include/linux/soc/airoha/airoha_offload.h
-+++ b/include/linux/soc/airoha/airoha_offload.h
-@@ -173,6 +173,9 @@ struct airoha_npu {
- 		/* protect concurrent npu memory accesses */
- 		spinlock_t lock;
- 		struct work_struct wdt_work;
-+		/* Coherent bounce buffer for mailbox cmd/rsp */
-+		void *buf;
-+		dma_addr_t addr;
- 	} cores[NPU_NUM_CORES];
- 
- 	int irqs[NPU_NUM_IRQ];
+ 	if (data->wakeup_irq > 0) {
+ 		irq_name = devm_kasprintf(dev, GFP_KERNEL, "%s:wakeup", pdata.name);
+ 		if (!irq_name) {
 -- 
-2.55.0
+2.43.0
 
 
