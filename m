@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFA0C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D18C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p2nGN5ZXRiqoTtzpZL872g3TGzGSNiIhzVCcBASG2ew=; b=BEeRtZ3c04ac4EXC0qUcEfYKWw
-	6Up6y+X+uLwOUGEm6hBIYEUfeVfBNLhhmXjXU4qT8TudZUhEqNKcyFqFeZoeKYjngbi5hkVre3J6D
-	cQrCx4TWKuoTTD8ZwOTHsbaKIvEcdWrNTJxZc6JptgW+p0vlI+VB79XaAZCprJntYDTRnnU5BImMf
-	zDlWrdBav2AqKPMwf6plTeq+99z9TpZ+8FnAKOcnY6lnbqScuXjqAaMDNzX6ilRLTovJd7URFrojZ
-	CGR+4gTSorDK8HX8ZUtat6EdpiyJuOz/LjU43ISC/qFTfl9pNIyHkv0khItsPueBDeldnOfN2QkVp
-	uFHyfvIQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LfASJtXsHlsEIaWbTnsyUHwYdgtUNjwkKHTI5rut7mQ=; b=Wu8Pe6uc4XWiOkqr+8C5UdNIjg
+	j/SeFx6qLeFBg6vfmPjRBwyUTcUmQSDOtrwLlXXElSYeRamihvFqpeX0HEqOLH9zUzTED72m5XaxM
+	elk/Zi33mFAMOa6L9avyKviWcwltSGbpcVmUEFpSqYKqcdparjy+HfYskoS3ekaiVdtscLBjT+dST
+	UNieMQHeCSvBPG96g1nbE8173xSfhz658dK9qx/VUbKkbh9s4hPC2fa5KowdvszHEyFkAKIYQhJK3
+	T12hcOEoUQsF9TEbgcF8n6AzmGJm3+BmIEmDdR1asRla7pr4iP0EfeGcG447sO+4WwnCiXWMobuvG
+	GoCwWNmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMqH-00000008NTu-2Jdv;
-	Fri, 07 Aug 2026 15:50:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMqF-00000008NTW-2LYO
+	id 1wsMuP-00000008NfD-0i0S;
+	Fri, 07 Aug 2026 15:54:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wsMuL-00000008Ndk-422a
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 15:50:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 85BB1600B0;
-	Fri,  7 Aug 2026 15:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E5241F000E9;
-	Fri,  7 Aug 2026 15:50:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786117838;
-	bh=p2nGN5ZXRiqoTtzpZL872g3TGzGSNiIhzVCcBASG2ew=;
-	h=From:To:Cc:Subject:Date;
-	b=V/KitA0fjocwxz1GdntzyJGUQRV/7s5428bv4zaiwbu5mlfGYe/aJHQ1XW93O/zBG
-	 cQ5hGOuSFSZvc6Iq/lncalhUBnIsUfwq1k4+AhDXQFAOvE2Q+AkmoFkAQfiia3KkKk
-	 LX94URQ+ixLinklf5ty1Pcgka/Rj84tEeHVpEPCXotxPXdLro6QMnKJE34CEwZT7hZ
-	 sTNUKbNxXK875P4BaijdP4dJovtHlC/CeaH87INIAtcT2fD5kCTFwFh5C2Ptvlmw47
-	 PgmxegjWdIZgFeRxmSfsR0Oh6u7/UXTVj38MIRK2jFDl3qmLmZj+oaAx07+xA3NFYK
-	 x2auKZc9BPj/g==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Alexandre Messier <alex@me.ssier.org>,
-	Antony Kurniawan Soemardi <linux@smankusors.com>,
-	David Wales <daviewales@disroot.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Erikas Bitovtas <xerikasxx@gmail.com>,
-	Rudraksha Gupta <guptarud@gmail.com>
-Subject: [GIT PULL] Qualcomm Arm32 DeviceTree updates for v7.3
-Date: Fri,  7 Aug 2026 10:50:35 -0500
-Message-ID: <20260807155035.603563-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	Fri, 07 Aug 2026 15:54:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5189D143D;
+	Fri,  7 Aug 2026 08:54:48 -0700 (PDT)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 851543F86F;
+	Fri,  7 Aug 2026 08:54:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1786118092; bh=klIMPnyANgSy/ng+RmKkjZQ0cx3W8zQnkFuBKihU8PQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aovgNPAEtin1OO4HfiSzNaKg/BVf6JUy74t18iDUy9r/nmoJtLq7DTDOD7C2UX7fE
+	 aRAZKiTxIeaOZ/Le+sX7trawhvKYh0vOKjTrWwlv097egb3/nDxp/jBRVs9nakZwXc
+	 cMRXRSiXxnHci10no0Aj/Kwn3nz4J8m6mIQ8wBJw=
+Message-ID: <aefab683-598c-4cca-b5a0-c9081ccf9e1c@arm.com>
+Date: Fri, 7 Aug 2026 16:54:35 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 12/23] dma: swiotlb: pass mapping attributes by
+ reference
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Mostafa Saleh <smostafa@google.com>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-coco@lists.linux.dev, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Petr Tesarik <ptesarik@suse.com>, Alexey Kardashevskiy <aik@amd.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+ Michael Kelley <mhklinux@outlook.com>
+References: <20260717180442.110954-1-aneesh.kumar@kernel.org>
+ <20260717180442.110954-13-aneesh.kumar@kernel.org>
+ <ami_mpd_1pF4Tmdu@google.com> <yq5a5x1ygo7z.fsf@kernel.org>
+ <amnRB98ZZIysHuM3@google.com> <yq5acxw6dl1d.fsf@kernel.org>
+ <20260804142032.GC27883@nvidia.com> <anL9-OrDGqYQAWNV@google.com>
+ <20260805123023.GO27883@nvidia.com>
+ <0ce2249d-3a64-4889-b455-0e8fddcc7282@arm.com>
+ <20260807115500.GA158689@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260807115500.GA158689@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260807_085454_126474_5C9A2A3A 
+X-CRM114-Status: GOOD (  34.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,65 +96,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 07/08/2026 12:55 pm, Jason Gunthorpe wrote:
+> On Fri, Aug 07, 2026 at 12:03:14PM +0100, Robin Murphy wrote:
+>>> Each struct device will have a flag that shows if it is in T=1 or T=0
+>>> state. The flag can only change while a driver is not bound, and
+>>> changing the flag will update the DMA API configuration.
+>>
+>> I see we no longer seem to have the concern of devices in TDISP RUN state
+>> being able to send T=0 transactions other than MSI writes,
+> 
+> Right it was too complex and nobody needed it, so Linux will not
+> support T=0 through the DMA API on an T=1 device, and devices should
+> be designed to only send T=1 to the greatest degree possible.
+> 
+> If someone foolishly makes a device that works otherwise they will
+> have to take the difficult SW tasks of making it work.
+> 
+>> where GICv3 means the host is already going to have to be in on the
+>> game to some degree there anyway.
+> 
+> As I understand it:
+> 
+> We will need to teach GIC to understand if/when the device uses a T=0
+> translation for MSI and then use a shared physical address for the ITS
+> IOVA instead of getting an IOVA translation from the iommu. The
+> hypervisor will setup the S2 for the T=0 SMMU translation to be
+> identity with all shared memory and the ITS page will be shared
+> memory.
 
-The following changes since commit dc59e4fea9d83f03bad6bddf3fa2e52491777482:
+IIRC, for MSI or unlocked MSI-X it should look and work pretty much 
+exactly like regular VFIO, as everything can be mediated by the VMM and 
+host kernel.
 
-  Linux 7.2-rc1 (2026-06-28 12:01:31 -0700)
+> Presumably in future we will have HW to handle a T=1 ITS page access
+> and some way to negotiate with devices if they should use a T=1 path
+> for MSI or not.
 
-are available in the Git repository at:
+Locked MSI-X would be a pain right now as we cannot intercept the Realm 
+programming the MSI-X cap with a doorbell address and EventID value 
+decided by the ITS driver in the Realm guest, so we'd somehow have to 
+sniff those values out of the VMM's vITS emulation then try to configure 
+an equivalent NS LPI to match, or have a hook in the ITS driver that 
+knows when it's in a Realm and do some RSI handshake to proxy-allocate 
+NS MSI vectors on the host and pass the real values back into the Realm.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm32-for-7.3
+I'm still hoping we (both CCA and possibly Linux in general) can get 
+away with just refusing to support Locked MSI-X without GICv5, as once 
+we have proper Realm MSIs with direct injection then all the problems go 
+away (or at least become much smaller RMM problems that remain invisible 
+to the host - the one "big" problem being that the RMM has to 
+begrudgingly implement an entire GIC driver since it now has its own 
+whole GIC to look after).
 
-for you to fetch changes up to 1c436bca83bef0f7ca8d106a878a89af17048270:
+> There won't be a vSMMU attached to the T=0 instance at all, it is just
+> wired to be bypass.
 
-  ARM: dts: qcom: msm8926-sony-xperia-yukon-eagle: add initial device tree (2026-07-11 13:11:35 -0500)
+If that's all anyone will ever want then it does allow some degree of 
+hackery like mirroring the whole of Realm S2 in an equivalent NS IOMMUFD 
+domain, then forcing IOMMU_DOMAIN_IDENTITY for unaccepted devices within 
+the guest. However I was under the impression that folks want to make 
+meaningful use of devices while still in their untrusted pre-acceptance 
+state (but maybe still switch them later), so it seems almost inevitable 
+that eventually someone says "actually, we would like S1 vSMMU for 
+untrusted scatter-gather as well..."
 
-----------------------------------------------------------------
-Qualcomm Arm32 DeviceTree updates for v7.3
+>> support in firmware bindings nor the IOMMU API itself to be able to describe
+>> a single device being associated with both the RMM's vSMMU for the T=1
+>> (Realm) VA space, and the NS VMM's vSMMU for the T=0 VA space, even
+>> if we
+> 
+> Right!
+> 
+>> did only have to care about using strictly one or the other at any given
+>> time based on device state. Having distinct struct devices is indeed clunky,
+>> but does at least reduce the problem to a currently-manageable one of the
+>> client driver having to wrangle them as a pair.
+> 
+> So hard! A meaningful goal here is to have existing drivers largely
+> work unchanged in a CC world, so the device starts doing T=1 for
+> almost everything and the existing driver just works.
 
-Add initial device tree support for the MSM8926-based Sony Xperia M2 and
-the MSM8226-based Motorola Moto G2 (2014).
+Agreed, and I think with this series we should be pretty close now, at 
+least for coherent devices with 64-bit DMA masks. And from the thread 
+over at [1], it sounds like Hyper-V's VMbus is ready to go as 
+potentially our first user independent of any other PCI/TSM dependencies.
 
-Add touchscreen, Bluetooth pin configuration, NFC, and multicolor status LED
-support to the MSM8974-based HTC One M8 device tree.
+Cheers,
+Robin.
 
-Add the coreriver,tc360-touchkey compatible touchkey node to the MSM8960
-Samsung ExpressATT device tree and label PM8921 XOADC channels.
+[1] https://lore.kernel.org/all/20260803033520.12930-1-tiala@microsoft.com/
 
-Consolidate shared IPA properties in the SDX55 device tree.
+> 
+>> (And FWIW when we do get there, I'd be inclined to make the default SWIOTLB
+>> the "private" one, so all the sharing/decryption stuff can be neatly
+>> partitioned off into the CoCo etc. special cases...)
+> 
+> Yeah
+>   
+> Jason
 
-----------------------------------------------------------------
-Alexandre Messier (4):
-      ARM: dts: qcom: msm8974pro-htc-m8: add status LEDs
-      ARM: dts: qcom: msm8974pro-htc-m8: add NFC support
-      ARM: dts: qcom: msm8974pro-htc-m8: add Bluetooth pins
-      ARM: dts: qcom: msm8974pro-htc-m8: add touchscreen
-
-Antony Kurniawan Soemardi (1):
-      ARM: dts: qcom: pm8921: add labels for ADC channels
-
-David Wales (1):
-      ARM: dts: qcom: msm8226: Support Motorola Moto G2 (2014)
-
-Dmitry Baryshkov (1):
-      ARM: dts: qcom: sdx55: consolidate IPA properties
-
-Erikas Bitovtas (1):
-      ARM: dts: qcom: msm8926-sony-xperia-yukon-eagle: add initial device tree
-
-Rudraksha Gupta (1):
-      ARM: dts: qcom: msm8960: expressatt: Add coreriver,tc360-touchkey
-
- arch/arm/boot/dts/qcom/Makefile                    |   2 +
- arch/arm/boot/dts/qcom/msm8226-motorola-titan.dts  | 350 ++++++++++++++++++
- .../dts/qcom/msm8926-sony-xperia-yukon-eagle.dts   | 407 +++++++++++++++++++++
- arch/arm/boot/dts/qcom/pm8921.dtsi                 |  12 +
- .../dts/qcom/qcom-msm8960-samsung-expressatt.dts   |  54 +++
- arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts  |  94 ++++-
- arch/arm/boot/dts/qcom/qcom-sdx55-t55.dts          |   2 -
- .../boot/dts/qcom/qcom-sdx55-telit-fn980-tlb.dts   |   2 -
- arch/arm/boot/dts/qcom/qcom-sdx55.dtsi             |   3 +
- 9 files changed, 918 insertions(+), 8 deletions(-)
- create mode 100644 arch/arm/boot/dts/qcom/msm8226-motorola-titan.dts
- create mode 100644 arch/arm/boot/dts/qcom/msm8926-sony-xperia-yukon-eagle.dts
 
