@@ -4,61 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B3FC2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A08C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZqskBmPMRbqfd4JABF4XAccPI8j5P/YcYvdWmJ5r7I=; b=dZDEUmxPAbZMcvbcu7dXPOFBRp
-	R1+RE9uISyIFFtMqVB9Myh9y6oUHaWPcxkrmKgGqaZ9yfHakG2WaD08LpnvAVmdUv+HWYZ+Yq6Ltp
-	zxRxeFX6VNFPANnCZVJOkzhVyK7fdnCjXMRWb1X17WuEsWiUnMlMPraX7HNwdE74DHUrc2VTWamio
-	nEkEtyfxt2upTjj4mcLvqWTcTXzKpyEe6SovHpj4XDlxNAtx+58VqcPmCatfQlXj7j67KlAHCgR/i
-	480XRtDwUgQk7p4ta6XWD+mKU70BClQVlpuWKX4sC6BRxft3sfqHVCQvWG9iW5KLr+RDOVJXII78n
-	dP+odqJw==;
+	bh=+gWaXZ9+2O+1F3TFyj+8MDOiIFSD+n/ei0pL8L1uFmE=; b=AgZDenIPBvab5ZIUcyDjz6mZor
+	KZxAdJ/sXUJJrn2W6B7Iwa87B+rudsv7CrUm3Pv566t4qp8wzRPvhxKsABaAVf59/SYrWmAUmCWaC
+	1TbrOnZv0aRZglKYrQKDUwazNFzJCjHMQMwiQIfdfUym65BPg7VchJWSimqZyA/4tq+GGoMGgmHCI
+	vZnWVYH0XIz5OqvCDoHPaUV1cAi5s1lT5Eh0KcCpkD9tMORM5/ay3GRw3iOlCejOsDw4ld9y9npLM
+	bBFUHAu/JYEwbo7PQzkgB6Qs0bTVVcuNcImdUZYOXkXi2lsNg6bBjJAYbd7kKqRcb8c09l7yqHcbp
+	B7GLkJ5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNhS-00000008TNa-0cJh;
-	Fri, 07 Aug 2026 16:45:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsNjP-00000008TdJ-1zLt;
+	Fri, 07 Aug 2026 16:47:39 +0000
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNhQ-00000008TNQ-38KT
+	id 1wsNjM-00000008Tcs-4Ayu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 16:45:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E5017600B0;
-	Fri,  7 Aug 2026 16:45:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B49671F000E9;
-	Fri,  7 Aug 2026 16:45:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786121135;
-	bh=pZqskBmPMRbqfd4JABF4XAccPI8j5P/YcYvdWmJ5r7I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IV7kG4vb8BIyQDmdvU+TqD72rD2J7ywbgW0lMSRwx+wygPFbFr0oVvlaChtXTaQ0u
-	 mlhFK4TaA6ftE39/nejr4296WPLUnAhhhMRLFPCRcN4WKrSbgG4wx83MB4T93CYBg0
-	 DncRc6eCS10VCxPoSPXWDV0YCabDWzp+ctLEmbqAOKkVSgN66FIg0ahv5Do/HrvcLD
-	 F2/VGlg228Ogg105vlef+/vL8xniAxrzw0dEYCLhvDwMuT13zmvLD8QAR8UBmd02V+
-	 DDMtL+T4K6ygsn9Bdbn5RhYCqB8d7hKCeGT55b9Yd+bC6pZMZdCfOxo3Fexzkv70WQ
-	 AjdmTLP1KxJUw==
-Date: Fri, 7 Aug 2026 17:45:17 +0100
-From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Steffen Eiden <seiden@linux.ibm.com>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Fuad Tabba <fuad.tabba@linux.dev>, Hyunwoo Kim <imv4bel@gmail.com>, 
-	Yao Yuan <yaoyuan@linux.alibaba.com>, stable@vger.kernel.org
-Subject: Re: [PATCH v2 1/8] KVM: arm64: Remove VM-wide VNCR mapping counter
-Message-ID: <anXmBQRdORVwl6Rp@lucifer>
-References: <20260806091026.620700-1-maz@kernel.org>
- <20260806091026.620700-2-maz@kernel.org>
+	Fri, 07 Aug 2026 16:47:38 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-92edb12cdf2so237111985a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 09:47:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1786121256; x=1786726056; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+gWaXZ9+2O+1F3TFyj+8MDOiIFSD+n/ei0pL8L1uFmE=;
+        b=RBON489pfCo01qkCqtXyMy5QAOKgfNx4QBayYtB9nkAl12sNFFS7ZI8pGsZnmhip9+
+         mZzpMkl61uYg23EfPVLfpQWBd6q5vG4Sp3mPbnd4sNmTFJEUwVtpacFcyQ7UUs/omxe0
+         GS5da6yakHNBjx3FPBEWZicUtePcUOYRIfOxyqjMel+Hfhw8lLSnYTDBMnGYTZd4cW4M
+         MC+Wv38rJEQlTmPAZ/kDucnJlo7zgywkrEP0HRhR89ThvNGFvfoKqIXAB4netWkIj2Hf
+         8CKVLWeeRR/AdDrjczeFFtOO+nnOa+IO74T04XhvOhbR1zJ0jkFOmjp2xsMzkPXrgTPc
+         SRwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786121256; x=1786726056;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+gWaXZ9+2O+1F3TFyj+8MDOiIFSD+n/ei0pL8L1uFmE=;
+        b=P0/1EZwwJf2vl8JbAn7PvbHu7FfJQ5vosiks0eqyxU+eGs8PX9ICNvNB2aVsSv7ZO+
+         YbKmlfBO3ZgHrwmwbevuRx6SFBQ6/oMWDzUD3WfSB8otLe4sa69deiay/mfhYcY0bOr7
+         DRPFihWIuutDp7+G4r6zUKJJtNFKO8U7umDAmD+AfHltAi12GmaGKr8roIvKwnKvvYX/
+         RUCuYkw5RRvUlg5vx1z5pHrhvDlYNuvrvxqFLFGfz5C4iqrrKW05uAIuR919ERJQCF9i
+         9g6UO6rKm9/kMNuTDPNwPIJBEN3yi9idLT/FdJS8NgF3ezHVHtSPtBKewdYKevQaj94H
+         cdpA==
+X-Forwarded-Encrypted: i=1; AHgh+RobTcETdUzJpqMeQ7nQUUcH2cbHkBctVElSS/QpKoCLBl8pBBV5fWQCflLvaNqo5Of1TphxUppm9GnkQ9nQee4e@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrEWuTFOF4wJBDHoOjEUpaOptzJpaWjrVmMPxFUZSq0HiwI9nQ
+	rgSRNYk62WGOvZzhTpbbpTZwbuR9R7K6RU6LMZBz+18bogJg1aCYODIXMgsj9D+2GAI=
+X-Gm-Gg: AR+sD1398FxO7AJwAdkdC7FCZd0ppPDpyV5Kg031SYE5qp14HGz1/HHvQgbKHwo5g8h
+	99K8uW5OohmdKOcfV7WUuRxp3kkXsfOt3pPd/eXRfvZmt3NzSMsraUpPuF8dh/6XvCerVuKGHDV
+	rc6mBU7YYMfYVCXCxdFcW8LzuO5ZVffHoZxrzG3vSemRHJ60zSAoAhbIiSiUB6ygOCwfjmUv4tK
+	a/nkD0rWA7mFU24s7Donu3l5FiBzR3fI8CzKUtGZhcr27/BYhMhe88cqS1TlYqM3nLw+0BGU3t4
+	u2xuwwLmB9v+g8Quh8xhHXwD/B7JsQEP8uZXcsSZXfwT6DXvLVslziPocPQxbhtNakdyVPgIlHL
+	cQ9979f5DcoIj5kRnjz0J46GDzztEYeW6RybXTByOi7snB5EFbYB5WzbxBfJcnjDVW474XKGPWU
+	wilY//AzYvSIyDabp7/DjsNJmh51RPcwCrk7PdvfNaJe2TtkNL
+X-Received: by 2002:a05:620a:2849:b0:930:f2c8:d9ea with SMTP id af79cd13be357-93671f33f9fmr432093385a.41.1786121255653;
+        Fri, 07 Aug 2026 09:47:35 -0700 (PDT)
+Received: from ziepe.ca ([142.166.156.215])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9366e03ed23sm187954085a.7.2026.08.07.09.47.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Aug 2026 09:47:35 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wsNjK-000000014w0-1mQB;
+	Fri, 07 Aug 2026 13:47:34 -0300
+Date: Fri, 7 Aug 2026 13:47:34 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: Will Deacon <will@kernel.org>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected
+ guests
+Message-ID: <20260807164734.GE200537@ziepe.ca>
+References: <20260717180442.110954-18-aneesh.kumar@kernel.org>
+ <20260807092612.2202005-1-aneesh.kumar@kernel.org>
+ <anXIZSh9lq99VG9X@willie-the-truck>
+ <yq5acxvu2ict.fsf@kernel.org>
+ <anXbJ2O4DWgPxCeg@willie-the-truck>
+ <20260807135810.GA200537@ziepe.ca>
+ <anX7F7dnKOtAOIIe@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260806091026.620700-2-maz@kernel.org>
+In-Reply-To: <anX7F7dnKOtAOIIe@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260807_094737_041435_00C73E6A 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,275 +131,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bear with me being verbose here, as this is both nascent review + learning
-:)
+On Fri, Aug 07, 2026 at 03:34:47PM +0000, Mostafa Saleh wrote:
+> On Fri, Aug 07, 2026 at 10:58:10AM -0300, Jason Gunthorpe wrote:
+> > On Fri, Aug 07, 2026 at 02:18:31PM +0100, Will Deacon wrote:
+> > 
+> > > > I was under the impression that there is a possibility of using swiotlb
+> > > > instead of restricted-dma-pool with pKVM.
+> > > 
+> > > Yes, that patch enables swiotlb as a possibility for protected guests
+> > > but with your patch we avoid shrinking the swiotlb buffer even when
+> > > restricted dma pools are being used and that's a waste of memory.
+> > 
+> > I also thought we switched pkvm to use CC-like swiotlb as part of the
+> > alignment in this rework? Mostafa ?
+> 
+> Yes, now protected VMs can use the SWIOTLB for bouncing. However for
+> Android (and kvmtool), use restricted DMA. so SWIOTLB is not used.
 
-On Thu, Aug 06, 2026 at 10:10:19AM +0100, Marc Zyngier wrote:
-> The global VNCR mapping counter is used to decide whether an L1
-> provided VNCR page is mapped in L0 on any CPU at the point of
-> dealing with a TLB invalidation. It is incremented when a mapping
-> is made in the fixmap, and decremented when unmapped.
->
-> As it turns out, this tracking has several flaws:
->
-> - we are trying to invalidate TLBs, and the mapping is only an
->   opportunistic consequence of the TLB. Checking this counter to
->   decide whether a TLB needs to be invalidated may result in missed
->   invalidations.
+Oh? Why?
 
-Is it largely the self-invalidation mentioned below or are there other cases?
+> However, I do not think we should over engineer this in the code,
+> swiotlb can be set from the cmdline and now through Kconfig also.
 
->
-> - an L1 vcpu invalidating its own TLB (a very likely case) will not
->   succeed in invalidating the VNCR pseudo TLB because that page is
->   not mapped in L0 at this stage.
+That's fine for android, but real users buying a cloud VM and sticking
+a distro on it shouldn't be expected to have to mess with cmdline just
+go get a halfway working system
 
-Ahh yes this is pretty compelling then!
-
->
-> Given that this tracking fails at delivering the minimum guarantees
-> that are required and is only a performance optimisation, remove it
-> completely.
->
-> Fixes: 4ffa72ad8f37e ("KVM: arm64: nv: Add S1 TLB invalidation primitive for VNCR_EL2")
-> Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-
-The change LGTM, it neatly removes the described mechanism which is well
-evidenced.
-
-Comments below that are largely me talking out loud as I learn things :)
-
-Acked-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
-
-> Cc: stable@vger.kernel.org
-> ---
->  arch/arm64/include/asm/kvm_host.h | 3 ---
->  arch/arm64/kvm/hyp/vhe/switch.c   | 3 +--
->  arch/arm64/kvm/nested.c           | 3 ---
->  3 files changed, 1 insertion(+), 8 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index bae2c4f92ef5c..ac16f96c878d6 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -411,9 +411,6 @@ struct kvm_arch {
->  	/* Masks for VNCR-backed and general EL2 sysregs */
->  	struct kvm_sysreg_masks	*sysreg_masks;
->
-> -	/* Count the number of VNCR_EL2 currently mapped */
-> -	atomic_t vncr_map_count;
-> -
->  	/*
->  	 * For an untrusted host VM, 'pkvm.handle' is used to lookup
->  	 * the associated pKVM instance in the hypervisor.
-> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> index bbe9cebd3d9d5..c09b1d411c584 100644
-> --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> @@ -427,8 +427,7 @@ static bool kvm_hyp_handle_tlbi_el2(struct kvm_vcpu *vcpu, u64 *exit_code)
->  	 * If we have to check for any VNCR mapping being invalidated,
->  	 * go back to the slow path for further processing.
->  	 */
-> -	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu) &&
-> -	    atomic_read(&vcpu->kvm->arch.vncr_map_count))
-> +	if (vcpu_el2_e2h_is_set(vcpu) && vcpu_el2_tge_is_set(vcpu))
->  		return false;
-
-So this seems to be the crux of it - seems to be 'is there any possibility that
-we will need to check for VNCR mappings being invalidated?'
-
-Checks:
-
-* vcpu_el2_e2h_is_set() - is the guest host kernel (?)'s hcr_el2.e2h
-  enabled? From what I gather hcr_el2.e2h is what allows sysreg_EL1 ->
-  sysreg_EL2 for the host kernel to allow unmodified kernels to run in EL2.
-
-  IOW - is the guest host kernel VHE?
-
-* vcpu_el2_tge_is_set() - Similarly tests for the hcr_el2.tge bit - and this
-  seems to be is 'EL1 -> EL2 redirection on?' - IOW - is this a kernel running
-  in EL2?
-
-Actually I see in is_hyp_ctxt():
-
-	 * We are in a hypervisor context if the vcpu mode is EL2 or
-	 * E2H and TGE bits are set. The latter means we are in the user space
-	 * of the VHE kernel. ARMv8.1 ARM describes this as 'InHost'
-
-So I _think_ the combination of the two is checking to see if you're the L0
-kernel that _could_ send TLBi's that need to be handled?
-
-Previously it seemed the logic was 'if there are no VNCR mappings present then
-we can optimise by short-circuiting the rest of the processing in
-kvm_hyp_handle_sysreg_vhe()'.
-
-It seems that the hardware TLBi has been processed by now so it's actually more
-like - there's still work to be done maintaining the software TLB and that's
-done elsewhere.
-
-As:
-
-static bool kvm_hyp_handle_sysreg_vhe(struct kvm_vcpu *vcpu, u64 *exit_code)
-{
-	if (kvm_hyp_handle_tlbi_el2(vcpu, exit_code)) 	<- return ->true
-		return true;
-
-	if (kvm_hyp_handle_timer(vcpu, exit_code)) 	<- this was a TLBi ->false
-		return true;
-
-	if (kvm_hyp_handle_cpacr_el1(vcpu, exit_code)) 	<- this was a TLBi ->false
-		return true;
-
-	if (kvm_hyp_handle_zcr_el2(vcpu, exit_code))	<- this was a TLBi ->false
-		return true;
-
-	return kvm_hyp_handle_sysreg(vcpu, exit_code);	<- this was a TLBi ->false
-}
-
-And
-
-static const exit_handler_fn hyp_exit_handlers[] = {
-	...
-	[ESR_ELx_EC_SYS64]		= kvm_hyp_handle_sysreg_vhe,
-	...
-};
-
-And:
-
-static inline bool kvm_hyp_handle_exit(struct kvm_vcpu *vcpu, u64 *exit_code,
-				       const exit_handler_fn *handlers)
-{
-	exit_handler_fn fn = handlers[kvm_vcpu_trap_get_class(vcpu)]; <- kvm_hyp_handle_sysreg_vhe()
-	if (fn)
-		return fn(vcpu, exit_code);
-
-	return false;
-}
-
-Annnd:
-
-/*
- * Return true when we were able to fixup the guest exit and should return to
- * the guest, false when we should restore the host state and return to the
- * main run loop.
- */
-static inline bool __fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code,
-				      const exit_handler_fn *handlers)
-{
-	...
-	/* Check if there's an exit handler and allow it to handle the exit. */
-	if (kvm_hyp_handle_exit(vcpu, exit_code, handlers))
-		goto guest;
-exit:
-	/* Return to the host kernel and handle the exit */
-	return false;
-	...
-}
-
-Finally in __kvm_vcpu_run_vhe():
-
-	do {
-		/* Jump in the fire! */
-
-(Good track ;)
-
-		exit_code = __guest_enter(vcpu);
-
-		/* And we're baaack! */
-	} while (fixup_guest_exit(vcpu, &exit_code));
-
-(With fixup_guest_exit() ultimately calling __fixup_guest_exit().)
-
-And fixup_guest_exit() will return false, meaning the guest isn't
-re-entered and instead you go back to the full fat slow path:
-
-int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
-{
-	...
-		ret = kvm_arm_vcpu_enter_exit(vcpu); <-- does all the above just returned.
-	...
-		ret = handle_exit(vcpu, ret);
-}
-
-Then there's some more stuff in this fuller fat handle_exit() path:
-
-int handle_exit(struct kvm_vcpu *vcpu, int exception_index)
-{
-	...
-	switch (exception_index) {
-	...
-	case ARM_EXCEPTION_TRAP:
-		return handle_trap_exceptions(vcpu);
-	...
-	}
-}
-
-Which then calls kvm_get_exit_handler() which ultimately gets
-handle_tlbi_el2() and calls kvm_handle_s1e2_tlbi() in turn and then
-invalidate_vncr_va():
-
-static void invalidate_vncr_va(struct kvm *kvm,
-			       struct s1e2_tlbi_scope *scope)
-{
-	...
-	kvm_for_each_vncr_tlb(i, vcpu, vt, kvm) {
-		...
-		invalidate_vncr(vt);
-	}
-}
-
-And:
-
-static void invalidate_vncr(struct vncr_tlb *vt)
-{
-	vt->valid = false;
-	if (vt->cpu != -1)
-		clear_fixmap(vncr_fixmap(vt->cpu));
-}
-
-Where you are ultimately clearing the fixmap and setting the
-vncr_tlb->valid to false.
-
-I think this is all vaguely sane :)
-
->
->  	__kvm_skip_instr(vcpu);
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index dfb96edbdc43c..f3c75954cf36c 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -48,7 +48,6 @@ void kvm_init_nested(struct kvm *kvm)
->  {
->  	kvm->arch.nested_mmus = NULL;
->  	kvm->arch.nested_mmus_size = 0;
-> -	atomic_set(&kvm->arch.vncr_map_count, 0);
->  }
->
->  static int init_nested_s2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu)
-> @@ -890,7 +889,6 @@ static void this_cpu_reset_vncr_fixmap(struct kvm_vcpu *vcpu)
->  	clear_fixmap(vncr_fixmap(vcpu->arch.vncr_tlb->cpu));
->  	vcpu->arch.vncr_tlb->cpu = -1;
->  	host_data_clear_flag(L1_VNCR_MAPPED);
-> -	atomic_dec(&vcpu->kvm->arch.vncr_map_count);
->  }
->
->  void kvm_vcpu_put_hw_mmu(struct kvm_vcpu *vcpu)
-> @@ -1592,7 +1590,6 @@ static void kvm_map_l1_vncr(struct kvm_vcpu *vcpu)
->  	if (pgprot_val(prot) != pgprot_val(PAGE_NONE)) {
->  		__set_fixmap(vncr_fixmap(vt->cpu), vt->hpa, prot);
->  		host_data_set_flag(L1_VNCR_MAPPED);
-> -		atomic_inc(&vcpu->kvm->arch.vncr_map_count);
->  	}
->  }
-
-And it looks like you got all the places that manipulated this :)
-
->
-> --
-> 2.47.3
->
-
---
-Cheers, Lorenzo
+Jason
 
