@@ -4,102 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 346A0C5AD2B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A68FC5AD05
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h/f00Z6KUstIES9yiLYFI4NCrcR5SeGiu9K0nWr0j3E=; b=CoK1yNAH7tBgI05d35eZ9XA5YH
-	3eHLyIRczduzmXBEu5v/G0iu4ACsVzTZ6wc7BjrFhVtTIOSOqf9jG54lh9kAhCH8BVDKEyv8d0L3t
-	Q3hmI7qyDlMbjDARk6SX7fZmtzzo/PN6rO1wKEx3aYHwKhoGxr25tv3q4IS/kdYOR05m4x6eR1ozW
-	4VikQHzhDZ8RZ+Vzp/k64ECwGVnZzWxKEQKWFSOb4DkeZcq4R3eopxypB4tN1WWhOhAed+gwVeqD7
-	Zjm+dfzwNE4cfoQv7JUxAsXs0wiwxlsGVNjj26+uUWrX7KGyiVYgqtlxCIs50aaTt/mLSdYkG63i+
-	cIUJcByQ==;
+	bh=gvBLabH+gYeCjXmeaZJWzRhHmO5itOeocUvJaUv2bxI=; b=K5710dUc8kj9dNRCOBogcJE/P2
+	mZOm1gVgWpwn5bwtBjRXcamTCYU8jeyfEq3P3jIYkHklWiJ8C+ibQE1KoPbNZF9wwOwobrtu48Ubg
+	PoAi/c01PCR+x4c6weL92538y+iDmag1XlrhkZtU8f/SlrREtJ5LcVM49VPvZ+9DFuO7L1fkDPUcR
+	b0t3EjZxOS8YR2K20GIEBHRsWm/LNi/76bAlu7/4yBsctYpTGOAqSFTt/KhQMZBsCCJ+F4U37aaSr
+	U1hd93+ervICvuAjorq/bjgl2LOPyyjiGCmxiF5Xoo1P1l6GbezP1vhMmDydBoPSSAbnbmZhDoKfd
+	yvuD2nqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTIB-00000008pIN-0RlK;
-	Fri, 07 Aug 2026 22:43:55 +0000
-Received: from flow-b3-smtp.messagingengine.com ([202.12.124.138])
+	id 1wsTLw-00000008pVN-2VFI;
+	Fri, 07 Aug 2026 22:47:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsTI8-00000008pHy-0cvM
+	id 1wsTLv-00000008pVH-2Wt8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 22:43:54 +0000
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailflow.stl.internal (Postfix) with ESMTP id 5D31313001C2;
-	Fri,  7 Aug 2026 18:43:50 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-10.internal (MEProxy); Fri, 07 Aug 2026 18:43:51 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1786142630;
-	 x=1786146230; bh=h/f00Z6KUstIES9yiLYFI4NCrcR5SeGiu9K0nWr0j3E=; b=
-	fXBdQgAn+cpQG053rYeUyH9GrqcIinWLYXH3tdhyhI4K0HR3cUw7wVBOYGjyZdej
-	qNdEyE1TOAFXfVEQN6ItCWLgXD8uASakQceqsLvEf7I9mNMxemUFWT5gWsSkwjzv
-	z+5fkUK73RYSsb9K0tEcZmc1SoNcEAGESYfKDn+TzSF0GJG61VfcQ/moosOkwdzz
-	UakzQQo4XYl25lTkcUXPF+KNK7b76fC3LugXHA0ekhyFzw8cW/OYnGOe46oFdLSb
-	as9DbCCZJwAT6CpkZ52pSUhreP5cfRhgVB+rQ2UY4Z6I5Kd/7HkW/50RX2QcDar6
-	XDbNzFVmmiFBH/8qUl5G9Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1786142630; x=
-	1786146230; bh=h/f00Z6KUstIES9yiLYFI4NCrcR5SeGiu9K0nWr0j3E=; b=P
-	IYAonVjpkOfE3Mw+VgjaAvcan5NwHoqxz0lsx7JKzNoFQZtILHvG9sbrUJPxmgI3
-	5ROxZOOwLXLXzLyb8jq5gG1Q09tFaLnWxqYcmuLvHsecbOABwscv54x9nwGBiFCB
-	U/Lq3ynwF8zXmlpYGwofGq6gPwT+UJGD+zNpMx5oaL6SeBi5qXz6gLxRcgHXZIbg
-	6nU1vKWxjAJSSliJWqGNeqqUExu5jDYzdXMs6Wc6qF/VCvcNgnPqhJBzMrKxg/Ho
-	Py8jGCyLDX2ZChXU7Kn7TixQtHtQBfeyGepzL0KGDmDvNf9CgTrqcRXFDvFVArP9
-	Xr3xE37Ck1drtzY6Q/teQ==
-X-ME-Sender: <xms:pV92ao8gIlSPqKA-P37qN2kGQ7tOuSX0NeyqhsCJ3XZE0oV0pisDSg>
-    <xme:pV92aiby-BR5ks4W5mSw8MC3zZq_H0nIKmDMR5uizRom1tgnbGWhDpPOsm_PYXQIK
-    E1PBvkrAVKFSrc2OeDI9WzCCPJS9z7jbO-SgeJdsuVEJ9P3UVWxhl0>
-X-ME-Received: <xmr:pV92ahfvk8OAW-w2y48w6L5J9EM9K4uaJuQMfu_LnR4r-pxzChswNHY0DlrueqtaYCGyNTIUDS31L5OLANVBJAmr>
-X-ME-Proxy-Cause: dmFkZTFNtd+sPmf/JeoA6PziLBAUf8s4YDDRZyJWi6VH4yI3jhHCvZda3JM9EEdCzEIeIM
-    i9KDl853i6GsTQCS94EbjdZmRf2OOb9If/5js3+Onug5r3tYqLy/a8oiAUeMJ7Bc8oq9J8
-    s4fh20cdfRN+rzuqNrpawZPCLG33R8XWJto4pZv5YIArQ6s++CwGMy1c0rxiahTgQzAfk1
-    CxBeUkm4Q914HjWbzbYkFCCZx4XfS1o/ys33cLU+fhu1n9i1DzVsgihES0Cx0pr5bUDwOo
-    qLuEFMl2oktFPU4K2zZFRKQhFIjCHbbrgcq/PLxdL0wldL4vbb52QzFCw3LqPyyDLPIqZ9
-    ekRIDicbaYMZSEfO5NfCEZuQTVt6p6Fu8kzFPru016/1qQbnWQab6Hszr3nfnOEmFBbqx6
-    RlNUTLBGvr5uTjTWy9F94+Wjds+jk1S+OkGl3qaRF/Ex1mZ8JmnbWsQq3aNIoTW9ifVlwJ
-    2PVzN/PptQx5GXOJmD6BAny9/POuD08Rix/b02kv+xyOHS7Y7PmuF+DmajbPAwdPg4Y+L6
-    ZH6fZ5Rw3Mni+66eqqpmWW9tpwpLx6SD0AXadGQOC8PysYPNVLi8GvOAPrBTl97U9Qz78d
-    a/ISG5UF7iq3NxbdQXBHc+kiGsZkotNV/hxRiUkOJNflZ96DncwN33LshLwg
-X-ME-Proxy: <xmx:pV92aoRsbuNVYA8eb1P42sDNP4FIgT27nt66SqQ_qHfClXvQvX9Q5Q>
-    <xmx:pV92ajkpn5GLLHtoLhOy6qYt6KGr4VG_ZKmZoI3wgIXygFpQiylhGA>
-    <xmx:pV92amtCPI-gL30rU3W1lnjCN1AVFDudqH7sDh5qxzq6P7Le1R5YUg>
-    <xmx:pV92am9w0HsVp-82QjLA-1lstZjDcSFwFA9yRXmcfWy67dJ_xakmZw>
-    <xmx:pV92alQXyHDVMvVThW5mTfV6oUo9wep1zrZCGPrYQRJxB_xKyeSzECpJ>
-Feedback-ID: i51fe4b43:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
- 7 Aug 2026 18:43:44 -0400 (EDT)
-Date: Sat, 08 Aug 2026 07:43:41 +0900 (JST)
-Message-Id: <20260808.074341.1056015191905819805.tomo@flapping.org>
-To: ojeda@kernel.org
-Cc: arnd@arndb.de, krzk@kernel.org, alexandre.belloni@bootlin.com,
- linusw@kernel.org, chenhuacai@kernel.org, boqun@kernel.org,
- gary@garyguo.net, bjorn3_gh@protonmail.com, lossin@kernel.org,
- a.hindborg@kernel.org, aliceryhl@google.com, tmgross@umich.edu,
- dakr@kernel.org, daniel.almeida@collabora.com, tamird@kernel.org,
- acourbot@nvidia.com, work@onurozkan.dev, rust-for-linux@vger.kernel.org,
- fustini@kernel.org, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev, kernel@xen0n.name, loongarch@lists.linux.dev,
- stable@vger.kernel.org
-Subject: Re: [PATCH] rust: bug: fix `dead_code` warning in `warn_on!`
-From: FUJITA Tomonori <tomo@flapping.org>
-In-Reply-To: <20260807221429.155946-1-ojeda@kernel.org>
-References: <20260807221429.155946-1-ojeda@kernel.org>
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_154352_589256_F6F6572E 
-X-CRM114-Status: GOOD (  22.75  )
+	Fri, 07 Aug 2026 22:47:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B43106001A;
+	Fri,  7 Aug 2026 22:47:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 445701F000E9;
+	Fri,  7 Aug 2026 22:47:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786142866;
+	bh=gvBLabH+gYeCjXmeaZJWzRhHmO5itOeocUvJaUv2bxI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=G7n/Obi+qKguJL2eOLzNdgfLdfqf4Z5r6c3RtgIH/ZyzX6gq6OcpfnhKYa2BQseMf
+	 26y5CXyHWj0QoBuMofdXUvZ6YnWPFXGiHeE8aQoRFtSH/vdrHQhxXBl74YvD5W8LTs
+	 sTFZ06J4vMsbS6kZwWhtsSaHeLrOzweQ4SLfb5xsPUbNrKHCUWsh+kdjsHo/3fgt9s
+	 U1QabgrAF5nrwMkRWxt6lJBEAiuXauuzPWozhJUA6usmDuJ4yL4vn/pYLkU3nw8MmC
+	 XMsoNohyJVsdvyJcnHzBG8BpjyFuMBHS0GtY94w5ImpPGDtfA0ffmQyguR0vtw2hoo
+	 vEf+Ka74WBetA==
+Date: Fri, 7 Aug 2026 17:47:45 -0500
+From: Rob Herring <robh@kernel.org>
+To: Peter Griffin <peter.griffin@linaro.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Pranjal Shrivastava <praan@google.com>,
+	Daniel Mentz <danielmentz@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com, tudor.ambarus@linaro.org,
+	andre.draszik@linaro.org, willmcvicker@google.com,
+	jyescas@google.com
+Subject: Re: [PATCH 0/2] Add arm-smmu-v3 support for instcfg data override
+ feature
+Message-ID: <20260807224745.GA2180415-robh@kernel.org>
+References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
+ <amYIuhYenP4-qHyV@willie-the-truck>
+ <0b7c0272-5506-4aee-82b3-76a78f2b39dc@arm.com>
+ <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CADrjBPqZFDvyLFpDy1YP9qrMNUCtZYtJhiaDd0iTnmB4ZYO8GQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,80 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat,  8 Aug 2026 00:14:29 +0200
-Miguel Ojeda <ojeda@kernel.org> wrote:
+On Fri, Aug 07, 2026 at 04:25:11PM +0100, Peter Griffin wrote:
+> Hi Will & Robin,
+> 
+> Thank you both for your review feedback.
+> 
+> On Mon, 27 Jul 2026 at 11:53, Robin Murphy <robin.murphy@arm.com> wrote:
+> >
+> > On 26/07/2026 2:16 pm, Will Deacon wrote:
+> > > On Fri, Jul 24, 2026 at 01:39:41PM +0100, Peter Griffin wrote:
+> > >> These two patches add support for a new "arm,instdata-override" DT property
+> > >> that enables the override of the instruction/data attribute of incoming
+> > >> traffic to Data by setting the INSTCFG override bits.
+> > >>
+> > >> It is intended to be specified when the smmu can't guarantee that these
+> > >> attributes are provided correctly from the client device.
+> > >
+> > > This is going to need an in-tree user and a much more detailed
+> > > description of what is being worked around before we consider this for
+> > > inclusion.
+> 
+> Regarding an in-tree user, I haven't sent the Device Tree (DT) patch
+> yet for Laguna SoC which adds the smmu nodes and this property because
+> 1) I want to land the initial SoC/board DT first
+> 2) I want agreement on the DT property name. Currently I used
+> "arm,instdata-override" which is what downstream used. However, since
+> this is intended to work around silicon errata something like
+> "google,lga-instcfg-data-override" might be more appropriate?
 
-> On arm and loongarch64, or under `CONFIG_BUG=n`, the upcoming SRCU
-> abstractions from commit
-> 
->   59cf3a5bda61 ("rust: sync: add SRCU abstraction")
-> 
-> use `warn_on!`, which in turn warns:
-> 
->     error: constant `WARN_ON_FLAGS` is never used
->        --> rust/kernel/bug.rs:126:19
->         |
->     126 |               const WARN_ON_FLAGS: u32 = $crate::bug::bugflag_taint($crate::bindings::TAINT_WARN);
->         |                     ^^^^^^^^^^^^^
->         |
->        ::: rust/kernel/sync/srcu.rs:106:12
->         |
->     106 |           if crate::warn_on!(
->         |  ____________-
->     107 | |             // SAFETY: By the type invariants, `self` contains a valid and pinned `struct srcu_struct`
->     108 | |             // and `srcu_readers_active()` only checks the active reader count.
->     109 | |             unsafe { bindings::srcu_readers_active(ptr) }
->     110 | |         ) {
->         | |_________- in this macro invocation
->         |
->         = note: `-D dead-code` implied by `-D warnings`
->         = help: to override `-D warnings` add `#[allow(dead_code)]`
->         = note: this error originates in the macro `crate::warn_on` (in Nightly builds, run with -Z macro-backtrace for more info)
-> 
-> The reason is that `warn_flags!` discards both arguments in those cases,
-> and so the `const` becomes unused. And since it is a macro, it went
-> unnoticed so far.
-> 
-> Thus fix it by simplifying by removing the `const`.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: dff64b072708 ("rust: Add warn_on macro")
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-> ---
-> Either this or adding an underscore.
-> 
->  rust/kernel/bug.rs | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/rust/kernel/bug.rs b/rust/kernel/bug.rs
-> index ed943960f851..874adb93cdfe 100644
-> --- a/rust/kernel/bug.rs
-> +++ b/rust/kernel/bug.rs
-> @@ -123,9 +123,10 @@ macro_rules! warn_on {
->          const _COND_STR: &str = file!();
-> 
->          if cond {
-> -            const WARN_ON_FLAGS: u32 = $crate::bug::bugflag_taint($crate::bindings::TAINT_WARN);
-> -
-> -            $crate::warn_flags!(_COND_STR, WARN_ON_FLAGS);
-> +            $crate::warn_flags!(
-> +                _COND_STR,
-> +                $crate::bug::bugflag_taint($crate::bindings::TAINT_WARN)
-> +            );
->          }
->          cond
->      }};
-> 
-> base-commit: dc01dfb37b34beeefcfe1c3055364d41a4070c7e
-> --
-> 2.55.0
+Shrug.
 
-I sent a fix for this bug a few days ago:
+Really, this is why we want SoC specific compatibles so work-arounds can 
+be added without DT updates. But we've generally avoided doing that for 
+SMMU for whatever reasons. Just make the property clearly sound like a 
+mistake, not a feature you might want to use. I'd keep the arm prefix 
+just so the next vendor thinks they can't use 'google' and creates the 
+same property with their vendor prefix.
 
-https://lore.kernel.org/all/20260801024841.786664-1-tomo@flapping.org/
-
-
-If you prefer the simpler version, v1 might work.
-
-https://lore.kernel.org/all/20260720035510.4048145-1-tomo@flapping.org/
+Rob
 
