@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A6AC2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:42:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292FCC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rA49zl9sY0e+xDBXbaY5286T7pTnj1IO0yTCmjFA2II=; b=RnNLtUYTFLkwlgNA4Ca5MdJWwb
-	ShWFg6o9WMqROmRsjop9zgIeKckJlcF16U+XCorHnSjXQRZ8d0G40VTRmQbBzUeM/6AprvXwxdOYz
-	cLW78EnXcJrL7JzdYek3WUq+vnhXaKR6LYoE5TiOky20+o2RoA4VrebIaddyQd28eIT80f1d3pymh
-	KRs8QXThUJ4Q13LcVsvETh7/NkgWgD+n0SeN6Ucwefig5NR1ccAyDS38OARJBdP3n3DyFId/ni0my
-	B1PnXe8uLUIkYFSLUfDjsNsb+M06pbFdhRIj+jqWpx14Ox2d2lhnYqJ++OqpPXBlAcSKVMRkSX0u0
-	GVkHKR5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E582xZDvt+4gsNcuth6hcv6sLRoTSurZWsRQ5mdDTfE=; b=Q/kZ0rT9vhOCYl9Zz6F6mBTHNm
+	hdOjde9PigSQQ14SdTmvv+HVS8LepvIUsg1pxz2xVe0S6BGKzbZPgKHuFKd3k/AUbN3W+wNGIzQsU
+	11TpzfdxZ9eV+y3OXTlHKgJu0OqNTpGIQMx9RFekCsituucLPjr8R68Y0DEbchsyUnoTGnzlSmqDB
+	uqszudmzNLZrDLeG3c4yj3+cIJ0gj0I7wqBAuorGQ3CLKeRbDnxD2fAhBT5zssatwAQaTyk6qTKz/
+	vRqHI09MlJdSEXLPNE4Cww0s88BHjPt5I27dyaXGF7rKbfVNGgf5ISKrqhJ7IsMgYn0qlX3gW7JME
+	AbxhFuaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMhl-00000008MkS-2hTI;
-	Fri, 07 Aug 2026 15:41:53 +0000
+	id 1wsMiL-00000008MpV-3Aer;
+	Fri, 07 Aug 2026 15:42:29 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMhj-00000008Mjv-49ag
+	id 1wsMiK-00000008MpF-3qJ9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 15:41:52 +0000
+	Fri, 07 Aug 2026 15:42:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEA48404F5;
-	Fri,  7 Aug 2026 15:41:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C09291F00A3A;
-	Fri,  7 Aug 2026 15:41:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A970B404F5;
+	Fri,  7 Aug 2026 15:42:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B2781F00A3A;
+	Fri,  7 Aug 2026 15:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786117311;
-	bh=rA49zl9sY0e+xDBXbaY5286T7pTnj1IO0yTCmjFA2II=;
-	h=From:To:Cc:Subject:Date;
-	b=GnJqXTDPnaUxDgRuW7bToK5Bo8Rw0cSkaTBSGdxSoPRpQ9974R9lu/zNyyIT3Uxnz
-	 oYhlH1jJhD8M+KemVq21kevKIvy2u4TVLTUzRDEsS1e8cBIXNY35RVvXFTIB/+/o8q
-	 ko6aN6q7IcwtLF0Mp8XBq8XBme7YTcvlNuGYrYJ6zsE1//COvHjXS293G7lS7oBF8U
-	 qrIJnt3wadwntkMhx0Ea+RaUhL0PVq9I8qTG1907QXbIpTVUESCYH7L6U0M9fcqnan
-	 8Xq3pV83u3bcqj09Tx7jziqgvohqeZCPL5oc7IOonx1hNJhYsuFEUA9Tn5DLt9t9oq
-	 Rp2O+S10SvkzQ==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
+	s=k20260515; t=1786117348;
+	bh=E582xZDvt+4gsNcuth6hcv6sLRoTSurZWsRQ5mdDTfE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=fbKUZSLAEE+K/4fea2CIPBaXkUycKN/2PNjz2wULzKmBffAptjyRqGSYjgA/88OQe
+	 jpMHpaoffMQKgdFT21SSYdbKvrtRUZ2fnyAjlBEWkPvvRb2cj22qlwvaFwCSv/Ljtk
+	 U2XiAytFEKYCBDzxmlOR0KoTjYBpRgOGAQcxP0k8EezCGms6eF1+eI3GfpCPcMRAnh
+	 iDDsZdP2WZu5T8CYTWYTTtLoiYt6eq2x3BP5VU07vwDNiFpxHGQ9KMbbMbGWnnJrq2
+	 nQELkZ+bkhoV1Or0mQDWSTgTipkgII/CVNIDPuMbAVVn3DgPqMKuxuFpQybw1kBOdx
+	 Fc+B6mMV9gsRA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wsMiI-0000000DR3X-18fk;
+	Fri, 07 Aug 2026 15:42:26 +0000
+Date: Fri, 07 Aug 2026 16:43:47 +0100
+Message-ID: <87h5l6os0c.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Karl Mehltretter <kmehltretter@gmail.com>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Maulik Shah <maulik.shah@oss.qualcomm.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Shawn Guo <shengchao.guo@oss.qualcomm.com>,
-	Sumit Garg <sumit.garg@oss.qualcomm.com>,
-	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>
-Subject: [GIT PULL] More Qualcomm driver updates for v7.3
-Date: Fri,  7 Aug 2026 10:41:49 -0500
-Message-ID: <20260807154149.603041-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	grayhat@foxmail.com
+Subject: Re: [PATCH v3] KVM: arm64: nv: Keep the shadow S2 MMUs at fixed addresses
+In-Reply-To: <anUt9gd8HIwaj9jf@gmail.com>
+References: <20260806192451.10169-1-kmehltretter@gmail.com>
+	<d5svhw3jkjnkucohx2ntwhphemgbtfcmjt2zoyyw6svz56zfrh@z2ziydov5ras>
+	<anUt9gd8HIwaj9jf@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kmehltretter@gmail.com, weilin.chang@arm.com, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, stable@vger.kernel.org, grayhat@foxmail.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,88 +94,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 07 Aug 2026 02:13:17 +0100,
+Karl Mehltretter <kmehltretter@gmail.com> wrote:
+> 
+> On Thu, Aug 06, 2026 at 10:54:03PM +0100, Wei-Lin Chang wrote:
+> > 
+> > Hey sorry for nitpicking once more, I actually like v2 more, as this
+> > version splits the error handling to two places. Marc's implementation
+> > [1] is also good, but that requires a twist in kvm_arch_flush_shadow_all().
+> > So I'd personally go with v2 (+my suggestions for it :)), but also fine if
+> > others have other opinions.
+> > 
+> > I also think the comment in kvm_vcpu_init_nested() is worth adjusting
+> > slightly, too.
+> > 
+> 
+> No worries, thanks for taking another look.
+> 
+> I was following the guidance in include/linux/cleanup.h:
+> 
+>   the expectation is that usage of "goto" and cleanup helpers is never
+>   mixed in the same function.
+> 
+> But maybe keeping goto is better. I'll wait a bit for others
+> to comment.
 
-The following changes since commit 43584144a46bccbe90482cd8eede9596d8fc47dc:
+The version I proposed in response to your first version had no goto,
+and trivial error handling. Can we *please* stop the bike shedding and
+settle on the simplest possible fix? Or *any* fix at all?
 
-  soc: qcom: llcc: Skip ECC interrupt setup on Shikra, pre-configured by DSF (2026-07-17 17:22:44 -0500)
+> 
+> For the comment, I propose replacing the current text with:
+> 
+> 	/*
+> 	 * If allocating an MMU object fails, keep the VNCR page alive so
+> 	 * that userspace can retry vCPU initialisation without affecting
+> 	 * the VM.
+> 	 */
+> 
+> Is that the adjustment you had in mind?
 
-are available in the Git repository at:
+I don't think we need to change any comment. If anything, it should be
+deleted altogether. This is a security fix, not a literary exercise.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-7.3-2
+	M.
 
-for you to fetch changes up to 94d3305d990b055e1561e3b78275344b1f40c86e:
-
-  media: qcom: Switch to generic PAS TZ APIs (2026-08-04 10:26:42 -0500)
-
-----------------------------------------------------------------
-More Qualcomm driver updates for v7.3
-
-Add SMEM parsing for DDR configuration data and use its highest bank
-address bit to select the appropriate UBWC configuration.
-
-Enable generic PAS trusted-zone APIs for the Iris and Venus media drivers.
-
-Fix SCM probe retry state, reserved-memory cleanup, and an early IRQ-handler
-NULL dereference. Enable QSEECOM EFI variable access on the Asus Zenbook A16.
-
-Correct GENI firmware-size validation using the hardware CFG RAM depth and
-correct the PMIC GLINK Thunderbolt extradata layout.
-
-Document the Nord AOSS side channel and the IMEM minidump SRAM property.
-Clean up Qualcomm statistics macros and the WCNSS binding schema.
-
-----------------------------------------------------------------
-Konrad Dybcio (5):
-      soc: qcom: pmic_glink_altmode: Define the TBT extradata properly
-      firmware: qcom: scm: Allow QSEECOM on Asus Zenbook A16 (UX3607OA)
-      soc: qcom: smem: Use 'unsigned int' instead of 'unsigned'
-      soc: qcom: smem: Expose DDR data from SMEM
-      soc: qcom: ubwc: Get HBB from SMEM
-
-Krzysztof Kozlowski (1):
-      dt-bindings: soc: qcom,wcnss: Drop redundant $ref of firmware-name property
-
-Maulik Shah (2):
-      soc: qcom: qcom_stats: Remove unused macro definitions
-      soc: qcom: qcom_stats: Replace CLIENT_VOTES_OFFSET macro with sizeof()
-
-Mukesh Ojha (4):
-      firmware: qcom: scm: Fix NULL dereference in IRQ handler before __scm is published
-      firmware: qcom: scm: Fix reserved memory cleanup on probe failure
-      firmware: qcom: scm: Fix tzmem state on probe retry
-      dt-bindings: sram: qcom,imem: Add minidump-sram pattern property
-
-Shawn Guo (1):
-      dt-bindings: soc: qcom,aoss-qmp: Document Nord AOSS side channel
-
-Sumit Garg (1):
-      media: qcom: Switch to generic PAS TZ APIs
-
-Viken Dadhaniya (1):
-      soc: qcom: geni-se: Use HW PROG_RAM_DEPTH to validate firmware size
-
- .../bindings/soc/qcom/qcom,aoss-qmp.yaml           |   1 +
- .../devicetree/bindings/soc/qcom/qcom,wcnss.yaml   |   4 +-
- .../devicetree/bindings/sram/qcom,imem.yaml        |  16 +
- drivers/firmware/qcom/qcom_scm-smc.c               |   2 +-
- drivers/firmware/qcom/qcom_scm.c                   |  43 ++-
- drivers/firmware/qcom/qcom_scm.h                   |   2 +-
- drivers/firmware/qcom/qcom_tzmem.c                 |  13 +-
- drivers/media/platform/qcom/iris/Kconfig           |  27 +-
- drivers/media/platform/qcom/iris/iris_firmware.c   |   9 +-
- drivers/media/platform/qcom/venus/Kconfig          |   1 +
- drivers/media/platform/qcom/venus/firmware.c       |  11 +-
- drivers/soc/qcom/Makefile                          |   3 +-
- drivers/soc/qcom/pmic_glink_altmode.c              |   3 +-
- drivers/soc/qcom/qcom-geni-se.c                    |  24 +-
- drivers/soc/qcom/qcom_stats.c                      |   9 +-
- drivers/soc/qcom/smem.c                            |  81 ++--
- drivers/soc/qcom/smem.h                            |  12 +
- drivers/soc/qcom/smem_dramc.c                      | 430 +++++++++++++++++++++
- drivers/soc/qcom/ubwc_config.c                     |  40 +-
- include/linux/soc/qcom/geni-se.h                   |   4 +
- include/linux/soc/qcom/smem.h                      |   2 +
- 21 files changed, 635 insertions(+), 102 deletions(-)
- create mode 100644 drivers/soc/qcom/smem.h
- create mode 100644 drivers/soc/qcom/smem_dramc.c
+-- 
+Jazz isn't dead. It just smells funny.
 
