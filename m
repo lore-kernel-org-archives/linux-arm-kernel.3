@@ -4,79 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49438C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 04:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51A1FC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 04:57:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4FfaUBZ/44pZrQdFDd7FtQetFnSd7H2nNTbyT3OlAYI=; b=iHA7ae9pZPwJJ+wqNlR2NjTCz3
-	eaWWqmjCocpP6UyiSP5j9GVmYACmf01I7nbtD1ppuNJNT4l8mha12Cp+qcX4Dn8lOdR8NFVJ/q7vs
-	QLwJS27uw4ikU4StbAOtsfzXqXkl9b6H6MDByGDpeSq2vo1rY+gGOuCKoWFBPqkBrPt4yGOmMpHtv
-	7mAFe2BOImVDFLVNyXyvo9Pa/ZEhGbUCAiLwxj18PJvmKUgf0MYlwkXFa3Zx11oRJbGMqdBd+9/2I
-	u7pFHLhJbnj28Tk0vEnPTh9t3zWBJL88WyP4PIz+b8qT4MUjI3UIt4XwGra75bAXHF8tN+vQbmsS4
-	cNoAw6XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DL9zt+iaIT8X/6aHcZfiY4XxFYWf6572yFG/+Vl4euI=; b=s1PzhE26M2AOk5OWTTyH8kmWDd
+	9MKktfLcnIoaBZux21mtQx4nM01VXc6AIbPyD8n2btUfXZ2kVbirW4gdtc5dmVDO1R1P0mlcBp1jY
+	k5HosOWCjG4e7cQmPxDbNvFgAw/kjTNNR1PEItUmcaLU/zuu9zLGUVipGsSXXJt5Tax8RZT7RItu7
+	oC/36+sLCHpVaPeNkaxOdG5ySVESJbiWSL/CP60DPln9NMmTZ/RrBMrRzpXpoEPngwyDLCVo8VN0f
+	BZht0AjlKsnJPUkiW0VIVEiE5OroAkJadzWjdOl5miljMQXNK4aoKviLD6jBbNsB1gjOqwG27Srwp
+	BQXIQjMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsCQ1-000000075UL-1jhl;
-	Fri, 07 Aug 2026 04:42:53 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1wsCeC-000000076VU-0fnu;
+	Fri, 07 Aug 2026 04:57:32 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsCPx-000000075Tx-3aBx
+	id 1wsCe9-000000076V3-2GQQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 04:42:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1786077770; x=1817613770;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WQzgyFExui/jji4SlbsaMUg9A00OnHYeCZD0NqBP5nc=;
-  b=YGawxpV8193+xBRALVjezTKe8JxEhEFmOydse4w7clNkSEpMtBGAyLeA
-   TVtcD5JBijxipsztVjwG0QzTQKV3JNxTf8beeQiBb7j6FI46KRiBdhNay
-   T1fvdyAzUDKNZSxiy3M5tZVQEyWglyTrNb2ZsVA+zFgpU9M4piQkU3o7l
-   e4DKI5D8PmuErfevM/mPc7TqzUAp23SStgVpp/e0l/wvKHooEyjbp8Fsc
-   d9qxYCIKRFQADkH+um8LXJx8zZA1AHz0VLv37JEAeytiJ0Q8UxTYCCz/F
-   Xz4AF6r2FRCuoltNOTn/XV71BvPzHR/O/SmveCc4C9hJ6OuC/dY8lsyRC
-   Q==;
-X-CSE-ConnectionGUID: qXdk4engTD+cM1JnrZActA==
-X-CSE-MsgGUID: VrApBlW3Rw+XWk2sYw9Tnw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11867"; a="86794599"
-X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
-   d="scan'208";a="86794599"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Aug 2026 21:42:48 -0700
-X-CSE-ConnectionGUID: C8Oo+PWATSOLkLQ4UNeMLA==
-X-CSE-MsgGUID: zPNwphfGThm3JHhGC1O09w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,209,1779174000"; 
-   d="scan'208";a="262351727"
-Received: from lkp-server01.sh.intel.com (HELO 6eda058d650d) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 06 Aug 2026 21:42:46 -0700
-Received: from kbuild by 6eda058d650d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wsCPr-00000000HBR-11Pz;
-	Fri, 07 Aug 2026 04:42:43 +0000
-Date: Fri, 7 Aug 2026 12:41:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Rosen Penev <rosenp@gmail.com>, linux-sunxi@lists.linux.dev
-Cc: oe-kbuild-all@lists.linux.dev, Jassi Brar <jassisinghbrar@gmail.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] mailbox: sun6i: modernize probe and convert to fully
- managed
-Message-ID: <202608071227.vRfy33Rr-lkp@intel.com>
-References: <20260727194208.10082-1-rosenp@gmail.com>
+	Fri, 07 Aug 2026 04:57:30 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2ceb096e675so36265525ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 21:57:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786078648; cv=none;
+        d=google.com; s=arc-20260327;
+        b=merYbwk6tS2nbaZYl8VyyArLJRdtZoHi33xJ+sOCXW9HJ/hNW3c0cQxrNiWeVYit2C
+         q6JIY5FWO0XjBL1eu6Ox6RcLtYbLF3LaC0pXeBijTfeTGPlUY457JQj7UciJISa/fe9X
+         HlLcaOQUvpVdVVrMd69P1MAKMHqXKqzdGr8UDFVtXEF6UAHvbnp1JtpuUq59Mj3D+PgC
+         OH3+lTU5LDXzgzGrnkL36oeD67szAqYKM7ChuJJxpc3n6x1SPXEQB8g8E7ezMCM950rP
+         KeqZcW864Tq6CG1NRxnlYmGfrUbgmS4Bce75pXv352EmtO6KrKc8AwNsoKl22H4QWpjz
+         MOfw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=DL9zt+iaIT8X/6aHcZfiY4XxFYWf6572yFG/+Vl4euI=;
+        fh=tasclxlsWTkSqoR2iclDTYZDAAWLrg6GSm68UPC25Zc=;
+        b=ftF9nVDkX8zfJ9Z69e1oFn6GRGFtcYEvGSkUnjaTlP/3+OwhCS/wDIj63QIf+o8nFG
+         BqenbYsLoj5NFOsw0XQgvbUOeZNNhMZcQm/42SWjv2NEhG1RSjgMgeahMNFhauwU1fjw
+         PoawAlX5zne8xB9LUpEyVrasYuzSJJduVUdHzKHisZXshYLKeU/T+GJ5gN2tSX8syQrI
+         SKPaHBg4g7Z6SYKiEQ/eDs2Z/uhjdEPe8lR1WouiBg8aFE3f/n8z/rvG5xfwXx8w1/bX
+         1vpjgW1OjcVn6cKAypg98Aun9xhyF9dcl4Mzj61tFHfw/nr9Db12I4oIwOpA5W7C0ikm
+         cMow==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786078648; x=1786683448; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=DL9zt+iaIT8X/6aHcZfiY4XxFYWf6572yFG/+Vl4euI=;
+        b=ACbnP36U394FfMMGEJLc8syDpklC+PIteXuNvT1T2o+LmA3WjMzgSpqEdWraHnrHm0
+         zVg4G69eor6zkTuF10C06Rjou0D6FcUUW2MejrxxIbRzrCZ1pBkLHCu8WQaZMQIAqJ3y
+         sxgPEQ7p7jpsgFYHH6/9ne/sGKTW4uRDzQmmNB0YK2kGUxOeVIjzeupFCuPlXKMXIuau
+         /xZyiPrBzB6thVolCZ7vja0Bh3GC/aNcC8DAu84FhdBuQin3/a/8phvoRrIS5BdPtFx+
+         nxdfb8ksVH1MMsGaq2dghozfvOaGPJsGCFfzBaV8i7AmXWiDKezpVy3YvrpPAShMr/yn
+         l1vA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786078648; x=1786683448;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DL9zt+iaIT8X/6aHcZfiY4XxFYWf6572yFG/+Vl4euI=;
+        b=QduBMzl7g276c0e1VDms9T3ptRIpWTmQ35p0EaHas+k+FJSlZwogcRyCyEqNjwgF+K
+         MLHwfprA/Iz5DTU0+mAm6K5CFhVX4qPp5b7GjjMdg2Xj3nUtduMxmAkvJPMSFXeDAqhD
+         abqHZCCrd02JVUYEnznAZ2vCGCs2OiVOMOogncX1lM/bYPbzBOpbzAsDym8IhDszEw9F
+         lbpk3v5+GNR1I0GRRq+oFF4snu3Th8RFjKinAxno/nlPp1o5UmpADGCoqJIJVp/iHaoS
+         aDk2aH54cXKPMB8w5LA6m8V59NKSIsw8bYzStg7sALIyHx1LHQ3hlV0XRePP9PS0jG1Q
+         KtFQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rp7ThXa0WjmhxPt0QFy3zyBDWS/AK6K/u+/kVhnP+Cp4UO4Q2qqPVvOOablNVTrHs4rN7prw4fbf9v1YrSWRLjd@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeJIxEqocN8RRDqUbK7Gh97bq/ACi/1LrjhuMxERLT7XMdKkcj
+	rH3LwmFl7agroUObY14OCR4ZZFMeB4OfRqREEe6hn0RwhqxDr8PAFw2AbNzhducDVRBynl/VMVb
+	p/6oVpN/PafHyLon/Or0z2WPHS5Owa94=
+X-Gm-Gg: AR+sD11/PvFOIRoJWvs8zT6/a7B7OJ6wwR0NOzWjcTIlcL0k7TMQZbspkJ5DXidN3Yf
+	me8b5qZz/00vHldbGo6eGWVTCjLCVov82Prr0CXGPHtDuNn7aaoXkhyfIc7FRQm/FFO04pwR2ya
+	cp0LdxNmzytEYUa6fE4ZzN9cqiKje8ValtijrsyLqv/TpcK9UArK/k0SQLcLgZtJGJUfRxITNl4
+	B8JmUOhP7PbAH6TZdXhryg9U2kHjgRpkjj6PPs8zJvaMIqKmZwDxGLtrNG+pTRJd62ZSzpcItRH
+	HegAat5VkGosEGvXNCJfCyPO7ht7Cg68gcj6OYs0BQkPIM0Co3YZTF+JTH/WJz0NQRxRi9+Lffx
+	WKoqKv1xynLH5hsRd9jcPcACsuXRJE+DW501zMhAGQISRyH0arV7QxYAj
+X-Received: by 2002:a17:903:1b70:b0:2d0:cc92:f7c2 with SMTP id
+ d9443c01a7336-2d0cc930325mr247857335ad.1.1786078648456; Thu, 06 Aug 2026
+ 21:57:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260727194208.10082-1-rosenp@gmail.com>
+References: <20260806065254.28204-1-phucduc.bui@gmail.com> <2026080623-repressed-griminess-e3fe@gregkh>
+In-Reply-To: <2026080623-repressed-griminess-e3fe@gregkh>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Fri, 7 Aug 2026 11:57:17 +0700
+X-Gm-Features: AUfX_mwRnOY7VUq-ck_xwOmg8y-ARldqTcX5XmuIOCDKQs-VxTrkOjINteaUTxY
+Message-ID: <CAABR9nEfPqXAt8wDo597qDS3b3KMaHeF6-swAFg9RLanapDnBQ@mail.gmail.com>
+Subject: Re: [PATCH] usb: chipidea: ci_hdrc_imx: Propagate -EPROBE_DEFER from
+ IRQ lookup
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Peter Chen <peter.chen@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	linux-usb@vger.kernel.org, Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_214249_910840_AF5B9D76 
-X-CRM114-Status: GOOD (  17.49  )
+X-CRM114-CacheID: sfid-20260806_215729_585173_52C6E493 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,133 +121,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rosen,
+Hi Greg,
 
-kernel test robot noticed the following build errors:
+Thank you for your feedback.
 
-[auto build test ERROR on sunxi/sunxi/for-next]
-[also build test ERROR on linus/master v7.2-rc6 next-20260806]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> > From: bui duc phuc <phucduc.bui@gmail.com>
+>
+> All lower case?
+>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Rosen-Penev/mailbox-sun6i-modernize-probe-and-convert-to-fully-managed/20260807-054041
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux.git sunxi/for-next
-patch link:    https://lore.kernel.org/r/20260727194208.10082-1-rosenp%40gmail.com
-patch subject: [PATCH] mailbox: sun6i: modernize probe and convert to fully managed
-config: alpha-allmodconfig (https://download.01.org/0day-ci/archive/20260807/202608071227.vRfy33Rr-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 16.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260807/202608071227.vRfy33Rr-lkp@intel.com/reproduce)
+Yes, I=E2=80=99ll keep it lowercase.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202608071227.vRfy33Rr-lkp@intel.com/
+> > Return -EPROBE_DEFER from platform_get_irq_optional() so the driver is
+> > re-probed when the interrupt resource becomes available instead of
+> > continuing probe without an IRQ.
+>
+> How was this found and tested?
+>
 
-All errors (new ones prefixed by >>):
+I found this during code inspection while cleaning up probe functions in
+the Rockchip ASoC drivers.
 
-   drivers/mailbox/sun6i-msgbox.c: In function 'sun6i_msgbox_probe':
->> drivers/mailbox/sun6i-msgbox.c:271:46: error: passing argument 1 of 'devm_mbox_controller_register' from incompatible pointer type [-Wincompatible-pointer-types]
-     271 |         return devm_mbox_controller_register(&mbox->controller);
-         |                                              ^~~~~~~~~~~~~~~~~
-         |                                              |
-         |                                              struct mbox_controller *
-   In file included from drivers/mailbox/sun6i-msgbox.c:12:
-   include/linux/mailbox_controller.h:149:50: note: expected 'struct device *' but argument is of type 'struct mbox_controller *'
-     149 | int devm_mbox_controller_register(struct device *dev,
-         |                                   ~~~~~~~~~~~~~~~^~~
->> drivers/mailbox/sun6i-msgbox.c:271:16: error: too few arguments to function 'devm_mbox_controller_register'; expected 2, have 1
-     271 |         return devm_mbox_controller_register(&mbox->controller);
-         |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/mailbox_controller.h:149:5: note: declared here
-     149 | int devm_mbox_controller_register(struct device *dev,
-         |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+https://lore.kernel.org/all/20260806052136.21034-1-phucduc.bui@gmail.com/
+
+platform_get_irq_optional() returns a positive IRQ number on success or
+a negative error code on failure, including -EPROBE_DEFER. The driver
+handled positive IRQ numbers but ignored -EPROBE_DEFER, continuing
+probe without an IRQ instead of deferring.
+
+I only compile-tested the change. I don't have the hardware to test this
+path at runtime.
+
+While reviewing this,I noticed that -EINVAL also deserves to be returned,
+not just -EPROBE_DEFER only -ENXIO really means "no IRQ".
+I=E2=80=99ll update this to:
+
+if (data->wakeup_irq < 0 && data->wakeup_irq !=3D -ENXIO) {
+        ret =3D data->wakeup_irq;
+        goto err_clk;
+}
+
+I also found another issue in the same area:
+
+        if (data->wakeup_irq > 0) {
+                irq_name =3D devm_kasprintf(dev, GFP_KERNEL,
+"%s:wakeup", pdata.name);
+                if (!irq_name) {
+-                       dev_err_probe(dev, -ENOMEM, "failed to create
+irq_name\n");
++                       ret =3D dev_err_probe(dev, -ENOMEM, "failed to
+create irq_name\n");
+                        goto err_clk;
+                }
 
 
-vim +/devm_mbox_controller_register +271 drivers/mailbox/sun6i-msgbox.c
+the error return from dev_err_probe() was not assigned to ret,  so the
+error path could still return 0.
+I=E2=80=99ll send v2 soon.
 
-   194	
-   195	static int sun6i_msgbox_probe(struct platform_device *pdev)
-   196	{
-   197		struct device *dev = &pdev->dev;
-   198		struct mbox_chan *chans;
-   199		struct reset_control *reset;
-   200		struct sun6i_msgbox *mbox;
-   201		void __iomem *regs;
-   202		int i, ret;
-   203		int irq;
-   204	
-   205		irq = platform_get_irq(pdev, 0);
-   206		if (irq < 0)
-   207			return irq;
-   208	
-   209		regs = devm_platform_ioremap_resource(pdev, 0);
-   210		if (IS_ERR(regs))
-   211			return PTR_ERR(regs);
-   212	
-   213		mbox = devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
-   214		if (!mbox)
-   215			return -ENOMEM;
-   216	
-   217		chans = devm_kcalloc(dev, NUM_CHANS, sizeof(*chans), GFP_KERNEL);
-   218		if (!chans)
-   219			return -ENOMEM;
-   220	
-   221		for (i = 0; i < NUM_CHANS; ++i)
-   222			chans[i].con_priv = mbox;
-   223	
-   224		mbox->clk = devm_clk_get_enabled(dev, NULL);
-   225		if (IS_ERR(mbox->clk)) {
-   226			ret = PTR_ERR(mbox->clk);
-   227			dev_err(dev, "Failed to get clock: %d\n", ret);
-   228			return ret;
-   229		}
-   230	
-   231		reset = devm_reset_control_get_exclusive(dev, NULL);
-   232		if (IS_ERR(reset)) {
-   233			ret = PTR_ERR(reset);
-   234			dev_err(dev, "Failed to get reset control: %d\n", ret);
-   235			return ret;
-   236		}
-   237	
-   238		/*
-   239		 * NOTE: We rely on platform firmware to preconfigure the channel
-   240		 * directions, and we share this hardware block with other firmware
-   241		 * that runs concurrently with Linux (e.g. a trusted monitor).
-   242		 *
-   243		 * Therefore, we do *not* assert the reset line if probing fails or
-   244		 * when removing the device.
-   245		 */
-   246		ret = reset_control_deassert(reset);
-   247		if (ret) {
-   248			dev_err(dev, "Failed to deassert reset: %d\n", ret);
-   249			return ret;
-   250		}
-   251	
-   252		mbox->regs = regs;
-   253	
-   254		/* Disable all IRQs for this end of the msgbox. */
-   255		writel(0, mbox->regs + LOCAL_IRQ_EN_REG);
-   256	
-   257		ret = devm_request_irq(dev, irq, sun6i_msgbox_irq, 0, dev_name(dev), mbox);
-   258		if (ret)
-   259			return ret;
-   260	
-   261		mbox->controller.dev           = dev;
-   262		mbox->controller.ops           = &sun6i_msgbox_chan_ops;
-   263		mbox->controller.chans         = chans;
-   264		mbox->controller.num_chans     = NUM_CHANS;
-   265		mbox->controller.txdone_irq    = false;
-   266		mbox->controller.txdone_poll   = true;
-   267		mbox->controller.txpoll_period = 5;
-   268	
-   269		spin_lock_init(&mbox->lock);
-   270	
- > 271		return devm_mbox_controller_register(&mbox->controller);
-   272	}
-   273	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Phuc
 
