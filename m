@@ -4,59 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B806C2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:27:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4761EC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=wgQmbdtHCvFqRoxry1i5eNtqIyEJ55658yXkZlfsF0U=; b=DZGZZtFwUql9Jp
-	vgL3M7cYJLuG7xr8QGff8HaoSHBqAWGnfQPLXMT234Cq0apJ2bwH7ZfiVINLl0ApYYPqfe+1/XSj2
-	Dj85hGs6PIkJ+Sw5qlnaL22VVD35FYcXRrW9Tph1vy4UXAE3YjTtPrHdVvGVRAk135SWtqCMNNVS0
-	2333vng7o2v9L+zhmbaXyfpe3sJKrX2aNLF+POb1p8TIhIt8weWIdi9Xe3hTR+jd8acCec/gXw+/J
-	AdTNd0cxiGHhO03oc/tk9AeJBy+Vr5sH7lW7SnOHrSwWBnpyD1TSloIkOfDs4YnqQHoDO1CyqlCdz
-	bff10qcsjMbQ1PfEBvQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kRRGQ8YPUxChghesyKo/Ao+VKKmI85UeyDmpYQWLsKY=; b=a8Zx3BUNehN7BPzwgAhwRcJzEF
+	XOy9jM8ltP71z+lbIOBPQmsEPLShx+umuLPoC6okeSIqlnl536StCHNEeseyb9XFaD6pzGzBBoqft
+	ULb/45CPMk4USZUW1uxoOhW7KMJX5KjE/9SAr6cVF1LshdxMVkigJyPXxSNiaD2w+mUMZ28smofy0
+	RjWHElwchdb4XwkbwHJM9OjGWoUKO8lwQxkrk6dI7vD3tqezdz0lh468Ehdoj790Cnz5ljKmx3MFO
+	DsZq4CLusdpYrxaly/WPDuCDbqYiXGxhowI5tmRU5xsMz3ma9xL8/0iaocFeiMBGq0WngPjaddGbW
+	tzbrG5KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMTV-00000008Kr0-1uyx;
-	Fri, 07 Aug 2026 15:27:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsMTy-00000008Kwm-2bNW;
+	Fri, 07 Aug 2026 15:27:38 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMTU-00000008Kqs-1NQI
+	id 1wsMTw-00000008KwM-41fI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 15:27:08 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2361600C8;
-	Fri,  7 Aug 2026 15:27:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4117B1F00A3A;
-	Fri,  7 Aug 2026 15:27:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786116427;
-	bh=wgQmbdtHCvFqRoxry1i5eNtqIyEJ55658yXkZlfsF0U=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=jdJIsFI0Qs6Wn39qAN5JJDiHURWIakvyX4ZSUoNU9gQPOoVlMP0cx5y1oCrn66tZ/
-	 zLNtCtCf5Verm0hPGdraL2Sq4Ox2tKNS3nu3Vk8h3J4PxoZkcNQIGN83HnfkDdpizK
-	 UfdnnrIEhvtyh1k7mUjq9fJT6hOp/SfN6i9uzsq28/fmT7QOXlWJpUr6Un1CTaKdtT
-	 HtDQg9oRmv3YL3Qhd76Xm9xnrC9XZbmVBykeLG6VivnemPoN3xak5yEc55VP8PsxhJ
-	 qeUGkIzBQhS8IkKU5uw/a7lUrU/Se+JhIObBxJ0Sues/ttjDaUFzTDLLvOAmFCA3l9
-	 ucpk0NIwKKouA==
-Date: Fri, 7 Aug 2026 10:27:05 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Semih Baskan <strst.gs@gmail.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, rjui@broadcom.com,
-	sbranden@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
-	rafal@milecki.pl, florian.fainelli@broadcom.com, arnd@arndb.de,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, rosenp@gmail.com, rani.hod@gmail.com
-Subject: Re: [PATCH v2] PCI: iproc: Use the EROM outbound window on BCMA
-Message-ID: <20260807152705.GA59586@bhelgaas>
+	Fri, 07 Aug 2026 15:27:38 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6a17c7c3c6eso10321a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 08:27:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1786116455; x=1786721255; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kRRGQ8YPUxChghesyKo/Ao+VKKmI85UeyDmpYQWLsKY=;
+        b=vnvV3V1f0wxjvh3Mbsh5o0e4fORpJ74F22uRGx5sFSd+PspqhmPXOyRBsUacHGsixY
+         MRDEqmZ+kb9obXhREd9unrRvFth6Bbqvh30wZn/Ou9Mr1GO9ETBz2lm6d/7trictKoz7
+         3f/MQ1SiDgbSGmusZD7pPgC/r3e2CNaJ9MUALEuDc9dtuxCF1YXovxRma1488wgaU9K1
+         e7UDzsdmy+TymwYHeHp0rSqOkPuXBFzqCIcnn/EypZgr7WxeZLj3Hoq/THO+QOi5U3wh
+         R42c5/u5hljSKE14TVOJeXn+iZhe+VOPrGMFfk7J2aEbPhB1cgvHS3fFv6yNVMg62nkv
+         oCrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786116455; x=1786721255;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=kRRGQ8YPUxChghesyKo/Ao+VKKmI85UeyDmpYQWLsKY=;
+        b=Ts8uCY5tk5m0gv06Qes2YTKg9qIHAzZyzeQzIFsXweQlU/wWAkdxkmGSF0DEsMduP4
+         VdLMgh8sytvfQcgeZobXTaJUytaBzG/Kg0Rdn6lIP63h6uAzMTPRtjHqk+9eENuaZw/e
+         iWw0r7B1zH5kNktIzOlvnZ/2cg6Ov7aIg9tGUDklZvEjLvR3CAEkGlxbTgaY/ewyDRzg
+         ZJynkCjrVK0qaVWlL54GHCoTnXkN61wSeo9IfrGQAdHM5isB6EM5KTR7JzISPZKgFtJ2
+         TXmIG85Rn/o0hLADk4/b3HakJ99GAYgbUBE9qjF3vHdfA92UDIVjP0Nqo5oBC2+sgWBD
+         mADQ==
+X-Forwarded-Encrypted: i=1; AHgh+RocwF0QtXajtqXO8Abm+h4nsk/mqsl8Z+LnnCoi3f0/UqQ1NayWGMMl9/dlNzPckukXCy9qrOOP5hyz7kz9dNvd@lists.infradead.org
+X-Gm-Message-State: AOJu0YzBq8y2yIULxOPvqQ90jJ2a6fVW35jBqPvvyReCWYFAXse7sX+L
+	rqKOm1jHbWtdQ4iWigKp9EvB3W/DHi9l31t3s9jqkBp7GqwHcOyx9Vit4kHook3cvw==
+X-Gm-Gg: AR+sD129rXHUHQoWIjmqR80eqjY63DtNWDoPsNYrIYz55Ik919pUDnWqAxhLXPVC+he
+	1/sBZZSdLX2hblNPgXu/x19Lxp5/rVbr2+/wHK+6ANXC8ub2e192qx5vKjTC1+p2LoxchA5nX3g
+	HgVOhcGmk0slAaEUbg4ve1J8hcgswl4CNqwTBVqeHLMr4gDP1kcZeBSU3DE8EnSAOuR/4zZ8bp/
+	j9VcToN6V6S6CnaNachIDncJ2r3aOo4AbO9yMMyhVyqvaBqUbxTjjsbqJdN+Ij6OQH8CNGbVjd4
+	ueA9DCS6fBwP65tnj2VjG3+44SecTwXXDvYzjmMrMUBcjm82tvpSPFRfraTOkv3QSsbQYXUscsv
+	Xv9uXE1+Cj97b2Ge9GiVCg2YvZgspFoDfMRdoddKpqGjHUidlbBPCiUDYKcGkJGffRDudhEFhnQ
+	lCSJSHWyZswGTeyalAoQyhRh2IGP3lZeZN53PdZM71qpojFxE5C47EQZxJQ94rLAjg1nMPjwAmB
+	LvvABFef5c0z02b6rS7VjFNQd7FFg==
+X-Received: by 2002:a05:6402:21cd:b0:69f:d9cd:ec41 with SMTP id 4fb4d7f45d1cf-6a1d9edad2amr102227a12.6.1786116452123;
+        Fri, 07 Aug 2026 08:27:32 -0700 (PDT)
+Received: from google.com (250.192.189.35.bc.googleusercontent.com. [35.189.192.250])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6a1e7cab27asm698938a12.8.2026.08.07.08.27.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Aug 2026 08:27:31 -0700 (PDT)
+Date: Fri, 7 Aug 2026 15:27:23 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, oupton@kernel.org,
+	seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	vdonnefort@google.com, tabba@google.com, sebastianene@google.com,
+	keirf@google.com
+Subject: Re: [PATCH] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
+Message-ID: <anX5WyOim2Q7SL3P@google.com>
+References: <20260806150105.4010701-1-smostafa@google.com>
+ <86zeyy9pbt.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260807035726.387-1-strst.gs@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <86zeyy9pbt.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260807_082737_081278_5E25B691 
+X-CRM114-Status: GOOD (  53.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,74 +106,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 06:57:26AM +0300, Semih Baskan wrote:
-> The PCIe outbound window base on Northstar depends on the PCIe Gen2 core
-> revision. Revision 0x01 uses 0x08000000, 0x40000000 and 0x48000000 for
-> controllers 0 to 2, while revision 0x07 (NS-B0) uses 0x08000000,
-> 0x20000000 and 0x28000000. Broadcom's own driver branches on the core
-> revision for exactly this reason.
+On Fri, Aug 07, 2026 at 11:50:46AM +0100, Marc Zyngier wrote:
+> On Thu, 06 Aug 2026 16:01:05 +0100,
+> Mostafa Saleh <smostafa@google.com> wrote:
+> > 
+> > When running on a setup affected with broken CNTVOFF_EL2
+> > (has_broken_cntvoff())
+> > 
+> > Booting with VHE or protected mode(nvhe) (id_aa64mmfr1.vh=0
+> > and arm64_sw.hvhe=0) works fine.
+> > 
+> > However launching a protected VM with protected hvhe mode panics the
+> > guest kernel:
+> > 
+> > [    0.000000] Internal error: Oops - Undefined instruction: 0000000000000000 [#1]  SMP
+> > [    0.000000] Modules linked in:
+> > [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.2.0-rc3-g05f75bd71e0e-dirty #29 PREEMPT
+> > [    0.000000] Hardware name: linux,dummy-virt (DT)
+> > [    0.000000] pstate: 000003c5 (nzcv DAIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > [    0.000000] pc : arch_timer_shutdown_virt+0x4/0x1c
+> > [    0.000000] lr : arch_timer_starting_cpu+0x1c4/0x2d4
+> > [    0.000000] sp : ffffa6bd9a193c00
+> > [    0.000000] x29: ffffa6bd9a193c20 x28: ffffa6bd9a1bcf88 x27: 0000000000000000
+> > [    0.000000] x26: ffff00001be70dd8 x25: ffffa6bd99d85000 x24: ffffa6bd99d85ee4
+> > [    0.000000] x23: ffffa6bd99d85000 x22: ffffa6bd9a1499c0 x21: ffffa6bd9a1ab900
+> > [    0.000000] x20: 00ffffffffffffff x19: ffff00001be8b600 x18: 000000000000028c
+> > [    0.000000] x17: 00000000510f0010 x16: 00000000510f0010 x15: 00000000500f0000
+> > [    0.000000] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000018
+> > [    0.000000] x11: ffffa6bd9a8ac000 x10: 0000000000f0000f x9 : ffffffffffffffff
+> > [    0.000000] x8 : ffffa6bd98822e18 x7 : 0070752d65746174 x6 : 00111ff76e007261
+> > [    0.000000] x5 : ffffa6bd9ad68078 x4 : 0000000000000000 x3 : ffffa6bd98822a0c
+> > [    0.000000] x2 : 0000000000000073 x1 : 0000000000000001 x0 : ffff00001be8b600
+> > [    0.000000] Call trace:
+> > [    0.000000]  arch_timer_shutdown_virt+0x4/0x1c (P)
+> > [    0.000000]  cpuhp_invoke_callback+0x11c/0x280
+> > [    0.000000]  cpuhp_issue_call+0x1e8/0x224
+> > [    0.000000]  __cpuhp_setup_state_cpuslocked+0x1d8/0x2b8
+> > [    0.000000]  __cpuhp_setup_state+0x50/0x74
+> > [    0.000000]  arch_timer_register+0xc0/0x148
+> > [    0.000000]  arch_timer_of_init+0x148/0x170
+> > [    0.000000]  timer_probe+0x74/0x124
+> > [    0.000000]  time_init+0x18/0x58
+> > [    0.000000]  start_kernel+0x1c0/0x3ac
+> > [    0.000000]  __primary_switched+0x88/0x90
+> > [    0.000000] Code: c80b7d2a 35ffffab 17ffffeb d503245f (d53be328)
+> > 
+> > And for non protected VMs seems to hang or progress really slowly.
+> > 
+> > The workaround avoids setting non-zero CNTVOFF_EL2 and trapping the
+> > virtual counter to emulate the offset.
+> > In the VHE path (timer_set_traps()), traps are only enabled when the
+> > guest actually has a non-zero virtual timer offset.
+> > However, __timer_enable_traps() in hyp/nvhe/timer-sr.c unconditionally
+> > set CNTHCTL_EL1TVT and CNTHCTL_EL1TVCT whenever has_broken_cntvoff()
+> > was true.
+> > 
+> > Which causes 2 issues:
+> > 1) Protected VMs: kvm_handle_pvm_sysreg() does not find "cntv_ctl_el0"
+> > in pvm_sys_reg_descs and injects undefined instruction exceptions.
+> > 
+> > 2) non-protected guests are trapped all the time even with offset of
+> > zero.
+> > 
+> > Fix this by adding a check in __timer_enable_traps() similar to the one in
+> > timer_set_traps()
+> > 
+> > Fixes: 0bc9a9e85fcf ("KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity")
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/timer-sr.c | 3 ++-
+> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> > index ff176f4ce7de..98b6e37ee8fa 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> > @@ -10,6 +10,7 @@
+> >  
+> >  #include <asm/kvm_hyp.h>
+> >  #include <asm/kvm_mmu.h>
+> > +#include <hyp/switch.h>
 > 
-> bcm-ns.dtsi is shared by every Northstar SoC, so it cannot carry a value
-> that is correct on both. Commit 767012397976 ("ARM: dts: BCM5301X:
-> Describe PCIe controllers fully") gave the controllers a ranges property.
-> The commit shipped in v7.1.
+> I'd rather not include this. It drags too many things, and is solely
+> expected to be included from switch.c (both implementations).
 > 
-> With that property present, two things go wrong with this driver:
+> You could use the hack below as a prefix to this change.
+> 
 
-It looks like you're going to present two problems next.  They should
-be bullets so it's obvious what the first is and what the second is,
-e.g.,
+I see, I will add your patch as a prefix and respin another version.
 
-  - devm_pci_alloc_host_bridge() parses ...
+> >  
+> >  void __kvm_timer_set_cntvoff(u64 cntvoff)
+> >  {
+> > @@ -63,7 +64,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
+> >  	 * Trap the virtual counter/timer if we have a broken cntvoff
+> >  	 * implementation.
+> >  	 */
+> > -	if (has_broken_cntvoff())
+> > +	if (has_broken_cntvoff() && hyp_timer_get_offset(vcpu_vtimer(vcpu)))
+> >  		set |= CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
+> >  
+> >  	sysreg_clear_set(cnthctl_el2, clr, set);
+> 
+> I don't immediately see why a non-protected guest is so slow with
+> hVHE, irrespective of the offset. Even if we go back to the host for
+> the emulation, this should be usable.
+> 
+> Could you describe what actually happens? Do you also see the issue
+> with pure hVHE (without protected)?
 
-  - When the DT window ...
+I haven't checked with pure hvhe, I do not have access to the HW at
+the moment, but I can repro both the pVM panic and non-protected hang
+on Qemu by stubbing “has_broken_cntvoff()” which indicates it’s a
+software issue.
 
-(or whatever the second item is, I'm not sure where it starts)
+I looked more into this and I think I get it, which is the same bug
+Sashiko reported here:
 
-> devm_pci_alloc_host_bridge() parses those ranges and requests them, then
-> this driver adds its own window and requests the whole list a second
-> time, so every controller fails to probe with -EBUSY.
+The kernel sets the offset when a non-protected VM is started at
+kvm_timer_vcpu_init() based on the current timer value.
+
+When hypervisor emulates the timer it reads in kvm_handle_cntxct() =>
+compute_counter_value() which sets offset of zero (that's a bug)
+and the guest reads the raw counter value.
+
+However, I see the guest using CVAL (likely for tick or events), which
+is handled by the host and not the hypervisor, and the host will use
+the true offset in that case which is not zero, which makes the VM
+events fire way later.
+
+Adding some traces in timer_restore_state() I can confirm the massive
+CVAL diff from the current virtual timer.
+
+I have a fix already for this that fixes the hang without this patch,
+I will send it along the respin shortly.
+
+Thanks,
+Mostafa
+
+
+
 > 
-> When the DT window is used, it is only correct on core revision 0x07. On
-> revision 0x01 it points at an address the hardware does not decode, and
-> the first MMIO access to a BAR takes an imprecise external abort.
+> Thanks,
 > 
-> The enumeration ROM reports the correct base for the revision actually
-> present, and bcma already provides it as addr_s[0]. Drop any memory
-> window that came from the device tree and use that instead, requesting
-> only the window this driver owns. This makes the driver correct whether
-> or not the DT describes a window.
+> 	M.
 > 
-> When a dropped window does not match what the EROM reports, print a
-> warning naming both. The mismatch means the devicetree describes a
-> window the hardware does not decode, and that should be fixed in the
-> dts rather than ignored silently.
+> From a7ec0d7f23d86b028164328f33a7114fa6aad2c3 Mon Sep 17 00:00:00 2001
+> From: Marc Zyngier <maz@kernel.org>
+> Date: Fri, 7 Aug 2026 11:36:48 +0100
+> Subject: [PATCH] KVM: arm64: Make timer_get_offset() work in all contexts
 > 
-> The same commit also added compatible = "brcm,iproc-pcie", so these
-> nodes now match pcie-iproc-platform. With CONFIG_PCIE_IPROC_PLATFORM
-> enabled, which is the default on ARCH_BCM_IPROC, that driver binds them
-> first and this driver's probe fails inside devm_pci_alloc_host_bridge().
-> This patch fixes the configurations where the BCMA driver is the one in
-> use; OpenWrt builds that way, with PCIE_IPROC_PLATFORM disabled. The
-> platform path takes the DT window as-is and has the same wrong address
-> on core revision 0x01, so that side needs a devicetree fix either way.
+> We currently have two implementations of get_timer offset(), one
+> in arm_arch_timer.h, and another one in switch.h.
 > 
-> Tested on an ASUS RT-N18U (BCM47081) and a Linksys EA9200 (BCM4709),
-> both core revision 0x01.
+> These two only differ by a pair of kern_hyp_va(), which seems a
+> pretty weak reason to open-code it.
 > 
-> Fixes: 767012397976 ("ARM: dts: BCM5301X: Describe PCIe controllers fully")
-> Tested-by: Rani Hod <rani.hod@gmail.com>
-> Cc: stable@vger.kernel.org # v7.1+
-> Signed-off-by: Semih Baskan <strst.gs@gmail.com>
+> Turn this function into a macro to avoid the include dependency hell
+> on kern_hyp_va(), and make it work correctly in all contexts.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
-> v1 -> v2: print a warning for every devicetree memory window that does
-> not match the EROM window. Requested by Arnd Bergmann:
-> https://lore.kernel.org/all/d05ffeca-f289-42dd-b454-5a7c7741c6d5@app.fastmail.com/
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 15 +----------
+>  include/kvm/arm_arch_timer.h            | 34 +++++++++++++++----------
+>  2 files changed, 22 insertions(+), 27 deletions(-)
 > 
-> v1: https://lore.kernel.org/all/20260727140939.389-1-strst.gs@gmail.com/
-> Applies to v7.2-rc5 and unchanged through v7.2-rc6; the file has no
-> commits in between.
-
-FWIW, there's no need to rebase for new -rcs.  We always apply PCI
-patches on -rc1 anyway.
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index 4bf624a49591d..2aceda749641c 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -706,22 +706,9 @@ static inline bool handle_tx2_tvm(struct kvm_vcpu *vcpu)
+>  	return true;
+>  }
+>  
+> -/* Open-coded version of timer_get_offset() to allow for kern_hyp_va() */
+> -static inline u64 hyp_timer_get_offset(struct arch_timer_context *ctxt)
+> -{
+> -	u64 offset = 0;
+> -
+> -	if (ctxt->offset.vm_offset)
+> -		offset += *kern_hyp_va(ctxt->offset.vm_offset);
+> -	if (ctxt->offset.vcpu_offset)
+> -		offset += *kern_hyp_va(ctxt->offset.vcpu_offset);
+> -
+> -	return offset;
+> -}
+> -
+>  static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
+>  {
+> -	return arch_timer_read_cntpct_el0() - hyp_timer_get_offset(ctxt);
+> +	return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
+>  }
+>  
+>  static bool kvm_handle_cntxct(struct kvm_vcpu *vcpu)
+> diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
+> index 15a4f97f81051..bc6f2fdd7ad33 100644
+> --- a/include/kvm/arm_arch_timer.h
+> +++ b/include/kvm/arm_arch_timer.h
+> @@ -162,20 +162,28 @@ static inline bool has_cntpoff(void)
+>  	return (has_vhe() && cpus_have_final_cap(ARM64_HAS_ECV_CNTPOFF));
+>  }
+>  
+> -static inline u64 timer_get_offset(struct arch_timer_context *ctxt)
+> -{
+> -	u64 offset = 0;
+> +#ifdef __KVM_NVHE_HYPERVISOR__
+> +#define KERN_HYP_VA(x)		kern_hyp_va(x)
+> +#else
+> +#define KERN_HYP_VA(x)		x
+> +#endif
+>  
+> -	if (!ctxt)
+> -		return 0;
+> -
+> -	if (ctxt->offset.vm_offset)
+> -		offset += *ctxt->offset.vm_offset;
+> -	if (ctxt->offset.vcpu_offset)
+> -		offset += *ctxt->offset.vcpu_offset;
+> -
+> -	return offset;
+> -}
+> +#define timer_get_offset(ctxt)						\
+> +	({								\
+> +		struct arch_timer_context *__ctxt = (ctxt);		\
+> +		u64 off = 0;						\
+> +									\
+> +		if (__ctxt) {						\
+> +			struct arch_timer_offset *ato = &__ctxt->offset;\
+> +									\
+> +			if (ato->vm_offset)				\
+> +				off += *KERN_HYP_VA(ato->vm_offset);	\
+> +			if (ato->vcpu_offset)				\
+> +				off += *KERN_HYP_VA(ato->vcpu_offset);	\
+> +		}							\
+> +									\
+> +		off;							\
+> +	})
+>  
+>  static inline void timer_set_offset(struct arch_timer_context *ctxt, u64 offset)
+>  {
+> -- 
+> 2.47.3
+> 
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
