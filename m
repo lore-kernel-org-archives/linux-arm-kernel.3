@@ -4,109 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932B2C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A885C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T7RiCq+OixB24tXy0yphDXTtbdvli+hcqFP6djSgmvU=; b=Ff0QYVXFMf+dmnE14+OIFql1a/
-	buLa71oKRIztSgEApSwEPeQ2bZAL8wYqTLvBqQxur5Cm50ZwEjPFd/9GmH9Or5k+pIzgohXca6t05
-	d2g+sfqOGTsJujElmCsAUBo6Nrdusq9MrumMe2m6AVjjnCZ3z7XYPy5SB4Hc+g7zQGy+thulYOQEi
-	R+11umhTjthS7Rm9q2LJY9Hnos79JyBGp7S0fodkmptfa95sO3AD1PR2AMwfPulWTzNYuJDIMqYR8
-	c3oApiuobx7fOC3sOj72ErBXWiq3qFdKYjO+ei23o29zHQT6F/bFV+pJrP55CkqGKdwf6HrrXdFTb
-	p9Cx7ffQ==;
+	bh=l8xVvU2F/fFUSSpqRZVrd3WQpwZlkQIJEg0DhUYBh/o=; b=DM2bmVT77rumKp/z/b0oo0Nc9j
+	XPXQva0BbzIP6id0GxmI8H3vhDiOMITM2YfiLYSOLL/7KRLXzCCf43qz8r6sdr1UVb1fml0kWeD4/
+	B0n0xqTUQnFqV1RTQoTPtRVlDDhSOaH6wdLScj687f0fCSvCdegCv+e3aZCu4h0IJ3VZllgVthsT2
+	NM3AHDR5C7JXat9P66OqW8ElixEZ1VWnp56R26EqWEeOPZBlBGCYt7aAWvKRUXp9lCdHQKjHtWAa5
+	0crB/NEPox4BFS/m9xJmiRkjpUyiS76DuY3zutGi9kRku99OrLB+RBmDOzEf/mH8afv4JuN+L2SOM
+	PsvOS0pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDuR-00000007AFw-1YXh;
-	Fri, 07 Aug 2026 06:18:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wsE9l-00000007BLD-3hLK;
+	Fri, 07 Aug 2026 06:34:13 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsDuP-00000007AFo-1e0N
+	id 1wsE9j-00000007BKA-0Y0V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 06:18:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E09460A92;
-	Fri,  7 Aug 2026 06:18:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30AEB1F000E9;
-	Fri,  7 Aug 2026 06:18:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786083500;
-	bh=T7RiCq+OixB24tXy0yphDXTtbdvli+hcqFP6djSgmvU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=AAjddBdwih7jzkRKgEJcu7DARh1MVbeOQNKcoffAaCBuKnw4SIH57C78S9sVVb6hs
-	 yy6ZhtY9idnh8WipcExuyqCB4EavxAJKgAKMloPEN59oJ+yBKTMjZadrTKO94N1Ywb
-	 FiBkrg4GWlkAT/gWp/aCIDWFiyZkkVvebNqShFaqQx61xdmuBWuuGtykT5j1PNliwk
-	 uYOEKQkXTVfPOHw8fYIPeewicBEEvh1XGvtEBSiUTMVtdQ0cZOHzWT7c0PXIjhfz+h
-	 3wkk+QZcWzCQCyGfO/Rji/wdr2xlvMZ9SdkV477scbq0VBv6U4HRgh9VF1qh9OD4Kg
-	 8fqhNT7YP7WCQ==
-Message-ID: <13ad992e-c9e1-4fed-af45-32907def6516@kernel.org>
-Date: Fri, 7 Aug 2026 08:18:14 +0200
+	Fri, 07 Aug 2026 06:34:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1786084411; x=1786689211; i=markus.elfring@web.de;
+	bh=l8xVvU2F/fFUSSpqRZVrd3WQpwZlkQIJEg0DhUYBh/o=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=QP9ZUTzSxbdWcX/FMZWWnAgKd53KsdXOKzEMngTw3BxKwolo786Zsc3ANczc/9AV
+	 7rscfect2zFMVrSYQ4QtrsmxfyFV0k9J8BblesceVaX88LrqyepX1pgGxGlF+ihIc
+	 8uzymRoxzxoNQcvYzIZ9MpVoPwrbU8ID59WrWbXGlQ7omD1ECBJ3UdUHO0dgI2NOZ
+	 42NagQOd7/R2TeFstj4MMVp5v0eD8Tvnq3pdzQ28TT1JAvm1st3OpRq/ALvRxaUAU
+	 qooBMYW5uN11BHNZBMgdsvZyF+P9vyOK0IANpe1zrl6tnf/XrNPS8Pw40lSYsMsqe
+	 cVsuINAl/XaweGfwNw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MqZQY-1xEJPG3iXQ-00kazQ; Fri, 07
+ Aug 2026 08:33:31 +0200
+Message-ID: <c27214da-4e76-4b5d-ab86-ab03beba8f6f@web.de>
+Date: Fri, 7 Aug 2026 08:33:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/10] serial: ambarella: add Ambarella UART driver
-To: longzhao@ambarella.com, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-serial@vger.kernel.org, soc@lists.linux.dev
-References: <20260806-longzhao-upstream-cv75-v2-v2-0-6b09707c5fe9@ambarella.com>
- <20260806-longzhao-upstream-cv75-v2-v2-8-6b09707c5fe9@ambarella.com>
-Content-Language: en-US
-From: Jiri Slaby <jirislaby@kernel.org>
-Autocrypt: addr=jirislaby@kernel.org; keydata=
- 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
-In-Reply-To: <20260806-longzhao-upstream-cv75-v2-v2-8-6b09707c5fe9@ambarella.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: tools: Use fputc() calls in some functions
+To: lkp@intel.com, acpica-devel@lists.linux.dev, bpf@vger.kernel.org,
+ coresight@lists.linaro.org, kvm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
+ linux-perf-users@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ mptcp@lists.linux.dev, netdev@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org, virtualization@lists.linux.dev,
+ Adrian Hunter <adrian.hunter@intel.com>, Alex Mastro <amastro@fb.com>,
+ Alex Williamson <alex@shazbot.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Alexei Starovoitov <ast@kernel.org>, Andi Kleen <ak@linux.intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Ankur Arora <ankur.a.arora@oracle.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <48f2d61f-d468-49b7-881e-f00777db073f@web.de>
+ <202608070547.MRKfa3bH-lkp@intel.com>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <202608070547.MRKfa3bH-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:heSIkINqyeiTt9/TVU/2HaIToPYra83aIuf0AvbOJOpmzGssabi
+ 2pB+Q4N00ikWy96JtYbAI4l92VxDK1eIhjSpkmWDfXgFHRUQ7AnWMM14fXBeSUbUtrPT8vY
+ ocQ8Oavw5OBRE5CCpreC0Xu8PbI7O1BHO5Y74x3WyR2UhRH9v5EgfFH9wSGPOPrV+FzK6Z/
+ XIXRX7oHnEmzadhHoTc1g==
+UI-OutboundReport: notjunk:1;M01:P0:faf1dCpquYU=;+6tK6j/uCs8jhR5JHZVE/TXw00j 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 IFJ+FFQ==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260806_233411_534316_A75BAB72 
+X-CRM114-Status: UNSURE (   5.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,471 +100,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+=E2=80=A6
+> All errors (new ones prefixed by >>):
+>=20
+>>> builtin-check.c:300:8: error: incompatible pointer to integer conversi=
+on passing 'FILE *' (aka 'struct _IO_FILE *') to parameter of type 'int' [=
+-Wint-conversion]
+>      300 |         fputc(stderr, '\n');
+>          |               ^~~~~~
+>    /usr/include/stdio.h:155:16: note: expanded from macro 'stderr'
+>      155 | #define stderr stderr
+>          |                ^~~~~~
+>    /usr/include/stdio.h:611:23: note: passing argument to parameter '__c=
+' here
+>      611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
+>          |                       ^=E2=80=A6
 
-On 06. 08. 26, 11:34, Long Zhao via B4 Relay wrote:
-> Add an Ambarella UART driver with console support for early boot
-> bring-up on CV75. Keep udelay() in wait_for_tx(); it runs under
-> console/poll paths that may hold the port lock with IRQs disabled.
-...
-> diff --git a/drivers/tty/serial/Makefile b/drivers/tty/serial/Makefile
-> index bba7b21a4a1d..5c951719528b 100644
-> --- a/drivers/tty/serial/Makefile
-> +++ b/drivers/tty/serial/Makefile
-> @@ -26,6 +26,7 @@ obj-y += 8250/
->   
->   obj-$(CONFIG_SERIAL_ALTERA_JTAGUART)	+= altera_jtaguart.o
->   obj-$(CONFIG_SERIAL_ALTERA_UART)	+= altera_uart.o
-> +obj-$(CONFIG_SERIAL_AMBARELLA)		+= ambarella_uart.o
+Would you become interested to take another look at a corrected source cod=
+e transformation approach?
 
-I would put it after AMBA_*. That should be also the ascii order, right?
+Improving output for single characters (with SmPL)?
+https://lore.kernel.org/cocci/406093f5-ee7d-4ae9-808b-2b42d4846eab@web.de/
+https://sympa.inria.fr/sympa/arc/cocci/2026-07/msg00055.html
+https://lkml.org/lkml/2026/7/23/2205
 
->   obj-$(CONFIG_SERIAL_AMBA_PL010)		+= amba-pl010.o
->   obj-$(CONFIG_SERIAL_AMBA_PL011)		+= amba-pl011.o
->   obj-$(CONFIG_SERIAL_GRLIB_GAISLER_APBUART) += apbuart.o
-> diff --git a/drivers/tty/serial/ambarella_uart.c b/drivers/tty/serial/ambarella_uart.c
-> new file mode 100644
-> index 000000000000..7356b242f0ef
-> --- /dev/null
-> +++ b/drivers/tty/serial/ambarella_uart.c
-> @@ -0,0 +1,1001 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +
-> +#include <linux/clk.h>
-> +#include <linux/console.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/pinctrl/consumer.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pm.h>
-> +#include <linux/serial_reg.h>
-> +#include <linux/serial_core.h>
-> +#include <linux/sysrq.h>
-> +#include <linux/tty.h>
-> +#include <linux/tty_flip.h>
-> +
-> +#define UART_RB_OFFSET			0x00
-> +#define UART_TH_OFFSET			0x00
-> +#define UART_DLL_OFFSET			0x00
-> +#define UART_IE_OFFSET			0x04
-> +#define UART_DLH_OFFSET			0x04
-> +#define UART_II_OFFSET			0x08
-> +#define UART_FC_OFFSET			0x08
-> +#define UART_LC_OFFSET			0x0c
-> +#define UART_MC_OFFSET			0x10
-> +#define UART_LS_OFFSET			0x14
-> +#define UART_MS_OFFSET			0x18
-> +#define UART_US_OFFSET			0x7c
-> +#define UART_SRR_OFFSET			0x88
+Can similar adjustments become more helpful for further software areas?
 
-For me, this would be more understadable:
-#define UART_IE		0x4
-# define UART_IE_ERBFI		BIT(0)
-...
-# define UART_IE_ETOI		BIT(6)
-# define UART_IE_ERETOI		BIT(7)
-and so on.
-
-That is:
-  * define the bits near the offset
-  * no _OFFSET suffix
-  * use BIT()
-
-...
-> +#define UART_FIFO_SIZE			64
-> +
-> +#define DEFAULT_AMBARELLA_UART_MCR	0
-> +#define DEFAULT_AMBARELLA_UART_IER	(UART_IE_ELSI | UART_IE_ERBFI | \
-> +					 UART_IE_ETOI)
-> +
-> +#define AMBA_UART_MAX_NUM		8
-> +
-> +#define AMBA_UART_RESET_FLAG		0 /* bit 0 */
-
-Perhaps convert this one to an enum?
-
-> +/* Poll timeout in microseconds (atomic helpers use udelay). */
-> +#define AMBARELLA_UART_TIMEOUT_US	1000000
-
-USEC_PER_SEC
-
-
-> +static inline void wait_for_tx(struct uart_port *port)
-> +{
-> +	u32 ls;
-> +	int ret;
-> +
-> +	ret = readl_poll_timeout_atomic(port->membase + UART_LS_OFFSET, ls,
-> +					ls & UART_LS_TEMT, 1,
-> +					AMBARELLA_UART_TIMEOUT_US);
-> +	if (likely(!ret))
-
-How did you measure this "likely" matters?
-
-> +		return;
-> +
-> +	/* Recover a stuck TX path so console/poll can continue. */
-> +	writel_relaxed(UART_FC_RX_2_TO_FULL | UART_FC_TX_EMPTY |
-> +			UART_FC_XMITR | UART_FC_RCVRR,
-> +			port->membase + UART_FC_OFFSET);
-> +	udelay(100);
-> +	writel_relaxed(UART_FC_FIFOE | UART_FC_RX_2_TO_FULL |
-> +			UART_FC_TX_EMPTY | UART_FC_XMITR |
-> +			UART_FC_RCVRR,
-> +			port->membase + UART_FC_OFFSET);
-> +}
-...
-> +static void serial_ambarella_hw_setup(struct uart_port *port)
-> +{
-> +	struct ambarella_uart_port *amb_port = to_ambarella_uart_port(port);
-> +
-> +	if (!test_and_set_bit(AMBA_UART_RESET_FLAG, &amb_port->flags)) {
-> +		if (amb_port->uart_pll)
-> +			port->uartclk = clk_get_rate(amb_port->uart_pll);
-> +		/* reset the whole UART only once */
-> +		writel_relaxed(0x01, port->membase + UART_SRR_OFFSET);
-
-Could you document also this bit in SRR (by a macro)?
-
-> +		mdelay(1);
-
-1 ms of spinning? That's very bad. Why this cannot be a sleep instead?
-
-> +		writel_relaxed(0x00, port->membase + UART_SRR_OFFSET);
-> +	}
-> +
-> +	writel_relaxed(UART_FC_FIFOE | UART_FC_RX_2_TO_FULL | UART_FC_TX_EMPTY |
-> +			UART_FC_XMITR | UART_FC_RCVRR, port->membase + UART_FC_OFFSET);
-> +	/* Keep interrupts disabled until the IRQ handler is registered. */
-> +	serial_ambarella_ier_write(port, 0);
-> +}
-...> +static void serial_ambarella_transmit_chars(struct uart_port *port)
-
-Any reason not to use uart_port_tx_limited()?
-
-> +{
-> +	struct tty_port *tport = &port->state->port;
-> +	int count;
-> +
-> +	if (port->x_char) {
-> +		writel_relaxed(port->x_char, port->membase + UART_TH_OFFSET);
-> +		port->icount.tx++;
-> +		port->x_char = 0;
-> +		return;
-> +	}
-> +
-> +	if (uart_tx_stopped(port) || kfifo_is_empty(&tport->xmit_fifo)) {
-> +		__serial_ambarella_stop_tx(port);
-> +		return;
-> +	}
-> +
-> +	count = port->fifosize;
-> +	while (count-- > 0) {
-> +		unsigned char c;
-> +
-> +		if (tx_fifo_is_full(port))
-> +			break;
-> +
-> +		if (!kfifo_peek(&tport->xmit_fifo, &c))
-> +			break;
-> +
-> +		writel_relaxed(c, port->membase + UART_TH_OFFSET);
-> +		kfifo_skip(&tport->xmit_fifo);
-> +		port->icount.tx++;
-> +		if (kfifo_is_empty(&tport->xmit_fifo))
-> +			break;
-> +	}
-> +
-> +	if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
-> +		uart_write_wakeup(port);
-> +	if (kfifo_is_empty(&tport->xmit_fifo))
-> +		__serial_ambarella_stop_tx(port);
-> +}
-> +
-> +static inline void serial_ambarella_check_modem_status(struct uart_port *port)
-> +{
-> +	u32 ms;
-> +
-> +	ms = __serial_ambarella_read_ms(port);
-> +
-> +	if (ms & UART_MS_RI)
-> +		port->icount.rng++;
-> +	if (ms & UART_MS_DSR)
-> +		port->icount.dsr++;
-> +	if (ms & UART_MS_DCTS)
-> +		uart_handle_cts_change(port, (ms & UART_MS_CTS));
-> +	if (ms & UART_MS_DDCD)
-> +		uart_handle_dcd_change(port, (ms & UART_MS_DCD));
-> +
-> +	wake_up_interruptible(&port->state->port.delta_msr_wait);
-> +}
-> +
-> +static irqreturn_t serial_ambarella_irq(int irq, void *dev_id)
-> +{
-> +	struct uart_port *port = dev_id;
-> +	u32 ii;
-> +
-> +	scoped_guard(uart_port_lock_irqsave, port) {
-
-This needs not to be scoped. Just guard().
-
-> +		ii = readl_relaxed(port->membase + UART_II_OFFSET);
-> +		switch (ii & 0x0F) {
-> +		case UART_II_MODEM_STATUS_CHANGED:
-> +			serial_ambarella_check_modem_status(port);
-> +			break;
-> +		case UART_II_THR_EMPTY:
-> +			serial_ambarella_transmit_chars(port);
-> +			break;
-> +		case UART_II_RCV_STATUS:
-> +		case UART_II_RCV_DATA_AVAIL:
-> +			serial_ambarella_receive_chars(port, 0);
-> +			break;
-> +		case UART_II_CHAR_TIMEOUT_FIFO_EMPTY:
-> +			/* Clear ERETOI to dismiss timeout-with-empty-FIFO IRQ */
-> +			serial_ambarella_ier_toggle(port, UART_IE_ERETOI);
-> +			fallthrough;
-> +		case UART_II_CHAR_TIMEOUT:
-> +			serial_ambarella_receive_chars(port, 1);
-
-Hmm, the last param looks like a bool. Why do you have tmo declared as u32?
-
-> +			break;
-> +		case UART_II_NO_INT_PENDING:
-> +			break;
-> +		default:
-> +			pr_debug("%s: 0x%x\n", __func__, ii);
-
-Are you sure you want to dump the unknown irq for every interrupt (on 
-DEBUG)?
-
-> +			break;
-> +		}
-> +	}
-> +
-> +	return IRQ_HANDLED;
-> +}
-...> +static unsigned int serial_ambarella_tx_empty(struct uart_port *port)
-> +{
-> +	unsigned int lsr;
-> +
-> +	guard(uart_port_lock_irqsave)(port);
-> +	lsr = readl_relaxed(port->membase + UART_LS_OFFSET);
-
-u32 lsr = ...
-
-No need for the previous declaration.
-
-> +
-> +	return ((lsr & (UART_LS_TEMT | UART_LS_THRE)) ==
-> +		(UART_LS_TEMT | UART_LS_THRE)) ? TIOCSER_TEMT : 0;
-> +}
-...
-> +static void serial_ambarella_set_termios(struct uart_port *port,
-> +					 struct ktermios *termios,
-> +					 const struct ktermios *old)
-> +{
-> +	struct ambarella_uart_port *amb_port = to_ambarella_uart_port(port);
-> +	unsigned int baud, quot;
-> +	u32 lc = 0x0;
-> +
-> +	port->uartclk = clk_get_rate(amb_port->uart_pll);
-> +	switch (termios->c_cflag & CSIZE) {
-> +	case CS5:
-> +		lc |= UART_LC_CLS_5_BITS;
-> +		break;
-> +	case CS6:
-> +		lc |= UART_LC_CLS_6_BITS;
-> +		break;
-> +	case CS7:
-> +		lc |= UART_LC_CLS_7_BITS;
-> +		break;
-> +	case CS8:
-> +	default:
-> +		lc |= UART_LC_CLS_8_BITS;
-> +		break;
-> +	}
-> +
-> +	if (termios->c_cflag & CSTOPB)
-> +		lc |= UART_LC_STOP_2BIT;
-> +	else
-> +		lc |= UART_LC_STOP_1BIT;
-> +
-> +	if (termios->c_cflag & PARENB) {
-> +		if (termios->c_cflag & PARODD)
-> +			lc |= (UART_LC_PEN | UART_LC_ODD_PARITY);
-> +		else
-> +			lc |= (UART_LC_PEN | UART_LC_EVEN_PARITY);
-> +	}
-> +
-> +	baud = uart_get_baud_rate(port, termios, old, 0, port->uartclk / 16);
-> +	quot = uart_get_divisor(port, baud);
-> +
-> +	scoped_guard(uart_port_lock_irqsave, port) {
-
-No need for scoped.
-
-> +		uart_update_timeout(port, termios->c_cflag, baud);
-> +
-> +		port->read_status_mask = UART_LSR_OE | UART_LSR_THRE | UART_LSR_DR;
-> +		if (termios->c_iflag & INPCK)
-> +			port->read_status_mask |= UART_LSR_FE | UART_LSR_PE;
-> +		if (termios->c_iflag & (BRKINT | PARMRK))
-> +			port->read_status_mask |= UART_LSR_BI;
-> +
-> +		port->ignore_status_mask = 0;
-> +		if (termios->c_iflag & IGNPAR)
-> +			port->ignore_status_mask |= UART_LSR_PE | UART_LSR_FE;
-> +		if (termios->c_iflag & IGNBRK) {
-> +			port->ignore_status_mask |= UART_LSR_BI;
-> +			if (termios->c_iflag & IGNPAR)
-> +				port->ignore_status_mask |= UART_LSR_OE;
-> +		}
-> +		if ((termios->c_cflag & CREAD) == 0)
-> +			port->ignore_status_mask |= UART_LSR_DR;
-> +
-> +		if ((termios->c_cflag & CRTSCTS) == 0) {
-> +			amb_port->mcr &= ~UART_MC_AFCE;
-> +			port->status &= ~UPSTAT_AUTOCTS;
-> +		} else {
-> +			amb_port->mcr |= UART_MC_AFCE;
-> +			port->status |= UPSTAT_AUTOCTS;
-> +		}
-> +
-> +		writel_relaxed(UART_LC_DLAB, port->membase + UART_LC_OFFSET);
-> +		writel_relaxed(quot & 0xff, port->membase + UART_DLL_OFFSET);
-> +		writel_relaxed((quot >> 8) & 0xff, port->membase + UART_DLH_OFFSET);
-> +		writel_relaxed(lc, port->membase + UART_LC_OFFSET);
-> +		if (UART_ENABLE_MS(port, termios->c_cflag))
-> +			__serial_ambarella_enable_ms(port);
-> +		else
-> +			__serial_ambarella_disable_ms(port);
-> +		serial_ambarella_set_mctrl(port, port->mctrl);
-> +	}
-> +}
-> +
-> +static void serial_ambarella_pm(struct uart_port *port,
-> +				unsigned int state, unsigned int oldstate)
-> +{
-> +}
-> +
-> +static void serial_ambarella_release_port(struct uart_port *port)
-> +{
-> +}
-> +
-> +static int serial_ambarella_request_port(struct uart_port *port)
-> +{
-> +	return 0;
-> +}
-> +
-> +static void serial_ambarella_config_port(struct uart_port *port, int flags)
-> +{
-> +}
-
-No need for empty definitions. The hooks are optional. We should 
-document this, likely.
-
-> +static int serial_ambarella_verify_port(struct uart_port *port,
-> +					struct serial_struct *ser)
-> +{
-> +	int rval = 0;
-
-You can return immediately, without the need for this variable, right?
-
-> +
-> +	if (ser->type != PORT_UNKNOWN && ser->type != PORT_UART00)
-> +		rval = -EINVAL;
-> +	if (port->irq != ser->irq)
-> +		rval = -EINVAL;
-> +	if (ser->io_type != SERIAL_IO_MEM)
-> +		rval = -EINVAL;
-> +
-> +	return rval;
-> +}
-...
-> +static int serial_ambarella_probe(struct platform_device *pdev)
-> +{
-> +	struct ambarella_uart_port *amb_port;
-> +	struct resource *mem;
-> +	struct pinctrl *pinctrl;
-> +	int irq, id, rval;
-> +
-> +	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	if (!mem) {
-> +		dev_err(&pdev->dev, "no mem resource!\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0) {
-> +		dev_err(&pdev->dev, "no irq resource!\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	id = of_alias_get_id(pdev->dev.of_node, "serial");
-> +	if (id < 0 || id >= serial_ambarella_reg.nr) {
-> +		dev_err(&pdev->dev, "Invalid uart ID %d!\n", id);
-> +		return -ENXIO;
-> +	}
-> +
-> +	pinctrl = devm_pinctrl_get_select_default(&pdev->dev);
-> +	if (IS_ERR(pinctrl)) {
-> +		dev_err(&pdev->dev, "Failed to request pinctrl\n");
-> +		return PTR_ERR(pinctrl);
-> +	}
-> +
-> +	amb_port = &ambarella_port[id];
-> +
-> +	amb_port->uart_pll = devm_clk_get_enabled(&pdev->dev, NULL);
-> +	if (IS_ERR(amb_port->uart_pll)) {
-> +		dev_err(&pdev->dev, "Get uart clk failed!\n");
-> +		return PTR_ERR(amb_port->uart_pll);
-> +	}
-> +
-> +	amb_port->mcr = DEFAULT_AMBARELLA_UART_MCR;
-> +
-> +	amb_port->port.dev = &pdev->dev;
-> +	amb_port->port.type = PORT_UART00;
-> +	amb_port->port.iotype = UPIO_MEM;
-> +	amb_port->port.fifosize = UART_FIFO_SIZE;
-> +	amb_port->port.uartclk = clk_get_rate(amb_port->uart_pll);
-> +	amb_port->port.ops = &serial_ambarella_pops;
-> +	amb_port->port.irq = irq;
-> +	amb_port->port.line = id;
-> +	amb_port->port.mapbase = mem->start;
-> +	amb_port->port.membase = devm_ioremap_resource(&pdev->dev, mem);
-> +	if (IS_ERR(amb_port->port.membase))
-> +		return PTR_ERR(amb_port->port.membase);
-> +
-> +	rval = uart_add_one_port(&serial_ambarella_reg, &amb_port->port);
-> +	if (rval < 0)
-> +		dev_err(&pdev->dev, "failed to add port: %d, %d!\n", id, rval);
-> +
-> +	platform_set_drvdata(pdev, amb_port);
-
-You set this even on failure. Does it matter? I don't know.
-
-> +
-> +	return rval;
-> +}
-> +
-> +static void serial_ambarella_remove(struct platform_device *pdev)
-> +{
-> +	struct ambarella_uart_port *amb_port;
-> +
-> +	amb_port = platform_get_drvdata(pdev);
-
-This can be amended to the declaration.
-
-> +	uart_remove_one_port(&serial_ambarella_reg, &amb_port->port);
-> +}
-> +
-
-thanks,
--- 
-js
-suse labs
+Regards,
+Markus
 
