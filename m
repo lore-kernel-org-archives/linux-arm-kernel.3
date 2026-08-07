@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8405FC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 17:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E86DC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 17:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8rfm6fvj0LdnF4tQ1D8g9Cn2aEj1UvzZ5nlws1p5BFk=; b=JM53vtGDQB5tjr7JLE6lZjxb4Z
-	u1jvosBIoutmSkuI1hJwC9WH8m/U+ePSvJoZgJ9+qhM87UFzsYajHrLHHI2DnOJOIOVGZZZpTgvt1
-	YtRPiM9njPssTHaDQo9sQiGXw2mgCfqSzsl2WLUxyz9zeTfQiZuj15u5hVZ43nsRJE2XQE21d2TJf
-	J5SXUdYVqlnwr6GbakH1h/4teVlJLhAeeecNRSipdNJaRPbFJpNBgYE5Qg6kknQEnN7gSUmRSsbAx
-	sQ+Dtf1XMSQgSZ5BfUFk5naMY59qLUgs9sLGQ43OLU/oQGUxnyuBqloCsKAxm3z7CCwALz/LjVeko
-	RbLGDiiQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b5+6s7cRaD+WPG+s4777S00qOcnE9y5+EtT1GZhZ2W0=; b=OfdjOKadiNwGaQAalVUKKJXHfu
+	kJa0Ml22aVfbXaMod/hZ6nNwwN9Y2Wkgn8D1kul40vebo5Ih9At6Ypy6ukB7DUYHJiEWIzZ6+6Hy7
+	i8nOQbOfpy8yCTywNZAjHKeCnccqjsXL28i4XH6KA0G4lABLqPWQAZMwR1aHJS4fat8uDyyYkCro9
+	QVPL5ZvMFtyaROYJzlb4bHKHxXU1O8p4rSyzLkdhhlaHkSxYfJl5eKHga2vxJeXdXp7ZlfMiRzHP+
+	lornbco0/ESWMy4ioSkrOZqRCnXgo5uFpR6bSG/a3BzGYhyu0imZrQpawB1RLzdTL/+J2C06JPwqb
+	Zm1z05wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsOIO-00000008W7B-3Krr;
-	Fri, 07 Aug 2026 17:23:48 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1wsOIT-00000008W82-3j9i;
+	Fri, 07 Aug 2026 17:23:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsOIL-00000008W6Y-1bbK
+	id 1wsOIO-00000008W7A-3K2c
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 17:23:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1786123428; x=1817659428;
-  h=message-id:date:mime-version:subject:to:references:from:
-   in-reply-to:content-transfer-encoding;
-  bh=+Z+rLnu80/tj5r5EvIpSKTEXh+L+IOeZ5o/UAr8GcWw=;
-  b=L+Ecycz1O3OrvMdhzbsvHVtQaOTVXBSI9yfI/1eLDCtfC+xBP8wh5nT6
-   bbdvLArxrNUuy8RtyFOYSX40Xgbpuxarw/wuautHgeL5J9DZgGdElOnRc
-   ZBQDE5t2JX5+LAFblddxVKV6dVQLTrFU0eLcBV1RMsEyG53e+7D/4tDeZ
-   0r/0DMrsTW86xa3zXxGfza2mx8zHedcwdwnSYGbw86NGSDwRuDLZdAGkj
-   k7CvvMgxodTvA+MmwjhjGtfDhNllyLFt5IgivUDgBTLbbFXszwBWg5Pk2
-   5BthtEFqhfA46obvk/iOcAJPMuG9U4QM5A7LH0w9R8dXrpWa47V/l/GM7
-   g==;
-X-CSE-ConnectionGUID: 0/cx6JZQTNWmZ46ra+BWzw==
-X-CSE-MsgGUID: AzOXgBViRLyVa7zLfFgNlQ==
-X-IronPort-AV: E=Sophos;i="6.25,210,1779174000"; 
-   d="scan'208";a="61825255"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Aug 2026 10:23:46 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.45; Fri, 7 Aug 2026 10:23:42 -0700
-Received: from [10.171.248.73] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Fri, 7 Aug 2026 10:23:40 -0700
-Message-ID: <e4960897-fe77-41c2-95c6-56038b7c9ba2@microchip.com>
-Date: Fri, 7 Aug 2026 19:23:39 +0200
+	Fri, 07 Aug 2026 17:23:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7DF89434AB
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  7 Aug 2026 17:23:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 629591F00ACA
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  7 Aug 2026 17:23:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786123428;
+	bh=b5+6s7cRaD+WPG+s4777S00qOcnE9y5+EtT1GZhZ2W0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=fWo8BwuNcmOGAUWFQLkWMWs5FyFp/Bw7kBHQPomavEjqezdgKmwOzWu+ZfGhVbLEh
+	 GqbJmxzMzrdfDLA6EmLFaiICOTVZ9DQnkwzZILiAO6yZTLqF71dwiPmCjlnATbnyfT
+	 tyZc5WxF3GnhG661H9bBufjr9/+N539IQsP5RjCEexLH1pEUy0Mgf3MRLJk4bsdv/p
+	 1fblhJV07mhSrLh0zQfuLou/F8Gs+JlQ8Rls8fxhoGlwu8OctUVaRV/3L0drArtkz+
+	 4rTJdZJVGyuzUnGOEfuHfIrc9p43UYxa2NBNzSBYFMWbYWoFIwjzGa+RO+WVJxtxZf
+	 W7YqGcistO2bw==
+Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-39c7fd21b63so29020241fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 10:23:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rp7f+D9HV0a6dutW3KIRPnrquYKip1aBMY5AHnjiiu7IcK7Q6Dt7jJN0mUXNsBxYifviO3Ur5sjGysmNPQE0VS6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOm5hXSI5Yn/q+aHoEGXCKi02jm9x1gRg0i0uOGUUPZTIDfCdM
+	cKI5n5yA2b4e5ILwQ4r0neXEx6voBh9unWS0TJul+UK16sfyRh6xZlEg6sGJfPDb9gDjM++YPnc
+	LSrAwbhGQknVEwx9UFe1MKQzvJ5LzcGs=
+X-Received: by 2002:a05:651c:2122:b0:39b:119d:aa02 with SMTP id
+ 38308e7fff4ca-39fbae0b8f8mr29204031fa.5.1786123427162; Fri, 07 Aug 2026
+ 10:23:47 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mmc: atmel-mci: Fix use-after-free in atmci_remove due to
- race condition
-To: Pei Xiao <xiaopei01@kylinos.cn>, <ulfh@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <linux-mmc@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <4389d5deff90b2b860bd07f17668270fda36bd26.1785750407.git.xiaopei01@kylinos.cn>
-Content-Language: en-US, fr
-From: Aubin Constans <aubin.constans@microchip.com>
-In-Reply-To: <4389d5deff90b2b860bd07f17668270fda36bd26.1785750407.git.xiaopei01@kylinos.cn>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_102345_747123_5E8EE087 
-X-CRM114-Status: GOOD (  21.40  )
+References: <20260805-rtc_s35390a_int1-v3-0-e836faba3e25@posteo.de> <20260805-rtc_s35390a_int1-v3-1-e836faba3e25@posteo.de>
+In-Reply-To: <20260805-rtc_s35390a_int1-v3-1-e836faba3e25@posteo.de>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 7 Aug 2026 19:23:34 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmbp5v5oy9oas3q=nDEvdvmPZpX71eHwEUgSKkn4bfCkQ@mail.gmail.com>
+X-Gm-Features: AUfX_mwxc-wD_DVhl85t0-cdNZC5rlPz-YW3X4nrBUoCVUhyUW7RnE0ImXvu-o0
+Message-ID: <CAD++jLmbp5v5oy9oas3q=nDEvdvmPZpX71eHwEUgSKkn4bfCkQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/5] dt-bindings: rtc: Add pinctrl for S35390A
+To: Markus Probst <markus.probst@posteo.de>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	=?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <uwe@kleine-koenig.org>, 
+	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+	Michael Langer <michael.brainbug.langer@googlemail.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,71 +86,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/08/2026 11:48, Pei Xiao wrote:
+On Wed, Aug 5, 2026 at 9:32=E2=80=AFPM Markus Probst <markus.probst@posteo.=
+de> wrote:
 
- > In atmci_probe, &host->bh_work is bound with atmci_work_func, and> atmci_interrupt, atmci_timeout_timer and atmci_dma_complete can all
-> queue this work on system_bh_wq.
-> 
-> If we remove the module, atmci_remove makes cleanup and the memory
-> allocated for host with devm_kzalloc() is released after the remove
-> callback returns, while the work mentioned above may still be pending
-> or running. The sequence of operations that may lead to a UAF bug is
-> as follows:
+> Synology NAS devices use the output pin for interrupt signal 1 to wake up
+> the system.
+>
+> Move devicetree bindings for sii,s35390a into its own file.
+> Add necessary properties to configure the individual pins via pinctrl,
+> which allows the interrupt signal 1 to be used for wakeup alarm.
+>
+> Signed-off-by: Markus Probst <markus.probst@posteo.de>
 
-Thank you for having spotted the issue, and sent this fix.
-  >
-> CPU0                                      CPU1
-> 
->                                            | atmci_interrupt
->                                            | queue_work(system_bh_wq,
->                                            |            &host->bh_work)
-> atmci_remove                              |
-> atmci_cleanup_slot(...)                   |
-> atmci_writel(host, ATMCI_IDR, ~0UL)       |
-> timer_delete_sync(&host->timer)           |
-> dma_release_channel(host->dma.chan)       |
-> free_irq(platform_get_irq(pdev, 0), host) |
->                                            | atmci_work_func
->                                            | // use host
-> // devm resources released after          |
-> // remove returns, host is freed          |
->                                            | // use host (use-after-free)
-> 
-> Fix it by canceling the work after all the sources that can schedule
-> it (IRQ handler, timeout timer and DMA completion callback) have been
-> stopped, and before proceeding with the remaining cleanup in
-> atmci_remove.
+This is a bit unexpected but I really like how this looks
+and how it is using pin control!
 
-For completeness, PDC completion could be added to the above list of sources,
-even though it is a subroutine of the IRQ handler.
-PDC and DMA are exclusive.
-
-Mentioning on which board or MPU the patch was tested would also be a welcome
-addition.
-
-> 
-> Fixes: 7d2be0749a59 ("atmel-mci: Driver for Atmel on-chip MMC controllers")
-> Assisted-by: Codex:deepseek-v4-flash
-> Signed-off-by: Pei Xiao <xiaopei01@kylinos.cn>
-> ---
->   drivers/mmc/host/atmel-mci.c | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/mmc/host/atmel-mci.c b/drivers/mmc/host/atmel-mci.c
-> index 3b4928f5b9b2..8f4df250a77a 100644
-> --- a/drivers/mmc/host/atmel-mci.c
-> +++ b/drivers/mmc/host/atmel-mci.c
-> @@ -2610,6 +2610,8 @@ static void atmci_remove(struct platform_device *pdev)
-> 
->          free_irq(platform_get_irq(pdev, 0), host);
-> 
-> +       cancel_work_sync(&host->bh_work);
-> +
->          clk_disable_unprepare(host->mck);
-> 
->          pm_runtime_disable(dev);
-> --
-> 2.25.1
-> 
-
+Yours,
+Linus Walleij
 
