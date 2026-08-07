@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD806C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA0C5C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:55:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I85adhJ9j4AXk4qwaHo9lpucRXLBpHk1etQni2YH+0U=; b=MqzphuG3gB5LPmtnu6kfVB6kjk
-	9xXLQshYyCbOh5ELXN32/lDWPyE/PpkyNG4ahfOw9FCUZ8ZCESAZjN7DLgSL4xEb+gLGROLp7UPqX
-	ThL6PDFX4llgQyuMzXFciuQdD9GK3O1n2fzMOKT13mAcFTvxREVne7orOJfjMd5sKbOH5O8TxQ4L2
-	9JN8Nt22PIESMe+vmKXcO5U0XKda98aLfWPUfYOBSx1UcbKnPg2CbnvUT3gdmvD4z9fjqQFeC/YXP
-	pEetkw/T8wSbh1z+bjSSp/cqvKaSEmpBub+opvCtCFNbNBhSOfHaxWWF/usLTZzIlLYWjfJ93T+yO
-	OTXBitNQ==;
+	bh=nRJI2Id35stbc9UUeijWXZUbEDaggOYw7TZt58Y6FBQ=; b=S7dXmwEFKhLf6U6fefCS/StUtp
+	5/cMmL+Tjx268twULi5um+XY8/vQiRMmThc+z3X2sq/QLtKEZ9P2hyVuFCgGjxhEJ4GE/Nh5zwVCW
+	hu8yQVd0JmAFNf03rdzJJ45dU7kWtDMSCg3jqLK3I8KAR541cyIBaHsmKG4d1LxQGNZNLGDIwW835
+	K9Q8tlFv1ZoJ358JB2/JpGenON/2w26qllQZs0oCPS1eM/dq9QVWtBRWOwqxqvAuz/KZCmG70ilVL
+	xy0t2DW3N3SXZNdNZ+icK6fErdD1BgMDZqX6olW9ol/yK9iBAKcu0O8tAjyNuaFvUugzOqR4lFGaa
+	JYU8/pjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsIEj-00000007lSl-0gap;
-	Fri, 07 Aug 2026 10:55:37 +0000
+	id 1wsIEn-00000007lWy-1AkV;
+	Fri, 07 Aug 2026 10:55:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsIEg-00000007lRB-2SLD
+	id 1wsIEj-00000007lTX-3jt1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:55:35 +0000
+	Fri, 07 Aug 2026 10:55:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 606091516;
-	Fri,  7 Aug 2026 03:55:29 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A4B91A9A;
+	Fri,  7 Aug 2026 03:55:33 -0700 (PDT)
 Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B35FE3F9A2;
-	Fri,  7 Aug 2026 03:55:29 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5A9F3F9A2;
+	Fri,  7 Aug 2026 03:55:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786100133; bh=a4kvPYu6NfhPZCK4KczaHgSPDUdc2yO4eL+9oqjQzbg=;
+	t=1786100137; bh=vfefnqkd2ibXnBQ39xPLFHlObQHT5faJOCUx8RwI9Uw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bKxxTjfg70qyrqabZusZwEjehcf3CDiS0X9NVkZUzdK3GFIKtoivl6H+fHlFakA/o
-	 7w2SCcD5EMWRBJYL2zuEj4BEffv3fy54zpSQ8BmfL4JcC7XZLXQqF/p81JUPdDELpX
-	 fQMr6tmQmQ2v7WxuOI7QyM9mR3XLzB8cZX7evI0E=
+	b=NJLcpWZd0yyCWt+0YwWUhwMkIFiskDK7vlgo+lTmRFAkph4IVDOw0Htc4/caIzYVp
+	 jV0Qyg466N+9mexIHtzaSoJZLDzKDyiDzDVcIHRwaV94Zh+z2SIvkmVQ2kKG/B9cGB
+	 B0/8psmLEI4Q0sHuEgEdhwlUOmlMbNQ8RHM38Ze4=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -63,17 +63,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v9 07/12] arm_mpam: propagate MSC access errors for mpam_reprogram_ris_partid()
-Date: Fri,  7 Aug 2026 12:54:46 +0200
-Message-ID: <20260807105451.3728284-8-andre.przywara@arm.com>
+Subject: [PATCH v9 08/12] arm_mpam: propagate MSC access errors for interrupt control
+Date: Fri,  7 Aug 2026 12:54:47 +0200
+Message-ID: <20260807105451.3728284-9-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260807105451.3728284-1-andre.przywara@arm.com>
 References: <20260807105451.3728284-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_035534_701255_76CBE4AD 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20260807_035538_020663_AD15B95E 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,283 +88,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the mpam_reprogram_ris_partid() function to check for and return
-errors, and propagate MSC read and write errors from the lower level up.
-This also covers the callers of this function: mpam_reset_ris() and
-apply_config().
+Allow the functions dealing with interrupt registration and enablement
+to check for and return errors, and propagate MSC read and write errors
+from the lower level up.
+This does not cover the IRQ handler yet, as this needs some more
+attention.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Review-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Tested-by: Gavin Shan <gshan@redhat.com> # on NVIDIA Grace Hopper
 ---
- drivers/resctrl/mpam_devices.c | 137 ++++++++++++++++++++++-----------
- 1 file changed, 94 insertions(+), 43 deletions(-)
+ drivers/resctrl/mpam_devices.c | 31 +++++++++++++++----------------
+ 1 file changed, 15 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 96579178f0c3..49239b15a27f 100644
+index 49239b15a27f..1b07f7765f96 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -1601,7 +1601,7 @@ void mpam_msmon_reset_mbwu(struct mpam_component *comp, struct mon_cfg *ctx)
+@@ -1105,7 +1105,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
  	}
- }
  
--static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
-+static int mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
- {
- 	u32 num_words, msb;
- 	u32 bm = ~0;
-@@ -1610,15 +1610,20 @@ static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
- 	lockdep_assert_held(&msc->part_sel_lock);
- 
- 	if (wd == 0)
--		return;
-+		return 0;
- 
- 	/*
- 	 * Write all ~0 to all but the last 32bit-word, which may
- 	 * have fewer bits...
- 	 */
- 	num_words = DIV_ROUND_UP(wd, 32);
--	for (i = 0; i < num_words - 1; i++, reg += sizeof(bm))
--		__mpam_write_reg(msc, reg, bm);
-+	for (i = 0; i < num_words - 1; i++, reg += sizeof(bm)) {
-+		int ret;
-+
-+		ret = __mpam_write_reg(msc, reg, bm);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	/*
- 	 * ....and then the last (maybe) partial 32bit word. When wd is a
-@@ -1626,7 +1631,7 @@ static void mpam_reset_msc_bitmap(struct mpam_msc *msc, u16 reg, u16 wd)
- 	 */
- 	msb = (wd - 1) % 32;
- 	bm = GENMASK(msb, 0);
--	__mpam_write_reg(msc, reg, bm);
-+	return __mpam_write_reg(msc, reg, bm);
- }
- 
- static void mpam_apply_t241_erratum(struct mpam_msc_ris *ris, u16 partid)
-@@ -1699,8 +1704,8 @@ static u16 mpam_wa_t241_calc_min_from_max(struct mpam_props *props,
- }
- 
- /* Called via IPI. Call while holding an SRCU reference */
--static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
--				      struct mpam_config *cfg)
-+static int mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
-+				     struct mpam_config *cfg)
- {
- 	u32 pri_val = 0;
- 	u16 cmax = MPAMCFG_CMAX_CMAX;
-@@ -1708,34 +1713,53 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 	struct mpam_props *rprops = &ris->props;
- 	u16 dspri = GENMASK(rprops->dspri_wd, 0);
- 	u16 intpri = GENMASK(rprops->intpri_wd, 0);
-+	int ret;
- 
--	mutex_lock(&msc->part_sel_lock);
--	__mpam_part_sel(ris->ris_idx, partid, msc);
-+	guard(mutex)(&msc->part_sel_lock);
-+	ret = __mpam_part_sel(ris->ris_idx, partid, msc);
+ 	/* Clear any stale errors */
+-	mpam_msc_clear_esr(msc);
++	ret = mpam_msc_clear_esr(msc);
 +	if (ret)
 +		return ret;
  
- 	if (mpam_has_feature(mpam_feat_partid_nrw, rprops)) {
- 		/* Update the intpartid mapping */
--		mpam_write_partsel_reg(msc, INTPARTID,
--				       MPAMCFG_INTPARTID_INTERNAL | partid);
-+		ret = mpam_write_partsel_reg(msc, INTPARTID,
-+					     MPAMCFG_INTPARTID_INTERNAL | partid);
-+		if (ret)
-+			return ret;
- 
- 		/*
- 		 * Then switch to the 'internal' partid to update the
- 		 * configuration.
- 		 */
--		__mpam_intpart_sel(ris->ris_idx, partid, msc);
-+		ret = __mpam_intpart_sel(ris->ris_idx, partid, msc);
-+		if (ret)
-+			return ret;
- 	}
- 
- 	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
--		if (mpam_has_feature(mpam_feat_cpor_part, cfg))
--			mpam_write_partsel_reg(msc, CPBM, cfg->cpbm);
--		else
--			mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM, rprops->cpbm_wd);
-+		if (mpam_has_feature(mpam_feat_cpor_part, cfg)) {
-+			ret = mpam_write_partsel_reg(msc, CPBM, cfg->cpbm);
-+			if (ret)
-+				return ret;
-+		} else {
-+			ret = mpam_reset_msc_bitmap(msc, MPAMCFG_CPBM,
-+						    rprops->cpbm_wd);
-+			if (ret)
-+				return ret;
-+		}
- 	}
- 
- 	if (mpam_has_feature(mpam_feat_mbw_part, rprops)) {
--		if (mpam_has_feature(mpam_feat_mbw_part, cfg))
--			mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM, rprops->mbw_pbm_bits);
--		else
--			mpam_write_partsel_reg(msc, MBW_PBM, cfg->mbw_pbm);
-+		if (mpam_has_feature(mpam_feat_mbw_part, cfg)) {
-+			ret = mpam_reset_msc_bitmap(msc, MPAMCFG_MBW_PBM,
-+						    rprops->mbw_pbm_bits);
-+			if (ret)
-+				return ret;
-+		} else {
-+			ret = mpam_write_partsel_reg(msc, MBW_PBM, cfg->mbw_pbm);
-+			if (ret)
-+				return ret;
-+		}
- 	}
- 
- 	if (mpam_has_feature(mpam_feat_mbw_min, rprops)) {
-@@ -1748,27 +1772,47 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 			val = max(val, min);
- 		}
- 
--		mpam_write_partsel_reg(msc, MBW_MIN, val);
-+		ret = mpam_write_partsel_reg(msc, MBW_MIN, val);
-+		if (ret)
-+			return ret;
- 	}
- 
- 	if (mpam_has_feature(mpam_feat_mbw_max, rprops)) {
--		if (mpam_has_feature(mpam_feat_mbw_max, cfg))
--			mpam_write_partsel_reg(msc, MBW_MAX, cfg->mbw_max);
--		else
--			mpam_write_partsel_reg(msc, MBW_MAX, MPAMCFG_MBW_MAX_MAX);
-+		if (mpam_has_feature(mpam_feat_mbw_max, cfg)) {
-+			ret = mpam_write_partsel_reg(msc, MBW_MAX, cfg->mbw_max);
-+			if (ret)
-+				return ret;
-+		} else {
-+			ret = mpam_write_partsel_reg(msc, MBW_MAX,
-+						     MPAMCFG_MBW_MAX_MAX);
-+			if (ret)
-+				return ret;
-+		}
- 	}
- 
--	if (mpam_has_feature(mpam_feat_mbw_prop, rprops))
--		mpam_write_partsel_reg(msc, MBW_PROP, 0);
-+	if (mpam_has_feature(mpam_feat_mbw_prop, rprops)) {
-+		ret = mpam_write_partsel_reg(msc, MBW_PROP, 0);
-+		if (ret)
-+			return ret;
-+	}
- 
--	if (mpam_has_feature(mpam_feat_cmax_cmax, rprops))
--		mpam_write_partsel_reg(msc, CMAX, cmax);
-+	if (mpam_has_feature(mpam_feat_cmax_cmax, rprops)) {
-+		ret = mpam_write_partsel_reg(msc, CMAX, cmax);
-+		if (ret)
-+			return ret;
-+	}
- 
--	if (mpam_has_feature(mpam_feat_cmax_cmin, rprops))
--		mpam_write_partsel_reg(msc, CMIN, 0);
-+	if (mpam_has_feature(mpam_feat_cmax_cmin, rprops)) {
-+		ret = mpam_write_partsel_reg(msc, CMIN, 0);
-+		if (ret)
-+			return ret;
-+	}
- 
--	if (mpam_has_feature(mpam_feat_cmax_cassoc, rprops))
--		mpam_write_partsel_reg(msc, CASSOC, MPAMCFG_CASSOC_CASSOC);
-+	if (mpam_has_feature(mpam_feat_cmax_cassoc, rprops)) {
-+		ret = mpam_write_partsel_reg(msc, CASSOC, MPAMCFG_CASSOC_CASSOC);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	if (mpam_has_feature(mpam_feat_intpri_part, rprops) ||
- 	    mpam_has_feature(mpam_feat_dspri_part, rprops)) {
-@@ -1783,12 +1827,14 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 		if (mpam_has_feature(mpam_feat_dspri_part, rprops))
- 			pri_val |= FIELD_PREP(MPAMCFG_PRI_DSPRI, dspri);
- 
--		mpam_write_partsel_reg(msc, PRI, pri_val);
-+		ret = mpam_write_partsel_reg(msc, PRI, pri_val);
-+		if (ret)
-+			return ret;
- 	}
- 
- 	mpam_quirk_post_config_change(ris, partid, cfg);
- 
--	mutex_unlock(&msc->part_sel_lock);
-+	return 0;
- }
- 
- /* Call with msc cfg_lock held */
-@@ -1891,6 +1937,7 @@ static int mpam_reset_ris(void *arg)
- 	u16 partid, partid_max;
- 	struct mpam_config reset_cfg = {};
- 	struct mpam_msc_ris *ris = arg;
-+	int ret;
- 
- 	if (ris->in_reset_state)
- 		return 0;
-@@ -1898,8 +1945,11 @@ static int mpam_reset_ris(void *arg)
  	spin_lock(&partid_max_lock);
- 	partid_max = mpam_partid_max;
- 	spin_unlock(&partid_max_lock);
--	for (partid = 0; partid <= partid_max; partid++)
--		mpam_reprogram_ris_partid(ris, partid, &reset_cfg);
-+	for (partid = 0; partid <= partid_max; partid++) {
-+		ret = mpam_reprogram_ris_partid(ris, partid, &reset_cfg);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	return 0;
- }
-@@ -1938,9 +1988,8 @@ static int __write_config(void *arg)
+ 	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
+@@ -2660,9 +2662,7 @@ static int mpam_enable_msc_ecr(void *_msc)
  {
- 	struct mpam_write_config_arg *c = arg;
+ 	struct mpam_msc *msc = _msc;
  
--	mpam_reprogram_ris_partid(c->ris, c->partid, &c->comp->cfg[c->partid]);
+-	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
 -
 -	return 0;
-+	return mpam_reprogram_ris_partid(c->ris, c->partid,
-+					 &c->comp->cfg[c->partid]);
++	return __mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
  }
  
- static void mpam_reprogram_msc(struct mpam_msc *msc)
-@@ -3088,6 +3137,7 @@ int mpam_apply_config(struct mpam_component *comp, u16 partid,
- 	struct mpam_msc_ris *ris;
- 	struct mpam_vmsc *vmsc;
- 	struct mpam_msc *msc;
-+	int ret;
+ /* This can run in mpam_disable(), and the interrupt handler on the same CPU */
+@@ -2670,9 +2670,7 @@ static int mpam_disable_msc_ecr(void *_msc)
+ {
+ 	struct mpam_msc *msc = _msc;
  
- 	lockdep_assert_cpus_held();
+-	__mpam_write_reg(msc, MPAMF_ECR, 0);
+-
+-	return 0;
++	return __mpam_write_reg(msc, MPAMF_ECR, 0);
+ }
  
-@@ -3105,14 +3155,15 @@ int mpam_apply_config(struct mpam_component *comp, u16 partid,
- 				 srcu_read_lock_held(&mpam_srcu)) {
- 		msc = vmsc->msc;
- 
--		mutex_lock(&msc->cfg_lock);
-+		guard(mutex)(&msc->cfg_lock);
- 		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
- 					 srcu_read_lock_held(&mpam_srcu)) {
- 			arg.ris = ris;
--			mpam_touch_msc(msc, __write_config, &arg);
-+			ret = mpam_touch_msc(msc, __write_config, &arg);
-+			if (ret)
-+				return ret;
- 			ris->in_reset_state = false;
+ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+@@ -2769,11 +2767,13 @@ static int mpam_register_irqs(void)
+ 				return err;
  		}
--		mutex_unlock(&msc->cfg_lock);
+ 
+-		mutex_lock(&msc->error_irq_lock);
+-		msc->error_irq_req = true;
+-		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
+-		msc->error_irq_hw_enabled = true;
+-		mutex_unlock(&msc->error_irq_lock);
++		scoped_guard(mutex, &msc->error_irq_lock) {
++			msc->error_irq_req = true;
++			err = mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
++			if (err)
++				return err;
++			msc->error_irq_hw_enabled = true;
++		}
  	}
  
  	return 0;
+@@ -2792,10 +2792,10 @@ static void mpam_unregister_irqs(void)
+ 		if (irq <= 0)
+ 			continue;
+ 
+-		mutex_lock(&msc->error_irq_lock);
++		guard(mutex)(&msc->error_irq_lock);
+ 		if (msc->error_irq_hw_enabled) {
+-			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
+-			msc->error_irq_hw_enabled = false;
++			if (!mpam_touch_msc(msc, mpam_disable_msc_ecr, msc))
++				msc->error_irq_hw_enabled = false;
+ 		}
+ 
+ 		if (msc->error_irq_req) {
+@@ -2807,7 +2807,6 @@ static void mpam_unregister_irqs(void)
+ 			}
+ 			msc->error_irq_req = false;
+ 		}
+-		mutex_unlock(&msc->error_irq_lock);
+ 	}
+ }
+ 
 -- 
 2.43.0
 
