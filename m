@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575CEC2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86321C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qWcEwYyqe5hrFTNnhE11BNIc5KZLRQFFbwVnoconO7I=; b=ux6vJc1yv6ZcoRhMhbAbrQ2CPL
-	aIFSsZ0WUPqhCufS3U7ixbLtfeitsJVmmDFgZeV2bTUIzusVMa8crVegEtp9n4is2IyarrK4KrWYp
-	R/EVbUrz5Y1ie9BBU5YM0mx7VNpXKY2qHXSq3HBLuZoi1rDjicwgmce4WtcIpyv0qGaEkEpQbk/qN
-	VLQzxLUMWVC4KcHMQe7NRmbvhBfpp8LsAivnkMEh0k69d2tqAk9x9U/oOau/uDt/B0JE9jgqfjiDZ
-	+NwHqJ0G5GxncwvPd6YUZLVXp4EIil+EI9oacwOsaT1kNlgGWJQM1/430x0GqECF+vSfOv8n7orQ2
-	tnut8QPA==;
+	bh=o1fE6JkjOYv/keYcMbNEp7t7rZGDHzQiCzT8MCcASAM=; b=YV8DWJreO62yHot1JZRBWOP/J0
+	ln28ld6YbtBCoemGOLAFYZ9Pyxq35jVa6OB32KEEnzx3vudfCweTpGPMcxn6gQ+3IDrfNukIBZQaP
+	8YkE/XLOtH9wHcp+VU6SRT3l0YNJy6jUzp12YICsxsvUUrFUtJh/IGRlHVMJOvUfrXUtitlbqkdgy
+	3QDsp+w49NKvNCGY2UpFbA0kTQsX3wcMGHE5RB76/6NrT6l63jO0zQkdpJDFHZQyEZ4oJOYvXHOvE
+	z76dZS9AJHnGpzDw488BsI1g2ce9S+lBBAI/Jwz3IqNOXJbtCnfdtaI9njXeA1YbtkPtA/jyUYmmM
+	GgLY2hpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKoc-00000008A5v-1vkE;
-	Fri, 07 Aug 2026 13:40:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wsKsI-00000008ANq-3rqs;
+	Fri, 07 Aug 2026 13:44:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKoa-00000008A5f-0bQ7
+	id 1wsKsG-00000008ANh-2mUD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 13:40:48 +0000
+	Fri, 07 Aug 2026 13:44:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B15B240020;
-	Fri,  7 Aug 2026 13:40:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29FAE1F000E9;
-	Fri,  7 Aug 2026 13:40:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C89940BDA;
+	Fri,  7 Aug 2026 13:44:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECB781F00A3A;
+	Fri,  7 Aug 2026 13:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786110047;
-	bh=qWcEwYyqe5hrFTNnhE11BNIc5KZLRQFFbwVnoconO7I=;
+	s=k20260515; t=1786110276;
+	bh=o1fE6JkjOYv/keYcMbNEp7t7rZGDHzQiCzT8MCcASAM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=FJM++DOXHhLpKcNav0vg9Imj1ZZzDfF3xIhg7gqSJPnohxj2qO72tfGZ3GQrG3eon
-	 w2aQ2xHmqH/M5hfYeRiW4yxi7ce78ajhNxeFQQaLuHmV0NFoqJEL+SDkE5o70Zm+O4
-	 ZWgr//PGdB0vXfqpxW4DcVRysaLuJnAh204rTraHbYRyYuxFECgOxkz8Aj7l+nGwIO
-	 fJU6xtYhVALhRCPfOF63oEABAGw5n2npg4kkoP27ou0xdM300PqT1xz09dnoIfEl4f
-	 5Ji14B3paJi9fX9qWS55b/Gi4TwEayOIwnQGtFRLwZMZV1BBRLe5zZOQKI+umduKtO
-	 Kz5M7jUm14BbA==
-Date: Fri, 7 Aug 2026 14:40:41 +0100
-From: Will Deacon <will@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Subject: Re: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
- mode
-Message-ID: <anXgWRmcjwPKG7N5@willie-the-truck>
-References: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
+	b=mW2yQ4J4f2b2rUVorHqYW3uua8RfIC6vpcPSFtr0rFRz6c9FNeTTjVsjQejYSWl8D
+	 Cvoh9fSAJ1Mk5UiAAee3MiEjPu71m5vwFv+13+RN7Tn1+s0CcXw4chyLTJbdgW1YEi
+	 QAkDvd39j6SQXZslqNfW17ExZLsA4ZEjf777Br2NqcYPYPLt3uZf6tS7ieu9eeewiZ
+	 Vx34h2EJEx7B15RNjUahaqs9RqYrWOYZLy2Df7JGyWlCHw/4O1gNTi0S9oGkA3k8eN
+	 y9XBQ1pFqwhc9mOJn9dbF1FG50IU0YEAPNEtF+OfUnx6oRH8/pB4Knb8mcYRMzwOX3
+	 ZOHdLTS4GEquw==
+Date: Fri, 7 Aug 2026 15:44:30 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly <Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>,
+	"fuad.tabba@linux.dev" <fuad.tabba@linux.dev>
+Subject: Re: [PATCH v5 03/49] irqchip/gic-v5: Set up gic_kvm_info on ACPI
+ hosts
+Message-ID: <anXhPp9QUH_rOn2X@red-moon>
+References: <20260807111159.429128-1-sascha.bischoff@arm.com>
+ <20260807111159.429128-4-sascha.bischoff@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
+In-Reply-To: <20260807111159.429128-4-sascha.bischoff@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,132 +76,196 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, vladimir.murzin@arm.com, rmikey@meta.com, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, kernel-team@meta.com, linux-kernel@vger.kernel.org, maz@kernel.org, bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Marc, Ada and Vladimir]
-
-On Fri, Aug 07, 2026 at 04:45:31AM -0700, Breno Leitao wrote:
-> Running retsnoop on a kernel with GIC priority masking and
-> CONFIG_ARM64_DEBUG_PRIORITY_MASKING=y trips the ICC_PMR_EL1 sanity check
-> in __pmr_local_irq_disable():
+On Fri, Aug 07, 2026 at 11:14:07AM +0000, Sascha Bischoff wrote:
+> Device-tree based GICv5 probing already passes the IRS details and
+> maintenance interrupt to KVM, but the ACPI path only initialises the
+> irqchip and installs the ACPI IRQ model. As a result, KVM never sees
+> the GICv5 host information required to probe the vGIC on ACPI systems.
 > 
->      WARNING: ./arch/arm64/include/asm/irqflags.h:63 at arm64_exit_to_kernel_mode+0xb8/0xc0, CPU#40: retsnoop/31805
-
-That's warning because we're trying to disable interrupts in the PMR but
-the existing PMR value is not IRQON or IRQOFF. The implication later is
-that GIC_PRIO_PSR_I_SET is set.
-
->      CPU: 40 UID: 0 PID: 31805 Comm: retsnoop Not tainted 7.2.0-rc6-next-20260805 #7 PREEMPTLAZY
->      pstate: 234013c9 (nzCv DAIF +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
->      pc : arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63)
->      lr : el1_abort (arch/arm64/kernel/entry-common.c:323)
->      pmr: 000000f0
->      Call trace:
-> D)    arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63) (P)
->       el1_abort (arch/arm64/kernel/entry-common.c:323)
->       el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:449)
-> C)    el1h_64_sync (arch/arm64/kernel/entry.S:589)
->       copy_from_kernel_nofault (mm/maccess.c:52) (P)
->       bpf_probe_read_kernel (kernel/trace/bpf_trace.c:268)
->       bpf_prog_db21a1730c2407e5_calib_exit+0xf0/0x160
->       trace_call_bpf (kernel/trace/bpf_trace.c:147)
->       kretprobe_perf_func (kernel/trace/trace_kprobe.c:1750)
->       kretprobe_dispatcher (kernel/trace/trace_kprobe.c:1875)
->       __kretprobe_trampoline_handler (kernel/kprobes.c:2116)
->       kretprobe_brk_handler (arch/arm64/kernel/probes/kprobes.c:422)
->       call_el1_break_hook (arch/arm64/kernel/debug-monitors.c:244)
->       do_el1_brk64 (arch/arm64/kernel/debug-monitors.c:266)
-> B)    el1_brk64 (arch/arm64/kernel/entry-common.c:427)
->       el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:481)
->       el1h_64_sync (arch/arm64/kernel/entry.S:589)
->       invoke_syscall (arch/arm64/kernel/syscall.c:49) (P)
->       do_el0_svc (arch/arm64/kernel/syscall.c:140)
->       el0_svc (arch/arm64/kernel/entry-common.c:736)
->       el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:755)
-> A)    el0t_64_sync (arch/arm64/kernel/entry.S:594)
+> Add the ACPI equivalent of the DT KVM setup. Parse the MADT GICC
+> entries for the maintenance interrupt, retaining the value from the
+> first relevant entry and warning if later entries disagree. Warn if
+> firmware describes the interrupt as edge-triggered, but register it as
+> a level-sensitive, active-high GSI. Pass the resulting IRQ together
+> with the IRS base and coherency information to KVM.
 > 
-> This is my understand of the current situation:
-
-Just a couple of nits that might help others:
-
-  - The description refers to PSTATE_I_SET, which doesn't exist
-  - The steps refer to 'regs->PMR' as though it's always the same memory
-    location
-
-> A) A task enters the kernel via a syscall.
-> 	* PSTATE_I_SET becomes set on the live PMR
-> 	* regs->PMR doesn't have PSR_I_SET set
-
-Hmm. My (possibly incorrect) reading of the code here is that the syscall
-entry path will clear GIC_PRIO_PSR_I_SET in the live PMR register when
-unmasking interrupts via local_daif_restore(DAIF_PROCCTX) ...
-
-> B) A BRK fires at EL1 and that is what leaves the live PMR
->    with PSR_I_SET.
-> 	* At this stage PSTATE_I_SET is set on both on PMR and regs->PMR
-
-... so the EL1 debug handler for the BRK shouldn't save a PMR value with
-GIC_PRIO_PSR_I_SET into the regs. We leave interrupts disabled for debug
-exceptions, so I agree that the PMR register retains GIC_PRIO_PSR_I_SET.
-
-> C) A nested synchronous exception happens (Not sure why -- BPF related)
-> 	* Now both the live PMR and regs->pmr have PSR_I_SET.
-
-That looks like it's the case and local_daif_inherit() won't change
-anything. I wonder if we should drop GIC_PRIO_PSR_I_SET when writing
-the PMR there?
-
-Will
-
-(retaining the rest of the mail for the folks I've added)
-
-> D) On the way out, local_irq_disable() → __pmr_local_irq_disable() warns.
->    It detects that PMR is different than GIC_PRIO_IRQON and GIC_PRIO_IRQOFF,
->    given live PMR and regs->PMR have PSTATE_I_SET ORed.
->
-> How to fix it? I don't know very well.
+> Native GICv5 does not require a maintenance interrupt unless the
+> legacy GICv3-compatible CPU interface is present, so preserve the
+> existing no-maintenance-IRQ handling for that case.
 > 
-> I am not certain that we want to have PSTATE_I_SET ever be sent to
-> regs->pstate. Do we ever need PSTATE_I_SET in regs->pstate?
-> 
-> In the current patch, I found that disabling IRQ in case it is disabled,
-> would solve the warning, but, this seems more a hack than a proper fix,
-> perhaps.
-> 
-> Fixes: ae654112eac0 ("arm64: entry: Use split preemption logic")
-> Signed-off-by: Breno Leitao <leitao@debian.org>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 > ---
->  arch/arm64/kernel/entry-common.c | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index ceb4eb11232a6..fcce9ccd37108 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -55,7 +55,13 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
->  static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
->  					      irqentry_state_t state)
+>  drivers/irqchip/irq-gic-v5.c | 95 ++++++++++++++++++++++++++++++++++--
+>  1 file changed, 91 insertions(+), 4 deletions(-)
+
+Just a bunch of nits below.
+
+> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> index e7a7aedcfaf78..5b8ea8551d832 100644
+> --- a/drivers/irqchip/irq-gic-v5.c
+> +++ b/drivers/irqchip/irq-gic-v5.c
+> @@ -1126,7 +1126,7 @@ static void gicv5_set_cpuif_idbits(void)
+>  #ifdef CONFIG_KVM
+>  static struct gic_kvm_info gic_v5_kvm_info __initdata;
+>  
+> -static void __init gic_of_setup_kvm_info(struct device_node *node)
+> +static void __init gic_setup_kvm_info(unsigned int maint_irq)
 >  {
-> -	local_irq_disable();
-> +	/*
-> +	 * Only irqentry_exit_to_kernel_mode_preempt() needs interrupts masked,
-> +	 * and it returns early when regs had them disabled. Skipping the
-> +	 * disable avoids clobbering a PMR the irqflags API does not expect.
-> +	 */
-> +	if (!regs_irqs_disabled(regs))
-> +		local_irq_disable();
->  	irqentry_exit_to_kernel_mode_preempt(regs, state);
->  	local_daif_mask();
->  	mte_check_tfsr_exit();
-> 
-> ---
-> base-commit: ea2bff00da89d7767d677bb68470130ba96f4928
-> change-id: 20260807-arm64_fix-47cad8fb6323
-> 
-> Best regards,
-> --  
-> Breno Leitao <leitao@debian.org>
-> 
+>  	struct gicv5_irs_chip_data *irs_data = gicv5_irs_get_chip_data();
+>  
+> @@ -1137,17 +1137,19 @@ static void __init gic_of_setup_kvm_info(struct device_node *node)
+>  	 */
+>  	if (!gicv5_global_data.virt_capable) {
+>  		pr_info("GIC implementation is not virtualization capable\n");
+> -		return;
+> +		goto out_dispose_maint_irq;
+
+Isn't it cleaner to dispose the mapping in the caller (by returning an
+error value) rather than here ?
+
+I appreciate this keeps the IRQ mapping disposal in one place but it
+decouples the allocation from the failure path.
+
+>  	}
+>  
+> -	gic_v5_kvm_info.type = GIC_V5;
+> +	if (WARN_ON(!irs_data))
+> +		goto out_dispose_maint_irq;
+>  
+> +	gic_v5_kvm_info.type = GIC_V5;
+>  	gic_v5_kvm_info.gicv5_irs.base = irs_data->irs_base;
+>  	gic_v5_kvm_info.gicv5_irs.non_coherent = !!(irs_data->flags & IRS_FLAGS_NON_COHERENT);
+>  
+>  	/* GIC Virtual CPU interface maintenance interrupt */
+>  	gic_v5_kvm_info.no_maint_irq_mask = false;
+> -	gic_v5_kvm_info.maint_irq = irq_of_parse_and_map(node, 0);
+> +	gic_v5_kvm_info.maint_irq = maint_irq;
+>  
+>  	/*
+>  	 * We require an MI if we have legacy support, but don't, otherwise.
+> @@ -1162,11 +1164,95 @@ static void __init gic_of_setup_kvm_info(struct device_node *node)
+>  		gic_v5_kvm_info.no_maint_irq_mask = true;
+>  
+>  	vgic_set_kvm_info(&gic_v5_kvm_info);
+> +	return;
+> +
+> +out_dispose_maint_irq:
+> +	irq_dispose_mapping(maint_irq);
+> +}
+> +
+> +static void __init gic_of_setup_kvm_info(struct device_node *node)
+> +{
+> +	/* GIC Virtual CPU interface maintenance interrupt */
+> +	gic_setup_kvm_info(irq_of_parse_and_map(node, 0));
+> +}
+> +
+> +#ifdef CONFIG_ACPI
+> +struct gicv5_acpi_kvm_info {
+> +	u32 maint_irq;
+> +};
+> +
+> +static struct gicv5_acpi_kvm_info acpi_v5_kvm_info __initdata;
+> +
+> +static int __init gic_acpi_parse_virt_madt_gicc(union acpi_subtable_headers *header,
+> +						const unsigned long end)
+> +{
+> +	struct acpi_madt_generic_interrupt *gicc =
+> +		(struct acpi_madt_generic_interrupt *)header;
+> +	static int first_madt = true;
+> +
+> +	if (!(gicc->flags &
+> +	      (ACPI_MADT_ENABLED | ACPI_MADT_GICC_ONLINE_CAPABLE)))
+> +		return 0;
+
+This would count as a valid parsed entry even though you don't retrieve the
+maintanance interrupt number, more below.
+
+> +
+> +	if (gicc->flags & ACPI_MADT_VGIC_IRQ_MODE)
+> +		pr_warn_once(FW_BUG "MI wrongly advertised as Edge-triggered\n");
+> +
+> +	if (first_madt) {
+> +		first_madt = false;
+> +
+> +		acpi_v5_kvm_info.maint_irq = gicc->vgic_interrupt;
+> +		return 0;
+> +	}
+> +
+> +	if (acpi_v5_kvm_info.maint_irq != gicc->vgic_interrupt)
+> +		pr_warn_once(FW_BUG "MI not the same on all CPUs\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static bool __init gic_acpi_collect_virt_info(void)
+> +{
+> +	int count;
+> +
+> +	count = acpi_table_parse_madt(ACPI_MADT_TYPE_GENERIC_INTERRUPT,
+> +				      gic_acpi_parse_virt_madt_gicc, 0);
+> +
+> +	return count > 0;
+>  }
+> +
+> +static void __init gic_acpi_setup_kvm_info(void)
+> +{
+> +	unsigned int maint_irq = 0;
+> +	int irq;
+> +
+> +	if (!gic_acpi_collect_virt_info()) {
+> +		pr_warn("Unable to get hardware information used for virtualization\n");
+> +		return;
+> +	}
+
+Nit: gic_acpi_collect_virt_info() might return true and you still don't get
+the info you need. Now, at least one GICC entry should be enabled and online
+capable (we are booting on a core after all but never overestimate ACPI tables :))
+so this is theory but I thought I would mention it.
+
+> +
+> +	if (acpi_v5_kvm_info.maint_irq) {
+> +		irq = acpi_register_gsi(NULL, acpi_v5_kvm_info.maint_irq,
+> +					ACPI_LEVEL_SENSITIVE,
+> +					ACPI_ACTIVE_HIGH);
+> +		if (irq > 0)
+> +			maint_irq = irq;
+> +		else
+> +			pr_warn("Failed to register GSI for GICv5 maintenance IRQ\n");
+
+Another nit: do we really need the maint_irq variable ?
+
+Thanks,
+Lorenzo
+
+> +	}
+> +
+> +	gic_setup_kvm_info(maint_irq);
+> +}
+> +#endif // CONFIG_ACPI
+>  #else
+>  static inline void __init gic_of_setup_kvm_info(struct device_node *node)
+>  {
+>  }
+> +
+> +#ifdef CONFIG_ACPI
+> +static inline void __init gic_acpi_setup_kvm_info(void)
+> +{
+> +}
+> +#endif
+>  #endif // CONFIG_KVM
+>  
+>  static int __init gicv5_init_common(struct fwnode_handle *parent_domain)
+> @@ -1265,6 +1351,7 @@ static int __init gic_acpi_init(union acpi_subtable_headers *header, const unsig
+>  		goto out_irs;
+>  
+>  	acpi_set_irq_model(ACPI_IRQ_MODEL_GIC_V5, gic_v5_get_gsi_domain_id);
+> +	gic_acpi_setup_kvm_info();
+>  
+>  	return 0;
+>  
+> -- 
+> 2.34.1
 
