@@ -4,61 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CD7C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 03:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988EEC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 03:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SGUkv9+Fok4EaIDDpWWsA+sMCCstIdbrR623bcWVaPQ=; b=vkiUgE+qUzSr5L7fXqLkoqCJ+E
-	ZyaEcZXik8BXn1+mMYvyMdMBPSxnFY4O3gAEAaGj5JD+gMCUFkngHQ7hf2/viWABUJ5cKmCzwgE41
-	59f5IxL3B9NcTGWZ93S5FbLg4CIfNHdCzj8YQDUBFwDNIocCwQgx+BtXszhi1pUh18TIBXi2wWWb1
-	KXUiZHg0tjYQI0LBOrRzXJl2/E0rroWXLCX5pOZ0Q0sgv5xIMm2j9SZSFUm5sHzHLpvQDBrLm4lLo
-	gC1OEj1uWhK/uiUg+e+dFgRd5ioeOttfENC58uCeIeXPhpBLiqfIyzTmiz0kBKOmoolCEhFhCOATa
-	Oa13g/5Q==;
+	bh=qBz6oNG/36Qp57t3ZEunGGxMAR6zZhWKYud3RSOdL8s=; b=QhizNCVsvWtoaRjZ7u4WuYRkRt
+	LIQA606mDuMP6dvx4YrkiUWjylq1cPK7UwXAd4fVku8vjxw8gwwdz8IbegIgj7/ckgrwIO0WodeaP
+	1FyaLZpUBilpQJoYmnHj09YnVSwt6jjq8D14wXqbizHIDBraTRJglT1K2SaoGzzIOiDqqNaM6L0Vz
+	gHlbkKKy1ILs9SIOIbzEAOwHsx9exu63a2St9wvy/m0q2tbzf/7c/G04e6UP5dFy2xqRefffoz3CA
+	ppydfekFaEciILL6K2EEwpvrMX3roJH9s8m6JKc7G4mZI+TKnK8qEFOJkaG732FJGdln6C/pQ4pYN
+	NSPZtciw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsBIv-000000072C3-0ify;
-	Fri, 07 Aug 2026 03:31:29 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wsBib-000000073og-2x8A;
+	Fri, 07 Aug 2026 03:58:01 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsBIp-000000072Aw-0acD;
-	Fri, 07 Aug 2026 03:31:28 +0000
-X-UUID: 69242580921011f1aa26b74ffac11d73-20260807
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:1683e2b3-7c4a-46ef-9a09-f7fb3d971b86,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:e7bac3a,CLOUDID:3d51184bf2e28b3ea64bce40f1865e9c,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|865|898,TC:nil,Content:0|15|50,EDM:-
-	3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,A
-	V:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 69242580921011f1aa26b74ffac11d73-20260807
-X-User: liuxixin@kylinos.cn
-Received: from [127.0.1.1] [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <liuxixin@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1054336515; Fri, 07 Aug 2026 11:31:00 +0800
-From: Xixin Liu <liuxixin@kylinos.cn>
-To: linux-riscv@lists.infradead.org
-Cc: atish.patra@linux.dev, anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, liuxixin@kylinos.cn
-Subject: [PATCH] perf: RISC-V: check cpu_hw_evt before dereference in overflow IRQ
-Date: Fri, 07 Aug 2026 08:59:50 +0800
-Message-ID: <prp0001riscv.1786064390.git.liuxixin@kylinos.cn>
+	id 1wsBiZ-000000073oJ-03zy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 03:58:00 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-495437bb891so14244515e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 20:57:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786075076; x=1786679876; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qBz6oNG/36Qp57t3ZEunGGxMAR6zZhWKYud3RSOdL8s=;
+        b=onxookITWZsNqWgnbul6clKvy4Y4SyE1/sSmrTOaqeUYH1S9Q8FQfSiZu9s205thLS
+         4O2lhdymHOraMe7mlwHqPPYSds7ECZ+nzOvieHOYSed0lHfjLoGCJ+TMfqOYO6AIDPL2
+         xM4XV1vl2xBP4ExNqsiwQWZ5MChOQeZF3S4RSEsxng8nnh+tKeyGkla+8jaQDdFMFEJC
+         gicv78j2LWCrPI/kWitIIU94ElJHD27fjMTqGImhIHujVuwoqi5EKil0uH/idanVOdpo
+         0DMWdYvCh+dxhSpxXQDSspd2TMpv7vw1hkLJ4JwxUKB9psQVZ0y1AloIV08hgCCBW6fN
+         03sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786075076; x=1786679876;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qBz6oNG/36Qp57t3ZEunGGxMAR6zZhWKYud3RSOdL8s=;
+        b=ByliYSsUAcXS5QSsXcRbdaildP30AFOz0ouipmqQhFTzqLS7LhaXKjhOr64NmmbfKN
+         NdocQD2f1pAkjfxAFKgi+3uwhuI6WiQceCVZyo4H4KQW+mArJ69hA/aOVE9F1TososlQ
+         QkCjd+A2JDbpJFh6/fUSYtHxdSM2F8IQLJAqayT+57hJTxCjIN7s9owI7QjBZq0Ta1Wz
+         hc+zo/yKX7gxeWgiOOqR733CVyEXTRfimPVT925uF+XtIALq3mDdCYIm0ZMMYoZacqcd
+         yvc3pr0SAiqjeV2om1YpTlfaMW68zswVBL+TGJCnW/zR5CgVCRRt1+eKgisF0CNSEK65
+         igFQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrVk1iuqgHfdUAK/uRSjcFQHp7JVN5YJvhJWIU5SpCsqPBz9xsPSBMRobyjbyQ1du+vxUf1bJeKTQMQGCiU3RqK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwemMdldyO83p4YkLKspfXctea0IZZ7coamnVgudTe8QATgc0QK
+	AnAAGPChzAbdVnlLYIa1w1udgyOu412YshyMfux6Vbru+TL+T+hH3fo0
+X-Gm-Gg: AR+sD12o+1acCoCX+hWCkgtuiZuuTPcWr1bq4jYBF9eKmAHQ4EWcZGVOCxGW9DjWduo
+	CnFr255kc/t+oForCjYCJFAv59fGhNUn9OBs/ZEtoNe5cECwqqJfwD9jTTXIqnmFT1FYklhGjXV
+	Tn8UCIK8W070NCxau4UIvuqpO8aFM6RN8QowlTLBOhiegiMWA1WoIXSdHj59/k+O/QvgXV/EJ4a
+	2KRcGruRo9jqAYiEe33A+HKaUJPMelVxdqhB88LYD5QPXY31CbzNv8xm/hIpMix7Y8tX2xFXA4A
+	rdRaspV+sIhzS00NHCiROKCR5t2slXCUVP0dVWK4FmcJK1v6MAHYNcGi0tUovibIheT0Qcl7+Rv
+	xwoCbv8k8Hty/7TWX9AXDbfJ+IbOKM8BTreC/t1JdH+xe6kdKwPlZov78/1Y7StZX7Mg1mzdKtf
+	gqMxAvShRarKmxJg9ly1kOgJFD0BI4jZb54jD2CvbOQzsPptol+rnwFh6M5oY4i7Ox6h0gloCX
+X-Received: by 2002:a05:600c:a48:b0:495:69eb:27d3 with SMTP id 5b1f17b1804b1-499553f4c4cmr105550845e9.8.1786075076143;
+        Thu, 06 Aug 2026 20:57:56 -0700 (PDT)
+Received: from SVR.localdomain ([86.106.74.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995e9e7171sm1055165e9.1.2026.08.06.20.57.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2026 20:57:55 -0700 (PDT)
+From: Semih Baskan <strst.gs@gmail.com>
+To: lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	rjui@broadcom.com,
+	sbranden@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	rafal@milecki.pl,
+	florian.fainelli@broadcom.com,
+	arnd@arndb.de
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	rosenp@gmail.com,
+	rani.hod@gmail.com
+Subject: [PATCH v2] PCI: iproc: Use the EROM outbound window on BCMA
+Date: Fri,  7 Aug 2026 06:57:26 +0300
+Message-ID: <20260807035726.387-1-strst.gs@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Mailer: patches/scripts/send-local.py
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_203123_495821_8FA2A267 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_205759_086880_0E31C5F1 
+X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +109,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The overflow IRQ handler dereferences cpu_hw_evt before the null check.
-Move the check first. Defensive only; the cookie is valid on the normal
-path today.
+The PCIe outbound window base on Northstar depends on the PCIe Gen2 core
+revision. Revision 0x01 uses 0x08000000, 0x40000000 and 0x48000000 for
+controllers 0 to 2, while revision 0x07 (NS-B0) uses 0x08000000,
+0x20000000 and 0x28000000. Broadcom's own driver branches on the core
+revision for exactly this reason.
 
-Signed-off-by: Xixin Liu <liuxixin@kylinos.cn>
+bcm-ns.dtsi is shared by every Northstar SoC, so it cannot carry a value
+that is correct on both. Commit 767012397976 ("ARM: dts: BCM5301X:
+Describe PCIe controllers fully") gave the controllers a ranges property.
+The commit shipped in v7.1.
+
+With that property present, two things go wrong with this driver:
+
+devm_pci_alloc_host_bridge() parses those ranges and requests them, then
+this driver adds its own window and requests the whole list a second
+time, so every controller fails to probe with -EBUSY.
+
+When the DT window is used, it is only correct on core revision 0x07. On
+revision 0x01 it points at an address the hardware does not decode, and
+the first MMIO access to a BAR takes an imprecise external abort.
+
+The enumeration ROM reports the correct base for the revision actually
+present, and bcma already provides it as addr_s[0]. Drop any memory
+window that came from the device tree and use that instead, requesting
+only the window this driver owns. This makes the driver correct whether
+or not the DT describes a window.
+
+When a dropped window does not match what the EROM reports, print a
+warning naming both. The mismatch means the devicetree describes a
+window the hardware does not decode, and that should be fixed in the
+dts rather than ignored silently.
+
+The same commit also added compatible = "brcm,iproc-pcie", so these
+nodes now match pcie-iproc-platform. With CONFIG_PCIE_IPROC_PLATFORM
+enabled, which is the default on ARCH_BCM_IPROC, that driver binds them
+first and this driver's probe fails inside devm_pci_alloc_host_bridge().
+This patch fixes the configurations where the BCMA driver is the one in
+use; OpenWrt builds that way, with PCIE_IPROC_PLATFORM disabled. The
+platform path takes the DT window as-is and has the same wrong address
+on core revision 0x01, so that side needs a devicetree fix either way.
+
+Tested on an ASUS RT-N18U (BCM47081) and a Linksys EA9200 (BCM4709),
+both core revision 0x01.
+
+Fixes: 767012397976 ("ARM: dts: BCM5301X: Describe PCIe controllers fully")
+Tested-by: Rani Hod <rani.hod@gmail.com>
+Cc: stable@vger.kernel.org # v7.1+
+Signed-off-by: Semih Baskan <strst.gs@gmail.com>
 ---
- drivers/perf/riscv_pmu_sbi.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+v1 -> v2: print a warning for every devicetree memory window that does
+not match the EROM window. Requested by Arnd Bergmann:
+https://lore.kernel.org/all/d05ffeca-f289-42dd-b454-5a7c7741c6d5@app.fastmail.com/
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index dfc886dee5ad..f0dd9d2645b4 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -1050,11 +1050,13 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
- 	u64 overflowed_ctrs = 0;
- 	struct cpu_hw_events *cpu_hw_evt = dev;
- 	u64 start_clock = sched_clock();
--	struct riscv_pmu_snapshot_data *sdata = cpu_hw_evt->snapshot_addr;
-+	struct riscv_pmu_snapshot_data *sdata;
+v1: https://lore.kernel.org/all/20260727140939.389-1-strst.gs@gmail.com/
+Applies to v7.2-rc5 and unchanged through v7.2-rc6; the file has no
+commits in between.
+
+ drivers/pci/controller/pcie-iproc-bcma.c | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/pci/controller/pcie-iproc-bcma.c b/drivers/pci/controller/pcie-iproc-bcma.c
+index 593418c2b..06a471f4a 100644
+--- a/drivers/pci/controller/pcie-iproc-bcma.c
++++ b/drivers/pci/controller/pcie-iproc-bcma.c
+@@ -36,6 +36,7 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
+ 	struct device *dev = &bdev->dev;
+ 	struct iproc_pcie *pcie;
+ 	struct pci_host_bridge *bridge;
++	struct resource_entry *win, *tmp;
+ 	int ret;
  
- 	if (WARN_ON_ONCE(!cpu_hw_evt))
- 		return IRQ_NONE;
- 
-+	sdata = cpu_hw_evt->snapshot_addr;
+ 	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+@@ -59,8 +60,22 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
+ 	pcie->mem.end = bdev->addr_s[0] + SZ_128M - 1;
+ 	pcie->mem.name = "PCIe MEM space";
+ 	pcie->mem.flags = IORESOURCE_MEM;
 +
- 	/* Firmware counter don't support overflow yet */
- 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
- 	if (fidx == RISCV_MAX_COUNTERS) {
++	resource_list_for_each_entry_safe(win, tmp, &bridge->windows) {
++		if (resource_type(win->res) != IORESOURCE_MEM)
++			continue;
++
++		if (win->res->start != pcie->mem.start ||
++		    win->res->end != pcie->mem.end)
++			dev_warn(dev, "DT window %pR does not match EROM window %pR, using EROM\n",
++				 win->res, &pcie->mem);
++
++		devm_release_resource(dev, win->res);
++		resource_list_destroy_entry(win);
++	}
++
+ 	pci_add_resource(&bridge->windows, &pcie->mem);
+-	ret = devm_request_pci_bus_resources(dev, &bridge->windows);
++	ret = devm_request_resource(dev, &iomem_resource, &pcie->mem);
+ 	if (ret)
+ 		return ret;
+ 
 -- 
 2.43.0
 
