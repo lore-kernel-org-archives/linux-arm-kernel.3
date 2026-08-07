@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E8CCC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B66C5AC82
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DRnRzIglH4bre6fymvnhTQIWpGXgBbzyHJfeoNchwKg=; b=WT6GFLyiX3NkfNwpFLHeQ97HRl
-	6yIwwo/F2eeOqCv2hbWUzlhL7ti1BMAUCDtpbR9yyc8V3A4Rrp/a/RfUsv1cg+jzSLMfSZXUrYa9Q
-	U7KC8lvn1SE6InlObemB0jDHWeCbzN/2kTzXZeaaTQ1Gdp1tzPHVrP20V3+vaeQfYbmJbKbIYivx3
-	rJIZkGiAF+vik2VCvMb4533lvVK0HWLApFZMoLqjgLRmS98mY45x6oeo9d86tfiIQsMGOF7/0Az99
-	mxo7xpiVGbL84OAtXA3d14rliq4Sqpub7TZuqYNrUU6mHvizLgwtEC6kiVqsMsNtls4KTTwKh8gdP
-	mYwkyMVQ==;
+	bh=8GYrEvMvff5zvEdtopJDUiIvGuJM4d42FcGqOwQV2a4=; b=oqJ92YlTrYRr1t0p0h7vjWAQ5S
+	N/v4xtN9mb4BQLk3JFE8a59DBUHM9X5WenY043y1fQCvW1iKFiYO2vV8pTJH5Ifb5uYE/ila82qE5
+	WP7dpgcbMV8o81dxPGY4HXKgtUrknYJBRgxm+ziQhTdRQH2+tbzMDEILYNiMrVz1pmN2RqSyKe6P7
+	75RGxTtjCvL48cYnVrr9/D0ebPjfq9XMReYEDZokknVJPvGAph7dXQtKKaSunghJnsbwI1WeXoCYX
+	6sAAqlcPC4p9aja0/y7FbTNbG3nfqy7k+PqnGbbKse8qbvMNV2zHqptbABbOfFld+EwnCnPb5hSC5
+	KXoORe2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNfg-00000008S4D-30BX;
-	Fri, 07 Aug 2026 16:43:48 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNfc-00000008S0C-3e8P
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wsNfd-00000008S1D-1Vmt;
 	Fri, 07 Aug 2026 16:43:45 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-4956c1655c3so19491765e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 09:43:44 -0700 (PDT)
+Received: from mail-wm1-x348.google.com ([2a00:1450:4864:20::348])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wsNfa-00000008Rz8-2I7s
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 16:43:43 +0000
+Received: by mail-wm1-x348.google.com with SMTP id 5b1f17b1804b1-495474a5fbcso31228395e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 09:43:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786121023; x=1786725823; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=DRnRzIglH4bre6fymvnhTQIWpGXgBbzyHJfeoNchwKg=;
-        b=l9cCnVBE87ptb53SSFAfTKU2kMK9wuBY8uIcthurlospYxJrYCRm+gAPpOUjVHBJYo
-         hozGGXQpxs0gudUE3+yiNPAQNNgItCSVovT2+PJoDDMSHCnwfrcq9mznh6OUul8nCTeg
-         JzlM+eqstvlkSoKwG3NDFR/5tSOEY1EfKClFjlUQOmXrCXEDPDtIRvD3Z8/fk3zy1SI1
-         jW9VdoHRK/rMqXna/3UMZn7/GA7YEUmbEIQmPfEq2Y3WbiY19n1OhzZonN3CttEYmVf6
-         yLohnxXQdqCHhvtCAiSmbmxelYrFRE0DrZ9dc1klian6m/gtQWDy2sdydlIUpNGQ+1H/
-         KvMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786121023; x=1786725823;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20251104; t=1786121020; x=1786725820; darn=lists.infradead.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=DRnRzIglH4bre6fymvnhTQIWpGXgBbzyHJfeoNchwKg=;
-        b=Ha4NiaRkSfyyLqzdrUqKYQbv4qdMZWIOXUMXkWBFReoGe3HaIHklSFAdDVaezrf5hB
-         vmqs/2Zybz1nP8uLNKsZwSQoqVgiCT+dm40I/iLC+Zp3NYE82PiLqAMVFO39gVgA8yUy
-         n2c49nBr1qTkjz/uF5CXzMQUDVEYnttOfc5q2df/B275VSFoZ0k9GXGb6cMh4vuPt/De
-         Qwx67QrVqITGgnkSJ8yc0AjfeuPzWAmcRgMLnP4d/84Gb03dv1gDqwU5EKVH6/eL2H7k
-         9FMcuAc4biJOq9iYhitmXAUwrzYJCaE+Pzel1zkPsDR8RS1LEhlOVWO6qpPpva9ErfRb
-         HTgA==
-X-Forwarded-Encrypted: i=1; AHgh+Rq4eRL06CCLm8oukC78u+vYdM6rrl2JLhiVsf++HH8jo4TXvXLttWy4m+mq9KWabDvGIdsNgbXqsJS/xdXE5FVy@lists.infradead.org
-X-Gm-Message-State: AOJu0YxneEm+vQYY0MAniieMOfeN3FzTw8upcTIGDi77hu7W4LPtz8RZ
-	A6omWy+M4jHA9Zq8UkVdd4oQplJN6hd2fUR9KNC8u8Rp0AM99As7RfYSUfRwiKWlAAudMQ/8oT/
-	GAMoeEGfFmi3cndIa5dUSuiHve20VIQ==
-X-Received: from wmbhu19.prod.google.com ([2002:a05:600c:a293:b0:493:f83f:e304])
+        bh=8GYrEvMvff5zvEdtopJDUiIvGuJM4d42FcGqOwQV2a4=;
+        b=jWnnGHkuIr5UA7hShIW0Bx77Xskox1g3aOS5PeG8qTTfO0FBNDko6m+q+YGlCKxcuK
+         yw898M63CR5O1piumJ0qKqP7rR7dL9ftufxsQavBrLa5aRWXgcLNDhCxPMTgQnv0oXnu
+         GmDSWznaCTJwAJr+As9BDIn4CbgjjhVlG9UR8SlH0Yy73RcRFbNvNjJT+d0HY4yq95zZ
+         KTCzeP34DW1sNvRP3xKx5lV8/Xru0HQB0ZlGMVGYpc9hZpUZ1Z1ofbAFTwCukQLJrnF9
+         YzSD5ti4SSBRIw1ROJKFM/3ZiN8Hwz+v6tp+r79tNyWn8qOk9sWc4DKAkV6i/yxbiXZp
+         6s+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786121020; x=1786725820;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8GYrEvMvff5zvEdtopJDUiIvGuJM4d42FcGqOwQV2a4=;
+        b=afH1qDS8p618A8qj7RajKNfLfc/dBP01nYP9GJO1D03t9xx6Oxf3tii2NKUWNZB7Xh
+         DaMxvIf5/Gbj+3HVBAI/ezVU6xny4KCaWnOZz4BmXRw2AlJ3kbmhs/AI648nllfwOoni
+         HqRbA2t6KG2F9M8Ou/+WIIN53ydcaDKjSbZqTr9krRUlE9e/DgLlHrmelPcY6Yx1OG5J
+         IcyRtXHaEoCfoGwdkwrC08wCq2NeJCCyv4k296s//x6Ir7Bb/qx1SAHdK8OxY0r+Ca1f
+         KzeQqRoFRAb3sHFOA/1aBnQtv5CP/8QQgN2PHvb3DGWITbQlyeeZZ4bH9bjJRIma++YT
+         uPEA==
+X-Forwarded-Encrypted: i=1; AHgh+RpM6zE3WyQblhw1mOFfXuohzvqF3lqGOTjBxfROcmCiv8GWcnGPXloiTPxZ46sTztXsGxSbR2YOBk4AQeoUXLDt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6DxPf7A4PCg+x1rcCS/g50kH88dztDDDjcFdNcng5RZBnco+U
+	EaEuDtLAq8zq5xi/scfbntFR2oIj8QlVxkkZTBkPwm5zhNV72g0YMMe97hLYn4ztGS42uSQrNQU
+	NE4D7NUlG0uTT5V6Jo/siF9b8osgG5w==
+X-Received: from wmbb14.prod.google.com ([2002:a05:600c:588e:b0:495:4a25:69f7])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:c297:b0:494:596e:e8c4 with SMTP id 5b1f17b1804b1-4994e7d3395mr238197545e9.17.1786121022494;
- Fri, 07 Aug 2026 09:43:42 -0700 (PDT)
-Date: Fri,  7 Aug 2026 16:43:13 +0000
+ 2002:a05:600c:1d23:b0:499:51cc:4e57 with SMTP id 5b1f17b1804b1-499617f7699mr13301535e9.0.1786121019899;
+ Fri, 07 Aug 2026 09:43:39 -0700 (PDT)
+Date: Fri,  7 Aug 2026 16:43:11 +0000
 In-Reply-To: <20260807164322.2970811-2-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20260807164322.2970811-2-sebastianene@google.com>
 X-Mailer: git-send-email 2.55.0.654.g21b8a5bc05-goog
-Message-ID: <20260807164322.2970811-5-sebastianene@google.com>
-Subject: [PATCH v2 03/13] KVM: arm64: Support host MMIO trap handlers for
- unmapped devices
+Message-ID: <20260807164322.2970811-3-sebastianene@google.com>
+Subject: [PATCH v2 01/13] KVM: arm64: Donate MMIO to the hypervisor
 From: Sebastian Ene <sebastianene@google.com>
 To: catalin.marinas@arm.com, fuad.tabba@linux.dev, joey.gouly@arm.com, 
 	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org, rananta@google.com, 
@@ -81,10 +79,9 @@ Cc: kvmarm@lists.linux.dev, android-kvm@google.com, bgrzesik@google.com,
 	vdonnefort@google.com, vladimir.murzin@arm.com, yuzenghui@huawei.com, 
 	zenghui.yu@linux.dev
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_094344_932028_9ECB46EB 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20260807_094342_624202_7285F83A 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,152 +96,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hook a handler to the host mem abort so that the hypervisor can
-intercept host accesses to unmapped memory regions.
-When a Stage-2 fault occurs on a registered device region, the
-hypervisor will look if there is any registered function that
-can handle the access. On the back of this, mediate host accesses
-to devices and emulate them in pKVM.
+From: Mostafa Saleh <smostafa@google.com>
 
+Extend the pKVM API to allow the donation of MMIO from the host
+address space to the hypervisor linear map.
+Initialize the host s2 page table with an invalid leaf with the owner ID
+of the hypervisor to prevent the host from mapping the page on faults.
+Prevent kvm_pgtable_stage2_unmap() from removing owner ID from
+stage-2 PTEs, as this can be triggered from recycle logic under memory
+pressure.
+
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
-Signed-off-by: Bart=C5=82omiej Grzesik <bgrzesik@google.com>
 ---
- arch/arm64/include/asm/kvm_arm.h      |  2 ++
- arch/arm64/include/asm/kvm_pkvm.h     |  4 +++
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 49 +++++++++++++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/setup.c       |  3 ++
- 4 files changed, 58 insertions(+)
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |   7 +
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 137 +++++++++++++++++-
+ arch/arm64/kvm/hyp/pgtable.c                  |  11 +-
+ 3 files changed, 148 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_=
-arm.h
-index 3f9233b5a130..6360c90f9855 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -304,6 +304,8 @@
-=20
- /* Hyp Prefetch Fault Address Register (HPFAR/HDFAR) */
- #define HPFAR_MASK	(~UL(0xf))
-+#define FAR_MASK	GENMASK_ULL(11, 0)
-+
- /*
-  * We have
-  *	PAR	[PA_Shift - 1	: 12] =3D PA	[PA_Shift - 1 : 12]
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm=
-_pkvm.h
-index ab26bec079d6..0a471564be00 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -20,9 +20,13 @@
- /* The maximum number of hypervisor protected regions from the host */
- #define PKVM_PROTECTED_REGS_NUM	8
-=20
-+struct pkvm_protected_reg;
-+typedef void(pkvm_emulate_handler)(struct pkvm_protected_reg *region, u64 =
-offset,
-+				   bool write, u64 *reg, u8 reg_size);
- struct pkvm_protected_reg {
- 	u64 pfn;
- 	u64 nr_pages;
-+	pkvm_emulate_handler *cb;
- };
-=20
- extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvh=
-e/mem_protect.c
-index 500c18c2fd48..7e978e0c44b9 100644
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+index 29935c7da1de..6aa83b129e61 100644
+--- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
++++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
+@@ -36,6 +36,13 @@ int __pkvm_guest_share_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
+ int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn);
+ int __pkvm_host_unshare_hyp(u64 pfn);
+ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages);
++/*
++ * Donate MMIO range to the hypervisor, it will be mapped in the hypervisor's
++ * linea map and unmapped from the host stage-2.
++ */
++int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size);
++/* Remaps MMIO range in the host, typically used in error path. */
++int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size);
+ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages);
+ int __pkvm_host_share_ffa(u64 pfn, u64 nr_pages);
+ int __pkvm_host_unshare_ffa(u64 pfn, u64 nr_pages);
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 4e329e39a695..5cf7c4a0ed20 100644
 --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
 +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -14,6 +14,7 @@
- #include <asm/stage2_pgtable.h>
-=20
- #include <hyp/fault.h>
-+#include <hyp/adjust_pc.h>
-=20
- #include <nvhe/arm-smccc.h>
- #include <nvhe/gfp.h>
-@@ -752,6 +753,50 @@ static void host_inject_mem_abort(struct kvm_cpu_conte=
-xt *host_ctxt)
- 	inject_host_exception(esr);
+@@ -378,7 +378,11 @@ static int host_stage2_unmap_dev_all(void)
+ 	u64 addr = 0;
+ 	int i, ret;
+ 
+-	/* Unmap all non-memory regions to recycle the pages */
++	/*
++	 * Unmap all non-memory regions to recycle the pages.
++	 * That relies on kvm_pgtable_stage2_unmap() not clearing
++	 * counted PTEs which include hypervisor MMIO.
++	 */
+ 	for (i = 0; i < hyp_memblock_nr; i++, addr = reg->base + reg->size) {
+ 		reg = &hyp_memory[i];
+ 		ret = kvm_pgtable_stage2_unmap(pgt, addr, reg->base - addr);
+@@ -1119,6 +1123,137 @@ int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+ 	return ret;
  }
-=20
-+static bool handle_host_mmio_trap(struct kvm_cpu_context *host_ctxt, u64 e=
-sr, u64 addr)
+ 
++int __pkvm_host_donate_hyp_mmio(phys_addr_t addr, size_t size)
 +{
-+	u64 offset, reg_value =3D 0, start, end;
-+	u8 reg_size, reg_index;
-+	bool write;
-+	int i;
++	kvm_pte_t pte;
++	u64 offset;
++	void *virt;
++	int ret;
 +
-+	for (i =3D 0; i < num_protected_reg; i++) {
-+		if (!pkvm_protected_regs[i].pfn || !pkvm_protected_regs[i].nr_pages ||
-+		    !pkvm_protected_regs[i].cb)
-+			continue;
++	/* Only before de-privilege. */
++	if (static_branch_unlikely(&kvm_protected_mode_initialized))
++		return -EPERM;
 +
-+		start =3D PFN_PHYS(pkvm_protected_regs[i].pfn);
-+		end =3D start + PFN_PHYS(pkvm_protected_regs[i].nr_pages);
-+		reg_size =3D BIT((esr & ESR_ELx_SAS) >> ESR_ELx_SAS_SHIFT);
++	if (!PAGE_ALIGNED(addr | size) ||
++	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
++		return -EINVAL;
 +
-+		if (start > addr || addr + reg_size > end)
-+			continue;
++	host_lock_component();
++	hyp_lock_component();
 +
-+		reg_index =3D (esr & ESR_ELx_SRT_MASK) >> ESR_ELx_SRT_SHIFT;
-+		write =3D (esr & ESR_ELx_WNR) =3D=3D ESR_ELx_WNR;
-+		offset =3D addr - start;
++	for (offset = 0; offset < size; offset += PAGE_SIZE) {
++		if (addr_is_memory(addr + offset)) {
++			ret = -EINVAL;
++			goto err_with_mapping;
++		}
 +
-+		if (write && reg_index !=3D 31)
-+			reg_value =3D host_ctxt->regs.regs[reg_index];
++		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
++		if (ret)
++			goto err_with_mapping;
 +
-+		pkvm_protected_regs[i].cb(&pkvm_protected_regs[i], offset, write,
-+					  &reg_value, reg_size);
++		if (pte && !kvm_pte_valid(pte)) {
++			ret = -EPERM;
++			goto err_with_mapping;
++		}
 +
-+		if (!write && reg_index !=3D 31)
-+			host_ctxt->regs.regs[reg_index] =3D reg_value;
++		virt = __hyp_va(addr + offset);
++		ret = kvm_pgtable_get_leaf(&pkvm_pgtable, (u64)virt, &pte, NULL);
++		if (ret)
++			goto err_with_mapping;
++		if (pte) {
++			ret = -EBUSY;
++			goto err_with_mapping;
++		}
 +
-+		kvm_skip_host_instr();
-+		return true;
++		ret = pkvm_create_mappings_locked(virt, virt + PAGE_SIZE, PAGE_HYP_DEVICE);
++		if (ret)
++			goto err_with_mapping;
 +	}
 +
-+	return false;
++	/*
++	 * We set HYP as the owner of the MMIO pages in the host stage-2, for:
++	 * - host aborts: host_stage2_adjust_range() would fail for invalid non zero PTEs.
++	 * - recycle under memory pressure: host_stage2_unmap_dev_all() would call
++	 *   kvm_pgtable_stage2_unmap() which will not clear non zero invalid ptes (counted).
++	 * - other MMIO donation: Would fail as we check that the PTE is valid or empty.
++	 */
++	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
++			      addr, size, &host_s2_pool,
++			      KVM_HOST_INVALID_PTE_TYPE_DONATION,
++			      FIELD_PREP(KVM_HOST_DONATION_PTE_OWNER_MASK, PKVM_ID_HYP));
++	if (ret)
++		goto err_with_mapping;
++unlock:
++	hyp_unlock_component();
++	host_unlock_component();
++	return ret;
++err_with_mapping:
++	if (!offset)
++		goto unlock;
++
++	while (offset) {
++		offset -= PAGE_SIZE;
++		virt = __hyp_va(addr + offset);
++		WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, (u64)virt, PAGE_SIZE) != PAGE_SIZE);
++	}
++	goto unlock;
 +}
 +
-+static bool is_dabt(u64 esr)
++int __pkvm_hyp_donate_host_mmio(phys_addr_t addr, size_t size)
 +{
-+	return (ESR_ELx_EC(esr) =3D=3D ESR_ELx_EC_DABT_LOW) && (esr & ESR_ELx_ISV=
-);
++	kvm_pte_t pte;
++	u64 offset;
++	int ret = 0;
++	void *virt;
++
++	if (static_branch_unlikely(&kvm_protected_mode_initialized))
++		return -EPERM;
++
++	if (!PAGE_ALIGNED(addr | size) ||
++	    !pfn_range_is_valid(hyp_phys_to_pfn(addr), size >> PAGE_SHIFT))
++		return -EINVAL;
++
++	host_lock_component();
++	hyp_lock_component();
++
++	for (offset = 0; offset < size; offset += PAGE_SIZE) {
++		if (addr_is_memory(addr + offset)) {
++			ret = -EINVAL;
++			goto err_with_unmap;
++		}
++		ret = kvm_pgtable_get_leaf(&host_mmu.pgt, addr + offset, &pte, NULL);
++		if (ret)
++			goto err_with_unmap;
++		if (!pte || kvm_pte_valid(pte)) {
++			ret = -EINVAL;
++			goto err_with_unmap;
++		}
++		if (FIELD_GET(KVM_HOST_DONATION_PTE_OWNER_MASK, pte) != PKVM_ID_HYP) {
++			ret = -EPERM;
++			goto err_with_unmap;
++		}
++
++		virt = __hyp_va(addr + offset);
++		if (kvm_pgtable_hyp_unmap(&pkvm_pgtable, (u64)virt, PAGE_SIZE) != PAGE_SIZE)
++			goto err_with_unmap;
++	}
++	WARN_ON(host_stage2_idmap_locked(addr, size, PKVM_HOST_MMIO_PROT));
++unlock:
++	hyp_unlock_component();
++	host_unlock_component();
++	return ret;
++err_with_unmap:
++	if (!offset)
++		goto unlock;
++
++	while (offset) {
++		offset -= PAGE_SIZE;
++		virt = __hyp_va(addr + offset);
++		WARN_ON(pkvm_create_mappings_locked(virt, virt + PAGE_SIZE, PAGE_HYP_DEVICE));
++	}
++	goto unlock;
 +}
 +
- void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
+ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
  {
- 	struct kvm_vcpu_fault_info fault;
-@@ -774,6 +819,10 @@ void handle_host_mem_abort(struct kvm_cpu_context *hos=
-t_ctxt)
- 	BUG_ON(!(fault.hpfar_el2 & HPFAR_EL2_NS));
- 	addr =3D FIELD_GET(HPFAR_EL2_FIPA, fault.hpfar_el2) << 12;
-=20
-+	if (is_dabt(esr) && !addr_is_memory(addr) &&
-+	    handle_host_mmio_trap(host_ctxt, esr, addr | (fault.far_el2 & FAR_MAS=
-K)))
-+		return;
-+
- 	switch (host_stage2_idmap(addr)) {
- 	case -EPERM:
- 		host_inject_mem_abort(host_ctxt);
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setu=
-p.c
-index 64c0290da888..4395595b7f7e 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -294,6 +294,9 @@ static int donate_protected_mmio_regions(void)
- 						  pkvm_protected_regs[i].nr_pages << PAGE_SHIFT);
- 		if (ret)
- 			goto err_setup;
-+
-+		if (pkvm_protected_regs[i].cb)
-+			pkvm_protected_regs[i].cb =3D kern_hyp_va(pkvm_protected_regs[i].cb);
- 	}
-=20
- 	return 0;
---=20
+ 	u64 phys = hyp_pfn_to_phys(pfn);
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index b74dd5ce1efd..7638213bd893 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -1161,13 +1161,12 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+ 	kvm_pte_t *childp = NULL;
+ 	bool need_flush = false;
+ 
+-	if (!kvm_pte_valid(ctx->old)) {
+-		if (stage2_pte_is_counted(ctx->old)) {
+-			kvm_clear_pte(ctx->ptep);
+-			mm_ops->put_page(ctx->ptep);
+-		}
++	/*
++	 * That also ignores stage2_pte_is_counted() instead of clearing
++	 * the PTE as the MMIO can be owned by the hypervisor.
++	 */
++	if (!kvm_pte_valid(ctx->old))
+ 		return 0;
+-	}
+ 
+ 	if (kvm_pte_table(ctx->old, ctx->level)) {
+ 		childp = kvm_pte_follow(ctx->old, mm_ops);
+-- 
 2.55.0.654.g21b8a5bc05-goog
 
 
