@@ -4,97 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936ACC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2334BC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:10:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DY/d6gKFTVZUvwR7r+EZgSjCPiJOiVZZbCY1T/z/Asc=; b=bnzxCC9po4qn6ayvxbDV3nzC7n
-	9VYb4LhMRdMawqkOjTGDN0MBWMq77Uq78WGXs9hXTxwj+ObpYNIpRmu6BBrSlaCKIPQcUDp5i4q5E
-	Aa2+3lWgCaBKf7H25fyxMWnlMdDB3I+X+GXUUk5moKkFU0f3YKGJsTd6XmKbyDXdhthNVedbG65ct
-	Z2xl3v/YyUlHET8LKya+Q1gLjAzbwxDl7GZH6uRX6ENaXBwzxTCf+4HlxRn6eHovOtRY5/hLita8r
-	930lF1IUWUU1VVm00nHEFf1neUwDTygi6l8CXcHergBRbgnPMJRadkFL9Khrfv41Lsm3BdJu0ti6D
-	oZJkuoNQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JPe2T4C9FGoAfSm2OSn/uy+LGFjAoZJob/kwp689UMw=; b=awBOV7QazV6POzgA7vu8oasYc7
+	k2kO09zaYPDJ13F6r6bsX3q3/Iyiv5jhmlJYX2KGl17peiI2jgZ63xSGFmtZTaXb0a8LRAMoF3JYL
+	zA6B1x7v/J3zbMxf9WOqBzB2KeHOZsm5toAiKwdqwSeAc7AwGjIiRCvKVbsMddZy6rRpzcMciuaOs
+	iBM0K/kwb9zWoscd/X6CnKiNUt4rDwbGtFwH0GsvW/Jwm/M6jzBy1d+KSJecVoMDq2QEBI6eJU0gc
+	PVXRFi52M+y0OjXuk2MxA7piM5cQmJ/Q+VpZli7r7N89FsGVF/9R1Qr1Kwwd2OCzjD4OSTrKPiBb7
+	fmwHORTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsN55-00000008OkS-2jgB;
-	Fri, 07 Aug 2026 16:05:59 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wsN9d-00000008Oxf-1pTu;
+	Fri, 07 Aug 2026 16:10:41 +0000
+Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsN52-00000008Ojb-1g1M
+	id 1wsN9a-00000008Oww-0pSt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 16:05:58 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-49545ba3d4eso19614035e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 09:05:55 -0700 (PDT)
+	Fri, 07 Aug 2026 16:10:39 +0000
+Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-81e8fa1b8d6so49225967b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 09:10:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786119036; cv=none;
+        d=google.com; s=arc-20260327;
+        b=shehTEuhMV5VZniuF9oniulaJguSkRnVO7EJaDF+rZ5OTxDvM3To+E69D8JVvNPk6u
+         L2H2CTBWe0sFEDd4w8AqIoFHITgZUGyRlbazVvR83PEItlZAy/iugm8Doi12QLWTuy0c
+         /tGUJhEKNBBRtYL25Vaujee3Hi7eaCctLLFrmpb+m/VY1og5tfJVNdWLemYHqhk8QvR9
+         WGcBgc2oPTHfldg9h+FwpnF17njN5HLWpmWNwGx/SVRm9LXLhAa6sb3IMkVLG9PdWGpc
+         4YJ+U4K/r4G9sQyPk4SbhDmoW2QgDaax0du40Se0vTZ8kcplGMuubpyD0KaXmX8nJONy
+         5xRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=JPe2T4C9FGoAfSm2OSn/uy+LGFjAoZJob/kwp689UMw=;
+        fh=EQUTXlOOln/JN9zqi+g4zSHkRYy24MLzWhGclrYFmaM=;
+        b=MhfEUeK0o9X4i9Ld6o8StiFtpXgixwVlmgpFWnOGnbPF1vNULr5wk4t4+UloIcVOjr
+         LcyHzvjuH+0bI120SgIVxX5d63dMkl+BxLOHxunJxuu+4Oz4u8xr7M36qq8kmoUKgo0b
+         /FrA90mxeQjSQGay+cejSCG/3W5q+qo5ZXuAR7ZCwuWdzvWTWm8n70SgZZ1oxtsRheIV
+         JGKFrBhOLbO+NZ7skgXM9TXVNwdD2uGB8lknKc9Wp4a1bRHDQf2jRM5cBTycwYkIA33u
+         QOMZpUSTLOz4mJINWm9RJLj8vkDo2NDDA8g8YtHqXvn9jldF1diHWm2NZhzECpPKblWD
+         +hxQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786118754; x=1786723554; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DY/d6gKFTVZUvwR7r+EZgSjCPiJOiVZZbCY1T/z/Asc=;
-        b=YzjeXqijM0k2qrwtqsNbDgkkhtf29hBMdqBFvmOA9C94huvocgZfkgMEBf31Xq8VJq
-         9XU4rk44I34VztorsbwT6SGnQoVwyxhH22sahFL37jHaTnxwaNMihcLKaQvS+PfkYbIK
-         WwPo5d68yBCyj2M65eDSMucRQItGmVOw89HwvSV8dWA72m0Gyr2Se5gM9RIWNZ/HOIHQ
-         HNHKZ/KCCZ5iBJ5ksYR9aEwI3GHdjN8ESwE2me+iLveiVT1zWQs+W272GPd8C3qg++GZ
-         hq8vybQ5sHGA45nkMvRxXZC9VnoQ9Qu2dz8nKM2e7yjdCGWOxjL8S3u5omm/Ss/Xw9/U
-         zImw==
+        d=gmail.com; s=20251104; t=1786119036; x=1786723836; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=JPe2T4C9FGoAfSm2OSn/uy+LGFjAoZJob/kwp689UMw=;
+        b=kGB8PAzRadVpyF+KRUAWQsiAaeSmtzMZrF9cJZvcotkTgdKwDb5Lf4t31cUuZwojXJ
+         ysyQSnfP3HMSq/0HpM9HLYto8h52mB9nQJwUb7gRDVXPq6/zQPCYwruCgHEKAYELeVco
+         dYkx+k/TN2OpEGx/wK8JnGnwCyf+Ou2zrtJtvW1vMtA3wrE25bIMWpQ/UepkzZ/0SDfz
+         i0xEsJdgZEMRcWnYznUUlnemUn7VWCyWo8KHR139mZ36WH4Kze14ZUACeD/3s6ImcoDL
+         SM14m9wJNLoaWXt/j5Z4y8u4MytmVNkPbUAZNUJxBAcD6V2F0GBUWLQMlLyoJAXnR7cF
+         /KrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786118754; x=1786723554;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DY/d6gKFTVZUvwR7r+EZgSjCPiJOiVZZbCY1T/z/Asc=;
-        b=F/42XqTEpo2/O6pA42l7iMxpcJZh1NJUg95fw9pidRTJVVKvzaV6PzQLL9TWKrhGaP
-         6h336sYDGsV73w2L4on72hs9YmP3/9MWqvPTHsJtab6PRNWbYXIQYVBCrc6DRuUhxR1b
-         e7EU1v5KUA5oI6Xbp3f4vNtZrBvheqyGG9FUK8XNoPaiAboQTgPLem7lnl8SWEIaaYY7
-         yaTBQtWEnHbwRgEeXlNIbfeWi3+mWr2MAtLyNifrVivL0kG/fx98O2Y7bCpR5++U0oA/
-         Q4YT0EHvdeeGBhgXv3TIWIlDej09J8JHC3BIc3ZAbQsMNuO0mbCTM7qb11AIFTxNDeJw
-         wULw==
-X-Forwarded-Encrypted: i=1; AHgh+RpouZy0A+PyWjNxPAlZbXfNMS8yO/6wI+sboCMVwuQxrHpoGA+UEE9YL5C820iT3scEN47ZFjUbvHeZAK94h2wA@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhpTYOAi3Wox1Ov6hC6yTd5H2GUQRLQVYouwTDEdxDYnzlsgrn
-	fNtnHJd1wPZ7hhnaZghklWQipmmBOlMm1vxc4x4bmGD0uiaeyR/NbYZJ
-X-Gm-Gg: AR+sD10oA2XkIWT84zYpQe7fFmdQG08fOhM0JI0p4nXooJOxQHxiR+xK1WoInmdM6ag
-	1ZGm2+/9E2q0PDgDNzLnl22KyTdD0xBQrbzmk93gOrDZB/PI0Mm3IsG+Kf1+yCOOwL9Lgw5LGEK
-	a/AH86G86jN0np3Fg/85/vugSb+fQhB7TSY7y7u1UUGlNfNOVmNZbsHQZZPUGh3ZyDr0fmA6xvH
-	BbYbLorCx1YBoO+cgTqOjwRIn+OuPGHafPhhbD1P8YQO5+1rHLyDTD241NhC1yQH6xTFlIDZcBa
-	j512LDe9AFVuBEi7vKfACOCYNj/r5X0xCrFSyVMxeKA/gxwgJjd8OoysiQyzn3bXOOa8kLmMBMu
-	UwJhrRXF1Jx1jOUBPIKL6iqO2QLUY8jrHoJLurNNAOAkkvbSByWgA2REMngId7kseXhjP0GoMsN
-	ioHf/TU5yaSKraLGKym0boRyBxEbEFzM+S3I+p8XOcTtysg5NnQ3/HXNfunrB9O8UQ40SaFF4i
-X-Received: by 2002:a05:600c:1d20:b0:499:6123:ac11 with SMTP id 5b1f17b1804b1-4996123ac36mr16811575e9.11.1786118753602;
-        Fri, 07 Aug 2026 09:05:53 -0700 (PDT)
-Received: from SVR.localdomain ([86.106.74.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4995428f294sm161481675e9.15.2026.08.07.09.05.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 09:05:52 -0700 (PDT)
-From: Semih Baskan <strst.gs@gmail.com>
-To: lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	rjui@broadcom.com,
-	sbranden@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	rafal@milecki.pl,
-	florian.fainelli@broadcom.com,
-	arnd@arndb.de
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	rosenp@gmail.com,
-	rani.hod@gmail.com
-Subject: [PATCH v3] PCI: iproc: Use the EROM outbound window on BCMA
-Date: Fri,  7 Aug 2026 19:05:26 +0300
-Message-ID: <20260807160526.379-1-strst.gs@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20251104; t=1786119036; x=1786723836;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JPe2T4C9FGoAfSm2OSn/uy+LGFjAoZJob/kwp689UMw=;
+        b=TdxTuikmPg879FySi9Bw4XU1KllNKm1QGrfm1x4jGtEI0MJb2MvnxvjR89c0Y/dgYT
+         MrhIr8UdG1UrG0bRl8AcW2+O7Iz+HV7DvTMm+UckrwjQfbsqimcFFXegEznsGuYVH26h
+         h+w4kk9waZ0KNoIUpLYJx3xmev/SNd2swCAUs73yqD5cvxMqcLCjOn4mZFqJ+/lY3ePD
+         8ye1ysJlUR3p2t2eDuUQxQmWd1PXSr36N9ue3AWlg2AFpOD2lPw7R6PN/O2omYzTyiXI
+         cytSFRdK2YYZowSmpE+BASTORHXVxJG96XtMxe/N4dwTdhemRsvz6QTRmMNrtf7+0NSe
+         JCSg==
+X-Forwarded-Encrypted: i=1; AHgh+RqHcNufb4W3grHizbsroVuTDNvxeGafBeBXWaUF9NQSKE/hzHcUzFdRx1SgiJvHTd8H5e0i9FK0mNddKFuOz7vW@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYbsPMLDRhAksJ8OoyCYjCE8xV/dc5kZ4Y5h+q28a1rUUvL8zu
+	VA1LkZnYXWaiOYx5TYx9L58DvrzP3+0FsKBKAYg5eaa2KJaXVEEIchcjFN3LdawNTLBQS/wH8u2
+	3Xv219Zs0p5TBhEND1stXWvldTy0X6ZY=
+X-Gm-Gg: AR+sD12z9wL7CqASSa3/j9gw68zjYA4fywtks1gyNs5ie6DC4k58jdZiLLSwPzoWBwh
+	+kd9N2kI5yx5PLbQL9rrnH1TQeG4rRjC2C3VG/ox0U9UbjNR2ALmmDXNHWf1MqVRqrrYuVMK0p9
+	aFLDOrTpzMcD1lp7uracflY2aDy+Ci5Dj4yANnrCh2V5yLG8KrR0O8Jt1InudN+1J4sa7lI0Vvy
+	AyB2H1d9vr2nesfcRUcaQ8gCi6QnElw1tJOjXyy4nbV/HPFreI79MaFwRbiR13H3nl0hXHpvPRe
+	hoAj0xZsqGn4lfH5B4stazuiWwBqhkTF/AymlKdi12YQWdJ2QQXYgWHLR6g9dFq8HIvKQMt/rYm
+	GJCF0lPZjNTOjMdANCw0wmVduVVkyhVQ=
+X-Received: by 2002:a05:690c:6512:b0:81e:deab:43af with SMTP id
+ 00721157ae682-8201f0c1456mr166289867b3.4.1786119035967; Fri, 07 Aug 2026
+ 09:10:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <FD5D03449312D17C+20260806-btmtksdio-deadlock-fix-v1-1-3a2d4392d117@uniontech.com>
+In-Reply-To: <FD5D03449312D17C+20260806-btmtksdio-deadlock-fix-v1-1-3a2d4392d117@uniontech.com>
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Date: Fri, 7 Aug 2026 12:10:23 -0400
+X-Gm-Features: AUfX_mwnlvEBqaHq9pVkwxhN2lM7dsClJAMMw8cY-68R6f3NS5GmuPRzCsMKyAE
+Message-ID: <CABBYNZK1VKSthhfEi_BRJSX90W_c3sAqCSdsFm3Z6wXYDcWaVA@mail.gmail.com>
+Subject: Re: [PATCH] Bluetooth: btmtksdio: fix deadlock in close and reset paths
+To: ZhaoJinming <zhaojinming@uniontech.com>
+Cc: Marcel Holtmann <marcel@holtmann.org>, linux-bluetooth@vger.kernel.org, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_090556_468658_EE9B2676 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20260807_091038_261884_FC919F28 
+X-CRM114-Status: GOOD (  27.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,106 +120,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCIe outbound window base on Northstar depends on the PCIe Gen2 core
-revision. Revision 0x01 uses 0x08000000, 0x40000000 and 0x48000000 for
-controllers 0 to 2, while revision 0x07 (NS-B0) uses 0x08000000,
-0x20000000 and 0x28000000. Broadcom's own driver branches on the core
-revision for exactly this reason.
+Hi ZhaoJinming,
 
-bcm-ns.dtsi is shared by every Northstar SoC, so it cannot carry a value
-that is correct on both. Commit 767012397976 ("ARM: dts: BCM5301X:
-Describe PCIe controllers fully") gave the controllers a ranges property.
-The commit shipped in v7.1.
+On Thu, Aug 6, 2026 at 2:36=E2=80=AFAM ZhaoJinming <zhaojinming@uniontech.c=
+om> wrote:
+>
+> btmtksdio_close() and btmtksdio_reset() call cancel_work_sync() on
+> bdev->txrx_work while holding the sdio host lock, which is also acquired
+> by btmtksdio_txrx_work().  If txrx_work is queued when close/reset runs,
+> a worker thread may start it after the host lock is taken and block in
+> sdio_claim_host(), while cancel_work_sync() waits for the work to
+> finish.  The host lock is only released after cancel_work_sync()
+> returns, so both sides wait forever, deadlocking close/reset.
+>
+> Fix this by releasing the sdio host lock before calling
+> cancel_work_sync(), then re-acquiring it afterwards.  The interrupt is
+> already disabled (sdio_release_irq() in close, C_INT_EN_CLR in reset)
+> before the work is cancelled, so no new work can be scheduled and
+> cancel_work_sync() fully quiesces txrx_work before the device is torn
+> down.  This mirrors the pattern already used by btmtksdio_flush(),
+> which cancels the work without holding the host lock.
+>
+> Signed-off-by: ZhaoJinming <zhaojinming@uniontech.com>
+> ---
+> btmtksdio_close() and btmtksdio_reset() call cancel_work_sync() on
+> bdev->txrx_work while holding the sdio host lock that
+> btmtksdio_txrx_work() also acquires. If txrx_work is queued at that
+> point, a worker thread can start it and block in sdio_claim_host(),
+> while cancel_work_sync() waits for the work to finish and the host lock
+> is only released afterwards - a deadlock.
+>
+> This series releases the host lock around cancel_work_sync() so the work
+> can always complete, mirroring the pattern already used by
+> btmtksdio_flush().
+> ---
+>
+> ---
+>  drivers/bluetooth/btmtksdio.c | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
+>
+> diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.=
+c
+> index c6f80c419e901e71b21e550449250a5a6755d100..879d580226d25ad398105a158=
+de1545dace33718 100644
+> --- a/drivers/bluetooth/btmtksdio.c
+> +++ b/drivers/bluetooth/btmtksdio.c
+> @@ -746,8 +746,16 @@ static int btmtksdio_close(struct hci_dev *hdev)
+>
+>         sdio_release_irq(bdev->func);
+>
+> +       /* No new work can be scheduled after sdio_release_irq(), so canc=
+el the
+> +        * work outside the sdio host lock. btmtksdio_txrx_work() also cl=
+aims
+> +        * the host, so canceling it while holding the lock would deadloc=
+k.
+> +        */
+> +       sdio_release_host(bdev->func);
+> +
+>         cancel_work_sync(&bdev->txrx_work);
+>
+> +       sdio_claim_host(bdev->func);
+> +
+>         btmtksdio_fw_pmctrl(bdev);
+>
+>         clear_bit(BTMTKSDIO_FUNC_ENABLED, &bdev->tx_state);
+> @@ -1293,8 +1301,18 @@ static void btmtksdio_reset(struct hci_dev *hdev)
+>
+>         sdio_writel(bdev->func, C_INT_EN_CLR, MTK_REG_CHLPCR, NULL);
+>         skb_queue_purge(&bdev->txq);
+> +
+> +       /* With the interrupt disabled, the SDIO IRQ handler can no longe=
+r
+> +        * schedule txrx_work. Cancel the work outside the sdio host lock=
+;
+> +        * btmtksdio_txrx_work() also claims the host, so canceling it wh=
+ile
+> +        * holding the lock would deadlock.
+> +        */
+> +       sdio_release_host(bdev->func);
+> +
+>         cancel_work_sync(&bdev->txrx_work);
+>
+> +       sdio_claim_host(bdev->func);
+> +
+>         gpiod_set_value_cansleep(bdev->reset, 1);
+>         msleep(100);
+>         gpiod_set_value_cansleep(bdev->reset, 0);
+>
+> ---
+> base-commit: 0d839570765118029aa8bf4a95444c6a11aacf85
+> change-id: 20260806-btmtksdio-deadlock-fix-f9421f1a7879
+>
+> Best regards,
+> --
+> ZhaoJinming <zhaojinming@uniontech.com>
 
-With that property present, two things go wrong with this driver:
+Sashiko found a problem:
 
- - devm_pci_alloc_host_bridge() parses those ranges and requests them,
-   then this driver adds its own window and requests the whole list a
-   second time, so every controller fails to probe with -EBUSY.
+https://sashiko.dev/#/patchset/FD5D03449312D17C%2B20260806-btmtksdio-deadlo=
+ck-fix-v1-1-3a2d4392d117%40uniontech.com
 
- - The DT window itself is only correct on core revision 0x07. On
-   revision 0x01 it points at an address the hardware does not decode,
-   and the first MMIO access to a BAR takes an imprecise external
-   abort.
-
-The enumeration ROM reports the correct base for the revision actually
-present, and bcma already provides it as addr_s[0]. Drop any memory
-window that came from the device tree and use that instead, requesting
-only the window this driver owns. This makes the driver correct whether
-or not the DT describes a window.
-
-When a dropped window does not match what the EROM reports, print a
-warning naming both. The mismatch means the devicetree describes a
-window the hardware does not decode, and that should be fixed in the
-dts rather than ignored silently.
-
-The same commit also added compatible = "brcm,iproc-pcie", so these
-nodes now match pcie-iproc-platform. With CONFIG_PCIE_IPROC_PLATFORM
-enabled, which is the default on ARCH_BCM_IPROC, that driver binds them
-first and this driver's probe fails inside devm_pci_alloc_host_bridge().
-This patch fixes the configurations where the BCMA driver is the one in
-use; OpenWrt builds that way, with PCIE_IPROC_PLATFORM disabled. The
-platform path takes the DT window as-is and has the same wrong address
-on core revision 0x01, so that side needs a devicetree fix either way.
-
-Tested on an ASUS RT-N18U (BCM47081) and a Linksys EA9200 (BCM4709),
-both core revision 0x01.
-
-Fixes: 767012397976 ("ARM: dts: BCM5301X: Describe PCIe controllers fully")
-Tested-by: Rani Hod <rani.hod@gmail.com>
-Cc: stable@vger.kernel.org # v7.1+
-Signed-off-by: Semih Baskan <strst.gs@gmail.com>
----
-v2 -> v3: format the two problem descriptions as bullet points.
-Requested by Bjorn Helgaas.
-
-v1 -> v2: print a warning for every devicetree memory window that does
-not match the EROM window. Requested by Arnd Bergmann:
-https://lore.kernel.org/all/d05ffeca-f289-42dd-b454-5a7c7741c6d5@app.fastmail.com/
-
-v2: https://lore.kernel.org/all/20260807035726.387-1-strst.gs@gmail.com/
-v1: https://lore.kernel.org/all/20260727140939.389-1-strst.gs@gmail.com/
-
- drivers/pci/controller/pcie-iproc-bcma.c | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pci/controller/pcie-iproc-bcma.c b/drivers/pci/controller/pcie-iproc-bcma.c
-index 593418c2b..06a471f4a 100644
---- a/drivers/pci/controller/pcie-iproc-bcma.c
-+++ b/drivers/pci/controller/pcie-iproc-bcma.c
-@@ -36,6 +36,7 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
- 	struct device *dev = &bdev->dev;
- 	struct iproc_pcie *pcie;
- 	struct pci_host_bridge *bridge;
-+	struct resource_entry *win, *tmp;
- 	int ret;
- 
- 	bridge = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
-@@ -59,8 +60,22 @@ static int iproc_bcma_pcie_probe(struct bcma_device *bdev)
- 	pcie->mem.end = bdev->addr_s[0] + SZ_128M - 1;
- 	pcie->mem.name = "PCIe MEM space";
- 	pcie->mem.flags = IORESOURCE_MEM;
-+
-+	resource_list_for_each_entry_safe(win, tmp, &bridge->windows) {
-+		if (resource_type(win->res) != IORESOURCE_MEM)
-+			continue;
-+
-+		if (win->res->start != pcie->mem.start ||
-+		    win->res->end != pcie->mem.end)
-+			dev_warn(dev, "DT window %pR does not match EROM window %pR, using EROM\n",
-+				 win->res, &pcie->mem);
-+
-+		devm_release_resource(dev, win->res);
-+		resource_list_destroy_entry(win);
-+	}
-+
- 	pci_add_resource(&bridge->windows, &pcie->mem);
--	ret = devm_request_pci_bus_resources(dev, &bridge->windows);
-+	ret = devm_request_resource(dev, &iomem_resource, &pcie->mem);
- 	if (ret)
- 		return ret;
- 
--- 
-2.43.0
-
+--=20
+Luiz Augusto von Dentz
 
