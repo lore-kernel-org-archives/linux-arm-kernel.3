@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0311FC5AC80
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBADAC5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NDy+h31L8H5YXIik8yzC/aAEhJyoZTq0JWluwM7qX3w=; b=hdNw0eaFcM/qgTdoCXieLB2Xvi
-	Ox9IYzMke5DSUZ7VT6M/bVom188uzK159c5rzBo6ozh+2W/M7MfGhDiHV6R/b/PzfsCzIbs8UTxk4
-	8pTit/FzoBJ6TERVAe9K0TX02Cv1VMJWXF/kZgywI8oK+GrGgueSr6kCWgTcvy/OSU1y0tY6YvEGI
-	6vg+T2eDYg/cS2miqqfoekK8dkgQrhpxTpXF/lNt2ObUPHTuu2g8SpkqSkr9jeUlZuptFyiV/mTwi
-	a1kXNGIFsDB8cfcA7Xo0ohWac7CnrXJSED3v3ZMzYV5JATJ8kcKY3S7Yjni3U4bOufd/QhDKaZRxV
-	/qZTSLjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HZTcrQzGXuunNIwct3+GtblbyDkGvD9ZQvC5QSvDxeM=; b=tHLGQcgaolY4g1y6OxW8k8SYbQ
+	jxgHDu8haWpNq5EG8/FuQsaQopXMyS76J4gWTO1djzHOgGOgHzZTxtoWm0yq9ZUzTTe6QGfc12Phl
+	+we8r9TRKXKc+RQ36v3f9yVIxisuWPhsPaIGLoMPvmeU5kVW+v6uKTYY8XLx1adGhM9Z03J7IQVSF
+	SXrGbxIi9ZqrNbaz3oWv1nw8DW7WqxmG50uMDH/efjq2I0pfeeSrESahye0CKujkZ7TDzkVvEC+rx
+	iQQzpPevek6wD8GyLtuQHPZtjAmvwhTwQCEJErTbdmkFZdyZ+54gy147e4mXELUVlBgvkjzTB3R47
+	VBwyrCFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHpi-00000007fqU-04tC;
-	Fri, 07 Aug 2026 10:29:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wsHpr-00000007fsp-0o07;
+	Fri, 07 Aug 2026 10:29:55 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsHpf-00000007fqI-2snT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 07 Aug 2026 10:29:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=NDy+h31L8H5YXIik8yzC/aAEhJyoZTq0JWluwM7qX3w=; b=L7Lyf3TUsL8AV+RqTgzwx2pGgb
-	A2ShCMQqHk51lDNtN2hmTxdAdXRxuOH62IN28x5gnGLGl2gSfeFCYcji94dcIgTLZX9734vZkULyv
-	aI6ZrlI58+HytfI5kyQWPPx0Jzgp+mo6bhIpavmUnk9Bylaz2JT00MavmKib4Otl+afHbRKgCZZDx
-	Aq/Lq8vJY+lMi0hTO4rS1VVlBig5hmvV6WSzaEZc8xQLojQPiXa1vzNF42Ccxc9abat0FFXS+Wv6P
-	5FFqI28lVR3eXPwZ1YmmgWbrn3Mc3Zp46Ox4b8SunkX3Le7wzx7O+G0PDV48dKpohkgE2PQk0Sp3y
-	0p7f7AiQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wsHpW-0000000CHpr-0ecL;
-	Fri, 07 Aug 2026 10:29:34 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id E0E143004C9; Fri, 07 Aug 2026 12:29:32 +0200 (CEST)
-Date: Fri, 7 Aug 2026 12:29:32 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Usama Arif <usama.arif@linux.dev>, Will Deacon <will@kernel.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Ravi Bangoria <ravi.bangoria@amd.com>,
-	Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 3/3] perf/core: Clear the whole branch entry in
- perf_clear_branch_entry()
-Message-ID: <20260807102932.GU776954@noisy.programming.kicks-ass.net>
-References: <20260806135224.3267890-1-puranjay@kernel.org>
- <20260806135224.3267890-4-puranjay@kernel.org>
+	id 1wsHpo-00000007frk-3GvC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 10:29:54 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-383cb94f742so3118190a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 03:29:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786098592; x=1786703392; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=HZTcrQzGXuunNIwct3+GtblbyDkGvD9ZQvC5QSvDxeM=;
+        b=BPXe8N4lVobLvSZ7W3j/PA0C1DBPgu9uvBtWmJUnVrNg3AdYVb2EUCiL2jt9fGvFZq
+         hH81AfVr9Nsk1sRC7hqeheBi4N+ZBZLryOuX8+VnVFXadyAltJyeXFtJEW95m4tQrxOd
+         O6gqui/k33sH81ozQQPd6f8Pm4AW/iTQMZXSFt6k+5blYcOYw9BZruE9v5b2tdOI7xBL
+         35sTjGtw0TytMFAM0eQyQRlePY5PjBG+8yt+HWY/7qGMtm9tKri0hUGja9um+Ib4nteS
+         0yZY3UPA1szfbQd28QeR/0gQhBzVfFbJDKmVmzmm4TlYOFLFIu77o/70uX01r9Ti+28n
+         1TpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786098592; x=1786703392;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=HZTcrQzGXuunNIwct3+GtblbyDkGvD9ZQvC5QSvDxeM=;
+        b=YDap6V20l0xme+ktO58/FMzhy2FcSH9xF0Fyw947C2oXoiuXgfFCahAav+LJ9HzMda
+         Aif8h9S09xUOSTQGyW4/eygJpYqRD5035AAEuO6M6VhizlRgZvEExxPSBGTsxshmk+0e
+         BzWt5Ptvmr4chEBdGLKAHHDWkZC29UK7wrAwxjSbcO1Pxyk0720nWhlaM3QdpNrDriqg
+         RGxe2pgqxPqzE61nYbc2lyTluRZsZvXSXgCZln5PJ1mTX99tls40zdN52l7v2AD1lku3
+         Mqb+vfzOCHUr6gG8NIM6pJP7RA5SpqBMqOiJTsDbYt2TSyTvJPuPDXHnmgFlzLLQCiZA
+         zaqw==
+X-Forwarded-Encrypted: i=1; AHgh+RrWI3mhFj/rv5MNE838aiMeRZ52uhKhlNXVrzlH8tEFmotVwwvclXo6jAoN7rfRzOZRO20NuohJxVwYwn+edWKL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw064y40a3uQeWBWbTf14PNEXNr1Ggi49/tu7jnf68qn4Qh2biC
+	V7TH0Nwm77n6lQ2Xa0O3MiFtgS2pY78w5CbvXlLjdz6PMNmO7LF1fgaU
+X-Gm-Gg: AR+sD13h/+TJE7sPQUwQyNfABSY2HMxemvmO3z0HqGqhDAM4gyLlkr8gk/3GbLvgQNr
+	Kd9lAhHJsGDA0RMuGd0bVkcnkNT88P+Il5S5FylL/hbVeB0ZQaVSxXiJJcP181a4u42mEnxdqGs
+	INSmeUQVsN6shLUCc4lIcxmAL3Tqh3Wv0u/Kg9Zy5Y4+G5QyCvJvJaokOYmfpA0rQ7Fd7grjCBX
+	qIg/oJGVPlYGHBeAcGYrOHZS4thB6MMgSuw1b44J6Uk5KtXvWSvl6tnMUpWK1JEq6EVDj2LQWFs
+	w9QuUdJ/UXWzdFG3Nvewmn3yzABQ+HSq1QQ7RdPI4mkxO5oyPj2UWRMMDgRtEzG9+UVVkrXfoxr
+	K1tcuOYzatiPJ2SIFBLkEPpIZ0eqD1ABFnc8BdZJH4QpM53EChkLskCE+o8SF5vRQCgg5/yBd7z
+	wFqkdQl9RANDs59Pzd0Ie4h8q4gDUYIbD8F8Zf01raU7XBSyex69b05nRlZddG9Tmzy3z9Pm1kC
+	oQbyOuftzdwNAYfwocJazclmVNN6N6wzP2pTBbk9d6iNgK54ptvGs1t+XiWfxb2Wz5HsDqBdO7s
+	Y8sI
+X-Received: by 2002:a17:90b:1d10:b0:390:b41a:b92f with SMTP id 98e67ed59e1d1-390b41acf77mr3051923a91.18.1786098591764;
+        Fri, 07 Aug 2026 03:29:51 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-390b1389e1fsm1133614a91.0.2026.08.07.03.29.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Aug 2026 03:29:51 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 1/2] spi: mtk-nor: Propagate errors from optional IRQ lookup
+Date: Fri,  7 Aug 2026 17:29:30 +0700
+Message-ID: <20260807102932.45785-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260806135224.3267890-4-puranjay@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260807_032952_820743_AA8E9438 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,203 +102,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 06, 2026 at 06:52:23AM -0700, Puranjay Mohan wrote:
-> perf_clear_branch_entry_bitfields() clears the bitfields of struct
-> perf_branch_entry one by one and leaves from/to alone, since callers
-> overwrite those straight away. The list has to be kept in sync with the
-> struct by hand and has already fallen behind: new_type and priv were
-> added to perf_branch_entry and never added here.
-> 
-> Only BRBE writes those two, and neither is written for every record.
-> brbe_set_perf_entry_type() leaves new_type alone for a branch type it
-> does not recognise, and priv is not set for source-only records.
-> arm_pmuv3.c allocates the per-CPU branch stack with kmalloc(), so such a
-> record carries whatever the slot held: uninitialised kmalloc() data on
-> the first pass over the buffer, the previous record's values after that.
-> Both reach userspace through the branch stack. Nothing under
-> arch/x86/events/ writes either field, so x86 is unaffected.
-> 
-> Clear the entry with a single struct assignment instead:
-> 
-> 	*br = (struct perf_branch_entry){ };
-> 
-> The bitfields add up to exactly 64 bits, so there is no padding, and
-> every caller assigns from/to immediately afterwards, so zeroing those as
-> well changes nothing. PERF_BR_SPEC_NA is 0, so dropping the explicit
-> spec assignment leaves the behaviour unchanged. Nothing needs keeping in
-> sync when a field is added.
-> 
-> The helper no longer touches only bitfields, so rename it to
-> perf_clear_branch_entry().
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Fair enough I suppose, but then why not write it like so?
+platform_get_irq_optional() returns a positive IRQ number on success or
+a negative error code on failure. For an optional IRQ, -ENXIO indicates
+that no IRQ is available, while other errors should be propagated.
 
+Propagate errors such as -EPROBE_DEFER and -EINVAL instead of continuing
+probe without the IRQ.
+
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 ---
---- a/arch/x86/events/amd/brs.c
-+++ b/arch/x86/events/amd/brs.c
-@@ -343,11 +343,7 @@ void amd_brs_drain(void)
- 		if (!amd_brs_match_plm(event, from, to))
- 			continue;
+ drivers/spi/spi-mtk-nor.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/spi/spi-mtk-nor.c b/drivers/spi/spi-mtk-nor.c
+index 74f34537b02c..6b9a5d728549 100644
+--- a/drivers/spi/spi-mtk-nor.c
++++ b/drivers/spi/spi-mtk-nor.c
+@@ -895,6 +895,10 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 	irq = platform_get_irq_optional(pdev, 0);
  
--		perf_clear_branch_entry_bitfields(br+nr);
--
--		br[nr].from = from;
--		br[nr].to   = to;
--
-+		br[nr] = (struct perf_branch_entry){ from, to };
- 		nr++;
- 	}
- empty:
---- a/arch/x86/events/amd/lbr.c
-+++ b/arch/x86/events/amd/lbr.c
-@@ -184,12 +184,6 @@ void amd_pmu_lbr_read(void)
- 		    entry.to.split.reserved)
- 			continue;
+ 	if (irq < 0) {
++		if (irq != -ENXIO) {
++			ret = irq;
++			goto err_disable_clk;
++		}
+ 		dev_warn(sp->dev, "IRQ not available.");
+ 	} else {
+ 		ret = devm_request_irq(sp->dev, irq, mtk_nor_irq_handler, 0,
+@@ -928,6 +932,7 @@ static int mtk_nor_probe(struct platform_device *pdev)
+ 	pm_runtime_set_suspended(&pdev->dev);
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
  
--		perf_clear_branch_entry_bitfields(br + out);
--
--		br[out].from	= sign_ext_branch_ip(entry.from.split.ip);
--		br[out].to	= sign_ext_branch_ip(entry.to.split.ip);
--		br[out].mispred	= entry.from.split.mispredict;
--		br[out].predicted = !br[out].mispred;
++err_disable_clk:
+ 	mtk_nor_disable_clk(sp);
  
- 		/*
- 		 * Set branch speculation information using the status of
-@@ -208,7 +202,13 @@ void amd_pmu_lbr_read(void)
- 		 * speculative and took the correct path
- 		 */
- 		idx = (entry.to.split.valid << 1) | entry.to.split.spec;
--		br[out].spec = lbr_spec_map[idx];
-+		br[out] = (struct perf_branch_entry) {
-+			.from      = sign_ext_branch_ip(entry.from.split.ip),
-+			.to        = sign_ext_branch_ip(entry.to.split.ip),
-+			.mispred   = entry.from.split.mispredict,
-+			.predicted = !entry.from.split.mispredict,
-+			.spec      = lbr_spec_map[idx],
-+		};
- 		out++;
- 	}
- 
---- a/arch/x86/events/intel/lbr.c
-+++ b/arch/x86/events/intel/lbr.c
-@@ -756,10 +756,10 @@ void intel_pmu_lbr_read_32(struct cpu_hw
- 
- 		rdmsrq(x86_pmu.lbr_from + lbr_idx, msr_lastbranch.lbr);
- 
--		perf_clear_branch_entry_bitfields(br);
--
--		br->from	= msr_lastbranch.from;
--		br->to		= msr_lastbranch.to;
-+		*br = (struct perf_branch_entry){
-+			.from = msr_lastbranch.from,
-+			.to   = msr_lastbranch.to,
-+		};
- 		br++;
- 	}
- 	cpuc->lbr_stack.nr = i;
-@@ -847,14 +847,15 @@ void intel_pmu_lbr_read_64(struct cpu_hw
- 		if (abort && x86_pmu.lbr_double_abort && out > 0)
- 			out--;
- 
--		perf_clear_branch_entry_bitfields(br+out);
--		br[out].from	 = from;
--		br[out].to	 = to;
--		br[out].mispred	 = mis;
--		br[out].predicted = pred;
--		br[out].in_tx	 = in_tx;
--		br[out].abort	 = abort;
--		br[out].cycles	 = cycles;
-+		br[out] = (struct perf_branch_entry) {
-+			.from      = from,
-+			.to        = to,
-+			.mispred   = mis,
-+			.predicted = pred,
-+			.in_tx     = in_tx,
-+			.abort     = abort,
-+			.cycles    = cycles,
-+		};
- 		out++;
- 	}
- 	cpuc->lbr_stack.nr = out;
-@@ -921,24 +922,25 @@ static void intel_pmu_store_lbr(struct c
- 		to = rdlbr_to(i, lbr);
- 		info = rdlbr_info(i, lbr);
- 
--		perf_clear_branch_entry_bitfields(e);
--
--		e->from		= from;
--		e->to		= to;
--		e->mispred	= get_lbr_mispred(info);
--		e->predicted	= !e->mispred;
--		e->in_tx	= !!(info & LBR_INFO_IN_TX);
--		e->abort	= !!(info & LBR_INFO_ABORT);
--		e->cycles	= get_lbr_cycles(info);
--		e->type		= get_lbr_br_type(info);
--
--		/*
--		 * Leverage the reserved field of cpuc->lbr_entries[i] to
--		 * temporarily store the branch counters information.
--		 * The later code will decide what content can be disclosed
--		 * to the perf tool. Pleae see intel_pmu_lbr_counters_reorder().
--		 */
--		e->reserved	= (info >> LBR_INFO_BR_CNTR_OFFSET) & LBR_INFO_BR_CNTR_FULL_MASK;
-+		*e = (struct perf_branch_entry){
-+			.from      = from,
-+			.to        = to,
-+			.mispred   = get_lbr_mispred(info),
-+			.predicted = !get_lbr_mispred(info),
-+			.in_tx     = !!(info & LBR_INFO_IN_TX),
-+			.abort     = !!(info & LBR_INFO_ABORT),
-+			.cycles    = get_lbr_cycles(info),
-+			.type      = get_lbr_br_type(info),
-+
-+			/*
-+			 * Leverage the reserved field of cpuc->lbr_entries[i]
-+			 * to temporarily store the branch counters
-+			 * information. The later code will decide what
-+			 * content can be disclosed to the perf tool. Pleae
-+			 * see intel_pmu_lbr_counters_reorder().
-+			 */
-+			.reserved  = (info >> LBR_INFO_BR_CNTR_OFFSET) & LBR_INFO_BR_CNTR_FULL_MASK,
-+		};
- 	}
- 
- 	cpuc->lbr_stack.nr = i;
---- a/drivers/perf/arm_brbe.c
-+++ b/drivers/perf/arm_brbe.c
-@@ -604,7 +604,7 @@ static bool perf_entry_from_brbe_regset(
- 		return false;
- 
- 	brbinf = bregs.brbinf;
--	perf_clear_branch_entry_bitfields(entry);
-+	*entry = (struct perf_branch_entry) { };
- 	if (brbe_record_is_complete(brbinf)) {
- 		entry->from = bregs.brbsrc;
- 		entry->to = bregs.brbtgt;
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -1467,23 +1467,6 @@ static inline u32 perf_sample_data_size(
- 	return size;
- }
- 
--/*
-- * Clear all bitfields in the perf_branch_entry.
-- * The to and from fields are not cleared because they are
-- * systematically modified by caller.
-- */
--static inline void perf_clear_branch_entry_bitfields(struct perf_branch_entry *br)
--{
--	br->mispred	= 0;
--	br->predicted	= 0;
--	br->in_tx	= 0;
--	br->abort	= 0;
--	br->cycles	= 0;
--	br->type	= 0;
--	br->spec	= PERF_BR_SPEC_NA;
--	br->reserved	= 0;
--}
--
- extern void perf_output_sample(struct perf_output_handle *handle,
- 			       struct perf_event_header *header,
- 			       struct perf_sample_data *data,
+ 	return ret;
+-- 
+2.43.0
+
 
