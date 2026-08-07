@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A885C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E609BC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 06:41:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l8xVvU2F/fFUSSpqRZVrd3WQpwZlkQIJEg0DhUYBh/o=; b=DM2bmVT77rumKp/z/b0oo0Nc9j
-	XPXQva0BbzIP6id0GxmI8H3vhDiOMITM2YfiLYSOLL/7KRLXzCCf43qz8r6sdr1UVb1fml0kWeD4/
-	B0n0xqTUQnFqV1RTQoTPtRVlDDhSOaH6wdLScj687f0fCSvCdegCv+e3aZCu4h0IJ3VZllgVthsT2
-	NM3AHDR5C7JXat9P66OqW8ElixEZ1VWnp56R26EqWEeOPZBlBGCYt7aAWvKRUXp9lCdHQKjHtWAa5
-	0crB/NEPox4BFS/m9xJmiRkjpUyiS76DuY3zutGi9kRku99OrLB+RBmDOzEf/mH8afv4JuN+L2SOM
-	PsvOS0pQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cfbg4OKMiHxX0/fCplY4WZEaCh6mteG/jz44Jr9wKjY=; b=VcFeBlkvf4J9WQsCuKsrmfbGTp
+	TivLI9X2sJgGn43q+hrGcgLoNvxI3Z3U0/zMIIXny1A9Tqo7Cd//WJBGAfel4mMiFwLDjyDzh1ldA
+	wn/rSTTzt8ekGRbAy9zEr+ZfeNpUvuNb9aNdtpa7Mo0n49A/LK68o+zSa0dIXtzMquopq9/Io6hhQ
+	qo+UPNwV5NiziQ7lsVmAxR4AqiijgpB3bWK96BUKqRkU6LC6cAy7JBVxQeNboWHe1MU7E/fKEPOsI
+	/lPkkZWh0Tq0VZC0dH/HAlV/U4fUeUAhUO34BukYHyf+Xk4IyxdVUwDZZQazRomYCqTJYi3ecC5pr
+	H/ohhXkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsE9l-00000007BLD-3hLK;
-	Fri, 07 Aug 2026 06:34:13 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1wsEGZ-00000007BbG-222t;
+	Fri, 07 Aug 2026 06:41:15 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsE9j-00000007BKA-0Y0V
+	id 1wsEGW-00000007BaY-2e4C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 06:34:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1786084411; x=1786689211; i=markus.elfring@web.de;
-	bh=l8xVvU2F/fFUSSpqRZVrd3WQpwZlkQIJEg0DhUYBh/o=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=QP9ZUTzSxbdWcX/FMZWWnAgKd53KsdXOKzEMngTw3BxKwolo786Zsc3ANczc/9AV
-	 7rscfect2zFMVrSYQ4QtrsmxfyFV0k9J8BblesceVaX88LrqyepX1pgGxGlF+ihIc
-	 8uzymRoxzxoNQcvYzIZ9MpVoPwrbU8ID59WrWbXGlQ7omD1ECBJ3UdUHO0dgI2NOZ
-	 42NagQOd7/R2TeFstj4MMVp5v0eD8Tvnq3pdzQ28TT1JAvm1st3OpRq/ALvRxaUAU
-	 qooBMYW5uN11BHNZBMgdsvZyF+P9vyOK0IANpe1zrl6tnf/XrNPS8Pw40lSYsMsqe
-	 cVsuINAl/XaweGfwNw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MqZQY-1xEJPG3iXQ-00kazQ; Fri, 07
- Aug 2026 08:33:31 +0200
-Message-ID: <c27214da-4e76-4b5d-ab86-ab03beba8f6f@web.de>
-Date: Fri, 7 Aug 2026 08:33:08 +0200
+	Fri, 07 Aug 2026 06:41:13 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47f59f25ec4so1253655f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Aug 2026 23:41:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786084870; x=1786689670; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=cfbg4OKMiHxX0/fCplY4WZEaCh6mteG/jz44Jr9wKjY=;
+        b=qAOLZQQ4y2BnXYdTkSucz9dXvpjcmqSEQ536GIU5w6KBvVvke2i8+TK7pVSnJhaN+i
+         H3kP/JCA/iVEHnPBwQraVqJfOwpW0sKrl5LSRkfr70vf106YO9J69qFX9ygmCDr3Xd25
+         9PtayQuzus47EO0XkF9PXpF7gu+k6h89C8MZzeg8Rjo/grpAO5mzngGG912aqZBiyTpo
+         /MCr6aK+NuEoZ++lcGcd+uJ2iIkWNY2c6PkGNYrl7mKc88ZpPFt33sR8FhmNDTpc9JhK
+         DiiN7Peb0NfWbU7b1No066mDyOkQHygz1m7a6eIriDZQf/+e1v+KBaXkxZy74O/du/xK
+         HIrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786084870; x=1786689670;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=cfbg4OKMiHxX0/fCplY4WZEaCh6mteG/jz44Jr9wKjY=;
+        b=eFLebjsqW36jNvqsoJAstffVvrNJoOvodxbTzYbWt7DnVo6g8w3c3hnJj7nrKvueri
+         OGJMnqD2v69JvcRsCt0RU15iIjeMVwTh0OtkS5URNaOxbs8FfBGPlie7tkDwnHIQx0hh
+         iJcp54w7pUsL+11LjrLoIwwaUoWN/XaVZ5sBTDklo6EJfK2s7LdI+JbQnuGrL3xK7jHP
+         CfdhprSBEZ5v4WeB+y2s/mB9K9IxZW9lhrLXNsudQCxfsIv7pZC2XMk/PBJhpJmm3AsG
+         wEEV/PY9Ch9SxJgJEoytEy/6JBo1dxbq+GhB+qMLIKkKj5pu8dBiHTzPxR8mB3ZUq3lw
+         XBBg==
+X-Forwarded-Encrypted: i=1; AHgh+Rojn00Ij20pRR5dfTsDEp931rVteAW6m3dWcudB+5+a/cY8Ldo8HXR0P/rIYv4qZWXyAHQ+t4Io5ygXQZ00skvg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSMaxmbFYXG3ppBhagYNE5rKJvWW5GBrTmxYbbrQv3mpZUAtDZ
+	sdjyjZd99pnLf8NzEW7vFrBAVcM5iy5lPfUmZmETVOb31mLKjP961o8W
+X-Gm-Gg: AR+sD10JeSYgcwy+zO04pAZL4tU8w+XZw0DoQIzK3wvYfQR8obpsD7D76aWfvo64POm
+	HmW3KT4bldopOeyBUigOqAALVEYiZK+qVITj9wfLEtgxgDCaQZyNJMZPMm5g+QkEn1EzJvTbp3B
+	8ZV1P1HGNHwdycUk4wuW8DWcO7F6EiCcryMMRul3EODOgK1QSsxoWddZuao9clP4tdtw0VjxDxd
+	B+WBcHtkUBrLHHM4dQ/mqBKj9JUhnvC1Lo7J0Axme8SHmQkLIFsB6SxE/ciaVrH01IzkPkuGOww
+	cwqUZ/EvkCsul3uYvR6HTSc4n8IM7uHRfzLGImd96X+JtyjEziwOmrXOgZ6um2Obp3Guue7cDOF
+	SfpV3wxZUHxZyYSLKQ6Wf7QD6MCvotQWfYpaCSOwBYr+F4miQaiRDzQF4Qe5VxEf0CXNfP5k5rH
+	JUm39VWBm43mi9YIG6NTrPTGXxO+IOkory177lbZGun/NA/b9U3C0hWCM=
+X-Received: by 2002:a05:6000:2981:20b0:476:7036:f854 with SMTP id ffacd0b85a97d-47ffd93cfadmr8835774f8f.21.1786084870270;
+        Thu, 06 Aug 2026 23:41:10 -0700 (PDT)
+Received: from fedora ([46.205.219.253])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-48002150804sm2655044f8f.13.2026.08.06.23.41.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Aug 2026 23:41:09 -0700 (PDT)
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+To: netdev@vger.kernel.org
+Cc: lorenzo@kernel.org,
+	win847@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Daniel Pawlik <pawlik.dan@gmail.com>
+Subject: [PATCH v4] net: airoha: npu: use coherent DMA for mailbox messages
+Date: Fri,  7 Aug 2026 08:40:58 +0200
+Message-ID: <20260807064058.1117747-1-pawlik.dan@gmail.com>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: tools: Use fputc() calls in some functions
-To: lkp@intel.com, acpica-devel@lists.linux.dev, bpf@vger.kernel.org,
- coresight@lists.linaro.org, kvm@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-mm@kvack.org,
- linux-perf-users@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- mptcp@lists.linux.dev, netdev@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, virtualization@lists.linux.dev,
- Adrian Hunter <adrian.hunter@intel.com>, Alex Mastro <amastro@fb.com>,
- Alex Williamson <alex@shazbot.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Alexei Starovoitov <ast@kernel.org>, Andi Kleen <ak@linux.intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>,
- Andrew Morton <akpm@linux-foundation.org>,
- Andrii Nakryiko <andrii@kernel.org>, Ankur Arora <ankur.a.arora@oracle.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-References: <48f2d61f-d468-49b7-881e-f00777db073f@web.de>
- <202608070547.MRKfa3bH-lkp@intel.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <202608070547.MRKfa3bH-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:heSIkINqyeiTt9/TVU/2HaIToPYra83aIuf0AvbOJOpmzGssabi
- 2pB+Q4N00ikWy96JtYbAI4l92VxDK1eIhjSpkmWDfXgFHRUQ7AnWMM14fXBeSUbUtrPT8vY
- ocQ8Oavw5OBRE5CCpreC0Xu8PbI7O1BHO5Y74x3WyR2UhRH9v5EgfFH9wSGPOPrV+FzK6Z/
- XIXRX7oHnEmzadhHoTc1g==
-UI-OutboundReport: notjunk:1;M01:P0:faf1dCpquYU=;+6tK6j/uCs8jhR5JHZVE/TXw00j iZl5oiCQHx85oMHmPJAFXOiyUlameMce0cu7hnsBUCGKxDTMBwq31o4Rd/VwJ8FNDvFe3sXU2 aALP1GkZ+xRoPzqC2charSoR2DGA/czOChuhCn5h9kOUQlmX1taeXcDabX0GCOl0BSrZJ05g2 auGhF2m/1hiNDLFBC2bTsAZskJoXwDyzJ9Zi40kYINqKYBWqjmSWZXJry+1qoMqkCHv4/2gl0 krKQ4Ot6WKVfo0dnk9AstPb8yW/mKJXrLJiGGgiqt1etDVCwQsv1k02GAXgTlVgcDV8eErbXD KOHSR2RCFlLLHRflAhOafF0muYf1hpDe6HTlhuzMTPlxhZ9DTnVweOVQDA0e/LeaypYQlMPqe E9dKl+CYaO3YekS6+paBkejwykVdhJviDbzoGs0YLDMz5SlxLM0tLbWbZZluM+z5hQTPYqTTD EphqJouleuXKKN9nGuvEe3QowlVikSHghmisnhzo+qDnn3aySeZgjXcRYNgd5OtHamh3MYe7I XiwwJZc8XPeki5IanzAIk1BfmodTHcey8t610A/SNEILgKVc709cfQOb7nY1utS23KnxNjZ1w Pky/xHDqlV8rLRHO2vVCuZO8Kqitcv1iJ2xOUzw7LcjrUz9tv2S2gadMdLGRyQl1oadc1z6EQ GmZxRDrY8g/6qQD1ZJpbKsgBYlSpN8uSgzljj/AzHA+gV4YVJ3H+YidPpcbpRQqRpP16zwMAC 97i++AjVahQ5DVDDJiu1XcAbd0t+jnRuISHfvqpbo+FqoOvpPvNqHwf4hO5hkPH8og3ECbavP KcJHBiTh+LwqzgQAHikWHUODS00NGtWzAOwww1X3FphT2xVTwJM7AdJjfkAEvZQL6HVUeHfl9 xw4OrIEOTafCY8FDhCOFqU1QcqJWx0UmZQC6SSXQzhu8io9+egQc0ub11TAoFUhjxWP9MobW+ oZSzyEyZvkAJ2kr9eGB5I28VJrdZTaMdQnx9B+dVGrrx49qL5QS2umuWY1AU+4GSTMuh1YWOo q+bcok7KMDDQZJssnJyJGRx9LFsmS+X8c2144vRcBGfDDX/MLKoyBI09o0ZH6gwJlauwP8mqz qvUyLX7Z30T9BpdSoBbQ4I3mjibybFSfxemkjR0E5fPKWIXkR2YRn08K6jCxDY8zas6LTidf5 Z0gi4DZT1JcyXGcMf+SEppR5tDQrxUWKKxmeKUhlAgB3VOzePoX4K9KmP0cn0FFLqC3o/38/P yfFlJgIu6oLF8BDhMkKgo2YgMmuDVGBBgQNXjmHK0aXmME5IK3mfRccatmSBeLvbT4XSPz+7D c6GDQs/m9k4gaul2P+sON6ZVd0sISFcKogcp4Ge+t33kOy4e6MHDnu2LykcRUcVAMneiC4ImK F1Bpv7tmg5FsXRV9RTiguOL+3iyywzj3Dw+yEKl1q3LznnfGDjZ1VMz+nZVZNE8JrWK22Ig45 4p5fcL3cB9rTDM2L5TzmEZYtl7MQmxFPH7f290cuYbNKvviJ/okUJuE7AabWcdVPHHkrx6RkQ mlR5X4x4PBCv0D1aEesPFBox0X7maZixhf3e2SgOndHrIXm8M3mM7Rljwp6T9C+hkUb0L1OQl UHgEkmiA1a3B+Xr35H+XijKOCSdKTsQugDXtW6/5cR8v3tPjB1rYlLlrOYYNArcPrC03DDsf+ JOkyssqSKXiLOC+GcTiESuhKwJqQOCCYrmwIljUODRQGO6rcf3yOpv0iX5/AoFadWTe4atmyP t3gcP5CMSAJ+WGNRqnzhFDMijuEEbnKvXGHWKeMLUDOXllxiayyYPwCd27iUxCO8NfgESwMyl VN8FuWg/83zqvuxP4NVz1sLLQpb0dowxJqV93X/9pUfkE47RUuozScCxEbTrqmZ3x1fCtXOxG BZKaBizpmqKDfpMyGhNv8ZRNuEvfFbFBZI1nF0MrFpn3bVhdIT4uCY1MWDL+qUhFkK67oLuGm +RwPdQcR9aOfEknJmAi87u+REiXRzrvmGpQbylsxlKjmAa3V3MXvyIE/qILN1ymq2nnCk2ldA +FL7OYDHLrA4EnIUp8V0KOEaRgdy0X4QsbPFEjMciDLaqylkNwXbZXH9sey4lGElGD34GOm25 C0TtGMfuje09er74L0NteA504JtagFKf7BwR0jSYjU1xQcZLhWsVixfhNnOsx8vpYNRJw1w9E LJD0KCroTY9TJAkkKcdDxplvQTP+N05WXwW4wuMtqHQdgxW4sVF21AKSME75lnn3ZqSaqP+n+ e7W7FiwInz0Q5mOfH8YXkcpn3Nn+/CDRS5fufoqtsFaHWZhhNtatDptJtDpoGkWQKZXACf1az nfbS82gbxKU1NVdcHRYEvf/Zao90aQs+x3oUDE71dXmuf9byPHrjHcCP7FiK/6o6biAb9Mzut /CzwuAFrvYmIE+jq4CsvbuFU4d6yGyr8poNA9iTXxRxtFrXNEiLB5Vh8517zv9WAgpp5bobWq EoiycY7DPpv8EGNGIjP2Eg7tzVWWExozk5gDK7Sg03RflHCuJ6wpbnyy1CBaCgUkgNepbu9yx 9TkY4PwdERrAkicJnjdV4vuVgdHaNnebI9HRHORtcLByFq7SVkYYIKdioa/e1Y3/l/KQeoijH Qq8I/fGGJ8EKk4tlmI2M52khm3B4KWdB+TLvEtfJTjhyhO/K+De5F9T5HToROVmNW3DQoJXev aoGjQ9JF7ahqKTIJqAm6ua+vG4wFkVVyNF32hRyskyZO876cZdtTrTJ/oIhoLcbogfU0OaUmP IMbKO7x6UvRwHXymGSUhsAr62RhDmpMeo2MFlxPefdBA1q2WUyCExE+jb7DjCldfTaUxiuzzL OpX5P/8r7ishVu7v6NSuAj+eouyopUUffQHPVXZVdkPM/4WS1C4UgflGdrpXXoz0degruWJuK c1IFPhKVmz2Y+h+EZHXiqZyj1ppFQGNTzoNBEOMhIYo1c9LRi3nHYdVvOr3gOBhNRkaTZxBaq xlZVnW4GAuIYjFihBi6ESxlFavIICNHCW20WanDcyiApIPvjGbYtIUVAZnAwjZEekF3+o7YCd H6wTQeJpQZBmR6d7Ou7bMNh/Jz54qicJbEGwhg2Muyu/l8SAZ1BeianOsaqXS5CQEaEk8xfuX XUP+573Hp8hWzlyI88FH2B0ib75tpCho2tt9ZF9YSfDL+DSBXFAi+lbFzFkvnDExoi1rK1pwY rxhdRyauNvgV+FoRenHwVl7AnzJneJlfpKxruvA78zEb1kP9kJuFb3Kidt8yxNAXQ670wk/7v EyYMZpX0/RR/clH8y59emxreKmAlnLF/p6u9Qa4772Hef/C4cpnf7tjIPk6q0tPTs7uEDXTAq i+0BpvVTFhPkRRSPRdbpCFXNYVq/uSEo5M7vbKtWBVzccH5ZbDeyZDo8Lh8vfnJS0mLIsK+22 Lwx8fAkA3vceSpkW1/UDEzqpbEuyJqBFPwubRTwJ+UV4HiPMAG38A1b5g113652twDnVWeYKK E4yOqQ3iedFzZe/AbunLZgufYe3w44Ds9VyoqU+2RH/59C5AQ6b3tvx7IQwrx8i2F9kRF4eTz CLVIE7RPhkAyOJ4nXrmZkuoXJvoSA+Xt5hhP8ytKyGhIJ4OKsJLsGxRVc6HapqENST6G4AFGM s+jCTbhAGd4D8dSu7pbxtm+1LqcApT8t70U2dWohJ3Uh3OHkxxzgxaa2+M4mn0tW/J4I4ooFP 0RptvqVMmy+L2h1EKsC08c7aJIfe0azLI9rCxCMFjoxUdqykH/v4FXkKUYGwpw4a/oqBfhLmo 82aoZxGLgh7zQoK7VLFQq60276s1zLumN+qH9/TEU7PLA0NIbqEwuvnZ47QXxWMEht3ok+/tL 7VD1JN+hqRF6C/ViqUNl27m0BtgLkYQ8z9u/S4xImn1zpQesqKc9S/2+zBcoee2/H+FHQScmc
- +08xi4+wGwsAClw0mpr4V7qVhkxJPCuqemfoEg62n2HT7Q1vYnWmNok8ew1qNOJH6Lqbba/VJ 9FYFPdbsRG7C+jTCTpm1w73RWfMfy2hk3Ap4d/Qg3YaOPQfazmXVi/zzC+Vg/abER5sURXAjU RdX2RiLk5mcXprygpjTflyDmrrPXYppFqtRW4kpFNEoLfoi6YXy/ifObT+3SPlaRGACnBcPgV P2ofASZm5lzHinRgYOugUY7cgJMgNjwj2Bphx4/Xd3DW6r3dVEsPCxp30TADmr1XzQcs18EjI 3T9ZBbh3yRnzKVV6HGzKQ87hz0OGWrUt8uAcbe1H+NCcNFaOmJySn+IqQLFxZ31X/b/AGvSc0 qkdFOXAfMxovHTAU+AiZGzG4l3zO5ZnYn8mv+MxmyOGiXs43OE8xcaSUlpH3w8BhAZuT5GH1n vcML64CCMQT2pDjHFjZBTRRH4oCuUMtfsFWQyKUOogcKyPZ2w6+skTFlbel7WwONxSVjjckYb dj6qPG/TNNUIlbuMtksRDHYeEqKMFsQYYV1SpRor30bgVTlcpoQ8uBt/uLPYOvhNueHwhJQqg viU2VHQA9H1Fa5isIoTIFumiYFlNH/PXFzL5dkshJmHA+WmIiKTE/yPDa4JWCFKHsp4K4Zurh 0ohXljIgXAyg3rDb52yIUbdKoTsBAgIbEew5wX7SJRvG06HvKO4sSspRgCtd/GSaCu9aLWDze A8noUZid9sGmKw8k/JSUDlOv2glqGC9iSs898Y+i0enB60CjlLHweAGOBoZoQjErRqjBsD/p9 3cqbYUIPTj1oTqdieNpx/snQlefcF0t+EN7Y7lDNsDPgieSX++4jct/bAtMfyUhkiQjhtuhKz wKBHzlc30xAlzW+H7Fhd3Bzmb0MC7SixxtoOHXjgSkjpyI/uP0uH2LEbRa5qUxWRXA8aOuX2/ qsNojGxq29yM12/9G5JvlaJ0nbY47vquKwzsRN1dIaA7MAn0ik73E/J25q30XSnv0CDE1IkJP N1kLB3usU0oPStfMCDgXvnISJelD9tpttxYXTXiv/e1mn/ypalz1iGYQaDBcA9ynwGUkDn2Bi MnHPIjV2pjBO1rQyHys7ADcM3Uzu2flOBl1/SZh/40fpjw5IYZksezgQKpimfh9yLa1mrjrwe pu5YS6npiGzrHSES6T54VossZCCyosjB9rTtwTq4qojisJ8K3/axN8tYJ4M8qgEzMfhyPSdaH yVdU463E7wEvR9BJeKtDYt1AcSx7+apqXUQrs5MXSL00d//qX3NNzaQvib0d2JCFlFLkJWw2d 9mGoJgEAZ71IHonSTkbVqHAUCE4rf4/kBZ2PrkYw3i3QsynPKJmAZI9MUzk34d+/NWK7/lKir SZvqkfJR//PXeCiWxVYgkn4Ob+yntzBb5dgig2a/KiXXMxzGbDJ1o4TvS22jlCFsT9kMtjUfl oldWktNo+By4sv7Ueq3ISsK/Hwczzye9o0pFudKWRDxujvP4nFWGCxIhpeSD5lm6ORhL4Acq6 UcwqQjKq8fhM3tH4ZDrUemtmg2IeO28K2BUtCip/nl0WzBhnpf4lHw/QnlQsexBG3f0h2rpWJ WPAumk/aOSXorYhzA5ueVEGwLfgtvMUWLplkl1XBeKwRnFt3+P9v2BDSqK2hUpdiGK7Gdeswg BG66ALb0f5dAYLaU12fmQ5LIDWX5+XD8QVXHXj6p8g7fU3N2mhRPb9uK/Z3yaFWPzgbpJAn2k S2hhH7PK9aHdriKmnTuWADSrLZ9WuA0Jh2kx2PxL6IQ5XOUaGH004/d9QW6V7FuWoJYzNy9qx teWv8o+Bx6NDpKvUy1bdoSgQiJnKkTVu27MJJ5ZGunkfnB4VpwknNWLpz129UjJiMG4JLGbX5 tGHvO9T8N+Ul+dKaVt7BPwPKakq33Kd0dPjqxYr+g7RbLgRQUKsu3280pI0RLzNUBt638kHoD j16q98Ztjg1hZuQBhUSQkXF+UPhqhPKdCs/2jMfmTOtKihdn3MqmmjrLgat4VzljMwe8Yr7jI CPu5coqe/pbtrVRPaSWnitGYOIbBRi39bW6iejEZfYquC22OQCEZ1tpOFZbKZEA4U92dUns01 gIZ8G8biP+t7ISibcp42FcufxVgise2IaT0DCt9+9icABtKPLRjgFFEwZhuHRkVhBU0NsIDla IFJ+FFQ==
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260806_233411_534316_A75BAB72 
-X-CRM114-Status: UNSURE (   5.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260806_234112_695880_B52F2068 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +98,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> All errors (new ones prefixed by >>):
->=20
->>> builtin-check.c:300:8: error: incompatible pointer to integer conversi=
-on passing 'FILE *' (aka 'struct _IO_FILE *') to parameter of type 'int' [=
--Wint-conversion]
->      300 |         fputc(stderr, '\n');
->          |               ^~~~~~
->    /usr/include/stdio.h:155:16: note: expanded from macro 'stderr'
->      155 | #define stderr stderr
->          |                ^~~~~~
->    /usr/include/stdio.h:611:23: note: passing argument to parameter '__c=
-' here
->      611 | extern int fputc (int __c, FILE *__stream) __nonnull ((2));
->          |                       ^=E2=80=A6
+Commit 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox
+buffer") switched airoha_npu_send_msg() to DMA_BIDIRECTIONAL so
+non-coherent CPUs invalidate caches before reading NPU GET responses.
 
-Would you become interested to take another look at a corrected source cod=
-e transformation approach?
+On EN7581 + MT7996 that change regresses probe: the mailbox completes
+successfully, but WLAN_FUNC_GET_WAIT_NPU_VERSION still reads as 0.0 and
+mt76 never binds NPU offload. Healthy boards report 0.1111.
 
-Improving output for single characters (with SmPL)?
-https://lore.kernel.org/cocci/406093f5-ee7d-4ae9-808b-2b42d4846eab@web.de/
-https://sympa.inria.fr/sympa/arc/cocci/2026-07/msg00055.html
-https://lkml.org/lkml/2026/7/23/2205
+airoha_npu_send_msg() is also used from PPE foe_commit under
+spin_lock_bh(), so per-message dma_alloc_coherent(GFP_ATOMIC) is a poor
+fit. Allocate one device-managed coherent bounce buffer per NPU core at
+probe and reuse it under the existing per-core mailbox lock. That also
+keeps the buffer valid if the NPU completes a write after a mailbox
+timeout.
 
-Can similar adjustments become more helpful for further software areas?
+Introduce __airoha_npu_send_msg() with an optional reply pointer so GET
+callers can copy the trailing response payload once. Keep
+airoha_npu_send_msg() as a thin wrapper for SET paths.
 
-Regards,
-Markus
+Verified on Quantum Fiber / Gemtek W1700K (EN7581 + MT7996).
+
+Fixes: 6f884eb87a79 ("net: airoha: Fix DMA direction for NPU mailbox buffer")
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260805070851.2885888-1-pawlik.dan@gmail.com/
+Link: https://patchwork.kernel.org/project/linux-mediatek/patch/20260806072601.1815487-1-pawlik.dan@gmail.com/
+Assisted-by: Cursor:composer-2
+Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+---
+v4:
+- drop rsp_off; copy trailing reply_len bytes into reply pointer
+- split __airoha_npu_send_msg() + thin airoha_npu_send_msg() wrapper
+  so SET callers stay unchanged
+- fix reverse-christmas-tree local variable ordering
+- constify data argument; clarify reply copy comment
+
+v3:
+- move coherent mailbox buffer into struct airoha_npu_core (buf/addr)
+- allocate one buffer per core at probe
+- add optional reply buffer to avoid the extra copy in
+  airoha_npu_wlan_msg_get()
+- document AIROHA_NPU_MBOX_SIZE vs ppe_mbox_data / WLAN payloads
+
+v2:
+- allocate one coherent mailbox buffer at probe and reuse it under the
+  per-core lock instead of per-message dma_alloc_coherent(GFP_ATOMIC)
+
+ drivers/net/ethernet/airoha/airoha_npu.c  | 70 +++++++++++++++++------
+ include/linux/soc/airoha/airoha_offload.h |  3 +
+ 2 files changed, 54 insertions(+), 19 deletions(-)
+
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index b679bed952de..74da3c4d06e4 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -23,6 +23,12 @@
+ #define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
+ #define NPU_EN7581_FIRMWARE_DATA_MAX_SIZE	0x10000
+ #define NPU_DUMP_SIZE				512
++/*
++ * Mailbox DMA payload size. Covers sizeof(struct ppe_mbox_data) (28) and
++ * WLAN TLV messages (header + payload); largest in-tree WLAN payload today
++ * is 16 bytes (INODE_TXRX_REG_ADDR). Keep headroom for future commands.
++ */
++#define AIROHA_NPU_MBOX_SIZE			256
+ 
+ #define REG_NPU_LOCAL_SRAM		0x0
+ 
+@@ -160,23 +166,32 @@ struct wlan_mbox_data {
+ 	DECLARE_FLEX_ARRAY(u8, d);
+ };
+ 
+-static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+-			       void *p, int size)
++static int __airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
++				 const void *data, int len, void *reply,
++				 int reply_len)
+ {
+-	u16 core = 0; /* FIXME */
+-	u32 val, offset = core << 4;
+-	dma_addr_t dma_addr;
++	struct airoha_npu_core *c = &npu->cores[0]; /* FIXME: core */
++	u32 val, offset = 0;
+ 	int ret;
+ 
+-	dma_addr = dma_map_single(npu->dev, p, size, DMA_BIDIRECTIONAL);
+-	ret = dma_mapping_error(npu->dev, dma_addr);
+-	if (ret)
+-		return ret;
++	if (len > AIROHA_NPU_MBOX_SIZE ||
++	    (reply && (reply_len < 0 || reply_len > len)))
++		return -EINVAL;
+ 
+-	spin_lock_bh(&npu->cores[core].lock);
++	/*
++	 * Mailbox payloads are bidirectional (CPU request, NPU response).
++	 * On EN7581+MT7996, streaming DMA_BIDIRECTIONAL against the
++	 * caller kzalloc() buffer can leave WLAN_FUNC_GET_WAIT_NPU_VERSION
++	 * reading as 0.0 despite MBOX success. Reuse a probe-time coherent
++	 * bounce buffer under the per-core lock (also used from PPE
++	 * foe_commit under atomic context).
++	 */
++	spin_lock_bh(&c->lock);
++
++	memcpy(c->buf, data, len);
+ 
+-	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, dma_addr);
+-	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, size);
++	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, c->addr);
++	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, len);
+ 	regmap_read(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, &val);
+ 	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, val + 1);
+ 	val = FIELD_PREP(MBOX_MSG_FUNC_ID, func_id) | MBOX_MSG_WAIT_RSP;
+@@ -189,13 +204,21 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+ 	if (!ret && FIELD_GET(MBOX_MSG_STATUS, val) != NPU_MBOX_SUCCESS)
+ 		ret = -EINVAL;
+ 
+-	spin_unlock_bh(&npu->cores[core].lock);
++	/* Copy the trailing reply_len bytes of the response. */
++	if (!ret && reply)
++		memcpy(reply, c->buf + len - reply_len, reply_len);
+ 
+-	dma_unmap_single(npu->dev, dma_addr, size, DMA_BIDIRECTIONAL);
++	spin_unlock_bh(&c->lock);
+ 
+ 	return ret;
+ }
+ 
++static inline int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
++				      const void *data, int len)
++{
++	return __airoha_npu_send_msg(npu, func_id, data, len, NULL, 0);
++}
++
+ static int airoha_npu_load_firmware(struct device *dev, void __iomem *addr,
+ 				    const char *fw_name, int fw_max_size)
+ {
+@@ -442,8 +465,9 @@ static int airoha_npu_ppe_stats_setup(struct airoha_npu *npu,
+ 	ppe_data->func_id = PPE_FUNC_SET_WAIT_FLOW_STATS_SETUP;
+ 	ppe_data->stats_info.foe_stats_addr = foe_stats_addr;
+ 
+-	err = airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
+-				  sizeof(*ppe_data));
++	err = __airoha_npu_send_msg(npu, NPU_FUNC_PPE, ppe_data,
++				    sizeof(*ppe_data), ppe_data,
++				    sizeof(*ppe_data));
+ 	if (err)
+ 		goto out;
+ 
+@@ -497,9 +521,8 @@ static int airoha_npu_wlan_msg_get(struct airoha_npu *npu, int ifindex,
+ 	wlan_data->func_type = NPU_OP_GET;
+ 	wlan_data->func_id = func_id;
+ 
+-	err = airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len);
+-	if (!err)
+-		memcpy(data, wlan_data->d, data_len);
++	err = __airoha_npu_send_msg(npu, NPU_FUNC_WIFI, wlan_data, len,
++				    data, data_len);
+ 	kfree(wlan_data);
+ 
+ 	return err;
+@@ -770,6 +793,15 @@ static int airoha_npu_probe(struct platform_device *pdev)
+ 	if (err)
+ 		return err;
+ 
++	for (i = 0; i < ARRAY_SIZE(npu->cores); i++) {
++		struct airoha_npu_core *core = &npu->cores[i];
++
++		core->buf = dmam_alloc_coherent(dev, AIROHA_NPU_MBOX_SIZE,
++						&core->addr, GFP_KERNEL);
++		if (!core->buf)
++			return -ENOMEM;
++	}
++
+ 	err = airoha_npu_run_firmware(dev, base, &res);
+ 	if (err)
+ 		return dev_err_probe(dev, err, "failed to run npu firmware\n");
+diff --git a/include/linux/soc/airoha/airoha_offload.h b/include/linux/soc/airoha/airoha_offload.h
+index 7589fccfeef6..16a988ad7467 100644
+--- a/include/linux/soc/airoha/airoha_offload.h
++++ b/include/linux/soc/airoha/airoha_offload.h
+@@ -173,6 +173,9 @@ struct airoha_npu {
+ 		/* protect concurrent npu memory accesses */
+ 		spinlock_t lock;
+ 		struct work_struct wdt_work;
++		/* Coherent bounce buffer for mailbox cmd/rsp */
++		void *buf;
++		dma_addr_t addr;
+ 	} cores[NPU_NUM_CORES];
+ 
+ 	int irqs[NPU_NUM_IRQ];
+-- 
+2.55.0
+
 
