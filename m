@@ -4,62 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2178BC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F5C4C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qOBJIJnNOMCdQ6+XqylCC6XKFDNzzWzFZKu0gFClous=; b=uZ0yD5jLvC2So4j47MxEfXK3iu
-	XS5Dh0rb7e5nHOh5oEt+eeIbZcaGH2M78Nnv+jRT99InlYG+x6Hwp3/4bxx+hqGf4UkAFAKRz12jL
-	Q98VAPnGpWChVuqUWPjUXKQd83hQHLzXB0yzOgOf1iZQ6HcMRdG7y5CQsgupYRuMhnfMyhQ2QCNsB
-	lFWs1yK64ZncdBnSmdr+5svE4JfYIEjKJxlQ/3ZkmX0UsMzDLRPV44OZaeyt0Vtg/Q9A44UDHY676
-	y9+/exffa7UuljlJk+TeWRoPCZLP4c7G9T7oNyW8m1kNQmmwZS/zNh9Jt67jqVkbpBB5Y5IeQhefg
-	hKFUk4wA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=G26ZVU+BExKSSTnsg3O7iG0H7cNY3/+3zbp8geVmPqo=; b=XJcaKNnHBH5xXLwM+xmogI8dKT
+	bcW4yWQ+NndxuyHwUPnPAOX2z2GQkCxEeRgY1dgGfDePP4PpPs8m4nMM5IlZb2TTP7U80B5mDogzv
+	mTuboUsE6xQKOPppEt6RBrGD+CNczUwkOcQU6npxCe6CYE9a/6fQxTxc+6HyxFntsRy8ZzxgLPmQW
+	3TGc1Z73HXDxYhe3NGZwLB+eubQmoSIVW1GY++Sjlg7xGgZccnH+SGKx/zVkrXRvp0lmoPVkcSZEz
+	dn4dyqn7rLNP/GXbdzX8HXhGiyRbIq5+2VIz1y0TU8U1NlX4AfH7YW0+8hjvWOyuTdN3j6QX4a/Eo
+	ujvnq2Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKTn-0000000876c-1Zly;
-	Fri, 07 Aug 2026 13:19:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wsKef-000000088LX-1r6N;
+	Fri, 07 Aug 2026 13:30:33 +0000
+Received: from mail-australiaeastazlp170120004.outbound.protection.outlook.com ([2a01:111:f403:c40d::4] helo=SY5PR01CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKTm-0000000876B-0h5O
+	id 1wsKed-000000088KO-0SnL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 13:19:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBA02401CC;
-	Fri,  7 Aug 2026 13:19:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D89F1F000E9;
-	Fri,  7 Aug 2026 13:19:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786108756;
-	bh=qOBJIJnNOMCdQ6+XqylCC6XKFDNzzWzFZKu0gFClous=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Z7SNscdHWB1cDQ5+rvz5nK5wNgdW3DLxKgPjQcHmsQ4QpVvOuMNdNrnRJKJGnfaQ0
-	 jasDVQYfcu8CwGl3t+j3F4er/0YkaXao9MC2tebSSNpbJU0Q9TCGC3Rdbxyk/Xs37N
-	 o0ilVBDrpJ3rnEuINi6nda+N8KppMoO5IjIUQm8+J1VcZAoOVFgAN9cBmYXKGdKND0
-	 MC1MEWhoPjwkZnx1k0NJIIPtvVTJEjgf2Zao9jVb4ke+z0qgJ+eNI+qhMvQ/qVUFr/
-	 Egs5mr8oGPxMs212uYr4hHvEmY7GvWAXxzmYVBzc5I0oR1gK0+U+0dgD/3Wt9oGGUS
-	 KgFSycowVhL1Q==
-Date: Fri, 7 Aug 2026 14:19:11 +0100
-From: Will Deacon <will@kernel.org>
-To: Marco Elver <elver@google.com>
-Subject: Re: [PATCH RFC] arm64: Mark set_preempt_need_resched() access to
- .need_resched
-Message-ID: <anXbTwhaWZCIxxTg@willie-the-truck>
-References: <d345dc9f-c61e-4db5-a342-11b0ff3fb846@paulmck-laptop>
- <amyaRXx8zXxOMgTL@J2N7QTR9R3>
- <13df4ff4-8594-4c37-b25f-860248a222cf@paulmck-laptop>
- <4fa802e7-6cfc-4cce-afee-c29b28171ad3@paulmck-laptop>
- <anR28GyRtCpApQYX@willie-the-truck>
- <ca54b283-3349-43d4-9460-32b084709d67@paulmck-laptop>
- <anXKRdA9sUziFda5@willie-the-truck>
- <CANpmjNPCM0NV1EN2pNBf3EBBk8eLjbGGAiZ_+rJkoROJtG3jFQ@mail.gmail.com>
-MIME-Version: 1.0
+	Fri, 07 Aug 2026 13:30:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BxzJDXwoy2mOQWloZ8nC9ena9D0nr2V7ovuEu6L6yebOJzg5KEnoC77kivHdeL2l05h77hI65QD4rpX/ZVdcGfdcS/pSSG7VVT/Rr2EXNIlRcu0md3m2zkEGPeTfggiKhXpGXbouJpO0uEmYofYud8B4lLHpYoarE89jCPS/4OpkFxh8Qx7vzsVNOAxX6qR+OgzFfZKphwpOJjmUQZBHlzuNTjn+et7eb4Db8AGPD94ey7mw6925ESnstHNPZyNfqSM2bpps+9ZXe1HNb8i/7iJSBs7GLl9ZlCc3BVIIr+vkf5U4UWWo8a8i/TI1DGLevhg2xMEtqbqT4h0wuHPAAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=G26ZVU+BExKSSTnsg3O7iG0H7cNY3/+3zbp8geVmPqo=;
+ b=pUaObitbZ1Zx5oSjqwOtVZHlxXybrxMLuMJBrpHqNiTC4R53agmJMzukkLy7BSprTb6mgNXFd3pJx30O3d9dVpTXYSq5FvEEN/eBCije7d3O6cf734csl4++yxCORcPQXQ5IAt+jgfi59H+Aop874+ACOYLCj45SfMJ/NTO8/TO1q6rm2aC3nKRCuoemBrtFYTlIC90pXoG//hI2zDDBJAUBm4CustwddDtW1o2cKBaVOdTJduvv26q91+dRQlBTU8oQ/0dnBE01vFuaiIoGykpmJwl9qFX4sOg7vJnINgljHcQB1t+Pd6gkYaicOP/OcxVqBTdB5qsS1gaamZJzJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=heitbaum.com; dmarc=pass action=none header.from=heitbaum.com;
+ dkim=pass header.d=heitbaum.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=heitbaum.com;
+Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:279::22)
+ by SY7P282MB3978.AUSP282.PROD.OUTLOOK.COM (2603:10c6:10:1ed::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.24; Fri, 7 Aug
+ 2026 13:30:13 +0000
+Received: from SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
+ ([fe80::21b6:91f8:614d:1fdd]) by SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
+ ([fe80::21b6:91f8:614d:1fdd%4]) with mapi id 15.21.0292.022; Fri, 7 Aug 2026
+ 13:30:12 +0000
+Date: Fri, 7 Aug 2026 13:29:50 +0000
+From: Rudi Heitbaum <rudi@heitbaum.com>
+To: imx@lists.linux.dev
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	rudi@heitbaum.com
+Subject: [PATCH 0/5] arm64: dts: imx8mq-phanbell: Google Coral Dev Board
+ enablement
+Message-ID: <cover.1786107925.git.rudi@heitbaum.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CANpmjNPCM0NV1EN2pNBf3EBBk8eLjbGGAiZ_+rJkoROJtG3jFQ@mail.gmail.com>
+X-ClientProxiedBy: MEWP282CA0188.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:220:1d6::16) To SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:279::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SY7P282MB4909:EE_|SY7P282MB3978:EE_
+X-MS-Office365-Filtering-Correlation-Id: dc11dc3e-6868-4ad2-bb14-08def488023c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|5023799004|10067099003|3023799007|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: lGQyu77BbvICmLDmzCrW2p9gvvWeMFgXX+o6jyY2kDUwn6WkT+PPf63XpMnH8a0UhEp3Q9AzRNSm24XgmRVzYb4lgd5oA19zR22DMTBujKNJPm1Q/Sxw6uWOj+7RPJ+pBMFIDRCNczC1fo6WqHxZfoTGsHiTi4rM+pT50n+InwqfRwJXGG/QQCIMHSya1JMuChvVG9U2pmkIiB5KV63RIo4IpKue0kyZGCmBAVzjx0Hoxj4I7Nhn1Fyu2if/Ocd/jk9dMsb5v09L4FqU7apJZTPhKlfiZ8wck9LaNiPIgi9HMyxOhn8seeP+fn0jpt/7avU8OILG9kO2wVNDhpzidayQGvYFwNEsJ7pt4Nt6WMkmTB0a6YtTcSohm0FiMh93D3ABRMUZr4L1ySQbIoIhF7KFcTwXzaH/QCXMb608Xzco5l/1hMI9wFL6i7K8EqKkEOTAJCZIkSYhhHqCLsTtQBxxLIDFoLZUfO5oOxV/PCBFQU9jFeFK28hffUHly7tHA9M+eaIryTL+gt2osFM4R4GAz9o5acxaqHXL/MbnJ0o/hoioEqY9NlroQcWY2drhOBawaGt3orM9+Jz+0kQrEFKgs/GwnmjKty/+0mH+rkl2otTa4Xz91CJSbzm9xlu5g05Tz+Cj0OU9T5Kr1+KXd4glKzV5b07xbA7jhCfJj+0=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(5023799004)(10067099003)(3023799007)(56012099006)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NrQC8M2qTEM34WznL8MqTbH5a9BJciIrIfj2XMwigxXdNU6Ju6xj8iecg8Yw?=
+ =?us-ascii?Q?oAN+gDh2d2eOMz/HXDqnnSjDumTa01fhI2K9eLCXn83mdjO9ssJ4NE8P1vcr?=
+ =?us-ascii?Q?xSeHB48v4VoTaIAjIGBsyLnZHiOWZG22GHwDpmKcGp/9ll9PKwLX97NRduMf?=
+ =?us-ascii?Q?p6pTzyApqcF+pl0YgrjrM2FVoj5PV1P3FjSS/E4GAgGgokcq2pwlqc2NFffZ?=
+ =?us-ascii?Q?iBlhxTf/JdqTuf9QBO1V+N0gPUtAqYfDisGA1Hp8zcpgy0YA7nM+7VUWce8n?=
+ =?us-ascii?Q?gTgCm69nXFF9dR+nn06wiILLMmDi5iX3oivJGZYJLcTSHOITL4KKDjmXr36o?=
+ =?us-ascii?Q?6DyllQrNAvit/LPGKK9DsJ14x85+CmGZCI7ZFR8AAIG0jFtbPzujlhiFm8n4?=
+ =?us-ascii?Q?ACtBO3UOyhECjLIJXrnK55qaXKhYNMoCRRzAm8/Lm8ublT7Ha0QgSAC54Rrf?=
+ =?us-ascii?Q?b9uzPiNcsG4SzpuJZ+e2NMxkxo+gYUX0ab4LrV5vHHMsgGjd4D/cQRo4eaSt?=
+ =?us-ascii?Q?7ldIn61oSqKcliLHvNMiA4Q+Wkg2NkvKdtT7lzvbpK8jm2vHNDfTGRTEQxXb?=
+ =?us-ascii?Q?EAXnVQqOEN8KoNIf0nzp5huwuR7soryqpFjpfJUVSSpHXDGrpNi2JI3JWYB9?=
+ =?us-ascii?Q?rLJ6L5A1cxKjooCh8hBrMsILlxEndqW9o77Tr+44xZCKkycTC+Hrw3IE+U/V?=
+ =?us-ascii?Q?fuwkuIwbs6wjDFKa4rmWe01HkmKMN/mGFsa0qZBs5u9db87YTGRifNoKzJOl?=
+ =?us-ascii?Q?R3JP3vvodEPAyEiiLdVhUFFOAJdc73pNdX5wpXVqCd9sl1o9J1vh1xRyGtNW?=
+ =?us-ascii?Q?LBsjaTTwOUWQlQpzzApfxTbKsMVXN9aVGSdPtqEfh6GDYQvcMpXoGs9m6KEj?=
+ =?us-ascii?Q?hWyReLMXBF8X33kMP7HygTqY/F4Q1KPY0JTs84p6Xpe34gM4liMMlnZJ67dO?=
+ =?us-ascii?Q?R8CpicY1ZZ7T6+5+qwVmhxr90IUp6MV7jcAYHo7+qQJdHj3kQ2P9vHXtQEr/?=
+ =?us-ascii?Q?NkaRxvppGK0FciExqBlNSY0A8Kan423ng0n6Q8JjMCsrwssQdGAySYKpDC0M?=
+ =?us-ascii?Q?luva+aRKL9hK3wCQPO7YsVy+FH1Qs9JK6tDXny1v4fqpuaK5mb8wu4BA/ToA?=
+ =?us-ascii?Q?9sG1lOuaXGYAktoe8nksnTWKt+op+VumTd+2Vk3CmruUSWBh8l846//27lL1?=
+ =?us-ascii?Q?i2xXNVm8ptmfDlSGIojiH7kKYiqsFGYg0GPMFuDx67CSPIjV2QMvwyFqBDn2?=
+ =?us-ascii?Q?9lhwxuLdLkfYwYFzPyA7TEk48xqRgSYK4O+5cO3ie35xl1PIILlNA7pYJtoh?=
+ =?us-ascii?Q?vnqKTziC2Y7LG3cxghpqSTELQEzVpnxGyXod/j76AjJ7yIQRApADWV8Ve/kQ?=
+ =?us-ascii?Q?wd4UVi9nw/kJJ2gUGyLd0obBNSecOWaEeyiDDEsxpUzKk4nhosK2WJd0LLvj?=
+ =?us-ascii?Q?YvQ9aYcbAr0nsgNwonRrhzUzr+n371+Zo8XmWiIhmLTwq+8Y4PkP/3AkLY13?=
+ =?us-ascii?Q?ezDrx5peon05/bSoc7T0Tlo7B4SK/cZee7v+T341HgNyVKQgfnnnK9FMzCdJ?=
+ =?us-ascii?Q?8UoHHGD1laB/2kQf4bBhe02Qv5qD6aKGqzJ9/IVKRuZhHY4BhD8jDYGWe+hu?=
+ =?us-ascii?Q?w3e8qPToY2h1irnIXlNkTa5XrCsHi+9Sr+i8m+5RJMhFdcALApZfKtlFbAq2?=
+ =?us-ascii?Q?gfFiK1J8qnifVa+5N6daf7mhXC0OxjEKXIheTSUV91RkE+GC?=
+X-OriginatorOrg: heitbaum.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dc11dc3e-6868-4ad2-bb14-08def488023c
+X-MS-Exchange-CrossTenant-AuthSource: SY7P282MB4909.AUSP282.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 13:30:12.4649
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 35ffebb5-7282-4da6-8519-efab29b0108e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yjzNcm0W79EC3lcHLlRu4yQv3RlJGndIlhvTL4AbANoo3mQzA455jLZGs+xwaqbpcSnb7o7SUQuzUaoYIW9m/w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SY7P282MB3978
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260807_063031_170315_920C7E83 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,52 +130,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, "Paul E. McKenney" <paulmck@kernel.org>, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, dvyukov@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marco,
+imx8mq-phanbell.dts describes very little of the Google Coral Dev Board
+beyond the essentials. This series fixes two defects that affect the board
+as it stands today, then adds the i2c buses, the 32 kHz reference clock pad
+and the analog audio.
 
-Thanks for the help.
+Patches 1 and 2 are bug fixes and stand on their own:
 
-On Fri, Aug 07, 2026 at 02:21:39PM +0200, Marco Elver wrote:
-> On Fri, 7 Aug 2026 at 14:06, Will Deacon <will@kernel.org> wrote:
-> > On Thu, Aug 06, 2026 at 10:25:37AM -0700, Paul E. McKenney wrote:
-> > > On Thu, Aug 06, 2026 at 12:58:40PM +0100, Will Deacon wrote:
-> > > > On Fri, Jul 31, 2026 at 11:39:14AM -0700, Paul E. McKenney wrote:
-> > > > > [  738.696166] BUG: KCSAN: data-race in __delay / set_need_resched_current
-> > > > > [  738.696184]
-> > > > > [  738.696188] read (marked) to 0xffff000005899b48 of 8 bytes by interrupt on cpu 8:
-> > > > > [  738.696198]  __delay+0xb0/0x378
-> > > > > [  738.696212]  __udelay+0x4c/0x60
-> > > > > [  738.696225]  kcsan_setup_watchpoint+0x3b4/0x820
-> > > > > [  738.696238]  __tsan_unaligned_write4+0x228/0x26c
-> > > > > [  738.696249]  set_need_resched_current+0x138/0x1a8
-> > > > > [  738.696260]  rcu_exp_handler+0x418/0x4a0
-> > > > > [  738.696273]  __flush_smp_call_function_queue+0x36c/0x4a0
-> > > > > [  738.696288]  generic_smp_call_function_single_interrupt+0x20/0x30
-> > > >
-> > > > This is a bit weird -- it looks like the read is occuring from within
-> > > > kcsan itself?
-> > >
-> > > Ah, you are right, as part of KCSAN's software watchpoints.
-> > >
-> > > What do you suggest?
-> >
-> > I suppose we could add some __no_kcsan annotations to everything that is
-> > called from the KCSAN implementation but it feels error-prone and could
-> > hide races exposed by other callers.
-> >
-> > I've added the KCSAN folks to see if they have any other ideas; it looks
-> > like the sort of thing you'd expect them to have encountered already.
-> 
-> Most of KCSAN's internals are not instrumented, but do call out to
-> some instrumented bits where that's safe. In this case, it looks like
-> a real data race, even though the access comes from __delay that was
-> called by KCSAN, I don't think it's any less valid.
+  - BUCK3 feeds the GPU rail and is the only regulator on the board that is
+    neither always-on nor claimed by a consumer, so the regulator core
+    switches it off when it finishes initialising and the board dies about
+    thirty seconds into the boot.
 
-Ok, but then I don't understand how these accesses can race. They appear
-to be on the same CPU, in the same IPI handler.
+  - The cpu_alert1 cooling map hardcodes an upper state of 2, which does
+    not exist on a part whose speed grade provides only two operating
+    points. The bind is rejected with -EINVAL and the trip ends up with no
+    cooling device at all.
 
-Will
+Patches 3 to 5 are enablement. Patch 5 depends on SND_SOC_RT5645 becoming
+user selectable, which is "ASoC: rt5645: Make the Kconfig symbol user
+selectable", queued in broonie/sound (for-7.2) and not yet in mainline. The
+devicetree applies and builds without it; the codec simply cannot be
+enabled until that lands.
+
+Producing sound from the analog card also needs "ASoC: rt5645: Perform the
+initial jack detect at probe", posted separately to ASoC. Nothing performs
+the initial jack detect for a card described with simple-audio-card, so a
+headphone already in the socket at boot is never noticed and the output is
+silent. That is a codec driver fix rather than a devicetree one, hence the
+separate posting.
+
+Deliberately not included: pcie0 and pcie1 need the i.MX8MQ PCIe REF_CLK
+source selection to be made conditional, which is a separate series still
+in review, and the Bluetooth half of the QCA6174 depends on that in turn.
+
+Tested on a Coral Dev Board on 7.2-rc6: buck3 stays up and the board boots
+reliably, both thermal trips bind and throttling engages, the codec probes
+on i2c3, and the headphone jack plays 44.1 kHz and 48 kHz.
+
+Rudi Heitbaum (5):
+  arm64: dts: imx8mq-phanbell: Keep the GPU rail on
+  arm64: dts: imx8mq-phanbell: Do not hardcode a cooling state that may
+    not exist
+  arm64: dts: imx8mq-phanbell: Enable i2c2 and i2c3
+  arm64: dts: imx8mq-phanbell: Mux the 32 kHz reference clock pad
+  arm64: dts: imx8mq-phanbell: Enable the rt5645 analog audio
+
+ .../boot/dts/freescale/imx8mq-phanbell.dts    | 124 +++++++++++++++++-
+ 1 file changed, 123 insertions(+), 1 deletion(-)
+
+
+base-commit: 075b74841bd0065a3bda3440873c747938e69b68
+-- 
+2.53.0
+
 
