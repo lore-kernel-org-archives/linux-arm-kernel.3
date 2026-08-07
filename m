@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9C98C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2178BC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wsfDDPcsG5MUSLOHvWCFv40tfsXBmUj7P+V3Bqk82YU=; b=p4N478Ybwnd7x5fchTxAB87ZNv
-	HHOBuXPTUqkgqZo+L6oZBVdGbU1vR2nqQ3MjF/G8Gdml20VKWGf11Qr7h4lteLwmDDnuKMTDm0r2n
-	yvbyJou7w4G+5GrkN1foQ31RvTjC4uMJ76wvTbuUO2A4Q9G6kbuw+CXcz1NYeAiYmvrkm6MKSO4Nl
-	L7EeqNKHz0vUwQsDzUWZmBrGPwSQAL4ozpcTBfQVj/dzvHX51oLG8TPEQlTXRPjoiFo3tRNW2FVfE
-	f3rvf2cFLAQOpSthLjWiFJWX1/JwJ8xSZhCiuqda3y8/DpgiUxzfVtxW7WuZo6OqoVQOvTu8RyTPf
-	4A+iXneg==;
+	bh=qOBJIJnNOMCdQ6+XqylCC6XKFDNzzWzFZKu0gFClous=; b=uZ0yD5jLvC2So4j47MxEfXK3iu
+	XS5Dh0rb7e5nHOh5oEt+eeIbZcaGH2M78Nnv+jRT99InlYG+x6Hwp3/4bxx+hqGf4UkAFAKRz12jL
+	Q98VAPnGpWChVuqUWPjUXKQd83hQHLzXB0yzOgOf1iZQ6HcMRdG7y5CQsgupYRuMhnfMyhQ2QCNsB
+	lFWs1yK64ZncdBnSmdr+5svE4JfYIEjKJxlQ/3ZkmX0UsMzDLRPV44OZaeyt0Vtg/Q9A44UDHY676
+	y9+/exffa7UuljlJk+TeWRoPCZLP4c7G9T7oNyW8m1kNQmmwZS/zNh9Jt67jqVkbpBB5Y5IeQhefg
+	hKFUk4wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKTE-000000086zk-13uw;
-	Fri, 07 Aug 2026 13:18:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wsKTn-0000000876c-1Zly;
+	Fri, 07 Aug 2026 13:19:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsKTC-000000086zQ-0ImD
+	id 1wsKTm-0000000876B-0h5O
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 13:18:42 +0000
+	Fri, 07 Aug 2026 13:19:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2F2336013A;
-	Fri,  7 Aug 2026 13:18:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 338611F000E9;
-	Fri,  7 Aug 2026 13:18:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CBA02401CC;
+	Fri,  7 Aug 2026 13:19:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D89F1F000E9;
+	Fri,  7 Aug 2026 13:19:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786108720;
-	bh=wsfDDPcsG5MUSLOHvWCFv40tfsXBmUj7P+V3Bqk82YU=;
+	s=k20260515; t=1786108756;
+	bh=qOBJIJnNOMCdQ6+XqylCC6XKFDNzzWzFZKu0gFClous=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cCNbiOkjKWAUqmhRd4f35UKCjy7UEhkqpWWFeU9w7Kfiy5DgWT3dZw1OQFG8VAzwR
-	 XZNBYUU8FhCvDz09mx7t85bJh2lGZS5wWKXfdEHcjdTmqrCKuvbXD4PHj259GvbZZY
-	 At6gmah61p+afUyBaMnPfpe+im9eRwJlcM1uOVFcvRENntNyyd8OspaulZRPI21O0+
-	 RQ+DtFZQKiusnOPhpgTJWrPlMW7ENlDI/iDnaojBH384ZJnryZxsxnSTIXfU3vj3ks
-	 R4W0nC24in4QB64L5eYdsvT8dTMBFtjRhb+mL0yI6d/AOEHHOKCqEgpBrbJoOp2NCH
-	 LWSkcbZumcQJg==
-Date: Fri, 7 Aug 2026 14:18:31 +0100
+	b=Z7SNscdHWB1cDQ5+rvz5nK5wNgdW3DLxKgPjQcHmsQ4QpVvOuMNdNrnRJKJGnfaQ0
+	 jasDVQYfcu8CwGl3t+j3F4er/0YkaXao9MC2tebSSNpbJU0Q9TCGC3Rdbxyk/Xs37N
+	 o0ilVBDrpJ3rnEuINi6nda+N8KppMoO5IjIUQm8+J1VcZAoOVFgAN9cBmYXKGdKND0
+	 MC1MEWhoPjwkZnx1k0NJIIPtvVTJEjgf2Zao9jVb4ke+z0qgJ+eNI+qhMvQ/qVUFr/
+	 Egs5mr8oGPxMs212uYr4hHvEmY7GvWAXxzmYVBzc5I0oR1gK0+U+0dgD/3Wt9oGGUS
+	 KgFSycowVhL1Q==
+Date: Fri, 7 Aug 2026 14:19:11 +0100
 From: Will Deacon <will@kernel.org>
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH] arm64: swiotlb: Keep the default size for protected
- guests
-Message-ID: <anXbJ2O4DWgPxCeg@willie-the-truck>
-References: <20260717180442.110954-18-aneesh.kumar@kernel.org>
- <20260807092612.2202005-1-aneesh.kumar@kernel.org>
- <anXIZSh9lq99VG9X@willie-the-truck>
- <yq5acxvu2ict.fsf@kernel.org>
+To: Marco Elver <elver@google.com>
+Subject: Re: [PATCH RFC] arm64: Mark set_preempt_need_resched() access to
+ .need_resched
+Message-ID: <anXbTwhaWZCIxxTg@willie-the-truck>
+References: <d345dc9f-c61e-4db5-a342-11b0ff3fb846@paulmck-laptop>
+ <amyaRXx8zXxOMgTL@J2N7QTR9R3>
+ <13df4ff4-8594-4c37-b25f-860248a222cf@paulmck-laptop>
+ <4fa802e7-6cfc-4cce-afee-c29b28171ad3@paulmck-laptop>
+ <anR28GyRtCpApQYX@willie-the-truck>
+ <ca54b283-3349-43d4-9460-32b084709d67@paulmck-laptop>
+ <anXKRdA9sUziFda5@willie-the-truck>
+ <CANpmjNPCM0NV1EN2pNBf3EBBk8eLjbGGAiZ_+rJkoROJtG3jFQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <yq5acxvu2ict.fsf@kernel.org>
+In-Reply-To: <CANpmjNPCM0NV1EN2pNBf3EBBk8eLjbGGAiZ_+rJkoROJtG3jFQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,93 +71,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Mark Rutland <mark.rutland@arm.com>, "Paul E. McKenney" <paulmck@kernel.org>, "Peter Zijlstra \(Intel\)" <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>, linux-kernel@vger.kernel.org, kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org, dvyukov@google.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 07, 2026 at 06:33:14PM +0530, Aneesh Kumar K.V wrote:
-> Will Deacon <will@kernel.org> writes:
-> 
-> > On Fri, Aug 07, 2026 at 02:56:12PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> >> Realm guests and protected KVM guests may require swiotlb for device DMA
-> >> even when all system RAM is addressable by the DMA zones.
-> >> 
-> >> Do not reduce the SWIOTLB buffer to the kmalloc-bouncing size for these
-> >> guests, as the reduced number of slots can be exhausted during CCA guest
-> >> operation.
-> >> 
-> >> Fixes: 30c5e45ee2c5 ("dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED")
-> >> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> >> ---
-> >>  arch/arm64/mm/init.c | 3 ++-
-> >>  1 file changed, 2 insertions(+), 1 deletion(-)
-> >> 
-> >> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> >> index e308a7cabd12..24caaf10e755 100644
-> >> --- a/arch/arm64/mm/init.c
-> >> +++ b/arch/arm64/mm/init.c
-> >> @@ -339,7 +339,8 @@ void __init arch_mm_preinit(void)
-> >>  {
-> >>  	unsigned int flags = SWIOTLB_VERBOSE;
-> >>  
-> >> -	if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
-> >> +	if (!cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
-> >> +	    max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
+Hi Marco,
+
+Thanks for the help.
+
+On Fri, Aug 07, 2026 at 02:21:39PM +0200, Marco Elver wrote:
+> On Fri, 7 Aug 2026 at 14:06, Will Deacon <will@kernel.org> wrote:
+> > On Thu, Aug 06, 2026 at 10:25:37AM -0700, Paul E. McKenney wrote:
+> > > On Thu, Aug 06, 2026 at 12:58:40PM +0100, Will Deacon wrote:
+> > > > On Fri, Jul 31, 2026 at 11:39:14AM -0700, Paul E. McKenney wrote:
+> > > > > [  738.696166] BUG: KCSAN: data-race in __delay / set_need_resched_current
+> > > > > [  738.696184]
+> > > > > [  738.696188] read (marked) to 0xffff000005899b48 of 8 bytes by interrupt on cpu 8:
+> > > > > [  738.696198]  __delay+0xb0/0x378
+> > > > > [  738.696212]  __udelay+0x4c/0x60
+> > > > > [  738.696225]  kcsan_setup_watchpoint+0x3b4/0x820
+> > > > > [  738.696238]  __tsan_unaligned_write4+0x228/0x26c
+> > > > > [  738.696249]  set_need_resched_current+0x138/0x1a8
+> > > > > [  738.696260]  rcu_exp_handler+0x418/0x4a0
+> > > > > [  738.696273]  __flush_smp_call_function_queue+0x36c/0x4a0
+> > > > > [  738.696288]  generic_smp_call_function_single_interrupt+0x20/0x30
+> > > >
+> > > > This is a bit weird -- it looks like the read is occuring from within
+> > > > kcsan itself?
+> > >
+> > > Ah, you are right, as part of KCSAN's software watchpoints.
+> > >
+> > > What do you suggest?
 > >
-> > Protected guests under pKVM rely on restricted DMA, so won't this just
-> > waste memory for them?
+> > I suppose we could add some __no_kcsan annotations to everything that is
+> > called from the KCSAN implementation but it feels error-prone and could
+> > hide races exposed by other callers.
 > >
+> > I've added the KCSAN folks to see if they have any other ideas; it looks
+> > like the sort of thing you'd expect them to have encountered already.
 > 
-> commit 30c5e45ee2c5 ("dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED"),
-> which this patch fixes, has
-> 
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -339,9 +339,7 @@ void __init arch_mm_preinit(void)
->  {
->         unsigned int flags = SWIOTLB_VERBOSE;
->  
-> -       if (is_realm_world() || is_protected_kvm_guest()) {
-> -               flags |= SWIOTLB_FORCE;
-> -       } else if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
-> +       if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
->                 /*
->                  * If no bouncing needed for ZONE_DMA, reduce the swiotlb
->                  * buffer for kmalloc() bouncing to 1MB per 1GB of RAM.
-> 
-> The is_protected_kvm_guest() part was added by the 
-> commit e62decaf98e7 ("arm64/coco: Add pKVM as a CC platform")
-> 
-> @@ -337,7 +339,7 @@ void __init arch_mm_preinit(void)
->  {
->         unsigned int flags = SWIOTLB_VERBOSE;
->  
-> -       if (is_realm_world()) {
-> +       if (is_realm_world() || is_protected_kvm_guest()) {
->                 flags |= SWIOTLB_FORCE;
->         } else if (max_pfn <= PFN_DOWN(arm64_dma_phys_limit)) {
->                 /*
-> @@ -412,6 +414,17 @@ void dump_mem_limit(void)
->         }
->  }
-> 
-> I was under the impression that there is a possibility of using swiotlb
-> instead of restricted-dma-pool with pKVM.
+> Most of KCSAN's internals are not instrumented, but do call out to
+> some instrumented bits where that's safe. In this case, it looks like
+> a real data race, even though the access comes from __delay that was
+> called by KCSAN, I don't think it's any less valid.
 
-Yes, that patch enables swiotlb as a possibility for protected guests
-but with your patch we avoid shrinking the swiotlb buffer even when
-restricted dma pools are being used and that's a waste of memory.
-
-> If that is not the case, then we could change:
-> 
-> !cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT) &&
-> 
-> to
-> 
-> !is_realm_world() &&
-
-Perhaps, or you could just pass the swiotlb= option if the defaults don't
-work for you. Can you give more details about the slots exhaustion you're
-seeing under CCA?
+Ok, but then I don't understand how these accesses can race. They appear
+to be on the same CPU, in the same IPI handler.
 
 Will
 
