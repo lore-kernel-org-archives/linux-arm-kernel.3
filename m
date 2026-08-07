@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA0C5C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:55:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F72C5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRJI2Id35stbc9UUeijWXZUbEDaggOYw7TZt58Y6FBQ=; b=S7dXmwEFKhLf6U6fefCS/StUtp
-	5/cMmL+Tjx268twULi5um+XY8/vQiRMmThc+z3X2sq/QLtKEZ9P2hyVuFCgGjxhEJ4GE/Nh5zwVCW
-	hu8yQVd0JmAFNf03rdzJJ45dU7kWtDMSCg3jqLK3I8KAR541cyIBaHsmKG4d1LxQGNZNLGDIwW835
-	K9Q8tlFv1ZoJ358JB2/JpGenON/2w26qllQZs0oCPS1eM/dq9QVWtBRWOwqxqvAuz/KZCmG70ilVL
-	xy0t2DW3N3SXZNdNZ+icK6fErdD1BgMDZqX6olW9ol/yK9iBAKcu0O8tAjyNuaFvUugzOqR4lFGaa
-	JYU8/pjw==;
+	bh=zstu89KvnQJnZ0dtc02qSzbsqtc1tjP1+spUjmEq+bU=; b=rHVQl3oV08ZCAkvqxPbujYVLtR
+	PNCz5BQVTl5Sn7zXUvbJwD7eLHwk4AUcCHfu2EvOzEx99Q5BN956sladbOlc6tnAIJ/KYtVqbNrS6
+	tf+qJ5VhkJThPSoA906cO4nccTlPPTyMLneBsS7Q13HQnDd5ebfYh7Mx2m/nHJQZnkRXNRT7C863S
+	2oD0bTSDcLKQhgvBexhTuBkdF4WXusELSpAG7ODeLbS9+pEWq0YtsUbVkwItaDtIxgM+u+C49nbL2
+	ivKoP44YT5P/Ajtc3+9e8YqF9LweLbPOjJGHv9oHGkyMY+A4P3zu/T0AqPNGgtpqznfDDGNoj8cLL
+	H/S7Avyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsIEn-00000007lWy-1AkV;
-	Fri, 07 Aug 2026 10:55:41 +0000
+	id 1wsIEp-00000007lZe-2Ht8;
+	Fri, 07 Aug 2026 10:55:43 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsIEj-00000007lTX-3jt1
+	id 1wsIEn-00000007lXm-3eBz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:55:40 +0000
+	Fri, 07 Aug 2026 10:55:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A4B91A9A;
-	Fri,  7 Aug 2026 03:55:33 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 571CC1BCA;
+	Fri,  7 Aug 2026 03:55:37 -0700 (PDT)
 Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5A9F3F9A2;
-	Fri,  7 Aug 2026 03:55:33 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B02CE3F9A2;
+	Fri,  7 Aug 2026 03:55:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1786100137; bh=vfefnqkd2ibXnBQ39xPLFHlObQHT5faJOCUx8RwI9Uw=;
+	t=1786100141; bh=wDkYmkx6x2Gn5xpCYCOLTVpZ0Id3kkAQWmh+PhrfvZo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NJLcpWZd0yyCWt+0YwWUhwMkIFiskDK7vlgo+lTmRFAkph4IVDOw0Htc4/caIzYVp
-	 jV0Qyg466N+9mexIHtzaSoJZLDzKDyiDzDVcIHRwaV94Zh+z2SIvkmVQ2kKG/B9cGB
-	 B0/8psmLEI4Q0sHuEgEdhwlUOmlMbNQ8RHM38Ze4=
+	b=S8W7CW/+Wzr4o0sGwKcI85qC5tJACYstT6YCbTA91wvRfD+L3kdeCfDj61JxK16Id
+	 4WeYEOWuyX6gDyrbBfsvGyjUcn8qxNEqSEZZN1AQy7OqlJqimtD3Sq6EbPX9OJ7IwX
+	 xaLpUks9u/jh3BtQjDaQO0nyIit2aCviHA4Ml+d0=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -63,17 +63,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v9 08/12] arm_mpam: propagate MSC access errors for interrupt control
-Date: Fri,  7 Aug 2026 12:54:47 +0200
-Message-ID: <20260807105451.3728284-9-andre.przywara@arm.com>
+Subject: [PATCH v9 09/12] arm_mpam: prepare mon_sel locking for MPAM-Fb
+Date: Fri,  7 Aug 2026 12:54:48 +0200
+Message-ID: <20260807105451.3728284-10-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260807105451.3728284-1-andre.przywara@arm.com>
 References: <20260807105451.3728284-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_035538_020663_AD15B95E 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20260807_035542_013755_D88ECB06 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,95 +88,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the functions dealing with interrupt registration and enablement
-to check for and return errors, and propagate MSC read and write errors
-from the lower level up.
-This does not cover the IRQ handler yet, as this needs some more
-attention.
+The MSC MON_SEL register needs to be accessed from hardirq for the overflow
+interrupt, and when taking an IPI to access these registers on platforms
+where MSCs are not accesible from every CPU. This makes an irqsave
+spinlock the obvious lock to protect these registers. On systems with
+MPAM-Fb mailbox MSC access it must be able to sleep, meaning a mutex must
+be used. So MPAM-Fb platforms cannot support an overflow interrupt easily.
+Clearly these two methods can't exist for one MSC at the same time.
+
+Change the mon_sel locking wrapper function to only use a spinlock when
+the MSC is accessed directly via MMIO. In case of MPAM-Fb, we use a
+mutex, but only if we are in a sleepable context. If that's not the
+case, we return an error. This should not happen, as MPAM-Fb by design
+does not require an MSC access to happen from a specific CPU, so there
+is no need for any IPIs or preemption disabling to satisfy CPU
+constraints. And since overflow interrupts are not supported at the moment
+anyway, we also wouldn't meet the other case.
+Bailing out early is already happening in rare occasions today.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Reviewed-by: Jonathan Cameron <jonathan.cameron@oss.qualcomm.com>
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Tested-by: Gavin Shan <gshan@redhat.com> # on NVIDIA Grace Hopper
 ---
- drivers/resctrl/mpam_devices.c | 31 +++++++++++++++----------------
- 1 file changed, 15 insertions(+), 16 deletions(-)
+ drivers/resctrl/mpam_devices.c  |  6 +++++-
+ drivers/resctrl/mpam_internal.h | 38 +++++++++++++++++++++++++++------
+ 2 files changed, 36 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 49239b15a27f..1b07f7765f96 100644
+index 1b07f7765f96..99c91c604dea 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -1105,7 +1105,9 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 	}
+@@ -2281,7 +2281,6 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+ 	if (err)
+ 		return ERR_PTR(err);
  
- 	/* Clear any stale errors */
--	mpam_msc_clear_esr(msc);
-+	ret = mpam_msc_clear_esr(msc);
-+	if (ret)
-+		return ret;
+-	mpam_mon_sel_lock_init(msc);
+ 	msc->id = pdev->id;
+ 	msc->pdev = pdev;
+ 	INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+@@ -2302,6 +2301,11 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
+ 	else
+ 		msc->iface = MPAM_IFACE_PCC;
  
- 	spin_lock(&partid_max_lock);
- 	mpam_partid_max = min(mpam_partid_max, msc->partid_max);
-@@ -2660,9 +2662,7 @@ static int mpam_enable_msc_ecr(void *_msc)
++	/* Lock type depends on MSC interface used */
++	err = mpam_mon_sel_lock_init(dev, msc);
++	if (err)
++		return ERR_PTR(err);
++
+ 	if (msc->iface == MPAM_IFACE_MMIO) {
+ 		void __iomem *io;
+ 
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 57f2b3dbf7d0..6121cd126510 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -126,6 +126,7 @@ struct mpam_msc {
+ 	 */
+ 	raw_spinlock_t		_mon_sel_lock;
+ 	unsigned long		_mon_sel_flags;
++	struct mutex		mon_sel_mutex;
+ 
+ 	void __iomem		*mapped_hwpage;
+ 	size_t			mapped_hwpage_sz;
+@@ -139,27 +140,50 @@ struct mpam_msc {
+ /* Returning false here means accesses to mon_sel must fail and report an error. */
+ static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
  {
- 	struct mpam_msc *msc = _msc;
+-	/* Locking will require updating to support a firmware backed interface */
+-	if (WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO))
++	if (msc->iface == MPAM_IFACE_MMIO) {
++		raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
++
++		return true;
++	}
++
++	if (!preemptible())
+ 		return false;
  
--	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
--
--	return 0;
-+	return __mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
+-	raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
++	mutex_lock(&msc->mon_sel_mutex);
++
+ 	return true;
  }
  
- /* This can run in mpam_disable(), and the interrupt handler on the same CPU */
-@@ -2670,9 +2670,7 @@ static int mpam_disable_msc_ecr(void *_msc)
+ static inline void mpam_mon_sel_unlock(struct mpam_msc *msc)
  {
- 	struct mpam_msc *msc = _msc;
- 
--	__mpam_write_reg(msc, MPAMF_ECR, 0);
--
--	return 0;
-+	return __mpam_write_reg(msc, MPAMF_ECR, 0);
+-	raw_spin_unlock_irqrestore(&msc->_mon_sel_lock, msc->_mon_sel_flags);
++	if (msc->iface == MPAM_IFACE_MMIO) {
++		raw_spin_unlock_irqrestore(&msc->_mon_sel_lock,
++					   msc->_mon_sel_flags);
++
++		return;
++	}
++
++	mutex_unlock(&msc->mon_sel_mutex);
  }
  
- static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
-@@ -2769,11 +2767,13 @@ static int mpam_register_irqs(void)
- 				return err;
- 		}
- 
--		mutex_lock(&msc->error_irq_lock);
--		msc->error_irq_req = true;
--		mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
--		msc->error_irq_hw_enabled = true;
--		mutex_unlock(&msc->error_irq_lock);
-+		scoped_guard(mutex, &msc->error_irq_lock) {
-+			msc->error_irq_req = true;
-+			err = mpam_touch_msc(msc, mpam_enable_msc_ecr, msc);
-+			if (err)
-+				return err;
-+			msc->error_irq_hw_enabled = true;
-+		}
- 	}
- 
- 	return 0;
-@@ -2792,10 +2792,10 @@ static void mpam_unregister_irqs(void)
- 		if (irq <= 0)
- 			continue;
- 
--		mutex_lock(&msc->error_irq_lock);
-+		guard(mutex)(&msc->error_irq_lock);
- 		if (msc->error_irq_hw_enabled) {
--			mpam_touch_msc(msc, mpam_disable_msc_ecr, msc);
--			msc->error_irq_hw_enabled = false;
-+			if (!mpam_touch_msc(msc, mpam_disable_msc_ecr, msc))
-+				msc->error_irq_hw_enabled = false;
- 		}
- 
- 		if (msc->error_irq_req) {
-@@ -2807,7 +2807,6 @@ static void mpam_unregister_irqs(void)
- 			}
- 			msc->error_irq_req = false;
- 		}
--		mutex_unlock(&msc->error_irq_lock);
- 	}
+ static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
+ {
+-	lockdep_assert_held_once(&msc->_mon_sel_lock);
++	if (msc->iface == MPAM_IFACE_MMIO)
++		lockdep_assert_held_once(&msc->_mon_sel_lock);
++	else
++		lockdep_assert_held_once(&msc->mon_sel_mutex);
  }
  
+-static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
++static inline int mpam_mon_sel_lock_init(struct device *dev,
++					 struct mpam_msc *msc)
+ {
+-	raw_spin_lock_init(&msc->_mon_sel_lock);
++	if (msc->iface == MPAM_IFACE_MMIO) {
++		raw_spin_lock_init(&msc->_mon_sel_lock);
++
++		return 0;
++	}
++
++	return devm_mutex_init(dev, &msc->mon_sel_mutex);
+ }
+ 
+ DEFINE_GUARD(mon_sel, struct mpam_msc *,
 -- 
 2.43.0
 
