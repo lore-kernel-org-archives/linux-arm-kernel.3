@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28CD6C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762DFC5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+6h0v7rdo8opTpgDTkqDfuyYtRhCa8TmcPBk9YSbDTk=; b=xY74DlzjGbZxlTfegLLO6ILwyJ
-	KJF55jg4bkDK7im12AMAPR+kZEyN9crgXSVaan/Rao0UWsXg7ddaMYY+EvQMabbbNSpiOhD6Rpin7
-	vtxhiv4XITZPkWa4YlgGzYcBJX75p1vt3uj1/ybdjTVduzBfZouiqmaqRmBWDQ6hqa5YCTvRbouDZ
-	OzH00IcC7dRvnraHX8Vs9EcD05MuwxVJ4LhIngLRvsZI2ugyC1ArkyoV1W7g4WOmFFybotCK9YZ8g
-	gq2CtedSlRuMNAN1Bpb3uccVmvGz4QOv1fmGxKLjZRTyfoikhbWytk5jU9PmJM/Yh4wU9El9GO8KC
-	mraEOm8Q==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8UHbBhxfwNJqMbysL5dAOz8G3ClHDME2r4umW53mAFU=; b=nfXAlLZetzNDNE48JKTI5Hna5b
+	T4npWE9EPXXl9H08JNh3rnA2hG4TF5IpTsgBtqKRZ5NNG1zJV0pAiV188YlN6zoV9MtKjJtmbyIQk
+	LT430W5RJl7gdH/DNKESikEpeG1BVyAwvaguFlhWMVtIK7UI9Kz6VB6oyclMnO3vmoKlKWpzAus9Z
+	tBn0l+tskScM9qIQvVLzDt1K0+KCNBy6GKV0FgHts64CS5z2YCxPJuxTp7DBcCuPHizh3qdet+4H/
+	Hw+x2uix0wJOSK2K3ae1cA796IopA5Fc8fl4Qc4GtYE2R8BDAzio5AIwr3g+8rR7x5Pei4rL6undn
+	Von7/+HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsI4P-00000007iRc-0vEa;
-	Fri, 07 Aug 2026 10:44:57 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wsI4V-00000007iVZ-2FqE;
+	Fri, 07 Aug 2026 10:45:03 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsI4K-00000007iPV-2b8m
+	id 1wsI4S-00000007iT9-0xk4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:44:55 +0000
+	Fri, 07 Aug 2026 10:45:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pYRigOpz+SuZGaZ+BpTq8BcUgfdnjDtLiwTqX8anz/U1hloWb3SD/+Ar9C5DBvbLgsvhOWu28aBKen98gxxvl80maKiRy/AJ2rQbfftYFuC6st1vEMYHkMf+cBedcSl9aXiZfYvEB+8S5flYCPqu6Tmwvoje42MjhN8Ug7GRcbYjipHVu3qhb+DNO6G8yjNthgZ13yVuk1iCJZj9SfE8tl4J/1dtp44ikiu7kPRl7uPm1YL5Rw163RJDdT3N5iF7CEsH8/fXYqkYHz0l5aMiVrVtqIXFKeC2S3c4FOKcTFeea0x580llKFgGod6iDeUUndGJ+o2+MQCEJy9teexw3g==
+ b=NlPkHKyEbBZvM3sLVWXVF0+ahu/SD2WdFtsJ5aY0uHKSbfXPnbO4rZ2yzrOgcgYTm7LGb9RlJ+tSFYB965BobH4Ocz7NNouEs4wuMSfpxcp37aE/c8ElKg5l5hECWccx5wmLyopGdqzCN/slGfFt97zlzo2lSTOQOhGhzNU4UcnA++73pFjaYa1iZUTXa/VfmNhaGTwrAWca5Kln6ixyuidBbbADXkLfpbCMMRE7sGIRZ5g2lTJQYpz1mm/ZbuAB/TFUp3Q+emy65+JGSOjJyiapZUZsvCp8gzP+e9suNXDaMcbzr8WOHqJ4cXC9QDKlgVh0lLPOSWrK7M4HCFwAzw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+6h0v7rdo8opTpgDTkqDfuyYtRhCa8TmcPBk9YSbDTk=;
- b=pmQdc/rwCfi+WcAWOWFyaE0YipP0Q+pu+uhAhiYccav0yaDyq43V8DDqMFpkseIK9jW6imL1eiujk1R4N7ieUEkRNHZMxaxypRdHfvXeJR3mJgTgMeIBdDwFUppi4NDeZjaHfQYqSMClX+4CRSaAwOeK4U3jjigEhjrOHnYi0KnznTnojxH9yxIKjUG8bPOJAD+S+IC4QVFmOEuF4BGDi6EvTQBvi/p2+CE7Qc7FC6tH6cYXBSL7CAg+aPE42cTriAAEqBgh8Nh/qYgWSUAacHK9jMnyduJ9CLtej1/tly12Q2ofPp9lsSY5BeOCc9+NAgsrsipcJlgvrIZpszSNmw==
+ bh=8UHbBhxfwNJqMbysL5dAOz8G3ClHDME2r4umW53mAFU=;
+ b=BfOL/jGtG9UpiFiqsAez6u3W6rcwdRWK25ILbeVsNkxw0aTLgQjmBjBnWr4Z9JNqwK/DY3p3ZqwqcdPIvupzrd5mTolfsE1G0BioLp2XkErQq3fnAbpZOHudY3wCI4G4J01Q1AAM2bmlEflqCj13+4hFHEJ+lDJphPx0N2H67rJRjL/vzHoJ6tpdXbn78aaBcy9M2zniU6kdO9nWvGOJ7DcD+SM0UuA3APUnv0pn/g+4fVZmCV8QvFl8vLwJbDkR9gYcJllR27H3eG4eUcQcSG8FufdYWjczDco+M5UiZcy0rguKEdj9GrLmGuUOls88KyasrGUIlbM5X5+KZCPBuQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+6h0v7rdo8opTpgDTkqDfuyYtRhCa8TmcPBk9YSbDTk=;
- b=SpouA8pAOD4oRI+BR3H5J7KWZt9QM5vDAhbcRMkx/efhrYXDdywSe6R3EBucusrUKArULLeN6YA2IKdGO6RoGeidA22BzSRU9Gib7Y5UJy48vo9LBBhugD+Ip9QinxYs+YJASmpFdei27lettRDpqPxo3VecK2kDmZV8BMHpf4Y=
-Received: from PH7P220CA0078.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32c::34)
- by SA1PR12MB7222.namprd12.prod.outlook.com (2603:10b6:806:2bf::15) with
+ bh=8UHbBhxfwNJqMbysL5dAOz8G3ClHDME2r4umW53mAFU=;
+ b=FtG5yJng4Dw2nk4RuelwkGLq+cNziVDfLKtTBF5nUO9WfKhJ5Lm+HXK+WUnVq1A70HSo09/nwjvy7HzunmAxez9ySdIJeI7N+SGnH66E372lZjKUWBqk5x9Q1hOiIix2kK9pOS4EL02oMs4EKdCnC1rujxl6lY9P6GHIx9GVnvk=
+Received: from PH7P220CA0067.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32c::9)
+ by SAWPR12MB999141.namprd12.prod.outlook.com (2603:10b6:806:4e1::14) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.23; Fri, 7 Aug
- 2026 10:44:39 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.16; Fri, 7 Aug
+ 2026 10:44:50 +0000
 Received: from SJ1PEPF000023D3.namprd21.prod.outlook.com
- (2603:10b6:510:32c:cafe::1c) by PH7P220CA0078.outlook.office365.com
- (2603:10b6:510:32c::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.24 via Frontend Transport; Fri, 7
- Aug 2026 10:44:39 +0000
+ (2603:10b6:510:32c:cafe::1a) by PH7P220CA0067.outlook.office365.com
+ (2603:10b6:510:32c::9) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.23 via Frontend Transport; Fri, 7
+ Aug 2026 10:44:50 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -61,14 +61,14 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
 Received: from satlexmb07.amd.com (165.204.84.17) by
  SJ1PEPF000023D3.mail.protection.outlook.com (10.167.244.68) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.0 via Frontend Transport; Fri, 7 Aug 2026 10:44:38 +0000
+ 15.21.315.0 via Frontend Transport; Fri, 7 Aug 2026 10:44:50 +0000
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 7 Aug
- 2026 05:44:36 -0500
+ 2026 05:44:47 -0500
 Received: from xhdnrottela40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Fri, 7 Aug 2026 05:44:31 -0500
+ Transport; Fri, 7 Aug 2026 05:44:42 -0500
 From: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
 To: Srinivas Neeli <srinivas.neeli@amd.com>, Andrew Lunn
 	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
@@ -81,37 +81,39 @@ To: Srinivas Neeli <srinivas.neeli@amd.com>, Andrew Lunn
 CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<git-dev@amd.com>, <nagadheeraj.rottela@amd.com>
-Subject: [PATCH 00/20] xilinx: tsn: Add TSN Endpoint Ethernet MAC driver support
-Date: Fri, 7 Aug 2026 16:14:11 +0530
-Message-ID: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
+Subject: [PATCH 02/20] net: xilinx: tsn: add TSN endpoint wrapper driver
+Date: Fri, 7 Aug 2026 16:14:13 +0530
+Message-ID: <20260807104431.157230-3-nagadheeraj.rottela@amd.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
+References: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D3:EE_|SA1PR12MB7222:EE_
-X-MS-Office365-Filtering-Correlation-Id: 183a1f16-581f-41ee-dfe5-08def470e159
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000023D3:EE_|SAWPR12MB999141:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8b921f22-af4b-4439-0a5e-08def470e86c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700016|376014|7416014|23010399003|82310400026|56012099006|18002099003|3023799007|6133799003|10067099003|11063799006|13003099007|921020;
-X-Microsoft-Antispam-Message-Info: 4dLmvxTc8or3z8IWGsI/wy6I9VHGXT/qHKw3kmnfOSFNaQIVHke9EhiXo4V64s1nxa9kugxMyY5loIqepV9LT2aXRGfVHbPhZA/LqGn5J2zNbYzmYhn5gKkXyD9/FeTml8jmdu1hynRBdCkeEFNrEgy3RUOmSw8bdPfqf9KOJDhX85VP3gKQdPq2b1qOa5/cobq//Bznhz3eUeRIcGR4gA5P2xAf32d1h50d0CBgDu9SuCZsiX7UiDK3KvhGkYpV1zif2iIFWkjxGuinUb2yR180WjQO9kXD9e+RsZegCt7wx8CBt7u2XaAYRy23BDAWvtOhzyWEixV4N3Tpch+O+XtReCyy5pxHr9NF0gUBa46b1XhnySWIgTAmNsRWFcbjB05qVNTeN8UfcrWMcVrX5+oyR7n7d62k9FmmjCGQnnTkaTL78Dl/ByK22HSpIcB9la+Ni7HBfxuewEygfzrahlyGi9YwLVMp0dpf4MCaVIcg6EOxhTt85hghhJZqu1gtxkPdil46H2EHRBMbzeNaWYbnjOCYsTDUTY3nFarv+Jl1ONAaNWCeo2q1t4AG9D9T+NfUPnmHUja5uUUq3hKj7o6U5NUf0zJYTgyjZWvbLFfbQg/mU2jW1rMCZWYXwv+zpjhtFSESuB0+oIKH7siZfFNGgcEbWSuEk+ljf87LyHRFLVOExVAMV3u63xfw+7vPR6a2QPRk0cefyll52/XPca1E1XOe9ef2Qiq9LA7b4s/n+jgJ8oAHcY+FB73deN/7
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(7416014)(23010399003)(82310400026)(56012099006)(18002099003)(3023799007)(6133799003)(10067099003)(11063799006)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|82310400026|376014|1800799024|23010399003|10067099003|56012099006|11063799006|6133799003|18002099003|22082099003|921020;
+X-Microsoft-Antispam-Message-Info: miwT/ok7fzuck7JyvDgHu4Zjjqrazj9NE96ppP/h6TFZ61ZOWH6LbukCZqQ24a7coq8Lvh1rJ40x7avuVblfDkJ2OjhnPWxfrmRYIQ1Jj2y2mr/6eexcta5RoTXGJNDYzoq7aOx1JkEj8J5FkDr/5xKIGUqQ3PVXXRgqb6sAIhHovjdVRmFciuYIGrWY83lMxzVNERziVP0RFZxTy6M+mLpwJBbrjJcLFs1yWzDgKgHVgiDcFn+r59q5zmo/7DrEdGO/ebvF4IoTgkN8//+kP0RUNGjsa/4IRGydbhKny1V2u8nBCQYnr3eneQT85V9ZgiyOBWFciHdt8IatHGUvmsJxpDJJZ8D2PGn3bBEKp5xmjiW5kJrx9L+TICEzDOg+oi3JXuKWNLARtGKBXEI1xQSjkpoXTllLlwmt11mIvSLrmC08Q/5xSqqTlAYcTtmQdHqU/jKjQjxZFVIejS3zRCivPgXr6vLaOGI2ChhPzer2tUxusrF+xcIqA4L/Z+E4BjkzXhcuHlF9t7hK6PjV8JqtXKEF1rHf81/8ihcZoZWV2nJRVk2tDFtb1wjAneZ0PpIRBqxUmDu3XopVP8D9j7n18R43yzLiw3tSwebf/KVig5aPCa2kE8y7g2z7Wq9DUOmlBoTyDA9qy0JeuLLniNYt7hbGlFNieoaz6BTkUrGgHYO71FkrHZ+sYN31dZ4bOwXF0rxsclwy36LA8UE2eJPkESxC7srVGXcKTLhIg74eWiWYpkT8qAj2V8EVLIsB
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(82310400026)(376014)(1800799024)(23010399003)(10067099003)(56012099006)(11063799006)(6133799003)(18002099003)(22082099003)(921020);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: aglTk21EIYGvRrmEpo/26S81uZ7mRDSjOr7INs66ZNHrzSoSpXXty0oAfgpHqaTiXr5p2oNhVHG1NLy+UrjNsDEpq9PLHoXAXoJ1Ds8n7FCOtqdMdkOp3GIsjaUzdy7yqSTUr6eJp3c9Q9XRDbchMLjxk/W/1uRcnyRyEftcdRGWKs8nWZHGH3yOh5a9IrwHSErtKS+vu6G5aiU8+0wy/+4JlMOTFjk3EQynunbaEi4EytNnFXeGoKfsKrDMALt7jsjPVBMZDuU0Vg/B7WBr02djTvywIfoMs4XZBF1jfv43NWaB6sb5h/6H5hJ818ADDA7MwjxMYK7dwx/GlUlAn2owFuBU8Xdo6b8mdiEzHXn3qYAQCEAuc6I0jIPxWP6wB4Bvh17xs7IvHGm0LPRIhaj69kjFJUJIJ2rbeC6Yc83+ktBUJF4OQIGeOfpToUvd
+X-MS-Exchange-AntiSpam-MessageData-0: T56Hz/ivpQ5GI0cnKpUuK4spESVekOOck7/qmmJ857y5VAKlg44i3ydb+zeA4TYULo51DlEEdu969X/Oc8LwC0lg8FgbjRHJ+i/1DxN46Rb1J5FDcfWTYTXYg++sGpBQINuy/+FAll0Ol1HVHi7/Y3a42Ych6FWu6nK3Dv6yy6502ZlFrHQSDq7wZTHSNU33o8WUBYxi+JM1UgQtc9z7+q01XMouYT+SGGc1KvZH83u6BWLFIcp00vd3uuNFIxt2AOqTB2ep/QM9nH1R4JSv1xQ6bmp9miWG+IYeWnvlAZ+dmHzofbgYoVRnLRRYsvNcUJkpffwbHlOKoW9Z7EBgrXicFlFAcTWAzF5DZ4ihfTvPYR2RMLZBuHdJD58u22eU4veow+986FypwCprIev7kEZirnQAXPsgxHQwk8mMtg4h7aaipHeN/O6xaFIpWKhL
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 10:44:38.6188
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 10:44:50.4827
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 183a1f16-581f-41ee-dfe5-08def470e159
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b921f22-af4b-4439-0a5e-08def470e86c
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D3.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7222
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAWPR12MB999141
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_034452_703368_0D0B373E 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20260807_034500_282307_355FF011 
+X-CRM114-Status: GOOD (  25.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,214 +128,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new network driver for the AMD LogiCORE 100M/1G TSN
-Subsystem IP, also known as the TSN Endpoint Ethernet MAC IP, which
-implements IEEE 802.1 Time-Sensitive Networking (TSN) features for
-deterministic and low-latency Ethernet communication in real-time and
-industrial automation use cases.
+From: Srinivas Neeli <srinivas.neeli@amd.com>
 
-IP Core Overview:
-The AMD LogiCORE 100M/1G TSN Subsystem IP solution (named as TSN Endpoint
-Ethernet MAC IP in the IP catalog) implements IEEE 802.1 Time Sensitive
-Networking (TSN) Standards and provides a low latency Bridged Endpoint or
-Endpoint only solutions. The bridged endpoint solution consists of a 3-port
-switch that connects to an endpoint including Linux software drivers. For
-Bridged Endpoint (Switch Endpoint), two ports connects to the network and
-one port connects to an internal Endpoint. It supports the use of
-GMII/RGMII interfaces connecting to a physical-side interface (PHY) chip
-with full duplex 100 Mb/s and 1 Gb/s operations.
+The TSN Endpoint Ethernet MAC IP groups several sub-nodes under one IP
+node with a set of IP-wide clocks. Each sub-node needs its own driver,
+and the shared clocks must be running before any of them probe.
 
-Features:
-- IP Customizable to generate TSN Endpoint or Bridged Endpoint solution
-- Supports interface to network software stack
-- Designed to comply with the following IEEE standards
-    - 802.1AS  : Precision Time Protocol (PTP) synchronization
-    - 802.1Qav : Credit-Based Shaper for traffic shaping
-    - 802.1Qbv : Time-Aware Shaper for scheduled traffic
-    - 802.1Qbu : Frame Preemption for ultra-low latency
-    - 802.1CB  : Frame Replication and Elimination for redundancy
-    - 802.1Qcc : Stream Reservation Protocol (SRP)
-- IP is customizable to enable various TSN feature-sets
-- Supports 2 to 8 priority queues for scheduled, reserved (IEEE 802.1 Qav
-  Credit Based Shaper) and best effort traffic classes
-- Provides feature rich Ethernet Switch that caters to various network
-  needs
-	* 3-port Switch (2-external, 1-internal)
-	* Programmable cut-through and store-forward operations
-	* 4-port Switch (2-external, 2-internal) extension through
-          'Endpoint Extension' and 'Endpoint Packet Switching' features
-- Solution validated on ZCU102 & ZC702 AMD Evaluation boards.
+Add a thin wrapper platform driver for the IP node. Enable the IP-wide
+clocks from the device tree and bind each sub-node to its own driver.
 
-Sample hardware architecture diagram for Bidge End Point like below:
-
-             +------------------+
-             |      MCDMA       |
-             +---------+--------+
-                    Q0---Q7
-                       |
-          +------------------------------------------------------------ +
-          |            |	 TSN sub system(Bridge End Point)	|
-          |            |                                                |
-          |     +------+----+  Port 0   +-----------------------+       |
-          |     |  EndPoint |<--------->|       TSN Switch      |       |
-          |     |    (EP)   |           +----+-------------+----+       |
-          |     +-----------+                |             |            |
-          |                                  |             |            |
-          |                              Port 1         Port 2          |
-          |                                  |             |            |
-          |                            +-----------+  +-----------+     |
-          |                            |  MAC-1    |  |  MAC-2    |     |
-          |                            |  (ETH1)   |  |  (ETH2)   |     |
-          |                            +-----+-----+  +-----+-----+     |
-	  |			             |		    |           |
-          |				     |              |           |
-          +-------------------------------------------------------------+
-                                             |              |
-                                          RGMII           RGMII
-                                             |              |
-                                      +-----------+  +-----------+
-                                      |  PHY1     |  |  PHY2     |
-                                      | (Port 0)  |  | (Port 2)  |
-                                      +-----------+  +-----------+
-
-Software Driver Overview:
-
-The switch-facing part of the IP is exposed through the Distributed
-Switch Architecture (DSA) framework, so MAC1 and MAC2 show up to Linux
-as proper switch ports (swp1, swp2) that can be enslaved to a Linux
-bridge, with the endpoint acting as the CPU/conduit port. The driver
-is split into a thin wrapper, an endpoint driver, a DSA switch driver,
-and a DSA tag protocol, mirroring the hardware blocks:
-
-Wrapper driver:
-- Binds the top-level IP node, acquires and enables the IP-block
-  clocks.
-- Spawns the endpoint and switch blocks as child platform devices via
-  devm_of_platform_populate() and carries no netdev or register access
-  of its own.
-
-Endpoint driver:
-- Implements the conduit net_device that Linux DMA traffic flows
-  through on its way to and from the switch fabric.
-- Manages multi-queue TX and RX descriptor rings using the dmaengine
-  framework for high-performance packet transfer.
-- Classifies each received frame by the source-port id carried in the
-  RX descriptor and attaches DSA port metadata so the DSA core can
-  demux it to the right user port netdev.
-
-DSA switch driver:
-- Registers a struct dsa_switch with three ports (CPU + MAC1 + MAC2)
-  and owns the switch fabric registers, the per-MAC register windows,
-  and all switch IRQs.
-- Implements port_stp_state_set to drive the hardware's per-port
-  Disabled/Blocking/Forwarding state machine from the bridge's STP
-  state.
-- Offloads the bridge's FDB and VLAN membership into the switch's CAM
-  and per-port VLAN tables (port_fdb_add/del, port_vlan_add/del), and
-  installs CAM trap entries so link-local STP/LLDP frames reach the
-  CPU port.
-- Enables the bridge's TX forwarding offload so data frames take the
-  switch's own CAM/VLAN lookup, the same path a frame ingressing on
-  MAC1/MAC2 takes, instead of being flooded by software.
-- Registers a per-MAC MDIO bus and wires up phylink for each port,
-  including PHY connection management on link state changes.
-- Registers a PTP Hardware Clock (PHC) backed by the IP's shared RTC
-  timer block and drives the per-MAC PTP TX/RX hardware paths so
-  event-frame timestamping bypasses the switch fabric and DMA
-  entirely.
-
-DSA tag protocol:
-- Adds DSA_TAG_PROTO_XLNX_TSN. The xmit hook intercepts PTP frames for
-  the per-MAC PTP TX path, other frames pass through unchanged. The rcv
-  hook is a defensive no-op since RX demux is handled by the endpoint
-  driver's port metadata rather than by an in-band tag.
-
-Changes in v1:
-- Reworked the switch side of the driver onto the DSA framework
-  instead of exposing MAC1/MAC2 as independent, framework-unaware
-  netdevs.
-- Added the DSA tag protocol and moved RX classification from an
-  skb->dev based scheme into DSA port metadata attached by the
-  endpoint driver.
-- Added STP state offload (port_stp_state_set), bridge FDB/VLAN
-  offload backed by the switch CAM and VLAN tables, bridge TX
-  forwarding offload, and CAM trap entries for link-local control
-  frames.
-- Carried phylink, per-MAC MDIO, and PTP support over from the
-  previous posting, now wired up through DSA port ops instead of
-  the platform driver.
-- Split the driver into a thin wrapper, endpoint driver, and DSA
-  switch driver along the DSA compatible/binding boundaries instead
-  of a single flat driver.
-
-Test information:
-- Validated these changes on the net-next branch with the MCDMA patches
-  cherry-picked from linux-next, along with the series listed below
-  https://lore.kernel.org/all/20260713072146.45269-1-srinivas.neeli@amd.com/
-- Performed ping, iperf3, and 2-step PTP tests on the ZynqMP platform,
-  including bridging swp1/swp2 through a Linux bridge with hardware
-  FDB/VLAN offload enabled.
-
-Nagadheeraj Rottela (13):
-  net: xilinx: tsn: deliver endpoint RX frames to DSA user ports
-  net: dsa: tag_xlnx_tsn: add skeleton tag protocol
-  net: dsa: xilinx: add skeleton driver for TSN switch
-  net: dsa: xilinx: implement port_stp_state_set
-  net: dsa: xilinx: register per-MAC MDIO buses
-  net: dsa: xilinx: wire up phylink for the switch ports
-  net: dsa: xilinx: program MAC frame filter and per-port nibbles
-  net: dsa: xilinx: register PHC backed by the RTC timer block
-  net: dsa: xilinx: drive per-MAC PTP TX/RX hardware paths
-  net: dsa: xilinx: opt into TX forwarding offload on bridge join
-  net: dsa: xilinx: offload the bridge FDB to the switch CAM
-  net: dsa: xilinx: offload bridge VLAN filtering to the switch
-  net: dsa: xilinx: trap link-local control frames to the CPU port
-
-Srinivas Neeli (7):
-  dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
-  net: xilinx: tsn: add TSN endpoint wrapper driver
-  net: xilinx: tsn: add endpoint MAC driver skeleton
-  net: xilinx: tsn: parse endpoint DMA channel configuration
-  net: xilinx: tsn: bring up the endpoint MCDMA channels
-  net: xilinx: tsn: add the endpoint RX data path
-  net: xilinx: tsn: add the endpoint TX data path
-
- .../net/xlnx,tsn-endpoint-ethernet-mac.yaml   |  343 ++++
- MAINTAINERS                                   |   11 +
- drivers/net/dsa/Kconfig                       |    2 +
- drivers/net/dsa/Makefile                      |    1 +
- drivers/net/dsa/xilinx/Kconfig                |   12 +
- drivers/net/dsa/xilinx/Makefile               |    3 +
- drivers/net/dsa/xilinx/xilinx_tsn.c           | 1621 +++++++++++++++++
- drivers/net/dsa/xilinx/xilinx_tsn.h           |  417 +++++
- drivers/net/dsa/xilinx/xilinx_tsn_ptp.c       |  590 ++++++
- drivers/net/ethernet/xilinx/Kconfig           |    1 +
- drivers/net/ethernet/xilinx/Makefile          |    1 +
- drivers/net/ethernet/xilinx/tsn/Kconfig       |   16 +
- drivers/net/ethernet/xilinx/tsn/Makefile      |    2 +
- drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h  |   15 +
- .../net/ethernet/xilinx/tsn/xilinx_tsn_ep.c   |  926 ++++++++++
- .../net/ethernet/xilinx/tsn/xilinx_tsn_main.c |  108 ++
- include/linux/dsa/xlnx_tsn.h                  |   25 +
- include/net/dsa.h                             |    2 +
- net/dsa/Kconfig                               |    9 +
- net/dsa/Makefile                              |    1 +
- net/dsa/tag_xlnx_tsn.c                        |   60 +
- 21 files changed, 4166 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
- create mode 100644 drivers/net/dsa/xilinx/Kconfig
- create mode 100644 drivers/net/dsa/xilinx/Makefile
- create mode 100644 drivers/net/dsa/xilinx/xilinx_tsn.c
- create mode 100644 drivers/net/dsa/xilinx/xilinx_tsn.h
- create mode 100644 drivers/net/dsa/xilinx/xilinx_tsn_ptp.c
+Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+Co-developed-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+---
+ MAINTAINERS                                   |   1 +
+ drivers/net/ethernet/xilinx/Kconfig           |   1 +
+ drivers/net/ethernet/xilinx/Makefile          |   1 +
+ drivers/net/ethernet/xilinx/tsn/Kconfig       |  15 +++
+ drivers/net/ethernet/xilinx/tsn/Makefile      |   2 +
+ .../net/ethernet/xilinx/tsn/xilinx_tsn_main.c | 105 ++++++++++++++++++
+ 6 files changed, 125 insertions(+)
  create mode 100644 drivers/net/ethernet/xilinx/tsn/Kconfig
  create mode 100644 drivers/net/ethernet/xilinx/tsn/Makefile
- create mode 100644 drivers/net/ethernet/xilinx/tsn/xilinx_tsn.h
- create mode 100644 drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
  create mode 100644 drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
- create mode 100644 include/linux/dsa/xlnx_tsn.h
- create mode 100644 net/dsa/tag_xlnx_tsn.c
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ba41c224dd02..e5b95b3bfa21 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -29613,6 +29613,7 @@ M:	Srinivas Neeli <srinivas.neeli@amd.com>
+ L:	netdev@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
++F:	drivers/net/ethernet/xilinx/tsn/
+ 
+ XILINX UARTLITE SERIAL DRIVER
+ M:	Peter Korsgaard <jacmet@sunsite.dk>
+diff --git a/drivers/net/ethernet/xilinx/Kconfig b/drivers/net/ethernet/xilinx/Kconfig
+index 7502214cc7d5..c6d704c8d3d4 100644
+--- a/drivers/net/ethernet/xilinx/Kconfig
++++ b/drivers/net/ethernet/xilinx/Kconfig
+@@ -41,4 +41,5 @@ config XILINX_LL_TEMAC
+ 	  This driver supports the Xilinx 10/100/1000 LocalLink TEMAC
+ 	  core used in Xilinx Spartan and Virtex FPGAs
+ 
++source "drivers/net/ethernet/xilinx/tsn/Kconfig"
+ endif # NET_VENDOR_XILINX
+diff --git a/drivers/net/ethernet/xilinx/Makefile b/drivers/net/ethernet/xilinx/Makefile
+index 7d7dc1771423..66dab012650b 100644
+--- a/drivers/net/ethernet/xilinx/Makefile
++++ b/drivers/net/ethernet/xilinx/Makefile
+@@ -8,3 +8,4 @@ obj-$(CONFIG_XILINX_LL_TEMAC) += ll_temac.o
+ obj-$(CONFIG_XILINX_EMACLITE) += xilinx_emaclite.o
+ xilinx_emac-objs := xilinx_axienet_main.o xilinx_axienet_mdio.o
+ obj-$(CONFIG_XILINX_AXI_EMAC) += xilinx_emac.o
++obj-$(CONFIG_XILINX_TSN) += tsn/
+diff --git a/drivers/net/ethernet/xilinx/tsn/Kconfig b/drivers/net/ethernet/xilinx/tsn/Kconfig
+new file mode 100644
+index 000000000000..45af4d3f10e6
+--- /dev/null
++++ b/drivers/net/ethernet/xilinx/tsn/Kconfig
+@@ -0,0 +1,15 @@
++# SPDX-License-Identifier: GPL-2.0-only
++#
++# Xilinx TSN device configuration
++#
++
++config XILINX_TSN
++	tristate "Xilinx TSN Ethernet driver"
++	depends on OF && HAS_IOMEM
++	help
++	  This driver supports the AMD/Xilinx Time-Sensitive Networking
++	  (TSN) Endpoint Ethernet MAC IP. It provides the wrapper device
++	  and the endpoint MAC that connects the IP to the host CPU. The
++	  three-port switch is supported by NET_DSA_XILINX_TSN.
++
++	  If unsure, say N.
+diff --git a/drivers/net/ethernet/xilinx/tsn/Makefile b/drivers/net/ethernet/xilinx/tsn/Makefile
+new file mode 100644
+index 000000000000..6f99226f3dc8
+--- /dev/null
++++ b/drivers/net/ethernet/xilinx/tsn/Makefile
+@@ -0,0 +1,2 @@
++obj-$(CONFIG_XILINX_TSN) += xilinx_tsn.o
++xilinx_tsn-y := xilinx_tsn_main.o
+diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
+new file mode 100644
+index 000000000000..1ef1b0c2ee6e
+--- /dev/null
++++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_main.c
+@@ -0,0 +1,105 @@
++// SPDX-License-Identifier: GPL-2.0
++
++/*
++ * Time Sensitive Networking (TSN) Ethernet MAC wrapper driver.
++ *
++ * Copyright (C) 2026 Advanced Micro Devices, Inc.
++ */
++
++#include <linux/clk.h>
++#include <linux/device.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_platform.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
++#include <linux/types.h>
++
++#define TSN_NUM_CLOCKS		6
++
++/**
++ * struct xlnx_tsn_ip - wrapper-private IP state
++ * @clks: bulk-managed IP clocks
++ */
++struct xlnx_tsn_ip {
++	struct clk_bulk_data clks[TSN_NUM_CLOCKS];
++};
++
++static const char * const tsn_clk_names[TSN_NUM_CLOCKS] = {
++	"gtx",
++	"gtx90",
++	"host_rxfifo",
++	"host_txfifo",
++	"ref",
++	"s_axi",
++};
++
++static void tsn_clk_bulk_disable(void *data)
++{
++	struct xlnx_tsn_ip *w = data;
++
++	clk_bulk_disable_unprepare(TSN_NUM_CLOCKS, w->clks);
++}
++
++static int tsn_ip_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct xlnx_tsn_ip *w;
++	int ret;
++
++	w = devm_kzalloc(dev, sizeof(*w), GFP_KERNEL);
++	if (!w)
++		return -ENOMEM;
++
++	for (int i = 0; i < TSN_NUM_CLOCKS; i++)
++		w->clks[i].id = tsn_clk_names[i];
++
++	ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to get clocks\n");
++
++	ret = clk_bulk_prepare_enable(TSN_NUM_CLOCKS, w->clks);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to enable clocks\n");
++
++	ret = devm_add_action_or_reset(dev, tsn_clk_bulk_disable, w);
++	if (ret)
++		return ret;
++
++	return devm_of_platform_populate(dev);
++}
++
++static const struct of_device_id tsn_of_match[] = {
++	{ .compatible = "xlnx,tsn-endpoint-ethernet-mac-3.0" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, tsn_of_match);
++
++static struct platform_driver tsn_driver = {
++	.probe = tsn_ip_probe,
++	.driver = {
++		.name = "xilinx-tsn",
++		.of_match_table = tsn_of_match,
++	},
++};
++
++static struct platform_driver * const tsn_drivers[] = {
++	&tsn_driver,
++};
++
++static int __init xlnx_tsn_init(void)
++{
++	return platform_register_drivers(tsn_drivers, ARRAY_SIZE(tsn_drivers));
++}
++module_init(xlnx_tsn_init);
++
++static void __exit xlnx_tsn_exit(void)
++{
++	platform_unregister_drivers(tsn_drivers, ARRAY_SIZE(tsn_drivers));
++}
++module_exit(xlnx_tsn_exit);
++
++MODULE_AUTHOR("Srinivas Neeli <srinivas.neeli@amd.com>");
++MODULE_DESCRIPTION("AMD/Xilinx TSN Endpoint Ethernet MAC wrapper driver");
++MODULE_LICENSE("GPL");
 -- 
 2.34.1
 
