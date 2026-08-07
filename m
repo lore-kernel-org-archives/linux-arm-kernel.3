@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95755C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:39:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A6AC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 15:42:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4LVBJaFomYnqSqtZwNfhU1nsKV+qCjSwKc3i+p0HPzM=; b=4J6pur0wIB/+XEZ2bIj7hH24VB
-	YRbCz0N4A8YMx1F0FGrgvxS6hW6+1unbII5zaEzgMwBf2JY56U3MmDlZOMU1dw7CzK2A0Sood+tqZ
-	7fAaNTPQwUXpSlxOFNmnB28HIEc0WBFKirLCfJSGltbzovb4xNUHgFvji4d5efrdl/UWruTqvFrAI
-	Gftpm38uUR1ThiuCDWDH77UzSxWRUluVGQNVdN72dW1hystRjz+n3uLaDh3jaLOqiRpzBM+VcdII5
-	ixzXyro1XcPaztuJbDKgsTp8dWqlrguCAVltnCfNsvoLZyEAtK5SPDDaPbiCe+HMz3DBp85M3BAjM
-	CT5j12vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rA49zl9sY0e+xDBXbaY5286T7pTnj1IO0yTCmjFA2II=; b=RnNLtUYTFLkwlgNA4Ca5MdJWwb
+	ShWFg6o9WMqROmRsjop9zgIeKckJlcF16U+XCorHnSjXQRZ8d0G40VTRmQbBzUeM/6AprvXwxdOYz
+	cLW78EnXcJrL7JzdYek3WUq+vnhXaKR6LYoE5TiOky20+o2RoA4VrebIaddyQd28eIT80f1d3pymh
+	KRs8QXThUJ4Q13LcVsvETh7/NkgWgD+n0SeN6Ucwefig5NR1ccAyDS38OARJBdP3n3DyFId/ni0my
+	B1PnXe8uLUIkYFSLUfDjsNsb+M06pbFdhRIj+jqWpx14Ox2d2lhnYqJ++OqpPXBlAcSKVMRkSX0u0
+	GVkHKR5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMfC-00000008M2S-3un4;
-	Fri, 07 Aug 2026 15:39:14 +0000
-Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
+	id 1wsMhl-00000008MkS-2hTI;
+	Fri, 07 Aug 2026 15:41:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsMfA-00000008Lzp-0S0Q
+	id 1wsMhj-00000008Mjv-49ag
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 15:39:13 +0000
-Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-45837e52d8aso1219061fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 08:39:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786117151; x=1786721951; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4LVBJaFomYnqSqtZwNfhU1nsKV+qCjSwKc3i+p0HPzM=;
-        b=koMLZmWk8W4+o9W29pnf5M+yDRfwN9WRFOgOIQRep1mPLX3Qv+j47q35zq2OKt2xFy
-         FBPBVi1mK9CH7Eogoe9FpBjd4lKJq+ztLZkRsxuByiaXZ0VVkGyxCRz0nHOuZrquDdos
-         DcfejYT0vjUG13P54TBYJ10trWqaUBY43zAq14jezp/IV1YxeQh4+G5d807ywM8RXEul
-         rD4Z82YzEVxBiEqkueh5572gumJaSjHp2RezYugfFoYaLIEtgDhthwSvUaC4ZIcPND0I
-         3zlcr+5p6EU5N6+XRMYmuQ0eKmfWyQMCZz5kQrnp6l+Q9S7Ow7k1a6lRk+z0bg3qn/GW
-         WJng==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786117151; x=1786721951;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4LVBJaFomYnqSqtZwNfhU1nsKV+qCjSwKc3i+p0HPzM=;
-        b=klddzxjVEaHAXvnPODZbSe+utZM/TOyzewyP6F0nuQcH6SeNjMr/Wv8pM880If8Jzh
-         LqX4HBRnIIIVBv+yn4MOhSNwwcxOFUWQ/6Hs/kkgLcmLoYqB7xJ1aIrcE/zkvW7DqmZo
-         mg8LB8KdR61cMdNed52gmBR6gw0jcgnZUvB4e9TvTGbsAJOnqwPYDdarnk9WC4uU4Mal
-         yGynFUFtP3G1FG5nfD7f6d/mFSXq500CcoR3MdS33wRmP81OMZvsKnBKNVaA8e+lpTln
-         TJVH0Pv2kede4s/8EcP+bdAUKjOIBSgODPe7V36vC36BPsRWoNkA/9wd48znUfrbL5NT
-         PwhQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoKOZ3SjmWBcaE2ZI6tex1l/GwSzQayROOcBF/dWnlzlygJOxbzeQmXx6jG4lYDkWzZ2FolWLO3v3r+bWDqS+23@lists.infradead.org
-X-Gm-Message-State: AOJu0Yys8Eomk+wWzvN8DjeDGFPrjTjJQVMsS3p69KvAZdfSl9KWml3T
-	fQukyvDHQ1kbLlEOnZDq3LBZAcpBM+dhgg56Vh4vd1qkgdWn0Q+Lxe/r
-X-Gm-Gg: AR+sD105k7oVDC7smoffjHkaSG82md9NTNxE5tBjyveAM9nH73mkXQP6fXSzcBtMWiI
-	O88mhJ9jM9FgNcz2APHa5dRcUEGhm5CE4fr/cOlOrCaO3Vg+8eWduTrP6HN04Tz5Y2kzX7fi659
-	xJlvjyee1QYtxZJsmPdeOO7yPA4BLRRLd/YOXUtQnab0Pi3KlAqpcR+qE67dlh9pb0+0ZY9Rq7s
-	BsYXTww2OWK9NT7VsJ2wZpDCcOGIUqJ6tTlKlUUJD5BSlU7qFQ20kLVTbEdySBvyov2YQ+UsUm5
-	5A5bog/ir4VhK50zpWvyY730IUzcvS7xEjBefrhxxOA0pbh7cj57y3X6wR9iAXx5QuOcF12d3+P
-	X1TsVhuWMnc7BZQKZuiNZh/7qL27/Jqp7PfKfW1WA1f4ywxverLL3s2DMOA1rLMeHEcGdR9yg+1
-	M+cBgYVpR/gIyFvZ4JPRxf7eeLn33/cTOFqL5IUYJC7rpN6oi+xihZV7ReD2/XORhjYLeYWvSV8
-	WT95mNXxWHCUcMgmjQ9PZ8yLT9+yPqZa9NvFinsW1EKS7PuEmb1mqYOXvtONOLAMjyroTRYjd4u
-	WDnRCywozoZdzmnZdWXfm4L2w7ysW22mlwOF9NNn8ICz5c8XUpsbWXQKF+YWsIuhaoV40g9Qt2v
-	5LTHa2/djTWpLySYT
-X-Received: by 2002:a05:6808:c1ba:b0:48a:ddd4:d36f with SMTP id 5614622812f47-4afadf16e3fmr12514228b6e.8.1786117150933;
-        Fri, 07 Aug 2026 08:39:10 -0700 (PDT)
-Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4afae706cd5sm7353485b6e.11.2026.08.07.08.39.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Aug 2026 08:39:10 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Fri, 07 Aug 2026 09:39:00 -0600
-Subject: [PATCH v3 2/3] mtd: rawnand: sunxi: describe tADL and tWHR delays
+	Fri, 07 Aug 2026 15:41:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AEA48404F5;
+	Fri,  7 Aug 2026 15:41:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C09291F00A3A;
+	Fri,  7 Aug 2026 15:41:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786117311;
+	bh=rA49zl9sY0e+xDBXbaY5286T7pTnj1IO0yTCmjFA2II=;
+	h=From:To:Cc:Subject:Date;
+	b=GnJqXTDPnaUxDgRuW7bToK5Bo8Rw0cSkaTBSGdxSoPRpQ9974R9lu/zNyyIT3Uxnz
+	 oYhlH1jJhD8M+KemVq21kevKIvy2u4TVLTUzRDEsS1e8cBIXNY35RVvXFTIB/+/o8q
+	 ko6aN6q7IcwtLF0Mp8XBq8XBme7YTcvlNuGYrYJ6zsE1//COvHjXS293G7lS7oBF8U
+	 qrIJnt3wadwntkMhx0Ea+RaUhL0PVq9I8qTG1907QXbIpTVUESCYH7L6U0M9fcqnan
+	 8Xq3pV83u3bcqj09Tx7jziqgvohqeZCPL5oc7IOonx1hNJhYsuFEUA9Tn5DLt9t9oq
+	 Rp2O+S10SvkzQ==
+From: Bjorn Andersson <andersson@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Maulik Shah <maulik.shah@oss.qualcomm.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Shawn Guo <shengchao.guo@oss.qualcomm.com>,
+	Sumit Garg <sumit.garg@oss.qualcomm.com>,
+	Viken Dadhaniya <viken.dadhaniya@oss.qualcomm.com>
+Subject: [GIT PULL] More Qualcomm driver updates for v7.3
+Date: Fri,  7 Aug 2026 10:41:49 -0500
+Message-ID: <20260807154149.603041-1-andersson@kernel.org>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260807-submit-sunxi-nand-h6-h616-timings-v3-2-91287b543f41@gmail.com>
-References: <20260807-submit-sunxi-nand-h6-h616-timings-v3-0-91287b543f41@gmail.com>
-In-Reply-To: <20260807-submit-sunxi-nand-h6-h616-timings-v3-0-91287b543f41@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>, 
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Richard Genoud <richard.genoud@bootlin.com>
-Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- James Hilliard <james.hilliard1@gmail.com>, stable@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_083912_185029_B9B9F7CA 
-X-CRM114-Status: GOOD (  14.71  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,91 +75,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The tADL and tWHR timing fields use four encoded delays, but the driver
-currently derives their values with a shift. This hides the actual
-controller timing characteristics and lets the clock solver select a
-32-cycle delay that the fields cannot encode.
 
-Describe the legacy 7, 15, 23 and 31 cycle thresholds explicitly and use
-the tables for both clock selection and field lookup. This prepares the
-driver for controllers with different encodings.
+The following changes since commit 43584144a46bccbe90482cd8eede9596d8fc47dc:
 
-Fixes: 88fd4e4deae8 ("mtd: rawnand: sunxi: Add support for H616 nand controller")
-Cc: stable@vger.kernel.org
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/mtd/nand/raw/sunxi_nand.c | 30 ++++++++++++++++++++----------
- 1 file changed, 20 insertions(+), 10 deletions(-)
+  soc: qcom: llcc: Skip ECC interrupt setup on Shikra, pre-configured by DSF (2026-07-17 17:22:44 -0500)
 
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 9885248c9b85..df52501c1285 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -242,6 +242,8 @@ struct sunxi_nand_hw_ecc {
- /* Delay arrays contain internal NDFC clock cycles for field values 0 to 3. */
- struct sunxi_nfc_timings {
- 	s32 tWB[SUNXI_NFC_TIMING_STEPS];
-+	s32 tADL[SUNXI_NFC_TIMING_STEPS];
-+	s32 tWHR[SUNXI_NFC_TIMING_STEPS];
- 	s32 tRHW[SUNXI_NFC_TIMING_STEPS];
- };
- 
-@@ -1679,6 +1681,8 @@ static int sunxi_nfc_hw_ecc_write_oob(struct nand_chip *nand, int page)
- 
- static const struct sunxi_nfc_timings sun4i_a10_nfc_timings = {
- 	.tWB = { 6, 12, 16, 20 },
-+	.tADL = { 7, 15, 23, 31 },
-+	.tWHR = { 7, 15, 23, 31 },
- 	.tRHW = { 4, 8, 12, 20 },
- };
- 
-@@ -1781,11 +1785,15 @@ static int sunxi_nfc_setup_interface(struct nand_chip *nand, int csline,
- 		min_clk_period = DIV_ROUND_UP(timings->tWB_max,
- 					      nfc_timings->tWB[SUNXI_NFC_TIMING_STEPS - 1]);
- 
--	if (timings->tADL_min > (min_clk_period * 32))
--		min_clk_period = DIV_ROUND_UP(timings->tADL_min, 32);
-+	if (timings->tADL_min >
-+	    (min_clk_period * nfc_timings->tADL[SUNXI_NFC_TIMING_STEPS - 1]))
-+		min_clk_period = DIV_ROUND_UP(timings->tADL_min,
-+					      nfc_timings->tADL[SUNXI_NFC_TIMING_STEPS - 1]);
- 
--	if (timings->tWHR_min > (min_clk_period * 32))
--		min_clk_period = DIV_ROUND_UP(timings->tWHR_min, 32);
-+	if (timings->tWHR_min >
-+	    (min_clk_period * nfc_timings->tWHR[SUNXI_NFC_TIMING_STEPS - 1]))
-+		min_clk_period = DIV_ROUND_UP(timings->tWHR_min,
-+					      nfc_timings->tWHR[SUNXI_NFC_TIMING_STEPS - 1]);
- 
- 	if (timings->tRHW_min >
- 	    (min_clk_period * nfc_timings->tRHW[SUNXI_NFC_TIMING_STEPS - 1]))
-@@ -1813,16 +1821,18 @@ static int sunxi_nfc_setup_interface(struct nand_chip *nand, int csline,
- 		return tWB;
- 	}
- 
--	tADL = DIV_ROUND_UP(timings->tADL_min, min_clk_period) >> 3;
--	if (tADL > 3) {
-+	tADL = sunxi_nand_lookup_timing(nfc_timings->tADL,
-+					timings->tADL_min, min_clk_period);
-+	if (tADL < 0) {
- 		dev_err(nfc->dev, "unsupported tADL\n");
--		return -EINVAL;
-+		return tADL;
- 	}
- 
--	tWHR = DIV_ROUND_UP(timings->tWHR_min, min_clk_period) >> 3;
--	if (tWHR > 3) {
-+	tWHR = sunxi_nand_lookup_timing(nfc_timings->tWHR,
-+					timings->tWHR_min, min_clk_period);
-+	if (tWHR < 0) {
- 		dev_err(nfc->dev, "unsupported tWHR\n");
--		return -EINVAL;
-+		return tWHR;
- 	}
- 
- 	tRHW = sunxi_nand_lookup_timing(nfc_timings->tRHW, timings->tRHW_min,
+are available in the Git repository at:
 
--- 
-2.53.0
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-drivers-for-7.3-2
 
+for you to fetch changes up to 94d3305d990b055e1561e3b78275344b1f40c86e:
+
+  media: qcom: Switch to generic PAS TZ APIs (2026-08-04 10:26:42 -0500)
+
+----------------------------------------------------------------
+More Qualcomm driver updates for v7.3
+
+Add SMEM parsing for DDR configuration data and use its highest bank
+address bit to select the appropriate UBWC configuration.
+
+Enable generic PAS trusted-zone APIs for the Iris and Venus media drivers.
+
+Fix SCM probe retry state, reserved-memory cleanup, and an early IRQ-handler
+NULL dereference. Enable QSEECOM EFI variable access on the Asus Zenbook A16.
+
+Correct GENI firmware-size validation using the hardware CFG RAM depth and
+correct the PMIC GLINK Thunderbolt extradata layout.
+
+Document the Nord AOSS side channel and the IMEM minidump SRAM property.
+Clean up Qualcomm statistics macros and the WCNSS binding schema.
+
+----------------------------------------------------------------
+Konrad Dybcio (5):
+      soc: qcom: pmic_glink_altmode: Define the TBT extradata properly
+      firmware: qcom: scm: Allow QSEECOM on Asus Zenbook A16 (UX3607OA)
+      soc: qcom: smem: Use 'unsigned int' instead of 'unsigned'
+      soc: qcom: smem: Expose DDR data from SMEM
+      soc: qcom: ubwc: Get HBB from SMEM
+
+Krzysztof Kozlowski (1):
+      dt-bindings: soc: qcom,wcnss: Drop redundant $ref of firmware-name property
+
+Maulik Shah (2):
+      soc: qcom: qcom_stats: Remove unused macro definitions
+      soc: qcom: qcom_stats: Replace CLIENT_VOTES_OFFSET macro with sizeof()
+
+Mukesh Ojha (4):
+      firmware: qcom: scm: Fix NULL dereference in IRQ handler before __scm is published
+      firmware: qcom: scm: Fix reserved memory cleanup on probe failure
+      firmware: qcom: scm: Fix tzmem state on probe retry
+      dt-bindings: sram: qcom,imem: Add minidump-sram pattern property
+
+Shawn Guo (1):
+      dt-bindings: soc: qcom,aoss-qmp: Document Nord AOSS side channel
+
+Sumit Garg (1):
+      media: qcom: Switch to generic PAS TZ APIs
+
+Viken Dadhaniya (1):
+      soc: qcom: geni-se: Use HW PROG_RAM_DEPTH to validate firmware size
+
+ .../bindings/soc/qcom/qcom,aoss-qmp.yaml           |   1 +
+ .../devicetree/bindings/soc/qcom/qcom,wcnss.yaml   |   4 +-
+ .../devicetree/bindings/sram/qcom,imem.yaml        |  16 +
+ drivers/firmware/qcom/qcom_scm-smc.c               |   2 +-
+ drivers/firmware/qcom/qcom_scm.c                   |  43 ++-
+ drivers/firmware/qcom/qcom_scm.h                   |   2 +-
+ drivers/firmware/qcom/qcom_tzmem.c                 |  13 +-
+ drivers/media/platform/qcom/iris/Kconfig           |  27 +-
+ drivers/media/platform/qcom/iris/iris_firmware.c   |   9 +-
+ drivers/media/platform/qcom/venus/Kconfig          |   1 +
+ drivers/media/platform/qcom/venus/firmware.c       |  11 +-
+ drivers/soc/qcom/Makefile                          |   3 +-
+ drivers/soc/qcom/pmic_glink_altmode.c              |   3 +-
+ drivers/soc/qcom/qcom-geni-se.c                    |  24 +-
+ drivers/soc/qcom/qcom_stats.c                      |   9 +-
+ drivers/soc/qcom/smem.c                            |  81 ++--
+ drivers/soc/qcom/smem.h                            |  12 +
+ drivers/soc/qcom/smem_dramc.c                      | 430 +++++++++++++++++++++
+ drivers/soc/qcom/ubwc_config.c                     |  40 +-
+ include/linux/soc/qcom/geni-se.h                   |   4 +
+ include/linux/soc/qcom/smem.h                      |   2 +
+ 21 files changed, 635 insertions(+), 102 deletions(-)
+ create mode 100644 drivers/soc/qcom/smem.h
+ create mode 100644 drivers/soc/qcom/smem_dramc.c
 
