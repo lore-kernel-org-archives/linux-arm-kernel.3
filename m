@@ -4,114 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44B13C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 14:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CABCC2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 14:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MzS5XFrgTuiPjNnu38gbVxPmnnD5h/HbpvqKJVfoMMI=; b=j8wh18tTQ2uE6gZ6gYubGMyb6a
-	/frAGP2lmKgaWTtkY8EhQHAcAQ+zZ/J1XqWEQAfla221uOC20+Mzdf/XEFOlmt8QwCqyopsvs6cJm
-	kZkK9A5D7KbrQQKdaRRwJofHHBGGTf0KO6khISRVBfd+uFXMnB+ptaNrBWotJZmsLzm9kfbvg9aVH
-	iJt5fFJTkeg/YV6XkuMZ4JG+4TTsNgmkOGYkOfyqFaFiGvp/fAT724ulKj+32rAEajlhyfCC/KxWl
-	CEbB1+sM45ytdYOKKgjhgBufS9/KyByzlSoE0xPBWCmvpYpuL5+FS7sj65LUsGPBfLP+Uq5/Zdvh4
-	JPdn/Mxg==;
+	bh=lIKpI3uZ34B35QjxV9DX5tJ3U5Uy0uDSO/d0q5BbUWE=; b=qhjyXEjbzwJdi+3KFQq+luguPp
+	+s0lU/NPw6eDgRDQvuUhQBjgII2LajJ9MCbA2cVR9fIq/ChPsGVGvDOQ4GklYGOuUt+MDBKpja53d
+	R4cSx8qnQRYk0UwfJnG5NO548yrMeEv0JAmrFCHxT9ghlhUxRyUFt7RMXmQ55qNwDImmD/KzN9D+U
+	BNUUjQm3yFJRoyeWEO295ZOdUnRTz2m6hjlEJ9ZHwIhHsPZ7CDKnq30TGQ09BJ/hGvwjz5stY+EwD
+	R9pmEiHRwHra8XAmTwLdvBF4M7mrETNNV+OpolXkEczMyKCqytWeSBwpq89707cYJKXBlmsW5bGqj
+	R3kDplgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsLMK-00000008Eu8-394Q;
-	Fri, 07 Aug 2026 14:15:40 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1wsLQ8-00000008Feb-0sMj;
+	Fri, 07 Aug 2026 14:19:36 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsLMH-00000008EtV-0wx3
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 14:15:39 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c15c42a45adso313093366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 07:15:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1786112135; cv=none;
-        d=google.com; s=arc-20260327;
-        b=cN0Z4LMdOsGWubB5w1LeOJ6tcL4hi7MVL5XF4aTZ0abSwtb7PtOzek6hqQnOowQMHS
-         KVSYXQ0ktxb6cWD8QbU66Q5MVIvQlysR5JJTMZdZn0b341e/wVPxydnZjqrnWib/wSaS
-         jp7JRLVm2N1zdh03DY79pWQ+ymPvYu8132qmxH7TvZZ967CT8s+jpJ9+qwb+E5EqZg5e
-         oud7/d8B5uEl6VZAtU0nnOpaCcJHHzEo+S77mHOVN2zTTx4lhACFde8WJM/xzcB7+FOM
-         nnsktHPnN1uBxysxrFZsp96OoQjL6NBW3O8fD2zE+7zGrflM7m4t2gNjudpHWFzZ2nuC
-         cGKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=MzS5XFrgTuiPjNnu38gbVxPmnnD5h/HbpvqKJVfoMMI=;
-        fh=EL2IowZd4j2GFlQ2sDImReTPShfooFW6CxBjmAXwk4Q=;
-        b=NRt+tbuP+6UmhyvS3WgVIQISx2zzQE7tj/c2NmXBmgkJY7280yH0G6ih1KW95tPVvw
-         JiM9z7nc+p1i8Ywsez7JA1chGGtpI/+h+0pqS6wGESAcJqyHIPEBjBMXUR7b+emwMyvj
-         PZ5M7dtj5V7dzqVRUoP/T05lxg8z4S4GcXmeZpPIGqjdUyW9NpT/19MYKQa+sxC70zEM
-         B5dJl7INN1nmFwiSy/9E9T1cuhPNpvWgf0NI5zEg1/B49aeWcqtZCy9H6O/E4Hy2I5HJ
-         x/qV40bvLNTYAHPOuF4NO4Wc9+OqITbTd34gdYQ0KSfRv0fU4Zs1sBj/nqR8kOk3ZPhz
-         0sOw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1786112135; x=1786716935; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MzS5XFrgTuiPjNnu38gbVxPmnnD5h/HbpvqKJVfoMMI=;
-        b=R+uUYavb41Z+w3zpU9mxvr+rlu494vQsedlIkyrea0njIPr6/jVFjKFRI1OnMgFu2g
-         gzmKUsUhA2p62utqDXBUZ5XfmmqVfTMQFc3bv+8NSi7WALzNa+rLVmMrtv3yZmQEFpsQ
-         6+fpiOA2brdJqAjrjMzjHViFVpeVvBBx7wkBhpAAPDTjZmicty2jovTfP0HGqP6KiIo7
-         Niglhr170a0uPPpqnRNaINS3+PMvc85X+AlfloLHcbDAvvOZrcMKTua3IEYyY0uhtrmo
-         vifPbWe5+3uh8XNTApf0eFjb+YiWUpM8nRCxkOjon4HaCCqM9kiOPDeQGbsd6c9mvEZD
-         YqGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786112135; x=1786716935;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MzS5XFrgTuiPjNnu38gbVxPmnnD5h/HbpvqKJVfoMMI=;
-        b=ghiX5hEO6xLiYkCAt86wRP6IqHhc5Zx2QsK6dx114j8FZqOS/P3nKLI4KkBULxi7Sg
-         TpUBfa7JQATNN1GmoSgBRqRCaewFdXmWbRXIF068aWYYjmlHELw2V1n9kEL/7dqyhGdL
-         mxEgaEMW57Ay2XtlK+qLDHVlau9ZMXb87cIM4+saYoO/JI2Oz+Xw1VwS1Cde5EaN8scH
-         OUjPDZZwBXTaMNwfaErhW7WfbR8CjZ8HJbi8NGx9MZjHdrmjDlwEWmq3d3n3EThnVi1f
-         U9z4OxwkvdrmUsG6gMSlfDrMTLJYZEbWntZ9u4h9JsV+g8/lZzoyY9Ia7wzo6DwsNzA5
-         ckWQ==
-X-Forwarded-Encrypted: i=1; AHgh+RovgLvnxknDwdim1QFl+QmveiyTPQNaZdO1diGZ/JjGxVS1EWIvR+njMvSNDxPmoR2J69M4lfhnDOIbk2bIZLa4@lists.infradead.org
-X-Gm-Message-State: AOJu0YynQZzK+spzjOyJaXCx3oW+vbTHEwtvKu1rnziln1Dh4Z0zwrSP
-	wmDBYRHkMOr7zNym36S3jWbBdvB30RtV3f2x5TjwJnHpxvjqKTzNJTaXjCFKNux316sILRaXvpL
-	8NmgxnvLbCoexkGhDTnCFhq7surHdsFs=
-X-Gm-Gg: AR+sD11W9hE5r5LBwjLROu94g7/UPiMacqSJnxa/4aJr5V+qiy4vcIk0LnIycqjJCem
-	GHLPAqVjC0LUcL+XzDHugHUdOcLZ7ik40WrL1Qfe2xKq9OFmv1WAS570PidVUh9K1nTCS8qcICl
-	K4e50W/V5C+dGcB4riUpltUaRRJXazI2sexXPdvzu7HOQ4fetc8VaKwD6r8slCZmvcUlQ0pFS81
-	HKtUxOpE479++iX3eX7qwuWxKcf8ItSzOJJA5yF4TTgmK7PMgW2snohoEEhJkA/2nZfAD3m05dS
-	xnMbtqSR9Nwm0Br6aoExeLkgeopUcwELt3LzkRA6mkXTJx4V/vr/m/NMZH6J
-X-Received: by 2002:a17:907:a606:b0:c1f:df40:1d83 with SMTP id
- a640c23a62f3a-c2057e093demr807232966b.5.1786112134646; Fri, 07 Aug 2026
- 07:15:34 -0700 (PDT)
+	id 1wsLQ4-00000008Fcp-3MGu;
+	Fri, 07 Aug 2026 14:19:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1786112368;
+	bh=hgwRBzRiQJNn4iMUuJnS82O/yDS20iHLzWusYFbGalo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nu7JHy7YiD0+TngKozpgIkC3QZ4PsngzLPvbc9+b86Uvi6/uZoSc7+2OGspM4b1y5
+	 +Q6MVKTSa848xdcw7eaWVRhBPbVmPry5EyAnl+ApGANht+g4b/lMNY8BLFjVJCNusU
+	 nvF1TWQJHJcbHSfQPCXNWP0ClV2hOL0a/O2cuacerjVN2613+ZbwjatYQyfsOjbliy
+	 2Q41W4DrLYDK8aoOfQeUbiMmzbMe1XKEeDr2EzNTNQUe/tOr1znajcWUcz7gT7tGYd
+	 lRkTSUWQJp1biW6b7IAnS8tJ8bj/3ibxImaA3XliRDXmXEug2VcczhQh6w/G66+FLO
+	 ATOk9Wz0lCQcg==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DBC1817E0048;
+	Fri, 07 Aug 2026 16:19:27 +0200 (CEST)
+Message-ID: <605f96b2-709c-49f6-9446-49ed3bff7d96@collabora.com>
+Date: Fri, 7 Aug 2026 17:19:27 +0300
 MIME-Version: 1.0
-References: <20260806135224.3267890-1-puranjay@kernel.org> <20260806135224.3267890-2-puranjay@kernel.org>
- <20260807093951.GS776954@noisy.programming.kicks-ass.net>
-In-Reply-To: <20260807093951.GS776954@noisy.programming.kicks-ass.net>
-From: Puranjay Mohan <puranjay12@gmail.com>
-Date: Fri, 7 Aug 2026 15:15:21 +0100
-X-Gm-Features: AUfX_mwZEiydqK_HU1_ia3MF27eq51puWHtYC7ZlluNhh2_0hfgI6nV6cPYk91Q
-Message-ID: <CANk7y0hq3w+bRNmuT1PWvhZb=ob=6Y5keN7-25vRSbx5nxakNA@mail.gmail.com>
-Subject: Re: [PATCH v6 1/3] perf/core: Fix NULL pmu_ctx passed to pmu->sched_task()
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	James Clark <james.clark@linaro.org>, Usama Arif <usama.arif@linux.dev>, 
-	Will Deacon <will@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Ravi Bangoria <ravi.bangoria@amd.com>, Thomas Gleixner <tglx@kernel.org>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 02/10] phy: rockchip: samsung-hdptx: Prevent
+ divide-by-zero when computing clk rate
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>,
+ Algea Cao <algea.cao@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
+ kernel@collabora.com, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Andy Yan <andy.yan@rock-chips.com>
+References: <20260723-hdptx-clk-fixes-v5-0-8e786067865f@collabora.com>
+ <20260723-hdptx-clk-fixes-v5-2-8e786067865f@collabora.com>
+ <qe6i5bvrn32xmwncl4zq3f5w6twpwfwvq5alaacsceq3vxn3nt@mbeytagr77j3>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <qe6i5bvrn32xmwncl4zq3f5w6twpwfwvq5alaacsceq3vxn3nt@mbeytagr77j3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_071537_290370_DC788D60 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20260807_071933_016862_4E3D3C15 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,62 +84,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 7, 2026 at 10:40=E2=80=AFAM Peter Zijlstra <peterz@infradead.or=
-g> wrote:
->
-> On Thu, Aug 06, 2026 at 06:52:21AM -0700, Puranjay Mohan wrote:
-> > perf_pmu_sched_task() returns early when cpuctx->task_ctx is set, and
-> > cpc->task_epc is only non-NULL while a task context is scheduled in on
-> > this CPU. __perf_pmu_sched_task() therefore always passes NULL:
-> >
-> >   Unable to handle kernel NULL pointer dereference at virtual address 0=
-0
-> >   pc : armv8pmu_sched_task+0x14/0x50
-> >   Call trace:
-> >    armv8pmu_sched_task+0x14/0x50 (P)
-> >    perf_pmu_sched_task+0xac/0x108
-> >    __perf_event_task_sched_out+0x6c/0xe0
-> >
-> > Pass &cpc->epc instead. __perf_init_event_pmu_context() sets its ->pmu
-> > when the PMU is registered; ->ctx stays NULL until a CPU-wide event
-> > attaches. That is enough here because armv8pmu_sched_task() is the only
-> > in-tree implementation that dereferences the argument at all, and it
-> > only reads ->pmu. The oops therefore needs BRBE, which arrived in v6.17=
-.
-> >
-> > Fixes: bd2756811766 ("perf: Rewrite core context handling")
-> > Cc: stable@vger.kernel.org
-> > Acked-by: Usama Arif <usama.arif@linux.dev>
-> > Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-> > ---
-> >  kernel/events/core.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/kernel/events/core.c b/kernel/events/core.c
-> > index b282de3e7d7ca..9815894b67e77 100644
-> > --- a/kernel/events/core.c
-> > +++ b/kernel/events/core.c
-> > @@ -3907,7 +3907,8 @@ static void __perf_pmu_sched_task(struct perf_cpu=
-_pmu_context *cpc,
-> >       perf_ctx_lock(cpuctx, cpuctx->task_ctx);
-> >       perf_pmu_disable(pmu);
-> >
-> > -     pmu->sched_task(cpc->task_epc, task, sched_in);
-> > +     pmu->sched_task(cpc->task_epc ? cpc->task_epc : &cpc->epc,
-> > +                     task, sched_in);
->
-> This can be written like: cpc->task_epc ?: &cpc->epc.
->
-> However, if cpc-task_epc is always NULL, then this all seems like an
-> overly complicated way of writing: &cpc->epc. What gives?
+Hi Mani,
 
-Nothing, you're right, it should just be &cpc->epc.
+On 8/7/26 3:56 PM, Manivannan Sadhasivam wrote:
+> On Thu, Jul 23, 2026 at 10:41:45PM +0300, Cristian Ciocaltea wrote:
+>> Calculating 'sdm' fraction in rk_hdptx_phy_clk_calc_rate_from_pll_cfg()
+>> could trigger a divide-by-zero, as it uses div_u64() with a denominator
+>> read directly from hardware: the values ropll_hw.sdm_deno,
+>> ropll_hw.sdc_deno, ropll_hw.sdc_n, and ropll_hw.sdc_num are populated
+>> from PLL registers which, in theory, could be left by the bootloader
+>> uninitialized/misconfigured.
+>>
+>> Provide the necessary sanitization to avoid trusting the hardware state.
+>>
+>> Reported-by: Sashiko <sashiko-bot@kernel.org>
+>> Closes: https://sashiko.dev/#/patchset/20260611-hdptx-clk-fixes-v3-0-67b1b0c00e16@collabora.com?part=1
+>> Fixes: 3481fc04d969 ("phy: rockchip: samsung-hdptx: Compute clk rate from PLL config")
+>> Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS
+>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+>> Reviewed-by: Andy Yan <andy.yan@rock-chips.com>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 11 ++++++++---
+>>  1 file changed, 8 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> index 710603afff86..44e99343f249 100644
+>> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> @@ -2270,10 +2270,15 @@ static u64 rk_hdptx_phy_clk_calc_rate_from_pll_cfg(struct rk_hdptx_phy *hdptx)
+>>  
+>>  	fout = PLL_REF_CLK * ropll_hw.pms_mdiv;
+>>  	if (ropll_hw.sdm_en) {
+>> +		val = 16U * ropll_hw.sdm_deno *
+>> +		      (ropll_hw.sdc_deno * ropll_hw.sdc_n - ropll_hw.sdc_num);
+>> +		if (!val) {
+>> +			dev_dbg(hdptx->dev, "Invalid ROPLL hw state: deno == 0\n");
+> 
+> If the hardware state is invalid, why can't this be a hard failure?
 
-I wrote the ternary expecting patch 2 to make cpc->task_epc reachable
-here, but it does not.
+This is an internal helper called from the .recalc_rate clk_op, which tries to
+compute the current rate by reading back the hardware state. 
 
-Will fix it in v7.
+Since .recalc_rate returns unsigned long, we cannot propagate errors to the
+caller.  However, per the clk_ops documentation, the driver is expected to
+return 0 if it cannot figure out the rate.
 
-Thanks,
-Puranjay
+Moreover, this condition isn't really fatal, as it only means the PLL
+configuration currently stored in hardware can't be translated into a rate.  The
+next .set_rate should program a valid configuration and help with the recovery.
+
+Thanks for reviewing!
+
+Regards,
+Cristian
 
