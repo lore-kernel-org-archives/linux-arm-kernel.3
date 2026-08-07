@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C4CDC5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 07:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301A7C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 07:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F9Z+y9mwvwTE/vqgn10FR4pH6LkQapgkAfJrJp6N+o0=; b=HvlE3l7/EiIMFJL8SkgWMUgMgx
-	9fQkwvloCyy+WgTaFR+kjSViEqstdN534YoaggAm2Fmgwok6rnP7GfeyvWOTVidP0rCVvAJSO5dJm
-	1rV0FNUIuAaov51EGSKz5u6Fi+nMfBDj3ryfc0mfxvCz0KN5YCmkF9hH9UhjFth/gzT+jqjLeUEUx
-	wPAE+W+PPltcXunbYYM/IpaMh0J6w93dRPn5MpfYJsyABB71/9yLoBKPCM7/8WxdP9n4ts6xJpHpT
-	NeE6wrMgX4UnF9U1QKBrO6G9EfIHl9+WpyDQT23iaovquECvlzSddvNxwikTyH6RpCPKI8Zo05Enl
-	u2d2kO1Q==;
+	bh=ui/dJztSjklpZgdgdTpBoQ/4RYKD0Hs+Yl/44j6P7IM=; b=l2qmpVXc4Gr6ZPVivTGEYWJhuK
+	R/vt4XH5jsspPe0Zqe50lrGDb25triTZUwu0A3JyxwC3+sFR43YNLjXQ844Ch9iE6yj6EQYfwWHQE
+	jaim7JYprLSpmORpbAIk7zY67xU1aCwD4LH9HQLxMTYhX7SCRqYEZGx+gWgZZeP1TGHVOOFrgKeeo
+	HIiSI6KfokUuXgpC5yMo5DAY/GJtPIx/rlIL7jCOeos/wzrz0ROWbMkSoF4qzlVRayxzOiT56CgQB
+	aY19Gl22VSYHPrtQ8+6b2YZXLzf4IAXzH1CtxVxdh3bOicowBftn87auPcm8ez9aP9Lt1jAAqdDeo
+	Hxz7fe0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFM4-00000007IkG-0zza;
-	Fri, 07 Aug 2026 07:51:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wsFN3-00000007Iu8-3CRt;
+	Fri, 07 Aug 2026 07:52:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsFM2-00000007Ijz-0T1X;
-	Fri, 07 Aug 2026 07:50:58 +0000
+	id 1wsFN3-00000007ItY-0I9C;
+	Fri, 07 Aug 2026 07:52:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2486260AB0;
-	Fri,  7 Aug 2026 07:50:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EB981F000E9;
-	Fri,  7 Aug 2026 07:50:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CE183419E8;
+	Fri,  7 Aug 2026 07:52:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 927871F000E9;
+	Fri,  7 Aug 2026 07:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786089056;
-	bh=F9Z+y9mwvwTE/vqgn10FR4pH6LkQapgkAfJrJp6N+o0=;
+	s=k20260515; t=1786089120;
+	bh=ui/dJztSjklpZgdgdTpBoQ/4RYKD0Hs+Yl/44j6P7IM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=RkXrBrlsARtc2+B/RyGqAGrmllcUeLy/WCgkwA5eobUGMbF1vmSoSCLaDElxasA6L
-	 1nE+3Ue8uE+lDmiYKwQMozGpclUMd/R9yqzUAqvbkP1b94lkSWe2NChET5xzWRu8UX
-	 nC6HMIvPaF1o/nkPmTflob/gOHENUjR/uKwJAUHZM+gcrVtMP9NrLAOOG0juJlwsa8
-	 qT0zfl++dkDqx2lJAnCpmaAZ16xfE54tewWe4WhNWsL9kJ/XqschYcDnEcPEAq0Bfm
-	 5JYzBrrF5bk1Oq1EliolvCSLwK7x/ESwmxXa4e+2+AgDeBPG/6nEPm3aY+2E73zI2N
-	 rdwQkYSH8454g==
-Message-ID: <d2bd6eb7-6fed-4827-bbf0-0f1dfcdf6d21@kernel.org>
-Date: Fri, 7 Aug 2026 09:50:42 +0200
+	b=iphmv/dtqzAEEkp2drdJnJNRmvsei4fRFyNo+qjT9hVWxZzpjf9cDBJ2X0lPWTyq3
+	 Bg3BXuyiZ1ul4ufTneP8oZW/hA1HnqIK060ZQyyQ1t8OkSalxMFrLElP/XM8O5NtKp
+	 EWpVgfsdGcntOcc2lu7XiV/Zw/+akY797trWzpWcCMQQTbZHtQtrCheLPIEPBZ//Ey
+	 U0ddh9qGwunV49FZ9JM6XhW3y1dzO+vIJN4KzLdFKLrANZ55r6p/+edKThZOAfO8F3
+	 iHOl27+qvI4QWXkLECZRcTwaatqFR7wvMcx75DcQwzRhtSCaxBSuhkJTrkEhaiCDnB
+	 56E/NTYkQKGmA==
+Message-ID: <d28fc845-9614-43c6-9c38-face930184e9@kernel.org>
+Date: Fri, 7 Aug 2026 09:51:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/6] dt-bindings: Add Bao IPC shared memory driver binding
+Subject: Re: [PATCH 3/6] dt-bindings: Add Bao I/O dispatcher driver binding
 To: =?UTF-8?Q?Jo=C3=A3o_Peixoto?= <jpeixoto@osyx.tech>,
  joaopeixoto@osyx.tech, linux-kernel@vger.kernel.org
 Cc: ajd@linux.ibm.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
@@ -61,9 +61,9 @@ Cc: ajd@linux.ibm.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
  will@kernel.org
 References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
  <20260107162829.416885-1-joaopeixoto@osyx.tech>
- <20260107162829.416885-2-joaopeixoto@osyx.tech>
- <8a1a9ebf-a3ed-4077-aa07-48cc98e071f9@kernel.org>
- <a42446a5-ec45-4323-b35c-34d882b86a74@osyx.tech>
+ <20260107162829.416885-4-joaopeixoto@osyx.tech>
+ <35100734-e2ea-459e-9b47-5cc62aa99b38@kernel.org>
+ <20f4dad8-0ac5-4fc0-866a-38721371ba63@osyx.tech>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,7 +109,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
  n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
  qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
-In-Reply-To: <a42446a5-ec45-4323-b35c-34d882b86a74@osyx.tech>
+In-Reply-To: <20f4dad8-0ac5-4fc0-866a-38721371ba63@osyx.tech>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -126,35 +126,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/08/2026 09:41, João Peixoto wrote:
->>> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
->>> index c7591b2aec2a..c047fbd6b91a 100644
->>> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
->>> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
->>> @@ -223,6 +223,8 @@ patternProperties:
->>>       description: Shenzhen AZW Technology Co., Ltd.
->>>     "^baikal,.*":
->>>       description: BAIKAL ELECTRONICS, JSC
->>> +  "^bao,.*":
->>> +    description: Bao Hypervisor
->> Vendor prefixes are for companies. What is the company here? What is
->> stock ticker or website?
+On 07/08/2026 09:43, João Peixoto wrote:
+> 
+> On 1/7/26 16:47, Krzysztof Kozlowski wrote:
+>> On 07/01/2026 17:28,joaopeixoto@osyx.tech wrote:
+>>> From: João Peixoto<joaopeixoto@osyx.tech>
+>>>
+>>> This patch introduces a device tree binding for the Bao I/O Dispatcher,
+>>> a device used in backend VMs running virtualized devices (e.g., VirtIO).
+>>>
+>>> Signed-off-by: João Peixoto<joaopeixoto@osyx.tech>
+>>> ---
+>>>   .../bindings/bao/bao,io-dispatcher.yaml       | 75 +++++++++++++++++++
+>>>   1 file changed, 75 insertions(+)
+>>>   create mode 100644 Documentation/devicetree/bindings/bao/bao,io-dispatcher.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/bao/bao,io-dispatcher.yaml b/Documentation/devicetree/bindings/bao/bao,io-dispatcher.yaml
+>>> new file mode 100644
+>>> index 000000000000..8ca450e4b9d5
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/bao/bao,io-dispatcher.yaml
+>>> @@ -0,0 +1,75 @@
+>>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>>> +%YAML 1.2
+>>> +---
+>>> +$id:http://devicetree.org/schemas/bao/bao,io-dispatcher.yaml#
+>>> +$schema:http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Bao I/O Dispatcher Device
+>> No, you don't get multiple devices per every driver.
 >>
+>> Look at gunyah or Mediatek Genio. Come back when you solve ENTIRE
+>> FEEDBACK given to them first. And then say how you solved that feedback
+>> because so far I see you only ignoring review of your LLM slop or other
+>> Microslop product.
 >>
->>>     "^bananapi,.*":
->>>       description: BIPAI KEJI LIMITED
->>>     "^beacon,.*":
-> "bao" is the Bao Project, an open-source static-partitioning hypervisor
-> (https://github.com/bao-project), not a single company - analogous to the
-> existing "qemu" and "virtio" prefixes, which likewise name a software
-> interface rather than a vendor. I have updated the vendor-prefixes entry
-> accordingly. If you would rather namespace this under the maintaining 
+>> Best regards,
+>> Krzysztof
+> Thanks for the pointers, and sorry for the earlier churn. I looked at how
+> gunyah and the Mediatek Genio bindings model this and reworked the 
+> dispatcher
+> the same way: there is no longer a single node describing N devices. Each
+> backend device is its own node with one reg region and one interrupt:
+> 
+>    shmem@50000000 {
+>        compatible = "bao,io-dispatcher";
+>        reg = <0x50000000 0x01000000>;
+>        interrupts = <0x0 0x08 0x1>;
+>        bao,id = <0>;
+>    };
+> 
+> A backend guest that services several frontends instantiates several such
+> nodes. reg and interrupts therefore have maxItems: 1. The driver was
+> rewritten to match (one platform device -> one device model -> one
+> /dev/bao-dmX) dropping the internal N-device array, the global DM list and
+> the indirection ioctl.
+> 
+> I have also gone through the rest of the feedback on the series (the 
+> ipcshmem
+> binding, the misc-device conversion, commit messages, changelog, threading)
+> and addressed each item; the cover letter enumerates them. The binding 
+> passes
+> `make dt_binding_check`.
 
-Software components do not get bindings, so entire binding is not
-applicable really.
-
-You control your hypervisor and driver so use fully SW communication
-channels instead of embedding SW into DT.
+Where is any upstream DTS using this? Why do we want another software
+nodes in DT?
 
 Best regards,
 Krzysztof
