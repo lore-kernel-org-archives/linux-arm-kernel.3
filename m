@@ -4,120 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3C93C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:46:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DE0C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 10:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JyVpYFDqp7DKzmvb3OYbYySE/GVOTMB2NAk3snkagzM=; b=BMWgaFUALRrms0FMG4ix5TAnmQ
-	gtDiQyU725AcIqetWtBiU0cYQuO5mZciXoZXif2Aw0T7q3X0dl9zED3uxXpt88WfBoZ//A74M6DvH
-	onP/qMO04vuWICsM1O9ZT4urZy3uytrzmtfkozIx8975WCr8tK2869tZEG7rLq2nI1Mr5Wvl3h5gN
-	Mrs8Kg1+r5wD8/LXvYeRBeU5ahz7D6gdyAlL/E59Kjc0sFHWjEQzZ60LPciOiDst+ZVktLSjBe/X7
-	Awqld2mfjhD7qZbcWfAvYMGhyQuMnnTIC1ZTLizAJi4nrbDYFszjqnYyd6pHWdPujnrXbrS3MZrf+
-	Qp8iB9Xg==;
+	bh=Pd0s9piMGyu/sHPznoK/hZaSez88bzUEjJRw/4axIaQ=; b=s1h+Ft84+ejeIP8sL+npBM29Jg
+	za169Ke1kq5bA2VL1fMfV28jKUdPhh17hVC6ohfZH/l6wM0etGMBJOiRMdXL0L4nSM/c/DP4gNqVk
+	UpnmILjsuSMtpxZBN+IgLjcsbwbddba5OmD3LD9jw+d7a5JYZgppuwg6NAKH4GGAygmT0DQB7nEEr
+	DkdMwTomDBkyM8HSuStDxt7Oosp9m/YIDhEPKWE5gNkegxN83aTbEAubHF0g9dXez9c1onPR+E2UH
+	+xkQs1JRg7Oz4D7ZTHxbRdkyUpXKDUo5+/ZHk1Q0626psLKfadl4pZVM6jmDwbtdpqoheox8eMzVl
+	ipCQwq5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsI65-00000007jv4-0qkh;
-	Fri, 07 Aug 2026 10:46:41 +0000
-Received: from mail-westus2azon11010015.outbound.protection.outlook.com ([52.101.46.15] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wsIA7-00000007kcW-3aaU;
+	Fri, 07 Aug 2026 10:50:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsI60-00000007jou-28M1
+	id 1wsIA6-00000007kcC-1IrX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 10:46:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kZNE0OCBFKm85DKz5jhw2eDzah6RjLoV2Tvj7ek+ZNOIiIH1HVwfIbbAuvW0D+T5r0FXse1XU9Gp7NS//mLGgvB8ViJFQ7m+e7owyUd8wKe/1hTjZxPO//ahqtxGhoV0YsMnD+d77Xa44KcE2Rb12F6ZicmjPR2P8PThb+yYhjumbcGAT5kWyn7NXdoJikDKf6vTxCSkdiw4X7cfsDHuR7J5PEdpuXZSlJa0BZAVtZS8VRQ+/nbc9uFeYN/myLvM7sZcyn14Fo3zXjP2+PQ7ttdHATTHywF3YZcgaTazdwUOZ8kRnR+7hmV5FG53odAUep6JxQXQqVLP50NowZAfyw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JyVpYFDqp7DKzmvb3OYbYySE/GVOTMB2NAk3snkagzM=;
- b=nqlQjhNPFQcx47CEr+n1rMCU+tCrwRuM3vRCLPDYX4zfBQk7+OLXn9C2OGN+SKups7ym0we1xAtNFCA2OH/ahKf0PmT0QQmco3Fa3TEN4wLtCeGq6kwpzLbaEk9uSLoopBnY8v8MpVpNj2PpFMqEQCIcU673J4KbobqV9E45dyvkfyQNflul9jYv25mPoWvgxg6Fn0usQiIX8XdeH3h8wozJm2ldDBnadqqF7YnCPmbcyrY15kQYgRYDa7NtA/8cGHR+excpvWbCnBKOiFxBxDTXWDAwhXTKcg7xWzmeNmfUXfgAEDAkXriMc/vbmOWXBre6iSafB7Dr5YSDT/lfkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JyVpYFDqp7DKzmvb3OYbYySE/GVOTMB2NAk3snkagzM=;
- b=QoGSTnbYcP2lHymLGcCDfzZ90mPHEYbHw8KoGtgYff1x55ih5+4kC8n4PyTGDETR10tmG9etMjzeKUcGZvjgA+Zrn+r3LlzqtXXW59no3ECMKZTxagNBBIxX2fkAAAomIWMNZncsRehKw0tFPgPncqU/T9EqkDkneJ1tF71Rnis=
-Received: from BY3PR05CA0050.namprd05.prod.outlook.com (2603:10b6:a03:39b::25)
- by CY5PR12MB6623.namprd12.prod.outlook.com (2603:10b6:930:41::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.23; Fri, 7 Aug
- 2026 10:46:30 +0000
-Received: from SJ5PEPF000001EF.namprd05.prod.outlook.com
- (2603:10b6:a03:39b:cafe::47) by BY3PR05CA0050.outlook.office365.com
- (2603:10b6:a03:39b::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.10 via Frontend Transport; Fri, 7
- Aug 2026 10:46:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ5PEPF000001EF.mail.protection.outlook.com (10.167.242.203) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.315.6 via Frontend Transport; Fri, 7 Aug 2026 10:46:30 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 7 Aug
- 2026 05:46:29 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Fri, 7 Aug
- 2026 05:46:28 -0500
-Received: from xhdnrottela40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Fri, 7 Aug 2026 05:46:23 -0500
-From: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-To: Srinivas Neeli <srinivas.neeli@amd.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Richard Cochran
-	<richardcochran@gmail.com>, Michal Simek <michal.simek@amd.com>, Andrew Lunn
-	<andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, Simon Horman
-	<horms@kernel.org>, Russell King <linux@armlinux.org.uk>
-CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<git-dev@amd.com>, <nagadheeraj.rottela@amd.com>
-Subject: [PATCH 20/20] net: dsa: xilinx: trap link-local control frames to the CPU port
-Date: Fri, 7 Aug 2026 16:14:31 +0530
-Message-ID: <20260807104431.157230-21-nagadheeraj.rottela@amd.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
-References: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EF:EE_|CY5PR12MB6623:EE_
-X-MS-Office365-Filtering-Correlation-Id: a27e4b98-7617-44d0-80df-08def47123cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|36860700016|1800799024|82310400026|921020|6133799003|10067099003|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: lZNwlreApoTFzauDRTpv9o3YYW5yLAH6nGnxf9bwxdT46xpJyGdI7xkFchsPhOSLNMKqcC3k+yu6fqPK9+a7QzeZgZcVpPVrpm1g1VxKpMLWakethIwPaCQvqYfh3lH9cy9aNEcTxSd+TILnUTYz3utOzVueHWfBQwVfRSsdM2dxk/dSNCpueRWEuOSf4oVrHWc6oOakSXYDaals1T38DnVB0Ciag9OE5W/hK+sEQSnz2AzRJCu6Onq7VOA00Engq6QqQHD5UPqpkYdZB4+jPsjr3LpuhnVyqH2KlLGaqAIIdu5qn6n/cbU4y1xgifUlSE+ThYxs+AMGvmphYVrvDy9EFynHWPyZB7CJHQtp2p04E8ESMpzN5oWQdkAk0ESNnzRoSbm0ef0OKkbgT0gO2uZv0bkjBkFRCutU5M6Qk3yRM7Zlj7QTga+ewWQ1tKEW/PeSmIP4MWnbaLM9ZJ42xhr58vdd7DuPdmDVES4u6QGU7qV7Yp+yPDXs+ATu54ZgM7tyhbS0YTSyl+ZSQv1azyrX5+80OGEQHslDyCjwlY6u+7vvrcrlz2RHGUyuOrCCXpQeeSL39FuVw/6fKCgu6WyUSjDWtNjxNC3+qEIu+trR0oCmNO3pf0+xhiRaxbshj59qNa5NevuaMpflW+TI4RtZKQLkmzK6+cjx/3l4uA6/kCTij+nj3FJr0MVXv3Y8AEnBu6LXnY8yPEjsMUCTvFEmHI0OdBXcXdZwgmrJ890dYiH5PbAGfdWp3VuOwcyB
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(36860700016)(1800799024)(82310400026)(921020)(6133799003)(10067099003)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: L0+sRRuIcGsibYC1Eo8B4BzNrob8Q/KNJhzH8c13TMzf+Ucq+YXe5FYjeNGyeYUaPbg3O0ZghkKDoPDI3LkCRQ6L6umnMhNxoPdRACMyyvTGsJkBGZqawKxdXwuHVZOALd6hnfVOuZXyGec1aC0E3SGOPKpZr6V5+KcfWLv+wkLUA+6AjfDG3CBgqXVkQJY+M9+wEWyfV/rckFeoaLomvFy/V5115UCx5LqQoa1E1Hjl2+0D3H3u9mtMBFb0zTvCoaKDg214YkhbVUJ36Jtinm/LMe1bU4NeVN8yaOQ6i7cKUAVkb6cWOFdnB5Z+iVnymAJn6PZykRh6v/UNGkLp3vfz9PzG7S09q3Hc7dODiHSt07OTqwADyABh0y4fwa5eE62AX//dck0jO7kLSHfnlojTJmrPdv/HJhsaH6Jk/0LHxMSiJgkS9xIbi5FoUB7A
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 10:46:30.1018
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a27e4b98-7617-44d0-80df-08def47123cc
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EF.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6623
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_034636_620250_703AB2B0 
-X-CRM114-Status: GOOD (  23.21  )
+	Fri, 07 Aug 2026 10:50:50 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AAEA34372A;
+	Fri,  7 Aug 2026 10:50:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F6D51F000E9;
+	Fri,  7 Aug 2026 10:50:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786099849;
+	bh=Pd0s9piMGyu/sHPznoK/hZaSez88bzUEjJRw/4axIaQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=jkWJGB/QyoWY2FJjrUcXY0n2eNt5bbZzzg2lj86rIdB5SjJevNHwXZQEEek+xDuNx
+	 z20KAPd8iMF6t8UpH0NJcd9XMHyoQyMC1Twp8Ae/vny4tVGgwIA4j2/GXR5O2KlpAV
+	 eUgC2sj0NB79wyLiYedfQm4vBgfy8NL2cxa0arjPIZDpgWAStKvpCHX5oW9eSJy9Mi
+	 bUjy7ijVR+2RpJ+CzB0eusTpJivmO7ejm3OquhB5tQV0Tcmlam8+TU6tZ43QCRmUug
+	 1ZgXcCyWjLIHwejjyg1XvurAlUo6qMQvayHF0hZ4i1X6wdgDt3fkmGolHOPMEJY4CI
+	 NcjSbHCm6ADRQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wsIA3-0000000DJp8-1Skx;
+	Fri, 07 Aug 2026 10:50:47 +0000
+Date: Fri, 07 Aug 2026 11:50:46 +0100
+Message-ID: <86zeyy9pbt.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	oupton@kernel.org,
+	seiden@linux.ibm.com,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	vdonnefort@google.com,
+	tabba@google.com,
+	sebastianene@google.com,
+	keirf@google.com
+Subject: Re: [PATCH] KVM: arm64: Fix hvhe and broken CNTVOFF_EL2
+In-Reply-To: <20260806150105.4010701-1-smostafa@google.com>
+References: <20260806150105.4010701-1-smostafa@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: smostafa@google.com, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, vdonnefort@google.com, tabba@google.com, sebastianene@google.com, keirf@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,379 +93,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TSN switch fabric forwards frames by CAM lookup. A frame whose
-destination MAC misses the CAM is treated as unknown and flooded to all
-ports except the ingress port. Link-local control frames (STP BPDUs,
-LLDPDUs) use destination MACs in the IEEE 802.1 bridge-group address
-range 01:80:c2:00:00:00..0f, which a bridge must consume locally and
-never relay between ports.
+On Thu, 06 Aug 2026 16:01:05 +0100,
+Mostafa Saleh <smostafa@google.com> wrote:
+>=20
+> When running on a setup affected with broken CNTVOFF_EL2
+> (has_broken_cntvoff())
+>=20
+> Booting with VHE or protected mode(nvhe) (id_aa64mmfr1.vh=3D0
+> and arm64_sw.hvhe=3D0) works fine.
+>=20
+> However launching a protected VM with protected hvhe mode panics the
+> guest kernel:
+>=20
+> [    0.000000] Internal error: Oops - Undefined instruction: 000000000000=
+0000 [#1]  SMP
+> [    0.000000] Modules linked in:
+> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 7.2.0-rc3=
+-g05f75bd71e0e-dirty #29 PREEMPT
+> [    0.000000] Hardware name: linux,dummy-virt (DT)
+> [    0.000000] pstate: 000003c5 (nzcv DAIF -PAN -UAO -TCO -DIT -SSBS BTYP=
+E=3D--)
+> [    0.000000] pc : arch_timer_shutdown_virt+0x4/0x1c
+> [    0.000000] lr : arch_timer_starting_cpu+0x1c4/0x2d4
+> [    0.000000] sp : ffffa6bd9a193c00
+> [    0.000000] x29: ffffa6bd9a193c20 x28: ffffa6bd9a1bcf88 x27: 000000000=
+0000000
+> [    0.000000] x26: ffff00001be70dd8 x25: ffffa6bd99d85000 x24: ffffa6bd9=
+9d85ee4
+> [    0.000000] x23: ffffa6bd99d85000 x22: ffffa6bd9a1499c0 x21: ffffa6bd9=
+a1ab900
+> [    0.000000] x20: 00ffffffffffffff x19: ffff00001be8b600 x18: 000000000=
+000028c
+> [    0.000000] x17: 00000000510f0010 x16: 00000000510f0010 x15: 000000005=
+00f0000
+> [    0.000000] x14: 0000000000000000 x13: 0000000000000000 x12: 000000000=
+0000018
+> [    0.000000] x11: ffffa6bd9a8ac000 x10: 0000000000f0000f x9 : fffffffff=
+fffffff
+> [    0.000000] x8 : ffffa6bd98822e18 x7 : 0070752d65746174 x6 : 00111ff76=
+e007261
+> [    0.000000] x5 : ffffa6bd9ad68078 x4 : 0000000000000000 x3 : ffffa6bd9=
+8822a0c
+> [    0.000000] x2 : 0000000000000073 x1 : 0000000000000001 x0 : ffff00001=
+be8b600
+> [    0.000000] Call trace:
+> [    0.000000]  arch_timer_shutdown_virt+0x4/0x1c (P)
+> [    0.000000]  cpuhp_invoke_callback+0x11c/0x280
+> [    0.000000]  cpuhp_issue_call+0x1e8/0x224
+> [    0.000000]  __cpuhp_setup_state_cpuslocked+0x1d8/0x2b8
+> [    0.000000]  __cpuhp_setup_state+0x50/0x74
+> [    0.000000]  arch_timer_register+0xc0/0x148
+> [    0.000000]  arch_timer_of_init+0x148/0x170
+> [    0.000000]  timer_probe+0x74/0x124
+> [    0.000000]  time_init+0x18/0x58
+> [    0.000000]  start_kernel+0x1c0/0x3ac
+> [    0.000000]  __primary_switched+0x88/0x90
+> [    0.000000] Code: c80b7d2a 35ffffab 17ffffeb d503245f (d53be328)
+>=20
+> And for non protected VMs seems to hang or progress really slowly.
+>=20
+> The workaround avoids setting non-zero CNTVOFF_EL2 and trapping the
+> virtual counter to emulate the offset.
+> In the VHE path (timer_set_traps()), traps are only enabled when the
+> guest actually has a non-zero virtual timer offset.
+> However, __timer_enable_traps() in hyp/nvhe/timer-sr.c unconditionally
+> set CNTHCTL_EL1TVT and CNTHCTL_EL1TVCT whenever has_broken_cntvoff()
+> was true.
+>=20
+> Which causes 2 issues:
+> 1) Protected VMs: kvm_handle_pvm_sysreg() does not find "cntv_ctl_el0"
+> in pvm_sys_reg_descs and injects undefined instruction exceptions.
+>=20
+> 2) non-protected guests are trapped all the time even with offset of
+> zero.
+>=20
+> Fix this by adding a check in __timer_enable_traps() similar to the one in
+> timer_set_traps()
+>=20
+> Fixes: 0bc9a9e85fcf ("KVM: arm64: Work around x1e's CNTVOFF_EL2 bogosity")
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/timer-sr.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/arch/arm64/kvm/hyp/nvhe/timer-sr.c b/arch/arm64/kvm/hyp/nvhe=
+/timer-sr.c
+> index ff176f4ce7de..98b6e37ee8fa 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/timer-sr.c
+> @@ -10,6 +10,7 @@
+> =20
+>  #include <asm/kvm_hyp.h>
+>  #include <asm/kvm_mmu.h>
+> +#include <hyp/switch.h>
 
-Install CAM entries for the in-use bridge-group addresses (STP at
-01:80:c2:00:00:00 and LLDP at 01:80:c2:00:00:0e). Set the forwarding
-port list to the CPU port only and set the endpoint management queuing
-bit in the port-action register. The switch then delivers trapped
-frames on the management queue.
+I'd rather not include this. It drags too many things, and is solely
+expected to be included from switch.c (both implementations).
 
-The CAM matches on (DA, VID) exactly. Untagged control frames are
-looked up under the ingress port's native VID, so a trap entry must
-exist for every native VID in use. Keep entries in sync with each
-wire port's current native VID.
+You could use the hack below as a prefix to this change.
 
-The CAM has no DA-mask capability, so covering all 16 bridge-group
-addresses would cost 16 entries per VID. Only the addresses in
-active use are trapped.
+> =20
+>  void __kvm_timer_set_cntvoff(u64 cntvoff)
+>  {
+> @@ -63,7 +64,7 @@ void __timer_enable_traps(struct kvm_vcpu *vcpu)
+>  	 * Trap the virtual counter/timer if we have a broken cntvoff
+>  	 * implementation.
+>  	 */
+> -	if (has_broken_cntvoff())
+> +	if (has_broken_cntvoff() && hyp_timer_get_offset(vcpu_vtimer(vcpu)))
+>  		set |=3D CNTHCTL_EL1TVT | CNTHCTL_EL1TVCT;
+> =20
+>  	sysreg_clear_set(cnthctl_el2, clr, set);
 
-Signed-off-by: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
+I don't immediately see why a non-protected guest is so slow with
+hVHE, irrespective of the offset. Even if we go back to the host for
+the emulation, this should be usable.
+
+Could you describe what actually happens? Do you also see the issue
+with pure hVHE (without protected)?
+
+Thanks,
+
+	M.
+
+=46rom a7ec0d7f23d86b028164328f33a7114fa6aad2c3 Mon Sep 17 00:00:00 2001
+From: Marc Zyngier <maz@kernel.org>
+Date: Fri, 7 Aug 2026 11:36:48 +0100
+Subject: [PATCH] KVM: arm64: Make timer_get_offset() work in all contexts
+
+We currently have two implementations of get_timer offset(), one
+in arm_arch_timer.h, and another one in switch.h.
+
+These two only differ by a pair of kern_hyp_va(), which seems a
+pretty weak reason to open-code it.
+
+Turn this function into a macro to avoid the include dependency hell
+on kern_hyp_va(), and make it work correctly in all contexts.
+
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/net/dsa/xilinx/xilinx_tsn.c | 176 ++++++++++++++++++++++++++--
- drivers/net/dsa/xilinx/xilinx_tsn.h |   9 ++
- 2 files changed, 176 insertions(+), 9 deletions(-)
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 15 +----------
+ include/kvm/arm_arch_timer.h            | 34 +++++++++++++++----------
+ 2 files changed, 22 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/net/dsa/xilinx/xilinx_tsn.c b/drivers/net/dsa/xilinx/xilinx_tsn.c
-index 7e5cf77cfa66..e35dbcdfcbda 100644
---- a/drivers/net/dsa/xilinx/xilinx_tsn.c
-+++ b/drivers/net/dsa/xilinx/xilinx_tsn.c
-@@ -671,11 +671,14 @@ static int xlnx_tsn_cam_read_portlist(struct xlnx_tsn *sw,
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/i=
+nclude/hyp/switch.h
+index 4bf624a49591d..2aceda749641c 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -706,22 +706,9 @@ static inline bool handle_tx2_tvm(struct kvm_vcpu *vcp=
+u)
+ 	return true;
  }
- 
- /* Add (add=true) or delete (add=false) the (MAC, VID) entry carrying the
-- * given port list. Caller holds indirect_lock.
-+ * given port list. Set mgmt for entries whose frames must be classified as
-+ * endpoint management traffic; clear it for plain forwarding/FDB entries.
-+ * Caller holds indirect_lock.
-  */
- static int xlnx_tsn_cam_write(struct xlnx_tsn *sw, const unsigned char *addr,
--			      u16 vid, u8 portlist, bool add)
-+			      u16 vid, u8 portlist, bool mgmt, bool add)
+=20
+-/* Open-coded version of timer_get_offset() to allow for kern_hyp_va() */
+-static inline u64 hyp_timer_get_offset(struct arch_timer_context *ctxt)
+-{
+-	u64 offset =3D 0;
+-
+-	if (ctxt->offset.vm_offset)
+-		offset +=3D *kern_hyp_va(ctxt->offset.vm_offset);
+-	if (ctxt->offset.vcpu_offset)
+-		offset +=3D *kern_hyp_va(ctxt->offset.vcpu_offset);
+-
+-	return offset;
+-}
+-
+ static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
  {
-+	u32 port_act;
- 	int ret;
- 
- 	ret = xlnx_tsn_cam_wait_ready(sw);
-@@ -685,8 +688,13 @@ static int xlnx_tsn_cam_write(struct xlnx_tsn *sw, const unsigned char *addr,
- 	xlnx_tsn_cam_load_key(sw, addr, vid);
- 	sw_iow(sw, TSN_CAM_TV1_OFFSET, 0);
- 	sw_iow(sw, TSN_CAM_TV2_OFFSET, 0);
--	sw_iow(sw, TSN_CAM_PORT_ACT_OFFSET,
--	       FIELD_PREP(TSN_CAM_PORT_LIST, portlist));
-+
-+	port_act = FIELD_PREP(TSN_CAM_PORT_LIST, portlist);
-+	if (mgmt)
-+		port_act |= TSN_CAM_EP_MGMTQ_EN;
-+
-+	sw_iow(sw, TSN_CAM_PORT_ACT_OFFSET, port_act);
-+
- 	sw_iow(sw, TSN_CAM_CTRL_OFFSET,
- 	       FIELD_PREP(TSN_CAM_OP_MASK, add ? TSN_CAM_OP_ADD : TSN_CAM_OP_DELETE) |
- 	       TSN_CAM_OP_ENABLE);
-@@ -694,6 +702,28 @@ static int xlnx_tsn_cam_write(struct xlnx_tsn *sw, const unsigned char *addr,
- 	return xlnx_tsn_cam_wait_done(sw);
+-	return arch_timer_read_cntpct_el0() - hyp_timer_get_offset(ctxt);
++	return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
  }
- 
-+/* IEEE 802.1 bridge-group destination MACs. A bridge must consume
-+ * these locally rather than relay them between ports. Each address
-+ * gets a CAM trap entry pointing to the CPU port only. The CAM
-+ * matches the destination MAC exactly, so only the addresses in
-+ * active use are listed here.
-+ */
-+static const u8 xlnx_tsn_ctrl_das[][ETH_ALEN] = {
-+	{ 0x01, 0x80, 0xc2, 0x00, 0x00, 0x00 }, /* STP / RSTP / MSTP */
-+	{ 0x01, 0x80, 0xc2, 0x00, 0x00, 0x0e }, /* LLDP */
-+};
-+
-+static bool xlnx_tsn_addr_is_ctrl_trap(const unsigned char *addr)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(xlnx_tsn_ctrl_das); i++)
-+		if (ether_addr_equal(addr, xlnx_tsn_ctrl_das[i]))
-+			return true;
-+
-+	return false;
-+}
-+
- static void xlnx_tsn_port_fast_age(struct dsa_switch *ds, int port)
+=20
+ static bool kvm_handle_cntxct(struct kvm_vcpu *vcpu)
+diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
+index 15a4f97f81051..bc6f2fdd7ad33 100644
+--- a/include/kvm/arm_arch_timer.h
++++ b/include/kvm/arm_arch_timer.h
+@@ -162,20 +162,28 @@ static inline bool has_cntpoff(void)
+ 	return (has_vhe() && cpus_have_final_cap(ARM64_HAS_ECV_CNTPOFF));
+ }
+=20
+-static inline u64 timer_get_offset(struct arch_timer_context *ctxt)
+-{
+-	u64 offset =3D 0;
++#ifdef __KVM_NVHE_HYPERVISOR__
++#define KERN_HYP_VA(x)		kern_hyp_va(x)
++#else
++#define KERN_HYP_VA(x)		x
++#endif
+=20
+-	if (!ctxt)
+-		return 0;
+-
+-	if (ctxt->offset.vm_offset)
+-		offset +=3D *ctxt->offset.vm_offset;
+-	if (ctxt->offset.vcpu_offset)
+-		offset +=3D *ctxt->offset.vcpu_offset;
+-
+-	return offset;
+-}
++#define timer_get_offset(ctxt)						\
++	({								\
++		struct arch_timer_context *__ctxt =3D (ctxt);		\
++		u64 off =3D 0;						\
++									\
++		if (__ctxt) {						\
++			struct arch_timer_offset *ato =3D &__ctxt->offset;\
++									\
++			if (ato->vm_offset)				\
++				off +=3D *KERN_HYP_VA(ato->vm_offset);	\
++			if (ato->vcpu_offset)				\
++				off +=3D *KERN_HYP_VA(ato->vcpu_offset);	\
++		}							\
++									\
++		off;							\
++	})
+=20
+ static inline void timer_set_offset(struct arch_timer_context *ctxt, u64 o=
+ffset)
  {
- 	struct xlnx_tsn *sw = ds->priv;
-@@ -712,6 +742,9 @@ static int xlnx_tsn_port_fdb_add(struct dsa_switch *ds, int port,
- 	u8 portlist;
- 	int ret;
- 
-+	if (xlnx_tsn_addr_is_ctrl_trap(addr))
-+		return 0;
-+
- 	if (!vid)
- 		vid = TSN_SW_DEFAULT_VID;
- 
-@@ -719,7 +752,7 @@ static int xlnx_tsn_port_fdb_add(struct dsa_switch *ds, int port,
- 	ret = xlnx_tsn_cam_read_portlist(sw, addr, vid, &portlist);
- 	if (!ret) {
- 		portlist |= TSN_PORT_BIT(port);
--		ret = xlnx_tsn_cam_write(sw, addr, vid, portlist, true);
-+		ret = xlnx_tsn_cam_write(sw, addr, vid, portlist, false, true);
- 	}
- 
- 	return ret;
-@@ -733,6 +766,9 @@ static int xlnx_tsn_port_fdb_del(struct dsa_switch *ds, int port,
- 	u8 portlist;
- 	int ret;
- 
-+	if (xlnx_tsn_addr_is_ctrl_trap(addr))
-+		return 0;
-+
- 	if (!vid)
- 		vid = TSN_SW_DEFAULT_VID;
- 
-@@ -746,7 +782,8 @@ static int xlnx_tsn_port_fdb_del(struct dsa_switch *ds, int port,
- 		 * rewrite it with the updated port list.
- 		 */
- 		portlist &= ~TSN_PORT_BIT(port);
--		ret = xlnx_tsn_cam_write(sw, addr, vid, portlist, portlist != 0);
-+		ret = xlnx_tsn_cam_write(sw, addr, vid, portlist, false,
-+					 portlist != 0);
- 	}
- 
- 	return ret;
-@@ -936,12 +973,93 @@ static void xlnx_tsn_set_vlan_only_learning(struct xlnx_tsn *sw, bool on)
- 	sw_iow(sw, TSN_SW_ADDR_LEARN_OFFSET, reg);
- }
- 
-+/* Install or remove link-local control-frame traps for one VID.
-+ * Each entry points to the CPU port and marks frames as management
-+ * traffic for delivery on the management queue. Caller holds
-+ * indirect_lock.
-+ */
-+static int xlnx_tsn_set_ctrl_traps(struct xlnx_tsn *sw, u16 vid, bool add)
-+{
-+	int i, ret;
-+
-+	for (i = 0; i < ARRAY_SIZE(xlnx_tsn_ctrl_das); i++) {
-+		ret = xlnx_tsn_cam_write(sw, xlnx_tsn_ctrl_das[i], vid,
-+					 TSN_PORT_BIT(XLNX_TSN_CPU_PORT),
-+					 true, add);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static bool xlnx_tsn_vid_in(const u16 *vids, int count, u16 vid)
-+{
-+	int i;
-+
-+	for (i = 0; i < count; i++)
-+		if (vids[i] == vid)
-+			return true;
-+
-+	return false;
-+}
-+
-+/* Keep CAM traps in sync with the native VIDs the wire ports use. An
-+ * untagged BPDU or LLDP frame is looked up under the ingress port's
-+ * native VID, so a trap must exist at each native VID in use. While
-+ * the bridge is not VLAN-aware every port uses the default VID. Call
-+ * again whenever a native VID changes. Caller holds indirect_lock.
-+ */
-+static int xlnx_tsn_sync_ctrl_traps(struct xlnx_tsn *sw)
-+{
-+	u16 want[XLNX_TSN_NUM_PORTS - 1], vid;
-+	struct dsa_port *dp;
-+	int i, n, ret;
-+
-+	n = 0;
-+	dsa_switch_for_each_user_port(dp, &sw->ds) {
-+		vid = sw->vlan_aware ? sw->pvid[dp->index] : TSN_SW_DEFAULT_VID;
-+		if (!xlnx_tsn_vid_in(want, n, vid))
-+			want[n++] = vid;
-+	}
-+
-+	/* Remove traps at VIDs no longer used as any wire port's native VID. */
-+	i = 0;
-+	while (i < sw->ctrl_trap_count) {
-+		vid = sw->ctrl_trap_vid[i];
-+		if (xlnx_tsn_vid_in(want, n, vid)) {
-+			i++;
-+			continue;
-+		}
-+		ret = xlnx_tsn_set_ctrl_traps(sw, vid, false);
-+		if (ret)
-+			return ret;
-+
-+		sw->ctrl_trap_vid[i] = sw->ctrl_trap_vid[--sw->ctrl_trap_count];
-+	}
-+
-+	/* Add traps at native VIDs not yet installed. */
-+	for (i = 0; i < n; i++) {
-+		if (xlnx_tsn_vid_in(sw->ctrl_trap_vid, sw->ctrl_trap_count,
-+				    want[i]))
-+			continue;
-+		ret = xlnx_tsn_set_ctrl_traps(sw, want[i], true);
-+		if (ret)
-+			return ret;
-+
-+		sw->ctrl_trap_vid[sw->ctrl_trap_count++] = want[i];
-+	}
-+
-+	return 0;
-+}
-+
- static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
- 					bool vlan_filtering,
- 					struct netlink_ext_ack *extack)
- {
- 	struct xlnx_tsn *sw = ds->priv;
- 	struct dsa_port *dp;
-+	bool old_vlan_aware;
- 	unsigned long bit;
- 	u32 reg, data;
- 	int ret;
-@@ -967,6 +1085,7 @@ static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
- 			return ret;
- 	}
- 
-+	old_vlan_aware = sw->vlan_aware;
- 	sw->vlan_aware = vlan_filtering;
- 
- 	/* Miss policy for unicast and multicast. It only kicks in when the
-@@ -1004,15 +1123,23 @@ static int xlnx_tsn_port_vlan_filtering(struct dsa_switch *ds, int port,
- 		ret = xlnx_tsn_port_state_cycle(sw, dp->index,
- 						TSN_PORT_STATE_BLOCKING);
- 		if (ret)
--			return ret;
-+			goto restore;
- 
- 		ret = xlnx_tsn_port_state_cycle(sw, dp->index,
- 						TSN_PORT_STATE_FLUSH);
- 		if (ret)
--			return ret;
-+			goto restore;
- 	}
- 
-+	ret = xlnx_tsn_sync_ctrl_traps(sw);
-+	if (ret)
-+		goto restore;
-+
- 	return 0;
-+
-+restore:
-+	sw->vlan_aware = old_vlan_aware;
-+	return ret;
- }
- 
- static int xlnx_tsn_port_vlan_add(struct dsa_switch *ds, int port,
-@@ -1061,6 +1188,7 @@ static int xlnx_tsn_port_vlan_add(struct dsa_switch *ds, int port,
- 		sw->pvid[port] = vlan->vid;
- 		sw->pvid_untagged[port] = untagged;
- 		xlnx_tsn_apply_pvid(sw, port);
-+		return xlnx_tsn_sync_ctrl_traps(sw);
- 	}
- 
- 	if (vlan->vid == sw->pvid[port] &&
-@@ -1101,6 +1229,7 @@ static int xlnx_tsn_port_vlan_del(struct dsa_switch *ds, int port,
- 		sw->pvid[port] = TSN_SW_DEFAULT_VID;
- 		sw->pvid_untagged[port] = false;
- 		xlnx_tsn_apply_pvid(sw, port);
-+		return xlnx_tsn_sync_ctrl_traps(sw);
- 	}
- 
- 	return 0;
-@@ -1204,6 +1333,21 @@ static const struct phylink_mac_ops xlnx_tsn_phylink_mac_ops = {
- 	.mac_link_down	= xlnx_tsn_mac_link_down,
- };
- 
-+static void xlnx_tsn_remove_ctrl_traps(struct xlnx_tsn *sw)
-+{
-+	int i;
-+
-+	guard(mutex)(&sw->indirect_lock);
-+
-+	for (i = 0; i < sw->ctrl_trap_count; i++)
-+		if (xlnx_tsn_set_ctrl_traps(sw, sw->ctrl_trap_vid[i], false))
-+			dev_warn(sw->dev,
-+				 "failed to remove control trap vid %u\n",
-+				 sw->ctrl_trap_vid[i]);
-+
-+	sw->ctrl_trap_count = 0;
-+}
-+
- static int xlnx_tsn_setup(struct dsa_switch *ds)
- {
- 	struct dsa_port *cpu_dp = dsa_to_port(ds, XLNX_TSN_CPU_PORT);
-@@ -1276,9 +1420,19 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
- 			return ret;
- 	}
- 
-+	/* Trap link-local control frames (STP, LLDP) to the CPU port.
-+	 * Without this, a frame arriving on one wire port would be
-+	 * flooded out the other instead of reaching the host bridge.
-+	 */
-+	scoped_guard(mutex, &sw->indirect_lock) {
-+		ret = xlnx_tsn_sync_ctrl_traps(sw);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	ret = xlnx_tsn_mdio_register_all(sw);
- 	if (ret)
--		return ret;
-+		goto err_traps;
- 
- 	sw->nb.notifier_call = xlnx_tsn_netdev_event;
- 	ret = register_netdevice_notifier(&sw->nb);
-@@ -1312,6 +1466,8 @@ static int xlnx_tsn_setup(struct dsa_switch *ds)
- 	unregister_netdevice_notifier(&sw->nb);
- err_mdio:
- 	xlnx_tsn_mdio_unregister_all(sw);
-+err_traps:
-+	xlnx_tsn_remove_ctrl_traps(sw);
- 	return ret;
- }
- 
-@@ -1327,6 +1483,8 @@ static void xlnx_tsn_teardown(struct dsa_switch *ds)
- 	unregister_netdevice_notifier(&sw->nb);
- 	xlnx_tsn_mdio_unregister_all(sw);
- 
-+	xlnx_tsn_remove_ctrl_traps(sw);
-+
- 	dsa_switch_for_each_user_port(dp, ds)
- 		xlnx_tsn_set_port_state(sw, dp->index, TSN_PORT_STATE_DISABLED);
- 
-diff --git a/drivers/net/dsa/xilinx/xilinx_tsn.h b/drivers/net/dsa/xilinx/xilinx_tsn.h
-index 955041cde564..dbf330d3d615 100644
---- a/drivers/net/dsa/xilinx/xilinx_tsn.h
-+++ b/drivers/net/dsa/xilinx/xilinx_tsn.h
-@@ -100,6 +100,10 @@
- #define TSN_CAM_FOUND			BIT(7)
- #define TSN_CAM_VLAN			GENMASK(27, 16)
- #define TSN_CAM_PORT_LIST		GENMASK(10, 8)
-+/* Classify a CAM-matched frame as endpoint management traffic so the
-+ * switch delivers it on the management queue.
-+ */
-+#define TSN_CAM_EP_MGMTQ_EN		BIT(15)
- #define TSN_CAM_READ_KEY_ADDR		GENMASK(19, 8)
- #define TSN_CAM_MAC2_READ_KEY_BASE	0x800
- #define TSN_CAM_READ_KEY_COUNT		2048
-@@ -342,6 +346,9 @@ struct xlnx_tsn_mac {
-  *		   untagged; drives the native-VLAN untag enable
-  * @cfg_vids: VIDs with a membership entry in the VLAN-membership memory,
-  *	      used to walk and update Port-List-Valid when @vlan_aware changes
-+ * @ctrl_trap_vid: native VIDs that currently carry link-local control-frame
-+ *		   traps, kept in sync with the wire ports' native VIDs
-+ * @ctrl_trap_count: number of valid entries in @ctrl_trap_vid
-  * @indirect_lock: serialises the CAM and VLAN-membership indirect
-  *		   register sequences
-  * @mac: per-MAC state, indexed by user-port number (index 0 unused;
-@@ -369,6 +376,8 @@ struct xlnx_tsn {
- 	u16 pvid[XLNX_TSN_NUM_PORTS];
- 	bool pvid_untagged[XLNX_TSN_NUM_PORTS];
- 	DECLARE_BITMAP(cfg_vids, VLAN_N_VID);
-+	u16 ctrl_trap_vid[XLNX_TSN_NUM_PORTS - 1];
-+	u8 ctrl_trap_count;
- 	struct mutex indirect_lock; /* serialises CAM + VLAN-memory access */
- 	struct xlnx_tsn_mac mac[XLNX_TSN_NUM_PORTS];
- 	int ptp_timer_irq;
--- 
-2.34.1
+--=20
+2.47.3
 
+
+--=20
+Without deviation from the norm, progress is not possible.
 
