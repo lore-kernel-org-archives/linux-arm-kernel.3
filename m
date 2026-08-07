@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D82C5AD2B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 006DFC5AD2B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 22:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nGIUAbuxL/GgcZOYXFoP8N5vnO1KeR8oVK2AuhwwhYY=; b=h/xv3q4QrYnnEc3u9BilLUK9Zm
-	NuOXZsrICWA3u6xx1YCwjhfwJn/MBUfkgVmlrfE9dHCNd9NjCvrJzSMKaqSxzfJLOWxiO9RgCUQso
-	bE9Vn29GK4wIcIrvMykFjk0iPp0KrxIXxQCPFW6QpmIJsSGwM+OEDUAPDxgm8ORU+K4hvwEJDLkp/
-	eOQQ6EWmXB1j5UOXaLKtSMaNuicP92A3B0ZCsCyLL/I3XuHDzntJuwiQuSh1Bo8sPx6NhRa7NE9mi
-	vDP6RVM2ViAbehbeLq2RMVIJQVIwUA12tQmDVOa4QUI8hfhwIwXWdSfaz6xtjKOzOFaauEDKS0Uzf
-	lpIPFhFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rMkepXodHcjAHv4k3kbfASgmHhaapX67FkS7mzBnl8g=; b=HoIUcllP53Lp8BIexsgAuQk681
+	OsIkaoibzterGW7g4POOoQu4ta2nlr1Wqq/7YoRXuc1CucPnAklgQ9lenUKF1vEdWhezBbMRwKmNm
+	N/7ny+CgY3ElQ2SUTdJ6jZApHpbL4TQOsL8QsSu5Id82XQbFedReyyUrIdaTGaPD8NVACccckPIko
+	KoGfbLyTLIIo8VuDt1i9gRGky9MO3TnYbOLXG77q5FpbJsvGFxKeXO7i2nJx0LSxyEgfpjU2U/oj7
+	sEW5h6/EjMw0evGi0H2M/KPnZVlY5Tj/iFQ3Vou0ukHcJeb7Q/ZzghyhW3kFPQQ5QjzHDRl1URS/h
+	DK8rxlYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsT31-00000008oWY-03qt;
-	Fri, 07 Aug 2026 22:28:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wsT6C-00000008oha-28PE;
+	Fri, 07 Aug 2026 22:31:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsT2z-00000008oWG-36Oj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 22:28:13 +0000
+	id 1wsT6B-00000008ohN-2Ghx;
+	Fri, 07 Aug 2026 22:31:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0623440967;
-	Fri,  7 Aug 2026 22:28:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13D861F00A3A;
-	Fri,  7 Aug 2026 22:28:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D943E41B02;
+	Fri,  7 Aug 2026 22:31:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96C7E1F000E9;
+	Fri,  7 Aug 2026 22:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1786141692;
-	bh=nGIUAbuxL/GgcZOYXFoP8N5vnO1KeR8oVK2AuhwwhYY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=gxA2zNj3ypUN+A8mJkuAmWbNt2KJKYtBA9kh+veuIaAYOBG7c0LmPZ6H20YVkXPMx
-	 0iAzP8F/Au/95URMkGLQbFVTkpkD2z9rvbRe+Fk+grZ7mz40zV6AgxKusApQqb45AL
-	 PgMqzHwd8Hh4/c2KZqCU8qPgVLen/t8YnAzLczlHVKkwh/e3HNbRNBhY8kruU1Tc5s
-	 /rdRBhcJBFmUhOm9BC7zBvagJ9dxBgLxiZuGNvk0+u1rx9hgAYXkeGEEPhRYFpZYf3
-	 rbMGst2O2zs3E/vkSaHFg0W1CLMIkS4AiNJR2RbhWfQcsh8M4jjHDtT8jByUnceBxa
-	 J2wOaa/k+3o0w==
-Date: Fri, 7 Aug 2026 15:28:11 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Nagadheeraj Rottela <nagadheeraj.rottela@amd.com>
-Cc: Srinivas Neeli <srinivas.neeli@amd.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
- Michal Simek <michal.simek@amd.com>, Andrew Lunn <andrew@lunn.ch>, Vladimir
- Oltean <olteanv@gmail.com>, Simon Horman <horms@kernel.org>, Russell King
- <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <git-dev@amd.com>
-Subject: Re: [PATCH 00/20] xilinx: tsn: Add TSN Endpoint Ethernet MAC driver
- support
-Message-ID: <20260807152811.68158042@kernel.org>
-In-Reply-To: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
-References: <20260807104431.157230-1-nagadheeraj.rottela@amd.com>
+	s=k20260515; t=1786141890;
+	bh=rMkepXodHcjAHv4k3kbfASgmHhaapX67FkS7mzBnl8g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QI+TQ0g2XiM91hMCmbqBLOuz5d62beq2cXgCahE6l3Xg2tJozP0wTTWLGBb5AsyhB
+	 Wet35EPPofdYWtnrnexJYL5+eUn1Ma4lcpUWRzy+2yXEohPltSyzwpMZzXE9RDyOih
+	 h+ol+8tq0T+CV7qFz81POsJcicjvyeJIi29PBVD1dcUDLwK3EyXsyX/Vve3o8Fnx3X
+	 C+ylr+EESJeJnHNDqh6XDVdzv/OwbQXaclqt2PDM7mGgVZ8b1wiZMk1Nmu5icUg1MG
+	 IcwULv+ahLRIoPj7YG1baa8RyP2CZkIQpOj/YQiiwYY0/lGnpF3kxcq9HUYMI7Kwcl
+	 +AfXq2tYrsbUQ==
+Date: Fri, 7 Aug 2026 17:31:29 -0500
+From: Rob Herring <robh@kernel.org>
+To: Rok Markovic <rok@kanardia.eu>
+Cc: Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Alibek Omarov <a1ba.omarov@gmail.com>
+Subject: Re: [PATCH v2 2/4] dt-bindings: display: rockchip,lvds: add RK3568
+Message-ID: <20260807223129.GA2151152-robh@kernel.org>
+References: <20260724080824.115260-1-rok@kanardia.eu>
+ <20260724080824.115260-3-rok@kanardia.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260724080824.115260-3-rok@kanardia.eu>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +77,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Aug 2026 16:14:11 +0530 Nagadheeraj Rottela wrote:
-> Nagadheeraj Rottela (13):
->   net: xilinx: tsn: deliver endpoint RX frames to DSA user ports
->   net: dsa: tag_xlnx_tsn: add skeleton tag protocol
->   net: dsa: xilinx: add skeleton driver for TSN switch
->   net: dsa: xilinx: implement port_stp_state_set
->   net: dsa: xilinx: register per-MAC MDIO buses
->   net: dsa: xilinx: wire up phylink for the switch ports
->   net: dsa: xilinx: program MAC frame filter and per-port nibbles
->   net: dsa: xilinx: register PHC backed by the RTC timer block
->   net: dsa: xilinx: drive per-MAC PTP TX/RX hardware paths
->   net: dsa: xilinx: opt into TX forwarding offload on bridge join
->   net: dsa: xilinx: offload the bridge FDB to the switch CAM
->   net: dsa: xilinx: offload bridge VLAN filtering to the switch
->   net: dsa: xilinx: trap link-local control frames to the CPU port
+On Fri, Jul 24, 2026 at 10:08:22AM +0200, Rok Markovic wrote:
+> The RK3568 LVDS transmitter has no register block of its own: it is
+> programmed entirely through the GRF and re-uses the MIPI DSI0 D-PHY
+> (rockchip,rk3568-dsi-dphy) in LVDS mode. It therefore takes the same
+> shape as px30: phys/phy-names, no reg, and no clock of its own.
 > 
-> Srinivas Neeli (7):
->   dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
->   net: xilinx: tsn: add TSN endpoint wrapper driver
->   net: xilinx: tsn: add endpoint MAC driver skeleton
->   net: xilinx: tsn: parse endpoint DMA channel configuration
->   net: xilinx: tsn: bring up the endpoint MCDMA channels
->   net: xilinx: tsn: add the endpoint RX data path
->   net: xilinx: tsn: add the endpoint TX data path
+> Since the block exposes no MMIO, nothing in the LVDS path is clocked
+> from the DSI controller's APB clock; that gate is held off while LVDS
+> scans out. It has no analog supplies of its own and no pinctrl either:
+> the lanes are dedicated D-PHY pins, not muxable GPIOs.
+> 
+> Signed-off-by: Rok Markovic <rok@kanardia.eu>
+> Assisted-by: Claude:claude-opus-4-8
+> ---
+> Changes in v2:
+>   - RK3568 now takes no clock (clocks/clock-names disabled, as for
+>     px30): the block has no register space, so nothing consumes the
+>     DSI controller's APB clock.
+> 
+>  .../display/rockchip/rockchip,lvds.yaml       | 22 +++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,lvds.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,lvds.yaml
+> index 03b002a..b77d4fa 100644
+> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,lvds.yaml
+> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,lvds.yaml
+> @@ -15,6 +15,7 @@ properties:
+>      enum:
+>        - rockchip,px30-lvds
+>        - rockchip,rk3288-lvds
+> +      - rockchip,rk3568-lvds
+>  
+>    reg:
+>      maxItems: 1
+> @@ -121,6 +122,27 @@ allOf:
+>          - avdd1v8-supply
+>          - avdd3v3-supply
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: rockchip,rk3568-lvds
+> +
+> +    then:
+> +      properties:
+> +        reg: false
+> +        clocks: false
+> +        clock-names: false
+> +        avdd1v0-supply: false
+> +        avdd1v8-supply: false
+> +        avdd3v3-supply: false
+> +        pinctrl-names: false
+> +        pinctrl-0: false
 
+Other than pinctrl props, this is the same as the existing px30 if/then 
+schema, so just add the compatible there. pinctrl properties are 
+implicitly always allowed.
 
-This is so clearly two series squished into one.
-We have a requirement to keep series under 15 patches.
-The smaller the better, easier for people to review and merge.
-A 20 patch series will take forever to be completely clean
+Really, I think this and px30 and this should be its own schema. There's 
+not a lot of common parts.
 
-Please read:
-https://www.kernel.org/doc/html/latest/process/maintainer-netdev.html
+Finally, if the only interface is the GRF, then this should be a child 
+of the GRF node.
+
+Rob
 
