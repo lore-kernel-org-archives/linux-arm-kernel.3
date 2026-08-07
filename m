@@ -4,85 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B81BC5AC82
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082C8C5AC7A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 16:44:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qlULfceAkSyqJh1I9C7h7VPnh2+5JOHQToDbI7j6Lxc=; b=ZUNIPFV7lOPJAgiwp26rwW5lrY
-	2Lqr98xeaMjwXL2qfZEabePA9bFE1fejC/kaE2RQMEEO2E8mXLwGTM562ZFq4e+pR3/0EW5Q4tzbd
-	cp0oqTeEJQHTUL9p8yOBietXi1r1jUaraNLOPTd0FMx26ThPw2U5m/Y3kuNYFYE6ySk57NJYK/oZa
-	/+1Nd/2hZOwlMHtGZ4Kq/N2sXvzvh8pCOv09uRGM/3EUgPThBlaorZ2ioY8FJaQW6Q0MIGn1BXcuL
-	nEe59tWs1bTtQ7C2ZBctYqBM409ZNglZqrylr80o4WgniO2qGJb3acrE5y1a0FfU3LfRE+CoxSB4A
-	4JfVRsew==;
+	bh=Qr2r0iKiP+EtEWzjqDzp7sPZ847OIHtrEKc/EGjUkI8=; b=RviNeczPTKbfqzthAqmoTXux9t
+	zBA2w3uX8EnNbFPFus/L8LOqjs/FbqE6eUtKVzeaHL74QA4XWOx6RdwR/UQi567cSyOymHF+6HvVu
+	P5CgGOlXtlxJ6VEYpdLaRPB5S7UOrCN0VLwqjZBH4RUSADlAoRXDDawxlOguWg8nmzDcBItSBe+vC
+	fXMydV2nV5BHKp5g+avSUyMPwUqm1+mmlp7Y6E1OzTYpXWJW3veV89NdsKTxdvOT+kBBPQHkJ9P2D
+	iHOlE9bkM3SPArnBExAilKTLGpifPrwhc+5iOM3V040PQqzgVMGZNBANjBXRqT7ZxK3aeukTBw7jj
+	8uweb+HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNfx-00000008SPm-2is4;
-	Fri, 07 Aug 2026 16:44:05 +0000
-Received: from mail-wm1-x347.google.com ([2a00:1450:4864:20::347])
+	id 1wsNgN-00000008Svw-46Ly;
+	Fri, 07 Aug 2026 16:44:31 +0000
+Received: from mail-centralusazon11011050.outbound.protection.outlook.com ([52.101.62.50] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsNfr-00000008SEc-3utf
+	id 1wsNgK-00000008Srd-44lm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 16:44:01 +0000
-Received: by mail-wm1-x347.google.com with SMTP id 5b1f17b1804b1-495474a5fbcso31230125e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Aug 2026 09:43:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1786121037; x=1786725837; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qlULfceAkSyqJh1I9C7h7VPnh2+5JOHQToDbI7j6Lxc=;
-        b=kHqTD1EeVHZ5ga10o9o609igc0C96uj6MM9Ip9DK3Q7XGXEqV6ZYFy2kTkd7L0SRGP
-         K9aYU5p/i+FHtcUsMDhadx508Mf+FUIpllpLvcfifEMetPvZTCUtjWk06TtyU3zwcCTI
-         INKMUMMF/5HEgbd3hHKCFjGHIekB8c4rUFtzrvWnV45xubs7aqXCAyUesHojUMi6OS7b
-         BWrxI9u5SwDvujq67gYbzhJMQElBgT4Ed3KE+N0iWTGrS0FMMQzT1USX4feFYwK/O5gP
-         ZUHV87BxA+jYZajmRzxmc516iQdsyLBs7WtlCvbY9I44WX9+ZQh0WHK4CWXtM/MilI/U
-         PUXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1786121037; x=1786725837;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qlULfceAkSyqJh1I9C7h7VPnh2+5JOHQToDbI7j6Lxc=;
-        b=dsaN0i841DmGiBCORQOnyXTIXntUnn5fc/plMYUwWDh3LnHy9EDD9ef37AB+wsvAAy
-         yonXna89oq8ZYMvccyU9gOUwl0BmdZa7zM/xOBSSvdSgQEFcfmZFyVqoqd6zkvF37fhQ
-         N5rgVfcB4vEFMzGOh4PfswWolT3MKq5JIhJf+2zB1OocOT+gN3hkDpsMXAWeF/SsHiUE
-         OtScZlvP5kvE+gbakMBbTySXhq9BL/XeAGinUCbcw340zqRQUA20p2zYTiF/pFdNBFzo
-         bxj1RdQuNsu88FzDXB7heNm2RULC9ClQNL4bSbCnd+tJsZ3YQ6PcP50Fa7AAIf8D/2xk
-         x6Vg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr7qXaQlPG50pgnAB+Wp7pnulmaE51TJmVR4lgdmZ5bKlCrb3hVrrGkBo3gUDkfQnlj3UDSomyrbyI/w9TRfTHB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuxLUrRLxoLkF4PAYG3pl0gb4u7ujrgTnfDHpUKdGz87iv//W1
-	J4fkPMHqH37kU7dvOzw9W5lAhd4hVHJIhr9MIO2KH83qzuNQONzugCScUGoQlZhrjqXqx5sb1+P
-	cNrNr0nu5t5+h66lcH8hoUXPGYomgzQ==
-X-Received: from wmbjx23.prod.google.com ([2002:a05:600c:5797:b0:495:58ee:fab7])
- (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3b01:b0:495:641a:bd3f with SMTP id 5b1f17b1804b1-4996199a076mr13517025e9.13.1786121037301;
- Fri, 07 Aug 2026 09:43:57 -0700 (PDT)
-Date: Fri,  7 Aug 2026 16:43:23 +0000
-In-Reply-To: <20260807164322.2970811-2-sebastianene@google.com>
-Mime-Version: 1.0
-References: <20260807164322.2970811-2-sebastianene@google.com>
-X-Mailer: git-send-email 2.55.0.654.g21b8a5bc05-goog
-Message-ID: <20260807164322.2970811-15-sebastianene@google.com>
-Subject: [PATCH v2 13/13] KVM: arm64: Implement HVC interface for ITS
- emulation setup
-From: Sebastian Ene <sebastianene@google.com>
-To: catalin.marinas@arm.com, fuad.tabba@linux.dev, joey.gouly@arm.com, 
-	mark.rutland@arm.com, maz@kernel.org, oupton@kernel.org, rananta@google.com, 
-	Sascha.Bischoff@arm.com, suzuki.poulose@arm.com, will@kernel.org
-Cc: kvmarm@lists.linux.dev, android-kvm@google.com, bgrzesik@google.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	nathan@kernel.org, perlarsen@google.com, sebastianene@google.com, 
-	seiden@linux.ibm.com, smostafa@google.com, tglx@kernel.org, 
-	vdonnefort@google.com, vladimir.murzin@arm.com, yuzenghui@huawei.com, 
-	zenghui.yu@linux.dev
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 07 Aug 2026 16:44:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZvIaUw63U8Z/KXnf5RvCvSuTvL1IRQRxC8nRfUsbqoFvyVPxkD5HUJkFEPtbpwpYTUGEjMQopn5XD0aDipaMktEPFfJ7bTjjV0tTojLwAn1sjxDlwN2SJLga7Fgu8XNQTjPx8L50FLJ2/rMN76qAt6fib8UQ+0dKzBnqtZf3/kYJEHoWNBgNAU9gRn+lflAm1Q/kCxalGXygkzCDLAmLAVeVKIEoJzr8AOanpIBpz39juKaCz7qh8iGIzrMYf3RVUwbpi3Vh5kDyppH1b5KwFzeBQ1zWBzY7DVPNXzxDX1F0jX6NKSKXmiJEf1ZLCqpg36rX5IOPOsoQrWsKje7gQA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Qr2r0iKiP+EtEWzjqDzp7sPZ847OIHtrEKc/EGjUkI8=;
+ b=WWQluYGzQFx5EOuQjaRGfupG66mMcTtpEbsQLvY2wPFL8y5R6r71SZndw1uaIU1MGnBZm+OBs8gJPKJlxqQwtmvINH7ftzRO58UttjE4LKs4A9d7Jow6n1SQjwoFnQQ8JdJiD8zU8nqYc8Tkyua0bzpMNAqV80LFNyLBVkpJUgae7g3O4/5E7/U02XEaBfjDOiFDtudbVFRVBpPBDBY7jCyYFuCN/L6tT29aDjW7F5yFsNbHc+UoXSlVvGMex3f1I1cdslCnMOEgkdTG/iCmTafgmD0BgHskdKuilzr3ioBqyX3DZ4BBHd9BUMyQJPMGbZ2pwgHpLdiJmtMEVL63dg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=linaro.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Qr2r0iKiP+EtEWzjqDzp7sPZ847OIHtrEKc/EGjUkI8=;
+ b=ZGmda1oMBA7ALZUaK0CjtIRaGPIrQIN8jJM8XPG8vsdGxkrD72eXYGIvXUcMBPUpCgzXyL61Z0zmRhUp6gVkby4O4bMon638Ku590ptI5tkFdlJ1gErcjFbpz1UyJ2Fi4Ok/Ps7Zb7D3hmhNQ8/CKJcnxRO+0Z4ws4+R+BQpjAddYaZpO3WFXt4CnkXQbrv09gEXP6JHCXVAMNUbl+ci7TwCpLG1lqGQ3yHKXQJiVv7kvOm1+M16I5KiZcuTTkvkSd+sMavr1PfvfrNylvGEcgMUbCnSzHELP192DS+fJOkCLy5IvBwraKqudsTILkD84ybqyrILEUmG0/R7uGzUmw==
+Received: from BL1PR13CA0178.namprd13.prod.outlook.com (2603:10b6:208:2bd::33)
+ by SJ2PR12MB8942.namprd12.prod.outlook.com (2603:10b6:a03:53b::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.17; Fri, 7 Aug
+ 2026 16:44:21 +0000
+Received: from MN1PEPF0000F0DE.namprd04.prod.outlook.com
+ (2603:10b6:208:2bd:cafe::80) by BL1PR13CA0178.outlook.office365.com
+ (2603:10b6:208:2bd::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.10 via Frontend Transport; Fri, 7
+ Aug 2026 16:44:20 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MN1PEPF0000F0DE.mail.protection.outlook.com (10.167.242.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Fri, 7 Aug 2026 16:44:20 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Fri, 7 Aug
+ 2026 09:43:56 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 7 Aug
+ 2026 09:43:55 -0700
+Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 7 Aug 2026 09:43:53 -0700
+Date: Fri, 7 Aug 2026 09:43:52 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Peter Griffin <peter.griffin@linaro.org>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Pranjal
+ Shrivastava" <praan@google.com>, Daniel Mentz <danielmentz@google.com>,
+	Mostafa Saleh <smostafa@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <kernel-team@android.com>,
+	<tudor.ambarus@linaro.org>, <andre.draszik@linaro.org>,
+	<willmcvicker@google.com>, <jyescas@google.com>
+Subject: Re: [PATCH 2/2] iommu/arm-smmu-v3: Override for Inst/Data attribute
+Message-ID: <anYLSFi0He6clllr@nvidia.com>
+References: <20260724-arm-smmu-v3-instcfg-override-v1-0-e7acf4a8a525@linaro.org>
+ <20260724-arm-smmu-v3-instcfg-override-v1-2-e7acf4a8a525@linaro.org>
+ <amOpSPmc36+YXgCQ@nvidia.com>
+ <CADrjBPoOctsStZn84vtCymdKen2R9XcM880=wxXSv1tpQ5+vyg@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <CADrjBPoOctsStZn84vtCymdKen2R9XcM880=wxXSv1tpQ5+vyg@mail.gmail.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0DE:EE_|SJ2PR12MB8942:EE_
+X-MS-Office365-Filtering-Correlation-Id: c5bf733f-40b8-4ba5-efe1-08def4a32143
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|23010399003|376014|7416014|18002099003|11063799006|4143699003|3023799007|22082099003|10067099003|56012099006;
+X-Microsoft-Antispam-Message-Info: c4V9QH9RvYHgxcKzBLXXfv2ANZCRId/kJMvCEXGwmGTSYjOiZgY5lhmGCo7gggH0/ZNw1VhACNnRs8Ad2NsHnINg0j2LfEqpumKFR4CyqC2UBVRFme+Ep2BbLjkVheO8iS4OIblzfT/lG9sxETI7DzxkC5icguiqQC/CtlD3QJKxfta3vK76GXHWZkMVxPO5yo74ZfztCuckURkYgXl5ZciiZ6nkBHBeMEmqSTQxg7KzRM57FtLxPrWNb5SXeznpbu00Hp8qC05VyHT7XgMzM/4sGtqCctjJzdbvabJxqH5y5KKHYDODlD0/+/tJ6+iwBPpd0+U8712taQuyJOUnI0FrXSpprL86q83XPneCsNtoaqmGk+KpCTAUJ1pUKdxRHTC2XT7yT3pOKnTJVE0lsesf1kSWT4NhB4JKk294fzCxy74zyxHRizj64UJs2EW9AA18t0oGWwULUSaBIXnTxR8H9R8GSmNf42c3CiTABEAbYie4N0Bq25+niYBgB8F4Iw8mS352HLzDrD7ZO3ssEyVGn6vG40NIjmh1ZPWTiCvkcaORAGyIx/3ih6QLdrBzKjbw7DNRGjN1Q1b2zfKQ+k4bdWbSoir19ACTnfD1I7UriYx5tHKdypovHiGUzXmEdUhKJXQXozaxIC/SoCSL4qEcAi/EoZ/QGZWkbxKdReBCJuMBFl+2x5BWA9RC6JKwJlp8Yf26cQ1OlNEevCD1PA==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(23010399003)(376014)(7416014)(18002099003)(11063799006)(4143699003)(3023799007)(22082099003)(10067099003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: lfJkgFPuHsKAme8kyNmwvaUuX76tqFYf9jVRQ2uj2ECKkDO9Y2d+Iv2x/SdXAexIQXxvXJf/jlFfRResefWZVLTCjgylWsvUNZcKUp9r8yfvTMT/3s/ScKw+LlsB+rtmH2axNRiiq1hZFTVL6bQMCtgdhmcjay4wwQThfHxYJAlJhi6hf26VRQfVeZxcvYsf0ToKJ9qVvH+YCtzpnD+mvv8lVhFO7EI9aZUhqybru3CcSCW8ekErSvF9/ZsYWg9aFnrRFILvV+YmoPXvLqF+5j6T9ii/e0u2lplV/dPIo+RQJNOJP2Qe+jzmT/m86MfkI5E2TCnKEJgIuy/01mr81yMW+FnktusqGJ4DijDhGxDuwNxG9ztemccrTGcucs5sUEPGCiko+UAu6G5laDR6AREzJsHaWUwX620FkS3+mq8DQEZwcuQSsLqbMPZX5Olk
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 16:44:20.6153
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5bf733f-40b8-4ba5-efe1-08def4a32143
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0DE.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8942
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_094400_027596_A9B8D933 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20260807_094429_011395_2873D35C 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,164 +136,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new HVC to allow the host to trigger the ITS emulation
-setup. Use the introduced API in the GIC ITS driver to call the driver
-to lock the ITS before pKVM finalize and to prepare for emulation setup.
-On the return path from the pKVM finalize, call into the driver to
-release the ITS locks which performs a switch in the driver to use a
-different command queue and a different set of level-1 indirect tables.
-Allocate memory that will be used by the emulation to track the internal
-state and send the snapshot state from the driver.
-Replace the initial "trap-and-forward" MMIO handler with a full-featured
-emulation handler.
+On Fri, Aug 07, 2026 at 03:37:37PM +0100, Peter Griffin wrote:
+> Hi Nicolin,
+> 
+> Thank you for your review feedback.
+> 
+> On Fri, 24 Jul 2026 at 19:05, Nicolin Chen <nicolinc@nvidia.com> wrote:
+> >
+> > On Fri, Jul 24, 2026 at 01:39:43PM +0100, Peter Griffin wrote:
+> > > @@ -1206,7 +1207,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
+> > >                       cpu_to_le64(STRTAB_STE_1_S1DSS | STRTAB_STE_1_S1CIR |
+> > >                                   STRTAB_STE_1_S1COR | STRTAB_STE_1_S1CSH |
+> > >                                   STRTAB_STE_1_S1STALLD | STRTAB_STE_1_STRW |
+> > > -                                 STRTAB_STE_1_EATS | STRTAB_STE_1_MEV);
+> > > +                                 STRTAB_STE_1_EATS | STRTAB_STE_1_MEV |
+> > > +                                 STRTAB_STE_1_INSTCFG);
+> > >               used_bits[2] |= cpu_to_le64(STRTAB_STE_2_S2VMID);
+> > >
+> > >               /*
+> > > @@ -1222,7 +1224,8 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
+> > >       if (cfg & BIT(1)) {
+> > >               used_bits[1] |=
+> > >                       cpu_to_le64(STRTAB_STE_1_S2FWB | STRTAB_STE_1_EATS |
+> > > -                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV);
+> > > +                                 STRTAB_STE_1_SHCFG | STRTAB_STE_1_MEV |
+> > > +                                 STRTAB_STE_1_INSTCFG);
+> > >               used_bits[2] |=
+> > >                       cpu_to_le64(STRTAB_STE_2_S2VMID | STRTAB_STE_2_VTCR |
+> > >                                   STRTAB_STE_2_S2AA64 | STRTAB_STE_2_S2ENDI |
+> >
+> > This adds for "stage-1" and "stage-2", while missing "bypass"?
+> 
+> I need to follow up again on this point, but I don't believe currently
+> we require the override for Laguna when it's in bypass.
 
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
----
- arch/arm64/include/asm/kvm_asm.h      |  1 +
- arch/arm64/include/asm/kvm_pkvm.h     |  4 ++--
- arch/arm64/kvm/hyp/nvhe/hyp-main.c    | 16 ++++++++++++++++
- arch/arm64/kvm/hyp/nvhe/its_emulate.c |  4 ++--
- arch/arm64/kvm/pkvm.c                 | 26 ++++++++++++++++++++++++--
- 5 files changed, 45 insertions(+), 6 deletions(-)
+This get_ste_used lists all the critical fields that the HW will
+read when operating in the mode per STE.Cfg.
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index 043495f7fc78..fcb2871b8a86 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -114,6 +114,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_its_emulate_setup,
- 
- 	MARKER(__KVM_HOST_SMCCC_FUNC_MAX)
- };
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 78597210a53c..cc89e2bde468 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -32,8 +32,8 @@ struct pkvm_protected_reg {
- 
- extern struct pkvm_protected_reg kvm_nvhe_sym(pkvm_protected_regs)[];
- extern unsigned int kvm_nvhe_sym(num_protected_reg);
--extern void kvm_nvhe_sym(its_emulate_forward_req)(struct pkvm_protected_reg *region, u64 offset,
--						  bool write, u64 *reg, u8 reg_size);
-+extern void kvm_nvhe_sym(pkvm_its_emulate_handler)(struct pkvm_protected_reg *region, u64 offset,
-+						   bool write, u64 *reg, u8 reg_size);
- 
- int pkvm_init_host_vm(struct kvm *kvm, unsigned long type);
- int pkvm_create_hyp_vm(struct kvm *kvm);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index d3df96ed8ba4..ad57b2076eee 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -16,6 +16,7 @@
- #include <asm/kvm_mmu.h>
- 
- #include <nvhe/ffa.h>
-+#include <nvhe/its_emulate.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/mm.h>
- #include <nvhe/pkvm.h>
-@@ -705,6 +706,20 @@ static void handle___vgic_v5_restore_vmcr_apr(struct kvm_cpu_context *host_ctxt)
- 	__vgic_v5_restore_vmcr_apr(kern_hyp_va(cpu_if));
- }
- 
-+static void handle___pkvm_its_emulate_setup(struct kvm_cpu_context *host_ctxt)
-+{
-+	DECLARE_REG(phys_addr_t, dev_addr, host_ctxt, 1);
-+	DECLARE_REG(struct its_host_state *, host_state, host_ctxt, 2);
-+	DECLARE_REG(void *, priv_state, host_ctxt, 3);
-+	DECLARE_REG(size_t, priv_state_num_pages, host_ctxt, 4);
-+
-+	if (!is_protected_kvm_enabled())
-+		return;
-+
-+	cpu_reg(host_ctxt, 1) = pkvm_its_emulate_setup(dev_addr, host_state, priv_state,
-+						       priv_state_num_pages);
-+}
-+
- typedef void (*hcall_t)(struct kvm_cpu_context *);
- 
- #define HANDLE_FUNC(x)	[__KVM_HOST_SMCCC_FUNC_##x] = (hcall_t)handle_##x
-@@ -762,6 +777,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__pkvm_vcpu_load),
- 	HANDLE_FUNC(__pkvm_vcpu_put),
- 	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
-+	HANDLE_FUNC(__pkvm_its_emulate_setup),
- };
- 
- static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
-diff --git a/arch/arm64/kvm/hyp/nvhe/its_emulate.c b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-index 82dc60dcde68..8c8acaee4d2b 100644
---- a/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-+++ b/arch/arm64/kvm/hyp/nvhe/its_emulate.c
-@@ -6,8 +6,8 @@
- 
- #include <linux/irqchip/arm-gic-v3.h>
- 
--void its_emulate_forward_req(struct pkvm_protected_reg *region, u64 offset, bool write, u64 *reg,
--			     u8 reg_size)
-+static void its_emulate_forward_req(struct pkvm_protected_reg *region, u64 offset, bool write,
-+				    u64 *reg, u8 reg_size)
- {
- 	void __iomem *addr = __hyp_va(PFN_PHYS(region->pfn) + offset);
- 
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 4bfffbedac4c..a9ceb9ffe6a4 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -71,7 +71,7 @@ static int __init register_its_emulated_region(void)
- 		 */
- 		kvm_nvhe_sym(pkvm_protected_regs)[i].pfn = PHYS_PFN(res.start);
- 		kvm_nvhe_sym(pkvm_protected_regs)[i].cb =
--			lm_alias(&kvm_nvhe_sym(its_emulate_forward_req));
-+			lm_alias(&kvm_nvhe_sym(pkvm_its_emulate_handler));
- 		kvm_nvhe_sym(pkvm_protected_regs)[i].nr_pages =
- 			PFN_DOWN(min_t(u64, resource_size(&res), PAGE_ALIGN_DOWN(GITS_TRANSLATER)));
- 
-@@ -312,8 +312,28 @@ static void __init _kvm_host_prot_finalize(void *arg)
- 		WRITE_ONCE(*err, -EINVAL);
- }
- 
-+#define ITS_PAGES	(2UL)
-+
-+static int pkvm_init_its_emulation(phys_addr_t dev_addr, struct its_host_state *host)
-+{
-+	size_t priv_state_sz = ITS_PAGES << PAGE_SHIFT;
-+	void *priv_state;
-+	int ret;
-+
-+	priv_state = alloc_pages_exact(priv_state_sz, GFP_ATOMIC);
-+	if (!priv_state)
-+		return -ENOMEM;
-+
-+	ret = kvm_call_hyp_nvhe(__pkvm_its_emulate_setup, dev_addr, host, priv_state, ITS_PAGES);
-+	if (ret)
-+		free_pages_exact(priv_state, priv_state_sz);
-+
-+	return ret;
-+}
-+
- static int __init pkvm_drop_host_privileges(void)
- {
-+	unsigned long its_flags;
- 	int ret = 0;
- 
- 	/*
-@@ -321,8 +341,10 @@ static int __init pkvm_drop_host_privileges(void)
- 	 * once the host stage 2 is installed.
- 	 */
- 	static_branch_enable(&kvm_protected_mode_initialized);
-+
-+	its_emulate_acquire_locks(&its_flags);
- 	on_each_cpu(_kvm_host_prot_finalize, &ret, 1);
--	return ret;
-+	return its_emulate_release_locks(ret, &its_flags, pkvm_init_its_emulation);
- }
- 
- static int __init finalize_pkvm(void)
--- 
-2.55.0.654.g21b8a5bc05-goog
+Given that GBPA also has INSTCFG, STE.Cfg=Bypass uses it as well.
 
+Nicolin
 
