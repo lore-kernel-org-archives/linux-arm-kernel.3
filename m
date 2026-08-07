@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF359C5AC7C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 11:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F72C5AC7C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 11:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mCanMn7m0CYK20sqSEYGQ02/KP0vhxgam5D0g5dRWiQ=; b=ff1D1PUQkB30LREUUI9YzjocKW
-	0TOVTCBhkmE3hb3S/iXlXKlyDuhiRVGYEethORfgqmBN4n8CzS4++5ujazMHUiGKjpxIqaq8NeXwh
-	gXFpNvGnfn03mJeSDCvtGC2H+4s9ZE2yDBXADdUKsZk9JMmnpNy6RazZYgDmsTD92wFEKbABMaHQ4
-	kYXaQt1gR4S1cjOzvKjQ9lOtskrhHnWDmpCyyBzQ86bQ3+mafB/r3Bq398kY9OTorhFDHkMKemmuX
-	Xne13uufBd3OpSB9vv0aYLlSDVGE+v3cLX57HN4pHllym3FtiXNc8PoIssJj5Z5QAST+/0Jx5MX67
-	xc3OLNMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bilPv4vNqhyKLaddPOoCIRutSih88yAAt4BHUIGsS9M=; b=0iw2GmLCWZ75+5NH/rjGOq+fCd
+	Kz4VvifZ3EHcsHghgswv9Ac3p6cbBo7SjNjfDA7xJS0/Yu182fbUTRGaQxB3rGfiq6w91C7i1y3OH
+	jGJHgU09j0kRGOmG+n4DtxMxP2kK2wgVZ9ogOtPNGmSIP/0JhF4V3Ukae1BzRO5gpkdkVyv5CxgYr
+	2+RtMHQPc8lJI7vj3XhjKpjJWehD/BOum0F/EErHJXgs+eUtT7HCByXVDjU720LGKwk9cezHS7oRT
+	q+xrFucrHllq2nfvUvAmv6p232PB2hAteE4LPg/MSt7dUMYiNJ395TdUpR4/gdvyREsGJirM05pms
+	dfpN7tWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsJ1g-00000007yA0-2j7q;
-	Fri, 07 Aug 2026 11:46:12 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1wsJ2M-00000007yFM-3Haq;
+	Fri, 07 Aug 2026 11:46:54 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsJ1e-00000007y9P-2Uc4
+	id 1wsJ2L-00000007yF4-1b69
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Aug 2026 11:46:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=mCanMn7m0CYK20sqSEYGQ02/KP0vhxgam5D0g5dRWiQ=; b=V+NoDyNmdPDfBFi1KJiaRY9qWc
-	sxlGtdMNlYetoxjQjzy0WnbE36hDgwXlFvdYvM11AG0NUGD5QXAfGq9u4LiCGbcMIx3jIHDgB4oFp
-	Cj+U8YTpS96GTJHgXCtbnfcjjnKWtpcBcqe1a5tK3diCrOH8s9IL0K8LJw7aL/9h9RtZl45A+deoM
-	laIyt2JFT5Y3tC7kQE35dyTw7zk7A0op4rG/cDk3u9Kt2ibPYoWR3x0cN7jixQIBf48qmxwiKVVem
-	oVk0Y/9SW0ig1JRa0iI9z6CAQykXhifjiSXiF45RQRwjQM1QSddnUUJDhzD1l85pwcMa0HbnMsNoo
-	V43xLp6A==;
-Received: from authenticated-user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.96)
-	(envelope-from <leitao@debian.org>)
-	id 1wsJ1E-000PF0-0K;
-	Fri, 07 Aug 2026 11:45:44 +0000
-From: Breno Leitao <leitao@debian.org>
-Date: Fri, 07 Aug 2026 04:45:31 -0700
-Subject: [PATCH RFC] arm64: entry: PSTATE_I_SET is leaking on pseudo NMI
- mode
+	Fri, 07 Aug 2026 11:46:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id AE80560A5C;
+	Fri,  7 Aug 2026 11:46:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABA001F000E9;
+	Fri,  7 Aug 2026 11:46:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1786103211;
+	bh=bilPv4vNqhyKLaddPOoCIRutSih88yAAt4BHUIGsS9M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HCpugcR71onLMkdJPcNHQOu2krRWgO3cP7bphLbb7RUaCjLYeuggKDL65YAKZUbfZ
+	 0m4JUJvfeIJIpGGPawUAeBGR/k75nPjU4UnrMcO27BvuPHulSgHuMDc75thTrx6sTh
+	 b/A9s75dmzOL250NVrU9QqLQiW1mfNWijUH7GbwzpkQ15MFJrPfGFd4U03W/KUEHWg
+	 L1PTAliQLZd7fOZnG4Qadiffmdiw8nJnxpbxZgNwv/rx4VSDMtAY4V4S8dMircmVbQ
+	 T3GZHWr3d2XDuf4FkC6WOcEKPHqNXxVvluL2JJp14pAsOvlbELX92u8sOQrCDVzv0l
+	 +ZaIEryqJat8g==
+Date: Fri, 7 Aug 2026 12:46:43 +0100
+From: Will Deacon <will@kernel.org>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>, Fuad Tabba <fuad.tabba@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>, Dev Jain <dev.jain@arm.com>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Matt Fleming <matt@codeblueprint.co.uk>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>
+Subject: Re: [PATCH v2 1/2] arm64: ptdump: Make note_page_flush() range aware
+Message-ID: <anXFo-igVdqrCogQ@willie-the-truck>
+References: <20260724185431.2990395-1-weilin.chang@arm.com>
+ <20260724185431.2990395-2-weilin.chang@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260807-arm64_fix-v1-1-d069ccf9d71b@debian.org>
-X-B4-Tracking: v=1; b=H4sIAFrFdWoC/6tWKk4tykwtVrJSqFYqSi3LLM7Mz1OyUjDUUVBKz
- kjMS0/VzUxRslJQMjIwMjOwMDDXTSzKNTOJT8us0DUxT05MsUhLMjM2MlbSUVAqKEpNy6wAmxW
- tFOTmrBRbWwsA5/sphGAAAAA=
-X-Change-ID: 20260807-arm64_fix-47cad8fb6323
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, 
- "Peter Zijlstra (Intel)" <peterz@infradead.org>, 
- Mark Rutland <mark.rutland@arm.com>, Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- bpf@vger.kernel.org, rmikey@meta.com, kernel-team@meta.com, 
- Breno Leitao <leitao@debian.org>
-X-Mailer: b4 0.16-dev-f8e9d
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4166; i=leitao@debian.org;
- h=from:subject:message-id; bh=5dE9dIhb+E/qMMmGxKOuwTEbgvQhQK+FcpKEFmSsm90=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBqdcVjNFJ9sISzh0Ym7DNgI5eZwMI6Ue02b07LJ
- MU067HAWpuJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCanXFYwAKCRA1o5Of/Hh3
- bdtbD/9Yw1F9Z0OseIdi1qj3WAc3moSUI2IgAUPpMXat9PRrG3nFWk/zNIJX6Z8yWs2Emz5LMui
- DSKc2BBI7k/yrOxlxw1oPYhYnVENHLqKEZW7zf1+p8NBpqtoTOxNCXRS1eemgZiEUXGMPIrGLT1
- 5saGb23CRPTFQUf2iy/UwQ7O+hzxhCH5+Oh9XKfLR7uHe16Hn+1g4QlcjzcSoPJvstKTP9jcsJ+
- RHi3fipvLCQUNWuXMehlkbJt56Fkoi5kG50wCAzL30HCwjPss+9RQlIQsA1HmUVVUQZrjmVtn0a
- uDZ8rkG3Tb1JhTzum+th0pomDnL6aCDUkAw8GU1HhZo/lKK6aumcaOHVq3g++ormPu+1fqho89c
- ponnL/1+xnk1RcbUdWx1IWwfVJcmjoY0Zrh0wNwGt4hq5aBQaWwmKMUcQ2v7oJfnchXB1nAZzNT
- +koEKrHzt0eBXZ98f3LFuPUkp3kA5APL2/x+tjXvQqHoxWLFETLtGE9+yzooKKjTNOCr4rkuT0Q
- e/l9IbeRgbTLR0tXLwesR/YuWknEE+E9zeO4lzs8Qx8QXMzKeTsxN/uPSMMdU2yZZ4gEGZ8jATu
- wJfzuTtNXKH/iWwjIrmeot2W5IZf7yjtxx7w7yo2awOx+zVHSdLxhrXobONSx1CRYQouP1f/A1T
- UFJzM1dswbwub2w==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
-X-Debian-User: leitao
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_044610_638769_FA023BA0 
-X-CRM114-Status: GOOD (  14.83  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260724185431.2990395-2-weilin.chang@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,98 +83,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Running retsnoop on a kernel with GIC priority masking and
-CONFIG_ARM64_DEBUG_PRIORITY_MASKING=y trips the ICC_PMR_EL1 sanity check
-in __pmr_local_irq_disable():
+On Fri, Jul 24, 2026 at 07:54:30PM +0100, Wei-Lin Chang wrote:
+> note_page_flush() calls note_page() with addr == 0 and level == -1 to
+> dump the last row of a ptdump. addr == 0 (1 << 64 wrapped around)
+> renders a huge region with enormous size for address spaces with
+> IA bits < 64. For example the stage-2 page tables and the EFI runtime
+> page table.
+> 
+> More importantly, the last region of the address space and everything
+> after the address space up to 1 << 64 are merged into one row of
+> output. If the last region within the address space is valid, it will
+> appear to remain valid up to 1 << 64 with the same attributes.
+> 
+> Currently only the EFI runtime ptdump is affected by this, but KVM will
+> soon fix its stage-2 ptdump by using note_page_flush(). Here is an
+> example of an EFI runtime ptdump (last row):
+> 
+> 0x0000008000000000-0x0000000000000000   17179868672G PGD
+> 
+> With this patch:
+> 
+> 0x0000008000000000-0x0001000000000000      261632G PGD
+> 
+> To fix this, use ptdump_state.range[] to figure out where the address
+> space ends, and call note_page() with that.
+> 
+> Fixes: 9d80448ac92b ("efi/arm64: Add debugfs node to dump UEFI runtime page tables")
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/mm/ptdump.c | 17 ++++++++++++++++-
+>  1 file changed, 16 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+> index 1c20144700d7..5b34060ceb96 100644
+> --- a/arch/arm64/mm/ptdump.c
+> +++ b/arch/arm64/mm/ptdump.c
+> @@ -278,9 +278,24 @@ void note_page_pgd(struct ptdump_state *pt_st, unsigned long addr, pgd_t pgd)
+>  
+>  void note_page_flush(struct ptdump_state *pt_st)
+>  {
+> +	const struct ptdump_range *range = pt_st->range;
+> +	unsigned long end = 0;
+>  	pte_t pte_zero = {0};
+>  
+> -	note_page(pt_st, 0, -1, pte_val(pte_zero));
+> +	while (range->start != range->end) {
+> +		end = range->end;
+> +		range++;
+> +	}
 
-     WARNING: ./arch/arm64/include/asm/irqflags.h:63 at arm64_exit_to_kernel_mode+0xb8/0xc0, CPU#40: retsnoop/31805
-     CPU: 40 UID: 0 PID: 31805 Comm: retsnoop Not tainted 7.2.0-rc6-next-20260805 #7 PREEMPTLAZY
-     pstate: 234013c9 (nzCv DAIF +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
-     pc : arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63)
-     lr : el1_abort (arch/arm64/kernel/entry-common.c:323)
-     pmr: 000000f0
-     Call trace:
-D)    arm64_exit_to_kernel_mode (arch/arm64/kernel/entry-common.c:63) (P)
-      el1_abort (arch/arm64/kernel/entry-common.c:323)
-      el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:449)
-C)    el1h_64_sync (arch/arm64/kernel/entry.S:589)
-      copy_from_kernel_nofault (mm/maccess.c:52) (P)
-      bpf_probe_read_kernel (kernel/trace/bpf_trace.c:268)
-      bpf_prog_db21a1730c2407e5_calib_exit+0xf0/0x160
-      trace_call_bpf (kernel/trace/bpf_trace.c:147)
-      kretprobe_perf_func (kernel/trace/trace_kprobe.c:1750)
-      kretprobe_dispatcher (kernel/trace/trace_kprobe.c:1875)
-      __kretprobe_trampoline_handler (kernel/kprobes.c:2116)
-      kretprobe_brk_handler (arch/arm64/kernel/probes/kprobes.c:422)
-      call_el1_break_hook (arch/arm64/kernel/debug-monitors.c:244)
-      do_el1_brk64 (arch/arm64/kernel/debug-monitors.c:266)
-B)    el1_brk64 (arch/arm64/kernel/entry-common.c:427)
-      el1h_64_sync_handler (arch/arm64/kernel/entry-common.c:481)
-      el1h_64_sync (arch/arm64/kernel/entry.S:589)
-      invoke_syscall (arch/arm64/kernel/syscall.c:49) (P)
-      do_el0_svc (arch/arm64/kernel/syscall.c:140)
-      el0_svc (arch/arm64/kernel/entry-common.c:736)
-      el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:755)
-A)    el0t_64_sync (arch/arm64/kernel/entry.S:594)
+This seems to be duplicating some of what the core code does already in
+ptdump_walk_pgd(). Can we retrieve the information we need from the
+containing 'struct ptdump_pg_state' structure instead of recomputing
+the address?
 
-This is my understand of the current situation:
-
-A) A task enters the kernel via a syscall.
-	* PSTATE_I_SET becomes set on the live PMR
-	* regs->PMR doesn't have PSR_I_SET set
-
-B) A BRK fires at EL1 and that is what leaves the live PMR
-   with PSR_I_SET.
-	* At this stage PSTATE_I_SET is set on both on PMR and regs->PMR
-
-C) A nested synchronous exception happens (Not sure why -- BPF related)
-	* Now both the live PMR and regs->pmr have PSR_I_SET.
-
-D) On the way out, local_irq_disable() → __pmr_local_irq_disable() warns.
-   It detects that PMR is different than GIC_PRIO_IRQON and GIC_PRIO_IRQOFF,
-   given live PMR and regs->PMR have PSTATE_I_SET ORed.
-
-How to fix it? I don't know very well.
-
-I am not certain that we want to have PSTATE_I_SET ever be sent to
-regs->pstate. Do we ever need PSTATE_I_SET in regs->pstate?
-
-In the current patch, I found that disabling IRQ in case it is disabled,
-would solve the warning, but, this seems more a hack than a proper fix,
-perhaps.
-
-Fixes: ae654112eac0 ("arm64: entry: Use split preemption logic")
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
- arch/arm64/kernel/entry-common.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index ceb4eb11232a6..fcce9ccd37108 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -55,7 +55,13 @@ static noinstr irqentry_state_t arm64_enter_from_kernel_mode(struct pt_regs *reg
- static void noinstr arm64_exit_to_kernel_mode(struct pt_regs *regs,
- 					      irqentry_state_t state)
- {
--	local_irq_disable();
-+	/*
-+	 * Only irqentry_exit_to_kernel_mode_preempt() needs interrupts masked,
-+	 * and it returns early when regs had them disabled. Skipping the
-+	 * disable avoids clobbering a PMR the irqflags API does not expect.
-+	 */
-+	if (!regs_irqs_disabled(regs))
-+		local_irq_disable();
- 	irqentry_exit_to_kernel_mode_preempt(regs, state);
- 	local_daif_mask();
- 	mte_check_tfsr_exit();
-
----
-base-commit: ea2bff00da89d7767d677bb68470130ba96f4928
-change-id: 20260807-arm64_fix-47cad8fb6323
-
-Best regards,
---  
-Breno Leitao <leitao@debian.org>
-
+Will
 
