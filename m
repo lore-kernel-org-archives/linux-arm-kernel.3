@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BF61C5AC7A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 13:59:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E850C2A09B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Aug 2026 14:00:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ga9YwrOPByLdYiHYo8H6DvEk34V4v2367x//laxUrRs=; b=tcWm2JS8tGlEsiUoZBppJFoSiP
-	U0i1oVFPR82YsNUhw4EClItiVdmR9zFjOZPxCp2EvqR/t8WpIiyenpqc2IZv+IT/0Z46Mld17x9ZW
-	xPMpEPlxMadOVdmPZwqznatT4ZXLnepKYrurIqzJHjihbeGSi2DyluPbIb/2ot4OWnCV2XwIBbVt2
-	4iNGfTzKhiSth80YSsodX5AqFJF57zlUQUJQe3oHndG5Y17WCBYvM2G6HGGzRCFrCw74DKZctPCNy
-	HYSDldMBNcnixEugbem1hQzXTuMYcOi1myFNgbbblvOpB+P3KOZaPxOupFGcsVyf7qqvAg+0u5Ifh
-	7gvM0kEg==;
+	bh=sB9VxuqALQwrBeXPwHmokBPdEY6c1fmoxnp6wovATlE=; b=CfPjfDp6XmuRjMhmFL4FlzLwdD
+	hNEMGQ2ZdkBEFfAowV5GYREF9EmnDeSJwfvZuukKfXVqTN6DhWkKqtjaIPRInHarHGckNZhME4kyd
+	cdlZIV6x9mCXIFwLvonmEYiqnnrO2eA8onzFZqrfdRG4L/1t9elzA524Ff0ZIl9mtA1yYJYGJ5PiH
+	XVXiSUjlUDXtJhrSDUJ7+fttzzA0Dw65gCDaLzc84I06pXNL9IB3Hhyw36Ia0JcWUCKeD8n8i2PHC
+	T1PG8TLqGkWNWp1eTXWcUJwVYD8SvIisHZ3x+/BR/iQsOXMailHAD4gO+auLcaf87DPGaf6o6Amdh
+	XmqMaa/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsL69-00000008D2s-42JO;
-	Fri, 07 Aug 2026 13:58:57 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wsL7K-00000008DI6-2ZmW;
+	Fri, 07 Aug 2026 14:00:10 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wsL67-00000008D1r-25nb;
-	Fri, 07 Aug 2026 13:58:56 +0000
+	id 1wsL7I-00000008DGz-0tUA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Aug 2026 14:00:09 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id AECDA1A14AF;
-	Fri,  7 Aug 2026 13:58:53 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id B62514E4113B;
+	Fri,  7 Aug 2026 14:00:06 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7C544603F0;
-	Fri,  7 Aug 2026 13:58:53 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1A28C11C37949;
-	Fri,  7 Aug 2026 15:58:47 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8416C603F0;
+	Fri,  7 Aug 2026 14:00:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6099811C37961;
+	Fri,  7 Aug 2026 16:00:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1786111128; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1786111205; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=ga9YwrOPByLdYiHYo8H6DvEk34V4v2367x//laxUrRs=;
-	b=ScjCdzgXo+20f1TJ6yi9Y/gKNAsJXE1WMAzB6zofImyQULjEyDv5RGjTT33PlmgCknlKbS
-	VJSaztZ959rp0Y7HWX9dRfOBnoycM+h5mLttSH99O4Vv5pymAx8bXhTBppiznhFVqOvQyF
-	YzaOojK9GvGdrS+wNZEmdWMausOaHCKSaVsTsUC9udre0NzV5UMqu4NyqmFt6Cngzb0JYq
-	06vrCjL1Wp4j/LwTVG/wwMtxZmQXRgKbrzpKdNFC9Wh2fj+On6LT39EgskXzsYwQu5m8Ax
-	nuRQ1dDgw5P2o60WVuWk6wasqhQa9V9IKYH2LBTIfRFDfupQVAzfR3uDMSfjHA==
+	bh=sB9VxuqALQwrBeXPwHmokBPdEY6c1fmoxnp6wovATlE=;
+	b=epXFGuAfuU0GRB3UwM6B0HSdKC1jG/MpIUHuwmS511qPTiBwC5t+4XD/q6aDyEw9U/xxTw
+	wJ4wN4QsECOaOC+u2ojQaQV8W2mPBpOwXVAwRKexYZKuOKxvwlcy5Y88vaI9vkzW8CH2J7
+	RYcsnjbraQ2jQcaR9Xq8Fk7qblNEYxLBXdayPoasy3oupgYmqgUN1eK1yZtuc9hlvnPTlS
+	4vdIQnNqTdYx3P1SljCfmgLrrY7OFL0tbf3cefSZNlOm/S9na4euFCs44oNCGB6GvPyeVK
+	hr7SNHLFtzggk7tYOB1vbxM4jhaD/Zplhs3/00+xadU8Fw85WrZCkIiObqMcqQ==
 From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: Richard Weinberger <richard@nod.at>,  Vignesh Raghavendra
- <vigneshr@ti.com>,  Chen-Yu Tsai <wens@kernel.org>,  Jernej Skrabec
- <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,
-  Richard Genoud <richard.genoud@bootlin.com>,
-  linux-mtd@lists.infradead.org,  linux-arm-kernel@lists.infradead.org,
-  linux-sunxi@lists.linux.dev,  linux-kernel@vger.kernel.org,
-  stable@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] mtd: rawnand: sunxi: fix H6/H616 controller timings
-In-Reply-To: <20260717-submit-sunxi-nand-h6-h616-timings-v2-0-225515107640@gmail.com>
-	(James Hilliard's message of "Fri, 17 Jul 2026 11:33:56 -0600")
-References: <20260717-submit-sunxi-nand-h6-h616-timings-v2-0-225515107640@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Fri, 07 Aug 2026 15:58:46 +0200
-Message-ID: <87ik5mav6x.fsf@bootlin.com>
+To: linux-mtd@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ James Hilliard <james.hilliard1@gmail.com>
+Cc: Richard Weinberger <richard@nod.at>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Richard Genoud <richard.genoud@bootlin.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260717164202.3099982-1-james.hilliard1@gmail.com>
+References: <20260717164202.3099982-1-james.hilliard1@gmail.com>
+Subject: Re: [PATCH v2] mtd: rawnand: sunxi: add H616 MBUS DMA support
+Message-Id: <178611120394.758547.12981488112151990618.b4-ty@bootlin.com>
+Date: Fri, 07 Aug 2026 16:00:03 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260807_065855_677902_618E7993 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260807_070008_389518_0AFF4CEC 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +81,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Fri, 17 Jul 2026 10:41:58 -0600, James Hilliard wrote:
+> The H616 NAND controller uses a descriptor-based internal MBUS DMA
+> engine instead of the direct address and count registers used by the
+> A23/A33 controller. Since the driver does not support these descriptors,
+> it currently attempts to request an external rxtx DMA channel and falls
+> back to PIO when none is provided.
+> 
+> Add a single-descriptor backend to the existing ECC page DMA paths.
+> Allocate the descriptor coherently, constrain data mappings to the
+> controller's 32-bit address range, program the H6-style data block mask,
+> and request an interrupt for both command and DMA completion. Keep the
+> existing external DMA and legacy MBUS DMA paths unchanged, and fall back
+> to PIO if the descriptor cannot be allocated.
+> 
+> [...]
 
-On 17/07/2026 at 11:33:56 -06, James Hilliard <james.hilliard1@gmail.com> w=
-rote:
+Applied to nand/next, thanks!
 
-> The sunxi NAND timing solver currently applies the original A10 NDFC
-> timing characteristics to every supported controller. The H6/H616 NDFC
-> uses two internal cycles for several setup and hold intervals and has
-> different delay-field encodings, so the resulting clock and timing
-> register values do not match the hardware.
->
-> Prepare for per-controller timing data in two behaviorally focused
-> patches, then add and select the H616 characteristics in the final fix.
-> Legacy controllers retain their existing setup-cycle behavior and delay
-> encodings.
->
-> Tested on an H616 board with Toshiba TC58NVG1S3H NAND.
->
-> Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+[1/1] mtd: rawnand: sunxi: add H616 MBUS DMA support
+      commit: 5ee37db34637ca6e33ce01d7062cb31275484404
 
-There are a number of checkpatch issue. Can you please fix them? (except
-the camelcase one which is fine with timing names coming from the ONFI
-spec).
+Patche(s) should be available on mtd/linux.git and will be
+part of the next PR (provided that no robot complains by then).
 
-Thanks,
-Miqu=C3=A8l
+Kind regards,
+Miquèl
+
 
